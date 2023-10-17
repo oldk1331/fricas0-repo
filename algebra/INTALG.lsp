@@ -200,7 +200,7 @@
                           (LETT |l| (SPADCALL |rp1| (QREFELT $ 75)))
                           (COND
                            ((ODDP (- |k| |l|))
-                            (PROGN (LETT #4# |$NoValue|) (GO #5=#:G222))))
+                            (PROGN (LETT #4# 1) (GO #5=#:G222))))
                           (EXIT (LETT |rp1| (SPADCALL |rp1| (QREFELT $ 76)))))
                      NIL (GO G190) G191 (EXIT NIL)))
                #5# (EXIT #4#))

@@ -299,12 +299,12 @@
 
 ; fillerSpaces(n, charPart) ==
 ;   n <= 0 => '""
-;   make_full_CVEC(n, charPart)
+;   make_full_CVEC2(n, charPart)
 
 (DEFUN |fillerSpaces| (|n| |charPart|)
   (PROG ()
     (RETURN
-     (COND ((NOT (< 0 |n|)) "") ('T (|make_full_CVEC| |n| |charPart|))))))
+     (COND ((NOT (< 0 |n|)) "") ('T (|make_full_CVEC2| |n| |charPart|))))))
 
 ; centerString(text,width,fillchar) ==
 ;   wid := entryWidth text

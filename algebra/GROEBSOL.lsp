@@ -716,7 +716,7 @@
                        (COND
                         ((EQL (SPADCALL |g| |x| (QREFELT $ 84))
                               (LENGTH |basis|))
-                         (PROGN (LETT #7# |$NoValue|) (GO #11=#:G216))))))
+                         (PROGN (LETT #7# 1) (GO #11=#:G216))))))
                  (LETT #8# (CDR #8#)) (GO G190) G191 (EXIT NIL)))
            #11# (EXIT #7#))
           (LETT |result| NIL)

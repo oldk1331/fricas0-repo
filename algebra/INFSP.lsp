@@ -370,25 +370,30 @@
                                            ('T
                                             (SEQ (LETT |ppi| (QCDR |pp|))
                                                  (COND
-                                                  ((OR
+                                                  ((SPADCALL
                                                     (SPADCALL
-                                                     (SPADCALL
-                                                      (SPADCALL |ppi|
-                                                                (QREFELT $ 92))
-                                                      (QREFELT $ 116))
-                                                     |feps| (QREFELT $ 118))
-                                                    (SPADCALL
-                                                     (SPADCALL
-                                                      (SPADCALL |ppi|
-                                                                (QREFELT $ 93))
-                                                      (QREFELT $ 116))
-                                                     |feps| (QREFELT $ 118)))
+                                                     (SPADCALL |ppi|
+                                                               (QREFELT $ 92))
+                                                     (QREFELT $ 116))
+                                                    |feps| (QREFELT $ 118))
                                                    (EXIT
                                                     (SEQ (LETT |ok| NIL)
                                                          (EXIT
                                                           (PROGN
                                                            (LETT #2#
                                                                  |$NoValue|)
+                                                           (GO #6#))))))
+                                                  ((SPADCALL
+                                                    (SPADCALL
+                                                     (SPADCALL |ppi|
+                                                               (QREFELT $ 93))
+                                                     (QREFELT $ 116))
+                                                    |feps| (QREFELT $ 118))
+                                                   (EXIT
+                                                    (SEQ (LETT |ok| NIL)
+                                                         (EXIT
+                                                          (PROGN
+                                                           (LETT #2# 1)
                                                            (GO #6#)))))))
                                                  (EXIT
                                                   (LETT |sol1|

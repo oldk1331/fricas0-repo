@@ -298,12 +298,10 @@
 
 ; terminateSystemCommand() ==
 ;     FRESH_-LINE()
-;     TOK := 'END_UNIT
 ;     throw_to_reader()
 
 (DEFUN |terminateSystemCommand| ()
-  (PROG (TOK)
-    (RETURN (PROGN (FRESH-LINE) (SETQ TOK 'END_UNIT) (|throw_to_reader|)))))
+  (PROG () (RETURN (PROGN (FRESH-LINE) (|throw_to_reader|)))))
 
 ; commandUserLevelError(x,u) == userLevelErrorMessage("command",x,u)
 
@@ -7771,7 +7769,6 @@
 ;       fun := CONCAT (fun, '" ")
 ;   cl := STRCONC(fill,RPLACSTR(line, 1, SIZE synstr, fun),opt)
 ;   SETQ(LINE,cl)
-;   SETQ(CHR,LINE.(p+1))
 ;   processSynonyms ()
 
 (DEFUN |processSynonyms| ()
@@ -7809,7 +7806,6 @@
                       (STRCONC |fill| (RPLACSTR |line| 1 (SIZE |synstr|) |fun|)
                        |opt|))
               (SETQ LINE |cl|)
-              (SETQ CHR (ELT LINE (+ |p| 1)))
               (|processSynonyms|))))))))
 
 ; doSystemCommand string ==

@@ -141,7 +141,7 @@
                                           (SEQ (LETT |n| |k|)
                                                (EXIT
                                                 (PROGN
-                                                 (LETT #4# |$NoValue|)
+                                                 (LETT #4# 1)
                                                  (GO #10=#:G161))))))))
                                       (LETT |k| (+ |k| 1)) (GO G190) G191
                                       (EXIT NIL)))
@@ -429,7 +429,7 @@
                                                  (SEQ (LETT |rown| |k|)
                                                       (EXIT
                                                        (PROGN
-                                                        (LETT #5# |$NoValue|)
+                                                        (LETT #5# 1)
                                                         (GO #9=#:G206)))))
                                            (GO #9#))))))
                                       (LETT |k| (+ |k| 1)) (GO G190) G191
@@ -599,7 +599,7 @@
                                           (SEQ (LETT |n| |k|)
                                                (EXIT
                                                 (PROGN
-                                                 (LETT #4# |$NoValue|)
+                                                 (LETT #4# 1)
                                                  (GO #10=#:G252))))))))
                                       (LETT |k| (+ |k| 1)) (GO G190) G191
                                       (EXIT NIL)))
@@ -897,7 +897,7 @@
                                                  (SEQ (LETT |rown| |k|)
                                                       (EXIT
                                                        (PROGN
-                                                        (LETT #5# |$NoValue|)
+                                                        (LETT #5# 1)
                                                         (GO #9=#:G297)))))
                                            (GO #9#))))))
                                       (LETT |k| (+ |k| 1)) (GO G190) G191

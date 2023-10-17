@@ -478,10 +478,7 @@
                                  (PROGN
                                   (LETT #2# (SPADCALL (QREFELT $ 8)))
                                   (GO #4#)))
-                                ('T
-                                 (PROGN
-                                  (LETT #3# |$NoValue|)
-                                  (GO #5=#:G321)))))
+                                ('T (PROGN (LETT #3# 1) (GO #5=#:G321)))))
                               ('T
                                (SEQ
                                 (LETT |res|

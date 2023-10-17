@@ -350,7 +350,7 @@
                                                                 (QREFELT $ 32))
                                                       (EXIT
                                                        (PROGN
-                                                        (LETT #3# |$NoValue|)
+                                                        (LETT #3# 1)
                                                         (GO #14=#:G219))))))
                                                    (EXIT
                                                     (LETT |j| (+ |j| 1))))))))
@@ -480,7 +480,7 @@
                                                 (LETT |ii| 0) (LETT |i0i| 0)
                                                 (EXIT
                                                  (PROGN
-                                                  (LETT #1# |$NoValue|)
+                                                  (LETT #1# 1)
                                                   (GO #9=#:G262)))))
                                               ('T
                                                (SEQ
@@ -488,7 +488,7 @@
                                                 (LETT |ji| 0) (LETT |j0i| 0)
                                                 (EXIT
                                                  (PROGN
-                                                  (LETT #1# |$NoValue|)
+                                                  (LETT #1# 1)
                                                   (GO #9#)))))))
                                        (GO #9#))))))
                                   (LETT |k| (|inc_SI| |k|)) (GO G190) G191
@@ -641,30 +641,20 @@
                                       (SPADCALL |ova| |i| (QREFELT $ 29)))
                                    (SEQ (LETT |all_bad| 'T)
                                         (EXIT
-                                         (PROGN
-                                          (LETT #5# |$NoValue|)
-                                          (GO #7=#:G312)))))
+                                         (PROGN (LETT #5# 1) (GO #7=#:G312)))))
                                   ((> (SPADCALL |va| |i| (QREFELT $ 29))
                                       (SPADCALL |ova| |i| (QREFELT $ 29)))
                                    (SEQ (LETT |is_bad| 'T)
-                                        (EXIT
-                                         (PROGN
-                                          (LETT #5# |$NoValue|)
-                                          (GO #7#)))))
+                                        (EXIT (PROGN (LETT #5# 1) (GO #7#)))))
                                   ((< (SPADCALL |civ| |i| (QREFELT $ 29))
                                       (SPADCALL |ociv| |i| (QREFELT $ 29)))
                                    (SEQ (LETT |all_bad| 'T)
-                                        (EXIT
-                                         (PROGN
-                                          (LETT #5# |$NoValue|)
-                                          (GO #7#)))))
+                                        (EXIT (PROGN (LETT #5# 1) (GO #7#)))))
                                   ((> (SPADCALL |civ| |i| (QREFELT $ 29))
                                       (SPADCALL |ociv| |i| (QREFELT $ 29)))
                                    (SEQ (LETT |is_bad| 'T)
                                         (EXIT
-                                         (PROGN
-                                          (LETT #5# |$NoValue|)
-                                          (GO #7#))))))))
+                                         (PROGN (LETT #5# 1) (GO #7#))))))))
                                (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                                (EXIT NIL)))
                          #7# (EXIT #5#))))))
@@ -1274,8 +1264,7 @@
                                                       (SEQ (LETT |ok| NIL)
                                                            (EXIT
                                                             (PROGN
-                                                             (LETT #7#
-                                                                   |$NoValue|)
+                                                             (LETT #7# 1)
                                                              (GO
                                                               #16=#:G400)))))
                                                      ('T
@@ -1745,7 +1734,7 @@
                                                                     (EXIT
                                                                      (PROGN
                                                                       (LETT #6#
-                                                                            |$NoValue|)
+                                                                            1)
                                                                       (GO
                                                                        #13=#:G449)))))
                                                                   ('T

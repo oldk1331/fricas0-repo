@@ -49,7 +49,7 @@
                                   (SEQ (LETT |res| (CONS (QCAR |c|) |res|))
                                        (EXIT
                                         (PROGN
-                                         (LETT #1# |$NoValue|)
+                                         (LETT #1# 1)
                                          (GO #6=#:G113))))))))
                               (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL)))
                         #6# (EXIT #1#))

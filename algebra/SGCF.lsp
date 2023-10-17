@@ -199,7 +199,7 @@
                                                                            8))
                                                         |mm|)
                                                        (PROGN
-                                                        (LETT #3# |$NoValue|)
+                                                        (LETT #3# 1)
                                                         (GO #7=#:G147))))))
                                                    (LETT |y| (+ |y| 1))
                                                    (GO G190) G191 (EXIT NIL)))

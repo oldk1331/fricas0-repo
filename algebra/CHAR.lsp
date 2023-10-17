@@ -58,7 +58,7 @@
         (SPADCALL |c| (|spadConstant| $ 39) (QREFELT $ 29))) 
 
 (SDEFUN |CHAR;latex;$S;20| ((|c| $) ($ |String|))
-        (STRCONC "\\mbox{`" (STRCONC (|make_full_CVEC| 1 |c|) "'}"))) 
+        (STRCONC "\\mbox{`" (STRCONC (|make_full_CVEC2| 1 |c|) "'}"))) 
 
 (PUT '|CHAR;char;S$;21| '|SPADreplace| '|STR_to_CHAR|) 
 

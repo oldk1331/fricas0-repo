@@ -424,7 +424,7 @@
           (|totalTests| (|Integer|)) (|xfpassedCases| (|Integer|))
           (#18=#:G251 NIL) (#19=#:G250 NIL) (#20=#:G249 NIL) (|w| NIL))
          (SEQ
-          (SPADCALL (|make_full_CVEC| (QREFELT $ 6) (|STR_to_CHAR| "="))
+          (SPADCALL (|make_full_CVEC2| (QREFELT $ 6) (|STR_to_CHAR| "="))
                     (QREFELT $ 24))
           (SPADCALL "General WARNINGS:" (QREFELT $ 24))
           (SPADCALL
@@ -453,7 +453,7 @@
           (COND
            ((> (LENGTH (QREFELT $ 13)) 0)
             (SEQ
-             (SPADCALL (|make_full_CVEC| (QREFELT $ 6) (|STR_to_CHAR| "="))
+             (SPADCALL (|make_full_CVEC2| (QREFELT $ 6) (|STR_to_CHAR| "="))
                        (QREFELT $ 24))
              (SPADCALL "WARNINGS:" (QREFELT $ 24))
              (EXIT
@@ -505,7 +505,7 @@
                                         (QVELT (QCDR |tstcase|) 3)))))
                          (LETT #18# (CDR #18#)) (GO G190) G191 (EXIT NIL))
                     (SPADCALL
-                     (|make_full_CVEC| (QREFELT $ 6) (|STR_to_CHAR| "="))
+                     (|make_full_CVEC2| (QREFELT $ 6) (|STR_to_CHAR| "="))
                      (QREFELT $ 24))
                     (SPADCALL
                      (SPADCALL "Testsuite: " (QCAR |tstsuite|) (QREFELT $ 22))
@@ -543,7 +543,7 @@
                                      (SEQ
                                       (SPADCALL
                                        (SPADCALL "  "
-                                                 (|make_full_CVEC|
+                                                 (|make_full_CVEC2|
                                                   (PROG1
                                                       (LETT #16#
                                                             (- (QREFELT $ 6)
@@ -740,7 +740,7 @@
                                       (SEQ
                                        (SPADCALL
                                         (SPADCALL "  "
-                                                  (|make_full_CVEC|
+                                                  (|make_full_CVEC2|
                                                    (PROG1
                                                        (LETT #10#
                                                              (- (QREFELT $ 6)
@@ -808,7 +808,7 @@
                                   (EXIT NIL))))))))
                (LETT #19# (CDR #19#)) (GO G190) G191 (EXIT NIL))
           (SPADCALL "" (QREFELT $ 54))
-          (SPADCALL (|make_full_CVEC| (QREFELT $ 6) (|STR_to_CHAR| "="))
+          (SPADCALL (|make_full_CVEC2| (QREFELT $ 6) (|STR_to_CHAR| "="))
                     (QREFELT $ 24))
           (SPADCALL
            "testsuite | testcases: failed (total) | tests: failed (total)"
@@ -850,7 +850,7 @@
                      (SPADCALL
                       (SPADCALL (QCAR |tstsuite|)
                                 (SPADCALL
-                                 (|make_full_CVEC|
+                                 (|make_full_CVEC2|
                                   (PROG1
                                       (LETT #5#
                                             (MAX
@@ -861,7 +861,7 @@
                                                       '(|Integer|) #5#))
                                   (|STR_to_CHAR| " "))
                                  (SPADCALL
-                                  (|make_full_CVEC|
+                                  (|make_full_CVEC2|
                                    (PROG1
                                        (LETT #4#
                                              (MAX (- 5 (QCSIZE |sfailedCases|))
@@ -872,7 +872,7 @@
                                    (|STR_to_CHAR| " "))
                                   (SPADCALL |sfailedCases|
                                             (SPADCALL
-                                             (|make_full_CVEC|
+                                             (|make_full_CVEC2|
                                               (PROG1
                                                   (LETT #3#
                                                         (MAX
@@ -889,7 +889,7 @@
                                                        (SPADCALL |stotalCases|
                                                                  (SPADCALL ")"
                                                                            (SPADCALL
-                                                                            (|make_full_CVEC|
+                                                                            (|make_full_CVEC2|
                                                                              (PROG1
                                                                                  (LETT
                                                                                   #2#
@@ -911,7 +911,7 @@
                                                                             (SPADCALL
                                                                              |sfailedTests|
                                                                              (SPADCALL
-                                                                              (|make_full_CVEC|
+                                                                              (|make_full_CVEC2|
                                                                                (PROG1
                                                                                    (LETT
                                                                                     #1#
@@ -963,7 +963,7 @@
                                 (QREFELT $ 22))
                       (QREFELT $ 24))))
                (LETT #8# (CDR #8#)) (GO G190) G191 (EXIT NIL))
-          (SPADCALL (|make_full_CVEC| (QREFELT $ 6) (|STR_to_CHAR| "="))
+          (SPADCALL (|make_full_CVEC2| (QREFELT $ 6) (|STR_to_CHAR| "="))
                     (QREFELT $ 24))
           (SPADCALL "File summary." (QREFELT $ 24))
           (SPADCALL

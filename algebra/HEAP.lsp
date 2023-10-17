@@ -34,10 +34,7 @@
                                            (QREFELT $ 17))
                                  (SPADCALL |r| |j| |t| (QREFELT $ 17))
                                  (EXIT (LETT |i| |j|))))
-                               ('T
-                                (PROGN
-                                 (LETT #1# |$NoValue|)
-                                 (GO #3=#:G113))))))
+                               ('T (PROGN (LETT #1# 1) (GO #3=#:G113))))))
                             NIL (GO G190) G191 (EXIT NIL)))
                       #3# (EXIT #1#)))))) 
 
@@ -70,9 +67,7 @@
                                 (COND
                                  ((SPADCALL (SPADCALL |r| |i| (QREFELT $ 14))
                                             |x| (QREFELT $ 23))
-                                  (PROGN
-                                   (LETT #1# |$NoValue|)
-                                   (GO #2=#:G123))))
+                                  (PROGN (LETT #1# 1) (GO #2=#:G123))))
                                 (SPADCALL |r| |j|
                                           (SPADCALL |r| |i| (QREFELT $ 14))
                                           (QREFELT $ 17))

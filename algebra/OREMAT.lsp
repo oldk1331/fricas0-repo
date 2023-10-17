@@ -694,8 +694,7 @@
                                                            (LETT |nrl1| |j|)
                                                            (EXIT
                                                             (PROGN
-                                                             (LETT #14#
-                                                                   |$NoValue|)
+                                                             (LETT #14# 1)
                                                              (GO
                                                               #44=#:G182))))))))
                                                       (LETT |k| (|inc_SI| |k|))
@@ -707,7 +706,7 @@
                                                  ((SPADCALL |nrl1| 0
                                                             (QREFELT $ 20))
                                                   (PROGN
-                                                   (LETT #13# |$NoValue|)
+                                                   (LETT #13# 1)
                                                    (GO #45=#:G186)))
                                                  ('T
                                                   (SEQ

@@ -707,9 +707,7 @@
                                   (COND
                                    ((SPADCALL |lc| (|spadConstant| $ 7)
                                               (QREFELT $ 26))
-                                    (PROGN
-                                     (LETT #2# |$NoValue|)
-                                     (GO #5=#:G248)))
+                                    (PROGN (LETT #2# 1) (GO #5=#:G248)))
                                    ('T
                                     (SEQ (LETT |kk| (+ |kk| 1))
                                          (EXIT

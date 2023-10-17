@@ -135,7 +135,7 @@
                        ((SPADCALL (SPADCALL |x| |x2| (QREFELT $ 21))
                                   (SPADCALL 0 0 10 (QREFELT $ 10))
                                   (QREFELT $ 26))
-                        (PROGN (LETT #4# |$NoValue|) (GO #18=#:G134))))
+                        (PROGN (LETT #4# 1) (GO #18=#:G134))))
                       (EXIT (QSETVELT |step| 0 (QVELT |step| 2))))
                  (LETT |iter| (|inc_SI| |iter|)) (GO G190) G191 (EXIT NIL)))
            #18# (EXIT #4#))
@@ -348,10 +348,7 @@
                                ('T
                                 (QSETVELT |step| 2
                                           (SPADCALL 4 |h| (QREFELT $ 48)))))
-                              (EXIT
-                               (PROGN
-                                (LETT #5# |$NoValue|)
-                                (GO #10=#:G189))))))))
+                              (EXIT (PROGN (LETT #5# 1) (GO #10=#:G189))))))))
                      NIL (GO G190) G191 (EXIT NIL)))
                #10# (EXIT #5#))
               (EXIT

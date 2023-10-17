@@ -432,9 +432,7 @@
                              (|spadConstant| $ 8) (QREFELT $ 50))
                             (SEQ (LETT |flg_wrk| NIL)
                                  (EXIT
-                                  (PROGN
-                                   (LETT #1# |$NoValue|)
-                                   (GO #3=#:G355))))))))
+                                  (PROGN (LETT #1# 1) (GO #3=#:G355))))))))
                         (LETT |l| (|inc_SI| |l|)) (GO G190) G191 (EXIT NIL)))
                   #3# (EXIT #1#))
                  (EXIT |flg_wrk|))))))) 
@@ -3021,7 +3019,7 @@
                                           (SEQ (LETT |flg_sol| NIL)
                                                (EXIT
                                                 (PROGN
-                                                 (LETT #6# |$NoValue|)
+                                                 (LETT #6# 1)
                                                  (GO #9=#:G1116))))))))
                                       (LETT #7# (CDR #7#)) (GO G190) G191
                                       (EXIT NIL)))

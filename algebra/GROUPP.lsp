@@ -2883,10 +2883,7 @@
                            (COND
                             ((>= (QVELT |state| 5) |loopLimit|)
                              (PROGN
-                              (LETT #1#
-                                    (PROGN
-                                     (LETT #2# |$NoValue|)
-                                     (GO #14=#:G586)))
+                              (LETT #1# (PROGN (LETT #2# 1) (GO #14=#:G586)))
                               (GO #15=#:G585)))))))
                         #15# (EXIT #1#))
                        NIL (GO G190) G191 (EXIT NIL)))

@@ -1442,7 +1442,7 @@
                                                            (QVELT |sub| 0)
                                                            (QREFELT $ 77))
                                                  (PROGN
-                                                  (LETT #16# |$NoValue|)
+                                                  (LETT #16# 1)
                                                   (GO #18=#:G543)))
                                                 ('T
                                                  (SEQ (LETT |sl| (CDR |sl|))

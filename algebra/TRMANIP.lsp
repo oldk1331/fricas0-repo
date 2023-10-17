@@ -746,7 +746,7 @@
                                                       (QREFELT $ 21)))
                                       (EXIT
                                        (PROGN
-                                        (LETT #3# |$NoValue|)
+                                        (LETT #3# 1)
                                         (GO #8=#:G303))))))))
                                  (LETT #4# (CDR #4#)) (GO G190) G191
                                  (EXIT NIL)))
@@ -795,7 +795,7 @@
                                                          (QREFELT $ 21)))
                                          (EXIT
                                           (PROGN
-                                           (LETT #1# |$NoValue|)
+                                           (LETT #1# 1)
                                            (GO #9=#:G307))))))))))
                                   (LETT #2# (CDR #2#)) (GO G190) G191
                                   (EXIT NIL)))

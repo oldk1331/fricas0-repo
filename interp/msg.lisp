@@ -215,7 +215,7 @@
 ;         posLetter := rest ASSOC(poCharPosn getMsgPos msg, chPosList)
 ;         oldPre := getMsgPrefix msg
 ;         setMsgPrefix (msg,STRCONC(oldPre,_
-;                      make_full_CVEC($preLength - 4 - SIZE oldPre), posLetter))
+;                      make_full_CVEC2($preLength - 4 - SIZE oldPre), posLetter))
 ;     leaderMsg := makeLeaderMsg chPosList
 ;     NCONC(msgList,LIST leaderMsg)  --a back cons
 
@@ -238,7 +238,7 @@
              (SETQ |oldPre| (|getMsgPrefix| |msg|))
              (|setMsgPrefix| |msg|
               (STRCONC |oldPre|
-               (|make_full_CVEC| (- (- |$preLength| 4) (SIZE |oldPre|)))
+               (|make_full_CVEC2| (- (- |$preLength| 4) (SIZE |oldPre|)))
                |posLetter|)))))
           (SETQ |bfVar#1| (CDR |bfVar#1|))))
        |msgList| NIL)
@@ -417,11 +417,11 @@
 
 ; rep (c,n)  ==
 ;     n > 0 =>
-;       make_full_CVEC(n, c)
+;       make_full_CVEC2(n, c)
 ;     '""
 
 (DEFUN |rep| (|c| |n|)
-  (PROG () (RETURN (COND ((< 0 |n|) (|make_full_CVEC| |n| |c|)) ('T "")))))
+  (PROG () (RETURN (COND ((< 0 |n|) (|make_full_CVEC2| |n| |c|)) ('T "")))))
 
 ; From   pos == ['FROM,   pos]
 
@@ -937,10 +937,10 @@
       (#1# 'NONE)))))
 
 ; getPreStL optPre ==
-;     null optPre => [make_full_CVEC 2]
+;     null optPre => [make_full_CVEC(2)]
 ;     spses :=
 ;       (extraPlaces := ($preLength - (SIZE optPre) - 3)) > 0 =>
-;         make_full_CVEC extraPlaces
+;         make_full_CVEC(extraPlaces)
 ;       '""
 ;     ['%b, optPre,spses,'":", '%d]
 

@@ -255,8 +255,7 @@
                                                      (SEQ (LETT |rown| |k|)
                                                           (EXIT
                                                            (PROGN
-                                                            (LETT #10#
-                                                                  |$NoValue|)
+                                                            (LETT #10# 1)
                                                             (GO
                                                              #13=#:G194))))))))
                                                  (LETT |k| (+ |k| 1)) (GO G190)
@@ -421,7 +420,7 @@
                                             (PROGN
                                              (LETT #3#
                                                    (PROGN
-                                                    (LETT #4# |$NoValue|)
+                                                    (LETT #4# 1)
                                                     (GO #15=#:G209)))
                                              (GO #16=#:G207)))))))
                                        #16# (EXIT #3#))))))

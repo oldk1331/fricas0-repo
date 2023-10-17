@@ -453,10 +453,7 @@
                                           (SPADCALL |newc| (QCDR |t2|)
                                                     (QREFELT $ 95)))
                                     (EXIT (LETT |xs| (CDR |xs|)))))
-                                  ('T
-                                   (PROGN
-                                    (LETT #1# |$NoValue|)
-                                    (GO #3=#:G332))))))
+                                  ('T (PROGN (LETT #1# 1) (GO #3=#:G332))))))
                            NIL (GO G190) G191 (EXIT NIL)))
                      #3# (EXIT #1#))
                     (EXIT

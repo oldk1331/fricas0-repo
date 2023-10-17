@@ -210,7 +210,7 @@
                       (EXIT
                        (COND
                         ((SPADCALL |ord| |infTermOrd| (QREFELT $ 39))
-                         (PROGN (LETT #3# |$NoValue|) (GO #4=#:G176)))
+                         (PROGN (LETT #3# 1) (GO #4=#:G176)))
                         ((SPADCALL |ord| (|spadConstant| $ 35) (QREFELT $ 40))
                          (SEQ (LETT |pSeries| (|UPXSSING;coeff| |term| $))
                               (LETT |zeroTerms| NIL)

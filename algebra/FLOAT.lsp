@@ -1692,7 +1692,7 @@
                 ('T
                  (SEQ (LETT |n| (- (QCSIZE |s|) 1))
                       (LETT |t|
-                            (|make_full_CVEC|
+                            (|make_full_CVEC2|
                              (PROG1
                                  (LETT #2#
                                        (+ (+ |n| 1)
@@ -1730,7 +1730,7 @@
                 ('T
                  (SEQ (LETT |n| (- (QCSIZE |s|) 1))
                       (LETT |t|
-                            (|make_full_CVEC|
+                            (|make_full_CVEC2|
                              (PROG1
                                  (LETT #2#
                                        (+ (+ |n| 1)
@@ -1776,7 +1776,7 @@
                     (STRCONC "0"
                              (STRCONC "."
                                       (|FLOAT;padFromLeft|
-                                       (|make_full_CVEC|
+                                       (|make_full_CVEC2|
                                         (PROG1 (LETT #7# |d|)
                                           (|check_subtype2| (>= #7# 0)
                                                             '(|NonNegativeInteger|)
@@ -1789,7 +1789,7 @@
                $)
               (STRCONC "."
                        (|FLOAT;padFromLeft|
-                        (|make_full_CVEC|
+                        (|make_full_CVEC2|
                          (PROG1 (LETT #6# |d|)
                            (|check_subtype2| (>= #6# 0) '(|NonNegativeInteger|)
                                              '(|Integer|) #6#))
@@ -1831,7 +1831,7 @@
                     (SEQ
                      (LETT |s|
                            (STRCONC |s|
-                                    (|make_full_CVEC|
+                                    (|make_full_CVEC2|
                                      (PROG1 (LETT #3# |e|)
                                        (|check_subtype2| (>= #3# 0)
                                                          '(|NonNegativeInteger|)
@@ -1842,7 +1842,7 @@
                     (SEQ
                      (LETT |t|
                            (STRCONC
-                            (|make_full_CVEC|
+                            (|make_full_CVEC2|
                              (PROG1 (LETT #2# (- |o|))
                                (|check_subtype2| (>= #2# 0)
                                                  '(|NonNegativeInteger|)
@@ -1892,7 +1892,7 @@
                    (#8#
                     (LETT |t|
                           (STRCONC |t|
-                                   (|make_full_CVEC|
+                                   (|make_full_CVEC2|
                                     (PROG1 (LETT #1# (- |p| |n|))
                                       (|check_subtype2| (>= #1# 0)
                                                         '(|NonNegativeInteger|)
@@ -2006,7 +2006,7 @@
                                  ((> |o| |n|)
                                   (LETT |s|
                                         (STRCONC |s|
-                                                 (|make_full_CVEC|
+                                                 (|make_full_CVEC2|
                                                   (PROG1 (LETT #3# (- |o| |n|))
                                                     (|check_subtype2|
                                                      (>= #3# 0)
@@ -2055,7 +2055,7 @@
                                  (STRCONC #8="0."
                                           (|FLOAT;padFromLeft|
                                            (STRCONC
-                                            (|make_full_CVEC|
+                                            (|make_full_CVEC2|
                                              (PROG1 (LETT #2# (- |o|))
                                                (|check_subtype2| (>= #2# 0)
                                                                  '(|NonNegativeInteger|)
@@ -2100,7 +2100,7 @@
                                (STRCONC #8#
                                         (|FLOAT;padFromLeft|
                                          (STRCONC
-                                          (|make_full_CVEC|
+                                          (|make_full_CVEC2|
                                            (PROG1 (LETT #1# (- |o|))
                                              (|check_subtype2| (>= #1# 0)
                                                                '(|NonNegativeInteger|)

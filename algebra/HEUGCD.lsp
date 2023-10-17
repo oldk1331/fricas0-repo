@@ -610,9 +610,7 @@
                                          (SPADCALL |lcg| (QREFELT $ 7)
                                                    (QREFELT $ 49))
                                          0)
-                                        (PROGN
-                                         (LETT #6# |$NoValue|)
-                                         (GO #23=#:G260))))
+                                        (PROGN (LETT #6# 1) (GO #23=#:G260))))
                                       (LETT |ga|
                                             (SPADCALL
                                              (SPADCALL |g| (QREFELT $ 51))

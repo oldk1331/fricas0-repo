@@ -302,32 +302,17 @@
          (#1='T (CONS '|exit| (CONS |a| |b|)))))
        (#1# (LIST '|exit| 1 |a|)))))))
 
-; parseLeave [a,:b] ==
+; parseLeave [a] ==
 ;   a:= parseTran a
-;   b:= parseTran b
-;   b =>
-;     null INTEGERP a =>
-;       (MOAN('"first arg ",a,'" for 'leave' must be integer"); ['leave,1,a])
-;     ['leave,a,:b]
 ;   ['leave,1,a]
 
 (DEFUN |parseLeave| (|bfVar#15|)
-  (PROG (|a| |b|)
+  (PROG (|a|)
     (RETURN
      (PROGN
       (SETQ |a| (CAR |bfVar#15|))
-      (SETQ |b| (CDR |bfVar#15|))
       (SETQ |a| (|parseTran| |a|))
-      (SETQ |b| (|parseTran| |b|))
-      (COND
-       (|b|
-        (COND
-         ((NULL (INTEGERP |a|))
-          (PROGN
-           (MOAN "first arg " |a| " for 'leave' must be integer")
-           (LIST '|leave| 1 |a|)))
-         (#1='T (CONS '|leave| (CONS |a| |b|)))))
-       (#1# (LIST '|leave| 1 |a|)))))))
+      (LIST '|leave| 1 |a|)))))
 
 ; parseJoin l ==
 ;   ['Join,:fn parseTranList l] where

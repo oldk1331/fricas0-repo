@@ -1262,7 +1262,7 @@
                                                 |res|))
                                          (EXIT
                                           (PROGN
-                                           (LETT #1# |$NoValue|)
+                                           (LETT #1# 1)
                                            (GO #11=#:G643))))))))
                                     (LETT #6# (CDR #6#)) (GO G190) G191
                                     (EXIT NIL)))

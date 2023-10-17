@@ -5017,7 +5017,7 @@
                                                           '(|Integer|) #12#))
                                       (QREFELT $ 470))
                             (QREFELT $ 471))
-                           (PROGN (LETT #11# |$NoValue|) (GO #16=#:G1338)))
+                           (PROGN (LETT #11# 1) (GO #16=#:G1338)))
                           ('T
                            (SEQ
                             (LETT |degreeLoss|
@@ -5101,7 +5101,7 @@
                                                 (COND
                                                  ((SPADCALL MS (QREFELT $ 479))
                                                   (PROGN
-                                                   (LETT #8# |$NoValue|)
+                                                   (LETT #8# 1)
                                                    (GO #18=#:G1297)))
                                                  ('T
                                                   (SEQ
@@ -5210,7 +5210,7 @@
                                               (COND
                                                ((SPADCALL MS (QREFELT $ 479))
                                                 (PROGN
-                                                 (LETT #5# |$NoValue|)
+                                                 (LETT #5# 1)
                                                  (GO #19=#:G1334)))
                                                ('T
                                                 (SEQ

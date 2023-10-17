@@ -308,9 +308,7 @@
                                                (LETT #8# (CDR #8#)) (GO G190)
                                                G191 (EXIT NIL))
                                           (COND (#4# #5#) ('T NIL)))
-                                         (PROGN
-                                          (LETT #3# |$NoValue|)
-                                          (GO #18=#:G177)))
+                                         (PROGN (LETT #3# 1) (GO #18=#:G177)))
                                         ('T (LETT |uu| (CDR |uu|))))))
                                      NIL (GO G190) G191 (EXIT NIL)))
                                #18# (EXIT #3#))

@@ -173,11 +173,11 @@
                              (SEQ
                               (COND
                                ((NULL |lowp|)
-                                (PROGN (LETT #3# |$NoValue|) (GO #4=#:G195))))
+                                (PROGN (LETT #3# 1) (GO #4=#:G195))))
                               (LETT |t| (|SPADfirst| |lowp|))
                               (COND
                                ((< (QCAR |t|) |n|)
-                                (PROGN (LETT #3# |$NoValue|) (GO #4#))))
+                                (PROGN (LETT #3# 1) (GO #4#))))
                               (LETT |lowp| (CDR |lowp|))
                               (EXIT
                                (LETT |highp|
@@ -518,9 +518,7 @@
                                 (EXIT
                                  (COND
                                   ((QEQCAR |u| 1)
-                                   (PROGN
-                                    (LETT #2# |$NoValue|)
-                                    (GO #4=#:G283)))
+                                   (PROGN (LETT #2# 1) (GO #4=#:G283)))
                                   ('T
                                    (SEQ
                                     (LETT |rout|
@@ -623,7 +621,7 @@
                           (EXIT
                            (COND
                             ((QEQCAR |u| 1)
-                             (PROGN (LETT #2# |$NoValue|) (GO #3=#:G317)))
+                             (PROGN (LETT #2# 1) (GO #3=#:G317)))
                             ('T
                              (SEQ
                               (LETT |rout|
