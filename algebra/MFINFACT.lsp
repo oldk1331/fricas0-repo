@@ -385,9 +385,9 @@
                      (|:| |factors|
                           (|List|
                            (|Record|
-                            (|:| |irr| (|SparseUnivariatePolynomial| F))
-                            (|:| |pow| (|NonNegativeInteger|))))))))
-         (SEQ (LETT |fm| (SPADCALL |m| NIL (QREFELT % 64)))
+                            (|:| |factor| (|SparseUnivariatePolynomial| F))
+                            (|:| |exponent| (|NonNegativeInteger|))))))))
+         (SEQ (LETT |fm| (SPADCALL |m| (QREFELT % 64)))
               (LETT |fr1|
                     (PROGN
                      (LETT #2# NIL)
@@ -2037,11 +2037,11 @@
                      (|:| |factors|
                           (|List|
                            (|Record|
-                            (|:| |irr| (|SparseUnivariatePolynomial| F))
-                            (|:| |pow| (|NonNegativeInteger|))))))))
+                            (|:| |factor| (|SparseUnivariatePolynomial| F))
+                            (|:| |exponent| (|NonNegativeInteger|))))))))
          (SEQ
           (LETT |lunm|
-                (SPADCALL (SPADCALL |m| (QREFELT % 144)) NIL (QREFELT % 64)))
+                (SPADCALL (SPADCALL |m| (QREFELT % 144)) (QREFELT % 64)))
           (EXIT
            (CONS (SPADCALL (QCAR |lunm|) (QREFELT % 109))
                  (SPADCALL |factorlist|
@@ -2393,73 +2393,73 @@
               (|List| 49) (105 . |factorList|) (110 . |degree|)
               (116 . |leadingCoefficient|) (121 . |ground?|) (126 . |concat!|)
               (132 . |leadingCoefficient|) (137 . ^) (143 . *) (149 . |One|)
-              (153 . |exquo|) (|Record| (|:| |irr| 23) (|:| |pow| 13))
+              (153 . |exquo|) (|Record| (|:| |factor| 23) (|:| |exponent| 13))
               (|Record| (|:| |cont| 8) (|:| |factors| (|List| 61)))
-              (|DistinctDegreeFactorize| 8 23) (159 . |distdfact|)
-              (165 . |coerce|) (|Mapping| 9 8)
+              (|UnivariateFiniteFieldFactorize| 8 23) (159 . |sufactor|)
+              (164 . |coerce|) (|Mapping| 9 8)
               (|UnivariatePolynomialCategoryFunctions2| 8 23 9 35)
-              (170 . |map|) (176 . |primeFactor|) (182 . *) (188 . |One|)
-              (192 . |coerce|) (197 . |makeFR|) (|FactoringUtilities| 7 6 8 9)
-              (203 . |variables|) (208 . |ground|) (|Mapping| 8 9)
+              (169 . |map|) (175 . |primeFactor|) (181 . *) (187 . |One|)
+              (191 . |coerce|) (196 . |makeFR|) (|FactoringUtilities| 7 6 8 9)
+              (202 . |variables|) (207 . |ground|) (|Mapping| 8 9)
               (|UnivariatePolynomialCategoryFunctions2| 9 35 8 23)
-              (213 . |map|) (|List| 13) (219 . |degree|) (|Integer|)
-              (225 . |position|) (231 . |elt|) (237 . *)
-              |MFINFACT;factor;SupF;4| (243 . |minimumDegree|)
-              (249 . |squareFree|) (|Factored| 9) (254 . |unit|)
+              (212 . |map|) (|List| 13) (218 . |degree|) (|Integer|)
+              (224 . |position|) (230 . |elt|) (236 . *)
+              |MFINFACT;factor;SupF;4| (242 . |minimumDegree|)
+              (248 . |squareFree|) (|Factored| 9) (253 . |unit|)
               (|Record| (|:| |flag| 48) (|:| |factor| 9) (|:| |exponent| 13))
-              (|List| 91) (259 . |factorList|) (264 . |degree|) (270 . |One|)
-              (274 . |member?|) (|SparseUnivariatePolynomial| %)
-              (280 . |univariate|) (|List| %) (286 . |gcd|) (291 . |exquo|)
-              (297 . ~=) (303 . ~=) (309 . |exquo|) (315 . |multivariate|)
-              (321 . |leadingCoefficient|) (326 . ~=) (332 . |inv|)
-              (337 . |coerce|) (342 . |coerce|) (347 . *)
+              (|List| 91) (258 . |factorList|) (263 . |degree|) (269 . |One|)
+              (273 . |member?|) (|SparseUnivariatePolynomial| %)
+              (279 . |univariate|) (|List| %) (285 . |gcd|) (290 . |exquo|)
+              (296 . ~=) (302 . ~=) (308 . |exquo|) (314 . |multivariate|)
+              (320 . |leadingCoefficient|) (325 . ~=) (331 . |inv|)
+              (336 . |coerce|) (341 . |coerce|) (346 . *)
               (|Record| (|:| |irr| 10) (|:| |pow| 13)) (|List| 112)
-              (353 . |append|) (359 . |monomial|) (365 . |size|)
-              (|PositiveInteger|) (369 . |index|) (374 . +) (|List| 137)
-              (|GenExEuclid| 23 137) (380 . |testModulus|)
+              (352 . |append|) (358 . |monomial|) (364 . |size|)
+              (|PositiveInteger|) (368 . |index|) (373 . +) (|List| 137)
+              (|GenExEuclid| 23 137) (379 . |testModulus|)
               (|FiniteFieldPolynomialPackage| 8)
-              (386 . |createIrreduciblePoly|) (|Union| 23 '"failed")
-              (391 . |nextIrreduciblePoly|) (|Mapping| 23 8)
+              (385 . |createIrreduciblePoly|) (|Union| 23 '"failed")
+              (390 . |nextIrreduciblePoly|) (|Mapping| 23 8)
               (|MPolyCatFunctions2| 6 7 (|IndexedExponents| 6) 8 23 9 10)
-              (396 . |map|)
+              (395 . |map|)
               (|Record| (|:| |polfac| 16) (|:| |correct| 23)
                         (|:| |corrfact| 120))
               (|Union| 130 '"failed")
               (|Record| (|:| |contp| 23) (|:| |factors| 113)) (|List| 23)
               (|LeadingCoefDetermination| 6 (|IndexedExponents| 6) 23 10)
-              (402 . |distFact|) (412 . ~=) (|SparseUnivariatePolynomial| 23)
-              (418 . |elt|) (424 . *) (|Union| (|List| 11) '"failed")
+              (401 . |distFact|) (411 . ~=) (|SparseUnivariatePolynomial| 23)
+              (417 . |elt|) (423 . *) (|Union| (|List| 11) '"failed")
               (|MultivariateLifting| (|IndexedExponents| 6) 6 23 10)
-              (430 . |lifting|) (441 . |primitivePart|) (446 . |retract|)
-              (451 . |Zero|) (455 . |Zero|) (459 . |leadingMonomial|)
-              (464 . |monomial|) (471 . +) (477 . |reductum|) (482 . |ground?|)
-              (487 . |retract|) (492 . |univariate|) (498 . |Zero|) (502 . ~=)
-              (508 . |degree|) (513 . |leadingCoefficient|) (518 . *) (524 . +)
-              (530 . |reductum|) (535 . |ground?|) (540 . |retract|)
-              (545 . |degree|) (550 . |monomial|) (557 . |reductum|)
-              (562 . |random|) (566 . |delete|) (572 . |delete|)
-              (578 . |degree|) (583 . =) (|List| 133) (589 . |member?|)
-              (595 . |eval|) (602 . |unit?|)
+              (429 . |lifting|) (440 . |primitivePart|) (445 . |retract|)
+              (450 . |Zero|) (454 . |Zero|) (458 . |leadingMonomial|)
+              (463 . |monomial|) (470 . +) (476 . |reductum|) (481 . |ground?|)
+              (486 . |retract|) (491 . |univariate|) (497 . |Zero|) (501 . ~=)
+              (507 . |degree|) (512 . |leadingCoefficient|) (517 . *) (523 . +)
+              (529 . |reductum|) (534 . |ground?|) (539 . |retract|)
+              (544 . |degree|) (549 . |monomial|) (556 . |reductum|)
+              (561 . |random|) (565 . |delete|) (571 . |delete|)
+              (577 . |degree|) (582 . =) (|List| 133) (588 . |member?|)
+              (594 . |eval|) (601 . |unit?|)
               (|FactoringUtilities| (|IndexedExponents| 6) 6 23 10)
-              (607 . |completeEval|) (614 . ~=) (620 . |minimumDegree|)
-              (625 . |content|) (630 . |exquo|) (636 . |polCase|)
-              (643 . |differentiate|) (648 . |differentiate|)
-              (653 . |differentiate|) (658 . |differentiate|)
-              (663 . |differentiate|) (|Mapping| 23 23) (668 . |map|)
-              (674 . |gcd|) (679 . |leadingCoefficient|) (|Factored| 137)
-              (|TwoFactorize| 8) (684 . |tryTwoFactor|)
+              (606 . |completeEval|) (613 . ~=) (619 . |minimumDegree|)
+              (624 . |content|) (629 . |exquo|) (635 . |polCase|)
+              (642 . |differentiate|) (647 . |differentiate|)
+              (652 . |differentiate|) (657 . |differentiate|)
+              (662 . |differentiate|) (|Mapping| 23 23) (667 . |map|)
+              (673 . |gcd|) (678 . |leadingCoefficient|) (|Factored| 137)
+              (|TwoFactorize| 8) (683 . |tryTwoFactor|)
               (|Record| (|:| |flag| 48) (|:| |factor| 137) (|:| |exponent| 13))
-              (|List| 194) (689 . |factorList|) (694 . |elt|)
-              (700 . |generalTwoFactor|) (705 . |unit|) (710 . |retract|)
-              (715 . *) (721 . |position|) (727 . |elt|) (733 . |monomial|)
-              (740 . *) (746 . |coerce|) (751 . |ground|) (|Mapping| 23 10)
+              (|List| 194) (688 . |factorList|) (693 . |elt|)
+              (699 . |generalTwoFactor|) (704 . |unit|) (709 . |retract|)
+              (714 . *) (720 . |position|) (726 . |elt|) (732 . |monomial|)
+              (739 . *) (745 . |coerce|) (750 . |ground|) (|Mapping| 23 10)
               (|UnivariatePolynomialCategoryFunctions2| 10 11 23 137)
-              (756 . |map|) (|Mapping| 10 23)
+              (755 . |map|) (|Mapping| 10 23)
               (|UnivariatePolynomialCategoryFunctions2| 23 137 10 11)
-              (762 . |map|) (768 . |variables|) (773 . =) (779 . |makeFR|)
-              (785 . |degree|) (791 . |primeFactor|) (797 . *) (803 . |One|)
-              (807 . *) |MFINFACT;factor;PGF;20|)
-           '#(|factor| 813) 'NIL
+              (761 . |map|) (767 . |variables|) (772 . =) (778 . |makeFR|)
+              (784 . |degree|) (790 . |primeFactor|) (796 . *) (802 . |One|)
+              (806 . *) |MFINFACT;factor;PGF;20|)
+           '#(|factor| 812) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -2485,17 +2485,17 @@
                                               11 10 0 53 1 10 46 0 54 2 33 0 0
                                               0 55 1 10 23 0 56 2 23 0 0 13 57
                                               2 23 0 0 0 58 0 23 0 59 2 23 30 0
-                                              0 60 2 63 62 23 46 64 1 9 0 8 65
-                                              2 67 35 66 23 68 2 41 0 35 13 69
-                                              2 41 0 0 0 70 0 41 0 71 1 35 0 9
-                                              72 2 41 0 35 50 73 1 74 18 35 75
-                                              1 9 8 0 76 2 78 23 77 35 79 2 74
-                                              80 35 18 81 2 80 82 13 0 83 2 18
-                                              6 0 82 84 2 41 0 35 0 85 2 10 80
-                                              0 18 87 1 9 39 0 88 1 89 9 0 90 1
-                                              89 92 0 93 2 10 80 0 18 94 0 11 0
-                                              95 2 80 46 13 0 96 2 10 97 0 6 98
-                                              1 10 0 99 100 2 10 30 0 0 101 2 6
+                                              0 60 1 63 62 23 64 1 9 0 8 65 2
+                                              67 35 66 23 68 2 41 0 35 13 69 2
+                                              41 0 0 0 70 0 41 0 71 1 35 0 9 72
+                                              2 41 0 35 50 73 1 74 18 35 75 1 9
+                                              8 0 76 2 78 23 77 35 79 2 74 80
+                                              35 18 81 2 80 82 13 0 83 2 18 6 0
+                                              82 84 2 41 0 35 0 85 2 10 80 0 18
+                                              87 1 9 39 0 88 1 89 9 0 90 1 89
+                                              92 0 93 2 10 80 0 18 94 0 11 0 95
+                                              2 80 46 13 0 96 2 10 97 0 6 98 1
+                                              10 0 99 100 2 10 30 0 0 101 2 6
                                               46 0 0 102 2 10 46 0 0 103 2 11
                                               30 0 10 104 2 10 0 97 6 105 1 23
                                               8 0 106 2 8 46 0 0 107 1 8 0 0

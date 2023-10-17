@@ -1436,9 +1436,9 @@
               (|SparseUnivariatePolynomial| 8) (|TwoFactorize| 6)
               (168 . |generalTwoFactor|) (173 . |factorPolynomial|)
               (178 . |factorSquareFreePolynomial|) (|Factored| $$)
-              (|DistinctDegreeFactorize| 6 $$) (183 . |factor|) (|Factored| %)
-              (188 . |factor|) (|Union| 79 '"failed") (|List| 45)
-              (|FiniteFieldSolveLinearPolynomialEquation| 6 $$ 45)
+              (|UnivariateFiniteFieldFactorize| 6 $$) (183 . |factor|)
+              (|Factored| %) (188 . |factor|) (|Union| 79 '"failed")
+              (|List| 45) (|FiniteFieldSolveLinearPolynomialEquation| 6 $$ 45)
               (193 . |solveLinearPolynomialEquation|) (|Union| 83 '#1="failed")
               (|List| 52) (199 . |solveLinearPolynomialEquation|) '|mm_one|
               '|m_one| '|one_inited| (205 . -) (|OutputForm|) (210 . |coerce|)

@@ -331,7 +331,7 @@
                                                                 '|SparseUnivariatePolynomial|
                                                                 (|devaluate|
                                                                  |sae|)))
-                                                              (|DistinctDegreeFactorize|
+                                                              (|UnivariateFiniteFieldFactorize|
                                                                |sae|
                                                                (|SparseUnivariatePolynomial|
                                                                 |sae|))))
@@ -841,7 +841,7 @@
                                                    (LIST
                                                     '|SparseUnivariatePolynomial|
                                                     (|devaluate| |sae|)))
-                                                  (|DistinctDegreeFactorize|
+                                                  (|UnivariateFiniteFieldFactorize|
                                                    |sae|
                                                    (|SparseUnivariatePolynomial|
                                                     |sae|))))
@@ -1222,7 +1222,7 @@
               (|ChineseRemainderToolsForIntegralBases| 6 7 8)
               (150 . |chineseRemainder|) (157 . |definingPolynomial|)
               |PWFFINTB;localIntegralBasis;RR;5| (|Factored| 7)
-              (|DistinctDegreeFactorize| 6 7) (161 . |factor|)
+              (|UnivariateFiniteFieldFactorize| 6 7) (161 . |factor|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 73) (|:| |factor| 7) (|:| |exponent| 35))
               (|List| 74) (166 . |factorList|) (171 . *) (177 . |vertConcat|)

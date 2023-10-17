@@ -1084,8 +1084,8 @@
               |TWOFACT;tryTwoFactor;SupF;2| |TWOFACT;generalTwoFactor;SupF;3|
               (18 . |Zero|) (22 . |Zero|) (26 . |Zero|) (|Boolean|) (30 . =)
               (36 . |Zero|) (40 . |degree|) (45 . |leadingCoefficient|)
-              (|Factored| 10) (|DistinctDegreeFactorize| 6 10) (50 . |factor|)
-              (55 . |unit|) (60 . |coerce|)
+              (|Factored| 10) (|UnivariateFiniteFieldFactorize| 6 10)
+              (50 . |factor|) (55 . |unit|) (60 . |coerce|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 31) (|:| |factor| 10) (|:| |exponent| 7))
               (|List| 32) (65 . |factorList|)

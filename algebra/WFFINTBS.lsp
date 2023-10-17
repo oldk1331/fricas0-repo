@@ -576,7 +576,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) (|Factored| 7)
-              (|DistinctDegreeFactorize| 6 7) (0 . |factor|)
+              (|UnivariateFiniteFieldFactorize| 6 7) (0 . |factor|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 13) (|:| |factor| 7) (|:| |exponent| 23))
               (|List| 14) (5 . |factorList|) (10 . |One|) (|PositiveInteger|)

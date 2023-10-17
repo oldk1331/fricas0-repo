@@ -1668,7 +1668,7 @@
                                                               '|SparseUnivariatePolynomial|
                                                               (|devaluate|
                                                                |gf|)))
-                                                            (|DistinctDegreeFactorize|
+                                                            (|UnivariateFiniteFieldFactorize|
                                                              |gf|
                                                              (|SparseUnivariatePolynomial|
                                                               |gf|))))
