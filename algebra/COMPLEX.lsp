@@ -86,9 +86,9 @@
 
 (DECLAIM (NOTINLINE |Complex;|)) 
 
-(DEFUN |Complex| (#1=#:G2632)
+(DEFUN |Complex| (#1=#:G2684)
   (SPROG NIL
-         (PROG (#2=#:G2633)
+         (PROG (#2=#:G2685)
            (RETURN
             (COND
              ((LETT #2#
@@ -103,8 +103,8 @@
 
 (DEFUN |Complex;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G2628 NIL) (#2=#:G2629 NIL) (#3=#:G2630 NIL)
-    (#4=#:G2631 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G2680 NIL) (#2=#:G2681 NIL) (#3=#:G2682 NIL)
+    (#4=#:G2683 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|Complex| DV$1))

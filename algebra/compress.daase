@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5210 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5212 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -173,28 +173,29 @@
  |Heap| |HyperellipticFiniteDivisor| |HeuGcd| |HexadecimalExpansion|
  |HomogeneousAggregate&| |HomogeneousAggregate| |Homology| |HopfAlgebra|
  |HTMLFormat| |HyperbolicFunctionCategory&| |HyperbolicFunctionCategory|
- |InnerAlgFactor| |IndexedOneDimensionalArray| |IndexedTwoDimensionalArray|
- |ChineseRemainderToolsForIntegralBases| |IntegralBasisTools| |IndexedBits|
- |IntegralBasisPolynomialTools| |IndexCard| |InnerCommonDenominator|
- |PolynomialIdeal| |IdealDecompositionPackage| |IndexedDirectProductCategory|
- |IndexedDirectProductObject| |InnerEigenPackage| |InnerEvalable&|
- |InnerEvalable| |IndexedFlexibleArray| |InnerFiniteField|
- |InnerIndexedTwoDimensionalArray| |IndexedJetBundle| |IndexedList| |ILogic|
- |InnerMatrixLinearAlgebraFunctions| |InnerMatrixQuotientFieldFunctions|
- |IndexedMatrix| |InnerModularHermitePade| |InnerNormalBasisFieldFunctions|
- |IncidenceAlgebra| |IncrementingMaps| |IndexedExponents|
- |InnerNumericEigenPackage| |InfiniteCyclicGroup| |Infinity| |InputForm|
- |InputFormFunctions1| |InfiniteLambertProduct| |InnerNumericFloatSolvePackage|
- |InnerModularGcd| |InnerMultFact| |InnerPolySign| |IntegerNumberSystem&|
- |IntegerNumberSystem| |Integer| |InnerTable| |AlgebraicIntegration|
- |AlgebraicIntegrate| |AlgebraicIntegrate2| |IntegerBits| |IntervalCategory|
- |DenominatorIntegration| |IntegralDomain| |IntegrateSolutions|
- |ElementaryIntegration| |IntegerFactorizationPackage| |GenusZeroIntegration|
- |IntegerNumberTheoryFunctions| |AlgebraicHermiteIntegration|
- |TranscendentalHermiteIntegration| |IntegerLocalizedAtPrime|
- |PureAlgebraicIntegration| |ParametricTranscendentalIntegration|
- |ParametricIntegration| |PatternMatchIntegration| |RationalIntegration|
- |IntegerRetractions| |RationalFunctionIntegration| |Interval|
+ |I16Matrix| |I16Vector| |InnerAlgFactor| |IndexedOneDimensionalArray|
+ |IndexedTwoDimensionalArray| |ChineseRemainderToolsForIntegralBases|
+ |IntegralBasisTools| |IndexedBits| |IntegralBasisPolynomialTools| |IndexCard|
+ |InnerCommonDenominator| |PolynomialIdeal| |IdealDecompositionPackage|
+ |IndexedDirectProductCategory| |IndexedDirectProductObject|
+ |InnerEigenPackage| |InnerEvalable&| |InnerEvalable| |IndexedFlexibleArray|
+ |InnerFiniteField| |InnerIndexedTwoDimensionalArray| |IndexedJetBundle|
+ |IndexedList| |ILogic| |InnerMatrixLinearAlgebraFunctions|
+ |InnerMatrixQuotientFieldFunctions| |IndexedMatrix| |InnerModularHermitePade|
+ |InnerNormalBasisFieldFunctions| |IncidenceAlgebra| |IncrementingMaps|
+ |IndexedExponents| |InnerNumericEigenPackage| |InfiniteCyclicGroup| |Infinity|
+ |InputForm| |InputFormFunctions1| |InfiniteLambertProduct|
+ |InnerNumericFloatSolvePackage| |InnerModularGcd| |InnerMultFact|
+ |InnerPolySign| |IntegerNumberSystem&| |IntegerNumberSystem| |Integer|
+ |InnerTable| |AlgebraicIntegration| |AlgebraicIntegrate| |AlgebraicIntegrate2|
+ |IntegerBits| |IntervalCategory| |DenominatorIntegration| |IntegralDomain|
+ |IntegrateSolutions| |ElementaryIntegration| |IntegerFactorizationPackage|
+ |GenusZeroIntegration| |IntegerNumberTheoryFunctions|
+ |AlgebraicHermiteIntegration| |TranscendentalHermiteIntegration|
+ |IntegerLocalizedAtPrime| |PureAlgebraicIntegration|
+ |ParametricTranscendentalIntegration| |ParametricIntegration|
+ |PatternMatchIntegration| |RationalIntegration| |IntegerRetractions|
+ |RationalFunctionIntegration| |Interval|
  |IntegerSolveLinearPolynomialEquation| |IntegrationTools|
  |TranscendentalIntegration| |InverseLaplaceTransform| |InnerPAdicInteger|
  |IndexedProductCategory| |InnerPrimeField| |InternalPrintPackage|
