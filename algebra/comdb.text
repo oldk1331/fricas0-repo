@@ -1381,7 +1381,7 @@
 140604`\spad{binary(h1,{} h2)} returns a handler \spad{h} such that \spad{h(prec,{} args)} formats the first argument according to \spad{h1} and the second argument by \spad{h2}. Both boxes will be horizontally concatenated. binary(\spad{h1},{} \spad{h2}) is equal to infix(\spad{""},{} maxPrecedence(),{} \spad{h1},{} \spad{h2})
 140760`\spad{binary(h1,{} h2)} returns a handler \spad{h} such that \spad{h(prec,{} args)} formats the first argument according to \spad{h1} and the second argument by \spad{h2}. Both boxes will be horizontally concatenated. binary(\spad{h1},{} \spad{h2}) is equal to infix(\spad{""},{} maxPrecedence(),{} \spad{h1},{} \spad{h2})
 140920`\spad{binaryFunction(s)} is a local function
-141008`\spad{binarySearch(x,{} f)} searches \spad{x} in the cache,{} calling \spad{f(x,{} y)} to determine order. It returns \spad{y} from cache such that \spad{f}(\spad{y}) or failed is no such \spad{y} exists.
+141008`\spad{binarySearch(x,{} f)} searches \spad{x} in the cache,{} calling \spad{f(x,{} y)} to determine order. It returns \spad{y} from cache if \spad{f}(\spad{x},{} \spad{y}) is 0 or "failed" if no such \spad{y} exists.
 141088`\spad{binarySearchTree(l)} constructs a binary search tree with elements from list \spad{l}.
 141153`\spad{binaryTournament(ls)} creates a binary tournament with the elements of \spad{ls} as values of the nodes.
 141218`\spad{binaryTree(v)} is an non-empty binary tree with value \spad{v},{} and left and right empty.
@@ -4752,7 +4752,7 @@
 550361`\spad{linearlyDependentOverConstants?([v1,{} ...,{} vn],{} ld)} returns \spad{true} if the \spad{vi}\spad{'s} are linearly dependent over constants,{} \spad{false} otherwise.
 550471`\spad{linearlyDependentOverZ?([v1,{} ...,{} vn])} returns \spad{true} if the \spad{vi}\spad{'s} are linearly dependent over the integers,{} \spad{false} otherwise.
 550557`\spad{linearPolynomials(lp)} returns \spad{lps,{} nlps} where \spad{lps} is a list of the linear polynomials in \spad{lp},{} and \spad{nlps} are the other ones.
-550680`\spad{linearSearch(x,{} f)} searches \spad{x} in the cache,{} calling \spad{f(y)} to determine whether \spad{x} is equal to \spad{y}. It returns \spad{y} from cache such that \spad{f}(\spad{y}) or failed is no such \spad{y} exists.
+550680`\spad{linearSearch(x,{} f)} searches \spad{x} in the cache,{} calling \spad{f(y)} to determine whether \spad{x} is equal to \spad{y}. It returns \spad{y} from cache if \spad{f}(\spad{y}) is \spad{true} or "failed" if no such \spad{y} exists.
 550758`\spad{lineColorDefault()} returns the default color of lines connecting points in a 2D viewport.
 550821`\spad{lineColorDefault(p)} sets the default color of lines connecting points in a 2D viewport to the palette \spad{p}.
 550891`\spad{lineIntersect(n,{} p)} returns the point where a line,{} from the centre of the boundary to the point \spad{p},{} intersects with the boundary. \spad{n:} \% is the boundary \spad{p:} \spad{PT} is the point at the end of the line (outside boundary)
