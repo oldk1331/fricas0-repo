@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5225 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5227 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -522,12 +522,12 @@
  |cyclotomic?| |cyclotomic_decomposition| |cocyclotomic_decomposition|
  |cyclotomicDecomposition| |cyclotomicFactorization| |doubleResultant|
  |distdfact| |separateDegrees| |exptMod| |trace2PowMod| |tracePowMod|
- |irreducible?| |decimal| |innerint| |faceMap| |triangle| |deltaComplex|
- |circle| |dequeue| |exteriorDifferential| |totalDifferential| |homogeneous?|
- |leadingBasisTerm| |log_plus_1| |ignore?| |computeInt| |checkForZero|
- |doubleFloatFormat| |qsqrt| |qlog| |hypergeometric0F1| |directedGraph|
- |rotatez| |rotatey| |rotatex| |exponentb| |exponenta| |expb| |expa|
- |dictionary| |dioSolve| |additive?| |multiplicative?| |zeta| |newLine|
+ |irreducible?| |decimal| |innerint| |cyclotomic_roots| |faceMap| |triangle|
+ |deltaComplex| |circle| |dequeue| |exteriorDifferential| |totalDifferential|
+ |homogeneous?| |leadingBasisTerm| |log_plus_1| |ignore?| |computeInt|
+ |checkForZero| |doubleFloatFormat| |qsqrt| |qlog| |hypergeometric0F1|
+ |directedGraph| |rotatez| |rotatey| |rotatex| |exponentb| |exponenta| |expb|
+ |expa| |dictionary| |dioSolve| |additive?| |multiplicative?| |zeta| |newLine|
  |copies| |say| |sayLength| |subordinationConvolution| |orthogonalConvolution|
  |monotoneConvolution| |booleanConvolution| |freeConvolution|
  |classicalConvolution| |orthogonalPolynomials| |jacobiParameters|
@@ -1064,32 +1064,33 @@
  |scalarMatrix| |hermite| |completeHermite| |smith| |completeSmith|
  |diophantineSystem| |remap_variables| |csubst| |particularSolution| |linear|
  |quadratic| |cubic| |quartic| |aLinear| |aQuadratic| |aCubic| |aQuartic|
- |radicalSolve| |radicalRoots| |contractSolve| |decomposeFunc| |limitPart|
- |integerPart| |ordinalPower| |ordinalMul| |ordinalAdd| |omegapower| |omega|
- |bubbleSort!| |insertionSort!| |check| |objects| |lprop| |llprop| |lllp|
- |lllip| |lp| |mesh?| |mesh| |polygon?| |polygon| |closedCurve?| |closedCurve|
- |curve?| |curve| |point?| |enterPointData| |composites| |components|
- |numberOfComposites| |numberOfComponents| |create3Space| |outputAsFortran|
- |outputAsScript| |outputAsTex| |abs| |conjugate| |Beta| |digamma| |polygamma|
- |Gamma| |besselJ| |besselY| |besselI| |besselK| |airyAi| |airyAiPrime|
- |airyBi| |airyBiPrime| |lambertW| |polylog| |weierstrassP| |weierstrassPPrime|
- |weierstrassSigma| |weierstrassZeta| |weierstrassPInverse| |whittakerM|
- |whittakerW| |angerJ| |weberE| |struveH| |struveL| |hankelH1| |hankelH2|
- |lommelS1| |lommelS2| |kummerM| |kummerU| |legendreP| |legendreQ| |kelvinBei|
- |kelvinBer| |kelvinKei| |kelvinKer| |ellipticK| |ellipticE| |ellipticF|
- |ellipticPi| |jacobiSn| |jacobiCn| |jacobiDn| |jacobiZeta| |jacobiTheta|
- |lerchPhi| |riemannZeta| |charlierC| |hermiteH| |jacobiP| |laguerreL|
- |meixnerM| |hypergeometricF| |meijerG| |lambertW0| |weierstrassP0|
- |weierstrassPPrime0| |weierstrassZeta0| |weierstrassSigma0| |subNode?|
- |infLex?| |setEmpty!| |setStatus!| |setCondition!| |setValue!| |copy| |status|
- |condition| |value| |splitNodeOf!| |remove!| |remove| |subNodeOf?| |nodeOf?|
- |result| |conditions| |updateStatus!| |extractSplittingLeaf| |extendedCoords|
- |screenCoords| |screenCoordZ| |screenCoordY| |screenCoordX| |inBounds?|
- |isVector?| |isPoint?| |toVector| |toPoint| |perpendicular| |colinearity|
- |parallel| |distance| |distanceSquared| |Pnan?| |dimension| |max| |min|
- |sivec| |svec| |sipnt| |spnt| |squareMatrix| |transpose| |rightTrim|
- |leftTrim| |trim| |split| |position| |replace| |match?| |substring?| |suffix?|
- |prefix?| |upperCase!| |upperCase| |lowerCase!| |lowerCase| |KrullNumber|
+ |radicalSolve| |radicalRoots| |contractSolve| |cyclotomic_case?|
+ |decomposeFunc| |limitPart| |integerPart| |ordinalPower| |ordinalMul|
+ |ordinalAdd| |omegapower| |omega| |bubbleSort!| |insertionSort!| |check|
+ |objects| |lprop| |llprop| |lllp| |lllip| |lp| |mesh?| |mesh| |polygon?|
+ |polygon| |closedCurve?| |closedCurve| |curve?| |curve| |point?|
+ |enterPointData| |composites| |components| |numberOfComposites|
+ |numberOfComponents| |create3Space| |outputAsFortran| |outputAsScript|
+ |outputAsTex| |abs| |conjugate| |Beta| |digamma| |polygamma| |Gamma| |besselJ|
+ |besselY| |besselI| |besselK| |airyAi| |airyAiPrime| |airyBi| |airyBiPrime|
+ |lambertW| |polylog| |weierstrassP| |weierstrassPPrime| |weierstrassSigma|
+ |weierstrassZeta| |weierstrassPInverse| |whittakerM| |whittakerW| |angerJ|
+ |weberE| |struveH| |struveL| |hankelH1| |hankelH2| |lommelS1| |lommelS2|
+ |kummerM| |kummerU| |legendreP| |legendreQ| |kelvinBei| |kelvinBer|
+ |kelvinKei| |kelvinKer| |ellipticK| |ellipticE| |ellipticF| |ellipticPi|
+ |jacobiSn| |jacobiCn| |jacobiDn| |jacobiZeta| |jacobiTheta| |lerchPhi|
+ |riemannZeta| |charlierC| |hermiteH| |jacobiP| |laguerreL| |meixnerM|
+ |hypergeometricF| |meijerG| |lambertW0| |weierstrassP0| |weierstrassPPrime0|
+ |weierstrassZeta0| |weierstrassSigma0| |subNode?| |infLex?| |setEmpty!|
+ |setStatus!| |setCondition!| |setValue!| |copy| |status| |condition| |value|
+ |splitNodeOf!| |remove!| |remove| |subNodeOf?| |nodeOf?| |result| |conditions|
+ |updateStatus!| |extractSplittingLeaf| |extendedCoords| |screenCoords|
+ |screenCoordZ| |screenCoordY| |screenCoordX| |inBounds?| |isVector?|
+ |isPoint?| |toVector| |toPoint| |perpendicular| |colinearity| |parallel|
+ |distance| |distanceSquared| |Pnan?| |dimension| |max| |min| |sivec| |svec|
+ |sipnt| |spnt| |squareMatrix| |transpose| |rightTrim| |leftTrim| |trim|
+ |split| |position| |replace| |match?| |substring?| |suffix?| |prefix?|
+ |upperCase!| |upperCase| |lowerCase!| |lowerCase| |KrullNumber|
  |numberOfVariables| |algebraicDecompose| |transcendentalDecompose|
  |internalDecompose| |decompose| |upDateBranches| |printInfo| |pre_process|
  |internalZeroSetSplit| |internalAugment| |monomial| |leadingMonomial|

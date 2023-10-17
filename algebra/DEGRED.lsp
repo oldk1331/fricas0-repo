@@ -20,8 +20,8 @@
          ($ |Record| (|:| |pol| (|SparseUnivariatePolynomial| R1))
           (|:| |deg| (|PositiveInteger|))))
         (SPROG
-         ((#1=#:G120 NIL) (#2=#:G117 NIL) (#3=#:G115 NIL) (|g| #4=(|Integer|))
-          (#5=#:G109 NIL) (#6=#:G108 #4#) (#7=#:G110 #4#) (#8=#:G124 NIL)
+         ((#1=#:G121 NIL) (#2=#:G118 NIL) (#3=#:G116 NIL) (|g| #4=(|Integer|))
+          (#5=#:G110 NIL) (#6=#:G109 #4#) (#7=#:G111 #4#) (#8=#:G125 NIL)
           (|d| NIL))
          (SEQ
           (LETT |g|
@@ -85,37 +85,80 @@
                                     (QREFELT $ 40))
                                    (QREFELT $ 41))))))))) 
 
-(SDEFUN |DEGRED;expand;EPiL;4|
+(SDEFUN |DEGRED;even_part| ((|gp| |PositiveInteger|) ($ |PositiveInteger|))
+        (SPROG ((|res| (|PositiveInteger|)) (|g| (|NonNegativeInteger|)))
+               (SEQ (LETT |g| |gp|) (LETT |res| 1)
+                    (SEQ G190 (COND ((NULL (EVENP |g|)) (GO G191)))
+                         (SEQ (LETT |g| (QUOTIENT2 |g| 2))
+                              (EXIT (LETT |res| (* |res| 2))))
+                         NIL (GO G190) G191 (EXIT NIL))
+                    (EXIT |res|)))) 
+
+(SDEFUN |DEGRED;expand;EPiL;5|
         ((|s| |Expression| R2) (|g| |PositiveInteger|)
          ($ |List| (|Expression| R2)))
-        (SPROG ((#1=#:G130 NIL) (|i| NIL) (#2=#:G129 NIL))
-               (SEQ
-                (COND ((EQL |g| 1) (LIST |s|))
-                      ('T
-                       (PROGN
-                        (LETT #2# NIL)
-                        (SEQ (LETT |i| 0) (LETT #1# (- |g| 1)) G190
-                             (COND ((|greater_SI| |i| #1#) (GO G191)))
-                             (SEQ
-                              (EXIT
-                               (LETT #2#
-                                     (CONS
-                                      (SPADCALL
-                                       (|DEGRED;rootOfUnity| |i| |g| $)
+        (SPROG
+         ((#1=#:G138 NIL) (|i| NIL) (#2=#:G137 NIL) (|sr| (|Expression| R2))
+          (|g2| (|PositiveInteger|)))
+         (SEQ
+          (COND ((EQL |g| 1) (LIST |s|))
+                (#3='T
+                 (SEQ
+                  (LETT |sr|
+                        (COND
+                         ((SPADCALL |s|
+                                    (SPADCALL (|spadConstant| $ 22)
+                                              (QREFELT $ 35))
+                                    (QREFELT $ 42))
+                          (SEQ (LETT |g2| (|DEGRED;even_part| |g| $))
+                               (EXIT
+                                (COND ((EQL |g2| 1) |s|)
+                                      (#3#
                                        (SPADCALL |s|
-                                                 (SPADCALL 1 |g|
+                                                 (SPADCALL 1 |g2|
                                                            (QREFELT $ 34))
-                                                 (QREFELT $ 38))
-                                       (QREFELT $ 40))
-                                      #2#))))
-                             (LETT |i| (|inc_SI| |i|)) (GO G190) G191
-                             (EXIT (NREVERSE #2#))))))))) 
+                                                 (QREFELT $ 38)))))))
+                         (#3#
+                          (SPADCALL |s| (SPADCALL 1 |g| (QREFELT $ 34))
+                                    (QREFELT $ 38)))))
+                  (EXIT
+                   (PROGN
+                    (LETT #2# NIL)
+                    (SEQ (LETT |i| 0) (LETT #1# (- |g| 1)) G190
+                         (COND ((|greater_SI| |i| #1#) (GO G191)))
+                         (SEQ
+                          (EXIT
+                           (LETT #2#
+                                 (CONS
+                                  (SPADCALL (|DEGRED;rootOfUnity| |i| |g| $)
+                                            |sr| (QREFELT $ 40))
+                                  #2#))))
+                         (LETT |i| (|inc_SI| |i|)) (GO G190) G191
+                         (EXIT (NREVERSE #2#))))))))))) 
+
+(SDEFUN |DEGRED;cyclotomic_roots;PiL;6|
+        ((|n| |PositiveInteger|) ($ |List| (|Expression| R2)))
+        (SPROG ((#1=#:G142 NIL) (|i| NIL) (#2=#:G141 NIL))
+               (SEQ
+                (PROGN
+                 (LETT #2# NIL)
+                 (SEQ (LETT |i| 0) (LETT #1# (- |n| 1)) G190
+                      (COND ((|greater_SI| |i| #1#) (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (COND
+                         ((EQL (GCD |i| |n|) 1)
+                          (LETT #2#
+                                (CONS (|DEGRED;rootOfUnity| |i| |n| $)
+                                      #2#))))))
+                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191
+                      (EXIT (NREVERSE #2#))))))) 
 
 (DECLAIM (NOTINLINE |DegreeReductionPackage;|)) 
 
-(DEFUN |DegreeReductionPackage| (&REST #1=#:G131)
+(DEFUN |DegreeReductionPackage| (&REST #1=#:G143)
   (SPROG NIL
-         (PROG (#2=#:G132)
+         (PROG (#2=#:G144)
            (RETURN
             (COND
              ((LETT #2#
@@ -138,7 +181,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|DegreeReductionPackage| DV$1 DV$2))
-          (LETT $ (GETREFV 45))
+          (LETT $ (GETREFV 47))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|DegreeReductionPackage|
@@ -155,15 +198,16 @@
               (0 . |Zero|) (4 . |Zero|) (|SparseUnivariatePolynomial| 6)
               (8 . |Zero|) (|Boolean|) (12 . ~=) (|NonNegativeInteger|)
               (18 . |degree|) (23 . |reductum|) (|Union| $ '"failed")
-              (28 . |divideExponents|) (|Record| (|:| |pol| 10) (|:| |deg| 43))
+              (28 . |divideExponents|) (|Record| (|:| |pol| 10) (|:| |deg| 44))
               |DEGRED;reduce;SupR;2| (|Expression| 7) (34 . |One|) (38 . |pi|)
               (|Integer|) (42 . *) (48 . |coerce|) (53 . /) (59 . |cos|)
               (64 . |One|) (68 . |One|) (72 . -) (77 . -) (|Fraction| 24)
               (82 . /) (88 . -)
               (|SparseMultivariatePolynomial| 7 (|Kernel| 21)) (93 . |One|)
-              (97 . ^) (103 . |sin|) (108 . *) (114 . +) (|List| 21)
-              (|PositiveInteger|) |DEGRED;expand;EPiL;4|)
-           '#(|reduce| 120 |expand| 125) 'NIL
+              (97 . ^) (103 . |sin|) (108 . *) (114 . +) (120 . =) (|List| 21)
+              (|PositiveInteger|) |DEGRED;expand;EPiL;5|
+              |DEGRED;cyclotomic_roots;PiL;6|)
+           '#(|reduce| 126 |expand| 131 |cyclotomic_roots| 137) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -180,9 +224,13 @@
                               '((|expand|
                                  ((|List| (|Expression| |#2|))
                                   (|Expression| |#2|) (|PositiveInteger|)))
+                                T)
+                              '((|cyclotomic_roots|
+                                 ((|List| (|Expression| |#2|))
+                                  (|PositiveInteger|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 44
+                        (|makeByteWordVec2| 46
                                             '(0 6 0 8 0 7 0 9 0 10 0 11 2 10 12
                                               0 0 13 1 10 14 0 15 1 10 0 0 16 2
                                               10 17 0 14 18 0 21 0 22 0 21 0 23
@@ -191,6 +239,7 @@
                                               0 30 1 7 0 0 31 1 6 0 0 32 2 33 0
                                               24 24 34 1 21 0 0 35 0 36 0 37 2
                                               21 0 0 33 38 1 21 0 0 39 2 21 0 0
-                                              0 40 2 21 0 0 0 41 1 0 19 10 20 2
-                                              0 42 21 43 44)))))
+                                              0 40 2 21 0 0 0 41 2 21 12 0 0 42
+                                              1 0 19 10 20 2 0 43 21 44 45 1 0
+                                              43 44 46)))))
            '|lookupComplete|)) 
