@@ -74,9 +74,7 @@
                                                (QREFELT $ 32))
                                      (QREFELT $ 30)))))))
                       (LETT |u| (|sub_DF| 1.0 |x|))
-                      (LETT |sy|
-                            (FLOAT (SPADCALL |y| (QREFELT $ 27))
-                                   MOST-POSITIVE-DOUBLE-FLOAT))
+                      (LETT |sy| (FLOAT-SIGN |y| 1.0))
                       (EXIT
                        (COND
                         ((|eql_DF| |u| 0.0)

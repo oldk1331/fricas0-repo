@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5245 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5249 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -660,11 +660,11 @@
  |iiabs| |iiconjugate| |iiBeta| |iidigamma| |iipolygamma| |iiBesselJ|
  |iiBesselY| |iiBesselI| |iiBesselK| |iiAiryAi| |iiAiryAiPrime| |iiAiryBi|
  |iiAiryBiPrime| |iAiryAi| |iAiryAiPrime| |iAiryBi| |iAiryBiPrime|
- |iiHypergeometricF| |iiPolylog| |iLambertW| |bringDown| |newReduc| |logical?|
- |character?| |doubleComplex?| |complex?| |double?| |fortranCharacter|
- |fortranDoubleComplex| |fortranComplex| |fortranLogical| |fortranInteger|
- |fortranDouble| |fortranReal| |external?| |dimensionsOf| |scalarTypeOf|
- |fortranCarriageReturn| |fortranLiteral| |fortranLiteralLine|
+ |iiHypergeometricF| |iiPolylog| |iLambertW| |retract_Q| |coerce_Q| |bringDown|
+ |newReduc| |logical?| |character?| |doubleComplex?| |complex?| |double?|
+ |fortranCharacter| |fortranDoubleComplex| |fortranComplex| |fortranLogical|
+ |fortranInteger| |fortranDouble| |fortranReal| |external?| |dimensionsOf|
+ |scalarTypeOf| |fortranCarriageReturn| |fortranLiteral| |fortranLiteralLine|
  |processTemplate| |separate_factors| |makeFR| |musserTrials|
  |stopMusserTrials| |numberOfFactors| |modularFactor| |useSingleFactorBound?|
  |useSingleFactorBound| |useEisensteinCriterion?| |useEisensteinCriterion|
@@ -993,14 +993,13 @@
  |ridHack1| |interpolate| |nullity| |column| |qelt| |maxColIndex| |minColIndex|
  |maxRowIndex| |minRowIndex| |antisymmetric?| |symmetric?| |diagonal?|
  |square?| |matrix| |rectangularMatrix| |annihilate?| |characteristic| |round|
- |fractionPart| |wholePart| |floor| |ceiling| |norm| |mightHaveRoots| |refine|
- |middle| |size| |right| |left| |roman| |mainSquareFreePart|
- |mainPrimitivePart| |mainContent| |primitivePart!| |gcd| |iexactQuo|
- |next_subResultant2| |LazardQuotient2| |LazardQuotient| |subResultantChain|
- |halfExtendedSubResultantGcd2| |halfExtendedSubResultantGcd1|
- |extendedSubResultantGcd| |exactQuotient!| |exactQuotient|
- |primPartElseUnitCanonical!| |primPartElseUnitCanonical| |retract|
- |retractIfCan| |lazyResidueClass| |monicModulo| |lazyPseudoDivide|
+ |wholePart| |norm| |mightHaveRoots| |refine| |middle| |size| |right| |left|
+ |roman| |mainSquareFreePart| |mainPrimitivePart| |mainContent|
+ |primitivePart!| |gcd| |iexactQuo| |next_subResultant2| |LazardQuotient2|
+ |LazardQuotient| |subResultantChain| |halfExtendedSubResultantGcd2|
+ |halfExtendedSubResultantGcd1| |extendedSubResultantGcd| |exactQuotient!|
+ |exactQuotient| |primPartElseUnitCanonical!| |primPartElseUnitCanonical|
+ |retract| |retractIfCan| |lazyResidueClass| |monicModulo| |lazyPseudoDivide|
  |lazyPremWithDefault| |lazyPquo| |lazyPrem| |pquo| |prem| |supRittWu?|
  |RittWuCompare| |mainMonomials| |mainCoefficients| |leastMonomial|
  |mainMonomial| |quasiMonic?| |monic?| |deepestInitial| |iteratedInitials|
@@ -1079,19 +1078,20 @@
  |polygon| |closedCurve?| |closedCurve| |curve?| |curve| |point?|
  |enterPointData| |composites| |components| |numberOfComposites|
  |numberOfComponents| |create3Space| |outputAsFortran| |outputAsScript|
- |outputAsTex| |abs| |conjugate| |Beta| |digamma| |polygamma| |Gamma| |besselJ|
- |besselY| |besselI| |besselK| |airyAi| |airyAiPrime| |airyBi| |airyBiPrime|
- |lambertW| |polylog| |weierstrassP| |weierstrassPPrime| |weierstrassSigma|
- |weierstrassZeta| |weierstrassPInverse| |whittakerM| |whittakerW| |angerJ|
- |weberE| |struveH| |struveL| |hankelH1| |hankelH2| |lommelS1| |lommelS2|
- |kummerM| |kummerU| |legendreP| |legendreQ| |kelvinBei| |kelvinBer|
- |kelvinKei| |kelvinKer| |ellipticK| |ellipticE| |ellipticF| |ellipticPi|
- |jacobiSn| |jacobiCn| |jacobiDn| |jacobiZeta| |jacobiTheta| |lerchPhi|
- |riemannZeta| |charlierC| |hermiteH| |jacobiP| |laguerreL| |meixnerM|
- |hypergeometricF| |meijerG| |lambertW0| |weierstrassP0| |weierstrassPPrime0|
- |weierstrassZeta0| |weierstrassSigma0| |subNode?| |infLex?| |setEmpty!|
- |setStatus!| |setCondition!| |setValue!| |copy| |status| |condition| |value|
- |splitNodeOf!| |remove!| |remove| |subNodeOf?| |nodeOf?| |result| |conditions|
+ |outputAsTex| |abs| |unitStep| |ceiling| |floor| |fractionPart| |diracDelta|
+ |conjugate| |Beta| |digamma| |polygamma| |Gamma| |besselJ| |besselY| |besselI|
+ |besselK| |airyAi| |airyAiPrime| |airyBi| |airyBiPrime| |lambertW| |polylog|
+ |weierstrassP| |weierstrassPPrime| |weierstrassSigma| |weierstrassZeta|
+ |weierstrassPInverse| |whittakerM| |whittakerW| |angerJ| |weberE| |struveH|
+ |struveL| |hankelH1| |hankelH2| |lommelS1| |lommelS2| |kummerM| |kummerU|
+ |legendreP| |legendreQ| |kelvinBei| |kelvinBer| |kelvinKei| |kelvinKer|
+ |ellipticK| |ellipticE| |ellipticF| |ellipticPi| |jacobiSn| |jacobiCn|
+ |jacobiDn| |jacobiZeta| |jacobiTheta| |lerchPhi| |riemannZeta| |charlierC|
+ |hermiteH| |jacobiP| |laguerreL| |meixnerM| |hypergeometricF| |meijerG|
+ |lambertW0| |weierstrassP0| |weierstrassPPrime0| |weierstrassZeta0|
+ |weierstrassSigma0| |subNode?| |infLex?| |setEmpty!| |setStatus!|
+ |setCondition!| |setValue!| |copy| |status| |condition| |value| |splitNodeOf!|
+ |remove!| |remove| |subNodeOf?| |nodeOf?| |result| |conditions|
  |updateStatus!| |extractSplittingLeaf| |extendedCoords| |screenCoords|
  |screenCoordZ| |screenCoordY| |screenCoordX| |inBounds?| |isVector?|
  |isPoint?| |toVector| |toPoint| |perpendicular| |colinearity| |parallel|

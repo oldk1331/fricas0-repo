@@ -13,7 +13,10 @@
              (LETT #1#
                    (|Join|
                     (|mkCategory|
-                     '(((|abs| ($ $)) T) ((|conjugate| ($ $)) T)
+                     '(((|abs| ($ $)) T) ((|sign| ($ $)) T)
+                       ((|unitStep| ($ $)) T) ((|ceiling| ($ $)) T)
+                       ((|floor| ($ $)) T) ((|fractionPart| ($ $)) T)
+                       ((|diracDelta| ($ $)) T) ((|conjugate| ($ $)) T)
                        ((|Gamma| ($ $)) T) ((|Beta| ($ $ $)) T)
                        ((|digamma| ($ $)) T) ((|polygamma| ($ $ $)) T)
                        ((|Gamma| ($ $ $)) T) ((|besselJ| ($ $ $)) T)
