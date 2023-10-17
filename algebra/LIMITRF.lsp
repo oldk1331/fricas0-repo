@@ -201,10 +201,12 @@
                              (COND ((QEQCAR |lhsl| 1) (CONS 2 "failed"))
                                    (#4# (CONS 1 (CONS |lhsl| |rhsl|)))))
                             ((QEQCAR |lhsl| 1) (CONS 1 (CONS |lhsl| |rhsl|)))
-                            ((SPADCALL (QCDR |rhsl|) (QCDR |lhsl|)
-                                       (QREFELT $ 65))
-                             (CONS 0 (QCDR |lhsl|)))
-                            (#4# (CONS 1 (CONS |lhsl| |rhsl|)))))))))))
+                            (#4#
+                             (COND
+                              ((SPADCALL (QCDR |rhsl|) (QCDR |lhsl|)
+                                         (QREFELT $ 65))
+                               (CONS 0 (QCDR |lhsl|)))
+                              (#4# (CONS 1 (CONS |lhsl| |rhsl|)))))))))))))
            (#4#
             (CONS 0
                   (SPADCALL (SPADCALL |n| |d| (QREFELT $ 62))
@@ -374,9 +376,9 @@
 
 (DECLAIM (NOTINLINE |RationalFunctionLimitPackage;|)) 
 
-(DEFUN |RationalFunctionLimitPackage| (#1=#:G225)
+(DEFUN |RationalFunctionLimitPackage| (#1=#:G227)
   (SPROG NIL
-         (PROG (#2=#:G226)
+         (PROG (#2=#:G228)
            (RETURN
             (COND
              ((LETT #2#

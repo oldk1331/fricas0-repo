@@ -57,9 +57,9 @@
 
 (DECLAIM (NOTINLINE |InnerPolySign;|)) 
 
-(DEFUN |InnerPolySign| (&REST #1=#:G131)
+(DEFUN |InnerPolySign| (&REST #1=#:G133)
   (SPROG NIL
-         (PROG (#2=#:G132)
+         (PROG (#2=#:G134)
            (RETURN
             (COND
              ((LETT #2#

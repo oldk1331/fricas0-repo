@@ -522,10 +522,10 @@
 
 (SDEFUN |RECOP;irecur| ((|l| |List| F) ($ F))
         (SPROG
-         ((#1=#:G254 NIL) (|s| (|Stream| F)) (|ll| (|List| F)) (#2=#:G256 NIL)
-          (|i| NIL) (#3=#:G255 NIL) (|o| (|NonNegativeInteger|))
-          (#4=#:G243 NIL) (|g| (|Mapping| (|List| F) (|List| F)))
-          (#5=#:G239 NIL) (N (|NonNegativeInteger|)) (#6=#:G237 NIL)
+         ((#1=#:G252 NIL) (|s| (|Stream| F)) (|ll| (|List| F)) (#2=#:G254 NIL)
+          (|i| NIL) (#3=#:G253 NIL) (|o| (|NonNegativeInteger|))
+          (#4=#:G241 NIL) (|g| (|Mapping| (|List| F) (|List| F)))
+          (#5=#:G237 NIL) (N (|NonNegativeInteger|)) (#6=#:G235 NIL)
           (|info|
            (|Record| (|:| |eqn| F) (|:| |idx| (|Symbol|))
                      (|:| |fnc| (|BasicOperator|)) (|:| |par| (|List| F))
@@ -566,7 +566,7 @@
                           (PROGN
                            (LETT #1#
                                  (SPADCALL (QREFELT $ 11) |l| (QREFELT $ 55)))
-                           (GO #9=#:G253)))
+                           (GO #9=#:G251)))
                          (#10='T
                           (SEQ
                            (LETT N (SPADCALL (QVELT |info| 4) (QREFELT $ 79)))
@@ -642,9 +642,9 @@
 
 (SDEFUN |RECOP;ddrec| ((|l| |List| F) ($ |OutputForm|))
         (SPROG
-         ((|RecList| (|List| (|OutputForm|))) (#1=#:G266 NIL) (|i| NIL)
-          (#2=#:G265 NIL) (|RecEq| #3=(|OutputForm|)) (|RecCoeff| #3#)
-          (|v| (|NonNegativeInteger|)) (#4=#:G259 NIL) (|e| (F))
+         ((|RecList| (|List| (|OutputForm|))) (#1=#:G264 NIL) (|i| NIL)
+          (#2=#:G263 NIL) (|RecEq| #3=(|OutputForm|)) (|RecCoeff| #3#)
+          (|v| (|NonNegativeInteger|)) (#4=#:G257 NIL) (|e| (F))
           (|lv| #5=(|List| F)) (|lp| #5#) (|f| (|BasicOperator|)) (|n0| (F))
           (|n| (F))
           (|info|
@@ -733,7 +733,7 @@
         ((|op| |BasicOperator|) (|v| |Symbol|) (|argsym| |Symbol|) (|eq| F)
          (|params| |List| F) (|values| |Stream| F) ($ F))
         (SPROG
-         ((#1=#:G311 NIL) (|fn| (|Mapping| (|Stream| F)))
+         ((#1=#:G309 NIL) (|fn| (|Mapping| (|Stream| F)))
           (|explicit?| (|Boolean|)) (|s| (|uts|)) (|a| (|Any|))
           (|uts|
            (|Join| (|UnivariateTaylorSeriesCategory| F)
@@ -920,7 +920,7 @@
                                      (SPADCALL |info| NIL (QREFELT $ 55)))
                                |params| (QREFELT $ 56))
                               (QREFELT $ 55)))
-              (GO #3=#:G310)))))
+              (GO #3=#:G308)))))
           #3# (EXIT #1#)))) 
 
 (SDEFUN |RECOP;makeFEq;Bo2SFLSF;11!10| (($$ NIL))
@@ -1100,8 +1100,8 @@
 
 (SDEFUN |RECOP;iADE| ((|l| |List| F) ($ F))
         (SPROG
-         ((#1=#:G329 NIL) (|g| (|Mapping| (|Stream| F))) (#2=#:G321 NIL)
-          (N (|NonNegativeInteger|)) (#3=#:G319 NIL)
+         ((#1=#:G325 NIL) (|g| (|Mapping| (|Stream| F))) (#2=#:G317 NIL)
+          (N (|NonNegativeInteger|)) (#3=#:G315 NIL)
           (|info|
            (|Record| (|:| |eqn| F) (|:| |idx| (|Symbol|))
                      (|:| |fnc| (|BasicOperator|)) (|:| |var| (|Symbol|))
@@ -1141,7 +1141,7 @@
                           (PROGN
                            (LETT #1#
                                  (SPADCALL (QREFELT $ 12) |l| (QREFELT $ 55)))
-                           (GO #5=#:G328)))
+                           (GO #5=#:G324)))
                          (#6='T
                           (SEQ
                            (LETT N (SPADCALL (QVELT |info| 5) (QREFELT $ 79)))
@@ -1178,7 +1178,7 @@
 
 (SDEFUN |RECOP;getEq;2F;13| ((|f| F) ($ F))
         (SPROG
-         ((#1=#:G338 NIL) (|info| #2=(|BasicOperator|)) (|arg| (|List| F))
+         ((#1=#:G334 NIL) (|info| #2=(|BasicOperator|)) (|arg| (|List| F))
           (|op| #2#) (|kl| (|List| (|Kernel| F))))
          (SEQ
           (EXIT
@@ -1199,7 +1199,7 @@
                           (EXIT
                            (PROGN
                             (LETT #1# (QVELT (|RECOP;getINFOSER| |info| $) 0))
-                            (GO #3=#:G337))))))
+                            (GO #3=#:G333))))))
                        (EXIT
                         (COND
                          ((SPADCALL |op| '|rootOfRec| (QREFELT $ 119))
@@ -1220,7 +1220,7 @@
 
 (SDEFUN |RECOP;eltable?;FB;14| ((|f| F) ($ |Boolean|))
         (SPROG
-         ((#1=#:G354 NIL) (|info| #2=(|BasicOperator|)) (|arg| (|List| F))
+         ((#1=#:G350 NIL) (|info| #2=(|BasicOperator|)) (|arg| (|List| F))
           (|op| #2#) (|kl| (|List| (|Kernel| F))))
          (SEQ
           (EXIT
@@ -1245,7 +1245,7 @@
                                    (QEQCAR
                                     (QVELT (|RECOP;getINFOSER| |info| $) 7)
                                     1)))
-                            (GO #3=#:G353))))))
+                            (GO #3=#:G349))))))
                        (EXIT
                         (COND
                          ((SPADCALL |op| '|rootOfRec| (QREFELT $ 119))
@@ -1279,8 +1279,8 @@
 (SDEFUN |RECOP;ddADE| ((|l| |List| F) ($ |OutputForm|))
         (SPROG
          ((|TaylorPoly| (|OutputForm|)) (|TaylorO| (|OutputForm|))
-          (|TaylorList| (|List| (|OutputForm|))) (#1=#:G370 NIL) (|i| NIL)
-          (#2=#:G369 NIL) (|v| (|NonNegativeInteger|)) (#3=#:G359 NIL)
+          (|TaylorList| (|List| (|OutputForm|))) (#1=#:G366 NIL) (|i| NIL)
+          (#2=#:G365 NIL) (|v| (|NonNegativeInteger|)) (#3=#:G355 NIL)
           (|DiffEq| (|OutputForm|)) (|TaylorCoeff| (|OutputForm|)) (|e| (F))
           (|f| (|BasicOperator|)) (|n| (F)) (|x| (F))
           (|info|
@@ -1396,9 +1396,9 @@
 
 (DECLAIM (NOTINLINE |RecurrenceOperator;|)) 
 
-(DEFUN |RecurrenceOperator| (&REST #1=#:G379)
+(DEFUN |RecurrenceOperator| (&REST #1=#:G375)
   (SPROG NIL
-         (PROG (#2=#:G380)
+         (PROG (#2=#:G376)
            (RETURN
             (COND
              ((LETT #2#
