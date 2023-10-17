@@ -2081,7 +2081,7 @@
               (209 . |factor|) (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 75) (|:| |factor| 56) (|:| |exponent| 7))
               (|List| 76) (|Factored| 56) (214 . |factorList|) (219 . =)
-              (|DistinctDegreeFactorize| 6 24) (225 . |irreducible?|)
+              (|UnivariateFiniteFieldFactorize| 6 24) (225 . |irreducible?|)
               |FFPOLY;primitive?;SupB;9| (230 . |rank|)
               |FFPOLY;normal?;SupB;10| (|List| 7) (235 . |#|)
               (240 . |setfirst!|) (246 . |numberOfMonomials|) (251 . |lookup|)

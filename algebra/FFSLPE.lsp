@@ -146,7 +146,7 @@
               (|Boolean|) (|List| 8) (14 . ~=) (20 . |degree|) (25 . +)
               (|Union| 30 '"failed") (|GenExEuclid| 7 8) (31 . |tablePow|)
               (|Union| % '"failed") (38 . |nextItem|) (43 . |degree|)
-              (|DistinctDegreeFactorize| 6 7) (48 . |irreducible?|)
+              (|UnivariateFiniteFieldFactorize| 6 7) (48 . |irreducible?|)
               (|Union| 17 '"failed") (|Vector| 17) (53 . |solveid|)
               |FFSLPE;solveLinearPolynomialEquation;LFPPU;1|)
            '#(|solveLinearPolynomialEquation| 60) 'NIL
