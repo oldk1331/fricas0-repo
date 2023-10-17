@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5228 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5226 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -26,8 +26,8 @@
  |unitsKnown| |VariablesCommuteWithCoefficients| |Automorphism|
  |BalancedFactorisation| |BasicType&| |BasicType| |BalancedBinaryTree|
  |BoundedDistributiveLattice| |BezoutMatrix| |BezoutMatrixWrapper|
- |BagAggregate&| |BagAggregate| |Bialgebra| |BiCPO| |BinaryExpansion|
- |BinaryFile| |Bits| |BitStreamFrame| |BoundedJoinSemilattice| |BoundedLattice|
+ |BagAggregate&| |BagAggregate| |Bialgebra| |BiCPO| |BinaryExpansion| |Bits|
+ |BitStreamFrame| |BoundedJoinSemilattice| |BoundedLattice|
  |BoundedMeetSemilattice| |BiModule| |Boolean| |BasicOperator|
  |BasicOperatorFunctions1| |BoundIntegerRoots| |BalancedPAdicInteger|
  |BalancedPAdicRational| |BinaryRecursiveAggregate&| |BinaryRecursiveAggregate|
@@ -478,15 +478,15 @@
  |uncouplingMatrices| |associatedEquations| |arrayStack| |morphism|
  |balancedFactorisation| |mapDown!| |mapUp!| |setleaves!| |balancedBinaryTree|
  |sylvesterMatrix| |subSylvesterMatrix| |bezoutMatrix| |subresultants|
- |bezoutResultant| |bezoutDiscriminant| |inspect| |extract!| |position!|
- |starts| |_\|_| T$ |test| |setProperties| |setProperty| |property|
- |deleteProperty!| |assert| |has?| |input| |comparison| |equality| |nary?|
- |unary?| |nullary?| |arity| |properties| |derivative| |constantOperator|
- |constantOpIfCan| |setright!| |setleft!| |brillhartIrreducible?|
- |brillhartTrials| |noLinearFactor?| |insertRoot!| |binarySearchTree| |nor|
- |nand| |node| |binaryTournament| |binaryTree| |subtractIfCan| |setPosition|
- |cylindricalDecomposition| |projectionSet| |coefficientSet| |discriminantSet|
- |resultantSet| |principalSubResultantSet| |specialise| |squareFreeBasis|
+ |bezoutResultant| |bezoutDiscriminant| |inspect| |extract!| |starts| |_\|_| T$
+ |test| |setProperties| |setProperty| |property| |deleteProperty!| |assert|
+ |has?| |input| |comparison| |equality| |nary?| |unary?| |nullary?| |arity|
+ |properties| |derivative| |constantOperator| |constantOpIfCan| |setright!|
+ |setleft!| |brillhartIrreducible?| |brillhartTrials| |noLinearFactor?|
+ |insertRoot!| |binarySearchTree| |nor| |nand| |node| |binaryTournament|
+ |binaryTree| |subtractIfCan| |setPosition| |cylindricalDecomposition|
+ |projectionSet| |coefficientSet| |discriminantSet| |resultantSet|
+ |principalSubResultantSet| |specialise| |squareFreeBasis|
  |generalizedContinuumHypothesisAssumed|
  |generalizedContinuumHypothesisAssumed?| |countable?| |Aleph| |unravel|
  |ravel| |leviCivitaSymbol| |kroneckerDelta| |reshape| |alphanumeric|
