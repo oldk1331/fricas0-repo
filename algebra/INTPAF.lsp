@@ -1816,11 +1816,6 @@
                                             (|SparseUnivariatePolynomial|
                                              (QREFELT % 7))))
                                           (QVELT |cv| 1)))
-          (SPADCALL (QVELT |cv| 4)
-                    (|compiledLookupCheck| '|knownInfBasis|
-                                           (LIST (LIST '|Void|)
-                                                 (LIST '|NonNegativeInteger|))
-                                           |curve|))
           (EXIT (|INTPAF;do_curve| |curve| |cv| |x| |k| %))))) 
 
 (SDEFUN |INTPAF;palgint;F2KIr;23|
