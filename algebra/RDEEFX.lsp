@@ -138,7 +138,7 @@
                  (EXIT (CONS 0 (VECTOR |c1| |r1rf| |n|))))))))) 
 
 (SDEFUN |RDEEFX;ei_int_alg|
-        ((|n| |Integer|) (|f| F) (|g| F) (|x| |Symbol|) (|k| |Kernel| F)
+        ((|f| F) (|g| F) (|x| |Symbol|) (|k| |Kernel| F)
          (|lk| |List| (|Kernel| F))
          ($ |Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
           (|:| |sol?| (|Boolean|))))
@@ -188,8 +188,7 @@
                       (LETT |nf|
                             (SPADCALL |f| (LIST |kx| |k|) (LIST |fx| |fy|)
                                       (QREFELT $ 64)))
-                      (LETT |res1|
-                            (SPADCALL |n| |nf| |ng| |nx| (QREFELT $ 66)))
+                      (LETT |res1| (SPADCALL 1 |nf| |ng| |nx| (QREFELT $ 66)))
                       (LETT |kf| (SPADCALL |k| (QREFELT $ 61)))
                       (LETT |r1|
                             (SPADCALL
@@ -568,7 +567,7 @@
           (|av| #3=(|Vector| (|Integer|))) (|ki| (|Integer|))
           (|di| (|Integer|)) (|g| #4=(|Integer|)) (|c2| #5=(|Integer|))
           (|c1| #6=(|Integer|))
-          (|#G55|
+          (|#G54|
            (|Record| (|:| |coef1| #6#) (|:| |coef2| #5#)
                      (|:| |generator| #4#)))
           (|ki1| (|Integer|)) (|di2| (|Integer|)) (|di1| (|Integer|))
@@ -721,21 +720,21 @@
                                                                             $
                                                                             119)))
                                                            (PROGN
-                                                            (LETT |#G55|
+                                                            (LETT |#G54|
                                                                   (SPADCALL
                                                                    |di| |di2|
                                                                    (QREFELT $
                                                                             121)))
                                                             (LETT |c1|
-                                                                  (QVELT |#G55|
+                                                                  (QVELT |#G54|
                                                                          0))
                                                             (LETT |c2|
-                                                                  (QVELT |#G55|
+                                                                  (QVELT |#G54|
                                                                          1))
                                                             (LETT |g|
-                                                                  (QVELT |#G55|
+                                                                  (QVELT |#G54|
                                                                          2))
-                                                            |#G55|)
+                                                            |#G54|)
                                                            (LETT |di|
                                                                  (* |di2|
                                                                     |di|))
@@ -3355,8 +3354,8 @@
         (SPROG
          ((|w1| (F)) (|a| (F)) (|rls| (|List| (|Integer|))) (#1=#:G758 NIL)
           (|li| NIL) (#2=#:G757 NIL) (|km| #3=(|Integer|)) (|s| #3#)
-          (|kmq| NIL) (|#G213| #4=(|List| (|Fraction| (|Integer|)))) (|sq| NIL)
-          (|#G212| #4#) (#5=#:G756 NIL) (|sk| NIL) (|lsk| (|List| #4#))
+          (|kmq| NIL) (|#G212| #4=(|List| (|Fraction| (|Integer|)))) (|sq| NIL)
+          (|#G211| #4#) (#5=#:G756 NIL) (|sk| NIL) (|lsk| (|List| #4#))
           (|tk| (|Kernel| F)) (|w0| (F)) (|ak| (F)) (#6=#:G754 NIL)
           (#7=#:G755 NIL) (|kk| NIL) (|rl| (|List| (|Integer|)))
           (|cl| (|List| F)) (#8=#:G750 NIL) (|f2| (F)) (|ck| (F))
@@ -3513,12 +3512,12 @@
                                        (GO G191)))
                                      (SEQ
                                       (PROGN
-                                       (LETT |#G212| |sk|)
-                                       (LETT |#G213| |#G212|)
-                                       (LETT |sq| (|SPADfirst| |#G213|))
-                                       (LETT |#G213| (CDR |#G213|))
-                                       (LETT |kmq| (|SPADfirst| |#G213|))
-                                       |#G212|)
+                                       (LETT |#G211| |sk|)
+                                       (LETT |#G212| |#G211|)
+                                       (LETT |sq| (|SPADfirst| |#G212|))
+                                       (LETT |#G212| (CDR |#G212|))
+                                       (LETT |kmq| (|SPADfirst| |#G212|))
+                                       |#G211|)
                                       (EXIT
                                        (COND
                                         ((OR
@@ -4599,7 +4598,7 @@
             (|:| |particular| (|Union| (|Vector| (|Integer|)) #8="failed"))
             (|:| |basis| (|List| (|Vector| (|Integer|))))))
           (|v2| #9=(|Vector| (|Integer|))) (|m2| #10=(|Matrix| (|Integer|)))
-          (|#G330| (|Record| (|:| |mat| #10#) (|:| |vec| #9#))) (|v1| #1#)
+          (|#G329| (|Record| (|:| |mat| #10#) (|:| |vec| #9#))) (|v1| #1#)
           (|m1| (|Matrix| F)) (#11=#:G1017 NIL) (|v| NIL) (#12=#:G1016 NIL)
           (|lv| (|List| F)) (|c2| (F)) (|c1| (F)) (|c0| (F)) (|r4| (F))
           (|ulst1| (|List| F)) (|vlst1| (|List| F)) (#13=#:G1014 NIL)
@@ -5001,12 +5000,12 @@
                                                            (QREFELT $ 62)))
                                                 (QREFELT $ 81)))
                                          (PROGN
-                                          (LETT |#G330|
+                                          (LETT |#G329|
                                                 (SPADCALL |m1| |v1|
                                                           (QREFELT $ 299)))
-                                          (LETT |m2| (QCAR |#G330|))
-                                          (LETT |v2| (QCDR |#G330|))
-                                          |#G330|)
+                                          (LETT |m2| (QCAR |#G329|))
+                                          (LETT |v2| (QCDR |#G329|))
+                                          |#G329|)
                                          (LETT |sol_rec|
                                                (SPADCALL |m2| |v2|
                                                          (QREFELT $ 304)))
@@ -7584,7 +7583,7 @@
            (|Mapping| (|SparseUnivariatePolynomial| F)
                       (|SparseUnivariatePolynomial| F)))
           (|gexp| (|Integer|)) (|gden1| (|SparseUnivariatePolynomial| F))
-          (|#G484|
+          (|#G483|
            (|Record| (|:| |radicand| (|SparseUnivariatePolynomial| F))
                      (|:| |exponent| (|Integer|))))
           (|res5|
@@ -7655,7 +7654,7 @@
                      (COND
                       ((SPADCALL (SPADCALL |k| (QREFELT $ 24)) (QREFELT $ 8)
                                  (QREFELT $ 25))
-                       (|RDEEFX;ei_int_alg| 1 |f| |g| |x| |k| |lk| $))
+                       (|RDEEFX;ei_int_alg| |f| |g| |x| |k| |lk| $))
                       (#21#
                        (SEQ (LETT |fpu| (SPADCALL |fp| |k| (QREFELT $ 35)))
                             (LETT |gu| (SPADCALL |g| |k| (QREFELT $ 35)))
@@ -8044,12 +8043,12 @@
                                                                        $ 47))
                                                             (QREFELT $ 50)))
                                             (PROGN
-                                             (LETT |#G484|
+                                             (LETT |#G483|
                                                    (|RDEEFX;gamma_denominator|
                                                     |denf| |k| $))
-                                             (LETT |gden1| (QCAR |#G484|))
-                                             (LETT |gexp| (QCDR |#G484|))
-                                             |#G484|)
+                                             (LETT |gden1| (QCAR |#G483|))
+                                             (LETT |gexp| (QCDR |#G483|))
+                                             |#G483|)
                                             (LETT |derivation2|
                                                   (CONS
                                                    #'|RDEEFX;ei_int;I2FSR;58!3|
