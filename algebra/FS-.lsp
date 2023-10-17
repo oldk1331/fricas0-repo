@@ -2054,15 +2054,16 @@
                                (CONS (|dispatchFunction| |FS-;isPower;SU;71|)
                                      $))
                      (COND
-                      ((|HasCategory| |#2|
-                                      '(|ConvertibleTo|
-                                        (|Pattern| (|Integer|))))
+                      ((|HasCategory|
+                        (|SparseMultivariatePolynomial| |#2| (|Kernel| |#1|))
+                        '(|ConvertibleTo| (|Pattern| (|Integer|))))
                        (QSETREFV $ 256
                                  (CONS (|dispatchFunction| |FS-;convert;SP;72|)
                                        $))))
                      (COND
-                      ((|HasCategory| |#2|
-                                      '(|ConvertibleTo| (|Pattern| (|Float|))))
+                      ((|HasCategory|
+                        (|SparseMultivariatePolynomial| |#2| (|Kernel| |#1|))
+                        '(|ConvertibleTo| (|Pattern| (|Float|))))
                        (QSETREFV $ 259
                                  (CONS (|dispatchFunction| |FS-;convert;SP;73|)
                                        $))))

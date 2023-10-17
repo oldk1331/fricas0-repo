@@ -216,9 +216,7 @@
           (#16=#:G164 NIL) (|lvv| (|List| OV)) (#17=#:G142 NIL)
           (#18=#:G163 NIL) (|vv| NIL) (#19=#:G162 NIL)
           (|push|
-           (CATEGORY |package| (SIGNATURE |pushdown| (|dmp| |dmp| OV))
-            (SIGNATURE |pushdown| (|dmp| |dmp| (|List| OV)))
-            (SIGNATURE |pushup| (|dmp| |dmp| OV))
+           (CATEGORY |package| (SIGNATURE |pushdown| (|dmp| |dmp| (|List| OV)))
             (SIGNATURE |pushup| (|dmp| |dmp| (|List| OV)))
             (SIGNATURE |map|
              (|dmp| (|Mapping| |dmp| (|Polynomial| R)) |dmp|))))
