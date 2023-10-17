@@ -34,12 +34,16 @@
                (SEQ
                 (COND
                  ((EQL (SPADCALL |x| (QREFELT $ 12)) 0)
-                  (SPADCALL |x| (CONS #'|MKCHSET;=;2$B;6!0| (VECTOR $ |x|))
-                            (QREFELT $ 22))))
+                  (LETT |x|
+                        (SPADCALL |x|
+                                  (CONS #'|MKCHSET;=;2$B;6!0| (VECTOR $ |x|))
+                                  (QREFELT $ 22)))))
                 (COND
                  ((EQL (SPADCALL |y| (QREFELT $ 12)) 0)
-                  (SPADCALL |y| (CONS #'|MKCHSET;=;2$B;6!1| (VECTOR $ |y|))
-                            (QREFELT $ 22))))
+                  (LETT |y|
+                        (SPADCALL |y|
+                                  (CONS #'|MKCHSET;=;2$B;6!1| (VECTOR $ |y|))
+                                  (QREFELT $ 22)))))
                 (EXIT
                  (EQL (SPADCALL |x| (QREFELT $ 12))
                       (SPADCALL |y| (QREFELT $ 12))))))) 
