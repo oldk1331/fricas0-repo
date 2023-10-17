@@ -712,40 +712,50 @@
         ((|x| (|U32Vector|)) (|n| (|NonNegativeInteger|)) (|p| (|Integer|))
          ($ (|U32Vector|)))
         (SPROG
-         ((|f| (|Integer|)) (#1=#:G303 NIL) (|k| NIL) (|j| #2=(|Integer|))
-          (#3=#:G302 NIL) (|i| NIL) (|r| (|U32Vector|)) (|d| #2#))
-         (SEQ
-          (COND ((ZEROP |n|) |x|)
-                (#4='T
-                 (SEQ (LETT |d| (- (QV_LEN_U32 |x|) 1))
-                      (EXIT
-                       (COND ((< |d| |n|) (GETREFV_U32 0 0))
-                             (#4#
-                              (SEQ (LETT |r| (GETREFV_U32 (+ (- |d| |n|) 1) 0))
-                                   (SEQ (LETT |i| |n|) (LETT #3# |d|) G190
-                                        (COND ((> |i| #3#) (GO G191)))
-                                        (SEQ (LETT |j| (- |i| |n|))
-                                             (LETT |f| (+ |j| 1))
-                                             (SEQ (LETT |k| (+ |j| 2))
-                                                  (LETT #1# |i|) G190
-                                                  (COND
-                                                   ((> |k| #1#) (GO G191)))
-                                                  (SEQ
-                                                   (EXIT
-                                                    (LETT |f|
-                                                          (QSMULMOD32 |f| |k|
-                                                                      |p|))))
-                                                  (LETT |k| (+ |k| 1))
-                                                  (GO G190) G191 (EXIT NIL))
-                                             (EXIT
-                                              (SETELT_U32 |r| |j|
-                                                          (QSMULMOD32 |f|
-                                                                      (ELT_U32
-                                                                       |x| |i|)
-                                                                      |p|))))
-                                        (LETT |i| (+ |i| 1)) (GO G190) G191
-                                        (EXIT NIL))
-                                   (EXIT |r|))))))))))) 
+         ((|f| (|SingleInteger|)) (#1=#:G303 NIL) (|k| NIL)
+          (|j| (|SingleInteger|)) (#2=#:G302 NIL) (|i| NIL)
+          (|res| (|U32Vector|)) (|ds| #3=(|SingleInteger|)) (|d| (|Integer|))
+          (|ns| #3#))
+         (SEQ (LETT |ns| |n|)
+              (EXIT
+               (COND ((|zero?_SI| |ns|) |x|)
+                     (#4='T
+                      (SEQ (LETT |d| (- (QV_LEN_U32 |x|) 1)) (LETT |ds| |d|)
+                           (EXIT
+                            (COND ((|less_SI| |ds| |ns|) (GETREFV_U32 0 0))
+                                  (#4#
+                                   (SEQ
+                                    (LETT |res|
+                                          (GETREFV_U32
+                                           (|add_SI| (|sub_SI| |ds| |ns|) 1)
+                                           0))
+                                    (SEQ (LETT |i| |ns|) (LETT #2# |ds|) G190
+                                         (COND
+                                          ((|greater_SI| |i| #2#) (GO G191)))
+                                         (SEQ (LETT |j| (|sub_SI| |i| |ns|))
+                                              (LETT |f| (|add_SI| |j| 1))
+                                              (SEQ (LETT |k| (|add_SI| |j| 2))
+                                                   (LETT #1# |i|) G190
+                                                   (COND
+                                                    ((|greater_SI| |k| #1#)
+                                                     (GO G191)))
+                                                   (SEQ
+                                                    (EXIT
+                                                     (LETT |f|
+                                                           (QSMULMOD32 |f| |k|
+                                                                       |p|))))
+                                                   (LETT |k| (|inc_SI| |k|))
+                                                   (GO G190) G191 (EXIT NIL))
+                                              (EXIT
+                                               (SETELT_U32 |res| |j|
+                                                           (QSMULMOD32 |f|
+                                                                       (ELT_U32
+                                                                        |x|
+                                                                        |i|)
+                                                                       |p|))))
+                                         (LETT |i| (|inc_SI| |i|)) (GO G190)
+                                         G191 (EXIT NIL))
+                                    (EXIT |res|)))))))))))) 
 
 (SDEFUN |POLYVEC;extended_gcd;2UvIL;26|
         ((|x| (|U32Vector|)) (|y| (|U32Vector|)) (|p| (|Integer|))
