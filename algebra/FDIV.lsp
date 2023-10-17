@@ -302,37 +302,43 @@
 (SDEFUN |FDIV;generator;$ILU;34|
         ((|d| $) (|k| |Integer|) (|lp| |List| UP) ($ |Union| R "failed"))
         (SPROG
-         ((#1=#:G205 NIL) (|kk| (|Integer|)) (|fi| (R)) (#2=#:G206 NIL)
-          (|i| NIL) (|bas| (|Vector| R)))
+         ((#1=#:G205 NIL) (#2=#:G206 NIL) (|kk| (|Integer|)) (|fi| (R))
+          (#3=#:G207 NIL) (|i| NIL) (|bas| (|Vector| R)))
          (SEQ
           (EXIT
            (SEQ (LETT |bas| (SPADCALL |d| (QREFELT $ 119)))
-                (SEQ (LETT |i| (SPADCALL |bas| (QREFELT $ 100)))
-                     (LETT #2# (QVSIZE |bas|)) G190
-                     (COND ((> |i| #2#) (GO G191)))
-                     (SEQ
-                      (LETT |kk|
-                            (SPADCALL (LETT |fi| (QAREF1O |bas| |i| 1)) |lp|
-                                      (QREFELT $ 122)))
-                      (EXIT
-                       (COND
-                        ((EQL |kk| |k|)
-                         (PROGN
-                          (LETT #1# (CONS 0 (SPADCALL |fi| (QREFELT $ 121))))
-                          (GO #3=#:G204)))
-                        ('T
-                         (SPADCALL (SPADCALL |kk| (QREFELT $ 123))
-                                   (QREFELT $ 125))))))
-                     (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL))
+                (SEQ
+                 (EXIT
+                  (SEQ (LETT |i| (SPADCALL |bas| (QREFELT $ 100)))
+                       (LETT #3# (QVSIZE |bas|)) G190
+                       (COND ((> |i| #3#) (GO G191)))
+                       (SEQ
+                        (LETT |kk|
+                              (SPADCALL (LETT |fi| (QAREF1O |bas| |i| 1)) |lp|
+                                        (QREFELT $ 122)))
+                        (EXIT
+                         (COND
+                          ((EQL |kk| |k|)
+                           (PROGN
+                            (LETT #1#
+                                  (PROGN
+                                   (LETT #2#
+                                         (CONS 0
+                                               (SPADCALL |fi|
+                                                         (QREFELT $ 121))))
+                                   (GO #4=#:G204)))
+                            (GO #5=#:G202))))))
+                       (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL)))
+                 #5# (EXIT #1#))
                 (EXIT (CONS 1 "failed"))))
-          #3# (EXIT #1#)))) 
+          #4# (EXIT #2#)))) 
 
 (SDEFUN |FDIV;lSpaceBasis;$V;35| ((|d| $) ($ |Vector| R))
         (SPADCALL (ELT $ 121)
                   (SPADCALL
                    (SPADCALL (SPADCALL |d| (QREFELT $ 27)) (QREFELT $ 119))
-                   (QREFELT $ 126))
-                  (QREFELT $ 128))) 
+                   (QREFELT $ 123))
+                  (QREFELT $ 125))) 
 
 (SDEFUN |FDIV;makeDivisor| ((|b| UP) (|hh| UPUP) (|g| UP) ($ $))
         (SPROG ((|h| (R)))
@@ -352,7 +358,7 @@
                   (LETT |h|
                         (|FDIV;intReduce|
                          (SPADCALL |h| (SPADCALL (QREFELT $ 90))
-                                   (QREFELT $ 130))
+                                   (QREFELT $ 127))
                          |b| $))))
                 (EXIT
                  (SPADCALL
@@ -365,9 +371,9 @@
 
 (DECLAIM (NOTINLINE |FiniteDivisor;|)) 
 
-(DEFUN |FiniteDivisor| (&REST #1=#:G213)
+(DEFUN |FiniteDivisor| (&REST #1=#:G214)
   (SPROG NIL
-         (PROG (#2=#:G214)
+         (PROG (#2=#:G215)
            (RETURN
             (COND
              ((LETT #2#
@@ -393,7 +399,7 @@
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$| (LIST '|FiniteDivisor| DV$1 DV$2 DV$3 DV$4))
-    (LETT $ (GETREFV 134))
+    (LETT $ (GETREFV 131))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|FiniteDivisor| (LIST DV$1 DV$2 DV$3 DV$4)
@@ -454,7 +460,7 @@
        (QSETREFV $ 119 (CONS (|dispatchFunction| |FDIV;finiteBasis;$V;32|) $))
        (QSETREFV $ 35 (CONS (|dispatchFunction| |FDIV;generator;$U;33|) $))
        (QSETREFV $ 38 (CONS (|dispatchFunction| |FDIV;generator;$ILU;34|) $))
-       (QSETREFV $ 129
+       (QSETREFV $ 126
                  (CONS (|dispatchFunction| |FDIV;lSpaceBasis;$V;35|) $)))))
     $))) 
 
@@ -496,15 +502,15 @@
               (|FractionalIdealAsModule| 7 79 8 9 (NRTEVAL (QREFELT $ 54)))
               (446 . |module|) (451 . |basis|) (456 . |normalizeAtInfinity|)
               (461 . |finiteBasis|) (466 . |integralAtInfinity?|)
-              (471 . |primitivePart|) (476 . |special_order|) (482 . |coerce|)
-              (|Void|) (487 . |print|) (492 . |reduceBasisAtInfinity|)
-              (|Mapping| 9 9) (497 . |map!|) (503 . |lSpaceBasis|) (508 . ^)
-              (|HashState|) (|String|) (|SingleInteger|))
-           '#(~= 514 |zero?| 520 |subtractIfCan| 525 |sample| 531 |reduce| 535
-              |principal?| 540 |opposite?| 545 |latex| 551 |lSpaceBasis| 556
-              |ideal| 561 |hashUpdate!| 566 |hash| 572 |generator| 577
-              |finiteBasis| 589 |divisor| 594 |decompose| 633 |coerce| 638
-              |Zero| 643 = 647 - 653 + 664 * 670)
+              (471 . |primitivePart|) (476 . |special_order|)
+              (482 . |reduceBasisAtInfinity|) (|Mapping| 9 9) (487 . |map!|)
+              (493 . |lSpaceBasis|) (498 . ^) (|HashState|) (|String|)
+              (|SingleInteger|))
+           '#(~= 504 |zero?| 510 |subtractIfCan| 515 |sample| 521 |reduce| 525
+              |principal?| 530 |opposite?| 535 |latex| 541 |lSpaceBasis| 546
+              |ideal| 551 |hashUpdate!| 556 |hash| 562 |generator| 567
+              |finiteBasis| 579 |divisor| 584 |decompose| 623 |coerce| 628
+              |Zero| 633 = 637 - 643 + 654 * 660)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0))
                  (CONS
@@ -516,7 +522,7 @@
                       (|CancellationAbelianMonoid|) (|AbelianMonoid|)
                       (|AbelianSemiGroup|) (|SetCategory|) (|BasicType|)
                       (|CoercibleTo| 15))
-                   (|makeByteWordVec2| 133
+                   (|makeByteWordVec2| 130
                                        '(0 9 10 11 0 12 0 13 0 0 0 14 1 12 15 0
                                          16 1 0 15 0 17 2 12 18 0 0 19 2 0 18 0
                                          0 20 2 12 0 21 0 22 2 0 0 21 0 23 2 12
@@ -548,17 +554,16 @@
                                          113 1 58 18 0 114 1 115 0 28 116 1 115
                                          58 0 117 1 9 52 52 118 1 0 58 0 119 1
                                          9 18 0 120 1 9 0 0 121 2 9 21 0 36 122
-                                         1 21 15 0 123 1 15 124 0 125 1 9 52 52
-                                         126 2 58 0 127 0 128 1 0 58 0 129 2 9
-                                         0 0 89 130 2 0 18 0 0 1 1 0 18 0 1 2 0
-                                         91 0 0 1 0 0 0 1 1 0 0 0 32 1 0 18 0 1
-                                         2 0 18 0 0 1 1 0 132 0 1 1 0 58 0 129
-                                         1 0 28 0 30 2 0 131 131 0 1 1 0 133 0
-                                         1 3 0 33 0 21 36 38 1 0 33 0 35 1 0 58
-                                         0 119 5 0 0 9 7 7 7 6 1 3 0 0 9 7 7 51
-                                         2 0 0 6 6 47 3 0 0 6 6 21 49 1 0 0 28
-                                         43 1 0 0 9 45 1 0 39 0 41 1 0 15 0 17
-                                         0 0 0 14 2 0 18 0 0 20 1 0 0 0 27 2 0
-                                         0 0 0 1 2 0 0 0 0 25 2 0 0 21 0 23 2 0
-                                         0 75 0 1 2 0 0 89 0 1)))))
+                                         1 9 52 52 123 2 58 0 124 0 125 1 0 58
+                                         0 126 2 9 0 0 89 127 2 0 18 0 0 1 1 0
+                                         18 0 1 2 0 91 0 0 1 0 0 0 1 1 0 0 0 32
+                                         1 0 18 0 1 2 0 18 0 0 1 1 0 129 0 1 1
+                                         0 58 0 126 1 0 28 0 30 2 0 128 128 0 1
+                                         1 0 130 0 1 3 0 33 0 21 36 38 1 0 33 0
+                                         35 1 0 58 0 119 5 0 0 9 7 7 7 6 1 3 0
+                                         0 9 7 7 51 2 0 0 6 6 47 3 0 0 6 6 21
+                                         49 1 0 0 28 43 1 0 0 9 45 1 0 39 0 41
+                                         1 0 15 0 17 0 0 0 14 2 0 18 0 0 20 1 0
+                                         0 0 27 2 0 0 0 0 1 2 0 0 0 0 25 2 0 0
+                                         21 0 23 2 0 0 75 0 1 2 0 0 89 0 1)))))
            '|lookupComplete|)) 
