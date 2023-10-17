@@ -204,7 +204,7 @@
                           (PROGN (LETT #2# (NREVERSE |l|)) (GO #3=#:G261)))
                          ((SPADCALL |y| (QREFELT % 28))
                           (|error|
-                           (SPADCALL "entires:"
+                           (SPADCALL "entries:"
                                      " potentially infinite stream, maybe use 'complete'"
                                      (QREFELT % 30))))
                          ('T
@@ -223,7 +223,7 @@
                                 (PROGN
                                  (LETT #1#
                                        (|error|
-                                        (SPADCALL "entires:"
+                                        (SPADCALL "entries:"
                                                   " infinite (cyclic) stream"
                                                   (QREFELT % 30))))
                                  (GO #4=#:G256)))))))

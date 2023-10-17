@@ -876,18 +876,6 @@
         (|concat| |s| '|%b| "where" '|%d| '|%i| |$whereList| '|%u|))
        ('T |s|))))))
 
-; form2StringWithPrens form ==
-;   null (argl := rest form) => [first form]
-;   null rest argl => [first form,"(",first argl,")"]
-;   form2String form
-
-(DEFUN |form2StringWithPrens| (|form|)
-  (PROG (|argl|)
-    (RETURN
-     (COND ((NULL (SETQ |argl| (CDR |form|))) (LIST (CAR |form|)))
-           ((NULL (CDR |argl|)) (LIST (CAR |form|) '|(| (CAR |argl|) '|)|))
-           ('T (|form2String| |form|))))))
-
 ; formString u ==
 ;   x := form2String u
 ;   atom x => STRINGIMAGE x
@@ -970,9 +958,6 @@
 ;   op='Join or op= 'mkCategory => formJoin1(op,argl)
 ;   $InteractiveMode and (u:= constructor? op) =>
 ;     null argl => app2StringWrap(formWrapId constructorName op, u1)
-;     op = "NTuple"  => [ form2String1 first argl, "*"]
-;     op = "Map"     => ["(",:formatSignature0 [argl.1,argl.0],")"]
-;     op = 'Record => record2String(argl)
 ;     $justUnparseType or null(conSig := getConstructorSignature op) =>
 ;       application2String(constructorName op,[form2String1(a) for a in argl], u1)
 ;     ml := rest conSig
@@ -1053,13 +1038,6 @@
           (COND
            ((NULL |argl|)
             (|app2StringWrap| (|formWrapId| (|constructorName| |op|)) |u1|))
-           ((EQ |op| '|NTuple|) (LIST (|form2String1| (CAR |argl|)) '*))
-           ((EQ |op| '|Map|)
-            (CONS '|(|
-                  (APPEND
-                   (|formatSignature0| (LIST (ELT |argl| 1) (ELT |argl| 0)))
-                   (CONS '|)| NIL))))
-           ((EQ |op| '|Record|) (|record2String| |argl|))
            ((OR |$justUnparseType|
                 (NULL (SETQ |conSig| (|getConstructorSignature| |op|))))
             (|application2String| (|constructorName| |op|)
