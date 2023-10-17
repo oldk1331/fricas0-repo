@@ -161,7 +161,7 @@
 9914`The category of semirings,{} not necessarily associative,{} not necessarily commutative,{} and not necessarily with a 1.
 9968`The category of normalized triangular sets. A triangular set \spad{ts} is said normalized if for every algebraic variable \spad{v} of \spad{ts} the polynomial \spad{select(ts,{} v)} is normalized \spad{w}.\spad{r}.\spad{t}. every polynomial in \spad{collectUnder(ts,{} v)}. A polynomial \spad{p} is said normalized \spad{w}.\spad{r}.\spad{t}. a non-constant polynomial \spad{q} if \spad{p} is constant or \spad{degree(p,{} mdeg(q)) = 0} and \spad{init(p)} is normalized \spad{w}.\spad{r}.\spad{t}. \spad{q}. One of the important features of normalized triangular sets is that they are regular sets.
 10126`The class of all semirings such that \spad{x * y \~~= 0} implies both \spad{x} and \spad{y} are non-zero
-10174`OctonionCategory gives the categorial frame for the octonions,{} and eight-dimensional non-associative algebra,{} doubling the the quaternions in the same way as doubling the Complex numbers to get the quaternions.
+10174`OctonionCategory gives the categorial frame for the octonions,{} and eight-dimensional non-associative algebra,{} doubling the quaternions in the same way as doubling the Complex numbers to get the quaternions.
 10237`One-dimensional-array aggregates serves as models for one-dimensional arrays. Categorically,{} these aggregates are finite linear aggregates with the \spadtype{shallowlyMutable} property,{} that is,{} any component of the array may be changed without affecting the identity of the overall array. Array data structures are typically represented by a fixed area in storage and therefore cannot efficiently grow or shrink on demand as can list structures (see however \spadtype{FlexibleArray} for a data structure which is a cross between a list and an array). Iteration over,{} and access to,{} elements of arrays is extremely fast (and often can be optimized to open-code). Insertion and deletion however is generally slow since an entirely new data structure must be created for the result.
 10304`\spadtype{OpenMath} provides operations for exporting an object in OpenMath format.
 10341`Ordered sets which are also abelian groups,{} such that the addition preserves the ordering.
@@ -2044,7 +2044,7 @@
 208857`\spad{complexNumericIfCan(x,{} n)} returns a complex approximation of \spad{x} up to \spad{n} decimal places,{} or "failed" if \spad{x} is not a constant.
 208997`\spad{complexNumericIfCan(x,{} n)} returns a complex approximation of \spad{x} up to \spad{n} decimal places,{} or "failed" if \spad{x} is not a constant.
 209117`\spad{complexRoots(rf,{} eps)} finds all the complex solutions of a univariate rational function with rational number coefficients. The solutions are computed to precision eps.
-209237`\spad{complexRoots(lrf,{} lv,{} eps)} finds all the complex solutions of a list of rational functions with rational number coefficients with respect the the variables appearing in \spad{lv}. Each solution is computed to precision eps and returned as list corresponding to the order of variables in \spad{lv}.
+209237`\spad{complexRoots(lrf,{} lv,{} eps)} finds all the complex solutions of a list of rational functions with rational number coefficients with respect the variables appearing in \spad{lv}. Each solution is computed to precision eps and returned as list corresponding to the order of variables in \spad{lv}.
 209382`\spad{complexSolve(eq,{} eps)} finds all the complex solutions of the equation \spad{eq} of rational functions with rational rational coefficients with respect to all the variables appearing in \spad{eq},{} with precision eps.
 209534`\spad{complexSolve(p,{} eps)} find all the complex solutions of the rational function \spad{p} with complex rational coefficients with respect to all the variables appearing in \spad{p},{} with precision eps.
 209676`\spad{complexSolve(leq,{} eps)} finds all the complex solutions to precision eps of the system \spad{leq} of equations of rational functions over complex rationals with respect to all the variables appearing in \spad{lp}.
@@ -2804,7 +2804,7 @@
 311877`\spad{divisor(h,{} d,{} g)} returns \spad{gcd} of divisor of zeros of \spad{h} and divisor of zeros of \spad{d}. \spad{d} must be squarefree. All ramified zeros of \spad{d} must be contained in zeros of \spad{g}.
 312021`\spad{divisor(h,{} d,{} d',{} g,{} r)} returns the sum of all the finite points where \spad{h/d} has residue \spad{r}. \spad{h} must be integral. \spad{d} must be squarefree. \spad{d'} is some derivative of \spad{d} (not necessarily dd/dx). \spad{g = gcd(d,{} discriminant)} contains the ramified zeros of \spad{d}
 312097`\spad{divisorCascade(p,{} tp)} assumes that degree of polynomial {\em tp} is smaller than degree of polynomial \spad{p},{} both monic. A sequence of divisions is calculated using the remainder,{} made monic,{} as divisor for the the next division. The result contains also the error of the factorizations,{} \spadignore{i.e.} the norm of the remainder polynomial.
-312206`\spad{divisorCascade(p,{} tp)} assumes that degree of polynomial {\em tp} is smaller than degree of polynomial \spad{p},{} both monic. A sequence of divisions are calculated using the remainder,{} made monic,{} as divisor for the the next division. The result contains also the error of the factorizations,{} \spadignore{i.e.} the norm of the remainder polynomial. If {\em info} is {\em true},{} then information messages are issued.
+312206`\spad{divisorCascade(p,{} tp)} assumes that degree of polynomial {\em tp} is smaller than degree of polynomial \spad{p},{} both monic. A sequence of divisions are calculated using the remainder,{} made monic,{} as divisor for the next division. The result contains also the error of the factorizations,{} \spadignore{i.e.} the norm of the remainder polynomial. If {\em info} is {\em true},{} then information messages are issued.
 312323`\spad{divisors(n)} returns a list of the divisors of \spad{n}.
 312400`\spad{dmp2rfi(p)} converts \spad{p} to target domain
 312494`\spad{dmp2rfi(l)} converts \spad{l} to target domain
@@ -7607,7 +7607,7 @@
 878682`\spad{sortedPurge!(A,{} crit)} is like \spad{purge},{} however,{} with the additional assumption that \spad{crit} respects the ordering of the indices.
 878759`\spad{sortLD(sys)} sorts the functions in \spad{sys} according to their leading derivatives.
 878900`\spad{space()} provides the blank character.
-878938`\spad{space(l)} takes a list of draw options,{} \spad{l},{} and checks to see if it contains the option \spad{space}. If the the option doesn\spad{'t} exist,{} then an empty space is returned.
+878938`\spad{space(l)} takes a list of draw options,{} \spad{l},{} and checks to see if it contains the option \spad{space}. If the option doesn\spad{'t} exist,{} then an empty space is returned.
 879024`\spad{space specifies} the space into which we will draw. If none is given then a new space is created.
 879086`\spad{spanningForestArrow(s)} constructs a spanning tree for every arrow.
 879234`\spad{spanningForestNode(s)} constructs a spanning tree for every vertex.
@@ -7987,7 +7987,7 @@
 929462`test function.
 930697`test function.
 931070`test function.
-931791`\spad{testModulus(p,{} lp)} returns \spad{true} if the the prime \spad{p} is valid for the list of polynomials \spad{lp},{} \spadignore{i.e.} preserves the degree and they remain relatively prime.
+931791`\spad{testModulus(p,{} lp)} returns \spad{true} if the prime \spad{p} is valid for the list of polynomials \spad{lp},{} \spadignore{i.e.} preserves the degree and they remain relatively prime.
 931858`\spad{testNotEquals(ex1,{} ex2)} states that \spad{ex1} and \spad{ex2} should be different.
 931918`testNotEquals(inp,{} \spad{ex1},{} \spad{ex2}) states that \spad{ex1} and \spad{ex2} should be different.
 931984`test function.
@@ -8570,7 +8570,7 @@
 993721`This package provides functions to enable conversion of tensors given conversion of the components.
 993858`Tools to send a point to infinity on an algebraic curve.
 994024`This package computes characteristic polynomial \indented{1}{using Danilewski method.}
-994089`This package computes charateristi polynomial \indented{1}{via interpolation from values at several points.} \indented{1}{Additionally,{} it computes determinant of matrix of} \indented{1}{fractions by clearing common denominators of rows.} \indented{1}{The determinant routine can be used to compute characteristic} \indented{1}{polynomial instead of regular determinant.}
+994089`This package computes characteristic polynomial \indented{1}{via interpolation from values at several points.} \indented{1}{Additionally,{} it computes determinant of matrix of} \indented{1}{fractions by clearing common denominators of rows.} \indented{1}{The determinant routine can be used to compute characteristic} \indented{1}{polynomial instead of regular determinant.}
 994163`This package implements characteristicPolynomials for monogenic algebras using resultants
 994327`This package provides a characteristicPolynomial function for any matrix over a commutative ring.
 994407`\indented{1}{Author: Clifton Williamson} Date Created: 9 August 1993 Basic Operations: chineseRemainder,{} factorList Related Domains: PAdicWildFunctionFieldIntegralBasis(\spad{K},{} \spad{R},{} UP,{} \spad{F}) Also See: WildFunctionFieldIntegralBasis,{} FunctionFieldIntegralBasis AMS Classifications: Keywords: function field,{} finite field,{} integral basis Examples: References: Description:
@@ -9145,7 +9145,7 @@
 1057219`A NonAssociativeRing is a non associative \spad{rng} which has a unit,{} the multiplication is not necessarily commutative or associative.
 1057290`NonAssociativeRng is a basic ring-type structure,{} not necessarily commutative or associative,{} and not necessarily with unit. Axioms \indented{2}{\spad{x*}(\spad{y+z}) = x*y + \spad{x*z}} \indented{2}{(x+y)\spad{*z} = \spad{x*z} + \spad{y*z}} Common Additional Axioms \indented{2}{noZeroDivisors\space{2}ab = 0 \spad{=>} \spad{a=0} or \spad{b=0}}
 1057358`The category of semirings,{} not necessarily associative,{} not necessarily commutative,{} and not necessarily with a 1.
-1057435`OctonionCategory gives the categorial frame for the octonions,{} and eight-dimensional non-associative algebra,{} doubling the the quaternions in the same way as doubling the Complex numbers to get the quaternions.
+1057435`OctonionCategory gives the categorial frame for the octonions,{} and eight-dimensional non-associative algebra,{} doubling the quaternions in the same way as doubling the Complex numbers to get the quaternions.
 1057521`One-dimensional-array aggregates serves as models for one-dimensional arrays. Categorically,{} these aggregates are finite linear aggregates with the \spadtype{shallowlyMutable} property,{} that is,{} any component of the array may be changed without affecting the identity of the overall array. Array data structures are typically represented by a fixed area in storage and therefore cannot efficiently grow or shrink on demand as can list structures (see however \spadtype{FlexibleArray} for a data structure which is a cross between a list and an array). Iteration over,{} and access to,{} elements of arrays is extremely fast (and often can be optimized to open-code). Insertion and deletion however is generally slow since an entirely new data structure must be created for the result.
 1057623`\spadtype{OpenMath} provides operations for exporting an object in OpenMath format.
 1057670`Ordered sets which are also rings,{} that is,{} domains where the ring operations are compatible with the ordering. \blankline
