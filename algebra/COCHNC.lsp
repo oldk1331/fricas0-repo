@@ -12,65 +12,63 @@
 
 (SDEFUN |COCHNC;validate;%B;3| ((|a| (%)) (% (|Boolean|)))
         (SPROG
-         ((|last| #1=(|Matrix| (|Integer|))) (#2=#:G120 NIL)
-          (|prod| (|Matrix| (|Integer|))) (|m| #1#) (#3=#:G121 NIL) (|x| NIL)
+         ((|last| (|Matrix| (|Integer|))) (#1=#:G120 NIL)
+          (|prod| (|Matrix| (|Integer|))) (#2=#:G121 NIL) (|m| NIL)
           (|len| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
            (SEQ (LETT |len| (LENGTH |a|))
-                (COND ((< |len| 2) (PROGN (LETT #2# 'T) (GO #4=#:G119))))
-                (LETT |last| (SPADCALL |a| 1 (QREFELT % 18)))
-                (SEQ (LETT |x| 2) (LETT #3# |len|) G190
-                     (COND ((|greater_SI| |x| #3#) (GO G191)))
-                     (SEQ (LETT |m| (SPADCALL |a| |x| (QREFELT % 18)))
-                          (COND
-                           ((SPADCALL (SPADCALL |m| (QREFELT % 19))
-                                      (SPADCALL |last| (QREFELT % 20))
-                                      (QREFELT % 22))
-                            (SEQ
+                (COND ((< |len| 2) (PROGN (LETT #1# 'T) (GO #3=#:G119))))
+                (LETT |last| (|SPADfirst| |a|))
+                (SEQ (LETT |m| NIL) (LETT #2# (CDR |a|)) G190
+                     (COND
+                      ((OR (ATOM #2#) (PROGN (LETT |m| (CAR #2#)) NIL))
+                       (GO G191)))
+                     (SEQ
+                      (COND
+                       ((SPADCALL (SPADCALL |m| (QREFELT % 18))
+                                  (SPADCALL |last| (QREFELT % 19))
+                                  (QREFELT % 21))
+                        (SEQ
+                         (SPADCALL
+                          (SPADCALL
+                           (SPADCALL
+                            (SPADCALL
+                             (SPADCALL "validate failed nRows=" (QREFELT % 24))
+                             (SPADCALL (SPADCALL |m| (QREFELT % 18))
+                                       (QREFELT % 25))
+                             (QREFELT % 26))
+                            (SPADCALL " not equal to nCols " (QREFELT % 24))
+                            (QREFELT % 26))
+                           (SPADCALL (SPADCALL |last| (QREFELT % 19))
+                                     (QREFELT % 25))
+                           (QREFELT % 26))
+                          (QREFELT % 28))
+                         (EXIT (PROGN (LETT #1# NIL) (GO #3#))))))
+                      (LETT |prod| (SPADCALL |last| |m| (QREFELT % 29)))
+                      (COND
+                       ((NULL (SPADCALL |prod| (QREFELT % 30)))
+                        (SEQ
+                         (SPADCALL
+                          (SPADCALL
+                           (SPADCALL
+                            (SPADCALL
                              (SPADCALL
                               (SPADCALL
                                (SPADCALL
-                                (SPADCALL
-                                 (SPADCALL "validate failed nRows="
-                                           (QREFELT % 25))
-                                 (SPADCALL (SPADCALL |m| (QREFELT % 19))
-                                           (QREFELT % 26))
-                                 (QREFELT % 27))
-                                (SPADCALL " not equal to nCols "
-                                          (QREFELT % 25))
-                                (QREFELT % 27))
-                               (SPADCALL (SPADCALL |last| (QREFELT % 20))
-                                         (QREFELT % 26))
-                               (QREFELT % 27))
-                              (QREFELT % 29))
-                             (EXIT (PROGN (LETT #2# NIL) (GO #4#))))))
-                          (LETT |prod| (SPADCALL |last| |m| (QREFELT % 30)))
-                          (COND
-                           ((NULL (SPADCALL |prod| (QREFELT % 31)))
-                            (SEQ
-                             (SPADCALL
-                              (SPADCALL
-                               (SPADCALL
-                                (SPADCALL
-                                 (SPADCALL
-                                  (SPADCALL
-                                   (SPADCALL
-                                    "validate failed: product of adjacent maps should be zero"
-                                    (QREFELT % 25))
-                                   (SPADCALL |last| (QREFELT % 32))
-                                   (QREFELT % 27))
-                                  (SPADCALL " * " (QREFELT % 25))
-                                  (QREFELT % 27))
-                                 (SPADCALL |m| (QREFELT % 32)) (QREFELT % 27))
-                                (SPADCALL " = " (QREFELT % 25)) (QREFELT % 27))
-                               (SPADCALL |prod| (QREFELT % 32)) (QREFELT % 27))
-                              (QREFELT % 29))
-                             (EXIT (PROGN (LETT #2# NIL) (GO #4#))))))
-                          (EXIT (LETT |last| |m|)))
-                     (LETT |x| (|inc_SI| |x|)) (GO G190) G191 (EXIT NIL))
+                                "validate failed: product of adjacent maps should be zero"
+                                (QREFELT % 24))
+                               (SPADCALL |last| (QREFELT % 31)) (QREFELT % 26))
+                              (SPADCALL " * " (QREFELT % 24)) (QREFELT % 26))
+                             (SPADCALL |m| (QREFELT % 31)) (QREFELT % 26))
+                            (SPADCALL " = " (QREFELT % 24)) (QREFELT % 26))
+                           (SPADCALL |prod| (QREFELT % 31)) (QREFELT % 26))
+                          (QREFELT % 28))
+                         (EXIT (PROGN (LETT #1# NIL) (GO #3#))))))
+                      (EXIT (LETT |last| |m|)))
+                     (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                 (EXIT 'T)))
-          #4# (EXIT #2#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |COCHNC;coboundary;%Nni2L;4|
         ((|a| (%)) (|n| (|NonNegativeInteger|)) (|inp| (|List| VS))
@@ -100,9 +98,9 @@
                                               #5#))))
                                 (LETT |x| (|inc_SI| |x|)) (GO G190) G191
                                 (EXIT (NREVERSE #5#)))))
-                    (LETT |b| (SPADCALL |base| (QREFELT % 36)))
+                    (LETT |b| (SPADCALL |base| (QREFELT % 35)))
                     (LETT |m|
-                          (SPADCALL (SPADCALL |maps| |n| (QREFELT % 18))
+                          (SPADCALL (SPADCALL |maps| |n| (QREFELT % 36))
                                     (QREFELT % 13)))
                     (LETT |vs| (SPADCALL |b| |m| (QREFELT % 37)))
                     (LETT |res1| NIL)
@@ -192,7 +190,7 @@
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2# (CONS (SPADCALL |x| (QREFELT % 32)) #2#))))
+                        (LETT #2# (CONS (SPADCALL |x| (QREFELT % 31)) #2#))))
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#)))))
           (EXIT (SPADCALL |lst| (QREFELT % 53)))))) 
@@ -238,12 +236,12 @@
               |COCHNC;coChainComplex;L%;1| (|ChainComplex|)
               (0 . |transition_matrices|) (|Matrix| 17) (5 . |transpose|)
               (|Mapping| 12 12) (10 . |map|) |COCHNC;coChainComplex;Cc%;2|
-              (|Integer|) (16 . |elt|) (22 . |maxRowIndex|)
-              (27 . |maxColIndex|) (|Boolean|) (32 . ~=) (|String|)
-              (|OutputForm|) (38 . |message|) (43 . |coerce|) (48 . |hconcat|)
-              (|Void|) (54 . |print|) (59 . *) (65 . |zero?|) (70 . |coerce|)
-              |COCHNC;validate;%B;3| (|List| 17) (|Vector| 17) (75 . |vector|)
-              (80 . *) (86 . |entries|) (|List| 6) (91 . |elt|) (97 . |Zero|)
+              (|Integer|) (16 . |maxRowIndex|) (21 . |maxColIndex|) (|Boolean|)
+              (26 . ~=) (|String|) (|OutputForm|) (32 . |message|)
+              (37 . |coerce|) (42 . |hconcat|) (|Void|) (48 . |print|) (53 . *)
+              (59 . |zero?|) (64 . |coerce|) |COCHNC;validate;%B;3| (|List| 17)
+              (|Vector| 17) (69 . |vector|) (74 . |elt|) (80 . *)
+              (86 . |entries|) (|List| 6) (91 . |elt|) (97 . |Zero|)
               (101 . |concat|) (107 . -) (112 . +) (|NonNegativeInteger|)
               |COCHNC;coboundary;%Nni2L;4| (|Homology|) (118 . |homologyGroup|)
               (|List| 47) (124 . |concat|) |COCHNC;coHomology;%L;5| (|List| %)
@@ -254,20 +252,20 @@
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
-                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 24))
+                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 23))
                         (|makeByteWordVec2| 54
                                             '(1 10 8 0 11 1 12 0 0 13 2 7 0 14
-                                              0 15 2 7 12 0 17 18 1 12 17 0 19
-                                              1 12 17 0 20 2 17 21 0 0 22 1 24
-                                              0 23 25 1 17 24 0 26 2 24 0 0 0
-                                              27 1 24 28 0 29 2 12 0 0 0 30 1
-                                              12 21 0 31 1 12 24 0 32 1 35 0 34
-                                              36 2 12 35 35 0 37 1 35 34 0 38 2
-                                              39 6 0 17 40 0 6 0 41 2 39 0 0 6
-                                              42 1 6 0 0 43 2 6 0 0 0 44 2 47 0
-                                              12 12 48 2 49 0 0 47 50 1 24 0 52
-                                              53 2 0 21 0 0 1 1 0 21 0 33 1 0
-                                              23 0 1 1 0 24 0 54 3 0 39 0 45 39
-                                              46 1 0 49 0 51 1 0 0 10 16 1 0 0
-                                              8 9 2 0 21 0 0 1)))))
+                                              0 15 1 12 17 0 18 1 12 17 0 19 2
+                                              17 20 0 0 21 1 23 0 22 24 1 17 23
+                                              0 25 2 23 0 0 0 26 1 23 27 0 28 2
+                                              12 0 0 0 29 1 12 20 0 30 1 12 23
+                                              0 31 1 34 0 33 35 2 7 12 0 17 36
+                                              2 12 34 34 0 37 1 34 33 0 38 2 39
+                                              6 0 17 40 0 6 0 41 2 39 0 0 6 42
+                                              1 6 0 0 43 2 6 0 0 0 44 2 47 0 12
+                                              12 48 2 49 0 0 47 50 1 23 0 52 53
+                                              2 0 20 0 0 1 1 0 20 0 32 1 0 22 0
+                                              1 1 0 23 0 54 3 0 39 0 45 39 46 1
+                                              0 49 0 51 1 0 0 10 16 1 0 0 8 9 2
+                                              0 20 0 0 1)))))
            '|lookupComplete|)) 

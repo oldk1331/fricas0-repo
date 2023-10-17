@@ -329,19 +329,17 @@
                                         (SPADCALL |previousFaceList|
                                                   (QREFELT % 37))
                                         (QREFELT % 30))
-                                       (SPADCALL " allFacetsGraded.1="
+                                       (SPADCALL " first(allFacetsGraded) ="
                                                  (QREFELT % 28))
                                        (QREFELT % 30))
-                                      (SPADCALL
-                                       (SPADCALL |allFacetsGraded| 1
-                                                 (QREFELT % 46))
-                                       (QREFELT % 37))
+                                      (SPADCALL (|SPADfirst| |allFacetsGraded|)
+                                                (QREFELT % 37))
                                       (QREFELT % 30))
                                      (QREFELT % 33))))
                                   (LETT |i|
                                         (SPADCALL |oldFaceLow|
                                                   |previousFaceList|
-                                                  (QREFELT % 47)))
+                                                  (QREFELT % 46)))
                                   (COND
                                    ((EQL |i| 0)
                                     (SEQ
@@ -383,7 +381,7 @@
                (|trace|
                 (SPADCALL
                  (SPADCALL (SPADCALL "deltaComplex faceMaps=" (QREFELT % 28))
-                           (SPADCALL |faceMaps| (QREFELT % 49)) (QREFELT % 30))
+                           (SPADCALL |faceMaps| (QREFELT % 48)) (QREFELT % 30))
                  (QREFELT % 33))))
               (EXIT (CONS |vs| |faceMaps|))))) 
 
@@ -402,7 +400,7 @@
           (|allFacetsGraded| (|List| (|List| (|CubicalFacet|))))
           (#6=#:G213 NIL) (|gradedList| NIL)
           (|allFacets| (|List| (|List| (|CubicalFacet|)))))
-         (SEQ (LETT |allFacets| (SPADCALL |fsc| (QREFELT % 52)))
+         (SEQ (LETT |allFacets| (SPADCALL |fsc| (QREFELT % 51)))
               (LETT |allFacetsGraded| NIL)
               (SEQ (LETT |gradedList| NIL) (LETT #6# |allFacets|) G190
                    (COND
@@ -412,8 +410,8 @@
                     (EXIT
                      (LETT |allFacetsGraded|
                            (SPADCALL |allFacetsGraded|
-                                     (SPADCALL |gradedList| (QREFELT % 54))
-                                     (QREFELT % 55)))))
+                                     (SPADCALL |gradedList| (QREFELT % 53))
+                                     (QREFELT % 54)))))
                    (LETT #6# (CDR #6#)) (GO G190) G191 (EXIT NIL))
               (LETT |faceMaps| NIL)
               (LETT |previousFaceList| (|SPADfirst| |allFacetsGraded|))
@@ -441,7 +439,7 @@
                                  (SEQ
                                   (LETT |oldFacesLow|
                                         (SPADCALL |oldFaceHigh|
-                                                  (QREFELT % 57)))
+                                                  (QREFELT % 56)))
                                   (LETT |newIndexes| NIL)
                                   (SEQ (LETT |oldFaceLow| NIL)
                                        (LETT #1# |oldFacesLow|) G190
@@ -455,7 +453,7 @@
                                         (LETT |i|
                                               (SPADCALL |oldFaceLow|
                                                         |previousFaceList|
-                                                        (QREFELT % 58)))
+                                                        (QREFELT % 57)))
                                         (COND
                                          ((EQL |i| 0)
                                           (SEQ
@@ -467,14 +465,14 @@
                                                 "  deltaComplex oldFaceLow="
                                                 (QREFELT % 28))
                                                (SPADCALL |oldFaceLow|
-                                                         (QREFELT % 59))
+                                                         (QREFELT % 58))
                                                (QREFELT % 30))
                                               (SPADCALL
                                                " not found in previousFaceList="
                                                (QREFELT % 28))
                                               (QREFELT % 30))
                                              (SPADCALL |previousFaceList|
-                                                       (QREFELT % 60))
+                                                       (QREFELT % 59))
                                              (QREFELT % 30))
                                             (QREFELT % 33))
                                            (EXIT
@@ -500,7 +498,7 @@
                    (LETT #4# (PROG1 (CDR #4#) (LETT |grn| (|inc_SI| |grn|))))
                    (GO G190) G191 (EXIT NIL))
               (LETT |vs| (QCAR |fsc|))
-              (LETT |m| (SPADCALL |fsc| (QREFELT % 61)))
+              (LETT |m| (SPADCALL |fsc| (QREFELT % 60)))
               (LETT |f0|
                     (|DELTAC;dim1todim0|
                      (SPADCALL |faceMaps| '|last| (QREFELT % 17)) |m| %))
@@ -543,7 +541,7 @@
                 (COND
                  ((> |n| (LENGTH |maps1|))
                   (PROGN (LETT #1# NIL) (GO #2=#:G224))))
-                (EXIT (SPADCALL |maps1| |n| (QREFELT % 65)))))
+                (EXIT (SPADCALL |maps1| |n| (QREFELT % 64)))))
           #2# (EXIT #1#)))) 
 
 (SDEFUN |DELTAC;chain;%Cc;9| ((|s| (%)) (% (|ChainComplex|)))
@@ -561,7 +559,7 @@
                     ((OR (ATOM #4#) (PROGN (LETT |faces| (CAR #4#)) NIL))
                      (GO G191)))
                    (SEQ (LETT |n_cols| (LENGTH |faces|))
-                        (LETT |m| (SPADCALL |n_rows| |n_cols| (QREFELT % 68)))
+                        (LETT |m| (SPADCALL |n_rows| |n_cols| (QREFELT % 67)))
                         (SEQ (LETT |nu| 1) (LETT #3# (LENGTH |faces|))
                              (LETT |u| NIL) (LETT #2# |faces|) G190
                              (COND
@@ -589,7 +587,7 @@
                                                          (QAREF2O |m| |v2| |nu|
                                                                   1 1)
                                                          |ele|)
-                                                        (QREFELT % 69))))))))
+                                                        (QREFELT % 68))))))))
                                     (LETT #1# (CDR #1#)) (GO G190) G191
                                     (EXIT NIL))))
                              (LETT #2#
@@ -601,22 +599,22 @@
                    (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
               (LETT |m| (MAKE_MATRIX1 |n_rows| 0 0))
               (LETT |res| (CONS |m| |res|))
-              (EXIT (SPADCALL (NREVERSE |res|) (QREFELT % 72)))))) 
+              (EXIT (SPADCALL (NREVERSE |res|) (QREFELT % 71)))))) 
 
 (SDEFUN |DELTAC;coChain;%Ccc;10| ((|s| (%)) (% (|CoChainComplex| VS)))
-        (SPADCALL (SPADCALL |s| (QREFELT % 73)) (QREFELT % 75))) 
+        (SPADCALL (SPADCALL |s| (QREFELT % 72)) (QREFELT % 74))) 
 
 (SDEFUN |DELTAC;homology;%L;11| ((|a| (%)) (% (|List| (|Homology|))))
         (SPROG ((|cc| (|ChainComplex|)))
-               (SEQ (LETT |cc| (SPADCALL |a| (QREFELT % 73)))
-                    (SPADCALL |cc| (QREFELT % 77))
-                    (EXIT (SPADCALL |cc| (QREFELT % 79)))))) 
+               (SEQ (LETT |cc| (SPADCALL |a| (QREFELT % 72)))
+                    (SPADCALL |cc| (QREFELT % 76))
+                    (EXIT (SPADCALL |cc| (QREFELT % 78)))))) 
 
 (SDEFUN |DELTAC;coHomology;%L;12| ((|a| (%)) (% (|List| (|Homology|))))
         (SPROG ((|cc| (|CoChainComplex| VS)))
-               (SEQ (LETT |cc| (SPADCALL |a| (QREFELT % 76)))
-                    (SPADCALL |cc| (QREFELT % 81))
-                    (EXIT (SPADCALL |cc| (QREFELT % 82)))))) 
+               (SEQ (LETT |cc| (SPADCALL |a| (QREFELT % 75)))
+                    (SPADCALL |cc| (QREFELT % 80))
+                    (EXIT (SPADCALL |cc| (QREFELT % 81)))))) 
 
 (SDEFUN |DELTAC;oneSkeleton;%Ug;13|
         ((|s| (%)) (% (|UndirectedGraph| (|NonNegativeInteger|))))
@@ -694,21 +692,21 @@
                           (|compiledLookupCheck| '|initial| (LIST '%) GS)))
                    (GO #7=#:G257))))
                 (LETT |m|
-                      (LENGTH (SPADCALL (REVERSE (QCDR |s|)) (QREFELT % 84))))
+                      (LENGTH (SPADCALL (REVERSE (QCDR |s|)) (QREFELT % 83))))
                 (LETT |edgeIndexes|
-                      (SPADCALL (REVERSE (QCDR |s|)) (QREFELT % 84)))
+                      (SPADCALL (REVERSE (QCDR |s|)) (QREFELT % 83)))
                 (SEQ (LETT |x| NIL) (LETT #4# |edgeIndexes|) G190
                      (COND
                       ((OR (ATOM #4#) (PROGN (LETT |x| (CAR #4#)) NIL))
                        (GO G191)))
-                     (SEQ (LETT |from1| (ABS (SPADCALL |x| 1 (QREFELT % 85))))
+                     (SEQ (LETT |from1| (ABS (|SPADfirst| |x|)))
                           (COND ((> |from1| |m|) (LETT |m| |from1|)))
-                          (LETT |to1| (ABS (SPADCALL |x| 2 (QREFELT % 85))))
+                          (LETT |to1| (ABS (SPADCALL |x| (QREFELT % 84))))
                           (COND ((> |to1| |m|) (LETT |m| |to1|)))
                           (LETT |y| (VECTOR "x" 0 |from1| |to1| 0 0 NIL))
                           (EXIT
                            (LETT |edges|
-                                 (SPADCALL |edges| |y| (QREFELT % 88)))))
+                                 (SPADCALL |edges| |y| (QREFELT % 87)))))
                      (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
                 (SEQ (LETT |m1| 1) (LETT #1# |m|) G190
                      (COND ((|greater_SI| |m1| #1#) (GO G191)))
@@ -716,7 +714,7 @@
                       (EXIT
                        (LETT |nodes|
                              (SPADCALL |nodes| (VECTOR |m1| 0 0)
-                                       (QREFELT % 91)))))
+                                       (QREFELT % 90)))))
                      (LETT |m1| (|inc_SI| |m1|)) (GO G190) G191 (EXIT NIL))
                 (EXIT
                  (SPADCALL |nodes| |edges|
@@ -777,18 +775,18 @@
         (SPROG
          ((#1=#:G269 NIL) (|x| NIL) (|newLink| (|List| #2=(|Integer|)))
           (|toNode| #2#) (#3=#:G268 NIL) (|fromNode| #2#))
-         (SEQ (LETT |fromNode| (SPADCALL |a| (QREFELT % 95)))
-              (SEQ (LETT |x| NIL) (LETT #3# (SPADCALL |a| (QREFELT % 96))) G190
+         (SEQ (LETT |fromNode| (SPADCALL |a| (QREFELT % 94)))
+              (SEQ (LETT |x| NIL) (LETT #3# (SPADCALL |a| (QREFELT % 95))) G190
                    (COND
                     ((OR (ATOM #3#) (PROGN (LETT |x| (CAR #3#)) NIL))
                      (GO G191)))
-                   (SEQ (LETT |toNode| (SPADCALL |x| (QREFELT % 95)))
+                   (SEQ (LETT |toNode| (SPADCALL |x| (QREFELT % 94)))
                         (LETT |newLink| (LIST |fromNode| |toNode|))
                         (EXIT
                          (LETT |res|
-                               (SPADCALL |res| |newLink| (QREFELT % 97)))))
+                               (SPADCALL |res| |newLink| (QREFELT % 96)))))
                    (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
-              (SEQ (LETT |x| NIL) (LETT #1# (SPADCALL |a| (QREFELT % 96))) G190
+              (SEQ (LETT |x| NIL) (LETT #1# (SPADCALL |a| (QREFELT % 95))) G190
                    (COND
                     ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
                      (GO G191)))
@@ -800,41 +798,41 @@
         ((|edge| (|List| (|Integer|))) (|edges| (|List| (|List| (|Integer|))))
          (% (|Boolean|)))
         (SPROG
-         ((#1=#:G281 NIL) (|t2| #2=(|Integer|)) (|s2| #2#) (#3=#:G282 NIL)
-          (|e| NIL) (|t| #2#) (|s| #2#))
+         ((#1=#:G281 NIL) (|t2| #2=(|Integer|)) (|s2| #3=(|Integer|))
+          (#4=#:G282 NIL) (|e| NIL) (|t| #2#) (|s| #3#))
          (SEQ
           (EXIT
            (SEQ
             (COND
-             ((< (LENGTH |edge|) 2) (PROGN (LETT #1# NIL) (GO #4=#:G280))))
-            (LETT |s| (SPADCALL |edge| 1 (QREFELT % 85)))
-            (LETT |t| (SPADCALL |edge| 2 (QREFELT % 85)))
-            (SEQ (LETT |e| NIL) (LETT #3# |edges|) G190
+             ((< (LENGTH |edge|) 2) (PROGN (LETT #1# NIL) (GO #5=#:G280))))
+            (LETT |s| (|SPADfirst| |edge|))
+            (LETT |t| (SPADCALL |edge| (QREFELT % 84)))
+            (SEQ (LETT |e| NIL) (LETT #4# |edges|) G190
                  (COND
-                  ((OR (ATOM #3#) (PROGN (LETT |e| (CAR #3#)) NIL)) (GO G191)))
+                  ((OR (ATOM #4#) (PROGN (LETT |e| (CAR #4#)) NIL)) (GO G191)))
                  (SEQ
                   (EXIT
                    (COND
                     ((> (LENGTH |e|) 1)
-                     (SEQ (LETT |s2| (SPADCALL |e| 1 (QREFELT % 85)))
-                          (LETT |t2| (SPADCALL |e| 2 (QREFELT % 85)))
+                     (SEQ (LETT |s2| (|SPADfirst| |e|))
+                          (LETT |t2| (SPADCALL |e| (QREFELT % 84)))
                           (COND
                            ((EQL (ABS |s|) (ABS |s2|))
                             (COND
                              ((EQL (ABS |t|) (ABS |t2|))
-                              (PROGN (LETT #1# 'T) (GO #4#))))))
+                              (PROGN (LETT #1# 'T) (GO #5#))))))
                           (EXIT
                            (COND
                             ((EQL (ABS |s|) (ABS |t2|))
                              (COND
                               ((EQL (ABS |t|) (ABS |s2|))
-                               (PROGN (LETT #1# 'T) (GO #4#))))))))))))
-                 (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
+                               (PROGN (LETT #1# 'T) (GO #5#))))))))))))
+                 (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
             (EXIT NIL)))
-          #4# (EXIT #1#)))) 
+          #5# (EXIT #1#)))) 
 
 (SDEFUN |DELTAC;fundamentalGroup;%Gp;16| ((|s| (%)) (% (|GroupPresentation|)))
-        (SPADCALL |s| 'T NIL (QREFELT % 99))) 
+        (SPADCALL |s| 'T NIL (QREFELT % 98))) 
 
 (SDEFUN |DELTAC;fundamentalGroup;%2BGp;17|
         ((|s| (%)) (|simplify| (|Boolean|)) (|trace| (|Boolean|))
@@ -859,24 +857,24 @@
               (SPADCALL
                (SPADCALL
                 (SPADCALL (SPADCALL "fundamentalGroup(" (QREFELT % 28))
-                          (SPADCALL |s| (QREFELT % 101)) (QREFELT % 30))
+                          (SPADCALL |s| (QREFELT % 100)) (QREFELT % 30))
                 (SPADCALL ")" (QREFELT % 28)) (QREFELT % 30))
                (QREFELT % 33))))
-            (LETT |graph| (SPADCALL |s| (QREFELT % 93)))
+            (LETT |graph| (SPADCALL |s| (QREFELT % 92)))
             (COND
              (|trace|
               (SPADCALL
-               (SPADCALL (SPADCALL "fundamentalGroup graph=" (QREFELT % 102))
-                         (SPADCALL |graph| (QREFELT % 103)) (QREFELT % 30))
+               (SPADCALL (SPADCALL "fundamentalGroup graph=" (QREFELT % 101))
+                         (SPADCALL |graph| (QREFELT % 102)) (QREFELT % 30))
                (QREFELT % 33))))
-            (LETT |span| (SPADCALL |graph| 1 (QREFELT % 104)))
+            (LETT |span| (SPADCALL |graph| 1 (QREFELT % 103)))
             (COND
              (|trace|
               (SPADCALL
                (SPADCALL (SPADCALL "fundamentalGroup span=" (QREFELT % 28))
-                         (SPADCALL |span| (QREFELT % 105)) (QREFELT % 30))
+                         (SPADCALL |span| (QREFELT % 104)) (QREFELT % 30))
                (QREFELT % 33))))
-            (LETT |edges| (SPADCALL |s| 2 (QREFELT % 66)))
+            (LETT |edges| (SPADCALL |s| 2 (QREFELT % 65)))
             (LETT |res| (|DELTAC;linksInTree| |res| |span| %))
             (COND
              (|trace|
@@ -920,9 +918,9 @@
                   (SPADCALL "fundamentalGroup linksInTree=" (QREFELT % 28))
                   (SPADCALL |res| (QREFELT % 43)) (QREFELT % 30))
                  (SPADCALL " edgesInTree=" (QREFELT % 28)) (QREFELT % 30))
-                (SPADCALL |edgesInTree| (QREFELT % 106)) (QREFELT % 30))
+                (SPADCALL |edgesInTree| (QREFELT % 105)) (QREFELT % 30))
                (QREFELT % 33))))
-            (LETT |polygons| (SPADCALL |s| 3 (QREFELT % 66)))
+            (LETT |polygons| (SPADCALL |s| 3 (QREFELT % 65)))
             (LETT |rules| NIL)
             (COND
              (|trace|
@@ -943,12 +941,12 @@
                                 (SPADCALL |edgesInTree|
                                           (ABS
                                            (SPADCALL |t| |vertn|
-                                                     (QREFELT % 85)))
+                                                     (QREFELT % 106)))
                                           (QREFELT % 107)))
                                (LETT |rule|
                                      (SPADCALL |rule|
                                                (SPADCALL |t| |vertn|
-                                                         (QREFELT % 85))
+                                                         (QREFELT % 106))
                                                (QREFELT % 108)))))))
                            (LETT |vertn| (|inc_SI| |vertn|)) (GO G190) G191
                            (EXIT NIL))
@@ -956,7 +954,7 @@
                        (COND
                         ((NULL (NULL |rule|))
                          (LETT |rules|
-                               (SPADCALL |rules| |rule| (QREFELT % 97)))))))
+                               (SPADCALL |rules| |rule| (QREFELT % 96)))))))
                  (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
             (COND
              (|trace|
@@ -998,8 +996,8 @@
                      (COND ((|greater_SI| |n| #2#) (GO G191)))
                      (SEQ
                       (COND
-                       ((SPADCALL (SPADCALL |a| |n| (QREFELT % 85))
-                                  (SPADCALL |b| |offset| (QREFELT % 85))
+                       ((SPADCALL (SPADCALL |a| |n| (QREFELT % 106))
+                                  (SPADCALL |b| |offset| (QREFELT % 106))
                                   (QREFELT % 115))
                         (PROGN (LETT #1# NIL) (GO #3#))))
                       (LETT |offset| (+ |offset| 1))
@@ -1118,42 +1116,42 @@
               (|Void|) (51 . |print|) (|List| 39) (56 . |sort|) (61 . |coerce|)
               (66 . |coerce|) (|List| 12) (|OrientedFacet|)
               (71 . |getIndexesSigned|) (76 . |coerce|) (81 . |coerce|)
-              (86 . |coerce|) (|List| %) (91 . |boundary|) (96 . |elt|)
-              (102 . |position|) (108 . |Zero|) (112 . |coerce|) (|List| 53)
-              (|FiniteCubicalComplex| 6) (117 . |addImpliedFaces|) (|List| 56)
-              (122 . |sort|) (127 . |concat|) (|CubicalFacet|)
-              (133 . |boundary|) (138 . |position|) (144 . |coerce|)
-              (149 . |coerce|) (154 . |maxIndex|) |DELTAC;deltaComplex;Fcc%;5|
-              |DELTAC;link;2Nni%;6| |DELTAC;triangle;3Nni%;7| (159 . |elt|)
-              |DELTAC;faceMap;%NniL;8| (|Matrix| 12) (165 . |zero|)
-              (171 . |setelt!|) (|List| 67) (|ChainComplex|)
-              (179 . |chainComplex|) |DELTAC;chain;%Cc;9| (|CoChainComplex| 6)
-              (184 . |coChainComplex|) |DELTAC;coChain;%Ccc;10|
-              (189 . |validate|) (|List| (|Homology|)) (194 . |homology|)
-              |DELTAC;homology;%L;11| (199 . |validate|) (204 . |coHomology|)
-              |DELTAC;coHomology;%L;12| (209 . |second|) (214 . |elt|)
+              (86 . |coerce|) (|List| %) (91 . |boundary|) (96 . |position|)
+              (102 . |Zero|) (106 . |coerce|) (|List| 52)
+              (|FiniteCubicalComplex| 6) (111 . |addImpliedFaces|) (|List| 55)
+              (116 . |sort|) (121 . |concat|) (|CubicalFacet|)
+              (127 . |boundary|) (132 . |position|) (138 . |coerce|)
+              (143 . |coerce|) (148 . |maxIndex|) |DELTAC;deltaComplex;Fcc%;5|
+              |DELTAC;link;2Nni%;6| |DELTAC;triangle;3Nni%;7| (153 . |elt|)
+              |DELTAC;faceMap;%NniL;8| (|Matrix| 12) (159 . |zero|)
+              (165 . |setelt!|) (|List| 66) (|ChainComplex|)
+              (173 . |chainComplex|) |DELTAC;chain;%Cc;9| (|CoChainComplex| 6)
+              (178 . |coChainComplex|) |DELTAC;coChain;%Ccc;10|
+              (183 . |validate|) (|List| (|Homology|)) (188 . |homology|)
+              |DELTAC;homology;%L;11| (193 . |validate|) (198 . |coHomology|)
+              |DELTAC;coHomology;%L;12| (203 . |second|) (208 . |second|)
               (|Record| (|:| |name| 26) (|:| |arrType| 8) (|:| |fromOb| 8)
                         (|:| |toOb| 8) (|:| |xOffset| 12) (|:| |yOffset| 12)
                         (|:| |map| 109))
-              (|List| 86) (220 . |concat|)
+              (|List| 85) (213 . |concat|)
               (|Record| (|:| |value| 8) (|:| |posX| 8) (|:| |posY| 8))
-              (|List| 89) (226 . |concat|) (|UndirectedGraph| 8)
-              |DELTAC;oneSkeleton;%Ug;13| (|Tree| 12) (232 . |value|)
-              (237 . |children|) (242 . |concat|) (|GroupPresentation|)
+              (|List| 88) (219 . |concat|) (|UndirectedGraph| 8)
+              |DELTAC;oneSkeleton;%Ug;13| (|Tree| 12) (225 . |value|)
+              (230 . |children|) (235 . |concat|) (|GroupPresentation|)
               |DELTAC;fundamentalGroup;%2BGp;17|
               |DELTAC;fundamentalGroup;%Gp;16| |DELTAC;coerce;%Of;20|
-              (248 . |coerce|) (253 . |coerce|) (258 . |spanningTreeNode|)
-              (264 . |coerce|) (269 . |coerce|) (274 . |elt|) (280 . |concat|)
-              (|List| 8) (286 . |concat|) (292 . |groupPresentation|)
-              (298 . |simplify|) (304 . ~=) (310 . |position|) (316 . ~=)
-              |DELTAC;=;2%B;19| (322 . |empty|) (326 . |hconcat|)
-              (331 . |coerce|) (336 . |vconcat|) (|Union| % '"failed")
-              (|DeltaComplex| 6) (342 . |simplicialComplexIfCan|)
-              |DELTAC;coerce;%Fsc;21|)
-           '#(~= 347 |triangle| 353 |oneSkeleton| 360 |link| 365 |latex| 371
-              |homology| 376 |fundamentalGroup| 381 |faceMap| 393
-              |deltaComplex| 399 |coerce| 422 |coHomology| 432 |coChain| 437
-              |chain| 442 = 447)
+              (241 . |coerce|) (246 . |coerce|) (251 . |spanningTreeNode|)
+              (257 . |coerce|) (262 . |coerce|) (267 . |elt|) (273 . |elt|)
+              (279 . |concat|) (|List| 8) (285 . |concat|)
+              (291 . |groupPresentation|) (297 . |simplify|) (303 . ~=)
+              (309 . |position|) (315 . ~=) |DELTAC;=;2%B;19| (321 . |empty|)
+              (325 . |hconcat|) (330 . |coerce|) (335 . |vconcat|)
+              (|Union| % '"failed") (|DeltaComplex| 6)
+              (341 . |simplicialComplexIfCan|) |DELTAC;coerce;%Fsc;21|)
+           '#(~= 346 |triangle| 352 |oneSkeleton| 359 |link| 364 |latex| 370
+              |homology| 375 |fundamentalGroup| 380 |faceMap| 392
+              |deltaComplex| 398 |coerce| 421 |coHomology| 431 |coChain| 436
+              |chain| 441 = 446)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
@@ -1167,32 +1165,32 @@
                                               32 0 33 1 34 0 0 35 1 8 27 0 36 1
                                               34 27 0 37 1 39 38 0 40 1 39 27 0
                                               41 1 38 27 0 42 1 14 27 0 43 1 39
-                                              44 0 45 2 24 34 0 12 46 2 39 12 0
-                                              44 47 0 6 0 48 1 16 27 0 49 1 51
-                                              50 0 52 1 53 0 0 54 2 50 0 0 53
-                                              55 1 56 44 0 57 2 56 12 0 44 58 1
-                                              56 27 0 59 1 53 27 0 60 1 51 8 0
-                                              61 2 16 14 0 12 65 2 67 0 8 8 68
-                                              4 67 12 0 12 12 12 69 1 71 0 70
-                                              72 1 74 0 71 75 1 71 9 0 77 1 71
-                                              78 0 79 1 74 9 0 81 1 74 78 0 82
-                                              1 16 14 0 84 2 38 12 0 12 85 2 87
-                                              0 0 86 88 2 90 0 0 89 91 1 94 12
-                                              0 95 1 94 44 0 96 2 14 0 0 38 97
-                                              1 26 27 0 102 1 92 27 0 103 2 92
-                                              94 0 8 104 1 94 27 0 105 1 10 27
-                                              0 106 2 10 9 0 12 107 2 38 0 0 12
-                                              108 2 109 0 0 8 110 2 98 0 109 14
-                                              111 2 98 0 0 9 112 2 8 9 0 0 113
+                                              44 0 45 2 39 12 0 44 46 0 6 0 47
+                                              1 16 27 0 48 1 50 49 0 51 1 52 0
+                                              0 53 2 49 0 0 52 54 1 55 44 0 56
+                                              2 55 12 0 44 57 1 55 27 0 58 1 52
+                                              27 0 59 1 50 8 0 60 2 16 14 0 12
+                                              64 2 66 0 8 8 67 4 66 12 0 12 12
+                                              12 68 1 70 0 69 71 1 73 0 70 74 1
+                                              70 9 0 76 1 70 77 0 78 1 73 9 0
+                                              80 1 73 77 0 81 1 16 14 0 83 1 38
+                                              12 0 84 2 86 0 0 85 87 2 89 0 0
+                                              88 90 1 93 12 0 94 1 93 44 0 95 2
+                                              14 0 0 38 96 1 26 27 0 101 1 91
+                                              27 0 102 2 91 93 0 8 103 1 93 27
+                                              0 104 1 10 27 0 105 2 38 12 0 12
+                                              106 2 10 9 0 12 107 2 38 0 0 12
+                                              108 2 109 0 0 8 110 2 97 0 109 14
+                                              111 2 97 0 0 9 112 2 8 9 0 0 113
                                               2 38 12 12 0 114 2 12 9 0 0 115 0
                                               27 0 117 1 27 0 44 118 1 12 27 0
                                               119 2 27 0 0 0 120 1 21 121 122
-                                              123 2 0 9 0 0 1 3 0 0 8 8 8 64 1
-                                              0 92 0 93 2 0 0 8 8 63 1 0 26 0 1
-                                              1 0 78 0 80 3 0 98 0 9 9 99 1 0
-                                              98 0 100 2 0 14 0 8 66 1 0 0 51
-                                              62 1 0 0 21 23 2 0 0 21 9 22 3 0
-                                              0 19 8 16 20 1 0 21 0 124 1 0 27
-                                              0 101 1 0 78 0 83 1 0 74 0 76 1 0
-                                              71 0 73 2 0 9 0 0 116)))))
+                                              123 2 0 9 0 0 1 3 0 0 8 8 8 63 1
+                                              0 91 0 92 2 0 0 8 8 62 1 0 26 0 1
+                                              1 0 77 0 79 3 0 97 0 9 9 98 1 0
+                                              97 0 99 2 0 14 0 8 65 1 0 0 50 61
+                                              1 0 0 21 23 2 0 0 21 9 22 3 0 0
+                                              19 8 16 20 1 0 21 0 124 1 0 27 0
+                                              100 1 0 77 0 82 1 0 73 0 75 1 0
+                                              70 0 72 2 0 9 0 0 116)))))
            '|lookupComplete|)) 

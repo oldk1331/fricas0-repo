@@ -130,7 +130,7 @@
                                                                   #2#))
                                               F))))))
                               ((< (SPADCALL F (QREFELT % 21)) |n|)
-                               (|error| "strange result !"))
+                               (|error| "SUBRESP: strange result !"))
                               ('T
                                (SEQ (LETT |n| (SPADCALL F (QREFELT % 21)))
                                     (EXIT (QSETAREF1 |res| |n| F)))))))
