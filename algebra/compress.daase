@@ -499,7 +499,7 @@
  |variablesOf| |mainVariableOf| |makeCell| |setMult| |getIntervals|
  |cubicalFacet| |transition_matrices| |chainComplex| |alphanumeric?|
  |lowerCase?| |upperCase?| |alphabetic?| |hexDigit?| |digit?| |newline|
- |escape| |char| |ord| |danilewski| |char_pol| |char_pol_via_interpolation|
+ |underscore| |char| |ord| |danilewski| |char_pol| |char_pol_via_interpolation|
  |det_via_common_denominator| |char_pol_via_den_interpolation| |mkIntegral|
  |radPoly| |rootPoly| |goodPoint| |chvar| |setOutMode| |setRedMode| |stirling|
  |alpha| |hilbert| |alphaHilbert| |arbFunctions| |gauge| |gaugeHilbert| |bound|

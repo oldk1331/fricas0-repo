@@ -43431,7 +43431,7 @@
  (|transition_matrices| . 2034599) (|chainComplex| . 2034487)
  (|alphanumeric?| . 2034407) (|lowerCase?| . 2034327) (|upperCase?| . 2034247)
  (|alphabetic?| . 2034167) (|hexDigit?| . 2034087) (|digit?| . 2034007)
- (|newline| . 2033964) (|escape| . 2033921) (|char| . 2033764)
+ (|newline| . 2033964) (|underscore| . 2033921) (|char| . 2033764)
  (|ord| . 2033684) (|danilewski| . 2033395) (|char_pol| . 2033200)
  (|char_pol_via_interpolation| . 2032996)
  (|det_via_common_denominator| . 2032758)

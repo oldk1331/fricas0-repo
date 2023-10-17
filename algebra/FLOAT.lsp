@@ -2462,7 +2462,7 @@
               |FLOAT;^;3%;88| (|Fraction| 13) (100 . |Zero|) (104 . =)
               (110 . <) (116 . |One|) (120 . |numer|) (125 . |denom|)
               |FLOAT;^;%F%;89| 'SPACING 'OUTMODE 'OUTPREC (|Character|)
-              (130 . |escape|) (134 . |minIndex|) (139 . |elt|)
+              (130 . |underscore|) (134 . |minIndex|) (139 . |elt|)
               (145 . |setelt!|) (152 . |maxIndex|) (|UniversalSegment| 13)
               (157 . SEGMENT) (163 . |elt|) (169 . |rightTrim|)
               (|NonNegativeInteger|) |FLOAT;outputSpacing;NniV;105|

@@ -34,7 +34,7 @@
 
 (SDEFUN |CHAR;quote;%;10| ((% (%))) (SPADCALL 34 (QREFELT % 13))) 
 
-(SDEFUN |CHAR;escape;%;11| ((% (%))) (SPADCALL 95 (QREFELT % 13))) 
+(SDEFUN |CHAR;underscore;%;11| ((% (%))) (SPADCALL 95 (QREFELT % 13))) 
 
 (SDEFUN |CHAR;newline;%;12| ((% (%))) (SPADCALL 10 (QREFELT % 13))) 
 
@@ -117,7 +117,7 @@
               (|Integer|) |CHAR;char;I%;6| (|PositiveInteger|)
               |CHAR;index;Pi%;4| |CHAR;ord;%I;7| |CHAR;lookup;%Pi;5|
               (0 . |coerce|) |CHAR;random;%;8| |CHAR;space;%;9|
-              |CHAR;quote;%;10| |CHAR;escape;%;11| |CHAR;newline;%;12|
+              |CHAR;quote;%;10| |CHAR;underscore;%;11| |CHAR;newline;%;12|
               (|OutputForm|) |CHAR;coerce;%Of;13| (|CharacterClass|)
               (5 . |digit|) (|Character|) (9 . |member?|) |CHAR;digit?;%B;14|
               (15 . |hexDigit|) |CHAR;hexDigit?;%B;15| (19 . |upperCase|)
@@ -128,11 +128,11 @@
               |CHAR;char;S%;21| |CHAR;upperCase;2%;22| |CHAR;lowerCase;2%;23|
               (|HashState|) |CHAR;hashUpdate!;Hs%Hs;24| (|InputForm|)
               (|SingleInteger|) (|List| %))
-           '#(~= 35 |upperCase?| 41 |upperCase| 46 |space| 51 |smaller?| 55
-              |size| 61 |random| 65 |quote| 69 |ord| 73 |newline| 78 |min| 82
-              |max| 88 |lowerCase?| 94 |lowerCase| 99 |lookup| 104 |latex| 109
-              |index| 114 |hexDigit?| 119 |hashUpdate!| 124 |hash| 130 |escape|
-              135 |enumerate| 139 |digit?| 143 |convert| 148 |coerce| 153
+           '#(~= 35 |upperCase?| 41 |upperCase| 46 |underscore| 51 |space| 55
+              |smaller?| 59 |size| 65 |random| 69 |quote| 73 |ord| 77 |newline|
+              82 |min| 86 |max| 92 |lowerCase?| 98 |lowerCase| 103 |lookup| 108
+              |latex| 113 |index| 118 |hexDigit?| 123 |hashUpdate!| 128 |hash|
+              134 |enumerate| 139 |digit?| 143 |convert| 148 |coerce| 153
               |char| 158 |alphanumeric?| 168 |alphabetic?| 173 >= 178 > 184 =
               190 <= 196 < 202)
            'NIL
@@ -149,12 +149,12 @@
                                        '(1 6 0 12 18 0 26 0 27 2 26 7 28 0 29 0
                                          26 0 31 0 26 0 33 0 26 0 35 0 26 0 37
                                          0 26 0 39 2 0 7 0 0 1 1 0 7 0 34 1 0 0
-                                         0 44 0 0 0 20 2 0 7 0 0 1 0 0 10 11 0
-                                         0 0 19 0 0 0 21 1 0 12 0 16 0 0 0 23 2
-                                         0 0 0 0 1 2 0 0 0 0 1 1 0 7 0 36 1 0 0
-                                         0 45 1 0 14 0 17 1 0 41 0 42 1 0 0 14
-                                         15 1 0 7 0 32 2 0 46 46 0 47 1 0 49 0
-                                         1 0 0 0 22 0 0 50 1 1 0 7 0 30 1 0 48
+                                         0 44 0 0 0 22 0 0 0 20 2 0 7 0 0 1 0 0
+                                         10 11 0 0 0 19 0 0 0 21 1 0 12 0 16 0
+                                         0 0 23 2 0 0 0 0 1 2 0 0 0 0 1 1 0 7 0
+                                         36 1 0 0 0 45 1 0 14 0 17 1 0 41 0 42
+                                         1 0 0 14 15 1 0 7 0 32 2 0 46 46 0 47
+                                         1 0 49 0 1 0 0 50 1 1 0 7 0 30 1 0 48
                                          0 1 1 0 24 0 25 1 0 0 12 13 1 0 0 41
                                          43 1 0 7 0 40 1 0 7 0 38 2 0 7 0 0 1 2
                                          0 7 0 0 1 2 0 7 0 0 8 2 0 7 0 0 1 2 0

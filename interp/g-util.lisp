@@ -1246,13 +1246,13 @@
 
 (EVAL-WHEN (EVAL LOAD) (SETQ |$charFauxNewline| (CODE-CHAR 25)))
 
-; $stringNewline      := PNAME CODE_-CHAR(10)
+; $stringNewline      := STRING($charNewline)
 
-(EVAL-WHEN (EVAL LOAD) (SETQ |$stringNewline| (PNAME (CODE-CHAR 10))))
+(EVAL-WHEN (EVAL LOAD) (SETQ |$stringNewline| (STRING |$charNewline|)))
 
-; $stringFauxNewline  := PNAME CODE_-CHAR(25)
+; $stringFauxNewline  := STRING($charFauxNewline)
 
-(EVAL-WHEN (EVAL LOAD) (SETQ |$stringFauxNewline| (PNAME (CODE-CHAR 25))))
+(EVAL-WHEN (EVAL LOAD) (SETQ |$stringFauxNewline| (STRING |$charFauxNewline|)))
 
 ; $charExclusions := [char 'a, char 'A]
 
