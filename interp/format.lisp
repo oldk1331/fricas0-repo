@@ -680,13 +680,6 @@
      (|concat| '|%b| (|formatOpSymbol| |op| |sig|) '|%d| ": "
       (|formatSignature| |sig|)))))
 
-; formatOpConstant op ==
-;   concat('%b,formatOpSymbol(op,'($)),'%d,'": constant")
-
-(DEFUN |formatOpConstant| (|op|)
-  (PROG ()
-    (RETURN (|concat| '|%b| (|formatOpSymbol| |op| '($)) '|%d| ": constant"))))
-
 ; formatOpSymbol(op,sig) ==
 ;   if op = 'Zero then op := "0"
 ;   else if op = 'One then op := "1"
@@ -2645,7 +2638,7 @@
 ;   x is [op,:argl] =>
 ;     op = 'QUOTE => ['"(QUOTE ",:form2FenceQuote first argl,'")"]
 ;     ['"(", FORMAT(NIL, '"|~a|", op),:"append"/[form2Fence1 y for y in argl],'")"]
-;   x = "$" => ["%"]
+;   x = "%" => ["%"]
 ;   IDENTP x => [FORMAT(NIL, '"|~a|", x)]
 ; --  [x]
 ;   ['"  ", x]
@@ -2676,7 +2669,7 @@
                           (SETQ |bfVar#81| (CDR |bfVar#81|))))
                        NIL |argl| NIL)
                       (CONS ")" NIL)))))))
-      ((EQ |x| '$) (LIST '%)) ((IDENTP |x|) (LIST (FORMAT NIL "|~a|" |x|)))
+      ((EQ |x| '%) (LIST '%)) ((IDENTP |x|) (LIST (FORMAT NIL "|~a|" |x|)))
       (#1# (LIST "  " |x|))))))
 
 ; form2FenceQuote x ==

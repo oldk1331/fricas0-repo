@@ -2557,7 +2557,7 @@
 ;     fn = '_-_> => asyMapping(r,name?)
 ;     fn = 'Declare and r is [name,typ,:.] =>
 ;         asySig1(typ, name?, target?)
-;     x is '(_%) => '(_$)
+;     x is '(_%) => '(_%)
 ;     [fn,:[asySig(x,name?) for x in r]]
 ; --x = 'Type => '(Type)
 ;   x = '_% => '_%
@@ -2625,7 +2625,7 @@
                      (AND (CONSP |ISTMP#1|)
                           (PROGN (SETQ |typ| (CAR |ISTMP#1|)) #1#))))
                (|asySig1| |typ| |name?| |target?|))
-              ((EQUAL |x| '(%)) '($))
+              ((EQUAL |x| '(%)) '(%))
               (#1#
                (CONS |fn|
                      ((LAMBDA (|bfVar#88| |bfVar#87| |x|)
@@ -2677,7 +2677,7 @@
 ;     fn = '_-_> => asyTypeMapping r
 ;     fn = 'Apply => r
 ; --  fn = 'Declare and r is [name,typ,:.] => typ
-;     x is '(_%) => '(_$)
+;     x is '(_%) => '(_%)
 ;     x
 ; --x = 'Type => '(Type)
 ;   x = '_% => '_%
@@ -2708,7 +2708,7 @@
                |u|))
              ((EQ |fn| '|With|) (|asyCATEGORY| |r|))
              ((EQ |fn| '->) (|asyTypeMapping| |r|)) ((EQ |fn| '|Apply|) |r|)
-             ((EQUAL |x| '(%)) '($)) (#1# |x|)))
+             ((EQUAL |x| '(%)) '(%)) (#1# |x|)))
       ((EQ |x| '%) '%) (#1# |x|)))))
 
 ; asyTypeJoin r ==
@@ -2915,7 +2915,7 @@
 ;     fn = '_-_> => asyTypeMapping r
 ;     fn = 'Apply => asyTypeUnitList r
 ;     fn = 'Declare and r is [name,typ,:.] => asyTypeUnitDeclare(name,typ)
-;     x is '(_%) => '(_$)
+;     x is '(_%) => '(_%)
 ;     [fn,:asyTypeUnitList r]
 ;   GETL(x,'NILADIC) => [x]
 ; --x = 'Type => '(Type)
@@ -2956,7 +2956,7 @@
                     (AND (CONSP |ISTMP#1|)
                          (PROGN (SETQ |typ| (CAR |ISTMP#1|)) #1#))))
               (|asyTypeUnitDeclare| |name| |typ|))
-             ((EQUAL |x| '(%)) '($))
+             ((EQUAL |x| '(%)) '(%))
              (#1# (CONS |fn| (|asyTypeUnitList| |r|)))))
       ((GETL |x| 'NILADIC) (LIST |x|)) ((EQ |x| '%) '%) (#1# |x|)))))
 

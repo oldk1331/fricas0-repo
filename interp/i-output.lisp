@@ -3759,8 +3759,8 @@
 ;     if $htmlFormat    then htmlFormat x
 ;     if $formattedFormat then formattedFormat x
 ;   (FUNCTIONP(opOf domain)) and (not(SYMBOLP(opOf domain))) and
-;     (printfun := compiledLookup("<<",'(TextWriter TextWriter $), evalDomain domain))
-;        and (textwrit := compiledLookup("print", '($), TextWriter())) =>
+;     (printfun := compiledLookup("<<",'(TextWriter TextWriter %), evalDomain domain))
+;        and (textwrit := compiledLookup("print", '(%), TextWriter())) =>
 ;      sayMSGNT [:bright '"Aldor",'"output:   "]
 ;      SPADCALL(SPADCALL textwrit, expr, printfun)
 ;      sayMSGNT '%l
@@ -3806,9 +3806,9 @@
          (COND (|$formattedFormat| (|formattedFormat| |x|)))))
        ((AND (FUNCTIONP (|opOf| |domain|)) (NULL (SYMBOLP (|opOf| |domain|)))
              (SETQ |printfun|
-                     (|compiledLookup| '<< '(|TextWriter| |TextWriter| $)
+                     (|compiledLookup| '<< '(|TextWriter| |TextWriter| %)
                       (|evalDomain| |domain|)))
-             (SETQ |textwrit| (|compiledLookup| '|print| '($) (|TextWriter|))))
+             (SETQ |textwrit| (|compiledLookup| '|print| '(%) (|TextWriter|))))
         (PROGN
          (|sayMSGNT| (APPEND (|bright| "Aldor") (CONS "output:   " NIL)))
          (SPADCALL (SPADCALL |textwrit|) |expr| |printfun|)

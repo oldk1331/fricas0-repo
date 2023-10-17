@@ -680,7 +680,7 @@
 ;          EQL(op, $hashSeg) => op := 'SEGMENT
 ;      constant := nil
 ;      if hashCode? sig and self and EQL(sig, getDomainHash self) then
-;        sig := '($)
+;        sig := '(%)
 ;        constant := true
 ;      val :=
 ;        skipdefaults =>
@@ -707,7 +707,7 @@
       (SETQ |constant| NIL)
       (COND
        ((AND (|hashCode?| |sig|) |self| (EQL |sig| (|getDomainHash| |self|)))
-        (SETQ |sig| '($)) (SETQ |constant| T)))
+        (SETQ |sig| '(%)) (SETQ |constant| T)))
       (SETQ |val|
               (COND
                (|skipdefaults|
@@ -858,7 +858,7 @@
 ;      EQL(op, $hashOpSet) => op := "setelt!"
 ;      EQL(op, $hashSeg) => op := 'SEGMENT
 ;   hashCode? sig and EQL(sig, hashPercent) =>
-;       SPADCALL first SPADCALL(rest dollar, dollar, op, '($), box,
+;       SPADCALL first SPADCALL(rest dollar, dollar, op, '(%), box,
 ;                               false, lookupFun)
 ;   first SPADCALL(rest dollar, dollar, op, sig, box, false, lookupFun)
 
@@ -933,7 +933,7 @@
                 ((AND (|hashCode?| |sig|) (EQL |sig| |hashPercent|))
                  (SPADCALL
                   (CAR
-                   (SPADCALL (CDR |dollar|) |dollar| |op| '($) |box| NIL
+                   (SPADCALL (CDR |dollar|) |dollar| |op| '(%) |box| NIL
                     |lookupFun|))))
                 (#1#
                  (CAR
@@ -1206,7 +1206,7 @@
 ;     VECP dollar => hashType(dollar.0,0)
 ;     hashType(dollar,0)
 ;   if hashCode? sig and EQL(sig, hashPercent) then
-;          sig := hashType('(Mapping $), hashPercent)
+;          sig := hashType('(Mapping %), hashPercent)
 ;   dollar = nil => systemError()
 ;   $lookupDefaults = true =>
 ;       -- lookup first in my cats
@@ -1301,7 +1301,7 @@
                             (#1# (|hashType| |dollar| 0))))
               (COND
                ((AND (|hashCode?| |sig|) (EQL |sig| |hashPercent|))
-                (SETQ |sig| (|hashType| '(|Mapping| $) |hashPercent|))))
+                (SETQ |sig| (|hashType| '(|Mapping| %) |hashPercent|))))
               (COND ((NULL |dollar|) (|systemError|))
                     ((EQUAL |$lookupDefaults| T)
                      (OR

@@ -3044,21 +3044,21 @@
 
 ; PUT('Record,'documentation,SUBST(MESSAGE,'MESSAGE,'(
 ;   (constructor (NIL MESSAGE))
-;  (_=  (((Boolean) _$ _$)
+;  (_=  (((Boolean) _% _%)
 ;    "\spad{r = s} tests for equality of two records \spad{r} and \spad{s}"))
-;  (coerce (((OutputForm) _$)
+;  (coerce (((OutputForm) _%)
 ;    "\spad{coerce(r)} returns an representation of \spad{r} as an output form")
-;          ((_$ (List (Any)))
+;          ((_% (List (Any)))
 ;    "\spad{coerce(u)}, where \spad{u} is the list \spad{[x,y]} for \spad{x} of type \spad{A} and \spad{y} of type \spad{B}, returns the record \spad{[a:x,b:y]}"))
-;  (construct ((_$ A B)
+;  (construct ((_% A B)
 ;    "\spad{construct(x, y)} returns the record \spad{[a:x,b:y]}"))
-;  (elt ((A $ "a")
+;  (elt ((A % "a")
 ;    "\spad{r . a} returns the value stored in record \spad{r} under selector \spad{a}.")
-;       ((B $ "b")
+;       ((B % "b")
 ;    "\spad{r . b} returns the value stored in record \spad{r} under selector \spad{b}."))
-;  (setelt ((A $ "a" A)
+;  (setelt_! ((A % "a" A)
 ;    "\spad{r . a := x} destructively replaces the value stored in record \spad{r} under selector \spad{a} by the value of \spad{x}. Error: if \spad{r} has not been previously assigned a value.")
-;          ((B $ "b" B)
+;          ((B % "b" B)
 ;    "\spad{r . b := y} destructively replaces the value stored in record \spad{r} under selector \spad{b} by the value of \spad{y}. Error: if \spad{r} has not been previously assigned a value."))
 ;    )))
 
@@ -3069,25 +3069,25 @@
       (SUBST MESSAGE 'MESSAGE
              '((|constructor| (NIL MESSAGE))
                (=
-                (((|Boolean|) $ $)
+                (((|Boolean|) % %)
                  "\\spad{r = s} tests for equality of two records \\spad{r} and \\spad{s}"))
                (|coerce|
-                (((|OutputForm|) $)
+                (((|OutputForm|) %)
                  "\\spad{coerce(r)} returns an representation of \\spad{r} as an output form")
-                (($ (|List| (|Any|)))
+                ((% (|List| (|Any|)))
                  "\\spad{coerce(u)}, where \\spad{u} is the list \\spad{[x,y]} for \\spad{x} of type \\spad{A} and \\spad{y} of type \\spad{B}, returns the record \\spad{[a:x,b:y]}"))
                (|construct|
-                (($ A B)
+                ((% A B)
                  "\\spad{construct(x, y)} returns the record \\spad{[a:x,b:y]}"))
                (|elt|
-                ((A $ "a")
+                ((A % "a")
                  "\\spad{r . a} returns the value stored in record \\spad{r} under selector \\spad{a}.")
-                ((B $ "b")
+                ((B % "b")
                  "\\spad{r . b} returns the value stored in record \\spad{r} under selector \\spad{b}."))
-               (|setelt|
-                ((A $ "a" A)
+               (|setelt!|
+                ((A % "a" A)
                  "\\spad{r . a := x} destructively replaces the value stored in record \\spad{r} under selector \\spad{a} by the value of \\spad{x}. Error: if \\spad{r} has not been previously assigned a value.")
-                ((B $ "b" B)
+                ((B % "b" B)
                  "\\spad{r . b := y} destructively replaces the value stored in record \\spad{r} under selector \\spad{b} by the value of \\spad{y}. Error: if \\spad{r} has not been previously assigned a value."))))))))
 
 ; X := '"{\sf Union(A,B)} denotes the class of objects which are which are either members of domain {\em A} or of domain {\em B}. The {\sf Union} constructor can take any number of arguments. "
@@ -3108,19 +3108,19 @@
 
 ; PUT('UntaggedUnion,'documentation,SUBST(MESSAGE,'MESSAGE,'(
 ;   (constructor (NIL MESSAGE))
-;   (_=  (((Boolean) $ $)
+;   (_=  (((Boolean) % %)
 ;     "\spad{u = v} tests if two objects of the union are equal, that is, u and v are hold objects of same branch which are equal."))
-;   (case (((Boolean) $ "A")
+;   (case (((Boolean) % "A")
 ;     "\spad{u case A} tests if \spad{u} is of the type \spad{A} branch of the union.")
-;         (((Boolean) $ "B")
+;         (((Boolean) % "B")
 ;     "\spad{u case B} tests if \spad{u} is of the \spad{B} branch of the union."))
-;   (coerce ((A $)
+;   (coerce ((A %)
 ;     "\spad{coerce(u)} returns \spad{x} of type \spad{A} if \spad{x} is of the \spad{A} branch of the union. Error: if \spad{u} is of the \spad{B} branch of the union.")
-;           ((B $)
+;           ((B %)
 ;     "\spad{coerce(u)} returns \spad{x} of type \spad{B} if \spad{x} is of the \spad{B} branch of the union. Error: if \spad{u} is of the \spad{A} branch of the union.")
-;           (($ A)
+;           ((% A)
 ;     "\spad{coerce(x)}, where \spad{x} has type \spad{A}, returns \spad{x} as a union type.")
-;           (($ B)
+;           ((% B)
 ;     "\spad{coerce(y)}, where \spad{y} has type \spad{B}, returns \spad{y} as a union type."))
 ;   )))
 
@@ -3131,21 +3131,21 @@
       (SUBST MESSAGE 'MESSAGE
              '((|constructor| (NIL MESSAGE))
                (=
-                (((|Boolean|) $ $)
+                (((|Boolean|) % %)
                  "\\spad{u = v} tests if two objects of the union are equal, that is, u and v are hold objects of same branch which are equal."))
                (CASE
-                   (((|Boolean|) $ "A")
+                   (((|Boolean|) % "A")
                     "\\spad{u case A} tests if \\spad{u} is of the type \\spad{A} branch of the union.")
-                 (((|Boolean|) $ "B")
+                 (((|Boolean|) % "B")
                   "\\spad{u case B} tests if \\spad{u} is of the \\spad{B} branch of the union."))
                (|coerce|
-                ((A $)
+                ((A %)
                  "\\spad{coerce(u)} returns \\spad{x} of type \\spad{A} if \\spad{x} is of the \\spad{A} branch of the union. Error: if \\spad{u} is of the \\spad{B} branch of the union.")
-                ((B $)
+                ((B %)
                  "\\spad{coerce(u)} returns \\spad{x} of type \\spad{B} if \\spad{x} is of the \\spad{B} branch of the union. Error: if \\spad{u} is of the \\spad{A} branch of the union.")
-                (($ A)
+                ((% A)
                  "\\spad{coerce(x)}, where \\spad{x} has type \\spad{A}, returns \\spad{x} as a union type.")
-                (($ B)
+                ((% B)
                  "\\spad{coerce(y)}, where \\spad{y} has type \\spad{B}, returns \\spad{y} as a union type."))))))))
 
 ; X := '"{\sf Union(a:A,b:B)} denotes the class of objects which are either members of domain {\em A} or of domain {\em B}. "
@@ -3184,19 +3184,19 @@
 
 ; PUT('Union,'documentation,SUBST(MESSAGE,'MESSAGE,'(
 ;   (constructor (NIL MESSAGE))
-;   (_=  (((Boolean) $ $)
+;   (_=  (((Boolean) % %)
 ;     "\spad{u = v} tests if two objects of the union are equal, that is, \spad{u} and \spad{v} are objects of same branch which are equal."))
-;   (case (((Boolean) $ "A")
+;   (case (((Boolean) % "A")
 ;     "\spad{u case a} tests if \spad{u} is of branch \spad{a} of the union.")
-;                 (((Boolean) $ "B")
+;                 (((Boolean) % "B")
 ;     "\spad{u case b} tests if \spad{u} is of branch \spad{b} of the union."))
-;   (coerce ((A $)
+;   (coerce ((A %)
 ;     "\spad{coerce(u)} returns \spad{x} of type \spad{A} if \spad{x} is of branch \spad{a} of the union. Error: if \spad{u} is of branch \spad{b} of the union.")
-;           ((B $)
+;           ((B %)
 ;     "\spad{coerce(u)} returns \spad{x} of type \spad{B} if \spad{x} is of branch \spad{b} branch of the union. Error: if \spad{u} is of the \spad{a} branch of the union.")
-;           (($ A)
+;           ((% A)
 ;     "\spad{coerce(x)}, where \spad{x} has type \spad{A}, returns \spad{x} as a union type.")
-;           (($ B)
+;           ((% B)
 ;     "\spad{coerce(y)}, where \spad{y} has type \spad{B}, returns \spad{y} as a union type."))
 ;   )))
 
@@ -3207,21 +3207,21 @@
       (SUBST MESSAGE 'MESSAGE
              '((|constructor| (NIL MESSAGE))
                (=
-                (((|Boolean|) $ $)
+                (((|Boolean|) % %)
                  "\\spad{u = v} tests if two objects of the union are equal, that is, \\spad{u} and \\spad{v} are objects of same branch which are equal."))
                (CASE
-                   (((|Boolean|) $ "A")
+                   (((|Boolean|) % "A")
                     "\\spad{u case a} tests if \\spad{u} is of branch \\spad{a} of the union.")
-                 (((|Boolean|) $ "B")
+                 (((|Boolean|) % "B")
                   "\\spad{u case b} tests if \\spad{u} is of branch \\spad{b} of the union."))
                (|coerce|
-                ((A $)
+                ((A %)
                  "\\spad{coerce(u)} returns \\spad{x} of type \\spad{A} if \\spad{x} is of branch \\spad{a} of the union. Error: if \\spad{u} is of branch \\spad{b} of the union.")
-                ((B $)
+                ((B %)
                  "\\spad{coerce(u)} returns \\spad{x} of type \\spad{B} if \\spad{x} is of branch \\spad{b} branch of the union. Error: if \\spad{u} is of the \\spad{a} branch of the union.")
-                (($ A)
+                ((% A)
                  "\\spad{coerce(x)}, where \\spad{x} has type \\spad{A}, returns \\spad{x} as a union type.")
-                (($ B)
+                ((% B)
                  "\\spad{coerce(y)}, where \\spad{y} has type \\spad{B}, returns \\spad{y} as a union type."))))))))
 
 ; X := '"{\sf Mapping(T,S,...)} denotes the class of objects which are mappings from a source domain ({\em S,...}) into a target domain {\em T}. The {\sf Mapping} constructor can take any number of arguments."
@@ -3248,7 +3248,7 @@
 
 ; PUT('Mapping,'documentation, SUBST(MESSAGE,'MESSAGE,'(
 ;   (constructor (NIL MESSAGE))
-;   (_=  (((Boolean) $ $)
+;   (_=  (((Boolean) % %)
 ;     "\spad{u = v} tests if mapping objects are equal."))
 ;    )))
 
@@ -3259,7 +3259,7 @@
       (SUBST MESSAGE 'MESSAGE
              '((|constructor| (NIL MESSAGE))
                (=
-                (((|Boolean|) $ $)
+                (((|Boolean|) % %)
                  "\\spad{u = v} tests if mapping objects are equal."))))))))
 
 ; X := '"{\em Enumeration(a1, a2 ,..., aN)} creates an object which is exactly one of the N symbols {\em a1}, {\em a2}, ..., or {\em aN}, N > 0. "
@@ -3280,13 +3280,13 @@
 
 ; PUT('Enumeration, 'documentation, SUBST(MESSAGE, 'MESSAGE, '(
 ;   (constructor (NIL MESSAGE))
-;   (_= (((Boolean) _$ _$)
+;   (_= (((Boolean) _% _%)
 ;     "\spad{e = f} tests for equality of two enumerations \spad{e} and \spad{f}"))
-;   (_^_= (((Boolean) _$ _$)
+;   (_^_= (((Boolean) _% _%)
 ;     "\spad{e ~= f} tests that two enumerations \spad{e} and \spad{f} are nont equal"))
-;   (coerce (((OutputForm) _$)
+;   (coerce (((OutputForm) _%)
 ;      "\spad{coerce(e)} returns a representation of enumeration \spad{r} as an output form")
-;           ((_$ (Symbol))
+;           ((_% (Symbol))
 ;      "\spad{coerce(s)} converts a symbol \spad{s} into an enumeration which has \spad{s} as a member symbol"))
 ;   )))
 
@@ -3297,13 +3297,13 @@
       (SUBST MESSAGE 'MESSAGE
              '((|constructor| (NIL MESSAGE))
                (=
-                (((|Boolean|) $ $)
+                (((|Boolean|) % %)
                  "\\spad{e = f} tests for equality of two enumerations \\spad{e} and \\spad{f}"))
                (^=
-                (((|Boolean|) $ $)
+                (((|Boolean|) % %)
                  "\\spad{e ~= f} tests that two enumerations \\spad{e} and \\spad{f} are nont equal"))
                (|coerce|
-                (((|OutputForm|) $)
+                (((|OutputForm|) %)
                  "\\spad{coerce(e)} returns a representation of enumeration \\spad{r} as an output form")
-                (($ (|Symbol|))
+                ((% (|Symbol|))
                  "\\spad{coerce(s)} converts a symbol \\spad{s} into an enumeration which has \\spad{s} as a member symbol"))))))))
