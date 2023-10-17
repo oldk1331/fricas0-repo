@@ -3,6 +3,304 @@
 
 (IN-PACKAGE "BOOT")
 
+; init_output_properties() ==
+;     for sv in [ _
+;       ["LET", '" := "], ["/", '"/"], ["*", '"*"], ["TENSOR", '" # "], _
+;       ["**", '"**"], ["^", '"^"], [":", '":"], ["::", '"::"], _
+;       ["@", '"@"], ["SEL", '"."], ["exquo", '" exquo "], ["div", '" div "], _
+;       ["quo", '" quo "], ["rem", '" rem "], ["case", '" case "], _
+;       ["and", '" and "], ["or", '" or "], ["TAG", '" -> "], _
+;       ["+->", '" +-> "], ["SEGMENT", '".."], ["in", '" in "], _
+;       ["~=", '"~="], ["JOIN", '" JOIN "], ["EQUATNUM", '"  "], _
+;       ["=", '" = "], ["==", '" == "], [">=", '" >= "], [">", '" > "], _
+;       ["<=", '" <= "], ["<", '" < "], ["|", '" | "], ["+", " + "], _
+;       ["-", '" - "], ["WHERE", '" WHERE "], ["MAX", '" MAX "], _
+;       ["MIN", '" MIN "]] repeat
+;         MAKEPROP(first(sv), 'INFIXOP, first(rest(sv)))
+;
+;     for sv in [ _
+;       ["=", '"="], [":", '":"], ["not", '"~ "], ["|", '" | "], _
+;       ["SEGMENT", '".."]] repeat
+;         MAKEPROP(first(sv), 'PREFIXOP, first(rest(sv)))
+;
+;     for spv in [ _
+;       ["-", "APP", "appneg"], ["-", "WIDTH", "minusWidth"], _
+;       ["/", "APP", "appfrac"], ["/", "SUBSPAN", "fracsub"], _
+;       ["/", "SUPERSPAN", "fracsuper"], ["/", "WIDTH", "fracwidth"], _
+;       ["AGGSET", "APP", "argsapp"], ["AGGSET", "SUBSPAN", "agggsub"], _
+;       ["AGGSET", "SUPERSPAN", "agggsuper"], ["AGGSET", "WIDTH", "agggwidth"], _
+;       ["binom", "APP", "binomApp"], ["binom", "SUBSPAN", "binomSub"], _
+;       ["binom", "SUPERSPAN", "binomSuper"], ["binom", "WIDTH", "binomWidth"], _
+;       ["ALTSUPERSUB", "APP", "altSuperSubApp"], _
+;       ["ALTSUPERSUB", "SUBSPAN", "altSuperSubSub"], _
+;       ["ALTSUPERSUB", "SUPERSPAN", "altSuperSubSuper"], _
+;       ["ALTSUPERSUB", "WIDTH", "altSuperSubWidth"], _
+;       ["BOX", "APP", "boxApp"], ["BOX", "SUBSPAN", "boxSub"], _
+;       ["BOX", "SUPERSPAN", "boxSuper"], ["BOX", "WIDTH", "boxWidth"], _
+;       ["BRACKET", "SUBSPAN", "qTSub"], ["BRACKET", "SUPERSPAN", "qTSuper"], _
+;       ["BRACKET", "WIDTH", "qTWidth"], _
+;       ["CENTER", "APP", "centerApp"], _
+;       ["EXT", "APP", "appext"], ["EXT", "SUBSPAN", "extsub"], _
+;       ["EXT", "SUPERSPAN", "extsuper"], ["EXT", "WIDTH", "extwidth"], _
+;       ["MATRIX", "APP", "appmat"], ["MATRIX", "SUBSPAN", "matSub"], _
+;       ["MATRIX", "SUPERSPAN", "matSuper"], ["MATRIX", "WIDTH", "matWidth"], _
+;       ["NOTHING", "APP", "nothingApp"], _
+;       ["NOTHING", "SUBSPAN", "nothingSub"], _
+;       ["NOTHING", "SUPERSPAN", "nothingSuper"], _
+;       ["NOTHING", "WIDTH", "nothingWidth"], _
+;       ["OVER", "APP", "appfrac"], ["OVER", "SUBSPAN", "fracsub"], _
+;       ["OVER", "SUPERSPAN", "fracsuper"], ["OVER", "WIDTH", "fracwidth"], _
+;       ["OVERLABEL", "APP", "overlabelApp"], _
+;       ["OVERLABEL", "SUPERSPAN", "overlabelSuper"], _
+;       ["OVERLABEL", "WIDTH", "overlabelWidth"], _
+;       ["OVERBAR", "APP", "overbarApp"], _
+;       ["OVERBAR", "SUPERSPAN", "overbarSuper"], _
+;       ["OVERBAR", "WIDTH", "overbarWidth"], _
+;       ["PAREN", "APP", "appparu1"], ["PAREN", "SUBSPAN", "qTSub"], _
+;       ["PAREN", "SUPERSPAN", "qTSuper"], ["PAREN", "WIDTH", "qTWidth"], _
+;       ["PRIME", "APP", "primeApp"], ["PRIME", "SUBSPAN", "primeSub"], _
+;       ["PRIME", "SUPERSPAN", "primeSuper"], ["PRIME", "WIDTH", "primeWidth"], _
+;       ["ROOT", "APP", "rootApp"], ["ROOT", "SUBSPAN", "rootSub"], _
+;       ["ROOT", "SUPERSPAN", "rootSuper"], ["ROOT", "WIDTH", "rootWidth"], _
+;       ["ROW", "WIDTH", "eq0"], _
+;       ["SC", "APP", "appsc"], ["SC", "SUBSPAN", "agggsub"], _
+;       ["SC", "SUPERSPAN", "agggsuper"], ["SC", "WIDTH", "widthSC"], _
+;       ["SETQ", "APP", "appsetq"], ["SETQ", "WIDTH", "letWidth"], _
+;       ["SLASH", "APP", "slashApp"], ["SLASH", "SUBSPAN", "slashSub"], _
+;       ["SLASH", "SUPERSPAN", "slashSuper"], ["SLASH", "WIDTH", "slashWidth"], _
+;       ["SUB", "APP", "appsub"], ["SUB", "SUBSPAN", "subSub"], _
+;       ["SUB", "SUPERSPAN", "subSuper"], ["SUB", "WIDTH", "suScWidth"], _
+;       ["SUPERSUB", "APP", "superSubApp"], _
+;       ["SUPERSUB", "SUBSPAN", "superSubSub"], _
+;       ["SUPERSUB", "SUPERSPAN", "superSubSuper"], _
+;       ["SUPERSUB", "WIDTH", "superSubWidth"], _
+;       ["VCONCAT", "APP", "vconcatapp"], _
+;       ["VCONCAT", "SUBSPAN", "vConcatSub"], _
+;       ["VCONCAT", "SUPERSPAN", "vConcatSuper"], _
+;       ["VCONCAT", "WIDTH", "vConcatWidth"], _
+;       ["BINOMIAL", "APP", "binomialApp"], _
+;       ["BINOMIAL", "SUBSPAN", "binomialSub"], _
+;       ["BINOMIAL", "SUPERSPAN", "binomialSuper"], _
+;       ["BINOMIAL", "WIDTH", "binomialWidth"], _
+;       ["ZAG", "APP", "zagApp"], ["ZAG", "SUBSPAN", "zagSub"], _
+;       ["ZAG", "SUPERSPAN", "zagSuper"], ["ZAG", "WIDTH", "zagWidth"], _
+;       ["+", "APP", "plusApp"], ["+", "WIDTH", "sumWidth"], _
+;       ["*", "APP", "timesApp"], ["*", "WIDTH", "timesWidth"], _
+;       ["TENSOR", "APP", "tensorApp"], ["TENSOR", "WIDTH", "tensorWidth"], _
+;       ["^", "APP", "exptApp"], ["^", "SUBSPAN", "exptSub"], _
+;       ["^", "SUPERSPAN", "exptSuper"], ["^", "WIDTH", "exptWidth"], _
+;       ["STEP", "APP", "stepApp"], ["STEP", "SUBSPAN", "stepSub"], _
+;       ["STEP", "SUPERSPAN", "stepSuper"], ["STEP", "WIDTH", "stepWidth"], _
+;       ["IN", "APP", "inApp"], ["IN", "SUBSPAN", "inSub"], _
+;       ["IN", "SUPERSPAN", "inSuper"], ["IN", "WIDTH", "inWidth"], _
+;       ["AGGLST", "APP", "aggApp"], ["AGGLST", "SUBSPAN", "aggSub"], _
+;       ["AGGLST", "SUPERSPAN", "aggSuper"], _
+;       ["CONCATB", "APP", "concatbApp"], _
+;       ["CONCATB", "SUBSPAN", "concatSub"], _
+;       ["CONCATB", "SUPERSPAN", "concatSuper"], _
+;       ["CONCATB", "WIDTH", "concatbWidth"], _
+;       ["CONCAT", "APP", "concatApp"], _
+;       ["CONCAT", "SUBSPAN", "concatSub"], _
+;       ["CONCAT", "SUPERSPAN", "concatSuper"], _
+;       ["CONCAT", "WIDTH", "concatWidth"], _
+;       ["QUOTE", "APP", "quoteApp"], _
+;       ["QUOTE", "SUBSPAN", "quoteSub"], _
+;       ["QUOTE", "SUPERSPAN", "quoteSub"], _
+;       ["QUOTE", "WIDTH", "quoteWidth"], _
+;       ["STRING", "APP", "stringApp"], _
+;       ["STRING", "SUBSPAN", "eq0"], _
+;       ["STRING", "SUPERSPAN", "eq0"], _
+;       ["STRING", "WIDTH", "stringWidth"], _
+;       ["SIGMA", "APP", "sigmaApp"], _
+;       ["SIGMA", "SUBSPAN", "sigmaSub"], _
+;       ["SIGMA", "SUPERSPAN", "sigmaSup"], _
+;       ["SIGMA", "WIDTH", "sigmaWidth"], _
+;       ["SIGMA2", "APP", "sigma2App"], _
+;       ["SIGMA2", "SUBSPAN", "sigma2Sub"], _
+;       ["SIGMA2", "SUPERSPAN", "sigma2Sup"], _
+;       ["SIGMA2", "WIDTH", "sigma2Width"], _
+;       ["SIGMA2", "SUBSPAN", "sigma2Sub"], _
+;       ["SIGMA2", "SUPERSPAN", "sigma2Sup"], _
+;       ["INTSIGN", "APP", "intApp"], _
+;       ["INTSIGN", "SUBSPAN", "intSub"], _
+;       ["INTSIGN", "SUPERSPAN", "intSup"], _
+;       ["INTSIGN", "WIDTH", "intWidth"], _
+;       ["PI", "APP", "piApp"], _
+;       ["PI", "SUBSPAN", "piSub"], _
+;       ["PI", "SUPERSPAN", "piSup"], _
+;       ["PI", "WIDTH", "piWidth"], _
+;       ["PI2", "APP", "pi2App"], _
+;       ["PI2", "SUBSPAN", "pi2Sub"], _
+;       ["PI2", "SUPERSPAN", "pi2Sup"], _
+;       ["PI2", "WIDTH", "pi2Width"], _
+;       ["AGGLST", "WIDTH", "aggWidth"], _
+;       ["BRACKET", "APP", "bracketApp"], _
+;       ["BRACE", "APP", "braceApp"], _
+;       ["BRACE", "WIDTH", "qTWidth"]] repeat
+;         MAKEPROP(first(spv), first(rest(spv)), first(rest(rest(spv))))
+
+(DEFUN |init_output_properties| ()
+  (PROG ()
+    (RETURN
+     (PROGN
+      ((LAMBDA (|bfVar#1| |sv|)
+         (LOOP
+          (COND
+           ((OR (ATOM |bfVar#1|) (PROGN (SETQ |sv| (CAR |bfVar#1|)) NIL))
+            (RETURN NIL))
+           (#1='T (MAKEPROP (CAR |sv|) 'INFIXOP (CAR (CDR |sv|)))))
+          (SETQ |bfVar#1| (CDR |bfVar#1|))))
+       (LIST (LIST 'LET " := ") (LIST '/ "/") (LIST '* "*")
+             (LIST 'TENSOR " # ") (LIST '** "**") (LIST '^ "^") (LIST '|:| ":")
+             (LIST '|::| "::") (LIST '@ "@") (LIST 'SEL ".")
+             (LIST '|exquo| " exquo ") (LIST '|div| " div ")
+             (LIST '|quo| " quo ") (LIST '|rem| " rem ")
+             (LIST '|case| " case ") (LIST '|and| " and ") (LIST '|or| " or ")
+             (LIST 'TAG " -> ") (LIST '+-> " +-> ") (LIST 'SEGMENT "..")
+             (LIST '|in| " in ") (LIST '~= "~=") (LIST 'JOIN " JOIN ")
+             (LIST 'EQUATNUM "  ") (LIST '= " = ") (LIST '== " == ")
+             (LIST '>= " >= ") (LIST '> " > ") (LIST '<= " <= ")
+             (LIST '< " < ") (LIST '|\|| " | ") (LIST '+ '| + |)
+             (LIST '- " - ") (LIST 'WHERE " WHERE ") (LIST 'MAX " MAX ")
+             (LIST 'MIN " MIN "))
+       NIL)
+      ((LAMBDA (|bfVar#2| |sv|)
+         (LOOP
+          (COND
+           ((OR (ATOM |bfVar#2|) (PROGN (SETQ |sv| (CAR |bfVar#2|)) NIL))
+            (RETURN NIL))
+           (#1# (MAKEPROP (CAR |sv|) 'PREFIXOP (CAR (CDR |sv|)))))
+          (SETQ |bfVar#2| (CDR |bfVar#2|))))
+       (LIST (LIST '= "=") (LIST '|:| ":") (LIST '|not| "~ ")
+             (LIST '|\|| " | ") (LIST 'SEGMENT ".."))
+       NIL)
+      ((LAMBDA (|bfVar#3| |spv|)
+         (LOOP
+          (COND
+           ((OR (ATOM |bfVar#3|) (PROGN (SETQ |spv| (CAR |bfVar#3|)) NIL))
+            (RETURN NIL))
+           (#1#
+            (MAKEPROP (CAR |spv|) (CAR (CDR |spv|)) (CAR (CDR (CDR |spv|))))))
+          (SETQ |bfVar#3| (CDR |bfVar#3|))))
+       (LIST (LIST '- 'APP '|appneg|) (LIST '- 'WIDTH '|minusWidth|)
+             (LIST '/ 'APP '|appfrac|) (LIST '/ 'SUBSPAN '|fracsub|)
+             (LIST '/ 'SUPERSPAN '|fracsuper|) (LIST '/ 'WIDTH '|fracwidth|)
+             (LIST 'AGGSET 'APP '|argsapp|) (LIST 'AGGSET 'SUBSPAN '|agggsub|)
+             (LIST 'AGGSET 'SUPERSPAN '|agggsuper|)
+             (LIST 'AGGSET 'WIDTH '|agggwidth|)
+             (LIST '|binom| 'APP '|binomApp|)
+             (LIST '|binom| 'SUBSPAN '|binomSub|)
+             (LIST '|binom| 'SUPERSPAN '|binomSuper|)
+             (LIST '|binom| 'WIDTH '|binomWidth|)
+             (LIST 'ALTSUPERSUB 'APP '|altSuperSubApp|)
+             (LIST 'ALTSUPERSUB 'SUBSPAN '|altSuperSubSub|)
+             (LIST 'ALTSUPERSUB 'SUPERSPAN '|altSuperSubSuper|)
+             (LIST 'ALTSUPERSUB 'WIDTH '|altSuperSubWidth|)
+             (LIST 'BOX 'APP '|boxApp|) (LIST 'BOX 'SUBSPAN '|boxSub|)
+             (LIST 'BOX 'SUPERSPAN '|boxSuper|) (LIST 'BOX 'WIDTH '|boxWidth|)
+             (LIST 'BRACKET 'SUBSPAN '|qTSub|)
+             (LIST 'BRACKET 'SUPERSPAN '|qTSuper|)
+             (LIST 'BRACKET 'WIDTH '|qTWidth|) (LIST 'CENTER 'APP '|centerApp|)
+             (LIST 'EXT 'APP '|appext|) (LIST 'EXT 'SUBSPAN '|extsub|)
+             (LIST 'EXT 'SUPERSPAN '|extsuper|) (LIST 'EXT 'WIDTH '|extwidth|)
+             (LIST 'MATRIX 'APP '|appmat|) (LIST 'MATRIX 'SUBSPAN '|matSub|)
+             (LIST 'MATRIX 'SUPERSPAN '|matSuper|)
+             (LIST 'MATRIX 'WIDTH '|matWidth|)
+             (LIST 'NOTHING 'APP '|nothingApp|)
+             (LIST 'NOTHING 'SUBSPAN '|nothingSub|)
+             (LIST 'NOTHING 'SUPERSPAN '|nothingSuper|)
+             (LIST 'NOTHING 'WIDTH '|nothingWidth|)
+             (LIST 'OVER 'APP '|appfrac|) (LIST 'OVER 'SUBSPAN '|fracsub|)
+             (LIST 'OVER 'SUPERSPAN '|fracsuper|)
+             (LIST 'OVER 'WIDTH '|fracwidth|)
+             (LIST 'OVERLABEL 'APP '|overlabelApp|)
+             (LIST 'OVERLABEL 'SUPERSPAN '|overlabelSuper|)
+             (LIST 'OVERLABEL 'WIDTH '|overlabelWidth|)
+             (LIST 'OVERBAR 'APP '|overbarApp|)
+             (LIST 'OVERBAR 'SUPERSPAN '|overbarSuper|)
+             (LIST 'OVERBAR 'WIDTH '|overbarWidth|)
+             (LIST 'PAREN 'APP '|appparu1|) (LIST 'PAREN 'SUBSPAN '|qTSub|)
+             (LIST 'PAREN 'SUPERSPAN '|qTSuper|)
+             (LIST 'PAREN 'WIDTH '|qTWidth|) (LIST 'PRIME 'APP '|primeApp|)
+             (LIST 'PRIME 'SUBSPAN '|primeSub|)
+             (LIST 'PRIME 'SUPERSPAN '|primeSuper|)
+             (LIST 'PRIME 'WIDTH '|primeWidth|) (LIST 'ROOT 'APP '|rootApp|)
+             (LIST 'ROOT 'SUBSPAN '|rootSub|)
+             (LIST 'ROOT 'SUPERSPAN '|rootSuper|)
+             (LIST 'ROOT 'WIDTH '|rootWidth|) (LIST 'ROW 'WIDTH '|eq0|)
+             (LIST 'SC 'APP '|appsc|) (LIST 'SC 'SUBSPAN '|agggsub|)
+             (LIST 'SC 'SUPERSPAN '|agggsuper|) (LIST 'SC 'WIDTH '|widthSC|)
+             (LIST 'SETQ 'APP '|appsetq|) (LIST 'SETQ 'WIDTH '|letWidth|)
+             (LIST 'SLASH 'APP '|slashApp|) (LIST 'SLASH 'SUBSPAN '|slashSub|)
+             (LIST 'SLASH 'SUPERSPAN '|slashSuper|)
+             (LIST 'SLASH 'WIDTH '|slashWidth|) (LIST 'SUB 'APP '|appsub|)
+             (LIST 'SUB 'SUBSPAN '|subSub|) (LIST 'SUB 'SUPERSPAN '|subSuper|)
+             (LIST 'SUB 'WIDTH '|suScWidth|)
+             (LIST 'SUPERSUB 'APP '|superSubApp|)
+             (LIST 'SUPERSUB 'SUBSPAN '|superSubSub|)
+             (LIST 'SUPERSUB 'SUPERSPAN '|superSubSuper|)
+             (LIST 'SUPERSUB 'WIDTH '|superSubWidth|)
+             (LIST 'VCONCAT 'APP '|vconcatapp|)
+             (LIST 'VCONCAT 'SUBSPAN '|vConcatSub|)
+             (LIST 'VCONCAT 'SUPERSPAN '|vConcatSuper|)
+             (LIST 'VCONCAT 'WIDTH '|vConcatWidth|)
+             (LIST 'BINOMIAL 'APP '|binomialApp|)
+             (LIST 'BINOMIAL 'SUBSPAN '|binomialSub|)
+             (LIST 'BINOMIAL 'SUPERSPAN '|binomialSuper|)
+             (LIST 'BINOMIAL 'WIDTH '|binomialWidth|)
+             (LIST 'ZAG 'APP '|zagApp|) (LIST 'ZAG 'SUBSPAN '|zagSub|)
+             (LIST 'ZAG 'SUPERSPAN '|zagSuper|) (LIST 'ZAG 'WIDTH '|zagWidth|)
+             (LIST '+ 'APP '|plusApp|) (LIST '+ 'WIDTH '|sumWidth|)
+             (LIST '* 'APP '|timesApp|) (LIST '* 'WIDTH '|timesWidth|)
+             (LIST 'TENSOR 'APP '|tensorApp|)
+             (LIST 'TENSOR 'WIDTH '|tensorWidth|) (LIST '^ 'APP '|exptApp|)
+             (LIST '^ 'SUBSPAN '|exptSub|) (LIST '^ 'SUPERSPAN '|exptSuper|)
+             (LIST '^ 'WIDTH '|exptWidth|) (LIST 'STEP 'APP '|stepApp|)
+             (LIST 'STEP 'SUBSPAN '|stepSub|)
+             (LIST 'STEP 'SUPERSPAN '|stepSuper|)
+             (LIST 'STEP 'WIDTH '|stepWidth|) (LIST 'IN 'APP '|inApp|)
+             (LIST 'IN 'SUBSPAN '|inSub|) (LIST 'IN 'SUPERSPAN '|inSuper|)
+             (LIST 'IN 'WIDTH '|inWidth|) (LIST 'AGGLST 'APP '|aggApp|)
+             (LIST 'AGGLST 'SUBSPAN '|aggSub|)
+             (LIST 'AGGLST 'SUPERSPAN '|aggSuper|)
+             (LIST 'CONCATB 'APP '|concatbApp|)
+             (LIST 'CONCATB 'SUBSPAN '|concatSub|)
+             (LIST 'CONCATB 'SUPERSPAN '|concatSuper|)
+             (LIST 'CONCATB 'WIDTH '|concatbWidth|)
+             (LIST 'CONCAT 'APP '|concatApp|)
+             (LIST 'CONCAT 'SUBSPAN '|concatSub|)
+             (LIST 'CONCAT 'SUPERSPAN '|concatSuper|)
+             (LIST 'CONCAT 'WIDTH '|concatWidth|)
+             (LIST 'QUOTE 'APP '|quoteApp|) (LIST 'QUOTE 'SUBSPAN '|quoteSub|)
+             (LIST 'QUOTE 'SUPERSPAN '|quoteSub|)
+             (LIST 'QUOTE 'WIDTH '|quoteWidth|)
+             (LIST 'STRING 'APP '|stringApp|) (LIST 'STRING 'SUBSPAN '|eq0|)
+             (LIST 'STRING 'SUPERSPAN '|eq0|)
+             (LIST 'STRING 'WIDTH '|stringWidth|)
+             (LIST 'SIGMA 'APP '|sigmaApp|) (LIST 'SIGMA 'SUBSPAN '|sigmaSub|)
+             (LIST 'SIGMA 'SUPERSPAN '|sigmaSup|)
+             (LIST 'SIGMA 'WIDTH '|sigmaWidth|)
+             (LIST 'SIGMA2 'APP '|sigma2App|)
+             (LIST 'SIGMA2 'SUBSPAN '|sigma2Sub|)
+             (LIST 'SIGMA2 'SUPERSPAN '|sigma2Sup|)
+             (LIST 'SIGMA2 'WIDTH '|sigma2Width|)
+             (LIST 'SIGMA2 'SUBSPAN '|sigma2Sub|)
+             (LIST 'SIGMA2 'SUPERSPAN '|sigma2Sup|)
+             (LIST 'INTSIGN 'APP '|intApp|) (LIST 'INTSIGN 'SUBSPAN '|intSub|)
+             (LIST 'INTSIGN 'SUPERSPAN '|intSup|)
+             (LIST 'INTSIGN 'WIDTH '|intWidth|) (LIST 'PI 'APP '|piApp|)
+             (LIST 'PI 'SUBSPAN '|piSub|) (LIST 'PI 'SUPERSPAN '|piSup|)
+             (LIST 'PI 'WIDTH '|piWidth|) (LIST 'PI2 'APP '|pi2App|)
+             (LIST 'PI2 'SUBSPAN '|pi2Sub|) (LIST 'PI2 'SUPERSPAN '|pi2Sup|)
+             (LIST 'PI2 'WIDTH '|pi2Width|) (LIST 'AGGLST 'WIDTH '|aggWidth|)
+             (LIST 'BRACKET 'APP '|bracketApp|) (LIST 'BRACE 'APP '|braceApp|)
+             (LIST 'BRACE 'WIDTH '|qTWidth|))
+       NIL)))))
+
+; init_output_properties()
+
+(EVAL-WHEN (EVAL LOAD) (PROG () (RETURN (|init_output_properties|))))
+
 ; DEFPARAMETER($plainRTspecialCharacters, [
 ;     '_+,      -- upper left corner   (+)
 ;     '_+,      -- upper right corner  (+)
@@ -211,11 +509,11 @@
 ; stringApp([.,u],x,y,d) ==
 ;   appChar(STRCONC($DoubleQuote,atom2String u,$DoubleQuote),x,y,d)
 
-(DEFUN |stringApp| (|bfVar#1| |x| |y| |d|)
+(DEFUN |stringApp| (|bfVar#4| |x| |y| |d|)
   (PROG (|u|)
     (RETURN
      (PROGN
-      (SETQ |u| (CADR |bfVar#1|))
+      (SETQ |u| (CADR |bfVar#4|))
       (|appChar| (STRCONC |$DoubleQuote| (|atom2String| |u|) |$DoubleQuote|)
        |x| |y| |d|)))))
 
@@ -254,13 +552,13 @@
              ((EQ |o| '|(|) "(") (#1='T (STRINGIMAGE |o|))))
       (#1#
        (|concatenateStringList|
-        ((LAMBDA (|bfVar#3| |bfVar#2| |o'|)
+        ((LAMBDA (|bfVar#6| |bfVar#5| |o'|)
            (LOOP
             (COND
-             ((OR (ATOM |bfVar#2|) (PROGN (SETQ |o'| (CAR |bfVar#2|)) NIL))
-              (RETURN (NREVERSE |bfVar#3|)))
-             (#1# (SETQ |bfVar#3| (CONS (|obj2String| |o'|) |bfVar#3|))))
-            (SETQ |bfVar#2| (CDR |bfVar#2|))))
+             ((OR (ATOM |bfVar#5|) (PROGN (SETQ |o'| (CAR |bfVar#5|)) NIL))
+              (RETURN (NREVERSE |bfVar#6|)))
+             (#1# (SETQ |bfVar#6| (CONS (|obj2String| |o'|) |bfVar#6|))))
+            (SETQ |bfVar#5| (CDR |bfVar#5|))))
          NIL |o| NIL)))))))
 
 ; APP(u,x,y,d) ==
@@ -374,13 +672,13 @@
   (PROG (|acc|)
     (RETURN
      (PROGN
-      ((LAMBDA (|bfVar#4| |x|)
+      ((LAMBDA (|bfVar#7| |x|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#4|) (PROGN (SETQ |x| (CAR |bfVar#4|)) NIL))
+           ((OR (ATOM |bfVar#7|) (PROGN (SETQ |x| (CAR |bfVar#7|)) NIL))
             (RETURN NIL))
            ('T (SETQ |acc| (|concat| |acc| (|linearFormatName| |x|)))))
-          (SETQ |bfVar#4| (CDR |bfVar#4|))))
+          (SETQ |bfVar#7| (CDR |bfVar#7|))))
        |u| NIL)
       (|sayALGEBRA| |acc|)))))
 
@@ -538,16 +836,16 @@
                  (PROGN (SETQ |l| (CDR |x|)) #1#))
             (LIST 'BRACE
                   (CONS 'AGGLST
-                        ((LAMBDA (|bfVar#6| |bfVar#5| |y|)
+                        ((LAMBDA (|bfVar#9| |bfVar#8| |y|)
                            (LOOP
                             (COND
-                             ((OR (ATOM |bfVar#5|)
-                                  (PROGN (SETQ |y| (CAR |bfVar#5|)) NIL))
-                              (RETURN (NREVERSE |bfVar#6|)))
+                             ((OR (ATOM |bfVar#8|)
+                                  (PROGN (SETQ |y| (CAR |bfVar#8|)) NIL))
+                              (RETURN (NREVERSE |bfVar#9|)))
                              (#1#
-                              (SETQ |bfVar#6|
-                                      (CONS (|outputTran| |y|) |bfVar#6|))))
-                            (SETQ |bfVar#5| (CDR |bfVar#5|))))
+                              (SETQ |bfVar#9|
+                                      (CONS (|outputTran| |y|) |bfVar#9|))))
+                            (SETQ |bfVar#8| (CDR |bfVar#8|))))
                          NIL |l| NIL))))
            ((AND (CONSP |x|) (EQ (CAR |x|) '|return|)
                  (PROGN
@@ -672,17 +970,17 @@
                    (#1#
                     (PROGN
                      (SETQ |l|
-                             ((LAMBDA (|bfVar#8| |bfVar#7| |y|)
+                             ((LAMBDA (|bfVar#11| |bfVar#10| |y|)
                                 (LOOP
                                  (COND
-                                  ((OR (ATOM |bfVar#7|)
-                                       (PROGN (SETQ |y| (CAR |bfVar#7|)) NIL))
-                                   (RETURN (NREVERSE |bfVar#8|)))
+                                  ((OR (ATOM |bfVar#10|)
+                                       (PROGN (SETQ |y| (CAR |bfVar#10|)) NIL))
+                                   (RETURN (NREVERSE |bfVar#11|)))
                                   (#1#
-                                   (SETQ |bfVar#8|
+                                   (SETQ |bfVar#11|
                                            (CONS (|outputTran| |y|)
-                                                 |bfVar#8|))))
-                                 (SETQ |bfVar#7| (CDR |bfVar#7|))))
+                                                 |bfVar#11|))))
+                                 (SETQ |bfVar#10| (CDR |bfVar#10|))))
                               NIL |l| NIL))
                      (COND
                       ((AND (EQ |op| '|\||) (CONSP |l|)
@@ -704,11 +1002,11 @@
 ;   if exitform is ['exit,.,a] then exitform := a
 ;   ['SC,:[outputTran x for x in l],outputTran exitform]
 
-(DEFUN |outputTranSEQ| (|bfVar#11|)
+(DEFUN |outputTranSEQ| (|bfVar#14|)
   (PROG (|LETTMP#1| |exitform| |l| |ISTMP#1| |ISTMP#2| |a|)
     (RETURN
      (PROGN
-      (SETQ |LETTMP#1| (REVERSE (CDR |bfVar#11|)))
+      (SETQ |LETTMP#1| (REVERSE (CDR |bfVar#14|)))
       (SETQ |exitform| (CAR |LETTMP#1|))
       (SETQ |l| (NREVERSE (CDR |LETTMP#1|)))
       (COND
@@ -723,13 +1021,14 @@
         (SETQ |exitform| |a|)))
       (CONS 'SC
             (APPEND
-             ((LAMBDA (|bfVar#10| |bfVar#9| |x|)
+             ((LAMBDA (|bfVar#13| |bfVar#12| |x|)
                 (LOOP
                  (COND
-                  ((OR (ATOM |bfVar#9|) (PROGN (SETQ |x| (CAR |bfVar#9|)) NIL))
-                   (RETURN (NREVERSE |bfVar#10|)))
-                  (#1# (SETQ |bfVar#10| (CONS (|outputTran| |x|) |bfVar#10|))))
-                 (SETQ |bfVar#9| (CDR |bfVar#9|))))
+                  ((OR (ATOM |bfVar#12|)
+                       (PROGN (SETQ |x| (CAR |bfVar#12|)) NIL))
+                   (RETURN (NREVERSE |bfVar#13|)))
+                  (#1# (SETQ |bfVar#13| (CONS (|outputTran| |x|) |bfVar#13|))))
+                 (SETQ |bfVar#12| (CDR |bfVar#12|))))
               NIL |l| NIL)
              (CONS (|outputTran| |exitform|) NIL)))))))
 
@@ -743,11 +1042,11 @@
 ;   ['CONCATB, "if", outputTran x,
 ;     ['SC,['CONCATB, "then", y'], ['CONCATB, "else", z']]]
 
-(DEFUN |outputTranIf| (|bfVar#12|)
+(DEFUN |outputTranIf| (|bfVar#15|)
   (PROG (|x| |y| |z| |y'| |z'|)
     (RETURN
      (PROGN
-      (SETQ |x| (CADR . #1=(|bfVar#12|)))
+      (SETQ |x| (CADR . #1=(|bfVar#15|)))
       (SETQ |y| (CADDR . #1#))
       (SETQ |z| (CADDDR . #1#))
       (COND
@@ -816,17 +1115,17 @@
         (COND
          ((CDR |l|)
           (CONS 'SC
-                ((LAMBDA (|bfVar#14| |bfVar#13| |ll|)
+                ((LAMBDA (|bfVar#17| |bfVar#16| |ll|)
                    (LOOP
                     (COND
-                     ((OR (ATOM |bfVar#13|)
-                          (PROGN (SETQ |ll| (CAR |bfVar#13|)) NIL))
-                      (RETURN (NREVERSE |bfVar#14|)))
+                     ((OR (ATOM |bfVar#16|)
+                          (PROGN (SETQ |ll| (CAR |bfVar#16|)) NIL))
+                      (RETURN (NREVERSE |bfVar#17|)))
                      (#1#
-                      (SETQ |bfVar#14|
+                      (SETQ |bfVar#17|
                               (CONS (|outputMapTran0| |op| |ll| |alias|)
-                                    |bfVar#14|))))
-                    (SETQ |bfVar#13| (CDR |bfVar#13|))))
+                                    |bfVar#17|))))
+                    (SETQ |bfVar#16| (CDR |bfVar#16|))))
                  NIL |l| NIL)))
          (#1# (|outputMapTran0| |op| (CAR |l|) |alias|)))))))))
 
@@ -854,11 +1153,11 @@
 ; outputTranReduce ['REDUCE,op,.,body] ==
 ;   ['CONCAT,op,"/",outputTran body]
 
-(DEFUN |outputTranReduce| (|bfVar#15|)
+(DEFUN |outputTranReduce| (|bfVar#18|)
   (PROG (|op| |body|)
     (RETURN
      (PROGN
-      (SETQ |op| (CADR . #1=(|bfVar#15|)))
+      (SETQ |op| (CADR . #1=(|bfVar#18|)))
       (SETQ |body| (CADDDR . #1#))
       (LIST 'CONCAT |op| '/ (|outputTran| |body|))))))
 
@@ -869,11 +1168,11 @@
 ;     ['CONCATB,itlist,'repeat,body']
 ;   ['CONCATB,'repeat,body']
 
-(DEFUN |outputTranRepeat| (|bfVar#16|)
+(DEFUN |outputTranRepeat| (|bfVar#19|)
   (PROG (|LETTMP#1| |body| |itl| |body'| |itlist|)
     (RETURN
      (PROGN
-      (SETQ |LETTMP#1| (REVERSE (CDR |bfVar#16|)))
+      (SETQ |LETTMP#1| (REVERSE (CDR |bfVar#19|)))
       (SETQ |body| (CAR |LETTMP#1|))
       (SETQ |itl| (NREVERSE (CDR |LETTMP#1|)))
       (SETQ |body'| (|outputTran| |body|))
@@ -888,11 +1187,11 @@
 ;   itlist:= outputTranIteration itl
 ;   ['BRACKET,['CONCATB,outputTran body,itlist]]
 
-(DEFUN |outputTranCollect| (|bfVar#17|)
+(DEFUN |outputTranCollect| (|bfVar#20|)
   (PROG (|LETTMP#1| |body| |itl| |itlist|)
     (RETURN
      (PROGN
-      (SETQ |LETTMP#1| (REVERSE (CDR |bfVar#17|)))
+      (SETQ |LETTMP#1| (REVERSE (CDR |bfVar#20|)))
       (SETQ |body| (CAR |LETTMP#1|))
       (SETQ |itl| (NREVERSE (CDR |LETTMP#1|)))
       (SETQ |itlist| (|outputTranIteration| |itl|))
@@ -1072,10 +1371,10 @@
      (PROGN
       (SETQ |rightPrec| (|getOpBindingPower| '* '|Led| '|right|))
       (SETQ |firstTime| T)
-      ((LAMBDA (|bfVar#18| |arg|)
+      ((LAMBDA (|bfVar#21| |arg|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#18|) (PROGN (SETQ |arg| (CAR |bfVar#18|)) NIL))
+           ((OR (ATOM |bfVar#21|) (PROGN (SETQ |arg| (CAR |bfVar#21|)) NIL))
             (RETURN NIL))
            ('T
             (PROGN
@@ -1094,7 +1393,7 @@
              (SETQ |wasNumber| (NUMBERP |arg|))
              (SETQ |lastOp| |op|)
              (SETQ |firstTime| NIL))))
-          (SETQ |bfVar#18| (CDR |bfVar#18|))))
+          (SETQ |bfVar#21| (CDR |bfVar#21|))))
        (CDR |u|) NIL)
       |d|))))
 
@@ -1123,10 +1422,10 @@
       (SETQ |rightPrec| (|getOpBindingPower| '* '|Led| '|right|))
       (SETQ |firstTime| T)
       (SETQ |w| 0)
-      ((LAMBDA (|bfVar#19| |arg|)
+      ((LAMBDA (|bfVar#22| |arg|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#19|) (PROGN (SETQ |arg| (CAR |bfVar#19|)) NIL))
+           ((OR (ATOM |bfVar#22|) (PROGN (SETQ |arg| (CAR |bfVar#22|)) NIL))
             (RETURN NIL))
            ('T
             (PROGN
@@ -1143,7 +1442,7 @@
              (SETQ |wasQuotient| (|isQuotient| |op|))
              (SETQ |wasNumber| (NUMBERP |arg|))
              (SETQ |firstTime| NIL))))
-          (SETQ |bfVar#19| (CDR |bfVar#19|))))
+          (SETQ |bfVar#22| (CDR |bfVar#22|))))
        (CDR |u|) NIL)
       |w|))))
 
@@ -1172,10 +1471,10 @@
      (PROGN
       (SETQ |rightPrec| (|getOpBindingPower| '* '|Led| '|right|))
       (SETQ |firstTime| T)
-      ((LAMBDA (|bfVar#20| |arg|)
+      ((LAMBDA (|bfVar#23| |arg|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#20|) (PROGN (SETQ |arg| (CAR |bfVar#20|)) NIL))
+           ((OR (ATOM |bfVar#23|) (PROGN (SETQ |arg| (CAR |bfVar#23|)) NIL))
             (RETURN NIL))
            ('T
             (PROGN
@@ -1199,7 +1498,7 @@
              (SETQ |wasNumber| (NUMBERP |arg|))
              (SETQ |lastOp| |op|)
              (SETQ |firstTime| NIL))))
-          (SETQ |bfVar#20| (CDR |bfVar#20|))))
+          (SETQ |bfVar#23| (CDR |bfVar#23|))))
        (CDR |u|) NIL)
       |d|))))
 
@@ -1230,11 +1529,11 @@
 ;   if optFinal then d:= APP(first optFinal,w+2,y,d)
 ;   d
 
-(DEFUN |stepApp| (|bfVar#21| |x| |y| |d|)
+(DEFUN |stepApp| (|bfVar#24| |x| |y| |d|)
   (PROG (|a| |init| |one| |optFinal| |w|)
     (RETURN
      (PROGN
-      (SETQ |a| (CADR . #1=(|bfVar#21|)))
+      (SETQ |a| (CADR . #1=(|bfVar#24|)))
       (SETQ |init| (CADDR . #1#))
       (SETQ |one| (CADDDR . #1#))
       (SETQ |optFinal| (CDDDDR . #1#))
@@ -1251,11 +1550,11 @@
 ;   optFinal => MAX(m,subspan first optFinal)
 ;   m
 
-(DEFUN |stepSub| (|bfVar#22|)
+(DEFUN |stepSub| (|bfVar#25|)
   (PROG (|a| |init| |one| |optFinal| |m|)
     (RETURN
      (PROGN
-      (SETQ |a| (CADR . #1=(|bfVar#22|)))
+      (SETQ |a| (CADR . #1=(|bfVar#25|)))
       (SETQ |init| (CADDR . #1#))
       (SETQ |one| (CADDDR . #1#))
       (SETQ |optFinal| (CDDDDR . #1#))
@@ -1267,11 +1566,11 @@
 ;   optFinal => MAX(m,superspan first optFinal)
 ;   m
 
-(DEFUN |stepSuper| (|bfVar#23|)
+(DEFUN |stepSuper| (|bfVar#26|)
   (PROG (|a| |init| |one| |optFinal| |m|)
     (RETURN
      (PROGN
-      (SETQ |a| (CADR . #1=(|bfVar#23|)))
+      (SETQ |a| (CADR . #1=(|bfVar#26|)))
       (SETQ |init| (CADDR . #1#))
       (SETQ |one| (CADDDR . #1#))
       (SETQ |optFinal| (CDDDDR . #1#))
@@ -1281,11 +1580,11 @@
 ; stepWidth [.,a,init,one,:optFinal] ==
 ;    10+WIDTH a+WIDTH init+(optFinal => WIDTH first optFinal; 0)
 
-(DEFUN |stepWidth| (|bfVar#24|)
+(DEFUN |stepWidth| (|bfVar#27|)
   (PROG (|a| |init| |one| |optFinal|)
     (RETURN
      (PROGN
-      (SETQ |a| (CADR . #1=(|bfVar#24|)))
+      (SETQ |a| (CADR . #1=(|bfVar#27|)))
       (SETQ |init| (CADDR . #1#))
       (SETQ |one| (CADDDR . #1#))
       (SETQ |optFinal| (CDDDDR . #1#))
@@ -1298,11 +1597,11 @@
 ;   d:= appChar('" in ",x+WIDTH a+4,y,d)
 ;   APP(s,x+WIDTH a+8,y,d)
 
-(DEFUN |inApp| (|bfVar#25| |x| |y| |d|)
+(DEFUN |inApp| (|bfVar#28| |x| |y| |d|)
   (PROG (|a| |s|)
     (RETURN
      (PROGN
-      (SETQ |a| (CADR . #1=(|bfVar#25|)))
+      (SETQ |a| (CADR . #1=(|bfVar#28|)))
       (SETQ |s| (CADDR . #1#))
       (SETQ |d| (|appChar| "for " |x| |y| |d|))
       (SETQ |d| (APP |a| (+ |x| 4) |y| |d|))
@@ -1311,55 +1610,55 @@
 
 ; inSub [.,a,s] == MAX(subspan a,subspan s)
 
-(DEFUN |inSub| (|bfVar#26|)
+(DEFUN |inSub| (|bfVar#29|)
   (PROG (|a| |s|)
     (RETURN
      (PROGN
-      (SETQ |a| (CADR . #1=(|bfVar#26|)))
+      (SETQ |a| (CADR . #1=(|bfVar#29|)))
       (SETQ |s| (CADDR . #1#))
       (MAX (|subspan| |a|) (|subspan| |s|))))))
 
 ; inSuper [.,a,s] == MAX(superspan a,superspan s)
 
-(DEFUN |inSuper| (|bfVar#27|)
+(DEFUN |inSuper| (|bfVar#30|)
   (PROG (|a| |s|)
     (RETURN
      (PROGN
-      (SETQ |a| (CADR . #1=(|bfVar#27|)))
+      (SETQ |a| (CADR . #1=(|bfVar#30|)))
       (SETQ |s| (CADDR . #1#))
       (MAX (|superspan| |a|) (|superspan| |s|))))))
 
 ; inWidth [.,a,s] == 8+WIDTH a+WIDTH s
 
-(DEFUN |inWidth| (|bfVar#28|)
+(DEFUN |inWidth| (|bfVar#31|)
   (PROG (|a| |s|)
     (RETURN
      (PROGN
-      (SETQ |a| (CADR . #1=(|bfVar#28|)))
+      (SETQ |a| (CADR . #1=(|bfVar#31|)))
       (SETQ |s| (CADDR . #1#))
       (+ (+ 8 (WIDTH |a|)) (WIDTH |s|))))))
 
 ; centerApp([.,u],x,y,d) ==
 ;   d := APP(u,x,y,d)
 
-(DEFUN |centerApp| (|bfVar#29| |x| |y| |d|)
+(DEFUN |centerApp| (|bfVar#32| |x| |y| |d|)
   (PROG (|u|)
     (RETURN
-     (PROGN (SETQ |u| (CADR |bfVar#29|)) (SETQ |d| (APP |u| |x| |y| |d|))))))
+     (PROGN (SETQ |u| (CADR |bfVar#32|)) (SETQ |d| (APP |u| |x| |y| |d|))))))
 
 ; concatApp([.,:l],x,y,d) == concatApp1(l,x,y,d,0)
 
-(DEFUN |concatApp| (|bfVar#30| |x| |y| |d|)
+(DEFUN |concatApp| (|bfVar#33| |x| |y| |d|)
   (PROG (|l|)
     (RETURN
-     (PROGN (SETQ |l| (CDR |bfVar#30|)) (|concatApp1| |l| |x| |y| |d| 0)))))
+     (PROGN (SETQ |l| (CDR |bfVar#33|)) (|concatApp1| |l| |x| |y| |d| 0)))))
 
 ; concatbApp([.,:l],x,y,d) == concatApp1(l,x,y,d,1)
 
-(DEFUN |concatbApp| (|bfVar#31| |x| |y| |d|)
+(DEFUN |concatbApp| (|bfVar#34| |x| |y| |d|)
   (PROG (|l|)
     (RETURN
-     (PROGN (SETQ |l| (CDR |bfVar#31|)) (|concatApp1| |l| |x| |y| |d| 1)))))
+     (PROGN (SETQ |l| (CDR |bfVar#34|)) (|concatApp1| |l| |x| |y| |d| 1)))))
 
 ; concatApp1(l,x,y,d,n) ==
 ;   for u in l repeat
@@ -1371,38 +1670,22 @@
   (PROG ()
     (RETURN
      (PROGN
-      ((LAMBDA (|bfVar#32| |u|)
+      ((LAMBDA (|bfVar#35| |u|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#32|) (PROGN (SETQ |u| (CAR |bfVar#32|)) NIL))
+           ((OR (ATOM |bfVar#35|) (PROGN (SETQ |u| (CAR |bfVar#35|)) NIL))
             (RETURN NIL))
            ('T
             (PROGN
              (SETQ |d| (APP |u| |x| |y| |d|))
              (SETQ |x| (+ (+ |x| (WIDTH |u|)) |n|)))))
-          (SETQ |bfVar#32| (CDR |bfVar#32|))))
+          (SETQ |bfVar#35| (CDR |bfVar#35|))))
        |l| NIL)
       |d|))))
 
 ; concatSub [.,:l] == "MAX"/[subspan x for x in l]
 
-(DEFUN |concatSub| (|bfVar#35|)
-  (PROG (|l|)
-    (RETURN
-     (PROGN
-      (SETQ |l| (CDR |bfVar#35|))
-      ((LAMBDA (|bfVar#34| |bfVar#33| |x|)
-         (LOOP
-          (COND
-           ((OR (ATOM |bfVar#33|) (PROGN (SETQ |x| (CAR |bfVar#33|)) NIL))
-            (RETURN |bfVar#34|))
-           ('T (SETQ |bfVar#34| (MAX |bfVar#34| (|subspan| |x|)))))
-          (SETQ |bfVar#33| (CDR |bfVar#33|))))
-       -999999 |l| NIL)))))
-
-; concatSuper [.,:l] == "MAX"/[superspan x for x in l]
-
-(DEFUN |concatSuper| (|bfVar#38|)
+(DEFUN |concatSub| (|bfVar#38|)
   (PROG (|l|)
     (RETURN
      (PROGN
@@ -1412,13 +1695,13 @@
           (COND
            ((OR (ATOM |bfVar#36|) (PROGN (SETQ |x| (CAR |bfVar#36|)) NIL))
             (RETURN |bfVar#37|))
-           ('T (SETQ |bfVar#37| (MAX |bfVar#37| (|superspan| |x|)))))
+           ('T (SETQ |bfVar#37| (MAX |bfVar#37| (|subspan| |x|)))))
           (SETQ |bfVar#36| (CDR |bfVar#36|))))
        -999999 |l| NIL)))))
 
-; concatWidth [.,:l] == +/[WIDTH x for x in l]
+; concatSuper [.,:l] == "MAX"/[superspan x for x in l]
 
-(DEFUN |concatWidth| (|bfVar#41|)
+(DEFUN |concatSuper| (|bfVar#41|)
   (PROG (|l|)
     (RETURN
      (PROGN
@@ -1428,30 +1711,46 @@
           (COND
            ((OR (ATOM |bfVar#39|) (PROGN (SETQ |x| (CAR |bfVar#39|)) NIL))
             (RETURN |bfVar#40|))
-           ('T (SETQ |bfVar#40| (+ |bfVar#40| (WIDTH |x|)))))
+           ('T (SETQ |bfVar#40| (MAX |bfVar#40| (|superspan| |x|)))))
           (SETQ |bfVar#39| (CDR |bfVar#39|))))
+       -999999 |l| NIL)))))
+
+; concatWidth [.,:l] == +/[WIDTH x for x in l]
+
+(DEFUN |concatWidth| (|bfVar#44|)
+  (PROG (|l|)
+    (RETURN
+     (PROGN
+      (SETQ |l| (CDR |bfVar#44|))
+      ((LAMBDA (|bfVar#43| |bfVar#42| |x|)
+         (LOOP
+          (COND
+           ((OR (ATOM |bfVar#42|) (PROGN (SETQ |x| (CAR |bfVar#42|)) NIL))
+            (RETURN |bfVar#43|))
+           ('T (SETQ |bfVar#43| (+ |bfVar#43| (WIDTH |x|)))))
+          (SETQ |bfVar#42| (CDR |bfVar#42|))))
        0 |l| NIL)))))
 
 ; concatbWidth [.,:l] ==
 ;     null l => 0
 ;     +/[1+WIDTH x for x in l]-1
 
-(DEFUN |concatbWidth| (|bfVar#44|)
+(DEFUN |concatbWidth| (|bfVar#47|)
   (PROG (|l|)
     (RETURN
      (PROGN
-      (SETQ |l| (CDR |bfVar#44|))
+      (SETQ |l| (CDR |bfVar#47|))
       (COND ((NULL |l|) 0)
             (#1='T
              (-
-              ((LAMBDA (|bfVar#43| |bfVar#42| |x|)
+              ((LAMBDA (|bfVar#46| |bfVar#45| |x|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#42|)
-                        (PROGN (SETQ |x| (CAR |bfVar#42|)) NIL))
-                    (RETURN |bfVar#43|))
-                   (#1# (SETQ |bfVar#43| (+ |bfVar#43| (+ 1 (WIDTH |x|))))))
-                  (SETQ |bfVar#42| (CDR |bfVar#42|))))
+                   ((OR (ATOM |bfVar#45|)
+                        (PROGN (SETQ |x| (CAR |bfVar#45|)) NIL))
+                    (RETURN |bfVar#46|))
+                   (#1# (SETQ |bfVar#46| (+ |bfVar#46| (+ 1 (WIDTH |x|))))))
+                  (SETQ |bfVar#45| (CDR |bfVar#45|))))
                0 |l| NIL)
               1)))))))
 
@@ -1464,11 +1763,11 @@
 ;   y':= 1+y+superspan a+subspan b + (0=superspan a => 0; -1)
 ;   APP(b,x',y',d)
 
-(DEFUN |exptApp| (|bfVar#45| |x| |y| |d|)
+(DEFUN |exptApp| (|bfVar#48| |x| |y| |d|)
   (PROG (|a| |b| |pren| |x'| |y'|)
     (RETURN
      (PROGN
-      (SETQ |a| (CADR . #1=(|bfVar#45|)))
+      (SETQ |a| (CADR . #1=(|bfVar#48|)))
       (SETQ |b| (CADDR . #1#))
       (SETQ |pren| (|exptNeedsPren| |a|))
       (SETQ |d|
@@ -1510,22 +1809,22 @@
 
 ; exptSuper [.,a,b] == superspan a+height b+(superspan a=0 => 0;-1)
 
-(DEFUN |exptSuper| (|bfVar#46|)
+(DEFUN |exptSuper| (|bfVar#49|)
   (PROG (|a| |b|)
     (RETURN
      (PROGN
-      (SETQ |a| (CADR . #1=(|bfVar#46|)))
+      (SETQ |a| (CADR . #1=(|bfVar#49|)))
       (SETQ |b| (CADDR . #1#))
       (+ (+ (|superspan| |a|) (|height| |b|))
          (COND ((EQL (|superspan| |a|) 0) 0) ('T (- 1))))))))
 
 ; exptWidth [.,a,b] == WIDTH a+WIDTH b+(exptNeedsPren a => 2;0)
 
-(DEFUN |exptWidth| (|bfVar#47|)
+(DEFUN |exptWidth| (|bfVar#50|)
   (PROG (|a| |b|)
     (RETURN
      (PROGN
-      (SETQ |a| (CADR . #1=(|bfVar#47|)))
+      (SETQ |a| (CADR . #1=(|bfVar#50|)))
       (SETQ |b| (CADDR . #1#))
       (+ (+ (WIDTH |a|) (WIDTH |b|))
          (COND ((|exptNeedsPren| |a|) 2) ('T 0)))))))
@@ -1580,10 +1879,10 @@
       (SETQ |rightPrec| (|getOpBindingPower| '* '|Led| '|right|))
       (SETQ |firstTime| T)
       (SETQ |w| 0)
-      ((LAMBDA (|bfVar#48| |arg|)
+      ((LAMBDA (|bfVar#51| |arg|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#48|) (PROGN (SETQ |arg| (CAR |bfVar#48|)) NIL))
+           ((OR (ATOM |bfVar#51|) (PROGN (SETQ |arg| (CAR |bfVar#51|)) NIL))
             (RETURN NIL))
            ('T
             (PROGN
@@ -1607,18 +1906,18 @@
              (SETQ |wasNumber| (NUMBERP |arg|))
              (SETQ |lastOp| |op|)
              (SETQ |firstTime| NIL))))
-          (SETQ |bfVar#48| (CDR |bfVar#48|))))
+          (SETQ |bfVar#51| (CDR |bfVar#51|))))
        (CDR |u|) NIL)
       |w|))))
 
 ; plusApp([.,frst,:rst],x,y,d) ==
 ;   appSum(rst,x+WIDTH frst,y,APP(frst,x,y,d))
 
-(DEFUN |plusApp| (|bfVar#49| |x| |y| |d|)
+(DEFUN |plusApp| (|bfVar#52| |x| |y| |d|)
   (PROG (|frst| |rst|)
     (RETURN
      (PROGN
-      (SETQ |frst| (CADR . #1=(|bfVar#49|)))
+      (SETQ |frst| (CADR . #1=(|bfVar#52|)))
       (SETQ |rst| (CDDR . #1#))
       (|appSum| |rst| (+ |x| (WIDTH |frst|)) |y| (APP |frst| |x| |y| |d|))))))
 
@@ -1646,10 +1945,10 @@
   (PROG (|infixOp| |opString| |rightPrec| |LETTMP#1|)
     (RETURN
      (PROGN
-      ((LAMBDA (|bfVar#50| |arg|)
+      ((LAMBDA (|bfVar#53| |arg|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#50|) (PROGN (SETQ |arg| (CAR |bfVar#50|)) NIL))
+           ((OR (ATOM |bfVar#53|) (PROGN (SETQ |arg| (CAR |bfVar#53|)) NIL))
             (RETURN NIL))
            (#1='T
             (PROGN
@@ -1665,7 +1964,7 @@
              (SETQ |d| (CAR |LETTMP#1|))
              (SETQ |x| (CADR |LETTMP#1|))
              |LETTMP#1|)))
-          (SETQ |bfVar#50| (CDR |bfVar#50|))))
+          (SETQ |bfVar#53| (CDR |bfVar#53|))))
        |u| NIL)
       |d|))))
 
@@ -1732,11 +2031,11 @@
                              '|right| |opString|))
                     (SETQ |d| (CAR |LETTMP#1|))
                     (SETQ |x| (CADR |LETTMP#1|))
-                    ((LAMBDA (|bfVar#51| |arg|)
+                    ((LAMBDA (|bfVar#54| |arg|)
                        (LOOP
                         (COND
-                         ((OR (ATOM |bfVar#51|)
-                              (PROGN (SETQ |arg| (CAR |bfVar#51|)) NIL))
+                         ((OR (ATOM |bfVar#54|)
+                              (PROGN (SETQ |arg| (CAR |bfVar#54|)) NIL))
                           (RETURN NIL))
                          (#1#
                           (PROGN
@@ -1748,7 +2047,7 @@
                            (SETQ |d| (CAR |LETTMP#1|))
                            (SETQ |x| (CADR |LETTMP#1|))
                            |LETTMP#1|)))
-                        (SETQ |bfVar#51| (CDR |bfVar#51|))))
+                        (SETQ |bfVar#54| (CDR |bfVar#54|))))
                      |rst| NIL)
                     |d|)))))))))))))
 
@@ -1933,13 +2232,13 @@
               (SETQ |l| (CDR |ISTMP#1|))
               #1='T)))
        (+ (WIDTH |a|)
-          ((LAMBDA (|bfVar#53| |bfVar#52| |x|)
+          ((LAMBDA (|bfVar#56| |bfVar#55| |x|)
              (LOOP
               (COND
-               ((OR (ATOM |bfVar#52|) (PROGN (SETQ |x| (CAR |bfVar#52|)) NIL))
-                (RETURN |bfVar#53|))
-               (#1# (SETQ |bfVar#53| (+ |bfVar#53| (+ 2 (WIDTH |x|))))))
-              (SETQ |bfVar#52| (CDR |bfVar#52|))))
+               ((OR (ATOM |bfVar#55|) (PROGN (SETQ |x| (CAR |bfVar#55|)) NIL))
+                (RETURN |bfVar#56|))
+               (#1# (SETQ |bfVar#56| (+ |bfVar#56| (+ 2 (WIDTH |x|))))))
+              (SETQ |bfVar#55| (CDR |bfVar#55|))))
            0 |l| NIL)))
       (#1# 0)))))
 
@@ -1979,17 +2278,17 @@
        ((AND (CONSP |u|)
              (PROGN (SETQ |a| (CAR |u|)) (SETQ |l| (CDR |u|)) #1='T))
         (SETQ |d| (APP |a| |x| |y| |d|)) (SETQ |x| (+ |x| (WIDTH |a|)))
-        ((LAMBDA (|bfVar#54| |b|)
+        ((LAMBDA (|bfVar#57| |b|)
            (LOOP
             (COND
-             ((OR (ATOM |bfVar#54|) (PROGN (SETQ |b| (CAR |bfVar#54|)) NIL))
+             ((OR (ATOM |bfVar#57|) (PROGN (SETQ |b| (CAR |bfVar#57|)) NIL))
               (RETURN NIL))
              (#1#
               (PROGN
                (SETQ |d| (APP |s| |x| |y| |d|))
                (SETQ |d| (APP |b| (+ |x| |width_s|) |y| |d|))
                (SETQ |x| (+ (+ |x| |width_s|) (WIDTH |b|))))))
-            (SETQ |bfVar#54| (CDR |bfVar#54|))))
+            (SETQ |bfVar#57| (CDR |bfVar#57|))))
          |l| NIL)))
       |d|))))
 
@@ -2189,15 +2488,15 @@
                              (+ 2 (WIDTH |firstArg|)))
                             (#1# (WIDTH |firstArg|))))
                    (+ |widthFirstArg|
-                      ((LAMBDA (|bfVar#56| |bfVar#55| |x|)
+                      ((LAMBDA (|bfVar#59| |bfVar#58| |x|)
                          (LOOP
                           (COND
-                           ((OR (ATOM |bfVar#55|)
-                                (PROGN (SETQ |x| (CAR |bfVar#55|)) NIL))
-                            (RETURN |bfVar#56|))
+                           ((OR (ATOM |bfVar#58|)
+                                (PROGN (SETQ |x| (CAR |bfVar#58|)) NIL))
+                            (RETURN |bfVar#59|))
                            (#1#
-                            (SETQ |bfVar#56|
-                                    (+ |bfVar#56|
+                            (SETQ |bfVar#59|
+                                    (+ |bfVar#59|
                                        (+ |interSpace|
                                           (COND
                                            ((AND (EQL 0 |interSpace|)
@@ -2205,7 +2504,7 @@
                                                   |rightPrec| '|left|))
                                             (+ 2 (WIDTH |x|)))
                                            (#1# (WIDTH |x|))))))))
-                          (SETQ |bfVar#55| (CDR |bfVar#55|))))
+                          (SETQ |bfVar#58| (CDR |bfVar#58|))))
                        0 |restArg| NIL))))
                  (#1# 0)))
         (SETQ |newFirst|
@@ -2439,17 +2738,17 @@
       (SETQ |y| (NREVERSE |matrixList|))
       (SETQ |matrixList| NIL)
       (SETQ |firstName| (CAR (CAR |y|)))
-      ((LAMBDA (|bfVar#58| |bfVar#57| |n|)
+      ((LAMBDA (|bfVar#61| |bfVar#60| |n|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#58|)
-                (PROGN (SETQ |bfVar#57| (CAR |bfVar#58|)) NIL))
+           ((OR (ATOM |bfVar#61|)
+                (PROGN (SETQ |bfVar#60| (CAR |bfVar#61|)) NIL))
             (RETURN NIL))
            (#1='T
-            (AND (CONSP |bfVar#57|)
+            (AND (CONSP |bfVar#60|)
                  (PROGN
-                  (SETQ |name| (CAR |bfVar#57|))
-                  (SETQ |m| (CDR |bfVar#57|))
+                  (SETQ |name| (CAR |bfVar#60|))
+                  (SETQ |m| (CDR |bfVar#60|))
                   #1#)
                  (PROGN
                   (COND
@@ -2459,7 +2758,7 @@
                                 (#1# "and ")))
                   (SETQ |line| (STRCONC |andWhere| (PNAME |name|)))
                   (|maprinChk| (LIST '= |line| |m|))))))
-          (SETQ |bfVar#58| (CDR |bfVar#58|))
+          (SETQ |bfVar#61| (CDR |bfVar#61|))
           (SETQ |n| (+ |n| 1))))
        |y| NIL 0)))))
 
@@ -2472,17 +2771,17 @@
     (RETURN
      (LIST 'BRACKET
            (CONS 'AGGLST
-                 ((LAMBDA (|bfVar#60| |bfVar#59| |row|)
+                 ((LAMBDA (|bfVar#63| |bfVar#62| |row|)
                     (LOOP
                      (COND
-                      ((OR (ATOM |bfVar#59|)
-                           (PROGN (SETQ |row| (CAR |bfVar#59|)) NIL))
-                       (RETURN (NREVERSE |bfVar#60|)))
+                      ((OR (ATOM |bfVar#62|)
+                           (PROGN (SETQ |row| (CAR |bfVar#62|)) NIL))
+                       (RETURN (NREVERSE |bfVar#63|)))
                       ('T
-                       (SETQ |bfVar#60|
+                       (SETQ |bfVar#63|
                                (CONS (LIST 'BRACKET (CONS 'AGGLST (CDR |row|)))
-                                     |bfVar#60|))))
-                     (SETQ |bfVar#59| (CDR |bfVar#59|))))
+                                     |bfVar#63|))))
+                     (SETQ |bfVar#62| (CDR |bfVar#62|))))
                   NIL (CDDR |m|) NIL))))))
 
 ; LargeMatrixp(u,width, dist) ==
@@ -2545,11 +2844,11 @@
                      (SETQ |dist| (- |dist| 3))
                      (SETQ |width| (- |width| 3))
                      (SETQ |ans|
-                             ((LAMBDA (|bfVar#61| |v|)
+                             ((LAMBDA (|bfVar#64| |v|)
                                 (LOOP
                                  (COND
-                                  ((OR (ATOM |bfVar#61|)
-                                       (PROGN (SETQ |v| (CAR |bfVar#61|)) NIL))
+                                  ((OR (ATOM |bfVar#64|)
+                                       (PROGN (SETQ |v| (CAR |bfVar#64|)) NIL))
                                    (RETURN NIL))
                                   (#1#
                                    (COND
@@ -2562,7 +2861,7 @@
                                       (SETQ |dist| (- |dist| (WIDTH |v|)))
                                       (COND
                                        ((MINUSP |dist|) (RETURN NIL))))))))
-                                 (SETQ |bfVar#61| (CDR |bfVar#61|))))
+                                 (SETQ |bfVar#64| (CDR |bfVar#64|))))
                               (CDR |u|) NIL))
                      |ans|))
                    ((MEMQ |op| '(+ *))
@@ -2575,12 +2874,12 @@
                        (SETQ |n| (+ 3 (WIDTH (CADR |u|))))
                        (SETQ |dist| (- |dist| |n|))
                        (SETQ |ans|
-                               ((LAMBDA (|bfVar#62| |v|)
+                               ((LAMBDA (|bfVar#65| |v|)
                                   (LOOP
                                    (COND
-                                    ((OR (ATOM |bfVar#62|)
+                                    ((OR (ATOM |bfVar#65|)
                                          (PROGN
-                                          (SETQ |v| (CAR |bfVar#62|))
+                                          (SETQ |v| (CAR |bfVar#65|))
                                           NIL))
                                      (RETURN NIL))
                                     (#1#
@@ -2594,17 +2893,17 @@
                                         (SETQ |dist| (- |dist| (WIDTH |v|)))
                                         (COND
                                          ((MINUSP |dist|) (RETURN NIL))))))))
-                                   (SETQ |bfVar#62| (CDR |bfVar#62|))))
+                                   (SETQ |bfVar#65| (CDR |bfVar#65|))))
                                 (CDDR |u|) NIL))
                        |ans|))))
                    (#1#
                     (PROGN
                      (SETQ |ans|
-                             ((LAMBDA (|bfVar#63| |v|)
+                             ((LAMBDA (|bfVar#66| |v|)
                                 (LOOP
                                  (COND
-                                  ((OR (ATOM |bfVar#63|)
-                                       (PROGN (SETQ |v| (CAR |bfVar#63|)) NIL))
+                                  ((OR (ATOM |bfVar#66|)
+                                       (PROGN (SETQ |v| (CAR |bfVar#66|)) NIL))
                                    (RETURN NIL))
                                   (#1#
                                    (COND
@@ -2617,7 +2916,7 @@
                                       (SETQ |dist| (- |dist| (WIDTH |v|)))
                                       (COND
                                        ((MINUSP |dist|) (RETURN NIL))))))))
-                                 (SETQ |bfVar#63| (CDR |bfVar#63|))))
+                                 (SETQ |bfVar#66| (CDR |bfVar#66|))))
                               (CDR |u|) NIL))
                      |ans|)))))))))
 
@@ -2636,16 +2935,16 @@
     (RETURN
      (PROGN
       (SETQ |name|
-              ((LAMBDA (|bfVar#64| |v|)
+              ((LAMBDA (|bfVar#67| |v|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#64|)
-                        (PROGN (SETQ |v| (CAR |bfVar#64|)) NIL))
+                   ((OR (ATOM |bfVar#67|)
+                        (PROGN (SETQ |v| (CAR |bfVar#67|)) NIL))
                     (RETURN NIL))
                    (#1='T
                     (COND
                      ((EQUAL |m| (CDR |v|)) (IDENTITY (RETURN (CAR |v|)))))))
-                  (SETQ |bfVar#64| (CDR |bfVar#64|))))
+                  (SETQ |bfVar#67| (CDR |bfVar#67|))))
                |$MatrixList| NIL))
       (COND (|name| |name|)
             (#1#
@@ -2659,27 +2958,27 @@
 
 ; quoteApp([.,a],x,y,d) == APP(a,x+1,y,appChar(PNAME "'",x,y,d))
 
-(DEFUN |quoteApp| (|bfVar#65| |x| |y| |d|)
+(DEFUN |quoteApp| (|bfVar#68| |x| |y| |d|)
   (PROG (|a|)
     (RETURN
      (PROGN
-      (SETQ |a| (CADR |bfVar#65|))
+      (SETQ |a| (CADR |bfVar#68|))
       (APP |a| (+ |x| 1) |y| (|appChar| (PNAME '|'|) |x| |y| |d|))))))
 
 ; quoteSub [.,a] == subspan a
 
-(DEFUN |quoteSub| (|bfVar#66|)
-  (PROG (|a|) (RETURN (PROGN (SETQ |a| (CADR |bfVar#66|)) (|subspan| |a|)))))
+(DEFUN |quoteSub| (|bfVar#69|)
+  (PROG (|a|) (RETURN (PROGN (SETQ |a| (CADR |bfVar#69|)) (|subspan| |a|)))))
 
 ; quoteSuper [.,a] == superspan a
 
-(DEFUN |quoteSuper| (|bfVar#67|)
-  (PROG (|a|) (RETURN (PROGN (SETQ |a| (CADR |bfVar#67|)) (|superspan| |a|)))))
+(DEFUN |quoteSuper| (|bfVar#70|)
+  (PROG (|a|) (RETURN (PROGN (SETQ |a| (CADR |bfVar#70|)) (|superspan| |a|)))))
 
 ; quoteWidth [.,a] == 1 + WIDTH a
 
-(DEFUN |quoteWidth| (|bfVar#68|)
-  (PROG (|a|) (RETURN (PROGN (SETQ |a| (CADR |bfVar#68|)) (+ 1 (WIDTH |a|))))))
+(DEFUN |quoteWidth| (|bfVar#71|)
+  (PROG (|a|) (RETURN (PROGN (SETQ |a| (CADR |bfVar#71|)) (+ 1 (WIDTH |a|))))))
 
 ; SubstWhileDesizing(u) ==
 ;     --Replaces all occurrences of matrix by name in u
@@ -2722,13 +3021,13 @@
 (DEFUN |SubstWhileDesizingList| (|u|)
   (PROG ()
     (RETURN
-     ((LAMBDA (|bfVar#70| |bfVar#69| |i|)
+     ((LAMBDA (|bfVar#73| |bfVar#72| |i|)
         (LOOP
          (COND
-          ((OR (ATOM |bfVar#69|) (PROGN (SETQ |i| (CAR |bfVar#69|)) NIL))
-           (RETURN (NREVERSE |bfVar#70|)))
-          ('T (SETQ |bfVar#70| (CONS (|SubstWhileDesizing| |i|) |bfVar#70|))))
-         (SETQ |bfVar#69| (CDR |bfVar#69|))))
+          ((OR (ATOM |bfVar#72|) (PROGN (SETQ |i| (CAR |bfVar#72|)) NIL))
+           (RETURN (NREVERSE |bfVar#73|)))
+          ('T (SETQ |bfVar#73| (CONS (|SubstWhileDesizing| |i|) |bfVar#73|))))
+         (SETQ |bfVar#72| (CDR |bfVar#72|))))
       NIL |u| NIL))))
 
 ; sigmaSub u ==
@@ -2883,21 +3182,21 @@
 
 ; sigmaWidth [.,bot,arg] == bigopWidth(bot,nil,arg,'sigma)
 
-(DEFUN |sigmaWidth| (|bfVar#71|)
+(DEFUN |sigmaWidth| (|bfVar#74|)
   (PROG (|bot| |arg|)
     (RETURN
      (PROGN
-      (SETQ |bot| (CADR . #1=(|bfVar#71|)))
+      (SETQ |bot| (CADR . #1=(|bfVar#74|)))
       (SETQ |arg| (CADDR . #1#))
       (|bigopWidth| |bot| NIL |arg| '|sigma|)))))
 
 ; sigma2Width [.,bot,top,arg] == bigopWidth(bot,top,arg,'sigma)
 
-(DEFUN |sigma2Width| (|bfVar#72|)
+(DEFUN |sigma2Width| (|bfVar#75|)
   (PROG (|bot| |top| |arg|)
     (RETURN
      (PROGN
-      (SETQ |bot| (CADR . #1=(|bfVar#72|)))
+      (SETQ |bot| (CADR . #1=(|bfVar#75|)))
       (SETQ |top| (CADDR . #1#))
       (SETQ |arg| (CADDDR . #1#))
       (|bigopWidth| |bot| |top| |arg| '|sigma|)))))
@@ -2953,21 +3252,21 @@
 
 ; piWidth [.,bot,arg] == bigopWidth(bot,nil,arg,'pi)
 
-(DEFUN |piWidth| (|bfVar#73|)
+(DEFUN |piWidth| (|bfVar#76|)
   (PROG (|bot| |arg|)
     (RETURN
      (PROGN
-      (SETQ |bot| (CADR . #1=(|bfVar#73|)))
+      (SETQ |bot| (CADR . #1=(|bfVar#76|)))
       (SETQ |arg| (CADDR . #1#))
       (|bigopWidth| |bot| NIL |arg| '|pi|)))))
 
 ; pi2Width [.,bot,top,arg] == bigopWidth(bot,top,arg,'pi)
 
-(DEFUN |pi2Width| (|bfVar#74|)
+(DEFUN |pi2Width| (|bfVar#77|)
   (PROG (|bot| |top| |arg|)
     (RETURN
      (PROGN
-      (SETQ |bot| (CADR . #1=(|bfVar#74|)))
+      (SETQ |bot| (CADR . #1=(|bfVar#77|)))
       (SETQ |top| (CADDR . #1#))
       (SETQ |arg| (CADDDR . #1#))
       (|bigopWidth| |bot| |top| |arg| '|pi|)))))
@@ -3002,21 +3301,21 @@
 
 ; overlabelSuper [.,a,b] == 1 + height a + superspan b
 
-(DEFUN |overlabelSuper| (|bfVar#75|)
+(DEFUN |overlabelSuper| (|bfVar#78|)
   (PROG (|a| |b|)
     (RETURN
      (PROGN
-      (SETQ |a| (CADR . #1=(|bfVar#75|)))
+      (SETQ |a| (CADR . #1=(|bfVar#78|)))
       (SETQ |b| (CADDR . #1#))
       (+ (+ 1 (|height| |a|)) (|superspan| |b|))))))
 
 ; overlabelWidth [.,a,b] == WIDTH b
 
-(DEFUN |overlabelWidth| (|bfVar#76|)
+(DEFUN |overlabelWidth| (|bfVar#79|)
   (PROG (|a| |b|)
     (RETURN
      (PROGN
-      (SETQ |a| (CADR . #1=(|bfVar#76|)))
+      (SETQ |a| (CADR . #1=(|bfVar#79|)))
       (SETQ |b| (CADDR . #1#))
       (WIDTH |b|)))))
 
@@ -3030,11 +3329,11 @@
 ;   d := APP(a,middle,h + 1,d)
 ;   apphor(x, endPoint, y+superspan b+1,d,"|")
 
-(DEFUN |overlabelApp| (|bfVar#77| |x| |y| |d|)
+(DEFUN |overlabelApp| (|bfVar#80| |x| |y| |d|)
   (PROG (|a| |b| |wb| |endPoint| |middle| |h|)
     (RETURN
      (PROGN
-      (SETQ |a| (CADR . #1=(|bfVar#77|)))
+      (SETQ |a| (CADR . #1=(|bfVar#80|)))
       (SETQ |b| (CADDR . #1#))
       (SETQ |d| (APP |b| |x| |y| |d|))
       (SETQ |wb| (MAX (WIDTH |b|) 1))
@@ -3132,24 +3431,24 @@
   (PROG (|ISTMP#1| |a| |b| |c|)
     (RETURN
      (PROGN
-      ((LAMBDA (|bfVar#79| |bfVar#78|)
+      ((LAMBDA (|bfVar#82| |bfVar#81|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#79|)
-                (PROGN (SETQ |bfVar#78| (CAR |bfVar#79|)) NIL))
+           ((OR (ATOM |bfVar#82|)
+                (PROGN (SETQ |bfVar#81| (CAR |bfVar#82|)) NIL))
             (RETURN NIL))
            (#1='T
-            (AND (CONSP |bfVar#78|)
+            (AND (CONSP |bfVar#81|)
                  (PROGN
-                  (SETQ |ISTMP#1| (CAR |bfVar#78|))
+                  (SETQ |ISTMP#1| (CAR |bfVar#81|))
                   (AND (CONSP |ISTMP#1|)
                        (PROGN
                         (SETQ |a| (CAR |ISTMP#1|))
                         (SETQ |b| (CDR |ISTMP#1|))
                         #1#)))
-                 (PROGN (SETQ |c| (CDR |bfVar#78|)) #1#)
+                 (PROGN (SETQ |c| (CDR |bfVar#81|)) #1#)
                  (SETQ |d| (|appChar| |c| (+ |x| |a|) (+ |y| |b|) |d|)))))
-          (SETQ |bfVar#79| (CDR |bfVar#79|))))
+          (SETQ |bfVar#82| (CDR |bfVar#82|))))
        |l| NIL)
       |d|))))
 
@@ -3189,10 +3488,10 @@
         (PROGN
          (|charybdis| (|concatTrouble,fixUp| |x| |addBlankIfTrue|) |start|
           |lineLength|)
-         ((LAMBDA (|bfVar#80| |y|)
+         ((LAMBDA (|bfVar#83| |y|)
             (LOOP
              (COND
-              ((OR (ATOM |bfVar#80|) (PROGN (SETQ |y| (CAR |bfVar#80|)) NIL))
+              ((OR (ATOM |bfVar#83|) (PROGN (SETQ |y| (CAR |bfVar#83|)) NIL))
                (RETURN NIL))
               (#1#
                (PROGN
@@ -3202,7 +3501,7 @@
                  ((< 2 |lineLength|)
                   (|charybdis| |y| (+ |start| 2) (- |lineLength| 2)))
                  (#1# (|charybdis| |y| |start| 1))))))
-             (SETQ |bfVar#80| (CDR |bfVar#80|))))
+             (SETQ |bfVar#83| (CDR |bfVar#83|))))
           |l| NIL)
          BLANK)))))))
 (DEFUN |concatTrouble,fixUp| (|x| |addBlankIfTrue|)
@@ -3245,14 +3544,14 @@
                            (#1# (- |maxWidth| 2))))
              (COND
               ((< |maxW| 1)
-               ((LAMBDA (|bfVar#82| |bfVar#81| |x|)
+               ((LAMBDA (|bfVar#85| |bfVar#84| |x|)
                   (LOOP
                    (COND
-                    ((OR (ATOM |bfVar#81|)
-                         (PROGN (SETQ |x| (CAR |bfVar#81|)) NIL))
-                     (RETURN (NREVERSE |bfVar#82|)))
-                    (#1# (SETQ |bfVar#82| (CONS (LIST |x|) |bfVar#82|))))
-                   (SETQ |bfVar#81| (CDR |bfVar#81|))))
+                    ((OR (ATOM |bfVar#84|)
+                         (PROGN (SETQ |x| (CAR |bfVar#84|)) NIL))
+                     (RETURN (NREVERSE |bfVar#85|)))
+                    (#1# (SETQ |bfVar#85| (CONS (LIST |x|) |bfVar#85|))))
+                   (SETQ |bfVar#84| (CDR |bfVar#84|))))
                 NIL |l| NIL))
               (#1#
                (PROGN
@@ -3665,15 +3964,15 @@
       (COND ((ATOM (SETQ |u| (|prefix2String| |form|))) |u|)
             (#1='T
              (|concatenateStringList|
-              ((LAMBDA (|bfVar#84| |bfVar#83| |x|)
+              ((LAMBDA (|bfVar#87| |bfVar#86| |x|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#83|)
-                        (PROGN (SETQ |x| (CAR |bfVar#83|)) NIL))
-                    (RETURN (NREVERSE |bfVar#84|)))
+                   ((OR (ATOM |bfVar#86|)
+                        (PROGN (SETQ |x| (CAR |bfVar#86|)) NIL))
+                    (RETURN (NREVERSE |bfVar#87|)))
                    (#1#
-                    (SETQ |bfVar#84| (CONS (|object2String| |x|) |bfVar#84|))))
-                  (SETQ |bfVar#83| (CDR |bfVar#83|))))
+                    (SETQ |bfVar#87| (CONS (|object2String| |x|) |bfVar#87|))))
+                  (SETQ |bfVar#86| (CDR |bfVar#86|))))
                NIL |u| NIL))))))))
 
 ; charybdis(u,start,linelength) ==
@@ -3729,13 +4028,13 @@
               (SETQ |ISTMP#1| (CAR |u|))
               (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) 'SC)))
              (PROGN (SETQ |l| (CDR |u|)) #1#)))
-       ((LAMBDA (|bfVar#85| |a|)
+       ((LAMBDA (|bfVar#88| |a|)
           (LOOP
            (COND
-            ((OR (ATOM |bfVar#85|) (PROGN (SETQ |a| (CAR |bfVar#85|)) NIL))
+            ((OR (ATOM |bfVar#88|) (PROGN (SETQ |a| (CAR |bfVar#88|)) NIL))
              (RETURN NIL))
             (#1# (|charyTop| |a| |start| |linelength|)))
-           (SETQ |bfVar#85| (CDR |bfVar#85|))))
+           (SETQ |bfVar#88| (CDR |bfVar#88|))))
         |l| NIL))
       ((AND (CONSP |u|)
             (PROGN
@@ -3783,11 +4082,11 @@
            (SETQ |d| (APP |v| |start| 0 NIL))
            (SETQ |n| (|superspan| |v|))
            (SETQ |m| (- (|subspan| |v|)))
-           ((LAMBDA (|bfVar#86|)
+           ((LAMBDA (|bfVar#89|)
               (LOOP
-               (COND (|bfVar#86| (RETURN NIL))
+               (COND (|bfVar#89| (RETURN NIL))
                      (#1# (PROGN (|scylla| |n| |d|) (SETQ |n| (- |n| 1)))))
-               (SETQ |bfVar#86| (< |n| |m|))))
+               (SETQ |bfVar#89| (< |n| |m|))))
             NIL))))))))))
 
 ; charyTopWidth u ==
@@ -3963,13 +4262,13 @@
   (PROG ()
     (RETURN
      (PROGN
-      ((LAMBDA (|bfVar#87| |a|)
+      ((LAMBDA (|bfVar#90| |a|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#87|) (PROGN (SETQ |a| (CAR |bfVar#87|)) NIL))
+           ((OR (ATOM |bfVar#90|) (PROGN (SETQ |a| (CAR |bfVar#90|)) NIL))
             (RETURN NIL))
            ('T (|charyTop| |a| |start| |linelength|)))
-          (SETQ |bfVar#87| (CDR |bfVar#87|))))
+          (SETQ |bfVar#90| (CDR |bfVar#90|))))
        (CDR |u|) NIL)
       NIL))))
 
@@ -5143,11 +5442,11 @@
       (SETQ |widthList|
               (|matLSum2|
                (|matWList| |y|
-                ((LAMBDA (|bfVar#88| |j|)
+                ((LAMBDA (|bfVar#91| |j|)
                    (LOOP
                     (COND
-                     ((> |j| |numOfColumns|) (RETURN (NREVERSE |bfVar#88|)))
-                     ('T (SETQ |bfVar#88| (CONS 0 |bfVar#88|))))
+                     ((> |j| |numOfColumns|) (RETURN (NREVERSE |bfVar#91|)))
+                     ('T (SETQ |bfVar#91| (CONS 0 |bfVar#91|))))
                     (SETQ |j| (+ |j| 1))))
                  NIL 1))))
       (SETQ |subspanList| (|matLSum| (|matSubList| |y|)))
@@ -5267,16 +5566,16 @@
      (PROGN
       (SETQ |u|
               (CONS (LIST 'CONCAT |open| (CAR |u|))
-                    ((LAMBDA (|bfVar#90| |bfVar#89| |y|)
+                    ((LAMBDA (|bfVar#93| |bfVar#92| |y|)
                        (LOOP
                         (COND
-                         ((OR (ATOM |bfVar#89|)
-                              (PROGN (SETQ |y| (CAR |bfVar#89|)) NIL))
-                          (RETURN (NREVERSE |bfVar#90|)))
+                         ((OR (ATOM |bfVar#92|)
+                              (PROGN (SETQ |y| (CAR |bfVar#92|)) NIL))
+                          (RETURN (NREVERSE |bfVar#93|)))
                          (#1='T
-                          (SETQ |bfVar#90|
-                                  (CONS (LIST 'CONCAT " " |y|) |bfVar#90|))))
-                        (SETQ |bfVar#89| (CDR |bfVar#89|))))
+                          (SETQ |bfVar#93|
+                                  (CONS (LIST 'CONCAT " " |y|) |bfVar#93|))))
+                        (SETQ |bfVar#92| (CDR |bfVar#92|))))
                      NIL (CDR |u|) NIL)))
       ((LAMBDA ()
          (LOOP
@@ -5392,13 +5691,13 @@
 (DEFUN |sumoverlist| (|u|)
   (PROG ()
     (RETURN
-     ((LAMBDA (|bfVar#92| |bfVar#91| |x|)
+     ((LAMBDA (|bfVar#95| |bfVar#94| |x|)
         (LOOP
          (COND
-          ((OR (ATOM |bfVar#91|) (PROGN (SETQ |x| (CAR |bfVar#91|)) NIL))
-           (RETURN |bfVar#92|))
-          ('T (SETQ |bfVar#92| (+ |bfVar#92| |x|))))
-         (SETQ |bfVar#91| (CDR |bfVar#91|))))
+          ((OR (ATOM |bfVar#94|) (PROGN (SETQ |x| (CAR |bfVar#94|)) NIL))
+           (RETURN |bfVar#95|))
+          ('T (SETQ |bfVar#95| (+ |bfVar#95| |x|))))
+         (SETQ |bfVar#94| (CDR |bfVar#94|))))
       0 |u| NIL))))
 
 ; sumWidth u ==
@@ -5419,10 +5718,10 @@
     (RETURN
      (PROGN
       (SETQ |sum| 0)
-      ((LAMBDA (|bfVar#93| |item|)
+      ((LAMBDA (|bfVar#96| |item|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#93|) (PROGN (SETQ |item| (CAR |bfVar#93|)) NIL))
+           ((OR (ATOM |bfVar#96|) (PROGN (SETQ |item| (CAR |bfVar#96|)) NIL))
             (RETURN NIL))
            (#1='T
             (PROGN
@@ -5431,7 +5730,7 @@
                         (COND ((|member| (|keyp| (|absym| |item|)) '(+ -)) 5)
                               (#1# 3))))
              (SETQ |sum| (+ |sum| (WIDTH (|absym| |item|)))))))
-          (SETQ |bfVar#93| (CDR |bfVar#93|))))
+          (SETQ |bfVar#96| (CDR |bfVar#96|))))
        |u| NIL)
       |sum|))))
 
@@ -5551,9 +5850,9 @@
       (SETQ |hnum| (|height| |num|))
       (SETQ |hden| (|height| |den|))
       (SETQ |w| (+ 1 |w|))
-      ((LAMBDA (|bfVar#94| |j|)
+      ((LAMBDA (|bfVar#97| |j|)
          (LOOP
-          (COND ((> |j| |bfVar#94|) (RETURN NIL))
+          (COND ((> |j| |bfVar#97|) (RETURN NIL))
                 (#1='T
                  (PROGN
                   (SETQ |d|
@@ -5564,9 +5863,9 @@
                            (+ |y| |j|) |d|)))))
           (SETQ |j| (+ |j| 1))))
        (- |hnum| 1) 0)
-      ((LAMBDA (|bfVar#95| |j|)
+      ((LAMBDA (|bfVar#98| |j|)
          (LOOP
-          (COND ((> |j| |bfVar#95|) (RETURN NIL))
+          (COND ((> |j| |bfVar#98|) (RETURN NIL))
                 (#1#
                  (PROGN
                   (SETQ |d|
@@ -5636,43 +5935,43 @@
               (- (- |y| 1)
                  (APPLY 'MAX
                         (CONS |ab|
-                              ((LAMBDA (|bfVar#97| |bfVar#96| |s|)
+                              ((LAMBDA (|bfVar#100| |bfVar#99| |s|)
                                  (LOOP
                                   (COND
-                                   ((OR (ATOM |bfVar#96|)
+                                   ((OR (ATOM |bfVar#99|)
                                         (PROGN
-                                         (SETQ |s| (CAR |bfVar#96|))
+                                         (SETQ |s| (CAR |bfVar#99|))
                                          NIL))
-                                    (RETURN (NREVERSE |bfVar#97|)))
+                                    (RETURN (NREVERSE |bfVar#100|)))
                                    (#1='T
-                                    (SETQ |bfVar#97|
+                                    (SETQ |bfVar#100|
                                             (CONS (|superspan| |s|)
-                                                  |bfVar#97|))))
-                                  (SETQ |bfVar#96| (CDR |bfVar#96|))))
+                                                  |bfVar#100|))))
+                                  (SETQ |bfVar#99| (CDR |bfVar#99|))))
                                NIL |sublist| NIL)))))
       (SETQ |ysup|
               (+ (+ |y| 1)
                  (APPLY 'MAX
                         (CONS |ar|
-                              ((LAMBDA (|bfVar#99| |bfVar#98| |s|)
+                              ((LAMBDA (|bfVar#102| |bfVar#101| |s|)
                                  (LOOP
                                   (COND
-                                   ((OR (ATOM |bfVar#98|)
+                                   ((OR (ATOM |bfVar#101|)
                                         (PROGN
-                                         (SETQ |s| (CAR |bfVar#98|))
+                                         (SETQ |s| (CAR |bfVar#101|))
                                          NIL))
-                                    (RETURN (NREVERSE |bfVar#99|)))
+                                    (RETURN (NREVERSE |bfVar#102|)))
                                    (#1#
-                                    (SETQ |bfVar#99|
+                                    (SETQ |bfVar#102|
                                             (CONS (|subspan| |s|)
-                                                  |bfVar#99|))))
-                                  (SETQ |bfVar#98| (CDR |bfVar#98|))))
+                                                  |bfVar#102|))))
+                                  (SETQ |bfVar#101| (CDR |bfVar#101|))))
                                NIL |sublist| NIL)))))
-      ((LAMBDA (|bfVar#100| |sub| |bfVar#101| |sup|)
+      ((LAMBDA (|bfVar#103| |sub| |bfVar#104| |sup|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#100|) (PROGN (SETQ |sub| (CAR |bfVar#100|)) NIL)
-                (ATOM |bfVar#101|) (PROGN (SETQ |sup| (CAR |bfVar#101|)) NIL))
+           ((OR (ATOM |bfVar#103|) (PROGN (SETQ |sub| (CAR |bfVar#103|)) NIL)
+                (ATOM |bfVar#104|) (PROGN (SETQ |sup| (CAR |bfVar#104|)) NIL))
             (RETURN NIL))
            (#1#
             (PROGN
@@ -5681,8 +5980,8 @@
              (SETQ |di| (APP |sub| |x| |ysub| |di|))
              (SETQ |di| (APP |sup| |x| |ysup| |di|))
              (SETQ |x| (+ (+ |x| 1) (MAX |wsub| |wsup|))))))
-          (SETQ |bfVar#100| (CDR |bfVar#100|))
-          (SETQ |bfVar#101| (CDR |bfVar#101|))))
+          (SETQ |bfVar#103| (CDR |bfVar#103|))
+          (SETQ |bfVar#104| (CDR |bfVar#104|))))
        |sublist| NIL |suplist| NIL)
       |di|))))
 
@@ -5692,11 +5991,11 @@
 (DEFUN |everyNth| (|l| |n|)
   (PROG (|e|)
     (RETURN
-     ((LAMBDA (|bfVar#102|)
+     ((LAMBDA (|bfVar#105|)
         (LOOP
-         (COND ((NOT |l|) (RETURN (NREVERSE |bfVar#102|)))
+         (COND ((NOT |l|) (RETURN (NREVERSE |bfVar#105|)))
                (#1='T
-                (SETQ |bfVar#102|
+                (SETQ |bfVar#105|
                         (CONS
                          (PROGN
                           (SETQ |e| (ELT |l| 0))
@@ -5707,7 +6006,7 @@
                               (SETQ |i| (+ |i| 1))))
                            1)
                           |e|)
-                         |bfVar#102|))))))
+                         |bfVar#105|))))))
       NIL))))
 
 ; altSuperSubSub u ==
@@ -5724,16 +6023,16 @@
      (PROGN
       (SETQ |span| (|subspan| (CADR |u|)))
       (SETQ |sublist| (|everyNth| (CDDR |u|) 2))
-      ((LAMBDA (|bfVar#103| |sub|)
+      ((LAMBDA (|bfVar#106| |sub|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#103|) (PROGN (SETQ |sub| (CAR |bfVar#103|)) NIL))
+           ((OR (ATOM |bfVar#106|) (PROGN (SETQ |sub| (CAR |bfVar#106|)) NIL))
             (RETURN NIL))
            ('T
             (PROGN
              (SETQ |h| (|height| |sub|))
              (COND ((< |span| |h|) (SETQ |span| |h|))))))
-          (SETQ |bfVar#103| (CDR |bfVar#103|))))
+          (SETQ |bfVar#106| (CDR |bfVar#106|))))
        |sublist| NIL)
       |span|))))
 
@@ -5751,16 +6050,16 @@
      (PROGN
       (SETQ |span| (|superspan| (CADR |u|)))
       (SETQ |suplist| (|everyNth| (IFCDR (CDDR |u|)) 2))
-      ((LAMBDA (|bfVar#104| |sup|)
+      ((LAMBDA (|bfVar#107| |sup|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#104|) (PROGN (SETQ |sup| (CAR |bfVar#104|)) NIL))
+           ((OR (ATOM |bfVar#107|) (PROGN (SETQ |sup| (CAR |bfVar#107|)) NIL))
             (RETURN NIL))
            ('T
             (PROGN
              (SETQ |h| (|height| |sup|))
              (COND ((< |span| |h|) (SETQ |span| |h|))))))
-          (SETQ |bfVar#104| (CDR |bfVar#104|))))
+          (SETQ |bfVar#107| (CDR |bfVar#107|))))
        |suplist| NIL)
       |span|))))
 
@@ -5781,19 +6080,19 @@
       (SETQ |w| (WIDTH (CADR |u|)))
       (SETQ |suplist| (|everyNth| (IFCDR (CDDR |u|)) 2))
       (SETQ |sublist| (|everyNth| (CDDR |u|) 2))
-      ((LAMBDA (|bfVar#105| |sup| |bfVar#106| |sub|)
+      ((LAMBDA (|bfVar#108| |sup| |bfVar#109| |sub|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#105|) (PROGN (SETQ |sup| (CAR |bfVar#105|)) NIL)
-                (ATOM |bfVar#106|) (PROGN (SETQ |sub| (CAR |bfVar#106|)) NIL))
+           ((OR (ATOM |bfVar#108|) (PROGN (SETQ |sup| (CAR |bfVar#108|)) NIL)
+                (ATOM |bfVar#109|) (PROGN (SETQ |sub| (CAR |bfVar#109|)) NIL))
             (RETURN NIL))
            ('T
             (PROGN
              (SETQ |wsup| (WIDTH |sup|))
              (SETQ |wsub| (WIDTH |sub|))
              (SETQ |w| (+ (+ |w| 1) (MAX |wsup| |wsub|))))))
-          (SETQ |bfVar#105| (CDR |bfVar#105|))
-          (SETQ |bfVar#106| (CDR |bfVar#106|))))
+          (SETQ |bfVar#108| (CDR |bfVar#108|))
+          (SETQ |bfVar#109| (CDR |bfVar#109|))))
        |suplist| NIL |sublist| NIL)
       |w|))))
 
@@ -5858,11 +6157,11 @@
             (PROGN
              (SETQ |w| (|vConcatWidth| |u|))
              (SETQ |y| (+ (+ |y| (|superspan| (ELT |u| 1))) 1))
-             ((LAMBDA (|bfVar#107| |a|)
+             ((LAMBDA (|bfVar#110| |a|)
                 (LOOP
                  (COND
-                  ((OR (ATOM |bfVar#107|)
-                       (PROGN (SETQ |a| (CAR |bfVar#107|)) NIL))
+                  ((OR (ATOM |bfVar#110|)
+                       (PROGN (SETQ |a| (CAR |bfVar#110|)) NIL))
                    (RETURN NIL))
                   (#1#
                    (PROGN
@@ -5870,7 +6169,7 @@
                     (SETQ |xoff| (QUOTIENT (- |w| (WIDTH |a|)) 2))
                     (SETQ |d| (APP |a| (+ |x| |xoff|) |y| |d|))
                     (SETQ |y| (- |y| (|subspan| |a|))))))
-                 (SETQ |bfVar#107| (CDR |bfVar#107|))))
+                 (SETQ |bfVar#110| (CDR |bfVar#110|))))
               (CDR |u|) NIL)
              |d|))))))
 
@@ -5916,14 +6215,14 @@
      (COND ((NULL (CDR |u|)) 0)
            (#1='T
             (+ (|subspan| (ELT |u| 1))
-               ((LAMBDA (|bfVar#109| |bfVar#108| |a|)
+               ((LAMBDA (|bfVar#112| |bfVar#111| |a|)
                   (LOOP
                    (COND
-                    ((OR (ATOM |bfVar#108|)
-                         (PROGN (SETQ |a| (CAR |bfVar#108|)) NIL))
-                     (RETURN |bfVar#109|))
-                    (#1# (SETQ |bfVar#109| (+ |bfVar#109| (|height| |a|)))))
-                   (SETQ |bfVar#108| (CDR |bfVar#108|))))
+                    ((OR (ATOM |bfVar#111|)
+                         (PROGN (SETQ |a| (CAR |bfVar#111|)) NIL))
+                     (RETURN |bfVar#112|))
+                    (#1# (SETQ |bfVar#112| (+ |bfVar#112| (|height| |a|)))))
+                   (SETQ |bfVar#111| (CDR |bfVar#111|))))
                 0 (CDDR |u|) NIL)))))))
 
 ; vConcatSuper u ==
@@ -5943,13 +6242,13 @@
     (RETURN
      (PROGN
       (SETQ |w| 0)
-      ((LAMBDA (|bfVar#110| |a|)
+      ((LAMBDA (|bfVar#113| |a|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#110|) (PROGN (SETQ |a| (CAR |bfVar#110|)) NIL))
+           ((OR (ATOM |bfVar#113|) (PROGN (SETQ |a| (CAR |bfVar#113|)) NIL))
             (RETURN NIL))
            ('T (COND ((< |w| (SETQ |wa| (WIDTH |a|))) (SETQ |w| |wa|)))))
-          (SETQ |bfVar#110| (CDR |bfVar#110|))))
+          (SETQ |bfVar#113| (CDR |bfVar#113|))))
        (CDR |u|) NIL)
       |w|))))
 
