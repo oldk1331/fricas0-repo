@@ -314,10 +314,6 @@
 ;     c := x.0
 ;     n := STRINGLENGTH x
 ;
-;     -- x is a special case
-;     (n > 2) and (c = char "%") and (x.1 = char "k") =>
-;         l := NCONC(NREVERSE pkey SUBSTRING(x,2,NIL),l)
-;
 ;     -- x requires parameter substitution
 ;     (x.0 = char "%") and (n > 1) and (DIGITP x.1) =>
 ;       a := DIG2FIX x.1
@@ -384,11 +380,6 @@
                (SETQ |c| (ELT |x| 0))
                (SETQ |n| (STRINGLENGTH |x|))
                (COND
-                ((AND (< 2 |n|) (EQUAL |c| (|char| '%))
-                      (EQUAL (ELT |x| 1) (|char| '|k|)))
-                 (SETQ |l|
-                         (NCONC (NREVERSE (|pkey| (SUBSTRING |x| 2 NIL)))
-                                |l|)))
                 ((AND (EQUAL (ELT |x| 0) (|char| '%)) (< 1 |n|)
                       (DIGITP (ELT |x| 1)))
                  (PROGN
