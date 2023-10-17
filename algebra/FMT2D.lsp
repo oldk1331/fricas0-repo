@@ -224,8 +224,7 @@
                       ('T
                        (SEQ
                         (LETT |b3|
-                              (SPADCALL (SPADCALL |args| 3 (QREFELT % 40))
-                                        (SPADCALL (QREFELT % 45))
+                              (SPADCALL (SPADCALL |args| 3 (QREFELT % 40)) |p|
                                         (QREFELT % 46)))
                         (LETT |bx|
                               (SPADCALL (LIST |b2| |op| |b1|)

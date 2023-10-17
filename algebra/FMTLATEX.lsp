@@ -222,8 +222,7 @@
                            (EXIT
                             (LETT |ba|
                                   (SPADCALL (SPADCALL |args| 3 (QREFELT % 43))
-                                            (SPADCALL (QREFELT % 47))
-                                            (QREFELT % 48)))))))
+                                            |p| (QREFELT % 48)))))))
                     (COND
                      ((NULL (SPADCALL |bl| (QREFELT % 49)))
                       (LETT |bl| (SPADCALL "_{" "}" |bl| (QREFELT % 16)))))
