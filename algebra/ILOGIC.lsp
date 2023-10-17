@@ -728,11 +728,10 @@
         (SPROG
          ((|p1| #1#) (|secondTerm| ($))
           (|r| (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
-          (#2=#:G377 NIL) (|ch| (|Character|)) (|trm| ($)) (|pt| #1#))
+          (#2=#:G377 NIL) (|ch| (|Character|)) (|trm| ($)))
          (SEQ
           (EXIT
-           (SEQ (LETT |p1| |pin|) (LETT |pt| |pin|)
-                (LETT |trm| (SPADCALL (QREFELT $ 9)))
+           (SEQ (LETT |p1| |pin|) (LETT |trm| (SPADCALL (QREFELT $ 9)))
                 (LETT |ch| (STR_ELT1 |t1| |p1|))
                 (COND
                  ((NULL (|eql_SI| |ch| (|STR_to_CHAR| "/")))
@@ -758,11 +757,10 @@
         (SPROG
          ((|p1| #1#) (|secondTerm| ($))
           (|r| (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
-          (#2=#:G384 NIL) (|ch| (|Character|)) (|trm| ($)) (|pt| #1#))
+          (#2=#:G384 NIL) (|ch| (|Character|)) (|trm| ($)))
          (SEQ
           (EXIT
-           (SEQ (LETT |p1| |pin|) (LETT |pt| |pin|)
-                (LETT |trm| (SPADCALL (QREFELT $ 9)))
+           (SEQ (LETT |p1| |pin|) (LETT |trm| (SPADCALL (QREFELT $ 9)))
                 (LETT |ch| (STR_ELT1 |t1| |p1|))
                 (COND
                  ((NULL (|eql_SI| |ch| (|STR_to_CHAR| "\\")))
@@ -788,11 +786,10 @@
         (SPROG
          ((|p1| #1#) (|secondTerm| ($))
           (|r| (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
-          (#2=#:G391 NIL) (|ch| (|Character|)) (|trm| ($)) (|pt| #1#))
+          (#2=#:G391 NIL) (|ch| (|Character|)) (|trm| ($)))
          (SEQ
           (EXIT
-           (SEQ (LETT |p1| |pin|) (LETT |pt| |pin|)
-                (LETT |trm| (SPADCALL (QREFELT $ 9)))
+           (SEQ (LETT |p1| |pin|) (LETT |trm| (SPADCALL (QREFELT $ 9)))
                 (LETT |ch| (STR_ELT1 |t1| |p1|))
                 (COND
                  ((NULL (|eql_SI| |ch| (|STR_to_CHAR| "-")))

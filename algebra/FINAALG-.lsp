@@ -1147,40 +1147,36 @@
           #7# (EXIT #2#)))) 
 
 (SDEFUN |FINAALG-;noncommutativeJordanAlgebra?;B;20| (($ (|Boolean|)))
-        (SPROG ((|n| (|PositiveInteger|)) (|b| (|Vector| S)))
-               (SEQ (LETT |b| (SPADCALL (QREFELT $ 11)))
-                    (LETT |n| (SPADCALL (QREFELT $ 9)))
-                    (EXIT
-                     (COND
-                      ((QEQCAR
-                        (SPADCALL
-                         (SPADCALL 2 (|spadConstant| $ 21) (QREFELT $ 46))
-                         (QREFELT $ 48))
-                        1)
-                       (SEQ
-                        (SPADCALL
-                         "this is not a noncommutative Jordan algebra, as 2 is not invertible in the ground ring"
-                         (QREFELT $ 44))
-                        (EXIT NIL)))
-                      ((SPADCALL (QREFELT $ 90))
-                       (COND
-                        ((SPADCALL (QREFELT $ 91))
-                         (SEQ
-                          (SPADCALL "this is a noncommutative Jordan algebra"
-                                    (QREFELT $ 44))
-                          (EXIT 'T)))
-                        (#1='T
-                         (SEQ
-                          (SPADCALL
-                           "this is not a noncommutative Jordan algebra, as it is not Jordan admissible"
-                           (QREFELT $ 44))
-                          (EXIT NIL)))))
-                      (#1#
-                       (SEQ
-                        (SPADCALL
-                         "this is not a noncommutative Jordan algebra, as it is not flexible"
-                         (QREFELT $ 44))
-                        (EXIT NIL)))))))) 
+        (SEQ
+         (COND
+          ((QEQCAR
+            (SPADCALL (SPADCALL 2 (|spadConstant| $ 21) (QREFELT $ 46))
+                      (QREFELT $ 48))
+            1)
+           (SEQ
+            (SPADCALL
+             "this is not a noncommutative Jordan algebra, as 2 is not invertible in the ground ring"
+             (QREFELT $ 44))
+            (EXIT NIL)))
+          ((SPADCALL (QREFELT $ 90))
+           (COND
+            ((SPADCALL (QREFELT $ 91))
+             (SEQ
+              (SPADCALL "this is a noncommutative Jordan algebra"
+                        (QREFELT $ 44))
+              (EXIT 'T)))
+            (#1='T
+             (SEQ
+              (SPADCALL
+               "this is not a noncommutative Jordan algebra, as it is not Jordan admissible"
+               (QREFELT $ 44))
+              (EXIT NIL)))))
+          (#1#
+           (SEQ
+            (SPADCALL
+             "this is not a noncommutative Jordan algebra, as it is not flexible"
+             (QREFELT $ 44))
+            (EXIT NIL)))))) 
 
 (SDEFUN |FINAALG-;antiCommutative?;B;21| (($ (|Boolean|)))
         (SPROG

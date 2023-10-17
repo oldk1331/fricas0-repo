@@ -269,7 +269,7 @@
          (SEQ (LETT |rat| (|UPXS;getExpon| |upxs| $))
               (LETT |uls| (SPADCALL |upxs| (QREFELT $ 59)))
               (LETT |count| |$streamCount|)
-              (LETT |uls| (SPADCALL |$streamCount| |uls| (QREFELT $ 84)))
+              (LETT |uls| (SPADCALL |count| |uls| (QREFELT $ 84)))
               (LETT |m|
                     (SPADCALL (SPADCALL |uls| (QREFELT $ 51)) |rat|
                               (QREFELT $ 72)))

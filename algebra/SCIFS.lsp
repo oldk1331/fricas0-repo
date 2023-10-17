@@ -23,10 +23,8 @@
           (|in2| (|List| (|List| (|NonNegativeInteger|))))
           (|thisLine| (|List| (|NonNegativeInteger|))) (|i| #1#)
           (|pt2| (|List| PT)) (#2=#:G127 NIL) (|p| NIL) (#3=#:G126 NIL)
-          (|lpt| NIL) (|colLength| (|NonNegativeInteger|))
-          (|rowLength| (|NonNegativeInteger|)))
+          (|lpt| NIL) (|colLength| (|NonNegativeInteger|)))
          (SEQ (LETT |pt2| NIL) (LETT |in2| NIL)
-              (LETT |rowLength| (LENGTH |ptin|))
               (LETT |colLength| (LENGTH (|SPADfirst| |ptin|))) (LETT |j| 0)
               (SEQ (LETT |lpt| NIL) (LETT #3# |ptin|) G190
                    (COND

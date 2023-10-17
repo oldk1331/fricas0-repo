@@ -1230,7 +1230,6 @@
 ;     greater_SI(max, k) => opvec.(add_SI(k, 2))
 ;     maxIndex
 ;   if greater_SI(finish, maxIndex) then systemError '"limit too large"
-;   numArgs := if hashCode? sig then -1 else (#sig)-1
 ;   success := nil
 ;   $isDefaultingPackage: local :=
 ;     -- use special defaulting handler when dollar non-trivial
@@ -1280,9 +1279,9 @@
 
 (DEFUN |hashNewLookupInTable| (|op| |sig| |dollar| |bfVar#26| |flag|)
   (PROG (|$isDefaultingPackage| |u| |slot| |subsumptionSig| |loc| |exportSig|
-         |predIndex| |numTableArgs| |i| |numArgs| |finish| |start| |maxIndex|
-         |k| |max| |predvec| |numvec| |someMatch| |success| |hashPercent|
-         |opvec| |domain|)
+         |predIndex| |numTableArgs| |i| |finish| |start| |maxIndex| |k| |max|
+         |predvec| |numvec| |someMatch| |success| |hashPercent| |opvec|
+         |domain|)
     (DECLARE (SPECIAL |$isDefaultingPackage|))
     (RETURN
      (PROGN
@@ -1341,9 +1340,6 @@
                       (COND
                        ((|greater_SI| |finish| |maxIndex|)
                         (|systemError| "limit too large")))
-                      (SETQ |numArgs|
-                              (COND ((|hashCode?| |sig|) (- 1))
-                                    (#1# (- (LENGTH |sig|) 1))))
                       (SETQ |success| NIL)
                       (SETQ |$isDefaultingPackage|
                               (AND (NOT (EQUAL |dollar| |domain|))

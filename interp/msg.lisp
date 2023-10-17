@@ -81,27 +81,25 @@
 ; ncHardError(pos, erMsgKey, erArgL) ==
 ;   $newcompErrorCount := $newcompErrorCount + 1
 ;   desiredMsg erMsgKey =>
-;     erMsg := processKeyedError _
-;        msgCreate('error,pos,erMsgKey, erArgL, $compErrorPrefix)
+;       processKeyedError(
+;           msgCreate('error, pos, erMsgKey, erArgL, $compErrorPrefix))
 ;   ncError()
 
 (DEFUN |ncHardError| (|pos| |erMsgKey| |erArgL|)
-  (PROG (|erMsg|)
+  (PROG ()
     (RETURN
      (PROGN
       (SETQ |$newcompErrorCount| (+ |$newcompErrorCount| 1))
       (COND
        ((|desiredMsg| |erMsgKey|)
-        (SETQ |erMsg|
-                (|processKeyedError|
-                 (|msgCreate| '|error| |pos| |erMsgKey| |erArgL|
-                  |$compErrorPrefix|))))
+        (|processKeyedError|
+         (|msgCreate| '|error| |pos| |erMsgKey| |erArgL| |$compErrorPrefix|)))
        ('T (|ncError|)))))))
 
 ; ncBug (erMsgKey, erArgL) ==
 ;   $newcompErrorCount := $newcompErrorCount + 1
-;   erMsg := processKeyedError _
-;         msgCreate('bug,$nopos, erMsgKey, erArgL,$compBugPrefix)
+;   processKeyedError (
+;         msgCreate('bug, $nopos, erMsgKey, erArgL, $compBugPrefix))
 ;   -- The next line is to try to deal with some reported cases of unwanted
 ;   -- backtraces appearing, MCD.
 ;   ENABLE_BACKTRACE(nil)
@@ -109,14 +107,12 @@
 ;   ncAbort()
 
 (DEFUN |ncBug| (|erMsgKey| |erArgL|)
-  (PROG (|erMsg|)
+  (PROG ()
     (RETURN
      (PROGN
       (SETQ |$newcompErrorCount| (+ |$newcompErrorCount| 1))
-      (SETQ |erMsg|
-              (|processKeyedError|
-               (|msgCreate| '|bug| |$nopos| |erMsgKey| |erArgL|
-                |$compBugPrefix|)))
+      (|processKeyedError|
+       (|msgCreate| '|bug| |$nopos| |erMsgKey| |erArgL| |$compBugPrefix|))
       (ENABLE_BACKTRACE NIL)
       (BREAK)
       (|ncAbort|)))))
@@ -544,7 +540,6 @@
 
 ; queueUpErrors(globalNumOfLine,msgList)==
 ;     thisPosMsgs  := []
-;     notThisLineMsgs := []
 ;     for msg in msgList _
 ;       while thisPosIsLess(getMsgPos msg,globalNumOfLine) repeat
 ;     --these are msgs that refer to positions from earlier compilations
@@ -564,11 +559,10 @@
 ;     msgList
 
 (DEFUN |queueUpErrors| (|globalNumOfLine| |msgList|)
-  (PROG (|thisPosMsgs| |notThisLineMsgs| |notThisPosMsgs|)
+  (PROG (|thisPosMsgs| |notThisPosMsgs|)
     (RETURN
      (PROGN
       (SETQ |thisPosMsgs| NIL)
-      (SETQ |notThisLineMsgs| NIL)
       ((LAMBDA (|bfVar#8| |msg|)
          (LOOP
           (COND
@@ -1149,7 +1143,6 @@
 ; makeMsgFromLine line ==
 ;     posOfLine  := getLinePos line
 ;     textOfLine := getLineText line
-;     globalNumOfLine := poGlobalLinePosn posOfLine
 ;     localNumOfLine  :=
 ;         i := poLinePosn posOfLine
 ;         stNum := STRINGIMAGE i
@@ -1159,13 +1152,11 @@
 ;         textOfLine]
 
 (DEFUN |makeMsgFromLine| (|line|)
-  (PROG (|posOfLine| |textOfLine| |globalNumOfLine| |i| |stNum|
-         |localNumOfLine|)
+  (PROG (|posOfLine| |textOfLine| |i| |stNum| |localNumOfLine|)
     (RETURN
      (PROGN
       (SETQ |posOfLine| (|getLinePos| |line|))
       (SETQ |textOfLine| (|getLineText| |line|))
-      (SETQ |globalNumOfLine| (|poGlobalLinePosn| |posOfLine|))
       (SETQ |localNumOfLine|
               (PROGN
                (SETQ |i| (|poLinePosn| |posOfLine|))

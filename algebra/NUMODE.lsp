@@ -382,36 +382,30 @@
                      (|Float|)))
          ($ (|Void|)))
         (SPROG
-         ((|x| #1#) (#2=#:G223 NIL) (|i| NIL) (|h| (|Float|))
-          (|ynew| #3=(|Vector| (|Float|))) (#4=#:G214 NIL) (|dydx| #3#)
-          (#5=#:G212 NIL) (|dym| #3#) (#6=#:G210 NIL) (|dyt| #3#)
-          (#7=#:G208 NIL) (|yt| #3#) (#8=#:G206 NIL))
+         ((|x| #1#) (#2=#:G221 NIL) (|i| NIL) (|h| (|Float|))
+          (|dydx| #3=(|Vector| (|Float|))) (#4=#:G212 NIL) (|dym| #3#)
+          (#5=#:G210 NIL) (|dyt| #3#) (#6=#:G208 NIL) (|yt| #3#)
+          (#7=#:G206 NIL))
          (SEQ
           (LETT |yt|
-                (MAKEARR1
-                 (PROG1 (LETT #8# |nvar|)
-                   (|check_subtype2| (>= #8# 0) '(|NonNegativeInteger|)
-                                     '(|Integer|) #8#))
-                 (SPADCALL 0 0 10 (QREFELT $ 10))))
-          (LETT |dyt|
                 (MAKEARR1
                  (PROG1 (LETT #7# |nvar|)
                    (|check_subtype2| (>= #7# 0) '(|NonNegativeInteger|)
                                      '(|Integer|) #7#))
                  (SPADCALL 0 0 10 (QREFELT $ 10))))
-          (LETT |dym|
+          (LETT |dyt|
                 (MAKEARR1
                  (PROG1 (LETT #6# |nvar|)
                    (|check_subtype2| (>= #6# 0) '(|NonNegativeInteger|)
                                      '(|Integer|) #6#))
                  (SPADCALL 0 0 10 (QREFELT $ 10))))
-          (LETT |dydx|
+          (LETT |dym|
                 (MAKEARR1
                  (PROG1 (LETT #5# |nvar|)
                    (|check_subtype2| (>= #5# 0) '(|NonNegativeInteger|)
                                      '(|Integer|) #5#))
                  (SPADCALL 0 0 10 (QREFELT $ 10))))
-          (LETT |ynew|
+          (LETT |dydx|
                 (MAKEARR1
                  (PROG1 (LETT #4# |nvar|)
                    (|check_subtype2| (>= #4# 0) '(|NonNegativeInteger|)
@@ -438,9 +432,9 @@
                      (|Float|)))
          ($ (|Void|)))
         (SPROG
-         ((|t4| #1=(|Vector| (|Float|))) (#2=#:G231 NIL) (|t3| #1#)
-          (#3=#:G229 NIL) (|t2| #1#) (#4=#:G227 NIL) (|t1| #1#)
-          (#5=#:G225 NIL))
+         ((|t4| #1=(|Vector| (|Float|))) (#2=#:G229 NIL) (|t3| #1#)
+          (#3=#:G227 NIL) (|t2| #1#) (#4=#:G225 NIL) (|t1| #1#)
+          (#5=#:G223 NIL))
          (SEQ
           (LETT |t1|
                 (MAKEARR1
@@ -494,8 +488,8 @@
          (|yt| (|Vector| (|Float|))) (|dyt| (|Vector| (|Float|)))
          (|dym| (|Vector| (|Float|))) ($ (|Void|)))
         (SPROG
-         ((#2=#:G256 NIL) (|i| NIL) (#3=#:G255 NIL) (#4=#:G254 NIL)
-          (#5=#:G253 NIL) (|m| #1#) (|xh| (|Float|)) (|h6| (|Float|))
+         ((#2=#:G254 NIL) (|i| NIL) (#3=#:G253 NIL) (#4=#:G252 NIL)
+          (#5=#:G251 NIL) (|m| #1#) (|xh| (|Float|)) (|h6| (|Float|))
           (|hh| (|Float|)))
          (SEQ
           (LETT |hh|
@@ -582,7 +576,7 @@
 
 (DEFUN |NumericalOrdinaryDifferentialEquations| ()
   (SPROG NIL
-         (PROG (#1=#:G258)
+         (PROG (#1=#:G256)
            (RETURN
             (COND
              ((LETT #1#

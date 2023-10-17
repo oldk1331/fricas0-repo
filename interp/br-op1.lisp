@@ -528,9 +528,6 @@
 ;     ['" {\em from} ",:dbConformGen dnForm,'" {\em under} \ops{",upOp,'"}{",:$pn,:upFence,'"}"]
 ;   domname  := htpProperty(htPage,'domname)
 ;   numberOfUnderlyingDomains := #[x for x in rest GETDATABASE(opOf domname,'COSIG) | x]
-; --  numberOfUnderlyingDomains = 1 and
-; --    IFCDR domname and (dn := dbExtractUnderlyingDomain domname) =>
-; --      ['" {\em from} ",:pickitForm(domname,dn)]
 ;   IFCDR domname => ['" {\em from} ", :dbConformGen domname]
 ;   htpProperty(htPage,'fromHeading)
 
@@ -1206,7 +1203,6 @@
 ;   which   := '"operation"
 ;   [nam, :.] := domainForm
 ;   $predicateList: local := GETDATABASE(nam,'PREDICATES)
-;   predVector := dom.3
 ;   u := getDomainOpTable2(dom, true, ASSOCLEFT opAlist)
 ;   --u has form ((op,sig,:implementor)...)
 ;   --sort into 4 groups: domain exports, unexports, default exports, others
@@ -1236,8 +1232,8 @@
 
 (DEFUN |dbGatherDataImplementation| (|htPage| |opAlist|)
   (PROG (|$predicateList| |others| |constants| |nowheres| |defexports|
-         |unexports| |domexports| |key| |ISTMP#1| |u| |predVector| |nam|
-         |which| |dom| |domainForm| |conform|)
+         |unexports| |domexports| |key| |ISTMP#1| |u| |nam| |which| |dom|
+         |domainForm| |conform|)
     (DECLARE (SPECIAL |$predicateList|))
     (RETURN
      (PROGN
@@ -1247,7 +1243,6 @@
       (SETQ |which| "operation")
       (SETQ |nam| (CAR |domainForm|))
       (SETQ |$predicateList| (GETDATABASE |nam| 'PREDICATES))
-      (SETQ |predVector| (ELT |dom| 3))
       (SETQ |u| (|getDomainOpTable2| |dom| T (ASSOCLEFT |opAlist|)))
       ((LAMBDA (|bfVar#47| |x| |i|)
          (LOOP
@@ -3156,7 +3151,6 @@
   (PROG () (RETURN (|getDomainOpTable2| |dom| |fromIfTrue| NIL))))
 
 ; getDomainOpTable2(dom, fromIfTrue, ops) ==
-;   $predEvalAlist : local := nil
 ;   $returnNowhereFromGoGet: local := true
 ;   domname := dom.0
 ;   conname := first domname
@@ -3189,13 +3183,12 @@
 ;       [sig1,:info]
 
 (DEFUN |getDomainOpTable2| (|dom| |fromIfTrue| |ops|)
-  (PROG (|$returnNowhereFromGoGet| |$predEvalAlist| |info| |r| |f| |cell|
-         |predValue| |sig1| |op1| |key| |ISTMP#3| |pred| |ISTMP#2| |slot|
-         |ISTMP#1| |sig| |u| |op| |opAlist| |abb| |conname| |domname|)
-    (DECLARE (SPECIAL |$returnNowhereFromGoGet| |$predEvalAlist|))
+  (PROG (|$returnNowhereFromGoGet| |info| |r| |f| |cell| |predValue| |sig1|
+         |op1| |key| |ISTMP#3| |pred| |ISTMP#2| |slot| |ISTMP#1| |sig| |u| |op|
+         |opAlist| |abb| |conname| |domname|)
+    (DECLARE (SPECIAL |$returnNowhereFromGoGet|))
     (RETURN
      (PROGN
-      (SETQ |$predEvalAlist| NIL)
       (SETQ |$returnNowhereFromGoGet| T)
       (SETQ |domname| (ELT |dom| 0))
       (SETQ |conname| (CAR |domname|))

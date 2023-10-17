@@ -663,7 +663,6 @@
 ;     u := checkAddMacros u
 ;     u := checkTexht u
 ; --  checkBalance u
-;     okBefore := null $checkErrorFlag
 ;     checkArguments u
 ;     if $checkErrorFlag then u := checkFixCommonProblem u
 ;     checkRecordHash u
@@ -671,7 +670,7 @@
 ;     checkDecorateForHt u
 
 (DEFUN |checkRewrite| (|name| |lines|)
-  (PROG (|$checkErrorFlag| |okBefore| |w| |verbatim| |u2| |u| |margin|)
+  (PROG (|$checkErrorFlag| |w| |verbatim| |u2| |u| |margin|)
     (DECLARE (SPECIAL |$checkErrorFlag|))
     (RETURN
      (PROGN
@@ -721,7 +720,6 @@
       (SETQ |u| (|checkSplit2Words| |u|))
       (SETQ |u| (|checkAddMacros| |u|))
       (SETQ |u| (|checkTexht| |u|))
-      (SETQ |okBefore| (NULL |$checkErrorFlag|))
       (|checkArguments| |u|)
       (COND (|$checkErrorFlag| (SETQ |u| (|checkFixCommonProblem| |u|))))
       (|checkRecordHash| |u|)
@@ -1316,7 +1314,6 @@
 ;     u := checkIeEg u
 ;     u := checkSplit2Words u
 ;     checkBalance u
-;     okBefore := null $checkErrorFlag
 ;     checkArguments u
 ;     if $checkErrorFlag then u := checkFixCommonProblem u
 ;     v := checkDecorate u
@@ -1326,8 +1323,7 @@
 ;     res
 
 (DEFUN |checkComments| (|nameSig| |lines|)
-  (PROG (|$checkErrorFlag| |res| |v| |okBefore| |w| |verbatim| |u2| |u|
-         |margin|)
+  (PROG (|$checkErrorFlag| |res| |v| |w| |verbatim| |u2| |u| |margin|)
     (DECLARE (SPECIAL |$checkErrorFlag|))
     (RETURN
      (PROGN
@@ -1369,7 +1365,6 @@
       (SETQ |u| (|checkIeEg| |u|))
       (SETQ |u| (|checkSplit2Words| |u|))
       (|checkBalance| |u|)
-      (SETQ |okBefore| (NULL |$checkErrorFlag|))
       (|checkArguments| |u|)
       (COND (|$checkErrorFlag| (SETQ |u| (|checkFixCommonProblem| |u|))))
       (SETQ |v| (|checkDecorate| |u|))

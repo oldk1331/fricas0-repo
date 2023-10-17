@@ -383,7 +383,6 @@
 (DEFUN |SymMemQ| (|sy| |l|) (PROG () (RETURN (MEMQ |sy| |l|))))
 
 ; pfOp2Sex pf ==
-;   alreadyQuoted := pfSymbol? pf
 ;   op := pf2Sex1 pf
 ;   op is ["QUOTE", realOp] =>
 ;     $insideRule = 'left => realOp
@@ -395,10 +394,9 @@
 ;   op
 
 (DEFUN |pfOp2Sex| (|pf|)
-  (PROG (|alreadyQuoted| |op| |ISTMP#1| |realOp|)
+  (PROG (|op| |ISTMP#1| |realOp|)
     (RETURN
      (PROGN
-      (SETQ |alreadyQuoted| (|pfSymbol?| |pf|))
       (SETQ |op| (|pf2Sex1| |pf|))
       (COND
        ((AND (CONSP |op|) (EQ (CAR |op|) 'QUOTE)

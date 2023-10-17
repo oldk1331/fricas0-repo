@@ -8,9 +8,8 @@
           (|n_cols| #2=(|NonNegativeInteger|))
           (|n_rows| #3=(|NonNegativeInteger|))
           (|mFree| #4=(|Matrix| (|Integer|)))
-          (|leftFree| #5=(|Matrix| (|Integer|)))
           (|smitFree|
-           #6=(|Record| (|:| |Smith| (|Matrix| (|Integer|)))
+           #5=(|Record| (|:| |Smith| (|Matrix| (|Integer|)))
                         (|:| |leftEqMat| (|Matrix| (|Integer|)))
                         (|:| |rightEqMat| (|Matrix| (|Integer|)))))
           (|augmented| (|Matrix| (|Integer|)))
@@ -21,9 +20,10 @@
           (|g|
            (|Record| (|:| |vec| (|Vector| (|Integer|)))
                      (|:| |ord| (|Integer|))))
-          (|order| (|Integer|)) (|r| (|Vector| (|Integer|))) (#7=#:G133 NIL)
+          (|order| (|Integer|)) (|r| (|Vector| (|Integer|))) (#6=#:G133 NIL)
           (|nr| NIL) (|mNCols| #2#) (|mNRows| #3#) (|leftNRows| #3#) (|m| #4#)
-          (|left| #5#) (|smit| #6#) (|zero| (|Matrix| (|Integer|))))
+          (|left| (|Matrix| (|Integer|))) (|smit| #5#)
+          (|zero| (|Matrix| (|Integer|))))
          (SEQ
           (COND
            ((SPADCALL (ANROWS |AInt|) (ANCOLS |BInt|) (QREFELT $ 9))
@@ -61,8 +61,8 @@
           (LETT |left| (QVELT |smit| 1)) (LETT |m| (QVELT |smit| 0))
           (LETT |leftNRows| (ANROWS |left|)) (LETT |mNRows| (ANROWS |m|))
           (LETT |mNCols| (ANCOLS |m|))
-          (SEQ (LETT |nr| 1) (LETT #7# |leftNRows|) G190
-               (COND ((|greater_SI| |nr| #7#) (GO G191)))
+          (SEQ (LETT |nr| 1) (LETT #6# |leftNRows|) G190
+               (COND ((|greater_SI| |nr| #6#) (GO G191)))
                (SEQ (LETT |r| (SPADCALL |left| |nr| (QREFELT $ 27)))
                     (LETT |order| 1)
                     (COND
@@ -84,7 +84,6 @@
                 (SPADCALL (SPADCALL |AInt| (QREFELT $ 32)) |BInt|
                           (QREFELT $ 33)))
           (LETT |smitFree| (SPADCALL |augmented| (QREFELT $ 24)))
-          (LETT |leftFree| (QVELT |smitFree| 1))
           (LETT |mFree| (QVELT |smitFree| 0)) (LETT |n_rows| (ANROWS |mFree|))
           (LETT |n_cols| (ANCOLS |mFree|)) (LETT |kernelFree| NIL)
           (SEQ (LETT |i| 1) (LETT #1# |n_cols|) G190

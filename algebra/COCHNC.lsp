@@ -78,10 +78,9 @@
         (SPROG
          ((|res| (|List| VS)) (#1=#:G138 NIL) (|i| NIL) (#2=#:G137 NIL)
           (|res1| (|List| VS)) (|val| (VS)) (#3=#:G136 NIL) (|v| NIL)
-          (|fst| (|Boolean|)) (|vs| (|Vector| (|Integer|)))
-          (|m| (|Matrix| (|Integer|))) (|b| (|Vector| (|Integer|)))
-          (|base| (|List| (|Integer|))) (#4=#:G135 NIL) (|x| NIL)
-          (#5=#:G134 NIL) (#6=#:G133 NIL) (|p| NIL)
+          (|vs| (|Vector| (|Integer|))) (|m| (|Matrix| (|Integer|)))
+          (|b| (|Vector| (|Integer|))) (|base| (|List| (|Integer|)))
+          (#4=#:G135 NIL) (|x| NIL) (#5=#:G134 NIL) (#6=#:G133 NIL) (|p| NIL)
           (|inpn| (|NonNegativeInteger|))
           (|maps| (|List| (|Matrix| (|Integer|)))))
          (SEQ (LETT |maps| (REVERSE |a|)) (LETT |res| NIL)
@@ -106,7 +105,7 @@
                           (SPADCALL (SPADCALL |maps| |n| (QREFELT $ 18))
                                     (QREFELT $ 13)))
                     (LETT |vs| (SPADCALL |b| |m| (QREFELT $ 37)))
-                    (LETT |fst| 'T) (LETT |res1| NIL)
+                    (LETT |res1| NIL)
                     (SEQ (LETT |v| NIL)
                          (LETT #3# (SPADCALL |vs| (QREFELT $ 38))) G190
                          (COND

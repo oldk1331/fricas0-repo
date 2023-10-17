@@ -1846,34 +1846,30 @@
              (|isApproximate| (CAR (CDR |t|))))
             ('T NIL))))))
 
-; mmCost(name, sig,cond,tar,args1,args2) ==
-;   cost := mmCost0(name, sig,cond,tar,args1,args2)
+; mmCost(sig, cond, tar, args1, args2) ==
+;   cost := mmCost0(sig, cond, tar, args1, args2)
 ;   res := CADR sig
 ;   res = $PositiveInteger => cost - 2
 ;   res = $NonNegativeInteger => cost - 1
 ;   res = $DoubleFloat => cost + 1
 ;   cost
 
-(DEFUN |mmCost| (|name| |sig| |cond| |tar| |args1| |args2|)
+(DEFUN |mmCost| (|sig| |cond| |tar| |args1| |args2|)
   (PROG (|cost| |res|)
     (RETURN
      (PROGN
-      (SETQ |cost| (|mmCost0| |name| |sig| |cond| |tar| |args1| |args2|))
+      (SETQ |cost| (|mmCost0| |sig| |cond| |tar| |args1| |args2|))
       (SETQ |res| (CADR |sig|))
       (COND ((EQUAL |res| |$PositiveInteger|) (- |cost| 2))
             ((EQUAL |res| |$NonNegativeInteger|) (- |cost| 1))
             ((EQUAL |res| |$DoubleFloat|) (+ |cost| 1)) ('T |cost|))))))
 
-; mmCost0(name, sig,cond,tar,args1,args2) ==
+; mmCost0(sig, cond, tar, args1, args2) ==
 ;   sigArgs := CDDR sig
 ;   n:=
 ;     null cond => 1
 ;     not (or/cond) => 1
 ;     0
-;
-;   -- try to favor homogeneous multiplication
-;
-; --if name = "*" and 2 = #sigArgs and first sigArgs ~= first rest sigArgs then n := n + 1
 ;
 ;   -- because of obscure problem in evalMm, sometimes we will have extra
 ;   -- modemaps with the wrong number of arguments if we want to the one
@@ -1898,7 +1894,7 @@
 ;   res=tar => 10000*n
 ;   10000*n + 1000*domainDepth(res) + hitListOfTarget(res)
 
-(DEFUN |mmCost0| (|name| |sig| |cond| |tar| |args1| |args2|)
+(DEFUN |mmCost0| (|sig| |cond| |tar| |args1| |args2|)
   (PROG (|sigArgs| |n| |nargs| |topcon| |topcon2| |res|)
     (RETURN
      (PROGN
@@ -1963,7 +1959,7 @@
 ;   for mm in MSORT mmS repeat
 ;     [sig,.,cond]:= mm
 ;     b:= 'T
-;     p:= CONS(m := mmCost(name, sig,cond,tar,args1,args2),mm)
+;     p:= CONS(m := mmCost(sig, cond, tar, args1, args2), mm)
 ;     mS:=
 ;       null mS => list p
 ;       m < CAAR mS => CONS(p,mS)
@@ -1997,8 +1993,8 @@
                     (SETQ |p|
                             (CONS
                              (SETQ |m|
-                                     (|mmCost| |name| |sig| |cond| |tar|
-                                      |args1| |args2|))
+                                     (|mmCost| |sig| |cond| |tar| |args1|
+                                      |args2|))
                              |mm|))
                     (SETQ |mS|
                             (COND ((NULL |mS|) (LIST |p|))
@@ -2382,13 +2378,13 @@
 ;         else r := [mm,:r]
 ;       q := allOrMatchingMms(q,args1,tar,dc)
 ;       for mm in q repeat
-;         fun:= nconc(fun,findFunctionInDomain1(mm,op,tar,args1,args2,SL))
+;         fun := nconc(fun, findFunctionInDomain1(mm, tar, args1, args2, SL))
 ;       r := reverse r
 ;     else r := rest p
 ;     r := allOrMatchingMms(r,args1,tar,dc)
 ;     if not fun then    -- consider remaining modemaps
 ;       for mm in r repeat
-;         fun:= nconc(fun,findFunctionInDomain1(mm,op,tar,args1,args2,SL))
+;         fun := nconc(fun, findFunctionInDomain1(mm, tar, args1, args2, SL))
 ;   if not fun and $reportBottomUpFlag then
 ;     sayMSG concat
 ;       ['"   -> no appropriate",:bright op,'"found in",
@@ -2469,8 +2465,8 @@
                          (#1#
                           (SETQ |fun|
                                   (NCONC |fun|
-                                         (|findFunctionInDomain1| |mm| |op|
-                                          |tar| |args1| |args2| SL)))))
+                                         (|findFunctionInDomain1| |mm| |tar|
+                                          |args1| |args2| SL)))))
                         (SETQ |bfVar#53| (CDR |bfVar#53|))))
                      |q| NIL)
                     (SETQ |r| (REVERSE |r|)))
@@ -2487,8 +2483,8 @@
                          (#1#
                           (SETQ |fun|
                                   (NCONC |fun|
-                                         (|findFunctionInDomain1| |mm| |op|
-                                          |tar| |args1| |args2| SL)))))
+                                         (|findFunctionInDomain1| |mm| |tar|
+                                          |args1| |args2| SL)))))
                         (SETQ |bfVar#54| (CDR |bfVar#54|))))
                      |r| NIL)))))
                 (COND
@@ -2569,7 +2565,7 @@
          T (CDR |y|) NIL)))
       (#1# NIL)))))
 
-; findFunctionInDomain1(omm,op,tar,args1,args2,SL) ==
+; findFunctionInDomain1(omm, tar, args1, args2, SL) ==
 ;   dc := rest (dollarPair := ASSQ('$, SL))
 ;   -- need to drop '$ from SL
 ;   mm:= subCopy(omm, SL)
@@ -2592,7 +2588,7 @@
 ;     sayKeyedMsg("S2IF0006",[y])
 ;     NIL
 
-(DEFUN |findFunctionInDomain1| (|omm| |op| |tar| |args1| |args2| SL)
+(DEFUN |findFunctionInDomain1| (|omm| |tar| |args1| |args2| SL)
   (PROG (|dollarPair| |dc| |mm| |sig| |slot| |cond| |y| |osig| |rtcp| RTC)
     (RETURN
      (PROGN
@@ -2660,7 +2656,7 @@
 ;   impls and
 ;     SL:= constructSubst dc
 ;     for mm in impls repeat
-;       fun:= nconc(fun,findFunctionInDomain1(mm,op,tar,args1,args2,SL))
+;       fun := nconc(fun, findFunctionInDomain1(mm, tar, args1, args2, SL))
 ;   if not fun and $reportBottomUpFlag then
 ;     sayMSG concat
 ;       ['"   -> no appropriate",:bright op,'"found in",
@@ -2750,8 +2746,8 @@
                          (#1#
                           (SETQ |fun|
                                   (NCONC |fun|
-                                         (|findFunctionInDomain1| |mm| |op|
-                                          |tar| |args1| |args2| SL)))))
+                                         (|findFunctionInDomain1| |mm| |tar|
+                                          |args1| |args2| SL)))))
                         (SETQ |bfVar#62| (CDR |bfVar#62|))))
                      |impls| NIL)))
               (COND
@@ -4275,7 +4271,6 @@
 ; evalMmCat(op,sig,stack,SL) ==
 ;   -- evaluates all ofCategory's of stack as soon as possible
 ;   $hope:local:= NIL
-;   numConds:= #stack
 ;   stack:= orderMmCatStack [mmC for mmC in stack | EQCAR(mmC,'ofCategory)]
 ;   while stack until not makingProgress repeat
 ;     st := stack
@@ -4292,12 +4287,11 @@
 ;   if stack or S='failed then 'failed else SL
 
 (DEFUN |evalMmCat| (|op| |sig| |stack| SL)
-  (PROG (|$hope| S |makingProgress| |st| |numConds|)
+  (PROG (|$hope| S |makingProgress| |st|)
     (DECLARE (SPECIAL |$hope|))
     (RETURN
      (PROGN
       (SETQ |$hope| NIL)
-      (SETQ |numConds| (LENGTH |stack|))
       (SETQ |stack|
               (|orderMmCatStack|
                ((LAMBDA (|bfVar#123| |bfVar#122| |mmC|)

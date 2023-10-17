@@ -791,71 +791,54 @@
         ((|viewport| ($)) (|Filename| (|String|))
          (|thingsToWrite| (|List| (|String|))) ($ (|String|)))
         (SPROG
-         ((#1=#:G345 NIL) (|writeTypeInt| (|Integer|)) (#2=#:G346 NIL)
-          (|aTypeOfFile| NIL) (|m| (|Integer|)) (|avail| (|List| (|String|)))
-          (|stringToSend| (|String|)))
+         ((|writeTypeInt| (|Integer|)) (#1=#:G345 NIL) (|aTypeOfFile| NIL)
+          (|m| (|Integer|)) (|avail| (|List| (|String|))))
          (SEQ
-          (EXIT
-           (SEQ (LETT |stringToSend| "")
-                (EXIT
-                 (COND
-                  ((SPADCALL (SPADCALL |viewport| (QREFELT $ 32)) 0
-                             (QREFELT $ 36))
-                   (PROGN
-                    (LETT #1#
-                          (SEQ (|sockSendInt| |$ViewportServer| 3)
-                               (|sockSendInt| |$ViewportServer| 110)
+          (COND
+           ((SPADCALL (SPADCALL |viewport| (QREFELT $ 32)) 0 (QREFELT $ 36))
+            (SEQ (|sockSendInt| |$ViewportServer| 3)
+                 (|sockSendInt| |$ViewportServer| 110)
+                 (EXIT
+                  (COND
+                   ((|VIEW2D;checkViewport| |viewport| $)
+                    (SEQ (|sockSendString| |$ViewportServer| |Filename|)
+                         (LETT |m|
+                               (PROGN
+                                (LETT |avail| (SPADCALL (QREFELT $ 90)))
+                                1))
+                         (SEQ (LETT |aTypeOfFile| NIL)
+                              (LETT #1# |thingsToWrite|) G190
+                              (COND
+                               ((OR (ATOM #1#)
+                                    (PROGN (LETT |aTypeOfFile| (CAR #1#)) NIL))
+                                (GO G191)))
+                              (SEQ
+                               (LETT |writeTypeInt|
+                                     (-
+                                      (SPADCALL
+                                       (SPADCALL |aTypeOfFile| (QREFELT $ 91))
+                                       |avail| (QREFELT $ 92))
+                                      |m|))
                                (EXIT
                                 (COND
-                                 ((|VIEW2D;checkViewport| |viewport| $)
-                                  (SEQ
-                                   (|sockSendString| |$ViewportServer|
-                                                     |Filename|)
-                                   (LETT |m|
-                                         (PROGN
-                                          (LETT |avail|
-                                                (SPADCALL (QREFELT $ 90)))
-                                          1))
-                                   (SEQ (LETT |aTypeOfFile| NIL)
-                                        (LETT #2# |thingsToWrite|) G190
-                                        (COND
-                                         ((OR (ATOM #2#)
-                                              (PROGN
-                                               (LETT |aTypeOfFile| (CAR #2#))
-                                               NIL))
-                                          (GO G191)))
-                                        (SEQ
-                                         (LETT |writeTypeInt|
-                                               (-
-                                                (SPADCALL
-                                                 (SPADCALL |aTypeOfFile|
-                                                           (QREFELT $ 91))
-                                                 |avail| (QREFELT $ 92))
-                                                |m|))
-                                         (EXIT
-                                          (COND
-                                           ((< |writeTypeInt| 0)
-                                            (SPADCALL
-                                             (LIST "  > " |aTypeOfFile|
-                                                   " is not a valid file type for writing a 2D viewport")
-                                             (QREFELT $ 93)))
-                                           ('T
-                                            (|sockSendInt| |$ViewportServer|
-                                                           (+ |writeTypeInt|
-                                                              1))))))
-                                        (LETT #2# (CDR #2#)) (GO G190) G191
-                                        (EXIT NIL))
-                                   (|sockSendInt| |$ViewportServer| 0)
-                                   (|sockGetInt| |$ViewportServer|)
-                                   (EXIT |Filename|)))))))
-                    (GO #3=#:G343)))))))
-          #3# (EXIT #1#)))) 
+                                 ((< |writeTypeInt| 0)
+                                  (SPADCALL
+                                   (LIST "  > " |aTypeOfFile|
+                                         " is not a valid file type for writing a 2D viewport")
+                                   (QREFELT $ 93)))
+                                 ('T
+                                  (|sockSendInt| |$ViewportServer|
+                                                 (+ |writeTypeInt| 1))))))
+                              (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
+                         (|sockSendInt| |$ViewportServer| 0)
+                         (|sockGetInt| |$ViewportServer|)
+                         (EXIT |Filename|))))))))))) 
 
 (DECLAIM (NOTINLINE |TwoDimensionalViewport;|)) 
 
 (DEFUN |TwoDimensionalViewport| ()
   (SPROG NIL
-         (PROG (#1=#:G348)
+         (PROG (#1=#:G347)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|TwoDimensionalViewport|))

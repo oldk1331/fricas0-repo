@@ -402,7 +402,7 @@
         (SPROG
          ((|basis| (|List| (|Matrix| (|Expression| (|Integer|)))))
           (|lvec| (|List| (|Matrix| (|Expression| (|Integer|)))))
-          (#1=#:G204 NIL) (|alterm| NIL) (|n| (|NonNegativeInteger|))
+          (#1=#:G204 NIL) (|alterm| NIL)
           (|alglist|
            (|List|
             (|Record| (|:| |radval| (|Expression| (|Integer|)))
@@ -416,7 +416,6 @@
            ('T
             (SEQ (LETT |basis| NIL) (LETT |lvec| NIL)
                  (LETT |alglist| (SPADCALL A (QREFELT $ 57)))
-                 (LETT |n| (ANROWS A))
                  (SEQ (LETT |alterm| NIL) (LETT #1# |alglist|) G190
                       (COND
                        ((OR (ATOM #1#) (PROGN (LETT |alterm| (CAR #1#)) NIL))

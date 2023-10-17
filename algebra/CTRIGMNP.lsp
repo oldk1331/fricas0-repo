@@ -158,20 +158,18 @@
             (SPADCALL (SPADCALL |y| (QREFELT $ 56)) RTRIG (QREFELT $ 48)))))) 
 
 (SDEFUN |CTRIGMNP;complexNormalize;2F;12| ((|f| (F)) ($ (F)))
-        (SPROG ((|h| (F)) (|l| (|List| (|Symbol|))) (|g| (F)))
-               (SEQ
-                (LETT |l|
-                      (SPADCALL (LETT |g| (SPADCALL |f| (QREFELT $ 50)))
-                                (QREFELT $ 61)))
-                (EXIT
-                 (COND
-                  ((SPADCALL
-                    (CONS #'|CTRIGMNP;complexNormalize;2F;12!0|
-                          (VECTOR $ (QREFELT $ 8)))
-                    (SPADCALL |g| (QREFELT $ 52)) (QREFELT $ 54))
-                   (SEQ (LETT |h| (|CTRIGMNP;localexplogs| |f| |g| $))
-                        (EXIT (QVELT (SPADCALL |h| NIL (QREFELT $ 68)) 0))))
-                  ('T (QVELT (SPADCALL |g| NIL (QREFELT $ 68)) 0))))))) 
+        (SPROG ((|h| (F)) (|g| (F)))
+               (SEQ (LETT |g| (SPADCALL |f| (QREFELT $ 50)))
+                    (EXIT
+                     (COND
+                      ((SPADCALL
+                        (CONS #'|CTRIGMNP;complexNormalize;2F;12!0|
+                              (VECTOR $ (QREFELT $ 8)))
+                        (SPADCALL |g| (QREFELT $ 52)) (QREFELT $ 54))
+                       (SEQ (LETT |h| (|CTRIGMNP;localexplogs| |f| |g| $))
+                            (EXIT
+                             (QVELT (SPADCALL |h| NIL (QREFELT $ 68)) 0))))
+                      ('T (QVELT (SPADCALL |g| NIL (QREFELT $ 68)) 0))))))) 
 
 (SDEFUN |CTRIGMNP;complexNormalize;2F;12!0| ((|y| NIL) ($$ NIL))
         (PROG (RTRIG $)

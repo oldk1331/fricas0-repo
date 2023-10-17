@@ -50,8 +50,8 @@
         (SPROG
          ((|res| (|List| (|Record| (|:| |k| (|Product| B1 B2)) (|:| |c| R))))
           (#1=#:G135 NIL) (|t| NIL) (|t2b| (M2)) (|t2a| (M1)) (|t1b| (M2))
-          (|t1a| (M1)) (|t2k| #2=(|Product| B1 B2)) (|t1k| #2#) (|t2c| (R))
-          (|t1c| (R)) (#3=#:G134 NIL) (|t2| NIL) (#4=#:G133 NIL) (|t1| NIL))
+          (|t1a| (M1)) (|t2k| #2=(|Product| B1 B2)) (|t1k| #2#) (#3=#:G134 NIL)
+          (|t2| NIL) (#4=#:G133 NIL) (|t1| NIL))
          (SEQ (LETT |res| NIL)
               (SEQ (LETT |t1| NIL) (LETT #4# (SPADCALL |x1| (QREFELT $ 29)))
                    G190
@@ -65,9 +65,7 @@
                           (COND
                            ((OR (ATOM #3#) (PROGN (LETT |t2| (CAR #3#)) NIL))
                             (GO G191)))
-                          (SEQ (LETT |t1c| (QCDR |t1|))
-                               (LETT |t2c| (QCDR |t2|))
-                               (LETT |t1k| (QCAR |t1|))
+                          (SEQ (LETT |t1k| (QCAR |t1|))
                                (LETT |t2k| (QCAR |t2|))
                                (LETT |t1a|
                                      (SPADCALL (QCDR |t1|)

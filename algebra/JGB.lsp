@@ -1,11 +1,10 @@
 
 (SDEFUN |JGB;convert1|
-        ((|p| (P)) ($ #1=(|DistributedJetBundlePolynomial| R JB LJV E)))
+        ((|p| (P)) ($ (|DistributedJetBundlePolynomial| R JB LJV E)))
         (SPROG
          ((|up| (|SparseUnivariatePolynomial| P))
-          (|res| (|DistributedJetBundlePolynomial| R JB LJV E))
-          (|m| (|DistributedJetBundlePolynomial| R JB LJV E)) (|clcup| #1#)
-          (|lcup| (P)) (|x| (JB)) (|cc| (R)) (|xx| (|Union| JB "failed")))
+          (|res| (|DistributedJetBundlePolynomial| R JB LJV E)) (|x| (JB))
+          (|cc| (R)) (|xx| (|Union| JB "failed")))
          (SEQ (LETT |xx| (SPADCALL |p| (QREFELT $ 12)))
               (EXIT
                (COND
@@ -23,25 +22,16 @@
                            (COND
                             ((NULL (NULL (SPADCALL |up| (QREFELT $ 23))))
                              (GO G191)))
-                           (SEQ (LETT |lcup| (SPADCALL |up| (QREFELT $ 24)))
-                                (LETT |clcup| (|JGB;convert1| |lcup| $))
-                                (LETT |m|
-                                      (SPADCALL |clcup| |x|
-                                                (SPADCALL |up| (QREFELT $ 26))
-                                                (QREFELT $ 27)))
-                                (LETT |res|
-                                      (SPADCALL |res|
-                                                (SPADCALL
-                                                 (|JGB;convert1|
-                                                  (SPADCALL |up|
-                                                            (QREFELT $ 24))
-                                                  $)
-                                                 |x|
-                                                 (SPADCALL |up| (QREFELT $ 26))
-                                                 (QREFELT $ 27))
-                                                (QREFELT $ 28)))
-                                (EXIT
-                                 (LETT |up| (SPADCALL |up| (QREFELT $ 29)))))
+                           (SEQ
+                            (LETT |res|
+                                  (SPADCALL |res|
+                                            (SPADCALL
+                                             (|JGB;convert1|
+                                              (SPADCALL |up| (QREFELT $ 24)) $)
+                                             |x| (SPADCALL |up| (QREFELT $ 26))
+                                             (QREFELT $ 27))
+                                            (QREFELT $ 28)))
+                            (EXIT (LETT |up| (SPADCALL |up| (QREFELT $ 29)))))
                            NIL (GO G190) G191 (EXIT NIL))
                       (EXIT |res|)))))))) 
 

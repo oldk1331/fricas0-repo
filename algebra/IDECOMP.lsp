@@ -899,7 +899,6 @@
                                                  (|Fraction|
                                                   (|Polynomial|
                                                    (|Integer|))))))
-          (|x| (|OrderedVariableList| |vl|))
           (J
            (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
                               (|DirectProduct| (|#| |vl|)
@@ -930,7 +929,6 @@
              (SEQ (LETT |newJ| (|IDECOMP;genPosLastVar| I |truelist| $))
                   (LETT |lval| (QCAR |newJ|))
                   (LETT J (SPADCALL (QCDR |newJ|) (QREFELT $ 79)))
-                  (LETT |x| (SPADCALL |truelist| '|last| (QREFELT $ 56)))
                   (LETT |Jd| (SPADCALL J (QREFELT $ 33)))
                   (LETT |g| (SPADCALL |Jd| '|last| (QREFELT $ 61)))
                   (LETT |lfact|

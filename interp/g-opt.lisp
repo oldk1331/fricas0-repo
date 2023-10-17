@@ -353,7 +353,7 @@
 ;   fn is ["applyFun",name] =>
 ;     (rplac(first x, "SPADCALL"); rplac(rest x, [:a, name]); x)
 ;   fn is [q,R,n] and MEMQ(q,'(ELT QREFELT CONST)) =>
-;     not $bootStrapMode and (w:= optCallSpecially(q,x,n,R)) => w
+;     not $bootStrapMode and (w:= optCallSpecially(x, n, R)) => w
 ;     q="CONST" =>
 ; --+
 ;       ["spadConstant",R,n]
@@ -401,7 +401,7 @@
                      (MEMQ |q| '(ELT QREFELT CONST)))
                 (COND
                  ((AND (NULL |$bootStrapMode|)
-                       (SETQ |w| (|optCallSpecially| |q| |x| |n| R)))
+                       (SETQ |w| (|optCallSpecially| |x| |n| R)))
                   |w|)
                  ((EQ |q| 'CONST) (LIST '|spadConstant| R |n|))
                  (#1#
@@ -412,11 +412,11 @@
                    |x|))))
                (#1# (|systemErrorHere| "optCall"))))))))))
 
-; optCallSpecially(q,x,n,R) ==
+; optCallSpecially(x, n, R) ==
 ;     MEMQ(IFCAR R, $optimizableConstructorNames) => optSpecialCall(x, R, n)
 ;     nil
 
-(DEFUN |optCallSpecially| (|q| |x| |n| R)
+(DEFUN |optCallSpecially| (|x| |n| R)
   (PROG ()
     (RETURN
      (COND

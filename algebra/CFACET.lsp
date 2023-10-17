@@ -175,10 +175,8 @@
          ((|invert| (|Boolean|)) (|res| (|List| $)) (#1=#:G188 NIL) (|dim| NIL)
           (|dims| (|List| (|NonNegativeInteger|))) (|hi| (|Integer|))
           (|lo| (|Integer|)) (#2=#:G186 NIL) (|seg| NIL) (#3=#:G187 NIL)
-          (|segn| NIL) (|mult| (|Integer|))
-          (|facet| (|List| (|Segment| (|Integer|)))))
-         (SEQ (LETT |facet| (QCDR |orf|)) (LETT |mult| (QCAR |orf|))
-              (LETT |dims| NIL)
+          (|segn| NIL) (|facet| (|List| (|Segment| (|Integer|)))))
+         (SEQ (LETT |facet| (QCDR |orf|)) (LETT |dims| NIL)
               (SEQ (LETT |segn| 1) (LETT #3# (LENGTH |facet|)) (LETT |seg| NIL)
                    (LETT #2# |facet|) G190
                    (COND
@@ -255,12 +253,11 @@
           (|rHi| #1=(|List| (|Segment| (|Integer|)))) (|rLo1| ($)) (|rLo| #1#)
           (|segHi| #2=(|Segment| (|Integer|))) (|segLo| #2#) (|hi| (|Integer|))
           (|lo| (|Integer|)) (#3=#:G215 NIL) (|x| NIL) (#4=#:G216 NIL)
-          (|xn| NIL) (#5=#:G214 NIL) (|mult| (|Integer|))
+          (|xn| NIL) (#5=#:G214 NIL)
           (|facet| (|List| (|Segment| (|Integer|)))))
          (SEQ
           (EXIT
-           (SEQ (LETT |facet| (QCDR |orf|)) (LETT |mult| (QCAR |orf|))
-                (LETT |res| NIL)
+           (SEQ (LETT |facet| (QCDR |orf|)) (LETT |res| NIL)
                 (COND
                  ((<= (SPADCALL |orf| (QREFELT $ 26)) |minDim|)
                   (PROGN (LETT #5# |res|) (GO #6=#:G213))))

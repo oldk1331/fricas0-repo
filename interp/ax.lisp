@@ -1470,8 +1470,6 @@
               NIL |$opList| NIL)))))))
 
 ; axFormatDefaultOpSig(op, sig, catops,catdefops) ==
-;   defsigs := LASSOC(op, catdefops)
-;   --nsig := sig -- substitute('$, '($), sig) -- dcSig listifies '$ ??
 ;   catsigs := LASSOC(op, catops)
 ;   nsig2 := axCatSignature(sig)
 ;   theOp := LASSOC(nsig2, catsigs)
@@ -1485,10 +1483,9 @@
 ;   axFormatCond(cond, makeDefaultDef(axFormatOpSig(op, sig)))
 
 (DEFUN |axFormatDefaultOpSig| (|op| |sig| |catops| |catdefops|)
-  (PROG (|defsigs| |catsigs| |nsig2| |theOp| |cond| |catsig|)
+  (PROG (|catsigs| |nsig2| |theOp| |cond| |catsig|)
     (RETURN
      (PROGN
-      (SETQ |defsigs| (LASSOC |op| |catdefops|))
       (SETQ |catsigs| (LASSOC |op| |catops|))
       (SETQ |nsig2| (|axCatSignature| |sig|))
       (SETQ |theOp| (LASSOC |nsig2| |catsigs|))
@@ -1543,10 +1540,8 @@
 
 ; get1defaultOp(op,index) ==
 ;   numvec := getCodeVector()
-;   segment := getOpSegment index
 ;   numOfArgs := numvec.index
 ;   index := index + 1
-;   predNumber := numvec.index
 ;   index := index + 1
 ;   signumList :=
 ;  -- following substitution fixes the problem that default packages
@@ -1554,27 +1549,23 @@
 ;     SUBLISLIS($FormalMapVariableList, rest $FormalMapVariableList,
 ;              dcSig(numvec,index,numOfArgs))
 ;   index := index + numOfArgs + 1
-;   slotNumber := numvec.index
 ;   if not([op,signumList] in $opList) then
 ;      $opList := [[op,signumList],:$opList]
 ;   index + 1
 
 (DEFUN |get1defaultOp| (|op| |index|)
-  (PROG (|numvec| |segment| |numOfArgs| |predNumber| |signumList| |slotNumber|)
+  (PROG (|numvec| |numOfArgs| |signumList|)
     (RETURN
      (PROGN
       (SETQ |numvec| (|getCodeVector|))
-      (SETQ |segment| (|getOpSegment| |index|))
       (SETQ |numOfArgs| (ELT |numvec| |index|))
       (SETQ |index| (+ |index| 1))
-      (SETQ |predNumber| (ELT |numvec| |index|))
       (SETQ |index| (+ |index| 1))
       (SETQ |signumList|
               (SUBLISLIS |$FormalMapVariableList|
                (CDR |$FormalMapVariableList|)
                (|dcSig| |numvec| |index| |numOfArgs|)))
       (SETQ |index| (+ (+ |index| |numOfArgs|) 1))
-      (SETQ |slotNumber| (ELT |numvec| |index|))
       (COND
        ((NULL (|member| (LIST |op| |signumList|) |$opList|))
         (SETQ |$opList| (CONS (LIST |op| |signumList|) |$opList|))))

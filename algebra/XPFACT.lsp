@@ -149,11 +149,10 @@
           (|#G17| #4=(|XDistributedPolynomial| |vl| F))
           (|#G16| (|XDistributedPolynomial| |vl| F)) (#5=#:G177 NIL) (|r| #4#)
           (|q| #6=(|XDistributedPolynomial| |vl| F))
-          (|#G15| (|Record| (|:| |quotient| #6#) (|:| |remainder| #4#)))
-          (|a0| (|XDistributedPolynomial| |vl| F)))
+          (|#G15| (|Record| (|:| |quotient| #6#) (|:| |remainder| #4#))))
          (SEQ
           (EXIT
-           (SEQ (LETT |a0| |a|) (LETT |u0| (LETT |v| (|spadConstant| $ 34)))
+           (SEQ (LETT |u0| (LETT |v| (|spadConstant| $ 34)))
                 (LETT |v0| (LETT |u| (|spadConstant| $ 10)))
                 (SEQ G190
                      (COND

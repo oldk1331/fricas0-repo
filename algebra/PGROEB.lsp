@@ -5,13 +5,6 @@
         (SPROG
          ((#1=#:G112 NIL) (|pp| NIL) (#2=#:G111 NIL) (|gb| (|List| |DPoly|))
           (|b| (|List| |DPoly|)) (#3=#:G110 NIL) (|pol| NIL) (#4=#:G109 NIL)
-          (OV
-           (|Join| (|OrderedFinite|) (|ConvertibleTo| (|Symbol|))
-                   (|ConvertibleTo| (|InputForm|))
-                   (|ConvertibleTo| (|Pattern| (|Float|)))
-                   (|ConvertibleTo| (|Pattern| (|Integer|)))
-                   (CATEGORY |domain|
-                    (SIGNATURE |variable| ((|Union| $ "failed") (|Symbol|))))))
           (DP
            (|DirectProductCategory| (|call| LENGTH |lv|)
                                     (|NonNegativeInteger|)))
@@ -46,7 +39,6 @@
               (LETT |DPoly|
                     (|DistributedMultivariatePolynomial| |lv| (QREFELT $ 6)))
               (LETT DP (|DirectProduct| (LENGTH |lv|) (|NonNegativeInteger|)))
-              (LETT OV (|OrderedVariableList| |lv|))
               (LETT |b|
                     (PROGN
                      (LETT #4# NIL)
@@ -122,13 +114,6 @@
         (SPROG
          ((#1=#:G122 NIL) (|pp| NIL) (#2=#:G121 NIL) (|gb| (|List| |HDPoly|))
           (|b| (|List| |HDPoly|)) (#3=#:G120 NIL) (|pol| NIL) (#4=#:G119 NIL)
-          (OV
-           (|Join| (|OrderedFinite|) (|ConvertibleTo| (|Symbol|))
-                   (|ConvertibleTo| (|InputForm|))
-                   (|ConvertibleTo| (|Pattern| (|Float|)))
-                   (|ConvertibleTo| (|Pattern| (|Integer|)))
-                   (CATEGORY |domain|
-                    (SIGNATURE |variable| ((|Union| $ "failed") (|Symbol|))))))
           (HDP
            (|DirectProductCategory| (|call| LENGTH |lv|)
                                     (|NonNegativeInteger|)))
@@ -167,7 +152,6 @@
               (LETT HDP
                     (|HomogeneousDirectProduct| (LENGTH |lv|)
                                                 (|NonNegativeInteger|)))
-              (LETT OV (|OrderedVariableList| |lv|))
               (LETT |b|
                     (PROGN
                      (LETT #4# NIL)

@@ -1011,8 +1011,7 @@
 (SDEFUN |IMATLIN;generalizedInverse;2M;15| ((|x| (M)) ($ (M)))
         (SPROG
          ((|yy| (|Matrix| FSUP)) (#1=#:G366 NIL) (|var| (|Fraction| SUP))
-          (|nc| (|NonNegativeInteger|)) (|ty| (|Matrix| FSUP))
-          (|y| (|Matrix| FSUP))
+          (|ty| (|Matrix| FSUP)) (|y| (|Matrix| FSUP))
           (MATCAT22
            (CATEGORY |package|
             (SIGNATURE |map| (M (|Mapping| R FSUP) #2=(|Matrix| FSUP)))
@@ -1087,7 +1086,6 @@
                     (SPADCALL |ty| |y|
                               (|compiledLookupCheck| '* (LIST '$ '$ '$)
                                                      (|Matrix| FSUP))))
-              (LETT |nc| (ANCOLS |yy|))
               (LETT |var|
                     (SPADCALL
                      (SPADCALL (|spadConstant| $ 30) 1

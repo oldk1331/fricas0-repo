@@ -760,12 +760,10 @@
            (|Record| (|:| |value| (|Product| S S))
                      (|:| |posX| (|NonNegativeInteger|))
                      (|:| |posY| (|NonNegativeInteger|)) (|:| |weight| W)))
-          (|sp| (|Product| S S)) (|heighta| (|NonNegativeInteger|))
-          (|widtha| (|NonNegativeInteger|)) (|y| #1=(|NonNegativeInteger|))
-          (|x| #1#) (|byi| #2=(|NonNegativeInteger|))
-          (|bxi| #3=(|NonNegativeInteger|)) (|bi| (S)) (#4=#:G356 NIL)
-          (|boi| NIL) (|ayi| #2#) (|axi| #3#) (|ai| (S)) (#5=#:G355 NIL)
-          (|aoi| NIL))
+          (|sp| (|Product| S S)) (|y| #1=(|NonNegativeInteger|)) (|x| #1#)
+          (|byi| #2=(|NonNegativeInteger|)) (|bxi| #3=(|NonNegativeInteger|))
+          (|bi| (S)) (#4=#:G356 NIL) (|boi| NIL) (|ayi| #2#) (|axi| #3#)
+          (|ai| (S)) (#5=#:G355 NIL) (|aoi| NIL))
          (SEQ (LETT |newObjs| NIL)
               (SEQ (LETT |aoi| NIL) (LETT #5# (QCAR |a|)) G190
                    (COND
@@ -793,10 +791,6 @@
                                           (* |byi|
                                              (SPADCALL |a| (QREFELT $ 71)))
                                           |ayi|))
-                                   (LETT |widtha|
-                                         (SPADCALL |a| (QREFELT $ 70)))
-                                   (LETT |heighta|
-                                         (SPADCALL |a| (QREFELT $ 71)))
                                    (LETT |sp|
                                          (SPADCALL |ai| |bi| (QREFELT $ 73)))
                                    (LETT |ob|
@@ -1131,11 +1125,9 @@
           (|ob|
            (|Record| (|:| |value| S) (|:| |posX| #1=(|NonNegativeInteger|))
                      (|:| |posY| #2=(|NonNegativeInteger|)) (|:| |weight| W)))
-          (|sp| (S)) (|heighta| (|NonNegativeInteger|))
-          (|widtha| (|NonNegativeInteger|)) (|y| #3=(|NonNegativeInteger|))
-          (|x| #3#) (|byi| #2#) (|bxi| #1#) (|bi| (S)) (#4=#:G423 NIL)
-          (|boi| NIL) (|ayi| #2#) (|axi| #1#) (|ai| (S)) (#5=#:G422 NIL)
-          (|aoi| NIL))
+          (|sp| (S)) (|y| #3=(|NonNegativeInteger|)) (|x| #3#) (|byi| #2#)
+          (|bxi| #1#) (|bi| (S)) (#4=#:G423 NIL) (|boi| NIL) (|ayi| #2#)
+          (|axi| #1#) (|ai| (S)) (#5=#:G422 NIL) (|aoi| NIL))
          (SEQ (LETT |newObjs| NIL)
               (SEQ (LETT |aoi| NIL) (LETT #5# (QCAR |a|)) G190
                    (COND
@@ -1163,10 +1155,6 @@
                                           (* |byi|
                                              (SPADCALL |a| (QREFELT $ 71)))
                                           |ayi|))
-                                   (LETT |widtha|
-                                         (SPADCALL |a| (QREFELT $ 70)))
-                                   (LETT |heighta|
-                                         (SPADCALL |a| (QREFELT $ 71)))
                                    (LETT |sp| (SPADCALL |ai| |bi| |f|))
                                    (LETT |ob|
                                          (VECTOR |sp| |x| |y|

@@ -565,7 +565,7 @@
           (|res3| (|SparseUnivariatePolynomial| F))
           (|res2| #6=(|SparseUnivariatePolynomial| S)) (|res1| #6#)
           (|d2| (|Integer|)) (|o2| (|Integer|)) (|d1| (|Integer|))
-          (|o1| (|Integer|)) (|n| (|Integer|))
+          (|o1| (|Integer|))
           (|poly3|
            #7=(|SparseMultivariatePolynomial| S
                                               (|OrderedVariableList|
@@ -703,7 +703,6 @@
                              (SPADCALL (SPADCALL |ri| |x3| (QREFELT $ 130))
                                        |y3| (QREFELT $ 131))
                              (QREFELT $ 132)))
-                      (LETT |n| (- |len| |i|))
                       (LETT |o1| (|GUESSEB;ord1| |xValues| |i| $))
                       (LETT |d1| (|GUESSEB;deg1| |xValues| |i| $))
                       (LETT |o2| (|GUESSEB;ord2| |xValues| |i| $))
@@ -1171,7 +1170,6 @@
           (|Av| (F)) (#5=#:G381 NIL) (|f| NIL)
           (|res3| (|SparseUnivariatePolynomial| F))
           (|res2| #6=(|SparseUnivariatePolynomial| S)) (|res1| #6#)
-          (|n| (|Integer|))
           (|poly3|
            #7=(|SparseMultivariatePolynomial| S
                                               (|OrderedVariableList|
@@ -1298,7 +1296,6 @@
                              (SPADCALL (SPADCALL |ri| |x3| (QREFELT $ 130))
                                        |y3| (QREFELT $ 131))
                              (QREFELT $ 132)))
-                      (LETT |n| (- |len| |i|))
                       (LETT |res1|
                             (SPADCALL
                              (SPADCALL |poly1| |poly3| |a1| (QREFELT $ 188))

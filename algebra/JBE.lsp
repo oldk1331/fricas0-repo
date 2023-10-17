@@ -1141,8 +1141,8 @@
           (#2=#:G446 NIL) (|da| ($)) (|k| NIL) (#3=#:G445 NIL) (|arg| NIL)
           (|op| (|BasicOperator|)) (|oldarg| (|List| $)) (#4=#:G426 NIL)
           (|diff| (|List| (|Integer|))) (#5=#:G444 NIL) (#6=#:G443 NIL)
-          (|args| (|List| $)) (#7=#:G442 NIL) (|show| #8=(|Integer|))
-          (|num| #8#) (|name| (|Symbol|)))
+          (|args| (|List| $)) (#7=#:G442 NIL) (|num| (|Integer|))
+          (|name| (|Symbol|)))
          (SEQ (LETT |oldarg| (SPADCALL |l| (QREFELT $ 200)))
               (LETT |name|
                     (SPADCALL (SPADCALL |l| (QREFELT $ 190)) (QREFELT $ 191)))
@@ -1153,9 +1153,6 @@
                (COND ((ZEROP |num|) (|spadConstant| $ 45))
                      ('T
                       (SEQ (LETT |l| (SPADCALL |l| (QREFELT $ 167)))
-                           (LETT |show|
-                                 (SPADCALL (SPADCALL |l| (QREFELT $ 190))
-                                           (QREFELT $ 165)))
                            (LETT |l| (SPADCALL |l| (QREFELT $ 167)))
                            (LETT |args| NIL)
                            (SEQ (LETT |k| 1) (LETT #7# |num|) G190

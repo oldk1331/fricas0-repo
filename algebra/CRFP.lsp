@@ -73,8 +73,8 @@
           (|split| (|Record| (|:| |factors| (|List| UP)) (|:| |error| R)))
           (|splits|
            (|List| (|Record| (|:| |factors| (|List| UP)) (|:| |error| R))))
-          (|tp| (UP)) (|psR| (|Rep|)) (|sR| (|Rep|)) (|nm| (R)) (|st| (UP))
-          (|p| (UP)) (|qr| (|Record| (|:| |quotient| UP) (|:| |remainder| UP)))
+          (|tp| (UP)) (|psR| (|Rep|)) (|sR| (|Rep|)) (|st| (UP)) (|p| (UP))
+          (|qr| (|Record| (|:| |quotient| UP) (|:| |remainder| UP)))
           (|sP| (|Record| (|:| |start| UP) (|:| |factors| (|Factored| UP))))
           (|md| (|NonNegativeInteger|)))
          (SEQ (LETT |p| (|CRFP;makeMonic| |poly| $))
@@ -105,7 +105,7 @@
               (EXIT
                (COND ((ZEROP (SPADCALL |st| (QREFELT $ 31))) |fp|)
                      ('T
-                      (SEQ (SPADCALL |p| (QREFELT $ 69)) (LETT |nm| |eps|)
+                      (SEQ (SPADCALL |p| (QREFELT $ 69))
                            (LETT |sR| (SPADCALL |st| (QREFELT $ 70)))
                            (LETT |psR|
                                  (SPADCALL |sR|

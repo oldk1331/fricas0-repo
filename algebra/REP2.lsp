@@ -297,82 +297,79 @@
           (#2=#:G206 NIL) (|basis| (|Matrix| R))
           (|standardBasis| (|List| (|List| R))) (|addedToBasis| (|Matrix| R))
           (|nextVector| (|Matrix| R)) (|w| (|Vector| R)) (#3=#:G205 NIL)
-          (#4=#:G204 NIL) (|dim| (|NonNegativeInteger|)))
-         (SEQ (LETT |dim| (QVSIZE |v|))
-              (LETT |standardBasis|
-                    (SPADCALL (SPADCALL |v| (QREFELT $ 34)) (QREFELT $ 35)))
-              (LETT |basis|
-                    (SPADCALL
-                     (SPADCALL
-                      (SPADCALL (SPADCALL |v| (QREFELT $ 34)) (QREFELT $ 35))
-                      (QREFELT $ 14))
-                     (QREFELT $ 36)))
-              (LETT |furtherElts|
-                    (PROGN
-                     (LETT #4# NIL)
-                     (SEQ (LETT |i| 1) (LETT #3# (LENGTH |lm|)) G190
-                          (COND ((|greater_SI| |i| #3#) (GO G191)))
-                          (SEQ
-                           (EXIT
-                            (LETT #4#
-                                  (CONS
-                                   (SPADCALL (SPADCALL |lm| |i| (QREFELT $ 31))
-                                             |v| (QREFELT $ 37))
-                                   #4#))))
-                          (LETT |i| (|inc_SI| |i|)) (GO G190) G191
-                          (EXIT (NREVERSE #4#)))))
-              (SEQ G190
-                   (COND
-                    ((NULL
-                      (COND ((NULL |furtherElts|) NIL)
-                            ('T (< (ANROWS |basis|) (QVSIZE |v|)))))
-                     (GO G191)))
-                   (SEQ (LETT |w| (|SPADfirst| |furtherElts|))
-                        (LETT |nextVector|
-                              (SPADCALL
-                               (SPADCALL (SPADCALL |w| (QREFELT $ 34))
-                                         (QREFELT $ 35))
-                               (QREFELT $ 14)))
-                        (LETT |addedToBasis|
-                              (SPADCALL |basis| |nextVector| (QREFELT $ 38)))
+          (#4=#:G204 NIL))
+         (SEQ
+          (LETT |standardBasis|
+                (SPADCALL (SPADCALL |v| (QREFELT $ 34)) (QREFELT $ 35)))
+          (LETT |basis|
+                (SPADCALL
+                 (SPADCALL
+                  (SPADCALL (SPADCALL |v| (QREFELT $ 34)) (QREFELT $ 35))
+                  (QREFELT $ 14))
+                 (QREFELT $ 36)))
+          (LETT |furtherElts|
+                (PROGN
+                 (LETT #4# NIL)
+                 (SEQ (LETT |i| 1) (LETT #3# (LENGTH |lm|)) G190
+                      (COND ((|greater_SI| |i| #3#) (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #4#
+                              (CONS
+                               (SPADCALL (SPADCALL |lm| |i| (QREFELT $ 31)) |v|
+                                         (QREFELT $ 37))
+                               #4#))))
+                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191
+                      (EXIT (NREVERSE #4#)))))
+          (SEQ G190
+               (COND
+                ((NULL
+                  (COND ((NULL |furtherElts|) NIL)
+                        ('T (< (ANROWS |basis|) (QVSIZE |v|)))))
+                 (GO G191)))
+               (SEQ (LETT |w| (|SPADfirst| |furtherElts|))
+                    (LETT |nextVector|
+                          (SPADCALL
+                           (SPADCALL (SPADCALL |w| (QREFELT $ 34))
+                                     (QREFELT $ 35))
+                           (QREFELT $ 14)))
+                    (LETT |addedToBasis|
+                          (SPADCALL |basis| |nextVector| (QREFELT $ 38)))
+                    (EXIT
+                     (COND
+                      ((SPADCALL (SPADCALL |addedToBasis| (QREFELT $ 39))
+                                 (ANROWS |basis|) (QREFELT $ 40))
+                       (SEQ
+                        (LETT |standardBasis|
+                              (CONS (SPADCALL |w| (QREFELT $ 34))
+                                    |standardBasis|))
+                        (LETT |basis| (SPADCALL |addedToBasis| (QREFELT $ 36)))
+                        (LETT |updateFurtherElts|
+                              (PROGN
+                               (LETT #2# NIL)
+                               (SEQ (LETT |i| 1) (LETT #1# (LENGTH |lm|)) G190
+                                    (COND ((|greater_SI| |i| #1#) (GO G191)))
+                                    (SEQ
+                                     (EXIT
+                                      (LETT #2#
+                                            (CONS
+                                             (SPADCALL
+                                              (SPADCALL |lm| |i|
+                                                        (QREFELT $ 31))
+                                              |w| (QREFELT $ 37))
+                                             #2#))))
+                                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191
+                                    (EXIT (NREVERSE #2#)))))
                         (EXIT
-                         (COND
-                          ((SPADCALL (SPADCALL |addedToBasis| (QREFELT $ 39))
-                                     (ANROWS |basis|) (QREFELT $ 40))
-                           (SEQ
-                            (LETT |standardBasis|
-                                  (CONS (SPADCALL |w| (QREFELT $ 34))
-                                        |standardBasis|))
-                            (LETT |basis|
-                                  (SPADCALL |addedToBasis| (QREFELT $ 36)))
-                            (LETT |updateFurtherElts|
-                                  (PROGN
-                                   (LETT #2# NIL)
-                                   (SEQ (LETT |i| 1) (LETT #1# (LENGTH |lm|))
-                                        G190
-                                        (COND
-                                         ((|greater_SI| |i| #1#) (GO G191)))
-                                        (SEQ
-                                         (EXIT
-                                          (LETT #2#
-                                                (CONS
-                                                 (SPADCALL
-                                                  (SPADCALL |lm| |i|
-                                                            (QREFELT $ 31))
-                                                  |w| (QREFELT $ 37))
-                                                 #2#))))
-                                        (LETT |i| (|inc_SI| |i|)) (GO G190)
-                                        G191 (EXIT (NREVERSE #2#)))))
-                            (EXIT
-                             (LETT |furtherElts|
-                                   (SPADCALL (CDR |furtherElts|)
-                                             |updateFurtherElts|
-                                             (QREFELT $ 42))))))
-                          ('T (LETT |furtherElts| (CDR |furtherElts|))))))
-                   NIL (GO G190) G191 (EXIT NIL))
-              (EXIT
-               (SPADCALL (SPADCALL |standardBasis| (QREFELT $ 14))
-                         (QREFELT $ 47)))))) 
+                         (LETT |furtherElts|
+                               (SPADCALL (CDR |furtherElts|)
+                                         |updateFurtherElts|
+                                         (QREFELT $ 42))))))
+                      ('T (LETT |furtherElts| (CDR |furtherElts|))))))
+               NIL (GO G190) G191 (EXIT NIL))
+          (EXIT
+           (SPADCALL (SPADCALL |standardBasis| (QREFELT $ 14))
+                     (QREFELT $ 47)))))) 
 
 (SDEFUN |REP2;splitInternal|
         ((|algebraGenerators| (|List| (|Matrix| R))) (|vector| (|Vector| R))

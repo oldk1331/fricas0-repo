@@ -258,10 +258,10 @@
          ($ (|Void|)))
         (SPROG
          ((|vckinv| (|Integer|)) (#1=#:G215 NIL) (|k| NIL)
-          (|vcinv| (|Integer|)) (|maxd| (|Integer|)) (|cpi| (|Integer|))
-          (|pi| (|Integer|)) (#2=#:G214 NIL) (|pt| (|Integer|)) (#3=#:G213 NIL)
-          (|l| NIL) (|s1| #4=(|Integer|)) (|m1| #4#)
-          (|vc| (|Vector| (|Integer|))) (|m| (|NonNegativeInteger|)))
+          (|vcinv| (|Integer|)) (|maxd| (|Integer|)) (|pi| (|Integer|))
+          (#2=#:G214 NIL) (|pt| (|Integer|)) (#3=#:G213 NIL) (|l| NIL)
+          (|s1| #4=(|Integer|)) (|m1| #4#) (|vc| (|Vector| (|Integer|)))
+          (|m| (|NonNegativeInteger|)))
          (SEQ (LETT |m| (QVSIZE |vd|)) (LETT |vc| (MAKEARR1 |m| 0))
               (LETT |m1| (- (QV_LEN_U32 (SPADCALL |mp| 1 (QREFELT $ 32))) 1))
               (LETT |s1| (- |sigma| 1))
@@ -286,9 +286,6 @@
                                    ((< |maxd|
                                        (SPADCALL |vd| |k| (QREFELT $ 37)))
                                     (SEQ (LETT |pi| |k|)
-                                         (LETT |cpi|
-                                               (SPADCALL |vc| |k|
-                                                         (QREFELT $ 37)))
                                          (EXIT
                                           (LETT |maxd|
                                                 (SPADCALL |vd| |k|
@@ -607,9 +604,8 @@
          ((|tmp| #1=(|Integer|)) (|maxj| (|Integer|)) (|ci| #2=(|Integer|))
           (|nci| #2#) (|maxd| (|Integer|)) (|cd| #1#) (#3=#:G289 NIL) (|j| NIL)
           (#4=#:G288 NIL) (|i| NIL) (|civ| (|Vector| (|Integer|)))
-          (|ns| #5=(|NonNegativeInteger|)) (|nc| #5#))
-         (SEQ (LETT |nc| (QVSIZE |vn|)) (LETT |ns| (QVSIZE |vd|))
-              (LETT |civ| (MAKEARR1 |ns| 0))
+          (|ns| (|NonNegativeInteger|)))
+         (SEQ (LETT |ns| (QVSIZE |vd|)) (LETT |civ| (MAKEARR1 |ns| 0))
               (SEQ (LETT |i| 1) (LETT #4# |ns|) G190
                    (COND ((|greater_SI| |i| #4#) (GO G191)))
                    (SEQ (LETT |maxd| -1)

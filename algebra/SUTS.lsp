@@ -478,7 +478,7 @@
         (SPADCALL |uts| (QREFELT $ 177))) 
 
 (SDEFUN |SUTS;^;$F$;62| ((|uts| ($)) (|r| (|Fraction| (|Integer|))) ($ ($)))
-        (SPROG ((|ratPow| ($)) (|onePlusX| ($)))
+        (SPROG ((|ratPow| ($)))
                (SEQ
                 (COND
                  ((NULL
@@ -487,11 +487,6 @@
                   (|error| "^: constant coefficient must be one"))
                  ('T
                   (SEQ
-                   (LETT |onePlusX|
-                         (SPADCALL
-                          (SPADCALL (|spadConstant| $ 18) 0 (QREFELT $ 13))
-                          (SPADCALL (|spadConstant| $ 18) 1 (QREFELT $ 13))
-                          (QREFELT $ 31)))
                    (LETT |ratPow|
                          (SPADCALL |uts| (SPADCALL |r| (QREFELT $ 183))
                                    (QREFELT $ 184)))

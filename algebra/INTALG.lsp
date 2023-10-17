@@ -472,25 +472,13 @@
                       (|:| |coeff| (|Fraction| (|Integer|))))
             "failed"))
           (|nfac| #2#) (#4=#:G288 NIL) (|peq| NIL) (|lp1| (|List| #1#))
-          (#5=#:G287 NIL) (#6=#:G286 NIL)
-          (|llg|
-           (|List|
-            (|Record| (|:| |scalar| (|Fraction| (|Integer|)))
-                      (|:| |coeff| (|SparseUnivariatePolynomial| R))
-                      (|:| |logand| (|SparseUnivariatePolynomial| R)))))
-          (|nlp|
-           (|List|
-            (|Record| (|:| |factor| UP) (|:| |exponent| (|NonNegativeInteger|))
-                      (|:| |coeff| (|Fraction| (|Integer|))) (|:| |scalar| F)
-                      (|:| |divisor| (|FiniteDivisor| F UP UPUP R)))))
-          (|p| (UP))
+          (#5=#:G287 NIL) (#6=#:G286 NIL) (|p| (UP))
           (|pc1|
            (|Record| (|:| |factor| UP) (|:| |exponent| (|NonNegativeInteger|))
                      (|:| |coeff| (|Fraction| (|Integer|))))))
          (SEQ
           (EXIT
            (SEQ (LETT |pc1| (|SPADfirst| |lp|)) (LETT |p| (QVELT |pc1| 0))
-                (LETT |nlp| NIL) (LETT |llg| NIL)
                 (EXIT
                  (COND
                   ((SPADCALL |p|
@@ -1782,7 +1770,8 @@
           (#2=#:G629 NIL) (|fac| NIL)
           (|lf|
            (|List|
-            (|Record| (|:| |factor| UP)
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| UP)
                       (|:| |exponent| (|NonNegativeInteger|)))))
           (|u| (|Factored| UP))
           (|u0| (|Factored| (|SparseUnivariatePolynomial| F)))
@@ -1798,12 +1787,12 @@
                 (LETT |u|
                       (SPADCALL (CONS (|function| |INTALG;SUP2UP|) $) |u0|
                                 (QREFELT $ 149)))
-                (LETT |lf| (SPADCALL |u| (QREFELT $ 152))) (LETT |llg| NIL)
+                (LETT |lf| (SPADCALL |u| (QREFELT $ 236))) (LETT |llg| NIL)
                 (SEQ (LETT |fac| NIL) (LETT #2# |lf|) G190
                      (COND
                       ((OR (ATOM #2#) (PROGN (LETT |fac| (CAR #2#)) NIL))
                        (GO G191)))
-                     (SEQ (LETT |p| (QCAR |fac|))
+                     (SEQ (LETT |p| (QVELT |fac| 1))
                           (LETT |alpha|
                                 (SPADCALL (|INTALG;UP2SUP| |p| $)
                                           (QREFELT $ 100)))
@@ -1812,8 +1801,8 @@
                                           (QVELT |rec| 2) (QVELT |rec| 3)
                                           |alpha| (QREFELT $ 103)))
                           (LETT |gu|
-                                (SPADCALL |di| (- (QCDR |fac|)) NIL
-                                          (QREFELT $ 234)))
+                                (SPADCALL |di| (- (QVELT |fac| 2)) NIL
+                                          (QREFELT $ 238)))
                           (EXIT
                            (COND
                             ((QEQCAR |gu| 1)
@@ -1943,7 +1932,7 @@
           (RETURN
            (PROGN
             (SPADCALL (SPADCALL (SPADCALL |x1| (QREFELT $ 21)) |derivation|)
-                      (QREFELT $ 235)))))) 
+                      (QREFELT $ 239)))))) 
 
 (DECLAIM (NOTINLINE |AlgebraicIntegrate;|)) 
 
@@ -1977,7 +1966,7 @@
     (LETT DV$4 (|devaluate| |#4|))
     (LETT DV$5 (|devaluate| |#5|))
     (LETT |dv$| (LIST '|AlgebraicIntegrate| DV$1 DV$2 DV$3 DV$4 DV$5))
-    (LETT $ (GETREFV 236))
+    (LETT $ (GETREFV 240))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|AlgebraicIntegrate|
@@ -2087,9 +2076,12 @@
               (702 . |map|) (708 . |retract|) (713 . |integralAtInfinity?|)
               (718 . |differentiate|) (724 . -) |INTALG;palgintegrate;RMIr;28|
               (|Union| $ '"failed") (730 . |exquo|) (|Mapping| 27 7)
-              |INTALG;algintegrate;RMMIr;29| (|Union| 10 '"failed")
-              (736 . |generator|) (743 . |retract|))
-           '#(|palgintegrate| 748 |algintegrate| 754) 'NIL
+              |INTALG;algintegrate;RMMIr;29|
+              (|Union| '"nil" '"sqfr" '"irred" '"prime")
+              (|Record| (|:| |flag| 233) (|:| |factor| 8) (|:| |exponent| 74))
+              (|List| 234) (736 . |factorList|) (|Union| 10 '"failed")
+              (741 . |generator|) (748 . |retract|))
+           '#(|palgintegrate| 753 |algintegrate| 759) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -2106,7 +2098,7 @@
                                   (|Mapping| |#3| |#3|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 235
+                        (|makeByteWordVec2| 239
                                             '(0 10 0 11 0 13 0 14 1 15 0 13 16
                                               1 19 0 10 20 1 8 0 7 21 1 22 0 8
                                               23 1 10 0 22 24 2 28 25 26 27 29
@@ -2166,8 +2158,8 @@
                                               219 0 102 0 220 2 19 0 0 0 221 2
                                               222 19 26 8 223 1 7 191 0 224 1
                                               10 62 0 225 2 10 0 0 54 226 2 10
-                                              0 0 0 227 2 8 229 0 0 230 3 102
-                                              233 0 43 132 234 1 8 7 0 235 2 0
-                                              25 10 54 228 3 0 25 10 54 231
-                                              232)))))
+                                              0 0 0 227 2 8 229 0 0 230 1 146
+                                              235 0 236 3 102 237 0 43 132 238
+                                              1 8 7 0 239 2 0 25 10 54 228 3 0
+                                              25 10 54 231 232)))))
            '|lookupComplete|)) 

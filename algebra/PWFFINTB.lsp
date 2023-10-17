@@ -1077,11 +1077,11 @@
         (SPROG
          ((|runningRbinv| #1=(|Matrix| R)) (|runningRb| #1#)
           (|runningRbden| (R)) (|mat| (|Matrix| R)) (|disc| (R)) (|rbden| (R))
-          (|rbinv| #2=(|Matrix| R)) (|rb| #3=(|Matrix| R))
+          (|rb| #2=(|Matrix| R))
           (|lb|
-           (|Record| (|:| |basis| #3#) (|:| |basisDen| R) (|:| |basisInv| #2#)
-                     (|:| |discr| R)))
-          (#4=#:G220 NIL) (|prime| NIL) (|redDisc| (R)) (|singList| (|List| R))
+           (|Record| (|:| |basis| #2#) (|:| |basisDen| R)
+                     (|:| |basisInv| (|Matrix| R)) (|:| |discr| R)))
+          (#3=#:G220 NIL) (|prime| NIL) (|redDisc| (R)) (|singList| (|List| R))
           (|n| (|PositiveInteger|)) (|p| (UP)))
          (SEQ (LETT |p| (SPADCALL (QREFELT $ 68)))
               (LETT |disc| (SPADCALL |p| (QREFELT $ 37)))
@@ -1098,16 +1098,15 @@
                  (VECTOR |runningRb| |runningRbden| |runningRbinv|))
                 ('T
                  (SEQ
-                  (SEQ (LETT |prime| NIL) (LETT #4# |singList|) G190
+                  (SEQ (LETT |prime| NIL) (LETT #3# |singList|) G190
                        (COND
-                        ((OR (ATOM #4#) (PROGN (LETT |prime| (CAR #4#)) NIL))
+                        ((OR (ATOM #3#) (PROGN (LETT |prime| (CAR #3#)) NIL))
                          (GO G191)))
                        (SEQ
                         (LETT |lb|
                               (|PWFFINTB;padicLocalIntegralBasis| |p| |disc|
                                |redDisc| |prime| $))
                         (LETT |rb| (QVELT |lb| 0))
-                        (LETT |rbinv| (QVELT |lb| 2))
                         (LETT |rbden| (QVELT |lb| 1))
                         (LETT |disc| (QVELT |lb| 3))
                         (LETT |mat|
@@ -1125,7 +1124,7 @@
                          (LETT |runningRbinv|
                                (SPADCALL |runningRb| |runningRbden|
                                          (QREFELT $ 83)))))
-                       (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
+                       (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
                   (EXIT
                    (VECTOR |runningRb| |runningRbden| |runningRbinv|))))))))) 
 

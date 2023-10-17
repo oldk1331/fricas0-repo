@@ -448,42 +448,39 @@
 (SDEFUN |LATJOFM;toStringUnwrapped;$S;27| ((|n| ($)) ($ (|String|)))
         (SPROG
          ((|r| (|String|)) (#1=#:G314 NIL) (|inner| NIL) (#2=#:G315 NIL)
-          (|innern| NIL) (|innerList| (|List| (|String|))) (#3=#:G312 NIL)
-          (|outer| NIL) (#4=#:G313 NIL) (|outern| NIL)
-          (|outerList| (|List| (|String|))))
-         (SEQ (LETT |outerList| NIL) (LETT |r| "")
+          (|innern| NIL) (#3=#:G312 NIL) (|outer| NIL) (#4=#:G313 NIL)
+          (|outern| NIL))
+         (SEQ (LETT |r| "")
               (SEQ (LETT |outern| 1) (LETT #4# (LENGTH |n|)) (LETT |outer| NIL)
                    (LETT #3# |n|) G190
                    (COND
                     ((OR (ATOM #3#) (PROGN (LETT |outer| (CAR #3#)) NIL)
                          (|greater_SI| |outern| #4#))
                      (GO G191)))
-                   (SEQ (LETT |innerList| NIL)
-                        (SEQ (LETT |innern| 1) (LETT #2# (LENGTH |outer|))
-                             (LETT |inner| NIL) (LETT #1# |outer|) G190
-                             (COND
-                              ((OR (ATOM #1#)
-                                   (PROGN (LETT |inner| (CAR #1#)) NIL)
-                                   (|greater_SI| |innern| #2#))
-                               (GO G191)))
-                             (SEQ
-                              (LETT |r|
-                                    (STRCONC |r|
-                                             (|LATJOFM;stringVarOrLit| |inner|
-                                              $)))
-                              (EXIT
-                               (COND
-                                ((SPADCALL |innern| (LENGTH |outer|)
-                                           (QREFELT $ 32))
-                                 (LETT |r| (STRCONC |r| "/\\"))))))
-                             (LETT #1#
-                                   (PROG1 (CDR #1#)
-                                     (LETT |innern| (|inc_SI| |innern|))))
-                             (GO G190) G191 (EXIT NIL))
-                        (EXIT
+                   (SEQ
+                    (SEQ (LETT |innern| 1) (LETT #2# (LENGTH |outer|))
+                         (LETT |inner| NIL) (LETT #1# |outer|) G190
                          (COND
-                          ((SPADCALL |outern| (LENGTH |n|) (QREFELT $ 32))
-                           (LETT |r| (STRCONC |r| ")\\/("))))))
+                          ((OR (ATOM #1#) (PROGN (LETT |inner| (CAR #1#)) NIL)
+                               (|greater_SI| |innern| #2#))
+                           (GO G191)))
+                         (SEQ
+                          (LETT |r|
+                                (STRCONC |r|
+                                         (|LATJOFM;stringVarOrLit| |inner| $)))
+                          (EXIT
+                           (COND
+                            ((SPADCALL |innern| (LENGTH |outer|)
+                                       (QREFELT $ 32))
+                             (LETT |r| (STRCONC |r| "/\\"))))))
+                         (LETT #1#
+                               (PROG1 (CDR #1#)
+                                 (LETT |innern| (|inc_SI| |innern|))))
+                         (GO G190) G191 (EXIT NIL))
+                    (EXIT
+                     (COND
+                      ((SPADCALL |outern| (LENGTH |n|) (QREFELT $ 32))
+                       (LETT |r| (STRCONC |r| ")\\/("))))))
                    (LETT #3#
                          (PROG1 (CDR #3#) (LETT |outern| (|inc_SI| |outern|))))
                    (GO G190) G191 (EXIT NIL))
@@ -530,50 +527,45 @@
 (SDEFUN |LATJOFM;coerce;$Of;29| ((|n| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|r| (|OutputForm|)) (#1=#:G333 NIL) (|inner| NIL) (#2=#:G334 NIL)
-          (|innern| NIL) (|innerList| (|List| (|OutputForm|))) (#3=#:G331 NIL)
-          (|outer| NIL) (#4=#:G332 NIL) (|outern| NIL)
-          (|outerList| (|List| (|OutputForm|))))
-         (SEQ (LETT |outerList| NIL) (LETT |r| (SPADCALL "(" (QREFELT $ 47)))
+          (|innern| NIL) (#3=#:G331 NIL) (|outer| NIL) (#4=#:G332 NIL)
+          (|outern| NIL))
+         (SEQ (LETT |r| (SPADCALL "(" (QREFELT $ 47)))
               (SEQ (LETT |outern| 1) (LETT #4# (LENGTH |n|)) (LETT |outer| NIL)
                    (LETT #3# |n|) G190
                    (COND
                     ((OR (ATOM #3#) (PROGN (LETT |outer| (CAR #3#)) NIL)
                          (|greater_SI| |outern| #4#))
                      (GO G191)))
-                   (SEQ (LETT |innerList| NIL)
-                        (SEQ (LETT |innern| 1) (LETT #2# (LENGTH |outer|))
-                             (LETT |inner| NIL) (LETT #1# |outer|) G190
-                             (COND
-                              ((OR (ATOM #1#)
-                                   (PROGN (LETT |inner| (CAR #1#)) NIL)
-                                   (|greater_SI| |innern| #2#))
-                               (GO G191)))
-                             (SEQ
-                              (LETT |r|
-                                    (SPADCALL |r|
-                                              (|LATJOFM;outputVarOrLit| |inner|
-                                               $)
-                                              (QREFELT $ 48)))
-                              (EXIT
-                               (COND
-                                ((SPADCALL |innern| (LENGTH |outer|)
-                                           (QREFELT $ 32))
-                                 (LETT |r|
-                                       (SPADCALL |r|
-                                                 (SPADCALL "/\\"
-                                                           (QREFELT $ 47))
-                                                 (QREFELT $ 48)))))))
-                             (LETT #1#
-                                   (PROG1 (CDR #1#)
-                                     (LETT |innern| (|inc_SI| |innern|))))
-                             (GO G190) G191 (EXIT NIL))
-                        (EXIT
+                   (SEQ
+                    (SEQ (LETT |innern| 1) (LETT #2# (LENGTH |outer|))
+                         (LETT |inner| NIL) (LETT #1# |outer|) G190
                          (COND
-                          ((SPADCALL |outern| (LENGTH |n|) (QREFELT $ 32))
-                           (LETT |r|
-                                 (SPADCALL |r|
-                                           (SPADCALL ")\\/(" (QREFELT $ 47))
-                                           (QREFELT $ 48)))))))
+                          ((OR (ATOM #1#) (PROGN (LETT |inner| (CAR #1#)) NIL)
+                               (|greater_SI| |innern| #2#))
+                           (GO G191)))
+                         (SEQ
+                          (LETT |r|
+                                (SPADCALL |r|
+                                          (|LATJOFM;outputVarOrLit| |inner| $)
+                                          (QREFELT $ 48)))
+                          (EXIT
+                           (COND
+                            ((SPADCALL |innern| (LENGTH |outer|)
+                                       (QREFELT $ 32))
+                             (LETT |r|
+                                   (SPADCALL |r|
+                                             (SPADCALL "/\\" (QREFELT $ 47))
+                                             (QREFELT $ 48)))))))
+                         (LETT #1#
+                               (PROG1 (CDR #1#)
+                                 (LETT |innern| (|inc_SI| |innern|))))
+                         (GO G190) G191 (EXIT NIL))
+                    (EXIT
+                     (COND
+                      ((SPADCALL |outern| (LENGTH |n|) (QREFELT $ 32))
+                       (LETT |r|
+                             (SPADCALL |r| (SPADCALL ")\\/(" (QREFELT $ 47))
+                                       (QREFELT $ 48)))))))
                    (LETT #3#
                          (PROG1 (CDR #3#) (LETT |outern| (|inc_SI| |outern|))))
                    (GO G190) G191 (EXIT NIL))

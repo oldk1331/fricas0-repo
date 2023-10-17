@@ -535,7 +535,7 @@
          (|seg| (|Segment| (|Float|))) (|l| (|List| (|DrawOption|)))
          ($ (|ThreeSpace| (|DoubleFloat|))))
         (SPROG
-         ((#1=#:G246 NIL) (|b| NIL)
+         ((#1=#:G245 NIL) (|b| NIL)
           (|br| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (|loops| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (|tub| (|TubePlot| (|Plot3D|))) (|rad| (|DoubleFloat|))
@@ -546,20 +546,17 @@
           (|cc|
            (|List|
             (|Mapping| (|Point| (|DoubleFloat|)) (|Point| (|DoubleFloat|)))))
-          (|c| #3=(|Union| (|Any|) "failed")) (|pointsColored?| (|Boolean|))
-          (|c1| #3#) (|sp| #2#))
+          (|c| #3=(|Union| (|Any|) "failed")) (|c1| #3#) (|sp| #2#))
          (SEQ (LETT |sp| (SPADCALL |l| (QREFELT $ 104)))
-              (LETT |fcn| (LIST |psc|)) (LETT |pointsColored?| NIL)
+              (LETT |fcn| (LIST |psc|))
               (SEQ (LETT |c1| (SPADCALL |l| '|colorFunction1| (QREFELT $ 36)))
                    (EXIT
                     (COND
                      ((NULL (QEQCAR |c1| 1))
-                      (SEQ (LETT |pointsColored?| 'T)
-                           (EXIT
-                            (LETT |fcn|
-                                  (LIST
-                                   (CONS #'|DRAWCFUN;makeObject;MSLTs;17!0|
-                                         (VECTOR $ |c1| |psc|))))))))))
+                      (LETT |fcn|
+                            (LIST
+                             (CONS #'|DRAWCFUN;makeObject;MSLTs;17!0|
+                                   (VECTOR $ |c1| |psc|))))))))
               (SEQ (LETT |c| (SPADCALL |l| '|coordinates| (QREFELT $ 36)))
                    (EXIT
                     (COND
@@ -1096,7 +1093,7 @@
 
 (DEFUN |TopLevelDrawFunctionsForCompiledFunctions| ()
   (SPROG NIL
-         (PROG (#1=#:G404)
+         (PROG (#1=#:G403)
            (RETURN
             (COND
              ((LETT #1#

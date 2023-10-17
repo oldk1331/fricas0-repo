@@ -354,10 +354,6 @@
            (|List|
             (|Record| (|:| |k| (|NonNegativeInteger|))
                       (|:| |c| (|Polynomial| (|Integer|))))))
-          (|yu|
-           (|List|
-            (|Record| (|:| |k| (|NonNegativeInteger|))
-                      (|:| |c| (|Polynomial| (|Integer|))))))
           (|vxval| (|Integer|)) (#3=#:G200 NIL) (|vx| (|Symbol|))
           (|xr|
            (|Union| (|Integer|)
@@ -391,8 +387,8 @@
                            (SEQ (LETT |vxval| (|SPADfirst| |pts|))
                                 (LETT |vars| (CDR |vars|))
                                 (LETT |pts| (CDR |pts|))
-                                (LETT |xu| (QCDR (QCDR |xr|))) (LETT |yu| NIL)
-                                (LETT |ptk| 1) (LETT |kk| 0) (LETT |res| 0)
+                                (LETT |xu| (QCDR (QCDR |xr|))) (LETT |ptk| 1)
+                                (LETT |kk| 0) (LETT |res| 0)
                                 (LETT |xu| (REVERSE |xu|))
                                 (SEQ (LETT |t0| NIL) (LETT #2# |xu|) G190
                                      (COND

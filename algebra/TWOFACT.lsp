@@ -892,11 +892,10 @@
           (|prime| (|SparseUnivariatePolynomial| F)) (#9=#:G273 NIL)
           (|look| (|Boolean|)) (|umv| (|SparseUnivariatePolynomial| F))
           (|val| (F)) (|i| (|Integer|)) (|use_random| (|Boolean|))
-          (|lcm| (|SparseUnivariatePolynomial| F)) (|try_max| (|Integer|))
-          (|dm| (|NonNegativeInteger|)))
+          (|lcm| (|SparseUnivariatePolynomial| F)) (|try_max| (|Integer|)))
          (SEQ
           (EXIT
-           (SEQ (LETT |look| 'T) (LETT |dm| (SPADCALL |m| (QREFELT $ 24)))
+           (SEQ (LETT |look| 'T)
                 (LETT |try_max| (MIN (+ |dx| 5) (SPADCALL (QREFELT $ 50))))
                 (LETT |i| 0) (LETT |lcm| (SPADCALL |m| (QREFELT $ 25)))
                 (LETT |use_random|

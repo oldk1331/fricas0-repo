@@ -1031,14 +1031,11 @@
           (|#G65| #1#) (|#G64| #1#) (|#G63| #1#)
           (|plist|
            (|Union| (|List| (|SparseUnivariatePolynomial| P)) "failed"))
-          (|leadlist| (|List| P)) (#2=#:G307 NIL) (|lcg0| (R))
-          (|leadpol| (|Boolean|)) (|lcd| (P)))
-         (SEQ (LETT |leadpol| NIL) (LETT |lcd| (SPADCALL |ud| (QREFELT $ 26)))
-              (LETT |leadlist| NIL)
+          (|leadlist| (|List| P)) (#2=#:G307 NIL) (|lcg0| (R)) (|lcd| (P)))
+         (SEQ (LETT |lcd| (SPADCALL |ud| (QREFELT $ 26))) (LETT |leadlist| NIL)
               (COND
                ((NULL (SPADCALL (SPADCALL |ud| (QREFELT $ 26)) (QREFELT $ 68)))
-                (SEQ (LETT |leadpol| 'T)
-                     (LETT |ud| (SPADCALL |lcoef| |ud| (QREFELT $ 30)))
+                (SEQ (LETT |ud| (SPADCALL |lcoef| |ud| (QREFELT $ 30)))
                      (LETT |lcg0| (SPADCALL |g0| (QREFELT $ 137)))
                      (COND
                       ((SPADCALL |lcoef| (QREFELT $ 68))

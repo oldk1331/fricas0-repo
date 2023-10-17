@@ -46,11 +46,11 @@
                     (|:| |leftEqMat| (|Matrix| (|Integer|)))
                     (|:| |rightEqMat| (|Matrix| (|Integer|))))))
         (SPROG
-         ((#1=#:G174 NIL) (|n| NIL) (#2=#:G173 NIL) (|pp| (|Integer|))
-          (#3=#:G172 NIL) (|l| NIL) (#4=#:G171 NIL) (#5=#:G170 NIL)
-          (#6=#:G169 NIL) (#7=#:G168 NIL) (|i| NIL)
+         ((#1=#:G170 NIL) (|n| NIL) (#2=#:G169 NIL) (|pp| (|Integer|))
+          (#3=#:G168 NIL) (|l| NIL) (#4=#:G167 NIL) (#5=#:G166 NIL)
+          (#6=#:G165 NIL) (#7=#:G164 NIL) (|i| NIL)
           (|m16| #8=(|Matrix| (|Integer|))) (|m15| #9=(|Matrix| (|Integer|)))
-          (|m14| #8#) (|m13| #9#) (#10=#:G166 NIL) (#11=#:G167 NIL)
+          (|m14| #8#) (|m13| #9#) (#10=#:G162 NIL) (#11=#:G163 NIL)
           (|m12| (|Matrix| (|Integer|))) (|m11| #12=(|Matrix| (|Integer|)))
           (|m10| #9#) (|m9| #13=(|Matrix| (|Integer|))) (|m8| #12#) (|m7| #9#)
           (|m6| #13#)
@@ -61,14 +61,13 @@
           (|m5| #13#) (|count| (|NonNegativeInteger|))
           (|m4| (|Matrix| (|Integer|))) (|m3| (|Matrix| (|Integer|)))
           (|lks| #14=(|List| (|Integer|))) (|ljs| #14#)
-          (|lk| (|List| (|Integer|))) (|s| (|Integer|)) (#15=#:G165 NIL)
-          (#16=#:G164 NIL) (|lk0| (|List| (|Integer|))) (#17=#:G163 NIL)
-          (#18=#:G162 NIL) (|lj2| (|List| (|Integer|))) (#19=#:G161 NIL)
-          (#20=#:G160 NIL) (|lj1| (|List| (|Integer|))) (#21=#:G159 NIL)
-          (#22=#:G158 NIL) (|lj0| (|List| (|Integer|))) (#23=#:G157 NIL)
-          (#24=#:G156 NIL) (|m2| (|Matrix| (|Integer|)))
-          (|m1| (|Matrix| (|Integer|))) (|pivotsk| #25=(|Vector| (|Integer|)))
-          (|pivotsj| #25#)
+          (|lk0| (|List| (|Integer|))) (#15=#:G161 NIL) (#16=#:G160 NIL)
+          (|lj2| (|List| (|Integer|))) (#17=#:G159 NIL) (#18=#:G158 NIL)
+          (|lj1| (|List| (|Integer|))) (|s| (|Integer|)) (#19=#:G157 NIL)
+          (#20=#:G156 NIL) (|lj0| (|List| (|Integer|))) (#21=#:G155 NIL)
+          (#22=#:G154 NIL) (|m2| (|Matrix| (|Integer|)))
+          (|m1| (|Matrix| (|Integer|))) (|pivotsk| #23=(|Vector| (|Integer|)))
+          (|pivotsj| #23#)
           (|res0|
            (|Record| (|:| |Smith| (|Matrix| (|Integer|)))
                      (|:| |leftEqMat| (|Matrix| (|Integer|)))
@@ -94,35 +93,19 @@
                             (SPADCALL |m1| |pivotsj| |pivotsk| (QREFELT $ 23)))
                       (LETT |lj0|
                             (PROGN
-                             (LETT #24# NIL)
-                             (SEQ (LETT |i| 1) (LETT #23# |j|) G190
-                                  (COND ((|greater_SI| |i| #23#) (GO G191)))
-                                  (SEQ
-                                   (EXIT
-                                    (COND
-                                     ((EQL
-                                       (SPADCALL |pivotsj| |i| (QREFELT $ 25))
-                                       0)
-                                      (LETT #24# (CONS |i| #24#))))))
-                                  (LETT |i| (|inc_SI| |i|)) (GO G190) G191
-                                  (EXIT (NREVERSE #24#)))))
-                      (LETT |lj1|
-                            (PROGN
                              (LETT #22# NIL)
                              (SEQ (LETT |i| 1) (LETT #21# |j|) G190
                                   (COND ((|greater_SI| |i| #21#) (GO G191)))
                                   (SEQ
                                    (EXIT
                                     (COND
-                                     ((SPADCALL
-                                       (LETT |s|
-                                             (SPADCALL |pivotsj| |i|
-                                                       (QREFELT $ 25)))
-                                       0 (QREFELT $ 27))
-                                      (LETT #22# (CONS |s| #22#))))))
+                                     ((EQL
+                                       (SPADCALL |pivotsj| |i| (QREFELT $ 25))
+                                       0)
+                                      (LETT #22# (CONS |i| #22#))))))
                                   (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                                   (EXIT (NREVERSE #22#)))))
-                      (LETT |lj2|
+                      (LETT |lj1|
                             (PROGN
                              (LETT #20# NIL)
                              (SEQ (LETT |i| 1) (LETT #19# |j|) G190
@@ -131,26 +114,28 @@
                                    (EXIT
                                     (COND
                                      ((SPADCALL
-                                       (SPADCALL |pivotsj| |i| (QREFELT $ 25))
+                                       (LETT |s|
+                                             (SPADCALL |pivotsj| |i|
+                                                       (QREFELT $ 25)))
                                        0 (QREFELT $ 27))
-                                      (LETT #20# (CONS |i| #20#))))))
+                                      (LETT #20# (CONS |s| #20#))))))
                                   (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                                   (EXIT (NREVERSE #20#)))))
-                      (LETT |lk0|
+                      (LETT |lj2|
                             (PROGN
                              (LETT #18# NIL)
-                             (SEQ (LETT |i| 1) (LETT #17# |k|) G190
+                             (SEQ (LETT |i| 1) (LETT #17# |j|) G190
                                   (COND ((|greater_SI| |i| #17#) (GO G191)))
                                   (SEQ
                                    (EXIT
                                     (COND
-                                     ((EQL
-                                       (SPADCALL |pivotsk| |i| (QREFELT $ 25))
-                                       0)
+                                     ((SPADCALL
+                                       (SPADCALL |pivotsj| |i| (QREFELT $ 25))
+                                       0 (QREFELT $ 27))
                                       (LETT #18# (CONS |i| #18#))))))
                                   (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                                   (EXIT (NREVERSE #18#)))))
-                      (LETT |lk|
+                      (LETT |lk0|
                             (PROGN
                              (LETT #16# NIL)
                              (SEQ (LETT |i| 1) (LETT #15# |k|) G190
@@ -158,12 +143,10 @@
                                   (SEQ
                                    (EXIT
                                     (COND
-                                     ((SPADCALL
-                                       (LETT |s|
-                                             (SPADCALL |pivotsk| |i|
-                                                       (QREFELT $ 25)))
-                                       0 (QREFELT $ 27))
-                                      (LETT #16# (CONS |s| #16#))))))
+                                     ((EQL
+                                       (SPADCALL |pivotsk| |i| (QREFELT $ 25))
+                                       0)
+                                      (LETT #16# (CONS |i| #16#))))))
                                   (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                                   (EXIT (NREVERSE #16#)))))
                       (LETT |ljs| (SPADCALL |lj2| |lj0| (QREFELT $ 29)))
@@ -340,7 +323,7 @@
 
 (DEFUN |IntegerSmithNormalForm| ()
   (SPROG NIL
-         (PROG (#1=#:G176)
+         (PROG (#1=#:G172)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|IntegerSmithNormalForm|))

@@ -210,9 +210,9 @@
           (#5=#:G211 NIL) (|jj| NIL) (|dens| (|PrimitiveArray| (|Integer|)))
           (|nums| (|PrimitiveArray| (|Integer|))) (#6=#:G187 NIL)
           (#7=#:G185 NIL) (|mm| (|NonNegativeInteger|)) (|n| (|Integer|))
-          (|ok| (|Boolean|)) (|bound2| (|Integer|)) (|bound| (|Integer|))
-          (|j0| #3#) (|intvec| (|PrimitiveArray| (|Integer|)))
-          (|modulus| (|Integer|)) (|state| (|Rep|)))
+          (|bound2| (|Integer|)) (|bound| (|Integer|)) (|j0| #3#)
+          (|intvec| (|PrimitiveArray| (|Integer|))) (|modulus| (|Integer|))
+          (|state| (|Rep|)))
          (SEQ
           (EXIT
            (SEQ (LETT |state| |statearg|) (LETT |modulus| (QVELT |state| 0))
@@ -239,7 +239,7 @@
                 (LETT |j0| (QVELT |state| 1))
                 (LETT |bound|
                       (QUOTIENT2 (SPADCALL |modulus| (QREFELT $ 25)) 10))
-                (LETT |bound2| (- |modulus| |bound|)) (LETT |ok| 'T)
+                (LETT |bound2| (- |modulus| |bound|))
                 (LETT |pp|
                       (SPADCALL (QAREF1 |intvec| |j0|) |modulus| |bound|
                                 |bound| (QREFELT $ 23)))

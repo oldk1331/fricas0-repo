@@ -196,10 +196,6 @@
                                        (|SparseUnivariatePolynomial| F))))
             (CATEGORY |package|
              (SIGNATURE |knownInfBasis| ((|Void|) (|NonNegativeInteger|))))))
-          (|modulus|
-           (|SparseUnivariatePolynomial|
-            (|Fraction| (|SparseUnivariatePolynomial| F))))
-          (|p| (|SparseUnivariatePolynomial| F))
           (|f1|
            (|SparseUnivariatePolynomial|
             (|Fraction| (|SparseUnivariatePolynomial| F))))
@@ -207,7 +203,11 @@
            (|Record| (|:| |coef| (|Fraction| (|SparseUnivariatePolynomial| F)))
                      (|:| |poly|
                           (|SparseUnivariatePolynomial|
-                           (|Fraction| (|SparseUnivariatePolynomial| F)))))))
+                           (|Fraction| (|SparseUnivariatePolynomial| F))))))
+          (|modulus|
+           (|SparseUnivariatePolynomial|
+            (|Fraction| (|SparseUnivariatePolynomial| F))))
+          (|p| (|SparseUnivariatePolynomial| F)))
          (SEQ
           (LETT |r1|
                 (SPADCALL
@@ -220,9 +220,6 @@
                           (SPADCALL (SPADCALL (QCAR |r1|) (QREFELT $ 27)) 1
                                     (QREFELT $ 30))
                           (QREFELT $ 31)))
-          (LETT |modulus|
-                (|INTAF;UP2UPUP| (LETT |p| (SPADCALL |k| (QREFELT $ 24))) |t|
-                 $))
           (LETT |curve|
                 (|AlgebraicFunctionField| (QREFELT $ 7)
                                           (|SparseUnivariatePolynomial|

@@ -6013,17 +6013,12 @@
 ;     '%d,'"is a",'%b,kind,'%d, '"constructor.")
 ;   if not isRecordOrUnion then
 ;     abb := GETDATABASE(top,'ABBREVIATION)
-;     sourceFile := GETDATABASE(top,'SOURCEFILE)
 ;     sayBrightly ['" Abbreviation for",:bright top,'"is",:bright abb]
 ;     verb :=
 ;       isExposedConstructor top => '"is"
 ;       '"is not"
 ;     sayBrightly ['" This constructor",:bright verb,
 ;       '"exposed in this frame."]
-;     -- -- Disabled because the path is wrong.
-;     -- sayBrightly ['" Issue",:bright STRCONC('")edit ",
-;     --  namestring sourceFile),'"to see algebra source code for",
-;     --    :bright abb,'%l]
 ;
 ;   for [opt] in $options repeat
 ;     opt := selectOptionLC(opt,$showOptions,'optionError)
@@ -6055,7 +6050,7 @@
 ;                      '" Operations in this Domain."]
 ;
 ;         --new form is (<op> <signature> <slotNumber> <condition> <kind>)
-;         ops := [formatOperation(x, unit) for x in sigList]
+;         ops := [formatOperation(x) for x in sigList]
 ;
 ;       centerAndHighlight('"Operations", $LINELENGTH, specialChar 'hbar)
 ;       sayBrightly '""
@@ -6071,8 +6066,7 @@
 (DEFUN |reportOpsFromUnitDirectly| (|unitForm|)
   (PROG (|$predicateList| |$commentedOps| |numOfNames| |ops| |sigList| |c|
          |ISTMP#2| |b| |ISTMP#1| |funlist| |LETTMP#1| |constructorFunction|
-         |opt| |verb| |sourceFile| |abb| |kind| |argl| |top| |unit|
-         |isRecordOrUnion| |a|)
+         |opt| |verb| |abb| |kind| |argl| |top| |unit| |isRecordOrUnion| |a|)
     (DECLARE (SPECIAL |$predicateList| |$commentedOps|))
     (RETURN
      (PROGN
@@ -6088,7 +6082,6 @@
         '|%d| "constructor."))
       (COND
        ((NULL |isRecordOrUnion|) (SETQ |abb| (GETDATABASE |top| 'ABBREVIATION))
-        (SETQ |sourceFile| (GETDATABASE |top| 'SOURCEFILE))
         (|sayBrightly|
          (CONS " Abbreviation for"
                (APPEND (|bright| |top|) (CONS "is" (|bright| |abb|)))))
@@ -6239,9 +6232,8 @@
                                      (RETURN (NREVERSE |bfVar#125|)))
                                     (#1#
                                      (SETQ |bfVar#125|
-                                             (CONS
-                                              (|formatOperation| |x| |unit|)
-                                              |bfVar#125|))))
+                                             (CONS (|formatOperation| |x|)
+                                                   |bfVar#125|))))
                                    (SETQ |bfVar#124| (CDR |bfVar#124|))))
                                 NIL |sigList| NIL))))
                      (|centerAndHighlight| "Operations" $LINELENGTH
@@ -6280,11 +6272,6 @@
 ;     '"is not"
 ;   sayBrightly ['" This constructor",:bright verb,
 ;     '"exposed in this frame."]
-;   sourceFile := GETDATABASE(op,'SOURCEFILE)
-;   -- -- Disabled because the path is wrong.
-;   -- sayBrightly ['" Issue",:bright STRCONC('")edit ",
-;   --  namestring sourceFile),
-;   --    '"to see algebra source code for",:bright fn,'%l]
 ;
 ;   for [opt] in $options repeat
 ;     opt := selectOptionLC(opt,$showOptions,'optionError)
@@ -6297,7 +6284,7 @@
 
 (DEFUN |reportOpsFromLisplib| (|op| |u|)
   (PROG (|fn| |s| |argml| |typ| |nArgs| |argList| |functorForm|
-         |functorFormWithDecl| |verb| |sourceFile| |opt|)
+         |functorFormWithDecl| |verb| |opt|)
     (RETURN
      (COND
       ((NULL (SETQ |fn| (|constructor?| |op|)))
@@ -6348,7 +6335,6 @@
             (CONS " This constructor"
                   (APPEND (|bright| |verb|)
                           (CONS "exposed in this frame." NIL))))
-           (SETQ |sourceFile| (GETDATABASE |op| 'SOURCEFILE))
            ((LAMBDA (|bfVar#130| |bfVar#129|)
               (LOOP
                (COND
@@ -6378,7 +6364,6 @@
 
 ; displayOperationsFromLisplib form ==
 ;   [name,:argl] := form
-;   kind := GETDATABASE(name,'CONSTRUCTORKIND)
 ;   centerAndHighlight('"Operations",$LINELENGTH,specialChar 'hbar)
 ;   sayBrightly '""
 ;   opList:= GETDATABASE(name,'OPERATIONALIST)
@@ -6391,12 +6376,11 @@
 ;   nil
 
 (DEFUN |displayOperationsFromLisplib| (|form|)
-  (PROG (|name| |argl| |kind| |opList| |opl| |ops|)
+  (PROG (|name| |argl| |opList| |opl| |ops|)
     (RETURN
      (PROGN
       (SETQ |name| (CAR |form|))
       (SETQ |argl| (CDR |form|))
-      (SETQ |kind| (GETDATABASE |name| 'CONSTRUCTORKIND))
       (|centerAndHighlight| "Operations" $LINELENGTH (|specialChar| '|hbar|))
       (|sayBrightly| "")
       (SETQ |opList| (GETDATABASE |name| 'OPERATIONALIST))
@@ -6577,7 +6561,6 @@
 
 ; recordFrame(systemNormal) ==
 ;   null $undoFlag => nil        --do nothing if facility is turned off
-;   currentAlist := IFCAR $frameRecord
 ;   delta := diffAlist(CAAR $InteractiveFrame,$previousBindings)
 ;   if systemNormal = 'system then
 ;     null delta => return nil     --do not record
@@ -6589,12 +6572,11 @@
 ;   first $frameRecord
 
 (DEFUN |recordFrame| (|systemNormal|)
-  (PROG (|currentAlist| |delta|)
+  (PROG (|delta|)
     (RETURN
      (COND ((NULL |$undoFlag|) NIL)
            (#1='T
             (PROGN
-             (SETQ |currentAlist| (IFCAR |$frameRecord|))
              (SETQ |delta|
                      (|diffAlist| (CAAR |$InteractiveFrame|)
                       |$previousBindings|))
@@ -8075,7 +8057,6 @@
 
 ; splitIntoOptionBlocks str ==
 ;   inString := false
-;   optionBlocks := nil
 ;   blockStart := 0
 ;   parenCount := 0
 ;   for i in 0..#str-1 repeat
@@ -8094,12 +8075,10 @@
 ;   nreverse blockList
 
 (DEFUN |splitIntoOptionBlocks| (|str|)
-  (PROG (|inString| |optionBlocks| |blockStart| |parenCount| |block|
-         |blockList|)
+  (PROG (|inString| |blockStart| |parenCount| |block| |blockList|)
     (RETURN
      (PROGN
       (SETQ |inString| NIL)
-      (SETQ |optionBlocks| NIL)
       (SETQ |blockStart| 0)
       (SETQ |parenCount| 0)
       ((LAMBDA (|bfVar#180| |i|)

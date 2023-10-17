@@ -78,7 +78,7 @@
         ((|Pol| (|List| |Dpol|)) (|xx1| (|Integer|)) (|xx2| #1=(|Integer|))
          ($ (|List| |Dpol|)))
         (SPROG
-         ((|xx| #1#) (|ala| (|Integer|)) (H (|List| |Dpol|))
+         ((|xx| #1#) (H (|List| |Dpol|))
           (D
            (|List|
             #2=(|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
@@ -165,9 +165,8 @@
                         (COND
                          ((EQL |xx2| 1)
                           (SEQ
-                           (LETT |ala|
-                                 (|GBEUCLID;prindINFO| D0 |ep| |eh| (LENGTH H)
-                                  (LENGTH D) |xx| $))
+                           (|GBEUCLID;prindINFO| D0 |ep| |eh| (LENGTH H)
+                            (LENGTH D) |xx| $)
                            (EXIT (LETT |xx| 2)))))
                         (EXIT " go to top of while ")))
                       ('T
@@ -227,9 +226,8 @@
                                     (COND
                                      ((EQL |xx2| 1)
                                       (SEQ
-                                       (LETT |ala|
-                                             (|GBEUCLID;prindINFO| D0 |ep| |eh|
-                                              (LENGTH H) (LENGTH D) |xx| $))
+                                       (|GBEUCLID;prindINFO| D0 |ep| |eh|
+                                        (LENGTH H) (LENGTH D) |xx| $)
                                        (EXIT (LETT |xx| 2)))))
                                     (EXIT #7=" go to top of while "))))))))
                              ('T
@@ -238,9 +236,8 @@
                                 (COND
                                  ((EQL |xx2| 1)
                                   (SEQ
-                                   (LETT |ala|
-                                         (|GBEUCLID;prindINFO| D0 |ep| |eh|
-                                          (LENGTH H) (LENGTH D) |xx| $))
+                                   (|GBEUCLID;prindINFO| D0 |ep| |eh|
+                                    (LENGTH H) (LENGTH D) |xx| $)
                                    (EXIT (LETT |xx| 2)))))
                                 (EXIT #7#)))))
                             (LETT H
@@ -255,9 +252,8 @@
                              (COND
                               ((EQL |xx2| 1)
                                (SEQ
-                                (LETT |ala|
-                                      (|GBEUCLID;prindINFO| D0 |ep| |eh|
-                                       (LENGTH H) (LENGTH D) |xx| $))
+                                (|GBEUCLID;prindINFO| D0 |ep| |eh| (LENGTH H)
+                                 (LENGTH D) |xx| $)
                                 (LETT |xx| 2)
                                 (EXIT " go to top of while "))))))))))
                NIL (GO G190) G191 (EXIT NIL))

@@ -222,8 +222,7 @@
         ((|space| ($)) (|point| (|Point| R)) ($ ($)))
         (SPROG
          ((|node| ($)) (#1=#:G208 NIL) (|more| NIL) (|first| ($))
-          (|depth| (|NonNegativeInteger|)) (|which| (|NonNegativeInteger|))
-          (|lastPt| (|List| (|Point| R))))
+          (|which| (|NonNegativeInteger|)) (|lastPt| (|List| (|Point| R))))
          (SEQ
           (COND
            ((NULL (NULL (LETT |lastPt| (QVELT |space| 7))))
@@ -238,8 +237,7 @@
                  (EXIT (QSETVELT |space| 7 (CDR |lastPt|))))))
           (QSETVELT |space| 8 (+ (QVELT |space| 8) 1))
           (LETT |which| (QVELT |space| 8)) (LETT |node| |space|)
-          (LETT |depth| 0) (LETT |node| (SPADCALL |node| (QREFELT $ 27)))
-          (LETT |first| |node|)
+          (LETT |node| (SPADCALL |node| (QREFELT $ 27))) (LETT |first| |node|)
           (SEQ (LETT |more| 1) (LETT #1# (- (QREFELT $ 6) 1)) G190
                (COND ((|greater_SI| |more| #1#) (GO G191)))
                (SEQ (EXIT (LETT |node| (SPADCALL |node| (QREFELT $ 27)))))

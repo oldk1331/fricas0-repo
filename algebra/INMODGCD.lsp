@@ -406,24 +406,21 @@
 (SDEFUN |INMODGCD;height| ((|f| (BP)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((#1=#:G217 NIL) (#2=#:G216 #3=(|NonNegativeInteger|)) (#4=#:G218 #3#)
-          (#5=#:G221 NIL) (|cc| NIL) (|degf| (|NonNegativeInteger|)))
-         (SEQ (LETT |degf| (SPADCALL |f| (QREFELT $ 23)))
-              (EXIT
-               (PROGN
-                (LETT #1# NIL)
-                (SEQ (LETT |cc| NIL) (LETT #5# (SPADCALL |f| (QREFELT $ 60)))
-                     G190
-                     (COND
-                      ((OR (ATOM #5#) (PROGN (LETT |cc| (CAR #5#)) NIL))
-                       (GO G191)))
-                     (SEQ
-                      (EXIT
-                       (PROGN
-                        (LETT #4# (SPADCALL |cc| (QREFELT $ 52)))
-                        (COND (#1# (LETT #2# (MAX #2# #4#)))
-                              ('T (PROGN (LETT #2# #4#) (LETT #1# 'T)))))))
-                     (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
-                (COND (#1# #2#) ('T (|IdentityError| '|max|)))))))) 
+          (#5=#:G220 NIL) (|cc| NIL))
+         (SEQ
+          (PROGN
+           (LETT #1# NIL)
+           (SEQ (LETT |cc| NIL) (LETT #5# (SPADCALL |f| (QREFELT $ 60))) G190
+                (COND
+                 ((OR (ATOM #5#) (PROGN (LETT |cc| (CAR #5#)) NIL)) (GO G191)))
+                (SEQ
+                 (EXIT
+                  (PROGN
+                   (LETT #4# (SPADCALL |cc| (QREFELT $ 52)))
+                   (COND (#1# (LETT #2# (MAX #2# #4#)))
+                         ('T (PROGN (LETT #2# #4#) (LETT #1# 'T)))))))
+                (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
+           (COND (#1# #2#) ('T (|IdentityError| '|max|))))))) 
 
 (SDEFUN |INMODGCD;mbound| ((|f| (BP)) (|g| (BP)) ($ (|NonNegativeInteger|)))
         (SPROG ((|hg| #1=(|NonNegativeInteger|)) (|hf| #1#))
@@ -433,9 +430,9 @@
 
 (DECLAIM (NOTINLINE |InnerModularGcd;|)) 
 
-(DEFUN |InnerModularGcd| (&REST #1=#:G224)
+(DEFUN |InnerModularGcd| (&REST #1=#:G223)
   (SPROG NIL
-         (PROG (#2=#:G225)
+         (PROG (#2=#:G224)
            (RETURN
             (COND
              ((LETT #2#

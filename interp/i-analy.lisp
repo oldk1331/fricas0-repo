@@ -914,7 +914,7 @@
 ;         (r := resolveTM(om,tar)) => [r]
 ;         [om]
 ;       bottomUpDefault(t,id,defaultType,getTarget t)
-;     interpRewriteRule(t,id,expr) or
+;     interpRewriteRule(t, id) or
 ;       (isMapExpr expr and [objMode(u)]) or
 ;         keyedSystemError("S2GE0016",
 ;           ['"bottomUpIdentifier",'"cannot evaluate identifier"])
@@ -955,7 +955,7 @@
                     (|bottomUpDefault| |t| |id| |defaultType|
                      (|getTarget| |t|)))))
                  (#1#
-                  (OR (|interpRewriteRule| |t| |id| |expr|)
+                  (OR (|interpRewriteRule| |t| |id|)
                       (AND (|isMapExpr| |expr|) (LIST (|objMode| |u|)))
                       (|keyedSystemError| 'S2GE0016
                        (LIST "bottomUpIdentifier"
@@ -966,17 +966,17 @@
 
 ; bottomUpDefault(t,id,defaultMode,target) ==
 ;   if $genValue
-;     then bottomUpDefaultEval(t,id,defaultMode,target,nil)
-;     else bottomUpDefaultCompile(t,id,defaultMode,target,nil)
+;     then bottomUpDefaultEval(t, id, defaultMode, target)
+;     else bottomUpDefaultCompile(t, id, defaultMode, target)
 
 (DEFUN |bottomUpDefault| (|t| |id| |defaultMode| |target|)
   (PROG ()
     (RETURN
      (COND
-      (|$genValue| (|bottomUpDefaultEval| |t| |id| |defaultMode| |target| NIL))
-      ('T (|bottomUpDefaultCompile| |t| |id| |defaultMode| |target| NIL))))))
+      (|$genValue| (|bottomUpDefaultEval| |t| |id| |defaultMode| |target|))
+      ('T (|bottomUpDefaultCompile| |t| |id| |defaultMode| |target|))))))
 
-; bottomUpDefaultEval(t,id,defaultMode,target,isSub) ==
+; bottomUpDefaultEval(t, id, defaultMode, target) ==
 ;   -- try to get value case.
 ;
 ;   -- 1. declared mode but no value case
@@ -989,13 +989,13 @@
 ;     -- declared mode. Like "x" in second line:
 ;     --   x : P[x] I
 ;     --   y : P[x] I
-;     target and not isSub and
+;     target and
 ;       (val := coerceInteractive(objNewWrap(id,['Variable,id]),target))=>
 ;         putValue(t,val)
 ;         [target]
 ;     -- Ok, see if we can make it into declared mode from symbolic form
 ;     -- For example, (x : P[x] I; x + 1)
-;     not target and not isSub and m and
+;     not target and m and
 ;       (val := coerceInteractive(objNewWrap(id,['Variable,id]),m)) =>
 ;         putValue(t,val)
 ;         [m]
@@ -1028,7 +1028,7 @@
 ;   putValue(t,val')
 ;   [target]
 
-(DEFUN |bottomUpDefaultEval| (|t| |id| |defaultMode| |target| |isSub|)
+(DEFUN |bottomUpDefaultEval| (|t| |id| |defaultMode| |target|)
   (PROG (|m| |val| D |ISTMP#1| |x| |ISTMP#2| |dmode| |val'| |tm|)
     (RETURN
      (COND
@@ -1042,13 +1042,13 @@
            ((|isPartialMode| |m|)
             (SETQ |m| (|resolveTM| (LIST '|Variable| |id|) |m|))))
           (COND
-           ((AND |target| (NULL |isSub|)
+           ((AND |target|
                  (SETQ |val|
                          (|coerceInteractive|
                           (|objNewWrap| |id| (LIST '|Variable| |id|))
                           |target|)))
             (PROGN (|putValue| |t| |val|) (LIST |target|)))
-           ((AND (NULL |target|) (NULL |isSub|) |m|
+           ((AND (NULL |target|) |m|
                  (SETQ |val|
                          (|coerceInteractive|
                           (|objNewWrap| |id| (LIST '|Variable| |id|)) |m|)))
@@ -1099,7 +1099,7 @@
              (PROGN (|putValue| |t| |val|) (LIST |defaultMode|)))
             (#1# (PROGN (|putValue| |t| |val'|) (LIST |target|)))))))))))))
 
-; bottomUpDefaultCompile(t,id,defaultMode,target,isSub) ==
+; bottomUpDefaultCompile(t, id, defaultMode, target) ==
 ;   tmode := getMode t
 ;   tval  := getValue t
 ;   expr:=
@@ -1127,7 +1127,7 @@
 ;   putValue(t,obj)
 ;   [defaultMode]
 
-(DEFUN |bottomUpDefaultCompile| (|t| |id| |defaultMode| |target| |isSub|)
+(DEFUN |bottomUpDefaultCompile| (|t| |id| |defaultMode| |target|)
   (PROG (|tmode| |tval| |envMode| |expr| |mdv| |obj| |obj'|)
     (RETURN
      (PROGN
@@ -1168,13 +1168,13 @@
            (PROGN (|putValue| |t| |obj'|) (LIST |target|)))
           (#1# (PROGN (|putValue| |t| |obj|) (LIST |defaultMode|)))))))))))
 
-; interpRewriteRule(t,id,expr) ==
+; interpRewriteRule(t, id) ==
 ;   null get(id,'isInterpreterRule,$e) => NIL
 ;   (ms:= selectLocalMms(t,id,nil,nil)) and (ms:=evalForm(t,id,nil,ms)) =>
 ;     ms
 ;   nil
 
-(DEFUN |interpRewriteRule| (|t| |id| |expr|)
+(DEFUN |interpRewriteRule| (|t| |id|)
   (PROG (|ms|)
     (RETURN
      (COND ((NULL (|get| |id| '|isInterpreterRule| |$e|)) NIL)
@@ -1231,7 +1231,7 @@
 ;     not (opName = "=" and argModeSetList is [[m],[=m]] and m is ['Union,:.]) and
 ;       (u := bottomUpFormUntaggedUnionRetract(t,op,opName,argl,argModeSetList)) => u
 ;
-;   lookForIt and (u := bottomUpFormTuple(t, op, opName, argl, argModeSetList)) => u
+;   lookForIt and (u := bottomUpFormTuple(t, op, opName, argl)) => u
 ;
 ;   -- opName can change in the call to selectMms
 ;
@@ -1283,9 +1283,7 @@
                              |opName| |argl| |argModeSetList|)))
                |u|)
               ((AND |lookForIt|
-                    (SETQ |u|
-                            (|bottomUpFormTuple| |t| |op| |opName| |argl|
-                             |argModeSetList|)))
+                    (SETQ |u| (|bottomUpFormTuple| |t| |op| |opName| |argl|)))
                |u|)
               ((AND |lookForIt|
                     (SETQ |mmS| (|selectMms| |op| |argl| (|getTarget| |op|)))
@@ -1297,7 +1295,7 @@
                (|bottomUpForm0| |t| |op| |opName| |argl|
                 |argModeSetList|)))))))))
 
-; bottomUpFormTuple(t, op, opName, args, argModeSetList) ==
+; bottomUpFormTuple(t, op, opName, args) ==
 ;   getAtree(op,'dollar) => NIL
 ;   null (singles := getModemapsFromDatabase(opName, 1)) => NIL
 ;
@@ -1316,7 +1314,7 @@
 ;   newArg := [mkAtreeNode "Tuple",:args]
 ;   bottomUp [op, newArg]
 
-(DEFUN |bottomUpFormTuple| (|t| |op| |opName| |args| |argModeSetList|)
+(DEFUN |bottomUpFormTuple| (|t| |op| |opName| |args|)
   (PROG (|singles| |haveTuple| |ISTMP#1| |ISTMP#2| |nargs| |ms| |newArg|)
     (RETURN
      (COND ((|getAtree| |op| '|dollar|) NIL)

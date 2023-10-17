@@ -587,7 +587,7 @@
           (|dm| (|Record| (|:| |num| (|Matrix| UP)) (|:| |den| UP)))
           (|lgv| (|List| (|Vector| (|Fraction| UP))))
           (|lpv| (|List| (|Vector| (|Fraction| UP)))) (#3=#:G271 NIL)
-          (|n| (|NonNegativeInteger|)) (|w| (|Vector| R))
+          (|w| (|Vector| R))
           (|lh|
            (|List|
             (|Record| (|:| |answer| R) (|:| |logpart| R) (|:| |polypart| R))))
@@ -599,7 +599,7 @@
           (LETT |hermite1| (CONS #'|INTALG2;algexpextint!0| (VECTOR $ |der|)))
           (LETT |lh| (|INTALG2;list_hermite| |lg| |hermite1| $))
           (LETT |lpv| NIL) (LETT |lgv| NIL)
-          (LETT |w| (SPADCALL (QREFELT $ 26))) (LETT |n| (QVSIZE |w|))
+          (LETT |w| (SPADCALL (QREFELT $ 26)))
           (SEQ (LETT |h| NIL) (LETT #3# |lh|) G190
                (COND
                 ((OR (ATOM #3#) (PROGN (LETT |h| (CAR #3#)) NIL)) (GO G191)))

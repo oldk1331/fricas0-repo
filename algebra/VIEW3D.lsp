@@ -1100,56 +1100,48 @@
          (|thingsToWrite| (|List| (|String|))) ($ (|String|)))
         (SPROG
          ((|writeTypeInt| (|Integer|)) (#1=#:G394 NIL) (|aTypeOfFile| NIL)
-          (|m| (|Integer|)) (|avail| (|List| (|String|)))
-          (|stringToSend| (|String|)))
-         (SEQ (LETT |stringToSend| "")
-              (EXIT
-               (COND
-                ((SPADCALL (SPADCALL |viewport| (QREFELT $ 96)) 0
-                           (QREFELT $ 97))
-                 (SEQ (|sockSendInt| |$ViewportServer| 1)
-                      (|sockSendInt| |$ViewportServer| 110)
-                      (EXIT
-                       (COND
-                        ((|VIEW3D;checkViewport| |viewport| $)
-                         (SEQ (|sockSendString| |$ViewportServer| |Filename|)
-                              (LETT |m|
-                                    (PROGN
-                                     (LETT |avail| (SPADCALL (QREFELT $ 147)))
-                                     1))
-                              (SEQ (LETT |aTypeOfFile| NIL)
-                                   (LETT #1# |thingsToWrite|) G190
-                                   (COND
-                                    ((OR (ATOM #1#)
-                                         (PROGN
-                                          (LETT |aTypeOfFile| (CAR #1#))
-                                          NIL))
-                                     (GO G191)))
-                                   (SEQ
-                                    (LETT |writeTypeInt|
-                                          (-
-                                           (SPADCALL
-                                            (SPADCALL |aTypeOfFile|
-                                                      (QREFELT $ 148))
-                                            |avail| (QREFELT $ 149))
-                                           |m|))
-                                    (EXIT
-                                     (COND
-                                      ((< |writeTypeInt| 0)
-                                       (SPADCALL
-                                        (LIST "  > " |aTypeOfFile|
-                                              " is not a valid file type for writing a 3D viewport")
-                                        (QREFELT $ 150)))
-                                      ('T
-                                       (|sockSendInt| |$ViewportServer|
-                                                      (+ |writeTypeInt| 1))))))
-                                   (LETT #1# (CDR #1#)) (GO G190) G191
-                                   (EXIT NIL))
-                              (|sockSendInt| |$ViewportServer| 0)
-                              (|sockGetInt| |$ViewportServer|)
-                              (EXIT |Filename|)))
-                        (#2='T (|error| "write: problem with viewport"))))))
-                (#2# (|error| "write: problem contacting viewman"))))))) 
+          (|m| (|Integer|)) (|avail| (|List| (|String|))))
+         (SEQ
+          (COND
+           ((SPADCALL (SPADCALL |viewport| (QREFELT $ 96)) 0 (QREFELT $ 97))
+            (SEQ (|sockSendInt| |$ViewportServer| 1)
+                 (|sockSendInt| |$ViewportServer| 110)
+                 (EXIT
+                  (COND
+                   ((|VIEW3D;checkViewport| |viewport| $)
+                    (SEQ (|sockSendString| |$ViewportServer| |Filename|)
+                         (LETT |m|
+                               (PROGN
+                                (LETT |avail| (SPADCALL (QREFELT $ 147)))
+                                1))
+                         (SEQ (LETT |aTypeOfFile| NIL)
+                              (LETT #1# |thingsToWrite|) G190
+                              (COND
+                               ((OR (ATOM #1#)
+                                    (PROGN (LETT |aTypeOfFile| (CAR #1#)) NIL))
+                                (GO G191)))
+                              (SEQ
+                               (LETT |writeTypeInt|
+                                     (-
+                                      (SPADCALL
+                                       (SPADCALL |aTypeOfFile| (QREFELT $ 148))
+                                       |avail| (QREFELT $ 149))
+                                      |m|))
+                               (EXIT
+                                (COND
+                                 ((< |writeTypeInt| 0)
+                                  (SPADCALL
+                                   (LIST "  > " |aTypeOfFile|
+                                         " is not a valid file type for writing a 3D viewport")
+                                   (QREFELT $ 150)))
+                                 ('T
+                                  (|sockSendInt| |$ViewportServer|
+                                                 (+ |writeTypeInt| 1))))))
+                              (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
+                         (|sockSendInt| |$ViewportServer| 0)
+                         (|sockGetInt| |$ViewportServer|) (EXIT |Filename|)))
+                   (#2='T (|error| "write: problem with viewport"))))))
+           (#2# (|error| "write: problem contacting viewman")))))) 
 
 (SDEFUN |VIEW3D;perspective;$SV;52|
         ((|viewport| ($)) (|onOff| (|String|)) ($ (|Void|)))

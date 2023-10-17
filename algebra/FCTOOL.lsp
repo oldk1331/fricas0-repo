@@ -1722,15 +1722,12 @@
 
 (SDEFUN |FCTOOL;exp2FortOptimizeCS|
         ((|e| (|OutputForm|)) ($ (|List| (|OutputForm|))))
-        (SPROG
-         ((|f| (|OutputForm|)) (|fortCsHash| (|None|))
-          (|fortCsList| (|List| (|OutputForm|))))
-         (SEQ (LETT |fortCsList| (LIST (SPADCALL (QREFELT $ 95))))
-              (LETT |fortCsHash| (MAKE_HASHTABLE 'EQ))
-              (LETT |f|
+        (SPROG ((|fortCsHash| (|None|)) (|fortCsList| (|List| (|OutputForm|))))
+               (SEQ (LETT |fortCsList| (LIST (SPADCALL (QREFELT $ 95))))
+                    (LETT |fortCsHash| (MAKE_HASHTABLE 'EQ))
                     (|FCTOOL;exp2FortOptimizeCS1| |e| |fortCsHash| |fortCsList|
-                     NIL $))
-              (EXIT (NREVERSE (CONS |e| (CDR |fortCsList|))))))) 
+                     NIL $)
+                    (EXIT (NREVERSE (CONS |e| (CDR |fortCsList|))))))) 
 
 (SDEFUN |FCTOOL;exp2FortOptimizeArray|
         ((|e| (|OutputForm|)) (|exprStack| (|List| (|OutputForm|)))

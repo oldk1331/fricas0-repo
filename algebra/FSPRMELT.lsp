@@ -192,16 +192,16 @@
                     (|:| |prim| (|SparseUnivariatePolynomial| F)))))
         (SPROG
          ((|q| (|SparseUnivariatePolynomial| F))
-          (|r| (|SparseUnivariatePolynomial| F)) (|kg| #1=(|Kernel| F))
+          (|r| (|SparseUnivariatePolynomial| F))
           (|gg| (|SparseUnivariatePolynomial| F)) (|ic1| (F)) (|c2g| (F))
           (|g| (F)) (|w| (F))
           (|rec|
            (|Record| (|:| |coef1| (|Integer|)) (|:| |coef2| (|Integer|))
                      (|:| |prim| (|SparseUnivariatePolynomial| F))))
           (|p2| (|SparseUnivariatePolynomial| F))
-          (|p1| (|SparseUnivariatePolynomial| F)) (|k1| #1#)
-          (|l| (|List| #2=(|Symbol|))) (|b| (F)) (|bb| #2#) (|a| (F))
-          (|aa| #2#))
+          (|p1| (|SparseUnivariatePolynomial| F)) (|k1| (|Kernel| F))
+          (|l| (|List| #1=(|Symbol|))) (|b| (F)) (|bb| #1#) (|a| (F))
+          (|aa| #1#))
          (SEQ
           (LETT |a|
                 (SPADCALL (LETT |aa| (SPADCALL (QREFELT $ 32)))
@@ -264,7 +264,6 @@
                      (SPADCALL (SPADCALL (QVELT |rec| 1) |ic1| (QREFELT $ 53))
                                1 (QREFELT $ 71))
                      (QREFELT $ 90)))
-              (LETT |kg| (SPADCALL |g| (QREFELT $ 37)))
               (LETT |r|
                     (SPADCALL (SPADCALL |p1| |gg| (QREFELT $ 66))
                               (|FSPRMELT;F2UP| |p2|

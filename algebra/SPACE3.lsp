@@ -455,25 +455,15 @@
 (SDEFUN |SPACE3;polygon;$L;32| ((|space| ($)) ($ (|List| (|Point| R))))
         (SPROG
          ((#1=#:G269 NIL) (|s| NIL) (#2=#:G268 NIL)
-          (|listOfPoints| (|List| (|Point| R)))
           (|cs| (|List| (|SubSpace| 3 R))))
          (SEQ
           (COND
            ((SPADCALL |space| (QREFELT $ 73))
             (SEQ
-             (LETT |listOfPoints|
-                   (LIST
-                    (SPADCALL
-                     (|SPADfirst|
-                      (SPADCALL
-                       (|SPADfirst|
-                        (LETT |cs|
-                              (SPADCALL
-                               (|SPADfirst|
-                                (SPADCALL (QVELT |space| 0) (QREFELT $ 10)))
-                               (QREFELT $ 10))))
-                       (QREFELT $ 10)))
-                     (QREFELT $ 46))))
+             (LETT |cs|
+                   (SPADCALL
+                    (|SPADfirst| (SPADCALL (QVELT |space| 0) (QREFELT $ 10)))
+                    (QREFELT $ 10)))
              (EXIT
               (PROGN
                (LETT #2# NIL)

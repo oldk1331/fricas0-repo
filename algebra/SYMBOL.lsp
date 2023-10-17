@@ -550,8 +550,8 @@
          ((|allscripts| (|List| (|OutputForm|))) (|i| NIL) (#1=#:G2249 NIL)
           (|n| NIL) (|m| (|Integer|))
           (|nscripts| (|List| (|NonNegativeInteger|))) (#2=#:G2240 NIL)
-          (#3=#:G2248 NIL) (|j| NIL) (|nstr| (|NonNegativeInteger|))
-          (|str| (|String|)) (|lscripts| (|List| (|List| (|OutputForm|)))))
+          (#3=#:G2248 NIL) (|j| NIL) (|str| (|String|))
+          (|lscripts| (|List| (|List| (|OutputForm|)))))
          (SEQ
           (COND
            ((NULL (SPADCALL |sy| (QREFELT $ 18))) (VECTOR NIL NIL NIL NIL NIL))
@@ -561,7 +561,7 @@
                  (LETT |str|
                        (SPADCALL (|SPADfirst| (|SYMBOL;of_list| |sy| $))
                                  (QREFELT $ 77)))
-                 (LETT |nstr| (QCSIZE |str|)) (LETT |m| (PROGN |nscripts| 1))
+                 (LETT |m| (PROGN |nscripts| 1))
                  (SEQ (LETT |j| (+ (QREFELT $ 27) 1))
                       (LETT #3# (+ (+ (QREFELT $ 27) 4) 1)) (LETT |i| |m|) G190
                       (COND ((> |j| #3#) (GO G191)))

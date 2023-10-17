@@ -594,20 +594,17 @@
           (#17=#:G248 NIL) (#18=#:G247 #19=(|Boolean|)) (#20=#:G249 #19#)
           (#21=#:G294 NIL) (|epl| NIL) (|leadcomp1| #2#) (#22=#:G293 NIL)
           (|pol| NIL) (#23=#:G292 NIL) (|lval| (|List| R)) (#24=#:G291 NIL)
-          (|i| NIL) (#25=#:G290 NIL) (#26=#:G289 NIL)
-          (|newunifact| (|List| (|SparseUnivariatePolynomial| R)))
-          (|testp| (|Boolean|)) (|ctf1| (R)) (|nvar1| (|NonNegativeInteger|))
-          (|degum| (|NonNegativeInteger|)))
+          (|i| NIL) (#25=#:G290 NIL) (#26=#:G289 NIL) (|testp| (|Boolean|))
+          (|nvar1| (|NonNegativeInteger|)) (|degum| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
            (SEQ (LETT |degum| (SPADCALL |um| (QREFELT $ 46)))
                 (LETT |nvar1| (LENGTH |lvar|)) (LETT |range| 5)
-                (LETT |ctf1| (|spadConstant| $ 41))
                 (LETT |testp| (NULL (NULL |plist|)))
                 (LETT |leadcomp| (LETT |leadcomp1| NIL))
                 (LETT |nfatt| (+ |degum| 1))
                 (LETT |lffc| (|spadConstant| $ 41)) (LETT |lffc1| |lffc|)
-                (LETT |newunifact| NIL) (LETT |leadtest| 'T) (LETT |int| NIL)
+                (LETT |leadtest| 'T) (LETT |int| NIL)
                 (SEQ
                  (EXIT
                   (SEQ G190 (COND ((NULL 'T) (GO G191)))
@@ -1323,37 +1320,35 @@
            (|List|
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
                       (|:| |factor| (|SparseUnivariatePolynomial| R))
-                      (|:| |exponent| (|NonNegativeInteger|)))))
-          (|factfin| (|List| (|SparseUnivariatePolynomial| P))))
-         (SEQ (LETT |factfin| NIL)
-              (EXIT
-               (COND
-                ((NULL |lvar|)
-                 (SEQ
-                  (LETT |lum|
-                        (SPADCALL
-                         (SPADCALL (SPADCALL (ELT $ 21) |um| (QREFELT $ 25))
-                                   |ufactor|)
-                         (QREFELT $ 32)))
-                  (EXIT
-                   (PROGN
-                    (LETT #2# NIL)
-                    (SEQ (LETT |uf| NIL) (LETT #1# |lum|) G190
-                         (COND
-                          ((OR (ATOM #1#) (PROGN (LETT |uf| (CAR #1#)) NIL))
-                           (GO G191)))
-                         (SEQ
-                          (EXIT
-                           (LETT #2#
-                                 (CONS
-                                  (SPADCALL (ELT $ 33) (QVELT |uf| 1)
-                                            (QREFELT $ 36))
-                                  #2#))))
-                         (LETT #1# (CDR #1#)) (GO G190) G191
-                         (EXIT (NREVERSE #2#)))))))
-                ('T
-                 (|INNMFACT;intfact| |um| |lvar| |ldeg|
-                  (CONS (|spadConstant| $ 38) NIL) NIL |ufactor| $))))))) 
+                      (|:| |exponent| (|NonNegativeInteger|))))))
+         (SEQ
+          (COND
+           ((NULL |lvar|)
+            (SEQ
+             (LETT |lum|
+                   (SPADCALL
+                    (SPADCALL (SPADCALL (ELT $ 21) |um| (QREFELT $ 25))
+                              |ufactor|)
+                    (QREFELT $ 32)))
+             (EXIT
+              (PROGN
+               (LETT #2# NIL)
+               (SEQ (LETT |uf| NIL) (LETT #1# |lum|) G190
+                    (COND
+                     ((OR (ATOM #1#) (PROGN (LETT |uf| (CAR #1#)) NIL))
+                      (GO G191)))
+                    (SEQ
+                     (EXIT
+                      (LETT #2#
+                            (CONS
+                             (SPADCALL (ELT $ 33) (QVELT |uf| 1)
+                                       (QREFELT $ 36))
+                             #2#))))
+                    (LETT #1# (CDR #1#)) (GO G190) G191
+                    (EXIT (NREVERSE #2#)))))))
+           ('T
+            (|INNMFACT;intfact| |um| |lvar| |ldeg|
+             (CONS (|spadConstant| $ 38) NIL) NIL |ufactor| $)))))) 
 
 (SDEFUN |INNMFACT;monicize|
         ((|um| (|SparseUnivariatePolynomial| P)) (|c| (P))
