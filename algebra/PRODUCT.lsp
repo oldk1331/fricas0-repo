@@ -237,6 +237,11 @@
                                                (|HasCategory| |#1| '(|Finite|))
                                                (|HasCategory| |#2|
                                                               '(|Finite|))))
+                                        (OR #1#
+                                            (AND
+                                             (|HasCategory| |#1| '(|Hashable|))
+                                             (|HasCategory| |#2|
+                                                            '(|Hashable|))))
                                         (OR
                                          (AND
                                           (|HasCategory| |#1| '(|Comparable|))
@@ -288,10 +293,15 @@
          (QSETREFV % 34 (CONS (|dispatchFunction| |PRODUCT;size;Nni;9|) %))
          (QSETREFV % 38 (CONS (|dispatchFunction| |PRODUCT;index;Pi%;10|) %))
          (QSETREFV % 41 (CONS (|dispatchFunction| |PRODUCT;random;%;11|) %))
-         (QSETREFV % 44 (CONS (|dispatchFunction| |PRODUCT;lookup;%Pi;12|) %))
-         (QSETREFV % 48
-                   (CONS (|dispatchFunction| |PRODUCT;hashUpdate!;Hs%Hs;13|)
-                         %)))))))
+         (QSETREFV % 44
+                   (CONS (|dispatchFunction| |PRODUCT;lookup;%Pi;12|) %)))))))
+    (COND
+     ((|HasCategory| |#1| '(|Hashable|))
+      (COND
+       ((|HasCategory| |#2| '(|Hashable|))
+        (QSETREFV % 48
+                  (CONS (|dispatchFunction| |PRODUCT;hashUpdate!;Hs%Hs;13|)
+                        %))))))
     (COND
      ((|HasCategory| |#1| '(|Group|))
       (COND
@@ -362,8 +372,8 @@
               (233 . -) (238 . -) (243 . -) (249 . -) (255 . -) (|Integer|)
               (261 . *) (267 . *) (273 . *) (279 . |sup|) (285 . |sup|)
               (291 . |sup|) (297 . <) (303 . <) (309 . <) (315 . |smaller?|)
-              (321 . |smaller?|) (327 . |smaller?|) (|SingleInteger|)
-              (|InputForm|) (|String|))
+              (321 . |smaller?|) (327 . |smaller?|) (|InputForm|)
+              (|SingleInteger|) (|String|))
            '#(~= 333 |zero?| 339 |sup| 344 |subtractIfCan| 350 |smaller?| 356
               |size| 362 |second| 366 |sample| 371 |rightRecip| 375
               |rightPower| 380 |recip| 392 |random| 397 |opposite?| 401 |one?|
@@ -375,9 +385,9 @@
               594)
            'NIL
            (CONS
-            (|makeByteWordVec2| 9
-                                '(1 1 1 3 6 1 4 7 2 5 7 7 8 9 5 7 0 8 0 0 2 6 6
-                                  8))
+            (|makeByteWordVec2| 10
+                                '(1 1 1 3 6 1 4 7 2 5 7 7 8 10 5 7 0 9 0 0 2 6
+                                  6 8))
             (CONS
              '#(NIL NIL NIL |AbelianGroup&| |Group&| NIL NIL NIL |OrderedSet&|
                 |AbelianMonoid&| NIL |MagmaWithUnit&| |Finite&| NIL
@@ -391,7 +401,7 @@
                  (|AbelianMonoid|) (|SemiGroup|) (|MagmaWithUnit|) (|Finite|)
                  (|Comparable|) (|AbelianSemiGroup|) (|Magma|) (|SetCategory|)
                  (|Hashable|) (|BasicType|) (|CoercibleTo| 9) (|PartialOrder|)
-                 (|TwoSidedRecip|) (|unitsKnown|) (|ConvertibleTo| 85))
+                 (|TwoSidedRecip|) (|unitsKnown|) (|ConvertibleTo| 84))
               (|makeByteWordVec2| 86
                                   '(1 6 9 0 10 1 7 9 0 11 1 9 0 12 13 2 6 15 0
                                     0 16 2 7 15 0 0 17 0 6 0 22 0 7 0 23 0 0 0
@@ -411,14 +421,14 @@
                                     75 2 7 0 0 0 76 2 0 0 0 0 77 2 6 15 0 0 78
                                     2 7 15 0 0 79 2 0 15 0 0 80 2 6 15 0 0 81 2
                                     7 15 0 0 82 2 0 15 0 0 83 2 0 15 0 0 1 1 5
-                                    15 0 1 2 1 0 0 0 77 2 4 61 0 0 64 2 9 15 0
-                                    0 83 0 8 28 34 1 0 7 0 21 0 10 0 1 1 7 61 0
+                                    15 0 1 2 1 0 0 0 77 2 4 61 0 0 64 2 10 15 0
+                                    0 83 0 8 28 34 1 0 7 0 21 0 11 0 1 1 7 61 0
                                     1 2 7 0 0 28 1 2 7 0 0 35 1 1 7 61 0 1 0 8
                                     0 41 2 5 15 0 0 1 1 7 15 0 1 2 2 0 0 0 1 2
                                     2 0 0 0 1 1 8 35 0 44 1 7 61 0 1 2 7 0 0 28
                                     1 2 7 0 0 35 1 1 0 86 0 1 1 6 0 0 51 2 1 0
-                                    0 0 1 1 8 0 35 38 2 8 45 45 0 48 1 8 84 0 1
-                                    1 0 6 0 20 0 8 12 1 1 8 85 0 1 2 0 0 6 7 19
+                                    0 0 1 1 8 0 35 38 2 9 45 45 0 48 1 9 85 0 1
+                                    1 0 6 0 20 0 8 12 1 1 8 84 0 1 2 0 0 6 7 19
                                     2 6 0 0 0 1 2 6 0 0 0 1 1 0 9 0 14 2 6 0 0
                                     71 1 2 7 0 0 28 31 2 7 0 0 35 1 0 5 0 54 0
                                     7 0 24 2 2 15 0 0 1 2 2 15 0 0 1 2 0 15 0 0
