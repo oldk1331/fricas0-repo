@@ -3216,7 +3216,7 @@
       |s|))))
 
 ; mkIterZippedFun(indexList,funBody,zipType,$localVars) ==
-;   -- transform funBody into a lamda with $index as the parameter
+;   -- transform funBody into a lambda with $index as the parameter
 ;   numVars:= #$indexVars
 ;   for [var,:.] in $indexVars repeat
 ;     funBody := subVecNodes(mkIterVarSub(var,numVars),var,funBody)

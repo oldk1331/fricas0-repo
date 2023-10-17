@@ -8947,7 +8947,7 @@
 1031403`This package implements evaluation functions \indented{1}{useful for modular algorithms.\space{2}Computations work} \indented{1}{on integer polynomials,{} but most is done modulo a prime} \indented{1}{which is provided via parameters,{} either explicitly or} \indented{1}{through a state parameter (state also caches needed buffers).} \indented{1}{Some functions work on fractions.\space{2}To avoid useless \spad{GCD}} \indented{1}{computations during evaluation fractions may be represented} \indented{1}{as a record.}
 1031463`PolynomialFactorizationByRecursion(\spad{R},{} \spad{E},{} \spad{VarSet},{} \spad{S}) is used for factorization of sparse univariate polynomials over a domain \spad{S} of multivariate polynomials over \spad{R}.
 1031649`\indented{2}{This package takes a mapping between coefficient rings,{} and lifts} it to a mapping between polynomials over those rings.
-1031714`\indented{2}{This package computes multivariate polynomial \spad{gcd}\spad{'s} using} a hensel lifting strategy. The contraint on the coefficient domain is imposed by the lifting strategy. It is assumed that the coefficient domain has the property that almost all specializations preserve the degree of the \spad{gcd}.
+1031714`\indented{2}{This package computes multivariate polynomial \spad{gcd}\spad{'s} using} a hensel lifting strategy. The constraint on the coefficient domain is imposed by the lifting strategy. It is assumed that the coefficient domain has the property that almost all specializations preserve the degree of the \spad{gcd}.
 1031858`This package exports interpolation algorithms
 1031932`This package exports interpolation algorithms
 1032043`This package provides various polynomial number theoretic functions over the integers.
