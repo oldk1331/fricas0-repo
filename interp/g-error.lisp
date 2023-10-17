@@ -19,6 +19,35 @@
 
 (DEFVAR |$timedNameStack|)
 
+; DEFPARAMETER($inLispVM, false)
+
+(DEFPARAMETER |$inLispVM| NIL)
+
+; spad_system_error_handler (c) ==
+;     $NeedToSignalSessionManager := true
+;     not($inLispVM) and MEMQ($BreakMode,
+;            ["nobreak", "query", "resume", "quit", "trapSpadErrors"]) =>
+;         systemError(error_format(c))
+;     $BreakMode = "letPrint2" =>
+;         $BreakMode := nil
+;         THROW("letPrint2", nil)
+;     nil
+
+(DEFUN |spad_system_error_handler| (|c|)
+  (PROG ()
+    (RETURN
+     (PROGN
+      (SETQ |$NeedToSignalSessionManager| T)
+      (COND
+       ((AND (NULL |$inLispVM|)
+             (MEMQ |$BreakMode|
+                   (LIST '|nobreak| '|query| '|resume| '|quit|
+                         '|trapSpadErrors|)))
+        (|systemError| (|error_format| |c|)))
+       ((EQ |$BreakMode| '|letPrint2|)
+        (PROGN (SETQ |$BreakMode| NIL) (THROW '|letPrint2| NIL)))
+       ('T NIL))))))
+
 ; BUMPCOMPERRORCOUNT() == nil
 
 (DEFUN BUMPCOMPERRORCOUNT () (PROG () (RETURN NIL)))
