@@ -1191,7 +1191,7 @@
               (60 . |degree|) (65 . |discriminant|) (70 . |One|) (74 . |One|)
               (|Matrix| 7) (78 . |scalarMatrix|)
               (|SparseUnivariatePolynomial| 6) (|PositiveInteger|)
-              (|IrredPolyOverFiniteField| 6) (84 . |generateIrredPoly|)
+              (|FiniteFieldPolynomialPackage| 6) (84 . |createIrreduciblePoly|)
               (89 . |One|) (93 . |One|) (97 . |size|) (|Vector| $)
               (101 . |basis|)
               (|Record| (|:| |basis| 40) (|:| |basisDen| 7)
