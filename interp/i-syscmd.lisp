@@ -1181,12 +1181,12 @@
 ;     rc := OBEY command
 ;
 ;     if (rc = 0) and doCompileLisp then
-;         lsp := fnameMake('".", pathnameName args, '"lsp")
+;         lsp := fnameMake('".", pathnameName(path), '"lsp")
 ;         if fnameReadable?(lsp) then
-;             if not beQuiet then sayKeyedMsg("S2IZ0089", [namestring lsp])
+;             if not beQuiet then sayKeyedMsg("S2IZ0089", [NAMESTRING(lsp)])
 ;             compileFileQuietly(lsp)
 ;         else
-;             sayKeyedMsg("S2IL0003", [namestring lsp])
+;             sayKeyedMsg("S2IL0003", [NAMESTRING(lsp)])
 ;
 ;     if rc = 0 and doLibrary then
 ;         -- do we need to worry about where the compilation output went?
@@ -1298,14 +1298,14 @@
          (SETQ |rc| (OBEY |command|))
          (COND
           ((AND (EQL |rc| 0) |doCompileLisp|)
-           (SETQ |lsp| (|fnameMake| "." (|pathnameName| |args|) "lsp"))
+           (SETQ |lsp| (|fnameMake| "." (|pathnameName| |path|) "lsp"))
            (COND
             ((|fnameReadable?| |lsp|)
              (COND
               ((NULL |beQuiet|)
-               (|sayKeyedMsg| 'S2IZ0089 (LIST (|namestring| |lsp|)))))
+               (|sayKeyedMsg| 'S2IZ0089 (LIST (NAMESTRING |lsp|)))))
              (|compileFileQuietly| |lsp|))
-            (#1# (|sayKeyedMsg| 'S2IL0003 (LIST (|namestring| |lsp|)))))))
+            (#1# (|sayKeyedMsg| 'S2IL0003 (LIST (NAMESTRING |lsp|)))))))
          (COND
           ((AND (EQL |rc| 0) |doLibrary|)
            (COND
