@@ -11,7 +11,7 @@
         ((|n| (|NonNegativeInteger|)) (|ls| (|List| S))
          ($ (|List| (|OutputForm|))))
         (SPROG
-         ((#1=#:G109 NIL) (|i| NIL) (#2=#:G110 NIL) (|s| NIL)
+         ((#1=#:G110 NIL) (|i| NIL) (#2=#:G111 NIL) (|s| NIL)
           (|v| (|List| (|OutputForm|))))
          (SEQ
           (LETT |v|
@@ -34,8 +34,8 @@
 
 (SDEFUN |TABLEAU;maketab| ((|lls| (|List| (|List| S))) ($ (|OutputForm|)))
         (SPROG
-         ((|ll| (|List| (|OutputForm|))) (#1=#:G117 NIL) (|i| NIL)
-          (#2=#:G116 NIL) (|sz| (|NonNegativeInteger|)))
+         ((|ll| (|List| (|OutputForm|))) (#1=#:G119 NIL) (|i| NIL)
+          (#2=#:G118 NIL) (|sz| (|NonNegativeInteger|)))
          (SEQ
           (LETT |ll|
                 (COND ((NULL |lls|) (LIST (SPADCALL (QREFELT $ 21))))
@@ -66,9 +66,9 @@
 
 (DECLAIM (NOTINLINE |Tableau;|)) 
 
-(DEFUN |Tableau| (#1=#:G119)
+(DEFUN |Tableau| (#1=#:G121)
   (SPROG NIL
-         (PROG (#2=#:G120)
+         (PROG (#2=#:G122)
            (RETURN
             (COND
              ((LETT #2#

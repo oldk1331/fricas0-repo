@@ -20,7 +20,7 @@
 
 (SDEFUN |XDPOLY;sh;3$;3| ((|p1| ($)) (|p2| ($)) ($ ($)))
         (SPROG
-         ((|p| ($)) (#1=#:G128 NIL) (|t2| NIL) (#2=#:G127 NIL) (|t1| NIL))
+         ((|p| ($)) (#1=#:G130 NIL) (|t2| NIL) (#2=#:G129 NIL) (|t1| NIL))
          (SEQ (LETT |p| (|spadConstant| $ 12))
               (SEQ (LETT |t1| NIL) (LETT #2# |p1|) G190
                    (COND
@@ -54,7 +54,7 @@
         (SPADCALL (SPADCALL |v| (QREFELT $ 25)) (QREFELT $ 24))) 
 
 (SDEFUN |XDPOLY;*;vl2$;6| ((|v| (|vl|)) (|p| ($)) ($ ($)))
-        (SPROG ((#1=#:G134 NIL) (|t| NIL) (#2=#:G133 NIL))
+        (SPROG ((#1=#:G137 NIL) (|t| NIL) (#2=#:G136 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -130,8 +130,8 @@
 
 (SDEFUN |XDPOLY;varList;$L;12| ((|p| ($)) ($ (|List| |vl|)))
         (SPROG
-         ((|le| #1=(|List| |vl|)) (#2=#:G161 NIL) (#3=#:G160 #1#)
-          (#4=#:G162 #1#) (#5=#:G166 NIL) (|t| NIL))
+         ((|le| #1=(|List| |vl|)) (#2=#:G164 NIL) (#3=#:G163 #1#)
+          (#4=#:G165 #1#) (#5=#:G169 NIL) (|t| NIL))
          (SEQ
           (COND ((SPADCALL |p| (QREFELT $ 47)) NIL)
                 (#6='T
@@ -160,8 +160,8 @@
 
 (SDEFUN |XDPOLY;rquo;$Fm$;13| ((|p| ($)) (|w| (|FreeMonoid| |vl|)) ($ ($)))
         (SPROG
-         ((#1=#:G168 NIL) (|r| (|Union| (|FreeMonoid| |vl|) #2="failed"))
-          (#3=#:G174 NIL) (|t| NIL) (#4=#:G173 NIL))
+         ((#1=#:G172 NIL) (|r| (|Union| (|FreeMonoid| |vl|) #2="failed"))
+          (#3=#:G178 NIL) (|t| NIL) (#4=#:G177 NIL))
          (SEQ
           (PROGN
            (LETT #4# NIL)
@@ -190,8 +190,8 @@
 
 (SDEFUN |XDPOLY;lquo;$Fm$;14| ((|p| ($)) (|w| (|FreeMonoid| |vl|)) ($ ($)))
         (SPROG
-         ((#1=#:G176 NIL) (|r| (|Union| (|FreeMonoid| |vl|) #2="failed"))
-          (#3=#:G182 NIL) (|t| NIL) (#4=#:G181 NIL))
+         ((#1=#:G181 NIL) (|r| (|Union| (|FreeMonoid| |vl|) #2="failed"))
+          (#3=#:G187 NIL) (|t| NIL) (#4=#:G186 NIL))
          (SEQ
           (PROGN
            (LETT #4# NIL)
@@ -220,8 +220,8 @@
 
 (SDEFUN |XDPOLY;rquo;$vl$;15| ((|p| ($)) (|v| (|vl|)) ($ ($)))
         (SPROG
-         ((#1=#:G184 NIL) (|r| (|Union| (|FreeMonoid| |vl|) #2="failed"))
-          (#3=#:G190 NIL) (|t| NIL) (#4=#:G189 NIL))
+         ((#1=#:G190 NIL) (|r| (|Union| (|FreeMonoid| |vl|) #2="failed"))
+          (#3=#:G196 NIL) (|t| NIL) (#4=#:G195 NIL))
          (SEQ
           (PROGN
            (LETT #4# NIL)
@@ -250,8 +250,8 @@
 
 (SDEFUN |XDPOLY;lquo;$vl$;16| ((|p| ($)) (|v| (|vl|)) ($ ($)))
         (SPROG
-         ((#1=#:G192 NIL) (|r| (|Union| (|FreeMonoid| |vl|) #2="failed"))
-          (#3=#:G198 NIL) (|t| NIL) (#4=#:G197 NIL))
+         ((#1=#:G199 NIL) (|r| (|Union| (|FreeMonoid| |vl|) #2="failed"))
+          (#3=#:G205 NIL) (|t| NIL) (#4=#:G204 NIL))
          (SEQ
           (PROGN
            (LETT #4# NIL)
@@ -304,8 +304,8 @@
 
 (SDEFUN |XDPOLY;lquo;3$;18| ((|p| ($)) (|q| ($)) ($ ($)))
         (SPROG
-         ((#1=#:G204 NIL) (#2=#:G203 ($)) (#3=#:G205 ($)) (|r| ($))
-          (#4=#:G207 NIL) (|t| NIL))
+         ((#1=#:G211 NIL) (#2=#:G210 ($)) (#3=#:G212 ($)) (|r| ($))
+          (#4=#:G214 NIL) (|t| NIL))
          (SEQ
           (PROGN
            (LETT #1# NIL)
@@ -327,8 +327,8 @@
 
 (SDEFUN |XDPOLY;rquo;3$;19| ((|p| ($)) (|q| ($)) ($ ($)))
         (SPROG
-         ((#1=#:G209 NIL) (#2=#:G208 ($)) (#3=#:G210 ($)) (|r| ($))
-          (#4=#:G212 NIL) (|t| NIL))
+         ((#1=#:G216 NIL) (#2=#:G215 ($)) (#3=#:G217 ($)) (|r| ($))
+          (#4=#:G219 NIL) (|t| NIL))
          (SEQ
           (PROGN
            (LETT #1# NIL)
@@ -349,7 +349,7 @@
            (COND (#1# #2#) ('T (|spadConstant| $ 12))))))) 
 
 (SDEFUN |XDPOLY;coef;2$R;20| ((|p| ($)) (|q| ($)) ($ (R)))
-        (SPROG ((#1=#:G216 NIL))
+        (SPROG ((#1=#:G223 NIL))
                (SEQ
                 (EXIT
                  (COND
@@ -372,14 +372,14 @@
                                        (QCDR (|SPADfirst| |q|)) (QREFELT $ 19))
                              (SPADCALL (CDR |p|) (CDR |q|) (QREFELT $ 69))
                              (QREFELT $ 71)))
-                      (GO #2=#:G215)))))))
+                      (GO #2=#:G222)))))))
                 #2# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |XDistributedPolynomial;|)) 
 
-(DEFUN |XDistributedPolynomial| (&REST #1=#:G221)
+(DEFUN |XDistributedPolynomial| (&REST #1=#:G228)
   (SPROG NIL
-         (PROG (#2=#:G222)
+         (PROG (#2=#:G229)
            (RETURN
             (COND
              ((LETT #2#
@@ -398,7 +398,7 @@
 
 (DEFUN |XDistributedPolynomial;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G220 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G227 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))

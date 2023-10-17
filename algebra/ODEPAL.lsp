@@ -10,18 +10,18 @@
                            (|:| |coeffs| (|Vector| (|Fraction| UP))))))
            (|:| |basis| (|List| (|Fraction| UP))))))
         (SPROG
-         ((|bl| (|List| (|Fraction| UP))) (|s| (|Fraction| UP)) (#1=#:G132 NIL)
-          (|k| NIL) (#2=#:G133 NIL) (|bf| NIL) (#3=#:G131 NIL) (|i| NIL)
+         ((|bl| (|List| (|Fraction| UP))) (|s| (|Fraction| UP)) (#1=#:G139 NIL)
+          (|k| NIL) (#2=#:G140 NIL) (|bf| NIL) (#3=#:G138 NIL) (|i| NIL)
           (|sl|
            (|List|
             (|Record| (|:| |ratpart| (|Fraction| UP))
                       (|:| |coeffs| (|Vector| (|Fraction| UP))))))
-          (#4=#:G129 NIL) (#5=#:G130 NIL) (#6=#:G128 NIL)
-          (|cv| (|Vector| (|Fraction| UP))) (#7=#:G124 NIL) (|i0| (|Integer|))
-          (|j| (|Integer|)) (#8=#:G127 NIL) (|nr| (|NonNegativeInteger|))
-          (|m3| (|Matrix| F)) (|nn1| (|NonNegativeInteger|)) (#9=#:G111 NIL)
+          (#4=#:G136 NIL) (#5=#:G137 NIL) (#6=#:G135 NIL)
+          (|cv| (|Vector| (|Fraction| UP))) (#7=#:G131 NIL) (|i0| (|Integer|))
+          (|j| (|Integer|)) (#8=#:G134 NIL) (|nr| (|NonNegativeInteger|))
+          (|m3| (|Matrix| F)) (|nn1| (|NonNegativeInteger|)) (#9=#:G112 NIL)
           (|nc| (|NonNegativeInteger|)) (|nn| #10=(|NonNegativeInteger|))
-          (|m1| (|Matrix| F)) (#11=#:G126 NIL) (|kv| NIL) (#12=#:G125 NIL)
+          (|m1| (|Matrix| F)) (#11=#:G133 NIL) (|kv| NIL) (#12=#:G132 NIL)
           (|nb| #10#) (|ker| (|List| (|Vector| F)))
           (|bas| #13=(|List| (|Fraction| UP)))
           (|sol| (|Record| (|:| |basis| #13#) (|:| |mat| (|Matrix| F)))))
@@ -90,7 +90,7 @@
                                           (EXIT
                                            (PROGN
                                             (LETT #7# |$NoValue|)
-                                            (GO #14=#:G117))))))
+                                            (GO #14=#:G122))))))
                                    (LETT |cv|
                                          (MAKEARR1 |nn| (|spadConstant| $ 37)))
                                    (SEQ (LETT |k| 1) (LETT #6# |nn|) G190
@@ -191,8 +191,8 @@
         (SPROG
          ((|part|
            (|List| (|Record| (|:| |ratpart| R) (|:| |coeffs| (|Vector| F)))))
-          (#1=#:G153 NIL) (|be| NIL) (#2=#:G152 NIL) (|bas| (|List| R))
-          (#3=#:G151 NIL) (|v| NIL) (#4=#:G150 NIL)
+          (#1=#:G162 NIL) (|be| NIL) (#2=#:G161 NIL) (|bas| (|List| R))
+          (#3=#:G160 NIL) (|v| NIL) (#4=#:G159 NIL)
           (|sol|
            (|Record|
             (|:| |particular|
@@ -277,9 +277,9 @@
 
 (DECLAIM (NOTINLINE |PureAlgebraicLODE;|)) 
 
-(DEFUN |PureAlgebraicLODE| (&REST #1=#:G167)
+(DEFUN |PureAlgebraicLODE| (&REST #1=#:G176)
   (SPROG NIL
-         (PROG (#2=#:G168)
+         (PROG (#2=#:G177)
            (RETURN
             (COND
              ((LETT #2#

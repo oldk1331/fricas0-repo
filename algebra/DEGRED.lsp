@@ -21,8 +21,8 @@
           (|Record| (|:| |pol| (|SparseUnivariatePolynomial| R1))
                     (|:| |deg| (|PositiveInteger|)))))
         (SPROG
-         ((#1=#:G121 NIL) (#2=#:G118 NIL) (#3=#:G116 NIL) (|g| #4=(|Integer|))
-          (#5=#:G110 NIL) (#6=#:G109 #4#) (#7=#:G111 #4#) (#8=#:G125 NIL)
+         ((#1=#:G122 NIL) (#2=#:G119 NIL) (#3=#:G117 NIL) (|g| #4=(|Integer|))
+          (#5=#:G111 NIL) (#6=#:G110 #4#) (#7=#:G112 #4#) (#8=#:G126 NIL)
           (|d| NIL))
          (SEQ
           (LETT |g|
@@ -99,7 +99,7 @@
         ((|s| (|Expression| R2)) (|g| (|PositiveInteger|))
          ($ (|List| (|Expression| R2))))
         (SPROG
-         ((#1=#:G138 NIL) (|i| NIL) (#2=#:G137 NIL) (|sr| (|Expression| R2))
+         ((#1=#:G141 NIL) (|i| NIL) (#2=#:G140 NIL) (|sr| (|Expression| R2))
           (|g2| (|PositiveInteger|)))
          (SEQ
           (COND ((EQL |g| 1) (LIST |s|))
@@ -139,7 +139,7 @@
 
 (SDEFUN |DEGRED;cyclotomic_roots;PiL;6|
         ((|n| (|PositiveInteger|)) ($ (|List| (|Expression| R2))))
-        (SPROG ((#1=#:G142 NIL) (|i| NIL) (#2=#:G141 NIL))
+        (SPROG ((#1=#:G146 NIL) (|i| NIL) (#2=#:G145 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -157,9 +157,9 @@
 
 (DECLAIM (NOTINLINE |DegreeReductionPackage;|)) 
 
-(DEFUN |DegreeReductionPackage| (&REST #1=#:G143)
+(DEFUN |DegreeReductionPackage| (&REST #1=#:G147)
   (SPROG NIL
-         (PROG (#2=#:G144)
+         (PROG (#2=#:G148)
            (RETURN
             (COND
              ((LETT #2#

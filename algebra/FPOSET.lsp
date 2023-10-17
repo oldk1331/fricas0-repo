@@ -9,8 +9,8 @@
 (SDEFUN |FPOSET;finitePoset;LM$;2|
         ((|carrier| (|List| S)) (|pred| (|Mapping| (|Boolean|) S S)) ($ ($)))
         (SPROG
-         ((|struct1| (|List| (|List| (|Boolean|)))) (#1=#:G114 NIL) (|x| NIL)
-          (#2=#:G113 NIL) (#3=#:G112 NIL) (|y| NIL) (#4=#:G111 NIL))
+         ((|struct1| (|List| (|List| (|Boolean|)))) (#1=#:G116 NIL) (|x| NIL)
+          (#2=#:G115 NIL) (#3=#:G114 NIL) (|y| NIL) (#4=#:G113 NIL))
          (SEQ
           (LETT |struct1|
                 (PROGN
@@ -62,9 +62,9 @@
 
 (DECLAIM (NOTINLINE |FinitePoset;|)) 
 
-(DEFUN |FinitePoset| (#1=#:G128)
+(DEFUN |FinitePoset| (#1=#:G130)
   (SPROG NIL
-         (PROG (#2=#:G129)
+         (PROG (#2=#:G131)
            (RETURN
             (COND
              ((LETT #2#

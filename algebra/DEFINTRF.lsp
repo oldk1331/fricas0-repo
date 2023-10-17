@@ -20,9 +20,9 @@
                    (|:| |fail| #1="failed") (|:| |pole| "potentialPole"))))
         (SPROG
          ((|ans| (|List| (|OrderedCompletion| (|Expression| R))))
-          (#2=#:G128 NIL)
+          (#2=#:G129 NIL)
           (|v| (|Union| (|OrderedCompletion| (|Expression| R)) "failed"))
-          (#3=#:G129 NIL) (|g| NIL)
+          (#3=#:G130 NIL) (|g| NIL)
           (|u| (|Union| (|Expression| R) (|List| (|Expression| R))))
           (|k| (|Kernel| (|Expression| R))))
          (SEQ
@@ -53,7 +53,7 @@
                                 ((QEQCAR |v| 1)
                                  (PROGN
                                   (LETT #2# (CONS 2 #1#))
-                                  (GO #5=#:G127)))
+                                  (GO #5=#:G128)))
                                 ('T
                                  (LETT |ans|
                                        (SPADCALL |ans| (LIST (QCDR |v|))
@@ -141,9 +141,9 @@
 
 (DECLAIM (NOTINLINE |RationalFunctionDefiniteIntegration;|)) 
 
-(DEFUN |RationalFunctionDefiniteIntegration| (#1=#:G154)
+(DEFUN |RationalFunctionDefiniteIntegration| (#1=#:G155)
   (SPROG NIL
-         (PROG (#2=#:G155)
+         (PROG (#2=#:G156)
            (RETURN
             (COND
              ((LETT #2#

@@ -11,9 +11,9 @@
            (|List|
             (|Record| (|:| |complexRoots| (|SparseUnivariatePolynomial| R))
                       (|:| |coordinates| (|List| (|Polynomial| R))))))
-          (|lc| (|List| (|Polynomial| R))) (#1=#:G171 NIL) (#2=#:G170 NIL)
-          (|g| (|SparseUnivariatePolynomial| R)) (#3=#:G119 NIL)
-          (#4=#:G169 NIL) (|us| NIL) (#5=#:G168 NIL)
+          (|lc| (|List| (|Polynomial| R))) (#1=#:G181 NIL) (#2=#:G180 NIL)
+          (|g| (|SparseUnivariatePolynomial| R)) (#3=#:G120 NIL)
+          (#4=#:G179 NIL) (|us| NIL) (#5=#:G178 NIL)
           (|lus|
            (|List|
             (|SquareFreeRegularTriangularSet| R
@@ -23,7 +23,7 @@
                                               (|NewSparseMultivariatePolynomial|
                                                R
                                                (|OrderedVariableList| |lv|)))))
-          (#6=#:G167 NIL)
+          (#6=#:G177 NIL)
           (|toSee|
            (|List|
             (|Record|
@@ -47,7 +47,7 @@
            (|List|
             (|NewSparseMultivariatePolynomial| R
                                                (|OrderedVariableList| |lv|))))
-          (#7=#:G166 NIL) (#8=#:G165 NIL)
+          (#7=#:G176 NIL) (#8=#:G175 NIL)
           (|newts|
            (|SquareFreeRegularTriangularSet| R
                                              (|IndexedExponents|
@@ -64,7 +64,7 @@
                                              (|OrderedVariableList| |lv|)
                                              (|NewSparseMultivariatePolynomial|
                                               R (|OrderedVariableList| |lv|))))
-          (#9=#:G164 NIL) (|qwt| NIL)
+          (#9=#:G174 NIL) (|qwt| NIL)
           (|lsfqwt|
            (|List|
             (|Record|
@@ -83,12 +83,12 @@
                                                      R
                                                      (|OrderedVariableList|
                                                       |lv|)))))))
-          (#10=#:G163 NIL) (#11=#:G162 NIL) (#12=#:G161 NIL) (|fq| NIL)
+          (#10=#:G173 NIL) (#11=#:G172 NIL) (#12=#:G171 NIL) (|fq| NIL)
           (|lfq|
            (|List|
             (|NewSparseMultivariatePolynomial| R
                                                (|OrderedVariableList| |lv|))))
-          (#13=#:G130 NIL)
+          (#13=#:G132 NIL)
           (|lq|
            (|List|
             (|NewSparseMultivariatePolynomial| R
@@ -123,7 +123,7 @@
            (|Union|
             (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |lv|))
             "failed"))
-          (#14=#:G160 NIL) (|p| NIL))
+          (#14=#:G170 NIL) (|p| NIL))
          (SEQ (LETT |lp| (SPADCALL (ELT $ 23) |lp| (QREFELT $ 26)))
               (EXIT
                (COND ((NULL |lp|) (|error| "rur$RURPACK: #1 is empty"))
@@ -475,9 +475,9 @@
 
 (DECLAIM (NOTINLINE |RationalUnivariateRepresentationPackage;|)) 
 
-(DEFUN |RationalUnivariateRepresentationPackage| (&REST #1=#:G176)
+(DEFUN |RationalUnivariateRepresentationPackage| (&REST #1=#:G186)
   (SPROG NIL
-         (PROG (#2=#:G177)
+         (PROG (#2=#:G187)
            (RETURN
             (COND
              ((LETT #2#

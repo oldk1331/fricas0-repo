@@ -340,12 +340,12 @@
            (|Record|
             (|:| |radicand| (|Fraction| (|SparseUnivariatePolynomial| F)))
             (|:| |deg| (|NonNegativeInteger|))))
-          (#1=#:G138 NIL)
+          (#1=#:G139 NIL)
           (|lf1|
            (|List|
             (|SparseUnivariatePolynomial|
              (|Fraction| (|SparseUnivariatePolynomial| F)))))
-          (#2=#:G143 NIL) (|f| NIL) (#3=#:G142 NIL)
+          (#2=#:G144 NIL) (|f| NIL) (#3=#:G143 NIL)
           (|mon1|
            (|SparseUnivariatePolynomial|
             (|Fraction| (|SparseUnivariatePolynomial| F))))
@@ -452,7 +452,7 @@
            (|List|
             (|SparseUnivariatePolynomial|
              (|Fraction| (|SparseUnivariatePolynomial| F)))))
-          (#1=#:G149 NIL) (|f| NIL) (#2=#:G148 NIL)
+          (#1=#:G151 NIL) (|f| NIL) (#2=#:G150 NIL)
           (|mon1|
            (|SparseUnivariatePolynomial|
             (|Fraction| (|SparseUnivariatePolynomial| F))))
@@ -526,11 +526,11 @@
          (|lg| (|List| F))
          ($ (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))))
         (SPROG
-         ((#1=#:G178 NIL) (|be| NIL) (#2=#:G177 NIL)
+         ((#1=#:G182 NIL) (|be| NIL) (#2=#:G181 NIL)
           (|res1|
            (|List|
             (|Record| (|:| |ratpart| |curve|) (|:| |coeffs| (|Vector| F)))))
-          (#3=#:G176 NIL) (|f| NIL) (#4=#:G175 NIL)
+          (#3=#:G180 NIL) (|f| NIL) (#4=#:G179 NIL)
           (|cc| (|Fraction| (|SparseUnivariatePolynomial| F)))
           (|red|
            (|Mapping| |curve|
@@ -740,11 +740,11 @@
          (|lg| (|List| F))
          ($ (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))))
         (SPROG
-         ((#1=#:G202 NIL) (|be| NIL) (#2=#:G201 NIL)
+         ((#1=#:G209 NIL) (|be| NIL) (#2=#:G208 NIL)
           (|res1|
            (|List|
             (|Record| (|:| |ratpart| |curve|) (|:| |coeffs| (|Vector| F)))))
-          (#3=#:G200 NIL) (|f| NIL) (#4=#:G199 NIL)
+          (#3=#:G207 NIL) (|f| NIL) (#4=#:G206 NIL)
           (|red|
            (|Mapping| |curve|
                       (|SparseUnivariatePolynomial|
@@ -758,7 +758,7 @@
            (|Record|
             (|:| |radicand| (|Fraction| (|SparseUnivariatePolynomial| F)))
             (|:| |deg| (|NonNegativeInteger|))))
-          (#5=#:G184 NIL)
+          (#5=#:G189 NIL)
           (|cv|
            (|Record|
             (|:| |func|
@@ -775,7 +775,7 @@
            (|List|
             (|SparseUnivariatePolynomial|
              (|Fraction| (|SparseUnivariatePolynomial| F)))))
-          (#6=#:G198 NIL) (|g| NIL) (#7=#:G197 NIL)
+          (#6=#:G205 NIL) (|g| NIL) (#7=#:G204 NIL)
           (|p| (|SparseUnivariatePolynomial| F)))
          (SEQ (LETT |p| (SPADCALL |y| (QREFELT $ 24)))
               (LETT |lg1|
@@ -1000,9 +1000,9 @@
 
 (DECLAIM (NOTINLINE |AlgebraicIntegration;|)) 
 
-(DEFUN |AlgebraicIntegration| (&REST #1=#:G219)
+(DEFUN |AlgebraicIntegration| (&REST #1=#:G226)
   (SPROG NIL
-         (PROG (#2=#:G220)
+         (PROG (#2=#:G227)
            (RETURN
             (COND
              ((LETT #2#

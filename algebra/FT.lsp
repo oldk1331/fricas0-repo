@@ -1,6 +1,6 @@
 
 (SDEFUN |FT;coerce;$Of;1| ((|a| ($)) ($ (|OutputForm|)))
-        (SPROG ((#1=#:G118 NIL) (|u| NIL) (#2=#:G117 NIL) (|t| (|OutputForm|)))
+        (SPROG ((#1=#:G119 NIL) (|u| NIL) (#2=#:G118 NIL) (|t| (|OutputForm|)))
                (SEQ
                 (COND
                  ((SPADCALL |a| (QREFELT $ 8))
@@ -65,7 +65,7 @@
 (SDEFUN |FT;construct;ULB$;5|
         ((|t| (|Union| (|:| |fst| (|FortranScalarType|)) (|:| |void| "void")))
          (|d| (|List| (|Symbol|))) (|e| (|Boolean|)) ($ ($)))
-        (SPROG ((#1=#:G131 NIL) (|l| NIL) (#2=#:G130 NIL))
+        (SPROG ((#1=#:G133 NIL) (|l| NIL) (#2=#:G132 NIL))
                (SEQ
                 (COND
                  (|e|
@@ -140,7 +140,7 @@
 
 (DEFUN |FortranType| ()
   (SPROG NIL
-         (PROG (#1=#:G155)
+         (PROG (#1=#:G157)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|FortranType|))

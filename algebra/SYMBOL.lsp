@@ -14,15 +14,15 @@
 
 (SDEFUN |SYMBOL;convert;$If;3| ((|s| ($)) ($ (|InputForm|)))
         (SPROG
-         ((|d| (|InputForm|)) (G (|List| (|InputForm|))) (#1=#:G2038 NIL)
-          (F NIL) (#2=#:G2037 NIL) (FF (|List| (|List| (|InputForm|))))
-          (#3=#:G2036 NIL) (|e| NIL) (#4=#:G2035 NIL) (|b| #5=(|InputForm|))
-          (|a| #5#) (E (|List| (|InputForm|))) (#6=#:G2034 NIL)
-          (#7=#:G2033 NIL) (D (|List| (|InputForm|))) (#8=#:G2032 NIL)
-          (#9=#:G2031 NIL) (C (|List| (|InputForm|))) (#10=#:G2030 NIL)
-          (#11=#:G2029 NIL) (B (|List| (|InputForm|))) (#12=#:G2028 NIL)
-          (#13=#:G2027 NIL) (A (|List| (|InputForm|))) (#14=#:G2026 NIL)
-          (#15=#:G2025 NIL)
+         ((|d| (|InputForm|)) (G (|List| (|InputForm|))) (#1=#:G2111 NIL)
+          (F NIL) (#2=#:G2110 NIL) (FF (|List| (|List| (|InputForm|))))
+          (#3=#:G2109 NIL) (|e| NIL) (#4=#:G2108 NIL) (|b| #5=(|InputForm|))
+          (|a| #5#) (E (|List| (|InputForm|))) (#6=#:G2107 NIL)
+          (#7=#:G2106 NIL) (D (|List| (|InputForm|))) (#8=#:G2105 NIL)
+          (#9=#:G2104 NIL) (C (|List| (|InputForm|))) (#10=#:G2103 NIL)
+          (#11=#:G2102 NIL) (B (|List| (|InputForm|))) (#12=#:G2101 NIL)
+          (#13=#:G2100 NIL) (A (|List| (|InputForm|))) (#14=#:G2099 NIL)
+          (#15=#:G2098 NIL)
           (|ls|
            (|Record| (|:| |sub| (|List| (|OutputForm|)))
                      (|:| |sup| (|List| (|OutputForm|)))
@@ -147,7 +147,7 @@
 (SDEFUN |SYMBOL;coerce;$Of;9| ((|x| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|a| (|List| (|OutputForm|))) (|x0| (|OutputForm|))
-          (|sl| (|List| (|OutputForm|))) (|se| (|OutputForm|)) (#1=#:G2053 NIL)
+          (|sl| (|List| (|OutputForm|))) (|se| (|OutputForm|)) (#1=#:G2127 NIL)
           (|si| NIL) (|rsl| (|List| (|List| (|OutputForm|))))
           (|ss|
            (|Record| (|:| |sub| (|List| (|OutputForm|)))
@@ -227,7 +227,7 @@
                     (|:| |args| (|List| (|OutputForm|)))))
          ($ (|String|)))
         (SPROG
-         ((#1=#:G2067 NIL) (|n| NIL) (#2=#:G2066 NIL)
+         ((#1=#:G2142 NIL) (|n| NIL) (#2=#:G2141 NIL)
           (|ns| (|List| (|Integer|))))
          (SEQ
           (LETT |ns|
@@ -433,7 +433,7 @@
 
 (SDEFUN |SYMBOL;anyRadix| ((|n| (|Integer|)) (|s| (|String|)) ($ (|String|)))
         (SPROG
-         ((#1=#:G2127 NIL) (|ns| (|String|))
+         ((#1=#:G2208 NIL) (|ns| (|String|))
           (|qr|
            (|Record| (|:| |quotient| (|Integer|))
                      (|:| |remainder| (|Integer|)))))
@@ -454,7 +454,7 @@
                            (EXIT
                             (COND
                              ((ZEROP |n|)
-                              (PROGN (LETT #1# |ns|) (GO #2=#:G2126))))))
+                              (PROGN (LETT #1# |ns|) (GO #2=#:G2207))))))
                       NIL (GO G190) G191 (EXIT NIL)))))
           #2# (EXIT #1#)))) 
 
@@ -500,7 +500,7 @@
                      (SPADCALL |x| (QREFELT $ 31)) (QREFELT $ 76)))))) 
 
 (SDEFUN |SYMBOL;resetNew;V;27| (($ (|Void|)))
-        (SPROG ((#1=#:G2149 NIL) (|k| NIL))
+        (SPROG ((#1=#:G2231 NIL) (|k| NIL))
                (SEQ (SETELT $ 6 0)
                     (SEQ (LETT |k| NIL)
                          (LETT #1# (SPADCALL (QREFELT $ 9) (QREFELT $ 94)))
@@ -547,10 +547,10 @@
                     (|:| |presub| (|List| (|OutputForm|)))
                     (|:| |args| (|List| (|OutputForm|))))))
         (SPROG
-         ((|allscripts| (|List| (|OutputForm|))) (|i| NIL) (#1=#:G2165 NIL)
+         ((|allscripts| (|List| (|OutputForm|))) (|i| NIL) (#1=#:G2249 NIL)
           (|n| NIL) (|m| (|Integer|))
-          (|nscripts| (|List| (|NonNegativeInteger|))) (#2=#:G2157 NIL)
-          (#3=#:G2164 NIL) (|j| NIL) (|nstr| (|NonNegativeInteger|))
+          (|nscripts| (|List| (|NonNegativeInteger|))) (#2=#:G2240 NIL)
+          (#3=#:G2248 NIL) (|j| NIL) (|nstr| (|NonNegativeInteger|))
           (|str| (|String|)) (|lscripts| (|List| (|List| (|OutputForm|)))))
          (SEQ
           (COND
@@ -624,7 +624,7 @@
 
 (DEFUN |Symbol| ()
   (SPROG NIL
-         (PROG (#1=#:G2169)
+         (PROG (#1=#:G2253)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Symbol|))

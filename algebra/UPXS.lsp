@@ -155,7 +155,7 @@
          (|uu| (|Stream| |Coef|)) (|xxx| (|OutputForm|)) ($ (|OutputForm|)))
         (SPROG
          ((|l| (|List| (|OutputForm|))) (|uu1| (|Stream| |Coef|)) (|n| NIL)
-          (#1=#:G179 NIL) (|count| (|NonNegativeInteger|)))
+          (#1=#:G181 NIL) (|count| (|NonNegativeInteger|)))
          (SEQ (LETT |l| NIL)
               (EXIT
                (COND
@@ -289,9 +289,9 @@
 
 (DECLAIM (NOTINLINE |UnivariatePuiseuxSeries;|)) 
 
-(DEFUN |UnivariatePuiseuxSeries| (&REST #1=#:G210)
+(DEFUN |UnivariatePuiseuxSeries| (&REST #1=#:G212)
   (SPROG NIL
-         (PROG (#2=#:G211)
+         (PROG (#2=#:G213)
            (RETURN
             (COND
              ((LETT #2#
@@ -310,8 +310,8 @@
 
 (DEFUN |UnivariatePuiseuxSeries;| (|#1| |#2| |#3|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G203 NIL) (#2=#:G204 NIL) (#3=#:G205 NIL) (#4=#:G206 NIL)
-    (#5=#:G208 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G205 NIL) (#2=#:G206 NIL) (#3=#:G207 NIL) (#4=#:G208 NIL)
+    (#5=#:G210 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 |#2|)

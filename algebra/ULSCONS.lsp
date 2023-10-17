@@ -1147,7 +1147,7 @@
          ($ (|OutputForm|)))
         (SPROG
          ((|l| (|List| (|OutputForm|))) (|uu1| (|Stream| |Coef|)) (|n| NIL)
-          (#1=#:G516 NIL) (|count| (|NonNegativeInteger|)))
+          (#1=#:G518 NIL) (|count| (|NonNegativeInteger|)))
          (SEQ (LETT |l| NIL)
               (EXIT
                (COND
@@ -1263,9 +1263,9 @@
 
 (DECLAIM (NOTINLINE |UnivariateLaurentSeriesConstructor;|)) 
 
-(DEFUN |UnivariateLaurentSeriesConstructor| (&REST #1=#:G563)
+(DEFUN |UnivariateLaurentSeriesConstructor| (&REST #1=#:G565)
   (SPROG NIL
-         (PROG (#2=#:G564)
+         (PROG (#2=#:G566)
            (RETURN
             (COND
              ((LETT #2#
@@ -1287,9 +1287,9 @@
 
 (DEFUN |UnivariateLaurentSeriesConstructor;| (|#1| |#2|)
   (SPROG
-   ((#1=#:G562 NIL) (|pv$| NIL) (#2=#:G551 NIL) (#3=#:G552 NIL) (#4=#:G554 NIL)
-    (#5=#:G555 NIL) (#6=#:G556 NIL) (#7=#:G557 NIL) (#8=#:G558 NIL)
-    (#9=#:G560 NIL) (#10=#:G561 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((#1=#:G564 NIL) (|pv$| NIL) (#2=#:G553 NIL) (#3=#:G554 NIL) (#4=#:G556 NIL)
+    (#5=#:G557 NIL) (#6=#:G558 NIL) (#7=#:G559 NIL) (#8=#:G560 NIL)
+    (#9=#:G562 NIL) (#10=#:G563 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))

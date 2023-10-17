@@ -1,7 +1,7 @@
 
 (SDEFUN |DJBP;lookup| ((|jv| (JB)) ($ (|NonNegativeInteger|)))
         (SPROG
-         ((#1=#:G138 NIL) (#2=#:G139 NIL) (|i| NIL) (#3=#:G140 NIL)
+         ((#1=#:G140 NIL) (#2=#:G141 NIL) (|i| NIL) (#3=#:G142 NIL)
           (|ljv| NIL))
          (SEQ
           (EXIT
@@ -16,7 +16,7 @@
                   (EXIT
                    (COND
                     ((SPADCALL |ljv| |jv| (QREFELT $ 17))
-                     (PROGN (LETT #1# |i|) (GO #4=#:G137))))))
+                     (PROGN (LETT #1# |i|) (GO #4=#:G139))))))
                  (LETT |i| (PROG1 (|inc_SI| |i|) (LETT #3# (CDR #3#))))
                  (GO G190) G191 (EXIT NIL))
             (EXIT (|error| "illegal jet variable"))))
@@ -58,7 +58,7 @@
 
 (SDEFUN |DJBP;mainVariable;$U;8| ((|p| ($)) ($ (|Union| JB "failed")))
         (SPROG
-         ((#1=#:G162 NIL) (#2=#:G163 NIL) (|i| NIL) (#3=#:G164 NIL) (|jv| NIL)
+         ((#1=#:G165 NIL) (#2=#:G166 NIL) (|i| NIL) (#3=#:G167 NIL) (|jv| NIL)
           (|tdeg| (E)))
          (SEQ
           (EXIT
@@ -78,7 +78,7 @@
                                  (ZEROP (SPADCALL |tdeg| |i| (QREFELT $ 37))))
                                 (PROGN
                                  (LETT #1# (CONS 0 |jv|))
-                                 (GO #4=#:G161))))))
+                                 (GO #4=#:G164))))))
                             (LETT |i|
                                   (PROG1 (|inc_SI| |i|) (LETT #3# (CDR #3#))))
                             (GO G190) G191 (EXIT NIL))
@@ -87,8 +87,8 @@
 
 (SDEFUN |DJBP;variables;$L;9| ((|p| ($)) ($ (|List| JB)))
         (SPROG
-         ((#1=#:G177 NIL) (|jv| NIL) (#2=#:G178 NIL) (|i| NIL) (#3=#:G176 NIL)
-          (#4=#:G175 NIL) (|tdeg| (E))
+         ((#1=#:G183 NIL) (|jv| NIL) (#2=#:G184 NIL) (|i| NIL) (#3=#:G182 NIL)
+          (#4=#:G181 NIL) (|tdeg| (E))
           (|maxdeg| (|Vector| (|NonNegativeInteger|))))
          (SEQ (LETT |maxdeg| (SPADCALL (QREFELT $ 13) 0 (QREFELT $ 40)))
               (SEQ G190
@@ -132,7 +132,7 @@
 (SDEFUN |DJBP;coerce;$Of;10| ((|p| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|lt| (|List| (|OutputForm|))) (|l| (|List| (|OutputForm|)))
-          (#1=#:G195 NIL) (|i| NIL) (#2=#:G194 NIL) (|t| NIL))
+          (#1=#:G203 NIL) (|i| NIL) (#2=#:G202 NIL) (|t| NIL))
          (SEQ
           (COND
            ((SPADCALL |p| (QREFELT $ 29))
@@ -280,8 +280,8 @@
 (SDEFUN |DJBP;univariate;$JBSup;16|
         ((|p| ($)) (|jv| (JB)) ($ (|SparseUnivariatePolynomial| $)))
         (SPROG
-         ((|nexp| (E)) (|deg| (|NonNegativeInteger|)) (#1=#:G234 NIL)
-          (#2=#:G236 NIL) (|i| NIL) (#3=#:G235 NIL)
+         ((|nexp| (E)) (|deg| (|NonNegativeInteger|)) (#1=#:G245 NIL)
+          (#2=#:G247 NIL) (|i| NIL) (#3=#:G246 NIL)
           (|j| (|NonNegativeInteger|)) (|exp| (E)))
          (SEQ
           (COND ((SPADCALL |p| (QREFELT $ 29)) (|spadConstant| $ 88))
@@ -387,8 +387,8 @@
 
 (SDEFUN |DJBP;totalDegree;$Nni;20| ((|p| ($)) ($ (|NonNegativeInteger|)))
         (SPROG
-         ((#1=#:G252 NIL) (#2=#:G251 #3=(|NonNegativeInteger|)) (#4=#:G253 #3#)
-          (#5=#:G258 NIL) (|t| NIL))
+         ((#1=#:G264 NIL) (#2=#:G263 #3=(|NonNegativeInteger|)) (#4=#:G265 #3#)
+          (#5=#:G270 NIL) (|t| NIL))
          (SEQ
           (COND ((SPADCALL |p| (QREFELT $ 29)) 0)
                 (#6='T
@@ -416,7 +416,7 @@
 
 (SDEFUN |DJBP;degree;$LL;22|
         ((|p| ($)) (|ljv| (|List| JB)) ($ (|List| (|NonNegativeInteger|))))
-        (SPROG ((#1=#:G263 NIL) (|jv| NIL) (#2=#:G262 NIL))
+        (SPROG ((#1=#:G276 NIL) (|jv| NIL) (#2=#:G275 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -437,7 +437,7 @@
 
 (SDEFUN |DJBP;minimumDegree;$LL;24|
         ((|p| ($)) (|ljv| (|List| JB)) ($ (|List| (|NonNegativeInteger|))))
-        (SPROG ((#1=#:G268 NIL) (|jv| NIL) (#2=#:G267 NIL))
+        (SPROG ((#1=#:G282 NIL) (|jv| NIL) (#2=#:G281 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -517,7 +517,7 @@
 (SDEFUN |DJBP;eval;$LL$;29|
         ((|p| ($)) (|Ljvar| (|List| JB)) (|Lpval| (|List| $)) ($ ($)))
         (SPROG
-         ((|nlpval| (|List| $)) (#1=#:G288 NIL) (|mvar| NIL) (#2=#:G287 NIL)
+         ((|nlpval| (|List| $)) (#1=#:G303 NIL) (|mvar| NIL) (#2=#:G302 NIL)
           (|nljvar| (|List| JB)))
          (SEQ
           (LETT |nljvar|
@@ -560,7 +560,7 @@
 
 (SDEFUN |DJBP;content;$R;32| ((|p| ($)) ($ (R)))
         (SPROG
-         ((#1=#:G292 NIL) (#2=#:G291 (R)) (#3=#:G293 (R)) (#4=#:G296 NIL)
+         ((#1=#:G307 NIL) (#2=#:G306 (R)) (#3=#:G308 (R)) (#4=#:G311 NIL)
           (|t| NIL))
          (SEQ
           (COND ((SPADCALL |p| (QREFELT $ 29)) (|spadConstant| $ 39))
@@ -699,9 +699,9 @@
 
 (DECLAIM (NOTINLINE |DistributedJetBundlePolynomial;|)) 
 
-(DEFUN |DistributedJetBundlePolynomial| (&REST #1=#:G358)
+(DEFUN |DistributedJetBundlePolynomial| (&REST #1=#:G373)
   (SPROG NIL
-         (PROG (#2=#:G359)
+         (PROG (#2=#:G374)
            (RETURN
             (COND
              ((LETT #2#
@@ -724,9 +724,9 @@
 
 (DEFUN |DistributedJetBundlePolynomial;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((#1=#:G357 NIL) (|jv| NIL) (#2=#:G356 NIL) (#3=#:G355 NIL) (|pv$| NIL)
-    (#4=#:G348 NIL) (#5=#:G349 NIL) (#6=#:G350 NIL) (#7=#:G351 NIL)
-    (#8=#:G352 NIL) (#9=#:G353 NIL) (#10=#:G354 NIL) ($ NIL) (|dv$| NIL)
+   ((#1=#:G372 NIL) (|jv| NIL) (#2=#:G371 NIL) (#3=#:G370 NIL) (|pv$| NIL)
+    (#4=#:G363 NIL) (#5=#:G364 NIL) (#6=#:G365 NIL) (#7=#:G366 NIL)
+    (#8=#:G367 NIL) (#9=#:G368 NIL) (#10=#:G369 NIL) ($ NIL) (|dv$| NIL)
     (DV$4 NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (SEQ
     (PROGN

@@ -30,7 +30,7 @@
 
 (SDEFUN |IJB;CheckZeroIndex|
         ((|il| (|List| (|NonNegativeInteger|))) ($ (|Boolean|)))
-        (SPROG ((#1=#:G124 NIL) (#2=#:G125 NIL) (|i| NIL))
+        (SPROG ((#1=#:G125 NIL) (#2=#:G126 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -42,7 +42,7 @@
                         (EXIT
                          (COND
                           ((NULL (ZEROP |i|))
-                           (PROGN (LETT #1# NIL) (GO #3=#:G123))))))
+                           (PROGN (LETT #1# NIL) (GO #3=#:G124))))))
                        (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                   (EXIT 'T)))
                 #3# (EXIT #1#)))) 
@@ -52,7 +52,7 @@
               ('T (LIST 1 |up|)))) 
 
 (SDEFUN |IJB;U;Pi$;8| ((|up| (|PositiveInteger|)) ($ ($)))
-        (SPROG ((#1=#:G130 NIL) (|i| NIL) (#2=#:G129 NIL))
+        (SPROG ((#1=#:G132 NIL) (|i| NIL) (#2=#:G131 NIL))
                (SEQ
                 (COND
                  ((> |up| (QREFELT $ 10)) (|error| "Improper upper index"))
@@ -87,9 +87,9 @@
 
 (SDEFUN |IJB;name;$S;13| ((|jv| ($)) ($ (|Symbol|)))
         (SPROG
-         ((#1=#:G151 NIL) (|j| NIL) (#2=#:G150 NIL) (#3=#:G149 NIL)
-          (#4=#:G148 NIL) (#5=#:G147 NIL) (|i| NIL) (#6=#:G146 NIL)
-          (#7=#:G145 NIL) (#8=#:G144 NIL) (|jt| (|Symbol|)))
+         ((#1=#:G157 NIL) (|j| NIL) (#2=#:G156 NIL) (#3=#:G155 NIL)
+          (#4=#:G154 NIL) (#5=#:G153 NIL) (|i| NIL) (#6=#:G152 NIL)
+          (#7=#:G151 NIL) (#8=#:G150 NIL) (|jt| (|Symbol|)))
          (SEQ (LETT |jt| (SPADCALL |jv| (QREFELT $ 24)))
               (EXIT
                (COND ((EQUAL |jt| '|Const|) '|1|)
@@ -236,8 +236,8 @@
 
 (SDEFUN |IJB;coerce;$E;15| ((|jv| ($)) ($ (|Expression| (|Integer|))))
         (SPROG
-         ((|arg| (|List| (|Expression| (|Integer|)))) (#1=#:G162 NIL) (|j| NIL)
-          (#2=#:G161 NIL) (#3=#:G160 NIL) (|i| NIL) (#4=#:G159 NIL)
+         ((|arg| (|List| (|Expression| (|Integer|)))) (#1=#:G170 NIL) (|j| NIL)
+          (#2=#:G169 NIL) (#3=#:G168 NIL) (|i| NIL) (#4=#:G167 NIL)
           (|jop| (|BasicOperator|)) (|tmp| (|None|)) (|opname| (|Symbol|)))
          (SEQ
           (COND
@@ -303,9 +303,9 @@
 
 (DECLAIM (NOTINLINE |IndexedJetBundle;|)) 
 
-(DEFUN |IndexedJetBundle| (&REST #1=#:G169)
+(DEFUN |IndexedJetBundle| (&REST #1=#:G177)
   (SPROG NIL
-         (PROG (#2=#:G170)
+         (PROG (#2=#:G178)
            (RETURN
             (COND
              ((LETT #2#

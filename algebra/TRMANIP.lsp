@@ -10,7 +10,7 @@
            (|Union|
             (|Record| (|:| |coef| (|Integer|)) (|:| |var| (|Kernel| F)))
             "failed"))
-          (#1=#:G150 NIL) (|term| NIL))
+          (#1=#:G151 NIL) (|term| NIL))
          (SEQ (LETT |sum| (|spadConstant| $ 37))
               (LETT |arg| (|spadConstant| $ 38))
               (SEQ (LETT |term| NIL) (LETT #1# |l|) G190
@@ -67,13 +67,13 @@
 
 (SDEFUN |TRMANIP;simplifyLog1| ((|e| (F)) ($ (F)))
         (SPROG
-         ((#1=#:G184 NIL) (#2=#:G183 (F)) (#3=#:G185 (F)) (#4=#:G196 NIL)
+         ((#1=#:G191 NIL) (#2=#:G190 (F)) (#3=#:G192 (F)) (#4=#:G203 NIL)
           (#5=#:G104 NIL) (|terms| (|List| F)) (|foundLog| (|Boolean|))
-          (#6=#:G176 NIL) (#7=#:G175 (F)) (#8=#:G177 (F)) (#9=#:G195 NIL)
+          (#6=#:G183 NIL) (#7=#:G182 (F)) (#8=#:G184 (F)) (#9=#:G202 NIL)
           (#10=#:G103 NIL) (|args| (|List| F)) (|i| (|NonNegativeInteger|))
-          (|nterms| (|List| F)) (|exprs| (|List| F)) (#11=#:G194 NIL)
-          (|term| NIL) (#12=#:G193 NIL) (#13=#:G192 NIL) (#14=#:G191 NIL)
-          (|u| NIL) (#15=#:G190 NIL) (|kers| (|List| (|Kernel| F)))
+          (|nterms| (|List| F)) (|exprs| (|List| F)) (#11=#:G201 NIL)
+          (|term| NIL) (#12=#:G200 NIL) (#13=#:G199 NIL) (#14=#:G198 NIL)
+          (|u| NIL) (#15=#:G197 NIL) (|kers| (|List| (|Kernel| F)))
           (|expt|
            (|Union| (|Record| (|:| |val| F) (|:| |exponent| (|Integer|)))
                     #16="failed"))
@@ -336,8 +336,8 @@
         ((|p| (|SparseMultivariatePolynomial| R (|Kernel| F))) ($ (F)))
         (SPROG
          ((|coef| (|SparseMultivariatePolynomial| R (|Kernel| F)))
-          (#1=#:G219 NIL) (|u| NIL) (#2=#:G218 NIL) (|exponent| (F))
-          (|d| (|NonNegativeInteger|)) (#3=#:G217 NIL) (|k| NIL)
+          (#1=#:G232 NIL) (|u| NIL) (#2=#:G231 NIL) (|exponent| (F))
+          (|d| (|NonNegativeInteger|)) (#3=#:G230 NIL) (|k| NIL)
           (|lpow| (|List| (|Kernel| F))) (|lk| (|List| (|Kernel| F))))
          (SEQ (LETT |lk| (SPADCALL |p| (QREFELT $ 88)))
               (EXIT
@@ -432,7 +432,7 @@
 
 (SDEFUN |TRMANIP;expandPower;2F;9| ((|f| (F)) ($ (F)))
         (SPROG
-         ((#1=#:G226 NIL) (|k| NIL) (#2=#:G225 NIL)
+         ((#1=#:G240 NIL) (|k| NIL) (#2=#:G239 NIL)
           (|l| (|List| (|Kernel| F))))
          (SEQ
           (LETT |l|
@@ -463,7 +463,7 @@
         ((|p| (|SparseMultivariatePolynomial| R (|Kernel| F)))
          (|l| (|List| (|Kernel| F))) ($ (F)))
         (SPROG
-         ((|exponent| (F)) (#1=#:G234 NIL) (|k0| NIL)
+         ((|exponent| (F)) (#1=#:G249 NIL) (|k0| NIL)
           (|lk| (|List| (|Kernel| F))) (|a| (F)) (|arg| (|List| F))
           (|k| (|Kernel| F)))
          (SEQ
@@ -687,9 +687,9 @@
 
 (SDEFUN |TRMANIP;simplifyExp;2F;48| ((|x| (F)) ($ (F)))
         (SPROG
-         ((#1=#:G312 NIL) (|term| (F)) (#2=#:G316 NIL) (|k1| NIL)
-          (#3=#:G313 NIL) (#4=#:G315 NIL) (|h| (|NonNegativeInteger|))
-          (|args| (|List| F)) (|op| (|BasicOperator|)) (#5=#:G314 NIL)
+         ((#1=#:G330 NIL) (|term| (F)) (#2=#:G334 NIL) (|k1| NIL)
+          (#3=#:G331 NIL) (#4=#:G333 NIL) (|h| (|NonNegativeInteger|))
+          (|args| (|List| F)) (|op| (|BasicOperator|)) (#5=#:G332 NIL)
           (|k2| NIL) (|lk2| #6=(|List| (|Kernel| F))) (|lk1| #6#)
           (|q1| #7=(|SparseMultivariatePolynomial| R (|Kernel| F))) (|p1| #7#)
           (|q| (F)) (|p| (F)))
@@ -749,7 +749,7 @@
                                       (EXIT
                                        (PROGN
                                         (LETT #3# 1)
-                                        (GO #8=#:G303))))))))
+                                        (GO #8=#:G320))))))))
                                  (LETT #4# (CDR #4#)) (GO G190) G191
                                  (EXIT NIL)))
                            #8# (EXIT #3#))))
@@ -798,7 +798,7 @@
                                          (EXIT
                                           (PROGN
                                            (LETT #1# 1)
-                                           (GO #9=#:G307))))))))))
+                                           (GO #9=#:G325))))))))))
                                   (LETT #2# (CDR #2#)) (GO G190) G191
                                   (EXIT NIL)))
                             #9# (EXIT #1#))))))
@@ -819,8 +819,8 @@
           (|den|
            #1=(|SparseUnivariatePolynomial|
                (|SparseMultivariatePolynomial| R (|Kernel| F))))
-          (|num| #1#) (|arg| (|List| F)) (#2=#:G326 NIL) (|x| NIL)
-          (#3=#:G325 NIL) (|op| (|BasicOperator|)) (|k| (|Kernel| F))
+          (|num| #1#) (|arg| (|List| F)) (#2=#:G345 NIL) (|x| NIL)
+          (#3=#:G344 NIL) (|op| (|BasicOperator|)) (|k| (|Kernel| F))
           (|m| (|Union| (|Kernel| F) "failed")))
          (SEQ (LETT |m| (SPADCALL |f| (QREFELT $ 155)))
               (EXIT
@@ -940,7 +940,7 @@
 (SDEFUN |TRMANIP;exlog|
         ((|p| (|SparseMultivariatePolynomial| R (|Kernel| F))) ($ (F)))
         (SPROG
-         ((#1=#:G337 NIL) (#2=#:G336 (F)) (#3=#:G338 (F)) (#4=#:G340 NIL)
+         ((#1=#:G357 NIL) (#2=#:G356 (F)) (#3=#:G358 (F)) (#4=#:G360 NIL)
           (|r| NIL))
          (SEQ
           (PROGN
@@ -968,7 +968,7 @@
 
 (SDEFUN |TRMANIP;logexpand| ((|k| (|Kernel| F)) ($ (F)))
         (SPROG
-         ((#1=#:G346 NIL) (#2=#:G345 NIL) (|x| (F)) (|op| (|BasicOperator|)))
+         ((#1=#:G367 NIL) (#2=#:G366 NIL) (|x| (F)) (|op| (|BasicOperator|)))
          (SEQ
           (COND
            ((SPADCALL (LETT |op| (SPADCALL |k| (QREFELT $ 63)))
@@ -1003,7 +1003,7 @@
 
 (SDEFUN |TRMANIP;kerexpand| ((|k| (|Kernel| F)) ($ (F)))
         (SPROG
-         ((#1=#:G367 NIL) (#2=#:G366 NIL) (#3=#:G365 NIL) (#4=#:G364 NIL)
+         ((#1=#:G390 NIL) (#2=#:G389 NIL) (#3=#:G388 NIL) (#4=#:G387 NIL)
           (|ctb| (F)) (|cta| (F)) (|tb| (F)) (|ta| (F)) (|a| (F)) (|b| (F))
           (|den| (|SparseMultivariatePolynomial| R (|Kernel| F)))
           (|num| (|SparseMultivariatePolynomial| R (|Kernel| F))) (|x| (F))
@@ -1208,9 +1208,9 @@
 
 (DECLAIM (NOTINLINE |TranscendentalManipulations;|)) 
 
-(DEFUN |TranscendentalManipulations| (&REST #1=#:G411)
+(DEFUN |TranscendentalManipulations| (&REST #1=#:G435)
   (SPROG NIL
-         (PROG (#2=#:G412)
+         (PROG (#2=#:G436)
            (RETURN
             (COND
              ((LETT #2#

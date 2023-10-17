@@ -15,19 +15,19 @@
                     (|:| |basis|
                          (|List| (|Vector| (|Fraction| (|Integer|))))))))
         (SPROG
-         ((#4=#:G146 NIL) (|i| NIL) (|j| NIL) (#5=#:G145 NIL)
-          (|pv| (|Vector| (|Fraction| (|Integer|)))) (#6=#:G143 NIL)
-          (|rbv| NIL) (#7=#:G144 NIL) (|bv| NIL)
-          (|nl| (|List| (|Fraction| UP))) (#8=#:G142 NIL) (|le| NIL)
-          (#9=#:G141 NIL) (|rbl| (|List| (|Vector| (|Fraction| (|Integer|)))))
-          (#10=#:G140 NIL) (#11=#:G139 NIL) (|n3| (|NonNegativeInteger|))
+         ((#4=#:G154 NIL) (|i| NIL) (|j| NIL) (#5=#:G153 NIL)
+          (|pv| (|Vector| (|Fraction| (|Integer|)))) (#6=#:G151 NIL)
+          (|rbv| NIL) (#7=#:G152 NIL) (|bv| NIL)
+          (|nl| (|List| (|Fraction| UP))) (#8=#:G150 NIL) (|le| NIL)
+          (#9=#:G149 NIL) (|rbl| (|List| (|Vector| (|Fraction| (|Integer|)))))
+          (#10=#:G148 NIL) (#11=#:G147 NIL) (|n3| (|NonNegativeInteger|))
           (|n2| (|NonNegativeInteger|)) (|n1| (|NonNegativeInteger|))
           (|bl| #3#) (|ll| #2#) (|#G11| #1#) (|nlc0| (|List| F))
-          (#12=#:G138 NIL) (#13=#:G137 NIL)
+          (#12=#:G146 NIL) (#13=#:G145 NIL)
           (|cb| (|List| (|Vector| (|Fraction| (|Integer|)))))
-          (|lup2| (|List| UP)) (#14=#:G135 NIL) (|p| NIL) (#15=#:G136 NIL)
-          (|c0| NIL) (#16=#:G134 NIL) (|lc0| (|List| F)) (#17=#:G133 NIL)
-          (#18=#:G132 NIL) (|n0| (|NonNegativeInteger|)))
+          (|lup2| (|List| UP)) (#14=#:G143 NIL) (|p| NIL) (#15=#:G144 NIL)
+          (|c0| NIL) (#16=#:G142 NIL) (|lc0| (|List| F)) (#17=#:G141 NIL)
+          (#18=#:G140 NIL) (|n0| (|NonNegativeInteger|)))
          (SEQ (LETT |n0| (LENGTH |lup|))
               (LETT |lc0|
                     (PROGN
@@ -186,55 +186,55 @@
                     (|:| |basis|
                          #4=(|List| (|Vector| (|Fraction| (|Integer|))))))))
         (SPROG
-         ((#5=#:G287 NIL) (|i| NIL) (#6=#:G288 NIL) (|j| NIL) (#7=#:G285 NIL)
-          (#8=#:G286 NIL) (|pv| #9=(|Vector| (|Fraction| (|Integer|))))
-          (#10=#:G284 NIL) (|bv1| #11=(|Vector| (|Fraction| (|Integer|))))
-          (#12=#:G282 NIL) (|rbv| NIL) (#13=#:G283 NIL) (|bv| NIL)
+         ((#5=#:G324 NIL) (|i| NIL) (#6=#:G325 NIL) (|j| NIL) (#7=#:G322 NIL)
+          (#8=#:G323 NIL) (|pv| #9=(|Vector| (|Fraction| (|Integer|))))
+          (#10=#:G321 NIL) (|bv1| #11=(|Vector| (|Fraction| (|Integer|))))
+          (#12=#:G319 NIL) (|rbv| NIL) (#13=#:G320 NIL) (|bv| NIL)
           (|rbas| (|List| (|Vector| (|Fraction| (|Integer|)))))
-          (#14=#:G281 NIL) (#15=#:G280 NIL) (|n6| (|NonNegativeInteger|))
+          (#14=#:G318 NIL) (#15=#:G317 NIL) (|n6| (|NonNegativeInteger|))
           (|n5| #16=(|NonNegativeInteger|)) (|nlog| (|List| (|Fraction| UP)))
-          (|rbasl1| (|List| (|Fraction| UP))) (#17=#:G279 NIL) (|up| NIL)
-          (#18=#:G278 NIL) (|fbas| #4#) (|flog| #3#) (|#G54| #2#)
-          (#19=#:G277 NIL) (|g| NIL) (#20=#:G276 NIL) (|n4| #16#)
-          (|lg7| (|List| #21=(|Fraction| UP))) (#22=#:G275 NIL)
-          (#23=#:G274 NIL) (|cb4e| (|List| #9#)) (#24=#:G273 NIL)
-          (#25=#:G272 NIL) (|ncb2| (|List| #9#)) (#26=#:G271 NIL)
-          (#27=#:G270 NIL)
+          (|rbasl1| (|List| (|Fraction| UP))) (#17=#:G316 NIL) (|up| NIL)
+          (#18=#:G315 NIL) (|fbas| #4#) (|flog| #3#) (|#G54| #2#)
+          (#19=#:G314 NIL) (|g| NIL) (#20=#:G313 NIL) (|n4| #16#)
+          (|lg7| (|List| #21=(|Fraction| UP))) (#22=#:G312 NIL)
+          (#23=#:G311 NIL) (|cb4e| (|List| #9#)) (#24=#:G310 NIL)
+          (#25=#:G309 NIL) (|ncb2| (|List| #9#)) (#26=#:G308 NIL)
+          (#27=#:G307 NIL)
           (|cb4| #28=(|List| (|Vector| (|Fraction| (|Integer|)))))
           (|lg6| (|List| (|Fraction| UP))) (|lrf| (|List| (|Fraction| UP)))
           (|r| (UP)) (|q| (UP))
           (|#G50| #29=(|Record| (|:| |quotient| UP) (|:| |remainder| UP)))
-          (|den| (UP)) (#30=#:G269 NIL) (|lg5| (|List| #31=(|Fraction| UP)))
-          (#32=#:G267 NIL) (#33=#:G268 NIL) (|pc| NIL) (#34=#:G266 NIL)
-          (|lg4| (|List| #31#)) (#35=#:G265 NIL) (|ghr| NIL) (#36=#:G264 NIL)
-          (|nlpc| (|List| #21#)) (#37=#:G263 NIL) (#38=#:G262 NIL)
-          (|ncb| (|List| #9#)) (#39=#:G261 NIL) (#40=#:G260 NIL)
-          (|cb3e| (|List| #11#)) (#41=#:G259 NIL) (#42=#:G258 NIL)
-          (|cb3| (|List| #11#)) (#43=#:G257 NIL) (#44=#:G256 NIL) (|cb2| #1#)
+          (|den| (UP)) (#30=#:G306 NIL) (|lg5| (|List| #31=(|Fraction| UP)))
+          (#32=#:G304 NIL) (#33=#:G305 NIL) (|pc| NIL) (#34=#:G303 NIL)
+          (|lg4| (|List| #31#)) (#35=#:G302 NIL) (|ghr| NIL) (#36=#:G301 NIL)
+          (|nlpc| (|List| #21#)) (#37=#:G300 NIL) (#38=#:G299 NIL)
+          (|ncb| (|List| #9#)) (#39=#:G298 NIL) (#40=#:G297 NIL)
+          (|cb3e| (|List| #11#)) (#41=#:G296 NIL) (#42=#:G295 NIL)
+          (|cb3| (|List| #11#)) (#43=#:G294 NIL) (#44=#:G293 NIL) (|cb2| #1#)
           (|rs3| (|Matrix| F)) (|lpc| (|List| (|Fraction| UP))) (|#G41| #29#)
-          (|dbj| (UP)) (#45=#:G254 NIL) (#46=#:G255 NIL) (|bj| NIL)
-          (#47=#:G252 NIL) (|num| NIL) (#48=#:G253 NIL) (|nl| (|List| UP))
+          (|dbj| (UP)) (#45=#:G291 NIL) (#46=#:G292 NIL) (|bj| NIL)
+          (#47=#:G289 NIL) (|num| NIL) (#48=#:G290 NIL) (|nl| (|List| UP))
           (|jl| (|List| (|Integer|))) (|fl| (|List| UP)) (|j0| (|Integer|))
           (|j1| (|Integer|)) (|sl1| #49=(|List| (|NonNegativeInteger|)))
-          (#50=#:G250 NIL) (#51=#:G251 NIL) (|fj| NIL) (|fl1| (|List| UP))
-          (#52=#:G248 NIL) (#53=#:G249 NIL) (|m3| (|Matrix| UP))
-          (|n3| (|NonNegativeInteger|)) (|sl| #49#) (#54=#:G247 NIL)
-          (#55=#:G246 NIL) (|basl1| (|List| UP))
-          (|mbasfl| (|List| (|List| UP))) (#56=#:G245 NIL) (|frr| NIL)
-          (#57=#:G244 NIL) (#58=#:G243 NIL) (|mbasp| NIL) (#59=#:G242 NIL)
+          (#50=#:G287 NIL) (#51=#:G288 NIL) (|fj| NIL) (|fl1| (|List| UP))
+          (#52=#:G285 NIL) (#53=#:G286 NIL) (|m3| (|Matrix| UP))
+          (|n3| (|NonNegativeInteger|)) (|sl| #49#) (#54=#:G284 NIL)
+          (#55=#:G283 NIL) (|basl1| (|List| UP))
+          (|mbasfl| (|List| (|List| UP))) (#56=#:G282 NIL) (|frr| NIL)
+          (#57=#:G281 NIL) (#58=#:G280 NIL) (|mbasp| NIL) (#59=#:G279 NIL)
           (|mbasl| (|List| UP)) (|n2| (|NonNegativeInteger|)) (|n1| #16#)
           (|m2| #60=(|Matrix| (|Integer|))) (|mbas| #61=(|Vector| UP))
           (|#G29| (|Record| (|:| |basis| #61#) (|:| |transform| #60#)))
-          (|lden1| (|List| UP)) (#62=#:G241 NIL) (#63=#:G240 NIL)
-          (|lg3| (|List| #21#)) (#64=#:G239 NIL) (#65=#:G238 NIL)
-          (|lg2| (|List| #66=(|Fraction| UP))) (#67=#:G237 NIL)
-          (#68=#:G236 NIL) (|cb| #28#) (|lg1| (|List| #69=(|Fraction| UP)))
-          (#70=#:G235 NIL) (#71=#:G234 NIL)
+          (|lden1| (|List| UP)) (#62=#:G278 NIL) (#63=#:G277 NIL)
+          (|lg3| (|List| #21#)) (#64=#:G276 NIL) (#65=#:G275 NIL)
+          (|lg2| (|List| #66=(|Fraction| UP))) (#67=#:G274 NIL)
+          (#68=#:G273 NIL) (|cb| #28#) (|lg1| (|List| #69=(|Fraction| UP)))
+          (#70=#:G272 NIL) (#71=#:G271 NIL)
           (|lghr|
            (|List|
             (|Record| (|:| |answer| #69#) (|:| |logpart| #66#)
                       (|:| |specpart| (|Fraction| UP)) (|:| |polypart| UP))))
-          (#72=#:G233 NIL) (#73=#:G232 NIL) (|n0| #16#))
+          (#72=#:G270 NIL) (#73=#:G269 NIL) (|n0| #16#))
          (SEQ
           (COND ((NULL |lg|) (CONS NIL NIL))
                 (#74='T
@@ -797,7 +797,7 @@
 
 (SDEFUN |INTPAR1;RF_to_GP|
         ((|f| (|Fraction| UP)) ($ (|LaurentPolynomial| F UP)))
-        (SPROG ((#1=#:G290 NIL))
+        (SPROG ((#1=#:G327 NIL))
                (PROG2
                    (LETT #1#
                          (SPADCALL
@@ -829,32 +829,32 @@
            (|Record| (|:| |ratpart| (|Fraction| UP))
                      (|:| |coeffs| (|Vector| F))))))
         (SPROG
-         ((#1=#:G436 NIL) (|bv| NIL) (#2=#:G437 NIL) (|ba| NIL) (#3=#:G435 NIL)
-          (|nlba| (|List| (|Fraction| UP))) (#4=#:G433 NIL) (#5=#:G434 NIL)
-          (#6=#:G432 NIL) (|lba| (|List| (|Fraction| UP)))
-          (|cb| (|List| (|Vector| F))) (#7=#:G430 NIL) (|be| NIL)
-          (#8=#:G431 NIL) (#9=#:G429 NIL) (|cba| (|List| F)) (#10=#:G428 NIL)
-          (#11=#:G427 NIL) (|ncb| (|List| (|Vector| F))) (#12=#:G426 NIL)
-          (#13=#:G425 NIL) (|cb0| (|List| (|Vector| F))) (#14=#:G424 NIL)
-          (#15=#:G423 NIL) (|n1p| (|NonNegativeInteger|))
+         ((#1=#:G489 NIL) (|bv| NIL) (#2=#:G490 NIL) (|ba| NIL) (#3=#:G488 NIL)
+          (|nlba| (|List| (|Fraction| UP))) (#4=#:G486 NIL) (#5=#:G487 NIL)
+          (#6=#:G485 NIL) (|lba| (|List| (|Fraction| UP)))
+          (|cb| (|List| (|Vector| F))) (#7=#:G483 NIL) (|be| NIL)
+          (#8=#:G484 NIL) (#9=#:G482 NIL) (|cba| (|List| F)) (#10=#:G481 NIL)
+          (#11=#:G480 NIL) (|ncb| (|List| (|Vector| F))) (#12=#:G479 NIL)
+          (#13=#:G478 NIL) (|cb0| (|List| (|Vector| F))) (#14=#:G477 NIL)
+          (#15=#:G476 NIL) (|n1p| (|NonNegativeInteger|))
           (|b2|
            (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
-          (|lgj1| (|List| F)) (|ff| (F)) (#16=#:G421 NIL) (#17=#:G422 NIL)
+          (|lgj1| (|List| F)) (|ff| (F)) (#16=#:G474 NIL) (#17=#:G475 NIL)
           (|aa| NIL) (|lgj| (|List| F)) (|gij| (F)) (|gi| (UP))
-          (#18=#:G420 NIL) (|i| NIL) (|n1| (|NonNegativeInteger|)) (|j| NIL)
-          (#19=#:G419 NIL) (#20=#:G418 NIL) (|dk| (F))
+          (#18=#:G473 NIL) (|i| NIL) (|n1| (|NonNegativeInteger|)) (|j| NIL)
+          (#19=#:G472 NIL) (#20=#:G471 NIL) (|dk| (F))
           (|d| (|NonNegativeInteger|)) (|ldg| (|List| (|NonNegativeInteger|)))
-          (#21=#:G417 NIL) (|g2| NIL) (#22=#:G416 NIL) (|vg2| (|Vector| UP))
-          (|lg2| (|List| UP)) (#23=#:G415 NIL) (|ghr| NIL) (#24=#:G414 NIL)
-          (#25=#:G413 NIL) (#26=#:G412 NIL)
-          (|a1l| (|List| #27=(|Fraction| UP))) (#28=#:G411 NIL)
-          (#29=#:G410 NIL) (|lg1| (|List| #30=(|Fraction| UP)))
-          (#31=#:G409 NIL) (#32=#:G408 NIL)
+          (#21=#:G470 NIL) (|g2| NIL) (#22=#:G469 NIL) (|vg2| (|Vector| UP))
+          (|lg2| (|List| UP)) (#23=#:G468 NIL) (|ghr| NIL) (#24=#:G467 NIL)
+          (#25=#:G466 NIL) (#26=#:G465 NIL)
+          (|a1l| (|List| #27=(|Fraction| UP))) (#28=#:G464 NIL)
+          (#29=#:G463 NIL) (|lg1| (|List| #30=(|Fraction| UP)))
+          (#31=#:G462 NIL) (#32=#:G461 NIL)
           (|lghr|
            (|List|
             (|Record| (|:| |answer| #27#) (|:| |logpart| #30#)
                       (|:| |specpart| (|Fraction| UP)) (|:| |polypart| UP))))
-          (#33=#:G407 NIL) (|g| NIL) (#34=#:G406 NIL)
+          (#33=#:G460 NIL) (|g| NIL) (#34=#:G459 NIL)
           (|n| (|NonNegativeInteger|)))
          (SEQ
           (COND ((NULL |lg|) NIL)
@@ -1188,33 +1188,33 @@
            (|Record| (|:| |ratpart| (|Fraction| UP))
                      (|:| |coeffs| (|Vector| F))))))
         (SPROG
-         ((#1=#:G559 NIL) (|bv| NIL) (#2=#:G560 NIL) (|bar| NIL)
-          (#3=#:G558 NIL) (|lbar| (|List| (|Fraction| UP))) (#4=#:G556 NIL)
-          (#5=#:G557 NIL) (|ba| NIL) (#6=#:G555 NIL) (|j| #7=(|Integer|))
+         ((#1=#:G626 NIL) (|bv| NIL) (#2=#:G627 NIL) (|bar| NIL)
+          (#3=#:G625 NIL) (|lbar| (|List| (|Fraction| UP))) (#4=#:G623 NIL)
+          (#5=#:G624 NIL) (|ba| NIL) (#6=#:G622 NIL) (|j| #7=(|Integer|))
           (|lba| (|List| (|LaurentPolynomial| F UP)))
           (|cb| (|List| (|Vector| F)))
-          (|nlba| (|List| #8=(|LaurentPolynomial| F UP))) (#9=#:G554 NIL)
-          (|be| NIL) (#10=#:G553 NIL) (|ncb| (|List| (|Vector| F)))
-          (#11=#:G552 NIL) (#12=#:G551 NIL) (#13=#:G534 NIL)
+          (|nlba| (|List| #8=(|LaurentPolynomial| F UP))) (#9=#:G621 NIL)
+          (|be| NIL) (#10=#:G620 NIL) (|ncb| (|List| (|Vector| F)))
+          (#11=#:G619 NIL) (#12=#:G618 NIL) (#13=#:G601 NIL)
           (|b2|
            (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
-          (|lgj1| (|List| F)) (|ff| (F)) (#14=#:G550 NIL) (|lgj| (|List| F))
-          (#15=#:G533 NIL) (|gij| (F)) (|last_iter| (|Boolean|))
-          (|gi| (|LaurentPolynomial| F UP)) (#16=#:G549 NIL) (|i| NIL)
-          (|n1| (|NonNegativeInteger|)) (|cba| (|List| F)) (#17=#:G548 NIL)
-          (#18=#:G547 NIL) (|d| #7#) (|ldg| (|List| (|Integer|)))
-          (#19=#:G546 NIL) (|g2| NIL) (#20=#:G545 NIL)
+          (|lgj1| (|List| F)) (|ff| (F)) (#14=#:G617 NIL) (|lgj| (|List| F))
+          (#15=#:G600 NIL) (|gij| (F)) (|last_iter| (|Boolean|))
+          (|gi| (|LaurentPolynomial| F UP)) (#16=#:G616 NIL) (|i| NIL)
+          (|n1| (|NonNegativeInteger|)) (|cba| (|List| F)) (#17=#:G615 NIL)
+          (#18=#:G614 NIL) (|d| #7#) (|ldg| (|List| (|Integer|)))
+          (#19=#:G613 NIL) (|g2| NIL) (#20=#:G612 NIL)
           (|vg2| (|Vector| (|LaurentPolynomial| F UP))) (|lg2| (|List| #8#))
-          (#21=#:G544 NIL) (|ghr| NIL) (#22=#:G543 NIL) (#23=#:G542 NIL)
-          (#24=#:G541 NIL) (|a1l| (|List| #25=(|Fraction| UP)))
-          (#26=#:G540 NIL) (#27=#:G539 NIL)
-          (|lg1| (|List| #28=(|Fraction| UP))) (#29=#:G538 NIL)
-          (#30=#:G537 NIL)
+          (#21=#:G611 NIL) (|ghr| NIL) (#22=#:G610 NIL) (#23=#:G609 NIL)
+          (#24=#:G608 NIL) (|a1l| (|List| #25=(|Fraction| UP)))
+          (#26=#:G607 NIL) (#27=#:G606 NIL)
+          (|lg1| (|List| #28=(|Fraction| UP))) (#29=#:G605 NIL)
+          (#30=#:G604 NIL)
           (|lghr|
            (|List|
             (|Record| (|:| |answer| #25#) (|:| |logpart| #28#)
                       (|:| |specpart| (|Fraction| UP)) (|:| |polypart| UP))))
-          (#31=#:G536 NIL) (|g| NIL) (#32=#:G535 NIL))
+          (#31=#:G603 NIL) (|g| NIL) (#32=#:G602 NIL))
          (SEQ
           (EXIT
            (COND ((NULL |lg|) NIL)
@@ -1368,7 +1368,7 @@
                                  (|last_iter|
                                   (PROGN
                                    (LETT #15# |$NoValue|)
-                                   (GO #33=#:G526)))
+                                   (GO #33=#:G591)))
                                  ('T
                                   (SEQ (LETT |lgj| (NREVERSE |lgj|))
                                        (LETT |lgj1| NIL)
@@ -1396,7 +1396,7 @@
                                          ((NULL |b2|)
                                           (PROGN
                                            (LETT #13# NIL)
-                                           (GO #34=#:G532)))
+                                           (GO #34=#:G599)))
                                          ('T
                                           (SEQ
                                            (LETT |ncb|
@@ -1511,11 +1511,11 @@
          (|lg| (|List| (|Fraction| UP)))
          ($ (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))))
         (SPROG
-         ((#2=#:G577 NIL) (|re| NIL) (#3=#:G576 NIL) (|res1| #1#)
-          (|lup1| (|List| UP)) (#4=#:G575 NIL) (|bv| NIL) (#5=#:G574 NIL)
+         ((#2=#:G648 NIL) (|re| NIL) (#3=#:G647 NIL) (|res1| #1#)
+          (|lup1| (|List| UP)) (#4=#:G646 NIL) (|bv| NIL) (#5=#:G645 NIL)
           (|cb| (|List| (|Vector| F))) (|lg1| (|List| (|Fraction| UP)))
-          (#6=#:G572 NIL) (|g| NIL) (#7=#:G573 NIL) (|up| NIL) (#8=#:G571 NIL)
-          (|lup| (|List| UP)) (#9=#:G570 NIL) (#10=#:G569 NIL))
+          (#6=#:G643 NIL) (|g| NIL) (#7=#:G644 NIL) (|up| NIL) (#8=#:G642 NIL)
+          (|lup| (|List| UP)) (#9=#:G641 NIL) (#10=#:G640 NIL))
          (SEQ
           (LETT |lup|
                 (PROGN
@@ -1641,7 +1641,7 @@
           (LETT |ext| (QREFELT $$ 0))
           (RETURN
            (PROGN
-            (SPROG ((|lf| NIL) (#1=#:G592 NIL) (|p| NIL) (#2=#:G591 NIL))
+            (SPROG ((|lf| NIL) (#1=#:G664 NIL) (|p| NIL) (#2=#:G663 NIL))
                    (SEQ
                     (LETT |lf|
                           (PROGN
@@ -1662,9 +1662,9 @@
 
 (DECLAIM (NOTINLINE |ParametricTranscendentalIntegration;|)) 
 
-(DEFUN |ParametricTranscendentalIntegration| (&REST #1=#:G598)
+(DEFUN |ParametricTranscendentalIntegration| (&REST #1=#:G670)
   (SPROG NIL
-         (PROG (#2=#:G599)
+         (PROG (#2=#:G671)
            (RETURN
             (COND
              ((LETT #2#

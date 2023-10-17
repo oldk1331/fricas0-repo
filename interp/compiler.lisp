@@ -1215,11 +1215,29 @@
 
 (DEFPARAMETER |$compForModeIfTrue| NIL)
 
+; comp_iterate(s, m, e) ==
+;     $iterate_tag is [tag] =>
+;         $iterate_count := $iterate_count + 1
+;         [["THROW", tag, "$NoValue"], m, e]
+;     userError('"iterate used outside a loop")
+
+(DEFUN |comp_iterate| (|s| |m| |e|)
+  (PROG (|tag|)
+    (RETURN
+     (COND
+      ((AND (CONSP |$iterate_tag|) (EQ (CDR |$iterate_tag|) NIL)
+            (PROGN (SETQ |tag| (CAR |$iterate_tag|)) #1='T))
+       (PROGN
+        (SETQ |$iterate_count| (+ |$iterate_count| 1))
+        (LIST (LIST 'THROW |tag| '|$NoValue|) |m| |e|)))
+      (#1# (|userError| "iterate used outside a loop"))))))
+
 ; compSymbol(s,m,e) ==
 ;   s="$NoValue" => ["$NoValue",$NoValueMode,e]
 ;   isFluid s => [s,getmode(s,e) or return nil,e]
 ;   s="true" => ['(QUOTE T),$Boolean,e]
 ;   s="false" => [false,$Boolean,e]
+;   s = "iterate" => comp_iterate(s, m, e)
 ;   s = m => [["QUOTE", s], s, e]
 ;   v:= get(s,"value",e) =>
 ; --+
@@ -1242,6 +1260,7 @@
             (LIST |s| (OR (|getmode| |s| |e|) (RETURN NIL)) |e|))
            ((EQ |s| '|true|) (LIST ''T |$Boolean| |e|))
            ((EQ |s| '|false|) (LIST NIL |$Boolean| |e|))
+           ((EQ |s| '|iterate|) (|comp_iterate| |s| |m| |e|))
            ((EQUAL |s| |m|) (LIST (LIST 'QUOTE |s|) |s| |e|))
            ((SETQ |v| (|get| |s| '|value| |e|))
             (COND

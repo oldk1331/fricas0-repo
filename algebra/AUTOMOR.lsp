@@ -86,7 +86,7 @@
 
 (SDEFUN |AUTOMOR;iter|
         ((|f| (|Mapping| R R)) (|n| (|NonNegativeInteger|)) (|r| (R)) ($ (R)))
-        (SPROG ((#1=#:G144 NIL) (|i| NIL))
+        (SPROG ((#1=#:G145 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 1) (LETT #1# |n|) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -137,9 +137,9 @@
 
 (DECLAIM (NOTINLINE |Automorphism;|)) 
 
-(DEFUN |Automorphism| (#1=#:G155)
+(DEFUN |Automorphism| (#1=#:G156)
   (SPROG NIL
-         (PROG (#2=#:G156)
+         (PROG (#2=#:G157)
            (RETURN
             (COND
              ((LETT #2#

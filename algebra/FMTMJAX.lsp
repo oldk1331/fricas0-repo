@@ -527,9 +527,9 @@
           (RETURN
            (PROGN
             (SPROG
-             ((|bx| NIL) (|tu| NIL) (|tl| NIL) (#1=#:G228 NIL) (|l| NIL)
-              (#2=#:G229 NIL) (|u| NIL) (|bu| NIL) (|lu| NIL) (|bl| NIL)
-              (|ll| NIL) (|b| NIL) (#3=#:G227 NIL) (|a| NIL) (|i| NIL)
+             ((|bx| NIL) (|tu| NIL) (|tl| NIL) (#1=#:G233 NIL) (|l| NIL)
+              (#2=#:G234 NIL) (|u| NIL) (|bu| NIL) (|lu| NIL) (|bl| NIL)
+              (|ll| NIL) (|b| NIL) (#3=#:G232 NIL) (|a| NIL) (|i| NIL)
               (|ba| NIL))
              (SEQ
               (LETT |ba|
@@ -635,7 +635,7 @@
           (RETURN
            (PROGN
             (SPROG
-             ((|b2| NIL) (|r| NIL) (#1=#:G234 NIL) (#2=#:G232 NIL) (|n| NIL)
+             ((|b2| NIL) (|r| NIL) (#1=#:G239 NIL) (#2=#:G237 NIL) (|n| NIL)
               (|b1| NIL))
              (SEQ
               (LETT |b1|
@@ -917,7 +917,7 @@
          ($
           (|OperatorHandlers|
            (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))))
-        (SPROG ((#1=#:G655 NIL))
+        (SPROG ((#1=#:G660 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1408,7 +1408,7 @@
                   (SPADCALL |oh| -1 "MATRIX" (SPADCALL "[" "]" (QREFELT $ 112))
                             (QREFELT $ 115))
                   (SPADCALL |oh| -1 "theMap" (ELT $ 65) (QREFELT $ 115))
-                  (EXIT (PROGN (LETT #1# |oh|) (GO #6=#:G654)))))
+                  (EXIT (PROGN (LETT #1# |oh|) (GO #6=#:G659)))))
                 #6# (EXIT #1#)))) 
 
 (SDEFUN |FMTMJAX;operatorHandlers;Oh;39|
@@ -1421,7 +1421,7 @@
 
 (DEFUN |FormatMathJax| ()
   (SPROG NIL
-         (PROG (#1=#:G658)
+         (PROG (#1=#:G663)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|FormatMathJax|))

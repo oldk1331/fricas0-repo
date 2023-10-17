@@ -34,7 +34,7 @@
 (SDEFUN |FS2EXPXP;k2Elem| ((|k| (|Kernel| FE)) ($ (FE)))
         (SPROG
          ((|cosz| (FE)) (|sinz| (FE)) (|iez| (FE)) (|ez| (FE)) (|z| (FE))
-          (|args| (|List| FE)) (#1=#:G199 NIL) (|a| NIL) (#2=#:G198 NIL))
+          (|args| (|List| FE)) (#1=#:G201 NIL) (|a| NIL) (#2=#:G200 NIL))
          (SEQ
           (COND
            ((NULL
@@ -168,7 +168,7 @@
            (|Union| (|Record| (|:| |val| FE) (|:| |exponent| (|Integer|)))
                     "failed"))
           (|prod| (|Union| (|List| FE) #2="failed"))
-          (|sum| (|Union| (|List| FE) #2#)) (#3=#:G219 NIL)
+          (|sum| (|Union| (|List| FE) #2#)) (#3=#:G221 NIL)
           (|poly| (|Union| (|Polynomial| R) #1#)))
          (SEQ (LETT |poly| (SPADCALL |fcn| (QREFELT $ 55)))
               (EXIT
@@ -250,7 +250,7 @@
                         (|Record| (|:| |func| (|String|))
                                   (|:| |prob| (|String|)))))))
         (SPROG
-         ((#1=#:G247 NIL)
+         ((#1=#:G250 NIL)
           (|term|
            (|Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
                     (|:| |%problem|
@@ -267,7 +267,7 @@
                   (EXIT
                    (COND
                     ((QEQCAR |term| 1)
-                     (PROGN (LETT #1# |term|) (GO #2=#:G246)))
+                     (PROGN (LETT #1# |term|) (GO #2=#:G249)))
                     ('T
                      (SEQ (LETT |ans| (SPADCALL |ans| (CDR |term|) |op|))
                           (EXIT (LETT |list| (CDR |list|))))))))
@@ -340,7 +340,7 @@
            (|:| |%problem|
                 (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|)))))))
         (SPROG
-         ((|nn| (|NonNegativeInteger|)) (#2=#:G268 NIL)
+         ((|nn| (|NonNegativeInteger|)) (#2=#:G271 NIL)
           (|rec|
            (|Union|
             (|UnivariatePuiseuxSeriesWithExponentialSingularity| R FE |x|
@@ -349,7 +349,7 @@
           (|num|
            (|UnivariatePuiseuxSeriesWithExponentialSingularity| R FE |x|
                                                                 |cen|))
-          (|xxp| #1#) (#3=#:G263 NIL)
+          (|xxp| #1#) (#3=#:G266 NIL)
           (|b|
            (|Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
                     (|:| |%problem|
@@ -429,7 +429,7 @@
                                   (|:| |prob| (|String|)))))))
         (SPROG
          ((|ans| (|Union| (|UnivariatePuiseuxSeries| FE |x| |cen|) "failed"))
-          (#1=#:G292 NIL) (#2=#:G293 NIL)
+          (#1=#:G295 NIL) (#2=#:G296 NIL)
           (|signum| (|Union| (|Integer|) "failed")) (|coef| (FE))
           (|deg| (|Fraction| (|Integer|))))
          (SEQ
@@ -477,8 +477,8 @@
                                                  (|FS2EXPXP;stateSeriesProblem|
                                                   "nth root"
                                                   "root of negative number" $))
-                                           (GO #4=#:G291)))
-                                    (GO #5=#:G290))))))))))))
+                                           (GO #4=#:G294)))
+                                    (GO #5=#:G293))))))))))))
                          (LETT |ans| (SPADCALL |ups| |n| (QREFELT $ 99)))
                          (EXIT
                           (COND
@@ -502,8 +502,8 @@
            #1=(|UnivariatePuiseuxSeriesWithExponentialSingularity| R FE |x|
                                                                    |cen|))
           (|deg| (|ExponentialOfUnivariatePuiseuxSeries| FE |x| |cen|))
-          (|coef| (|UnivariatePuiseuxSeries| FE |x| |cen|)) (#2=#:G299 NIL)
-          (#3=#:G307 NIL) (#4=#:G300 NIL)
+          (|coef| (|UnivariatePuiseuxSeries| FE |x| |cen|)) (#2=#:G302 NIL)
+          (#3=#:G310 NIL) (#4=#:G303 NIL)
           (|root|
            (|Union| (|:| |%series| (|UnivariatePuiseuxSeries| FE |x| |cen|))
                     (|:| |%problem|
@@ -544,7 +544,7 @@
                                 ((QEQCAR |root| 1)
                                  (PROGN
                                   (LETT #3# (CONS 1 (CDR |root|)))
-                                  (GO #8=#:G306)))
+                                  (GO #8=#:G309)))
                                 (#7# (CDR |root|))))))
                        (LETT |deg|
                              (SPADCALL (SPADCALL |nInv| (QREFELT $ 102))
@@ -704,7 +704,7 @@
                         (|Record| (|:| |func| (|String|))
                                   (|:| |prob| (|String|)))))))
         (SPROG
-         ((#1=#:G333 NIL) (|n| (|Integer|)) (|arg| (FE)) (|args| (|List| FE))
+         ((#1=#:G336 NIL) (|n| (|Integer|)) (|arg| (FE)) (|args| (|List| FE))
           (|sym| (|Union| (|Symbol|) "failed")))
          (SEQ (LETT |sym| (SPADCALL |ker| (QREFELT $ 111)))
               (EXIT
@@ -856,7 +856,7 @@
                 (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|)))))))
         (SPROG
          ((|f| (|Union| (|UnivariatePuiseuxSeries| FE |x| |cen|) "failed"))
-          (|xxp| #1#) (#2=#:G362 NIL)
+          (|xxp| #1#) (#2=#:G365 NIL)
           (|result|
            (|Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
                     (|:| |%problem|
@@ -909,8 +909,8 @@
          ((|logTerm| (FE)) (|term1| (FE)) (|pow| (FE)) (|mon| (FE))
           (|negRat?| (|Boolean|))
           (|rat| (|Union| (|Fraction| (|Integer|)) "failed"))
-          (|lt| (|UnivariatePuiseuxSeries| FE |x| |cen|)) (#1=#:G389 NIL)
-          (#2=#:G390 NIL) (|signum| (|Union| (|Integer|) "failed"))
+          (|lt| (|UnivariatePuiseuxSeries| FE |x| |cen|)) (#1=#:G392 NIL)
+          (#2=#:G393 NIL) (|signum| (|Union| (|Integer|) "failed"))
           (|coef| (FE)) (|deg| (|Fraction| (|Integer|))))
          (SEQ
           (EXIT
@@ -950,8 +950,8 @@
                                             (|FS2EXPXP;stateSeriesProblem|
                                              "log"
                                              "negative leading coefficient" $))
-                                      (GO #3=#:G388)))
-                               (GO #4=#:G387))))))))))
+                                      (GO #3=#:G391)))
+                               (GO #4=#:G390))))))))))
                   (LETT |lt| (SPADCALL |coef| |deg| (QREFELT $ 113)))
                   (LETT |negRat?|
                         (SEQ (LETT |rat| (|FS2EXPXP;ratIfCan| |coef| $))
@@ -1008,7 +1008,7 @@
         (SPROG
          ((|denLog| #2=(|UnivariatePuiseuxSeries| FE |x| |cen|)) (|numLog| #2#)
           (|denCoefLog| (|UnivariatePuiseuxSeries| FE |x| |cen|))
-          (#3=#:G396 NIL) (#4=#:G403 NIL) (#5=#:G397 NIL)
+          (#3=#:G399 NIL) (#4=#:G406 NIL) (#5=#:G400 NIL)
           (|res|
            (|Union| (|:| |%series| (|UnivariatePuiseuxSeries| FE |x| |cen|))
                     (|:| |%problem|
@@ -1021,7 +1021,7 @@
           (|num|
            (|UnivariatePuiseuxSeriesWithExponentialSingularity| R FE |x|
                                                                 |cen|))
-          (|xxp| #1#) (#6=#:G392 NIL)
+          (|xxp| #1#) (#6=#:G395 NIL)
           (|result|
            (|Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
                     (|:| |%problem|
@@ -1079,7 +1079,7 @@
                                   ((QEQCAR |res| 1)
                                    (PROGN
                                     (LETT #4# (CONS 1 (CDR |res|)))
-                                    (GO #10=#:G402)))
+                                    (GO #10=#:G405)))
                                   (#7# (CDR |res|))))))
                          (LETT |denCoefLog|
                                (SEQ
@@ -1164,11 +1164,11 @@
            (|:| |%problem|
                 (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|)))))))
         (SPROG
-         ((#2=#:G408 NIL) (|xOpList| (|List| (|BasicOperator|))) (|lc| (FE))
+         ((#2=#:G411 NIL) (|xOpList| (|List| (|BasicOperator|))) (|lc| (FE))
           (|deg| (|Fraction| (|Integer|)))
           (|upxs| (|UnivariatePuiseuxSeries| FE |x| |cen|))
           (|f| (|Union| (|UnivariatePuiseuxSeries| FE |x| |cen|) "failed"))
-          (|xxp| #1#) (#3=#:G405 NIL)
+          (|xxp| #1#) (#3=#:G408 NIL)
           (|xxpArg|
            (|Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
                     (|:| |%problem|
@@ -1311,7 +1311,7 @@
         (SPROG
          ((|ans| #1#)
           (|f| (|Union| (|UnivariatePuiseuxSeries| FE |x| |cen|) "failed"))
-          (|xxp| #2#) (#4=#:G418 NIL) (|trouble| #3#)
+          (|xxp| #2#) (#4=#:G421 NIL) (|trouble| #3#)
           (|xxpArg|
            (|Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
                     (|:| |%problem|
@@ -1381,8 +1381,8 @@
 
 (SDEFUN |FS2EXPXP;opsInvolvingX| ((|fcn| (FE)) ($ (|List| (|BasicOperator|))))
         (SPROG
-         ((|opList| (|List| #1=(|BasicOperator|))) (|op| #1#) (#2=#:G435 NIL)
-          (|k| NIL) (#3=#:G434 NIL))
+         ((|opList| (|List| #1=(|BasicOperator|))) (|op| #1#) (#2=#:G439 NIL)
+          (|k| NIL) (#3=#:G438 NIL))
          (SEQ
           (LETT |opList|
                 (PROGN
@@ -1413,7 +1413,7 @@
 (SDEFUN |FS2EXPXP;opInOpList?|
         ((|name| (|Symbol|)) (|opList| (|List| (|BasicOperator|)))
          ($ (|Boolean|)))
-        (SPROG ((#1=#:G440 NIL) (#2=#:G441 NIL) (#3=#:G442 NIL) (|op| NIL))
+        (SPROG ((#1=#:G445 NIL) (#2=#:G446 NIL) (#3=#:G447 NIL) (|op| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1428,8 +1428,8 @@
                            (COND
                             ((SPADCALL |op| |name| (QREFELT $ 81))
                              (PROGN
-                              (LETT #1# (PROGN (LETT #2# 'T) (GO #4=#:G439)))
-                              (GO #5=#:G437))))))
+                              (LETT #1# (PROGN (LETT #2# 'T) (GO #4=#:G444)))
+                              (GO #5=#:G442))))))
                          (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
                    #5# (EXIT #1#))
                   (EXIT NIL)))
@@ -1446,7 +1446,7 @@
 
 (SDEFUN |FS2EXPXP;productOfNonZeroes?| ((|fcn| (FE)) ($ (|Boolean|)))
         (SPROG
-         ((#1=#:G458 NIL) (#2=#:G459 NIL) (#3=#:G460 NIL) (|term| NIL)
+         ((#1=#:G464 NIL) (#2=#:G465 NIL) (#3=#:G466 NIL) (|term| NIL)
           (|prod| (|Union| (|List| FE) "failed")))
          (SEQ
           (EXIT
@@ -1482,8 +1482,8 @@
                                               (LETT #1#
                                                     (PROGN
                                                      (LETT #2# NIL)
-                                                     (GO #5=#:G457)))
-                                              (GO #6=#:G453))))))))
+                                                     (GO #5=#:G463)))
+                                              (GO #6=#:G459))))))))
                                        (LETT #3# (CDR #3#)) (GO G190) G191
                                        (EXIT NIL)))
                                  #6# (EXIT #1#))
@@ -1544,11 +1544,11 @@
                                   (|:| |prob| (|String|)))))))
         (SPROG
          ((|cc| (FE)) (|n| (|Integer|)) (|posNegPi2| (FE))
-          (|signum| (|Union| (|Integer|) "failed")) (|lc| (FE)) (#1=#:G516 NIL)
-          (|rn| (|Union| (|Fraction| (|Integer|)) "failed")) (#2=#:G515 NIL)
+          (|signum| (|Union| (|Integer|) "failed")) (|lc| (FE)) (#1=#:G522 NIL)
+          (|rn| (|Union| (|Fraction| (|Integer|)) "failed")) (#2=#:G521 NIL)
           (|yCoef| (FE)) (|y| (|UnivariatePuiseuxSeries| FE |x| |cen|))
           (|ord| (|Fraction| (|Integer|))) (|coef| (FE))
-          (|ups| #3=(|UnivariatePuiseuxSeries| FE |x| |cen|)) (#4=#:G496 NIL)
+          (|ups| #3=(|UnivariatePuiseuxSeries| FE |x| |cen|)) (#4=#:G502 NIL)
           (|trouble|
            #5=(|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))
           (|result| (|Union| (|:| |%series| #3#) (|:| |%problem| #5#))))
@@ -1648,7 +1648,7 @@
                                               (QREFELT $ 163))
                                              (QREFELT $ 135))
                                             (QREFELT $ 62))))))
-                             (GO #7=#:G512))))))))
+                             (GO #7=#:G518))))))))
                       (LETT |cc|
                             (COND
                              ((SPADCALL |ord| (|spadConstant| $ 114)
@@ -1664,7 +1664,7 @@
                                    (LETT #1#
                                          (|FS2EXPXP;stateProblem| "atan"
                                           "branch problem" $))
-                                   (GO #8=#:G514)))
+                                   (GO #8=#:G520)))
                                  (#6#
                                   (SEQ
                                    (LETT |lc|
@@ -1729,9 +1729,9 @@
 
 (DECLAIM (NOTINLINE |FunctionSpaceToExponentialExpansion;|)) 
 
-(DEFUN |FunctionSpaceToExponentialExpansion| (&REST #1=#:G517)
+(DEFUN |FunctionSpaceToExponentialExpansion| (&REST #1=#:G523)
   (SPROG NIL
-         (PROG (#2=#:G518)
+         (PROG (#2=#:G524)
            (RETURN
             (COND
              ((LETT #2#

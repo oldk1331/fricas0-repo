@@ -5,7 +5,7 @@
 
 (SDEFUN |DBASE;elt;$SDl;2|
         ((|data| ($)) (|s| (|Symbol|)) ($ (|DataList| (|String|))))
-        (SPROG ((#1=#:G107 NIL) (|x| NIL) (#2=#:G106 NIL))
+        (SPROG ((#1=#:G109 NIL) (|x| NIL) (#2=#:G108 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -24,7 +24,7 @@
 
 (SDEFUN |DBASE;elt;$Qe$;3| ((|data| ($)) (|eq| (|QueryEquation|)) ($ ($)))
         (SPROG
-         ((#1=#:G112 NIL) (|x| NIL) (#2=#:G111 NIL) (|val| (|String|))
+         ((#1=#:G115 NIL) (|x| NIL) (#2=#:G114 NIL) (|val| (|String|))
           (|field| (|Symbol|)))
          (SEQ (LETT |field| (SPADCALL |eq| (QREFELT $ 17)))
               (LETT |val| (SPADCALL |eq| (QREFELT $ 18)))
@@ -55,7 +55,7 @@
         (SPADCALL (LENGTH |data|) (QREFELT $ 30))) 
 
 (SDEFUN |DBASE;display;$V;7| ((|data| ($)) ($ (|Void|)))
-        (SPROG ((#1=#:G118 NIL) (|x| NIL))
+        (SPROG ((#1=#:G122 NIL) (|x| NIL))
                (SEQ (LETT |x| NIL) (LETT #1# |data|) G190
                     (COND
                      ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
@@ -64,7 +64,7 @@
                     (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL)))) 
 
 (SDEFUN |DBASE;fullDisplay;$V;8| ((|data| ($)) ($ (|Void|)))
-        (SPROG ((#1=#:G121 NIL) (|x| NIL))
+        (SPROG ((#1=#:G126 NIL) (|x| NIL))
                (SEQ (LETT |x| NIL) (LETT #1# |data|) G190
                     (COND
                      ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
@@ -75,7 +75,7 @@
 (SDEFUN |DBASE;fullDisplay;$2PiV;9|
         ((|data| ($)) (|n| (|PositiveInteger|)) (|m| (|PositiveInteger|))
          ($ (|Void|)))
-        (SPROG ((#1=#:G124 NIL) (|x| NIL) (#2=#:G125 NIL) (|i| NIL))
+        (SPROG ((#1=#:G130 NIL) (|x| NIL) (#2=#:G131 NIL) (|i| NIL))
                (SEQ (LETT |i| 1) (LETT #2# |m|) (LETT |x| NIL)
                     (LETT #1# |data|) G190
                     (COND
@@ -90,9 +90,9 @@
 
 (DECLAIM (NOTINLINE |Database;|)) 
 
-(DEFUN |Database| (#1=#:G126)
+(DEFUN |Database| (#1=#:G132)
   (SPROG NIL
-         (PROG (#2=#:G127)
+         (PROG (#2=#:G133)
            (RETURN
             (COND
              ((LETT #2#

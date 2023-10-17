@@ -179,6 +179,8 @@
 ;   fn(form,[m,:$exitModeStack],[#$exitModeStack,:$leaveLevelStack],$formalArgList
 ;     ,e) where
 ;       fn(form,$exitModeStack,$leaveLevelStack,$formalArgList,e) ==
+;         $iterate_tag : local := [MKQ(GENSYM())]
+;         $iterate_count : local := 0
 ;         $until: local := nil
 ;         [repeatOrCollect,:itl,body]:= form
 ;         itl':=
@@ -204,6 +206,8 @@
 ;         [body',m',e']:=
 ;           -- (m1:= listOrVectorElementMode targetMode) and comp(body,m1,e) or
 ;             comp(body, bodyMode, e) or return nil
+;         if $iterate_count > 0 then
+;             body' := ['CATCH, first($iterate_tag), body']
 ;         if $until then
 ;           [untilCode,.,e']:= comp($until,$Boolean,e')
 ;           itl':= substitute(["UNTIL",untilCode],'$until,itl')
@@ -230,11 +234,14 @@
 (DEFUN |compRepeatOrCollect,fn|
        (|form| |$exitModeStack| |$leaveLevelStack| |$formalArgList| |e|)
   (DECLARE (SPECIAL |$exitModeStack| |$leaveLevelStack| |$formalArgList|))
-  (PROG (|$until| |m''| |form'| |untilCode| |e'| |m'| |body'| |bodyMode| |u|
-         |targetMode| |itl'| |x'| |itl| |body| |LETTMP#1| |repeatOrCollect|)
-    (DECLARE (SPECIAL |$until|))
+  (PROG (|$until| |$iterate_count| |$iterate_tag| |m''| |form'| |untilCode|
+         |e'| |m'| |body'| |bodyMode| |u| |targetMode| |itl'| |x'| |itl| |body|
+         |LETTMP#1| |repeatOrCollect|)
+    (DECLARE (SPECIAL |$until| |$iterate_count| |$iterate_tag|))
     (RETURN
      (PROGN
+      (SETQ |$iterate_tag| (LIST (MKQ (GENSYM))))
+      (SETQ |$iterate_count| 0)
       (SETQ |$until| NIL)
       (SETQ |repeatOrCollect| (CAR |form|))
       (SETQ |LETTMP#1| (REVERSE (CDR |form|)))
@@ -294,6 +301,9 @@
               (SETQ |body'| (CAR |LETTMP#1|))
               (SETQ |m'| (CADR |LETTMP#1|))
               (SETQ |e'| (CADDR |LETTMP#1|))
+              (COND
+               ((< 0 |$iterate_count|)
+                (SETQ |body'| (LIST 'CATCH (CAR |$iterate_tag|) |body'|))))
               (COND
                (|$until| (SETQ |LETTMP#1| (|comp| |$until| |$Boolean| |e'|))
                 (SETQ |untilCode| (CAR |LETTMP#1|))

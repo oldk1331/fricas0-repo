@@ -55,14 +55,14 @@
            #1=(|List|
                (|Union| (|:| |const| (|Record| (|:| |val| (|Symbol|))))
                         (|:| |var| (|Record| (|:| |str| (|String|)))))))
-          (|termLeft| #1#) (#2=#:G190 NIL) (|innerb| NIL) (#3=#:G189 NIL)
-          (|innera| NIL) (#4=#:G188 NIL))
+          (|termLeft| #1#) (#2=#:G192 NIL) (|innerb| NIL) (#3=#:G191 NIL)
+          (|innera| NIL) (#4=#:G190 NIL))
          (SEQ
           (EXIT
            (SEQ
             (COND
              ((SPADCALL |a| (QREFELT $ 17))
-              (PROGN (LETT #4# |b|) (GO #5=#:G187))))
+              (PROGN (LETT #4# |b|) (GO #5=#:G189))))
             (COND
              ((SPADCALL |b| (QREFELT $ 17)) (PROGN (LETT #4# |a|) (GO #5#))))
             (LETT |r| NIL)
@@ -89,7 +89,7 @@
           #5# (EXIT #4#)))) 
 
 (SDEFUN |LATMOFJ;meet;L$;10| ((|ln| (|List| $)) ($ ($)))
-        (SPROG ((|r| ($)) (#1=#:G194 NIL) (|ele| NIL))
+        (SPROG ((|r| ($)) (#1=#:G197 NIL) (|ele| NIL))
                (SEQ (LETT |r| (SPADCALL (QREFELT $ 15)))
                     (SEQ (LETT |ele| NIL) (LETT #1# |ln|) G190
                          (COND
@@ -102,7 +102,7 @@
                     (EXIT |r|)))) 
 
 (SDEFUN |LATMOFJ;join;L$;11| ((|ln| (|List| $)) ($ ($)))
-        (SPROG ((|r| ($)) (#1=#:G198 NIL) (|ele| NIL))
+        (SPROG ((|r| ($)) (#1=#:G202 NIL) (|ele| NIL))
                (SEQ (LETT |r| (SPADCALL (QREFELT $ 15)))
                     (SEQ (LETT |ele| NIL) (LETT #1# |ln|) G190
                          (COND
@@ -122,7 +122,7 @@
           (|Union| (|:| |const| (|Record| (|:| |val| (|Symbol|))))
                    (|:| |var| (|Record| (|:| |str| (|String|))))))
          ($ (|Boolean|)))
-        (SPROG ((#1=#:G205 NIL) (#2=#:G201 NIL) (#3=#:G202 NIL))
+        (SPROG ((#1=#:G209 NIL) (#2=#:G205 NIL) (#3=#:G206 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -147,7 +147,7 @@
                                                             (|:| |str|
                                                                  (|String|)))))
                                                      #3#)))))
-                     (GO #4=#:G204))))
+                     (GO #4=#:G208))))
                   (COND
                    ((QEQCAR |a| 0)
                     (COND
@@ -190,8 +190,8 @@
            (|List|
             (|Union| (|:| |const| (|Record| (|:| |val| (|Symbol|))))
                      (|:| |var| (|Record| (|:| |str| (|String|)))))))
-          (|match| (|Boolean|)) (#1=#:G221 NIL) (|e2| NIL) (#2=#:G222 NIL)
-          (|ne2| NIL) (#3=#:G219 NIL) (|e1| NIL) (#4=#:G220 NIL) (|ne1| NIL))
+          (|match| (|Boolean|)) (#1=#:G227 NIL) (|e2| NIL) (#2=#:G228 NIL)
+          (|ne2| NIL) (#3=#:G225 NIL) (|e1| NIL) (#4=#:G226 NIL) (|ne1| NIL))
          (SEQ (LETT |r| NIL)
               (SEQ (LETT |ne1| 1) (LETT #4# (LENGTH |n|)) (LETT |e1| NIL)
                    (LETT #3# |n|) G190
@@ -234,14 +234,14 @@
                     (|:| |var| (|Record| (|:| |str| (|String|)))))))
          ($ (|Boolean|)))
         (SPROG
-         ((#1=#:G238 NIL) (|found| (|Boolean|)) (#2=#:G240 NIL) (|b1| NIL)
-          (#3=#:G239 NIL) (|a1| NIL))
+         ((#1=#:G246 NIL) (|found| (|Boolean|)) (#2=#:G248 NIL) (|b1| NIL)
+          (#3=#:G247 NIL) (|a1| NIL))
          (SEQ
           (EXIT
            (SEQ
             (COND
              ((SPADCALL (LENGTH |a|) (LENGTH |b|) (QREFELT $ 32))
-              (PROGN (LETT #1# NIL) (GO #4=#:G237))))
+              (PROGN (LETT #1# NIL) (GO #4=#:G245))))
             (SEQ (LETT |a1| NIL) (LETT #3# |a|) G190
                  (COND
                   ((OR (ATOM #3#) (PROGN (LETT |a1| (CAR #3#)) NIL))
@@ -275,14 +275,14 @@
                     (|:| |var| (|Record| (|:| |str| (|String|)))))))
          ($ (|Boolean|)))
         (SPROG
-         ((#1=#:G256 NIL) (|found| (|Boolean|)) (#2=#:G258 NIL) (|b1| NIL)
-          (#3=#:G257 NIL) (|a1| NIL))
+         ((#1=#:G266 NIL) (|found| (|Boolean|)) (#2=#:G268 NIL) (|b1| NIL)
+          (#3=#:G267 NIL) (|a1| NIL))
          (SEQ
           (EXIT
            (SEQ
             (COND
              ((>= (LENGTH |a|) (LENGTH |b|))
-              (PROGN (LETT #1# NIL) (GO #4=#:G255))))
+              (PROGN (LETT #1# NIL) (GO #4=#:G265))))
             (SEQ (LETT |a1| NIL) (LETT #3# |a|) G190
                  (COND
                   ((OR (ATOM #3#) (PROGN (LETT |a1| (CAR #3#)) NIL))
@@ -312,14 +312,14 @@
             (|List|
              (|Union| (|:| |const| (|Record| (|:| |val| (|Symbol|))))
                       (|:| |var| (|Record| (|:| |str| (|String|))))))))
-          (|modified| #1=(|Boolean|)) (|isSubTerm| #1#) (#2=#:G272 NIL)
-          (|inner| NIL) (|match| #1#) (#3=#:G270 NIL) (#4=#:G271 NIL)
+          (|modified| #1=(|Boolean|)) (|isSubTerm| #1#) (#2=#:G285 NIL)
+          (|inner| NIL) (|match| #1#) (#3=#:G283 NIL) (#4=#:G284 NIL)
           (|innern| NIL)
           (|newinnerList|
            (|List|
             (|Union| (|:| |const| (|Record| (|:| |val| (|Symbol|))))
                      (|:| |var| (|Record| (|:| |str| (|String|)))))))
-          (#5=#:G268 NIL) (|outer| NIL) (#6=#:G269 NIL) (|outern| NIL))
+          (#5=#:G281 NIL) (|outer| NIL) (#6=#:G282 NIL) (|outern| NIL))
          (SEQ (LETT |r| NIL) (LETT |modified| NIL)
               (SEQ (LETT |outern| 1) (LETT #6# (LENGTH |n|)) (LETT |outer| NIL)
                    (LETT #5# |n|) G190
@@ -414,13 +414,13 @@
           (|Union| (|:| |const| (|Record| (|:| |val| (|Symbol|))))
                    (|:| |var| (|Record| (|:| |str| (|String|))))))
          ($ (|String|)))
-        (SPROG ((#1=#:G286 NIL) (#2=#:G208 NIL))
+        (SPROG ((#1=#:G299 NIL) (#2=#:G212 NIL))
                (SEQ
                 (EXIT
                  (SEQ
                   (COND
                    ((QEQCAR |a| 1)
-                    (PROGN (LETT #1# (QCAR (CDR |a|))) (GO #3=#:G285))))
+                    (PROGN (LETT #1# (QCAR (CDR |a|))) (GO #3=#:G298))))
                   (COND
                    ((QEQCAR |a| 0)
                     (SEQ
@@ -447,9 +447,9 @@
 
 (SDEFUN |LATMOFJ;toStringUnwrapped;$S;27| ((|n| ($)) ($ (|String|)))
         (SPROG
-         ((|r| (|String|)) (#1=#:G299 NIL) (|inner| NIL) (#2=#:G300 NIL)
-          (|innern| NIL) (|innerList| (|List| (|String|))) (#3=#:G297 NIL)
-          (|outer| NIL) (#4=#:G298 NIL) (|outern| NIL)
+         ((|r| (|String|)) (#1=#:G314 NIL) (|inner| NIL) (#2=#:G315 NIL)
+          (|innern| NIL) (|innerList| (|List| (|String|))) (#3=#:G312 NIL)
+          (|outer| NIL) (#4=#:G313 NIL) (|outern| NIL)
           (|outerList| (|List| (|String|))))
          (SEQ (LETT |outerList| NIL) (LETT |r| "")
               (SEQ (LETT |outern| 1) (LETT #4# (LENGTH |n|)) (LETT |outer| NIL)
@@ -494,7 +494,7 @@
           (|Union| (|:| |const| (|Record| (|:| |val| (|Symbol|))))
                    (|:| |var| (|Record| (|:| |str| (|String|))))))
          ($ (|OutputForm|)))
-        (SPROG ((#1=#:G303 NIL) (#2=#:G208 NIL))
+        (SPROG ((#1=#:G318 NIL) (#2=#:G212 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -502,7 +502,7 @@
                    ((QEQCAR |a| 1)
                     (PROGN
                      (LETT #1# (SPADCALL (QCAR (CDR |a|)) (QREFELT $ 45)))
-                     (GO #3=#:G302))))
+                     (GO #3=#:G317))))
                   (COND
                    ((QEQCAR |a| 0)
                     (PROGN
@@ -529,9 +529,9 @@
 
 (SDEFUN |LATMOFJ;coerce;$Of;29| ((|n| ($)) ($ (|OutputForm|)))
         (SPROG
-         ((|r| (|OutputForm|)) (#1=#:G316 NIL) (|inner| NIL) (#2=#:G317 NIL)
-          (|innern| NIL) (|innerList| (|List| (|OutputForm|))) (#3=#:G314 NIL)
-          (|outer| NIL) (#4=#:G315 NIL) (|outern| NIL)
+         ((|r| (|OutputForm|)) (#1=#:G333 NIL) (|inner| NIL) (#2=#:G334 NIL)
+          (|innern| NIL) (|innerList| (|List| (|OutputForm|))) (#3=#:G331 NIL)
+          (|outer| NIL) (#4=#:G332 NIL) (|outern| NIL)
           (|outerList| (|List| (|OutputForm|))))
          (SEQ (LETT |outerList| NIL) (LETT |r| (SPADCALL "(" (QREFELT $ 47)))
               (SEQ (LETT |outern| 1) (LETT #4# (LENGTH |n|)) (LETT |outer| NIL)
@@ -584,7 +584,7 @@
 
 (DEFUN |LatticeMeetOfJoins| ()
   (SPROG NIL
-         (PROG (#1=#:G319)
+         (PROG (#1=#:G336)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|LatticeMeetOfJoins|))

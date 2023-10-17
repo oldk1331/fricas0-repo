@@ -31,22 +31,22 @@
          ((|l|
            (|List|
             (|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|)))))
-          (|term| #1#) (#2=#:G177 NIL) (|j| NIL)
-          (|v| (|Vector| (|PrimeField| |p|))) (#3=#:G176 NIL) (|i| NIL)
+          (|term| #1#) (#2=#:G188 NIL) (|j| NIL)
+          (|v| (|Vector| (|PrimeField| |p|))) (#3=#:G187 NIL) (|i| NIL)
           (|multtable|
            (|Vector|
             (|List|
              (|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|))))))
-          (|m| (|NonNegativeInteger|)) (|lvjh| (|Integer|)) (#4=#:G175 NIL)
-          (#5=#:G174 NIL) (#6=#:G173 NIL) (#7=#:G172 NIL)
-          (|help| (|PrimeField| |p1|)) (#8=#:G171 NIL) (#9=#:G170 NIL)
-          (|lvj| (|Matrix| (|Integer|))) (#10=#:G169 NIL) (#11=#:G168 NIL)
+          (|m| (|NonNegativeInteger|)) (|lvjh| (|Integer|)) (#4=#:G186 NIL)
+          (#5=#:G185 NIL) (#6=#:G184 NIL) (#7=#:G183 NIL)
+          (|help| (|PrimeField| |p1|)) (#8=#:G182 NIL) (#9=#:G181 NIL)
+          (|lvj| (|Matrix| (|Integer|))) (#10=#:G180 NIL) (#11=#:G179 NIL)
           (|x| NIL) (|vec| (|Vector| (|Integer|))) (|vt| (|Integer|))
           (|jt| (|Integer|)) (|t| (|PrimeField| |p1|))
           (|pkn| (|PrimeField| |p1|)) (|p1| (|NonNegativeInteger|))
-          (|multmat| (|Matrix| (|PrimeField| |p|))) (#12=#:G166 NIL)
+          (|multmat| (|Matrix| (|PrimeField| |p|))) (#12=#:G177 NIL)
           (|t1| (|PrimeField| (+ (* |k| |n|) (|One|))))
-          (|k| (|NonNegativeInteger|)) (|a| (|Integer|)) (#13=#:G167 NIL)
+          (|k| (|NonNegativeInteger|)) (|a| (|Integer|)) (#13=#:G178 NIL)
           (|p| (|NonNegativeInteger|)) (|q| (|NonNegativeInteger|)))
          (SEQ (LETT |q| (SPADCALL (QREFELT $ 17)))
               (LETT |p| (SPADCALL (QREFELT $ 18))) (LETT |k| 0)
@@ -141,7 +141,7 @@
                                                                              |k|
                                                                              |n|)
                                                                             (|One|)))))))))
-                                (GO #14=#:G132)))))
+                                (GO #14=#:G133)))))
                             #14# (EXIT #12#))))))))))
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (EXIT
@@ -526,7 +526,7 @@
            (|List|
             (|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|))))))
          ($ (|NonNegativeInteger|)))
-        (SPROG ((|s| (|NonNegativeInteger|)) (#1=#:G185 NIL) (|i| NIL))
+        (SPROG ((|s| (|NonNegativeInteger|)) (#1=#:G197 NIL) (|i| NIL))
                (SEQ (LETT |s| 0)
                     (SEQ (LETT |i| 1) (LETT #1# (QVSIZE |m|)) G190
                          (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -549,22 +549,22 @@
          ((|l|
            (|List|
             (|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|)))))
-          (|term| #1#) (#2=#:G211 NIL) (|j| NIL) (|v| (|Vector| GF))
-          (#3=#:G210 NIL) (|i| NIL)
+          (|term| #1#) (#2=#:G228 NIL) (|j| NIL) (|v| (|Vector| GF))
+          (#3=#:G227 NIL) (|i| NIL)
           (|multtable|
            (|Vector|
             (|List|
              (|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|))))))
-          (|mat| (|Matrix| GF)) (#4=#:G193 NIL)
+          (|mat| (|Matrix| GF)) (#4=#:G208 NIL)
           (|mat1| (|Union| (|Matrix| GF) #5="failed"))
           (|h| (|ModMonic| GF (|SparseUnivariatePolynomial| GF)))
           (|g| (|ModMonic| GF (|SparseUnivariatePolynomial| GF)))
-          (#6=#:G209 NIL)
+          (#6=#:G226 NIL)
           (|qexp|
            #7=(|PrimitiveArray|
                (|ModMonic| GF (|SparseUnivariatePolynomial| GF))))
           (|w| (|ModMonic| GF (|SparseUnivariatePolynomial| GF)))
-          (#8=#:G208 NIL) (|qpow| #7#)
+          (#8=#:G225 NIL) (|qpow| #7#)
           (|e| (|ModMonic| GF (|SparseUnivariatePolynomial| GF)))
           (|m1| (|Integer|)) (|m| (|PositiveInteger|))
           (|sizeGF| (|NonNegativeInteger|)))
@@ -712,10 +712,10 @@
          ((|a|
            #1=(|SimpleAlgebraicExtension| GF (|SparseUnivariatePolynomial| GF)
                                           |f|))
-          (#2=#:G225 NIL) (|i| NIL) (#3=#:G224 NIL) (#4=#:G223 NIL)
+          (#2=#:G245 NIL) (|i| NIL) (#3=#:G244 NIL) (#4=#:G243 NIL)
           (|primElement| #1#)
           (|helparr| #5=(|PrimitiveArray| (|SingleInteger|))) (|zechlog| #5#)
-          (|qm1| (|SingleInteger|)) (|m| (|PositiveInteger|)) (#6=#:G212 NIL)
+          (|qm1| (|SingleInteger|)) (|m| (|PositiveInteger|)) (#6=#:G229 NIL)
           (|sizeGF| (|NonNegativeInteger|)))
          (SEQ (LETT |sizeGF| (SPADCALL (QREFELT $ 17)))
               (LETT |m|
@@ -865,7 +865,7 @@
             (|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|))))))
          ($ (|Matrix| GF)))
         (SPROG
-         ((#1=#:G233 NIL) (|t| NIL) (#2=#:G232 NIL) (|i| NIL)
+         ((#1=#:G255 NIL) (|t| NIL) (#2=#:G254 NIL) (|i| NIL)
           (|mat| (|Matrix| GF)) (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (QVSIZE |m|))
               (LETT |mat| (SPADCALL |n| |n| (QREFELT $ 54)))
@@ -888,9 +888,9 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldFunctions;|)) 
 
-(DEFUN |FiniteFieldFunctions| (#1=#:G234)
+(DEFUN |FiniteFieldFunctions| (#1=#:G256)
   (SPROG NIL
-         (PROG (#2=#:G235)
+         (PROG (#2=#:G257)
            (RETURN
             (COND
              ((LETT #2#

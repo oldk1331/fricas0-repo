@@ -54,7 +54,7 @@
 (SDEFUN |NLINSOL;solve;LLL;3|
         ((|lp| (|List| (|Polynomial| R))) (|lv| (|List| (|Symbol|)))
          ($ (|List| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))))
-        (SPROG ((#1=#:G121 NIL) (|sol| NIL) (#2=#:G120 NIL))
+        (SPROG ((#1=#:G122 NIL) (|sol| NIL) (#2=#:G121 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -75,7 +75,7 @@
         ((|eq| (|Equation| (|Fraction| (|Polynomial| R))))
          (|l| (|List| (|List| (|Equation| (|Fraction| (|Polynomial| R))))))
          ($ (|List| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))))
-        (SPROG ((#1=#:G125 NIL) (|sol| NIL) (#2=#:G124 NIL))
+        (SPROG ((#1=#:G127 NIL) (|sol| NIL) (#2=#:G126 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -91,7 +91,7 @@
         ((|ls| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))
          (|l| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))
          ($ (|List| (|Equation| (|Fraction| (|Polynomial| R))))))
-        (SPROG ((#1=#:G129 NIL) (|eq| NIL) (#2=#:G128 NIL))
+        (SPROG ((#1=#:G132 NIL) (|eq| NIL) (#2=#:G131 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -116,8 +116,8 @@
         ((|l| (|List| (|Polynomial| R)))
          ($ (|List| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))))
         (SPROG
-         ((#1=#:G138 NIL) (|a| NIL) (#2=#:G137 NIL)
-          (|s| (|Fraction| (|Polynomial| R))) (#3=#:G131 NIL)
+         ((#1=#:G142 NIL) (|a| NIL) (#2=#:G141 NIL)
+          (|s| (|Fraction| (|Polynomial| R))) (#3=#:G134 NIL)
           (|p| (|Polynomial| R))
           (|z| (|List| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))))
          (SEQ
@@ -171,11 +171,11 @@
         ((|l| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))
          ($ (|List| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))))
         (SPROG
-         ((#1=#:G160 NIL) (|z| NIL) (#2=#:G159 NIL) (#3=#:G157 NIL)
+         ((#1=#:G166 NIL) (|z| NIL) (#2=#:G165 NIL) (#3=#:G163 NIL)
           (|luniv| (|List| (|Polynomial| R))) (|r| (|Union| R "failed"))
           (|u| (|Union| (|Polynomial| R) "failed"))
           (|lsubs| #4=(|List| (|Equation| (|Fraction| (|Polynomial| R)))))
-          (|lassign| #4#) (#5=#:G158 NIL) (|eq| NIL))
+          (|lassign| #4#) (#5=#:G164 NIL) (|eq| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |lassign| (LETT |lsubs| NIL)) (LETT |luniv| NIL)
@@ -224,7 +224,7 @@
                                   ('T
                                    (PROGN
                                     (LETT #3# (LIST |l|))
-                                    (GO #6=#:G156)))))))
+                                    (GO #6=#:G162)))))))
                               ('T (PROGN (LETT #3# (LIST |l|)) (GO #6#)))))
                             ('T (PROGN (LETT #3# (LIST |l|)) (GO #6#))))))))))
                      (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
@@ -256,7 +256,7 @@
 
 (SDEFUN |NLINSOL;RIfCan|
         ((|f| (|Fraction| (|Polynomial| R))) ($ (|Union| R "failed")))
-        (SPROG ((#1=#:G168 NIL) (|d| #2=(|Union| R "failed")) (|n| #2#))
+        (SPROG ((#1=#:G174 NIL) (|d| #2=(|Union| R "failed")) (|n| #2#))
                (SEQ
                 (EXIT
                  (SEQ
@@ -279,7 +279,7 @@
                                  (CONS 0
                                        (SPADCALL (QCDR |n|) (QCDR |d|)
                                                  (QREFELT $ 47))))
-                           (GO #3=#:G166))))))))))
+                           (GO #3=#:G172))))))))))
                   (EXIT (CONS 1 "failed"))))
                 #3# (EXIT #1#)))) 
 
@@ -306,7 +306,7 @@
 (SDEFUN |NLINSOL;solveInField;LLL;13|
         ((|lp| (|List| (|Polynomial| R))) (|lv| (|List| (|Symbol|)))
          ($ (|List| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))))
-        (SPROG ((#1=#:G176 NIL) (|p| NIL) (#2=#:G175 NIL))
+        (SPROG ((#1=#:G183 NIL) (|p| NIL) (#2=#:G182 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -324,9 +324,9 @@
 
 (DECLAIM (NOTINLINE |NonLinearSolvePackage;|)) 
 
-(DEFUN |NonLinearSolvePackage| (#1=#:G177)
+(DEFUN |NonLinearSolvePackage| (#1=#:G184)
   (SPROG NIL
-         (PROG (#2=#:G178)
+         (PROG (#2=#:G185)
            (RETURN
             (COND
              ((LETT #2#

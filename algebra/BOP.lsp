@@ -127,7 +127,7 @@
                                            '(|Integer|) #1#))))))) 
 
 (SDEFUN |BOP;copy;2$;26| ((|op| ($)) ($ ($)))
-        (SPROG ((#1=#:G189 NIL) (|r| NIL) (#2=#:G188 NIL))
+        (SPROG ((#1=#:G190 NIL) (|r| NIL) (#2=#:G189 NIL))
                (SEQ
                 (|BOP;oper| (SPADCALL |op| (QREFELT $ 13)) (QVELT |op| 1)
                  (SPADCALL
@@ -265,7 +265,7 @@
 
 (DEFUN |BasicOperator| ()
   (SPROG NIL
-         (PROG (#1=#:G226)
+         (PROG (#1=#:G227)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|BasicOperator|))

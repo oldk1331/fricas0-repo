@@ -3,8 +3,8 @@
         ((|v1| ($)) (|v2| ($)) (|low| (|NonNegativeInteger|))
          (|high| (|NonNegativeInteger|)) ($ (|Boolean|)))
         (SPROG
-         ((#1=#:G115 NIL) (#2=#:G117 NIL) (|i| NIL) (|n2| (S)) (|n1| (S))
-          (#3=#:G116 NIL))
+         ((#1=#:G117 NIL) (#2=#:G119 NIL) (|i| NIL) (|n2| (S)) (|n1| (S))
+          (#3=#:G118 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |n1| (|spadConstant| $ 10))
@@ -32,7 +32,7 @@
                                 ((SPADCALL (SPADCALL |v2| |i| (QREFELT $ 12))
                                            (SPADCALL |v1| |i| (QREFELT $ 12))
                                            (QREFELT $ 15))
-                                 (PROGN (LETT #1# 'T) (GO #4=#:G114))))
+                                 (PROGN (LETT #1# 'T) (GO #4=#:G116))))
                                (EXIT
                                 (COND
                                  ((SPADCALL (SPADCALL |v1| |i| (QREFELT $ 12))
@@ -44,7 +44,7 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |SHDP;<;2$B;2| ((|v1| ($)) (|v2| ($)) ($ (|Boolean|)))
-        (SPROG ((#1=#:G123 NIL) (#2=#:G124 NIL) (|i| NIL))
+        (SPROG ((#1=#:G126 NIL) (#2=#:G127 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (COND ((|SHDP;lessThanRlex| |v1| |v2| 1 (QREFELT $ 7) $) 'T)
@@ -58,7 +58,7 @@
                                  ((SPADCALL (SPADCALL |v1| |i| (QREFELT $ 12))
                                             (SPADCALL |v2| |i| (QREFELT $ 12))
                                             (QREFELT $ 16))
-                                  (PROGN (LETT #1# NIL) (GO #3=#:G122))))))
+                                  (PROGN (LETT #1# NIL) (GO #3=#:G125))))))
                               (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                               (EXIT NIL))
                          (EXIT
@@ -68,9 +68,9 @@
 
 (DECLAIM (NOTINLINE |SplitHomogeneousDirectProduct;|)) 
 
-(DEFUN |SplitHomogeneousDirectProduct| (&REST #1=#:G150)
+(DEFUN |SplitHomogeneousDirectProduct| (&REST #1=#:G153)
   (SPROG NIL
-         (PROG (#2=#:G151)
+         (PROG (#2=#:G154)
            (RETURN
             (COND
              ((LETT #2#
@@ -92,8 +92,8 @@
 
 (DEFUN |SplitHomogeneousDirectProduct;| (|#1| |#2| |#3|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G142 NIL) (#2=#:G143 NIL) (#3=#:G144 NIL) (#4=#:G145 NIL)
-    (#5=#:G146 NIL) (#6=#:G147 NIL) (#7=#:G148 NIL) (#8=#:G149 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G145 NIL) (#2=#:G146 NIL) (#3=#:G147 NIL) (#4=#:G148 NIL)
+    (#5=#:G149 NIL) (#6=#:G150 NIL) (#7=#:G151 NIL) (#8=#:G152 NIL) ($ NIL)
     (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 |#1|)

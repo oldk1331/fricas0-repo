@@ -3,9 +3,9 @@
         ((|a| (|Matrix| R)) (|b| (|Matrix| R)) (|li| (|List| (|Integer|)))
          (|n| (|Integer|)) ($ (|Matrix| R)))
         (SPROG
-         ((#1=#:G126 NIL) (#2=#:G125 (R)) (#3=#:G127 (R)) (#4=#:G135 NIL)
-          (|s| NIL) (#5=#:G134 NIL) (|j| NIL) (#6=#:G133 NIL) (#7=#:G132 NIL)
-          (|i| NIL) (#8=#:G131 NIL))
+         ((#1=#:G128 NIL) (#2=#:G127 (R)) (#3=#:G129 (R)) (#4=#:G137 NIL)
+          (|s| NIL) (#5=#:G136 NIL) (|j| NIL) (#6=#:G135 NIL) (#7=#:G134 NIL)
+          (|i| NIL) (#8=#:G133 NIL))
          (SEQ
           (SPADCALL
            (PROGN
@@ -71,8 +71,8 @@
         ((|i| (|NonNegativeInteger|)) (|a| (|Matrix| R)) (|b| (|Matrix| R))
          (|x| (|Matrix| R)) ($ (|Matrix| R)))
         (SPROG
-         ((#1=#:G151 NIL) (#2=#:G149 NIL) (#3=#:G147 NIL) (#4=#:G145 NIL)
-          (#5=#:G143 NIL) (#6=#:G141 NIL))
+         ((#1=#:G153 NIL) (#2=#:G151 NIL) (#3=#:G149 NIL) (#4=#:G147 NIL)
+          (#5=#:G145 NIL) (#6=#:G143 NIL))
          (SEQ
           (COND
            ((EQL
@@ -130,9 +130,9 @@
 (SDEFUN |REP2;completeEchelonBasis;VM;3|
         ((|basis| (|Vector| (|Vector| R))) ($ (|Matrix| R)))
         (SPROG
-         ((#1=#:G166 NIL) (|j| NIL) (|newStart| #2=(|NonNegativeInteger|))
+         ((#1=#:G171 NIL) (|j| NIL) (|newStart| #2=(|NonNegativeInteger|))
           (|indexOfVectorToBeScanned| #2#) (|row| #3=(|NonNegativeInteger|))
-          (#4=#:G165 NIL) (|completedBasis| (|Matrix| R)) (#5=#:G164 NIL)
+          (#4=#:G170 NIL) (|completedBasis| (|Matrix| R)) (#5=#:G169 NIL)
           (|i| NIL) (|n| (|NonNegativeInteger|)) (|dimensionOfSubmodule| #3#))
          (SEQ (LETT |dimensionOfSubmodule| (QVSIZE |basis|))
               (LETT |n| (QVSIZE (SPADCALL |basis| 1 (QREFELT $ 21))))
@@ -205,12 +205,12 @@
         ((|lm| (|List| (|Matrix| R))) (|v| (|Vector| R))
          ($ (|Vector| (|Vector| R))))
         (SPROG
-         ((#1=#:G183 NIL) (|i| NIL) (#2=#:G182 NIL)
+         ((#1=#:G192 NIL) (|i| NIL) (#2=#:G191 NIL)
           (|furtherElts| (|List| (|Vector| R)))
-          (|updateFurtherElts| (|List| (|Vector| R))) (#3=#:G181 NIL)
-          (#4=#:G180 NIL) (|basis| (|Matrix| R)) (|addedToBasis| (|Matrix| R))
-          (|nextVector| (|Matrix| R)) (|w| (|Vector| R)) (#5=#:G179 NIL)
-          (#6=#:G178 NIL))
+          (|updateFurtherElts| (|List| (|Vector| R))) (#3=#:G190 NIL)
+          (#4=#:G189 NIL) (|basis| (|Matrix| R)) (|addedToBasis| (|Matrix| R))
+          (|nextVector| (|Matrix| R)) (|w| (|Vector| R)) (#5=#:G188 NIL)
+          (#6=#:G187 NIL))
          (SEQ
           (LETT |basis|
                 (SPADCALL
@@ -293,11 +293,11 @@
         ((|lm| (|List| (|Matrix| R))) (|v| (|Vector| R)) ($ (|Matrix| R)))
         (SPROG
          ((|furtherElts| (|List| (|Vector| R)))
-          (|updateFurtherElts| (|List| (|Vector| R))) (#1=#:G195 NIL) (|i| NIL)
-          (#2=#:G194 NIL) (|basis| (|Matrix| R))
+          (|updateFurtherElts| (|List| (|Vector| R))) (#1=#:G207 NIL) (|i| NIL)
+          (#2=#:G206 NIL) (|basis| (|Matrix| R))
           (|standardBasis| (|List| (|List| R))) (|addedToBasis| (|Matrix| R))
-          (|nextVector| (|Matrix| R)) (|w| (|Vector| R)) (#3=#:G193 NIL)
-          (#4=#:G192 NIL) (|dim| (|NonNegativeInteger|)))
+          (|nextVector| (|Matrix| R)) (|w| (|Vector| R)) (#3=#:G205 NIL)
+          (#4=#:G204 NIL) (|dim| (|NonNegativeInteger|)))
          (SEQ (LETT |dim| (QVSIZE |v|))
               (LETT |standardBasis|
                     (SPADCALL (SPADCALL |v| (QREFELT $ 34)) (QREFELT $ 35)))
@@ -380,12 +380,12 @@
         (SPROG
          ((|factormoduleRepresentation| (|List| (|Matrix| R)))
           (|submoduleRepresentation| (|List| (|Matrix| R)))
-          (|helpMatrix| (|Matrix| R)) (#1=#:G212 NIL) (|i| NIL)
-          (|inverseTransitionMatrix| (|Matrix| R)) (#2=#:G199 NIL)
+          (|helpMatrix| (|Matrix| R)) (#1=#:G227 NIL) (|i| NIL)
+          (|inverseTransitionMatrix| (|Matrix| R)) (#2=#:G213 NIL)
           (|transitionMatrix| (|Matrix| R))
-          (|factormoduleIndices| (|List| (|Integer|))) (#3=#:G211 NIL)
-          (#4=#:G210 NIL) (|submoduleIndices| (|List| (|Integer|)))
-          (#5=#:G209 NIL) (#6=#:G208 NIL) (|rankOfSubmodule| (|Integer|))
+          (|factormoduleIndices| (|List| (|Integer|))) (#3=#:G226 NIL)
+          (#4=#:G225 NIL) (|submoduleIndices| (|List| (|Integer|)))
+          (#5=#:G224 NIL) (#6=#:G223 NIL) (|rankOfSubmodule| (|Integer|))
           (|submodule| (|Vector| (|Vector| R))) (|n| (|Integer|)))
          (SEQ (LETT |n| (QVSIZE |vector|))
               (LETT |submodule|
@@ -476,11 +476,11 @@
          (|singularMatrix| (|Matrix| R)) (|split?| (|Boolean|))
          ($ (|List| (|List| (|Matrix| R)))))
         (SPROG
-         ((#1=#:G217 NIL) (|mat| (|Matrix| R)) (#2=#:G229 NIL) (|j| NIL)
-          (#3=#:G228 NIL) (|i| NIL) (|result| (|List| (|List| (|Matrix| R))))
+         ((#1=#:G235 NIL) (|mat| (|Matrix| R)) (#2=#:G247 NIL) (|j| NIL)
+          (#3=#:G246 NIL) (|i| NIL) (|result| (|List| (|List| (|Matrix| R))))
           (|kernel| (|List| (|Vector| R))) (|xt| (|Matrix| R))
-          (|algebraGeneratorsTranspose| (|List| (|Matrix| R))) (#4=#:G227 NIL)
-          (#5=#:G226 NIL))
+          (|algebraGeneratorsTranspose| (|List| (|Matrix| R))) (#4=#:G245 NIL)
+          (#5=#:G244 NIL))
          (SEQ
           (LETT |algebraGeneratorsTranspose|
                 (PROGN
@@ -588,12 +588,12 @@
          ($ (|Matrix| R)))
         (SPROG
          ((|transitionM| (|Matrix| R)) (|result| #1=(|Boolean|))
-          (#2=#:G261 NIL) (|j| NIL) (|foundResult| #1#) (#3=#:G242 NIL)
+          (#2=#:G281 NIL) (|j| NIL) (|foundResult| #1#) (#3=#:G261 NIL)
           (|baseChange1| #4=(|Matrix| R)) (|baseChange0| #4#)
           (|kernel1| #5=(|List| (|Vector| R))) (|kernel0| #5#)
           (|rk1| #6=(|NonNegativeInteger|)) (|rk0| #6#) (|x1| #7=(|Matrix| R))
-          (|x0| #7#) (|randomIndex| (|Integer|)) (#8=#:G259 NIL) (|i| NIL)
-          (#9=#:G260 NIL) (|n| (|NonNegativeInteger|))
+          (|x0| #7#) (|randomIndex| (|Integer|)) (#8=#:G279 NIL) (|i| NIL)
+          (#9=#:G280 NIL) (|n| (|NonNegativeInteger|))
           (|numberOfGenerators| (|NonNegativeInteger|)))
          (SEQ (LETT |result| NIL)
               (LETT |transitionM| (SPADCALL 1 1 (QREFELT $ 23)))
@@ -812,7 +812,7 @@
         (SPROG
          ((|result| #1=(|Boolean|)) (|kernel| (|List| (|Vector| R)))
           (|foundResult| #1#) (|rk| (|NonNegativeInteger|)) (|x| (|Matrix| R))
-          (|randomIndex| (|Integer|)) (#2=#:G271 NIL) (|i| NIL) (#3=#:G272 NIL)
+          (|randomIndex| (|Integer|)) (#2=#:G292 NIL) (|i| NIL) (#3=#:G293 NIL)
           (|n| (|NonNegativeInteger|))
           (|numberOfGenerators| (|NonNegativeInteger|)))
          (SEQ (LETT |result| NIL) (LETT |numberOfGenerators| (LENGTH |aG|))
@@ -890,12 +890,12 @@
         (SPROG
          ((|factormoduleRepresentation| (|List| (|Matrix| R)))
           (|submoduleRepresentation| (|List| (|Matrix| R)))
-          (|helpMatrix| (|Matrix| R)) (#1=#:G287 NIL) (|i| NIL)
-          (|inverseTransitionMatrix| (|Matrix| R)) (#2=#:G277 NIL)
+          (|helpMatrix| (|Matrix| R)) (#1=#:G311 NIL) (|i| NIL)
+          (|inverseTransitionMatrix| (|Matrix| R)) (#2=#:G300 NIL)
           (|transitionMatrix| (|Matrix| R))
-          (|factormoduleIndices| (|List| (|Integer|))) (#3=#:G286 NIL)
-          (#4=#:G285 NIL) (|submoduleIndices| (|List| (|Integer|)))
-          (#5=#:G284 NIL) (#6=#:G283 NIL) (|rankOfSubmodule| (|Integer|))
+          (|factormoduleIndices| (|List| (|Integer|))) (#3=#:G310 NIL)
+          (#4=#:G309 NIL) (|submoduleIndices| (|List| (|Integer|)))
+          (#5=#:G308 NIL) (#6=#:G307 NIL) (|rankOfSubmodule| (|Integer|))
           (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (QVSIZE (SPADCALL |submodule| 1 (QREFELT $ 21))))
               (LETT |rankOfSubmodule| (QVSIZE |submodule|))
@@ -959,11 +959,11 @@
 
 (SDEFUN |REP2;my_min| ((|m| (|Matrix| R)) (|n| (|Integer|)) ($ (|Smp|)))
         (SPROG
-         ((|xi| (|Smp|)) (|res| (|Smp|)) (#1=#:G306 NIL) (|i| NIL)
+         ((|xi| (|Smp|)) (|res| (|Smp|)) (#1=#:G337 NIL) (|i| NIL)
           (|x| (|Smp|)) (|j| (|Integer|)) (|depe| (|Matrix| R))
-          (|depm| (|Matrix| R)) (#2=#:G305 NIL) (#3=#:G304 NIL)
-          (|depl| (|List| (|Vector| R))) (|v| #4=(|Vector| R)) (#5=#:G303 NIL)
-          (#6=#:G302 NIL) (#7=#:G301 NIL) (|zz| #4#) (#8=#:G289 NIL))
+          (|depm| (|Matrix| R)) (#2=#:G336 NIL) (#3=#:G335 NIL)
+          (|depl| (|List| (|Vector| R))) (|v| #4=(|Vector| R)) (#5=#:G334 NIL)
+          (#6=#:G333 NIL) (#7=#:G332 NIL) (|zz| #4#) (#8=#:G313 NIL))
          (SEQ
           (LETT |zz|
                 (SPADCALL
@@ -1044,9 +1044,9 @@
         ((|p| (|Smp|)) (|m| (|Matrix| R)) (|n| (|Integer|)) ($ (|Matrix| R)))
         (SPROG
          ((|old_deg| #1=(|NonNegativeInteger|)) (|res| (|Matrix| R))
-          (#2=#:G317 NIL) (|i| NIL) (|ndeg| #1#) (|c0| (R)) (|id| (|Matrix| R))
-          (#3=#:G314 NIL) (#4=#:G316 NIL) (#5=#:G315 NIL)
-          (|nn| (|NonNegativeInteger|)) (#6=#:G307 NIL))
+          (#2=#:G351 NIL) (|i| NIL) (|ndeg| #1#) (|c0| (R)) (|id| (|Matrix| R))
+          (#3=#:G348 NIL) (#4=#:G350 NIL) (#5=#:G349 NIL)
+          (|nn| (|NonNegativeInteger|)) (#6=#:G338 NIL))
          (SEQ
           (LETT |nn|
                 (PROG1 (LETT #6# |n|)
@@ -1091,10 +1091,10 @@
          (|n| (|Integer|)) (|m| (|Integer|))
          ($ (|Union| (|List| (|List| (|Matrix| R))) "failed")))
         (SPROG
-         ((#1=#:G329 NIL) (|pres| (|List| (|List| (|Matrix| R))))
+         ((#1=#:G364 NIL) (|pres| (|List| (|List| (|Matrix| R))))
           (|v| (|Vector| R)) (|good| (|Boolean|))
           (|kernel| (|List| (|Vector| R))) (|xx| (|Matrix| R))
-          (|mm| (|NonNegativeInteger|)) (|fpol| (|Smp|)) (#2=#:G330 NIL)
+          (|mm| (|NonNegativeInteger|)) (|fpol| (|Smp|)) (#2=#:G365 NIL)
           (|fac| NIL)
           (|fl|
            (|List|
@@ -1129,7 +1129,7 @@
                                     ((NULL (NULL (CDR |pres|)))
                                      (PROGN
                                       (LETT #1# (CONS 0 |pres|))
-                                      (GO #3=#:G328))))
+                                      (GO #3=#:G363))))
                                    (EXIT
                                     (COND
                                      (|good|
@@ -1154,14 +1154,14 @@
          (|randomelements| (|Boolean|)) (|numberOfTries| (|Integer|))
          (|maxTests| (|Integer|)) ($ (|List| (|List| (|Matrix| R)))))
         (SPROG
-         ((|result| (|List| (|List| (|Matrix| R)))) (#1=#:G346 NIL)
-          (#2=#:G348 NIL) (|j| NIL) (|numberOfTests| (|Integer|))
+         ((|result| (|List| (|List| (|Matrix| R)))) (#1=#:G383 NIL)
+          (#2=#:G385 NIL) (|j| NIL) (|numberOfTests| (|Integer|))
           (|numberOfOneDimSubspacesInKernel| (|Integer|))
           (|kernel| (|List| (|Vector| R)))
           (|pp| (|Union| (|List| (|List| (|Matrix| R))) "failed"))
           (|n| (|NonNegativeInteger|)) (|x| (|Matrix| R))
-          (|randomIndex| (|Integer|)) (#3=#:G347 NIL) (|i| NIL)
-          (|q| (|PositiveInteger|)) (#4=#:G331 NIL)
+          (|randomIndex| (|Integer|)) (#3=#:G384 NIL) (|i| NIL)
+          (|q| (|PositiveInteger|)) (#4=#:G366 NIL)
           (|numberOfGenerators| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -1222,7 +1222,7 @@
                                 ((QEQCAR |pp| 0)
                                  (PROGN
                                   (LETT #1# (QCDR |pp|))
-                                  (GO #5=#:G345)))))))))
+                                  (GO #5=#:G382)))))))))
                           (LETT |kernel| (SPADCALL |x| (QREFELT $ 56)))
                           (EXIT
                            (COND
@@ -1313,10 +1313,10 @@
 (SDEFUN |REP2;scanOneDimSubspaces;LIV;23|
         ((|basis| (|List| (|Vector| R))) (|n| (|Integer|)) ($ (|Vector| R)))
         (SPROG
-         ((#1=#:G364 NIL) (|j| NIL) (|newAdd| (|Vector| R)) (#2=#:G363 NIL)
-          (|i| (|Integer|)) (|result| #3=(|Vector| R)) (#4=#:G354 NIL)
-          (#5=#:G362 NIL) (|iR| (|List| (|Integer|))) (|coefficients| #3#)
-          (|nred| #6=(|Integer|)) (|pos| #6#) (#7=#:G361 NIL)
+         ((#1=#:G405 NIL) (|j| NIL) (|newAdd| (|Vector| R)) (#2=#:G404 NIL)
+          (|i| (|Integer|)) (|result| #3=(|Vector| R)) (#4=#:G393 NIL)
+          (#5=#:G403 NIL) (|iR| (|List| (|Integer|))) (|coefficients| #3#)
+          (|nred| #6=(|Integer|)) (|pos| #6#) (#7=#:G402 NIL)
           (|q| (|NonNegativeInteger|)) (|nn| (|NonNegativeInteger|))
           (|dim| (|NonNegativeInteger|)))
          (SEQ (LETT |dim| (LENGTH |basis|))
@@ -1392,9 +1392,9 @@
 
 (DECLAIM (NOTINLINE |RepresentationPackage2;|)) 
 
-(DEFUN |RepresentationPackage2| (#1=#:G366)
+(DEFUN |RepresentationPackage2| (#1=#:G407)
   (SPROG NIL
-         (PROG (#2=#:G367)
+         (PROG (#2=#:G408)
            (RETURN
             (COND
              ((LETT #2#
@@ -1411,7 +1411,7 @@
                   (HREM |$ConstructorCache| '|RepresentationPackage2|)))))))))) 
 
 (DEFUN |RepresentationPackage2;| (|#1|)
-  (SPROG ((|pv$| NIL) (#1=#:G365 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (#1=#:G406 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|RepresentationPackage2| DV$1))

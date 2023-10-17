@@ -394,8 +394,8 @@
          ($ (|Union| (|List| UP) #2#)))
         (SPROG
          ((|ans2| (UP)) (|ans1| (UP)) (|q2| (UP)) (|q1| (UP))
-          (|lq| (|List| UP)) (#3=#:G237 NIL) (#4=#:G238 NIL) (|u| #1#)
-          (#5=#:G231 NIL))
+          (|lq| (|List| UP)) (#3=#:G238 NIL) (#4=#:G239 NIL) (|u| #1#)
+          (#5=#:G232 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |ans1| (LETT |ans2| (|spadConstant| $ 33)))
@@ -411,7 +411,7 @@
                              (EXIT
                               (PROGN
                                (LETT #4# (CONS 0 (LIST |ans1| |ans2|)))
-                               (GO #6=#:G236)))))))
+                               (GO #6=#:G237)))))))
                          (COND
                           ((< |n| 0)
                            (EXIT
@@ -432,7 +432,7 @@
                                (PROGN
                                 (LETT #3#
                                       (PROGN (LETT #4# (CONS 1 #7#)) (GO #6#)))
-                                (GO #8=#:G233))))))))
+                                (GO #8=#:G234))))))))
                          (LETT |lq| (QCDR |u|)) (LETT |q1| (|SPADfirst| |lq|))
                          (LETT |q2| (SPADCALL |lq| (QREFELT $ 30)))
                          (LETT |c1|
@@ -475,7 +475,7 @@
          (|n| (|NonNegativeInteger|)) (|d| (|Integer|)) (|det| (F))
          ($ (|Union| (|List| UP) "failed")))
         (SPROG
-         ((|q2| (F)) (|q1| (F)) (|rh2| (F)) (#1=#:G248 NIL)
+         ((|q2| (F)) (|q1| (F)) (|rh2| (F)) (#1=#:G249 NIL)
           (|d2| #2=(|Integer|)) (|rh1| (F)) (|d1| #2#))
          (SEQ
           (EXIT
@@ -490,7 +490,7 @@
                                  ((> |d1| |n|)
                                   (PROGN
                                    (LETT #1# (CONS 1 "failed"))
-                                   (GO #4=#:G247)))
+                                   (GO #4=#:G248)))
                                  (#3# (SPADCALL |c1| (QREFELT $ 58)))))))))
             (LETT |rh2|
                   (COND ((SPADCALL |c2| (QREFELT $ 51)) (|spadConstant| $ 52))
@@ -527,7 +527,7 @@
          (|n| (|NonNegativeInteger|)) (|d| (|Integer|))
          ($ (|Union| (|List| UP) "failed")))
         (SPROG
-         ((|q2| (UP)) (#1=#:G258 NIL) (|d2| #2=(|Integer|)) (|q1| (UP))
+         ((|q2| (UP)) (#1=#:G259 NIL) (|d2| #2=(|Integer|)) (|q1| (UP))
           (|d1| #2#))
          (SEQ
           (EXIT
@@ -542,7 +542,7 @@
                                  ((> |d1| |n|)
                                   (PROGN
                                    (LETT #1# (CONS 1 "failed"))
-                                   (GO #4=#:G257)))
+                                   (GO #4=#:G258)))
                                  (#3#
                                   (SPADCALL
                                    (SPADCALL (SPADCALL |c1| (QREFELT $ 58))
@@ -572,7 +572,7 @@
          (|n| (|NonNegativeInteger|)) (|d| (|Integer|))
          ($ (|Union| (|List| UP) "failed")))
         (SPROG
-         ((|q2| (UP)) (#1=#:G268 NIL) (|d1| #2=(|Integer|)) (|q1| (UP))
+         ((|q2| (UP)) (#1=#:G269 NIL) (|d1| #2=(|Integer|)) (|q1| (UP))
           (|d2| #2#))
          (SEQ
           (EXIT
@@ -587,7 +587,7 @@
                                  ((> |d2| |n|)
                                   (PROGN
                                    (LETT #1# (CONS 1 "failed"))
-                                   (GO #4=#:G267)))
+                                   (GO #4=#:G268)))
                                  (#3#
                                   (SPADCALL
                                    (SPADCALL (SPADCALL |c2| (QREFELT $ 58))
@@ -655,9 +655,9 @@
 
 (DECLAIM (NOTINLINE |TranscendentalRischDESystem;|)) 
 
-(DEFUN |TranscendentalRischDESystem| (&REST #1=#:G279)
+(DEFUN |TranscendentalRischDESystem| (&REST #1=#:G280)
   (SPROG NIL
-         (PROG (#2=#:G280)
+         (PROG (#2=#:G281)
            (RETURN
             (COND
              ((LETT #2#

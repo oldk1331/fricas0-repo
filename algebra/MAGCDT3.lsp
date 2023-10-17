@@ -99,9 +99,9 @@
                      (|:| |sp| (|Integer|)))
            "failed")))
         (SPROG
-         ((|sizes| (|List| (|Integer|))) (|msize| (|Integer|)) (#1=#:G159 NIL)
-          (|deg| NIL) (|ldeg| (|List| (|NonNegativeInteger|))) (#2=#:G157 NIL)
-          (|m| NIL) (#3=#:G158 NIL) (|v| NIL) (#4=#:G156 NIL)
+         ((|sizes| (|List| (|Integer|))) (|msize| (|Integer|)) (#1=#:G161 NIL)
+          (|deg| NIL) (|ldeg| (|List| (|NonNegativeInteger|))) (#2=#:G159 NIL)
+          (|m| NIL) (#3=#:G160 NIL) (|v| NIL) (#4=#:G158 NIL)
           (|nlmu| (|Union| (|List| (|Polynomial| (|Integer|))) "failed")))
          (SEQ
           (COND
@@ -155,7 +155,7 @@
         ((|exps| (|SortedExponentVector|)) (|sizes| (|List| (|Integer|)))
          (|ns| (|Integer|)) (|start| (|Integer|)) ($ (|Void|)))
         (SPROG
-         ((#1=#:G167 NIL) (|j| NIL) (|nstart| (|Integer|)) (#2=#:G166 NIL)
+         ((#1=#:G171 NIL) (|j| NIL) (|nstart| (|Integer|)) (#2=#:G170 NIL)
           (|i| NIL) (|deg| (|Integer|)) (|msize| (|Integer|))
           (|size1| (|Integer|)) (|do_rec| (|Boolean|))
           (|rsiz| (|List| (|Integer|))))
@@ -262,7 +262,7 @@
                     (|:| |sp| (|Integer|))))
          ($ (|Void|)))
         (SPROG
-         ((#1=#:G183 NIL) (|i| NIL) (|msize| (|Integer|))
+         ((#1=#:G190 NIL) (|i| NIL) (|msize| (|Integer|))
           (|sizes| (|List| (|Integer|))) (|lv| (|List| (|Symbol|))))
          (SEQ (LETT |lv| (QVELT |mu| 0)) (LETT |sizes| (QVELT |mu| 2))
               (LETT |msize| (|SPADfirst| |sizes|))
@@ -387,7 +387,7 @@
          ($
           (|List| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))))
         (SPROG
-         ((#1=#:G223 NIL)
+         ((#1=#:G233 NIL)
           (|t1| #2=(|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
           (|t0| #3=(|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
           (|#G53| #4=(|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
@@ -483,7 +483,7 @@
             (EXIT
              (COND
               ((SPADCALL |r1| (|spadConstant| $ 44) (QREFELT $ 45))
-               (PROGN (LETT #1# (LIST |r0| |s0| |t0|)) (GO #7=#:G222)))
+               (PROGN (LETT #1# (LIST |r0| |s0| |t0|)) (GO #7=#:G232)))
               ('T (PROGN (LETT #1# (LIST |r1| |s1| |t1|)) (GO #7#)))))))
           #7# (EXIT #1#)))) 
 
@@ -680,7 +680,7 @@
 
 (DEFUN |ModularAlgebraicGcdTools3| ()
   (SPROG NIL
-         (PROG (#1=#:G252)
+         (PROG (#1=#:G262)
            (RETURN
             (COND
              ((LETT #1#

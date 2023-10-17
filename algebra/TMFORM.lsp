@@ -468,7 +468,7 @@
                       (#1# (QCDR |res|))))))) 
 
 (SDEFUN |TMFORM;utf2cork| ((|str| (|String|)) ($ (|String|)))
-        (SPROG ((#1=#:G208 NIL) (|i| NIL) (#2=#:G207 NIL))
+        (SPROG ((#1=#:G209 NIL) (|i| NIL) (#2=#:G208 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -818,7 +818,7 @@
 (SDEFUN |TMFORM;formatIntBody|
         ((|body| (|OutputForm|)) (|opPrec| (|Integer|)) ($ (|String|)))
         (SPROG
-         ((#1=#:G270 NIL) (|bvarS| (|String|))
+         ((#1=#:G271 NIL) (|bvarS| (|String|))
           (|bvarL| #2=(|List| (|OutputForm|))) (|bvar| (|OutputForm|))
           (|bodyL| #2#))
          (SEQ
@@ -865,7 +865,7 @@
                                                     " \"*<mathd>" |bvarS|
                                                     "\")")
                                               (QREFELT $ 41)))
-                                       (GO #3=#:G269))))))))))))))))))))
+                                       (GO #3=#:G270))))))))))))))))))))
             (EXIT (|TMFORM;formatExpr| |body| |opPrec| $))))
           #3# (EXIT #1#)))) 
 
@@ -1014,7 +1014,7 @@
         ((|op| (|Symbol|)) (|sep| (|String|)) (|opprec| (|Integer|))
          (|args| (|List| (|OutputForm|))) (|prec| (|Integer|)) ($ (|String|)))
         (SPROG
-         ((|s| (|String|)) (|l| (|List| (|String|))) (#1=#:G301 NIL) (|a| NIL)
+         ((|s| (|String|)) (|l| (|List| (|String|))) (#1=#:G303 NIL) (|a| NIL)
           (|opPrec| (|Integer|)) (|ops| (|String|)) (|p| (|Integer|)))
          (SEQ
           (COND ((NULL |args|) "")
@@ -1142,7 +1142,7 @@
          ((|op| #1=(|Symbol|)) (|nargs| (|Integer|))
           (|args| (|List| (|OutputForm|))) (|opf| (|OutputForm|))
           (|i| (|Integer|)) (|len| (|Integer|)) (|str| (|String|))
-          (#2=#:G338 NIL) (|es| #1#) (|nstr| (|String|))
+          (#2=#:G342 NIL) (|es| #1#) (|nstr| (|String|))
           (|intSplitLen| (|Integer|)))
          (SEQ
           (EXIT
@@ -1220,7 +1220,7 @@
                              (EXIT
                               (COND
                                ((EQUAL |es| '|%pi|)
-                                (PROGN (LETT #2# "<mathpi>") (GO #4=#:G337)))
+                                (PROGN (LETT #2# "<mathpi>") (GO #4=#:G341)))
                                ((EQUAL |es| '|%e|)
                                 (PROGN (LETT #2# "<mathe>") (GO #4#)))
                                ((EQUAL |es| '|%i|)
@@ -1347,7 +1347,7 @@
 
 (DEFUN |TexmacsFormat| ()
   (SPROG NIL
-         (PROG (#1=#:G340)
+         (PROG (#1=#:G344)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|TexmacsFormat|))

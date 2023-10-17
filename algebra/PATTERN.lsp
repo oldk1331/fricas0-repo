@@ -330,7 +330,7 @@
 (SDEFUN |PATTERN;LPAT2O|
         ((|f| (|Mapping| (|OutputForm|) (|OutputForm|) (|OutputForm|)))
          (|l| (|List| $)) ($ (|OutputForm|)))
-        (SPROG ((#1=#:G228 NIL) (|x| NIL) (#2=#:G227 NIL))
+        (SPROG ((#1=#:G229 NIL) (|x| NIL) (#2=#:G228 NIL))
                (SEQ
                 (SPADCALL |f|
                           (PROGN
@@ -456,7 +456,7 @@
                  (#1# (CONS 1 "failed")))))) 
 
 (SDEFUN |PATTERN;incmax| ((|l| (|List| $)) ($ (|NonNegativeInteger|)))
-        (SPROG ((#1=#:G255 NIL) (|p| NIL) (#2=#:G254 NIL))
+        (SPROG ((#1=#:G257 NIL) (|p| NIL) (#2=#:G256 NIL))
                (SEQ
                 (+ 1
                    (SPADCALL (ELT $ 72)
@@ -1262,7 +1262,7 @@
                     (|:| |bad| (|List| (|Any|)))))
          ($ (|OutputForm|)))
         (SPROG
-         ((#1=#:G363 NIL) (|i| NIL) (#2=#:G362 NIL) (|sy| (|OutputForm|)))
+         ((#1=#:G367 NIL) (|i| NIL) (#2=#:G366 NIL) (|sy| (|OutputForm|)))
          (SEQ (LETT |sy| (SPADCALL (QVELT |p| 1) (QREFELT $ 108)))
               (EXIT
                (COND ((NULL (QVELT |p| 2)) |sy|)
@@ -1301,7 +1301,7 @@
 
 (SDEFUN |PATTERN;variables;$L;53| ((|p| ($)) ($ (|List| $)))
         (SPROG
-         ((#1=#:G371 NIL) (#2=#:G159 NIL) (|r| NIL) (#3=#:G370 NIL)
+         ((#1=#:G376 NIL) (#2=#:G159 NIL) (|r| NIL) (#3=#:G375 NIL)
           (#4=#:G161 NIL) (#5=#:G160 NIL)
           (|q|
            (|Union| (|:| |ret| R)
@@ -1545,8 +1545,8 @@
           (|u|
            (|Union| (|Mapping| (|OutputForm|) (|List| (|OutputForm|)))
                     "failed"))
-          (|l| (|List| (|OutputForm|))) (#2=#:G390 NIL) (|x| NIL)
-          (#3=#:G389 NIL) (#4=#:G161 NIL) (#5=#:G160 NIL) (#6=#:G162 NIL))
+          (|l| (|List| (|OutputForm|))) (#2=#:G396 NIL) (|x| NIL)
+          (#3=#:G395 NIL) (#4=#:G161 NIL) (#5=#:G160 NIL) (#6=#:G162 NIL))
          (SEQ
           (COND ((QEQCAR |p| 0) (SPADCALL (CDR |p|) (QREFELT $ 119)))
                 ((QEQCAR |p| 4)
@@ -2191,8 +2191,8 @@
                                   (|:| |pred| (|List| (|Any|)))
                                   (|:| |bad| (|List| (|Any|))))))))
         (SPROG
-         ((#1=#:G160 NIL) (#2=#:G161 NIL) (#3=#:G397 NIL) (#4=#:G159 NIL)
-          (|x| NIL) (#5=#:G396 NIL) (#6=#:G162 NIL))
+         ((#1=#:G160 NIL) (#2=#:G161 NIL) (#3=#:G407 NIL) (#4=#:G159 NIL)
+          (|x| NIL) (#5=#:G406 NIL) (#6=#:G162 NIL))
          (SEQ
           (COND ((QEQCAR |p| 0) (CONS 0 (CDR |p|)))
                 ((QEQCAR |p| 4)
@@ -3142,9 +3142,9 @@
 
 (DECLAIM (NOTINLINE |Pattern;|)) 
 
-(DEFUN |Pattern| (#1=#:G418)
+(DEFUN |Pattern| (#1=#:G428)
   (SPROG NIL
-         (PROG (#2=#:G419)
+         (PROG (#2=#:G429)
            (RETURN
             (COND
              ((LETT #2#

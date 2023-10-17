@@ -18,8 +18,8 @@
 (SDEFUN |FSCINT;internalIntegrate;FSIr;4|
         ((|f| (F)) (|x| (|Symbol|)) ($ (|IntegrationResult| F)))
         (SPROG
-         ((|g| (F)) (|h| (|Expression| (|Complex| R))) (#1=#:G124 NIL)
-          (|k| NIL) (#2=#:G123 NIL) (#3=#:G122 NIL) (#4=#:G121 NIL))
+         ((|g| (F)) (|h| (|Expression| (|Complex| R))) (#1=#:G126 NIL)
+          (|k| NIL) (#2=#:G125 NIL) (#3=#:G124 NIL) (#4=#:G123 NIL))
          (SEQ
           (LETT |f|
                 (SPADCALL |f| (SPADCALL |x| (QREFELT $ 29)) (QREFELT $ 30)))
@@ -106,9 +106,9 @@
 
 (DECLAIM (NOTINLINE |FunctionSpaceComplexIntegration;|)) 
 
-(DEFUN |FunctionSpaceComplexIntegration| (&REST #1=#:G125)
+(DEFUN |FunctionSpaceComplexIntegration| (&REST #1=#:G127)
   (SPROG NIL
-         (PROG (#2=#:G126)
+         (PROG (#2=#:G128)
            (RETURN
             (COND
              ((LETT #2#

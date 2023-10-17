@@ -255,14 +255,15 @@
 
 ; $trans_key_id := [ _
 ;                 ["break", "break"], _
+;                 ["ITERATE", "iterate"], _
 ;                 ["DEFAULT", "default"], _
 ;                 ["RULE", "rule"] _
 ;                 ]
 
 (EVAL-WHEN (EVAL LOAD)
   (SETQ |$trans_key_id|
-          (LIST (LIST '|break| '|break|) (LIST 'DEFAULT '|default|)
-                (LIST 'RULE '|rule|))))
+          (LIST (LIST '|break| '|break|) (LIST 'ITERATE '|iterate|)
+                (LIST 'DEFAULT '|default|) (LIST 'RULE '|rule|))))
 
 ; $expression_nostarters := [ "ARROW", "BACKSET", ":=", ":", _
 ;     ",", "==", "=>", "+->", "==>", ";",

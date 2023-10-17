@@ -97,8 +97,8 @@
          ((|st| (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
           (|ans| (|UnivariatePolynomial| |var| |Coef|))
           (|monPow| (|UnivariatePolynomial| |var| |Coef|))
-          (|oldDeg| (|Integer|)) (|pow| (|NonNegativeInteger|)) (#1=#:G169 NIL)
-          (#2=#:G175 NIL) (|xExpon| (|Integer|))
+          (|oldDeg| (|Integer|)) (|pow| (|NonNegativeInteger|)) (#1=#:G171 NIL)
+          (#2=#:G177 NIL) (|xExpon| (|Integer|))
           (|xTerm| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))
           (|mon| (|UnivariatePolynomial| |var| |Coef|)))
          (SEQ
@@ -122,7 +122,7 @@
                       (EXIT
                        (COND
                         ((> |xExpon| |n|)
-                         (PROGN (LETT #2# |ans|) (GO #3=#:G174)))
+                         (PROGN (LETT #2# |ans|) (GO #3=#:G176)))
                         ('T
                          (SEQ
                           (LETT |pow|
@@ -151,8 +151,8 @@
         (SPROG
          ((|st| (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
           (|ans| (|Polynomial| |Coef|)) (|monPow| (|Polynomial| |Coef|))
-          (|oldDeg| (|Integer|)) (|pow| (|NonNegativeInteger|)) (#1=#:G177 NIL)
-          (#2=#:G183 NIL) (|xExpon| (|Integer|))
+          (|oldDeg| (|Integer|)) (|pow| (|NonNegativeInteger|)) (#1=#:G180 NIL)
+          (#2=#:G186 NIL) (|xExpon| (|Integer|))
           (|xTerm| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))
           (|mon| (|Polynomial| |Coef|)))
          (SEQ
@@ -175,7 +175,7 @@
                       (EXIT
                        (COND
                         ((> |xExpon| |n|)
-                         (PROGN (LETT #2# |ans|) (GO #3=#:G182)))
+                         (PROGN (LETT #2# |ans|) (GO #3=#:G185)))
                         ('T
                          (SEQ
                           (LETT |pow|
@@ -376,14 +376,14 @@
 (SDEFUN |SUTS;pole?;$B;29| ((|x| ($)) ($ (|Boolean|))) NIL) 
 
 (SDEFUN |SUTS;order;$Nni;30| ((|x| ($)) ($ (|NonNegativeInteger|)))
-        (SPROG ((#1=#:G227 NIL))
+        (SPROG ((#1=#:G233 NIL))
                (PROG1 (LETT #1# (SPADCALL |x| (QREFELT $ 112)))
                  (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
                                    '(|Integer|) #1#)))) 
 
 (SDEFUN |SUTS;order;$2Nni;31|
         ((|x| ($)) (|n| #1=(|NonNegativeInteger|)) ($ #1#))
-        (SPROG ((#2=#:G229 NIL))
+        (SPROG ((#2=#:G235 NIL))
                (PROG1 (LETT #2# (SPADCALL |x| |n| (QREFELT $ 114)))
                  (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
                                    '(|Integer|) #2#)))) 
@@ -796,9 +796,9 @@
 
 (DECLAIM (NOTINLINE |SparseUnivariateTaylorSeries;|)) 
 
-(DEFUN |SparseUnivariateTaylorSeries| (&REST #1=#:G344)
+(DEFUN |SparseUnivariateTaylorSeries| (&REST #1=#:G350)
   (SPROG NIL
-         (PROG (#2=#:G345)
+         (PROG (#2=#:G351)
            (RETURN
             (COND
              ((LETT #2#
@@ -819,7 +819,7 @@
 
 (DEFUN |SparseUnivariateTaylorSeries;| (|#1| |#2| |#3|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G338 NIL) (#2=#:G339 NIL) (#3=#:G340 NIL) (#4=#:G343 NIL)
+   ((|pv$| NIL) (#1=#:G344 NIL) (#2=#:G345 NIL) (#3=#:G346 NIL) (#4=#:G349 NIL)
     ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))

@@ -18,7 +18,7 @@
         ((|p1| (UP)) (|p| (|NonNegativeInteger|)) (|p2| (UP))
          (|q| (|NonNegativeInteger|)) (|c1| (R)) ($ (|List| UP)))
         (SPROG
-         ((|List2| (|List| UP)) (|Pr6| (UP)) (#1=#:G212 NIL) (#2=#:G217 NIL)
+         ((|List2| (|List| UP)) (|Pr6| (UP)) (#1=#:G213 NIL) (#2=#:G218 NIL)
           (|j| NIL) (|List1| (|List| UP)) (|Listf| (|List| UP)) (#3=#:G203 NIL)
           (|Pr5| (UP)) (#4=#:G202 NIL) (#5=#:G200 NIL) (|Pr4| (UP))
           (#6=#:G153 NIL) (|Pr3| (UP)) (#7=#:G139 NIL)
@@ -127,8 +127,8 @@
         ((|p1| (UP)) (|p| (|NonNegativeInteger|)) (|p2| (UP))
          (|q| (|NonNegativeInteger|)) (|c1| (R)) ($ (|List| UP)))
         (SPROG
-         ((|List2| (|List| UP)) (|Pr5| (UP)) (#1=#:G226 NIL) (|Pr4| (UP))
-          (#2=#:G224 NIL) (#3=#:G232 NIL) (|j| NIL)
+         ((|List2| (|List| UP)) (|Pr5| (UP)) (#1=#:G228 NIL) (|Pr4| (UP))
+          (#2=#:G226 NIL) (#3=#:G234 NIL) (|j| NIL)
           (|sres| (|PrimitiveArray| UP)) (|Listf| (|List| UP)) (|Pr3| (UP))
           (|Pr2| (UP)) (|Pr1| (UP)) (|sc1| (R)))
          (SEQ
@@ -171,11 +171,11 @@
         ((|p1| (UP)) (|p| (|NonNegativeInteger|)) (|p2| (UP))
          (|q| (|NonNegativeInteger|)) (|c1| (R)) ($ (|List| UP)))
         (SPROG
-         ((|List2| (|List| UP)) (|Pr3| (UP)) (#1=#:G244 NIL) (|Pr2| (UP))
-          (#2=#:G242 NIL) (#3=#:G250 NIL) (#4=#:G235 NIL) (|j| NIL)
+         ((|List2| (|List| UP)) (|Pr3| (UP)) (#1=#:G247 NIL) (|Pr2| (UP))
+          (#2=#:G245 NIL) (#3=#:G253 NIL) (#4=#:G238 NIL) (|j| NIL)
           (|sres| (|PrimitiveArray| UP)) (|Listf| (|List| UP)) (|Pr1| (UP))
           (|v| (|NonNegativeInteger|)) (|q1| (|NonNegativeInteger|))
-          (#5=#:G233 NIL) (|sc1| (R)))
+          (#5=#:G235 NIL) (|sc1| (R)))
          (SEQ
           (LETT |sc1| (SPADCALL (SPADCALL |c1| (QREFELT $ 16)) (QREFELT $ 17)))
           (LETT |q1|
@@ -243,8 +243,8 @@
 (SDEFUN |SHP;SturmHabichtCoefficients;2UPL;6|
         ((|p1| (UP)) (|p2| (UP)) ($ (|List| R)))
         (SPROG
-         ((#1=#:G253 NIL) (#2=#:G258 NIL) (|p| NIL) (#3=#:G259 NIL) (|j| NIL)
-          (#4=#:G257 NIL) (|qp| (|NonNegativeInteger|)) (|List1| (|List| UP)))
+         ((#1=#:G257 NIL) (#2=#:G262 NIL) (|p| NIL) (#3=#:G263 NIL) (|j| NIL)
+          (#4=#:G261 NIL) (|qp| (|NonNegativeInteger|)) (|List1| (|List| UP)))
          (SEQ (LETT |List1| (SPADCALL |p1| |p2| (QREFELT $ 39)))
               (LETT |qp| (LENGTH |List1|))
               (EXIT
@@ -330,7 +330,7 @@
         ((|int1| (|NonNegativeInteger|)) (|elt1| (R)) (|elt2| (R))
          ($ (|Integer|)))
         (SPROG
-         ((|ct4| (|Integer|)) (|ct3| (|NonNegativeInteger|)) (#1=#:G270 NIL)
+         ((|ct4| (|Integer|)) (|ct3| (|NonNegativeInteger|)) (#1=#:G275 NIL)
           (|ct2| #2=(|Integer|)) (|ct1| #2#))
          (SEQ
           (COND ((OR (EQL |int1| 0) (ODDP |int1|)) 0)
@@ -377,8 +377,8 @@
 (SDEFUN |SHP;wfunctaux| ((|Lsig| #1=(|List| R)) ($ (|Integer|)))
         (SPROG
          ((|ind4| (|Integer|)) (|ind3| (|Integer|)) (|ind2| (|Integer|))
-          (|List1| #1#) (#2=#:G288 NIL) (|j| NIL)
-          (|cont2| (|NonNegativeInteger|)) (|List2| (|List| R)) (#3=#:G287 NIL)
+          (|List1| #1#) (#2=#:G295 NIL) (|j| NIL)
+          (|cont2| (|NonNegativeInteger|)) (|List2| (|List| R)) (#3=#:G294 NIL)
           (|cont1| (|NonNegativeInteger|)))
          (SEQ
           (COND ((NULL |Lsig|) 0)
@@ -418,7 +418,7 @@
 
 (SDEFUN |SHP;SturmHabicht;2UPI;15| ((|p1| (UP)) (|p2| (UP)) ($ (|Integer|)))
         (SPROG
-         ((#1=#:G296 NIL) (|p| NIL) (#2=#:G295 NIL) (|List1| (|List| UP)))
+         ((#1=#:G304 NIL) (|p| NIL) (#2=#:G303 NIL) (|List1| (|List| UP)))
          (SEQ
           (COND
            ((OR (SPADCALL |p2| (|spadConstant| $ 27) (QREFELT $ 32))
@@ -448,14 +448,14 @@
 (SDEFUN |SHP;SturmHabichtMultiple;2UPI;17|
         ((|p1| (UP)) (|p2| (UP)) ($ (|Integer|)))
         (SPROG
-         ((#1=#:G321 NIL) (|f| NIL) (#2=#:G320 NIL)
+         ((#1=#:G333 NIL) (|f| NIL) (#2=#:G332 NIL)
           (|sqfr|
            (|List|
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
                       (|:| |factor| UP)
                       (|:| |exponent| (|NonNegativeInteger|)))))
-          (SH (|List| UP)) (|ans| (|Integer|)) (#3=#:G298 NIL) (#4=#:G318 NIL)
-          (|p| NIL) (#5=#:G319 NIL) (|j| NIL) (#6=#:G317 NIL)
+          (SH (|List| UP)) (|ans| (|Integer|)) (#3=#:G307 NIL) (#4=#:G330 NIL)
+          (|p| NIL) (#5=#:G331 NIL) (|j| NIL) (#6=#:G329 NIL)
           (|qp| (|NonNegativeInteger|)))
          (SEQ
           (COND
@@ -545,9 +545,9 @@
 
 (DECLAIM (NOTINLINE |SturmHabichtPackage;|)) 
 
-(DEFUN |SturmHabichtPackage| (&REST #1=#:G323)
+(DEFUN |SturmHabichtPackage| (&REST #1=#:G335)
   (SPROG NIL
-         (PROG (#2=#:G324)
+         (PROG (#2=#:G336)
            (RETURN
             (COND
              ((LETT #2#

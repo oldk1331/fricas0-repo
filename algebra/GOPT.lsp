@@ -89,7 +89,7 @@
 
 (SDEFUN |GOPT;option;LSU;23|
         ((|l| (|List| $)) (|s| (|Symbol|)) ($ (|Union| (|Any|) "failed")))
-        (SPROG ((#1=#:G190 NIL) (#2=#:G191 NIL) (#3=#:G192 NIL) (|x| NIL))
+        (SPROG ((#1=#:G191 NIL) (#2=#:G192 NIL) (#3=#:G193 NIL) (|x| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -107,8 +107,8 @@
                               (LETT #1#
                                     (PROGN
                                      (LETT #2# (CONS 0 (QCDR |x|)))
-                                     (GO #4=#:G189)))
-                              (GO #5=#:G184))))))
+                                     (GO #4=#:G190)))
+                              (GO #5=#:G185))))))
                          (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
                    #5# (EXIT #1#))
                   (EXIT (CONS 1 "failed"))))
@@ -118,7 +118,7 @@
 
 (DEFUN |GuessOption| ()
   (SPROG NIL
-         (PROG (#1=#:G194)
+         (PROG (#1=#:G195)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|GuessOption|))

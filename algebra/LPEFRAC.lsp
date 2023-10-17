@@ -36,15 +36,15 @@
          (|pp| (|SparseUnivariatePolynomial| R))
          ($ (|Union| (|List| (|SparseUnivariatePolynomial| R)) "failed")))
         (SPROG
-         ((#1=#:G126 NIL)
+         ((#1=#:G128 NIL)
           (|vv| (|Union| (|SparseUnivariatePolynomial| R) "failed"))
-          (#2=#:G130 NIL) (|v| NIL) (#3=#:G129 NIL)
+          (#2=#:G132 NIL) (|v| NIL) (#3=#:G131 NIL)
           (|ans|
            (|Union| (|List| (|SparseUnivariatePolynomial| (|Fraction| R)))
                     "failed"))
           (|pF| (|SparseUnivariatePolynomial| (|Fraction| R)))
           (|lpF| (|List| (|SparseUnivariatePolynomial| (|Fraction| R))))
-          (#4=#:G128 NIL) (|u| NIL) (#5=#:G127 NIL))
+          (#4=#:G130 NIL) (|u| NIL) (#5=#:G129 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -87,7 +87,7 @@
                                             ((QEQCAR |vv| 1)
                                              (PROGN
                                               (LETT #1# (CONS 1 "failed"))
-                                              (GO #6=#:G125)))
+                                              (GO #6=#:G127)))
                                             ('T (QCDR |vv|)))))
                                          #3#))))
                                 (LETT #2# (CDR #2#)) (GO G190) G191
@@ -96,9 +96,9 @@
 
 (DECLAIM (NOTINLINE |LinearPolynomialEquationByFractions;|)) 
 
-(DEFUN |LinearPolynomialEquationByFractions| (#1=#:G131)
+(DEFUN |LinearPolynomialEquationByFractions| (#1=#:G133)
   (SPROG NIL
-         (PROG (#2=#:G132)
+         (PROG (#2=#:G134)
            (RETURN
             (COND
              ((LETT #2#

@@ -459,7 +459,7 @@
           (RETURN
            (PROGN
             (SPROG
-             ((|b2| NIL) (|lb| NIL) (|o| NIL) (#1=#:G204 NIL) (|a| NIL)
+             ((|b2| NIL) (|lb| NIL) (|o| NIL) (#1=#:G207 NIL) (|a| NIL)
               (|i| NIL) (|b1| NIL))
              (SEQ
               (LETT |b1|
@@ -683,7 +683,7 @@
          ($
           (|OperatorHandlers|
            (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))))
-        (SPROG ((#1=#:G654 NIL))
+        (SPROG ((#1=#:G657 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1191,7 +1191,7 @@
                   (SPADCALL |oh| -1 "MATRIX" (SPADCALL "[" "]" (QREFELT $ 100))
                             (QREFELT $ 103))
                   (SPADCALL |oh| -1 "theMap" (ELT $ 65) (QREFELT $ 103))
-                  (EXIT (PROGN (LETT #1# |oh|) (GO #6=#:G653)))))
+                  (EXIT (PROGN (LETT #1# |oh|) (GO #6=#:G656)))))
                 #6# (EXIT #1#)))) 
 
 (SDEFUN |FMTLATEX;operatorHandlers;Oh;38|
@@ -1204,7 +1204,7 @@
 
 (DEFUN |FormatLaTeX| ()
   (SPROG NIL
-         (PROG (#1=#:G657)
+         (PROG (#1=#:G660)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|FormatLaTeX|))

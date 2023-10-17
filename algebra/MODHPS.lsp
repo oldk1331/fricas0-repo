@@ -2180,14 +2180,14 @@
          (|qvar| (|Symbol|)) (|vars| (|List| (|Symbol|)))
          ($ (|Union| "good" "reject" "no_solution")))
         (SPROG
-         ((#1=#:G1143 NIL) (|min_ord| #2=(|NonNegativeInteger|))
-          (#3=#:G1141 NIL) (|delta| (|Integer|)) (|sigma0| #2#)
-          (|pa| (|U32Vector|)) (#4=#:G1146 NIL) (|j| NIL) (|c0| (|Integer|))
-          (#5=#:G1142 NIL) (|ord| #2#) (#6=#:G1145 NIL) (|i| NIL)
+         ((#1=#:G1147 NIL) (|min_ord| #2=(|NonNegativeInteger|))
+          (#3=#:G1145 NIL) (|delta| (|Integer|)) (|sigma0| #2#)
+          (|pa| (|U32Vector|)) (#4=#:G1150 NIL) (|j| NIL) (|c0| (|Integer|))
+          (#5=#:G1146 NIL) (|ord| #2#) (#6=#:G1149 NIL) (|i| NIL)
           (|nres| (|Vector| (|U32Vector|))) (|gv0| (|U32Vector|))
           (|gvl| (|List| (|U32Vector|)))
           (|gv0p| (|Union| (|List| (|U32Vector|)) "failed"))
-          (|lpt| (|List| (|Integer|))) (|qval| (|Integer|)) (#7=#:G1144 NIL)
+          (|lpt| (|List| (|Integer|))) (|qval| (|Integer|)) (#7=#:G1148 NIL)
           (|var| NIL) (|ii| NIL) (|n0| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -2282,7 +2282,7 @@
                                                                (PROGN
                                                                 (LETT #5# 1)
                                                                 (GO
-                                                                 #9=#:G1125))))))))
+                                                                 #9=#:G1128))))))))
                                                          (LETT |i|
                                                                (|inc_SI| |i|))
                                                          (GO G190) G191
@@ -2295,7 +2295,7 @@
                                                       (LETT #1#
                                                             (CONS 2
                                                                   "no_solution"))
-                                                      (GO #10=#:G1140)))
+                                                      (GO #10=#:G1144)))
                                                     ((< |ord| |sigma0|)
                                                      (SEQ
                                                       (LETT |c0|
@@ -2351,7 +2351,7 @@
                                                                     (LETT #3#
                                                                           1)
                                                                     (GO
-                                                                     #11=#:G1131)))))
+                                                                     #11=#:G1135)))))
                                                                 ('T
                                                                  (SETELT_U32
                                                                   |gv0|
@@ -2382,9 +2382,9 @@
 
 (DECLAIM (NOTINLINE |ModularHermitePadeSolver;|)) 
 
-(DEFUN |ModularHermitePadeSolver| (&REST #1=#:G1147)
+(DEFUN |ModularHermitePadeSolver| (&REST #1=#:G1151)
   (SPROG NIL
-         (PROG (#2=#:G1148)
+         (PROG (#2=#:G1152)
            (RETURN
             (COND
              ((LETT #2#

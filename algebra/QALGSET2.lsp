@@ -127,7 +127,7 @@
            (|List|
             (|DistributedMultivariatePolynomial| |newvl|
                                                  (|Fraction| (|Integer|)))))
-          (#1=#:G137 NIL) (|g| NIL) (#2=#:G136 NIL)
+          (#1=#:G139 NIL) (|g| NIL) (#2=#:G138 NIL)
           (|tp|
            (|DistributedMultivariatePolynomial| |newvl|
                                                 (|Fraction| (|Integer|))))
@@ -202,9 +202,9 @@
 
 (DECLAIM (NOTINLINE |QuasiAlgebraicSet2;|)) 
 
-(DEFUN |QuasiAlgebraicSet2| (#1=#:G138)
+(DEFUN |QuasiAlgebraicSet2| (#1=#:G140)
   (SPROG NIL
-         (PROG (#2=#:G139)
+         (PROG (#2=#:G141)
            (RETURN
             (COND
              ((LETT #2#

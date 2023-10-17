@@ -2,7 +2,7 @@
 (SDEFUN |PERMAN;permanent3| ((|x| (|SquareMatrix| |n| R)) ($ (R)))
         (SPROG
          ((|a| (R)) (|j| (|Integer|)) (|vv| (|Vector| (|Vector| (|Integer|))))
-          (|b| (R)) (#1=#:G118 NIL) (|i| NIL) (|k| (R)) (|sgn| (R))
+          (|b| (R)) (#1=#:G120 NIL) (|i| NIL) (|k| (R)) (|sgn| (R))
           (|w| (|Vector| R)))
          (SEQ (LETT |sgn| (|spadConstant| $ 8)) (LETT |a| (|spadConstant| $ 9))
               (LETT |vv| (SPADCALL (QREFELT $ 6) (QREFELT $ 13)))
@@ -58,10 +58,10 @@
 (SDEFUN |PERMAN;permanent;SmR;2| ((|x| (|SquareMatrix| |n| R)) ($ (R)))
         (SPROG
          ((|a| (R)) (|j| #1=(|Integer|))
-          (|vv| (|Vector| (|Vector| (|Integer|)))) (#2=#:G130 NIL) (|b| (R))
-          (#3=#:G140 NIL) (|i| NIL) (|k| #1#) (|sgn| (R)) (#4=#:G139 NIL)
-          (#5=#:G125 NIL) (#6=#:G138 NIL) (|rowi| #7=(|Vector| R))
-          (#8=#:G137 NIL) (|w| #7#) (#9=#:G136 NIL)
+          (|vv| (|Vector| (|Vector| (|Integer|)))) (#2=#:G137 NIL) (|b| (R))
+          (#3=#:G147 NIL) (|i| NIL) (|k| #1#) (|sgn| (R)) (#4=#:G146 NIL)
+          (#5=#:G129 NIL) (#6=#:G145 NIL) (|rowi| #7=(|Vector| R))
+          (#8=#:G144 NIL) (|w| #7#) (#9=#:G143 NIL)
           (|half| (|Union| R "failed")) (|two| (R)))
          (SEQ
           (EXIT
@@ -75,7 +75,7 @@
                           ((< (QREFELT $ 6) 7)
                            (PROGN
                             (LETT #9# (|PERMAN;permanent3| |x| $))
-                            (GO #11=#:G135)))
+                            (GO #11=#:G142)))
                           (#10#
                            (PROGN
                             (LETT #9# (|PERMAN;permanent2| |x| $))
@@ -198,12 +198,12 @@
 
 (SDEFUN |PERMAN;permanent2| ((|x| (|SquareMatrix| |n| R)) ($ (R)))
         (SPROG
-         ((#1=#:G157 NIL) (|b| (R)) (#2=#:G155 NIL) (|a| (R))
+         ((#1=#:G169 NIL) (|b| (R)) (#2=#:G167 NIL) (|a| (R))
           (|j| #3=(|Integer|)) (|vv| (|Vector| (|Vector| (|Integer|))))
-          (#4=#:G150 NIL) (#5=#:G166 NIL) (|i| NIL) (|c| (R)) (|k| #3#)
-          (|sgn| (R)) (#6=#:G165 NIL) (#7=#:G145 NIL) (#8=#:G164 NIL)
-          (|rowi| #9=(|Vector| R)) (#10=#:G163 NIL) (|w| #9#) (|two| (R))
-          (#11=#:G162 NIL))
+          (#4=#:G162 NIL) (#5=#:G178 NIL) (|i| NIL) (|c| (R)) (|k| #3#)
+          (|sgn| (R)) (#6=#:G177 NIL) (#7=#:G154 NIL) (#8=#:G176 NIL)
+          (|rowi| #9=(|Vector| R)) (#10=#:G175 NIL) (|w| #9#) (|two| (R))
+          (#11=#:G174 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |c| (|spadConstant| $ 9))
@@ -215,7 +215,7 @@
                               (QREFELT $ 38))
                     (PROGN
                      (LETT #11# (|PERMAN;permanent3| |x| $))
-                     (GO #12=#:G161)))))
+                     (GO #12=#:G173)))))
                  (#13='T
                   (PROGN (LETT #11# (|PERMAN;permanent3| |x| $)) (GO #12#))))
                 (EXIT
@@ -359,9 +359,9 @@
 
 (DECLAIM (NOTINLINE |Permanent;|)) 
 
-(DEFUN |Permanent| (&REST #1=#:G167)
+(DEFUN |Permanent| (&REST #1=#:G179)
   (SPROG NIL
-         (PROG (#2=#:G168)
+         (PROG (#2=#:G180)
            (RETURN
             (COND
              ((LETT #2#

@@ -324,7 +324,7 @@
         ((|d| ($)) (|k| (|Integer|)) (|lp| (|List| UP))
          ($ (|Union| R "failed")))
         (SPROG
-         ((|cp| (UP)) (#1=#:G123 NIL) (|cg| (UP)) (#2=#:G198 NIL) (|p| NIL))
+         ((|cp| (UP)) (#1=#:G123 NIL) (|cg| (UP)) (#2=#:G199 NIL) (|p| NIL))
          (SEQ (LETT |d| (SPADCALL |d| (QREFELT $ 67)))
               (EXIT
                (COND ((|HELLFDIV;princ?| |d| $) (CONS 0 (QVELT |d| 2)))
@@ -406,7 +406,7 @@
 
 (SDEFUN |HELLFDIV;intReduce| ((|h| (R)) (|b| (UP)) ($ (R)))
         (SPROG
-         ((#1=#:G212 NIL) (#2=#:G214 NIL) (|i| NIL) (#3=#:G213 NIL)
+         ((#1=#:G214 NIL) (#2=#:G216 NIL) (|i| NIL) (#3=#:G215 NIL)
           (|v| (|Vector| UP)))
          (SEQ (LETT |v| (QCAR (SPADCALL |h| (QREFELT $ 116))))
               (EXIT
@@ -479,9 +479,9 @@
 
 (DECLAIM (NOTINLINE |HyperellipticFiniteDivisor;|)) 
 
-(DEFUN |HyperellipticFiniteDivisor| (&REST #1=#:G221)
+(DEFUN |HyperellipticFiniteDivisor| (&REST #1=#:G223)
   (SPROG NIL
-         (PROG (#2=#:G222)
+         (PROG (#2=#:G224)
            (RETURN
             (COND
              ((LETT #2#

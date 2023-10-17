@@ -39,7 +39,7 @@
 (SDEFUN |SUBRESP;subresultantVector;2UPPa;2|
         ((|p1| (UP)) (|p2| (UP)) ($ (|PrimitiveArray| UP)))
         (SPROG
-         ((|n| #1=(|NonNegativeInteger|)) (#2=#:G133 NIL) (|nextn| #1#)
+         ((|n| #1=(|NonNegativeInteger|)) (#2=#:G134 NIL) (|nextn| #1#)
           (|l| (|List| UP)) (F (UP)) (#3=#:G126 NIL) (#4=#:G121 NIL)
           (|res| (|PrimitiveArray| UP)))
          (SEQ
@@ -148,9 +148,9 @@
 
 (DECLAIM (NOTINLINE |SubResultantPackage;|)) 
 
-(DEFUN |SubResultantPackage| (&REST #1=#:G145)
+(DEFUN |SubResultantPackage| (&REST #1=#:G146)
   (SPROG NIL
-         (PROG (#2=#:G146)
+         (PROG (#2=#:G147)
            (RETURN
             (COND
              ((LETT #2#

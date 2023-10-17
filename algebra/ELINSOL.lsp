@@ -19,12 +19,12 @@
 (SDEFUN |ELINSOL;F_to_LF|
         ((|x| (F)) (|vl| (|List| (|Kernel| F))) ($ (|List| F)))
         (SPROG
-         ((#1=#:G129 NIL) (|v| NIL) (#2=#:G128 NIL)
+         ((#1=#:G133 NIL) (|v| NIL) (#2=#:G132 NIL)
           (|nx0| (|SparseMultivariatePolynomial| R (|Kernel| F)))
           (|nx1| (|SparseMultivariatePolynomial| R (|Kernel| F)))
           (|ml| (|List| (|SparseMultivariatePolynomial| R (|Kernel| F))))
-          (#3=#:G126 NIL) (#4=#:G127 NIL) (|c| NIL) (#5=#:G125 NIL)
-          (|res0| (|List| F)) (#6=#:G124 NIL) (#7=#:G123 NIL)
+          (#3=#:G130 NIL) (#4=#:G131 NIL) (|c| NIL) (#5=#:G129 NIL)
+          (|res0| (|List| F)) (#6=#:G128 NIL) (#7=#:G127 NIL)
           (|nx| (|SparseMultivariatePolynomial| R (|Kernel| F))))
          (SEQ (LETT |nx| (SPADCALL |x| (QREFELT $ 21)))
               (LETT |res0|
@@ -93,15 +93,15 @@
         ((|eql| (|List| F)) (|vl| (|List| (|Symbol|)))
          ($ (|Union| (|List| F) "failed")))
         (SPROG
-         ((#1=#:G139 NIL)
+         ((#1=#:G147 NIL)
           (|ss|
            (|Record| (|:| |particular| (|Union| (|Vector| F) #2="failed"))
                      (|:| |basis| (|List| (|Vector| F)))))
-          (|eqm| (|Matrix| F)) (#3=#:G153 NIL) (|ll| NIL) (#4=#:G152 NIL)
-          (|rh| (|Vector| F)) (#5=#:G151 NIL) (#6=#:G150 NIL)
-          (|eqll| (|List| (|List| F))) (#7=#:G149 NIL) (|p| NIL)
-          (#8=#:G148 NIL) (|coefk| (|List| (|Kernel| F))) (#9=#:G147 NIL)
-          (|c| NIL) (#10=#:G146 NIL))
+          (|eqm| (|Matrix| F)) (#3=#:G161 NIL) (|ll| NIL) (#4=#:G160 NIL)
+          (|rh| (|Vector| F)) (#5=#:G159 NIL) (#6=#:G158 NIL)
+          (|eqll| (|List| (|List| F))) (#7=#:G157 NIL) (|p| NIL)
+          (#8=#:G156 NIL) (|coefk| (|List| (|Kernel| F))) (#9=#:G155 NIL)
+          (|c| NIL) (#10=#:G154 NIL))
          (SEQ
           (LETT |coefk|
                 (PROGN
@@ -175,9 +175,9 @@
 
 (DECLAIM (NOTINLINE |ExpressionLinearSolve;|)) 
 
-(DEFUN |ExpressionLinearSolve| (&REST #1=#:G154)
+(DEFUN |ExpressionLinearSolve| (&REST #1=#:G162)
   (SPROG NIL
-         (PROG (#2=#:G155)
+         (PROG (#2=#:G163)
            (RETURN
             (COND
              ((LETT #2#

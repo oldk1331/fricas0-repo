@@ -1,8 +1,8 @@
 
 (SDEFUN |SEXOF;coerce;$Of;1| ((|b| ($)) ($ (|OutputForm|)))
         (SPROG
-         ((|l1| (|List| (|OutputForm|))) (#1=#:G128 NIL) (|l| (|List| $))
-          (|b1| NIL) (#2=#:G127 NIL) (|r| ($)))
+         ((|l1| (|List| (|OutputForm|))) (#1=#:G130 NIL) (|l| (|List| $))
+          (|b1| NIL) (#2=#:G129 NIL) (|r| ($)))
          (SEQ
           (COND ((SPADCALL |b| (QREFELT $ 12)) (SPADCALL NIL (QREFELT $ 15)))
                 ((SPADCALL |b| (QREFELT $ 16)) (SPADCALL |b| (QREFELT $ 18)))
@@ -150,7 +150,7 @@
         (SPADCALL (SPADCALL |b| (QREFELT $ 21)) |i| (QREFELT $ 53))) 
 
 (SDEFUN |SEXOF;elt;$L$;26| ((|b| ($)) (|li| (|List| (|Integer|))) ($ ($)))
-        (SPROG ((#1=#:G162 NIL) (|i| NIL))
+        (SPROG ((#1=#:G165 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| NIL) (LETT #1# |li|) G190
                      (COND
@@ -170,9 +170,9 @@
 
 (DECLAIM (NOTINLINE |SExpressionOf;|)) 
 
-(DEFUN |SExpressionOf| (&REST #1=#:G164)
+(DEFUN |SExpressionOf| (&REST #1=#:G167)
   (SPROG NIL
-         (PROG (#2=#:G165)
+         (PROG (#2=#:G168)
            (RETURN
             (COND
              ((LETT #2#

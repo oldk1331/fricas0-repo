@@ -48,7 +48,7 @@
 
 (SDEFUN |SMTS;coefficient;$NniSMP;7|
         ((|x| ($)) (|n| (|NonNegativeInteger|)) ($ (SMP)))
-        (SPROG ((#1=#:G146 NIL) (|u| (|Rep|)))
+        (SPROG ((#1=#:G147 NIL) (|u| (|Rep|)))
                (SEQ (LETT |u| |x|)
                     (SEQ G190
                          (COND
@@ -261,7 +261,7 @@
 (SDEFUN |SMTS;sortmfirst|
         ((|p| (SMP)) (|vl| (|List| |Var|)) (|q| (|List| $)) ($ ($)))
         (SPROG
-         ((|nq| (|List| $)) (#1=#:G209 NIL) (|i| NIL) (#2=#:G208 NIL)
+         ((|nq| (|List| $)) (#1=#:G214 NIL) (|i| NIL) (#2=#:G213 NIL)
           (|nlv| (|List| |Var|)))
          (SEQ (LETT |nlv| (SPADCALL (ELT $ 96) |vl| (QREFELT $ 98)))
               (LETT |nq|
@@ -304,8 +304,8 @@
 (SDEFUN |SMTS;eval;$LL$;24|
         ((|s| ($)) (|v| (|List| |Var|)) (|q| (|List| $)) ($ ($)))
         (SPROG
-         ((|nq| (|List| (|Stream| SMP))) (#1=#:G224 NIL) (|i| NIL)
-          (#2=#:G223 NIL))
+         ((|nq| (|List| (|Stream| SMP))) (#1=#:G230 NIL) (|i| NIL)
+          (#2=#:G229 NIL))
          (SEQ
           (COND
            ((SPADCALL (LENGTH |v|) (SPADCALL |q| (QREFELT $ 106))
@@ -628,7 +628,7 @@
 (SDEFUN |SMTS;coerce;$Of;67| ((|s| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|l| (|List| (|OutputForm|))) (|uu| ($)) (|uu1| ($)) (|n| NIL)
-          (#1=#:G367 NIL) (|count| (|NonNegativeInteger|)))
+          (#1=#:G377 NIL) (|count| (|NonNegativeInteger|)))
          (SEQ (LETT |uu| |s|)
               (EXIT
                (COND
@@ -729,9 +729,9 @@
 
 (DECLAIM (NOTINLINE |SparseMultivariateTaylorSeries;|)) 
 
-(DEFUN |SparseMultivariateTaylorSeries| (&REST #1=#:G380)
+(DEFUN |SparseMultivariateTaylorSeries| (&REST #1=#:G390)
   (SPROG NIL
-         (PROG (#2=#:G381)
+         (PROG (#2=#:G391)
            (RETURN
             (COND
              ((LETT #2#
@@ -753,7 +753,7 @@
 
 (DEFUN |SparseMultivariateTaylorSeries;| (|#1| |#2| |#3|)
   (SPROG
-   ((#1=#:G379 NIL) (|pv$| NIL) (#2=#:G378 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL)
+   ((#1=#:G389 NIL) (|pv$| NIL) (#2=#:G388 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL)
     (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))

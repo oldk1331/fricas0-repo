@@ -435,7 +435,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN
            (PROGN
-            (SPROG ((|k| NIL) (#1=#:G215 NIL) (|res| NIL))
+            (SPROG ((|k| NIL) (#1=#:G218 NIL) (|res| NIL))
                    (SEQ (LETT |res| |s|)
                         (SEQ (LETT |k| 2) (LETT #1# |n|) G190
                              (COND ((|greater_SI| |k| #1#) (GO G191)))
@@ -494,9 +494,9 @@
 
 (DECLAIM (NOTINLINE |Distribution;|)) 
 
-(DEFUN |Distribution| (#1=#:G223)
+(DEFUN |Distribution| (#1=#:G226)
   (SPROG NIL
-         (PROG (#2=#:G224)
+         (PROG (#2=#:G227)
            (RETURN
             (COND
              ((LETT #2#

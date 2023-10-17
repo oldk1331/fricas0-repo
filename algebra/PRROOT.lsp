@@ -4,7 +4,7 @@
         (SPROG
          ((|res| (|List| (|Fraction| (|Integer|))))
           (|val1r| (|Fraction| (|Integer|)))
-          (|fac| #1=(|SparseUnivariatePolynomial| (|Integer|))) (#2=#:G113 NIL)
+          (|fac| #1=(|SparseUnivariatePolynomial| (|Integer|))) (#2=#:G115 NIL)
           (|facr| NIL)
           (|facl|
            (|List|
@@ -14,7 +14,7 @@
           (|ff| (|Factored| (|SparseUnivariatePolynomial| (|Integer|))))
           (|eq2z| (|SparseUnivariatePolynomial| (|Integer|)))
           (|pl2| (|List| (|SparseUnivariatePolynomial| (|Integer|))))
-          (#3=#:G112 NIL) (|i| NIL) (#4=#:G111 NIL)
+          (#3=#:G114 NIL) (|i| NIL) (#4=#:G113 NIL)
           (|vvr| (|Matrix| (|Integer|))) (|vm| (|Matrix| F))
           (|vv| (|Vector| F)) (|nn| (|NonNegativeInteger|)))
          (SEQ (LETT |nn| (+ (SPADCALL |p| (QREFELT $ 9)) 1))
@@ -66,7 +66,7 @@
 (SDEFUN |PRROOT;integerBound;UPI;2| ((|p| (UP)) ($ (|Integer|)))
         (SPROG
          ((|res| (|Integer|)) (|q| (|Integer|))
-          (|qu| (|Union| (|Integer|) "failed")) (#1=#:G122 NIL) (|r| NIL)
+          (|qu| (|Union| (|Integer|) "failed")) (#1=#:G125 NIL) (|r| NIL)
           (|lr| (|List| (|Fraction| (|Integer|)))))
          (SEQ (LETT |lr| (SPADCALL |p| (QREFELT $ 46))) (LETT |res| 0)
               (SEQ (LETT |r| NIL) (LETT #1# |lr|) G190
@@ -86,9 +86,9 @@
 
 (DECLAIM (NOTINLINE |PolynomialRationalRoots;|)) 
 
-(DEFUN |PolynomialRationalRoots| (&REST #1=#:G123)
+(DEFUN |PolynomialRationalRoots| (&REST #1=#:G126)
   (SPROG NIL
-         (PROG (#2=#:G124)
+         (PROG (#2=#:G127)
            (RETURN
             (COND
              ((LETT #2#

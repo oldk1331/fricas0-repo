@@ -1,6 +1,6 @@
 
 (SDEFUN |GRIMAGE;numberCheck| ((|nums| (|Point| (|DoubleFloat|))) ($ (|Void|)))
-        (SPROG ((#1=#:G125 NIL) (#2=#:G121 NIL) (#3=#:G126 NIL) (|i| NIL))
+        (SPROG ((#1=#:G126 NIL) (#2=#:G122 NIL) (#3=#:G127 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ (LETT |i| (SPADCALL |nums| (QREFELT $ 9)))
@@ -20,7 +20,7 @@
                            (LETT #1#
                                  (|error|
                                   "An unexpected complex number was encountered in the calculations."))
-                           (GO #4=#:G123))))))
+                           (GO #4=#:G124))))))
                       (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL)))
                 #4# (EXIT #1#)))) 
 
@@ -78,8 +78,8 @@
          ((|llp2| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (|lp2| (|List| (|Point| (|DoubleFloat|))))
           (|p| (|Point| (|DoubleFloat|))) (|d| (|PositiveInteger|))
-          (#1=#:G141 NIL) (|daShade| (|DoubleFloat|)) (|daHue| (|DoubleFloat|))
-          (#2=#:G139 NIL) (|lp| NIL) (#3=#:G140 NIL) (|pal| NIL))
+          (#1=#:G144 NIL) (|daShade| (|DoubleFloat|)) (|daHue| (|DoubleFloat|))
+          (#2=#:G142 NIL) (|lp| NIL) (#3=#:G143 NIL) (|pal| NIL))
          (SEQ (LETT |llp2| NIL)
               (SEQ (LETT |pal| NIL) (LETT #3# |listOfPalettes|) (LETT |lp| NIL)
                    (LETT #2# |llp|) G190
@@ -238,9 +238,9 @@
          (|listOfLineColors| (|List| (|Palette|)))
          (|listOfPointSizes| (|List| (|PositiveInteger|))) ($ ($)))
         (SPROG
-         ((#1=#:G188 NIL) (|givenLen| #2=(|NonNegativeInteger|))
-          (#3=#:G178 NIL) (#4=#:G168 NIL) (|len| #2#) (#5=#:G193 NIL) (|l| NIL)
-          (#6=#:G192 NIL))
+         ((#1=#:G193 NIL) (|givenLen| #2=(|NonNegativeInteger|))
+          (#3=#:G183 NIL) (#4=#:G173 NIL) (|len| #2#) (#5=#:G198 NIL) (|l| NIL)
+          (#6=#:G197 NIL))
          (SEQ (LETT |givenLen| (LENGTH |listOfListsOfPoints|))
               (LETT |listOfListsOfPoints|
                     (PROGN
@@ -336,9 +336,9 @@
 (SDEFUN |GRIMAGE;sendGraphImage;$V;10| ((|graf| ($)) ($ (|Void|)))
         (SPROG
          ((|hueShade| (|Integer|)) (|aPoint| #1=(|Point| (|DoubleFloat|)))
-          (#2=#:G210 NIL) (|p| NIL) (#3=#:G206 NIL) (|aList| NIL)
-          (#4=#:G207 NIL) (|pColor| NIL) (#5=#:G208 NIL) (|lColor| NIL)
-          (#6=#:G209 NIL) (|tonto| (|List| (|Segment| (|DoubleFloat|))))
+          (#2=#:G217 NIL) (|p| NIL) (#3=#:G213 NIL) (|aList| NIL)
+          (#4=#:G214 NIL) (|pColor| NIL) (#5=#:G215 NIL) (|lColor| NIL)
+          (#6=#:G216 NIL) (|tonto| (|List| (|Segment| (|DoubleFloat|))))
           (|transform| (|Mapping| #1# (|Point| (|DoubleFloat|))))
           (|s| (|NonNegativeInteger|)))
          (SEQ (|GRIMAGE;doOptions| |graf| $)
@@ -543,8 +543,8 @@
 (SDEFUN |GRIMAGE;makeGraphImage;L$;18|
         ((|llp| (|List| (|List| (|Point| (|DoubleFloat|))))) ($ ($)))
         (SPROG
-         ((#1=#:G232 NIL) (|i| NIL) (#2=#:G231 NIL) (#3=#:G230 NIL)
-          (#4=#:G229 NIL) (#5=#:G228 NIL) (|l| (|Integer|)) (#6=#:G227 NIL))
+         ((#1=#:G242 NIL) (|i| NIL) (#2=#:G241 NIL) (#3=#:G240 NIL)
+          (#4=#:G239 NIL) (#5=#:G238 NIL) (|l| (|Integer|)) (#6=#:G237 NIL))
          (SEQ
           (SPADCALL |llp|
                     (PROGN
@@ -588,8 +588,8 @@
          (|lps| (|List| (|PositiveInteger|))) (|opts| (|List| (|DrawOption|)))
          ($ ($)))
         (SPROG
-         ((|aPoint| #1=(|Point| (|DoubleFloat|))) (#2=#:G241 NIL) (|p| NIL)
-          (#3=#:G240 NIL) (|aList| NIL)
+         ((|aPoint| #1=(|Point| (|DoubleFloat|))) (#2=#:G253 NIL) (|p| NIL)
+          (#3=#:G252 NIL) (|aList| NIL)
           (|transform| (|Mapping| #1# (|Point| (|DoubleFloat|)))) (|graf| ($)))
          (SEQ
           (LETT |graf|
@@ -670,8 +670,8 @@
 (SDEFUN |GRIMAGE;coerce;L$;26|
         ((|llp| (|List| (|List| (|Point| (|DoubleFloat|))))) ($ ($)))
         (SPROG
-         ((#1=#:G259 NIL) (|i| NIL) (#2=#:G258 NIL) (#3=#:G257 NIL)
-          (#4=#:G256 NIL) (#5=#:G255 NIL) (|l| (|Integer|)) (#6=#:G254 NIL))
+         ((#1=#:G274 NIL) (|i| NIL) (#2=#:G273 NIL) (#3=#:G272 NIL)
+          (#4=#:G271 NIL) (#5=#:G270 NIL) (|l| (|Integer|)) (#6=#:G269 NIL))
          (SEQ
           (SPADCALL |llp|
                     (PROGN
@@ -719,7 +719,7 @@
 
 (DEFUN |GraphImage| ()
   (SPROG NIL
-         (PROG (#1=#:G262)
+         (PROG (#1=#:G277)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|GraphImage|))

@@ -8,8 +8,8 @@
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
                       (|:| |factor| R)
                       (|:| |exponent| (|NonNegativeInteger|)))))
-          (#2=#:G119 NIL) (|v| NIL) (#3=#:G118 NIL) (|u| (R)) (|fitem| #1#)
-          (#4=#:G117 NIL) (|item| NIL))
+          (#2=#:G122 NIL) (|v| NIL) (#3=#:G121 NIL) (|u| (R)) (|fitem| #1#)
+          (#4=#:G120 NIL) (|item| NIL))
          (SEQ (LETT |u| (SPADCALL |f| (QREFELT $ 8))) (LETT |l| NIL)
               (SEQ (LETT |item| NIL) (LETT #4# (SPADCALL |f| (QREFELT $ 12)))
                    G190
@@ -60,9 +60,9 @@
 
 (DECLAIM (NOTINLINE |FactoredFunctionUtilities;|)) 
 
-(DEFUN |FactoredFunctionUtilities| (#1=#:G120)
+(DEFUN |FactoredFunctionUtilities| (#1=#:G123)
   (SPROG NIL
-         (PROG (#2=#:G121)
+         (PROG (#2=#:G124)
            (RETURN
             (COND
              ((LETT #2#

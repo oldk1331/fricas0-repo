@@ -182,7 +182,7 @@
 (SDEFUN |SMP;multivariate;SupVarSet$;17|
         ((|u| (|SparseUnivariatePolynomial| $)) (|mvar| (|VarSet|)) ($ ($)))
         (SPROG
-         ((#1=#:G255 NIL) (|uu| (|SparseUnivariatePolynomial| $)) (|cc| ($)))
+         ((#1=#:G256 NIL) (|uu| (|SparseUnivariatePolynomial| $)) (|cc| ($)))
          (SEQ
           (EXIT
            (COND
@@ -204,7 +204,7 @@
                              (PROGN
                               (LETT #1#
                                     (|SMP;unlikeUnivReconstruct| |u| |mvar| $))
-                              (GO #2=#:G254))))
+                              (GO #2=#:G255))))
                        NIL (GO G190) G191 (EXIT NIL))
                   (EXIT (CONS 1 (CONS |mvar| |u|)))))))
           #2# (EXIT #1#)))) 
@@ -215,7 +215,7 @@
            (|Record| (|:| |k| (|IndexedExponents| |VarSet|)) (|:| |c| R))))
          ($ ($)))
         (SPROG
-         ((|res| ($)) (#1=#:G263 NIL) (|t| NIL)
+         ((|res| ($)) (#1=#:G265 NIL) (|t| NIL)
           (|ltr|
            (|List|
             (|Record| (|:| |k| (|IndexedExponents| |VarSet|)) (|:| |c| R)))))
@@ -964,7 +964,7 @@
         ((|a| #1=(|SparseUnivariatePolynomial| $)) (|b| #1#)
          ($ (|SparseUnivariatePolynomial| $)))
         (SPROG
-         ((|mong| (|SparseUnivariatePolynomial| $)) (#2=#:G447 NIL)
+         ((|mong| (|SparseUnivariatePolynomial| $)) (#2=#:G453 NIL)
           (|monb| (|SparseUnivariatePolynomial| $)) (|contb| ($))
           (|mona| (|SparseUnivariatePolynomial| $)) (|conta| ($)))
          (SEQ
@@ -1104,7 +1104,7 @@
         ((|a| #1=(|SparseUnivariatePolynomial| $)) (|b| #1#)
          ($ (|SparseUnivariatePolynomial| $)))
         (SPROG
-         ((|mong| (|SparseUnivariatePolynomial| $)) (#2=#:G479 NIL)
+         ((|mong| (|SparseUnivariatePolynomial| $)) (#2=#:G485 NIL)
           (|monb| (|SparseUnivariatePolynomial| $)) (|contb| ($))
           (|mona| (|SparseUnivariatePolynomial| $)) (|conta| ($)))
          (SEQ
@@ -1226,7 +1226,7 @@
         ((|a| #1=(|SparseUnivariatePolynomial| $)) (|b| #1#)
          ($ (|SparseUnivariatePolynomial| $)))
         (SPROG
-         ((|mong| (|SparseUnivariatePolynomial| $)) (#2=#:G507 NIL)
+         ((|mong| (|SparseUnivariatePolynomial| $)) (#2=#:G513 NIL)
           (|monb| (|SparseUnivariatePolynomial| $)) (|contb| ($))
           (|mona| (|SparseUnivariatePolynomial| $)) (|conta| ($)))
          (SEQ
@@ -1304,8 +1304,8 @@
 
 (SDEFUN |SMP;coefficients;$L;67| ((|p| ($)) ($ (|List| R)))
         (SPROG
-         ((#1=#:G524 NIL) (#2=#:G523 #3=(|List| R)) (#4=#:G525 #3#)
-          (#5=#:G527 NIL) (|p1| NIL))
+         ((#1=#:G530 NIL) (#2=#:G529 #3=(|List| R)) (#4=#:G531 #3#)
+          (#5=#:G533 NIL) (|p1| NIL))
          (SEQ
           (COND ((QEQCAR |p| 0) (SPADCALL (QCDR |p|) (QREFELT $ 173)))
                 (#6='T
@@ -1446,7 +1446,7 @@
 (SDEFUN |SMP;eval;$LL$;76|
         ((|p| ($)) (|Lvar| (|List| |VarSet|)) (|Lpval| (|List| $)) ($ ($)))
         (SPROG
-         ((|nlpval| (|List| $)) (#1=#:G584 NIL) (|mvar| NIL) (#2=#:G583 NIL)
+         ((|nlpval| (|List| $)) (#1=#:G592 NIL) (|mvar| NIL) (#2=#:G591 NIL)
           (|nlvar| (|List| |VarSet|)))
          (SEQ
           (COND
@@ -1483,7 +1483,7 @@
 
 (SDEFUN |SMP;eval;$LL$;77|
         ((|p| ($)) (|Lvar| (|List| |VarSet|)) (|Lval| (|List| R)) ($ ($)))
-        (SPROG ((#1=#:G588 NIL) (|val| NIL) (#2=#:G587 NIL))
+        (SPROG ((#1=#:G597 NIL) (|val| NIL) (#2=#:G596 NIL))
                (SEQ
                 (SPADCALL |p| |Lvar|
                           (PROGN
@@ -1514,7 +1514,7 @@
 (SDEFUN |SMP;degree;$LL;79|
         ((|p| ($)) (|Lvar| (|List| |VarSet|))
          ($ (|List| (|NonNegativeInteger|))))
-        (SPROG ((#1=#:G598 NIL) (|mvar| NIL) (#2=#:G597 NIL))
+        (SPROG ((#1=#:G608 NIL) (|mvar| NIL) (#2=#:G607 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -1581,7 +1581,7 @@
 (SDEFUN |SMP;minimumDegree;$LL;83|
         ((|p| ($)) (|Lvar| (|List| |VarSet|))
          ($ (|List| (|NonNegativeInteger|))))
-        (SPROG ((#1=#:G617 NIL) (|mvar| NIL) (#2=#:G616 NIL))
+        (SPROG ((#1=#:G628 NIL) (|mvar| NIL) (#2=#:G627 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -1676,8 +1676,8 @@
          ((|degs1| #2#) (|vars1| #1#) (|mon| ($))
           (|mon1|
            #3=(|Record| (|:| |k| #4=(|NonNegativeInteger|)) (|:| |c| $)))
-          (#5=#:G652 NIL) (|var| NIL) (#6=#:G653 NIL) (|deg| NIL) (|k1| #4#)
-          (|p1| ($)) (#7=#:G651 NIL) (|t| NIL) (|v1| (|VarSet|))
+          (#5=#:G665 NIL) (|var| NIL) (#6=#:G666 NIL) (|deg| NIL) (|k1| #4#)
+          (|p1| ($)) (#7=#:G664 NIL) (|t| NIL) (|v1| (|VarSet|))
           (|tl| (|List| #3#)))
          (SEQ (LETT |tl| (QCDR |p|)) (LETT |v1| (QCAR |p|))
               (SEQ (LETT |t| NIL) (LETT #7# |tl|) G190
@@ -1737,9 +1737,9 @@
 
 (DECLAIM (NOTINLINE |SparseMultivariatePolynomial;|)) 
 
-(DEFUN |SparseMultivariatePolynomial| (&REST #1=#:G687)
+(DEFUN |SparseMultivariatePolynomial| (&REST #1=#:G700)
   (SPROG NIL
-         (PROG (#2=#:G688)
+         (PROG (#2=#:G701)
            (RETURN
             (COND
              ((LETT #2#
@@ -1760,8 +1760,8 @@
 
 (DEFUN |SparseMultivariatePolynomial;| (|#1| |#2|)
   (SPROG
-   ((#1=#:G686 NIL) (|pv$| NIL) (#2=#:G679 NIL) (#3=#:G680 NIL) (#4=#:G681 NIL)
-    (#5=#:G682 NIL) (#6=#:G683 NIL) (#7=#:G684 NIL) (#8=#:G685 NIL) ($ NIL)
+   ((#1=#:G699 NIL) (|pv$| NIL) (#2=#:G692 NIL) (#3=#:G693 NIL) (#4=#:G694 NIL)
+    (#5=#:G695 NIL) (#6=#:G696 NIL) (#7=#:G697 NIL) (#8=#:G698 NIL) ($ NIL)
     (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))

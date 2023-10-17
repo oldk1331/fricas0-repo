@@ -500,7 +500,7 @@
         (SPROG
          ((|res| #1=(|DoubleFloat|)) (|a_k1| #1#) (|a_k2| #2=(|DoubleFloat|))
           (|a_k3| #3=(|DoubleFloat|)) (|ak| #1#) (|k21| (|Integer|))
-          (#4=#:G209 NIL) (|k| NIL) (|r1| #2#) (|r0| #3#))
+          (#4=#:G216 NIL) (|k| NIL) (|r1| #2#) (|r0| #3#))
          (SEQ (LETT |r0| (LETT |a_k3| 1.0))
               (LETT |r1|
                     (LETT |a_k2|
@@ -538,7 +538,7 @@
          ((|res| #1=(|Complex| (|DoubleFloat|))) (|a_k1| #1#)
           (|a_k2| #2=(|Complex| (|DoubleFloat|)))
           (|a_k3| #3=(|Complex| (|DoubleFloat|))) (|ak| #1#)
-          (|k21| (|Integer|)) (#4=#:G214 NIL) (|k| NIL) (|r1| #2#) (|r0| #3#))
+          (|k21| (|Integer|)) (#4=#:G222 NIL) (|k| NIL) (|r1| #2#) (|r0| #3#))
          (SEQ (LETT |r0| (LETT |a_k3| (|spadConstant| $ 11)))
               (LETT |r1|
                     (LETT |a_k2|
@@ -667,7 +667,7 @@
         ((|a| (|DoubleFloat|)) (|x| (|DoubleFloat|)) (|n| (|Integer|))
          ($ (|DoubleFloat|)))
         (SPROG
-         ((|s| (|DoubleFloat|)) (|fac| (|DoubleFloat|)) (#1=#:G223 NIL)
+         ((|s| (|DoubleFloat|)) (|fac| (|DoubleFloat|)) (#1=#:G232 NIL)
           (|i| NIL))
          (SEQ (LETT |s| 0.0) (LETT |fac| 1.0)
               (SEQ (LETT |i| 0) (LETT #1# |n|) G190
@@ -690,7 +690,7 @@
          (|n| (|Integer|)) ($ (|Complex| (|DoubleFloat|))))
         (SPROG
          ((|s| (|Complex| (|DoubleFloat|))) (|fac| (|Complex| (|DoubleFloat|)))
-          (#1=#:G228 NIL) (|i| NIL))
+          (#1=#:G238 NIL) (|i| NIL))
          (SEQ (LETT |s| (|spadConstant| $ 22))
               (LETT |fac| (|spadConstant| $ 11))
               (SEQ (LETT |i| 0) (LETT #1# |n|) G190
@@ -1198,7 +1198,7 @@
 
 (DEFUN |DoubleFloatSpecialFunctions2| ()
   (SPROG NIL
-         (PROG (#1=#:G282)
+         (PROG (#1=#:G292)
            (RETURN
             (COND
              ((LETT #1#

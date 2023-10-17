@@ -46,18 +46,18 @@
                     (|:| |poly| (|List| (|SparseUnivariatePolynomial| F)))
                     (|:| |prim| (|SparseUnivariatePolynomial| F)))))
         (SPROG
-         ((#1=#:G125 NIL) (#2=#:G124 (F)) (#3=#:G126 (F)) (#4=#:G139 NIL)
-          (|c| NIL) (#5=#:G140 NIL) (|a| NIL)
+         ((#1=#:G129 NIL) (#2=#:G128 (F)) (#3=#:G130 (F)) (#4=#:G143 NIL)
+          (|c| NIL) (#5=#:G144 NIL) (|a| NIL)
           (|rec|
            (|Record| (|:| |coef| (|List| (|Integer|)))
                      (|:| |poly| (|List| (|SparseUnivariatePolynomial| F)))
                      (|:| |prim| (|SparseUnivariatePolynomial| F))))
-          (|pols| (|List| (|Polynomial| F))) (#6=#:G137 NIL) (|k| NIL)
-          (#7=#:G138 NIL) (|v| NIL) (#8=#:G136 NIL)
-          (|kers| (|List| (|Kernel| F))) (#9=#:G135 NIL) (#10=#:G134 NIL)
-          (|vv| (|List| F)) (#11=#:G133 NIL) (#12=#:G132 NIL)
-          (|vars| (|List| (|Symbol|))) (#13=#:G131 NIL) (|i| NIL)
-          (#14=#:G130 NIL) (|u| (|String|)) (|uu| (|Symbol|)))
+          (|pols| (|List| (|Polynomial| F))) (#6=#:G141 NIL) (|k| NIL)
+          (#7=#:G142 NIL) (|v| NIL) (#8=#:G140 NIL)
+          (|kers| (|List| (|Kernel| F))) (#9=#:G139 NIL) (#10=#:G138 NIL)
+          (|vv| (|List| F)) (#11=#:G137 NIL) (#12=#:G136 NIL)
+          (|vars| (|List| (|Symbol|))) (#13=#:G135 NIL) (|i| NIL)
+          (#14=#:G134 NIL) (|u| (|String|)) (|uu| (|Symbol|)))
          (SEQ
           (LETT |u|
                 (SPADCALL (LETT |uu| (SPADCALL (QREFELT $ 32)))
@@ -311,9 +311,9 @@
 
 (DECLAIM (NOTINLINE |FunctionSpacePrimitiveElement;|)) 
 
-(DEFUN |FunctionSpacePrimitiveElement| (&REST #1=#:G160)
+(DEFUN |FunctionSpacePrimitiveElement| (&REST #1=#:G165)
   (SPROG NIL
-         (PROG (#2=#:G161)
+         (PROG (#2=#:G166)
            (RETURN
             (COND
              ((LETT #2#

@@ -46,8 +46,8 @@
          (|l| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))
          ($ (|Fraction| (|Polynomial| R))))
         (SPROG
-         ((#1=#:G120 NIL) (|eq| NIL) (#2=#:G119 NIL) (#3=#:G118 NIL)
-          (#4=#:G117 NIL))
+         ((#1=#:G122 NIL) (|eq| NIL) (#2=#:G121 NIL) (#3=#:G120 NIL)
+          (#4=#:G119 NIL))
          (SEQ
           (SPADCALL |x|
                     (PROGN
@@ -104,9 +104,9 @@
 
 (DECLAIM (NOTINLINE |RationalFunction;|)) 
 
-(DEFUN |RationalFunction| (#1=#:G124)
+(DEFUN |RationalFunction| (#1=#:G126)
   (SPROG NIL
-         (PROG (#2=#:G125)
+         (PROG (#2=#:G127)
            (RETURN
             (COND
              ((LETT #2#

@@ -20,11 +20,11 @@
           (|Record| (|:| |laus| (|List| ULS))
                     (|:| |rpow| (|Fraction| (|Integer|))))))
         (SPROG
-         ((#1=#:G148 NIL) (|p| NIL) (#2=#:G149 NIL) (|r| NIL) (#3=#:G147 NIL)
-          (|rn| (|Fraction| (|Integer|))) (#4=#:G146 NIL) (#5=#:G145 NIL)
-          (#6=#:G144 NIL) (#7=#:G143 NIL)
-          (|lr| (|List| (|Fraction| (|Integer|)))) (#8=#:G142 NIL)
-          (#9=#:G141 NIL))
+         ((#1=#:G180 NIL) (|p| NIL) (#2=#:G181 NIL) (|r| NIL) (#3=#:G179 NIL)
+          (|rn| (|Fraction| (|Integer|))) (#4=#:G178 NIL) (#5=#:G177 NIL)
+          (#6=#:G176 NIL) (#7=#:G175 NIL)
+          (|lr| (|List| (|Fraction| (|Integer|)))) (#8=#:G174 NIL)
+          (#9=#:G173 NIL))
          (SEQ
           (LETT |lr|
                 (PROGN
@@ -136,9 +136,9 @@
 
 (DECLAIM (NOTINLINE |TaylorSeriesExpansionPuiseux;|)) 
 
-(DEFUN |TaylorSeriesExpansionPuiseux| (&REST #1=#:G159)
+(DEFUN |TaylorSeriesExpansionPuiseux| (&REST #1=#:G191)
   (SPROG NIL
-         (PROG (#2=#:G160)
+         (PROG (#2=#:G192)
            (RETURN
             (COND
              ((LETT #2#

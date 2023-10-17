@@ -70,9 +70,9 @@
 
 (DECLAIM (NOTINLINE |IrredPolyOverFiniteField;|)) 
 
-(DEFUN |IrredPolyOverFiniteField| (#1=#:G127)
+(DEFUN |IrredPolyOverFiniteField| (#1=#:G128)
   (SPROG NIL
-         (PROG (#2=#:G128)
+         (PROG (#2=#:G129)
            (RETURN
             (COND
              ((LETT #2#

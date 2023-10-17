@@ -2031,6 +2031,7 @@
 ;     $insideCapsuleFunctionIfTrue: local:= true
 ;     $CapsuleModemapFrame: local:= e
 ;     $CapsuleDomainsInScope: local:= get("$DomainsInScope","special",e)
+;     $iterate_tag : local := []
 ;     $returnMode:= m
 ;     $op: local := nil
 ;     [$op,:argl]:= form
@@ -2100,16 +2101,16 @@
 
 (DEFUN |compDefineCapsuleFunction| (|df| |m| |oldE| |$prefix| |$formalArgList|)
   (DECLARE (SPECIAL |$prefix| |$formalArgList|))
-  (PROG (|$op| |$CapsuleDomainsInScope| |$CapsuleModemapFrame|
+  (PROG (|$op| |$iterate_tag| |$CapsuleDomainsInScope| |$CapsuleModemapFrame|
          |$insideCapsuleFunctionIfTrue| |$initCapsuleErrorCount|
          |$locVarsTypes| |$finalEnv| |$functionStats| |fun| |finalBody| |body'|
          |catchTag| T$ |formattedSig| |localOrExported| |ISTMP#1| |rettype|
          |signature'| |argModeList| |identSig| |argl| |e| |body| |signature|
          |form|)
     (DECLARE
-     (SPECIAL |$op| |$CapsuleDomainsInScope| |$CapsuleModemapFrame|
-      |$insideCapsuleFunctionIfTrue| |$initCapsuleErrorCount| |$locVarsTypes|
-      |$finalEnv| |$functionStats|))
+     (SPECIAL |$op| |$iterate_tag| |$CapsuleDomainsInScope|
+      |$CapsuleModemapFrame| |$insideCapsuleFunctionIfTrue|
+      |$initCapsuleErrorCount| |$locVarsTypes| |$finalEnv| |$functionStats|))
     (RETURN
      (PROGN
       (SETQ |form| (CADR . #1=(|df|)))
@@ -2123,6 +2124,7 @@
       (SETQ |$insideCapsuleFunctionIfTrue| T)
       (SETQ |$CapsuleModemapFrame| |e|)
       (SETQ |$CapsuleDomainsInScope| (|get| '|$DomainsInScope| '|special| |e|))
+      (SETQ |$iterate_tag| NIL)
       (SETQ |$returnMode| |m|)
       (SETQ |$op| NIL)
       (SETQ |$op| (CAR |form|))

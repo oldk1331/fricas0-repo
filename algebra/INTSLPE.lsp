@@ -15,7 +15,7 @@
             (|Vector| (|List| (|SparseUnivariatePolynomial| (|Integer|))))
             #2="failed"))
           (|deg| #3=(|NonNegativeInteger|)) (#4=#:G108 NIL) (#5=#:G107 #3#)
-          (#6=#:G109 #3#) (#7=#:G119 NIL) (|u| NIL))
+          (#6=#:G109 #3#) (#7=#:G120 NIL) (|u| NIL))
          (SEQ
           (COND
            ((SPADCALL (QREFELT $ 6) |lp| (QREFELT $ 11))
@@ -69,7 +69,7 @@
 
 (DEFUN |IntegerSolveLinearPolynomialEquation| ()
   (SPROG NIL
-         (PROG (#1=#:G121)
+         (PROG (#1=#:G122)
            (RETURN
             (COND
              ((LETT #1#

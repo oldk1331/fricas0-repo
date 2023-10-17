@@ -1,8 +1,8 @@
 
 (SDEFUN |MATCAT2;map;MM1M2;1| ((|f| (|Mapping| R2 R1)) (|m| (M1)) ($ (M2)))
         (SPROG
-         ((#1=#:G110 NIL) (|j| NIL) (#2=#:G111 NIL) (|l| NIL) (#3=#:G108 NIL)
-          (|i| NIL) (#4=#:G109 NIL) (|k| NIL) (|ans| (M2)))
+         ((#1=#:G112 NIL) (|j| NIL) (#2=#:G113 NIL) (|l| NIL) (#3=#:G110 NIL)
+          (|i| NIL) (#4=#:G111 NIL) (|k| NIL) (|ans| (M2)))
          (SEQ
           (LETT |ans|
                 (SPADCALL (SPADCALL |m| (QREFELT $ 15))
@@ -36,9 +36,9 @@
         ((|f| (|Mapping| (|Union| R2 "failed") R1)) (|m| (M1))
          ($ (|Union| M2 "failed")))
         (SPROG
-         ((#1=#:G116 NIL) (#2=#:G130 NIL) (|r| (|Union| R2 #3="failed"))
-          (#4=#:G133 NIL) (|j| NIL) (#5=#:G134 NIL) (|l| NIL) (#6=#:G131 NIL)
-          (|i| NIL) (#7=#:G132 NIL) (|k| NIL) (|ans| (M2)))
+         ((#1=#:G120 NIL) (#2=#:G134 NIL) (|r| (|Union| R2 #3="failed"))
+          (#4=#:G137 NIL) (|j| NIL) (#5=#:G138 NIL) (|l| NIL) (#6=#:G135 NIL)
+          (|i| NIL) (#7=#:G136 NIL) (|k| NIL) (|ans| (M2)))
          (SEQ
           (EXIT
            (SEQ
@@ -67,7 +67,7 @@
                            ((SPADCALL |r| (CONS 1 "failed") (QREFELT $ 34))
                             (PROGN
                              (LETT #2# (CONS 1 "failed"))
-                             (GO #8=#:G129)))
+                             (GO #8=#:G133)))
                            ('T
                             (SPADCALL |ans| |k| |l|
                                       (PROG2 (LETT #1# |r|)
@@ -87,7 +87,7 @@
 
 (SDEFUN |MATCAT2;reduce;MM12R2;3|
         ((|f| (|Mapping| R2 R1 R2)) (|m| (M1)) (|ident| (R2)) ($ (R2)))
-        (SPROG ((|s| (R2)) (#1=#:G141 NIL) (|j| NIL) (#2=#:G140 NIL) (|i| NIL))
+        (SPROG ((|s| (R2)) (#1=#:G147 NIL) (|j| NIL) (#2=#:G146 NIL) (|i| NIL))
                (SEQ (LETT |s| |ident|)
                     (SEQ (LETT |i| (SPADCALL |m| (QREFELT $ 20)))
                          (LETT #2# (SPADCALL |m| (QREFELT $ 21))) G190
@@ -110,9 +110,9 @@
 
 (DECLAIM (NOTINLINE |MatrixCategoryFunctions2;|)) 
 
-(DEFUN |MatrixCategoryFunctions2| (&REST #1=#:G142)
+(DEFUN |MatrixCategoryFunctions2| (&REST #1=#:G148)
   (SPROG NIL
-         (PROG (#2=#:G143)
+         (PROG (#2=#:G149)
            (RETURN
             (COND
              ((LETT #2#

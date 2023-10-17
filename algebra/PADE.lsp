@@ -17,7 +17,7 @@
          (EXIT |p|))) 
 
 (SDEFUN |PADE;truncSeries| ((|s| (PS)) (|n| (|NonNegativeInteger|)) ($ (UP)))
-        (SPROG ((|p| (UP)) (#1=#:G121 NIL) (|i| NIL))
+        (SPROG ((|p| (UP)) (#1=#:G123 NIL) (|i| NIL))
                (SEQ (LETT |p| (|spadConstant| $ 12))
                     (SEQ (LETT |i| 0) (LETT #1# |n|) G190
                          (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -33,7 +33,7 @@
                     (EXIT |p|)))) 
 
 (SDEFUN |PADE;divOutDegree| ((|s| (PS)) (|n| (|NonNegativeInteger|)) ($ (PS)))
-        (SPROG ((#1=#:G125 NIL) (|i| NIL))
+        (SPROG ((#1=#:G128 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 1) (LETT #1# |n|) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -45,7 +45,7 @@
         ((|l| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|)) (|gps| (PS))
          (|dps| (PS)) ($ (|Union| (|Fraction| UP) "failed")))
         (SPROG
-         ((|approx| (|Fraction| UP)) (#1=#:G136 NIL) (|d| NIL) (#2=#:G137 NIL)
+         ((|approx| (|Fraction| UP)) (#1=#:G140 NIL) (|d| NIL) (#2=#:G141 NIL)
           (|p| NIL) (|dlist| (|List| (|NonNegativeInteger|)))
           (|plist| (|List| UP))
           (|ad|
@@ -91,7 +91,7 @@
         ((|l| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|)) (|gps| (PS))
          (|dps| (PS)) ($ (|Union| (|ContinuedFraction| UP) "failed")))
         (SPROG
-         ((|blist| (|List| UP)) (#1=#:G149 NIL) (|d| NIL) (#2=#:G148 NIL)
+         ((|blist| (|List| UP)) (#1=#:G154 NIL) (|d| NIL) (#2=#:G153 NIL)
           (|alist| (|List| UP))
           (|ad|
            (|Union|
@@ -166,14 +166,14 @@
                      (|:| |degs| (|List| (|NonNegativeInteger|))))
            "failed")))
         (SPROG
-         ((|#G44| (|NonNegativeInteger|)) (#3=#:G170 NIL) (|#G43| #2#)
+         ((|#G44| (|NonNegativeInteger|)) (#3=#:G177 NIL) (|#G43| #2#)
           (|d| (UP)) (|g| (UP)) (|degbd| (|NonNegativeInteger|))
-          (#4=#:G169 NIL) (|h| (UP)) (#5=#:G165 NIL)
-          (|alist| (|List| (|NonNegativeInteger|))) (#6=#:G177 NIL)
+          (#4=#:G176 NIL) (|h| (UP)) (#5=#:G172 NIL)
+          (|alist| (|List| (|NonNegativeInteger|))) (#6=#:G184 NIL)
           (|alpha| (|NonNegativeInteger|)) (|plist| (|List| UP)) (|s| (UP))
-          (|p| (UP)) (#7=#:G163 NIL) (|pk| (R)) (#8=#:G178 NIL) (|k| NIL)
-          (#9=#:G162 NIL) (|d0| (R)) (|j| NIL) (|#G40| (PS)) (|#G39| (PS))
-          (|#G38| (|NonNegativeInteger|)) (#10=#:G159 NIL) (|#G37| #2#)
+          (|p| (UP)) (#7=#:G170 NIL) (|pk| (R)) (#8=#:G185 NIL) (|k| NIL)
+          (#9=#:G168 NIL) (|d0| (R)) (|j| NIL) (|#G40| (PS)) (|#G39| (PS))
+          (|#G38| (|NonNegativeInteger|)) (#10=#:G164 NIL) (|#G37| #2#)
           (|#G36| #1#) (|#G35| #2#) (|#G34| (PS)) (|#G33| (PS)))
          (SEQ
           (EXIT
@@ -204,7 +204,7 @@
               (SEQ (LETT |alpha| (SPADCALL |gps| (QREFELT $ 34)))
                    (COND
                     ((> |alpha| |l|)
-                     (PROGN (LETT #6# (CONS 1 "failed")) (GO #11=#:G176))))
+                     (PROGN (LETT #6# (CONS 1 "failed")) (GO #11=#:G183))))
                    (LETT |gps| (|PADE;divOutDegree| |gps| |alpha| $))
                    (PROGN
                     (LETT |#G37| |m|)
@@ -351,9 +351,9 @@
 
 (DECLAIM (NOTINLINE |PadeApproximants;|)) 
 
-(DEFUN |PadeApproximants| (&REST #1=#:G179)
+(DEFUN |PadeApproximants| (&REST #1=#:G186)
   (SPROG NIL
-         (PROG (#2=#:G180)
+         (PROG (#2=#:G187)
            (RETURN
             (COND
              ((LETT #2#

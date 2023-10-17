@@ -47,9 +47,9 @@
 
 (DECLAIM (NOTINLINE |CommuteUnivariatePolynomialCategory;|)) 
 
-(DEFUN |CommuteUnivariatePolynomialCategory| (&REST #1=#:G111)
+(DEFUN |CommuteUnivariatePolynomialCategory| (&REST #1=#:G113)
   (SPROG NIL
-         (PROG (#2=#:G112)
+         (PROG (#2=#:G114)
            (RETURN
             (COND
              ((LETT #2#

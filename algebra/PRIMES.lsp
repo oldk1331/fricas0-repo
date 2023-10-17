@@ -1,7 +1,7 @@
 
 (SDEFUN |PRIMES;primes;2IL;1| ((|m| (I)) (|n| (I)) ($ (|List| I)))
         (SPROG
-         ((|ll| (|List| I)) (#1=#:G140 NIL) (|k| NIL) (#2=#:G139 NIL)
+         ((|ll| (|List| I)) (#1=#:G141 NIL) (|k| NIL) (#2=#:G140 NIL)
           (|m0| (I)))
          (SEQ
           (COND
@@ -40,8 +40,8 @@
         ((|p| (I)) (|n| (I)) (|nm1| (I)) (|q| (I)) (|k| (|NonNegativeInteger|))
          ($ (|Boolean|)))
         (SPROG
-         ((#1=#:G147 NIL) (#2=#:G146 NIL) (|t| (I)) (|oldt| (I))
-          (#3=#:G148 NIL) (|j| NIL))
+         ((#1=#:G149 NIL) (#2=#:G148 NIL) (|t| (I)) (|oldt| (I))
+          (#3=#:G150 NIL) (|j| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |t| (SPADCALL |p| |q| |n| (QREFELT $ 43)))
@@ -61,11 +61,11 @@
                                   (COND
                                    ((SPADCALL |t| (|spadConstant| $ 11)
                                               (QREFELT $ 44))
-                                    (PROGN (LETT #1# 'T) (GO #4=#:G145)))
+                                    (PROGN (LETT #1# 'T) (GO #4=#:G147)))
                                    ((SPADCALL |t| |nm1| (QREFELT $ 44))
                                     (PROGN
                                      (LETT #2# |$NoValue|)
-                                     (GO #5=#:G142))))))
+                                     (GO #5=#:G144))))))
                             (LETT |j| (|inc_SI| |j|)) (GO G190) G191
                             (EXIT NIL)))
                       #5# (EXIT #2#))
@@ -80,8 +80,8 @@
         ((|p| (I)) (|n| (I)) (|nm1| (I)) (|q| (I)) (|k| (|NonNegativeInteger|))
          ($ (|Boolean|)))
         (SPROG
-         ((#1=#:G156 NIL) (#2=#:G155 NIL) (|t| (I)) (|oldt| (I))
-          (#3=#:G157 NIL) (|j| NIL))
+         ((#1=#:G159 NIL) (#2=#:G158 NIL) (|t| (I)) (|oldt| (I))
+          (#3=#:G160 NIL) (|j| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |t| (SPADCALL |p| |q| |n| (QREFELT $ 43)))
@@ -106,7 +106,7 @@
                                   (COND
                                    ((SPADCALL |t| (|spadConstant| $ 11)
                                               (QREFELT $ 44))
-                                    (PROGN (LETT #1# 'T) (GO #4=#:G154)))
+                                    (PROGN (LETT #1# 'T) (GO #4=#:G157)))
                                    ((SPADCALL |t| |nm1| (QREFELT $ 44))
                                     (SEQ
                                      (SETELT $ 28
@@ -122,7 +122,7 @@
                                      (EXIT
                                       (PROGN
                                        (LETT #2# |$NoValue|)
-                                       (GO #5=#:G151))))))))
+                                       (GO #5=#:G154))))))))
                             (LETT |j| (|inc_SI| |j|)) (GO G190) G191
                             (EXIT NIL)))
                       #5# (EXIT #2#))
@@ -137,9 +137,9 @@
 
 (SDEFUN |PRIMES;prime?;IB;4| ((|n| (I)) ($ (|Boolean|)))
         (SPROG
-         ((#1=#:G189 NIL) (#2=#:G192 NIL) (|probablySafe| (I))
-          (|currPrime| (I)) (#3=#:G191 NIL) (|n9| (I)) (#4=#:G190 NIL)
-          (#5=#:G193 NIL) (|i| NIL) (|mn| (|Integer|)) (|q| (I)) (|k| NIL)
+         ((#1=#:G195 NIL) (#2=#:G198 NIL) (|probablySafe| (I))
+          (|currPrime| (I)) (#3=#:G197 NIL) (|n9| (I)) (#4=#:G196 NIL)
+          (#5=#:G199 NIL) (|i| NIL) (|mn| (|Integer|)) (|q| (I)) (|k| NIL)
           (|nm1| (I)))
          (SEQ
           (EXIT
@@ -186,7 +186,7 @@
                               (SPADCALL 2 (QREFELT $ 8)) |n| |nm1| |q| |k| $)
                              (|PRIMES;rabinProvesCompositeSmall|
                               (SPADCALL 3 (QREFELT $ 8)) |n| |nm1| |q| |k| $))
-                            (PROGN (LETT #2# NIL) (GO #7=#:G188)))
+                            (PROGN (LETT #2# NIL) (GO #7=#:G194)))
                            ((SPADCALL |n| (QREFELT $ 20) (QREFELT $ 35))
                             (COND
                              ((OR
@@ -258,7 +258,7 @@
                                                    (PROGN
                                                     (LETT #2# NIL)
                                                     (GO #7#)))
-                                             (GO #8=#:G175))))))
+                                             (GO #8=#:G180))))))
                                         (LETT |i| (+ |i| 1)) (GO G190) G191
                                         (EXIT NIL)))
                                   #8# (EXIT #4#))
@@ -294,7 +294,7 @@
                                         (QREFELT $ 60))
                                        (PROGN
                                         (LETT #3# NIL)
-                                        (GO #9=#:G184))))))))
+                                        (GO #9=#:G190))))))))
                                  (LETT |currPrime|
                                        (SPADCALL (QREFELT $ 9) (+ |mn| 10)
                                                  (QREFELT $ 56)))
@@ -333,7 +333,7 @@
                                                    (PROGN
                                                     (LETT #2# NIL)
                                                     (GO #7#)))
-                                             (GO #10=#:G182)))))))
+                                             (GO #10=#:G188)))))))
                                        #10# (EXIT #1#))
                                       NIL (GO G190) G191 (EXIT NIL))
                                  (EXIT 'T)))
@@ -385,9 +385,9 @@
 
 (DECLAIM (NOTINLINE |IntegerPrimesPackage;|)) 
 
-(DEFUN |IntegerPrimesPackage| (#1=#:G205)
+(DEFUN |IntegerPrimesPackage| (#1=#:G213)
   (SPROG NIL
-         (PROG (#2=#:G206)
+         (PROG (#2=#:G214)
            (RETURN
             (COND
              ((LETT #2#
@@ -405,7 +405,7 @@
 
 (DEFUN |IntegerPrimesPackage;| (|#1|)
   (SPROG
-   ((#1=#:G133 NIL) (#2=#:G132 NIL) (#3=#:G134 NIL) (#4=#:G204 NIL)
+   ((#1=#:G133 NIL) (#2=#:G132 NIL) (#3=#:G134 NIL) (#4=#:G212 NIL)
     (#5=#:G103 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (SEQ
     (PROGN

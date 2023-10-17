@@ -1,7 +1,7 @@
 
 (SDEFUN |HDP;<;2$B;1| ((|v1| ($)) (|v2| ($)) ($ (|Boolean|)))
         (SPROG
-         ((#1=#:G113 NIL) (|i| NIL) (|n2| (S)) (|n1| (S)) (#2=#:G114 NIL))
+         ((#1=#:G115 NIL) (|i| NIL) (|n2| (S)) (|n1| (S)) (#2=#:G116 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |n1| (|spadConstant| $ 9))
@@ -29,7 +29,7 @@
                                 ((SPADCALL (SPADCALL |v2| |i| (QREFELT $ 11))
                                            (SPADCALL |v1| |i| (QREFELT $ 11))
                                            (QREFELT $ 14))
-                                 (PROGN (LETT #1# 'T) (GO #3=#:G112))))
+                                 (PROGN (LETT #1# 'T) (GO #3=#:G114))))
                                (EXIT
                                 (COND
                                  ((SPADCALL (SPADCALL |v1| |i| (QREFELT $ 11))
@@ -42,9 +42,9 @@
 
 (DECLAIM (NOTINLINE |HomogeneousDirectProduct;|)) 
 
-(DEFUN |HomogeneousDirectProduct| (&REST #1=#:G140)
+(DEFUN |HomogeneousDirectProduct| (&REST #1=#:G142)
   (SPROG NIL
-         (PROG (#2=#:G141)
+         (PROG (#2=#:G143)
            (RETURN
             (COND
              ((LETT #2#
@@ -64,8 +64,8 @@
 
 (DEFUN |HomogeneousDirectProduct;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G132 NIL) (#2=#:G133 NIL) (#3=#:G134 NIL) (#4=#:G135 NIL)
-    (#5=#:G136 NIL) (#6=#:G137 NIL) (#7=#:G138 NIL) (#8=#:G139 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G134 NIL) (#2=#:G135 NIL) (#3=#:G136 NIL) (#4=#:G137 NIL)
+    (#5=#:G138 NIL) (#6=#:G139 NIL) (#7=#:G140 NIL) (#8=#:G141 NIL) ($ NIL)
     (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 |#1|)

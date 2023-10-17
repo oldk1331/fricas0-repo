@@ -2,7 +2,7 @@
 (SDEFUN |RFSSPLIT;alg_split_root0;FKIL;1|
         ((|f| (F)) (|r| (|Kernel| F)) (|n| (|Integer|)) ($ (|List| F)))
         (SPROG
-         ((#1=#:G117 NIL) (|i| NIL) (#2=#:G116 NIL)
+         ((#1=#:G118 NIL) (|i| NIL) (#2=#:G117 NIL)
           (|q| (|SparseUnivariatePolynomial| F)) (|f1| (F)) (|f0| (F))
           (|ef| (F)))
          (SEQ
@@ -61,8 +61,8 @@
          ($ (|List| (|List| F))))
         (SPROG
          ((|res| (|List| (|List| F))) (|resi| (|List| F))
-          (|nlf1| #1=(|List| (|List| F))) (|lf1| (|List| F)) (#2=#:G128 NIL)
-          (|pow1| NIL) (|nlf0| #1#) (#3=#:G127 NIL) (|f| NIL) (#4=#:G126 NIL))
+          (|nlf1| #1=(|List| (|List| F))) (|lf1| (|List| F)) (#2=#:G132 NIL)
+          (|pow1| NIL) (|nlf0| #1#) (#3=#:G131 NIL) (|f| NIL) (#4=#:G130 NIL))
          (SEQ
           (LETT |nlf0|
                 (PROGN
@@ -104,13 +104,13 @@
            (|List|
             (|Record| (|:| |funs| (|List| F)) (|:| |nroot| F)
                       (|:| |npow1| (|Integer|)) (|:| |npow2| (|Integer|)))))
-          (|nl| (|List| F)) (#1=#:G152 NIL) (|f1| NIL) (#2=#:G151 NIL)
-          (|nrr| (F)) (|bb2| (F)) (#3=#:G132 NIL) (|bb1| (F))
+          (|nl| (|List| F)) (#1=#:G159 NIL) (|f1| NIL) (#2=#:G158 NIL)
+          (|nrr| (F)) (|bb2| (F)) (#3=#:G137 NIL) (|bb1| (F))
           (|nn| (|Integer|)) (|np2| (|Integer|)) (|nn2| (|Integer|))
-          (|g2| #4=(|Integer|)) (#5=#:G149 NIL) (|l2| NIL) (#6=#:G150 NIL)
+          (|g2| #4=(|Integer|)) (#5=#:G156 NIL) (|l2| NIL) (#6=#:G157 NIL)
           (|pow2| NIL) (|np1| (|Integer|)) (|nn1| (|Integer|)) (|g1| #4#)
-          (|ll2| #7=(|List| (|List| F))) (#8=#:G147 NIL) (|l1| NIL)
-          (#9=#:G148 NIL) (|pow1| NIL) (|rop| (|BasicOperator|)) (|ll1| #7#)
+          (|ll2| #7=(|List| (|List| F))) (#8=#:G154 NIL) (|l1| NIL)
+          (#9=#:G155 NIL) (|pow1| NIL) (|rop| (|BasicOperator|)) (|ll1| #7#)
           (|b2| (F)) (|n2| #10=(|Integer|)) (|b1| (F)) (|n1| #10#)
           (|a2| #11=(|List| F)) (|a1| #11#))
          (SEQ (LETT |a1| (SPADCALL |r1| (QREFELT $ 40)))
@@ -296,9 +296,9 @@
 
 (DECLAIM (NOTINLINE |RootFSSplit;|)) 
 
-(DEFUN |RootFSSplit| (&REST #1=#:G153)
+(DEFUN |RootFSSplit| (&REST #1=#:G160)
   (SPROG NIL
-         (PROG (#2=#:G154)
+         (PROG (#2=#:G161)
            (RETURN
             (COND
              ((LETT #2#

@@ -2,7 +2,7 @@
 (SDEFUN |SORTPAK;bubbleSort!;AMA;1|
         ((|m| (A)) (|f| (|Mapping| (|Boolean|) S S)) ($ (A)))
         (SPROG
-         ((#1=#:G114 NIL) (|j| NIL) (#2=#:G113 NIL) (|i| NIL)
+         ((#1=#:G116 NIL) (|j| NIL) (#2=#:G115 NIL) (|i| NIL)
           (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (SPADCALL |m| (QREFELT $ 9)))
               (SEQ (LETT |i| 1) (LETT #2# (- |n| 1)) G190
@@ -24,7 +24,7 @@
 
 (SDEFUN |SORTPAK;insertionSort!;AMA;2|
         ((|m| (A)) (|f| (|Mapping| (|Boolean|) S S)) ($ (A)))
-        (SPROG ((|j| (|NonNegativeInteger|)) (#1=#:G121 NIL) (|i| NIL))
+        (SPROG ((|j| (|NonNegativeInteger|)) (#1=#:G125 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 2) (LETT #1# (SPADCALL |m| (QREFELT $ 9))) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -97,9 +97,9 @@
 
 (DECLAIM (NOTINLINE |SortPackage;|)) 
 
-(DEFUN |SortPackage| (&REST #1=#:G138)
+(DEFUN |SortPackage| (&REST #1=#:G143)
   (SPROG NIL
-         (PROG (#2=#:G139)
+         (PROG (#2=#:G144)
            (RETURN
             (COND
              ((LETT #2#

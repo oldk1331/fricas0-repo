@@ -4,8 +4,8 @@
          ($ (|Fraction| (|Polynomial| R))))
         (SPROG
          ((|bot| #1=(|Polynomial| R)) (|top| #1#)
-          (|lEq| (|List| (|Equation| (|Polynomial| R)))) (#2=#:G118 NIL)
-          (|i| NIL) (#3=#:G117 NIL) (|s| NIL) (#4=#:G116 NIL)
+          (|lEq| (|List| (|Equation| (|Polynomial| R)))) (#2=#:G123 NIL)
+          (|i| NIL) (#3=#:G122 NIL) (|s| NIL) (#4=#:G121 NIL)
           (|coefOfa| (|List| (|Polynomial| R))))
          (SEQ
           (LETT |coefOfa|
@@ -56,8 +56,8 @@
 (SDEFUN |GCNAALG;genericLeftDiscriminant;F;3|
         (($ (|Fraction| (|Polynomial| R))))
         (SPROG
-         ((|m| (|Matrix| (|Fraction| (|Polynomial| R)))) (#1=#:G127 NIL)
-          (|a| NIL) (#2=#:G126 NIL) (#3=#:G125 NIL) (|b| NIL) (#4=#:G124 NIL)
+         ((|m| (|Matrix| (|Fraction| (|Polynomial| R)))) (#1=#:G134 NIL)
+          (|a| NIL) (#2=#:G133 NIL) (#3=#:G132 NIL) (|b| NIL) (#4=#:G131 NIL)
           (|listBasis| (|List| $)))
          (SEQ
           (LETT |listBasis|
@@ -104,8 +104,8 @@
 (SDEFUN |GCNAALG;genericRightDiscriminant;F;5|
         (($ (|Fraction| (|Polynomial| R))))
         (SPROG
-         ((|m| (|Matrix| (|Fraction| (|Polynomial| R)))) (#1=#:G136 NIL)
-          (|a| NIL) (#2=#:G135 NIL) (#3=#:G134 NIL) (|b| NIL) (#4=#:G133 NIL)
+         ((|m| (|Matrix| (|Fraction| (|Polynomial| R)))) (#1=#:G145 NIL)
+          (|a| NIL) (#2=#:G144 NIL) (#3=#:G143 NIL) (|b| NIL) (#4=#:G142 NIL)
           (|listBasis| (|List| $)))
          (SEQ
           (LETT |listBasis|
@@ -275,8 +275,8 @@
 (SDEFUN |GCNAALG;generic;VV$;19|
         ((|vs| (|Vector| (|Symbol|))) (|ve| (|Vector| $)) ($ ($)))
         (SPROG
-         ((|v| (|Vector| (|Polynomial| R))) (#1=#:G173 NIL) (#2=#:G175 NIL)
-          (|i| NIL) (#3=#:G174 NIL))
+         ((|v| (|Vector| (|Polynomial| R))) (#1=#:G183 NIL) (#2=#:G185 NIL)
+          (|i| NIL) (#3=#:G184 NIL))
          (SEQ
           (COND
            ((> (QVSIZE |vs|) (SPADCALL |ve| (QREFELT $ 96)))
@@ -307,9 +307,9 @@
 
 (SDEFUN |GCNAALG;generic;SV$;20| ((|s| (|Symbol|)) (|ve| (|Vector| $)) ($ ($)))
         (SPROG
-         ((|sFC| (|Vector| (|Symbol|))) (#1=#:G182 NIL) (#2=#:G184 NIL)
-          (|i| NIL) (#3=#:G183 NIL) (|lON| (|List| (|String|))) (#4=#:G181 NIL)
-          (|q| NIL) (#5=#:G180 NIL))
+         ((|sFC| (|Vector| (|Symbol|))) (#1=#:G194 NIL) (#2=#:G196 NIL)
+          (|i| NIL) (#3=#:G195 NIL) (|lON| (|List| (|String|))) (#4=#:G193 NIL)
+          (|q| NIL) (#5=#:G192 NIL))
          (SEQ
           (LETT |lON|
                 (PROGN
@@ -337,11 +337,11 @@
 
 (SDEFUN |GCNAALG;generic;V$;21| ((|ve| (|Vector| $)) ($ ($)))
         (SPROG
-         ((|v| (|Vector| (|Polynomial| R))) (#1=#:G196 NIL) (#2=#:G198 NIL)
-          (|i| NIL) (#3=#:G197 NIL) (|sFC| (|Vector| (|Symbol|)))
-          (#4=#:G193 NIL) (#5=#:G195 NIL) (#6=#:G194 NIL)
-          (|lON| (|List| (|String|))) (#7=#:G192 NIL) (|q| NIL)
-          (#8=#:G191 NIL))
+         ((|v| (|Vector| (|Polynomial| R))) (#1=#:G211 NIL) (#2=#:G213 NIL)
+          (|i| NIL) (#3=#:G212 NIL) (|sFC| (|Vector| (|Symbol|)))
+          (#4=#:G208 NIL) (#5=#:G210 NIL) (#6=#:G209 NIL)
+          (|lON| (|List| (|String|))) (#7=#:G207 NIL) (|q| NIL)
+          (#8=#:G206 NIL))
          (SEQ
           (LETT |lON|
                 (PROGN
@@ -394,9 +394,9 @@
 
 (DECLAIM (NOTINLINE |GenericNonAssociativeAlgebra;|)) 
 
-(DEFUN |GenericNonAssociativeAlgebra| (&REST #1=#:G216)
+(DEFUN |GenericNonAssociativeAlgebra| (&REST #1=#:G231)
   (SPROG NIL
-         (PROG (#2=#:G217)
+         (PROG (#2=#:G232)
            (RETURN
             (COND
              ((LETT #2#
@@ -417,9 +417,9 @@
 
 (DEFUN |GenericNonAssociativeAlgebra;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((|v| NIL) (#1=#:G213 NIL) (#2=#:G215 NIL) (|i| NIL) (#3=#:G214 NIL)
-    (#4=#:G210 NIL) (#5=#:G212 NIL) (#6=#:G211 NIL) (#7=#:G209 NIL) (|q| NIL)
-    (#8=#:G208 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
+   ((|v| NIL) (#1=#:G228 NIL) (#2=#:G230 NIL) (|i| NIL) (#3=#:G229 NIL)
+    (#4=#:G225 NIL) (#5=#:G227 NIL) (#6=#:G226 NIL) (#7=#:G224 NIL) (|q| NIL)
+    (#8=#:G223 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
     (DV$2 NIL) (DV$1 NIL))
    (SEQ
     (PROGN

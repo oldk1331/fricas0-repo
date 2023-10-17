@@ -7,7 +7,7 @@
 (SDEFUN |INTTOOLS;varselect;LSL;2|
         ((|l| (|List| (|Kernel| F))) (|x| (|Symbol|))
          ($ (|List| (|Kernel| F))))
-        (SPROG ((#1=#:G121 NIL) (|k| NIL) (#2=#:G120 NIL))
+        (SPROG ((#1=#:G122 NIL) (|k| NIL) (#2=#:G121 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -37,7 +37,7 @@
 
 (SDEFUN |INTTOOLS;vark;LSL;4|
         ((|l| (|List| F)) (|x| (|Symbol|)) ($ (|List| (|Kernel| F))))
-        (SPROG ((#1=#:G129 NIL) (|f| NIL) (#2=#:G128 NIL))
+        (SPROG ((#1=#:G132 NIL) (|f| NIL) (#2=#:G131 NIL))
                (SEQ
                 (SPADCALL
                  (SPADCALL (ELT $ 10)
@@ -59,7 +59,7 @@
                  |x| (QREFELT $ 19))))) 
 
 (SDEFUN |INTTOOLS;kmax;LK;5| ((|l| (|List| (|Kernel| F))) ($ (|Kernel| F)))
-        (SPROG ((|ans| (|Kernel| F)) (#1=#:G134 NIL) (|k| NIL))
+        (SPROG ((|ans| (|Kernel| F)) (#1=#:G138 NIL) (|k| NIL))
                (SEQ (LETT |ans| (|SPADfirst| |l|))
                     (SEQ (LETT |k| NIL) (LETT #1# (CDR |l|)) G190
                          (COND
@@ -93,7 +93,7 @@
         ((|f| (F)) (|x| (|Symbol|)) ($ (F)))
         (SPROG
          ((|ans| (|SparseMultivariatePolynomial| R (|Kernel| F)))
-          (#1=#:G151 NIL) (|term| NIL)
+          (#1=#:G156 NIL) (|term| NIL)
           (|u|
            (|Union| (|List| (|SparseMultivariatePolynomial| R (|Kernel| F)))
                     "failed"))
@@ -221,8 +221,8 @@
 
 (SDEFUN |INTTOOLS;mkPrim;FSF;11| ((|f| (F)) (|x| (|Symbol|)) ($ (F)))
         (SPROG
-         ((#1=#:G176 NIL) (|k| NIL) (#2=#:G175 NIL)
-          (|lg| (|List| (|Kernel| F))) (#3=#:G174 NIL) (#4=#:G173 NIL))
+         ((#1=#:G183 NIL) (|k| NIL) (#2=#:G182 NIL)
+          (|lg| (|List| (|Kernel| F))) (#3=#:G181 NIL) (#4=#:G180 NIL))
          (SEQ
           (LETT |lg|
                 (PROGN
@@ -269,7 +269,7 @@
             (|Record| (|:| |var| (|Kernel| F))
                       (|:| |exponent| (|NonNegativeInteger|)))
             "failed"))
-          (#1=#:G179 NIL))
+          (#1=#:G186 NIL))
          (SEQ
           (LETT |u|
                 (SPADCALL
@@ -303,9 +303,9 @@
 
 (DECLAIM (NOTINLINE |IntegrationTools;|)) 
 
-(DEFUN |IntegrationTools| (&REST #1=#:G187)
+(DEFUN |IntegrationTools| (&REST #1=#:G194)
   (SPROG NIL
-         (PROG (#2=#:G188)
+         (PROG (#2=#:G195)
            (RETURN
             (COND
              ((LETT #2#

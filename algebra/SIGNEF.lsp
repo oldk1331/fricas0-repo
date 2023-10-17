@@ -320,8 +320,8 @@
         ((|p| (|SparseMultivariatePolynomial| R (|Kernel| F)))
          ($ (|Union| (|Integer|) "failed")))
         (SPROG
-         ((|ans| (|Integer|)) (#1=#:G262 NIL)
-          (|u| (|Union| (|Integer|) "failed")) (#2=#:G263 NIL) (|term| NIL)
+         ((|ans| (|Integer|)) (#1=#:G263 NIL)
+          (|u| (|Union| (|Integer|) "failed")) (#2=#:G264 NIL) (|term| NIL)
           (|s| (|Factored| (|SparseMultivariatePolynomial| R (|Kernel| F))))
           (|r| (|Union| R "failed")))
          (SEQ
@@ -367,7 +367,7 @@
                                                    (PROGN
                                                     (LETT #1#
                                                           (CONS 1 "failed"))
-                                                    (GO #4=#:G261)))
+                                                    (GO #4=#:G262)))
                                                   ('T
                                                    (LETT |ans|
                                                          (* |ans|
@@ -483,8 +483,8 @@
         ((|l| (|List| (|SparseMultivariatePolynomial| R (|Kernel| F))))
          (|s| (|Integer|)) ($ (|Union| (|Integer|) #1="failed")))
         (SPROG
-         ((#2=#:G286 NIL) (#3=#:G287 NIL) (|u| (|Union| (|Integer|) #1#))
-          (#4=#:G288 NIL) (|term| NIL))
+         ((#2=#:G288 NIL) (#3=#:G289 NIL) (|u| (|Union| (|Integer|) #1#))
+          (#4=#:G290 NIL) (|term| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -496,7 +496,7 @@
                       (EXIT
                        (COND
                         ((QEQCAR |u| 1)
-                         (PROGN (LETT #3# (CONS 1 "failed")) (GO #5=#:G285)))
+                         (PROGN (LETT #3# (CONS 1 "failed")) (GO #5=#:G287)))
                         ('T
                          (SEQ
                           (EXIT
@@ -507,7 +507,7 @@
                                     (PROGN
                                      (LETT #3# (CONS 1 "failed"))
                                      (GO #5#)))
-                              (GO #6=#:G281)))))
+                              (GO #6=#:G283)))))
                           #6# (EXIT #2#))))))
                  (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
             (EXIT (CONS 0 |s|))))
@@ -517,8 +517,8 @@
         ((|term| (|SparseMultivariatePolynomial| R (|Kernel| F)))
          ($ (|Union| (|Integer|) #1="failed")))
         (SPROG
-         ((#2=#:G298 NIL) (#3=#:G299 NIL) (#4=#:G297 NIL)
-          (|vs| (|Union| (|Integer|) #1#)) (#5=#:G300 NIL)
+         ((#2=#:G301 NIL) (#3=#:G302 NIL) (#4=#:G300 NIL)
+          (|vs| (|Union| (|Integer|) #1#)) (#5=#:G303 NIL)
           (|lv| (|List| (|Kernel| F))) (|var| NIL)
           (|us| (|Union| (|Integer|) "failed")))
          (SEQ
@@ -568,14 +568,14 @@
                                                                       |us|)
                                                                      (QCDR
                                                                       |vs|))))
-                                                        (GO #6=#:G296)))
-                                                 (GO #7=#:G291))))))))
+                                                        (GO #6=#:G299)))
+                                                 (GO #7=#:G294))))))))
                                           (EXIT
                                            (PROGN
                                             (LETT #3# (CONS 1 "failed"))
                                             (GO #6#)))))
                                         #7# (EXIT #4#)))
-                                 (GO #8=#:G293))))))
+                                 (GO #8=#:G296))))))
                             (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL)))
                       #8# (EXIT #2#))
                      (EXIT (CONS 0 (QCDR |us|)))))))))
@@ -649,9 +649,9 @@
 
 (DECLAIM (NOTINLINE |ElementaryFunctionSign;|)) 
 
-(DEFUN |ElementaryFunctionSign| (&REST #1=#:G325)
+(DEFUN |ElementaryFunctionSign| (&REST #1=#:G328)
   (SPROG NIL
-         (PROG (#2=#:G326)
+         (PROG (#2=#:G329)
            (RETURN
             (COND
              ((LETT #2#

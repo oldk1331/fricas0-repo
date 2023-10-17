@@ -17,11 +17,11 @@
 (SDEFUN |ALGSC;coordinates;$VV;6|
         ((|x| ($)) (|b| (|Vector| $)) ($ (|Vector| R)))
         (SPROG
-         ((#1=#:G137 NIL)
+         ((#1=#:G138 NIL)
           (|res|
            (|Record| (|:| |particular| (|Union| (|Vector| R) "failed"))
                      (|:| |basis| (|List| (|Vector| R)))))
-          (#2=#:G141 NIL) (|i| NIL) (|transitionMatrix| (|Matrix| R))
+          (#2=#:G142 NIL) (|i| NIL) (|transitionMatrix| (|Matrix| R))
           (|m| (|NonNegativeInteger|)) (#3=#:G132 NIL))
          (SEQ
           (LETT |m|
@@ -60,8 +60,8 @@
 
 (SDEFUN |ALGSC;basis;V;7| (($ (|Vector| $)))
         (SPROG
-         ((#1=#:G143 NIL) (#2=#:G146 NIL) (#3=#:G148 NIL) (|i| NIL)
-          (#4=#:G147 NIL))
+         ((#1=#:G145 NIL) (#2=#:G148 NIL) (#3=#:G150 NIL) (|i| NIL)
+          (#4=#:G149 NIL))
          (SEQ
           (PROGN
            (LETT #4# (GETREFV #5=(QREFELT $ 7)))
@@ -88,8 +88,8 @@
 
 (SDEFUN |ALGSC;coerce;$Of;11| ((|x| ($)) ($ (|OutputForm|)))
         (SPROG
-         ((#1=#:G159 NIL) (|le| (|List| (|OutputForm|))) (|coef| (R))
-          (#2=#:G160 NIL) (|i| NIL))
+         ((#1=#:G162 NIL) (|le| (|List| (|OutputForm|))) (|coef| (R))
+          (#2=#:G163 NIL) (|i| NIL))
          (SEQ
           (COND
            ((SPADCALL |x| (QREFELT $ 49))
@@ -128,15 +128,15 @@
                                                   (QREFELT $ 58))
                                                  (QREFELT $ 59))
                                                 |le|)))))
-                                 (GO #3=#:G152)))))))
+                                 (GO #3=#:G155)))))))
                        #3# (EXIT #1#))
                       (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                  (EXIT (SPADCALL (ELT $ 60) |le| (QREFELT $ 63))))))))) 
 
 (SDEFUN |ALGSC;*;3$;12| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG
-         ((|h| (R)) (#1=#:G169 NIL) (|j| NIL) (#2=#:G168 NIL) (|i| NIL)
-          (#3=#:G167 NIL) (|k| NIL) (|v| (|Vector| R)))
+         ((|h| (R)) (#1=#:G175 NIL) (|j| NIL) (#2=#:G174 NIL) (|i| NIL)
+          (#3=#:G173 NIL) (|k| NIL) (|v| (|Vector| R)))
          (SEQ (LETT |v| (MAKEARR1 (QREFELT $ 7) (|spadConstant| $ 32)))
               (SEQ (LETT |k| 1) (LETT #3# (QREFELT $ 7)) G190
                    (COND ((|greater_SI| |k| #3#) (GO G191)))
@@ -178,12 +178,12 @@
 
 (SDEFUN |ALGSC;alternative?;B;13| (($ (|Boolean|)))
         (SPROG
-         ((#1=#:G197 NIL) (#2=#:G201 NIL) (|res| (R)) (#3=#:G215 NIL) (|l| NIL)
-          (#4=#:G214 NIL) (|r| NIL) (#5=#:G198 NIL) (#6=#:G213 NIL)
-          (#7=#:G212 NIL) (#8=#:G211 NIL) (|k| NIL) (#9=#:G199 NIL)
-          (#10=#:G210 NIL) (#11=#:G209 NIL) (#12=#:G208 NIL) (#13=#:G207 NIL)
-          (|j| NIL) (#14=#:G200 NIL) (#15=#:G206 NIL) (#16=#:G205 NIL)
-          (#17=#:G204 NIL) (#18=#:G203 NIL) (#19=#:G202 NIL) (|i| NIL))
+         ((#1=#:G217 NIL) (#2=#:G221 NIL) (|res| (R)) (#3=#:G235 NIL) (|l| NIL)
+          (#4=#:G234 NIL) (|r| NIL) (#5=#:G218 NIL) (#6=#:G233 NIL)
+          (#7=#:G232 NIL) (#8=#:G231 NIL) (|k| NIL) (#9=#:G219 NIL)
+          (#10=#:G230 NIL) (#11=#:G229 NIL) (#12=#:G228 NIL) (#13=#:G227 NIL)
+          (|j| NIL) (#14=#:G220 NIL) (#15=#:G226 NIL) (#16=#:G225 NIL)
+          (#17=#:G224 NIL) (#18=#:G223 NIL) (#19=#:G222 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -299,8 +299,8 @@
                                                        (EXIT
                                                         (PROGN
                                                          (LETT #2# NIL)
-                                                         (GO #20=#:G196)))))
-                                                (GO #21=#:G172)))))))
+                                                         (GO #20=#:G216)))))
+                                                (GO #21=#:G183)))))))
                                       #21# (EXIT #14#))
                                      (LETT |r| (|inc_SI| |r|)) (GO G190) G191
                                      (EXIT NIL))))
@@ -417,7 +417,7 @@
                                                         (PROGN
                                                          (LETT #2# NIL)
                                                          (GO #20#)))))
-                                                (GO #22=#:G178)))))))
+                                                (GO #22=#:G193)))))))
                                       #22# (EXIT #9#))
                                      (LETT |r| (|inc_SI| |r|)) (GO G190) G191
                                      (EXIT NIL))))
@@ -528,7 +528,7 @@
                                                         (PROGN
                                                          (LETT #2# NIL)
                                                          (GO #20#)))))
-                                                (GO #23=#:G183)))))))
+                                                (GO #23=#:G201)))))))
                                       #23# (EXIT #5#))
                                      (LETT |r| (|inc_SI| |r|)) (GO G190) G191
                                      (EXIT NIL))
@@ -641,7 +641,7 @@
                                                          (PROGN
                                                           (LETT #2# NIL)
                                                           (GO #20#)))))
-                                                 (GO #24=#:G187)))))))
+                                                 (GO #24=#:G207)))))))
                                        #24# (EXIT #1#))
                                       (LETT |r| (|inc_SI| |r|)) (GO G190) G191
                                       (EXIT NIL))))
@@ -657,9 +657,9 @@
 
 (SDEFUN |ALGSC;associative?;B;14| (($ (|Boolean|)))
         (SPROG
-         ((#1=#:G225 NIL) (#2=#:G226 NIL) (|res| (R)) (#3=#:G231 NIL) (|l| NIL)
-          (#4=#:G230 NIL) (|r| NIL) (#5=#:G229 NIL) (|k| NIL) (#6=#:G228 NIL)
-          (|j| NIL) (#7=#:G227 NIL) (|i| NIL))
+         ((#1=#:G250 NIL) (#2=#:G251 NIL) (|res| (R)) (#3=#:G256 NIL) (|l| NIL)
+          (#4=#:G255 NIL) (|r| NIL) (#5=#:G254 NIL) (|k| NIL) (#6=#:G253 NIL)
+          (|j| NIL) (#7=#:G252 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -747,8 +747,8 @@
                                                         (EXIT
                                                          (PROGN
                                                           (LETT #2# NIL)
-                                                          (GO #8=#:G224)))))
-                                                 (GO #9=#:G218)))))))
+                                                          (GO #8=#:G249)))))
+                                                 (GO #9=#:G243)))))))
                                        #9# (EXIT #1#))
                                       (LETT |r| (|inc_SI| |r|)) (GO G190) G191
                                       (EXIT NIL))))
@@ -761,9 +761,9 @@
 
 (SDEFUN |ALGSC;antiAssociative?;B;15| (($ (|Boolean|)))
         (SPROG
-         ((#1=#:G241 NIL) (#2=#:G242 NIL) (|res| (R)) (#3=#:G247 NIL) (|l| NIL)
-          (#4=#:G246 NIL) (|r| NIL) (#5=#:G245 NIL) (|k| NIL) (#6=#:G244 NIL)
-          (|j| NIL) (#7=#:G243 NIL) (|i| NIL))
+         ((#1=#:G271 NIL) (#2=#:G272 NIL) (|res| (R)) (#3=#:G277 NIL) (|l| NIL)
+          (#4=#:G276 NIL) (|r| NIL) (#5=#:G275 NIL) (|k| NIL) (#6=#:G274 NIL)
+          (|j| NIL) (#7=#:G273 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -851,8 +851,8 @@
                                                         (EXIT
                                                          (PROGN
                                                           (LETT #2# NIL)
-                                                          (GO #8=#:G240)))))
-                                                 (GO #9=#:G234)))))))
+                                                          (GO #8=#:G270)))))
+                                                 (GO #9=#:G264)))))))
                                        #9# (EXIT #1#))
                                       (LETT |r| (|inc_SI| |r|)) (GO G190) G191
                                       (EXIT NIL))))
@@ -865,8 +865,8 @@
 
 (SDEFUN |ALGSC;commutative?;B;16| (($ (|Boolean|)))
         (SPROG
-         ((#1=#:G255 NIL) (#2=#:G256 NIL) (#3=#:G259 NIL) (|k| NIL)
-          (#4=#:G258 NIL) (|j| NIL) (#5=#:G257 NIL) (|i| NIL))
+         ((#1=#:G288 NIL) (#2=#:G289 NIL) (#3=#:G292 NIL) (|k| NIL)
+          (#4=#:G291 NIL) (|j| NIL) (#5=#:G290 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -903,8 +903,8 @@
                                            (EXIT
                                             (PROGN
                                              (LETT #2# NIL)
-                                             (GO #6=#:G254)))))
-                                    (GO #7=#:G250))))))
+                                             (GO #6=#:G287)))))
+                                    (GO #7=#:G283))))))
                                (LETT |k| (|inc_SI| |k|)) (GO G190) G191
                                (EXIT NIL)))
                          #7# (EXIT #1#))
@@ -915,8 +915,8 @@
 
 (SDEFUN |ALGSC;antiCommutative?;B;17| (($ (|Boolean|)))
         (SPROG
-         ((#1=#:G267 NIL) (#2=#:G268 NIL) (#3=#:G271 NIL) (|k| NIL)
-          (#4=#:G270 NIL) (|j| NIL) (#5=#:G269 NIL) (|i| NIL))
+         ((#1=#:G303 NIL) (#2=#:G304 NIL) (#3=#:G307 NIL) (|k| NIL)
+          (#4=#:G306 NIL) (|j| NIL) (#5=#:G305 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -962,8 +962,8 @@
                                            (EXIT
                                             (PROGN
                                              (LETT #2# NIL)
-                                             (GO #6=#:G266)))))
-                                    (GO #7=#:G262))))))
+                                             (GO #6=#:G302)))))
+                                    (GO #7=#:G298))))))
                                (LETT |k| (|inc_SI| |k|)) (GO G190) G191
                                (EXIT NIL)))
                          #7# (EXIT #1#))
@@ -974,9 +974,9 @@
 
 (SDEFUN |ALGSC;leftAlternative?;B;18| (($ (|Boolean|)))
         (SPROG
-         ((#1=#:G281 NIL) (#2=#:G282 NIL) (|res| (R)) (#3=#:G287 NIL) (|l| NIL)
-          (#4=#:G286 NIL) (|r| NIL) (#5=#:G285 NIL) (|k| NIL) (#6=#:G284 NIL)
-          (|j| NIL) (#7=#:G283 NIL) (|i| NIL))
+         ((#1=#:G322 NIL) (#2=#:G323 NIL) (|res| (R)) (#3=#:G328 NIL) (|l| NIL)
+          (#4=#:G327 NIL) (|r| NIL) (#5=#:G326 NIL) (|k| NIL) (#6=#:G325 NIL)
+          (|j| NIL) (#7=#:G324 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -1099,8 +1099,8 @@
                                                         (EXIT
                                                          (PROGN
                                                           (LETT #2# NIL)
-                                                          (GO #8=#:G280)))))
-                                                 (GO #9=#:G274)))))))
+                                                          (GO #8=#:G321)))))
+                                                 (GO #9=#:G315)))))))
                                        #9# (EXIT #1#))
                                       (LETT |r| (|inc_SI| |r|)) (GO G190) G191
                                       (EXIT NIL))))
@@ -1113,9 +1113,9 @@
 
 (SDEFUN |ALGSC;rightAlternative?;B;19| (($ (|Boolean|)))
         (SPROG
-         ((#1=#:G297 NIL) (#2=#:G298 NIL) (|res| (R)) (#3=#:G303 NIL) (|l| NIL)
-          (#4=#:G302 NIL) (|r| NIL) (#5=#:G301 NIL) (|k| NIL) (#6=#:G300 NIL)
-          (|j| NIL) (#7=#:G299 NIL) (|i| NIL))
+         ((#1=#:G343 NIL) (#2=#:G344 NIL) (|res| (R)) (#3=#:G349 NIL) (|l| NIL)
+          (#4=#:G348 NIL) (|r| NIL) (#5=#:G347 NIL) (|k| NIL) (#6=#:G346 NIL)
+          (|j| NIL) (#7=#:G345 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -1238,8 +1238,8 @@
                                                         (EXIT
                                                          (PROGN
                                                           (LETT #2# NIL)
-                                                          (GO #8=#:G296)))))
-                                                 (GO #9=#:G290)))))))
+                                                          (GO #8=#:G342)))))
+                                                 (GO #9=#:G336)))))))
                                        #9# (EXIT #1#))
                                       (LETT |r| (|inc_SI| |r|)) (GO G190) G191
                                       (EXIT NIL))))
@@ -1253,9 +1253,9 @@
 
 (SDEFUN |ALGSC;flexible?;B;20| (($ (|Boolean|)))
         (SPROG
-         ((#1=#:G313 NIL) (#2=#:G314 NIL) (|res| (R)) (#3=#:G319 NIL) (|l| NIL)
-          (#4=#:G318 NIL) (|r| NIL) (#5=#:G317 NIL) (|k| NIL) (#6=#:G316 NIL)
-          (|j| NIL) (#7=#:G315 NIL) (|i| NIL))
+         ((#1=#:G364 NIL) (#2=#:G365 NIL) (|res| (R)) (#3=#:G370 NIL) (|l| NIL)
+          (#4=#:G369 NIL) (|r| NIL) (#5=#:G368 NIL) (|k| NIL) (#6=#:G367 NIL)
+          (|j| NIL) (#7=#:G366 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -1385,8 +1385,8 @@
                                                         (EXIT
                                                          (PROGN
                                                           (LETT #2# NIL)
-                                                          (GO #8=#:G312)))))
-                                                 (GO #9=#:G306)))))))
+                                                          (GO #8=#:G363)))))
+                                                 (GO #9=#:G357)))))))
                                        #9# (EXIT #1#))
                                       (LETT |r| (|inc_SI| |r|)) (GO G190) G191
                                       (EXIT NIL))))
@@ -1399,9 +1399,9 @@
 
 (SDEFUN |ALGSC;lieAdmissible?;B;21| (($ (|Boolean|)))
         (SPROG
-         ((#1=#:G329 NIL) (#2=#:G330 NIL) (|res| (R)) (#3=#:G335 NIL) (|l| NIL)
-          (#4=#:G334 NIL) (|r| NIL) (#5=#:G333 NIL) (|k| NIL) (#6=#:G332 NIL)
-          (|j| NIL) (#7=#:G331 NIL) (|i| NIL))
+         ((#1=#:G385 NIL) (#2=#:G386 NIL) (|res| (R)) (#3=#:G391 NIL) (|l| NIL)
+          (#4=#:G390 NIL) (|r| NIL) (#5=#:G389 NIL) (|k| NIL) (#6=#:G388 NIL)
+          (|j| NIL) (#7=#:G387 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -1583,8 +1583,8 @@
                                                         (EXIT
                                                          (PROGN
                                                           (LETT #2# NIL)
-                                                          (GO #8=#:G328)))))
-                                                 (GO #9=#:G322)))))))
+                                                          (GO #8=#:G384)))))
+                                                 (GO #9=#:G378)))))))
                                        #9# (EXIT #1#))
                                       (LETT |r| (|inc_SI| |r|)) (GO G190) G191
                                       (EXIT NIL))))
@@ -1597,10 +1597,10 @@
 
 (SDEFUN |ALGSC;jordanAdmissible?;B;22| (($ (|Boolean|)))
         (SPROG
-         ((#1=#:G352 NIL) (#2=#:G353 NIL) (|res| (R)) (#3=#:G360 NIL) (|r| NIL)
-          (#4=#:G359 NIL) (|l| NIL) (#5=#:G358 NIL) (|t| NIL) (#6=#:G357 NIL)
-          (|w| NIL) (#7=#:G356 NIL) (|k| NIL) (#8=#:G355 NIL) (|j| NIL)
-          (#9=#:G354 NIL) (|i| NIL))
+         ((#1=#:G415 NIL) (#2=#:G416 NIL) (|res| (R)) (#3=#:G423 NIL) (|r| NIL)
+          (#4=#:G422 NIL) (|l| NIL) (#5=#:G421 NIL) (|t| NIL) (#6=#:G420 NIL)
+          (|w| NIL) (#7=#:G419 NIL) (|k| NIL) (#8=#:G418 NIL) (|j| NIL)
+          (#9=#:G417 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (COND
@@ -2335,8 +2335,8 @@
                                                               (PROGN
                                                                (LETT #2# NIL)
                                                                (GO
-                                                                #10=#:G351)))))
-                                                      (GO #11=#:G343)))))))
+                                                                #10=#:G414)))))
+                                                      (GO #11=#:G406)))))))
                                                 #11# (EXIT #1#))
                                                (LETT |t| (|inc_SI| |t|))
                                                (GO G190) G191 (EXIT NIL))))
@@ -2353,10 +2353,10 @@
 
 (SDEFUN |ALGSC;jordanAlgebra?;B;23| (($ (|Boolean|)))
         (SPROG
-         ((#1=#:G379 NIL) (#2=#:G380 NIL) (|res| (R)) (#3=#:G387 NIL) (|s| NIL)
-          (#4=#:G386 NIL) (|r| NIL) (#5=#:G385 NIL) (|t| NIL) (#6=#:G384 NIL)
-          (|l| NIL) (#7=#:G383 NIL) (|k| NIL) (#8=#:G382 NIL) (|j| NIL)
-          (#9=#:G381 NIL) (|i| NIL))
+         ((#1=#:G449 NIL) (#2=#:G450 NIL) (|res| (R)) (#3=#:G457 NIL) (|s| NIL)
+          (#4=#:G456 NIL) (|r| NIL) (#5=#:G455 NIL) (|t| NIL) (#6=#:G454 NIL)
+          (|l| NIL) (#7=#:G453 NIL) (|k| NIL) (#8=#:G452 NIL) (|j| NIL)
+          (#9=#:G451 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (COND
@@ -2761,9 +2761,9 @@
                                                                               #2#
                                                                               NIL)
                                                                              (GO
-                                                                              #10=#:G378)))))
+                                                                              #10=#:G448)))))
                                                                     (GO
-                                                                     #11=#:G366)))))))
+                                                                     #11=#:G436)))))))
                                                               #11# (EXIT #1#))
                                                              (LETT |s|
                                                                    (|inc_SI|
@@ -2790,9 +2790,9 @@
 
 (SDEFUN |ALGSC;jacobiIdentity?;B;24| (($ (|Boolean|)))
         (SPROG
-         ((#1=#:G397 NIL) (#2=#:G398 NIL) (|res| (R)) (#3=#:G403 NIL) (|s| NIL)
-          (#4=#:G402 NIL) (|r| NIL) (#5=#:G401 NIL) (|k| NIL) (#6=#:G400 NIL)
-          (|j| NIL) (#7=#:G399 NIL) (|i| NIL))
+         ((#1=#:G472 NIL) (#2=#:G473 NIL) (|res| (R)) (#3=#:G478 NIL) (|s| NIL)
+          (#4=#:G477 NIL) (|r| NIL) (#5=#:G476 NIL) (|k| NIL) (#6=#:G475 NIL)
+          (|j| NIL) (#7=#:G474 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -2900,8 +2900,8 @@
                                                         (EXIT
                                                          (PROGN
                                                           (LETT #2# NIL)
-                                                          (GO #8=#:G396)))))
-                                                 (GO #9=#:G390)))))))
+                                                          (GO #8=#:G471)))))
+                                                 (GO #9=#:G465)))))))
                                        #9# (EXIT #1#))
                                       (LETT |r| (|inc_SI| |r|)) (GO G190) G191
                                       (EXIT NIL))))
@@ -2914,9 +2914,9 @@
 
 (DECLAIM (NOTINLINE |AlgebraGivenByStructuralConstants;|)) 
 
-(DEFUN |AlgebraGivenByStructuralConstants| (&REST #1=#:G408)
+(DEFUN |AlgebraGivenByStructuralConstants| (&REST #1=#:G483)
   (SPROG NIL
-         (PROG (#2=#:G409)
+         (PROG (#2=#:G484)
            (RETURN
             (COND
              ((LETT #2#

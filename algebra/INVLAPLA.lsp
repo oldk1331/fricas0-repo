@@ -85,11 +85,11 @@
 (SDEFUN |INVLAPLA;iltsqfr|
         ((|r| (|Fraction| (|SparseUnivariatePolynomial| F))) (|t| (F)) ($ (F)))
         (SPROG
-         ((#1=#:G140 NIL) (#2=#:G139 (F)) (#3=#:G141 (F)) (#4=#:G147 NIL)
-          (|a| NIL) (#5=#:G148 NIL) (|b| NIL)
-          (|nl| (|List| (|SparseUnivariatePolynomial| F))) (#6=#:G137 NIL)
-          (|ql| (|List| (|SparseUnivariatePolynomial| F))) (#7=#:G146 NIL)
-          (|qq| NIL) (#8=#:G145 NIL) (|q| (|SparseUnivariatePolynomial| F))
+         ((#1=#:G141 NIL) (#2=#:G140 (F)) (#3=#:G142 (F)) (#4=#:G148 NIL)
+          (|a| NIL) (#5=#:G149 NIL) (|b| NIL)
+          (|nl| (|List| (|SparseUnivariatePolynomial| F))) (#6=#:G138 NIL)
+          (|ql| (|List| (|SparseUnivariatePolynomial| F))) (#7=#:G147 NIL)
+          (|qq| NIL) (#8=#:G146 NIL) (|q| (|SparseUnivariatePolynomial| F))
           (|p| (|SparseUnivariatePolynomial| F)))
          (SEQ
           (COND
@@ -156,7 +156,7 @@
         ((|p| (|SparseUnivariatePolynomial| F))
          (|q| (|SparseUnivariatePolynomial| F)) (|t| (F)) ($ (F)))
         (SPROG
-         ((#1=#:G154 NIL) (#2=#:G153 (F)) (#3=#:G155 (F)) (#4=#:G160 NIL)
+         ((#1=#:G155 NIL) (#2=#:G154 (F)) (#3=#:G156 (F)) (#4=#:G161 NIL)
           (|root| NIL) (|q1| (|SparseUnivariatePolynomial| F))
           (|roots| (|List| F)) (|alpha| (F)) (|d| (F)) (|b| (F)) (|e| (F))
           (|c| (F)) (|a| (F)) (|cp| (F)))
@@ -270,9 +270,9 @@
 
 (DECLAIM (NOTINLINE |InverseLaplaceTransform;|)) 
 
-(DEFUN |InverseLaplaceTransform| (&REST #1=#:G161)
+(DEFUN |InverseLaplaceTransform| (&REST #1=#:G162)
   (SPROG NIL
-         (PROG (#2=#:G162)
+         (PROG (#2=#:G163)
            (RETURN
             (COND
              ((LETT #2#

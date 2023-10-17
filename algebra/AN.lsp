@@ -28,7 +28,7 @@
          ($
           #2=(|Record| (|:| |num| (|SparseUnivariatePolynomial| $))
                        (|:| |den| $))))
-        (SPROG ((#3=#:G123 NIL) (|rec| #2#) (|zz| #1#) (|dd| ($)))
+        (SPROG ((#3=#:G124 NIL) (|rec| #2#) (|zz| #1#) (|dd| ($)))
                (SEQ
                 (EXIT
                  (SEQ (LETT |zz| |z|)
@@ -61,7 +61,7 @@
                                         (CONS (QCAR |rec|)
                                               (SPADCALL (QCDR |rec|) |dd|
                                                         (QREFELT $ 45))))
-                                  (GO #4=#:G122))))))))
+                                  (GO #4=#:G123))))))))
                            NIL (GO G190) G191 (EXIT NIL))
                       (EXIT (CONS |z| (|spadConstant| $ 40)))))
                 #4# (EXIT #3#)))) 
@@ -153,7 +153,7 @@
                          (SPADCALL |d| |p| (QREFELT $ 84)) (QREFELT $ 62)))))) 
 
 (SDEFUN |AN;norm;$L$;13| ((|z| ($)) (|l| (|List| (|Kernel| $))) ($ ($)))
-        (SPROG ((#1=#:G146 NIL) (|k| NIL))
+        (SPROG ((#1=#:G148 NIL) (|k| NIL))
                (SEQ
                 (SEQ (LETT |k| NIL) (LETT #1# |l|) G190
                      (COND
@@ -197,7 +197,7 @@
 (SDEFUN |AN;norm;SupLSup;15|
         ((|z| (|SparseUnivariatePolynomial| $)) (|l| (|List| (|Kernel| $)))
          ($ (|SparseUnivariatePolynomial| $)))
-        (SPROG ((#1=#:G153 NIL) (|k| NIL))
+        (SPROG ((#1=#:G156 NIL) (|k| NIL))
                (SEQ
                 (SEQ (LETT |k| NIL) (LETT #1# |l|) G190
                      (COND
@@ -227,7 +227,7 @@
 
 (DEFUN |AlgebraicNumber| ()
   (SPROG NIL
-         (PROG (#1=#:G195)
+         (PROG (#1=#:G198)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|AlgebraicNumber|))
