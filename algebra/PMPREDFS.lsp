@@ -22,6 +22,7 @@
                           (SPADCALL (|PMPREDFS;preds| |k| $) |l|
                                     (QREFELT $ 24))
                           (QREFELT $ 26))
+                (SPADCALL |kk| (SPADCALL (QREFELT $ 27)) (QREFELT $ 28))
                 (EXIT (SPADCALL |kk| NIL (QREFELT $ 16)))))) 
 
 (SDEFUN |PMPREDFS;suchThat;FLF;5|
@@ -29,8 +30,8 @@
         (SPROG ((#1=#:G122 NIL) (|f| NIL) (#2=#:G121 NIL))
                (SEQ
                 (COND
-                 ((QEQCAR (SPADCALL |p| (QREFELT $ 28)) 0)
-                  (|PMPREDFS;st| (SPADCALL |p| (QREFELT $ 30))
+                 ((QEQCAR (SPADCALL |p| (QREFELT $ 30)) 0)
+                  (|PMPREDFS;st| (SPADCALL |p| (QREFELT $ 32))
                    (PROGN
                     (LETT #2# NIL)
                     (SEQ (LETT |f| NIL) (LETT #1# |l|) G190
@@ -40,7 +41,7 @@
                          (SEQ
                           (EXIT
                            (LETT #2#
-                                 (CONS (SPADCALL |f| (QREFELT $ 33)) #2#))))
+                                 (CONS (SPADCALL |f| (QREFELT $ 35)) #2#))))
                          (LETT #1# (CDR #1#)) (GO G190) G191
                          (EXIT (NREVERSE #2#))))
                    $))
@@ -76,7 +77,7 @@
           (LETT DV$2 (|devaluate| |#2|))
           (LETT DV$3 (|devaluate| |#3|))
           (LETT |dv$| (LIST '|FunctionSpaceAttachPredicates| DV$1 DV$2 DV$3))
-          (LETT $ (GETREFV 34))
+          (LETT $ (GETREFV 36))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|FunctionSpaceAttachPredicates|
@@ -96,11 +97,11 @@
               |PMPREDFS;suchThat;FLF;5| |PMPREDFS;suchThat;FMF;1|
               (|BasicOperator|) (|List| $) (0 . |kernel|) (|Kernel| 7)
               (6 . |operator|) (|Union| 25 '"failed") (|Symbol|)
-              (11 . |property|) (17 . |copy|) (|List| 31) (22 . |concat|)
-              (|None|) (28 . |setProperty|) (|Union| 20 '"failed")
-              (35 . |retractIfCan|) (|Kernel| $) (40 . |retract|) (|Any|)
-              (|AnyFunctions1| 10) (45 . |coerce|))
-           '#(|suchThat| 50) 'NIL
+              (11 . |property|) (17 . |copy|) (|List| 33) (22 . |concat|)
+              (|None|) (28 . |setProperty|) (35 . |new|) (39 . |assert|)
+              (|Union| 20 '"failed") (45 . |retractIfCan|) (|Kernel| $)
+              (50 . |retract|) (|Any|) (|AnyFunctions1| 10) (55 . |coerce|))
+           '#(|suchThat| 60) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -115,10 +116,11 @@
                                   (|List| (|Mapping| (|Boolean|) |#3|))))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 33
+                        (|makeByteWordVec2| 35
                                             '(2 7 0 14 15 16 1 17 14 0 18 2 14
                                               19 0 20 21 1 14 0 0 22 2 23 0 0 0
-                                              24 3 14 0 0 20 25 26 1 7 27 0 28
-                                              1 7 29 0 30 1 32 31 10 33 2 0 7 7
-                                              11 12 2 0 7 7 10 13)))))
+                                              24 3 14 0 0 20 25 26 0 20 0 27 2
+                                              14 0 0 20 28 1 7 29 0 30 1 7 31 0
+                                              32 1 34 33 10 35 2 0 7 7 11 12 2
+                                              0 7 7 10 13)))))
            '|lookupComplete|)) 
