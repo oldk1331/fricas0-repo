@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5248 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5250 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -239,8 +239,8 @@
  |LinearOrdinaryDifferentialOperatorsOps| |Logic&| |Logic| |Loop| |LeftOreRing|
  |LinearPolynomialEquationByFractions| |LiePolynomial| |ListAggregate&|
  |ListAggregate| |LinearSystemMatrixPackage| |LinearSystemMatrixPackage1|
- |LinearSystemPolynomialPackage| |LieSquareMatrix| |LUDecomposition|
- |LyndonWord| |LazyStreamAggregate&| |LazyStreamAggregate|
+ |LinearSystemMatrixPackage2| |LinearSystemPolynomialPackage| |LieSquareMatrix|
+ |LUDecomposition| |LyndonWord| |LazyStreamAggregate&| |LazyStreamAggregate|
  |ThreeDimensionalMatrix| |ModularAlgebraicGcd| |ModularAlgebraicGcd2|
  |ModularAlgebraicGcdOperations| |ModularAlgebraicGcdTools2|
  |ModularAlgebraicGcdTools3| |ModularAlgebraicGcdTools4| |Magma&| |Magma|
@@ -787,9 +787,9 @@
  |testpd| |testfr| |testsb| |testro| |testfo| |testsc| |testfg| |testlp|
  |testis| |testgt| |gen_exp| |ge_minimal| |symmetricProduct| |symmetricPower|
  |directSum| |false| |true| |entries| |loop| |lcmCoef|
- |solveLinearPolynomialEquationByFractions| |list| |hasSolution?| |linSolve|
- |intoMatrix| |LUDecomp| |LUSolve| |LUInverse| |LyndonWordsList|
- |LyndonWordsList1| |lyndonIfCan| |lyndon| |lyndon?| |lexico|
+ |solveLinearPolynomialEquationByFractions| |list| |hasSolution?|
+ |solveUniquely| |linSolve| |intoMatrix| |LUDecomp| |LUSolve| |LUInverse|
+ |LyndonWordsList| |LyndonWordsList1| |lyndonIfCan| |lyndon| |lyndon?| |lexico|
  |numberOfComputedEntries| |rst| |frst| |lazyEvaluate| |lazy?|
  |explicitlyEmpty?| |explicitEntries?| |matrixDimensions| |matrixConcat3D|
  |plus| |identityMatrix| |zeroMatrix| |algebraicGcd| |pseudoRem|
