@@ -62,9 +62,24 @@
                   (QREFELT $ 25))) 
 
 (SDEFUN |FMT1D;formatString;SOb;6| ((|s| (|String|)) ($ (|OutputBox|)))
-        (SPADCALL "\"" "\""
-                  (SPADCALL (|FMT1D;fricasEscapeString| |s| $) (QREFELT $ 25))
-                  (QREFELT $ 27))) 
+        (SEQ
+         (COND
+          ((|eql_SI| (SPADCALL |s| 1 (QREFELT $ 21)) (|STR_to_CHAR| "\""))
+           (COND
+            ((|eql_SI| (SPADCALL |s| (QCSIZE |s|) (QREFELT $ 21))
+                       (|STR_to_CHAR| "\""))
+             (EXIT
+              (SPADCALL "\"" "\""
+                        (SPADCALL
+                         (|FMT1D;fricasEscapeString|
+                          (SPADCALL |s|
+                                    (SPADCALL 2 (- (QCSIZE |s|) 1)
+                                              (QREFELT $ 18))
+                                    (QREFELT $ 19))
+                          $)
+                         (QREFELT $ 25))
+                        (QREFELT $ 27)))))))
+         (EXIT (SPADCALL (|FMT1D;fricasEscapeString| |s| $) (QREFELT $ 25))))) 
 
 (SDEFUN |FMT1D;formatSymbol;SOb;7| ((|s| (|String|)) ($ (|OutputBox|)))
         (SPADCALL |s| (QREFELT $ 25))) 
@@ -82,7 +97,7 @@
 
 (SDEFUN |FMT1D;formatFunction|
         ((|s| (|String|)) (|lb| (|List| (|OutputBox|))) ($ (|OutputBox|)))
-        (SPROG ((|bx| (|OutputBox|)) (#1=#:G148 NIL) (|b| NIL))
+        (SPROG ((|bx| (|OutputBox|)) (#1=#:G153 NIL) (|b| NIL))
                (SEQ
                 (COND
                  ((NULL |lb|) (SPADCALL (STRCONC |s| "()") (QREFELT $ 25)))
@@ -110,8 +125,8 @@
         ((|x| (|OutputForm|)) (|y| (|OutputForm|)) (|z| (|OutputForm|))
          ($ (|OutputForm|)))
         (SPROG
-         ((|args| (|List| (|OutputForm|))) (#1=#:G155 NIL) (|a| NIL)
-          (#2=#:G154 NIL))
+         ((|args| (|List| (|OutputForm|))) (#1=#:G160 NIL) (|a| NIL)
+          (#2=#:G159 NIL))
          (SEQ
           (COND ((SPADCALL |x| |z| (QREFELT $ 34)) |y|)
                 ((SPADCALL |z| (QREFELT $ 36)) |z|)
@@ -181,7 +196,7 @@
 
 (SDEFUN |FMT1D;integral;IM;13!0| ((|prec| NIL) (|args| NIL) ($ NIL))
         (SPROG
-         ((|b2| NIL) (|ba| NIL) (|a| NIL) (|bx| NIL) (|x| NIL) (#1=#:G172 NIL)
+         ((|b2| NIL) (|ba| NIL) (|a| NIL) (|bx| NIL) (|x| NIL) (#1=#:G177 NIL)
           (|lb| NIL) (|bu| NIL) (|bl| NIL))
          (SEQ
           (EXIT
@@ -207,7 +222,7 @@
                 (EXIT
                  (PROGN
                   (LETT #1# (|FMT1D;formatFunction| "int" |lb| $))
-                  (GO #2=#:G171)))))
+                  (GO #2=#:G176)))))
               ('T
                (SEQ (LETT |b2| |bu|)
                     (LETT |x|
@@ -432,7 +447,7 @@
         (SEQ (CONS #'|FMT1D;scripts;IM;22!0| $))) 
 
 (SDEFUN |FMT1D;scripts;IM;22!0| ((|prec| NIL) (|args| NIL) ($ NIL))
-        (SPROG ((|bx| NIL) (#1=#:G208 NIL) (|a| NIL) (|b1| NIL))
+        (SPROG ((|bx| NIL) (#1=#:G213 NIL) (|a| NIL) (|b1| NIL))
                (SEQ
                 (LETT |b1|
                       (SPADCALL (SPADCALL |args| (QREFELT $ 54))
@@ -503,7 +518,7 @@
         (SEQ (CONS #'|FMT1D;altsupersub;IM;24!0| $))) 
 
 (SDEFUN |FMT1D;altsupersub;IM;24!0| ((|prec| NIL) (|args| NIL) ($ NIL))
-        (SPROG ((|bx| NIL) (#1=#:G218 NIL) (|a| NIL) (|b1| NIL))
+        (SPROG ((|bx| NIL) (#1=#:G223 NIL) (|a| NIL) (|b1| NIL))
                (SEQ
                 (LETT |b1|
                       (SPADCALL (SPADCALL |args| (QREFELT $ 54))
@@ -742,7 +757,7 @@
          ($
           (|OperatorHandlers|
            (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))))
-        (SPROG ((#1=#:G645 NIL))
+        (SPROG ((#1=#:G650 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1238,7 +1253,7 @@
                   (SPADCALL |oh| -1 "MATRIX" (SPADCALL "[" "]" (QREFELT $ 98))
                             (QREFELT $ 101))
                   (SPADCALL |oh| -1 "theMap" (ELT $ 67) (QREFELT $ 101))
-                  (EXIT (PROGN (LETT #1# |oh|) (GO #7=#:G644)))))
+                  (EXIT (PROGN (LETT #1# |oh|) (GO #7=#:G649)))))
                 #7# (EXIT #1#)))) 
 
 (SDEFUN |FMT1D;operatorHandlers;Oh;35|
@@ -1251,7 +1266,7 @@
 
 (DEFUN |Format1D| ()
   (SPROG NIL
-         (PROG (#1=#:G648)
+         (PROG (#1=#:G653)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Format1D|))
