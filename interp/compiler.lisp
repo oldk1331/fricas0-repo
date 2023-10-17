@@ -178,12 +178,12 @@
 ;       errorMessage:=
 ;         if $compErrorMessageStack
 ;            then first $compErrorMessageStack
-;            else "unspecified error"
+;            else '"unspecified error"
 ;       $scanIfTrue =>
 ;         stackSemanticError(errorMessage,mkErrorExpr $level)
 ;         ["failedCompilation",m,e]
 ;       displaySemanticErrors()
-;       SAY("****** comp fails at level ",$level," with expression: ******")
+;       SAY('"****** comp fails at level ",$level,'" with expression: ******")
 ;       displayComp $level
 ;       userError errorMessage
 
@@ -204,7 +204,7 @@
              (SETQ |errorMessage|
                      (COND
                       (|$compErrorMessageStack| (CAR |$compErrorMessageStack|))
-                      (#1# '|unspecified error|)))
+                      (#1# "unspecified error")))
              (COND
               (|$scanIfTrue|
                (PROGN
@@ -213,8 +213,8 @@
               (#1#
                (PROGN
                 (|displaySemanticErrors|)
-                (SAY '|****** comp fails at level | |$level|
-                 '| with expression: ******|)
+                (SAY "****** comp fails at level " |$level|
+                 " with expression: ******")
                 (|displayComp| |$level|)
                 (|userError| |errorMessage|))))))))))
 (DEFUN |compOrCroak1,compactify| (|al|)
@@ -443,8 +443,8 @@
 ;                  ress := compAtSign(["@", ["+->", arg1, body],
 ;                                   ["Mapping", target, :sig1]], m, e)
 ;                  ress
-;              stackAndThrow ["compLambda: malformed argument list", x]
-;         stackAndThrow ["compLambda: malformed argument list", x]
+;              stackAndThrow ['"compLambda: malformed argument list", x]
+;         stackAndThrow ['"compLambda: malformed argument list", x]
 ;     nil
 
 (DEFUN |compLambda| (|x| |m| |e|)
@@ -488,10 +488,10 @@
                |ress|))
              (#2#
               (|stackAndThrow|
-               (LIST '|compLambda: malformed argument list| |x|))))))
+               (LIST "compLambda: malformed argument list" |x|))))))
           (#2#
            (|stackAndThrow|
-            (LIST '|compLambda: malformed argument list| |x|))))))
+            (LIST "compLambda: malformed argument list" |x|))))))
        (#2# NIL))))))
 
 ; getFreeList(u, bound, free, e) ==
@@ -709,11 +709,11 @@
 ;       vl :=
 ;          IDENTP(vl) => [vl]
 ;          LISTP(vl) and (and/[SYMBOLP(v) for v in vl])=> vl
-;          stackAndThrow ["bad +-> arguments:", vl]
+;          stackAndThrow ['"bad +-> arguments:", vl]
 ;       $formalArgList := [:vl, :$formalArgList]
 ;       #sl ~= #vl =>
 ;          stackAndThrow [_
-;            "number of arguments to +-> does not match, expected:", #sl]
+;            '"number of arguments to +-> does not match, expected:", #sl]
 ;       x := nx
 ;   else
 ;       vl:= take(#sl,$FormalMapVariableList)
@@ -878,12 +878,12 @@
                              |vl|)
                             (#2#
                              (|stackAndThrow|
-                              (LIST '|bad +-> arguments:| |vl|)))))
+                              (LIST "bad +-> arguments:" |vl|)))))
               (SETQ |$formalArgList| (APPEND |vl| |$formalArgList|))
               (COND
                ((NOT (EQL (LENGTH |sl|) (LENGTH |vl|)))
                 (|stackAndThrow|
-                 (LIST '|number of arguments to +-> does not match, expected:|
+                 (LIST "number of arguments to +-> does not match, expected:"
                        (LENGTH |sl|))))
                (#2# (SETQ |x| |nx|)))))))
           (#2# (SETQ |vl| (TAKE (LENGTH |sl|) |$FormalMapVariableList|))))
@@ -1249,7 +1249,7 @@
 ;     if not member(s,$formalArgList) and not MEMQ(s,$FormalMapVariableList) and
 ;       not isFunction(s,e) and null ($compForModeIfTrue=true) then errorRef s
 ;     [s,m',e] --s is a declared argument
-;   MEMQ(s,$FormalMapVariableList) => stackMessage ["no mode found for",s]
+;   MEMQ(s,$FormalMapVariableList) => stackMessage ['"no mode found for",s]
 ;   not isFunction(s,e) => errorRef s
 
 (DEFUN |compSymbol| (|s| |m| |e|)
@@ -1277,13 +1277,13 @@
                (|errorRef| |s|)))
              (LIST |s| |m'| |e|)))
            ((MEMQ |s| |$FormalMapVariableList|)
-            (|stackMessage| (LIST '|no mode found for| |s|)))
+            (|stackMessage| (LIST "no mode found for" |s|)))
            ((NULL (|isFunction| |s| |e|)) (|errorRef| |s|))))))
 
 ; convertOrCroak(T,m) ==
 ;   u:= convert(T,m) => u
-;   userError ["CANNOT CONVERT: ",T.expr,"%l"," OF MODE: ",T.mode,"%l",
-;     " TO MODE: ",m,"%l"]
+;   userError ['"CANNOT CONVERT: ",T.expr,"%l",'" OF MODE: ",T.mode,"%l",
+;     '" TO MODE: ",m,"%l"]
 
 (DEFUN |convertOrCroak| (T$ |m|)
   (PROG (|u|)
@@ -1291,8 +1291,8 @@
      (COND ((SETQ |u| (|convert| T$ |m|)) |u|)
            ('T
             (|userError|
-             (LIST '|CANNOT CONVERT: | (CAR T$) '|%l| '| OF MODE: | (CADR T$)
-                   '|%l| '| TO MODE: | |m| '|%l|)))))))
+             (LIST "CANNOT CONVERT: " (CAR T$) '|%l| " OF MODE: " (CADR T$)
+                   '|%l| " TO MODE: " |m| '|%l|)))))))
 
 ; convert(T,m) ==
 ;   coerce(T,resolve(T.mode,m) or return nil)
@@ -1343,7 +1343,7 @@
 ; compForm(form,m,e) ==
 ;   T:=
 ;     compForm1(form,m,e) or compArgumentsAndTryAgain(form,m,e) or return
-;       stackMessageIfNone ["cannot compile","%b",form,"%d"]
+;       stackMessageIfNone ['"cannot compile","%b",form,"%d"]
 ;   T
 
 (DEFUN |compForm| (|form| |m| |e|)
@@ -1355,7 +1355,7 @@
                   (|compArgumentsAndTryAgain| |form| |m| |e|)
                   (RETURN
                    (|stackMessageIfNone|
-                    (LIST '|cannot compile| '|%b| |form| '|%d|)))))
+                    (LIST "cannot compile" '|%b| |form| '|%d|)))))
       T$))))
 
 ; compArgumentsAndTryAgain(form is [.,:argl],m,e) ==
@@ -1411,7 +1411,7 @@
 ;         for x in argl]], $OutputForm, e]
 ;   (v:= get(x,"value",e)) and (v.mode is ['Union,:l]) =>
 ;     [['coerceUn2E, x, v.mode], $OutputForm, e]
-;   SAY ["outputComp strange x ", x]
+;   SAY ['"outputComp strange x ", x]
 ;   nil
 
 (DEFUN |outputComp| (|x| |e|)
@@ -1449,7 +1449,7 @@
              (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '|Union|)
                   (PROGN (SETQ |l| (CDR |ISTMP#1|)) #1#))))
        (LIST (LIST '|coerceUn2E| |x| (CADR |v|)) |$OutputForm| |e|))
-      (#1# (PROGN (SAY (LIST '|outputComp strange x | |x|)) NIL))))))
+      (#1# (PROGN (SAY (LIST "outputComp strange x " |x|)) NIL))))))
 
 ; compSel1(domain, op, argl, m, e) ==
 ;     domain="Lisp" =>
@@ -1589,11 +1589,11 @@
 ;           arg := first(argl)
 ;           u := comp(arg, $String, e) =>
 ;               [[op, u.expr], m, e]
-;           SAY ["compiling call to error ", argl]
+;           SAY ['"compiling call to error ", argl]
 ;           u := outputComp(arg, e) =>
 ;               [[op, ['LIST, ['QUOTE, 'mathprint], u.expr]], m, e]
 ;           nil
-;       SAY ["compiling call to error ", argl]
+;       SAY ['"compiling call to error ", argl]
 ;       nil
 ;   op is ["Sel", domain, op'] => compSel1(domain, op', argl, m, e)
 ;
@@ -1618,14 +1618,14 @@
              (LIST (LIST |op| (CAR |u|)) |m| |e|))
             (#1='T
              (PROGN
-              (SAY (LIST '|compiling call to error | |argl|))
+              (SAY (LIST "compiling call to error " |argl|))
               (COND
                ((SETQ |u| (|outputComp| |arg| |e|))
                 (LIST
                  (LIST |op| (LIST 'LIST (LIST 'QUOTE '|mathprint|) (CAR |u|)))
                  |m| |e|))
                (#1# NIL)))))))
-         (#1# (PROGN (SAY (LIST '|compiling call to error | |argl|)) NIL))))
+         (#1# (PROGN (SAY (LIST "compiling call to error " |argl|)) NIL))))
        ((AND (CONSP |op|) (EQ (CAR |op|) '|Sel|)
              (PROGN
               (SETQ |ISTMP#1| (CDR |op|))
@@ -1838,7 +1838,7 @@
 ;   nargs:= #argl
 ;   finalModemapList:= [mm for (mm:= [[.,.,:sig],:.]) in modemapList | #sig=nargs]
 ;   modemapList and null finalModemapList =>
-;     stackMessage ["no modemap for","%b",op,"%d","with ",nargs," arguments"]
+;     stackMessage ['"no modemap for","%b",op,"%d",'"with ",nargs,'" arguments"]
 ;   finalModemapList
 
 (DEFUN |getFormModemaps| (|form| |e|)
@@ -1926,15 +1926,15 @@
          (COND
           ((AND |modemapList| (NULL |finalModemapList|))
            (|stackMessage|
-            (LIST '|no modemap for| '|%b| |op| '|%d| '|with | |nargs|
-                  '| arguments|)))
+            (LIST "no modemap for" '|%b| |op| '|%d| "with " |nargs|
+                  " arguments")))
           (#1# |finalModemapList|)))))))))
 
 ; eltModemapFilter(name,mmList,e) ==
 ;   isConstantId(name,e) =>
 ;     l:= [mm for mm in mmList | mm is [[.,.,.,sel,:.],:.] and sel=name] => l
 ;             -- setelt! has extra parameter
-;     stackMessage ["selector variable: ",name," is undeclared and unbound"]
+;     stackMessage ['"selector variable: ",name,'" is undeclared and unbound"]
 ;     nil
 ;   mmList
 
@@ -1977,7 +1977,7 @@
         (#1#
          (PROGN
           (|stackMessage|
-           (LIST '|selector variable: | |name| '| is undeclared and unbound|))
+           (LIST "selector variable: " |name| " is undeclared and unbound"))
           NIL))))
       (#1# |mmList|)))))
 
@@ -2125,7 +2125,7 @@
 ;         (T:= comp(val,$EmptyMode,E)) and getmode(T.mode,E) =>
 ;           assignError(val,T.mode,id,m'')
 ;   m'' = $EmptyMode and T.mode = $EmptyMode =>
-;       stackMessage ["No mode in assignment to: ", id]
+;       stackMessage ['"No mode in assignment to: ", id]
 ;   finish_setq_single(T, m, id, val, currentProplist)
 
 (DEFUN |setqSingle| (|id| |val| |m| E)
@@ -2154,7 +2154,7 @@
                (RETURN NIL)))
       (COND
        ((AND (EQUAL |m''| |$EmptyMode|) (EQUAL (CADR T$) |$EmptyMode|))
-        (|stackMessage| (LIST '|No mode in assignment to: | |id|)))
+        (|stackMessage| (LIST "No mode in assignment to: " |id|)))
        (#1# (|finish_setq_single| T$ |m| |id| |val| |currentProplist|)))))))
 
 ; finish_setq_single(T, m, id, val, currentProplist) ==
@@ -2163,8 +2163,8 @@
 ;   e':= (PAIRP id => e'; addBinding(id,newProplist,e'))
 ;   if isDomainForm(val,e') then
 ;     if isDomainInScope(id,e') then
-;       stackWarning ["domain valued variable","%b",id,"%d",
-;         "has been reassigned within its scope"]
+;       stackWarning ['"domain valued variable","%b",id,"%d",
+;         '"has been reassigned within its scope"]
 ;     e':= augModemapsFromDomain1(id,val,e')
 ;       --all we do now is to allocate a slot number for lhs
 ;       --e.g. the LET form below will be changed by putInLocalDomainReferences
@@ -2201,8 +2201,8 @@
         (COND
          ((|isDomainInScope| |id| |e'|)
           (|stackWarning|
-           (LIST '|domain valued variable| '|%b| |id| '|%d|
-                 '|has been reassigned within its scope|))))
+           (LIST "domain valued variable" '|%b| |id| '|%d|
+                 "has been reassigned within its scope"))))
         (SETQ |e'| (|augModemapsFromDomain1| |id| |val| |e'|))))
       (|saveLocVarsTypeDecl| |x| |id| |e'|)
       (COND
@@ -2224,12 +2224,12 @@
 ;         typeDecl := ASSOC(id, $locVarsTypes)
 ;         null typeDecl =>
 ;             if null t then
-;                 SAY("Local variable ", id, " lacks type.")
+;                 SAY('"Local variable ", id, '" lacks type.")
 ;             else $locVarsTypes := ACONS(id, t, $locVarsTypes)
 ;         t' := CDR(typeDecl)
 ;         not EQUAL(t, t') =>
 ;             if not null t' then
-;                 SAY("Local variable ", id, " type redefined: ", t, " to ", t')
+;                 SAY('"Local variable ", id, '" type redefined: ", t, '" to ", t')
 ;             RPLACD(typeDecl, t)
 
 (DEFUN |saveLocVarsTypeDecl| (|x| |id| |e|)
@@ -2245,7 +2245,7 @@
          (SETQ |typeDecl| (ASSOC |id| |$locVarsTypes|))
          (COND
           ((NULL |typeDecl|)
-           (COND ((NULL |t|) (SAY '|Local variable | |id| '| lacks type.|))
+           (COND ((NULL |t|) (SAY "Local variable " |id| " lacks type."))
                  (#1#
                   (SETQ |$locVarsTypes| (ACONS |id| |t| |$locVarsTypes|)))))
           (#1#
@@ -2256,16 +2256,16 @@
               (PROGN
                (COND
                 ((NULL (NULL |t'|))
-                 (SAY '|Local variable | |id| '| type redefined: | |t| '| to |
+                 (SAY "Local variable " |id| " type redefined: " |t| " to "
                   |t'|)))
                (RPLACD |typeDecl| |t|))))))))))))))
 
 ; assignError(val,m',form,m) ==
 ;   message:=
 ;     val =>
-;       ["CANNOT ASSIGN: ",val,"%l","   OF MODE: ",m',"%l","   TO: ",form,"%l",
-;         "   OF MODE: ",m]
-;     ["CANNOT ASSIGN: ",val,"%l","   TO: ",form,"%l","   OF MODE: ",m]
+;       ['"CANNOT ASSIGN: ",val,"%l",'"   OF MODE: ",m',"%l",'"   TO: ",form,"%l",
+;         '"   OF MODE: ",m]
+;     ['"CANNOT ASSIGN: ",val,"%l",'"   TO: ",form,"%l",'"   OF MODE: ",m]
 ;   stackMessage message
 
 (DEFUN |assignError| (|val| |m'| |form| |m|)
@@ -2275,11 +2275,11 @@
       (SETQ |message|
               (COND
                (|val|
-                (LIST '|CANNOT ASSIGN: | |val| '|%l| '|   OF MODE: | |m'| '|%l|
-                      '|   TO: | |form| '|%l| '|   OF MODE: | |m|))
+                (LIST "CANNOT ASSIGN: " |val| '|%l| "   OF MODE: " |m'| '|%l|
+                      "   TO: " |form| '|%l| "   OF MODE: " |m|))
                ('T
-                (LIST '|CANNOT ASSIGN: | |val| '|%l| '|   TO: | |form| '|%l|
-                      '|   OF MODE: | |m|))))
+                (LIST "CANNOT ASSIGN: " |val| '|%l| "   TO: " |form| '|%l|
+                      "   OF MODE: " |m|))))
       (|stackMessage| |message|)))))
 
 ; MKPROGN(l) == MKPF(l, "PROGN")
@@ -2319,9 +2319,9 @@
 ;         t is ["Record",:l] => [[name,:mode] for [":",name,mode] in l]
 ;         comp(t,$EmptyMode,e) is [.,["RecordCategory",:l],.] =>
 ;           [[name,:mode] for [":",name,mode] in l]
-;         stackMessage ["no multiple assigns to mode: ",t]
+;         stackMessage ['"no multiple assigns to mode: ",t]
 ;   #nameList~=#selectorModePairs =>
-;     stackMessage [val," must decompose into ",#nameList," components"]
+;     stackMessage [val,'" must decompose into ",#nameList,'" components"]
 ;   -- 3 generate code; return
 ;   assignList:=
 ;     [([.,.,e]:= compSetq1(x,["elt",g,y],z,e) or return "failed").expr
@@ -2403,8 +2403,8 @@
            (COND
             ((NOT (EQL (LENGTH |nameList|) (LENGTH |selectorModePairs|)))
              (|stackMessage|
-              (LIST |val| '| must decompose into | (LENGTH |nameList|)
-                    '| components|)))
+              (LIST |val| " must decompose into " (LENGTH |nameList|)
+                    " components")))
             (#1#
              (PROGN
               (SETQ |assignList|
@@ -2502,12 +2502,12 @@
                   (SETQ |bfVar#70| (CONS (CONS |name| |mode|) |bfVar#70|)))))
            (SETQ |bfVar#69| (CDR |bfVar#69|))))
         NIL |l| NIL))
-      (#1# (|stackMessage| (LIST '|no multiple assigns to mode: | |t|)))))))
+      (#1# (|stackMessage| (LIST "no multiple assigns to mode: " |t|)))))))
 
 ; setqMultipleExplicit(nameList,valList,m,e) ==
 ;   #nameList~=#valList =>
-;     stackMessage ["Multiple assignment error; # of items in: ",nameList,
-;       "must = # in: ",valList]
+;     stackMessage ['"Multiple assignment error; # of items in: ",nameList,
+;       '"must = # in: ",valList]
 ;   gensymList:= [genVariable() for name in nameList]
 ;   assignList:=
 ;              --should be fixed to declare genVar when possible
@@ -2527,8 +2527,8 @@
      (COND
       ((NOT (EQL (LENGTH |nameList|) (LENGTH |valList|)))
        (|stackMessage|
-        (LIST '|Multiple assignment error; # of items in: | |nameList|
-              '|must = # in: | |valList|)))
+        (LIST "Multiple assignment error; # of items in: " |nameList|
+              "must = # in: " |valList|)))
       (#1='T
        (PROGN
         (SETQ |gensymList|
@@ -2733,7 +2733,7 @@
 
 ; compQuote(expr is [QUOTE, e1], m, e) ==
 ;   SYMBOLP(e1) => [expr, ["Symbol"], e]
-;   stackAndThrow ["Strange argument to QUOTE", expr]
+;   stackAndThrow ['"Strange argument to QUOTE", expr]
 
 (DEFUN |compQuote| (|expr| |m| |e|)
   (PROG (QUOTE |e1|)
@@ -2743,7 +2743,7 @@
       (SETQ |e1| (CADR |expr|))
       (COND ((SYMBOLP |e1|) (LIST |expr| (LIST '|Symbol|) |e|))
             ('T
-             (|stackAndThrow| (LIST '|Strange argument to QUOTE| |expr|))))))))
+             (|stackAndThrow| (LIST "Strange argument to QUOTE" |expr|))))))))
 
 ; compList(l,m is ["List",mUnder],e) ==
 ;   null l => [NIL,m,e]
@@ -2860,7 +2860,7 @@
 ;     formatUnabbreviated rhs
 ;   sayBrightly ['"   processing macro definition",'%b,
 ;     :formatUnabbreviated lhs,'" ==> ",:prhs,'%d]
-;   ATOM(lhs) => userError("Malformed macro definition")
+;   ATOM(lhs) => userError('"Malformed macro definition")
 ;   nrhs :=
 ;       (margs := rest(lhs)) => [rhs, :margs]
 ;       [rhs]
@@ -2890,7 +2890,7 @@
              (CONS '|%b|
                    (APPEND (|formatUnabbreviated| |lhs|)
                            (CONS " ==> " (APPEND |prhs| (CONS '|%d| NIL)))))))
-      (COND ((ATOM |lhs|) (|userError| '|Malformed macro definition|))
+      (COND ((ATOM |lhs|) (|userError| "Malformed macro definition"))
             (#2#
              (PROGN
               (SETQ |nrhs|
@@ -3040,7 +3040,7 @@
 ; comp_try(["try", expr, catcher, finallizer], m, e) ==
 ;     $exitModeStack : local := [m, :$exitModeStack]
 ;     if catcher then
-;         stackAndThrow ["comp_try: catch unimplemented"]
+;         stackAndThrow ['"comp_try: catch unimplemented"]
 ;     ([c1, m1, .] := comp(expr, m, e)) or return nil
 ;     ([c2, ., .] := comp(finallizer, $EmptyMode, e)) or return nil
 ;     [["finally", c1, c2], m1, e]
@@ -3056,7 +3056,7 @@
       (SETQ |finallizer| (CADDDR . #1#))
       (SETQ |$exitModeStack| (CONS |m| |$exitModeStack|))
       (COND
-       (|catcher| (|stackAndThrow| (LIST '|comp_try: catch unimplemented|))))
+       (|catcher| (|stackAndThrow| (LIST "comp_try: catch unimplemented"))))
       (OR
        (PROGN
         (SETQ |LETTMP#1| (|comp| |expr| |m| |e|))
@@ -3101,7 +3101,7 @@
 ;   [x',m',e']:=
 ;     u:=
 ;       comp(x,m1,e) or return
-;         stackMessageIfNone ["cannot compile exit expression",x,"in mode",m1]
+;         stackMessageIfNone ['"cannot compile exit expression",x,'"in mode",m1]
 ;   modifyModeStack(m',index)
 ;   [["TAGGEDexit",index,u],m,e]
 
@@ -3120,8 +3120,8 @@
                       (OR (|comp| |x| |m1| |e|)
                           (RETURN
                            (|stackMessageIfNone|
-                            (LIST '|cannot compile exit expression| |x|
-                                  '|in mode| |m1|)))))
+                            (LIST "cannot compile exit expression" |x|
+                                  "in mode" |m1|)))))
               (SETQ |x'| (CAR |u|))
               (SETQ |m'| (CADR . #2=(|u|)))
               (SETQ |e'| (CADDR . #2#))
@@ -3130,7 +3130,7 @@
 
 ; modifyModeStack(m,index) ==
 ;   $reportExitModeStack =>
-;     SAY("exitModeStack: ",COPY $exitModeStack," ====> ",
+;     SAY('"exitModeStack: ",COPY $exitModeStack,'" ====> ",
 ;       ($exitModeStack.index:= resolve(m,$exitModeStack.index); $exitModeStack))
 ;   $exitModeStack.index:= resolve(m,$exitModeStack.index)
 
@@ -3139,7 +3139,7 @@
     (RETURN
      (COND
       (|$reportExitModeStack|
-       (SAY '|exitModeStack: | (COPY |$exitModeStack|) '| ====> |
+       (SAY "exitModeStack: " (COPY |$exitModeStack|) " ====> "
         (PROGN
          (SETF (ELT |$exitModeStack| |index|)
                  (|resolve| |m| (ELT |$exitModeStack| |index|)))
@@ -3175,7 +3175,7 @@
 ; compReturn(["return", x], m, e) ==
 ;   ns := #$exitModeStack
 ;   ns = $currentFunctionLevel =>
-;     stackSemanticError(["the return before","%b",x,"%d","is unnecessary"],nil)
+;     stackSemanticError(['"the return before","%b",x,"%d",'"is unnecessary"],nil)
 ;     nil
 ;   index := MAX(0, ns - $currentFunctionLevel - 1)
 ;   $returnMode:= resolve($exitModeStack.index,$returnMode)
@@ -3194,7 +3194,7 @@
        ((EQUAL |ns| |$currentFunctionLevel|)
         (PROGN
          (|stackSemanticError|
-          (LIST '|the return before| '|%b| |x| '|%d| '|is unnecessary|) NIL)
+          (LIST "the return before" '|%b| |x| '|%d| "is unnecessary") NIL)
          NIL))
        ('T
         (PROGN
@@ -3442,7 +3442,7 @@
 ;   op="IF" =>
 ;     expr is [.,a,b,c]
 ;     if not canReturn(a,0,0,true) then
-;       SAY "IF statement can not cause consequents to be executed"
+;       SAY '"IF statement can not cause consequents to be executed"
 ;       pp expr
 ;     canReturn(a,level,exitCount,nil) or canReturn(b,level,exitCount,ValueFlag)
 ;       or canReturn(c,level,exitCount,ValueFlag)
@@ -3570,7 +3570,7 @@
                                      #1#))))))))
              (COND
               ((NULL (|canReturn| |a| 0 0 T))
-               (SAY '|IF statement can not cause consequents to be executed|)
+               (SAY "IF statement can not cause consequents to be executed")
                (|pp| |expr|)))
              (OR (|canReturn| |a| |level| |exitCount| NIL)
                  (|canReturn| |b| |level| |exitCount| |ValueFlag|)
@@ -4234,7 +4234,7 @@
 ;   name:=
 ;     name is [op,:.] => op
 ;     name
-;   stackSemanticError(["%b",name,"%d","is not a known type"],nil)
+;   stackSemanticError(["%b",name,"%d",'"is not a known type"],nil)
 
 (DEFUN |unknownTypeError| (|name|)
   (PROG (|op|)
@@ -4245,15 +4245,15 @@
                ((AND (CONSP |name|) (PROGN (SETQ |op| (CAR |name|)) #1='T))
                 |op|)
                (#1# |name|)))
-      (|stackSemanticError| (LIST '|%b| |name| '|%d| '|is not a known type|)
+      (|stackSemanticError| (LIST '|%b| |name| '|%d| "is not a known type")
        NIL)))))
 
 ; compPretend(["pretend",x,t],m,e) ==
 ;   e:= addDomain(t,e)
 ;   T:= comp(x,t,e) or comp(x,$EmptyMode,e) or return nil
-;   if T.mode=t then warningMessage:= ["pretend",t," -- should replace by @"]
+;   if T.mode=t then warningMessage:= ['"pretend",t,'" -- should replace by @"]
 ;   if opOf(T.mode) = 'Union and opOf(m) ~= 'Union then
-;      stackWarning(["cannot pretend ",x," of mode ",T.mode," to mode ",m])
+;      stackWarning(['"cannot pretend ",x,'" of mode ",T.mode,'" to mode ",m])
 ;   T:= [T.expr,t,T.env]
 ;   T':= coerce(T,m) => (if warningMessage then stackWarning warningMessage; T')
 
@@ -4270,12 +4270,11 @@
       (COND
        ((EQUAL (CADR T$) |t|)
         (SETQ |warningMessage|
-                (LIST '|pretend| |t| '| -- should replace by @|))))
+                (LIST "pretend" |t| " -- should replace by @"))))
       (COND
        ((AND (EQ (|opOf| (CADR T$)) '|Union|) (NOT (EQ (|opOf| |m|) '|Union|)))
         (|stackWarning|
-         (LIST '|cannot pretend | |x| '| of mode | (CADR T$) '| to mode |
-               |m|))))
+         (LIST "cannot pretend " |x| " of mode " (CADR T$) " to mode " |m|))))
       (SETQ T$ (LIST (CAR T$) |t| (CADDR T$)))
       (COND
        ((SETQ |T'| (|coerce| T$ |m|))
@@ -4320,8 +4319,8 @@
 ;       -- from compFormWithModemap to filter through the modemaps
 ;   stackMessage fn(T.expr,T.mode,m) where
 ;     fn(x,m1,m2) ==
-;       ["Cannot coerce","%b",x,"%d","%l","      of mode","%b",m1,"%d","%l",
-;         "      to mode","%b",m2,"%d"]
+;       ['"Cannot coerce","%b",x,"%d","%l",'"      of mode","%b",m1,"%d","%l",
+;         '"      to mode","%b",m2,"%d"]
 
 (DEFUN |coerce| (T$ |m|)
   (PROG (|T'|)
@@ -4344,8 +4343,8 @@
 (DEFUN |coerce,fn| (|x| |m1| |m2|)
   (PROG ()
     (RETURN
-     (LIST '|Cannot coerce| '|%b| |x| '|%d| '|%l| '|      of mode| '|%b| |m1|
-           '|%d| '|%l| '|      to mode| '|%b| |m2| '|%d|))))
+     (LIST "Cannot coerce" '|%b| |x| '|%d| '|%l| "      of mode" '|%b| |m1|
+           '|%d| '|%l| "      to mode" '|%b| |m2| '|%d|))))
 
 ; coerceEasy(T,m) ==
 ;   m=$EmptyMode => T
@@ -4790,8 +4789,8 @@
 ;     (y:= get(x,"condition",e)) and (or/[u is ["case",., =target] for u in y])
 ;        => [["call",fn,x],target,e]
 ;     x="$fromCoerceable$" => nil
-;     stackMessage ["cannot coerce: ",x,"%l","      of mode: ",source,"%l",
-;       "      to: ",target," without a case statement"]
+;     stackMessage ['"cannot coerce: ",x,"%l",'"      of mode: ",source,"%l",
+;       '"      to: ",target,'" without a case statement"]
 ;   [["call",fn,x],target,e]
 
 (DEFUN |autoCoerceByModemap| (|bfVar#163| |target|)
@@ -4887,8 +4886,8 @@
          ((EQ |x| '|$fromCoerceable$|) NIL)
          (#2#
           (|stackMessage|
-           (LIST '|cannot coerce: | |x| '|%l| '|      of mode: | |source| '|%l|
-                 '|      to: | |target| '| without a case statement|)))))
+           (LIST "cannot coerce: " |x| '|%l| "      of mode: " |source| '|%l|
+                 "      to: " |target| " without a case statement")))))
        (#2# (LIST (LIST '|call| |fn| |x|) |target| |e|)))))))
 
 ; resolve(din,dout) ==
@@ -5073,7 +5072,7 @@
 ;         [optname,:optargs] := opt
 ;         fullopt := selectOptionLC(optname,optList,nil)
 ;
-;         fullopt = 'new         => error "Internal error: compileSpad2Cmd got )new"
+;         fullopt = 'new         => error '"Internal error: compileSpad2Cmd got )new"
 ;         fullopt = 'old         => NIL     -- no opt
 ;
 ;         fullopt = 'library     => fun.1 := 'lib
@@ -5091,7 +5090,7 @@
 ;         fullopt = 'functions   =>
 ;             null optargs =>
 ;               throwKeyedMsg("S2IZ0037",['")functions"])
-;             throwKeyedMsg(")functions unsupported", [])
+;             throwKeyedMsg('")functions unsupported", [])
 ;         fullopt = 'constructor =>
 ;             null optargs =>
 ;               throwKeyedMsg("S2IZ0037",['")constructor"])
@@ -5146,7 +5145,7 @@
                 (SETQ |fullopt| (|selectOptionLC| |optname| |optList| NIL))
                 (COND
                  ((EQ |fullopt| '|new|)
-                  (|error| '|Internal error: compileSpad2Cmd got )new|))
+                  (|error| "Internal error: compileSpad2Cmd got )new"))
                  ((EQ |fullopt| '|old|) NIL)
                  ((EQ |fullopt| '|library|) (SETF (ELT |fun| 1) '|lib|))
                  ((EQ |fullopt| '|nolibrary|) (SETF (ELT |fun| 1) '|nolib|))
@@ -5165,7 +5164,7 @@
                   (COND
                    ((NULL |optargs|)
                     (|throwKeyedMsg| 'S2IZ0037 (LIST ")functions")))
-                   (#1# (|throwKeyedMsg| '|)functions unsupported| NIL))))
+                   (#1# (|throwKeyedMsg| ")functions unsupported" NIL))))
                  ((EQ |fullopt| '|constructor|)
                   (COND
                    ((NULL |optargs|)

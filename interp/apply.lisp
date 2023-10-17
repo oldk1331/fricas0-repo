@@ -712,7 +712,7 @@
 
 ; compMapCond'([cexpr,fnexpr], op, dc, bindings, e) ==
 ;   compMapCond''(cexpr, dc, e) => compMapCondFun(fnexpr,op,dc,bindings)
-;   stackMessage ["not known that",'%b,dc,'%d,"has",'%b,cexpr,'%d]
+;   stackMessage ['"not known that",'%b,dc,'%d,'"has",'%b,cexpr,'%d]
 
 (DEFUN |compMapCond'| (|bfVar#35| |op| |dc| |bindings| |e|)
   (PROG (|cexpr| |fnexpr|)
@@ -725,7 +725,7 @@
         (|compMapCondFun| |fnexpr| |op| |dc| |bindings|))
        ('T
         (|stackMessage|
-         (LIST '|not known that| '|%b| |dc| '|%d| '|has| '|%b| |cexpr|
+         (LIST "not known that" '|%b| |dc| '|%d| "has" '|%b| |cexpr|
                '|%d|))))))))
 
 ; compMapCond''(cexpr, dc, e) ==

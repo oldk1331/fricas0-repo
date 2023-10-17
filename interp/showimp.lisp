@@ -50,20 +50,20 @@
 ;     [., ., :key] := first u
 ;     sayBrightly
 ;       key = 'constant =>
-;         ["Constants implemented by",:bright form2String key,'":"]
-;       ["Functions implemented by",:bright form2String key,'":"]
+;         ['"Constants implemented by",:bright form2String key,'":"]
+;       ['"Functions implemented by",:bright form2String key,'":"]
 ;     u := showDomainsOp1(u,key)
 ;   u := SORTBY('CDDR,defexports)
 ;   while u repeat
 ;     [., ., :key] := first u
 ;     defop := INTERN(SUBSTRING((s := PNAME first key), 0, MAXINDEX s))
 ;     domainForm := [defop,:CDDR key]
-;     sayBrightly ["Default functions from",:bright form2String domainForm,'":"]
+;     sayBrightly ['"Default functions from",:bright form2String domainForm,'":"]
 ;     u := showDomainsOp1(u,key)
 ;   u := SORTBY('CDDR,unexports)
 ;   while u repeat
 ;     [., ., :key] := first u
-;     sayBrightly ["Not exported: "]
+;     sayBrightly ['"Not exported: "]
 ;     u := showDomainsOp1(u,key)
 
 (DEFUN |showImp| (|dom| &REST |options|)
@@ -129,11 +129,11 @@
                           (|sayBrightly|
                            (COND
                             ((EQ |key| '|constant|)
-                             (CONS '|Constants implemented by|
+                             (CONS "Constants implemented by"
                                    (APPEND (|bright| (|form2String| |key|))
                                            (CONS ":" NIL))))
                             (#1#
-                             (CONS '|Functions implemented by|
+                             (CONS "Functions implemented by"
                                    (APPEND (|bright| (|form2String| |key|))
                                            (CONS ":" NIL))))))
                           (SETQ |u| (|showDomainsOp1| |u| |key|))))))))
@@ -151,7 +151,7 @@
                                               (MAXINDEX |s|))))
                           (SETQ |domainForm| (CONS |defop| (CDDR |key|)))
                           (|sayBrightly|
-                           (CONS '|Default functions from|
+                           (CONS "Default functions from"
                                  (APPEND
                                   (|bright| (|form2String| |domainForm|))
                                   (CONS ":" NIL))))
@@ -164,7 +164,7 @@
                          (PROGN
                           (SETQ |LETTMP#1| (CAR |u|))
                           (SETQ |key| (CDDR |LETTMP#1|))
-                          (|sayBrightly| (LIST '|Not exported: |))
+                          (|sayBrightly| (LIST "Not exported: "))
                           (SETQ |u| (|showDomainsOp1| |u| |key|)))))))))))))))
 
 ; showFrom(D,:option) ==

@@ -524,11 +524,11 @@
              (|removeZeroOneDestructively| (CDR |t|))))))))
 
 ; listSort(pred,list,:optional) ==
-;    NOT functionp pred => error "listSort: first arg must be a function"
-;    NOT LISTP list => error "listSort: second argument must be a list"
+;    NOT functionp pred => error '"listSort: first arg must be a function"
+;    NOT LISTP list => error '"listSort: second argument must be a list"
 ;    NULL optional => mergeSort(pred,function Identity,list,LENGTH list)
 ;    key := CAR optional
-;    NOT functionp key => error "listSort: last arg must be a function"
+;    NOT functionp key => error '"listSort: last arg must be a function"
 ;    mergeSort(pred,key,list,LENGTH list)
 
 (DEFUN |listSort| (|pred| LIST &REST |optional|)
@@ -536,16 +536,16 @@
     (RETURN
      (COND
       ((NULL (|functionp| |pred|))
-       (|error| '|listSort: first arg must be a function|))
+       (|error| "listSort: first arg must be a function"))
       ((NULL (LISTP LIST))
-       (|error| '|listSort: second argument must be a list|))
+       (|error| "listSort: second argument must be a list"))
       ((NULL |optional|) (|mergeSort| |pred| #'|Identity| LIST (LENGTH LIST)))
       (#1='T
        (PROGN
         (SETQ |key| (CAR |optional|))
         (COND
          ((NULL (|functionp| |key|))
-          (|error| '|listSort: last arg must be a function|))
+          (|error| "listSort: last arg must be a function"))
          (#1# (|mergeSort| |pred| |key| LIST (LENGTH LIST))))))))))
 
 ; MSORT list == listSort(function GLESSEQP, COPY_-LIST list)
@@ -667,7 +667,7 @@
   (PROG () (RETURN (PROGN (|sayBrightly| |x|) (|spadThrow|)))))
 
 ; formatUnabbreviatedSig sig ==
-;   null sig => ["() -> ()"]
+;   null sig => ['"() -> ()"]
 ;   [target,:args] := sig
 ;   target := formatUnabbreviated target
 ;   null args => ['"() -> ",:target]
@@ -678,7 +678,7 @@
 (DEFUN |formatUnabbreviatedSig| (|sig|)
   (PROG (|target| |args|)
     (RETURN
-     (COND ((NULL |sig|) (LIST '|() -> ()|))
+     (COND ((NULL |sig|) (LIST "() -> ()"))
            (#1='T
             (PROGN
              (SETQ |target| (CAR |sig|))

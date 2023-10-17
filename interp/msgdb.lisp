@@ -1205,7 +1205,7 @@
 ;   --  if not $displaySetValue then sayKeyedMsg("S2GL0007",NIL)
 ; --  if not $HiFiAccess then sayKeyedMsg("S2GL0008",NIL)
 ; --  version()
-;   sayMSG " "
+;   sayMSG '" "
 
 (DEFUN |spadStartUpMsgs| ()
   (PROG (|bar|)
@@ -1220,7 +1220,7 @@
              (|sayKeyedMsg| 'S2GL0018D NIL)
              (|sayKeyedMsg| 'S2GL0003B (LIST |$opSysName|))
              (|sayMSG| |bar|)
-             (|sayMSG| '| |)))))))
+             (|sayMSG| " ")))))))
 
 ; HELP() == sayKeyedMsg("S2GL0019",NIL)
 

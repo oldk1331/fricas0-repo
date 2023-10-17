@@ -601,7 +601,7 @@
 ;   if name=abbrev then abbrev := asyAbbreviation(conname,nargs)
 ;   page := htInitPageNoHeading(nil)
 ;   htAddHeading heading
-;   htSayStandard("\beginscroll ")
+;   htSayStandard('"\beginscroll ")
 ;   htpSetProperty(page,'isFile,true)
 ;   htpSetProperty(page,'parts,parts)
 ;   htpSetProperty(page,'heading,heading)
@@ -615,7 +615,7 @@
 ;   dbShowConsDoc1(page,conform,nil)
 ;   if kind ~= 'category and nargs > 0 then addParameterTemplates(page,conform)
 ;   if $atLeastOneUnexposed then htSay '"\newline{}{\em *} = unexposed"
-;   htSayStandard("\endscroll ")
+;   htSayStandard('"\endscroll ")
 ;   kPageContextMenu page
 ;   htShowPageNoScroll()
 
@@ -655,7 +655,7 @@
         (SETQ |abbrev| (|asyAbbreviation| |conname| |nargs|))))
       (SETQ |page| (|htInitPageNoHeading| NIL))
       (|htAddHeading| |heading|)
-      (|htSayStandard| '|\\beginscroll |)
+      (|htSayStandard| "\\beginscroll ")
       (|htpSetProperty| |page| '|isFile| T)
       (|htpSetProperty| |page| '|parts| |parts|)
       (|htpSetProperty| |page| '|heading| |heading|)
@@ -672,7 +672,7 @@
         (|addParameterTemplates| |page| |conform|)))
       (COND
        (|$atLeastOneUnexposed| (|htSay| "\\newline{}{\\em *} = unexposed")))
-      (|htSayStandard| '|\\endscroll |)
+      (|htSayStandard| "\\endscroll ")
       (|kPageContextMenu| |page|)
       (|htShowPageNoScroll|)))))
 
@@ -710,7 +710,7 @@
 ;   if kind ~= '"category" then
 ;     htSay '"}{"
 ;     if not asharpConstructorName? conname
-;     then  htMakePage [['bcLinks,["Search Path",'"",'ksPage,nil]]]
+;     then  htMakePage [['bcLinks,['"Search Path",'"",'ksPage,nil]]]
 ;     else htSay '"{\em Search Path}"
 ;   if kind ~= '"category" then
 ;     htSay '"}{"
@@ -780,7 +780,7 @@
         (COND
          ((NULL (|asharpConstructorName?| |conname|))
           (|htMakePage|
-           (LIST (LIST '|bcLinks| (LIST '|Search Path| "" '|ksPage| NIL)))))
+           (LIST (LIST '|bcLinks| (LIST "Search Path" "" '|ksPage| NIL)))))
          (#4# (|htSay| "{\\em Search Path}")))))
       (COND
        ((NOT (EQUAL |kind| "category")) (|htSay| "}{")
@@ -957,8 +957,8 @@
       (|htEndTable|)))))
 
 ; htFilterPage(htPage,args) ==
-;   htInitPage("Filter String",htCopyProplist htPage)
-;   htSay "\centerline{Enter filter string (use {\em *} for wild card):}"
+;   htInitPage('"Filter String",htCopyProplist htPage)
+;   htSay '"\centerline{Enter filter string (use {\em *} for wild card):}"
 ;   htSay '"\centerline{"
 ;   htMakePage [['bcStrings, [50,'"",'filter,'EM]]]
 ;   htSay '"}\vspace{1}\centerline{"
@@ -970,9 +970,9 @@
   (PROG ()
     (RETURN
      (PROGN
-      (|htInitPage| '|Filter String| (|htCopyProplist| |htPage|))
+      (|htInitPage| "Filter String" (|htCopyProplist| |htPage|))
       (|htSay|
-       '|\\centerline{Enter filter string (use {\\em *} for wild card):}|)
+       "\\centerline{Enter filter string (use {\\em *} for wild card):}")
       (|htSay| "\\centerline{")
       (|htMakePage| (LIST (LIST '|bcStrings| (LIST 50 "" '|filter| 'EM))))
       (|htSay| "}\\vspace{1}\\centerline{")
@@ -1681,7 +1681,7 @@
 ;             if IFCAR coSig and t ~= '(Type)
 ;               then htMakePage [['bcLinks,[a,'"",'kArgPage,a]]]
 ;               else htSayList(['"{\em ", form2HtString(a), '"}"])
-;             htSay ", "
+;             htSay '", "
 ;             coSig := IFCDR coSig
 ;             htSayValue t
 ;             htSayIndentRel2(-15, true)
@@ -1725,7 +1725,7 @@
 ;       htSayIndentRel2(-15, true)
 ;     for [d,key,:t] in $whereList | d ~= "$" repeat
 ;       htSayIndentRel2(15, count > 1)
-;       htSayList(["{\em ", d, "} is "])
+;       htSayList(['"{\em ", d, '"} is "])
 ;       htSayConstructor(key, sublisFormal(IFCDR conform, t))
 ;       htSayIndentRel2(-15, count > 1)
 ;   -----------------------------------------------------------
@@ -1910,7 +1910,7 @@
                           (#1#
                            (|htSayList|
                             (LIST "{\\em " (|form2HtString| |a|) "}"))))
-                         (|htSay| '|, |)
+                         (|htSay| ", ")
                          (SETQ |coSig| (IFCDR |coSig|))
                          (|htSayValue| |t|)
                          (|htSayIndentRel2| (- 15) T)
@@ -1982,7 +1982,7 @@
                            (NOT (EQ |d| '$))
                            (PROGN
                             (|htSayIndentRel2| 15 (< 1 |count|))
-                            (|htSayList| (LIST '|{\\em | |d| '|} is |))
+                            (|htSayList| (LIST "{\\em " |d| "} is "))
                             (|htSayConstructor| |key|
                              (|sublisFormal| (IFCDR |conform|) |t|))
                             (|htSayIndentRel2| (- 15) (< 1 |count|))))))
@@ -2106,13 +2106,13 @@
 (DEFUN |htEndMenu| (|kind|) (PROG () (RETURN (|htSayStandard| "\\endmenu "))))
 
 ; htSayConstructorName(nameShown, name) ==
-;     htSayStandard ["\lispdownlink{",nameShown,'"}{(|conPage| '|",name,'"|)}"]
+;     htSayStandard ['"\lispdownlink{",nameShown,'"}{(|conPage| '|",name,'"|)}"]
 
 (DEFUN |htSayConstructorName| (|nameShown| |name|)
   (PROG ()
     (RETURN
      (|htSayStandard|
-      (LIST '|\\lispdownlink{| |nameShown| "}{(|conPage| '|" |name| "|)}")))))
+      (LIST "\\lispdownlink{" |nameShown| "}{(|conPage| '|" |name| "|)}")))))
 
 ; htAddHeading(title) ==
 ;   htNewPage title

@@ -245,7 +245,7 @@
 ;   fn ==
 ;     x = '_$_$ => 2
 ;     x = '$ => 0
-;     NULL INTEGERP x => systemError ['"code vector slot is ",x,"; must be number"]
+;     NULL INTEGERP x => systemError ['"code vector slot is ",x,'"; must be number"]
 ;     x
 
 (DEFUN |makeCompactSigCode| (|sig|)
@@ -263,7 +263,7 @@
                           ((NULL (INTEGERP |x|))
                            (|systemError|
                             (LIST "code vector slot is " |x|
-                                  '|; must be number|)))
+                                  "; must be number")))
                           (#1# |x|))
                     |bfVar#17|))))
          (SETQ |bfVar#16| (CDR |bfVar#16|))))
@@ -1856,7 +1856,7 @@
 ;     sayBrightly [s,'" : ",x]
 ;     total := total + s
 ;   sayBrightly '"------------total-------------"
-;   sayBrightly [count," constructors; ",total," BYTES"]
+;   sayBrightly [count,'" constructors; ",total,'" BYTES"]
 
 (DEFUN |dcSizeAll| ()
   (PROG (|s| |total| |count|)
@@ -1879,7 +1879,7 @@
           (SETQ |bfVar#83| (CDR |bfVar#83|))))
        (|allConstructors|) NIL)
       (|sayBrightly| "------------total-------------")
-      (|sayBrightly| (LIST |count| '| constructors; | |total| '| BYTES|))))))
+      (|sayBrightly| (LIST |count| " constructors; " |total| " BYTES"))))))
 
 ; sum(:l) == +/l
 
@@ -2109,7 +2109,7 @@
 ;   if null extends then
 ;     [u,msg,:v] := $why
 ;     sayBrightly '"--------------non extending category----------------------"
-;     sayBrightlyNT ['"..",:bright form2String domform,"of cat "]
+;     sayBrightlyNT ['"..",:bright form2String domform,'"of cat "]
 ;     PRINT u
 ;     sayBrightlyNT bright msg
 ;     if v then PRINT first v else TERPRI()
@@ -2138,7 +2138,7 @@
                 (|sayBrightlyNT|
                  (CONS ".."
                        (APPEND (|bright| (|form2String| |domform|))
-                               (CONS '|of cat | NIL))))
+                               (CONS "of cat " NIL))))
                 (PRINT |u|) (|sayBrightlyNT| (|bright| |msg|))
                 (COND (|v| (PRINT (CAR |v|))) (#1# (TERPRI)))))
               (COND (|extends| '|lookupIncomplete|)

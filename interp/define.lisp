@@ -302,8 +302,8 @@
 ;       u := get(x, 'macro, e) =>
 ;           null(rest(u)) =>
 ;               macroExpand(first u, e)
-;           SAY(["u =", u])
-;           userError("macro call needs arguments")
+;           SAY(['"u =", u])
+;           userError('"macro call needs arguments")
 ;       x
 ;   x is ['DEF, lhs, sig, rhs] =>
 ;     ['DEF, macroExpand(lhs, e), macroExpandList(sig, e), macroExpand(rhs, e)]
@@ -315,7 +315,7 @@
 ;               null(margs) => [macroExpand(u, e), :macroExpandList(args, e)]
 ;               #args = #margs =>
 ;                   macroExpand(SUBLISLIS(args, margs, u), e)
-;               userError("invalid macro call, #args ~= #margs")
+;               userError('"invalid macro call, #args ~= #margs")
 ;           [op, :macroExpandList(args, e)]
 ;       macroExpandList(x,e)
 ;   macroExpandList(x,e)
@@ -331,8 +331,8 @@
          (COND ((NULL (CDR |u|)) (|macroExpand| (CAR |u|) |e|))
                (#1='T
                 (PROGN
-                 (SAY (LIST '|u =| |u|))
-                 (|userError| '|macro call needs arguments|)))))
+                 (SAY (LIST "u =" |u|))
+                 (|userError| "macro call needs arguments")))))
         (#1# |x|)))
       ((AND (CONSP |x|) (EQ (CAR |x|) 'DEF)
             (PROGN
@@ -363,7 +363,7 @@
               (CONS (|macroExpand| |u| |e|) (|macroExpandList| |args| |e|)))
              ((EQL (LENGTH |args|) (LENGTH |margs|))
               (|macroExpand| (SUBLISLIS |args| |margs| |u|) |e|))
-             (#1# (|userError| '|invalid macro call, #args ~= #margs|)))))
+             (#1# (|userError| "invalid macro call, #args ~= #margs")))))
           (#1# (CONS |op| (|macroExpandList| |args| |e|)))))
         (#1# (|macroExpandList| |x| |e|))))
       (#1# (|macroExpandList| |x| |e|))))))
@@ -1323,12 +1323,12 @@
 ;     sayBrightly ['%l,:bright '"  Missing Local Functions:"]
 ;     for [op,sig] in loc for i in 1.. repeat
 ;       sayBrightly ['"      [",i,'"]",:bright op,
-;         ": ",:formatUnabbreviatedSig sig]
+;         '": ",:formatUnabbreviatedSig sig]
 ;   if exp then
 ;     sayBrightly ['%l,:bright '"  Missing Exported Functions:"]
 ;     for [op,sig] in exp for i in 1.. repeat
 ;       sayBrightly ['"      [",i,'"]",:bright op,
-;         ": ",:formatUnabbreviatedSig sig]
+;         '": ",:formatUnabbreviatedSig sig]
 
 (DEFUN |displayMissingFunctions| ()
   (PROG (|pred| |sig| |ISTMP#2| |op| |ISTMP#1| |exp| |loc|)
@@ -1390,7 +1390,7 @@
                                  (CONS |i|
                                        (CONS "]"
                                              (APPEND (|bright| |op|)
-                                                     (CONS '|: |
+                                                     (CONS ": "
                                                            (|formatUnabbreviatedSig|
                                                             |sig|))))))))))
                    (SETQ |bfVar#46| (CDR |bfVar#46|))
@@ -1418,7 +1418,7 @@
                                  (CONS |i|
                                        (CONS "]"
                                              (APPEND (|bright| |op|)
-                                                     (CONS '|: |
+                                                     (CONS ": "
                                                            (|formatUnabbreviatedSig|
                                                             |sig|))))))))))
                    (SETQ |bfVar#48| (CDR |bfVar#48|))
@@ -2215,7 +2215,7 @@
 
 ; getSignatureFromMode(form,e) ==
 ;   getmode(opOf form,e) is ['Mapping,:signature] =>
-;     #form~=#signature => stackAndThrow ["Wrong number of arguments: ",form]
+;     #form~=#signature => stackAndThrow ['"Wrong number of arguments: ",form]
 ;     EQSUBSTLIST(rest form,take(#rest form,$FormalMapVariableList),signature)
 
 (DEFUN |getSignatureFromMode| (|form| |e|)
@@ -2229,7 +2229,7 @@
        (IDENTITY
         (COND
          ((NOT (EQL (LENGTH |form|) (LENGTH |signature|)))
-          (|stackAndThrow| (LIST '|Wrong number of arguments: | |form|)))
+          (|stackAndThrow| (LIST "Wrong number of arguments: " |form|)))
          (#1#
           (EQSUBSTLIST (CDR |form|)
            (TAKE (LENGTH (CDR |form|)) |$FormalMapVariableList|)
@@ -2252,7 +2252,7 @@
 ;   0=c => (#(sig:= getSignatureFromMode(form,e))=#form => sig; nil)
 ;   1<c =>
 ;     sig:= first potentialSigList
-;     stackWarning ["signature of lhs not unique:",:bright sig,"chosen"]
+;     stackWarning ['"signature of lhs not unique:",:bright sig,'"chosen"]
 ;     sig
 ;   nil --this branch will force all arguments to be declared
 
@@ -2309,8 +2309,8 @@
              (PROGN
               (SETQ |sig| (CAR |potentialSigList|))
               (|stackWarning|
-               (CONS '|signature of lhs not unique:|
-                     (APPEND (|bright| |sig|) (CONS '|chosen| NIL))))
+               (CONS "signature of lhs not unique:"
+                     (APPEND (|bright| |sig|) (CONS "chosen" NIL))))
               |sig|))
             (#1# NIL))))))
 (DEFUN |hasSigInTargetCategory,fn| (|opName| |sig| |opsig| |mList| |form|)
@@ -2339,14 +2339,14 @@
 
 ; getArgumentModeOrMoan(x,form,e) ==
 ;   getArgumentMode(x,e) or
-;     stackSemanticError(["argument ",x," of ",form," is not declared"],nil)
+;     stackSemanticError(['"argument ",x,'" of ",form,'" is not declared"],nil)
 
 (DEFUN |getArgumentModeOrMoan| (|x| |form| |e|)
   (PROG ()
     (RETURN
      (OR (|getArgumentMode| |x| |e|)
          (|stackSemanticError|
-          (LIST '|argument | |x| '| of | |form| '| is not declared|) NIL)))))
+          (LIST "argument " |x| " of " |form| " is not declared") NIL)))))
 
 ; getArgumentMode(x,e) ==
 ;   STRINGP x => x
@@ -2364,7 +2364,7 @@
 ;   for a in argl for m in rest sig repeat
 ;     m1:= getArgumentMode(a,e) =>
 ;       not modeEqual(m1,m) =>
-;         stack:= ["   ",:bright a,'"must have type ",m,
+;         stack:= ['"   ",:bright a,'"must have type ",m,
 ;           '" not ",m1,'%l,:stack]
 ;     e:= put(a,'mode,m,e)
 ;   if stack then
@@ -2389,7 +2389,7 @@
                ((NULL (|modeEqual| |m1| |m|))
                 (IDENTITY
                  (SETQ |stack|
-                         (CONS '|   |
+                         (CONS "   "
                                (APPEND (|bright| |a|)
                                        (CONS "must have type "
                                              (CONS |m|
@@ -2419,11 +2419,11 @@
 ;   null sigl =>
 ;     (u := getmode(op, e)) is ['Mapping, :sig] => sig
 ;     SAY '"************* USER ERROR **********"
-;     SAY("available signatures for ",op,": ")
+;     SAY('"available signatures for ",op,'": ")
 ;     if null mmList
-;        then SAY "    NONE"
-;        else for [[dc,:sig],:.] in mmList repeat printSignature("     ",op,sig)
-;     printSignature("NEED ",op,["?",:argModeList])
+;        then SAY '"    NONE"
+;        else for [[dc,:sig],:.] in mmList repeat printSignature('"     ",op,sig)
+;     printSignature('"NEED ",op,['"?",:argModeList])
 ;     nil
 ;   for u in sigl repeat
 ;     for v in sigl | not (u=v) repeat
@@ -2433,7 +2433,7 @@
 ;               --well as a total one.  SourceLevelSubsume (from CATEGORY BOOT)
 ;               --should do this
 ;   1=#sigl => first sigl
-;   stackSemanticError(["duplicate signatures for ",op,": ",argModeList],nil)
+;   stackSemanticError(['"duplicate signatures for ",op,'": ",argModeList],nil)
 
 (DEFUN |getSignature| (|op| |argModeList| |e|)
   (PROG (|ISTMP#1| |dc| |sig| |ISTMP#2| |ISTMP#3| |pred| |mmList| |sigl| |u|)
@@ -2486,8 +2486,8 @@
         (#1#
          (PROGN
           (SAY "************* USER ERROR **********")
-          (SAY '|available signatures for | |op| '|: |)
-          (COND ((NULL |mmList|) (SAY '|    NONE|))
+          (SAY "available signatures for " |op| ": ")
+          (COND ((NULL |mmList|) (SAY "    NONE"))
                 (#1#
                  ((LAMBDA (|bfVar#104| |bfVar#103|)
                     (LOOP
@@ -2504,10 +2504,10 @@
                                    (SETQ |dc| (CAR |ISTMP#1|))
                                    (SETQ |sig| (CDR |ISTMP#1|))
                                    #1#)))
-                            (|printSignature| '|     | |op| |sig|))))
+                            (|printSignature| "     " |op| |sig|))))
                      (SETQ |bfVar#104| (CDR |bfVar#104|))))
                   |mmList| NIL)))
-          (|printSignature| '|NEED | |op| (CONS '? |argModeList|))
+          (|printSignature| "NEED " |op| (CONS "?" |argModeList|))
           NIL))))
       (#1#
        (PROGN
@@ -2535,7 +2535,7 @@
         (COND ((EQL 1 (LENGTH |sigl|)) (CAR |sigl|))
               (#1#
                (|stackSemanticError|
-                (LIST '|duplicate signatures for | |op| '|: | |argModeList|)
+                (LIST "duplicate signatures for " |op| ": " |argModeList|)
                 NIL)))))))))
 
 ; putInLocalDomainReferences (def := [opName,[lam,varl,body]]) ==
@@ -2817,7 +2817,7 @@
 
 ; constructMacro (form is [nam,[lam,vl,body]]) ==
 ;   not (and/[atom x for x in vl]) =>
-;     stackSemanticError(["illegal parameters for macro: ",vl],nil)
+;     stackSemanticError(['"illegal parameters for macro: ",vl],nil)
 ;   ["XLAM",vl':= [x for x in vl | IDENTP x],body]
 
 (DEFUN |constructMacro| (|form|)
@@ -2841,7 +2841,7 @@
                 (COND ((NOT |bfVar#116|) (RETURN NIL))))))
              (SETQ |bfVar#115| (CDR |bfVar#115|))))
           T |vl| NIL))
-        (|stackSemanticError| (LIST '|illegal parameters for macro: | |vl|)
+        (|stackSemanticError| (LIST "illegal parameters for macro: " |vl|)
          NIL))
        (#2#
         (LIST 'XLAM
@@ -3052,8 +3052,8 @@
 ;     compMakeDeclaration([":","#1",domainForm],$EmptyMode,addDomain(domainForm,e))
 ;   u:=
 ;     compOrCroak(predicate,$Boolean,e) or
-;       stackSemanticError(["predicate: ",predicate,
-;         " cannot be interpreted with #1: ",domainForm],nil)
+;       stackSemanticError(['"predicate: ",predicate,
+;         '" cannot be interpreted with #1: ",domainForm],nil)
 ;   prefixPredicate:= lispize u.expr
 ;   $lisplibSuperDomain:=
 ;     [domainForm,predicate]
@@ -3075,8 +3075,8 @@
       (SETQ |u|
               (OR (|compOrCroak| |predicate| |$Boolean| |e|)
                   (|stackSemanticError|
-                   (LIST '|predicate: | |predicate|
-                         '| cannot be interpreted with #1: | |domainForm|)
+                   (LIST "predicate: " |predicate|
+                         " cannot be interpreted with #1: " |domainForm|)
                    NIL)))
       (SETQ |prefixPredicate| (|lispize| (CAR |u|)))
       (SETQ |$lisplibSuperDomain| (LIST |domainForm| |predicate|))
@@ -3174,17 +3174,17 @@
 ;   isDomainForm(item, e) =>
 ;      -- convert naked top level domains to import
 ;     u:= ['import, [first item,:rest item]]
-;     userError ["Use: import ", [first item,:rest item]]
+;     userError ['"Use: import ", [first item,:rest item]]
 ;     RPLACA(item,first u)
 ;     RPLACD(item,rest u)
 ;     doIt(item, $predl, e)
 ;   item is [":=", lhs, rhs, :.] =>
 ;     not (compOrCroak(item, $EmptyMode, e) is [code, ., e]) =>
-;       stackSemanticError(["cannot compile assigned value to",:bright lhs],nil)
+;       stackSemanticError(['"cannot compile assigned value to",:bright lhs],nil)
 ;       e
 ;     not (code is ['LET,lhs',rhs',:.] and atom lhs') =>
 ;       code is ["PROGN",:.] =>
-;          stackSemanticError(["multiple assignment ",item," not allowed"],nil)
+;          stackSemanticError(['"multiple assignment ",item,'" not allowed"],nil)
 ;          e
 ;       RPLACA(item,first code)
 ;       RPLACD(item,rest code)
@@ -3288,7 +3288,7 @@
        ((|isDomainForm| |item| |e|)
         (PROGN
          (SETQ |u| (LIST '|import| (CONS (CAR |item|) (CDR |item|))))
-         (|userError| (LIST '|Use: import | (CONS (CAR |item|) (CDR |item|))))
+         (|userError| (LIST "Use: import " (CONS (CAR |item|) (CDR |item|))))
          (RPLACA |item| (CAR |u|))
          (RPLACD |item| (CDR |u|))
          (|doIt| |item| |$predl| |e|)))
@@ -3316,7 +3316,7 @@
                              (PROGN (SETQ |e| (CAR |ISTMP#3|)) #1#))))))))
           (PROGN
            (|stackSemanticError|
-            (CONS '|cannot compile assigned value to| (|bright| |lhs|)) NIL)
+            (CONS "cannot compile assigned value to" (|bright| |lhs|)) NIL)
            |e|))
          ((NULL
            (AND (CONSP |code|) (EQ (CAR |code|) 'LET)
@@ -3333,7 +3333,7 @@
            ((AND (CONSP |code|) (EQ (CAR |code|) 'PROGN))
             (PROGN
              (|stackSemanticError|
-              (LIST '|multiple assignment | |item| '| not allowed|) NIL)
+              (LIST "multiple assignment " |item| " not allowed") NIL)
              |e|))
            (#1#
             (PROGN
@@ -3571,7 +3571,7 @@
 
 ; compJoin(["Join",:argl],m,e) ==
 ;   catList:= [(compForMode(x,$Category,e) or return 'failed).expr for x in argl]
-;   catList='failed => stackSemanticError(["cannot form Join of: ",argl],nil)
+;   catList='failed => stackSemanticError(['"cannot form Join of: ",argl],nil)
 ;   catList':=
 ;     [extract for x in catList] where
 ;       extract() ==
@@ -3594,7 +3594,7 @@
 ;             body
 ;         x is ["mkCategory",:.] => x
 ;         atom x and getmode(x,e)=$Category => x
-;         stackSemanticError(["invalid argument to Join: ",x],nil)
+;         stackSemanticError(['"invalid argument to Join: ",x],nil)
 ;         x
 ;   T:= [wrapDomainSub(parameters,["Join",:catList']),$Category,e]
 ;   convert(T,m)
@@ -3623,7 +3623,7 @@
                NIL |argl| NIL))
       (COND
        ((EQ |catList| '|failed|)
-        (|stackSemanticError| (LIST '|cannot form Join of: | |argl|) NIL))
+        (|stackSemanticError| (LIST "cannot form Join of: " |argl|) NIL))
        (#1#
         (PROGN
          (SETQ |catList'|
@@ -3722,7 +3722,7 @@
                                  (#1#
                                   (PROGN
                                    (|stackSemanticError|
-                                    (LIST '|invalid argument to Join: | |x|)
+                                    (LIST "invalid argument to Join: " |x|)
                                     NIL)
                                    |x|)))
                                 |bfVar#131|))))

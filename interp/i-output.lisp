@@ -13,7 +13,7 @@
 ;       ["+->", '" +-> "], ["SEGMENT", '".."], ["in", '" in "], _
 ;       ["~=", '"~="], ["JOIN", '" JOIN "], ["EQUATNUM", '"  "], _
 ;       ["=", '" = "], ["==", '" == "], [">=", '" >= "], [">", '" > "], _
-;       ["<=", '" <= "], ["<", '" < "], ["|", '" | "], ["+", " + "], _
+;       ["<=", '" <= "], ["<", '" < "], ["|", '" | "], ["+", '" + "], _
 ;       ["-", '" - "], ["WHERE", '" WHERE "], ["MAX", '" MAX "], _
 ;       ["MIN", '" MIN "]] repeat
 ;         MAKEPROP(first(sv), 'INFIXOP, first(rest(sv)))
@@ -160,9 +160,8 @@
              (LIST '|in| " in ") (LIST '~= "~=") (LIST 'JOIN " JOIN ")
              (LIST 'EQUATNUM "  ") (LIST '= " = ") (LIST '== " == ")
              (LIST '>= " >= ") (LIST '> " > ") (LIST '<= " <= ")
-             (LIST '< " < ") (LIST '|\|| " | ") (LIST '+ '| + |)
-             (LIST '- " - ") (LIST 'WHERE " WHERE ") (LIST 'MAX " MAX ")
-             (LIST 'MIN " MIN "))
+             (LIST '< " < ") (LIST '|\|| " | ") (LIST '+ " + ") (LIST '- " - ")
+             (LIST 'WHERE " WHERE ") (LIST 'MAX " MAX ") (LIST 'MIN " MIN "))
        NIL)
       ((LAMBDA (|bfVar#2| |sv|)
          (LOOP
@@ -2310,7 +2309,7 @@
 ;         l + negative
 ;     k := INTEGER_-LENGTH(u)
 ;     k > MOST_-POSITIVE_-DOUBLE_-FLOAT =>
-;         SAY("Number too big")
+;         SAY('"Number too big")
 ;         THROW('outputFailure,'outputFailure)
 ;
 ;     if (k < 61) then
@@ -2363,7 +2362,7 @@
                 (COND
                  ((< MOST-POSITIVE-DOUBLE-FLOAT |k|)
                   (PROGN
-                   (SAY '|Number too big|)
+                   (SAY "Number too big")
                    (THROW '|outputFailure| '|outputFailure|)))
                  (#1#
                   (PROGN

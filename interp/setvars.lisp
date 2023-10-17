@@ -453,9 +453,9 @@
 ;   centerAndHighlight(STRCONC('"Current Values of ",label,
 ;     '" Variables"),$LINELENGTH," ")
 ;   TERPRI()
-;   sayBrightly ["Variable     ",
-;                "Description                                ",
-;                  "Current Value"]
+;   sayBrightly ['"Variable     ",
+;                '"Description                                ",
+;                  '"Current Value"]
 ;   SAY fillerSpaces($LINELENGTH,specialChar 'hbar)
 ;   subtree := nil
 ;   for setData in setTree repeat
@@ -502,8 +502,8 @@
        $LINELENGTH '| |)
       (TERPRI)
       (|sayBrightly|
-       (LIST '|Variable     | '|Description                                |
-             '|Current Value|))
+       (LIST "Variable     " "Description                                "
+             "Current Value"))
       (SAY (|fillerSpaces| $LINELENGTH (|specialChar| '|hbar|)))
       (SETQ |subtree| NIL)
       ((LAMBDA (|bfVar#5| |setData|)
@@ -747,7 +747,7 @@
 
 ; setExposeAdd arg ==
 ;   (null arg) =>
-;     centerAndHighlight ("The add Option",$LINELENGTH,specialChar 'hbar)
+;     centerAndHighlight ('"The add Option",$LINELENGTH,specialChar 'hbar)
 ;     --  give msg about exposure groups
 ;     displayExposedGroups()
 ;     --  give msg about explicitly exposed constructors
@@ -768,7 +768,7 @@
      (COND
       ((NULL |arg|)
        (PROGN
-        (|centerAndHighlight| '|The add Option| $LINELENGTH
+        (|centerAndHighlight| "The add Option" $LINELENGTH
          (|specialChar| '|hbar|))
         (|displayExposedGroups|)
         (|sayMSG| " ")
@@ -785,7 +785,7 @@
 
 ; setExposeAddGroup arg ==
 ;   (null arg) =>
-;     centerAndHighlight("The group Option",$LINELENGTH,specialChar 'hbar)
+;     centerAndHighlight('"The group Option",$LINELENGTH,specialChar 'hbar)
 ;     --  give msg about exposure groups
 ;     displayExposedGroups()
 ;     sayMSG '" "
@@ -819,7 +819,7 @@
      (COND
       ((NULL |arg|)
        (PROGN
-        (|centerAndHighlight| '|The group Option| $LINELENGTH
+        (|centerAndHighlight| "The group Option" $LINELENGTH
          (|specialChar| '|hbar|))
         (|displayExposedGroups|)
         (|sayMSG| " ")
@@ -882,7 +882,7 @@
 
 ; setExposeAddConstr arg ==
 ;   (null arg) =>
-;     centerAndHighlight ("The constructor Option",$LINELENGTH,
+;     centerAndHighlight ('"The constructor Option",$LINELENGTH,
 ;       specialChar 'hbar)
 ;     --  give msg about explicitly exposed constructors
 ;     displayExposedConstructors()
@@ -907,7 +907,7 @@
      (COND
       ((NULL |arg|)
        (PROGN
-        (|centerAndHighlight| '|The constructor Option| $LINELENGTH
+        (|centerAndHighlight| "The constructor Option" $LINELENGTH
          (|specialChar| '|hbar|))
         (|displayExposedConstructors|)))
       (#1='T
@@ -941,7 +941,7 @@
 
 ; setExposeDrop arg ==
 ;   (null arg) =>
-;     centerAndHighlight ("The drop Option",$LINELENGTH,specialChar 'hbar)
+;     centerAndHighlight ('"The drop Option",$LINELENGTH,specialChar 'hbar)
 ;     --  give msg about explicitly hidden constructors
 ;     displayHiddenConstructors()
 ;     sayMSG '" "
@@ -959,7 +959,7 @@
      (COND
       ((NULL |arg|)
        (PROGN
-        (|centerAndHighlight| '|The drop Option| $LINELENGTH
+        (|centerAndHighlight| "The drop Option" $LINELENGTH
          (|specialChar| '|hbar|))
         (|displayHiddenConstructors|)
         (|sayMSG| " ")
@@ -974,7 +974,7 @@
 
 ; setExposeDropGroup arg ==
 ;   (null arg) =>
-;     centerAndHighlight ("The group Option",$LINELENGTH,specialChar 'hbar)
+;     centerAndHighlight ('"The group Option",$LINELENGTH,specialChar 'hbar)
 ;     sayKeyedMsg("S2IZ0049L",NIL)
 ;     sayMSG '" "
 ;     displayExposedGroups()
@@ -1004,7 +1004,7 @@
      (COND
       ((NULL |arg|)
        (PROGN
-        (|centerAndHighlight| '|The group Option| $LINELENGTH
+        (|centerAndHighlight| "The group Option" $LINELENGTH
          (|specialChar| '|hbar|))
         (|sayKeyedMsg| 'S2IZ0049L NIL)
         (|sayMSG| " ")
@@ -1045,7 +1045,7 @@
 
 ; setExposeDropConstr arg ==
 ;   (null arg) =>
-;     centerAndHighlight ("The constructor Option",$LINELENGTH,
+;     centerAndHighlight ('"The constructor Option",$LINELENGTH,
 ;       specialChar 'hbar)
 ;     sayKeyedMsg("S2IZ0049N",NIL)
 ;     sayMSG '" "
@@ -1072,7 +1072,7 @@
      (COND
       ((NULL |arg|)
        (PROGN
-        (|centerAndHighlight| '|The constructor Option| $LINELENGTH
+        (|centerAndHighlight| "The constructor Option" $LINELENGTH
          (|specialChar| '|hbar|))
         (|sayKeyedMsg| 'S2IZ0049N NIL)
         (|sayMSG| " ")
@@ -1270,18 +1270,18 @@
 
 ; sayCacheCount(fn,n) ==
 ;   prefix:=
-;     fn => ["function",:bright linearFormatName fn]
-;     n = 0 => ["interpreter functions "]
-;     ["In general, interpreter functions "]
+;     fn => ['"function",:bright linearFormatName fn]
+;     n = 0 => ['"interpreter functions "]
+;     ['"In general, interpreter functions "]
 ;   n = 0 =>
 ;     fn =>
 ;       sayBrightly ['"   Caching for ",:prefix,
 ;         '"is turned off"]
 ;     sayBrightly '" In general, functions will cache no returned values."
 ;   phrase:=
-;     n="all" => [:bright "all","values."]
-;     n=1 => [" only the last value."]
-;     [" the last",:bright n,"values."]
+;     n="all" => [:bright '"all",'"values."]
+;     n=1 => ['" only the last value."]
+;     ['" the last",:bright n,'"values."]
 ;   sayBrightly ['"   ",:prefix,'"will cache",:phrase]
 
 (DEFUN |sayCacheCount| (|fn| |n|)
@@ -1290,9 +1290,9 @@
      (PROGN
       (SETQ |prefix|
               (COND
-               (|fn| (CONS '|function| (|bright| (|linearFormatName| |fn|))))
-               ((EQL |n| 0) (LIST '|interpreter functions |))
-               (#1='T (LIST '|In general, interpreter functions |))))
+               (|fn| (CONS "function" (|bright| (|linearFormatName| |fn|))))
+               ((EQL |n| 0) (LIST "interpreter functions "))
+               (#1='T (LIST "In general, interpreter functions "))))
       (COND
        ((EQL |n| 0)
         (COND
@@ -1308,11 +1308,11 @@
          (SETQ |phrase|
                  (COND
                   ((EQ |n| '|all|)
-                   (APPEND (|bright| '|all|) (CONS '|values.| NIL)))
-                  ((EQL |n| 1) (LIST '| only the last value.|))
+                   (APPEND (|bright| "all") (CONS "values." NIL)))
+                  ((EQL |n| 1) (LIST " only the last value."))
                   (#1#
-                   (CONS '| the last|
-                         (APPEND (|bright| |n|) (CONS '|values.| NIL))))))
+                   (CONS " the last"
+                         (APPEND (|bright| |n|) (CONS "values." NIL))))))
          (|sayBrightly|
           (CONS "   " (APPEND |prefix| (CONS "will cache" |phrase|)))))))))))
 

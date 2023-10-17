@@ -792,7 +792,7 @@
 ;     ["Mapping", categoryForm, :.] := mappingForm
 ;     catform:= substituteCategoryArguments(rest functorForm,categoryForm)
 ;     augModemapsFromCategory(name, functorForm, catform, e)
-;   stackMessage [functorForm," is an unknown mode"]
+;   stackMessage [functorForm,'" is an unknown mode"]
 ;   e
 
 (DEFUN |augModemapsFromDomain1| (|name| |functorForm| |e|)
@@ -813,7 +813,7 @@
         (|augModemapsFromCategory| |name| |functorForm| |catform| |e|)))
       ('T
        (PROGN
-        (|stackMessage| (LIST |functorForm| '| is an unknown mode|))
+        (|stackMessage| (LIST |functorForm| " is an unknown mode"))
         |e|))))))
 
 ; getSlot1FromCategoryForm ([op, :argl]) ==

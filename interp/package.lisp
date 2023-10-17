@@ -12,7 +12,7 @@
 ; mkOperatorEntry(opSig is [op,sig,:flag],pred,count) ==
 ;   null flag => [opSig,pred,["ELT","$",count]]
 ;   first flag="constant" => [[op,sig],pred,["CONST","$",count]]
-;   systemError ["unknown variable mode: ",flag]
+;   systemError ['"unknown variable mode: ",flag]
 
 (DEFUN |mkOperatorEntry| (|opSig| |pred| |count|)
   (PROG (|op| |sig| |flag|)
@@ -24,7 +24,7 @@
       (COND ((NULL |flag|) (LIST |opSig| |pred| (LIST 'ELT '$ |count|)))
             ((EQ (CAR |flag|) '|constant|)
              (LIST (LIST |op| |sig|) |pred| (LIST 'CONST '$ |count|)))
-            ('T (|systemError| (LIST '|unknown variable mode: | |flag|))))))))
+            ('T (|systemError| (LIST "unknown variable mode: " |flag|))))))))
 
 ; encodeFunctionName(fun,package is [packageName,:arglist],signature,sep,count)
 ;    ==

@@ -32,7 +32,7 @@
 (EVAL-WHEN (EVAL LOAD) (SETQ |DNameOtherID| 3))
 
 ; DNameToSExpr1 dname ==
-;   NULL dname => error "unexpected domain name"
+;   NULL dname => error '"unexpected domain name"
 ;   first dname = DNameStringID =>
 ;     INTERN(CompStrToString rest dname)
 ;   name0 := DNameToSExpr1 first rest dname
@@ -53,7 +53,7 @@
 (DEFUN |DNameToSExpr1| (|dname|)
   (PROG (|name0| |args| |froms| |ret| |sxs|)
     (RETURN
-     (COND ((NULL |dname|) (|error| '|unexpected domain name|))
+     (COND ((NULL |dname|) (|error| "unexpected domain name"))
            ((EQUAL (CAR |dname|) |DNameStringID|)
             (INTERN (|CompStrToString| (CDR |dname|))))
            (#1='T
@@ -826,7 +826,7 @@
 ;      VECP dollar => hashType(dollar.0,0)
 ;      hashType(dollar,0)
 ;   box := [nil]
-;   not VECP(dispatch := first domain) => error "bad domain format"
+;   not VECP(dispatch := first domain) => error '"bad domain format"
 ;   lookupFun := dispatch.3
 ;   dispatch.0 = 0 =>  -- new compiler domain object
 ;        hashSig :=
@@ -884,7 +884,7 @@
          (SETQ |box| (LIST NIL))
          (COND
           ((NULL (VECP (SETQ |dispatch| (CAR |domain|))))
-           (|error| '|bad domain format|))
+           (|error| "bad domain format"))
           (#1#
            (PROGN
             (SETQ |lookupFun| (ELT |dispatch| 3))
@@ -942,7 +942,7 @@
 
 ; basicLookupCheckDefaults(op,sig,domain,dollar) ==
 ;   box := [nil]
-;   not VECP(dispatch := first dollar) => error "bad domain format"
+;   not VECP(dispatch := first dollar) => error '"bad domain format"
 ;   lookupFun := dispatch.3
 ;   dispatch.0 = 0  =>  -- new compiler domain object
 ;        hashPercent :=
@@ -966,7 +966,7 @@
       (SETQ |box| (LIST NIL))
       (COND
        ((NULL (VECP (SETQ |dispatch| (CAR |dollar|))))
-        (|error| '|bad domain format|))
+        (|error| "bad domain format"))
        (#1='T
         (PROGN
          (SETQ |lookupFun| (ELT |dispatch| 3))
@@ -1216,7 +1216,7 @@
 ;   success := false
 ;   if $monitorNewWorld then
 ;     sayLooking(concat('"---->",form2String devaluate domain,
-;       '"----> searching op table for:","%l","  "),op,sig,dollar)
+;       '"----> searching op table for:","%l",'"  "),op,sig,dollar)
 ;   someMatch := false
 ;   numvec := getDomainByteVector domain
 ;   predvec := domain.3
@@ -1316,7 +1316,7 @@
                         (|sayLooking|
                          (|concat| "---->"
                           (|form2String| (|devaluate| |domain|))
-                          "----> searching op table for:" '|%l| '|  |)
+                          "----> searching op table for:" '|%l| "  ")
                          |op| |sig| |dollar|)))
                       (SETQ |someMatch| NIL)
                       (SETQ |numvec| (|getDomainByteVector| |domain|))
