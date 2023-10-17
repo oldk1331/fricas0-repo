@@ -48,7 +48,7 @@
 
 ; displayCategoryTable(:options) ==
 ;     conList := IFCAR options
-;     ct := MAKE_HASHTABLE('ID)
+;     ct := MAKE_HASHTABLE('EQ)
 ;     for (key := [a, :b]) in HKEYS $has_category_hash repeat
 ;         HPUT(ct, a, [[b, :HGET($has_category_hash, key)], :HGET(ct, a)])
 ;     for id in HKEYS ct | null conList or MEMQ(id,conList) repeat
@@ -60,7 +60,7 @@
     (RETURN
      (PROGN
       (SETQ |conList| (IFCAR |options|))
-      (SETQ |ct| (MAKE_HASHTABLE 'ID))
+      (SETQ |ct| (MAKE_HASHTABLE 'EQ))
       ((LAMBDA (|bfVar#3| |key|)
          (LOOP
           (COND
@@ -88,8 +88,8 @@
        (HKEYS |ct|) NIL)))))
 
 ; genCategoryTable() ==
-;   $ancestors_hash := MAKE_HASHTABLE('ID)
-;   $has_category_hash := MAKE_HASHTABLE('UEQUAL)
+;   $ancestors_hash := MAKE_HASHTABLE('EQ)
+;   $has_category_hash := MAKE_HASHTABLE('EQUAL)
 ;   genTempCategoryTable()
 ;   domainList:=
 ;     [con for con in allConstructors()
@@ -112,8 +112,8 @@
   (PROG (|b| |a| |entry| |id| |specialDs| |domainTable| |catl| |domainList|)
     (RETURN
      (PROGN
-      (SETQ |$ancestors_hash| (MAKE_HASHTABLE 'ID))
-      (SETQ |$has_category_hash| (MAKE_HASHTABLE 'UEQUAL))
+      (SETQ |$ancestors_hash| (MAKE_HASHTABLE 'EQ))
+      (SETQ |$has_category_hash| (MAKE_HASHTABLE 'EQUAL))
       (|genTempCategoryTable|)
       (SETQ |domainList|
               ((LAMBDA (|bfVar#6| |bfVar#5| |con|)

@@ -2285,7 +2285,7 @@
 ;   conform := htpProperty(htPage,'conform)
 ;   --prepare opAlist for possible filtering of groups
 ;   if null BOUNDP '$topicHash then
-;     $topicHash := MAKE_HASHTABLE('ID)
+;     $topicHash := MAKE_HASHTABLE('EQ)
 ;     for [x,:c] in '((extended . 0) (basic . 1) (hidden . 2)) repeat
 ;       HPUT($topicHash,x,c)
 ;   domform := htpProperty(htPage,'domname)
@@ -2326,7 +2326,7 @@
              (SETQ |conform| (|htpProperty| |htPage| '|conform|))
              (COND
               ((NULL (BOUNDP '|$topicHash|))
-               (SETQ |$topicHash| (MAKE_HASHTABLE 'ID))
+               (SETQ |$topicHash| (MAKE_HASHTABLE 'EQ))
                ((LAMBDA (|bfVar#91| |bfVar#90|)
                   (LOOP
                    (COND

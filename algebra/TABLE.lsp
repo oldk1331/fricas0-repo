@@ -140,7 +140,7 @@
                              (COND
                               ((|hashable| (QREFELT $ 6))
                                (|HashTable| (QREFELT $ 6) (QREFELT $ 7)
-                                            "UEQUAL"))
+                                            "EQUAL"))
                               ('T
                                (|AssociationList| (QREFELT $ 6)
                                                   (QREFELT $ 7))))))

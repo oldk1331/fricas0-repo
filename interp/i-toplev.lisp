@@ -53,7 +53,7 @@
 ;   if $displayStartMsgs then sayKeyedMsg("S2IZ0053",['"history"])
 ;   initHist()
 ;   if $displayStartMsgs then spadStartUpMsgs()
-;   $superHash := MAKE_HASHTABLE('UEQUAL)
+;   $superHash := MAKE_HASHTABLE('EQUAL)
 
 (DEFUN |interpsysInitialization| ()
   (PROG (|$PrintCompilerMessageIfTrue|)
@@ -88,7 +88,7 @@
       (COND (|$displayStartMsgs| (|sayKeyedMsg| 'S2IZ0053 (LIST "history"))))
       (|initHist|)
       (COND (|$displayStartMsgs| (|spadStartUpMsgs|)))
-      (SETQ |$superHash| (MAKE_HASHTABLE 'UEQUAL))))))
+      (SETQ |$superHash| (MAKE_HASHTABLE 'EQUAL))))))
 
 ; interpsys_restart() ==
 ;   $IOindex := 1

@@ -1941,7 +1941,7 @@
 ; dbDocTable conform ==
 ; --assumes $docTableHash bound --see dbExpandOpAlistIfNecessary
 ;   table := HGET($docTableHash,conform) => table
-;   $docTable : local := MAKE_HASHTABLE('ID)
+;   $docTable : local := MAKE_HASHTABLE('EQ)
 ;   --process in reverse order so that closest cover up farthest
 ;   for x in originsInOrder conform repeat dbAddDocTable x
 ;   dbAddDocTable conform
@@ -1955,7 +1955,7 @@
      (COND ((SETQ |table| (HGET |$docTableHash| |conform|)) |table|)
            (#1='T
             (PROGN
-             (SETQ |$docTable| (MAKE_HASHTABLE 'ID))
+             (SETQ |$docTable| (MAKE_HASHTABLE 'EQ))
              ((LAMBDA (|bfVar#60| |x|)
                 (LOOP
                  (COND

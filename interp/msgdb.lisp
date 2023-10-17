@@ -184,7 +184,7 @@
 
 ; getKeyedMsg(key) ==
 ;     if not($msg_hash) then
-;         $msg_hash := MAKE_HASHTABLE('ID)
+;         $msg_hash := MAKE_HASHTABLE('EQ)
 ;         cacheKeyedMsg($defaultMsgDatabaseName)
 ;     HGET($msg_hash, key)
 
@@ -193,7 +193,7 @@
     (RETURN
      (PROGN
       (COND
-       ((NULL |$msg_hash|) (SETQ |$msg_hash| (MAKE_HASHTABLE 'ID))
+       ((NULL |$msg_hash|) (SETQ |$msg_hash| (MAKE_HASHTABLE 'EQ))
         (|cacheKeyedMsg| |$defaultMsgDatabaseName|)))
       (HGET |$msg_hash| |key|)))))
 

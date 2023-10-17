@@ -133,7 +133,7 @@
 
 (MAKEPROP '|StringTable| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|HashTable| 18 6 '"CVEC") (|local| |#1|)
+           '#(NIL NIL NIL NIL NIL (|HashTable| 18 6 '"EQUAL") (|local| |#1|)
               (|Record| (|:| |key| 18) (|:| |entry| 6)) (|List| 7)
               (|Equation| 7) (|List| 9) (|Mapping| 7 7 7) (|Boolean|)
               (|NonNegativeInteger|) (|Equation| 6) (|List| 14) (|List| 6)

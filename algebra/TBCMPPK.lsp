@@ -159,7 +159,7 @@
 (MAKEPROP '|TabulatedComputationPackage| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) '|table?|
-              (|HashTable| 6 7 '"UEQUAL") (0 . |empty|) '|t| '|info?| '|stats?|
+              (|HashTable| 6 7 '"EQUAL") (0 . |empty|) '|t| '|info?| '|stats?|
               '|used| '|ok| '|ko| '|domainName| (|Void|) (4 . |void|)
               |TBCMPPK;initTable!;V;1| (|Boolean|) (|String|) (8 . |empty?|)
               |TBCMPPK;usingTable?;B;6| |TBCMPPK;printInfo!;2SV;2|
