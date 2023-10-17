@@ -813,7 +813,7 @@
  |rowEchelonLocal| |normalizedDivide| |maxint| |binaryFunction|
  |makeFloatFunction| |make_real_part_function| |make_imaginary_part_function|
  |function| |makeRecord| |unaryFunction| |compiledFunction| |corrPoly|
- |lifting| |coerceS| |ddfact| |HP_solve_I| |HP_solve_A| |HP_solve_P|
+ |lifting| |coerceS| |mfactor| |ddfact| |HP_solve_I| |HP_solve_A| |HP_solve_P|
  |HP_solve_PA| |HP_solve_M| |check_sol1a| |VSUPI_to_VPA| |VSUPPI_to_VPA|
  |LLFI_to_LPA| |LLFPI_to_LPA| |get_variables| |unpack_poly| |HP_solve|
  |gen_Monte_Carlo_check| |LLF_to_LPA| |VSUPS_to_VPA| |frobenius| |UnVectorise|
@@ -1163,55 +1163,54 @@
  |loopPoints| |select| |generalTwoFactor| |tryTwoFactor| |doFactor| |qconvert|
  |diagramSvg2| |undirectedGraph| |setOrder| |getOrder| |less?| |userOrdered?|
  |largest| |more?| |setVariableOrder| |getVariableOrder| |resetVariableOrder|
- |prime?| |factorSquareFree| |mfactor| |sufactor| |sufactor_square_free|
- |hadamard| |pre_gauss| |pre_smith| |pre_lr| |rationalFunction| |taylorIfCan|
- |taylor| |removeZeroes| |taylorRep| |hasHi| |segment| SEGMENT
- |commonDenominator| |clearDenominator| |splitDenominator|
- |monicRightFactorIfCan| |rightFactorIfCan| |leftFactorIfCan|
- |monicDecomposeIfCan| |monicCompleteDecompose| |decomposeIfCan|
- |completeDecompose| |divideIfCan| |noKaratsuba| |karatsubaOnce| |karatsuba|
- |separate| |pseudoDivide| |pseudoQuotient| |composite| |subResultantGcd|
- |resultant| |discriminant| |pseudoRemainder| |shiftRight| |karatsubaDivide|
- |monicDivide| |shiftLeft| |divideExponents| |unmakeSUP| |makeSUP|
- |unvectorise| |vectorise| |eval| |extend| |approximate| |truncate| |order|
- |center| |terms| |squareFreePart| |BumInSepFFE| |multiplyExponents|
- |laurentIfCan| |laurent| |laurentRep| |rationalPower| |puiseux| |dominantTerm|
- |limitPlus| |split!| |setlast!| |qsetrest!| |setrest!| |setelt!| |qsetfirst!|
- |setfirst!| |cycleSplit!| |concat!| |cycleTail| |cycleLength| |cycleEntry|
- |third| |second| |tail| |last| |rest| |elt| |first| |concat| |integrate|
- |invmultisect| |multisect| |revert| |generalLambert| |evenlambert|
- |oddlambert| |lambert| |lagrange| |differentiate| |univariatePolynomial| ^
- |polynomial| |multiplyCoefficients| |quoByVar| |coefficients| |series|
- |stFunc1| |stFunc2| |stFuncN| |fixedPointExquo| |ode1| |ode2| |ode| |mpsode|
- UP2UTS UTS2UP LODO2FUN RF2UTS |seriesSolve| = |parseVarTerm| |parseVar|
- |toString| |getType| |getName| |var| |variable| |add_slots| |repack_polys|
- |empty| |chinese_update| |hensel_update| |rational_reconstruction|
- |remove_denoms| |reconstruct| |length| |cross| |outerProduct| |dot| - |zero?|
- |zero| |vector| |scan| |reduce| |hp_solve| |graphCurves| |drawCurves| |update|
- |show| |scale| |connect| |region| |points| |units| |getGraph| |putGraph|
- |graphs| |graphStates| |graphState| |makeViewport2D| |viewport2D|
- |getPickedPoints| |key| |close| |write| |colorDef| |reset| |intensity|
- |lighting| |clipSurface| |showClipRegion| |showRegion| |hitherPlane|
- |eyeDistance| |perspective| |translate| |zoom| |rotate| |drawStyle|
- |outlineRender| |diagonals| |axes| |controlPanel| |viewpoint| |dimensions|
- |title| |resize| |move| |options| |modifyPointData| |subspace|
- |makeViewport3D| |viewport3D| |viewDeltaYDefault| |viewDeltaXDefault|
- |viewZoomDefault| |viewPhiDefault| |viewThetaDefault| |pointColorDefault|
- |lineColorDefault| |axesColorDefault| |unitsColorDefault| |pointSizeDefault|
- |viewPosDefault| |viewSizeDefault| |viewDefaults| |viewWriteDefault|
- |viewWriteAvailable| |var1StepsDefault| |var2StepsDefault| |tubePointsDefault|
- |tubeRadiusDefault| |void| |coordinates| |coordinatesIfCan| |member?|
- |complementSpace| |canonicalBasis| |Zero| |subspace?| |isBasis?| |rank|
- |intBasis| + |sumBasis| |columnSpace| |nullSpace| |basis| |weierstrass|
- |integralBasis| |localIntegralBasis| |weightedDistanceMatrix|
- |closedCartesian| |closedTensor| |cartesian| |routeArrowWeight|
- |routeNodeWeight| |distanceWeighted| |addWArrow!| |weightedGraph|
- |changeWeightLevel| |characteristicSerie| |characteristicSet| |medialSet|
- |hankelIndices| |hankelMatrix| |hankelSystem| |display| |minimalMatrix|
- |findNonZeroEntry| |transformationMatrices| |minimalRepresentation|
- |Hausdorff| |Frobenius| |transcendenceDegree| |extensionDegree|
- |inGroundField?| |transcendent?| |algebraic?| |varList| |sh| |mirror|
- |monomial?| |monomial| |rquo| |lquo| |mindegTerm| |table| |writeXml|
+ |prime?| |factorSquareFree| |sufactor| |sufactor_square_free| |hadamard|
+ |pre_gauss| |pre_smith| |pre_lr| |rationalFunction| |taylorIfCan| |taylor|
+ |removeZeroes| |taylorRep| |hasHi| |segment| SEGMENT |commonDenominator|
+ |clearDenominator| |splitDenominator| |monicRightFactorIfCan|
+ |rightFactorIfCan| |leftFactorIfCan| |monicDecomposeIfCan|
+ |monicCompleteDecompose| |decomposeIfCan| |completeDecompose| |divideIfCan|
+ |noKaratsuba| |karatsubaOnce| |karatsuba| |separate| |pseudoDivide|
+ |pseudoQuotient| |composite| |subResultantGcd| |resultant| |discriminant|
+ |pseudoRemainder| |shiftRight| |karatsubaDivide| |monicDivide| |shiftLeft|
+ |divideExponents| |unmakeSUP| |makeSUP| |unvectorise| |vectorise| |eval|
+ |extend| |approximate| |truncate| |order| |center| |terms| |squareFreePart|
+ |BumInSepFFE| |multiplyExponents| |laurentIfCan| |laurent| |laurentRep|
+ |rationalPower| |puiseux| |dominantTerm| |limitPlus| |split!| |setlast!|
+ |qsetrest!| |setrest!| |setelt!| |qsetfirst!| |setfirst!| |cycleSplit!|
+ |concat!| |cycleTail| |cycleLength| |cycleEntry| |third| |second| |tail|
+ |last| |rest| |elt| |first| |concat| |integrate| |invmultisect| |multisect|
+ |revert| |generalLambert| |evenlambert| |oddlambert| |lambert| |lagrange|
+ |differentiate| |univariatePolynomial| ^ |polynomial| |multiplyCoefficients|
+ |quoByVar| |coefficients| |series| |stFunc1| |stFunc2| |stFuncN|
+ |fixedPointExquo| |ode1| |ode2| |ode| |mpsode| UP2UTS UTS2UP LODO2FUN RF2UTS
+ |seriesSolve| = |parseVarTerm| |parseVar| |toString| |getType| |getName| |var|
+ |variable| |add_slots| |repack_polys| |empty| |chinese_update| |hensel_update|
+ |rational_reconstruction| |remove_denoms| |reconstruct| |length| |cross|
+ |outerProduct| |dot| - |zero?| |zero| |vector| |scan| |reduce| |hp_solve|
+ |graphCurves| |drawCurves| |update| |show| |scale| |connect| |region| |points|
+ |units| |getGraph| |putGraph| |graphs| |graphStates| |graphState|
+ |makeViewport2D| |viewport2D| |getPickedPoints| |key| |close| |write|
+ |colorDef| |reset| |intensity| |lighting| |clipSurface| |showClipRegion|
+ |showRegion| |hitherPlane| |eyeDistance| |perspective| |translate| |zoom|
+ |rotate| |drawStyle| |outlineRender| |diagonals| |axes| |controlPanel|
+ |viewpoint| |dimensions| |title| |resize| |move| |options| |modifyPointData|
+ |subspace| |makeViewport3D| |viewport3D| |viewDeltaYDefault|
+ |viewDeltaXDefault| |viewZoomDefault| |viewPhiDefault| |viewThetaDefault|
+ |pointColorDefault| |lineColorDefault| |axesColorDefault| |unitsColorDefault|
+ |pointSizeDefault| |viewPosDefault| |viewSizeDefault| |viewDefaults|
+ |viewWriteDefault| |viewWriteAvailable| |var1StepsDefault| |var2StepsDefault|
+ |tubePointsDefault| |tubeRadiusDefault| |void| |coordinates|
+ |coordinatesIfCan| |member?| |complementSpace| |canonicalBasis| |Zero|
+ |subspace?| |isBasis?| |rank| |intBasis| + |sumBasis| |columnSpace|
+ |nullSpace| |basis| |weierstrass| |integralBasis| |localIntegralBasis|
+ |weightedDistanceMatrix| |closedCartesian| |closedTensor| |cartesian|
+ |routeArrowWeight| |routeNodeWeight| |distanceWeighted| |addWArrow!|
+ |weightedGraph| |changeWeightLevel| |characteristicSerie| |characteristicSet|
+ |medialSet| |hankelIndices| |hankelMatrix| |hankelSystem| |display|
+ |minimalMatrix| |findNonZeroEntry| |transformationMatrices|
+ |minimalRepresentation| |Hausdorff| |Frobenius| |transcendenceDegree|
+ |extensionDegree| |inGroundField?| |transcendent?| |algebraic?| |varList| |sh|
+ |mirror| |monomial?| |monomial| |rquo| |lquo| |mindegTerm| |table| |writeXml|
  |writeVRML| |xmlAttribute| |xmlElement| |empty?| |outputVRML| |log| |exp|
  |product| |LiePolyIfCan| |homo_fact| |top_split| |left_ext_GCD| |ldivide|
  |lift1| |factor| |trunc| |degree| / |quasiRegular| |quasiRegular?| |constant|

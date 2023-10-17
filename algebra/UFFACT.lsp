@@ -318,9 +318,9 @@
 
 (DECLAIM (NOTINLINE |UnivariateFiniteFieldFactorize;|)) 
 
-(DEFUN |UnivariateFiniteFieldFactorize| (&REST #1=#:G196)
+(DEFUN |UnivariateFiniteFieldFactorize| (&REST #1=#:G194)
   (SPROG NIL
-         (PROG (#2=#:G197)
+         (PROG (#2=#:G195)
            (RETURN
             (COND
              ((LETT #2#
@@ -346,7 +346,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|UnivariateFiniteFieldFactorize| DV$1 DV$2))
-          (LETT % (GETREFV 77))
+          (LETT % (GETREFV 75))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|UnivariateFiniteFieldFactorize|
@@ -424,11 +424,9 @@
               (147 . |unmakeSUP|) (152 . |coerce|)
               (|Record| (|:| |flag| 36) (|:| |factor| 7) (|:| |exponent| 8))
               (|List| 70) (157 . |makeFR|) |UFFACT;factor;UPF;12|
-              |UFFACT;factorSquareFree;UPF;13|
-              (|Record| (|:| |factor| 7) (|:| |exponent| 8))
-              (|Record| (|:| |cont| 6) (|:| |factors| (|List| 75))))
-           '#(|sufactor_square_free| 163 |sufactor| 168 |mfactor| 173
-              |factorSquareFree| 178 |factor| 183)
+              |UFFACT;factorSquareFree;UPF;13|)
+           '#(|sufactor_square_free| 163 |sufactor| 168 |factorSquareFree| 173
+              |factor| 178)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -438,16 +436,6 @@
                              (LIST '((|factor| ((|Factored| |#2|) |#2|)) T)
                                    '((|factorSquareFree|
                                       ((|Factored| |#2|) |#2|))
-                                     T)
-                                   '((|mfactor|
-                                      ((|Record| (|:| |cont| |#1|)
-                                                 (|:| |factors|
-                                                      (|List|
-                                                       (|Record|
-                                                        (|:| |factor| |#2|)
-                                                        (|:| |exponent|
-                                                             (|NonNegativeInteger|))))))
-                                       |#2|))
                                      T)
                                    '((|sufactor|
                                       ((|Record| (|:| |cont| |#1|)
@@ -467,7 +455,7 @@
                                        (|SparseUnivariatePolynomial| |#1|)))
                                      T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 76
+                        (|makeByteWordVec2| 74
                                             '(0 6 8 9 0 6 0 13 0 7 0 14 0 6 8
                                               15 2 8 16 0 0 17 0 6 0 18 0 7 0
                                               19 1 11 21 22 23 2 26 24 21 25 27
@@ -481,6 +469,5 @@
                                               2 7 30 0 0 64 0 65 0 66 1 7 22 0
                                               67 1 7 0 22 68 1 7 0 6 69 2 65 0
                                               7 71 72 1 0 62 22 63 1 0 60 22 61
-                                              1 0 76 7 1 1 0 65 7 74 1 0 65 7
-                                              73)))))
+                                              1 0 65 7 74 1 0 65 7 73)))))
            '|lookupComplete|)) 

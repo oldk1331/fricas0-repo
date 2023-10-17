@@ -176,7 +176,7 @@
                               ((EQL (SPADCALL |fac| (QREFELT % 24)) 1)
                                (LETT |ll|
                                      (CONS
-                                      (VECTOR (CONS 2 "irred") |fac| |expon|)
+                                      (VECTOR (CONS 3 "prime") |fac| |expon|)
                                       |ll|)))
                               ((SPADCALL (SPADCALL |fac| (QREFELT % 44))
                                          (|spadConstant| % 20) (QREFELT % 22))

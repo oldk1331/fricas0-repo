@@ -5624,7 +5624,7 @@
               (428 . |setref|) (|Stream| 7) (434 . |stream|) (440 . |series|)
               (445 . |pi|) '|my_pi| (449 . |coerce|) (454 . *) (460 . |log|)
               (465 . /) '|lpi| (|SparseMultivariatePolynomial| 6 118)
-              (471 . |One|) (475 . |sqrt|) '|sqpi| (|Reference| 7)
+              (471 . |One|) (475 . |sqrt|) '|sqrt_pi| (|Reference| 7)
               (480 . |deref|) (485 . |setref|) (491 . |ref|)
               (496 . |apply_taylor|) (502 . *) (508 . |log|)
               '|can_integrate_uts| (513 . |integrate|) (518 . |integt|)
