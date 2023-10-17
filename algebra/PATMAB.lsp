@@ -18,18 +18,19 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|PatternMatchable;CAT|)
-                                    ('T
-                                     (LETT |PatternMatchable;CAT|
-                                           (|Join| (|SetCategory|)
-                                                   (|mkCategory|
-                                                    '(((|patternMatch|
-                                                        ((|PatternMatchResult|
-                                                          |t#1| $)
-                                                         $ (|Pattern| |t#1|)
-                                                         (|PatternMatchResult|
-                                                          |t#1| $)))
-                                                       T))
-                                                    NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|PatternMatchable;CAT|)
+                                         ('T
+                                          (LETT |PatternMatchable;CAT|
+                                                (|Join| (|SetCategory|)
+                                                        (|mkCategory|
+                                                         '(((|patternMatch|
+                                                             ((|PatternMatchResult|
+                                                               |t#1| $)
+                                                              $
+                                                              (|Pattern| |t#1|)
+                                                              (|PatternMatchResult|
+                                                               |t#1| $)))
+                                                            T))
+                                                         NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|PatternMatchable| |t#1|))))) 

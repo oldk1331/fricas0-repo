@@ -20,8 +20,9 @@
   (SPROG ((#1=#:G124 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|FiniteRankNonAssociativeAlgebra;CAT|)
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND
+                                    (|FiniteRankNonAssociativeAlgebra;CAT|)
                                     ('T
                                      (LETT
                                       |FiniteRankNonAssociativeAlgebra;CAT|

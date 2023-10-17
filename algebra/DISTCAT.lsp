@@ -18,116 +18,131 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|DistributionCategory;CAT|)
-                                    ('T
-                                     (LETT |DistributionCategory;CAT|
-                                           (|Join| (|SetCategory|)
-                                                   (|mkCategory|
-                                                    '(((|Zero| ($) |constant|)
-                                                       T)
-                                                      ((|moment|
-                                                        (|t#1| $
-                                                         (|NonNegativeInteger|)))
-                                                       T)
-                                                      ((|classicalCumulant|
-                                                        (|t#1| $
-                                                         (|PositiveInteger|)))
-                                                       T)
-                                                      ((|freeCumulant|
-                                                        (|t#1| $
-                                                         (|PositiveInteger|)))
-                                                       T)
-                                                      ((|booleanCumulant|
-                                                        (|t#1| $
-                                                         (|PositiveInteger|)))
-                                                       T)
-                                                      ((|moments|
-                                                        ((|Sequence| |t#1|) $))
-                                                       T)
-                                                      ((|classicalCumulants|
-                                                        ((|Sequence| |t#1|) $))
-                                                       T)
-                                                      ((|freeCumulants|
-                                                        ((|Sequence| |t#1|) $))
-                                                       T)
-                                                      ((|booleanCumulants|
-                                                        ((|Sequence| |t#1|) $))
-                                                       T)
-                                                      ((|hankelDeterminants|
-                                                        ((|Stream| |t#1|) $))
-                                                       T)
-                                                      ((|monotoneCumulants|
-                                                        ((|Sequence| |t#1|) $))
-                                                       (|has| |t#1|
-                                                              (|Algebra|
-                                                               (|Fraction|
-                                                                (|Integer|)))))
-                                                      ((|jacobiParameters|
-                                                        ((|Record|
-                                                          (|:| |an|
-                                                               (|Stream|
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|DistributionCategory;CAT|)
+                                         ('T
+                                          (LETT |DistributionCategory;CAT|
+                                                (|Join| (|SetCategory|)
+                                                        (|mkCategory|
+                                                         '(((|Zero| ($)
+                                                                    |constant|)
+                                                            T)
+                                                           ((|moment|
+                                                             (|t#1| $
+                                                              (|NonNegativeInteger|)))
+                                                            T)
+                                                           ((|classicalCumulant|
+                                                             (|t#1| $
+                                                              (|PositiveInteger|)))
+                                                            T)
+                                                           ((|freeCumulant|
+                                                             (|t#1| $
+                                                              (|PositiveInteger|)))
+                                                            T)
+                                                           ((|booleanCumulant|
+                                                             (|t#1| $
+                                                              (|PositiveInteger|)))
+                                                            T)
+                                                           ((|moments|
+                                                             ((|Sequence|
+                                                               |t#1|)
+                                                              $))
+                                                            T)
+                                                           ((|classicalCumulants|
+                                                             ((|Sequence|
+                                                               |t#1|)
+                                                              $))
+                                                            T)
+                                                           ((|freeCumulants|
+                                                             ((|Sequence|
+                                                               |t#1|)
+                                                              $))
+                                                            T)
+                                                           ((|booleanCumulants|
+                                                             ((|Sequence|
+                                                               |t#1|)
+                                                              $))
+                                                            T)
+                                                           ((|hankelDeterminants|
+                                                             ((|Stream| |t#1|)
+                                                              $))
+                                                            T)
+                                                           ((|monotoneCumulants|
+                                                             ((|Sequence|
+                                                               |t#1|)
+                                                              $))
+                                                            (|has| |t#1|
+                                                                   (|Algebra|
+                                                                    (|Fraction|
+                                                                     (|Integer|)))))
+                                                           ((|jacobiParameters|
+                                                             ((|Record|
+                                                               (|:| |an|
+                                                                    (|Stream|
+                                                                     |t#1|))
+                                                               (|:| |bn|
+                                                                    (|Stream|
+                                                                     |t#1|)))
+                                                              $))
+                                                            (|has| |t#1|
+                                                                   (|Field|)))
+                                                           ((|orthogonalPolynomials|
+                                                             ((|Stream|
+                                                               (|SparseUnivariatePolynomial|
                                                                 |t#1|))
-                                                          (|:| |bn|
-                                                               (|Stream|
-                                                                |t#1|)))
-                                                         $))
-                                                       (|has| |t#1| (|Field|)))
-                                                      ((|orthogonalPolynomials|
-                                                        ((|Stream|
-                                                          (|SparseUnivariatePolynomial|
-                                                           |t#1|))
-                                                         $))
-                                                       (|has| |t#1| (|Field|)))
-                                                      ((|jacobiParameters|
-                                                        ((|Record|
-                                                          (|:| |an|
-                                                               (|Stream|
+                                                              $))
+                                                            (|has| |t#1|
+                                                                   (|Field|)))
+                                                           ((|jacobiParameters|
+                                                             ((|Record|
+                                                               (|:| |an|
+                                                                    (|Stream|
+                                                                     (|Fraction|
+                                                                      |t#1|)))
+                                                               (|:| |bn|
+                                                                    (|Stream|
+                                                                     (|Fraction|
+                                                                      |t#1|))))
+                                                              $))
+                                                            (AND
+                                                             (|has| |t#1|
+                                                                    (|IntegralDomain|))
+                                                             (|not|
+                                                              (|has| |t#1|
+                                                                     (|Field|)))))
+                                                           ((|orthogonalPolynomials|
+                                                             ((|Stream|
+                                                               (|SparseUnivariatePolynomial|
                                                                 (|Fraction|
                                                                  |t#1|)))
-                                                          (|:| |bn|
-                                                               (|Stream|
-                                                                (|Fraction|
-                                                                 |t#1|))))
-                                                         $))
-                                                       (AND
-                                                        (|has| |t#1|
-                                                               (|IntegralDomain|))
-                                                        (|not|
-                                                         (|has| |t#1|
-                                                                (|Field|)))))
-                                                      ((|orthogonalPolynomials|
-                                                        ((|Stream|
-                                                          (|SparseUnivariatePolynomial|
-                                                           (|Fraction| |t#1|)))
-                                                         $))
-                                                       (AND
-                                                        (|has| |t#1|
-                                                               (|IntegralDomain|))
-                                                        (|not|
-                                                         (|has| |t#1|
-                                                                (|Field|)))))
-                                                      ((|classicalConvolution|
-                                                        ($ $ $))
-                                                       T)
-                                                      ((|freeConvolution|
-                                                        ($ $ $))
-                                                       T)
-                                                      ((|booleanConvolution|
-                                                        ($ $ $))
-                                                       T)
-                                                      ((|monotoneConvolution|
-                                                        ($ $ $))
-                                                       T)
-                                                      ((^
-                                                        ($ $
-                                                         (|PositiveInteger|)))
-                                                       T)
-                                                      ((|orthogonalConvolution|
-                                                        ($ $ $))
-                                                       T)
-                                                      ((|subordinationConvolution|
-                                                        ($ $ $))
-                                                       T))
-                                                    NIL NIL NIL)))))))
+                                                              $))
+                                                            (AND
+                                                             (|has| |t#1|
+                                                                    (|IntegralDomain|))
+                                                             (|not|
+                                                              (|has| |t#1|
+                                                                     (|Field|)))))
+                                                           ((|classicalConvolution|
+                                                             ($ $ $))
+                                                            T)
+                                                           ((|freeConvolution|
+                                                             ($ $ $))
+                                                            T)
+                                                           ((|booleanConvolution|
+                                                             ($ $ $))
+                                                            T)
+                                                           ((|monotoneConvolution|
+                                                             ($ $ $))
+                                                            T)
+                                                           ((^
+                                                             ($ $
+                                                              (|PositiveInteger|)))
+                                                            T)
+                                                           ((|orthogonalConvolution|
+                                                             ($ $ $))
+                                                            T)
+                                                           ((|subordinationConvolution|
+                                                             ($ $ $))
+                                                            T))
+                                                         NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|DistributionCategory| |t#1|))))) 

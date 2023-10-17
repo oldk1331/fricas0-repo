@@ -26,14 +26,17 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV|
-                    (MAKE_PAIRS '(|t#1| |t#2| |t#3|) (LIST |t#1| |t#2| |t#3|))
-                    (COND (|MultivariateSkewPolynomialCategory;CAT|)
-                          ('T
-                           (LETT |MultivariateSkewPolynomialCategory;CAT|
-                                 (|Join|
-                                  (|MaybeSkewPolynomialCategory| '|t#1| '|t#2|
-                                                                 '|t#3|)))))))
+                   (|subst_in_cat| '(|t#1| |t#2| |t#3|)
+                                   (LIST |t#1| |t#2| |t#3|)
+                                   (COND
+                                    (|MultivariateSkewPolynomialCategory;CAT|)
+                                    ('T
+                                     (LETT
+                                      |MultivariateSkewPolynomialCategory;CAT|
+                                      (|Join|
+                                       (|MaybeSkewPolynomialCategory| '|t#1|
+                                                                      '|t#2|
+                                                                      '|t#3|)))))))
            (SETELT #1# 0
                    (LIST '|MultivariateSkewPolynomialCategory| |t#1| |t#2|
                          |t#3|))))) 

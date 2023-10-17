@@ -18,11 +18,11 @@
   (SPROG ((#1=#:G107 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|Dictionary;CAT|)
-                                    ('T
-                                     (LETT |Dictionary;CAT|
-                                           (|Join|
-                                            (|DictionaryOperations|
-                                             '|t#1|)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|Dictionary;CAT|)
+                                         ('T
+                                          (LETT |Dictionary;CAT|
+                                                (|Join|
+                                                 (|DictionaryOperations|
+                                                  '|t#1|)))))))
            (SETELT #1# 0 (LIST '|Dictionary| |t#1|))))) 

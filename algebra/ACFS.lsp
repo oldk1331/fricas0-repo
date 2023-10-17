@@ -20,8 +20,9 @@
   (SPROG ((#1=#:G115 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|AlgebraicallyClosedFunctionSpace;CAT|)
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND
+                                    (|AlgebraicallyClosedFunctionSpace;CAT|)
                                     ('T
                                      (LETT
                                       |AlgebraicallyClosedFunctionSpace;CAT|

@@ -18,25 +18,24 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|FullyRetractableTo;CAT|)
-                                    ('T
-                                     (LETT |FullyRetractableTo;CAT|
-                                           (|Join| (|RetractableTo| '|t#1|)
-                                                   (|mkCategory| NIL
-                                                                 '(((|RetractableTo|
-                                                                     (|Integer|))
-                                                                    (|has|
-                                                                     |t#1|
-                                                                     (|RetractableTo|
-                                                                      (|Integer|))))
-                                                                   ((|RetractableTo|
-                                                                     (|Fraction|
-                                                                      (|Integer|)))
-                                                                    (|has|
-                                                                     |t#1|
-                                                                     (|RetractableTo|
-                                                                      (|Fraction|
-                                                                       (|Integer|))))))
-                                                                 NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|FullyRetractableTo;CAT|)
+                                         ('T
+                                          (LETT |FullyRetractableTo;CAT|
+                                                (|Join|
+                                                 (|RetractableTo| '|t#1|)
+                                                 (|mkCategory| NIL
+                                                               '(((|RetractableTo|
+                                                                   (|Integer|))
+                                                                  (|has| |t#1|
+                                                                         (|RetractableTo|
+                                                                          (|Integer|))))
+                                                                 ((|RetractableTo|
+                                                                   (|Fraction|
+                                                                    (|Integer|)))
+                                                                  (|has| |t#1|
+                                                                         (|RetractableTo|
+                                                                          (|Fraction|
+                                                                           (|Integer|))))))
+                                                               NIL NIL)))))))
            (SETELT #1# 0 (LIST '|FullyRetractableTo| |t#1|))))) 

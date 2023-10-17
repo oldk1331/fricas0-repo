@@ -18,26 +18,26 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|DequeueAggregate;CAT|)
-                                    ('T
-                                     (LETT |DequeueAggregate;CAT|
-                                           (|Join| (|StackAggregate| '|t#1|)
-                                                   (|QueueAggregate| '|t#1|)
-                                                   (|mkCategory|
-                                                    '(((|bottom| (|t#1| $)) T)
-                                                      ((|insertTop!|
-                                                        (|t#1| |t#1| $))
-                                                       T)
-                                                      ((|insertBottom!|
-                                                        (|t#1| |t#1| $))
-                                                       T)
-                                                      ((|extractTop!|
-                                                        (|t#1| $))
-                                                       T)
-                                                      ((|extractBottom!|
-                                                        (|t#1| $))
-                                                       T)
-                                                      ((|reverse!| ($ $)) T))
-                                                    NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|DequeueAggregate;CAT|)
+                                         ('T
+                                          (LETT |DequeueAggregate;CAT|
+                                                (|Join|
+                                                 (|StackAggregate| '|t#1|)
+                                                 (|QueueAggregate| '|t#1|)
+                                                 (|mkCategory|
+                                                  '(((|bottom| (|t#1| $)) T)
+                                                    ((|insertTop!|
+                                                      (|t#1| |t#1| $))
+                                                     T)
+                                                    ((|insertBottom!|
+                                                      (|t#1| |t#1| $))
+                                                     T)
+                                                    ((|extractTop!| (|t#1| $))
+                                                     T)
+                                                    ((|extractBottom!|
+                                                      (|t#1| $))
+                                                     T)
+                                                    ((|reverse!| ($ $)) T))
+                                                  NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|DequeueAggregate| |t#1|))))) 

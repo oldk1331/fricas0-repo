@@ -18,25 +18,25 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|PointCategory;CAT|)
-                                    ('T
-                                     (LETT |PointCategory;CAT|
-                                           (|Join| (|VectorCategory| '|t#1|)
-                                                   (|mkCategory|
-                                                    '(((|point|
-                                                        ($ (|List| |t#1|)))
-                                                       T)
-                                                      ((|dimension|
-                                                        ((|PositiveInteger|)
-                                                         $))
-                                                       T)
-                                                      ((|convert|
-                                                        ($ (|List| |t#1|)))
-                                                       T)
-                                                      ((|cross| ($ $ $)) T)
-                                                      ((|extend|
-                                                        ($ $ (|List| |t#1|)))
-                                                       T))
-                                                    NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|PointCategory;CAT|)
+                                         ('T
+                                          (LETT |PointCategory;CAT|
+                                                (|Join|
+                                                 (|VectorCategory| '|t#1|)
+                                                 (|mkCategory|
+                                                  '(((|point|
+                                                      ($ (|List| |t#1|)))
+                                                     T)
+                                                    ((|dimension|
+                                                      ((|PositiveInteger|) $))
+                                                     T)
+                                                    ((|convert|
+                                                      ($ (|List| |t#1|)))
+                                                     T)
+                                                    ((|cross| ($ $ $)) T)
+                                                    ((|extend|
+                                                      ($ $ (|List| |t#1|)))
+                                                     T))
+                                                  NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|PointCategory| |t#1|))))) 

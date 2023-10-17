@@ -22,52 +22,77 @@
   (SPROG ((#1=#:G111 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV|
-                    (MAKE_PAIRS '(|t#1| |t#2| |t#3| |t#4|)
-                                (LIST |t#1| |t#2| |t#3| |t#4|))
-                    (COND (|SquareMatrixCategory;CAT|)
-                          ('T
-                           (LETT |SquareMatrixCategory;CAT|
-                                 (|Join| (|SemiRng|) (|AbelianMonoid|)
-                                         (|BiModule| '|t#2| '|t#2|)
-                                         (|TwoSidedRecip|)
-                                         (|RectangularMatrixCategory| |t#1|
-                                                                      |t#1|
-                                                                      '|t#2|
-                                                                      '|t#3|
-                                                                      '|t#4|)
-                                         (|FullyRetractableTo| '|t#2|)
-                                         (|mkCategory|
-                                          '(((|scalarMatrix| ($ |t#2|)) T)
-                                            ((|diagonalMatrix|
-                                              ($ (|List| |t#2|)))
-                                             T)
-                                            ((|diagonal| (|t#3| $)) T)
-                                            ((|trace| (|t#2| $)) T)
-                                            ((|diagonalProduct| (|t#2| $)) T)
-                                            ((* (|t#4| $ |t#4|)) T)
-                                            ((* (|t#3| |t#3| $)) T)
-                                            ((|determinant| (|t#2| $))
-                                             (|has| |t#2| (|CommutativeRing|)))
-                                            ((|minordet| (|t#2| $))
-                                             (|has| |t#2| (|CommutativeRing|)))
-                                            ((|Pfaffian| (|t#2| $))
-                                             (|has| |t#2| (|CommutativeRing|)))
-                                            ((|inverse|
-                                              ((|Union| $ "failed") $))
-                                             (|has| |t#2| (|Field|)))
-                                            ((^ ($ $ (|Integer|)))
-                                             (|has| |t#2| (|Field|))))
-                                          '(((|SemiRing|)
-                                             (|has| |t#2| (|SemiRing|)))
-                                            ((|DifferentialExtension| |t#2|)
-                                             (|has| |t#2| (|Ring|)))
-                                            ((|FullyLinearlyExplicitOver|
-                                              |t#2|)
-                                             (|has| |t#2| (|Ring|)))
-                                            ((|Algebra| |t#2|)
-                                             (|has| |t#2|
-                                                    (|CommutativeRing|))))
-                                          NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1| |t#2| |t#3| |t#4|)
+                                   (LIST |t#1| |t#2| |t#3| |t#4|)
+                                   (COND (|SquareMatrixCategory;CAT|)
+                                         ('T
+                                          (LETT |SquareMatrixCategory;CAT|
+                                                (|Join| (|SemiRng|)
+                                                        (|AbelianMonoid|)
+                                                        (|BiModule| '|t#2|
+                                                                    '|t#2|)
+                                                        (|TwoSidedRecip|)
+                                                        (|RectangularMatrixCategory|
+                                                         |t#1| |t#1| '|t#2|
+                                                         '|t#3| '|t#4|)
+                                                        (|FullyRetractableTo|
+                                                         '|t#2|)
+                                                        (|mkCategory|
+                                                         '(((|scalarMatrix|
+                                                             ($ |t#2|))
+                                                            T)
+                                                           ((|diagonalMatrix|
+                                                             ($
+                                                              (|List| |t#2|)))
+                                                            T)
+                                                           ((|diagonal|
+                                                             (|t#3| $))
+                                                            T)
+                                                           ((|trace| (|t#2| $))
+                                                            T)
+                                                           ((|diagonalProduct|
+                                                             (|t#2| $))
+                                                            T)
+                                                           ((* (|t#4| $ |t#4|))
+                                                            T)
+                                                           ((* (|t#3| |t#3| $))
+                                                            T)
+                                                           ((|determinant|
+                                                             (|t#2| $))
+                                                            (|has| |t#2|
+                                                                   (|CommutativeRing|)))
+                                                           ((|minordet|
+                                                             (|t#2| $))
+                                                            (|has| |t#2|
+                                                                   (|CommutativeRing|)))
+                                                           ((|Pfaffian|
+                                                             (|t#2| $))
+                                                            (|has| |t#2|
+                                                                   (|CommutativeRing|)))
+                                                           ((|inverse|
+                                                             ((|Union| $
+                                                                       "failed")
+                                                              $))
+                                                            (|has| |t#2|
+                                                                   (|Field|)))
+                                                           ((^
+                                                             ($ $ (|Integer|)))
+                                                            (|has| |t#2|
+                                                                   (|Field|))))
+                                                         '(((|SemiRing|)
+                                                            (|has| |t#2|
+                                                                   (|SemiRing|)))
+                                                           ((|DifferentialExtension|
+                                                             |t#2|)
+                                                            (|has| |t#2|
+                                                                   (|Ring|)))
+                                                           ((|FullyLinearlyExplicitOver|
+                                                             |t#2|)
+                                                            (|has| |t#2|
+                                                                   (|Ring|)))
+                                                           ((|Algebra| |t#2|)
+                                                            (|has| |t#2|
+                                                                   (|CommutativeRing|))))
+                                                         NIL NIL)))))))
            (SETELT #1# 0
                    (LIST '|SquareMatrixCategory| |t#1| |t#2| |t#3| |t#4|))))) 

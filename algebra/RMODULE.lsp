@@ -18,18 +18,18 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|RightModule;CAT|)
-                                    ('T
-                                     (LETT |RightModule;CAT|
-                                           (|Join| (|AbelianSemiGroup|)
-                                                   (|mkCategory|
-                                                    '(((* ($ $ |t#1|)) T))
-                                                    '(((|AbelianMonoid|)
-                                                       (|has| |t#1|
-                                                              (|AbelianMonoid|)))
-                                                      ((|AbelianGroup|)
-                                                       (|has| |t#1|
-                                                              (|AbelianGroup|))))
-                                                    NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|RightModule;CAT|)
+                                         ('T
+                                          (LETT |RightModule;CAT|
+                                                (|Join| (|AbelianSemiGroup|)
+                                                        (|mkCategory|
+                                                         '(((* ($ $ |t#1|)) T))
+                                                         '(((|AbelianMonoid|)
+                                                            (|has| |t#1|
+                                                                   (|AbelianMonoid|)))
+                                                           ((|AbelianGroup|)
+                                                            (|has| |t#1|
+                                                                   (|AbelianGroup|))))
+                                                         NIL NIL)))))))
            (SETELT #1# 0 (LIST '|RightModule| |t#1|))))) 

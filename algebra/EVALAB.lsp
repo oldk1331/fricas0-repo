@@ -18,19 +18,21 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|Evalable;CAT|)
-                                    ('T
-                                     (LETT |Evalable;CAT|
-                                           (|Join|
-                                            (|InnerEvalable| '|t#1| '|t#1|)
-                                            (|mkCategory|
-                                             '(((|eval|
-                                                 ($ $ (|Equation| |t#1|)))
-                                                T)
-                                               ((|eval|
-                                                 ($ $
-                                                  (|List| (|Equation| |t#1|))))
-                                                T))
-                                             NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|Evalable;CAT|)
+                                         ('T
+                                          (LETT |Evalable;CAT|
+                                                (|Join|
+                                                 (|InnerEvalable| '|t#1|
+                                                                  '|t#1|)
+                                                 (|mkCategory|
+                                                  '(((|eval|
+                                                      ($ $ (|Equation| |t#1|)))
+                                                     T)
+                                                    ((|eval|
+                                                      ($ $
+                                                       (|List|
+                                                        (|Equation| |t#1|))))
+                                                     T))
+                                                  NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|Evalable| |t#1|))))) 

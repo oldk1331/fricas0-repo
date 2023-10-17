@@ -24,59 +24,72 @@
   (SPROG ((#1=#:G106 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV|
-                    (MAKE_PAIRS '(|t#1| |t#2| |t#3|) (LIST |t#1| |t#2| |t#3|))
-                    (COND (|MaybeSkewPolynomialCategory;CAT|)
-                          ('T
-                           (LETT |MaybeSkewPolynomialCategory;CAT|
-                                 (|Join|
-                                  (|FiniteAbelianMonoidRing| '|t#1| '|t#2|)
-                                  (|mkCategory|
-                                   '(((|degree|
-                                       ((|NonNegativeInteger|) $ |t#3|))
-                                      T)
-                                     ((|degree|
-                                       ((|List| (|NonNegativeInteger|)) $
-                                        (|List| |t#3|)))
-                                      T)
-                                     ((|coefficient|
-                                       ($ $ |t#3| (|NonNegativeInteger|)))
-                                      T)
-                                     ((|coefficient|
-                                       ($ $ (|List| |t#3|)
-                                        (|List| (|NonNegativeInteger|))))
-                                      T)
-                                     ((|monomials| ((|List| $) $)) T)
-                                     ((|mainVariable|
-                                       ((|Union| |t#3| "failed") $))
-                                      T)
-                                     ((|monomial|
-                                       ($ $ |t#3| (|NonNegativeInteger|)))
-                                      T)
-                                     ((|monomial|
-                                       ($ $ (|List| |t#3|)
-                                        (|List| (|NonNegativeInteger|))))
-                                      T)
-                                     ((|totalDegree|
-                                       ((|NonNegativeInteger|) $))
-                                      T)
-                                     ((|totalDegree|
-                                       ((|NonNegativeInteger|) $
-                                        (|List| |t#3|)))
-                                      T)
-                                     ((|totalDegreeSorted|
-                                       ((|NonNegativeInteger|) $
-                                        (|List| |t#3|)))
-                                      T)
-                                     ((|variables| ((|List| |t#3|) $)) T)
-                                     ((|primitiveMonomials| ((|List| $) $))
-                                      (|has| |t#1| (|SemiRing|))))
-                                   '(((|FullyLinearlyExplicitOver| |t#1|)
-                                      (|has| |t#1| (|Ring|)))
-                                     ((|Comparable|)
-                                      (|has| |t#1| (|Comparable|)))
-                                     ((|canonicalUnitNormal|)
-                                      (|has| |t#1| (|canonicalUnitNormal|))))
-                                   NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1| |t#2| |t#3|)
+                                   (LIST |t#1| |t#2| |t#3|)
+                                   (COND (|MaybeSkewPolynomialCategory;CAT|)
+                                         ('T
+                                          (LETT
+                                           |MaybeSkewPolynomialCategory;CAT|
+                                           (|Join|
+                                            (|FiniteAbelianMonoidRing| '|t#1|
+                                                                       '|t#2|)
+                                            (|mkCategory|
+                                             '(((|degree|
+                                                 ((|NonNegativeInteger|) $
+                                                  |t#3|))
+                                                T)
+                                               ((|degree|
+                                                 ((|List|
+                                                   (|NonNegativeInteger|))
+                                                  $ (|List| |t#3|)))
+                                                T)
+                                               ((|coefficient|
+                                                 ($ $ |t#3|
+                                                  (|NonNegativeInteger|)))
+                                                T)
+                                               ((|coefficient|
+                                                 ($ $ (|List| |t#3|)
+                                                  (|List|
+                                                   (|NonNegativeInteger|))))
+                                                T)
+                                               ((|monomials| ((|List| $) $)) T)
+                                               ((|mainVariable|
+                                                 ((|Union| |t#3| "failed") $))
+                                                T)
+                                               ((|monomial|
+                                                 ($ $ |t#3|
+                                                  (|NonNegativeInteger|)))
+                                                T)
+                                               ((|monomial|
+                                                 ($ $ (|List| |t#3|)
+                                                  (|List|
+                                                   (|NonNegativeInteger|))))
+                                                T)
+                                               ((|totalDegree|
+                                                 ((|NonNegativeInteger|) $))
+                                                T)
+                                               ((|totalDegree|
+                                                 ((|NonNegativeInteger|) $
+                                                  (|List| |t#3|)))
+                                                T)
+                                               ((|totalDegreeSorted|
+                                                 ((|NonNegativeInteger|) $
+                                                  (|List| |t#3|)))
+                                                T)
+                                               ((|variables|
+                                                 ((|List| |t#3|) $))
+                                                T)
+                                               ((|primitiveMonomials|
+                                                 ((|List| $) $))
+                                                (|has| |t#1| (|SemiRing|))))
+                                             '(((|FullyLinearlyExplicitOver|
+                                                 |t#1|)
+                                                (|has| |t#1| (|Ring|)))
+                                               ((|Comparable|)
+                                                (|has| |t#1| (|Comparable|)))
+                                               ((|canonicalUnitNormal|)
+                                                (|has| |t#1|
+                                                       (|canonicalUnitNormal|))))
+                                             NIL NIL)))))))
            (SETELT #1# 0
                    (LIST '|MaybeSkewPolynomialCategory| |t#1| |t#2| |t#3|))))) 

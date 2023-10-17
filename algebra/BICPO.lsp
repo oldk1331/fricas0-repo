@@ -17,10 +17,10 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|BiCPO;CAT|)
-                                    ('T
-                                     (LETT |BiCPO;CAT|
-                                           (|Join| (|Dcpo| '|t#1|)
-                                                   (|CoDcpo| '|t#1|)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|BiCPO;CAT|)
+                                         ('T
+                                          (LETT |BiCPO;CAT|
+                                                (|Join| (|Dcpo| '|t#1|)
+                                                        (|CoDcpo| '|t#1|)))))))
            (SETELT #1# 0 (LIST '|BiCPO| |t#1|))))) 

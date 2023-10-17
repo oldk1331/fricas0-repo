@@ -19,23 +19,24 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|FullyPatternMatchable;CAT|)
-                                    ('T
-                                     (LETT |FullyPatternMatchable;CAT|
-                                           (|Join| (|Type|)
-                                                   (|mkCategory| NIL
-                                                                 '(((|PatternMatchable|
-                                                                     (|Integer|))
-                                                                    (|has|
-                                                                     |t#1|
-                                                                     (|PatternMatchable|
-                                                                      (|Integer|))))
-                                                                   ((|PatternMatchable|
-                                                                     (|Float|))
-                                                                    (|has|
-                                                                     |t#1|
-                                                                     (|PatternMatchable|
-                                                                      (|Float|)))))
-                                                                 NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|FullyPatternMatchable;CAT|)
+                                         ('T
+                                          (LETT |FullyPatternMatchable;CAT|
+                                                (|Join| (|Type|)
+                                                        (|mkCategory| NIL
+                                                                      '(((|PatternMatchable|
+                                                                          (|Integer|))
+                                                                         (|has|
+                                                                          |t#1|
+                                                                          (|PatternMatchable|
+                                                                           (|Integer|))))
+                                                                        ((|PatternMatchable|
+                                                                          (|Float|))
+                                                                         (|has|
+                                                                          |t#1|
+                                                                          (|PatternMatchable|
+                                                                           (|Float|)))))
+                                                                      NIL
+                                                                      NIL)))))))
            (SETELT #1# 0 (LIST '|FullyPatternMatchable| |t#1|))))) 

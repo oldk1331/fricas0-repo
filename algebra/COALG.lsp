@@ -18,14 +18,17 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
-                              (COND (|Coalgebra;CAT|)
-                                    ('T
-                                     (LETT |Coalgebra;CAT|
-                                           (|Join| (|Module| '|t#1|)
-                                                   (|mkCategory|
-                                                    '(((|coproduct| (|t#2| $))
-                                                       T)
-                                                      ((|counit| (|t#1| $)) T))
-                                                    NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1| |t#2|) (LIST |t#1| |t#2|)
+                                   (COND (|Coalgebra;CAT|)
+                                         ('T
+                                          (LETT |Coalgebra;CAT|
+                                                (|Join| (|Module| '|t#1|)
+                                                        (|mkCategory|
+                                                         '(((|coproduct|
+                                                             (|t#2| $))
+                                                            T)
+                                                           ((|counit|
+                                                             (|t#1| $))
+                                                            T))
+                                                         NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|Coalgebra| |t#1| |t#2|))))) 

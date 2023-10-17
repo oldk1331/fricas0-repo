@@ -21,31 +21,36 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV|
-                    (MAKE_PAIRS '(|t#1| |t#2| |t#3|) (LIST |t#1| |t#2| |t#3|))
-                    (|Join|
-                     (|mkCategory|
-                      '(((|pseudoRem| (|t#2| |t#2| |t#2| |t#3|)) T)
-                        ((|canonicalIfCan|
-                          ((|Union| |t#2| "failed") |t#2| |t#3|))
-                         T)
-                        ((|pack_modulus|
-                          ((|Union| |t#3| "failed") (|List| |t#1|)
-                           (|List| (|Symbol|)) (|Integer|)))
-                         T)
-                        ((|MPtoMPT|
-                          ((|Union| |t#2| "failed") |t#1| (|Symbol|)
-                           (|List| (|Symbol|)) |t#3|))
-                         T)
-                        ((|zero?| ((|Boolean|) |t#2|)) T)
-                        ((|degree| ((|Integer|) |t#2|)) T)
-                        ((|pack_exps|
-                          ((|SortedExponentVector|) (|Integer|) (|Integer|)
-                           |t#3|))
-                         T)
-                        ((|repack1|
-                          ((|Void|) |t#2| (|U32Vector|) (|Integer|) |t#3|))
-                         T))
-                      NIL NIL NIL))))
+                   (|subst_in_cat| '(|t#1| |t#2| |t#3|)
+                                   (LIST |t#1| |t#2| |t#3|)
+                                   (|Join|
+                                    (|mkCategory|
+                                     '(((|pseudoRem| (|t#2| |t#2| |t#2| |t#3|))
+                                        T)
+                                       ((|canonicalIfCan|
+                                         ((|Union| |t#2| "failed") |t#2|
+                                          |t#3|))
+                                        T)
+                                       ((|pack_modulus|
+                                         ((|Union| |t#3| "failed")
+                                          (|List| |t#1|) (|List| (|Symbol|))
+                                          (|Integer|)))
+                                        T)
+                                       ((|MPtoMPT|
+                                         ((|Union| |t#2| "failed") |t#1|
+                                          (|Symbol|) (|List| (|Symbol|))
+                                          |t#3|))
+                                        T)
+                                       ((|zero?| ((|Boolean|) |t#2|)) T)
+                                       ((|degree| ((|Integer|) |t#2|)) T)
+                                       ((|pack_exps|
+                                         ((|SortedExponentVector|) (|Integer|)
+                                          (|Integer|) |t#3|))
+                                        T)
+                                       ((|repack1|
+                                         ((|Void|) |t#2| (|U32Vector|)
+                                          (|Integer|) |t#3|))
+                                        T))
+                                     NIL NIL NIL))))
            (SETELT #1# 0
                    (LIST '|ModularAlgebraicGcdOperations| |t#1| |t#2| |t#3|))))) 

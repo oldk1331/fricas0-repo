@@ -25,31 +25,33 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
-                              (COND
-                               (|UnivariatePuiseuxSeriesConstructorCategory;CAT|)
-                               ('T
-                                (LETT
-                                 |UnivariatePuiseuxSeriesConstructorCategory;CAT|
-                                 (|Join|
-                                  (|UnivariatePuiseuxSeriesCategory| '|t#1|)
-                                  (|RetractableTo| '|t#2|)
-                                  (|mkCategory|
-                                   '(((|puiseux|
-                                       ($ (|Fraction| (|Integer|)) |t#2|))
-                                      T)
-                                     ((|rationalPower|
-                                       ((|Fraction| (|Integer|)) $))
-                                      T)
-                                     ((|laurentRep| (|t#2| $)) T)
-                                     ((|degree| ((|Fraction| (|Integer|)) $))
-                                      T)
-                                     ((|coerce| ($ |t#2|)) T)
-                                     ((|laurent| (|t#2| $)) T)
-                                     ((|laurentIfCan|
-                                       ((|Union| |t#2| "failed") $))
-                                      T))
-                                   NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1| |t#2|) (LIST |t#1| |t#2|)
+                                   (COND
+                                    (|UnivariatePuiseuxSeriesConstructorCategory;CAT|)
+                                    ('T
+                                     (LETT
+                                      |UnivariatePuiseuxSeriesConstructorCategory;CAT|
+                                      (|Join|
+                                       (|UnivariatePuiseuxSeriesCategory|
+                                        '|t#1|)
+                                       (|RetractableTo| '|t#2|)
+                                       (|mkCategory|
+                                        '(((|puiseux|
+                                            ($ (|Fraction| (|Integer|)) |t#2|))
+                                           T)
+                                          ((|rationalPower|
+                                            ((|Fraction| (|Integer|)) $))
+                                           T)
+                                          ((|laurentRep| (|t#2| $)) T)
+                                          ((|degree|
+                                            ((|Fraction| (|Integer|)) $))
+                                           T)
+                                          ((|coerce| ($ |t#2|)) T)
+                                          ((|laurent| (|t#2| $)) T)
+                                          ((|laurentIfCan|
+                                            ((|Union| |t#2| "failed") $))
+                                           T))
+                                        NIL NIL NIL)))))))
            (SETELT #1# 0
                    (LIST '|UnivariatePuiseuxSeriesConstructorCategory| |t#1|
                          |t#2|))))) 

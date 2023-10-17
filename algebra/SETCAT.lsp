@@ -10,15 +10,17 @@
   (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(#2=#:G103) (LIST '(|OutputForm|)))
-                              (|Join| (|BasicType|) (|CoercibleTo| '#2#)
-                                      (|mkCategory|
-                                       '(((|hash| ((|SingleInteger|) $)) T)
-                                         ((|hashUpdate!|
-                                           ((|HashState|) (|HashState|) $))
-                                          T)
-                                         ((|latex| ((|String|) $)) T))
-                                       NIL NIL NIL))))
+                   (|subst_in_cat| '(#2=#:G103) (LIST '(|OutputForm|))
+                                   (|Join| (|BasicType|) (|CoercibleTo| '#2#)
+                                           (|mkCategory|
+                                            '(((|hash| ((|SingleInteger|) $))
+                                               T)
+                                              ((|hashUpdate!|
+                                                ((|HashState|) (|HashState|)
+                                                 $))
+                                               T)
+                                              ((|latex| ((|String|) $)) T))
+                                            NIL NIL NIL))))
            (SETELT #1# 0 '(|SetCategory|))))) 
 
 (MAKEPROP '|SetCategory| 'NILADIC T) 

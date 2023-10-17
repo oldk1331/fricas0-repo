@@ -19,38 +19,43 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|PartialDifferentialRing;CAT|)
-                                    ('T
-                                     (LETT |PartialDifferentialRing;CAT|
-                                           (|Join| (|Ring|)
-                                                   (|mkCategory|
-                                                    '(((|differentiate|
-                                                        ($ $ |t#1|))
-                                                       T)
-                                                      ((|differentiate|
-                                                        ($ $ (|List| |t#1|)))
-                                                       T)
-                                                      ((|differentiate|
-                                                        ($ $ |t#1|
-                                                         (|NonNegativeInteger|)))
-                                                       T)
-                                                      ((|differentiate|
-                                                        ($ $ (|List| |t#1|)
-                                                         (|List|
-                                                          (|NonNegativeInteger|))))
-                                                       T)
-                                                      ((D ($ $ |t#1|)) T)
-                                                      ((D ($ $ (|List| |t#1|)))
-                                                       T)
-                                                      ((D
-                                                        ($ $ |t#1|
-                                                         (|NonNegativeInteger|)))
-                                                       T)
-                                                      ((D
-                                                        ($ $ (|List| |t#1|)
-                                                         (|List|
-                                                          (|NonNegativeInteger|))))
-                                                       T))
-                                                    NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|PartialDifferentialRing;CAT|)
+                                         ('T
+                                          (LETT |PartialDifferentialRing;CAT|
+                                                (|Join| (|Ring|)
+                                                        (|mkCategory|
+                                                         '(((|differentiate|
+                                                             ($ $ |t#1|))
+                                                            T)
+                                                           ((|differentiate|
+                                                             ($ $
+                                                              (|List| |t#1|)))
+                                                            T)
+                                                           ((|differentiate|
+                                                             ($ $ |t#1|
+                                                              (|NonNegativeInteger|)))
+                                                            T)
+                                                           ((|differentiate|
+                                                             ($ $
+                                                              (|List| |t#1|)
+                                                              (|List|
+                                                               (|NonNegativeInteger|))))
+                                                            T)
+                                                           ((D ($ $ |t#1|)) T)
+                                                           ((D
+                                                             ($ $
+                                                              (|List| |t#1|)))
+                                                            T)
+                                                           ((D
+                                                             ($ $ |t#1|
+                                                              (|NonNegativeInteger|)))
+                                                            T)
+                                                           ((D
+                                                             ($ $
+                                                              (|List| |t#1|)
+                                                              (|List|
+                                                               (|NonNegativeInteger|))))
+                                                            T))
+                                                         NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|PartialDifferentialRing| |t#1|))))) 

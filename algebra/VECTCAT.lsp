@@ -18,46 +18,54 @@
   (SPROG ((#1=#:G108 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|VectorCategory;CAT|)
-                                    ('T
-                                     (LETT |VectorCategory;CAT|
-                                           (|Join|
-                                            (|OneDimensionalArrayAggregate|
-                                             '|t#1|)
-                                            (|mkCategory|
-                                             '(((+ ($ $ $))
-                                                (|has| |t#1|
-                                                       (|AbelianSemiGroup|)))
-                                               ((|zero|
-                                                 ($ (|NonNegativeInteger|)))
-                                                (|has| |t#1|
-                                                       (|AbelianMonoid|)))
-                                               ((|zero?| ((|Boolean|) $))
-                                                (|has| |t#1|
-                                                       (|AbelianMonoid|)))
-                                               ((- ($ $))
-                                                (|has| |t#1| (|AbelianGroup|)))
-                                               ((- ($ $ $))
-                                                (|has| |t#1| (|AbelianGroup|)))
-                                               ((* ($ (|Integer|) $))
-                                                (|has| |t#1| (|AbelianGroup|)))
-                                               ((* ($ |t#1| $))
-                                                (|has| |t#1| (|SemiGroup|)))
-                                               ((* ($ $ |t#1|))
-                                                (|has| |t#1| (|SemiGroup|)))
-                                               ((|dot| (|t#1| $ $))
-                                                (AND (|has| |t#1| (|SemiRng|))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|VectorCategory;CAT|)
+                                         ('T
+                                          (LETT |VectorCategory;CAT|
+                                                (|Join|
+                                                 (|OneDimensionalArrayAggregate|
+                                                  '|t#1|)
+                                                 (|mkCategory|
+                                                  '(((+ ($ $ $))
                                                      (|has| |t#1|
-                                                            (|AbelianMonoid|))))
-                                               ((|outerProduct|
-                                                 ((|Matrix| |t#1|) $ $))
-                                                (|has| |t#1| (|Ring|)))
-                                               ((|cross| ($ $ $))
-                                                (|has| |t#1| (|Ring|)))
-                                               ((|length| (|t#1| $))
-                                                (AND (|has| |t#1| (|Ring|))
+                                                            (|AbelianSemiGroup|)))
+                                                    ((|zero|
+                                                      ($
+                                                       (|NonNegativeInteger|)))
                                                      (|has| |t#1|
-                                                            (|RadicalCategory|)))))
-                                             NIL NIL NIL)))))))
+                                                            (|AbelianMonoid|)))
+                                                    ((|zero?| ((|Boolean|) $))
+                                                     (|has| |t#1|
+                                                            (|AbelianMonoid|)))
+                                                    ((- ($ $))
+                                                     (|has| |t#1|
+                                                            (|AbelianGroup|)))
+                                                    ((- ($ $ $))
+                                                     (|has| |t#1|
+                                                            (|AbelianGroup|)))
+                                                    ((* ($ (|Integer|) $))
+                                                     (|has| |t#1|
+                                                            (|AbelianGroup|)))
+                                                    ((* ($ |t#1| $))
+                                                     (|has| |t#1|
+                                                            (|SemiGroup|)))
+                                                    ((* ($ $ |t#1|))
+                                                     (|has| |t#1|
+                                                            (|SemiGroup|)))
+                                                    ((|dot| (|t#1| $ $))
+                                                     (AND
+                                                      (|has| |t#1| (|SemiRng|))
+                                                      (|has| |t#1|
+                                                             (|AbelianMonoid|))))
+                                                    ((|outerProduct|
+                                                      ((|Matrix| |t#1|) $ $))
+                                                     (|has| |t#1| (|Ring|)))
+                                                    ((|cross| ($ $ $))
+                                                     (|has| |t#1| (|Ring|)))
+                                                    ((|length| (|t#1| $))
+                                                     (AND
+                                                      (|has| |t#1| (|Ring|))
+                                                      (|has| |t#1|
+                                                             (|RadicalCategory|)))))
+                                                  NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|VectorCategory| |t#1|))))) 

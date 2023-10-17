@@ -18,19 +18,20 @@
   (SPROG ((#1=#:G112 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|StreamAggregate;CAT|)
-                                    ('T
-                                     (LETT |StreamAggregate;CAT|
-                                           (|Join|
-                                            (|UnaryRecursiveAggregate| '|t#1|)
-                                            (|LinearAggregate| '|t#1|)
-                                            (|mkCategory|
-                                             '(((|explicitlyFinite?|
-                                                 ((|Boolean|) $))
-                                                T)
-                                               ((|possiblyInfinite?|
-                                                 ((|Boolean|) $))
-                                                T))
-                                             NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|StreamAggregate;CAT|)
+                                         ('T
+                                          (LETT |StreamAggregate;CAT|
+                                                (|Join|
+                                                 (|UnaryRecursiveAggregate|
+                                                  '|t#1|)
+                                                 (|LinearAggregate| '|t#1|)
+                                                 (|mkCategory|
+                                                  '(((|explicitlyFinite?|
+                                                      ((|Boolean|) $))
+                                                     T)
+                                                    ((|possiblyInfinite?|
+                                                      ((|Boolean|) $))
+                                                     T))
+                                                  NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|StreamAggregate| |t#1|))))) 

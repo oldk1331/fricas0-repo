@@ -18,26 +18,26 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|LinearlyExplicitOver;CAT|)
-                                    ('T
-                                     (LETT |LinearlyExplicitOver;CAT|
-                                           (|Join| (|Ring|)
-                                                   (|mkCategory|
-                                                    '(((|reducedSystem|
-                                                        ((|Matrix| |t#1|)
-                                                         (|Matrix| $)))
-                                                       T)
-                                                      ((|reducedSystem|
-                                                        ((|Record|
-                                                          (|:| |mat|
-                                                               (|Matrix|
-                                                                |t#1|))
-                                                          (|:| |vec|
-                                                               (|Vector|
-                                                                |t#1|)))
-                                                         (|Matrix| $)
-                                                         (|Vector| $)))
-                                                       T))
-                                                    NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|LinearlyExplicitOver;CAT|)
+                                         ('T
+                                          (LETT |LinearlyExplicitOver;CAT|
+                                                (|Join| (|Ring|)
+                                                        (|mkCategory|
+                                                         '(((|reducedSystem|
+                                                             ((|Matrix| |t#1|)
+                                                              (|Matrix| $)))
+                                                            T)
+                                                           ((|reducedSystem|
+                                                             ((|Record|
+                                                               (|:| |mat|
+                                                                    (|Matrix|
+                                                                     |t#1|))
+                                                               (|:| |vec|
+                                                                    (|Vector|
+                                                                     |t#1|)))
+                                                              (|Matrix| $)
+                                                              (|Vector| $)))
+                                                            T))
+                                                         NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|LinearlyExplicitOver| |t#1|))))) 

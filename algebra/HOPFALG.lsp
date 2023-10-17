@@ -18,12 +18,13 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
-                              (COND (|HopfAlgebra;CAT|)
-                                    ('T
-                                     (LETT |HopfAlgebra;CAT|
-                                           (|Join| (|Bialgebra| '|t#1| '|t#2|)
-                                                   (|mkCategory|
-                                                    '(((|antipode| ($ $)) T))
-                                                    NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1| |t#2|) (LIST |t#1| |t#2|)
+                                   (COND (|HopfAlgebra;CAT|)
+                                         ('T
+                                          (LETT |HopfAlgebra;CAT|
+                                                (|Join|
+                                                 (|Bialgebra| '|t#1| '|t#2|)
+                                                 (|mkCategory|
+                                                  '(((|antipode| ($ $)) T)) NIL
+                                                  NIL NIL)))))))
            (SETELT #1# 0 (LIST '|HopfAlgebra| |t#1| |t#2|))))) 

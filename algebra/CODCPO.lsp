@@ -17,17 +17,17 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|CoDcpo;CAT|)
-                                    ('T
-                                     (LETT |CoDcpo;CAT|
-                                           (|Join| (|Poset| '|t#1|)
-                                                   (|mkCategory|
-                                                    '(((|meet|
-                                                        ((|NonNegativeInteger|)
-                                                         $
-                                                         (|NonNegativeInteger|)
-                                                         (|NonNegativeInteger|)))
-                                                       T))
-                                                    NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|CoDcpo;CAT|)
+                                         ('T
+                                          (LETT |CoDcpo;CAT|
+                                                (|Join| (|Poset| '|t#1|)
+                                                        (|mkCategory|
+                                                         '(((|meet|
+                                                             ((|NonNegativeInteger|)
+                                                              $
+                                                              (|NonNegativeInteger|)
+                                                              (|NonNegativeInteger|)))
+                                                            T))
+                                                         NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|CoDcpo| |t#1|))))) 

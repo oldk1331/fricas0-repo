@@ -22,13 +22,15 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV|
-                    (MAKE_PAIRS '(|t#1| |t#2| |t#3|) (LIST |t#1| |t#2| |t#3|))
-                    (COND (|TensorProductCategory;CAT|)
-                          ('T
-                           (LETT |TensorProductCategory;CAT|
-                                 (|Join| (|Module| '|t#1|)
-                                         (|mkCategory|
-                                          '(((|tensor| ($ |t#2| |t#3|)) T)) NIL
-                                          NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1| |t#2| |t#3|)
+                                   (LIST |t#1| |t#2| |t#3|)
+                                   (COND (|TensorProductCategory;CAT|)
+                                         ('T
+                                          (LETT |TensorProductCategory;CAT|
+                                                (|Join| (|Module| '|t#1|)
+                                                        (|mkCategory|
+                                                         '(((|tensor|
+                                                             ($ |t#2| |t#3|))
+                                                            T))
+                                                         NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|TensorProductCategory| |t#1| |t#2| |t#3|))))) 

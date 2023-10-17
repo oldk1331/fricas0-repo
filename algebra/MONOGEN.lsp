@@ -19,38 +19,43 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
-                              (COND (|MonogenicAlgebra;CAT|)
-                                    ('T
-                                     (LETT |MonogenicAlgebra;CAT|
-                                           (|Join|
-                                            (|FramedAlgebra| '|t#1| '|t#2|)
-                                            (|CommutativeRing|)
-                                            (|ConvertibleTo| '|t#2|)
-                                            (|FullyRetractableTo| '|t#1|)
-                                            (|FullyLinearlyExplicitOver|
-                                             '|t#1|)
-                                            (|mkCategory|
-                                             '(((|generator| ($)) T)
-                                               ((|definingPolynomial| (|t#2|))
-                                                T)
-                                               ((|reduce| ($ |t#2|)) T)
-                                               ((|convert| ($ |t#2|)) T)
-                                               ((|lift| (|t#2| $)) T)
-                                               ((|reduce|
-                                                 ((|Union| $ "failed")
-                                                  (|Fraction| |t#2|)))
-                                                (|has| |t#1| (|Field|)))
-                                               ((|derivationCoordinates|
-                                                 ((|Matrix| |t#1|) (|Vector| $)
-                                                  (|Mapping| |t#1| |t#1|)))
-                                                (|has| |t#1| (|Field|))))
-                                             '(((|Field|)
-                                                (|has| |t#1| (|Field|)))
-                                               ((|DifferentialExtension| |t#1|)
-                                                (|has| |t#1| (|Field|)))
-                                               ((|FiniteFieldCategory|)
-                                                (|has| |t#1|
-                                                       (|FiniteFieldCategory|))))
-                                             NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1| |t#2|) (LIST |t#1| |t#2|)
+                                   (COND (|MonogenicAlgebra;CAT|)
+                                         ('T
+                                          (LETT |MonogenicAlgebra;CAT|
+                                                (|Join|
+                                                 (|FramedAlgebra| '|t#1|
+                                                                  '|t#2|)
+                                                 (|CommutativeRing|)
+                                                 (|ConvertibleTo| '|t#2|)
+                                                 (|FullyRetractableTo| '|t#1|)
+                                                 (|FullyLinearlyExplicitOver|
+                                                  '|t#1|)
+                                                 (|mkCategory|
+                                                  '(((|generator| ($)) T)
+                                                    ((|definingPolynomial|
+                                                      (|t#2|))
+                                                     T)
+                                                    ((|reduce| ($ |t#2|)) T)
+                                                    ((|convert| ($ |t#2|)) T)
+                                                    ((|lift| (|t#2| $)) T)
+                                                    ((|reduce|
+                                                      ((|Union| $ "failed")
+                                                       (|Fraction| |t#2|)))
+                                                     (|has| |t#1| (|Field|)))
+                                                    ((|derivationCoordinates|
+                                                      ((|Matrix| |t#1|)
+                                                       (|Vector| $)
+                                                       (|Mapping| |t#1|
+                                                                  |t#1|)))
+                                                     (|has| |t#1| (|Field|))))
+                                                  '(((|Field|)
+                                                     (|has| |t#1| (|Field|)))
+                                                    ((|DifferentialExtension|
+                                                      |t#1|)
+                                                     (|has| |t#1| (|Field|)))
+                                                    ((|FiniteFieldCategory|)
+                                                     (|has| |t#1|
+                                                            (|FiniteFieldCategory|))))
+                                                  NIL NIL)))))))
            (SETELT #1# 0 (LIST '|MonogenicAlgebra| |t#1| |t#2|))))) 

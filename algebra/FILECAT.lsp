@@ -18,29 +18,34 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
-                              (COND (|FileCategory;CAT|)
-                                    ('T
-                                     (LETT |FileCategory;CAT|
-                                           (|Join| (|SetCategory|)
-                                                   (|mkCategory|
-                                                    '(((|open| ($ |t#1|)) T)
-                                                      ((|open|
-                                                        ($ |t#1| (|String|)))
-                                                       T)
-                                                      ((|reopen!|
-                                                        ($ $ (|String|)))
-                                                       T)
-                                                      ((|close!| ($ $)) T)
-                                                      ((|name| (|t#1| $)) T)
-                                                      ((|iomode|
-                                                        ((|String|) $))
-                                                       T)
-                                                      ((|read!| (|t#2| $)) T)
-                                                      ((|write!|
-                                                        (|t#2| $ |t#2|))
-                                                       T)
-                                                      ((|flush| ((|Void|) $))
-                                                       T))
-                                                    NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1| |t#2|) (LIST |t#1| |t#2|)
+                                   (COND (|FileCategory;CAT|)
+                                         ('T
+                                          (LETT |FileCategory;CAT|
+                                                (|Join| (|SetCategory|)
+                                                        (|mkCategory|
+                                                         '(((|open| ($ |t#1|))
+                                                            T)
+                                                           ((|open|
+                                                             ($ |t#1|
+                                                              (|String|)))
+                                                            T)
+                                                           ((|reopen!|
+                                                             ($ $ (|String|)))
+                                                            T)
+                                                           ((|close!| ($ $)) T)
+                                                           ((|name| (|t#1| $))
+                                                            T)
+                                                           ((|iomode|
+                                                             ((|String|) $))
+                                                            T)
+                                                           ((|read!| (|t#2| $))
+                                                            T)
+                                                           ((|write!|
+                                                             (|t#2| $ |t#2|))
+                                                            T)
+                                                           ((|flush|
+                                                             ((|Void|) $))
+                                                            T))
+                                                         NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|FileCategory| |t#1| |t#2|))))) 

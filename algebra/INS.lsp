@@ -11,11 +11,10 @@
   (SPROG ((#1=#:G120 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV|
-                    (MAKE_PAIRS
-                     '(#2=#:G115 #3=#:G116 #4=#:G117 #5=#:G118 #6=#:G119)
-                     (LIST '(|Integer|) '(|Integer|) '(|InputForm|)
-                           '(|Pattern| (|Integer|)) '(|Integer|)))
+                   (|subst_in_cat|
+                    '(#2=#:G115 #3=#:G116 #4=#:G117 #5=#:G118 #6=#:G119)
+                    (LIST '(|Integer|) '(|Integer|) '(|InputForm|)
+                          '(|Pattern| (|Integer|)) '(|Integer|))
                     (|Join| (|UniqueFactorizationDomain|) (|EuclideanDomain|)
                             (|OrderedIntegralDomain|) (|DifferentialRing|)
                             (|ConvertibleTo| '#2#) (|RetractableTo| '#3#)

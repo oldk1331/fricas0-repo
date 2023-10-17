@@ -22,10 +22,11 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
-                              (COND (|SolvableSkewPolynomialCategory;CAT|)
-                                    ('T
-                                     (LETT |SolvableSkewPolynomialCategory;CAT|
+                   (|subst_in_cat| '(|t#1| |t#2|) (LIST |t#1| |t#2|)
+                                   (COND (|SolvableSkewPolynomialCategory;CAT|)
+                                         ('T
+                                          (LETT
+                                           |SolvableSkewPolynomialCategory;CAT|
                                            (|Join| (|Ring|)
                                                    (|LeftModule| '|t#1|)
                                                    (|mkCategory|

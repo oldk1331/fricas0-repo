@@ -20,26 +20,31 @@
   (SPROG ((#1=#:G106 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
-                              (|sublisV|
-                               (MAKE_PAIRS '(#2=#:G105)
-                                           (LIST
-                                            '(|Record| (|:| |key| |t#1|)
-                                                       (|:| |entry| |t#2|))))
-                               (COND (|AssociationListAggregate;CAT|)
-                                     ('T
-                                      (LETT |AssociationListAggregate;CAT|
-                                            (|Join|
-                                             (|TableAggregate| '|t#1| '|t#2|)
-                                             (|ListAggregate| '#2#)
-                                             (|mkCategory|
-                                              '(((|assoc|
-                                                  ((|Union|
-                                                    (|Record| (|:| |key| |t#1|)
-                                                              (|:| |entry|
-                                                                   |t#2|))
-                                                    "failed")
-                                                   |t#1| $))
-                                                 T))
-                                              NIL NIL NIL))))))))
+                   (|subst_in_cat| '(|t#1| |t#2|) (LIST |t#1| |t#2|)
+                                   (|subst_in_cat| '(#2=#:G105)
+                                                   (LIST
+                                                    '(|Record|
+                                                      (|:| |key| |t#1|)
+                                                      (|:| |entry| |t#2|)))
+                                                   (COND
+                                                    (|AssociationListAggregate;CAT|)
+                                                    ('T
+                                                     (LETT
+                                                      |AssociationListAggregate;CAT|
+                                                      (|Join|
+                                                       (|TableAggregate| '|t#1|
+                                                                         '|t#2|)
+                                                       (|ListAggregate| '#2#)
+                                                       (|mkCategory|
+                                                        '(((|assoc|
+                                                            ((|Union|
+                                                              (|Record|
+                                                               (|:| |key|
+                                                                    |t#1|)
+                                                               (|:| |entry|
+                                                                    |t#2|))
+                                                              "failed")
+                                                             |t#1| $))
+                                                           T))
+                                                        NIL NIL NIL))))))))
            (SETELT #1# 0 (LIST '|AssociationListAggregate| |t#1| |t#2|))))) 

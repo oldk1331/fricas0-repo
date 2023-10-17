@@ -10,10 +10,10 @@
   (SPROG ((#1=#:G105 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV|
-                    (MAKE_PAIRS '(#2=#:G103 #3=#:G104)
-                                (LIST '(|DoubleFloat|) '(|Float|)))
-                    (|Join| (|ConvertibleTo| '#2#) (|ConvertibleTo| '#3#))))
+                   (|subst_in_cat| '(#2=#:G103 #3=#:G104)
+                                   (LIST '(|DoubleFloat|) '(|Float|))
+                                   (|Join| (|ConvertibleTo| '#2#)
+                                           (|ConvertibleTo| '#3#))))
            (SETELT #1# 0 '(|RealConstant|))))) 
 
 (MAKEPROP '|RealConstant| 'NILADIC T) 

@@ -21,10 +21,11 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
-                              (COND (|IndexedDirectProductCategory;CAT|)
-                                    ('T
-                                     (LETT |IndexedDirectProductCategory;CAT|
+                   (|subst_in_cat| '(|t#1| |t#2|) (LIST |t#1| |t#2|)
+                                   (COND (|IndexedDirectProductCategory;CAT|)
+                                         ('T
+                                          (LETT
+                                           |IndexedDirectProductCategory;CAT|
                                            (|Join|
                                             (|IndexedProductCategory| '|t#1|
                                                                       '|t#2|)

@@ -20,10 +20,11 @@
   (SPROG ((#1=#:G135 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|OneDimensionalArrayAggregate;CAT|)
-                                    ('T
-                                     (LETT |OneDimensionalArrayAggregate;CAT|
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|OneDimensionalArrayAggregate;CAT|)
+                                         ('T
+                                          (LETT
+                                           |OneDimensionalArrayAggregate;CAT|
                                            (|Join|
                                             (|FiniteLinearAggregate| '|t#1|)
                                             (|shallowlyMutable|)))))))

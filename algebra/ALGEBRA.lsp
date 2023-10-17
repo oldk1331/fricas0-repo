@@ -18,12 +18,15 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|Algebra;CAT|)
-                                    ('T
-                                     (LETT |Algebra;CAT|
-                                           (|Join| (|Ring|) (|Module| '|t#1|)
-                                                   (|mkCategory|
-                                                    '(((|coerce| ($ |t#1|)) T))
-                                                    NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|Algebra;CAT|)
+                                         ('T
+                                          (LETT |Algebra;CAT|
+                                                (|Join| (|Ring|)
+                                                        (|Module| '|t#1|)
+                                                        (|mkCategory|
+                                                         '(((|coerce|
+                                                             ($ |t#1|))
+                                                            T))
+                                                         NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|Algebra| |t#1|))))) 

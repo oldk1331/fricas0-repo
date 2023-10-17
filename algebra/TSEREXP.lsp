@@ -21,26 +21,28 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV|
-                    (MAKE_PAIRS '(|t#1| |t#2| |t#3| |t#4| |t#5|)
-                                (LIST |t#1| |t#2| |t#3| |t#4| |t#5|))
-                    (|Join|
-                     (|mkCategory|
-                      '(((|taylor_via_deriv|
-                          (|t#4| |t#1| (|List| |t#4|)
-                           (|List| (|Mapping| |t#1| |t#1|))))
-                         T)
-                        ((|taylor_via_deriv|
-                          (|t#4| |t#4| (|List| |t#4|)
-                           (|List| (|Mapping| |t#1| |t#1|))))
-                         T)
-                        ((|taylor_via_lode|
-                          (|t#4| (|List| |t#5|) |t#4| (|List| |t#1|)))
-                         T)
-                        ((|applyTaylor| (|t#4| (|Mapping| |t#5| |t#5|) |t#4|))
-                         T)
-                        ((|apply_taylor| (|t#4| |t#5| |t#4|)) T))
-                      NIL NIL NIL))))
+                   (|subst_in_cat| '(|t#1| |t#2| |t#3| |t#4| |t#5|)
+                                   (LIST |t#1| |t#2| |t#3| |t#4| |t#5|)
+                                   (|Join|
+                                    (|mkCategory|
+                                     '(((|taylor_via_deriv|
+                                         (|t#4| |t#1| (|List| |t#4|)
+                                          (|List| (|Mapping| |t#1| |t#1|))))
+                                        T)
+                                       ((|taylor_via_deriv|
+                                         (|t#4| |t#4| (|List| |t#4|)
+                                          (|List| (|Mapping| |t#1| |t#1|))))
+                                        T)
+                                       ((|taylor_via_lode|
+                                         (|t#4| (|List| |t#5|) |t#4|
+                                          (|List| |t#1|)))
+                                        T)
+                                       ((|applyTaylor|
+                                         (|t#4| (|Mapping| |t#5| |t#5|) |t#4|))
+                                        T)
+                                       ((|apply_taylor| (|t#4| |t#5| |t#4|))
+                                        T))
+                                     NIL NIL NIL))))
            (SETELT #1# 0
                    (LIST '|TaylorSeriesExpansion| |t#1| |t#2| |t#3| |t#4|
                          |t#5|))))) 

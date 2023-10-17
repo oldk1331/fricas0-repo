@@ -18,15 +18,16 @@
   (SPROG ((#1=#:G111 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|BinaryTreeCategory;CAT|)
-                                    ('T
-                                     (LETT |BinaryTreeCategory;CAT|
-                                           (|Join|
-                                            (|BinaryRecursiveAggregate| '|t#1|)
-                                            (|shallowlyMutable|)
-                                            (|finiteAggregate|)
-                                            (|mkCategory|
-                                             '(((|node| ($ $ |t#1| $)) T)) NIL
-                                             NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|BinaryTreeCategory;CAT|)
+                                         ('T
+                                          (LETT |BinaryTreeCategory;CAT|
+                                                (|Join|
+                                                 (|BinaryRecursiveAggregate|
+                                                  '|t#1|)
+                                                 (|shallowlyMutable|)
+                                                 (|finiteAggregate|)
+                                                 (|mkCategory|
+                                                  '(((|node| ($ $ |t#1| $)) T))
+                                                  NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|BinaryTreeCategory| |t#1|))))) 

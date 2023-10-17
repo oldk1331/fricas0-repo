@@ -19,21 +19,23 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
-                              (COND (|XPolynomialsCat;CAT|)
-                                    ('T
-                                     (LETT |XPolynomialsCat;CAT|
-                                           (|Join|
-                                            (|XFreeAlgebra| '|t#1| '|t#2|)
-                                            (|mkCategory|
-                                             '(((|maxdeg|
-                                                 ((|FreeMonoid| |t#1|) $))
-                                                T)
-                                               ((|degree|
-                                                 ((|NonNegativeInteger|) $))
-                                                T)
-                                               ((|trunc|
-                                                 ($ $ (|NonNegativeInteger|)))
-                                                T))
-                                             NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1| |t#2|) (LIST |t#1| |t#2|)
+                                   (COND (|XPolynomialsCat;CAT|)
+                                         ('T
+                                          (LETT |XPolynomialsCat;CAT|
+                                                (|Join|
+                                                 (|XFreeAlgebra| '|t#1| '|t#2|)
+                                                 (|mkCategory|
+                                                  '(((|maxdeg|
+                                                      ((|FreeMonoid| |t#1|) $))
+                                                     T)
+                                                    ((|degree|
+                                                      ((|NonNegativeInteger|)
+                                                       $))
+                                                     T)
+                                                    ((|trunc|
+                                                      ($ $
+                                                       (|NonNegativeInteger|)))
+                                                     T))
+                                                  NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|XPolynomialsCat| |t#1| |t#2|))))) 

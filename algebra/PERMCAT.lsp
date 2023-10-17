@@ -18,35 +18,40 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|PermutationCategory;CAT|)
-                                    ('T
-                                     (LETT |PermutationCategory;CAT|
-                                           (|Join| (|Group|)
-                                                   (|mkCategory|
-                                                    '(((|cycle|
-                                                        ($ (|List| |t#1|)))
-                                                       T)
-                                                      ((|cycles|
-                                                        ($
-                                                         (|List|
-                                                          (|List| |t#1|))))
-                                                       T)
-                                                      ((|eval| (|t#1| $ |t#1|))
-                                                       T)
-                                                      ((|elt| (|t#1| $ |t#1|))
-                                                       T)
-                                                      ((|orbit|
-                                                        ((|Set| |t#1|) $
-                                                         |t#1|))
-                                                       T)
-                                                      ((< ((|Boolean|) $ $))
-                                                       T))
-                                                    '(((|OrderedSet|)
-                                                       (|has| |t#1|
-                                                              (|OrderedSet|)))
-                                                      ((|OrderedSet|)
-                                                       (|has| |t#1|
-                                                              (|Finite|))))
-                                                    NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|PermutationCategory;CAT|)
+                                         ('T
+                                          (LETT |PermutationCategory;CAT|
+                                                (|Join| (|Group|)
+                                                        (|mkCategory|
+                                                         '(((|cycle|
+                                                             ($
+                                                              (|List| |t#1|)))
+                                                            T)
+                                                           ((|cycles|
+                                                             ($
+                                                              (|List|
+                                                               (|List|
+                                                                |t#1|))))
+                                                            T)
+                                                           ((|eval|
+                                                             (|t#1| $ |t#1|))
+                                                            T)
+                                                           ((|elt|
+                                                             (|t#1| $ |t#1|))
+                                                            T)
+                                                           ((|orbit|
+                                                             ((|Set| |t#1|) $
+                                                              |t#1|))
+                                                            T)
+                                                           ((<
+                                                             ((|Boolean|) $ $))
+                                                            T))
+                                                         '(((|OrderedSet|)
+                                                            (|has| |t#1|
+                                                                   (|OrderedSet|)))
+                                                           ((|OrderedSet|)
+                                                            (|has| |t#1|
+                                                                   (|Finite|))))
+                                                         NIL NIL)))))))
            (SETELT #1# 0 (LIST '|PermutationCategory| |t#1|))))) 

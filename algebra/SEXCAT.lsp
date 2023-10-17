@@ -22,38 +22,82 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV|
-                    (MAKE_PAIRS '(|t#1| |t#2| |t#3| |t#4|)
-                                (LIST |t#1| |t#2| |t#3| |t#4|))
-                    (COND (|SExpressionCategory;CAT|)
-                          ('T
-                           (LETT |SExpressionCategory;CAT|
-                                 (|Join| (|SetCategory|)
-                                         (|mkCategory|
-                                          '(((|eq| ((|Boolean|) $ $)) T)
-                                            ((|null?| ((|Boolean|) $)) T)
-                                            ((|atom?| ((|Boolean|) $)) T)
-                                            ((|pair?| ((|Boolean|) $)) T)
-                                            ((|list?| ((|Boolean|) $)) T)
-                                            ((|string?| ((|Boolean|) $)) T)
-                                            ((|symbol?| ((|Boolean|) $)) T)
-                                            ((|integer?| ((|Boolean|) $)) T)
-                                            ((|float?| ((|Boolean|) $)) T)
-                                            ((|destruct| ((|List| $) $)) T)
-                                            ((|string| (|t#1| $)) T)
-                                            ((|symbol| (|t#2| $)) T)
-                                            ((|integer| (|t#3| $)) T)
-                                            ((|float| (|t#4| $)) T)
-                                            ((|convert| ($ (|List| $))) T)
-                                            ((|convert| ($ |t#1|)) T)
-                                            ((|convert| ($ |t#2|)) T)
-                                            ((|convert| ($ |t#3|)) T)
-                                            ((|convert| ($ |t#4|)) T)
-                                            ((|car| ($ $)) T) ((|cdr| ($ $)) T)
-                                            ((|#| ((|Integer|) $)) T)
-                                            ((|elt| ($ $ (|Integer|))) T)
-                                            ((|elt| ($ $ (|List| (|Integer|))))
-                                             T))
-                                          NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1| |t#2| |t#3| |t#4|)
+                                   (LIST |t#1| |t#2| |t#3| |t#4|)
+                                   (COND (|SExpressionCategory;CAT|)
+                                         ('T
+                                          (LETT |SExpressionCategory;CAT|
+                                                (|Join| (|SetCategory|)
+                                                        (|mkCategory|
+                                                         '(((|eq|
+                                                             ((|Boolean|) $ $))
+                                                            T)
+                                                           ((|null?|
+                                                             ((|Boolean|) $))
+                                                            T)
+                                                           ((|atom?|
+                                                             ((|Boolean|) $))
+                                                            T)
+                                                           ((|pair?|
+                                                             ((|Boolean|) $))
+                                                            T)
+                                                           ((|list?|
+                                                             ((|Boolean|) $))
+                                                            T)
+                                                           ((|string?|
+                                                             ((|Boolean|) $))
+                                                            T)
+                                                           ((|symbol?|
+                                                             ((|Boolean|) $))
+                                                            T)
+                                                           ((|integer?|
+                                                             ((|Boolean|) $))
+                                                            T)
+                                                           ((|float?|
+                                                             ((|Boolean|) $))
+                                                            T)
+                                                           ((|destruct|
+                                                             ((|List| $) $))
+                                                            T)
+                                                           ((|string|
+                                                             (|t#1| $))
+                                                            T)
+                                                           ((|symbol|
+                                                             (|t#2| $))
+                                                            T)
+                                                           ((|integer|
+                                                             (|t#3| $))
+                                                            T)
+                                                           ((|float| (|t#4| $))
+                                                            T)
+                                                           ((|convert|
+                                                             ($ (|List| $)))
+                                                            T)
+                                                           ((|convert|
+                                                             ($ |t#1|))
+                                                            T)
+                                                           ((|convert|
+                                                             ($ |t#2|))
+                                                            T)
+                                                           ((|convert|
+                                                             ($ |t#3|))
+                                                            T)
+                                                           ((|convert|
+                                                             ($ |t#4|))
+                                                            T)
+                                                           ((|car| ($ $)) T)
+                                                           ((|cdr| ($ $)) T)
+                                                           ((|#|
+                                                             ((|Integer|) $))
+                                                            T)
+                                                           ((|elt|
+                                                             ($ $ (|Integer|)))
+                                                            T)
+                                                           ((|elt|
+                                                             ($ $
+                                                              (|List|
+                                                               (|Integer|))))
+                                                            T))
+                                                         NIL NIL NIL)))))))
            (SETELT #1# 0
                    (LIST '|SExpressionCategory| |t#1| |t#2| |t#3| |t#4|))))) 

@@ -1856,7 +1856,7 @@
                       (SETQ |bfVar#61| (CDR |bfVar#61|))))
                    NIL (CDR |x|) NIL)))))))
 
-; sublisV(p,e) ==
+; sublis_vec(p, e) ==
 ;   LIST2REFVEC [suba(p, e.i) for i in 0..MAXINDEX e] where
 ;     suba(p,e) ==
 ;       STRINGP e => e
@@ -1866,7 +1866,7 @@
 ;       EQ(QCAR e,u) and EQ(QCDR e,v) => e
 ;       [u,:v]
 
-(DEFUN |sublisV| (|p| |e|)
+(DEFUN |sublis_vec| (|p| |e|)
   (PROG ()
     (RETURN
      (LIST2REFVEC
@@ -1875,11 +1875,11 @@
           (COND ((> |i| |bfVar#63|) (RETURN (NREVERSE |bfVar#64|)))
                 ('T
                  (SETQ |bfVar#64|
-                         (CONS (|sublisV,suba| |p| (ELT |e| |i|))
+                         (CONS (|sublis_vec,suba| |p| (ELT |e| |i|))
                                |bfVar#64|))))
           (SETQ |i| (+ |i| 1))))
        NIL (MAXINDEX |e|) 0)))))
-(DEFUN |sublisV,suba| (|p| |e|)
+(DEFUN |sublis_vec,suba| (|p| |e|)
   (PROG (|y| |u| |v|)
     (RETURN
      (COND ((STRINGP |e|) |e|)
@@ -1887,10 +1887,19 @@
             (COND ((SETQ |y| (ASSQ |e| |p|)) (CDR |y|)) (#1='T |e|)))
            (#1#
             (PROGN
-             (SETQ |u| (|sublisV,suba| |p| (QCAR |e|)))
-             (SETQ |v| (|sublisV,suba| |p| (QCDR |e|)))
+             (SETQ |u| (|sublis_vec,suba| |p| (QCAR |e|)))
+             (SETQ |v| (|sublis_vec,suba| |p| (QCDR |e|)))
              (COND ((AND (EQ (QCAR |e|) |u|) (EQ (QCDR |e|) |v|)) |e|)
                    (#1# (CONS |u| |v|)))))))))
+
+; subst_in_cat(fp, ap, cv) ==
+;     pp := MAPCAR(FUNCTION CONS, fp, ap)
+;     sublis_vec(pp, cv)
+
+(DEFUN |subst_in_cat| (|fp| |ap| |cv|)
+  (PROG (|pp|)
+    (RETURN
+     (PROGN (SETQ |pp| (MAPCAR #'CONS |fp| |ap|)) (|sublis_vec| |pp| |cv|)))))
 
 ; _?MODEMAPS x == _?modemaps x
 

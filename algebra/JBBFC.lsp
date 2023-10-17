@@ -20,10 +20,11 @@
   (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|JetBundleBaseFunctionCategory;CAT|)
-                                    ('T
-                                     (LETT |JetBundleBaseFunctionCategory;CAT|
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|JetBundleBaseFunctionCategory;CAT|)
+                                         ('T
+                                          (LETT
+                                           |JetBundleBaseFunctionCategory;CAT|
                                            (|Join|
                                             (|JetBundleFunctionCategory|
                                              '|t#1|)))))))
