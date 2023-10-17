@@ -712,6 +712,7 @@
                                    (QCDR |t|))))))))))))
 
 ; formatUnabbreviated t ==
+;   t = '% => ['"%%"]
 ;   atom t =>
 ;     [t]
 ;   null t =>
@@ -735,7 +736,8 @@
 (DEFUN |formatUnabbreviated| (|t|)
   (PROG (|p| |ISTMP#1| |sel| |ISTMP#2| |arg| |args| |arg1|)
     (RETURN
-     (COND ((ATOM |t|) (LIST |t|)) ((NULL |t|) (LIST "()"))
+     (COND ((EQ |t| '%) (LIST "%%")) ((ATOM |t|) (LIST |t|))
+           ((NULL |t|) (LIST "()"))
            ((AND (CONSP |t|)
                  (PROGN
                   (SETQ |p| (CAR |t|))
