@@ -209,7 +209,8 @@
                        $)))
                (#29#
                 (LETT |flead| (|MFINFACT;supFactor| |lcont| |var| |dx| $))))
-              (LETT |factorlist| (QCDR |flead|))
+              (LETT |factorlist|
+                    (SPADCALL |factorlist| (QCDR |flead|) (QREFELT $ 34)))
               (LETT |sqqfact|
                     (PROGN
                      (LETT #21# NIL)
