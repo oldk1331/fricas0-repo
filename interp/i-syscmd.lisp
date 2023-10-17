@@ -5645,6 +5645,15 @@
 
 (DEFUN |leaveScratchpad| () (PROG () (RETURN (QUIT))))
 
+; version() == FORMAT(true, '"~S~%",
+;                     CONCAT($build_version, '" compiled at ", $build_date))
+
+(DEFUN |version| ()
+  (PROG ()
+    (RETURN
+     (FORMAT T "~S~%"
+             (CONCAT |$build_version| " compiled at " |$build_date|)))))
+
 ; DEFVAR($nopiles, false)
 
 (DEFVAR |$nopiles| NIL)
