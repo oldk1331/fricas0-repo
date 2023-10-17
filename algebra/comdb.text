@@ -5638,7 +5638,7 @@
 646295`\spad{numberOfComputedEntries(st)} returns the number of explicitly computed entries of stream \spad{st} which exist immediately prior to the time this function is called.
 646381`\spad{numberOfCycles(p)} returns the number of non-trivial cycles of the permutation \spad{p}.
 646450`\spad{numberOfDivisors(n)} returns the number of integers between 1 and \spad{n} (inclusive) which divide \spad{n}. The number of divisors of \spad{n} is often denoted by \spad{tau(n)}.
-646529`\spad{numberOfFactors(ddfactorization)} returns the number of factors of the polynomial \spad{f} modulo \spad{p} where \spad{ddfactorization} is the distinct degree factorization of \spad{f} computed by \spadfunFrom{ddFact}{ModularDistinctDegreeFactorizer} for some prime \spad{p}.
+646529`\spad{numberOfFactors(ddfactorization)} returns the number of factors of the polynomial \spad{f} modulo \spad{p} where \spad{ddfactorization} is the distinct degree factorization of \spad{f} computed by modular factorization package for some prime \spad{p}.
 646646`\spad{numberOfFactors(u)} returns the number of factors in \spadvar{\spad{u}}.
 646713`\spad{numberOfFractionalTerms(p)} computes the number of fractional terms in \spad{p}. This returns 0 if there is no fractional part.
 646784`\spad{numberOfHues()} returns the number of total hues,{} set in totalHues.
