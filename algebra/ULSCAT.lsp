@@ -6,7 +6,7 @@
 (DEFPARAMETER |UnivariateLaurentSeriesCategory;AL| 'NIL) 
 
 (DEFUN |UnivariateLaurentSeriesCategory| (|t#1|)
-  (LET (#1=#:G107 (#2=#:G108 (|devaluate| |t#1|)))
+  (LET (#1=#:G108 (#2=#:G109 (|devaluate| |t#1|)))
     (COND
      ((SETQ #1# (|assoc| #2# |UnivariateLaurentSeriesCategory;AL|)) (CDR #1#))
      (T
@@ -17,11 +17,11 @@
       #1#)))) 
 
 (DEFUN |UnivariateLaurentSeriesCategory;| (|t#1|)
-  (SPROG ((#1=#:G106 NIL))
+  (SPROG ((#1=#:G107 NIL))
          (PROG1
              (LETT #1#
                    (|subst_in_cat| '(|t#1|) (LIST |t#1|)
-                                   (|subst_in_cat| '(#2=#:G105)
+                                   (|subst_in_cat| '(#2=#:G106)
                                                    (LIST '(|Integer|))
                                                    (COND
                                                     (|UnivariateLaurentSeriesCategory;CAT|)

@@ -33,8 +33,8 @@
 (SDEFUN |PARTPERM;partitions;2IS;3|
         ((M (|Integer|)) (N (|Integer|)) ($ (|Stream| (|List| (|Integer|)))))
         (SPROG
-         ((|aaa| (|List| (|Stream| (|List| (|Integer|))))) (#1=#:G127 NIL)
-          (|i| NIL) (#2=#:G126 NIL))
+         ((|aaa| (|List| (|Stream| (|List| (|Integer|))))) (#1=#:G128 NIL)
+          (|i| NIL) (#2=#:G127 NIL))
          (SEQ
           (LETT |aaa|
                 (PROGN
@@ -116,8 +116,8 @@
 (SDEFUN |PARTPERM;nogreq|
         ((|n| (|Integer|)) (|x| (|List| (|Integer|))) ($ (|Integer|)))
         (SPROG
-         ((#1=#:G143 NIL) (#2=#:G142 #3=(|Integer|)) (#4=#:G144 #3#)
-          (#5=#:G146 NIL) (|i| NIL))
+         ((#1=#:G144 NIL) (#2=#:G143 #3=(|Integer|)) (#4=#:G145 #3#)
+          (#5=#:G147 NIL) (|i| NIL))
          (SEQ
           (PROGN
            (LETT #1# NIL)
@@ -137,7 +137,7 @@
 
 (SDEFUN |PARTPERM;conjugate;2L;9|
         ((|x| (|List| (|Integer|))) ($ (|List| (|Integer|))))
-        (SPROG ((#1=#:G152 NIL) (|i| NIL) (#2=#:G151 NIL))
+        (SPROG ((#1=#:G153 NIL) (|i| NIL) (#2=#:G152 NIL))
                (SEQ
                 (COND ((NULL |x|) NIL)
                       ('T
@@ -210,7 +210,7 @@
 
 (SDEFUN |PARTPERM;rpt|
         ((|n| (|Integer|)) (|m| (|Integer|)) ($ (|List| (|Integer|))))
-        (SPROG ((#1=#:G177 NIL) (|i| NIL) (#2=#:G176 NIL))
+        (SPROG ((#1=#:G178 NIL) (|i| NIL) (#2=#:G177 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -235,7 +235,7 @@
 
 (SDEFUN |PARTPERM;sequences;LS;16|
         ((|x| (|List| (|Integer|))) ($ (|Stream| (|List| (|Integer|)))))
-        (SPROG ((#1=#:G188 NIL) (|i| NIL) (#2=#:G187 NIL))
+        (SPROG ((#1=#:G189 NIL) (|i| NIL) (#2=#:G188 NIL))
                (SEQ
                 (SPADCALL |x|
                           (PROGN
@@ -249,7 +249,7 @@
 
 (SDEFUN |PARTPERM;permutations;IS;17|
         ((|n| (|Integer|)) ($ (|Stream| (|List| (|Integer|)))))
-        (SPROG ((#1=#:G193 NIL) (|i| NIL) (#2=#:G192 NIL))
+        (SPROG ((#1=#:G194 NIL) (|i| NIL) (#2=#:G193 NIL))
                (SEQ
                 (SPADCALL (|PARTPERM;rpt| |n| 1 $)
                           (PROGN
@@ -265,7 +265,7 @@
 
 (DEFUN |PartitionsAndPermutations| ()
   (SPROG NIL
-         (PROG (#1=#:G195)
+         (PROG (#1=#:G196)
            (RETURN
             (COND
              ((LETT #1#

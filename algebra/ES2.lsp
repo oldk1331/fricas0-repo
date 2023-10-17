@@ -1,6 +1,6 @@
 
 (SDEFUN |ES2;map;MKF;1| ((|f| (|Mapping| F E)) (|k| (|Kernel| E)) ($ (F)))
-        (SPROG ((#1=#:G108 NIL) (|x| NIL) (#2=#:G107 NIL))
+        (SPROG ((#1=#:G109 NIL) (|x| NIL) (#2=#:G108 NIL))
                (SEQ
                 (SPADCALL
                  (SPADCALL (SPADCALL |k| (QREFELT $ 10)) (QREFELT $ 11))
@@ -18,9 +18,9 @@
 
 (DECLAIM (NOTINLINE |ExpressionSpaceFunctions2;|)) 
 
-(DEFUN |ExpressionSpaceFunctions2| (&REST #1=#:G109)
+(DEFUN |ExpressionSpaceFunctions2| (&REST #1=#:G110)
   (SPROG NIL
-         (PROG (#2=#:G110)
+         (PROG (#2=#:G111)
            (RETURN
             (COND
              ((LETT #2#

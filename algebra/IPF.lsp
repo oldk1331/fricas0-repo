@@ -24,10 +24,10 @@
 
 (SDEFUN |IPF;initializeLogarithmTable| (($ (|Void|)))
         (SPROG
-         ((#1=#:G138 NIL) (|a| ($)) (#2=#:G144 NIL) (#3=#:G132 NIL) (|i| NIL)
+         ((#1=#:G139 NIL) (|a| ($)) (#2=#:G145 NIL) (#3=#:G133 NIL) (|i| NIL)
           (|tbl| (|Table| (|PositiveInteger|) (|NonNegativeInteger|)))
           (|n| (|Integer|)) (|d| (|Integer|)) (|l| (|Integer|)) (|base| ($))
-          (|primeDivisor| (|Integer|)) (#4=#:G143 NIL) (|rec| NIL)
+          (|primeDivisor| (|Integer|)) (#4=#:G144 NIL) (|rec| NIL)
           (|limit| (|Integer|)))
          (SEQ (COND ((QREFELT $ 7) (|IPF;initializePrimitiveElement| $)))
               (LETT |limit| 30)
@@ -104,9 +104,9 @@
 
 (SDEFUN |IPF;sqrt;2$;5| ((|x| ($)) ($ ($)))
         (SPROG
-         ((|y| ($)) (#1=#:G159 NIL) (#2=#:G166 NIL)
+         ((|y| ($)) (#1=#:G160 NIL) (#2=#:G167 NIL)
           (|lr| (|List| #3=(|NonNegativeInteger|))) (|r| #3#) (|z| ($))
-          (#4=#:G154 NIL) (|u| (|NonNegativeInteger|)) (#5=#:G151 NIL)
+          (#4=#:G155 NIL) (|u| (|NonNegativeInteger|)) (#5=#:G152 NIL)
           (|e| (|NonNegativeInteger|)) (|b| ($)))
          (SEQ
           (COND ((SPADCALL |x| (QREFELT $ 47)) |x|)
@@ -198,7 +198,7 @@
 (SDEFUN |IPF;generator;$;6| (($ ($))) (|spadConstant| $ 36)) 
 
 (SDEFUN |IPF;^;$I$;7| ((|x| ($)) (|n| (|Integer|)) ($ ($)))
-        (SPROG ((|r| (|NonNegativeInteger|)) (#1=#:G168 NIL))
+        (SPROG ((|r| (|NonNegativeInteger|)) (#1=#:G169 NIL))
                (SEQ
                 (COND ((ZEROP |n|) (|spadConstant| $ 36))
                       ((SPADCALL |x| (QREFELT $ 47)) (|spadConstant| $ 16))
@@ -272,7 +272,7 @@
          ((|tbl|
            (|Union| (|Table| (|PositiveInteger|) (|NonNegativeInteger|))
                     "failed"))
-          (#1=#:G205 NIL))
+          (#1=#:G206 NIL))
          (SEQ (COND ((QREFELT $ 11) (|IPF;initializeLogarithmTable| $)))
               (LETT |tbl|
                     (SPADCALL
@@ -341,9 +341,9 @@
 
 (DECLAIM (NOTINLINE |InnerPrimeField;|)) 
 
-(DEFUN |InnerPrimeField| (#1=#:G252)
+(DEFUN |InnerPrimeField| (#1=#:G253)
   (SPROG NIL
-         (PROG (#2=#:G253)
+         (PROG (#2=#:G254)
            (RETURN
             (COND
              ((LETT #2#
@@ -420,7 +420,7 @@
               (79 . |coerce|) |IPF;quadraticNonResidue;$;4| (84 . |zero?|)
               |IPF;convert;$I;10| (|NonNegativeInteger|) (89 . ^) (95 . -)
               (100 . ^) (106 . /) |IPF;sqrt;2$;5| |IPF;generator;$;6|
-              (112 . |positiveRemainder|) (118 . ^) '#:G113 (|SingleInteger|)
+              (112 . |positiveRemainder|) (118 . ^) '#:G114 (|SingleInteger|)
               (124 . |coerce|) '|q| (129 . |invmod|) (|Union| $ '"failed")
               (135 . |recip|) (140 . |invmod|) |IPF;normalElement;$;11|
               |IPF;createNormalElement;$;12| |IPF;characteristic;Nni;13|

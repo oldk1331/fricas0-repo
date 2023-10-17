@@ -7,7 +7,7 @@
   (COND (|AbelianMonoid;AL|) (T (SETQ |AbelianMonoid;AL| (|AbelianMonoid;|))))) 
 
 (DEFUN |AbelianMonoid;| ()
-  (SPROG ((#1=#:G104 NIL))
+  (SPROG ((#1=#:G105 NIL))
          (PROG1
              (LETT #1#
                    (|Join| (|AbelianSemiGroup|)

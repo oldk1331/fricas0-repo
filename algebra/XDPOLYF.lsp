@@ -3,9 +3,9 @@
         ((|p| (|XDistributedPolynomial| VAR F))
          ($ (|List| (|FreeMonoid| VAR))))
         (SPROG
-         ((|lst_col| (|List| #1=(|FreeMonoid| VAR))) (|u| #1#) (#2=#:G128 NIL)
-          (|k| NIL) (#3=#:G127 NIL) (|f| NIL) (|lst_row| (|List| #1#))
-          (#4=#:G126 NIL) (#5=#:G125 NIL) (#6=#:G124 NIL) (|m| NIL))
+         ((|lst_col| (|List| #1=(|FreeMonoid| VAR))) (|u| #1#) (#2=#:G129 NIL)
+          (|k| NIL) (#3=#:G128 NIL) (|f| NIL) (|lst_row| (|List| #1#))
+          (#4=#:G127 NIL) (#5=#:G126 NIL) (#6=#:G125 NIL) (|m| NIL))
          (SEQ (LETT |lst_row| (LIST (|spadConstant| $ 9)))
               (LETT |lst_col| (LIST (|spadConstant| $ 9)))
               (SEQ (LETT |m| NIL) (LETT #6# (SPADCALL |p| (QREFELT $ 12))) G190
@@ -65,9 +65,9 @@
         ((|p| (|XDistributedPolynomial| VAR F)) ($ (|Matrix| F)))
         (SPROG
          ((|j| #1=(|Integer|)) (|i| #1#) (|v| (|FreeMonoid| VAR))
-          (#2=#:G134 NIL) (|u| (|FreeMonoid| VAR)) (#3=#:G145 NIL) (|k| NIL)
-          (#4=#:G144 NIL) (|f| NIL) (|c| (F)) (|m| (|FreeMonoid| VAR))
-          (#5=#:G143 NIL) (|l| NIL) (|lst_coe| (|List| F))
+          (#2=#:G135 NIL) (|u| (|FreeMonoid| VAR)) (#3=#:G146 NIL) (|k| NIL)
+          (#4=#:G145 NIL) (|f| NIL) (|c| (F)) (|m| (|FreeMonoid| VAR))
+          (#5=#:G144 NIL) (|l| NIL) (|lst_coe| (|List| F))
           (|lst_sup| (|List| (|FreeMonoid| VAR))) (|mtx_wrk| (|Matrix| F))
           (|n| (|NonNegativeInteger|)) (|lst_idx| (|List| (|FreeMonoid| VAR))))
          (SEQ (LETT |lst_idx| (SPADCALL |p| (QREFELT $ 21)))
@@ -140,9 +140,9 @@
         ((|p| (|XDistributedPolynomial| VAR F)) (|x| (VAR)) ($ (|Matrix| F)))
         (SPROG
          ((|u| (|FreeMonoid| VAR)) (|j| #1=(|Integer|)) (|i| #1#)
-          (|v| (|FreeMonoid| VAR)) (#2=#:G151 NIL) (#3=#:G164 NIL) (|k| NIL)
-          (#4=#:G163 NIL) (|f| NIL) (|c| (F)) (|m| (|FreeMonoid| VAR))
-          (#5=#:G162 NIL) (|l| NIL) (|lst_coe| (|List| F))
+          (|v| (|FreeMonoid| VAR)) (#2=#:G152 NIL) (#3=#:G165 NIL) (|k| NIL)
+          (#4=#:G164 NIL) (|f| NIL) (|c| (F)) (|m| (|FreeMonoid| VAR))
+          (#5=#:G163 NIL) (|l| NIL) (|lst_coe| (|List| F))
           (|lst_sup| (|List| (|FreeMonoid| VAR))) (|mtx_wrk| (|Matrix| F))
           (|n| (|NonNegativeInteger|)) (|lst_idx| (|List| (|FreeMonoid| VAR))))
          (SEQ (LETT |lst_idx| (SPADCALL |p| (QREFELT $ 21)))
@@ -224,12 +224,12 @@
                     (|:| H (|Matrix| F)))))
         (SPROG
          ((|j| #1=(|Integer|)) (|i| #1#) (|v| (|FreeMonoid| VAR))
-          (#2=#:G185 NIL) (|u| #3=(|FreeMonoid| VAR)) (#4=#:G202 NIL) (|k| NIL)
-          (#5=#:G201 NIL) (|f| NIL) (|c| (F)) (|m| (|FreeMonoid| VAR))
-          (#6=#:G200 NIL) (|l| NIL) (|lst_coe| (|List| F))
+          (#2=#:G186 NIL) (|u| #3=(|FreeMonoid| VAR)) (#4=#:G203 NIL) (|k| NIL)
+          (#5=#:G202 NIL) (|f| NIL) (|c| (F)) (|m| (|FreeMonoid| VAR))
+          (#6=#:G201 NIL) (|l| NIL) (|lst_coe| (|List| F))
           (|lst_sup| (|List| (|FreeMonoid| VAR))) (|mtx_wrk| (|Matrix| F))
-          (|lst_col| (|List| #3#)) (|lst_row| (|List| #3#)) (#7=#:G199 NIL)
-          (#8=#:G198 NIL) (#9=#:G197 NIL) (#10=#:G196 NIL) (#11=#:G195 NIL))
+          (|lst_col| (|List| #3#)) (|lst_row| (|List| #3#)) (#7=#:G200 NIL)
+          (#8=#:G199 NIL) (#9=#:G198 NIL) (#10=#:G197 NIL) (#11=#:G196 NIL))
          (SEQ (LETT |lst_row| (LIST (|spadConstant| $ 9)))
               (LETT |lst_col| (LIST (|spadConstant| $ 9)))
               (SEQ (LETT #11# (SPADCALL |p| (QREFELT $ 12))) G190
@@ -359,8 +359,8 @@
                     (|:| H (|Matrix| F))))
          ($ (|OutputForm|)))
         (SPROG
-         ((|lst_wrk| (|List| (|OutputForm|))) (#1=#:G215 NIL) (|j| NIL)
-          (#2=#:G214 NIL) (|i| NIL) (#3=#:G213 NIL)
+         ((|lst_wrk| (|List| (|OutputForm|))) (#1=#:G216 NIL) (|j| NIL)
+          (#2=#:G215 NIL) (|i| NIL) (#3=#:G214 NIL)
           (|mtx| (|List| (|List| (|OutputForm|))))
           (|lst_tmp| (|List| (|OutputForm|))) (|n| #4=(|NonNegativeInteger|))
           (|m| #4#))
@@ -409,9 +409,9 @@
         ((A (|Matrix| F)) (|i| (|NonNegativeInteger|))
          (|j| (|NonNegativeInteger|)) ($ (|List| (|NonNegativeInteger|))))
         (SPROG
-         ((#1=#:G226 NIL) (#2=#:G225 NIL) (|col_nz| #3=(|NonNegativeInteger|))
-          (|row_nz| #3#) (|flg_nz| (|Boolean|)) (#4=#:G228 NIL) (|k| NIL)
-          (#5=#:G227 NIL) (|l| NIL))
+         ((#1=#:G227 NIL) (#2=#:G226 NIL) (|col_nz| #3=(|NonNegativeInteger|))
+          (|row_nz| #3#) (|flg_nz| (|Boolean|)) (#4=#:G229 NIL) (|k| NIL)
+          (#5=#:G228 NIL) (|l| NIL))
          (SEQ (LETT |flg_nz| NIL) (LETT |row_nz| 0) (LETT |col_nz| 0)
               (SEQ
                (EXIT
@@ -434,13 +434,13 @@
                                       (EXIT
                                        (PROGN
                                         (LETT #2# |$NoValue|)
-                                        (GO #6=#:G220))))))))
+                                        (GO #6=#:G221))))))))
                              (LETT |k| (+ |k| 1)) (GO G190) G191 (EXIT NIL)))
                        #6# (EXIT #2#))
                       (EXIT
                        (COND
                         (|flg_nz|
-                         (PROGN (LETT #1# |$NoValue|) (GO #7=#:G222))))))
+                         (PROGN (LETT #1# |$NoValue|) (GO #7=#:G223))))))
                      (LETT |l| (+ |l| 1)) (GO G190) G191 (EXIT NIL)))
                #7# (EXIT #1#))
               (EXIT (LIST |row_nz| |col_nz|))))) 
@@ -448,7 +448,7 @@
 (SDEFUN |XDPOLYF;addRows!|
         ((A (|Matrix| F)) (|i| (|NonNegativeInteger|))
          (|j| (|NonNegativeInteger|)) (|alpha| (F)) ($ (|Matrix| F)))
-        (SPROG ((#1=#:G233 NIL) (|k| NIL))
+        (SPROG ((#1=#:G234 NIL) (|k| NIL))
                (SEQ
                 (SEQ (LETT |k| 1) (LETT #1# (ANCOLS A)) G190
                      (COND ((|greater_SI| |k| #1#) (GO G191)))
@@ -467,8 +467,8 @@
         ((A (|Matrix| F)) (|r| (|NonNegativeInteger|)) ($ (|Matrix| F)))
         (SPROG
          ((|n| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|))
-          (#1=#:G247 NIL) (#2=#:G255 NIL) (|i| NIL) (#3=#:G254 NIL) (|j| NIL)
-          (#4=#:G253 NIL) (#5=#:G237 NIL) (#6=#:G252 NIL) (B (|Matrix| F)))
+          (#1=#:G248 NIL) (#2=#:G256 NIL) (|i| NIL) (#3=#:G255 NIL) (|j| NIL)
+          (#4=#:G254 NIL) (#5=#:G238 NIL) (#6=#:G253 NIL) (B (|Matrix| F)))
          (SEQ (LETT |m| (ANROWS A)) (LETT |n| (ANCOLS A))
               (LETT B (SPADCALL A (QREFELT $ 60)))
               (SEQ G190
@@ -525,9 +525,9 @@
 (SDEFUN |XDPOLYF;transformationMatrices;ML;9|
         ((A (|Matrix| F)) ($ (|List| (|Matrix| F))))
         (SPROG
-         ((#1=#:G281 NIL) (|k| NIL) (#2=#:G280 NIL) (#3=#:G279 NIL)
-          (|beta| (F)) (|idx| (|List| (|NonNegativeInteger|))) (#4=#:G278 NIL)
-          (|j| NIL) (B (|Matrix| F)) (#5=#:G277 NIL) (#6=#:G276 NIL) (|i| NIL)
+         ((#1=#:G282 NIL) (|k| NIL) (#2=#:G281 NIL) (#3=#:G280 NIL)
+          (|beta| (F)) (|idx| (|List| (|NonNegativeInteger|))) (#4=#:G279 NIL)
+          (|j| NIL) (B (|Matrix| F)) (#5=#:G278 NIL) (#6=#:G277 NIL) (|i| NIL)
           (Q #7=(|Matrix| F)) (P #7#) (|rnk_A| (|NonNegativeInteger|))
           (|n| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|)))
          (SEQ (LETT |m| (ANROWS A)) (LETT |n| (ANCOLS A))
@@ -625,8 +625,8 @@
                     (|:| |var| (|List| VAR)) (|:| |beta| (|Matrix| F)))))
         (SPROG
          ((|mu_lst| (|List| (|Matrix| F))) (|mu_wrk| #1=(|Matrix| F))
-          (H (|Matrix| F)) (#2=#:G293 NIL) (|sym| NIL) (|var_lst| (|List| VAR))
-          (|b_wrk| #1#) (|a_wrk| #1#) (#3=#:G292 NIL) (|k| NIL)
+          (H (|Matrix| F)) (#2=#:G294 NIL) (|sym| NIL) (|var_lst| (|List| VAR))
+          (|b_wrk| #1#) (|a_wrk| #1#) (#3=#:G293 NIL) (|k| NIL)
           (V_2 #4=(|Matrix| F)) (V_1 #4#) (I_2 #4#) (I_1 #4#)
           (Q #5=(|Matrix| F)) (P #5#) (|lst_tr| (|List| (|Matrix| F)))
           (|n| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|))
@@ -686,9 +686,9 @@
 
 (DECLAIM (NOTINLINE |XDistributedPolynomialFunctions;|)) 
 
-(DEFUN |XDistributedPolynomialFunctions| (&REST #1=#:G294)
+(DEFUN |XDistributedPolynomialFunctions| (&REST #1=#:G295)
   (SPROG NIL
-         (PROG (#2=#:G295)
+         (PROG (#2=#:G296)
            (RETURN
             (COND
              ((LETT #2#

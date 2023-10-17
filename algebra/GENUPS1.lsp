@@ -416,9 +416,9 @@
 
 (DECLAIM (NOTINLINE |GenerateUnivariatePowerSeries1;|)) 
 
-(DEFUN |GenerateUnivariatePowerSeries1| (#1=#:G147)
+(DEFUN |GenerateUnivariatePowerSeries1| (#1=#:G148)
   (SPROG NIL
-         (PROG (#2=#:G148)
+         (PROG (#2=#:G149)
            (RETURN
             (COND
              ((LETT #2#

@@ -2,8 +2,8 @@
 (SDEFUN |TRIGMNPA;ker2explogs|
         ((|k| (|Kernel| FG)) (|l| (|List| (|Kernel| FG))) ($ (FG)))
         (SPROG
-         ((|e| (FG)) (|z| (FG)) (|args| (|List| FG)) (#1=#:G124 NIL) (|a| NIL)
-          (#2=#:G123 NIL) (|kf| (FG)))
+         ((|e| (FG)) (|z| (FG)) (|args| (|List| FG)) (#1=#:G125 NIL) (|a| NIL)
+          (#2=#:G124 NIL) (|kf| (FG)))
          (SEQ (LETT |kf| (SPADCALL |k| (QREFELT $ 13)))
               (EXIT
                (COND
@@ -99,9 +99,9 @@
 
 (DECLAIM (NOTINLINE |TrigonometricManipulationsAux;|)) 
 
-(DEFUN |TrigonometricManipulationsAux| (&REST #1=#:G128)
+(DEFUN |TrigonometricManipulationsAux| (&REST #1=#:G129)
   (SPROG NIL
-         (PROG (#2=#:G129)
+         (PROG (#2=#:G130)
            (RETURN
             (COND
              ((LETT #2#

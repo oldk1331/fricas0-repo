@@ -30,8 +30,8 @@
 
 (SDEFUN |ALGFACT;split;UPF;6| ((|p| (UP)) ($ (|Factored| UP)))
         (SPROG
-         ((#1=#:G116 NIL) (#2=#:G115 #3=(|Factored| UP)) (#4=#:G117 #3#)
-          (#5=#:G120 NIL) (|fc| NIL) (|fp| (|Factored| UP)))
+         ((#1=#:G117 NIL) (#2=#:G116 #3=(|Factored| UP)) (#4=#:G118 #3#)
+          (#5=#:G121 NIL) (|fc| NIL) (|fp| (|Factored| UP)))
          (SEQ (LETT |fp| (SPADCALL |p| (QREFELT $ 24)))
               (EXIT
                (SPADCALL (SPADCALL |fp| (QREFELT $ 28))
@@ -61,7 +61,7 @@
 
 (SDEFUN |ALGFACT;extend|
         ((|p| (UP)) (|n| (|NonNegativeInteger|)) ($ (|Factored| UP)))
-        (SPROG ((#1=#:G122 NIL) (|q| (UP)))
+        (SPROG ((#1=#:G123 NIL) (|q| (UP)))
                (SEQ
                 (COND
                  ((EQL (SPADCALL |p| (QREFELT $ 38)) 1)
@@ -91,7 +91,7 @@
                               (QREFELT $ 33))))))))) 
 
 (SDEFUN |ALGFACT;doublyTransitive?;UPB;8| ((|p| (UP)) ($ (|Boolean|)))
-        (SPROG ((#1=#:G128 NIL))
+        (SPROG ((#1=#:G129 NIL))
                (COND
                 ((|ALGFACT;irred?| |p| $)
                  (|ALGFACT;irred?|
@@ -130,8 +130,8 @@
         ((|p| (UP)) (|l| (|List| #1=(|Kernel| (|AlgebraicNumber|))))
          ($ (|Factored| UP)))
         (SPROG
-         ((#2=#:G151 NIL) (#3=#:G150 #4=(|Factored| UP)) (#5=#:G152 #4#)
-          (#6=#:G160 NIL) (|fc| NIL) (|newalpha| (|AlgebraicNumber|))
+         ((#2=#:G152 NIL) (#3=#:G151 #4=(|Factored| UP)) (#5=#:G153 #4#)
+          (#6=#:G161 NIL) (|fc| NIL) (|newalpha| (|AlgebraicNumber|))
           (|fr| (|Factored| |ups|))
           (|ups|
            (|Join| (|UnivariatePolynomialCategory| |sae|)
@@ -151,9 +151,9 @@
                  |noBranch|))))
           (|newl| (|List| (|Kernel| (|AlgebraicNumber|))))
           (|q| (|SparseUnivariatePolynomial| (|AlgebraicNumber|)))
-          (|alpha| #1#) (#8=#:G141 NIL) (#9=#:G140 #1#) (#10=#:G142 #1#)
-          (#11=#:G159 NIL) (#12=#:G103 NIL) (#13=#:G137 NIL) (#14=#:G136 #4#)
-          (#15=#:G138 #4#) (#16=#:G158 NIL) (|dc| NIL)
+          (|alpha| #1#) (#8=#:G142 NIL) (#9=#:G141 #1#) (#10=#:G143 #1#)
+          (#11=#:G160 NIL) (#12=#:G104 NIL) (#13=#:G138 NIL) (#14=#:G137 #4#)
+          (#15=#:G139 #4#) (#16=#:G159 NIL) (|dc| NIL)
           (|dr|
            (|Factored|
             (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))))
@@ -410,9 +410,9 @@
 
 (DECLAIM (NOTINLINE |AlgFactor;|)) 
 
-(DEFUN |AlgFactor| (#1=#:G161)
+(DEFUN |AlgFactor| (#1=#:G162)
   (SPROG NIL
-         (PROG (#2=#:G162)
+         (PROG (#2=#:G163)
            (RETURN
             (COND
              ((LETT #2#

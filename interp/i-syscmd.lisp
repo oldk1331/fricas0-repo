@@ -4644,8 +4644,38 @@
        (CAAR |$InteractiveFrame|) NIL)
       NIL))))
 
+; $eof_marker := GENSYM()
+
+(EVAL-WHEN (EVAL LOAD) (SETQ |$eof_marker| (GENSYM)))
+
+; eof_marker?(x) == EQ(x, $eof_marker)
+
+(DEFUN |eof_marker?| (|x|) (PROG () (RETURN (EQ |x| |$eof_marker|))))
+
+; fri_read(stream) ==
+;     dewritify(READ(stream, nil, $eof_marker))
+
+(DEFUN |fri_read| (|stream|)
+  (PROG () (RETURN (|dewritify| (READ |stream| NIL |$eof_marker|)))))
+
+; fri_write(item, stream) ==
+;     val := safeWritify item
+;     val = 'writifyFailed =>
+;         throwKeyedMsg("The value cannot be saved to a file.", "nil")
+;     write_to_stream(val, stream)
+
+(DEFUN |fri_write| (|item| |stream|)
+  (PROG (|val|)
+    (RETURN
+     (PROGN
+      (SETQ |val| (|safeWritify| |item|))
+      (COND
+       ((EQ |val| '|writifyFailed|)
+        (|throwKeyedMsg| '|The value cannot be saved to a file.| '|nil|))
+       ('T (|write_to_stream| |val| |stream|)))))))
+
 ; SPADRREAD(vec, stream) ==
-;     dewritify rread(vec, stream)
+;     dewritify(rread(vec, stream))
 
 (DEFUN SPADRREAD (|vec| |stream|)
   (PROG () (RETURN (|dewritify| (|rread| |vec| |stream|)))))
@@ -4785,7 +4815,7 @@
 ;                             writifyInner keys,
 ;                               [writifyInner HGET(ob,k) for k in keys]])
 ;                 nob
-;             PLACEP ob =>
+;             eof_marker?(ob) =>
 ;                 nob := ['WRITIFIED_!_!, 'PLACE]
 ;                 HPUT($seen, ob,  nob)
 ;                 HPUT($seen, nob, nob)
@@ -4964,7 +4994,7 @@
                         (SETQ |bfVar#98| (CDR |bfVar#98|))))
                      NIL |keys| NIL)))
              |nob|))
-           ((PLACEP |ob|)
+           ((|eof_marker?| |ob|)
             (PROGN
              (SETQ |nob| (LIST 'WRITIFIED!! 'PLACE))
              (HPUT |$seen| |ob| |nob|)
@@ -4990,7 +5020,7 @@
 ;     -- other arrays are unwritable
 ;     ARRAYP(ob) => true
 ;     COMPILED_-FUNCTION_-P   ob or HASHTABLEP ob => true
-;     PLACEP ob or READTABLEP ob => true
+;     eof_marker?(ob) or READTABLEP ob => true
 ;     FLOATP ob => true
 ;     false
 
@@ -5004,7 +5034,7 @@
             NIL)
            ((ARRAYP |ob|) T)
            ((OR (COMPILED-FUNCTION-P |ob|) (HASHTABLEP |ob|)) T)
-           ((OR (PLACEP |ob|) (READTABLEP |ob|)) T) ((FLOATP |ob|) T)
+           ((OR (|eof_marker?| |ob|) (READTABLEP |ob|)) T) ((FLOATP |ob|) T)
            ('T NIL)))))
 
 ; $type_tags := [
@@ -5167,7 +5197,7 @@
 ;                     HPUT($seen, nob, nob)
 ;                     nob
 ;                 type = 'PLACE =>
-;                     nob := get_read_placeholder()
+;                     nob := $eof_marker
 ;                     HPUT($seen, ob, nob)
 ;                     HPUT($seen, nob, nob)
 ;                     nob
@@ -5314,7 +5344,7 @@
                         |nob|)))))
                    ((EQ |type| 'PLACE)
                     (PROGN
-                     (SETQ |nob| (|get_read_placeholder|))
+                     (SETQ |nob| |$eof_marker|)
                      (HPUT |$seen| |ob| |nob|)
                      (HPUT |$seen| |nob| |nob|)
                      |nob|))

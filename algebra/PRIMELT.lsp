@@ -10,7 +10,7 @@
 (SDEFUN |PRIMELT;randomInts|
         ((|n| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|))
          ($ (|List| (|Integer|))))
-        (SPROG ((#1=#:G120 NIL) (|i| NIL) (#2=#:G119 NIL))
+        (SPROG ((#1=#:G121 NIL) (|i| NIL) (#2=#:G120 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -51,7 +51,7 @@
           (|Record| (|:| |coef1| (|Integer|)) (|:| |coef2| (|Integer|))
                     (|:| |prim| (|SparseUnivariatePolynomial| F)))))
         (SPROG
-         ((#1=#:G134 NIL) (#2=#:G135 NIL)
+         ((#1=#:G135 NIL) (#2=#:G136 NIL)
           (|r| (|SparseUnivariatePolynomial| F)) (|w| (|Polynomial| F))
           (|c| (|Integer|)) (|i| NIL) (|b| (|Polynomial| F))
           (|u| (|Polynomial| F)))
@@ -91,8 +91,8 @@
                              (LETT #1#
                                    (PROGN
                                     (LETT #2# (VECTOR 1 |c| |r|))
-                                    (GO #3=#:G133)))
-                             (GO #4=#:G128)))))))))
+                                    (GO #3=#:G134)))
+                             (GO #4=#:G129)))))))))
                      #4# (EXIT #1#))
                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL)))))))
           #3# (EXIT #2#)))) 
@@ -100,7 +100,7 @@
 (SDEFUN |PRIMELT;findUniv|
         ((|l| (|List| (|Polynomial| F))) (|v| (|Symbol|)) (|opt| (|Symbol|))
          ($ (|Union| (|Polynomial| F) "failed")))
-        (SPROG ((#1=#:G145 NIL) (#2=#:G146 NIL) (#3=#:G147 NIL) (|p| NIL))
+        (SPROG ((#1=#:G146 NIL) (#2=#:G147 NIL) (#3=#:G148 NIL) (|p| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -121,8 +121,8 @@
                                 (LETT #1#
                                       (PROGN
                                        (LETT #2# (CONS 0 |p|))
-                                       (GO #4=#:G144)))
-                                (GO #5=#:G142))))))))
+                                       (GO #4=#:G145)))
+                                (GO #5=#:G143))))))))
                          (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
                    #5# (EXIT #1#))
                   (EXIT (CONS 1 "failed"))))
@@ -139,9 +139,9 @@
             (|Record| (|:| |coef1| (|SparseUnivariatePolynomial| F))
                       (|:| |coef2| (|SparseUnivariatePolynomial| F)))
             "failed"))
-          (#1=#:G178 NIL) (#2=#:G179 NIL)
+          (#1=#:G179 NIL) (#2=#:G180 NIL)
           (|p| (|SparseUnivariatePolynomial| (|Polynomial| F)))
-          (|u| (|Union| (|Polynomial| F) "failed")) (#3=#:G180 NIL) (|v| NIL)
+          (|u| (|Union| (|Polynomial| F) "failed")) (#3=#:G181 NIL) (|v| NIL)
           (|pw| (|SparseUnivariatePolynomial| F)))
          (SEQ
           (EXIT
@@ -176,8 +176,8 @@
                                           (LETT #1#
                                                 (PROGN
                                                  (LETT #2# (CONS 1 "failed"))
-                                                 (GO #4=#:G177)))
-                                          (GO #5=#:G167))))))
+                                                 (GO #4=#:G178)))
+                                          (GO #5=#:G168))))))
                                      (LETT |bc|
                                            (SPADCALL
                                             (SPADCALL
@@ -233,15 +233,15 @@
                     (|:| |poly| (|List| (|SparseUnivariatePolynomial| F)))
                     (|:| |prim| (|SparseUnivariatePolynomial| F)))))
         (SPROG
-         ((#1=#:G199 NIL) (#2=#:G200 NIL)
+         ((#1=#:G200 NIL) (#2=#:G201 NIL)
           (|ltt| (|List| (|SparseUnivariatePolynomial| F)))
           (|tt| (|Union| (|List| (|SparseUnivariatePolynomial| F)) "failed"))
-          (#3=#:G189 NIL) (#4=#:G188 #5=(|Polynomial| F)) (#6=#:G190 #5#)
-          (#7=#:G203 NIL) (|c| NIL) (#8=#:G204 NIL) (|t| NIL)
+          (#3=#:G190 NIL) (#4=#:G189 #5=(|Polynomial| F)) (#6=#:G191 #5#)
+          (#7=#:G204 NIL) (|c| NIL) (#8=#:G205 NIL) (|t| NIL)
           (|cf| (|List| (|Integer|))) (|i| NIL) (|n| (|NonNegativeInteger|))
           (|w| (|Polynomial| F)) (|elim| (|List| (|Symbol|)))
-          (|vv| (|List| (|Polynomial| F))) (#9=#:G202 NIL) (|v| NIL)
-          (#10=#:G201 NIL))
+          (|vv| (|List| (|Polynomial| F))) (#9=#:G203 NIL) (|v| NIL)
+          (#10=#:G202 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -326,17 +326,17 @@
                                           (LETT #2#
                                                 (VECTOR |cf| (CDR |ltt|)
                                                         (|SPADfirst| |ltt|)))
-                                          (GO #11=#:G198)))))
-                             (GO #12=#:G195)))))))
+                                          (GO #11=#:G199)))))
+                             (GO #12=#:G196)))))))
                    #12# (EXIT #1#))
                   (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL)))))
           #11# (EXIT #2#)))) 
 
 (DECLAIM (NOTINLINE |PrimitiveElement;|)) 
 
-(DEFUN |PrimitiveElement| (#1=#:G205)
+(DEFUN |PrimitiveElement| (#1=#:G206)
   (SPROG NIL
-         (PROG (#2=#:G206)
+         (PROG (#2=#:G207)
            (RETURN
             (COND
              ((LETT #2#

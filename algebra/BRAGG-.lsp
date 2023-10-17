@@ -48,7 +48,7 @@
 
 (SDEFUN |BRAGG-;aggCount|
         ((|x| (A)) (|k| (|NonNegativeInteger|)) ($ (|NonNegativeInteger|)))
-        (SPROG ((#1=#:G163 NIL) (|y| NIL))
+        (SPROG ((#1=#:G164 NIL) (|y| NIL))
                (SEQ
                 (COND ((SPADCALL |x| (QREFELT $ 15)) 0)
                       ('T
@@ -72,7 +72,7 @@
                             (EXIT |k|))))))) 
 
 (SDEFUN |BRAGG-;node?;2AB;9| ((|u| (A)) (|v| (A)) ($ (|Boolean|)))
-        (SPROG ((#1=#:G169 NIL))
+        (SPROG ((#1=#:G170 NIL))
                (SEQ
                 (EXIT
                  (COND ((SPADCALL |v| (QREFELT $ 15)) NIL)
@@ -84,7 +84,7 @@
                                      (QREFELT $ 34))
                            (SPADCALL |u| (SPADCALL |v| (QREFELT $ 11))
                                      (QREFELT $ 34)))
-                          (PROGN (LETT #1# 'T) (GO #2=#:G168)))
+                          (PROGN (LETT #1# 'T) (GO #2=#:G169)))
                          ('T NIL)))))
                 #2# (EXIT #1#)))) 
 
@@ -156,7 +156,7 @@
               ('T (|BRAGG-;isCycle?| |x| NIL $)))) 
 
 (SDEFUN |BRAGG-;isCycle?| ((|x| (A)) (|acc| (|List| A)) ($ (|Boolean|)))
-        (SPROG ((#1=#:G196 NIL) (#2=#:G197 NIL) (#3=#:G198 NIL) (|y| NIL))
+        (SPROG ((#1=#:G197 NIL) (#2=#:G198 NIL) (#3=#:G199 NIL) (|y| NIL))
                (SEQ
                 (EXIT
                  (COND ((SPADCALL |x| (QREFELT $ 15)) NIL)
@@ -181,8 +181,8 @@
                                        (LETT #1#
                                              (PROGN
                                               (LETT #2# 'T)
-                                              (GO #4=#:G195)))
-                                       (GO #5=#:G191))))))))
+                                              (GO #4=#:G196)))
+                                       (GO #5=#:G192))))))))
                                 (LETT #3# (CDR #3#)) (GO G190) G191
                                 (EXIT NIL)))
                           #5# (EXIT #1#))
@@ -190,7 +190,7 @@
                 #4# (EXIT #2#)))) 
 
 (SDEFUN |BRAGG-;eqMember?| ((|y| (A)) (|l| (|List| A)) ($ (|Boolean|)))
-        (SPROG ((#1=#:G204 NIL) (#2=#:G205 NIL) (#3=#:G206 NIL) (|x| NIL))
+        (SPROG ((#1=#:G205 NIL) (#2=#:G206 NIL) (#3=#:G207 NIL) (|x| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -205,8 +205,8 @@
                            (COND
                             ((SPADCALL |x| |y| (QREFELT $ 48))
                              (PROGN
-                              (LETT #1# (PROGN (LETT #2# 'T) (GO #4=#:G203)))
-                              (GO #5=#:G201))))))
+                              (LETT #1# (PROGN (LETT #2# 'T) (GO #4=#:G204)))
+                              (GO #5=#:G202))))))
                          (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
                    #5# (EXIT #1#))
                   (EXIT NIL)))

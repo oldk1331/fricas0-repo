@@ -1,6 +1,6 @@
 
 (SDEFUN |LNAGG-;indices;AL;1| ((|a| (A)) ($ (|List| (|Integer|))))
-        (SPROG ((#1=#:G117 NIL) (|i| NIL) (#2=#:G116 NIL))
+        (SPROG ((#1=#:G118 NIL) (|i| NIL) (#2=#:G117 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -40,7 +40,7 @@
         (SPADCALL |x| |t| (SPADCALL |t| (QREFELT $ 9)) (QREFELT $ 29))) 
 
 (SDEFUN |LNAGG-;leftTrim;ASA;9| ((|u| (A)) (|x| (S)) ($ (A)))
-        (SPROG ((#1=#:G130 NIL) (|i| NIL) (|n| (|Integer|)))
+        (SPROG ((#1=#:G131 NIL) (|i| NIL) (|n| (|Integer|)))
                (SEQ (LETT |n| (SPADCALL |u| (QREFELT $ 10)))
                     (SEQ (LETT |i| (SPADCALL |u| (QREFELT $ 9))) (LETT #1# |n|)
                          G190
@@ -57,7 +57,7 @@
                                (QREFELT $ 25)))))) 
 
 (SDEFUN |LNAGG-;rightTrim;ASA;10| ((|u| (A)) (|x| (S)) ($ (A)))
-        (SPROG ((#1=#:G135 NIL) (|j| NIL) (|mn| (|Integer|)))
+        (SPROG ((#1=#:G136 NIL) (|j| NIL) (|mn| (|Integer|)))
                (SEQ (LETT |mn| (SPADCALL |u| (QREFELT $ 9)))
                     (SEQ (LETT |j| (SPADCALL |u| (QREFELT $ 10)))
                          (LETT #1# |mn|) G190
@@ -75,7 +75,7 @@
 
 (SDEFUN |LNAGG-;trim;ASA;11| ((|u| (A)) (|x| (S)) ($ (A)))
         (SPROG
-         ((#1=#:G143 NIL) (|j| NIL) (#2=#:G142 NIL) (|i| NIL)
+         ((#1=#:G144 NIL) (|j| NIL) (#2=#:G143 NIL) (|i| NIL)
           (|mn| (|Integer|)) (|n| (|Integer|)))
          (SEQ (LETT |n| (SPADCALL |u| (QREFELT $ 10)))
               (LETT |mn| (SPADCALL |u| (QREFELT $ 9)))
@@ -103,7 +103,7 @@
 
 (SDEFUN |LNAGG-;hashUpdate!;HsAHs;12|
         ((|s| (|HashState|)) (|x| (A)) ($ (|HashState|)))
-        (SPROG ((#1=#:G148 NIL) (|i| NIL))
+        (SPROG ((#1=#:G149 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| (SPADCALL |x| (QREFELT $ 9)))
                      (LETT #1# (SPADCALL |x| (QREFELT $ 10))) G190

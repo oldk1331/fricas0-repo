@@ -3,7 +3,7 @@
         ((|x| (MP)) (|y| (MP)) (|mu| (MD)) (|vx| (|Symbol|))
          (|lvz| (|List| (|Symbol|))) ($ (|Union| MPT "failed")))
         (SPROG
-         ((|yu| (MPT)) (|xu| (MPT)) (#1=#:G145 NIL) (|w1| (MPT))
+         ((|yu| (MPT)) (|xu| (MPT)) (#1=#:G146 NIL) (|w1| (MPT))
           (|yuu| #2=(|Union| MPT "failed")) (|xuu| #2#))
          (SEQ
           (EXIT
@@ -35,7 +35,7 @@
                                                            (SPADCALL |yu| |mu|
                                                                      (QREFELT $
                                                                               19)))
-                                                     (GO #4=#:G144)))
+                                                     (GO #4=#:G145)))
                                                    ('T
                                                     (SEQ (LETT |xu| |yu|)
                                                          (EXIT
@@ -49,7 +49,7 @@
         ((|nv| (|Integer|)) (|exps| (|SortedExponentVector|))
          (|nexps| (|SortedExponentVector|)) ($ (|Integer|)))
         (SPROG
-         ((#1=#:G152 NIL) (#2=#:G153 NIL) (#3=#:G154 NIL) (|i| NIL)
+         ((#1=#:G153 NIL) (#2=#:G154 NIL) (#3=#:G155 NIL) (|i| NIL)
           (|nn| #4=(|Integer|)) (|ne| #4#))
          (SEQ
           (EXIT
@@ -62,7 +62,7 @@
                        (COND
                         ((< (ELT_U32 |nexps| (+ |nn| |i|))
                             (ELT_U32 |exps| (+ |ne| |i|)))
-                         (PROGN (LETT #2# -1) (GO #5=#:G151)))
+                         (PROGN (LETT #2# -1) (GO #5=#:G152)))
                         ('T
                          (SEQ
                           (EXIT
@@ -71,7 +71,7 @@
                                 (ELT_U32 |exps| (+ |ne| |i|)))
                              (PROGN
                               (LETT #1# (PROGN (LETT #2# 1) (GO #5#)))
-                              (GO #6=#:G147)))))
+                              (GO #6=#:G148)))))
                           #6# (EXIT #1#))))))
                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (EXIT 0)))
@@ -179,7 +179,7 @@
                         (|:| |coeffdata| (|U32Vector|)))
               "failed")))
         (SPROG
-         ((#9=#:G222 NIL) (#10=#:G221 NIL)
+         ((#9=#:G223 NIL) (#10=#:G222 NIL)
           (|pp|
            (|Union|
             (|Record| (|:| |nvars| (|Integer|))
@@ -188,7 +188,7 @@
                       (|:| |coeffdata| (|U32Vector|)))
             "failed"))
           (|good_cnt| (|Integer|)) (|coeffs| (|U32Vector|)) (|i| (|Integer|))
-          (|jl| (|Integer|)) (|ndl| #11=(|List| (|Integer|))) (#12=#:G227 NIL)
+          (|jl| (|Integer|)) (|ndl| #11=(|List| (|Integer|))) (#12=#:G228 NIL)
           (|j| NIL) (|ncoeffs| (|U32Vector|)) (|n1| (|NonNegativeInteger|))
           (|nn| (|NonNegativeInteger|)) (|n0| (|NonNegativeInteger|))
           (|rstate| (|VectorModularReconstructor|))
@@ -204,11 +204,11 @@
                      (|:| |offsetdata| (|Vector| (|Integer|)))
                      (|:| |expdata| (|SortedExponentVector|))
                      (|:| |coeffdata| (|U32Vector|))))
-          (#13=#:G218 NIL) (|gtfp| #8#) (#14=#:G219 NIL) (|bad_ev| (|Boolean|))
-          (#15=#:G224 NIL) (|m| NIL) (#16=#:G225 NIL) (|deg| NIL)
-          (#17=#:G226 NIL) (|z| NIL) (|lmt| (|List| MP))
-          (|lmtu| #18=(|Union| MP #19="failed")) (#20=#:G223 NIL) (|yt| (MP))
-          (#21=#:G178 NIL) (|ytu| #18#) (|xt| (MP)) (|xtu| #18#)
+          (#13=#:G219 NIL) (|gtfp| #8#) (#14=#:G220 NIL) (|bad_ev| (|Boolean|))
+          (#15=#:G225 NIL) (|m| NIL) (#16=#:G226 NIL) (|deg| NIL)
+          (#17=#:G227 NIL) (|z| NIL) (|lmt| (|List| MP))
+          (|lmtu| #18=(|Union| MP #19="failed")) (#20=#:G224 NIL) (|yt| (MP))
+          (#21=#:G179 NIL) (|ytu| #18#) (|xt| (MP)) (|xtu| #18#)
           (|lt| (|List| (|Integer|))) (|t| (|Integer|))
           (|nbv| #22=(|NonNegativeInteger|)) (|nlv| (|List| (|Symbol|)))
           (|vt| (|Symbol|)) (|dy| #2#) (|dx| #1#) (|offsets| #5#) (|vx| #4#)
@@ -239,7 +239,7 @@
                                        ((SPADCALL |t| |lt| (QREFELT $ 31))
                                         (PROGN
                                          (LETT #10# |$NoValue|)
-                                         (GO #23=#:G176)))
+                                         (GO #23=#:G177)))
                                        ('T
                                         (SEQ (LETT |lt| (CONS |t| |lt|))
                                              (LETT |lmt| NIL)
@@ -375,8 +375,8 @@
                                                               (LETT #9#
                                                                     (CONS 1
                                                                           #24="failed"))
-                                                              (GO #25=#:G217)))
-                                                       (GO #26=#:G187)))))))
+                                                              (GO #25=#:G218)))
+                                                       (GO #26=#:G188)))))))
                                                  #26# (EXIT #14#))))
                                               ((<
                                                 (SPADCALL |yt| |vx|
@@ -415,7 +415,7 @@
                                                                     (CONS 1
                                                                           "failed"))
                                                               (GO #25#)))
-                                                       (GO #27=#:G192)))))))
+                                                       (GO #27=#:G193)))))))
                                                  #27# (EXIT #13#)))
                                                ('T
                                                 (SEQ (LETT |gtf| (QCDR |gtfp|))
@@ -704,13 +704,13 @@
                                            (|SortedExponentVector|))))))
          ($ (|Polynomial| (|Integer|))))
         (SPROG
-         ((#8=#:G276 NIL) (|res| (|Polynomial| (|Integer|))) (#9=#:G275 NIL)
+         ((#8=#:G277 NIL) (|res| (|Polynomial| (|Integer|))) (#9=#:G276 NIL)
           (|pp| (|Union| (|PrimitiveArray| (|Integer|)) "failed"))
           (|coeffs| (|U32Vector|)) (|i| (|Integer|)) (|jl| (|Integer|))
-          (|ndl| #10=(|List| (|Integer|))) (#11=#:G281 NIL) (|j| NIL)
+          (|ndl| #10=(|List| (|Integer|))) (#11=#:G282 NIL) (|j| NIL)
           (|ncoeffs| (|U32Vector|)) (|n1| (|NonNegativeInteger|))
           (|nn| (|NonNegativeInteger|)) (|n0| (|NonNegativeInteger|))
-          (|rstate| (|VectorIntegerReconstructor|)) (#12=#:G251 NIL)
+          (|rstate| (|VectorIntegerReconstructor|)) (#12=#:G252 NIL)
           (|ncc| (|Integer|)) (|exps| (|SortedExponentVector|)) (|offsets| #6#)
           (|oer|
            (|Record| (|:| |offsetdata| (|Vector| (|Integer|)))
@@ -729,9 +729,9 @@
                       (|:| |expdata| (|SortedExponentVector|))
                       (|:| |coeffdata| (|U32Vector|)))
             "failed"))
-          (|bad_ev| (|Boolean|)) (#13=#:G278 NIL) (|m| NIL) (#14=#:G279 NIL)
-          (|deg| NIL) (#15=#:G280 NIL) (|z| NIL) (|lmp| (|List| MP))
-          (|lmp1| #16=(|Union| MP "failed")) (#17=#:G277 NIL) (|yp| (MP))
+          (|bad_ev| (|Boolean|)) (#13=#:G279 NIL) (|m| NIL) (#14=#:G280 NIL)
+          (|deg| NIL) (#15=#:G281 NIL) (|z| NIL) (|lmp| (|List| MP))
+          (|lmp1| #16=(|Union| MP "failed")) (#17=#:G278 NIL) (|yp| (MP))
           (|ypu| #16#) (|xp| (MP)) (|xpu| #16#) (|lp| (|List| (|Integer|)))
           (|p| (|Integer|)) (|nv| (|NonNegativeInteger|)) (|nbv| (|Integer|))
           (|lvz| #5#) (|pss1| #7#) (|vx| #4#) (|dy| #2#) (|dx| #1#))
@@ -763,7 +763,7 @@
                                         ((QEQCAR |xpu| 1)
                                          (PROGN
                                           (LETT #9# |$NoValue|)
-                                          (GO #18=#:G232)))
+                                          (GO #18=#:G233)))
                                         ('T
                                          (SEQ (LETT |xp| (QCDR |xpu|))
                                               (LETT |ypu|
@@ -1152,7 +1152,7 @@
                                                                          #8#
                                                                          |res|)
                                                                         (GO
-                                                                         #19=#:G274)))))))))))))))))))))))))))))))))
+                                                                         #19=#:G275)))))))))))))))))))))))))))))))))
                        #18# (EXIT #9#))
                       NIL (GO G190) G191 (EXIT NIL)))))
           #19# (EXIT #8#)))) 
@@ -1162,8 +1162,8 @@
          (|vx| (|Symbol|)) (|lvz| (|List| (|Symbol|)))
          ($ (|Polynomial| (|Integer|))))
         (SPROG
-         ((|sval| (|List| (|Polynomial| (|Integer|)))) (#1=#:G309 NIL)
-          (|v| NIL) (#2=#:G308 NIL) (|ress| (|Polynomial| (|Integer|)))
+         ((|sval| (|List| (|Polynomial| (|Integer|)))) (#1=#:G310 NIL)
+          (|v| NIL) (#2=#:G309 NIL) (|ress| (|Polynomial| (|Integer|)))
           (|pss|
            (|Record| (|:| |degx| (|Integer|)) (|:| |degy| (|Integer|))
                      (|:| |degg| (|Integer|)) (|:| |sizem| (|Integer|))
@@ -1177,9 +1177,9 @@
                                     (|:| |eval1coeffbuf| (|U32Vector|))
                                     (|:| |eval1expbuf|
                                          (|SortedExponentVector|))))))
-          (|msize| (|Integer|)) (|ldeg| (|List| (|Integer|))) (#3=#:G306 NIL)
-          (|m| NIL) (#4=#:G307 NIL) (|vz| NIL) (#5=#:G305 NIL)
-          (|nlm| (|List| MP)) (#6=#:G304 NIL) (#7=#:G303 NIL) (|ny| (MP))
+          (|msize| (|Integer|)) (|ldeg| (|List| (|Integer|))) (#3=#:G307 NIL)
+          (|m| NIL) (#4=#:G308 NIL) (|vz| NIL) (#5=#:G306 NIL)
+          (|nlm| (|List| MP)) (#6=#:G305 NIL) (#7=#:G304 NIL) (|ny| (MP))
           (|nx| (MP)) (|sv| (|List| (|Symbol|))) (|tv| (|List| (|Symbol|)))
           (|tvz| (|List| (|Symbol|))) (|tvx| (|Symbol|))
           (|tv0| (|List| (|Symbol|))) (|na| #8=(|NonNegativeInteger|))
@@ -1275,9 +1275,9 @@
 
 (DECLAIM (NOTINLINE |ModularAlgebraicGcd2;|)) 
 
-(DEFUN |ModularAlgebraicGcd2| (&REST #1=#:G310)
+(DEFUN |ModularAlgebraicGcd2| (&REST #1=#:G311)
   (SPROG NIL
-         (PROG (#2=#:G311)
+         (PROG (#2=#:G312)
            (RETURN
             (COND
              ((LETT #2#

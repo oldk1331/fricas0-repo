@@ -48,11 +48,11 @@
         (SPROG
          ((|res| (|Factored| (|SparseUnivariatePolynomial| F)))
           (|fr2| (|SparseUnivariatePolynomial| F))
-          (|fru| (|SparseUnivariatePolynomial| F)) (#1=#:G129 NIL)
+          (|fru| (|SparseUnivariatePolynomial| F)) (#1=#:G130 NIL)
           (|fr1|
            (|SparseUnivariatePolynomial|
             (|SparseMultivariatePolynomial| R (|Kernel| F))))
-          (#2=#:G130 NIL) (|frec| NIL)
+          (#2=#:G131 NIL) (|frec| NIL)
           (|fres1|
            (|Factored|
             (|SparseUnivariatePolynomial|
@@ -94,7 +94,7 @@
                                     ((< (SPADCALL |fr1| (QREFELT $ 53)) 1)
                                      (PROGN
                                       (LETT #1# |$NoValue|)
-                                      (GO #3=#:G114)))
+                                      (GO #3=#:G115)))
                                     ('T
                                      (SEQ
                                       (COND
@@ -134,7 +134,7 @@
          ((|res| (|Factored| (|SparseUnivariatePolynomial| F)))
           (|fr2| (|SparseUnivariatePolynomial| F))
           (|fru| (|SparseUnivariatePolynomial| F)) (|fr1| (|ups|))
-          (#2=#:G157 NIL) (|frec| NIL) (|kf| (F)) (|fres1| (|Factored| |ups|))
+          (#2=#:G158 NIL) (|frec| NIL) (|kf| (F)) (|fres1| (|Factored| |ups|))
           (|p2| (|ups|))
           (|ups|
            (|Join| (|UnivariatePolynomialCategory| |sae|)
@@ -149,7 +149,7 @@
                             (ATTRIBUTE (|PolynomialFactorizationExplicit|))
                             |noBranch|)
                         |noBranch|))))
-          (|lk2| (|List| #1#)) (#3=#:G156 NIL) (|k| NIL) (#4=#:G155 NIL)
+          (|lk2| (|List| #1#)) (#3=#:G157 NIL) (|k| NIL) (#4=#:G156 NIL)
           (|q| (|SparseUnivariatePolynomial| F)) (|k1| (|Kernel| F))
           (|cnp| (|SparseUnivariatePolynomial| F)) (|cn| (F))
           (|n| (|NonNegativeInteger|)))
@@ -413,9 +413,9 @@
 
 (DECLAIM (NOTINLINE |ExpressionFactorPolynomial;|)) 
 
-(DEFUN |ExpressionFactorPolynomial| (&REST #1=#:G160)
+(DEFUN |ExpressionFactorPolynomial| (&REST #1=#:G161)
   (SPROG NIL
-         (PROG (#2=#:G161)
+         (PROG (#2=#:G162)
            (RETURN
             (COND
              ((LETT #2#

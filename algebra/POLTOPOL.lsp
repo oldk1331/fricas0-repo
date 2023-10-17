@@ -1,7 +1,7 @@
 
 (SDEFUN |POLTOPOL;variable1|
         ((|xx| (|Symbol|)) ($ (|OrderedVariableList| |lv|)))
-        (SPROG ((#1=#:G104 NIL))
+        (SPROG ((#1=#:G105 NIL))
                (PROG2 (LETT #1# (SPADCALL |xx| (QREFELT $ 11)))
                    (QCDR #1#)
                  (|check_union2| (QEQCAR #1# 0)
@@ -74,9 +74,9 @@
 
 (DECLAIM (NOTINLINE |PolToPol;|)) 
 
-(DEFUN |PolToPol| (&REST #1=#:G118)
+(DEFUN |PolToPol| (&REST #1=#:G119)
   (SPROG NIL
-         (PROG (#2=#:G119)
+         (PROG (#2=#:G120)
            (RETURN
             (COND
              ((LETT #2#

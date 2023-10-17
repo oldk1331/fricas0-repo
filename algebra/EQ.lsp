@@ -1,6 +1,6 @@
 
 (SDEFUN |EQ;factorAndSplit;$L;1| ((|eq| ($)) ($ (|List| $)))
-        (SPROG ((#1=#:G112 NIL) (|rcf| NIL) (#2=#:G111 NIL) (|eq0| ($)))
+        (SPROG ((#1=#:G113 NIL) (|rcf| NIL) (#2=#:G112 NIL) (|eq0| ($)))
                (SEQ
                 (COND
                  ((|HasSignature| (QREFELT $ 6)
@@ -232,9 +232,9 @@
 
 (SDEFUN |EQ;factorAndSplit;$L;38| ((|eq| ($)) ($ (|List| $)))
         (SPROG
-         ((#1=#:G196 NIL) (|rcf| NIL) (#2=#:G195 NIL)
-          (|p| (|Polynomial| (|Integer|))) (|eq0| ($)) (#3=#:G194 NIL)
-          (#4=#:G193 NIL))
+         ((#1=#:G197 NIL) (|rcf| NIL) (#2=#:G196 NIL)
+          (|p| (|Polynomial| (|Integer|))) (|eq0| ($)) (#3=#:G195 NIL)
+          (#4=#:G194 NIL))
          (SEQ
           (COND
            ((|HasSignature| (QREFELT $ 6)
@@ -318,9 +318,9 @@
 
 (DECLAIM (NOTINLINE |Equation;|)) 
 
-(DEFUN |Equation| (#1=#:G206)
+(DEFUN |Equation| (#1=#:G207)
   (SPROG NIL
-         (PROG (#2=#:G207)
+         (PROG (#2=#:G208)
            (RETURN
             (COND
              ((LETT #2#
@@ -335,7 +335,7 @@
 
 (DEFUN |Equation;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G202 NIL) (#2=#:G203 NIL) (#3=#:G204 NIL) (#4=#:G205 NIL)
+   ((|pv$| NIL) (#1=#:G203 NIL) (#2=#:G204 NIL) (#3=#:G205 NIL) (#4=#:G206 NIL)
     ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))

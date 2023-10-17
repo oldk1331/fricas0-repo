@@ -8,7 +8,7 @@
         (T (SETQ |FiniteFieldCategory;AL| (|FiniteFieldCategory;|))))) 
 
 (DEFUN |FiniteFieldCategory;| ()
-  (SPROG ((#1=#:G110 NIL))
+  (SPROG ((#1=#:G111 NIL))
          (PROG1
              (LETT #1#
                    (|Join| (|FieldOfPrimeCharacteristic|) (|Finite|)

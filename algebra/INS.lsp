@@ -8,11 +8,11 @@
         (T (SETQ |IntegerNumberSystem;AL| (|IntegerNumberSystem;|))))) 
 
 (DEFUN |IntegerNumberSystem;| ()
-  (SPROG ((#1=#:G120 NIL))
+  (SPROG ((#1=#:G121 NIL))
          (PROG1
              (LETT #1#
                    (|subst_in_cat|
-                    '(#2=#:G115 #3=#:G116 #4=#:G117 #5=#:G118 #6=#:G119)
+                    '(#2=#:G116 #3=#:G117 #4=#:G118 #5=#:G119 #6=#:G120)
                     (LIST '(|Integer|) '(|Integer|) '(|InputForm|)
                           '(|Pattern| (|Integer|)) '(|Integer|))
                     (|Join| (|UniqueFactorizationDomain|) (|EuclideanDomain|)

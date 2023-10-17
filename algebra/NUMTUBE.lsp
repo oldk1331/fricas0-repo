@@ -70,8 +70,8 @@
             (|Record| (|:| |tang| (|Point| (|DoubleFloat|)))
                       (|:| |norm| (|Point| (|DoubleFloat|)))
                       (|:| |bin| (|Point| (|DoubleFloat|))))))
-          (#3=#:G125 NIL) (|pl| NIL) (#4=#:G126 NIL) (|po| NIL) (#5=#:G127 NIL)
-          (|pr| NIL) (#6=#:G124 NIL) (|triad| #1#)
+          (#3=#:G126 NIL) (|pl| NIL) (#4=#:G127 NIL) (|po| NIL) (#5=#:G128 NIL)
+          (|pr| NIL) (#6=#:G125 NIL) (|triad| #1#)
           (|b| (|Point| (|DoubleFloat|))) (|k| (|NonNegativeInteger|)))
          (SEQ (LETT |k| (LENGTH |l|))
               (EXIT
@@ -165,7 +165,7 @@
         (SPROG
          ((|loops| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (|b| #1=(|Point| (|DoubleFloat|))) (|n| #2=(|Point| (|DoubleFloat|)))
-          (#3=#:G134 NIL) (|pt| NIL) (#4=#:G135 NIL) (|triad| NIL)
+          (#3=#:G135 NIL) (|pt| NIL) (#4=#:G136 NIL) (|triad| NIL)
           (|cosSin| (|List| (|List| (|DoubleFloat|))))
           (|triads|
            (|List|
@@ -195,7 +195,7 @@
         ((|curve| (|Curve|)) (|r| (|DoubleFloat|)) (|n| (|Integer|))
          ($ (|TubePlot| |Curve|)))
         (SPROG
-         ((|loops| (|List| (|List| (|Point| (|DoubleFloat|))))) (#1=#:G140 NIL)
+         ((|loops| (|List| (|List| (|Point| (|DoubleFloat|))))) (#1=#:G141 NIL)
           (|bran| NIL) (|brans| (|List| (|List| (|Point| (|DoubleFloat|))))))
          (SEQ
           (COND ((< |n| 3) (|error| "tube: n should be at least 3"))
@@ -219,9 +219,9 @@
 
 (DECLAIM (NOTINLINE |NumericTubePlot;|)) 
 
-(DEFUN |NumericTubePlot| (#1=#:G141)
+(DEFUN |NumericTubePlot| (#1=#:G142)
   (SPROG NIL
-         (PROG (#2=#:G142)
+         (PROG (#2=#:G143)
            (RETURN
             (COND
              ((LETT #2#

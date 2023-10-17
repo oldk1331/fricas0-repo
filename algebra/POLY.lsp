@@ -1,6 +1,6 @@
 
 (SDEFUN |POLY;coerce;$Of;1| ((|p| ($)) ($ (|OutputForm|)))
-        (SPROG ((|a| (|Symbol|)) (#1=#:G107 NIL) (|r| (|Union| R "failed")))
+        (SPROG ((|a| (|Symbol|)) (#1=#:G108 NIL) (|r| (|Union| R "failed")))
                (SEQ (LETT |r| (SPADCALL |p| (QREFELT $ 8)))
                     (EXIT
                      (COND
@@ -29,9 +29,9 @@
 
 (DECLAIM (NOTINLINE |Polynomial;|)) 
 
-(DEFUN |Polynomial| (#1=#:G155)
+(DEFUN |Polynomial| (#1=#:G156)
   (SPROG NIL
-         (PROG (#2=#:G156)
+         (PROG (#2=#:G157)
            (RETURN
             (COND
              ((LETT #2#
@@ -47,9 +47,9 @@
 
 (DEFUN |Polynomial;| (|#1|)
   (SPROG
-   ((#1=#:G154 NIL) (|pv$| NIL) (#2=#:G145 NIL) (#3=#:G147 NIL) (#4=#:G146 NIL)
-    (#5=#:G148 NIL) (#6=#:G149 NIL) (#7=#:G150 NIL) (#8=#:G151 NIL)
-    (#9=#:G152 NIL) (#10=#:G153 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+   ((#1=#:G155 NIL) (|pv$| NIL) (#2=#:G146 NIL) (#3=#:G148 NIL) (#4=#:G147 NIL)
+    (#5=#:G149 NIL) (#6=#:G150 NIL) (#7=#:G151 NIL) (#8=#:G152 NIL)
+    (#9=#:G153 NIL) (#10=#:G154 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|Polynomial| DV$1))

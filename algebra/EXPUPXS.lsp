@@ -61,9 +61,9 @@
 
 (DECLAIM (NOTINLINE |ExponentialOfUnivariatePuiseuxSeries;|)) 
 
-(DEFUN |ExponentialOfUnivariatePuiseuxSeries| (&REST #1=#:G145)
+(DEFUN |ExponentialOfUnivariatePuiseuxSeries| (&REST #1=#:G146)
   (SPROG NIL
-         (PROG (#2=#:G146)
+         (PROG (#2=#:G147)
            (RETURN
             (COND
              ((LETT #2#
@@ -87,8 +87,8 @@
 
 (DEFUN |ExponentialOfUnivariatePuiseuxSeries;| (|#1| |#2| |#3|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G138 NIL) (#2=#:G139 NIL) (#3=#:G140 NIL) (#4=#:G141 NIL)
-    (#5=#:G143 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G139 NIL) (#2=#:G140 NIL) (#3=#:G141 NIL) (#4=#:G142 NIL)
+    (#5=#:G144 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 |#2|)

@@ -6,7 +6,7 @@
 (DEFPARAMETER |FiniteAlgebraicExtensionField;AL| 'NIL) 
 
 (DEFUN |FiniteAlgebraicExtensionField| (|t#1|)
-  (LET (#1=#:G112 (#2=#:G113 (|devaluate| |t#1|)))
+  (LET (#1=#:G113 (#2=#:G114 (|devaluate| |t#1|)))
     (COND
      ((SETQ #1# (|assoc| #2# |FiniteAlgebraicExtensionField;AL|)) (CDR #1#))
      (T
@@ -17,11 +17,11 @@
       #1#)))) 
 
 (DEFUN |FiniteAlgebraicExtensionField;| (|t#1|)
-  (SPROG ((#1=#:G111 NIL))
+  (SPROG ((#1=#:G112 NIL))
          (PROG1
              (LETT #1#
                    (|subst_in_cat| '(|t#1|) (LIST |t#1|)
-                                   (|subst_in_cat| '(#2=#:G110)
+                                   (|subst_in_cat| '(#2=#:G111)
                                                    (LIST
                                                     '(|SparseUnivariatePolynomial|
                                                       |t#1|))

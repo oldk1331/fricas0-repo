@@ -66,7 +66,7 @@
         ((|z| (|Stream| |Coef|)) (|m| (|Coef|)) ($ (|List| (|Stream| |Coef|))))
         (SPROG
          ((|dn1| #1=(|Stream| |Coef|)) (|cn1| #1#) (|sn1| #1#)
-          (|invden| (|Stream| |Coef|)) (#2=#:G114 NIL) (|c1| (|Coef|))
+          (|invden| (|Stream| |Coef|)) (#2=#:G115 NIL) (|c1| (|Coef|))
           (|dn0| (|Coef|)) (|cn0| (|Coef|)) (|sn0| (|Coef|))
           (|scd| (|List| (|Stream| |Coef|))) (|z0| (|Coef|)))
          (SEQ
@@ -382,9 +382,9 @@
 
 (DECLAIM (NOTINLINE |EllipticFunctionsUnivariateTaylorSeries;|)) 
 
-(DEFUN |EllipticFunctionsUnivariateTaylorSeries| (&REST #1=#:G135)
+(DEFUN |EllipticFunctionsUnivariateTaylorSeries| (&REST #1=#:G136)
   (SPROG NIL
-         (PROG (#2=#:G136)
+         (PROG (#2=#:G137)
            (RETURN
             (COND
              ((LETT #2#

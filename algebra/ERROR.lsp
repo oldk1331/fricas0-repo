@@ -6,7 +6,7 @@
         (|ERROR;doit| (SPADCALL (LIST (QREFELT $ 6) |s|) (QREFELT $ 10)) $)) 
 
 (SDEFUN |ERROR;error;LE;3| ((|l| (|List| (|String|))) ($ (|Exit|)))
-        (SPROG ((|s| (|String|)) (#1=#:G110 NIL) (|x| NIL))
+        (SPROG ((|s| (|String|)) (#1=#:G111 NIL) (|x| NIL))
                (SEQ (LETT |s| (QREFELT $ 6))
                     (SEQ (LETT |x| NIL) (LETT #1# |l|) G190
                          (COND
@@ -26,7 +26,7 @@
 
 (SDEFUN |ERROR;error;SLE;5|
         ((|fn| (|String|)) (|l| (|List| (|String|))) ($ (|Exit|)))
-        (SPROG ((|s| (|String|)) (#1=#:G116 NIL) (|x| NIL))
+        (SPROG ((|s| (|String|)) (#1=#:G117 NIL) (|x| NIL))
                (SEQ
                 (LETT |s|
                       (SPADCALL (LIST (QREFELT $ 7) |fn| ": %d %l")
@@ -46,7 +46,7 @@
 
 (DEFUN |ErrorFunctions| ()
   (SPROG NIL
-         (PROG (#1=#:G118)
+         (PROG (#1=#:G119)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|ErrorFunctions|))

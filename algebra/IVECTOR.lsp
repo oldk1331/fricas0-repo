@@ -1,9 +1,9 @@
 
 (DECLAIM (NOTINLINE |IndexedVector;|)) 
 
-(DEFUN |IndexedVector| (&REST #1=#:G1261)
+(DEFUN |IndexedVector| (&REST #1=#:G1262)
   (SPROG NIL
-         (PROG (#2=#:G1262)
+         (PROG (#2=#:G1263)
            (RETURN
             (COND
              ((LETT #2#
@@ -21,7 +21,7 @@
 
 (DEFUN |IndexedVector;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G1258 NIL) (#2=#:G1259 NIL) (#3=#:G1260 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G1259 NIL) (#2=#:G1260 NIL) (#3=#:G1261 NIL) ($ NIL)
     (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))

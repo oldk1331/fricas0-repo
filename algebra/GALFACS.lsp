@@ -4,8 +4,8 @@
           (|List| (|Mapping| (|List| (|PrimitiveArray| (|PrimeField| |p|))))))
          (|c| (|Integer|)) ($ (|List| UP)))
         (SPROG
-         ((|res| (|List| UP)) (#1=#:G113 NIL) (|v| NIL)
-          (|vl| (|List| (|PrimitiveArray| (|PrimeField| |p|)))) (#2=#:G112 NIL)
+         ((|res| (|List| UP)) (#1=#:G114 NIL) (|v| NIL)
+          (|vl| (|List| (|PrimitiveArray| (|PrimeField| |p|)))) (#2=#:G113 NIL)
           (|sf| NIL))
          (SEQ (LETT |res| NIL)
               (SEQ (LETT |sf| NIL) (LETT #2# |sfl|) G190
@@ -32,9 +32,9 @@
 
 (DECLAIM (NOTINLINE |GaloisGroupFactorizerSeparate;|)) 
 
-(DEFUN |GaloisGroupFactorizerSeparate| (&REST #1=#:G114)
+(DEFUN |GaloisGroupFactorizerSeparate| (&REST #1=#:G115)
   (SPROG NIL
-         (PROG (#2=#:G115)
+         (PROG (#2=#:G116)
            (RETURN
             (COND
              ((LETT #2#

@@ -11,7 +11,7 @@
         (SPADCALL |e| |n| (QREFELT $ 11))) 
 
 (SDEFUN |FORMAT;display;$V;4| ((|f| ($)) ($ (|Void|)))
-        (SPROG ((#1=#:G117 NIL) (|s| NIL) (#2=#:G116 NIL) (#3=#:G115 NIL))
+        (SPROG ((#1=#:G118 NIL) (|s| NIL) (#2=#:G117 NIL) (#3=#:G116 NIL))
                (SEQ
                 (SEQ (LETT |s| NIL)
                      (LETT #3#
@@ -132,9 +132,9 @@
 
 (DECLAIM (NOTINLINE |Formatter;|)) 
 
-(DEFUN |Formatter| (#1=#:G147)
+(DEFUN |Formatter| (#1=#:G148)
   (SPROG NIL
-         (PROG (#2=#:G148)
+         (PROG (#2=#:G149)
            (RETURN
             (COND
              ((LETT #2#

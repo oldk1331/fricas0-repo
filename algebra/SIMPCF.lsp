@@ -3,7 +3,7 @@
         ((|dim| (|NonNegativeInteger|)) ($ (|FiniteSimplicialComplex| VS)))
         (SPROG
          ((|vs1| (|List| VS)) (|v1| (|List| (|List| (|NonNegativeInteger|))))
-          (#1=#:G108 NIL) (|n| NIL) (#2=#:G107 NIL))
+          (#1=#:G109 NIL) (|n| NIL) (#2=#:G108 NIL))
          (SEQ
           (LETT |v1|
                 (LIST
@@ -93,9 +93,9 @@
 
 (DECLAIM (NOTINLINE |SimplicialComplexFactory;|)) 
 
-(DEFUN |SimplicialComplexFactory| (#1=#:G125)
+(DEFUN |SimplicialComplexFactory| (#1=#:G126)
   (SPROG NIL
-         (PROG (#2=#:G126)
+         (PROG (#2=#:G127)
            (RETURN
             (COND
              ((LETT #2#

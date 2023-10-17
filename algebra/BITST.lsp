@@ -6,7 +6,7 @@
 
 (SDEFUN |BITST;starts;S$;2| ((|str| (|String|)) ($ ($)))
         (SPROG
-         ((|res| (|List| (|Boolean|))) (#1=#:G114 NIL) (|c| NIL)
+         ((|res| (|List| (|Boolean|))) (#1=#:G115 NIL) (|c| NIL)
           (|cs| (|List| (|Character|))))
          (SEQ (LETT |res| NIL) (LETT |cs| (SPADCALL |str| (QREFELT $ 11)))
               (SEQ (LETT |c| NIL) (LETT #1# |cs|) G190
@@ -40,14 +40,14 @@
 
 (SDEFUN |BITST;=;2$B;6| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPROG
-         ((#1=#:G126 NIL) (#2=#:G127 NIL) (|i| NIL)
+         ((#1=#:G127 NIL) (#2=#:G128 NIL) (|i| NIL)
           (|len| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
            (SEQ
             (COND
              ((SPADCALL (LENGTH |x|) (LENGTH |y|) (QREFELT $ 22))
-              (PROGN (LETT #1# NIL) (GO #3=#:G125))))
+              (PROGN (LETT #1# NIL) (GO #3=#:G126))))
             (LETT |len| (LENGTH |x|))
             (SEQ (LETT |i| 1) (LETT #2# |len|) G190
                  (COND ((|greater_SI| |i| #2#) (GO G191)))
@@ -68,8 +68,8 @@
 (SDEFUN |BITST;coerce;$Of;8| ((|s| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|cs| (|List| (|OutputForm|))) (|c| (|OutputForm|))
-          (|r| (|List| #1=(|OutputForm|))) (|ro| #1#) (#2=#:G138 NIL) (|x| NIL)
-          (#3=#:G137 NIL) (|row| NIL))
+          (|r| (|List| #1=(|OutputForm|))) (|ro| #1#) (#2=#:G139 NIL) (|x| NIL)
+          (#3=#:G138 NIL) (|row| NIL))
          (SEQ (LETT |cs| NIL)
               (SEQ (LETT |row| NIL) (LETT #3# |s|) G190
                    (COND
@@ -97,7 +97,7 @@
 
 (DEFUN |BitStreamFrame| ()
   (SPROG NIL
-         (PROG (#1=#:G140)
+         (PROG (#1=#:G141)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|BitStreamFrame|))

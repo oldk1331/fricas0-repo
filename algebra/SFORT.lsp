@@ -26,7 +26,7 @@
 (SDEFUN |SFORT;outputAsFortran;$V;7| ((|u| ($)) ($ (|Void|)))
         (SPROG
          ((|val| (|OutputForm|)) (|nargs| (|List| (|OutputForm|)))
-          (#1=#:G121 NIL) (|arg| NIL) (#2=#:G120 NIL)
+          (#1=#:G122 NIL) (|arg| NIL) (#2=#:G121 NIL)
           (|args| (|List| (|Symbol|))) (|fname| (|Symbol|))
           (|ftype_s| (|String|)) (|ftype| (|FortranScalarType|)))
          (SEQ (LETT |ftype| (QVELT |u| 1))
@@ -59,9 +59,9 @@
 
 (DECLAIM (NOTINLINE |SimpleFortranProgram;|)) 
 
-(DEFUN |SimpleFortranProgram| (&REST #1=#:G122)
+(DEFUN |SimpleFortranProgram| (&REST #1=#:G123)
   (SPROG NIL
-         (PROG (#2=#:G123)
+         (PROG (#2=#:G124)
            (RETURN
             (COND
              ((LETT #2#

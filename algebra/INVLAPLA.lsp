@@ -8,8 +8,8 @@
         ((|p| (|SparseUnivariatePolynomial| F)) (|v| (|Symbol|))
          ($ (|Boolean|)))
         (SPROG
-         ((#1=#:G118 NIL) (#2=#:G117 #3=(|Boolean|)) (#4=#:G119 #3#)
-          (#5=#:G121 NIL) (|c| NIL))
+         ((#1=#:G119 NIL) (#2=#:G118 #3=(|Boolean|)) (#4=#:G120 #3#)
+          (#5=#:G122 NIL) (|c| NIL))
          (SEQ
           (PROGN
            (LETT #1# NIL)
@@ -85,11 +85,11 @@
 (SDEFUN |INVLAPLA;iltsqfr|
         ((|r| (|Fraction| (|SparseUnivariatePolynomial| F))) (|t| (F)) ($ (F)))
         (SPROG
-         ((#1=#:G141 NIL) (#2=#:G140 (F)) (#3=#:G142 (F)) (#4=#:G148 NIL)
-          (|a| NIL) (#5=#:G149 NIL) (|b| NIL)
-          (|nl| (|List| (|SparseUnivariatePolynomial| F))) (#6=#:G138 NIL)
-          (|ql| (|List| (|SparseUnivariatePolynomial| F))) (#7=#:G147 NIL)
-          (|qq| NIL) (#8=#:G146 NIL) (|q| (|SparseUnivariatePolynomial| F))
+         ((#1=#:G142 NIL) (#2=#:G141 (F)) (#3=#:G143 (F)) (#4=#:G149 NIL)
+          (|a| NIL) (#5=#:G150 NIL) (|b| NIL)
+          (|nl| (|List| (|SparseUnivariatePolynomial| F))) (#6=#:G139 NIL)
+          (|ql| (|List| (|SparseUnivariatePolynomial| F))) (#7=#:G148 NIL)
+          (|qq| NIL) (#8=#:G147 NIL) (|q| (|SparseUnivariatePolynomial| F))
           (|p| (|SparseUnivariatePolynomial| F)))
          (SEQ
           (COND
@@ -156,7 +156,7 @@
         ((|p| (|SparseUnivariatePolynomial| F))
          (|q| (|SparseUnivariatePolynomial| F)) (|t| (F)) ($ (F)))
         (SPROG
-         ((#1=#:G155 NIL) (#2=#:G154 (F)) (#3=#:G156 (F)) (#4=#:G161 NIL)
+         ((#1=#:G156 NIL) (#2=#:G155 (F)) (#3=#:G157 (F)) (#4=#:G162 NIL)
           (|root| NIL) (|q1| (|SparseUnivariatePolynomial| F))
           (|roots| (|List| F)) (|alpha| (F)) (|d| (F)) (|b| (F)) (|e| (F))
           (|c| (F)) (|a| (F)) (|cp| (F)))
@@ -270,9 +270,9 @@
 
 (DECLAIM (NOTINLINE |InverseLaplaceTransform;|)) 
 
-(DEFUN |InverseLaplaceTransform| (&REST #1=#:G162)
+(DEFUN |InverseLaplaceTransform| (&REST #1=#:G163)
   (SPROG NIL
-         (PROG (#2=#:G163)
+         (PROG (#2=#:G164)
            (RETURN
             (COND
              ((LETT #2#

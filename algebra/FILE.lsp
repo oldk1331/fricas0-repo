@@ -70,9 +70,9 @@
                  ((SPADCALL (QVELT |f| 2) "input" (QREFELT $ 28))
                   (|error| "File not in read state"))
                  (#1='T
-                  (SEQ (LETT |x| (VMREAD (QVELT |f| 1)))
+                  (SEQ (LETT |x| (|fri_read| (QVELT |f| 1)))
                        (EXIT
-                        (COND ((PLACEP |x|) (|error| "End of file"))
+                        (COND ((|eof_marker?| |x|) (|error| "End of file"))
                               (#1# |x|))))))))) 
 
 (SDEFUN |FILE;readIfCan!;$U;11| ((|f| ($)) ($ (|Union| S "failed")))
@@ -82,9 +82,9 @@
                  ((SPADCALL (QVELT |f| 2) "input" (QREFELT $ 28))
                   (|error| "File not in read state"))
                  (#1='T
-                  (SEQ (LETT |x| (VMREAD (QVELT |f| 1)))
+                  (SEQ (LETT |x| (|fri_read| (QVELT |f| 1)))
                        (EXIT
-                        (COND ((PLACEP |x|) (CONS 1 "failed"))
+                        (COND ((|eof_marker?| |x|) (CONS 1 "failed"))
                               (#1# (CONS 0 |x|)))))))))) 
 
 (SDEFUN |FILE;write!;$2S;12| ((|f| ($)) (|x| (S)) ($ (S)))
@@ -92,9 +92,7 @@
          (COND
           ((SPADCALL (QVELT |f| 2) "output" (QREFELT $ 28))
            (|error| "File not in write state"))
-          ('T
-           (SEQ (|print_full2| |x| (QVELT |f| 1)) (TERPRI (QVELT |f| 1))
-                (EXIT |x|)))))) 
+          ('T (SEQ (|fri_write| |x| (QVELT |f| 1)) (EXIT |x|)))))) 
 
 (SDEFUN |FILE;flush;$V;13| ((|f| ($)) ($ (|Void|)))
         (COND
@@ -104,9 +102,9 @@
 
 (DECLAIM (NOTINLINE |File;|)) 
 
-(DEFUN |File| (#1=#:G155)
+(DEFUN |File| (#1=#:G156)
   (SPROG NIL
-         (PROG (#2=#:G156)
+         (PROG (#2=#:G157)
            (RETURN
             (COND
              ((LETT #2#

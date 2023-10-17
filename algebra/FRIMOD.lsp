@@ -10,7 +10,7 @@
 (SDEFUN |FRIMOD;basis;$V;3| ((|m| ($)) ($ (|Vector| A))) |m|) 
 
 (SDEFUN |FRIMOD;rowdiv| ((|r| (|Vector| R)) (|f| (R)) ($ (|Vector| F)))
-        (SPROG ((#1=#:G110 NIL) (#2=#:G112 NIL) (|i| NIL) (#3=#:G111 NIL))
+        (SPROG ((#1=#:G111 NIL) (#2=#:G113 NIL) (|i| NIL) (#3=#:G112 NIL))
                (SEQ
                 (PROGN
                  (LETT #3#
@@ -42,8 +42,8 @@
 
 (SDEFUN |FRIMOD;getinvintmat| (($ (|Boolean|)))
         (SPROG
-         ((#1=#:G126 NIL) (|j| NIL) (#2=#:G125 NIL) (|i| NIL)
-          (|m| (|Matrix| F)) (#3=#:G117 NIL))
+         ((#1=#:G127 NIL) (|j| NIL) (#2=#:G126 NIL) (|i| NIL)
+          (|m| (|Matrix| F)) (#3=#:G118 NIL))
          (SEQ
           (LETT |m|
                 (PROG2 (LETT #3# (SPADCALL (|FRIMOD;intmat| $) (QREFELT $ 37)))
@@ -69,7 +69,7 @@
 
 (SDEFUN |FRIMOD;getintmat| (($ (|Boolean|)))
         (SPROG
-         ((#1=#:G134 NIL) (|j| NIL) (#2=#:G133 NIL) (|i| NIL)
+         ((#1=#:G135 NIL) (|j| NIL) (#2=#:G134 NIL) (|i| NIL)
           (|m| (|Matrix| F)))
          (SEQ (LETT |m| (SPADCALL (QREFELT $ 10) (QREFELT $ 34)))
               (SEQ (LETT |i| (PROGN |m| 1))
@@ -100,7 +100,7 @@
 (SDEFUN |FRIMOD;vectProd|
         ((|v1| (|Vector| A)) (|v2| (|Vector| A)) ($ (|Vector| A)))
         (SPROG
-         ((|k| (|Integer|)) (#1=#:G147 NIL) (|j| NIL) (#2=#:G146 NIL) (|i| NIL)
+         ((|k| (|Integer|)) (#1=#:G148 NIL) (|j| NIL) (#2=#:G147 NIL) (|i| NIL)
           (|v| (|Vector| A)))
          (SEQ
           (LETT |k|
@@ -140,7 +140,7 @@
 
 (SDEFUN |FRIMOD;*;3$;14| ((|m1| ($)) (|m2| ($)) ($ ($)))
         (SPROG
-         ((|u| (A)) (#1=#:G156 NIL) (|i| NIL) (#2=#:G155 NIL)
+         ((|u| (A)) (#1=#:G157 NIL) (|i| NIL) (#2=#:G156 NIL)
           (|m| (|Matrix| R))
           (|cd| (|Record| (|:| |num| (|Matrix| R)) (|:| |den| R))))
          (SEQ
@@ -184,9 +184,9 @@
 
 (DECLAIM (NOTINLINE |FractionalIdealAsModule;|)) 
 
-(DEFUN |FractionalIdealAsModule| (&REST #1=#:G158)
+(DEFUN |FractionalIdealAsModule| (&REST #1=#:G159)
   (SPROG NIL
-         (PROG (#2=#:G159)
+         (PROG (#2=#:G160)
            (RETURN
             (COND
              ((LETT #2#

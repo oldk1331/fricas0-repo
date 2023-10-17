@@ -19,11 +19,11 @@
          (|ptSize| (|PositiveInteger|)) (|optionsList| (|List| (|DrawOption|)))
          ($ (|GraphImage|)))
         (SPROG
-         ((|listOfPointSizes| (|List| (|PositiveInteger|))) (#1=#:G118 NIL)
-          (|i| NIL) (#2=#:G117 NIL) (|listOfLineColors| (|List| (|Palette|)))
-          (#3=#:G116 NIL) (#4=#:G115 NIL)
-          (|listOfPointColors| (|List| (|Palette|))) (#5=#:G114 NIL)
-          (#6=#:G113 NIL) (|len| (|NonNegativeInteger|)))
+         ((|listOfPointSizes| (|List| (|PositiveInteger|))) (#1=#:G119 NIL)
+          (|i| NIL) (#2=#:G118 NIL) (|listOfLineColors| (|List| (|Palette|)))
+          (#3=#:G117 NIL) (#4=#:G116 NIL)
+          (|listOfPointColors| (|List| (|Palette|))) (#5=#:G115 NIL)
+          (#6=#:G114 NIL) (|len| (|NonNegativeInteger|)))
          (SEQ (LETT |len| (LENGTH |listOfListsOfPoints|))
               (LETT |listOfPointColors|
                     (PROGN
@@ -84,7 +84,7 @@
 
 (DEFUN |ViewportPackage| ()
   (SPROG NIL
-         (PROG (#1=#:G124)
+         (PROG (#1=#:G125)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|ViewportPackage|))

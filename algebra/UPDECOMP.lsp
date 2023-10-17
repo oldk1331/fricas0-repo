@@ -3,9 +3,9 @@
         ((|p| (UP)) (|dq| (|NonNegativeInteger|)) (|n| (|NonNegativeInteger|))
          (|lcq| (R)) ($ (|Union| UP "failed")))
         (SPROG
-         ((|q| (UP)) (#1=#:G114 NIL) (#2=#:G126 NIL)
-          (|cquo| (|Union| R "failed")) (|c| (R)) (#3=#:G128 NIL) (|i| NIL)
-          (#4=#:G127 NIL) (|k| NIL) (|lcp| (R)) (|s| (|NonNegativeInteger|))
+         ((|q| (UP)) (#1=#:G115 NIL) (#2=#:G127 NIL)
+          (|cquo| (|Union| R "failed")) (|c| (R)) (#3=#:G129 NIL) (|i| NIL)
+          (#4=#:G128 NIL) (|k| NIL) (|lcp| (R)) (|s| (|NonNegativeInteger|))
           (|dp| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -107,7 +107,7 @@
                             ((QEQCAR |cquo| 1)
                              (PROGN
                               (LETT #2# (CONS 1 "failed"))
-                              (GO #6=#:G125)))
+                              (GO #6=#:G126)))
                             ('T
                              (LETT |q|
                                    (SPADCALL |q|
@@ -137,12 +137,12 @@
         ((|p| (UP)) (|dq| (|NonNegativeInteger|)) (|lcq| (R))
          ($ (|Union| UP "failed")))
         (SPROG
-         ((|q| (UP)) (#1=#:G153 NIL) (|cu| #2=(|Union| R "failed")) (|c| (R))
-          (#3=#:G155 NIL) (|j| NIL) (|k| (|NonNegativeInteger|))
+         ((|q| (UP)) (#1=#:G154 NIL) (|cu| #2=(|Union| R "failed")) (|c| (R))
+          (#3=#:G156 NIL) (|j| NIL) (|k| (|NonNegativeInteger|))
           (|k1| (|NonNegativeInteger|)) (|p1| (UP)) (|qn| (UP)) (|qn1| (UP))
-          (#4=#:G154 NIL) (|i| NIL) (|cc2| (R)) (|cc1| (R)) (|cc0| (R))
+          (#4=#:G155 NIL) (|i| NIL) (|cc2| (R)) (|cc1| (R)) (|cc0| (R))
           (|cc0u| #2#) (|lcn1| (R)) (|lcn| (R)) (|n1| (|NonNegativeInteger|))
-          (#5=#:G134 NIL) (|nr| (R)) (|n| (|NonNegativeInteger|))
+          (#5=#:G135 NIL) (|nr| (R)) (|n| (|NonNegativeInteger|))
           (|nc| (|Union| (|NonNegativeInteger|) "failed"))
           (|dp| (|NonNegativeInteger|)))
          (SEQ
@@ -323,7 +323,7 @@
                                                            (LETT #1#
                                                                  (CONS 1
                                                                        "failed"))
-                                                           (GO #7=#:G152)))
+                                                           (GO #7=#:G153)))
                                                          ('T
                                                           (LETT |q|
                                                                 (SPADCALL |q|
@@ -354,7 +354,7 @@
 (SDEFUN |UPDECOMP;leftFactorIfCan;2UPU;4|
         ((|f| (UP)) (|h| (UP)) ($ (|Union| UP "failed")))
         (SPROG
-         ((|g| (UP)) (#1=#:G170 NIL) (|r| (UP))
+         ((|g| (UP)) (#1=#:G171 NIL) (|r| (UP))
           (|qr| (|Record| (|:| |quotient| UP) (|:| |remainder| UP)))
           (|qrf|
            (|Union| (|Record| (|:| |quotient| UP) (|:| |remainder| UP))
@@ -378,7 +378,7 @@
                                  ((QEQCAR |qrf| 1)
                                   (PROGN
                                    (LETT #1# (CONS 1 "failed"))
-                                   (GO #2=#:G169)))
+                                   (GO #2=#:G170)))
                                  ('T
                                   (SEQ (LETT |qr| (QCDR |qrf|))
                                        (LETT |r| (QCDR |qr|))
@@ -406,8 +406,8 @@
         ((|f| (UP))
          ($ (|Union| (|Record| (|:| |left| UP) (|:| |right| UP)) "failed")))
         (SPROG
-         ((#1=#:G189 NIL) (|g| (|Union| UP "failed"))
-          (|h| (|Union| UP "failed")) (#2=#:G190 NIL) (#3=#:G177 NIL)
+         ((#1=#:G190 NIL) (|g| (|Union| UP "failed"))
+          (|h| (|Union| UP "failed")) (#2=#:G191 NIL) (#3=#:G178 NIL)
           (|dh| NIL) (|df| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -451,7 +451,7 @@
                                                  (CONS 0
                                                        (CONS (QCDR |g|)
                                                              (QCDR |h|))))
-                                           (GO #4=#:G188))))))))))))))
+                                           (GO #4=#:G189))))))))))))))
                               (LETT |dh| (|inc_SI| |dh|)) (GO G190) G191
                               (EXIT NIL))
                          (EXIT (CONS 1 "failed"))))))))
@@ -503,9 +503,9 @@
 
 (DECLAIM (NOTINLINE |UnivariatePolynomialDecompositionPackage;|)) 
 
-(DEFUN |UnivariatePolynomialDecompositionPackage| (&REST #1=#:G207)
+(DEFUN |UnivariatePolynomialDecompositionPackage| (&REST #1=#:G208)
   (SPROG NIL
-         (PROG (#2=#:G208)
+         (PROG (#2=#:G209)
            (RETURN
             (COND
              ((LETT #2#

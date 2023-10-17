@@ -48,7 +48,7 @@
          ('T (CONS 1 "failed")))) 
 
 (SDEFUN |OREPCAT-;exquo;SRU;5| ((|l| (S)) (|a| (R)) ($ (|Union| S "failed")))
-        (SPROG ((|ans| (S)) (#1=#:G157 NIL) (|u| (|Union| R "failed")))
+        (SPROG ((|ans| (S)) (#1=#:G158 NIL) (|u| (|Union| R "failed")))
                (SEQ
                 (EXIT
                  (SEQ (LETT |ans| (|spadConstant| $ 8))
@@ -67,7 +67,7 @@
                               ((QEQCAR |u| 1)
                                (PROGN
                                 (LETT #1# (CONS 1 "failed"))
-                                (GO #2=#:G156)))
+                                (GO #2=#:G157)))
                               ('T
                                (SEQ
                                 (LETT |ans|
@@ -88,7 +88,7 @@
         (SPADCALL (SPADCALL |l| (QREFELT $ 29)) (QREFELT $ 31))) 
 
 (SDEFUN |OREPCAT-;primitivePart;2S;7| ((|l| (S)) ($ (S)))
-        (SPROG ((#1=#:G160 NIL))
+        (SPROG ((#1=#:G161 NIL))
                (PROG2
                    (LETT #1#
                          (SPADCALL |l| (SPADCALL |l| (QREFELT $ 33))

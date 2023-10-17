@@ -2,10 +2,10 @@
 (SDEFUN |PFUTIL;decompose;UP2L;1|
         ((|nn| (UP)) (|dens| (|List| UP)) ($ (|List| UP)))
         (SPROG
-         ((#1=#:G121 NIL) (|res| (|List| UP)) (#2=#:G125 NIL) (|c| NIL)
-          (#3=#:G124 NIL) (|fden| NIL) (|pfr| (|PartialFraction| UP))
+         ((#1=#:G122 NIL) (|res| (|List| UP)) (#2=#:G126 NIL) (|c| NIL)
+          (#3=#:G125 NIL) (|fden| NIL) (|pfr| (|PartialFraction| UP))
           (|nd| (|Factored| UP)) (|fdens| (|List| (|Factored| UP)))
-          (#4=#:G123 NIL) (|nden| NIL) (#5=#:G122 NIL))
+          (#4=#:G124 NIL) (|nden| NIL) (#5=#:G123 NIL))
          (SEQ
           (LETT |fdens|
                 (PROGN
@@ -51,7 +51,7 @@
                                        (EXIT
                                         (PROGN
                                          (LETT #1# 1)
-                                         (GO #6=#:G116))))))))
+                                         (GO #6=#:G117))))))))
                               (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL)))
                         #6# (EXIT #1#))
                        (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
@@ -59,9 +59,9 @@
 
 (DECLAIM (NOTINLINE |PartialFractionUtilities;|)) 
 
-(DEFUN |PartialFractionUtilities| (&REST #1=#:G126)
+(DEFUN |PartialFractionUtilities| (&REST #1=#:G127)
   (SPROG NIL
-         (PROG (#2=#:G127)
+         (PROG (#2=#:G128)
            (RETURN
             (COND
              ((LETT #2#

@@ -16,9 +16,9 @@
 
 (DECLAIM (NOTINLINE |InfiniteLambertProduct;|)) 
 
-(DEFUN |InfiniteLambertProduct| (&REST #1=#:G107)
+(DEFUN |InfiniteLambertProduct| (&REST #1=#:G108)
   (SPROG NIL
-         (PROG (#2=#:G108)
+         (PROG (#2=#:G109)
            (RETURN
             (COND
              ((LETT #2#

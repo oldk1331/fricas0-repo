@@ -1,6 +1,6 @@
 
 (SDEFUN |UPSQFREE;squareFreePart;2P;1| ((|p| (P)) ($ (P)))
-        (SPROG ((#1=#:G117 NIL))
+        (SPROG ((#1=#:G118 NIL))
                (PROG2
                    (LETT #1#
                          (SPADCALL |p|
@@ -13,7 +13,7 @@
 
 (SDEFUN |UPSQFREE;squareFreePart;2P;2| ((|p| (P)) ($ (P)))
         (SPROG
-         ((#1=#:G122 NIL) (#2=#:G121 (P)) (#3=#:G123 (P)) (#4=#:G125 NIL)
+         ((#1=#:G123 NIL) (#2=#:G122 (P)) (#3=#:G124 (P)) (#4=#:G126 NIL)
           (|f| NIL) (|s| (|Factored| P)))
          (SEQ
           (SPADCALL
@@ -82,14 +82,14 @@
 
 (SDEFUN |UPSQFREE;squareFree;PF;6| ((|p| (P)) ($ (|Factored| P)))
         (SPROG
-         ((#1=#:G173 NIL)
+         ((#1=#:G174 NIL)
           (|lffe|
            (|List|
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
                       (|:| |factor| P)
                       (|:| |exponent| (|NonNegativeInteger|)))))
-          (|lcp| (RC)) (#2=#:G165 NIL) (|i| (|NonNegativeInteger|)) (|pi| (P))
-          (|di| (P)) (#3=#:G162 NIL) (|ci| (P)) (|a| (P)) (|c| (P)) (|u| (P))
+          (|lcp| (RC)) (#2=#:G166 NIL) (|i| (|NonNegativeInteger|)) (|pi| (P))
+          (|di| (P)) (#3=#:G163 NIL) (|ci| (P)) (|a| (P)) (|c| (P)) (|u| (P))
           (|#G11|
            (|Record| (|:| |unit| P) (|:| |canonical| P) (|:| |associate| P))))
          (SEQ (LETT |ci| |p|) (LETT |di| (SPADCALL |p| (QREFELT $ 8)))
@@ -179,7 +179,7 @@
                                                  (VECTOR (CONS 1 "sqfr") |pi|
                                                          |i|)
                                                  |lffe|)))))
-                                  (GO #5=#:G168)))))))
+                                  (GO #5=#:G169)))))))
                             #5# (EXIT #1#))
                            NIL (GO G190) G191 (EXIT NIL))
                       (EXIT
@@ -193,11 +193,11 @@
                        (|:| |e_list| (|List| (|NonNegativeInteger|))))))
         (SPROG
          ((|res_le| (|List| (|NonNegativeInteger|))) (|res_lf| (|List| P))
-          (#2=#:G209 NIL) (|f| NIL) (#3=#:G210 NIL) (|e| NIL)
+          (#2=#:G210 NIL) (|f| NIL) (#3=#:G211 NIL) (|e| NIL)
           (|le| (|List| (|NonNegativeInteger|))) (|lf| (|List| P))
           (|nle| (|List| (|NonNegativeInteger|))) (|nlf| (|List| P)) (|nf| (P))
-          (|rec_f| (P)) (#4=#:G176 NIL) (|f1| (P)) (#5=#:G207 NIL)
-          (#6=#:G208 NIL) (#7=#:G205 NIL) (#8=#:G206 NIL) (|rec_e| NIL)
+          (|rec_f| (P)) (#4=#:G177 NIL) (|f1| (P)) (#5=#:G208 NIL)
+          (#6=#:G209 NIL) (#7=#:G206 NIL) (#8=#:G207 NIL) (|rec_e| NIL)
           (|rec_el| (|List| (|NonNegativeInteger|))) (|rec_fl| (|List| P))
           (|res1| #1#) (|facs_pow| (P)) (|i| (|NonNegativeInteger|)) (|di| (P))
           (|facs| (P)) (|fac_i| (P)) (|dp| (P)))
@@ -406,7 +406,7 @@
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
                       (|:| |factor| P)
                       (|:| |exponent| (|NonNegativeInteger|)))))
-          (#1=#:G221 NIL) (|f| NIL) (#2=#:G222 NIL) (|e| NIL)
+          (#1=#:G222 NIL) (|f| NIL) (#2=#:G223 NIL) (|e| NIL)
           (|res1|
            (|Record| (|:| |f_list| (|List| P))
                      (|:| |e_list| (|List| (|NonNegativeInteger|)))))
@@ -444,9 +444,9 @@
            (|List|
             (|Record| (|:| |flag| (|Union| #1# #2# #3# #4#)) (|:| |factor| P)
                       (|:| |exponent| (|NonNegativeInteger|)))))
-          (#5=#:G249 NIL) (|ffe| NIL) (#6=#:G248 NIL)
-          (|redSqfr| (|Factored| P)) (#7=#:G232 NIL) (|dunit| (P)) (|pi| (P))
-          (|lc| (RC)) (#8=#:G236 NIL) (|i| (|NonNegativeInteger|)) (|ci| (P))
+          (#5=#:G250 NIL) (|ffe| NIL) (#6=#:G249 NIL)
+          (|redSqfr| (|Factored| P)) (#7=#:G233 NIL) (|dunit| (P)) (|pi| (P))
+          (|lc| (RC)) (#8=#:G237 NIL) (|i| (|NonNegativeInteger|)) (|ci| (P))
           (|di| (P)) (|diprev| (P)) (|a| (P)) (|c| (P)) (|u| (P))
           (|#G24|
            (|Record| (|:| |unit| P) (|:| |canonical| P) (|:| |associate| P))))
@@ -578,9 +578,9 @@
 
 (DECLAIM (NOTINLINE |UnivariatePolynomialSquareFree;|)) 
 
-(DEFUN |UnivariatePolynomialSquareFree| (&REST #1=#:G250)
+(DEFUN |UnivariatePolynomialSquareFree| (&REST #1=#:G251)
   (SPROG NIL
-         (PROG (#2=#:G251)
+         (PROG (#2=#:G252)
            (RETURN
             (COND
              ((LETT #2#

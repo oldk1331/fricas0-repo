@@ -41,7 +41,7 @@
 
 (DEFUN |FortranFormat| ()
   (SPROG NIL
-         (PROG (#1=#:G119)
+         (PROG (#1=#:G120)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|FortranFormat|))

@@ -3,7 +3,7 @@
         ((|fn| (|Mapping| C A B)) (|la| (|List| A)) (|lb| (|List| B))
          ($ (|List| C)))
         (SPROG
-         ((#1=#:G108 NIL) (|a| NIL) (#2=#:G109 NIL) (|b| NIL) (#3=#:G107 NIL))
+         ((#1=#:G109 NIL) (|a| NIL) (#2=#:G110 NIL) (|b| NIL) (#3=#:G108 NIL))
          (SEQ
           (PROGN
            (LETT #3# NIL)
@@ -19,9 +19,9 @@
 
 (DECLAIM (NOTINLINE |ListFunctions3;|)) 
 
-(DEFUN |ListFunctions3| (&REST #1=#:G110)
+(DEFUN |ListFunctions3| (&REST #1=#:G111)
   (SPROG NIL
-         (PROG (#2=#:G111)
+         (PROG (#2=#:G112)
            (RETURN
             (COND
              ((LETT #2#

@@ -4,7 +4,7 @@
 (DEFPARAMETER |ConvertibleTo;AL| 'NIL) 
 
 (DEFUN |ConvertibleTo| (|t#1|)
-  (LET (#1=#:G104 (#2=#:G105 (|devaluate| |t#1|)))
+  (LET (#1=#:G105 (#2=#:G106 (|devaluate| |t#1|)))
     (COND ((SETQ #1# (|assoc| #2# |ConvertibleTo;AL|)) (CDR #1#))
           (T
            (SETQ |ConvertibleTo;AL|
@@ -13,7 +13,7 @@
            #1#)))) 
 
 (DEFUN |ConvertibleTo;| (|t#1|)
-  (SPROG ((#1=#:G103 NIL))
+  (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
                    (|subst_in_cat| '(|t#1|) (LIST |t#1|)

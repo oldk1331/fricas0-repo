@@ -24,9 +24,9 @@
 
 (DECLAIM (NOTINLINE |AssociatedJordanAlgebra;|)) 
 
-(DEFUN |AssociatedJordanAlgebra| (&REST #1=#:G117)
+(DEFUN |AssociatedJordanAlgebra| (&REST #1=#:G118)
   (SPROG NIL
-         (PROG (#2=#:G118)
+         (PROG (#2=#:G119)
            (RETURN
             (COND
              ((LETT #2#
@@ -45,7 +45,7 @@
 
 (DEFUN |AssociatedJordanAlgebra;| (|#1| |#2|)
   (SPROG
-   ((#1=#:G105 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((#1=#:G106 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))

@@ -7,10 +7,10 @@
   (COND (|SetCategory;AL|) (T (SETQ |SetCategory;AL| (|SetCategory;|))))) 
 
 (DEFUN |SetCategory;| ()
-  (SPROG ((#1=#:G104 NIL))
+  (SPROG ((#1=#:G105 NIL))
          (PROG1
              (LETT #1#
-                   (|subst_in_cat| '(#2=#:G103) (LIST '(|OutputForm|))
+                   (|subst_in_cat| '(#2=#:G104) (LIST '(|OutputForm|))
                                    (|Join| (|BasicType|) (|CoercibleTo| '#2#)
                                            (|mkCategory|
                                             '(((|hash| ((|SingleInteger|) $))

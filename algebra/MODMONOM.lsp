@@ -27,9 +27,9 @@
 
 (DECLAIM (NOTINLINE |ModuleMonomial;|)) 
 
-(DEFUN |ModuleMonomial| (&REST #1=#:G116)
+(DEFUN |ModuleMonomial| (&REST #1=#:G117)
   (SPROG NIL
-         (PROG (#2=#:G117)
+         (PROG (#2=#:G118)
            (RETURN
             (COND
              ((LETT #2#

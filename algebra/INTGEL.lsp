@@ -153,7 +153,7 @@
 
 (SDEFUN |INTGEL;fsqrt;2F;3| ((|f| (F)) ($ (F)))
         (SPROG
-         ((#1=#:G148 NIL)
+         ((#1=#:G149 NIL)
           (|ur|
            (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
                      (|:| |radicand| F))))
@@ -164,13 +164,13 @@
                  (COND
                   ((SPADCALL (QVELT |ur| 2) (|spadConstant| $ 20)
                              (QREFELT $ 68))
-                   (PROGN (LETT #1# (QVELT |ur| 1)) (GO #2=#:G147)))
+                   (PROGN (LETT #1# (QVELT |ur| 1)) (GO #2=#:G148)))
                   ('T (SPADCALL |f| (QREFELT $ 70)))))))
           #2# (EXIT #1#)))) 
 
 (SDEFUN |INTGEL;fsqrt;2F;4| ((|f| (F)) ($ (F)))
         (SPROG
-         ((#1=#:G152 NIL)
+         ((#1=#:G153 NIL)
           (|ur|
            (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
                      (|:| |radicand| F))))
@@ -181,7 +181,7 @@
                  (COND
                   ((SPADCALL (QVELT |ur| 2) (|spadConstant| $ 20)
                              (QREFELT $ 68))
-                   (PROGN (LETT #1# (QVELT |ur| 1)) (GO #2=#:G151)))
+                   (PROGN (LETT #1# (QVELT |ur| 1)) (GO #2=#:G152)))
                   ('T (SPADCALL |f| (QREFELT $ 75)))))))
           #2# (EXIT #1#)))) 
 
@@ -408,9 +408,9 @@
 
 (DECLAIM (NOTINLINE |GenerateEllipticIntegrals;|)) 
 
-(DEFUN |GenerateEllipticIntegrals| (&REST #1=#:G183)
+(DEFUN |GenerateEllipticIntegrals| (&REST #1=#:G184)
   (SPROG NIL
-         (PROG (#2=#:G184)
+         (PROG (#2=#:G185)
            (RETURN
             (COND
              ((LETT #2#

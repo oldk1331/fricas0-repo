@@ -71,9 +71,9 @@
 
 (DECLAIM (NOTINLINE |GuessPolynomialFunctions;|)) 
 
-(DEFUN |GuessPolynomialFunctions| (#1=#:G123)
+(DEFUN |GuessPolynomialFunctions| (#1=#:G124)
   (SPROG NIL
-         (PROG (#2=#:G124)
+         (PROG (#2=#:G125)
            (RETURN
             (COND
              ((LETT #2#

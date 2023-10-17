@@ -8,10 +8,10 @@
         (T (SETQ |FormatterCategory;AL| (|FormatterCategory;|))))) 
 
 (DEFUN |FormatterCategory;| ()
-  (SPROG ((#1=#:G135 NIL))
+  (SPROG ((#1=#:G136 NIL))
          (PROG1
              (LETT #1#
-                   (|subst_in_cat| '(#2=#:G134) (LIST '(|OutputForm|))
+                   (|subst_in_cat| '(#2=#:G135) (LIST '(|OutputForm|))
                                    (|Join| (|CoercibleTo| '#2#)
                                            (|mkCategory|
                                             '(((|defaultPrologue|

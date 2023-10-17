@@ -7,9 +7,9 @@
 
 (DECLAIM (NOTINLINE |UnivariateSkewPolynomial;|)) 
 
-(DEFUN |UnivariateSkewPolynomial| (&REST #1=#:G139)
+(DEFUN |UnivariateSkewPolynomial| (&REST #1=#:G140)
   (SPROG NIL
-         (PROG (#2=#:G140)
+         (PROG (#2=#:G141)
            (RETURN
             (COND
              ((LETT #2#
@@ -29,7 +29,7 @@
 
 (DEFUN |UnivariateSkewPolynomial;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G136 NIL) (#2=#:G138 NIL) (#3=#:G137 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G137 NIL) (#2=#:G139 NIL) (#3=#:G138 NIL) ($ NIL)
     (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 |#1|)

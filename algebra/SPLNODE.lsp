@@ -47,7 +47,7 @@
 (SDEFUN |SPLNODE;construct;LL;11|
         ((|lvt| (|List| (|Record| (|:| |val| V) (|:| |tower| C))))
          ($ (|List| $)))
-        (SPROG ((#1=#:G130 NIL) (|vt| NIL) (#2=#:G129 NIL))
+        (SPROG ((#1=#:G131 NIL) (|vt| NIL) (#2=#:G130 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -62,7 +62,7 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |SPLNODE;construct;VLL;12| ((|v| (V)) (|lt| (|List| C)) ($ (|List| $)))
-        (SPROG ((#1=#:G135 NIL) (|t| NIL) (#2=#:G134 NIL))
+        (SPROG ((#1=#:G136 NIL) (|t| NIL) (#2=#:G135 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -160,9 +160,9 @@
 
 (DECLAIM (NOTINLINE |SplittingNode;|)) 
 
-(DEFUN |SplittingNode| (&REST #1=#:G159)
+(DEFUN |SplittingNode| (&REST #1=#:G160)
   (SPROG NIL
-         (PROG (#2=#:G160)
+         (PROG (#2=#:G161)
            (RETURN
             (COND
              ((LETT #2#

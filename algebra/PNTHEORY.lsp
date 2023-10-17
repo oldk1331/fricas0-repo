@@ -6,7 +6,7 @@
         (SPROG
          ((|da| #1=(|NonNegativeInteger|))
           (|q| (|SparseUnivariatePolynomial| (|Integer|)))
-          (|t| (|SparseUnivariatePolynomial| (|Integer|))) (#2=#:G119 NIL)
+          (|t| (|SparseUnivariatePolynomial| (|Integer|))) (#2=#:G120 NIL)
           (|db| #1#))
          (SEQ
           (COND
@@ -43,9 +43,9 @@
          ($ (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))))
         (SPROG
          ((|p| #1=(|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
-          (|c| (|Fraction| (|Integer|))) (#2=#:G130 NIL)
+          (|c| (|Fraction| (|Integer|))) (#2=#:G131 NIL)
           (|t| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
-          (#3=#:G136 NIL) (|i| NIL) (|s| #4=(|Integer|))
+          (#3=#:G137 NIL) (|i| NIL) (|s| #4=(|Integer|))
           (|#G8|
            (|Record| (|:| |En| (|Integer|))
                      (|:| |Ev|
@@ -105,7 +105,7 @@
          ((|p| #1=(|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
           (|c| (|Fraction| (|Integer|)))
           (|t| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
-          (#2=#:G144 NIL) (|i| NIL) (|s| #3=(|Integer|))
+          (#2=#:G145 NIL) (|i| NIL) (|s| #3=(|Integer|))
           (|#G15|
            (|Record| (|:| |Bn| (|Integer|))
                      (|:| |Bv|
@@ -150,7 +150,7 @@
 (SDEFUN |PNTHEORY;fixedDivisor;SupI;5|
         ((|a| (|SparseUnivariatePolynomial| (|Integer|))) ($ (|Integer|)))
         (SPROG
-         ((|g| (|Integer|)) (#1=#:G149 NIL) (|k| NIL)
+         ((|g| (|Integer|)) (#1=#:G150 NIL) (|k| NIL)
           (|d| (|NonNegativeInteger|)))
          (SEQ (|SparseUnivariatePolynomial| (|Integer|))
               (LETT |d| (SPADCALL |a| (QREFELT $ 30)))
@@ -171,7 +171,7 @@
         (SPROG
          ((|q| (|SparseUnivariatePolynomial| (|Integer|)))
           (|p| #1=(|SparseUnivariatePolynomial| (|Integer|))) (|#G28| #1#)
-          (|#G27| (|SparseUnivariatePolynomial| (|Integer|))) (#2=#:G157 NIL)
+          (|#G27| (|SparseUnivariatePolynomial| (|Integer|))) (#2=#:G158 NIL)
           (|k| NIL) (|s| (|Integer|))
           (|#G22|
            (|Record| (|:| |Hn| (|Integer|))
@@ -220,7 +220,7 @@
           (|p| #1=(|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
           (|#G36| #1#)
           (|#G35| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
-          (|t| (|Integer|)) (#2=#:G166 NIL) (|k| NIL) (|s| (|Integer|))
+          (|t| (|Integer|)) (#2=#:G167 NIL) (|k| NIL) (|s| (|Integer|))
           (|#G30|
            (|Record| (|:| |Pn| (|Integer|))
                      (|:| P1
@@ -273,7 +273,7 @@
          ((|q| (|SparseUnivariatePolynomial| (|Integer|)))
           (|p| #1=(|SparseUnivariatePolynomial| (|Integer|))) (|#G44| #1#)
           (|#G43| (|SparseUnivariatePolynomial| (|Integer|))) (|t| (|Integer|))
-          (#2=#:G175 NIL) (|k| NIL) (|s| (|Integer|))
+          (#2=#:G176 NIL) (|k| NIL) (|s| (|Integer|))
           (|#G38|
            (|Record| (|:| |Ln| (|Integer|))
                      (|:| L1 (|SparseUnivariatePolynomial| (|Integer|)))
@@ -320,7 +320,7 @@
         (SPROG
          ((|q| (|SparseUnivariatePolynomial| (|Integer|)))
           (|p| #1=(|SparseUnivariatePolynomial| (|Integer|))) (|#G52| #1#)
-          (|#G51| (|SparseUnivariatePolynomial| (|Integer|))) (#2=#:G183 NIL)
+          (|#G51| (|SparseUnivariatePolynomial| (|Integer|))) (#2=#:G184 NIL)
           (|k| NIL) (|s| (|Integer|))
           (|#G46|
            (|Record| (|:| |Tn| (|Integer|))
@@ -365,7 +365,7 @@
         (SPROG
          ((|q| (|SparseUnivariatePolynomial| (|Integer|)))
           (|p| #1=(|SparseUnivariatePolynomial| (|Integer|))) (|#G60| #1#)
-          (|#G59| (|SparseUnivariatePolynomial| (|Integer|))) (#2=#:G191 NIL)
+          (|#G59| (|SparseUnivariatePolynomial| (|Integer|))) (#2=#:G192 NIL)
           (|k| NIL) (|s| (|Integer|))
           (|#G54|
            (|Record| (|:| |Un| (|Integer|))
@@ -409,7 +409,7 @@
 
 (DEFUN |PolynomialNumberTheoryFunctions| ()
   (SPROG NIL
-         (PROG (#1=#:G193)
+         (PROG (#1=#:G194)
            (RETURN
             (COND
              ((LETT #1#

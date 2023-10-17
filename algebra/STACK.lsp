@@ -68,9 +68,9 @@
 
 (DECLAIM (NOTINLINE |Stack;|)) 
 
-(DEFUN |Stack| (#1=#:G141)
+(DEFUN |Stack| (#1=#:G142)
   (SPROG NIL
-         (PROG (#2=#:G142)
+         (PROG (#2=#:G143)
            (RETURN
             (COND
              ((LETT #2#
@@ -85,8 +85,8 @@
 
 (DEFUN |Stack;| (|#1|)
   (SPROG
-   ((#1=#:G139 NIL) (#2=#:G140 NIL) (|pv$| NIL) (#3=#:G136 NIL) (#4=#:G137 NIL)
-    (#5=#:G138 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+   ((#1=#:G140 NIL) (#2=#:G141 NIL) (|pv$| NIL) (#3=#:G137 NIL) (#4=#:G138 NIL)
+    (#5=#:G139 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|Stack| DV$1))

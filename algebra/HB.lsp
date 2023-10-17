@@ -1,8 +1,8 @@
 
 (SDEFUN |HB;lfunc;3I;1| ((|d| (|Integer|)) (|n| (|Integer|)) ($ (|Integer|)))
         (SPROG
-         ((|res| (|Integer|)) (#1=#:G131 NIL) (|sum| (|Integer|))
-          (#2=#:G134 NIL) (|m| NIL))
+         ((|res| (|Integer|)) (#1=#:G132 NIL) (|sum| (|Integer|))
+          (#2=#:G135 NIL) (|m| NIL))
          (SEQ
           (COND ((< |n| 0) 0) ((EQL |n| 0) 1) ((EQL |n| 1) |d|)
                 ('T
@@ -42,10 +42,10 @@
         (SPROG
          ((|numComms| #1=(|Integer|)) (|cW| (|Integer|))
           (|leftIndex| (|NonNegativeInteger|)) (|newNumComms| #1#)
-          (#2=#:G157 NIL) (|rightIndex| NIL) (|done| (|Boolean|))
+          (#2=#:G158 NIL) (|rightIndex| NIL) (|done| (|Boolean|))
           (|wt| (|Integer|)) (|firstindex| (|Vector| (|Integer|)))
-          (#3=#:G156 NIL) (|i| NIL) (|v| (|Vector| (|List| (|Integer|))))
-          (#4=#:G139 NIL) (|siz| (|Integer|)) (#5=#:G155 NIL)
+          (#3=#:G157 NIL) (|i| NIL) (|v| (|Vector| (|List| (|Integer|))))
+          (#4=#:G140 NIL) (|siz| (|Integer|)) (#5=#:G156 NIL)
           (|maxweight| (|NonNegativeInteger|)) (|gens| (|NonNegativeInteger|)))
          (SEQ (LETT |gens| |n|) (LETT |maxweight| |c|) (LETT |siz| 0)
               (SEQ (LETT |i| 1) (LETT #5# |maxweight|) G190
@@ -144,7 +144,7 @@
 
 (DEFUN |HallBasis| ()
   (SPROG NIL
-         (PROG (#1=#:G159)
+         (PROG (#1=#:G160)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|HallBasis|))

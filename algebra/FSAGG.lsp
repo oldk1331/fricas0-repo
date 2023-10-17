@@ -6,7 +6,7 @@
 (DEFPARAMETER |FiniteSetAggregate;AL| 'NIL) 
 
 (DEFUN |FiniteSetAggregate| (|t#1|)
-  (LET (#1=#:G111 (#2=#:G112 (|devaluate| |t#1|)))
+  (LET (#1=#:G112 (#2=#:G113 (|devaluate| |t#1|)))
     (COND ((SETQ #1# (|assoc| #2# |FiniteSetAggregate;AL|)) (CDR #1#))
           (T
            (SETQ |FiniteSetAggregate;AL|
@@ -15,7 +15,7 @@
            #1#)))) 
 
 (DEFUN |FiniteSetAggregate;| (|t#1|)
-  (SPROG ((#1=#:G110 NIL))
+  (SPROG ((#1=#:G111 NIL))
          (PROG1
              (LETT #1#
                    (|subst_in_cat| '(|t#1|) (LIST |t#1|)

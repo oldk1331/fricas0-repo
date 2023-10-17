@@ -28,7 +28,7 @@
 (SDEFUN |INS-;rational?;SB;8| ((|x| (S)) ($ (|Boolean|))) 'T) 
 
 (SDEFUN |INS-;euclideanSize;SNni;9| ((|x| (S)) ($ (|NonNegativeInteger|)))
-        (SPROG ((#1=#:G135 NIL) (#2=#:G134 NIL))
+        (SPROG ((#1=#:G136 NIL) (#2=#:G135 NIL))
                (COND
                 ((SPADCALL |x| (|spadConstant| $ 9) (QREFELT $ 24))
                  (|error| "euclideanSize called on zero"))
@@ -158,7 +158,7 @@
             (#1# (|error| "inverse does not exist"))))))) 
 
 (SDEFUN |INS-;powmod;4S;29| ((|x| (S)) (|n| (S)) (|p| (S)) ($ (S)))
-        (SPROG ((|z| (S)) (#1=#:G198 NIL) (|y| (S)))
+        (SPROG ((|z| (S)) (#1=#:G199 NIL) (|y| (S)))
                (SEQ
                 (EXIT
                  (SEQ
@@ -189,7 +189,7 @@
                                                            (QREFELT $ 17))
                                                           (QREFELT $ 18)))
                                           (QREFELT $ 61))
-                                         (PROGN (LETT #1# |y|) (GO #2=#:G197)))
+                                         (PROGN (LETT #1# |y|) (GO #2=#:G198)))
                                         ('T
                                          (LETT |z|
                                                (SPADCALL |z| |z| |p|

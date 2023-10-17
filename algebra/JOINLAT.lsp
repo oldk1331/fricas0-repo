@@ -8,7 +8,7 @@
         (T (SETQ |JoinSemilattice;AL| (|JoinSemilattice;|))))) 
 
 (DEFUN |JoinSemilattice;| ()
-  (SPROG ((#1=#:G103 NIL))
+  (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
                    (|Join| (|SetCategory|)

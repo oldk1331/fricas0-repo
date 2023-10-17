@@ -168,7 +168,7 @@
         ((|l| (|List| S))
          ($ (|Record| (|:| |coef| (|List| S)) (|:| |generator| S))))
         (SPROG
-         ((#1=#:G199 NIL) (|vv| NIL) (#2=#:G198 NIL)
+         ((#1=#:G200 NIL) (|vv| NIL) (#2=#:G199 NIL)
           (|u| (|Record| (|:| |coef1| S) (|:| |coef2| S) (|:| |generator| S)))
           (|v| (|Record| (|:| |coef| (|List| S)) (|:| |generator| S)))
           (|uca|
@@ -214,9 +214,9 @@
 (SDEFUN |EUCDOM-;expressIdealMember;LSU;10|
         ((|l| (|List| S)) (|z| (S)) ($ (|Union| (|List| S) "failed")))
         (SPROG
-         ((#1=#:G219 NIL) (|v| NIL) (#2=#:G218 NIL) (|q| (|Union| S "failed"))
+         ((#1=#:G220 NIL) (|v| NIL) (#2=#:G219 NIL) (|q| (|Union| S "failed"))
           (|pid| (|Record| (|:| |coef| (|List| S)) (|:| |generator| S)))
-          (#3=#:G217 NIL) (#4=#:G216 NIL))
+          (#3=#:G218 NIL) (#4=#:G217 NIL))
          (SEQ
           (COND
            ((SPADCALL |z| (|spadConstant| $ 26) (QREFELT $ 24))
@@ -261,9 +261,9 @@
         (SPROG
          ((|v2| #2=(|Union| (|List| S) #1#)) (|v1| #2#)
           (|u| (|Union| (|Record| (|:| |coef1| S) (|:| |coef2| S)) "failed"))
-          (#3=#:G227 NIL) (#4=#:G226 (S)) (#5=#:G228 (S)) (#6=#:G239 NIL)
-          (#7=#:G104 NIL) (#8=#:G224 NIL) (#9=#:G223 (S)) (#10=#:G225 (S))
-          (#11=#:G238 NIL) (#12=#:G103 NIL) (|l2| (|List| S)) (|l1| (|List| S))
+          (#3=#:G228 NIL) (#4=#:G227 (S)) (#5=#:G229 (S)) (#6=#:G240 NIL)
+          (#7=#:G105 NIL) (#8=#:G225 NIL) (#9=#:G224 (S)) (#10=#:G226 (S))
+          (#11=#:G239 NIL) (#12=#:G104 NIL) (|l2| (|List| S)) (|l1| (|List| S))
           (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (LENGTH |l|))
               (EXIT

@@ -8,14 +8,14 @@
 (SDEFUN |CYCGRP;per| ((|r| (|Rep|)) ($ ($))) |r|) 
 
 (SDEFUN |CYCGRP;coerce;$Of;3| ((|x| ($)) ($ (|OutputForm|)))
-        (SPROG ((#1=#:G112 NIL))
+        (SPROG ((#1=#:G113 NIL))
                (SEQ
                 (EXIT
                  (COND
                   ((SPADCALL |x| (QREFELT $ 10))
                    (PROGN
                     (LETT #1# (SPADCALL 1 (QREFELT $ 13)))
-                    (GO #2=#:G111)))
+                    (GO #2=#:G112)))
                   ((EQL (|CYCGRP;rep| |x| $) 1)
                    (PROGN
                     (LETT #1# (SPADCALL (QREFELT $ 7) (QREFELT $ 15)))
@@ -61,7 +61,7 @@
 (SDEFUN |CYCGRP;size;Nni;13| (($ (|NonNegativeInteger|))) (QREFELT $ 6)) 
 
 (SDEFUN |CYCGRP;index;Pi$;14| ((|i| (|PositiveInteger|)) ($ ($)))
-        (SPROG ((#1=#:G126 NIL) (|imodn| ($)))
+        (SPROG ((#1=#:G127 NIL) (|imodn| ($)))
                (SEQ
                 (EXIT
                  (COND ((> |i| (QREFELT $ 6)) (|error| "out of range"))
@@ -74,7 +74,7 @@
                            ((ZEROP |imodn|)
                             (PROGN
                              (LETT #1# (|spadConstant| $ 23))
-                             (GO #3=#:G125)))
+                             (GO #3=#:G126)))
                            (#2# (|CYCGRP;per| |imodn| $))))))))
                 #3# (EXIT #1#)))) 
 
@@ -84,7 +84,7 @@
 (SDEFUN |CYCGRP;random;$;16| (($ ($))) (|CYCGRP;per| (RANDOM (QREFELT $ 6)) $)) 
 
 (SDEFUN |CYCGRP;enumerate;L;17| (($ (|List| $)))
-        (SPROG ((#1=#:G133 NIL) (|k| NIL) (#2=#:G132 NIL))
+        (SPROG ((#1=#:G134 NIL) (|k| NIL) (#2=#:G133 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -104,9 +104,9 @@
 
 (DECLAIM (NOTINLINE |CyclicGroup;|)) 
 
-(DEFUN |CyclicGroup| (&REST #1=#:G140)
+(DEFUN |CyclicGroup| (&REST #1=#:G141)
   (SPROG NIL
-         (PROG (#2=#:G141)
+         (PROG (#2=#:G142)
            (RETURN
             (COND
              ((LETT #2#

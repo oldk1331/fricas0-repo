@@ -25,7 +25,7 @@
             (SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
             (SIGNATURE |retract| (#1# (|Any|)))))
           (|uts| (|Union| (|UnivariateTaylorSeries| FE |x| |a|) #2="failed"))
-          (|uls| (|Uls|)) (#3=#:G139 NIL)
+          (|uls| (|Uls|)) (#3=#:G140 NIL)
           (|ans|
            (|Union| (|:| |%series| |Uls|)
                     (|:| |%problem|
@@ -389,7 +389,7 @@
 (SDEFUN |EXPR2UPS;iLaurent|
         ((|fcn| (FE)) (|x| (|Symbol|)) (|a| (FE)) ($ (|Any|)))
         (SPROG
-         ((#1=#:G180 NIL)
+         ((#1=#:G181 NIL)
           (|any1|
            (CATEGORY |package|
             (SIGNATURE |coerce|
@@ -719,7 +719,7 @@
 (SDEFUN |EXPR2UPS;iPuiseux|
         ((|fcn| (FE)) (|x| (|Symbol|)) (|a| (FE)) ($ (|Any|)))
         (SPROG
-         ((#1=#:G217 NIL)
+         ((#1=#:G218 NIL)
           (|any1|
            (CATEGORY |package|
             (SIGNATURE |coerce|
@@ -1080,7 +1080,7 @@
              ((|Union| #2# . #3=("failed")) . #4=((|Any|))))
             #5=(SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
             (SIGNATURE |retract| (#2# . #6=((|Any|))))))
-          (#7=#:G253 NIL)
+          (#7=#:G254 NIL)
           (|anyone|
            (CATEGORY |package|
             (SIGNATURE |coerce|
@@ -1506,9 +1506,9 @@
 
 (DECLAIM (NOTINLINE |ExpressionToUnivariatePowerSeries;|)) 
 
-(DEFUN |ExpressionToUnivariatePowerSeries| (&REST #1=#:G283)
+(DEFUN |ExpressionToUnivariatePowerSeries| (&REST #1=#:G284)
   (SPROG NIL
-         (PROG (#2=#:G284)
+         (PROG (#2=#:G285)
            (RETURN
             (COND
              ((LETT #2#

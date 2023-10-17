@@ -10,7 +10,7 @@
          ($ (|Vector| (|Matrix| (|Polynomial| R)))))
         (SPROG
          ((|l| (|List| (|Matrix| (|Polynomial| R))))
-          (|m2| (|Matrix| (|Polynomial| R))) (#1=#:G111 NIL) (|m| NIL)
+          (|m2| (|Matrix| (|Polynomial| R))) (#1=#:G112 NIL) (|m| NIL)
           (|lim| (|List| (|Matrix| R))))
          (SEQ (LETT |lim| (SPADCALL |g| (QREFELT $ 13))) (LETT |l| NIL)
               (SEQ (LETT |m| NIL) (LETT #1# |lim|) G190
@@ -30,7 +30,7 @@
          ($ (|Vector| (|Matrix| (|Fraction| (|Polynomial| R))))))
         (SPROG
          ((|l| (|List| (|Matrix| (|Fraction| (|Polynomial| R)))))
-          (|m3| (|Matrix| (|Fraction| (|Polynomial| R)))) (#1=#:G118 NIL)
+          (|m3| (|Matrix| (|Fraction| (|Polynomial| R)))) (#1=#:G119 NIL)
           (|m| NIL) (|lim| (|List| (|Matrix| R))))
          (SEQ (LETT |lim| (SPADCALL |g| (QREFELT $ 13))) (LETT |l| NIL)
               (SEQ (LETT |m| NIL) (LETT #1# |lim|) G190
@@ -47,9 +47,9 @@
 
 (DECLAIM (NOTINLINE |CoerceVectorMatrixPackage;|)) 
 
-(DEFUN |CoerceVectorMatrixPackage| (#1=#:G119)
+(DEFUN |CoerceVectorMatrixPackage| (#1=#:G120)
   (SPROG NIL
-         (PROG (#2=#:G120)
+         (PROG (#2=#:G121)
            (RETURN
             (COND
              ((LETT #2#

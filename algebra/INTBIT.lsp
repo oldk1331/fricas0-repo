@@ -14,7 +14,7 @@
 
 (DEFUN |IntegerBits| ()
   (SPROG NIL
-         (PROG (#1=#:G108)
+         (PROG (#1=#:G109)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|IntegerBits|))

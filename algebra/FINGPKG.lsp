@@ -3,9 +3,9 @@
         ((|x| (G)) ($ (|Permutation| (|Integer|))))
         (SPROG
          ((|p| (|Permutation| (|Integer|))) (|imag| (|List| (|Integer|)))
-          (#1=#:G116 NIL) (|a| NIL) (#2=#:G115 NIL)
-          (|preimag| (|List| (|Integer|))) (#3=#:G114 NIL) (|k| NIL)
-          (#4=#:G113 NIL) (|xall| (|List| G)) (#5=#:G112 NIL) (#6=#:G111 NIL)
+          (#1=#:G117 NIL) (|a| NIL) (#2=#:G116 NIL)
+          (|preimag| (|List| (|Integer|))) (#3=#:G115 NIL) (|k| NIL)
+          (#4=#:G114 NIL) (|xall| (|List| G)) (#5=#:G113 NIL) (#6=#:G112 NIL)
           (|n| (|Integer|)) (|all| (|List| G)))
          (SEQ (LETT |all| (SPADCALL (QREFELT $ 8))) (LETT |n| (LENGTH |all|))
               (LETT |xall|
@@ -57,9 +57,9 @@
 
 (DECLAIM (NOTINLINE |FiniteGroupPackage;|)) 
 
-(DEFUN |FiniteGroupPackage| (#1=#:G119)
+(DEFUN |FiniteGroupPackage| (#1=#:G120)
   (SPROG NIL
-         (PROG (#2=#:G120)
+         (PROG (#2=#:G121)
            (RETURN
             (COND
              ((LETT #2#

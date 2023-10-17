@@ -4,10 +4,10 @@
          ((|lllipt| (|List| (|List| (|List| (|NonNegativeInteger|)))))
           (|llprop| (|List| (|List| (|SubSpaceComponentProperty|))))
           (|tmpllipt| (|List| (|List| (|NonNegativeInteger|))))
-          (|tmplipt| (|List| (|NonNegativeInteger|))) (#1=#:G150 NIL)
+          (|tmplipt| (|List| (|NonNegativeInteger|))) (#1=#:G151 NIL)
           (|point| NIL) (|tmplprop| (|List| (|SubSpaceComponentProperty|)))
-          (#2=#:G149 NIL) (|curve| NIL)
-          (|lprop| (|List| (|SubSpaceComponentProperty|))) (#3=#:G148 NIL)
+          (#2=#:G150 NIL) (|curve| NIL)
+          (|lprop| (|List| (|SubSpaceComponentProperty|))) (#3=#:G149 NIL)
           (|component| NIL))
          (SEQ
           (COND ((QVELT |space| 4) |space|)
@@ -80,7 +80,7 @@
 
 (SDEFUN |SPACE3;polygon;$L$;2|
         ((|space| ($)) (|points| (|List| (|Point| R))) ($ ($)))
-        (SPROG ((#1=#:G156 NIL) (|p| NIL) (|pt| (|SubSpace| 3 R)))
+        (SPROG ((#1=#:G157 NIL) (|p| NIL) (|pt| (|SubSpace| 3 R)))
                (SEQ
                 (COND
                  ((< (LENGTH |points|) 3)
@@ -120,8 +120,8 @@
 
 (SDEFUN |SPACE3;merge;L$;7| ((|listOfThreeSpaces| (|List| $)) ($ ($)))
         (SPROG
-         ((#1=#:G173 NIL) (|ts| NIL) (|newspace| ($)) (#2=#:G172 NIL)
-          (#3=#:G171 NIL))
+         ((#1=#:G174 NIL) (|ts| NIL) (|newspace| ($)) (#2=#:G173 NIL)
+          (#3=#:G172 NIL))
          (SEQ
           (LETT |newspace|
                 (SPADCALL
@@ -152,7 +152,7 @@
         (SPADCALL (LIST |s1| |s2|) (QREFELT $ 30))) 
 
 (SDEFUN |SPACE3;composite;L$;9| ((|listOfThreeSpaces| (|List| $)) ($ ($)))
-        (SPROG ((#1=#:G180 NIL) (|s| NIL) (#2=#:G179 NIL) (|space| ($)))
+        (SPROG ((#1=#:G181 NIL) (|s| NIL) (#2=#:G180 NIL) (|space| ($)))
                (SEQ (LETT |space| (SPADCALL (QREFELT $ 23)))
                     (QSETVELT |space| 0
                               (SPADCALL
@@ -176,7 +176,7 @@
                     (EXIT |space|)))) 
 
 (SDEFUN |SPACE3;components;$L;10| ((|space| ($)) ($ (|List| $)))
-        (SPROG ((#1=#:G185 NIL) (|s| NIL) (#2=#:G184 NIL))
+        (SPROG ((#1=#:G186 NIL) (|s| NIL) (#2=#:G185 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -193,7 +193,7 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |SPACE3;composites;$L;11| ((|space| ($)) ($ (|List| $)))
-        (SPROG ((#1=#:G190 NIL) (|s| NIL) (#2=#:G189 NIL))
+        (SPROG ((#1=#:G191 NIL) (|s| NIL) (#2=#:G190 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -208,7 +208,7 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |SPACE3;copy;2$;12| ((|space| ($)) ($ ($)))
-        (SPROG ((#1=#:G196 NIL) (|s| NIL) (#2=#:G195 NIL) (|spc| ($)))
+        (SPROG ((#1=#:G197 NIL) (|s| NIL) (#2=#:G196 NIL) (|spc| ($)))
                (SEQ
                 (LETT |spc|
                       (SPADCALL (SPADCALL (QVELT |space| 0) (QREFELT $ 32))
@@ -234,7 +234,7 @@
 (SDEFUN |SPACE3;enterPointData;$LNni;13|
         ((|space| ($)) (|listOfPoints| (|List| (|Point| R)))
          ($ (|NonNegativeInteger|)))
-        (SPROG ((#1=#:G201 NIL) (|p| NIL))
+        (SPROG ((#1=#:G202 NIL) (|p| NIL))
                (SEQ
                 (SEQ (LETT |p| NIL) (LETT #1# |listOfPoints|) G190
                      (COND
@@ -306,7 +306,7 @@
 
 (SDEFUN |SPACE3;curve;$L;22| ((|space| ($)) ($ (|List| (|Point| R))))
         (SPROG
-         ((#1=#:G226 NIL) (|s| NIL) (#2=#:G225 NIL) (|spc| (|SubSpace| 3 R)))
+         ((#1=#:G227 NIL) (|s| NIL) (#2=#:G226 NIL) (|spc| (|SubSpace| 3 R)))
          (SEQ
           (COND
            ((SPADCALL |space| (QREFELT $ 56))
@@ -339,7 +339,7 @@
 (SDEFUN |SPACE3;curve;$L$;24|
         ((|space| ($)) (|points| (|List| (|Point| R))) ($ ($)))
         (SPROG
-         ((#1=#:G232 NIL) (|p| NIL) (|path| (|List| (|NonNegativeInteger|))))
+         ((#1=#:G233 NIL) (|p| NIL) (|path| (|List| (|NonNegativeInteger|))))
          (SEQ
           (SPADCALL (QVELT |space| 0) NIL (|SPADfirst| |points|)
                     (QREFELT $ 50))
@@ -376,7 +376,7 @@
 
 (SDEFUN |SPACE3;closedCurve;$L;27| ((|space| ($)) ($ (|List| (|Point| R))))
         (SPROG
-         ((#1=#:G247 NIL) (|s| NIL) (#2=#:G246 NIL) (|spc| (|SubSpace| 3 R)))
+         ((#1=#:G248 NIL) (|s| NIL) (#2=#:G247 NIL) (|spc| (|SubSpace| 3 R)))
          (SEQ
           (COND
            ((SPADCALL |space| (QREFELT $ 66))
@@ -409,7 +409,7 @@
 (SDEFUN |SPACE3;closedCurve;$L$;29|
         ((|space| ($)) (|points| (|List| (|Point| R))) ($ ($)))
         (SPROG
-         ((#1=#:G253 NIL) (|p| NIL) (|path| (|List| (|NonNegativeInteger|))))
+         ((#1=#:G254 NIL) (|p| NIL) (|path| (|List| (|NonNegativeInteger|))))
          (SEQ
           (SPADCALL (QVELT |space| 0) NIL (|SPADfirst| |points|)
                     (QREFELT $ 50))
@@ -454,7 +454,7 @@
 
 (SDEFUN |SPACE3;polygon;$L;32| ((|space| ($)) ($ (|List| (|Point| R))))
         (SPROG
-         ((#1=#:G269 NIL) (|s| NIL) (#2=#:G268 NIL)
+         ((#1=#:G270 NIL) (|s| NIL) (#2=#:G269 NIL)
           (|cs| (|List| (|SubSpace| 3 R))))
          (SEQ
           (COND
@@ -495,7 +495,7 @@
 
 (SDEFUN |SPACE3;mesh?;$B;35| ((|space| ($)) ($ (|Boolean|)))
         (SPROG
-         ((#1=#:G282 NIL) (|eachCurve| NIL)
+         ((#1=#:G283 NIL) (|eachCurve| NIL)
           (|whatSizes| (|Set| (|NonNegativeInteger|)))
           (|kid| #2=(|List| (|SubSpace| 3 R))) (|c| #2#))
          (SEQ
@@ -530,8 +530,8 @@
 
 (SDEFUN |SPACE3;mesh;$L;36| ((|space| ($)) ($ (|List| (|List| (|Point| R)))))
         (SPROG
-         ((|llp| (|List| (|List| (|Point| R)))) (#1=#:G292 NIL) (|s| NIL)
-          (#2=#:G291 NIL) (#3=#:G290 NIL) (|lpSpace| NIL))
+         ((|llp| (|List| (|List| (|Point| R)))) (#1=#:G293 NIL) (|s| NIL)
+          (#2=#:G292 NIL) (#3=#:G291 NIL) (|lpSpace| NIL))
          (SEQ
           (COND
            ((SPADCALL |space| (QREFELT $ 82))
@@ -589,8 +589,8 @@
          (|lprops| (|List| #1=(|SubSpaceComponentProperty|))) (|prop| #1#)
          ($ ($)))
         (SPROG
-         ((|pts| (|List| (|List| (|Point| R)))) (#2=#:G302 NIL) (|points| NIL)
-          (#3=#:G301 NIL))
+         ((|pts| (|List| (|List| (|Point| R)))) (#2=#:G303 NIL) (|points| NIL)
+          (#3=#:G302 NIL))
          (SEQ
           (LETT |pts|
                 (PROGN
@@ -614,9 +614,9 @@
          (|lprops| (|List| #1=(|SubSpaceComponentProperty|))) (|prop| #1#)
          ($ ($)))
         (SPROG
-         ((#2=#:G315 NIL) (|p| NIL) (|path| (|List| (|NonNegativeInteger|)))
-          (#3=#:G313 NIL) (|lp| NIL) (#4=#:G314 NIL) (|aProp| NIL)
-          (|count| NIL) (#5=#:G312 NIL))
+         ((#2=#:G316 NIL) (|p| NIL) (|path| (|List| (|NonNegativeInteger|)))
+          (#3=#:G314 NIL) (|lp| NIL) (#4=#:G315 NIL) (|aProp| NIL)
+          (|count| NIL) (#5=#:G313 NIL))
          (SEQ
           (SPADCALL (QVELT |space| 0) NIL (|SPADfirst| (|SPADfirst| |llp|))
                     (QREFELT $ 50))
@@ -669,8 +669,8 @@
         ((|space| ($)) (|llpoints| (|List| (|List| (|List| R))))
          (|prop1| #1=(|Boolean|)) (|prop2| #1#) ($ ($)))
         (SPROG
-         ((|pts| (|List| (|List| (|Point| R)))) (#2=#:G323 NIL) (|points| NIL)
-          (#3=#:G322 NIL))
+         ((|pts| (|List| (|List| (|Point| R)))) (#2=#:G324 NIL) (|points| NIL)
+          (#3=#:G323 NIL))
          (SEQ
           (LETT |pts|
                 (PROGN
@@ -693,8 +693,8 @@
         ((|space| ($)) (|llp| (|List| (|List| (|Point| R))))
          (|prop1| #1=(|Boolean|)) (|prop2| #1#) ($ ($)))
         (SPROG
-         ((#2=#:G335 NIL) (|p| NIL) (|path| (|List| (|NonNegativeInteger|)))
-          (#3=#:G334 NIL) (|lp| NIL) (|count| NIL) (#4=#:G333 NIL)
+         ((#2=#:G336 NIL) (|p| NIL) (|path| (|List| (|NonNegativeInteger|)))
+          (#3=#:G335 NIL) (|lp| NIL) (|count| NIL) (#4=#:G334 NIL)
           (|propB| #5=(|SubSpaceComponentProperty|)) (|propA| #5#))
          (SEQ (LETT |propA| (SPADCALL (QREFELT $ 95)))
               (SPADCALL |propA| |prop1| (QREFELT $ 96))
@@ -784,7 +784,7 @@
         (SPROG
          ((|numConstructs| #2=(|NonNegativeInteger|)) (|numPolys| #2#)
           (|numCurves| #2#) (|numPts| #2#) (|kid| (|List| (|SubSpace| 3 R)))
-          (#3=#:G366 NIL) (|component| NIL))
+          (#3=#:G367 NIL) (|component| NIL))
          (SEQ
           (COND
            ((NULL (QVELT |space| 4))
@@ -853,9 +853,9 @@
 
 (DECLAIM (NOTINLINE |ThreeSpace;|)) 
 
-(DEFUN |ThreeSpace| (#1=#:G375)
+(DEFUN |ThreeSpace| (#1=#:G376)
   (SPROG NIL
-         (PROG (#2=#:G376)
+         (PROG (#2=#:G377)
            (RETURN
             (COND
              ((LETT #2#

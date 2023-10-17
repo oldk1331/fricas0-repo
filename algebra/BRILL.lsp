@@ -11,8 +11,8 @@
 (SDEFUN |BRILL;primeEnough?|
         ((|n| (|Integer|)) (|b| (|Integer|)) ($ (|Boolean|)))
         (SPROG
-         ((#1=#:G128 NIL) (#2=#:G129 NIL) (|bb| (|Float|)) (#3=#:G121 NIL)
-          (|d| (|Union| (|Integer|) #4="failed")) (#5=#:G130 NIL) (|i| NIL))
+         ((#1=#:G129 NIL) (#2=#:G130 NIL) (|bb| (|Float|)) (#3=#:G122 NIL)
+          (|d| (|Union| (|Integer|) #4="failed")) (#5=#:G131 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |bb| (SPADCALL |b| (QREFELT $ 13)))
@@ -48,8 +48,8 @@
                                             (QREFELT $ 19))
                                   (PROGN
                                    (LETT #1#
-                                         (PROGN (LETT #2# NIL) (GO #6=#:G127)))
-                                   (GO #7=#:G123)))))))
+                                         (PROGN (LETT #2# NIL) (GO #6=#:G128)))
+                                   (GO #7=#:G124)))))))
                              #7# (EXIT #1#))
                             NIL (GO G190) G191 (EXIT NIL))))
                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
@@ -76,7 +76,7 @@
 (SDEFUN |BRILL;brillhartIrreducible?;UP2B;6|
         ((|p| (UP)) (|noLinears| (|Boolean|)) ($ (|Boolean|)))
         (SPROG
-         ((#1=#:G148 NIL) (#2=#:G149 NIL) (|small| (|Integer|)) (#3=#:G150 NIL)
+         ((#1=#:G149 NIL) (#2=#:G150 NIL) (|small| (|Integer|)) (#3=#:G151 NIL)
           (|i| NIL) (|count| #4=(|Integer|)) (|largeEnough| #4#)
           (|polyx2| (|Boolean|)) (|even1| #5=(|Boolean|)) (|even0| #5#)
           (|origBound| #4#))
@@ -158,7 +158,7 @@
                                                   |small| $)
                                                  (PROGN
                                                   (LETT #2# 'T)
-                                                  (GO #7=#:G147)))
+                                                  (GO #7=#:G148)))
                                                 ((NULL |polyx2|)
                                                  (SEQ
                                                   (EXIT
@@ -172,7 +172,7 @@
                                                             (PROGN
                                                              (LETT #2# 'T)
                                                              (GO #7#)))
-                                                      (GO #8=#:G139)))))
+                                                      (GO #8=#:G140)))))
                                                   #8# (EXIT #1#))))))
                                              (LETT |i| (+ |i| 1)) (GO G190)
                                              G191 (EXIT NIL))
@@ -190,9 +190,9 @@
 
 (DECLAIM (NOTINLINE |BrillhartTests;|)) 
 
-(DEFUN |BrillhartTests| (#1=#:G154)
+(DEFUN |BrillhartTests| (#1=#:G155)
   (SPROG NIL
-         (PROG (#2=#:G155)
+         (PROG (#2=#:G156)
            (RETURN
             (COND
              ((LETT #2#

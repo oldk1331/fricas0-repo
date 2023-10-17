@@ -1177,7 +1177,7 @@
 ; --    <sig pred origin         exposed? comments>
 ;   inStream := OPEN fn
 ;   sayBrightly ['"   Reading ",fn]
-;   u := VMREAD inStream
+;   u := READ(inStream)
 ;   $niladics := mkNiladics u
 ;   for x in $niladics repeat PUT(x,'NILADIC,true)
 ;   for d in u repeat
@@ -1197,7 +1197,7 @@
      (PROGN
       (SETQ |inStream| (OPEN |fn|))
       (|sayBrightly| (LIST "   Reading " |fn|))
-      (SETQ |u| (VMREAD |inStream|))
+      (SETQ |u| (READ |inStream|))
       (SETQ |$niladics| (|mkNiladics| |u|))
       ((LAMBDA (|bfVar#52| |x|)
          (LOOP

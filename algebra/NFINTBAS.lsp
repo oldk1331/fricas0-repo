@@ -4,9 +4,9 @@
          (|rbden| (|Integer|)) (|p| (|NonNegativeInteger|))
          ($ (|Matrix| (|Integer|))))
         (SPROG
-         ((#1=#:G120 NIL) (|mat| (|Matrix| (|Integer|))) (|a| (F))
-          (#2=#:G126 NIL) (|j| NIL) (#3=#:G127 NIL) (|jj| NIL) (#4=#:G124 NIL)
-          (|i| NIL) (#5=#:G125 NIL) (|ii| NIL) (|v| (|Vector| F))
+         ((#1=#:G121 NIL) (|mat| (|Matrix| (|Integer|))) (|a| (F))
+          (#2=#:G127 NIL) (|j| NIL) (#3=#:G128 NIL) (|jj| NIL) (#4=#:G125 NIL)
+          (|i| NIL) (#5=#:G126 NIL) (|ii| NIL) (|v| (|Vector| F))
           (|b| (|Vector| F)) (|n| (|PositiveInteger|)))
          (SEQ (LETT |n| (SPADCALL (QREFELT $ 9)))
               (LETT |b| (SPADCALL (QREFELT $ 11)))
@@ -56,7 +56,7 @@
 (SDEFUN |NFINTBAS;wildPrimes|
         ((|factoredDisc| (|Factored| (|Integer|))) (|n| (|Integer|))
          ($ (|List| (|Integer|))))
-        (SPROG ((|ans| (|List| (|Integer|))) (#1=#:G135 NIL) (|f| NIL))
+        (SPROG ((|ans| (|List| (|Integer|))) (#1=#:G136 NIL) (|f| NIL))
                (SEQ (LETT |ans| NIL)
                     (SEQ (LETT |f| NIL)
                          (LETT #1# (SPADCALL |factoredDisc| (QREFELT $ 33)))
@@ -77,7 +77,7 @@
 (SDEFUN |NFINTBAS;tameProduct|
         ((|factoredDisc| (|Factored| (|Integer|))) (|n| (|Integer|))
          ($ (|Integer|)))
-        (SPROG ((|ans| (|Integer|)) (#1=#:G143 NIL) (|f| NIL))
+        (SPROG ((|ans| (|Integer|)) (#1=#:G144 NIL) (|f| NIL))
                (SEQ (LETT |ans| 1)
                     (SEQ (LETT |f| NIL)
                          (LETT #1# (SPADCALL |factoredDisc| (QREFELT $ 33)))
@@ -109,7 +109,7 @@
            (|Record| (|:| |basis| #4#) (|:| |basisDen| #3#)
                      (|:| |basisInv| (|Matrix| (|Integer|)))
                      (|:| |discr| (|Integer|))))
-          (#5=#:G156 NIL) (|p| NIL) (|matrixOut| #1#) (|sing| (|Integer|))
+          (#5=#:G157 NIL) (|p| NIL) (|matrixOut| #1#) (|sing| (|Integer|))
           (|wilds| (|List| (|Integer|)))
           (|factoredDisc| (|Factored| (|Integer|))) (|disc0| #2#)
           (|n| (|PositiveInteger|)) (|traceMat| (|Matrix| (|Integer|))))
@@ -224,7 +224,7 @@
                     (|:| |basisInv| (|Matrix| (|Integer|)))
                     (|:| |discr| (|Integer|)))))
         (SPROG
-         ((|tfm| #1#) (#3=#:G168 NIL) (#4=#:G175 NIL) (|oldIndex| (|Integer|))
+         ((|tfm| #1#) (#3=#:G169 NIL) (#4=#:G176 NIL) (|oldIndex| (|Integer|))
           (|indexChange| (|Integer|)) (|rbinv| #5=(|Matrix| (|Integer|)))
           (|rbden| (|Integer|)) (|rb| #5#) (|g| (|Integer|))
           (|index| (|Integer|)) (|idinv| (|Matrix| (|Integer|)))
@@ -283,7 +283,7 @@
                          ((EQL |indexChange| 1)
                           (PROGN
                            (LETT #4# (VECTOR |rb| |rbden| |rbinv| |disc|))
-                           (GO #7=#:G174)))
+                           (GO #7=#:G175)))
                          ('T
                           (LETT |tfm|
                                 (PROG2
@@ -313,12 +313,12 @@
                     (|:| |basisInv| (|Matrix| (|Integer|)))
                     (|:| |discr| (|Integer|)))))
         (SPROG
-         ((#1=#:G220 NIL) (#2=#:G221 NIL) (|oldIndex| (|Integer|))
+         ((#1=#:G221 NIL) (#2=#:G222 NIL) (|oldIndex| (|Integer|))
           (|indexChange| (|Integer|)) (|rbinv| #3=(|Matrix| (|Integer|)))
           (|rbden| (|Integer|)) (|rb| #3#) (|index| (|Integer|))
           (|idinv| (|Matrix| (|Integer|))) (|id| (|Matrix| (|Integer|)))
-          (|tfm| (|Matrix| (|Integer|))) (#4=#:G213 NIL)
-          (|lp| (|NonNegativeInteger|)) (#5=#:G178 NIL) (|p2| (|Integer|))
+          (|tfm| (|Matrix| (|Integer|))) (#4=#:G214 NIL)
+          (|lp| (|NonNegativeInteger|)) (#5=#:G179 NIL) (|p2| (|Integer|))
           (|n| (|PositiveInteger|)))
          (SEQ
           (EXIT
@@ -379,7 +379,7 @@
                          ((EQL |indexChange| 1)
                           (PROGN
                            (LETT #2# (VECTOR |rb| |rbden| |rbinv| |disc|))
-                           (GO #6=#:G219)))
+                           (GO #6=#:G220)))
                          ('T
                           (SEQ
                            (EXIT
@@ -392,14 +392,14 @@
                                             (VECTOR |rb| |rbden| |rbinv|
                                                     |disc|))
                                       (GO #6#)))
-                               (GO #7=#:G215)))))
+                               (GO #7=#:G216)))))
                            #7# (EXIT #1#))))))
                       NIL (GO G190) G191 (EXIT NIL)))))
           #6# (EXIT #2#)))) 
 
 (SDEFUN |NFINTBAS;discriminant;I;8| (($ (|Integer|)))
         (SPROG
-         ((#1=#:G224 NIL) (|index| (|Integer|)) (|rbden| #2=(|Integer|))
+         ((#1=#:G225 NIL) (|index| (|Integer|)) (|rbden| #2=(|Integer|))
           (|rb| #3=(|Matrix| (|Integer|)))
           (|intBas|
            (|Record| (|:| |basis| #3#) (|:| |basisDen| #2#)
@@ -427,9 +427,9 @@
 
 (DECLAIM (NOTINLINE |NumberFieldIntegralBasis;|)) 
 
-(DEFUN |NumberFieldIntegralBasis| (&REST #1=#:G228)
+(DEFUN |NumberFieldIntegralBasis| (&REST #1=#:G229)
   (SPROG NIL
-         (PROG (#2=#:G229)
+         (PROG (#2=#:G230)
            (RETURN
             (COND
              ((LETT #2#

@@ -45,9 +45,9 @@
         ((|p| (P)) (|v| (V))
          ($ (|Record| (|:| |num| P) (|:| |den| (|Integer|)))))
         (SPROG
-         ((|vp| #1=(|SparseUnivariatePolynomial| P)) (#2=#:G117 NIL)
-          (#3=#:G116 #1#) (#4=#:G118 #1#) (#5=#:G120 NIL) (#6=#:G124 NIL)
-          (|di| NIL) (#7=#:G125 NIL) (|pi| NIL) (|d| (|Integer|))
+         ((|vp| #1=(|SparseUnivariatePolynomial| P)) (#2=#:G118 NIL)
+          (#3=#:G117 #1#) (#4=#:G119 #1#) (#5=#:G121 NIL) (#6=#:G125 NIL)
+          (|di| NIL) (#7=#:G126 NIL) (|pi| NIL) (|d| (|Integer|))
           (|ld| (|List| (|Integer|)))
           (|lp| (|List| (|SparseUnivariatePolynomial| P)))
           (|rec|
@@ -111,9 +111,9 @@
 
 (DECLAIM (NOTINLINE |InnerPolySum;|)) 
 
-(DEFUN |InnerPolySum| (&REST #1=#:G126)
+(DEFUN |InnerPolySum| (&REST #1=#:G127)
   (SPROG NIL
-         (PROG (#2=#:G127)
+         (PROG (#2=#:G128)
            (RETURN
             (COND
              ((LETT #2#

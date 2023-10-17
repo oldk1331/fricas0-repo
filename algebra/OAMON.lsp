@@ -8,7 +8,7 @@
         (T (SETQ |OrderedAbelianMonoid;AL| (|OrderedAbelianMonoid;|))))) 
 
 (DEFUN |OrderedAbelianMonoid;| ()
-  (SPROG ((#1=#:G103 NIL))
+  (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1# (|Join| (|OrderedAbelianSemiGroup|) (|AbelianMonoid|)))
            (SETELT #1# 0 '(|OrderedAbelianMonoid|))))) 

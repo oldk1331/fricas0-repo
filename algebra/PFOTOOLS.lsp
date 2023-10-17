@@ -5,8 +5,8 @@
            (|Record| (|:| |den| (|Integer|)) (|:| |gcdnum| (|Integer|)))))
          ($ (|Integer|)))
         (SPROG
-         ((#1=#:G114 NIL) (|p| NIL) (#2=#:G113 NIL) (#3=#:G112 NIL)
-          (#4=#:G111 NIL))
+         ((#1=#:G115 NIL) (|p| NIL) (#2=#:G114 NIL) (#3=#:G113 NIL)
+          (#4=#:G112 NIL))
          (SEQ
           (SPADCALL
            (SPADCALL
@@ -32,7 +32,7 @@
            (QREFELT $ 12))))) 
 
 (SDEFUN |PFOTOOLS;badNum;UPUPI;2| ((|p| (UPUP)) ($ (|Integer|)))
-        (SPROG ((#1=#:G120 NIL) (|c| NIL) (#2=#:G119 NIL))
+        (SPROG ((#1=#:G121 NIL) (|c| NIL) (#2=#:G120 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -55,8 +55,8 @@
 
 (SDEFUN |PFOTOOLS;polyred;2UPUP;3| ((|r| (UPUP)) ($ (UPUP)))
         (SPROG
-         ((|ld| (|List| (|Integer|))) (#1=#:G126 NIL) (|c| NIL)
-          (#2=#:G125 NIL))
+         ((|ld| (|List| (|Integer|))) (#1=#:G127 NIL) (|c| NIL)
+          (#2=#:G126 NIL))
          (SEQ
           (LETT |ld|
                 (PROGN
@@ -81,7 +81,7 @@
         ((|p| (UP))
          ($ (|Record| (|:| |den| (|Integer|)) (|:| |gcdnum| (|Integer|)))))
         (SPROG
-         ((#1=#:G134 NIL) (|c| NIL) (#2=#:G133 NIL)
+         ((#1=#:G135 NIL) (|c| NIL) (#2=#:G134 NIL)
           (|cd| (|Record| (|:| |num| UP) (|:| |den| (|Integer|)))))
          (SEQ (LETT |cd| (SPADCALL |p| (QREFELT $ 27)))
               (EXIT
@@ -105,7 +105,7 @@
 
 (SDEFUN |PFOTOOLS;getGoodPrime;IPi;5|
         ((|n| (|Integer|)) ($ (|PositiveInteger|)))
-        (SPROG ((|p| (|PositiveInteger|)) (#1=#:G136 NIL))
+        (SPROG ((|p| (|PositiveInteger|)) (#1=#:G137 NIL))
                (SEQ (LETT |p| 3)
                     (SEQ G190 (COND ((NULL (ZEROP (REM |n| |p|))) (GO G191)))
                          (SEQ
@@ -120,7 +120,7 @@
                     (EXIT |p|)))) 
 
 (SDEFUN |PFOTOOLS;doubleDisc;UPUPI;6| ((|r| (UPUP)) ($ (|Integer|)))
-        (SPROG ((#1=#:G141 NIL) (|d| (UP)))
+        (SPROG ((#1=#:G142 NIL) (|d| (UP)))
                (SEQ
                 (LETT |d|
                       (SPADCALL (SPADCALL |r| (QREFELT $ 36)) (QREFELT $ 19)))
@@ -142,9 +142,9 @@
 
 (DECLAIM (NOTINLINE |PointsOfFiniteOrderTools;|)) 
 
-(DEFUN |PointsOfFiniteOrderTools| (&REST #1=#:G145)
+(DEFUN |PointsOfFiniteOrderTools| (&REST #1=#:G146)
   (SPROG NIL
-         (PROG (#2=#:G146)
+         (PROG (#2=#:G147)
            (RETURN
             (COND
              ((LETT #2#

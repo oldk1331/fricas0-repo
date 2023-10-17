@@ -3,8 +3,8 @@
         ((|p| (UP)) ($ (|List| (|Fraction| (|Integer|)))))
         (SPROG
          ((|res| (|List| (|Fraction| (|Integer|))))
-          (|val1r| (|Fraction| (|Integer|))) (#1=#:G113 NIL)
-          (|fac| #2=(|SparseUnivariatePolynomial| (|Integer|))) (#3=#:G116 NIL)
+          (|val1r| (|Fraction| (|Integer|))) (#1=#:G114 NIL)
+          (|fac| #2=(|SparseUnivariatePolynomial| (|Integer|))) (#3=#:G117 NIL)
           (|facr| NIL)
           (|facl|
            (|List|
@@ -14,7 +14,7 @@
           (|ff| (|Factored| (|SparseUnivariatePolynomial| (|Integer|))))
           (|eq2z| (|SparseUnivariatePolynomial| (|Integer|)))
           (|pl2| (|List| (|SparseUnivariatePolynomial| (|Integer|))))
-          (#4=#:G115 NIL) (|i| NIL) (#5=#:G114 NIL)
+          (#4=#:G116 NIL) (|i| NIL) (#5=#:G115 NIL)
           (|vvr| (|Matrix| (|Integer|))) (|vm| (|Matrix| F))
           (|vv| (|Vector| F)) (|nn| (|NonNegativeInteger|)))
          (SEQ (LETT |nn| (+ (SPADCALL |p| (QREFELT $ 9)) 1))
@@ -52,7 +52,7 @@
                            (COND
                             ((SPADCALL (SPADCALL |fac| (QREFELT $ 35)) 1
                                        (QREFELT $ 37))
-                             (PROGN (LETT #1# |$NoValue|) (GO #6=#:G107)))
+                             (PROGN (LETT #1# |$NoValue|) (GO #6=#:G108)))
                             ('T
                              (SEQ
                               (LETT |val1r|
@@ -69,8 +69,8 @@
 
 (SDEFUN |PRROOT;integerBound;UPI;2| ((|p| (UP)) ($ (|Integer|)))
         (SPROG
-         ((|res| (|Integer|)) (|q| (|Integer|)) (#1=#:G126 NIL)
-          (|qu| (|Union| (|Integer|) "failed")) (#2=#:G127 NIL) (|r| NIL)
+         ((|res| (|Integer|)) (|q| (|Integer|)) (#1=#:G127 NIL)
+          (|qu| (|Union| (|Integer|) "failed")) (#2=#:G128 NIL) (|r| NIL)
           (|lr| (|List| (|Fraction| (|Integer|)))))
          (SEQ (LETT |lr| (SPADCALL |p| (QREFELT $ 45))) (LETT |res| 0)
               (SEQ (LETT |r| NIL) (LETT #2# |lr|) G190
@@ -83,7 +83,7 @@
                           (EXIT
                            (COND
                             ((QEQCAR |qu| 1)
-                             (PROGN (LETT #1# |$NoValue|) (GO #3=#:G117)))
+                             (PROGN (LETT #1# |$NoValue|) (GO #3=#:G118)))
                             ('T
                              (SEQ (LETT |q| (QCDR |qu|))
                                   (EXIT
@@ -95,9 +95,9 @@
 
 (DECLAIM (NOTINLINE |PolynomialRationalRoots;|)) 
 
-(DEFUN |PolynomialRationalRoots| (&REST #1=#:G128)
+(DEFUN |PolynomialRationalRoots| (&REST #1=#:G129)
   (SPROG NIL
-         (PROG (#2=#:G129)
+         (PROG (#2=#:G130)
            (RETURN
             (COND
              ((LETT #2#

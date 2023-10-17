@@ -2,12 +2,12 @@
 (SDEFUN |CMPLXRT;complexZeros;UPParL;1|
         ((|p| (UP)) (|eps| (|Par|)) ($ (|List| (|Complex| |Par|))))
         (SPROG
-         ((|ris| (|List| (|Complex| |Par|))) (#1=#:G115 NIL) (|z| NIL)
-          (#2=#:G114 NIL) (|lz| (|List| (|List| |Par|)))
+         ((|ris| (|List| (|Complex| |Par|))) (#1=#:G116 NIL) (|z| NIL)
+          (#2=#:G115 NIL) (|lz| (|List| (|List| |Par|)))
           (|p2| #3=(|Polynomial| (|Integer|))) (|p1| #3#)
           (|q| (|Polynomial| (|Complex| (|Integer|))))
           (|pp| #4=(|SparseUnivariatePolynomial| (|Complex| (|Integer|))))
-          (#5=#:G113 NIL) (|pf| NIL)
+          (#5=#:G114 NIL) (|pf| NIL)
           (|lpf|
            (|List|
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
@@ -71,9 +71,9 @@
 
 (DECLAIM (NOTINLINE |ComplexRootPackage;|)) 
 
-(DEFUN |ComplexRootPackage| (&REST #1=#:G116)
+(DEFUN |ComplexRootPackage| (&REST #1=#:G117)
   (SPROG NIL
-         (PROG (#2=#:G117)
+         (PROG (#2=#:G118)
            (RETURN
             (COND
              ((LETT #2#

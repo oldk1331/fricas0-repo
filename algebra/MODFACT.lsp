@@ -3,7 +3,7 @@
 
 (DEFUN |ModularFactorization| ()
   (SPROG NIL
-         (PROG (#1=#:G111)
+         (PROG (#1=#:G112)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|ModularFactorization|))

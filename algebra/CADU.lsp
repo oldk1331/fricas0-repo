@@ -15,7 +15,7 @@
                               (QREFELT $ 14))))))))) 
 
 (SDEFUN |CADU;gcdBasisAdd| ((|p| (P)) (|lpols| (|List| P)) ($ (|List| P)))
-        (SPROG ((|basis| (|List| P)) (|p1| (P)) (#1=#:G111 NIL) (|g| (P)))
+        (SPROG ((|basis| (|List| P)) (|p1| (P)) (#1=#:G112 NIL) (|g| (P)))
                (SEQ
                 (COND ((EQL (SPADCALL |p| (QREFELT $ 16)) 0) |lpols|)
                       ((NULL |lpols|) (LIST (SPADCALL |p| (QREFELT $ 12))))
@@ -72,9 +72,9 @@
 
 (DECLAIM (NOTINLINE |CylindricalAlgebraicDecompositionUtilities;|)) 
 
-(DEFUN |CylindricalAlgebraicDecompositionUtilities| (&REST #1=#:G122)
+(DEFUN |CylindricalAlgebraicDecompositionUtilities| (&REST #1=#:G123)
   (SPROG NIL
-         (PROG (#2=#:G123)
+         (PROG (#2=#:G124)
            (RETURN
             (COND
              ((LETT #2#

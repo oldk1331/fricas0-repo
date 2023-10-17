@@ -35,7 +35,7 @@
           (|Vector|
            (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R)))))
          (|x| (|Symbol|)) ($ (|Matrix| (|Fraction| (|Polynomial| R)))))
-        (SPROG ((#1=#:G120 NIL) (|i| NIL) (#2=#:G119 NIL))
+        (SPROG ((#1=#:G121 NIL) (|i| NIL) (#2=#:G120 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -74,7 +74,7 @@
          (|m| (|Matrix| (|Fraction| (|Polynomial| R))))
          ($ (|List| (|Matrix| (|Fraction| (|Polynomial| R))))))
         (SPROG
-         ((#1=#:G134 NIL) (|v| NIL) (#2=#:G133 NIL)
+         ((#1=#:G135 NIL) (|v| NIL) (#2=#:G134 NIL)
           (|res1|
            (|List|
             (|Vector|
@@ -103,7 +103,7 @@
          (|k| (|NonNegativeInteger|)) (|g| (|NonNegativeInteger|))
          ($ (|List| (|Matrix| (|Fraction| (|Polynomial| R))))))
         (SPROG
-         ((#1=#:G143 NIL) (|v| NIL) (#2=#:G142 NIL)
+         ((#1=#:G144 NIL) (|v| NIL) (#2=#:G143 NIL)
           (|res1|
            (|List|
             (|Vector|
@@ -171,7 +171,7 @@
            (|Union| (|Fraction| (|Polynomial| R))
                     (|SuchThat| (|Symbol|) (|Polynomial| R))))))
         (SPROG
-         ((#1=#:G163 NIL) (|a| NIL) (#2=#:G162 NIL)
+         ((#1=#:G164 NIL) (|a| NIL) (#2=#:G163 NIL)
           (|res1|
            (|List|
             (|Union| (|Fraction| (|Polynomial| R))
@@ -204,8 +204,8 @@
             (|:| |eigvec|
                  (|List| (|Matrix| (|Fraction| (|Polynomial| R)))))))))
         (SPROG
-         ((#1=#:G176 NIL) (|v| NIL) (#2=#:G175 NIL) (#3=#:G174 NIL) (|ri| NIL)
-          (#4=#:G173 NIL)
+         ((#1=#:G177 NIL) (|v| NIL) (#2=#:G176 NIL) (#3=#:G175 NIL) (|ri| NIL)
+          (#4=#:G174 NIL)
           (|res1|
            (|List|
             (|Record|
@@ -268,8 +268,8 @@
             (|:| |geneigvec|
                  (|List| (|Matrix| (|Fraction| (|Polynomial| R)))))))))
         (SPROG
-         ((#1=#:G190 NIL) (|v| NIL) (#2=#:G189 NIL) (#3=#:G188 NIL) (|ri| NIL)
-          (#4=#:G187 NIL)
+         ((#1=#:G191 NIL) (|v| NIL) (#2=#:G190 NIL) (#3=#:G189 NIL) (|ri| NIL)
+          (#4=#:G188 NIL)
           (|res1|
            (|List|
             (|Record|
@@ -321,9 +321,9 @@
 
 (DECLAIM (NOTINLINE |EigenPackage;|)) 
 
-(DEFUN |EigenPackage| (#1=#:G191)
+(DEFUN |EigenPackage| (#1=#:G192)
   (SPROG NIL
-         (PROG (#2=#:G192)
+         (PROG (#2=#:G193)
            (RETURN
             (COND
              ((LETT #2#

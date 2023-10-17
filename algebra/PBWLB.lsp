@@ -8,8 +8,8 @@
 
 (SDEFUN |PBWLB;varList;$L;3| ((|x| ($)) ($ (|List| |VarSet|)))
         (SPROG
-         ((|le| #1=(|List| |VarSet|)) (#2=#:G115 NIL) (#3=#:G114 #1#)
-          (#4=#:G116 #1#) (#5=#:G119 NIL) (|l| NIL))
+         ((|le| #1=(|List| |VarSet|)) (#2=#:G116 NIL) (#3=#:G115 #1#)
+          (#4=#:G117 #1#) (#5=#:G120 NIL) (|l| NIL))
          (SEQ
           (COND ((NULL |x|) NIL)
                 (#6='T
@@ -60,7 +60,7 @@
                          (SPADCALL (CDR |x|) (QREFELT $ 27)) (QREFELT $ 28))))) 
 
 (SDEFUN |PBWLB;coerce;$Of;10| ((|x| ($)) ($ (|OutputForm|)))
-        (SPROG ((#1=#:G134 NIL) (|l| NIL) (#2=#:G133 NIL))
+        (SPROG ((#1=#:G135 NIL) (|l| NIL) (#2=#:G134 NIL))
                (SEQ
                 (COND ((NULL |x|) (SPADCALL 1 (QREFELT $ 31)))
                       ('T
@@ -98,8 +98,8 @@
 
 (SDEFUN |PBWLB;length;$Nni;14| ((|x| ($)) ($ (|NonNegativeInteger|)))
         (SPROG
-         ((#1=#:G150 NIL) (|n| #2=(|Integer|)) (#3=#:G148 NIL) (#4=#:G147 #2#)
-          (#5=#:G149 #2#) (#6=#:G153 NIL) (|l| NIL))
+         ((#1=#:G151 NIL) (|n| #2=(|Integer|)) (#3=#:G149 NIL) (#4=#:G148 #2#)
+          (#5=#:G150 #2#) (#6=#:G154 NIL) (|l| NIL))
          (SEQ
           (LETT |n|
                 (PROGN
@@ -139,9 +139,9 @@
 
 (DECLAIM (NOTINLINE |PoincareBirkhoffWittLyndonBasis;|)) 
 
-(DEFUN |PoincareBirkhoffWittLyndonBasis| (#1=#:G160)
+(DEFUN |PoincareBirkhoffWittLyndonBasis| (#1=#:G161)
   (SPROG NIL
-         (PROG (#2=#:G161)
+         (PROG (#2=#:G162)
            (RETURN
             (COND
              ((LETT #2#
