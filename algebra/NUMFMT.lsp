@@ -71,21 +71,21 @@
 
 (SDEFUN |NUMFMT;FormatRoman;PiS;9| ((|pn| (|PositiveInteger|)) ($ (|String|)))
         (SPROG
-         ((|s| (|String|)) (|mm| (|String|)) (#1=#:G164 NIL) (|j| NIL)
-          (#2=#:G163 NIL) (|m0| (|String|)) (|n| (|Integer|)) (|d| (|Integer|))
-          (|i| NIL) (#3=#:G148 NIL))
+         ((|s| (|String|)) (|mm| (|String|)) (#1=#:G165 NIL) (|j| NIL)
+          (#2=#:G164 NIL) (|m0| (|String|)) (#3=#:G163 NIL) (|n| (|Integer|))
+          (|d| (|Integer|)) (|i| NIL) (#4=#:G148 NIL))
          (SEQ (LETT |n| |pn|) (LETT |d| (+ (REM |n| 10) (QREFELT $ 36)))
               (LETT |n| (QUOTIENT2 |n| 10))
               (LETT |s| (QAREF1 (QREFELT $ 33) |d|))
               (EXIT
                (COND ((ZEROP |n|) |s|)
-                     (#4='T
+                     (#5='T
                       (SEQ (LETT |d| (+ (REM |n| 10) (QREFELT $ 37)))
                            (LETT |n| (QUOTIENT2 |n| 10))
                            (LETT |s| (STRCONC (QAREF1 (QREFELT $ 34) |d|) |s|))
                            (EXIT
                             (COND ((ZEROP |n|) |s|)
-                                  (#4#
+                                  (#5#
                                    (SEQ
                                     (LETT |d| (+ (REM |n| 10) (QREFELT $ 38)))
                                     (LETT |n| (QUOTIENT2 |n| 10))
@@ -94,22 +94,22 @@
                                                    |s|))
                                     (EXIT
                                      (COND ((ZEROP |n|) |s|)
-                                           (#4#
+                                           (#5#
                                             (SEQ (LETT |d| (REM |n| 10))
                                                  (LETT |n| (QUOTIENT2 |n| 10))
                                                  (LETT |s|
                                                        (STRCONC
                                                         (|make_full_CVEC2|
-                                                         (PROG1 (LETT #3# |d|)
+                                                         (PROG1 (LETT #4# |d|)
                                                            (|check_subtype2|
-                                                            (>= #3# 0)
+                                                            (>= #4# 0)
                                                             '(|NonNegativeInteger|)
-                                                            '(|Integer|) #3#))
+                                                            '(|Integer|) #4#))
                                                          (QREFELT $ 40))
                                                         |s|))
                                                  (EXIT
                                                   (COND ((ZEROP |n|) |s|)
-                                                        (#4#
+                                                        (#5#
                                                          (SEQ
                                                           (SEQ (LETT |i| 2)
                                                                G190
@@ -120,86 +120,100 @@
                                                                     |n|)))
                                                                  (GO G191)))
                                                                (SEQ
-                                                                (LETT |d|
-                                                                      (REM |n|
-                                                                           10))
-                                                                (LETT |n|
-                                                                      (QUOTIENT2
-                                                                       |n| 10))
                                                                 (EXIT
-                                                                 (COND
-                                                                  ((ZEROP |d|)
-                                                                   "iterate")
-                                                                  ('T
-                                                                   (SEQ
-                                                                    (LETT |m0|
-                                                                          (STRCONC
-                                                                           (|make_full_CVEC2|
-                                                                            |i|
-                                                                            (QREFELT
-                                                                             $
-                                                                             41))
-                                                                           (STRCONC
-                                                                            "I"
-                                                                            (|make_full_CVEC2|
-                                                                             |i|
-                                                                             (QREFELT
-                                                                              $
-                                                                              42)))))
-                                                                    (LETT |mm|
-                                                                          (SPADCALL
-                                                                           (PROGN
+                                                                 (SEQ
+                                                                  (LETT |d|
+                                                                        (REM
+                                                                         |n|
+                                                                         10))
+                                                                  (LETT |n|
+                                                                        (QUOTIENT2
+                                                                         |n|
+                                                                         10))
+                                                                  (EXIT
+                                                                   (COND
+                                                                    ((ZEROP
+                                                                      |d|)
+                                                                     (PROGN
+                                                                      (LETT #3#
+                                                                            |$NoValue|)
+                                                                      (GO
+                                                                       #6=#:G149)))
+                                                                    ('T
+                                                                     (SEQ
+                                                                      (LETT
+                                                                       |m0|
+                                                                       (STRCONC
+                                                                        (|make_full_CVEC2|
+                                                                         |i|
+                                                                         (QREFELT
+                                                                          $
+                                                                          41))
+                                                                        (STRCONC
+                                                                         "I"
+                                                                         (|make_full_CVEC2|
+                                                                          |i|
+                                                                          (QREFELT
+                                                                           $
+                                                                           42)))))
+                                                                      (LETT
+                                                                       |mm|
+                                                                       (SPADCALL
+                                                                        (PROGN
+                                                                         (LETT
+                                                                          #2#
+                                                                          NIL)
+                                                                         (SEQ
+                                                                          (LETT
+                                                                           |j|
+                                                                           1)
+                                                                          (LETT
+                                                                           #1#
+                                                                           |d|)
+                                                                          G190
+                                                                          (COND
+                                                                           ((|greater_SI|
+                                                                             |j|
+                                                                             #1#)
+                                                                            (GO
+                                                                             G191)))
+                                                                          (SEQ
+                                                                           (EXIT
                                                                             (LETT
                                                                              #2#
-                                                                             NIL)
-                                                                            (SEQ
-                                                                             (LETT
-                                                                              |j|
-                                                                              1)
-                                                                             (LETT
-                                                                              #1#
-                                                                              |d|)
-                                                                             G190
-                                                                             (COND
-                                                                              ((|greater_SI|
-                                                                                |j|
-                                                                                #1#)
-                                                                               (GO
-                                                                                G191)))
-                                                                             (SEQ
-                                                                              (EXIT
-                                                                               (LETT
-                                                                                #2#
-                                                                                (CONS
-                                                                                 |m0|
-                                                                                 #2#))))
-                                                                             (LETT
-                                                                              |j|
-                                                                              (|inc_SI|
-                                                                               |j|))
-                                                                             (GO
-                                                                              G190)
-                                                                             G191
-                                                                             (EXIT
-                                                                              (NREVERSE
-                                                                               #2#))))
-                                                                           (QREFELT
-                                                                            $
-                                                                            12)))
-                                                                    (COND
-                                                                     ((>
-                                                                       (QCSIZE
-                                                                        |s|)
-                                                                       0)
-                                                                      (LETT |s|
-                                                                            (STRCONC
-                                                                             " "
-                                                                             |s|))))
-                                                                    (EXIT
-                                                                     (LETT |s|
-                                                                           (STRCONC
-                                                                            |mm|
-                                                                            |s|))))))))
+                                                                             (CONS
+                                                                              |m0|
+                                                                              #2#))))
+                                                                          (LETT
+                                                                           |j|
+                                                                           (|inc_SI|
+                                                                            |j|))
+                                                                          (GO
+                                                                           G190)
+                                                                          G191
+                                                                          (EXIT
+                                                                           (NREVERSE
+                                                                            #2#))))
+                                                                        (QREFELT
+                                                                         $
+                                                                         12)))
+                                                                      (COND
+                                                                       ((>
+                                                                         (QCSIZE
+                                                                          |s|)
+                                                                         0)
+                                                                        (LETT
+                                                                         |s|
+                                                                         (STRCONC
+                                                                          " "
+                                                                          |s|))))
+                                                                      (EXIT
+                                                                       (LETT
+                                                                        |s|
+                                                                        (STRCONC
+                                                                         |mm|
+                                                                         |s|)))))))))
+                                                                #6# (EXIT #3#))
                                                                (LETT |i|
                                                                      (|inc_SI|
                                                                       |i|))
@@ -210,9 +224,9 @@
 
 (SDEFUN |NUMFMT;ScanRoman;SPi;10| ((|s| (|String|)) ($ (|PositiveInteger|)))
         (SPROG
-         ((#1=#:G178 NIL) (|Max| (|Integer|)) (|tot| (|Integer|))
-          (|n| (|Integer|)) (#2=#:G181 NIL) (|i| (|Integer|))
-          (|c| (|Character|)) (#3=#:G182 NIL) (|k| NIL)
+         ((#1=#:G179 NIL) (|Max| (|Integer|)) (|tot| (|Integer|))
+          (|n| (|Integer|)) (#2=#:G182 NIL) (|i| (|Integer|))
+          (|c| (|Character|)) (#3=#:G183 NIL) (|k| NIL)
           (|nprens| (|PositiveInteger|)))
          (SEQ (LETT |s| (SPADCALL |s| (QREFELT $ 50))) (LETT |tot| 0)
               (LETT |Max| 0) (LETT |i| (SPADCALL |s| (QREFELT $ 51)))
@@ -280,7 +294,7 @@
                                                  (LETT #2#
                                                        (|error|
                                                         "Improper Roman numeral: unbalanced ')'"))
-                                                 (GO #4=#:G170)))))))
+                                                 (GO #4=#:G171)))))))
                                            #4# (EXIT #2#))
                                           (LETT |k| (|inc_SI| |k|)) (GO G190)
                                           G191 (EXIT NIL))
@@ -313,7 +327,7 @@
 
 (DEFUN |NumberFormats| ()
   (SPROG NIL
-         (PROG (#1=#:G185)
+         (PROG (#1=#:G186)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|NumberFormats|))

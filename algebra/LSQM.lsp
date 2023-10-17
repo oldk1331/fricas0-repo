@@ -52,12 +52,12 @@
 (SDEFUN |LSQM;coordinates;$VV;4|
         ((|a| ($)) (|b| (|Vector| $)) ($ (|Vector| R)))
         (SPROG
-         ((|canonical| (|Boolean|)) (#1=#:G130 NIL) (|j| NIL)
-          (|bv| (|Vector| R)) (#2=#:G129 NIL) (|i| NIL))
+         ((|canonical| (|Boolean|)) (#1=#:G129 NIL) (#2=#:G131 NIL) (|j| NIL)
+          (|bv| (|Vector| R)) (#3=#:G130 NIL) (|i| NIL))
          (SEQ (LETT |canonical| 'T)
-              (SEQ (LETT |i| 1) (LETT #2# (QREFELT $ 9)) G190
+              (SEQ (LETT |i| 1) (LETT #3# (QREFELT $ 9)) G190
                    (COND
-                    ((OR (|greater_SI| |i| #2#) (NULL |canonical|)) (GO G191)))
+                    ((OR (|greater_SI| |i| #3#) (NULL |canonical|)) (GO G191)))
                    (SEQ
                     (LETT |bv|
                           (|LSQM;canonical_coordinates|
@@ -69,22 +69,24 @@
                                       (|spadConstant| $ 26) (QREFELT $ 28)))
                            ('T NIL)))
                     (EXIT
-                     (SEQ (LETT |j| 1) (LETT #1# (QREFELT $ 9)) G190
+                     (SEQ (LETT |j| 1) (LETT #2# (QREFELT $ 9)) G190
                           (COND
-                           ((OR (|greater_SI| |j| #1#) (NULL |canonical|))
+                           ((OR (|greater_SI| |j| #2#) (NULL |canonical|))
                             (GO G191)))
                           (SEQ
                            (EXIT
-                            (COND ((EQL |j| |i|) "iterate")
-                                  ('T
-                                   (LETT |canonical|
-                                         (COND
-                                          (|canonical|
-                                           (SPADCALL
-                                            (SPADCALL |bv| |j| (QREFELT $ 25))
-                                            (|spadConstant| $ 13)
-                                            (QREFELT $ 28)))
-                                          ('T NIL)))))))
+                            (COND
+                             ((EQL |j| |i|)
+                              (PROGN (LETT #1# |$NoValue|) (GO #4=#:G123)))
+                             ('T
+                              (LETT |canonical|
+                                    (COND
+                                     (|canonical|
+                                      (SPADCALL
+                                       (SPADCALL |bv| |j| (QREFELT $ 25))
+                                       (|spadConstant| $ 13) (QREFELT $ 28)))
+                                     ('T NIL))))))
+                           #4# (EXIT #1#))
                           (LETT |j| (|inc_SI| |j|)) (GO G190) G191
                           (EXIT NIL))))
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
@@ -102,7 +104,7 @@
 (SDEFUN |LSQM;basis;V;6| (($ (|Vector| $)))
         (SPROG
          ((|res| (|Vector| $)) (|ldp| (|List| (|DirectProduct| |n2| R)))
-          (#1=#:G135 NIL) (#2=#:G141 NIL) (|i| NIL) (#3=#:G140 NIL))
+          (#1=#:G136 NIL) (#2=#:G142 NIL) (|i| NIL) (#3=#:G141 NIL))
          (SEQ (SETELT $ 9 (* (QREFELT $ 6) (QREFELT $ 6)))
               (LETT |ldp|
                     (PROGN
@@ -136,9 +138,9 @@
 
 (DECLAIM (NOTINLINE |LieSquareMatrix;|)) 
 
-(DEFUN |LieSquareMatrix| (&REST #1=#:G151)
+(DEFUN |LieSquareMatrix| (&REST #1=#:G152)
   (SPROG NIL
-         (PROG (#2=#:G152)
+         (PROG (#2=#:G153)
            (RETURN
             (COND
              ((LETT #2#

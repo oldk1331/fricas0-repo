@@ -570,10 +570,10 @@
          ($ (|Matrix| (|SparseUnivariatePolynomial| D))))
         (SPROG
          ((|d| (D)) (M (|Matrix| (|SparseUnivariatePolynomial| D)))
-          (#1=#:G242 NIL) (#2=#:G253 NIL) (|l| NIL)
+          (#1=#:G242 NIL) (#2=#:G255 NIL) (|l| NIL) (#3=#:G252 NIL)
           (|lambda| (|NonNegativeInteger|)) (|lambdaMax| (|Integer|))
-          (|vdl| (|Integer|)) (#3=#:G252 NIL) (#4=#:G251 NIL) (|k| NIL)
-          (|p| #5=(|Vector| D)) (|r| #5#)
+          (#4=#:G251 NIL) (|vdl| (|Integer|)) (#5=#:G254 NIL) (#6=#:G253 NIL)
+          (|k| NIL) (|p| #7=(|Vector| D)) (|r| #7#)
           (|etak| (|Vector| (|NonNegativeInteger|)))
           (|m| (|NonNegativeInteger|)) (|z| (|SparseUnivariatePolynomial| D)))
          (SEQ (LETT |z| (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 70)))
@@ -583,107 +583,116 @@
               (LETT |etak| (SPADCALL |m| (QREFELT $ 94)))
               (LETT |r| (SPADCALL |m| (QREFELT $ 96)))
               (LETT |p| (SPADCALL |m| (QREFELT $ 96)))
-              (SEQ (LETT |k| 1) (LETT #4# K) G190
-                   (COND ((|greater_SI| |k| #4#) (GO G191)))
-                   (SEQ (LETT |lambda| 0) (LETT |lambdaMax| -1)
-                        (SEQ (LETT |l| 1) (LETT #3# |m|) G190
-                             (COND ((|greater_SI| |l| #3#) (GO G191)))
+              (SEQ (LETT |k| 1) (LETT #6# K) G190
+                   (COND ((|greater_SI| |k| #6#) (GO G191)))
+                   (SEQ
+                    (EXIT
+                     (SEQ (LETT |lambda| 0) (LETT |lambdaMax| -1)
+                          (SEQ (LETT |l| 1) (LETT #5# |m|) G190
+                               (COND ((|greater_SI| |l| #5#) (GO G191)))
+                               (SEQ
+                                (EXIT
+                                 (SEQ
+                                  (LETT |vdl|
+                                        (SPADCALL |vd| |l| (QREFELT $ 87)))
+                                  (EXIT
+                                   (COND
+                                    ((< |vdl| 0)
+                                     (PROGN
+                                      (LETT #4# |$NoValue|)
+                                      (GO #8=#:G236)))
+                                    ('T
+                                     (SEQ
+                                      (SPADCALL |r| |l|
+                                                (SPADCALL |k|
+                                                          (SPADCALL M |l|
+                                                                    (QREFELT $
+                                                                             97))
+                                                          |c|)
+                                                (QREFELT $ 98))
+                                      (EXIT
+                                       (COND
+                                        ((SPADCALL
+                                          (SPADCALL |r| |l| (QREFELT $ 99))
+                                          (|spadConstant| $ 22)
+                                          (QREFELT $ 100))
+                                         (PROGN
+                                          (LETT #4# |$NoValue|)
+                                          (GO #8#)))
+                                        ((> |vdl| |lambdaMax|)
+                                         (SEQ (LETT |lambdaMax| |vdl|)
+                                              (EXIT
+                                               (LETT |lambda| |l|))))))))))))
+                                #8# (EXIT #4#))
+                               (LETT |l| (|inc_SI| |l|)) (GO G190) G191
+                               (EXIT NIL))
+                          (EXIT
+                           (COND
+                            ((EQL |lambda| 0)
+                             (PROGN (LETT #3# |$NoValue|) (GO #9=#:G235)))
+                            ('T
                              (SEQ
-                              (LETT |vdl| (SPADCALL |vd| |l| (QREFELT $ 87)))
+                              (SEQ (LETT |l| 1) (LETT #2# |m|) G190
+                                   (COND ((|greater_SI| |l| #2#) (GO G191)))
+                                   (SEQ
+                                    (EXIT
+                                     (COND
+                                      ((SPADCALL |l| |lambda| (QREFELT $ 76))
+                                       (COND
+                                        ((>
+                                          (SPADCALL |etak| |l| (QREFELT $ 101))
+                                          0)
+                                         (COND
+                                          ((>=
+                                            (SPADCALL |vd| |l| (QREFELT $ 87))
+                                            0)
+                                           (SPADCALL |p| |l|
+                                                     (SPADCALL
+                                                      (SPADCALL M |l| |lambda|
+                                                                (QREFELT $ 82))
+                                                      (PROG1
+                                                          (LETT #1#
+                                                                (-
+                                                                 (SPADCALL
+                                                                  |etak| |l|
+                                                                  (QREFELT $
+                                                                           101))
+                                                                 1))
+                                                        (|check_subtype2|
+                                                         (>= #1# 0)
+                                                         '(|NonNegativeInteger|)
+                                                         '(|Integer|) #1#))
+                                                      (QREFELT $ 32))
+                                                     (QREFELT $ 98)))
+                                          ('T
+                                           (SPADCALL |p| |l|
+                                                     (|spadConstant| $ 22)
+                                                     (QREFELT $ 98)))))
+                                        ('T
+                                         (SPADCALL |p| |l|
+                                                   (|spadConstant| $ 22)
+                                                   (QREFELT $ 98))))))))
+                                   (LETT |l| (|inc_SI| |l|)) (GO G190) G191
+                                   (EXIT NIL))
+                              (LETT M
+                                    (|FFFG;recurrence| M |lambda| |m| |r| |d|
+                                     |z| (SPADCALL C |k| (QREFELT $ 77)) |p|
+                                     |vd| $))
+                              (LETT |d| (SPADCALL |r| |lambda| (QREFELT $ 99)))
+                              (SPADCALL |etak| |lambda|
+                                        (+
+                                         (SPADCALL |etak| |lambda|
+                                                   (QREFELT $ 101))
+                                         1)
+                                        (QREFELT $ 102))
                               (EXIT
-                               (COND ((< |vdl| 0) "iterate")
-                                     ('T
-                                      (SEQ
-                                       (SPADCALL |r| |l|
-                                                 (SPADCALL |k|
-                                                           (SPADCALL M |l|
-                                                                     (QREFELT $
-                                                                              97))
-                                                           |c|)
-                                                 (QREFELT $ 98))
-                                       (EXIT
-                                        (COND
-                                         ((SPADCALL
-                                           (SPADCALL |r| |l| (QREFELT $ 99))
-                                           (|spadConstant| $ 22)
-                                           (QREFELT $ 100))
-                                          "iterate")
-                                         ((> |vdl| |lambdaMax|)
-                                          (SEQ (LETT |lambdaMax| |vdl|)
-                                               (EXIT
-                                                (LETT |lambda| |l|)))))))))))
-                             (LETT |l| (|inc_SI| |l|)) (GO G190) G191
-                             (EXIT NIL))
-                        (EXIT
-                         (COND ((EQL |lambda| 0) "iterate")
-                               ('T
-                                (SEQ
-                                 (SEQ (LETT |l| 1) (LETT #2# |m|) G190
-                                      (COND ((|greater_SI| |l| #2#) (GO G191)))
-                                      (SEQ
-                                       (EXIT
-                                        (COND
-                                         ((SPADCALL |l| |lambda|
-                                                    (QREFELT $ 76))
-                                          (COND
-                                           ((>
-                                             (SPADCALL |etak| |l|
-                                                       (QREFELT $ 101))
-                                             0)
-                                            (COND
-                                             ((>=
-                                               (SPADCALL |vd| |l|
-                                                         (QREFELT $ 87))
-                                               0)
-                                              (SPADCALL |p| |l|
-                                                        (SPADCALL
-                                                         (SPADCALL M |l|
-                                                                   |lambda|
-                                                                   (QREFELT $
-                                                                            82))
-                                                         (PROG1
-                                                             (LETT #1#
-                                                                   (-
-                                                                    (SPADCALL
-                                                                     |etak| |l|
-                                                                     (QREFELT $
-                                                                              101))
-                                                                    1))
-                                                           (|check_subtype2|
-                                                            (>= #1# 0)
-                                                            '(|NonNegativeInteger|)
-                                                            '(|Integer|) #1#))
-                                                         (QREFELT $ 32))
-                                                        (QREFELT $ 98)))
-                                             ('T
-                                              (SPADCALL |p| |l|
-                                                        (|spadConstant| $ 22)
-                                                        (QREFELT $ 98)))))
-                                           ('T
-                                            (SPADCALL |p| |l|
-                                                      (|spadConstant| $ 22)
-                                                      (QREFELT $ 98))))))))
-                                      (LETT |l| (|inc_SI| |l|)) (GO G190) G191
-                                      (EXIT NIL))
-                                 (LETT M
-                                       (|FFFG;recurrence| M |lambda| |m| |r|
-                                        |d| |z| (SPADCALL C |k| (QREFELT $ 77))
-                                        |p| |vd| $))
-                                 (LETT |d|
-                                       (SPADCALL |r| |lambda| (QREFELT $ 99)))
-                                 (SPADCALL |etak| |lambda|
-                                           (+
-                                            (SPADCALL |etak| |lambda|
-                                                      (QREFELT $ 101))
-                                            1)
-                                           (QREFELT $ 102))
-                                 (EXIT
-                                  (SPADCALL |vd| |lambda|
-                                            (-
-                                             (SPADCALL |vd| |lambda|
-                                                       (QREFELT $ 87))
-                                             1)
-                                            (QREFELT $ 103))))))))
+                               (SPADCALL |vd| |lambda|
+                                         (-
+                                          (SPADCALL |vd| |lambda|
+                                                    (QREFELT $ 87))
+                                          1)
+                                         (QREFELT $ 103)))))))))
+                    #9# (EXIT #3#))
                    (LETT |k| (|inc_SI| |k|)) (GO G190) G191 (EXIT NIL))
               (EXIT M)))) 
 
@@ -695,8 +704,8 @@
          (|eta| (|List| (|NonNegativeInteger|)))
          ($ (|Matrix| (|SparseUnivariatePolynomial| D))))
         (SPROG
-         ((|vd| (|Vector| (|Integer|))) (#1=#:G263 NIL) (|ei| NIL)
-          (#2=#:G262 NIL))
+         ((|vd| (|Vector| (|Integer|))) (#1=#:G265 NIL) (|ei| NIL)
+          (#2=#:G264 NIL))
          (SEQ
           (LETT |vd|
                 (SPADCALL
@@ -716,9 +725,9 @@
 
 (DECLAIM (NOTINLINE |FractionFreeFastGaussian;|)) 
 
-(DEFUN |FractionFreeFastGaussian| (&REST #1=#:G264)
+(DEFUN |FractionFreeFastGaussian| (&REST #1=#:G266)
   (SPROG NIL
-         (PROG (#2=#:G265)
+         (PROG (#2=#:G267)
            (RETURN
             (COND
              ((LETT #2#

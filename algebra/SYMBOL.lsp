@@ -148,7 +148,7 @@
         (SPROG
          ((|a| (|List| (|OutputForm|))) (|x0| (|OutputForm|))
           (|sl| (|List| (|OutputForm|))) (|se| (|OutputForm|)) (#1=#:G2127 NIL)
-          (|si| NIL) (|rsl| (|List| (|List| (|OutputForm|))))
+          (#2=#:G2128 NIL) (|si| NIL) (|rsl| (|List| (|List| (|OutputForm|))))
           (|ss|
            (|Record| (|:| |sub| (|List| (|OutputForm|)))
                      (|:| |sup| (|List| (|OutputForm|)))
@@ -164,18 +164,27 @@
                        (LIST (QVELT |ss| 3) (QVELT |ss| 2) (QVELT |ss| 1)
                              (QVELT |ss| 0)))
                  (LETT |sl| NIL)
-                 (SEQ (LETT |si| NIL) (LETT #1# |rsl|) G190
+                 (SEQ (LETT |si| NIL) (LETT #2# |rsl|) G190
                       (COND
-                       ((OR (ATOM #1#) (PROGN (LETT |si| (CAR #1#)) NIL))
+                       ((OR (ATOM #2#) (PROGN (LETT |si| (CAR #2#)) NIL))
                         (GO G191)))
                       (SEQ
-                       (COND
-                        ((NULL |sl|) (COND ((NULL |si|) (EXIT "iterate")))))
-                       (LETT |se|
-                             (COND ((EQL (LENGTH |si|) 1) (|SPADfirst| |si|))
-                                   ('T (SPADCALL |si| (QREFELT $ 47)))))
-                       (EXIT (LETT |sl| (CONS |se| |sl|))))
-                      (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
+                       (EXIT
+                        (SEQ
+                         (COND
+                          ((NULL |sl|)
+                           (COND
+                            ((NULL |si|)
+                             (EXIT
+                              (PROGN
+                               (LETT #1# |$NoValue|)
+                               (GO #3=#:G2119)))))))
+                         (LETT |se|
+                               (COND ((EQL (LENGTH |si|) 1) (|SPADfirst| |si|))
+                                     ('T (SPADCALL |si| (QREFELT $ 47)))))
+                         (EXIT (LETT |sl| (CONS |se| |sl|)))))
+                       #3# (EXIT #1#))
+                      (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                  (LETT |x0|
                        (SPADCALL
                         (SPADCALL (SPADCALL |x| (QREFELT $ 29)) (QREFELT $ 46))
@@ -227,7 +236,7 @@
                     (|:| |args| (|List| (|OutputForm|)))))
          ($ (|String|)))
         (SPROG
-         ((#1=#:G2142 NIL) (|n| NIL) (#2=#:G2141 NIL)
+         ((#1=#:G2143 NIL) (|n| NIL) (#2=#:G2142 NIL)
           (|ns| (|List| (|Integer|))))
          (SEQ
           (LETT |ns|
@@ -433,7 +442,7 @@
 
 (SDEFUN |SYMBOL;anyRadix| ((|n| (|Integer|)) (|s| (|String|)) ($ (|String|)))
         (SPROG
-         ((#1=#:G2208 NIL) (|ns| (|String|))
+         ((#1=#:G2209 NIL) (|ns| (|String|))
           (|qr|
            (|Record| (|:| |quotient| (|Integer|))
                      (|:| |remainder| (|Integer|)))))
@@ -454,7 +463,7 @@
                            (EXIT
                             (COND
                              ((ZEROP |n|)
-                              (PROGN (LETT #1# |ns|) (GO #2=#:G2207))))))
+                              (PROGN (LETT #1# |ns|) (GO #2=#:G2208))))))
                       NIL (GO G190) G191 (EXIT NIL)))))
           #2# (EXIT #1#)))) 
 
@@ -500,7 +509,7 @@
                      (SPADCALL |x| (QREFELT $ 31)) (QREFELT $ 76)))))) 
 
 (SDEFUN |SYMBOL;resetNew;V;27| (($ (|Void|)))
-        (SPROG ((#1=#:G2231 NIL) (|k| NIL))
+        (SPROG ((#1=#:G2232 NIL) (|k| NIL))
                (SEQ (SETELT $ 6 0)
                     (SEQ (LETT |k| NIL)
                          (LETT #1# (SPADCALL (QREFELT $ 9) (QREFELT $ 94)))
@@ -547,10 +556,10 @@
                     (|:| |presub| (|List| (|OutputForm|)))
                     (|:| |args| (|List| (|OutputForm|))))))
         (SPROG
-         ((|allscripts| (|List| (|OutputForm|))) (|i| NIL) (#1=#:G2249 NIL)
+         ((|allscripts| (|List| (|OutputForm|))) (|i| NIL) (#1=#:G2250 NIL)
           (|n| NIL) (|m| (|Integer|))
-          (|nscripts| (|List| (|NonNegativeInteger|))) (#2=#:G2240 NIL)
-          (#3=#:G2248 NIL) (|j| NIL) (|str| (|String|))
+          (|nscripts| (|List| (|NonNegativeInteger|))) (#2=#:G2241 NIL)
+          (#3=#:G2249 NIL) (|j| NIL) (|str| (|String|))
           (|lscripts| (|List| (|List| (|OutputForm|)))))
          (SEQ
           (COND
@@ -624,7 +633,7 @@
 
 (DEFUN |Symbol| ()
   (SPROG NIL
-         (PROG (#1=#:G2253)
+         (PROG (#1=#:G2254)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Symbol|))

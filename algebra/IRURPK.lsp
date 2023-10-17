@@ -190,19 +190,19 @@
            (|List|
             (|Record| (|:| |pol| P) (|:| |gap| #1=(|Integer|))
                       (|:| |tower| TS))))
-          (|toSave| (|List| TS)) (#2=#:G204 NIL) (|fr| NIL) (|r| (P)) (|h| (P))
-          (|s| (P)) (|prs| (|List| P)) (|q| (P)) (|f| (P)) (|c| (P))
-          (|lambda| (|Integer|)) (|f0| (P)) (|#G35| (TS)) (|#G34| #1#)
-          (|#G33| (P))
+          (|toSave| (|List| TS)) (#2=#:G204 NIL) (#3=#:G206 NIL) (|fr| NIL)
+          (|r| (P)) (|h| (P)) (|s| (P)) (|prs| (|List| P)) (|q| (P)) (|f| (P))
+          (|c| (P)) (|lambda| (|Integer|)) (|f0| (P)) (|#G35| (TS))
+          (|#G34| #1#) (|#G33| (P))
           (|wip|
            (|Record| (|:| |pol| P) (|:| |gap| (|Integer|)) (|:| |tower| TS)))
-          (|z| (V)) (#3=#:G176 NIL))
+          (|z| (V)) (#4=#:G176 NIL))
          (SEQ
           (LETT |f0|
-                (PROG2 (LETT #3# (SPADCALL |ts| (QREFELT $ 12)))
-                    (QCDR #3#)
-                  (|check_union2| (QEQCAR #3# 0) (QREFELT $ 9)
-                                  (|Union| (QREFELT $ 9) "failed") #3#)))
+                (PROG2 (LETT #4# (SPADCALL |ts| (QREFELT $ 12)))
+                    (QCDR #4#)
+                  (|check_union2| (QEQCAR #4# 0) (QREFELT $ 9)
+                                  (|Union| (QREFELT $ 9) "failed") #4#)))
           (LETT |z| (SPADCALL |f0| (QREFELT $ 13))) (LETT |lambda| 1)
           (LETT |ts| (SPADCALL |ts| |z| (QREFELT $ 14)))
           (LETT |toSee| (LIST (VECTOR |f0| |lambda| |ts|))) (LETT |toSave| NIL)
@@ -223,12 +223,12 @@
                         (COND
                          ((SPADCALL (SPADCALL |f0| (QREFELT $ 13)) |z|
                                     (QREFELT $ 57))
-                          (SEQ (SPADCALL #4="Bad f0: " (QREFELT $ 59))
+                          (SEQ (SPADCALL #5="Bad f0: " (QREFELT $ 59))
                                (EXIT
                                 (SPADCALL (SPADCALL |f0| (QREFELT $ 60))
                                           (QREFELT $ 28)))))))
                        ('T
-                        (SEQ (SPADCALL #4# (QREFELT $ 59))
+                        (SEQ (SPADCALL #5# (QREFELT $ 59))
                              (EXIT
                               (SPADCALL (SPADCALL |f0| (QREFELT $ 60))
                                         (QREFELT $ 28))))))))
@@ -248,8 +248,8 @@
                         (COND
                          ((NULL |prs|)
                           (EXIT
-                           (|error| #5="rur$IRURPK: should never happen !")))))
-                       ('T (EXIT (|error| #5#))))))
+                           (|error| #6="rur$IRURPK: should never happen !")))))
+                       ('T (EXIT (|error| #6#))))))
                     (LETT |s| (|SPADfirst| |prs|)) (LETT |prs| (CDR |prs|))
                     (COND
                      (|check?|
@@ -278,21 +278,24 @@
                                     (QREFELT $ 67)))
                       (EXIT
                        (SEQ (LETT |fr| NIL)
-                            (LETT #2# (SPADCALL (LIST |r|) (QREFELT $ 47)))
+                            (LETT #3# (SPADCALL (LIST |r|) (QREFELT $ 47)))
                             G190
                             (COND
-                             ((OR (ATOM #2#) (PROGN (LETT |fr| (CAR #2#)) NIL))
+                             ((OR (ATOM #3#) (PROGN (LETT |fr| (CAR #3#)) NIL))
                               (GO G191)))
                             (SEQ
                              (EXIT
-                              (COND ((SPADCALL |fr| (QREFELT $ 67)) "iterate")
-                                    ('T
-                                     (LETT |toSave|
-                                           (CONS
-                                            (|IRURPK;makeMonic| |z| |c| |fr|
-                                             |ts| |s| |univ?| $)
-                                            |toSave|))))))
-                            (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL)))))
+                              (COND
+                               ((SPADCALL |fr| (QREFELT $ 67))
+                                (PROGN (LETT #2# |$NoValue|) (GO #7=#:G191)))
+                               ('T
+                                (LETT |toSave|
+                                      (CONS
+                                       (|IRURPK;makeMonic| |z| |c| |fr| |ts|
+                                        |s| |univ?| $)
+                                       |toSave|)))))
+                             #7# (EXIT #2#))
+                            (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))))
                     (COND
                      (|info?|
                       (SEQ (SPADCALL "Unlucky lambda" (QREFELT $ 59))
@@ -312,7 +315,7 @@
         (SPROG
          ((|toSee| (|List| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS))))
           (|wip| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS)))
-          (#1=#:G221 NIL) (|lts| (|List| TS)) (|p| (P)) (|xi| (V))
+          (#1=#:G223 NIL) (|lts| (|List| TS)) (|p| (P)) (|xi| (V))
           (|lp| (|List| P)) (|toSave| (|List| TS)))
          (SEQ (LETT |toSee| (|IRURPK;prepareRur| |ts| $)) (LETT |toSave| NIL)
               (SEQ G190 (COND ((NULL (NULL (NULL |toSee|))) (GO G191)))
@@ -375,9 +378,9 @@
 
 (DECLAIM (NOTINLINE |InternalRationalUnivariateRepresentationPackage;|)) 
 
-(DEFUN |InternalRationalUnivariateRepresentationPackage| (&REST #1=#:G222)
+(DEFUN |InternalRationalUnivariateRepresentationPackage| (&REST #1=#:G224)
   (SPROG NIL
-         (PROG (#2=#:G223)
+         (PROG (#2=#:G225)
            (RETURN
             (COND
              ((LETT #2#

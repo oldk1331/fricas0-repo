@@ -617,54 +617,60 @@
 
 (SDEFUN |PR;fmecg;$ER2$;29| ((|p1| ($)) (|e| (E)) (|r| (R)) (|p2| ($)) ($ ($)))
         (SPROG
-         ((|rout| ($)) (|u| (R)) (|e2| (E)) (|c2| (R)) (#1=#:G372 NIL)
-          (|tm| NIL))
+         ((|rout| ($)) (|u| (R)) (|e2| (E)) (#1=#:G372 NIL) (|c2| (R))
+          (#2=#:G373 NIL) (|tm| NIL))
          (SEQ (LETT |rout| NIL) (LETT |r| (SPADCALL |r| (QREFELT $ 65)))
-              (SEQ (LETT |tm| NIL) (LETT #1# |p2|) G190
+              (SEQ (LETT |tm| NIL) (LETT #2# |p2|) G190
                    (COND
-                    ((OR (ATOM #1#) (PROGN (LETT |tm| (CAR #1#)) NIL))
+                    ((OR (ATOM #2#) (PROGN (LETT |tm| (CAR #2#)) NIL))
                      (GO G191)))
-                   (SEQ (LETT |c2| (SPADCALL |r| (QCDR |tm|) (QREFELT $ 44)))
-                        (EXIT
-                         (COND
-                          ((SPADCALL |c2| (|spadConstant| $ 20) (QREFELT $ 60))
-                           "iterate")
-                          ('T
-                           (SEQ
-                            (LETT |e2|
-                                  (SPADCALL |e| (QCAR |tm|) (QREFELT $ 43)))
-                            (SEQ G190
-                                 (COND
-                                  ((NULL
-                                    (COND ((NULL |p1|) NIL)
-                                          ('T
-                                           (SPADCALL (QCAR (|SPADfirst| |p1|))
-                                                     |e2| (QREFELT $ 32)))))
-                                   (GO G191)))
-                                 (SEQ
-                                  (LETT |rout|
-                                        (CONS (|SPADfirst| |p1|) |rout|))
-                                  (EXIT (LETT |p1| (CDR |p1|))))
-                                 NIL (GO G190) G191 (EXIT NIL))
-                            (COND
-                             ((OR (NULL |p1|)
-                                  (SPADCALL (QCAR (|SPADfirst| |p1|)) |e2|
-                                            (QREFELT $ 31)))
-                              (EXIT
-                               (LETT |rout| (CONS (CONS |e2| |c2|) |rout|)))))
-                            (COND
-                             ((SPADCALL
-                               (LETT |u|
-                                     (SPADCALL (QCDR (|SPADfirst| |p1|)) |c2|
-                                               (QREFELT $ 47)))
-                               (|spadConstant| $ 20) (QREFELT $ 66))
-                              (LETT |rout| (CONS (CONS |e2| |u|) |rout|))))
-                            (EXIT (LETT |p1| (CDR |p1|))))))))
-                   (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
+                   (SEQ
+                    (EXIT
+                     (SEQ (LETT |c2| (SPADCALL |r| (QCDR |tm|) (QREFELT $ 44)))
+                          (EXIT
+                           (COND
+                            ((SPADCALL |c2| (|spadConstant| $ 20)
+                                       (QREFELT $ 60))
+                             (PROGN (LETT #1# |$NoValue|) (GO #3=#:G359)))
+                            ('T
+                             (SEQ
+                              (LETT |e2|
+                                    (SPADCALL |e| (QCAR |tm|) (QREFELT $ 43)))
+                              (SEQ G190
+                                   (COND
+                                    ((NULL
+                                      (COND ((NULL |p1|) NIL)
+                                            ('T
+                                             (SPADCALL
+                                              (QCAR (|SPADfirst| |p1|)) |e2|
+                                              (QREFELT $ 32)))))
+                                     (GO G191)))
+                                   (SEQ
+                                    (LETT |rout|
+                                          (CONS (|SPADfirst| |p1|) |rout|))
+                                    (EXIT (LETT |p1| (CDR |p1|))))
+                                   NIL (GO G190) G191 (EXIT NIL))
+                              (COND
+                               ((OR (NULL |p1|)
+                                    (SPADCALL (QCAR (|SPADfirst| |p1|)) |e2|
+                                              (QREFELT $ 31)))
+                                (EXIT
+                                 (LETT |rout|
+                                       (CONS (CONS |e2| |c2|) |rout|)))))
+                              (COND
+                               ((SPADCALL
+                                 (LETT |u|
+                                       (SPADCALL (QCDR (|SPADfirst| |p1|)) |c2|
+                                                 (QREFELT $ 47)))
+                                 (|spadConstant| $ 20) (QREFELT $ 66))
+                                (LETT |rout| (CONS (CONS |e2| |u|) |rout|))))
+                              (EXIT (LETT |p1| (CDR |p1|)))))))))
+                    #3# (EXIT #1#))
+                   (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL (NREVERSE |rout|) |p1| (QREFELT $ 67)))))) 
 
 (SDEFUN |PR;associates?;2$B;30| ((|p1| ($)) (|p2| ($)) ($ (|Boolean|)))
-        (SPROG ((#1=#:G374 NIL))
+        (SPROG ((#1=#:G375 NIL))
                (COND ((NULL |p1|) (NULL |p2|))
                      ((OR
                        (OR (NULL |p2|)
@@ -693,8 +699,8 @@
 
 (SDEFUN |PR;exquo;$RU;31| ((|p| ($)) (|r| (R)) ($ (|Union| $ "failed")))
         (SPROG
-         ((#1=#:G391 NIL) (|a| (|Union| R "failed")) (#2=#:G393 NIL) (|tm| NIL)
-          (#3=#:G392 NIL))
+         ((#1=#:G392 NIL) (|a| (|Union| R "failed")) (#2=#:G394 NIL) (|tm| NIL)
+          (#3=#:G393 NIL))
          (SEQ
           (EXIT
            (CONS 0
@@ -717,7 +723,7 @@
                                    ((QEQCAR |a| 1)
                                     (PROGN
                                      (LETT #1# (CONS 1 "failed"))
-                                     (GO #4=#:G390)))
+                                     (GO #4=#:G391)))
                                    ('T (CONS (QCAR |tm|) (QCDR |a|))))))
                                 #3#))))
                        (LETT #2# (CDR #2#)) (GO G190) G191
@@ -726,7 +732,7 @@
 
 (SDEFUN |PR;exquo;2$U;32| ((|p1| ($)) (|p2| ($)) ($ (|Union| $ #1="failed")))
         (SPROG
-         ((|rout| ($)) (#2=#:G412 NIL) (|ee| (|Union| E "failed"))
+         ((|rout| ($)) (#2=#:G413 NIL) (|ee| (|Union| E "failed"))
           (|a| (|Union| R #1#)))
          (SEQ
           (EXIT
@@ -748,7 +754,7 @@
                                ((QEQCAR |a| 1)
                                 (PROGN
                                  (LETT #2# (CONS 1 "failed"))
-                                 (GO #4=#:G411)))
+                                 (GO #4=#:G412)))
                                ('T
                                 (SEQ
                                  (LETT |ee|
@@ -779,7 +785,7 @@
 
 (SDEFUN |PR;exquo;2$U;33| ((|p1| ($)) (|p2| ($)) ($ (|Union| $ #1="failed")))
         (SPROG
-         ((|rout| ($)) (#2=#:G431 NIL) (|ee| (|Union| E "failed"))
+         ((|rout| ($)) (#2=#:G432 NIL) (|ee| (|Union| E "failed"))
           (|a| (|Union| R #1#)))
          (SEQ
           (EXIT
@@ -799,7 +805,7 @@
                                ((QEQCAR |a| 1)
                                 (PROGN
                                  (LETT #2# (CONS 1 "failed"))
-                                 (GO #4=#:G430)))
+                                 (GO #4=#:G431)))
                                ('T
                                 (SEQ
                                  (LETT |ee|
@@ -830,9 +836,9 @@
 
 (DECLAIM (NOTINLINE |PolynomialRing;|)) 
 
-(DEFUN |PolynomialRing| (&REST #1=#:G445)
+(DEFUN |PolynomialRing| (&REST #1=#:G446)
   (SPROG NIL
-         (PROG (#2=#:G446)
+         (PROG (#2=#:G447)
            (RETURN
             (COND
              ((LETT #2#
@@ -851,7 +857,7 @@
 
 (DEFUN |PolynomialRing;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G442 NIL) (#2=#:G443 NIL) (#3=#:G444 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G443 NIL) (#2=#:G444 NIL) (#3=#:G445 NIL) ($ NIL)
     (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))

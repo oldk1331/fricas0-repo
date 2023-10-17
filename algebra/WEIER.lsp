@@ -121,9 +121,9 @@
         (SPROG
          ((|q| (|Stream| (|TaylorSeries| R))) (|f| (|Stream| (|Polynomial| R)))
           (|e| (|Union| (|Stream| (|Polynomial| R)) "failed"))
-          (|b| (|Stream| (|Polynomial| R))) (#1=#:G158 NIL)
+          (|b| (|Stream| (|Polynomial| R))) (#1=#:G159 NIL)
           (|a| (|NonNegativeInteger|)) (|c| (|Union| R "failed"))
-          (|b0| (|Polynomial| R)) (|a0| NIL)
+          (#2=#:G158 NIL) (|b0| (|Polynomial| R)) (|a0| NIL)
           (|p| (|Stream| (|TaylorSeries| R))))
          (SEQ (LETT |p| (|WEIER;tp| |v| |sts| $))
               (LETT |b| (SPADCALL |p| (QREFELT $ 58)))
@@ -143,7 +143,10 @@
                                 ((SPADCALL |b0| (|spadConstant| $ 15)
                                            (QREFELT $ 59))
                                  (SEQ (LETT |b| (SPADCALL |b| (QREFELT $ 37)))
-                                      (EXIT "iterate")))
+                                      (EXIT
+                                       (PROGN
+                                        (LETT #2# |$NoValue|)
+                                        (GO #3=#:G142)))))
                                 ('T
                                  (SEQ (LETT |c| (SPADCALL |b0| (QREFELT $ 61)))
                                       (EXIT
@@ -153,14 +156,15 @@
                                               (EXIT
                                                (PROGN
                                                 (LETT #1# |$NoValue|)
-                                                (GO #2=#:G151)))))
+                                                (GO #4=#:G151)))))
                                         ('T
                                          (LETT |b|
                                                (SPADCALL |b|
                                                          (QREFELT $
-                                                                  37)))))))))))))))
+                                                                  37))))))))))))))
+                      #3# (EXIT #2#))
                      (LETT |a0| (|inc_SI| |a0|)) (GO G190) G191 (EXIT NIL)))
-               #2# (EXIT #1#))
+               #4# (EXIT #1#))
               (LETT |e| (SPADCALL |b| (QREFELT $ 63)))
               (LETT |f|
                     (COND ((QEQCAR |e| 1) (|error| "no reciprocal"))
@@ -215,9 +219,9 @@
 
 (DECLAIM (NOTINLINE |WeierstrassPreparation;|)) 
 
-(DEFUN |WeierstrassPreparation| (#1=#:G165)
+(DEFUN |WeierstrassPreparation| (#1=#:G166)
   (SPROG NIL
-         (PROG (#2=#:G166)
+         (PROG (#2=#:G167)
            (RETURN
             (COND
              ((LETT #2#

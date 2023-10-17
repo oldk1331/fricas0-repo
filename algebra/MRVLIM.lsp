@@ -35,7 +35,7 @@
         (SPROG
          ((#1=#:G189 NIL) (|nk| (|Expression| (|Integer|))) (|ss| (|Integer|))
           (|la| (|OrderedCompletion| (|Expression| (|Integer|))))
-          (|l_ts| (|List| (|Symbol|)))
+          (#2=#:G190 NIL) (|l_ts| (|List| (|Symbol|)))
           (|l_tan| (|List| (|Kernel| (|Expression| (|Integer|)))))
           (|ns| (|Symbol|)) (|need_subst| (|Boolean|))
           (|l_as| (|List| (|Symbol|)))
@@ -45,18 +45,18 @@
           (|arg1| (|Expression| (|Integer|))) (|nm| (|Symbol|))
           (|ntf| (|List| (|Expression| (|Integer|))))
           (|rtf| (|List| (|Kernel| (|Expression| (|Integer|)))))
-          (|nargs| (|List| (|Expression| (|Integer|)))) (#2=#:G192 NIL)
-          (|arg| NIL) (#3=#:G191 NIL)
+          (|nargs| (|List| (|Expression| (|Integer|)))) (#3=#:G193 NIL)
+          (|arg| NIL) (#4=#:G192 NIL)
           (|args| (|List| (|Expression| (|Integer|)))) (|op| (|BasicOperator|))
-          (#4=#:G190 NIL) (|k| NIL)
+          (#5=#:G191 NIL) (|k| NIL)
           (|tf| (|List| (|Kernel| (|Expression| (|Integer|))))))
          (SEQ (LETT |f| (SPADCALL |f| (QREFELT $ 28)))
               (LETT |tf| (SPADCALL |f| (QREFELT $ 21))) (LETT |rtf| NIL)
               (LETT |ntf| NIL) (LETT |l_atan| NIL) (LETT |l_as| NIL)
               (LETT |l_tan| NIL) (LETT |l_ts| NIL)
-              (SEQ (LETT |k| NIL) (LETT #4# |tf|) G190
+              (SEQ (LETT |k| NIL) (LETT #5# |tf|) G190
                    (COND
-                    ((OR (ATOM #4#) (PROGN (LETT |k| (CAR #4#)) NIL))
+                    ((OR (ATOM #5#) (PROGN (LETT |k| (CAR #5#)) NIL))
                      (GO G191)))
                    (SEQ
                     (EXIT
@@ -65,29 +65,29 @@
                         (SPADCALL (SPADCALL |k| (QREFELT $ 23)) |x|
                                   (QREFELT $ 24))
                         (|spadConstant| $ 7) (QREFELT $ 29))
-                       "iterate")
+                       (PROGN (LETT #2# |$NoValue|) (GO #6=#:G153)))
                       ('T
                        (SEQ (LETT |op| (SPADCALL |k| (QREFELT $ 31)))
                             (LETT |args| (SPADCALL |k| (QREFELT $ 33)))
                             (LETT |nargs|
                                   (PROGN
-                                   (LETT #3# NIL)
-                                   (SEQ (LETT |arg| NIL) (LETT #2# |args|) G190
+                                   (LETT #4# NIL)
+                                   (SEQ (LETT |arg| NIL) (LETT #3# |args|) G190
                                         (COND
-                                         ((OR (ATOM #2#)
+                                         ((OR (ATOM #3#)
                                               (PROGN
-                                               (LETT |arg| (CAR #2#))
+                                               (LETT |arg| (CAR #3#))
                                                NIL))
                                           (GO G191)))
                                         (SEQ
                                          (EXIT
-                                          (LETT #3#
+                                          (LETT #4#
                                                 (CONS
                                                  (SPADCALL |arg| |rtf| |ntf|
                                                            (QREFELT $ 35))
-                                                 #3#))))
-                                        (LETT #2# (CDR #2#)) (GO G190) G191
-                                        (EXIT (NREVERSE #3#)))))
+                                                 #4#))))
+                                        (LETT #3# (CDR #3#)) (GO G190) G191
+                                        (EXIT (NREVERSE #4#)))))
                             (LETT |nk|
                                   (COND
                                    ((SPADCALL |args| |nargs| (QREFELT $ 36))
@@ -99,7 +99,7 @@
                             (EXIT
                              (COND
                               ((OR (EQUAL |nm| '|exp|) (EQUAL |nm| '|log|))
-                               "iterate")
+                               (PROGN (LETT #2# |$NoValue|) (GO #6#)))
                               ('T
                                (SEQ
                                 (EXIT
@@ -149,7 +149,10 @@
                                                                               52)))
                                                      (EXIT
                                                       (COND
-                                                       ((EQL |ss| 0) "iterate")
+                                                       ((EQL |ss| 0)
+                                                        (PROGN
+                                                         (LETT #2# |$NoValue|)
+                                                         (GO #6#)))
                                                        ('T
                                                         (SEQ
                                                          (LETT |nk|
@@ -250,8 +253,14 @@
                                                     (SPADCALL |ntf| 1 |nk|
                                                               (QREFELT $
                                                                        49)))))
-                                                 ('T "iterate")))))
-                                             ((QEQCAR |lau| 1) "iterate")
+                                                 ('T
+                                                  (PROGN
+                                                   (LETT #2# |$NoValue|)
+                                                   (GO #6#)))))))
+                                             ((QEQCAR |lau| 1)
+                                              (PROGN
+                                               (LETT #2# |$NoValue|)
+                                               (GO #6#)))
                                              ('T
                                               (SEQ (LETT |la| (QCDR |lau|))
                                                    (LETT |ss|
@@ -450,9 +459,10 @@
                                                                     |nk|
                                                                     (QREFELT $
                                                                              49)))))))))))))))
-                                    (GO #5=#:G182)))))
-                                #5# (EXIT #1#))))))))))
-                   (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
+                                    (GO #7=#:G182)))))
+                                #7# (EXIT #1#)))))))))
+                    #6# (EXIT #2#))
+                   (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
               (QSETVELT |state| 0 |l_ts|) (QSETVELT |state| 1 |l_as|)
               (QSETVELT |state| 2 |l_tan|) (QSETVELT |state| 3 |l_atan|)
               (EXIT (SPADCALL |f| |rtf| |ntf| (QREFELT $ 35)))))) 
@@ -664,11 +674,11 @@
                      (|:| |coeff| (|Expression| (|Integer|))))
            "failed")))
         (SPROG
-         ((#1=#:G261 NIL)
+         ((#1=#:G262 NIL)
           (|vkers| (|List| (|Kernel| (|Expression| (|Integer|)))))
-          (|ssl| (|Upg|)) (|kk| (|Integer|)) (#2=#:G260 NIL)
+          (|ssl| (|Upg|)) (|kk| (|Integer|)) (#2=#:G261 NIL)
           (|lc| (|Expression| (|Integer|))) (|ssll| (|Upg|))
-          (|deg| (|OrderedExpression|)) (|ssl0| (|Upg|)) (#3=#:G246 NIL)
+          (|deg| (|OrderedExpression|)) (|ssl0| (|Upg|)) (#3=#:G247 NIL)
           (|ss|
            (|Union| (|:| |%series| |Upg|)
                     (|:| |%problem|
@@ -723,7 +733,7 @@
                                   (COND
                                    ((SPADCALL |lc| (|spadConstant| $ 7)
                                               (QREFELT $ 26))
-                                    (PROGN (LETT #2# 1) (GO #5=#:G252)))
+                                    (PROGN (LETT #2# 1) (GO #5=#:G253)))
                                    ('T
                                     (SEQ (LETT |kk| (+ |kk| 1))
                                          (EXIT
@@ -749,7 +759,7 @@
                        ((NULL |vkers|)
                         (PROGN
                          (LETT #1# (CONS 0 (CONS |deg| |lc|)))
-                         (GO #6=#:G259)))
+                         (GO #6=#:G260)))
                        (#4# (|error| "Too many variable kernels"))))))))))
           #6# (EXIT #1#)))) 
 
@@ -826,10 +836,10 @@
           (|ic|
            (|Record| (|:| |sign| (|Integer|))
                      (|:| |coeff| (|Expression| (|Integer|)))))
-          (#4=#:G302 NIL)
+          (#4=#:G303 NIL)
           (|icu|
            (|Union| (|Record| (|:| |sign| #3#) (|:| |coeff| #2#)) "failed"))
-          (#5=#:G303 NIL) (|y| NIL)
+          (#5=#:G304 NIL) (|y| NIL)
           (|kers| (|List| (|Kernel| (|Expression| (|Integer|))))))
          (SEQ
           (EXIT
@@ -857,7 +867,7 @@
                             ((QEQCAR |icu| 1)
                              (PROGN
                               (LETT #4# (CONS 1 "failed"))
-                              (GO #6=#:G301)))
+                              (GO #6=#:G302)))
                             ('T
                              (SEQ (LETT |ic| (QCDR |icu|))
                                   (LETT |i| (QCAR |ic|)) (LETT |c| (QCDR |ic|))
@@ -886,7 +896,7 @@
          (|ly| (|List| (|Expression| (|Integer|))))
          ($ (|Expression| (|Integer|))))
         (SPROG
-         ((#1=#:G308 NIL) (|x| NIL) (#2=#:G309 NIL) (|y| NIL)
+         ((#1=#:G309 NIL) (|x| NIL) (#2=#:G310 NIL) (|y| NIL)
           (|rly| (|List| (|Expression| (|Integer|))))
           (|rlx| (|List| (|Kernel| (|Expression| (|Integer|))))))
          (SEQ (LETT |rlx| (REVERSE |lx|)) (LETT |rly| (REVERSE |ly|))
@@ -914,8 +924,8 @@
          ((|lxx| (|List| (|Kernel| (|Expression| (|Integer|)))))
           (|ly| (|List| (|Expression| (|Integer|))))
           (|yi| (|Expression| (|Integer|)))
-          (|ei| #1=(|Expression| (|Integer|))) (#2=#:G317 NIL) (|xi| NIL)
-          (#3=#:G318 NIL) (|ci| NIL) (|e0| #1#)
+          (|ei| #1=(|Expression| (|Integer|))) (#2=#:G318 NIL) (|xi| NIL)
+          (#3=#:G319 NIL) (|ci| NIL) (|e0| #1#)
           (|c0| (|Expression| (|Integer|))))
          (SEQ (LETT |c0| (|SPADfirst| |lc|))
               (COND
@@ -982,13 +992,13 @@
         (SPROG
          ((|lxx| (|List| (|Kernel| (|Expression| (|Integer|)))))
           (|x00| (|Expression| (|Integer|)))
-          (|lcc| (|List| (|Expression| (|Integer|)))) (#1=#:G345 NIL)
-          (|ci| NIL) (#2=#:G344 NIL) (|ss| (|Integer|))
+          (|lcc| (|List| (|Expression| (|Integer|)))) (#1=#:G346 NIL)
+          (|ci| NIL) (#2=#:G345 NIL) (|ss| (|Integer|))
           (|lipp| (|OrderedCompletion| (|Expression| (|Integer|))))
           (|lip|
            (|Union| (|OrderedCompletion| (|Expression| (|Integer|))) "failed"))
-          (|e0| (|Expression| (|Integer|))) (#3=#:G343 NIL) (|ei| NIL)
-          (#4=#:G342 NIL) (|x0| (|Kernel| (|Expression| (|Integer|)))))
+          (|e0| (|Expression| (|Integer|))) (#3=#:G344 NIL) (|ei| NIL)
+          (#4=#:G343 NIL) (|x0| (|Kernel| (|Expression| (|Integer|)))))
          (SEQ (LETT |x0| (|SPADfirst| |lx|))
               (EXIT
                (COND
@@ -1419,7 +1429,7 @@
                           #1#)))
                    #2="failed")))
         (SPROG
-         ((#3=#:G442 NIL)
+         ((#3=#:G443 NIL)
           (|res2|
            (|Union| (|OrderedCompletion| (|Expression| (|Integer|))) #1#))
           (|res1|
@@ -1477,7 +1487,7 @@
                                          ((QEQCAR |res2| 1)
                                           (|error| "impossible"))
                                          (#5# (CONS 0 (QCDR |res2|)))))))))))
-                       (GO #6=#:G440))))))))
+                       (GO #6=#:G441))))))))
             (EXIT (|MRVLIM;mrv_limit2| |e| |v| |a| $))))
           #6# (EXIT #3#)))) 
 
@@ -1555,7 +1565,7 @@
 
 (DEFUN |MrvLimitPackage| ()
   (SPROG NIL
-         (PROG (#1=#:G455)
+         (PROG (#1=#:G456)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|MrvLimitPackage|))

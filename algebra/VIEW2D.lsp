@@ -283,19 +283,24 @@
         ((|vg| (|Vector| (|Union| (|GraphImage|) #1="undefined")))
          ($ (|Void|)))
         (SPROG
-         ((|g| (|GraphImage|)) (|gu| (|Union| (|GraphImage|) #1#))
-          (#2=#:G243 NIL) (|i| NIL))
-         (SEQ (LETT |i| 1) (LETT #2# (QVSIZE |vg|)) G190
-              (COND ((|greater_SI| |i| #2#) (GO G191)))
-              (SEQ (LETT |gu| (SPADCALL |vg| |i| (QREFELT $ 26)))
-                   (EXIT
-                    (COND ((QEQCAR |gu| 1) "iterate")
-                          ('T
-                           (SEQ (LETT |g| (QCDR |gu|))
-                                (EXIT
-                                 (COND
-                                  ((EQL (SPADCALL |g| (QREFELT $ 38)) 0)
-                                   (SPADCALL |g| (QREFELT $ 57))))))))))
+         ((|g| (|GraphImage|)) (#2=#:G243 NIL)
+          (|gu| (|Union| (|GraphImage|) #1#)) (#3=#:G244 NIL) (|i| NIL))
+         (SEQ (LETT |i| 1) (LETT #3# (QVSIZE |vg|)) G190
+              (COND ((|greater_SI| |i| #3#) (GO G191)))
+              (SEQ
+               (EXIT
+                (SEQ (LETT |gu| (SPADCALL |vg| |i| (QREFELT $ 26)))
+                     (EXIT
+                      (COND
+                       ((QEQCAR |gu| 1)
+                        (PROGN (LETT #2# |$NoValue|) (GO #4=#:G234)))
+                       ('T
+                        (SEQ (LETT |g| (QCDR |gu|))
+                             (EXIT
+                              (COND
+                               ((EQL (SPADCALL |g| (QREFELT $ 38)) 0)
+                                (SPADCALL |g| (QREFELT $ 57)))))))))))
+               #4# (EXIT #2#))
               (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL)))) 
 
 (SDEFUN |VIEW2D;makeViewport2D0| ((|viewportDollar| ($)) ($ ($)))
@@ -388,7 +393,7 @@
 
 (SDEFUN |VIEW2D;title;$SV;22|
         ((|viewport| ($)) (|Title| (|String|)) ($ (|Void|)))
-        (SPROG ((#1=#:G264 NIL))
+        (SPROG ((#1=#:G265 NIL))
                (SEQ
                 (EXIT
                  (SEQ (QSETVELT |viewport| 3 |Title|)
@@ -409,7 +414,7 @@
                                          (EXIT
                                           (|sockGetInt|
                                            |$ViewportServer|))))))))
-                          (GO #2=#:G262)))))))
+                          (GO #2=#:G263)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW2D;reset;$V;23| ((|viewport| ($)) ($ (|Void|)))
@@ -428,7 +433,7 @@
 (SDEFUN |VIEW2D;axes;$PiSV;24|
         ((|viewport| ($)) (|graphIndex| (|PositiveInteger|))
          (|onOff| (|String|)) ($ (|Void|)))
-        (SPROG ((#1=#:G275 NIL) (|status| (|Integer|)))
+        (SPROG ((#1=#:G276 NIL) (|status| (|Integer|)))
                (SEQ
                 (EXIT
                  (SEQ
@@ -457,13 +462,13 @@
                                      (|sockSendInt| |$ViewportServer| |status|)
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G273)))))))
+                      (GO #2=#:G274)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW2D;axes;$PiPV;25|
         ((|viewport| ($)) (|graphIndex| (|PositiveInteger|))
          (|color| (|Palette|)) ($ (|Void|)))
-        (SPROG ((#1=#:G281 NIL) (|hueShade| (|Integer|)))
+        (SPROG ((#1=#:G282 NIL) (|hueShade| (|Integer|)))
                (SEQ
                 (EXIT
                  (SEQ
@@ -499,13 +504,13 @@
                                                     |hueShade|)
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G279)))))))
+                      (GO #2=#:G280)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW2D;units;$PiSV;26|
         ((|viewport| ($)) (|graphIndex| (|PositiveInteger|))
          (|onOff| (|String|)) ($ (|Void|)))
-        (SPROG ((#1=#:G287 NIL) (|status| (|Integer|)))
+        (SPROG ((#1=#:G288 NIL) (|status| (|Integer|)))
                (SEQ
                 (EXIT
                  (SEQ
@@ -534,13 +539,13 @@
                                      (|sockSendInt| |$ViewportServer| |status|)
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G285)))))))
+                      (GO #2=#:G286)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW2D;units;$PiPV;27|
         ((|viewport| ($)) (|graphIndex| (|PositiveInteger|))
          (|color| (|Palette|)) ($ (|Void|)))
-        (SPROG ((#1=#:G293 NIL) (|hueShade| (|Integer|)))
+        (SPROG ((#1=#:G294 NIL) (|hueShade| (|Integer|)))
                (SEQ
                 (EXIT
                  (SEQ
@@ -576,13 +581,13 @@
                                                     |hueShade|)
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G291)))))))
+                      (GO #2=#:G292)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW2D;connect;$PiSV;28|
         ((|viewport| ($)) (|graphIndex| (|PositiveInteger|))
          (|onOff| (|String|)) ($ (|Void|)))
-        (SPROG ((#1=#:G299 NIL) (|status| (|Integer|)))
+        (SPROG ((#1=#:G300 NIL) (|status| (|Integer|)))
                (SEQ
                 (EXIT
                  (SEQ
@@ -611,13 +616,13 @@
                                      (|sockSendInt| |$ViewportServer| |status|)
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G297)))))))
+                      (GO #2=#:G298)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW2D;points;$PiSV;29|
         ((|viewport| ($)) (|graphIndex| (|PositiveInteger|))
          (|onOff| (|String|)) ($ (|Void|)))
-        (SPROG ((#1=#:G305 NIL) (|status| (|Integer|)))
+        (SPROG ((#1=#:G306 NIL) (|status| (|Integer|)))
                (SEQ
                 (EXIT
                  (SEQ
@@ -646,13 +651,13 @@
                                      (|sockSendInt| |$ViewportServer| |status|)
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G303)))))))
+                      (GO #2=#:G304)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW2D;region;$PiSV;30|
         ((|viewport| ($)) (|graphIndex| (|PositiveInteger|))
          (|onOff| (|String|)) ($ (|Void|)))
-        (SPROG ((#1=#:G311 NIL) (|status| (|Integer|)))
+        (SPROG ((#1=#:G312 NIL) (|status| (|Integer|)))
                (SEQ
                 (EXIT
                  (SEQ
@@ -681,13 +686,13 @@
                                      (|sockSendInt| |$ViewportServer| |status|)
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G309)))))))
+                      (GO #2=#:G310)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW2D;show;$PiSV;31|
         ((|viewport| ($)) (|graphIndex| (|PositiveInteger|))
          (|onOff| (|String|)) ($ (|Void|)))
-        (SPROG ((#1=#:G317 NIL) (|status| (|Integer|)))
+        (SPROG ((#1=#:G318 NIL) (|status| (|Integer|)))
                (SEQ
                 (EXIT
                  (SEQ
@@ -716,12 +721,12 @@
                                      (|sockSendInt| |$ViewportServer| |status|)
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G315)))))))
+                      (GO #2=#:G316)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW2D;controlPanel;$SV;32|
         ((|viewport| ($)) (|onOff| (|String|)) ($ (|Void|)))
-        (SPROG ((#1=#:G323 NIL))
+        (SPROG ((#1=#:G324 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -746,7 +751,7 @@
                                                      (QVELT |viewport| 6)))
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #4=#:G321)))))))
+                      (GO #4=#:G322)))))))
                 #4# (EXIT #1#)))) 
 
 (SDEFUN |VIEW2D;close;$V;33| ((|viewport| ($)) ($ (|Void|)))
@@ -791,7 +796,7 @@
         ((|viewport| ($)) (|Filename| (|String|))
          (|thingsToWrite| (|List| (|String|))) ($ (|String|)))
         (SPROG
-         ((|writeTypeInt| (|Integer|)) (#1=#:G345 NIL) (|aTypeOfFile| NIL)
+         ((|writeTypeInt| (|Integer|)) (#1=#:G346 NIL) (|aTypeOfFile| NIL)
           (|m| (|Integer|)) (|avail| (|List| (|String|))))
          (SEQ
           (COND
@@ -838,7 +843,7 @@
 
 (DEFUN |TwoDimensionalViewport| ()
   (SPROG NIL
-         (PROG (#1=#:G347)
+         (PROG (#1=#:G348)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|TwoDimensionalViewport|))

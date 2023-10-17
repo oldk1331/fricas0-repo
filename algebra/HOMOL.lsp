@@ -4,7 +4,7 @@
          ($ ($)))
         (SPROG
          ((|kernelFree| (|List| (|Vector| (|Integer|))))
-          (|v| (|Vector| (|Integer|))) (#1=#:G134 NIL) (|i| NIL)
+          (|v| (|Vector| (|Integer|))) (#1=#:G135 NIL) (|i| NIL)
           (|n_cols| #2=(|NonNegativeInteger|))
           (|n_rows| #3=(|NonNegativeInteger|))
           (|mFree| #4=(|Matrix| (|Integer|)))
@@ -20,10 +20,10 @@
           (|g|
            (|Record| (|:| |vec| (|Vector| (|Integer|)))
                      (|:| |ord| (|Integer|))))
-          (|order| (|Integer|)) (|r| (|Vector| (|Integer|))) (#6=#:G133 NIL)
-          (|nr| NIL) (|mNCols| #2#) (|mNRows| #3#) (|leftNRows| #3#) (|m| #4#)
-          (|left| (|Matrix| (|Integer|))) (|smit| #5#)
-          (|zero| (|Matrix| (|Integer|))))
+          (#6=#:G133 NIL) (|order| (|Integer|)) (|r| (|Vector| (|Integer|)))
+          (#7=#:G134 NIL) (|nr| NIL) (|mNCols| #2#) (|mNRows| #3#)
+          (|leftNRows| #3#) (|m| #4#) (|left| (|Matrix| (|Integer|)))
+          (|smit| #5#) (|zero| (|Matrix| (|Integer|))))
          (SEQ
           (COND
            ((SPADCALL (ANROWS |AInt|) (ANCOLS |BInt|) (QREFELT $ 9))
@@ -61,24 +61,29 @@
           (LETT |left| (QVELT |smit| 1)) (LETT |m| (QVELT |smit| 0))
           (LETT |leftNRows| (ANROWS |left|)) (LETT |mNRows| (ANROWS |m|))
           (LETT |mNCols| (ANCOLS |m|))
-          (SEQ (LETT |nr| 1) (LETT #6# |leftNRows|) G190
-               (COND ((|greater_SI| |nr| #6#) (GO G191)))
-               (SEQ (LETT |r| (SPADCALL |left| |nr| (QREFELT $ 27)))
-                    (LETT |order| 1)
-                    (COND
-                     ((<= |nr| |mNRows|)
+          (SEQ (LETT |nr| 1) (LETT #7# |leftNRows|) G190
+               (COND ((|greater_SI| |nr| #7#) (GO G191)))
+               (SEQ
+                (EXIT
+                 (SEQ (LETT |r| (SPADCALL |left| |nr| (QREFELT $ 27)))
+                      (LETT |order| 1)
                       (COND
-                       ((<= |nr| |mNCols|)
-                        (LETT |order|
-                              (SPADCALL |m| |nr| |nr| (QREFELT $ 28)))))))
-                    (EXIT
-                     (COND ((<= |order| 1) "iterate")
-                           ('T
-                            (SEQ (LETT |g| (CONS |r| |order|))
-                                 (EXIT
-                                  (LETT |res|
-                                        (SPADCALL |res| |g|
-                                                  (QREFELT $ 31)))))))))
+                       ((<= |nr| |mNRows|)
+                        (COND
+                         ((<= |nr| |mNCols|)
+                          (LETT |order|
+                                (SPADCALL |m| |nr| |nr| (QREFELT $ 28)))))))
+                      (EXIT
+                       (COND
+                        ((<= |order| 1)
+                         (PROGN (LETT #6# |$NoValue|) (GO #8=#:G121)))
+                        ('T
+                         (SEQ (LETT |g| (CONS |r| |order|))
+                              (EXIT
+                               (LETT |res|
+                                     (SPADCALL |res| |g|
+                                               (QREFELT $ 31))))))))))
+                #8# (EXIT #6#))
                (LETT |nr| (|inc_SI| |nr|)) (GO G190) G191 (EXIT NIL))
           (LETT |augmented|
                 (SPADCALL (SPADCALL |AInt| (QREFELT $ 32)) |BInt|
@@ -109,8 +114,8 @@
          (|torsionOrd| (|List| (|Integer|)))
          (|free1| (|List| (|List| (|Integer|)))) ($ ($)))
         (SPROG
-         ((|kernelFree| (|List| (|Vector| (|Integer|)))) (#1=#:G148 NIL)
-          (|v| NIL) (#2=#:G147 NIL)
+         ((|kernelFree| (|List| (|Vector| (|Integer|)))) (#1=#:G149 NIL)
+          (|v| NIL) (#2=#:G148 NIL)
           (|res|
            (|List|
             (|Record| (|:| |vec| (|Vector| (|Integer|)))
@@ -118,7 +123,7 @@
           (|r3|
            (|Record| (|:| |vec| (|Vector| (|Integer|)))
                      (|:| |ord| (|Integer|))))
-          (#3=#:G145 NIL) (|r1| NIL) (#4=#:G146 NIL) (|r2| NIL))
+          (#3=#:G146 NIL) (|r1| NIL) (#4=#:G147 NIL) (|r2| NIL))
          (SEQ
           (COND
            ((SPADCALL (LENGTH |torsionVec|) (LENGTH |torsionOrd|)
@@ -167,7 +172,7 @@
 (SDEFUN |HOMOL;dispGenerators;$Of;8| ((|s| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|res| (|OutputForm|)) (|ln2| #1=(|OutputForm|)) (|ln| #1#)
-          (#2=#:G160 NIL) (|g| NIL) (|s1| (|Rep|)))
+          (#2=#:G161 NIL) (|g| NIL) (|s1| (|Rep|)))
          (SEQ (LETT |res| (SPADCALL (QREFELT $ 47))) (LETT |s1| |s|)
               (SEQ (LETT |g| NIL) (LETT #2# (QCAR |s1|)) G190
                    (COND
@@ -192,8 +197,8 @@
 
 (SDEFUN |HOMOL;=;2$B;9| ((|a| ($)) (|b| ($)) ($ (|Boolean|)))
         (SPROG
-         ((#1=#:G174 NIL) (|noTorsionB| #2=(|Boolean|)) (#3=#:G176 NIL)
-          (|tb| NIL) (|noTorsionA| #2#) (#4=#:G175 NIL) (|ta| NIL)
+         ((#1=#:G175 NIL) (|noTorsionB| #2=(|Boolean|)) (#3=#:G177 NIL)
+          (|tb| NIL) (|noTorsionA| #2#) (#4=#:G176 NIL) (|ta| NIL)
           (|torb|
            #5=(|List|
                (|Record| (|:| |vec| (|Vector| (|Integer|)))
@@ -229,14 +234,14 @@
                      (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
                 (COND
                  ((SPADCALL |noTorsionA| |noTorsionA| (QREFELT $ 56))
-                  (PROGN (LETT #1# NIL) (GO #6=#:G173))))
+                  (PROGN (LETT #1# NIL) (GO #6=#:G174))))
                 (EXIT (EQL (LENGTH (QCDR |a|)) (LENGTH (QCDR |b|))))))
           #6# (EXIT #1#)))) 
 
 (SDEFUN |HOMOL;coerce;$Of;10| ((|s| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|res| (|OutputForm|)) (|firstTermRead| (|Boolean|))
-          (|ln2| (|OutputForm|)) (#1=#:G187 NIL) (|t| NIL)
+          (|ln2| (|OutputForm|)) (#1=#:G188 NIL) (|t| NIL)
           (|nFree| (|NonNegativeInteger|)) (|s1| (|Rep|)))
          (SEQ (LETT |res| (SPADCALL (QREFELT $ 47))) (LETT |firstTermRead| NIL)
               (LETT |s1| |s|) (LETT |nFree| (LENGTH (QCDR |s1|)))
@@ -289,7 +294,7 @@
 
 (DEFUN |Homology| ()
   (SPROG NIL
-         (PROG (#1=#:G189)
+         (PROG (#1=#:G190)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Homology|))

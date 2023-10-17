@@ -5,12 +5,12 @@
           (|Record| (|:| |matrix| (|Matrix| F))
                     (|:| |block_list| (|List| (|Integer|))))))
         (SPROG
-         ((#1=#:G147 NIL) (|j| NIL) (#2=#:G146 NIL) (|i| NIL) (|s| (F))
-          (#3=#:G145 NIL) (#4=#:G144 NIL) (|val| (F)) (#5=#:G143 NIL)
-          (|cc| (F)) (#6=#:G142 NIL) (|piv| (F))
-          (|blocks| (|List| (|Integer|))) (|nn| (|Integer|)) (#7=#:G139 NIL)
-          (|has_block| (|Boolean|)) (#8=#:G141 NIL) (|kk| NIL)
-          (|k1| (|Integer|)) (|n1| (|Integer|)) (#9=#:G140 NIL) (|nc| NIL)
+         ((#1=#:G148 NIL) (|j| NIL) (#2=#:G147 NIL) (|i| NIL) (|s| (F))
+          (#3=#:G146 NIL) (#4=#:G145 NIL) (|val| (F)) (#5=#:G144 NIL)
+          (|cc| (F)) (#6=#:G143 NIL) (|piv| (F)) (#7=#:G140 NIL)
+          (|blocks| (|List| (|Integer|))) (|nn| (|Integer|)) (#8=#:G139 NIL)
+          (|has_block| (|Boolean|)) (#9=#:G142 NIL) (|kk| NIL)
+          (|k1| (|Integer|)) (|n1| (|Integer|)) (#10=#:G141 NIL) (|nc| NIL)
           (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (ANCOLS |m|))
               (EXIT
@@ -19,173 +19,184 @@
                  (|error| "need square matrix"))
                 ('T
                  (SEQ (LETT |n1| |n|) (LETT |nn| |n|) (LETT |blocks| NIL)
-                      (SEQ (LETT |nc| 1) (LETT #9# (- |n| 1)) G190
-                           (COND ((|greater_SI| |nc| #9#) (GO G191)))
-                           (SEQ (LETT |n1| (+ (- |n| |nc|) 1))
-                                (LETT |k1| (- |n1| 1)) (LETT |has_block| NIL)
-                                (SEQ (LETT |piv| (QAREF2O |m| |n1| |k1| 1 1))
-                                     (EXIT
-                                      (COND
-                                       ((SPADCALL |piv| (|spadConstant| $ 11)
-                                                  (QREFELT $ 12))
-                                        (SEQ (LETT |has_block| 'T)
-                                             (EXIT
-                                              (SEQ
+                      (SEQ (LETT |nc| 1) (LETT #10# (- |n| 1)) G190
+                           (COND ((|greater_SI| |nc| #10#) (GO G191)))
+                           (SEQ
+                            (EXIT
+                             (SEQ (LETT |n1| (+ (- |n| |nc|) 1))
+                                  (LETT |k1| (- |n1| 1)) (LETT |has_block| NIL)
+                                  (SEQ (LETT |piv| (QAREF2O |m| |n1| |k1| 1 1))
+                                       (EXIT
+                                        (COND
+                                         ((SPADCALL |piv| (|spadConstant| $ 11)
+                                                    (QREFELT $ 12))
+                                          (SEQ (LETT |has_block| 'T)
                                                (EXIT
-                                                (SEQ (LETT |kk| 1)
-                                                     (LETT #8# (- |k1| 1)) G190
-                                                     (COND
-                                                      ((|greater_SI| |kk| #8#)
-                                                       (GO G191)))
-                                                     (SEQ
-                                                      (EXIT
-                                                       (COND
-                                                        ((SPADCALL
-                                                          (LETT |piv|
-                                                                (QAREF2O |m|
-                                                                         |n1|
-                                                                         |kk| 1
-                                                                         1))
-                                                          (|spadConstant| $ 11)
-                                                          (QREFELT $ 13))
-                                                         (SEQ
-                                                          (LETT |m|
-                                                                (SPADCALL |m|
-                                                                          |kk|
-                                                                          |k1|
-                                                                          (QREFELT
-                                                                           $
-                                                                           16)))
-                                                          (LETT |m|
-                                                                (SPADCALL |m|
-                                                                          |kk|
-                                                                          |k1|
-                                                                          (QREFELT
-                                                                           $
-                                                                           17)))
-                                                          (LETT |has_block|
-                                                                NIL)
-                                                          (EXIT
-                                                           (PROGN
-                                                            (LETT #7# 1)
-                                                            (GO
-                                                             #10=#:G113))))))))
-                                                     (LETT |kk|
-                                                           (|inc_SI| |kk|))
-                                                     (GO G190) G191
-                                                     (EXIT NIL)))
-                                               #10# (EXIT #7#))))))))
-                                (EXIT
-                                 (COND
-                                  (|has_block|
-                                   (SEQ (LETT |nn| |k1|)
-                                        (LETT |blocks| (CONS |n1| |blocks|))
-                                        (EXIT "iterate")))
-                                  ('T
-                                   (SEQ
-                                    (LETT |piv|
-                                          (SPADCALL (|spadConstant| $ 10) |piv|
-                                                    (QREFELT $ 18)))
-                                    (SEQ (LETT |i| 1) (LETT #6# |k1|) G190
-                                         (COND
-                                          ((|greater_SI| |i| #6#) (GO G191)))
-                                         (SEQ
-                                          (LETT |cc|
-                                                (SPADCALL |piv|
-                                                          (QAREF2O |m| |i| |k1|
-                                                                   1 1)
-                                                          (QREFELT $ 19)))
-                                          (EXIT
-                                           (SEQ (LETT |j| 1) (LETT #5# |nn|)
-                                                G190
-                                                (COND
-                                                 ((|greater_SI| |j| #5#)
-                                                  (GO G191)))
                                                 (SEQ
-                                                 (LETT |val|
-                                                       (COND
-                                                        ((EQL |j| |k1|) |cc|)
-                                                        ('T
-                                                         (SPADCALL
-                                                          (QAREF2O |m| |i| |j|
-                                                                   1 1)
-                                                          (SPADCALL |cc|
-                                                                    (QAREF2O
-                                                                     |m| |n1|
-                                                                     |j| 1 1)
-                                                                    (QREFELT $
-                                                                             19))
-                                                          (QREFELT $ 20)))))
                                                  (EXIT
-                                                  (QSETAREF2O |m| |i| |j| |val|
-                                                              1 1)))
-                                                (LETT |j| (|inc_SI| |j|))
-                                                (GO G190) G191 (EXIT NIL))))
-                                         (LETT |i| (|inc_SI| |i|)) (GO G190)
-                                         G191 (EXIT NIL))
-                                    (SEQ (LETT |j| 1) (LETT #4# |nn|) G190
-                                         (COND
-                                          ((|greater_SI| |j| #4#) (GO G191)))
-                                         (SEQ (LETT |s| (|spadConstant| $ 11))
-                                              (SEQ (LETT |i| 1) (LETT #3# |k1|)
-                                                   G190
-                                                   (COND
-                                                    ((|greater_SI| |i| #3#)
-                                                     (GO G191)))
-                                                   (SEQ
-                                                    (EXIT
-                                                     (LETT |s|
-                                                           (SPADCALL |s|
-                                                                     (SPADCALL
+                                                  (SEQ (LETT |kk| 1)
+                                                       (LETT #9# (- |k1| 1))
+                                                       G190
+                                                       (COND
+                                                        ((|greater_SI| |kk|
+                                                                       #9#)
+                                                         (GO G191)))
+                                                       (SEQ
+                                                        (EXIT
+                                                         (COND
+                                                          ((SPADCALL
+                                                            (LETT |piv|
+                                                                  (QAREF2O |m|
+                                                                           |n1|
+                                                                           |kk|
+                                                                           1
+                                                                           1))
+                                                            (|spadConstant| $
+                                                                            11)
+                                                            (QREFELT $ 13))
+                                                           (SEQ
+                                                            (LETT |m|
+                                                                  (SPADCALL |m|
+                                                                            |kk|
+                                                                            |k1|
+                                                                            (QREFELT
+                                                                             $
+                                                                             16)))
+                                                            (LETT |m|
+                                                                  (SPADCALL |m|
+                                                                            |kk|
+                                                                            |k1|
+                                                                            (QREFELT
+                                                                             $
+                                                                             17)))
+                                                            (LETT |has_block|
+                                                                  NIL)
+                                                            (EXIT
+                                                             (PROGN
+                                                              (LETT #8# 1)
+                                                              (GO
+                                                               #11=#:G113))))))))
+                                                       (LETT |kk|
+                                                             (|inc_SI| |kk|))
+                                                       (GO G190) G191
+                                                       (EXIT NIL)))
+                                                 #11# (EXIT #8#))))))))
+                                  (EXIT
+                                   (COND
+                                    (|has_block|
+                                     (SEQ (LETT |nn| |k1|)
+                                          (LETT |blocks| (CONS |n1| |blocks|))
+                                          (EXIT
+                                           (PROGN
+                                            (LETT #7# |$NoValue|)
+                                            (GO #12=#:G109)))))
+                                    ('T
+                                     (SEQ
+                                      (LETT |piv|
+                                            (SPADCALL (|spadConstant| $ 10)
+                                                      |piv| (QREFELT $ 18)))
+                                      (SEQ (LETT |i| 1) (LETT #6# |k1|) G190
+                                           (COND
+                                            ((|greater_SI| |i| #6#) (GO G191)))
+                                           (SEQ
+                                            (LETT |cc|
+                                                  (SPADCALL |piv|
+                                                            (QAREF2O |m| |i|
+                                                                     |k1| 1 1)
+                                                            (QREFELT $ 19)))
+                                            (EXIT
+                                             (SEQ (LETT |j| 1) (LETT #5# |nn|)
+                                                  G190
+                                                  (COND
+                                                   ((|greater_SI| |j| #5#)
+                                                    (GO G191)))
+                                                  (SEQ
+                                                   (LETT |val|
+                                                         (COND
+                                                          ((EQL |j| |k1|) |cc|)
+                                                          ('T
+                                                           (SPADCALL
+                                                            (QAREF2O |m| |i|
+                                                                     |j| 1 1)
+                                                            (SPADCALL |cc|
                                                                       (QAREF2O
                                                                        |m| |n1|
-                                                                       |i| 1 1)
-                                                                      (QAREF2O
-                                                                       |m| |i|
                                                                        |j| 1 1)
                                                                       (QREFELT
                                                                        $ 19))
-                                                                     (QREFELT $
-                                                                              21)))))
-                                                   (LETT |i| (|inc_SI| |i|))
-                                                   (GO G190) G191 (EXIT NIL))
-                                              (EXIT
-                                               (QSETAREF2O |m| |k1| |j| |s| 1
-                                                           1)))
-                                         (LETT |j| (|inc_SI| |j|)) (GO G190)
-                                         G191 (EXIT NIL))
-                                    (SEQ (LETT |i| 0) (LETT #2# (- |nn| |n1|))
-                                         G190
-                                         (COND
-                                          ((|greater_SI| |i| #2#) (GO G191)))
-                                         (SEQ
-                                          (EXIT
-                                           (QSETAREF2O |m| |k1| (+ |k1| |i|)
-                                                       (SPADCALL
-                                                        (QAREF2O |m| |k1|
-                                                                 (+ |k1| |i|) 1
-                                                                 1)
-                                                        (QAREF2O |m| |n1|
-                                                                 (+ |n1| |i|) 1
-                                                                 1)
-                                                        (QREFELT $ 21))
-                                                       1 1)))
-                                         (LETT |i| (|inc_SI| |i|)) (GO G190)
-                                         G191 (EXIT NIL))
-                                    (SEQ (LETT |j| 1) (LETT #1# |nn|) G190
-                                         (COND
-                                          ((|greater_SI| |j| #1#) (GO G191)))
-                                         (SEQ
-                                          (EXIT
-                                           (QSETAREF2O |m| |n1| |j|
-                                                       (|spadConstant| $ 11) 1
-                                                       1)))
-                                         (LETT |j| (|inc_SI| |j|)) (GO G190)
-                                         G191 (EXIT NIL))
-                                    (EXIT
-                                     (QSETAREF2O |m| |n1| |k1|
-                                                 (|spadConstant| $ 10) 1
-                                                 1)))))))
+                                                            (QREFELT $ 20)))))
+                                                   (EXIT
+                                                    (QSETAREF2O |m| |i| |j|
+                                                                |val| 1 1)))
+                                                  (LETT |j| (|inc_SI| |j|))
+                                                  (GO G190) G191 (EXIT NIL))))
+                                           (LETT |i| (|inc_SI| |i|)) (GO G190)
+                                           G191 (EXIT NIL))
+                                      (SEQ (LETT |j| 1) (LETT #4# |nn|) G190
+                                           (COND
+                                            ((|greater_SI| |j| #4#) (GO G191)))
+                                           (SEQ
+                                            (LETT |s| (|spadConstant| $ 11))
+                                            (SEQ (LETT |i| 1) (LETT #3# |k1|)
+                                                 G190
+                                                 (COND
+                                                  ((|greater_SI| |i| #3#)
+                                                   (GO G191)))
+                                                 (SEQ
+                                                  (EXIT
+                                                   (LETT |s|
+                                                         (SPADCALL |s|
+                                                                   (SPADCALL
+                                                                    (QAREF2O
+                                                                     |m| |n1|
+                                                                     |i| 1 1)
+                                                                    (QAREF2O
+                                                                     |m| |i|
+                                                                     |j| 1 1)
+                                                                    (QREFELT $
+                                                                             19))
+                                                                   (QREFELT $
+                                                                            21)))))
+                                                 (LETT |i| (|inc_SI| |i|))
+                                                 (GO G190) G191 (EXIT NIL))
+                                            (EXIT
+                                             (QSETAREF2O |m| |k1| |j| |s| 1
+                                                         1)))
+                                           (LETT |j| (|inc_SI| |j|)) (GO G190)
+                                           G191 (EXIT NIL))
+                                      (SEQ (LETT |i| 0)
+                                           (LETT #2# (- |nn| |n1|)) G190
+                                           (COND
+                                            ((|greater_SI| |i| #2#) (GO G191)))
+                                           (SEQ
+                                            (EXIT
+                                             (QSETAREF2O |m| |k1| (+ |k1| |i|)
+                                                         (SPADCALL
+                                                          (QAREF2O |m| |k1|
+                                                                   (+ |k1| |i|)
+                                                                   1 1)
+                                                          (QAREF2O |m| |n1|
+                                                                   (+ |n1| |i|)
+                                                                   1 1)
+                                                          (QREFELT $ 21))
+                                                         1 1)))
+                                           (LETT |i| (|inc_SI| |i|)) (GO G190)
+                                           G191 (EXIT NIL))
+                                      (SEQ (LETT |j| 1) (LETT #1# |nn|) G190
+                                           (COND
+                                            ((|greater_SI| |j| #1#) (GO G191)))
+                                           (SEQ
+                                            (EXIT
+                                             (QSETAREF2O |m| |n1| |j|
+                                                         (|spadConstant| $ 11)
+                                                         1 1)))
+                                           (LETT |j| (|inc_SI| |j|)) (GO G190)
+                                           G191 (EXIT NIL))
+                                      (EXIT
+                                       (QSETAREF2O |m| |n1| |k1|
+                                                   (|spadConstant| $ 10) 1
+                                                   1))))))))
+                            #12# (EXIT #7#))
                            (LETT |nc| (|inc_SI| |nc|)) (GO G190) G191
                            (EXIT NIL))
                       (EXIT (CONS |m| (CONS 1 |blocks|)))))))))) 
@@ -194,8 +205,8 @@
         ((|m| (|Matrix| F)) ($ (|SparseUnivariatePolynomial| F)))
         (SPROG
          ((|res| (|SparseUnivariatePolynomial| F))
-          (|res1| (|SparseUnivariatePolynomial| F)) (#1=#:G155 NIL)
-          (#2=#:G153 NIL) (#3=#:G161 NIL) (|i| NIL) (|i1| (|Integer|))
+          (|res1| (|SparseUnivariatePolynomial| F)) (#1=#:G156 NIL)
+          (#2=#:G154 NIL) (#3=#:G162 NIL) (|i| NIL) (|i1| (|Integer|))
           (|blocks| #4=(|List| (|Integer|))) (|i0| (|Integer|))
           (|mp| #5=(|Matrix| F)) (|n| (|NonNegativeInteger|))
           (|pp| (|Record| (|:| |matrix| #5#) (|:| |block_list| #4#))))
@@ -249,9 +260,9 @@
 
 (DECLAIM (NOTINLINE |CharacteristicPolynomial2;|)) 
 
-(DEFUN |CharacteristicPolynomial2| (#1=#:G162)
+(DEFUN |CharacteristicPolynomial2| (#1=#:G163)
   (SPROG NIL
-         (PROG (#2=#:G163)
+         (PROG (#2=#:G164)
            (RETURN
             (COND
              ((LETT #2#

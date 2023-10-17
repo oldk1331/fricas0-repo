@@ -1088,10 +1088,10 @@
          (|n| (|Integer|)) (|m| (|Integer|))
          ($ (|Union| (|List| (|List| (|Matrix| R))) "failed")))
         (SPROG
-         ((#1=#:G364 NIL) (|pres| (|List| (|List| (|Matrix| R))))
+         ((#1=#:G365 NIL) (|pres| (|List| (|List| (|Matrix| R))))
           (|v| (|Vector| R)) (|good| (|Boolean|))
-          (|kernel| (|List| (|Vector| R))) (|xx| (|Matrix| R))
-          (|mm| (|NonNegativeInteger|)) (|fpol| (|Smp|)) (#2=#:G365 NIL)
+          (|kernel| (|List| (|Vector| R))) (|xx| (|Matrix| R)) (#2=#:G364 NIL)
+          (|mm| (|NonNegativeInteger|)) (|fpol| (|Smp|)) (#3=#:G366 NIL)
           (|fac| NIL)
           (|fl|
            (|List|
@@ -1104,61 +1104,65 @@
            (SEQ (LETT |mp| (|REP2;my_min| |x| |n| $))
                 (LETT |fl|
                       (SPADCALL (SPADCALL |mp| (QREFELT $ 92)) (QREFELT $ 96)))
-                (SEQ (LETT |fac| NIL) (LETT #2# |fl|) G190
+                (SEQ (LETT |fac| NIL) (LETT #3# |fl|) G190
                      (COND
-                      ((OR (ATOM #2#) (PROGN (LETT |fac| (CAR #2#)) NIL))
+                      ((OR (ATOM #3#) (PROGN (LETT |fac| (CAR #3#)) NIL))
                        (GO G191)))
-                     (SEQ (LETT |fpol| (QVELT |fac| 1))
-                          (LETT |mm| (SPADCALL |fpol| (QREFELT $ 85)))
-                          (EXIT
-                           (COND ((> |mm| |m|) "iterate")
-                                 ('T
-                                  (SEQ
-                                   (LETT |xx| (|REP2;m_eval| |fpol| |x| |n| $))
-                                   (LETT |kernel|
-                                         (SPADCALL |xx| (QREFELT $ 56)))
-                                   (LETT |good| (EQL (LENGTH |kernel|) |mm|))
-                                   (LETT |v| (|SPADfirst| |kernel|))
-                                   (LETT |pres|
-                                         (SPADCALL |algebraGenerators| |v|
-                                                   (QREFELT $ 67)))
-                                   (COND
-                                    ((NULL (NULL (CDR |pres|)))
+                     (SEQ
+                      (EXIT
+                       (SEQ (LETT |fpol| (QVELT |fac| 1))
+                            (LETT |mm| (SPADCALL |fpol| (QREFELT $ 85)))
+                            (EXIT
+                             (COND
+                              ((> |mm| |m|)
+                               (PROGN (LETT #2# |$NoValue|) (GO #4=#:G356)))
+                              ('T
+                               (SEQ
+                                (LETT |xx| (|REP2;m_eval| |fpol| |x| |n| $))
+                                (LETT |kernel| (SPADCALL |xx| (QREFELT $ 56)))
+                                (LETT |good| (EQL (LENGTH |kernel|) |mm|))
+                                (LETT |v| (|SPADfirst| |kernel|))
+                                (LETT |pres|
+                                      (SPADCALL |algebraGenerators| |v|
+                                                (QREFELT $ 67)))
+                                (COND
+                                 ((NULL (NULL (CDR |pres|)))
+                                  (PROGN
+                                   (LETT #1# (CONS 0 |pres|))
+                                   (GO #5=#:G363))))
+                                (EXIT
+                                 (COND
+                                  (|good|
+                                   (SEQ
+                                    (SPADCALL "Found good factor"
+                                              (QREFELT $ 53))
+                                    (EXIT
                                      (PROGN
-                                      (LETT #1# (CONS 0 |pres|))
-                                      (GO #3=#:G363))))
-                                   (EXIT
-                                    (COND
-                                     (|good|
-                                      (SEQ
-                                       (SPADCALL "Found good factor"
-                                                 (QREFELT $ 53))
-                                       (EXIT
-                                        (PROGN
-                                         (LETT #1#
-                                               (CONS 0
-                                                     (|REP2;irreducibilityTestInternal|
-                                                      |algebraGenerators| |xx|
-                                                      'T $)))
-                                         (GO #3#))))))))))))
-                     (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
+                                      (LETT #1#
+                                            (CONS 0
+                                                  (|REP2;irreducibilityTestInternal|
+                                                   |algebraGenerators| |xx| 'T
+                                                   $)))
+                                      (GO #5#)))))))))))))
+                      #4# (EXIT #2#))
+                     (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
                 (SPADCALL "All factors were bad" (QREFELT $ 53))
                 (EXIT (CONS 1 "failed"))))
-          #3# (EXIT #1#)))) 
+          #5# (EXIT #1#)))) 
 
 (SDEFUN |REP2;meatAxe;LB2IL;19|
         ((|algebraGenerators| (|List| (|Matrix| R)))
          (|randomelements| (|Boolean|)) (|numberOfTries| (|Integer|))
          (|maxTests| (|Integer|)) ($ (|List| (|List| (|Matrix| R)))))
         (SPROG
-         ((|result| (|List| (|List| (|Matrix| R)))) (#1=#:G383 NIL)
-          (#2=#:G385 NIL) (|j| NIL) (|numberOfTests| (|Integer|))
+         ((|result| (|List| (|List| (|Matrix| R)))) (#1=#:G384 NIL)
+          (#2=#:G386 NIL) (|j| NIL) (|numberOfTests| (|Integer|))
           (|numberOfOneDimSubspacesInKernel| (|Integer|))
           (|kernel| (|List| (|Vector| R)))
           (|pp| (|Union| (|List| (|List| (|Matrix| R))) "failed"))
           (|n| (|NonNegativeInteger|)) (|x| (|Matrix| R))
-          (|randomIndex| (|Integer|)) (#3=#:G384 NIL) (|i| NIL)
-          (|q| (|PositiveInteger|)) (#4=#:G366 NIL)
+          (|randomIndex| (|Integer|)) (#3=#:G385 NIL) (|i| NIL)
+          (|q| (|PositiveInteger|)) (#4=#:G367 NIL)
           (|numberOfGenerators| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -1219,7 +1223,7 @@
                                 ((QEQCAR |pp| 0)
                                  (PROGN
                                   (LETT #1# (QCDR |pp|))
-                                  (GO #5=#:G382)))))))))
+                                  (GO #5=#:G383)))))))))
                           (LETT |kernel| (SPADCALL |x| (QREFELT $ 56)))
                           (EXIT
                            (COND
@@ -1310,10 +1314,10 @@
 (SDEFUN |REP2;scanOneDimSubspaces;LIV;23|
         ((|basis| (|List| (|Vector| R))) (|n| (|Integer|)) ($ (|Vector| R)))
         (SPROG
-         ((#1=#:G405 NIL) (|j| NIL) (|newAdd| (|Vector| R)) (#2=#:G404 NIL)
-          (|i| (|Integer|)) (|result| #3=(|Vector| R)) (#4=#:G393 NIL)
-          (#5=#:G403 NIL) (|iR| (|List| (|Integer|))) (|coefficients| #3#)
-          (|nred| #6=(|Integer|)) (|pos| #6#) (#7=#:G402 NIL)
+         ((#1=#:G406 NIL) (|j| NIL) (|newAdd| (|Vector| R)) (#2=#:G405 NIL)
+          (|i| (|Integer|)) (|result| #3=(|Vector| R)) (#4=#:G394 NIL)
+          (#5=#:G404 NIL) (|iR| (|List| (|Integer|))) (|coefficients| #3#)
+          (|nred| #6=(|Integer|)) (|pos| #6#) (#7=#:G403 NIL)
           (|q| (|NonNegativeInteger|)) (|nn| (|NonNegativeInteger|))
           (|dim| (|NonNegativeInteger|)))
          (SEQ (LETT |dim| (LENGTH |basis|))
@@ -1389,9 +1393,9 @@
 
 (DECLAIM (NOTINLINE |RepresentationPackage2;|)) 
 
-(DEFUN |RepresentationPackage2| (#1=#:G407)
+(DEFUN |RepresentationPackage2| (#1=#:G408)
   (SPROG NIL
-         (PROG (#2=#:G408)
+         (PROG (#2=#:G409)
            (RETURN
             (COND
              ((LETT #2#
@@ -1408,7 +1412,7 @@
                   (HREM |$ConstructorCache| '|RepresentationPackage2|)))))))))) 
 
 (DEFUN |RepresentationPackage2;| (|#1|)
-  (SPROG ((|pv$| NIL) (#1=#:G406 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (#1=#:G407 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|RepresentationPackage2| DV$1))
