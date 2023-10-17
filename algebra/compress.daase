@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5230 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5232 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -1133,12 +1133,12 @@
  |incXfFatal| |decFatal| |decXfFatal| |addWarning| |testEquals| |xftestEquals|
  |testRealEquals| |xftestRealEquals| |testComplexEquals| |xftestComplexEquals|
  |testNotEquals| |xftestNotEquals| |testTrue| |xftestTrue| |testLibraryError|
- |xftestLibraryError| |setPrologue!| |setTex!| |setEpilogue!| |prologue| |new|
- |tex| |epilogue| |endOfFile?| |readIfCan!| |readLineIfCan!| |readLine!|
- |writeLine!| |eval_with_timeout| |coerceL| |sign| |nonQsign| |direction|
- |createThreeSpace| |pi| |tree| |cos| |cot| |csc| |sec| |sin| |tan|
- |complexNormalize| |complexElementary| |trigs| |real| |imag| |real?|
- |complexForm| |trigs2explogs| |UpTriBddDenomInv| |LowTriBddDenomInv|
+ |xftestLibraryError| |setPrologue!| |setTex!| |setEpilogue!| |setDialect|
+ |getDialect| |prologue| |new| |tex| |epilogue| |endOfFile?| |readIfCan!|
+ |readLineIfCan!| |readLine!| |writeLine!| |eval_with_timeout| |coerceL| |sign|
+ |nonQsign| |direction| |createThreeSpace| |pi| |tree| |cos| |cot| |csc| |sec|
+ |sin| |tan| |complexNormalize| |complexElementary| |trigs| |real| |imag|
+ |real?| |complexForm| |trigs2explogs| |UpTriBddDenomInv| |LowTriBddDenomInv|
  |simplify| |htrigs| |simplifyExp| |simplifyLog| |expandPower| |expandLog|
  |cos2sec| |cosh2sech| |cot2trig| |coth2trigh| |csc2sin| |csch2sinh| |sec2cos|
  |sech2cosh| |sin2csc| |sinh2csch| |tan2trig| |tanh2trigh| |tan2cot|
