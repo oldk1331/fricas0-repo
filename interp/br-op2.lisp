@@ -1302,7 +1302,7 @@
 (DEFUN |zeroOneConvert| (|x|)
   (PROG () (RETURN (COND ((EQ |x| '|Zero|) 0) ((EQ |x| '|One|) 1) ('T |x|)))))
 
-; kFormatSlotDomain1(x, infovec) == 
+; kFormatSlotDomain1(x, infovec) ==
 ;               fn formatSlotDomain1(x, infovec) where fn x ==
 ;   atom x => x
 ;   (op := first x) = '_% => '_%
