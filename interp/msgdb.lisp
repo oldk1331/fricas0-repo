@@ -2315,7 +2315,7 @@
   (PROG () (RETURN (|say_simple| |x| (|get_formatted_stream|)))))
 
 ; sayMSG2File(msg) ==
-;     file := makePathname("spadmsg", "listing")
+;     file := make_filename0('"spadmsg", '"listing")
 ;     str := MAKE_OUTSTREAM(file)
 ;     sayBrightly1(msg, str)
 ;     SHUT(str)
@@ -2324,7 +2324,7 @@
   (PROG (|file| |str|)
     (RETURN
      (PROGN
-      (SETQ |file| (|makePathname| '|spadmsg| '|listing|))
+      (SETQ |file| (|make_filename0| "spadmsg" "listing"))
       (SETQ |str| (MAKE_OUTSTREAM |file|))
       (|sayBrightly1| |msg| |str|)
       (SHUT |str|)))))

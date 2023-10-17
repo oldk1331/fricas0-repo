@@ -271,8 +271,8 @@
        |opAlist| NIL)))))
 
 ; saveUsersHashTable() ==
-;   erase_lib(['USERS, 'DATABASE])
-;   stream:= writeLib('USERS,'DATABASE)
+;   erase_lib('"USERS.DAASE")
+;   stream:= writeLib('"USERS.DAASE")
 ;   for k in MSORT HKEYS $usersTb repeat
 ;     rwrite(k, HGET($usersTb, k), stream)
 ;   RSHUT stream
@@ -281,8 +281,8 @@
   (PROG (|stream|)
     (RETURN
      (PROGN
-      (|erase_lib| (LIST 'USERS 'DATABASE))
-      (SETQ |stream| (|writeLib| 'USERS 'DATABASE))
+      (|erase_lib| "USERS.DAASE")
+      (SETQ |stream| (|writeLib| "USERS.DAASE"))
       ((LAMBDA (|bfVar#20| |k|)
          (LOOP
           (COND
@@ -294,8 +294,8 @@
       (RSHUT |stream|)))))
 
 ; saveDependentsHashTable() ==
-;   erase_lib(['DEPENDENTS, 'DATABASE])
-;   stream:= writeLib('DEPENDENTS,'DATABASE)
+;   erase_lib('"DEPENDENTS.DAASE")
+;   stream:= writeLib('"DEPENDENTS.DAASE")
 ;   for k in MSORT HKEYS $depTb repeat
 ;     rwrite(k, HGET($depTb, k), stream)
 ;   RSHUT stream
@@ -304,8 +304,8 @@
   (PROG (|stream|)
     (RETURN
      (PROGN
-      (|erase_lib| (LIST 'DEPENDENTS 'DATABASE))
-      (SETQ |stream| (|writeLib| 'DEPENDENTS 'DATABASE))
+      (|erase_lib| "DEPENDENTS.DAASE")
+      (SETQ |stream| (|writeLib| "DEPENDENTS.DAASE"))
       ((LAMBDA (|bfVar#21| |k|)
          (LOOP
           (COND
@@ -336,7 +336,7 @@
       (|saveDependentsHashTable|)))))
 
 ; getUsersOfConstructor(con) ==
-;   stream := readLib('USERS, 'DATABASE)
+;   stream := readLib('"USERS.DAASE")
 ;   val := rread_list(con, stream)
 ;   RSHUT stream
 ;   val
@@ -345,13 +345,13 @@
   (PROG (|stream| |val|)
     (RETURN
      (PROGN
-      (SETQ |stream| (|readLib| 'USERS 'DATABASE))
+      (SETQ |stream| (|readLib| "USERS.DAASE"))
       (SETQ |val| (|rread_list| |con| |stream|))
       (RSHUT |stream|)
       |val|))))
 
 ; getDependentsOfConstructor(con) ==
-;   stream := readLib('DEPENDENTS, 'DATABASE)
+;   stream := readLib('"DEPENDENTS.DAASE")
 ;   val := rread_list(con, stream)
 ;   RSHUT stream
 ;   val
@@ -360,7 +360,7 @@
   (PROG (|stream| |val|)
     (RETURN
      (PROGN
-      (SETQ |stream| (|readLib| 'DEPENDENTS 'DATABASE))
+      (SETQ |stream| (|readLib| "DEPENDENTS.DAASE"))
       (SETQ |val| (|rread_list| |con| |stream|))
       (RSHUT |stream|)
       |val|))))

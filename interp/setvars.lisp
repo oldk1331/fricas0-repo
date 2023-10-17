@@ -706,7 +706,7 @@
 ;     displayHiddenConstructors()
 ;     -- give some more details
 ;     sayMSG '" "
-;     sayKeyedMsg("S2IZ0049D",[namestring pathname ["INTERP","EXPOSED"]])
+;     sayKeyedMsg("S2IZ0049D", ['"exposed"])
 ;
 ;   arg is [fn,:fnargs] and (fn := selectOptionLC(fn,
 ;     '(add drop initialize),NIL)) =>
@@ -729,8 +729,7 @@
              (|sayMSG| " ")
              (|displayHiddenConstructors|)
              (|sayMSG| " ")
-             (|sayKeyedMsg| 'S2IZ0049D
-              (LIST (|namestring| (|pathname| (LIST 'INTERP 'EXPOSED)))))))
+             (|sayKeyedMsg| 'S2IZ0049D (LIST "exposed"))))
            ((AND (CONSP |arg|)
                  (PROGN
                   (SETQ |fn| (CAR |arg|))
@@ -789,7 +788,7 @@
 ;     --  give msg about exposure groups
 ;     displayExposedGroups()
 ;     sayMSG '" "
-;     sayKeyedMsg("S2IZ0049G",[namestring pathname ["INTERP","EXPOSED"]])
+;     sayKeyedMsg("S2IZ0049G", ['"exposed"])
 ;     sayMSG '" "
 ;     sayAsManyPerLineAsPossible [object2String first x for x in
 ;       $globalExposureGroupAlist]
@@ -823,8 +822,7 @@
          (|specialChar| '|hbar|))
         (|displayExposedGroups|)
         (|sayMSG| " ")
-        (|sayKeyedMsg| 'S2IZ0049G
-         (LIST (|namestring| (|pathname| (LIST 'INTERP 'EXPOSED)))))
+        (|sayKeyedMsg| 'S2IZ0049G (LIST "exposed"))
         (|sayMSG| " ")
         (|sayAsManyPerLineAsPossible|
          ((LAMBDA (|bfVar#9| |bfVar#8| |x|)
@@ -1487,7 +1485,7 @@
 ;     if (ptype := pathnameType fn) then
 ;         fn := STRCONC(pathnameDirectory fn,pathnameName fn)
 ;         ft := ptype
-;     filename := make_full_namestring([fn, ft])
+;     filename := make_full_namestring(make_filename0(fn, ft))
 ;     null filename => [NIL, NIL]
 ;     (testStream := makeStream(append, filename)) => [testStream, filename]
 ;     [NIL, NIL]
@@ -1500,7 +1498,7 @@
        ((SETQ |ptype| (|pathnameType| |fn|))
         (SETQ |fn| (STRCONC (|pathnameDirectory| |fn|) (|pathnameName| |fn|)))
         (SETQ |ft| |ptype|)))
-      (SETQ |filename| (|make_full_namestring| (LIST |fn| |ft|)))
+      (SETQ |filename| (|make_full_namestring| (|make_filename0| |fn| |ft|)))
       (COND ((NULL |filename|) (LIST NIL NIL))
             ((SETQ |testStream| (|makeStream| APPEND |filename|))
              (LIST |testStream| |filename|))

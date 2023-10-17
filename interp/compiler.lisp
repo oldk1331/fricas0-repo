@@ -5032,12 +5032,12 @@
 ;     -- Assume we entered from the "compiler" function, so args ~= nil
 ;     -- and is a file with file extension .spad.
 ;
-;     path := pathname args
+;     path := first(args)
 ;     pathnameType path ~= '"spad" => throwKeyedMsg("S2IZ0082", nil)
-;     not PROBE_-FILE path => throwKeyedMsg("S2IL0003",[namestring args])
+;     not(PROBE_-FILE(path)) => throwKeyedMsg("S2IL0003", [path])
 ;
 ;     $edit_file := path
-;     sayKeyedMsg("S2IZ0038",[namestring args])
+;     sayKeyedMsg("S2IZ0038", [path])
 ;
 ;     optList :=  '( _
 ;       break _
@@ -5112,16 +5112,15 @@
       |$scanIfTrue|))
     (RETURN
      (PROGN
-      (SETQ |path| (|pathname| |args|))
+      (SETQ |path| (CAR |args|))
       (COND
        ((NOT (EQUAL (|pathnameType| |path|) "spad"))
         (|throwKeyedMsg| 'S2IZ0082 NIL))
-       ((NULL (PROBE-FILE |path|))
-        (|throwKeyedMsg| 'S2IL0003 (LIST (|namestring| |args|))))
+       ((NULL (PROBE-FILE |path|)) (|throwKeyedMsg| 'S2IL0003 (LIST |path|)))
        (#1='T
         (PROGN
          (SETQ |$edit_file| |path|)
-         (|sayKeyedMsg| 'S2IZ0038 (LIST (|namestring| |args|)))
+         (|sayKeyedMsg| 'S2IZ0038 (LIST |path|))
          (SETQ |optList|
                  '(|break| |constructor| |functions| |library| |lisp| |new|
                    |old| |nobreak| |nolibrary| |noquiet| |vartrace| |quiet|))
