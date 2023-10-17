@@ -53,8 +53,8 @@
 
 #+:GCL
 (progn
-    (import '(LISP::LAMBDA-CLOSURE))
-    (export '(LISP::LAMBDA-CLOSURE))
+    (import '(SI::LAMBDA-CLOSURE))
+    (export '(SI::LAMBDA-CLOSURE))
 )
 #+:ecl
 (progn
