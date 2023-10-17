@@ -131,21 +131,21 @@
 
 (SDEFUN |DJBP;coerce;$Of;10| ((|p| ($)) ($ (|OutputForm|)))
         (SPROG
-         ((|lt| #1=(|List| (|OutputForm|))) (|l| #1#) (#2=#:G195 NIL) (|i| NIL)
-          (#3=#:G194 NIL) (|t| NIL))
+         ((|lt| (|List| (|OutputForm|))) (|l| (|List| (|OutputForm|)))
+          (#1=#:G195 NIL) (|i| NIL) (#2=#:G194 NIL) (|t| NIL))
          (SEQ
           (COND
            ((SPADCALL |p| (QREFELT $ 29))
             (SPADCALL (|spadConstant| $ 39) (QREFELT $ 47)))
-           (#4='T
+           (#3='T
             (SEQ (LETT |lt| NIL)
-                 (SEQ (LETT |t| NIL) (LETT #3# (REVERSE |p|)) G190
+                 (SEQ (LETT |t| NIL) (LETT #2# (REVERSE |p|)) G190
                       (COND
-                       ((OR (ATOM #3#) (PROGN (LETT |t| (CAR #3#)) NIL))
+                       ((OR (ATOM #2#) (PROGN (LETT |t| (CAR #2#)) NIL))
                         (GO G191)))
                       (SEQ (LETT |l| NIL)
-                           (SEQ (LETT |i| 1) (LETT #2# (QREFELT $ 13)) G190
-                                (COND ((|greater_SI| |i| #2#) (GO G191)))
+                           (SEQ (LETT |i| 1) (LETT #1# (QREFELT $ 13)) G190
+                                (COND ((|greater_SI| |i| #1#) (GO G191)))
                                 (SEQ
                                  (EXIT
                                   (COND
@@ -193,10 +193,10 @@
                                     (CONS
                                      (SPADCALL (ELT $ 53) |l| (QREFELT $ 55))
                                      |lt|))))))
-                      (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
+                      (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                  (EXIT
                   (COND ((EQL (LENGTH |lt|) 1) (|SPADfirst| |lt|))
-                        (#4# (SPADCALL (ELT $ 56) |lt| (QREFELT $ 55))))))))))) 
+                        (#3# (SPADCALL (ELT $ 56) |lt| (QREFELT $ 55))))))))))) 
 
 (SDEFUN |DJBP;convert;Jbp$;11| ((|p| (|JetBundlePolynomial| R JB)) ($ ($)))
         (SPROG
