@@ -57,12 +57,12 @@
         ((L (|Matrix| (|Integer|))) (N (|NonNegativeInteger|))
          ($ (|Matrix| (|Integer|))))
         (SPROG
-         ((|k| (|NonNegativeInteger|)) (|tmp| (|Float|)) (#1=#:G139 NIL)
-          (|i| NIL) (#2=#:G138 NIL) (|bs2| #3=(|Vector| (|Float|))) (|bs1| #3#)
-          (|v2i| #4=(|Float|)) (|v1i| #5=(|Float|)) (#6=#:G137 NIL)
+         ((|k| (|NonNegativeInteger|)) (|tmp| (|Float|)) (#1=#:G141 NIL)
+          (|i| NIL) (#2=#:G140 NIL) (|bs2| #3=(|Vector| (|Float|))) (|bs1| #3#)
+          (|v2i| #4=(|Float|)) (|v1i| #5=(|Float|)) (#6=#:G139 NIL)
           (|m| #7=(|Float|)) (|nv2| #7#) (|nv1| #5#) (|k1| (|Integer|))
-          (|del1| #4#) (#8=#:G136 NIL) (#9=#:G135 NIL) (|q| (|Integer|))
-          (|j| NIL) (|kmax| (|Integer|)) (|iters| (|Integer|)) (#10=#:G134 NIL)
+          (|del1| #4#) (#8=#:G138 NIL) (#9=#:G137 NIL) (|q| (|Integer|))
+          (|j| NIL) (|kmax| (|Integer|)) (|iters| (|Integer|)) (#10=#:G136 NIL)
           (|v1| #11=(|Vector| (|Float|))) (|delta| (|Float|))
           (|bm| (|Matrix| (|Integer|))) (|mu| #12=(|Matrix| (|Float|)))
           (|nbs| #11#) (|bsm| #12#) (|cols| (|NonNegativeInteger|))
@@ -276,9 +276,9 @@
           (|Record| (|:| |lll| (|Matrix| (|Integer|)))
                     (|:| |trf| (|Matrix| (|Integer|))))))
         (SPROG
-         ((#1=#:G155 NIL) (|j| NIL) (#2=#:G154 NIL) (#3=#:G153 NIL) (|i| NIL)
+         ((#1=#:G157 NIL) (|j| NIL) (#2=#:G156 NIL) (#3=#:G155 NIL) (|i| NIL)
           (|t| #4=(|Matrix| (|Integer|))) (|l| #4#)
-          (|m| (|Matrix| (|Integer|))) (#5=#:G152 NIL) (#6=#:G151 NIL) (LE #4#)
+          (|m| (|Matrix| (|Integer|))) (#5=#:G154 NIL) (#6=#:G153 NIL) (LE #4#)
           (|cols| (|NonNegativeInteger|)) (N (|NonNegativeInteger|))
           (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (ANROWS L)) (LETT N (ANCOLS L)) (LETT |cols| (+ N |n|))
@@ -328,8 +328,8 @@
         ((|la| (|List| (|Float|))) (|k| (|NonNegativeInteger|))
          ($ (|List| (|Integer|))))
         (SPROG
-         ((#1=#:G165 NIL) (|i| NIL) (#2=#:G164 NIL)
-          (|res| (|Matrix| (|Integer|))) (#3=#:G162 NIL) (#4=#:G163 NIL)
+         ((#1=#:G167 NIL) (|i| NIL) (#2=#:G166 NIL)
+          (|res| (|Matrix| (|Integer|))) (#3=#:G164 NIL) (#4=#:G165 NIL)
           (|a| NIL) (|tenk| (|NonNegativeInteger|))
           (|m| (|Matrix| (|Integer|))) (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (LENGTH |la|))
@@ -370,7 +370,7 @@
 
 (DEFUN |LLLReduction| ()
   (SPROG NIL
-         (PROG (#1=#:G167)
+         (PROG (#1=#:G169)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|LLLReduction|))

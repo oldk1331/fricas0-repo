@@ -604,8 +604,8 @@
            (|List| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS))))
           (|branches2|
            (|List| #1=(|Record| (|:| |val| (|List| P)) (|:| |tower| TS))))
-          (#2=#:G282 NIL) (|branches1| (|List| #1#)) (|newleq| (|List| P))
-          (|us| (TS)) (#3=#:G281 NIL) (|branch| NIL)
+          (#2=#:G278 NIL) (|branches1| (|List| #1#)) (|newleq| (|List| P))
+          (|us| (TS)) (#3=#:G277 NIL) (|branch| NIL)
           (|newComponents| (|List| TS))
           (|newBranches|
            (|List| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS)))))
@@ -622,11 +622,11 @@
                                ('T
                                 (SEQ
                                  (LETT |newleq|
-                                       (SPADCALL (ELT $ 96)
+                                       (SPADCALL (ELT $ 95)
                                                  (SPADCALL |leq|
                                                            (QCAR |branch|)
-                                                           (QREFELT $ 97))
-                                                 (QREFELT $ 99)))
+                                                           (QREFELT $ 96))
+                                                 (QREFELT $ 98)))
                                  (EXIT
                                   (LETT |branches1|
                                         (CONS (CONS |newleq| |us|)
@@ -640,7 +640,7 @@
                     (EXIT
                      (COND
                       ((OR (> (SPADCALL |us| (QREFELT $ 12)) |n|)
-                           (SPADCALL |us| |lts| (QREFELT $ 100)))
+                           (SPADCALL |us| |lts| (QREFELT $ 99)))
                        "leave")
                       ('T
                        (LETT |branches2|
@@ -656,14 +656,14 @@
                  (SEQ
                   (LETT |branches|
                         (SPADCALL (LIST |branches2| |branches1| |current|)
-                                  (QREFELT $ 101)))
-                  (EXIT (SPADCALL |branches| (QREFELT $ 102)))))))))) 
+                                  (QREFELT $ 100)))
+                  (EXIT (SPADCALL |branches| (QREFELT $ 101)))))))))) 
 
 (DECLAIM (NOTINLINE |SquareFreeRegularSetDecompositionPackage;|)) 
 
-(DEFUN |SquareFreeRegularSetDecompositionPackage| (&REST #1=#:G283)
+(DEFUN |SquareFreeRegularSetDecompositionPackage| (&REST #1=#:G279)
   (SPROG NIL
-         (PROG (#2=#:G284)
+         (PROG (#2=#:G280)
            (RETURN
             (COND
              ((LETT #2#
@@ -697,7 +697,7 @@
     (LETT |dv$|
           (LIST '|SquareFreeRegularSetDecompositionPackage| DV$1 DV$2 DV$3 DV$4
                 DV$5))
-    (LETT $ (GETREFV 103))
+    (LETT $ (GETREFV 102))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|SquareFreeRegularSetDecompositionPackage|
@@ -755,12 +755,12 @@
               (|Record| (|:| |rnum| 6) (|:| |polnum| 9) (|:| |den| 6))
               (234 . |remainder|) |SRDCMPK;upDateBranches;LLLRNniL;13|
               (240 . |removeSuperfluousQuasiComponents|) (245 . |infRittWu?|)
-              (251 . |infRittWu?|) (257 . |concat|) (|Mapping| 28 9 9)
-              (263 . |sort|) (269 . |subQuasiComponent?|) (275 . |concat|)
-              (280 . |removeSuperfluousCases|))
-           '#(|upDateBranches| 285 |transcendentalDecompose| 294 |printInfo|
-              307 |numberOfVariables| 313 |internalDecompose| 319 |decompose|
-              340 |convert| 359 |algebraicDecompose| 364 |KrullNumber| 370)
+              (251 . |concat|) (|Mapping| 28 9 9) (257 . |sort|)
+              (263 . |subQuasiComponent?|) (269 . |concat|)
+              (274 . |removeSuperfluousCases|))
+           '#(|upDateBranches| 279 |transcendentalDecompose| 288 |printInfo|
+              301 |numberOfVariables| 307 |internalDecompose| 313 |decompose|
+              334 |convert| 353 |algebraicDecompose| 358 |KrullNumber| 364)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -869,7 +869,7 @@
                                   (|NonNegativeInteger|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 102
+                        (|makeByteWordVec2| 101
                                             '(1 10 11 0 12 2 11 0 0 0 13 2 15
                                               11 14 0 16 1 20 0 17 21 1 20 22 0
                                               23 1 10 22 0 24 2 22 0 0 0 25 1
@@ -888,15 +888,15 @@
                                               75 1 78 0 43 79 1 82 81 78 83 0
                                               81 0 84 4 88 87 17 18 28 28 89 1
                                               10 28 0 90 2 10 91 9 0 92 1 88 18
-                                              18 94 2 10 28 0 0 95 2 9 28 0 0
-                                              96 2 17 0 0 0 97 2 17 0 98 0 99 2
-                                              88 28 10 18 100 1 70 0 43 101 1
-                                              88 70 70 102 5 0 70 17 18 70 51
-                                              11 93 3 0 51 9 10 11 53 2 0 51 9
-                                              10 54 2 0 81 70 11 85 2 0 11 17
-                                              18 27 4 0 51 9 10 11 28 57 3 0 51
-                                              9 10 11 55 2 0 51 9 10 56 4 0 18
-                                              17 18 28 28 77 7 0 18 17 18 28 28
-                                              28 28 28 76 1 0 78 50 80 2 0 51 9
-                                              10 52 2 0 11 17 18 19)))))
+                                              18 94 2 9 28 0 0 95 2 17 0 0 0 96
+                                              2 17 0 97 0 98 2 88 28 10 18 99 1
+                                              70 0 43 100 1 88 70 70 101 5 0 70
+                                              17 18 70 51 11 93 3 0 51 9 10 11
+                                              53 2 0 51 9 10 54 2 0 81 70 11 85
+                                              2 0 11 17 18 27 4 0 51 9 10 11 28
+                                              57 3 0 51 9 10 11 55 2 0 51 9 10
+                                              56 4 0 18 17 18 28 28 77 7 0 18
+                                              17 18 28 28 28 28 28 76 1 0 78 50
+                                              80 2 0 51 9 10 52 2 0 11 17 18
+                                              19)))))
            '|lookupComplete|)) 

@@ -261,7 +261,7 @@
 (SDEFUN |SMTS;sortmfirst|
         ((|p| (SMP)) (|vl| (|List| |Var|)) (|q| (|List| $)) ($ ($)))
         (SPROG
-         ((|nq| (|List| $)) (#1=#:G207 NIL) (|i| NIL) (#2=#:G206 NIL)
+         ((|nq| (|List| $)) (#1=#:G209 NIL) (|i| NIL) (#2=#:G208 NIL)
           (|nlv| (|List| |Var|)))
          (SEQ (LETT |nlv| (SPADCALL (ELT $ 96) |vl| (QREFELT $ 98)))
               (LETT |nq|
@@ -304,8 +304,8 @@
 (SDEFUN |SMTS;eval;$LL$;24|
         ((|s| ($)) (|v| (|List| |Var|)) (|q| (|List| $)) ($ ($)))
         (SPROG
-         ((|nq| (|List| (|Stream| SMP))) (#1=#:G222 NIL) (|i| NIL)
-          (#2=#:G221 NIL))
+         ((|nq| (|List| (|Stream| SMP))) (#1=#:G224 NIL) (|i| NIL)
+          (#2=#:G223 NIL))
          (SEQ
           (COND
            ((SPADCALL (LENGTH |v|) (SPADCALL |q| (QREFELT $ 106))
@@ -628,7 +628,7 @@
 (SDEFUN |SMTS;coerce;$Of;67| ((|s| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|l| (|List| (|OutputForm|))) (|uu| ($)) (|uu1| ($)) (|n| NIL)
-          (#1=#:G365 NIL) (|count| (|NonNegativeInteger|)))
+          (#1=#:G367 NIL) (|count| (|NonNegativeInteger|)))
          (SEQ (LETT |uu| |s|)
               (EXIT
                (COND
@@ -729,9 +729,9 @@
 
 (DECLAIM (NOTINLINE |SparseMultivariateTaylorSeries;|)) 
 
-(DEFUN |SparseMultivariateTaylorSeries| (&REST #1=#:G378)
+(DEFUN |SparseMultivariateTaylorSeries| (&REST #1=#:G380)
   (SPROG NIL
-         (PROG (#2=#:G379)
+         (PROG (#2=#:G381)
            (RETURN
             (COND
              ((LETT #2#
@@ -753,7 +753,7 @@
 
 (DEFUN |SparseMultivariateTaylorSeries;| (|#1| |#2| |#3|)
   (SPROG
-   ((#1=#:G377 NIL) (|pv$| NIL) (#2=#:G376 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL)
+   ((#1=#:G379 NIL) (|pv$| NIL) (#2=#:G378 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL)
     (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))

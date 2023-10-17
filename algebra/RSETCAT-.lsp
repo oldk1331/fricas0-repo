@@ -251,10 +251,10 @@
         ((|lp| (|List| P)) (|lts| (|List| S)) ($ (|List| S)))
         (SPROG
          ((|toSee| (|List| (|Record| (|:| |val| (|List| P)) (|:| |tower| S))))
-          (#1=#:G254 NIL) (|us| NIL) (#2=#:G253 NIL) (|lus| (|List| S))
+          (#1=#:G253 NIL) (|us| NIL) (#2=#:G252 NIL) (|lus| (|List| S))
           (|p| (P)) (|toSave| (|List| S)) (|ts| (S))
           (|lpwt| (|Record| (|:| |val| (|List| P)) (|:| |tower| S)))
-          (#3=#:G252 NIL) (#4=#:G251 NIL) (#5=#:G250 NIL) (#6=#:G249 NIL))
+          (#3=#:G251 NIL) (#4=#:G250 NIL) (#5=#:G249 NIL) (#6=#:G248 NIL))
          (SEQ
           (COND ((OR (NULL |lp|) (NULL |lts|)) |lts|)
                 ('T
