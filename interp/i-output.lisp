@@ -429,6 +429,10 @@
     (|ttee| . 11) (|btee| . 12) (|rtee| . 13) (|ltee| . 14) (|ctee| . 15)
     (|bslash| . 16)))
 
+; DEFVAR($print_equatnum, true)
+
+(DEFVAR |$print_equatnum| T)
+
 ; $collectOutput := nil
 
 (EVAL-WHEN (EVAL LOAD) (SETQ |$collectOutput| NIL))
@@ -643,7 +647,7 @@
 ;   ioHook("startAlgebraOutput")
 ;   x:= outputTran2 x
 ;   maprin
-;     $IOindex => ['EQUATNUM,$IOindex,x]
+;     $IOindex and $print_equatnum => ['EQUATNUM,$IOindex,x]
 ;     x
 ;   ioHook("endOfAlgebraOutput")
 
@@ -653,7 +657,10 @@
      (PROGN
       (|ioHook| '|startAlgebraOutput|)
       (SETQ |x| (|outputTran2| |x|))
-      (|maprin| (COND (|$IOindex| (LIST 'EQUATNUM |$IOindex| |x|)) ('T |x|)))
+      (|maprin|
+       (COND
+        ((AND |$IOindex| |$print_equatnum|) (LIST 'EQUATNUM |$IOindex| |x|))
+        ('T |x|)))
       (|ioHook| '|endOfAlgebraOutput|)))))
 
 ; mathprint x ==
