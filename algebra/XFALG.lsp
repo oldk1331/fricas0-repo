@@ -28,6 +28,8 @@
                                                            (|Join|
                                                             (|XAlgebra| '|t#2|)
                                                             (|RetractableTo|
+                                                             '|t#2|)
+                                                            (|RetractableTo|
                                                              '#2#)
                                                             (|mkCategory|
                                                              '(((* ($ |t#1| $))
@@ -78,11 +80,10 @@
                                                                ((|rquo|
                                                                  ($ $ $))
                                                                 T)
-                                                               ((|monom|
-                                                                 ($
+                                                               ((|monomial|
+                                                                 ($ |t#2|
                                                                   (|FreeMonoid|
-                                                                   |t#1|)
-                                                                  |t#2|))
+                                                                   |t#1|)))
                                                                 T)
                                                                ((|monomial?|
                                                                  ((|Boolean|)

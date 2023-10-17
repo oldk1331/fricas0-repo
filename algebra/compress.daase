@@ -1093,13 +1093,13 @@
  |upperCase!| |upperCase| |lowerCase!| |lowerCase| |KrullNumber|
  |numberOfVariables| |algebraicDecompose| |transcendentalDecompose|
  |internalDecompose| |decompose| |upDateBranches| |printInfo| |pre_process|
- |internalZeroSetSplit| |internalAugment| |monomial| |leadingMonomial|
+ |internalZeroSetSplit| |internalAugment| |leadingMonomial|
  |leadingCoefficient| |stack| |possiblyInfinite?| |explicitlyFinite?|
  |nextItem| |init| |exp0| |log1| |tensorMap| |stransform| |stranslate|
  |identity| |xform| |compound| |STransform1| |STransform2| |STransform|
  |distributionBySTransform| |filterUntil| |filterWhile| |stream| |showAll?|
  |showAllElements| |showElements| |cons| |delay| |findCycle| |repeating?|
- |repeating| |uentries| |ucodeToString| |exquo| |recip| |integers|
+ |repeating| |uentries| |ucodeToString| |exquo| |recip| |monom| |integers|
  |oddintegers| |int| |mapmult| |deriv| |gderiv| |compose| |addiag| |prodiag|
  |general_Lambert_product| |lazyIntegrate| |nlde| |powern| |mapdiv|
  |lazyGintegrate| |power| |sincos| |sinhcosh| |asin| |acos| |atan| |acot|
@@ -1201,10 +1201,10 @@
  |findNonZeroEntry| |transformationMatrices| |minimalRepresentation|
  |Hausdorff| |Frobenius| |transcendenceDegree| |extensionDegree|
  |inGroundField?| |transcendent?| |algebraic?| |varList| |sh| |mirror|
- |monomial?| |monom| |rquo| |lquo| |mindegTerm| |table| |writeXml| |writeVRML|
- |xmlAttribute| |xmlElement| |empty?| |outputVRML| |log| |exp| |product|
- |LiePolyIfCan| |homo_fact| |top_split| |left_ext_GCD| |ldivide| |lift1|
- |factor| |trunc| |degree| / |quasiRegular| |quasiRegular?| |constant|
+ |monomial?| |monomial| |rquo| |lquo| |mindegTerm| |table| |writeXml|
+ |writeVRML| |xmlAttribute| |xmlElement| |empty?| |outputVRML| |log| |exp|
+ |product| |LiePolyIfCan| |homo_fact| |top_split| |left_ext_GCD| |ldivide|
+ |lift1| |factor| |trunc| |degree| / |quasiRegular| |quasiRegular?| |constant|
  |constant?| |coef| |reductum| |mindeg| |maxdeg| |coerce| |#| |map| *
  |RemainderList| |unexpand| |expand| Y |triangSolve| |univariateSolve|
  |realSolve| |positiveSolve| |squareFree| |convert| |linearlyDependentOverZ?|
