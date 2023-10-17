@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5242 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5245 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -150,9 +150,10 @@
  |FunctionalSpecialFunction| |FunctionSpacePrimitiveElement|
  |FunctionSpaceReduce| |FunctionSpaceRationalRoots| |FortranScalarType|
  |FortranType| |FortranTemplate| |FunctionCalled| |FortranVectorCategory|
- |FortranVectorFunctionCategory| |GaloisGroupFactorizer|
- |GaloisGroupFactorizationUtilities| |GaloisGroupPolynomialUtilities|
- |GaloisGroupUtilities| |GaussianFactorizationPackage| |GroebnerPackage|
+ |FortranVectorFunctionCategory| |GaloisGroupFactorizerSeparate|
+ |GaloisGroupFactorizer| |GaloisGroupFactorizationUtilities|
+ |GaloisGroupPolynomialUtilities| |GaloisGroupUtilities|
+ |GaussianFactorizationPackage| |GroebnerPackage|
  |EuclideanGroebnerBasisPackage| |GroebnerFactorizationPackage|
  |GroebnerInternalPackage| |GcdBasis| |GcdDomain&| |GcdDomain|
  |GenericNonAssociativeAlgebra| |GeneralDistributedMultivariatePolynomial|
@@ -331,8 +332,9 @@
  |AttachPredicates| |FunctionSpaceAttachPredicates|
  |PatternMatchQuotientFieldCategory| |PatternMatchSymbol| |PatternMatchTools|
  |PolynomialNumberTheoryFunctions| |Point| |PolToPol|
- |RealPolynomialUtilitiesPackage| |Polynomial| |PolynomialFunctions2|
- |PolynomialToUnivariatePolynomial| |PolynomialCategory&| |PolynomialCategory|
+ |RealPolynomialUtilitiesPackage| |VectorPolynomialOperationsP| |Polynomial|
+ |PolynomialFunctions2| |PolynomialToUnivariatePolynomial|
+ |PolynomialCategory&| |PolynomialCategory|
  |PolynomialCategoryQuotientFunctions| |PolynomialCategoryLifting|
  |PolynomialRoots| |U32VectorPolynomialOperations| |PartialOrder&|
  |PartialOrder| |Poset&| |Poset| |PosetFactory| |PlottablePlaneCurveCategory|
@@ -663,19 +665,20 @@
  |fortranDoubleComplex| |fortranComplex| |fortranLogical| |fortranInteger|
  |fortranDouble| |fortranReal| |external?| |dimensionsOf| |scalarTypeOf|
  |fortranCarriageReturn| |fortranLiteral| |fortranLiteralLine|
- |processTemplate| |makeFR| |musserTrials| |stopMusserTrials| |numberOfFactors|
- |modularFactor| |useSingleFactorBound?| |useSingleFactorBound|
- |useEisensteinCriterion?| |useEisensteinCriterion| |eisensteinIrreducible?|
- |tryFunctionalDecomposition?| |tryFunctionalDecomposition| |henselFact|
- |btwFact| |beauzamyBound| |bombieriNorm| |rootBound| |singleFactorBound|
- |quadraticNorm| |infinityNorm| |scaleRoots| |shiftRoots| |degreePartition|
- |factorOfDegree| |factorsOfDegree| |pascalTriangle| |rangePascalTriangle|
- |sizePascalTriangle| |fillPascalTriangle| |safeCeiling| |safeFloor|
- |safetyMargin| |sumSquares| |euclideanNormalForm| |euclideanGroebner|
- |factorGroebnerBasis| |groebnerFactorize| |credPol| |gbasis| |gbasisExtend|
- |critT| |critM| |critB| |critBonD| |critMTonD1| |critMonD1| |redPo| |updatF|
- |updatD| |minGbasis| |lepol| |prinshINFO| |prindINFO| |fprindINFO|
- |prinpolINFO| |prinb| |critpOrder| |makeCrit| |gcdBasis| |gcdDecomposition|
+ |processTemplate| |separate_factors| |makeFR| |musserTrials|
+ |stopMusserTrials| |numberOfFactors| |modularFactor| |useSingleFactorBound?|
+ |useSingleFactorBound| |useEisensteinCriterion?| |useEisensteinCriterion|
+ |eisensteinIrreducible?| |tryFunctionalDecomposition?|
+ |tryFunctionalDecomposition| |henselFact| |btwFact| |beauzamyBound|
+ |bombieriNorm| |rootBound| |singleFactorBound| |quadraticNorm| |infinityNorm|
+ |scaleRoots| |shiftRoots| |degreePartition| |factorOfDegree| |factorsOfDegree|
+ |pascalTriangle| |rangePascalTriangle| |sizePascalTriangle|
+ |fillPascalTriangle| |safeCeiling| |safeFloor| |safetyMargin| |sumSquares|
+ |euclideanNormalForm| |euclideanGroebner| |factorGroebnerBasis|
+ |groebnerFactorize| |credPol| |gbasis| |gbasisExtend| |critT| |critM| |critB|
+ |critBonD| |critMTonD1| |critMonD1| |redPo| |updatF| |updatD| |minGbasis|
+ |lepol| |prinshINFO| |prindINFO| |fprindINFO| |prinpolINFO| |prinb|
+ |critpOrder| |makeCrit| |gcdBasis| |gcdDecomposition|
  |conditionsForIdempotents| |genericRightDiscriminant| |genericRightTraceForm|
  |genericLeftDiscriminant| |genericLeftTraceForm| |genericRightNorm|
  |genericRightTrace| |genericRightMinimalPolynomial| |rightRankPolynomial|
