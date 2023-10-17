@@ -2927,7 +2927,7 @@
 327552`\spad{eliminationTransformations(p,{} row_P,{} col_P,{} row_Q,{} col_Q)} returns a pair of transformation matrices with commutative variables 'a[\spad{i}] in rows/columns row_P/col_P respectively \spad{'b}[\spad{i}] in rows/columns row_Q/col_Q.
 327773`\spad{eliminationTransformations(p,{} row_P,{} col_P,{} row_Q,{} col_Q,{} sol)} Uses eval to set the values in sol into the variables in the transformation matrices.
 328012`\spad{eliminationTransformations(p,{} row_P,{} col_P,{} sym_P,{} row_Q,{} col_Q,{} sym_Q)} returns a pair of transformation matrices with commutative variables \spad{sym_P}[\spad{i}] in rows/columns row_P/col_P respectively sym_Q[\spad{i}] in rows/columns row_Q/col_Q.
-328247`\spad{elimZeroCols!(A)} removes columns which contain only zeros. This effects basically only the value of \spad{allIndices(A)}.
+328247`\spad{elimZeroCols!(A)} removes columns which contain only zeros. This affects basically only the value of \spad{allIndices(A)}.
 328311`\spad{ellipseBoundary(c1,{} c2)} constructs an ellipse boundary \spad{n}-dimensional axis-aligned ellipoid with given parameters \spad{c1:} \spad{PT} holds centre point \spad{c2:} \spad{PT} holds extent (radius for each coordinate)
 328367`\spad{elliptic()} returns \spad{p(x)} if the curve is the elliptic defined by \spad{y^2 = p(x)},{} "failed" otherwise.
 328449`\spad{elliptic()} returns \spad{p(x)} if the curve is the elliptic defined by \spad{y^2 = p(x)},{} "failed" otherwise.
