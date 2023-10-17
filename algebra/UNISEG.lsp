@@ -32,9 +32,9 @@
 (SDEFUN |UNISEG;SEGMENT;2S$;9| ((|a| (S)) (|b| (S)) ($ ($)))
         (SPADCALL |a| |b| (QREFELT $ 11))) 
 
-(SDEFUN |UNISEG;coerce;S$;10| ((|sg| (|Segment| S)) ($ ($)))
-        (SPADCALL (SPADCALL |sg| (QREFELT $ 16)) (SPADCALL |sg| (QREFELT $ 19))
-                  (QREFELT $ 11))) 
+(PUT '|UNISEG;coerce;S$;10| '|SPADreplace| '(XLAM (|sg|) (CONS 1 |sg|))) 
+
+(SDEFUN |UNISEG;coerce;S$;10| ((|sg| (|Segment| S)) ($ ($))) (CONS 1 |sg|)) 
 
 (SDEFUN |UNISEG;convert;S$;11| ((|a| (S)) ($ ($)))
         (CONS 1 (SPADCALL |a| (QREFELT $ 26)))) 
