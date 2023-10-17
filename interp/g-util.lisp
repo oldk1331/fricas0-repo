@@ -639,10 +639,6 @@
       (SETQ |q| (|mergeSort| |f| |g| |q| (|sub_SI| |n| |l|)))
       (|mergeInPlace| |f| |g| |p| |q|)))))
 
-; throw_to_reader() == THROW('SPAD_READER, nil)
-
-(DEFUN |throw_to_reader| () (PROG () (RETURN (THROW 'SPAD_READER NIL))))
-
 ; spadThrow() ==
 ;   if $interpOnly and $mapName then
 ;     putHist($mapName,'localModemap, nil, $e)

@@ -122,19 +122,13 @@
 ; loadLibNoUpdate(cname, libName, fullLibName) ==
 ;   kind := GETDATABASE(cname,'CONSTRUCTORKIND)
 ;   if $printLoadMsgs then
-;     sayKeyedMsg("S2IL0002",[namestring fullLibName,kind,cname])
-;   if CATCH('VERSIONCHECK, load_quietly(fullLibName)) = -1
-;     then
-;       PRINC('"   wrong library version...recompile ")
-;       PRINC(fullLibName)
-;       TERPRI()
-;       TOPLEVEL()
-;     else
-;      clearConstructorCache cname
-;      installConstructor(cname)
-;      MAKEPROP(cname,'LOADED,fullLibName)
-;      if $InteractiveMode then $CategoryFrame := [[nil]]
-;      stopTimingProcess 'load
+;     sayKeyedMsg("S2IL0002", [fullLibName, kind, cname])
+;   load_quietly(fullLibName)
+;   clearConstructorCache cname
+;   installConstructor(cname)
+;   MAKEPROP(cname,'LOADED,fullLibName)
+;   -- if $InteractiveMode then $CategoryFrame := [[nil]]
+;   stopTimingProcess 'load
 ;   'T
 
 (DEFUN |loadLibNoUpdate| (|cname| |libName| |fullLibName|)
@@ -144,16 +138,12 @@
       (SETQ |kind| (GETDATABASE |cname| 'CONSTRUCTORKIND))
       (COND
        (|$printLoadMsgs|
-        (|sayKeyedMsg| 'S2IL0002
-         (LIST (|namestring| |fullLibName|) |kind| |cname|))))
-      (COND
-       ((EQUAL (CATCH 'VERSIONCHECK (|load_quietly| |fullLibName|)) (- 1))
-        (PRINC "   wrong library version...recompile ") (PRINC |fullLibName|)
-        (TERPRI) (TOPLEVEL))
-       ('T (|clearConstructorCache| |cname|) (|installConstructor| |cname|)
-        (MAKEPROP |cname| 'LOADED |fullLibName|)
-        (COND (|$InteractiveMode| (SETQ |$CategoryFrame| (LIST (LIST NIL)))))
-        (|stopTimingProcess| '|load|)))
+        (|sayKeyedMsg| 'S2IL0002 (LIST |fullLibName| |kind| |cname|))))
+      (|load_quietly| |fullLibName|)
+      (|clearConstructorCache| |cname|)
+      (|installConstructor| |cname|)
+      (MAKEPROP |cname| 'LOADED |fullLibName|)
+      (|stopTimingProcess| '|load|)
       'T))))
 
 ; loadIfNecessary u == loadLibIfNecessary(u,true)
