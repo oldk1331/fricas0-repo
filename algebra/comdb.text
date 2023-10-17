@@ -2408,9 +2408,9 @@
 250705`\spad{cSech(f)} computes the hyperbolic secant of the power series \spad{f}. For use when the coefficient ring is commutative.
 250809`\spad{cSin(f)} computes the sine of the power series \spad{f}. For use when the coefficient ring is commutative.
 250912`\spad{cSinh(f)} computes the hyperbolic sine of the power series \spad{f}. For use when the coefficient ring is commutative.
-251016`\spad{csolve_pol(solf,{} lp)} uses \spad{solf} to solve linear dependence for univariate polynomials
-251127`\spad{csolve_rf(solf,{} lrf)} uses \spad{solf} to solve linear dependence for univariate rational functions
-251247`csolve_rf(solf,{} \spad{mrf}) uses \spad{solf} to solve linear dependence for univariate rational functions
+251016`\spad{csolve_pol(solf,{} lp)} uses \spad{solf} to solve linear dependence for univariate polynomials.
+251127`\spad{csolve_rf(solf,{} lrf)} uses \spad{solf} to solve linear dependence for univariate rational functions.
+251247`\spad{csolve_rmat(solf,{} mrf)} uses \spad{solf} to solve linear dependence for univariate rational functions.
 251371`\spad{csubst(a,{} b)} is for internal use only
 251487`\spad{cTan(f)} computes the tangent of the power series \spad{f}. For use when the coefficient ring is commutative.
 251590`\spad{cTanh(f)} computes the hyperbolic tangent of the power series \spad{f}. For use when the coefficient ring is commutative.
@@ -5261,7 +5261,7 @@
 604571`\spad{mk_erf(u,{} f)} should be local but conditional
 604625`\spad{mkIntegral(p(x,{} y))} returns \spad{[c(x),{} q(x,{} z)]} such that \spad{z = c * y} is integral. The algebraic relation between \spad{x} and \spad{y} is \spad{p(x,{} y) = 0}. The algebraic relation between \spad{x} and \spad{z} is \spad{q(x,{} z) = 0}.
 604722`\spad{mkPrim(f,{} x)} makes the logs in \spad{f} which are linear in \spad{x} primitive with respect to \spad{x}.
-604834`\spad{mmul(m1,{} m2,{} p)} multiplies \spad{m1} by transpose of \spad{m2} modulo \spad{p}
+604834`\spad{mmul(m1,{} m2,{} p)} multiplies \spad{m1} by transpose of \spad{m2} modulo \spad{p}.
 604915`\spad{mod_exp(pv,{} d,{} rd)} computes \spad{pv^d} modulo reduction data in \spad{rd}.
 605041`\spad{modifyPoint(s,{} \spad{li},{} i)} replaces an existing point in the 3 dimensional subspace,{} \spad{s},{} with the 4 dimensional point indicated by the index location,{} \spad{i}. The list of non negative integers,{} \spad{li},{} dictates the path to follow,{} or,{} to look at it another way,{} points to the component in which the existing point is to be modified. An error message occurs if \spad{s} is empty,{} otherwise the subspace \spad{s} is returned with the point modification.
 605134`\spad{modifyPoint(s,{} \spad{li},{} p)} replaces an existing point in the 3 dimensional subspace,{} \spad{s},{} with the 4 dimensional point,{} \spad{p}. The list of non negative integers,{} \spad{li},{} dictates the path to follow,{} or,{} to look at it another way,{} points to the component in which the existing point is to be modified. An error message occurs if \spad{s} is empty,{} otherwise the subspace \spad{s} is returned with the point modification.
