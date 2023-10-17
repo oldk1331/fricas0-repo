@@ -21,7 +21,7 @@
          ($ |Record| (|:| |ker| (|List| (|Kernel| F))) (|:| |val| (|List| F))))
         (SPROG
          ((|lv| (|List| F)) (|lk| (|List| (|Kernel| F)))
-          (|u| (|Union| F "failed")) (#1=#:G128 NIL) (|k| NIL))
+          (|u| (|Union| F "failed")) (#1=#:G130 NIL) (|k| NIL))
          (SEQ (LETT |lk| NIL) (LETT |lv| NIL)
               (SEQ (LETT |k| NIL) (LETT #1# (SPADCALL |f| (QREFELT $ 34))) G190
                    (COND
@@ -38,8 +38,8 @@
 
 (SDEFUN |TRIGMNIP;kcomplex| ((|k| |Kernel| F) ($ |Union| F "failed"))
         (SPROG
-         ((#1=#:G144 NIL) (|u| (|Union| (|Integer|) "failed")) (|a| (F))
-          (#2=#:G143 NIL) (|n| (F)) (|arg| (|List| F))
+         ((#1=#:G148 NIL) (|u| (|Union| (|Integer|) "failed")) (|a| (F))
+          (#2=#:G147 NIL) (|n| (F)) (|arg| (|List| F))
           (|op| (|BasicOperator|)))
          (SEQ (LETT |op| (SPADCALL |k| (QREFELT $ 36)))
               (EXIT
@@ -69,17 +69,17 @@
                                                                   (SPADCALL 2
                                                                             (QREFELT
                                                                              $
-                                                                             47))
+                                                                             45))
                                                                   (QREFELT $
-                                                                           48))
-                                                        (QREFELT $ 49))
+                                                                           46))
+                                                        (QREFELT $ 47))
                                               (SPADCALL |op|
                                                         (SPADCALL
                                                          (|SPADfirst| |arg|)
                                                          (QREFELT $ 10))
-                                                        |n| (QREFELT $ 49))
+                                                        |n| (QREFELT $ 47))
                                               (QREFELT $ 14))))
-                                 (GO #3=#:G137))))))))))
+                                 (GO #3=#:G140))))))))))
                         (EXIT (CONS 1 "failed"))))
                   #3# (EXIT #2#)))
                 ('T
@@ -107,9 +107,9 @@
                                           (SPADCALL |op|
                                                     (SPADCALL |a|
                                                               (QREFELT $ 10))
-                                                    (QREFELT $ 50))
-                                          (QREFELT $ 15) (QREFELT $ 51))))
-                             (GO #4=#:G140))))))))))
+                                                    (QREFELT $ 48))
+                                          (QREFELT $ 15) (QREFELT $ 49))))
+                             (GO #4=#:G144))))))))))
                     (EXIT (CONS 1 "failed"))))
                   #4# (EXIT #1#)))))))) 
 
@@ -120,7 +120,7 @@
                      (|:| |val| (|List| F)))))
          (COND
           ((NULL (QCAR (LETT |l| (|TRIGMNIP;complexKernels| |f| $))))
-           (SPADCALL |f| (|spadConstant| $ 46) (QREFELT $ 52)))
+           (SPADCALL |f| (|spadConstant| $ 51) (QREFELT $ 52)))
           ('T
            (SPADCALL
             (|TRIGMNIP;locexplogs|
@@ -145,7 +145,7 @@
           (RETURN (PROGN (SPADCALL |x| RTRIG (QREFELT $ 56)))))) 
 
 (SDEFUN |TRIGMNIP;complexNormalize;FSF;9| ((|f| F) (|x| |Symbol|) ($ F))
-        (SPROG ((#1=#:G158 NIL) (|g| (F)) (|k| NIL) (#2=#:G157 NIL))
+        (SPROG ((#1=#:G162 NIL) (|g| (F)) (|k| NIL) (#2=#:G161 NIL))
                (SEQ
                 (COND
                  ((SPADCALL
@@ -217,7 +217,7 @@
           (RETURN (PROGN (SPADCALL |x| RTRIG (QREFELT $ 56)))))) 
 
 (SDEFUN |TRIGMNIP;complexElementary;FSF;11| ((|f| F) (|x| |Symbol|) ($ F))
-        (SPROG ((#1=#:G171 NIL) (|g| (F)) (|k| NIL) (#2=#:G170 NIL))
+        (SPROG ((#1=#:G175 NIL) (|g| (F)) (|k| NIL) (#2=#:G174 NIL))
                (SEQ
                 (COND
                  ((SPADCALL
@@ -277,7 +277,7 @@
 
 (SDEFUN |TRIGMNIP;localexplogs|
         ((|f| F) (|g| F) ($ |Expression| (|Complex| R)))
-        (SPROG ((#1=#:G179 NIL) (|k| NIL) (#2=#:G178 NIL))
+        (SPROG ((#1=#:G183 NIL) (|k| NIL) (#2=#:G182 NIL))
                (SEQ
                 (SPADCALL (SPADCALL |g| (QREFELT $ 21))
                           (PROGN
@@ -315,13 +315,13 @@
                                    (SPADCALL (QREFELT $ 12)
                                              (SPADCALL |g| (QREFELT $ 31))
                                              (QREFELT $ 14))
-                                   (QREFELT $ 51))))))))) 
+                                   (QREFELT $ 49))))))))) 
 
 (DECLAIM (NOTINLINE |TrigonometricManipulations;|)) 
 
-(DEFUN |TrigonometricManipulations| (&REST #1=#:G183)
+(DEFUN |TrigonometricManipulations| (&REST #1=#:G187)
   (SPROG NIL
-         (PROG (#2=#:G184)
+         (PROG (#2=#:G188)
            (RETURN
             (COND
              ((LETT #2#
@@ -376,10 +376,10 @@
               |TRIGMNIP;imag;2F;4| (|List| 23) (54 . |tower|) (|BasicOperator|)
               (59 . |operator|) (|Symbol|) (64 . |is?|) (70 . |second|)
               (|Integer|) (75 . |retract|) (|Union| 40 '"failed")
-              (|ElementaryFunctionSign| 6 7) (80 . |sign|) (85 . |Zero|)
-              (89 . |Zero|) (93 . |coerce|) (98 . /) (104 . |elt|)
-              (111 . |elt|) (117 . +) (123 . |complex|) (|List| $)
-              (129 . |eval|) (136 . |explogs2trigs|) (141 . |has?|)
+              (|ElementaryFunctionSign| 6 7) (80 . |sign|) (85 . |coerce|)
+              (90 . /) (96 . |elt|) (103 . |elt|) (109 . +) (115 . |Zero|)
+              (119 . |Zero|) (123 . |complex|) (|List| $) (129 . |eval|)
+              (136 . |explogs2trigs|) (141 . |has?|)
               (|ElementaryFunctionStructurePackage| 6 7)
               (147 . |realElementary|) (|List| 35) (152 . |operators|)
               (|Mapping| 25 35) (157 . |any?|) (163 . |realElementary|)
@@ -426,9 +426,9 @@
                                               24 1 27 7 0 29 1 27 7 0 31 1 7 33
                                               0 34 1 17 35 0 36 2 17 25 0 37 38
                                               1 16 7 0 39 1 7 40 0 41 1 43 42 7
-                                              44 0 6 0 45 0 7 0 46 1 7 0 40 47
-                                              2 7 0 0 0 48 3 7 0 35 0 0 49 2 7
-                                              0 35 0 50 2 7 0 0 0 51 2 27 0 7 7
+                                              44 1 7 0 40 45 2 7 0 0 0 46 3 7 0
+                                              35 0 0 47 2 7 0 35 0 48 2 7 0 0 0
+                                              49 0 6 0 50 0 7 0 51 2 27 0 7 7
                                               52 3 7 0 0 33 53 54 1 20 27 19 55
                                               2 35 25 0 37 56 1 57 7 7 58 1 7
                                               59 0 60 2 59 25 61 0 62 2 57 7 7
