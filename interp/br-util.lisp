@@ -59,10 +59,6 @@
 
 (EVAL-WHEN (EVAL LOAD) (SETQ |$domain| NIL))
 
-; $infovec  := nil             --bound in koOps
-
-(EVAL-WHEN (EVAL LOAD) (SETQ |$infovec| NIL))
-
 ; $predvec  := nil             --bound in koOps
 
 (EVAL-WHEN (EVAL LOAD) (SETQ |$predvec| NIL))

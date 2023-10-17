@@ -762,8 +762,8 @@
 ; dbSearchOrder(conform,domname,$domain) ==  --domain = nil or set to live domain
 ;   conform := domname or conform
 ;   name:= opOf conform
-;   $infovec: local := dbInfovec name or return nil  --exit for categories
-;   u := $infovec.3
+;   infovec := dbInfovec name or return nil  --exit for categories
+;   u := infovec.3
 ;   $predvec:=
 ;     $domain => $domain . 3
 ;     GETDATABASE(name,'PREDICATES)
@@ -780,7 +780,7 @@
 ;       (pak := catinfo . i) and pred   --only those with default packages
 ;     pakform ==
 ;       pak and not IDENTP pak => devaluate pak --in case it has been instantiated
-;       catform := kFormatSlotDomain catvec . i
+;       catform := kFormatSlotDomain1(catvec.i, infovec)
 ;       res := dbSubConform(rest(conform), [pak, "%", :rest(catform)])
 ;       if domname then res := SUBST(domname, '%, res)
 ;       res
@@ -788,15 +788,14 @@
 
 (DEFUN |dbSearchOrder| (|conform| |domname| |$domain|)
   (DECLARE (SPECIAL |$domain|))
-  (PROG (|$infovec| |catforms| |res| |catform| |pak| |pred| |p| |catvec|
-         |catinfo| |catpredvec| |u| |name|)
-    (DECLARE (SPECIAL |$infovec|))
+  (PROG (|name| |infovec| |u| |catpredvec| |catinfo| |catvec| |p| |pred| |pak|
+         |catform| |res| |catforms|)
     (RETURN
      (PROGN
       (SETQ |conform| (OR |domname| |conform|))
       (SETQ |name| (|opOf| |conform|))
-      (SETQ |$infovec| (OR (|dbInfovec| |name|) (RETURN NIL)))
-      (SETQ |u| (ELT |$infovec| 3))
+      (SETQ |infovec| (OR (|dbInfovec| |name|) (RETURN NIL)))
+      (SETQ |u| (ELT |infovec| 3))
       (SETQ |$predvec|
               (COND (|$domain| (ELT |$domain| 3))
                     (#1='T (GETDATABASE |name| 'PREDICATES))))
@@ -832,8 +831,8 @@
                                      (#1#
                                       (PROGN
                                        (SETQ |catform|
-                                               (|kFormatSlotDomain|
-                                                (ELT |catvec| |i|)))
+                                               (|kFormatSlotDomain1|
+                                                (ELT |catvec| |i|) |infovec|))
                                        (SETQ |res|
                                                (|dbSubConform| (CDR |conform|)
                                                 (CONS |pak|
@@ -2198,23 +2197,23 @@
 
 ; dbAddChainDomain conform ==
 ;   [name,:args] := conform
-;   $infovec := dbInfovec name or return nil  --exit for categories
-;   template := $infovec . 0
+;   infovec := dbInfovec(name) or return nil  --exit for categories
+;   template := infovec.0
 ;   null (form := template . 5) => nil
-;   dbSubConform(args,kFormatSlotDomain devaluate form)
+;   dbSubConform(args, kFormatSlotDomain1(devaluate(form), infovec))
 
 (DEFUN |dbAddChainDomain| (|conform|)
-  (PROG (|name| |args| |template| |form|)
+  (PROG (|name| |args| |infovec| |template| |form|)
     (RETURN
      (PROGN
       (SETQ |name| (CAR |conform|))
       (SETQ |args| (CDR |conform|))
-      (SETQ |$infovec| (OR (|dbInfovec| |name|) (RETURN NIL)))
-      (SETQ |template| (ELT |$infovec| 0))
+      (SETQ |infovec| (OR (|dbInfovec| |name|) (RETURN NIL)))
+      (SETQ |template| (ELT |infovec| 0))
       (COND ((NULL (SETQ |form| (ELT |template| 5))) NIL)
             ('T
              (|dbSubConform| |args|
-              (|kFormatSlotDomain| (|devaluate| |form|)))))))))
+              (|kFormatSlotDomain1| (|devaluate| |form|) |infovec|))))))))
 
 ; dbSubConform(args,u) ==
 ;   atom u =>

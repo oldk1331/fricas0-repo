@@ -1384,34 +1384,34 @@
 
 ; getDefaultingOps catname ==
 ;   not(name:=hasDefaultPackage catname) => nil
-;   $infovec: local := getInfovec name
-;   opTable := $infovec.1
+;   infovec := getInfovec name
+;   opTable := infovec.1
 ;   $opList:local  := nil
 ;   for i in 0..MAXINDEX opTable repeat
 ;     op := opTable.i
 ;     i := i + 1
 ;     startIndex := opTable.i
 ;     stopIndex :=
-;       i + 1 > MAXINDEX opTable => MAXINDEX getCodeVector()
+;       i + 1 > MAXINDEX opTable => MAXINDEX getCodeVector1(infovec)
 ;       opTable.(i + 2)
 ;     curIndex := startIndex
 ;     while curIndex < stopIndex repeat
-;       curIndex := get1defaultOp(op,curIndex)
+;       curIndex := get1defaultOp(op, curIndex, infovec)
 ;   $pretendFlag : local := true
 ;   catops := GETDATABASE(catname, 'OPERATIONALIST)
 ;   catdefops := GETDATABASE(name, 'OPERATIONALIST)
 ;   [axFormatDefaultOpSig(op,sig,catops,catdefops) for opsig in $opList | opsig is [op,sig]]
 
 (DEFUN |getDefaultingOps| (|catname|)
-  (PROG (|$pretendFlag| |$opList| |$infovec| |sig| |ISTMP#1| |catdefops|
-         |catops| |curIndex| |stopIndex| |startIndex| |op| |opTable| |name|)
-    (DECLARE (SPECIAL |$pretendFlag| |$opList| |$infovec|))
+  (PROG (|$pretendFlag| |$opList| |sig| |ISTMP#1| |catdefops| |catops|
+         |curIndex| |stopIndex| |startIndex| |op| |opTable| |infovec| |name|)
+    (DECLARE (SPECIAL |$pretendFlag| |$opList|))
     (RETURN
      (COND ((NULL (SETQ |name| (|hasDefaultPackage| |catname|))) NIL)
            (#1='T
             (PROGN
-             (SETQ |$infovec| (|getInfovec| |name|))
-             (SETQ |opTable| (ELT |$infovec| 1))
+             (SETQ |infovec| (|getInfovec| |name|))
+             (SETQ |opTable| (ELT |infovec| 1))
              (SETQ |$opList| NIL)
              ((LAMBDA (|bfVar#49| |i|)
                 (LOOP
@@ -1424,7 +1424,7 @@
                          (SETQ |stopIndex|
                                  (COND
                                   ((< (MAXINDEX |opTable|) (+ |i| 1))
-                                   (MAXINDEX (|getCodeVector|)))
+                                   (MAXINDEX (|getCodeVector1| |infovec|)))
                                   (#1# (ELT |opTable| (+ |i| 2)))))
                          (SETQ |curIndex| |startIndex|)
                          ((LAMBDA ()
@@ -1433,8 +1433,8 @@
                               ((NOT (< |curIndex| |stopIndex|)) (RETURN NIL))
                               (#1#
                                (SETQ |curIndex|
-                                       (|get1defaultOp| |op|
-                                        |curIndex|))))))))))
+                                       (|get1defaultOp| |op| |curIndex|
+                                        |infovec|))))))))))
                  (SETQ |i| (+ |i| 1))))
               (MAXINDEX |opTable|) 0)
              (SETQ |$pretendFlag| T)
@@ -1530,8 +1530,8 @@
     (RETURN
      (COND ((NULL |cond|) |inner|) ('T (LIST '|If| |cond| |inner| NIL))))))
 
-; get1defaultOp(op,index) ==
-;   numvec := getCodeVector()
+; get1defaultOp(op,index, infovec) ==
+;   numvec := getCodeVector1(infovec)
 ;   numOfArgs := numvec.index
 ;   index := index + 1
 ;   index := index + 1
@@ -1539,24 +1539,24 @@
 ;  -- following substitution fixes the problem that default packages
 ;  -- have $ added as a first arg, thus other arg counts are off by 1.
 ;     SUBLISLIS($FormalMapVariableList, rest $FormalMapVariableList,
-;              dcSig(numvec,index,numOfArgs))
+;              dcSig1(numvec, index, numOfArgs, infovec))
 ;   index := index + numOfArgs + 1
 ;   if not([op,signumList] in $opList) then
 ;      $opList := [[op,signumList],:$opList]
 ;   index + 1
 
-(DEFUN |get1defaultOp| (|op| |index|)
+(DEFUN |get1defaultOp| (|op| |index| |infovec|)
   (PROG (|numvec| |numOfArgs| |signumList|)
     (RETURN
      (PROGN
-      (SETQ |numvec| (|getCodeVector|))
+      (SETQ |numvec| (|getCodeVector1| |infovec|))
       (SETQ |numOfArgs| (ELT |numvec| |index|))
       (SETQ |index| (+ |index| 1))
       (SETQ |index| (+ |index| 1))
       (SETQ |signumList|
               (SUBLISLIS |$FormalMapVariableList|
                (CDR |$FormalMapVariableList|)
-               (|dcSig| |numvec| |index| |numOfArgs|)))
+               (|dcSig1| |numvec| |index| |numOfArgs| |infovec|)))
       (SETQ |index| (+ (+ |index| |numOfArgs|) 1))
       (COND
        ((NULL (|member| (LIST |op| |signumList|) |$opList|))
