@@ -336,7 +336,7 @@
 ;   t1 = ['AlgebraicNumber] and t2 is ['Polynomial, ['Fraction, ['Integer]]] =>
 ;       ['Polynomial, ['AlgebraicNumber]]
 ;
-;   t1 = ['AlgebraicNumber] and 
+;   t1 = ['AlgebraicNumber] and
 ;     t2 is ['Fraction, ['Polynomial, ['Fraction, ['Integer]]]] =>
 ;         ['Fraction, ['Polynomial, ['AlgebraicNumber]]]
 ;
