@@ -151,26 +151,42 @@
           (RETURN (PROGN (|KERNEL;kerEqual| |k| |y| |f1| %))))) 
 
 (SDEFUN |KERNEL;=;2%B;17| ((|k1| (%)) (|k2| (%)) (% (|Boolean|)))
-        (SEQ
-         (COND
-          ((EQL (SPADCALL |k1| (QREFELT % 13)) 0)
-           (LETT |k1| (|KERNEL;kernelEnterInCache| |k1| %))))
-         (COND
-          ((EQL (SPADCALL |k2| (QREFELT % 13)) 0)
-           (LETT |k2| (|KERNEL;kernelEnterInCache| |k2| %))))
-         (EXIT
-          (EQL (SPADCALL |k1| (QREFELT % 13)) (SPADCALL |k2| (QREFELT % 13)))))) 
+        (SPROG ((|p2| #1=(|NonNegativeInteger|)) (|p1| #1#))
+               (SEQ (LETT |p1| (SPADCALL |k1| (QREFELT % 13)))
+                    (LETT |p2| (SPADCALL |k2| (QREFELT % 13)))
+                    (COND
+                     ((SPADCALL |p1| 0 (QREFELT % 43))
+                      (COND
+                       ((SPADCALL |p2| 0 (QREFELT % 43))
+                        (EXIT (EQL |p1| |p2|))))))
+                    (COND
+                     ((EQL |p1| 0)
+                      (LETT |k1| (|KERNEL;kernelEnterInCache| |k1| %))))
+                    (COND
+                     ((EQL |p2| 0)
+                      (LETT |k2| (|KERNEL;kernelEnterInCache| |k2| %))))
+                    (EXIT
+                     (EQL (SPADCALL |k1| (QREFELT % 13))
+                          (SPADCALL |k2| (QREFELT % 13))))))) 
 
 (SDEFUN |KERNEL;<;2%B;18| ((|k1| (%)) (|k2| (%)) (% (|Boolean|)))
-        (SEQ
-         (COND
-          ((EQL (SPADCALL |k1| (QREFELT % 13)) 0)
-           (LETT |k1| (|KERNEL;kernelEnterInCache| |k1| %))))
-         (COND
-          ((EQL (SPADCALL |k2| (QREFELT % 13)) 0)
-           (LETT |k2| (|KERNEL;kernelEnterInCache| |k2| %))))
-         (EXIT
-          (< (SPADCALL |k1| (QREFELT % 13)) (SPADCALL |k2| (QREFELT % 13)))))) 
+        (SPROG ((|p2| #1=(|NonNegativeInteger|)) (|p1| #1#))
+               (SEQ (LETT |p1| (SPADCALL |k1| (QREFELT % 13)))
+                    (LETT |p2| (SPADCALL |k2| (QREFELT % 13)))
+                    (COND
+                     ((SPADCALL |p1| 0 (QREFELT % 43))
+                      (COND
+                       ((SPADCALL |p2| 0 (QREFELT % 43))
+                        (EXIT (< |p1| |p2|))))))
+                    (COND
+                     ((EQL |p1| 0)
+                      (LETT |k1| (|KERNEL;kernelEnterInCache| |k1| %))))
+                    (COND
+                     ((EQL |p2| 0)
+                      (LETT |k2| (|KERNEL;kernelEnterInCache| |k2| %))))
+                    (EXIT
+                     (< (SPADCALL |k1| (QREFELT % 13))
+                        (SPADCALL |k2| (QREFELT % 13))))))) 
 
 (SDEFUN |KERNEL;kernel;BoLNni%;19|
         ((|fn| (|BasicOperator|)) (|x| (|List| S)) (|n| (|NonNegativeInteger|))
