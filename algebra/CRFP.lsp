@@ -991,7 +991,7 @@
               |CRFP;startPolynomial;UPR;5| (128 . |One|) (132 . =)
               (138 . |expand|)
               (|Record| (|:| |quotient| %) (|:| |remainder| %))
-              (143 . |divide|) (149 . |setPoly|) (154 . |coerce|) (159 . ^)
+              (143 . |divide|) (149 . |setPoly|) (154 . |reduce|) (159 . ^)
               (165 . *) (171 . |lift|) (176 . |nilFactor|)
               (|Record| (|:| |factors| 91) (|:| |error| 6)) (|List| 75)
               |CRFP;divisorCascade;2UPBL;13| (|Mapping| 75 75 75)

@@ -557,7 +557,8 @@
              (|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|))))))
           (|mat| (|Matrix| GF)) (#4=#:G209 NIL)
           (|mat1| (|Union| (|Matrix| GF) #5="failed"))
-          (|h| (|ModMonic| GF (|SparseUnivariatePolynomial| GF)))
+          (|hm| (|ModMonic| GF (|SparseUnivariatePolynomial| GF)))
+          (|hs| (|SparseUnivariatePolynomial| GF))
           (|g| (|ModMonic| GF (|SparseUnivariatePolynomial| GF)))
           (#6=#:G227 NIL)
           (|qexp|
@@ -606,41 +607,41 @@
                                   (QREFELT % 48)))
                       (LETT |mat| (SPADCALL |m| |m| (QREFELT % 54)))
                       (QSETAREF2O |mat| 2 1 (|spadConstant| % 19) 1 1)
-                      (LETT |h| (QAREF1 |qpow| 1)) (QSETAREF1 |qexp| 1 |h|)
-                      (SPADCALL |mat| 2 (SPADCALL |h| (QREFELT % 56))
+                      (LETT |hm| (QAREF1 |qpow| 1)) (QSETAREF1 |qexp| 1 |hm|)
+                      (SPADCALL |mat| 2 (SPADCALL |hm| (QREFELT % 56))
                                 (QREFELT % 57))
                       (SEQ (LETT |i| 2) (LETT #6# |m1|) G190
                            (COND ((|greater_SI| |i| #6#) (GO G191)))
                            (SEQ (LETT |g| (|spadConstant| % 51))
+                                (LETT |hs| (SPADCALL |hm| (QREFELT % 58)))
                                 (SEQ G190
                                      (COND
                                       ((NULL
-                                        (SPADCALL |h| (|spadConstant| % 51)
-                                                  (QREFELT % 58)))
+                                        (SPADCALL |hs| (|spadConstant| % 42)
+                                                  (QREFELT % 59)))
                                        (GO G191)))
                                      (SEQ
                                       (LETT |g|
                                             (SPADCALL |g|
                                                       (SPADCALL
-                                                       (SPADCALL |h|
+                                                       (SPADCALL |hs|
                                                                  (QREFELT %
-                                                                          59))
+                                                                          60))
                                                        (QAREF1 |qpow|
-                                                               (SPADCALL |h|
+                                                               (SPADCALL |hs|
                                                                          (QREFELT
                                                                           %
-                                                                          60)))
+                                                                          40)))
                                                        (QREFELT % 61))
                                                       (QREFELT % 62)))
                                       (EXIT
-                                       (LETT |h|
-                                             (SPADCALL |h| (QREFELT % 63)))))
+                                       (LETT |hs|
+                                             (SPADCALL |hs| (QREFELT % 63)))))
                                      NIL (GO G190) G191 (EXIT NIL))
-                                (QSETAREF1 |qexp| |i| |g|)
+                                (QSETAREF1 |qexp| |i| (LETT |hm| |g|))
                                 (EXIT
                                  (SPADCALL |mat| (+ |i| 1)
-                                           (SPADCALL (LETT |h| |g|)
-                                                     (QREFELT % 56))
+                                           (SPADCALL |g| (QREFELT % 56))
                                            (QREFELT % 57))))
                            (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                       (LETT |mat1| (SPADCALL |mat| (QREFELT % 65)))
@@ -941,12 +942,13 @@
               (|ModMonic| 6 11) (117 . |setPoly|) (122 . |monomial|)
               (128 . |reduce|) (133 . ^) (139 . |One|) (143 . |Zero|) (147 . *)
               (|Matrix| 6) (153 . |zero|) (|Vector| 6) (159 . |Vectorise|)
-              (164 . |setColumn!|) (171 . ~=) (177 . |leadingCoefficient|)
-              (182 . |degree|) (187 . *) (193 . +) (199 . |reductum|)
-              (|Union| % '#2="failed") (204 . |inverse|) (|Union| 53 '#2#)
-              (209 . =) (215 . *) (|SingleInteger|) (221 . |coerce|)
-              (226 . |elt|) (232 . ~=) |FFF;createMultiplicationTable;SupV;4|
-              (|PrimitiveArray| 69) |FFF;createZechTable;SupPa;5|
+              (164 . |setColumn!|) (171 . |lift|) (176 . ~=)
+              (182 . |leadingCoefficient|) (187 . *) (193 . +)
+              (199 . |reductum|) (|Union| % '#2="failed") (204 . |inverse|)
+              (|Union| 53 '#2#) (209 . =) (215 . *) (|SingleInteger|)
+              (221 . |coerce|) (226 . |elt|) (232 . ~=)
+              |FFF;createMultiplicationTable;SupV;4| (|PrimitiveArray| 69)
+              |FFF;createZechTable;SupPa;5|
               |FFF;createMultiplicationMatrix;VM;6|)
            '#(|sizeMultiplication| 238 |createZechTable| 243
               |createMultiplicationTable| 248 |createMultiplicationMatrix| 253
@@ -1021,9 +1023,9 @@
                                               11 48 2 45 0 0 16 49 0 45 0 50 0
                                               45 0 51 2 45 0 0 0 52 2 53 0 16
                                               16 54 1 45 55 0 56 3 53 0 0 22 55
-                                              57 2 45 21 0 0 58 1 45 6 0 59 1
-                                              45 16 0 60 2 45 0 6 0 61 2 45 0 0
-                                              0 62 1 45 0 0 63 1 53 64 0 65 2
+                                              57 1 45 11 0 58 2 11 21 0 0 59 1
+                                              11 6 0 60 2 45 0 6 0 61 2 45 0 0
+                                              0 62 1 11 0 0 63 1 53 64 0 65 2
                                               66 21 0 0 67 2 53 55 0 55 68 1 69
                                               0 22 70 2 55 6 0 22 71 2 6 21 0 0
                                               72 1 0 16 37 39 1 0 74 11 75 1 0
