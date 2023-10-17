@@ -1,29 +1,29 @@
 
-(PUT '|SAOS;create;$;1| '|SPADreplace| '(XLAM NIL "?")) 
+(PUT '|SAOS;create;%;1| '|SPADreplace| '(XLAM NIL "?")) 
 
-(SDEFUN |SAOS;create;$;1| (($ ($))) "?") 
+(SDEFUN |SAOS;create;%;1| ((% (%))) "?") 
 
-(PUT '|SAOS;<;2$B;2| '|SPADreplace| '(XLAM (|a| |b|) NIL)) 
+(PUT '|SAOS;<;2%B;2| '|SPADreplace| '(XLAM (|a| |b|) NIL)) 
 
-(SDEFUN |SAOS;<;2$B;2| ((|a| ($)) (|b| ($)) ($ (|Boolean|))) NIL) 
+(SDEFUN |SAOS;<;2%B;2| ((|a| (%)) (|b| (%)) (% (|Boolean|))) NIL) 
 
-(SDEFUN |SAOS;coerce;$Of;3| ((|a| ($)) ($ (|OutputForm|)))
-        (SPADCALL "?" (QREFELT $ 11))) 
+(SDEFUN |SAOS;coerce;%Of;3| ((|a| (%)) (% (|OutputForm|)))
+        (SPADCALL "?" (QREFELT % 11))) 
 
-(PUT '|SAOS;=;2$B;4| '|SPADreplace| '(XLAM (|a| |b|) 'T)) 
+(PUT '|SAOS;=;2%B;4| '|SPADreplace| '(XLAM (|a| |b|) 'T)) 
 
-(SDEFUN |SAOS;=;2$B;4| ((|a| ($)) (|b| ($)) ($ (|Boolean|))) 'T) 
+(SDEFUN |SAOS;=;2%B;4| ((|a| (%)) (|b| (%)) (% (|Boolean|))) 'T) 
 
-(PUT '|SAOS;min;3$;5| '|SPADreplace| '(XLAM (|a| |b|) |a|)) 
+(PUT '|SAOS;min;3%;5| '|SPADreplace| '(XLAM (|a| |b|) |a|)) 
 
-(SDEFUN |SAOS;min;3$;5| ((|a| ($)) (|b| ($)) ($ ($))) |a|) 
+(SDEFUN |SAOS;min;3%;5| ((|a| (%)) (|b| (%)) (% (%))) |a|) 
 
-(PUT '|SAOS;max;3$;6| '|SPADreplace| '(XLAM (|a| |b|) |a|)) 
+(PUT '|SAOS;max;3%;6| '|SPADreplace| '(XLAM (|a| |b|) |a|)) 
 
-(SDEFUN |SAOS;max;3$;6| ((|a| ($)) (|b| ($)) ($ ($))) |a|) 
+(SDEFUN |SAOS;max;3%;6| ((|a| (%)) (|b| (%)) (% (%))) |a|) 
 
-(SDEFUN |SAOS;convert;$S;7| ((|a| ($)) ($ (|Symbol|)))
-        (SPADCALL "?" (QREFELT $ 17))) 
+(SDEFUN |SAOS;convert;%S;7| ((|a| (%)) (% (|Symbol|)))
+        (SPADCALL "?" (QREFELT % 17))) 
 
 (DECLAIM (NOTINLINE |SingletonAsOrderedSet;|)) 
 
@@ -47,24 +47,24 @@
                   (HREM |$ConstructorCache| '|SingletonAsOrderedSet|)))))))))) 
 
 (DEFUN |SingletonAsOrderedSet;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|SingletonAsOrderedSet|))
-          (LETT $ (GETREFV 21))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (LETT % (GETREFV 21))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|SingletonAsOrderedSet| NIL
-                      (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|SingletonAsOrderedSet| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL |SAOS;create;$;1| (|Boolean|)
-              |SAOS;<;2$B;2| (|String|) (|OutputForm|) (0 . |outputForm|)
-              |SAOS;coerce;$Of;3| |SAOS;=;2$B;4| |SAOS;min;3$;5|
-              |SAOS;max;3$;6| (|Symbol|) (5 . |coerce|) |SAOS;convert;$S;7|
+           '#(NIL NIL NIL NIL NIL NIL |SAOS;create;%;1| (|Boolean|)
+              |SAOS;<;2%B;2| (|String|) (|OutputForm|) (0 . |outputForm|)
+              |SAOS;coerce;%Of;3| |SAOS;=;2%B;4| |SAOS;min;3%;5|
+              |SAOS;max;3%;6| (|Symbol|) (5 . |coerce|) |SAOS;convert;%S;7|
               (|HashState|) (|SingleInteger|))
            '#(~= 10 |smaller?| 16 |min| 22 |max| 28 |latex| 34 |hashUpdate!| 39
               |hash| 45 |create| 50 |convert| 54 |coerce| 59 >= 64 > 70 = 76 <=

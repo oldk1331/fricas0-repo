@@ -23,13 +23,13 @@
 (DEFUN |UnivariateFormalPowerSeries;| (|#1|)
   (SPROG
    ((|pv$| NIL) (#1=#:G113 NIL) (#2=#:G114 NIL) (#3=#:G115 NIL) (#4=#:G118 NIL)
-    ($ NIL) (|dv$| NIL) (DV$1 NIL))
+    (% NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|UnivariateFormalPowerSeries| DV$1))
-    (LETT $ (GETREFV 31))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 31))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -210,82 +210,82 @@
                                                                  |#1|)))))
                                         (|HasCategory| |#1| '(|Field|))))))
     (|haddProp| |$ConstructorCache| '|UnivariateFormalPowerSeries| (LIST DV$1)
-                (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
+                (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
     (AND (|HasCategory| |#1| '(|IntegralDomain|))
-         (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))
-         (|augmentPredVector| $ 33554432))
-    (AND #4# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))
-         (|augmentPredVector| $ 67108864))
+         (|HasCategory| % '(|VariablesCommuteWithCoefficients|))
+         (|augmentPredVector| % 33554432))
+    (AND #4# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))
+         (|augmentPredVector| % 67108864))
     (AND
-     (OR (AND #4# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+     (OR (AND #4# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (AND (|HasCategory| |#1| '(|IntegralDomain|))
-              (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
-     (|augmentPredVector| $ 134217728))
+              (|HasCategory| % '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| % 134217728))
     (AND
-     (OR (AND #4# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+     (OR (AND #4# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (AND (|HasCategory| |#1| '(|IntegralDomain|))
-              (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+              (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          #3#
          (|HasSignature| |#1|
                          (LIST '*
                                (LIST (|devaluate| |#1|) '(|NonNegativeInteger|)
                                      (|devaluate| |#1|)))))
-     (|augmentPredVector| $ 268435456))
+     (|augmentPredVector| % 268435456))
     (AND
-     (OR (AND #4# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+     (OR (AND #4# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (AND (|HasCategory| |#1| '(|IntegralDomain|))
-              (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+              (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          #2#
          (|HasSignature| |#1|
                          (LIST '*
                                (LIST (|devaluate| |#1|) '(|NonNegativeInteger|)
                                      (|devaluate| |#1|)))))
-     (|augmentPredVector| $ 536870912))
+     (|augmentPredVector| % 536870912))
     (AND
      (OR (|HasCategory| |#1| '(|AbelianMonoid|))
-         (AND #4# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+         (AND #4# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (AND (|HasCategory| |#1| '(|IntegralDomain|))
-              (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-         (|HasCategory| $ '(|AbelianMonoid|))
+              (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+         (|HasCategory| % '(|AbelianMonoid|))
          (|HasSignature| |#1|
                          (LIST '*
                                (LIST (|devaluate| |#1|) '(|NonNegativeInteger|)
                                      (|devaluate| |#1|)))))
-     (|augmentPredVector| $ 1073741824))
+     (|augmentPredVector| % 1073741824))
     (AND
      (OR (|HasCategory| |#1| '(|CancellationAbelianMonoid|))
-         (AND #4# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+         (AND #4# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (AND (|HasCategory| |#1| '(|IntegralDomain|))
-              (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-         (|HasCategory| $ '(|AbelianGroup|))
+              (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+         (|HasCategory| % '(|AbelianGroup|))
          (|HasSignature| |#1|
                          (LIST '*
                                (LIST (|devaluate| |#1|) '(|NonNegativeInteger|)
                                      (|devaluate| |#1|)))))
-     (|augmentPredVector| $ 2147483648))
+     (|augmentPredVector| % 2147483648))
     (AND
-     (OR #1# (AND #4# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+     (OR #1# (AND #4# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (AND (|HasCategory| |#1| '(|IntegralDomain|))
-              (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-         (|HasCategory| $ '(|AbelianGroup|))
+              (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+         (|HasCategory| % '(|AbelianGroup|))
          (|HasSignature| |#1|
                          (LIST '*
                                (LIST (|devaluate| |#1|) '(|NonNegativeInteger|)
                                      (|devaluate| |#1|)))))
-     (|augmentPredVector| $ 4294967296))
-    (SETF |pv$| (QREFELT $ 3))
-    $))) 
+     (|augmentPredVector| % 4294967296))
+    (SETF |pv$| (QREFELT % 3))
+    %))) 
 
 (MAKEPROP '|UnivariateFormalPowerSeries| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL
               (|UnivariateTaylorSeries| 6 (NRTEVAL '|x|)
-                                        (NRTEVAL (|spadConstant| $ 7)))
+                                        (NRTEVAL (|spadConstant| % 7)))
               (|local| |#1|) (0 . |Zero|) (|Boolean|)
-              (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|Union| $ '"failed") (|Symbol|) (|List| 11) (|List| 14)
+              (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
+              (|Union| % '"failed") (|Symbol|) (|List| 11) (|List| 14)
               (|NonNegativeInteger|) (|Integer|)
               (|Record| (|:| |k| 14) (|:| |c| 6)) (|List| 16)
               (|Variable| (NRTEVAL '|x|)) (|Fraction| 15) (|Stream| 6)

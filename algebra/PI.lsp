@@ -6,9 +6,9 @@
                             (DELASC #1# (|get| #2# #3# |$CategoryFrame|)))
                       |$CategoryFrame|))) 
 
-(PUT '|PI;qcoerce;I$;1| '|SPADreplace| '(XLAM (|n|) |n|)) 
+(PUT '|PI;qcoerce;I%;1| '|SPADreplace| '(XLAM (|n|) |n|)) 
 
-(SDEFUN |PI;qcoerce;I$;1| ((|n| (|Integer|)) ($ ($))) |n|) 
+(SDEFUN |PI;qcoerce;I%;1| ((|n| (|Integer|)) (% (%))) |n|) 
 
 (DECLAIM (NOTINLINE |PositiveInteger;|)) 
 
@@ -31,22 +31,22 @@
                   (HREM |$ConstructorCache| '|PositiveInteger|)))))))))) 
 
 (DEFUN |PositiveInteger;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|PositiveInteger|))
-          (LETT $ (GETREFV 16))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|PositiveInteger| NIL (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+          (LETT % (GETREFV 16))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|PositiveInteger| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|PositiveInteger| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|NonNegativeInteger|) (|Integer|)
-              |PI;qcoerce;I$;1| (|InputForm|) (|PositiveInteger|) (|Boolean|)
-              (|Union| $ '"failed") (|HashState|) (|String|) (|OutputForm|)
+              |PI;qcoerce;I%;1| (|InputForm|) (|PositiveInteger|) (|Boolean|)
+              (|Union| % '"failed") (|HashState|) (|String|) (|OutputForm|)
               (|SingleInteger|))
            '#(~= 0 |smaller?| 6 |sample| 12 |rightRecip| 16 |rightPower| 21
               |recip| 33 |qcoerce| 38 |one?| 43 |min| 48 |max| 54 |leftRecip|

@@ -1060,14 +1060,14 @@
       ('T NIL)))))
 
 ; isSubset(x,y,e) ==
-;   x = "$" and y = "Rep" or x = y or is_integer_subset(opOf(x), opOf(y)) or
+;   x = "%" and y = "Rep" or x = y or is_integer_subset(opOf(x), opOf(y)) or
 ;       LASSOC(opOf(x), get(opOf(y), "SubDomain", e)) or
-;         opOf(y)='Type
+;         opOf(y) = 'Type
 
 (DEFUN |isSubset| (|x| |y| |e|)
   (PROG ()
     (RETURN
-     (OR (AND (EQ |x| '$) (EQ |y| '|Rep|)) (EQUAL |x| |y|)
+     (OR (AND (EQ |x| '%) (EQ |y| '|Rep|)) (EQUAL |x| |y|)
          (|is_integer_subset| (|opOf| |x|) (|opOf| |y|))
          (LASSOC (|opOf| |x|) (|get| (|opOf| |y|) '|SubDomain| |e|))
          (EQ (|opOf| |y|) '|Type|)))))
@@ -1693,17 +1693,17 @@
 ;             --Must be e to pick up locally bound domains
 ;     form' is ["SIGNATURE",op,args,:.] =>
 ;         assoc([op,args],formVec.(1)) or
-;             assoc(SUBSTQ(domain,"$",[op,args]),
-;                   SUBSTQ(domain,"$",formVec.(1)))
+;             assoc(SUBSTQ(domain, "%", [op, args]),
+;                   SUBSTQ(domain, "%", formVec.(1)))
 ;     form' is ["ATTRIBUTE",at] => BREAK()
 ;     form' is ["IF",:.] => true --temporary hack so comp won't fail
 ;     -- Are we dealing with an Aldor category?  If so use the "has" function ...
 ;     # formVec = 1 => newHasTest(form,form')
 ;     catvlist:= formVec.4
 ;     member(form',first catvlist) or
-;      member(form',SUBSTQ(domain,"$",first catvlist)) or
+;      member(form', SUBSTQ(domain, "%", first(catvlist))) or
 ;       (or/
-;         [extendsCategoryForm(domain, SUBSTQ(domain, "$", cat), form', e)
+;         [extendsCategoryForm(domain, SUBSTQ(domain, "%", cat), form', e)
 ;           for [cat,:.] in CADR catvlist])
 ;   nil
 
@@ -1783,8 +1783,8 @@
                            (AND (CONSP |ISTMP#2|)
                                 (PROGN (SETQ |args| (CAR |ISTMP#2|)) #1#))))))
                (OR (|assoc| (LIST |op| |args|) (ELT |formVec| 1))
-                   (|assoc| (SUBSTQ |domain| '$ (LIST |op| |args|))
-                    (SUBSTQ |domain| '$ (ELT |formVec| 1)))))
+                   (|assoc| (SUBSTQ |domain| '% (LIST |op| |args|))
+                    (SUBSTQ |domain| '% (ELT |formVec| 1)))))
               ((AND (CONSP |form'|) (EQ (CAR |form'|) 'ATTRIBUTE)
                     (PROGN
                      (SETQ |ISTMP#1| (CDR |form'|))
@@ -1797,7 +1797,7 @@
                (PROGN
                 (SETQ |catvlist| (ELT |formVec| 4))
                 (OR (|member| |form'| (CAR |catvlist|))
-                    (|member| |form'| (SUBSTQ |domain| '$ (CAR |catvlist|)))
+                    (|member| |form'| (SUBSTQ |domain| '% (CAR |catvlist|)))
                     ((LAMBDA (|bfVar#60| |bfVar#59| |bfVar#58|)
                        (LOOP
                         (COND
@@ -1810,7 +1810,7 @@
                                (PROGN
                                 (SETQ |bfVar#60|
                                         (|extendsCategoryForm| |domain|
-                                         (SUBSTQ |domain| '$ |cat|) |form'|
+                                         (SUBSTQ |domain| '% |cat|) |form'|
                                          |e|))
                                 (COND (|bfVar#60| (RETURN |bfVar#60|)))))))
                         (SETQ |bfVar#59| (CDR |bfVar#59|))))

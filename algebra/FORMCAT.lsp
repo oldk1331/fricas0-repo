@@ -13,8 +13,8 @@
              (LETT #1#
                    (|Join|
                     (|mkCategory|
-                     '(((|convert| ($ (|OutputForm|) (|Integer|))) T)
-                       ((|display| ((|Void|) $)) T))
+                     '(((|convert| (% (|OutputForm|) (|Integer|))) T)
+                       ((|display| ((|Void|) %)) T))
                      NIL NIL NIL)))
            (SETELT #1# 0 '(|OutputFormatterCategory|))))) 
 

@@ -16,34 +16,34 @@
                    (|Join| (|UniqueFactorizationDomain|)
                            (|mkCategory|
                             '(((|squareFreePolynomial|
-                                ((|Factored| (|SparseUnivariatePolynomial| $))
-                                 (|SparseUnivariatePolynomial| $)))
+                                ((|Factored| (|SparseUnivariatePolynomial| %))
+                                 (|SparseUnivariatePolynomial| %)))
                                T)
                               ((|factorPolynomial|
-                                ((|Factored| (|SparseUnivariatePolynomial| $))
-                                 (|SparseUnivariatePolynomial| $)))
+                                ((|Factored| (|SparseUnivariatePolynomial| %))
+                                 (|SparseUnivariatePolynomial| %)))
                                T)
                               ((|factorSquareFreePolynomial|
-                                ((|Factored| (|SparseUnivariatePolynomial| $))
-                                 (|SparseUnivariatePolynomial| $)))
+                                ((|Factored| (|SparseUnivariatePolynomial| %))
+                                 (|SparseUnivariatePolynomial| %)))
                                T)
                               ((|gcdPolynomial|
-                                ((|SparseUnivariatePolynomial| $)
-                                 (|SparseUnivariatePolynomial| $)
-                                 (|SparseUnivariatePolynomial| $)))
+                                ((|SparseUnivariatePolynomial| %)
+                                 (|SparseUnivariatePolynomial| %)
+                                 (|SparseUnivariatePolynomial| %)))
                                T)
                               ((|solveLinearPolynomialEquation|
                                 ((|Union|
-                                  (|List| (|SparseUnivariatePolynomial| $))
+                                  (|List| (|SparseUnivariatePolynomial| %))
                                   "failed")
-                                 (|List| (|SparseUnivariatePolynomial| $))
-                                 (|SparseUnivariatePolynomial| $)))
+                                 (|List| (|SparseUnivariatePolynomial| %))
+                                 (|SparseUnivariatePolynomial| %)))
                                T)
                               ((|conditionP|
-                                ((|Union| (|Vector| $) "failed") (|Matrix| $)))
-                               (|has| $ (|CharacteristicNonZero|)))
-                              ((|charthRoot| ((|Union| $ "failed") $))
-                               (|has| $ (|CharacteristicNonZero|))))
+                                ((|Union| (|Vector| %) "failed") (|Matrix| %)))
+                               (|has| % (|CharacteristicNonZero|)))
+                              ((|charthRoot| ((|Union| % "failed") %))
+                               (|has| % (|CharacteristicNonZero|))))
                             NIL NIL NIL)))
            (SETELT #1# 0 '(|PolynomialFactorizationExplicit|))))) 
 

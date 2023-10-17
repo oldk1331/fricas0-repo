@@ -1,50 +1,50 @@
 
 (PUT '|INFCG;rep| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |INFCG;rep| ((|x| ($)) ($ (|Rep|))) |x|) 
+(SDEFUN |INFCG;rep| ((|x| (%)) (% (|Rep|))) |x|) 
 
 (PUT '|INFCG;per| '|SPADreplace| '(XLAM (|r|) |r|)) 
 
-(SDEFUN |INFCG;per| ((|r| (|Rep|)) ($ ($))) |r|) 
+(SDEFUN |INFCG;per| ((|r| (|Rep|)) (% (%))) |r|) 
 
-(SDEFUN |INFCG;coerce;$Of;3| ((|x| ($)) ($ (|OutputForm|)))
-        (COND ((SPADCALL |x| (QREFELT $ 9)) (SPADCALL 1 (QREFELT $ 12)))
-              ((EQL (|INFCG;rep| |x| $) 1)
-               (SPADCALL (QREFELT $ 6) (QREFELT $ 14)))
+(SDEFUN |INFCG;coerce;%Of;3| ((|x| (%)) (% (|OutputForm|)))
+        (COND ((SPADCALL |x| (QREFELT % 9)) (SPADCALL 1 (QREFELT % 12)))
+              ((EQL (|INFCG;rep| |x| %) 1)
+               (SPADCALL (QREFELT % 6) (QREFELT % 14)))
               ('T
-               (SPADCALL (SPADCALL (QREFELT $ 6) (QREFELT $ 14))
-                         (SPADCALL (|INFCG;rep| |x| $) (QREFELT $ 15))
-                         (QREFELT $ 16))))) 
+               (SPADCALL (SPADCALL (QREFELT % 6) (QREFELT % 14))
+                         (SPADCALL (|INFCG;rep| |x| %) (QREFELT % 15))
+                         (QREFELT % 16))))) 
 
-(SDEFUN |INFCG;hashUpdate!;Hs$Hs;4| ((|hs| #1=(|HashState|)) (|s| ($)) ($ #1#))
-        (HASHSTATEUPDATE |hs| (|INFCG;rep| |s| $))) 
+(SDEFUN |INFCG;hashUpdate!;Hs%Hs;4| ((|hs| #1=(|HashState|)) (|s| (%)) (% #1#))
+        (HASHSTATEUPDATE |hs| (|INFCG;rep| |s| %))) 
 
-(SDEFUN |INFCG;convert;$Se;5| ((|x| ($)) ($ (|SExpression|)))
-        (SPADCALL (|INFCG;rep| |x| $) (QREFELT $ 21))) 
+(SDEFUN |INFCG;convert;%Se;5| ((|x| (%)) (% (|SExpression|)))
+        (SPADCALL (|INFCG;rep| |x| %) (QREFELT % 21))) 
 
-(SDEFUN |INFCG;generator;$;6| (($ ($))) (|INFCG;per| 1 $)) 
+(SDEFUN |INFCG;generator;%;6| ((% (%))) (|INFCG;per| 1 %)) 
 
-(SDEFUN |INFCG;generators;L;7| (($ (|List| $)))
-        (LIST (SPADCALL (QREFELT $ 23)))) 
+(SDEFUN |INFCG;generators;L;7| ((% (|List| %)))
+        (LIST (SPADCALL (QREFELT % 23)))) 
 
-(SDEFUN |INFCG;exponent;$I;8| ((|x| ($)) ($ (|Integer|))) (|INFCG;rep| |x| $)) 
+(SDEFUN |INFCG;exponent;%I;8| ((|x| (%)) (% (|Integer|))) (|INFCG;rep| |x| %)) 
 
-(SDEFUN |INFCG;One;$;9| (($ ($))) (|INFCG;per| 0 $)) 
+(SDEFUN |INFCG;One;%;9| ((% (%))) (|INFCG;per| 0 %)) 
 
-(SDEFUN |INFCG;one?;$B;10| ((|x| ($)) ($ (|Boolean|)))
-        (ZEROP (|INFCG;rep| |x| $))) 
+(SDEFUN |INFCG;one?;%B;10| ((|x| (%)) (% (|Boolean|)))
+        (ZEROP (|INFCG;rep| |x| %))) 
 
-(SDEFUN |INFCG;*;3$;11| ((|x| ($)) (|y| ($)) ($ ($)))
-        (|INFCG;per| (+ (|INFCG;rep| |x| $) (|INFCG;rep| |y| $)) $)) 
+(SDEFUN |INFCG;*;3%;11| ((|x| (%)) (|y| (%)) (% (%)))
+        (|INFCG;per| (+ (|INFCG;rep| |x| %) (|INFCG;rep| |y| %)) %)) 
 
-(SDEFUN |INFCG;inv;2$;12| ((|x| ($)) ($ ($)))
-        (|INFCG;per| (- (|INFCG;rep| |x| $)) $)) 
+(SDEFUN |INFCG;inv;2%;12| ((|x| (%)) (% (%)))
+        (|INFCG;per| (- (|INFCG;rep| |x| %)) %)) 
 
-(SDEFUN |INFCG;=;2$B;13| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
-        (EQL (|INFCG;rep| |x| $) (|INFCG;rep| |y| $))) 
+(SDEFUN |INFCG;=;2%B;13| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
+        (EQL (|INFCG;rep| |x| %) (|INFCG;rep| |y| %))) 
 
-(SDEFUN |INFCG;<;2$B;14| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
-        (< (|INFCG;rep| |x| $) (|INFCG;rep| |y| $))) 
+(SDEFUN |INFCG;<;2%B;14| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
+        (< (|INFCG;rep| |x| %) (|INFCG;rep| |y| %))) 
 
 (DECLAIM (NOTINLINE |InfiniteCyclicGroup;|)) 
 
@@ -66,33 +66,33 @@
                   (HREM |$ConstructorCache| '|InfiniteCyclicGroup|)))))))))) 
 
 (DEFUN |InfiniteCyclicGroup;| (|#1|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 |#1|)
           (LETT |dv$| (LIST '|InfiniteCyclicGroup| DV$1))
-          (LETT $ (GETREFV 37))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (LETT % (GETREFV 37))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|InfiniteCyclicGroup| (LIST DV$1)
-                      (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 7 (|Integer|))
-          $))) 
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 7 (|Integer|))
+          %))) 
 
 (MAKEPROP '|InfiniteCyclicGroup| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep| (|Boolean|)
-              |INFCG;one?;$B;10| (|OutputForm|) (|Integer|) (0 . |coerce|)
+              |INFCG;one?;%B;10| (|OutputForm|) (|Integer|) (0 . |coerce|)
               (|Symbol|) (5 . |coerce|) (10 . |coerce|) (15 . ^)
-              |INFCG;coerce;$Of;3| (|HashState|) |INFCG;hashUpdate!;Hs$Hs;4|
-              (|SExpression|) (21 . |convert|) |INFCG;convert;$Se;5|
-              |INFCG;generator;$;6| (|List| $) |INFCG;generators;L;7|
-              |INFCG;exponent;$I;8|
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |INFCG;One;$;9|) $))
-              |INFCG;*;3$;11| |INFCG;inv;2$;12| |INFCG;=;2$B;13|
-              |INFCG;<;2$B;14| (|NonNegativeInteger|) (|Union| $ '"failed")
+              |INFCG;coerce;%Of;3| (|HashState|) |INFCG;hashUpdate!;Hs%Hs;4|
+              (|SExpression|) (21 . |convert|) |INFCG;convert;%Se;5|
+              |INFCG;generator;%;6| (|List| %) |INFCG;generators;L;7|
+              |INFCG;exponent;%I;8|
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |INFCG;One;%;9|) %))
+              |INFCG;*;3%;11| |INFCG;inv;2%;12| |INFCG;=;2%B;13|
+              |INFCG;<;2%B;14| (|NonNegativeInteger|) (|Union| % '"failed")
               (|PositiveInteger|) (|String|) (|SingleInteger|))
            '#(~= 26 |smaller?| 32 |sample| 38 |rightRecip| 42 |rightPower| 47
               |recip| 59 |one?| 64 |min| 69 |max| 75 |leftRecip| 81 |leftPower|

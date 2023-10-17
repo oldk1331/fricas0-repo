@@ -1,18 +1,18 @@
 
-(SDEFUN |TS;polynomial;$NniP;1|
-        ((|s| ($)) (|n| (|NonNegativeInteger|)) ($ (|Polynomial| |Coef|)))
+(SDEFUN |TS;polynomial;%NniP;1|
+        ((|s| (%)) (|n| (|NonNegativeInteger|)) (% (|Polynomial| |Coef|)))
         (SPROG ((|sum| (|Polynomial| |Coef|)) (#1=#:G111 NIL) (|i| NIL))
-               (SEQ (LETT |sum| (|spadConstant| $ 9))
+               (SEQ (LETT |sum| (|spadConstant| % 9))
                     (SEQ (LETT |i| 0) (LETT #1# |n|) G190
                          (COND
                           ((OR (|greater_SI| |i| #1#)
-                               (NULL (NULL (SPADCALL |s| (QREFELT $ 11)))))
+                               (NULL (NULL (SPADCALL |s| (QREFELT % 11)))))
                            (GO G191)))
                          (SEQ
                           (LETT |sum|
-                                (SPADCALL |sum| (SPADCALL |s| (QREFELT $ 12))
-                                          (QREFELT $ 13)))
-                          (EXIT (LETT |s| (SPADCALL |s| (QREFELT $ 14)))))
+                                (SPADCALL |sum| (SPADCALL |s| (QREFELT % 12))
+                                          (QREFELT % 13)))
+                          (EXIT (LETT |s| (SPADCALL |s| (QREFELT % 14)))))
                          (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                     (EXIT |sum|)))) 
 
@@ -36,13 +36,13 @@
 
 (DEFUN |TaylorSeries;| (|#1|)
   (SPROG
-   ((#1=#:G123 NIL) (|pv$| NIL) (#2=#:G122 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+   ((#1=#:G123 NIL) (|pv$| NIL) (#2=#:G122 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|TaylorSeries| DV$1))
-    (LETT $ (GETREFV 37))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 37))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -66,34 +66,34 @@
                                         (|HasCategory|
                                          (|IndexedExponents| (|Symbol|))
                                          '(|Comparable|))))))
-    (|haddProp| |$ConstructorCache| '|TaylorSeries| (LIST DV$1) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (AND #2# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))
-         (|augmentPredVector| $ 256))
+    (|haddProp| |$ConstructorCache| '|TaylorSeries| (LIST DV$1) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (AND #2# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))
+         (|augmentPredVector| % 256))
     (AND
      (LETT #1#
            (AND (|HasCategory| |#1| '(|IntegralDomain|))
-                (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
-     (|augmentPredVector| $ 512))
+                (|HasCategory| % '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| % 512))
     (AND
-     (OR (AND #2# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))) #1#)
-     (|augmentPredVector| $ 1024))
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 7 (|Stream| (|Polynomial| |#1|)))
-    $))) 
+     (OR (AND #2# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))) #1#)
+     (|augmentPredVector| % 1024))
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 7 (|Stream| (|Polynomial| |#1|)))
+    %))) 
 
 (MAKEPROP '|TaylorSeries| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|SparseMultivariateTaylorSeries| 6 23 8)
               (|local| |#1|) '|Rep| (|Polynomial| 6) (0 . |Zero|) (|Boolean|)
               (4 . |empty?|) (9 . |frst|) (14 . +) (20 . |rst|)
-              (|NonNegativeInteger|) |TS;polynomial;$NniP;1|
-              (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|Union| $ '"failed") (|Record| (|:| |k| 21) (|:| |c| 6))
-              (|List| 19) (|IndexedExponents| 23) (|Mapping| $) (|Symbol|)
-              (|Integer|) (|Fraction| 24) (|List| 23) (|List| 15) (|List| $)
-              (|Equation| $) (|List| 29) (|Mapping| 6 6) (|PositiveInteger|)
+              (|NonNegativeInteger|) |TS;polynomial;%NniP;1|
+              (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
+              (|Union| % '"failed") (|Record| (|:| |k| 21) (|:| |c| 6))
+              (|List| 19) (|IndexedExponents| 23) (|Mapping| %) (|Symbol|)
+              (|Integer|) (|Fraction| 24) (|List| 23) (|List| 15) (|List| %)
+              (|Equation| %) (|List| 29) (|Mapping| 6 6) (|PositiveInteger|)
               (|HashState|) (|String|) (|OutputForm|) (|SingleInteger|))
            '#(~= 25 |zero?| 31 |unitNormal| 36 |unitCanonical| 41 |unit?| 46
               |tanh| 51 |tan| 56 |subtractIfCan| 61 |sqrt| 67 |sinh| 72 |sin|

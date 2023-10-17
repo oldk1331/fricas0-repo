@@ -31,39 +31,39 @@
                                                             T)
                                                            ((|regularRepresentation|
                                                              ((|Matrix| |t#1|)
-                                                              $ (|Vector| $)))
+                                                              % (|Vector| %)))
                                                             T)
-                                                           ((|trace| (|t#1| $))
+                                                           ((|trace| (|t#1| %))
                                                             T)
-                                                           ((|norm| (|t#1| $))
+                                                           ((|norm| (|t#1| %))
                                                             T)
                                                            ((|coordinates|
                                                              ((|Vector| |t#1|)
-                                                              $ (|Vector| $)))
+                                                              % (|Vector| %)))
                                                             T)
                                                            ((|coordinates|
                                                              ((|Matrix| |t#1|)
-                                                              (|Vector| $)
-                                                              (|Vector| $)))
+                                                              (|Vector| %)
+                                                              (|Vector| %)))
                                                             T)
                                                            ((|represents|
-                                                             ($
+                                                             (%
                                                               (|Vector| |t#1|)
-                                                              (|Vector| $)))
+                                                              (|Vector| %)))
                                                             T)
                                                            ((|discriminant|
                                                              (|t#1|
-                                                              (|Vector| $)))
+                                                              (|Vector| %)))
                                                             T)
                                                            ((|traceMatrix|
                                                              ((|Matrix| |t#1|)
-                                                              (|Vector| $)))
+                                                              (|Vector| %)))
                                                             T)
                                                            ((|characteristicPolynomial|
-                                                             (|t#2| $))
+                                                             (|t#2| %))
                                                             T)
                                                            ((|minimalPolynomial|
-                                                             (|t#2| $))
+                                                             (|t#2| %))
                                                             (|has| |t#1|
                                                                    (|Field|))))
                                                          '(((|CharacteristicZero|)

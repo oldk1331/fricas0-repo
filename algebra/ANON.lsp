@@ -1,7 +1,7 @@
 
-(PUT '|ANON;coerce;$Of;1| '|SPADreplace| '|outputTranAnon|) 
+(PUT '|ANON;coerce;%Of;1| '|SPADreplace| '|outputTranAnon|) 
 
-(SDEFUN |ANON;coerce;$Of;1| ((|x| ($)) ($ (|OutputForm|)))
+(SDEFUN |ANON;coerce;%Of;1| ((|x| (%)) (% (|OutputForm|)))
         (|outputTranAnon| |x|)) 
 
 (DECLAIM (NOTINLINE |AnonymousFunction;|)) 
@@ -26,20 +26,20 @@
                   (HREM |$ConstructorCache| '|AnonymousFunction|)))))))))) 
 
 (DEFUN |AnonymousFunction;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|AnonymousFunction|))
-          (LETT $ (GETREFV 12))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|AnonymousFunction| NIL (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+          (LETT % (GETREFV 12))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|AnonymousFunction| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|AnonymousFunction| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|OutputForm|) |ANON;coerce;$Of;1|
+           '#(NIL NIL NIL NIL NIL NIL (|OutputForm|) |ANON;coerce;%Of;1|
               (|String|) (|SingleInteger|) (|HashState|) (|Boolean|))
            '#(~= 0 |latex| 6 |hashUpdate!| 11 |hash| 17 |coerce| 22 = 27) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))

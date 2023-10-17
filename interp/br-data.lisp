@@ -1237,7 +1237,7 @@
 ;
 ;         [op,:[import(y,template) for y in args]]
 ;       INTEGERP x => import(template.x,template)
-;       x = '$ => '$
+;       x = '% => '%
 ;       x = "$$" => "$$"
 ;       STRINGP x => x
 ;       systemError '"bad argument in template"
@@ -1351,7 +1351,7 @@
                         (SETQ |bfVar#55| (CDR |bfVar#55|))))
                      NIL |args| NIL)))))
       ((INTEGERP |x|) (|getImports,import| (ELT |template| |x|) |template|))
-      ((EQ |x| '$) '$) ((EQ |x| '$$) '$$) ((STRINGP |x|) |x|)
+      ((EQ |x| '%) '%) ((EQ |x| '$$) '$$) ((STRINGP |x|) |x|)
       (#1# (|systemError| "bad argument in template"))))))
 
 ; getParentsFor(cname,formalParams,constructorCategory) ==

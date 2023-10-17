@@ -25,10 +25,10 @@
                                                 (|Join| (|Module| '|t#1|)
                                                         (|mkCategory|
                                                          '(((|coproduct|
-                                                             (|t#2| $))
+                                                             (|t#2| %))
                                                             T)
                                                            ((|counit|
-                                                             (|t#1| $))
+                                                             (|t#1| %))
                                                             T))
                                                          NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|Coalgebra| |t#1| |t#2|))))) 

@@ -20,13 +20,13 @@
 (DEFUN |StringTable;| (|#1|)
   (SPROG
    ((#1=#:G164 NIL) (#2=#:G163 NIL) (|pv$| NIL) (#3=#:G161 NIL) (#4=#:G162 NIL)
-    ($ NIL) (|dv$| NIL) (DV$1 NIL))
+    (% NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|StringTable| DV$1))
-    (LETT $ (GETREFV 33))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 33))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -98,24 +98,24 @@
                                          #3#)
                                         (|HasCategory| |#1|
                                                        '(|OrderedSet|))))))
-    (|haddProp| |$ConstructorCache| '|StringTable| (LIST DV$1) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (AND (LETT #2# (|HasCategory| $ '(|finiteAggregate|)))
-         (|augmentPredVector| $ 16384))
+    (|haddProp| |$ConstructorCache| '|StringTable| (LIST DV$1) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (AND (LETT #2# (|HasCategory| % '(|finiteAggregate|)))
+         (|augmentPredVector| % 16384))
     (AND #2#
          (|HasCategory| (|Record| (|:| |key| (|String|)) (|:| |entry| |#1|))
                         '(|OrderedSet|))
-         (|augmentPredVector| $ 32768))
+         (|augmentPredVector| % 32768))
     (AND #2#
          (|HasCategory| (|Record| (|:| |key| (|String|)) (|:| |entry| |#1|))
                         '(|BasicType|))
-         (|augmentPredVector| $ 65536))
+         (|augmentPredVector| % 65536))
     (AND
      (LETT #1#
            (AND (|HasCategory| |#1| '(|BasicType|))
-                (|HasCategory| $ '(|finiteAggregate|))))
-     (|augmentPredVector| $ 131072))
+                (|HasCategory| % '(|finiteAggregate|))))
+     (|augmentPredVector| % 131072))
     (AND
      (OR #1# #4#
          (AND #2#
@@ -123,13 +123,13 @@
                (|Record| (|:| |key| (|String|)) (|:| |entry| |#1|))
                '(|BasicType|)))
          #3#)
-     (|augmentPredVector| $ 262144))
+     (|augmentPredVector| % 262144))
     (AND (|HasCategory| |#1| '(|OrderedSet|)) #2#
-         (|augmentPredVector| $ 524288))
-    (AND (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 1048576))
-    (SETF |pv$| (QREFELT $ 3))
-    $))) 
+         (|augmentPredVector| % 524288))
+    (AND (|HasCategory| % '(|shallowlyMutable|))
+         (|augmentPredVector| % 1048576))
+    (SETF |pv$| (QREFELT % 3))
+    %))) 
 
 (MAKEPROP '|StringTable| '|infovec|
           (LIST

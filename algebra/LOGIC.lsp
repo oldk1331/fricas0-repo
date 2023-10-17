@@ -11,8 +11,8 @@
              (LETT #1#
                    (|Join| (|BoundedDistributiveLattice|)
                            (|mkCategory|
-                            '(((~ ($ $)) T) ((|true| ($) |constant|) T)
-                              ((|false| ($) |constant|) T))
+                            '(((~ (% %)) T) ((|true| (%) |constant|) T)
+                              ((|false| (%) |constant|) T))
                             NIL NIL NIL)))
            (SETELT #1# 0 '(|Logic|))))) 
 

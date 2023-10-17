@@ -34,7 +34,7 @@
                                                         '|t#1| '#2#)
                                                        (|mkCategory|
                                                         '(((|series|
-                                                            ($
+                                                            (%
                                                              (|NonNegativeInteger|)
                                                              (|Stream|
                                                               (|Record|
@@ -45,7 +45,7 @@
                                                                     |t#1|)))))
                                                            T)
                                                           ((|multiplyExponents|
-                                                            ($ $
+                                                            (% %
                                                              (|Fraction|
                                                               (|Integer|))))
                                                            T))

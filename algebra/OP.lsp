@@ -17,13 +17,13 @@
                 (COND ((NOT #2#) (HREM |$ConstructorCache| '|Operator|)))))))))) 
 
 (DEFUN |Operator;| (|#1|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|Operator| DV$1))
-          (LETT $ (GETREFV 21))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3
+          (LETT % (GETREFV 21))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
@@ -33,16 +33,16 @@
                                                              '(|CharacteristicNonZero|))
                                               (|HasCategory| |#1|
                                                              '(|CharacteristicZero|))))))
-          (|haddProp| |$ConstructorCache| '|Operator| (LIST DV$1) (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+          (|haddProp| |$ConstructorCache| '|Operator| (LIST DV$1) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|Operator| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|ModuleOperator| 6 6) (|local| |#1|)
-              (|Union| $ '"failed") (|FreeGroup| 10) (|Integer|)
+              (|Union| % '"failed") (|FreeGroup| 10) (|Integer|)
               (|BasicOperator|) (|Mapping| 6 6) (|Union| 10 '#1="failed")
               (|Union| 6 '#1#) (|NonNegativeInteger|) (|Boolean|)
               (|PositiveInteger|) (|HashState|) (|String|) (|OutputForm|)

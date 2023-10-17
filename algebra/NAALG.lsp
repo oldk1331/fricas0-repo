@@ -27,7 +27,7 @@
                                                         (|Module| '|t#1|)
                                                         (|mkCategory|
                                                          '(((|plenaryPower|
-                                                             ($ $
+                                                             (% %
                                                               (|PositiveInteger|)))
                                                             T))
                                                          NIL NIL NIL)))))))

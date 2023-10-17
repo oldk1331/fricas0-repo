@@ -27,7 +27,7 @@
                                                                     '|t#1|)
                                                         (|mkCategory|
                                                          '(((|coerce|
-                                                             ($ |t#1|))
+                                                             (% |t#1|))
                                                             T))
                                                          '(((|Algebra| |t#1|)
                                                             (|has| |t#1|

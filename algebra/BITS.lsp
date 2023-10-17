@@ -1,7 +1,7 @@
 
-(SDEFUN |BITS;bits;NniB$;1|
-        ((|n| (|NonNegativeInteger|)) (|b| (|Boolean|)) ($ ($)))
-        (SPADCALL |n| |b| (QREFELT $ 8))) 
+(SDEFUN |BITS;bits;NniB%;1|
+        ((|n| (|NonNegativeInteger|)) (|b| (|Boolean|)) (% (%)))
+        (SPADCALL |n| |b| (QREFELT % 8))) 
 
 (DECLAIM (NOTINLINE |Bits;|)) 
 
@@ -22,12 +22,12 @@
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|Bits|)))))))))) 
 
 (DEFUN |Bits;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL) (#1=#:G110 NIL))
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL) (#1=#:G110 NIL))
          (PROGN
           (LETT |dv$| '(|Bits|))
-          (LETT $ (GETREFV 26))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3
+          (LETT % (GETREFV 26))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
@@ -46,32 +46,32 @@
                                                              '(|OrderedSet|))
                                               (|HasCategory| (|Boolean|)
                                                              '(|BasicType|))))))
-          (|haddProp| |$ConstructorCache| '|Bits| NIL (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (AND (|HasCategory| $ '(|shallowlyMutable|))
-               (|augmentPredVector| $ 32))
-          (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)))
-               (|augmentPredVector| $ 64))
-          (AND #1# (|HasCategory| $ '(|shallowlyMutable|))
+          (|haddProp| |$ConstructorCache| '|Bits| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (AND (|HasCategory| % '(|shallowlyMutable|))
+               (|augmentPredVector| % 32))
+          (AND (LETT #1# (|HasCategory| % '(|finiteAggregate|)))
+               (|augmentPredVector| % 64))
+          (AND #1# (|HasCategory| % '(|shallowlyMutable|))
                (|HasCategory| (|Boolean|) '(|OrderedSet|))
-               (|augmentPredVector| $ 128))
-          (AND #1# (|HasCategory| $ '(|shallowlyMutable|))
-               (|augmentPredVector| $ 256))
+               (|augmentPredVector| % 128))
+          (AND #1# (|HasCategory| % '(|shallowlyMutable|))
+               (|augmentPredVector| % 256))
           (AND #1# (|HasCategory| (|Boolean|) '(|BasicType|))
-               (|augmentPredVector| $ 512))
+               (|augmentPredVector| % 512))
           (AND #1# (|HasCategory| (|Boolean|) '(|OrderedSet|))
-               (|augmentPredVector| $ 1024))
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+               (|augmentPredVector| % 1024))
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|Bits| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|IndexedBits| (NRTEVAL 1))
               (|NonNegativeInteger|) (|Boolean|) (0 . |new|)
-              |BITS;bits;NniB$;1| (|List| 11) (|Equation| 7) (|List| 7)
+              |BITS;bits;NniB%;1| (|List| 11) (|Equation| 7) (|List| 7)
               (|Mapping| 7 7 7) (|Integer|) (|InputForm|) (|Mapping| 7 7)
               (|Void|) (|UniversalSegment| 14) (|List| 14)
-              (|Union| 7 '"failed") (|List| $) (|HashState|) (|String|)
+              (|Union| 7 '"failed") (|List| %) (|HashState|) (|String|)
               (|OutputForm|) (|SingleInteger|))
            '#(~= 6 ~ 12 |xor| 17 |true| 23 |trim| 27 |swap!| 33 |sorted?| 40
               |sort!| 51 |sort| 62 |smaller?| 73 |size?| 79 |setelt!| 85

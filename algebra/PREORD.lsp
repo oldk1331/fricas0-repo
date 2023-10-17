@@ -25,7 +25,7 @@
                                                 (|Join| (|FiniteGraph| '|t#1|)
                                                         (|mkCategory|
                                                          '(((|le|
-                                                             ((|Boolean|) $
+                                                             ((|Boolean|) %
                                                               (|NonNegativeInteger|)
                                                               (|NonNegativeInteger|)))
                                                             T))

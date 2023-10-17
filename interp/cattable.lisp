@@ -507,7 +507,7 @@
 ;   pred is [op,:r] =>
 ;     op = 'QUOTE => false
 ;     or/[hasIdent x for x in r]
-;   pred = '_$ => false
+;   pred = '% => false
 ;   IDENTP pred => true
 ;   false
 
@@ -531,7 +531,7 @@
                      (COND (|bfVar#31| (RETURN |bfVar#31|))))))
                   (SETQ |bfVar#30| (CDR |bfVar#30|))))
                NIL |r| NIL))))
-      ((EQ |pred| '$) NIL) ((IDENTP |pred|) T) (#1# NIL)))))
+      ((EQ |pred| '%) NIL) ((IDENTP |pred|) T) (#1# NIL)))))
 
 ; addDomainToTable(id,catl) ==
 ;   alist:= nil

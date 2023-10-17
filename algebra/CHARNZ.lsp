@@ -13,7 +13,7 @@
              (LETT #1#
                    (|Join| (|Ring|)
                            (|mkCategory|
-                            '(((|charthRoot| ((|Union| $ "failed") $)) T)) NIL
+                            '(((|charthRoot| ((|Union| % "failed") %)) T)) NIL
                             NIL NIL)))
            (SETELT #1# 0 '(|CharacteristicNonZero|))))) 
 

@@ -1,7 +1,7 @@
 
 (SDEFUN |LISTPKG;splitList;MLR;1|
         ((|f| (|Mapping| (|Boolean|) T$)) (|l| (|List| T$))
-         ($ (|Record| (|:| |yes| (|List| T$)) (|:| |no| (|List| T$)))))
+         (% (|Record| (|:| |yes| (|List| T$)) (|:| |no| (|List| T$)))))
         (SPROG
          ((|resno| #1=(|List| T$)) (|resyes| #1#) (#2=#:G126 NIL) (|t| NIL))
          (SEQ
@@ -23,7 +23,7 @@
 
 (SDEFUN |LISTPKG;topologicalSort!;M2L;2|
         ((|f| (|Mapping| (|Boolean|) T$ T$)) (|xx| (|List| T$))
-         ($ (|List| T$)))
+         (% (|List| T$)))
         (SPROG
          ((|res| (|List| (|List| T$))) (|xx1| #1=(|List| T$)) (|bucket| #1#)
           (#2=#:G137 NIL) (|x| NIL) (|x0| (T$)))
@@ -45,18 +45,18 @@
                         (LETT |res| (CONS (REVERSE |bucket|) |res|))
                         (EXIT (LETT |xx| (REVERSE |xx1|))))
                    NIL (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL |res| (QREFELT $ 12)))))) 
+              (EXIT (SPADCALL |res| (QREFELT % 12)))))) 
 
 (SDEFUN |LISTPKG;topologicalSort;M2L;3|
         ((|f| (|Mapping| (|Boolean|) T$ T$)) (|xx| (|List| T$))
-         ($ (|List| T$)))
+         (% (|List| T$)))
         (SPROG ((|xx1| (|List| T$)))
-               (SEQ (LETT |xx1| (SPADCALL |xx| (QREFELT $ 15)))
-                    (EXIT (SPADCALL |f| |xx1| (QREFELT $ 14)))))) 
+               (SEQ (LETT |xx1| (SPADCALL |xx| (QREFELT % 15)))
+                    (EXIT (SPADCALL |f| |xx1| (QREFELT % 14)))))) 
 
 (SDEFUN |LISTPKG;topologicalSort;L2L;4|
         ((|adjacency| (|List| (|List| (|Boolean|)))) (|xx| (|List| T$))
-         ($ (|List| T$)))
+         (% (|List| T$)))
         (SPROG
          ((#1=#:G159 NIL) (|p| NIL) (#2=#:G158 NIL)
           (|r| (|List| (|NonNegativeInteger|)))
@@ -86,15 +86,15 @@
                           (EXIT
                            (COND
                             ((SPADCALL
-                              (SPADCALL |adjacency| |x0| (QREFELT $ 20)) |x|
-                              (QREFELT $ 22))
+                              (SPADCALL |adjacency| |x0| (QREFELT % 20)) |x|
+                              (QREFELT % 22))
                              (LETT |bucket| (CONS |x| |bucket|)))
                             ('T (LETT |xx1| (CONS |x| |xx1|))))))
                          (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
                     (LETT |res| (CONS (REVERSE |bucket|) |res|))
                     (EXIT (LETT |xi| (REVERSE |xx1|))))
                NIL (GO G190) G191 (EXIT NIL))
-          (LETT |r| (SPADCALL |res| (QREFELT $ 24)))
+          (LETT |r| (SPADCALL |res| (QREFELT % 24)))
           (EXIT
            (PROGN
             (LETT #2# NIL)
@@ -103,20 +103,20 @@
                   ((OR (ATOM #1#) (PROGN (LETT |p| (CAR #1#)) NIL)) (GO G191)))
                  (SEQ
                   (EXIT
-                   (LETT #2# (CONS (SPADCALL |xx| |p| (QREFELT $ 25)) #2#))))
+                   (LETT #2# (CONS (SPADCALL |xx| |p| (QREFELT % 25)) #2#))))
                  (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT (NREVERSE #2#)))))))) 
 
-(SDEFUN |LISTPKG;shiftLeft;2L;5| ((|xx| (|List| T$)) ($ (|List| T$)))
+(SDEFUN |LISTPKG;shiftLeft;2L;5| ((|xx| (|List| T$)) (% (|List| T$)))
         (SPROG ((#1=#:G162 NIL))
                (SEQ
                 (EXIT
                  (COND ((NULL |xx|) (PROGN (LETT #1# |xx|) (GO #2=#:G161)))
                        ('T
                         (SPADCALL (CDR |xx|) (|SPADfirst| |xx|)
-                                  (QREFELT $ 27)))))
+                                  (QREFELT % 27)))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |LISTPKG;minShift;2L;6| ((|xx| #1=(|List| T$)) ($ (|List| T$)))
+(SDEFUN |LISTPKG;minShift;2L;6| ((|xx| #1=(|List| T$)) (% (|List| T$)))
         (SPROG
          ((|res| #1#) (|xx1| #1#) (#2=#:G171 NIL) (|k| NIL) (#3=#:G170 NIL))
          (SEQ
@@ -128,17 +128,17 @@
              (SEQ (LETT |res| |xx|) (LETT |xx1| |xx|)
                   (SEQ (LETT |k| 2) (LETT #2# (LENGTH |xx|)) G190
                        (COND ((|greater_SI| |k| #2#) (GO G191)))
-                       (SEQ (LETT |xx1| (SPADCALL |xx1| (QREFELT $ 28)))
+                       (SEQ (LETT |xx1| (SPADCALL |xx1| (QREFELT % 28)))
                             (EXIT
                              (COND
-                              ((SPADCALL |xx1| |res| (QREFELT $ 29))
+                              ((SPADCALL |xx1| |res| (QREFELT % 29))
                                (LETT |res| |xx1|)))))
                        (LETT |k| (|inc_SI| |k|)) (GO G190) G191 (EXIT NIL))
                   (EXIT |res|)))))
           #4# (EXIT #3#)))) 
 
 (SDEFUN |LISTPKG;cartesian;2L;7|
-        ((SS (|List| (|List| T$))) ($ (|List| (|List| T$))))
+        ((SS (|List| (|List| T$))) (% (|List| (|List| T$))))
         (SPROG
          ((|res| (|List| (|List| T$))) (#1=#:G185 NIL) (|s| NIL)
           (#2=#:G184 NIL) (|x| NIL) (#3=#:G181 NIL) (#4=#:G183 NIL)
@@ -162,7 +162,7 @@
             ('T
              (SEQ (LETT |res| NIL)
                   (SEQ (LETT |x| NIL)
-                       (LETT #2# (SPADCALL (CDR SS) (QREFELT $ 32))) G190
+                       (LETT #2# (SPADCALL (CDR SS) (QREFELT % 32))) G190
                        (COND
                         ((OR (ATOM #2#) (PROGN (LETT |x| (CAR #2#)) NIL))
                          (GO G191)))
@@ -181,7 +181,7 @@
           #6# (EXIT #3#)))) 
 
 (SDEFUN |LISTPKG;cartesianPower;LNniL;8|
-        ((S (|List| T$)) (|n| (|NonNegativeInteger|)) ($ (|List| (|List| T$))))
+        ((S (|List| T$)) (|n| (|NonNegativeInteger|)) (% (|List| (|List| T$))))
         (SPROG
          ((|res| (|List| (|List| T$))) (#1=#:G201 NIL) (|s| NIL)
           (#2=#:G200 NIL) (|x| NIL) (#3=#:G197 NIL) (#4=#:G199 NIL)
@@ -208,7 +208,7 @@
               ('T
                (SEQ (LETT |res| NIL)
                     (SEQ (LETT |x| NIL)
-                         (LETT #2# (SPADCALL S (- |n| 1) (QREFELT $ 34))) G190
+                         (LETT #2# (SPADCALL S (- |n| 1) (QREFELT % 34))) G190
                          (COND
                           ((OR (ATOM #2#) (PROGN (LETT |x| (CAR #2#)) NIL))
                            (GO G191)))
@@ -247,34 +247,34 @@
                  ((NOT #2#) (HREM |$ConstructorCache| '|ListPackage|)))))))))) 
 
 (DEFUN |ListPackage;| (|#1|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|ListPackage| DV$1))
-          (LETT $ (GETREFV 35))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3
+          (LETT % (GETREFV 35))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
                                               (|HasCategory| |#1|
                                                              '(|OrderedSet|))))))
           (|haddProp| |$ConstructorCache| '|ListPackage| (LIST DV$1)
-                      (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (SETF |pv$| (QREFELT $ 3))
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
           (COND
            ((|testBitVector| |pv$| 1)
-            (QSETREFV $ 30
-                      (CONS (|dispatchFunction| |LISTPKG;minShift;2L;6|) $))))
-          $))) 
+            (QSETREFV % 30
+                      (CONS (|dispatchFunction| |LISTPKG;minShift;2L;6|) %))))
+          %))) 
 
 (MAKEPROP '|ListPackage| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|)
               (|Record| (|:| |yes| 9) (|:| |no| 9)) (|Mapping| 21 6) (|List| 6)
-              |LISTPKG;splitList;MLR;1| (|List| $) (0 . |concat|)
+              |LISTPKG;splitList;MLR;1| (|List| %) (0 . |concat|)
               (|Mapping| 21 6 6) |LISTPKG;topologicalSort!;M2L;2| (5 . |copy|)
               |LISTPKG;topologicalSort;M2L;3| (|List| 21) (|Integer|)
               (|List| 17) (10 . |elt|) (|Boolean|) (16 . |elt|) (|List| 33)

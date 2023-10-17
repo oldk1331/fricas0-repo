@@ -28,18 +28,18 @@
                                                         (|Module| '|t#1|)
                                                         (|mkCategory|
                                                          '(((|algebraic?|
-                                                             ((|Boolean|) $))
+                                                             ((|Boolean|) %))
                                                             T)
                                                            ((|transcendent?|
-                                                             ((|Boolean|) $))
+                                                             ((|Boolean|) %))
                                                             T)
                                                            ((|inGroundField?|
-                                                             ((|Boolean|) $))
+                                                             ((|Boolean|) %))
                                                             T)
                                                            ((|degree|
                                                              ((|OnePointCompletion|
                                                                (|PositiveInteger|))
-                                                              $))
+                                                              %))
                                                             T)
                                                            ((|extensionDegree|
                                                              ((|OnePointCompletion|
@@ -48,12 +48,12 @@
                                                            ((|transcendenceDegree|
                                                              ((|NonNegativeInteger|)))
                                                             T)
-                                                           ((/ ($ $ |t#1|)) T)
-                                                           ((|Frobenius| ($ $))
+                                                           ((/ (% % |t#1|)) T)
+                                                           ((|Frobenius| (% %))
                                                             (|has| |t#1|
                                                                    (|Finite|)))
                                                            ((|Frobenius|
-                                                             ($ $
+                                                             (% %
                                                               (|NonNegativeInteger|)))
                                                             (|has| |t#1|
                                                                    (|Finite|))))

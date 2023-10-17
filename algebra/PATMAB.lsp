@@ -26,11 +26,11 @@
                                                         (|mkCategory|
                                                          '(((|patternMatch|
                                                              ((|PatternMatchResult|
-                                                               |t#1| $)
-                                                              $
+                                                               |t#1| %)
+                                                              %
                                                               (|Pattern| |t#1|)
                                                               (|PatternMatchResult|
-                                                               |t#1| $)))
+                                                               |t#1| %)))
                                                             T))
                                                          NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|PatternMatchable| |t#1|))))) 

@@ -37,99 +37,99 @@
                                                                      '|t#4|)
                                             (|mkCategory|
                                              '(((|purelyAlgebraic?|
-                                                 ((|Boolean|) |t#4| $))
+                                                 ((|Boolean|) |t#4| %))
                                                 T)
                                                ((|purelyTranscendental?|
-                                                 ((|Boolean|) |t#4| $))
+                                                 ((|Boolean|) |t#4| %))
                                                 T)
                                                ((|algebraicCoefficients?|
-                                                 ((|Boolean|) |t#4| $))
+                                                 ((|Boolean|) |t#4| %))
                                                 T)
                                                ((|purelyAlgebraic?|
-                                                 ((|Boolean|) $))
+                                                 ((|Boolean|) %))
                                                 T)
                                                ((|purelyAlgebraicLeadingMonomial?|
-                                                 ((|Boolean|) |t#4| $))
+                                                 ((|Boolean|) |t#4| %))
                                                 T)
                                                ((|invertibleElseSplit?|
                                                  ((|Union| (|Boolean|)
-                                                           (|List| $))
-                                                  |t#4| $))
+                                                           (|List| %))
+                                                  |t#4| %))
                                                 T)
                                                ((|invertible?|
                                                  ((|List|
                                                    (|Record|
                                                     (|:| |val| (|Boolean|))
-                                                    (|:| |tower| $)))
-                                                  |t#4| $))
+                                                    (|:| |tower| %)))
+                                                  |t#4| %))
                                                 T)
                                                ((|invertible?|
-                                                 ((|Boolean|) |t#4| $))
+                                                 ((|Boolean|) |t#4| %))
                                                 T)
                                                ((|invertibleSet|
-                                                 ((|List| $) |t#4| $))
+                                                 ((|List| %) |t#4| %))
                                                 T)
                                                ((|lastSubResultantElseSplit|
-                                                 ((|Union| |t#4| (|List| $))
-                                                  |t#4| |t#4| $))
+                                                 ((|Union| |t#4| (|List| %))
+                                                  |t#4| |t#4| %))
                                                 T)
                                                ((|lastSubResultant|
                                                  ((|List|
                                                    (|Record| (|:| |val| |t#4|)
-                                                             (|:| |tower| $)))
-                                                  |t#4| |t#4| $))
+                                                             (|:| |tower| %)))
+                                                  |t#4| |t#4| %))
                                                 T)
                                                ((|squareFreePart|
                                                  ((|List|
                                                    (|Record| (|:| |val| |t#4|)
-                                                             (|:| |tower| $)))
-                                                  |t#4| $))
+                                                             (|:| |tower| %)))
+                                                  |t#4| %))
                                                 T)
                                                ((|intersect|
-                                                 ((|List| $) |t#4| $))
+                                                 ((|List| %) |t#4| %))
                                                 T)
                                                ((|intersect|
-                                                 ((|List| $) (|List| |t#4|) $))
+                                                 ((|List| %) (|List| |t#4|) %))
                                                 T)
                                                ((|intersect|
-                                                 ((|List| $) (|List| |t#4|)
-                                                  (|List| $)))
+                                                 ((|List| %) (|List| |t#4|)
+                                                  (|List| %)))
                                                 T)
                                                ((|intersect|
-                                                 ((|List| $) |t#4| (|List| $)))
+                                                 ((|List| %) |t#4| (|List| %)))
                                                 T)
                                                ((|augment|
-                                                 ((|List| $) |t#4| $))
+                                                 ((|List| %) |t#4| %))
                                                 T)
                                                ((|augment|
-                                                 ((|List| $) |t#4| (|List| $)))
+                                                 ((|List| %) |t#4| (|List| %)))
                                                 T)
                                                ((|augment|
-                                                 ((|List| $) (|List| |t#4|) $))
+                                                 ((|List| %) (|List| |t#4|) %))
                                                 T)
                                                ((|augment|
-                                                 ((|List| $) (|List| |t#4|)
-                                                  (|List| $)))
+                                                 ((|List| %) (|List| |t#4|)
+                                                  (|List| %)))
                                                 T)
-                                               ((|internalAugment| ($ |t#4| $))
+                                               ((|internalAugment| (% |t#4| %))
                                                 T)
                                                ((|internalAugment|
-                                                 ($ (|List| |t#4|) $))
+                                                 (% (|List| |t#4|) %))
                                                 T)
-                                               ((|extend| ((|List| $) |t#4| $))
-                                                T)
-                                               ((|extend|
-                                                 ((|List| $) |t#4| (|List| $)))
+                                               ((|extend| ((|List| %) |t#4| %))
                                                 T)
                                                ((|extend|
-                                                 ((|List| $) (|List| |t#4|) $))
+                                                 ((|List| %) |t#4| (|List| %)))
                                                 T)
                                                ((|extend|
-                                                 ((|List| $) (|List| |t#4|)
-                                                  (|List| $)))
+                                                 ((|List| %) (|List| |t#4|) %))
+                                                T)
+                                               ((|extend|
+                                                 ((|List| %) (|List| |t#4|)
+                                                  (|List| %)))
                                                 T)
                                                ((|zeroSetSplit|
-                                                 ((|List| $) (|List| |t#4|)
+                                                 ((|List| %) (|List| |t#4|)
                                                   (|Boolean|)))
                                                 T))
                                              NIL NIL NIL)))))))

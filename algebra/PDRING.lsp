@@ -26,33 +26,33 @@
                                                 (|Join| (|Ring|)
                                                         (|mkCategory|
                                                          '(((|differentiate|
-                                                             ($ $ |t#1|))
+                                                             (% % |t#1|))
                                                             T)
                                                            ((|differentiate|
-                                                             ($ $
+                                                             (% %
                                                               (|List| |t#1|)))
                                                             T)
                                                            ((|differentiate|
-                                                             ($ $ |t#1|
+                                                             (% % |t#1|
                                                               (|NonNegativeInteger|)))
                                                             T)
                                                            ((|differentiate|
-                                                             ($ $
+                                                             (% %
                                                               (|List| |t#1|)
                                                               (|List|
                                                                (|NonNegativeInteger|))))
                                                             T)
-                                                           ((D ($ $ |t#1|)) T)
+                                                           ((D (% % |t#1|)) T)
                                                            ((D
-                                                             ($ $
+                                                             (% %
                                                               (|List| |t#1|)))
                                                             T)
                                                            ((D
-                                                             ($ $ |t#1|
+                                                             (% % |t#1|
                                                               (|NonNegativeInteger|)))
                                                             T)
                                                            ((D
-                                                             ($ $
+                                                             (% %
                                                               (|List| |t#1|)
                                                               (|List|
                                                                (|NonNegativeInteger|))))

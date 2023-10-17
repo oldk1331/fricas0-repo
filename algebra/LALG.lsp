@@ -26,7 +26,7 @@
                                                         (|LeftModule| '|t#1|)
                                                         (|mkCategory|
                                                          '(((|coerce|
-                                                             ($ |t#1|))
+                                                             (% |t#1|))
                                                             T))
                                                          NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|LeftAlgebra| |t#1|))))) 

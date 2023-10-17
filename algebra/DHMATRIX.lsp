@@ -1,126 +1,126 @@
 
-(SDEFUN |DHMATRIX;identity;$;1| (($ ($)))
+(SDEFUN |DHMATRIX;identity;%;1| ((% (%)))
         (SPADCALL
          (LIST
-          (LIST (|spadConstant| $ 7) (|spadConstant| $ 8) (|spadConstant| $ 8)
-                (|spadConstant| $ 8))
-          (LIST (|spadConstant| $ 8) (|spadConstant| $ 7) (|spadConstant| $ 8)
-                (|spadConstant| $ 8))
-          (LIST (|spadConstant| $ 8) (|spadConstant| $ 8) (|spadConstant| $ 7)
-                (|spadConstant| $ 8))
-          (LIST (|spadConstant| $ 8) (|spadConstant| $ 8) (|spadConstant| $ 8)
-                (|spadConstant| $ 7)))
-         (QREFELT $ 10))) 
+          (LIST (|spadConstant| % 7) (|spadConstant| % 8) (|spadConstant| % 8)
+                (|spadConstant| % 8))
+          (LIST (|spadConstant| % 8) (|spadConstant| % 7) (|spadConstant| % 8)
+                (|spadConstant| % 8))
+          (LIST (|spadConstant| % 8) (|spadConstant| % 8) (|spadConstant| % 7)
+                (|spadConstant| % 8))
+          (LIST (|spadConstant| % 8) (|spadConstant| % 8) (|spadConstant| % 8)
+                (|spadConstant| % 7)))
+         (QREFELT % 10))) 
 
-(SDEFUN |DHMATRIX;*;$2P;2| ((|d| ($)) (|p| (|Point| R)) ($ (|Point| R)))
+(SDEFUN |DHMATRIX;*;%2P;2| ((|d| (%)) (|p| (|Point| R)) (% (|Point| R)))
         (SPROG ((|v| (|Vector| R)))
                (SEQ (LETT |v| |p|)
                     (LETT |v|
-                          (SPADCALL |v| (|spadConstant| $ 7) (QREFELT $ 13)))
-                    (LETT |v| (SPADCALL |d| |v| (QREFELT $ 14)))
+                          (SPADCALL |v| (|spadConstant| % 7) (QREFELT % 13)))
+                    (LETT |v| (SPADCALL |d| |v| (QREFELT % 14)))
                     (EXIT
                      (SPADCALL
-                      (LIST (SPADCALL |v| 1 (QREFELT $ 16))
-                            (SPADCALL |v| 2 (QREFELT $ 16))
-                            (SPADCALL |v| 3 (QREFELT $ 16)))
-                      (QREFELT $ 19)))))) 
+                      (LIST (SPADCALL |v| 1 (QREFELT % 16))
+                            (SPADCALL |v| 2 (QREFELT % 16))
+                            (SPADCALL |v| 3 (QREFELT % 16)))
+                      (QREFELT % 19)))))) 
 
-(SDEFUN |DHMATRIX;rotatex;R$;3| ((|degree| (R)) ($ ($)))
+(SDEFUN |DHMATRIX;rotatex;R%;3| ((|degree| (R)) (% (%)))
         (SPROG ((|sinAngle| (R)) (|cosAngle| (R)) (|angle| (R)))
                (SEQ
                 (LETT |angle|
                       (SPADCALL
-                       (SPADCALL |degree| (SPADCALL (QREFELT $ 21))
-                                 (QREFELT $ 22))
-                       (SPADCALL 180 (QREFELT $ 23)) (QREFELT $ 24)))
-                (LETT |cosAngle| (SPADCALL |angle| (QREFELT $ 25)))
-                (LETT |sinAngle| (SPADCALL |angle| (QREFELT $ 26)))
+                       (SPADCALL |degree| (SPADCALL (QREFELT % 21))
+                                 (QREFELT % 22))
+                       (SPADCALL 180 (QREFELT % 23)) (QREFELT % 24)))
+                (LETT |cosAngle| (SPADCALL |angle| (QREFELT % 25)))
+                (LETT |sinAngle| (SPADCALL |angle| (QREFELT % 26)))
                 (EXIT
                  (SPADCALL
                   (LIST
-                   (LIST (|spadConstant| $ 7) (|spadConstant| $ 8)
-                         (|spadConstant| $ 8) (|spadConstant| $ 8))
-                   (LIST (|spadConstant| $ 8) |cosAngle|
-                         (SPADCALL |sinAngle| (QREFELT $ 27))
-                         (|spadConstant| $ 8))
-                   (LIST (|spadConstant| $ 8) |sinAngle| |cosAngle|
-                         (|spadConstant| $ 8))
-                   (LIST (|spadConstant| $ 8) (|spadConstant| $ 8)
-                         (|spadConstant| $ 8) (|spadConstant| $ 7)))
-                  (QREFELT $ 10)))))) 
+                   (LIST (|spadConstant| % 7) (|spadConstant| % 8)
+                         (|spadConstant| % 8) (|spadConstant| % 8))
+                   (LIST (|spadConstant| % 8) |cosAngle|
+                         (SPADCALL |sinAngle| (QREFELT % 27))
+                         (|spadConstant| % 8))
+                   (LIST (|spadConstant| % 8) |sinAngle| |cosAngle|
+                         (|spadConstant| % 8))
+                   (LIST (|spadConstant| % 8) (|spadConstant| % 8)
+                         (|spadConstant| % 8) (|spadConstant| % 7)))
+                  (QREFELT % 10)))))) 
 
-(SDEFUN |DHMATRIX;rotatey;R$;4| ((|degree| (R)) ($ ($)))
+(SDEFUN |DHMATRIX;rotatey;R%;4| ((|degree| (R)) (% (%)))
         (SPROG ((|sinAngle| (R)) (|cosAngle| (R)) (|angle| (R)))
                (SEQ
                 (LETT |angle|
                       (SPADCALL
-                       (SPADCALL |degree| (SPADCALL (QREFELT $ 21))
-                                 (QREFELT $ 22))
-                       (SPADCALL 180 (QREFELT $ 23)) (QREFELT $ 24)))
-                (LETT |cosAngle| (SPADCALL |angle| (QREFELT $ 25)))
-                (LETT |sinAngle| (SPADCALL |angle| (QREFELT $ 26)))
+                       (SPADCALL |degree| (SPADCALL (QREFELT % 21))
+                                 (QREFELT % 22))
+                       (SPADCALL 180 (QREFELT % 23)) (QREFELT % 24)))
+                (LETT |cosAngle| (SPADCALL |angle| (QREFELT % 25)))
+                (LETT |sinAngle| (SPADCALL |angle| (QREFELT % 26)))
                 (EXIT
                  (SPADCALL
                   (LIST
-                   (LIST |cosAngle| (|spadConstant| $ 8) |sinAngle|
-                         (|spadConstant| $ 8))
-                   (LIST (|spadConstant| $ 8) (|spadConstant| $ 7)
-                         (|spadConstant| $ 8) (|spadConstant| $ 8))
-                   (LIST (SPADCALL |sinAngle| (QREFELT $ 27))
-                         (|spadConstant| $ 8) |cosAngle| (|spadConstant| $ 8))
-                   (LIST (|spadConstant| $ 8) (|spadConstant| $ 8)
-                         (|spadConstant| $ 8) (|spadConstant| $ 7)))
-                  (QREFELT $ 10)))))) 
+                   (LIST |cosAngle| (|spadConstant| % 8) |sinAngle|
+                         (|spadConstant| % 8))
+                   (LIST (|spadConstant| % 8) (|spadConstant| % 7)
+                         (|spadConstant| % 8) (|spadConstant| % 8))
+                   (LIST (SPADCALL |sinAngle| (QREFELT % 27))
+                         (|spadConstant| % 8) |cosAngle| (|spadConstant| % 8))
+                   (LIST (|spadConstant| % 8) (|spadConstant| % 8)
+                         (|spadConstant| % 8) (|spadConstant| % 7)))
+                  (QREFELT % 10)))))) 
 
-(SDEFUN |DHMATRIX;rotatez;R$;5| ((|degree| (R)) ($ ($)))
+(SDEFUN |DHMATRIX;rotatez;R%;5| ((|degree| (R)) (% (%)))
         (SPROG ((|sinAngle| (R)) (|cosAngle| (R)) (|angle| (R)))
                (SEQ
                 (LETT |angle|
                       (SPADCALL
-                       (SPADCALL |degree| (SPADCALL (QREFELT $ 21))
-                                 (QREFELT $ 22))
-                       (SPADCALL 180 (QREFELT $ 23)) (QREFELT $ 24)))
-                (LETT |cosAngle| (SPADCALL |angle| (QREFELT $ 25)))
-                (LETT |sinAngle| (SPADCALL |angle| (QREFELT $ 26)))
+                       (SPADCALL |degree| (SPADCALL (QREFELT % 21))
+                                 (QREFELT % 22))
+                       (SPADCALL 180 (QREFELT % 23)) (QREFELT % 24)))
+                (LETT |cosAngle| (SPADCALL |angle| (QREFELT % 25)))
+                (LETT |sinAngle| (SPADCALL |angle| (QREFELT % 26)))
                 (EXIT
                  (SPADCALL
                   (LIST
-                   (LIST |cosAngle| (SPADCALL |sinAngle| (QREFELT $ 27))
-                         (|spadConstant| $ 8) (|spadConstant| $ 8))
-                   (LIST |sinAngle| |cosAngle| (|spadConstant| $ 8)
-                         (|spadConstant| $ 8))
-                   (LIST (|spadConstant| $ 8) (|spadConstant| $ 8)
-                         (|spadConstant| $ 7) (|spadConstant| $ 8))
-                   (LIST (|spadConstant| $ 8) (|spadConstant| $ 8)
-                         (|spadConstant| $ 8) (|spadConstant| $ 7)))
-                  (QREFELT $ 10)))))) 
+                   (LIST |cosAngle| (SPADCALL |sinAngle| (QREFELT % 27))
+                         (|spadConstant| % 8) (|spadConstant| % 8))
+                   (LIST |sinAngle| |cosAngle| (|spadConstant| % 8)
+                         (|spadConstant| % 8))
+                   (LIST (|spadConstant| % 8) (|spadConstant| % 8)
+                         (|spadConstant| % 7) (|spadConstant| % 8))
+                   (LIST (|spadConstant| % 8) (|spadConstant| % 8)
+                         (|spadConstant| % 8) (|spadConstant| % 7)))
+                  (QREFELT % 10)))))) 
 
-(SDEFUN |DHMATRIX;scale;3R$;6|
-        ((|scalex| (R)) (|scaley| (R)) (|scalez| (R)) ($ ($)))
+(SDEFUN |DHMATRIX;scale;3R%;6|
+        ((|scalex| (R)) (|scaley| (R)) (|scalez| (R)) (% (%)))
         (SPADCALL
          (LIST
-          (LIST |scalex| (|spadConstant| $ 8) (|spadConstant| $ 8)
-                (|spadConstant| $ 8))
-          (LIST (|spadConstant| $ 8) |scaley| (|spadConstant| $ 8)
-                (|spadConstant| $ 8))
-          (LIST (|spadConstant| $ 8) (|spadConstant| $ 8) |scalez|
-                (|spadConstant| $ 8))
-          (LIST (|spadConstant| $ 8) (|spadConstant| $ 8) (|spadConstant| $ 8)
-                (|spadConstant| $ 7)))
-         (QREFELT $ 10))) 
+          (LIST |scalex| (|spadConstant| % 8) (|spadConstant| % 8)
+                (|spadConstant| % 8))
+          (LIST (|spadConstant| % 8) |scaley| (|spadConstant| % 8)
+                (|spadConstant| % 8))
+          (LIST (|spadConstant| % 8) (|spadConstant| % 8) |scalez|
+                (|spadConstant| % 8))
+          (LIST (|spadConstant| % 8) (|spadConstant| % 8) (|spadConstant| % 8)
+                (|spadConstant| % 7)))
+         (QREFELT % 10))) 
 
-(SDEFUN |DHMATRIX;translate;3R$;7| ((|x| (R)) (|y| (R)) (|z| (R)) ($ ($)))
+(SDEFUN |DHMATRIX;translate;3R%;7| ((|x| (R)) (|y| (R)) (|z| (R)) (% (%)))
         (SPADCALL
          (LIST
-          (LIST (|spadConstant| $ 7) (|spadConstant| $ 8) (|spadConstant| $ 8)
+          (LIST (|spadConstant| % 7) (|spadConstant| % 8) (|spadConstant| % 8)
                 |x|)
-          (LIST (|spadConstant| $ 8) (|spadConstant| $ 7) (|spadConstant| $ 8)
+          (LIST (|spadConstant| % 8) (|spadConstant| % 7) (|spadConstant| % 8)
                 |y|)
-          (LIST (|spadConstant| $ 8) (|spadConstant| $ 8) (|spadConstant| $ 7)
+          (LIST (|spadConstant| % 8) (|spadConstant| % 8) (|spadConstant| % 7)
                 |z|)
-          (LIST (|spadConstant| $ 8) (|spadConstant| $ 8) (|spadConstant| $ 8)
-                (|spadConstant| $ 7)))
-         (QREFELT $ 10))) 
+          (LIST (|spadConstant| % 8) (|spadConstant| % 8) (|spadConstant| % 8)
+                (|spadConstant| % 7)))
+         (QREFELT % 10))) 
 
 (DECLAIM (NOTINLINE |DenavitHartenbergMatrix;|)) 
 
@@ -144,13 +144,13 @@
 
 (DEFUN |DenavitHartenbergMatrix;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G126 NIL) (#2=#:G127 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G126 NIL) (#2=#:G127 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|DenavitHartenbergMatrix| DV$1))
-    (LETT $ (GETREFV 58))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 58))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -209,36 +209,36 @@
                                                        '(|CommutativeRing|))
                                         (|HasCategory| |#1| '(|Field|))))))
     (|haddProp| |$ConstructorCache| '|DenavitHartenbergMatrix| (LIST DV$1)
-                (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 131072))
+                (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (AND (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 131072))
     (AND (|HasCategory| |#1| '(|OrderedSet|))
-         (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 262144))
+         (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 262144))
     (AND (|HasCategory| |#1| '(|BasicType|))
-         (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 524288))
+         (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 524288))
     (AND
      (OR
       (AND (|HasCategory| |#1| '(|BasicType|))
-           (|HasCategory| $ '(|finiteAggregate|)))
+           (|HasCategory| % '(|finiteAggregate|)))
       #2#)
-     (|augmentPredVector| $ 1048576))
-    (SETF |pv$| (QREFELT $ 3))
-    $))) 
+     (|augmentPredVector| % 1048576))
+    (SETF |pv$| (QREFELT % 3))
+    %))) 
 
 (MAKEPROP '|DenavitHartenbergMatrix| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|Matrix| 6) (|local| |#1|) (0 . |One|)
-              (4 . |Zero|) (|List| 17) (8 . |matrix|) |DHMATRIX;identity;$;1|
+              (4 . |Zero|) (|List| 17) (8 . |matrix|) |DHMATRIX;identity;%;1|
               (|Vector| 6) (13 . |concat|) (19 . *) (|Integer|) (25 . |elt|)
-              (|List| 6) (|Point| 6) (31 . |point|) |DHMATRIX;*;$2P;2|
+              (|List| 6) (|Point| 6) (31 . |point|) |DHMATRIX;*;%2P;2|
               (36 . |pi|) (40 . *) (46 . |coerce|) (51 . /) (57 . |cos|)
-              (62 . |sin|) (67 . -) |DHMATRIX;rotatex;R$;3|
-              |DHMATRIX;rotatey;R$;4| |DHMATRIX;rotatez;R$;5|
-              |DHMATRIX;scale;3R$;6| |DHMATRIX;translate;3R$;7| (|Boolean|)
+              (62 . |sin|) (67 . -) |DHMATRIX;rotatex;R%;3|
+              |DHMATRIX;rotatey;R%;4| |DHMATRIX;rotatez;R%;5|
+              |DHMATRIX;scale;3R%;6| |DHMATRIX;translate;3R%;7| (|Boolean|)
               (|NonNegativeInteger|) (|Equation| 6) (|List| 35)
               (|Mapping| 33 6 6) (|Mapping| 33 6) (|OutputForm|) (|List| 12)
-              (|Union| $ '"failed") (|List| $) (|HashState|) (|SingleInteger|)
+              (|Union| % '"failed") (|List| %) (|HashState|) (|SingleInteger|)
               (|String|) (|Void|) (|List| 52) (|Union| 6 '"one")
               (|Mapping| 6 15 15) (|Mapping| 6 6 6) (|List| 42) (|List| 34)
               (|Mapping| 6 6) (|PositiveInteger|) (|List| 56) (|Segment| 15)

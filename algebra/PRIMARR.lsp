@@ -1,42 +1,42 @@
 
-(PUT '|PRIMARR;#;$Nni;1| '|SPADreplace| 'QVSIZE) 
+(PUT '|PRIMARR;#;%Nni;1| '|SPADreplace| 'QVSIZE) 
 
-(SDEFUN |PRIMARR;#;$Nni;1| ((|x| ($)) ($ (|NonNegativeInteger|))) (QVSIZE |x|)) 
+(SDEFUN |PRIMARR;#;%Nni;1| ((|x| (%)) (% (|NonNegativeInteger|))) (QVSIZE |x|)) 
 
-(PUT '|PRIMARR;minIndex;$I;2| '|SPADreplace| '(XLAM (|x|) 0)) 
+(PUT '|PRIMARR;minIndex;%I;2| '|SPADreplace| '(XLAM (|x|) 0)) 
 
-(SDEFUN |PRIMARR;minIndex;$I;2| ((|x| ($)) ($ (|Integer|))) 0) 
+(SDEFUN |PRIMARR;minIndex;%I;2| ((|x| (%)) (% (|Integer|))) 0) 
 
-(PUT '|PRIMARR;empty;$;3| '|SPADreplace| '(XLAM NIL (MAKE-ARRAY 0))) 
+(PUT '|PRIMARR;empty;%;3| '|SPADreplace| '(XLAM NIL (MAKE-ARRAY 0))) 
 
-(SDEFUN |PRIMARR;empty;$;3| (($ ($))) (MAKE-ARRAY 0)) 
+(SDEFUN |PRIMARR;empty;%;3| ((% (%))) (MAKE-ARRAY 0)) 
 
-(PUT '|PRIMARR;new;NniS$;4| '|SPADreplace| 'MAKEARR1) 
+(PUT '|PRIMARR;new;NniS%;4| '|SPADreplace| 'MAKEARR1) 
 
-(SDEFUN |PRIMARR;new;NniS$;4| ((|n| (|NonNegativeInteger|)) (|x| (S)) ($ ($)))
+(SDEFUN |PRIMARR;new;NniS%;4| ((|n| (|NonNegativeInteger|)) (|x| (S)) (% (%)))
         (MAKEARR1 |n| |x|)) 
 
-(PUT '|PRIMARR;qelt;$IS;5| '|SPADreplace| 'QAREF1) 
+(PUT '|PRIMARR;qelt;%IS;5| '|SPADreplace| 'QAREF1) 
 
-(SDEFUN |PRIMARR;qelt;$IS;5| ((|x| ($)) (|i| (|Integer|)) ($ (S)))
+(SDEFUN |PRIMARR;qelt;%IS;5| ((|x| (%)) (|i| (|Integer|)) (% (S)))
         (QAREF1 |x| |i|)) 
 
-(PUT '|PRIMARR;elt;$IS;6| '|SPADreplace| 'QAREF1) 
+(PUT '|PRIMARR;elt;%IS;6| '|SPADreplace| 'QAREF1) 
 
-(SDEFUN |PRIMARR;elt;$IS;6| ((|x| ($)) (|i| (|Integer|)) ($ (S)))
+(SDEFUN |PRIMARR;elt;%IS;6| ((|x| (%)) (|i| (|Integer|)) (% (S)))
         (QAREF1 |x| |i|)) 
 
-(PUT '|PRIMARR;qsetelt!;$I2S;7| '|SPADreplace| 'QSETAREF1) 
+(PUT '|PRIMARR;qsetelt!;%I2S;7| '|SPADreplace| 'QSETAREF1) 
 
-(SDEFUN |PRIMARR;qsetelt!;$I2S;7|
-        ((|x| ($)) (|i| (|Integer|)) (|s| (S)) ($ (S))) (QSETAREF1 |x| |i| |s|)) 
+(SDEFUN |PRIMARR;qsetelt!;%I2S;7|
+        ((|x| (%)) (|i| (|Integer|)) (|s| (S)) (% (S))) (QSETAREF1 |x| |i| |s|)) 
 
-(PUT '|PRIMARR;setelt!;$I2S;8| '|SPADreplace| 'QSETAREF1) 
+(PUT '|PRIMARR;setelt!;%I2S;8| '|SPADreplace| 'QSETAREF1) 
 
-(SDEFUN |PRIMARR;setelt!;$I2S;8|
-        ((|x| ($)) (|i| (|Integer|)) (|s| (S)) ($ (S))) (QSETAREF1 |x| |i| |s|)) 
+(SDEFUN |PRIMARR;setelt!;%I2S;8|
+        ((|x| (%)) (|i| (|Integer|)) (|s| (S)) (% (S))) (QSETAREF1 |x| |i| |s|)) 
 
-(SDEFUN |PRIMARR;fill!;$S$;9| ((|x| ($)) (|s| (S)) ($ ($)))
+(SDEFUN |PRIMARR;fill!;%S%;9| ((|x| (%)) (|s| (S)) (% (%)))
         (SPROG ((#1=#:G1893 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 0) (LETT #1# (QVMAXINDEX |x|)) G190
@@ -45,8 +45,8 @@
                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (EXIT |x|)))) 
 
-(SDEFUN |PRIMARR;hashUpdate!;Hs$Hs;10|
-        ((|s| (|HashState|)) (|x| ($)) ($ (|HashState|)))
+(SDEFUN |PRIMARR;hashUpdate!;Hs%Hs;10|
+        ((|s| (|HashState|)) (|x| (%)) (% (|HashState|)))
         (SPROG ((#1=#:G1898 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 0) (LETT #1# (QVMAXINDEX |x|)) G190
@@ -54,7 +54,7 @@
                      (SEQ
                       (EXIT
                        (LETT |s|
-                             (SPADCALL |s| (QAREF1 |x| |i|) (QREFELT $ 19)))))
+                             (SPADCALL |s| (QAREF1 |x| |i|) (QREFELT % 19)))))
                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (EXIT |s|)))) 
 
@@ -79,14 +79,14 @@
 
 (DEFUN |PrimitiveArray;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G1906 NIL) (#2=#:G1907 NIL) (#3=#:G1908 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G1906 NIL) (#2=#:G1907 NIL) (#3=#:G1908 NIL) (% NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|PrimitiveArray| DV$1))
-    (LETT $ (GETREFV 38))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 38))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -129,64 +129,64 @@
                                             (|HasCategory| |#1|
                                                            '(|OrderedSet|))
                                             #2#)))))
-    (|haddProp| |$ConstructorCache| '|PrimitiveArray| (LIST DV$1) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 4096))
-    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 8192))
+    (|haddProp| |$ConstructorCache| '|PrimitiveArray| (LIST DV$1) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (AND (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 4096))
+    (AND (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 8192))
     (AND (|HasCategory| |#1| '(|BasicType|))
-         (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 16384))
-    (AND (|HasCategory| $ '(|finiteAggregate|))
-         (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 32768))
+         (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 16384))
+    (AND (|HasCategory| % '(|finiteAggregate|))
+         (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 32768))
     (AND (|HasCategory| |#1| '(|OrderedSet|))
-         (|HasCategory| $ '(|finiteAggregate|))
-         (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 65536))
+         (|HasCategory| % '(|finiteAggregate|))
+         (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 65536))
     (AND (|HasCategory| |#1| '(|OrderedSet|))
-         (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 131072))
+         (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 131072))
     (AND
-     (OR (AND #3# (|HasCategory| $ '(|finiteAggregate|)))
+     (OR (AND #3# (|HasCategory| % '(|finiteAggregate|)))
          (AND (|HasCategory| |#1| '(|OrderedSet|))
-              (|HasCategory| $ '(|finiteAggregate|))))
-     (|augmentPredVector| $ 262144))
+              (|HasCategory| % '(|finiteAggregate|))))
+     (|augmentPredVector| % 262144))
     (AND
-     (OR (AND #3# (|HasCategory| $ '(|finiteAggregate|)))
+     (OR (AND #3# (|HasCategory| % '(|finiteAggregate|)))
          (AND (|HasCategory| |#1| '(|OrderedSet|))
-              (|HasCategory| $ '(|finiteAggregate|)))
+              (|HasCategory| % '(|finiteAggregate|)))
          #2#)
-     (|augmentPredVector| $ 524288))
+     (|augmentPredVector| % 524288))
     (AND
-     (OR #1# (AND #3# (|HasCategory| $ '(|finiteAggregate|)))
+     (OR #1# (AND #3# (|HasCategory| % '(|finiteAggregate|)))
          (AND (|HasCategory| |#1| '(|OrderedSet|))
-              (|HasCategory| $ '(|finiteAggregate|))))
-     (|augmentPredVector| $ 1048576))
+              (|HasCategory| % '(|finiteAggregate|))))
+     (|augmentPredVector| % 1048576))
     (AND
      (OR
       (AND (|HasCategory| |#1| '(|BasicType|))
-           (|HasCategory| $ '(|finiteAggregate|)))
-      (AND #3# (|HasCategory| $ '(|finiteAggregate|)))
+           (|HasCategory| % '(|finiteAggregate|)))
+      (AND #3# (|HasCategory| % '(|finiteAggregate|)))
       (AND (|HasCategory| |#1| '(|OrderedSet|))
-           (|HasCategory| $ '(|finiteAggregate|)))
+           (|HasCategory| % '(|finiteAggregate|)))
       #2#)
-     (|augmentPredVector| $ 2097152))
-    (SETF |pv$| (QREFELT $ 3))
+     (|augmentPredVector| % 2097152))
+    (SETF |pv$| (QREFELT % 3))
     (COND
      ((|testBitVector| |pv$| 7)
-      (QSETREFV $ 20
-                (CONS (|dispatchFunction| |PRIMARR;hashUpdate!;Hs$Hs;10|) $))))
-    $))) 
+      (QSETREFV % 20
+                (CONS (|dispatchFunction| |PRIMARR;hashUpdate!;Hs%Hs;10|) %))))
+    %))) 
 
 (MAKEPROP '|PrimitiveArray| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|NonNegativeInteger|)
-              |PRIMARR;#;$Nni;1| (|Integer|) |PRIMARR;minIndex;$I;2|
-              |PRIMARR;empty;$;3| |PRIMARR;new;NniS$;4| |PRIMARR;qelt;$IS;5|
-              |PRIMARR;elt;$IS;6| |PRIMARR;qsetelt!;$I2S;7|
-              |PRIMARR;setelt!;$I2S;8| |PRIMARR;fill!;$S$;9| (|HashState|)
+              |PRIMARR;#;%Nni;1| (|Integer|) |PRIMARR;minIndex;%I;2|
+              |PRIMARR;empty;%;3| |PRIMARR;new;NniS%;4| |PRIMARR;qelt;%IS;5|
+              |PRIMARR;elt;%IS;6| |PRIMARR;qsetelt!;%I2S;7|
+              |PRIMARR;setelt!;%I2S;8| |PRIMARR;fill!;%S%;9| (|HashState|)
               (0 . |hashUpdate!|) (6 . |hashUpdate!|) (|Mapping| 23 6 6)
               (|Mapping| 6 6 6) (|Boolean|) (|List| 6) (|List| 26)
               (|Equation| 6) (|OutputForm|) (|SingleInteger|) (|String|)
               (|Mapping| 23 6) (|UniversalSegment| 9) (|Void|) (|Mapping| 6 6)
-              (|InputForm|) (|List| $) (|Union| 6 '"failed") (|List| 9))
+              (|InputForm|) (|List| %) (|Union| 6 '"failed") (|List| 9))
            '#(~= 12 |trim| 18 |swap!| 24 |sorted?| 31 |sort!| 42 |sort| 53
               |smaller?| 64 |size?| 70 |setelt!| 76 |select| 90 |sample| 96
               |rightTrim| 100 |reverse!| 106 |reverse| 111 |removeDuplicates|

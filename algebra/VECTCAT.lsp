@@ -26,43 +26,43 @@
                                                  (|OneDimensionalArrayAggregate|
                                                   '|t#1|)
                                                  (|mkCategory|
-                                                  '(((+ ($ $ $))
+                                                  '(((+ (% % %))
                                                      (|has| |t#1|
                                                             (|AbelianSemiGroup|)))
                                                     ((|zero|
-                                                      ($
+                                                      (%
                                                        (|NonNegativeInteger|)))
                                                      (|has| |t#1|
                                                             (|AbelianMonoid|)))
-                                                    ((|zero?| ((|Boolean|) $))
+                                                    ((|zero?| ((|Boolean|) %))
                                                      (|has| |t#1|
                                                             (|AbelianMonoid|)))
-                                                    ((- ($ $))
+                                                    ((- (% %))
                                                      (|has| |t#1|
                                                             (|AbelianGroup|)))
-                                                    ((- ($ $ $))
+                                                    ((- (% % %))
                                                      (|has| |t#1|
                                                             (|AbelianGroup|)))
-                                                    ((* ($ (|Integer|) $))
+                                                    ((* (% (|Integer|) %))
                                                      (|has| |t#1|
                                                             (|AbelianGroup|)))
-                                                    ((* ($ |t#1| $))
+                                                    ((* (% |t#1| %))
                                                      (|has| |t#1|
                                                             (|SemiGroup|)))
-                                                    ((* ($ $ |t#1|))
+                                                    ((* (% % |t#1|))
                                                      (|has| |t#1|
                                                             (|SemiGroup|)))
-                                                    ((|dot| (|t#1| $ $))
+                                                    ((|dot| (|t#1| % %))
                                                      (AND
                                                       (|has| |t#1| (|SemiRng|))
                                                       (|has| |t#1|
                                                              (|AbelianMonoid|))))
                                                     ((|outerProduct|
-                                                      ((|Matrix| |t#1|) $ $))
+                                                      ((|Matrix| |t#1|) % %))
                                                      (|has| |t#1| (|Ring|)))
-                                                    ((|cross| ($ $ $))
+                                                    ((|cross| (% % %))
                                                      (|has| |t#1| (|Ring|)))
-                                                    ((|length| (|t#1| $))
+                                                    ((|length| (|t#1| %))
                                                      (AND
                                                       (|has| |t#1| (|Ring|))
                                                       (|has| |t#1|

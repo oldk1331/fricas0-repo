@@ -1,14 +1,14 @@
 
-(SDEFUN |EAB;=;2$B;1| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
-        (SPADCALL |x| |y| (QREFELT $ 8))) 
+(SDEFUN |EAB;=;2%B;1| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
+        (SPADCALL |x| |y| (QREFELT % 8))) 
 
-(SDEFUN |EAB;<;2$B;2| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
+(SDEFUN |EAB;<;2%B;2| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (COND ((NULL |x|) (NULL (NULL |y|))) ((NULL |y|) NIL)
               ((EQL (|SPADfirst| |x|) (|SPADfirst| |y|))
-               (SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 10)))
+               (SPADCALL (CDR |x|) (CDR |y|) (QREFELT % 10)))
               ('T (> (|SPADfirst| |x|) (|SPADfirst| |y|))))) 
 
-(SDEFUN |EAB;coerce;L$;3| ((|li| (|List| (|Integer|))) ($ ($)))
+(SDEFUN |EAB;coerce;L%;3| ((|li| (|List| (|Integer|))) (% (%)))
         (SPROG ((#1=#:G123 NIL) (|x| NIL))
                (SEQ
                 (SEQ (LETT |x| NIL) (LETT #1# |li|) G190
@@ -18,14 +18,14 @@
                      (SEQ
                       (EXIT
                        (COND
-                        ((SPADCALL |x| 1 (QREFELT $ 12))
+                        ((SPADCALL |x| 1 (QREFELT % 12))
                          (COND
-                          ((SPADCALL |x| 0 (QREFELT $ 12))
+                          ((SPADCALL |x| 0 (QREFELT % 12))
                            (|error| "coerce: values can only be 0 and 1")))))))
                      (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                 (EXIT |li|)))) 
 
-(SDEFUN |EAB;degree;$Nni;4| ((|x| ($)) ($ (|NonNegativeInteger|)))
+(SDEFUN |EAB;degree;%Nni;4| ((|x| (%)) (% (|NonNegativeInteger|)))
         (SPROG
          ((#1=#:G130 NIL) (#2=#:G128 NIL) (#3=#:G127 #4=(|Integer|))
           (#5=#:G129 #4#) (#6=#:G132 NIL) (#7=#:G104 NIL))
@@ -50,10 +50,10 @@
             (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|) '(|Integer|)
                               #1#))))) 
 
-(SDEFUN |EAB;exponents;$L;5| ((|x| ($)) ($ (|List| (|Integer|))))
-        (SPADCALL |x| (QREFELT $ 17))) 
+(SDEFUN |EAB;exponents;%L;5| ((|x| (%)) (% (|List| (|Integer|))))
+        (SPADCALL |x| (QREFELT % 17))) 
 
-(SDEFUN |EAB;Nul;Nni$;6| ((|n| (|NonNegativeInteger|)) ($ ($)))
+(SDEFUN |EAB;Nul;Nni%;6| ((|n| (|NonNegativeInteger|)) (% (%)))
         (SPROG ((#1=#:G138 NIL) (|i| NIL) (#2=#:G137 NIL))
                (SEQ
                 (PROGN
@@ -64,8 +64,8 @@
                       (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(SDEFUN |EAB;coerce;$Of;7| ((|x| ($)) ($ (|OutputForm|)))
-        (SPADCALL |x| (QREFELT $ 21))) 
+(SDEFUN |EAB;coerce;%Of;7| ((|x| (%)) (% (|OutputForm|)))
+        (SPADCALL |x| (QREFELT % 21))) 
 
 (DECLAIM (NOTINLINE |ExtAlgBasis;|)) 
 
@@ -87,25 +87,25 @@
                  ((NOT #1#) (HREM |$ConstructorCache| '|ExtAlgBasis|)))))))))) 
 
 (DEFUN |ExtAlgBasis;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|ExtAlgBasis|))
-          (LETT $ (GETREFV 26))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|ExtAlgBasis| NIL (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 6 (|List| (|Integer|)))
-          $))) 
+          (LETT % (GETREFV 26))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|ExtAlgBasis| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6 (|List| (|Integer|)))
+          %))) 
 
 (MAKEPROP '|ExtAlgBasis| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL '|Rep| (|Boolean|) (0 . =) |EAB;=;2$B;1|
-              |EAB;<;2$B;2| (|Integer|) (6 . ~=) (|List| 11) |EAB;coerce;L$;3|
-              (|NonNegativeInteger|) |EAB;degree;$Nni;4| (12 . |copy|)
-              |EAB;exponents;$L;5| |EAB;Nul;Nni$;6| (|OutputForm|)
-              (17 . |coerce|) |EAB;coerce;$Of;7| (|String|) (|SingleInteger|)
+           '#(NIL NIL NIL NIL NIL NIL '|Rep| (|Boolean|) (0 . =) |EAB;=;2%B;1|
+              |EAB;<;2%B;2| (|Integer|) (6 . ~=) (|List| 11) |EAB;coerce;L%;3|
+              (|NonNegativeInteger|) |EAB;degree;%Nni;4| (12 . |copy|)
+              |EAB;exponents;%L;5| |EAB;Nul;Nni%;6| (|OutputForm|)
+              (17 . |coerce|) |EAB;coerce;%Of;7| (|String|) (|SingleInteger|)
               (|HashState|))
            '#(~= 22 |smaller?| 28 |min| 34 |max| 40 |latex| 46 |hashUpdate!| 51
               |hash| 57 |exponents| 62 |degree| 67 |coerce| 72 |Nul| 82 >= 87 >

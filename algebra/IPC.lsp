@@ -29,39 +29,39 @@
                                                   '|t#1|)
                                                  (|mkCategory|
                                                   '(((|map|
-                                                      ($
+                                                      (%
                                                        (|Mapping| |t#1| |t#1|)
-                                                       $))
+                                                       %))
                                                      T)
                                                     ((|monomial|
-                                                      ($ |t#1| |t#2|))
+                                                      (% |t#1| |t#2|))
                                                      T)
                                                     ((|monomial?|
-                                                      ((|Boolean|) $))
+                                                      ((|Boolean|) %))
                                                      T)
                                                     ((|construct|
-                                                      ($
+                                                      (%
                                                        (|List|
                                                         (|Record|
                                                          (|:| |k| |t#2|)
                                                          (|:| |c| |t#1|)))))
                                                      T)
-                                                    ((|leadingMonomial| ($ $))
+                                                    ((|leadingMonomial| (% %))
                                                      (|has| |t#2|
                                                             (|Comparable|)))
                                                     ((|leadingCoefficient|
-                                                      (|t#1| $))
+                                                      (|t#1| %))
                                                      (|has| |t#2|
                                                             (|Comparable|)))
                                                     ((|leadingSupport|
-                                                      (|t#2| $))
+                                                      (|t#2| %))
                                                      (|has| |t#2|
                                                             (|Comparable|)))
-                                                    ((|reductum| ($ $))
+                                                    ((|reductum| (% %))
                                                      (|has| |t#2|
                                                             (|Comparable|)))
                                                     ((|constructOrdered|
-                                                      ($
+                                                      (%
                                                        (|List|
                                                         (|Record|
                                                          (|:| |k| |t#2|)
@@ -72,7 +72,7 @@
                                                       ((|Record|
                                                         (|:| |k| |t#2|)
                                                         (|:| |c| |t#1|))
-                                                       $))
+                                                       %))
                                                      (|has| |t#2|
                                                             (|Comparable|))))
                                                   NIL NIL NIL)))))))

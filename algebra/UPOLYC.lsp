@@ -35,113 +35,113 @@
                                                         '|t#1| '#2# '#3#)
                                                        (|Eltable| '|t#1|
                                                                   '|t#1|)
-                                                       (|Eltable| '$ '$)
+                                                       (|Eltable| '% '%)
                                                        (|mkCategory|
                                                         '(((|vectorise|
-                                                            ((|Vector| |t#1|) $
+                                                            ((|Vector| |t#1|) %
                                                              (|NonNegativeInteger|)))
                                                            T)
                                                           ((|unvectorise|
-                                                            ($
+                                                            (%
                                                              (|Vector| |t#1|)))
                                                            T)
                                                           ((|makeSUP|
                                                             ((|SparseUnivariatePolynomial|
                                                               |t#1|)
-                                                             $))
+                                                             %))
                                                            T)
                                                           ((|unmakeSUP|
-                                                            ($
+                                                            (%
                                                              (|SparseUnivariatePolynomial|
                                                               |t#1|)))
                                                            T)
                                                           ((|multiplyExponents|
-                                                            ($ $
+                                                            (% %
                                                              (|NonNegativeInteger|)))
                                                            T)
                                                           ((|divideExponents|
-                                                            ((|Union| $
+                                                            ((|Union| %
                                                                       "failed")
-                                                             $
+                                                             %
                                                              (|NonNegativeInteger|)))
                                                            T)
                                                           ((|shiftLeft|
-                                                            ($ $
+                                                            (% %
                                                              (|NonNegativeInteger|)))
                                                            T)
                                                           ((|monicDivide|
                                                             ((|Record|
                                                               (|:| |quotient|
-                                                                   $)
+                                                                   %)
                                                               (|:| |remainder|
-                                                                   $))
-                                                             $ $))
+                                                                   %))
+                                                             % %))
                                                            (|has| |t#1|
                                                                   (|Ring|)))
                                                           ((|karatsubaDivide|
                                                             ((|Record|
                                                               (|:| |quotient|
-                                                                   $)
+                                                                   %)
                                                               (|:| |remainder|
-                                                                   $))
-                                                             $
+                                                                   %))
+                                                             %
                                                              (|NonNegativeInteger|)))
                                                            (|has| |t#1|
                                                                   (|Ring|)))
                                                           ((|shiftRight|
-                                                            ($ $
+                                                            (% %
                                                              (|NonNegativeInteger|)))
                                                            (|has| |t#1|
                                                                   (|Ring|)))
                                                           ((|pseudoRemainder|
-                                                            ($ $ $))
+                                                            (% % %))
                                                            (|has| |t#1|
                                                                   (|Ring|)))
                                                           ((|differentiate|
-                                                            ($ $
+                                                            (% %
                                                              (|Mapping| |t#1|
                                                                         |t#1|)
-                                                             $))
+                                                             %))
                                                            (|has| |t#1|
                                                                   (|Ring|)))
                                                           ((|discriminant|
-                                                            (|t#1| $))
+                                                            (|t#1| %))
                                                            (|has| |t#1|
                                                                   (|CommutativeRing|)))
                                                           ((|resultant|
-                                                            (|t#1| $ $))
+                                                            (|t#1| % %))
                                                            (|has| |t#1|
                                                                   (|CommutativeRing|)))
                                                           ((|elt|
-                                                            ((|Fraction| $)
-                                                             (|Fraction| $)
-                                                             (|Fraction| $)))
+                                                            ((|Fraction| %)
+                                                             (|Fraction| %)
+                                                             (|Fraction| %)))
                                                            (|has| |t#1|
                                                                   (|IntegralDomain|)))
                                                           ((|order|
                                                             ((|NonNegativeInteger|)
-                                                             $ $))
+                                                             % %))
                                                            (|has| |t#1|
                                                                   (|IntegralDomain|)))
                                                           ((|subResultantGcd|
-                                                            ($ $ $))
+                                                            (% % %))
                                                            (|has| |t#1|
                                                                   (|IntegralDomain|)))
                                                           ((|composite|
-                                                            ((|Union| $
+                                                            ((|Union| %
                                                                       "failed")
-                                                             $ $))
+                                                             % %))
                                                            (|has| |t#1|
                                                                   (|IntegralDomain|)))
                                                           ((|composite|
                                                             ((|Union|
-                                                              (|Fraction| $)
+                                                              (|Fraction| %)
                                                               "failed")
-                                                             (|Fraction| $) $))
+                                                             (|Fraction| %) %))
                                                            (|has| |t#1|
                                                                   (|IntegralDomain|)))
                                                           ((|pseudoQuotient|
-                                                            ($ $ $))
+                                                            (% % %))
                                                            (|has| |t#1|
                                                                   (|IntegralDomain|)))
                                                           ((|pseudoDivide|
@@ -149,28 +149,28 @@
                                                               (|:| |coef|
                                                                    |t#1|)
                                                               (|:| |quotient|
-                                                                   $)
+                                                                   %)
                                                               (|:| |remainder|
-                                                                   $))
-                                                             $ $))
+                                                                   %))
+                                                             % %))
                                                            (|has| |t#1|
                                                                   (|IntegralDomain|)))
                                                           ((|separate|
                                                             ((|Record|
                                                               (|:| |primePart|
-                                                                   $)
+                                                                   %)
                                                               (|:| |commonPart|
-                                                                   $))
-                                                             $ $))
+                                                                   %))
+                                                             % %))
                                                            (|has| |t#1|
                                                                   (|GcdDomain|)))
                                                           ((|elt|
                                                             (|t#1|
-                                                             (|Fraction| $)
+                                                             (|Fraction| %)
                                                              |t#1|))
                                                            (|has| |t#1|
                                                                   (|Field|)))
-                                                          ((|integrate| ($ $))
+                                                          ((|integrate| (% %))
                                                            (|has| |t#1|
                                                                   (|Algebra|
                                                                    (|Fraction|
@@ -186,8 +186,8 @@
                                                            (|has| |t#1|
                                                                   (|StepThrough|)))
                                                           ((|Eltable|
-                                                            (|Fraction| $)
-                                                            (|Fraction| $))
+                                                            (|Fraction| %)
+                                                            (|Fraction| %))
                                                            (|has| |t#1|
                                                                   (|IntegralDomain|)))
                                                           ((|EuclideanDomain|)

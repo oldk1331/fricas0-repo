@@ -1,20 +1,20 @@
 
 (SDEFUN |MTHING;mergeDifference;3L;1|
-        ((|x| (|List| S)) (|y| (|List| S)) ($ (|List| S)))
+        ((|x| (|List| S)) (|y| (|List| S)) (% (|List| S)))
         (SEQ
          (COND ((OR (NULL |x|) (NULL |y|)) |x|)
                ('T
                 (SEQ
-                 (|MTHING;mergeDifference1| |x| (|SPADfirst| |y|) (CDR |y|) $)
+                 (|MTHING;mergeDifference1| |x| (|SPADfirst| |y|) (CDR |y|) %)
                  (EXIT
                   (COND
                    ((SPADCALL (|SPADfirst| |x|) (|SPADfirst| |y|)
-                              (QREFELT $ 8))
+                              (QREFELT % 8))
                     (CDR |x|))
                    ('T |x|)))))))) 
 
 (SDEFUN |MTHING;mergeDifference1|
-        ((|x| #1=(|List| S)) (|fy| (S)) (|ry| (|List| S)) ($ (|List| S)))
+        ((|x| #1=(|List| S)) (|fy| (S)) (|ry| (|List| S)) (% (|List| S)))
         (SPROG ((#2=#:G126 NIL) (|frx| (S)) (|rx| #1#))
                (SEQ
                 (EXIT
@@ -26,7 +26,7 @@
                                  (SEQ G190
                                       (COND
                                        ((NULL
-                                         (SPADCALL |fy| |frx| (QREFELT $ 11)))
+                                         (SPADCALL |fy| |frx| (QREFELT % 11)))
                                         (GO G191)))
                                       (SEQ
                                        (EXIT
@@ -42,10 +42,10 @@
                                       NIL (GO G190) G191 (EXIT NIL))
                                  (EXIT
                                   (COND
-                                   ((SPADCALL |frx| |fy| (QREFELT $ 8))
+                                   ((SPADCALL |frx| |fy| (QREFELT % 8))
                                     (SEQ
                                      (SPADCALL |x| '|rest| (CDR |rx|)
-                                               (QREFELT $ 13))
+                                               (QREFELT % 13))
                                      (EXIT
                                       (COND
                                        ((NULL |ry|)
@@ -77,18 +77,18 @@
                  ((NOT #2#) (HREM |$ConstructorCache| '|MergeThing|)))))))))) 
 
 (DEFUN |MergeThing;| (|#1|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|MergeThing| DV$1))
-          (LETT $ (GETREFV 14))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|MergeThing| (LIST DV$1) (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+          (LETT % (GETREFV 14))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|MergeThing| (LIST DV$1) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|MergeThing| '|infovec|
           (LIST

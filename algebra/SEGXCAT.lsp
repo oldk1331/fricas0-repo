@@ -28,13 +28,13 @@
                                                  (|SegmentCategory| '|t#1|)
                                                  (|mkCategory|
                                                   '(((|expand|
-                                                      (|t#2| (|List| $)))
+                                                      (|t#2| (|List| %)))
                                                      T)
-                                                    ((|expand| (|t#2| $)) T)
+                                                    ((|expand| (|t#2| %)) T)
                                                     ((|map|
                                                       (|t#2|
                                                        (|Mapping| |t#1| |t#1|)
-                                                       $))
+                                                       %))
                                                      T))
                                                   NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|SegmentExpansionCategory| |t#1| |t#2|))))) 

@@ -34,10 +34,10 @@
                                                  ((|List|
                                                    (|Record| (|:| |k| |t#2|)
                                                              (|:| |c| |t#1|)))
-                                                  $))
+                                                  %))
                                                 T)
                                                ((|numberOfMonomials|
-                                                 ((|NonNegativeInteger|) $))
+                                                 ((|NonNegativeInteger|) %))
                                                 T))
                                              '(((|Comparable|)
                                                 (AND

@@ -1,42 +1,42 @@
 
 (PUT '|GTSET;rep| '|SPADreplace| '(XLAM (|s|) |s|)) 
 
-(SDEFUN |GTSET;rep| ((|s| ($)) ($ (|List| P))) |s|) 
+(SDEFUN |GTSET;rep| ((|s| (%)) (% (|List| P))) |s|) 
 
 (PUT '|GTSET;per| '|SPADreplace| '(XLAM (|l|) |l|)) 
 
-(SDEFUN |GTSET;per| ((|l| (|List| P)) ($ ($))) |l|) 
+(SDEFUN |GTSET;per| ((|l| (|List| P)) (% (%))) |l|) 
 
-(SDEFUN |GTSET;copy;2$;3| ((|ts| ($)) ($ ($)))
-        (|GTSET;per| (SPADCALL (|GTSET;rep| |ts| $) (QREFELT $ 11)) $)) 
+(SDEFUN |GTSET;copy;2%;3| ((|ts| (%)) (% (%)))
+        (|GTSET;per| (SPADCALL (|GTSET;rep| |ts| %) (QREFELT % 11)) %)) 
 
-(SDEFUN |GTSET;empty;$;4| (($ ($))) (|GTSET;per| NIL $)) 
+(SDEFUN |GTSET;empty;%;4| ((% (%))) (|GTSET;per| NIL %)) 
 
-(SDEFUN |GTSET;empty?;$B;5| ((|ts| ($)) ($ (|Boolean|)))
-        (NULL (|GTSET;rep| |ts| $))) 
+(SDEFUN |GTSET;empty?;%B;5| ((|ts| (%)) (% (|Boolean|)))
+        (NULL (|GTSET;rep| |ts| %))) 
 
-(SDEFUN |GTSET;parts;$L;6| ((|ts| ($)) ($ (|List| P))) (|GTSET;rep| |ts| $)) 
+(SDEFUN |GTSET;parts;%L;6| ((|ts| (%)) (% (|List| P))) (|GTSET;rep| |ts| %)) 
 
-(SDEFUN |GTSET;members;$L;7| ((|ts| ($)) ($ (|List| P))) (|GTSET;rep| |ts| $)) 
+(SDEFUN |GTSET;members;%L;7| ((|ts| (%)) (% (|List| P))) (|GTSET;rep| |ts| %)) 
 
-(SDEFUN |GTSET;map;M2$;8| ((|f| (|Mapping| P P)) (|ts| ($)) ($ ($)))
-        (SPADCALL (SPADCALL |f| (|GTSET;rep| |ts| $) (QREFELT $ 19))
-                  (QREFELT $ 20))) 
+(SDEFUN |GTSET;map;M2%;8| ((|f| (|Mapping| P P)) (|ts| (%)) (% (%)))
+        (SPADCALL (SPADCALL |f| (|GTSET;rep| |ts| %) (QREFELT % 19))
+                  (QREFELT % 20))) 
 
-(SDEFUN |GTSET;map!;M2$;9| ((|f| (|Mapping| P P)) (|ts| ($)) ($ ($)))
-        (SPADCALL (SPADCALL |f| (|GTSET;rep| |ts| $) (QREFELT $ 22))
-                  (QREFELT $ 20))) 
+(SDEFUN |GTSET;map!;M2%;9| ((|f| (|Mapping| P P)) (|ts| (%)) (% (%)))
+        (SPADCALL (SPADCALL |f| (|GTSET;rep| |ts| %) (QREFELT % 22))
+                  (QREFELT % 20))) 
 
-(SDEFUN |GTSET;member?;P$B;10| ((|p| (P)) (|ts| ($)) ($ (|Boolean|)))
-        (SPADCALL |p| (|GTSET;rep| |ts| $) (QREFELT $ 24))) 
+(SDEFUN |GTSET;member?;P%B;10| ((|p| (P)) (|ts| (%)) (% (|Boolean|)))
+        (SPADCALL |p| (|GTSET;rep| |ts| %) (QREFELT % 24))) 
 
-(PUT '|GTSET;roughUnitIdeal?;$B;11| '|SPADreplace| '(XLAM (|ts|) NIL)) 
+(PUT '|GTSET;roughUnitIdeal?;%B;11| '|SPADreplace| '(XLAM (|ts|) NIL)) 
 
-(SDEFUN |GTSET;roughUnitIdeal?;$B;11| ((|ts| ($)) ($ (|Boolean|))) NIL) 
+(SDEFUN |GTSET;roughUnitIdeal?;%B;11| ((|ts| (%)) (% (|Boolean|))) NIL) 
 
-(SDEFUN |GTSET;coerce;$Of;12| ((|ts| ($)) ($ (|OutputForm|)))
+(SDEFUN |GTSET;coerce;%Of;12| ((|ts| (%)) (% (|OutputForm|)))
         (SPROG ((#1=#:G133 NIL) (|p| NIL) (#2=#:G132 NIL) (|lp| (|List| P)))
-               (SEQ (LETT |lp| (REVERSE (|GTSET;rep| |ts| $)))
+               (SEQ (LETT |lp| (REVERSE (|GTSET;rep| |ts| %)))
                     (EXIT
                      (SPADCALL
                       (PROGN
@@ -48,37 +48,37 @@
                             (SEQ
                              (EXIT
                               (LETT #2#
-                                    (CONS (SPADCALL |p| (QREFELT $ 28)) #2#))))
+                                    (CONS (SPADCALL |p| (QREFELT % 28)) #2#))))
                             (LETT #1# (CDR #1#)) (GO G190) G191
                             (EXIT (NREVERSE #2#))))
-                      (QREFELT $ 30)))))) 
+                      (QREFELT % 30)))))) 
 
-(SDEFUN |GTSET;mvar;$V;13| ((|ts| ($)) ($ (V)))
+(SDEFUN |GTSET;mvar;%V;13| ((|ts| (%)) (% (V)))
         (COND
-         ((SPADCALL |ts| (QREFELT $ 15))
+         ((SPADCALL |ts| (QREFELT % 15))
           (|error| "failed in mvar : % -> V from GTSET"))
-         ('T (SPADCALL (|SPADfirst| (|GTSET;rep| |ts| $)) (QREFELT $ 32))))) 
+         ('T (SPADCALL (|SPADfirst| (|GTSET;rep| |ts| %)) (QREFELT % 32))))) 
 
-(SDEFUN |GTSET;first;$U;14| ((|ts| ($)) ($ (|Union| P "failed")))
-        (COND ((SPADCALL |ts| (QREFELT $ 15)) (CONS 1 "failed"))
-              ('T (CONS 0 (|SPADfirst| (|GTSET;rep| |ts| $)))))) 
+(SDEFUN |GTSET;first;%U;14| ((|ts| (%)) (% (|Union| P "failed")))
+        (COND ((SPADCALL |ts| (QREFELT % 15)) (CONS 1 "failed"))
+              ('T (CONS 0 (|SPADfirst| (|GTSET;rep| |ts| %)))))) 
 
-(SDEFUN |GTSET;last;$U;15| ((|ts| ($)) ($ (|Union| P "failed")))
-        (COND ((SPADCALL |ts| (QREFELT $ 15)) (CONS 1 "failed"))
-              ('T (CONS 0 (SPADCALL (|GTSET;rep| |ts| $) (QREFELT $ 36)))))) 
+(SDEFUN |GTSET;last;%U;15| ((|ts| (%)) (% (|Union| P "failed")))
+        (COND ((SPADCALL |ts| (QREFELT % 15)) (CONS 1 "failed"))
+              ('T (CONS 0 (SPADCALL (|GTSET;rep| |ts| %) (QREFELT % 36)))))) 
 
-(SDEFUN |GTSET;rest;$U;16| ((|ts| ($)) ($ (|Union| $ "failed")))
-        (COND ((SPADCALL |ts| (QREFELT $ 15)) (CONS 1 "failed"))
-              ('T (CONS 0 (|GTSET;per| (CDR (|GTSET;rep| |ts| $)) $))))) 
+(SDEFUN |GTSET;rest;%U;16| ((|ts| (%)) (% (|Union| % "failed")))
+        (COND ((SPADCALL |ts| (QREFELT % 15)) (CONS 1 "failed"))
+              ('T (CONS 0 (|GTSET;per| (CDR (|GTSET;rep| |ts| %)) %))))) 
 
-(SDEFUN |GTSET;coerce;$L;17| ((|ts| ($)) ($ (|List| P))) (|GTSET;rep| |ts| $)) 
+(SDEFUN |GTSET;coerce;%L;17| ((|ts| (%)) (% (|List| P))) (|GTSET;rep| |ts| %)) 
 
-(SDEFUN |GTSET;collectUpper;$V$;18| ((|ts| ($)) (|v| (V)) ($ ($)))
+(SDEFUN |GTSET;collectUpper;%V%;18| ((|ts| (%)) (|v| (V)) (% (%)))
         (SPROG ((|lp| (|List| P)) (|newlp| (|List| P)))
                (SEQ
-                (COND ((SPADCALL |ts| (QREFELT $ 15)) |ts|)
+                (COND ((SPADCALL |ts| (QREFELT % 15)) |ts|)
                       ('T
-                       (SEQ (LETT |lp| (|GTSET;rep| |ts| $)) (LETT |newlp| NIL)
+                       (SEQ (LETT |lp| (|GTSET;rep| |ts| %)) (LETT |newlp| NIL)
                             (SEQ G190
                                  (COND
                                   ((NULL
@@ -86,22 +86,22 @@
                                           ('T
                                            (SPADCALL
                                             (SPADCALL (|SPADfirst| |lp|)
-                                                      (QREFELT $ 32))
-                                            |v| (QREFELT $ 41)))))
+                                                      (QREFELT % 32))
+                                            |v| (QREFELT % 41)))))
                                    (GO G191)))
                                  (SEQ
                                   (LETT |newlp|
                                         (CONS (|SPADfirst| |lp|) |newlp|))
                                   (EXIT (LETT |lp| (CDR |lp|))))
                                  NIL (GO G190) G191 (EXIT NIL))
-                            (EXIT (|GTSET;per| (REVERSE |newlp|) $)))))))) 
+                            (EXIT (|GTSET;per| (REVERSE |newlp|) %)))))))) 
 
-(SDEFUN |GTSET;collectUnder;$V$;19| ((|ts| ($)) (|v| (V)) ($ ($)))
+(SDEFUN |GTSET;collectUnder;%V%;19| ((|ts| (%)) (|v| (V)) (% (%)))
         (SPROG ((|lp| (|List| P)))
                (SEQ
-                (COND ((SPADCALL |ts| (QREFELT $ 15)) |ts|)
+                (COND ((SPADCALL |ts| (QREFELT % 15)) |ts|)
                       ('T
-                       (SEQ (LETT |lp| (|GTSET;rep| |ts| $))
+                       (SEQ (LETT |lp| (|GTSET;rep| |ts| %))
                             (SEQ G190
                                  (COND
                                   ((NULL
@@ -109,23 +109,23 @@
                                           ('T
                                            (SPADCALL
                                             (SPADCALL (|SPADfirst| |lp|)
-                                                      (QREFELT $ 32))
-                                            |v| (QREFELT $ 43)))))
+                                                      (QREFELT % 32))
+                                            |v| (QREFELT % 43)))))
                                    (GO G191)))
                                  (SEQ (EXIT (LETT |lp| (CDR |lp|)))) NIL
                                  (GO G190) G191 (EXIT NIL))
-                            (EXIT (|GTSET;per| |lp| $)))))))) 
+                            (EXIT (|GTSET;per| |lp| %)))))))) 
 
-(SDEFUN |GTSET;extendIfCan;$PU;20|
-        ((|ts| ($)) (|p| (P)) ($ (|Union| $ "failed")))
-        (COND ((SPADCALL |p| (QREFELT $ 45)) (CONS 1 "failed"))
-              ((SPADCALL |ts| (QREFELT $ 15))
-               (CONS 0 (|GTSET;per| (LIST (SPADCALL |p| (QREFELT $ 46))) $)))
+(SDEFUN |GTSET;extendIfCan;%PU;20|
+        ((|ts| (%)) (|p| (P)) (% (|Union| % "failed")))
+        (COND ((SPADCALL |p| (QREFELT % 45)) (CONS 1 "failed"))
+              ((SPADCALL |ts| (QREFELT % 15))
+               (CONS 0 (|GTSET;per| (LIST (SPADCALL |p| (QREFELT % 46))) %)))
               ((NULL
-                (SPADCALL (SPADCALL |ts| (QREFELT $ 33))
-                          (SPADCALL |p| (QREFELT $ 32)) (QREFELT $ 47)))
+                (SPADCALL (SPADCALL |ts| (QREFELT % 33))
+                          (SPADCALL |p| (QREFELT % 32)) (QREFELT % 47)))
                (CONS 1 "failed"))
-              ('T (CONS 0 (|GTSET;per| (CONS |p| (|GTSET;rep| |ts| $)) $))))) 
+              ('T (CONS 0 (|GTSET;per| (CONS |p| (|GTSET;rep| |ts| %)) %))))) 
 
 (DECLAIM (NOTINLINE |GeneralTriangularSet;|)) 
 
@@ -150,7 +150,7 @@
 
 (DEFUN |GeneralTriangularSet;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((#1=#:G193 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
+   ((#1=#:G193 NIL) (|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
     (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
@@ -158,9 +158,9 @@
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$| (LIST '|GeneralTriangularSet| DV$1 DV$2 DV$3 DV$4))
-    (LETT $ (GETREFV 69))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 69))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -179,44 +179,44 @@
                                                        '(|IntegralDomain|))
                                         (|HasCategory| |#3| '(|Finite|))))))
     (|haddProp| |$ConstructorCache| '|GeneralTriangularSet|
-                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (QSETREFV $ 8 |#3|)
-    (QSETREFV $ 9 |#4|)
-    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 64))
-    (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)))
-         (|augmentPredVector| $ 128))
-    (AND (|HasCategory| |#4| '(|BasicType|)) #1# (|augmentPredVector| $ 256))
-    (AND (|HasCategory| |#4| '(|OrderedSet|)) #1# (|augmentPredVector| $ 512))
-    (SETF |pv$| (QREFELT $ 3))
-    $))) 
+                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (QSETREFV % 8 |#3|)
+    (QSETREFV % 9 |#4|)
+    (AND (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 64))
+    (AND (LETT #1# (|HasCategory| % '(|finiteAggregate|)))
+         (|augmentPredVector| % 128))
+    (AND (|HasCategory| |#4| '(|BasicType|)) #1# (|augmentPredVector| % 256))
+    (AND (|HasCategory| |#4| '(|OrderedSet|)) #1# (|augmentPredVector| % 512))
+    (SETF |pv$| (QREFELT % 3))
+    %))) 
 
 (MAKEPROP '|GeneralTriangularSet| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) (|List| 9) (0 . |copy|)
-              |GTSET;copy;2$;3| |GTSET;empty;$;4| (|Boolean|)
-              |GTSET;empty?;$B;5| |GTSET;parts;$L;6| |GTSET;members;$L;7|
-              (|Mapping| 9 9) (5 . |map|) (11 . |construct|) |GTSET;map;M2$;8|
-              (16 . |map!|) |GTSET;map!;M2$;9| (22 . |member?|)
-              |GTSET;member?;P$B;10| |GTSET;roughUnitIdeal?;$B;11|
-              (|OutputForm|) (28 . |coerce|) (|List| $) (33 . |brace|)
-              |GTSET;coerce;$Of;12| (38 . |mvar|) |GTSET;mvar;$V;13|
-              (|Union| 9 '#1="failed") |GTSET;first;$U;14| (43 . |last|)
-              |GTSET;last;$U;15| (|Union| $ '#1#) |GTSET;rest;$U;16|
-              |GTSET;coerce;$L;17| (48 . >) |GTSET;collectUpper;$V$;18|
-              (54 . >=) |GTSET;collectUnder;$V$;19| (60 . |ground?|)
-              (65 . |unitCanonical|) (70 . <) |GTSET;extendIfCan;$PU;20|
+              |GTSET;copy;2%;3| |GTSET;empty;%;4| (|Boolean|)
+              |GTSET;empty?;%B;5| |GTSET;parts;%L;6| |GTSET;members;%L;7|
+              (|Mapping| 9 9) (5 . |map|) (11 . |construct|) |GTSET;map;M2%;8|
+              (16 . |map!|) |GTSET;map!;M2%;9| (22 . |member?|)
+              |GTSET;member?;P%B;10| |GTSET;roughUnitIdeal?;%B;11|
+              (|OutputForm|) (28 . |coerce|) (|List| %) (33 . |brace|)
+              |GTSET;coerce;%Of;12| (38 . |mvar|) |GTSET;mvar;%V;13|
+              (|Union| 9 '#1="failed") |GTSET;first;%U;14| (43 . |last|)
+              |GTSET;last;%U;15| (|Union| % '#1#) |GTSET;rest;%U;16|
+              |GTSET;coerce;%L;17| (48 . >) |GTSET;collectUpper;%V%;18|
+              (54 . >=) |GTSET;collectUnder;%V%;19| (60 . |ground?|)
+              (65 . |unitCanonical|) (70 . <) |GTSET;extendIfCan;%PU;20|
               (|NonNegativeInteger|) (|Mapping| 9 9 9) (|List| 52)
               (|Equation| 9) (|Mapping| 14 9) (|Mapping| 14 9 9) (|InputForm|)
               (|Record| (|:| |rnum| 6) (|:| |polnum| 9) (|:| |den| 6))
               (|Record| (|:| |num| 9) (|:| |den| 6)) (|List| 8)
-              (|Record| (|:| |close| $) (|:| |open| 10)) (|List| 59)
+              (|Record| (|:| |close| %) (|:| |open| 10)) (|List| 59)
               (|Mapping| 14 9 10) (|Record| (|:| |close| 10) (|:| |open| 10))
-              (|Record| (|:| |bas| $) (|:| |top| 10)) (|Union| 63 '#1#)
-              (|Record| (|:| |under| $) (|:| |floor| $) (|:| |upper| $))
+              (|Record| (|:| |bas| %) (|:| |top| 10)) (|Union| 63 '#1#)
+              (|Record| (|:| |under| %) (|:| |floor| %) (|:| |upper| %))
               (|HashState|) (|String|) (|SingleInteger|))
            '#(~= 76 |zeroSetSplitIntoTriangularSystems| 82 |zeroSetSplit| 87
               |variables| 92 |trivialIdeal?| 97 |triangular?| 102

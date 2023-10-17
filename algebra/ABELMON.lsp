@@ -12,11 +12,11 @@
              (LETT #1#
                    (|Join| (|AbelianSemiGroup|)
                            (|mkCategory|
-                            '(((|Zero| ($) |constant|) T)
-                              ((|sample| ($) |constant|) T)
-                              ((|zero?| ((|Boolean|) $)) T)
-                              ((* ($ (|NonNegativeInteger|) $)) T)
-                              ((|opposite?| ((|Boolean|) $ $)) T))
+                            '(((|Zero| (%) |constant|) T)
+                              ((|sample| (%) |constant|) T)
+                              ((|zero?| ((|Boolean|) %)) T)
+                              ((* (% (|NonNegativeInteger|) %)) T)
+                              ((|opposite?| ((|Boolean|) % %)) T))
                             NIL NIL NIL)))
            (SETELT #1# 0 '(|AbelianMonoid|))))) 
 

@@ -5,24 +5,24 @@
                (|put| #2# #3='|SubDomain|
                       (CONS
                        '(|NonNegativeRational| SPADCALL |#1|
-                                               (|spadConstant| $ 7)
-                                               (QREFELT $ 9))
+                                               (|spadConstant| % 7)
+                                               (QREFELT % 9))
                        (DELASC #1# (|get| #2# #3# |$CategoryFrame|)))
                       |$CategoryFrame|))) 
 
-(SDEFUN |NNRAT;sup;3$;1| ((|x| ($)) (|y| ($)) ($ ($)))
-        (SPADCALL |x| |y| (QREFELT $ 10))) 
+(SDEFUN |NNRAT;sup;3%;1| ((|x| (%)) (|y| (%)) (% (%)))
+        (SPADCALL |x| |y| (QREFELT % 10))) 
 
-(SDEFUN |NNRAT;inf;3$;2| ((|x| ($)) (|y| ($)) ($ ($)))
-        (SPADCALL |x| |y| (QREFELT $ 12))) 
+(SDEFUN |NNRAT;inf;3%;2| ((|x| (%)) (|y| (%)) (% (%)))
+        (SPADCALL |x| |y| (QREFELT % 12))) 
 
-(SDEFUN |NNRAT;subtractIfCan;2$U;3|
-        ((|x| ($)) (|y| ($)) ($ (|Union| $ "failed")))
+(SDEFUN |NNRAT;subtractIfCan;2%U;3|
+        ((|x| (%)) (|y| (%)) (% (|Union| % "failed")))
         (SPROG ((|c| (|Fraction| (|Integer|))))
-               (SEQ (LETT |c| (SPADCALL |x| |y| (QREFELT $ 14)))
+               (SEQ (LETT |c| (SPADCALL |x| |y| (QREFELT % 14)))
                     (EXIT
                      (COND
-                      ((SPADCALL |c| (|spadConstant| $ 7) (QREFELT $ 15))
+                      ((SPADCALL |c| (|spadConstant| % 7) (QREFELT % 15))
                        (CONS 1 "failed"))
                       ('T (CONS 0 |c|))))))) 
 
@@ -48,25 +48,25 @@
                   (HREM |$ConstructorCache| '|NonNegativeRational|)))))))))) 
 
 (DEFUN |NonNegativeRational;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|NonNegativeRational|))
-          (LETT $ (GETREFV 26))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (LETT % (GETREFV 26))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|NonNegativeRational| NIL
-                      (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (AND (|HasCategory| $ '(|AbelianGroup|)) (|augmentPredVector| $ 1))
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (AND (|HasCategory| % '(|AbelianGroup|)) (|augmentPredVector| % 1))
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|NonNegativeRational| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|Fraction| 18) (0 . |Zero|) (4 . |Zero|)
-              (|Boolean|) (8 . >=) (14 . |max|) |NNRAT;sup;3$;1| (20 . |min|)
-              |NNRAT;inf;3$;2| (26 . -) (32 . <) (|Union| $ '"failed")
-              |NNRAT;subtractIfCan;2$U;3| (|Integer|) (|PositiveInteger|)
+              (|Boolean|) (8 . >=) (14 . |max|) |NNRAT;sup;3%;1| (20 . |min|)
+              |NNRAT;inf;3%;2| (26 . -) (32 . <) (|Union| % '"failed")
+              |NNRAT;subtractIfCan;2%U;3| (|Integer|) (|PositiveInteger|)
               (|InputForm|) (|NonNegativeInteger|) (|String|) (|SingleInteger|)
               (|HashState|) (|OutputForm|))
            '#(~= 38 |zero?| 44 |sup| 49 |subtractIfCan| 55 |smaller?| 61

@@ -82,32 +82,32 @@
                                                              |t#2|))
                                                            T)
                                                           ((|integralBasis|
-                                                            ((|Vector| $)))
+                                                            ((|Vector| %)))
                                                            T)
                                                           ((|integralBasisAtInfinity|
-                                                            ((|Vector| $)))
+                                                            ((|Vector| %)))
                                                            T)
                                                           ((|integralAtInfinity?|
-                                                            ((|Boolean|) $))
+                                                            ((|Boolean|) %))
                                                            T)
                                                           ((|special_order|
-                                                            ((|Integer|) $
+                                                            ((|Integer|) %
                                                              (|List| |t#2|)))
                                                            T)
                                                           ((|integral?|
-                                                            ((|Boolean|) $))
+                                                            ((|Boolean|) %))
                                                            T)
                                                           ((|complementaryBasis|
-                                                            ((|Vector| $)
-                                                             (|Vector| $)))
+                                                            ((|Vector| %)
+                                                             (|Vector| %)))
                                                            T)
                                                           ((|normalizeAtInfinity|
-                                                            ((|Vector| $)
-                                                             (|Vector| $)))
+                                                            ((|Vector| %)
+                                                             (|Vector| %)))
                                                            T)
                                                           ((|reduceBasisAtInfinity|
-                                                            ((|Vector| $)
-                                                             (|Vector| $)))
+                                                            ((|Vector| %)
+                                                             (|Vector| %)))
                                                            T)
                                                           ((|integralMatrix|
                                                             ((|Matrix|
@@ -136,7 +136,7 @@
                                                                     |t#2|))
                                                               (|:| |den|
                                                                    |t#2|))
-                                                             $))
+                                                             %))
                                                            T)
                                                           ((|integralCoordinates|
                                                             ((|Record|
@@ -145,10 +145,10 @@
                                                                     |t#2|))
                                                               (|:| |den|
                                                                    |t#2|))
-                                                             $))
+                                                             %))
                                                            T)
                                                           ((|integralRepresents|
-                                                            ($ (|Vector| |t#2|)
+                                                            (% (|Vector| |t#2|)
                                                              |t#2|))
                                                            T)
                                                           ((|integralDerivationMatrix|
@@ -162,27 +162,27 @@
                                                                         |t#2|)))
                                                            T)
                                                           ((|integral?|
-                                                            ((|Boolean|) $
+                                                            ((|Boolean|) %
                                                              |t#1|))
                                                            T)
                                                           ((|integral?|
-                                                            ((|Boolean|) $
+                                                            ((|Boolean|) %
                                                              |t#2|))
                                                            T)
                                                           ((|differentiate|
-                                                            ($ $
+                                                            (% %
                                                              (|Mapping| |t#2|
                                                                         |t#2|)))
                                                            T)
                                                           ((|represents|
-                                                            ($ (|Vector| |t#2|)
+                                                            (% (|Vector| |t#2|)
                                                              |t#2|))
                                                            T)
                                                           ((|primitivePart|
-                                                            ($ $))
+                                                            (% %))
                                                            T)
                                                           ((|elt|
-                                                            (|t#1| $ |t#1|
+                                                            (|t#1| % |t#1|
                                                              |t#1|))
                                                            T)
                                                           ((|elliptic|
@@ -195,12 +195,12 @@
                                                            T)
                                                           ((|algSplitSimple|
                                                             ((|Record|
-                                                              (|:| |num| $)
+                                                              (|:| |num| %)
                                                               (|:| |den| |t#2|)
                                                               (|:| |derivden|
                                                                    |t#2|)
                                                               (|:| |gd| |t#2|))
-                                                             $
+                                                             %
                                                              (|Mapping| |t#2|
                                                                         |t#2|)))
                                                            T)

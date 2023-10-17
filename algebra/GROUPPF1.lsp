@@ -1,7 +1,7 @@
 
 (SDEFUN |GROUPPF1;convert;LLGp;1|
         ((|lg| (|List| S)) (|lr| (|List| (|FreeGroup| S)))
-         ($ (|GroupPresentation|)))
+         (% (|GroupPresentation|)))
         (SPROG
          ((#1=#:G123 NIL) (|l| NIL) (#2=#:G122 NIL)
           (|nlr| (|List| (|List| (|Integer|)))) (|nr| (|List| (|Integer|)))
@@ -15,14 +15,14 @@
                     ((OR (ATOM #6#) (PROGN (LETT |r| (CAR #6#)) NIL))
                      (GO G191)))
                    (SEQ (LETT |nr| NIL)
-                        (LETT |fr| (SPADCALL |r| (QREFELT $ 10)))
+                        (LETT |fr| (SPADCALL |r| (QREFELT % 10)))
                         (SEQ (LETT |t| NIL) (LETT #5# |fr|) G190
                              (COND
                               ((OR (ATOM #5#) (PROGN (LETT |t| (CAR #5#)) NIL))
                                (GO G191)))
                              (SEQ
                               (LETT |k|
-                                    (SPADCALL (QCAR |t|) |lg| (QREFELT $ 13)))
+                                    (SPADCALL (QCAR |t|) |lg| (QREFELT % 13)))
                               (EXIT
                                (COND
                                 ((< |k| 1)
@@ -30,7 +30,7 @@
                                   (SPADCALL
                                    "convert: relation contains generator"
                                    "not in list of generators"
-                                   (QREFELT $ 16))))
+                                   (QREFELT % 16))))
                                 ('T
                                  (SEQ (LETT |m| (QCDR |t|))
                                       (LETT |k|
@@ -59,7 +59,7 @@
                       (SEQ (EXIT (LETT #2# (CONS |l| #2#))))
                       (LETT |l| (|inc_SI| |l|)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))
-                (NREVERSE |nlr|) (QREFELT $ 20)))))) 
+                (NREVERSE |nlr|) (QREFELT % 20)))))) 
 
 (DECLAIM (NOTINLINE |GroupPresentationFunctions1;|)) 
 
@@ -83,19 +83,19 @@
                         '|GroupPresentationFunctions1|)))))))))) 
 
 (DEFUN |GroupPresentationFunctions1;| (|#1|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|GroupPresentationFunctions1| DV$1))
-          (LETT $ (GETREFV 23))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (LETT % (GETREFV 23))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|GroupPresentationFunctions1|
-                      (LIST DV$1) (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+                      (LIST DV$1) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|GroupPresentationFunctions1| '|infovec|
           (LIST

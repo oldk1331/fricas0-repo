@@ -27,10 +27,10 @@
                                                                   '|t#1|)
                                                  (|mkCategory|
                                                   '(((|eval|
-                                                      ($ $ (|Equation| |t#1|)))
+                                                      (% % (|Equation| |t#1|)))
                                                      T)
                                                     ((|eval|
-                                                      ($ $
+                                                      (% %
                                                        (|List|
                                                         (|Equation| |t#1|))))
                                                      T))

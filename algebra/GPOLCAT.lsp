@@ -35,52 +35,52 @@
                                                                        '|t#2|)
                                             (|mkCategory|
                                              '(((|degree|
-                                                 ((|NonNegativeInteger|) $
+                                                 ((|NonNegativeInteger|) %
                                                   |t#3|))
                                                 T)
                                                ((|degree|
                                                  ((|List|
                                                    (|NonNegativeInteger|))
-                                                  $ (|List| |t#3|)))
+                                                  % (|List| |t#3|)))
                                                 T)
                                                ((|coefficient|
-                                                 ($ $ |t#3|
+                                                 (% % |t#3|
                                                   (|NonNegativeInteger|)))
                                                 T)
                                                ((|coefficient|
-                                                 ($ $ (|List| |t#3|)
+                                                 (% % (|List| |t#3|)
                                                   (|List|
                                                    (|NonNegativeInteger|))))
                                                 T)
-                                               ((|monomials| ((|List| $) $)) T)
+                                               ((|monomials| ((|List| %) %)) T)
                                                ((|mainVariable|
-                                                 ((|Union| |t#3| "failed") $))
+                                                 ((|Union| |t#3| "failed") %))
                                                 T)
                                                ((|monomial|
-                                                 ($ $ |t#3|
+                                                 (% % |t#3|
                                                   (|NonNegativeInteger|)))
                                                 T)
                                                ((|monomial|
-                                                 ($ $ (|List| |t#3|)
+                                                 (% % (|List| |t#3|)
                                                   (|List|
                                                    (|NonNegativeInteger|))))
                                                 T)
                                                ((|totalDegree|
-                                                 ((|NonNegativeInteger|) $))
+                                                 ((|NonNegativeInteger|) %))
                                                 T)
                                                ((|totalDegree|
-                                                 ((|NonNegativeInteger|) $
+                                                 ((|NonNegativeInteger|) %
                                                   (|List| |t#3|)))
                                                 T)
                                                ((|totalDegreeSorted|
-                                                 ((|NonNegativeInteger|) $
+                                                 ((|NonNegativeInteger|) %
                                                   (|List| |t#3|)))
                                                 T)
                                                ((|variables|
-                                                 ((|List| |t#3|) $))
+                                                 ((|List| |t#3|) %))
                                                 T)
                                                ((|primitiveMonomials|
-                                                 ((|List| $) $))
+                                                 ((|List| %) %))
                                                 (|has| |t#1| (|SemiRing|))))
                                              '(((|FullyLinearlyExplicitOver|
                                                  |t#1|)

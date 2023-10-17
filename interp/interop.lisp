@@ -362,7 +362,7 @@
                   (LIST #'|oldAxiomPreCategoryBuild|) (LIST NIL))))
 
 ; oldAxiomPreCategoryParents(catform,dom) ==
-;   vars := ["$",:rest GETDATABASE(opOf catform, 'CONSTRUCTORFORM)]
+;   vars := ["%", :rest GETDATABASE(opOf(catform), 'CONSTRUCTORFORM)]
 ;   vals := [dom,:rest catform]
 ;   -- parents :=  GETDATABASE(opOf catform, 'PARENTS)
 ;   parents := parentsOf opOf catform
@@ -385,7 +385,7 @@
     (RETURN
      (PROGN
       (SETQ |vars|
-              (CONS '$
+              (CONS '%
                     (CDR (GETDATABASE (|opOf| |catform|) 'CONSTRUCTORFORM))))
       (SETQ |vals| (CONS |dom| (CDR |catform|)))
       (SETQ |parents| (|parentsOf| (|opOf| |catform|)))
@@ -1077,7 +1077,7 @@
       ('T (|newLookupInTable| |op| |sig| |dollar| |env| T))))))
 
 ; lazyMatchArg2(s,a,dollar,domain,typeFlag) ==
-;   if s = '$ then
+;   if s = '% then
 ; --  a = 0 => return true  --needed only if extra call in newGoGet to basicLookup
 ;     s := devaluate dollar -- calls from HasCategory can have $s
 ;   INTEGERP a =>
@@ -1093,7 +1093,7 @@
 ;         dhash =
 ;            (if hashCode? s then s else hashType(s, dhash))
 ;     lazyMatch(s,d,dollar,domain)                         --new style
-;   a = '$ => s = devaluate dollar
+;   a = '% => s = devaluate(dollar)
 ;   a = "$$" => s = devaluate domain
 ;   STRINGP a =>
 ;     STRINGP s => a = s
@@ -1109,7 +1109,7 @@
   (PROG (|d| |domainArg| |dhash| |ISTMP#1| |y| |op|)
     (RETURN
      (PROGN
-      (COND ((EQ |s| '$) (SETQ |s| (|devaluate| |dollar|))))
+      (COND ((EQ |s| '%) (SETQ |s| (|devaluate| |dollar|))))
       (COND
        ((INTEGERP |a|)
         (COND ((NULL |typeFlag|) (EQUAL |s| (ELT |domain| |a|)))
@@ -1134,7 +1134,7 @@
                        (COND ((|hashCode?| |s|) |s|)
                              (#1# (|hashType| |s| |dhash|))))))
               (#1# (|lazyMatch| |s| |d| |dollar| |domain|))))
-       ((EQ |a| '$) (EQUAL |s| (|devaluate| |dollar|)))
+       ((EQ |a| '%) (EQUAL |s| (|devaluate| |dollar|)))
        ((EQ |a| '$$) (EQUAL |s| (|devaluate| |domain|)))
        ((STRINGP |a|)
         (COND ((STRINGP |s|) (EQUAL |a| |s|))
@@ -1782,10 +1782,10 @@
 
 ; evalSlotDomain(u,dollar) ==
 ;   $returnNowhereFromGoGet: local := false
-;   $ : fluid := dollar
+;   % : fluid := dollar
 ;   $lookupDefaults : local := nil -- new world
 ;   isDomain u => u
-;   u = '$ => dollar
+;   u = '% => dollar
 ;   u = "$$" => dollar
 ;   FIXP u =>
 ;     VECP (y := dollar.u) => y
@@ -1813,15 +1813,15 @@
 ;   systemErrorHere '"evalSlotDomain"
 
 (DEFUN |evalSlotDomain| (|u| |dollar|)
-  (PROG (|$lookupDefaults| $ |$returnNowhereFromGoGet| |op| |n| |d| |ISTMP#3|
+  (PROG (|$lookupDefaults| % |$returnNowhereFromGoGet| |op| |n| |d| |ISTMP#3|
          |dom| |ISTMP#2| |tag| |argl| |ISTMP#1| |v| |y|)
-    (DECLARE (SPECIAL |$lookupDefaults| $ |$returnNowhereFromGoGet|))
+    (DECLARE (SPECIAL |$lookupDefaults| % |$returnNowhereFromGoGet|))
     (RETURN
      (PROGN
       (SETQ |$returnNowhereFromGoGet| NIL)
-      (SETQ $ |dollar|)
+      (SETQ % |dollar|)
       (SETQ |$lookupDefaults| NIL)
-      (COND ((|isDomain| |u|) |u|) ((EQ |u| '$) |dollar|)
+      (COND ((|isDomain| |u|) |u|) ((EQ |u| '%) |dollar|)
             ((EQ |u| '$$) |dollar|)
             ((FIXP |u|)
              (COND ((VECP (SETQ |y| (ELT |dollar| |u|))) |y|)

@@ -29,7 +29,7 @@
                                              '|t#1|)
                                             (|FramedModule| '|t#1|)
                                             (|mkCategory|
-                                             '(((|elt| (|t#1| $ (|Integer|)))
+                                             '(((|elt| (|t#1| % (|Integer|)))
                                                 T)
                                                ((|structuralConstants|
                                                  ((|Vector| (|Matrix| |t#1|))))
@@ -48,10 +48,10 @@
                                                  ((|Matrix| |t#1|)))
                                                 T)
                                                ((|leftRegularRepresentation|
-                                                 ((|Matrix| |t#1|) $))
+                                                 ((|Matrix| |t#1|) %))
                                                 T)
                                                ((|rightRegularRepresentation|
-                                                 ((|Matrix| |t#1|) $))
+                                                 ((|Matrix| |t#1|) %))
                                                 T)
                                                ((|leftRankPolynomial|
                                                  ((|SparseUnivariatePolynomial|
@@ -62,7 +62,7 @@
                                                    (|Polynomial| |t#1|))))
                                                 (|has| |t#1| (|Field|)))
                                                ((|apply|
-                                                 ($ (|Matrix| |t#1|) $))
+                                                 (% (|Matrix| |t#1|) %))
                                                 T))
                                              NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|FramedNonAssociativeAlgebra| |t#1|))))) 

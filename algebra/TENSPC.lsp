@@ -28,7 +28,7 @@
                                                 (|Join| (|Module| '|t#2|)
                                                         (|mkCategory|
                                                          '(((|tensor|
-                                                             ($
+                                                             (%
                                                               (|List| |t#3|)))
                                                             T))
                                                          '(((|Algebra| |t#2|)

@@ -28,6 +28,6 @@
                                                  (|PriorityQueueAggregate|
                                                   '|t#1|)
                                                  (|mkCategory|
-                                                  '(((|min| (|t#1| $)) T)) NIL
+                                                  '(((|min| (|t#1| %)) T)) NIL
                                                   NIL NIL)))))))
            (SETELT #1# 0 (LIST '|OrderedMultisetAggregate| |t#1|))))) 

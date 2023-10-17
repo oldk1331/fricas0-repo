@@ -1,9 +1,9 @@
 
-(SDEFUN |OREUP;coerce;V$;1| ((|v| (|Variable| |x|)) ($ ($)))
-        (SPADCALL (|spadConstant| $ 14) 1 (QREFELT $ 16))) 
+(SDEFUN |OREUP;coerce;V%;1| ((|v| (|Variable| |x|)) (% (%)))
+        (SPADCALL (|spadConstant| % 14) 1 (QREFELT % 16))) 
 
-(SDEFUN |OREUP;coerce;$Of;2| ((|p| ($)) ($ (|OutputForm|)))
-        (SPADCALL |p| (SPADCALL (QREFELT $ 6) (QREFELT $ 21)) (QREFELT $ 22))) 
+(SDEFUN |OREUP;coerce;%Of;2| ((|p| (%)) (% (|OutputForm|)))
+        (SPADCALL |p| (SPADCALL (QREFELT % 6) (QREFELT % 21)) (QREFELT % 22))) 
 
 (DECLAIM (NOTINLINE |UnivariateSkewPolynomial;|)) 
 
@@ -29,7 +29,7 @@
 
 (DEFUN |UnivariateSkewPolynomial;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G137 NIL) (#2=#:G139 NIL) (#3=#:G138 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G137 NIL) (#2=#:G139 NIL) (#3=#:G138 NIL) (% NIL)
     (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 |#1|)
@@ -37,9 +37,9 @@
     (LETT DV$3 |#3|)
     (LETT DV$4 |#4|)
     (LETT |dv$| (LIST '|UnivariateSkewPolynomial| DV$1 DV$2 DV$3 DV$4))
-    (LETT $ (GETREFV 56))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 56))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -147,61 +147,61 @@
                                          (|HasCategory| |#2| '(|AbelianGroup|))
                                          #1#)))))
     (|haddProp| |$ConstructorCache| '|UnivariateSkewPolynomial|
-                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (QSETREFV $ 8 |#3|)
-    (QSETREFV $ 9 |#4|)
+                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (QSETREFV % 8 |#3|)
+    (QSETREFV % 9 |#4|)
     (AND
      (OR
       (AND (|HasCategory| |#2| '(|CommutativeRing|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
       (AND (|HasCategory| |#2| '(|IntegralDomain|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
-     (|augmentPredVector| $ 134217728))
-    (AND (|HasCategory| $ '(|CommutativeRing|))
-         (|augmentPredVector| $ 268435456))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| % 134217728))
+    (AND (|HasCategory| % '(|CommutativeRing|))
+         (|augmentPredVector| % 268435456))
     (AND
      (OR (|HasCategory| |#2| '(|EntireRing|))
          (AND (|HasCategory| |#2| '(|IntegralDomain|))
-              (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
-     (|augmentPredVector| $ 536870912))
+              (|HasCategory| % '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| % 536870912))
     (AND
      (OR (|HasCategory| |#2| '(|RetractableTo| (|Integer|)))
          (AND (|HasCategory| |#2| '(|CommutativeRing|))
-              (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+              (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (AND (|HasCategory| |#2| '(|IntegralDomain|))
-              (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+              (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (|HasCategory| |#2| '(|Ring|)))
-     (|augmentPredVector| $ 1073741824))
+     (|augmentPredVector| % 1073741824))
     (AND
      (OR
       (AND (|HasCategory| |#2| '(|CommutativeRing|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
       (AND (|HasCategory| |#2| '(|IntegralDomain|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
       (|HasCategory| |#2| '(|SemiRing|)))
-     (|augmentPredVector| $ 2147483648))
+     (|augmentPredVector| % 2147483648))
     (AND
      (OR
       (AND (|HasCategory| |#2| '(|CommutativeRing|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
       (AND (|HasCategory| |#2| '(|IntegralDomain|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
       (|HasCategory| |#2| '(|Ring|)))
-     (|augmentPredVector| $ 4294967296))
+     (|augmentPredVector| % 4294967296))
     (AND
      (OR
       (AND #3# (|HasCategory| |#2| '(|Ring|))
            (|HasCategory| (|Integer|) '(|AbelianMonoid|)))
       (|HasCategory| |#2| '(|AbelianMonoid|))
       (AND (|HasCategory| |#2| '(|CommutativeRing|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
       (AND (|HasCategory| |#2| '(|IntegralDomain|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-      (|HasCategory| $ '(|AbelianMonoid|)))
-     (|augmentPredVector| $ 8589934592))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+      (|HasCategory| % '(|AbelianMonoid|)))
+     (|augmentPredVector| % 8589934592))
     (AND
      (OR
       (AND #3# (|HasCategory| |#2| '(|Ring|))
@@ -212,49 +212,49 @@
            (|HasCategory| |#2| '(|Ring|)))
       #1#
       (AND (|HasCategory| |#2| '(|CommutativeRing|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
       (AND (|HasCategory| |#2| '(|IntegralDomain|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-      (|HasCategory| $ '(|AbelianGroup|)))
-     (|augmentPredVector| $ 17179869184))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+      (|HasCategory| % '(|AbelianGroup|)))
+     (|augmentPredVector| % 17179869184))
     (AND
      (OR
       (AND #3# (|HasCategory| |#2| '(|Ring|))
            (|HasCategory| (|Integer|) '(|AbelianGroup|)))
       (|HasCategory| |#2| '(|AbelianGroup|))
       (AND (|HasCategory| |#2| '(|CommutativeRing|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
       (AND (|HasCategory| |#2| '(|IntegralDomain|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-      (|HasCategory| $ '(|AbelianGroup|)))
-     (|augmentPredVector| $ 34359738368))
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 10 (|SparseUnivariateSkewPolynomial| |#2| |#3| |#4|))
-    $))) 
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+      (|HasCategory| % '(|AbelianGroup|)))
+     (|augmentPredVector| % 34359738368))
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 10 (|SparseUnivariateSkewPolynomial| |#2| |#3| |#4|))
+    %))) 
 
 (MAKEPROP '|UnivariateSkewPolynomial| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL
-              (|SparseUnivariateSkewPolynomial| 7 (NRTEVAL (QREFELT $ 8))
-                                                (NRTEVAL (QREFELT $ 9)))
+              (|SparseUnivariateSkewPolynomial| 7 (NRTEVAL (QREFELT % 8))
+                                                (NRTEVAL (QREFELT % 9)))
               (|local| |#1|) (|local| |#2|) (|local| |#3|) (|local| |#4|)
               '|Rep| (|Automorphism| 7) (0 . |One|) (4 . |One|) (8 . |One|)
               (|NonNegativeInteger|) (12 . |monomial|)
-              (|Variable| (NRTEVAL (QREFELT $ 6))) |OREUP;coerce;V$;1|
+              (|Variable| (NRTEVAL (QREFELT % 6))) |OREUP;coerce;V%;1|
               (|Symbol|) (|OutputForm|) (18 . |outputForm|) (23 . |outputForm|)
-              |OREUP;coerce;$Of;2|
-              (|Record| (|:| |mat| 27) (|:| |vec| (|Vector| 28))) (|Matrix| $)
-              (|Vector| $) (|Matrix| 28) (|Integer|) (|Boolean|)
-              (|Union| $ '"failed")
-              (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
+              |OREUP;coerce;%Of;2|
+              (|Record| (|:| |mat| 27) (|:| |vec| (|Vector| 28))) (|Matrix| %)
+              (|Vector| %) (|Matrix| 28) (|Integer|) (|Boolean|)
+              (|Union| % '"failed")
+              (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (|Fraction| 28) (|Record| (|:| |k| 15) (|:| |c| 7)) (|List| 33)
               (|Mapping| 7 15)
-              (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|Record| (|:| |generator| $) (|:| |coef1| $) (|:| |coef2| $)
-                        (|:| |coefu| $) (|:| |coefv| $))
-              (|Record| (|:| |quotient| $) (|:| |remainder| $))
+              (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
+              (|Record| (|:| |generator| %) (|:| |coef1| %) (|:| |coef2| %)
+                        (|:| |coefu| %) (|:| |coefv| %))
+              (|Record| (|:| |quotient| %) (|:| |remainder| %))
               (|Union| 32 '#1="failed") (|Union| 28 '#1#) (|Matrix| 7)
-              (|Record| (|:| |mat| 41) (|:| |vec| (|Vector| 7))) (|List| $)
+              (|Record| (|:| |mat| 41) (|:| |vec| (|Vector| 7))) (|List| %)
               (|List| 47) (|List| 15) (|Union| 47 '"failed")
               (|SingletonAsOrderedSet|) (|Mapping| 15 15) (|Union| 7 '#1#)
               (|List| 7) (|Mapping| 7 7) (|PositiveInteger|) (|HashState|)

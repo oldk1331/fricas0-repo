@@ -27,32 +27,32 @@
                                                  (|Module| '|t#1|)
                                                  (|mkCategory|
                                                   '(((|elt|
-                                                      (|t#1| $ (|Integer|)))
+                                                      (|t#1| % (|Integer|)))
                                                      T)
                                                     ((|apply|
-                                                      (|t#1| $ (|Partition|)))
+                                                      (|t#1| % (|Partition|)))
                                                      T)
-                                                    ((|cons| ($ |t#1| $)) T)
+                                                    ((|cons| (% |t#1| %)) T)
                                                     ((|coerce|
-                                                      ($ (|Stream| |t#1|)))
+                                                      (% (|Stream| |t#1|)))
                                                      T)
                                                     ((|sequence|
-                                                      ($ (|Stream| |t#1|)))
+                                                      (% (|Stream| |t#1|)))
                                                      T)
                                                     ((|stream|
-                                                      ((|Stream| |t#1|) $))
+                                                      ((|Stream| |t#1|) %))
                                                      T)
                                                     ((|first|
-                                                      ($ $
+                                                      (% %
                                                        (|NonNegativeInteger|)))
                                                      T)
                                                     ((|firstn|
-                                                      ((|List| |t#1|) $
+                                                      ((|List| |t#1|) %
                                                        (|NonNegativeInteger|)))
                                                      T)
-                                                    ((|dilate| ($ |t#1| $)) T)
+                                                    ((|dilate| (% |t#1| %)) T)
                                                     ((|sequence|
-                                                      ($
+                                                      (%
                                                        (|Mapping| |t#1| |t#1|)
                                                        |t#1|))
                                                      T))

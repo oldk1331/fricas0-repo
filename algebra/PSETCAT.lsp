@@ -43,66 +43,66 @@
                                                               (|finiteAggregate|)
                                                               (|mkCategory|
                                                                '(((|mvar|
-                                                                   (|t#3| $))
+                                                                   (|t#3| %))
                                                                   T)
                                                                  ((|variables|
                                                                    ((|List|
                                                                      |t#3|)
-                                                                    $))
+                                                                    %))
                                                                   T)
                                                                  ((|mainVariables|
                                                                    ((|List|
                                                                      |t#3|)
-                                                                    $))
+                                                                    %))
                                                                   T)
                                                                  ((|mainVariable?|
                                                                    ((|Boolean|)
-                                                                    |t#3| $))
+                                                                    |t#3| %))
                                                                   T)
                                                                  ((|collectUnder|
-                                                                   ($ $ |t#3|))
+                                                                   (% % |t#3|))
                                                                   T)
                                                                  ((|collect|
-                                                                   ($ $ |t#3|))
+                                                                   (% % |t#3|))
                                                                   T)
                                                                  ((|collectUpper|
-                                                                   ($ $ |t#3|))
+                                                                   (% % |t#3|))
                                                                   T)
                                                                  ((|sort|
                                                                    ((|Record|
                                                                      (|:|
                                                                       |under|
-                                                                      $)
+                                                                      %)
                                                                      (|:|
                                                                       |floor|
-                                                                      $)
+                                                                      %)
                                                                      (|:|
                                                                       |upper|
-                                                                      $))
-                                                                    $ |t#3|))
+                                                                      %))
+                                                                    % |t#3|))
                                                                   T)
                                                                  ((|trivialIdeal?|
                                                                    ((|Boolean|)
-                                                                    $))
+                                                                    %))
                                                                   T)
                                                                  ((|roughBase?|
                                                                    ((|Boolean|)
-                                                                    $))
+                                                                    %))
                                                                   (|has| |t#1|
                                                                          (|IntegralDomain|)))
                                                                  ((|roughSubIdeal?|
                                                                    ((|Boolean|)
-                                                                    $ $))
+                                                                    % %))
                                                                   (|has| |t#1|
                                                                          (|IntegralDomain|)))
                                                                  ((|roughEqualIdeals?|
                                                                    ((|Boolean|)
-                                                                    $ $))
+                                                                    % %))
                                                                   (|has| |t#1|
                                                                          (|IntegralDomain|)))
                                                                  ((|roughUnitIdeal?|
                                                                    ((|Boolean|)
-                                                                    $))
+                                                                    %))
                                                                   (|has| |t#1|
                                                                          (|IntegralDomain|)))
                                                                  ((|headRemainder|
@@ -111,7 +111,7 @@
                                                                           |t#4|)
                                                                      (|:| |den|
                                                                           |t#1|))
-                                                                    |t#4| $))
+                                                                    |t#4| %))
                                                                   (|has| |t#1|
                                                                          (|IntegralDomain|)))
                                                                  ((|remainder|
@@ -124,7 +124,7 @@
                                                                       |t#4|)
                                                                      (|:| |den|
                                                                           |t#1|))
-                                                                    |t#4| $))
+                                                                    |t#4| %))
                                                                   (|has| |t#1|
                                                                          (|IntegralDomain|)))
                                                                  ((|rewriteIdealWithHeadRemainder|
@@ -132,7 +132,7 @@
                                                                      |t#4|)
                                                                     (|List|
                                                                      |t#4|)
-                                                                    $))
+                                                                    %))
                                                                   (|has| |t#1|
                                                                          (|IntegralDomain|)))
                                                                  ((|rewriteIdealWithRemainder|
@@ -140,12 +140,12 @@
                                                                      |t#4|)
                                                                     (|List|
                                                                      |t#4|)
-                                                                    $))
+                                                                    %))
                                                                   (|has| |t#1|
                                                                          (|IntegralDomain|)))
                                                                  ((|triangular?|
                                                                    ((|Boolean|)
-                                                                    $))
+                                                                    %))
                                                                   (|has| |t#1|
                                                                          (|IntegralDomain|)))
                                                                  ((|iexactQuo|

@@ -1,24 +1,24 @@
 
-(SDEFUN |ROMAN;roman;I$;1| ((|n| (|Integer|)) ($ ($)))
-        (SPADCALL |n| (QREFELT $ 6))) 
+(SDEFUN |ROMAN;roman;I%;1| ((|n| (|Integer|)) (% (%)))
+        (SPADCALL |n| (QREFELT % 6))) 
 
-(SDEFUN |ROMAN;roman;S$;2| ((|sy| (|Symbol|)) ($ ($)))
-        (SPADCALL |sy| (QREFELT $ 9))) 
+(SDEFUN |ROMAN;roman;S%;2| ((|sy| (|Symbol|)) (% (%)))
+        (SPADCALL |sy| (QREFELT % 9))) 
 
-(SDEFUN |ROMAN;convert;S$;3| ((|sy| (|Symbol|)) ($ ($)))
-        (SPADCALL (SPADCALL (SPADCALL |sy| (QREFELT $ 12)) (QREFELT $ 15))
-                  (QREFELT $ 6))) 
+(SDEFUN |ROMAN;convert;S%;3| ((|sy| (|Symbol|)) (% (%)))
+        (SPADCALL (SPADCALL (SPADCALL |sy| (QREFELT % 12)) (QREFELT % 15))
+                  (QREFELT % 6))) 
 
-(SDEFUN |ROMAN;coerce;$Of;4| ((|r| ($)) ($ (|OutputForm|)))
+(SDEFUN |ROMAN;coerce;%Of;4| ((|r| (%)) (% (|OutputForm|)))
         (SPROG ((#1=#:G118 NIL) (|n| (|Integer|)))
-               (SEQ (LETT |n| (SPADCALL |r| (QREFELT $ 16)))
+               (SEQ (LETT |n| (SPADCALL |r| (QREFELT % 16)))
                     (EXIT
-                     (COND ((ZEROP |n|) (SPADCALL |n| (QREFELT $ 18)))
+                     (COND ((ZEROP |n|) (SPADCALL |n| (QREFELT % 18)))
                            ((MINUSP |n|)
                             (SPADCALL
-                             (SPADCALL (SPADCALL |r| (QREFELT $ 19))
-                                       (QREFELT $ 20))
-                             (QREFELT $ 21)))
+                             (SPADCALL (SPADCALL |r| (QREFELT % 19))
+                                       (QREFELT % 20))
+                             (QREFELT % 21)))
                            ('T
                             (SPADCALL
                              (SPADCALL
@@ -27,9 +27,9 @@
                                  (|check_subtype2| (> #1# 0)
                                                    '(|PositiveInteger|)
                                                    '(|Integer|) #1#))
-                               (QREFELT $ 22))
-                              (QREFELT $ 23))
-                             (QREFELT $ 24)))))))) 
+                               (QREFELT % 22))
+                              (QREFELT % 23))
+                             (QREFELT % 24)))))))) 
 
 (DECLAIM (NOTINLINE |RomanNumeral;|)) 
 
@@ -51,36 +51,36 @@
                  ((NOT #1#) (HREM |$ConstructorCache| '|RomanNumeral|)))))))))) 
 
 (DEFUN |RomanNumeral;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|RomanNumeral|))
-          (LETT $ (GETREFV 49))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|RomanNumeral| NIL (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+          (LETT % (GETREFV 49))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|RomanNumeral| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|RomanNumeral| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|Integer|) (0 . |coerce|) |ROMAN;roman;I$;1|
-              (|Symbol|) |ROMAN;convert;S$;3| |ROMAN;roman;S$;2| (|String|)
+           '#(NIL NIL NIL NIL NIL (|Integer|) (0 . |coerce|) |ROMAN;roman;I%;1|
+              (|Symbol|) |ROMAN;convert;S%;3| |ROMAN;roman;S%;2| (|String|)
               (5 . |string|) (|PositiveInteger|) (|NumberFormats|)
               (10 . |ScanRoman|) (15 . |convert|) (|OutputForm|)
-              (20 . |coerce|) (25 . -) |ROMAN;coerce;$Of;4| (30 . -)
+              (20 . |coerce|) (25 . -) |ROMAN;coerce;%Of;4| (30 . -)
               (35 . |FormatRoman|) (40 . |coerce|) (45 . |coerce|)
               (|Union| 26 '"failed") (|Fraction| 5) (|Boolean|)
-              (|Union| $ '"failed") (|Float|) (|DoubleFloat|) (|Pattern| 5)
-              (|PatternMatchResult| 5 $) (|InputForm|) (|Union| 5 '"failed")
-              (|NonNegativeInteger|) (|Union| 37 '"failed") (|List| $)
-              (|Record| (|:| |coef| 37) (|:| |generator| $))
-              (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 40 '"failed")
-              (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|Factored| $) (|SparseUnivariatePolynomial| $)
-              (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
-              (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
+              (|Union| % '"failed") (|Float|) (|DoubleFloat|) (|Pattern| 5)
+              (|PatternMatchResult| 5 %) (|InputForm|) (|Union| 5 '"failed")
+              (|NonNegativeInteger|) (|Union| 37 '"failed") (|List| %)
+              (|Record| (|:| |coef| 37) (|:| |generator| %))
+              (|Record| (|:| |quotient| %) (|:| |remainder| %))
+              (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 40 '"failed")
+              (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
+              (|Factored| %) (|SparseUnivariatePolynomial| %)
+              (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
+              (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (|HashState|) (|SingleInteger|))
            '#(~= 50 |zero?| 56 |unitNormal| 61 |unitCanonical| 66 |unit?| 71
               |symmetricRemainder| 76 |subtractIfCan| 82 |submod| 88

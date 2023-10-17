@@ -23,14 +23,14 @@
 (DEFUN |OrderlyDifferentialPolynomial;| (|#1|)
   (SPROG
    ((#1=#:G158 NIL) (|pv$| NIL) (#2=#:G151 NIL) (#3=#:G152 NIL) (#4=#:G153 NIL)
-    (#5=#:G154 NIL) (#6=#:G155 NIL) (#7=#:G156 NIL) (#8=#:G157 NIL) ($ NIL)
+    (#5=#:G154 NIL) (#6=#:G155 NIL) (#7=#:G156 NIL) (#8=#:G157 NIL) (% NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|OrderlyDifferentialPolynomial| DV$1))
-    (LETT $ (GETREFV 65))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 65))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -591,53 +591,53 @@
                                              (|Pattern| (|Integer|)))))
                                          #2#)))))
     (|haddProp| |$ConstructorCache| '|OrderlyDifferentialPolynomial|
-                (LIST DV$1) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (AND (|HasCategory| $ '(|CommutativeRing|))
-         (|augmentPredVector| $ 68719476736))
+                (LIST DV$1) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (AND (|HasCategory| % '(|CommutativeRing|))
+         (|augmentPredVector| % 68719476736))
     (AND
      (LETT #1#
            (AND (|HasCategory| |#1| '(|PolynomialFactorizationExplicit|))
-                (|HasCategory| $ '(|CharacteristicNonZero|))))
-     (|augmentPredVector| $ 137438953472))
+                (|HasCategory| % '(|CharacteristicNonZero|))))
+     (|augmentPredVector| % 137438953472))
     (AND (OR (|HasCategory| |#1| '(|CharacteristicNonZero|)) #1#)
-         (|augmentPredVector| $ 274877906944))
+         (|augmentPredVector| % 274877906944))
     (AND
      (OR (|HasCategory| |#1| '(|EntireRing|))
-         (AND #6# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
-     (|augmentPredVector| $ 549755813888))
+         (AND #6# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| % 549755813888))
     (AND
      (OR
       (AND (|HasCategory| |#1| '(|CommutativeRing|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-      #8# (AND #6# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
-     (|augmentPredVector| $ 1099511627776))
-    (SETF |pv$| (QREFELT $ 3))
-    $))) 
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+      #8# (AND #6# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| % 1099511627776))
+    (SETF |pv$| (QREFELT % 3))
+    %))) 
 
 (MAKEPROP '|OrderlyDifferentialPolynomial| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL
               (|DifferentialSparseMultivariatePolynomial| 6 31 26)
-              (|local| |#1|) (|Union| 13 '#1="failed") (|Matrix| $)
+              (|local| |#1|) (|Union| 13 '#1="failed") (|Matrix| %)
               (|InputForm|) (|Pattern| (|Float|)) (|Pattern| 14)
-              (|Record| (|:| |mat| 15) (|:| |vec| (|Vector| 14))) (|Vector| $)
-              (|Integer|) (|Matrix| 14) (|PatternMatchResult| (|Float|) $)
-              (|PatternMatchResult| 14 $) (|Union| $ '#1#) (|Boolean|)
-              (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
+              (|Record| (|:| |mat| 15) (|:| |vec| (|Vector| 14))) (|Vector| %)
+              (|Integer|) (|Matrix| 14) (|PatternMatchResult| (|Float|) %)
+              (|PatternMatchResult| 14 %) (|Union| % '#1#) (|Boolean|)
+              (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (|Fraction| 14) (|IndexedExponents| 26)
               (|Record| (|:| |k| 22) (|:| |c| 6)) (|List| 23)
               (|NonNegativeInteger|) (|OrderlyDifferentialVariable| 31)
-              (|Mapping| 6 22) (|List| 31) (|List| 6) (|List| $) (|Symbol|)
-              (|Mapping| $ 25)
-              (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
-              (|SparseUnivariatePolynomial| $) (|Factored| $) (|List| 25)
+              (|Mapping| 6 22) (|List| 31) (|List| 6) (|List| %) (|Symbol|)
+              (|Mapping| % 25)
+              (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
+              (|SparseUnivariatePolynomial| %) (|Factored| %) (|List| 25)
               (|Factored| 34) (|Union| 39 '#1#) (|List| 34)
               (|Union| 21 '#2="failed") (|Union| 14 '#2#) (|List| 26)
-              (|Record| (|:| |quotient| $) (|:| |remainder| $))
+              (|Record| (|:| |quotient| %) (|:| |remainder| %))
               (|Record| (|:| |mat| 45) (|:| |vec| (|Vector| 6))) (|Matrix| 6)
-              (|Equation| $) (|List| 46) (|Union| 26 '#2#)
+              (|Equation| %) (|List| 46) (|Union| 26 '#2#)
               (|Record| (|:| |var| 26) (|:| |exponent| 25))
               (|Union| 49 '#3="failed") (|Union| 30 '#3#)
               (|SparseMultivariatePolynomial| 6 31) (|Union| 52 '#2#)

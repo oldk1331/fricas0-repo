@@ -32,7 +32,7 @@
                                                          '|t#1|)
                                                         (|mkCategory|
                                                          '(((|coerce|
-                                                             ($
+                                                             (%
                                                               (|List|
                                                                (|Record|
                                                                 (|:| |k| |t#2|)
@@ -45,7 +45,7 @@
                                                                 (|:| |k| |t#2|)
                                                                 (|:| |c|
                                                                      |t#1|)))
-                                                              $))
+                                                              %))
                                                             T))
                                                          '(((|CharacteristicZero|)
                                                             (|has| |t#1|

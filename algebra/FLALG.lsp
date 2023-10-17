@@ -29,60 +29,60 @@
                                                              (|t#2|
                                                               (|XRecursivePolynomial|
                                                                |t#1| |t#2|)
-                                                              $))
+                                                              %))
                                                             T)
                                                            ((|coerce|
-                                                             ($ |t#1|))
+                                                             (% |t#1|))
                                                             T)
                                                            ((|coerce|
                                                              ((|XDistributedPolynomial|
                                                                |t#1| |t#2|)
-                                                              $))
+                                                              %))
                                                             T)
                                                            ((|coerce|
                                                              ((|XRecursivePolynomial|
                                                                |t#1| |t#2|)
-                                                              $))
+                                                              %))
                                                             T)
                                                            ((|degree|
                                                              ((|NonNegativeInteger|)
-                                                              $))
+                                                              %))
                                                             T)
                                                            ((|lquo|
                                                              ((|XRecursivePolynomial|
                                                                |t#1| |t#2|)
                                                               (|XRecursivePolynomial|
                                                                |t#1| |t#2|)
-                                                              $))
+                                                              %))
                                                             T)
                                                            ((|rquo|
                                                              ((|XRecursivePolynomial|
                                                                |t#1| |t#2|)
                                                               (|XRecursivePolynomial|
                                                                |t#1| |t#2|)
-                                                              $))
+                                                              %))
                                                             T)
                                                            ((|LiePoly|
-                                                             ($
+                                                             (%
                                                               (|LyndonWord|
                                                                |t#1|)))
                                                             T)
-                                                           ((|mirror| ($ $)) T)
+                                                           ((|mirror| (% %)) T)
                                                            ((|trunc|
-                                                             ($ $
+                                                             (% %
                                                               (|NonNegativeInteger|)))
                                                             T)
                                                            ((|varList|
                                                              ((|List| |t#1|)
-                                                              $))
+                                                              %))
                                                             T)
                                                            ((|eval|
-                                                             ($ $ |t#1| $))
+                                                             (% % |t#1| %))
                                                             T)
                                                            ((|eval|
-                                                             ($ $
+                                                             (% %
                                                               (|List| |t#1|)
-                                                              (|List| $)))
+                                                              (|List| %)))
                                                             T))
                                                          NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|FreeLieAlgebra| |t#1| |t#2|))))) 

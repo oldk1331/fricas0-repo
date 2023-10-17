@@ -13,8 +13,8 @@
              (LETT #1#
                    (|Join|
                     (|mkCategory|
-                     '(((|sqrt| ($ $)) T) ((|nthRoot| ($ $ (|Integer|))) T)
-                       ((^ ($ $ (|Fraction| (|Integer|)))) T))
+                     '(((|sqrt| (% %)) T) ((|nthRoot| (% % (|Integer|))) T)
+                       ((^ (% % (|Fraction| (|Integer|)))) T))
                      NIL NIL NIL)))
            (SETELT #1# 0 '(|RadicalCategory|))))) 
 

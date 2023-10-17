@@ -1,67 +1,67 @@
 
-(PUT '|U8MAT;minRowIndex;$I;1| '|SPADreplace| '(XLAM (|x|) 0)) 
+(PUT '|U8MAT;minRowIndex;%I;1| '|SPADreplace| '(XLAM (|x|) 0)) 
 
-(SDEFUN |U8MAT;minRowIndex;$I;1| ((|x| ($)) ($ (|Integer|))) 0) 
+(SDEFUN |U8MAT;minRowIndex;%I;1| ((|x| (%)) (% (|Integer|))) 0) 
 
-(PUT '|U8MAT;minColIndex;$I;2| '|SPADreplace| '(XLAM (|x|) 0)) 
+(PUT '|U8MAT;minColIndex;%I;2| '|SPADreplace| '(XLAM (|x|) 0)) 
 
-(SDEFUN |U8MAT;minColIndex;$I;2| ((|x| ($)) ($ (|Integer|))) 0) 
+(SDEFUN |U8MAT;minColIndex;%I;2| ((|x| (%)) (% (|Integer|))) 0) 
 
-(PUT '|U8MAT;nrows;$Nni;3| '|SPADreplace| 'ANROWS_U8) 
+(PUT '|U8MAT;nrows;%Nni;3| '|SPADreplace| 'ANROWS_U8) 
 
-(SDEFUN |U8MAT;nrows;$Nni;3| ((|x| ($)) ($ (|NonNegativeInteger|)))
+(SDEFUN |U8MAT;nrows;%Nni;3| ((|x| (%)) (% (|NonNegativeInteger|)))
         (ANROWS_U8 |x|)) 
 
-(PUT '|U8MAT;ncols;$Nni;4| '|SPADreplace| 'ANCOLS_U8) 
+(PUT '|U8MAT;ncols;%Nni;4| '|SPADreplace| 'ANCOLS_U8) 
 
-(SDEFUN |U8MAT;ncols;$Nni;4| ((|x| ($)) ($ (|NonNegativeInteger|)))
+(SDEFUN |U8MAT;ncols;%Nni;4| ((|x| (%)) (% (|NonNegativeInteger|)))
         (ANCOLS_U8 |x|)) 
 
-(SDEFUN |U8MAT;maxRowIndex;$I;5| ((|x| ($)) ($ (|Integer|)))
+(SDEFUN |U8MAT;maxRowIndex;%I;5| ((|x| (%)) (% (|Integer|)))
         (- (ANROWS_U8 |x|) 1)) 
 
-(SDEFUN |U8MAT;maxColIndex;$I;6| ((|x| ($)) ($ (|Integer|)))
+(SDEFUN |U8MAT;maxColIndex;%I;6| ((|x| (%)) (% (|Integer|)))
         (- (ANCOLS_U8 |x|) 1)) 
 
-(PUT '|U8MAT;qelt;$3I;7| '|SPADreplace| 'AREF2_U8) 
+(PUT '|U8MAT;qelt;%3I;7| '|SPADreplace| 'AREF2_U8) 
 
-(SDEFUN |U8MAT;qelt;$3I;7|
-        ((|m| ($)) (|i| #1=(|Integer|)) (|j| #1#) ($ (|Integer|)))
+(SDEFUN |U8MAT;qelt;%3I;7|
+        ((|m| (%)) (|i| #1=(|Integer|)) (|j| #1#) (% (|Integer|)))
         (AREF2_U8 |m| |i| |j|)) 
 
-(PUT '|U8MAT;elt;$3I;8| '|SPADreplace| 'AREF2_U8) 
+(PUT '|U8MAT;elt;%3I;8| '|SPADreplace| 'AREF2_U8) 
 
-(SDEFUN |U8MAT;elt;$3I;8|
-        ((|m| ($)) (|i| #1=(|Integer|)) (|j| #1#) ($ (|Integer|)))
+(SDEFUN |U8MAT;elt;%3I;8|
+        ((|m| (%)) (|i| #1=(|Integer|)) (|j| #1#) (% (|Integer|)))
         (AREF2_U8 |m| |i| |j|)) 
 
-(PUT '|U8MAT;qsetelt!;$4I;9| '|SPADreplace| 'SETAREF2_U8) 
+(PUT '|U8MAT;qsetelt!;%4I;9| '|SPADreplace| 'SETAREF2_U8) 
 
-(SDEFUN |U8MAT;qsetelt!;$4I;9|
-        ((|m| ($)) (|i| #1=(|Integer|)) (|j| #1#) (|r| #2=(|Integer|)) ($ #2#))
+(SDEFUN |U8MAT;qsetelt!;%4I;9|
+        ((|m| (%)) (|i| #1=(|Integer|)) (|j| #1#) (|r| #2=(|Integer|)) (% #2#))
         (SETAREF2_U8 |m| |i| |j| |r|)) 
 
-(PUT '|U8MAT;setelt!;$4I;10| '|SPADreplace| 'SETAREF2_U8) 
+(PUT '|U8MAT;setelt!;%4I;10| '|SPADreplace| 'SETAREF2_U8) 
 
-(SDEFUN |U8MAT;setelt!;$4I;10|
-        ((|m| ($)) (|i| #1=(|Integer|)) (|j| #1#) (|r| #2=(|Integer|)) ($ #2#))
+(SDEFUN |U8MAT;setelt!;%4I;10|
+        ((|m| (%)) (|i| #1=(|Integer|)) (|j| #1#) (|r| #2=(|Integer|)) (% #2#))
         (SETAREF2_U8 |m| |i| |j| |r|)) 
 
-(PUT '|U8MAT;empty;$;11| '|SPADreplace| '(XLAM NIL (MAKE_MATRIX_U8 0 0))) 
+(PUT '|U8MAT;empty;%;11| '|SPADreplace| '(XLAM NIL (MAKE_MATRIX_U8 0 0))) 
 
-(SDEFUN |U8MAT;empty;$;11| (($ ($))) (MAKE_MATRIX_U8 0 0)) 
+(SDEFUN |U8MAT;empty;%;11| ((% (%))) (MAKE_MATRIX_U8 0 0)) 
 
-(PUT '|U8MAT;qnew;2Nni$;12| '|SPADreplace| 'MAKE_MATRIX_U8) 
+(PUT '|U8MAT;qnew;2Nni%;12| '|SPADreplace| 'MAKE_MATRIX_U8) 
 
-(SDEFUN |U8MAT;qnew;2Nni$;12|
-        ((|rows| #1=(|NonNegativeInteger|)) (|cols| #1#) ($ ($)))
+(SDEFUN |U8MAT;qnew;2Nni%;12|
+        ((|rows| #1=(|NonNegativeInteger|)) (|cols| #1#) (% (%)))
         (MAKE_MATRIX_U8 |rows| |cols|)) 
 
-(PUT '|U8MAT;new;2NniI$;13| '|SPADreplace| 'MAKE_MATRIX1_U8) 
+(PUT '|U8MAT;new;2NniI%;13| '|SPADreplace| 'MAKE_MATRIX1_U8) 
 
-(SDEFUN |U8MAT;new;2NniI$;13|
+(SDEFUN |U8MAT;new;2NniI%;13|
         ((|rows| #1=(|NonNegativeInteger|)) (|cols| #1#) (|a| (|Integer|))
-         ($ ($)))
+         (% (%)))
         (MAKE_MATRIX1_U8 |rows| |cols| |a|)) 
 
 (DECLAIM (NOTINLINE |U8Matrix;|)) 
@@ -84,13 +84,13 @@
 
 (DEFUN |U8Matrix;| ()
   (SPROG
-   ((|dv$| NIL) ($ NIL) (#1=#:G2593 NIL) (#2=#:G2594 NIL) (#3=#:G2592 NIL)
+   ((|dv$| NIL) (% NIL) (#1=#:G2593 NIL) (#2=#:G2594 NIL) (#3=#:G2592 NIL)
     (|pv$| NIL))
    (PROGN
     (LETT |dv$| '(|U8Matrix|))
-    (LETT $ (GETREFV 46))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 46))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -150,35 +150,35 @@
                                                        '(|CommutativeRing|))
                                         (|HasCategory| (|Integer|)
                                                        '(|Field|))))))
-    (|haddProp| |$ConstructorCache| '|U8Matrix| NIL (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 131072))
-    (AND (|HasCategory| $ '(|finiteAggregate|))
+    (|haddProp| |$ConstructorCache| '|U8Matrix| NIL (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (AND (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 131072))
+    (AND (|HasCategory| % '(|finiteAggregate|))
          (|HasCategory| (|Integer|) '(|OrderedSet|))
-         (|augmentPredVector| $ 262144))
-    (AND (|HasCategory| $ '(|finiteAggregate|))
+         (|augmentPredVector| % 262144))
+    (AND (|HasCategory| % '(|finiteAggregate|))
          (|HasCategory| (|Integer|) '(|BasicType|))
-         (|augmentPredVector| $ 524288))
+         (|augmentPredVector| % 524288))
     (AND
      (OR
-      (AND (|HasCategory| $ '(|finiteAggregate|))
+      (AND (|HasCategory| % '(|finiteAggregate|))
            (|HasCategory| (|Integer|) '(|BasicType|)))
       #1#)
-     (|augmentPredVector| $ 1048576))
-    (SETF |pv$| (QREFELT $ 3))
-    $))) 
+     (|augmentPredVector| % 1048576))
+    (SETF |pv$| (QREFELT % 3))
+    %))) 
 
 (MAKEPROP '|U8Matrix| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|Integer|) |U8MAT;minRowIndex;$I;1|
-              |U8MAT;minColIndex;$I;2| (|NonNegativeInteger|)
-              |U8MAT;nrows;$Nni;3| |U8MAT;ncols;$Nni;4|
-              |U8MAT;maxRowIndex;$I;5| |U8MAT;maxColIndex;$I;6|
-              |U8MAT;qelt;$3I;7| |U8MAT;elt;$3I;8| |U8MAT;qsetelt!;$4I;9|
-              |U8MAT;setelt!;$4I;10| |U8MAT;empty;$;11| |U8MAT;qnew;2Nni$;12|
-              |U8MAT;new;2NniI$;13| (|List| 6) (|Equation| 6) (|List| 22)
-              (|Boolean|) (|OutputForm|) (|List| 28) (|Union| $ '"failed")
-              (|U8Vector|) (|List| $) (|SingleInteger|) (|String|)
+           '#(NIL NIL NIL NIL NIL NIL (|Integer|) |U8MAT;minRowIndex;%I;1|
+              |U8MAT;minColIndex;%I;2| (|NonNegativeInteger|)
+              |U8MAT;nrows;%Nni;3| |U8MAT;ncols;%Nni;4|
+              |U8MAT;maxRowIndex;%I;5| |U8MAT;maxColIndex;%I;6|
+              |U8MAT;qelt;%3I;7| |U8MAT;elt;%3I;8| |U8MAT;qsetelt!;%4I;9|
+              |U8MAT;setelt!;%4I;10| |U8MAT;empty;%;11| |U8MAT;qnew;2Nni%;12|
+              |U8MAT;new;2NniI%;13| (|List| 6) (|Equation| 6) (|List| 22)
+              (|Boolean|) (|OutputForm|) (|List| 28) (|Union| % '"failed")
+              (|U8Vector|) (|List| %) (|SingleInteger|) (|String|)
               (|HashState|) (|Mapping| 24 6 6) (|Mapping| 24 6) (|Void|)
               (|List| 41) (|Union| 6 '"one") (|List| 21) (|Mapping| 6 6 6)
               (|List| 29) (|List| 9) (|Mapping| 6 6) (|PositiveInteger|)

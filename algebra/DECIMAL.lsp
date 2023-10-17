@@ -1,10 +1,10 @@
 
-(SDEFUN |DECIMAL;decimal;F$;1| ((|r| (|Fraction| (|Integer|))) ($ ($)))
-        (SPADCALL |r| (QREFELT $ 7))) 
+(SDEFUN |DECIMAL;decimal;F%;1| ((|r| (|Fraction| (|Integer|))) (% (%)))
+        (SPADCALL |r| (QREFELT % 7))) 
 
-(PUT '|DECIMAL;coerce;$Re;2| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(PUT '|DECIMAL;coerce;%Re;2| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |DECIMAL;coerce;$Re;2| ((|x| ($)) ($ (|RadixExpansion| 10))) |x|) 
+(SDEFUN |DECIMAL;coerce;%Re;2| ((|x| (%)) (% (|RadixExpansion| 10))) |x|) 
 
 (DECLAIM (NOTINLINE |DecimalExpansion;|)) 
 
@@ -27,12 +27,12 @@
                   (HREM |$ConstructorCache| '|DecimalExpansion|)))))))))) 
 
 (DEFUN |DecimalExpansion;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (#1=#:G138 NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) (% NIL) (#1=#:G138 NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|DecimalExpansion|))
-          (LETT $ (GETREFV 55))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3
+          (LETT % (GETREFV 55))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
@@ -109,42 +109,42 @@
                                                                  '(|OrderedIntegralDomain|))
                                                   (|HasCategory| (|Integer|)
                                                                  '(|OrderedSet|)))))))
-          (|haddProp| |$ConstructorCache| '|DecimalExpansion| NIL (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (AND (|HasCategory| $ '(|CharacteristicNonZero|))
+          (|haddProp| |$ConstructorCache| '|DecimalExpansion| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (AND (|HasCategory| % '(|CharacteristicNonZero|))
                (|HasCategory| (|Integer|) '(|PolynomialFactorizationExplicit|))
-               (|augmentPredVector| $ 33554432))
+               (|augmentPredVector| % 33554432))
           (AND
            (OR
-            (AND (|HasCategory| $ '(|CharacteristicNonZero|))
+            (AND (|HasCategory| % '(|CharacteristicNonZero|))
                  (|HasCategory| (|Integer|)
                                 '(|PolynomialFactorizationExplicit|)))
             (|HasCategory| (|Integer|) '(|CharacteristicNonZero|)))
-           (|augmentPredVector| $ 67108864))
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+           (|augmentPredVector| % 67108864))
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|DecimalExpansion| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|RadixExpansion| '10) (|Fraction| 18)
-              (0 . |coerce|) |DECIMAL;decimal;F$;1| |DECIMAL;coerce;$Re;2|
-              (|Union| 25 '#1="failed") (|Matrix| $) (|Union| $ '"failed")
+              (0 . |coerce|) |DECIMAL;decimal;F%;1| |DECIMAL;coerce;%Re;2|
+              (|Union| 25 '#1="failed") (|Matrix| %) (|Union| % '"failed")
               (|Boolean|) (|InputForm|) (|Pattern| 35) (|Pattern| 18)
               (|NonNegativeInteger|) (|Integer|) (|List| 20) (|Equation| 18)
               (|List| 18) (|List| 23) (|Symbol|)
-              (|Record| (|:| |mat| 26) (|:| |vec| (|Vector| 18))) (|Vector| $)
-              (|Matrix| 18) (|List| 17) (|PatternMatchResult| 35 $)
-              (|PatternMatchResult| 18 $) (|Factored| 31)
-              (|SparseUnivariatePolynomial| $) (|Union| 33 '#1#) (|List| 31)
+              (|Record| (|:| |mat| 26) (|:| |vec| (|Vector| 18))) (|Vector| %)
+              (|Matrix| 18) (|List| 17) (|PatternMatchResult| 35 %)
+              (|PatternMatchResult| 18 %) (|Factored| 31)
+              (|SparseUnivariatePolynomial| %) (|Union| 33 '#1#) (|List| 31)
               (|DoubleFloat|) (|Float|) (|Union| 18 '#2="failed")
               (|Union| 6 '#2#) (|Union| 23 '#2#) (|Mapping| 18 18)
-              (|Factored| $) (|Union| 42 '#3="failed") (|List| $)
-              (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 44 '#3#)
-              (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|Record| (|:| |coef| 42) (|:| |generator| $))
-              (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
-              (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
+              (|Factored| %) (|Union| 42 '#3="failed") (|List| %)
+              (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
+              (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 44 '#3#)
+              (|Record| (|:| |quotient| %) (|:| |remainder| %))
+              (|Record| (|:| |coef| 42) (|:| |generator| %))
+              (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
+              (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|)
               (|OutputForm|))
            '#(~= 5 |zero?| 11 |wholePart| 16 |unitNormal| 21 |unitCanonical| 26

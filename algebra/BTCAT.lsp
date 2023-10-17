@@ -28,6 +28,6 @@
                                                  (|shallowlyMutable|)
                                                  (|finiteAggregate|)
                                                  (|mkCategory|
-                                                  '(((|node| ($ $ |t#1| $)) T))
+                                                  '(((|node| (% % |t#1| %)) T))
                                                   NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|BinaryTreeCategory| |t#1|))))) 

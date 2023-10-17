@@ -19,12 +19,12 @@
                  ((NOT #1#) (HREM |$ConstructorCache| '|GuessInteger|)))))))))) 
 
 (DEFUN |GuessInteger;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|GuessInteger|))
-          (LETT $ (GETREFV 30))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3
+          (LETT % (GETREFV 30))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
@@ -35,15 +35,15 @@
                                                (|HasCategory| (|Integer|)
                                                               '(|RetractableTo|
                                                                 (|Symbol|))))))))
-          (|haddProp| |$ConstructorCache| '|GuessInteger| NIL (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+          (|haddProp| |$ConstructorCache| '|GuessInteger| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|GuessInteger| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL
-              (|Guess| 6 (|Integer|) 7 (NRTEVAL (ELT $ 8)) (NRTEVAL (ELT $ 9)))
+              (|Guess| 6 (|Integer|) 7 (NRTEVAL (ELT % 8)) (NRTEVAL (ELT % 9)))
               (|Fraction| (|Integer|)) (|Expression| (|Integer|))
               (0 . |retract|) (5 . |coerce|) (|Mapping| 24 25 26) (|Symbol|)
               (|Mapping| (|Stream| (|UnivariateFormalPowerSeries| 6))

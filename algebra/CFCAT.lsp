@@ -15,8 +15,8 @@
              (LETT #1#
                    (|Join|
                     (|mkCategory|
-                     '(((|binomial| ($ $ $)) T) ((|factorial| ($ $)) T)
-                       ((|permutation| ($ $ $)) T))
+                     '(((|binomial| (% % %)) T) ((|factorial| (% %)) T)
+                       ((|permutation| (% % %)) T))
                      NIL NIL NIL)))
            (SETELT #1# 0 '(|CombinatorialFunctionCategory|))))) 
 

@@ -1,12 +1,12 @@
 
-(SDEFUN |XDPOLY;mindegTerm;$R;1|
-        ((|p| ($)) ($ (|Record| (|:| |k| (|FreeMonoid| |vl|)) (|:| |c| R))))
-        (SPADCALL |p| (QREFELT $ 10))) 
+(SDEFUN |XDPOLY;mindegTerm;%R;1|
+        ((|p| (%)) (% (|Record| (|:| |k| (|FreeMonoid| |vl|)) (|:| |c| R))))
+        (SPADCALL |p| (QREFELT % 10))) 
 
-(SDEFUN |XDPOLY;sh;$Nni$;2| ((|p| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
+(SDEFUN |XDPOLY;sh;%Nni%;2| ((|p| (%)) (|n| (|NonNegativeInteger|)) (% (%)))
         (SPROG ((|n1| (|NonNegativeInteger|)) (#1=#:G121 NIL))
                (SEQ
-                (COND ((EQL |n| 0) (|spadConstant| $ 14)) ((EQL |n| 1) |p|)
+                (COND ((EQL |n| 0) (|spadConstant| % 14)) ((EQL |n| 1) |p|)
                       ('T
                        (SEQ
                         (LETT |n1|
@@ -15,13 +15,13 @@
                                                   '(|NonNegativeInteger|)
                                                   '(|Integer|) #1#)))
                         (EXIT
-                         (SPADCALL |p| (SPADCALL |p| |n1| (QREFELT $ 17))
-                                   (QREFELT $ 18))))))))) 
+                         (SPADCALL |p| (SPADCALL |p| |n1| (QREFELT % 17))
+                                   (QREFELT % 18))))))))) 
 
-(SDEFUN |XDPOLY;sh;3$;3| ((|p1| ($)) (|p2| ($)) ($ ($)))
+(SDEFUN |XDPOLY;sh;3%;3| ((|p1| (%)) (|p2| (%)) (% (%)))
         (SPROG
-         ((|p| ($)) (#1=#:G131 NIL) (|t2| NIL) (#2=#:G130 NIL) (|t1| NIL))
-         (SEQ (LETT |p| (|spadConstant| $ 12))
+         ((|p| (%)) (#1=#:G131 NIL) (|t2| NIL) (#2=#:G130 NIL) (|t1| NIL))
+         (SEQ (LETT |p| (|spadConstant| % 12))
               (SEQ (LETT |t1| NIL) (LETT #2# |p1|) G190
                    (COND
                     ((OR (ATOM #2#) (PROGN (LETT |t1| (CAR #2#)) NIL))
@@ -38,22 +38,22 @@
                                   (SPADCALL |p|
                                             (SPADCALL
                                              (SPADCALL (QCDR |t1|) (QCDR |t2|)
-                                                       (QREFELT $ 19))
+                                                       (QREFELT % 19))
                                              (|XDPOLY;shw| (QCAR |t1|)
-                                              (QCAR |t2|) $)
-                                             (QREFELT $ 20))
-                                            (QREFELT $ 21)))))
+                                              (QCAR |t2|) %)
+                                             (QREFELT % 20))
+                                            (QREFELT % 21)))))
                           (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))))
                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (EXIT |p|)))) 
 
-(SDEFUN |XDPOLY;coerce;Fm$;4| ((|w| (|FreeMonoid| |vl|)) ($ ($)))
-        (SPADCALL (|spadConstant| $ 15) |w| (QREFELT $ 23))) 
+(SDEFUN |XDPOLY;coerce;Fm%;4| ((|w| (|FreeMonoid| |vl|)) (% (%)))
+        (SPADCALL (|spadConstant| % 15) |w| (QREFELT % 23))) 
 
-(SDEFUN |XDPOLY;coerce;vl$;5| ((|v| (|vl|)) ($ ($)))
-        (SPADCALL (SPADCALL |v| (QREFELT $ 25)) (QREFELT $ 24))) 
+(SDEFUN |XDPOLY;coerce;vl%;5| ((|v| (|vl|)) (% (%)))
+        (SPADCALL (SPADCALL |v| (QREFELT % 25)) (QREFELT % 24))) 
 
-(SDEFUN |XDPOLY;*;vl2$;6| ((|v| (|vl|)) (|p| ($)) ($ ($)))
+(SDEFUN |XDPOLY;*;vl2%;6| ((|v| (|vl|)) (|p| (%)) (% (%)))
         (SPROG ((#1=#:G138 NIL) (|t| NIL) (#2=#:G137 NIL))
                (SEQ
                 (PROGN
@@ -66,30 +66,30 @@
                        (EXIT
                         (LETT #2#
                               (CONS
-                               (CONS (SPADCALL |v| (QCAR |t|) (QREFELT $ 27))
+                               (CONS (SPADCALL |v| (QCAR |t|) (QREFELT % 27))
                                      (QCDR |t|))
                                #2#))))
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(SDEFUN |XDPOLY;retractIfCan;$U;7| ((|p| ($)) ($ (|Union| R "failed")))
+(SDEFUN |XDPOLY;retractIfCan;%U;7| ((|p| (%)) (% (|Union| R "failed")))
         (SPROG
          ((|t1| (|Record| (|:| |k| (|FreeMonoid| |vl|)) (|:| |c| R)))
           (|lt| (|Rep|)))
          (SEQ (LETT |lt| |p|)
               (EXIT
-               (COND ((NULL |lt|) (CONS 0 (|spadConstant| $ 13)))
+               (COND ((NULL |lt|) (CONS 0 (|spadConstant| % 13)))
                      ('T
                       (SEQ (LETT |t1| (|SPADfirst| |lt|))
                            (COND
                             ((NULL
-                              (SPADCALL (QCAR |t1|) (|spadConstant| $ 29)
-                                        (QREFELT $ 31)))
+                              (SPADCALL (QCAR |t1|) (|spadConstant| % 29)
+                                        (QREFELT % 31)))
                              (EXIT (CONS 1 "failed"))))
                            (EXIT (CONS 0 (QCDR |t1|)))))))))) 
 
-(SDEFUN |XDPOLY;retractIfCan;$U;8|
-        ((|p| ($)) ($ (|Union| (|FreeMonoid| |vl|) "failed")))
+(SDEFUN |XDPOLY;retractIfCan;%U;8|
+        ((|p| (%)) (% (|Union| (|FreeMonoid| |vl|) "failed")))
         (SPROG
          ((|t1| (|Record| (|:| |k| (|FreeMonoid| |vl|)) (|:| |c| R)))
           (|lt| (|Rep|)))
@@ -101,39 +101,39 @@
                  (SEQ (LETT |t1| (|SPADfirst| |lt|))
                       (EXIT
                        (COND
-                        ((SPADCALL (QCDR |t1|) (|spadConstant| $ 15)
-                                   (QREFELT $ 34))
+                        ((SPADCALL (QCDR |t1|) (|spadConstant| % 15)
+                                   (QREFELT % 34))
                          (CONS 0 (QCAR |t1|)))
                         ('T (CONS 1 "failed"))))))))))) 
 
-(SDEFUN |XDPOLY;mirror;2$;9| ((|p| ($)) ($ ($)))
+(SDEFUN |XDPOLY;mirror;2%;9| ((|p| (%)) (% (%)))
         (COND ((NULL |p|) |p|)
               ('T
                (SPADCALL
-                (SPADCALL (SPADCALL |p| (QREFELT $ 37))
-                          (SPADCALL (SPADCALL |p| (QREFELT $ 38))
-                                    (QREFELT $ 39))
-                          (QREFELT $ 23))
-                (SPADCALL (SPADCALL |p| (QREFELT $ 40)) (QREFELT $ 41))
-                (QREFELT $ 21))))) 
+                (SPADCALL (SPADCALL |p| (QREFELT % 37))
+                          (SPADCALL (SPADCALL |p| (QREFELT % 38))
+                                    (QREFELT % 39))
+                          (QREFELT % 23))
+                (SPADCALL (SPADCALL |p| (QREFELT % 40)) (QREFELT % 41))
+                (QREFELT % 21))))) 
 
-(SDEFUN |XDPOLY;degree;$Nni;10| ((|p| ($)) ($ (|NonNegativeInteger|)))
-        (SPADCALL (SPADCALL |p| (QREFELT $ 42)) (QREFELT $ 43))) 
+(SDEFUN |XDPOLY;degree;%Nni;10| ((|p| (%)) (% (|NonNegativeInteger|)))
+        (SPADCALL (SPADCALL |p| (QREFELT % 42)) (QREFELT % 43))) 
 
-(SDEFUN |XDPOLY;trunc;$Nni$;11|
-        ((|p| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
+(SDEFUN |XDPOLY;trunc;%Nni%;11|
+        ((|p| (%)) (|n| (|NonNegativeInteger|)) (% (%)))
         (COND
-         ((OR (SPADCALL |p| (|spadConstant| $ 12) (QREFELT $ 45))
-              (NULL (> (SPADCALL |p| (QREFELT $ 44)) |n|)))
+         ((OR (SPADCALL |p| (|spadConstant| % 12) (QREFELT % 45))
+              (NULL (> (SPADCALL |p| (QREFELT % 44)) |n|)))
           |p|)
-         ('T (SPADCALL (SPADCALL |p| (QREFELT $ 40)) |n| (QREFELT $ 46))))) 
+         ('T (SPADCALL (SPADCALL |p| (QREFELT % 40)) |n| (QREFELT % 46))))) 
 
-(SDEFUN |XDPOLY;varList;$L;12| ((|p| ($)) ($ (|List| |vl|)))
+(SDEFUN |XDPOLY;varList;%L;12| ((|p| (%)) (% (|List| |vl|)))
         (SPROG
          ((|le| #1=(|List| |vl|)) (#2=#:G165 NIL) (#3=#:G164 #1#)
           (#4=#:G166 #1#) (#5=#:G170 NIL) (|t| NIL))
          (SEQ
-          (COND ((SPADCALL |p| (QREFELT $ 47)) NIL)
+          (COND ((SPADCALL |p| (QREFELT % 47)) NIL)
                 (#6='T
                  (SEQ
                   (LETT |le|
@@ -148,17 +148,17 @@
                                (EXIT
                                 (PROGN
                                  (LETT #4#
-                                       (SPADCALL (QCAR |t|) (QREFELT $ 49)))
+                                       (SPADCALL (QCAR |t|) (QREFELT % 49)))
                                  (COND
                                   (#2#
                                    (LETT #3#
-                                         (SPADCALL #3# #4# (QREFELT $ 50))))
+                                         (SPADCALL #3# #4# (QREFELT % 50))))
                                   ('T (PROGN (LETT #3# #4#) (LETT #2# 'T)))))))
                               (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
                          (COND (#2# #3#) (#6# (|IdentityError| '|setUnion|)))))
-                  (EXIT (SPADCALL |le| (QREFELT $ 51))))))))) 
+                  (EXIT (SPADCALL |le| (QREFELT % 51))))))))) 
 
-(SDEFUN |XDPOLY;rquo;$Fm$;13| ((|p| ($)) (|w| (|FreeMonoid| |vl|)) ($ ($)))
+(SDEFUN |XDPOLY;rquo;%Fm%;13| ((|p| (%)) (|w| (|FreeMonoid| |vl|)) (% (%)))
         (SPROG
          ((#1=#:G173 NIL) (|r| (|Union| (|FreeMonoid| |vl|) #2="failed"))
           (#3=#:G179 NIL) (|t| NIL) (#4=#:G178 NIL))
@@ -171,7 +171,7 @@
                 (SEQ
                  (EXIT
                   (COND
-                   ((SEQ (LETT |r| (SPADCALL (QCAR |t|) |w| (QREFELT $ 54)))
+                   ((SEQ (LETT |r| (SPADCALL (QCAR |t|) |w| (QREFELT % 54)))
                          (EXIT (NULL (QEQCAR |r| 1))))
                     (LETT #4#
                           (CONS
@@ -179,16 +179,16 @@
                             (PROG2 (LETT #1# |r|)
                                 (QCDR #1#)
                               (|check_union2| (QEQCAR #1# 0)
-                                              (|FreeMonoid| (QREFELT $ 6))
+                                              (|FreeMonoid| (QREFELT % 6))
                                               (|Union|
-                                               (|FreeMonoid| (QREFELT $ 6))
+                                               (|FreeMonoid| (QREFELT % 6))
                                                #2#)
                                               #1#))
                             (QCDR |t|))
                            #4#))))))
                 (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT (NREVERSE #4#))))))) 
 
-(SDEFUN |XDPOLY;lquo;$Fm$;14| ((|p| ($)) (|w| (|FreeMonoid| |vl|)) ($ ($)))
+(SDEFUN |XDPOLY;lquo;%Fm%;14| ((|p| (%)) (|w| (|FreeMonoid| |vl|)) (% (%)))
         (SPROG
          ((#1=#:G182 NIL) (|r| (|Union| (|FreeMonoid| |vl|) #2="failed"))
           (#3=#:G188 NIL) (|t| NIL) (#4=#:G187 NIL))
@@ -201,7 +201,7 @@
                 (SEQ
                  (EXIT
                   (COND
-                   ((SEQ (LETT |r| (SPADCALL (QCAR |t|) |w| (QREFELT $ 56)))
+                   ((SEQ (LETT |r| (SPADCALL (QCAR |t|) |w| (QREFELT % 56)))
                          (EXIT (NULL (QEQCAR |r| 1))))
                     (LETT #4#
                           (CONS
@@ -209,16 +209,16 @@
                             (PROG2 (LETT #1# |r|)
                                 (QCDR #1#)
                               (|check_union2| (QEQCAR #1# 0)
-                                              (|FreeMonoid| (QREFELT $ 6))
+                                              (|FreeMonoid| (QREFELT % 6))
                                               (|Union|
-                                               (|FreeMonoid| (QREFELT $ 6))
+                                               (|FreeMonoid| (QREFELT % 6))
                                                #2#)
                                               #1#))
                             (QCDR |t|))
                            #4#))))))
                 (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT (NREVERSE #4#))))))) 
 
-(SDEFUN |XDPOLY;rquo;$vl$;15| ((|p| ($)) (|v| (|vl|)) ($ ($)))
+(SDEFUN |XDPOLY;rquo;%vl%;15| ((|p| (%)) (|v| (|vl|)) (% (%)))
         (SPROG
          ((#1=#:G191 NIL) (|r| (|Union| (|FreeMonoid| |vl|) #2="failed"))
           (#3=#:G197 NIL) (|t| NIL) (#4=#:G196 NIL))
@@ -231,7 +231,7 @@
                 (SEQ
                  (EXIT
                   (COND
-                   ((SEQ (LETT |r| (SPADCALL (QCAR |t|) |v| (QREFELT $ 58)))
+                   ((SEQ (LETT |r| (SPADCALL (QCAR |t|) |v| (QREFELT % 58)))
                          (EXIT (NULL (QEQCAR |r| 1))))
                     (LETT #4#
                           (CONS
@@ -239,16 +239,16 @@
                             (PROG2 (LETT #1# |r|)
                                 (QCDR #1#)
                               (|check_union2| (QEQCAR #1# 0)
-                                              (|FreeMonoid| (QREFELT $ 6))
+                                              (|FreeMonoid| (QREFELT % 6))
                                               (|Union|
-                                               (|FreeMonoid| (QREFELT $ 6))
+                                               (|FreeMonoid| (QREFELT % 6))
                                                #2#)
                                               #1#))
                             (QCDR |t|))
                            #4#))))))
                 (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT (NREVERSE #4#))))))) 
 
-(SDEFUN |XDPOLY;lquo;$vl$;16| ((|p| ($)) (|v| (|vl|)) ($ ($)))
+(SDEFUN |XDPOLY;lquo;%vl%;16| ((|p| (%)) (|v| (|vl|)) (% (%)))
         (SPROG
          ((#1=#:G200 NIL) (|r| (|Union| (|FreeMonoid| |vl|) #2="failed"))
           (#3=#:G206 NIL) (|t| NIL) (#4=#:G205 NIL))
@@ -261,7 +261,7 @@
                 (SEQ
                  (EXIT
                   (COND
-                   ((SEQ (LETT |r| (SPADCALL (QCAR |t|) |v| (QREFELT $ 60)))
+                   ((SEQ (LETT |r| (SPADCALL (QCAR |t|) |v| (QREFELT % 60)))
                          (EXIT (NULL (QEQCAR |r| 1))))
                     (LETT #4#
                           (CONS
@@ -269,9 +269,9 @@
                             (PROG2 (LETT #1# |r|)
                                 (QCDR #1#)
                               (|check_union2| (QEQCAR #1# 0)
-                                              (|FreeMonoid| (QREFELT $ 6))
+                                              (|FreeMonoid| (QREFELT % 6))
                                               (|Union|
-                                               (|FreeMonoid| (QREFELT $ 6))
+                                               (|FreeMonoid| (QREFELT % 6))
                                                #2#)
                                               #1#))
                             (QCDR |t|))
@@ -279,32 +279,32 @@
                 (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT (NREVERSE #4#))))))) 
 
 (SDEFUN |XDPOLY;shw|
-        ((|w1| (|FreeMonoid| |vl|)) (|w2| (|FreeMonoid| |vl|)) ($ ($)))
+        ((|w1| (|FreeMonoid| |vl|)) (|w2| (|FreeMonoid| |vl|)) (% (%)))
         (SPROG ((|y| (|vl|)) (|x| (|vl|)))
                (SEQ
                 (COND
-                 ((SPADCALL |w1| (|spadConstant| $ 29) (QREFELT $ 31))
-                  (SPADCALL (|spadConstant| $ 15) |w2| (QREFELT $ 23)))
-                 ((SPADCALL |w2| (|spadConstant| $ 29) (QREFELT $ 31))
-                  (SPADCALL (|spadConstant| $ 15) |w1| (QREFELT $ 23)))
+                 ((SPADCALL |w1| (|spadConstant| % 29) (QREFELT % 31))
+                  (SPADCALL (|spadConstant| % 15) |w2| (QREFELT % 23)))
+                 ((SPADCALL |w2| (|spadConstant| % 29) (QREFELT % 31))
+                  (SPADCALL (|spadConstant| % 15) |w1| (QREFELT % 23)))
                  ('T
-                  (SEQ (LETT |x| (SPADCALL |w1| (QREFELT $ 62)))
-                       (LETT |y| (SPADCALL |w2| (QREFELT $ 62)))
+                  (SEQ (LETT |x| (SPADCALL |w1| (QREFELT % 62)))
+                       (LETT |y| (SPADCALL |w2| (QREFELT % 62)))
                        (EXIT
                         (SPADCALL
                          (SPADCALL |x|
-                                   (|XDPOLY;shw| (SPADCALL |w1| (QREFELT $ 63))
-                                    |w2| $)
-                                   (QREFELT $ 28))
+                                   (|XDPOLY;shw| (SPADCALL |w1| (QREFELT % 63))
+                                    |w2| %)
+                                   (QREFELT % 28))
                          (SPADCALL |y|
                                    (|XDPOLY;shw| |w1|
-                                    (SPADCALL |w2| (QREFELT $ 63)) $)
-                                   (QREFELT $ 28))
-                         (QREFELT $ 21))))))))) 
+                                    (SPADCALL |w2| (QREFELT % 63)) %)
+                                   (QREFELT % 28))
+                         (QREFELT % 21))))))))) 
 
-(SDEFUN |XDPOLY;lquo;3$;18| ((|p| ($)) (|q| ($)) ($ ($)))
+(SDEFUN |XDPOLY;lquo;3%;18| ((|p| (%)) (|q| (%)) (% (%)))
         (SPROG
-         ((#1=#:G212 NIL) (#2=#:G211 ($)) (#3=#:G213 ($)) (|r| ($))
+         ((#1=#:G212 NIL) (#2=#:G211 (%)) (#3=#:G213 (%)) (|r| (%))
           (#4=#:G215 NIL) (|t| NIL))
          (SEQ
           (PROGN
@@ -316,18 +316,18 @@
                  (EXIT
                   (COND
                    ((SPADCALL
-                     (LETT |r| (SPADCALL |p| (QCAR |t|) (QREFELT $ 57)))
-                     (|spadConstant| $ 12) (QREFELT $ 64))
+                     (LETT |r| (SPADCALL |p| (QCAR |t|) (QREFELT % 57)))
+                     (|spadConstant| % 12) (QREFELT % 64))
                     (PROGN
-                     (LETT #3# (SPADCALL (QCDR |t|) |r| (QREFELT $ 20)))
-                     (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 21))))
+                     (LETT #3# (SPADCALL (QCDR |t|) |r| (QREFELT % 20)))
+                     (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT % 21))))
                            ('T (PROGN (LETT #2# #3#) (LETT #1# 'T)))))))))
                 (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
-           (COND (#1# #2#) ('T (|spadConstant| $ 12))))))) 
+           (COND (#1# #2#) ('T (|spadConstant| % 12))))))) 
 
-(SDEFUN |XDPOLY;rquo;3$;19| ((|p| ($)) (|q| ($)) ($ ($)))
+(SDEFUN |XDPOLY;rquo;3%;19| ((|p| (%)) (|q| (%)) (% (%)))
         (SPROG
-         ((#1=#:G217 NIL) (#2=#:G216 ($)) (#3=#:G218 ($)) (|r| ($))
+         ((#1=#:G217 NIL) (#2=#:G216 (%)) (#3=#:G218 (%)) (|r| (%))
           (#4=#:G220 NIL) (|t| NIL))
          (SEQ
           (PROGN
@@ -339,39 +339,39 @@
                  (EXIT
                   (COND
                    ((SPADCALL
-                     (LETT |r| (SPADCALL |p| (QCAR |t|) (QREFELT $ 55)))
-                     (|spadConstant| $ 12) (QREFELT $ 64))
+                     (LETT |r| (SPADCALL |p| (QCAR |t|) (QREFELT % 55)))
+                     (|spadConstant| % 12) (QREFELT % 64))
                     (PROGN
-                     (LETT #3# (SPADCALL |r| (QCDR |t|) (QREFELT $ 66)))
-                     (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 21))))
+                     (LETT #3# (SPADCALL |r| (QCDR |t|) (QREFELT % 66)))
+                     (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT % 21))))
                            ('T (PROGN (LETT #2# #3#) (LETT #1# 'T)))))))))
                 (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
-           (COND (#1# #2#) ('T (|spadConstant| $ 12))))))) 
+           (COND (#1# #2#) ('T (|spadConstant| % 12))))))) 
 
-(SDEFUN |XDPOLY;coef;2$R;20| ((|p| ($)) (|q| ($)) ($ (R)))
+(SDEFUN |XDPOLY;coef;2%R;20| ((|p| (%)) (|q| (%)) (% (R)))
         (SPROG ((#1=#:G224 NIL))
                (SEQ
                 (EXIT
                  (COND
-                  ((OR (SPADCALL |p| (|spadConstant| $ 12) (QREFELT $ 45))
-                       (SPADCALL |q| (|spadConstant| $ 12) (QREFELT $ 45)))
-                   (|spadConstant| $ 13))
+                  ((OR (SPADCALL |p| (|spadConstant| % 12) (QREFELT % 45))
+                       (SPADCALL |q| (|spadConstant| % 12) (QREFELT % 45)))
+                   (|spadConstant| % 13))
                   ('T
                    (COND
                     ((SPADCALL (QCAR (|SPADfirst| |p|))
-                               (QCAR (|SPADfirst| |q|)) (QREFELT $ 68))
-                     (SPADCALL (CDR |p|) |q| (QREFELT $ 69)))
+                               (QCAR (|SPADfirst| |q|)) (QREFELT % 68))
+                     (SPADCALL (CDR |p|) |q| (QREFELT % 69)))
                     ((SPADCALL (QCAR (|SPADfirst| |p|))
-                               (QCAR (|SPADfirst| |q|)) (QREFELT $ 70))
-                     (SPADCALL |p| (CDR |q|) (QREFELT $ 69)))
+                               (QCAR (|SPADfirst| |q|)) (QREFELT % 70))
+                     (SPADCALL |p| (CDR |q|) (QREFELT % 69)))
                     ('T
                      (PROGN
                       (LETT #1#
                             (SPADCALL
                              (SPADCALL (QCDR (|SPADfirst| |p|))
-                                       (QCDR (|SPADfirst| |q|)) (QREFELT $ 19))
-                             (SPADCALL (CDR |p|) (CDR |q|) (QREFELT $ 69))
-                             (QREFELT $ 71)))
+                                       (QCDR (|SPADfirst| |q|)) (QREFELT % 19))
+                             (SPADCALL (CDR |p|) (CDR |q|) (QREFELT % 69))
+                             (QREFELT % 71)))
                       (GO #2=#:G223)))))))
                 #2# (EXIT #1#)))) 
 
@@ -398,14 +398,14 @@
 
 (DEFUN |XDistributedPolynomial;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G228 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G228 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))
     (LETT |dv$| (LIST '|XDistributedPolynomial| DV$1 DV$2))
-    (LETT $ (GETREFV 84))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 84))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -421,44 +421,44 @@
                                          (|HasCategory| |#2| '(|Comparable|))
                                          #1#)))))
     (|haddProp| |$ConstructorCache| '|XDistributedPolynomial| (LIST DV$1 DV$2)
-                (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 8
+                (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 8
               (|List| (|Record| (|:| |k| (|FreeMonoid| |#1|)) (|:| |c| |#2|))))
     (COND
      ((|testBitVector| |pv$| 1)
       (PROGN
-       (QSETREFV $ 17 (CONS (|dispatchFunction| |XDPOLY;sh;$Nni$;2|) $))
-       (QSETREFV $ 18 (CONS (|dispatchFunction| |XDPOLY;sh;3$;3|) $)))))
-    $))) 
+       (QSETREFV % 17 (CONS (|dispatchFunction| |XDPOLY;sh;%Nni%;2|) %))
+       (QSETREFV % 18 (CONS (|dispatchFunction| |XDPOLY;sh;3%;3|) %)))))
+    %))) 
 
 (MAKEPROP '|XDistributedPolynomial| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|XPolynomialRing| 7 22) (|local| |#1|)
               (|local| |#2|) '|Rep| (|Record| (|:| |k| 22) (|:| |c| 7))
-              (0 . |last|) |XDPOLY;mindegTerm;$R;1| (5 . |Zero|) (9 . |Zero|)
+              (0 . |last|) |XDPOLY;mindegTerm;%R;1| (5 . |Zero|) (9 . |Zero|)
               (13 . |One|) (17 . |One|) (|NonNegativeInteger|) (21 . |sh|)
               (27 . |sh|) (33 . *) (39 . *) (45 . +) (|FreeMonoid| 6)
-              (51 . |monomial|) |XDPOLY;coerce;Fm$;4| (57 . |coerce|)
-              |XDPOLY;coerce;vl$;5| (62 . *) |XDPOLY;*;vl2$;6| (68 . |One|)
+              (51 . |monomial|) |XDPOLY;coerce;Fm%;4| (57 . |coerce|)
+              |XDPOLY;coerce;vl%;5| (62 . *) |XDPOLY;*;vl2%;6| (68 . |One|)
               (|Boolean|) (72 . =) (|Union| 7 '"failed")
-              |XDPOLY;retractIfCan;$U;7| (78 . =) (|Union| 22 '"failed")
-              |XDPOLY;retractIfCan;$U;8| (84 . |leadingCoefficient|)
+              |XDPOLY;retractIfCan;%U;7| (78 . =) (|Union| 22 '"failed")
+              |XDPOLY;retractIfCan;%U;8| (84 . |leadingCoefficient|)
               (89 . |leadingSupport|) (94 . |mirror|) (99 . |reductum|)
-              |XDPOLY;mirror;2$;9| (104 . |maxdeg|) (109 . |length|)
-              |XDPOLY;degree;$Nni;10| (114 . =) |XDPOLY;trunc;$Nni$;11|
+              |XDPOLY;mirror;2%;9| (104 . |maxdeg|) (109 . |length|)
+              |XDPOLY;degree;%Nni;10| (114 . =) |XDPOLY;trunc;%Nni%;11|
               (120 . |constant?|) (|List| 6) (125 . |varList|)
-              (130 . |setUnion|) (136 . |sort!|) |XDPOLY;varList;$L;12|
-              (|Union| $ '"failed") (141 . |rquo|) |XDPOLY;rquo;$Fm$;13|
-              (147 . |lquo|) |XDPOLY;lquo;$Fm$;14| (153 . |rquo|)
-              |XDPOLY;rquo;$vl$;15| (159 . |lquo|) |XDPOLY;lquo;$vl$;16|
-              (165 . |first|) (170 . |rest|) (175 . ~=) |XDPOLY;lquo;3$;18|
-              (181 . *) |XDPOLY;rquo;3$;19| (187 . >) |XDPOLY;coef;2$R;20|
+              (130 . |setUnion|) (136 . |sort!|) |XDPOLY;varList;%L;12|
+              (|Union| % '"failed") (141 . |rquo|) |XDPOLY;rquo;%Fm%;13|
+              (147 . |lquo|) |XDPOLY;lquo;%Fm%;14| (153 . |rquo|)
+              |XDPOLY;rquo;%vl%;15| (159 . |lquo|) |XDPOLY;lquo;%vl%;16|
+              (165 . |first|) (170 . |rest|) (175 . ~=) |XDPOLY;lquo;3%;18|
+              (181 . *) |XDPOLY;rquo;3%;19| (187 . >) |XDPOLY;coef;2%R;20|
               (193 . <) (199 . +) (|List| 9) (|Mapping| 7 22) (|List| 22)
-              (|List| 7) (|List| $) (|Mapping| 7 7) (|Integer|)
+              (|List| 7) (|List| %) (|Mapping| 7 7) (|Integer|)
               (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|)
               (|OutputForm|))
            '#(~= 205 |zero?| 211 |varList| 216 |trunc| 221 |support| 227

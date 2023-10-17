@@ -34,7 +34,7 @@
                                                         '|t#1| '#2#)
                                                        (|mkCategory|
                                                         '(((|series|
-                                                            ($
+                                                            (%
                                                              (|Stream|
                                                               (|Record|
                                                                (|:| |k|
@@ -44,34 +44,34 @@
                                                            T)
                                                           ((|coefficients|
                                                             ((|Stream| |t#1|)
-                                                             $))
+                                                             %))
                                                            T)
                                                           ((|series|
-                                                            ($
+                                                            (%
                                                              (|Stream| |t#1|)))
                                                            T)
-                                                          ((|quoByVar| ($ $))
+                                                          ((|quoByVar| (% %))
                                                            T)
                                                           ((|multiplyCoefficients|
-                                                            ($
+                                                            (%
                                                              (|Mapping| |t#1|
                                                                         (|Integer|))
-                                                             $))
+                                                             %))
                                                            T)
                                                           ((|polynomial|
                                                             ((|Polynomial|
                                                               |t#1|)
-                                                             $
+                                                             %
                                                              (|NonNegativeInteger|)))
                                                            T)
                                                           ((|polynomial|
                                                             ((|Polynomial|
                                                               |t#1|)
-                                                             $
+                                                             %
                                                              (|NonNegativeInteger|)
                                                              (|NonNegativeInteger|)))
                                                            T)
-                                                          ((^ ($ $ |t#1|))
+                                                          ((^ (% % |t#1|))
                                                            (|has| |t#1|
                                                                   (|Field|))))
                                                         NIL NIL NIL))))))))

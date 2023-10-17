@@ -1,84 +1,84 @@
 
-(SDEFUN |SMPEXPR;log;2$;1| ((|p| ($)) ($ ($)))
+(SDEFUN |SMPEXPR;log;2%;1| ((|p| (%)) (% (%)))
         (SEQ
          (COND
-          ((SPADCALL |p| (QREFELT $ 8))
-           (SPADCALL (SPADCALL (SPADCALL |p| (QREFELT $ 9)) (QREFELT $ 10))
-                     (QREFELT $ 11)))
+          ((SPADCALL |p| (QREFELT % 8))
+           (SPADCALL (SPADCALL (SPADCALL |p| (QREFELT % 9)) (QREFELT % 10))
+                     (QREFELT % 11)))
           ('T
            (SEQ
-            (SPADCALL "log p for p=" (SPADCALL |p| (QREFELT $ 13))
-                      (QREFELT $ 17))
+            (SPADCALL "log p for p=" (SPADCALL |p| (QREFELT % 13))
+                      (QREFELT % 17))
             (EXIT
              (|error|
               "SUPTRAFUN: log only defined for elements of the coefficient ring"))))))) 
 
-(SDEFUN |SMPEXPR;exp;2$;2| ((|p| ($)) ($ ($)))
+(SDEFUN |SMPEXPR;exp;2%;2| ((|p| (%)) (% (%)))
         (SEQ
          (COND
-          ((SPADCALL |p| (QREFELT $ 8))
-           (SPADCALL (SPADCALL (SPADCALL |p| (QREFELT $ 9)) (QREFELT $ 19))
-                     (QREFELT $ 11)))
+          ((SPADCALL |p| (QREFELT % 8))
+           (SPADCALL (SPADCALL (SPADCALL |p| (QREFELT % 9)) (QREFELT % 19))
+                     (QREFELT % 11)))
           ('T
            (SEQ
-            (SPADCALL "exp p for p=" (SPADCALL |p| (QREFELT $ 13))
-                      (QREFELT $ 17))
+            (SPADCALL "exp p for p=" (SPADCALL |p| (QREFELT % 13))
+                      (QREFELT % 17))
             (EXIT
              (|error|
               "SUPTRAFUN: exp only defined for elements of the coefficient ring"))))))) 
 
-(SDEFUN |SMPEXPR;sin;2$;3| ((|p| ($)) ($ ($)))
+(SDEFUN |SMPEXPR;sin;2%;3| ((|p| (%)) (% (%)))
         (SEQ
          (COND
-          ((SPADCALL |p| (QREFELT $ 8))
-           (SPADCALL (SPADCALL (SPADCALL |p| (QREFELT $ 9)) (QREFELT $ 21))
-                     (QREFELT $ 11)))
+          ((SPADCALL |p| (QREFELT % 8))
+           (SPADCALL (SPADCALL (SPADCALL |p| (QREFELT % 9)) (QREFELT % 21))
+                     (QREFELT % 11)))
           ('T
            (SEQ
-            (SPADCALL "sin p for p=" (SPADCALL |p| (QREFELT $ 13))
-                      (QREFELT $ 17))
+            (SPADCALL "sin p for p=" (SPADCALL |p| (QREFELT % 13))
+                      (QREFELT % 17))
             (EXIT
              (|error|
               "SUPTRAFUN: sin only defined for elements of the coefficient ring"))))))) 
 
-(SDEFUN |SMPEXPR;asin;2$;4| ((|p| ($)) ($ ($)))
+(SDEFUN |SMPEXPR;asin;2%;4| ((|p| (%)) (% (%)))
         (SEQ
          (COND
-          ((SPADCALL |p| (QREFELT $ 8))
-           (SPADCALL (SPADCALL (SPADCALL |p| (QREFELT $ 9)) (QREFELT $ 23))
-                     (QREFELT $ 11)))
+          ((SPADCALL |p| (QREFELT % 8))
+           (SPADCALL (SPADCALL (SPADCALL |p| (QREFELT % 9)) (QREFELT % 23))
+                     (QREFELT % 11)))
           ('T
            (SEQ
-            (SPADCALL "asin p for p=" (SPADCALL |p| (QREFELT $ 13))
-                      (QREFELT $ 17))
+            (SPADCALL "asin p for p=" (SPADCALL |p| (QREFELT % 13))
+                      (QREFELT % 17))
             (EXIT
              (|error|
               "SUPTRAFUN: asin only defined for elements of the coefficient ring"))))))) 
 
-(SDEFUN |SMPEXPR;cos;2$;5| ((|p| ($)) ($ ($)))
+(SDEFUN |SMPEXPR;cos;2%;5| ((|p| (%)) (% (%)))
         (SEQ
          (COND
-          ((SPADCALL |p| (QREFELT $ 8))
-           (SPADCALL (SPADCALL (SPADCALL |p| (QREFELT $ 9)) (QREFELT $ 25))
-                     (QREFELT $ 11)))
+          ((SPADCALL |p| (QREFELT % 8))
+           (SPADCALL (SPADCALL (SPADCALL |p| (QREFELT % 9)) (QREFELT % 25))
+                     (QREFELT % 11)))
           ('T
            (SEQ
-            (SPADCALL "cos p for p=" (SPADCALL |p| (QREFELT $ 13))
-                      (QREFELT $ 17))
+            (SPADCALL "cos p for p=" (SPADCALL |p| (QREFELT % 13))
+                      (QREFELT % 17))
             (EXIT
              (|error|
               "SUPTRAFUN: cos only defined for elements of the coefficient ring"))))))) 
 
-(SDEFUN |SMPEXPR;acos;2$;6| ((|p| ($)) ($ ($)))
+(SDEFUN |SMPEXPR;acos;2%;6| ((|p| (%)) (% (%)))
         (SEQ
          (COND
-          ((SPADCALL |p| (QREFELT $ 8))
-           (SPADCALL (SPADCALL (SPADCALL |p| (QREFELT $ 9)) (QREFELT $ 27))
-                     (QREFELT $ 11)))
+          ((SPADCALL |p| (QREFELT % 8))
+           (SPADCALL (SPADCALL (SPADCALL |p| (QREFELT % 9)) (QREFELT % 27))
+                     (QREFELT % 11)))
           ('T
            (SEQ
-            (SPADCALL "acos p for p=" (SPADCALL |p| (QREFELT $ 13))
-                      (QREFELT $ 17))
+            (SPADCALL "acos p for p=" (SPADCALL |p| (QREFELT % 13))
+                      (QREFELT % 17))
             (EXIT
              (|error|
               "SUPTRAFUN: acos only defined for elements of the coefficient ring"))))))) 
@@ -109,13 +109,13 @@
   (SPROG
    ((#1=#:G177 NIL) (|pv$| NIL) (#2=#:G168 NIL) (#3=#:G170 NIL) (#4=#:G169 NIL)
     (#5=#:G171 NIL) (#6=#:G172 NIL) (#7=#:G173 NIL) (#8=#:G174 NIL)
-    (#9=#:G175 NIL) (#10=#:G176 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+    (#9=#:G175 NIL) (#10=#:G176 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|SparseMultivariatePolynomialExpressions| DV$1))
-    (LETT $ (GETREFV 76))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 76))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -565,59 +565,59 @@
                                          (|HasCategory| |#1| '(|AbelianGroup|))
                                          #2#)))))
     (|haddProp| |$ConstructorCache| '|SparseMultivariatePolynomialExpressions|
-                (LIST DV$1) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (AND (|HasCategory| $ '(|CommutativeRing|))
-         (|augmentPredVector| $ 17592186044416))
+                (LIST DV$1) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (AND (|HasCategory| % '(|CommutativeRing|))
+         (|augmentPredVector| % 17592186044416))
     (AND
      (LETT #1#
            (AND (|HasCategory| |#1| '(|PolynomialFactorizationExplicit|))
-                (|HasCategory| $ '(|CharacteristicNonZero|))))
-     (|augmentPredVector| $ 35184372088832))
+                (|HasCategory| % '(|CharacteristicNonZero|))))
+     (|augmentPredVector| % 35184372088832))
     (AND (OR (|HasCategory| |#1| '(|CharacteristicNonZero|)) #1#)
-         (|augmentPredVector| $ 70368744177664))
+         (|augmentPredVector| % 70368744177664))
     (AND
      (OR (|HasCategory| |#1| '(|EntireRing|))
-         (AND #9# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
-     (|augmentPredVector| $ 140737488355328))
+         (AND #9# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| % 140737488355328))
     (AND
      (OR
       (AND (|HasCategory| |#1| '(|CommutativeRing|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-      #10# (AND #9# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
-     (|augmentPredVector| $ 281474976710656))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+      #10# (AND #9# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| % 281474976710656))
     (AND
      (OR (|HasCategory| |#1| '(|RetractableTo| (|Integer|)))
          (AND (|HasCategory| |#1| '(|CommutativeRing|))
-              (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-         (AND #9# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+              (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+         (AND #9# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (|HasCategory| |#1| '(|Ring|)))
-     (|augmentPredVector| $ 562949953421312))
+     (|augmentPredVector| % 562949953421312))
     (AND
      (OR
       (AND (|HasCategory| |#1| '(|CommutativeRing|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-      (AND #9# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+      (AND #9# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
       (|HasCategory| |#1| '(|SemiRing|)))
-     (|augmentPredVector| $ 1125899906842624))
+     (|augmentPredVector| % 1125899906842624))
     (AND
      (OR
       (AND (|HasCategory| |#1| '(|CommutativeRing|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-      (AND #9# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+      (AND #9# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
       (|HasCategory| |#1| '(|Ring|)))
-     (|augmentPredVector| $ 2251799813685248))
+     (|augmentPredVector| % 2251799813685248))
     (AND
      (OR
       (AND #4# (|HasCategory| |#1| '(|Ring|))
            (|HasCategory| (|Integer|) '(|AbelianMonoid|)))
       (|HasCategory| |#1| '(|AbelianMonoid|))
       (AND (|HasCategory| |#1| '(|CommutativeRing|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-      (AND #9# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-      (|HasCategory| $ '(|AbelianMonoid|)))
-     (|augmentPredVector| $ 4503599627370496))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+      (AND #9# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+      (|HasCategory| % '(|AbelianMonoid|)))
+     (|augmentPredVector| % 4503599627370496))
     (AND
      (OR
       (AND #4# (|HasCategory| |#1| '(|Ring|))
@@ -628,31 +628,31 @@
            (|HasCategory| |#1| '(|Ring|)))
       #2#
       (AND (|HasCategory| |#1| '(|CommutativeRing|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-      (AND #9# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-      (|HasCategory| $ '(|AbelianGroup|)))
-     (|augmentPredVector| $ 9007199254740992))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+      (AND #9# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+      (|HasCategory| % '(|AbelianGroup|)))
+     (|augmentPredVector| % 9007199254740992))
     (AND
      (OR
       (AND #4# (|HasCategory| |#1| '(|Ring|))
            (|HasCategory| (|Integer|) '(|AbelianGroup|)))
       (|HasCategory| |#1| '(|AbelianGroup|))
       (AND (|HasCategory| |#1| '(|CommutativeRing|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-      (AND #9# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-      (|HasCategory| $ '(|AbelianGroup|)))
-     (|augmentPredVector| $ 18014398509481984))
-    (SETF |pv$| (QREFELT $ 3))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+      (AND #9# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+      (|HasCategory| % '(|AbelianGroup|)))
+     (|augmentPredVector| % 18014398509481984))
+    (SETF |pv$| (QREFELT % 3))
     (COND
      ((|testBitVector| |pv$| 19)
       (PROGN
-       (QSETREFV $ 18 (CONS (|dispatchFunction| |SMPEXPR;log;2$;1|) $))
-       (QSETREFV $ 20 (CONS (|dispatchFunction| |SMPEXPR;exp;2$;2|) $))
-       (QSETREFV $ 22 (CONS (|dispatchFunction| |SMPEXPR;sin;2$;3|) $))
-       (QSETREFV $ 24 (CONS (|dispatchFunction| |SMPEXPR;asin;2$;4|) $))
-       (QSETREFV $ 26 (CONS (|dispatchFunction| |SMPEXPR;cos;2$;5|) $))
-       (QSETREFV $ 28 (CONS (|dispatchFunction| |SMPEXPR;acos;2$;6|) $)))))
-    $))) 
+       (QSETREFV % 18 (CONS (|dispatchFunction| |SMPEXPR;log;2%;1|) %))
+       (QSETREFV % 20 (CONS (|dispatchFunction| |SMPEXPR;exp;2%;2|) %))
+       (QSETREFV % 22 (CONS (|dispatchFunction| |SMPEXPR;sin;2%;3|) %))
+       (QSETREFV % 24 (CONS (|dispatchFunction| |SMPEXPR;asin;2%;4|) %))
+       (QSETREFV % 26 (CONS (|dispatchFunction| |SMPEXPR;cos;2%;5|) %))
+       (QSETREFV % 28 (CONS (|dispatchFunction| |SMPEXPR;acos;2%;6|) %)))))
+    %))) 
 
 (MAKEPROP '|SparseMultivariatePolynomialExpressions| '|infovec|
           (LIST
@@ -663,21 +663,21 @@
               (31 . |log|) (36 . |exp|) (41 . |exp|) (46 . |sin|) (51 . |sin|)
               (56 . |asin|) (61 . |asin|) (66 . |cos|) (71 . |cos|)
               (76 . |acos|) (81 . |acos|) (|Union| 35 '#1="failed")
-              (|Matrix| $) (|InputForm|) (|Pattern| (|Float|)) (|Pattern| 36)
-              (|Record| (|:| |mat| 37) (|:| |vec| (|Vector| 36))) (|Vector| $)
-              (|Integer|) (|Matrix| 36) (|PatternMatchResult| (|Float|) $)
-              (|PatternMatchResult| 36 $) (|Union| $ '#1#)
+              (|Matrix| %) (|InputForm|) (|Pattern| (|Float|)) (|Pattern| 36)
+              (|Record| (|:| |mat| 37) (|:| |vec| (|Vector| 36))) (|Vector| %)
+              (|Integer|) (|Matrix| 36) (|PatternMatchResult| (|Float|) %)
+              (|PatternMatchResult| 36 %) (|Union| % '#1#)
               (|NonNegativeInteger|)
-              (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
+              (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (|Fraction| 36) (|IndexedExponents| 41)
               (|Record| (|:| |k| 44) (|:| |c| 6)) (|List| 45) (|Mapping| 6 44)
-              (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
-              (|List| $) (|SparseUnivariatePolynomial| $) (|Factored| $)
+              (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
+              (|List| %) (|SparseUnivariatePolynomial| %) (|Factored| %)
               (|Factored| 50) (|Union| 54 '#1#) (|List| 50)
               (|Union| 43 '#2="failed") (|Union| 36 '#2#) (|List| 41)
-              (|Record| (|:| |quotient| $) (|:| |remainder| $)) (|Matrix| 6)
+              (|Record| (|:| |quotient| %) (|:| |remainder| %)) (|Matrix| 6)
               (|Record| (|:| |mat| 59) (|:| |vec| (|Vector| 6)))
-              (|Union| 41 '#2#) (|Equation| $) (|List| 62)
+              (|Union| 41 '#2#) (|Equation| %) (|List| 62)
               (|Record| (|:| |var| 41) (|:| |exponent| 41))
               (|Union| 64 '#3="failed") (|Union| 49 '#3#)
               (|SparseUnivariatePolynomial| 6) (|List| 6) (|Mapping| 44 44)

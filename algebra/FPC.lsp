@@ -16,14 +16,14 @@
                    (|Join| (|Field|) (|CharacteristicNonZero|)
                            (|mkCategory|
                             '(((|order|
-                                ((|OnePointCompletion| (|PositiveInteger|)) $))
+                                ((|OnePointCompletion| (|PositiveInteger|)) %))
                                T)
                               ((|discreteLog|
-                                ((|Union| (|NonNegativeInteger|) "failed") $
-                                 $))
+                                ((|Union| (|NonNegativeInteger|) "failed") %
+                                 %))
                                T)
-                              ((|primeFrobenius| ($ $)) T)
-                              ((|primeFrobenius| ($ $ (|NonNegativeInteger|)))
+                              ((|primeFrobenius| (% %)) T)
+                              ((|primeFrobenius| (% % (|NonNegativeInteger|)))
                                T))
                             NIL NIL NIL)))
            (SETELT #1# 0 '(|FieldOfPrimeCharacteristic|))))) 

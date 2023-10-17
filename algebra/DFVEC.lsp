@@ -1,60 +1,60 @@
 
-(PUT '|DFVEC;qelt;$IDf;1| '|SPADreplace| 'DELT) 
+(PUT '|DFVEC;qelt;%IDf;1| '|SPADreplace| 'DELT) 
 
-(SDEFUN |DFVEC;qelt;$IDf;1| ((|x| ($)) (|i| (|Integer|)) ($ (|DoubleFloat|)))
+(SDEFUN |DFVEC;qelt;%IDf;1| ((|x| (%)) (|i| (|Integer|)) (% (|DoubleFloat|)))
         (DELT |x| |i|)) 
 
-(PUT '|DFVEC;qsetelt!;$I2Df;2| '|SPADreplace| 'DSETELT) 
+(PUT '|DFVEC;qsetelt!;%I2Df;2| '|SPADreplace| 'DSETELT) 
 
-(SDEFUN |DFVEC;qsetelt!;$I2Df;2|
-        ((|x| ($)) (|i| (|Integer|)) (|s| #1=(|DoubleFloat|)) ($ #1#))
+(SDEFUN |DFVEC;qsetelt!;%I2Df;2|
+        ((|x| (%)) (|i| (|Integer|)) (|s| #1=(|DoubleFloat|)) (% #1#))
         (DSETELT |x| |i| |s|)) 
 
-(PUT '|DFVEC;#;$Nni;3| '|SPADreplace| 'DLEN) 
+(PUT '|DFVEC;#;%Nni;3| '|SPADreplace| 'DLEN) 
 
-(SDEFUN |DFVEC;#;$Nni;3| ((|x| ($)) ($ (|NonNegativeInteger|))) (DLEN |x|)) 
+(SDEFUN |DFVEC;#;%Nni;3| ((|x| (%)) (% (|NonNegativeInteger|))) (DLEN |x|)) 
 
-(PUT '|DFVEC;minIndex;$I;4| '|SPADreplace| '(XLAM (|x|) 0)) 
+(PUT '|DFVEC;minIndex;%I;4| '|SPADreplace| '(XLAM (|x|) 0)) 
 
-(SDEFUN |DFVEC;minIndex;$I;4| ((|x| ($)) ($ (|Integer|))) 0) 
+(SDEFUN |DFVEC;minIndex;%I;4| ((|x| (%)) (% (|Integer|))) 0) 
 
-(PUT '|DFVEC;empty;$;5| '|SPADreplace| '(XLAM NIL (MAKE_DOUBLE_VECTOR 0))) 
+(PUT '|DFVEC;empty;%;5| '|SPADreplace| '(XLAM NIL (MAKE_DOUBLE_VECTOR 0))) 
 
-(SDEFUN |DFVEC;empty;$;5| (($ ($))) (MAKE_DOUBLE_VECTOR 0)) 
+(SDEFUN |DFVEC;empty;%;5| ((% (%))) (MAKE_DOUBLE_VECTOR 0)) 
 
-(PUT '|DFVEC;qnew;I$;6| '|SPADreplace| 'MAKE_DOUBLE_VECTOR) 
+(PUT '|DFVEC;qnew;I%;6| '|SPADreplace| 'MAKE_DOUBLE_VECTOR) 
 
-(SDEFUN |DFVEC;qnew;I$;6| ((|n| (|Integer|)) ($ ($))) (MAKE_DOUBLE_VECTOR |n|)) 
+(SDEFUN |DFVEC;qnew;I%;6| ((|n| (|Integer|)) (% (%))) (MAKE_DOUBLE_VECTOR |n|)) 
 
-(PUT '|DFVEC;new;NniDf$;7| '|SPADreplace| 'MAKE_DOUBLE_VECTOR1) 
+(PUT '|DFVEC;new;NniDf%;7| '|SPADreplace| 'MAKE_DOUBLE_VECTOR1) 
 
-(SDEFUN |DFVEC;new;NniDf$;7|
-        ((|n| (|NonNegativeInteger|)) (|x| (|DoubleFloat|)) ($ ($)))
+(SDEFUN |DFVEC;new;NniDf%;7|
+        ((|n| (|NonNegativeInteger|)) (|x| (|DoubleFloat|)) (% (%)))
         (MAKE_DOUBLE_VECTOR1 |n| |x|)) 
 
-(PUT '|DFVEC;qelt;$IDf;8| '|SPADreplace| 'DELT) 
+(PUT '|DFVEC;qelt;%IDf;8| '|SPADreplace| 'DELT) 
 
-(SDEFUN |DFVEC;qelt;$IDf;8| ((|x| ($)) (|i| (|Integer|)) ($ (|DoubleFloat|)))
+(SDEFUN |DFVEC;qelt;%IDf;8| ((|x| (%)) (|i| (|Integer|)) (% (|DoubleFloat|)))
         (DELT |x| |i|)) 
 
-(PUT '|DFVEC;elt;$IDf;9| '|SPADreplace| 'DELT) 
+(PUT '|DFVEC;elt;%IDf;9| '|SPADreplace| 'DELT) 
 
-(SDEFUN |DFVEC;elt;$IDf;9| ((|x| ($)) (|i| (|Integer|)) ($ (|DoubleFloat|)))
+(SDEFUN |DFVEC;elt;%IDf;9| ((|x| (%)) (|i| (|Integer|)) (% (|DoubleFloat|)))
         (DELT |x| |i|)) 
 
-(PUT '|DFVEC;qsetelt!;$I2Df;10| '|SPADreplace| 'DSETELT) 
+(PUT '|DFVEC;qsetelt!;%I2Df;10| '|SPADreplace| 'DSETELT) 
 
-(SDEFUN |DFVEC;qsetelt!;$I2Df;10|
-        ((|x| ($)) (|i| (|Integer|)) (|s| #1=(|DoubleFloat|)) ($ #1#))
+(SDEFUN |DFVEC;qsetelt!;%I2Df;10|
+        ((|x| (%)) (|i| (|Integer|)) (|s| #1=(|DoubleFloat|)) (% #1#))
         (DSETELT |x| |i| |s|)) 
 
-(PUT '|DFVEC;setelt!;$I2Df;11| '|SPADreplace| 'DSETELT) 
+(PUT '|DFVEC;setelt!;%I2Df;11| '|SPADreplace| 'DSETELT) 
 
-(SDEFUN |DFVEC;setelt!;$I2Df;11|
-        ((|x| ($)) (|i| (|Integer|)) (|s| #1=(|DoubleFloat|)) ($ #1#))
+(SDEFUN |DFVEC;setelt!;%I2Df;11|
+        ((|x| (%)) (|i| (|Integer|)) (|s| #1=(|DoubleFloat|)) (% #1#))
         (DSETELT |x| |i| |s|)) 
 
-(SDEFUN |DFVEC;fill!;$Df$;12| ((|x| ($)) (|s| (|DoubleFloat|)) ($ ($)))
+(SDEFUN |DFVEC;fill!;%Df%;12| ((|x| (%)) (|s| (|DoubleFloat|)) (% (%)))
         (SPROG ((#1=#:G2800 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 0) (LETT #1# (|sub_SI| (DLEN |x|) 1)) G190
@@ -86,13 +86,13 @@
 
 (DEFUN |DoubleFloatVector;| ()
   (SPROG
-   ((|dv$| NIL) ($ NIL) (#1=#:G2810 NIL) (#2=#:G2809 NIL) (#3=#:G2808 NIL)
+   ((|dv$| NIL) (% NIL) (#1=#:G2810 NIL) (#2=#:G2809 NIL) (#3=#:G2808 NIL)
     (|pv$| NIL))
    (PROGN
     (LETT |dv$| '(|DoubleFloatVector|))
-    (LETT $ (GETREFV 38))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 38))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -158,66 +158,66 @@
                                                         '(|RadicalCategory|))
                                          (|HasCategory| (|DoubleFloat|)
                                                         '(|Ring|)))))))
-    (|haddProp| |$ConstructorCache| '|DoubleFloatVector| NIL (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (AND (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 524288))
-    (AND (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 1048576))
-    (AND (|HasCategory| $ '(|finiteAggregate|))
+    (|haddProp| |$ConstructorCache| '|DoubleFloatVector| NIL (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (AND (|HasCategory| % '(|shallowlyMutable|))
+         (|augmentPredVector| % 524288))
+    (AND (|HasCategory| % '(|finiteAggregate|))
+         (|augmentPredVector| % 1048576))
+    (AND (|HasCategory| % '(|finiteAggregate|))
          (|HasCategory| (|DoubleFloat|) '(|BasicType|))
-         (|augmentPredVector| $ 2097152))
-    (AND (|HasCategory| $ '(|finiteAggregate|))
-         (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 4194304))
-    (AND (|HasCategory| $ '(|finiteAggregate|))
-         (|HasCategory| $ '(|shallowlyMutable|))
+         (|augmentPredVector| % 2097152))
+    (AND (|HasCategory| % '(|finiteAggregate|))
+         (|HasCategory| % '(|shallowlyMutable|))
+         (|augmentPredVector| % 4194304))
+    (AND (|HasCategory| % '(|finiteAggregate|))
+         (|HasCategory| % '(|shallowlyMutable|))
          (|HasCategory| (|DoubleFloat|) '(|OrderedSet|))
-         (|augmentPredVector| $ 8388608))
-    (AND (|HasCategory| $ '(|finiteAggregate|))
+         (|augmentPredVector| % 8388608))
+    (AND (|HasCategory| % '(|finiteAggregate|))
          (|HasCategory| (|DoubleFloat|) '(|OrderedSet|))
-         (|augmentPredVector| $ 16777216))
+         (|augmentPredVector| % 16777216))
     (AND
-     (OR (AND (|HasCategory| $ '(|finiteAggregate|)) #1#)
-         (AND (|HasCategory| $ '(|finiteAggregate|))
+     (OR (AND (|HasCategory| % '(|finiteAggregate|)) #1#)
+         (AND (|HasCategory| % '(|finiteAggregate|))
               (|HasCategory| (|DoubleFloat|) '(|OrderedSet|))))
-     (|augmentPredVector| $ 33554432))
+     (|augmentPredVector| % 33554432))
     (AND
-     (OR (AND (|HasCategory| $ '(|finiteAggregate|)) #1#)
-         (AND (|HasCategory| $ '(|finiteAggregate|))
+     (OR (AND (|HasCategory| % '(|finiteAggregate|)) #1#)
+         (AND (|HasCategory| % '(|finiteAggregate|))
               (|HasCategory| (|DoubleFloat|) '(|OrderedSet|)))
          #2#)
-     (|augmentPredVector| $ 67108864))
+     (|augmentPredVector| % 67108864))
     (AND
-     (OR (AND (|HasCategory| $ '(|finiteAggregate|)) #1#)
-         (AND (|HasCategory| $ '(|finiteAggregate|))
+     (OR (AND (|HasCategory| % '(|finiteAggregate|)) #1#)
+         (AND (|HasCategory| % '(|finiteAggregate|))
               (|HasCategory| (|DoubleFloat|) '(|OrderedSet|)))
          #3#)
-     (|augmentPredVector| $ 134217728))
+     (|augmentPredVector| % 134217728))
     (AND
      (OR
-      (AND (|HasCategory| $ '(|finiteAggregate|))
+      (AND (|HasCategory| % '(|finiteAggregate|))
            (|HasCategory| (|DoubleFloat|) '(|BasicType|)))
-      (AND (|HasCategory| $ '(|finiteAggregate|)) #1#)
-      (AND (|HasCategory| $ '(|finiteAggregate|))
+      (AND (|HasCategory| % '(|finiteAggregate|)) #1#)
+      (AND (|HasCategory| % '(|finiteAggregate|))
            (|HasCategory| (|DoubleFloat|) '(|OrderedSet|)))
       #2#)
-     (|augmentPredVector| $ 268435456))
-    (SETF |pv$| (QREFELT $ 3))
-    $))) 
+     (|augmentPredVector| % 268435456))
+    (SETF |pv$| (QREFELT % 3))
+    %))) 
 
 (MAKEPROP '|DoubleFloatVector| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|DoubleFloat|) (|Integer|)
-              |DFVEC;qelt;$IDf;8| |DFVEC;qsetelt!;$I2Df;10|
-              (|NonNegativeInteger|) |DFVEC;#;$Nni;3| |DFVEC;minIndex;$I;4|
-              |DFVEC;empty;$;5| |DFVEC;qnew;I$;6| |DFVEC;new;NniDf$;7|
-              |DFVEC;elt;$IDf;9| |DFVEC;setelt!;$I2Df;11| |DFVEC;fill!;$Df$;12|
+              |DFVEC;qelt;%IDf;8| |DFVEC;qsetelt!;%I2Df;10|
+              (|NonNegativeInteger|) |DFVEC;#;%Nni;3| |DFVEC;minIndex;%I;4|
+              |DFVEC;empty;%;5| |DFVEC;qnew;I%;6| |DFVEC;new;NniDf%;7|
+              |DFVEC;elt;%IDf;9| |DFVEC;setelt!;%I2Df;11| |DFVEC;fill!;%Df%;12|
               (|List| 6) (|List| 21) (|Equation| 6) (|Mapping| 6 6 6)
               (|Boolean|) (|Mapping| 23 6 6) (|OutputForm|) (|SingleInteger|)
               (|String|) (|HashState|) (|InputForm|) (|Matrix| 6)
               (|Mapping| 23 6) (|UniversalSegment| 7) (|Void|) (|Mapping| 6 6)
-              (|List| $) (|Union| 6 '"failed") (|List| 7))
+              (|List| %) (|Union| 6 '"failed") (|List| 7))
            '#(~= 0 |zero?| 6 |zero| 11 |trim| 16 |swap!| 22 |sorted?| 29
               |sort!| 40 |sort| 51 |smaller?| 62 |size?| 68 |setelt!| 74
               |select| 88 |sample| 94 |rightTrim| 98 |reverse!| 104 |reverse|

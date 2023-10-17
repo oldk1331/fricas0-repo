@@ -1,29 +1,29 @@
 
-(PUT '|REF;=;2$B;1| '|SPADreplace| 'EQ) 
+(PUT '|REF;=;2%B;1| '|SPADreplace| 'EQ) 
 
-(SDEFUN |REF;=;2$B;1| ((|p| ($)) (|q| ($)) ($ (|Boolean|))) (EQ |p| |q|)) 
+(SDEFUN |REF;=;2%B;1| ((|p| (%)) (|q| (%)) (% (|Boolean|))) (EQ |p| |q|)) 
 
-(PUT '|REF;ref;S$;2| '|SPADreplace| 'LIST) 
+(PUT '|REF;ref;S%;2| '|SPADreplace| 'LIST) 
 
-(SDEFUN |REF;ref;S$;2| ((|v| (S)) ($ ($))) (LIST |v|)) 
+(SDEFUN |REF;ref;S%;2| ((|v| (S)) (% (%))) (LIST |v|)) 
 
-(PUT '|REF;elt;$S;3| '|SPADreplace| 'QCAR) 
+(PUT '|REF;elt;%S;3| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |REF;elt;$S;3| ((|p| ($)) ($ (S))) (QCAR |p|)) 
+(SDEFUN |REF;elt;%S;3| ((|p| (%)) (% (S))) (QCAR |p|)) 
 
-(SDEFUN |REF;setelt!;$2S;4| ((|p| ($)) (|v| (S)) ($ (S)))
+(SDEFUN |REF;setelt!;%2S;4| ((|p| (%)) (|v| (S)) (% (S)))
         (PROGN (RPLACA |p| |v|) (QCAR |p|))) 
 
-(PUT '|REF;deref;$S;5| '|SPADreplace| 'QCAR) 
+(PUT '|REF;deref;%S;5| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |REF;deref;$S;5| ((|p| ($)) ($ (S))) (QCAR |p|)) 
+(SDEFUN |REF;deref;%S;5| ((|p| (%)) (% (S))) (QCAR |p|)) 
 
-(SDEFUN |REF;setref;$2S;6| ((|p| ($)) (|v| (S)) ($ (S)))
+(SDEFUN |REF;setref;%2S;6| ((|p| (%)) (|v| (S)) (% (S)))
         (PROGN (RPLACA |p| |v|) (QCAR |p|))) 
 
-(SDEFUN |REF;coerce;$Of;7| ((|p| ($)) ($ (|OutputForm|)))
-        (SPADCALL (SPADCALL "ref" (QREFELT $ 17))
-                  (LIST (SPADCALL (QCAR |p|) (QREFELT $ 18))) (QREFELT $ 20))) 
+(SDEFUN |REF;coerce;%Of;7| ((|p| (%)) (% (|OutputForm|)))
+        (SPADCALL (SPADCALL "ref" (QREFELT % 17))
+                  (LIST (SPADCALL (QCAR |p|) (QREFELT % 18))) (QREFELT % 20))) 
 
 (DECLAIM (NOTINLINE |Reference;|)) 
 
@@ -44,34 +44,34 @@
                  ((NOT #2#) (HREM |$ConstructorCache| '|Reference|)))))))))) 
 
 (DEFUN |Reference;| (|#1|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|Reference| DV$1))
-          (LETT $ (GETREFV 24))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3
+          (LETT % (GETREFV 24))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
                                               (|HasCategory| |#1|
                                                              '(|SetCategory|))))))
-          (|haddProp| |$ConstructorCache| '|Reference| (LIST DV$1) (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 7 (|Record| (|:| |value| |#1|)))
+          (|haddProp| |$ConstructorCache| '|Reference| (LIST DV$1) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 7 (|Record| (|:| |value| |#1|)))
           (COND
            ((|testBitVector| |pv$| 1)
-            (QSETREFV $ 21 (CONS (|dispatchFunction| |REF;coerce;$Of;7|) $))))
-          $))) 
+            (QSETREFV % 21 (CONS (|dispatchFunction| |REF;coerce;%Of;7|) %))))
+          %))) 
 
 (MAKEPROP '|Reference| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep| (|Boolean|)
-              |REF;=;2$B;1| |REF;ref;S$;2| |REF;elt;$S;3| |REF;setelt!;$2S;4|
-              |REF;deref;$S;5| |REF;setref;$2S;6| (|String|) (|OutputForm|)
-              (0 . |message|) (5 . |coerce|) (|List| $) (10 . |prefix|)
+              |REF;=;2%B;1| |REF;ref;S%;2| |REF;elt;%S;3| |REF;setelt!;%2S;4|
+              |REF;deref;%S;5| |REF;setref;%2S;6| (|String|) (|OutputForm|)
+              (0 . |message|) (5 . |coerce|) (|List| %) (10 . |prefix|)
               (16 . |coerce|) (|HashState|) (|SingleInteger|))
            '#(~= 21 |setref| 27 |setelt!| 33 |ref| 39 |latex| 44 |hashUpdate!|
               49 |hash| 55 |elt| 60 |deref| 65 |coerce| 70 = 75)

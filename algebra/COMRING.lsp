@@ -9,7 +9,7 @@
 
 (DEFUN |CommutativeRing;| ()
   (SPROG ((#1=#:G104 NIL))
-         (PROG1 (LETT #1# (|Join| (|Ring|) (|Algebra| '$) (|CommutativeStar|)))
+         (PROG1 (LETT #1# (|Join| (|Ring|) (|Algebra| '%) (|CommutativeStar|)))
            (SETELT #1# 0 '(|CommutativeRing|))))) 
 
 (MAKEPROP '|CommutativeRing| 'NILADIC T) 

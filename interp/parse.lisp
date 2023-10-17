@@ -5,17 +5,12 @@
 
 ; parseTransform x ==
 ;   $defOp: local:= nil
-;   x := SUBST('$, '%, x) -- for new compiler compatibility
 ;   parseTran x
 
 (DEFUN |parseTransform| (|x|)
   (PROG (|$defOp|)
     (DECLARE (SPECIAL |$defOp|))
-    (RETURN
-     (PROGN
-      (SETQ |$defOp| NIL)
-      (SETQ |x| (SUBST '$ '% |x|))
-      (|parseTran| |x|)))))
+    (RETURN (PROGN (SETQ |$defOp| NIL) (|parseTran| |x|)))))
 
 ; init_parse_tran() ==
 ;     for opf in _
@@ -249,7 +244,7 @@
 ;   l:= parseTranList x
 ;   -- Needed only for error messages in interpreter
 ;   key :=
-;     CONTAINED("$",l) => "domain"
+;     CONTAINED("%", l) => "domain"
 ;     'package
 ;   ['CATEGORY,key,:l]
 
@@ -258,7 +253,7 @@
     (RETURN
      (PROGN
       (SETQ |l| (|parseTranList| |x|))
-      (SETQ |key| (COND ((CONTAINED '$ |l|) '|domain|) ('T '|package|)))
+      (SETQ |key| (COND ((CONTAINED '% |l|) '|domain|) ('T '|package|)))
       (CONS 'CATEGORY (CONS |key| |l|))))))
 
 ; parseAnd u ==

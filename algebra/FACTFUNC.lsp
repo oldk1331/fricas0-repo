@@ -1,7 +1,7 @@
 
 (SDEFUN |FACTFUNC;nthRoot;FNniR;1|
         ((|ff| (|Factored| M)) (|n| (|NonNegativeInteger|))
-         ($
+         (%
           (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| M)
                     (|:| |radicand| (|List| M)))))
         (SPROG
@@ -16,14 +16,14 @@
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
                       (|:| |factor| M)
                       (|:| |exponent| (|NonNegativeInteger|))))))
-         (SEQ (LETT |coeff| (|spadConstant| $ 7))
+         (SEQ (LETT |coeff| (|spadConstant| % 7))
               (LETT |radi|
                     (COND
-                     ((SPADCALL (SPADCALL |ff| (QREFELT $ 9))
-                                (|spadConstant| $ 7) (QREFELT $ 11))
+                     ((SPADCALL (SPADCALL |ff| (QREFELT % 9))
+                                (|spadConstant| % 7) (QREFELT % 11))
                       NIL)
-                     (#6='T (LIST (SPADCALL |ff| (QREFELT $ 9))))))
-              (LETT |lf| (SPADCALL |ff| (QREFELT $ 15)))
+                     (#6='T (LIST (SPADCALL |ff| (QREFELT % 9))))))
+              (LETT |lf| (SPADCALL |ff| (QREFELT % 15)))
               (LETT |d|
                     (COND
                      ((NULL |radi|)
@@ -48,7 +48,7 @@
                                                            #5#))))
                                              (LETT #4# (CDR #4#)) (GO G190)
                                              G191 (EXIT (NREVERSE #5#)))))
-                                 (QREFELT $ 18)))
+                                 (QREFELT % 18)))
                         (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
                                           '(|Integer|) #3#)))
                      (#6# 1)))
@@ -65,8 +65,8 @@
                       (LETT |coeff|
                             (SPADCALL |coeff|
                                       (SPADCALL (QVELT |term| 1) (QCAR |qr|)
-                                                (QREFELT $ 20))
-                                      (QREFELT $ 21)))
+                                                (QREFELT % 20))
+                                      (QREFELT % 21)))
                       (EXIT
                        (COND
                         ((NULL (ZEROP (QCDR |qr|)))
@@ -76,8 +76,8 @@
                                       (SPADCALL |radi|
                                                 (SPADCALL (QVELT |term| 1)
                                                           (QCDR |qr|)
-                                                          (QREFELT $ 20))
-                                                (QREFELT $ 23))))
+                                                          (QREFELT % 20))
+                                                (QREFELT % 23))))
                           (GO #7=#:G122)))))))
                     #7# (EXIT #1#))
                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
@@ -85,16 +85,16 @@
 
 (SDEFUN |FACTFUNC;log;FL;2|
         ((|ff| (|Factored| M))
-         ($
+         (%
           (|List|
            (|Record| (|:| |coef| (|NonNegativeInteger|)) (|:| |logand| M)))))
         (SPROG ((#1=#:G139 NIL) (|term| NIL) (#2=#:G138 NIL))
                (SEQ
-                (CONS (CONS 1 (SPADCALL |ff| (QREFELT $ 9)))
+                (CONS (CONS 1 (SPADCALL |ff| (QREFELT % 9)))
                       (PROGN
                        (LETT #2# NIL)
                        (SEQ (LETT |term| NIL)
-                            (LETT #1# (SPADCALL |ff| (QREFELT $ 15))) G190
+                            (LETT #1# (SPADCALL |ff| (QREFELT % 15))) G190
                             (COND
                              ((OR (ATOM #1#)
                                   (PROGN (LETT |term| (CAR #1#)) NIL))
@@ -128,19 +128,19 @@
                   (HREM |$ConstructorCache| '|FactoredFunctions|)))))))))) 
 
 (DEFUN |FactoredFunctions;| (|#1|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|FactoredFunctions| DV$1))
-          (LETT $ (GETREFV 30))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (LETT % (GETREFV 30))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|FactoredFunctions| (LIST DV$1)
-                      (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|FactoredFunctions| '|infovec|
           (LIST
@@ -148,7 +148,7 @@
               (4 . |unit|) (|Boolean|) (9 . =)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 12) (|:| |factor| 6) (|:| |exponent| 19))
-              (|List| 13) (15 . |factorList|) (|List| $) (|Integer|)
+              (|List| 13) (15 . |factorList|) (|List| %) (|Integer|)
               (20 . |gcd|) (|NonNegativeInteger|) (25 . ^) (31 . *) (|List| 6)
               (37 . |concat!|)
               (|Record| (|:| |exponent| 19) (|:| |coef| 6) (|:| |radicand| 22))

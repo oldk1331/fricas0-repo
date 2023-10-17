@@ -1,7 +1,7 @@
 
-(PUT '|U64INT;qconvert;I$;1| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(PUT '|U64INT;qconvert;I%;1| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |U64INT;qconvert;I$;1| ((|x| (|Integer|)) ($ ($))) |x|) 
+(SDEFUN |U64INT;qconvert;I%;1| ((|x| (|Integer|)) (% (%))) |x|) 
 
 (DECLAIM (NOTINLINE |U64Int;|)) 
 
@@ -22,21 +22,21 @@
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|U64Int|)))))))))) 
 
 (DEFUN |U64Int;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|U64Int|))
-          (LETT $ (GETREFV 15))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|U64Int| NIL (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+          (LETT % (GETREFV 15))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|U64Int| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|U64Int| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|Integer|) |U64INT;qconvert;I$;1|
-              (|NonNegativeInteger|) (|Union| $ '"failed") (|Boolean|)
+           '#(NIL NIL NIL NIL NIL (|Integer|) |U64INT;qconvert;I%;1|
+              (|NonNegativeInteger|) (|Union| % '"failed") (|Boolean|)
               (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|)
               (|OutputForm|))
            '#(~= 0 |zero?| 6 |subtractIfCan| 11 |sample| 17 |rightRecip| 21

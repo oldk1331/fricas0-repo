@@ -15,7 +15,7 @@
              (LETT #1#
                    (|Join|
                     (|mkCategory|
-                     '(((|log| ($ $)) T) ((|exp| ($ $)) T) ((^ ($ $ $)) T)) NIL
+                     '(((|log| (% %)) T) ((|exp| (% %)) T) ((^ (% % %)) T)) NIL
                      NIL NIL)))
            (SETELT #1# 0 '(|ElementaryFunctionCategory|))))) 
 

@@ -694,10 +694,10 @@
 ;   quad := specialChar 'quad
 ;   n := #sig
 ;   (op = 'elt) and (n = 3) =>
-;     (CADR(sig) = '_$) =>
-;       STRINGP (sel := CADDR(sig)) =>
-;         [quad,".",sel]
-;       [quad,".",quad]
+;     -- (CADR(sig) = '_$) =>
+;     --   STRINGP (sel := CADDR(sig)) =>
+;     --    [quad,".",sel]
+;     --  [quad,".",quad]
 ;     op
 ;   STRINGP op or GETL(op,"Led") or GETL(op,"Nud") =>
 ;     n = 3 =>
@@ -714,7 +714,7 @@
 ;   op
 
 (DEFUN |formatOpSymbol| (|op| |sig|)
-  (PROG (|quad| |n| |sel|)
+  (PROG (|quad| |n|)
     (RETURN
      (PROGN
       (COND ((EQ |op| '|Zero|) (SETQ |op| '|0|))
@@ -724,38 +724,31 @@
              (PROGN
               (SETQ |quad| (|specialChar| '|quad|))
               (SETQ |n| (LENGTH |sig|))
-              (COND
-               ((AND (EQ |op| '|elt|) (EQL |n| 3))
-                (COND
-                 ((EQ (CADR |sig|) '$)
-                  (COND
-                   ((STRINGP (SETQ |sel| (CADDR |sig|)))
-                    (LIST |quad| '|.| |sel|))
-                   (#1# (LIST |quad| '|.| |quad|))))
-                 (#1# |op|)))
-               ((OR (STRINGP |op|) (GETL |op| '|Led|) (GETL |op| '|Nud|))
-                (COND
-                 ((EQL |n| 3)
-                  (PROGN
-                   (COND ((EQ |op| 'SEGMENT) (SETQ |op| "..")))
-                   (COND ((EQ |op| '|in|) (LIST |quad| " " |op| " " |quad|))
+              (COND ((AND (EQ |op| '|elt|) (EQL |n| 3)) |op|)
+                    ((OR (STRINGP |op|) (GETL |op| '|Led|) (GETL |op| '|Nud|))
+                     (COND
+                      ((EQL |n| 3)
+                       (PROGN
+                        (COND ((EQ |op| 'SEGMENT) (SETQ |op| "..")))
+                        (COND
+                         ((EQ |op| '|in|) (LIST |quad| " " |op| " " |quad|))
                          ((EQ |op| '|exquo|) |op|)
                          (#1# (LIST |quad| |op| |quad|)))))
-                 ((EQL |n| 2)
-                  (COND ((NULL (GETL |op| '|Nud|)) (LIST |quad| |op|))
-                        (#1# (LIST |op| |quad|))))
-                 (#1# |op|)))
-               (#1# |op|)))))))))
+                      ((EQL |n| 2)
+                       (COND ((NULL (GETL |op| '|Nud|)) (LIST |quad| |op|))
+                             (#1# (LIST |op| |quad|))))
+                      (#1# |op|)))
+                    (#1# |op|)))))))))
 
 ; dollarPercentTran x ==
-;     -- Translate $ to %. We actually return %% so that the message
+;     -- Handle %. We actually return %% so that the message
 ;     -- printer will display a single %
 ;     x is [y,:z] =>
 ;         y1 := dollarPercentTran y
 ;         z1 := dollarPercentTran z
 ;         EQ(y, y1) and EQ(z, z1) => x
 ;         [y1, :z1]
-;     x = "$" or x = '"$" => "%%"
+;     x = "%" or x = '"%" => "%%"
 ;     x
 
 (DEFUN |dollarPercentTran| (|x|)
@@ -768,7 +761,7 @@
         (SETQ |y1| (|dollarPercentTran| |y|))
         (SETQ |z1| (|dollarPercentTran| |z|))
         (COND ((AND (EQ |y| |y1|) (EQ |z| |z1|)) |x|) (#1# (CONS |y1| |z1|)))))
-      ((OR (EQ |x| '$) (EQUAL |x| "$")) '%%) (#1# |x|)))))
+      ((OR (EQ |x| '%) (EQUAL |x| "%")) '%%) (#1# |x|)))))
 
 ; formatSignature sig ==
 ;   formatSignature0 sig
@@ -2413,7 +2406,7 @@
 ;       (_> . " > ") (_>_= . " >= ") (_=  . " = ") (_^_= . " _^_= ")))) =>
 ;         concat(pred2English a,translation,pred2English b)
 ;   x is ['ATTRIBUTE, form] => BREAK()
-;   x is '$ => '"%%"
+;   x is '% => '"%%"
 ;   form2String x
 
 (DEFUN |pred2English| (|x|)
@@ -2551,7 +2544,7 @@
              (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
                   (PROGN (SETQ |form| (CAR |ISTMP#1|)) #1#))))
        (BREAK))
-      ((EQ |x| '$) "%%") (#1# (|form2String| |x|))))))
+      ((EQ |x| '%) "%%") (#1# (|form2String| |x|))))))
 
 ; mathObject2String x ==
 ;   CHARACTERP x => COERCE([x],'STRING)

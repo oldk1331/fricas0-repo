@@ -29,25 +29,25 @@
                                                    (|RetractableTo| '|t#1|)
                                                    (|mkCategory|
                                                     '(((|makeVariable|
-                                                        ($ |t#1|
+                                                        (% |t#1|
                                                          (|NonNegativeInteger|)))
                                                        T)
                                                       ((|order|
                                                         ((|NonNegativeInteger|)
-                                                         $))
+                                                         %))
                                                        T)
-                                                      ((|variable| (|t#1| $))
+                                                      ((|variable| (|t#1| %))
                                                        T)
                                                       ((|weight|
                                                         ((|NonNegativeInteger|)
-                                                         $))
+                                                         %))
                                                        T)
-                                                      ((|differentiate| ($ $))
+                                                      ((|differentiate| (% %))
                                                        T)
                                                       ((|differentiate|
-                                                        ($ $
+                                                        (% %
                                                          (|NonNegativeInteger|)))
                                                        T)
-                                                      ((|coerce| ($ |t#1|)) T))
+                                                      ((|coerce| (% |t#1|)) T))
                                                     NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|DifferentialVariableCategory| |t#1|))))) 

@@ -476,7 +476,7 @@
 ;     isLocalVar(type) => ['unabbrev, type]
 ;     MKQ unabbrev type
 ;   catCode :=
-;     prop := unabbrev SUBST('$, '%, prop)
+;     prop := unabbrev(prop)
 ;     prop is [":", :.] => MKQ prop
 ;     ['evaluateType, MKQ prop]
 ;   code:=['newHasTest,['evaluateType, type], catCode]
@@ -507,7 +507,7 @@
                       (#1# (MKQ (|unabbrev| |type|)))))
         (SETQ |catCode|
                 (PROGN
-                 (SETQ |prop| (|unabbrev| (SUBST '$ '% |prop|)))
+                 (SETQ |prop| (|unabbrev| |prop|))
                  (COND
                   ((AND (CONSP |prop|) (EQ (CAR |prop|) '|:|)) (MKQ |prop|))
                   (#1# (LIST '|evaluateType| (MKQ |prop|))))))

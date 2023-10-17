@@ -24,28 +24,28 @@
                                           (LETT |FileCategory;CAT|
                                                 (|Join| (|SetCategory|)
                                                         (|mkCategory|
-                                                         '(((|open| ($ |t#1|))
+                                                         '(((|open| (% |t#1|))
                                                             T)
                                                            ((|open|
-                                                             ($ |t#1|
+                                                             (% |t#1|
                                                               (|String|)))
                                                             T)
                                                            ((|reopen!|
-                                                             ($ $ (|String|)))
+                                                             (% % (|String|)))
                                                             T)
-                                                           ((|close!| ($ $)) T)
-                                                           ((|name| (|t#1| $))
+                                                           ((|close!| (% %)) T)
+                                                           ((|name| (|t#1| %))
                                                             T)
                                                            ((|iomode|
-                                                             ((|String|) $))
+                                                             ((|String|) %))
                                                             T)
-                                                           ((|read!| (|t#2| $))
+                                                           ((|read!| (|t#2| %))
                                                             T)
                                                            ((|write!|
-                                                             (|t#2| $ |t#2|))
+                                                             (|t#2| % |t#2|))
                                                             T)
                                                            ((|flush|
-                                                             ((|Void|) $))
+                                                             ((|Void|) %))
                                                             T))
                                                          NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|FileCategory| |t#1| |t#2|))))) 

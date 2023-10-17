@@ -1,28 +1,28 @@
 
-(SDEFUN |DPMM;*;R2$;1| ((|r| (R)) (|x| ($)) ($ ($)))
+(SDEFUN |DPMM;*;R2%;1| ((|r| (R)) (|x| (%)) (% (%)))
         (SPROG ((#1=#:G107 NIL) (#2=#:G109 NIL) (|i| NIL) (#3=#:G108 NIL))
                (SEQ
                 (PROGN
-                 (LETT #3# (GETREFV #4=(QREFELT $ 6)))
+                 (LETT #3# (GETREFV #4=(QREFELT % 6)))
                  (SEQ (LETT |i| 1) (LETT #2# #4#) (LETT #1# 0) G190
                       (COND ((|greater_SI| |i| #2#) (GO G191)))
                       (SEQ
                        (EXIT
                         (SETELT #3# #1#
-                                (SPADCALL |r| (SPADCALL |x| |i| (QREFELT $ 12))
-                                          (QREFELT $ 13)))))
+                                (SPADCALL |r| (SPADCALL |x| |i| (QREFELT % 12))
+                                          (QREFELT % 13)))))
                       (LETT #1#
                             (PROG1 (|inc_SI| #1#) (LETT |i| (|inc_SI| |i|))))
                       (GO G190) G191 (EXIT NIL))
                  #3#)))) 
 
-(SDEFUN |DPMM;*;M2$;2| ((|m| (M)) (|x| ($)) ($ ($)))
+(SDEFUN |DPMM;*;M2%;2| ((|m| (M)) (|x| (%)) (% (%)))
         (SPROG
          ((#1=#:G112 NIL) (#2=#:G111 (S)) (#3=#:G113 (S)) (#4=#:G119 NIL)
           (|j| NIL) (#5=#:G116 NIL) (#6=#:G118 NIL) (|i| NIL) (#7=#:G117 NIL))
          (SEQ
           (PROGN
-           (LETT #7# (GETREFV #8=(QREFELT $ 6)))
+           (LETT #7# (GETREFV #8=(QREFELT % 6)))
            (SEQ (LETT |i| 1) (LETT #6# #8#) (LETT #5# 0) G190
                 (COND ((|greater_SI| |i| #6#) (GO G191)))
                 (SEQ
@@ -30,25 +30,25 @@
                   (SETELT #7# #5#
                           (PROGN
                            (LETT #1# NIL)
-                           (SEQ (LETT |j| 1) (LETT #4# (QREFELT $ 6)) G190
+                           (SEQ (LETT |j| 1) (LETT #4# (QREFELT % 6)) G190
                                 (COND ((|greater_SI| |j| #4#) (GO G191)))
                                 (SEQ
                                  (EXIT
                                   (PROGN
                                    (LETT #3#
                                          (SPADCALL
-                                          (SPADCALL |m| |i| |j| (QREFELT $ 15))
-                                          (SPADCALL |x| |j| (QREFELT $ 12))
-                                          (QREFELT $ 13)))
+                                          (SPADCALL |m| |i| |j| (QREFELT % 15))
+                                          (SPADCALL |x| |j| (QREFELT % 12))
+                                          (QREFELT % 13)))
                                    (COND
                                     (#1#
                                      (LETT #2#
-                                           (SPADCALL #2# #3# (QREFELT $ 16))))
+                                           (SPADCALL #2# #3# (QREFELT % 16))))
                                     ('T
                                      (PROGN (LETT #2# #3#) (LETT #1# 'T)))))))
                                 (LETT |j| (|inc_SI| |j|)) (GO G190) G191
                                 (EXIT NIL))
-                           (COND (#1# #2#) ('T (|spadConstant| $ 17)))))))
+                           (COND (#1# #2#) ('T (|spadConstant| % 17)))))))
                 (LETT #5# (PROG1 (|inc_SI| #5#) (LETT |i| (|inc_SI| |i|))))
                 (GO G190) G191 (EXIT NIL))
            #7#)))) 
@@ -79,7 +79,7 @@
   (SPROG
    ((|pv$| NIL) (#1=#:G137 NIL) (#2=#:G138 NIL) (#3=#:G139 NIL) (#4=#:G141 NIL)
     (#5=#:G140 NIL) (#6=#:G142 NIL) (#7=#:G143 NIL) (#8=#:G144 NIL)
-    (#9=#:G145 NIL) (#10=#:G146 NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
+    (#9=#:G145 NIL) (#10=#:G146 NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
     (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 |#1|)
@@ -87,9 +87,9 @@
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$| (LIST '|DirectProductMatrixModule| DV$1 DV$2 DV$3 DV$4))
-    (LETT $ (GETREFV 51))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 51))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -490,21 +490,21 @@
                                                           (|Symbol|)))
                                          #2# #3# #1#)))))
     (|haddProp| |$ConstructorCache| '|DirectProductMatrixModule|
-                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (QSETREFV $ 8 |#3|)
-    (QSETREFV $ 9 |#4|)
-    (AND (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 562949953421312))
-    (AND #10# (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 1125899906842624))
+                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (QSETREFV % 8 |#3|)
+    (QSETREFV % 9 |#4|)
+    (AND (|HasCategory| % '(|finiteAggregate|))
+         (|augmentPredVector| % 562949953421312))
+    (AND #10# (|HasCategory| % '(|finiteAggregate|))
+         (|augmentPredVector| % 1125899906842624))
     (AND (|HasCategory| |#4| '(|BasicType|))
-         (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 2251799813685248))
-    (AND (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 4503599627370496))
+         (|HasCategory| % '(|finiteAggregate|))
+         (|augmentPredVector| % 2251799813685248))
+    (AND (|HasCategory| % '(|shallowlyMutable|))
+         (|augmentPredVector| % 4503599627370496))
     (AND
      (OR (|HasCategory| |#2| '(|AbelianMonoid|))
          (|HasCategory| |#3| '(|AbelianMonoid|))
@@ -512,8 +512,8 @@
               (|HasCategory| (|Integer|) '(|AbelianMonoid|)))
          #3#
          (AND (|HasCategory| |#4| '(|SemiRng|))
-              (|HasCategory| $ '(|AbelianMonoid|))))
-     (|augmentPredVector| $ 9007199254740992))
+              (|HasCategory| % '(|AbelianMonoid|))))
+     (|augmentPredVector| % 9007199254740992))
     (AND
      (OR (|HasCategory| |#2| '(|AbelianGroup|))
          (|HasCategory| |#3| '(|AbelianGroup|))
@@ -522,8 +522,8 @@
          (AND #2# (|HasCategory| |#4| '(|Ring|)))
          (AND #2# (|HasCategory| |#4| '(|SemiRng|))) #1#
          (AND (|HasCategory| |#4| '(|SemiRng|))
-              (|HasCategory| $ '(|AbelianGroup|))))
-     (|augmentPredVector| $ 18014398509481984))
+              (|HasCategory| % '(|AbelianGroup|))))
+     (|augmentPredVector| % 18014398509481984))
     (AND
      (OR (|HasCategory| |#2| '(|AbelianGroup|))
          (|HasCategory| |#3| '(|AbelianGroup|))
@@ -531,25 +531,25 @@
               (|HasCategory| (|Integer|) '(|AbelianGroup|)))
          #2#
          (AND (|HasCategory| |#4| '(|SemiRng|))
-              (|HasCategory| $ '(|AbelianGroup|))))
-     (|augmentPredVector| $ 36028797018963968))
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 10 (|Vector| |#4|))
-    $))) 
+              (|HasCategory| % '(|AbelianGroup|))))
+     (|augmentPredVector| % 36028797018963968))
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 10 (|Vector| |#4|))
+    %))) 
 
 (MAKEPROP '|DirectProductMatrixModule| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|DirectProduct| (NRTEVAL (QREFELT $ 6)) 9)
+           '#(NIL NIL NIL NIL NIL (|DirectProduct| (NRTEVAL (QREFELT % 6)) 9)
               (|local| |#1|) (|local| |#2|) (|local| |#3|) (|local| |#4|)
-              '|Rep| (|Integer|) (0 . |elt|) (6 . *) |DPMM;*;R2$;1|
-              (12 . |elt|) (19 . +) (25 . |Zero|) |DPMM;*;M2$;2| (|Boolean|)
+              '|Rep| (|Integer|) (0 . |elt|) (6 . *) |DPMM;*;R2%;1|
+              (12 . |elt|) (19 . +) (25 . |Zero|) |DPMM;*;M2%;2| (|Boolean|)
               (|NonNegativeInteger|) (|PositiveInteger|) (|List| 9)
               (|Equation| 9) (|List| 23)
-              (|Record| (|:| |mat| 28) (|:| |vec| (|Vector| 11))) (|Matrix| $)
-              (|Vector| $) (|Matrix| 11) (|List| 31) (|List| 20) (|Symbol|)
+              (|Record| (|:| |mat| 28) (|:| |vec| (|Vector| 11))) (|Matrix| %)
+              (|Vector| %) (|Matrix| 11) (|List| 31) (|List| 20) (|Symbol|)
               (|Union| 33 '#1="failed") (|Fraction| 11) (|Union| 11 '#1#)
-              (|Union| $ '"failed") (|Mapping| 19 9 9) (|Mapping| 19 9)
-              (|Void|) (|Mapping| 9 9) (|InputForm|) (|List| $)
+              (|Union| % '"failed") (|Mapping| 19 9 9) (|Mapping| 19 9)
+              (|Void|) (|Mapping| 9 9) (|InputForm|) (|List| %)
               (|Record| (|:| |mat| 43) (|:| |vec| 49)) (|Matrix| 9)
               (|Union| 9 '#1#) (|SingleInteger|) (|OutputForm|) (|String|)
               (|HashState|) (|Vector| 9) (|List| 11))

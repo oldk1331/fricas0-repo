@@ -1,24 +1,24 @@
 
-(PUT '|ODR;coerce;R$;1| '|SPADreplace| '(XLAM (|u|) |u|)) 
+(PUT '|ODR;coerce;R%;1| '|SPADreplace| '(XLAM (|u|) |u|)) 
 
-(SDEFUN |ODR;coerce;R$;1| ((|u| (R)) ($ ($))) |u|) 
+(SDEFUN |ODR;coerce;R%;1| ((|u| (R)) (% (%))) |u|) 
 
-(PUT '|ODR;coerce;$R;2| '|SPADreplace| '(XLAM (|p|) |p|)) 
+(PUT '|ODR;coerce;%R;2| '|SPADreplace| '(XLAM (|p|) |p|)) 
 
-(SDEFUN |ODR;coerce;$R;2| ((|p| ($)) ($ (R))) |p|) 
+(SDEFUN |ODR;coerce;%R;2| ((|p| (%)) (% (R))) |p|) 
 
-(SDEFUN |ODR;differentiate;2$;3| ((|p| ($)) ($ ($)))
-        (SPADCALL |p| (QREFELT $ 8) (QREFELT $ 12))) 
+(SDEFUN |ODR;differentiate;2%;3| ((|p| (%)) (% (%)))
+        (SPADCALL |p| (QREFELT % 8) (QREFELT % 12))) 
 
-(SDEFUN |ODR;/;3$;4| ((|p| ($)) (|q| ($)) ($ ($)))
-        (SPADCALL (SPADCALL |p| (QREFELT $ 11)) (SPADCALL |q| (QREFELT $ 11))
-                  (QREFELT $ 14))) 
+(SDEFUN |ODR;/;3%;4| ((|p| (%)) (|q| (%)) (% (%)))
+        (SPADCALL (SPADCALL |p| (QREFELT % 11)) (SPADCALL |q| (QREFELT % 11))
+                  (QREFELT % 14))) 
 
-(SDEFUN |ODR;^;$I$;5| ((|p| ($)) (|n| (|Integer|)) ($ ($)))
-        (SPADCALL (SPADCALL |p| (QREFELT $ 11)) |n| (QREFELT $ 17))) 
+(SDEFUN |ODR;^;%I%;5| ((|p| (%)) (|n| (|Integer|)) (% (%)))
+        (SPADCALL (SPADCALL |p| (QREFELT % 11)) |n| (QREFELT % 17))) 
 
-(SDEFUN |ODR;inv;2$;6| ((|p| ($)) ($ ($)))
-        (SPADCALL (SPADCALL |p| (QREFELT $ 11)) (QREFELT $ 19))) 
+(SDEFUN |ODR;inv;2%;6| ((|p| (%)) (% (%)))
+        (SPADCALL (SPADCALL |p| (QREFELT % 11)) (QREFELT % 19))) 
 
 (DECLAIM (NOTINLINE |OrdinaryDifferentialRing;|)) 
 
@@ -43,53 +43,53 @@
                         '|OrdinaryDifferentialRing|)))))))))) 
 
 (DEFUN |OrdinaryDifferentialRing;| (|#1| |#2| |#3|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT DV$3 |#3|)
           (LETT |dv$| (LIST '|OrdinaryDifferentialRing| DV$1 DV$2 DV$3))
-          (LETT $ (GETREFV 41))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3
+          (LETT % (GETREFV 41))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
                                               (|HasCategory| |#2|
                                                              '(|Field|))))))
           (|haddProp| |$ConstructorCache| '|OrdinaryDifferentialRing|
-                      (LIST DV$1 DV$2 DV$3) (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 5 |#2|)
-          (QSETREFV $ 6 |#1|)
-          (QSETREFV $ 7 |#2|)
-          (QSETREFV $ 8 |#3|)
-          (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 9 |#2|)
+                      (LIST DV$1 DV$2 DV$3) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 5 |#2|)
+          (QSETREFV % 6 |#1|)
+          (QSETREFV % 7 |#2|)
+          (QSETREFV % 8 |#3|)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 9 |#2|)
           (COND
            ((|testBitVector| |pv$| 1)
             (PROGN
-             (QSETREFV $ 15 (CONS (|dispatchFunction| |ODR;/;3$;4|) $))
-             (QSETREFV $ 18 (CONS (|dispatchFunction| |ODR;^;$I$;5|) $))
-             (QSETREFV $ 20 (CONS (|dispatchFunction| |ODR;inv;2$;6|) $)))))
-          $))) 
+             (QSETREFV % 15 (CONS (|dispatchFunction| |ODR;/;3%;4|) %))
+             (QSETREFV % 18 (CONS (|dispatchFunction| |ODR;^;%I%;5|) %))
+             (QSETREFV % 20 (CONS (|dispatchFunction| |ODR;inv;2%;6|) %)))))
+          %))) 
 
 (MAKEPROP '|OrdinaryDifferentialRing| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|local| |#2|) (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) '|Rep| |ODR;coerce;R$;1| |ODR;coerce;$R;2|
-              (0 . |differentiate|) |ODR;differentiate;2$;3| (6 . /) (12 . /)
+              (|local| |#3|) '|Rep| |ODR;coerce;R%;1| |ODR;coerce;%R;2|
+              (0 . |differentiate|) |ODR;differentiate;2%;3| (6 . /) (12 . /)
               (|Integer|) (18 . ^) (24 . ^) (30 . |inv|) (35 . |inv|)
-              (|Fraction| 16) (|Boolean|) (|Factored| $)
-              (|Union| 25 '#1="failed") (|List| $)
-              (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 27 '#1#)
-              (|Record| (|:| |quotient| $) (|:| |remainder| $))
+              (|Fraction| 16) (|Boolean|) (|Factored| %)
+              (|Union| 25 '#1="failed") (|List| %)
+              (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
+              (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 27 '#1#)
+              (|Record| (|:| |quotient| %) (|:| |remainder| %))
               (|NonNegativeInteger|)
-              (|Record| (|:| |coef| 25) (|:| |generator| $))
-              (|SparseUnivariatePolynomial| $) (|Union| $ '"failed")
-              (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
-              (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
+              (|Record| (|:| |coef| 25) (|:| |generator| %))
+              (|SparseUnivariatePolynomial| %) (|Union| % '"failed")
+              (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
+              (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|)
               (|OutputForm|))
            '#(~= 40 |zero?| 46 |unitNormal| 51 |unitCanonical| 56 |unit?| 61

@@ -27,63 +27,63 @@
                                                   '|t#1|)
                                                  (|mkCategory|
                                                   '(((|construct|
-                                                      ($ (|List| |t#1|)))
+                                                      (% (|List| |t#1|)))
                                                      T)
                                                     ((|find|
                                                       ((|Union| |t#1| "failed")
                                                        (|Mapping| (|Boolean|)
                                                                   |t#1|)
-                                                       $))
+                                                       %))
                                                      T)
                                                     ((|reduce|
                                                       (|t#1|
                                                        (|Mapping| |t#1| |t#1|
                                                                   |t#1|)
-                                                       $))
-                                                     (|has| $
+                                                       %))
+                                                     (|has| %
                                                             (|finiteAggregate|)))
                                                     ((|reduce|
                                                       (|t#1|
                                                        (|Mapping| |t#1| |t#1|
                                                                   |t#1|)
-                                                       $ |t#1|))
-                                                     (|has| $
+                                                       % |t#1|))
+                                                     (|has| %
                                                             (|finiteAggregate|)))
                                                     ((|remove|
-                                                      ($
+                                                      (%
                                                        (|Mapping| (|Boolean|)
                                                                   |t#1|)
-                                                       $))
-                                                     (|has| $
+                                                       %))
+                                                     (|has| %
                                                             (|finiteAggregate|)))
                                                     ((|select|
-                                                      ($
+                                                      (%
                                                        (|Mapping| (|Boolean|)
                                                                   |t#1|)
-                                                       $))
-                                                     (|has| $
+                                                       %))
+                                                     (|has| %
                                                             (|finiteAggregate|)))
                                                     ((|reduce|
                                                       (|t#1|
                                                        (|Mapping| |t#1| |t#1|
                                                                   |t#1|)
-                                                       $ |t#1| |t#1|))
+                                                       % |t#1| |t#1|))
                                                      (AND
                                                       (|has| |t#1|
                                                              (|BasicType|))
-                                                      (|has| $
+                                                      (|has| %
                                                              (|finiteAggregate|))))
-                                                    ((|remove| ($ |t#1| $))
+                                                    ((|remove| (% |t#1| %))
                                                      (AND
                                                       (|has| |t#1|
                                                              (|BasicType|))
-                                                      (|has| $
+                                                      (|has| %
                                                              (|finiteAggregate|))))
-                                                    ((|removeDuplicates| ($ $))
+                                                    ((|removeDuplicates| (% %))
                                                      (AND
                                                       (|has| |t#1|
                                                              (|BasicType|))
-                                                      (|has| $
+                                                      (|has| %
                                                              (|finiteAggregate|)))))
                                                   '(((|ConvertibleTo|
                                                       (|InputForm|))

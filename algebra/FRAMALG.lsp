@@ -34,7 +34,7 @@
                                                     ((|discriminant| (|t#1|))
                                                      T)
                                                     ((|regularRepresentation|
-                                                      ((|Matrix| |t#1|) $))
+                                                      ((|Matrix| |t#1|) %))
                                                      T))
                                                   NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|FramedAlgebra| |t#1| |t#2|))))) 

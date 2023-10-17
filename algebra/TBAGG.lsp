@@ -30,11 +30,11 @@
                                                                      '|t#2|)
                                                  (|mkCategory|
                                                   '(((|setelt!|
-                                                      (|t#2| $ |t#1| |t#2|))
+                                                      (|t#2| % |t#1| |t#2|))
                                                      T)
-                                                    ((|table| ($)) T)
+                                                    ((|table| (%)) T)
                                                     ((|table|
-                                                      ($
+                                                      (%
                                                        (|List|
                                                         (|Record|
                                                          (|:| |key| |t#1|)
@@ -42,10 +42,10 @@
                                                               |t#2|)))))
                                                      T)
                                                     ((|map|
-                                                      ($
+                                                      (%
                                                        (|Mapping| |t#2| |t#2|
                                                                   |t#2|)
-                                                       $ $))
+                                                       % %))
                                                      T))
                                                   NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|TableAggregate| |t#1| |t#2|))))) 

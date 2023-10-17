@@ -26,16 +26,16 @@
                                                         (|finiteAggregate|)
                                                         (|mkCategory|
                                                          '(((|enqueue!|
-                                                             (|t#1| |t#1| $))
+                                                             (|t#1| |t#1| %))
                                                             T)
                                                            ((|dequeue!|
-                                                             (|t#1| $))
+                                                             (|t#1| %))
                                                             T)
-                                                           ((|rotate!| ($ $))
+                                                           ((|rotate!| (% %))
                                                             T)
-                                                           ((|front| (|t#1| $))
+                                                           ((|front| (|t#1| %))
                                                             T)
-                                                           ((|back| (|t#1| $))
+                                                           ((|back| (|t#1| %))
                                                             T))
                                                          NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|QueueAggregate| |t#1|))))) 

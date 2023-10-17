@@ -1,13 +1,13 @@
 
-(SDEFUN |LIB;library;Fn$;1| ((|f| (|FileName|)) ($ ($)))
-        (SPADCALL |f| (QREFELT $ 8))) 
+(SDEFUN |LIB;library;Fn%;1| ((|f| (|FileName|)) (% (%)))
+        (SPADCALL |f| (QREFELT % 8))) 
 
-(SDEFUN |LIB;elt;$SA;2| ((|f| ($)) (|v| (|Symbol|)) ($ (|Any|)))
-        (SPADCALL |f| (SPADCALL |v| (QREFELT $ 12)) (QREFELT $ 14))) 
+(SDEFUN |LIB;elt;%SA;2| ((|f| (%)) (|v| (|Symbol|)) (% (|Any|)))
+        (SPADCALL |f| (SPADCALL |v| (QREFELT % 12)) (QREFELT % 14))) 
 
-(SDEFUN |LIB;setelt!;$S2A;3|
-        ((|f| ($)) (|v| (|Symbol|)) (|val| (|Any|)) ($ (|Any|)))
-        (SPADCALL |f| (SPADCALL |v| (QREFELT $ 12)) |val| (QREFELT $ 16))) 
+(SDEFUN |LIB;setelt!;%S2A;3|
+        ((|f| (%)) (|v| (|Symbol|)) (|val| (|Any|)) (% (|Any|)))
+        (SPADCALL |f| (SPADCALL |v| (QREFELT % 12)) |val| (QREFELT % 16))) 
 
 (DECLAIM (NOTINLINE |Library;|)) 
 
@@ -29,13 +29,13 @@
 
 (DEFUN |Library;| ()
   (SPROG
-   ((|dv$| NIL) ($ NIL) (#1=#:G161 NIL) (#2=#:G160 NIL) (|pv$| NIL)
+   ((|dv$| NIL) (% NIL) (#1=#:G161 NIL) (#2=#:G160 NIL) (|pv$| NIL)
     (#3=#:G162 NIL) (#4=#:G163 NIL))
    (PROGN
     (LETT |dv$| '(|Library|))
-    (LETT $ (GETREFV 43))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 43))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -95,23 +95,23 @@
                                          #2#)
                                         (|HasCategory| (|Any|)
                                                        '(|OrderedSet|))))))
-    (|haddProp| |$ConstructorCache| '|Library| NIL (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (AND (LETT #3# (|HasCategory| $ '(|finiteAggregate|)))
-         (|augmentPredVector| $ 8192))
+    (|haddProp| |$ConstructorCache| '|Library| NIL (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (AND (LETT #3# (|HasCategory| % '(|finiteAggregate|)))
+         (|augmentPredVector| % 8192))
     (AND #3#
          (|HasCategory| (|Record| (|:| |key| (|String|)) (|:| |entry| (|Any|)))
                         '(|OrderedSet|))
-         (|augmentPredVector| $ 16384))
+         (|augmentPredVector| % 16384))
     (AND #3#
          (|HasCategory| (|Record| (|:| |key| (|String|)) (|:| |entry| (|Any|)))
                         '(|BasicType|))
-         (|augmentPredVector| $ 32768))
+         (|augmentPredVector| % 32768))
     (AND
      (LETT #4#
-           (AND (|HasCategory| $ '(|finiteAggregate|))
+           (AND (|HasCategory| % '(|finiteAggregate|))
                 (|HasCategory| (|Any|) '(|BasicType|))))
-     (|augmentPredVector| $ 65536))
+     (|augmentPredVector| % 65536))
     (AND
      (OR #4#
          (AND #3#
@@ -119,21 +119,21 @@
                (|Record| (|:| |key| (|String|)) (|:| |entry| (|Any|)))
                '(|BasicType|)))
          #1# #2#)
-     (|augmentPredVector| $ 131072))
+     (|augmentPredVector| % 131072))
     (AND #3# (|HasCategory| (|Any|) '(|OrderedSet|))
-         (|augmentPredVector| $ 262144))
-    (AND (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 524288))
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 6 (|KeyedAccessFile| (|Any|)))
-    $))) 
+         (|augmentPredVector| % 262144))
+    (AND (|HasCategory| % '(|shallowlyMutable|))
+         (|augmentPredVector| % 524288))
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 6 (|KeyedAccessFile| (|Any|)))
+    %))) 
 
 (MAKEPROP '|Library| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|KeyedAccessFile| 13) '|Rep| (|FileName|)
-              (0 . |open|) |LIB;library;Fn$;1| (|String|) (|Symbol|)
-              (5 . |string|) (|Any|) (10 . |elt|) |LIB;elt;$SA;2|
-              (16 . |setelt!|) |LIB;setelt!;$S2A;3| (|List| 19) (|Equation| 13)
+              (0 . |open|) |LIB;library;Fn%;1| (|String|) (|Symbol|)
+              (5 . |string|) (|Any|) (10 . |elt|) |LIB;elt;%SA;2|
+              (16 . |setelt!|) |LIB;setelt!;%S2A;3| (|List| 19) (|Equation| 13)
               (|List| 13) (|Record| (|:| |key| 10) (|:| |entry| 13))
               (|List| 21) (|List| 24) (|Equation| 21) (|NonNegativeInteger|)
               (|Boolean|) (|Mapping| 21 21 21) (|OutputForm|) (|HashState|)

@@ -1,13 +1,13 @@
 
 (SDEFUN |PTFUNC2;map;MPP;1|
-        ((|mapping| (|Mapping| R2 R1)) (|p| (|Point| R1)) ($ (|Point| R2)))
+        ((|mapping| (|Mapping| R2 R1)) (|p| (|Point| R1)) (% (|Point| R2)))
         (SPROG ((#1=#:G106 NIL) (#2=#:G111 NIL) (|i| NIL) (#3=#:G110 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
                   (LETT #3# NIL)
-                  (SEQ (LETT |i| (SPADCALL |p| (QREFELT $ 10)))
-                       (LETT #2# (SPADCALL |p| (QREFELT $ 11))) G190
+                  (SEQ (LETT |i| (SPADCALL |p| (QREFELT % 10)))
+                       (LETT #2# (SPADCALL |p| (QREFELT % 11))) G190
                        (COND ((> |i| #2#) (GO G191)))
                        (SEQ
                         (EXIT
@@ -20,12 +20,12 @@
                                                                '(|PositiveInteger|)
                                                                '(|Integer|)
                                                                #1#))
-                                           (QREFELT $ 12))
+                                           (QREFELT % 12))
                                  |mapping|)
                                 #3#))))
                        (LETT |i| (+ |i| 1)) (GO G190) G191
                        (EXIT (NREVERSE #3#))))
-                 (QREFELT $ 15))))) 
+                 (QREFELT % 15))))) 
 
 (DECLAIM (NOTINLINE |PointFunctions2;|)) 
 
@@ -49,21 +49,21 @@
                   (HREM |$ConstructorCache| '|PointFunctions2|)))))))))) 
 
 (DEFUN |PointFunctions2;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|PointFunctions2| DV$1 DV$2))
-          (LETT $ (GETREFV 18))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (LETT % (GETREFV 18))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PointFunctions2| (LIST DV$1 DV$2)
-                      (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (QSETREFV $ 7 |#2|)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (QSETREFV % 7 |#2|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|PointFunctions2| '|infovec|
           (LIST

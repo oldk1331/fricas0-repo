@@ -18,13 +18,13 @@
                                                 ((|NonNegativeInteger|)))
                                                T)
                                               ((|index|
-                                                ($ (|PositiveInteger|)))
+                                                (% (|PositiveInteger|)))
                                                T)
                                               ((|lookup|
-                                                ((|PositiveInteger|) $))
+                                                ((|PositiveInteger|) %))
                                                T)
-                                              ((|random| ($)) T)
-                                              ((|enumerate| ((|List| $))) T))
+                                              ((|random| (%)) T)
+                                              ((|enumerate| ((|List| %))) T))
                                             NIL NIL NIL))))
            (SETELT #1# 0 '(|Finite|))))) 
 

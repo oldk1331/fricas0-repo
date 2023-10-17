@@ -24,53 +24,53 @@
                                           (LETT |DistributionCategory;CAT|
                                                 (|Join| (|SetCategory|)
                                                         (|mkCategory|
-                                                         '(((|Zero| ($)
+                                                         '(((|Zero| (%)
                                                                     |constant|)
                                                             T)
                                                            ((|moment|
-                                                             (|t#1| $
+                                                             (|t#1| %
                                                               (|NonNegativeInteger|)))
                                                             T)
                                                            ((|classicalCumulant|
-                                                             (|t#1| $
+                                                             (|t#1| %
                                                               (|PositiveInteger|)))
                                                             T)
                                                            ((|freeCumulant|
-                                                             (|t#1| $
+                                                             (|t#1| %
                                                               (|PositiveInteger|)))
                                                             T)
                                                            ((|booleanCumulant|
-                                                             (|t#1| $
+                                                             (|t#1| %
                                                               (|PositiveInteger|)))
                                                             T)
                                                            ((|moments|
                                                              ((|Sequence|
                                                                |t#1|)
-                                                              $))
+                                                              %))
                                                             T)
                                                            ((|classicalCumulants|
                                                              ((|Sequence|
                                                                |t#1|)
-                                                              $))
+                                                              %))
                                                             T)
                                                            ((|freeCumulants|
                                                              ((|Sequence|
                                                                |t#1|)
-                                                              $))
+                                                              %))
                                                             T)
                                                            ((|booleanCumulants|
                                                              ((|Sequence|
                                                                |t#1|)
-                                                              $))
+                                                              %))
                                                             T)
                                                            ((|hankelDeterminants|
                                                              ((|Stream| |t#1|)
-                                                              $))
+                                                              %))
                                                             T)
                                                            ((|monotoneCumulants|
                                                              ((|Sequence|
                                                                |t#1|)
-                                                              $))
+                                                              %))
                                                             (|has| |t#1|
                                                                    (|Algebra|
                                                                     (|Fraction|
@@ -83,14 +83,14 @@
                                                                (|:| |bn|
                                                                     (|Stream|
                                                                      |t#1|)))
-                                                              $))
+                                                              %))
                                                             (|has| |t#1|
                                                                    (|Field|)))
                                                            ((|orthogonalPolynomials|
                                                              ((|Stream|
                                                                (|SparseUnivariatePolynomial|
                                                                 |t#1|))
-                                                              $))
+                                                              %))
                                                             (|has| |t#1|
                                                                    (|Field|)))
                                                            ((|jacobiParameters|
@@ -103,7 +103,7 @@
                                                                     (|Stream|
                                                                      (|Fraction|
                                                                       |t#1|))))
-                                                              $))
+                                                              %))
                                                             (AND
                                                              (|has| |t#1|
                                                                     (|IntegralDomain|))
@@ -115,7 +115,7 @@
                                                                (|SparseUnivariatePolynomial|
                                                                 (|Fraction|
                                                                  |t#1|)))
-                                                              $))
+                                                              %))
                                                             (AND
                                                              (|has| |t#1|
                                                                     (|IntegralDomain|))
@@ -123,26 +123,26 @@
                                                               (|has| |t#1|
                                                                      (|Field|)))))
                                                            ((|classicalConvolution|
-                                                             ($ $ $))
+                                                             (% % %))
                                                             T)
                                                            ((|freeConvolution|
-                                                             ($ $ $))
+                                                             (% % %))
                                                             T)
                                                            ((|booleanConvolution|
-                                                             ($ $ $))
+                                                             (% % %))
                                                             T)
                                                            ((|monotoneConvolution|
-                                                             ($ $ $))
+                                                             (% % %))
                                                             T)
                                                            ((^
-                                                             ($ $
+                                                             (% %
                                                               (|PositiveInteger|)))
                                                             T)
                                                            ((|orthogonalConvolution|
-                                                             ($ $ $))
+                                                             (% % %))
                                                             T)
                                                            ((|subordinationConvolution|
-                                                             ($ $ $))
+                                                             (% % %))
                                                             T))
                                                          NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|DistributionCategory| |t#1|))))) 

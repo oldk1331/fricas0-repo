@@ -33,7 +33,7 @@
                                                         '|t#1| '#2#)
                                                        (|mkCategory|
                                                         '(((|series|
-                                                            ($
+                                                            (%
                                                              (|Stream|
                                                               (|Record|
                                                                (|:| |k|
@@ -42,27 +42,27 @@
                                                                     |t#1|)))))
                                                            T)
                                                           ((|laurent|
-                                                            ($ (|Integer|)
+                                                            (% (|Integer|)
                                                              (|Stream| |t#1|)))
                                                            T)
                                                           ((|multiplyCoefficients|
-                                                            ($
+                                                            (%
                                                              (|Mapping| |t#1|
                                                                         (|Integer|))
-                                                             $))
+                                                             %))
                                                            T)
                                                           ((|rationalFunction|
                                                             ((|Fraction|
                                                               (|Polynomial|
                                                                |t#1|))
-                                                             $ (|Integer|)))
+                                                             % (|Integer|)))
                                                            (|has| |t#1|
                                                                   (|IntegralDomain|)))
                                                           ((|rationalFunction|
                                                             ((|Fraction|
                                                               (|Polynomial|
                                                                |t#1|))
-                                                             $ (|Integer|)
+                                                             % (|Integer|)
                                                              (|Integer|)))
                                                            (|has| |t#1|
                                                                   (|IntegralDomain|))))

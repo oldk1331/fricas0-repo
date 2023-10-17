@@ -12,7 +12,7 @@
              (LETT #1#
                    (|Join| (|Comparable|) (|PartialOrder|)
                            (|mkCategory|
-                            '(((|max| ($ $ $)) T) ((|min| ($ $ $)) T)) NIL NIL
+                            '(((|max| (% % %)) T) ((|min| (% % %)) T)) NIL NIL
                             NIL)))
            (SETELT #1# 0 '(|OrderedSet|))))) 
 

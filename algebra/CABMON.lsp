@@ -14,7 +14,7 @@
              (LETT #1#
                    (|Join| (|AbelianMonoid|)
                            (|mkCategory|
-                            '(((|subtractIfCan| ((|Union| $ "failed") $ $)) T))
+                            '(((|subtractIfCan| ((|Union| % "failed") % %)) T))
                             NIL NIL NIL)))
            (SETELT #1# 0 '(|CancellationAbelianMonoid|))))) 
 

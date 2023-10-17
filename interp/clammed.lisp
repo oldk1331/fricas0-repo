@@ -116,7 +116,7 @@
 ;     cl:= replaceSharps(cl,form)
 ;     and/[isValid for x in argl for c in cl] where isValid ==
 ;       categoryForm?(c) =>
-;         evalCategory(x,MSUBSTQ(x,'_$,c)) and isValidType x
+;         evalCategory(x, MSUBSTQ(x, '%, c)) and isValidType x
 ;       not (GETDATABASE(opOf x, 'CONSTRUCTORKIND) = 'domain)
 
 (DEFUN |isValidType;| (|form|)
@@ -325,7 +325,7 @@
                                                   ((|categoryForm?| |c|)
                                                    (AND
                                                     (|evalCategory| |x|
-                                                     (MSUBSTQ |x| '$ |c|))
+                                                     (MSUBSTQ |x| '% |c|))
                                                     (|isValidType| |x|)))
                                                   (#1#
                                                    (NULL

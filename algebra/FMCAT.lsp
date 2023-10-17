@@ -29,21 +29,21 @@
                                                   '|t#1| '|t#2|)
                                                  (|mkCategory|
                                                   '(((|coefficients|
-                                                      ((|List| |t#1|) $))
+                                                      ((|List| |t#1|) %))
                                                      T)
                                                     ((|support|
-                                                      ((|List| |t#2|) $))
+                                                      ((|List| |t#2|) %))
                                                      T)
                                                     ((|monomials|
-                                                      ((|List| $) $))
+                                                      ((|List| %) %))
                                                      T)
                                                     ((|coefficient|
-                                                      (|t#1| $ |t#2|))
+                                                      (|t#1| % |t#2|))
                                                      T)
                                                     ((|linearExtend|
                                                       (|t#1|
                                                        (|Mapping| |t#1| |t#2|)
-                                                       $))
+                                                       %))
                                                      (|has| |t#1|
                                                             (|CommutativeRing|))))
                                                   '(((|Module| |t#1|)

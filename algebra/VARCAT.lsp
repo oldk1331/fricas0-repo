@@ -12,22 +12,22 @@
                    (|subst_in_cat| '(#2=#:G104) (LIST '(|OutputForm|))
                                    (|Join| (|Type|) (|CoercibleTo| '#2#)
                                            (|mkCategory|
-                                            '(((|var| ($ (|String|))) T)
+                                            '(((|var| (% (|String|))) T)
                                               ((|var|
-                                                ($ (|String|) (|ILogic|)))
+                                                (% (|String|) (|ILogic|)))
                                                T)
-                                              ((|getName| ((|String|) $)) T)
-                                              ((|getType| ((|ILogic|) $)) T)
-                                              ((|toString| ((|String|) $)) T)
-                                              ((|parseVar| ($ (|String|))) T)
+                                              ((|getName| ((|String|) %)) T)
+                                              ((|getType| ((|ILogic|) %)) T)
+                                              ((|toString| ((|String|) %)) T)
+                                              ((|parseVar| (% (|String|))) T)
                                               ((|parseVarTerm|
-                                                ((|Record| (|:| |rft| $)
+                                                ((|Record| (|:| |rft| %)
                                                            (|:| |pout|
                                                                 (|NonNegativeInteger|)))
                                                  (|String|)
                                                  (|NonNegativeInteger|)))
                                                T)
-                                              ((= ((|Boolean|) $ $)) T))
+                                              ((= ((|Boolean|) % %)) T))
                                             NIL NIL NIL))))
            (SETELT #1# 0 '(|VarCat|))))) 
 

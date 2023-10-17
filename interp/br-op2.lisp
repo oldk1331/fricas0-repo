@@ -229,12 +229,12 @@
 
 ; htSayArgument t == --called only for operations not for constructors
 ;   null $signature => htSay ['"{\em ",t,'"}"]
-;   MEMQ(t, '(_$ _%)) =>
+;   MEMQ(t, '(_%)) =>
 ;     $conkind = '"category" and $conlength > 20 =>
 ;       $generalSearch? => htSay '"{\em D} of the origin category"
-;       addWhereList("$",'is,nil)
-;       htSayStandard '"{\em $}"
-;     htSayStandard '"{\em $}"
+;       addWhereList("%", 'is, nil)
+;       htSayStandard '"{\em %}"
+;     htSayStandard '"{\em %}"
 ;   not IDENTP t => bcConform(t,true)
 ;   k := position(t,$conargs)
 ;   if k > -1 then
@@ -246,16 +246,16 @@
   (PROG (|k| |typeOfArg|)
     (RETURN
      (COND ((NULL |$signature|) (|htSay| (LIST "{\\em " |t| "}")))
-           ((MEMQ |t| '($ %))
+           ((MEMQ |t| '(%))
             (COND
              ((AND (EQUAL |$conkind| "category") (< 20 |$conlength|))
               (COND
                (|$generalSearch?| (|htSay| "{\\em D} of the origin category"))
                (#1='T
                 (PROGN
-                 (|addWhereList| '$ '|is| NIL)
-                 (|htSayStandard| "{\\em $}")))))
-             (#1# (|htSayStandard| "{\\em $}"))))
+                 (|addWhereList| '% '|is| NIL)
+                 (|htSayStandard| "{\\em %}")))))
+             (#1# (|htSayStandard| "{\\em %}"))))
            ((NULL (IDENTP |t|)) (|bcConform| |t| T))
            (#1#
             (PROGN
@@ -406,7 +406,7 @@
 ;     x
 ;   name := opOf typ
 ;   kind :=
-;     name = "$" => 'domain
+;     name = "%" => 'domain
 ;     GETDATABASE(name,'CONSTRUCTORKIND)
 ;   s := PNAME opOf typ
 ;   kind ~= 'category =>
@@ -440,7 +440,7 @@
        (PROGN
         (SETQ |name| (|opOf| |typ|))
         (SETQ |kind|
-                (COND ((EQ |name| '$) '|domain|)
+                (COND ((EQ |name| '%) '|domain|)
                       (#1# (GETDATABASE |name| 'CONSTRUCTORKIND))))
         (SETQ |s| (PNAME (|opOf| |typ|)))
         (COND
@@ -1068,9 +1068,10 @@
 ;     x := LASSOC(pattern,al) =>
 ;       x = subject => whoUsesMatch1?(r,s,al)
 ;       false
-;     pattern = '_$ =>
-;       subject is [= $conname,:.] => whoUsesMatch1?(r,s,[['_$,:subject],:al])
-;       false
+;     pattern = '_% =>
+;         subject is [= $conname, :.] =>
+;             whoUsesMatch1?(r, s, [['_%, :subject], :al])
+;         false
 ;     whoUsesMatch1?(r,s,[[pattern,:subject],:al])
 ;   true
 
@@ -1089,10 +1090,10 @@
         ((SETQ |x| (LASSOC |pattern| |al|))
          (COND ((EQUAL |x| |subject|) (|whoUsesMatch1?| |r| |s| |al|))
                (#1# NIL)))
-        ((EQ |pattern| '$)
+        ((EQ |pattern| '%)
          (COND
           ((AND (CONSP |subject|) (EQUAL (CAR |subject|) |$conname|))
-           (|whoUsesMatch1?| |r| |s| (CONS (CONS '$ |subject|) |al|)))
+           (|whoUsesMatch1?| |r| |s| (CONS (CONS '% |subject|) |al|)))
           (#1# NIL)))
         (#1#
          (|whoUsesMatch1?| |r| |s| (CONS (CONS |pattern| |subject|) |al|)))))
@@ -1304,7 +1305,7 @@
 
 ; kFormatSlotDomain x == fn formatSlotDomain x where fn x ==
 ;   atom x => x
-;   (op := first x) = '_$ => '_$
+;   (op := first x) = '_% => '_%
 ;   op = 'local => CADR x
 ;   op = ":" => [":",CADR x,fn CADDR x]
 ;   MEMQ(op,$Primitives) or constructor? op =>
@@ -1318,7 +1319,7 @@
 (DEFUN |kFormatSlotDomain,fn| (|x|)
   (PROG (|op|)
     (RETURN
-     (COND ((ATOM |x|) |x|) ((EQ (SETQ |op| (CAR |x|)) '$) '$)
+     (COND ((ATOM |x|) |x|) ((EQ (SETQ |op| (CAR |x|)) '%) '%)
            ((EQ |op| '|local|) (CADR |x|))
            ((EQ |op| '|:|)
             (LIST '|:| (CADR |x|) (|kFormatSlotDomain,fn| (CADDR |x|))))

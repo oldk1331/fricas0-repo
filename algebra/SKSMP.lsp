@@ -1,107 +1,107 @@
 
-(SDEFUN |SKSMP;D;Var$;1| ((|v| (|Var|)) ($ ($)))
-        (SPADCALL (|spadConstant| $ 10) |v| 1 (QREFELT $ 13))) 
+(SDEFUN |SKSMP;D;Var%;1| ((|v| (|Var|)) (% (%)))
+        (SPADCALL (|spadConstant| % 10) |v| 1 (QREFELT % 13))) 
 
-(SDEFUN |SKSMP;Delta;S$;2| ((|s| (|Symbol|)) ($ ($)))
+(SDEFUN |SKSMP;Delta;S%;2| ((|s| (|Symbol|)) (% (%)))
         (SPROG ((|vu| (|Union| |Var| "failed")))
-               (SEQ (LETT |vu| (SPADCALL |s| (QREFELT $ 17)))
+               (SEQ (LETT |vu| (SPADCALL |s| (QREFELT % 17)))
                     (EXIT
                      (COND ((QEQCAR |vu| 1) (|error| "missing variable"))
-                           ('T (SPADCALL (QCDR |vu|) (QREFELT $ 14)))))))) 
+                           ('T (SPADCALL (QCDR |vu|) (QREFELT % 14)))))))) 
 
-(SDEFUN |SKSMP;lift_map| ((|f| (|Mapping| R R)) ($ (|Mapping| $ $)))
-        (SPROG NIL (CONS #'|SKSMP;lift_map!0| (VECTOR $ |f|)))) 
+(SDEFUN |SKSMP;lift_map| ((|f| (|Mapping| R R)) (% (|Mapping| % %)))
+        (SPROG NIL (CONS #'|SKSMP;lift_map!0| (VECTOR % |f|)))) 
 
 (SDEFUN |SKSMP;lift_map!0| ((|x| NIL) ($$ NIL))
-        (PROG (|f| $)
+        (PROG (|f| %)
           (LETT |f| (QREFELT $$ 1))
-          (LETT $ (QREFELT $$ 0))
-          (RETURN (PROGN (SPADCALL |f| |x| (QREFELT $ 28)))))) 
+          (LETT % (QREFELT $$ 0))
+          (RETURN (PROGN (SPADCALL |f| |x| (QREFELT % 28)))))) 
 
-(SDEFUN |SKSMP;lift_morphism| ((|m| (|Automorphism| R)) ($ (|Automorphism| $)))
+(SDEFUN |SKSMP;lift_morphism| ((|m| (|Automorphism| R)) (% (|Automorphism| %)))
         (SPROG NIL
                (SPADCALL
                 (|SKSMP;lift_map|
-                 (CONS #'|SKSMP;lift_morphism!0| (VECTOR $ |m|)) $)
+                 (CONS #'|SKSMP;lift_morphism!0| (VECTOR % |m|)) %)
                 (|SKSMP;lift_map|
-                 (CONS #'|SKSMP;lift_morphism!1| (VECTOR $ |m|)) $)
-                (QREFELT $ 32)))) 
+                 (CONS #'|SKSMP;lift_morphism!1| (VECTOR % |m|)) %)
+                (QREFELT % 32)))) 
 
 (SDEFUN |SKSMP;lift_morphism!1| ((|x| NIL) ($$ NIL))
-        (PROG (|m| $)
+        (PROG (|m| %)
           (LETT |m| (QREFELT $$ 1))
-          (LETT $ (QREFELT $$ 0))
+          (LETT % (QREFELT $$ 0))
           (RETURN
            (PROGN
-            (SPADCALL (SPADCALL |m| (QREFELT $ 31)) |x| (QREFELT $ 30)))))) 
+            (SPADCALL (SPADCALL |m| (QREFELT % 31)) |x| (QREFELT % 30)))))) 
 
 (SDEFUN |SKSMP;lift_morphism!0| ((|x| NIL) ($$ NIL))
-        (PROG (|m| $)
+        (PROG (|m| %)
           (LETT |m| (QREFELT $$ 1))
-          (LETT $ (QREFELT $$ 0))
-          (RETURN (PROGN (SPADCALL |m| |x| (QREFELT $ 30)))))) 
+          (LETT % (QREFELT $$ 0))
+          (RETURN (PROGN (SPADCALL |m| |x| (QREFELT % 30)))))) 
 
-(SDEFUN |SKSMP;*;3$;5| ((|x| ($)) (|y| ($)) ($ ($)))
+(SDEFUN |SKSMP;*;3%;5| ((|x| (%)) (|y| (%)) (% (%)))
         (SPROG
          ((|ru| (|Upol|)) (|yu| (|Upol|)) (|xu| (|Upol|)) (|v| (|Var|))
           (#1=#:G134 NIL))
          (SEQ
           (COND
-           ((SPADCALL |x| (QREFELT $ 34))
-            (SPADCALL (SPADCALL |x| (QREFELT $ 35)) |y| (QREFELT $ 36)))
+           ((SPADCALL |x| (QREFELT % 34))
+            (SPADCALL (SPADCALL |x| (QREFELT % 35)) |y| (QREFELT % 36)))
            ('T
             (SEQ
              (LETT |v|
-                   (PROG2 (LETT #1# (SPADCALL |x| (QREFELT $ 38)))
+                   (PROG2 (LETT #1# (SPADCALL |x| (QREFELT % 38)))
                        (QCDR #1#)
-                     (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
-                                     (|Union| (QREFELT $ 7) "failed") #1#)))
-             (LETT |xu| (SPADCALL |x| |v| (QREFELT $ 40)))
-             (LETT |yu| (SPADCALL |y| |v| (QREFELT $ 40)))
+                     (|check_union2| (QEQCAR #1# 0) (QREFELT % 7)
+                                     (|Union| (QREFELT % 7) "failed") #1#)))
+             (LETT |xu| (SPADCALL |x| |v| (QREFELT % 40)))
+             (LETT |yu| (SPADCALL |y| |v| (QREFELT % 40)))
              (LETT |ru|
                    (SPADCALL |xu| |yu|
                              (|SKSMP;lift_morphism|
-                              (SPADCALL |v| (QREFELT $ 8)) $)
-                             (|SKSMP;lift_map| (SPADCALL |v| (QREFELT $ 9)) $)
-                             (QREFELT $ 42)))
-             (EXIT (SPADCALL |ru| |v| (QREFELT $ 43))))))))) 
+                              (SPADCALL |v| (QREFELT % 8)) %)
+                             (|SKSMP;lift_map| (SPADCALL |v| (QREFELT % 9)) %)
+                             (QREFELT % 42)))
+             (EXIT (SPADCALL |ru| |v| (QREFELT % 43))))))))) 
 
-(SDEFUN |SKSMP;*;$R$;6| ((|x| ($)) (|r| (R)) ($ ($)))
-        (SPADCALL |x| (SPADCALL |r| (QREFELT $ 45)) (QREFELT $ 44))) 
+(SDEFUN |SKSMP;*;%R%;6| ((|x| (%)) (|r| (R)) (% (%)))
+        (SPADCALL |x| (SPADCALL |r| (QREFELT % 45)) (QREFELT % 44))) 
 
-(SDEFUN |SKSMP;exquo;2$U;7| ((|x| ($)) (|y| ($)) ($ (|Union| $ "failed")))
+(SDEFUN |SKSMP;exquo;2%U;7| ((|x| (%)) (|y| (%)) (% (|Union| % "failed")))
         (SPROG
-         ((|res| ($)) (|cc| ($)) (#1=#:G158 NIL)
+         ((|res| (%)) (|cc| (%)) (#1=#:G158 NIL)
           (|cu| (|Union| (|SparseMultivariatePolynomial| R |Var|) "failed"))
-          (|lx| (|SparseMultivariatePolynomial| R |Var|)) (|lx1| ($))
+          (|lx| (|SparseMultivariatePolynomial| R |Var|)) (|lx1| (%))
           (|ly| (|SparseMultivariatePolynomial| R |Var|))
           (|maxd| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
            (COND
-            ((SPADCALL |y| (QREFELT $ 34))
-             (SPADCALL |x| (SPADCALL |y| (QREFELT $ 35)) (QREFELT $ 47)))
-            ((SPADCALL |x| (QREFELT $ 34)) (CONS 1 "failed"))
+            ((SPADCALL |y| (QREFELT % 34))
+             (SPADCALL |x| (SPADCALL |y| (QREFELT % 35)) (QREFELT % 47)))
+            ((SPADCALL |x| (QREFELT % 34)) (CONS 1 "failed"))
             ('T
-             (SEQ (LETT |maxd| (SPADCALL |x| (QREFELT $ 48)))
-                  (LETT |ly| (SPADCALL |y| (QREFELT $ 49)))
-                  (LETT |res| (|spadConstant| $ 25))
+             (SEQ (LETT |maxd| (SPADCALL |x| (QREFELT % 48)))
+                  (LETT |ly| (SPADCALL |y| (QREFELT % 49)))
+                  (LETT |res| (|spadConstant| % 25))
                   (SEQ G190
                        (COND
                         ((NULL
-                          (SPADCALL |x| (|spadConstant| $ 25) (QREFELT $ 51)))
+                          (SPADCALL |x| (|spadConstant| % 25) (QREFELT % 51)))
                          (GO G191)))
-                       (SEQ (LETT |lx1| (SPADCALL |x| (QREFELT $ 49)))
+                       (SEQ (LETT |lx1| (SPADCALL |x| (QREFELT % 49)))
                             (EXIT
                              (COND
-                              ((> (SPADCALL |lx1| (QREFELT $ 48)) |maxd|)
+                              ((> (SPADCALL |lx1| (QREFELT % 48)) |maxd|)
                                (PROGN
                                 (LETT #1# (CONS 1 "failed"))
                                 (GO #2=#:G157)))
                               ('T
                                (SEQ (LETT |lx| |lx1|)
                                     (LETT |cu|
-                                          (SPADCALL |lx| |ly| (QREFELT $ 52)))
+                                          (SPADCALL |lx| |ly| (QREFELT % 52)))
                                     (EXIT
                                      (COND
                                       ((QEQCAR |cu| 1)
@@ -112,55 +112,55 @@
                                        (SEQ (LETT |cc| (QCDR |cu|))
                                             (LETT |res|
                                                   (SPADCALL |res| |cc|
-                                                            (QREFELT $ 53)))
+                                                            (QREFELT % 53)))
                                             (EXIT
                                              (LETT |x|
                                                    (SPADCALL |x|
                                                              (SPADCALL |cc| |y|
                                                                        (QREFELT
-                                                                        $ 44))
-                                                             (QREFELT $
+                                                                        % 44))
+                                                             (QREFELT %
                                                                       54)))))))))))))
                        NIL (GO G190) G191 (EXIT NIL))
                   (EXIT (CONS 0 |res|))))))
           #2# (EXIT #1#)))) 
 
-(SDEFUN |SKSMP;^;$Pi$;8| ((|x| ($)) (|n| (|PositiveInteger|)) ($ ($)))
-        (SPROG ((|res| ($)) (#1=#:G163 NIL) (|i| NIL))
+(SDEFUN |SKSMP;^;%Pi%;8| ((|x| (%)) (|n| (|PositiveInteger|)) (% (%)))
+        (SPROG ((|res| (%)) (#1=#:G163 NIL) (|i| NIL))
                (SEQ (LETT |res| |x|)
                     (SEQ (LETT |i| 2) (LETT #1# |n|) G190
                          (COND ((|greater_SI| |i| #1#) (GO G191)))
                          (SEQ
                           (EXIT
-                           (LETT |res| (SPADCALL |res| |x| (QREFELT $ 44)))))
+                           (LETT |res| (SPADCALL |res| |x| (QREFELT % 44)))))
                          (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                     (EXIT |res|)))) 
 
-(SDEFUN |SKSMP;^;$Nni$;9| ((|x| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
-        (COND ((EQL |n| 0) (|spadConstant| $ 10))
-              ('T (SPADCALL |x| |n| (QREFELT $ 57))))) 
+(SDEFUN |SKSMP;^;%Nni%;9| ((|x| (%)) (|n| (|NonNegativeInteger|)) (% (%)))
+        (COND ((EQL |n| 0) (|spadConstant| % 10))
+              ('T (SPADCALL |x| |n| (QREFELT % 57))))) 
 
-(SDEFUN |SKSMP;coerce;$Of;10| ((|x| ($)) ($ (|OutputForm|)))
+(SDEFUN |SKSMP;coerce;%Of;10| ((|x| (%)) (% (|OutputForm|)))
         (SPROG ((|xu| (|Upol|)) (|v| (|Var|)) (#1=#:G166 NIL))
                (SEQ
                 (COND
-                 ((SPADCALL |x| (QREFELT $ 34))
-                  (SPADCALL (SPADCALL |x| (QREFELT $ 35)) (QREFELT $ 60)))
+                 ((SPADCALL |x| (QREFELT % 34))
+                  (SPADCALL (SPADCALL |x| (QREFELT % 35)) (QREFELT % 60)))
                  ('T
                   (SEQ
                    (LETT |v|
-                         (PROG2 (LETT #1# (SPADCALL |x| (QREFELT $ 38)))
+                         (PROG2 (LETT #1# (SPADCALL |x| (QREFELT % 38)))
                              (QCDR #1#)
-                           (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
-                                           (|Union| (QREFELT $ 7) "failed")
+                           (|check_union2| (QEQCAR #1# 0) (QREFELT % 7)
+                                           (|Union| (QREFELT % 7) "failed")
                                            #1#)))
-                   (LETT |xu| (SPADCALL |x| |v| (QREFELT $ 40)))
+                   (LETT |xu| (SPADCALL |x| |v| (QREFELT % 40)))
                    (EXIT
                     (SPADCALL |xu|
-                              (SPADCALL (SPADCALL 'D (QREFELT $ 61))
-                                        (SPADCALL |v| (QREFELT $ 62))
-                                        (QREFELT $ 63))
-                              (QREFELT $ 64))))))))) 
+                              (SPADCALL (SPADCALL 'D (QREFELT % 61))
+                                        (SPADCALL |v| (QREFELT % 62))
+                                        (QREFELT % 63))
+                              (QREFELT % 64))))))))) 
 
 (DECLAIM (NOTINLINE |SparseMultivariateSkewPolynomial;|)) 
 
@@ -190,16 +190,16 @@
 (DEFUN |SparseMultivariateSkewPolynomial;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((|pv$| NIL) (#1=#:G187 NIL) (#2=#:G188 NIL) (#3=#:G189 NIL) (#4=#:G190 NIL)
-    ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+    (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))
     (LETT DV$3 |#3|)
     (LETT DV$4 |#4|)
     (LETT |dv$| (LIST '|SparseMultivariateSkewPolynomial| DV$1 DV$2 DV$3 DV$4))
-    (LETT $ (GETREFV 91))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 91))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -323,61 +323,61 @@
                                                                 |#2|)
                                                                '(|Symbol|))))))))
     (|haddProp| |$ConstructorCache| '|SparseMultivariateSkewPolynomial|
-                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (QSETREFV $ 8 |#3|)
-    (QSETREFV $ 9 |#4|)
+                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (QSETREFV % 8 |#3|)
+    (QSETREFV % 9 |#4|)
     (AND
      (OR
       (AND (|HasCategory| |#1| '(|CommutativeRing|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
       (AND (|HasCategory| |#1| '(|IntegralDomain|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
-     (|augmentPredVector| $ 268435456))
-    (AND (|HasCategory| $ '(|CommutativeRing|))
-         (|augmentPredVector| $ 536870912))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| % 268435456))
+    (AND (|HasCategory| % '(|CommutativeRing|))
+         (|augmentPredVector| % 536870912))
     (AND
      (OR (|HasCategory| |#1| '(|EntireRing|))
          (AND (|HasCategory| |#1| '(|IntegralDomain|))
-              (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
-     (|augmentPredVector| $ 1073741824))
+              (|HasCategory| % '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| % 1073741824))
     (AND
      (OR (|HasCategory| |#1| '(|RetractableTo| (|Integer|)))
          (AND (|HasCategory| |#1| '(|CommutativeRing|))
-              (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+              (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (AND (|HasCategory| |#1| '(|IntegralDomain|))
-              (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+              (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          #4#)
-     (|augmentPredVector| $ 2147483648))
+     (|augmentPredVector| % 2147483648))
     (AND
      (OR
       (AND (|HasCategory| |#1| '(|CommutativeRing|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
       (AND (|HasCategory| |#1| '(|IntegralDomain|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
       (|HasCategory| |#1| '(|SemiRing|)))
-     (|augmentPredVector| $ 4294967296))
+     (|augmentPredVector| % 4294967296))
     (AND
      (OR
       (AND (|HasCategory| |#1| '(|CommutativeRing|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
       (AND (|HasCategory| |#1| '(|IntegralDomain|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
       #4#)
-     (|augmentPredVector| $ 8589934592))
+     (|augmentPredVector| % 8589934592))
     (AND
      (OR
       (AND (|HasCategory| |#1| '(|LinearlyExplicitOver| (|Integer|))) #4#
            (|HasCategory| (|Integer|) '(|AbelianGroup|)))
       (|HasCategory| |#1| '(|AbelianGroup|))
       (AND (|HasCategory| |#1| '(|CommutativeRing|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
       (AND (|HasCategory| |#1| '(|IntegralDomain|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-      (|HasCategory| $ '(|AbelianGroup|)))
-     (|augmentPredVector| $ 17179869184))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+      (|HasCategory| % '(|AbelianGroup|)))
+     (|augmentPredVector| % 17179869184))
     (AND
      (OR
       (AND (|HasCategory| |#1| '(|LinearlyExplicitOver| (|Integer|))) #4#
@@ -386,23 +386,23 @@
            (|HasCategory| |#1| '(|CommutativeRing|)))
       (AND (|HasCategory| |#1| '(|AbelianGroup|)) #4#) #3#
       (AND (|HasCategory| |#1| '(|CommutativeRing|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
       (AND (|HasCategory| |#1| '(|IntegralDomain|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-      (|HasCategory| $ '(|AbelianGroup|)))
-     (|augmentPredVector| $ 34359738368))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+      (|HasCategory| % '(|AbelianGroup|)))
+     (|augmentPredVector| % 34359738368))
     (AND
      (OR
       (AND (|HasCategory| |#1| '(|LinearlyExplicitOver| (|Integer|))) #4#
            (|HasCategory| (|Integer|) '(|AbelianMonoid|)))
       #2#
       (AND (|HasCategory| |#1| '(|CommutativeRing|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
       (AND (|HasCategory| |#1| '(|IntegralDomain|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-      (|HasCategory| $ '(|AbelianMonoid|)))
-     (|augmentPredVector| $ 68719476736))
-    (SETF |pv$| (QREFELT $ 3))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+      (|HasCategory| % '(|AbelianMonoid|)))
+     (|augmentPredVector| % 68719476736))
+    (SETF |pv$| (QREFELT % 3))
     (COND
      ((|HasSignature| |#2|
                       (LIST '|variable|
@@ -410,25 +410,25 @@
                              (LIST '|Union| (|devaluate| |#2|)
                                    (|devaluate| "failed"))
                              '(|Symbol|))))
-      (QSETREFV $ 18 (CONS (|dispatchFunction| |SKSMP;Delta;S$;2|) $))))
-    (QSETREFV $ 19 (|SparseUnivariatePolynomial| $))
-    (QSETREFV $ 20
+      (QSETREFV % 18 (CONS (|dispatchFunction| |SKSMP;Delta;S%;2|) %))))
+    (QSETREFV % 19 (|SparseUnivariatePolynomial| %))
+    (QSETREFV % 20
               (|SparseUnivariatePolynomial|
                (|SparseMultivariatePolynomial| |#1| |#2|)))
-    (QSETREFV $ 24
+    (QSETREFV % 24
               (SPADCALL (LIST #'|SparseMultivariateSkewPolynomial!0|)
-                        (QREFELT $ 23)))
-    (QSETREFV $ 26
-              (|SparseUnivariateSkewPolynomial| $ (QREFELT $ 24)
+                        (QREFELT % 23)))
+    (QSETREFV % 26
+              (|SparseUnivariateSkewPolynomial| % (QREFELT % 24)
                                                 (CONS
                                                  #'|SparseMultivariateSkewPolynomial!1|
-                                                 $)))
+                                                 %)))
     (COND
      ((|testBitVector| |pv$| 16)
-      (QSETREFV $ 55 (CONS (|dispatchFunction| |SKSMP;exquo;2$U;7|) $))))
-    $))) 
+      (QSETREFV % 55 (CONS (|dispatchFunction| |SKSMP;exquo;2%U;7|) %))))
+    %))) 
 
-(DEFUN |SparseMultivariateSkewPolynomial!1| (|x| $) (|spadConstant| $ 25)) 
+(DEFUN |SparseMultivariateSkewPolynomial!1| (|x| %) (|spadConstant| % 25)) 
 
 (DEFUN |SparseMultivariateSkewPolynomial!0| (|x| $$) |x|) 
 
@@ -437,29 +437,29 @@
            '#(NIL NIL NIL NIL NIL (|SparseMultivariatePolynomial| 6 7)
               (|local| |#1|) (|local| |#2|) (|local| |#3|) (|local| |#4|)
               (0 . |One|) (4 . |One|) (|NonNegativeInteger|) (8 . |monomial|)
-              |SKSMP;D;Var$;1| (|Union| $ '"failed") (|Symbol|)
+              |SKSMP;D;Var%;1| (|Union| % '"failed") (|Symbol|)
               (15 . |variable|) (20 . |Delta|) '|Sup| '|Supp| (|Mapping| $$ $$)
               (|Automorphism| $$) (25 . |morphism|) '|id| (30 . |Zero|) '|Upol|
               (|Mapping| 6 6) (34 . |map|) (|Automorphism| 6) (40 . |elt|)
               (46 . |inv|) (51 . |morphism|) (|Boolean|) (57 . |ground?|)
               (62 . |retract|) (67 . *) (|Union| 7 '"failed")
-              (73 . |mainVariable|) (|SparseUnivariatePolynomial| $)
+              (73 . |mainVariable|) (|SparseUnivariatePolynomial| %)
               (78 . |univariate|) (|UnivariateSkewPolynomialCategoryOps| $$ 26)
-              (84 . |times|) (92 . |multivariate|) |SKSMP;*;3$;5|
-              (98 . |coerce|) |SKSMP;*;$R$;6| (103 . |exquo|)
+              (84 . |times|) (92 . |multivariate|) |SKSMP;*;3%;5|
+              (98 . |coerce|) |SKSMP;*;%R%;6| (103 . |exquo|)
               (109 . |totalDegree|) (114 . |leadingMonomial|) (119 . |Zero|)
               (123 . ~=) (129 . |exquo|) (135 . +) (141 . -) (147 . |exquo|)
-              (|PositiveInteger|) |SKSMP;^;$Pi$;8| |SKSMP;^;$Nni$;9|
+              (|PositiveInteger|) |SKSMP;^;%Pi%;8| |SKSMP;^;%Nni%;9|
               (|OutputForm|) (153 . |coerce|) (158 . |coerce|) (163 . |coerce|)
-              (168 . |sub|) (174 . |outputForm|) |SKSMP;coerce;$Of;10|
-              (|Matrix| 70) (|Matrix| $)
-              (|Record| (|:| |mat| 66) (|:| |vec| (|Vector| 70))) (|Vector| $)
+              (168 . |sub|) (174 . |outputForm|) |SKSMP;coerce;%Of;10|
+              (|Matrix| 70) (|Matrix| %)
+              (|Record| (|:| |mat| 66) (|:| |vec| (|Vector| 70))) (|Vector| %)
               (|Integer|)
-              (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
+              (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (|Fraction| 70) (|IndexedExponents| 7)
               (|Record| (|:| |k| 73) (|:| |c| 6)) (|List| 74) (|Mapping| 6 73)
               (|Union| 72 '#1="failed") (|Union| 70 '#1#) (|Matrix| 6)
-              (|Record| (|:| |mat| 79) (|:| |vec| (|Vector| 6))) (|List| $)
+              (|Record| (|:| |mat| 79) (|:| |vec| (|Vector| 6))) (|List| %)
               (|List| 7) (|List| 12) (|Mapping| 73 73) (|Union| 6 '#1#)
               (|List| 6) (|List| 73) (|HashState|) (|String|)
               (|SingleInteger|))

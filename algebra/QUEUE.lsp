@@ -1,50 +1,50 @@
 
-(SDEFUN |QUEUE;enqueue!;S$S;1| ((|e| (S)) (|q| ($)) ($ (S)))
+(SDEFUN |QUEUE;enqueue!;S%S;1| ((|e| (S)) (|q| (%)) (% (S)))
         (SEQ
          (COND
-          ((NULL (SPADCALL |q| (QREFELT $ 9)))
-           (SPADCALL |q| (SPADCALL |e| (QREFELT $ 10)) (QREFELT $ 11)))
+          ((NULL (SPADCALL |q| (QREFELT % 9)))
+           (SPADCALL |q| (SPADCALL |e| (QREFELT % 10)) (QREFELT % 11)))
           ('T
-           (SPADCALL (LAST (SPADCALL |q| (QREFELT $ 9))) '|rest|
-                     (SPADCALL |e| (QREFELT $ 10)) (QREFELT $ 13))))
+           (SPADCALL (LAST (SPADCALL |q| (QREFELT % 9))) '|rest|
+                     (SPADCALL |e| (QREFELT % 10)) (QREFELT % 13))))
          (EXIT |e|))) 
 
-(SDEFUN |QUEUE;insert!;S2$;2| ((|e| (S)) (|q| ($)) ($ ($)))
-        (SEQ (SPADCALL |e| |q| (QREFELT $ 14)) (EXIT |q|))) 
+(SDEFUN |QUEUE;insert!;S2%;2| ((|e| (S)) (|q| (%)) (% (%)))
+        (SEQ (SPADCALL |e| |q| (QREFELT % 14)) (EXIT |q|))) 
 
-(SDEFUN |QUEUE;dequeue!;$S;3| ((|q| ($)) ($ (S)))
+(SDEFUN |QUEUE;dequeue!;%S;3| ((|q| (%)) (% (S)))
         (SPROG ((|e| (S)))
                (SEQ
-                (COND ((SPADCALL |q| (QREFELT $ 17)) (|error| "empty queue"))
+                (COND ((SPADCALL |q| (QREFELT % 17)) (|error| "empty queue"))
                       ('T
                        (SEQ
-                        (LETT |e| (|SPADfirst| (SPADCALL |q| (QREFELT $ 9))))
-                        (SPADCALL |q| (CDR (SPADCALL |q| (QREFELT $ 9)))
-                                  (QREFELT $ 11))
+                        (LETT |e| (|SPADfirst| (SPADCALL |q| (QREFELT % 9))))
+                        (SPADCALL |q| (CDR (SPADCALL |q| (QREFELT % 9)))
+                                  (QREFELT % 11))
                         (EXIT |e|))))))) 
 
-(SDEFUN |QUEUE;extract!;$S;4| ((|q| ($)) ($ (S))) (SPADCALL |q| (QREFELT $ 18))) 
+(SDEFUN |QUEUE;extract!;%S;4| ((|q| (%)) (% (S))) (SPADCALL |q| (QREFELT % 18))) 
 
-(SDEFUN |QUEUE;rotate!;2$;5| ((|q| ($)) ($ ($)))
+(SDEFUN |QUEUE;rotate!;2%;5| ((|q| (%)) (% (%)))
         (SEQ
-         (COND ((SPADCALL |q| (QREFELT $ 17)) |q|)
+         (COND ((SPADCALL |q| (QREFELT % 17)) |q|)
                ('T
                 (SEQ
-                 (SPADCALL (SPADCALL |q| (QREFELT $ 18)) |q| (QREFELT $ 14))
+                 (SPADCALL (SPADCALL |q| (QREFELT % 18)) |q| (QREFELT % 14))
                  (EXIT |q|)))))) 
 
-(SDEFUN |QUEUE;front;$S;6| ((|q| ($)) ($ (S)))
-        (COND ((SPADCALL |q| (QREFELT $ 17)) (|error| "empty queue"))
-              ('T (|SPADfirst| (SPADCALL |q| (QREFELT $ 9)))))) 
+(SDEFUN |QUEUE;front;%S;6| ((|q| (%)) (% (S)))
+        (COND ((SPADCALL |q| (QREFELT % 17)) (|error| "empty queue"))
+              ('T (|SPADfirst| (SPADCALL |q| (QREFELT % 9)))))) 
 
-(SDEFUN |QUEUE;inspect;$S;7| ((|q| ($)) ($ (S))) (SPADCALL |q| (QREFELT $ 21))) 
+(SDEFUN |QUEUE;inspect;%S;7| ((|q| (%)) (% (S))) (SPADCALL |q| (QREFELT % 21))) 
 
-(SDEFUN |QUEUE;back;$S;8| ((|q| ($)) ($ (S)))
-        (COND ((SPADCALL |q| (QREFELT $ 17)) (|error| "empty queue"))
-              ('T (SPADCALL (SPADCALL |q| (QREFELT $ 9)) (QREFELT $ 23))))) 
+(SDEFUN |QUEUE;back;%S;8| ((|q| (%)) (% (S)))
+        (COND ((SPADCALL |q| (QREFELT % 17)) (|error| "empty queue"))
+              ('T (SPADCALL (SPADCALL |q| (QREFELT % 9)) (QREFELT % 23))))) 
 
-(SDEFUN |QUEUE;queue;L$;9| ((|q| (|List| S)) ($ ($)))
-        (SPADCALL |q| (QREFELT $ 25))) 
+(SDEFUN |QUEUE;queue;L%;9| ((|q| (|List| S)) (% (%)))
+        (SPADCALL |q| (QREFELT % 25))) 
 
 (DECLAIM (NOTINLINE |Queue;|)) 
 
@@ -66,13 +66,13 @@
 (DEFUN |Queue;| (|#1|)
   (SPROG
    ((#1=#:G137 NIL) (#2=#:G138 NIL) (|pv$| NIL) (#3=#:G134 NIL) (#4=#:G135 NIL)
-    (#5=#:G136 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+    (#5=#:G136 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|Queue| DV$1))
-    (LETT $ (GETREFV 40))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 40))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -104,32 +104,32 @@
                                                                   (|devaluate|
                                                                    |#1|)))
                                              #5#))))))
-    (|haddProp| |$ConstructorCache| '|Queue| (LIST DV$1) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 256))
-    (AND (LETT #2# (|HasCategory| $ '(|finiteAggregate|)))
-         (|augmentPredVector| $ 512))
-    (AND (|HasCategory| |#1| '(|OrderedSet|)) #2# (|augmentPredVector| $ 1024))
+    (|haddProp| |$ConstructorCache| '|Queue| (LIST DV$1) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (AND (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 256))
+    (AND (LETT #2# (|HasCategory| % '(|finiteAggregate|)))
+         (|augmentPredVector| % 512))
+    (AND (|HasCategory| |#1| '(|OrderedSet|)) #2# (|augmentPredVector| % 1024))
     (AND
      (LETT #1#
            (AND (|HasCategory| |#1| '(|BasicType|))
-                (|HasCategory| $ '(|finiteAggregate|))))
-     (|augmentPredVector| $ 2048))
-    (AND (OR #1# #5#) (|augmentPredVector| $ 4096))
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 7 (|Reference| (|List| |#1|)))
-    $))) 
+                (|HasCategory| % '(|finiteAggregate|))))
+     (|augmentPredVector| % 2048))
+    (AND (OR #1# #5#) (|augmentPredVector| % 4096))
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 7 (|Reference| (|List| |#1|)))
+    %))) 
 
 (MAKEPROP '|Queue| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|Stack| 6) (|local| |#1|) '|Rep| (|List| 6)
               (0 . |deref|) (5 . |list|) (10 . |setref|) '"rest"
-              (16 . |setelt!|) |QUEUE;enqueue!;S$S;1| |QUEUE;insert!;S2$;2|
-              (|Boolean|) (23 . |empty?|) |QUEUE;dequeue!;$S;3|
-              |QUEUE;extract!;$S;4| |QUEUE;rotate!;2$;5| |QUEUE;front;$S;6|
-              |QUEUE;inspect;$S;7| (28 . |last|) |QUEUE;back;$S;8|
-              (33 . |construct|) |QUEUE;queue;L$;9| (|Mapping| 6 6 6)
+              (16 . |setelt!|) |QUEUE;enqueue!;S%S;1| |QUEUE;insert!;S2%;2|
+              (|Boolean|) (23 . |empty?|) |QUEUE;dequeue!;%S;3|
+              |QUEUE;extract!;%S;4| |QUEUE;rotate!;2%;5| |QUEUE;front;%S;6|
+              |QUEUE;inspect;%S;7| (28 . |last|) |QUEUE;back;%S;8|
+              (33 . |construct|) |QUEUE;queue;L%;9| (|Mapping| 6 6 6)
               (|NonNegativeInteger|) (|Equation| 6) (|List| 29)
               (|Mapping| 16 6) (|Mapping| 16 6 6) (|Mapping| 6 6)
               (|OutputForm|) (|InputForm|) (|SingleInteger|) (|String|)

@@ -1,12 +1,12 @@
 
-(SDEFUN |DERHAM;totalDifferential;E$;1|
-        ((|f| (|Expression| |CoefRing|)) ($ ($)))
-        (SPROG ((|divs| (|List| $)) (#1=#:G114 NIL) (|i| NIL) (#2=#:G113 NIL))
+(SDEFUN |DERHAM;totalDifferential;E%;1|
+        ((|f| (|Expression| |CoefRing|)) (% (%)))
+        (SPROG ((|divs| (|List| %)) (#1=#:G114 NIL) (|i| NIL) (#2=#:G113 NIL))
                (SEQ
                 (LETT |divs|
                       (PROGN
                        (LETT #2# NIL)
-                       (SEQ (LETT |i| 1) (LETT #1# (QREFELT $ 9)) G190
+                       (SEQ (LETT |i| 1) (LETT #1# (QREFELT % 9)) G190
                             (COND ((|greater_SI| |i| #1#) (GO G191)))
                             (SEQ
                              (EXIT
@@ -14,94 +14,94 @@
                                     (CONS
                                      (SPADCALL
                                       (SPADCALL |f|
-                                                (SPADCALL (QREFELT $ 7) |i|
-                                                          (QREFELT $ 13))
-                                                (QREFELT $ 15))
-                                      (SPADCALL |i| (QREFELT $ 17))
-                                      (QREFELT $ 18))
+                                                (SPADCALL (QREFELT % 7) |i|
+                                                          (QREFELT % 13))
+                                                (QREFELT % 15))
+                                      (SPADCALL |i| (QREFELT % 17))
+                                      (QREFELT % 18))
                                      #2#))))
                             (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                             (EXIT (NREVERSE #2#)))))
-                (EXIT (SPADCALL (ELT $ 19) |divs| (QREFELT $ 22)))))) 
+                (EXIT (SPADCALL (ELT % 19) |divs| (QREFELT % 22)))))) 
 
-(SDEFUN |DERHAM;termDiff| ((|r| (|Expression| |CoefRing|)) (|e| ($)) ($ ($)))
-        (SPADCALL (SPADCALL |r| (QREFELT $ 23)) |e| (QREFELT $ 24))) 
+(SDEFUN |DERHAM;termDiff| ((|r| (|Expression| |CoefRing|)) (|e| (%)) (% (%)))
+        (SPADCALL (SPADCALL |r| (QREFELT % 23)) |e| (QREFELT % 24))) 
 
-(SDEFUN |DERHAM;exteriorDifferential;2$;3| ((|x| ($)) ($ ($)))
+(SDEFUN |DERHAM;exteriorDifferential;2%;3| ((|x| (%)) (% (%)))
         (COND
-         ((SPADCALL |x| (|spadConstant| $ 25) (QREFELT $ 28))
-          (|spadConstant| $ 25))
+         ((SPADCALL |x| (|spadConstant| % 25) (QREFELT % 28))
+          (|spadConstant| % 25))
          ('T
           (SPADCALL
-           (|DERHAM;termDiff| (SPADCALL |x| (QREFELT $ 29))
-            (SPADCALL |x| (QREFELT $ 30)) $)
-           (SPADCALL (SPADCALL |x| (QREFELT $ 31)) (QREFELT $ 32))
-           (QREFELT $ 19))))) 
+           (|DERHAM;termDiff| (SPADCALL |x| (QREFELT % 29))
+            (SPADCALL |x| (QREFELT % 30)) %)
+           (SPADCALL (SPADCALL |x| (QREFELT % 31)) (QREFELT % 32))
+           (QREFELT % 19))))) 
 
-(SDEFUN |DERHAM;d| ((|s| (|Symbol|)) ($ (|Symbol|)))
+(SDEFUN |DERHAM;d| ((|s| (|Symbol|)) (% (|Symbol|)))
         (SPROG ((|ds| (|Symbol|)))
                (SEQ
                 (LETT |ds|
                       (SPADCALL
                        (SPADCALL
                         (LIST "d"
-                              (SPADCALL (SPADCALL |s| (QREFELT $ 33))
-                                        (QREFELT $ 35)))
-                        (QREFELT $ 37))
-                       (QREFELT $ 38)))
+                              (SPADCALL (SPADCALL |s| (QREFELT % 33))
+                                        (QREFELT % 35)))
+                        (QREFELT % 37))
+                       (QREFELT % 38)))
                 (EXIT
-                 (SPADCALL |ds| (SPADCALL |s| (QREFELT $ 40))
-                           (QREFELT $ 41)))))) 
+                 (SPADCALL |ds| (SPADCALL |s| (QREFELT % 40))
+                           (QREFELT % 41)))))) 
 
-(SDEFUN |DERHAM;displayList| ((|x| (|ExtAlgBasis|)) ($ (|OutputForm|)))
+(SDEFUN |DERHAM;displayList| ((|x| (|ExtAlgBasis|)) (% (|OutputForm|)))
         (SPROG
          ((#1=#:G129 NIL) (|i| NIL) (#2=#:G128 NIL)
           (|le| (|List| (|Integer|))))
-         (SEQ (LETT |le| (SPADCALL |x| (QREFELT $ 45)))
+         (SEQ (LETT |le| (SPADCALL |x| (QREFELT % 45)))
               (EXIT
-               (SPADCALL (ELT $ 47)
+               (SPADCALL (ELT % 47)
                          (PROGN
                           (LETT #2# NIL)
-                          (SEQ (LETT |i| 1) (LETT #1# (QREFELT $ 9)) G190
+                          (SEQ (LETT |i| 1) (LETT #1# (QREFELT % 9)) G190
                                (COND ((|greater_SI| |i| #1#) (GO G191)))
                                (SEQ
                                 (EXIT
                                  (COND
-                                  ((EQL (SPADCALL |le| |i| (QREFELT $ 48)) 1)
+                                  ((EQL (SPADCALL |le| |i| (QREFELT % 48)) 1)
                                    (LETT #2#
                                          (CONS
                                           (SPADCALL
-                                           (SPADCALL (QREFELT $ 42) |i|
-                                                     (QREFELT $ 13))
-                                           (QREFELT $ 49))
+                                           (SPADCALL (QREFELT % 42) |i|
+                                                     (QREFELT % 13))
+                                           (QREFELT % 49))
                                           #2#))))))
                                (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                                (EXIT (NREVERSE #2#))))
-                         (QREFELT $ 52)))))) 
+                         (QREFELT % 52)))))) 
 
 (SDEFUN |DERHAM;makeTerm|
         ((|r| (|Expression| |CoefRing|)) (|x| (|ExtAlgBasis|))
-         ($ (|OutputForm|)))
+         (% (|OutputForm|)))
         (COND
-         ((SPADCALL |x| (SPADCALL (QREFELT $ 9) (QREFELT $ 53)) (QREFELT $ 54))
-          (SPADCALL |r| (QREFELT $ 55)))
-         ((SPADCALL |r| (|spadConstant| $ 58) (QREFELT $ 59))
-          (|DERHAM;displayList| |x| $))
+         ((SPADCALL |x| (SPADCALL (QREFELT % 9) (QREFELT % 53)) (QREFELT % 54))
+          (SPADCALL |r| (QREFELT % 55)))
+         ((SPADCALL |r| (|spadConstant| % 58) (QREFELT % 59))
+          (|DERHAM;displayList| |x| %))
          ('T
-          (SPADCALL (SPADCALL |r| (QREFELT $ 55)) (|DERHAM;displayList| |x| $)
-                    (QREFELT $ 47))))) 
+          (SPADCALL (SPADCALL |r| (QREFELT % 55)) (|DERHAM;displayList| |x| %)
+                    (QREFELT % 47))))) 
 
 (PUT '|DERHAM;terms| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
 (SDEFUN |DERHAM;terms|
-        ((|a| ($))
-         ($
+        ((|a| (%))
+         (%
           (|List|
            (|Record| (|:| |k| (|ExtAlgBasis|))
                      (|:| |c| (|Expression| |CoefRing|))))))
         |a|) 
 
-(SDEFUN |DERHAM;coerce;$Of;8| ((|a| ($)) ($ (|OutputForm|)))
+(SDEFUN |DERHAM;coerce;%Of;8| ((|a| (%)) (% (|OutputForm|)))
         (SPROG
          ((#1=#:G143 NIL) (|t| NIL) (#2=#:G142 NIL)
           (|ta|
@@ -110,17 +110,17 @@
                       (|:| |c| (|Expression| |CoefRing|))))))
          (SEQ
           (COND
-           ((SPADCALL |a| (|spadConstant| $ 60) (QREFELT $ 28))
-            (SPADCALL 0 (QREFELT $ 61)))
+           ((SPADCALL |a| (|spadConstant| % 60) (QREFELT % 28))
+            (SPADCALL 0 (QREFELT % 61)))
            (#3='T
-            (SEQ (LETT |ta| (|DERHAM;terms| |a| $))
+            (SEQ (LETT |ta| (|DERHAM;terms| |a| %))
                  (EXIT
                   (COND
                    ((NULL (CDR |ta|))
                     (|DERHAM;makeTerm| (QCDR (|SPADfirst| |ta|))
-                     (QCAR (|SPADfirst| |ta|)) $))
+                     (QCAR (|SPADfirst| |ta|)) %))
                    (#3#
-                    (SPADCALL (ELT $ 62)
+                    (SPADCALL (ELT % 62)
                               (PROGN
                                (LETT #2# NIL)
                                (SEQ (LETT |t| NIL) (LETT #1# |ta|) G190
@@ -133,11 +133,11 @@
                                       (LETT #2#
                                             (CONS
                                              (|DERHAM;makeTerm| (QCDR |t|)
-                                              (QCAR |t|) $)
+                                              (QCAR |t|) %)
                                              #2#))))
                                     (LETT #1# (CDR #1#)) (GO G190) G191
                                     (EXIT (NREVERSE #2#))))
-                              (QREFELT $ 52))))))))))) 
+                              (QREFELT % 52))))))))))) 
 
 (DECLAIM (NOTINLINE |DeRhamComplex;|)) 
 
@@ -161,48 +161,48 @@
 
 (DEFUN |DeRhamComplex;| (|#1| |#2|)
   (SPROG
-   ((#1=#:G152 NIL) (|liv| NIL) (#2=#:G151 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL)
+   ((#1=#:G152 NIL) (|liv| NIL) (#2=#:G151 NIL) (|pv$| NIL) (% NIL) (|dv$| NIL)
     (DV$2 NIL) (DV$1 NIL))
    (SEQ
     (PROGN
      (LETT DV$1 (|devaluate| |#1|))
      (LETT DV$2 |#2|)
      (LETT |dv$| (LIST '|DeRhamComplex| DV$1 DV$2))
-     (LETT $ (GETREFV 70))
-     (QSETREFV $ 0 |dv$|)
-     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+     (LETT % (GETREFV 70))
+     (QSETREFV % 0 |dv$|)
+     (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
      (|haddProp| |$ConstructorCache| '|DeRhamComplex| (LIST DV$1 DV$2)
-                 (CONS 1 $))
-     (|stuffDomainSlots| $)
-     (QSETREFV $ 6 |#1|)
-     (QSETREFV $ 7 |#2|)
-     (SETF |pv$| (QREFELT $ 3))
-     (QSETREFV $ 8 (|AntiSymm| (|Expression| |#1|) |#2|))
-     (QSETREFV $ 9 (LENGTH |#2|))
-     (QSETREFV $ 42
+                 (CONS 1 %))
+     (|stuffDomainSlots| %)
+     (QSETREFV % 6 |#1|)
+     (QSETREFV % 7 |#2|)
+     (SETF |pv$| (QREFELT % 3))
+     (QSETREFV % 8 (|AntiSymm| (|Expression| |#1|) |#2|))
+     (QSETREFV % 9 (LENGTH |#2|))
+     (QSETREFV % 42
                (PROGN
                 (LETT #2# NIL)
                 (SEQ (LETT |liv| NIL) (LETT #1# |#2|) G190
                      (COND
                       ((OR (ATOM #1#) (PROGN (LETT |liv| (CAR #1#)) NIL))
                        (GO G191)))
-                     (SEQ (EXIT (LETT #2# (CONS (|DERHAM;d| |liv| $) #2#))))
+                     (SEQ (EXIT (LETT #2# (CONS (|DERHAM;d| |liv| %) #2#))))
                      (LETT #1# (CDR #1#)) (GO G190) G191
                      (EXIT (NREVERSE #2#)))))
-     $)))) 
+     %)))) 
 
 (MAKEPROP '|DeRhamComplex| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|AntiSymm| 14 (NRTEVAL (QREFELT $ 7)))
+           '#(NIL NIL NIL NIL NIL (|AntiSymm| 14 (NRTEVAL (QREFELT % 7)))
               (|local| |#1|) (|local| |#2|) '|Rep| '|dim| (|Symbol|)
               (|Integer|) (|List| 10) (0 . |elt|) (|Expression| 6)
               (6 . |differentiate|) (|NonNegativeInteger|) (12 . |generator|)
               (17 . *) (23 . +) (|Mapping| $$ $$ $$) (|List| $$)
-              (29 . |reduce|) |DERHAM;totalDifferential;E$;1| (35 . *)
+              (29 . |reduce|) |DERHAM;totalDifferential;E%;1| (35 . *)
               (41 . |Zero|) (45 . |Zero|) (|Boolean|) (49 . =)
               (55 . |leadingCoefficient|) (60 . |leadingBasisTerm|)
-              (65 . |reductum|) |DERHAM;exteriorDifferential;2$;3|
-              (70 . |name|) (|String|) (75 . |string|) (|List| $)
+              (65 . |reductum|) |DERHAM;exteriorDifferential;2%;3|
+              (70 . |name|) (|String|) (75 . |string|) (|List| %)
               (80 . |concat|) (85 . |coerce|)
               (|Record| (|:| |sub| 51) (|:| |sup| 51) (|:| |presup| 51)
                         (|:| |presub| 51) (|:| |args| 51))
@@ -211,8 +211,8 @@
               (112 . |elt|) (118 . |coerce|) (|Mapping| 46 46 46) (|List| 46)
               (123 . |reduce|) (129 . |Nul|) (134 . =) (140 . |coerce|)
               (145 . |One|) (149 . |One|) (153 . |One|) (157 . =)
-              (163 . |Zero|) (167 . |coerce|) (172 . +) |DERHAM;coerce;$Of;8|
-              (|Mapping| 14 14) (|Union| 14 '"failed") (|Union| $ '"failed")
+              (163 . |Zero|) (167 . |coerce|) (172 . +) |DERHAM;coerce;%Of;8|
+              (|Mapping| 14 14) (|Union| 14 '"failed") (|Union| % '"failed")
               (|PositiveInteger|) (|HashState|) (|SingleInteger|))
            '#(~= 178 |zero?| 184 |totalDifferential| 189 |subtractIfCan| 194
               |sample| 200 |rightRecip| 204 |rightPower| 209 |retractable?| 221

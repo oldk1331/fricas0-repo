@@ -1,72 +1,72 @@
 
-(SDEFUN |BSTREE;binarySearchTree;L$;1| ((|u| (|List| S)) ($ ($)))
-        (SPROG ((#1=#:G114 NIL) (|x| NIL) (|tree| ($)))
+(SDEFUN |BSTREE;binarySearchTree;L%;1| ((|u| (|List| S)) (% (%)))
+        (SPROG ((#1=#:G114 NIL) (|x| NIL) (|tree| (%)))
                (SEQ
-                (COND ((NULL |u|) (SPADCALL (QREFELT $ 8)))
+                (COND ((NULL |u|) (SPADCALL (QREFELT % 8)))
                       ('T
                        (SEQ
                         (LETT |tree|
-                              (SPADCALL (|SPADfirst| |u|) (QREFELT $ 9)))
+                              (SPADCALL (|SPADfirst| |u|) (QREFELT % 9)))
                         (SEQ (LETT |x| NIL) (LETT #1# (CDR |u|)) G190
                              (COND
                               ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
                                (GO G191)))
-                             (SEQ (EXIT (SPADCALL |x| |tree| (QREFELT $ 10))))
+                             (SEQ (EXIT (SPADCALL |x| |tree| (QREFELT % 10))))
                              (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                         (EXIT |tree|))))))) 
 
-(SDEFUN |BSTREE;insert!;S2$;2| ((|x| (S)) (|t| ($)) ($ ($)))
+(SDEFUN |BSTREE;insert!;S2%;2| ((|x| (S)) (|t| (%)) (% (%)))
         (SEQ
-         (COND ((SPADCALL |t| (QREFELT $ 14)) (SPADCALL |x| (QREFELT $ 9)))
-               ((SPADCALL |x| (SPADCALL |t| (QREFELT $ 15)) (QREFELT $ 16))
+         (COND ((SPADCALL |t| (QREFELT % 14)) (SPADCALL |x| (QREFELT % 9)))
+               ((SPADCALL |x| (SPADCALL |t| (QREFELT % 15)) (QREFELT % 16))
                 (SEQ
                  (SPADCALL |t|
-                           (SPADCALL |x| (SPADCALL |t| (QREFELT $ 17))
-                                     (QREFELT $ 10))
-                           (QREFELT $ 18))
+                           (SPADCALL |x| (SPADCALL |t| (QREFELT % 17))
+                                     (QREFELT % 10))
+                           (QREFELT % 18))
                  (EXIT |t|)))
                ('T
                 (SEQ
                  (SPADCALL |t|
-                           (SPADCALL |x| (SPADCALL |t| (QREFELT $ 19))
-                                     (QREFELT $ 10))
-                           (QREFELT $ 20))
+                           (SPADCALL |x| (SPADCALL |t| (QREFELT % 19))
+                                     (QREFELT % 10))
+                           (QREFELT % 20))
                  (EXIT |t|)))))) 
 
-(SDEFUN |BSTREE;split;S$R;3|
-        ((|x| (S)) (|t| ($)) ($ (|Record| (|:| |less| $) (|:| |greater| $))))
-        (SPROG ((|a| (|Record| (|:| |less| $) (|:| |greater| $))))
+(SDEFUN |BSTREE;split;S%R;3|
+        ((|x| (S)) (|t| (%)) (% (|Record| (|:| |less| %) (|:| |greater| %))))
+        (SPROG ((|a| (|Record| (|:| |less| %) (|:| |greater| %))))
                (SEQ
                 (COND
-                 ((SPADCALL |t| (QREFELT $ 14))
-                  (CONS (SPADCALL (QREFELT $ 8)) (SPADCALL (QREFELT $ 8))))
-                 ((SPADCALL |x| (SPADCALL |t| (QREFELT $ 15)) (QREFELT $ 21))
+                 ((SPADCALL |t| (QREFELT % 14))
+                  (CONS (SPADCALL (QREFELT % 8)) (SPADCALL (QREFELT % 8))))
+                 ((SPADCALL |x| (SPADCALL |t| (QREFELT % 15)) (QREFELT % 21))
                   (SEQ
                    (LETT |a|
-                         (SPADCALL |x| (SPADCALL |t| (QREFELT $ 17))
-                                   (QREFELT $ 23)))
+                         (SPADCALL |x| (SPADCALL |t| (QREFELT % 17))
+                                   (QREFELT % 23)))
                    (EXIT
                     (CONS
-                     (SPADCALL (SPADCALL |t| (QREFELT $ 19))
-                               (SPADCALL |t| (QREFELT $ 15)) (QCAR |a|)
-                               (QREFELT $ 24))
+                     (SPADCALL (SPADCALL |t| (QREFELT % 19))
+                               (SPADCALL |t| (QREFELT % 15)) (QCAR |a|)
+                               (QREFELT % 24))
                      (QCDR |a|)))))
                  ('T
                   (SEQ
                    (LETT |a|
-                         (SPADCALL |x| (SPADCALL |t| (QREFELT $ 19))
-                                   (QREFELT $ 23)))
+                         (SPADCALL |x| (SPADCALL |t| (QREFELT % 19))
+                                   (QREFELT % 23)))
                    (EXIT
                     (CONS (QCAR |a|)
-                          (SPADCALL (QCDR |a|) (SPADCALL |t| (QREFELT $ 15))
-                                    (SPADCALL |t| (QREFELT $ 17))
-                                    (QREFELT $ 24)))))))))) 
+                          (SPADCALL (QCDR |a|) (SPADCALL |t| (QREFELT % 15))
+                                    (SPADCALL |t| (QREFELT % 17))
+                                    (QREFELT % 24)))))))))) 
 
-(SDEFUN |BSTREE;insertRoot!;S2$;4| ((|x| (S)) (|t| ($)) ($ ($)))
-        (SPROG ((|a| (|Record| (|:| |less| $) (|:| |greater| $))))
-               (SEQ (LETT |a| (SPADCALL |x| |t| (QREFELT $ 23)))
+(SDEFUN |BSTREE;insertRoot!;S2%;4| ((|x| (S)) (|t| (%)) (% (%)))
+        (SPROG ((|a| (|Record| (|:| |less| %) (|:| |greater| %))))
+               (SEQ (LETT |a| (SPADCALL |x| |t| (QREFELT % 23)))
                     (EXIT
-                     (SPADCALL (QCAR |a|) |x| (QCDR |a|) (QREFELT $ 24)))))) 
+                     (SPADCALL (QCAR |a|) |x| (QCDR |a|) (QREFELT % 24)))))) 
 
 (DECLAIM (NOTINLINE |BinarySearchTree;|)) 
 
@@ -89,14 +89,14 @@
 
 (DEFUN |BinarySearchTree;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G132 NIL) (#2=#:G133 NIL) (#3=#:G134 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G132 NIL) (#2=#:G133 NIL) (#3=#:G134 NIL) (% NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|BinarySearchTree| DV$1))
-    (LETT $ (GETREFV 41))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 41))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -125,32 +125,32 @@
                                                                   (|devaluate|
                                                                    |#1|)))
                                              #3#))))))
-    (|haddProp| |$ConstructorCache| '|BinarySearchTree| (LIST DV$1) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 128))
+    (|haddProp| |$ConstructorCache| '|BinarySearchTree| (LIST DV$1) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (AND (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 128))
     (AND (|HasCategory| |#1| '(|OrderedSet|))
-         (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 256))
-    (AND #2# (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 512))
-    (AND (OR (AND #2# (|HasCategory| $ '(|finiteAggregate|))) #3#)
-         (|augmentPredVector| $ 1024))
-    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 2048))
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 7 (|BinaryTree| |#1|))
-    $))) 
+         (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 256))
+    (AND #2# (|HasCategory| % '(|finiteAggregate|))
+         (|augmentPredVector| % 512))
+    (AND (OR (AND #2# (|HasCategory| % '(|finiteAggregate|))) #3#)
+         (|augmentPredVector| % 1024))
+    (AND (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 2048))
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 7 (|BinaryTree| |#1|))
+    %))) 
 
 (MAKEPROP '|BinarySearchTree| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|BinaryTree| 6) (|local| |#1|) '|Rep|
-              (0 . |empty|) (4 . |binaryTree|) |BSTREE;insert!;S2$;2|
-              (|List| 6) |BSTREE;binarySearchTree;L$;1| (|Boolean|)
+              (0 . |empty|) (4 . |binaryTree|) |BSTREE;insert!;S2%;2|
+              (|List| 6) |BSTREE;binarySearchTree;L%;1| (|Boolean|)
               (9 . |empty?|) (14 . |value|) (19 . >=) (25 . |right|)
               (30 . |setright!|) (36 . |left|) (41 . |setleft!|) (47 . >)
-              (|Record| (|:| |less| $) (|:| |greater| $)) |BSTREE;split;S$R;3|
-              (53 . |node|) |BSTREE;insertRoot!;S2$;4| (|NonNegativeInteger|)
+              (|Record| (|:| |less| %) (|:| |greater| %)) |BSTREE;split;S%R;3|
+              (53 . |node|) |BSTREE;insertRoot!;S2%;4| (|NonNegativeInteger|)
               (|Equation| 6) (|List| 27) (|Mapping| 13 6 6) (|Mapping| 13 6)
-              '"right" '"left" '"value" (|List| $) (|Mapping| 6 6)
+              '"right" '"left" '"value" (|List| %) (|Mapping| 6 6)
               (|OutputForm|) (|HashState|) (|SingleInteger|) (|String|)
               (|Integer|))
            '#(~= 60 |value| 66 |split| 71 |size?| 77 |setvalue!| 83 |setright!|

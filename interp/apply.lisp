@@ -162,7 +162,7 @@
 ;     form:=
 ;       not (member(op,$formalArgList) or member(T.expr,$formalArgList)) and ATOM T.expr =>
 ;         nprefix := $prefix or BREAK()
-;         [op',:[a.expr for a in argTl],"$"] where
+;         [op', :[a.expr for a in argTl], "%"] where
 ;           op':= INTERN STRCONC(encodeItem nprefix,";",encodeItem T.expr)
 ;       ['call, ['applyFun, T.expr], :[a.expr for a in argTl]]
 ;     coerce([form, retm, e],resolve(retm,m))
@@ -253,7 +253,7 @@
                                                 (SETQ |bfVar#6|
                                                         (CDR |bfVar#6|))))
                                              NIL |argTl| NIL)
-                                            (CONS '$ NIL)))))
+                                            (CONS '% NIL)))))
                                    (#1#
                                     (CONS '|call|
                                           (CONS (LIST '|applyFun| (CAR T$))
@@ -450,7 +450,7 @@
 ;   form:=
 ;     not member(op,$formalArgList) and ATOM op and not get(op,'value,e) =>
 ;       nprefix := $prefix or BREAK()
-;       [op',:argl',"$"] where
+;       [op', :argl', "%"] where
 ;         op':= INTERN STRCONC(encodeItem nprefix,";",encodeItem op)
 ;     ['call,['applyFun,op],:argl']
 ;   pairlis:= [[v,:a] for a in argl' for v in $FormalMapVariableList]
@@ -543,7 +543,7 @@
                                  (INTERN
                                   (STRCONC (|encodeItem| |nprefix|) '|;|
                                    (|encodeItem| |op|))))
-                         (CONS |op'| (APPEND |argl'| (CONS '$ NIL)))))
+                         (CONS |op'| (APPEND |argl'| (CONS '% NIL)))))
                        (#1#
                         (CONS '|call|
                               (CONS (LIST '|applyFun| |op|) |argl'|)))))

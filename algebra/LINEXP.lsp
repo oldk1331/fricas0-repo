@@ -26,7 +26,7 @@
                                                         (|mkCategory|
                                                          '(((|reducedSystem|
                                                              ((|Matrix| |t#1|)
-                                                              (|Matrix| $)))
+                                                              (|Matrix| %)))
                                                             T)
                                                            ((|reducedSystem|
                                                              ((|Record|
@@ -36,8 +36,8 @@
                                                                (|:| |vec|
                                                                     (|Vector|
                                                                      |t#1|)))
-                                                              (|Matrix| $)
-                                                              (|Vector| $)))
+                                                              (|Matrix| %)
+                                                              (|Vector| %)))
                                                             T))
                                                          NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|LinearlyExplicitOver| |t#1|))))) 

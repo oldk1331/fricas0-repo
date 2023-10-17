@@ -30,36 +30,36 @@
                                                                      '|t#2|)
                                                  (|mkCategory|
                                                   '(((|entries|
-                                                      ((|List| |t#2|) $))
+                                                      ((|List| |t#2|) %))
                                                      T)
                                                     ((|index?|
-                                                      ((|Boolean|) |t#1| $))
+                                                      ((|Boolean|) |t#1| %))
                                                      T)
                                                     ((|indices|
-                                                      ((|List| |t#1|) $))
+                                                      ((|List| |t#1|) %))
                                                      T)
                                                     ((|entry?|
-                                                      ((|Boolean|) |t#2| $))
+                                                      ((|Boolean|) |t#2| %))
                                                      (AND
-                                                      (|has| $
+                                                      (|has| %
                                                              (|finiteAggregate|))
                                                       (|has| |t#2|
                                                              (|BasicType|))))
-                                                    ((|maxIndex| (|t#1| $))
+                                                    ((|maxIndex| (|t#1| %))
                                                      (|has| |t#1|
                                                             (|OrderedSet|)))
-                                                    ((|minIndex| (|t#1| $))
+                                                    ((|minIndex| (|t#1| %))
                                                      (|has| |t#1|
                                                             (|OrderedSet|)))
-                                                    ((|first| (|t#2| $))
+                                                    ((|first| (|t#2| %))
                                                      (|has| |t#1|
                                                             (|OrderedSet|)))
-                                                    ((|fill!| ($ $ |t#2|))
-                                                     (|has| $
+                                                    ((|fill!| (% % |t#2|))
+                                                     (|has| %
                                                             (|shallowlyMutable|)))
                                                     ((|swap!|
-                                                      ((|Void|) $ |t#1| |t#1|))
-                                                     (|has| $
+                                                      ((|Void|) % |t#1| |t#1|))
+                                                     (|has| %
                                                             (|shallowlyMutable|))))
                                                   NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|IndexedAggregate| |t#1| |t#2|))))) 

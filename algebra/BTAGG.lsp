@@ -15,12 +15,12 @@
                                            (|OneDimensionalArrayAggregate|
                                             '#2#)
                                            (|mkCategory|
-                                            '(((|not| ($ $)) T)
-                                              ((|nand| ($ $ $)) T)
-                                              ((|nor| ($ $ $)) T)
-                                              ((|and| ($ $ $)) T)
-                                              ((|or| ($ $ $)) T)
-                                              ((|xor| ($ $ $)) T))
+                                            '(((|not| (% %)) T)
+                                              ((|nand| (% % %)) T)
+                                              ((|nor| (% % %)) T)
+                                              ((|and| (% % %)) T)
+                                              ((|or| (% % %)) T)
+                                              ((|xor| (% % %)) T))
                                             NIL NIL NIL))))
            (SETELT #1# 0 '(|BitAggregate|))))) 
 

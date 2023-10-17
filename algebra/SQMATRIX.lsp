@@ -1,19 +1,19 @@
 
-(SDEFUN |SQMATRIX;Zero;$;1| (($ ($))) (QREFELT $ 10)) 
+(SDEFUN |SQMATRIX;Zero;%;1| ((% (%))) (QREFELT % 10)) 
 
-(SDEFUN |SQMATRIX;One;$;2| (($ ($))) (QREFELT $ 13)) 
+(SDEFUN |SQMATRIX;One;%;2| ((% (%))) (QREFELT % 13)) 
 
-(SDEFUN |SQMATRIX;characteristic;Nni;3| (($ (|NonNegativeInteger|)))
-        (SPADCALL (QREFELT $ 16))) 
+(SDEFUN |SQMATRIX;characteristic;Nni;3| ((% (|NonNegativeInteger|)))
+        (SPADCALL (QREFELT % 16))) 
 
-(SDEFUN |SQMATRIX;matrix;L$;4| ((|l| (|List| (|List| R))) ($ ($)))
+(SDEFUN |SQMATRIX;matrix;L%;4| ((|l| (|List| (|List| R))) (% (%)))
         (SPROG
          ((#1=#:G126 NIL) (|j| NIL) (#2=#:G127 NIL) (|r| NIL) (#3=#:G124 NIL)
           (|i| NIL) (#4=#:G125 NIL) (|ll| NIL) (|ans| (|Matrix| R))
           (#5=#:G122 NIL) (#6=#:G123 NIL))
          (SEQ
           (COND
-           ((SPADCALL (LENGTH |l|) (QREFELT $ 6) (QREFELT $ 19))
+           ((SPADCALL (LENGTH |l|) (QREFELT % 6) (QREFELT % 19))
             (|error| "matrix: wrong number of rows"))
            ('T
             (SEQ
@@ -26,17 +26,17 @@
                     (SEQ
                      (EXIT
                       (COND
-                       ((SPADCALL (LENGTH |ll|) (QREFELT $ 6) (QREFELT $ 19))
+                       ((SPADCALL (LENGTH |ll|) (QREFELT % 6) (QREFELT % 19))
                         (PROGN
                          (LETT #5# (|error| "matrix: wrong number of columns"))
                          (GO #7=#:G114))))))
                     (LETT #6# (CDR #6#)) (GO G190) G191 (EXIT NIL)))
               #7# (EXIT #5#))
              (LETT |ans|
-                   (MAKE_MATRIX1 (QREFELT $ 6) (QREFELT $ 6)
-                                 (|spadConstant| $ 8)))
+                   (MAKE_MATRIX1 (QREFELT % 6) (QREFELT % 6)
+                                 (|spadConstant| % 8)))
              (SEQ (LETT |ll| NIL) (LETT #4# |l|) (LETT |i| (PROGN |ans| 1))
-                  (LETT #3# (SPADCALL |ans| (QREFELT $ 21))) G190
+                  (LETT #3# (SPADCALL |ans| (QREFELT % 21))) G190
                   (COND
                    ((OR (> |i| #3#) (ATOM #4#)
                         (PROGN (LETT |ll| (CAR #4#)) NIL))
@@ -45,7 +45,7 @@
                    (EXIT
                     (SEQ (LETT |r| NIL) (LETT #2# |ll|)
                          (LETT |j| (PROGN |ans| 1))
-                         (LETT #1# (SPADCALL |ans| (QREFELT $ 22))) G190
+                         (LETT #1# (SPADCALL |ans| (QREFELT % 22))) G190
                          (COND
                           ((OR (> |j| #1#) (ATOM #2#)
                                (PROGN (LETT |r| (CAR #2#)) NIL))
@@ -57,123 +57,123 @@
                   G191 (EXIT NIL))
              (EXIT |ans|))))))) 
 
-(SDEFUN |SQMATRIX;row;$IDp;5|
-        ((|x| ($)) (|i| (|Integer|)) ($ (|DirectProduct| |ndim| R)))
-        (SPADCALL (SPADCALL |x| |i| (QREFELT $ 26)) (QREFELT $ 28))) 
+(SDEFUN |SQMATRIX;row;%IDp;5|
+        ((|x| (%)) (|i| (|Integer|)) (% (|DirectProduct| |ndim| R)))
+        (SPADCALL (SPADCALL |x| |i| (QREFELT % 26)) (QREFELT % 28))) 
 
-(SDEFUN |SQMATRIX;column;$IDp;6|
-        ((|x| ($)) (|j| (|Integer|)) ($ (|DirectProduct| |ndim| R)))
-        (SPADCALL (SPADCALL |x| |j| (QREFELT $ 30)) (QREFELT $ 28))) 
+(SDEFUN |SQMATRIX;column;%IDp;6|
+        ((|x| (%)) (|j| (|Integer|)) (% (|DirectProduct| |ndim| R)))
+        (SPADCALL (SPADCALL |x| |j| (QREFELT % 30)) (QREFELT % 28))) 
 
-(SDEFUN |SQMATRIX;coerce;$Of;7| ((|x| ($)) ($ (|OutputForm|)))
-        (SPADCALL |x| (QREFELT $ 33))) 
+(SDEFUN |SQMATRIX;coerce;%Of;7| ((|x| (%)) (% (|OutputForm|)))
+        (SPADCALL |x| (QREFELT % 33))) 
 
-(SDEFUN |SQMATRIX;scalarMatrix;R$;8| ((|r| (R)) ($ ($)))
-        (SPADCALL (QREFELT $ 6) |r| (QREFELT $ 35))) 
+(SDEFUN |SQMATRIX;scalarMatrix;R%;8| ((|r| (R)) (% (%)))
+        (SPADCALL (QREFELT % 6) |r| (QREFELT % 35))) 
 
-(SDEFUN |SQMATRIX;diagonalMatrix;L$;9| ((|l| (|List| R)) ($ ($)))
+(SDEFUN |SQMATRIX;diagonalMatrix;L%;9| ((|l| (|List| R)) (% (%)))
         (COND
-         ((SPADCALL (LENGTH |l|) (QREFELT $ 6) (QREFELT $ 19))
+         ((SPADCALL (LENGTH |l|) (QREFELT % 6) (QREFELT % 19))
           (|error| "diagonalMatrix: wrong number of entries in list"))
-         ('T (SPADCALL |l| (QREFELT $ 37))))) 
+         ('T (SPADCALL |l| (QREFELT % 37))))) 
 
-(SDEFUN |SQMATRIX;coerce;$M;10| ((|x| ($)) ($ (|Matrix| R)))
-        (SPADCALL |x| (QREFELT $ 39))) 
+(SDEFUN |SQMATRIX;coerce;%M;10| ((|x| (%)) (% (|Matrix| R)))
+        (SPADCALL |x| (QREFELT % 39))) 
 
-(SDEFUN |SQMATRIX;squareMatrix;M$;11| ((|x| (|Matrix| R)) ($ ($)))
+(SDEFUN |SQMATRIX;squareMatrix;M%;11| ((|x| (|Matrix| R)) (% (%)))
         (COND
-         ((OR (SPADCALL (ANROWS |x|) (QREFELT $ 6) (QREFELT $ 19))
-              (SPADCALL (ANCOLS |x|) (QREFELT $ 6) (QREFELT $ 19)))
+         ((OR (SPADCALL (ANROWS |x|) (QREFELT % 6) (QREFELT % 19))
+              (SPADCALL (ANCOLS |x|) (QREFELT % 6) (QREFELT % 19)))
           (|error| "squareMatrix: matrix of bad dimensions"))
-         ('T (SPADCALL |x| (QREFELT $ 39))))) 
+         ('T (SPADCALL |x| (QREFELT % 39))))) 
 
-(SDEFUN |SQMATRIX;*;$2Dp;12|
-        ((|x| ($)) (|v| #1=(|DirectProduct| |ndim| R)) ($ #1#))
-        (SPADCALL (SPADCALL |x| (SPADCALL |v| (QREFELT $ 42)) (QREFELT $ 43))
-                  (QREFELT $ 28))) 
+(SDEFUN |SQMATRIX;*;%2Dp;12|
+        ((|x| (%)) (|v| #1=(|DirectProduct| |ndim| R)) (% #1#))
+        (SPADCALL (SPADCALL |x| (SPADCALL |v| (QREFELT % 42)) (QREFELT % 43))
+                  (QREFELT % 28))) 
 
-(SDEFUN |SQMATRIX;*;Dp$Dp;13|
-        ((|v| #1=(|DirectProduct| |ndim| R)) (|x| ($)) ($ #1#))
-        (SPADCALL (SPADCALL (SPADCALL |v| (QREFELT $ 42)) |x| (QREFELT $ 45))
-                  (QREFELT $ 28))) 
+(SDEFUN |SQMATRIX;*;Dp%Dp;13|
+        ((|v| #1=(|DirectProduct| |ndim| R)) (|x| (%)) (% #1#))
+        (SPADCALL (SPADCALL (SPADCALL |v| (QREFELT % 42)) |x| (QREFELT % 45))
+                  (QREFELT % 28))) 
 
-(SDEFUN |SQMATRIX;determinant;$R;14| ((|x| ($)) ($ (R)))
-        (SPADCALL |x| (QREFELT $ 47))) 
+(SDEFUN |SQMATRIX;determinant;%R;14| ((|x| (%)) (% (R)))
+        (SPADCALL |x| (QREFELT % 47))) 
 
-(SDEFUN |SQMATRIX;minordet;$R;15| ((|x| ($)) ($ (R)))
-        (SPADCALL |x| (QREFELT $ 49))) 
+(SDEFUN |SQMATRIX;minordet;%R;15| ((|x| (%)) (% (R)))
+        (SPADCALL |x| (QREFELT % 49))) 
 
-(SDEFUN |SQMATRIX;Pfaffian;$R;16| ((|x| ($)) ($ (R)))
-        (SPADCALL |x| (QREFELT $ 51))) 
+(SDEFUN |SQMATRIX;Pfaffian;%R;16| ((|x| (%)) (% (R)))
+        (SPADCALL |x| (QREFELT % 51))) 
 
-(SDEFUN |SQMATRIX;rowEchelon;2$;17| ((|x| ($)) ($ ($)))
-        (SPADCALL |x| (QREFELT $ 53))) 
+(SDEFUN |SQMATRIX;rowEchelon;2%;17| ((|x| (%)) (% (%)))
+        (SPADCALL |x| (QREFELT % 53))) 
 
-(SDEFUN |SQMATRIX;columnSpace;$L;18|
-        ((|x| ($)) ($ (|List| (|DirectProduct| |ndim| R))))
+(SDEFUN |SQMATRIX;columnSpace;%L;18|
+        ((|x| (%)) (% (|List| (|DirectProduct| |ndim| R))))
         (SPROG ((#1=#:G149 NIL) (|c| NIL) (#2=#:G148 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
-                 (SEQ (LETT |c| NIL) (LETT #1# (SPADCALL |x| (QREFELT $ 56)))
+                 (SEQ (LETT |c| NIL) (LETT #1# (SPADCALL |x| (QREFELT % 56)))
                       G190
                       (COND
                        ((OR (ATOM #1#) (PROGN (LETT |c| (CAR #1#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2# (CONS (SPADCALL |c| (QREFELT $ 28)) #2#))))
+                        (LETT #2# (CONS (SPADCALL |c| (QREFELT % 28)) #2#))))
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(SDEFUN |SQMATRIX;rank;$Nni;19| ((|x| ($)) ($ (|NonNegativeInteger|)))
-        (SPADCALL |x| (QREFELT $ 59))) 
+(SDEFUN |SQMATRIX;rank;%Nni;19| ((|x| (%)) (% (|NonNegativeInteger|)))
+        (SPADCALL |x| (QREFELT % 59))) 
 
-(SDEFUN |SQMATRIX;nullity;$Nni;20| ((|x| ($)) ($ (|NonNegativeInteger|)))
-        (SPADCALL |x| (QREFELT $ 61))) 
+(SDEFUN |SQMATRIX;nullity;%Nni;20| ((|x| (%)) (% (|NonNegativeInteger|)))
+        (SPADCALL |x| (QREFELT % 61))) 
 
-(SDEFUN |SQMATRIX;nullSpace;$L;21|
-        ((|x| ($)) ($ (|List| (|DirectProduct| |ndim| R))))
+(SDEFUN |SQMATRIX;nullSpace;%L;21|
+        ((|x| (%)) (% (|List| (|DirectProduct| |ndim| R))))
         (SPROG ((#1=#:G156 NIL) (|c| NIL) (#2=#:G155 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
-                 (SEQ (LETT |c| NIL) (LETT #1# (SPADCALL |x| (QREFELT $ 63)))
+                 (SEQ (LETT |c| NIL) (LETT #1# (SPADCALL |x| (QREFELT % 63)))
                       G190
                       (COND
                        ((OR (ATOM #1#) (PROGN (LETT |c| (CAR #1#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2# (CONS (SPADCALL |c| (QREFELT $ 28)) #2#))))
+                        (LETT #2# (CONS (SPADCALL |c| (QREFELT % 28)) #2#))))
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(SDEFUN |SQMATRIX;recip;$U;22| ((|x| ($)) ($ (|Union| $ "failed")))
+(SDEFUN |SQMATRIX;recip;%U;22| ((|x| (%)) (% (|Union| % "failed")))
         (SPROG ((|u| (|Union| (|Matrix| R) "failed")))
-               (SEQ (LETT |u| (SPADCALL |x| (QREFELT $ 66)))
+               (SEQ (LETT |u| (SPADCALL |x| (QREFELT % 66)))
                     (EXIT
                      (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
                            ('T (CONS 0 (QCDR |u|)))))))) 
 
-(SDEFUN |SQMATRIX;inverse;$U;23| ((|x| ($)) ($ (|Union| $ "failed")))
+(SDEFUN |SQMATRIX;inverse;%U;23| ((|x| (%)) (% (|Union| % "failed")))
         (SPROG ((|u| (|Union| (|Matrix| R) "failed")))
-               (SEQ (LETT |u| (SPADCALL |x| (QREFELT $ 68)))
+               (SEQ (LETT |u| (SPADCALL |x| (QREFELT % 68)))
                     (EXIT
                      (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
                            ('T (CONS 0 (QCDR |u|)))))))) 
 
-(SDEFUN |SQMATRIX;^;$I$;24| ((|x| ($)) (|n| (|Integer|)) ($ ($)))
-        (SPADCALL |x| |n| (QREFELT $ 70))) 
+(SDEFUN |SQMATRIX;^;%I%;24| ((|x| (%)) (|n| (|Integer|)) (% (%)))
+        (SPADCALL |x| |n| (QREFELT % 70))) 
 
-(SDEFUN |SQMATRIX;recip;$U;25| ((|x| ($)) ($ (|Union| $ "failed")))
-        (SPADCALL |x| (QREFELT $ 69))) 
+(SDEFUN |SQMATRIX;recip;%U;25| ((|x| (%)) (% (|Union| % "failed")))
+        (SPADCALL |x| (QREFELT % 69))) 
 
-(SDEFUN |SQMATRIX;convert;$If;26| ((|x| ($)) ($ (|InputForm|)))
+(SDEFUN |SQMATRIX;convert;%If;26| ((|x| (%)) (% (|InputForm|)))
         (SPADCALL
-         (LIST (SPADCALL '|squareMatrix| (QREFELT $ 74))
-               (SPADCALL (SPADCALL |x| (QREFELT $ 40)) (QREFELT $ 75)))
-         (QREFELT $ 77))) 
+         (LIST (SPADCALL '|squareMatrix| (QREFELT % 74))
+               (SPADCALL (SPADCALL |x| (QREFELT % 40)) (QREFELT % 75)))
+         (QREFELT % 77))) 
 
 (DECLAIM (NOTINLINE |SquareMatrix;|)) 
 
@@ -197,14 +197,14 @@
 (DEFUN |SquareMatrix;| (|#1| |#2|)
   (SPROG
    ((|pv$| NIL) (#1=#:G194 NIL) (#2=#:G196 NIL) (#3=#:G195 NIL) (#4=#:G198 NIL)
-    ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+    (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 |#1|)
     (LETT DV$2 (|devaluate| |#2|))
     (LETT |dv$| (LIST '|SquareMatrix| DV$1 DV$2))
-    (LETT $ (GETREFV 100))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 100))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -383,104 +383,104 @@
                                              (|HasCategory| |#2|
                                                             '(|SemiRing|))))))))
     (|haddProp| |$ConstructorCache| '|SquareMatrix| (LIST DV$1 DV$2)
-                (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (AND (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 134217728))
-    (AND (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 268435456))
+                (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (AND (|HasCategory| % '(|shallowlyMutable|))
+         (|augmentPredVector| % 134217728))
+    (AND (|HasCategory| % '(|finiteAggregate|))
+         (|augmentPredVector| % 268435456))
     (AND (|HasCategory| |#2| '(|OrderedSet|))
-         (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 536870912))
+         (|HasCategory| % '(|finiteAggregate|))
+         (|augmentPredVector| % 536870912))
     (AND (|HasCategory| |#2| '(|BasicType|))
-         (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 1073741824))
+         (|HasCategory| % '(|finiteAggregate|))
+         (|augmentPredVector| % 1073741824))
     (AND
      (OR
       (AND #3# (|HasCategory| |#2| '(|Ring|))
            (|HasCategory| (|Integer|) '(|AbelianGroup|)))
       (|HasCategory| |#2| '(|AbelianGroup|))
-      (|HasCategory| $ '(|AbelianGroup|)))
-     (|augmentPredVector| $ 2147483648))
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 10 (SPADCALL (|spadConstant| $ 8) (QREFELT $ 9)))
+      (|HasCategory| % '(|AbelianGroup|)))
+     (|augmentPredVector| % 2147483648))
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 10 (SPADCALL (|spadConstant| % 8) (QREFELT % 9)))
     (COND
      ((|HasCategory| |#2| '(|Monoid|))
       (PROGN
-       (QSETREFV $ 13 (SPADCALL (|spadConstant| $ 12) (QREFELT $ 9)))
-       (QSETREFV $ 14
+       (QSETREFV % 13 (SPADCALL (|spadConstant| % 12) (QREFELT % 9)))
+       (QSETREFV % 14
                  (CONS #'|makeSpadConstant|
-                       (LIST (|dispatchFunction| |SQMATRIX;One;$;2|) $ 14))))))
+                       (LIST (|dispatchFunction| |SQMATRIX;One;%;2|) % 14))))))
     (COND
      ((|testBitVector| |pv$| 4)
-      (QSETREFV $ 17
+      (QSETREFV % 17
                 (CONS (|dispatchFunction| |SQMATRIX;characteristic;Nni;3|)
-                      $))))
+                      %))))
     (COND
      ((|testBitVector| |pv$| 1)
       (PROGN
-       (QSETREFV $ 48
-                 (CONS (|dispatchFunction| |SQMATRIX;determinant;$R;14|) $))
-       (QSETREFV $ 50 (CONS (|dispatchFunction| |SQMATRIX;minordet;$R;15|) $))
-       (QSETREFV $ 52
-                 (CONS (|dispatchFunction| |SQMATRIX;Pfaffian;$R;16|) $)))))
+       (QSETREFV % 48
+                 (CONS (|dispatchFunction| |SQMATRIX;determinant;%R;14|) %))
+       (QSETREFV % 50 (CONS (|dispatchFunction| |SQMATRIX;minordet;%R;15|) %))
+       (QSETREFV % 52
+                 (CONS (|dispatchFunction| |SQMATRIX;Pfaffian;%R;16|) %)))))
     (COND
      ((|testBitVector| |pv$| 12)
       (PROGN
-       (QSETREFV $ 54
-                 (CONS (|dispatchFunction| |SQMATRIX;rowEchelon;2$;17|) $))
-       (QSETREFV $ 58
-                 (CONS (|dispatchFunction| |SQMATRIX;columnSpace;$L;18|) $)))))
+       (QSETREFV % 54
+                 (CONS (|dispatchFunction| |SQMATRIX;rowEchelon;2%;17|) %))
+       (QSETREFV % 58
+                 (CONS (|dispatchFunction| |SQMATRIX;columnSpace;%L;18|) %)))))
     (COND
      ((|testBitVector| |pv$| 13)
       (PROGN
-       (QSETREFV $ 60 (CONS (|dispatchFunction| |SQMATRIX;rank;$Nni;19|) $))
-       (QSETREFV $ 62 (CONS (|dispatchFunction| |SQMATRIX;nullity;$Nni;20|) $))
-       (QSETREFV $ 64 (CONS (|dispatchFunction| |SQMATRIX;nullSpace;$L;21|) $))
-       (QSETREFV $ 67 (CONS (|dispatchFunction| |SQMATRIX;recip;$U;22|) $)))))
+       (QSETREFV % 60 (CONS (|dispatchFunction| |SQMATRIX;rank;%Nni;19|) %))
+       (QSETREFV % 62 (CONS (|dispatchFunction| |SQMATRIX;nullity;%Nni;20|) %))
+       (QSETREFV % 64 (CONS (|dispatchFunction| |SQMATRIX;nullSpace;%L;21|) %))
+       (QSETREFV % 67 (CONS (|dispatchFunction| |SQMATRIX;recip;%U;22|) %)))))
     (COND
      ((|testBitVector| |pv$| 18)
       (PROGN
-       (QSETREFV $ 69 (CONS (|dispatchFunction| |SQMATRIX;inverse;$U;23|) $))
-       (QSETREFV $ 71 (CONS (|dispatchFunction| |SQMATRIX;^;$I$;24|) $))
-       (QSETREFV $ 67 (CONS (|dispatchFunction| |SQMATRIX;recip;$U;25|) $)))))
+       (QSETREFV % 69 (CONS (|dispatchFunction| |SQMATRIX;inverse;%U;23|) %))
+       (QSETREFV % 71 (CONS (|dispatchFunction| |SQMATRIX;^;%I%;24|) %))
+       (QSETREFV % 67 (CONS (|dispatchFunction| |SQMATRIX;recip;%U;25|) %)))))
     (COND
      ((|testBitVector| |pv$| 26)
-      (QSETREFV $ 78 (CONS (|dispatchFunction| |SQMATRIX;convert;$If;26|) $))))
-    $))) 
+      (QSETREFV % 78 (CONS (|dispatchFunction| |SQMATRIX;convert;%If;26|) %))))
+    %))) 
 
 (MAKEPROP '|SquareMatrix| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|Matrix| 7) (|local| |#1|) (|local| |#2|)
-              (0 . |Zero|) |SQMATRIX;scalarMatrix;R$;8| 'ZERO
+              (0 . |Zero|) |SQMATRIX;scalarMatrix;R%;8| 'ZERO
               (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |SQMATRIX;Zero;$;1|) $))
+                    (FUNCALL (|dispatchFunction| |SQMATRIX;Zero;%;1|) %))
               (4 . |One|) 'ONE (8 . |One|) (|NonNegativeInteger|)
               (12 . |characteristic|) (16 . |characteristic|) (|Boolean|)
               (20 . ~=) (|Integer|) (26 . |maxRowIndex|) (31 . |maxColIndex|)
-              (|List| 36) |SQMATRIX;matrix;L$;4| (|Vector| 7) (36 . |row|)
-              (|DirectProduct| (NRTEVAL (QREFELT $ 6)) 7)
-              (42 . |directProduct|) |SQMATRIX;row;$IDp;5| (47 . |column|)
-              |SQMATRIX;column;$IDp;6| (|OutputForm|) (53 . |coerce|)
-              |SQMATRIX;coerce;$Of;7| (58 . |scalarMatrix|) (|List| 7)
-              (64 . |diagonalMatrix|) |SQMATRIX;diagonalMatrix;L$;9|
-              (69 . |copy|) |SQMATRIX;coerce;$M;10|
-              |SQMATRIX;squareMatrix;M$;11| (74 . |coerce|) (79 . *)
-              |SQMATRIX;*;$2Dp;12| (85 . *) |SQMATRIX;*;Dp$Dp;13|
+              (|List| 36) |SQMATRIX;matrix;L%;4| (|Vector| 7) (36 . |row|)
+              (|DirectProduct| (NRTEVAL (QREFELT % 6)) 7)
+              (42 . |directProduct|) |SQMATRIX;row;%IDp;5| (47 . |column|)
+              |SQMATRIX;column;%IDp;6| (|OutputForm|) (53 . |coerce|)
+              |SQMATRIX;coerce;%Of;7| (58 . |scalarMatrix|) (|List| 7)
+              (64 . |diagonalMatrix|) |SQMATRIX;diagonalMatrix;L%;9|
+              (69 . |copy|) |SQMATRIX;coerce;%M;10|
+              |SQMATRIX;squareMatrix;M%;11| (74 . |coerce|) (79 . *)
+              |SQMATRIX;*;%2Dp;12| (85 . *) |SQMATRIX;*;Dp%Dp;13|
               (91 . |determinant|) (96 . |determinant|) (101 . |minordet|)
               (106 . |minordet|) (111 . |Pfaffian|) (116 . |Pfaffian|)
               (121 . |rowEchelon|) (126 . |rowEchelon|) (|List| 25)
               (131 . |columnSpace|) (|List| 27) (136 . |columnSpace|)
               (141 . |rank|) (146 . |rank|) (151 . |nullity|) (156 . |nullity|)
-              (161 . |nullSpace|) (166 . |nullSpace|) (|Union| $ '"failed")
+              (161 . |nullSpace|) (166 . |nullSpace|) (|Union| % '"failed")
               (171 . |invertIfCan|) (176 . |recip|) (181 . |inverse|)
               (186 . |inverse|) (191 . ^) (197 . ^) (|Symbol|) (|InputForm|)
-              (203 . |convert|) (208 . |convert|) (|List| $) (213 . |convert|)
+              (203 . |convert|) (208 . |convert|) (|List| %) (213 . |convert|)
               (218 . |convert|) (|Equation| 7) (|List| 79)
-              (|Record| (|:| |mat| 84) (|:| |vec| (|Vector| 20))) (|Matrix| $)
-              (|Vector| $) (|Matrix| 20) (|List| 72) (|List| 15)
+              (|Record| (|:| |mat| 84) (|:| |vec| (|Vector| 20))) (|Matrix| %)
+              (|Vector| %) (|Matrix| 20) (|List| 72) (|List| 15)
               (|Mapping| 18 7 7) (|Mapping| 18 7) (|Mapping| 7 7)
               (|PositiveInteger|) (|Union| 92 '#1="failed") (|Fraction| 20)
               (|Union| 20 '#1#) (|Record| (|:| |mat| 5) (|:| |vec| 25))

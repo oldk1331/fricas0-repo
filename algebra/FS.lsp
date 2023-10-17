@@ -38,63 +38,63 @@
                                                             (|mkCategory|
                                                              '(((|ground?|
                                                                  ((|Boolean|)
-                                                                  $))
+                                                                  %))
                                                                 T)
                                                                ((|ground|
-                                                                 (|t#1| $))
+                                                                 (|t#1| %))
                                                                 T)
                                                                ((|variables|
                                                                  ((|List|
                                                                    (|Symbol|))
-                                                                  $))
+                                                                  %))
                                                                 T)
                                                                ((|variables|
                                                                  ((|List|
                                                                    (|Symbol|))
-                                                                  (|List| $)))
+                                                                  (|List| %)))
                                                                 T)
                                                                ((|applyQuote|
-                                                                 ($ (|Symbol|)
-                                                                  $))
+                                                                 (% (|Symbol|)
+                                                                  %))
                                                                 T)
                                                                ((|applyQuote|
-                                                                 ($ (|Symbol|)
-                                                                  $ $))
+                                                                 (% (|Symbol|)
+                                                                  % %))
                                                                 T)
                                                                ((|applyQuote|
-                                                                 ($ (|Symbol|)
-                                                                  $ $ $))
+                                                                 (% (|Symbol|)
+                                                                  % % %))
                                                                 T)
                                                                ((|applyQuote|
-                                                                 ($ (|Symbol|)
-                                                                  $ $ $ $))
+                                                                 (% (|Symbol|)
+                                                                  % % % %))
                                                                 T)
                                                                ((|applyQuote|
-                                                                 ($ (|Symbol|)
-                                                                  (|List| $)))
+                                                                 (% (|Symbol|)
+                                                                  (|List| %)))
                                                                 T)
                                                                ((|eval|
-                                                                 ($ $
+                                                                 (% %
                                                                   (|BasicOperator|)
-                                                                  $
+                                                                  %
                                                                   (|Symbol|)))
                                                                 (|has| |t#1|
                                                                        (|ConvertibleTo|
                                                                         (|InputForm|))))
                                                                ((|eval|
-                                                                 ($ $
+                                                                 (% %
                                                                   (|List|
                                                                    (|BasicOperator|))
-                                                                  (|List| $)
+                                                                  (|List| %)
                                                                   (|Symbol|)))
                                                                 (|has| |t#1|
                                                                        (|ConvertibleTo|
                                                                         (|InputForm|))))
                                                                ((|isTimes|
                                                                  ((|Union|
-                                                                   (|List| $)
+                                                                   (|List| %)
                                                                    "failed")
-                                                                  $))
+                                                                  %))
                                                                 (|has| |t#1|
                                                                        (|SemiGroup|)))
                                                                ((|isExpt|
@@ -102,19 +102,19 @@
                                                                    (|Record|
                                                                     (|:| |var|
                                                                          (|Kernel|
-                                                                          $))
+                                                                          %))
                                                                     (|:|
                                                                      |exponent|
                                                                      (|Integer|)))
                                                                    "failed")
-                                                                  $))
+                                                                  %))
                                                                 (|has| |t#1|
                                                                        (|SemiGroup|)))
                                                                ((|isPlus|
                                                                  ((|Union|
-                                                                   (|List| $)
+                                                                   (|List| %)
                                                                    "failed")
-                                                                  $))
+                                                                  %))
                                                                 (|has| |t#1|
                                                                        (|AbelianSemiGroup|)))
                                                                ((|isMult|
@@ -124,29 +124,29 @@
                                                                          (|Integer|))
                                                                     (|:| |var|
                                                                          (|Kernel|
-                                                                          $)))
+                                                                          %)))
                                                                    "failed")
-                                                                  $))
+                                                                  %))
                                                                 (|has| |t#1|
                                                                        (|AbelianSemiGroup|)))
                                                                ((|coerce|
-                                                                 ($
+                                                                 (%
                                                                   (|SparseMultivariatePolynomial|
                                                                    |t#1|
                                                                    (|Kernel|
-                                                                    $))))
+                                                                    %))))
                                                                 (|has| |t#1|
                                                                        (|Ring|)))
                                                                ((|numer|
                                                                  ((|SparseMultivariatePolynomial|
                                                                    |t#1|
                                                                    (|Kernel|
-                                                                    $))
-                                                                  $))
+                                                                    %))
+                                                                  %))
                                                                 (|has| |t#1|
                                                                        (|Ring|)))
                                                                ((|numerator|
-                                                                 ($ $))
+                                                                 (% %))
                                                                 (|has| |t#1|
                                                                        (|Ring|)))
                                                                ((|isExpt|
@@ -154,12 +154,12 @@
                                                                    (|Record|
                                                                     (|:| |var|
                                                                          (|Kernel|
-                                                                          $))
+                                                                          %))
                                                                     (|:|
                                                                      |exponent|
                                                                      (|Integer|)))
                                                                    "failed")
-                                                                  $
+                                                                  %
                                                                   (|BasicOperator|)))
                                                                 (|has| |t#1|
                                                                        (|Ring|)))
@@ -168,12 +168,12 @@
                                                                    (|Record|
                                                                     (|:| |var|
                                                                          (|Kernel|
-                                                                          $))
+                                                                          %))
                                                                     (|:|
                                                                      |exponent|
                                                                      (|Integer|)))
                                                                    "failed")
-                                                                  $
+                                                                  %
                                                                   (|Symbol|)))
                                                                 (|has| |t#1|
                                                                        (|Ring|)))
@@ -181,113 +181,113 @@
                                                                  ((|Union|
                                                                    (|Record|
                                                                     (|:| |val|
-                                                                         $)
+                                                                         %)
                                                                     (|:|
                                                                      |exponent|
                                                                      (|Integer|)))
                                                                    "failed")
-                                                                  $))
+                                                                  %))
                                                                 (|has| |t#1|
                                                                        (|Ring|)))
                                                                ((|eval|
-                                                                 ($ $
+                                                                 (% %
                                                                   (|List|
                                                                    (|Symbol|))
                                                                   (|List|
                                                                    (|NonNegativeInteger|))
                                                                   (|List|
-                                                                   (|Mapping| $
-                                                                              $))))
+                                                                   (|Mapping| %
+                                                                              %))))
                                                                 (|has| |t#1|
                                                                        (|Ring|)))
                                                                ((|eval|
-                                                                 ($ $
+                                                                 (% %
                                                                   (|List|
                                                                    (|Symbol|))
                                                                   (|List|
                                                                    (|NonNegativeInteger|))
                                                                   (|List|
-                                                                   (|Mapping| $
+                                                                   (|Mapping| %
                                                                               (|List|
-                                                                               $)))))
+                                                                               %)))))
                                                                 (|has| |t#1|
                                                                        (|Ring|)))
                                                                ((|eval|
-                                                                 ($ $
+                                                                 (% %
                                                                   (|Symbol|)
                                                                   (|NonNegativeInteger|)
-                                                                  (|Mapping| $
+                                                                  (|Mapping| %
                                                                              (|List|
-                                                                              $))))
+                                                                              %))))
                                                                 (|has| |t#1|
                                                                        (|Ring|)))
                                                                ((|eval|
-                                                                 ($ $
+                                                                 (% %
                                                                   (|Symbol|)
                                                                   (|NonNegativeInteger|)
-                                                                  (|Mapping| $
-                                                                             $)))
+                                                                  (|Mapping| %
+                                                                             %)))
                                                                 (|has| |t#1|
                                                                        (|Ring|)))
                                                                ((|algtower|
                                                                  ((|List|
                                                                    (|Kernel|
-                                                                    $))
-                                                                  $))
+                                                                    %))
+                                                                  %))
                                                                 (|has| |t#1|
                                                                        (|IntegralDomain|)))
                                                                ((|algtower|
                                                                  ((|List|
                                                                    (|Kernel|
-                                                                    $))
-                                                                  (|List| $)))
+                                                                    %))
+                                                                  (|List| %)))
                                                                 (|has| |t#1|
                                                                        (|IntegralDomain|)))
                                                                ((|convert|
-                                                                 ($
+                                                                 (%
                                                                   (|Factored|
-                                                                   $)))
+                                                                   %)))
                                                                 (|has| |t#1|
                                                                        (|IntegralDomain|)))
                                                                ((|denom|
                                                                  ((|SparseMultivariatePolynomial|
                                                                    |t#1|
                                                                    (|Kernel|
-                                                                    $))
-                                                                  $))
+                                                                    %))
+                                                                  %))
                                                                 (|has| |t#1|
                                                                        (|IntegralDomain|)))
                                                                ((|denominator|
-                                                                 ($ $))
+                                                                 (% %))
                                                                 (|has| |t#1|
                                                                        (|IntegralDomain|)))
                                                                ((/
-                                                                 ($
+                                                                 (%
                                                                   (|SparseMultivariatePolynomial|
                                                                    |t#1|
                                                                    (|Kernel|
-                                                                    $))
+                                                                    %))
                                                                   (|SparseMultivariatePolynomial|
                                                                    |t#1|
                                                                    (|Kernel|
-                                                                    $))))
+                                                                    %))))
                                                                 (|has| |t#1|
                                                                        (|IntegralDomain|)))
                                                                ((|coerce|
-                                                                 ($
+                                                                 (%
                                                                   (|Fraction|
                                                                    |t#1|)))
                                                                 (|has| |t#1|
                                                                        (|IntegralDomain|)))
                                                                ((|coerce|
-                                                                 ($
+                                                                 (%
                                                                   (|Polynomial|
                                                                    (|Fraction|
                                                                     |t#1|))))
                                                                 (|has| |t#1|
                                                                        (|IntegralDomain|)))
                                                                ((|coerce|
-                                                                 ($
+                                                                 (%
                                                                   (|Fraction|
                                                                    (|Polynomial|
                                                                     (|Fraction|
@@ -297,10 +297,10 @@
                                                                ((|univariate|
                                                                  ((|Fraction|
                                                                    (|SparseUnivariatePolynomial|
-                                                                    $))
-                                                                  $
+                                                                    %))
+                                                                  %
                                                                   (|Kernel|
-                                                                   $)))
+                                                                   %)))
                                                                 (|has| |t#1|
                                                                        (|IntegralDomain|))))
                                                              '(((|ConvertibleTo|

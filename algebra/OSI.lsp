@@ -1,23 +1,23 @@
 
-(PUT '|OSI;=;2$B;1| '|SPADreplace| 'EQL) 
+(PUT '|OSI;=;2%B;1| '|SPADreplace| 'EQL) 
 
-(SDEFUN |OSI;=;2$B;1| ((|x| ($)) (|y| ($)) ($ (|Boolean|))) (EQL |x| |y|)) 
+(SDEFUN |OSI;=;2%B;1| ((|x| (%)) (|y| (%)) (% (|Boolean|))) (EQL |x| |y|)) 
 
-(PUT '|OSI;<;2$B;2| '|SPADreplace| '<) 
+(PUT '|OSI;<;2%B;2| '|SPADreplace| '<) 
 
-(SDEFUN |OSI;<;2$B;2| ((|x| ($)) (|y| ($)) ($ (|Boolean|))) (< |x| |y|)) 
+(SDEFUN |OSI;<;2%B;2| ((|x| (%)) (|y| (%)) (% (|Boolean|))) (< |x| |y|)) 
 
-(PUT '|OSI;coerce;I$;3| '|SPADreplace| '(XLAM (|i|) |i|)) 
+(PUT '|OSI;coerce;I%;3| '|SPADreplace| '(XLAM (|i|) |i|)) 
 
-(SDEFUN |OSI;coerce;I$;3| ((|i| (|Integer|)) ($ ($))) |i|) 
+(SDEFUN |OSI;coerce;I%;3| ((|i| (|Integer|)) (% (%))) |i|) 
 
-(PUT '|OSI;value;$I;4| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(PUT '|OSI;value;%I;4| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |OSI;value;$I;4| ((|x| ($)) ($ (|Integer|))) |x|) 
+(SDEFUN |OSI;value;%I;4| ((|x| (%)) (% (|Integer|))) |x|) 
 
-(SDEFUN |OSI;coerce;$Of;5| ((|x| ($)) ($ (|OutputForm|)))
-        (SPADCALL (SPADCALL '|e| (QREFELT $ 15)) (SPADCALL |x| (QREFELT $ 16))
-                  (QREFELT $ 17))) 
+(SDEFUN |OSI;coerce;%Of;5| ((|x| (%)) (% (|OutputForm|)))
+        (SPADCALL (SPADCALL '|e| (QREFELT % 15)) (SPADCALL |x| (QREFELT % 16))
+                  (QREFELT % 17))) 
 
 (DECLAIM (NOTINLINE |OrdSetInts;|)) 
 
@@ -39,24 +39,24 @@
                  ((NOT #1#) (HREM |$ConstructorCache| '|OrdSetInts|)))))))))) 
 
 (DEFUN |OrdSetInts;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|OrdSetInts|))
-          (LETT $ (GETREFV 22))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|OrdSetInts| NIL (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 6 (|Integer|))
-          $))) 
+          (LETT % (GETREFV 22))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|OrdSetInts| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6 (|Integer|))
+          %))) 
 
 (MAKEPROP '|OrdSetInts| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL '|Rep| (|Boolean|) |OSI;=;2$B;1|
-              |OSI;<;2$B;2| (|Integer|) |OSI;coerce;I$;3| |OSI;value;$I;4|
+           '#(NIL NIL NIL NIL NIL NIL '|Rep| (|Boolean|) |OSI;=;2%B;1|
+              |OSI;<;2%B;2| (|Integer|) |OSI;coerce;I%;3| |OSI;value;%I;4|
               (|OutputForm|) (|Symbol|) (0 . |coerce|) (5 . |coerce|)
-              (10 . |sub|) |OSI;coerce;$Of;5| (|HashState|) (|String|)
+              (10 . |sub|) |OSI;coerce;%Of;5| (|HashState|) (|String|)
               (|SingleInteger|))
            '#(~= 16 |value| 22 |smaller?| 27 |min| 33 |max| 39 |latex| 45
               |hashUpdate!| 50 |hash| 56 |coerce| 61 >= 71 > 77 = 83 <= 89 <

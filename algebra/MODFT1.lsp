@@ -1,31 +1,31 @@
 
 (PUT '|MODFT1;get_char;2I;1| '|SPADreplace| '(XLAM (|p|) |p|)) 
 
-(SDEFUN |MODFT1;get_char;2I;1| ((|p| (|Integer|)) ($ (|Integer|))) |p|) 
+(SDEFUN |MODFT1;get_char;2I;1| ((|p| (|Integer|)) (% (|Integer|))) |p|) 
 
 (PUT '|MODFT1;get_extension_degree;2I;2| '|SPADreplace| '(XLAM (|p|) 1)) 
 
-(SDEFUN |MODFT1;get_extension_degree;2I;2| ((|p| (|Integer|)) ($ (|Integer|)))
+(SDEFUN |MODFT1;get_extension_degree;2I;2| ((|p| (|Integer|)) (% (|Integer|)))
         1) 
 
-(SDEFUN |MODFT1;degree;UvI;3| ((|pol| (|U32Vector|)) ($ (|Integer|)))
-        (SPADCALL |pol| (QREFELT $ 11))) 
+(SDEFUN |MODFT1;degree;UvI;3| ((|pol| (|U32Vector|)) (% (|Integer|)))
+        (SPADCALL |pol| (QREFELT % 11))) 
 
-(SDEFUN |MODFT1;monomial1;IUv;4| ((|p| (|Integer|)) ($ (|U32Vector|)))
+(SDEFUN |MODFT1;monomial1;IUv;4| ((|p| (|Integer|)) (% (|U32Vector|)))
         (SPROG ((|res| (|U32Vector|)))
                (SEQ (LETT |res| (GETREFV_U32 2 0)) (SETELT_U32 |res| 1 1)
                     (EXIT |res|)))) 
 
 (PUT '|MODFT1;empty_poly;Uv;5| '|SPADreplace| '(XLAM NIL (GETREFV_U32 0 0))) 
 
-(SDEFUN |MODFT1;empty_poly;Uv;5| (($ (|U32Vector|))) (GETREFV_U32 0 0)) 
+(SDEFUN |MODFT1;empty_poly;Uv;5| ((% (|U32Vector|))) (GETREFV_U32 0 0)) 
 
 (SDEFUN |MODFT1;gcd;2UvIUv;6|
-        ((|pol1| #1=(|U32Vector|)) (|pol2| #1#) (|p| (|Integer|)) ($ #1#))
-        (SPADCALL |pol1| |pol2| |p| (QREFELT $ 15))) 
+        ((|pol1| #1=(|U32Vector|)) (|pol2| #1#) (|p| (|Integer|)) (% #1#))
+        (SPADCALL |pol1| |pol2| |p| (QREFELT % 15))) 
 
 (SDEFUN |MODFT1;sub1!;UvIUv;7|
-        ((|pol| #1=(|U32Vector|)) (|p| (|Integer|)) ($ #1#))
+        ((|pol| #1=(|U32Vector|)) (|p| (|Integer|)) (% #1#))
         (SEQ (COND ((EQL (QV_LEN_U32 |pol|) 0) (LETT |pol| (GETREFV_U32 1 0))))
              (COND ((EQL (ELT_U32 |pol| 0) 0) (SETELT_U32 |pol| 0 (- |p| 1)))
                    ('T (SETELT_U32 |pol| 0 (- (ELT_U32 |pol| 0) 1))))
@@ -33,20 +33,20 @@
 
 (SDEFUN |MODFT1;copy_poly;Uv2IUv;8|
         ((|pol| (|U32Vector|)) (|n| (|Integer|)) (|p| (|Integer|))
-         ($ (|U32Vector|)))
+         (% (|U32Vector|)))
         (SPROG ((|res| (|U32Vector|)) (|n0| (|NonNegativeInteger|)))
-               (SEQ (LETT |n0| (+ (SPADCALL |pol| (QREFELT $ 12)) 1))
+               (SEQ (LETT |n0| (+ (SPADCALL |pol| (QREFELT % 12)) 1))
                     (EXIT
                      (COND
                       ((< |n| |n0|)
                        (|error| "copy_poly: degree of pol too large"))
                       ('T
                        (SEQ (LETT |res| (GETREFV_U32 |n| 0))
-                            (SPADCALL |res| |pol| |n0| (QREFELT $ 19))
+                            (SPADCALL |res| |pol| |n0| (QREFELT % 19))
                             (EXIT |res|)))))))) 
 
 (SDEFUN |MODFT1;random_poly;2IUv;9|
-        ((|n| (|Integer|)) (|p| (|Integer|)) ($ (|U32Vector|)))
+        ((|n| (|Integer|)) (|p| (|Integer|)) (% (|U32Vector|)))
         (SPROG ((#1=#:G134 NIL) (|i| NIL) (|res| (|U32Vector|)))
                (SEQ (LETT |res| (GETREFV_U32 (+ |n| 1) 0))
                     (SEQ (LETT |i| 0) (LETT #1# |n|) G190
@@ -56,42 +56,42 @@
                     (EXIT |res|)))) 
 
 (SDEFUN |MODFT1;divide!;2UvIUv;10|
-        ((|pol| #1=(|U32Vector|)) (|dpol| #1#) (|p| (|Integer|)) ($ #1#))
+        ((|pol| #1=(|U32Vector|)) (|dpol| #1#) (|p| (|Integer|)) (% #1#))
         (SPROG
          ((|res| (|U32Vector|)) (|dr| (|NonNegativeInteger|))
           (|dd| #2=(|Integer|)) (|dp| #2#))
-         (SEQ (LETT |dp| (SPADCALL |pol| (QREFELT $ 12)))
-              (LETT |dd| (SPADCALL |dpol| (QREFELT $ 12)))
+         (SEQ (LETT |dp| (SPADCALL |pol| (QREFELT % 12)))
+              (LETT |dd| (SPADCALL |dpol| (QREFELT % 12)))
               (LETT |dr| (- |dp| |dd|)) (LETT |res| (GETREFV_U32 (+ |dr| 1) 0))
-              (SPADCALL |pol| |dpol| |res| |p| (QREFELT $ 22)) (EXIT |res|)))) 
+              (SPADCALL |pol| |dpol| |res| |p| (QREFELT % 22)) (EXIT |res|)))) 
 
 (SDEFUN |MODFT1;add_poly;2UvIUv;11|
-        ((|pol1| #1=(|U32Vector|)) (|pol2| #1#) (|p| (|Integer|)) ($ #1#))
+        ((|pol1| #1=(|U32Vector|)) (|pol2| #1#) (|p| (|Integer|)) (% #1#))
         (SPROG
          ((|res| (|U32Vector|)) (|dr| (|Integer|)) (|d2| #2=(|Integer|))
           (|d1| #2#))
-         (SEQ (LETT |d1| (SPADCALL |pol1| (QREFELT $ 12)))
-              (LETT |d2| (SPADCALL |pol2| (QREFELT $ 12)))
+         (SEQ (LETT |d1| (SPADCALL |pol1| (QREFELT % 12)))
+              (LETT |d2| (SPADCALL |pol2| (QREFELT % 12)))
               (LETT |dr| (MAX |d1| |d2|))
-              (LETT |res| (SPADCALL |pol1| (+ |dr| 1) |p| (QREFELT $ 20)))
-              (SPADCALL |res| |pol2| 0 |d2| 1 |p| (QREFELT $ 24))
+              (LETT |res| (SPADCALL |pol1| (+ |dr| 1) |p| (QREFELT % 20)))
+              (SPADCALL |res| |pol2| 0 |d2| 1 |p| (QREFELT % 24))
               (EXIT |res|)))) 
 
 (SDEFUN |MODFT1;sub_poly;2UvIUv;12|
-        ((|pol1| #1=(|U32Vector|)) (|pol2| #1#) (|p| (|Integer|)) ($ #1#))
+        ((|pol1| #1=(|U32Vector|)) (|pol2| #1#) (|p| (|Integer|)) (% #1#))
         (SPROG
          ((|res| (|U32Vector|)) (|dr| (|Integer|)) (|d2| #2=(|Integer|))
           (|d1| #2#))
-         (SEQ (LETT |d1| (SPADCALL |pol1| (QREFELT $ 12)))
-              (LETT |d2| (SPADCALL |pol2| (QREFELT $ 12)))
+         (SEQ (LETT |d1| (SPADCALL |pol1| (QREFELT % 12)))
+              (LETT |d2| (SPADCALL |pol2| (QREFELT % 12)))
               (LETT |dr| (MAX |d1| |d2|))
-              (LETT |res| (SPADCALL |pol1| (+ |dr| 1) |p| (QREFELT $ 20)))
-              (SPADCALL |res| |pol2| 0 |d2| (- |p| 1) |p| (QREFELT $ 24))
+              (LETT |res| (SPADCALL |pol1| (+ |dr| 1) |p| (QREFELT % 20)))
+              (SPADCALL |res| |pol2| 0 |d2| (- |p| 1) |p| (QREFELT % 24))
               (EXIT |res|)))) 
 
 (SDEFUN |MODFT1;ini_rdata;UvIL;13|
         ((|pol| (|U32Vector|)) (|p| (|Integer|))
-         ($
+         (%
           (|List|
            #1=(|Record| (|:| |ind| (|NonNegativeInteger|))
                         (|:| |poly| (|U32Vector|))))))
@@ -99,8 +99,8 @@
          ((|res| (|List| #1#)) (|tmp1| (|U32Vector|)) (#2=#:G153 NIL) (|i| NIL)
           (|ni| #3=(|Integer|)) (|ii| #3#) (|nn| (|Integer|))
           (|tmp| (|U32Vector|)) (|n1| #3#) (|n| (|NonNegativeInteger|)))
-         (SEQ (LETT |pol| (SPADCALL |pol| (QREFELT $ 27)))
-              (LETT |n| (SPADCALL |pol| (QREFELT $ 12)))
+         (SEQ (LETT |pol| (SPADCALL |pol| (QREFELT % 27)))
+              (LETT |n| (SPADCALL |pol| (QREFELT % 12)))
               (LETT |res| (LIST (CONS |p| |pol|)))
               (LETT |ni| (LETT |n1| (- |n| 1)))
               (LETT |tmp| (GETREFV_U32 (* 2 |n1|) 0))
@@ -114,8 +114,8 @@
                              (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                              (EXIT NIL))
                         (SETELT_U32 |tmp| |ii| 1)
-                        (SPADCALL |tmp| |pol| |p| (QREFELT $ 28))
-                        (LETT |tmp1| (SPADCALL |tmp| |n| |p| (QREFELT $ 20)))
+                        (SPADCALL |tmp| |pol| |p| (QREFELT % 28))
+                        (LETT |tmp1| (SPADCALL |tmp| |n| |p| (QREFELT % 20)))
                         (EXIT (LETT |res| (CONS (CONS |ii| |tmp1|) |res|))))
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT (NREVERSE |res|))))) 
@@ -125,7 +125,7 @@
           (|List|
            (|Record| (|:| |ind| (|NonNegativeInteger|))
                      (|:| |poly| (|U32Vector|)))))
-         ($ (|Integer|)))
+         (% (|Integer|)))
         (SPROG
          ((|r0|
            (|Record| (|:| |ind| (|NonNegativeInteger|))
@@ -134,7 +134,7 @@
 
 (SDEFUN |MODFT1;copy_slice2|
         ((|np| (|U32Vector|)) (|op| (|U32Vector|)) (|n| (|Integer|))
-         (|m| (|Integer|)) ($ (|Void|)))
+         (|m| (|Integer|)) (% (|Void|)))
         (SPROG ((#1=#:G160 NIL) (|i| NIL))
                (SEQ (LETT |i| 0) (LETT #1# (- |m| 1)) G190
                     (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -148,7 +148,7 @@
           (|List|
            (|Record| (|:| |ind| (|NonNegativeInteger|))
                      (|:| |poly| (|U32Vector|)))))
-         ($ (|U32Vector|)))
+         (% (|U32Vector|)))
         (SPROG
          ((#1=#:G181 NIL) (|i| NIL) (#2=#:G180 NIL) (|n1| #3=(|Integer|))
           (|mi| #4=(|Integer|)) (|tmp| (|U32Vector|)) (|mi0| #4#) (|ni| #3#)
@@ -158,14 +158,14 @@
            (|Record| (|:| |ind| (|NonNegativeInteger|))
                      (|:| |poly| (|U32Vector|)))))
          (SEQ (LETT |r0| (|SPADfirst| |rdata|)) (LETT |p| (QCAR |r0|))
-              (LETT |f| (QCDR |r0|)) (LETT |n0| (SPADCALL |f| (QREFELT $ 12)))
+              (LETT |f| (QCDR |r0|)) (LETT |n0| (SPADCALL |f| (QREFELT % 12)))
               (LETT |rdata| (CDR |rdata|))
               (SEQ (LETT |ri| NIL) (LETT #6# |rdata|) G190
                    (COND
                     ((OR (ATOM #6#) (PROGN (LETT |ri| (CAR #6#)) NIL))
                      (GO G191)))
                    (SEQ (LETT |ii| (QCAR |ri|))
-                        (LETT |ni| (SPADCALL |pol| (QREFELT $ 12)))
+                        (LETT |ni| (SPADCALL |pol| (QREFELT % 12)))
                         (EXIT
                          (COND
                           ((>= |ni| |ii|)
@@ -175,11 +175,11 @@
                                  ((<= |mi| |mi0|)
                                   (SEQ (LETT |tmp| (GETREFV_U32 |mi| 0))
                                        (|MODFT1;copy_slice2| |tmp| |pol| |ii|
-                                        |mi| $)
+                                        |mi| %)
                                        (EXIT
                                         (SPADCALL |tmp| (QCDR |ri|) |pol|
                                                   (- (+ |n0| |mi|) 2) |p|
-                                                  (QREFELT $ 33)))))
+                                                  (QREFELT % 33)))))
                                  ('T
                                   (SEQ (LETT |tmp| (GETREFV_U32 |mi0| 0))
                                        (LETT |n1| |ni|)
@@ -196,7 +196,7 @@
                                                 ((< |mi| |mi0|)
                                                  (SEQ
                                                   (|MODFT1;copy_slice2| |tmp|
-                                                   |pol| |ii| |mi| $)
+                                                   |pol| |ii| |mi| %)
                                                   (SEQ (LETT |i| |mi|)
                                                        (LETT #2# (- |mi0| 1))
                                                        G190
@@ -216,18 +216,18 @@
                                                              (- (+ |n0| |mi|)
                                                                 2)
                                                              |p|
-                                                             (QREFELT $ 33)))))
+                                                             (QREFELT % 33)))))
                                                 ('T
                                                  (SEQ
                                                   (|MODFT1;copy_slice2| |tmp|
-                                                   |pol| (+ |n1| 1) |mi0| $)
+                                                   |pol| (+ |n1| 1) |mi0| %)
                                                   (EXIT
                                                    (SPADCALL |tmp| (QCDR |ri|)
                                                              |pol|
                                                              (+ (- |n1| |ii|)
                                                                 1)
                                                              (+ |n1| 1) |p|
-                                                             (QREFELT $
+                                                             (QREFELT %
                                                                       34))))))))
                                              NIL (GO G190) G191 (EXIT NIL))))))
                                 (EXIT
@@ -237,7 +237,7 @@
                                       (LETT |i| (+ |i| 1)) (GO G190) G191
                                       (EXIT NIL))))))))
                    (LETT #6# (CDR #6#)) (GO G190) G191 (EXIT NIL))
-              (SPADCALL |pol| |f| |p| (QREFELT $ 28)) (EXIT |pol|)))) 
+              (SPADCALL |pol| |f| |p| (QREFELT % 28)) (EXIT |pol|)))) 
 
 (SDEFUN |MODFT1;mul_and_red|
         ((|res| (|U32Vector|)) (|pow| (|U32Vector|))
@@ -245,7 +245,7 @@
           (|List|
            (|Record| (|:| |ind| #1=(|NonNegativeInteger|))
                      (|:| |poly| (|U32Vector|)))))
-         ($ (|Void|)))
+         (% (|Void|)))
         (SPROG
          ((#2=#:G187 NIL) (|i| NIL) (|n| #3=(|NonNegativeInteger|)) (|n1| #3#)
           (|res1| (|U32Vector|)) (|p| #1#)
@@ -253,10 +253,10 @@
            (|Record| (|:| |ind| (|NonNegativeInteger|))
                      (|:| |poly| (|U32Vector|)))))
          (SEQ (LETT |r0| (|SPADfirst| |rdata|)) (LETT |p| (QCAR |r0|))
-              (LETT |res1| (SPADCALL |pow| |res| |p| (QREFELT $ 36)))
-              (LETT |res1| (SPADCALL |res1| |rdata| (QREFELT $ 35)))
+              (LETT |res1| (SPADCALL |pow| |res| |p| (QREFELT % 36)))
+              (LETT |res1| (SPADCALL |res1| |rdata| (QREFELT % 35)))
               (LETT |n1| (QV_LEN_U32 |res1|)) (LETT |n| (QV_LEN_U32 |res|))
-              (SPADCALL |res| |res1| (MIN |n| |n1|) (QREFELT $ 19))
+              (SPADCALL |res| |res1| (MIN |n| |n1|) (QREFELT % 19))
               (EXIT
                (SEQ (LETT |i| |n1|) (LETT #2# (- |n| 1)) G190
                     (COND ((> |i| #2#) (GO G191)))
@@ -269,7 +269,7 @@
           (|List|
            (|Record| (|:| |ind| (|NonNegativeInteger|))
                      (|:| |poly| (|U32Vector|)))))
-         ($ (|U32Vector|)))
+         (% (|U32Vector|)))
         (SPROG
          ((#1=#:G196 NIL) (|has_res| (|Boolean|)) (|res| (|U32Vector|))
           (|pow| (|U32Vector|)) (|m| (|NonNegativeInteger|))
@@ -282,8 +282,8 @@
                 ('T
                  (SEQ (LETT |r0| (|SPADfirst| |rdata|)) (LETT |p| (QCAR |r0|))
                       (LETT |f| (QCDR |r0|))
-                      (LETT |m| (SPADCALL |f| (QREFELT $ 12)))
-                      (LETT |pow| (SPADCALL |pol| |m| |p| (QREFELT $ 20)))
+                      (LETT |m| (SPADCALL |f| (QREFELT % 12)))
+                      (LETT |pow| (SPADCALL |pol| |m| |p| (QREFELT % 20)))
                       (LETT |res| (GETREFV_U32 |m| 0)) (LETT |has_res| NIL)
                       (SEQ
                        (EXIT
@@ -293,10 +293,10 @@
                                ((ODDP |n|)
                                 (COND
                                  (|has_res|
-                                  (|MODFT1;mul_and_red| |res| |pow| |rdata| $))
+                                  (|MODFT1;mul_and_red| |res| |pow| |rdata| %))
                                  ('T
                                   (SEQ
-                                   (SPADCALL |res| |pow| |m| (QREFELT $ 19))
+                                   (SPADCALL |res| |pow| |m| (QREFELT % 19))
                                    (EXIT (LETT |has_res| 'T)))))))
                               (LETT |n| (QUOTIENT2 |n| 2))
                               (EXIT
@@ -305,21 +305,21 @@
                                  (PROGN (LETT #1# |$NoValue|) (GO #2=#:G193)))
                                 ('T
                                  (|MODFT1;mul_and_red| |pow| |pow| |rdata|
-                                  $)))))
+                                  %)))))
                              NIL (GO G190) G191 (EXIT NIL)))
                        #2# (EXIT #1#))
                       (EXIT |res|))))))) 
 
 (PUT '|MODFT1;empty_mat;Um;19| '|SPADreplace| '(XLAM NIL (MAKE_MATRIX_U32 0 0))) 
 
-(SDEFUN |MODFT1;empty_mat;Um;19| (($ (|U32Matrix|))) (MAKE_MATRIX_U32 0 0)) 
+(SDEFUN |MODFT1;empty_mat;Um;19| ((% (|U32Matrix|))) (MAKE_MATRIX_U32 0 0)) 
 
-(SDEFUN |MODFT1;empty_mat?;UmB;20| ((|mat| (|U32Matrix|)) ($ (|Boolean|)))
-        (SPADCALL |mat| (QREFELT $ 41))) 
+(SDEFUN |MODFT1;empty_mat?;UmB;20| ((|mat| (|U32Matrix|)) (% (|Boolean|)))
+        (SPADCALL |mat| (QREFELT % 41))) 
 
 (SDEFUN |MODFT1;mmul|
         ((|m1| (|U32Matrix|)) (|m2| (|U32Matrix|)) (|d2| (|Integer|))
-         (|p| (|Integer|)) ($ (|U32Matrix|)))
+         (|p| (|Integer|)) (% (|U32Matrix|)))
         (SPROG
          ((|ss| (|Integer|)) (#1=#:G212 NIL) (|k| NIL) (#2=#:G211 NIL)
           (|j| NIL) (#3=#:G210 NIL) (|i| NIL) (|res| (|U32Matrix|))
@@ -363,7 +363,7 @@
                       (EXIT |res|)))))))) 
 
 (SDEFUN |MODFT1;copy_mat_part;UmIUm;22|
-        ((|m| (|U32Matrix|)) (|nr| (|Integer|)) ($ (|U32Matrix|)))
+        ((|m| (|U32Matrix|)) (|nr| (|Integer|)) (% (|U32Matrix|)))
         (SPROG
          ((#1=#:G220 NIL) (|j| NIL) (#2=#:G219 NIL) (|i| NIL)
           (|res| (|U32Matrix|)) (|nc| (|Integer|)))
@@ -385,7 +385,7 @@
               (EXIT |res|)))) 
 
 (SDEFUN |MODFT1;shift_mat!;Um2IV;23|
-        ((|m| (|U32Matrix|)) (|sa| #1=(|Integer|)) (|nr| #1#) ($ (|Void|)))
+        ((|m| (|U32Matrix|)) (|sa| #1=(|Integer|)) (|nr| #1#) (% (|Void|)))
         (SPROG
          ((#2=#:G228 NIL) (|j| NIL) (#3=#:G227 NIL) (|i| NIL)
           (|nc| (|Integer|)))
@@ -411,7 +411,7 @@
           (|List|
            (|Record| (|:| |ind| (|NonNegativeInteger|))
                      (|:| |poly| (|U32Vector|)))))
-         ($ (|Void|)))
+         (% (|Void|)))
         (SPROG
          ((#2=#:G242 NIL) (|i| NIL) (|tmp1| (|U32Vector|)) (#3=#:G241 NIL)
           (#4=#:G240 NIL) (|j| NIL) (|tmp| (|U32Vector|)) (|nc| (|Integer|)))
@@ -433,7 +433,7 @@
                                   (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                                   (EXIT NIL))
                              (LETT |tmp1|
-                                   (SPADCALL |tmp| |rdata| (QREFELT $ 35)))
+                                   (SPADCALL |tmp| |rdata| (QREFELT % 35)))
                              (EXIT
                               (SEQ (LETT |i| 0) (LETT #2# (- |nr1| 1)) G190
                                    (COND ((|greater_SI| |i| #2#) (GO G191)))
@@ -452,7 +452,7 @@
           #2=(|List|
               (|Record| (|:| |ind| (|NonNegativeInteger|))
                         (|:| |poly| (|U32Vector|)))))
-         (|rdata2| #2#) ($ (|Void|)))
+         (|rdata2| #2#) (% (|Void|)))
         (SPROG
          ((#3=#:G261 NIL) (|i| NIL) (|rtmp| (|U32Vector|)) (#4=#:G260 NIL)
           (#5=#:G259 NIL) (#6=#:G258 NIL) (|j| NIL) (|tmp2| #7=(|U32Vector|))
@@ -482,7 +482,7 @@
                          ((< |j| |nr1|)
                           (SEQ
                            (LETT |rtmp|
-                                 (SPADCALL |tmp1| |rdata1| (QREFELT $ 35)))
+                                 (SPADCALL |tmp1| |rdata1| (QREFELT % 35)))
                            (EXIT
                             (SEQ (LETT |i| 0) (LETT #4# (- |nr1| 1)) G190
                                  (COND ((|greater_SI| |i| #4#) (GO G191)))
@@ -497,7 +497,7 @@
                           ((< |j| |nr2|)
                            (SEQ
                             (LETT |rtmp|
-                                  (SPADCALL |tmp2| |rdata2| (QREFELT $ 35)))
+                                  (SPADCALL |tmp2| |rdata2| (QREFELT % 35)))
                             (EXIT
                              (SEQ (LETT |i| 0) (LETT #3# (- |nr2| 1)) G190
                                   (COND ((|greater_SI| |i| #3#) (GO G191)))
@@ -516,7 +516,7 @@
           (|List|
            (|Record| (|:| |ind| (|NonNegativeInteger|))
                      (|:| |poly| (|U32Vector|)))))
-         ($ (|Record| (|:| |matr| (|U32Matrix|)) (|:| |poly| (|U32Vector|)))))
+         (% (|Record| (|:| |matr| (|U32Matrix|)) (|:| |poly| (|U32Vector|)))))
         (SPROG
          ((#1=#:G273 NIL) (|k| NIL) (#2=#:G272 NIL) (|j| NIL)
           (|n1| (|SingleInteger|)) (|l1| (|Integer|)) (|pow| (|U32Vector|))
@@ -526,10 +526,10 @@
            (|Record| (|:| |ind| (|NonNegativeInteger|))
                      (|:| |poly| (|U32Vector|)))))
          (SEQ (LETT |r0| (|SPADfirst| |rdata|)) (LETT |p| (QCAR |r0|))
-              (LETT |f| (QCDR |r0|)) (LETT |n| (SPADCALL |f| (QREFELT $ 12)))
+              (LETT |f| (QCDR |r0|)) (LETT |n| (SPADCALL |f| (QREFELT % 12)))
               (LETT |pm| (MAKE_MATRIX1_U32 |n| |l| 0))
               (SETAREF2_U32 |pm| 0 0 1)
-              (LETT |pow| (SPADCALL |xp| |n| |p| (QREFELT $ 20)))
+              (LETT |pow| (SPADCALL |xp| |n| |p| (QREFELT % 20)))
               (LETT |l1| (- |l| 1)) (LETT |n1| (- |n| 1))
               (SEQ (LETT |j| 1) (LETT #2# |l1|) G190
                    (COND ((|greater_SI| |j| #2#) (GO G191)))
@@ -540,7 +540,7 @@
                           (EXIT
                            (SETAREF2_U32 |pm| |k| |j| (ELT_U32 |pow| |k|))))
                          (LETT |k| (|inc_SI| |k|)) (GO G190) G191 (EXIT NIL))
-                    (EXIT (|MODFT1;mul_and_red| |pow| |xp| |rdata| $)))
+                    (EXIT (|MODFT1;mul_and_red| |pow| |xp| |rdata| %)))
                    (LETT |j| (|inc_SI| |j|)) (GO G190) G191 (EXIT NIL))
               (EXIT (CONS |pm| |pow|))))) 
 
@@ -551,7 +551,7 @@
           (|List|
            (|Record| (|:| |ind| (|NonNegativeInteger|))
                      (|:| |poly| (|U32Vector|)))))
-         ($ (|U32Vector|)))
+         (% (|U32Vector|)))
         (SPROG
          ((#2=#:G291 NIL) (|i| (|SingleInteger|)) (|k| NIL)
           (|ns1| (|SingleInteger|)) (|res| #3=(|U32Vector|)) (|p1| #3#)
@@ -564,8 +564,8 @@
            (|Record| (|:| |ind| (|NonNegativeInteger|))
                      (|:| |poly| (|U32Vector|)))))
          (SEQ (LETT |r0| (|SPADfirst| |rdata|)) (LETT |p| (QCAR |r0|))
-              (LETT |f| (QCDR |r0|)) (LETT |n| (SPADCALL |f| (QREFELT $ 12)))
-              (LETT |ns| |n|) (LETT |dp0| (SPADCALL |pol| (QREFELT $ 12)))
+              (LETT |f| (QCDR |r0|)) (LETT |n| (SPADCALL |f| (QREFELT % 12)))
+              (LETT |ns| |n|) (LETT |dp0| (SPADCALL |pol| (QREFELT % 12)))
               (EXIT
                (COND ((< |dp0| 0) (GETREFV_U32 |n| 0))
                      (#8='T
@@ -592,10 +592,10 @@
                                        (EXIT NIL))))
                                 (LETT |j| (|inc_SI| |j|)) (GO G190) G191
                                 (EXIT NIL))
-                           (LETT |m2| (|MODFT1;mmul| |m1| |pm| |n| |p| $))
+                           (LETT |m2| (|MODFT1;mmul| |m1| |pm| |n| |p| %))
                            (EXIT
                             (COND
-                             ((SPADCALL (ANCOLS_U32 |m2|) |n| (QREFELT $ 50))
+                             ((SPADCALL (ANCOLS_U32 |m2|) |n| (QREFELT % 50))
                               (|error|
                                "modular_compose: unexpected dimension of m2"))
                              (#8#
@@ -620,10 +620,10 @@
                                          (COND
                                           ((< |k| |k1|)
                                            (|MODFT1;mul_and_red| |res| |xp1|
-                                            |rdata| $)))
+                                            |rdata| %)))
                                          (EXIT
                                           (SPADCALL |res| |p1| 0 |ns1| 1 |p|
-                                                    (QREFELT $ 24))))
+                                                    (QREFELT % 24))))
                                         (LETT |k| (+ |k| -1)) (GO G190) G191
                                         (EXIT NIL))
                                    (EXIT |res|)))))))))))) 
@@ -654,17 +654,17 @@
                         '|ModularFactorizationTools1|)))))))))) 
 
 (DEFUN |ModularFactorizationTools1;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|ModularFactorizationTools1|))
-          (LETT $ (GETREFV 52))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (LETT % (GETREFV 52))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|ModularFactorizationTools1| NIL
-                      (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|ModularFactorizationTools1| '|infovec|
           (LIST

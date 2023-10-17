@@ -27,11 +27,11 @@
                                                   '|t#1|)
                                                  (|mkCategory|
                                                   '(((|insert!|
-                                                      ($ |t#1| $
+                                                      (% |t#1| %
                                                        (|NonNegativeInteger|)))
                                                      T)
                                                     ((|removeDuplicates!|
-                                                      ($ $))
+                                                      (% %))
                                                      T)
                                                     ((|duplicates|
                                                       ((|List|
@@ -39,7 +39,7 @@
                                                          (|:| |entry| |t#1|)
                                                          (|:| |count|
                                                               (|NonNegativeInteger|))))
-                                                       $))
+                                                       %))
                                                      T))
                                                   NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|MultiDictionary| |t#1|))))) 

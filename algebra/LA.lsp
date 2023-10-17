@@ -1,17 +1,17 @@
 
-(SDEFUN |LA;One;$;1| (($ ($)))
-        (SPADCALL (|spadConstant| $ 8) (|spadConstant| $ 9) (QREFELT $ 10))) 
+(SDEFUN |LA;One;%;1| ((% (%)))
+        (SPADCALL (|spadConstant| % 8) (|spadConstant| % 9) (QREFELT % 10))) 
 
-(SDEFUN |LA;*;3$;2| ((|x| ($)) (|y| ($)) ($ ($)))
+(SDEFUN |LA;*;3%;2| ((|x| (%)) (|y| (%)) (% (%)))
         (SPADCALL
-         (SPADCALL (SPADCALL |x| (QREFELT $ 12)) (SPADCALL |y| (QREFELT $ 12))
-                   (QREFELT $ 13))
-         (SPADCALL (SPADCALL |x| (QREFELT $ 14)) (SPADCALL |y| (QREFELT $ 14))
-                   (QREFELT $ 15))
-         (QREFELT $ 10))) 
+         (SPADCALL (SPADCALL |x| (QREFELT % 12)) (SPADCALL |y| (QREFELT % 12))
+                   (QREFELT % 13))
+         (SPADCALL (SPADCALL |x| (QREFELT % 14)) (SPADCALL |y| (QREFELT % 14))
+                   (QREFELT % 15))
+         (QREFELT % 10))) 
 
-(SDEFUN |LA;characteristic;Nni;3| (($ (|NonNegativeInteger|)))
-        (SPADCALL (QREFELT $ 18))) 
+(SDEFUN |LA;characteristic;Nni;3| ((% (|NonNegativeInteger|)))
+        (SPADCALL (QREFELT % 18))) 
 
 (DECLAIM (NOTINLINE |LocalAlgebra;|)) 
 
@@ -33,36 +33,36 @@
                  ((NOT #2#) (HREM |$ConstructorCache| '|LocalAlgebra|)))))))))) 
 
 (DEFUN |LocalAlgebra;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|LocalAlgebra| DV$1 DV$2))
-          (LETT $ (GETREFV 28))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3
+          (LETT % (GETREFV 28))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
                                               (|HasCategory| |#1|
                                                              '(|OrderedRing|))))))
           (|haddProp| |$ConstructorCache| '|LocalAlgebra| (LIST DV$1 DV$2)
-                      (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (QSETREFV $ 7 |#2|)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (QSETREFV % 7 |#2|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|LocalAlgebra| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|Localize| 6 7) (|local| |#1|)
               (|local| |#2|) (0 . |One|) (4 . |One|) (8 . /)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |LA;One;$;1|) $))
-              (14 . |numer|) (19 . *) (25 . |denom|) (30 . *) |LA;*;3$;2|
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |LA;One;%;1|) %))
+              (14 . |numer|) (19 . *) (25 . |denom|) (30 . *) |LA;*;3%;2|
               (|NonNegativeInteger|) (36 . |characteristic|)
               |LA;characteristic;Nni;3| (|Integer|) (|Boolean|)
-              (|Union| $ '"failed") (|PositiveInteger|) (|HashState|)
+              (|Union| % '"failed") (|PositiveInteger|) (|HashState|)
               (|String|) (|OutputForm|) (|SingleInteger|))
            '#(~= 40 |zero?| 46 |subtractIfCan| 51 |smaller?| 57 |sign| 63
               |sample| 68 |rightRecip| 72 |rightPower| 77 |recip| 89

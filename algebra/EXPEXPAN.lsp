@@ -11,7 +11,7 @@
                          (|List|
                           (|Record| (|:| |k| (|Fraction| (|Integer|)))
                                     (|:| |c| FE))))))
-         ($ (|UnivariatePuiseuxSeries| FE |var| |cen|)))
+         (% (|UnivariatePuiseuxSeries| FE |var| |cen|)))
         (QVELT |term| 0)) 
 
 (PUT '|EXPEXPAN;exponent| '|SPADreplace| '(XLAM (|term|) (QVELT |term| 1))) 
@@ -26,25 +26,25 @@
                          (|List|
                           (|Record| (|:| |k| (|Fraction| (|Integer|)))
                                     (|:| |c| FE))))))
-         ($ (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|)))
+         (% (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|)))
         (QVELT |term| 1)) 
 
 (SDEFUN |EXPEXPAN;upxssingIfCan|
-        ((|f| ($))
-         ($
+        ((|f| (%))
+         (%
           (|Union|
            (|UnivariatePuiseuxSeriesWithExponentialSingularity| R FE |var|
                                                                 |cen|)
            "failed")))
         (COND
-         ((SPADCALL (SPADCALL |f| (QREFELT $ 17)) (|spadConstant| $ 18)
-                    (QREFELT $ 20))
-          (CONS 0 (SPADCALL |f| (QREFELT $ 21))))
+         ((SPADCALL (SPADCALL |f| (QREFELT % 17)) (|spadConstant| % 18)
+                    (QREFELT % 20))
+          (CONS 0 (SPADCALL |f| (QREFELT % 21))))
          ('T (CONS 1 "failed")))) 
 
-(SDEFUN |EXPEXPAN;retractIfCan;$U;4|
-        ((|f| ($))
-         ($ (|Union| (|UnivariatePuiseuxSeries| FE |var| |cen|) "failed")))
+(SDEFUN |EXPEXPAN;retractIfCan;%U;4|
+        ((|f| (%))
+         (% (|Union| (|UnivariatePuiseuxSeries| FE |var| |cen|) "failed")))
         (SPROG
          ((|fff| (|Union| (|UnivariatePuiseuxSeries| FE |var| |cen|) "failed"))
           (|ff|
@@ -52,34 +52,34 @@
             (|UnivariatePuiseuxSeriesWithExponentialSingularity| R FE |var|
                                                                  |cen|)
             "failed")))
-         (SEQ (LETT |ff| (|EXPEXPAN;upxssingIfCan| |f| $))
+         (SEQ (LETT |ff| (|EXPEXPAN;upxssingIfCan| |f| %))
               (EXIT
                (COND ((QEQCAR |ff| 1) (CONS 1 "failed"))
                      (#1='T
-                      (SEQ (LETT |fff| (SPADCALL (QCDR |ff|) (QREFELT $ 23)))
+                      (SEQ (LETT |fff| (SPADCALL (QCDR |ff|) (QREFELT % 23)))
                            (EXIT
                             (COND ((QEQCAR |fff| 1) (CONS 1 "failed"))
                                   (#1# (CONS 0 (QCDR |fff|)))))))))))) 
 
-(SDEFUN |EXPEXPAN;/;2Upswes$;5|
+(SDEFUN |EXPEXPAN;/;2Upswes%;5|
         ((|f|
           #1=(|UnivariatePuiseuxSeriesWithExponentialSingularity| R FE |var|
                                                                   |cen|))
-         (|g| #1#) ($ ($)))
+         (|g| #1#) (% (%)))
         (SPROG
          ((|rec|
            (|Union|
             (|UnivariatePuiseuxSeriesWithExponentialSingularity| R FE |var|
                                                                  |cen|)
             "failed")))
-         (SEQ (LETT |rec| (SPADCALL |g| (QREFELT $ 26)))
+         (SEQ (LETT |rec| (SPADCALL |g| (QREFELT % 26)))
               (EXIT
-               (COND ((QEQCAR |rec| 1) (SPADCALL |f| |g| (QREFELT $ 27)))
+               (COND ((QEQCAR |rec| 1) (SPADCALL |f| |g| (QREFELT % 27)))
                      ('T
-                      (SPADCALL |f| (SPADCALL (QCDR |rec|) (QREFELT $ 28))
-                                (QREFELT $ 29)))))))) 
+                      (SPADCALL |f| (SPADCALL (QCDR |rec|) (QREFELT % 28))
+                                (QREFELT % 29)))))))) 
 
-(SDEFUN |EXPEXPAN;/;3$;6| ((|f| ($)) (|g| ($)) ($ ($)))
+(SDEFUN |EXPEXPAN;/;3%;6| ((|f| (%)) (|g| (%)) (% (%)))
         (SPROG
          ((|rec|
            (|Union|
@@ -87,49 +87,49 @@
                                                                  |cen|)
             "failed")))
          (SEQ
-          (LETT |rec| (SPADCALL (SPADCALL |g| (QREFELT $ 21)) (QREFELT $ 26)))
+          (LETT |rec| (SPADCALL (SPADCALL |g| (QREFELT % 21)) (QREFELT % 26)))
           (EXIT
-           (COND ((QEQCAR |rec| 1) (SPADCALL |f| |g| (QREFELT $ 31)))
+           (COND ((QEQCAR |rec| 1) (SPADCALL |f| |g| (QREFELT % 31)))
                  ('T
                   (SPADCALL
-                   (SPADCALL (QCDR |rec|) (SPADCALL |g| (QREFELT $ 17))
-                             (QREFELT $ 32))
-                   |f| (QREFELT $ 29)))))))) 
+                   (SPADCALL (QCDR |rec|) (SPADCALL |g| (QREFELT % 17))
+                             (QREFELT % 32))
+                   |f| (QREFELT % 29)))))))) 
 
-(SDEFUN |EXPEXPAN;coerce;Ups$;7|
-        ((|f| (|UnivariatePuiseuxSeries| FE |var| |cen|)) ($ ($)))
-        (SPADCALL (SPADCALL |f| (QREFELT $ 35)) (QREFELT $ 28))) 
+(SDEFUN |EXPEXPAN;coerce;Ups%;7|
+        ((|f| (|UnivariatePuiseuxSeries| FE |var| |cen|)) (% (%)))
+        (SPADCALL (SPADCALL |f| (QREFELT % 35)) (QREFELT % 28))) 
 
 (SDEFUN |EXPEXPAN;seriesQuotientLimit|
         ((|num| (|UnivariatePuiseuxSeries| FE |var| |cen|))
          (|den| (|UnivariatePuiseuxSeries| FE |var| |cen|))
-         ($ (|Union| (|OrderedCompletion| FE) "failed")))
+         (% (|Union| (|OrderedCompletion| FE) "failed")))
         (SPROG
          ((#1=#:G152 NIL) (|sig| (|Union| (|Integer|) "failed")) (|coef| (FE))
           (|ord| (|Fraction| (|Integer|)))
           (|series| (|UnivariatePuiseuxSeries| FE |var| |cen|)))
          (SEQ
           (EXIT
-           (SEQ (LETT |series| (SPADCALL |num| |den| (QREFELT $ 37)))
+           (SEQ (LETT |series| (SPADCALL |num| |den| (QREFELT % 37)))
                 (LETT |ord|
-                      (SPADCALL |series| (|spadConstant| $ 38) (QREFELT $ 39)))
+                      (SPADCALL |series| (|spadConstant| % 38) (QREFELT % 39)))
                 (EXIT
                  (COND
-                  ((SPADCALL |ord| (|spadConstant| $ 41) (QREFELT $ 42))
-                   (CONS 0 (SPADCALL (|spadConstant| $ 40) (QREFELT $ 44))))
+                  ((SPADCALL |ord| (|spadConstant| % 41) (QREFELT % 42))
+                   (CONS 0 (SPADCALL (|spadConstant| % 40) (QREFELT % 44))))
                   (#2='T
-                   (SEQ (LETT |coef| (SPADCALL |series| |ord| (QREFELT $ 45)))
+                   (SEQ (LETT |coef| (SPADCALL |series| |ord| (QREFELT % 45)))
                         (EXIT
                          (COND
-                          ((SPADCALL (QREFELT $ 8)
-                                     (SPADCALL |coef| (QREFELT $ 47))
-                                     (QREFELT $ 49))
+                          ((SPADCALL (QREFELT % 8)
+                                     (SPADCALL |coef| (QREFELT % 47))
+                                     (QREFELT % 49))
                            (CONS 1 "failed"))
-                          ((SPADCALL |ord| (|spadConstant| $ 41)
-                                     (QREFELT $ 50))
-                           (CONS 0 (SPADCALL |coef| (QREFELT $ 44))))
+                          ((SPADCALL |ord| (|spadConstant| % 41)
+                                     (QREFELT % 50))
+                           (CONS 0 (SPADCALL |coef| (QREFELT % 44))))
                           (#2#
-                           (SEQ (LETT |sig| (SPADCALL |coef| (QREFELT $ 53)))
+                           (SEQ (LETT |sig| (SPADCALL |coef| (QREFELT % 53)))
                                 (EXIT
                                  (COND
                                   ((QEQCAR |sig| 1)
@@ -137,50 +137,50 @@
                                     (LETT #1# (CONS 1 "failed"))
                                     (GO #3=#:G151)))
                                   ((EQL (QCDR |sig|) 1)
-                                   (CONS 0 (SPADCALL (QREFELT $ 54))))
+                                   (CONS 0 (SPADCALL (QREFELT % 54))))
                                   (#2#
                                    (CONS 0
                                          (SPADCALL
-                                          (QREFELT $ 55))))))))))))))))
+                                          (QREFELT % 55))))))))))))))))
           #3# (EXIT #1#)))) 
 
 (SDEFUN |EXPEXPAN;seriesQuotientInfinity|
         ((|num| (|UnivariatePuiseuxSeries| FE |var| |cen|))
          (|den| (|UnivariatePuiseuxSeries| FE |var| |cen|))
-         ($ (|Union| (|OrderedCompletion| FE) "failed")))
+         (% (|Union| (|OrderedCompletion| FE) "failed")))
         (SPROG
          ((#1=#:G165 NIL) (|sig| (|Union| (|Integer|) "failed")) (|cc| (FE))
           (|denOrd| #2=(|Fraction| (|Integer|))) (|numOrd| #2#))
          (SEQ
           (EXIT
-           (SEQ (LETT |numOrd| (SPADCALL |num| (QREFELT $ 15) (QREFELT $ 39)))
+           (SEQ (LETT |numOrd| (SPADCALL |num| (QREFELT % 15) (QREFELT % 39)))
                 (EXIT
                  (COND
-                  ((SPADCALL |numOrd| (QREFELT $ 15) (QREFELT $ 50))
+                  ((SPADCALL |numOrd| (QREFELT % 15) (QREFELT % 50))
                    (CONS 1 "failed"))
                   (#3='T
                    (SEQ
                     (LETT |denOrd|
-                          (SPADCALL |den| (QREFELT $ 15) (QREFELT $ 39)))
+                          (SPADCALL |den| (QREFELT % 15) (QREFELT % 39)))
                     (EXIT
                      (COND
-                      ((SPADCALL |denOrd| (QREFELT $ 15) (QREFELT $ 50))
+                      ((SPADCALL |denOrd| (QREFELT % 15) (QREFELT % 50))
                        (CONS 1 "failed"))
                       (#3#
                        (SEQ
                         (LETT |cc|
                               (SPADCALL
-                               (SPADCALL |num| |numOrd| (QREFELT $ 45))
-                               (SPADCALL |den| |denOrd| (QREFELT $ 45))
-                               (QREFELT $ 56)))
+                               (SPADCALL |num| |numOrd| (QREFELT % 45))
+                               (SPADCALL |den| |denOrd| (QREFELT % 45))
+                               (QREFELT % 56)))
                         (EXIT
                          (COND
-                          ((SPADCALL (QREFELT $ 8)
-                                     (SPADCALL |cc| (QREFELT $ 47))
-                                     (QREFELT $ 49))
+                          ((SPADCALL (QREFELT % 8)
+                                     (SPADCALL |cc| (QREFELT % 47))
+                                     (QREFELT % 49))
                            (CONS 1 "failed"))
                           (#3#
-                           (SEQ (LETT |sig| (SPADCALL |cc| (QREFELT $ 53)))
+                           (SEQ (LETT |sig| (SPADCALL |cc| (QREFELT % 53)))
                                 (EXIT
                                  (COND
                                   ((QEQCAR |sig| 1)
@@ -188,15 +188,15 @@
                                     (LETT #1# (CONS 1 "failed"))
                                     (GO #4=#:G164)))
                                   ((EQL (QCDR |sig|) 1)
-                                   (CONS 0 (SPADCALL (QREFELT $ 54))))
+                                   (CONS 0 (SPADCALL (QREFELT % 54))))
                                   (#3#
                                    (CONS 0
                                          (SPADCALL
-                                          (QREFELT $ 55))))))))))))))))))))
+                                          (QREFELT % 55))))))))))))))))))))
           #4# (EXIT #1#)))) 
 
-(SDEFUN |EXPEXPAN;limitPlus;$U;10|
-        ((|f| ($)) ($ (|Union| (|OrderedCompletion| FE) "failed")))
+(SDEFUN |EXPEXPAN;limitPlus;%U;10|
+        ((|f| (%)) (% (|Union| (|OrderedCompletion| FE) "failed")))
         (SPROG
          ((#1=#:G189 NIL) (|sig| (|Union| (|Integer|) "failed"))
           (|expCoef| (FE))
@@ -256,20 +256,20 @@
          (SEQ
           (EXIT
            (COND
-            ((SPADCALL |f| (QREFELT $ 57))
-             (CONS 0 (SPADCALL (|spadConstant| $ 40) (QREFELT $ 44))))
+            ((SPADCALL |f| (QREFELT % 57))
+             (CONS 0 (SPADCALL (|spadConstant| % 40) (QREFELT % 44))))
             (#6='T
-             (SEQ (LETT |den| (SPADCALL |f| (QREFELT $ 17)))
+             (SEQ (LETT |den| (SPADCALL |f| (QREFELT % 17)))
                   (EXIT
                    (COND
-                    ((SPADCALL |den| (|spadConstant| $ 18) (QREFELT $ 20))
-                     (SPADCALL (SPADCALL |f| (QREFELT $ 21)) (QREFELT $ 59)))
+                    ((SPADCALL |den| (|spadConstant| % 18) (QREFELT % 20))
+                     (SPADCALL (SPADCALL |f| (QREFELT % 21)) (QREFELT % 59)))
                     (#6#
                      (SEQ
                       (LETT |numerTerm|
                             (SPADCALL
-                             (LETT |num| (SPADCALL |f| (QREFELT $ 21)))
-                             (QREFELT $ 64)))
+                             (LETT |num| (SPADCALL |f| (QREFELT % 21)))
+                             (QREFELT % 64)))
                       (EXIT
                        (COND ((QEQCAR |numerTerm| 1) (CONS 1 "failed"))
                              (#6#
@@ -278,7 +278,7 @@
                                      (QCDR
                                       (LETT |numTerm| (QCDR |numerTerm|))))
                                (LETT |denomTerm|
-                                     (SPADCALL |den| (QREFELT $ 64)))
+                                     (SPADCALL |den| (QREFELT % 64)))
                                (EXIT
                                 (COND
                                  ((QEQCAR |denomTerm| 1) (CONS 1 "failed"))
@@ -289,14 +289,14 @@
                                           (LETT |denTerm| (QCDR |denomTerm|))))
                                    (LETT |numExpon|
                                          (|EXPEXPAN;exponent| (QCAR |numTerm|)
-                                          $))
+                                          %))
                                    (LETT |denExpon|
                                          (|EXPEXPAN;exponent| (QCAR |denTerm|)
-                                          $))
+                                          %))
                                    (LETT |numCoef|
-                                         (|EXPEXPAN;coeff| (QCAR |numTerm|) $))
+                                         (|EXPEXPAN;coeff| (QCAR |numTerm|) %))
                                    (LETT |denCoef|
-                                         (|EXPEXPAN;coeff| (QCAR |denTerm|) $))
+                                         (|EXPEXPAN;coeff| (QCAR |denTerm|) %))
                                    (EXIT
                                     (COND
                                      ((EQUAL |numType| "zero")
@@ -305,25 +305,25 @@
                                         (SEQ
                                          (LETT |exponDiff|
                                                (SPADCALL |numExpon| |denExpon|
-                                                         (QREFELT $ 66)))
+                                                         (QREFELT % 66)))
                                          (EXIT
                                           (COND
                                            ((SPADCALL |exponDiff|
-                                                      (|spadConstant| $ 67)
-                                                      (QREFELT $ 68))
+                                                      (|spadConstant| % 67)
+                                                      (QREFELT % 68))
                                             (|EXPEXPAN;seriesQuotientLimit|
-                                             |numCoef| |denCoef| $))
+                                             |numCoef| |denCoef| %))
                                            (#6#
                                             (SEQ
                                              (LETT |expCoef|
                                                    (SPADCALL |exponDiff|
                                                              (SPADCALL
                                                               |exponDiff|
-                                                              (QREFELT $ 69))
-                                                             (QREFELT $ 70)))
+                                                              (QREFELT % 69))
+                                                             (QREFELT % 70)))
                                              (LETT |sig|
                                                    (SPADCALL |expCoef|
-                                                             (QREFELT $ 53)))
+                                                             (QREFELT % 53)))
                                              (EXIT
                                               (COND
                                                ((QEQCAR |sig| 1)
@@ -333,51 +333,51 @@
                                                ((EQL (QCDR |sig|) -1)
                                                 (CONS 0
                                                       (SPADCALL
-                                                       (|spadConstant| $ 40)
-                                                       (QREFELT $ 44))))
+                                                       (|spadConstant| % 40)
+                                                       (QREFELT % 44))))
                                                (#6#
                                                 (|EXPEXPAN;seriesQuotientInfinity|
                                                  |numCoef| |denCoef|
-                                                 $))))))))))
+                                                 %))))))))))
                                        (#6#
                                         (CONS 0
-                                              (SPADCALL (|spadConstant| $ 40)
-                                                        (QREFELT $ 44))))))
+                                              (SPADCALL (|spadConstant| % 40)
+                                                        (QREFELT % 44))))))
                                      ((EQUAL |numType| "series")
                                       (COND
                                        ((EQUAL |denType| "zero")
                                         (|EXPEXPAN;seriesQuotientInfinity|
-                                         |numCoef| |denCoef| $))
+                                         |numCoef| |denCoef| %))
                                        ((EQUAL |denType| "series")
                                         (|EXPEXPAN;seriesQuotientLimit|
-                                         |numCoef| |denCoef| $))
+                                         |numCoef| |denCoef| %))
                                        (#6#
                                         (CONS 0
-                                              (SPADCALL (|spadConstant| $ 40)
-                                                        (QREFELT $ 44))))))
+                                              (SPADCALL (|spadConstant| % 40)
+                                                        (QREFELT % 44))))))
                                      ((EQUAL |denType| "infinity")
                                       (SEQ
                                        (LETT |exponDiff|
                                              (SPADCALL |numExpon| |denExpon|
-                                                       (QREFELT $ 66)))
+                                                       (QREFELT % 66)))
                                        (EXIT
                                         (COND
                                          ((SPADCALL |exponDiff|
-                                                    (|spadConstant| $ 67)
-                                                    (QREFELT $ 68))
+                                                    (|spadConstant| % 67)
+                                                    (QREFELT % 68))
                                           (|EXPEXPAN;seriesQuotientLimit|
-                                           |numCoef| |denCoef| $))
+                                           |numCoef| |denCoef| %))
                                          (#6#
                                           (SEQ
                                            (LETT |expCoef|
                                                  (SPADCALL |exponDiff|
                                                            (SPADCALL
                                                             |exponDiff|
-                                                            (QREFELT $ 69))
-                                                           (QREFELT $ 70)))
+                                                            (QREFELT % 69))
+                                                           (QREFELT % 70)))
                                            (LETT |sig|
                                                  (SPADCALL |expCoef|
-                                                           (QREFELT $ 53)))
+                                                           (QREFELT % 53)))
                                            (EXIT
                                             (COND
                                              ((QEQCAR |sig| 1)
@@ -387,15 +387,15 @@
                                              ((EQL (QCDR |sig|) -1)
                                               (CONS 0
                                                     (SPADCALL
-                                                     (|spadConstant| $ 40)
-                                                     (QREFELT $ 44))))
+                                                     (|spadConstant| % 40)
+                                                     (QREFELT % 44))))
                                              (#6#
                                               (|EXPEXPAN;seriesQuotientInfinity|
-                                               |numCoef| |denCoef| $))))))))))
+                                               |numCoef| |denCoef| %))))))))))
                                      (#6#
                                       (|EXPEXPAN;seriesQuotientInfinity|
                                        |numCoef| |denCoef|
-                                       $))))))))))))))))))))
+                                       %))))))))))))))))))))
           #7# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |ExponentialExpansion;|)) 
@@ -421,7 +421,7 @@
 
 (DEFUN |ExponentialExpansion;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G220 NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
+   ((|pv$| NIL) (#1=#:G220 NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
     (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
@@ -429,9 +429,9 @@
     (LETT DV$3 |#3|)
     (LETT DV$4 |#4|)
     (LETT |dv$| (LIST '|ExponentialExpansion| DV$1 DV$2 DV$3 DV$4))
-    (LETT $ (GETREFV 114))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 114))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -574,21 +574,21 @@
                                               |#1| |#2| |#3| |#4|)
                                              '(|OrderedSet|)))))))
     (|haddProp| |$ConstructorCache| '|ExponentialExpansion|
-                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (QSETREFV $ 8 |#3|)
-    (QSETREFV $ 9 |#4|)
-    (AND (|HasCategory| $ '(|CharacteristicNonZero|))
+                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (QSETREFV % 8 |#3|)
+    (QSETREFV % 9 |#4|)
+    (AND (|HasCategory| % '(|CharacteristicNonZero|))
          (|HasCategory|
           (|UnivariatePuiseuxSeriesWithExponentialSingularity| |#1| |#2| |#3|
                                                                |#4|)
           '(|PolynomialFactorizationExplicit|))
-         (|augmentPredVector| $ 33554432))
+         (|augmentPredVector| % 33554432))
     (AND
      (OR
-      (AND (|HasCategory| $ '(|CharacteristicNonZero|))
+      (AND (|HasCategory| % '(|CharacteristicNonZero|))
            (|HasCategory|
             (|UnivariatePuiseuxSeriesWithExponentialSingularity| |#1| |#2| |#3|
                                                                  |#4|)
@@ -597,15 +597,15 @@
        (|UnivariatePuiseuxSeriesWithExponentialSingularity| |#1| |#2| |#3|
                                                             |#4|)
        '(|CharacteristicNonZero|)))
-     (|augmentPredVector| $ 67108864))
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 10
+     (|augmentPredVector| % 67108864))
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 10
               (|Fraction|
                (|UnivariatePuiseuxSeriesWithExponentialSingularity| |#1| |#2|
                                                                     |#3|
                                                                     |#4|)))
-    (QSETREFV $ 15 (SPADCALL 1000 1 (QREFELT $ 14)))
-    $))) 
+    (QSETREFV % 15 (SPADCALL 1000 1 (QREFELT % 14)))
+    %))) 
 
 (MAKEPROP '|ExponentialExpansion| '|infovec|
           (LIST
@@ -614,19 +614,19 @@
               (|Fraction| 12) (4 . /) 'ZEROCOUNT
               (|UnivariatePuiseuxSeriesWithExponentialSingularity| 6 7
                                                                    (NRTEVAL
-                                                                    (QREFELT $
+                                                                    (QREFELT %
                                                                              8))
                                                                    (NRTEVAL
-                                                                    (QREFELT $
+                                                                    (QREFELT %
                                                                              9)))
               (10 . |denom|) (15 . |One|) (|Boolean|) (19 . =) (25 . |numer|)
               (|Union| 34 '"failed") (30 . |retractIfCan|)
-              |EXPEXPAN;retractIfCan;$U;4| (|Union| $ '"failed") (35 . |recip|)
-              (40 . /) (46 . |coerce|) (51 . *) |EXPEXPAN;/;2Upswes$;5|
-              (57 . /) (63 . *) |EXPEXPAN;/;3$;6|
-              (|UnivariatePuiseuxSeries| 7 (NRTEVAL (QREFELT $ 8))
-                                         (NRTEVAL (QREFELT $ 9)))
-              (69 . |coerce|) |EXPEXPAN;coerce;Ups$;7| (74 . /) (80 . |One|)
+              |EXPEXPAN;retractIfCan;%U;4| (|Union| % '"failed") (35 . |recip|)
+              (40 . /) (46 . |coerce|) (51 . *) |EXPEXPAN;/;2Upswes%;5|
+              (57 . /) (63 . *) |EXPEXPAN;/;3%;6|
+              (|UnivariatePuiseuxSeries| 7 (NRTEVAL (QREFELT % 8))
+                                         (NRTEVAL (QREFELT % 9)))
+              (69 . |coerce|) |EXPEXPAN;coerce;Ups%;7| (74 . /) (80 . |One|)
               (84 . |order|) (90 . |Zero|) (94 . |Zero|) (98 . >)
               (|OrderedCompletion| 7) (104 . |coerce|) (109 . |coefficient|)
               (|List| 48) (115 . |variables|) (|Symbol|) (120 . |member?|)
@@ -638,28 +638,28 @@
                         (|:| |%expTerms| (|List| 60)))
               (|Record| (|:| |%term| 61) (|:| |%type| 110))
               (|Union| 62 '"failed") (161 . |dominantTerm|)
-              (|ExponentialOfUnivariatePuiseuxSeries| 7 (NRTEVAL (QREFELT $ 8))
-                                                      (NRTEVAL (QREFELT $ 9)))
+              (|ExponentialOfUnivariatePuiseuxSeries| 7 (NRTEVAL (QREFELT % 8))
+                                                      (NRTEVAL (QREFELT % 9)))
               (166 . -) (172 . |Zero|) (176 . =) (182 . |order|)
-              (187 . |coefficient|) |EXPEXPAN;limitPlus;$U;10|
-              (|Union| 82 '#1="failed") (|Matrix| $) (|InputForm|)
+              (187 . |coefficient|) |EXPEXPAN;limitPlus;%U;10|
+              (|Union| 82 '#1="failed") (|Matrix| %) (|InputForm|)
               (|Pattern| 92) (|Pattern| 12) (|NonNegativeInteger|) (|List| 79)
               (|Equation| 16) (|List| 16)
-              (|Record| (|:| |mat| 83) (|:| |vec| (|Vector| 12))) (|Vector| $)
-              (|Matrix| 12) (|List| 77) (|PatternMatchResult| 92 $)
-              (|PatternMatchResult| 12 $) (|Factored| 88)
-              (|SparseUnivariatePolynomial| $) (|Union| 90 '#1#) (|List| 88)
+              (|Record| (|:| |mat| 83) (|:| |vec| (|Vector| 12))) (|Vector| %)
+              (|Matrix| 12) (|List| 77) (|PatternMatchResult| 92 %)
+              (|PatternMatchResult| 12 %) (|Factored| 88)
+              (|SparseUnivariatePolynomial| %) (|Union| 90 '#1#) (|List| 88)
               (|DoubleFloat|) (|Float|) (|Union| 13 '#2="failed")
               (|Union| 48 '#2#) (|Matrix| 16)
               (|Record| (|:| |mat| 95) (|:| |vec| (|Vector| 16)))
-              (|Mapping| 16 16) (|Union| 16 '#2#) (|Factored| $)
-              (|Union| 101 '#3="failed") (|List| $)
-              (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 103 '#3#)
-              (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|Record| (|:| |coef| 101) (|:| |generator| $))
-              (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
-              (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
+              (|Mapping| 16 16) (|Union| 16 '#2#) (|Factored| %)
+              (|Union| 101 '#3="failed") (|List| %)
+              (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
+              (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 103 '#3#)
+              (|Record| (|:| |quotient| %) (|:| |remainder| %))
+              (|Record| (|:| |coef| 101) (|:| |generator| %))
+              (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
+              (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|)
               (|OutputForm|))
            '#(~= 193 |zero?| 199 |wholePart| 204 |unitNormal| 209

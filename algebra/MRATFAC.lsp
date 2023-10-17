@@ -1,22 +1,22 @@
 
 (SDEFUN |MRATFAC;numer1|
-        ((|c| (|Fraction| R)) ($ (|SparseMultivariatePolynomial| R OV)))
-        (SPADCALL (SPADCALL |c| (QREFELT $ 11)) (QREFELT $ 13))) 
+        ((|c| (|Fraction| R)) (% (|SparseMultivariatePolynomial| R OV)))
+        (SPADCALL (SPADCALL |c| (QREFELT % 11)) (QREFELT % 13))) 
 
 (SDEFUN |MRATFAC;numer2|
-        ((|pol| (P)) ($ (|SparseMultivariatePolynomial| R OV)))
-        (SPADCALL (ELT $ 14) (CONS (|function| |MRATFAC;numer1|) $) |pol|
-                  (QREFELT $ 18))) 
+        ((|pol| (P)) (% (|SparseMultivariatePolynomial| R OV)))
+        (SPADCALL (ELT % 14) (CONS (|function| |MRATFAC;numer1|) %) |pol|
+                  (QREFELT % 18))) 
 
-(SDEFUN |MRATFAC;coerce1| ((|d| (R)) ($ (P)))
-        (SPADCALL (SPADCALL |d| (QREFELT $ 19)) (QREFELT $ 20))) 
+(SDEFUN |MRATFAC;coerce1| ((|d| (R)) (% (P)))
+        (SPADCALL (SPADCALL |d| (QREFELT % 19)) (QREFELT % 20))) 
 
 (SDEFUN |MRATFAC;coerce2|
-        ((|pp| (|SparseMultivariatePolynomial| R OV)) ($ (P)))
-        (SPADCALL (ELT $ 21) (CONS (|function| |MRATFAC;coerce1|) $) |pp|
-                  (QREFELT $ 25))) 
+        ((|pp| (|SparseMultivariatePolynomial| R OV)) (% (P)))
+        (SPADCALL (ELT % 21) (CONS (|function| |MRATFAC;coerce1|) %) |pp|
+                  (QREFELT % 25))) 
 
-(SDEFUN |MRATFAC;factor;PF;5| ((|p| (P)) ($ (|Factored| P)))
+(SDEFUN |MRATFAC;factor;PF;5| ((|p| (P)) (% (|Factored| P)))
         (SPROG
          ((#1=#:G122 NIL) (#2=#:G121 #3=(|Factored| P)) (#4=#:G123 #3#)
           (#5=#:G130 NIL) (|u| NIL)
@@ -28,34 +28,34 @@
                 (SPADCALL
                  (PROGN
                   (LETT #7# NIL)
-                  (SEQ (LETT |c| NIL) (LETT #6# (SPADCALL |p| (QREFELT $ 27)))
+                  (SEQ (LETT |c| NIL) (LETT #6# (SPADCALL |p| (QREFELT % 27)))
                        G190
                        (COND
                         ((OR (ATOM #6#) (PROGN (LETT |c| (CAR #6#)) NIL))
                          (GO G191)))
                        (SEQ
                         (EXIT
-                         (LETT #7# (CONS (SPADCALL |c| (QREFELT $ 28)) #7#))))
+                         (LETT #7# (CONS (SPADCALL |c| (QREFELT % 28)) #7#))))
                        (LETT #6# (CDR #6#)) (GO G190) G191
                        (EXIT (NREVERSE #7#))))
-                 (QREFELT $ 30)))
+                 (QREFELT % 30)))
           (LETT |pol|
-                (SPADCALL (SPADCALL |pden| (QREFELT $ 19)) |p| (QREFELT $ 31)))
+                (SPADCALL (SPADCALL |pden| (QREFELT % 19)) |p| (QREFELT % 31)))
           (LETT |ipol|
-                (SPADCALL (ELT $ 14) (CONS (|function| |MRATFAC;numer1|) $)
-                          |pol| (QREFELT $ 18)))
-          (LETT |ffact| (SPADCALL |ipol| (QREFELT $ 34)))
+                (SPADCALL (ELT % 14) (CONS (|function| |MRATFAC;numer1|) %)
+                          |pol| (QREFELT % 18)))
+          (LETT |ffact| (SPADCALL |ipol| (QREFELT % 34)))
           (EXIT
            (SPADCALL
-            (SPADCALL (SPADCALL (|spadConstant| $ 35) |pden| (QREFELT $ 38))
-                      (SPADCALL (ELT $ 21)
-                                (CONS (|function| |MRATFAC;coerce1|) $)
-                                (SPADCALL |ffact| (QREFELT $ 39))
-                                (QREFELT $ 25))
-                      (QREFELT $ 31))
+            (SPADCALL (SPADCALL (|spadConstant| % 35) |pden| (QREFELT % 38))
+                      (SPADCALL (ELT % 21)
+                                (CONS (|function| |MRATFAC;coerce1|) %)
+                                (SPADCALL |ffact| (QREFELT % 39))
+                                (QREFELT % 25))
+                      (QREFELT % 31))
             (PROGN
              (LETT #1# NIL)
-             (SEQ (LETT |u| NIL) (LETT #5# (SPADCALL |ffact| (QREFELT $ 43)))
+             (SEQ (LETT |u| NIL) (LETT #5# (SPADCALL |ffact| (QREFELT % 43)))
                   G190
                   (COND
                    ((OR (ATOM #5#) (PROGN (LETT |u| (CAR #5#)) NIL))
@@ -65,15 +65,15 @@
                     (PROGN
                      (LETT #4#
                            (SPADCALL
-                            (SPADCALL (ELT $ 21)
-                                      (CONS (|function| |MRATFAC;coerce1|) $)
-                                      (QVELT |u| 1) (QREFELT $ 25))
-                            (QVELT |u| 2) (QREFELT $ 46)))
-                     (COND (#1# (LETT #2# (SPADCALL #2# #4# (QREFELT $ 47))))
+                            (SPADCALL (ELT % 21)
+                                      (CONS (|function| |MRATFAC;coerce1|) %)
+                                      (QVELT |u| 1) (QREFELT % 25))
+                            (QVELT |u| 2) (QREFELT % 46)))
+                     (COND (#1# (LETT #2# (SPADCALL #2# #4# (QREFELT % 47))))
                            ('T (PROGN (LETT #2# #4#) (LETT #1# 'T)))))))
                   (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
-             (COND (#1# #2#) ('T (|spadConstant| $ 48))))
-            (QREFELT $ 49)))))) 
+             (COND (#1# #2#) ('T (|spadConstant| % 48))))
+            (QREFELT % 49)))))) 
 
 (DECLAIM (NOTINLINE |MRationalFactorize;|)) 
 
@@ -98,7 +98,7 @@
 
 (DEFUN |MRationalFactorize;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
+   ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
@@ -106,18 +106,18 @@
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$| (LIST '|MRationalFactorize| DV$1 DV$2 DV$3 DV$4))
-    (LETT $ (GETREFV 51))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+    (LETT % (GETREFV 51))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|MRationalFactorize|
-                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (QSETREFV $ 8 |#3|)
-    (QSETREFV $ 9 |#4|)
-    (SETF |pv$| (QREFELT $ 3))
-    $))) 
+                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (QSETREFV % 8 |#3|)
+    (QSETREFV % 9 |#4|)
+    (SETF |pv$| (QREFELT % 3))
+    %))) 
 
 (MAKEPROP '|MRationalFactorize| '|infovec|
           (LIST
@@ -130,7 +130,7 @@
               (|Mapping| 9 8)
               (|PolynomialCategoryLifting| (|IndexedExponents| 7) 7 8 12 9)
               (37 . |map|) (|List| 10) (44 . |coefficients|) (49 . |denom|)
-              (|List| $) (54 . |lcm|) (59 . *) (|Factored| 12)
+              (|List| %) (54 . |lcm|) (59 . *) (|Factored| 12)
               (|MultivariateFactorize| 7 (|IndexedExponents| 7) 8 12)
               (65 . |factor|) (70 . |One|) (74 . |One|) (78 . |One|) (82 . /)
               (88 . |unit|) (|Union| '"nil" '"sqfr" '"irred" '"prime")

@@ -1,8 +1,8 @@
 
-(SDEFUN |ILIST;minIndex;$I;1| ((|x| ($)) ($ (|Integer|))) (QREFELT $ 7)) 
+(SDEFUN |ILIST;minIndex;%I;1| ((|x| (%)) (% (|Integer|))) (QREFELT % 7)) 
 
-(SDEFUN |ILIST;maxIndex;$I;2| ((|x| ($)) ($ (|Integer|)))
-        (- (+ (QREFELT $ 7) (SPADCALL |x| (QREFELT $ 11))) 1)) 
+(SDEFUN |ILIST;maxIndex;%I;2| ((|x| (%)) (% (|Integer|)))
+        (- (+ (QREFELT % 7) (SPADCALL |x| (QREFELT % 11))) 1)) 
 
 (DECLAIM (NOTINLINE |IndexedList;|)) 
 
@@ -26,15 +26,15 @@
 (DEFUN |IndexedList;| (|#1| |#2|)
   (SPROG
    ((#1=#:G991 NIL) (#2=#:G992 NIL) (#3=#:G994 NIL) (#4=#:G993 NIL) (|pv$| NIL)
-    (#5=#:G988 NIL) (#6=#:G989 NIL) (#7=#:G990 NIL) ($ NIL) (|dv$| NIL)
+    (#5=#:G988 NIL) (#6=#:G989 NIL) (#7=#:G990 NIL) (% NIL) (|dv$| NIL)
     (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 |#2|)
     (LETT |dv$| (LIST '|IndexedList| DV$1 DV$2))
-    (LETT $ (GETREFV 34))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 34))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -77,43 +77,43 @@
                                             #6#)
                                         (|HasCategory| (|Integer|)
                                                        '(|OrderedSet|))))))
-    (|haddProp| |$ConstructorCache| '|IndexedList| (LIST DV$1 DV$2) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (AND (LETT #4# (|HasCategory| $ '(|finiteAggregate|)))
-         (|augmentPredVector| $ 4096))
+    (|haddProp| |$ConstructorCache| '|IndexedList| (LIST DV$1 DV$2) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (AND (LETT #4# (|HasCategory| % '(|finiteAggregate|)))
+         (|augmentPredVector| % 4096))
     (AND
      (LETT #3#
            (AND (|HasCategory| |#1| '(|OrderedSet|))
-                (|HasCategory| $ '(|finiteAggregate|))))
-     (|augmentPredVector| $ 8192))
-    (AND (OR #5# (AND #7# #4#) #3#) (|augmentPredVector| $ 16384))
-    (AND (OR (AND #7# #4#) #3# #6#) (|augmentPredVector| $ 32768))
-    (AND (OR (AND #7# #4#) #3#) (|augmentPredVector| $ 65536))
+                (|HasCategory| % '(|finiteAggregate|))))
+     (|augmentPredVector| % 8192))
+    (AND (OR #5# (AND #7# #4#) #3#) (|augmentPredVector| % 16384))
+    (AND (OR (AND #7# #4#) #3# #6#) (|augmentPredVector| % 32768))
+    (AND (OR (AND #7# #4#) #3#) (|augmentPredVector| % 65536))
     (AND
      (LETT #2#
            (AND (|HasCategory| |#1| '(|BasicType|))
-                (|HasCategory| $ '(|finiteAggregate|))))
-     (|augmentPredVector| $ 131072))
-    (AND (OR #2# (AND #7# #4#) #3# #6#) (|augmentPredVector| $ 262144))
-    (AND (LETT #1# (|HasCategory| $ '(|shallowlyMutable|)))
-         (|augmentPredVector| $ 524288))
+                (|HasCategory| % '(|finiteAggregate|))))
+     (|augmentPredVector| % 131072))
+    (AND (OR #2# (AND #7# #4#) #3# #6#) (|augmentPredVector| % 262144))
+    (AND (LETT #1# (|HasCategory| % '(|shallowlyMutable|)))
+         (|augmentPredVector| % 524288))
     (AND (|HasCategory| |#1| '(|OrderedSet|)) #4# #1#
-         (|augmentPredVector| $ 1048576))
-    (AND #4# #1# (|augmentPredVector| $ 2097152))
-    (SETF |pv$| (QREFELT $ 3))
-    $))) 
+         (|augmentPredVector| % 1048576))
+    (AND #4# #1# (|augmentPredVector| % 2097152))
+    (SETF |pv$| (QREFELT % 3))
+    %))) 
 
 (MAKEPROP '|IndexedList| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|List| 6) (|local| |#1|) (|local| |#2|)
-              (|Integer|) |ILIST;minIndex;$I;1| (|NonNegativeInteger|)
-              (0 . |#|) |ILIST;maxIndex;$I;2| (|Mapping| 14 6 6) (|Boolean|)
+              (|Integer|) |ILIST;minIndex;%I;1| (|NonNegativeInteger|)
+              (0 . |#|) |ILIST;maxIndex;%I;2| (|Mapping| 14 6 6) (|Boolean|)
               (|Mapping| 6 6 6) (|List| 17) (|Equation| 6) (|OutputForm|)
               (|HashState|) (|String|) (|SingleInteger|) (|Mapping| 14 6)
               (|Void|) (|UniversalSegment| 8) '"last" '"rest" '"first"
-              (|List| $) '"value" (|Mapping| 6 6) (|InputForm|) (|List| 8)
+              (|List| %) '"value" (|Mapping| 6 6) (|InputForm|) (|List| 8)
               (|Union| 6 '"failed"))
            '#(~= 5 |value| 11 |trim| 16 |third| 22 |tail| 27 |swap!| 32
               |split!| 39 |sorted?| 45 |sort!| 56 |sort| 67 |smaller?| 78

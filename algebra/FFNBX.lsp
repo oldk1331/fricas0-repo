@@ -25,14 +25,14 @@
 
 (DEFUN |FiniteFieldNormalBasisExtension;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G146 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G146 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 |#2|)
     (LETT |dv$| (LIST '|FiniteFieldNormalBasisExtension| DV$1 DV$2))
-    (LETT $ (GETREFV 52))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 52))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -46,14 +46,14 @@
                                          #1#)
                                         (|HasCategory| |#1| '(|Field|))))))
     (|haddProp| |$ConstructorCache| '|FiniteFieldNormalBasisExtension|
-                (LIST DV$1 DV$2) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (AND #1# (|HasCategory| $ '(|CharacteristicNonZero|))
-         (|augmentPredVector| $ 16))
-    (SETF |pv$| (QREFELT $ 3))
-    $))) 
+                (LIST DV$1 DV$2) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (AND #1# (|HasCategory| % '(|CharacteristicNonZero|))
+         (|augmentPredVector| % 16))
+    (SETF |pv$| (QREFELT % 3))
+    %))) 
 
 (MAKEPROP '|FiniteFieldNormalBasisExtension| '|infovec|
           (LIST
@@ -61,29 +61,29 @@
               (|FiniteFieldNormalBasisExtensionByPolynomial| 6
                                                              (NRTEVAL
                                                               (SPADCALL
-                                                               (QREFELT $ 7)
-                                                               (QREFELT $
+                                                               (QREFELT % 7)
+                                                               (QREFELT %
                                                                         12))))
               (|local| |#1|) (|local| |#2|)
               (|Record| (|:| |value| 6) (|:| |index| 49)) (|Union| 19 35)
               (|PositiveInteger|) (|FiniteFieldFunctions| 6)
               (0 . |createLowComplexityNormalBasis|) (|Union| 31 '#1="failed")
-              (|Matrix| $) (|Union| $ '"failed") (|Union| 18 '"failed")
+              (|Matrix| %) (|Union| % '"failed") (|Union| 18 '"failed")
               (|OnePointCompletion| 10) (|NonNegativeInteger|)
               (|SparseUnivariatePolynomial| 6) (|Union| 21 '#1#) (|List| 22)
-              (|SparseUnivariatePolynomial| $) (|Factored| 22) (|Table| 10 18)
+              (|SparseUnivariatePolynomial| %) (|Factored| 22) (|Table| 10 18)
               (|Integer|) (|Record| (|:| |factor| 25) (|:| |exponent| 18))
               (|List| 26) (|Boolean|) (|Union| 19 '"failed")
-              (|Union| '"prime" '"polynomial" '"normal" '"cyclic") (|Vector| $)
-              (|InputForm|) (|List| $) (|Matrix| 6) (|Vector| (|List| 8))
-              (|Vector| 6) (|Union| 6 '"failed") (|Fraction| 25) (|Factored| $)
-              (|Record| (|:| |coef1| $) (|:| |coef2| $))
+              (|Union| '"prime" '"polynomial" '"normal" '"cyclic") (|Vector| %)
+              (|InputForm|) (|List| %) (|Matrix| 6) (|Vector| (|List| 8))
+              (|Vector| 6) (|Union| 6 '"failed") (|Fraction| 25) (|Factored| %)
+              (|Record| (|:| |coef1| %) (|:| |coef2| %))
               (|Union| 40 '#2="failed") (|Union| 33 '#2#)
-              (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|Record| (|:| |coef| 33) (|:| |generator| $))
-              (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
-              (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
+              (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
+              (|Record| (|:| |quotient| %) (|:| |remainder| %))
+              (|Record| (|:| |coef| 33) (|:| |generator| %))
+              (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
+              (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (|String|) (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#() 'NIL
            (CONS

@@ -25,27 +25,27 @@
                                                 (|Join| (|Group|)
                                                         (|mkCategory|
                                                          '(((|cycle|
-                                                             ($
+                                                             (%
                                                               (|List| |t#1|)))
                                                             T)
                                                            ((|cycles|
-                                                             ($
+                                                             (%
                                                               (|List|
                                                                (|List|
                                                                 |t#1|))))
                                                             T)
                                                            ((|eval|
-                                                             (|t#1| $ |t#1|))
+                                                             (|t#1| % |t#1|))
                                                             T)
                                                            ((|elt|
-                                                             (|t#1| $ |t#1|))
+                                                             (|t#1| % |t#1|))
                                                             T)
                                                            ((|orbit|
-                                                             ((|Set| |t#1|) $
+                                                             ((|Set| |t#1|) %
                                                               |t#1|))
                                                             T)
                                                            ((<
-                                                             ((|Boolean|) $ $))
+                                                             ((|Boolean|) % %))
                                                             T))
                                                          '(((|OrderedSet|)
                                                             (|has| |t#1|

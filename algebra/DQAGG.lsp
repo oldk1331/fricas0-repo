@@ -26,18 +26,18 @@
                                                  (|StackAggregate| '|t#1|)
                                                  (|QueueAggregate| '|t#1|)
                                                  (|mkCategory|
-                                                  '(((|bottom| (|t#1| $)) T)
+                                                  '(((|bottom| (|t#1| %)) T)
                                                     ((|insertTop!|
-                                                      (|t#1| |t#1| $))
+                                                      (|t#1| |t#1| %))
                                                      T)
                                                     ((|insertBottom!|
-                                                      (|t#1| |t#1| $))
+                                                      (|t#1| |t#1| %))
                                                      T)
-                                                    ((|extractTop!| (|t#1| $))
+                                                    ((|extractTop!| (|t#1| %))
                                                      T)
                                                     ((|extractBottom!|
-                                                      (|t#1| $))
+                                                      (|t#1| %))
                                                      T)
-                                                    ((|reverse!| ($ $)) T))
+                                                    ((|reverse!| (% %)) T))
                                                   NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|DequeueAggregate| |t#1|))))) 

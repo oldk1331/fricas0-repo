@@ -11,10 +11,10 @@
              (LETT #1#
                    (|Join| (|Monoid|) (|TwoSidedRecip|) (|unitsKnown|)
                            (|mkCategory|
-                            '(((|inv| ($ $)) T) ((/ ($ $ $)) T)
-                              ((^ ($ $ (|Integer|))) T)
-                              ((|conjugate| ($ $ $)) T)
-                              ((|commutator| ($ $ $)) T))
+                            '(((|inv| (% %)) T) ((/ (% % %)) T)
+                              ((^ (% % (|Integer|))) T)
+                              ((|conjugate| (% % %)) T)
+                              ((|commutator| (% % %)) T))
                             NIL NIL NIL)))
            (SETELT #1# 0 '(|Group|))))) 
 

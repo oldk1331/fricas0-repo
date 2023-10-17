@@ -1,45 +1,45 @@
 
-(SDEFUN |PDO;adjoint;2$;1| ((|x| ($)) ($ ($)))
+(SDEFUN |PDO;adjoint;2%;1| ((|x| (%)) (% (%)))
         (SPROG
-         ((|xu| (|Sup|)) (|res| ($)) (|sign| ($)) (|d| (|NonNegativeInteger|))
+         ((|xu| (|Sup|)) (|res| (%)) (|sign| (%)) (|d| (|NonNegativeInteger|))
           (|v| (|Var|)) (#1=#:G113 NIL))
          (SEQ
-          (COND ((SPADCALL |x| (QREFELT $ 15)) |x|)
+          (COND ((SPADCALL |x| (QREFELT % 15)) |x|)
                 ('T
                  (SEQ
                   (LETT |v|
-                        (PROG2 (LETT #1# (SPADCALL |x| (QREFELT $ 17)))
+                        (PROG2 (LETT #1# (SPADCALL |x| (QREFELT % 17)))
                             (QCDR #1#)
-                          (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
-                                          (|Union| (QREFELT $ 7) "failed")
+                          (|check_union2| (QEQCAR #1# 0) (QREFELT % 7)
+                                          (|Union| (QREFELT % 7) "failed")
                                           #1#)))
-                  (LETT |xu| (SPADCALL |x| |v| (QREFELT $ 20)))
-                  (LETT |res| (|spadConstant| $ 21))
-                  (LETT |xu| (SPADCALL (ELT $ 22) |xu| (QREFELT $ 24)))
+                  (LETT |xu| (SPADCALL |x| |v| (QREFELT % 20)))
+                  (LETT |res| (|spadConstant| % 21))
+                  (LETT |xu| (SPADCALL (ELT % 22) |xu| (QREFELT % 24)))
                   (SEQ G190
                        (COND
                         ((NULL
-                          (SPADCALL |xu| (|spadConstant| $ 26) (QREFELT $ 27)))
+                          (SPADCALL |xu| (|spadConstant| % 26) (QREFELT % 27)))
                          (GO G191)))
-                       (SEQ (LETT |d| (SPADCALL |xu| (QREFELT $ 29)))
+                       (SEQ (LETT |d| (SPADCALL |xu| (QREFELT % 29)))
                             (LETT |sign|
                                   (COND
                                    ((ODDP |d|)
-                                    (SPADCALL (|spadConstant| $ 30)
-                                              (QREFELT $ 32)))
-                                   ('T (|spadConstant| $ 30))))
+                                    (SPADCALL (|spadConstant| % 30)
+                                              (QREFELT % 32)))
+                                   ('T (|spadConstant| % 30))))
                             (LETT |res|
                                   (SPADCALL |res|
                                             (SPADCALL
                                              (SPADCALL |sign|
                                                        (SPADCALL
-                                                        (|spadConstant| $ 30)
-                                                        |v| |d| (QREFELT $ 33))
-                                                       (QREFELT $ 34))
-                                             (SPADCALL |xu| (QREFELT $ 35))
-                                             (QREFELT $ 34))
-                                            (QREFELT $ 36)))
-                            (EXIT (LETT |xu| (SPADCALL |xu| (QREFELT $ 37)))))
+                                                        (|spadConstant| % 30)
+                                                        |v| |d| (QREFELT % 33))
+                                                       (QREFELT % 34))
+                                             (SPADCALL |xu| (QREFELT % 35))
+                                             (QREFELT % 34))
+                                            (QREFELT % 36)))
+                            (EXIT (LETT |xu| (SPADCALL |xu| (QREFELT % 37)))))
                        NIL (GO G190) G191 (EXIT NIL))
                   (EXIT |res|))))))) 
 
@@ -69,14 +69,14 @@
 (DEFUN |PartialDifferentialOperator;| (|#1| |#2|)
   (SPROG
    ((|pv$| NIL) (#1=#:G144 NIL) (#2=#:G145 NIL) (#3=#:G147 NIL) (#4=#:G146 NIL)
-    (#5=#:G148 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+    (#5=#:G148 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))
     (LETT |dv$| (LIST '|PartialDifferentialOperator| DV$1 DV$2))
-    (LETT $ (GETREFV 66))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 66))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -190,35 +190,35 @@
                                              (|IndexedExponents| |#2|)
                                              '(|Comparable|)))))))
     (|haddProp| |$ConstructorCache| '|PartialDifferentialOperator|
-                (LIST DV$1 DV$2) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
+                (LIST DV$1 DV$2) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
     (AND
      (OR
       (AND (|HasCategory| |#1| '(|CommutativeRing|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
       (AND (|HasCategory| |#1| '(|IntegralDomain|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
-     (|augmentPredVector| $ 536870912))
-    (AND (|HasCategory| $ '(|CommutativeRing|))
-         (|augmentPredVector| $ 1073741824))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| % 536870912))
+    (AND (|HasCategory| % '(|CommutativeRing|))
+         (|augmentPredVector| % 1073741824))
     (AND
      (OR (|HasCategory| |#1| '(|EntireRing|))
          (AND (|HasCategory| |#1| '(|IntegralDomain|))
-              (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
-     (|augmentPredVector| $ 2147483648))
+              (|HasCategory| % '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| % 2147483648))
     (AND
      (OR
       (AND #4# (|HasCategory| |#1| '(|Ring|))
            (|HasCategory| (|Integer|) '(|AbelianGroup|)))
       (|HasCategory| |#1| '(|AbelianGroup|))
       (AND (|HasCategory| |#1| '(|CommutativeRing|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
       (AND (|HasCategory| |#1| '(|IntegralDomain|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-      (|HasCategory| $ '(|AbelianGroup|)))
-     (|augmentPredVector| $ 4294967296))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+      (|HasCategory| % '(|AbelianGroup|)))
+     (|augmentPredVector| % 4294967296))
     (AND
      (OR
       (AND #4# (|HasCategory| |#1| '(|Ring|))
@@ -229,73 +229,73 @@
            (|HasCategory| |#1| '(|Ring|)))
       #2#
       (AND (|HasCategory| |#1| '(|CommutativeRing|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
       (AND (|HasCategory| |#1| '(|IntegralDomain|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-      (|HasCategory| $ '(|AbelianGroup|)))
-     (|augmentPredVector| $ 8589934592))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+      (|HasCategory| % '(|AbelianGroup|)))
+     (|augmentPredVector| % 8589934592))
     (AND
      (OR
       (AND #4# (|HasCategory| |#1| '(|Ring|))
            (|HasCategory| (|Integer|) '(|AbelianMonoid|)))
       #1#
       (AND (|HasCategory| |#1| '(|CommutativeRing|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
       (AND (|HasCategory| |#1| '(|IntegralDomain|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-      (|HasCategory| $ '(|AbelianMonoid|)))
-     (|augmentPredVector| $ 17179869184))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+      (|HasCategory| % '(|AbelianMonoid|)))
+     (|augmentPredVector| % 17179869184))
     (AND
      (OR
       (AND (|HasCategory| |#1| '(|CommutativeRing|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
       (AND (|HasCategory| |#1| '(|IntegralDomain|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
       (|HasCategory| |#1| '(|SemiRing|)))
-     (|augmentPredVector| $ 34359738368))
+     (|augmentPredVector| % 34359738368))
     (AND
      (OR (|HasCategory| |#1| '(|RetractableTo| (|Integer|)))
          (AND (|HasCategory| |#1| '(|CommutativeRing|))
-              (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+              (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (AND (|HasCategory| |#1| '(|IntegralDomain|))
-              (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+              (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (|HasCategory| |#1| '(|Ring|)))
-     (|augmentPredVector| $ 68719476736))
+     (|augmentPredVector| % 68719476736))
     (AND
      (OR
       (AND (|HasCategory| |#1| '(|CommutativeRing|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
       (AND (|HasCategory| |#1| '(|IntegralDomain|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
       (|HasCategory| |#1| '(|Ring|)))
-     (|augmentPredVector| $ 137438953472))
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 13 (|SparseUnivariatePolynomial| $))
-    $))) 
+     (|augmentPredVector| % 137438953472))
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 13 (|SparseUnivariatePolynomial| %))
+    %))) 
 
 (MAKEPROP '|PartialDifferentialOperator| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL
-              (|SparseMultivariateSkewPolynomial| 6 7 (NRTEVAL (ELT $ 10))
-                                                  (NRTEVAL (ELT $ 12)))
+              (|SparseMultivariateSkewPolynomial| 6 7 (NRTEVAL (ELT % 10))
+                                                  (NRTEVAL (ELT % 12)))
               (|local| |#1|) (|local| |#2|) (|Automorphism| 6)
               (|PartialDifferentialOperatorHelper| 6 7) (0 . |id_map|)
               (|Mapping| 6 6) (5 . |diff_map|) '|Sup| (|Boolean|)
               (10 . |ground?|) (|Union| 7 '"failed") (15 . |mainVariable|)
-              (|SparseUnivariatePolynomial| $)
+              (|SparseUnivariatePolynomial| %)
               (|SparseMultivariatePolynomial| 6 7) (20 . |univariate|)
-              (26 . |Zero|) |PDO;adjoint;2$;1| (|Mapping| $$ $$) (30 . |map|)
+              (26 . |Zero|) |PDO;adjoint;2%;1| (|Mapping| $$ $$) (30 . |map|)
               (36 . |Zero|) (40 . |Zero|) (44 . ~=) (|NonNegativeInteger|)
               (50 . |degree|) (55 . |One|) (59 . |One|) (63 . -)
               (68 . |monomial|) (75 . *) (81 . |leadingCoefficient|) (86 . +)
-              (92 . |reductum|) (|Matrix| 42) (|Matrix| $)
-              (|Record| (|:| |mat| 38) (|:| |vec| (|Vector| 42))) (|Vector| $)
-              (|Integer|) (|Union| $ '"failed")
-              (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
+              (92 . |reductum|) (|Matrix| 42) (|Matrix| %)
+              (|Record| (|:| |mat| 38) (|:| |vec| (|Vector| 42))) (|Vector| %)
+              (|Integer|) (|Union| % '"failed")
+              (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (|Fraction| 42) (|IndexedExponents| 7)
               (|Record| (|:| |k| 46) (|:| |c| 6)) (|List| 47) (|Mapping| 6 46)
               (|Union| 45 '#1="failed") (|Union| 42 '#1#) (|Matrix| 6)
-              (|Record| (|:| |mat| 52) (|:| |vec| (|Vector| 6))) (|List| $)
+              (|Record| (|:| |mat| 52) (|:| |vec| (|Vector| 6))) (|List| %)
               (|List| 7) (|List| 28) (|Mapping| 46 46) (|Union| 6 '#1#)
               (|List| 6) (|List| 46) (|PositiveInteger|) (|HashState|)
               (|String|) (|OutputForm|) (|SingleInteger|))

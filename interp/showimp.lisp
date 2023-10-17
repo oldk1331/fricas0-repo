@@ -390,7 +390,7 @@
       |acc|))))
 
 ; devaluateSlotDomain(u,dollar) ==
-;   u = '$ => devaluate dollar
+;   u = '% => devaluate(dollar)
 ;   FIXP u and VECP (y := dollar.u) => devaluate y
 ;   u is ['NRTEVAL,y] => MKQ eval y
 ;   u is ['QUOTE,y] => u
@@ -400,7 +400,7 @@
 (DEFUN |devaluateSlotDomain| (|u| |dollar|)
   (PROG (|y| |ISTMP#1| |op| |argl|)
     (RETURN
-     (COND ((EQ |u| '$) (|devaluate| |dollar|))
+     (COND ((EQ |u| '%) (|devaluate| |dollar|))
            ((AND (FIXP |u|) (VECP (SETQ |y| (ELT |dollar| |u|))))
             (|devaluate| |y|))
            ((AND (CONSP |u|) (EQ (CAR |u|) 'NRTEVAL)
@@ -776,7 +776,7 @@
            (#1# (|systemError| NIL))))))
 
 ; formatLazyDomainForm(dom,x) ==
-;   x = 0 => ["$"]
+;   x = 0 => ["%"]
 ;   FIXP x => formatLazyDomain(dom,dom.x)
 ;   atom x => x
 ;   x is ['NRTEVAL,y] => (atom y => [y]; y)
@@ -785,7 +785,7 @@
 (DEFUN |formatLazyDomainForm| (|dom| |x|)
   (PROG (|ISTMP#1| |y|)
     (RETURN
-     (COND ((EQL |x| 0) (LIST '$))
+     (COND ((EQL |x| 0) (LIST '%))
            ((FIXP |x|) (|formatLazyDomain| |dom| (ELT |dom| |x|)))
            ((ATOM |x|) |x|)
            ((AND (CONSP |x|) (EQ (CAR |x|) 'NRTEVAL)

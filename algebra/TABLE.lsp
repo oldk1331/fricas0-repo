@@ -20,14 +20,14 @@
 (DEFUN |Table;| (|#1| |#2|)
   (SPROG
    ((#1=#:G166 NIL) (#2=#:G165 NIL) (|pv$| NIL) (#3=#:G163 NIL) (#4=#:G164 NIL)
-    ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+    (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))
     (LETT |dv$| (LIST '|Table| DV$1 DV$2))
-    (LETT $ (GETREFV 34))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 34))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -99,38 +99,38 @@
                                          #3#)
                                         (|HasCategory| |#2|
                                                        '(|OrderedSet|))))))
-    (|haddProp| |$ConstructorCache| '|Table| (LIST DV$1 DV$2) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (AND (LETT #2# (|HasCategory| $ '(|finiteAggregate|)))
-         (|augmentPredVector| $ 16384))
+    (|haddProp| |$ConstructorCache| '|Table| (LIST DV$1 DV$2) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (AND (LETT #2# (|HasCategory| % '(|finiteAggregate|)))
+         (|augmentPredVector| % 16384))
     (AND #2#
          (|HasCategory| (|Record| (|:| |key| |#1|) (|:| |entry| |#2|))
                         '(|OrderedSet|))
-         (|augmentPredVector| $ 32768))
+         (|augmentPredVector| % 32768))
     (AND #2#
          (|HasCategory| (|Record| (|:| |key| |#1|) (|:| |entry| |#2|))
                         '(|BasicType|))
-         (|augmentPredVector| $ 65536))
+         (|augmentPredVector| % 65536))
     (AND
      (LETT #1#
            (AND (|HasCategory| |#2| '(|BasicType|))
-                (|HasCategory| $ '(|finiteAggregate|))))
-     (|augmentPredVector| $ 131072))
+                (|HasCategory| % '(|finiteAggregate|))))
+     (|augmentPredVector| % 131072))
     (AND
      (OR #1# #4#
          (AND #2#
               (|HasCategory| (|Record| (|:| |key| |#1|) (|:| |entry| |#2|))
                              '(|BasicType|)))
          #3#)
-     (|augmentPredVector| $ 262144))
+     (|augmentPredVector| % 262144))
     (AND (|HasCategory| |#2| '(|OrderedSet|)) #2#
-         (|augmentPredVector| $ 524288))
-    (AND (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 1048576))
-    (SETF |pv$| (QREFELT $ 3))
-    $))) 
+         (|augmentPredVector| % 524288))
+    (AND (|HasCategory| % '(|shallowlyMutable|))
+         (|augmentPredVector| % 1048576))
+    (SETF |pv$| (QREFELT % 3))
+    %))) 
 
 (MAKEPROP '|Table| '|infovec|
           (LIST
@@ -138,12 +138,12 @@
               (|InnerTable| 6 7
                             (NRTEVAL
                              (COND
-                              ((|hashable| (QREFELT $ 6))
-                               (|HashTable| (QREFELT $ 6) (QREFELT $ 7)
+                              ((|hashable| (QREFELT % 6))
+                               (|HashTable| (QREFELT % 6) (QREFELT % 7)
                                             "EQUAL"))
                               ('T
-                               (|AssociationList| (QREFELT $ 6)
-                                                  (QREFELT $ 7))))))
+                               (|AssociationList| (QREFELT % 6)
+                                                  (QREFELT % 7))))))
               (|local| |#1|) (|local| |#2|)
               (|Record| (|:| |key| 6) (|:| |entry| 7)) (|List| 8)
               (|Equation| 8) (|List| 10) (|Mapping| 8 8 8) (|Boolean|)

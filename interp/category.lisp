@@ -895,7 +895,7 @@
 ;     -- FIXME: this is ugly hack to get around compiler bug.
 ;     -- Namely, sometimes '$' is not what it should be...
 ;     $compForModeIfTrue => cond
-;     cond is ["has", "$", =catname] => nil
+;     cond is ["has", '%, =catname] => nil
 ;     cond is ["OR", :l] =>
 ;         rl := []
 ;         for c1 in l repeat
@@ -925,7 +925,7 @@
            ((AND (CONSP |cond|) (EQ (CAR |cond|) '|has|)
                  (PROGN
                   (SETQ |ISTMP#1| (CDR |cond|))
-                  (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '$)
+                  (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '%)
                        (PROGN
                         (SETQ |ISTMP#2| (CDR |ISTMP#1|))
                         (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)

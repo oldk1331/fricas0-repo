@@ -28,10 +28,10 @@
                                                  (|LinearAggregate| '|t#1|)
                                                  (|mkCategory|
                                                   '(((|explicitlyFinite?|
-                                                      ((|Boolean|) $))
+                                                      ((|Boolean|) %))
                                                      T)
                                                     ((|possiblyInfinite?|
-                                                      ((|Boolean|) $))
+                                                      ((|Boolean|) %))
                                                      T))
                                                   NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|StreamAggregate| |t#1|))))) 

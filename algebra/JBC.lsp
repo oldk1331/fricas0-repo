@@ -22,11 +22,11 @@
                                               ((|multiIndex|
                                                 ((|List|
                                                   (|NonNegativeInteger|))
-                                                 $))
+                                                 %))
                                                T)
                                               ((|repeatedIndex|
                                                 ((|List| (|PositiveInteger|))
-                                                 $))
+                                                 %))
                                                T)
                                               ((|r2m|
                                                 ((|List|
@@ -45,77 +45,77 @@
                                                   (|NonNegativeInteger|))))
                                                T)
                                               ((|index|
-                                                ((|PositiveInteger|) $))
+                                                ((|PositiveInteger|) %))
                                                T)
-                                              ((|type| ((|Symbol|) $)) T)
-                                              ((|name| ((|Symbol|) $)) T)
+                                              ((|type| ((|Symbol|) %)) T)
+                                              ((|name| ((|Symbol|) %)) T)
                                               ((|class|
                                                 ((|NonNegativeInteger|)
                                                  (|List|
                                                   (|NonNegativeInteger|))))
                                                T)
                                               ((|class|
-                                                ((|NonNegativeInteger|) $))
+                                                ((|NonNegativeInteger|) %))
                                                T)
                                               ((|order|
-                                                ((|NonNegativeInteger|) $))
+                                                ((|NonNegativeInteger|) %))
                                                T)
                                               ((|weight|
-                                                ((|NonNegativeInteger|) $))
+                                                ((|NonNegativeInteger|) %))
                                                T)
-                                              ((> ((|Boolean|) $ $)) T)
+                                              ((> ((|Boolean|) % %)) T)
                                               ((|differentiate|
-                                                ((|Union| $ "0") $
+                                                ((|Union| % "0") %
                                                  (|PositiveInteger|)))
                                                T)
                                               ((|derivativeOf?|
                                                 ((|List|
                                                   (|NonNegativeInteger|))
-                                                 $ $))
+                                                 % %))
                                                T)
                                               ((|integrateIfCan|
-                                                ((|Union| $ "failed") $
+                                                ((|Union| % "failed") %
                                                  (|PositiveInteger|)))
                                                T)
                                               ((|integrate|
-                                                ($ $ (|PositiveInteger|)))
+                                                (% % (|PositiveInteger|)))
                                                T)
-                                              ((X ($ (|PositiveInteger|))) T)
-                                              ((U ($ (|PositiveInteger|))) T)
+                                              ((X (% (|PositiveInteger|))) T)
+                                              ((U (% (|PositiveInteger|))) T)
                                               ((P
-                                                ($ (|PositiveInteger|)
+                                                (% (|PositiveInteger|)
                                                  (|List|
                                                   (|NonNegativeInteger|))))
                                                T)
                                               ((|Pm|
-                                                ($ (|PositiveInteger|)
+                                                (% (|PositiveInteger|)
                                                  (|List|
                                                   (|NonNegativeInteger|))))
                                                T)
                                               ((|Pr|
-                                                ($ (|PositiveInteger|)
+                                                (% (|PositiveInteger|)
                                                  (|List| (|PositiveInteger|))))
                                                T)
-                                              ((|One| ($) |constant|) T)
-                                              ((|one?| ((|Boolean|) $)) T)
-                                              ((X ($)) T) ((U ($)) T)
+                                              ((|One| (%) |constant|) T)
+                                              ((|one?| ((|Boolean|) %)) T)
+                                              ((X (%)) T) ((U (%)) T)
                                               ((P
-                                                ($
+                                                (%
                                                  (|List|
                                                   (|NonNegativeInteger|))))
                                                T)
                                               ((P
-                                                ($ (|PositiveInteger|)
+                                                (% (|PositiveInteger|)
                                                  (|NonNegativeInteger|)))
                                                T)
-                                              ((P ($ (|NonNegativeInteger|)))
+                                              ((P (% (|NonNegativeInteger|)))
                                                T)
                                               ((|variables|
-                                                ((|List| $)
+                                                ((|List| %)
                                                  (|NonNegativeInteger|)))
                                                T)
                                               ((|variables|
-                                                ((|List| $)
+                                                ((|List| %)
                                                  (|NonNegativeInteger|)
                                                  (|PositiveInteger|)))
                                                T)

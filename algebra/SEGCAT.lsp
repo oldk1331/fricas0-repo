@@ -25,34 +25,34 @@
                                                 (|Join| (|Type|)
                                                         (|mkCategory|
                                                          '(((SEGMENT
-                                                             ($ |t#1| |t#1|))
+                                                             (% |t#1| |t#1|))
                                                             T)
                                                            ((BY
-                                                             ($ $ (|Integer|)))
+                                                             (% % (|Integer|)))
                                                             T)
-                                                           ((|low| (|t#1| $))
+                                                           ((|low| (|t#1| %))
                                                             T)
-                                                           ((|high| (|t#1| $))
+                                                           ((|high| (|t#1| %))
                                                             T)
                                                            ((|incr|
-                                                             ((|Integer|) $))
+                                                             ((|Integer|) %))
                                                             T)
                                                            ((|segment|
-                                                             ($ |t#1| |t#1|))
+                                                             (% |t#1| |t#1|))
                                                             T)
                                                            ((|convert|
-                                                             ($ |t#1|))
+                                                             (% |t#1|))
                                                             T)
-                                                           ((+ ($ |t#1| $))
+                                                           ((+ (% |t#1| %))
                                                             (|has| |t#1|
                                                                    (|AbelianSemiGroup|)))
-                                                           ((+ ($ $ |t#1|))
+                                                           ((+ (% % |t#1|))
                                                             (|has| |t#1|
                                                                    (|AbelianSemiGroup|)))
-                                                           ((- ($ $ |t#1|))
+                                                           ((- (% % |t#1|))
                                                             (|has| |t#1|
                                                                    (|AbelianGroup|)))
-                                                           ((|reverse| ($ $))
+                                                           ((|reverse| (% %))
                                                             (|has| |t#1|
                                                                    (|OrderedRing|))))
                                                          '(((|SetCategory|)

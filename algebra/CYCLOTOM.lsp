@@ -1,6 +1,6 @@
 
 (SDEFUN |CYCLOTOM;cyclotomic;ISup;1|
-        ((|n| (|Integer|)) ($ (|SparseUnivariatePolynomial| (|Integer|))))
+        ((|n| (|Integer|)) (% (|SparseUnivariatePolynomial| (|Integer|))))
         (SPROG
          ((|l| (|SparseUnivariatePolynomial| (|Integer|))) (#1=#:G112 NIL)
           (#2=#:G111 NIL) (#3=#:G109 NIL) (#4=#:G117 NIL) (|u| NIL)
@@ -9,10 +9,10 @@
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
                       (|:| |factor| (|Integer|))
                       (|:| |exponent| (|NonNegativeInteger|))))))
-         (SEQ (LETT |g| (SPADCALL (SPADCALL |n| (QREFELT $ 9)) (QREFELT $ 13)))
+         (SEQ (LETT |g| (SPADCALL (SPADCALL |n| (QREFELT % 9)) (QREFELT % 13)))
               (LETT |l|
-                    (SPADCALL (SPADCALL 1 1 (QREFELT $ 17))
-                              (SPADCALL 1 0 (QREFELT $ 17)) (QREFELT $ 18)))
+                    (SPADCALL (SPADCALL 1 1 (QREFELT % 17))
+                              (SPADCALL 1 0 (QREFELT % 17)) (QREFELT % 18)))
               (SEQ (LETT |u| NIL) (LETT #4# |g|) G190
                    (COND
                     ((OR (ATOM #4#) (PROGN (LETT |u| (CAR #4#)) NIL))
@@ -26,8 +26,8 @@
                                         (|check_subtype2| (>= #3# 0)
                                                           '(|NonNegativeInteger|)
                                                           '(|Integer|) #3#))
-                                      (QREFELT $ 19))
-                            |l| (QREFELT $ 21))))
+                                      (QREFELT % 19))
+                            |l| (QREFELT % 21))))
                     (EXIT
                      (COND
                       ((> (QVELT |u| 2) 1)
@@ -48,13 +48,13 @@
                                          (|check_subtype2| (>= #1# 0)
                                                            '(|NonNegativeInteger|)
                                                            '(|Integer|) #1#))
-                                       (QREFELT $ 19)))))))
+                                       (QREFELT % 19)))))))
                    (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
               (EXIT |l|)))) 
 
 (SDEFUN |CYCLOTOM;cyclotomicDecomposition;IL;2|
         ((|n| (|Integer|))
-         ($ (|List| (|SparseUnivariatePolynomial| (|Integer|)))))
+         (% (|List| (|SparseUnivariatePolynomial| (|Integer|)))))
         (SPROG
          ((|l| (|List| (|SparseUnivariatePolynomial| (|Integer|))))
           (|m| (|List| (|SparseUnivariatePolynomial| (|Integer|))))
@@ -66,11 +66,11 @@
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
                       (|:| |factor| (|Integer|))
                       (|:| |exponent| (|NonNegativeInteger|))))))
-         (SEQ (LETT |g| (SPADCALL (SPADCALL |n| (QREFELT $ 9)) (QREFELT $ 13)))
+         (SEQ (LETT |g| (SPADCALL (SPADCALL |n| (QREFELT % 9)) (QREFELT % 13)))
               (LETT |l|
                     (LIST
-                     (SPADCALL (SPADCALL 1 1 (QREFELT $ 17))
-                               (SPADCALL 1 0 (QREFELT $ 17)) (QREFELT $ 18))))
+                     (SPADCALL (SPADCALL 1 1 (QREFELT % 17))
+                               (SPADCALL 1 0 (QREFELT % 17)) (QREFELT % 18))))
               (SEQ (LETT |u| NIL) (LETT #8# |g|) G190
                    (COND
                     ((OR (ATOM #8#) (PROGN (LETT |u| (CAR #8#)) NIL))
@@ -98,14 +98,14 @@
                                                         (>= #5# 0)
                                                         '(|NonNegativeInteger|)
                                                         '(|Integer|) #5#))
-                                                     (QREFELT $ 19))
-                                           |z| (QREFELT $ 21)))
+                                                     (QREFELT % 19))
+                                           |z| (QREFELT % 21)))
                                          #7#))))
                                 (LETT #6# (CDR #6#)) (GO G190) G191
                                 (EXIT (NREVERSE #7#)))))
                     (SEQ (LETT |rr| 1) (LETT #4# (- (QVELT |u| 2) 1)) G190
                          (COND ((|greater_SI| |rr| #4#) (GO G191)))
-                         (SEQ (LETT |l| (SPADCALL |l| |m| (QREFELT $ 24)))
+                         (SEQ (LETT |l| (SPADCALL |l| |m| (QREFELT % 24)))
                               (EXIT
                                (LETT |m|
                                      (PROGN
@@ -132,31 +132,31 @@
                                                                  '(|NonNegativeInteger|)
                                                                  '(|Integer|)
                                                                  #1#))
-                                                              (QREFELT $ 19))
+                                                              (QREFELT % 19))
                                                     #3#))))
                                            (LETT #2# (CDR #2#)) (GO G190) G191
                                            (EXIT (NREVERSE #3#)))))))
                          (LETT |rr| (|inc_SI| |rr|)) (GO G190) G191 (EXIT NIL))
-                    (EXIT (LETT |l| (SPADCALL |l| |m| (QREFELT $ 24)))))
+                    (EXIT (LETT |l| (SPADCALL |l| |m| (QREFELT % 24)))))
                    (LETT #8# (CDR #8#)) (GO G190) G191 (EXIT NIL))
               (EXIT |l|)))) 
 
 (SDEFUN |CYCLOTOM;cyclotomicFactorization;IF;3|
         ((|n| (|Integer|))
-         ($ (|Factored| (|SparseUnivariatePolynomial| (|Integer|)))))
+         (% (|Factored| (|SparseUnivariatePolynomial| (|Integer|)))))
         (SPROG
          ((|fr| (|Factored| (|SparseUnivariatePolynomial| (|Integer|))))
           (#1=#:G145 NIL) (|f| NIL))
-         (SEQ (LETT |fr| (|spadConstant| $ 27))
-              (SEQ (LETT |f| NIL) (LETT #1# (SPADCALL |n| (QREFELT $ 25))) G190
+         (SEQ (LETT |fr| (|spadConstant| % 27))
+              (SEQ (LETT |f| NIL) (LETT #1# (SPADCALL |n| (QREFELT % 25))) G190
                    (COND
                     ((OR (ATOM #1#) (PROGN (LETT |f| (CAR #1#)) NIL))
                      (GO G191)))
                    (SEQ
                     (EXIT
                      (LETT |fr|
-                           (SPADCALL |fr| (SPADCALL |f| 1 (QREFELT $ 28))
-                                     (QREFELT $ 29)))))
+                           (SPADCALL |fr| (SPADCALL |f| 1 (QREFELT % 28))
+                                     (QREFELT % 29)))))
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT |fr|)))) 
 
@@ -186,17 +186,17 @@
                         '|CyclotomicPolynomialPackage|)))))))))) 
 
 (DEFUN |CyclotomicPolynomialPackage;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|CyclotomicPolynomialPackage|))
-          (LETT $ (GETREFV 31))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (LETT % (GETREFV 31))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|CyclotomicPolynomialPackage| NIL
-                      (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|CyclotomicPolynomialPackage| '|infovec|
           (LIST
@@ -207,7 +207,7 @@
               (|List| 11) (5 . |factorList|) (|SparseUnivariatePolynomial| 7)
               (10 . |One|) (|NonNegativeInteger|) (14 . |monomial|) (20 . -)
               (26 . |multiplyExponents|)
-              (|Record| (|:| |quotient| $) (|:| |remainder| $))
+              (|Record| (|:| |quotient| %) (|:| |remainder| %))
               (32 . |monicDivide|) |CYCLOTOM;cyclotomic;ISup;1| (|List| 14)
               (38 . |append|) |CYCLOTOM;cyclotomicDecomposition;IL;2|
               (|Factored| 14) (44 . |One|) (48 . |primeFactor|) (54 . *)

@@ -1,6 +1,6 @@
 
-(SDEFUN |TOPSP;createThreeSpace;Ts;1| (($ (|ThreeSpace| (|DoubleFloat|))))
-        (SPADCALL (QREFELT $ 7))) 
+(SDEFUN |TOPSP;createThreeSpace;Ts;1| ((% (|ThreeSpace| (|DoubleFloat|))))
+        (SPADCALL (QREFELT % 7))) 
 
 (DECLAIM (NOTINLINE |TopLevelThreeSpace;|)) 
 
@@ -24,16 +24,16 @@
                   (HREM |$ConstructorCache| '|TopLevelThreeSpace|)))))))))) 
 
 (DEFUN |TopLevelThreeSpace;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|TopLevelThreeSpace|))
-          (LETT $ (GETREFV 9))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|TopLevelThreeSpace| NIL (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+          (LETT % (GETREFV 9))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|TopLevelThreeSpace| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|TopLevelThreeSpace| '|infovec|
           (LIST

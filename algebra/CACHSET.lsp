@@ -12,9 +12,9 @@
              (LETT #1#
                    (|Join| (|SetCategory|)
                            (|mkCategory|
-                            '(((|position| ((|NonNegativeInteger|) $)) T)
+                            '(((|position| ((|NonNegativeInteger|) %)) T)
                               ((|setPosition|
-                                ((|Void|) $ (|NonNegativeInteger|)))
+                                ((|Void|) % (|NonNegativeInteger|)))
                                T))
                             NIL NIL NIL)))
            (SETELT #1# 0 '(|CachableSet|))))) 

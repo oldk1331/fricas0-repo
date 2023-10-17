@@ -13,8 +13,8 @@
              (LETT #1#
                    (|Join| (|SetCategory|)
                            (|mkCategory|
-                            '(((+ ($ $ $)) T)
-                              ((* ($ (|PositiveInteger|) $)) T))
+                            '(((+ (% % %)) T)
+                              ((* (% (|PositiveInteger|) %)) T))
                             NIL NIL NIL)))
            (SETELT #1# 0 '(|AbelianSemiGroup|))))) 
 

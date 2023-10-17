@@ -44,7 +44,7 @@
                                                                (|:| |entry|
                                                                     |t#2|))
                                                               "failed")
-                                                             |t#1| $))
+                                                             |t#1| %))
                                                            T))
                                                         NIL NIL NIL))))))))
            (SETELT #1# 0 (LIST '|AssociationListAggregate| |t#1| |t#2|))))) 

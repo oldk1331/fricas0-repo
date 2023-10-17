@@ -26,11 +26,11 @@
                                                         (|finiteAggregate|)
                                                         (|mkCategory|
                                                          '(((|push!|
-                                                             (|t#1| |t#1| $))
+                                                             (|t#1| |t#1| %))
                                                             T)
-                                                           ((|pop!| (|t#1| $))
+                                                           ((|pop!| (|t#1| %))
                                                             T)
-                                                           ((|top| (|t#1| $))
+                                                           ((|top| (|t#1| %))
                                                             T))
                                                          NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|StackAggregate| |t#1|))))) 

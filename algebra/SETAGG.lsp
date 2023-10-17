@@ -26,33 +26,33 @@
                                                         (|Collection| '|t#1|)
                                                         (|PartialOrder|)
                                                         (|mkCategory|
-                                                         '(((|set| ($)) T)
+                                                         '(((|set| (%)) T)
                                                            ((|set|
-                                                             ($
+                                                             (%
                                                               (|List| |t#1|)))
                                                             T)
                                                            ((|intersect|
-                                                             ($ $ $))
+                                                             (% % %))
                                                             T)
                                                            ((|difference|
-                                                             ($ $ $))
+                                                             (% % %))
                                                             T)
                                                            ((|difference|
-                                                             ($ $ |t#1|))
+                                                             (% % |t#1|))
                                                             T)
                                                            ((|symmetricDifference|
-                                                             ($ $ $))
+                                                             (% % %))
                                                             T)
                                                            ((|subset?|
-                                                             ((|Boolean|) $ $))
+                                                             ((|Boolean|) % %))
                                                             T)
-                                                           ((|union| ($ $ $))
-                                                            T)
-                                                           ((|union|
-                                                             ($ $ |t#1|))
+                                                           ((|union| (% % %))
                                                             T)
                                                            ((|union|
-                                                             ($ |t#1| $))
+                                                             (% % |t#1|))
+                                                            T)
+                                                           ((|union|
+                                                             (% |t#1| %))
                                                             T))
                                                          NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|SetAggregate| |t#1|))))) 

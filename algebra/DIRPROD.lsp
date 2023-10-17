@@ -1,43 +1,43 @@
 
-(SDEFUN |DIRPROD;coerce;$V;1| ((|z| ($)) ($ (|Vector| R)))
-        (SPADCALL |z| (QREFELT $ 9))) 
+(SDEFUN |DIRPROD;coerce;%V;1| ((|z| (%)) (% (|Vector| R)))
+        (SPADCALL |z| (QREFELT % 9))) 
 
-(SDEFUN |DIRPROD;coerce;R$;2| ((|r| (R)) ($ ($))) (MAKEARR1 (QREFELT $ 6) |r|)) 
+(SDEFUN |DIRPROD;coerce;R%;2| ((|r| (R)) (% (%))) (MAKEARR1 (QREFELT % 6) |r|)) 
 
-(PUT '|DIRPROD;parts;$L;3| '|SPADreplace| 'VEC2LIST) 
+(PUT '|DIRPROD;parts;%L;3| '|SPADreplace| 'VEC2LIST) 
 
-(SDEFUN |DIRPROD;parts;$L;3| ((|x| ($)) ($ (|List| R))) (VEC2LIST |x|)) 
+(SDEFUN |DIRPROD;parts;%L;3| ((|x| (%)) (% (|List| R))) (VEC2LIST |x|)) 
 
-(SDEFUN |DIRPROD;directProduct;V$;4| ((|z| (|Vector| R)) ($ ($)))
+(SDEFUN |DIRPROD;directProduct;V%;4| ((|z| (|Vector| R)) (% (%)))
         (COND
-         ((SPADCALL |z| (QREFELT $ 6) (QREFELT $ 16))
-          (SPADCALL |z| (QREFELT $ 9)))
+         ((SPADCALL |z| (QREFELT % 6) (QREFELT % 16))
+          (SPADCALL |z| (QREFELT % 9)))
          ('T (|error| "Not of the correct length")))) 
 
-(SDEFUN |DIRPROD;same?| ((|z| ($)) ($ (|Boolean|)))
+(SDEFUN |DIRPROD;same?| ((|z| (%)) (% (|Boolean|)))
         (SPROG ((|z1| (R)))
                (SEQ
                 (LETT |z1|
-                      (SPADCALL |z| (SPADCALL |z| (QREFELT $ 19))
-                                (QREFELT $ 20)))
+                      (SPADCALL |z| (SPADCALL |z| (QREFELT % 19))
+                                (QREFELT % 20)))
                 (EXIT
-                 (SPADCALL (CONS #'|DIRPROD;same?!0| (VECTOR $ |z1|)) |z|
-                           (QREFELT $ 23)))))) 
+                 (SPADCALL (CONS #'|DIRPROD;same?!0| (VECTOR % |z1|)) |z|
+                           (QREFELT % 23)))))) 
 
 (SDEFUN |DIRPROD;same?!0| ((|x| NIL) ($$ NIL))
-        (PROG (|z1| $)
+        (PROG (|z1| %)
           (LETT |z1| (QREFELT $$ 1))
-          (LETT $ (QREFELT $$ 0))
-          (RETURN (PROGN (SPADCALL |x| |z1| (QREFELT $ 21)))))) 
+          (LETT % (QREFELT $$ 0))
+          (RETURN (PROGN (SPADCALL |x| |z1| (QREFELT % 21)))))) 
 
-(SDEFUN |DIRPROD;=;2$B;6| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
+(SDEFUN |DIRPROD;=;2%B;6| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (SPROG ((#1=#:G122 NIL) (#2=#:G123 NIL) (#3=#:G124 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
                   (SEQ
                    (EXIT
-                    (SEQ (LETT |i| 0) (LETT #3# (- (QREFELT $ 6) 1)) G190
+                    (SEQ (LETT |i| 0) (LETT #3# (- (QREFELT % 6) 1)) G190
                          (COND ((|greater_SI| |i| #3#) (GO G191)))
                          (SEQ
                           (EXIT
@@ -51,14 +51,14 @@
                   (EXIT 'T)))
                 #4# (EXIT #2#)))) 
 
-(SDEFUN |DIRPROD;=;2$B;7| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
+(SDEFUN |DIRPROD;=;2%B;7| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (SPROG ((#1=#:G130 NIL) (#2=#:G131 NIL) (#3=#:G132 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
                   (SEQ
                    (EXIT
-                    (SEQ (LETT |i| 0) (LETT #3# (- (QREFELT $ 6) 1)) G190
+                    (SEQ (LETT |i| 0) (LETT #3# (- (QREFELT % 6) 1)) G190
                          (COND ((|greater_SI| |i| #3#) (GO G191)))
                          (SEQ
                           (EXIT
@@ -72,14 +72,14 @@
                   (EXIT 'T)))
                 #4# (EXIT #2#)))) 
 
-(SDEFUN |DIRPROD;=;2$B;8| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
+(SDEFUN |DIRPROD;=;2%B;8| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (SPROG ((#1=#:G138 NIL) (#2=#:G139 NIL) (#3=#:G140 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
                   (SEQ
                    (EXIT
-                    (SEQ (LETT |i| 0) (LETT #3# (- (QREFELT $ 6) 1)) G190
+                    (SEQ (LETT |i| 0) (LETT #3# (- (QREFELT % 6) 1)) G190
                          (COND ((|greater_SI| |i| #3#) (GO G191)))
                          (SEQ
                           (EXIT
@@ -93,21 +93,21 @@
                   (EXIT 'T)))
                 #4# (EXIT #2#)))) 
 
-(SDEFUN |DIRPROD;=;2$B;9| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
+(SDEFUN |DIRPROD;=;2%B;9| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (SPROG ((#1=#:G146 NIL) (#2=#:G147 NIL) (#3=#:G148 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
                   (SEQ
                    (EXIT
-                    (SEQ (LETT |i| 1) (LETT #3# (QREFELT $ 6)) G190
+                    (SEQ (LETT |i| 1) (LETT #3# (QREFELT % 6)) G190
                          (COND ((|greater_SI| |i| #3#) (GO G191)))
                          (SEQ
                           (EXIT
                            (COND
                             ((NULL
                               (SPADCALL (QAREF1O |x| |i| 1) (QAREF1O |y| |i| 1)
-                                        (QREFELT $ 21)))
+                                        (QREFELT % 21)))
                              (PROGN
                               (LETT #1# (PROGN (LETT #2# NIL) (GO #4=#:G145)))
                               (GO #5=#:G143))))))
@@ -116,41 +116,41 @@
                   (EXIT 'T)))
                 #4# (EXIT #2#)))) 
 
-(SDEFUN |DIRPROD;retract;$R;10| ((|z| ($)) ($ (R)))
+(SDEFUN |DIRPROD;retract;%R;10| ((|z| (%)) (% (R)))
         (SEQ
          (COND
-          ((NULL (EQL (QREFELT $ 6) 0))
+          ((NULL (EQL (QREFELT % 6) 0))
            (COND
-            ((|DIRPROD;same?| |z| $)
+            ((|DIRPROD;same?| |z| %)
              (EXIT
-              (SPADCALL |z| (SPADCALL |z| (QREFELT $ 19)) (QREFELT $ 20)))))))
+              (SPADCALL |z| (SPADCALL |z| (QREFELT % 19)) (QREFELT % 20)))))))
          (EXIT (|error| "Not retractable")))) 
 
-(SDEFUN |DIRPROD;retractIfCan;$U;11| ((|z| ($)) ($ (|Union| R "failed")))
+(SDEFUN |DIRPROD;retractIfCan;%U;11| ((|z| (%)) (% (|Union| R "failed")))
         (SEQ
          (COND
-          ((NULL (EQL (QREFELT $ 6) 0))
+          ((NULL (EQL (QREFELT % 6) 0))
            (COND
-            ((|DIRPROD;same?| |z| $)
+            ((|DIRPROD;same?| |z| %)
              (EXIT
               (CONS 0
-                    (SPADCALL |z| (SPADCALL |z| (QREFELT $ 19))
-                              (QREFELT $ 20))))))))
+                    (SPADCALL |z| (SPADCALL |z| (QREFELT % 19))
+                              (QREFELT % 20))))))))
          (EXIT (CONS 1 "failed")))) 
 
-(SDEFUN |DIRPROD;index;Pi$;12| ((|n| (|PositiveInteger|)) ($ ($)))
+(SDEFUN |DIRPROD;index;Pi%;12| ((|n| (|PositiveInteger|)) (% (%)))
         (SPROG
          ((L (|List| R)) (#1=#:G163 NIL) (|p| (|Integer|)) (#2=#:G168 NIL)
           (|i| NIL) (#3=#:G161 NIL) (N (|Integer|)))
-         (SEQ (LETT N (SPADCALL (QREFELT $ 28))) (LETT |p| (- |n| 1))
+         (SEQ (LETT N (SPADCALL (QREFELT % 28))) (LETT |p| (- |n| 1))
               (LETT L
                     (LIST
                      (SPADCALL
                       (PROG1 (LETT #3# (+ (REM |p| N) 1))
                         (|check_subtype2| (> #3# 0) '(|PositiveInteger|)
                                           '(|Integer|) #3#))
-                      (QREFELT $ 30))))
-              (SEQ (LETT |i| 2) (LETT #2# (QREFELT $ 6)) G190
+                      (QREFELT % 30))))
+              (SEQ (LETT |i| 2) (LETT #2# (QREFELT % 6)) G190
                    (COND ((|greater_SI| |i| #2#) (GO G191)))
                    (SEQ (LETT |p| (QUOTIENT2 |p| N))
                         (EXIT
@@ -161,42 +161,42 @@
                                    (|check_subtype2| (> #1# 0)
                                                      '(|PositiveInteger|)
                                                      '(|Integer|) #1#))
-                                 (QREFELT $ 30))
+                                 (QREFELT % 30))
                                 L))))
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL L (QREFELT $ 31)))))) 
+              (EXIT (SPADCALL L (QREFELT % 31)))))) 
 
-(SDEFUN |DIRPROD;random;$;13| (($ ($)))
+(SDEFUN |DIRPROD;random;%;13| ((% (%)))
         (SPROG ((#1=#:G172 NIL) (#2=#:G174 NIL) (|i| NIL) (#3=#:G173 NIL))
                (SEQ
                 (PROGN
-                 (LETT #3# (GETREFV #4=(QREFELT $ 6)))
+                 (LETT #3# (GETREFV #4=(QREFELT % 6)))
                  (SEQ (LETT |i| 1) (LETT #2# #4#) (LETT #1# 0) G190
                       (COND ((|greater_SI| |i| #2#) (GO G191)))
-                      (SEQ (EXIT (SETELT #3# #1# (SPADCALL (QREFELT $ 33)))))
+                      (SEQ (EXIT (SETELT #3# #1# (SPADCALL (QREFELT % 33)))))
                       (LETT #1#
                             (PROG1 (|inc_SI| #1#) (LETT |i| (|inc_SI| |i|))))
                       (GO G190) G191 (EXIT NIL))
                  #3#)))) 
 
-(SDEFUN |DIRPROD;lookup;$Pi;14| ((|x| ($)) ($ (|PositiveInteger|)))
+(SDEFUN |DIRPROD;lookup;%Pi;14| ((|x| (%)) (% (|PositiveInteger|)))
         (SPROG
          ((#1=#:G177 NIL) (L (|Integer|)) (#2=#:G180 NIL) (|i| NIL)
           (N (|Integer|)))
-         (SEQ (LETT N (SPADCALL (QREFELT $ 28)))
+         (SEQ (LETT N (SPADCALL (QREFELT % 28)))
               (LETT L
                     (-
-                     (SPADCALL (SPADCALL |x| 1 (QREFELT $ 20)) (QREFELT $ 35))
+                     (SPADCALL (SPADCALL |x| 1 (QREFELT % 20)) (QREFELT % 35))
                      1))
-              (SEQ (LETT |i| 2) (LETT #2# (QREFELT $ 6)) G190
+              (SEQ (LETT |i| 2) (LETT #2# (QREFELT % 6)) G190
                    (COND ((|greater_SI| |i| #2#) (GO G191)))
                    (SEQ
                     (EXIT
                      (LETT L
                            (-
                             (+ (* L N)
-                               (SPADCALL (SPADCALL |x| |i| (QREFELT $ 20))
-                                         (QREFELT $ 35)))
+                               (SPADCALL (SPADCALL |x| |i| (QREFELT % 20))
+                                         (QREFELT % 35)))
                             1))))
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (EXIT
@@ -204,71 +204,71 @@
                  (|check_subtype2| (> #1# 0) '(|PositiveInteger|) '(|Integer|)
                                    #1#)))))) 
 
-(SDEFUN |DIRPROD;Zero;$;15| (($ ($))) (SPADCALL (QREFELT $ 6) (QREFELT $ 37))) 
+(SDEFUN |DIRPROD;Zero;%;15| ((% (%))) (SPADCALL (QREFELT % 6) (QREFELT % 37))) 
 
-(SDEFUN |DIRPROD;*;3$;16| ((|u| ($)) (|v| ($)) ($ ($)))
-        (SPADCALL (ELT $ 39) |u| |v| (QREFELT $ 41))) 
+(SDEFUN |DIRPROD;*;3%;16| ((|u| (%)) (|v| (%)) (% (%)))
+        (SPADCALL (ELT % 39) |u| |v| (QREFELT % 41))) 
 
-(SDEFUN |DIRPROD;subtractIfCan;2$U;17|
-        ((|u| ($)) (|v| ($)) ($ (|Union| $ "failed")))
+(SDEFUN |DIRPROD;subtractIfCan;2%U;17|
+        ((|u| (%)) (|v| (%)) (% (|Union| % "failed")))
         (SPROG
          ((#1=#:G196 NIL) (|c| (|Union| R "failed")) (#2=#:G197 NIL) (|i| NIL)
-          (|w| ($)))
+          (|w| (%)))
          (SEQ
           (EXIT
-           (SEQ (LETT |w| (QREFELT $ 44))
-                (SEQ (LETT |i| 1) (LETT #2# (QREFELT $ 6)) G190
+           (SEQ (LETT |w| (QREFELT % 44))
+                (SEQ (LETT |i| 1) (LETT #2# (QREFELT % 6)) G190
                      (COND ((|greater_SI| |i| #2#) (GO G191)))
                      (SEQ
                       (LETT |c|
                             (SPADCALL (QAREF1O |u| |i| 1) (QAREF1O |v| |i| 1)
-                                      (QREFELT $ 46)))
+                                      (QREFELT % 46)))
                       (EXIT
                        (COND
                         ((QEQCAR |c| 1)
                          (PROGN (LETT #1# (CONS 1 "failed")) (GO #3=#:G195)))
                         ('T (QSETAREF1O |w| |i| (QCDR |c|) 1)))))
                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-                (EXIT (CONS 0 (SPADCALL |w| (QREFELT $ 9))))))
+                (EXIT (CONS 0 (SPADCALL |w| (QREFELT % 9))))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |DIRPROD;One;$;18| (($ ($)))
-        (MAKEARR1 (QREFELT $ 6) (|spadConstant| $ 48))) 
+(SDEFUN |DIRPROD;One;%;18| ((% (%)))
+        (MAKEARR1 (QREFELT % 6) (|spadConstant| % 48))) 
 
-(SDEFUN |DIRPROD;recip;$U;19| ((|z| ($)) ($ (|Union| $ #1="failed")))
+(SDEFUN |DIRPROD;recip;%U;19| ((|z| (%)) (% (|Union| % #1="failed")))
         (SPROG
          ((#2=#:G210 NIL) (|u| (|Union| R #1#)) (#3=#:G211 NIL) (|i| NIL)
-          (|w| ($)))
+          (|w| (%)))
          (SEQ
           (EXIT
-           (SEQ (LETT |w| (QREFELT $ 50))
-                (SEQ (LETT |i| 1) (LETT #3# (QREFELT $ 6)) G190
+           (SEQ (LETT |w| (QREFELT % 50))
+                (SEQ (LETT |i| 1) (LETT #3# (QREFELT % 6)) G190
                      (COND ((|greater_SI| |i| #3#) (GO G191)))
                      (SEQ
                       (LETT |u|
-                            (SPADCALL (SPADCALL |z| |i| (QREFELT $ 51))
-                                      (QREFELT $ 52)))
+                            (SPADCALL (SPADCALL |z| |i| (QREFELT % 51))
+                                      (QREFELT % 52)))
                       (EXIT
                        (COND
                         ((QEQCAR |u| 1)
                          (PROGN (LETT #2# (CONS 1 "failed")) (GO #4=#:G209)))
                         ('T (QSETAREF1O |w| |i| (QCDR |u|) 1)))))
                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-                (EXIT (CONS 0 (SPADCALL |w| (QREFELT $ 9))))))
+                (EXIT (CONS 0 (SPADCALL |w| (QREFELT % 9))))))
           #4# (EXIT #2#)))) 
 
-(SDEFUN |DIRPROD;unitVector;Pi$;20| ((|i| (|PositiveInteger|)) ($ ($)))
-        (SPROG ((|v| ($)))
-               (SEQ (LETT |v| (MAKEARR1 (QREFELT $ 6) (|spadConstant| $ 43)))
-                    (SPADCALL |v| |i| (|spadConstant| $ 48) (QREFELT $ 54))
+(SDEFUN |DIRPROD;unitVector;Pi%;20| ((|i| (|PositiveInteger|)) (% (%)))
+        (SPROG ((|v| (%)))
+               (SEQ (LETT |v| (MAKEARR1 (QREFELT % 6) (|spadConstant| % 43)))
+                    (SPADCALL |v| |i| (|spadConstant| % 48) (QREFELT % 54))
                     (EXIT |v|)))) 
 
-(SDEFUN |DIRPROD;<;2$B;21| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
+(SDEFUN |DIRPROD;<;2%B;21| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (SPROG ((#1=#:G219 NIL) (|b| (R)) (|a| (R)) (#2=#:G220 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
-                  (SEQ (LETT |i| 0) (LETT #2# (- (QREFELT $ 6) 1)) G190
+                  (SEQ (LETT |i| 0) (LETT #2# (- (QREFELT % 6) 1)) G190
                        (COND ((|greater_SI| |i| #2#) (GO G191)))
                        (SEQ (LETT |a| (QREFELT |x| |i|))
                             (LETT |b| (QREFELT |y| |i|))
@@ -281,12 +281,12 @@
                   (EXIT NIL)))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |DIRPROD;<;2$B;22| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
+(SDEFUN |DIRPROD;<;2%B;22| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (SPROG ((#1=#:G226 NIL) (|b| (R)) (|a| (R)) (#2=#:G227 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
-                  (SEQ (LETT |i| 0) (LETT #2# (- (QREFELT $ 6) 1)) G190
+                  (SEQ (LETT |i| 0) (LETT #2# (- (QREFELT % 6) 1)) G190
                        (COND ((|greater_SI| |i| #2#) (GO G191)))
                        (SEQ (LETT |a| (QREFELT |x| |i|))
                             (LETT |b| (QREFELT |y| |i|))
@@ -299,12 +299,12 @@
                   (EXIT NIL)))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |DIRPROD;<;2$B;23| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
+(SDEFUN |DIRPROD;<;2%B;23| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (SPROG ((#1=#:G233 NIL) (|b| (R)) (|a| (R)) (#2=#:G234 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
-                  (SEQ (LETT |i| 0) (LETT #2# (- (QREFELT $ 6) 1)) G190
+                  (SEQ (LETT |i| 0) (LETT #2# (- (QREFELT % 6) 1)) G190
                        (COND ((|greater_SI| |i| #2#) (GO G191)))
                        (SEQ (LETT |a| (QREFELT |x| |i|))
                             (LETT |b| (QREFELT |y| |i|))
@@ -317,27 +317,27 @@
                   (EXIT NIL)))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |DIRPROD;<;2$B;24| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
+(SDEFUN |DIRPROD;<;2%B;24| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (SPROG ((#1=#:G240 NIL) (|b| (R)) (|a| (R)) (#2=#:G241 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
-                  (SEQ (LETT |i| 0) (LETT #2# (- (QREFELT $ 6) 1)) G190
+                  (SEQ (LETT |i| 0) (LETT #2# (- (QREFELT % 6) 1)) G190
                        (COND ((|greater_SI| |i| #2#) (GO G191)))
                        (SEQ (LETT |a| (QREFELT |x| |i|))
                             (LETT |b| (QREFELT |y| |i|))
                             (EXIT
                              (COND
-                              ((SPADCALL |a| |b| (QREFELT $ 57))
+                              ((SPADCALL |a| |b| (QREFELT % 57))
                                (PROGN (LETT #1# 'T) (GO #3=#:G239)))
-                              ((SPADCALL |b| |a| (QREFELT $ 57))
+                              ((SPADCALL |b| |a| (QREFELT % 57))
                                (PROGN (LETT #1# NIL) (GO #3#))))))
                        (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                   (EXIT NIL)))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |DIRPROD;sup;3$;25| ((|x| ($)) (|y| ($)) ($ ($)))
-        (SPADCALL (ELT $ 58) |x| |y| (QREFELT $ 41))) 
+(SDEFUN |DIRPROD;sup;3%;25| ((|x| (%)) (|y| (%)) (% (%)))
+        (SPADCALL (ELT % 58) |x| |y| (QREFELT % 41))) 
 
 (DECLAIM (NOTINLINE |DirectProduct;|)) 
 
@@ -363,14 +363,14 @@
   (SPROG
    ((|pv$| NIL) (#1=#:G255 NIL) (#2=#:G256 NIL) (#3=#:G257 NIL) (#4=#:G258 NIL)
     (#5=#:G259 NIL) (#6=#:G261 NIL) (#7=#:G260 NIL) (#8=#:G262 NIL)
-    (#9=#:G263 NIL) (#10=#:G264 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+    (#9=#:G263 NIL) (#10=#:G264 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 |#1|)
     (LETT DV$2 (|devaluate| |#2|))
     (LETT |dv$| (LIST '|DirectProduct| DV$1 DV$2))
-    (LETT $ (GETREFV 84))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 84))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -818,27 +818,27 @@
                                           (|HasCategory| |#2| '(|SemiRng|)))
                                          #1#)))))
     (|haddProp| |$ConstructorCache| '|DirectProduct| (LIST DV$1 DV$2)
-                (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (AND (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 1125899906842624))
-    (AND #10# (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 2251799813685248))
+                (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (AND (|HasCategory| % '(|finiteAggregate|))
+         (|augmentPredVector| % 1125899906842624))
+    (AND #10# (|HasCategory| % '(|finiteAggregate|))
+         (|augmentPredVector| % 2251799813685248))
     (AND (|HasCategory| |#2| '(|BasicType|))
-         (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 4503599627370496))
-    (AND (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 9007199254740992))
+         (|HasCategory| % '(|finiteAggregate|))
+         (|augmentPredVector| % 4503599627370496))
+    (AND (|HasCategory| % '(|shallowlyMutable|))
+         (|augmentPredVector| % 9007199254740992))
     (AND
      (OR
       (AND #7# (|HasCategory| |#2| '(|Ring|))
            (|HasCategory| (|Integer|) '(|AbelianMonoid|)))
       #5#
       (AND (|HasCategory| |#2| '(|SemiRng|))
-           (|HasCategory| $ '(|AbelianMonoid|))))
-     (|augmentPredVector| $ 18014398509481984))
+           (|HasCategory| % '(|AbelianMonoid|))))
+     (|augmentPredVector| % 18014398509481984))
     (AND
      (OR
       (AND #7# (|HasCategory| |#2| '(|Ring|))
@@ -849,95 +849,95 @@
            (|HasCategory| |#2| '(|SemiRng|)))
       #4#
       (AND (|HasCategory| |#2| '(|SemiRng|))
-           (|HasCategory| $ '(|AbelianGroup|))))
-     (|augmentPredVector| $ 36028797018963968))
+           (|HasCategory| % '(|AbelianGroup|))))
+     (|augmentPredVector| % 36028797018963968))
     (AND
      (OR
       (AND #7# (|HasCategory| |#2| '(|Ring|))
            (|HasCategory| (|Integer|) '(|AbelianGroup|)))
       (|HasCategory| |#2| '(|AbelianGroup|))
       (AND (|HasCategory| |#2| '(|SemiRng|))
-           (|HasCategory| $ '(|AbelianGroup|))))
-     (|augmentPredVector| $ 72057594037927936))
+           (|HasCategory| % '(|AbelianGroup|))))
+     (|augmentPredVector| % 72057594037927936))
     (AND
      (OR
       (AND (|HasCategory| |#2| '(|BasicType|))
-           (|HasCategory| $ '(|finiteAggregate|)))
+           (|HasCategory| % '(|finiteAggregate|)))
       (|HasCategory| |#2| '(|SetCategory|)))
-     (|augmentPredVector| $ 144115188075855872))
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 8 (|Vector| |#2|))
+     (|augmentPredVector| % 144115188075855872))
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 8 (|Vector| |#2|))
     (COND
      ((|testBitVector| |pv$| 21)
       (PROGN
        (COND
         ((|domainEqual| |#2| (|NonNegativeInteger|))
-         (QSETREFV $ 24 (CONS (|dispatchFunction| |DIRPROD;=;2$B;6|) $)))
+         (QSETREFV % 24 (CONS (|dispatchFunction| |DIRPROD;=;2%B;6|) %)))
         ((|domainEqual| |#2| (|Integer|))
-         (QSETREFV $ 24 (CONS (|dispatchFunction| |DIRPROD;=;2$B;7|) $)))
+         (QSETREFV % 24 (CONS (|dispatchFunction| |DIRPROD;=;2%B;7|) %)))
         ((|domainEqual| |#2| (|PositiveInteger|))
-         (QSETREFV $ 24 (CONS (|dispatchFunction| |DIRPROD;=;2$B;8|) $)))
-        ('T (QSETREFV $ 24 (CONS (|dispatchFunction| |DIRPROD;=;2$B;9|) $))))
-       (QSETREFV $ 25 (CONS (|dispatchFunction| |DIRPROD;retract;$R;10|) $))
-       (QSETREFV $ 27
-                 (CONS (|dispatchFunction| |DIRPROD;retractIfCan;$U;11|) $)))))
+         (QSETREFV % 24 (CONS (|dispatchFunction| |DIRPROD;=;2%B;8|) %)))
+        ('T (QSETREFV % 24 (CONS (|dispatchFunction| |DIRPROD;=;2%B;9|) %))))
+       (QSETREFV % 25 (CONS (|dispatchFunction| |DIRPROD;retract;%R;10|) %))
+       (QSETREFV % 27
+                 (CONS (|dispatchFunction| |DIRPROD;retractIfCan;%U;11|) %)))))
     (COND
      ((|testBitVector| |pv$| 12)
       (PROGN
-       (QSETREFV $ 32 (CONS (|dispatchFunction| |DIRPROD;index;Pi$;12|) $))
-       (QSETREFV $ 34 (CONS (|dispatchFunction| |DIRPROD;random;$;13|) $))
-       (QSETREFV $ 36 (CONS (|dispatchFunction| |DIRPROD;lookup;$Pi;14|) $)))))
+       (QSETREFV % 32 (CONS (|dispatchFunction| |DIRPROD;index;Pi%;12|) %))
+       (QSETREFV % 34 (CONS (|dispatchFunction| |DIRPROD;random;%;13|) %))
+       (QSETREFV % 36 (CONS (|dispatchFunction| |DIRPROD;lookup;%Pi;14|) %)))))
     (COND
      ((|testBitVector| |pv$| 30)
-      (QSETREFV $ 38
+      (QSETREFV % 38
                 (CONS #'|makeSpadConstant|
-                      (LIST (|dispatchFunction| |DIRPROD;Zero;$;15|) $ 38)))))
+                      (LIST (|dispatchFunction| |DIRPROD;Zero;%;15|) % 38)))))
     (COND
      ((|testBitVector| |pv$| 38)
-      (QSETREFV $ 42 (CONS (|dispatchFunction| |DIRPROD;*;3$;16|) $))))
+      (QSETREFV % 42 (CONS (|dispatchFunction| |DIRPROD;*;3%;16|) %))))
     (COND
      ((|testBitVector| |pv$| 34)
       (PROGN
-       (QSETREFV $ 44 (MAKEARR1 |#1| (|spadConstant| $ 43)))
-       (QSETREFV $ 47
-                 (CONS (|dispatchFunction| |DIRPROD;subtractIfCan;2$U;17|)
-                       $)))))
+       (QSETREFV % 44 (MAKEARR1 |#1| (|spadConstant| % 43)))
+       (QSETREFV % 47
+                 (CONS (|dispatchFunction| |DIRPROD;subtractIfCan;2%U;17|)
+                       %)))))
     (COND
      ((|testBitVector| |pv$| 10)
       (PROGN
-       (QSETREFV $ 49
+       (QSETREFV % 49
                  (CONS #'|makeSpadConstant|
-                       (LIST (|dispatchFunction| |DIRPROD;One;$;18|) $ 49)))
-       (QSETREFV $ 50 (MAKEARR1 |#1| (|spadConstant| $ 48)))
-       (QSETREFV $ 53 (CONS (|dispatchFunction| |DIRPROD;recip;$U;19|) $)))))
+                       (LIST (|dispatchFunction| |DIRPROD;One;%;18|) % 49)))
+       (QSETREFV % 50 (MAKEARR1 |#1| (|spadConstant| % 48)))
+       (QSETREFV % 53 (CONS (|dispatchFunction| |DIRPROD;recip;%U;19|) %)))))
     (COND
      ((|testBitVector| |pv$| 30)
       (COND
        ((|testBitVector| |pv$| 10)
-        (QSETREFV $ 55
-                  (CONS (|dispatchFunction| |DIRPROD;unitVector;Pi$;20|)
-                        $))))))
+        (QSETREFV % 55
+                  (CONS (|dispatchFunction| |DIRPROD;unitVector;Pi%;20|)
+                        %))))))
     (COND
      ((|testBitVector| |pv$| 3)
       (COND
        ((|domainEqual| |#2| (|NonNegativeInteger|))
-        (QSETREFV $ 56 (CONS (|dispatchFunction| |DIRPROD;<;2$B;21|) $)))
+        (QSETREFV % 56 (CONS (|dispatchFunction| |DIRPROD;<;2%B;21|) %)))
        ((|domainEqual| |#2| (|Integer|))
-        (QSETREFV $ 56 (CONS (|dispatchFunction| |DIRPROD;<;2$B;22|) $)))
+        (QSETREFV % 56 (CONS (|dispatchFunction| |DIRPROD;<;2%B;22|) %)))
        ((|domainEqual| |#2| (|PositiveInteger|))
-        (QSETREFV $ 56 (CONS (|dispatchFunction| |DIRPROD;<;2$B;23|) $)))
-       ('T (QSETREFV $ 56 (CONS (|dispatchFunction| |DIRPROD;<;2$B;24|) $))))))
+        (QSETREFV % 56 (CONS (|dispatchFunction| |DIRPROD;<;2%B;23|) %)))
+       ('T (QSETREFV % 56 (CONS (|dispatchFunction| |DIRPROD;<;2%B;24|) %))))))
     (COND
      ((|testBitVector| |pv$| 1)
-      (QSETREFV $ 59 (CONS (|dispatchFunction| |DIRPROD;sup;3$;25|) $))))
-    $))) 
+      (QSETREFV % 59 (CONS (|dispatchFunction| |DIRPROD;sup;3%;25|) %))))
+    %))) 
 
 (MAKEPROP '|DirectProduct| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|Vector| 7) (|local| |#1|) (|local| |#2|)
-              '|Rep| (0 . |copy|) |DIRPROD;coerce;$V;1| |DIRPROD;coerce;R$;2|
-              (|List| 7) |DIRPROD;parts;$L;3| (|Boolean|)
-              (|NonNegativeInteger|) (5 . |size?|) |DIRPROD;directProduct;V$;4|
+              '|Rep| (0 . |copy|) |DIRPROD;coerce;%V;1| |DIRPROD;coerce;R%;2|
+              (|List| 7) |DIRPROD;parts;%L;3| (|Boolean|)
+              (|NonNegativeInteger|) (5 . |size?|) |DIRPROD;directProduct;V%;4|
               (|Integer|) (11 . |minIndex|) (16 . |elt|) (22 . =)
               (|Mapping| 14 7) (28 . |every?|) (34 . =) (40 . |retract|)
               (|Union| 7 '"failed") (45 . |retractIfCan|) (50 . |size|)
@@ -945,16 +945,16 @@
               (69 . |random|) (73 . |random|) (77 . |lookup|) (82 . |lookup|)
               (87 . |zero|) (92 . |Zero|) (96 . *) (|Mapping| 7 7 7)
               (102 . |map|) (109 . *) (115 . |Zero|) '|tmp0|
-              (|Union| $ '"failed") (119 . |subtractIfCan|)
+              (|Union| % '"failed") (119 . |subtractIfCan|)
               (125 . |subtractIfCan|) (131 . |One|) (135 . |One|) '|tmp1|
               (139 . |qelt|) (145 . |recip|) (150 . |recip|) (155 . |setelt!|)
               (162 . |unitVector|) (167 . <) (173 . <) (179 . |sup|)
               (185 . |sup|) (|Equation| 7) (|List| 60)
-              (|Record| (|:| |mat| 65) (|:| |vec| (|Vector| 18))) (|Matrix| $)
-              (|Vector| $) (|Matrix| 18) (|Symbol|) (|List| 66) (|List| 15)
+              (|Record| (|:| |mat| 65) (|:| |vec| (|Vector| 18))) (|Matrix| %)
+              (|Vector| %) (|Matrix| 18) (|Symbol|) (|List| 66) (|List| 15)
               (|Union| 70 '#1="failed") (|Fraction| 18) (|Union| 18 '#1#)
               (|Mapping| 14 7 7) (|Void|) (|Mapping| 7 7) (|OutputForm|)
-              (|InputForm|) (|List| $) (|Matrix| 7)
+              (|InputForm|) (|List| %) (|Matrix| 7)
               (|Record| (|:| |mat| 78) (|:| |vec| 5)) (|SingleInteger|)
               (|String|) (|HashState|) (|List| 18))
            '#(~= 191 |zero?| 197 |unitVector| 202 |swap!| 207 |sup| 214

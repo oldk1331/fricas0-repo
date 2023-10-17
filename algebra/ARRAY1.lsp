@@ -1,19 +1,19 @@
 
-(PUT '|ARRAY1;qelt;$IS;1| '|SPADreplace| '(XLAM (|x| |i|) (QAREF1O |x| |i| 1))) 
+(PUT '|ARRAY1;qelt;%IS;1| '|SPADreplace| '(XLAM (|x| |i|) (QAREF1O |x| |i| 1))) 
 
-(SDEFUN |ARRAY1;qelt;$IS;1| ((|x| ($)) (|i| (|Integer|)) ($ (S)))
+(SDEFUN |ARRAY1;qelt;%IS;1| ((|x| (%)) (|i| (|Integer|)) (% (S)))
         (QAREF1O |x| |i| 1)) 
 
-(PUT '|ARRAY1;qsetelt!;$I2S;2| '|SPADreplace|
+(PUT '|ARRAY1;qsetelt!;%I2S;2| '|SPADreplace|
      '(XLAM (|x| |i| |s|) (QSETAREF1O |x| |i| |s| 1))) 
 
-(SDEFUN |ARRAY1;qsetelt!;$I2S;2|
-        ((|x| ($)) (|i| (|Integer|)) (|s| (S)) ($ (S)))
+(SDEFUN |ARRAY1;qsetelt!;%I2S;2|
+        ((|x| (%)) (|i| (|Integer|)) (|s| (S)) (% (S)))
         (QSETAREF1O |x| |i| |s| 1)) 
 
-(SDEFUN |ARRAY1;oneDimensionalArray;L$;3| ((|u| (|List| S)) ($ ($)))
+(SDEFUN |ARRAY1;oneDimensionalArray;L%;3| ((|u| (|List| S)) (% (%)))
         (SPROG
-         ((#1=#:G2349 NIL) (|i| NIL) (#2=#:G2350 NIL) (|x| NIL) (|a| ($))
+         ((#1=#:G2349 NIL) (|i| NIL) (#2=#:G2350 NIL) (|x| NIL) (|a| (%))
           (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (LENGTH |u|))
               (EXIT
@@ -27,17 +27,17 @@
                                       (PROGN (LETT |x| (CAR #2#)) NIL))
                                   (GO G191)))
                                 (SEQ
-                                 (EXIT (SPADCALL |a| |i| |x| (QREFELT $ 10))))
+                                 (EXIT (SPADCALL |a| |i| |x| (QREFELT % 10))))
                                 (LETT |i|
                                       (PROG1 (|inc_SI| |i|)
                                         (LETT #2# (CDR #2#))))
                                 (GO G190) G191 (EXIT NIL))
                            (EXIT |a|)))))))) 
 
-(PUT '|ARRAY1;oneDimensionalArray;NniS$;4| '|SPADreplace| 'MAKEARR1) 
+(PUT '|ARRAY1;oneDimensionalArray;NniS%;4| '|SPADreplace| 'MAKEARR1) 
 
-(SDEFUN |ARRAY1;oneDimensionalArray;NniS$;4|
-        ((|n| (|NonNegativeInteger|)) (|s| (S)) ($ ($))) (MAKEARR1 |n| |s|)) 
+(SDEFUN |ARRAY1;oneDimensionalArray;NniS%;4|
+        ((|n| (|NonNegativeInteger|)) (|s| (S)) (% (%))) (MAKEARR1 |n| |s|)) 
 
 (DECLAIM (NOTINLINE |OneDimensionalArray;|)) 
 
@@ -60,14 +60,14 @@
 
 (DEFUN |OneDimensionalArray;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G2359 NIL) (#2=#:G2360 NIL) (#3=#:G2361 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G2359 NIL) (#2=#:G2360 NIL) (#3=#:G2361 NIL) (% NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|OneDimensionalArray| DV$1))
-    (LETT $ (GETREFV 32))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 32))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -111,59 +111,59 @@
                                                            '(|OrderedSet|))
                                             #2#)))))
     (|haddProp| |$ConstructorCache| '|OneDimensionalArray| (LIST DV$1)
-                (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 4096))
-    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 8192))
+                (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (AND (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 4096))
+    (AND (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 8192))
     (AND (|HasCategory| |#1| '(|BasicType|))
-         (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 16384))
-    (AND (|HasCategory| $ '(|finiteAggregate|))
-         (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 32768))
+         (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 16384))
+    (AND (|HasCategory| % '(|finiteAggregate|))
+         (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 32768))
     (AND (|HasCategory| |#1| '(|OrderedSet|))
-         (|HasCategory| $ '(|finiteAggregate|))
-         (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 65536))
+         (|HasCategory| % '(|finiteAggregate|))
+         (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 65536))
     (AND (|HasCategory| |#1| '(|OrderedSet|))
-         (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 131072))
+         (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 131072))
     (AND
-     (OR (AND #3# (|HasCategory| $ '(|finiteAggregate|)))
+     (OR (AND #3# (|HasCategory| % '(|finiteAggregate|)))
          (AND (|HasCategory| |#1| '(|OrderedSet|))
-              (|HasCategory| $ '(|finiteAggregate|))))
-     (|augmentPredVector| $ 262144))
+              (|HasCategory| % '(|finiteAggregate|))))
+     (|augmentPredVector| % 262144))
     (AND
-     (OR (AND #3# (|HasCategory| $ '(|finiteAggregate|)))
+     (OR (AND #3# (|HasCategory| % '(|finiteAggregate|)))
          (AND (|HasCategory| |#1| '(|OrderedSet|))
-              (|HasCategory| $ '(|finiteAggregate|)))
+              (|HasCategory| % '(|finiteAggregate|)))
          #2#)
-     (|augmentPredVector| $ 524288))
+     (|augmentPredVector| % 524288))
     (AND
-     (OR #1# (AND #3# (|HasCategory| $ '(|finiteAggregate|)))
+     (OR #1# (AND #3# (|HasCategory| % '(|finiteAggregate|)))
          (AND (|HasCategory| |#1| '(|OrderedSet|))
-              (|HasCategory| $ '(|finiteAggregate|))))
-     (|augmentPredVector| $ 1048576))
+              (|HasCategory| % '(|finiteAggregate|))))
+     (|augmentPredVector| % 1048576))
     (AND
      (OR
       (AND (|HasCategory| |#1| '(|BasicType|))
-           (|HasCategory| $ '(|finiteAggregate|)))
-      (AND #3# (|HasCategory| $ '(|finiteAggregate|)))
+           (|HasCategory| % '(|finiteAggregate|)))
+      (AND #3# (|HasCategory| % '(|finiteAggregate|)))
       (AND (|HasCategory| |#1| '(|OrderedSet|))
-           (|HasCategory| $ '(|finiteAggregate|)))
+           (|HasCategory| % '(|finiteAggregate|)))
       #2#)
-     (|augmentPredVector| $ 2097152))
-    (SETF |pv$| (QREFELT $ 3))
-    $))) 
+     (|augmentPredVector| % 2097152))
+    (SETF |pv$| (QREFELT % 3))
+    %))) 
 
 (MAKEPROP '|OneDimensionalArray| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|IndexedOneDimensionalArray| 6 (NRTEVAL 1))
-              (|local| |#1|) (|Integer|) |ARRAY1;qelt;$IS;1|
-              |ARRAY1;qsetelt!;$I2S;2| (0 . |setelt!|) (|List| 6)
-              |ARRAY1;oneDimensionalArray;L$;3| (|NonNegativeInteger|)
-              |ARRAY1;oneDimensionalArray;NniS$;4| (|Mapping| 17 6 6)
+              (|local| |#1|) (|Integer|) |ARRAY1;qelt;%IS;1|
+              |ARRAY1;qsetelt!;%I2S;2| (0 . |setelt!|) (|List| 6)
+              |ARRAY1;oneDimensionalArray;L%;3| (|NonNegativeInteger|)
+              |ARRAY1;oneDimensionalArray;NniS%;4| (|Mapping| 17 6 6)
               (|Mapping| 6 6 6) (|Boolean|) (|List| 19) (|Equation| 6)
               (|OutputForm|) (|SingleInteger|) (|String|) (|HashState|)
               (|Mapping| 17 6) (|UniversalSegment| 7) (|Void|) (|Mapping| 6 6)
-              (|InputForm|) (|List| $) (|Union| 6 '"failed") (|List| 7))
+              (|InputForm|) (|List| %) (|Union| 6 '"failed") (|List| 7))
            '#(|setelt!| 7 |qsetelt!| 14 |qelt| 21 |oneDimensionalArray| 27)
            'NIL
            (CONS

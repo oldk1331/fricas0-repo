@@ -1,25 +1,25 @@
 
-(PUT '|OEXPR;retract;E$;1| '|SPADreplace| '(XLAM (|e|) |e|)) 
+(PUT '|OEXPR;retract;E%;1| '|SPADreplace| '(XLAM (|e|) |e|)) 
 
-(SDEFUN |OEXPR;retract;E$;1| ((|e| (|Expression| (|Integer|))) ($ ($))) |e|) 
+(SDEFUN |OEXPR;retract;E%;1| ((|e| (|Expression| (|Integer|))) (% (%))) |e|) 
 
-(PUT '|OEXPR;coerce;$E;2| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(PUT '|OEXPR;coerce;%E;2| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |OEXPR;coerce;$E;2| ((|x| ($)) ($ (|Expression| (|Integer|)))) |x|) 
+(SDEFUN |OEXPR;coerce;%E;2| ((|x| (%)) (% (|Expression| (|Integer|)))) |x|) 
 
 (SDEFUN |OEXPR;retractIfCan;EU;3|
-        ((|x| (|Expression| (|Integer|))) ($ (|Union| $ "failed")))
-        (CONS 0 (SPADCALL |x| (QREFELT $ 7)))) 
+        ((|x| (|Expression| (|Integer|))) (% (|Union| % "failed")))
+        (CONS 0 (SPADCALL |x| (QREFELT % 7)))) 
 
-(SDEFUN |OEXPR;<;2$B;4| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
-        (SPROG ((|s| (|Union| (|Integer|) "failed")) (|di| ($)))
-               (SEQ (LETT |di| (SPADCALL |y| |x| (QREFELT $ 11)))
+(SDEFUN |OEXPR;<;2%B;4| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
+        (SPROG ((|s| (|Union| (|Integer|) "failed")) (|di| (%)))
+               (SEQ (LETT |di| (SPADCALL |y| |x| (QREFELT % 11)))
                     (EXIT
                      (COND
-                      ((SPADCALL |di| (|spadConstant| $ 12) (QREFELT $ 15))
+                      ((SPADCALL |di| (|spadConstant| % 12) (QREFELT % 15))
                        NIL)
                       (#1='T
-                       (SEQ (LETT |s| (SPADCALL |di| (QREFELT $ 18)))
+                       (SEQ (LETT |s| (SPADCALL |di| (QREFELT % 18)))
                             (EXIT
                              (COND ((QEQCAR |s| 0) (EQL (QCDR |s|) 1))
                                    (#1#
@@ -47,25 +47,25 @@
                   (HREM |$ConstructorCache| '|OrderedExpression|)))))))))) 
 
 (DEFUN |OrderedExpression;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|OrderedExpression|))
-          (LETT $ (GETREFV 28))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|OrderedExpression| NIL (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 6 (|Expression| (|Integer|)))
-          $))) 
+          (LETT % (GETREFV 28))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|OrderedExpression| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6 (|Expression| (|Integer|)))
+          %))) 
 
 (MAKEPROP '|OrderedExpression| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|Expression| 21) '|Rep| |OEXPR;retract;E$;1|
-              |OEXPR;coerce;$E;2| (|Union| $ '"failed")
+           '#(NIL NIL NIL NIL NIL (|Expression| 21) '|Rep| |OEXPR;retract;E%;1|
+              |OEXPR;coerce;%E;2| (|Union| % '"failed")
               |OEXPR;retractIfCan;EU;3| (0 . -) (6 . |Zero|) (10 . |Zero|)
               (|Boolean|) (14 . =) (|Union| 21 '"failed")
-              (|ElementaryFunctionSign| 21 5) (20 . |sign|) |OEXPR;<;2$B;4|
+              (|ElementaryFunctionSign| 21 5) (20 . |sign|) |OEXPR;<;2%B;4|
               (|Fraction| 21) (|Integer|) (|PositiveInteger|)
               (|NonNegativeInteger|) (|HashState|) (|String|) (|OutputForm|)
               (|SingleInteger|))

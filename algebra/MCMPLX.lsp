@@ -1,27 +1,27 @@
 
-(SDEFUN |MCMPLX;coerce;C$;1| ((|u| (|Complex| (|Float|))) ($ ($)))
-        (SPADCALL (SPADCALL (SPADCALL |u| (QREFELT $ 8)) (QREFELT $ 10))
-                  (SPADCALL (SPADCALL |u| (QREFELT $ 11)) (QREFELT $ 10))
-                  (QREFELT $ 12))) 
+(SDEFUN |MCMPLX;coerce;C%;1| ((|u| (|Complex| (|Float|))) (% (%)))
+        (SPADCALL (SPADCALL (SPADCALL |u| (QREFELT % 8)) (QREFELT % 10))
+                  (SPADCALL (SPADCALL |u| (QREFELT % 11)) (QREFELT % 10))
+                  (QREFELT % 12))) 
 
-(SDEFUN |MCMPLX;coerce;C$;2| ((|u| (|Complex| (|Integer|))) ($ ($)))
-        (SPADCALL (SPADCALL (SPADCALL |u| (QREFELT $ 16)) (QREFELT $ 17))
-                  (SPADCALL (SPADCALL |u| (QREFELT $ 18)) (QREFELT $ 17))
-                  (QREFELT $ 12))) 
+(SDEFUN |MCMPLX;coerce;C%;2| ((|u| (|Complex| (|Integer|))) (% (%)))
+        (SPADCALL (SPADCALL (SPADCALL |u| (QREFELT % 16)) (QREFELT % 17))
+                  (SPADCALL (SPADCALL |u| (QREFELT % 18)) (QREFELT % 17))
+                  (QREFELT % 12))) 
 
-(SDEFUN |MCMPLX;coerce;C$;3| ((|u| (|Complex| (|MachineInteger|))) ($ ($)))
-        (SPADCALL (SPADCALL (SPADCALL |u| (QREFELT $ 22)) (QREFELT $ 23))
-                  (SPADCALL (SPADCALL |u| (QREFELT $ 24)) (QREFELT $ 23))
-                  (QREFELT $ 12))) 
+(SDEFUN |MCMPLX;coerce;C%;3| ((|u| (|Complex| (|MachineInteger|))) (% (%)))
+        (SPADCALL (SPADCALL (SPADCALL |u| (QREFELT % 22)) (QREFELT % 23))
+                  (SPADCALL (SPADCALL |u| (QREFELT % 24)) (QREFELT % 23))
+                  (QREFELT % 12))) 
 
-(SDEFUN |MCMPLX;coerce;C$;4| ((|u| (|Complex| (|MachineFloat|))) ($ ($)))
-        (SPADCALL (SPADCALL |u| (QREFELT $ 26)) (SPADCALL |u| (QREFELT $ 27))
-                  (QREFELT $ 12))) 
+(SDEFUN |MCMPLX;coerce;C%;4| ((|u| (|Complex| (|MachineFloat|))) (% (%)))
+        (SPADCALL (SPADCALL |u| (QREFELT % 26)) (SPADCALL |u| (QREFELT % 27))
+                  (QREFELT % 12))) 
 
-(SDEFUN |MCMPLX;coerce;$C;5| ((|u| ($)) ($ (|Complex| (|Float|))))
-        (SPADCALL (SPADCALL (SPADCALL |u| (QREFELT $ 29)) (QREFELT $ 30))
-                  (SPADCALL (SPADCALL |u| (QREFELT $ 31)) (QREFELT $ 30))
-                  (QREFELT $ 32))) 
+(SDEFUN |MCMPLX;coerce;%C;5| ((|u| (%)) (% (|Complex| (|Float|))))
+        (SPADCALL (SPADCALL (SPADCALL |u| (QREFELT % 29)) (QREFELT % 30))
+                  (SPADCALL (SPADCALL |u| (QREFELT % 31)) (QREFELT % 30))
+                  (QREFELT % 32))) 
 
 (DECLAIM (NOTINLINE |MachineComplex;|)) 
 
@@ -45,13 +45,13 @@
 
 (DEFUN |MachineComplex;| ()
   (SPROG
-   ((|dv$| NIL) ($ NIL) (#1=#:G157 NIL) (#2=#:G156 NIL) (#3=#:G155 NIL)
+   ((|dv$| NIL) (% NIL) (#1=#:G157 NIL) (#2=#:G156 NIL) (#3=#:G155 NIL)
     (#4=#:G154 NIL) (#5=#:G153 NIL) (|pv$| NIL))
    (PROGN
     (LETT |dv$| '(|MachineComplex|))
-    (LETT $ (GETREFV 90))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 90))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -167,57 +167,57 @@
                                         (AND #5# #2#)
                                         (|HasCategory| (|MachineFloat|)
                                                        '(|IntegralDomain|))))))
-    (|haddProp| |$ConstructorCache| '|MachineComplex| NIL (CONS 1 $))
-    (|stuffDomainSlots| $)
+    (|haddProp| |$ConstructorCache| '|MachineComplex| NIL (CONS 1 %))
+    (|stuffDomainSlots| %)
     (AND
      (OR
-      (AND (|HasCategory| $ '(|CharacteristicNonZero|))
+      (AND (|HasCategory| % '(|CharacteristicNonZero|))
            (|HasCategory| (|MachineFloat|) '(|EuclideanDomain|)) #4#)
       (|HasCategory| (|MachineFloat|) '(|CharacteristicNonZero|)))
-     (|augmentPredVector| $ 17179869184))
+     (|augmentPredVector| % 17179869184))
     (AND
      (OR
-      (AND (|HasCategory| $ '(|CharacteristicNonZero|))
+      (AND (|HasCategory| % '(|CharacteristicNonZero|))
            (|HasCategory| (|MachineFloat|) '(|EuclideanDomain|)) #4#)
-      (AND (|HasCategory| $ '(|CharacteristicNonZero|))
+      (AND (|HasCategory| % '(|CharacteristicNonZero|))
            (|HasCategory| (|MachineFloat|) '(|FiniteFieldCategory|))))
-     (|augmentPredVector| $ 34359738368))
-    (SETF |pv$| (QREFELT $ 3))
-    $))) 
+     (|augmentPredVector| % 34359738368))
+    (SETF |pv$| (QREFELT % 3))
+    %))) 
 
 (MAKEPROP '|MachineComplex| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|Complex| 9) (|Float|) (|Complex| 6)
               (0 . |real|) (|MachineFloat|) (5 . |coerce|) (10 . |imag|)
-              (15 . |complex|) |MCMPLX;coerce;C$;1| (|Integer|) (|Complex| 14)
-              (21 . |real|) (26 . |coerce|) (31 . |imag|) |MCMPLX;coerce;C$;2|
+              (15 . |complex|) |MCMPLX;coerce;C%;1| (|Integer|) (|Complex| 14)
+              (21 . |real|) (26 . |coerce|) (31 . |imag|) |MCMPLX;coerce;C%;2|
               (|MachineInteger|) (|Complex| 20) (36 . |real|) (41 . |coerce|)
-              (46 . |imag|) |MCMPLX;coerce;C$;3| (51 . |real|) (56 . |imag|)
-              |MCMPLX;coerce;C$;4| (61 . |real|) (66 . |coerce|) (71 . |imag|)
-              (76 . |complex|) |MCMPLX;coerce;$C;5| (|Fraction| 14)
-              (|Record| (|:| |r| 9) (|:| |phi| 9)) (|Boolean|) (|Factored| $)
-              (|SparseUnivariatePolynomial| $) (|List| $)
-              (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
+              (46 . |imag|) |MCMPLX;coerce;C%;3| (51 . |real|) (56 . |imag|)
+              |MCMPLX;coerce;C%;4| (61 . |real|) (66 . |coerce|) (71 . |imag|)
+              (76 . |complex|) |MCMPLX;coerce;%C;5| (|Fraction| 14)
+              (|Record| (|:| |r| 9) (|:| |phi| 9)) (|Boolean|) (|Factored| %)
+              (|SparseUnivariatePolynomial| %) (|List| %)
+              (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
               (|Union| 42 '#1="failed") (|List| 38) (|Factored| 38)
-              (|Union| 63 '#1#) (|Matrix| $) (|Union| $ '"failed")
-              (|Record| (|:| |coef1| $) (|:| |coef2| $))
+              (|Union| 63 '#1#) (|Matrix| %) (|Union| % '"failed")
+              (|Record| (|:| |coef1| %) (|:| |coef2| %))
               (|Union| 47 '#2="failed") (|Union| 39 '#2#)
-              (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
+              (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
               (|NonNegativeInteger|)
-              (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|Record| (|:| |coef| 39) (|:| |generator| $)) (|InputForm|)
+              (|Record| (|:| |quotient| %) (|:| |remainder| %))
+              (|Record| (|:| |coef| 39) (|:| |generator| %)) (|InputForm|)
               (|Pattern| 6) (|Pattern| 14) (|List| 9) (|Equation| 9)
               (|List| 58) (|SparseUnivariatePolynomial| 9) (|Fraction| 60)
-              (|Matrix| 9) (|Vector| $) (|Mapping| 9 9) (|PositiveInteger|)
+              (|Matrix| 9) (|Vector| %) (|Mapping| 9 9) (|PositiveInteger|)
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
               (|Record| (|:| |factor| 14) (|:| |exponent| 51)) (|List| 67)
               (|Table| 65 51) (|OnePointCompletion| 65) (|Union| 51 '"failed")
               (|Symbol|) (|List| 72) (|Union| 34 '"failed") (|Matrix| 14)
               (|Record| (|:| |mat| 75) (|:| |vec| (|Vector| 14))) (|List| 51)
-              (|PatternMatchResult| 6 $) (|PatternMatchResult| 14 $)
+              (|PatternMatchResult| 6 %) (|PatternMatchResult| 14 %)
               (|Complex| (|DoubleFloat|)) (|Vector| 9) (|Union| 9 '#3="failed")
               (|Record| (|:| |mat| 62) (|:| |vec| 81)) (|Union| 14 '#3#)
-              (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
+              (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (|HashState|) (|String|) (|OutputForm|) (|SingleInteger|))
            '#(~= 82 |zero?| 88 |unitNormal| 93 |unitCanonical| 98 |unit?| 103
               |traceMatrix| 108 |trace| 117 |tanh| 122 |tan| 127

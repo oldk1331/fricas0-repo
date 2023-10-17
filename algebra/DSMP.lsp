@@ -1,23 +1,23 @@
 
-(SDEFUN |DSMP;retractIfCan;$U;1|
-        ((|p| ($)) ($ (|Union| (|SparseMultivariatePolynomial| R S) "failed")))
+(SDEFUN |DSMP;retractIfCan;%U;1|
+        ((|p| (%)) (% (|Union| (|SparseMultivariatePolynomial| R S) "failed")))
         (COND
-         ((ZEROP (SPADCALL |p| (QREFELT $ 10)))
+         ((ZEROP (SPADCALL |p| (QREFELT % 10)))
           (CONS 0
-                (SPADCALL (CONS #'|DSMP;retractIfCan;$U;1!0| $) (ELT $ 14) |p|
-                          (QREFELT $ 18))))
+                (SPADCALL (CONS #'|DSMP;retractIfCan;%U;1!0| %) (ELT % 14) |p|
+                          (QREFELT % 18))))
          ('T (CONS 1 "failed")))) 
 
-(SDEFUN |DSMP;retractIfCan;$U;1!0| ((|x| NIL) ($ NIL))
-        (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 13))) 
+(SDEFUN |DSMP;retractIfCan;%U;1!0| ((|x| NIL) (% NIL))
+        (SPADCALL (SPADCALL |x| (QREFELT % 11)) (QREFELT % 13))) 
 
-(SDEFUN |DSMP;coerce;Smp$;2|
-        ((|p| (|SparseMultivariatePolynomial| R S)) ($ ($)))
-        (SPADCALL (CONS #'|DSMP;coerce;Smp$;2!0| $) (ELT $ 23) |p|
-                  (QREFELT $ 27))) 
+(SDEFUN |DSMP;coerce;Smp%;2|
+        ((|p| (|SparseMultivariatePolynomial| R S)) (% (%)))
+        (SPADCALL (CONS #'|DSMP;coerce;Smp%;2!0| %) (ELT % 23) |p|
+                  (QREFELT % 27))) 
 
-(SDEFUN |DSMP;coerce;Smp$;2!0| ((|x| NIL) ($ NIL))
-        (SPADCALL (SPADCALL |x| (QREFELT $ 21)) (QREFELT $ 22))) 
+(SDEFUN |DSMP;coerce;Smp%;2!0| ((|x| NIL) (% NIL))
+        (SPADCALL (SPADCALL |x| (QREFELT % 21)) (QREFELT % 22))) 
 
 (DECLAIM (NOTINLINE |DifferentialSparseMultivariatePolynomial;|)) 
 
@@ -47,7 +47,7 @@
 (DEFUN |DifferentialSparseMultivariatePolynomial;| (|#1| |#2| |#3|)
   (SPROG
    ((#1=#:G167 NIL) (|pv$| NIL) (#2=#:G160 NIL) (#3=#:G161 NIL) (#4=#:G162 NIL)
-    (#5=#:G163 NIL) (#6=#:G164 NIL) (#7=#:G165 NIL) (#8=#:G166 NIL) ($ NIL)
+    (#5=#:G163 NIL) (#6=#:G164 NIL) (#7=#:G165 NIL) (#8=#:G166 NIL) (% NIL)
     (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
@@ -55,9 +55,9 @@
     (LETT DV$3 (|devaluate| |#3|))
     (LETT |dv$|
           (LIST '|DifferentialSparseMultivariatePolynomial| DV$1 DV$2 DV$3))
-    (LETT $ (GETREFV 84))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 84))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -577,32 +577,32 @@
                                                             (|Integer|)))))
                                          #2#)))))
     (|haddProp| |$ConstructorCache| '|DifferentialSparseMultivariatePolynomial|
-                (LIST DV$1 DV$2 DV$3) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (QSETREFV $ 8 |#3|)
-    (AND (|HasCategory| $ '(|CommutativeRing|))
-         (|augmentPredVector| $ 68719476736))
+                (LIST DV$1 DV$2 DV$3) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (QSETREFV % 8 |#3|)
+    (AND (|HasCategory| % '(|CommutativeRing|))
+         (|augmentPredVector| % 68719476736))
     (AND
      (LETT #1#
            (AND (|HasCategory| |#1| '(|PolynomialFactorizationExplicit|))
-                (|HasCategory| $ '(|CharacteristicNonZero|))))
-     (|augmentPredVector| $ 137438953472))
+                (|HasCategory| % '(|CharacteristicNonZero|))))
+     (|augmentPredVector| % 137438953472))
     (AND (OR (|HasCategory| |#1| '(|CharacteristicNonZero|)) #1#)
-         (|augmentPredVector| $ 274877906944))
+         (|augmentPredVector| % 274877906944))
     (AND
      (OR (|HasCategory| |#1| '(|EntireRing|))
-         (AND #6# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
-     (|augmentPredVector| $ 549755813888))
+         (AND #6# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| % 549755813888))
     (AND
      (OR
       (AND (|HasCategory| |#1| '(|CommutativeRing|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-      #8# (AND #6# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
-     (|augmentPredVector| $ 1099511627776))
-    (SETF |pv$| (QREFELT $ 3))
-    $))) 
+           (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+      #8# (AND #6# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| % 1099511627776))
+    (SETF |pv$| (QREFELT % 3))
+    %))) 
 
 (MAKEPROP '|DifferentialSparseMultivariatePolynomial| '|infovec|
           (LIST
@@ -612,25 +612,25 @@
               (|SparseMultivariatePolynomial| 6 7) (10 . |coerce|)
               (15 . |coerce|) (|Mapping| 12 8) (|Mapping| 12 6)
               (|PolynomialCategoryLifting| 44 8 6 $$ 12) (20 . |map|)
-              (|Union| 12 '"failed") |DSMP;retractIfCan;$U;1| (27 . |coerce|)
+              (|Union| 12 '"failed") |DSMP;retractIfCan;%U;1| (27 . |coerce|)
               (32 . |coerce|) (37 . |coerce|) (|Mapping| $$ 7) (|Mapping| $$ 6)
               (|PolynomialCategoryLifting| (|IndexedExponents| 7) 7 6 12 $$)
-              (42 . |map|) |DSMP;coerce;Smp$;2| (|Union| 35 '#1="failed")
-              (|Matrix| $) (|InputForm|) (|Pattern| (|Float|)) (|Pattern| 36)
-              (|Record| (|:| |mat| 37) (|:| |vec| (|Vector| 36))) (|Vector| $)
-              (|Integer|) (|Matrix| 36) (|PatternMatchResult| (|Float|) $)
-              (|PatternMatchResult| 36 $) (|Union| $ '#1#) (|Boolean|)
-              (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
+              (42 . |map|) |DSMP;coerce;Smp%;2| (|Union| 35 '#1="failed")
+              (|Matrix| %) (|InputForm|) (|Pattern| (|Float|)) (|Pattern| 36)
+              (|Record| (|:| |mat| 37) (|:| |vec| (|Vector| 36))) (|Vector| %)
+              (|Integer|) (|Matrix| 36) (|PatternMatchResult| (|Float|) %)
+              (|PatternMatchResult| 36 %) (|Union| % '#1#) (|Boolean|)
+              (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (|Fraction| 36) (|IndexedExponents| 8)
               (|Record| (|:| |k| 44) (|:| |c| 6)) (|List| 45) (|Mapping| 6 44)
-              (|List| 7) (|List| 6) (|List| $) (|Mapping| $ 9)
-              (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
-              (|SparseUnivariatePolynomial| $) (|Factored| $) (|List| 57)
+              (|List| 7) (|List| 6) (|List| %) (|Mapping| % 9)
+              (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
+              (|SparseUnivariatePolynomial| %) (|Factored| %) (|List| 57)
               (|List| 9) (|Symbol|) (|Factored| 53) (|Union| 60 '#1#)
               (|List| 53) (|Union| 43 '#2="failed") (|Union| 36 '#2#)
-              (|List| 8) (|Record| (|:| |quotient| $) (|:| |remainder| $))
+              (|List| 8) (|Record| (|:| |quotient| %) (|:| |remainder| %))
               (|Record| (|:| |mat| 66) (|:| |vec| (|Vector| 6))) (|Matrix| 6)
-              (|Equation| $) (|List| 67) (|Union| 8 '#2#)
+              (|Equation| %) (|List| 67) (|Union| 8 '#2#)
               (|Record| (|:| |var| 8) (|:| |exponent| 9))
               (|Union| 70 '#3="failed") (|Union| 50 '#3#) (|Union| 7 '#2#)
               (|Mapping| 6 6) (|SparseUnivariatePolynomial| 6)

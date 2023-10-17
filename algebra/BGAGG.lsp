@@ -26,13 +26,13 @@
                                                         (|shallowlyMutable|)
                                                         (|mkCategory|
                                                          '(((|extract!|
-                                                             (|t#1| $))
+                                                             (|t#1| %))
                                                             T)
                                                            ((|insert!|
-                                                             ($ |t#1| $))
+                                                             (% |t#1| %))
                                                             T)
                                                            ((|inspect|
-                                                             (|t#1| $))
+                                                             (|t#1| %))
                                                             T))
                                                          NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|BagAggregate| |t#1|))))) 

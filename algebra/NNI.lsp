@@ -6,24 +6,24 @@
                             (DELASC #1# (|get| #2# #3# |$CategoryFrame|)))
                       |$CategoryFrame|))) 
 
-(PUT '|NNI;sup;3$;1| '|SPADreplace| 'MAX) 
+(PUT '|NNI;sup;3%;1| '|SPADreplace| 'MAX) 
 
-(SDEFUN |NNI;sup;3$;1| ((|x| ($)) (|y| ($)) ($ ($))) (MAX |x| |y|)) 
+(SDEFUN |NNI;sup;3%;1| ((|x| (%)) (|y| (%)) (% (%))) (MAX |x| |y|)) 
 
-(PUT '|NNI;inf;3$;2| '|SPADreplace| 'MIN) 
+(PUT '|NNI;inf;3%;2| '|SPADreplace| 'MIN) 
 
-(SDEFUN |NNI;inf;3$;2| ((|x| ($)) (|y| ($)) ($ ($))) (MIN |x| |y|)) 
+(SDEFUN |NNI;inf;3%;2| ((|x| (%)) (|y| (%)) (% (%))) (MIN |x| |y|)) 
 
-(PUT '|NNI;shift;$I$;3| '|SPADreplace| 'ASH) 
+(PUT '|NNI;shift;%I%;3| '|SPADreplace| 'ASH) 
 
-(SDEFUN |NNI;shift;$I$;3| ((|x| ($)) (|n| (|Integer|)) ($ ($))) (ASH |x| |n|)) 
+(SDEFUN |NNI;shift;%I%;3| ((|x| (%)) (|n| (|Integer|)) (% (%))) (ASH |x| |n|)) 
 
-(PUT '|NNI;qcoerce;I$;4| '|SPADreplace| '(XLAM (|n|) |n|)) 
+(PUT '|NNI;qcoerce;I%;4| '|SPADreplace| '(XLAM (|n|) |n|)) 
 
-(SDEFUN |NNI;qcoerce;I$;4| ((|n| (|Integer|)) ($ ($))) |n|) 
+(SDEFUN |NNI;qcoerce;I%;4| ((|n| (|Integer|)) (% (%))) |n|) 
 
-(SDEFUN |NNI;subtractIfCan;2$U;5|
-        ((|x| ($)) (|y| ($)) ($ (|Union| $ "failed")))
+(SDEFUN |NNI;subtractIfCan;2%U;5|
+        ((|x| (%)) (|y| (%)) (% (|Union| % "failed")))
         (SPROG ((|c| (|Integer|)))
                (SEQ (LETT |c| (- |x| |y|))
                     (EXIT
@@ -51,24 +51,24 @@
                   (HREM |$ConstructorCache| '|NonNegativeInteger|)))))))))) 
 
 (DEFUN |NonNegativeInteger;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|NonNegativeInteger|))
-          (LETT $ (GETREFV 21))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|NonNegativeInteger| NIL (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (AND (|HasCategory| $ '(|AbelianGroup|)) (|augmentPredVector| $ 1))
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+          (LETT % (GETREFV 21))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|NonNegativeInteger| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (AND (|HasCategory| % '(|AbelianGroup|)) (|augmentPredVector| % 1))
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|NonNegativeInteger| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|Integer|) |NNI;sup;3$;1| |NNI;inf;3$;2|
-              |NNI;shift;$I$;3| |NNI;qcoerce;I$;4| (|Union| $ '"failed")
-              |NNI;subtractIfCan;2$U;5|
-              (|Record| (|:| |quotient| $) (|:| |remainder| $)) (|InputForm|)
+           '#(NIL NIL NIL NIL NIL (|Integer|) |NNI;sup;3%;1| |NNI;inf;3%;2|
+              |NNI;shift;%I%;3| |NNI;qcoerce;I%;4| (|Union| % '"failed")
+              |NNI;subtractIfCan;2%U;5|
+              (|Record| (|:| |quotient| %) (|:| |remainder| %)) (|InputForm|)
               (|PositiveInteger|) (|NonNegativeInteger|) (|Boolean|) (|String|)
               (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#(~= 0 |zero?| 6 |sup| 11 |subtractIfCan| 17 |smaller?| 23 |shift|

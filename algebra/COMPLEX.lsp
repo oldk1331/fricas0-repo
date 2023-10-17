@@ -1,91 +1,91 @@
 
 (SDEFUN |COMPLEX;writeOMComplex|
-        ((|dev| (|OpenMathDevice|)) (|x| ($)) ($ (|Void|)))
-        (SEQ (SPADCALL |dev| (QREFELT $ 10))
-             (SPADCALL |dev| "complex1" "complex_cartesian" (QREFELT $ 12))
-             (SPADCALL |dev| (SPADCALL |x| (QREFELT $ 13)) (QREFELT $ 14))
-             (SPADCALL |dev| (SPADCALL |x| (QREFELT $ 15)) (QREFELT $ 14))
-             (EXIT (SPADCALL |dev| (QREFELT $ 16))))) 
+        ((|dev| (|OpenMathDevice|)) (|x| (%)) (% (|Void|)))
+        (SEQ (SPADCALL |dev| (QREFELT % 10))
+             (SPADCALL |dev| "complex1" "complex_cartesian" (QREFELT % 12))
+             (SPADCALL |dev| (SPADCALL |x| (QREFELT % 13)) (QREFELT % 14))
+             (SPADCALL |dev| (SPADCALL |x| (QREFELT % 15)) (QREFELT % 14))
+             (EXIT (SPADCALL |dev| (QREFELT % 16))))) 
 
-(SDEFUN |COMPLEX;OMwrite;Omd$BV;2|
-        ((|dev| (|OpenMathDevice|)) (|x| ($)) (|wholeObj| (|Boolean|))
-         ($ (|Void|)))
-        (SEQ (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 17))))
-             (|COMPLEX;writeOMComplex| |dev| |x| $)
-             (EXIT (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 18))))))) 
+(SDEFUN |COMPLEX;OMwrite;Omd%BV;2|
+        ((|dev| (|OpenMathDevice|)) (|x| (%)) (|wholeObj| (|Boolean|))
+         (% (|Void|)))
+        (SEQ (COND (|wholeObj| (SPADCALL |dev| (QREFELT % 17))))
+             (|COMPLEX;writeOMComplex| |dev| |x| %)
+             (EXIT (COND (|wholeObj| (SPADCALL |dev| (QREFELT % 18))))))) 
 
-(SDEFUN |COMPLEX;Zero;$;3| (($ ($)))
-        (CONS (|spadConstant| $ 22) (|spadConstant| $ 22))) 
+(SDEFUN |COMPLEX;Zero;%;3| ((% (%)))
+        (CONS (|spadConstant| % 22) (|spadConstant| % 22))) 
 
-(SDEFUN |COMPLEX;One;$;4| (($ ($)))
-        (CONS (|spadConstant| $ 24) (|spadConstant| $ 22))) 
+(SDEFUN |COMPLEX;One;%;4| ((% (%)))
+        (CONS (|spadConstant| % 24) (|spadConstant| % 22))) 
 
-(SDEFUN |COMPLEX;zero?;$B;5| ((|x| ($)) ($ (|Boolean|)))
+(SDEFUN |COMPLEX;zero?;%B;5| ((|x| (%)) (% (|Boolean|)))
         (COND
-         ((SPADCALL (QCAR |x|) (QREFELT $ 25))
-          (SPADCALL (QCDR |x|) (QREFELT $ 25)))
+         ((SPADCALL (QCAR |x|) (QREFELT % 25))
+          (SPADCALL (QCDR |x|) (QREFELT % 25)))
          ('T NIL))) 
 
-(SDEFUN |COMPLEX;one?;$B;6| ((|x| ($)) ($ (|Boolean|)))
+(SDEFUN |COMPLEX;one?;%B;6| ((|x| (%)) (% (|Boolean|)))
         (COND
-         ((SPADCALL (QCAR |x|) (|spadConstant| $ 24) (QREFELT $ 27))
-          (SPADCALL (QCDR |x|) (QREFELT $ 25)))
+         ((SPADCALL (QCAR |x|) (|spadConstant| % 24) (QREFELT % 27))
+          (SPADCALL (QCDR |x|) (QREFELT % 25)))
          ('T NIL))) 
 
-(SDEFUN |COMPLEX;coerce;R$;7| ((|r| (R)) ($ ($)))
-        (CONS |r| (|spadConstant| $ 22))) 
+(SDEFUN |COMPLEX;coerce;R%;7| ((|r| (R)) (% (%)))
+        (CONS |r| (|spadConstant| % 22))) 
 
-(PUT '|COMPLEX;complex;2R$;8| '|SPADreplace| 'CONS) 
+(PUT '|COMPLEX;complex;2R%;8| '|SPADreplace| 'CONS) 
 
-(SDEFUN |COMPLEX;complex;2R$;8| ((|r| (R)) (|i| (R)) ($ ($))) (CONS |r| |i|)) 
+(SDEFUN |COMPLEX;complex;2R%;8| ((|r| (R)) (|i| (R)) (% (%))) (CONS |r| |i|)) 
 
-(PUT '|COMPLEX;real;$R;9| '|SPADreplace| 'QCAR) 
+(PUT '|COMPLEX;real;%R;9| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |COMPLEX;real;$R;9| ((|x| ($)) ($ (R))) (QCAR |x|)) 
+(SDEFUN |COMPLEX;real;%R;9| ((|x| (%)) (% (R))) (QCAR |x|)) 
 
-(PUT '|COMPLEX;imag;$R;10| '|SPADreplace| 'QCDR) 
+(PUT '|COMPLEX;imag;%R;10| '|SPADreplace| 'QCDR) 
 
-(SDEFUN |COMPLEX;imag;$R;10| ((|x| ($)) ($ (R))) (QCDR |x|)) 
+(SDEFUN |COMPLEX;imag;%R;10| ((|x| (%)) (% (R))) (QCDR |x|)) 
 
-(SDEFUN |COMPLEX;+;3$;11| ((|x| ($)) (|y| ($)) ($ ($)))
+(SDEFUN |COMPLEX;+;3%;11| ((|x| (%)) (|y| (%)) (% (%)))
         (CONS (|add_DF| (QCAR |x|) (QCAR |y|))
               (|add_DF| (QCDR |x|) (QCDR |y|)))) 
 
-(SDEFUN |COMPLEX;-;3$;12| ((|x| ($)) (|y| ($)) ($ ($)))
+(SDEFUN |COMPLEX;-;3%;12| ((|x| (%)) (|y| (%)) (% (%)))
         (CONS (|sub_DF| (QCAR |x|) (QCAR |y|))
               (|sub_DF| (QCDR |x|) (QCDR |y|)))) 
 
-(SDEFUN |COMPLEX;*;3$;13| ((|x| ($)) (|y| ($)) ($ ($)))
+(SDEFUN |COMPLEX;*;3%;13| ((|x| (%)) (|y| (%)) (% (%)))
         (CONS
          (|sub_DF| (|mul_DF| (QCAR |x|) (QCAR |y|))
                    (|mul_DF| (QCDR |x|) (QCDR |y|)))
          (|add_DF| (|mul_DF| (QCDR |x|) (QCAR |y|))
                    (|mul_DF| (QCDR |y|) (QCAR |x|))))) 
 
-(SDEFUN |COMPLEX;+;3$;14| ((|x| ($)) (|y| ($)) ($ ($)))
-        (CONS (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 34))
-              (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 34)))) 
+(SDEFUN |COMPLEX;+;3%;14| ((|x| (%)) (|y| (%)) (% (%)))
+        (CONS (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT % 34))
+              (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT % 34)))) 
 
-(SDEFUN |COMPLEX;-;3$;15| ((|x| ($)) (|y| ($)) ($ ($)))
-        (CONS (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 35))
-              (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 35)))) 
+(SDEFUN |COMPLEX;-;3%;15| ((|x| (%)) (|y| (%)) (% (%)))
+        (CONS (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT % 35))
+              (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT % 35)))) 
 
-(SDEFUN |COMPLEX;*;3$;16| ((|x| ($)) (|y| ($)) ($ ($)))
+(SDEFUN |COMPLEX;*;3%;16| ((|x| (%)) (|y| (%)) (% (%)))
         (CONS
-         (SPADCALL (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 36))
-                   (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 36))
-                   (QREFELT $ 35))
-         (SPADCALL (SPADCALL (QCDR |x|) (QCAR |y|) (QREFELT $ 36))
-                   (SPADCALL (QCDR |y|) (QCAR |x|) (QREFELT $ 36))
-                   (QREFELT $ 34)))) 
+         (SPADCALL (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT % 36))
+                   (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT % 36))
+                   (QREFELT % 35))
+         (SPADCALL (SPADCALL (QCDR |x|) (QCAR |y|) (QREFELT % 36))
+                   (SPADCALL (QCDR |y|) (QCAR |x|) (QREFELT % 36))
+                   (QREFELT % 34)))) 
 
-(SDEFUN |COMPLEX;exquo;2$U;17| ((|x| ($)) (|y| ($)) ($ (|Union| $ "failed")))
+(SDEFUN |COMPLEX;exquo;2%U;17| ((|x| (%)) (|y| (%)) (% (|Union| % "failed")))
         (COND
-         ((SPADCALL (QCDR |y|) (QREFELT $ 25))
-          (SPADCALL |x| (QCAR |y|) (QREFELT $ 38)))
+         ((SPADCALL (QCDR |y|) (QREFELT % 25))
+          (SPADCALL |x| (QCAR |y|) (QREFELT % 38)))
          ('T
-          (SPADCALL (SPADCALL |x| (SPADCALL |y| (QREFELT $ 39)) (QREFELT $ 33))
-                    (SPADCALL |y| (QREFELT $ 40)) (QREFELT $ 38))))) 
+          (SPADCALL (SPADCALL |x| (SPADCALL |y| (QREFELT % 39)) (QREFELT % 33))
+                    (SPADCALL |y| (QREFELT % 40)) (QREFELT % 38))))) 
 
 (DECLAIM (NOTINLINE |Complex;|)) 
 
@@ -107,13 +107,13 @@
 (DEFUN |Complex;| (|#1|)
   (SPROG
    ((|pv$| NIL) (#1=#:G2917 NIL) (#2=#:G2918 NIL) (#3=#:G2919 NIL)
-    (#4=#:G2920 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+    (#4=#:G2920 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|Complex| DV$1))
-    (LETT $ (GETREFV 97))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 97))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -262,74 +262,74 @@
                                           #1#)
                                          (|HasCategory| |#1|
                                                         '(|IntegralDomain|)))))))
-    (|haddProp| |$ConstructorCache| '|Complex| (LIST DV$1) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
+    (|haddProp| |$ConstructorCache| '|Complex| (LIST DV$1) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
     (AND
      (OR
       (AND (|HasCategory| |#1| '(|EuclideanDomain|)) #1#
-           (|HasCategory| $ '(|CharacteristicNonZero|)))
+           (|HasCategory| % '(|CharacteristicNonZero|)))
       (AND (|HasCategory| |#1| '(|FiniteFieldCategory|))
-           (|HasCategory| $ '(|CharacteristicNonZero|))))
-     (|augmentPredVector| $ 1099511627776))
+           (|HasCategory| % '(|CharacteristicNonZero|))))
+     (|augmentPredVector| % 1099511627776))
     (AND
      (OR (|HasCategory| |#1| '(|CharacteristicNonZero|))
          (AND (|HasCategory| |#1| '(|EuclideanDomain|)) #1#
-              (|HasCategory| $ '(|CharacteristicNonZero|))))
-     (|augmentPredVector| $ 2199023255552))
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 7 (|Record| (|:| |real| |#1|) (|:| |imag| |#1|)))
+              (|HasCategory| % '(|CharacteristicNonZero|))))
+     (|augmentPredVector| % 2199023255552))
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 7 (|Record| (|:| |real| |#1|) (|:| |imag| |#1|)))
     (COND
      ((|testBitVector| |pv$| 28)
       (PROGN
-       (QSETREFV $ 20
-                 (CONS (|dispatchFunction| |COMPLEX;OMwrite;Omd$BV;2|) $)))))
+       (QSETREFV % 20
+                 (CONS (|dispatchFunction| |COMPLEX;OMwrite;Omd%BV;2|) %)))))
     (COND
      ((|domainEqual| |#1| (|DoubleFloat|))
       (PROGN
-       (QSETREFV $ 31 (CONS (|dispatchFunction| |COMPLEX;+;3$;11|) $))
-       (QSETREFV $ 32 (CONS (|dispatchFunction| |COMPLEX;-;3$;12|) $))
-       (QSETREFV $ 33 (CONS (|dispatchFunction| |COMPLEX;*;3$;13|) $))))
+       (QSETREFV % 31 (CONS (|dispatchFunction| |COMPLEX;+;3%;11|) %))
+       (QSETREFV % 32 (CONS (|dispatchFunction| |COMPLEX;-;3%;12|) %))
+       (QSETREFV % 33 (CONS (|dispatchFunction| |COMPLEX;*;3%;13|) %))))
      ('T
       (PROGN
-       (QSETREFV $ 31 (CONS (|dispatchFunction| |COMPLEX;+;3$;14|) $))
-       (QSETREFV $ 32 (CONS (|dispatchFunction| |COMPLEX;-;3$;15|) $))
-       (QSETREFV $ 33 (CONS (|dispatchFunction| |COMPLEX;*;3$;16|) $)))))
+       (QSETREFV % 31 (CONS (|dispatchFunction| |COMPLEX;+;3%;14|) %))
+       (QSETREFV % 32 (CONS (|dispatchFunction| |COMPLEX;-;3%;15|) %))
+       (QSETREFV % 33 (CONS (|dispatchFunction| |COMPLEX;*;3%;16|) %)))))
     (COND
      ((|testBitVector| |pv$| 10)
-      (QSETREFV $ 41 (CONS (|dispatchFunction| |COMPLEX;exquo;2$U;17|) $))))
-    $))) 
+      (QSETREFV % 41 (CONS (|dispatchFunction| |COMPLEX;exquo;2%U;17|) %))))
+    %))) 
 
 (MAKEPROP '|Complex| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep| (|Void|)
               (|OpenMathDevice|) (0 . |OMputApp|) (|String|)
-              (5 . |OMputSymbol|) |COMPLEX;real;$R;9| (12 . |OMwrite|)
-              |COMPLEX;imag;$R;10| (18 . |OMputEndApp|) (23 . |OMputObject|)
+              (5 . |OMputSymbol|) |COMPLEX;real;%R;9| (12 . |OMwrite|)
+              |COMPLEX;imag;%R;10| (18 . |OMputEndApp|) (23 . |OMputObject|)
               (28 . |OMputEndObject|) (|Boolean|) (33 . |OMwrite|)
               (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |COMPLEX;Zero;$;3|) $))
+                    (FUNCALL (|dispatchFunction| |COMPLEX;Zero;%;3|) %))
               (40 . |Zero|)
               (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |COMPLEX;One;$;4|) $))
-              (44 . |One|) (48 . |zero?|) |COMPLEX;zero?;$B;5| (53 . =)
-              |COMPLEX;one?;$B;6| |COMPLEX;coerce;R$;7| |COMPLEX;complex;2R$;8|
+                    (FUNCALL (|dispatchFunction| |COMPLEX;One;%;4|) %))
+              (44 . |One|) (48 . |zero?|) |COMPLEX;zero?;%B;5| (53 . =)
+              |COMPLEX;one?;%B;6| |COMPLEX;coerce;R%;7| |COMPLEX;complex;2R%;8|
               (59 . +) (65 . -) (71 . *) (77 . +) (83 . -) (89 . *)
-              (|Union| $ '#1="failed") (95 . |exquo|) (101 . |conjugate|)
+              (|Union| % '#1="failed") (95 . |exquo|) (101 . |conjugate|)
               (106 . |norm|) (111 . |exquo|) (|Fraction| 43) (|Integer|)
               (|Record| (|:| |r| 6) (|:| |phi| 6)) (|Union| 69 '#2="failed")
-              (|Matrix| $)
-              (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
-              (|List| $) (|SparseUnivariatePolynomial| $) (|Factored| $)
+              (|Matrix| %)
+              (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
+              (|List| %) (|SparseUnivariatePolynomial| %) (|Factored| %)
               (|Factored| 49) (|Union| 53 '#2#) (|List| 49)
-              (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|Record| (|:| |coef| 48) (|:| |generator| $))
+              (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
+              (|Record| (|:| |coef| 48) (|:| |generator| %))
               (|Union| 48 '"failed") (|NonNegativeInteger|)
-              (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 60 '"failed")
+              (|Record| (|:| |quotient| %) (|:| |remainder| %))
+              (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
+              (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 60 '"failed")
               (|InputForm|) (|Pattern| (|Float|)) (|Pattern| 43) (|List| 66)
-              (|Equation| 6) (|List| 6) (|Matrix| 6) (|Vector| $)
+              (|Equation| 6) (|List| 6) (|Matrix| 6) (|Vector| %)
               (|Mapping| 6 6) (|Fraction| 72) (|SparseUnivariatePolynomial| 6)
               (|PositiveInteger|) (|Union| 57 '"failed")
               (|OnePointCompletion| 73)
@@ -338,8 +338,8 @@
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic") (|Symbol|)
               (|List| 80) (|Union| 42 '#1#)
               (|Record| (|:| |mat| 84) (|:| |vec| (|Vector| 43))) (|Matrix| 43)
-              (|List| 57) (|PatternMatchResult| (|Float|) $)
-              (|PatternMatchResult| 43 $) (|Complex| (|Float|))
+              (|List| 57) (|PatternMatchResult| (|Float|) %)
+              (|PatternMatchResult| 43 %) (|Complex| (|Float|))
               (|Complex| (|DoubleFloat|)) (|Union| 43 '#3="failed")
               (|Record| (|:| |mat| 68) (|:| |vec| 93)) (|Union| 6 '#3#)
               (|Vector| 6) (|HashState|) (|OutputForm|) (|SingleInteger|))

@@ -1,6 +1,6 @@
 
 (SDEFUN |PRROOT;get_rational_roots;UPL;1|
-        ((|p| (UP)) ($ (|List| (|Fraction| (|Integer|)))))
+        ((|p| (UP)) (% (|List| (|Fraction| (|Integer|)))))
         (SPROG
          ((|res| (|List| (|Fraction| (|Integer|))))
           (|val1r| (|Fraction| (|Integer|))) (#1=#:G114 NIL)
@@ -17,12 +17,12 @@
           (#4=#:G116 NIL) (|i| NIL) (#5=#:G115 NIL)
           (|vvr| (|Matrix| (|Integer|))) (|vm| (|Matrix| F))
           (|vv| (|Vector| F)) (|nn| (|NonNegativeInteger|)))
-         (SEQ (LETT |nn| (+ (SPADCALL |p| (QREFELT $ 9)) 1))
-              (LETT |vv| (SPADCALL |p| |nn| (QREFELT $ 11)))
+         (SEQ (LETT |nn| (+ (SPADCALL |p| (QREFELT % 9)) 1))
+              (LETT |vv| (SPADCALL |p| |nn| (QREFELT % 11)))
               (LETT |vm|
-                    (SPADCALL (LIST (SPADCALL |vv| (QREFELT $ 13)))
-                              (QREFELT $ 16)))
-              (LETT |vvr| (SPADCALL |vm| (QREFELT $ 19)))
+                    (SPADCALL (LIST (SPADCALL |vv| (QREFELT % 13)))
+                              (QREFELT % 16)))
+              (LETT |vvr| (SPADCALL |vm| (QREFELT % 19)))
               (LETT |pl2|
                     (PROGN
                      (LETT #5# NIL)
@@ -33,14 +33,14 @@
                             (LETT #5#
                                   (CONS
                                    (SPADCALL
-                                    (SPADCALL |vvr| |i| (QREFELT $ 22))
-                                    (QREFELT $ 24))
+                                    (SPADCALL |vvr| |i| (QREFELT % 22))
+                                    (QREFELT % 24))
                                    #5#))))
                           (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                           (EXIT (NREVERSE #5#)))))
-              (LETT |eq2z| (SPADCALL |pl2| (QREFELT $ 26)))
-              (LETT |ff| (SPADCALL |eq2z| (QREFELT $ 29)))
-              (LETT |facl| (SPADCALL |ff| (QREFELT $ 34))) (LETT |res| NIL)
+              (LETT |eq2z| (SPADCALL |pl2| (QREFELT % 26)))
+              (LETT |ff| (SPADCALL |eq2z| (QREFELT % 29)))
+              (LETT |facl| (SPADCALL |ff| (QREFELT % 34))) (LETT |res| NIL)
               (SEQ (LETT |facr| NIL) (LETT #3# |facl|) G190
                    (COND
                     ((OR (ATOM #3#) (PROGN (LETT |facr| (CAR #3#)) NIL))
@@ -50,36 +50,36 @@
                      (SEQ (LETT |fac| (QVELT |facr| 1))
                           (EXIT
                            (COND
-                            ((SPADCALL (SPADCALL |fac| (QREFELT $ 35)) 1
-                                       (QREFELT $ 37))
+                            ((SPADCALL (SPADCALL |fac| (QREFELT % 35)) 1
+                                       (QREFELT % 37))
                              (PROGN (LETT #1# |$NoValue|) (GO #6=#:G108)))
                             ('T
                              (SEQ
                               (LETT |val1r|
                                     (SPADCALL
                                      (SPADCALL
-                                      (SPADCALL |fac| 0 (QREFELT $ 39))
-                                      (SPADCALL |fac| (QREFELT $ 40))
-                                      (QREFELT $ 42))
-                                     (QREFELT $ 43)))
+                                      (SPADCALL |fac| 0 (QREFELT % 39))
+                                      (SPADCALL |fac| (QREFELT % 40))
+                                      (QREFELT % 42))
+                                     (QREFELT % 43)))
                               (EXIT (LETT |res| (CONS |val1r| |res|)))))))))
                     #6# (EXIT #1#))
                    (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
-(SDEFUN |PRROOT;integerBound;UPI;2| ((|p| (UP)) ($ (|Integer|)))
+(SDEFUN |PRROOT;integerBound;UPI;2| ((|p| (UP)) (% (|Integer|)))
         (SPROG
          ((|res| (|Integer|)) (|q| (|Integer|)) (#1=#:G127 NIL)
           (|qu| (|Union| (|Integer|) "failed")) (#2=#:G128 NIL) (|r| NIL)
           (|lr| (|List| (|Fraction| (|Integer|)))))
-         (SEQ (LETT |lr| (SPADCALL |p| (QREFELT $ 45))) (LETT |res| 0)
+         (SEQ (LETT |lr| (SPADCALL |p| (QREFELT % 45))) (LETT |res| 0)
               (SEQ (LETT |r| NIL) (LETT #2# |lr|) G190
                    (COND
                     ((OR (ATOM #2#) (PROGN (LETT |r| (CAR #2#)) NIL))
                      (GO G191)))
                    (SEQ
                     (EXIT
-                     (SEQ (LETT |qu| (SPADCALL |r| (QREFELT $ 47)))
+                     (SEQ (LETT |qu| (SPADCALL |r| (QREFELT % 47)))
                           (EXIT
                            (COND
                             ((QEQCAR |qu| 1)
@@ -115,31 +115,31 @@
                   (HREM |$ConstructorCache| '|PolynomialRationalRoots|)))))))))) 
 
 (DEFUN |PolynomialRationalRoots;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|PolynomialRationalRoots| DV$1 DV$2))
-          (LETT $ (GETREFV 49))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (LETT % (GETREFV 49))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PolynomialRationalRoots|
-                      (LIST DV$1 DV$2) (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (QSETREFV $ 7 |#2|)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+                      (LIST DV$1 DV$2) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (QSETREFV % 7 |#2|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|PolynomialRationalRoots| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|NonNegativeInteger|) (0 . |degree|) (|Vector| 6)
               (5 . |vectorise|) (|List| 6) (11 . |parts|) (|List| 12)
-              (|Matrix| 6) (16 . |matrix|) (|Matrix| 21) (|Matrix| $)
+              (|Matrix| 6) (16 . |matrix|) (|Matrix| 21) (|Matrix| %)
               (21 . |reducedSystem|) (|Vector| 21) (|Integer|) (26 . |row|)
-              (|SparseUnivariatePolynomial| 21) (32 . |unvectorise|) (|List| $)
-              (37 . |gcd|) (|Factored| 28) (|SparseUnivariatePolynomial| $)
+              (|SparseUnivariatePolynomial| 21) (32 . |unvectorise|) (|List| %)
+              (37 . |gcd|) (|Factored| 28) (|SparseUnivariatePolynomial| %)
               (42 . |factorPolynomial|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 30) (|:| |factor| 23) (|:| |exponent| 8))

@@ -18,13 +18,13 @@
                  ((NOT #2#) (HREM |$ConstructorCache| '|Quaternion|)))))))))) 
 
 (DEFUN |Quaternion;| (|#1|)
-  (SPROG ((|pv$| NIL) (#1=#:G120 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (#1=#:G120 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|Quaternion| DV$1))
-          (LETT $ (GETREFV 38))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3
+          (LETT % (GETREFV 38))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
@@ -86,29 +86,29 @@
                                                                  (|Integer|))))
                                                (|HasCategory| |#1|
                                                               '(|Field|)))))))
-          (|haddProp| |$ConstructorCache| '|Quaternion| (LIST DV$1) (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+          (|haddProp| |$ConstructorCache| '|Quaternion| (LIST DV$1) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|Quaternion| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL
               (|GeneralQuaternion| 6
                                    (NRTEVAL
-                                    (SPADCALL (|spadConstant| $ 8)
-                                              (QREFELT $ 9)))
+                                    (SPADCALL (|spadConstant| % 8)
+                                              (QREFELT % 9)))
                                    (NRTEVAL
-                                    (SPADCALL (|spadConstant| $ 8)
-                                              (QREFELT $ 9))))
+                                    (SPADCALL (|spadConstant| % 8)
+                                              (QREFELT % 9))))
               (|local| |#1|) (0 . |One|) (4 . |One|) (8 . -) (|Fraction| 19)
-              (|Union| $ '"failed") (|InputForm|) (|NonNegativeInteger|)
-              (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
+              (|Union| % '"failed") (|InputForm|) (|NonNegativeInteger|)
+              (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (|Boolean|) (|List| 17) (|Equation| 6) (|List| 6) (|Integer|)
               (|List| 21) (|Symbol|) (|Union| 10 '"failed") (|Matrix| 19)
-              (|Matrix| $) (|Record| (|:| |mat| 23) (|:| |vec| (|Vector| 19)))
-              (|Vector| $) (|List| 13) (|Union| 19 '#1="failed") (|Matrix| 6)
+              (|Matrix| %) (|Record| (|:| |mat| 23) (|:| |vec| (|Vector| 19)))
+              (|Vector| %) (|List| 13) (|Union| 19 '#1="failed") (|Matrix| 6)
               (|Record| (|:| |mat| 29) (|:| |vec| (|Vector| 6)))
               (|Mapping| 6 6) (|Union| 6 '#1#) (|PositiveInteger|)
               (|HashState|) (|String|) (|OutputForm|) (|SingleInteger|))

@@ -14,7 +14,7 @@
                    (|Join| (|NonAssociativeRng|) (|NonAssociativeSemiRing|)
                            (|mkCategory|
                             '(((|characteristic| ((|NonNegativeInteger|))) T)
-                              ((|coerce| ($ (|Integer|))) T))
+                              ((|coerce| (% (|Integer|))) T))
                             NIL NIL NIL)))
            (SETELT #1# 0 '(|NonAssociativeRing|))))) 
 

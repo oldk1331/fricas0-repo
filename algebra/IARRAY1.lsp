@@ -1,9 +1,9 @@
 
-(PUT '|IARRAY1;#;$Nni;1| '|SPADreplace| 'QVSIZE) 
+(PUT '|IARRAY1;#;%Nni;1| '|SPADreplace| 'QVSIZE) 
 
-(SDEFUN |IARRAY1;#;$Nni;1| ((|x| ($)) ($ (|NonNegativeInteger|))) (QVSIZE |x|)) 
+(SDEFUN |IARRAY1;#;%Nni;1| ((|x| (%)) (% (|NonNegativeInteger|))) (QVSIZE |x|)) 
 
-(SDEFUN |IARRAY1;fill!;$S$;2| ((|x| ($)) (|s| (S)) ($ ($)))
+(SDEFUN |IARRAY1;fill!;%S%;2| ((|x| (%)) (|s| (S)) (% (%)))
         (SPROG ((#1=#:G1013 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 0) (LETT #1# (QVMAXINDEX |x|)) G190
@@ -12,18 +12,18 @@
                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (EXIT |x|)))) 
 
-(SDEFUN |IARRAY1;minIndex;$I;3| ((|x| ($)) ($ (|Integer|))) (QREFELT $ 7)) 
+(SDEFUN |IARRAY1;minIndex;%I;3| ((|x| (%)) (% (|Integer|))) (QREFELT % 7)) 
 
-(PUT '|IARRAY1;empty;$;4| '|SPADreplace| '(XLAM NIL (MAKE-ARRAY 0))) 
+(PUT '|IARRAY1;empty;%;4| '|SPADreplace| '(XLAM NIL (MAKE-ARRAY 0))) 
 
-(SDEFUN |IARRAY1;empty;$;4| (($ ($))) (MAKE-ARRAY 0)) 
+(SDEFUN |IARRAY1;empty;%;4| ((% (%))) (MAKE-ARRAY 0)) 
 
-(PUT '|IARRAY1;new;NniS$;5| '|SPADreplace| 'MAKEARR1) 
+(PUT '|IARRAY1;new;NniS%;5| '|SPADreplace| 'MAKEARR1) 
 
-(SDEFUN |IARRAY1;new;NniS$;5| ((|n| (|NonNegativeInteger|)) (|s| (S)) ($ ($)))
+(SDEFUN |IARRAY1;new;NniS%;5| ((|n| (|NonNegativeInteger|)) (|s| (S)) (% (%)))
         (MAKEARR1 |n| |s|)) 
 
-(SDEFUN |IARRAY1;map!;M2$;6| ((|f| (|Mapping| S S)) (|s1| ($)) ($ ($)))
+(SDEFUN |IARRAY1;map!;M2%;6| ((|f| (|Mapping| S S)) (|s1| (%)) (% (%)))
         (SPROG ((#1=#:G1023 NIL) (|i| NIL) (|n| (|Integer|)))
                (SEQ (LETT |n| (QVMAXINDEX |s1|))
                     (EXIT
@@ -41,8 +41,8 @@
                                   (EXIT NIL))
                              (EXIT |s1|)))))))) 
 
-(SDEFUN |IARRAY1;map;M2$;7| ((|f| (|Mapping| S S)) (|s1| ($)) ($ ($)))
-        (SPROG ((#1=#:G1029 NIL) (|i| NIL) (|ss2| ($)) (|n| (|Integer|)))
+(SDEFUN |IARRAY1;map;M2%;7| ((|f| (|Mapping| S S)) (|s1| (%)) (% (%)))
+        (SPROG ((#1=#:G1029 NIL) (|i| NIL) (|ss2| (%)) (|n| (|Integer|)))
                (SEQ (LETT |n| (QVMAXINDEX |s1|))
                     (EXIT
                      (COND ((< |n| 0) |s1|)
@@ -59,12 +59,12 @@
                                       (EXIT NIL))
                                  (EXIT |ss2|)))))))) 
 
-(SDEFUN |IARRAY1;map;M3$;8|
-        ((|f| (|Mapping| S S S)) (|a| ($)) (|b| ($)) ($ ($)))
-        (SPROG ((#1=#:G1036 NIL) (|i| NIL) (|c| ($)) (|maxind| (|Integer|)))
+(SDEFUN |IARRAY1;map;M3%;8|
+        ((|f| (|Mapping| S S S)) (|a| (%)) (|b| (%)) (% (%)))
+        (SPROG ((#1=#:G1036 NIL) (|i| NIL) (|c| (%)) (|maxind| (|Integer|)))
                (SEQ (LETT |maxind| (MIN (QVMAXINDEX |a|) (QVMAXINDEX |b|)))
                     (EXIT
-                     (COND ((< |maxind| 0) (SPADCALL (QREFELT $ 13)))
+                     (COND ((< |maxind| 0) (SPADCALL (QREFELT % 13)))
                            ('T
                             (SEQ (LETT |c| (MAKE-ARRAY (+ |maxind| 1)))
                                  (SEQ (LETT |i| 0) (LETT #1# |maxind|) G190
@@ -79,8 +79,8 @@
                                       (EXIT NIL))
                                  (EXIT |c|)))))))) 
 
-(SDEFUN |IARRAY1;hashUpdate!;Hs$Hs;9|
-        ((|s| (|HashState|)) (|x| ($)) ($ (|HashState|)))
+(SDEFUN |IARRAY1;hashUpdate!;Hs%Hs;9|
+        ((|s| (|HashState|)) (|x| (%)) (% (|HashState|)))
         (SPROG ((#1=#:G1041 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 0) (LETT #1# (QVMAXINDEX |x|)) G190
@@ -88,76 +88,76 @@
                      (SEQ
                       (EXIT
                        (LETT |s|
-                             (SPADCALL |s| (QAREF1 |x| |i|) (QREFELT $ 21)))))
+                             (SPADCALL |s| (QAREF1 |x| |i|) (QREFELT % 21)))))
                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (EXIT |s|)))) 
 
-(PUT '|IARRAY1;qelt;$IS;10| '|SPADreplace| 'QAREF1) 
+(PUT '|IARRAY1;qelt;%IS;10| '|SPADreplace| 'QAREF1) 
 
-(SDEFUN |IARRAY1;qelt;$IS;10| ((|x| ($)) (|i| (|Integer|)) ($ (S)))
+(SDEFUN |IARRAY1;qelt;%IS;10| ((|x| (%)) (|i| (|Integer|)) (% (S)))
         (QAREF1 |x| |i|)) 
 
-(PUT '|IARRAY1;qsetelt!;$I2S;11| '|SPADreplace| 'QSETVELT) 
+(PUT '|IARRAY1;qsetelt!;%I2S;11| '|SPADreplace| 'QSETVELT) 
 
-(SDEFUN |IARRAY1;qsetelt!;$I2S;11|
-        ((|x| ($)) (|i| (|Integer|)) (|s| (S)) ($ (S))) (QSETVELT |x| |i| |s|)) 
+(SDEFUN |IARRAY1;qsetelt!;%I2S;11|
+        ((|x| (%)) (|i| (|Integer|)) (|s| (S)) (% (S))) (QSETVELT |x| |i| |s|)) 
 
-(SDEFUN |IARRAY1;elt;$IS;12| ((|x| ($)) (|i| (|Integer|)) ($ (S)))
+(SDEFUN |IARRAY1;elt;%IS;12| ((|x| (%)) (|i| (|Integer|)) (% (S)))
         (COND
-         ((OR (MINUSP |i|) (> |i| (SPADCALL |x| (QREFELT $ 26))))
+         ((OR (MINUSP |i|) (> |i| (SPADCALL |x| (QREFELT % 26))))
           (|error| "index out of range"))
-         ('T (SPADCALL |x| |i| (QREFELT $ 24))))) 
+         ('T (SPADCALL |x| |i| (QREFELT % 24))))) 
 
-(SDEFUN |IARRAY1;setelt!;$I2S;13|
-        ((|x| ($)) (|i| (|Integer|)) (|s| (S)) ($ (S)))
+(SDEFUN |IARRAY1;setelt!;%I2S;13|
+        ((|x| (%)) (|i| (|Integer|)) (|s| (S)) (% (S)))
         (COND
-         ((OR (MINUSP |i|) (> |i| (SPADCALL |x| (QREFELT $ 26))))
+         ((OR (MINUSP |i|) (> |i| (SPADCALL |x| (QREFELT % 26))))
           (|error| "index out of range"))
-         ('T (SPADCALL |x| |i| |s| (QREFELT $ 25))))) 
+         ('T (SPADCALL |x| |i| |s| (QREFELT % 25))))) 
 
-(PUT '|IARRAY1;maxIndex;$I;14| '|SPADreplace| 'QVSIZE) 
+(PUT '|IARRAY1;maxIndex;%I;14| '|SPADreplace| 'QVSIZE) 
 
-(SDEFUN |IARRAY1;maxIndex;$I;14| ((|x| ($)) ($ (|Integer|))) (QVSIZE |x|)) 
+(SDEFUN |IARRAY1;maxIndex;%I;14| ((|x| (%)) (% (|Integer|))) (QVSIZE |x|)) 
 
-(SDEFUN |IARRAY1;qelt;$IS;15| ((|x| ($)) (|i| (|Integer|)) ($ (S)))
+(SDEFUN |IARRAY1;qelt;%IS;15| ((|x| (%)) (|i| (|Integer|)) (% (S)))
         (QAREF1 |x| (- |i| 1))) 
 
-(SDEFUN |IARRAY1;qsetelt!;$I2S;16|
-        ((|x| ($)) (|i| (|Integer|)) (|s| (S)) ($ (S)))
+(SDEFUN |IARRAY1;qsetelt!;%I2S;16|
+        ((|x| (%)) (|i| (|Integer|)) (|s| (S)) (% (S)))
         (QSETVELT |x| (- |i| 1) |s|)) 
 
-(SDEFUN |IARRAY1;elt;$IS;17| ((|x| ($)) (|i| (|Integer|)) ($ (S)))
+(SDEFUN |IARRAY1;elt;%IS;17| ((|x| (%)) (|i| (|Integer|)) (% (S)))
         (COND
          ((OR (|less_SI| |i| 1) (|less_SI| (QVSIZE |x|) |i|))
           (|error| "index out of range"))
          ('T (QAREF1 |x| (- |i| 1))))) 
 
-(SDEFUN |IARRAY1;setelt!;$I2S;18|
-        ((|x| ($)) (|i| (|Integer|)) (|s| (S)) ($ (S)))
+(SDEFUN |IARRAY1;setelt!;%I2S;18|
+        ((|x| (%)) (|i| (|Integer|)) (|s| (S)) (% (S)))
         (COND
          ((OR (|less_SI| |i| 1) (|less_SI| (QVSIZE |x|) |i|))
           (|error| "index out of range"))
          ('T (QSETVELT |x| (- |i| 1) |s|)))) 
 
-(SDEFUN |IARRAY1;qelt;$IS;19| ((|x| ($)) (|i| (|Integer|)) ($ (S)))
-        (QAREF1 |x| (- |i| (QREFELT $ 7)))) 
+(SDEFUN |IARRAY1;qelt;%IS;19| ((|x| (%)) (|i| (|Integer|)) (% (S)))
+        (QAREF1 |x| (- |i| (QREFELT % 7)))) 
 
-(SDEFUN |IARRAY1;qsetelt!;$I2S;20|
-        ((|x| ($)) (|i| (|Integer|)) (|s| (S)) ($ (S)))
-        (QSETVELT |x| (- |i| (QREFELT $ 7)) |s|)) 
+(SDEFUN |IARRAY1;qsetelt!;%I2S;20|
+        ((|x| (%)) (|i| (|Integer|)) (|s| (S)) (% (S)))
+        (QSETVELT |x| (- |i| (QREFELT % 7)) |s|)) 
 
-(SDEFUN |IARRAY1;elt;$IS;21| ((|x| ($)) (|i| (|Integer|)) ($ (S)))
+(SDEFUN |IARRAY1;elt;%IS;21| ((|x| (%)) (|i| (|Integer|)) (% (S)))
         (COND
-         ((OR (< |i| (QREFELT $ 7)) (> |i| (SPADCALL |x| (QREFELT $ 26))))
+         ((OR (< |i| (QREFELT % 7)) (> |i| (SPADCALL |x| (QREFELT % 26))))
           (|error| "index out of range"))
-         ('T (SPADCALL |x| |i| (QREFELT $ 24))))) 
+         ('T (SPADCALL |x| |i| (QREFELT % 24))))) 
 
-(SDEFUN |IARRAY1;setelt!;$I2S;22|
-        ((|x| ($)) (|i| (|Integer|)) (|s| (S)) ($ (S)))
+(SDEFUN |IARRAY1;setelt!;%I2S;22|
+        ((|x| (%)) (|i| (|Integer|)) (|s| (S)) (% (S)))
         (COND
-         ((OR (< |i| (QREFELT $ 7)) (> |i| (SPADCALL |x| (QREFELT $ 26))))
+         ((OR (< |i| (QREFELT % 7)) (> |i| (SPADCALL |x| (QREFELT % 26))))
           (|error| "index out of range"))
-         ('T (SPADCALL |x| |i| |s| (QREFELT $ 25))))) 
+         ('T (SPADCALL |x| |i| |s| (QREFELT % 25))))) 
 
 (DECLAIM (NOTINLINE |IndexedOneDimensionalArray;|)) 
 
@@ -183,15 +183,15 @@
 
 (DEFUN |IndexedOneDimensionalArray;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G1076 NIL) (#2=#:G1077 NIL) (#3=#:G1078 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G1076 NIL) (#2=#:G1077 NIL) (#3=#:G1078 NIL) (% NIL)
     (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 |#2|)
     (LETT |dv$| (LIST '|IndexedOneDimensionalArray| DV$1 DV$2))
-    (LETT $ (GETREFV 44))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 44))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -235,90 +235,90 @@
                                                            '(|OrderedSet|))
                                             #2#)))))
     (|haddProp| |$ConstructorCache| '|IndexedOneDimensionalArray|
-                (LIST DV$1 DV$2) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 4096))
-    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 8192))
+                (LIST DV$1 DV$2) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (AND (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 4096))
+    (AND (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 8192))
     (AND (|HasCategory| |#1| '(|BasicType|))
-         (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 16384))
-    (AND (|HasCategory| $ '(|finiteAggregate|))
-         (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 32768))
+         (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 16384))
+    (AND (|HasCategory| % '(|finiteAggregate|))
+         (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 32768))
     (AND (|HasCategory| |#1| '(|OrderedSet|))
-         (|HasCategory| $ '(|finiteAggregate|))
-         (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 65536))
+         (|HasCategory| % '(|finiteAggregate|))
+         (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 65536))
     (AND (|HasCategory| |#1| '(|OrderedSet|))
-         (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 131072))
+         (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 131072))
     (AND
-     (OR (AND #3# (|HasCategory| $ '(|finiteAggregate|)))
+     (OR (AND #3# (|HasCategory| % '(|finiteAggregate|)))
          (AND (|HasCategory| |#1| '(|OrderedSet|))
-              (|HasCategory| $ '(|finiteAggregate|))))
-     (|augmentPredVector| $ 262144))
+              (|HasCategory| % '(|finiteAggregate|))))
+     (|augmentPredVector| % 262144))
     (AND
-     (OR (AND #3# (|HasCategory| $ '(|finiteAggregate|)))
+     (OR (AND #3# (|HasCategory| % '(|finiteAggregate|)))
          (AND (|HasCategory| |#1| '(|OrderedSet|))
-              (|HasCategory| $ '(|finiteAggregate|)))
+              (|HasCategory| % '(|finiteAggregate|)))
          #2#)
-     (|augmentPredVector| $ 524288))
+     (|augmentPredVector| % 524288))
     (AND
-     (OR #1# (AND #3# (|HasCategory| $ '(|finiteAggregate|)))
+     (OR #1# (AND #3# (|HasCategory| % '(|finiteAggregate|)))
          (AND (|HasCategory| |#1| '(|OrderedSet|))
-              (|HasCategory| $ '(|finiteAggregate|))))
-     (|augmentPredVector| $ 1048576))
+              (|HasCategory| % '(|finiteAggregate|))))
+     (|augmentPredVector| % 1048576))
     (AND
      (OR
       (AND (|HasCategory| |#1| '(|BasicType|))
-           (|HasCategory| $ '(|finiteAggregate|)))
-      (AND #3# (|HasCategory| $ '(|finiteAggregate|)))
+           (|HasCategory| % '(|finiteAggregate|)))
+      (AND #3# (|HasCategory| % '(|finiteAggregate|)))
       (AND (|HasCategory| |#1| '(|OrderedSet|))
-           (|HasCategory| $ '(|finiteAggregate|)))
+           (|HasCategory| % '(|finiteAggregate|)))
       #2#)
-     (|augmentPredVector| $ 2097152))
-    (SETF |pv$| (QREFELT $ 3))
+     (|augmentPredVector| % 2097152))
+    (SETF |pv$| (QREFELT % 3))
     (COND
      ((|testBitVector| |pv$| 7)
-      (QSETREFV $ 22
-                (CONS (|dispatchFunction| |IARRAY1;hashUpdate!;Hs$Hs;9|) $))))
-    (QSETREFV $ 23 (ZEROP |#2|))
+      (QSETREFV % 22
+                (CONS (|dispatchFunction| |IARRAY1;hashUpdate!;Hs%Hs;9|) %))))
+    (QSETREFV % 23 (ZEROP |#2|))
     (COND
-     ((QREFELT $ 23)
+     ((QREFELT % 23)
       (PROGN
-       (QSETREFV $ 24 (CONS (|dispatchFunction| |IARRAY1;qelt;$IS;10|) $))
-       (QSETREFV $ 25 (CONS (|dispatchFunction| |IARRAY1;qsetelt!;$I2S;11|) $))
-       (QSETREFV $ 27 (CONS (|dispatchFunction| |IARRAY1;elt;$IS;12|) $))
-       (QSETREFV $ 28
-                 (CONS (|dispatchFunction| |IARRAY1;setelt!;$I2S;13|) $))))
+       (QSETREFV % 24 (CONS (|dispatchFunction| |IARRAY1;qelt;%IS;10|) %))
+       (QSETREFV % 25 (CONS (|dispatchFunction| |IARRAY1;qsetelt!;%I2S;11|) %))
+       (QSETREFV % 27 (CONS (|dispatchFunction| |IARRAY1;elt;%IS;12|) %))
+       (QSETREFV % 28
+                 (CONS (|dispatchFunction| |IARRAY1;setelt!;%I2S;13|) %))))
      ((EQL |#2| 1)
       (PROGN
-       (QSETREFV $ 26 (CONS (|dispatchFunction| |IARRAY1;maxIndex;$I;14|) $))
-       (QSETREFV $ 24 (CONS (|dispatchFunction| |IARRAY1;qelt;$IS;15|) $))
-       (QSETREFV $ 25 (CONS (|dispatchFunction| |IARRAY1;qsetelt!;$I2S;16|) $))
-       (QSETREFV $ 27 (CONS (|dispatchFunction| |IARRAY1;elt;$IS;17|) $))
-       (QSETREFV $ 28
-                 (CONS (|dispatchFunction| |IARRAY1;setelt!;$I2S;18|) $))))
+       (QSETREFV % 26 (CONS (|dispatchFunction| |IARRAY1;maxIndex;%I;14|) %))
+       (QSETREFV % 24 (CONS (|dispatchFunction| |IARRAY1;qelt;%IS;15|) %))
+       (QSETREFV % 25 (CONS (|dispatchFunction| |IARRAY1;qsetelt!;%I2S;16|) %))
+       (QSETREFV % 27 (CONS (|dispatchFunction| |IARRAY1;elt;%IS;17|) %))
+       (QSETREFV % 28
+                 (CONS (|dispatchFunction| |IARRAY1;setelt!;%I2S;18|) %))))
      ('T
       (PROGN
-       (QSETREFV $ 24 (CONS (|dispatchFunction| |IARRAY1;qelt;$IS;19|) $))
-       (QSETREFV $ 25 (CONS (|dispatchFunction| |IARRAY1;qsetelt!;$I2S;20|) $))
-       (QSETREFV $ 27 (CONS (|dispatchFunction| |IARRAY1;elt;$IS;21|) $))
-       (QSETREFV $ 28
-                 (CONS (|dispatchFunction| |IARRAY1;setelt!;$I2S;22|) $)))))
-    $))) 
+       (QSETREFV % 24 (CONS (|dispatchFunction| |IARRAY1;qelt;%IS;19|) %))
+       (QSETREFV % 25 (CONS (|dispatchFunction| |IARRAY1;qsetelt!;%I2S;20|) %))
+       (QSETREFV % 27 (CONS (|dispatchFunction| |IARRAY1;elt;%IS;21|) %))
+       (QSETREFV % 28
+                 (CONS (|dispatchFunction| |IARRAY1;setelt!;%I2S;22|) %)))))
+    %))) 
 
 (MAKEPROP '|IndexedOneDimensionalArray| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|NonNegativeInteger|) |IARRAY1;#;$Nni;1| |IARRAY1;fill!;$S$;2|
-              (|Integer|) |IARRAY1;minIndex;$I;3| |IARRAY1;empty;$;4|
-              |IARRAY1;new;NniS$;5| (|Mapping| 6 6) |IARRAY1;map!;M2$;6|
-              |IARRAY1;map;M2$;7| (|Mapping| 6 6 6) |IARRAY1;map;M3$;8|
+              (|NonNegativeInteger|) |IARRAY1;#;%Nni;1| |IARRAY1;fill!;%S%;2|
+              (|Integer|) |IARRAY1;minIndex;%I;3| |IARRAY1;empty;%;4|
+              |IARRAY1;new;NniS%;5| (|Mapping| 6 6) |IARRAY1;map!;M2%;6|
+              |IARRAY1;map;M2%;7| (|Mapping| 6 6 6) |IARRAY1;map;M3%;8|
               (|HashState|) (0 . |hashUpdate!|) (6 . |hashUpdate!|) '#:G1007
               (12 . |qelt|) (18 . |qsetelt!|) (25 . |maxIndex|) (30 . |elt|)
               (36 . |setelt!|) (|Mapping| 30 6 6) (|Boolean|) (|List| 6)
               (|List| 33) (|Equation| 6) (|OutputForm|) (|SingleInteger|)
               (|String|) (|Mapping| 30 6) (|UniversalSegment| 11) (|Void|)
-              (|InputForm|) (|List| $) (|Union| 6 '"failed") (|List| 11))
+              (|InputForm|) (|List| %) (|Union| 6 '"failed") (|List| 11))
            '#(~= 43 |trim| 49 |swap!| 55 |sorted?| 62 |sort!| 73 |sort| 84
               |smaller?| 95 |size?| 101 |setelt!| 107 |select| 121 |sample| 127
               |rightTrim| 131 |reverse!| 137 |reverse| 142 |removeDuplicates|

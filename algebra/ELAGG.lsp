@@ -27,48 +27,48 @@
                                                  (|LinearAggregate| '|t#1|)
                                                  (|shallowlyMutable|)
                                                  (|mkCategory|
-                                                  '(((|concat!| ($ $ |t#1|)) T)
-                                                    ((|concat!| ($ $ $)) T)
+                                                  '(((|concat!| (% % |t#1|)) T)
+                                                    ((|concat!| (% % %)) T)
                                                     ((|delete!|
-                                                      ($ $ (|Integer|)))
+                                                      (% % (|Integer|)))
                                                      T)
                                                     ((|delete!|
-                                                      ($ $
+                                                      (% %
                                                        (|UniversalSegment|
                                                         (|Integer|))))
                                                      T)
                                                     ((|remove!|
-                                                      ($
+                                                      (%
                                                        (|Mapping| (|Boolean|)
                                                                   |t#1|)
-                                                       $))
+                                                       %))
                                                      T)
                                                     ((|insert!|
-                                                      ($ |t#1| $ (|Integer|)))
+                                                      (% |t#1| % (|Integer|)))
                                                      T)
                                                     ((|insert!|
-                                                      ($ $ $ (|Integer|)))
+                                                      (% % % (|Integer|)))
                                                      T)
                                                     ((|merge!|
-                                                      ($
+                                                      (%
                                                        (|Mapping| (|Boolean|)
                                                                   |t#1| |t#1|)
-                                                       $ $))
+                                                       % %))
                                                      T)
                                                     ((|select!|
-                                                      ($
+                                                      (%
                                                        (|Mapping| (|Boolean|)
                                                                   |t#1|)
-                                                       $))
+                                                       %))
                                                      T)
-                                                    ((|remove!| ($ |t#1| $))
+                                                    ((|remove!| (% |t#1| %))
                                                      (|has| |t#1|
                                                             (|BasicType|)))
                                                     ((|removeDuplicates!|
-                                                      ($ $))
+                                                      (% %))
                                                      (|has| |t#1|
                                                             (|BasicType|)))
-                                                    ((|merge!| ($ $ $))
+                                                    ((|merge!| (% % %))
                                                      (|has| |t#1|
                                                             (|OrderedSet|))))
                                                   NIL NIL NIL)))))))

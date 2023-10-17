@@ -25,30 +25,30 @@
                                                 (|Join| (|LeftModule| '|t#1|)
                                                         (|mkCategory|
                                                          '(((|basis|
-                                                             ((|Vector| $)))
+                                                             ((|Vector| %)))
                                                             T)
                                                            ((|rank|
                                                              ((|PositiveInteger|)))
                                                             T)
                                                            ((|coordinates|
                                                              ((|Vector| |t#1|)
-                                                              $))
+                                                              %))
                                                             T)
                                                            ((|coordinates|
                                                              ((|Matrix| |t#1|)
-                                                              (|Vector| $)))
+                                                              (|Vector| %)))
                                                             T)
                                                            ((|represents|
-                                                             ($
+                                                             (%
                                                               (|Vector|
                                                                |t#1|)))
                                                             T)
                                                            ((|convert|
                                                              ((|Vector| |t#1|)
-                                                              $))
+                                                              %))
                                                             T)
                                                            ((|convert|
-                                                             ($
+                                                             (%
                                                               (|Vector|
                                                                |t#1|)))
                                                             T))

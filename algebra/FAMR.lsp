@@ -32,37 +32,37 @@
                                                  (|FullyRetractableTo| '|t#1|)
                                                  (|mkCategory|
                                                   '(((|ground?|
-                                                      ((|Boolean|) $))
+                                                      ((|Boolean|) %))
                                                      T)
-                                                    ((|ground| (|t#1| $)) T)
+                                                    ((|ground| (|t#1| %)) T)
                                                     ((|minimumDegree|
-                                                      (|t#2| $))
+                                                      (|t#2| %))
                                                      T)
                                                     ((|mapExponents|
-                                                      ($
+                                                      (%
                                                        (|Mapping| |t#2| |t#2|)
-                                                       $))
+                                                       %))
                                                      T)
                                                     ((|pomopo!|
-                                                      ($ $ |t#1| |t#2| $))
+                                                      (% % |t#1| |t#2| %))
                                                      T)
                                                     ((|fmecg|
-                                                      ($ $ |t#2| |t#1| $))
+                                                      (% % |t#2| |t#1| %))
                                                      (|has| |t#1| (|Ring|)))
                                                     ((|binomThmExpt|
-                                                      ($ $ $
+                                                      (% % %
                                                        (|NonNegativeInteger|)))
-                                                     (|has| $
+                                                     (|has| %
                                                             (|CommutativeRing|)))
                                                     ((|exquo|
-                                                      ((|Union| $ "failed") $
+                                                      ((|Union| % "failed") %
                                                        |t#1|))
                                                      (|has| |t#1|
                                                             (|EntireRing|)))
-                                                    ((|content| (|t#1| $))
+                                                    ((|content| (|t#1| %))
                                                      (|has| |t#1|
                                                             (|GcdDomain|)))
-                                                    ((|primitivePart| ($ $))
+                                                    ((|primitivePart| (% %))
                                                      (|has| |t#1|
                                                             (|GcdDomain|))))
                                                   '(((|EntireRing|)

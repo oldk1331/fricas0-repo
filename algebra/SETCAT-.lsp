@@ -1,30 +1,30 @@
 
-(SDEFUN |SETCAT-;hash;SSi;1| ((|s| (S)) ($ (|SingleInteger|)))
-        (HASHSTATEMAKEFIXNUM (SPADCALL HASHSTATEBASIS |s| (QREFELT $ 8)))) 
+(SDEFUN |SETCAT-;hash;SSi;1| ((|s| (S)) (% (|SingleInteger|)))
+        (HASHSTATEMAKEFIXNUM (SPADCALL HASHSTATEBASIS |s| (QREFELT % 8)))) 
 
-(SDEFUN |SETCAT-;latex;SS;2| ((|s| (S)) ($ (|String|)))
+(SDEFUN |SETCAT-;latex;SS;2| ((|s| (S)) (% (|String|)))
         (SPROG
          ((|sl| (|List| (|String|))) (|tf| (|TexFormat|))
           (|of| (|OutputForm|)))
-         (SEQ (LETT |of| (SPADCALL |s| (QREFELT $ 12)))
-              (LETT |tf| (SPADCALL |of| (QREFELT $ 14)))
-              (LETT |sl| (SPADCALL |tf| (QREFELT $ 16)))
-              (EXIT (SPADCALL (ELT $ 18) |sl| (QREFELT $ 20)))))) 
+         (SEQ (LETT |of| (SPADCALL |s| (QREFELT % 12)))
+              (LETT |tf| (SPADCALL |of| (QREFELT % 14)))
+              (LETT |sl| (SPADCALL |tf| (QREFELT % 16)))
+              (EXIT (SPADCALL (ELT % 18) |sl| (QREFELT % 20)))))) 
 
 (DECLAIM (NOTINLINE |SetCategory&;|)) 
 
 (DEFUN |SetCategory&| (|#1|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|SetCategory&| DV$1))
-          (LETT $ (GETREFV 22))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+          (LETT % (GETREFV 22))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|SetCategory&| '|infovec|
           (LIST

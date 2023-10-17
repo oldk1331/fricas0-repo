@@ -35,118 +35,118 @@
                                                         '|t#1| '#2# '#3#)
                                                        (|mkCategory|
                                                         '(((|apply|
-                                                            (|t#1| $ |t#1|
+                                                            (|t#1| % |t#1|
                                                              |t#1|))
                                                            T)
                                                           ((|exquo|
-                                                            ((|Union| $
+                                                            ((|Union| %
                                                                       "failed")
-                                                             $ |t#1|))
+                                                             % |t#1|))
                                                            (|has| |t#1|
                                                                   (|IntegralDomain|)))
                                                           ((|monicLeftDivide|
                                                             ((|Record|
                                                               (|:| |quotient|
-                                                                   $)
+                                                                   %)
                                                               (|:| |remainder|
-                                                                   $))
-                                                             $ $))
+                                                                   %))
+                                                             % %))
                                                            (|has| |t#1|
                                                                   (|IntegralDomain|)))
                                                           ((|monicRightDivide|
                                                             ((|Record|
                                                               (|:| |quotient|
-                                                                   $)
+                                                                   %)
                                                               (|:| |remainder|
-                                                                   $))
-                                                             $ $))
+                                                                   %))
+                                                             % %))
                                                            (|has| |t#1|
                                                                   (|IntegralDomain|)))
                                                           ((|leftDivide|
                                                             ((|Record|
                                                               (|:| |quotient|
-                                                                   $)
+                                                                   %)
                                                               (|:| |remainder|
-                                                                   $))
-                                                             $ $))
+                                                                   %))
+                                                             % %))
                                                            (|has| |t#1|
                                                                   (|Field|)))
                                                           ((|leftQuotient|
-                                                            ($ $ $))
+                                                            (% % %))
                                                            (|has| |t#1|
                                                                   (|Field|)))
                                                           ((|leftRemainder|
-                                                            ($ $ $))
+                                                            (% % %))
                                                            (|has| |t#1|
                                                                   (|Field|)))
                                                           ((|leftExactQuotient|
-                                                            ((|Union| $
+                                                            ((|Union| %
                                                                       "failed")
-                                                             $ $))
+                                                             % %))
                                                            (|has| |t#1|
                                                                   (|Field|)))
-                                                          ((|leftGcd| ($ $ $))
+                                                          ((|leftGcd| (% % %))
                                                            (|has| |t#1|
                                                                   (|Field|)))
                                                           ((|leftExtendedGcd|
                                                             ((|Record|
-                                                              (|:| |coef1| $)
-                                                              (|:| |coef2| $)
+                                                              (|:| |coef1| %)
+                                                              (|:| |coef2| %)
                                                               (|:| |generator|
-                                                                   $))
-                                                             $ $))
+                                                                   %))
+                                                             % %))
                                                            (|has| |t#1|
                                                                   (|Field|)))
-                                                          ((|rightLcm| ($ $ $))
+                                                          ((|rightLcm| (% % %))
                                                            (|has| |t#1|
                                                                   (|Field|)))
                                                           ((|rightDivide|
                                                             ((|Record|
                                                               (|:| |quotient|
-                                                                   $)
+                                                                   %)
                                                               (|:| |remainder|
-                                                                   $))
-                                                             $ $))
+                                                                   %))
+                                                             % %))
                                                            (|has| |t#1|
                                                                   (|Field|)))
                                                           ((|rightQuotient|
-                                                            ($ $ $))
+                                                            (% % %))
                                                            (|has| |t#1|
                                                                   (|Field|)))
                                                           ((|rightRemainder|
-                                                            ($ $ $))
+                                                            (% % %))
                                                            (|has| |t#1|
                                                                   (|Field|)))
                                                           ((|rightExactQuotient|
-                                                            ((|Union| $
+                                                            ((|Union| %
                                                                       "failed")
-                                                             $ $))
+                                                             % %))
                                                            (|has| |t#1|
                                                                   (|Field|)))
-                                                          ((|rightGcd| ($ $ $))
+                                                          ((|rightGcd| (% % %))
                                                            (|has| |t#1|
                                                                   (|Field|)))
                                                           ((|rightExtendedGcd|
                                                             ((|Record|
-                                                              (|:| |coef1| $)
-                                                              (|:| |coef2| $)
+                                                              (|:| |coef1| %)
+                                                              (|:| |coef2| %)
                                                               (|:| |generator|
-                                                                   $))
-                                                             $ $))
+                                                                   %))
+                                                             % %))
                                                            (|has| |t#1|
                                                                   (|Field|)))
                                                           ((|right_ext_ext_GCD|
                                                             ((|Record|
                                                               (|:| |generator|
-                                                                   $)
-                                                              (|:| |coef1| $)
-                                                              (|:| |coef2| $)
-                                                              (|:| |coefu| $)
-                                                              (|:| |coefv| $))
-                                                             $ $))
+                                                                   %)
+                                                              (|:| |coef1| %)
+                                                              (|:| |coef2| %)
+                                                              (|:| |coefu| %)
+                                                              (|:| |coefv| %))
+                                                             % %))
                                                            (|has| |t#1|
                                                                   (|Field|)))
-                                                          ((|leftLcm| ($ $ $))
+                                                          ((|leftLcm| (% % %))
                                                            (|has| |t#1|
                                                                   (|Field|))))
                                                         '(((|Algebra| |t#1|)

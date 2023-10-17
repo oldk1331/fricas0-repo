@@ -38,27 +38,27 @@
                                                        (|finiteAggregate|)
                                                        (|mkCategory|
                                                         '(((|directProduct|
-                                                            ($
+                                                            (%
                                                              (|Vector| |t#2|)))
                                                            T)
                                                           ((|unitVector|
-                                                            ($
+                                                            (%
                                                              (|PositiveInteger|)))
                                                            (AND
                                                             (|has| |t#2|
                                                                    (|Monoid|))
                                                             (|has| |t#2|
                                                                    (|AbelianMonoid|))))
-                                                          ((|dot| (|t#2| $ $))
+                                                          ((|dot| (|t#2| % %))
                                                            (AND
                                                             (|has| |t#2|
                                                                    (|AbelianMonoid|))
                                                             (|has| |t#2|
                                                                    (|SemiRng|))))
-                                                          ((* ($ |t#2| $))
+                                                          ((* (% |t#2| %))
                                                            (|has| |t#2|
                                                                   (|SemiGroup|)))
-                                                          ((* ($ $ |t#2|))
+                                                          ((* (% % |t#2|))
                                                            (|has| |t#2|
                                                                   (|SemiGroup|))))
                                                         '(((|FullyRetractableTo|

@@ -2,7 +2,7 @@
 (SDEFUN |SCANUTIL;parse_integer2|
         ((|str| (|String|)) (|i0| (|SingleInteger|)) (|l| (|SingleInteger|))
          (|l2l| (|List| (|SingleInteger|))) (|tpl| (|List| (|Integer|)))
-         ($ (|Integer|)))
+         (% (|Integer|)))
         (SPROG
          ((|res| (|Integer|)) (|l2| #1=(|SingleInteger|)) (|tp| (|Integer|))
           (|l1| (|SingleInteger|)) (|s1| (|SingleInteger|)) (|dig_val| #1#)
@@ -55,8 +55,8 @@
                       (LETT |l2| (|sub_SI| |l| |l1|))
                       (LETT |res|
                             (|SCANUTIL;parse_integer2| |str|
-                             (|add_SI| |i0| (SPADCALL 7 |l2| (QREFELT $ 8)))
-                             |l1| |l2l| |tpl| $))
+                             (|add_SI| |i0| (SPADCALL 7 |l2| (QREFELT % 8)))
+                             |l1| |l2l| |tpl| %))
                       (SEQ G190
                            (COND
                             ((NULL (NULL (|less_SI| (|SPADfirst| |l2l|) |l2|)))
@@ -68,9 +68,9 @@
                        (+ |res|
                           (* |tp|
                              (|SCANUTIL;parse_integer2| |str| |i0| |l2| |l2l|
-                              |tpl| $))))))))))) 
+                              |tpl| %))))))))))) 
 
-(SDEFUN |SCANUTIL;parse_integer;SI;2| ((|str| (|String|)) ($ (|Integer|)))
+(SDEFUN |SCANUTIL;parse_integer;SI;2| ((|str| (|String|)) (% (|Integer|)))
         (SPROG
          ((|res| (|Integer|)) (|j| (|SingleInteger|))
           (|s1| #1=(|SingleInteger|)) (|dig_val| #2=(|SingleInteger|))
@@ -114,7 +114,7 @@
                                    (EXIT
                                     (+ (* |res| (EXPT 10 |l20|))
                                        (|SCANUTIL;parse_integer2| |str| |j|
-                                        |l2| |l2l| |tpl| $)))))
+                                        |l2| |l2l| |tpl| %)))))
                              (#8#
                               (SEQ
                                (SEQ (LETT |k| 1) (LETT #4# |l2|) G190
@@ -167,16 +167,16 @@
                   (HREM |$ConstructorCache| '|ScanningUtilities|)))))))))) 
 
 (DEFUN |ScanningUtilities;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|ScanningUtilities|))
-          (LETT $ (GETREFV 11))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|ScanningUtilities| NIL (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+          (LETT % (GETREFV 11))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|ScanningUtilities| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|ScanningUtilities| '|infovec|
           (LIST

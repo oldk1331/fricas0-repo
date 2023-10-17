@@ -36,10 +36,10 @@
                                                                (|Fraction|
                                                                 |t#2|)
                                                                |t#3| |t#4|)
-                                                              $))
+                                                              %))
                                                             T)
                                                            ((|divisor|
-                                                             ($
+                                                             (%
                                                               (|FractionalIdeal|
                                                                |t#2|
                                                                (|Fraction|
@@ -47,13 +47,13 @@
                                                                |t#3| |t#4|)))
                                                             T)
                                                            ((|divisor|
-                                                             ($ |t#4|))
+                                                             (% |t#4|))
                                                             T)
                                                            ((|divisor|
-                                                             ($ |t#1| |t#1|))
+                                                             (% |t#1| |t#1|))
                                                             T)
                                                            ((|divisor|
-                                                             ($ |t#1| |t#1|
+                                                             (% |t#1| |t#1|
                                                               (|Integer|)))
                                                             T)
                                                            ((|decompose|
@@ -68,29 +68,29 @@
                                                                (|:|
                                                                 |principalPart|
                                                                 |t#4|))
-                                                              $))
+                                                              %))
                                                             T)
-                                                           ((|reduce| ($ $)) T)
+                                                           ((|reduce| (% %)) T)
                                                            ((|principal?|
-                                                             ((|Boolean|) $))
+                                                             ((|Boolean|) %))
                                                             T)
                                                            ((|generator|
                                                              ((|Union| |t#4|
                                                                        "failed")
-                                                              $))
+                                                              %))
                                                             T)
                                                            ((|generator|
                                                              ((|Union| |t#4|
                                                                        "failed")
-                                                              $ (|Integer|)
+                                                              % (|Integer|)
                                                               (|List| |t#2|)))
                                                             T)
                                                            ((|divisor|
-                                                             ($ |t#4| |t#2|
+                                                             (% |t#4| |t#2|
                                                               |t#2|))
                                                             T)
                                                            ((|divisor|
-                                                             ($ |t#4| |t#2|
+                                                             (% |t#4| |t#2|
                                                               |t#2| |t#2|
                                                               |t#1|))
                                                             T))

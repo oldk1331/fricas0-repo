@@ -1,27 +1,27 @@
 
-(SDEFUN |ALIST;dictionary;$;1| (($ ($))) (SPADCALL NIL (QREFELT $ 11))) 
+(SDEFUN |ALIST;dictionary;%;1| ((% (%))) (SPADCALL NIL (QREFELT % 11))) 
 
-(SDEFUN |ALIST;empty;$;2| (($ ($))) (SPADCALL (QREFELT $ 12))) 
+(SDEFUN |ALIST;empty;%;2| ((% (%))) (SPADCALL (QREFELT % 12))) 
 
-(SDEFUN |ALIST;empty?;$B;3| ((|t| ($)) ($ (|Boolean|)))
-        (NULL (SPADCALL |t| (QREFELT $ 14)))) 
+(SDEFUN |ALIST;empty?;%B;3| ((|t| (%)) (% (|Boolean|)))
+        (NULL (SPADCALL |t| (QREFELT % 14)))) 
 
-(SDEFUN |ALIST;entries;$L;4|
-        ((|t| ($))
-         ($ (|List| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|)))))
-        (SPADCALL |t| (QREFELT $ 14))) 
+(SDEFUN |ALIST;entries;%L;4|
+        ((|t| (%))
+         (% (|List| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|)))))
+        (SPADCALL |t| (QREFELT % 14))) 
 
-(SDEFUN |ALIST;parts;$L;5|
-        ((|t| ($))
-         ($ (|List| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|)))))
-        (SPADCALL |t| (QREFELT $ 14))) 
+(SDEFUN |ALIST;parts;%L;5|
+        ((|t| (%))
+         (% (|List| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|)))))
+        (SPADCALL |t| (QREFELT % 14))) 
 
-(SDEFUN |ALIST;keys;$L;6| ((|t| ($)) ($ (|List| |Key|)))
+(SDEFUN |ALIST;keys;%L;6| ((|t| (%)) (% (|List| |Key|)))
         (SPROG ((#1=#:G127 NIL) (|k| NIL) (#2=#:G126 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
-                 (SEQ (LETT |k| NIL) (LETT #1# (SPADCALL |t| (QREFELT $ 14)))
+                 (SEQ (LETT |k| NIL) (LETT #1# (SPADCALL |t| (QREFELT % 14)))
                       G190
                       (COND
                        ((OR (ATOM #1#) (PROGN (LETT |k| (CAR #1#)) NIL))
@@ -30,41 +30,41 @@
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(SDEFUN |ALIST;#;$Nni;7| ((|t| ($)) ($ (|NonNegativeInteger|)))
-        (LENGTH (SPADCALL |t| (QREFELT $ 14)))) 
+(SDEFUN |ALIST;#;%Nni;7| ((|t| (%)) (% (|NonNegativeInteger|)))
+        (LENGTH (SPADCALL |t| (QREFELT % 14)))) 
 
-(SDEFUN |ALIST;first;$R;8|
-        ((|t| ($)) ($ (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))))
-        (|SPADfirst| (SPADCALL |t| (QREFELT $ 14)))) 
+(SDEFUN |ALIST;first;%R;8|
+        ((|t| (%)) (% (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))))
+        (|SPADfirst| (SPADCALL |t| (QREFELT % 14)))) 
 
-(SDEFUN |ALIST;rest;2$;9| ((|t| ($)) ($ ($)))
-        (SPADCALL (CDR (SPADCALL |t| (QREFELT $ 14))) (QREFELT $ 11))) 
+(SDEFUN |ALIST;rest;2%;9| ((|t| (%)) (% (%)))
+        (SPADCALL (CDR (SPADCALL |t| (QREFELT % 14))) (QREFELT % 11))) 
 
-(SDEFUN |ALIST;concat;R2$;10|
-        ((|p| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))) (|t| ($))
-         ($ ($)))
-        (SPADCALL (SPADCALL |p| (SPADCALL |t| (QREFELT $ 14)) (QREFELT $ 25))
-                  (QREFELT $ 11))) 
+(SDEFUN |ALIST;concat;R2%;10|
+        ((|p| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))) (|t| (%))
+         (% (%)))
+        (SPADCALL (SPADCALL |p| (SPADCALL |t| (QREFELT % 14)) (QREFELT % 25))
+                  (QREFELT % 11))) 
 
-(SDEFUN |ALIST;setrest!;3$;11| ((|a| ($)) (|b| ($)) ($ ($)))
+(SDEFUN |ALIST;setrest!;3%;11| ((|a| (%)) (|b| (%)) (% (%)))
         (SPADCALL
-         (SPADCALL (SPADCALL |a| (QREFELT $ 14)) (SPADCALL |b| (QREFELT $ 14))
-                   (QREFELT $ 27))
-         (QREFELT $ 11))) 
+         (SPADCALL (SPADCALL |a| (QREFELT % 14)) (SPADCALL |b| (QREFELT % 14))
+                   (QREFELT % 27))
+         (QREFELT % 11))) 
 
-(SDEFUN |ALIST;setfirst!;$2R;12|
-        ((|a| ($)) (|p| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|)))
-         ($ (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))))
-        (SPADCALL (SPADCALL |a| (QREFELT $ 14)) |p| (QREFELT $ 29))) 
+(SDEFUN |ALIST;setfirst!;%2R;12|
+        ((|a| (%)) (|p| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|)))
+         (% (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))))
+        (SPADCALL (SPADCALL |a| (QREFELT % 14)) |p| (QREFELT % 29))) 
 
-(SDEFUN |ALIST;minIndex;$I;13| ((|a| ($)) ($ (|Integer|)))
-        (SPADCALL (SPADCALL |a| (QREFELT $ 14)) (QREFELT $ 32))) 
+(SDEFUN |ALIST;minIndex;%I;13| ((|a| (%)) (% (|Integer|)))
+        (SPADCALL (SPADCALL |a| (QREFELT % 14)) (QREFELT % 32))) 
 
-(SDEFUN |ALIST;maxIndex;$I;14| ((|a| ($)) ($ (|Integer|)))
-        (SPADCALL (SPADCALL |a| (QREFELT $ 14)) (QREFELT $ 34))) 
+(SDEFUN |ALIST;maxIndex;%I;14| ((|a| (%)) (% (|Integer|)))
+        (SPADCALL (SPADCALL |a| (QREFELT % 14)) (QREFELT % 34))) 
 
-(SDEFUN |ALIST;search;Key$U;15|
-        ((|k| (|Key|)) (|t| ($)) ($ (|Union| |Entry| "failed")))
+(SDEFUN |ALIST;search;Key%U;15|
+        ((|k| (|Key|)) (|t| (%)) (% (|Union| |Entry| "failed")))
         (SPROG ((#1=#:G150 NIL) (#2=#:G151 NIL) (#3=#:G152 NIL) (|r| NIL))
                (SEQ
                 (EXIT
@@ -72,14 +72,14 @@
                   (SEQ
                    (EXIT
                     (SEQ (LETT |r| NIL)
-                         (LETT #3# (SPADCALL |t| (QREFELT $ 14))) G190
+                         (LETT #3# (SPADCALL |t| (QREFELT % 14))) G190
                          (COND
                           ((OR (ATOM #3#) (PROGN (LETT |r| (CAR #3#)) NIL))
                            (GO G191)))
                          (SEQ
                           (EXIT
                            (COND
-                            ((SPADCALL |k| (QCAR |r|) (QREFELT $ 36))
+                            ((SPADCALL |k| (QCAR |r|) (QREFELT % 36))
                              (PROGN
                               (LETT #1#
                                     (PROGN
@@ -91,30 +91,30 @@
                   (EXIT (CONS 1 "failed"))))
                 #4# (EXIT #2#)))) 
 
-(SDEFUN |ALIST;latex;$S;16| ((|a| ($)) ($ (|String|)))
+(SDEFUN |ALIST;latex;%S;16| ((|a| (%)) (% (|String|)))
         (SPROG
          ((|s| (|String|))
           (|l| (|List| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))))
           (|r| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))))
-         (SEQ (LETT |l| (SPADCALL |a| (QREFELT $ 17))) (LETT |s| "\\left[")
+         (SEQ (LETT |l| (SPADCALL |a| (QREFELT % 17))) (LETT |s| "\\left[")
               (SEQ G190 (COND ((NULL (NULL (NULL |l|))) (GO G191)))
                    (SEQ (LETT |r| (|SPADfirst| |l|)) (LETT |l| (CDR |l|))
                         (LETT |s|
                               (STRCONC |s|
                                        (STRCONC
-                                        (SPADCALL (QCAR |r|) (QREFELT $ 40))
+                                        (SPADCALL (QCAR |r|) (QREFELT % 40))
                                         (STRCONC " = "
                                                  (SPADCALL (QCDR |r|)
-                                                           (QREFELT $ 41))))))
+                                                           (QREFELT % 41))))))
                         (EXIT
                          (COND
                           ((NULL (NULL |l|)) (LETT |s| (STRCONC |s| ", "))))))
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT (STRCONC |s| " \\right]"))))) 
 
-(SDEFUN |ALIST;assoc;Key$U;17|
-        ((|k| (|Key|)) (|t| ($))
-         ($
+(SDEFUN |ALIST;assoc;Key%U;17|
+        ((|k| (|Key|)) (|t| (%))
+         (%
           (|Union| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))
                    "failed")))
         (SPROG ((#1=#:G171 NIL) (#2=#:G172 NIL) (#3=#:G173 NIL) (|r| NIL))
@@ -124,14 +124,14 @@
                   (SEQ
                    (EXIT
                     (SEQ (LETT |r| NIL)
-                         (LETT #3# (SPADCALL |t| (QREFELT $ 14))) G190
+                         (LETT #3# (SPADCALL |t| (QREFELT % 14))) G190
                          (COND
                           ((OR (ATOM #3#) (PROGN (LETT |r| (CAR #3#)) NIL))
                            (GO G191)))
                          (SEQ
                           (EXIT
                            (COND
-                            ((SPADCALL |k| (QCAR |r|) (QREFELT $ 36))
+                            ((SPADCALL |k| (QCAR |r|) (QREFELT % 36))
                              (PROGN
                               (LETT #1#
                                     (PROGN
@@ -143,13 +143,13 @@
                   (EXIT (CONS 1 "failed"))))
                 #4# (EXIT #2#)))) 
 
-(SDEFUN |ALIST;setelt!;$Key2Entry;18|
-        ((|t| ($)) (|k| (|Key|)) (|e| (|Entry|)) ($ (|Entry|)))
+(SDEFUN |ALIST;setelt!;%Key2Entry;18|
+        ((|t| (%)) (|k| (|Key|)) (|e| (|Entry|)) (% (|Entry|)))
         (SPROG
          ((|r|
            (|Union| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))
                     "failed")))
-         (SEQ (LETT |r| (SPADCALL |k| |t| (QREFELT $ 44)))
+         (SEQ (LETT |r| (SPADCALL |k| |t| (QREFELT % 44)))
               (EXIT
                (COND
                 ((QEQCAR |r| 0) (PROGN (RPLACD #1=(QCDR |r|) |e|) (QCDR #1#)))
@@ -157,13 +157,13 @@
                  (SEQ
                   (SPADCALL |t|
                             (SPADCALL (CONS |k| |e|)
-                                      (SPADCALL |t| (QREFELT $ 14))
-                                      (QREFELT $ 25))
-                            (QREFELT $ 45))
+                                      (SPADCALL |t| (QREFELT % 14))
+                                      (QREFELT % 25))
+                            (QREFELT % 45))
                   (EXIT |e|)))))))) 
 
-(SDEFUN |ALIST;remove!;Key$U;19|
-        ((|k| (|Key|)) (|t| ($)) ($ (|Union| |Entry| "failed")))
+(SDEFUN |ALIST;remove!;Key%U;19|
+        ((|k| (|Key|)) (|t| (%)) (% (|Union| |Entry| "failed")))
         (SPROG
          ((|curr| (|List| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))))
           (|prev|
@@ -171,9 +171,9 @@
           (|l| #1#))
          (SEQ
           (COND
-           ((NULL (LETT |l| (SPADCALL |t| (QREFELT $ 14)))) (CONS 1 "failed"))
-           ((SPADCALL |k| (QCAR (|SPADfirst| |l|)) (QREFELT $ 36))
-            (SEQ (SPADCALL |t| (CDR |l|) (QREFELT $ 45))
+           ((NULL (LETT |l| (SPADCALL |t| (QREFELT % 14)))) (CONS 1 "failed"))
+           ((SPADCALL |k| (QCAR (|SPADfirst| |l|)) (QREFELT % 36))
+            (SEQ (SPADCALL |t| (CDR |l|) (QREFELT % 45))
                  (EXIT (CONS 0 (QCDR (|SPADfirst| |l|))))))
            (#2='T
             (SEQ (LETT |prev| |l|) (LETT |curr| (CDR |l|))
@@ -183,7 +183,7 @@
                          (COND ((NULL |curr|) NIL)
                                ('T
                                 (SPADCALL (QCAR (|SPADfirst| |curr|)) |k|
-                                          (QREFELT $ 47)))))
+                                          (QREFELT % 47)))))
                         (GO G191)))
                       (SEQ (LETT |prev| |curr|)
                            (EXIT (LETT |curr| (CDR |curr|))))
@@ -191,7 +191,7 @@
                  (EXIT
                   (COND ((NULL |curr|) (CONS 1 "failed"))
                         (#2#
-                         (SEQ (SPADCALL |prev| (CDR |curr|) (QREFELT $ 27))
+                         (SEQ (SPADCALL |prev| (CDR |curr|) (QREFELT % 27))
                               (EXIT
                                (CONS 0 (QCDR (|SPADfirst| |curr|)))))))))))))) 
 
@@ -219,15 +219,15 @@
 (DEFUN |AssociationList;| (|#1| |#2|)
   (SPROG
    ((#1=#:G261 NIL) (#2=#:G263 NIL) (#3=#:G262 NIL) (|pv$| NIL) (#4=#:G256 NIL)
-    (#5=#:G257 NIL) (#6=#:G258 NIL) (#7=#:G259 NIL) (#8=#:G260 NIL) ($ NIL)
+    (#5=#:G257 NIL) (#6=#:G258 NIL) (#7=#:G259 NIL) (#8=#:G260 NIL) (% NIL)
     (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))
     (LETT |dv$| (LIST '|AssociationList| DV$1 DV$2))
-    (LETT $ (GETREFV 74))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 74))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -318,70 +318,70 @@
                                              '(|OrderedSet|))
                                             #6#)))))
     (|haddProp| |$ConstructorCache| '|AssociationList| (LIST DV$1 DV$2)
-                (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (AND (LETT #3# (|HasCategory| $ '(|finiteAggregate|)))
-         (|augmentPredVector| $ 262144))
+                (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (AND (LETT #3# (|HasCategory| % '(|finiteAggregate|)))
+         (|augmentPredVector| % 262144))
     (AND (|HasCategory| |#2| '(|BasicType|)) #3#
-         (|augmentPredVector| $ 524288))
+         (|augmentPredVector| % 524288))
     (AND (|HasCategory| |#2| '(|OrderedSet|)) #3#
-         (|augmentPredVector| $ 1048576))
-    (AND #3# #4# (|augmentPredVector| $ 2097152))
+         (|augmentPredVector| % 1048576))
+    (AND #3# #4# (|augmentPredVector| % 2097152))
     (AND
      (LETT #2#
-           (AND (|HasCategory| $ '(|finiteAggregate|))
+           (AND (|HasCategory| % '(|finiteAggregate|))
                 (|HasCategory| (|Record| (|:| |key| |#1|) (|:| |entry| |#2|))
                                '(|OrderedSet|))))
-     (|augmentPredVector| $ 4194304))
-    (AND (OR (AND #3# #8#) #2#) (|augmentPredVector| $ 8388608))
-    (AND (OR #7# (AND #3# #8#) #2# #6#) (|augmentPredVector| $ 16777216))
+     (|augmentPredVector| % 4194304))
+    (AND (OR (AND #3# #8#) #2#) (|augmentPredVector| % 8388608))
+    (AND (OR #7# (AND #3# #8#) #2# #6#) (|augmentPredVector| % 16777216))
     (AND
      (OR (|HasCategory| |#2| '(|CoercibleTo| (|OutputForm|))) (AND #3# #8#) #2#
          #5#)
-     (|augmentPredVector| $ 33554432))
+     (|augmentPredVector| % 33554432))
     (AND
      (OR (AND (|HasCategory| |#2| '(|BasicType|)) #3#) #7# (AND #3# #4#)
          (AND #3# #8#) #2# #6#)
-     (|augmentPredVector| $ 67108864))
-    (AND (LETT #1# (|HasCategory| $ '(|shallowlyMutable|)))
-         (|augmentPredVector| $ 134217728))
-    (AND #3# #1# (|augmentPredVector| $ 268435456))
+     (|augmentPredVector| % 67108864))
+    (AND (LETT #1# (|HasCategory| % '(|shallowlyMutable|)))
+         (|augmentPredVector| % 134217728))
+    (AND #3# #1# (|augmentPredVector| % 268435456))
     (AND #3# #1#
          (|HasCategory| (|Record| (|:| |key| |#1|) (|:| |entry| |#2|))
                         '(|OrderedSet|))
-         (|augmentPredVector| $ 536870912))
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 8
+         (|augmentPredVector| % 536870912))
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 8
               (|Reference|
                (|List| (|Record| (|:| |key| |#1|) (|:| |entry| |#2|)))))
     (COND
      ((|testBitVector| |pv$| 9)
-      (QSETREFV $ 42 (CONS (|dispatchFunction| |ALIST;latex;$S;16|) $))))
-    $))) 
+      (QSETREFV % 42 (CONS (|dispatchFunction| |ALIST;latex;%S;16|) %))))
+    %))) 
 
 (MAKEPROP '|AssociationList| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) '|Rep|
               (|Record| (|:| |key| 6) (|:| |entry| 7)) (|List| 9) (0 . |ref|)
-              |ALIST;dictionary;$;1| |ALIST;empty;$;2| (5 . |deref|)
-              (|Boolean|) |ALIST;empty?;$B;3| |ALIST;entries;$L;4|
-              |ALIST;parts;$L;5| (|List| 6) |ALIST;keys;$L;6|
-              (|NonNegativeInteger|) |ALIST;#;$Nni;7| |ALIST;first;$R;8|
-              |ALIST;rest;2$;9| (10 . |concat|) |ALIST;concat;R2$;10|
-              (16 . |setrest!|) |ALIST;setrest!;3$;11| (22 . |setfirst!|)
-              |ALIST;setfirst!;$2R;12| (|Integer|) (28 . |minIndex|)
-              |ALIST;minIndex;$I;13| (33 . |maxIndex|) |ALIST;maxIndex;$I;14|
-              (38 . =) (|Union| 7 '"failed") |ALIST;search;Key$U;15| (|String|)
+              |ALIST;dictionary;%;1| |ALIST;empty;%;2| (5 . |deref|)
+              (|Boolean|) |ALIST;empty?;%B;3| |ALIST;entries;%L;4|
+              |ALIST;parts;%L;5| (|List| 6) |ALIST;keys;%L;6|
+              (|NonNegativeInteger|) |ALIST;#;%Nni;7| |ALIST;first;%R;8|
+              |ALIST;rest;2%;9| (10 . |concat|) |ALIST;concat;R2%;10|
+              (16 . |setrest!|) |ALIST;setrest!;3%;11| (22 . |setfirst!|)
+              |ALIST;setfirst!;%2R;12| (|Integer|) (28 . |minIndex|)
+              |ALIST;minIndex;%I;13| (33 . |maxIndex|) |ALIST;maxIndex;%I;14|
+              (38 . =) (|Union| 7 '"failed") |ALIST;search;Key%U;15| (|String|)
               (44 . |latex|) (49 . |latex|) (54 . |latex|)
-              (|Union| 9 '"failed") |ALIST;assoc;Key$U;17| (59 . |setref|)
-              |ALIST;setelt!;$Key2Entry;18| (65 . ~=) |ALIST;remove!;Key$U;19|
+              (|Union| 9 '"failed") |ALIST;assoc;Key%U;17| (59 . |setref|)
+              |ALIST;setelt!;%Key2Entry;18| (65 . ~=) |ALIST;remove!;Key%U;19|
               (|List| 50) (|Equation| 9) (|Mapping| 9 9 9) (|Mapping| 15 9 9)
               (|List| 54) (|Equation| 7) (|List| 7) (|OutputForm|)
               (|SingleInteger|) (|HashState|) (|InputForm|) (|Mapping| 15 9)
               (|Mapping| 15 7) (|Mapping| 15 7 7) (|Mapping| 9 9) '"value"
-              (|List| $) '"first" '"rest" '"last" (|UniversalSegment| 31)
+              (|List| %) '"first" '"rest" '"last" (|UniversalSegment| 31)
               (|Void|) (|Mapping| 7 7) (|List| 31) (|Mapping| 7 7 7))
            '#(~= 71 |value| 77 |trim| 82 |third| 88 |tail| 93 |table| 98
               |swap!| 107 |split!| 121 |sorted?| 127 |sort!| 138 |sort| 149

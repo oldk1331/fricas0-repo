@@ -1,13 +1,13 @@
 
-(SDEFUN |HEAP;empty;$;1| (($ ($))) (SPADCALL (QREFELT $ 8))) 
+(SDEFUN |HEAP;empty;%;1| ((% (%))) (SPADCALL (QREFELT % 8))) 
 
-(SDEFUN |HEAP;heap;L$;2| ((|l| (|List| S)) ($ ($)))
-        (SPADCALL |l| (QREFELT $ 11))) 
+(SDEFUN |HEAP;heap;L%;2| ((|l| (|List| S)) (% (%)))
+        (SPADCALL |l| (QREFELT % 11))) 
 
 (SDEFUN |HEAP;siftUp|
-        ((|r| ($)) (|i| (|Integer|)) (|n| (|Integer|)) ($ (|Void|)))
+        ((|r| (%)) (|i| (|Integer|)) (|n| (|Integer|)) (% (|Void|)))
         (SPROG ((#1=#:G118 NIL) (|j| #2=(|Integer|)) (|k| #2#) (|t| (S)))
-               (SEQ (LETT |t| (SPADCALL |r| |i| (QREFELT $ 14)))
+               (SEQ (LETT |t| (SPADCALL |r| |i| (QREFELT % 14)))
                     (EXIT
                      (SEQ
                       (EXIT
@@ -22,85 +22,85 @@
                                     ((< |k| |n|)
                                      (COND
                                       ((SPADCALL
-                                        (SPADCALL |r| |j| (QREFELT $ 14))
-                                        (SPADCALL |r| |k| (QREFELT $ 14))
-                                        (QREFELT $ 16))
+                                        (SPADCALL |r| |j| (QREFELT % 14))
+                                        (SPADCALL |r| |k| (QREFELT % 14))
+                                        (QREFELT % 16))
                                        (LETT |j| |k|)))))))
                              (EXIT
                               (COND
-                               ((SPADCALL |t| (SPADCALL |r| |j| (QREFELT $ 14))
-                                          (QREFELT $ 16))
+                               ((SPADCALL |t| (SPADCALL |r| |j| (QREFELT % 14))
+                                          (QREFELT % 16))
                                 (SEQ
                                  (SPADCALL |r| |i|
-                                           (SPADCALL |r| |j| (QREFELT $ 14))
-                                           (QREFELT $ 17))
-                                 (SPADCALL |r| |j| |t| (QREFELT $ 17))
+                                           (SPADCALL |r| |j| (QREFELT % 14))
+                                           (QREFELT % 17))
+                                 (SPADCALL |r| |j| |t| (QREFELT % 17))
                                  (EXIT (LETT |i| |j|))))
                                ('T (PROGN (LETT #1# 1) (GO #3=#:G115))))))
                             NIL (GO G190) G191 (EXIT NIL)))
                       #3# (EXIT #1#)))))) 
 
-(SDEFUN |HEAP;extract!;$S;4| ((|r| ($)) ($ (S)))
+(SDEFUN |HEAP;extract!;%S;4| ((|r| (%)) (% (S)))
         (SPROG ((|t| (S)) (|n| (|Integer|)))
-               (SEQ (LETT |n| (SPADCALL |r| (QREFELT $ 19)))
+               (SEQ (LETT |n| (SPADCALL |r| (QREFELT % 19)))
                     (EXIT
                      (COND ((EQL |n| 0) (|error| "empty heap"))
                            (#1='T
-                            (SEQ (LETT |t| (SPADCALL |r| 0 (QREFELT $ 14)))
+                            (SEQ (LETT |t| (SPADCALL |r| 0 (QREFELT % 14)))
                                  (SPADCALL |r| 0
                                            (SPADCALL |r| (- |n| 1)
-                                                     (QREFELT $ 14))
-                                           (QREFELT $ 17))
-                                 (SPADCALL |r| (- |n| 1) (QREFELT $ 20))
+                                                     (QREFELT % 14))
+                                           (QREFELT % 17))
+                                 (SPADCALL |r| (- |n| 1) (QREFELT % 20))
                                  (EXIT
                                   (COND ((EQL |n| 1) |t|)
                                         (#1#
-                                         (SEQ (|HEAP;siftUp| |r| 0 (- |n| 1) $)
+                                         (SEQ (|HEAP;siftUp| |r| 0 (- |n| 1) %)
                                               (EXIT |t|)))))))))))) 
 
-(SDEFUN |HEAP;insert!;S2$;5| ((|x| (S)) (|r| ($)) ($ ($)))
+(SDEFUN |HEAP;insert!;S2%;5| ((|x| (S)) (|r| (%)) (% (%)))
         (SPROG ((|j| (|Integer|)) (#1=#:G129 NIL) (|i| (|Integer|)))
-               (SEQ (LETT |j| (SPADCALL |r| (QREFELT $ 19)))
-                    (LETT |r| (SPADCALL |r| |x| (QREFELT $ 22)))
+               (SEQ (LETT |j| (SPADCALL |r| (QREFELT % 19)))
+                    (LETT |r| (SPADCALL |r| |x| (QREFELT % 22)))
                     (SEQ
                      (EXIT
                       (SEQ G190 (COND ((NULL (> |j| 0)) (GO G191)))
                            (SEQ (LETT |i| (QUOTIENT2 (- |j| 1) 2))
                                 (COND
-                                 ((SPADCALL (SPADCALL |r| |i| (QREFELT $ 14))
-                                            |x| (QREFELT $ 23))
+                                 ((SPADCALL (SPADCALL |r| |i| (QREFELT % 14))
+                                            |x| (QREFELT % 23))
                                   (PROGN (LETT #1# 1) (GO #2=#:G126))))
                                 (SPADCALL |r| |j|
-                                          (SPADCALL |r| |i| (QREFELT $ 14))
-                                          (QREFELT $ 17))
+                                          (SPADCALL |r| |i| (QREFELT % 14))
+                                          (QREFELT % 17))
                                 (EXIT (LETT |j| |i|)))
                            NIL (GO G190) G191 (EXIT NIL)))
                      #2# (EXIT #1#))
-                    (SPADCALL |r| |j| |x| (QREFELT $ 17)) (EXIT |r|)))) 
+                    (SPADCALL |r| |j| |x| (QREFELT % 17)) (EXIT |r|)))) 
 
-(SDEFUN |HEAP;max;$S;6| ((|r| ($)) ($ (S)))
-        (COND ((EQL (SPADCALL |r| (QREFELT $ 19)) 0) (|error| "empty heap"))
-              ('T (SPADCALL |r| 0 (QREFELT $ 14))))) 
+(SDEFUN |HEAP;max;%S;6| ((|r| (%)) (% (S)))
+        (COND ((EQL (SPADCALL |r| (QREFELT % 19)) 0) (|error| "empty heap"))
+              ('T (SPADCALL |r| 0 (QREFELT % 14))))) 
 
-(SDEFUN |HEAP;inspect;$S;7| ((|r| ($)) ($ (S))) (SPADCALL |r| (QREFELT $ 25))) 
+(SDEFUN |HEAP;inspect;%S;7| ((|r| (%)) (% (S))) (SPADCALL |r| (QREFELT % 25))) 
 
-(SDEFUN |HEAP;makeHeap| ((|r| ($)) ($ ($)))
+(SDEFUN |HEAP;makeHeap| ((|r| (%)) (% (%)))
         (SPROG ((|k| NIL) (|n| (|NonNegativeInteger|)))
-               (SEQ (LETT |n| (SPADCALL |r| (QREFELT $ 19)))
+               (SEQ (LETT |n| (SPADCALL |r| (QREFELT % 19)))
                     (SEQ (LETT |k| (- (QUOTIENT2 |n| 2) 1)) G190
                          (COND ((< |k| 0) (GO G191)))
-                         (SEQ (EXIT (|HEAP;siftUp| |r| |k| |n| $)))
+                         (SEQ (EXIT (|HEAP;siftUp| |r| |k| |n| %)))
                          (LETT |k| (+ |k| -1)) (GO G190) G191 (EXIT NIL))
                     (EXIT |r|)))) 
 
-(SDEFUN |HEAP;construct;L$;9| ((|l| (|List| S)) ($ ($)))
-        (|HEAP;makeHeap| (SPADCALL |l| (QREFELT $ 27)) $)) 
+(SDEFUN |HEAP;construct;L%;9| ((|l| (|List| S)) (% (%)))
+        (|HEAP;makeHeap| (SPADCALL |l| (QREFELT % 27)) %)) 
 
-(SDEFUN |HEAP;merge;3$;10| ((|a| ($)) (|b| ($)) ($ ($)))
-        (|HEAP;makeHeap| (SPADCALL |a| |b| (QREFELT $ 28)) $)) 
+(SDEFUN |HEAP;merge;3%;10| ((|a| (%)) (|b| (%)) (% (%)))
+        (|HEAP;makeHeap| (SPADCALL |a| |b| (QREFELT % 28)) %)) 
 
-(SDEFUN |HEAP;merge!;3$;11| ((|a| ($)) (|b| ($)) ($ ($)))
-        (|HEAP;makeHeap| (SPADCALL |a| |b| (QREFELT $ 30)) $)) 
+(SDEFUN |HEAP;merge!;3%;11| ((|a| (%)) (|b| (%)) (% (%)))
+        (|HEAP;makeHeap| (SPADCALL |a| |b| (QREFELT % 30)) %)) 
 
 (DECLAIM (NOTINLINE |Heap;|)) 
 
@@ -122,13 +122,13 @@
 (DEFUN |Heap;| (|#1|)
   (SPROG
    ((#1=#:G150 NIL) (#2=#:G151 NIL) (|pv$| NIL) (#3=#:G147 NIL) (#4=#:G148 NIL)
-    (#5=#:G149 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+    (#5=#:G149 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|Heap| DV$1))
-    (LETT $ (GETREFV 44))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 44))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -160,33 +160,33 @@
                                                                   (|devaluate|
                                                                    |#1|)))
                                              #5#))))))
-    (|haddProp| |$ConstructorCache| '|Heap| (LIST DV$1) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 256))
-    (AND (LETT #2# (|HasCategory| $ '(|finiteAggregate|)))
-         (|augmentPredVector| $ 512))
-    (AND (|HasCategory| |#1| '(|OrderedSet|)) #2# (|augmentPredVector| $ 1024))
+    (|haddProp| |$ConstructorCache| '|Heap| (LIST DV$1) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (AND (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 256))
+    (AND (LETT #2# (|HasCategory| % '(|finiteAggregate|)))
+         (|augmentPredVector| % 512))
+    (AND (|HasCategory| |#1| '(|OrderedSet|)) #2# (|augmentPredVector| % 1024))
     (AND
      (LETT #1#
            (AND (|HasCategory| |#1| '(|BasicType|))
-                (|HasCategory| $ '(|finiteAggregate|))))
-     (|augmentPredVector| $ 2048))
-    (AND (OR #1# #5#) (|augmentPredVector| $ 4096))
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 7 (|IndexedFlexibleArray| |#1| 0))
-    $))) 
+                (|HasCategory| % '(|finiteAggregate|))))
+     (|augmentPredVector| % 2048))
+    (AND (OR #1# #5#) (|augmentPredVector| % 4096))
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 7 (|IndexedFlexibleArray| |#1| 0))
+    %))) 
 
 (MAKEPROP '|Heap| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|IndexedFlexibleArray| 6 (NRTEVAL 0))
-              (|local| |#1|) '|Rep| (0 . |empty|) |HEAP;empty;$;1| (|List| 6)
-              |HEAP;construct;L$;9| |HEAP;heap;L$;2| (|Integer|) (4 . |elt|)
+              (|local| |#1|) '|Rep| (0 . |empty|) |HEAP;empty;%;1| (|List| 6)
+              |HEAP;construct;L%;9| |HEAP;heap;L%;2| (|Integer|) (4 . |elt|)
               (|Boolean|) (10 . <) (16 . |setelt!|) (|NonNegativeInteger|)
-              (23 . |#|) (28 . |delete!|) |HEAP;extract!;$S;4| (34 . |concat!|)
-              (40 . >=) |HEAP;insert!;S2$;5| |HEAP;max;$S;6|
-              |HEAP;inspect;$S;7| (46 . |construct|) (51 . |concat|)
-              |HEAP;merge;3$;10| (57 . |concat!|) |HEAP;merge!;3$;11|
+              (23 . |#|) (28 . |delete!|) |HEAP;extract!;%S;4| (34 . |concat!|)
+              (40 . >=) |HEAP;insert!;S2%;5| |HEAP;max;%S;6|
+              |HEAP;inspect;%S;7| (46 . |construct|) (51 . |concat|)
+              |HEAP;merge;3%;10| (57 . |concat!|) |HEAP;merge!;3%;11|
               (|Mapping| 6 6 6) (|Equation| 6) (|List| 33) (|Mapping| 15 6)
               (|Mapping| 15 6 6) (|Mapping| 6 6) (|OutputForm|) (|InputForm|)
               (|SingleInteger|) (|String|) (|HashState|) (|Union| 6 '"failed"))

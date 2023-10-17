@@ -35,20 +35,20 @@
                                                        (|mkCategory|
                                                         '(((|key?|
                                                             ((|Boolean|) |t#1|
-                                                             $))
+                                                             %))
                                                            T)
                                                           ((|keys|
-                                                            ((|List| |t#1|) $))
+                                                            ((|List| |t#1|) %))
                                                            T)
                                                           ((|remove!|
                                                             ((|Union| |t#2|
                                                                       "failed")
-                                                             |t#1| $))
+                                                             |t#1| %))
                                                            T)
                                                           ((|search|
                                                             ((|Union| |t#2|
                                                                       "failed")
-                                                             |t#1| $))
+                                                             |t#1| %))
                                                            T))
                                                         NIL NIL NIL))))))))
            (SETELT #1# 0 (LIST '|KeyedDictionary| |t#1| |t#2|))))) 

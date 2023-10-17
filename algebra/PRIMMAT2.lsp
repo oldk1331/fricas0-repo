@@ -1,64 +1,64 @@
 
-(PUT '|PRIMMAT2;minRowIndex;$I;1| '|SPADreplace| '(XLAM (|x|) 0)) 
+(PUT '|PRIMMAT2;minRowIndex;%I;1| '|SPADreplace| '(XLAM (|x|) 0)) 
 
-(SDEFUN |PRIMMAT2;minRowIndex;$I;1| ((|x| ($)) ($ (|Integer|))) 0) 
+(SDEFUN |PRIMMAT2;minRowIndex;%I;1| ((|x| (%)) (% (|Integer|))) 0) 
 
-(PUT '|PRIMMAT2;minColIndex;$I;2| '|SPADreplace| '(XLAM (|x|) 0)) 
+(PUT '|PRIMMAT2;minColIndex;%I;2| '|SPADreplace| '(XLAM (|x|) 0)) 
 
-(SDEFUN |PRIMMAT2;minColIndex;$I;2| ((|x| ($)) ($ (|Integer|))) 0) 
+(SDEFUN |PRIMMAT2;minColIndex;%I;2| ((|x| (%)) (% (|Integer|))) 0) 
 
-(PUT '|PRIMMAT2;nrows;$Nni;3| '|SPADreplace| 'ANROWS) 
+(PUT '|PRIMMAT2;nrows;%Nni;3| '|SPADreplace| 'ANROWS) 
 
-(SDEFUN |PRIMMAT2;nrows;$Nni;3| ((|x| ($)) ($ (|NonNegativeInteger|)))
+(SDEFUN |PRIMMAT2;nrows;%Nni;3| ((|x| (%)) (% (|NonNegativeInteger|)))
         (ANROWS |x|)) 
 
-(PUT '|PRIMMAT2;ncols;$Nni;4| '|SPADreplace| 'ANCOLS) 
+(PUT '|PRIMMAT2;ncols;%Nni;4| '|SPADreplace| 'ANCOLS) 
 
-(SDEFUN |PRIMMAT2;ncols;$Nni;4| ((|x| ($)) ($ (|NonNegativeInteger|)))
+(SDEFUN |PRIMMAT2;ncols;%Nni;4| ((|x| (%)) (% (|NonNegativeInteger|)))
         (ANCOLS |x|)) 
 
-(SDEFUN |PRIMMAT2;maxRowIndex;$I;5| ((|x| ($)) ($ (|Integer|)))
+(SDEFUN |PRIMMAT2;maxRowIndex;%I;5| ((|x| (%)) (% (|Integer|)))
         (- (ANROWS |x|) 1)) 
 
-(SDEFUN |PRIMMAT2;maxColIndex;$I;6| ((|x| ($)) ($ (|Integer|)))
+(SDEFUN |PRIMMAT2;maxColIndex;%I;6| ((|x| (%)) (% (|Integer|)))
         (- (ANCOLS |x|) 1)) 
 
-(PUT '|PRIMMAT2;qelt;$2IS;7| '|SPADreplace| 'QAREF2) 
+(PUT '|PRIMMAT2;qelt;%2IS;7| '|SPADreplace| 'QAREF2) 
 
-(SDEFUN |PRIMMAT2;qelt;$2IS;7|
-        ((|m| ($)) (|i| #1=(|Integer|)) (|j| #1#) ($ (S))) (QAREF2 |m| |i| |j|)) 
+(SDEFUN |PRIMMAT2;qelt;%2IS;7|
+        ((|m| (%)) (|i| #1=(|Integer|)) (|j| #1#) (% (S))) (QAREF2 |m| |i| |j|)) 
 
-(PUT '|PRIMMAT2;elt;$2IS;8| '|SPADreplace| 'QAREF2) 
+(PUT '|PRIMMAT2;elt;%2IS;8| '|SPADreplace| 'QAREF2) 
 
-(SDEFUN |PRIMMAT2;elt;$2IS;8|
-        ((|m| ($)) (|i| #1=(|Integer|)) (|j| #1#) ($ (S))) (QAREF2 |m| |i| |j|)) 
+(SDEFUN |PRIMMAT2;elt;%2IS;8|
+        ((|m| (%)) (|i| #1=(|Integer|)) (|j| #1#) (% (S))) (QAREF2 |m| |i| |j|)) 
 
-(PUT '|PRIMMAT2;qsetelt!;$2I2S;9| '|SPADreplace| 'QSETAREF2) 
+(PUT '|PRIMMAT2;qsetelt!;%2I2S;9| '|SPADreplace| 'QSETAREF2) 
 
-(SDEFUN |PRIMMAT2;qsetelt!;$2I2S;9|
-        ((|m| ($)) (|i| #1=(|Integer|)) (|j| #1#) (|r| (S)) ($ (S)))
+(SDEFUN |PRIMMAT2;qsetelt!;%2I2S;9|
+        ((|m| (%)) (|i| #1=(|Integer|)) (|j| #1#) (|r| (S)) (% (S)))
         (QSETAREF2 |m| |i| |j| |r|)) 
 
-(PUT '|PRIMMAT2;setelt!;$2I2S;10| '|SPADreplace| 'QSETAREF2) 
+(PUT '|PRIMMAT2;setelt!;%2I2S;10| '|SPADreplace| 'QSETAREF2) 
 
-(SDEFUN |PRIMMAT2;setelt!;$2I2S;10|
-        ((|m| ($)) (|i| #1=(|Integer|)) (|j| #1#) (|r| (S)) ($ (S)))
+(SDEFUN |PRIMMAT2;setelt!;%2I2S;10|
+        ((|m| (%)) (|i| #1=(|Integer|)) (|j| #1#) (|r| (S)) (% (S)))
         (QSETAREF2 |m| |i| |j| |r|)) 
 
-(PUT '|PRIMMAT2;empty;$;11| '|SPADreplace| '(XLAM NIL (MAKE_MATRIX 0 0))) 
+(PUT '|PRIMMAT2;empty;%;11| '|SPADreplace| '(XLAM NIL (MAKE_MATRIX 0 0))) 
 
-(SDEFUN |PRIMMAT2;empty;$;11| (($ ($))) (MAKE_MATRIX 0 0)) 
+(SDEFUN |PRIMMAT2;empty;%;11| ((% (%))) (MAKE_MATRIX 0 0)) 
 
-(PUT '|PRIMMAT2;qnew;2Nni$;12| '|SPADreplace| 'MAKE_MATRIX) 
+(PUT '|PRIMMAT2;qnew;2Nni%;12| '|SPADreplace| 'MAKE_MATRIX) 
 
-(SDEFUN |PRIMMAT2;qnew;2Nni$;12|
-        ((|rows| #1=(|NonNegativeInteger|)) (|cols| #1#) ($ ($)))
+(SDEFUN |PRIMMAT2;qnew;2Nni%;12|
+        ((|rows| #1=(|NonNegativeInteger|)) (|cols| #1#) (% (%)))
         (MAKE_MATRIX |rows| |cols|)) 
 
-(PUT '|PRIMMAT2;new;2NniS$;13| '|SPADreplace| 'MAKE_MATRIX1) 
+(PUT '|PRIMMAT2;new;2NniS%;13| '|SPADreplace| 'MAKE_MATRIX1) 
 
-(SDEFUN |PRIMMAT2;new;2NniS$;13|
-        ((|rows| #1=(|NonNegativeInteger|)) (|cols| #1#) (|a| (S)) ($ ($)))
+(SDEFUN |PRIMMAT2;new;2NniS%;13|
+        ((|rows| #1=(|NonNegativeInteger|)) (|cols| #1#) (|a| (S)) (% (%)))
         (MAKE_MATRIX1 |rows| |cols| |a|)) 
 
 (DECLAIM (NOTINLINE |PrimitiveTwoDimensionalArray;|)) 
@@ -84,14 +84,14 @@
 
 (DEFUN |PrimitiveTwoDimensionalArray;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G2780 NIL) (#2=#:G2781 NIL) ($ NIL) (|dv$| NIL)
+   ((|pv$| NIL) (#1=#:G2780 NIL) (#2=#:G2781 NIL) (% NIL) (|dv$| NIL)
     (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|PrimitiveTwoDimensionalArray| DV$1))
-    (LETT $ (GETREFV 49))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 49))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -186,35 +186,35 @@
                                                         '(|AbelianMonoid|))
                                          (|HasCategory| |#1| '(|Field|)))))))
     (|haddProp| |$ConstructorCache| '|PrimitiveTwoDimensionalArray| (LIST DV$1)
-                (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 262144))
+                (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (AND (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 262144))
     (AND (|HasCategory| |#1| '(|OrderedSet|))
-         (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 524288))
+         (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 524288))
     (AND (|HasCategory| |#1| '(|BasicType|))
-         (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 1048576))
+         (|HasCategory| % '(|finiteAggregate|))
+         (|augmentPredVector| % 1048576))
     (AND
      (OR
       (AND (|HasCategory| |#1| '(|BasicType|))
-           (|HasCategory| $ '(|finiteAggregate|)))
+           (|HasCategory| % '(|finiteAggregate|)))
       #2#)
-     (|augmentPredVector| $ 2097152))
-    (SETF |pv$| (QREFELT $ 3))
-    $))) 
+     (|augmentPredVector| % 2097152))
+    (SETF |pv$| (QREFELT % 3))
+    %))) 
 
 (MAKEPROP '|PrimitiveTwoDimensionalArray| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Integer|)
-              |PRIMMAT2;minRowIndex;$I;1| |PRIMMAT2;minColIndex;$I;2|
-              (|NonNegativeInteger|) |PRIMMAT2;nrows;$Nni;3|
-              |PRIMMAT2;ncols;$Nni;4| |PRIMMAT2;maxRowIndex;$I;5|
-              |PRIMMAT2;maxColIndex;$I;6| |PRIMMAT2;qelt;$2IS;7|
-              |PRIMMAT2;elt;$2IS;8| |PRIMMAT2;qsetelt!;$2I2S;9|
-              |PRIMMAT2;setelt!;$2I2S;10| |PRIMMAT2;empty;$;11|
-              |PRIMMAT2;qnew;2Nni$;12| |PRIMMAT2;new;2NniS$;13| (|Boolean|)
-              (|List| 25) (|Union| $ '"failed") (|PrimitiveArray| 6) (|List| $)
+              |PRIMMAT2;minRowIndex;%I;1| |PRIMMAT2;minColIndex;%I;2|
+              (|NonNegativeInteger|) |PRIMMAT2;nrows;%Nni;3|
+              |PRIMMAT2;ncols;%Nni;4| |PRIMMAT2;maxRowIndex;%I;5|
+              |PRIMMAT2;maxColIndex;%I;6| |PRIMMAT2;qelt;%2IS;7|
+              |PRIMMAT2;elt;%2IS;8| |PRIMMAT2;qsetelt!;%2I2S;9|
+              |PRIMMAT2;setelt!;%2I2S;10| |PRIMMAT2;empty;%;11|
+              |PRIMMAT2;qnew;2Nni%;12| |PRIMMAT2;new;2NniS%;13| (|Boolean|)
+              (|List| 25) (|Union| % '"failed") (|PrimitiveArray| 6) (|List| %)
               (|List| 6) (|List| 29) (|Equation| 6) (|Mapping| 22 6 6)
               (|Mapping| 22 6) (|Void|) (|List| 45) (|Union| 6 '"one")
               (|List| 27) (|Mapping| 6 7 7) (|OutputForm|) (|SingleInteger|)

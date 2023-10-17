@@ -13,11 +13,11 @@
              (LETT #1#
                    (|Join| (|FortranProgramCategory|)
                            (|mkCategory|
-                            '(((|coerce| ($ (|Vector| (|MachineFloat|)))) T)
-                              ((|coerce| ($ (|List| (|FortranCode|)))) T)
-                              ((|coerce| ($ (|FortranCode|))) T)
+                            '(((|coerce| (% (|Vector| (|MachineFloat|)))) T)
+                              ((|coerce| (% (|List| (|FortranCode|)))) T)
+                              ((|coerce| (% (|FortranCode|))) T)
                               ((|coerce|
-                                ($
+                                (%
                                  (|Record| (|:| |localSymbols| (|SymbolTable|))
                                            (|:| |code|
                                                 (|List| (|FortranCode|))))))

@@ -13,10 +13,10 @@
              (LETT #1#
                    (|Join| (|Ring|)
                            (|mkCategory|
-                            '(((|differentiate| ($ $)) T) ((D ($ $)) T)
-                              ((|differentiate| ($ $ (|NonNegativeInteger|)))
+                            '(((|differentiate| (% %)) T) ((D (% %)) T)
+                              ((|differentiate| (% % (|NonNegativeInteger|)))
                                T)
-                              ((D ($ $ (|NonNegativeInteger|))) T))
+                              ((D (% % (|NonNegativeInteger|))) T))
                             NIL NIL NIL)))
            (SETELT #1# 0 '(|DifferentialRing|))))) 
 

@@ -15,8 +15,8 @@
                                    (|Join| (|EntireRing|) (|Algebra| '#2#)
                                            (|TwoSidedRecip|)
                                            (|mkCategory|
-                                            '(((^ ($ $ (|Integer|))) T)
-                                              ((|inv| ($ $)) T))
+                                            '(((^ (% % (|Integer|))) T)
+                                              ((|inv| (% %)) T))
                                             NIL NIL NIL))))
            (SETELT #1# 0 '(|DivisionRing|))))) 
 

@@ -20,15 +20,15 @@
                                                 ((|List|
                                                   (|List|
                                                    (|Point| (|DoubleFloat|))))
-                                                 $))
+                                                 %))
                                                T)
                                               ((|xRange|
                                                 ((|Segment| (|DoubleFloat|))
-                                                 $))
+                                                 %))
                                                T)
                                               ((|yRange|
                                                 ((|Segment| (|DoubleFloat|))
-                                                 $))
+                                                 %))
                                                T))
                                             NIL NIL NIL))))
            (SETELT #1# 0 '(|PlottablePlaneCurveCategory|))))) 

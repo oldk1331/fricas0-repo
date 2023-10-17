@@ -1,24 +1,24 @@
 
-(PUT '|VECTOR;qelt;$IR;1| '|SPADreplace| '(XLAM (|x| |i|) (QAREF1O |x| |i| 1))) 
+(PUT '|VECTOR;qelt;%IR;1| '|SPADreplace| '(XLAM (|x| |i|) (QAREF1O |x| |i| 1))) 
 
-(SDEFUN |VECTOR;qelt;$IR;1| ((|x| ($)) (|i| (|Integer|)) ($ (R)))
+(SDEFUN |VECTOR;qelt;%IR;1| ((|x| (%)) (|i| (|Integer|)) (% (R)))
         (QAREF1O |x| |i| 1)) 
 
-(PUT '|VECTOR;qsetelt!;$I2R;2| '|SPADreplace|
+(PUT '|VECTOR;qsetelt!;%I2R;2| '|SPADreplace|
      '(XLAM (|x| |i| |s|) (QSETAREF1O |x| |i| |s| 1))) 
 
-(SDEFUN |VECTOR;qsetelt!;$I2R;2|
-        ((|x| ($)) (|i| (|Integer|)) (|s| (R)) ($ (R)))
+(SDEFUN |VECTOR;qsetelt!;%I2R;2|
+        ((|x| (%)) (|i| (|Integer|)) (|s| (R)) (% (R)))
         (QSETAREF1O |x| |i| |s| 1)) 
 
-(SDEFUN |VECTOR;vector;L$;3| ((|l| (|List| R)) ($ ($)))
-        (SPADCALL |l| (QREFELT $ 11))) 
+(SDEFUN |VECTOR;vector;L%;3| ((|l| (|List| R)) (% (%)))
+        (SPADCALL |l| (QREFELT % 11))) 
 
-(SDEFUN |VECTOR;convert;$If;4| ((|x| ($)) ($ (|InputForm|)))
+(SDEFUN |VECTOR;convert;%If;4| ((|x| (%)) (% (|InputForm|)))
         (SPADCALL
-         (LIST (SPADCALL '|vector| (QREFELT $ 15))
-               (SPADCALL (SPADCALL |x| (QREFELT $ 16)) (QREFELT $ 17)))
-         (QREFELT $ 19))) 
+         (LIST (SPADCALL '|vector| (QREFELT % 15))
+               (SPADCALL (SPADCALL |x| (QREFELT % 16)) (QREFELT % 17)))
+         (QREFELT % 19))) 
 
 (DECLAIM (NOTINLINE |Vector;|)) 
 
@@ -39,14 +39,14 @@
 
 (DEFUN |Vector;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G2269 NIL) (#2=#:G2270 NIL) (#3=#:G2271 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G2269 NIL) (#2=#:G2270 NIL) (#3=#:G2271 NIL) (% NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|Vector| DV$1))
-    (LETT $ (GETREFV 38))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 38))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -103,64 +103,64 @@
                                          (|HasCategory| |#1|
                                                         '(|RadicalCategory|))
                                          (|HasCategory| |#1| '(|Ring|)))))))
-    (|haddProp| |$ConstructorCache| '|Vector| (LIST DV$1) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (AND (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 524288))
-    (AND (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 1048576))
+    (|haddProp| |$ConstructorCache| '|Vector| (LIST DV$1) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (AND (|HasCategory| % '(|shallowlyMutable|))
+         (|augmentPredVector| % 524288))
+    (AND (|HasCategory| % '(|finiteAggregate|))
+         (|augmentPredVector| % 1048576))
     (AND (|HasCategory| |#1| '(|BasicType|))
-         (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 2097152))
-    (AND (|HasCategory| $ '(|finiteAggregate|))
-         (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 4194304))
+         (|HasCategory| % '(|finiteAggregate|))
+         (|augmentPredVector| % 2097152))
+    (AND (|HasCategory| % '(|finiteAggregate|))
+         (|HasCategory| % '(|shallowlyMutable|))
+         (|augmentPredVector| % 4194304))
     (AND (|HasCategory| |#1| '(|OrderedSet|))
-         (|HasCategory| $ '(|finiteAggregate|))
-         (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 8388608))
+         (|HasCategory| % '(|finiteAggregate|))
+         (|HasCategory| % '(|shallowlyMutable|))
+         (|augmentPredVector| % 8388608))
     (AND (|HasCategory| |#1| '(|OrderedSet|))
-         (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 16777216))
+         (|HasCategory| % '(|finiteAggregate|))
+         (|augmentPredVector| % 16777216))
     (AND
-     (OR (AND #3# (|HasCategory| $ '(|finiteAggregate|)))
+     (OR (AND #3# (|HasCategory| % '(|finiteAggregate|)))
          (AND (|HasCategory| |#1| '(|OrderedSet|))
-              (|HasCategory| $ '(|finiteAggregate|))))
-     (|augmentPredVector| $ 33554432))
+              (|HasCategory| % '(|finiteAggregate|))))
+     (|augmentPredVector| % 33554432))
     (AND
-     (OR (AND #3# (|HasCategory| $ '(|finiteAggregate|)))
+     (OR (AND #3# (|HasCategory| % '(|finiteAggregate|)))
          (AND (|HasCategory| |#1| '(|OrderedSet|))
-              (|HasCategory| $ '(|finiteAggregate|)))
+              (|HasCategory| % '(|finiteAggregate|)))
          #2#)
-     (|augmentPredVector| $ 67108864))
+     (|augmentPredVector| % 67108864))
     (AND
-     (OR #1# (AND #3# (|HasCategory| $ '(|finiteAggregate|)))
+     (OR #1# (AND #3# (|HasCategory| % '(|finiteAggregate|)))
          (AND (|HasCategory| |#1| '(|OrderedSet|))
-              (|HasCategory| $ '(|finiteAggregate|))))
-     (|augmentPredVector| $ 134217728))
+              (|HasCategory| % '(|finiteAggregate|))))
+     (|augmentPredVector| % 134217728))
     (AND
      (OR
       (AND (|HasCategory| |#1| '(|BasicType|))
-           (|HasCategory| $ '(|finiteAggregate|)))
-      (AND #3# (|HasCategory| $ '(|finiteAggregate|)))
+           (|HasCategory| % '(|finiteAggregate|)))
+      (AND #3# (|HasCategory| % '(|finiteAggregate|)))
       (AND (|HasCategory| |#1| '(|OrderedSet|))
-           (|HasCategory| $ '(|finiteAggregate|)))
+           (|HasCategory| % '(|finiteAggregate|)))
       #2#)
-     (|augmentPredVector| $ 268435456))
-    (SETF |pv$| (QREFELT $ 3))
+     (|augmentPredVector| % 268435456))
+    (SETF |pv$| (QREFELT % 3))
     (COND
      ((|testBitVector| |pv$| 2)
-      (QSETREFV $ 20 (CONS (|dispatchFunction| |VECTOR;convert;$If;4|) $))))
-    $))) 
+      (QSETREFV % 20 (CONS (|dispatchFunction| |VECTOR;convert;%If;4|) %))))
+    %))) 
 
 (MAKEPROP '|Vector| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|IndexedVector| 6 (NRTEVAL 1))
-              (|local| |#1|) (|Integer|) |VECTOR;qelt;$IR;1|
-              |VECTOR;qsetelt!;$I2R;2| (|List| 6) (0 . |construct|)
-              |VECTOR;vector;L$;3| (|Symbol|) (|InputForm|) (5 . |convert|)
-              (10 . |parts|) (15 . |convert|) (|List| $) (20 . |convert|)
+              (|local| |#1|) (|Integer|) |VECTOR;qelt;%IR;1|
+              |VECTOR;qsetelt!;%I2R;2| (|List| 6) (0 . |construct|)
+              |VECTOR;vector;L%;3| (|Symbol|) (|InputForm|) (5 . |convert|)
+              (10 . |parts|) (15 . |convert|) (|List| %) (20 . |convert|)
               (25 . |convert|) (|Mapping| 23 6 6) (|Mapping| 6 6 6) (|Boolean|)
               (|NonNegativeInteger|) (|List| 26) (|Equation| 6) (|OutputForm|)
               (|SingleInteger|) (|String|) (|HashState|) (|Mapping| 23 6)

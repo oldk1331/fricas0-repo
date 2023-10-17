@@ -1,9 +1,9 @@
 
-(SDEFUN |MAGMA-;^;SPiS;1| ((|x| (S)) (|n| (|PositiveInteger|)) ($ (S)))
-        (SPADCALL |x| |n| (QREFELT $ 9))) 
+(SDEFUN |MAGMA-;^;SPiS;1| ((|x| (S)) (|n| (|PositiveInteger|)) (% (S)))
+        (SPADCALL |x| |n| (QREFELT % 9))) 
 
 (SDEFUN |MAGMA-;rightPower;SPiS;2|
-        ((|a| (S)) (|n| (|PositiveInteger|)) ($ (S)))
+        ((|a| (S)) (|n| (|PositiveInteger|)) (% (S)))
         (SPROG ((|res| (S)) (#1=#:G133 NIL) (|i| NIL))
                (SEQ
                 (COND ((EQL |n| 1) |a|)
@@ -14,12 +14,12 @@
                                  (SEQ
                                   (EXIT
                                    (LETT |res|
-                                         (SPADCALL |res| |a| (QREFELT $ 11)))))
+                                         (SPADCALL |res| |a| (QREFELT % 11)))))
                                  (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                                  (EXIT NIL))
                             (EXIT |res|))))))) 
 
-(SDEFUN |MAGMA-;leftPower;SPiS;3| ((|a| (S)) (|n| (|PositiveInteger|)) ($ (S)))
+(SDEFUN |MAGMA-;leftPower;SPiS;3| ((|a| (S)) (|n| (|PositiveInteger|)) (% (S)))
         (SPROG ((|res| (S)) (#1=#:G138 NIL) (|i| NIL))
                (SEQ
                 (COND ((EQL |n| 1) |a|)
@@ -30,7 +30,7 @@
                                  (SEQ
                                   (EXIT
                                    (LETT |res|
-                                         (SPADCALL |a| |res| (QREFELT $ 11)))))
+                                         (SPADCALL |a| |res| (QREFELT % 11)))))
                                  (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                                  (EXIT NIL))
                             (EXIT |res|))))))) 
@@ -38,17 +38,17 @@
 (DECLAIM (NOTINLINE |Magma&;|)) 
 
 (DEFUN |Magma&| (|#1|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|Magma&| DV$1))
-          (LETT $ (GETREFV 14))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+          (LETT % (GETREFV 14))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|Magma&| '|infovec|
           (LIST

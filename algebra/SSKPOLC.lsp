@@ -31,15 +31,15 @@
                                                    (|LeftModule| '|t#1|)
                                                    (|mkCategory|
                                                     '(((|leadingCoefficient|
-                                                        (|t#1| $))
+                                                        (|t#1| %))
                                                        T)
                                                       ((|leadingMonomial|
-                                                        ($ $))
+                                                        (% %))
                                                        T)
-                                                      ((|degree| (|t#2| $)) T)
-                                                      ((|reductum| ($ $)) T)
+                                                      ((|degree| (|t#2| %)) T)
+                                                      ((|reductum| (% %)) T)
                                                       ((|monomial|
-                                                        ($ |t#1| |t#2|))
+                                                        (% |t#1| |t#2|))
                                                        T))
                                                     NIL NIL NIL)))))))
            (SETELT #1# 0

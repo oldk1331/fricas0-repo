@@ -1,5 +1,5 @@
 
-(SDEFUN |LOOP;loop;L$;1| ((|lis| (|List| (|NonNegativeInteger|))) ($ ($)))
+(SDEFUN |LOOP;loop;L%;1| ((|lis| (|List| (|NonNegativeInteger|))) (% (%)))
         (SPROG
          ((|li| #1=(|List| (|NonNegativeInteger|)))
           (|lx| #2=(|List| (|NonNegativeInteger|)))
@@ -32,68 +32,68 @@
                              (EXIT (LETT |li| (CDR |li|))))
                             NIL (GO G190) G191 (EXIT NIL))
                        (EXIT
-                        (SPADCALL (SPADCALL |l1| (REVERSE |l2|) (QREFELT $ 8))
-                                  (QREFELT $ 9)))))))))) 
+                        (SPADCALL (SPADCALL |l1| (REVERSE |l2|) (QREFELT % 8))
+                                  (QREFELT % 9)))))))))) 
 
-(SDEFUN |LOOP;entries;$L;2| ((|lp| ($)) ($ (|List| (|NonNegativeInteger|))))
-        (SPADCALL |lp| (QREFELT $ 11))) 
+(SDEFUN |LOOP;entries;%L;2| ((|lp| (%)) (% (|List| (|NonNegativeInteger|))))
+        (SPADCALL |lp| (QREFELT % 11))) 
 
-(PUT '|LOOP;hash;$Si;3| '|SPADreplace| '(XLAM (|s|) 0)) 
+(PUT '|LOOP;hash;%Si;3| '|SPADreplace| '(XLAM (|s|) 0)) 
 
-(SDEFUN |LOOP;hash;$Si;3| ((|s| ($)) ($ (|SingleInteger|))) 0) 
+(SDEFUN |LOOP;hash;%Si;3| ((|s| (%)) (% (|SingleInteger|))) 0) 
 
-(SDEFUN |LOOP;latex;$S;4| ((|lp| ($)) ($ (|String|)))
+(SDEFUN |LOOP;latex;%S;4| ((|lp| (%)) (% (|String|)))
         (SPROG
          ((|res| (|String|)) (|x| (|NonNegativeInteger|)) (#1=#:G129 NIL)
           (|i| NIL))
          (SEQ (LETT |res| "")
-              (SEQ (LETT |i| 1) (LETT #1# (SPADCALL |lp| (QREFELT $ 16))) G190
+              (SEQ (LETT |i| 1) (LETT #1# (SPADCALL |lp| (QREFELT % 16))) G190
                    (COND ((|greater_SI| |i| #1#) (GO G191)))
                    (SEQ (LETT |x| (QAREF1 |lp| (- |i| 1)))
                         (EXIT
                          (LETT |res|
                                (SPADCALL (LIST |res| "->" (STRINGIMAGE |x|))
-                                         (QREFELT $ 19)))))
+                                         (QREFELT % 19)))))
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL (LIST "[" |res| "]") (QREFELT $ 19)))))) 
+              (EXIT (SPADCALL (LIST "[" |res| "]") (QREFELT % 19)))))) 
 
-(SDEFUN |LOOP;=;2$B;5| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
+(SDEFUN |LOOP;=;2%B;5| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (SPROG ((#1=#:G136 NIL) (#2=#:G137 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
                   (COND
-                   ((SPADCALL (SPADCALL |x| (QREFELT $ 16))
-                              (SPADCALL |y| (QREFELT $ 16)) (QREFELT $ 22))
+                   ((SPADCALL (SPADCALL |x| (QREFELT % 16))
+                              (SPADCALL |y| (QREFELT % 16)) (QREFELT % 22))
                     (PROGN (LETT #1# NIL) (GO #3=#:G135))))
-                  (SEQ (LETT |i| 1) (LETT #2# (SPADCALL |x| (QREFELT $ 16)))
+                  (SEQ (LETT |i| 1) (LETT #2# (SPADCALL |x| (QREFELT % 16)))
                        G190 (COND ((|greater_SI| |i| #2#) (GO G191)))
                        (SEQ
                         (EXIT
                          (COND
                           ((SPADCALL (QAREF1 |x| (- |i| 1))
-                                     (QAREF1 |y| (- |i| 1)) (QREFELT $ 22))
+                                     (QAREF1 |y| (- |i| 1)) (QREFELT % 22))
                            (PROGN (LETT #1# NIL) (GO #3#))))))
                        (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                   (EXIT 'T)))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |LOOP;coerce;$Of;6| ((|lp| ($)) ($ (|OutputForm|)))
+(SDEFUN |LOOP;coerce;%Of;6| ((|lp| (%)) (% (|OutputForm|)))
         (SPROG
          ((|res| (|OutputForm|)) (|x| (|NonNegativeInteger|)) (#1=#:G143 NIL)
           (|i| NIL))
-         (SEQ (LETT |res| (SPADCALL (QREFELT $ 25)))
-              (SEQ (LETT |i| 1) (LETT #1# (SPADCALL |lp| (QREFELT $ 16))) G190
+         (SEQ (LETT |res| (SPADCALL (QREFELT % 25)))
+              (SEQ (LETT |i| 1) (LETT #1# (SPADCALL |lp| (QREFELT % 16))) G190
                    (COND ((|greater_SI| |i| #1#) (GO G191)))
                    (SEQ (LETT |x| (QAREF1 |lp| (- |i| 1)))
                         (EXIT
                          (LETT |res|
                                (SPADCALL
-                                (LIST |res| (SPADCALL '-> (QREFELT $ 27))
-                                      (SPADCALL |x| (QREFELT $ 28)))
-                                (QREFELT $ 29)))))
+                                (LIST |res| (SPADCALL '-> (QREFELT % 27))
+                                      (SPADCALL |x| (QREFELT % 28)))
+                                (QREFELT % 29)))))
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL |res| (QREFELT $ 30)))))) 
+              (EXIT (SPADCALL |res| (QREFELT % 30)))))) 
 
 (DECLAIM (NOTINLINE |Loop;|)) 
 
@@ -114,28 +114,28 @@
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|Loop|)))))))))) 
 
 (DEFUN |Loop;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|Loop|))
-          (LETT $ (GETREFV 33))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|Loop| NIL (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 6 (|PrimitiveArray| (|NonNegativeInteger|)))
-          $))) 
+          (LETT % (GETREFV 33))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|Loop| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6 (|PrimitiveArray| (|NonNegativeInteger|)))
+          %))) 
 
 (MAKEPROP '|Loop| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL '|Rep| (|List| 15) (0 . |concat|)
-              (6 . |construct|) |LOOP;loop;L$;1| (11 . |entries|)
-              |LOOP;entries;$L;2| (|SingleInteger|) |LOOP;hash;$Si;3|
-              (|NonNegativeInteger|) (16 . |#|) (|List| $) (|String|)
-              (21 . |concat|) |LOOP;latex;$S;4| (|Boolean|) (26 . ~=)
-              |LOOP;=;2$B;5| (|OutputForm|) (32 . |empty|) (|Symbol|)
+              (6 . |construct|) |LOOP;loop;L%;1| (11 . |entries|)
+              |LOOP;entries;%L;2| (|SingleInteger|) |LOOP;hash;%Si;3|
+              (|NonNegativeInteger|) (16 . |#|) (|List| %) (|String|)
+              (21 . |concat|) |LOOP;latex;%S;4| (|Boolean|) (26 . ~=)
+              |LOOP;=;2%B;5| (|OutputForm|) (32 . |empty|) (|Symbol|)
               (36 . |outputForm|) (41 . |coerce|) (46 . |hconcat|)
-              (51 . |bracket|) |LOOP;coerce;$Of;6| (|HashState|))
+              (51 . |bracket|) |LOOP;coerce;%Of;6| (|HashState|))
            '#(~= 56 |loop| 62 |latex| 67 |hashUpdate!| 72 |hash| 78 |entries|
               83 |coerce| 88 = 93)
            'NIL

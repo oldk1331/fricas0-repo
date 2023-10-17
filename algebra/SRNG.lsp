@@ -9,7 +9,7 @@
   (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
-                   (|Join| (|NonAssociativeSemiRng|) (|BiModule| '$ '$)
+                   (|Join| (|NonAssociativeSemiRng|) (|BiModule| '% '%)
                            (|SemiGroup|)))
            (SETELT #1# 0 '(|SemiRng|))))) 
 

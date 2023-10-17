@@ -1,15 +1,15 @@
 
-(PUT '|CHAINC;chainComplex;L$;1| '|SPADreplace| '(XLAM (|v|) |v|)) 
+(PUT '|CHAINC;chainComplex;L%;1| '|SPADreplace| '(XLAM (|v|) |v|)) 
 
-(SDEFUN |CHAINC;chainComplex;L$;1|
-        ((|v| (|List| (|Matrix| (|Integer|)))) ($ ($))) |v|) 
+(SDEFUN |CHAINC;chainComplex;L%;1|
+        ((|v| (|List| (|Matrix| (|Integer|)))) (% (%))) |v|) 
 
-(PUT '|CHAINC;transition_matrices;$L;2| '|SPADreplace| '(XLAM (|a|) |a|)) 
+(PUT '|CHAINC;transition_matrices;%L;2| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
-(SDEFUN |CHAINC;transition_matrices;$L;2|
-        ((|a| ($)) ($ (|List| (|Matrix| (|Integer|))))) |a|) 
+(SDEFUN |CHAINC;transition_matrices;%L;2|
+        ((|a| (%)) (% (|List| (|Matrix| (|Integer|))))) |a|) 
 
-(SDEFUN |CHAINC;validate;$B;3| ((|a| ($)) ($ (|Boolean|)))
+(SDEFUN |CHAINC;validate;%B;3| ((|a| (%)) (% (|Boolean|)))
         (SPROG
          ((|last| #1=(|Matrix| (|Integer|))) (#2=#:G117 NIL)
           (|prod| (|Matrix| (|Integer|))) (|m| #1#) (#3=#:G118 NIL) (|x| NIL)
@@ -18,35 +18,35 @@
           (EXIT
            (SEQ (LETT |len| (LENGTH |a|))
                 (COND ((< |len| 2) (PROGN (LETT #2# 'T) (GO #4=#:G116))))
-                (LETT |last| (SPADCALL |a| 1 (QREFELT $ 12)))
+                (LETT |last| (SPADCALL |a| 1 (QREFELT % 12)))
                 (SEQ (LETT |x| 2) (LETT #3# |len|) G190
                      (COND ((|greater_SI| |x| #3#) (GO G191)))
-                     (SEQ (LETT |m| (SPADCALL |a| |x| (QREFELT $ 12)))
+                     (SEQ (LETT |m| (SPADCALL |a| |x| (QREFELT % 12)))
                           (COND
-                           ((SPADCALL (SPADCALL |m| (QREFELT $ 13))
-                                      (SPADCALL |last| (QREFELT $ 14))
-                                      (QREFELT $ 16))
+                           ((SPADCALL (SPADCALL |m| (QREFELT % 13))
+                                      (SPADCALL |last| (QREFELT % 14))
+                                      (QREFELT % 16))
                             (SEQ
                              (SPADCALL
                               (SPADCALL
                                (SPADCALL
                                 (SPADCALL
                                  (SPADCALL "validate failed nRows="
-                                           (QREFELT $ 19))
-                                 (SPADCALL (SPADCALL |m| (QREFELT $ 13))
-                                           (QREFELT $ 20))
-                                 (QREFELT $ 21))
+                                           (QREFELT % 19))
+                                 (SPADCALL (SPADCALL |m| (QREFELT % 13))
+                                           (QREFELT % 20))
+                                 (QREFELT % 21))
                                 (SPADCALL " not equal to nCols "
-                                          (QREFELT $ 19))
-                                (QREFELT $ 21))
-                               (SPADCALL (SPADCALL |last| (QREFELT $ 14))
-                                         (QREFELT $ 20))
-                               (QREFELT $ 21))
-                              (QREFELT $ 23))
+                                          (QREFELT % 19))
+                                (QREFELT % 21))
+                               (SPADCALL (SPADCALL |last| (QREFELT % 14))
+                                         (QREFELT % 20))
+                               (QREFELT % 21))
+                              (QREFELT % 23))
                              (EXIT (PROGN (LETT #2# NIL) (GO #4#))))))
-                          (LETT |prod| (SPADCALL |last| |m| (QREFELT $ 24)))
+                          (LETT |prod| (SPADCALL |last| |m| (QREFELT % 24)))
                           (COND
-                           ((NULL (SPADCALL |prod| (QREFELT $ 25)))
+                           ((NULL (SPADCALL |prod| (QREFELT % 25)))
                             (SEQ
                              (SPADCALL
                               (SPADCALL
@@ -56,22 +56,22 @@
                                   (SPADCALL
                                    (SPADCALL
                                     "validate failed: product of adjacent maps should be zero"
-                                    (QREFELT $ 19))
-                                   (SPADCALL |last| (QREFELT $ 26))
-                                   (QREFELT $ 21))
-                                  (SPADCALL " * " (QREFELT $ 19))
-                                  (QREFELT $ 21))
-                                 (SPADCALL |m| (QREFELT $ 26)) (QREFELT $ 21))
-                                (SPADCALL " = " (QREFELT $ 19)) (QREFELT $ 21))
-                               (SPADCALL |prod| (QREFELT $ 26)) (QREFELT $ 21))
-                              (QREFELT $ 23))
+                                    (QREFELT % 19))
+                                   (SPADCALL |last| (QREFELT % 26))
+                                   (QREFELT % 21))
+                                  (SPADCALL " * " (QREFELT % 19))
+                                  (QREFELT % 21))
+                                 (SPADCALL |m| (QREFELT % 26)) (QREFELT % 21))
+                                (SPADCALL " = " (QREFELT % 19)) (QREFELT % 21))
+                               (SPADCALL |prod| (QREFELT % 26)) (QREFELT % 21))
+                              (QREFELT % 23))
                              (EXIT (PROGN (LETT #2# NIL) (GO #4#))))))
                           (EXIT (LETT |last| |m|)))
                      (LETT |x| (|inc_SI| |x|)) (GO G190) G191 (EXIT NIL))
                 (EXIT 'T)))
           #4# (EXIT #2#)))) 
 
-(SDEFUN |CHAINC;homology;$L;4| ((|a| ($)) ($ (|List| (|Homology|))))
+(SDEFUN |CHAINC;homology;%L;4| ((|a| (%)) (% (|List| (|Homology|))))
         (SPROG
          ((|prev| (|Matrix| (|Integer|))) (|notFirst| (|Boolean|))
           (|res| (|List| (|Homology|))) (|m2| (|Homology|)) (#1=#:G125 NIL)
@@ -85,15 +85,15 @@
                    (SEQ
                     (COND
                      (|notFirst|
-                      (SEQ (LETT |m2| (SPADCALL |m1| |prev| (QREFELT $ 29)))
+                      (SEQ (LETT |m2| (SPADCALL |m1| |prev| (QREFELT % 29)))
                            (EXIT
                             (LETT |res|
-                                  (SPADCALL |res| |m2| (QREFELT $ 31)))))))
+                                  (SPADCALL |res| |m2| (QREFELT % 31)))))))
                     (LETT |notFirst| 'T) (EXIT (LETT |prev| |m1|)))
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
-(SDEFUN |CHAINC;coerce;$Of;5| ((|s| ($)) ($ (|OutputForm|)))
+(SDEFUN |CHAINC;coerce;%Of;5| ((|s| (%)) (% (|OutputForm|)))
         (SPROG
          ((|lst| (|List| (|OutputForm|))) (#1=#:G131 NIL) (|x| NIL)
           (#2=#:G130 NIL))
@@ -107,10 +107,10 @@
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2# (CONS (SPADCALL |x| (QREFELT $ 26)) #2#))))
+                        (LETT #2# (CONS (SPADCALL |x| (QREFELT % 26)) #2#))))
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#)))))
-          (EXIT (SPADCALL |lst| (QREFELT $ 34)))))) 
+          (EXIT (SPADCALL |lst| (QREFELT % 34)))))) 
 
 (DECLAIM (NOTINLINE |ChainComplex;|)) 
 
@@ -132,29 +132,29 @@
                  ((NOT #1#) (HREM |$ConstructorCache| '|ChainComplex|)))))))))) 
 
 (DEFUN |ChainComplex;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|ChainComplex|))
-          (LETT $ (GETREFV 38))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|ChainComplex| NIL (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 6 (|List| (|Matrix| (|Integer|))))
-          $))) 
+          (LETT % (GETREFV 38))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|ChainComplex| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6 (|List| (|Matrix| (|Integer|))))
+          %))) 
 
 (MAKEPROP '|ChainComplex| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL '|Rep| (|List| 10)
-              |CHAINC;chainComplex;L$;1| |CHAINC;transition_matrices;$L;2|
+              |CHAINC;chainComplex;L%;1| |CHAINC;transition_matrices;%L;2|
               (|Matrix| 11) (|Integer|) (0 . |elt|) (6 . |maxRowIndex|)
               (11 . |maxColIndex|) (|Boolean|) (16 . ~=) (|String|)
               (|OutputForm|) (22 . |message|) (27 . |coerce|) (32 . |hconcat|)
               (|Void|) (38 . |print|) (43 . *) (49 . |zero?|) (54 . |coerce|)
-              |CHAINC;validate;$B;3| (|Homology|) (59 . |homologyGroup|)
-              (|List| 28) (65 . |concat|) |CHAINC;homology;$L;4| (|List| $)
-              (71 . |commaSeparate|) |CHAINC;coerce;$Of;5| (|SingleInteger|)
+              |CHAINC;validate;%B;3| (|Homology|) (59 . |homologyGroup|)
+              (|List| 28) (65 . |concat|) |CHAINC;homology;%L;4| (|List| %)
+              (71 . |commaSeparate|) |CHAINC;coerce;%Of;5| (|SingleInteger|)
               (|HashState|))
            '#(~= 76 |validate| 82 |transition_matrices| 87 |latex| 92
               |homology| 97 |hashUpdate!| 102 |hash| 108 |coerce| 113

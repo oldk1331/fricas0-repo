@@ -776,13 +776,13 @@
 ;         p:=SUBLISLIS(rest conform,$FormalMapVariableList,kTestPred catpredvec.i)
 ;         $domain => EVAL p
 ;         p
-;       if domname and CONTAINED('$,pred) then pred := SUBST(domname,'$,pred)
+;       if domname and CONTAINED('%, pred) then pred := SUBST(domname, '%, pred)
 ;       (pak := catinfo . i) and pred   --only those with default packages
 ;     pakform ==
 ;       pak and not IDENTP pak => devaluate pak --in case it has been instantiated
 ;       catform := kFormatSlotDomain catvec . i
-;       res := dbSubConform(rest conform,[pak,"$",:rest catform])
-;       if domname then res := SUBST(domname,'$,res)
+;       res := dbSubConform(rest(conform), [pak, "%", :rest(catform)])
+;       if domname then res := SUBST(domname, '%, res)
 ;       res
 ;   [:dbAddChain conform,:catforms]
 
@@ -820,8 +820,8 @@
                                                (ELT |catpredvec| |i|))))
                                      (COND (|$domain| (EVAL |p|)) (#1# |p|)))))
                            (COND
-                            ((AND |domname| (CONTAINED '$ |pred|))
-                             (SETQ |pred| (SUBST |domname| '$ |pred|))))
+                            ((AND |domname| (CONTAINED '% |pred|))
+                             (SETQ |pred| (SUBST |domname| '% |pred|))))
                            (AND (SETQ |pak| (ELT |catinfo| |i|)) |pred|))
                           (SETQ |bfVar#23|
                                   (CONS
@@ -837,12 +837,12 @@
                                        (SETQ |res|
                                                (|dbSubConform| (CDR |conform|)
                                                 (CONS |pak|
-                                                      (CONS '$
+                                                      (CONS '%
                                                             (CDR |catform|)))))
                                        (COND
                                         (|domname|
                                          (SETQ |res|
-                                                 (SUBST |domname| '$ |res|))))
+                                                 (SUBST |domname| '% |res|))))
                                        |res|)))
                                     |pred|)
                                    |bfVar#23|)))))
@@ -985,7 +985,7 @@
 ;   if whichever ~= '"ancestor" then
 ;     ancestors := augmentHasArgs(ancestors,conform)
 ;   ancestors := listSort(function GLESSEQP,ancestors)
-; --if domname then ancestors := SUBST(domname,'$,ancestors)
+;   -- if domname then ancestors := SUBST(domname, '%, ancestors)
 ;   htpSetProperty(htPage,'cAlist,ancestors)
 ;   htpSetProperty(htPage,'thing,whichever)
 ;   choice :=
@@ -1290,7 +1290,8 @@
 ;     opOf conform
 ;   domList := getImports pakname
 ;   if domname then
-;     domList := SUBLISLIS([domname,:rest domname],['$,:rest conform],domList)
+;       domList := SUBLISLIS([domname, :rest(domname)],
+;                            ['%, :rest(conform)], domList)
 ;   cAlist := [[x,:true] for x in domList]
 ;   htpSetProperty(htPage,'cAlist,cAlist)
 ;   htpSetProperty(htPage,'thing,'"benefactor")
@@ -1335,7 +1336,7 @@
           (|domname|
            (SETQ |domList|
                    (SUBLISLIS (CONS |domname| (CDR |domname|))
-                    (CONS '$ (CDR |conform|)) |domList|))))
+                    (CONS '% (CDR |conform|)) |domList|))))
          (SETQ |cAlist|
                  ((LAMBDA (|bfVar#35| |bfVar#34| |x|)
                     (LOOP
@@ -2013,8 +2014,8 @@
 ; dbAddDocTable conform ==
 ;   conname := opOf conform
 ;   storedArgs := rest getConstructorForm conname
-;   for [op,:alist] in SUBLISLIS(["$",:rest conform],
-;     ["%",:storedArgs],GETDATABASE(opOf conform,'DOCUMENTATION))
+;   for [op, :alist] in SUBLISLIS(["%", :rest(conform)],
+;     ["%", :storedArgs], GETDATABASE(opOf(conform), 'DOCUMENTATION))
 ;       repeat
 ;        op1 :=
 ;          op = '(Zero) => 0
@@ -2064,7 +2065,7 @@
                       (SETQ |bfVar#66| (CDR |bfVar#66|))))
                    |alist| NIL)))))
           (SETQ |bfVar#64| (CDR |bfVar#64|))))
-       (SUBLISLIS (CONS '$ (CDR |conform|)) (CONS '% |storedArgs|)
+       (SUBLISLIS (CONS '% (CDR |conform|)) (CONS '% |storedArgs|)
         (GETDATABASE (|opOf| |conform|) 'DOCUMENTATION))
        NIL)))))
 

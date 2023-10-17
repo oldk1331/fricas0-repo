@@ -1,100 +1,100 @@
 
-(SDEFUN |OCT;Zero;$;1| (($ ($)))
-        (CONS (|spadConstant| $ 11) (|spadConstant| $ 11))) 
+(SDEFUN |OCT;Zero;%;1| ((% (%)))
+        (CONS (|spadConstant| % 11) (|spadConstant| % 11))) 
 
-(SDEFUN |OCT;One;$;2| (($ ($)))
-        (CONS (|spadConstant| $ 13) (|spadConstant| $ 11))) 
+(SDEFUN |OCT;One;%;2| ((% (%)))
+        (CONS (|spadConstant| % 13) (|spadConstant| % 11))) 
 
-(SDEFUN |OCT;real;$R;3| ((|x| ($)) ($ (R)))
-        (SPADCALL (QCAR |x|) (QREFELT $ 15))) 
+(SDEFUN |OCT;real;%R;3| ((|x| (%)) (% (R)))
+        (SPADCALL (QCAR |x|) (QREFELT % 15))) 
 
-(SDEFUN |OCT;imagi;$R;4| ((|x| ($)) ($ (R)))
-        (SPADCALL (QCAR |x|) (QREFELT $ 17))) 
+(SDEFUN |OCT;imagi;%R;4| ((|x| (%)) (% (R)))
+        (SPADCALL (QCAR |x|) (QREFELT % 17))) 
 
-(SDEFUN |OCT;imagj;$R;5| ((|x| ($)) ($ (R)))
-        (SPADCALL (QCAR |x|) (QREFELT $ 19))) 
+(SDEFUN |OCT;imagj;%R;5| ((|x| (%)) (% (R)))
+        (SPADCALL (QCAR |x|) (QREFELT % 19))) 
 
-(SDEFUN |OCT;imagk;$R;6| ((|x| ($)) ($ (R)))
-        (SPADCALL (QCAR |x|) (QREFELT $ 21))) 
+(SDEFUN |OCT;imagk;%R;6| ((|x| (%)) (% (R)))
+        (SPADCALL (QCAR |x|) (QREFELT % 21))) 
 
-(SDEFUN |OCT;imagE;$R;7| ((|x| ($)) ($ (R)))
-        (SPADCALL (QCDR |x|) (QREFELT $ 15))) 
+(SDEFUN |OCT;imagE;%R;7| ((|x| (%)) (% (R)))
+        (SPADCALL (QCDR |x|) (QREFELT % 15))) 
 
-(SDEFUN |OCT;imagI;$R;8| ((|x| ($)) ($ (R)))
-        (SPADCALL (QCDR |x|) (QREFELT $ 17))) 
+(SDEFUN |OCT;imagI;%R;8| ((|x| (%)) (% (R)))
+        (SPADCALL (QCDR |x|) (QREFELT % 17))) 
 
-(SDEFUN |OCT;imagJ;$R;9| ((|x| ($)) ($ (R)))
-        (SPADCALL (QCDR |x|) (QREFELT $ 19))) 
+(SDEFUN |OCT;imagJ;%R;9| ((|x| (%)) (% (R)))
+        (SPADCALL (QCDR |x|) (QREFELT % 19))) 
 
-(SDEFUN |OCT;imagK;$R;10| ((|x| ($)) ($ (R)))
-        (SPADCALL (QCDR |x|) (QREFELT $ 21))) 
+(SDEFUN |OCT;imagK;%R;10| ((|x| (%)) (% (R)))
+        (SPADCALL (QCDR |x|) (QREFELT % 21))) 
 
-(SDEFUN |OCT;octon;8R$;11|
+(SDEFUN |OCT;octon;8R%;11|
         ((|a| (R)) (|b| (R)) (|c| (R)) (|d| (R)) (|f| (R)) (|g| (R)) (|h| (R))
-         (|i| (R)) ($ ($)))
-        (CONS (SPADCALL |a| |b| |c| |d| (QREFELT $ 27))
-              (SPADCALL |f| |g| |h| |i| (QREFELT $ 27)))) 
+         (|i| (R)) (% (%)))
+        (CONS (SPADCALL |a| |b| |c| |d| (QREFELT % 27))
+              (SPADCALL |f| |g| |h| |i| (QREFELT % 27)))) 
 
-(PUT '|OCT;octon;2Q$;12| '|SPADreplace| 'CONS) 
+(PUT '|OCT;octon;2Q%;12| '|SPADreplace| 'CONS) 
 
-(SDEFUN |OCT;octon;2Q$;12|
-        ((|p| (|Quaternion| R)) (|q| (|Quaternion| R)) ($ ($))) (CONS |p| |q|)) 
+(SDEFUN |OCT;octon;2Q%;12|
+        ((|p| (|Quaternion| R)) (|q| (|Quaternion| R)) (% (%))) (CONS |p| |q|)) 
 
-(SDEFUN |OCT;coerce;Q$;13| ((|q| (|Quaternion| R)) ($ ($)))
-        (CONS |q| (|spadConstant| $ 11))) 
+(SDEFUN |OCT;coerce;Q%;13| ((|q| (|Quaternion| R)) (% (%)))
+        (CONS |q| (|spadConstant| % 11))) 
 
-(SDEFUN |OCT;retract;$Q;14| ((|x| ($)) ($ (|Quaternion| R)))
+(SDEFUN |OCT;retract;%Q;14| ((|x| (%)) (% (|Quaternion| R)))
         (SEQ
          (COND
-          ((SPADCALL (SPADCALL |x| (QREFELT $ 23)) (QREFELT $ 32))
+          ((SPADCALL (SPADCALL |x| (QREFELT % 23)) (QREFELT % 32))
            (COND
-            ((SPADCALL (SPADCALL |x| (QREFELT $ 24)) (QREFELT $ 32))
+            ((SPADCALL (SPADCALL |x| (QREFELT % 24)) (QREFELT % 32))
              (COND
-              ((SPADCALL (SPADCALL |x| (QREFELT $ 25)) (QREFELT $ 32))
+              ((SPADCALL (SPADCALL |x| (QREFELT % 25)) (QREFELT % 32))
                (COND
-                ((NULL (SPADCALL (SPADCALL |x| (QREFELT $ 26)) (QREFELT $ 32)))
+                ((NULL (SPADCALL (SPADCALL |x| (QREFELT % 26)) (QREFELT % 32)))
                  (EXIT
                   (|error| #1="Cannot retract octonion to quaternion.")))))
               (#2='T (EXIT (|error| #1#)))))
             (#2# (EXIT (|error| #1#)))))
           (#2# (EXIT (|error| #1#))))
          (EXIT
-          (SPADCALL (SPADCALL |x| (QREFELT $ 16)) (SPADCALL |x| (QREFELT $ 18))
-                    (SPADCALL |x| (QREFELT $ 20)) (SPADCALL |x| (QREFELT $ 22))
-                    (QREFELT $ 27))))) 
+          (SPADCALL (SPADCALL |x| (QREFELT % 16)) (SPADCALL |x| (QREFELT % 18))
+                    (SPADCALL |x| (QREFELT % 20)) (SPADCALL |x| (QREFELT % 22))
+                    (QREFELT % 27))))) 
 
-(SDEFUN |OCT;retractIfCan;$U;15|
-        ((|x| ($)) ($ (|Union| (|Quaternion| R) "failed")))
+(SDEFUN |OCT;retractIfCan;%U;15|
+        ((|x| (%)) (% (|Union| (|Quaternion| R) "failed")))
         (SEQ
          (COND
-          ((SPADCALL (SPADCALL |x| (QREFELT $ 23)) (QREFELT $ 32))
+          ((SPADCALL (SPADCALL |x| (QREFELT % 23)) (QREFELT % 32))
            (COND
-            ((SPADCALL (SPADCALL |x| (QREFELT $ 24)) (QREFELT $ 32))
+            ((SPADCALL (SPADCALL |x| (QREFELT % 24)) (QREFELT % 32))
              (COND
-              ((SPADCALL (SPADCALL |x| (QREFELT $ 25)) (QREFELT $ 32))
+              ((SPADCALL (SPADCALL |x| (QREFELT % 25)) (QREFELT % 32))
                (COND
-                ((NULL (SPADCALL (SPADCALL |x| (QREFELT $ 26)) (QREFELT $ 32)))
+                ((NULL (SPADCALL (SPADCALL |x| (QREFELT % 26)) (QREFELT % 32)))
                  (EXIT (CONS 1 #1="failed")))))
               (#2='T (EXIT (CONS 1 #1#)))))
             (#2# (EXIT (CONS 1 #1#)))))
           (#2# (EXIT (CONS 1 #1#))))
          (EXIT
           (CONS 0
-                (SPADCALL (SPADCALL |x| (QREFELT $ 16))
-                          (SPADCALL |x| (QREFELT $ 18))
-                          (SPADCALL |x| (QREFELT $ 20))
-                          (SPADCALL |x| (QREFELT $ 22)) (QREFELT $ 27)))))) 
+                (SPADCALL (SPADCALL |x| (QREFELT % 16))
+                          (SPADCALL |x| (QREFELT % 18))
+                          (SPADCALL |x| (QREFELT % 20))
+                          (SPADCALL |x| (QREFELT % 22)) (QREFELT % 27)))))) 
 
-(SDEFUN |OCT;*;3$;16| ((|x| ($)) (|y| ($)) ($ ($)))
+(SDEFUN |OCT;*;3%;16| ((|x| (%)) (|y| (%)) (% (%)))
         (CONS
-         (SPADCALL (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 36))
-                   (SPADCALL (SPADCALL (QCDR |y|) (QREFELT $ 37)) (QCDR |x|)
-                             (QREFELT $ 36))
-                   (QREFELT $ 38))
-         (SPADCALL (SPADCALL (QCDR |y|) (QCAR |x|) (QREFELT $ 36))
-                   (SPADCALL (QCDR |x|) (SPADCALL (QCAR |y|) (QREFELT $ 37))
-                             (QREFELT $ 36))
-                   (QREFELT $ 39)))) 
+         (SPADCALL (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT % 36))
+                   (SPADCALL (SPADCALL (QCDR |y|) (QREFELT % 37)) (QCDR |x|)
+                             (QREFELT % 36))
+                   (QREFELT % 38))
+         (SPADCALL (SPADCALL (QCDR |y|) (QCAR |x|) (QREFELT % 36))
+                   (SPADCALL (QCDR |x|) (SPADCALL (QCAR |y|) (QREFELT % 37))
+                             (QREFELT % 36))
+                   (QREFELT % 39)))) 
 
 (DECLAIM (NOTINLINE |Octonion;|)) 
 
@@ -115,14 +115,14 @@
 
 (DEFUN |Octonion;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G173 NIL) (#2=#:G174 NIL) (#3=#:G175 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G173 NIL) (#2=#:G174 NIL) (#3=#:G175 NIL) (% NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|Octonion| DV$1))
-    (LETT $ (GETREFV 71))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 71))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST (|HasCategory| |#1| '(|Finite|))
@@ -199,38 +199,38 @@
                                                (|Quaternion| |#1|)
                                                '(|RetractableTo|
                                                  (|Integer|))))))))
-    (|haddProp| |$ConstructorCache| '|Octonion| (LIST DV$1) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 7
+    (|haddProp| |$ConstructorCache| '|Octonion| (LIST DV$1) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 7
               (|Record| (|:| |e| (|Quaternion| |#1|))
                         (|:| E (|Quaternion| |#1|))))
-    $))) 
+    %))) 
 
 (MAKEPROP '|Octonion| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep|
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |OCT;Zero;$;1|) $))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |OCT;Zero;%;1|) %))
               (0 . |Zero|) (|Quaternion| 6) (4 . |Zero|) (8 . |One|)
               (12 . |One|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |OCT;One;$;2|) $))
-              (16 . |real|) |OCT;real;$R;3| (21 . |imagI|) |OCT;imagi;$R;4|
-              (26 . |imagJ|) |OCT;imagj;$R;5| (31 . |imagK|) |OCT;imagk;$R;6|
-              |OCT;imagE;$R;7| |OCT;imagI;$R;8| |OCT;imagJ;$R;9|
-              |OCT;imagK;$R;10| (36 . |quatern|) |OCT;octon;8R$;11|
-              |OCT;octon;2Q$;12| |OCT;coerce;Q$;13| (|Boolean|) (44 . |zero?|)
-              |OCT;retract;$Q;14| (|Union| 10 '"failed")
-              |OCT;retractIfCan;$U;15| (49 . *) (55 . |conjugate|) (60 . -)
-              (66 . +) |OCT;*;3$;16| (|Union| $ '"failed") (|Integer|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |OCT;One;%;2|) %))
+              (16 . |real|) |OCT;real;%R;3| (21 . |imagI|) |OCT;imagi;%R;4|
+              (26 . |imagJ|) |OCT;imagj;%R;5| (31 . |imagK|) |OCT;imagk;%R;6|
+              |OCT;imagE;%R;7| |OCT;imagI;%R;8| |OCT;imagJ;%R;9|
+              |OCT;imagK;%R;10| (36 . |quatern|) |OCT;octon;8R%;11|
+              |OCT;octon;2Q%;12| |OCT;coerce;Q%;13| (|Boolean|) (44 . |zero?|)
+              |OCT;retract;%Q;14| (|Union| 10 '"failed")
+              |OCT;retractIfCan;%U;15| (49 . *) (55 . |conjugate|) (60 . -)
+              (66 . +) |OCT;*;3%;16| (|Union| % '"failed") (|Integer|)
               (|NonNegativeInteger|) (|Union| 45 '#1="failed") (|Fraction| 42)
               (|Union| 42 '#1#) (|InputForm|) (|Equation| 6) (|List| 48)
               (|List| 6) (|SparseUnivariatePolynomial| (|Polynomial| 6))
-              (|List| $) (|PositiveInteger|) (|List| 55) (|Symbol|)
-              (|Record| (|:| |particular| $) (|:| |basis| 52))
+              (|List| %) (|PositiveInteger|) (|List| 55) (|Symbol|)
+              (|Record| (|:| |particular| %) (|:| |basis| 52))
               (|Union| 56 '"failed") (|SparseUnivariatePolynomial| 6)
               (|List| 66) (|Mapping| 6 6) (|Union| 6 '#1#) (|Matrix| 6)
-              (|List| (|Polynomial| 6)) (|Vector| 62) (|Vector| $) (|Vector| 6)
+              (|List| (|Polynomial| 6)) (|Vector| 62) (|Vector| %) (|Vector| 6)
               (|String|) (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#(~= 72 |zero?| 78 |unit| 83 |subtractIfCan| 87
               |structuralConstants| 93 |someBasis| 102 |smaller?| 106 |size|

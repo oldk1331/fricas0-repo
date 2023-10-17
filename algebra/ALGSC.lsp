@@ -1,21 +1,21 @@
 
-(SDEFUN |ALGSC;recip;$U;1| ((|x| ($)) ($ (|Union| $ "failed")))
-        (SPADCALL |x| (QREFELT $ 13))) 
+(SDEFUN |ALGSC;recip;%U;1| ((|x| (%)) (% (|Union| % "failed")))
+        (SPADCALL |x| (QREFELT % 13))) 
 
-(SDEFUN |ALGSC;*;Sm2$;2| ((|m| (|SquareMatrix| |n| R)) (|x| ($)) ($ ($)))
-        (SPADCALL (SPADCALL |m| (QREFELT $ 17)) |x| (QREFELT $ 18))) 
+(SDEFUN |ALGSC;*;Sm2%;2| ((|m| (|SquareMatrix| |n| R)) (|x| (%)) (% (%)))
+        (SPADCALL (SPADCALL |m| (QREFELT % 17)) |x| (QREFELT % 18))) 
 
-(SDEFUN |ALGSC;coerce;V$;3| ((|v| (|Vector| R)) ($ ($)))
-        (SPADCALL |v| (QREFELT $ 21))) 
+(SDEFUN |ALGSC;coerce;V%;3| ((|v| (|Vector| R)) (% (%)))
+        (SPADCALL |v| (QREFELT % 21))) 
 
-(SDEFUN |ALGSC;structuralConstants;V;4| (($ (|Vector| (|Matrix| R))))
-        (QREFELT $ 9)) 
+(SDEFUN |ALGSC;structuralConstants;V;4| ((% (|Vector| (|Matrix| R))))
+        (QREFELT % 9)) 
 
-(SDEFUN |ALGSC;coordinates;$V;5| ((|x| ($)) ($ (|Vector| R)))
-        (SPADCALL (SPADCALL |x| (QREFELT $ 26)) (QREFELT $ 27))) 
+(SDEFUN |ALGSC;coordinates;%V;5| ((|x| (%)) (% (|Vector| R)))
+        (SPADCALL (SPADCALL |x| (QREFELT % 26)) (QREFELT % 27))) 
 
-(SDEFUN |ALGSC;coordinates;$VV;6|
-        ((|x| ($)) (|b| (|Vector| $)) ($ (|Vector| R)))
+(SDEFUN |ALGSC;coordinates;%VV;6|
+        ((|x| (%)) (|b| (|Vector| %)) (% (|Vector| R)))
         (SPROG
          ((#1=#:G139 NIL)
           (|res|
@@ -25,23 +25,23 @@
           (|m| (|NonNegativeInteger|)) (#3=#:G133 NIL))
          (SEQ
           (LETT |m|
-                (PROG1 (LETT #3# (SPADCALL |b| (QREFELT $ 31)))
+                (PROG1 (LETT #3# (SPADCALL |b| (QREFELT % 31)))
                   (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
                                     '(|Integer|) #3#)))
           (LETT |transitionMatrix|
-                (MAKE_MATRIX1 (QREFELT $ 7) |m| (|spadConstant| $ 32)))
+                (MAKE_MATRIX1 (QREFELT % 7) |m| (|spadConstant| % 32)))
           (SEQ (LETT |i| 1) (LETT #2# |m|) G190
                (COND ((|greater_SI| |i| #2#) (GO G191)))
                (SEQ
                 (EXIT
                  (SPADCALL |transitionMatrix| |i|
-                           (SPADCALL (SPADCALL |b| |i| (QREFELT $ 33))
-                                     (QREFELT $ 28))
-                           (QREFELT $ 34))))
+                           (SPADCALL (SPADCALL |b| |i| (QREFELT % 33))
+                                     (QREFELT % 28))
+                           (QREFELT % 34))))
                (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
           (LETT |res|
-                (SPADCALL |transitionMatrix| (SPADCALL |x| (QREFELT $ 28))
-                          (QREFELT $ 38)))
+                (SPADCALL |transitionMatrix| (SPADCALL |x| (QREFELT % 28))
+                          (QREFELT % 38)))
           (COND
            ((NULL (NULL (QCDR |res|)))
             (|error|
@@ -54,17 +54,17 @@
             ('T
              (PROG2 (LETT #1# (QCAR |res|))
                  (QCDR #1#)
-               (|check_union2| (QEQCAR #1# 0) (|Vector| (QREFELT $ 6))
-                               (|Union| (|Vector| (QREFELT $ 6)) "failed")
+               (|check_union2| (QEQCAR #1# 0) (|Vector| (QREFELT % 6))
+                               (|Union| (|Vector| (QREFELT % 6)) "failed")
                                #1#)))))))) 
 
-(SDEFUN |ALGSC;basis;V;7| (($ (|Vector| $)))
+(SDEFUN |ALGSC;basis;V;7| ((% (|Vector| %)))
         (SPROG
          ((#1=#:G146 NIL) (#2=#:G149 NIL) (#3=#:G151 NIL) (|i| NIL)
           (#4=#:G150 NIL))
          (SEQ
           (PROGN
-           (LETT #4# (GETREFV #5=(QREFELT $ 7)))
+           (LETT #4# (GETREFV #5=(QREFELT % 7)))
            (SEQ (LETT |i| 1) (LETT #3# #5#) (LETT #2# 0) G190
                 (COND ((|greater_SI| |i| #3#) (GO G191)))
                 (SEQ
@@ -74,78 +74,78 @@
                            (PROG1 (LETT #1# |i|)
                              (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                                '(|NonNegativeInteger|) #1#))
-                           (QREFELT $ 43)))))
+                           (QREFELT % 43)))))
                 (LETT #2# (PROG1 (|inc_SI| #2#) (LETT |i| (|inc_SI| |i|))))
                 (GO G190) G191 (EXIT NIL))
            #4#)))) 
 
-(SDEFUN |ALGSC;someBasis;V;8| (($ (|Vector| $))) (SPADCALL (QREFELT $ 40))) 
+(SDEFUN |ALGSC;someBasis;V;8| ((% (|Vector| %))) (SPADCALL (QREFELT % 40))) 
 
-(SDEFUN |ALGSC;rank;Pi;9| (($ (|PositiveInteger|))) (QREFELT $ 7)) 
+(SDEFUN |ALGSC;rank;Pi;9| ((% (|PositiveInteger|))) (QREFELT % 7)) 
 
-(SDEFUN |ALGSC;elt;$IR;10| ((|x| ($)) (|i| (|Integer|)) ($ (R)))
-        (SPADCALL |x| |i| (QREFELT $ 46))) 
+(SDEFUN |ALGSC;elt;%IR;10| ((|x| (%)) (|i| (|Integer|)) (% (R)))
+        (SPADCALL |x| |i| (QREFELT % 46))) 
 
-(SDEFUN |ALGSC;coerce;$Of;11| ((|x| ($)) ($ (|OutputForm|)))
+(SDEFUN |ALGSC;coerce;%Of;11| ((|x| (%)) (% (|OutputForm|)))
         (SPROG
          ((#1=#:G163 NIL) (|le| (|List| (|OutputForm|))) (|coef| (R))
           (#2=#:G164 NIL) (|i| NIL))
          (SEQ
           (COND
-           ((SPADCALL |x| (QREFELT $ 49))
-            (SPADCALL (|spadConstant| $ 32) (QREFELT $ 51)))
+           ((SPADCALL |x| (QREFELT % 49))
+            (SPADCALL (|spadConstant| % 32) (QREFELT % 51)))
            ('T
             (SEQ (LETT |le| NIL)
-                 (SEQ (LETT |i| 1) (LETT #2# (QREFELT $ 7)) G190
+                 (SEQ (LETT |i| 1) (LETT #2# (QREFELT % 7)) G190
                       (COND ((|greater_SI| |i| #2#) (GO G191)))
                       (SEQ
                        (EXIT
-                        (SEQ (LETT |coef| (SPADCALL |x| |i| (QREFELT $ 47)))
+                        (SEQ (LETT |coef| (SPADCALL |x| |i| (QREFELT % 47)))
                              (EXIT
                               (COND
-                               ((NULL (SPADCALL |coef| (QREFELT $ 52)))
+                               ((NULL (SPADCALL |coef| (QREFELT % 52)))
                                 (PROGN
                                  (LETT #1#
                                        (COND
-                                        ((SPADCALL |coef| (|spadConstant| $ 53)
-                                                   (QREFELT $ 54))
+                                        ((SPADCALL |coef| (|spadConstant| % 53)
+                                                   (QREFELT % 54))
                                          (LETT |le|
                                                (CONS
                                                 (SPADCALL
-                                                 (SPADCALL (QREFELT $ 8) |i|
-                                                           (QREFELT $ 57))
-                                                 (QREFELT $ 58))
+                                                 (SPADCALL (QREFELT % 8) |i|
+                                                           (QREFELT % 57))
+                                                 (QREFELT % 58))
                                                 |le|)))
                                         ('T
                                          (LETT |le|
                                                (CONS
                                                 (SPADCALL
                                                  (SPADCALL |coef|
-                                                           (QREFELT $ 51))
+                                                           (QREFELT % 51))
                                                  (SPADCALL
-                                                  (SPADCALL (QREFELT $ 8) |i|
-                                                            (QREFELT $ 57))
-                                                  (QREFELT $ 58))
-                                                 (QREFELT $ 59))
+                                                  (SPADCALL (QREFELT % 8) |i|
+                                                            (QREFELT % 57))
+                                                  (QREFELT % 58))
+                                                 (QREFELT % 59))
                                                 |le|)))))
                                  (GO #3=#:G156)))))))
                        #3# (EXIT #1#))
                       (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-                 (EXIT (SPADCALL (ELT $ 60) |le| (QREFELT $ 63))))))))) 
+                 (EXIT (SPADCALL (ELT % 60) |le| (QREFELT % 63))))))))) 
 
-(SDEFUN |ALGSC;*;3$;12| ((|x| ($)) (|y| ($)) ($ ($)))
+(SDEFUN |ALGSC;*;3%;12| ((|x| (%)) (|y| (%)) (% (%)))
         (SPROG
          ((|h| (R)) (#1=#:G176 NIL) (|j| NIL) (#2=#:G175 NIL) (|i| NIL)
           (#3=#:G174 NIL) (|k| NIL) (|v| (|Vector| R)))
-         (SEQ (LETT |v| (MAKEARR1 (QREFELT $ 7) (|spadConstant| $ 32)))
-              (SEQ (LETT |k| 1) (LETT #3# (QREFELT $ 7)) G190
+         (SEQ (LETT |v| (MAKEARR1 (QREFELT % 7) (|spadConstant| % 32)))
+              (SEQ (LETT |k| 1) (LETT #3# (QREFELT % 7)) G190
                    (COND ((|greater_SI| |k| #3#) (GO G191)))
-                   (SEQ (LETT |h| (|spadConstant| $ 32))
-                        (SEQ (LETT |i| 1) (LETT #2# (QREFELT $ 7)) G190
+                   (SEQ (LETT |h| (|spadConstant| % 32))
+                        (SEQ (LETT |i| 1) (LETT #2# (QREFELT % 7)) G190
                              (COND ((|greater_SI| |i| #2#) (GO G191)))
                              (SEQ
                               (EXIT
-                               (SEQ (LETT |j| 1) (LETT #1# (QREFELT $ 7)) G190
+                               (SEQ (LETT |j| 1) (LETT #1# (QREFELT % 7)) G190
                                     (COND ((|greater_SI| |j| #1#) (GO G191)))
                                     (SEQ
                                      (EXIT
@@ -154,29 +154,29 @@
                                                       (SPADCALL
                                                        (SPADCALL
                                                         (SPADCALL |x| |i|
-                                                                  (QREFELT $
+                                                                  (QREFELT %
                                                                            47))
                                                         (SPADCALL |y| |j|
-                                                                  (QREFELT $
+                                                                  (QREFELT %
                                                                            47))
-                                                        (QREFELT $ 65))
+                                                        (QREFELT % 65))
                                                        (SPADCALL
-                                                        (SPADCALL (QREFELT $ 9)
+                                                        (SPADCALL (QREFELT % 9)
                                                                   |k|
-                                                                  (QREFELT $
+                                                                  (QREFELT %
                                                                            66))
-                                                        |i| |j| (QREFELT $ 67))
-                                                       (QREFELT $ 65))
-                                                      (QREFELT $ 68)))))
+                                                        |i| |j| (QREFELT % 67))
+                                                       (QREFELT % 65))
+                                                      (QREFELT % 68)))))
                                     (LETT |j| (|inc_SI| |j|)) (GO G190) G191
                                     (EXIT NIL))))
                              (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                              (EXIT NIL))
-                        (EXIT (SPADCALL |v| |k| |h| (QREFELT $ 69))))
+                        (EXIT (SPADCALL |v| |k| |h| (QREFELT % 69))))
                    (LETT |k| (|inc_SI| |k|)) (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL |v| (QREFELT $ 21)))))) 
+              (EXIT (SPADCALL |v| (QREFELT % 21)))))) 
 
-(SDEFUN |ALGSC;alternative?;B;13| (($ (|Boolean|)))
+(SDEFUN |ALGSC;alternative?;B;13| ((% (|Boolean|)))
         (SPROG
          ((#1=#:G218 NIL) (#2=#:G222 NIL) (|res| (R)) (#3=#:G236 NIL) (|l| NIL)
           (#4=#:G235 NIL) (|r| NIL) (#5=#:G219 NIL) (#6=#:G234 NIL)
@@ -187,25 +187,25 @@
          (SEQ
           (EXIT
            (SEQ
-            (SEQ (LETT |i| 1) (LETT #19# (QREFELT $ 7)) G190
+            (SEQ (LETT |i| 1) (LETT #19# (QREFELT % 7)) G190
                  (COND ((|greater_SI| |i| #19#) (GO G191)))
                  (SEQ
-                  (SEQ (LETT |j| 1) (LETT #18# (SPADCALL |i| 1 (QREFELT $ 72)))
+                  (SEQ (LETT |j| 1) (LETT #18# (SPADCALL |i| 1 (QREFELT % 72)))
                        G190 (COND ((|greater_SI| |j| #18#) (GO G191)))
                        (SEQ
                         (EXIT
-                         (SEQ (LETT |k| |j|) (LETT #17# (QREFELT $ 7)) G190
+                         (SEQ (LETT |k| |j|) (LETT #17# (QREFELT % 7)) G190
                               (COND ((> |k| #17#) (GO G191)))
                               (SEQ
                                (EXIT
-                                (SEQ (LETT |r| 1) (LETT #16# (QREFELT $ 7))
+                                (SEQ (LETT |r| 1) (LETT #16# (QREFELT % 7))
                                      G190
                                      (COND ((|greater_SI| |r| #16#) (GO G191)))
                                      (SEQ
                                       (EXIT
-                                       (SEQ (LETT |res| (|spadConstant| $ 32))
+                                       (SEQ (LETT |res| (|spadConstant| % 32))
                                             (SEQ (LETT |l| 1)
-                                                 (LETT #15# (QREFELT $ 7)) G190
+                                                 (LETT #15# (QREFELT % 7)) G190
                                                  (COND
                                                   ((|greater_SI| |l| #15#)
                                                    (GO G191)))
@@ -219,83 +219,83 @@
                                                                       (SPADCALL
                                                                        (SPADCALL
                                                                         (QREFELT
-                                                                         $ 9)
+                                                                         % 9)
                                                                         |l|
                                                                         (QREFELT
-                                                                         $ 66))
+                                                                         % 66))
                                                                        |j| |k|
                                                                        (QREFELT
-                                                                        $ 67))
+                                                                        % 67))
                                                                       (SPADCALL
                                                                        (SPADCALL
                                                                         (QREFELT
-                                                                         $ 9)
+                                                                         % 9)
                                                                         |l|
                                                                         (QREFELT
-                                                                         $ 66))
+                                                                         % 66))
                                                                        |k| |j|
                                                                        (QREFELT
-                                                                        $ 67))
+                                                                        % 67))
                                                                       (QREFELT
-                                                                       $ 68))
+                                                                       % 68))
                                                                      (SPADCALL
                                                                       (SPADCALL
                                                                        (QREFELT
-                                                                        $ 9)
+                                                                        % 9)
                                                                        |r|
                                                                        (QREFELT
-                                                                        $ 66))
+                                                                        % 66))
                                                                       |i| |l|
                                                                       (QREFELT
-                                                                       $ 67))
-                                                                     (QREFELT $
+                                                                       % 67))
+                                                                     (QREFELT %
                                                                               65))
-                                                                    (QREFELT $
+                                                                    (QREFELT %
                                                                              73))
                                                           (SPADCALL
                                                            (SPADCALL
                                                             (SPADCALL
                                                              (SPADCALL
-                                                              (QREFELT $ 9) |l|
-                                                              (QREFELT $ 66))
+                                                              (QREFELT % 9) |l|
+                                                              (QREFELT % 66))
                                                              |i| |j|
-                                                             (QREFELT $ 67))
+                                                             (QREFELT % 67))
                                                             (SPADCALL
                                                              (SPADCALL
-                                                              (QREFELT $ 9) |r|
-                                                              (QREFELT $ 66))
+                                                              (QREFELT % 9) |r|
+                                                              (QREFELT % 66))
                                                              |l| |k|
-                                                             (QREFELT $ 67))
-                                                            (QREFELT $ 65))
+                                                             (QREFELT % 67))
+                                                            (QREFELT % 65))
                                                            (SPADCALL
                                                             (SPADCALL
                                                              (SPADCALL
-                                                              (QREFELT $ 9) |l|
-                                                              (QREFELT $ 66))
+                                                              (QREFELT % 9) |l|
+                                                              (QREFELT % 66))
                                                              |i| |k|
-                                                             (QREFELT $ 67))
+                                                             (QREFELT % 67))
                                                             (SPADCALL
                                                              (SPADCALL
-                                                              (QREFELT $ 9) |r|
-                                                              (QREFELT $ 66))
+                                                              (QREFELT % 9) |r|
+                                                              (QREFELT % 66))
                                                              |l| |j|
-                                                             (QREFELT $ 67))
-                                                            (QREFELT $ 65))
-                                                           (QREFELT $ 68))
-                                                          (QREFELT $ 68)))))
+                                                             (QREFELT % 67))
+                                                            (QREFELT % 65))
+                                                           (QREFELT % 68))
+                                                          (QREFELT % 68)))))
                                                  (LETT |l| (|inc_SI| |l|))
                                                  (GO G190) G191 (EXIT NIL))
                                             (EXIT
                                              (COND
                                               ((NULL
                                                 (SPADCALL |res|
-                                                          (QREFELT $ 52)))
+                                                          (QREFELT % 52)))
                                                (PROGN
                                                 (LETT #14#
                                                       (SEQ
                                                        (SPADCALL
                                                         "algebra is not right alternative"
-                                                        (QREFELT $ 76))
+                                                        (QREFELT % 76))
                                                        (EXIT
                                                         (PROGN
                                                          (LETT #2# NIL)
@@ -307,22 +307,22 @@
                               (LETT |k| (+ |k| 1)) (GO G190) G191 (EXIT NIL))))
                        (LETT |j| (|inc_SI| |j|)) (GO G190) G191 (EXIT NIL))
                   (EXIT
-                   (SEQ (LETT |j| |i|) (LETT #13# (QREFELT $ 7)) G190
+                   (SEQ (LETT |j| |i|) (LETT #13# (QREFELT % 7)) G190
                         (COND ((> |j| #13#) (GO G191)))
                         (SEQ
                          (SEQ (LETT |k| 1)
-                              (LETT #12# (SPADCALL |j| 1 (QREFELT $ 72))) G190
+                              (LETT #12# (SPADCALL |j| 1 (QREFELT % 72))) G190
                               (COND ((|greater_SI| |k| #12#) (GO G191)))
                               (SEQ
                                (EXIT
-                                (SEQ (LETT |r| 1) (LETT #11# (QREFELT $ 7))
+                                (SEQ (LETT |r| 1) (LETT #11# (QREFELT % 7))
                                      G190
                                      (COND ((|greater_SI| |r| #11#) (GO G191)))
                                      (SEQ
                                       (EXIT
-                                       (SEQ (LETT |res| (|spadConstant| $ 32))
+                                       (SEQ (LETT |res| (|spadConstant| % 32))
                                             (SEQ (LETT |l| 1)
-                                                 (LETT #10# (QREFELT $ 7)) G190
+                                                 (LETT #10# (QREFELT % 7)) G190
                                                  (COND
                                                   ((|greater_SI| |l| #10#)
                                                    (GO G191)))
@@ -336,83 +336,83 @@
                                                                       (SPADCALL
                                                                        (SPADCALL
                                                                         (QREFELT
-                                                                         $ 9)
+                                                                         % 9)
                                                                         |l|
                                                                         (QREFELT
-                                                                         $ 66))
+                                                                         % 66))
                                                                        |i| |j|
                                                                        (QREFELT
-                                                                        $ 67))
+                                                                        % 67))
                                                                       (SPADCALL
                                                                        (SPADCALL
                                                                         (QREFELT
-                                                                         $ 9)
+                                                                         % 9)
                                                                         |l|
                                                                         (QREFELT
-                                                                         $ 66))
+                                                                         % 66))
                                                                        |j| |i|
                                                                        (QREFELT
-                                                                        $ 67))
+                                                                        % 67))
                                                                       (QREFELT
-                                                                       $ 68))
+                                                                       % 68))
                                                                      (SPADCALL
                                                                       (SPADCALL
                                                                        (QREFELT
-                                                                        $ 9)
+                                                                        % 9)
                                                                        |r|
                                                                        (QREFELT
-                                                                        $ 66))
+                                                                        % 66))
                                                                       |l| |k|
                                                                       (QREFELT
-                                                                       $ 67))
-                                                                     (QREFELT $
+                                                                       % 67))
+                                                                     (QREFELT %
                                                                               65))
-                                                                    (QREFELT $
+                                                                    (QREFELT %
                                                                              68))
                                                           (SPADCALL
                                                            (SPADCALL
                                                             (SPADCALL
                                                              (SPADCALL
-                                                              (QREFELT $ 9) |l|
-                                                              (QREFELT $ 66))
+                                                              (QREFELT % 9) |l|
+                                                              (QREFELT % 66))
                                                              |j| |k|
-                                                             (QREFELT $ 67))
+                                                             (QREFELT % 67))
                                                             (SPADCALL
                                                              (SPADCALL
-                                                              (QREFELT $ 9) |r|
-                                                              (QREFELT $ 66))
+                                                              (QREFELT % 9) |r|
+                                                              (QREFELT % 66))
                                                              |i| |l|
-                                                             (QREFELT $ 67))
-                                                            (QREFELT $ 65))
+                                                             (QREFELT % 67))
+                                                            (QREFELT % 65))
                                                            (SPADCALL
                                                             (SPADCALL
                                                              (SPADCALL
-                                                              (QREFELT $ 9) |l|
-                                                              (QREFELT $ 66))
+                                                              (QREFELT % 9) |l|
+                                                              (QREFELT % 66))
                                                              |i| |k|
-                                                             (QREFELT $ 67))
+                                                             (QREFELT % 67))
                                                             (SPADCALL
                                                              (SPADCALL
-                                                              (QREFELT $ 9) |r|
-                                                              (QREFELT $ 66))
+                                                              (QREFELT % 9) |r|
+                                                              (QREFELT % 66))
                                                              |j| |l|
-                                                             (QREFELT $ 67))
-                                                            (QREFELT $ 65))
-                                                           (QREFELT $ 68))
-                                                          (QREFELT $ 73)))))
+                                                             (QREFELT % 67))
+                                                            (QREFELT % 65))
+                                                           (QREFELT % 68))
+                                                          (QREFELT % 73)))))
                                                  (LETT |l| (|inc_SI| |l|))
                                                  (GO G190) G191 (EXIT NIL))
                                             (EXIT
                                              (COND
                                               ((NULL
                                                 (SPADCALL |res|
-                                                          (QREFELT $ 52)))
+                                                          (QREFELT % 52)))
                                                (PROGN
                                                 (LETT #9#
                                                       (SEQ
                                                        (SPADCALL
                                                         "algebra is not left alternative"
-                                                        (QREFELT $ 76))
+                                                        (QREFELT % 76))
                                                        (EXIT
                                                         (PROGN
                                                          (LETT #2# NIL)
@@ -424,16 +424,16 @@
                               (LETT |k| (|inc_SI| |k|)) (GO G190) G191
                               (EXIT NIL))
                          (EXIT
-                          (SEQ (LETT |k| |j|) (LETT #8# (QREFELT $ 7)) G190
+                          (SEQ (LETT |k| |j|) (LETT #8# (QREFELT % 7)) G190
                                (COND ((> |k| #8#) (GO G191)))
                                (SEQ
-                                (SEQ (LETT |r| 1) (LETT #7# (QREFELT $ 7)) G190
+                                (SEQ (LETT |r| 1) (LETT #7# (QREFELT % 7)) G190
                                      (COND ((|greater_SI| |r| #7#) (GO G191)))
                                      (SEQ
                                       (EXIT
-                                       (SEQ (LETT |res| (|spadConstant| $ 32))
+                                       (SEQ (LETT |res| (|spadConstant| % 32))
                                             (SEQ (LETT |l| 1)
-                                                 (LETT #6# (QREFELT $ 7)) G190
+                                                 (LETT #6# (QREFELT % 7)) G190
                                                  (COND
                                                   ((|greater_SI| |l| #6#)
                                                    (GO G191)))
@@ -447,83 +447,83 @@
                                                                       (SPADCALL
                                                                        (SPADCALL
                                                                         (QREFELT
-                                                                         $ 9)
+                                                                         % 9)
                                                                         |l|
                                                                         (QREFELT
-                                                                         $ 66))
+                                                                         % 66))
                                                                        |i| |j|
                                                                        (QREFELT
-                                                                        $ 67))
+                                                                        % 67))
                                                                       (SPADCALL
                                                                        (SPADCALL
                                                                         (QREFELT
-                                                                         $ 9)
+                                                                         % 9)
                                                                         |l|
                                                                         (QREFELT
-                                                                         $ 66))
+                                                                         % 66))
                                                                        |j| |i|
                                                                        (QREFELT
-                                                                        $ 67))
+                                                                        % 67))
                                                                       (QREFELT
-                                                                       $ 68))
+                                                                       % 68))
                                                                      (SPADCALL
                                                                       (SPADCALL
                                                                        (QREFELT
-                                                                        $ 9)
+                                                                        % 9)
                                                                        |r|
                                                                        (QREFELT
-                                                                        $ 66))
+                                                                        % 66))
                                                                       |l| |k|
                                                                       (QREFELT
-                                                                       $ 67))
-                                                                     (QREFELT $
+                                                                       % 67))
+                                                                     (QREFELT %
                                                                               65))
-                                                                    (QREFELT $
+                                                                    (QREFELT %
                                                                              68))
                                                           (SPADCALL
                                                            (SPADCALL
                                                             (SPADCALL
                                                              (SPADCALL
-                                                              (QREFELT $ 9) |l|
-                                                              (QREFELT $ 66))
+                                                              (QREFELT % 9) |l|
+                                                              (QREFELT % 66))
                                                              |j| |k|
-                                                             (QREFELT $ 67))
+                                                             (QREFELT % 67))
                                                             (SPADCALL
                                                              (SPADCALL
-                                                              (QREFELT $ 9) |r|
-                                                              (QREFELT $ 66))
+                                                              (QREFELT % 9) |r|
+                                                              (QREFELT % 66))
                                                              |i| |l|
-                                                             (QREFELT $ 67))
-                                                            (QREFELT $ 65))
+                                                             (QREFELT % 67))
+                                                            (QREFELT % 65))
                                                            (SPADCALL
                                                             (SPADCALL
                                                              (SPADCALL
-                                                              (QREFELT $ 9) |l|
-                                                              (QREFELT $ 66))
+                                                              (QREFELT % 9) |l|
+                                                              (QREFELT % 66))
                                                              |i| |k|
-                                                             (QREFELT $ 67))
+                                                             (QREFELT % 67))
                                                             (SPADCALL
                                                              (SPADCALL
-                                                              (QREFELT $ 9) |r|
-                                                              (QREFELT $ 66))
+                                                              (QREFELT % 9) |r|
+                                                              (QREFELT % 66))
                                                              |j| |l|
-                                                             (QREFELT $ 67))
-                                                            (QREFELT $ 65))
-                                                           (QREFELT $ 68))
-                                                          (QREFELT $ 73)))))
+                                                             (QREFELT % 67))
+                                                            (QREFELT % 65))
+                                                           (QREFELT % 68))
+                                                          (QREFELT % 73)))))
                                                  (LETT |l| (|inc_SI| |l|))
                                                  (GO G190) G191 (EXIT NIL))
                                             (EXIT
                                              (COND
                                               ((NULL
                                                 (SPADCALL |res|
-                                                          (QREFELT $ 52)))
+                                                          (QREFELT % 52)))
                                                (PROGN
                                                 (LETT #5#
                                                       (SEQ
                                                        (SPADCALL
                                                         "algebra is not left alternative"
-                                                        (QREFELT $ 76))
+                                                        (QREFELT % 76))
                                                        (EXIT
                                                         (PROGN
                                                          (LETT #2# NIL)
@@ -533,14 +533,14 @@
                                      (LETT |r| (|inc_SI| |r|)) (GO G190) G191
                                      (EXIT NIL))
                                 (EXIT
-                                 (SEQ (LETT |r| 1) (LETT #4# (QREFELT $ 7))
+                                 (SEQ (LETT |r| 1) (LETT #4# (QREFELT % 7))
                                       G190
                                       (COND ((|greater_SI| |r| #4#) (GO G191)))
                                       (SEQ
                                        (EXIT
-                                        (SEQ (LETT |res| (|spadConstant| $ 32))
+                                        (SEQ (LETT |res| (|spadConstant| % 32))
                                              (SEQ (LETT |l| 1)
-                                                  (LETT #3# (QREFELT $ 7)) G190
+                                                  (LETT #3# (QREFELT % 7)) G190
                                                   (COND
                                                    ((|greater_SI| |l| #3#)
                                                     (GO G191)))
@@ -554,89 +554,89 @@
                                                                        (SPADCALL
                                                                         (SPADCALL
                                                                          (QREFELT
-                                                                          $ 9)
+                                                                          % 9)
                                                                          |l|
                                                                          (QREFELT
-                                                                          $
+                                                                          %
                                                                           66))
                                                                         |j| |k|
                                                                         (QREFELT
-                                                                         $ 67))
+                                                                         % 67))
                                                                        (SPADCALL
                                                                         (SPADCALL
                                                                          (QREFELT
-                                                                          $ 9)
+                                                                          % 9)
                                                                          |l|
                                                                          (QREFELT
-                                                                          $
+                                                                          %
                                                                           66))
                                                                         |k| |j|
                                                                         (QREFELT
-                                                                         $ 67))
+                                                                         % 67))
                                                                        (QREFELT
-                                                                        $ 68))
+                                                                        % 68))
                                                                       (SPADCALL
                                                                        (SPADCALL
                                                                         (QREFELT
-                                                                         $ 9)
+                                                                         % 9)
                                                                         |r|
                                                                         (QREFELT
-                                                                         $ 66))
+                                                                         % 66))
                                                                        |i| |l|
                                                                        (QREFELT
-                                                                        $ 67))
+                                                                        % 67))
                                                                       (QREFELT
-                                                                       $ 65))
-                                                                     (QREFELT $
+                                                                       % 65))
+                                                                     (QREFELT %
                                                                               73))
                                                            (SPADCALL
                                                             (SPADCALL
                                                              (SPADCALL
                                                               (SPADCALL
-                                                               (QREFELT $ 9)
+                                                               (QREFELT % 9)
                                                                |l|
-                                                               (QREFELT $ 66))
+                                                               (QREFELT % 66))
                                                               |i| |j|
-                                                              (QREFELT $ 67))
+                                                              (QREFELT % 67))
                                                              (SPADCALL
                                                               (SPADCALL
-                                                               (QREFELT $ 9)
+                                                               (QREFELT % 9)
                                                                |r|
-                                                               (QREFELT $ 66))
+                                                               (QREFELT % 66))
                                                               |l| |k|
-                                                              (QREFELT $ 67))
-                                                             (QREFELT $ 65))
+                                                              (QREFELT % 67))
+                                                             (QREFELT % 65))
                                                             (SPADCALL
                                                              (SPADCALL
                                                               (SPADCALL
-                                                               (QREFELT $ 9)
+                                                               (QREFELT % 9)
                                                                |l|
-                                                               (QREFELT $ 66))
+                                                               (QREFELT % 66))
                                                               |i| |k|
-                                                              (QREFELT $ 67))
+                                                              (QREFELT % 67))
                                                              (SPADCALL
                                                               (SPADCALL
-                                                               (QREFELT $ 9)
+                                                               (QREFELT % 9)
                                                                |r|
-                                                               (QREFELT $ 66))
+                                                               (QREFELT % 66))
                                                               |l| |j|
-                                                              (QREFELT $ 67))
-                                                             (QREFELT $ 65))
-                                                            (QREFELT $ 68))
-                                                           (QREFELT $ 68)))))
+                                                              (QREFELT % 67))
+                                                             (QREFELT % 65))
+                                                            (QREFELT % 68))
+                                                           (QREFELT % 68)))))
                                                   (LETT |l| (|inc_SI| |l|))
                                                   (GO G190) G191 (EXIT NIL))
                                              (EXIT
                                               (COND
                                                ((NULL
                                                  (SPADCALL |res|
-                                                           (QREFELT $ 52)))
+                                                           (QREFELT % 52)))
                                                 (PROGN
                                                  (LETT #1#
                                                        (SEQ
                                                         (SPADCALL
                                                          "algebra is not right alternative"
-                                                         (QREFELT $ 76))
+                                                         (QREFELT % 76))
                                                         (EXIT
                                                          (PROGN
                                                           (LETT #2# NIL)
@@ -651,11 +651,11 @@
                  (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
             (SPADCALL
              "algebra satisfies 2*associator(a,b,b) = 0 = 2*associator(a,a,b) = 0"
-             (QREFELT $ 76))
+             (QREFELT % 76))
             (EXIT 'T)))
           #20# (EXIT #2#)))) 
 
-(SDEFUN |ALGSC;associative?;B;14| (($ (|Boolean|)))
+(SDEFUN |ALGSC;associative?;B;14| ((% (|Boolean|)))
         (SPROG
          ((#1=#:G251 NIL) (#2=#:G252 NIL) (|res| (R)) (#3=#:G257 NIL) (|l| NIL)
           (#4=#:G256 NIL) (|r| NIL) (#5=#:G255 NIL) (|k| NIL) (#6=#:G254 NIL)
@@ -663,26 +663,26 @@
          (SEQ
           (EXIT
            (SEQ
-            (SEQ (LETT |i| 1) (LETT #7# (QREFELT $ 7)) G190
+            (SEQ (LETT |i| 1) (LETT #7# (QREFELT % 7)) G190
                  (COND ((|greater_SI| |i| #7#) (GO G191)))
                  (SEQ
                   (EXIT
-                   (SEQ (LETT |j| 1) (LETT #6# (QREFELT $ 7)) G190
+                   (SEQ (LETT |j| 1) (LETT #6# (QREFELT % 7)) G190
                         (COND ((|greater_SI| |j| #6#) (GO G191)))
                         (SEQ
                          (EXIT
-                          (SEQ (LETT |k| 1) (LETT #5# (QREFELT $ 7)) G190
+                          (SEQ (LETT |k| 1) (LETT #5# (QREFELT % 7)) G190
                                (COND ((|greater_SI| |k| #5#) (GO G191)))
                                (SEQ
                                 (EXIT
-                                 (SEQ (LETT |r| 1) (LETT #4# (QREFELT $ 7))
+                                 (SEQ (LETT |r| 1) (LETT #4# (QREFELT % 7))
                                       G190
                                       (COND ((|greater_SI| |r| #4#) (GO G191)))
                                       (SEQ
                                        (EXIT
-                                        (SEQ (LETT |res| (|spadConstant| $ 32))
+                                        (SEQ (LETT |res| (|spadConstant| % 32))
                                              (SEQ (LETT |l| 1)
-                                                  (LETT #3# (QREFELT $ 7)) G190
+                                                  (LETT #3# (QREFELT % 7)) G190
                                                   (COND
                                                    ((|greater_SI| |l| #3#)
                                                     (GO G191)))
@@ -695,55 +695,55 @@
                                                                       (SPADCALL
                                                                        (SPADCALL
                                                                         (QREFELT
-                                                                         $ 9)
+                                                                         % 9)
                                                                         |l|
                                                                         (QREFELT
-                                                                         $ 66))
+                                                                         % 66))
                                                                        |i| |j|
                                                                        (QREFELT
-                                                                        $ 67))
+                                                                        % 67))
                                                                       (SPADCALL
                                                                        (SPADCALL
                                                                         (QREFELT
-                                                                         $ 9)
+                                                                         % 9)
                                                                         |r|
                                                                         (QREFELT
-                                                                         $ 66))
+                                                                         % 66))
                                                                        |l| |k|
                                                                        (QREFELT
-                                                                        $ 67))
+                                                                        % 67))
                                                                       (QREFELT
-                                                                       $ 65))
-                                                                     (QREFELT $
+                                                                       % 65))
+                                                                     (QREFELT %
                                                                               68))
                                                            (SPADCALL
                                                             (SPADCALL
                                                              (SPADCALL
-                                                              (QREFELT $ 9) |l|
-                                                              (QREFELT $ 66))
+                                                              (QREFELT % 9) |l|
+                                                              (QREFELT % 66))
                                                              |j| |k|
-                                                             (QREFELT $ 67))
+                                                             (QREFELT % 67))
                                                             (SPADCALL
                                                              (SPADCALL
-                                                              (QREFELT $ 9) |r|
-                                                              (QREFELT $ 66))
+                                                              (QREFELT % 9) |r|
+                                                              (QREFELT % 66))
                                                              |i| |l|
-                                                             (QREFELT $ 67))
-                                                            (QREFELT $ 65))
-                                                           (QREFELT $ 73)))))
+                                                             (QREFELT % 67))
+                                                            (QREFELT % 65))
+                                                           (QREFELT % 73)))))
                                                   (LETT |l| (|inc_SI| |l|))
                                                   (GO G190) G191 (EXIT NIL))
                                              (EXIT
                                               (COND
                                                ((NULL
                                                  (SPADCALL |res|
-                                                           (QREFELT $ 52)))
+                                                           (QREFELT % 52)))
                                                 (PROGN
                                                  (LETT #1#
                                                        (SEQ
                                                         (SPADCALL
                                                          "algebra is not associative"
-                                                         (QREFELT $ 76))
+                                                         (QREFELT % 76))
                                                         (EXIT
                                                          (PROGN
                                                           (LETT #2# NIL)
@@ -756,10 +756,10 @@
                                (EXIT NIL))))
                         (LETT |j| (|inc_SI| |j|)) (GO G190) G191 (EXIT NIL))))
                  (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-            (SPADCALL "algebra is associative" (QREFELT $ 76)) (EXIT 'T)))
+            (SPADCALL "algebra is associative" (QREFELT % 76)) (EXIT 'T)))
           #8# (EXIT #2#)))) 
 
-(SDEFUN |ALGSC;antiAssociative?;B;15| (($ (|Boolean|)))
+(SDEFUN |ALGSC;antiAssociative?;B;15| ((% (|Boolean|)))
         (SPROG
          ((#1=#:G272 NIL) (#2=#:G273 NIL) (|res| (R)) (#3=#:G278 NIL) (|l| NIL)
           (#4=#:G277 NIL) (|r| NIL) (#5=#:G276 NIL) (|k| NIL) (#6=#:G275 NIL)
@@ -767,26 +767,26 @@
          (SEQ
           (EXIT
            (SEQ
-            (SEQ (LETT |i| 1) (LETT #7# (QREFELT $ 7)) G190
+            (SEQ (LETT |i| 1) (LETT #7# (QREFELT % 7)) G190
                  (COND ((|greater_SI| |i| #7#) (GO G191)))
                  (SEQ
                   (EXIT
-                   (SEQ (LETT |j| 1) (LETT #6# (QREFELT $ 7)) G190
+                   (SEQ (LETT |j| 1) (LETT #6# (QREFELT % 7)) G190
                         (COND ((|greater_SI| |j| #6#) (GO G191)))
                         (SEQ
                          (EXIT
-                          (SEQ (LETT |k| 1) (LETT #5# (QREFELT $ 7)) G190
+                          (SEQ (LETT |k| 1) (LETT #5# (QREFELT % 7)) G190
                                (COND ((|greater_SI| |k| #5#) (GO G191)))
                                (SEQ
                                 (EXIT
-                                 (SEQ (LETT |r| 1) (LETT #4# (QREFELT $ 7))
+                                 (SEQ (LETT |r| 1) (LETT #4# (QREFELT % 7))
                                       G190
                                       (COND ((|greater_SI| |r| #4#) (GO G191)))
                                       (SEQ
                                        (EXIT
-                                        (SEQ (LETT |res| (|spadConstant| $ 32))
+                                        (SEQ (LETT |res| (|spadConstant| % 32))
                                              (SEQ (LETT |l| 1)
-                                                  (LETT #3# (QREFELT $ 7)) G190
+                                                  (LETT #3# (QREFELT % 7)) G190
                                                   (COND
                                                    ((|greater_SI| |l| #3#)
                                                     (GO G191)))
@@ -799,55 +799,55 @@
                                                                       (SPADCALL
                                                                        (SPADCALL
                                                                         (QREFELT
-                                                                         $ 9)
+                                                                         % 9)
                                                                         |l|
                                                                         (QREFELT
-                                                                         $ 66))
+                                                                         % 66))
                                                                        |i| |j|
                                                                        (QREFELT
-                                                                        $ 67))
+                                                                        % 67))
                                                                       (SPADCALL
                                                                        (SPADCALL
                                                                         (QREFELT
-                                                                         $ 9)
+                                                                         % 9)
                                                                         |r|
                                                                         (QREFELT
-                                                                         $ 66))
+                                                                         % 66))
                                                                        |l| |k|
                                                                        (QREFELT
-                                                                        $ 67))
+                                                                        % 67))
                                                                       (QREFELT
-                                                                       $ 65))
-                                                                     (QREFELT $
+                                                                       % 65))
+                                                                     (QREFELT %
                                                                               68))
                                                            (SPADCALL
                                                             (SPADCALL
                                                              (SPADCALL
-                                                              (QREFELT $ 9) |l|
-                                                              (QREFELT $ 66))
+                                                              (QREFELT % 9) |l|
+                                                              (QREFELT % 66))
                                                              |j| |k|
-                                                             (QREFELT $ 67))
+                                                             (QREFELT % 67))
                                                             (SPADCALL
                                                              (SPADCALL
-                                                              (QREFELT $ 9) |r|
-                                                              (QREFELT $ 66))
+                                                              (QREFELT % 9) |r|
+                                                              (QREFELT % 66))
                                                              |i| |l|
-                                                             (QREFELT $ 67))
-                                                            (QREFELT $ 65))
-                                                           (QREFELT $ 68)))))
+                                                             (QREFELT % 67))
+                                                            (QREFELT % 65))
+                                                           (QREFELT % 68)))))
                                                   (LETT |l| (|inc_SI| |l|))
                                                   (GO G190) G191 (EXIT NIL))
                                              (EXIT
                                               (COND
                                                ((NULL
                                                  (SPADCALL |res|
-                                                           (QREFELT $ 52)))
+                                                           (QREFELT % 52)))
                                                 (PROGN
                                                  (LETT #1#
                                                        (SEQ
                                                         (SPADCALL
                                                          "algebra is not anti-associative"
-                                                         (QREFELT $ 76))
+                                                         (QREFELT % 76))
                                                         (EXIT
                                                          (PROGN
                                                           (LETT #2# NIL)
@@ -860,25 +860,25 @@
                                (EXIT NIL))))
                         (LETT |j| (|inc_SI| |j|)) (GO G190) G191 (EXIT NIL))))
                  (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-            (SPADCALL "algebra is anti-associative" (QREFELT $ 76)) (EXIT 'T)))
+            (SPADCALL "algebra is anti-associative" (QREFELT % 76)) (EXIT 'T)))
           #8# (EXIT #2#)))) 
 
-(SDEFUN |ALGSC;commutative?;B;16| (($ (|Boolean|)))
+(SDEFUN |ALGSC;commutative?;B;16| ((% (|Boolean|)))
         (SPROG
          ((#1=#:G289 NIL) (#2=#:G290 NIL) (#3=#:G293 NIL) (|k| NIL)
           (#4=#:G292 NIL) (|j| NIL) (#5=#:G291 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (SEQ
-            (SEQ (LETT |i| 1) (LETT #5# (QREFELT $ 7)) G190
+            (SEQ (LETT |i| 1) (LETT #5# (QREFELT % 7)) G190
                  (COND ((|greater_SI| |i| #5#) (GO G191)))
                  (SEQ
                   (EXIT
-                   (SEQ (LETT |j| (+ |i| 1)) (LETT #4# (QREFELT $ 7)) G190
+                   (SEQ (LETT |j| (+ |i| 1)) (LETT #4# (QREFELT % 7)) G190
                         (COND ((> |j| #4#) (GO G191)))
                         (SEQ
                          (EXIT
-                          (SEQ (LETT |k| 1) (LETT #3# (QREFELT $ 7)) G190
+                          (SEQ (LETT |k| 1) (LETT #3# (QREFELT % 7)) G190
                                (COND ((|greater_SI| |k| #3#) (GO G191)))
                                (SEQ
                                 (EXIT
@@ -886,20 +886,20 @@
                                   ((NULL
                                     (SPADCALL
                                      (SPADCALL
-                                      (SPADCALL (QREFELT $ 9) |k|
-                                                (QREFELT $ 66))
-                                      |i| |j| (QREFELT $ 67))
+                                      (SPADCALL (QREFELT % 9) |k|
+                                                (QREFELT % 66))
+                                      |i| |j| (QREFELT % 67))
                                      (SPADCALL
-                                      (SPADCALL (QREFELT $ 9) |k|
-                                                (QREFELT $ 66))
-                                      |j| |i| (QREFELT $ 67))
-                                     (QREFELT $ 54)))
+                                      (SPADCALL (QREFELT % 9) |k|
+                                                (QREFELT % 66))
+                                      |j| |i| (QREFELT % 67))
+                                     (QREFELT % 54)))
                                    (PROGN
                                     (LETT #1#
                                           (SEQ
                                            (SPADCALL
                                             "algebra is not commutative"
-                                            (QREFELT $ 76))
+                                            (QREFELT % 76))
                                            (EXIT
                                             (PROGN
                                              (LETT #2# NIL)
@@ -910,25 +910,25 @@
                          #7# (EXIT #1#))
                         (LETT |j| (+ |j| 1)) (GO G190) G191 (EXIT NIL))))
                  (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-            (SPADCALL "algebra is commutative" (QREFELT $ 76)) (EXIT 'T)))
+            (SPADCALL "algebra is commutative" (QREFELT % 76)) (EXIT 'T)))
           #6# (EXIT #2#)))) 
 
-(SDEFUN |ALGSC;antiCommutative?;B;17| (($ (|Boolean|)))
+(SDEFUN |ALGSC;antiCommutative?;B;17| ((% (|Boolean|)))
         (SPROG
          ((#1=#:G304 NIL) (#2=#:G305 NIL) (#3=#:G308 NIL) (|k| NIL)
           (#4=#:G307 NIL) (|j| NIL) (#5=#:G306 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (SEQ
-            (SEQ (LETT |i| 1) (LETT #5# (QREFELT $ 7)) G190
+            (SEQ (LETT |i| 1) (LETT #5# (QREFELT % 7)) G190
                  (COND ((|greater_SI| |i| #5#) (GO G191)))
                  (SEQ
                   (EXIT
-                   (SEQ (LETT |j| |i|) (LETT #4# (QREFELT $ 7)) G190
+                   (SEQ (LETT |j| |i|) (LETT #4# (QREFELT % 7)) G190
                         (COND ((> |j| #4#) (GO G191)))
                         (SEQ
                          (EXIT
-                          (SEQ (LETT |k| 1) (LETT #3# (QREFELT $ 7)) G190
+                          (SEQ (LETT |k| 1) (LETT #3# (QREFELT % 7)) G190
                                (COND ((|greater_SI| |k| #3#) (GO G191)))
                                (SEQ
                                 (EXIT
@@ -938,27 +938,27 @@
                                      (COND
                                       ((EQL |i| |j|)
                                        (SPADCALL
-                                        (SPADCALL (QREFELT $ 9) |k|
-                                                  (QREFELT $ 66))
-                                        |i| |i| (QREFELT $ 67)))
+                                        (SPADCALL (QREFELT % 9) |k|
+                                                  (QREFELT % 66))
+                                        |i| |i| (QREFELT % 67)))
                                       ('T
                                        (SPADCALL
                                         (SPADCALL
-                                         (SPADCALL (QREFELT $ 9) |k|
-                                                   (QREFELT $ 66))
-                                         |i| |j| (QREFELT $ 67))
+                                         (SPADCALL (QREFELT % 9) |k|
+                                                   (QREFELT % 66))
+                                         |i| |j| (QREFELT % 67))
                                         (SPADCALL
-                                         (SPADCALL (QREFELT $ 9) |k|
-                                                   (QREFELT $ 66))
-                                         |j| |i| (QREFELT $ 67))
-                                        (QREFELT $ 68))))
-                                     (QREFELT $ 52)))
+                                         (SPADCALL (QREFELT % 9) |k|
+                                                   (QREFELT % 66))
+                                         |j| |i| (QREFELT % 67))
+                                        (QREFELT % 68))))
+                                     (QREFELT % 52)))
                                    (PROGN
                                     (LETT #1#
                                           (SEQ
                                            (SPADCALL
                                             "algebra is not anti-commutative"
-                                            (QREFELT $ 76))
+                                            (QREFELT % 76))
                                            (EXIT
                                             (PROGN
                                              (LETT #2# NIL)
@@ -969,10 +969,10 @@
                          #7# (EXIT #1#))
                         (LETT |j| (+ |j| 1)) (GO G190) G191 (EXIT NIL))))
                  (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-            (SPADCALL "algebra is anti-commutative" (QREFELT $ 76)) (EXIT 'T)))
+            (SPADCALL "algebra is anti-commutative" (QREFELT % 76)) (EXIT 'T)))
           #6# (EXIT #2#)))) 
 
-(SDEFUN |ALGSC;leftAlternative?;B;18| (($ (|Boolean|)))
+(SDEFUN |ALGSC;leftAlternative?;B;18| ((% (|Boolean|)))
         (SPROG
          ((#1=#:G323 NIL) (#2=#:G324 NIL) (|res| (R)) (#3=#:G329 NIL) (|l| NIL)
           (#4=#:G328 NIL) (|r| NIL) (#5=#:G327 NIL) (|k| NIL) (#6=#:G326 NIL)
@@ -980,26 +980,26 @@
          (SEQ
           (EXIT
            (SEQ
-            (SEQ (LETT |i| 1) (LETT #7# (QREFELT $ 7)) G190
+            (SEQ (LETT |i| 1) (LETT #7# (QREFELT % 7)) G190
                  (COND ((|greater_SI| |i| #7#) (GO G191)))
                  (SEQ
                   (EXIT
-                   (SEQ (LETT |j| |i|) (LETT #6# (QREFELT $ 7)) G190
+                   (SEQ (LETT |j| |i|) (LETT #6# (QREFELT % 7)) G190
                         (COND ((> |j| #6#) (GO G191)))
                         (SEQ
                          (EXIT
-                          (SEQ (LETT |k| 1) (LETT #5# (QREFELT $ 7)) G190
+                          (SEQ (LETT |k| 1) (LETT #5# (QREFELT % 7)) G190
                                (COND ((|greater_SI| |k| #5#) (GO G191)))
                                (SEQ
                                 (EXIT
-                                 (SEQ (LETT |r| 1) (LETT #4# (QREFELT $ 7))
+                                 (SEQ (LETT |r| 1) (LETT #4# (QREFELT % 7))
                                       G190
                                       (COND ((|greater_SI| |r| #4#) (GO G191)))
                                       (SEQ
                                        (EXIT
-                                        (SEQ (LETT |res| (|spadConstant| $ 32))
+                                        (SEQ (LETT |res| (|spadConstant| % 32))
                                              (SEQ (LETT |l| 1)
-                                                  (LETT #3# (QREFELT $ 7)) G190
+                                                  (LETT #3# (QREFELT % 7)) G190
                                                   (COND
                                                    ((|greater_SI| |l| #3#)
                                                     (GO G191)))
@@ -1013,89 +1013,89 @@
                                                                        (SPADCALL
                                                                         (SPADCALL
                                                                          (QREFELT
-                                                                          $ 9)
+                                                                          % 9)
                                                                          |l|
                                                                          (QREFELT
-                                                                          $
+                                                                          %
                                                                           66))
                                                                         |i| |j|
                                                                         (QREFELT
-                                                                         $ 67))
+                                                                         % 67))
                                                                        (SPADCALL
                                                                         (SPADCALL
                                                                          (QREFELT
-                                                                          $ 9)
+                                                                          % 9)
                                                                          |l|
                                                                          (QREFELT
-                                                                          $
+                                                                          %
                                                                           66))
                                                                         |j| |i|
                                                                         (QREFELT
-                                                                         $ 67))
+                                                                         % 67))
                                                                        (QREFELT
-                                                                        $ 68))
+                                                                        % 68))
                                                                       (SPADCALL
                                                                        (SPADCALL
                                                                         (QREFELT
-                                                                         $ 9)
+                                                                         % 9)
                                                                         |r|
                                                                         (QREFELT
-                                                                         $ 66))
+                                                                         % 66))
                                                                        |l| |k|
                                                                        (QREFELT
-                                                                        $ 67))
+                                                                        % 67))
                                                                       (QREFELT
-                                                                       $ 65))
-                                                                     (QREFELT $
+                                                                       % 65))
+                                                                     (QREFELT %
                                                                               68))
                                                            (SPADCALL
                                                             (SPADCALL
                                                              (SPADCALL
                                                               (SPADCALL
-                                                               (QREFELT $ 9)
+                                                               (QREFELT % 9)
                                                                |l|
-                                                               (QREFELT $ 66))
+                                                               (QREFELT % 66))
                                                               |j| |k|
-                                                              (QREFELT $ 67))
+                                                              (QREFELT % 67))
                                                              (SPADCALL
                                                               (SPADCALL
-                                                               (QREFELT $ 9)
+                                                               (QREFELT % 9)
                                                                |r|
-                                                               (QREFELT $ 66))
+                                                               (QREFELT % 66))
                                                               |i| |l|
-                                                              (QREFELT $ 67))
-                                                             (QREFELT $ 65))
+                                                              (QREFELT % 67))
+                                                             (QREFELT % 65))
                                                             (SPADCALL
                                                              (SPADCALL
                                                               (SPADCALL
-                                                               (QREFELT $ 9)
+                                                               (QREFELT % 9)
                                                                |l|
-                                                               (QREFELT $ 66))
+                                                               (QREFELT % 66))
                                                               |i| |k|
-                                                              (QREFELT $ 67))
+                                                              (QREFELT % 67))
                                                              (SPADCALL
                                                               (SPADCALL
-                                                               (QREFELT $ 9)
+                                                               (QREFELT % 9)
                                                                |r|
-                                                               (QREFELT $ 66))
+                                                               (QREFELT % 66))
                                                               |j| |l|
-                                                              (QREFELT $ 67))
-                                                             (QREFELT $ 65))
-                                                            (QREFELT $ 68))
-                                                           (QREFELT $ 73)))))
+                                                              (QREFELT % 67))
+                                                             (QREFELT % 65))
+                                                            (QREFELT % 68))
+                                                           (QREFELT % 73)))))
                                                   (LETT |l| (|inc_SI| |l|))
                                                   (GO G190) G191 (EXIT NIL))
                                              (EXIT
                                               (COND
                                                ((NULL
                                                  (SPADCALL |res|
-                                                           (QREFELT $ 52)))
+                                                           (QREFELT % 52)))
                                                 (PROGN
                                                  (LETT #1#
                                                        (SEQ
                                                         (SPADCALL
                                                          "algebra is not left alternative"
-                                                         (QREFELT $ 76))
+                                                         (QREFELT % 76))
                                                         (EXIT
                                                          (PROGN
                                                           (LETT #2# NIL)
@@ -1108,10 +1108,10 @@
                                (EXIT NIL))))
                         (LETT |j| (+ |j| 1)) (GO G190) G191 (EXIT NIL))))
                  (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-            (SPADCALL "algebra is left alternative" (QREFELT $ 76)) (EXIT 'T)))
+            (SPADCALL "algebra is left alternative" (QREFELT % 76)) (EXIT 'T)))
           #8# (EXIT #2#)))) 
 
-(SDEFUN |ALGSC;rightAlternative?;B;19| (($ (|Boolean|)))
+(SDEFUN |ALGSC;rightAlternative?;B;19| ((% (|Boolean|)))
         (SPROG
          ((#1=#:G344 NIL) (#2=#:G345 NIL) (|res| (R)) (#3=#:G350 NIL) (|l| NIL)
           (#4=#:G349 NIL) (|r| NIL) (#5=#:G348 NIL) (|k| NIL) (#6=#:G347 NIL)
@@ -1119,26 +1119,26 @@
          (SEQ
           (EXIT
            (SEQ
-            (SEQ (LETT |i| 1) (LETT #7# (QREFELT $ 7)) G190
+            (SEQ (LETT |i| 1) (LETT #7# (QREFELT % 7)) G190
                  (COND ((|greater_SI| |i| #7#) (GO G191)))
                  (SEQ
                   (EXIT
-                   (SEQ (LETT |j| 1) (LETT #6# (QREFELT $ 7)) G190
+                   (SEQ (LETT |j| 1) (LETT #6# (QREFELT % 7)) G190
                         (COND ((|greater_SI| |j| #6#) (GO G191)))
                         (SEQ
                          (EXIT
-                          (SEQ (LETT |k| |j|) (LETT #5# (QREFELT $ 7)) G190
+                          (SEQ (LETT |k| |j|) (LETT #5# (QREFELT % 7)) G190
                                (COND ((> |k| #5#) (GO G191)))
                                (SEQ
                                 (EXIT
-                                 (SEQ (LETT |r| 1) (LETT #4# (QREFELT $ 7))
+                                 (SEQ (LETT |r| 1) (LETT #4# (QREFELT % 7))
                                       G190
                                       (COND ((|greater_SI| |r| #4#) (GO G191)))
                                       (SEQ
                                        (EXIT
-                                        (SEQ (LETT |res| (|spadConstant| $ 32))
+                                        (SEQ (LETT |res| (|spadConstant| % 32))
                                              (SEQ (LETT |l| 1)
-                                                  (LETT #3# (QREFELT $ 7)) G190
+                                                  (LETT #3# (QREFELT % 7)) G190
                                                   (COND
                                                    ((|greater_SI| |l| #3#)
                                                     (GO G191)))
@@ -1152,89 +1152,89 @@
                                                                        (SPADCALL
                                                                         (SPADCALL
                                                                          (QREFELT
-                                                                          $ 9)
+                                                                          % 9)
                                                                          |l|
                                                                          (QREFELT
-                                                                          $
+                                                                          %
                                                                           66))
                                                                         |j| |k|
                                                                         (QREFELT
-                                                                         $ 67))
+                                                                         % 67))
                                                                        (SPADCALL
                                                                         (SPADCALL
                                                                          (QREFELT
-                                                                          $ 9)
+                                                                          % 9)
                                                                          |l|
                                                                          (QREFELT
-                                                                          $
+                                                                          %
                                                                           66))
                                                                         |k| |j|
                                                                         (QREFELT
-                                                                         $ 67))
+                                                                         % 67))
                                                                        (QREFELT
-                                                                        $ 68))
+                                                                        % 68))
                                                                       (SPADCALL
                                                                        (SPADCALL
                                                                         (QREFELT
-                                                                         $ 9)
+                                                                         % 9)
                                                                         |r|
                                                                         (QREFELT
-                                                                         $ 66))
+                                                                         % 66))
                                                                        |i| |l|
                                                                        (QREFELT
-                                                                        $ 67))
+                                                                        % 67))
                                                                       (QREFELT
-                                                                       $ 65))
-                                                                     (QREFELT $
+                                                                       % 65))
+                                                                     (QREFELT %
                                                                               73))
                                                            (SPADCALL
                                                             (SPADCALL
                                                              (SPADCALL
                                                               (SPADCALL
-                                                               (QREFELT $ 9)
+                                                               (QREFELT % 9)
                                                                |l|
-                                                               (QREFELT $ 66))
+                                                               (QREFELT % 66))
                                                               |i| |j|
-                                                              (QREFELT $ 67))
+                                                              (QREFELT % 67))
                                                              (SPADCALL
                                                               (SPADCALL
-                                                               (QREFELT $ 9)
+                                                               (QREFELT % 9)
                                                                |r|
-                                                               (QREFELT $ 66))
+                                                               (QREFELT % 66))
                                                               |l| |k|
-                                                              (QREFELT $ 67))
-                                                             (QREFELT $ 65))
+                                                              (QREFELT % 67))
+                                                             (QREFELT % 65))
                                                             (SPADCALL
                                                              (SPADCALL
                                                               (SPADCALL
-                                                               (QREFELT $ 9)
+                                                               (QREFELT % 9)
                                                                |l|
-                                                               (QREFELT $ 66))
+                                                               (QREFELT % 66))
                                                               |i| |k|
-                                                              (QREFELT $ 67))
+                                                              (QREFELT % 67))
                                                              (SPADCALL
                                                               (SPADCALL
-                                                               (QREFELT $ 9)
+                                                               (QREFELT % 9)
                                                                |r|
-                                                               (QREFELT $ 66))
+                                                               (QREFELT % 66))
                                                               |l| |j|
-                                                              (QREFELT $ 67))
-                                                             (QREFELT $ 65))
-                                                            (QREFELT $ 68))
-                                                           (QREFELT $ 68)))))
+                                                              (QREFELT % 67))
+                                                             (QREFELT % 65))
+                                                            (QREFELT % 68))
+                                                           (QREFELT % 68)))))
                                                   (LETT |l| (|inc_SI| |l|))
                                                   (GO G190) G191 (EXIT NIL))
                                              (EXIT
                                               (COND
                                                ((NULL
                                                  (SPADCALL |res|
-                                                           (QREFELT $ 52)))
+                                                           (QREFELT % 52)))
                                                 (PROGN
                                                  (LETT #1#
                                                        (SEQ
                                                         (SPADCALL
                                                          "algebra is not right alternative"
-                                                         (QREFELT $ 76))
+                                                         (QREFELT % 76))
                                                         (EXIT
                                                          (PROGN
                                                           (LETT #2# NIL)
@@ -1247,11 +1247,11 @@
                                (EXIT NIL))))
                         (LETT |j| (|inc_SI| |j|)) (GO G190) G191 (EXIT NIL))))
                  (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-            (SPADCALL "algebra is right alternative" (QREFELT $ 76))
+            (SPADCALL "algebra is right alternative" (QREFELT % 76))
             (EXIT 'T)))
           #8# (EXIT #2#)))) 
 
-(SDEFUN |ALGSC;flexible?;B;20| (($ (|Boolean|)))
+(SDEFUN |ALGSC;flexible?;B;20| ((% (|Boolean|)))
         (SPROG
          ((#1=#:G365 NIL) (#2=#:G366 NIL) (|res| (R)) (#3=#:G371 NIL) (|l| NIL)
           (#4=#:G370 NIL) (|r| NIL) (#5=#:G369 NIL) (|k| NIL) (#6=#:G368 NIL)
@@ -1259,26 +1259,26 @@
          (SEQ
           (EXIT
            (SEQ
-            (SEQ (LETT |i| 1) (LETT #7# (QREFELT $ 7)) G190
+            (SEQ (LETT |i| 1) (LETT #7# (QREFELT % 7)) G190
                  (COND ((|greater_SI| |i| #7#) (GO G191)))
                  (SEQ
                   (EXIT
-                   (SEQ (LETT |j| 1) (LETT #6# (QREFELT $ 7)) G190
+                   (SEQ (LETT |j| 1) (LETT #6# (QREFELT % 7)) G190
                         (COND ((|greater_SI| |j| #6#) (GO G191)))
                         (SEQ
                          (EXIT
-                          (SEQ (LETT |k| |i|) (LETT #5# (QREFELT $ 7)) G190
+                          (SEQ (LETT |k| |i|) (LETT #5# (QREFELT % 7)) G190
                                (COND ((> |k| #5#) (GO G191)))
                                (SEQ
                                 (EXIT
-                                 (SEQ (LETT |r| 1) (LETT #4# (QREFELT $ 7))
+                                 (SEQ (LETT |r| 1) (LETT #4# (QREFELT % 7))
                                       G190
                                       (COND ((|greater_SI| |r| #4#) (GO G191)))
                                       (SEQ
                                        (EXIT
-                                        (SEQ (LETT |res| (|spadConstant| $ 32))
+                                        (SEQ (LETT |res| (|spadConstant| % 32))
                                              (SEQ (LETT |l| 1)
-                                                  (LETT #3# (QREFELT $ 7)) G190
+                                                  (LETT #3# (QREFELT % 7)) G190
                                                   (COND
                                                    ((|greater_SI| |l| #3#)
                                                     (GO G191)))
@@ -1293,95 +1293,95 @@
                                                                         (SPADCALL
                                                                          (SPADCALL
                                                                           (QREFELT
-                                                                           $ 9)
+                                                                           % 9)
                                                                           |l|
                                                                           (QREFELT
-                                                                           $
+                                                                           %
                                                                            66))
                                                                          |i|
                                                                          |j|
                                                                          (QREFELT
-                                                                          $
+                                                                          %
                                                                           67))
                                                                         (SPADCALL
                                                                          (SPADCALL
                                                                           (QREFELT
-                                                                           $ 9)
+                                                                           % 9)
                                                                           |r|
                                                                           (QREFELT
-                                                                           $
+                                                                           %
                                                                            66))
                                                                          |l|
                                                                          |k|
                                                                          (QREFELT
-                                                                          $
+                                                                          %
                                                                           67))
                                                                         (QREFELT
-                                                                         $ 65))
+                                                                         % 65))
                                                                        (QREFELT
-                                                                        $ 68))
+                                                                        % 68))
                                                              (SPADCALL
                                                               (SPADCALL
                                                                (SPADCALL
-                                                                (QREFELT $ 9)
+                                                                (QREFELT % 9)
                                                                 |l|
-                                                                (QREFELT $ 66))
+                                                                (QREFELT % 66))
                                                                |j| |k|
-                                                               (QREFELT $ 67))
+                                                               (QREFELT % 67))
                                                               (SPADCALL
                                                                (SPADCALL
-                                                                (QREFELT $ 9)
+                                                                (QREFELT % 9)
                                                                 |r|
-                                                                (QREFELT $ 66))
+                                                                (QREFELT % 66))
                                                                |i| |l|
-                                                               (QREFELT $ 67))
-                                                              (QREFELT $ 65))
-                                                             (QREFELT $ 73))
+                                                               (QREFELT % 67))
+                                                              (QREFELT % 65))
+                                                             (QREFELT % 73))
                                                             (SPADCALL
                                                              (SPADCALL
                                                               (SPADCALL
-                                                               (QREFELT $ 9)
+                                                               (QREFELT % 9)
                                                                |l|
-                                                               (QREFELT $ 66))
+                                                               (QREFELT % 66))
                                                               |k| |j|
-                                                              (QREFELT $ 67))
+                                                              (QREFELT % 67))
                                                              (SPADCALL
                                                               (SPADCALL
-                                                               (QREFELT $ 9)
+                                                               (QREFELT % 9)
                                                                |r|
-                                                               (QREFELT $ 66))
+                                                               (QREFELT % 66))
                                                               |l| |i|
-                                                              (QREFELT $ 67))
-                                                             (QREFELT $ 65))
-                                                            (QREFELT $ 68))
+                                                              (QREFELT % 67))
+                                                             (QREFELT % 65))
+                                                            (QREFELT % 68))
                                                            (SPADCALL
                                                             (SPADCALL
                                                              (SPADCALL
-                                                              (QREFELT $ 9) |l|
-                                                              (QREFELT $ 66))
+                                                              (QREFELT % 9) |l|
+                                                              (QREFELT % 66))
                                                              |j| |i|
-                                                             (QREFELT $ 67))
+                                                             (QREFELT % 67))
                                                             (SPADCALL
                                                              (SPADCALL
-                                                              (QREFELT $ 9) |r|
-                                                              (QREFELT $ 66))
+                                                              (QREFELT % 9) |r|
+                                                              (QREFELT % 66))
                                                              |k| |l|
-                                                             (QREFELT $ 67))
-                                                            (QREFELT $ 65))
-                                                           (QREFELT $ 73)))))
+                                                             (QREFELT % 67))
+                                                            (QREFELT % 65))
+                                                           (QREFELT % 73)))))
                                                   (LETT |l| (|inc_SI| |l|))
                                                   (GO G190) G191 (EXIT NIL))
                                              (EXIT
                                               (COND
                                                ((NULL
                                                  (SPADCALL |res|
-                                                           (QREFELT $ 52)))
+                                                           (QREFELT % 52)))
                                                 (PROGN
                                                  (LETT #1#
                                                        (SEQ
                                                         (SPADCALL
                                                          "algebra is not flexible"
-                                                         (QREFELT $ 76))
+                                                         (QREFELT % 76))
                                                         (EXIT
                                                          (PROGN
                                                           (LETT #2# NIL)
@@ -1394,10 +1394,10 @@
                                (EXIT NIL))))
                         (LETT |j| (|inc_SI| |j|)) (GO G190) G191 (EXIT NIL))))
                  (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-            (SPADCALL "algebra is flexible" (QREFELT $ 76)) (EXIT 'T)))
+            (SPADCALL "algebra is flexible" (QREFELT % 76)) (EXIT 'T)))
           #8# (EXIT #2#)))) 
 
-(SDEFUN |ALGSC;lieAdmissible?;B;21| (($ (|Boolean|)))
+(SDEFUN |ALGSC;lieAdmissible?;B;21| ((% (|Boolean|)))
         (SPROG
          ((#1=#:G386 NIL) (#2=#:G387 NIL) (|res| (R)) (#3=#:G392 NIL) (|l| NIL)
           (#4=#:G391 NIL) (|r| NIL) (#5=#:G390 NIL) (|k| NIL) (#6=#:G389 NIL)
@@ -1405,26 +1405,26 @@
          (SEQ
           (EXIT
            (SEQ
-            (SEQ (LETT |i| 1) (LETT #7# (QREFELT $ 7)) G190
+            (SEQ (LETT |i| 1) (LETT #7# (QREFELT % 7)) G190
                  (COND ((|greater_SI| |i| #7#) (GO G191)))
                  (SEQ
                   (EXIT
-                   (SEQ (LETT |j| 1) (LETT #6# (QREFELT $ 7)) G190
+                   (SEQ (LETT |j| 1) (LETT #6# (QREFELT % 7)) G190
                         (COND ((|greater_SI| |j| #6#) (GO G191)))
                         (SEQ
                          (EXIT
-                          (SEQ (LETT |k| 1) (LETT #5# (QREFELT $ 7)) G190
+                          (SEQ (LETT |k| 1) (LETT #5# (QREFELT % 7)) G190
                                (COND ((|greater_SI| |k| #5#) (GO G191)))
                                (SEQ
                                 (EXIT
-                                 (SEQ (LETT |r| 1) (LETT #4# (QREFELT $ 7))
+                                 (SEQ (LETT |r| 1) (LETT #4# (QREFELT % 7))
                                       G190
                                       (COND ((|greater_SI| |r| #4#) (GO G191)))
                                       (SEQ
                                        (EXIT
-                                        (SEQ (LETT |res| (|spadConstant| $ 32))
+                                        (SEQ (LETT |res| (|spadConstant| % 32))
                                              (SEQ (LETT |l| 1)
-                                                  (LETT #3# (QREFELT $ 7)) G190
+                                                  (LETT #3# (QREFELT % 7)) G190
                                                   (COND
                                                    ((|greater_SI| |l| #3#)
                                                     (GO G191)))
@@ -1439,147 +1439,147 @@
                                                                         (SPADCALL
                                                                          (SPADCALL
                                                                           (QREFELT
-                                                                           $ 9)
+                                                                           % 9)
                                                                           |l|
                                                                           (QREFELT
-                                                                           $
+                                                                           %
                                                                            66))
                                                                          |i|
                                                                          |j|
                                                                          (QREFELT
-                                                                          $
+                                                                          %
                                                                           67))
                                                                         (SPADCALL
                                                                          (SPADCALL
                                                                           (QREFELT
-                                                                           $ 9)
+                                                                           % 9)
                                                                           |l|
                                                                           (QREFELT
-                                                                           $
+                                                                           %
                                                                            66))
                                                                          |j|
                                                                          |i|
                                                                          (QREFELT
-                                                                          $
+                                                                          %
                                                                           67))
                                                                         (QREFELT
-                                                                         $ 73))
+                                                                         % 73))
                                                                        (SPADCALL
                                                                         (SPADCALL
                                                                          (SPADCALL
                                                                           (QREFELT
-                                                                           $ 9)
+                                                                           % 9)
                                                                           |r|
                                                                           (QREFELT
-                                                                           $
+                                                                           %
                                                                            66))
                                                                          |l|
                                                                          |k|
                                                                          (QREFELT
-                                                                          $
+                                                                          %
                                                                           67))
                                                                         (SPADCALL
                                                                          (SPADCALL
                                                                           (QREFELT
-                                                                           $ 9)
+                                                                           % 9)
                                                                           |r|
                                                                           (QREFELT
-                                                                           $
+                                                                           %
                                                                            66))
                                                                          |k|
                                                                          |l|
                                                                          (QREFELT
-                                                                          $
+                                                                          %
                                                                           67))
                                                                         (QREFELT
-                                                                         $ 73))
+                                                                         % 73))
                                                                        (QREFELT
-                                                                        $ 65))
+                                                                        % 65))
                                                                       (QREFELT
-                                                                       $ 68))
+                                                                       % 68))
                                                             (SPADCALL
                                                              (SPADCALL
                                                               (SPADCALL
                                                                (SPADCALL
-                                                                (QREFELT $ 9)
+                                                                (QREFELT % 9)
                                                                 |l|
-                                                                (QREFELT $ 66))
+                                                                (QREFELT % 66))
                                                                |j| |k|
-                                                               (QREFELT $ 67))
+                                                               (QREFELT % 67))
                                                               (SPADCALL
                                                                (SPADCALL
-                                                                (QREFELT $ 9)
+                                                                (QREFELT % 9)
                                                                 |l|
-                                                                (QREFELT $ 66))
+                                                                (QREFELT % 66))
                                                                |k| |j|
-                                                               (QREFELT $ 67))
-                                                              (QREFELT $ 73))
+                                                               (QREFELT % 67))
+                                                              (QREFELT % 73))
                                                              (SPADCALL
                                                               (SPADCALL
                                                                (SPADCALL
-                                                                (QREFELT $ 9)
+                                                                (QREFELT % 9)
                                                                 |r|
-                                                                (QREFELT $ 66))
+                                                                (QREFELT % 66))
                                                                |l| |i|
-                                                               (QREFELT $ 67))
+                                                               (QREFELT % 67))
                                                               (SPADCALL
                                                                (SPADCALL
-                                                                (QREFELT $ 9)
+                                                                (QREFELT % 9)
                                                                 |r|
-                                                                (QREFELT $ 66))
+                                                                (QREFELT % 66))
                                                                |i| |l|
-                                                               (QREFELT $ 67))
-                                                              (QREFELT $ 73))
-                                                             (QREFELT $ 65))
-                                                            (QREFELT $ 68))
+                                                               (QREFELT % 67))
+                                                              (QREFELT % 73))
+                                                             (QREFELT % 65))
+                                                            (QREFELT % 68))
                                                            (SPADCALL
                                                             (SPADCALL
                                                              (SPADCALL
                                                               (SPADCALL
-                                                               (QREFELT $ 9)
+                                                               (QREFELT % 9)
                                                                |l|
-                                                               (QREFELT $ 66))
+                                                               (QREFELT % 66))
                                                               |k| |i|
-                                                              (QREFELT $ 67))
+                                                              (QREFELT % 67))
                                                              (SPADCALL
                                                               (SPADCALL
-                                                               (QREFELT $ 9)
+                                                               (QREFELT % 9)
                                                                |l|
-                                                               (QREFELT $ 66))
+                                                               (QREFELT % 66))
                                                               |i| |k|
-                                                              (QREFELT $ 67))
-                                                             (QREFELT $ 73))
+                                                              (QREFELT % 67))
+                                                             (QREFELT % 73))
                                                             (SPADCALL
                                                              (SPADCALL
                                                               (SPADCALL
-                                                               (QREFELT $ 9)
+                                                               (QREFELT % 9)
                                                                |r|
-                                                               (QREFELT $ 66))
+                                                               (QREFELT % 66))
                                                               |l| |j|
-                                                              (QREFELT $ 67))
+                                                              (QREFELT % 67))
                                                              (SPADCALL
                                                               (SPADCALL
-                                                               (QREFELT $ 9)
+                                                               (QREFELT % 9)
                                                                |r|
-                                                               (QREFELT $ 66))
+                                                               (QREFELT % 66))
                                                               |j| |l|
-                                                              (QREFELT $ 67))
-                                                             (QREFELT $ 73))
-                                                            (QREFELT $ 65))
-                                                           (QREFELT $ 68)))))
+                                                              (QREFELT % 67))
+                                                             (QREFELT % 73))
+                                                            (QREFELT % 65))
+                                                           (QREFELT % 68)))))
                                                   (LETT |l| (|inc_SI| |l|))
                                                   (GO G190) G191 (EXIT NIL))
                                              (EXIT
                                               (COND
                                                ((NULL
                                                  (SPADCALL |res|
-                                                           (QREFELT $ 52)))
+                                                           (QREFELT % 52)))
                                                 (PROGN
                                                  (LETT #1#
                                                        (SEQ
                                                         (SPADCALL
                                                          "algebra is not Lie admissible"
-                                                         (QREFELT $ 76))
+                                                         (QREFELT % 76))
                                                         (EXIT
                                                          (PROGN
                                                           (LETT #2# NIL)
@@ -1592,10 +1592,10 @@
                                (EXIT NIL))))
                         (LETT |j| (|inc_SI| |j|)) (GO G190) G191 (EXIT NIL))))
                  (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-            (SPADCALL "algebra is Lie admissible" (QREFELT $ 76)) (EXIT 'T)))
+            (SPADCALL "algebra is Lie admissible" (QREFELT % 76)) (EXIT 'T)))
           #8# (EXIT #2#)))) 
 
-(SDEFUN |ALGSC;jordanAdmissible?;B;22| (($ (|Boolean|)))
+(SDEFUN |ALGSC;jordanAdmissible?;B;22| ((% (|Boolean|)))
         (SPROG
          ((#1=#:G416 NIL) (#2=#:G417 NIL) (|res| (R)) (#3=#:G424 NIL) (|r| NIL)
           (#4=#:G423 NIL) (|l| NIL) (#5=#:G422 NIL) (|t| NIL) (#6=#:G421 NIL)
@@ -1605,36 +1605,36 @@
           (EXIT
            (COND
             ((QEQCAR
-              (SPADCALL (SPADCALL 2 (|spadConstant| $ 53) (QREFELT $ 86))
-                        (QREFELT $ 87))
+              (SPADCALL (SPADCALL 2 (|spadConstant| % 53) (QREFELT % 86))
+                        (QREFELT % 87))
               1)
              (SEQ
               (SPADCALL
                "this algebra is not Jordan admissible, as 2 is not invertible in the ground ring"
-               (QREFELT $ 76))
+               (QREFELT % 76))
               (EXIT NIL)))
             ('T
              (SEQ
-              (SEQ (LETT |i| 1) (LETT #9# (QREFELT $ 7)) G190
+              (SEQ (LETT |i| 1) (LETT #9# (QREFELT % 7)) G190
                    (COND ((|greater_SI| |i| #9#) (GO G191)))
                    (SEQ
                     (EXIT
-                     (SEQ (LETT |j| 1) (LETT #8# (QREFELT $ 7)) G190
+                     (SEQ (LETT |j| 1) (LETT #8# (QREFELT % 7)) G190
                           (COND ((|greater_SI| |j| #8#) (GO G191)))
                           (SEQ
                            (EXIT
-                            (SEQ (LETT |k| 1) (LETT #7# (QREFELT $ 7)) G190
+                            (SEQ (LETT |k| 1) (LETT #7# (QREFELT % 7)) G190
                                  (COND ((|greater_SI| |k| #7#) (GO G191)))
                                  (SEQ
                                   (EXIT
-                                   (SEQ (LETT |w| 1) (LETT #6# (QREFELT $ 7))
+                                   (SEQ (LETT |w| 1) (LETT #6# (QREFELT % 7))
                                         G190
                                         (COND
                                          ((|greater_SI| |w| #6#) (GO G191)))
                                         (SEQ
                                          (EXIT
                                           (SEQ (LETT |t| 1)
-                                               (LETT #5# (QREFELT $ 7)) G190
+                                               (LETT #5# (QREFELT % 7)) G190
                                                (COND
                                                 ((|greater_SI| |t| #5#)
                                                  (GO G191)))
@@ -1642,9 +1642,9 @@
                                                 (EXIT
                                                  (SEQ
                                                   (LETT |res|
-                                                        (|spadConstant| $ 32))
+                                                        (|spadConstant| % 32))
                                                   (SEQ (LETT |l| 1)
-                                                       (LETT #4# (QREFELT $ 7))
+                                                       (LETT #4# (QREFELT % 7))
                                                        G190
                                                        (COND
                                                         ((|greater_SI| |l| #4#)
@@ -1653,7 +1653,7 @@
                                                         (EXIT
                                                          (SEQ (LETT |r| 1)
                                                               (LETT #3#
-                                                                    (QREFELT $
+                                                                    (QREFELT %
                                                                              7))
                                                               G190
                                                               (COND
@@ -1676,106 +1676,106 @@
                                                                                (SPADCALL
                                                                                 (SPADCALL
                                                                                  (QREFELT
-                                                                                  $
+                                                                                  %
                                                                                   9)
                                                                                  |l|
                                                                                  (QREFELT
-                                                                                  $
+                                                                                  %
                                                                                   66))
                                                                                 |i|
                                                                                 |j|
                                                                                 (QREFELT
-                                                                                 $
+                                                                                 %
                                                                                  67))
                                                                                (SPADCALL
                                                                                 (SPADCALL
                                                                                  (QREFELT
-                                                                                  $
+                                                                                  %
                                                                                   9)
                                                                                  |l|
                                                                                  (QREFELT
-                                                                                  $
+                                                                                  %
                                                                                   66))
                                                                                 |j|
                                                                                 |i|
                                                                                 (QREFELT
-                                                                                 $
+                                                                                 %
                                                                                  67))
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 68))
                                                                               (SPADCALL
                                                                                (SPADCALL
                                                                                 (SPADCALL
                                                                                  (QREFELT
-                                                                                  $
+                                                                                  %
                                                                                   9)
                                                                                  |r|
                                                                                  (QREFELT
-                                                                                  $
+                                                                                  %
                                                                                   66))
                                                                                 |w|
                                                                                 |k|
                                                                                 (QREFELT
-                                                                                 $
+                                                                                 %
                                                                                  67))
                                                                                (SPADCALL
                                                                                 (SPADCALL
                                                                                  (QREFELT
-                                                                                  $
+                                                                                  %
                                                                                   9)
                                                                                  |r|
                                                                                  (QREFELT
-                                                                                  $
+                                                                                  %
                                                                                   66))
                                                                                 |k|
                                                                                 |w|
                                                                                 (QREFELT
-                                                                                 $
+                                                                                 %
                                                                                  67))
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 68))
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                65))
                                                                              (SPADCALL
                                                                               (SPADCALL
                                                                                (SPADCALL
                                                                                 (QREFELT
-                                                                                 $
+                                                                                 %
                                                                                  9)
                                                                                 |t|
                                                                                 (QREFELT
-                                                                                 $
+                                                                                 %
                                                                                  66))
                                                                                |l|
                                                                                |r|
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 67))
                                                                               (SPADCALL
                                                                                (SPADCALL
                                                                                 (QREFELT
-                                                                                 $
+                                                                                 %
                                                                                  9)
                                                                                 |t|
                                                                                 (QREFELT
-                                                                                 $
+                                                                                 %
                                                                                  66))
                                                                                |r|
                                                                                |l|
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 67))
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                68))
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               65))
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              68))
                                                                            (SPADCALL
                                                                             (SPADCALL
@@ -1783,106 +1783,106 @@
                                                                               (SPADCALL
                                                                                (SPADCALL
                                                                                 (QREFELT
-                                                                                 $
+                                                                                 %
                                                                                  9)
                                                                                 |r|
                                                                                 (QREFELT
-                                                                                 $
+                                                                                 %
                                                                                  66))
                                                                                |w|
                                                                                |k|
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 67))
                                                                               (SPADCALL
                                                                                (SPADCALL
                                                                                 (QREFELT
-                                                                                 $
+                                                                                 %
                                                                                  9)
                                                                                 |r|
                                                                                 (QREFELT
-                                                                                 $
+                                                                                 %
                                                                                  66))
                                                                                |k|
                                                                                |w|
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 67))
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                68))
                                                                              (SPADCALL
                                                                               (SPADCALL
                                                                                (SPADCALL
                                                                                 (QREFELT
-                                                                                 $
+                                                                                 %
                                                                                  9)
                                                                                 |l|
                                                                                 (QREFELT
-                                                                                 $
+                                                                                 %
                                                                                  66))
                                                                                |j|
                                                                                |r|
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 67))
                                                                               (SPADCALL
                                                                                (SPADCALL
                                                                                 (QREFELT
-                                                                                 $
+                                                                                 %
                                                                                  9)
                                                                                 |l|
                                                                                 (QREFELT
-                                                                                 $
+                                                                                 %
                                                                                  66))
                                                                                |r|
                                                                                |j|
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 67))
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                68))
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               65))
                                                                             (SPADCALL
                                                                              (SPADCALL
                                                                               (SPADCALL
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 9)
                                                                                |t|
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 66))
                                                                               |i|
                                                                               |l|
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                67))
                                                                              (SPADCALL
                                                                               (SPADCALL
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 9)
                                                                                |t|
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 66))
                                                                               |l|
                                                                               |i|
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                67))
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               68))
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              65))
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             73))
                                                                           (SPADCALL
                                                                            (SPADCALL
@@ -1890,106 +1890,106 @@
                                                                              (SPADCALL
                                                                               (SPADCALL
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 9)
                                                                                |l|
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 66))
                                                                               |w|
                                                                               |j|
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                67))
                                                                              (SPADCALL
                                                                               (SPADCALL
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 9)
                                                                                |l|
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 66))
                                                                               |j|
                                                                               |w|
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                67))
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               68))
                                                                             (SPADCALL
                                                                              (SPADCALL
                                                                               (SPADCALL
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 9)
                                                                                |r|
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 66))
                                                                               |k|
                                                                               |i|
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                67))
                                                                              (SPADCALL
                                                                               (SPADCALL
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 9)
                                                                                |r|
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 66))
                                                                               |i|
                                                                               |k|
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                67))
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               68))
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              65))
                                                                            (SPADCALL
                                                                             (SPADCALL
                                                                              (SPADCALL
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                9)
                                                                               |t|
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                66))
                                                                              |l|
                                                                              |r|
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               67))
                                                                             (SPADCALL
                                                                              (SPADCALL
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                9)
                                                                               |t|
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                66))
                                                                              |r|
                                                                              |l|
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               67))
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              68))
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             65))
                                                                           (QREFELT
-                                                                           $
+                                                                           %
                                                                            68))
                                                                          (SPADCALL
                                                                           (SPADCALL
@@ -1997,106 +1997,106 @@
                                                                             (SPADCALL
                                                                              (SPADCALL
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                9)
                                                                               |r|
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                66))
                                                                              |k|
                                                                              |i|
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               67))
                                                                             (SPADCALL
                                                                              (SPADCALL
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                9)
                                                                               |r|
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                66))
                                                                              |k|
                                                                              |i|
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               67))
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              68))
                                                                            (SPADCALL
                                                                             (SPADCALL
                                                                              (SPADCALL
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                9)
                                                                               |l|
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                66))
                                                                              |j|
                                                                              |r|
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               67))
                                                                             (SPADCALL
                                                                              (SPADCALL
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                9)
                                                                               |l|
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                66))
                                                                              |r|
                                                                              |j|
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               67))
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              68))
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             65))
                                                                           (SPADCALL
                                                                            (SPADCALL
                                                                             (SPADCALL
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               9)
                                                                              |t|
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               66))
                                                                             |w|
                                                                             |l|
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              67))
                                                                            (SPADCALL
                                                                             (SPADCALL
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               9)
                                                                              |t|
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               66))
                                                                             |l|
                                                                             |w|
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              67))
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             68))
                                                                           (QREFELT
-                                                                           $
+                                                                           %
                                                                            65))
                                                                          (QREFELT
-                                                                          $
+                                                                          %
                                                                           73))
                                                                         (SPADCALL
                                                                          (SPADCALL
@@ -2104,211 +2104,211 @@
                                                                            (SPADCALL
                                                                             (SPADCALL
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               9)
                                                                              |l|
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               66))
                                                                             |k|
                                                                             |j|
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              67))
                                                                            (SPADCALL
                                                                             (SPADCALL
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               9)
                                                                              |l|
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               66))
                                                                             |j|
                                                                             |k|
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              67))
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             68))
                                                                           (SPADCALL
                                                                            (SPADCALL
                                                                             (SPADCALL
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               9)
                                                                              |r|
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               66))
                                                                             |i|
                                                                             |w|
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              67))
                                                                            (SPADCALL
                                                                             (SPADCALL
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               9)
                                                                              |r|
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               66))
                                                                             |w|
                                                                             |i|
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              67))
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             68))
                                                                           (QREFELT
-                                                                           $
+                                                                           %
                                                                            65))
                                                                          (SPADCALL
                                                                           (SPADCALL
                                                                            (SPADCALL
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              9)
                                                                             |t|
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              66))
                                                                            |l|
                                                                            |r|
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             67))
                                                                           (SPADCALL
                                                                            (SPADCALL
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              9)
                                                                             |t|
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              66))
                                                                            |r|
                                                                            |l|
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             67))
                                                                           (QREFELT
-                                                                           $
+                                                                           %
                                                                            68))
                                                                          (QREFELT
-                                                                          $
+                                                                          %
                                                                           65))
                                                                         (QREFELT
-                                                                         $ 68))
+                                                                         % 68))
                                                                        (SPADCALL
                                                                         (SPADCALL
                                                                          (SPADCALL
                                                                           (SPADCALL
                                                                            (SPADCALL
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              9)
                                                                             |r|
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              66))
                                                                            |i|
                                                                            |w|
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             67))
                                                                           (SPADCALL
                                                                            (SPADCALL
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              9)
                                                                             |r|
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              66))
                                                                            |w|
                                                                            |i|
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             67))
                                                                           (QREFELT
-                                                                           $
+                                                                           %
                                                                            68))
                                                                          (SPADCALL
                                                                           (SPADCALL
                                                                            (SPADCALL
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              9)
                                                                             |l|
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              66))
                                                                            |j|
                                                                            |r|
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             67))
                                                                           (SPADCALL
                                                                            (SPADCALL
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              9)
                                                                             |l|
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              66))
                                                                            |r|
                                                                            |j|
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             67))
                                                                           (QREFELT
-                                                                           $
+                                                                           %
                                                                            68))
                                                                          (QREFELT
-                                                                          $
+                                                                          %
                                                                           65))
                                                                         (SPADCALL
                                                                          (SPADCALL
                                                                           (SPADCALL
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             9)
                                                                            |t|
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             66))
                                                                           |k|
                                                                           |l|
                                                                           (QREFELT
-                                                                           $
+                                                                           %
                                                                            67))
                                                                          (SPADCALL
                                                                           (SPADCALL
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             9)
                                                                            |t|
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             66))
                                                                           |l|
                                                                           |k|
                                                                           (QREFELT
-                                                                           $
+                                                                           %
                                                                            67))
                                                                          (QREFELT
-                                                                          $
+                                                                          %
                                                                           68))
                                                                         (QREFELT
-                                                                         $ 65))
+                                                                         % 65))
                                                                        (QREFELT
-                                                                        $
+                                                                        %
                                                                         73)))))
                                                               (LETT |r|
                                                                     (|inc_SI|
@@ -2323,14 +2323,14 @@
                                                    (COND
                                                     ((NULL
                                                       (SPADCALL |res|
-                                                                (QREFELT $
+                                                                (QREFELT %
                                                                          52)))
                                                      (PROGN
                                                       (LETT #1#
                                                             (SEQ
                                                              (SPADCALL
                                                               "algebra is not Jordan admissible"
-                                                              (QREFELT $ 76))
+                                                              (QREFELT % 76))
                                                              (EXIT
                                                               (PROGN
                                                                (LETT #2# NIL)
@@ -2347,11 +2347,11 @@
                           (LETT |j| (|inc_SI| |j|)) (GO G190) G191
                           (EXIT NIL))))
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-              (SPADCALL "algebra is Jordan admissible" (QREFELT $ 76))
+              (SPADCALL "algebra is Jordan admissible" (QREFELT % 76))
               (EXIT 'T)))))
           #10# (EXIT #2#)))) 
 
-(SDEFUN |ALGSC;jordanAlgebra?;B;23| (($ (|Boolean|)))
+(SDEFUN |ALGSC;jordanAlgebra?;B;23| ((% (|Boolean|)))
         (SPROG
          ((#1=#:G450 NIL) (#2=#:G451 NIL) (|res| (R)) (#3=#:G458 NIL) (|s| NIL)
           (#4=#:G457 NIL) (|r| NIL) (#5=#:G456 NIL) (|t| NIL) (#6=#:G455 NIL)
@@ -2361,45 +2361,45 @@
           (EXIT
            (COND
             ((QEQCAR
-              (SPADCALL (SPADCALL 2 (|spadConstant| $ 53) (QREFELT $ 86))
-                        (QREFELT $ 87))
+              (SPADCALL (SPADCALL 2 (|spadConstant| % 53) (QREFELT % 86))
+                        (QREFELT % 87))
               1)
              (SEQ
               (SPADCALL
                "this is not a Jordan algebra, as 2 is not invertible in the ground ring"
-               (QREFELT $ 76))
+               (QREFELT % 76))
               (EXIT NIL)))
-            ((SPADCALL (QREFELT $ 80))
+            ((SPADCALL (QREFELT % 80))
              (SEQ
-              (SEQ (LETT |i| 1) (LETT #9# (QREFELT $ 7)) G190
+              (SEQ (LETT |i| 1) (LETT #9# (QREFELT % 7)) G190
                    (COND ((|greater_SI| |i| #9#) (GO G191)))
                    (SEQ
                     (EXIT
-                     (SEQ (LETT |j| 1) (LETT #8# (QREFELT $ 7)) G190
+                     (SEQ (LETT |j| 1) (LETT #8# (QREFELT % 7)) G190
                           (COND ((|greater_SI| |j| #8#) (GO G191)))
                           (SEQ
                            (EXIT
-                            (SEQ (LETT |k| 1) (LETT #7# (QREFELT $ 7)) G190
+                            (SEQ (LETT |k| 1) (LETT #7# (QREFELT % 7)) G190
                                  (COND ((|greater_SI| |k| #7#) (GO G191)))
                                  (SEQ
                                   (EXIT
-                                   (SEQ (LETT |l| 1) (LETT #6# (QREFELT $ 7))
+                                   (SEQ (LETT |l| 1) (LETT #6# (QREFELT % 7))
                                         G190
                                         (COND
                                          ((|greater_SI| |l| #6#) (GO G191)))
                                         (SEQ
                                          (EXIT
                                           (SEQ (LETT |t| 1)
-                                               (LETT #5# (QREFELT $ 7)) G190
+                                               (LETT #5# (QREFELT % 7)) G190
                                                (COND
                                                 ((|greater_SI| |t| #5#)
                                                  (GO G191)))
                                                (SEQ
                                                 (LETT |res|
-                                                      (|spadConstant| $ 32))
+                                                      (|spadConstant| % 32))
                                                 (EXIT
                                                  (SEQ (LETT |r| 1)
-                                                      (LETT #4# (QREFELT $ 7))
+                                                      (LETT #4# (QREFELT % 7))
                                                       G190
                                                       (COND
                                                        ((|greater_SI| |r| #4#)
@@ -2408,7 +2408,7 @@
                                                        (EXIT
                                                         (SEQ (LETT |s| 1)
                                                              (LETT #3#
-                                                                   (QREFELT $
+                                                                   (QREFELT %
                                                                             7))
                                                              G190
                                                              (COND
@@ -2431,321 +2431,321 @@
                                                                               (SPADCALL
                                                                                (SPADCALL
                                                                                 (QREFELT
-                                                                                 $
+                                                                                 %
                                                                                  9)
                                                                                 |r|
                                                                                 (QREFELT
-                                                                                 $
+                                                                                 %
                                                                                  66))
                                                                                |i|
                                                                                |j|
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 67))
                                                                               (SPADCALL
                                                                                (SPADCALL
                                                                                 (QREFELT
-                                                                                 $
+                                                                                 %
                                                                                  9)
                                                                                 |s|
                                                                                 (QREFELT
-                                                                                 $
+                                                                                 %
                                                                                  66))
                                                                                |l|
                                                                                |k|
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 67))
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                65))
                                                                              (SPADCALL
                                                                               (SPADCALL
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 9)
                                                                                |t|
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 66))
                                                                               |r|
                                                                               |s|
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                67))
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               65))
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              68))
                                                                            (SPADCALL
                                                                             (SPADCALL
                                                                              (SPADCALL
                                                                               (SPADCALL
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 9)
                                                                                |r|
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 66))
                                                                               |l|
                                                                               |k|
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                67))
                                                                              (SPADCALL
                                                                               (SPADCALL
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 9)
                                                                                |s|
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 66))
                                                                               |j|
                                                                               |r|
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                67))
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               65))
                                                                             (SPADCALL
                                                                              (SPADCALL
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                9)
                                                                               |t|
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                66))
                                                                              |i|
                                                                              |s|
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               67))
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              65))
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             73))
                                                                           (SPADCALL
                                                                            (SPADCALL
                                                                             (SPADCALL
                                                                              (SPADCALL
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                9)
                                                                               |r|
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                66))
                                                                              |l|
                                                                              |j|
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               67))
                                                                             (SPADCALL
                                                                              (SPADCALL
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                9)
                                                                               |s|
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                66))
                                                                              |k|
                                                                              |k|
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               67))
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              65))
                                                                            (SPADCALL
                                                                             (SPADCALL
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               9)
                                                                              |t|
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               66))
                                                                             |r|
                                                                             |s|
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              67))
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             65))
                                                                           (QREFELT
-                                                                           $
+                                                                           %
                                                                            68))
                                                                          (SPADCALL
                                                                           (SPADCALL
                                                                            (SPADCALL
                                                                             (SPADCALL
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               9)
                                                                              |r|
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               66))
                                                                             |k|
                                                                             |i|
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              67))
                                                                            (SPADCALL
                                                                             (SPADCALL
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               9)
                                                                              |s|
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               66))
                                                                             |j|
                                                                             |r|
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              67))
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             65))
                                                                           (SPADCALL
                                                                            (SPADCALL
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              9)
                                                                             |t|
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              66))
                                                                            |l|
                                                                            |s|
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             67))
                                                                           (QREFELT
-                                                                           $
+                                                                           %
                                                                            65))
                                                                          (QREFELT
-                                                                          $
+                                                                          %
                                                                           73))
                                                                         (SPADCALL
                                                                          (SPADCALL
                                                                           (SPADCALL
                                                                            (SPADCALL
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              9)
                                                                             |r|
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              66))
                                                                            |k|
                                                                            |j|
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             67))
                                                                           (SPADCALL
                                                                            (SPADCALL
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              9)
                                                                             |s|
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              66))
                                                                            |i|
                                                                            |k|
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             67))
                                                                           (QREFELT
-                                                                           $
+                                                                           %
                                                                            65))
                                                                          (SPADCALL
                                                                           (SPADCALL
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             9)
                                                                            |t|
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             66))
                                                                           |r|
                                                                           |s|
                                                                           (QREFELT
-                                                                           $
+                                                                           %
                                                                            67))
                                                                          (QREFELT
-                                                                          $
+                                                                          %
                                                                           65))
                                                                         (QREFELT
-                                                                         $ 68))
+                                                                         % 68))
                                                                        (SPADCALL
                                                                         (SPADCALL
                                                                          (SPADCALL
                                                                           (SPADCALL
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             9)
                                                                            |r|
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             66))
                                                                           |i|
                                                                           |l|
                                                                           (QREFELT
-                                                                           $
+                                                                           %
                                                                            67))
                                                                          (SPADCALL
                                                                           (SPADCALL
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             9)
                                                                            |s|
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             66))
                                                                           |j|
                                                                           |r|
                                                                           (QREFELT
-                                                                           $
+                                                                           %
                                                                            67))
                                                                          (QREFELT
-                                                                          $
+                                                                          %
                                                                           65))
                                                                         (SPADCALL
                                                                          (SPADCALL
                                                                           (QREFELT
-                                                                           $ 9)
+                                                                           % 9)
                                                                           |t|
                                                                           (QREFELT
-                                                                           $
+                                                                           %
                                                                            66))
                                                                          |k|
                                                                          |s|
                                                                          (QREFELT
-                                                                          $
+                                                                          %
                                                                           67))
                                                                         (QREFELT
-                                                                         $ 65))
+                                                                         % 65))
                                                                        (QREFELT
-                                                                        $ 73)))
+                                                                        % 73)))
                                                                 (EXIT
                                                                  (COND
                                                                   ((NULL
                                                                     (SPADCALL
                                                                      |res|
-                                                                     (QREFELT $
+                                                                     (QREFELT %
                                                                               52)))
                                                                    (PROGN
                                                                     (LETT #1#
@@ -2753,7 +2753,7 @@
                                                                            (SPADCALL
                                                                             "this is not a Jordan algebra"
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              76))
                                                                            (EXIT
                                                                             (PROGN
@@ -2782,13 +2782,13 @@
                           (LETT |j| (|inc_SI| |j|)) (GO G190) G191
                           (EXIT NIL))))
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-              (SPADCALL "this is a Jordan algebra" (QREFELT $ 76)) (EXIT 'T)))
+              (SPADCALL "this is a Jordan algebra" (QREFELT % 76)) (EXIT 'T)))
             ('T
-             (SEQ (SPADCALL "this is not a Jordan algebra" (QREFELT $ 76))
+             (SEQ (SPADCALL "this is not a Jordan algebra" (QREFELT % 76))
                   (EXIT NIL)))))
           #10# (EXIT #2#)))) 
 
-(SDEFUN |ALGSC;jacobiIdentity?;B;24| (($ (|Boolean|)))
+(SDEFUN |ALGSC;jacobiIdentity?;B;24| ((% (|Boolean|)))
         (SPROG
          ((#1=#:G473 NIL) (#2=#:G474 NIL) (|res| (R)) (#3=#:G479 NIL) (|s| NIL)
           (#4=#:G478 NIL) (|r| NIL) (#5=#:G477 NIL) (|k| NIL) (#6=#:G476 NIL)
@@ -2796,26 +2796,26 @@
          (SEQ
           (EXIT
            (SEQ
-            (SEQ (LETT |i| 1) (LETT #7# (QREFELT $ 7)) G190
+            (SEQ (LETT |i| 1) (LETT #7# (QREFELT % 7)) G190
                  (COND ((|greater_SI| |i| #7#) (GO G191)))
                  (SEQ
                   (EXIT
-                   (SEQ (LETT |j| 1) (LETT #6# (QREFELT $ 7)) G190
+                   (SEQ (LETT |j| 1) (LETT #6# (QREFELT % 7)) G190
                         (COND ((|greater_SI| |j| #6#) (GO G191)))
                         (SEQ
                          (EXIT
-                          (SEQ (LETT |k| 1) (LETT #5# (QREFELT $ 7)) G190
+                          (SEQ (LETT |k| 1) (LETT #5# (QREFELT % 7)) G190
                                (COND ((|greater_SI| |k| #5#) (GO G191)))
                                (SEQ
                                 (EXIT
-                                 (SEQ (LETT |r| 1) (LETT #4# (QREFELT $ 7))
+                                 (SEQ (LETT |r| 1) (LETT #4# (QREFELT % 7))
                                       G190
                                       (COND ((|greater_SI| |r| #4#) (GO G191)))
                                       (SEQ
                                        (EXIT
-                                        (SEQ (LETT |res| (|spadConstant| $ 32))
+                                        (SEQ (LETT |res| (|spadConstant| % 32))
                                              (SEQ (LETT |s| 1)
-                                                  (LETT #3# (QREFELT $ 7)) G190
+                                                  (LETT #3# (QREFELT % 7)) G190
                                                   (COND
                                                    ((|greater_SI| |s| #3#)
                                                     (GO G191)))
@@ -2829,74 +2829,74 @@
                                                                        (SPADCALL
                                                                         (SPADCALL
                                                                          (QREFELT
-                                                                          $ 9)
+                                                                          % 9)
                                                                          |r|
                                                                          (QREFELT
-                                                                          $
+                                                                          %
                                                                           66))
                                                                         |i| |j|
                                                                         (QREFELT
-                                                                         $ 67))
+                                                                         % 67))
                                                                        (SPADCALL
                                                                         (SPADCALL
                                                                          (QREFELT
-                                                                          $ 9)
+                                                                          % 9)
                                                                          |s|
                                                                          (QREFELT
-                                                                          $
+                                                                          %
                                                                           66))
                                                                         |j| |k|
                                                                         (QREFELT
-                                                                         $ 67))
+                                                                         % 67))
                                                                        (QREFELT
-                                                                        $ 65))
+                                                                        % 65))
                                                                       (QREFELT
-                                                                       $ 68))
+                                                                       % 68))
                                                             (SPADCALL
                                                              (SPADCALL
                                                               (SPADCALL
-                                                               (QREFELT $ 9)
+                                                               (QREFELT % 9)
                                                                |r|
-                                                               (QREFELT $ 66))
+                                                               (QREFELT % 66))
                                                               |j| |k|
-                                                              (QREFELT $ 67))
+                                                              (QREFELT % 67))
                                                              (SPADCALL
                                                               (SPADCALL
-                                                               (QREFELT $ 9)
+                                                               (QREFELT % 9)
                                                                |s|
-                                                               (QREFELT $ 66))
+                                                               (QREFELT % 66))
                                                               |k| |i|
-                                                              (QREFELT $ 67))
-                                                             (QREFELT $ 65))
-                                                            (QREFELT $ 68))
+                                                              (QREFELT % 67))
+                                                             (QREFELT % 65))
+                                                            (QREFELT % 68))
                                                            (SPADCALL
                                                             (SPADCALL
                                                              (SPADCALL
-                                                              (QREFELT $ 9) |r|
-                                                              (QREFELT $ 66))
+                                                              (QREFELT % 9) |r|
+                                                              (QREFELT % 66))
                                                              |k| |i|
-                                                             (QREFELT $ 67))
+                                                             (QREFELT % 67))
                                                             (SPADCALL
                                                              (SPADCALL
-                                                              (QREFELT $ 9) |s|
-                                                              (QREFELT $ 66))
+                                                              (QREFELT % 9) |s|
+                                                              (QREFELT % 66))
                                                              |i| |j|
-                                                             (QREFELT $ 67))
-                                                            (QREFELT $ 65))
-                                                           (QREFELT $ 68)))))
+                                                             (QREFELT % 67))
+                                                            (QREFELT % 65))
+                                                           (QREFELT % 68)))))
                                                   (LETT |s| (|inc_SI| |s|))
                                                   (GO G190) G191 (EXIT NIL))
                                              (EXIT
                                               (COND
                                                ((NULL
                                                  (SPADCALL |res|
-                                                           (QREFELT $ 52)))
+                                                           (QREFELT % 52)))
                                                 (PROGN
                                                  (LETT #1#
                                                        (SEQ
                                                         (SPADCALL
                                                          "Jacobi identity does not hold"
-                                                         (QREFELT $ 76))
+                                                         (QREFELT % 76))
                                                         (EXIT
                                                          (PROGN
                                                           (LETT #2# NIL)
@@ -2909,7 +2909,7 @@
                                (EXIT NIL))))
                         (LETT |j| (|inc_SI| |j|)) (GO G190) G191 (EXIT NIL))))
                  (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-            (SPADCALL "Jacobi identity holds" (QREFELT $ 76)) (EXIT 'T)))
+            (SPADCALL "Jacobi identity holds" (QREFELT % 76)) (EXIT 'T)))
           #8# (EXIT #2#)))) 
 
 (DECLAIM (NOTINLINE |AlgebraGivenByStructuralConstants;|)) 
@@ -2939,7 +2939,7 @@
 
 (DEFUN |AlgebraGivenByStructuralConstants;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
+   ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
@@ -2948,9 +2948,9 @@
     (LETT DV$4 |#4|)
     (LETT |dv$|
           (LIST '|AlgebraGivenByStructuralConstants| DV$1 DV$2 DV$3 DV$4))
-    (LETT $ (GETREFV 101))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 101))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -2959,41 +2959,41 @@
                                         (|HasCategory| |#1| '(|Finite|))
                                         (|HasCategory| |#1| '(|Field|))))))
     (|haddProp| |$ConstructorCache| '|AlgebraGivenByStructuralConstants|
-                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (QSETREFV $ 8 |#3|)
-    (QSETREFV $ 9 |#4|)
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 10 (|DirectProduct| |#2| |#1|))
-    $))) 
+                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (QSETREFV % 8 |#3|)
+    (QSETREFV % 9 |#4|)
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 10 (|DirectProduct| |#2| |#1|))
+    %))) 
 
 (MAKEPROP '|AlgebraGivenByStructuralConstants| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|DirectProduct| (NRTEVAL (QREFELT $ 7)) 6)
+           '#(NIL NIL NIL NIL NIL (|DirectProduct| (NRTEVAL (QREFELT % 7)) 6)
               (|local| |#1|) (|local| |#2|) (|local| |#3|) (|local| |#4|)
-              '|Rep| (|Union| $ '"failed")
+              '|Rep| (|Union| % '"failed")
               (|FiniteRankNonAssociativeAlgebra&| $$ 6) (0 . |recip|)
-              |ALGSC;recip;$U;1| (|Matrix| 6)
-              (|SquareMatrix| (NRTEVAL (QREFELT $ 7)) 6) (5 . |coerce|)
-              (10 . |apply|) |ALGSC;*;Sm2$;2| (|Vector| 6)
-              (16 . |directProduct|) |ALGSC;coerce;V$;3| (|Vector| 15)
+              |ALGSC;recip;%U;1| (|Matrix| 6)
+              (|SquareMatrix| (NRTEVAL (QREFELT % 7)) 6) (5 . |coerce|)
+              (10 . |apply|) |ALGSC;*;Sm2%;2| (|Vector| 6)
+              (16 . |directProduct|) |ALGSC;coerce;V%;3| (|Vector| 15)
               |ALGSC;structuralConstants;V;4| (|List| 6) (21 . |entries|)
-              (26 . |vector|) |ALGSC;coordinates;$V;5| (|Integer|)
+              (26 . |vector|) |ALGSC;coordinates;%V;5| (|Integer|)
               (|Vector| $$) (31 . |maxIndex|) (36 . |Zero|) (40 . |elt|)
               (46 . |setColumn!|) (|Union| 20 '"failed")
               (|Record| (|:| |particular| 35) (|:| |basis| 97))
               (|LinearSystemMatrixPackage| 6 20 20 15) (53 . |solve|)
-              (|Vector| $) |ALGSC;basis;V;7| |ALGSC;coordinates;$VV;6|
+              (|Vector| %) |ALGSC;basis;V;7| |ALGSC;coordinates;%VV;6|
               (|PositiveInteger|) (59 . |unitVector|) |ALGSC;someBasis;V;8|
-              |ALGSC;rank;Pi;9| (64 . |elt|) |ALGSC;elt;$IR;10| (|Boolean|)
+              |ALGSC;rank;Pi;9| (64 . |elt|) |ALGSC;elt;%IR;10| (|Boolean|)
               (70 . |zero?|) (|OutputForm|) (75 . |coerce|) (80 . |zero?|)
               (85 . |One|) (89 . =) (|Symbol|) (|List| 55) (95 . |elt|)
               (101 . |coerce|) (106 . *) (112 . +) (|Mapping| 50 50 50)
-              (|List| 50) (118 . |reduce|) |ALGSC;coerce;$Of;11| (124 . *)
+              (|List| 50) (118 . |reduce|) |ALGSC;coerce;%Of;11| (124 . *)
               (130 . |elt|) (136 . |elt|) (143 . +) (149 . |setelt!|)
-              |ALGSC;*;3$;12| (|NonNegativeInteger|) (156 . -) (162 . -)
+              |ALGSC;*;3%;12| (|NonNegativeInteger|) (156 . -) (162 . -)
               (|Void|) (|String|) (168 . |messagePrint|)
               |ALGSC;alternative?;B;13| |ALGSC;associative?;B;14|
               |ALGSC;antiAssociative?;B;15| |ALGSC;commutative?;B;16|
@@ -3002,8 +3002,8 @@
               |ALGSC;lieAdmissible?;B;21| (173 . *) (179 . |recip|)
               |ALGSC;jordanAdmissible?;B;22| |ALGSC;jordanAlgebra?;B;23|
               |ALGSC;jacobiIdentity?;B;24|
-              (|SparseUnivariatePolynomial| (|Polynomial| 6)) (|List| $)
-              (|InputForm|) (|Record| (|:| |particular| $) (|:| |basis| 92))
+              (|SparseUnivariatePolynomial| (|Polynomial| 6)) (|List| %)
+              (|InputForm|) (|Record| (|:| |particular| %) (|:| |basis| 92))
               (|Union| 94 '"failed") (|SparseUnivariatePolynomial| 6)
               (|List| 20) (|List| (|Polynomial| 6)) (|HashState|)
               (|SingleInteger|))

@@ -1,22 +1,22 @@
 
-(SDEFUN |DEQUEUE;bottom;$S;1| ((|d| ($)) ($ (S)))
-        (COND ((SPADCALL |d| (QREFELT $ 9)) (|error| "empty dequeue"))
-              ('T (SPADCALL (SPADCALL |d| (QREFELT $ 11)) (QREFELT $ 12))))) 
+(SDEFUN |DEQUEUE;bottom;%S;1| ((|d| (%)) (% (S)))
+        (COND ((SPADCALL |d| (QREFELT % 9)) (|error| "empty dequeue"))
+              ('T (SPADCALL (SPADCALL |d| (QREFELT % 11)) (QREFELT % 12))))) 
 
-(SDEFUN |DEQUEUE;dequeue;L$;2| ((|d| (|List| S)) ($ ($)))
-        (SPADCALL |d| (QREFELT $ 14))) 
+(SDEFUN |DEQUEUE;dequeue;L%;2| ((|d| (|List| S)) (% (%)))
+        (SPADCALL |d| (QREFELT % 14))) 
 
-(SDEFUN |DEQUEUE;extractBottom!;$S;3| ((|d| ($)) ($ (S)))
+(SDEFUN |DEQUEUE;extractBottom!;%S;3| ((|d| (%)) (% (S)))
         (SPROG
          ((|r| (S)) (|q| (|List| S)) (#1=#:G113 NIL) (|n| (|Integer|))
           (|p| (|List| S)))
-         (SEQ (COND ((SPADCALL |d| (QREFELT $ 9)) (|error| "empty dequeue")))
-              (LETT |p| (SPADCALL |d| (QREFELT $ 11))) (LETT |n| (LENGTH |p|))
+         (SEQ (COND ((SPADCALL |d| (QREFELT % 9)) (|error| "empty dequeue")))
+              (LETT |p| (SPADCALL |d| (QREFELT % 11))) (LETT |n| (LENGTH |p|))
               (EXIT
                (COND
                 ((EQL |n| 1)
                  (SEQ (LETT |r| (|SPADfirst| |p|))
-                      (SPADCALL |d| NIL (QREFELT $ 16)) (EXIT |r|)))
+                      (SPADCALL |d| NIL (QREFELT % 16)) (EXIT |r|)))
                 ('T
                  (SEQ
                   (LETT |q|
@@ -25,45 +25,45 @@
                                     (|check_subtype2| (>= #1# 0)
                                                       '(|NonNegativeInteger|)
                                                       '(|Integer|) #1#))
-                                  (QREFELT $ 18)))
+                                  (QREFELT % 18)))
                   (LETT |r| (|SPADfirst| (CDR |q|)))
-                  (SPADCALL |q| '|rest| NIL (QREFELT $ 20)) (EXIT |r|)))))))) 
+                  (SPADCALL |q| '|rest| NIL (QREFELT % 20)) (EXIT |r|)))))))) 
 
-(SDEFUN |DEQUEUE;extractTop!;$S;4| ((|d| ($)) ($ (S)))
+(SDEFUN |DEQUEUE;extractTop!;%S;4| ((|d| (%)) (% (S)))
         (SPROG ((|e| (S)))
-               (SEQ (LETT |e| (SPADCALL |d| (QREFELT $ 22)))
-                    (SPADCALL |d| (CDR (SPADCALL |d| (QREFELT $ 11)))
-                              (QREFELT $ 16))
+               (SEQ (LETT |e| (SPADCALL |d| (QREFELT % 22)))
+                    (SPADCALL |d| (CDR (SPADCALL |d| (QREFELT % 11)))
+                              (QREFELT % 16))
                     (EXIT |e|)))) 
 
-(SDEFUN |DEQUEUE;insertTop!;S$S;5| ((|e| (S)) (|d| ($)) ($ (S)))
+(SDEFUN |DEQUEUE;insertTop!;S%S;5| ((|e| (S)) (|d| (%)) (% (S)))
         (SEQ
-         (SPADCALL |d| (CONS |e| (SPADCALL |d| (QREFELT $ 11))) (QREFELT $ 16))
+         (SPADCALL |d| (CONS |e| (SPADCALL |d| (QREFELT % 11))) (QREFELT % 16))
          (EXIT |e|))) 
 
-(SDEFUN |DEQUEUE;insertBottom!;S$S;6| ((|e| (S)) (|d| ($)) ($ (S)))
+(SDEFUN |DEQUEUE;insertBottom!;S%S;6| ((|e| (S)) (|d| (%)) (% (S)))
         (SEQ
          (COND
-          ((SPADCALL |d| (QREFELT $ 9))
-           (SPADCALL |d| (SPADCALL |e| (QREFELT $ 25)) (QREFELT $ 16)))
+          ((SPADCALL |d| (QREFELT % 9))
+           (SPADCALL |d| (SPADCALL |e| (QREFELT % 25)) (QREFELT % 16)))
           ('T
-           (SPADCALL (LAST (SPADCALL |d| (QREFELT $ 11))) '|rest|
-                     (SPADCALL |e| (QREFELT $ 25)) (QREFELT $ 20))))
+           (SPADCALL (LAST (SPADCALL |d| (QREFELT % 11))) '|rest|
+                     (SPADCALL |e| (QREFELT % 25)) (QREFELT % 20))))
          (EXIT |e|))) 
 
-(SDEFUN |DEQUEUE;top;$S;7| ((|d| ($)) ($ (S)))
-        (COND ((SPADCALL |d| (QREFELT $ 9)) (|error| "empty dequeue"))
-              ('T (|SPADfirst| (SPADCALL |d| (QREFELT $ 11)))))) 
+(SDEFUN |DEQUEUE;top;%S;7| ((|d| (%)) (% (S)))
+        (COND ((SPADCALL |d| (QREFELT % 9)) (|error| "empty dequeue"))
+              ('T (|SPADfirst| (SPADCALL |d| (QREFELT % 11)))))) 
 
-(SDEFUN |DEQUEUE;reverse!;2$;8| ((|d| ($)) ($ ($)))
+(SDEFUN |DEQUEUE;reverse!;2%;8| ((|d| (%)) (% (%)))
         (SEQ
-         (SPADCALL |d| (REVERSE (SPADCALL |d| (QREFELT $ 11))) (QREFELT $ 16))
+         (SPADCALL |d| (REVERSE (SPADCALL |d| (QREFELT % 11))) (QREFELT % 16))
          (EXIT |d|))) 
 
-(SDEFUN |DEQUEUE;pop!;$S;9| ((|d| ($)) ($ (S))) (SPADCALL |d| (QREFELT $ 23))) 
+(SDEFUN |DEQUEUE;pop!;%S;9| ((|d| (%)) (% (S))) (SPADCALL |d| (QREFELT % 23))) 
 
-(SDEFUN |DEQUEUE;push!;S$S;10| ((|e| (S)) (|d| ($)) ($ (S)))
-        (SPADCALL |e| |d| (QREFELT $ 24))) 
+(SDEFUN |DEQUEUE;push!;S%S;10| ((|e| (S)) (|d| (%)) (% (S)))
+        (SPADCALL |e| |d| (QREFELT % 24))) 
 
 (DECLAIM (NOTINLINE |Dequeue;|)) 
 
@@ -85,13 +85,13 @@
 (DEFUN |Dequeue;| (|#1|)
   (SPROG
    ((#1=#:G140 NIL) (#2=#:G141 NIL) (|pv$| NIL) (#3=#:G137 NIL) (#4=#:G138 NIL)
-    (#5=#:G139 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+    (#5=#:G139 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|Dequeue| DV$1))
-    (LETT $ (GETREFV 42))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 42))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -123,34 +123,34 @@
                                                                   (|devaluate|
                                                                    |#1|)))
                                              #5#))))))
-    (|haddProp| |$ConstructorCache| '|Dequeue| (LIST DV$1) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 256))
-    (AND (LETT #2# (|HasCategory| $ '(|finiteAggregate|)))
-         (|augmentPredVector| $ 512))
-    (AND (|HasCategory| |#1| '(|OrderedSet|)) #2# (|augmentPredVector| $ 1024))
+    (|haddProp| |$ConstructorCache| '|Dequeue| (LIST DV$1) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (AND (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 256))
+    (AND (LETT #2# (|HasCategory| % '(|finiteAggregate|)))
+         (|augmentPredVector| % 512))
+    (AND (|HasCategory| |#1| '(|OrderedSet|)) #2# (|augmentPredVector| % 1024))
     (AND
      (LETT #1#
            (AND (|HasCategory| |#1| '(|BasicType|))
-                (|HasCategory| $ '(|finiteAggregate|))))
-     (|augmentPredVector| $ 2048))
-    (AND (OR #1# #5#) (|augmentPredVector| $ 4096))
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 7 (|Reference| (|List| |#1|)))
-    $))) 
+                (|HasCategory| % '(|finiteAggregate|))))
+     (|augmentPredVector| % 2048))
+    (AND (OR #1# #5#) (|augmentPredVector| % 4096))
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 7 (|Reference| (|List| |#1|)))
+    %))) 
 
 (MAKEPROP '|Dequeue| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|Queue| 6) (|local| |#1|) '|Rep| (|Boolean|)
               (0 . |empty?|) (|List| 6) (5 . |deref|) (10 . |last|)
-              |DEQUEUE;bottom;$S;1| (15 . |construct|) |DEQUEUE;dequeue;L$;2|
+              |DEQUEUE;bottom;%S;1| (15 . |construct|) |DEQUEUE;dequeue;L%;2|
               (20 . |setref|) (|NonNegativeInteger|) (26 . |rest|) '"rest"
-              (32 . |setelt!|) |DEQUEUE;extractBottom!;$S;3| |DEQUEUE;top;$S;7|
-              |DEQUEUE;extractTop!;$S;4| |DEQUEUE;insertTop!;S$S;5|
-              (39 . |list|) |DEQUEUE;insertBottom!;S$S;6|
-              |DEQUEUE;reverse!;2$;8| |DEQUEUE;pop!;$S;9|
-              |DEQUEUE;push!;S$S;10| (|Mapping| 6 6 6) (|List| 32)
+              (32 . |setelt!|) |DEQUEUE;extractBottom!;%S;3| |DEQUEUE;top;%S;7|
+              |DEQUEUE;extractTop!;%S;4| |DEQUEUE;insertTop!;S%S;5|
+              (39 . |list|) |DEQUEUE;insertBottom!;S%S;6|
+              |DEQUEUE;reverse!;2%;8| |DEQUEUE;pop!;%S;9|
+              |DEQUEUE;push!;S%S;10| (|Mapping| 6 6 6) (|List| 32)
               (|Equation| 6) (|Mapping| 8 6) (|Mapping| 8 6 6) (|Mapping| 6 6)
               (|OutputForm|) (|InputForm|) (|SingleInteger|) (|String|)
               (|HashState|) (|Union| 6 '"failed"))

@@ -18,6 +18,6 @@
              (LETT #1#
                    (|subst_in_cat| '(|t#1|) (LIST |t#1|)
                                    (|Join|
-                                    (|mkCategory| '(((|convert| (|t#1| $)) T))
+                                    (|mkCategory| '(((|convert| (|t#1| %)) T))
                                                   NIL NIL NIL))))
            (SETELT #1# 0 (LIST '|ConvertibleTo| |t#1|))))) 

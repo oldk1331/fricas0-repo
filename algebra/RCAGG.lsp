@@ -27,43 +27,43 @@
                                                   '|t#1|)
                                                  (|mkCategory|
                                                   '(((|children|
-                                                      ((|List| $) $))
+                                                      ((|List| %) %))
                                                      T)
-                                                    ((|nodes| ((|List| $) $))
+                                                    ((|nodes| ((|List| %) %))
                                                      T)
-                                                    ((|leaf?| ((|Boolean|) $))
+                                                    ((|leaf?| ((|Boolean|) %))
                                                      T)
-                                                    ((|value| (|t#1| $)) T)
-                                                    ((|elt| (|t#1| $ "value"))
+                                                    ((|value| (|t#1| %)) T)
+                                                    ((|elt| (|t#1| % "value"))
                                                      T)
                                                     ((|cyclic?|
-                                                      ((|Boolean|) $))
+                                                      ((|Boolean|) %))
                                                      T)
                                                     ((|leaves|
-                                                      ((|List| |t#1|) $))
+                                                      ((|List| |t#1|) %))
                                                      T)
                                                     ((|distance|
-                                                      ((|Integer|) $ $))
+                                                      ((|Integer|) % %))
                                                      T)
                                                     ((|child?|
-                                                      ((|Boolean|) $ $))
+                                                      ((|Boolean|) % %))
                                                      (|has| |t#1|
                                                             (|BasicType|)))
                                                     ((|node?|
-                                                      ((|Boolean|) $ $))
+                                                      ((|Boolean|) % %))
                                                      (|has| |t#1|
                                                             (|BasicType|)))
                                                     ((|setchildren!|
-                                                      ($ $ (|List| $)))
-                                                     (|has| $
+                                                      (% % (|List| %)))
+                                                     (|has| %
                                                             (|shallowlyMutable|)))
                                                     ((|setelt!|
-                                                      (|t#1| $ "value" |t#1|))
-                                                     (|has| $
+                                                      (|t#1| % "value" |t#1|))
+                                                     (|has| %
                                                             (|shallowlyMutable|)))
                                                     ((|setvalue!|
-                                                      (|t#1| $ |t#1|))
-                                                     (|has| $
+                                                      (|t#1| % |t#1|))
+                                                     (|has| %
                                                             (|shallowlyMutable|))))
                                                   NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|RecursiveAggregate| |t#1|))))) 

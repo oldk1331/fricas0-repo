@@ -13,8 +13,8 @@
              (LETT #1#
                    (|Join| (|NonAssociativeSemiRng|) (|AbelianGroup|)
                            (|mkCategory|
-                            '(((|associator| ($ $ $ $)) T)
-                              ((|commutator| ($ $ $)) T))
+                            '(((|associator| (% % % %)) T)
+                              ((|commutator| (% % %)) T))
                             NIL NIL NIL)))
            (SETELT #1# 0 '(|NonAssociativeRng|))))) 
 

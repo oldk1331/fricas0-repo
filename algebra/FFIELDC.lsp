@@ -15,7 +15,7 @@
                            (|StepThrough|) (|DifferentialRing|)
                            (|PolynomialFactorizationExplicit|)
                            (|mkCategory|
-                            '(((|charthRoot| ($ $)) T)
+                            '(((|charthRoot| (% %)) T)
                               ((|factorsOfCyclicGroupSize|
                                 ((|List|
                                   (|Record| (|:| |factor| (|Integer|))
@@ -27,11 +27,11 @@
                                           (|NonNegativeInteger|))
                                  (|Integer|)))
                                T)
-                              ((|createPrimitiveElement| ($)) T)
-                              ((|primitiveElement| ($)) T)
-                              ((|primitive?| ((|Boolean|) $)) T)
-                              ((|discreteLog| ((|NonNegativeInteger|) $)) T)
-                              ((|order| ((|PositiveInteger|) $)) T)
+                              ((|createPrimitiveElement| (%)) T)
+                              ((|primitiveElement| (%)) T)
+                              ((|primitive?| ((|Boolean|) %)) T)
+                              ((|discreteLog| ((|NonNegativeInteger|) %)) T)
+                              ((|order| ((|PositiveInteger|) %)) T)
                               ((|representationType|
                                 ((|Union| "prime" "polynomial" "normal"
                                           "cyclic")))

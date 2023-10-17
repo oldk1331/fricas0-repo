@@ -199,7 +199,7 @@
 ;       formatSig(op, [typelist, slot,:stuff]) ==
 ;           pred := if stuff then first stuff else 'T
 ;           impl := if rest stuff then CADR stuff else 'ELT -- handles 'CONST
-;           [[op, typelist], pred, [impl, '$, slot]]
+;           [[op, typelist], pred, [impl, '%, slot]]
 
 (DEFUN |convertOpAlist2compilerInfo| (|opalist|)
   (PROG (|op| |siglist|)
@@ -244,7 +244,7 @@
       (SETQ |stuff| (CDDR . #1#))
       (SETQ |pred| (COND (|stuff| (CAR |stuff|)) (#2='T 'T)))
       (SETQ |impl| (COND ((CDR |stuff|) (CADR |stuff|)) (#2# 'ELT)))
-      (LIST (LIST |op| |typelist|) |pred| (LIST |impl| '$ |slot|))))))
+      (LIST (LIST |op| |typelist|) |pred| (LIST |impl| '% |slot|))))))
 
 ; updateCategoryFrameForConstructor(constructor) ==
 ;    opAlist := GETDATABASE(constructor, 'OPERATIONALIST)

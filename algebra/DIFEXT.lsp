@@ -26,23 +26,23 @@
                                                 (|Join| (|Ring|)
                                                         (|mkCategory|
                                                          '(((|differentiate|
-                                                             ($ $
+                                                             (% %
                                                               (|Mapping| |t#1|
                                                                          |t#1|)))
                                                             T)
                                                            ((|differentiate|
-                                                             ($ $
+                                                             (% %
                                                               (|Mapping| |t#1|
                                                                          |t#1|)
                                                               (|NonNegativeInteger|)))
                                                             T)
                                                            ((D
-                                                             ($ $
+                                                             (% %
                                                               (|Mapping| |t#1|
                                                                          |t#1|)))
                                                             T)
                                                            ((D
-                                                             ($ $
+                                                             (% %
                                                               (|Mapping| |t#1|
                                                                          |t#1|)
                                                               (|NonNegativeInteger|)))

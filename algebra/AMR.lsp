@@ -30,12 +30,12 @@
                                                          '|t#1| '|t#2|)
                                                         (|mkCategory|
                                                          '(((|degree|
-                                                             (|t#2| $))
+                                                             (|t#2| %))
                                                             T)
                                                            ((|coefficient|
-                                                             (|t#1| $ |t#2|))
+                                                             (|t#1| % |t#2|))
                                                             T)
-                                                           ((/ ($ $ |t#1|))
+                                                           ((/ (% % |t#1|))
                                                             (|has| |t#1|
                                                                    (|Field|))))
                                                          '(((|SemiRing|)
@@ -48,13 +48,13 @@
                                                             (AND
                                                              (|has| |t#1|
                                                                     (|CommutativeRing|))
-                                                             (|has| $
+                                                             (|has| %
                                                                     (|VariablesCommuteWithCoefficients|))))
                                                            ((|Algebra| |t#1|)
                                                             (AND
                                                              (|has| |t#1|
                                                                     (|CommutativeRing|))
-                                                             (|has| $
+                                                             (|has| %
                                                                     (|VariablesCommuteWithCoefficients|))))
                                                            ((|CharacteristicZero|)
                                                             (|has| |t#1|
@@ -66,7 +66,7 @@
                                                             (AND
                                                              (|has| |t#1|
                                                                     (|IntegralDomain|))
-                                                             (|has| $
+                                                             (|has| %
                                                                     (|VariablesCommuteWithCoefficients|))))
                                                            ((|Algebra|
                                                              (|Fraction|

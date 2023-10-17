@@ -40,33 +40,33 @@
                                                                (|:| |k| |t#2|)
                                                                (|:| |c|
                                                                     |t#1|)))
-                                                             $))
+                                                             %))
                                                            T)
                                                           ((|elt|
-                                                            (|t#1| $ |t#2|))
+                                                            (|t#1| % |t#2|))
                                                            T)
                                                           ((|variable|
-                                                            ((|Symbol|) $))
+                                                            ((|Symbol|) %))
                                                            T)
-                                                          ((|center| (|t#1| $))
+                                                          ((|center| (|t#1| %))
                                                            T)
                                                           ((|multiplyExponents|
-                                                            ($ $
+                                                            (% %
                                                              (|PositiveInteger|)))
                                                            T)
-                                                          ((|order| (|t#2| $))
+                                                          ((|order| (|t#2| %))
                                                            T)
                                                           ((|order|
-                                                            (|t#2| $ |t#2|))
+                                                            (|t#2| % |t#2|))
                                                            T)
                                                           ((|truncate|
-                                                            ($ $ |t#2|))
+                                                            (% % |t#2|))
                                                            T)
                                                           ((|truncate|
-                                                            ($ $ |t#2| |t#2|))
+                                                            (% % |t#2| |t#2|))
                                                            T)
                                                           ((|approximate|
-                                                            (|t#1| $ |t#2|))
+                                                            (|t#1| % |t#2|))
                                                            (AND
                                                             (|has| |t#1|
                                                                    (SIGNATURE ^
@@ -79,16 +79,16 @@
                                                                     (|t#1|
                                                                      (|Symbol|))))))
                                                           ((|extend|
-                                                            ($ $ |t#2|))
+                                                            (% % |t#2|))
                                                            T)
                                                           ((|eval|
-                                                            ((|Stream| |t#1|) $
+                                                            ((|Stream| |t#1|) %
                                                              |t#1|))
                                                            (|has| |t#1|
                                                                   (SIGNATURE ^
                                                                    (|t#1| |t#1|
                                                                     |t#2|)))))
-                                                        '(((|Eltable| $ $)
+                                                        '(((|Eltable| % %)
                                                            (|has| |t#2|
                                                                   (|SemiGroup|)))
                                                           ((|DifferentialRing|)

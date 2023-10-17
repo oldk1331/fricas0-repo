@@ -1,69 +1,69 @@
 
 (SDEFUN |SHDP;lessThanRlex|
-        ((|v1| ($)) (|v2| ($)) (|low| (|NonNegativeInteger|))
-         (|high| (|NonNegativeInteger|)) ($ (|Boolean|)))
+        ((|v1| (%)) (|v2| (%)) (|low| (|NonNegativeInteger|))
+         (|high| (|NonNegativeInteger|)) (% (|Boolean|)))
         (SPROG
          ((#1=#:G118 NIL) (#2=#:G120 NIL) (|i| NIL) (|n2| (S)) (|n1| (S))
           (#3=#:G119 NIL))
          (SEQ
           (EXIT
-           (SEQ (LETT |n1| (|spadConstant| $ 10))
-                (LETT |n2| (|spadConstant| $ 10))
+           (SEQ (LETT |n1| (|spadConstant| % 10))
+                (LETT |n2| (|spadConstant| % 10))
                 (SEQ (LETT |i| |low|) (LETT #3# |high|) G190
                      (COND ((> |i| #3#) (GO G191)))
                      (SEQ
                       (LETT |n1|
-                            (SPADCALL |n1| (SPADCALL |v1| |i| (QREFELT $ 12))
-                                      (QREFELT $ 13)))
+                            (SPADCALL |n1| (SPADCALL |v1| |i| (QREFELT % 12))
+                                      (QREFELT % 13)))
                       (EXIT
                        (LETT |n2|
-                             (SPADCALL |n2| (SPADCALL |v2| |i| (QREFELT $ 12))
-                                       (QREFELT $ 13)))))
+                             (SPADCALL |n2| (SPADCALL |v2| |i| (QREFELT % 12))
+                                       (QREFELT % 13)))))
                      (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL))
                 (EXIT
-                 (COND ((SPADCALL |n1| |n2| (QREFELT $ 15)) 'T)
-                       ((SPADCALL |n2| |n1| (QREFELT $ 15)) NIL)
+                 (COND ((SPADCALL |n1| |n2| (QREFELT % 15)) 'T)
+                       ((SPADCALL |n2| |n1| (QREFELT % 15)) NIL)
                        ('T
                         (SEQ
                          (SEQ (LETT |i| |high|) (LETT #2# |low|) G190
                               (COND ((< |i| #2#) (GO G191)))
                               (SEQ
                                (COND
-                                ((SPADCALL (SPADCALL |v2| |i| (QREFELT $ 12))
-                                           (SPADCALL |v1| |i| (QREFELT $ 12))
-                                           (QREFELT $ 15))
+                                ((SPADCALL (SPADCALL |v2| |i| (QREFELT % 12))
+                                           (SPADCALL |v1| |i| (QREFELT % 12))
+                                           (QREFELT % 15))
                                  (PROGN (LETT #1# 'T) (GO #4=#:G117))))
                                (EXIT
                                 (COND
-                                 ((SPADCALL (SPADCALL |v1| |i| (QREFELT $ 12))
-                                            (SPADCALL |v2| |i| (QREFELT $ 12))
-                                            (QREFELT $ 15))
+                                 ((SPADCALL (SPADCALL |v1| |i| (QREFELT % 12))
+                                            (SPADCALL |v2| |i| (QREFELT % 12))
+                                            (QREFELT % 15))
                                   (PROGN (LETT #1# NIL) (GO #4#))))))
                               (LETT |i| (+ |i| -1)) (GO G190) G191 (EXIT NIL))
                          (EXIT NIL)))))))
           #4# (EXIT #1#)))) 
 
-(SDEFUN |SHDP;<;2$B;2| ((|v1| ($)) (|v2| ($)) ($ (|Boolean|)))
+(SDEFUN |SHDP;<;2%B;2| ((|v1| (%)) (|v2| (%)) (% (|Boolean|)))
         (SPROG ((#1=#:G127 NIL) (#2=#:G128 NIL) (|i| NIL))
                (SEQ
                 (EXIT
-                 (COND ((|SHDP;lessThanRlex| |v1| |v2| 1 (QREFELT $ 7) $) 'T)
+                 (COND ((|SHDP;lessThanRlex| |v1| |v2| 1 (QREFELT % 7) %) 'T)
                        ('T
                         (SEQ
-                         (SEQ (LETT |i| 1) (LETT #2# (QREFELT $ 7)) G190
+                         (SEQ (LETT |i| 1) (LETT #2# (QREFELT % 7)) G190
                               (COND ((|greater_SI| |i| #2#) (GO G191)))
                               (SEQ
                                (EXIT
                                 (COND
-                                 ((SPADCALL (SPADCALL |v1| |i| (QREFELT $ 12))
-                                            (SPADCALL |v2| |i| (QREFELT $ 12))
-                                            (QREFELT $ 16))
+                                 ((SPADCALL (SPADCALL |v1| |i| (QREFELT % 12))
+                                            (SPADCALL |v2| |i| (QREFELT % 12))
+                                            (QREFELT % 16))
                                   (PROGN (LETT #1# NIL) (GO #3=#:G126))))))
                               (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                               (EXIT NIL))
                          (EXIT
-                          (|SHDP;lessThanRlex| |v1| |v2| (+ (QREFELT $ 7) 1)
-                           (QREFELT $ 6) $))))))
+                          (|SHDP;lessThanRlex| |v1| |v2| (+ (QREFELT % 7) 1)
+                           (QREFELT % 6) %))))))
                 #3# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |SplitHomogeneousDirectProduct;|)) 
@@ -94,16 +94,16 @@
   (SPROG
    ((|pv$| NIL) (#1=#:G146 NIL) (#2=#:G147 NIL) (#3=#:G148 NIL) (#4=#:G149 NIL)
     (#5=#:G150 NIL) (#6=#:G152 NIL) (#7=#:G151 NIL) (#8=#:G153 NIL)
-    (#9=#:G154 NIL) (#10=#:G155 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL)
+    (#9=#:G154 NIL) (#10=#:G155 NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
     (LETT DV$1 |#1|)
     (LETT DV$2 |#2|)
     (LETT DV$3 (|devaluate| |#3|))
     (LETT |dv$| (LIST '|SplitHomogeneousDirectProduct| DV$1 DV$2 DV$3))
-    (LETT $ (GETREFV 49))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 49))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -551,28 +551,28 @@
                                           (|HasCategory| |#3| '(|SemiRng|)))
                                          #1#)))))
     (|haddProp| |$ConstructorCache| '|SplitHomogeneousDirectProduct|
-                (LIST DV$1 DV$2 DV$3) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (QSETREFV $ 8 |#3|)
-    (AND (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 1125899906842624))
-    (AND #10# (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 2251799813685248))
+                (LIST DV$1 DV$2 DV$3) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (QSETREFV % 8 |#3|)
+    (AND (|HasCategory| % '(|finiteAggregate|))
+         (|augmentPredVector| % 1125899906842624))
+    (AND #10# (|HasCategory| % '(|finiteAggregate|))
+         (|augmentPredVector| % 2251799813685248))
     (AND (|HasCategory| |#3| '(|BasicType|))
-         (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 4503599627370496))
-    (AND (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 9007199254740992))
+         (|HasCategory| % '(|finiteAggregate|))
+         (|augmentPredVector| % 4503599627370496))
+    (AND (|HasCategory| % '(|shallowlyMutable|))
+         (|augmentPredVector| % 9007199254740992))
     (AND
      (OR
       (AND #7# (|HasCategory| |#3| '(|Ring|))
            (|HasCategory| (|Integer|) '(|AbelianMonoid|)))
       #5#
       (AND (|HasCategory| |#3| '(|SemiRng|))
-           (|HasCategory| $ '(|AbelianMonoid|))))
-     (|augmentPredVector| $ 18014398509481984))
+           (|HasCategory| % '(|AbelianMonoid|))))
+     (|augmentPredVector| % 18014398509481984))
     (AND
      (OR
       (AND #7# (|HasCategory| |#3| '(|Ring|))
@@ -583,38 +583,38 @@
            (|HasCategory| |#3| '(|SemiRng|)))
       #4#
       (AND (|HasCategory| |#3| '(|SemiRng|))
-           (|HasCategory| $ '(|AbelianGroup|))))
-     (|augmentPredVector| $ 36028797018963968))
+           (|HasCategory| % '(|AbelianGroup|))))
+     (|augmentPredVector| % 36028797018963968))
     (AND
      (OR
       (AND #7# (|HasCategory| |#3| '(|Ring|))
            (|HasCategory| (|Integer|) '(|AbelianGroup|)))
       (|HasCategory| |#3| '(|AbelianGroup|))
       (AND (|HasCategory| |#3| '(|SemiRng|))
-           (|HasCategory| $ '(|AbelianGroup|))))
-     (|augmentPredVector| $ 72057594037927936))
+           (|HasCategory| % '(|AbelianGroup|))))
+     (|augmentPredVector| % 72057594037927936))
     (AND
      (OR
       (AND (|HasCategory| |#3| '(|BasicType|))
-           (|HasCategory| $ '(|finiteAggregate|)))
+           (|HasCategory| % '(|finiteAggregate|)))
       (|HasCategory| |#3| '(|SetCategory|)))
-     (|augmentPredVector| $ 144115188075855872))
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 9 (|Vector| |#3|))
-    $))) 
+     (|augmentPredVector| % 144115188075855872))
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 9 (|Vector| |#3|))
+    %))) 
 
 (MAKEPROP '|SplitHomogeneousDirectProduct| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|DirectProduct| (NRTEVAL (QREFELT $ 6)) 8)
+           '#(NIL NIL NIL NIL NIL (|DirectProduct| (NRTEVAL (QREFELT % 6)) 8)
               (|local| |#1|) (|local| |#2|) (|local| |#3|) '|Rep| (0 . |Zero|)
               (|Integer|) (4 . |qelt|) (10 . +) (|Boolean|) (16 . <) (22 . ~=)
-              |SHDP;<;2$B;2| (|NonNegativeInteger|) (|PositiveInteger|)
+              |SHDP;<;2%B;2| (|NonNegativeInteger|) (|PositiveInteger|)
               (|List| 8) (|Equation| 8) (|List| 21)
-              (|Record| (|:| |mat| 26) (|:| |vec| (|Vector| 11))) (|Matrix| $)
-              (|Vector| $) (|Matrix| 11) (|Symbol|) (|List| 27) (|List| 18)
+              (|Record| (|:| |mat| 26) (|:| |vec| (|Vector| 11))) (|Matrix| %)
+              (|Vector| %) (|Matrix| 11) (|Symbol|) (|List| 27) (|List| 18)
               (|Union| 31 '#1="failed") (|Fraction| 11) (|Union| 11 '#1#)
-              (|Union| $ '"failed") (|Mapping| 14 8 8) (|Mapping| 14 8)
-              (|Void|) (|Mapping| 8 8) (|OutputForm|) (|InputForm|) (|List| $)
+              (|Union| % '"failed") (|Mapping| 14 8 8) (|Mapping| 14 8)
+              (|Void|) (|Mapping| 8 8) (|OutputForm|) (|InputForm|) (|List| %)
               (|Matrix| 8) (|Record| (|:| |mat| 41) (|:| |vec| 47))
               (|Union| 8 '#1#) (|SingleInteger|) (|String|) (|HashState|)
               (|Vector| 8) (|List| 11))

@@ -29,6 +29,6 @@
                                                  (|ExtensibleLinearAggregate|
                                                   '|t#1|)
                                                  (|mkCategory|
-                                                  '(((|list| ($ |t#1|)) T)) NIL
+                                                  '(((|list| (% |t#1|)) T)) NIL
                                                   NIL NIL)))))))
            (SETELT #1# 0 (LIST '|ListAggregate| |t#1|))))) 

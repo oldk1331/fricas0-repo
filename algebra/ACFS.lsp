@@ -29,24 +29,24 @@
                                       (|Join| (|AlgebraicallyClosedField|)
                                               (|FunctionSpace| '|t#1|)
                                               (|mkCategory|
-                                               '(((|rootOf| ($ $)) T)
-                                                 ((|rootsOf| ((|List| $) $)) T)
-                                                 ((|rootOf| ($ $ (|Symbol|)))
+                                               '(((|rootOf| (% %)) T)
+                                                 ((|rootsOf| ((|List| %) %)) T)
+                                                 ((|rootOf| (% % (|Symbol|)))
                                                   T)
                                                  ((|rootsOf|
-                                                   ((|List| $) $ (|Symbol|)))
+                                                   ((|List| %) % (|Symbol|)))
                                                   T)
-                                                 ((|zeroOf| ($ $)) T)
-                                                 ((|zerosOf| ((|List| $) $)) T)
-                                                 ((|zeroOf| ($ $ (|Symbol|)))
+                                                 ((|zeroOf| (% %)) T)
+                                                 ((|zerosOf| ((|List| %) %)) T)
+                                                 ((|zeroOf| (% % (|Symbol|)))
                                                   T)
                                                  ((|zerosOf|
-                                                   ((|List| $) $ (|Symbol|)))
+                                                   ((|List| %) % (|Symbol|)))
                                                   T)
                                                  ((|rootSum|
-                                                   ($ $
+                                                   (% %
                                                     (|SparseUnivariatePolynomial|
-                                                     $)
+                                                     %)
                                                     (|Symbol|)))
                                                   T))
                                                '(((|RetractableTo|

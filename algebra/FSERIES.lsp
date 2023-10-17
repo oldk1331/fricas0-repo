@@ -1,84 +1,84 @@
 
-(SDEFUN |FSERIES;One;$;1| (($ ($)))
+(SDEFUN |FSERIES;One;%;1| ((% (%)))
         (LIST
-         (CONS (SPADCALL (|spadConstant| $ 12) (QREFELT $ 14))
-               (|spadConstant| $ 15)))) 
+         (CONS (SPADCALL (|spadConstant| % 12) (QREFELT % 14))
+               (|spadConstant| % 15)))) 
 
-(SDEFUN |FSERIES;coerce;Fc$;2| ((|e| (|FourierComponent| E)) ($ ($)))
+(SDEFUN |FSERIES;coerce;Fc%;2| ((|e| (|FourierComponent| E)) (% (%)))
         (SPROG ((#1=#:G126 NIL))
                (SEQ
                 (EXIT
                  (SEQ
                   (COND
-                   ((SPADCALL |e| (QREFELT $ 18))
+                   ((SPADCALL |e| (QREFELT % 18))
                     (COND
-                     ((SPADCALL (SPADCALL |e| (QREFELT $ 19)) (QREFELT $ 20))
-                      (EXIT (|spadConstant| $ 10))))))
+                     ((SPADCALL (SPADCALL |e| (QREFELT % 19)) (QREFELT % 20))
+                      (EXIT (|spadConstant| % 10))))))
                   (COND
-                   ((SPADCALL (SPADCALL |e| (QREFELT $ 19))
-                              (|spadConstant| $ 12) (QREFELT $ 21))
+                   ((SPADCALL (SPADCALL |e| (QREFELT % 19))
+                              (|spadConstant| % 12) (QREFELT % 21))
                     (COND
-                     ((NULL (SPADCALL |e| (QREFELT $ 18)))
+                     ((NULL (SPADCALL |e| (QREFELT % 18)))
                       (LETT |e|
                             (SPADCALL
-                             (SPADCALL (SPADCALL |e| (QREFELT $ 19))
-                                       (QREFELT $ 22))
-                             (QREFELT $ 14))))
+                             (SPADCALL (SPADCALL |e| (QREFELT % 19))
+                                       (QREFELT % 22))
+                             (QREFELT % 14))))
                      ('T
                       (PROGN
                        (LETT #1#
                              (LIST
                               (CONS
                                (SPADCALL
-                                (SPADCALL (SPADCALL |e| (QREFELT $ 19))
-                                          (QREFELT $ 22))
-                                (QREFELT $ 23))
-                               (SPADCALL (|spadConstant| $ 15)
-                                         (QREFELT $ 24)))))
+                                (SPADCALL (SPADCALL |e| (QREFELT % 19))
+                                          (QREFELT % 22))
+                                (QREFELT % 23))
+                               (SPADCALL (|spadConstant| % 15)
+                                         (QREFELT % 24)))))
                        (GO #2=#:G125))))))
-                  (EXIT (LIST (CONS |e| (|spadConstant| $ 15))))))
+                  (EXIT (LIST (CONS |e| (|spadConstant| % 15))))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |FSERIES;multiply| ((|t1| (|Term|)) (|t2| (|Term|)) ($ ($)))
+(SDEFUN |FSERIES;multiply| ((|t1| (|Term|)) (|t2| (|Term|)) (% (%)))
         (SPROG ((|diff| (E)) (|sum| (E)) (|s2| (E)) (|s1| (E)) (|r| (R)))
                (SEQ
                 (LETT |r|
                       (SPADCALL
-                       (SPADCALL (QCDR |t1|) (QCDR |t2|) (QREFELT $ 27))
-                       (SPADCALL 1 2 (QREFELT $ 30)) (QREFELT $ 31)))
-                (LETT |s1| (SPADCALL (QCAR |t1|) (QREFELT $ 19)))
-                (LETT |s2| (SPADCALL (QCAR |t2|) (QREFELT $ 19)))
-                (LETT |sum| (SPADCALL |s1| |s2| (QREFELT $ 32)))
-                (LETT |diff| (SPADCALL |s1| |s2| (QREFELT $ 33)))
+                       (SPADCALL (QCDR |t1|) (QCDR |t2|) (QREFELT % 27))
+                       (SPADCALL 1 2 (QREFELT % 30)) (QREFELT % 31)))
+                (LETT |s1| (SPADCALL (QCAR |t1|) (QREFELT % 19)))
+                (LETT |s2| (SPADCALL (QCAR |t2|) (QREFELT % 19)))
+                (LETT |sum| (SPADCALL |s1| |s2| (QREFELT % 32)))
+                (LETT |diff| (SPADCALL |s1| |s2| (QREFELT % 33)))
                 (EXIT
                  (COND
-                  ((SPADCALL (QCAR |t1|) (QREFELT $ 18))
+                  ((SPADCALL (QCAR |t1|) (QREFELT % 18))
                    (COND
-                    ((SPADCALL (QCAR |t2|) (QREFELT $ 18))
-                     (SPADCALL (SPADCALL |diff| |r| (QREFELT $ 34))
-                               (SPADCALL |sum| (SPADCALL |r| (QREFELT $ 24))
-                                         (QREFELT $ 34))
-                               (QREFELT $ 35)))
+                    ((SPADCALL (QCAR |t2|) (QREFELT % 18))
+                     (SPADCALL (SPADCALL |diff| |r| (QREFELT % 34))
+                               (SPADCALL |sum| (SPADCALL |r| (QREFELT % 24))
+                                         (QREFELT % 34))
+                               (QREFELT % 35)))
                     (#1='T
-                     (SPADCALL (SPADCALL |sum| |r| (QREFELT $ 36))
-                               (SPADCALL |diff| |r| (QREFELT $ 36))
-                               (QREFELT $ 35)))))
-                  ((SPADCALL (QCAR |t2|) (QREFELT $ 18))
-                   (SPADCALL (SPADCALL |sum| |r| (QREFELT $ 36))
-                             (SPADCALL |diff| |r| (QREFELT $ 36))
-                             (QREFELT $ 35)))
+                     (SPADCALL (SPADCALL |sum| |r| (QREFELT % 36))
+                               (SPADCALL |diff| |r| (QREFELT % 36))
+                               (QREFELT % 35)))))
+                  ((SPADCALL (QCAR |t2|) (QREFELT % 18))
+                   (SPADCALL (SPADCALL |sum| |r| (QREFELT % 36))
+                             (SPADCALL |diff| |r| (QREFELT % 36))
+                             (QREFELT % 35)))
                   (#1#
-                   (SPADCALL (SPADCALL |diff| |r| (QREFELT $ 34))
-                             (SPADCALL |sum| |r| (QREFELT $ 34))
-                             (QREFELT $ 35)))))))) 
+                   (SPADCALL (SPADCALL |diff| |r| (QREFELT % 34))
+                             (SPADCALL |sum| |r| (QREFELT % 34))
+                             (QREFELT % 35)))))))) 
 
-(SDEFUN |FSERIES;*;3$;4| ((|x1| ($)) (|x2| ($)) ($ ($)))
+(SDEFUN |FSERIES;*;3%;4| ((|x1| (%)) (|x2| (%)) (% (%)))
         (SPROG
-         ((#1=#:G132 NIL) (#2=#:G131 ($)) (#3=#:G133 ($)) (#4=#:G135 NIL)
-          (#5=#:G134 ($)) (#6=#:G136 ($)) (#7=#:G141 NIL) (|t2| NIL)
+         ((#1=#:G132 NIL) (#2=#:G131 (%)) (#3=#:G133 (%)) (#4=#:G135 NIL)
+          (#5=#:G134 (%)) (#6=#:G136 (%)) (#7=#:G141 NIL) (|t2| NIL)
           (#8=#:G140 NIL) (|t1| NIL))
          (SEQ
-          (COND ((OR (NULL |x1|) (NULL |x2|)) (|spadConstant| $ 10))
+          (COND ((OR (NULL |x1|) (NULL |x2|)) (|spadConstant| % 10))
                 ('T
                  (PROGN
                   (LETT #1# NIL)
@@ -102,39 +102,39 @@
                                         (PROGN
                                          (LETT #6#
                                                (|FSERIES;multiply| |t1| |t2|
-                                                $))
+                                                %))
                                          (COND
                                           (#4#
                                            (LETT #5#
                                                  (SPADCALL #5# #6#
-                                                           (QREFELT $ 35))))
+                                                           (QREFELT % 35))))
                                           ('T
                                            (PROGN
                                             (LETT #5# #6#)
                                             (LETT #4# 'T)))))))
                                       (LETT #7# (CDR #7#)) (GO G190) G191
                                       (EXIT NIL))
-                                 (COND (#4# #5#) ('T (|spadConstant| $ 10)))))
+                                 (COND (#4# #5#) ('T (|spadConstant| % 10)))))
                           (COND
-                           (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 35))))
+                           (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT % 35))))
                            ('T (PROGN (LETT #2# #3#) (LETT #1# 'T)))))))
                        (LETT #8# (CDR #8#)) (GO G190) G191 (EXIT NIL))
-                  (COND (#1# #2#) ('T (|spadConstant| $ 10))))))))) 
+                  (COND (#1# #2#) ('T (|spadConstant| % 10))))))))) 
 
-(SDEFUN |FSERIES;makeCos;ER$;5| ((|a| (E)) (|r| (R)) ($ ($)))
+(SDEFUN |FSERIES;makeCos;ER%;5| ((|a| (E)) (|r| (R)) (% (%)))
         (COND
-         ((SPADCALL |a| (|spadConstant| $ 12) (QREFELT $ 21))
+         ((SPADCALL |a| (|spadConstant| % 12) (QREFELT % 21))
           (LIST
-           (CONS (SPADCALL (SPADCALL |a| (QREFELT $ 22)) (QREFELT $ 14)) |r|)))
-         ('T (LIST (CONS (SPADCALL |a| (QREFELT $ 14)) |r|))))) 
+           (CONS (SPADCALL (SPADCALL |a| (QREFELT % 22)) (QREFELT % 14)) |r|)))
+         ('T (LIST (CONS (SPADCALL |a| (QREFELT % 14)) |r|))))) 
 
-(SDEFUN |FSERIES;makeSin;ER$;6| ((|a| (E)) (|r| (R)) ($ ($)))
-        (COND ((SPADCALL |a| (QREFELT $ 20)) NIL)
-              ((SPADCALL |a| (|spadConstant| $ 12) (QREFELT $ 21))
+(SDEFUN |FSERIES;makeSin;ER%;6| ((|a| (E)) (|r| (R)) (% (%)))
+        (COND ((SPADCALL |a| (QREFELT % 20)) NIL)
+              ((SPADCALL |a| (|spadConstant| % 12) (QREFELT % 21))
                (LIST
-                (CONS (SPADCALL (SPADCALL |a| (QREFELT $ 22)) (QREFELT $ 23))
-                      (SPADCALL |r| (QREFELT $ 24)))))
-              ('T (LIST (CONS (SPADCALL |a| (QREFELT $ 23)) |r|))))) 
+                (CONS (SPADCALL (SPADCALL |a| (QREFELT % 22)) (QREFELT % 23))
+                      (SPADCALL |r| (QREFELT % 24)))))
+              ('T (LIST (CONS (SPADCALL |a| (QREFELT % 23)) |r|))))) 
 
 (DECLAIM (NOTINLINE |FourierSeries;|)) 
 
@@ -157,14 +157,14 @@
                  ((NOT #2#) (HREM |$ConstructorCache| '|FourierSeries|)))))))))) 
 
 (DEFUN |FourierSeries;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|FourierSeries| DV$1 DV$2))
-          (LETT $ (GETREFV 45))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3
+          (LETT % (GETREFV 45))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
@@ -174,16 +174,16 @@
                                                (|HasCategory| |#2|
                                                               '(|Canonical|)))))))
           (|haddProp| |$ConstructorCache| '|FourierSeries| (LIST DV$1 DV$2)
-                      (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (QSETREFV $ 7 |#2|)
-          (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 8
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (QSETREFV % 7 |#2|)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 8
                     (|Record| (|:| |k| (|FourierComponent| |#2|))
                               (|:| |c| |#1|)))
-          (QSETREFV $ 9 (|List| (QREFELT $ 8)))
-          $))) 
+          (QSETREFV % 9 (|List| (QREFELT % 8)))
+          %))) 
 
 (MAKEPROP '|FourierSeries| '|infovec|
           (LIST
@@ -191,13 +191,13 @@
               (|local| |#2|) '|Term| '|Rep| (0 . |Zero|) (4 . |Zero|)
               (8 . |Zero|) (|FourierComponent| 7) (12 . |cos|) (17 . |One|)
               (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |FSERIES;One;$;1|) $))
+                    (FUNCALL (|dispatchFunction| |FSERIES;One;%;1|) %))
               (|Boolean|) (21 . |sin?|) (26 . |argument|) (31 . |zero?|)
               (36 . <) (42 . -) (47 . |sin|) (52 . -) (57 . -)
-              |FSERIES;coerce;Fc$;2| (62 . *) (|Integer|) (|Fraction| 28)
-              (68 . /) (74 . *) (80 . +) (86 . -) |FSERIES;makeCos;ER$;5|
-              (92 . +) |FSERIES;makeSin;ER$;6| |FSERIES;*;3$;4|
-              (|NonNegativeInteger|) (|Union| $ '"failed") (|PositiveInteger|)
+              |FSERIES;coerce;Fc%;2| (62 . *) (|Integer|) (|Fraction| 28)
+              (68 . /) (74 . *) (80 . +) (86 . -) |FSERIES;makeCos;ER%;5|
+              (92 . +) |FSERIES;makeSin;ER%;6| |FSERIES;*;3%;4|
+              (|NonNegativeInteger|) (|Union| % '"failed") (|PositiveInteger|)
               (|String|) (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#(~= 98 |zero?| 104 |subtractIfCan| 109 |sample| 115 |rightRecip|
               119 |rightPower| 124 |recip| 136 |opposite?| 141 |one?| 147

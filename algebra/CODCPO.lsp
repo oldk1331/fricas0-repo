@@ -25,7 +25,7 @@
                                                         (|mkCategory|
                                                          '(((|meet|
                                                              ((|NonNegativeInteger|)
-                                                              $
+                                                              %
                                                               (|NonNegativeInteger|)
                                                               (|NonNegativeInteger|)))
                                                             T))

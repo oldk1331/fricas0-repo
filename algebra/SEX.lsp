@@ -19,21 +19,21 @@
                  ((NOT #1#) (HREM |$ConstructorCache| '|SExpression|)))))))))) 
 
 (DEFUN |SExpression;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|SExpression|))
-          (LETT $ (GETREFV 16))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|SExpression| NIL (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+          (LETT % (GETREFV 16))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|SExpression| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|SExpression| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|SExpressionOf| 9 10 7 8) (|List| 7)
-              (|Integer|) (|DoubleFloat|) (|String|) (|Symbol|) (|List| $)
+              (|Integer|) (|DoubleFloat|) (|String|) (|Symbol|) (|List| %)
               (|Boolean|) (|HashState|) (|OutputForm|) (|SingleInteger|))
            '#() 'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))

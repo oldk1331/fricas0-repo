@@ -11,7 +11,7 @@
              (LETT #1#
                    (|Join| (|NonAssociativeRng|) (|SemiRng|)
                            (|mkCategory|
-                            '(((|annihilate?| ((|Boolean|) $ $)) T)) NIL NIL
+                            '(((|annihilate?| ((|Boolean|) % %)) T)) NIL NIL
                             NIL)))
            (SETELT #1# 0 '(|Rng|))))) 
 

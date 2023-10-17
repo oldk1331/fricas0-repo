@@ -11,7 +11,7 @@
          (PROG1
              (LETT #1#
                    (|Join| (|Group|) (|Finite|)
-                           (|mkCategory| '(((|order| ((|Integer|) $)) T)) NIL
+                           (|mkCategory| '(((|order| ((|Integer|) %)) T)) NIL
                                          NIL NIL)))
            (SETELT #1# 0 '(|FiniteGroup|))))) 
 

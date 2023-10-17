@@ -1,104 +1,104 @@
 
-(SDEFUN |EMR;divide;2$R;1|
-        ((|x| ($)) (|y| ($))
-         ($ (|Record| (|:| |quotient| . #1=($)) (|:| |remainder| . #1#))))
+(SDEFUN |EMR;divide;2%R;1|
+        ((|x| (%)) (|y| (%))
+         (% (|Record| (|:| |quotient| . #1=(%)) (|:| |remainder| . #1#))))
         (SPROG
          ((|r| (|Record| (|:| |quotient| R) (|:| |remainder| R))) (|yv| (R))
           (|invlcy| (R)) (|xm| (|Mod|)) (|t| (|Union| |Mod| "failed")))
-         (SEQ (LETT |t| (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 10)))
+         (SEQ (LETT |t| (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT % 10)))
               (EXIT
                (COND ((QEQCAR |t| 1) (|error| "incompatible moduli"))
                      (#2='T
                       (SEQ (LETT |xm| (QCDR |t|)) (LETT |yv| (QCAR |y|))
                            (COND
-                            ((SPADCALL (SPADCALL |yv| (QREFELT $ 13))
-                                       (|spadConstant| $ 14) (QREFELT $ 16))
-                             (LETT |invlcy| (|spadConstant| $ 17)))
+                            ((SPADCALL (SPADCALL |yv| (QREFELT % 13))
+                                       (|spadConstant| % 14) (QREFELT % 16))
+                             (LETT |invlcy| (|spadConstant| % 17)))
                             (#2#
                              (SEQ
                               (LETT |invlcy|
                                     (QCAR
                                      (SPADCALL
                                       (SPADCALL
-                                       (SPADCALL (SPADCALL |yv| (QREFELT $ 13))
-                                                 (QREFELT $ 18))
-                                       |xm| (QREFELT $ 19))
-                                      (QREFELT $ 20))))
+                                       (SPADCALL (SPADCALL |yv| (QREFELT % 13))
+                                                 (QREFELT % 18))
+                                       |xm| (QREFELT % 19))
+                                      (QREFELT % 20))))
                               (EXIT
                                (LETT |yv|
                                      (SPADCALL
-                                      (SPADCALL |invlcy| |yv| (QREFELT $ 21))
-                                      |xm| (QREFELT $ 9)))))))
-                           (LETT |r| (SPADCALL (QCAR |x|) |yv| (QREFELT $ 23)))
+                                      (SPADCALL |invlcy| |yv| (QREFELT % 21))
+                                      |xm| (QREFELT % 9)))))))
+                           (LETT |r| (SPADCALL (QCAR |x|) |yv| (QREFELT % 23)))
                            (EXIT
                             (CONS
                              (SPADCALL
-                              (SPADCALL |invlcy| (QCAR |r|) (QREFELT $ 21))
-                              |xm| (QREFELT $ 19))
-                             (SPADCALL (QCDR |r|) |xm| (QREFELT $ 19))))))))))) 
+                              (SPADCALL |invlcy| (QCAR |r|) (QREFELT % 21))
+                              |xm| (QREFELT % 19))
+                             (SPADCALL (QCDR |r|) |xm| (QREFELT % 19))))))))))) 
 
-(SDEFUN |EMR;rem;3$;2| ((|x| ($)) (|y| ($)) ($ ($)))
+(SDEFUN |EMR;rem;3%;2| ((|x| (%)) (|y| (%)) (% (%)))
         (SPROG
          ((#1=#:G167 NIL) (|xv| (R)) (#2=#:G160 NIL) (|xvl| (R))
           (|d| (|Integer|)) (|dy| (|NonNegativeInteger|)) (|yv| (R))
           (|invlcy| (R)) (|xm| (|Mod|)) (|t| (|Union| |Mod| "failed")))
          (SEQ
           (EXIT
-           (SEQ (LETT |t| (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 10)))
+           (SEQ (LETT |t| (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT % 10)))
                 (EXIT
                  (COND ((QEQCAR |t| 1) (|error| "incompatible moduli"))
                        ('T
                         (SEQ (LETT |xm| (QCDR |t|)) (LETT |yv| (QCAR |y|))
                              (COND
                               ((NULL
-                                (SPADCALL (SPADCALL |yv| (QREFELT $ 13))
-                                          (|spadConstant| $ 14)
-                                          (QREFELT $ 16)))
+                                (SPADCALL (SPADCALL |yv| (QREFELT % 13))
+                                          (|spadConstant| % 14)
+                                          (QREFELT % 16)))
                                (SEQ
                                 (LETT |invlcy|
                                       (QCAR
                                        (SPADCALL
                                         (SPADCALL
                                          (SPADCALL
-                                          (SPADCALL |yv| (QREFELT $ 13))
-                                          (QREFELT $ 18))
-                                         |xm| (QREFELT $ 19))
-                                        (QREFELT $ 20))))
+                                          (SPADCALL |yv| (QREFELT % 13))
+                                          (QREFELT % 18))
+                                         |xm| (QREFELT % 19))
+                                        (QREFELT % 20))))
                                 (EXIT
                                  (LETT |yv|
                                        (SPADCALL
-                                        (SPADCALL |invlcy| |yv| (QREFELT $ 21))
-                                        |xm| (QREFELT $ 9)))))))
-                             (LETT |dy| (SPADCALL |yv| (QREFELT $ 26)))
+                                        (SPADCALL |invlcy| |yv| (QREFELT % 21))
+                                        |xm| (QREFELT % 9)))))))
+                             (LETT |dy| (SPADCALL |yv| (QREFELT % 26)))
                              (LETT |xv| (QCAR |x|))
                              (SEQ G190
                                   (COND
                                    ((NULL
                                      (>=
                                       (LETT |d|
-                                            (- (SPADCALL |xv| (QREFELT $ 26))
+                                            (- (SPADCALL |xv| (QREFELT % 26))
                                                |dy|))
                                       0))
                                     (GO G191)))
                                   (SEQ
                                    (LETT |xvl|
                                          (SPADCALL
-                                          (SPADCALL |xv| (QREFELT $ 27)) |xm|
-                                          (QREFELT $ 9)))
+                                          (SPADCALL |xv| (QREFELT % 27)) |xm|
+                                          (QREFELT % 9)))
                                    (EXIT
                                     (COND
-                                     ((SPADCALL |xvl| (|spadConstant| $ 30)
-                                                (QREFELT $ 31))
+                                     ((SPADCALL |xvl| (|spadConstant| % 30)
+                                                (QREFELT % 31))
                                       (LETT |xv|
-                                            (SPADCALL |xv| (QREFELT $ 32))))
+                                            (SPADCALL |xv| (QREFELT % 32))))
                                      ('T
                                       (SEQ
                                        (LETT |xv|
                                              (SPADCALL |xvl|
                                                        (SPADCALL |xv|
-                                                                 (QREFELT $
+                                                                 (QREFELT %
                                                                           32))
-                                                       (QREFELT $ 33)))
+                                                       (QREFELT % 33)))
                                        (LETT |xv|
                                              (SPADCALL |xv|
                                                        (PROG1 (LETT #2# |d|)
@@ -107,107 +107,107 @@
                                                           '(|NonNegativeInteger|)
                                                           '(|Integer|) #2#))
                                                        (SPADCALL |xv|
-                                                                 (QREFELT $
+                                                                 (QREFELT %
                                                                           13))
-                                                       |yv| (QREFELT $ 34)))
+                                                       |yv| (QREFELT % 34)))
                                        (EXIT
                                         (COND
-                                         ((SPADCALL |xv| (|spadConstant| $ 30)
-                                                    (QREFELT $ 31))
+                                         ((SPADCALL |xv| (|spadConstant| % 30)
+                                                    (QREFELT % 31))
                                           (PROGN
                                            (LETT #1# (CONS |xv| |xm|))
                                            (GO #3=#:G166))))))))))
                                   NIL (GO G190) G191 (EXIT NIL))
                              (EXIT
-                              (CONS (SPADCALL |xv| |xm| (QREFELT $ 9))
+                              (CONS (SPADCALL |xv| |xm| (QREFELT % 9))
                                     |xm|))))))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |EMR;rem;3$;3| ((|x| ($)) (|y| ($)) ($ ($)))
+(SDEFUN |EMR;rem;3%;3| ((|x| (%)) (|y| (%)) (% (%)))
         (SPROG
          ((|r| (|Record| (|:| |quotient| R) (|:| |remainder| R))) (|yv| (R))
           (|invlcy| (R)) (|xm| (|Mod|)) (|t| (|Union| |Mod| "failed")))
-         (SEQ (LETT |t| (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 10)))
+         (SEQ (LETT |t| (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT % 10)))
               (EXIT
                (COND ((QEQCAR |t| 1) (|error| "incompatible moduli"))
                      ('T
                       (SEQ (LETT |xm| (QCDR |t|)) (LETT |yv| (QCAR |y|))
                            (COND
                             ((NULL
-                              (SPADCALL (SPADCALL |yv| (QREFELT $ 13))
-                                        (|spadConstant| $ 14) (QREFELT $ 16)))
+                              (SPADCALL (SPADCALL |yv| (QREFELT % 13))
+                                        (|spadConstant| % 14) (QREFELT % 16)))
                              (SEQ
                               (LETT |invlcy|
                                     (QCAR
                                      (SPADCALL
                                       (SPADCALL
-                                       (SPADCALL (SPADCALL |yv| (QREFELT $ 13))
-                                                 (QREFELT $ 18))
-                                       |xm| (QREFELT $ 19))
-                                      (QREFELT $ 20))))
+                                       (SPADCALL (SPADCALL |yv| (QREFELT % 13))
+                                                 (QREFELT % 18))
+                                       |xm| (QREFELT % 19))
+                                      (QREFELT % 20))))
                               (EXIT
                                (LETT |yv|
                                      (SPADCALL
-                                      (SPADCALL |invlcy| |yv| (QREFELT $ 21))
-                                      |xm| (QREFELT $ 9)))))))
-                           (LETT |r| (SPADCALL (QCAR |x|) |yv| (QREFELT $ 23)))
+                                      (SPADCALL |invlcy| |yv| (QREFELT % 21))
+                                      |xm| (QREFELT % 9)))))))
+                           (LETT |r| (SPADCALL (QCAR |x|) |yv| (QREFELT % 23)))
                            (EXIT
-                            (SPADCALL (QCDR |r|) |xm| (QREFELT $ 19)))))))))) 
+                            (SPADCALL (QCDR |r|) |xm| (QREFELT % 19)))))))))) 
 
-(SDEFUN |EMR;euclideanSize;$Nni;4| ((|x| ($)) ($ (|NonNegativeInteger|)))
-        (SPADCALL (QCAR |x|) (QREFELT $ 26))) 
+(SDEFUN |EMR;euclideanSize;%Nni;4| ((|x| (%)) (% (|NonNegativeInteger|)))
+        (SPADCALL (QCAR |x|) (QREFELT % 26))) 
 
-(SDEFUN |EMR;unitCanonical;2$;5| ((|x| ($)) ($ ($)))
-        (SPROG ((|invlcx| ($)))
+(SDEFUN |EMR;unitCanonical;2%;5| ((|x| (%)) (% (%)))
+        (SPROG ((|invlcx| (%)))
                (SEQ
-                (COND ((SPADCALL |x| (QREFELT $ 37)) |x|)
-                      ((EQL (SPADCALL (QCAR |x|) (QREFELT $ 26)) 0)
-                       (|spadConstant| $ 38))
-                      ((SPADCALL (SPADCALL (QCAR |x|) (QREFELT $ 13))
-                                 (|spadConstant| $ 14) (QREFELT $ 16))
+                (COND ((SPADCALL |x| (QREFELT % 37)) |x|)
+                      ((EQL (SPADCALL (QCAR |x|) (QREFELT % 26)) 0)
+                       (|spadConstant| % 38))
+                      ((SPADCALL (SPADCALL (QCAR |x|) (QREFELT % 13))
+                                 (|spadConstant| % 14) (QREFELT % 16))
                        |x|)
                       ('T
                        (SEQ
                         (LETT |invlcx|
                               (SPADCALL
                                (SPADCALL
-                                (SPADCALL (SPADCALL (QCAR |x|) (QREFELT $ 13))
-                                          (QREFELT $ 18))
-                                (QCDR |x|) (QREFELT $ 19))
-                               (QREFELT $ 20)))
-                        (EXIT (SPADCALL |invlcx| |x| (QREFELT $ 39))))))))) 
+                                (SPADCALL (SPADCALL (QCAR |x|) (QREFELT % 13))
+                                          (QREFELT % 18))
+                                (QCDR |x|) (QREFELT % 19))
+                               (QREFELT % 20)))
+                        (EXIT (SPADCALL |invlcx| |x| (QREFELT % 39))))))))) 
 
-(SDEFUN |EMR;unitNormal;$R;6|
-        ((|x| ($))
-         ($
-          (|Record| (|:| |unit| . #1=($)) (|:| |canonical| . #1#)
+(SDEFUN |EMR;unitNormal;%R;6|
+        ((|x| (%))
+         (%
+          (|Record| (|:| |unit| . #1=(%)) (|:| |canonical| . #1#)
                     (|:| |associate| . #1#))))
-        (SPROG ((|invlcx| ($)) (|lcx| ($)))
+        (SPROG ((|invlcx| (%)) (|lcx| (%)))
                (SEQ
                 (COND
-                 ((OR (SPADCALL |x| (QREFELT $ 37))
-                      (SPADCALL (SPADCALL (QCAR |x|) (QREFELT $ 13))
-                                (|spadConstant| $ 14) (QREFELT $ 16)))
-                  (VECTOR (|spadConstant| $ 38) |x| (|spadConstant| $ 38)))
+                 ((OR (SPADCALL |x| (QREFELT % 37))
+                      (SPADCALL (SPADCALL (QCAR |x|) (QREFELT % 13))
+                                (|spadConstant| % 14) (QREFELT % 16)))
+                  (VECTOR (|spadConstant| % 38) |x| (|spadConstant| % 38)))
                  ('T
                   (SEQ
                    (LETT |lcx|
                          (SPADCALL
-                          (SPADCALL (SPADCALL (QCAR |x|) (QREFELT $ 13))
-                                    (QREFELT $ 18))
-                          (QCDR |x|) (QREFELT $ 19)))
-                   (LETT |invlcx| (SPADCALL |lcx| (QREFELT $ 20)))
+                          (SPADCALL (SPADCALL (QCAR |x|) (QREFELT % 13))
+                                    (QREFELT % 18))
+                          (QCDR |x|) (QREFELT % 19)))
+                   (LETT |invlcx| (SPADCALL |lcx| (QREFELT % 20)))
                    (EXIT
                     (COND
-                     ((EQL (SPADCALL (QCAR |x|) (QREFELT $ 26)) 0)
-                      (VECTOR |lcx| (|spadConstant| $ 38) |invlcx|))
+                     ((EQL (SPADCALL (QCAR |x|) (QREFELT % 26)) 0)
+                      (VECTOR |lcx| (|spadConstant| % 38) |invlcx|))
                      ('T
-                      (VECTOR |lcx| (SPADCALL |invlcx| |x| (QREFELT $ 39))
+                      (VECTOR |lcx| (SPADCALL |invlcx| |x| (QREFELT % 39))
                               |invlcx|)))))))))) 
 
-(SDEFUN |EMR;elt;$2R;7| ((|x| ($)) (|s| (R)) ($ (R)))
-        (SPADCALL (SPADCALL (QCAR |x|) |s| (QREFELT $ 43)) (QCDR |x|)
-                  (QREFELT $ 9))) 
+(SDEFUN |EMR;elt;%2R;7| ((|x| (%)) (|s| (R)) (% (R)))
+        (SPADCALL (SPADCALL (QCAR |x|) |s| (QREFELT % 43)) (QCDR |x|)
+                  (QREFELT % 9))) 
 
 (DECLAIM (NOTINLINE |EuclideanModularRing;|)) 
 
@@ -232,7 +232,7 @@
 
 (DEFUN |EuclideanModularRing;| (|#1| |#2| |#3| |#4| |#5| |#6|)
   (SPROG
-   ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$6 NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL)
+   ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$6 NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL)
     (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
@@ -242,53 +242,53 @@
     (LETT DV$5 |#5|)
     (LETT DV$6 |#6|)
     (LETT |dv$| (LIST '|EuclideanModularRing| DV$1 DV$2 DV$3 DV$4 DV$5 DV$6))
-    (LETT $ (GETREFV 60))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+    (LETT % (GETREFV 60))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|EuclideanModularRing|
-                (LIST DV$1 DV$2 DV$3 DV$4 DV$5 DV$6) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (QSETREFV $ 8 |#3|)
-    (QSETREFV $ 9 |#4|)
-    (QSETREFV $ 10 |#5|)
-    (QSETREFV $ 11 |#6|)
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 12 (|Record| (|:| |val| |#2|) (|:| |modulo| |#3|)))
+                (LIST DV$1 DV$2 DV$3 DV$4 DV$5 DV$6) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (QSETREFV % 8 |#3|)
+    (QSETREFV % 9 |#4|)
+    (QSETREFV % 10 |#5|)
+    (QSETREFV % 11 |#6|)
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 12 (|Record| (|:| |val| |#2|) (|:| |modulo| |#3|)))
     (COND
      ((|HasSignature| |#2|
                       (LIST '|fmecg|
                             (LIST (|devaluate| |#2|) (|devaluate| |#2|)
                                   '(|NonNegativeInteger|) (|devaluate| |#1|)
                                   (|devaluate| |#2|))))
-      (QSETREFV $ 35 (CONS (|dispatchFunction| |EMR;rem;3$;2|) $)))
-     ('T (QSETREFV $ 35 (CONS (|dispatchFunction| |EMR;rem;3$;3|) $))))
-    $))) 
+      (QSETREFV % 35 (CONS (|dispatchFunction| |EMR;rem;3%;2|) %)))
+     ('T (QSETREFV % 35 (CONS (|dispatchFunction| |EMR;rem;3%;3|) %))))
+    %))) 
 
 (MAKEPROP '|EuclideanModularRing| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL
-              (|ModularRing| 7 8 (NRTEVAL (QREFELT $ 9))
-                             (NRTEVAL (QREFELT $ 10)) (NRTEVAL (QREFELT $ 11)))
+              (|ModularRing| 7 8 (NRTEVAL (QREFELT % 9))
+                             (NRTEVAL (QREFELT % 10)) (NRTEVAL (QREFELT % 11)))
               (|local| |#1|) (|local| |#2|) (|local| |#3|) (|local| |#4|)
               (|local| |#5|) (|local| |#6|) '|Rep| (0 . |leadingCoefficient|)
               (5 . |One|) (|Boolean|) (9 . =) (15 . |One|) (19 . |coerce|)
               (24 . |reduce|) (30 . |inv|) (35 . *)
-              (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (41 . |monicDivide|) |EMR;divide;2$R;1| (|NonNegativeInteger|)
+              (|Record| (|:| |quotient| %) (|:| |remainder| %))
+              (41 . |monicDivide|) |EMR;divide;2%R;1| (|NonNegativeInteger|)
               (47 . |degree|) (52 . |leadingMonomial|) (57 . |Zero|)
               (61 . |Zero|) (65 . |Zero|) (69 . =) (75 . |reductum|) (80 . +)
-              (86 . |fmecg|) (94 . |rem|) |EMR;euclideanSize;$Nni;4|
-              (100 . |zero?|) (105 . |One|) (109 . *) |EMR;unitCanonical;2$;5|
-              (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              |EMR;unitNormal;$R;6| (115 . |elt|) |EMR;elt;$2R;7|
-              (|Union| $ '"failed") (|Union| 47 '#1="failed") (|List| $)
-              (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 49 '#1#)
-              (|SparseUnivariatePolynomial| $)
-              (|Record| (|:| |coef| 47) (|:| |generator| $))
-              (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
+              (86 . |fmecg|) (94 . |rem|) |EMR;euclideanSize;%Nni;4|
+              (100 . |zero?|) (105 . |One|) (109 . *) |EMR;unitCanonical;2%;5|
+              (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
+              |EMR;unitNormal;%R;6| (115 . |elt|) |EMR;elt;%2R;7|
+              (|Union| % '"failed") (|Union| 47 '#1="failed") (|List| %)
+              (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
+              (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 49 '#1#)
+              (|SparseUnivariatePolynomial| %)
+              (|Record| (|:| |coef| 47) (|:| |generator| %))
+              (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
               (|Integer|) (|PositiveInteger|) (|HashState|) (|String|)
               (|OutputForm|) (|SingleInteger|))
            '#(|zero?| 121 |unitNormal| 126 |unitCanonical| 131 |rem| 136

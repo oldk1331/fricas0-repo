@@ -1,35 +1,35 @@
 
-(SDEFUN |BTOURN;binaryTournament;L$;1| ((|u| (|List| S)) ($ ($)))
-        (SPROG ((#1=#:G112 NIL) (|x| NIL) (|tree| ($)))
+(SDEFUN |BTOURN;binaryTournament;L%;1| ((|u| (|List| S)) (% (%)))
+        (SPROG ((#1=#:G112 NIL) (|x| NIL) (|tree| (%)))
                (SEQ
-                (COND ((NULL |u|) (SPADCALL (QREFELT $ 8)))
+                (COND ((NULL |u|) (SPADCALL (QREFELT % 8)))
                       ('T
                        (SEQ
                         (LETT |tree|
-                              (SPADCALL (|SPADfirst| |u|) (QREFELT $ 9)))
+                              (SPADCALL (|SPADfirst| |u|) (QREFELT % 9)))
                         (SEQ (LETT |x| NIL) (LETT #1# (CDR |u|)) G190
                              (COND
                               ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
                                (GO G191)))
-                             (SEQ (EXIT (SPADCALL |x| |tree| (QREFELT $ 10))))
+                             (SEQ (EXIT (SPADCALL |x| |tree| (QREFELT % 10))))
                              (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                         (EXIT |tree|))))))) 
 
-(SDEFUN |BTOURN;insert!;S2$;2| ((|x| (S)) (|t| ($)) ($ ($)))
+(SDEFUN |BTOURN;insert!;S2%;2| ((|x| (S)) (|t| (%)) (% (%)))
         (SEQ
-         (COND ((SPADCALL |t| (QREFELT $ 14)) (SPADCALL |x| (QREFELT $ 9)))
-               ((SPADCALL |x| (SPADCALL |t| (QREFELT $ 15)) (QREFELT $ 16))
+         (COND ((SPADCALL |t| (QREFELT % 14)) (SPADCALL |x| (QREFELT % 9)))
+               ((SPADCALL |x| (SPADCALL |t| (QREFELT % 15)) (QREFELT % 16))
                 (SEQ
-                 (SPADCALL |t| (SPADCALL |t| (QREFELT $ 17)) (QREFELT $ 18))
-                 (SPADCALL |t| |x| (QREFELT $ 19))
+                 (SPADCALL |t| (SPADCALL |t| (QREFELT % 17)) (QREFELT % 18))
+                 (SPADCALL |t| |x| (QREFELT % 19))
                  (EXIT
-                  (SPADCALL |t| (SPADCALL (QREFELT $ 8)) (QREFELT $ 20)))))
+                  (SPADCALL |t| (SPADCALL (QREFELT % 8)) (QREFELT % 20)))))
                ('T
                 (SEQ
                  (SPADCALL |t|
-                           (SPADCALL |x| (SPADCALL |t| (QREFELT $ 21))
-                                     (QREFELT $ 10))
-                           (QREFELT $ 20))
+                           (SPADCALL |x| (SPADCALL |t| (QREFELT % 21))
+                                     (QREFELT % 10))
+                           (QREFELT % 20))
                  (EXIT |t|)))))) 
 
 (DECLAIM (NOTINLINE |BinaryTournament;|)) 
@@ -53,14 +53,14 @@
 
 (DEFUN |BinaryTournament;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G121 NIL) (#2=#:G122 NIL) (#3=#:G123 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G121 NIL) (#2=#:G122 NIL) (#3=#:G123 NIL) (% NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|BinaryTournament| DV$1))
-    (LETT $ (GETREFV 37))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 37))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -89,31 +89,31 @@
                                                                   (|devaluate|
                                                                    |#1|)))
                                              #3#))))))
-    (|haddProp| |$ConstructorCache| '|BinaryTournament| (LIST DV$1) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 128))
+    (|haddProp| |$ConstructorCache| '|BinaryTournament| (LIST DV$1) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (AND (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 128))
     (AND (|HasCategory| |#1| '(|OrderedSet|))
-         (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 256))
-    (AND #2# (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 512))
-    (AND (OR (AND #2# (|HasCategory| $ '(|finiteAggregate|))) #3#)
-         (|augmentPredVector| $ 1024))
-    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 2048))
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 7 (|BinaryTree| |#1|))
-    $))) 
+         (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 256))
+    (AND #2# (|HasCategory| % '(|finiteAggregate|))
+         (|augmentPredVector| % 512))
+    (AND (OR (AND #2# (|HasCategory| % '(|finiteAggregate|))) #3#)
+         (|augmentPredVector| % 1024))
+    (AND (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 2048))
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 7 (|BinaryTree| |#1|))
+    %))) 
 
 (MAKEPROP '|BinaryTournament| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|BinaryTree| 6) (|local| |#1|) '|Rep|
-              (0 . |empty|) (4 . |binaryTree|) |BTOURN;insert!;S2$;2|
-              (|List| 6) |BTOURN;binaryTournament;L$;1| (|Boolean|)
+              (0 . |empty|) (4 . |binaryTree|) |BTOURN;insert!;S2%;2|
+              (|List| 6) |BTOURN;binaryTournament;L%;1| (|Boolean|)
               (9 . |empty?|) (14 . |value|) (19 . >) (25 . |copy|)
               (30 . |setleft!|) (36 . |setvalue!|) (42 . |setright!|)
               (48 . |right|) (|NonNegativeInteger|) (|List| 24) (|Equation| 6)
               (|Mapping| 13 6 6) (|Mapping| 13 6) '"right" '"left" '"value"
-              (|List| $) (|Mapping| 6 6) (|OutputForm|) (|SingleInteger|)
+              (|List| %) (|Mapping| 6 6) (|OutputForm|) (|SingleInteger|)
               (|String|) (|HashState|) (|Integer|))
            '#(~= 53 |value| 59 |size?| 64 |setvalue!| 70 |setright!| 76
               |setleft!| 82 |setelt!| 88 |setchildren!| 109 |sample| 115

@@ -1,5 +1,5 @@
 
-(SDEFUN |COMM;=;2$B;1| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
+(SDEFUN |COMM;=;2%B;1| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (SPROG ((|yy| (P)) (|xx| (P)))
                (SEQ
                 (COND
@@ -8,7 +8,7 @@
                    ((QEQCAR |y| 0)
                     (EXIT
                      (SPADCALL (CONS 0 (QCDR |x|)) (CONS 0 (QCDR |y|))
-                               (QREFELT $ 9)))))))
+                               (QREFELT % 9)))))))
                 (COND
                  ((QEQCAR |x| 1)
                   (COND
@@ -17,28 +17,28 @@
                      (SEQ (LETT |xx| (QCDR |x|)) (LETT |yy| (QCDR |y|))
                           (EXIT
                            (COND
-                            ((SPADCALL (QCDR |xx|) (QCDR |yy|) (QREFELT $ 9))
-                             (SPADCALL (QCAR |xx|) (QCAR |yy|) (QREFELT $ 9)))
+                            ((SPADCALL (QCDR |xx|) (QCDR |yy|) (QREFELT % 9))
+                             (SPADCALL (QCAR |xx|) (QCAR |yy|) (QREFELT % 9)))
                             ('T NIL)))))))))
                 (EXIT NIL)))) 
 
-(SDEFUN |COMM;mkcomm;I$;2| ((|i| (|Integer|)) ($ ($)))
-        (CONS 0 (SPADCALL |i| (QREFELT $ 12)))) 
+(SDEFUN |COMM;mkcomm;I%;2| ((|i| (|Integer|)) (% (%)))
+        (CONS 0 (SPADCALL |i| (QREFELT % 12)))) 
 
-(SDEFUN |COMM;mkcomm;3$;3| ((|x| ($)) (|y| ($)) ($ ($)))
+(SDEFUN |COMM;mkcomm;3%;3| ((|x| (%)) (|y| (%)) (% (%)))
         (CONS 1 (CONS |x| |y|))) 
 
-(SDEFUN |COMM;coerce;$Of;4| ((|x| ($)) ($ (|OutputForm|)))
+(SDEFUN |COMM;coerce;%Of;4| ((|x| (%)) (% (|OutputForm|)))
         (SPROG ((|xx| (P)))
                (SEQ
-                (COND ((QEQCAR |x| 0) (SPADCALL (QCDR |x|) (QREFELT $ 16)))
+                (COND ((QEQCAR |x| 0) (SPADCALL (QCDR |x|) (QREFELT % 16)))
                       ('T
                        (SEQ (LETT |xx| (QCDR |x|))
                             (EXIT
                              (SPADCALL
-                              (LIST (SPADCALL (QCAR |xx|) (QREFELT $ 17))
-                                    (SPADCALL (QCDR |xx|) (QREFELT $ 17)))
-                              (QREFELT $ 19))))))))) 
+                              (LIST (SPADCALL (QCAR |xx|) (QREFELT % 17))
+                                    (SPADCALL (QCDR |xx|) (QREFELT % 17)))
+                              (QREFELT % 19))))))))) 
 
 (DECLAIM (NOTINLINE |Commutator;|)) 
 
@@ -60,25 +60,25 @@
                  ((NOT #1#) (HREM |$ConstructorCache| '|Commutator|)))))))))) 
 
 (DEFUN |Commutator;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|Commutator|))
-          (LETT $ (GETREFV 23))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|Commutator| NIL (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 6 (|Record| (|:| |left| $) (|:| |right| $)))
-          (QSETREFV $ 7 (|Union| (|OrdSetInts|) (QREFELT $ 6)))
-          $))) 
+          (LETT % (GETREFV 23))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|Commutator| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6 (|Record| (|:| |left| %) (|:| |right| %)))
+          (QSETREFV % 7 (|Union| (|OrdSetInts|) (QREFELT % 6)))
+          %))) 
 
 (MAKEPROP '|Commutator| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL 'P '|Rep| (|Boolean|) |COMM;=;2$B;1|
-              (|Integer|) (|OrdSetInts|) (0 . |coerce|) |COMM;mkcomm;I$;2|
-              |COMM;mkcomm;3$;3| (|OutputForm|) (5 . |coerce|)
-              |COMM;coerce;$Of;4| (|List| $) (10 . |bracket|) (|HashState|)
+           '#(NIL NIL NIL NIL NIL NIL 'P '|Rep| (|Boolean|) |COMM;=;2%B;1|
+              (|Integer|) (|OrdSetInts|) (0 . |coerce|) |COMM;mkcomm;I%;2|
+              |COMM;mkcomm;3%;3| (|OutputForm|) (5 . |coerce|)
+              |COMM;coerce;%Of;4| (|List| %) (10 . |bracket|) (|HashState|)
               (|String|) (|SingleInteger|))
            '#(~= 15 |mkcomm| 21 |latex| 32 |hashUpdate!| 37 |hash| 43 |coerce|
               48 = 53)

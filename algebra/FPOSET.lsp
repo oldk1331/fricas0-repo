@@ -1,13 +1,13 @@
 
-(PUT '|FPOSET;finitePoset;LL$;1| '|SPADreplace| 'CONS) 
+(PUT '|FPOSET;finitePoset;LL%;1| '|SPADreplace| 'CONS) 
 
-(SDEFUN |FPOSET;finitePoset;LL$;1|
+(SDEFUN |FPOSET;finitePoset;LL%;1|
         ((|carrier| (|List| S)) (|struct1| (|List| (|List| (|Boolean|))))
-         ($ ($)))
+         (% (%)))
         (CONS |carrier| |struct1|)) 
 
-(SDEFUN |FPOSET;finitePoset;LM$;2|
-        ((|carrier| (|List| S)) (|pred| (|Mapping| (|Boolean|) S S)) ($ ($)))
+(SDEFUN |FPOSET;finitePoset;LM%;2|
+        ((|carrier| (|List| S)) (|pred| (|Mapping| (|Boolean|) S S)) (% (%)))
         (SPROG
          ((|struct1| (|List| (|List| (|Boolean|)))) (#1=#:G117 NIL) (|x| NIL)
           (#2=#:G116 NIL) (#3=#:G115 NIL) (|y| NIL) (#4=#:G114 NIL))
@@ -42,23 +42,23 @@
                       (EXIT (NREVERSE #4#)))))
           (EXIT (CONS |carrier| |struct1|))))) 
 
-(PUT '|FPOSET;getVert;$L;3| '|SPADreplace| 'QCAR) 
+(PUT '|FPOSET;getVert;%L;3| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |FPOSET;getVert;$L;3| ((|s| ($)) ($ (|List| S))) (QCAR |s|)) 
+(SDEFUN |FPOSET;getVert;%L;3| ((|s| (%)) (% (|List| S))) (QCAR |s|)) 
 
-(PUT '|FPOSET;getArr;$L;4| '|SPADreplace| 'QCDR) 
+(PUT '|FPOSET;getArr;%L;4| '|SPADreplace| 'QCDR) 
 
-(SDEFUN |FPOSET;getArr;$L;4| ((|s| ($)) ($ (|List| (|List| (|Boolean|)))))
+(SDEFUN |FPOSET;getArr;%L;4| ((|s| (%)) (% (|List| (|List| (|Boolean|)))))
         (QCDR |s|)) 
 
-(SDEFUN |FPOSET;setVert;$LV;5| ((|s| ($)) (|v| (|List| S)) ($ (|Void|)))
+(SDEFUN |FPOSET;setVert;%LV;5| ((|s| (%)) (|v| (|List| S)) (% (|Void|)))
         (SEQ (PROGN (RPLACA |s| |v|) (QCAR |s|))
-             (EXIT (SPADCALL (QREFELT $ 16))))) 
+             (EXIT (SPADCALL (QREFELT % 16))))) 
 
-(SDEFUN |FPOSET;setArr;$LV;6|
-        ((|s| ($)) (|v| (|List| (|List| (|Boolean|)))) ($ (|Void|)))
+(SDEFUN |FPOSET;setArr;%LV;6|
+        ((|s| (%)) (|v| (|List| (|List| (|Boolean|)))) (% (|Void|)))
         (SEQ (PROGN (RPLACD |s| |v|) (QCDR |s|))
-             (EXIT (SPADCALL (QREFELT $ 16))))) 
+             (EXIT (SPADCALL (QREFELT % 16))))) 
 
 (DECLAIM (NOTINLINE |FinitePoset;|)) 
 
@@ -79,35 +79,35 @@
                  ((NOT #2#) (HREM |$ConstructorCache| '|FinitePoset|)))))))))) 
 
 (DEFUN |FinitePoset;| (|#1|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|FinitePoset| DV$1))
-          (LETT $ (GETREFV 41))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (LETT % (GETREFV 41))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|FinitePoset| (LIST DV$1)
-                      (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 7
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 7
                     (|Record| (|:| |set1| (|List| |#1|))
                               (|:| |struct1| (|List| (|List| (|Boolean|))))))
-          $))) 
+          %))) 
 
 (MAKEPROP '|FinitePoset| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep| (|List| 6)
-              (|List| (|List| 20)) |FPOSET;finitePoset;LL$;1|
-              (|Mapping| 20 6 6) |FPOSET;finitePoset;LM$;2|
-              |FPOSET;getVert;$L;3| |FPOSET;getArr;$L;4| (|Void|) (0 . |void|)
-              |FPOSET;setVert;$LV;5| |FPOSET;setArr;$LV;6|
+              (|List| (|List| 20)) |FPOSET;finitePoset;LL%;1|
+              (|Mapping| 20 6 6) |FPOSET;finitePoset;LM%;2|
+              |FPOSET;getVert;%L;3| |FPOSET;getArr;%L;4| (|Void|) (0 . |void|)
+              |FPOSET;setVert;%LV;5| |FPOSET;setArr;%LV;6|
               (|IncidenceAlgebra| 24 6) (|Boolean|) (|NonNegativeInteger|)
               (|Union| 21 '"failed") (|List| 21) (|Integer|) (|String|)
-              (|List| $) (|Scene| (|SCartesian| '2)) (|Matrix| 24)
+              (|List| %) (|Scene| (|SCartesian| '2)) (|Matrix| 24)
               (|Matrix| 21) (|List| (|Loop|)) (|Tree| 24) (|List| 31)
-              (|DirectedGraph| $)
+              (|DirectedGraph| %)
               (|Record| (|:| |name| 25) (|:| |arrType| 21) (|:| |fromOb| 21)
                         (|:| |toOb| 21) (|:| |xOffset| 24) (|:| |yOffset| 24)
                         (|:| |map| 23))

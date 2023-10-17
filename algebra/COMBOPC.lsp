@@ -13,12 +13,12 @@
              (LETT #1#
                    (|Join| (|CombinatorialFunctionCategory|)
                            (|mkCategory|
-                            '(((|factorials| ($ $)) T)
-                              ((|factorials| ($ $ (|Symbol|))) T)
-                              ((|summation| ($ $ (|Symbol|))) T)
-                              ((|summation| ($ $ (|SegmentBinding| $))) T)
-                              ((|product| ($ $ (|Symbol|))) T)
-                              ((|product| ($ $ (|SegmentBinding| $))) T))
+                            '(((|factorials| (% %)) T)
+                              ((|factorials| (% % (|Symbol|))) T)
+                              ((|summation| (% % (|Symbol|))) T)
+                              ((|summation| (% % (|SegmentBinding| %))) T)
+                              ((|product| (% % (|Symbol|))) T)
+                              ((|product| (% % (|SegmentBinding| %))) T))
                             NIL NIL NIL)))
            (SETELT #1# 0 '(|CombinatorialOpsCategory|))))) 
 

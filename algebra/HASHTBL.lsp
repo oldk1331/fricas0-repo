@@ -1,34 +1,34 @@
 
-(PUT '|HASHTBL;keys;$L;1| '|SPADreplace| 'HKEYS) 
+(PUT '|HASHTBL;keys;%L;1| '|SPADreplace| 'HKEYS) 
 
-(SDEFUN |HASHTBL;keys;$L;1| ((|t| ($)) ($ (|List| |Key|))) (HKEYS |t|)) 
+(SDEFUN |HASHTBL;keys;%L;1| ((|t| (%)) (% (|List| |Key|))) (HKEYS |t|)) 
 
-(PUT '|HASHTBL;#;$Nni;2| '|SPADreplace| 'HCOUNT) 
+(PUT '|HASHTBL;#;%Nni;2| '|SPADreplace| 'HCOUNT) 
 
-(SDEFUN |HASHTBL;#;$Nni;2| ((|t| ($)) ($ (|NonNegativeInteger|))) (HCOUNT |t|)) 
+(SDEFUN |HASHTBL;#;%Nni;2| ((|t| (%)) (% (|NonNegativeInteger|))) (HCOUNT |t|)) 
 
-(PUT '|HASHTBL;setelt!;$Key2Entry;3| '|SPADreplace| 'HPUT) 
+(PUT '|HASHTBL;setelt!;%Key2Entry;3| '|SPADreplace| 'HPUT) 
 
-(SDEFUN |HASHTBL;setelt!;$Key2Entry;3|
-        ((|t| ($)) (|k| (|Key|)) (|e| (|Entry|)) ($ (|Entry|)))
+(SDEFUN |HASHTBL;setelt!;%Key2Entry;3|
+        ((|t| (%)) (|k| (|Key|)) (|e| (|Entry|)) (% (|Entry|)))
         (HPUT |t| |k| |e|)) 
 
-(SDEFUN |HASHTBL;remove!;Key$U;4|
-        ((|k| (|Key|)) (|t| ($)) ($ (|Union| |Entry| "failed")))
+(SDEFUN |HASHTBL;remove!;Key%U;4|
+        ((|k| (|Key|)) (|t| (%)) (% (|Union| |Entry| "failed")))
         (SPROG ((|r| (|None|)))
-               (SEQ (LETT |r| (HGET2 |t| |k| (QREFELT $ 9)))
+               (SEQ (LETT |r| (HGET2 |t| |k| (QREFELT % 9)))
                     (COND
-                     ((NULL (EQ |r| (QREFELT $ 9)))
+                     ((NULL (EQ |r| (QREFELT % 9)))
                       (EXIT (SEQ (HREM |t| |k|) (EXIT (CONS 0 |r|))))))
                     (EXIT (CONS 1 "failed"))))) 
 
-(SDEFUN |HASHTBL;empty;$;5| (($ ($))) (MAKE_HASHTABLE (INTERN (QREFELT $ 8)))) 
+(SDEFUN |HASHTBL;empty;%;5| ((% (%))) (MAKE_HASHTABLE (INTERN (QREFELT % 8)))) 
 
-(SDEFUN |HASHTBL;search;Key$U;6|
-        ((|k| (|Key|)) (|t| ($)) ($ (|Union| |Entry| "failed")))
+(SDEFUN |HASHTBL;search;Key%U;6|
+        ((|k| (|Key|)) (|t| (%)) (% (|Union| |Entry| "failed")))
         (SPROG ((|r| (|None|)))
-               (SEQ (LETT |r| (HGET2 |t| |k| (QREFELT $ 9)))
-                    (COND ((NULL (EQ |r| (QREFELT $ 9))) (EXIT (CONS 0 |r|))))
+               (SEQ (LETT |r| (HGET2 |t| |k| (QREFELT % 9)))
+                    (COND ((NULL (EQ |r| (QREFELT % 9))) (EXIT (CONS 0 |r|))))
                     (EXIT (CONS 1 "failed"))))) 
 
 (DECLAIM (NOTINLINE |HashTable;|)) 
@@ -53,15 +53,15 @@
 (DEFUN |HashTable;| (|#1| |#2| |#3|)
   (SPROG
    ((#1=#:G181 NIL) (#2=#:G180 NIL) (|pv$| NIL) (#3=#:G178 NIL) (#4=#:G179 NIL)
-    ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+    (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))
     (LETT DV$3 |#3|)
     (LETT |dv$| (LIST '|HashTable| DV$1 DV$2 DV$3))
-    (LETT $ (GETREFV 42))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 42))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -134,49 +134,49 @@
                                         (|HasCategory| |#2|
                                                        '(|OrderedSet|))))))
     (|haddProp| |$ConstructorCache| '|HashTable| (LIST DV$1 DV$2 DV$3)
-                (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (QSETREFV $ 8 |#3|)
-    (AND (LETT #2# (|HasCategory| $ '(|finiteAggregate|)))
-         (|augmentPredVector| $ 16384))
+                (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (QSETREFV % 8 |#3|)
+    (AND (LETT #2# (|HasCategory| % '(|finiteAggregate|)))
+         (|augmentPredVector| % 16384))
     (AND #2#
          (|HasCategory| (|Record| (|:| |key| |#1|) (|:| |entry| |#2|))
                         '(|OrderedSet|))
-         (|augmentPredVector| $ 32768))
+         (|augmentPredVector| % 32768))
     (AND #2#
          (|HasCategory| (|Record| (|:| |key| |#1|) (|:| |entry| |#2|))
                         '(|BasicType|))
-         (|augmentPredVector| $ 65536))
+         (|augmentPredVector| % 65536))
     (AND
      (LETT #1#
            (AND (|HasCategory| |#2| '(|BasicType|))
-                (|HasCategory| $ '(|finiteAggregate|))))
-     (|augmentPredVector| $ 131072))
+                (|HasCategory| % '(|finiteAggregate|))))
+     (|augmentPredVector| % 131072))
     (AND
      (OR #1# #4#
          (AND #2#
               (|HasCategory| (|Record| (|:| |key| |#1|) (|:| |entry| |#2|))
                              '(|BasicType|)))
          #3#)
-     (|augmentPredVector| $ 262144))
+     (|augmentPredVector| % 262144))
     (AND (|HasCategory| |#2| '(|OrderedSet|)) #2#
-         (|augmentPredVector| $ 524288))
-    (AND (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 1048576))
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 9 (GENSYM))
-    $))) 
+         (|augmentPredVector| % 524288))
+    (AND (|HasCategory| % '(|shallowlyMutable|))
+         (|augmentPredVector| % 1048576))
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 9 (GENSYM))
+    %))) 
 
 (MAKEPROP '|HashTable| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) '|failMsg| (|List| 6) |HASHTBL;keys;$L;1|
-              (|NonNegativeInteger|) |HASHTBL;#;$Nni;2|
-              |HASHTBL;setelt!;$Key2Entry;3| (|Union| 7 '"failed")
-              |HASHTBL;remove!;Key$U;4| |HASHTBL;empty;$;5|
-              |HASHTBL;search;Key$U;6| (|Record| (|:| |key| 6) (|:| |entry| 7))
+              (|local| |#3|) '|failMsg| (|List| 6) |HASHTBL;keys;%L;1|
+              (|NonNegativeInteger|) |HASHTBL;#;%Nni;2|
+              |HASHTBL;setelt!;%Key2Entry;3| (|Union| 7 '"failed")
+              |HASHTBL;remove!;Key%U;4| |HASHTBL;empty;%;5|
+              |HASHTBL;search;Key%U;6| (|Record| (|:| |key| 6) (|:| |entry| 7))
               (|List| 19) (|Equation| 19) (|List| 21) (|Mapping| 19 19 19)
               (|Boolean|) (|Equation| 7) (|List| 25) (|List| 7) (|OutputForm|)
               (|String|) (|SingleInteger|) (|HashState|) (|InputForm|)

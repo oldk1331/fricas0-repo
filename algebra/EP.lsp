@@ -3,38 +3,38 @@
         ((|a|
           (|Union| (|Fraction| (|Polynomial| R))
                    (|SuchThat| (|Symbol|) (|Polynomial| R))))
-         ($
+         (%
           (|Union| (|Fraction| (|Polynomial| R))
                    (|SparseUnivariatePolynomial|
                     (|Fraction| (|Polynomial| R))))))
         (COND ((QEQCAR |a| 0) (CONS 0 (QCDR |a|)))
               ('T
                (CONS 1
-                     (SPADCALL (ELT $ 9)
-                               (SPADCALL (SPADCALL (QCDR |a|) (QREFELT $ 11))
-                                         (SPADCALL (QCDR |a|) (QREFELT $ 13))
-                                         (QREFELT $ 15))
-                               (QREFELT $ 20)))))) 
+                     (SPADCALL (ELT % 9)
+                               (SPADCALL (SPADCALL (QCDR |a|) (QREFELT % 11))
+                                         (SPADCALL (QCDR |a|) (QREFELT % 13))
+                                         (QREFELT % 15))
+                               (QREFELT % 20)))))) 
 
 (SDEFUN |EP;get_x|
         ((|a|
           (|Union| (|Fraction| (|Polynomial| R))
                    (|SuchThat| (|Symbol|) (|Polynomial| R))))
-         ($ (|Symbol|)))
-        (COND ((QEQCAR |a| 0) (QREFELT $ 22))
-              ('T (SPADCALL (QCDR |a|) (QREFELT $ 13))))) 
+         (% (|Symbol|)))
+        (COND ((QEQCAR |a| 0) (QREFELT % 22))
+              ('T (SPADCALL (QCDR |a|) (QREFELT % 13))))) 
 
 (SDEFUN |EP;UP_to_F|
         ((|p| (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R))))
-         (|x| (|Symbol|)) ($ (|Fraction| (|Polynomial| R))))
-        (SPADCALL |p| (SPADCALL (SPADCALL |x| (QREFELT $ 23)) (QREFELT $ 9))
-                  (QREFELT $ 24))) 
+         (|x| (|Symbol|)) (% (|Fraction| (|Polynomial| R))))
+        (SPADCALL |p| (SPADCALL (SPADCALL |x| (QREFELT % 23)) (QREFELT % 9))
+                  (QREFELT % 24))) 
 
 (SDEFUN |EP;AV_to_M|
         ((|v|
           (|Vector|
            (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R)))))
-         (|x| (|Symbol|)) ($ (|Matrix| (|Fraction| (|Polynomial| R)))))
+         (|x| (|Symbol|)) (% (|Matrix| (|Fraction| (|Polynomial| R)))))
         (SPROG ((#1=#:G121 NIL) (|i| NIL) (#2=#:G120 NIL))
                (SEQ
                 (SPADCALL
@@ -48,31 +48,31 @@
                                (CONS
                                 (LIST
                                  (|EP;UP_to_F|
-                                  (SPADCALL |v| |i| (QREFELT $ 27)) |x| $))
+                                  (SPADCALL |v| |i| (QREFELT % 27)) |x| %))
                                 #2#))))
                        (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                        (EXIT (NREVERSE #2#))))
-                 (QREFELT $ 30))))) 
+                 (QREFELT % 30))))) 
 
 (SDEFUN |EP;characteristicPolynomial;MSP;5|
         ((|m| (|Matrix| (|Fraction| (|Polynomial| R)))) (|x| (|Symbol|))
-         ($ (|Polynomial| R)))
+         (% (|Polynomial| R)))
         (SPADCALL
-         (SPADCALL (SPADCALL |m| (QREFELT $ 32))
-                   (SPADCALL (SPADCALL |x| (QREFELT $ 23)) (QREFELT $ 9))
-                   (QREFELT $ 24))
-         (QREFELT $ 33))) 
+         (SPADCALL (SPADCALL |m| (QREFELT % 32))
+                   (SPADCALL (SPADCALL |x| (QREFELT % 23)) (QREFELT % 9))
+                   (QREFELT % 24))
+         (QREFELT % 33))) 
 
 (SDEFUN |EP;characteristicPolynomial;MP;6|
-        ((|m| (|Matrix| (|Fraction| (|Polynomial| R)))) ($ (|Polynomial| R)))
-        (SPADCALL |m| (SPADCALL (QREFELT $ 21)) (QREFELT $ 34))) 
+        ((|m| (|Matrix| (|Fraction| (|Polynomial| R)))) (% (|Polynomial| R)))
+        (SPADCALL |m| (SPADCALL (QREFELT % 21)) (QREFELT % 34))) 
 
 (SDEFUN |EP;eigenvector;UML;7|
         ((|a|
           (|Union| (|Fraction| (|Polynomial| R))
                    (|SuchThat| (|Symbol|) (|Polynomial| R))))
          (|m| (|Matrix| (|Fraction| (|Polynomial| R))))
-         ($ (|List| (|Matrix| (|Fraction| (|Polynomial| R))))))
+         (% (|List| (|Matrix| (|Fraction| (|Polynomial| R))))))
         (SPROG
          ((#1=#:G135 NIL) (|v| NIL) (#2=#:G134 NIL)
           (|res1|
@@ -80,9 +80,9 @@
             (|Vector|
              (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R))))))
           (|x| (|Symbol|)))
-         (SEQ (LETT |x| (|EP;get_x| |a| $))
+         (SEQ (LETT |x| (|EP;get_x| |a| %))
               (LETT |res1|
-                    (SPADCALL (|EP;Ei_to_EiF| |a| $) |m| (QREFELT $ 38)))
+                    (SPADCALL (|EP;Ei_to_EiF| |a| %) |m| (QREFELT % 38)))
               (EXIT
                (PROGN
                 (LETT #2# NIL)
@@ -91,7 +91,7 @@
                       ((OR (ATOM #1#) (PROGN (LETT |v| (CAR #1#)) NIL))
                        (GO G191)))
                      (SEQ
-                      (EXIT (LETT #2# (CONS (|EP;AV_to_M| |v| |x| $) #2#))))
+                      (EXIT (LETT #2# (CONS (|EP;AV_to_M| |v| |x| %) #2#))))
                      (LETT #1# (CDR #1#)) (GO G190) G191
                      (EXIT (NREVERSE #2#)))))))) 
 
@@ -101,7 +101,7 @@
                    (|SuchThat| (|Symbol|) (|Polynomial| R))))
          (|m| (|Matrix| (|Fraction| (|Polynomial| R))))
          (|k| (|NonNegativeInteger|)) (|g| (|NonNegativeInteger|))
-         ($ (|List| (|Matrix| (|Fraction| (|Polynomial| R))))))
+         (% (|List| (|Matrix| (|Fraction| (|Polynomial| R))))))
         (SPROG
          ((#1=#:G144 NIL) (|v| NIL) (#2=#:G143 NIL)
           (|res1|
@@ -109,10 +109,10 @@
             (|Vector|
              (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R))))))
           (|x| (|Symbol|)))
-         (SEQ (LETT |x| (|EP;get_x| |a| $))
+         (SEQ (LETT |x| (|EP;get_x| |a| %))
               (LETT |res1|
-                    (SPADCALL (|EP;Ei_to_EiF| |a| $) |m| |k| |g|
-                              (QREFELT $ 43)))
+                    (SPADCALL (|EP;Ei_to_EiF| |a| %) |m| |k| |g|
+                              (QREFELT % 43)))
               (EXIT
                (PROGN
                 (LETT #2# NIL)
@@ -121,7 +121,7 @@
                       ((OR (ATOM #1#) (PROGN (LETT |v| (CAR #1#)) NIL))
                        (GO G191)))
                      (SEQ
-                      (EXIT (LETT #2# (CONS (|EP;AV_to_M| |v| |x| $) #2#))))
+                      (EXIT (LETT #2# (CONS (|EP;AV_to_M| |v| |x| %) #2#))))
                      (LETT #1# (CDR #1#)) (GO G190) G191
                      (EXIT (NREVERSE #2#)))))))) 
 
@@ -134,7 +134,7 @@
            (|:| |eigmult| #1=(|NonNegativeInteger|))
            (|:| |eigvec| (|List| (|Matrix| (|Fraction| (|Polynomial| R)))))))
          (|m| (|Matrix| (|Fraction| (|Polynomial| R))))
-         ($ (|List| (|Matrix| (|Fraction| (|Polynomial| R))))))
+         (% (|List| (|Matrix| (|Fraction| (|Polynomial| R))))))
         (SPROG ((|g| (|NonNegativeInteger|)) (|k| #1#))
                (SEQ (LETT |k| (QVELT |eif| 1))
                     (LETT |g| (LENGTH (QVELT |eif| 2)))
@@ -142,7 +142,7 @@
                      (COND ((EQL |k| |g|) (QVELT |eif| 2))
                            ('T
                             (SPADCALL (QVELT |eif| 0) |m| |k| |g|
-                                      (QREFELT $ 44)))))))) 
+                                      (QREFELT % 44)))))))) 
 
 (SDEFUN |EP;EiF_to_Ei|
         ((|a|
@@ -150,7 +150,7 @@
                    (|SparseUnivariatePolynomial|
                     (|Fraction| (|Polynomial| R)))))
          (|x| (|Symbol|))
-         ($
+         (%
           (|Union| (|Fraction| (|Polynomial| R))
                    (|SuchThat| (|Symbol|) (|Polynomial| R)))))
         (COND ((QEQCAR |a| 0) (CONS 0 (QCDR |a|)))
@@ -159,14 +159,14 @@
                      (SPADCALL |x|
                                (SPADCALL
                                 (SPADCALL (QCDR |a|)
-                                          (SPADCALL |x| (QREFELT $ 47))
-                                          (QREFELT $ 24))
-                                (QREFELT $ 33))
-                               (QREFELT $ 48)))))) 
+                                          (SPADCALL |x| (QREFELT % 47))
+                                          (QREFELT % 24))
+                                (QREFELT % 33))
+                               (QREFELT % 48)))))) 
 
 (SDEFUN |EP;eigenvalues;ML;11|
         ((|m| (|Matrix| (|Fraction| (|Polynomial| R))))
-         ($
+         (%
           (|List|
            (|Union| (|Fraction| (|Polynomial| R))
                     (|SuchThat| (|Symbol|) (|Polynomial| R))))))
@@ -178,8 +178,8 @@
                      (|SparseUnivariatePolynomial|
                       (|Fraction| (|Polynomial| R))))))
           (|x| (|Symbol|)))
-         (SEQ (LETT |x| (SPADCALL (QREFELT $ 21)))
-              (LETT |res1| (SPADCALL |m| (QREFELT $ 50)))
+         (SEQ (LETT |x| (SPADCALL (QREFELT % 21)))
+              (LETT |res1| (SPADCALL |m| (QREFELT % 50)))
               (EXIT
                (PROGN
                 (LETT #2# NIL)
@@ -188,13 +188,13 @@
                       ((OR (ATOM #1#) (PROGN (LETT |a| (CAR #1#)) NIL))
                        (GO G191)))
                      (SEQ
-                      (EXIT (LETT #2# (CONS (|EP;EiF_to_Ei| |a| |x| $) #2#))))
+                      (EXIT (LETT #2# (CONS (|EP;EiF_to_Ei| |a| |x| %) #2#))))
                      (LETT #1# (CDR #1#)) (GO G190) G191
                      (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |EP;eigenvectors;ML;12|
         ((|m| (|Matrix| (|Fraction| (|Polynomial| R))))
-         ($
+         (%
           (|List|
            (|Record|
             (|:| |eigval|
@@ -220,8 +220,8 @@
                     (|SparseUnivariatePolynomial|
                      (|Fraction| (|Polynomial| R)))))))))
           (|x| (|Symbol|)))
-         (SEQ (LETT |x| (SPADCALL (QREFELT $ 21)))
-              (LETT |res1| (SPADCALL |m| (QREFELT $ 55)))
+         (SEQ (LETT |x| (SPADCALL (QREFELT % 21)))
+              (LETT |res1| (SPADCALL |m| (QREFELT % 55)))
               (EXIT
                (PROGN
                 (LETT #4# NIL)
@@ -233,7 +233,7 @@
                       (EXIT
                        (LETT #4#
                              (CONS
-                              (VECTOR (|EP;EiF_to_Ei| (QVELT |ri| 0) |x| $)
+                              (VECTOR (|EP;EiF_to_Ei| (QVELT |ri| 0) |x| %)
                                       (QVELT |ri| 1)
                                       (PROGN
                                        (LETT #2# NIL)
@@ -249,7 +249,7 @@
                                              (EXIT
                                               (LETT #2#
                                                     (CONS
-                                                     (|EP;AV_to_M| |v| |x| $)
+                                                     (|EP;AV_to_M| |v| |x| %)
                                                      #2#))))
                                             (LETT #1# (CDR #1#)) (GO G190) G191
                                             (EXIT (NREVERSE #2#)))))
@@ -259,7 +259,7 @@
 
 (SDEFUN |EP;generalizedEigenvectors;ML;13|
         ((|m| (|Matrix| (|Fraction| (|Polynomial| R))))
-         ($
+         (%
           (|List|
            (|Record|
             (|:| |eigval|
@@ -283,8 +283,8 @@
                     (|SparseUnivariatePolynomial|
                      (|Fraction| (|Polynomial| R)))))))))
           (|x| (|Symbol|)))
-         (SEQ (LETT |x| (SPADCALL (QREFELT $ 21)))
-              (LETT |res1| (SPADCALL |m| (QREFELT $ 60)))
+         (SEQ (LETT |x| (SPADCALL (QREFELT % 21)))
+              (LETT |res1| (SPADCALL |m| (QREFELT % 60)))
               (EXIT
                (PROGN
                 (LETT #4# NIL)
@@ -296,7 +296,7 @@
                       (EXIT
                        (LETT #4#
                              (CONS
-                              (CONS (|EP;EiF_to_Ei| (QCAR |ri|) |x| $)
+                              (CONS (|EP;EiF_to_Ei| (QCAR |ri|) |x| %)
                                     (PROGN
                                      (LETT #2# NIL)
                                      (SEQ (LETT |v| NIL) (LETT #1# (QCDR |ri|))
@@ -311,7 +311,7 @@
                                            (EXIT
                                             (LETT #2#
                                                   (CONS
-                                                   (|EP;AV_to_M| |v| |x| $)
+                                                   (|EP;AV_to_M| |v| |x| %)
                                                    #2#))))
                                           (LETT #1# (CDR #1#)) (GO G190) G191
                                           (EXIT (NREVERSE #2#)))))
@@ -338,43 +338,43 @@
                  ((NOT #2#) (HREM |$ConstructorCache| '|EigenPackage|)))))))))) 
 
 (DEFUN |EigenPackage;| (|#1|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|EigenPackage| DV$1))
-          (LETT $ (GETREFV 64))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3
+          (LETT % (GETREFV 64))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
                                               (|HasCategory| |#1|
                                                              '(|PolynomialFactorizationExplicit|))))))
           (|haddProp| |$ConstructorCache| '|EigenPackage| (LIST DV$1)
-                      (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 22 (SPADCALL (QREFELT $ 21)))
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 22 (SPADCALL (QREFELT % 21)))
           (COND
            ((|HasCategory| (|Fraction| (|Polynomial| |#1|))
                            '(|PolynomialFactorizationExplicit|))
             (PROGN
-             (QSETREFV $ 52
-                       (CONS (|dispatchFunction| |EP;eigenvalues;ML;11|) $))
-             (QSETREFV $ 57
-                       (CONS (|dispatchFunction| |EP;eigenvectors;ML;12|) $))
-             (QSETREFV $ 63
+             (QSETREFV % 52
+                       (CONS (|dispatchFunction| |EP;eigenvalues;ML;11|) %))
+             (QSETREFV % 57
+                       (CONS (|dispatchFunction| |EP;eigenvectors;ML;12|) %))
+             (QSETREFV % 63
                        (CONS
                         (|dispatchFunction| |EP;generalizedEigenvectors;ML;13|)
-                        $)))))
-          $))) 
+                        %)))))
+          %))) 
 
 (MAKEPROP '|EigenPackage| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Polynomial| 6)
               (|Fraction| 7) (0 . |coerce|) (|SuchThat| 12 7) (5 . |rhs|)
-              (|Symbol|) (10 . |lhs|) (|SparseUnivariatePolynomial| $)
+              (|Symbol|) (10 . |lhs|) (|SparseUnivariatePolynomial| %)
               (15 . |univariate|) (|SparseUnivariatePolynomial| 8)
               (|Mapping| 8 7) (|SparseUnivariatePolynomial| 7)
               (|UnivariatePolynomialCategoryFunctions2| 7 18 8 16) (21 . |map|)

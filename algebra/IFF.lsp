@@ -22,14 +22,14 @@
 
 (DEFUN |InnerFiniteField;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G141 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G141 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 |#1|)
     (LETT DV$2 |#2|)
     (LETT |dv$| (LIST '|InnerFiniteField| DV$1 DV$2))
-    (LETT $ (GETREFV 48))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 48))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -47,37 +47,37 @@
                                         (|HasCategory| (|InnerPrimeField| |#1|)
                                                        '(|Field|))))))
     (|haddProp| |$ConstructorCache| '|InnerFiniteField| (LIST DV$1 DV$2)
-                (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (AND (|HasCategory| $ '(|CharacteristicNonZero|)) #1#
-         (|augmentPredVector| $ 16))
-    (SETF |pv$| (QREFELT $ 3))
-    $))) 
+                (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (AND (|HasCategory| % '(|CharacteristicNonZero|)) #1#
+         (|augmentPredVector| % 16))
+    (SETF |pv$| (QREFELT % 3))
+    %))) 
 
 (MAKEPROP '|InnerFiniteField| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL
-              (|FiniteFieldExtension| 30 (NRTEVAL (QREFELT $ 7)))
+              (|FiniteFieldExtension| 30 (NRTEVAL (QREFELT % 7)))
               (|local| |#1|) (|local| |#2|) (|Union| 27 '#1="failed")
-              (|Matrix| $) (|OnePointCompletion| 24) (|Union| $ '"failed")
+              (|Matrix| %) (|OnePointCompletion| 24) (|Union| % '"failed")
               (|Union| 13 '"failed") (|NonNegativeInteger|)
               (|SparseUnivariatePolynomial| 30) (|Union| 16 '#1#) (|List| 17)
-              (|SparseUnivariatePolynomial| $) (|Factored| 17)
+              (|SparseUnivariatePolynomial| %) (|Factored| 17)
               (|Record| (|:| |factor| 22) (|:| |exponent| 13)) (|List| 19)
               (|Table| 24 13) (|Integer|) (|Boolean|) (|PositiveInteger|)
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
-              (|Union| 14 '"failed") (|Vector| $) (|InputForm|) (|List| $)
-              (|InnerPrimeField| (NRTEVAL (QREFELT $ 6))) (|Matrix| 30)
+              (|Union| 14 '"failed") (|Vector| %) (|InputForm|) (|List| %)
+              (|InnerPrimeField| (NRTEVAL (QREFELT % 6))) (|Matrix| 30)
               (|Vector| 30) (|Union| 30 '"failed") (|Fraction| 22)
-              (|Factored| $) (|Union| 29 '#2="failed")
-              (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 38 '#2#)
-              (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|Record| (|:| |coef| 29) (|:| |generator| $))
-              (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
-              (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
+              (|Factored| %) (|Union| 29 '#2="failed")
+              (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
+              (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 38 '#2#)
+              (|Record| (|:| |quotient| %) (|:| |remainder| %))
+              (|Record| (|:| |coef| 29) (|:| |generator| %))
+              (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
+              (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (|String|) (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#() 'NIL
            (CONS

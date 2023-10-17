@@ -37,19 +37,19 @@
                                        (|RetractableTo| '|t#2|)
                                        (|mkCategory|
                                         '(((|puiseux|
-                                            ($ (|Fraction| (|Integer|)) |t#2|))
+                                            (% (|Fraction| (|Integer|)) |t#2|))
                                            T)
                                           ((|rationalPower|
-                                            ((|Fraction| (|Integer|)) $))
+                                            ((|Fraction| (|Integer|)) %))
                                            T)
-                                          ((|laurentRep| (|t#2| $)) T)
+                                          ((|laurentRep| (|t#2| %)) T)
                                           ((|degree|
-                                            ((|Fraction| (|Integer|)) $))
+                                            ((|Fraction| (|Integer|)) %))
                                            T)
-                                          ((|coerce| ($ |t#2|)) T)
-                                          ((|laurent| (|t#2| $)) T)
+                                          ((|coerce| (% |t#2|)) T)
+                                          ((|laurent| (|t#2| %)) T)
                                           ((|laurentIfCan|
-                                            ((|Union| |t#2| "failed") $))
+                                            ((|Union| |t#2| "failed") %))
                                            T))
                                         NIL NIL NIL)))))))
            (SETELT #1# 0

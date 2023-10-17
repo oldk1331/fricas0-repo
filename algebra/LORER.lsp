@@ -13,9 +13,9 @@
                    (|Join| (|EntireRing|)
                            (|mkCategory|
                             '(((|lcmCoef|
-                                ((|Record| (|:| |llcm_res| $) (|:| |coeff1| $)
-                                           (|:| |coeff2| $))
-                                 $ $))
+                                ((|Record| (|:| |llcm_res| %) (|:| |coeff1| %)
+                                           (|:| |coeff2| %))
+                                 % %))
                                T))
                             NIL NIL NIL)))
            (SETELT #1# 0 '(|LeftOreRing|))))) 

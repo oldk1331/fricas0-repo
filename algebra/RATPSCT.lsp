@@ -34,11 +34,11 @@
                                        (|UnivariatePowerSeriesCategory| '|t#1|
                                                                         '|t#2|)
                                        (|mkCategory|
-                                        '(((|integrate| ($ $))
+                                        '(((|integrate| (% %))
                                            (|has| |t#1|
                                                   (|Algebra|
                                                    (|Fraction| (|Integer|)))))
-                                          ((|integrate| ($ $ (|Symbol|)))
+                                          ((|integrate| (% % (|Symbol|)))
                                            (AND
                                             (|has| |t#1|
                                                    (SIGNATURE |variables|

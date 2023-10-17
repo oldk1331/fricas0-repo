@@ -25,9 +25,9 @@
                                                 (|Join| (|Module| '|t#1|)
                                                         (|mkCategory|
                                                          '(((|construct|
-                                                             ($ $ $))
+                                                             (% % %))
                                                             T)
-                                                           ((/ ($ $ |t#1|))
+                                                           ((/ (% % |t#1|))
                                                             (|has| |t#1|
                                                                    (|Field|))))
                                                          NIL NIL NIL)))))))

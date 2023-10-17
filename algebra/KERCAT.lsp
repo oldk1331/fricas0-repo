@@ -26,41 +26,41 @@
                                                         (|Patternable| '|t#1|)
                                                         (|mkCategory|
                                                          '(((|name|
-                                                             ((|Symbol|) $))
+                                                             ((|Symbol|) %))
                                                             T)
                                                            ((|operator|
                                                              ((|BasicOperator|)
-                                                              $))
+                                                              %))
                                                             T)
                                                            ((|argument|
                                                              ((|List| |t#1|)
-                                                              $))
+                                                              %))
                                                             T)
                                                            ((|height|
                                                              ((|NonNegativeInteger|)
-                                                              $))
+                                                              %))
                                                             T)
                                                            ((|kernel|
-                                                             ($
+                                                             (%
                                                               (|BasicOperator|)
                                                               (|List| |t#1|)
                                                               (|NonNegativeInteger|)))
                                                             T)
                                                            ((|kernel|
-                                                             ($ (|Symbol|)))
+                                                             (% (|Symbol|)))
                                                             T)
                                                            ((|symbolIfCan|
                                                              ((|Union|
                                                                (|Symbol|)
                                                                "failed")
-                                                              $))
+                                                              %))
                                                             T)
                                                            ((|is?|
-                                                             ((|Boolean|) $
+                                                             ((|Boolean|) %
                                                               (|BasicOperator|)))
                                                             T)
                                                            ((|is?|
-                                                             ((|Boolean|) $
+                                                             ((|Boolean|) %
                                                               (|Symbol|)))
                                                             T))
                                                          '(((|ConvertibleTo|

@@ -1,7 +1,7 @@
 
-(SDEFUN |HOMOL;homologyGroup;2M$;1|
+(SDEFUN |HOMOL;homologyGroup;2M%;1|
         ((|AInt| (|Matrix| (|Integer|))) (|BInt| (|Matrix| (|Integer|)))
-         ($ ($)))
+         (% (%)))
         (SPROG
          ((|kernelFree| (|List| (|Vector| (|Integer|))))
           (|v| (|Vector| (|Integer|))) (#1=#:G136 NIL) (|i| NIL)
@@ -26,38 +26,38 @@
           (|smit| #5#) (|zero| (|Matrix| (|Integer|))))
          (SEQ
           (COND
-           ((SPADCALL (ANROWS |AInt|) (ANCOLS |BInt|) (QREFELT $ 9))
+           ((SPADCALL (ANROWS |AInt|) (ANCOLS |BInt|) (QREFELT % 9))
             (SPADCALL
              (SPADCALL
               (SPADCALL
                (SPADCALL
                 (SPADCALL "homologyGroup validation error - A rows : "
-                          (QREFELT $ 12))
-                (SPADCALL (ANROWS |AInt|) (QREFELT $ 13)) (QREFELT $ 14))
-               (SPADCALL "~= B cols : " (QREFELT $ 12)) (QREFELT $ 14))
-              (SPADCALL (ANCOLS |BInt|) (QREFELT $ 13)) (QREFELT $ 14))
-             (QREFELT $ 16)))
+                          (QREFELT % 12))
+                (SPADCALL (ANROWS |AInt|) (QREFELT % 13)) (QREFELT % 14))
+               (SPADCALL "~= B cols : " (QREFELT % 12)) (QREFELT % 14))
+              (SPADCALL (ANCOLS |BInt|) (QREFELT % 13)) (QREFELT % 14))
+             (QREFELT % 16)))
            ('T
             (SEQ
              (LETT |zero|
-                   (SPADCALL (ANROWS |BInt|) (ANCOLS |AInt|) (QREFELT $ 18)))
+                   (SPADCALL (ANROWS |BInt|) (ANCOLS |AInt|) (QREFELT % 18)))
              (EXIT
               (COND
-               ((SPADCALL (SPADCALL |BInt| |AInt| (QREFELT $ 19)) |zero|
-                          (QREFELT $ 20))
+               ((SPADCALL (SPADCALL |BInt| |AInt| (QREFELT % 19)) |zero|
+                          (QREFELT % 20))
                 (SPADCALL
                  (SPADCALL
                   (SPADCALL
                    (SPADCALL
                     (SPADCALL "homologyGroup validation error - B*A ~= 0 : "
-                              (QREFELT $ 12))
-                    (SPADCALL (SPADCALL |BInt| |AInt| (QREFELT $ 19))
-                              (QREFELT $ 21))
-                    (QREFELT $ 14))
-                   (SPADCALL "  ~= 0 : " (QREFELT $ 12)) (QREFELT $ 14))
-                  (SPADCALL |zero| (QREFELT $ 21)) (QREFELT $ 14))
-                 (QREFELT $ 16))))))))
-          (LETT |res| NIL) (LETT |smit| (SPADCALL |AInt| (QREFELT $ 24)))
+                              (QREFELT % 12))
+                    (SPADCALL (SPADCALL |BInt| |AInt| (QREFELT % 19))
+                              (QREFELT % 21))
+                    (QREFELT % 14))
+                   (SPADCALL "  ~= 0 : " (QREFELT % 12)) (QREFELT % 14))
+                  (SPADCALL |zero| (QREFELT % 21)) (QREFELT % 14))
+                 (QREFELT % 16))))))))
+          (LETT |res| NIL) (LETT |smit| (SPADCALL |AInt| (QREFELT % 24)))
           (LETT |left| (QVELT |smit| 1)) (LETT |m| (QVELT |smit| 0))
           (LETT |leftNRows| (ANROWS |left|)) (LETT |mNRows| (ANROWS |m|))
           (LETT |mNCols| (ANCOLS |m|))
@@ -65,14 +65,14 @@
                (COND ((|greater_SI| |nr| #7#) (GO G191)))
                (SEQ
                 (EXIT
-                 (SEQ (LETT |r| (SPADCALL |left| |nr| (QREFELT $ 27)))
+                 (SEQ (LETT |r| (SPADCALL |left| |nr| (QREFELT % 27)))
                       (LETT |order| 1)
                       (COND
                        ((<= |nr| |mNRows|)
                         (COND
                          ((<= |nr| |mNCols|)
                           (LETT |order|
-                                (SPADCALL |m| |nr| |nr| (QREFELT $ 28)))))))
+                                (SPADCALL |m| |nr| |nr| (QREFELT % 28)))))))
                       (EXIT
                        (COND
                         ((<= |order| 1)
@@ -82,13 +82,13 @@
                               (EXIT
                                (LETT |res|
                                      (SPADCALL |res| |g|
-                                               (QREFELT $ 31))))))))))
+                                               (QREFELT % 31))))))))))
                 #8# (EXIT #6#))
                (LETT |nr| (|inc_SI| |nr|)) (GO G190) G191 (EXIT NIL))
           (LETT |augmented|
-                (SPADCALL (SPADCALL |AInt| (QREFELT $ 32)) |BInt|
-                          (QREFELT $ 33)))
-          (LETT |smitFree| (SPADCALL |augmented| (QREFELT $ 24)))
+                (SPADCALL (SPADCALL |AInt| (QREFELT % 32)) |BInt|
+                          (QREFELT % 33)))
+          (LETT |smitFree| (SPADCALL |augmented| (QREFELT % 24)))
           (LETT |mFree| (QVELT |smitFree| 0)) (LETT |n_rows| (ANROWS |mFree|))
           (LETT |n_cols| (ANCOLS |mFree|)) (LETT |kernelFree| NIL)
           (SEQ (LETT |i| 1) (LETT #1# |n_cols|) G190
@@ -97,22 +97,22 @@
                 (EXIT
                  (COND
                   ((OR (> |i| |n_rows|)
-                       (EQL (SPADCALL |mFree| |i| |i| (QREFELT $ 28)) 0))
+                       (EQL (SPADCALL |mFree| |i| |i| (QREFELT % 28)) 0))
                    (SEQ (LETT |v| (MAKEARR1 |n_cols| 0))
-                        (SPADCALL |v| |i| 1 (QREFELT $ 34))
+                        (SPADCALL |v| |i| 1 (QREFELT % 34))
                         (EXIT
                          (LETT |kernelFree|
                                (CONS
                                 (SPADCALL (QVELT |smitFree| 2) |v|
-                                          (QREFELT $ 35))
+                                          (QREFELT % 35))
                                 |kernelFree|))))))))
                (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
           (EXIT (CONS |res| (NREVERSE |kernelFree|)))))) 
 
-(SDEFUN |HOMOL;homology;LLL$;2|
+(SDEFUN |HOMOL;homology;LLL%;2|
         ((|torsionVec| (|List| (|List| (|Integer|))))
          (|torsionOrd| (|List| (|Integer|)))
-         (|free1| (|List| (|List| (|Integer|)))) ($ ($)))
+         (|free1| (|List| (|List| (|Integer|)))) (% (%)))
         (SPROG
          ((|kernelFree| (|List| (|Vector| (|Integer|)))) (#1=#:G150 NIL)
           (|v| NIL) (#2=#:G149 NIL)
@@ -127,7 +127,7 @@
          (SEQ
           (COND
            ((SPADCALL (LENGTH |torsionVec|) (LENGTH |torsionOrd|)
-                      (QREFELT $ 37))
+                      (QREFELT % 37))
             (|error|
              "attempt to construct homology with #torsionVec ~= #torsionOrd")))
           (LETT |res| NIL)
@@ -137,8 +137,8 @@
                 ((OR (ATOM #3#) (PROGN (LETT |r1| (CAR #3#)) NIL) (ATOM #4#)
                      (PROGN (LETT |r2| (CAR #4#)) NIL))
                  (GO G191)))
-               (SEQ (LETT |r3| (CONS (SPADCALL |r1| (QREFELT $ 39)) |r2|))
-                    (EXIT (LETT |res| (SPADCALL |res| |r3| (QREFELT $ 31)))))
+               (SEQ (LETT |r3| (CONS (SPADCALL |r1| (QREFELT % 39)) |r2|))
+                    (EXIT (LETT |res| (SPADCALL |res| |r3| (QREFELT % 31)))))
                (LETT #3# (PROG1 (CDR #3#) (LETT #4# (CDR #4#)))) (GO G190) G191
                (EXIT NIL))
           (LETT |kernelFree|
@@ -150,30 +150,30 @@
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2# (CONS (SPADCALL |v| (QREFELT $ 39)) #2#))))
+                        (LETT #2# (CONS (SPADCALL |v| (QREFELT % 39)) #2#))))
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#)))))
           (EXIT (CONS |res| |kernelFree|))))) 
 
-(SDEFUN |HOMOL;homology0;$;3| (($ ($))) (SPADCALL NIL NIL NIL (QREFELT $ 41))) 
+(SDEFUN |HOMOL;homology0;%;3| ((% (%))) (SPADCALL NIL NIL NIL (QREFELT % 41))) 
 
-(SDEFUN |HOMOL;homologyz;$;4| (($ ($)))
-        (SPADCALL NIL NIL (LIST (LIST 1)) (QREFELT $ 41))) 
+(SDEFUN |HOMOL;homologyz;%;4| ((% (%)))
+        (SPADCALL NIL NIL (LIST (LIST 1)) (QREFELT % 41))) 
 
-(SDEFUN |HOMOL;homologyzz;$;5| (($ ($)))
-        (SPADCALL NIL NIL (LIST (LIST 1 0) (LIST 0 1)) (QREFELT $ 41))) 
+(SDEFUN |HOMOL;homologyzz;%;5| ((% (%)))
+        (SPADCALL NIL NIL (LIST (LIST 1 0) (LIST 0 1)) (QREFELT % 41))) 
 
-(SDEFUN |HOMOL;homologyc2;$;6| (($ ($)))
-        (SPADCALL (LIST (LIST 1)) (LIST 2) NIL (QREFELT $ 41))) 
+(SDEFUN |HOMOL;homologyc2;%;6| ((% (%)))
+        (SPADCALL (LIST (LIST 1)) (LIST 2) NIL (QREFELT % 41))) 
 
-(SDEFUN |HOMOL;homologyzc2;$;7| (($ ($)))
-        (SPADCALL (LIST (LIST 1 0)) (LIST 2) (LIST (LIST 0 1)) (QREFELT $ 41))) 
+(SDEFUN |HOMOL;homologyzc2;%;7| ((% (%)))
+        (SPADCALL (LIST (LIST 1 0)) (LIST 2) (LIST (LIST 0 1)) (QREFELT % 41))) 
 
-(SDEFUN |HOMOL;dispGenerators;$Of;8| ((|s| ($)) ($ (|OutputForm|)))
+(SDEFUN |HOMOL;dispGenerators;%Of;8| ((|s| (%)) (% (|OutputForm|)))
         (SPROG
          ((|res| (|OutputForm|)) (|ln2| #1=(|OutputForm|)) (|ln| #1#)
           (#2=#:G162 NIL) (|g| NIL) (|s1| (|Rep|)))
-         (SEQ (LETT |res| (SPADCALL (QREFELT $ 47))) (LETT |s1| |s|)
+         (SEQ (LETT |res| (SPADCALL (QREFELT % 47))) (LETT |s1| |s|)
               (SEQ (LETT |g| NIL) (LETT #2# (QCAR |s1|)) G190
                    (COND
                     ((OR (ATOM #2#) (PROGN (LETT |g| (CAR #2#)) NIL))
@@ -181,21 +181,21 @@
                    (SEQ
                     (LETT |ln|
                           (SPADCALL
-                           (LIST (SPADCALL "gen=" (QREFELT $ 12))
-                                 (SPADCALL (QCAR |g|) (QREFELT $ 48))
-                                 (SPADCALL " ord=" (QREFELT $ 12))
-                                 (SPADCALL (QCDR |g|) (QREFELT $ 49)))
-                           (QREFELT $ 51)))
-                    (EXIT (LETT |res| (SPADCALL |res| |ln| (QREFELT $ 52)))))
+                           (LIST (SPADCALL "gen=" (QREFELT % 12))
+                                 (SPADCALL (QCAR |g|) (QREFELT % 48))
+                                 (SPADCALL " ord=" (QREFELT % 12))
+                                 (SPADCALL (QCDR |g|) (QREFELT % 49)))
+                           (QREFELT % 51)))
+                    (EXIT (LETT |res| (SPADCALL |res| |ln| (QREFELT % 52)))))
                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (LETT |ln2|
                     (SPADCALL
-                     (LIST (SPADCALL " free part=" (QREFELT $ 12))
-                           (SPADCALL (QCDR |s1|) (QREFELT $ 54)))
-                     (QREFELT $ 51)))
-              (LETT |res| (SPADCALL |res| |ln2| (QREFELT $ 52))) (EXIT |res|)))) 
+                     (LIST (SPADCALL " free part=" (QREFELT % 12))
+                           (SPADCALL (QCDR |s1|) (QREFELT % 54)))
+                     (QREFELT % 51)))
+              (LETT |res| (SPADCALL |res| |ln2| (QREFELT % 52))) (EXIT |res|)))) 
 
-(SDEFUN |HOMOL;=;2$B;9| ((|a| ($)) (|b| ($)) ($ (|Boolean|)))
+(SDEFUN |HOMOL;=;2%B;9| ((|a| (%)) (|b| (%)) (% (|Boolean|)))
         (SPROG
          ((#1=#:G176 NIL) (|noTorsionB| #2=(|Boolean|)) (#3=#:G178 NIL)
           (|tb| NIL) (|noTorsionA| #2#) (#4=#:G177 NIL) (|ta| NIL)
@@ -215,9 +215,9 @@
                      (SEQ
                       (EXIT
                        (COND
-                        ((SPADCALL (QCDR |ta|) 0 (QREFELT $ 37))
+                        ((SPADCALL (QCDR |ta|) 0 (QREFELT % 37))
                          (COND
-                          ((SPADCALL (QCDR |ta|) 1 (QREFELT $ 37))
+                          ((SPADCALL (QCDR |ta|) 1 (QREFELT % 37))
                            (LETT |noTorsionA| NIL)))))))
                      (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
                 (SEQ (LETT |tb| NIL) (LETT #3# |torb|) G190
@@ -227,37 +227,37 @@
                      (SEQ
                       (EXIT
                        (COND
-                        ((SPADCALL (QCDR |tb|) 0 (QREFELT $ 37))
+                        ((SPADCALL (QCDR |tb|) 0 (QREFELT % 37))
                          (COND
-                          ((SPADCALL (QCDR |tb|) 1 (QREFELT $ 37))
+                          ((SPADCALL (QCDR |tb|) 1 (QREFELT % 37))
                            (LETT |noTorsionB| NIL)))))))
                      (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
                 (COND
-                 ((SPADCALL |noTorsionA| |noTorsionA| (QREFELT $ 56))
+                 ((SPADCALL |noTorsionA| |noTorsionA| (QREFELT % 56))
                   (PROGN (LETT #1# NIL) (GO #6=#:G175))))
                 (EXIT (EQL (LENGTH (QCDR |a|)) (LENGTH (QCDR |b|))))))
           #6# (EXIT #1#)))) 
 
-(SDEFUN |HOMOL;coerce;$Of;10| ((|s| ($)) ($ (|OutputForm|)))
+(SDEFUN |HOMOL;coerce;%Of;10| ((|s| (%)) (% (|OutputForm|)))
         (SPROG
          ((|res| (|OutputForm|)) (|firstTermRead| (|Boolean|))
           (|ln2| (|OutputForm|)) (#1=#:G189 NIL) (|t| NIL)
           (|nFree| (|NonNegativeInteger|)) (|s1| (|Rep|)))
-         (SEQ (LETT |res| (SPADCALL (QREFELT $ 47))) (LETT |firstTermRead| NIL)
+         (SEQ (LETT |res| (SPADCALL (QREFELT % 47))) (LETT |firstTermRead| NIL)
               (LETT |s1| |s|) (LETT |nFree| (LENGTH (QCDR |s1|)))
               (COND
                ((> |nFree| 0)
                 (SEQ
                  (LETT |res|
-                       (SPADCALL |res| (SPADCALL "Z" (QREFELT $ 12))
-                                 (QREFELT $ 14)))
+                       (SPADCALL |res| (SPADCALL "Z" (QREFELT % 12))
+                                 (QREFELT % 14)))
                  (COND
                   ((> |nFree| 1)
                    (LETT |res|
                          (SPADCALL
-                          (LIST |res| (SPADCALL "*" (QREFELT $ 12))
-                                (SPADCALL |nFree| (QREFELT $ 13)))
-                          (QREFELT $ 51)))))
+                          (LIST |res| (SPADCALL "*" (QREFELT % 12))
+                                (SPADCALL |nFree| (QREFELT % 13)))
+                          (QREFELT % 51)))))
                  (EXIT (LETT |firstTermRead| 'T)))))
               (SEQ (LETT |t| NIL) (LETT #1# (QCAR |s1|)) G190
                    (COND
@@ -273,21 +273,21 @@
                           (COND
                            (|firstTermRead|
                             (LETT |res|
-                                  (SPADCALL |res| (SPADCALL "+" (QREFELT $ 12))
-                                            (QREFELT $ 14)))))
+                                  (SPADCALL |res| (SPADCALL "+" (QREFELT % 12))
+                                            (QREFELT % 14)))))
                           (LETT |ln2|
                                 (SPADCALL
-                                 (LIST (SPADCALL "C" (QREFELT $ 12))
-                                       (SPADCALL (QCDR |t|) (QREFELT $ 49)))
-                                 (QREFELT $ 51)))
-                          (LETT |res| (SPADCALL |res| |ln2| (QREFELT $ 14)))
+                                 (LIST (SPADCALL "C" (QREFELT % 12))
+                                       (SPADCALL (QCDR |t|) (QREFELT % 49)))
+                                 (QREFELT % 51)))
+                          (LETT |res| (SPADCALL |res| |ln2| (QREFELT % 14)))
                           (EXIT (LETT |firstTermRead| 'T)))))))))
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (COND
                ((NULL |firstTermRead|)
                 (LETT |res|
-                      (SPADCALL |res| (SPADCALL "0" (QREFELT $ 12))
-                                (QREFELT $ 14)))))
+                      (SPADCALL |res| (SPADCALL "0" (QREFELT % 12))
+                                (QREFELT % 14)))))
               (EXIT |res|)))) 
 
 (DECLAIM (NOTINLINE |Homology;|)) 
@@ -309,23 +309,23 @@
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|Homology|)))))))))) 
 
 (DEFUN |Homology;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|Homology|))
-          (LETT $ (GETREFV 61))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|Homology| NIL (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 6
+          (LETT % (GETREFV 61))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|Homology| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6
                     (|Record|
                      (|:| |torsionPart|
                           (|List|
                            (|Record| (|:| |vec| (|Vector| (|Integer|)))
                                      (|:| |ord| (|Integer|)))))
                      (|:| |freePart| (|List| (|Vector| (|Integer|))))))
-          $))) 
+          %))) 
 
 (MAKEPROP '|Homology| '|infovec|
           (LIST
@@ -339,14 +339,14 @@
               (|Vector| 26) (|Integer|) (55 . |row|) (61 . |elt|)
               (|Record| (|:| |vec| 25) (|:| |ord| 26)) (|List| 29)
               (68 . |concat|) (74 . |transpose|) (79 . |vertConcat|)
-              (85 . |setelt!|) (92 . *) |HOMOL;homologyGroup;2M$;1| (98 . ~=)
-              (|List| 26) (104 . |vector|) (|List| 38) |HOMOL;homology;LLL$;2|
-              |HOMOL;homology0;$;3| |HOMOL;homologyz;$;4|
-              |HOMOL;homologyzz;$;5| |HOMOL;homologyc2;$;6|
-              |HOMOL;homologyzc2;$;7| (109 . |empty|) (113 . |coerce|)
-              (118 . |coerce|) (|List| $) (123 . |hconcat|) (128 . |vconcat|)
-              (|List| 25) (134 . |coerce|) |HOMOL;dispGenerators;$Of;8|
-              (139 . ~=) |HOMOL;=;2$B;9| |HOMOL;coerce;$Of;10| (|HashState|)
+              (85 . |setelt!|) (92 . *) |HOMOL;homologyGroup;2M%;1| (98 . ~=)
+              (|List| 26) (104 . |vector|) (|List| 38) |HOMOL;homology;LLL%;2|
+              |HOMOL;homology0;%;3| |HOMOL;homologyz;%;4|
+              |HOMOL;homologyzz;%;5| |HOMOL;homologyc2;%;6|
+              |HOMOL;homologyzc2;%;7| (109 . |empty|) (113 . |coerce|)
+              (118 . |coerce|) (|List| %) (123 . |hconcat|) (128 . |vconcat|)
+              (|List| 25) (134 . |coerce|) |HOMOL;dispGenerators;%Of;8|
+              (139 . ~=) |HOMOL;=;2%B;9| |HOMOL;coerce;%Of;10| (|HashState|)
               (|SingleInteger|))
            '#(~= 145 |latex| 151 |homologyzz| 156 |homologyzc2| 160 |homologyz|
               164 |homologyc2| 168 |homologyGroup| 172 |homology0| 178

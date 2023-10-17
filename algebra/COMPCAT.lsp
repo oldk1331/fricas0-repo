@@ -44,29 +44,29 @@
                                                         '|t#1|)
                                                        (|CommutativeRing|)
                                                        (|mkCategory|
-                                                        '(((|imaginary| ($)) T)
-                                                          ((|conjugate| ($ $))
+                                                        '(((|imaginary| (%)) T)
+                                                          ((|conjugate| (% %))
                                                            T)
                                                           ((|complex|
-                                                            ($ |t#1| |t#1|))
+                                                            (% |t#1| |t#1|))
                                                            T)
-                                                          ((|imag| (|t#1| $))
+                                                          ((|imag| (|t#1| %))
                                                            T)
-                                                          ((|real| (|t#1| $))
+                                                          ((|real| (|t#1| %))
                                                            T)
-                                                          ((|norm| (|t#1| $))
+                                                          ((|norm| (|t#1| %))
                                                            T)
                                                           ((|exquo|
-                                                            ((|Union| $
+                                                            ((|Union| %
                                                                       "failed")
-                                                             $ |t#1|))
+                                                             % |t#1|))
                                                            (|has| |t#1|
                                                                   (|IntegralDomain|)))
-                                                          ((|abs| ($ $))
+                                                          ((|abs| (% %))
                                                            (|has| |t#1|
                                                                   (|RealNumberSystem|)))
                                                           ((|argument|
-                                                            (|t#1| $))
+                                                            (|t#1| %))
                                                            (|has| |t#1|
                                                                   (|TranscendentalFunctionCategory|)))
                                                           ((|polarCoordinates|
@@ -74,20 +74,20 @@
                                                               (|:| |r| |t#1|)
                                                               (|:| |phi|
                                                                    |t#1|))
-                                                             $))
+                                                             %))
                                                            (AND
                                                             (|has| |t#1|
                                                                    (|RealNumberSystem|))
                                                             (|has| |t#1|
                                                                    (|TranscendentalFunctionCategory|))))
                                                           ((|rational?|
-                                                            ((|Boolean|) $))
+                                                            ((|Boolean|) %))
                                                            (|has| |t#1|
                                                                   (|IntegerNumberSystem|)))
                                                           ((|rational|
                                                             ((|Fraction|
                                                               (|Integer|))
-                                                             $))
+                                                             %))
                                                            (|has| |t#1|
                                                                   (|IntegerNumberSystem|)))
                                                           ((|rationalIfCan|
@@ -95,7 +95,7 @@
                                                               (|Fraction|
                                                                (|Integer|))
                                                               "failed")
-                                                             $))
+                                                             %))
                                                            (|has| |t#1|
                                                                   (|IntegerNumberSystem|))))
                                                         '(((|Comparable|)

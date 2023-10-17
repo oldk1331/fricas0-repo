@@ -1,24 +1,24 @@
 
-(SDEFUN |GSTBL;elt;$KeyEntry;1| ((|t| ($)) (|k| (|Key|)) ($ (|Entry|)))
+(SDEFUN |GSTBL;elt;%KeyEntry;1| ((|t| (%)) (|k| (|Key|)) (% (|Entry|)))
         (SPROG ((|u| (|Union| |Entry| "failed")))
-               (SEQ (LETT |u| (SPADCALL |k| |t| (QREFELT $ 12)))
+               (SEQ (LETT |u| (SPADCALL |k| |t| (QREFELT % 12)))
                     (EXIT
-                     (COND ((QEQCAR |u| 1) (QREFELT $ 9)) ('T (QCDR |u|))))))) 
+                     (COND ((QEQCAR |u| 1) (QREFELT % 9)) ('T (QCDR |u|))))))) 
 
-(SDEFUN |GSTBL;setelt!;$Key2Entry;2|
-        ((|t| ($)) (|k| (|Key|)) (|e| (|Entry|)) ($ (|Entry|)))
+(SDEFUN |GSTBL;setelt!;%Key2Entry;2|
+        ((|t| (%)) (|k| (|Key|)) (|e| (|Entry|)) (% (|Entry|)))
         (SEQ
          (COND
-          ((SPADCALL |e| (QREFELT $ 9) (QREFELT $ 15))
-           (SEQ (SPADCALL |k| |t| (QREFELT $ 16)) (EXIT |e|)))
-          ('T (SPADCALL |t| |k| |e| (QREFELT $ 17)))))) 
+          ((SPADCALL |e| (QREFELT % 9) (QREFELT % 15))
+           (SEQ (SPADCALL |k| |t| (QREFELT % 16)) (EXIT |e|)))
+          ('T (SPADCALL |t| |k| |e| (QREFELT % 17)))))) 
 
-(SDEFUN |GSTBL;search;Key$U;3|
-        ((|k| (|Key|)) (|t| ($)) ($ (|Union| |Entry| #1="failed")))
+(SDEFUN |GSTBL;search;Key%U;3|
+        ((|k| (|Key|)) (|t| (%)) (% (|Union| |Entry| #1="failed")))
         (SPROG ((|u| (|Union| |Entry| #1#)))
-               (SEQ (LETT |u| (SPADCALL |k| |t| (QREFELT $ 12)))
+               (SEQ (LETT |u| (SPADCALL |k| |t| (QREFELT % 12)))
                     (EXIT
-                     (COND ((QEQCAR |u| 1) (CONS 0 (QREFELT $ 9))) ('T |u|)))))) 
+                     (COND ((QEQCAR |u| 1) (CONS 0 (QREFELT % 9))) ('T |u|)))))) 
 
 (DECLAIM (NOTINLINE |GeneralSparseTable;|)) 
 
@@ -44,16 +44,16 @@
 (DEFUN |GeneralSparseTable;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((#1=#:G173 NIL) (#2=#:G172 NIL) (|pv$| NIL) (#3=#:G170 NIL) (#4=#:G171 NIL)
-    ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+    (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 |#4|)
     (LETT |dv$| (LIST '|GeneralSparseTable| DV$1 DV$2 DV$3 DV$4))
-    (LETT $ (GETREFV 44))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 44))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -119,50 +119,50 @@
                                         (|HasCategory| |#2|
                                                        '(|OrderedSet|))))))
     (|haddProp| |$ConstructorCache| '|GeneralSparseTable|
-                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 5 |#3|)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (QSETREFV $ 8 |#3|)
-    (QSETREFV $ 9 |#4|)
-    (AND (LETT #2# (|HasCategory| $ '(|finiteAggregate|)))
-         (|augmentPredVector| $ 8192))
+                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 5 |#3|)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (QSETREFV % 8 |#3|)
+    (QSETREFV % 9 |#4|)
+    (AND (LETT #2# (|HasCategory| % '(|finiteAggregate|)))
+         (|augmentPredVector| % 8192))
     (AND #2#
          (|HasCategory| (|Record| (|:| |key| |#1|) (|:| |entry| |#2|))
                         '(|OrderedSet|))
-         (|augmentPredVector| $ 16384))
+         (|augmentPredVector| % 16384))
     (AND #2#
          (|HasCategory| (|Record| (|:| |key| |#1|) (|:| |entry| |#2|))
                         '(|BasicType|))
-         (|augmentPredVector| $ 32768))
+         (|augmentPredVector| % 32768))
     (AND
      (LETT #1#
            (AND (|HasCategory| |#2| '(|BasicType|))
-                (|HasCategory| $ '(|finiteAggregate|))))
-     (|augmentPredVector| $ 65536))
+                (|HasCategory| % '(|finiteAggregate|))))
+     (|augmentPredVector| % 65536))
     (AND
      (OR #1# #4#
          (AND #2#
               (|HasCategory| (|Record| (|:| |key| |#1|) (|:| |entry| |#2|))
                              '(|BasicType|)))
          #3#)
-     (|augmentPredVector| $ 131072))
+     (|augmentPredVector| % 131072))
     (AND (|HasCategory| |#2| '(|OrderedSet|)) #2#
-         (|augmentPredVector| $ 262144))
-    (AND (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 524288))
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 10 |#3|)
-    $))) 
+         (|augmentPredVector| % 262144))
+    (AND (|HasCategory| % '(|shallowlyMutable|))
+         (|augmentPredVector| % 524288))
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 10 |#3|)
+    %))) 
 
 (MAKEPROP '|GeneralSparseTable| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|local| |#3|) (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) '|Rep| (|Union| 7 '"failed")
-              (0 . |search|) |GSTBL;elt;$KeyEntry;1| (|Boolean|) (6 . =)
-              (12 . |remove!|) (18 . |setelt!|) |GSTBL;setelt!;$Key2Entry;2|
-              |GSTBL;search;Key$U;3| (|Record| (|:| |key| 6) (|:| |entry| 7))
+              (0 . |search|) |GSTBL;elt;%KeyEntry;1| (|Boolean|) (6 . =)
+              (12 . |remove!|) (18 . |setelt!|) |GSTBL;setelt!;%Key2Entry;2|
+              |GSTBL;search;Key%U;3| (|Record| (|:| |key| 6) (|:| |entry| 7))
               (|List| 20) (|Equation| 20) (|List| 22) (|Mapping| 20 20 20)
               (|NonNegativeInteger|) (|Equation| 7) (|List| 26) (|List| 7)
               (|OutputForm|) (|String|) (|SingleInteger|) (|HashState|)

@@ -20,14 +20,14 @@
 
 (DEFUN |RegularChain;| (|#1| |#2|)
   (SPROG
-   ((#1=#:G135 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((#1=#:G135 NIL) (|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 |#2|)
     (LETT |dv$| (LIST '|RegularChain| DV$1 DV$2))
-    (LETT $ (GETREFV 43))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 43))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -63,25 +63,25 @@
                                          (|OrderedVariableList| |#2|)
                                          '(|Finite|))))))
     (|haddProp| |$ConstructorCache| '|RegularChain| (LIST DV$1 DV$2)
-                (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 64))
-    (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)))
-         (|augmentPredVector| $ 128))
+                (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (AND (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 64))
+    (AND (LETT #1# (|HasCategory| % '(|finiteAggregate|)))
+         (|augmentPredVector| % 128))
     (AND #1#
          (|HasCategory|
           (|NewSparseMultivariatePolynomial| |#1| (|OrderedVariableList| |#2|))
           '(|BasicType|))
-         (|augmentPredVector| $ 256))
+         (|augmentPredVector| % 256))
     (AND #1#
          (|HasCategory|
           (|NewSparseMultivariatePolynomial| |#1| (|OrderedVariableList| |#2|))
           '(|OrderedSet|))
-         (|augmentPredVector| $ 512))
-    (SETF |pv$| (QREFELT $ 3))
-    $))) 
+         (|augmentPredVector| % 512))
+    (SETF |pv$| (QREFELT % 3))
+    %))) 
 
 (MAKEPROP '|RegularChain| '|infovec|
           (LIST
@@ -93,16 +93,16 @@
               (|Mapping| 12 11) (|Mapping| 12 11 11) (|Mapping| 11 11)
               (|Record| (|:| |num| 11) (|:| |den| 6))
               (|Record| (|:| |rnum| 6) (|:| |polnum| 11) (|:| |den| 6))
-              (|List| $) (|Record| (|:| |val| 11) (|:| |tower| $)) (|List| 22)
+              (|List| %) (|Record| (|:| |val| 11) (|:| |tower| %)) (|List| 22)
               (|Union| 11 21) (|Union| 12 21)
-              (|Record| (|:| |val| 12) (|:| |tower| $)) (|List| 26)
-              (|Union| $ '#1="failed")
-              (|OrderedVariableList| (NRTEVAL (QREFELT $ 7))) (|Union| 11 '#1#)
-              (|List| 29) (|Record| (|:| |close| $) (|:| |open| 10))
+              (|Record| (|:| |val| 12) (|:| |tower| %)) (|List| 26)
+              (|Union| % '#1="failed")
+              (|OrderedVariableList| (NRTEVAL (QREFELT % 7))) (|Union| 11 '#1#)
+              (|List| 29) (|Record| (|:| |close| %) (|:| |open| 10))
               (|List| 32) (|Mapping| 12 11 10)
               (|Record| (|:| |close| 10) (|:| |open| 10))
-              (|Record| (|:| |bas| $) (|:| |top| 10)) (|Union| 36 '#1#)
-              (|Record| (|:| |under| $) (|:| |floor| $) (|:| |upper| $))
+              (|Record| (|:| |bas| %) (|:| |top| 10)) (|Union| 36 '#1#)
+              (|Record| (|:| |under| %) (|:| |floor| %) (|:| |upper| %))
               (|HashState|) (|String|) (|OutputForm|) (|SingleInteger|))
            '#(~= 0 |zeroSetSplitIntoTriangularSystems| 6 |zeroSetSplit| 11
               |variables| 29 |trivialIdeal?| 34 |triangular?| 39

@@ -827,7 +827,7 @@
 ;     1=#mList => first mList
 ;   name:=
 ;     m is [fn,:.] => fn
-;     m="$" => "Rep"
+;     m = "%" => "Rep"
 ;     m
 ;   get(name,"value",e) is [[ =ListOrVector,R],:.] => [m,R]
 
@@ -864,7 +864,7 @@
         (SETQ |name|
                 (COND
                  ((AND (CONSP |m|) (PROGN (SETQ |fn| (CAR |m|)) #1#)) |fn|)
-                 ((EQ |m| '$) '|Rep|) (#1# |m|)))
+                 ((EQ |m| '%) '|Rep|) (#1# |m|)))
         (COND
          ((PROGN
            (SETQ |ISTMP#1| (|get| |name| '|value| |e|))

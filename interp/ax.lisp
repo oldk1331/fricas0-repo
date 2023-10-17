@@ -333,15 +333,10 @@
       (COND ((EQL (LENGTH |args|) 1) (CAR |args|)) ('T (CONS |op| |args|)))))))
 
 ; axFormatDecl(sym, type) ==
-;    if sym = '$ then sym := '%
 ;    ['Declare, sym, axFormatType type]
 
 (DEFUN |axFormatDecl| (|sym| |type|)
-  (PROG ()
-    (RETURN
-     (PROGN
-      (COND ((EQ |sym| '$) (SETQ |sym| '%)))
-      (LIST '|Declare| |sym| (|axFormatType| |type|))))))
+  (PROG () (RETURN (LIST '|Declare| |sym| (|axFormatType| |type|)))))
 
 ; makeTypeSequence l ==
 ;    ['Sequence,: delete('Type, l)]
@@ -360,7 +355,6 @@
 
 ; axFormatType(typeform) ==
 ;   atom typeform =>
-;      typeform = '$ => '%
 ;      STRINGP typeform =>
 ;         ['Apply,'Enumeration, INTERN typeform]
 ;      INTEGERP typeform =>
@@ -383,7 +377,6 @@
 ;                         :[axFormatType a for a in args]],
 ;                           ['Apply, 'List, 'Symbol] ]
 ;   typeform is [op] =>
-;     op = '$ => '%
 ;     op = 'Void => ['Comma]
 ;     op
 ;   typeform is ['local, val] => axFormatType val
@@ -448,31 +441,30 @@
     (RETURN
      (COND
       ((ATOM |typeform|)
-       (COND ((EQ |typeform| '$) '%)
-             ((STRINGP |typeform|)
-              (LIST '|Apply| '|Enumeration| (INTERN |typeform|)))
-             ((INTEGERP |typeform|)
-              (COND
-               ((EQL |typeform| 0)
-                (PROGN
-                 (|axAddLiteral| '|integer| '|Integer| '|Literal|)
-                 (LIST '|RestrictTo| (LIST '|LitInteger| "0") '|Integer|)))
-               (#1='T
-                (PROGN
-                 (|axAddLiteral| '|integer| '|PositiveInteger| '|Literal|)
-                 (LIST '|RestrictTo|
-                       (LIST '|LitInteger| (STRINGIMAGE |typeform|))
-                       '|PositiveInteger|)))))
-             ((FLOATP |typeform|) (LIST '|LitFloat| (STRINGIMAGE |typeform|)))
-             ((MEMQ |typeform| |$TriangleVariableList|)
-              (SUBLISLIS |$FormalMapVariableList| |$TriangleVariableList|
-               |typeform|))
-             ((MEMQ |typeform| |$FormalMapVariableList|) |typeform|)
-             (#1#
-              (PROGN
-               (|axAddLiteral| '|string| '|Symbol| '|Literal|)
-               (LIST '|RestrictTo| (LIST '|LitString| (PNAME |typeform|))
-                     '|Symbol|)))))
+       (COND
+        ((STRINGP |typeform|)
+         (LIST '|Apply| '|Enumeration| (INTERN |typeform|)))
+        ((INTEGERP |typeform|)
+         (COND
+          ((EQL |typeform| 0)
+           (PROGN
+            (|axAddLiteral| '|integer| '|Integer| '|Literal|)
+            (LIST '|RestrictTo| (LIST '|LitInteger| "0") '|Integer|)))
+          (#1='T
+           (PROGN
+            (|axAddLiteral| '|integer| '|PositiveInteger| '|Literal|)
+            (LIST '|RestrictTo| (LIST '|LitInteger| (STRINGIMAGE |typeform|))
+                  '|PositiveInteger|)))))
+        ((FLOATP |typeform|) (LIST '|LitFloat| (STRINGIMAGE |typeform|)))
+        ((MEMQ |typeform| |$TriangleVariableList|)
+         (SUBLISLIS |$FormalMapVariableList| |$TriangleVariableList|
+          |typeform|))
+        ((MEMQ |typeform| |$FormalMapVariableList|) |typeform|)
+        (#1#
+         (PROGN
+          (|axAddLiteral| '|string| '|Symbol| '|Literal|)
+          (LIST '|RestrictTo| (LIST '|LitString| (PNAME |typeform|))
+                '|Symbol|)))))
       ((AND (CONSP |typeform|) (EQ (CAR |typeform|) '|construct|)
             (PROGN (SETQ |args| (CDR |typeform|)) #1#))
        (PROGN
@@ -497,7 +489,7 @@
               (LIST '|Apply| '|List| '|Symbol|))))
       ((AND (CONSP |typeform|) (EQ (CDR |typeform|) NIL)
             (PROGN (SETQ |op| (CAR |typeform|)) #1#))
-       (COND ((EQ |op| '$) '%) ((EQ |op| '|Void|) (LIST '|Comma|)) (#1# |op|)))
+       (COND ((EQ |op| '|Void|) (LIST '|Comma|)) (#1# |op|)))
       ((AND (CONSP |typeform|) (EQ (CAR |typeform|) '|local|)
             (PROGN
              (SETQ |ISTMP#1| (CDR |typeform|))
@@ -845,7 +837,7 @@
 
 ; augmentTo(a, t) ==
 ;   not $conditionalCast => axFormatType a
-;   a = '$ => pretendTo(a, t)
+;   a = '% => pretendTo(a, t)
 ;   ax := axFormatType a -- a looks like |#i|
 ;   not(null(kv:=ASSOC(a,$augmentedArgs))) =>
 ;       ['PretendTo, ax, formatAugmentedType(rest kv, a, $augmentedArgs)]
@@ -857,7 +849,7 @@
   (PROG (|ax| |kv|)
     (RETURN
      (COND ((NULL |$conditionalCast|) (|axFormatType| |a|))
-           ((EQ |a| '$) (|pretendTo| |a| |t|))
+           ((EQ |a| '%) (|pretendTo| |a| |t|))
            (#1='T
             (PROGN
              (SETQ |ax| (|axFormatType| |a|))
@@ -1000,8 +992,7 @@
 ;    op = 'IF => axFormatOp pred
 ;    op = 'has =>
 ;       [name,type] := args
-;       if name = '$ then name := '%
-;       else name := axFormatOp name
+;       name := axFormatOp(name)
 ;       ftype := axFormatOp type
 ;       if ftype is ['Declare,:.] then
 ;            ftype := ['With, [], ftype]
@@ -1028,8 +1019,7 @@
                     (PROGN
                      (SETQ |name| (CAR |args|))
                      (SETQ |type| (CADR |args|))
-                     (COND ((EQ |name| '$) (SETQ |name| '%))
-                           (#1# (SETQ |name| (|axFormatOp| |name|))))
+                     (SETQ |name| (|axFormatOp| |name|))
                      (SETQ |ftype| (|axFormatOp| |type|))
                      (COND
                       ((AND (CONSP |ftype|) (EQ (CAR |ftype|) '|Declare|))
@@ -1505,7 +1495,7 @@
 
 ; axCatSignature(sig) ==
 ;     ATOM sig => sig
-;     sig = '($) => '$
+;     sig = '(%) => '%
 ;     CAR(sig) = "local" => CADR(sig)
 ;     CAR(sig) = "QUOTE" => CADR(sig)
 ;     [axCatSignature elt for elt in sig]
@@ -1513,7 +1503,7 @@
 (DEFUN |axCatSignature| (|sig|)
   (PROG ()
     (RETURN
-     (COND ((ATOM |sig|) |sig|) ((EQUAL |sig| '($)) '$)
+     (COND ((ATOM |sig|) |sig|) ((EQUAL |sig| '(%)) '%)
            ((EQ (CAR |sig|) '|local|) (CADR |sig|))
            ((EQ (CAR |sig|) 'QUOTE) (CADR |sig|))
            (#1='T

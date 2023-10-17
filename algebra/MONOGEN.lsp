@@ -32,20 +32,20 @@
                                                  (|FullyLinearlyExplicitOver|
                                                   '|t#1|)
                                                  (|mkCategory|
-                                                  '(((|generator| ($)) T)
+                                                  '(((|generator| (%)) T)
                                                     ((|definingPolynomial|
                                                       (|t#2|))
                                                      T)
-                                                    ((|reduce| ($ |t#2|)) T)
-                                                    ((|convert| ($ |t#2|)) T)
-                                                    ((|lift| (|t#2| $)) T)
+                                                    ((|reduce| (% |t#2|)) T)
+                                                    ((|convert| (% |t#2|)) T)
+                                                    ((|lift| (|t#2| %)) T)
                                                     ((|reduce|
-                                                      ((|Union| $ "failed")
+                                                      ((|Union| % "failed")
                                                        (|Fraction| |t#2|)))
                                                      (|has| |t#1| (|Field|)))
                                                     ((|derivationCoordinates|
                                                       ((|Matrix| |t#1|)
-                                                       (|Vector| $)
+                                                       (|Vector| %)
                                                        (|Mapping| |t#1|
                                                                   |t#1|)))
                                                      (|has| |t#1| (|Field|))))

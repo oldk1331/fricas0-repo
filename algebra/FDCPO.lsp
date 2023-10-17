@@ -1,12 +1,12 @@
 
-(SDEFUN |FDCPO;join;$3Nni;1|
-        ((|s| ($)) (|a| #1=(|NonNegativeInteger|)) (|b| #1#)
-         ($ (|NonNegativeInteger|)))
+(SDEFUN |FDCPO;join;%3Nni;1|
+        ((|s| (%)) (|a| #1=(|NonNegativeInteger|)) (|b| #1#)
+         (% (|NonNegativeInteger|)))
         (SPROG
          ((#2=#:G105 NIL) (|res| (|Union| (|NonNegativeInteger|) "failed")))
-         (SEQ (LETT |res| (SPADCALL |s| |a| |b| (QREFELT $ 9)))
+         (SEQ (LETT |res| (SPADCALL |s| |a| |b| (QREFELT % 9)))
               (COND
-               ((SPADCALL |res| (CONS 1 "failed") (QREFELT $ 11))
+               ((SPADCALL |res| (CONS 1 "failed") (QREFELT % 11))
                 (|error| "This POSET does not have join")))
               (EXIT
                (PROG2 (LETT #2# |res|)
@@ -34,28 +34,28 @@
                  ((NOT #2#) (HREM |$ConstructorCache| '|FiniteDcpo|)))))))))) 
 
 (DEFUN |FiniteDcpo;| (|#1|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|FiniteDcpo| DV$1))
-          (LETT $ (GETREFV 36))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|FiniteDcpo| (LIST DV$1) (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+          (LETT % (GETREFV 36))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|FiniteDcpo| (LIST DV$1) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|FiniteDcpo| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|FinitePoset| 6) (|local| |#1|)
               (|Union| 8 '"failed") (|NonNegativeInteger|) (0 . |joinIfCan|)
-              (|Boolean|) (7 . =) |FDCPO;join;$3Nni;1|
+              (|Boolean|) (7 . =) |FDCPO;join;%3Nni;1|
               (|IncidenceAlgebra| 19 6) (|List| 8) (|Void|) (|List| 6)
               (|List| (|List| 10)) (|Mapping| 10 6 6) (|Integer|) (|String|)
-              (|List| $) (|Scene| (|SCartesian| '2)) (|Matrix| 19) (|Matrix| 8)
-              (|List| (|Loop|)) (|Tree| 19) (|List| 26) (|DirectedGraph| $)
+              (|List| %) (|Scene| (|SCartesian| '2)) (|Matrix| 19) (|Matrix| 8)
+              (|List| (|Loop|)) (|Tree| 19) (|List| 26) (|DirectedGraph| %)
               (|Record| (|:| |name| 20) (|:| |arrType| 8) (|:| |fromOb| 8)
                         (|:| |toOb| 8) (|:| |xOffset| 19) (|:| |yOffset| 19)
                         (|:| |map| 14))

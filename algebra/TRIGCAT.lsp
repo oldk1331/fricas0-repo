@@ -15,8 +15,8 @@
              (LETT #1#
                    (|Join|
                     (|mkCategory|
-                     '(((|cos| ($ $)) T) ((|cot| ($ $)) T) ((|csc| ($ $)) T)
-                       ((|sec| ($ $)) T) ((|sin| ($ $)) T) ((|tan| ($ $)) T))
+                     '(((|cos| (% %)) T) ((|cot| (% %)) T) ((|csc| (% %)) T)
+                       ((|sec| (% %)) T) ((|sin| (% %)) T) ((|tan| (% %)) T))
                      NIL NIL NIL)))
            (SETELT #1# 0 '(|TrigonometricFunctionCategory|))))) 
 

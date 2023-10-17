@@ -112,7 +112,7 @@
 
 ; compDefineAddSignature([op,:argl],signature,e) ==
 ;   (sig:= hasFullSignature(argl,signature,e)) and
-;    not assoc(['$,:sig],LASSOC('modemap,getProplist(op,e))) =>
+;    not assoc(['%, :sig], LASSOC('modemap, getProplist(op, e))) =>
 ;      declForm:=
 ;        [":",[op,:[[":",x,m] for x in argl for m in rest sig]],first signature]
 ;      [.,.,e]:= comp(declForm,$EmptyMode,e)
@@ -128,7 +128,7 @@
       (COND
        ((AND (SETQ |sig| (|hasFullSignature| |argl| |signature| |e|))
              (NULL
-              (|assoc| (CONS '$ |sig|)
+              (|assoc| (CONS '% |sig|)
                (LASSOC '|modemap| (|getProplist| |op| |e|)))))
         (PROGN
          (SETQ |declForm|
@@ -526,8 +526,8 @@
 ;                      :SUBLISLIS(argl,$FormalMapVariableList,catOpList)]
 ;   nils:= [nil for x in argl]
 ;   packageSig := [packageCategory,form,:nils]
-;   $categoryPredicateList := SUBST(nameForDollar,'$,$categoryPredicateList)
-;   SUBST(nameForDollar,'$,
+;   $categoryPredicateList := SUBST(nameForDollar, '%, $categoryPredicateList)
+;   SUBST(nameForDollar, '%,
 ;       ['DEF, [packageName, :packageArgl], packageSig, def])
 
 (DEFUN |mkCategoryPackage| (|form| |def| |e|)
@@ -595,8 +595,8 @@
                        NIL |argl| NIL))
               (SETQ |packageSig| (CONS |packageCategory| (CONS |form| |nils|)))
               (SETQ |$categoryPredicateList|
-                      (SUBST |nameForDollar| '$ |$categoryPredicateList|))
-              (SUBST |nameForDollar| '$
+                      (SUBST |nameForDollar| '% |$categoryPredicateList|))
+              (SUBST |nameForDollar| '%
                      (LIST 'DEF (CONS |packageName| |packageArgl|) |packageSig|
                            |def|)))))))))
 (DEFUN |mkCategoryPackage,fn| (|x| |oplist|)
@@ -624,7 +624,7 @@
 ; --  1.1  augment e to add declaration $: <form>
 ;     $op: local := nil
 ;     [$op, :argl] := form
-;     e := addBinding("$", [['mode, :form]],e)
+;     e := addBinding("%", [['mode, :form]], e)
 ;
 ; --  2. obtain signature
 ;     signature':=
@@ -714,7 +714,7 @@
       (SETQ |$op| NIL)
       (SETQ |$op| (CAR |form|))
       (SETQ |argl| (CDR |form|))
-      (SETQ |e| (|addBinding| '$ (LIST (CONS '|mode| |form|)) |e|))
+      (SETQ |e| (|addBinding| '% (LIST (CONS '|mode| |form|)) |e|))
       (SETQ |signature'|
               (CONS (CAR |signature|)
                     ((LAMBDA (|bfVar#21| |bfVar#20| |a|)
@@ -952,11 +952,11 @@
 ;     $functor_cosig1 : local := [categoryForm?(t) for t in rest(signature')]
 ;     -- generate slots for arguments first, then for $NRTaddForm in compAdd
 ;     for x in argl repeat NRTgetLocalIndex(x, e)
-;     [., ., e] := compMakeDeclaration([":", '_$, target], m, e)
+;     [., ., e] := compMakeDeclaration([":", '%, target], m, e)
 ;
 ;
 ;     if $insideCategoryPackageIfTrue~= true  then
-;         e := augModemapsFromCategory('_$, '_$, target, e)
+;         e := augModemapsFromCategory('%, '%, target, e)
 ;     $signature:= signature'
 ;     parSignature:= SUBLIS($pairlis,signature')
 ;     parForm:= SUBLIS($pairlis,form)
@@ -1142,11 +1142,11 @@
            (#2# (|NRTgetLocalIndex| |x| |e|)))
           (SETQ |bfVar#40| (CDR |bfVar#40|))))
        |argl| NIL)
-      (SETQ |LETTMP#1| (|compMakeDeclaration| (LIST '|:| '$ |target|) |m| |e|))
+      (SETQ |LETTMP#1| (|compMakeDeclaration| (LIST '|:| '% |target|) |m| |e|))
       (SETQ |e| (CADDR |LETTMP#1|))
       (COND
        ((NOT (EQUAL |$insideCategoryPackageIfTrue| T))
-        (SETQ |e| (|augModemapsFromCategory| '$ '$ |target| |e|))))
+        (SETQ |e| (|augModemapsFromCategory| '% '% |target| |e|))))
       (SETQ |$signature| |signature'|)
       (SETQ |parSignature| (SUBLIS |$pairlis| |signature'|))
       (SETQ |parForm| (SUBLIS |$pairlis| |form|))
@@ -1672,7 +1672,7 @@
 
 ; genDomainView(viewName, dollar, c) ==
 ;   c is ['CATEGORY, ., :l] => genDomainOps(viewName, c)
-;   c := substitute(dollar, "$", c)
+;   c := substitute(dollar, "%", c)
 ;   $tmp_e := augModemapsFromCategory(viewName, nil, c, $tmp_e)
 
 (DEFUN |genDomainView| (|viewName| |dollar| |c|)
@@ -1686,7 +1686,7 @@
        (|genDomainOps| |viewName| |c|))
       (#1#
        (PROGN
-        (SETQ |c| (|substitute| |dollar| '$ |c|))
+        (SETQ |c| (|substitute| |dollar| '% |c|))
         (SETQ |$tmp_e|
                 (|augModemapsFromCategory| |viewName| NIL |c| |$tmp_e|))))))))
 
@@ -2092,7 +2092,7 @@
 ;     fun:=
 ;       body':= replaceExitEtc(T.expr,catchTag,"TAGGEDreturn",$returnMode)
 ;       finalBody:= ["CATCH",catchTag,body']
-;       do_compile([$op, ["LAMBDA", [:argl, '_$], finalBody]], oldE)
+;       do_compile([$op, ["LAMBDA", [:argl, '%], finalBody]], oldE)
 ;     $functorStats:= addStats($functorStats,$functionStats)
 ;
 ;
@@ -2208,7 +2208,7 @@
                (SETQ |finalBody| (LIST 'CATCH |catchTag| |body'|))
                (|do_compile|
                 (LIST |$op|
-                      (LIST 'LAMBDA (APPEND |argl| (CONS '$ NIL)) |finalBody|))
+                      (LIST 'LAMBDA (APPEND |argl| (CONS '% NIL)) |finalBody|))
                 |oldE|)))
       (SETQ |$functorStats| (|addStats| |$functorStats| |$functionStats|))
       (LIST |fun| (CONS '|Mapping| |signature'|) |oldE|)))))
@@ -2414,7 +2414,7 @@
 ;     (sigl:=
 ;       REMDUP
 ;         [sig for [[dc, :sig], [pred, :.]]
-;            in (mmList := get(op, 'modemap, e)) | dc='_$ and
+;            in (mmList := get(op, 'modemap, e)) | dc = '% and
 ;                rest sig=argModeList and known_in_env(pred, e)]) => first sigl
 ;   null sigl =>
 ;     (u := getmode(op, e)) is ['Mapping, :sig] => sig
@@ -2470,7 +2470,7 @@
                                              (PROGN
                                               (SETQ |pred| (CAR |ISTMP#3|))
                                               #1#)))))
-                                 (EQ |dc| '$) (EQUAL (CDR |sig|) |argModeList|)
+                                 (EQ |dc| '%) (EQUAL (CDR |sig|) |argModeList|)
                                  (|known_in_env| |pred| |e|)
                                  (SETQ |bfVar#102| (CONS |sig| |bfVar#102|)))))
                           (SETQ |bfVar#101| (CDR |bfVar#101|))))
@@ -2579,7 +2579,7 @@
 ;       opmodes:=
 ;         [sel
 ;           for [[DC, :sig], [., sel]] in get(op, 'modemap, e) |
-;             DC='_$ and (opexport:=true) and
+;             DC = '% and (opexport := true) and
 ;              (and/[modeEqual(x,y) for x in sig for y in $signatureOfForm])]
 ;       isLocalFunction(op, e) =>
 ;         if opexport then userError ['%b,op,'%d,'" is local and exported"]
@@ -2645,7 +2645,7 @@
                                                        (SETQ |sel|
                                                                (CAR |ISTMP#4|))
                                                        #1#)))))))
-                                    (EQ DC '$) (SETQ |opexport| T)
+                                    (EQ DC '%) (SETQ |opexport| T)
                                     ((LAMBDA
                                          (|bfVar#111| |bfVar#109| |x|
                                           |bfVar#110| |y|)
@@ -3012,7 +3012,7 @@
 ; compCapsule(['CAPSULE,:itemList],m,e) ==
 ;   $bootStrapMode = true =>
 ;       [bootStrapError($functorForm, $edit_file), m, e]
-;   compCapsuleInner(itemList,m,addDomain('_$,e))
+;   compCapsuleInner(itemList, m, addDomain('%, e))
 
 (DEFUN |compCapsule| (|bfVar#122| |m| |e|)
   (PROG (|itemList|)
@@ -3022,7 +3022,7 @@
       (COND
        ((EQUAL |$bootStrapMode| T)
         (LIST (|bootStrapError| |$functorForm| |$edit_file|) |m| |e|))
-       ('T (|compCapsuleInner| |itemList| |m| (|addDomain| '$ |e|))))))))
+       ('T (|compCapsuleInner| |itemList| |m| (|addDomain| '% |e|))))))))
 
 ; compSubDomain(["SubDomain",domainForm,predicate],m,e) ==
 ;   $addFormLhs: local:= domainForm
@@ -3206,7 +3206,7 @@
 ;       RPLACA(item,($QuickCode => 'QSETREFV;'SETELT))
 ;       rhsCode:=
 ;        rhs'
-;       RPLACD(item, ['$, NRTgetLocalIndex(lhs, e), rhsCode])
+;       RPLACD(item, ['%, NRTgetLocalIndex(lhs, e), rhsCode])
 ;       e
 ;     RPLACA(item,first code)
 ;     RPLACD(item,rest code)
@@ -3367,7 +3367,7 @@
               (RPLACA |item| (COND (|$QuickCode| 'QSETREFV) (#1# 'SETELT)))
               (SETQ |rhsCode| |rhs'|)
               (RPLACD |item|
-                      (LIST '$ (|NRTgetLocalIndex| |lhs| |e|) |rhsCode|))
+                      (LIST '% (|NRTgetLocalIndex| |lhs| |e|) |rhsCode|))
               |e|))
             (#1#
              (PROGN

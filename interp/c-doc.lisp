@@ -156,7 +156,7 @@
 ;   -- skip during bootstrap to save time
 ;   $bootStrapMode => []
 ;   unusedCommentLineNumbers := [x for (x := [n,:r]) in $COMBLOCKLIST | r]
-;   docList := SUBST("$","%",transDocList($op,$docList))
+;   docList := transDocList($op, $docList)
 ;   if u := [sig for [sig,:doc] in docList | null doc] then
 ;     for y in u repeat
 ;       y = 'constructor => noHeading := true
@@ -223,7 +223,7 @@
                                 |r| (SETQ |bfVar#5| (CONS |x| |bfVar#5|)))))
                          (SETQ |bfVar#4| (CDR |bfVar#4|))))
                       NIL $COMBLOCKLIST NIL))
-             (SETQ |docList| (SUBST '$ '% (|transDocList| |$op| |$docList|)))
+             (SETQ |docList| (|transDocList| |$op| |$docList|))
              (COND
               ((SETQ |u|
                        ((LAMBDA (|bfVar#8| |bfVar#7| |bfVar#6|)

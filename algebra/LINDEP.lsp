@@ -1,116 +1,116 @@
 
 (SDEFUN |LINDEP;aNonZeroSolution|
-        ((|m| (|Matrix| S)) ($ (|Union| (|Vector| S) "failed")))
+        ((|m| (|Matrix| S)) (% (|Union| (|Vector| S) "failed")))
         (SPROG ((|ns| (|List| (|Vector| S))))
                (COND
-                ((NULL (LETT |ns| (SPADCALL |m| (QREFELT $ 10))))
+                ((NULL (LETT |ns| (SPADCALL |m| (QREFELT % 10))))
                  (CONS 1 "failed"))
                 ('T (CONS 0 (|SPADfirst| |ns|)))))) 
 
-(SDEFUN |LINDEP;linearlyDependent?;VB;2| ((|v| (|Vector| R)) ($ (|Boolean|)))
+(SDEFUN |LINDEP;linearlyDependent?;VB;2| ((|v| (|Vector| R)) (% (|Boolean|)))
         (SPROG ((|n| (|NonNegativeInteger|)))
                (COND ((ZEROP (LETT |n| (QVSIZE |v|))) 'T)
                      ((EQL |n| 1)
                       (SPADCALL
-                       (SPADCALL |v| (SPADCALL |v| (QREFELT $ 14))
-                                 (QREFELT $ 15))
-                       (QREFELT $ 17)))
+                       (SPADCALL |v| (SPADCALL |v| (QREFELT % 14))
+                                 (QREFELT % 15))
+                       (QREFELT % 17)))
                      ('T
                       (PLUSP
                        (SPADCALL
-                        (SPADCALL (SPADCALL |v| (QREFELT $ 19)) (QREFELT $ 21))
-                        (QREFELT $ 23))))))) 
+                        (SPADCALL (SPADCALL |v| (QREFELT % 19)) (QREFELT % 21))
+                        (QREFELT % 23))))))) 
 
 (SDEFUN |LINDEP;linearDependence;VU;3|
-        ((|v| (|Vector| R)) ($ (|Union| (|Vector| S) "failed")))
+        ((|v| (|Vector| R)) (% (|Union| (|Vector| S) "failed")))
         (SPROG ((|n| (|NonNegativeInteger|)))
                (COND ((ZEROP (LETT |n| (QVSIZE |v|))) (CONS 0 (MAKE-ARRAY 0)))
                      ((EQL |n| 1)
                       (COND
                        ((SPADCALL
-                         (SPADCALL |v| (SPADCALL |v| (QREFELT $ 14))
-                                   (QREFELT $ 15))
-                         (QREFELT $ 17))
-                        (CONS 0 (MAKEARR1 1 (|spadConstant| $ 11))))
+                         (SPADCALL |v| (SPADCALL |v| (QREFELT % 14))
+                                   (QREFELT % 15))
+                         (QREFELT % 17))
+                        (CONS 0 (MAKEARR1 1 (|spadConstant| % 11))))
                        (#1='T (CONS 1 "failed"))))
                      (#1#
                       (|LINDEP;aNonZeroSolution|
-                       (SPADCALL (SPADCALL |v| (QREFELT $ 19)) (QREFELT $ 21))
-                       $))))) 
+                       (SPADCALL (SPADCALL |v| (QREFELT % 19)) (QREFELT % 21))
+                       %))))) 
 
 (SDEFUN |LINDEP;solveLinear;VRR;4|
         ((|v| (|Vector| R)) (|c| (R))
-         ($
+         (%
           (|Record| (|:| |particular| (|Union| (|Vector| S) "failed"))
                     (|:| |basis| (|List| (|Vector| S))))))
-        (SPADCALL (SPADCALL |v| (QREFELT $ 19)) (MAKEARR1 1 |c|)
-                  (QREFELT $ 28))) 
+        (SPADCALL (SPADCALL |v| (QREFELT % 19)) (MAKEARR1 1 |c|)
+                  (QREFELT % 28))) 
 
 (SDEFUN |LINDEP;solveLinear;MVR;5|
         ((|m| (|Matrix| R)) (|v| (|Vector| R))
-         ($
+         (%
           (|Record| (|:| |particular| (|Union| (|Vector| S) "failed"))
                     (|:| |basis| (|List| (|Vector| S))))))
         (SPROG
          ((|sys| (|Record| (|:| |mat| (|Matrix| S)) (|:| |vec| (|Vector| S)))))
-         (SEQ (LETT |sys| (SPADCALL |m| |v| (QREFELT $ 32)))
-              (EXIT (SPADCALL (QCAR |sys|) (QCDR |sys|) (QREFELT $ 35)))))) 
+         (SEQ (LETT |sys| (SPADCALL |m| |v| (QREFELT % 32)))
+              (EXIT (SPADCALL (QCAR |sys|) (QCDR |sys|) (QREFELT % 35)))))) 
 
 (SDEFUN |LINDEP;particularSolution;VRU;6|
-        ((|v| (|Vector| R)) (|c| (R)) ($ (|Union| (|Vector| S) "failed")))
+        ((|v| (|Vector| R)) (|c| (R)) (% (|Union| (|Vector| S) "failed")))
         (COND
-         ((SPADCALL |c| (QREFELT $ 17))
-          (CONS 0 (MAKEARR1 (QVSIZE |v|) (|spadConstant| $ 36))))
-         ((SPADCALL |v| (QREFELT $ 37)) (CONS 1 "failed"))
-         ('T (QCAR (SPADCALL |v| |c| (QREFELT $ 29)))))) 
+         ((SPADCALL |c| (QREFELT % 17))
+          (CONS 0 (MAKEARR1 (QVSIZE |v|) (|spadConstant| % 36))))
+         ((SPADCALL |v| (QREFELT % 37)) (CONS 1 "failed"))
+         ('T (QCAR (SPADCALL |v| |c| (QREFELT % 29)))))) 
 
 (SDEFUN |LINDEP;particularSolution;MVU;7|
         ((|m| (|Matrix| R)) (|v| (|Vector| R))
-         ($ (|Union| (|Vector| S) "failed")))
+         (% (|Union| (|Vector| S) "failed")))
         (COND
-         ((SPADCALL |v| (SPADCALL (QVSIZE |v|) (QREFELT $ 39)) (QREFELT $ 40))
-          (CONS 0 (MAKEARR1 (ANCOLS |m|) (|spadConstant| $ 36))))
-         ('T (QCAR (SPADCALL |m| |v| (QREFELT $ 28)))))) 
+         ((SPADCALL |v| (SPADCALL (QVSIZE |v|) (QREFELT % 39)) (QREFELT % 40))
+          (CONS 0 (MAKEARR1 (ANCOLS |m|) (|spadConstant| % 36))))
+         ('T (QCAR (SPADCALL |m| |v| (QREFELT % 28)))))) 
 
 (SDEFUN |LINDEP;solveLinear;VRR;8|
         ((|v| (|Vector| R)) (|c| (R))
-         ($
+         (%
           (|Record|
            (|:| |particular| (|Union| (|Vector| (|Fraction| S)) "failed"))
            (|:| |basis| (|List| (|Vector| (|Fraction| S)))))))
-        (SPADCALL (SPADCALL |v| (QREFELT $ 19)) (MAKEARR1 1 |c|)
-                  (QREFELT $ 44))) 
+        (SPADCALL (SPADCALL |v| (QREFELT % 19)) (MAKEARR1 1 |c|)
+                  (QREFELT % 44))) 
 
 (SDEFUN |LINDEP;solveLinear;MVR;9|
         ((|m| (|Matrix| R)) (|v| (|Vector| R))
-         ($
+         (%
           (|Record|
            (|:| |particular| (|Union| (|Vector| (|Fraction| S)) "failed"))
            (|:| |basis| (|List| (|Vector| (|Fraction| S)))))))
         (SPROG
          ((|sys| (|Record| (|:| |mat| (|Matrix| S)) (|:| |vec| (|Vector| S)))))
-         (SEQ (LETT |sys| (SPADCALL |m| |v| (QREFELT $ 32)))
+         (SEQ (LETT |sys| (SPADCALL |m| |v| (QREFELT % 32)))
               (EXIT
-               (SPADCALL (SPADCALL (ELT $ 47) (QCAR |sys|) (QREFELT $ 51))
-                         (SPADCALL (ELT $ 47) (QCDR |sys|) (QREFELT $ 54))
-                         (QREFELT $ 56)))))) 
+               (SPADCALL (SPADCALL (ELT % 47) (QCAR |sys|) (QREFELT % 51))
+                         (SPADCALL (ELT % 47) (QCDR |sys|) (QREFELT % 54))
+                         (QREFELT % 56)))))) 
 
 (SDEFUN |LINDEP;particularSolution;VRU;10|
         ((|v| (|Vector| R)) (|c| (R))
-         ($ (|Union| (|Vector| (|Fraction| S)) "failed")))
+         (% (|Union| (|Vector| (|Fraction| S)) "failed")))
         (COND
-         ((SPADCALL |c| (QREFELT $ 17))
-          (CONS 0 (MAKEARR1 (QVSIZE |v|) (|spadConstant| $ 57))))
-         ((SPADCALL |v| (QREFELT $ 37)) (CONS 1 "failed"))
-         ('T (QCAR (SPADCALL |v| |c| (QREFELT $ 45)))))) 
+         ((SPADCALL |c| (QREFELT % 17))
+          (CONS 0 (MAKEARR1 (QVSIZE |v|) (|spadConstant| % 57))))
+         ((SPADCALL |v| (QREFELT % 37)) (CONS 1 "failed"))
+         ('T (QCAR (SPADCALL |v| |c| (QREFELT % 45)))))) 
 
 (SDEFUN |LINDEP;particularSolution;MVU;11|
         ((|m| (|Matrix| R)) (|v| (|Vector| R))
-         ($ (|Union| (|Vector| (|Fraction| S)) "failed")))
+         (% (|Union| (|Vector| (|Fraction| S)) "failed")))
         (COND
-         ((SPADCALL |v| (SPADCALL (QVSIZE |v|) (QREFELT $ 39)) (QREFELT $ 40))
-          (CONS 0 (MAKEARR1 (ANCOLS |m|) (|spadConstant| $ 57))))
-         ('T (QCAR (SPADCALL |m| |v| (QREFELT $ 44)))))) 
+         ((SPADCALL |v| (SPADCALL (QVSIZE |v|) (QREFELT % 39)) (QREFELT % 40))
+          (CONS 0 (MAKEARR1 (ANCOLS |m|) (|spadConstant| % 57))))
+         ('T (QCAR (SPADCALL |m| |v| (QREFELT % 44)))))) 
 
 (DECLAIM (NOTINLINE |LinearDependence;|)) 
 
@@ -135,14 +135,14 @@
 
 (DEFUN |LinearDependence;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G168 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G168 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))
     (LETT |dv$| (LIST '|LinearDependence| DV$1 DV$2))
-    (LETT $ (GETREFV 60))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 60))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -150,46 +150,46 @@
                                               (|HasCategory| |#1| '(|Field|)))
                                         (|not| #1#)))))
     (|haddProp| |$ConstructorCache| '|LinearDependence| (LIST DV$1 DV$2)
-                (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (SETF |pv$| (QREFELT $ 3))
+                (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (SETF |pv$| (QREFELT % 3))
     (COND
      ((|testBitVector| |pv$| 1)
       (PROGN
-       (QSETREFV $ 29 (CONS (|dispatchFunction| |LINDEP;solveLinear;VRR;4|) $))
-       (QSETREFV $ 28 (CONS (|dispatchFunction| |LINDEP;solveLinear;MVR;5|) $))
-       (QSETREFV $ 38
+       (QSETREFV % 29 (CONS (|dispatchFunction| |LINDEP;solveLinear;VRR;4|) %))
+       (QSETREFV % 28 (CONS (|dispatchFunction| |LINDEP;solveLinear;MVR;5|) %))
+       (QSETREFV % 38
                  (CONS (|dispatchFunction| |LINDEP;particularSolution;VRU;6|)
-                       $))
-       (QSETREFV $ 41
+                       %))
+       (QSETREFV % 41
                  (CONS (|dispatchFunction| |LINDEP;particularSolution;MVU;7|)
-                       $))))
+                       %))))
      ('T
       (PROGN
-       (QSETREFV $ 45 (CONS (|dispatchFunction| |LINDEP;solveLinear;VRR;8|) $))
-       (QSETREFV $ 44 (CONS (|dispatchFunction| |LINDEP;solveLinear;MVR;9|) $))
-       (QSETREFV $ 58
+       (QSETREFV % 45 (CONS (|dispatchFunction| |LINDEP;solveLinear;VRR;8|) %))
+       (QSETREFV % 44 (CONS (|dispatchFunction| |LINDEP;solveLinear;MVR;9|) %))
+       (QSETREFV % 58
                  (CONS (|dispatchFunction| |LINDEP;particularSolution;VRU;10|)
-                       $))
-       (QSETREFV $ 59
+                       %))
+       (QSETREFV % 59
                  (CONS (|dispatchFunction| |LINDEP;particularSolution;MVU;11|)
-                       $)))))
-    $))) 
+                       %)))))
+    %))) 
 
 (MAKEPROP '|LinearDependence| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (|List| 33)
               (|Matrix| 6) (0 . |nullSpace|) (5 . |One|) (|Integer|)
               (|Vector| 7) (9 . |minIndex|) (14 . |elt|) (|Boolean|)
-              (20 . |zero?|) (|Matrix| 7) (25 . |transpose|) (|Matrix| $)
+              (20 . |zero?|) (|Matrix| 7) (25 . |transpose|) (|Matrix| %)
               (30 . |reducedSystem|) (|NonNegativeInteger|) (35 . |nullity|)
               |LINDEP;linearlyDependent?;VB;2| (|Union| 33 '#1="failed")
               |LINDEP;linearDependence;VU;3|
               (|Record| (|:| |particular| 25) (|:| |basis| 8))
               (40 . |solveLinear|) (46 . |solveLinear|)
-              (|Record| (|:| |mat| 9) (|:| |vec| 33)) (|Vector| $)
+              (|Record| (|:| |mat| 9) (|:| |vec| 33)) (|Vector| %)
               (52 . |reducedSystem|) (|Vector| 6)
               (|LinearSystemMatrixPackage| 6 33 33 9) (58 . |solve|)
               (64 . |Zero|) (68 . |empty?|) (73 . |particularSolution|)

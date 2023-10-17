@@ -28,13 +28,13 @@
                                                         (|mkCategory|
                                                          '(((|cardinality|
                                                              ((|NonNegativeInteger|)
-                                                              $))
+                                                              %))
                                                             T)
                                                            ((|complement|
-                                                             ($ $))
+                                                             (% %))
                                                             (|has| |t#1|
                                                                    (|Finite|)))
-                                                           ((|universe| ($))
+                                                           ((|universe| (%))
                                                             (|has| |t#1|
                                                                    (|Finite|))))
                                                          '(((|Finite|)

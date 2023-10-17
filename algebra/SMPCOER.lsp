@@ -11,7 +11,7 @@
                                             (|SparseMultivariatePolynomial| R
                                                                             |VarSet1|))))))))
          (|lv1| (|List| |VarSet1|)) (|lv2| (|List| |VarSet2|))
-         ($
+         (%
           #2=(|Union| R
                       (|Record| (|:| |v| |VarSet2|)
                                 (|:| |ts|
@@ -47,11 +47,11 @@
                        (LETT |v2| (|SPADfirst| |lv2|)) (LETT |lv2| (CDR |lv2|))
                        (EXIT
                         (COND
-                         ((SPADCALL |v1| (|SPADfirst| |lv1|) (QREFELT $ 10))
+                         ((SPADCALL |v1| (|SPADfirst| |lv1|) (QREFELT % 10))
                           (PROGN
                            (LETT #4#
                                  (|SMPCOER;convert_sorted| |p1| (CDR |lv1|)
-                                  |lv2| $))
+                                  |lv2| %))
                            (GO #6=#:G128)))
                          (#5#
                           (SEQ (LETT |lv1| (CDR |lv1|))
@@ -68,7 +68,7 @@
                                                  (CONS 0 (QCDR |t1|)))
                                                 ('T
                                                  (|SMPCOER;convert_sorted| |t1|
-                                                  |lv1| |lv2| $))))
+                                                  |lv1| |lv2| %))))
                                          (EXIT
                                           (LETT |pu2|
                                                 (CONS (CONS (QCAR |t0|) |p2|)
@@ -86,7 +86,7 @@
            (|Record| (|:| |elt1| |VarSet1|)
                      (|:| |elt2|
                           (|SparseMultivariatePolynomial| R |VarSet2|)))))
-         ($ (|SparseMultivariatePolynomial| R |VarSet2|)))
+         (% (|SparseMultivariatePolynomial| R |VarSet2|)))
         (SPROG ((#1=#:G137 NIL) (#2=#:G138 NIL) (|y| NIL))
                (SEQ
                 (EXIT
@@ -98,7 +98,7 @@
                        (SEQ
                         (EXIT
                          (COND
-                          ((SPADCALL |x| (QCAR |y|) (QREFELT $ 11))
+                          ((SPADCALL |x| (QCAR |y|) (QREFELT % 11))
                            (PROGN (LETT #1# (QCDR |y|)) (GO #3=#:G136))))))
                        (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                   (EXIT (|error| "Impossible"))))
@@ -107,7 +107,7 @@
 (SDEFUN |SMPCOER;remap_variables;SmpLLSmp;3|
         ((|p| (|SparseMultivariatePolynomial| R |VarSet1|))
          (|lv1| (|List| |VarSet1|)) (|lv2| (|List| |VarSet2|))
-         ($ (|SparseMultivariatePolynomial| R |VarSet2|)))
+         (% (|SparseMultivariatePolynomial| R |VarSet2|)))
         (SPROG
          ((|pl2|
            (|List|
@@ -124,12 +124,12 @@
          (SEQ (LETT |n| (LENGTH |lv1|))
               (EXIT
                (COND
-                ((SPADCALL |n| (LENGTH |lv2|) (QREFELT $ 13))
+                ((SPADCALL |n| (LENGTH |lv2|) (QREFELT % 13))
                  (|error| "lv1 and lv2 have different lengths"))
                 ('T
                  (SEQ
                   (COND
-                   ((NULL (SPADCALL |lv1| (QREFELT $ 15)))
+                   ((NULL (SPADCALL |lv1| (QREFELT % 15)))
                     (SEQ
                      (LETT |pl|
                            (PROGN
@@ -150,8 +150,8 @@
                                  (GO G190) G191 (EXIT (NREVERSE #10#)))))
                      (LETT |pl|
                            (SPADCALL
-                            (CONS #'|SMPCOER;remap_variables;SmpLLSmp;3!0| $)
-                            |pl| (QREFELT $ 20)))
+                            (CONS #'|SMPCOER;remap_variables;SmpLLSmp;3!0| %)
+                            |pl| (QREFELT % 20)))
                      (LETT |lv1|
                            (PROGN
                             (LETT #7# NIL)
@@ -176,7 +176,7 @@
                                   (LETT #4# (CDR #4#)) (GO G190) G191
                                   (EXIT (NREVERSE #5#)))))))))
                   (COND
-                   ((NULL (SPADCALL |lv2| (QREFELT $ 22)))
+                   ((NULL (SPADCALL |lv2| (QREFELT % 22)))
                     (EXIT
                      (SEQ
                       (LETT |pl2|
@@ -196,8 +196,8 @@
                                           (CONS
                                            (CONS |el1|
                                                  (SPADCALL
-                                                  (|spadConstant| $ 25) |el2| 1
-                                                  (QREFELT $ 26)))
+                                                  (|spadConstant| % 25) |el2| 1
+                                                  (QREFELT % 26)))
                                            #3#))))
                                   (LETT #1#
                                         (PROG1 (CDR #1#) (LETT #2# (CDR #2#))))
@@ -205,19 +205,19 @@
                       (EXIT
                        (SPADCALL
                         (CONS #'|SMPCOER;remap_variables;SmpLLSmp;3!1|
-                              (VECTOR $ |pl2|))
-                        (ELT $ 27) |p| (QREFELT $ 32)))))))
+                              (VECTOR % |pl2|))
+                        (ELT % 27) |p| (QREFELT % 32)))))))
                   (LETT |lv1| (REVERSE |lv1|)) (LETT |lv2| (REVERSE |lv2|))
-                  (EXIT (|SMPCOER;convert_sorted| |p| |lv1| |lv2| $))))))))) 
+                  (EXIT (|SMPCOER;convert_sorted| |p| |lv1| |lv2| %))))))))) 
 
 (SDEFUN |SMPCOER;remap_variables;SmpLLSmp;3!1| ((|z| NIL) ($$ NIL))
-        (PROG (|pl2| $)
+        (PROG (|pl2| %)
           (LETT |pl2| (QREFELT $$ 1))
-          (LETT $ (QREFELT $$ 0))
-          (RETURN (PROGN (|SMPCOER;find_var| |z| |pl2| $))))) 
+          (LETT % (QREFELT $$ 0))
+          (RETURN (PROGN (|SMPCOER;find_var| |z| |pl2| %))))) 
 
-(SDEFUN |SMPCOER;remap_variables;SmpLLSmp;3!0| ((|x| NIL) (|y| NIL) ($ NIL))
-        (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 16))) 
+(SDEFUN |SMPCOER;remap_variables;SmpLLSmp;3!0| ((|x| NIL) (|y| NIL) (% NIL))
+        (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT % 16))) 
 
 (DECLAIM (NOTINLINE |SparsePolynomialCoercionHelpers;|)) 
 
@@ -244,23 +244,23 @@
                         '|SparsePolynomialCoercionHelpers|)))))))))) 
 
 (DEFUN |SparsePolynomialCoercionHelpers;| (|#1| |#2| |#3|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT DV$3 (|devaluate| |#3|))
           (LETT |dv$| (LIST '|SparsePolynomialCoercionHelpers| DV$1 DV$2 DV$3))
-          (LETT $ (GETREFV 34))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (LETT % (GETREFV 34))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|SparsePolynomialCoercionHelpers|
-                      (LIST DV$1 DV$2 DV$3) (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (QSETREFV $ 7 |#2|)
-          (QSETREFV $ 8 |#3|)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+                      (LIST DV$1 DV$2 DV$3) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (QSETREFV % 7 |#2|)
+          (QSETREFV % 8 |#3|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|SparsePolynomialCoercionHelpers| '|infovec|
           (LIST

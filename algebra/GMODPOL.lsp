@@ -1,45 +1,45 @@
 
-(SDEFUN |GMODPOL;leadingMonomial;$Mm;1|
-        ((|p| ($)) ($ (|ModuleMonomial| IS E |ff|)))
-        (SPADCALL |p| (QREFELT $ 14))) 
+(SDEFUN |GMODPOL;leadingMonomial;%Mm;1|
+        ((|p| (%)) (% (|ModuleMonomial| IS E |ff|)))
+        (SPADCALL |p| (QREFELT % 14))) 
 
-(SDEFUN |GMODPOL;leadingExponent;$E;2| ((|p| ($)) ($ (E)))
-        (SPADCALL (SPADCALL |p| (QREFELT $ 15)) (QREFELT $ 16))) 
+(SDEFUN |GMODPOL;leadingExponent;%E;2| ((|p| (%)) (% (E)))
+        (SPADCALL (SPADCALL |p| (QREFELT % 15)) (QREFELT % 16))) 
 
-(SDEFUN |GMODPOL;leadingIndex;$IS;3| ((|p| ($)) ($ (IS)))
-        (SPADCALL (SPADCALL |p| (QREFELT $ 15)) (QREFELT $ 18))) 
+(SDEFUN |GMODPOL;leadingIndex;%IS;3| ((|p| (%)) (% (IS)))
+        (SPADCALL (SPADCALL |p| (QREFELT % 15)) (QREFELT % 18))) 
 
-(SDEFUN |GMODPOL;unitVector;IS$;4| ((|i| (IS)) ($ ($)))
-        (SPADCALL (|spadConstant| $ 20)
-                  (SPADCALL |i| (|spadConstant| $ 22) (QREFELT $ 23))
-                  (QREFELT $ 24))) 
+(SDEFUN |GMODPOL;unitVector;IS%;4| ((|i| (IS)) (% (%)))
+        (SPADCALL (|spadConstant| % 20)
+                  (SPADCALL |i| (|spadConstant| % 22) (QREFELT % 23))
+                  (QREFELT % 24))) 
 
-(SDEFUN |GMODPOL;build;RISE$;5| ((|c| (R)) (|i| (IS)) (|e| (E)) ($ ($)))
-        (SPADCALL |c| (SPADCALL |i| |e| (QREFELT $ 23)) (QREFELT $ 24))) 
+(SDEFUN |GMODPOL;build;RISE%;5| ((|c| (R)) (|i| (IS)) (|e| (E)) (% (%)))
+        (SPADCALL |c| (SPADCALL |i| |e| (QREFELT % 23)) (QREFELT % 24))) 
 
-(SDEFUN |GMODPOL;multMonom;RE2$;6| ((|c| (R)) (|e| (E)) (|mp| ($)) ($ ($)))
-        (COND ((SPADCALL |mp| (QREFELT $ 28)) |mp|)
+(SDEFUN |GMODPOL;multMonom;RE2%;6| ((|c| (R)) (|e| (E)) (|mp| (%)) (% (%)))
+        (COND ((SPADCALL |mp| (QREFELT % 28)) |mp|)
               ('T
                (SPADCALL
                 (SPADCALL
-                 (SPADCALL |c| (SPADCALL |mp| (QREFELT $ 29)) (QREFELT $ 30))
-                 (SPADCALL (SPADCALL |mp| (QREFELT $ 19))
-                           (SPADCALL |e| (SPADCALL |mp| (QREFELT $ 17))
-                                     (QREFELT $ 31))
-                           (QREFELT $ 23))
-                 (QREFELT $ 24))
-                (SPADCALL |c| |e| (SPADCALL |mp| (QREFELT $ 32))
-                          (QREFELT $ 33))
-                (QREFELT $ 34))))) 
+                 (SPADCALL |c| (SPADCALL |mp| (QREFELT % 29)) (QREFELT % 30))
+                 (SPADCALL (SPADCALL |mp| (QREFELT % 19))
+                           (SPADCALL |e| (SPADCALL |mp| (QREFELT % 17))
+                                     (QREFELT % 31))
+                           (QREFELT % 23))
+                 (QREFELT % 24))
+                (SPADCALL |c| |e| (SPADCALL |mp| (QREFELT % 32))
+                          (QREFELT % 33))
+                (QREFELT % 34))))) 
 
-(SDEFUN |GMODPOL;*;P2$;7| ((|p| (P)) (|mp| ($)) ($ ($)))
-        (COND ((SPADCALL |p| (QREFELT $ 35)) (|spadConstant| $ 36))
+(SDEFUN |GMODPOL;*;P2%;7| ((|p| (P)) (|mp| (%)) (% (%)))
+        (COND ((SPADCALL |p| (QREFELT % 35)) (|spadConstant| % 36))
               ('T
                (SPADCALL
-                (SPADCALL (SPADCALL |p| (QREFELT $ 37))
-                          (SPADCALL |p| (QREFELT $ 38)) |mp| (QREFELT $ 33))
-                (SPADCALL (SPADCALL |p| (QREFELT $ 39)) |mp| (QREFELT $ 40))
-                (QREFELT $ 34))))) 
+                (SPADCALL (SPADCALL |p| (QREFELT % 37))
+                          (SPADCALL |p| (QREFELT % 38)) |mp| (QREFELT % 33))
+                (SPADCALL (SPADCALL |p| (QREFELT % 39)) |mp| (QREFELT % 40))
+                (QREFELT % 34))))) 
 
 (DECLAIM (NOTINLINE |GeneralModulePolynomial;|)) 
 
@@ -64,7 +64,7 @@
 
 (DEFUN |GeneralModulePolynomial;| (|#1| |#2| |#3| |#4| |#5| |#6|)
   (SPROG
-   ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$6 NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL)
+   ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$6 NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL)
     (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 |#1|)
@@ -75,9 +75,9 @@
     (LETT DV$6 (|devaluate| |#6|))
     (LETT |dv$|
           (LIST '|GeneralModulePolynomial| DV$1 DV$2 DV$3 DV$4 DV$5 DV$6))
-    (LETT $ (GETREFV 49))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 49))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -98,34 +98,34 @@
                                          (|HasCategory| |#6|
                                                         '(|AbelianMonoid|)))))))
     (|haddProp| |$ConstructorCache| '|GeneralModulePolynomial|
-                (LIST DV$1 DV$2 DV$3 DV$4 DV$5 DV$6) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (QSETREFV $ 8 |#3|)
-    (QSETREFV $ 9 |#4|)
-    (QSETREFV $ 10 |#5|)
-    (QSETREFV $ 11 |#6|)
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 12 (|FreeModule| |#2| (|ModuleMonomial| |#3| |#4| |#5|)))
-    $))) 
+                (LIST DV$1 DV$2 DV$3 DV$4 DV$5 DV$6) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (QSETREFV % 8 |#3|)
+    (QSETREFV % 9 |#4|)
+    (QSETREFV % 10 |#5|)
+    (QSETREFV % 11 |#6|)
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 12 (|FreeModule| |#2| (|ModuleMonomial| |#3| |#4| |#5|)))
+    %))) 
 
 (MAKEPROP '|GeneralModulePolynomial| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|FreeModule| 7 13) (|local| |#1|)
               (|local| |#2|) (|local| |#3|) (|local| |#4|) (|local| |#5|)
               (|local| |#6|) '|Rep|
-              (|ModuleMonomial| 8 9 (NRTEVAL (QREFELT $ 10)))
-              (0 . |leadingSupport|) |GMODPOL;leadingMonomial;$Mm;1|
-              (5 . |exponent|) |GMODPOL;leadingExponent;$E;2| (10 . |index|)
-              |GMODPOL;leadingIndex;$IS;3| (15 . |One|) (19 . |One|)
+              (|ModuleMonomial| 8 9 (NRTEVAL (QREFELT % 10)))
+              (0 . |leadingSupport|) |GMODPOL;leadingMonomial;%Mm;1|
+              (5 . |exponent|) |GMODPOL;leadingExponent;%E;2| (10 . |index|)
+              |GMODPOL;leadingIndex;%IS;3| (15 . |One|) (19 . |One|)
               (23 . |Zero|) (27 . |construct|) (33 . |monomial|)
-              |GMODPOL;unitVector;IS$;4| |GMODPOL;build;RISE$;5| (|Boolean|)
+              |GMODPOL;unitVector;IS%;4| |GMODPOL;build;RISE%;5| (|Boolean|)
               (39 . |zero?|) (44 . |leadingCoefficient|) (49 . *) (55 . +)
-              (61 . |reductum|) |GMODPOL;multMonom;RE2$;6| (66 . +)
+              (61 . |reductum|) |GMODPOL;multMonom;RE2%;6| (66 . +)
               (72 . |zero?|) (77 . |Zero|) (81 . |leadingCoefficient|)
-              (86 . |degree|) (91 . |reductum|) |GMODPOL;*;P2$;7|
-              (|Union| $ '"failed") (|Integer|) (|NonNegativeInteger|)
+              (86 . |degree|) (91 . |reductum|) |GMODPOL;*;P2%;7|
+              (|Union| % '"failed") (|Integer|) (|NonNegativeInteger|)
               (|PositiveInteger|) (|HashState|) (|String|) (|OutputForm|)
               (|SingleInteger|))
            '#(~= 96 |zero?| 102 |unitVector| 107 |subtractIfCan| 112 |sample|

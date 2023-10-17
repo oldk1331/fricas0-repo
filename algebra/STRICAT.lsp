@@ -12,7 +12,7 @@
          (PROG1
              (LETT #1#
                    (|Join| (|StringAggregate|) (|SetCategory|) (|OpenMath|)
-                           (|mkCategory| '(((|string| ($ (|Integer|))) T)) NIL
+                           (|mkCategory| '(((|string| (% (|Integer|))) T)) NIL
                                          NIL NIL)))
            (SETELT #1# 0 '(|StringCategory|))))) 
 

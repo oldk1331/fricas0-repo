@@ -36,249 +36,249 @@
                                             (|finiteAggregate|)
                                             (|mkCategory|
                                              '(((|new|
-                                                 ($ (|NonNegativeInteger|)
+                                                 (% (|NonNegativeInteger|)
                                                   (|NonNegativeInteger|)
                                                   |t#1|))
                                                 T)
                                                ((|qnew|
-                                                 ($ (|NonNegativeInteger|)
+                                                 (% (|NonNegativeInteger|)
                                                   (|NonNegativeInteger|)))
                                                 T)
-                                               ((|fill!| ($ $ |t#1|)) T)
-                                               ((|minRowIndex| ((|Integer|) $))
+                                               ((|fill!| (% % |t#1|)) T)
+                                               ((|minRowIndex| ((|Integer|) %))
                                                 T)
-                                               ((|maxRowIndex| ((|Integer|) $))
+                                               ((|maxRowIndex| ((|Integer|) %))
                                                 T)
-                                               ((|minColIndex| ((|Integer|) $))
+                                               ((|minColIndex| ((|Integer|) %))
                                                 T)
-                                               ((|maxColIndex| ((|Integer|) $))
+                                               ((|maxColIndex| ((|Integer|) %))
                                                 T)
                                                ((|nrows|
-                                                 ((|NonNegativeInteger|) $))
+                                                 ((|NonNegativeInteger|) %))
                                                 T)
                                                ((|ncols|
-                                                 ((|NonNegativeInteger|) $))
+                                                 ((|NonNegativeInteger|) %))
                                                 T)
                                                ((|elt|
-                                                 (|t#1| $ (|Integer|)
+                                                 (|t#1| % (|Integer|)
                                                   (|Integer|)))
                                                 T)
                                                ((|qelt|
-                                                 (|t#1| $ (|Integer|)
+                                                 (|t#1| % (|Integer|)
                                                   (|Integer|)))
                                                 T)
                                                ((|elt|
-                                                 (|t#1| $ (|Integer|)
+                                                 (|t#1| % (|Integer|)
                                                   (|Integer|) |t#1|))
                                                 T)
-                                               ((|row| (|t#2| $ (|Integer|)))
+                                               ((|row| (|t#2| % (|Integer|)))
                                                 T)
                                                ((|column|
-                                                 (|t#3| $ (|Integer|)))
+                                                 (|t#3| % (|Integer|)))
                                                 T)
-                                               ((|parts| ((|List| |t#1|) $)) T)
+                                               ((|parts| ((|List| |t#1|) %)) T)
                                                ((|listOfLists|
-                                                 ((|List| (|List| |t#1|)) $))
+                                                 ((|List| (|List| |t#1|)) %))
                                                 T)
                                                ((|subMatrix|
-                                                 ($ $ (|Integer|) (|Integer|)
+                                                 (% % (|Integer|) (|Integer|)
                                                   (|Integer|) (|Integer|)))
                                                 T)
                                                ((|elt|
-                                                 ($ $ (|Integer|)
+                                                 (% % (|Integer|)
                                                   (|List| (|Integer|))))
                                                 T)
                                                ((|elt|
-                                                 ($ $ (|List| (|Integer|))
+                                                 (% % (|List| (|Integer|))
                                                   (|Integer|)))
                                                 T)
                                                ((|elt|
-                                                 ($ $ (|List| (|Integer|))
+                                                 (% % (|List| (|Integer|))
                                                   (|List| (|Integer|))))
                                                 T)
                                                ((|elt|
-                                                 ($ $ (|Segment| (|Integer|))
+                                                 (% % (|Segment| (|Integer|))
                                                   (|Segment| (|Integer|))))
                                                 T)
                                                ((|elt|
-                                                 ($ $ (|List| (|Integer|))
+                                                 (% % (|List| (|Integer|))
                                                   (|Segment| (|Integer|))))
                                                 T)
                                                ((|elt|
-                                                 ($ $ (|Segment| (|Integer|))
+                                                 (% % (|Segment| (|Integer|))
                                                   (|List| (|Integer|))))
                                                 T)
                                                ((|elt|
-                                                 ($ $ (|Integer|)
+                                                 (% % (|Integer|)
                                                   (|List|
                                                    (|Segment| (|Integer|)))))
                                                 T)
                                                ((|elt|
-                                                 ($ $
+                                                 (% %
                                                   (|List|
                                                    (|Segment| (|Integer|)))
                                                   (|Integer|)))
                                                 T)
                                                ((|setelt!|
-                                                 ($ $ (|Integer|)
+                                                 (% % (|Integer|)
                                                   (|List|
                                                    (|Segment| (|Integer|)))
-                                                  $))
+                                                  %))
                                                 T)
                                                ((|setelt!|
-                                                 ($ $
+                                                 (% %
                                                   (|List|
                                                    (|Segment| (|Integer|)))
-                                                  (|Integer|) $))
+                                                  (|Integer|) %))
                                                 T)
                                                ((|elt|
-                                                 ($ $ (|Segment| (|Integer|))
+                                                 (% % (|Segment| (|Integer|))
                                                   (|List|
                                                    (|Segment| (|Integer|)))))
                                                 T)
                                                ((|elt|
-                                                 ($ $
+                                                 (% %
                                                   (|List|
                                                    (|Segment| (|Integer|)))
                                                   (|Segment| (|Integer|))))
                                                 T)
                                                ((|elt|
-                                                 ($ $
+                                                 (% %
                                                   (|List|
                                                    (|Segment| (|Integer|)))
                                                   (|List|
                                                    (|Segment| (|Integer|)))))
                                                 T)
                                                ((|rowSlice|
-                                                 ((|Segment| (|Integer|)) $))
+                                                 ((|Segment| (|Integer|)) %))
                                                 T)
                                                ((|colSlice|
-                                                 ((|Segment| (|Integer|)) $))
+                                                 ((|Segment| (|Integer|)) %))
                                                 T)
                                                ((|setelt!|
-                                                 (|t#1| $ (|Integer|)
+                                                 (|t#1| % (|Integer|)
                                                   (|Integer|) |t#1|))
                                                 T)
                                                ((|qsetelt!|
-                                                 (|t#1| $ (|Integer|)
+                                                 (|t#1| % (|Integer|)
                                                   (|Integer|) |t#1|))
                                                 T)
                                                ((|setRow!|
-                                                 ($ $ (|Integer|) |t#2|))
+                                                 (% % (|Integer|) |t#2|))
                                                 T)
                                                ((|setColumn!|
-                                                 ($ $ (|Integer|) |t#3|))
+                                                 (% % (|Integer|) |t#3|))
                                                 T)
                                                ((|setelt!|
-                                                 ($ $ (|Integer|)
-                                                  (|List| (|Integer|)) $))
+                                                 (% % (|Integer|)
+                                                  (|List| (|Integer|)) %))
                                                 T)
                                                ((|setelt!|
-                                                 ($ $ (|List| (|Integer|))
-                                                  (|Integer|) $))
+                                                 (% % (|List| (|Integer|))
+                                                  (|Integer|) %))
                                                 T)
                                                ((|setelt!|
-                                                 ($ $ (|List| (|Integer|))
-                                                  (|List| (|Integer|)) $))
+                                                 (% % (|List| (|Integer|))
+                                                  (|List| (|Integer|)) %))
                                                 T)
                                                ((|setelt!|
-                                                 ($ $ (|Segment| (|Integer|))
-                                                  (|Segment| (|Integer|)) $))
+                                                 (% % (|Segment| (|Integer|))
+                                                  (|Segment| (|Integer|)) %))
                                                 T)
                                                ((|setelt!|
-                                                 ($ $ (|List| (|Integer|))
-                                                  (|Segment| (|Integer|)) $))
+                                                 (% % (|List| (|Integer|))
+                                                  (|Segment| (|Integer|)) %))
                                                 T)
                                                ((|setelt!|
-                                                 ($ $ (|Segment| (|Integer|))
-                                                  (|List| (|Integer|)) $))
+                                                 (% % (|Segment| (|Integer|))
+                                                  (|List| (|Integer|)) %))
                                                 T)
                                                ((|setelt!|
-                                                 ($ $ (|Segment| (|Integer|))
+                                                 (% % (|Segment| (|Integer|))
                                                   (|List|
                                                    (|Segment| (|Integer|)))
-                                                  $))
+                                                  %))
                                                 T)
                                                ((|setelt!|
-                                                 ($ $
+                                                 (% %
                                                   (|List|
                                                    (|Segment| (|Integer|)))
-                                                  (|Segment| (|Integer|)) $))
+                                                  (|Segment| (|Integer|)) %))
                                                 T)
                                                ((|setelt!|
-                                                 ($ $
+                                                 (% %
                                                   (|List|
                                                    (|Segment| (|Integer|)))
                                                   (|List|
                                                    (|Segment| (|Integer|)))
-                                                  $))
+                                                  %))
                                                 T)
                                                ((|setsubMatrix!|
-                                                 ($ $ (|Integer|) (|Integer|)
-                                                  $))
+                                                 (% % (|Integer|) (|Integer|)
+                                                  %))
                                                 T)
                                                ((|swapRows!|
-                                                 ($ $ (|Integer|) (|Integer|)))
+                                                 (% % (|Integer|) (|Integer|)))
                                                 T)
                                                ((|swapColumns!|
-                                                 ($ $ (|Integer|) (|Integer|)))
+                                                 (% % (|Integer|) (|Integer|)))
                                                 T)
-                                               ((|transpose| ($ $)) T)
-                                               ((|squareTop| ($ $)) T)
-                                               ((|horizConcat| ($ $ $)) T)
-                                               ((|horizConcat| ($ (|List| $)))
+                                               ((|transpose| (% %)) T)
+                                               ((|squareTop| (% %)) T)
+                                               ((|horizConcat| (% % %)) T)
+                                               ((|horizConcat| (% (|List| %)))
                                                 T)
-                                               ((|vertConcat| ($ $ $)) T)
-                                               ((|vertConcat| ($ (|List| $)))
+                                               ((|vertConcat| (% % %)) T)
+                                               ((|vertConcat| (% (|List| %)))
                                                 T)
                                                ((|blockConcat|
-                                                 ($ (|List| (|List| $))))
+                                                 (% (|List| (|List| %))))
                                                 T)
                                                ((|vertSplit|
-                                                 ((|List| $) $
+                                                 ((|List| %) %
                                                   (|PositiveInteger|)))
                                                 T)
                                                ((|vertSplit|
-                                                 ((|List| $) $
+                                                 ((|List| %) %
                                                   (|List|
                                                    (|NonNegativeInteger|))))
                                                 T)
                                                ((|horizSplit|
-                                                 ((|List| $) $
+                                                 ((|List| %) %
                                                   (|PositiveInteger|)))
                                                 T)
                                                ((|horizSplit|
-                                                 ((|List| $) $
+                                                 ((|List| %) %
                                                   (|List|
                                                    (|NonNegativeInteger|))))
                                                 T)
                                                ((|blockSplit|
-                                                 ((|List| (|List| $)) $
+                                                 ((|List| (|List| %)) %
                                                   (|PositiveInteger|)
                                                   (|PositiveInteger|)))
                                                 T)
                                                ((|blockSplit|
-                                                 ((|List| (|List| $)) $
+                                                 ((|List| (|List| %)) %
                                                   (|List|
                                                    (|NonNegativeInteger|))
                                                   (|List|
                                                    (|NonNegativeInteger|))))
                                                 T)
                                                ((|map|
-                                                 ($ (|Mapping| |t#1| |t#1|) $))
+                                                 (% (|Mapping| |t#1| |t#1|) %))
                                                 T)
                                                ((|map!|
-                                                 ($ (|Mapping| |t#1| |t#1|) $))
+                                                 (% (|Mapping| |t#1| |t#1|) %))
                                                 T)
                                                ((|map|
-                                                 ($
+                                                 (%
                                                   (|Mapping| |t#1| |t#1| |t#1|)
-                                                  $ $))
+                                                  % %))
                                                 T)
                                                ((|map|
-                                                 ($
+                                                 (%
                                                   (|Mapping| |t#1| |t#1| |t#1|)
-                                                  $ $ |t#1|))
+                                                  % % |t#1|))
                                                 T))
                                              '(((|Comparable|)
                                                 (|has| |t#1| (|Comparable|))))

@@ -1,27 +1,27 @@
 
-(SDEFUN |DLIST;elt;$unique$;1| ((|x| ($)) (T3 ("unique")) ($ ($)))
-        (SPADCALL |x| (QREFELT $ 7))) 
+(SDEFUN |DLIST;elt;%unique%;1| ((|x| (%)) (T3 ("unique")) (% (%)))
+        (SPADCALL |x| (QREFELT % 7))) 
 
-(SDEFUN |DLIST;elt;$sort$;2| ((|x| ($)) (T4 ("sort")) ($ ($)))
-        (SPADCALL |x| (QREFELT $ 10))) 
+(SDEFUN |DLIST;elt;%sort%;2| ((|x| (%)) (T4 ("sort")) (% (%)))
+        (SPADCALL |x| (QREFELT % 10))) 
 
-(SDEFUN |DLIST;elt;$countNni;3|
-        ((|x| ($)) (T5 ("count")) ($ (|NonNegativeInteger|)))
-        (SPADCALL |x| (QREFELT $ 14))) 
+(SDEFUN |DLIST;elt;%countNni;3|
+        ((|x| (%)) (T5 ("count")) (% (|NonNegativeInteger|)))
+        (SPADCALL |x| (QREFELT % 14))) 
 
-(PUT '|DLIST;coerce;L$;4| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(PUT '|DLIST;coerce;L%;4| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |DLIST;coerce;L$;4| ((|x| (|List| S)) ($ ($))) |x|) 
+(SDEFUN |DLIST;coerce;L%;4| ((|x| (|List| S)) (% (%))) |x|) 
 
-(PUT '|DLIST;coerce;$L;5| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(PUT '|DLIST;coerce;%L;5| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |DLIST;coerce;$L;5| ((|x| ($)) ($ (|List| S))) |x|) 
+(SDEFUN |DLIST;coerce;%L;5| ((|x| (%)) (% (|List| S))) |x|) 
 
-(SDEFUN |DLIST;coerce;$Of;6| ((|x| ($)) ($ (|OutputForm|)))
-        (SPADCALL (SPADCALL |x| (QREFELT $ 18)) (QREFELT $ 20))) 
+(SDEFUN |DLIST;coerce;%Of;6| ((|x| (%)) (% (|OutputForm|)))
+        (SPADCALL (SPADCALL |x| (QREFELT % 18)) (QREFELT % 20))) 
 
-(SDEFUN |DLIST;datalist;L$;7| ((|x| (|List| S)) ($ ($)))
-        (SPADCALL |x| (QREFELT $ 17))) 
+(SDEFUN |DLIST;datalist;L%;7| ((|x| (|List| S)) (% (%)))
+        (SPADCALL |x| (QREFELT % 17))) 
 
 (DECLAIM (NOTINLINE |DataList;|)) 
 
@@ -43,14 +43,14 @@
 (DEFUN |DataList;| (|#1|)
   (SPROG
    ((#1=#:G121 NIL) (#2=#:G122 NIL) (#3=#:G124 NIL) (#4=#:G123 NIL) (|pv$| NIL)
-    (#5=#:G118 NIL) (#6=#:G119 NIL) (#7=#:G120 NIL) ($ NIL) (|dv$| NIL)
+    (#5=#:G118 NIL) (#6=#:G119 NIL) (#7=#:G120 NIL) (% NIL) (|dv$| NIL)
     (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|DataList| DV$1))
-    (LETT $ (GETREFV 44))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 44))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -93,45 +93,45 @@
                                             #6#)
                                         (|HasCategory| (|Integer|)
                                                        '(|OrderedSet|))))))
-    (|haddProp| |$ConstructorCache| '|DataList| (LIST DV$1) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (AND (LETT #4# (|HasCategory| $ '(|finiteAggregate|)))
-         (|augmentPredVector| $ 4096))
+    (|haddProp| |$ConstructorCache| '|DataList| (LIST DV$1) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (AND (LETT #4# (|HasCategory| % '(|finiteAggregate|)))
+         (|augmentPredVector| % 4096))
     (AND
      (LETT #3#
            (AND (|HasCategory| |#1| '(|OrderedSet|))
-                (|HasCategory| $ '(|finiteAggregate|))))
-     (|augmentPredVector| $ 8192))
-    (AND (OR #5# (AND #7# #4#) #3#) (|augmentPredVector| $ 16384))
-    (AND (OR (AND #7# #4#) #3# #6#) (|augmentPredVector| $ 32768))
-    (AND (OR (AND #7# #4#) #3#) (|augmentPredVector| $ 65536))
+                (|HasCategory| % '(|finiteAggregate|))))
+     (|augmentPredVector| % 8192))
+    (AND (OR #5# (AND #7# #4#) #3#) (|augmentPredVector| % 16384))
+    (AND (OR (AND #7# #4#) #3# #6#) (|augmentPredVector| % 32768))
+    (AND (OR (AND #7# #4#) #3#) (|augmentPredVector| % 65536))
     (AND
      (LETT #2#
            (AND (|HasCategory| |#1| '(|BasicType|))
-                (|HasCategory| $ '(|finiteAggregate|))))
-     (|augmentPredVector| $ 131072))
-    (AND (OR #2# (AND #7# #4#) #3# #6#) (|augmentPredVector| $ 262144))
-    (AND (LETT #1# (|HasCategory| $ '(|shallowlyMutable|)))
-         (|augmentPredVector| $ 524288))
+                (|HasCategory| % '(|finiteAggregate|))))
+     (|augmentPredVector| % 131072))
+    (AND (OR #2# (AND #7# #4#) #3# #6#) (|augmentPredVector| % 262144))
+    (AND (LETT #1# (|HasCategory| % '(|shallowlyMutable|)))
+         (|augmentPredVector| % 524288))
     (AND (|HasCategory| |#1| '(|OrderedSet|)) #4# #1#
-         (|augmentPredVector| $ 1048576))
-    (AND #4# #1# (|augmentPredVector| $ 2097152))
-    (SETF |pv$| (QREFELT $ 3))
-    $))) 
+         (|augmentPredVector| % 1048576))
+    (AND #4# #1# (|augmentPredVector| % 2097152))
+    (SETF |pv$| (QREFELT % 3))
+    %))) 
 
 (MAKEPROP '|DataList| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|List| 6) (|local| |#1|)
-              (0 . |removeDuplicates|) '"unique" |DLIST;elt;$unique$;1|
-              (5 . |sort|) '"sort" |DLIST;elt;$sort$;2| (|NonNegativeInteger|)
-              (10 . |#|) '"count" |DLIST;elt;$countNni;3| |DLIST;coerce;L$;4|
-              |DLIST;coerce;$L;5| (|OutputForm|) (15 . |coerce|)
-              |DLIST;coerce;$Of;6| |DLIST;datalist;L$;7| (|Integer|)
+              (0 . |removeDuplicates|) '"unique" |DLIST;elt;%unique%;1|
+              (5 . |sort|) '"sort" |DLIST;elt;%sort%;2| (|NonNegativeInteger|)
+              (10 . |#|) '"count" |DLIST;elt;%countNni;3| |DLIST;coerce;L%;4|
+              |DLIST;coerce;%L;5| (|OutputForm|) (15 . |coerce|)
+              |DLIST;coerce;%Of;6| |DLIST;datalist;L%;7| (|Integer|)
               (|Mapping| 25 6 6) (|Boolean|) (|Mapping| 6 6 6) (|Equation| 6)
               (|List| 27) (|String|) (|SingleInteger|) (|HashState|)
               (|Mapping| 25 6) (|Void|) (|UniversalSegment| 23) '"last" '"rest"
-              '"first" (|List| $) '"value" (|Mapping| 6 6) (|InputForm|)
+              '"first" (|List| %) '"value" (|Mapping| 6 6) (|InputForm|)
               (|List| 23) (|Union| 6 '"failed"))
            '#(~= 20 |value| 26 |trim| 31 |third| 37 |tail| 42 |swap!| 47
               |split!| 54 |sorted?| 60 |sort!| 71 |sort| 82 |smaller?| 93

@@ -24,34 +24,34 @@
                                           (LETT |DictionaryOperations;CAT|
                                                 (|Join| (|BagAggregate| '|t#1|)
                                                         (|mkCategory|
-                                                         '(((|dictionary| ($))
+                                                         '(((|dictionary| (%))
                                                             T)
                                                            ((|dictionary|
-                                                             ($
+                                                             (%
                                                               (|List| |t#1|)))
                                                             T)
                                                            ((|remove!|
-                                                             ($ |t#1| $))
+                                                             (% |t#1| %))
                                                             (AND
                                                              (|has| |t#1|
                                                                     (|BasicType|))
-                                                             (|has| $
+                                                             (|has| %
                                                                     (|finiteAggregate|))))
                                                            ((|remove!|
-                                                             ($
+                                                             (%
                                                               (|Mapping|
                                                                (|Boolean|)
                                                                |t#1|)
-                                                              $))
-                                                            (|has| $
+                                                              %))
+                                                            (|has| %
                                                                    (|finiteAggregate|)))
                                                            ((|select!|
-                                                             ($
+                                                             (%
                                                               (|Mapping|
                                                                (|Boolean|)
                                                                |t#1|)
-                                                              $))
-                                                            (|has| $
+                                                              %))
+                                                            (|has| %
                                                                    (|finiteAggregate|))))
                                                          NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|DictionaryOperations| |t#1|))))) 

@@ -27,8 +27,8 @@
                                                  (|mkCategory|
                                                   '(((|retractIfCan|
                                                       ((|Union| |t#1| "failed")
-                                                       $))
+                                                       %))
                                                      T)
-                                                    ((|retract| (|t#1| $)) T))
+                                                    ((|retract| (|t#1| %)) T))
                                                   NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|RetractableTo| |t#1|))))) 

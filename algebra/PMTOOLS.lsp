@@ -1,5 +1,5 @@
 
-(SDEFUN |PMTOOLS;negConstant| ((|l| (|List| P)) ($ (|Union| P "failed")))
+(SDEFUN |PMTOOLS;negConstant| ((|l| (|List| P)) (% (|Union| P "failed")))
         (SPROG
          ((#1=#:G150 NIL) (#2=#:G151 NIL) (|r| (|Union| R "failed"))
           (#3=#:G152 NIL) (|x| NIL))
@@ -12,13 +12,13 @@
                    (COND
                     ((OR (ATOM #3#) (PROGN (LETT |x| (CAR #3#)) NIL))
                      (GO G191)))
-                   (SEQ (LETT |r| (SPADCALL |x| (QREFELT $ 15)))
+                   (SEQ (LETT |r| (SPADCALL |x| (QREFELT % 15)))
                         (EXIT
                          (COND
                           ((QEQCAR |r| 0)
                            (COND
-                            ((SPADCALL (QCDR |r|) (|spadConstant| $ 16)
-                                       (QREFELT $ 18))
+                            ((SPADCALL (QCDR |r|) (|spadConstant| % 16)
+                                       (QREFELT % 18))
                              (PROGN
                               (LETT #1#
                                     (PROGN
@@ -39,7 +39,7 @@
          (|pmatch|
           (|Mapping| (|PatternMatchResult| S P) P (|Pattern| S)
                      (|PatternMatchResult| S P)))
-         ($
+         (%
           (|Union|
            #1=(|Record| (|:| |res| #2=(|PatternMatchResult| S P))
                         (|:| |s| #3=(|List| P)))
@@ -56,10 +56,10 @@
                   ((OR (ATOM #5#) (PROGN (LETT |p| (CAR #5#)) NIL)) (GO G191)))
                  (SEQ
                   (LETT |rec|
-                        (|PMTOOLS;findMatch| |p| |ls| |l| |ident| |pmatch| $))
+                        (|PMTOOLS;findMatch| |p| |ls| |l| |ident| |pmatch| %))
                   (EXIT
                    (COND
-                    ((SPADCALL (LETT |l| (QCAR |rec|)) (QREFELT $ 20))
+                    ((SPADCALL (LETT |l| (QCAR |rec|)) (QREFELT % 20))
                      (PROGN (LETT #4# (CONS 1 "failed")) (GO #6=#:G164)))
                     ('T (LETT |ls| (QCDR |rec|))))))
                  (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
@@ -72,40 +72,40 @@
          (|pmatch|
           (|Mapping| (|PatternMatchResult| S P) P (|Pattern| S)
                      (|PatternMatchResult| S P)))
-         ($ (|PatternMatchResult| S P)))
+         (% (|PatternMatchResult| S P)))
         (SPROG ((|u| (|Union| P "failed")))
                (SEQ
                 (COND
-                 ((SPADCALL (QREFELT $ 13) |lp| (QREFELT $ 22))
-                  (SEQ (LETT |u| (|PMTOOLS;negConstant| |ls| $))
+                 ((SPADCALL (QREFELT % 13) |lp| (QREFELT % 22))
+                  (SEQ (LETT |u| (|PMTOOLS;negConstant| |ls| %))
                        (EXIT
-                        (COND ((QEQCAR |u| 1) (SPADCALL (QREFELT $ 23)))
+                        (COND ((QEQCAR |u| 1) (SPADCALL (QREFELT % 23)))
                               (#1='T
                                (SEQ
                                 (COND
                                  ((SPADCALL (QCDR |u|)
-                                            (SPADCALL (|spadConstant| $ 9)
-                                                      (QREFELT $ 10))
-                                            (QREFELT $ 24))
+                                            (SPADCALL (|spadConstant| % 9)
+                                                      (QREFELT % 10))
+                                            (QREFELT % 24))
                                   (LETT |ls|
                                         (CONS
-                                         (SPADCALL (QCDR |u|) (QREFELT $ 10))
+                                         (SPADCALL (QCDR |u|) (QREFELT % 10))
                                          |ls|))))
                                 (EXIT
                                  (SPADCALL
-                                  (SPADCALL (QCDR |u|) |ls| (QREFELT $ 26))
-                                  (SPADCALL (QREFELT $ 13) |lp| (QREFELT $ 27))
+                                  (SPADCALL (QCDR |u|) |ls| (QREFELT % 26))
+                                  (SPADCALL (QREFELT % 13) |lp| (QREFELT % 27))
                                   (CONS
                                    #'|PMTOOLS;patternMatchTimes;LLPmrMPmr;3!0|
-                                   $)
-                                  |l| |pmatch| (QREFELT $ 31)))))))))
+                                   %)
+                                  |l| |pmatch| (QREFELT % 31)))))))))
                  (#1#
                   (SPADCALL |ls| |lp|
                             (CONS #'|PMTOOLS;patternMatchTimes;LLPmrMPmr;3!1|
-                                  $)
-                            |l| |pmatch| (QREFELT $ 31))))))) 
+                                  %)
+                            |l| |pmatch| (QREFELT % 31))))))) 
 
-(SDEFUN |PMTOOLS;patternMatchTimes;LLPmrMPmr;3!1| ((|l1| NIL) ($ NIL))
+(SDEFUN |PMTOOLS;patternMatchTimes;LLPmrMPmr;3!1| ((|l1| NIL) (% NIL))
         (SPROG
          ((#1=#:G182 NIL) (#2=#:G181 NIL) (#3=#:G183 NIL) (#4=#:G185 NIL)
           (#5=#:G105 NIL))
@@ -119,12 +119,12 @@
                  (EXIT
                   (PROGN
                    (LETT #3# #5#)
-                   (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 28))))
+                   (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT % 28))))
                          ('T (PROGN (LETT #2# #3#) (LETT #1# 'T)))))))
                 (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
-           (COND (#1# #2#) ('T (|spadConstant| $ 9))))))) 
+           (COND (#1# #2#) ('T (|spadConstant| % 9))))))) 
 
-(SDEFUN |PMTOOLS;patternMatchTimes;LLPmrMPmr;3!0| ((|l1| NIL) ($ NIL))
+(SDEFUN |PMTOOLS;patternMatchTimes;LLPmrMPmr;3!0| ((|l1| NIL) (% NIL))
         (SPROG
          ((#1=#:G172 NIL) (#2=#:G171 NIL) (#3=#:G173 NIL) (#4=#:G175 NIL)
           (#5=#:G104 NIL))
@@ -138,10 +138,10 @@
                  (EXIT
                   (PROGN
                    (LETT #3# #5#)
-                   (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 28))))
+                   (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT % 28))))
                          ('T (PROGN (LETT #2# #3#) (LETT #1# 'T)))))))
                 (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
-           (COND (#1# #2#) ('T (|spadConstant| $ 9))))))) 
+           (COND (#1# #2#) ('T (|spadConstant| % 9))))))) 
 
 (SDEFUN |PMTOOLS;findMatch|
         ((|p| (|Pattern| S)) (|ls| (|List| P)) (|l| (|PatternMatchResult| S P))
@@ -149,7 +149,7 @@
          (|pmatch|
           (|Mapping| (|PatternMatchResult| S P) P (|Pattern| S)
                      (|PatternMatchResult| S P)))
-         ($
+         (%
           (|Record| (|:| |res| (|PatternMatchResult| S P))
                     (|:| |s| (|List| P)))))
         (SPROG
@@ -158,11 +158,11 @@
          (SEQ
           (LETT |bad|
                 (COND
-                 ((SPADCALL |p| (QREFELT $ 33))
-                  (SPADCALL (SPADCALL |p| (QREFELT $ 35)) |ls| (QREFELT $ 36)))
+                 ((SPADCALL |p| (QREFELT % 33))
+                  (SPADCALL (SPADCALL |p| (QREFELT % 35)) |ls| (QREFELT % 36)))
                  (#3='T NIL)))
-          (LETT |l1| (SPADCALL (QREFELT $ 23)))
-          (SEQ (LETT |x| NIL) (LETT #2# (SPADCALL |ls| |bad| (QREFELT $ 37)))
+          (LETT |l1| (SPADCALL (QREFELT % 23)))
+          (SEQ (LETT |x| NIL) (LETT #2# (SPADCALL |ls| |bad| (QREFELT % 37)))
                G190
                (COND
                 ((OR (ATOM #2#) (PROGN (LETT |x| (CAR #2#)) NIL)
@@ -171,13 +171,13 @@
                            (EXIT
                             (SPADCALL
                              (LETT |l1| (SPADCALL |x| |p| |l| |pmatch|))
-                             (QREFELT $ 20))))))
+                             (QREFELT % 20))))))
                  (GO G191)))
-               (SEQ (EXIT (|spadConstant| $ 16))) (LETT #2# (CDR #2#))
+               (SEQ (EXIT (|spadConstant| % 16))) (LETT #2# (CDR #2#))
                (GO G190) G191 (EXIT NIL))
           (EXIT
            (COND
-            ((SPADCALL |l1| (QREFELT $ 20))
+            ((SPADCALL |l1| (QREFELT % 20))
              (SEQ
               (SEQ (LETT |x| NIL) (LETT #1# |bad|) G190
                    (COND
@@ -187,30 +187,30 @@
                                (EXIT
                                 (SPADCALL
                                  (LETT |l1| (SPADCALL |x| |p| |l| |pmatch|))
-                                 (QREFELT $ 20))))))
+                                 (QREFELT % 20))))))
                      (GO G191)))
-                   (SEQ (EXIT (|spadConstant| $ 16))) (LETT #1# (CDR #1#))
+                   (SEQ (EXIT (|spadConstant| % 16))) (LETT #1# (CDR #1#))
                    (GO G190) G191 (EXIT NIL))
               (EXIT
                (COND
-                ((SPADCALL |l1| (QREFELT $ 20))
-                 (CONS (SPADCALL |p| |ident| |l| |ident| (QREFELT $ 38)) |ls|))
-                (#3# (CONS |l1| (SPADCALL |t| |ls| (QREFELT $ 26))))))))
-            (#3# (CONS |l1| (SPADCALL |t| |ls| (QREFELT $ 26))))))))) 
+                ((SPADCALL |l1| (QREFELT % 20))
+                 (CONS (SPADCALL |p| |ident| |l| |ident| (QREFELT % 38)) |ls|))
+                (#3# (CONS |l1| (SPADCALL |t| |ls| (QREFELT % 26))))))))
+            (#3# (CONS |l1| (SPADCALL |t| |ls| (QREFELT % 26))))))))) 
 
 (SDEFUN |PMTOOLS;preprocessList|
         ((|pattern| (|Pattern| S)) (|ls| (|List| P))
-         (|l| (|PatternMatchResult| S P)) ($ (|Union| (|List| P) "failed")))
+         (|l| (|PatternMatchResult| S P)) (% (|Union| (|List| P) "failed")))
         (SPROG ((|u| (|Union| P "failed")))
                (SEQ
                 (COND
-                 ((SPADCALL |pattern| (QREFELT $ 33))
-                  (SEQ (LETT |u| (SPADCALL |pattern| |l| (QREFELT $ 40)))
+                 ((SPADCALL |pattern| (QREFELT % 33))
+                  (SEQ (LETT |u| (SPADCALL |pattern| |l| (QREFELT % 40)))
                        (EXIT
                         (COND
                          ((QEQCAR |u| 0)
                           (COND
-                           ((SPADCALL (QCDR |u|) |ls| (QREFELT $ 41))
+                           ((SPADCALL (QCDR |u|) |ls| (QREFELT % 41))
                             (CONS 0 (LIST (QCDR |u|))))
                            (#1='T (CONS 1 "failed"))))
                          (#1# (CONS 0 NIL))))))
@@ -219,7 +219,7 @@
 (SDEFUN |PMTOOLS;filterMatchedPatterns|
         ((|lp| (|List| (|Pattern| S))) (|ls| (|List| P))
          (|l| (|PatternMatchResult| S P))
-         ($
+         (%
           (|Union|
            (|Record| (|:| |pat| (|List| (|Pattern| S))) (|:| |s| (|List| P)))
            "failed")))
@@ -232,23 +232,23 @@
             (SEQ (LETT |p| NIL) (LETT #2# |lp|) G190
                  (COND
                   ((OR (ATOM #2#) (PROGN (LETT |p| (CAR #2#)) NIL)) (GO G191)))
-                 (SEQ (LETT |rc| (|PMTOOLS;preprocessList| |p| |ls| |l| $))
+                 (SEQ (LETT |rc| (|PMTOOLS;preprocessList| |p| |ls| |l| %))
                       (EXIT
                        (COND
                         ((QEQCAR |rc| 1)
                          (PROGN (LETT #1# (CONS 1 "failed")) (GO #3=#:G227)))
                         ((NULL (NULL (QCDR |rc|)))
-                         (SEQ (LETT |lp| (SPADCALL |p| |lp| (QREFELT $ 27)))
+                         (SEQ (LETT |lp| (SPADCALL |p| |lp| (QREFELT % 27)))
                               (EXIT
                                (LETT |ls|
                                      (SPADCALL (|SPADfirst| (QCDR |rc|)) |ls|
-                                               (QREFELT $ 26)))))))))
+                                               (QREFELT % 26)))))))))
                  (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
             (EXIT (CONS 0 (CONS |lp| |ls|)))))
           #3# (EXIT #1#)))) 
 
 (SDEFUN |PMTOOLS;selBestGen|
-        ((|l| (|List| (|Pattern| S))) ($ (|List| (|Pattern| S))))
+        ((|l| (|List| (|Pattern| S))) (% (|List| (|Pattern| S))))
         (SPROG
          ((#1=#:G235 NIL) (#2=#:G236 NIL) (|ans| (|List| (|Pattern| S)))
           (#3=#:G237 NIL) (|p| NIL))
@@ -262,13 +262,13 @@
                      (SEQ
                       (EXIT
                        (COND
-                        ((SPADCALL |p| (QREFELT $ 33))
+                        ((SPADCALL |p| (QREFELT % 33))
                          (SEQ
                           (EXIT
                            (SEQ (LETT |ans| (LIST |p|))
                                 (EXIT
                                  (COND
-                                  ((NULL (SPADCALL |p| (QREFELT $ 42)))
+                                  ((NULL (SPADCALL |p| (QREFELT % 42)))
                                    (PROGN
                                     (LETT #1#
                                           (PROGN
@@ -286,7 +286,7 @@
          (|pmatch|
           (|Mapping| (|PatternMatchResult| S P) P (|Pattern| S)
                      (|PatternMatchResult| S P)))
-         ($ (|PatternMatchResult| S P)))
+         (% (|PatternMatchResult| S P)))
         (SPROG
          ((|rec|
            (|Record| (|:| |res| (|PatternMatchResult| S P))
@@ -305,11 +305,11 @@
          (SEQ
           (EXIT
            (SEQ (LETT |ident| (SPADCALL NIL |op|))
-                (LETT |rc| (|PMTOOLS;filterMatchedPatterns| |lp| |ls| |l| $))
+                (LETT |rc| (|PMTOOLS;filterMatchedPatterns| |lp| |ls| |l| %))
                 (EXIT
                  (COND
                   ((QEQCAR |rc| 1)
-                   (PROGN (LETT #2# (SPADCALL (QREFELT $ 23))) (GO #3=#:G327)))
+                   (PROGN (LETT #2# (SPADCALL (QREFELT % 23))) (GO #3=#:G327)))
                   (#4='T
                    (SEQ (LETT |lp| (QCAR (QCDR |rc|)))
                         (LETT |ls| (QCDR (QCDR |rc|)))
@@ -318,14 +318,14 @@
                                ((>
                                  (LENGTH
                                   (LETT |lpm|
-                                        (SPADCALL (ELT $ 43) |lp|
-                                                  (QREFELT $ 45))))
+                                        (SPADCALL (ELT % 43) |lp|
+                                                  (QREFELT % 45))))
                                  1)
                                 (|error|
                                  "More than one optional pattern in sum/product"))
                                ((< (+ (LENGTH |ls|) (LENGTH |lpm|))
                                    (LENGTH |lp|))
-                                (SPADCALL (QREFELT $ 23)))
+                                (SPADCALL (QREFELT % 23)))
                                (#4#
                                 (SEQ
                                  (COND
@@ -335,15 +335,15 @@
                                      (SEQ
                                       (LETT |lp|
                                             (SPADCALL (|SPADfirst| |lpm|) |lp|
-                                                      (QREFELT $ 27)))
+                                                      (QREFELT % 27)))
                                       (EXIT
                                        (COND
                                         ((SPADCALL
                                           (LETT |l|
                                                 (SPADCALL (|SPADfirst| |lpm|)
                                                           |ident| |l|
-                                                          (QREFELT $ 47)))
-                                          (QREFELT $ 20))
+                                                          (QREFELT % 47)))
+                                          (QREFELT % 20))
                                          (PROGN
                                           (LETT #2# |l|)
                                           (GO #3#))))))))))
@@ -352,8 +352,8 @@
                                    ((>
                                      (LENGTH
                                       (LETT |lpm|
-                                            (SPADCALL (ELT $ 48) |lp|
-                                                      (QREFELT $ 45))))
+                                            (SPADCALL (ELT % 48) |lp|
+                                                      (QREFELT % 45))))
                                      1)
                                     (|error|
                                      "More than one expandable pattern in sum/product"))
@@ -367,78 +367,78 @@
                                           ((NULL
                                             (LETT |lpm|
                                                   (|PMTOOLS;selBestGen| |lp|
-                                                   $)))
+                                                   %)))
                                            (EXIT
-                                            (SPADCALL (QREFELT $ 23)))))))))
+                                            (SPADCALL (QREFELT % 23)))))))))
                                      (COND
                                       ((NULL (NULL |lpm|))
                                        (LETT |lp|
                                              (SPADCALL (|SPADfirst| |lpm|) |lp|
-                                                       (QREFELT $ 27)))))
+                                                       (QREFELT % 27)))))
                                      (LETT |l1|
-                                           (SPADCALL (ELT $ 49) |lp|
-                                                     (QREFELT $ 45)))
+                                           (SPADCALL (ELT % 49) |lp|
+                                                     (QREFELT % 45)))
                                      (LETT |l2|
                                            (SPADCALL
                                             (CONS
                                              #'|PMTOOLS;patternMatch;LLMPmrMPmr;8!0|
-                                             $)
-                                            |lp| (QREFELT $ 45)))
+                                             %)
+                                            |lp| (QREFELT % 45)))
                                      (LETT |l3|
                                            (SPADCALL
                                             (CONS
                                              #'|PMTOOLS;patternMatch;LLMPmrMPmr;8!1|
-                                             $)
+                                             %)
                                             (SPADCALL
                                              (CONS
                                               #'|PMTOOLS;patternMatch;LLMPmrMPmr;8!2|
-                                              $)
-                                             |lp| (QREFELT $ 45))
-                                            (QREFELT $ 54)))
+                                              %)
+                                             |lp| (QREFELT % 45))
+                                            (QREFELT % 54)))
                                      (LETT |l4|
                                            (SPADCALL
                                             (CONS
                                              #'|PMTOOLS;patternMatch;LLMPmrMPmr;8!3|
-                                             $)
-                                            |lp| (QREFELT $ 45)))
+                                             %)
+                                            |lp| (QREFELT % 45)))
                                      (LETT |rec| (CONS |l| |ls|))
                                      (LETT |u|
                                            (|PMTOOLS;tryToMatch| |l1| |rec|
-                                            |ident| |pmatch| $))
+                                            |ident| |pmatch| %))
                                      (EXIT
                                       (COND
                                        ((QEQCAR |u| 1)
-                                        (SPADCALL (QREFELT $ 23)))
+                                        (SPADCALL (QREFELT % 23)))
                                        (#4#
                                         (SEQ
                                          (LETT |u|
                                                (|PMTOOLS;tryToMatch| |l2|
-                                                (QCDR |u|) |ident| |pmatch| $))
+                                                (QCDR |u|) |ident| |pmatch| %))
                                          (EXIT
                                           (COND
                                            ((QEQCAR |u| 1)
-                                            (SPADCALL (QREFELT $ 23)))
+                                            (SPADCALL (QREFELT % 23)))
                                            (#4#
                                             (SEQ
                                              (LETT |u|
                                                    (|PMTOOLS;tryToMatch| |l3|
                                                     (QCDR |u|) |ident| |pmatch|
-                                                    $))
+                                                    %))
                                              (EXIT
                                               (COND
                                                ((QEQCAR |u| 1)
-                                                (SPADCALL (QREFELT $ 23)))
+                                                (SPADCALL (QREFELT % 23)))
                                                (#4#
                                                 (SEQ (LETT |rec| (QCDR |u|))
                                                      (LETT |rc|
                                                            (|PMTOOLS;filterMatchedPatterns|
                                                             |l4| (QCDR |rec|)
-                                                            (QCAR |rec|) $))
+                                                            (QCAR |rec|) %))
                                                      (EXIT
                                                       (COND
                                                        ((QEQCAR |rc| 1)
                                                         (SPADCALL
-                                                         (QREFELT $ 23)))
+                                                         (QREFELT % 23)))
                                                        (#4#
                                                         (SEQ
                                                          (LETT |rec|
@@ -451,12 +451,12 @@
                                                                 (QCAR
                                                                  (QCDR |rc|))
                                                                 |rec| |ident|
-                                                                |pmatch| $))
+                                                                |pmatch| %))
                                                          (EXIT
                                                           (COND
                                                            ((QEQCAR |u| 1)
                                                             (SPADCALL
-                                                             (QREFELT $ 23)))
+                                                             (QREFELT % 23)))
                                                            (#4#
                                                             (SEQ
                                                              (LETT |rec|
@@ -475,7 +475,7 @@
                                                                   |l|)
                                                                  (#4#
                                                                   (SPADCALL
-                                                                   (QREFELT $
+                                                                   (QREFELT %
                                                                             23)))))
                                                                (#4#
                                                                 (SPADCALL
@@ -484,30 +484,30 @@
                                                                  (SPADCALL |ls|
                                                                            |op|)
                                                                  |l|
-                                                                 (QREFELT $
+                                                                 (QREFELT %
                                                                           47)))))))))))))))))))))))))))))))))))))))
           #3# (EXIT #2#)))) 
 
-(SDEFUN |PMTOOLS;patternMatch;LLMPmrMPmr;8!3| ((|p1| NIL) ($ NIL))
+(SDEFUN |PMTOOLS;patternMatch;LLMPmrMPmr;8!3| ((|p1| NIL) (% NIL))
         (COND
-         ((SPADCALL |p1| (QREFELT $ 33))
-          (COND ((SPADCALL |p1| (QREFELT $ 42)) NIL)
-                ('T (NULL (SPADCALL |p1| (QREFELT $ 49))))))
+         ((SPADCALL |p1| (QREFELT % 33))
+          (COND ((SPADCALL |p1| (QREFELT % 42)) NIL)
+                ('T (NULL (SPADCALL |p1| (QREFELT % 49))))))
          ('T NIL))) 
 
-(SDEFUN |PMTOOLS;patternMatch;LLMPmrMPmr;8!2| ((|p1| NIL) ($ NIL))
+(SDEFUN |PMTOOLS;patternMatch;LLMPmrMPmr;8!2| ((|p1| NIL) (% NIL))
         (COND
-         ((OR (SPADCALL |p1| (QREFELT $ 42)) (SPADCALL |p1| (QREFELT $ 33)))
+         ((OR (SPADCALL |p1| (QREFELT % 42)) (SPADCALL |p1| (QREFELT % 33)))
           NIL)
-         ('T (NULL (SPADCALL |p1| (QREFELT $ 49)))))) 
+         ('T (NULL (SPADCALL |p1| (QREFELT % 49)))))) 
 
-(SDEFUN |PMTOOLS;patternMatch;LLMPmrMPmr;8!1| ((|z1| NIL) (|z2| NIL) ($ NIL))
-        (SPADCALL (SPADCALL |z1| (QREFELT $ 51)) (SPADCALL |z2| (QREFELT $ 51))
-                  (QREFELT $ 52))) 
+(SDEFUN |PMTOOLS;patternMatch;LLMPmrMPmr;8!1| ((|z1| NIL) (|z2| NIL) (% NIL))
+        (SPADCALL (SPADCALL |z1| (QREFELT % 51)) (SPADCALL |z2| (QREFELT % 51))
+                  (QREFELT % 52))) 
 
-(SDEFUN |PMTOOLS;patternMatch;LLMPmrMPmr;8!0| ((|p1| NIL) ($ NIL))
+(SDEFUN |PMTOOLS;patternMatch;LLMPmrMPmr;8!0| ((|p1| NIL) (% NIL))
         (COND
-         ((SPADCALL |p1| (QREFELT $ 42)) (NULL (SPADCALL |p1| (QREFELT $ 49))))
+         ((SPADCALL |p1| (QREFELT % 42)) (NULL (SPADCALL |p1| (QREFELT % 49))))
          ('T NIL))) 
 
 (DECLAIM (NOTINLINE |PatternMatchTools;|)) 
@@ -532,26 +532,26 @@
                   (HREM |$ConstructorCache| '|PatternMatchTools|)))))))))) 
 
 (DEFUN |PatternMatchTools;| (|#1| |#2| |#3|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT DV$3 (|devaluate| |#3|))
           (LETT |dv$| (LIST '|PatternMatchTools| DV$1 DV$2 DV$3))
-          (LETT $ (GETREFV 55))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (LETT % (GETREFV 55))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PatternMatchTools|
-                      (LIST DV$1 DV$2 DV$3) (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (QSETREFV $ 7 |#2|)
-          (QSETREFV $ 8 |#3|)
-          (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 13
-                    (SPADCALL (SPADCALL (|spadConstant| $ 9) (QREFELT $ 10))
-                              (QREFELT $ 12)))
-          $))) 
+                      (LIST DV$1 DV$2 DV$3) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (QSETREFV % 7 |#2|)
+          (QSETREFV % 8 |#3|)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 13
+                    (SPADCALL (SPADCALL (|spadConstant| % 9) (QREFELT % 10))
+                              (QREFELT % 12)))
+          %))) 
 
 (MAKEPROP '|PatternMatchTools| '|infovec|
           (LIST

@@ -26,22 +26,22 @@
                                                 (|Join|
                                                  (|RecursiveAggregate| '|t#1|)
                                                  (|mkCategory|
-                                                  '(((|left| ($ $)) T)
-                                                    ((|elt| ($ $ "left")) T)
-                                                    ((|right| ($ $)) T)
-                                                    ((|elt| ($ $ "right")) T)
-                                                    ((|setelt!| ($ $ "left" $))
-                                                     (|has| $
+                                                  '(((|left| (% %)) T)
+                                                    ((|elt| (% % "left")) T)
+                                                    ((|right| (% %)) T)
+                                                    ((|elt| (% % "right")) T)
+                                                    ((|setelt!| (% % "left" %))
+                                                     (|has| %
                                                             (|shallowlyMutable|)))
-                                                    ((|setleft!| ($ $ $))
-                                                     (|has| $
+                                                    ((|setleft!| (% % %))
+                                                     (|has| %
                                                             (|shallowlyMutable|)))
                                                     ((|setelt!|
-                                                      ($ $ "right" $))
-                                                     (|has| $
+                                                      (% % "right" %))
+                                                     (|has| %
                                                             (|shallowlyMutable|)))
-                                                    ((|setright!| ($ $ $))
-                                                     (|has| $
+                                                    ((|setright!| (% % %))
+                                                     (|has| %
                                                             (|shallowlyMutable|))))
                                                   NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|BinaryRecursiveAggregate| |t#1|))))) 

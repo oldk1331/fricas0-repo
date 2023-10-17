@@ -1,18 +1,18 @@
 
-(SDEFUN |LIE;*;3$;1| ((|a| ($)) (|b| ($)) ($ ($)))
-        (SPADCALL (SPADCALL |a| |b| (QREFELT $ 9))
-                  (SPADCALL |b| |a| (QREFELT $ 9)) (QREFELT $ 10))) 
+(SDEFUN |LIE;*;3%;1| ((|a| (%)) (|b| (%)) (% (%)))
+        (SPADCALL (SPADCALL |a| |b| (QREFELT % 9))
+                  (SPADCALL |b| |a| (QREFELT % 9)) (QREFELT % 10))) 
 
-(PUT '|LIE;coerce;$A;2| '|SPADreplace| '(XLAM (|a|) |a|)) 
+(PUT '|LIE;coerce;%A;2| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
-(SDEFUN |LIE;coerce;$A;2| ((|a| ($)) ($ (A))) |a|) 
+(SDEFUN |LIE;coerce;%A;2| ((|a| (%)) (% (A))) |a|) 
 
-(PUT '|LIE;coerce;A$;3| '|SPADreplace| '(XLAM (|a|) |a|)) 
+(PUT '|LIE;coerce;A%;3| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
-(SDEFUN |LIE;coerce;A$;3| ((|a| (A)) ($ ($))) |a|) 
+(SDEFUN |LIE;coerce;A%;3| ((|a| (A)) (% (%))) |a|) 
 
-(SDEFUN |LIE;^;$Pi$;4| ((|a| ($)) (|n| (|PositiveInteger|)) ($ ($)))
-        (COND ((EQL |n| 1) |a|) ('T (|spadConstant| $ 15)))) 
+(SDEFUN |LIE;^;%Pi%;4| ((|a| (%)) (|n| (|PositiveInteger|)) (% (%)))
+        (COND ((EQL |n| 1) |a|) ('T (|spadConstant| % 15)))) 
 
 (DECLAIM (NOTINLINE |AssociatedLieAlgebra;|)) 
 
@@ -36,14 +36,14 @@
                   (HREM |$ConstructorCache| '|AssociatedLieAlgebra|)))))))))) 
 
 (DEFUN |AssociatedLieAlgebra;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|AssociatedLieAlgebra| DV$1 DV$2))
-          (LETT $ (GETREFV 38))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3
+          (LETT % (GETREFV 38))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
@@ -100,26 +100,26 @@
                                                                (|devaluate|
                                                                 |#1|))))))))
           (|haddProp| |$ConstructorCache| '|AssociatedLieAlgebra|
-                      (LIST DV$1 DV$2) (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 5 |#2|)
-          (QSETREFV $ 6 |#1|)
-          (QSETREFV $ 7 |#2|)
-          (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 8 |#2|)
-          $))) 
+                      (LIST DV$1 DV$2) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 5 |#2|)
+          (QSETREFV % 6 |#1|)
+          (QSETREFV % 7 |#2|)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 8 |#2|)
+          %))) 
 
 (MAKEPROP '|AssociatedLieAlgebra| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|local| |#2|) (|local| |#1|) (|local| |#2|)
-              '|Rep| (0 . *) (6 . -) |LIE;*;3$;1| |LIE;coerce;$A;2|
-              |LIE;coerce;A$;3| (12 . |One|) (16 . |Zero|) (|PositiveInteger|)
-              |LIE;^;$Pi$;4| (|SparseUnivariatePolynomial| (|Polynomial| 6))
-              (|List| $) (|NonNegativeInteger|) (|Boolean|) (|InputForm|)
-              (|Union| $ '#1="failed")
-              (|Record| (|:| |particular| $) (|:| |basis| 19))
+              '|Rep| (0 . *) (6 . -) |LIE;*;3%;1| |LIE;coerce;%A;2|
+              |LIE;coerce;A%;3| (12 . |One|) (16 . |Zero|) (|PositiveInteger|)
+              |LIE;^;%Pi%;4| (|SparseUnivariatePolynomial| (|Polynomial| 6))
+              (|List| %) (|NonNegativeInteger|) (|Boolean|) (|InputForm|)
+              (|Union| % '#1="failed")
+              (|Record| (|:| |particular| %) (|:| |basis| 19))
               (|Union| 24 '#1#) (|SparseUnivariatePolynomial| 6) (|List| 30)
-              (|Matrix| 6) (|Vector| $) (|Vector| 6) (|Vector| 28)
+              (|Matrix| 6) (|Vector| %) (|Vector| 6) (|Vector| 28)
               (|List| (|Polynomial| 6)) (|Integer|) (|HashState|) (|String|)
               (|OutputForm|) (|SingleInteger|))
            '#(~= 20 |zero?| 26 |unit| 31 |subtractIfCan| 35

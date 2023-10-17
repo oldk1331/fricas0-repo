@@ -1,26 +1,26 @@
 
-(SDEFUN |JORDAN;*;3$;1| ((|a| ($)) (|b| ($)) ($ ($)))
+(SDEFUN |JORDAN;*;3%;1| ((|a| (%)) (|b| (%)) (% (%)))
         (COND
-         ((SPADCALL (QREFELT $ 11) (QREFELT $ 16))
+         ((SPADCALL (QREFELT % 11) (QREFELT % 16))
           (|error|
            "constructor must no be called with Ring of characteristic 2"))
          ('T
           (SPADCALL
-           (SPADCALL (SPADCALL |a| |b| (QREFELT $ 17))
-                     (SPADCALL |b| |a| (QREFELT $ 17)) (QREFELT $ 18))
-           (QREFELT $ 14) (QREFELT $ 19))))) 
+           (SPADCALL (SPADCALL |a| |b| (QREFELT % 17))
+                     (SPADCALL |b| |a| (QREFELT % 17)) (QREFELT % 18))
+           (QREFELT % 14) (QREFELT % 19))))) 
 
-(PUT '|JORDAN;coerce;$A;2| '|SPADreplace| '(XLAM (|a|) |a|)) 
+(PUT '|JORDAN;coerce;%A;2| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
-(SDEFUN |JORDAN;coerce;$A;2| ((|a| ($)) ($ (A))) |a|) 
+(SDEFUN |JORDAN;coerce;%A;2| ((|a| (%)) (% (A))) |a|) 
 
-(PUT '|JORDAN;coerce;A$;3| '|SPADreplace| '(XLAM (|a|) |a|)) 
+(PUT '|JORDAN;coerce;A%;3| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
-(SDEFUN |JORDAN;coerce;A$;3| ((|a| (A)) ($ ($))) |a|) 
+(SDEFUN |JORDAN;coerce;A%;3| ((|a| (A)) (% (%))) |a|) 
 
-(PUT '|JORDAN;^;$Pi$;4| '|SPADreplace| '(XLAM (|a| |n|) |a|)) 
+(PUT '|JORDAN;^;%Pi%;4| '|SPADreplace| '(XLAM (|a| |n|) |a|)) 
 
-(SDEFUN |JORDAN;^;$Pi$;4| ((|a| ($)) (|n| (|PositiveInteger|)) ($ ($))) |a|) 
+(SDEFUN |JORDAN;^;%Pi%;4| ((|a| (%)) (|n| (|PositiveInteger|)) (% (%))) |a|) 
 
 (DECLAIM (NOTINLINE |AssociatedJordanAlgebra;|)) 
 
@@ -45,14 +45,14 @@
 
 (DEFUN |AssociatedJordanAlgebra;| (|#1| |#2|)
   (SPROG
-   ((#1=#:G106 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((#1=#:G106 NIL) (|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))
     (LETT |dv$| (LIST '|AssociatedJordanAlgebra| DV$1 DV$2))
-    (LETT $ (GETREFV 43))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 43))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -102,35 +102,35 @@
                                                              (|devaluate|
                                                               |#1|))))))))
     (|haddProp| |$ConstructorCache| '|AssociatedJordanAlgebra| (LIST DV$1 DV$2)
-                (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 5 |#2|)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 8 |#2|)
-    (QSETREFV $ 11
-              (SPADCALL (|spadConstant| $ 9) (|spadConstant| $ 9)
-                        (QREFELT $ 10)))
-    (QSETREFV $ 14
-              (PROG2 (LETT #1# #2=(SPADCALL (QREFELT $ 11) (QREFELT $ 13)))
+                (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 5 |#2|)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 8 |#2|)
+    (QSETREFV % 11
+              (SPADCALL (|spadConstant| % 9) (|spadConstant| % 9)
+                        (QREFELT % 10)))
+    (QSETREFV % 14
+              (PROG2 (LETT #1# #2=(SPADCALL (QREFELT % 11) (QREFELT % 13)))
                   (QCDR #1#)
                 (|check_union2| (QEQCAR #1# 0) #2# (|Union| #2# "failed")
                                 #1#)))
-    $))) 
+    %))) 
 
 (MAKEPROP '|AssociatedJordanAlgebra| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|local| |#2|) (|local| |#1|) (|local| |#2|)
-              '|Rep| (0 . |One|) (4 . +) '|two| (|Union| $ '"failed")
+              '|Rep| (0 . |One|) (4 . +) '|two| (|Union| % '"failed")
               (10 . |recip|) '|oneHalf| (|Boolean|) (15 . |zero?|) (20 . *)
-              (26 . +) (32 . *) |JORDAN;*;3$;1| |JORDAN;coerce;$A;2|
-              |JORDAN;coerce;A$;3| (|PositiveInteger|) |JORDAN;^;$Pi$;4|
-              (|SparseUnivariatePolynomial| (|Polynomial| 6)) (|List| $)
+              (26 . +) (32 . *) |JORDAN;*;3%;1| |JORDAN;coerce;%A;2|
+              |JORDAN;coerce;A%;3| (|PositiveInteger|) |JORDAN;^;%Pi%;4|
+              (|SparseUnivariatePolynomial| (|Polynomial| 6)) (|List| %)
               (|NonNegativeInteger|) (|InputForm|)
-              (|Record| (|:| |particular| $) (|:| |basis| 26))
+              (|Record| (|:| |particular| %) (|:| |basis| 26))
               (|Union| 29 '"failed") (|SparseUnivariatePolynomial| 6)
-              (|List| 35) (|Matrix| 6) (|Vector| $) (|Vector| 6) (|Vector| 33)
+              (|List| 35) (|Matrix| 6) (|Vector| %) (|Vector| 6) (|Vector| 33)
               (|List| (|Polynomial| 6)) (|Integer|) (|HashState|) (|String|)
               (|OutputForm|) (|SingleInteger|))
            '#(~= 38 |zero?| 44 |unit| 49 |subtractIfCan| 53

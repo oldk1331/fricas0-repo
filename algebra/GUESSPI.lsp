@@ -22,12 +22,12 @@
                   (HREM |$ConstructorCache| '|GuessPolynomialInteger|)))))))))) 
 
 (DEFUN |GuessPolynomialInteger;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|GuessPolynomialInteger|))
-          (LETT $ (GETREFV 26))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3
+          (LETT % (GETREFV 26))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
@@ -41,10 +41,10 @@
                                                 '(|RetractableTo|
                                                   (|Symbol|))))))))
           (|haddProp| |$ConstructorCache| '|GuessPolynomialInteger| NIL
-                      (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|GuessPolynomialInteger| '|infovec|
           (LIST

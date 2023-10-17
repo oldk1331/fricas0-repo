@@ -1,20 +1,20 @@
 
-(SDEFUN |JBX;coerce;JB$;1| ((|jv| (JB)) ($ ($)))
+(SDEFUN |JBX;coerce;JB%;1| ((|jv| (JB)) (% (%)))
         (COND
-         ((SPADCALL (SPADCALL |jv| (QREFELT $ 9)) '|Indep| (QREFELT $ 11))
+         ((SPADCALL (SPADCALL |jv| (QREFELT % 9)) '|Indep| (QREFELT % 11))
           (|error| "Only functions of independent variables allowed"))
-         ('T (SPADCALL |jv| (QREFELT $ 12))))) 
+         ('T (SPADCALL |jv| (QREFELT % 12))))) 
 
 (SDEFUN |JBX;retractIfCan;JbeU;2|
-        ((|p| (|JetBundleExpression| JB)) ($ (|Union| $ "failed")))
+        ((|p| (|JetBundleExpression| JB)) (% (|Union| % "failed")))
         (SPROG ((#1=#:G123 NIL) (|jv| NIL) (#2=#:G122 NIL))
                (SEQ
                 (COND
-                 ((SPADCALL (ELT $ 16)
+                 ((SPADCALL (ELT % 16)
                             (PROGN
                              (LETT #2# NIL)
                              (SEQ (LETT |jv| NIL)
-                                  (LETT #1# (SPADCALL |p| (QREFELT $ 15))) G190
+                                  (LETT #1# (SPADCALL |p| (QREFELT % 15))) G190
                                   (COND
                                    ((OR (ATOM #1#)
                                         (PROGN (LETT |jv| (CAR #1#)) NIL))
@@ -23,18 +23,18 @@
                                    (EXIT
                                     (LETT #2#
                                           (CONS
-                                           (EQUAL (SPADCALL |jv| (QREFELT $ 9))
+                                           (EQUAL (SPADCALL |jv| (QREFELT % 9))
                                                   '|Indep|)
                                            #2#))))
                                   (LETT #1# (CDR #1#)) (GO G190) G191
                                   (EXIT (NREVERSE #2#))))
-                            'T (QREFELT $ 19))
+                            'T (QREFELT % 19))
                   (CONS 0 |p|))
                  ('T (CONS 1 "failed")))))) 
 
-(SDEFUN |JBX;retract;Jbe$;3| ((|p| (|JetBundleExpression| JB)) ($ ($)))
-        (SPROG ((|px| (|Union| $ "failed")))
-               (SEQ (LETT |px| (SPADCALL |p| (QREFELT $ 21)))
+(SDEFUN |JBX;retract;Jbe%;3| ((|p| (|JetBundleExpression| JB)) (% (%)))
+        (SPROG ((|px| (|Union| % "failed")))
+               (SEQ (LETT |px| (SPADCALL |p| (QREFELT % 21)))
                     (EXIT
                      (COND
                       ((QEQCAR |px| 1)
@@ -63,13 +63,13 @@
                   (HREM |$ConstructorCache| '|JetBundleXExpression|)))))))))) 
 
 (DEFUN |JetBundleXExpression;| (|#1|)
-  (SPROG ((|pv$| NIL) (#1=#:G188 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (#1=#:G188 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|JetBundleXExpression| DV$1))
-          (LETT $ (GETREFV 94))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3
+          (LETT % (GETREFV 94))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
@@ -119,56 +119,56 @@
                                               (|HasCategory| (|Integer|)
                                                              '(|SemiGroup|))))))
           (|haddProp| |$ConstructorCache| '|JetBundleXExpression| (LIST DV$1)
-                      (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (AND (|HasCategory| $ '(|Ring|)) (|augmentPredVector| $ 32768))
-          (AND (|HasCategory| $ '(|RetractableTo| (|Integer|)))
-               (|augmentPredVector| $ 65536))
-          (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 7 (|JetBundleExpression| |#1|))
-          $))) 
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (AND (|HasCategory| % '(|Ring|)) (|augmentPredVector| % 32768))
+          (AND (|HasCategory| % '(|RetractableTo| (|Integer|)))
+               (|augmentPredVector| % 65536))
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 7 (|JetBundleExpression| |#1|))
+          %))) 
 
 (MAKEPROP '|JetBundleXExpression| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|JetBundleExpression| 6) (|local| |#1|)
               '|Rep| (|Symbol|) (0 . |type|) (|Boolean|) (5 . ~=)
-              (11 . |coerce|) |JBX;coerce;JB$;1| (|List| 6)
+              (11 . |coerce|) |JBX;coerce;JB%;1| (|List| 6)
               (16 . |jetVariables|) (21 . |and|) (|Mapping| 10 10 10)
-              (|List| 10) (27 . |reduce|) (|Union| $ '"failed")
-              |JBX;retractIfCan;JbeU;2| |JBX;retract;Jbe$;3| (|Fraction| 50)
+              (|List| 10) (27 . |reduce|) (|Union| % '"failed")
+              |JBX;retractIfCan;JbeU;2| |JBX;retract;Jbe%;3| (|Fraction| 50)
               (|Union| 23 '#1="failed")
               (|Record| (|:| |coef| 50) (|:| |var| 40))
               (|Union| 25 '#2="failed") (|Union| 30 '#2#) (|BasicOperator|)
-              (|List| 28) (|List| $) (|InputForm|) (|Pattern| (|Float|))
-              (|Pattern| 50) (|List| 40) (|Factored| $)
+              (|List| 28) (|List| %) (|InputForm|) (|Pattern| (|Float|))
+              (|Pattern| 50) (|List| 40) (|Factored| %)
               (|SparseMultivariatePolynomial| 50 40) (|Polynomial| 23)
-              (|Fraction| 37) (|Fraction| 65) (|Kernel| $) (|Union| 42 '#1#)
-              (|Fraction| 63) (|PatternMatchResult| (|Float|) $)
-              (|PatternMatchResult| 50 $) (|AlgebraicNumber|) (|Union| 45 '#1#)
-              (|Record| (|:| |mat| 51) (|:| |vec| (|Vector| 50))) (|Matrix| $)
-              (|Vector| $) (|Integer|) (|Matrix| 50)
+              (|Fraction| 37) (|Fraction| 65) (|Kernel| %) (|Union| 42 '#1#)
+              (|Fraction| 63) (|PatternMatchResult| (|Float|) %)
+              (|PatternMatchResult| 50 %) (|AlgebraicNumber|) (|Union| 45 '#1#)
+              (|Record| (|:| |mat| 51) (|:| |vec| (|Vector| 50))) (|Matrix| %)
+              (|Vector| %) (|Integer|) (|Matrix| 50)
               (|Record| (|:| |var| 40) (|:| |exponent| 50)) (|Union| 52 '#2#)
-              (|List| 8) (|List| 62) (|Mapping| $ $) (|List| 56)
-              (|Record| (|:| |val| $) (|:| |exponent| 50)) (|Union| 58 '#2#)
-              (|Mapping| $ 30) (|List| 60) (|NonNegativeInteger|)
+              (|List| 8) (|List| 62) (|Mapping| % %) (|List| 56)
+              (|Record| (|:| |val| %) (|:| |exponent| 50)) (|Union| 58 '#2#)
+              (|Mapping| % 30) (|List| 60) (|NonNegativeInteger|)
               (|Polynomial| 50) (|Union| 63 '#1#)
-              (|SparseUnivariatePolynomial| $) (|Expression| 50)
-              (|SegmentBinding| $)
-              (|Record| (|:| |coef| 30) (|:| |generator| $))
-              (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 71 '"failed")
-              (|Polynomial| $) (|Union| 40 '#1#) (|List| 76) (|Equation| $)
+              (|SparseUnivariatePolynomial| %) (|Expression| 50)
+              (|SegmentBinding| %)
+              (|Record| (|:| |coef| 30) (|:| |generator| %))
+              (|Record| (|:| |quotient| %) (|:| |remainder| %))
+              (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
+              (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 71 '"failed")
+              (|Polynomial| %) (|Union| 40 '#1#) (|List| 76) (|Equation| %)
               (|Union| 8 '#1#) (|Union| 50 '#1#)
               (|Union| '"failed" (|List| 55))
               (|Record| (|:| |Sys| 30) (|:| JM 81) (|:| |Depend| 79))
-              (|SparseEchelonMatrix| 6 $)
-              (|Record| (|:| |DPhi| $) (|:| |JVars| 14)) (|PositiveInteger|)
+              (|SparseEchelonMatrix| 6 %)
+              (|Record| (|:| |DPhi| %) (|:| |JVars| 14)) (|PositiveInteger|)
               (|Record| (|:| |DSys| 30) (|:| |JVars| 85)) (|List| 14) (|Void|)
               (|Union| 6 '#1#)
-              (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
+              (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
+              (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
               (|String|) (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#(~= 34 |zerosOf| 40 |zeroOf| 67 |zero?| 94 |whittakerW| 99
               |whittakerM| 106 |weierstrassZeta| 113 |weierstrassSigma| 120

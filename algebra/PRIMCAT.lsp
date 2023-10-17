@@ -14,8 +14,8 @@
              (LETT #1#
                    (|Join|
                     (|mkCategory|
-                     '(((|integral| ($ $ (|Symbol|))) T)
-                       ((|integral| ($ $ (|SegmentBinding| $))) T))
+                     '(((|integral| (% % (|Symbol|))) T)
+                       ((|integral| (% % (|SegmentBinding| %))) T))
                      NIL NIL NIL)))
            (SETELT #1# 0 '(|PrimitiveFunctionCategory|))))) 
 

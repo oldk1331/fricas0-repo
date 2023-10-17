@@ -1,126 +1,126 @@
 
-(PUT '|GSERIES;coerce;Ups$;1| '|SPADreplace| '(XLAM (|upxs|) |upxs|)) 
+(PUT '|GSERIES;coerce;Ups%;1| '|SPADreplace| '(XLAM (|upxs|) |upxs|)) 
 
-(SDEFUN |GSERIES;coerce;Ups$;1|
-        ((|upxs| (|UnivariatePuiseuxSeries| |Coef| |var| |cen|)) ($ ($)))
+(SDEFUN |GSERIES;coerce;Ups%;1|
+        ((|upxs| (|UnivariatePuiseuxSeries| |Coef| |var| |cen|)) (% (%)))
         |upxs|) 
 
 (PUT '|GSERIES;puiseux| '|SPADreplace| '(XLAM (|f|) |f|)) 
 
 (SDEFUN |GSERIES;puiseux|
-        ((|f| ($)) ($ (|UnivariatePuiseuxSeries| |Coef| |var| |cen|))) |f|) 
+        ((|f| (%)) (% (|UnivariatePuiseuxSeries| |Coef| |var| |cen|))) |f|) 
 
-(SDEFUN |GSERIES;differentiate;2$;3| ((|f| ($)) ($ ($)))
+(SDEFUN |GSERIES;differentiate;2%;3| ((|f| (%)) (% (%)))
         (SPROG ((|str2| (|String|)) (|str1| (|String|)))
                (SEQ
                 (LETT |str1| "'differentiate' unavailable on this domain;  ")
                 (LETT |str2| "use 'approximate' first")
                 (EXIT (|error| (STRCONC |str1| |str2|)))))) 
 
-(SDEFUN |GSERIES;differentiate;$V$;4|
-        ((|f| ($)) (|v| (|Variable| |var|)) ($ ($)))
-        (SPADCALL |f| (QREFELT $ 10))) 
+(SDEFUN |GSERIES;differentiate;%V%;4|
+        ((|f| (%)) (|v| (|Variable| |var|)) (% (%)))
+        (SPADCALL |f| (QREFELT % 10))) 
 
-(SDEFUN |GSERIES;differentiate;$S$;5| ((|f| ($)) (|s| (|Symbol|)) ($ ($)))
+(SDEFUN |GSERIES;differentiate;%S%;5| ((|f| (%)) (|s| (|Symbol|)) (% (%)))
         (SPROG
-         ((|deriv| ($)) (|dcds| (|Coef|)) (|str2| (|String|))
+         ((|deriv| (%)) (|dcds| (|Coef|)) (|str2| (|String|))
           (|str1| (|String|)))
          (SEQ
           (COND
-           ((EQUAL |s| (SPADCALL |f| (QREFELT $ 14)))
+           ((EQUAL |s| (SPADCALL |f| (QREFELT % 14)))
             (SEQ (LETT |str1| "'differentiate' unavailable on this domain;  ")
                  (LETT |str2| "use 'approximate' first")
                  (EXIT (|error| (STRCONC |str1| |str2|)))))
            ('T
             (SEQ
              (LETT |dcds|
-                   (SPADCALL (SPADCALL |f| (QREFELT $ 15)) |s| (QREFELT $ 16)))
+                   (SPADCALL (SPADCALL |f| (QREFELT % 15)) |s| (QREFELT % 16)))
              (LETT |deriv|
                    (SPADCALL
-                    (SPADCALL (|GSERIES;puiseux| |f| $) (QREFELT $ 17))
-                    (QREFELT $ 9)))
+                    (SPADCALL (|GSERIES;puiseux| |f| %) (QREFELT % 17))
+                    (QREFELT % 9)))
              (EXIT
               (SPADCALL
                (SPADCALL
-                (CONS #'|GSERIES;differentiate;$S$;5!0| (VECTOR $ |s|)) |f|
-                (QREFELT $ 19))
-               (SPADCALL |dcds| |deriv| (QREFELT $ 20)) (QREFELT $ 21))))))))) 
+                (CONS #'|GSERIES;differentiate;%S%;5!0| (VECTOR % |s|)) |f|
+                (QREFELT % 19))
+               (SPADCALL |dcds| |deriv| (QREFELT % 20)) (QREFELT % 21))))))))) 
 
-(SDEFUN |GSERIES;differentiate;$S$;5!0| ((|x| NIL) ($$ NIL))
-        (PROG (|s| $)
+(SDEFUN |GSERIES;differentiate;%S%;5!0| ((|x| NIL) ($$ NIL))
+        (PROG (|s| %)
           (LETT |s| (QREFELT $$ 1))
-          (LETT $ (QREFELT $$ 0))
-          (RETURN (PROGN (SPADCALL |x| |s| (QREFELT $ 16)))))) 
+          (LETT % (QREFELT $$ 0))
+          (RETURN (PROGN (SPADCALL |x| |s| (QREFELT % 16)))))) 
 
-(SDEFUN |GSERIES;integrate;2$;6| ((|f| ($)) ($ ($)))
+(SDEFUN |GSERIES;integrate;2%;6| ((|f| (%)) (% (%)))
         (SPROG ((|str2| (|String|)) (|str1| (|String|)))
                (SEQ (LETT |str1| "'integrate' unavailable on this domain;  ")
                     (LETT |str2| "use 'approximate' first")
                     (EXIT (|error| (STRCONC |str1| |str2|)))))) 
 
-(SDEFUN |GSERIES;integrate;$V$;7| ((|f| ($)) (|v| (|Variable| |var|)) ($ ($)))
-        (SPADCALL |f| (QREFELT $ 23))) 
+(SDEFUN |GSERIES;integrate;%V%;7| ((|f| (%)) (|v| (|Variable| |var|)) (% (%)))
+        (SPADCALL |f| (QREFELT % 23))) 
 
-(SDEFUN |GSERIES;integrate;$S$;8| ((|f| ($)) (|s| (|Symbol|)) ($ ($)))
+(SDEFUN |GSERIES;integrate;%S%;8| ((|f| (%)) (|s| (|Symbol|)) (% (%)))
         (SPROG ((|str2| (|String|)) (|str1| (|String|)))
                (SEQ
                 (COND
-                 ((EQUAL |s| (SPADCALL |f| (QREFELT $ 14)))
+                 ((EQUAL |s| (SPADCALL |f| (QREFELT % 14)))
                   (SEQ
                    (LETT |str1| "'integrate' unavailable on this domain;  ")
                    (LETT |str2| "use 'approximate' first")
                    (EXIT (|error| (STRCONC |str1| |str2|)))))
                  ((NULL
                    (SPADCALL |s|
-                             (SPADCALL (SPADCALL |f| (QREFELT $ 15))
-                                       (QREFELT $ 26))
-                             (QREFELT $ 28)))
-                  (SPADCALL (CONS #'|GSERIES;integrate;$S$;8!0| (VECTOR $ |s|))
-                            |f| (QREFELT $ 19)))
+                             (SPADCALL (SPADCALL |f| (QREFELT % 15))
+                                       (QREFELT % 26))
+                             (QREFELT % 28)))
+                  (SPADCALL (CONS #'|GSERIES;integrate;%S%;8!0| (VECTOR % |s|))
+                            |f| (QREFELT % 19)))
                  ('T
                   (|error|
                    "integrate: center is a function of variable of integration")))))) 
 
-(SDEFUN |GSERIES;integrate;$S$;8!0| ((|x| NIL) ($$ NIL))
-        (PROG (|s| $)
+(SDEFUN |GSERIES;integrate;%S%;8!0| ((|x| NIL) ($$ NIL))
+        (PROG (|s| %)
           (LETT |s| (QREFELT $$ 1))
-          (LETT $ (QREFELT $$ 0))
-          (RETURN (PROGN (SPADCALL |x| |s| (QREFELT $ 29)))))) 
+          (LETT % (QREFELT $$ 0))
+          (RETURN (PROGN (SPADCALL |x| |s| (QREFELT % 29)))))) 
 
 (SDEFUN |GSERIES;integrateWithOneAnswer|
-        ((|f| (|Coef|)) (|s| (|Symbol|)) ($ (|Coef|)))
+        ((|f| (|Coef|)) (|s| (|Symbol|)) (% (|Coef|)))
         (SPROG ((|res| (|Union| |Coef| (|List| |Coef|))))
-               (SEQ (LETT |res| (SPADCALL |f| |s| (QREFELT $ 33)))
+               (SEQ (LETT |res| (SPADCALL |f| |s| (QREFELT % 33)))
                     (EXIT
                      (COND ((QEQCAR |res| 0) (QCDR |res|))
                            ('T (|SPADfirst| (QCDR |res|)))))))) 
 
-(SDEFUN |GSERIES;integrate;$S$;10| ((|f| ($)) (|s| (|Symbol|)) ($ ($)))
+(SDEFUN |GSERIES;integrate;%S%;10| ((|f| (%)) (|s| (|Symbol|)) (% (%)))
         (SPROG ((|str2| (|String|)) (|str1| (|String|)))
                (SEQ
                 (COND
-                 ((EQUAL |s| (SPADCALL |f| (QREFELT $ 14)))
+                 ((EQUAL |s| (SPADCALL |f| (QREFELT % 14)))
                   (SEQ
                    (LETT |str1| "'integrate' unavailable on this domain;  ")
                    (LETT |str2| "use 'approximate' first")
                    (EXIT (|error| (STRCONC |str1| |str2|)))))
                  ((NULL
                    (SPADCALL |s|
-                             (SPADCALL (SPADCALL |f| (QREFELT $ 15))
-                                       (QREFELT $ 26))
-                             (QREFELT $ 28)))
+                             (SPADCALL (SPADCALL |f| (QREFELT % 15))
+                                       (QREFELT % 26))
+                             (QREFELT % 28)))
                   (SPADCALL
-                   (CONS #'|GSERIES;integrate;$S$;10!0| (VECTOR $ |s|)) |f|
-                   (QREFELT $ 19)))
+                   (CONS #'|GSERIES;integrate;%S%;10!0| (VECTOR % |s|)) |f|
+                   (QREFELT % 19)))
                  ('T
                   (|error|
                    "integrate: center is a function of variable of integration")))))) 
 
-(SDEFUN |GSERIES;integrate;$S$;10!0| ((|x| NIL) ($$ NIL))
-        (PROG (|s| $)
+(SDEFUN |GSERIES;integrate;%S%;10!0| ((|x| NIL) ($$ NIL))
+        (PROG (|s| %)
           (LETT |s| (QREFELT $$ 1))
-          (LETT $ (QREFELT $$ 0))
-          (RETURN (PROGN (|GSERIES;integrateWithOneAnswer| |x| |s| $))))) 
+          (LETT % (QREFELT $$ 0))
+          (RETURN (PROGN (|GSERIES;integrateWithOneAnswer| |x| |s| %))))) 
 
 (DECLAIM (NOTINLINE |GeneralUnivariatePowerSeries;|)) 
 
@@ -148,15 +148,15 @@
 (DEFUN |GeneralUnivariatePowerSeries;| (|#1| |#2| |#3|)
   (SPROG
    ((|pv$| NIL) (#1=#:G157 NIL) (#2=#:G158 NIL) (#3=#:G159 NIL) (#4=#:G160 NIL)
-    (#5=#:G162 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+    (#5=#:G162 NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 |#2|)
     (LETT DV$3 |#3|)
     (LETT |dv$| (LIST '|GeneralUnivariatePowerSeries| DV$1 DV$2 DV$3))
-    (LETT $ (GETREFV 59))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 59))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -349,87 +349,87 @@
                                                                    (|devaluate|
                                                                     |#1|)))))))))
     (|haddProp| |$ConstructorCache| '|GeneralUnivariatePowerSeries|
-                (LIST DV$1 DV$2 DV$3) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (QSETREFV $ 8 |#3|)
-    (AND #5# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))
-         (|augmentPredVector| $ 134217728))
+                (LIST DV$1 DV$2 DV$3) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (QSETREFV % 8 |#3|)
+    (AND #5# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))
+         (|augmentPredVector| % 134217728))
     (AND
      (OR (|HasCategory| |#1| '(|Field|))
-         (AND #4# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
-     (|augmentPredVector| $ 268435456))
+         (AND #4# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| % 268435456))
     (AND
-     (OR (AND #5# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+     (OR (AND #5# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (|HasCategory| |#1| '(|Field|))
-         (AND #4# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
-     (|augmentPredVector| $ 536870912))
+         (AND #4# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| % 536870912))
     (AND
-     (OR (AND #5# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-         (AND #4# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))) #3#
+     (OR (AND #5# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+         (AND #4# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))) #3#
          (|HasSignature| |#1|
                          (LIST '*
                                (LIST (|devaluate| |#1|)
                                      '(|Fraction| (|Integer|))
                                      (|devaluate| |#1|)))))
-     (|augmentPredVector| $ 1073741824))
+     (|augmentPredVector| % 1073741824))
     (AND
-     (OR (AND #5# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-         (AND #4# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))) #2#
+     (OR (AND #5# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+         (AND #4# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))) #2#
          (|HasSignature| |#1|
                          (LIST '*
                                (LIST (|devaluate| |#1|)
                                      '(|Fraction| (|Integer|))
                                      (|devaluate| |#1|)))))
-     (|augmentPredVector| $ 2147483648))
+     (|augmentPredVector| % 2147483648))
     (AND
      (OR (|HasCategory| |#1| '(|AbelianMonoid|))
-         (AND #5# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-         (AND #4# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-         (|HasCategory| $ '(|AbelianMonoid|))
+         (AND #5# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+         (AND #4# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+         (|HasCategory| % '(|AbelianMonoid|))
          (|HasSignature| |#1|
                          (LIST '*
                                (LIST (|devaluate| |#1|)
                                      '(|Fraction| (|Integer|))
                                      (|devaluate| |#1|)))))
-     (|augmentPredVector| $ 4294967296))
+     (|augmentPredVector| % 4294967296))
     (AND
      (OR (|HasCategory| |#1| '(|CancellationAbelianMonoid|))
-         (AND #5# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-         (AND #4# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-         (|HasCategory| $ '(|AbelianGroup|))
+         (AND #5# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+         (AND #4# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+         (|HasCategory| % '(|AbelianGroup|))
          (|HasSignature| |#1|
                          (LIST '*
                                (LIST (|devaluate| |#1|)
                                      '(|Fraction| (|Integer|))
                                      (|devaluate| |#1|)))))
-     (|augmentPredVector| $ 8589934592))
+     (|augmentPredVector| % 8589934592))
     (AND
-     (OR #1# (AND #5# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-         (AND #4# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-         (|HasCategory| $ '(|AbelianGroup|))
+     (OR #1# (AND #5# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+         (AND #4# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+         (|HasCategory| % '(|AbelianGroup|))
          (|HasSignature| |#1|
                          (LIST '*
                                (LIST (|devaluate| |#1|)
                                      '(|Fraction| (|Integer|))
                                      (|devaluate| |#1|)))))
-     (|augmentPredVector| $ 17179869184))
-    (SETF |pv$| (QREFELT $ 3))
+     (|augmentPredVector| % 17179869184))
+    (SETF |pv$| (QREFELT % 3))
     (COND
      ((|testBitVector| |pv$| 6)
       (PROGN
-       (QSETREFV $ 10
-                 (CONS (|dispatchFunction| |GSERIES;differentiate;2$;3|) $))
-       (QSETREFV $ 12
-                 (CONS (|dispatchFunction| |GSERIES;differentiate;$V$;4|) $))
+       (QSETREFV % 10
+                 (CONS (|dispatchFunction| |GSERIES;differentiate;2%;3|) %))
+       (QSETREFV % 12
+                 (CONS (|dispatchFunction| |GSERIES;differentiate;%V%;4|) %))
        (COND
         ((|HasCategory| |#1| '(|PartialDifferentialRing| (|Symbol|)))
-         (QSETREFV $ 22
-                   (CONS (|dispatchFunction| |GSERIES;differentiate;$S$;5|)
-                         $))))
-       (QSETREFV $ 23 (CONS (|dispatchFunction| |GSERIES;integrate;2$;6|) $))
-       (QSETREFV $ 24 (CONS (|dispatchFunction| |GSERIES;integrate;$V$;7|) $))
+         (QSETREFV % 22
+                   (CONS (|dispatchFunction| |GSERIES;differentiate;%S%;5|)
+                         %))))
+       (QSETREFV % 23 (CONS (|dispatchFunction| |GSERIES;integrate;2%;6|) %))
+       (QSETREFV % 24 (CONS (|dispatchFunction| |GSERIES;integrate;%V%;7|) %))
        (COND
         ((|HasSignature| |#1|
                          (LIST '|integrate|
@@ -440,9 +440,9 @@
                            (LIST '|variables|
                                  (LIST '(|List| (|Symbol|))
                                        (|devaluate| |#1|))))
-           (QSETREFV $ 30
-                     (CONS (|dispatchFunction| |GSERIES;integrate;$S$;8|)
-                           $))))))
+           (QSETREFV % 30
+                     (CONS (|dispatchFunction| |GSERIES;integrate;%S%;8|)
+                           %))))))
        (COND
         ((|HasCategory| |#1| '(|TranscendentalFunctionCategory|))
          (COND
@@ -451,19 +451,19 @@
             ((|HasCategory| |#1|
                             '(|AlgebraicallyClosedFunctionSpace| (|Integer|)))
              (PROGN
-              (QSETREFV $ 30
-                        (CONS (|dispatchFunction| |GSERIES;integrate;$S$;10|)
-                              $))))))))))))
-    $))) 
+              (QSETREFV % 30
+                        (CONS (|dispatchFunction| |GSERIES;integrate;%S%;10|)
+                              %))))))))))))
+    %))) 
 
 (MAKEPROP '|GeneralUnivariatePowerSeries| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL
-              (|UnivariatePuiseuxSeries| 6 (NRTEVAL (QREFELT $ 7))
-                                         (NRTEVAL (QREFELT $ 8)))
+              (|UnivariatePuiseuxSeries| 6 (NRTEVAL (QREFELT % 7))
+                                         (NRTEVAL (QREFELT % 8)))
               (|local| |#1|) (|local| |#2|) (|local| |#3|)
-              |GSERIES;coerce;Ups$;1| (0 . |differentiate|)
-              (|Variable| (NRTEVAL (QREFELT $ 7))) (5 . |differentiate|)
+              |GSERIES;coerce;Ups%;1| (0 . |differentiate|)
+              (|Variable| (NRTEVAL (QREFELT % 7))) (5 . |differentiate|)
               (|Symbol|) (11 . |variable|) (16 . |center|)
               (21 . |differentiate|) (27 . |differentiate|) (|Mapping| 6 6)
               (32 . |map|) (38 . *) (44 . -) (50 . |differentiate|)
@@ -472,16 +472,16 @@
               (84 . |integrate|) (|Union| 6 (|List| 6))
               (|FunctionSpaceIntegration| 37 6) (90 . |integrate|) (|List| 35)
               (|NonNegativeInteger|) (|Fraction| 37) (|Integer|)
-              (|Union| $ '"failed")
-              (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
+              (|Union| % '"failed")
+              (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (|Record| (|:| |k| 36) (|:| |c| 6)) (|List| 40)
-              (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
-              (|List| $) (|Record| (|:| |coef| 43) (|:| |generator| $))
-              (|SparseUnivariatePolynomial| $) (|Union| 43 '"failed")
-              (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 49 '"failed")
-              (|Factored| $) (|Stream| 6) (|Stream| 40) (|PositiveInteger|)
+              (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
+              (|List| %) (|Record| (|:| |coef| 43) (|:| |generator| %))
+              (|SparseUnivariatePolynomial| %) (|Union| 43 '"failed")
+              (|Record| (|:| |quotient| %) (|:| |remainder| %))
+              (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
+              (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 49 '"failed")
+              (|Factored| %) (|Stream| 6) (|Stream| 40) (|PositiveInteger|)
               (|String|) (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#(~= 96 |zero?| 102 |variable| 107 |unitNormal| 112 |unitCanonical|
               117 |unit?| 122 |truncate| 127 |terms| 140 |tanh| 145 |tan| 150

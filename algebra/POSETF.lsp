@@ -1,6 +1,6 @@
 
 (SDEFUN |POSETF;addDimensionToObjects|
-        ((|a| (|List| (|List| S))) (|newObj| (S)) ($ (|List| (|List| S))))
+        ((|a| (|List| (|List| S))) (|newObj| (S)) (% (|List| (|List| S))))
         (SPROG
          ((|b| (|List| (|List| S))) (|x1| (|List| S)) (#1=#:G109 NIL)
           (|x| NIL))
@@ -9,13 +9,13 @@
                    (COND
                     ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
                      (GO G191)))
-                   (SEQ (LETT |x1| (SPADCALL |x| |newObj| (QREFELT $ 8)))
-                        (EXIT (LETT |b| (SPADCALL |b| |x1| (QREFELT $ 10)))))
+                   (SEQ (LETT |x1| (SPADCALL |x| |newObj| (QREFELT % 8)))
+                        (EXIT (LETT |b| (SPADCALL |b| |x1| (QREFELT % 10)))))
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL |a| |b| (QREFELT $ 11)))))) 
+              (EXIT (SPADCALL |a| |b| (QREFELT % 11)))))) 
 
 (SDEFUN |POSETF;addDimensionToArrows|
-        ((|a| (|List| (|List| (|Boolean|)))) ($ (|List| (|List| (|Boolean|)))))
+        ((|a| (|List| (|List| (|Boolean|)))) (% (|List| (|List| (|Boolean|)))))
         (SPROG
          ((|res| (|List| #1=(|List| (|Boolean|)))) (|fst| #2=(|Boolean|))
           (|thisRow| #1#) (|topRight| #2#) (#3=#:G124 NIL) (|y| NIL)
@@ -54,7 +54,7 @@
                                                              (COND
                                                               (|topRight| NIL)
                                                               ('T |y|))
-                                                             (QREFELT $ 14)))))
+                                                             (QREFELT % 14)))))
                                            (LETT #3# (CDR #3#)) (GO G190) G191
                                            (EXIT NIL))))
                                     (LETT |yrepeat| (|inc_SI| |yrepeat|))
@@ -65,21 +65,21 @@
                                   (SEQ
                                    (LETT |res|
                                          (LIST
-                                          (SPADCALL |thisRow| (QREFELT $ 15))))
+                                          (SPADCALL |thisRow| (QREFELT % 15))))
                                    (EXIT (LETT |fst| NIL))))
                                  ('T
                                   (LETT |res|
                                         (SPADCALL |res|
                                                   (SPADCALL |thisRow|
-                                                            (QREFELT $ 15))
-                                                  (QREFELT $ 17)))))))
+                                                            (QREFELT % 15))
+                                                  (QREFELT % 17)))))))
                           (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))))
                    (LETT |xrepeat| (|inc_SI| |xrepeat|)) (GO G190) G191
                    (EXIT NIL))
               (EXIT |res|)))) 
 
 (SDEFUN |POSETF;powerset;LFbcpo;3|
-        ((|objs| (|List| S)) ($ (|FiniteBiCPO| (|List| S))))
+        ((|objs| (|List| S)) (% (|FiniteBiCPO| (|List| S))))
         (SPROG
          ((|arrows| (|List| (|List| (|Boolean|)))) (|eles| (|List| (|List| S)))
           (#1=#:G130 NIL) (|x| NIL))
@@ -89,15 +89,15 @@
                     ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
                      (GO G191)))
                    (SEQ
-                    (LETT |eles| (|POSETF;addDimensionToObjects| |eles| |x| $))
+                    (LETT |eles| (|POSETF;addDimensionToObjects| |eles| |x| %))
                     (EXIT
                      (LETT |arrows|
-                           (|POSETF;addDimensionToArrows| |arrows| $))))
+                           (|POSETF;addDimensionToArrows| |arrows| %))))
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL |eles| |arrows| (QREFELT $ 19)))))) 
+              (EXIT (SPADCALL |eles| |arrows| (QREFELT % 19)))))) 
 
 (SDEFUN |POSETF;completelyOrderedSet;LFbcpo;4|
-        ((|objs| (|List| S)) ($ (|FiniteBiCPO| S)))
+        ((|objs| (|List| S)) (% (|FiniteBiCPO| S)))
         (SPROG
          ((|arrows| (|List| (|List| (|Boolean|)))) (|row| (|List| (|Boolean|)))
           (|g| (|Boolean|)) (#1=#:G140 NIL) (|y| NIL) (#2=#:G139 NIL) (|x| NIL)
@@ -111,47 +111,47 @@
                              (SEQ (LETT |g| (COND ((>= |x| |y|) 'T) ('T NIL)))
                                   (EXIT
                                    (LETT |row|
-                                         (SPADCALL |row| |g| (QREFELT $ 14)))))
+                                         (SPADCALL |row| |g| (QREFELT % 14)))))
                              (LETT |y| (|inc_SI| |y|)) (GO G190) G191
                              (EXIT NIL))
                         (EXIT
                          (LETT |arrows|
-                               (SPADCALL |arrows| |row| (QREFELT $ 17)))))
+                               (SPADCALL |arrows| |row| (QREFELT % 17)))))
                    (LETT |x| (|inc_SI| |x|)) (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL |objs| |arrows| (QREFELT $ 22)))))) 
+              (EXIT (SPADCALL |objs| |arrows| (QREFELT % 22)))))) 
 
-(SDEFUN |POSETF;posetN5;LFbcpo;5| ((|objs| (|List| S)) ($ (|FiniteBiCPO| S)))
+(SDEFUN |POSETF;posetN5;LFbcpo;5| ((|objs| (|List| S)) (% (|FiniteBiCPO| S)))
         (SPADCALL |objs|
                   (LIST (LIST 'T 'T 'T 'T 'T) (LIST NIL 'T NIL NIL 'T)
                         (LIST NIL NIL 'T 'T 'T) (LIST NIL NIL NIL 'T 'T)
                         (LIST NIL NIL NIL NIL 'T))
-                  (QREFELT $ 22))) 
+                  (QREFELT % 22))) 
 
-(SDEFUN |POSETF;posetM5;LFbcpo;6| ((|objs| (|List| S)) ($ (|FiniteBiCPO| S)))
+(SDEFUN |POSETF;posetM5;LFbcpo;6| ((|objs| (|List| S)) (% (|FiniteBiCPO| S)))
         (SPADCALL |objs|
                   (LIST (LIST 'T 'T 'T 'T 'T) (LIST NIL 'T NIL NIL 'T)
                         (LIST NIL NIL 'T NIL 'T) (LIST NIL NIL NIL 'T 'T)
                         (LIST NIL NIL NIL NIL 'T))
-                  (QREFELT $ 22))) 
+                  (QREFELT % 22))) 
 
-(SDEFUN |POSETF;posetO6;LFbcpo;7| ((|objs| (|List| S)) ($ (|FiniteBiCPO| S)))
+(SDEFUN |POSETF;posetO6;LFbcpo;7| ((|objs| (|List| S)) (% (|FiniteBiCPO| S)))
         (SPADCALL |objs|
                   (LIST (LIST 'T 'T 'T 'T 'T 'T) (LIST NIL 'T 'T NIL NIL 'T)
                         (LIST NIL NIL 'T NIL NIL 'T)
                         (LIST NIL NIL NIL 'T 'T 'T)
                         (LIST NIL NIL NIL NIL 'T 'T)
                         (LIST NIL NIL NIL NIL NIL 'T))
-                  (QREFELT $ 22))) 
+                  (QREFELT % 22))) 
 
-(SDEFUN |POSETF;posetP6;LFbcpo;8| ((|objs| (|List| S)) ($ (|FiniteBiCPO| S)))
+(SDEFUN |POSETF;posetP6;LFbcpo;8| ((|objs| (|List| S)) (% (|FiniteBiCPO| S)))
         (SPADCALL |objs|
                   (LIST (LIST 'T 'T 'T 'T 'T 'T) (LIST NIL 'T 'T NIL 'T 'T)
                         (LIST NIL NIL 'T NIL NIL 'T) (LIST NIL NIL 'T 'T 'T 'T)
                         (LIST NIL NIL NIL NIL 'T 'T)
                         (LIST NIL NIL NIL NIL NIL 'T))
-                  (QREFELT $ 22))) 
+                  (QREFELT % 22))) 
 
-(SDEFUN |POSETF;posetL7;LFbcpo;9| ((|objs| (|List| S)) ($ (|FiniteBiCPO| S)))
+(SDEFUN |POSETF;posetL7;LFbcpo;9| ((|objs| (|List| S)) (% (|FiniteBiCPO| S)))
         (SPADCALL |objs|
                   (LIST (LIST 'T 'T 'T 'T 'T 'T 'T)
                         (LIST NIL 'T NIL 'T 'T NIL 'T)
@@ -160,7 +160,7 @@
                         (LIST NIL NIL NIL NIL 'T NIL 'T)
                         (LIST NIL NIL NIL NIL NIL 'T 'T)
                         (LIST NIL NIL NIL NIL NIL NIL 'T))
-                  (QREFELT $ 22))) 
+                  (QREFELT % 22))) 
 
 (DECLAIM (NOTINLINE |PosetFactory;|)) 
 
@@ -181,19 +181,19 @@
                  ((NOT #2#) (HREM |$ConstructorCache| '|PosetFactory|)))))))))) 
 
 (DEFUN |PosetFactory;| (|#1|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|PosetFactory| DV$1))
-          (LETT $ (GETREFV 31))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (LETT % (GETREFV 31))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PosetFactory| (LIST DV$1)
-                      (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|PosetFactory| '|infovec|
           (LIST

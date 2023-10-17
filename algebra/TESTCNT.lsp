@@ -1,33 +1,33 @@
 
-(SDEFUN |TESTCNT;testsuite;SV;1| ((|s| (|String|)) ($ (|Void|)))
-        (SEQ (SPADCALL "clear all" (QREFELT $ 19))
-             (EXIT (SPADCALL |s| (QREFELT $ 20))))) 
+(SDEFUN |TESTCNT;testsuite;SV;1| ((|s| (|String|)) (% (|Void|)))
+        (SEQ (SPADCALL "clear all" (QREFELT % 19))
+             (EXIT (SPADCALL |s| (QREFELT % 20))))) 
 
-(SDEFUN |TESTCNT;testsuiteNoClear;SV;2| ((|s| (|String|)) ($ (|Void|)))
+(SDEFUN |TESTCNT;testsuiteNoClear;SV;2| ((|s| (|String|)) (% (|Void|)))
         (SEQ
          (COND
           ((> (QCSIZE |s|) 15)
            (SPADCALL
             (SPADCALL "WARNING: string for testsuite should have less than "
-                      "15 characters!" (QREFELT $ 22))
-            (QREFELT $ 24))))
-         (SETELT $ 15 |s|)
+                      "15 characters!" (QREFELT % 22))
+            (QREFELT % 24))))
+         (SETELT % 15 |s|)
          (EXIT
-          (SPADCALL (CONS (QREFELT $ 15) (SPADCALL (QREFELT $ 26)))
-                    (QREFELT $ 12) (QREFELT $ 28))))) 
+          (SPADCALL (CONS (QREFELT % 15) (SPADCALL (QREFELT % 26)))
+                    (QREFELT % 12) (QREFELT % 28))))) 
 
-(SDEFUN |TESTCNT;testcaseNoClear;SV;3| ((|s| (|String|)) ($ (|Void|)))
-        (SEQ (SETELT $ 14 |s|)
+(SDEFUN |TESTCNT;testcaseNoClear;SV;3| ((|s| (|String|)) (% (|Void|)))
+        (SEQ (SETELT % 14 |s|)
              (EXIT
-              (SPADCALL (CONS (QREFELT $ 14) (VECTOR 0 0 0 0 NIL NIL NIL))
-                        (SPADCALL (QREFELT $ 12) (QREFELT $ 15) (QREFELT $ 29))
-                        (QREFELT $ 31))))) 
+              (SPADCALL (CONS (QREFELT % 14) (VECTOR 0 0 0 0 NIL NIL NIL))
+                        (SPADCALL (QREFELT % 12) (QREFELT % 15) (QREFELT % 29))
+                        (QREFELT % 31))))) 
 
-(SDEFUN |TESTCNT;testcase;SV;4| ((|s| (|String|)) ($ (|Void|)))
-        (SEQ (SPADCALL "clear all" (QREFELT $ 19))
-             (EXIT (SPADCALL |s| (QREFELT $ 32))))) 
+(SDEFUN |TESTCNT;testcase;SV;4| ((|s| (|String|)) (% (|Void|)))
+        (SEQ (SPADCALL "clear all" (QREFELT % 19))
+             (EXIT (SPADCALL |s| (QREFELT % 32))))) 
 
-(SDEFUN |TESTCNT;incTest;V;5| (($ (|Void|)))
+(SDEFUN |TESTCNT;incTest;V;5| ((% (|Void|)))
         (SPROG
          ((|cur|
            (|Record| (|:| |total| (|Integer|)) (|:| |fail| (|Integer|))
@@ -50,14 +50,14 @@
          (SEQ
           (LETT |cur|
                 (SPADCALL
-                 (SPADCALL (QREFELT $ 12) (QREFELT $ 15) (QREFELT $ 29))
-                 (QREFELT $ 14) (QREFELT $ 34)))
+                 (SPADCALL (QREFELT % 12) (QREFELT % 15) (QREFELT % 29))
+                 (QREFELT % 14) (QREFELT % 34)))
           (EXIT (QSETVELT |cur| 0 (+ (QVELT |cur| 0) 1)))))) 
 
-(SDEFUN |TESTCNT;incPass;V;6| (($ (|Void|))) (SPADCALL (QREFELT $ 36))) 
+(SDEFUN |TESTCNT;incPass;V;6| ((% (|Void|))) (SPADCALL (QREFELT % 36))) 
 
 (SDEFUN |TESTCNT;incLibraryError;SLV;7|
-        ((|inp| (|String|)) (|out| (|List| (|OutputForm|))) ($ (|Void|)))
+        ((|inp| (|String|)) (|out| (|List| (|OutputForm|))) (% (|Void|)))
         (SPROG
          ((|cur|
            (|Record| (|:| |total| (|Integer|)) (|:| |fail| (|Integer|))
@@ -80,8 +80,8 @@
          (SEQ
           (LETT |cur|
                 (SPADCALL
-                 (SPADCALL (QREFELT $ 12) (QREFELT $ 15) (QREFELT $ 29))
-                 (QREFELT $ 14) (QREFELT $ 34)))
+                 (SPADCALL (QREFELT % 12) (QREFELT % 15) (QREFELT % 29))
+                 (QREFELT % 14) (QREFELT % 34)))
           (QSETVELT |cur| 1 (+ (QVELT |cur| 1) 1))
           (EXIT
            (QSETVELT |cur| 6
@@ -89,7 +89,7 @@
                            (QVELT |cur| 6))))))) 
 
 (SDEFUN |TESTCNT;incXfLibraryError;SLV;8|
-        ((|inp| (|String|)) (|out| (|List| (|OutputForm|))) ($ (|Void|)))
+        ((|inp| (|String|)) (|out| (|List| (|OutputForm|))) (% (|Void|)))
         (SPROG
          ((|cur|
            (|Record| (|:| |total| (|Integer|)) (|:| |fail| (|Integer|))
@@ -112,11 +112,11 @@
          (SEQ
           (LETT |cur|
                 (SPADCALL
-                 (SPADCALL (QREFELT $ 12) (QREFELT $ 15) (QREFELT $ 29))
-                 (QREFELT $ 14) (QREFELT $ 34)))
+                 (SPADCALL (QREFELT % 12) (QREFELT % 15) (QREFELT % 29))
+                 (QREFELT % 14) (QREFELT % 34)))
           (EXIT (QSETVELT |cur| 2 (+ (QVELT |cur| 2) 1)))))) 
 
-(SDEFUN |TESTCNT;incXfFail;V;9| (($ (|Void|)))
+(SDEFUN |TESTCNT;incXfFail;V;9| ((% (|Void|)))
         (SPROG
          ((|cur|
            (|Record| (|:| |total| (|Integer|)) (|:| |fail| (|Integer|))
@@ -139,12 +139,12 @@
          (SEQ
           (LETT |cur|
                 (SPADCALL
-                 (SPADCALL (QREFELT $ 12) (QREFELT $ 15) (QREFELT $ 29))
-                 (QREFELT $ 14) (QREFELT $ 34)))
+                 (SPADCALL (QREFELT % 12) (QREFELT % 15) (QREFELT % 29))
+                 (QREFELT % 14) (QREFELT % 34)))
           (EXIT (QSETVELT |cur| 2 (+ (QVELT |cur| 2) 1)))))) 
 
 (SDEFUN |TESTCNT;incFail;SLV;10|
-        ((|inp| (|String|)) (|out| (|List| (|OutputForm|))) ($ (|Void|)))
+        ((|inp| (|String|)) (|out| (|List| (|OutputForm|))) (% (|Void|)))
         (SPROG
          ((|cur|
            (|Record| (|:| |total| (|Integer|)) (|:| |fail| (|Integer|))
@@ -167,8 +167,8 @@
          (SEQ
           (LETT |cur|
                 (SPADCALL
-                 (SPADCALL (QREFELT $ 12) (QREFELT $ 15) (QREFELT $ 29))
-                 (QREFELT $ 14) (QREFELT $ 34)))
+                 (SPADCALL (QREFELT % 12) (QREFELT % 15) (QREFELT % 29))
+                 (QREFELT % 14) (QREFELT % 34)))
           (QSETVELT |cur| 1 (+ (QVELT |cur| 1) 1))
           (EXIT
            (QSETVELT |cur| 6
@@ -176,7 +176,7 @@
                            (QVELT |cur| 6))))))) 
 
 (SDEFUN |TESTCNT;incXfPass;SLV;11|
-        ((|inp| (|String|)) (|out| (|List| (|OutputForm|))) ($ (|Void|)))
+        ((|inp| (|String|)) (|out| (|List| (|OutputForm|))) (% (|Void|)))
         (SPROG
          ((|cur|
            (|Record| (|:| |total| (|Integer|)) (|:| |fail| (|Integer|))
@@ -199,15 +199,15 @@
          (SEQ
           (LETT |cur|
                 (SPADCALL
-                 (SPADCALL (QREFELT $ 12) (QREFELT $ 15) (QREFELT $ 29))
-                 (QREFELT $ 14) (QREFELT $ 34)))
+                 (SPADCALL (QREFELT % 12) (QREFELT % 15) (QREFELT % 29))
+                 (QREFELT % 14) (QREFELT % 34)))
           (QSETVELT |cur| 3 (+ (QVELT |cur| 3) 1))
           (EXIT
            (QSETVELT |cur| 5
                      (CONS (VECTOR (QVELT |cur| 0) |inp| |out|)
                            (QVELT |cur| 5))))))) 
 
-(SDEFUN |TESTCNT;incFatal;SV;12| ((|inp| (|String|)) ($ (|Void|)))
+(SDEFUN |TESTCNT;incFatal;SV;12| ((|inp| (|String|)) (% (|Void|)))
         (SPROG
          ((|cur|
            (|Record| (|:| |total| (|Integer|)) (|:| |fail| (|Integer|))
@@ -230,14 +230,14 @@
          (SEQ
           (LETT |cur|
                 (SPADCALL
-                 (SPADCALL (QREFELT $ 12) (QREFELT $ 15) (QREFELT $ 29))
-                 (QREFELT $ 14) (QREFELT $ 34)))
+                 (SPADCALL (QREFELT % 12) (QREFELT % 15) (QREFELT % 29))
+                 (QREFELT % 14) (QREFELT % 34)))
           (QSETVELT |cur| 1 (+ (QVELT |cur| 1) 1))
           (EXIT
            (QSETVELT |cur| 4
                      (CONS (CONS (QVELT |cur| 0) |inp|) (QVELT |cur| 4))))))) 
 
-(SDEFUN |TESTCNT;incXfFatal;SV;13| ((|inp| (|String|)) ($ (|Void|)))
+(SDEFUN |TESTCNT;incXfFatal;SV;13| ((|inp| (|String|)) (% (|Void|)))
         (SPROG
          ((|cur|
            (|Record| (|:| |total| (|Integer|)) (|:| |fail| (|Integer|))
@@ -260,41 +260,41 @@
          (SEQ
           (LETT |cur|
                 (SPADCALL
-                 (SPADCALL (QREFELT $ 12) (QREFELT $ 15) (QREFELT $ 29))
-                 (QREFELT $ 14) (QREFELT $ 34)))
+                 (SPADCALL (QREFELT % 12) (QREFELT % 15) (QREFELT % 29))
+                 (QREFELT % 14) (QREFELT % 34)))
           (EXIT (QSETVELT |cur| 2 (+ (QVELT |cur| 2) 1)))))) 
 
-(SDEFUN |TESTCNT;addWarning;OfV;14| ((|s| (|OutputForm|)) ($ (|Void|)))
+(SDEFUN |TESTCNT;addWarning;OfV;14| ((|s| (|OutputForm|)) (% (|Void|)))
         (SPROG ((|idx| (|Integer|)))
                (SEQ
                 (LETT |idx|
                       (QVELT
                        (SPADCALL
-                        (SPADCALL (QREFELT $ 12) (QREFELT $ 15) (QREFELT $ 29))
-                        (QREFELT $ 14) (QREFELT $ 34))
+                        (SPADCALL (QREFELT % 12) (QREFELT % 15) (QREFELT % 29))
+                        (QREFELT % 14) (QREFELT % 34))
                        0))
                 (EXIT
-                 (SETELT $ 13
+                 (SETELT % 13
                          (CONS
                           (SPADCALL
                            (LIST
                             (SPADCALL
-                             (SPADCALL "Testsuite: " (QREFELT $ 15)
-                                       (QREFELT $ 22))
-                             (QREFELT $ 46))
+                             (SPADCALL "Testsuite: " (QREFELT % 15)
+                                       (QREFELT % 22))
+                             (QREFELT % 46))
                             (SPADCALL
-                             (SPADCALL "Testcase: " (QREFELT $ 14)
-                                       (QREFELT $ 22))
-                             (QREFELT $ 46))
+                             (SPADCALL "Testcase: " (QREFELT % 14)
+                                       (QREFELT % 22))
+                             (QREFELT % 46))
                             (SPADCALL
                              (SPADCALL "test: " (STRINGIMAGE |idx|)
-                                       (QREFELT $ 22))
-                             (QREFELT $ 46))
+                                       (QREFELT % 22))
+                             (QREFELT % 46))
                             |s|)
-                           (QREFELT $ 48))
-                          (QREFELT $ 13))))))) 
+                           (QREFELT % 48))
+                          (QREFELT % 13))))))) 
 
-(SDEFUN |TESTCNT;statistics;V;15| (($ (|Void|)))
+(SDEFUN |TESTCNT;statistics;V;15| ((% (|Void|)))
         (SPROG
          ((#1=#:G243 NIL) (#2=#:G239 NIL) (#3=#:G235 NIL) (#4=#:G231 NIL)
           (#5=#:G227 NIL) (|stotalTests| #6=(|String|)) (|sfailedTests| #6#)
@@ -310,41 +310,41 @@
           (|totalTests| (|Integer|)) (|xfpassedCases| (|Integer|))
           (#18=#:G250 NIL) (#19=#:G249 NIL) (#20=#:G248 NIL) (|w| NIL))
          (SEQ
-          (SPADCALL (|make_full_CVEC2| (QREFELT $ 6) (|STR_to_CHAR| "="))
-                    (QREFELT $ 24))
-          (SPADCALL "General WARNINGS:" (QREFELT $ 24))
+          (SPADCALL (|make_full_CVEC2| (QREFELT % 6) (|STR_to_CHAR| "="))
+                    (QREFELT % 24))
+          (SPADCALL "General WARNINGS:" (QREFELT % 24))
           (SPADCALL
            (SPADCALL "* do not use ')clear completely' before having used "
-                     "'statistics()'" (QREFELT $ 22))
-           (QREFELT $ 24))
+                     "'statistics()'" (QREFELT % 22))
+           (QREFELT % 24))
           (SPADCALL "  It clears the statistics without warning!"
-                    (QREFELT $ 24))
+                    (QREFELT % 24))
           (SPADCALL
            (SPADCALL "* do not forget to pass the arguments of the testXxxx "
-                     "functions as Strings!" (QREFELT $ 22))
-           (QREFELT $ 24))
+                     "functions as Strings!" (QREFELT % 22))
+           (QREFELT % 24))
           (SPADCALL
            (SPADCALL "  Otherwise, the test will fail and statistics() will "
-                     "not notice!" (QREFELT $ 22))
-           (QREFELT $ 24))
+                     "not notice!" (QREFELT % 22))
+           (QREFELT % 24))
           (COND
-           ((> (LENGTH (QREFELT $ 13)) 0)
+           ((> (LENGTH (QREFELT % 13)) 0)
             (SEQ
-             (SPADCALL (|make_full_CVEC2| (QREFELT $ 6) (|STR_to_CHAR| "="))
-                       (QREFELT $ 24))
-             (SPADCALL "WARNINGS:" (QREFELT $ 24))
+             (SPADCALL (|make_full_CVEC2| (QREFELT % 6) (|STR_to_CHAR| "="))
+                       (QREFELT % 24))
+             (SPADCALL "WARNINGS:" (QREFELT % 24))
              (EXIT
-              (SEQ (LETT |w| NIL) (LETT #20# (REVERSE (QREFELT $ 13))) G190
+              (SEQ (LETT |w| NIL) (LETT #20# (REVERSE (QREFELT % 13))) G190
                    (COND
                     ((OR (ATOM #20#) (PROGN (LETT |w| (CAR #20#)) NIL))
                      (GO G191)))
-                   (SEQ (EXIT (SPADCALL |w| (QREFELT $ 51))))
+                   (SEQ (EXIT (SPADCALL |w| (QREFELT % 51))))
                    (LETT #20# (CDR #20#)) (GO G190) G191 (EXIT NIL))))))
-          (SPADCALL "" (QREFELT $ 52)) (LETT |totalTests| 0)
+          (SPADCALL "" (QREFELT % 52)) (LETT |totalTests| 0)
           (LETT |failedTests| 0) (LETT |xfailedTests| 0)
           (LETT |xfpassedTests| 0)
           (SEQ (LETT |tstsuite| NIL)
-               (LETT #19# (REVERSE (SPADCALL (QREFELT $ 12) (QREFELT $ 54))))
+               (LETT #19# (REVERSE (SPADCALL (QREFELT % 12) (QREFELT % 54))))
                G190
                (COND
                 ((OR (ATOM #19#) (PROGN (LETT |tstsuite| (CAR #19#)) NIL))
@@ -354,7 +354,7 @@
                     (SEQ (LETT |tstcase| NIL)
                          (LETT #18#
                                (REVERSE
-                                (SPADCALL (QCDR |tstsuite|) (QREFELT $ 56))))
+                                (SPADCALL (QCDR |tstsuite|) (QREFELT % 56))))
                          G190
                          (COND
                           ((OR (ATOM #18#)
@@ -382,32 +382,32 @@
                                         (QVELT (QCDR |tstcase|) 3)))))
                          (LETT #18# (CDR #18#)) (GO G190) G191 (EXIT NIL))
                     (SPADCALL
-                     (|make_full_CVEC2| (QREFELT $ 6) (|STR_to_CHAR| "="))
-                     (QREFELT $ 24))
+                     (|make_full_CVEC2| (QREFELT % 6) (|STR_to_CHAR| "="))
+                     (QREFELT % 24))
                     (SPADCALL
-                     (SPADCALL "Testsuite: " (QCAR |tstsuite|) (QREFELT $ 22))
-                     (QREFELT $ 24))
+                     (SPADCALL "Testsuite: " (QCAR |tstsuite|) (QREFELT % 22))
+                     (QREFELT % 24))
                     (SPADCALL
                      (SPADCALL "  failed (total): "
                                (SPADCALL (STRINGIMAGE |failedCases|)
                                          (SPADCALL " ("
                                                    (SPADCALL
                                                     (STRINGIMAGE |totalCases|)
-                                                    ")" (QREFELT $ 22))
-                                                   (QREFELT $ 22))
-                                         (QREFELT $ 22))
-                               (QREFELT $ 22))
-                     (QREFELT $ 24))
+                                                    ")" (QREFELT % 22))
+                                                   (QREFELT % 22))
+                                         (QREFELT % 22))
+                               (QREFELT % 22))
+                     (QREFELT % 24))
                     (COND
                      ((> |failedCases| 0)
-                      (SEQ (SPADCALL "" (QREFELT $ 52))
-                           (SPADCALL "  failed testcases were:" (QREFELT $ 24))
+                      (SEQ (SPADCALL "" (QREFELT % 52))
+                           (SPADCALL "  failed testcases were:" (QREFELT % 24))
                            (EXIT
                             (SEQ (LETT |tstcase| NIL)
                                  (LETT #17#
                                        (REVERSE
                                         (SPADCALL (QCDR |tstsuite|)
-                                                  (QREFELT $ 56))))
+                                                  (QREFELT % 56))))
                                  G190
                                  (COND
                                   ((OR (ATOM #17#)
@@ -423,20 +423,20 @@
                                                  (|make_full_CVEC2|
                                                   (PROG1
                                                       (LETT #16#
-                                                            (- (QREFELT $ 6)
+                                                            (- (QREFELT % 6)
                                                                2))
                                                     (|check_subtype2|
                                                      (>= #16# 0)
                                                      '(|NonNegativeInteger|)
                                                      '(|Integer|) #16#))
                                                   (|STR_to_CHAR| "-"))
-                                                 (QREFELT $ 22))
-                                       (QREFELT $ 24))
+                                                 (QREFELT % 22))
+                                       (QREFELT % 24))
                                       (SPADCALL
                                        (SPADCALL "  Testcase: "
                                                  (QCAR |tstcase|)
-                                                 (QREFELT $ 22))
-                                       (QREFELT $ 24))
+                                                 (QREFELT % 22))
+                                       (QREFELT % 24))
                                       (SPADCALL
                                        (SPADCALL "    failed (total): "
                                                  (SPADCALL
@@ -449,17 +449,17 @@
                                                                (QCDR |tstcase|)
                                                                0))
                                                              ")"
-                                                             (QREFELT $ 22))
-                                                            (QREFELT $ 22))
-                                                  (QREFELT $ 22))
-                                                 (QREFELT $ 22))
-                                       (QREFELT $ 24))
+                                                             (QREFELT % 22))
+                                                            (QREFELT % 22))
+                                                  (QREFELT % 22))
+                                                 (QREFELT % 22))
+                                       (QREFELT % 24))
                                       (COND
                                        ((NULL
                                          (NULL (QVELT (QCDR |tstcase|) 6)))
-                                        (SEQ (SPADCALL "" (QREFELT $ 52))
+                                        (SEQ (SPADCALL "" (QREFELT % 52))
                                              (SPADCALL "    failed tests were:"
-                                                       (QREFELT $ 24))
+                                                       (QREFELT % 24))
                                              (EXIT
                                               (SEQ (LETT |f| NIL)
                                                    (LETT #15#
@@ -476,7 +476,7 @@
                                                      (GO G191)))
                                                    (SEQ
                                                     (SPADCALL ""
-                                                              (QREFELT $ 52))
+                                                              (QREFELT % 52))
                                                     (SPADCALL
                                                      (SPADCALL "      "
                                                                (SPADCALL
@@ -487,11 +487,11 @@
                                                                            |f|
                                                                            1)
                                                                           (QREFELT
-                                                                           $
+                                                                           %
                                                                            22))
-                                                                (QREFELT $ 22))
-                                                               (QREFELT $ 22))
-                                                     (QREFELT $ 24))
+                                                                (QREFELT % 22))
+                                                               (QREFELT % 22))
+                                                     (QREFELT % 24))
                                                     (EXIT
                                                      (SEQ (LETT |i| 1)
                                                           (LETT #14#
@@ -520,19 +520,19 @@
                                                                    (STRINGIMAGE
                                                                     |i|)
                                                                    ": "
-                                                                   (QREFELT $
+                                                                   (QREFELT %
                                                                             22))
-                                                                  (QREFELT $
+                                                                  (QREFELT %
                                                                            22)))
                                                            (EXIT
                                                             (SPADCALL
                                                              (SPADCALL
                                                               (SPADCALL
                                                                |outstring|
-                                                               (QREFELT $ 46))
+                                                               (QREFELT % 46))
                                                               |o|
-                                                              (QREFELT $ 57))
-                                                             (QREFELT $ 51))))
+                                                              (QREFELT % 57))
+                                                             (QREFELT % 51))))
                                                           (LETT #13#
                                                                 (PROG1
                                                                     (CDR #13#)
@@ -548,9 +548,9 @@
                                        (COND
                                         ((NULL
                                           (NULL (QVELT (QCDR |tstcase|) 4)))
-                                         (SEQ (SPADCALL "" (QREFELT $ 52))
+                                         (SEQ (SPADCALL "" (QREFELT % 52))
                                               (SPADCALL "  fatal tests were:"
-                                                        (QREFELT $ 24))
+                                                        (QREFELT % 24))
                                               (EXIT
                                                (SEQ (LETT |f| NIL)
                                                     (LETT #12#
@@ -568,7 +568,7 @@
                                                       (GO G191)))
                                                     (SEQ
                                                      (SPADCALL ""
-                                                               (QREFELT $ 52))
+                                                               (QREFELT % 52))
                                                      (EXIT
                                                       (SPADCALL
                                                        (SPADCALL "      "
@@ -578,13 +578,13 @@
                                                                   (SPADCALL
                                                                    ": "
                                                                    (QCDR |f|)
-                                                                   (QREFELT $
+                                                                   (QREFELT %
                                                                             22))
-                                                                  (QREFELT $
+                                                                  (QREFELT %
                                                                            22))
-                                                                 (QREFELT $
+                                                                 (QREFELT %
                                                                           22))
-                                                       (QREFELT $ 24))))
+                                                       (QREFELT % 24))))
                                                     (LETT #12# (CDR #12#))
                                                     (GO G190) G191
                                                     (EXIT NIL))))))))))))
@@ -593,16 +593,16 @@
                     (EXIT
                      (COND
                       ((> |xfpassedCases| 0)
-                       (SEQ (SPADCALL "" (QREFELT $ 52))
+                       (SEQ (SPADCALL "" (QREFELT % 52))
                             (SPADCALL
                              "  testcases with unexpected passed tests were:"
-                             (QREFELT $ 24))
+                             (QREFELT % 24))
                             (EXIT
                              (SEQ (LETT |tstcase| NIL)
                                   (LETT #11#
                                         (REVERSE
                                          (SPADCALL (QCDR |tstsuite|)
-                                                   (QREFELT $ 56))))
+                                                   (QREFELT % 56))))
                                   G190
                                   (COND
                                    ((OR (ATOM #11#)
@@ -620,28 +620,28 @@
                                                   (|make_full_CVEC2|
                                                    (PROG1
                                                        (LETT #10#
-                                                             (- (QREFELT $ 6)
+                                                             (- (QREFELT % 6)
                                                                 2))
                                                      (|check_subtype2|
                                                       (>= #10# 0)
                                                       '(|NonNegativeInteger|)
                                                       '(|Integer|) #10#))
                                                    (|STR_to_CHAR| "-"))
-                                                  (QREFELT $ 22))
-                                        (QREFELT $ 24))
+                                                  (QREFELT % 22))
+                                        (QREFELT % 24))
                                        (SPADCALL
                                         (SPADCALL "  Testcase: "
                                                   (QCAR |tstcase|)
-                                                  (QREFELT $ 22))
-                                        (QREFELT $ 24))
+                                                  (QREFELT % 22))
+                                        (QREFELT % 24))
                                        (EXIT
                                         (COND
                                          ((NULL
                                            (NULL (QVELT (QCDR |tstcase|) 5)))
-                                          (SEQ (SPADCALL "" (QREFELT $ 52))
+                                          (SEQ (SPADCALL "" (QREFELT % 52))
                                                (SPADCALL
                                                 "  unexpected passed tests were:"
-                                                (QREFELT $ 24))
+                                                (QREFELT % 24))
                                                (EXIT
                                                 (SEQ (LETT |f| NIL)
                                                      (LETT #9#
@@ -659,7 +659,7 @@
                                                        (GO G191)))
                                                      (SEQ
                                                       (SPADCALL ""
-                                                                (QREFELT $ 52))
+                                                                (QREFELT % 52))
                                                       (EXIT
                                                        (SPADCALL
                                                         (SPADCALL "      "
@@ -671,27 +671,27 @@
                                                                     ": "
                                                                     (QVELT |f|
                                                                            1)
-                                                                    (QREFELT $
+                                                                    (QREFELT %
                                                                              22))
-                                                                   (QREFELT $
+                                                                   (QREFELT %
                                                                             22))
-                                                                  (QREFELT $
+                                                                  (QREFELT %
                                                                            22))
-                                                        (QREFELT $ 24))))
+                                                        (QREFELT % 24))))
                                                      (LETT #9# (CDR #9#))
                                                      (GO G190) G191
                                                      (EXIT NIL))))))))))))
                                   (LETT #11# (CDR #11#)) (GO G190) G191
                                   (EXIT NIL))))))))
                (LETT #19# (CDR #19#)) (GO G190) G191 (EXIT NIL))
-          (SPADCALL "" (QREFELT $ 52))
-          (SPADCALL (|make_full_CVEC2| (QREFELT $ 6) (|STR_to_CHAR| "="))
-                    (QREFELT $ 24))
+          (SPADCALL "" (QREFELT % 52))
+          (SPADCALL (|make_full_CVEC2| (QREFELT % 6) (|STR_to_CHAR| "="))
+                    (QREFELT % 24))
           (SPADCALL
            "testsuite | testcases: failed (total) | tests: failed (total)"
-           (QREFELT $ 24))
+           (QREFELT % 24))
           (SEQ (LETT |tstsuite| NIL)
-               (LETT #8# (REVERSE (SPADCALL (QREFELT $ 12) (QREFELT $ 54))))
+               (LETT #8# (REVERSE (SPADCALL (QREFELT % 12) (QREFELT % 54))))
                G190
                (COND
                 ((OR (ATOM #8#) (PROGN (LETT |tstsuite| (CAR #8#)) NIL))
@@ -701,7 +701,7 @@
                     (SEQ (LETT |tstcase| NIL)
                          (LETT #7#
                                (REVERSE
-                                (SPADCALL (QCDR |tstsuite|) (QREFELT $ 56))))
+                                (SPADCALL (QCDR |tstsuite|) (QREFELT % 56))))
                          G190
                          (COND
                           ((OR (ATOM #7#)
@@ -813,53 +813,53 @@
                                                                                 |stotalTests|
                                                                                 ")"
                                                                                 (QREFELT
-                                                                                 $
+                                                                                 %
                                                                                  22))
                                                                                (QREFELT
-                                                                                $
+                                                                                %
                                                                                 22))
                                                                               (QREFELT
-                                                                               $
+                                                                               %
                                                                                22))
                                                                              (QREFELT
-                                                                              $
+                                                                              %
                                                                               22))
                                                                             (QREFELT
-                                                                             $
+                                                                             %
                                                                              22))
                                                                            (QREFELT
-                                                                            $
+                                                                            %
                                                                             22))
-                                                                 (QREFELT $
+                                                                 (QREFELT %
                                                                           22))
-                                                       (QREFELT $ 22))
-                                             (QREFELT $ 22))
-                                            (QREFELT $ 22))
-                                  (QREFELT $ 22))
-                                 (QREFELT $ 22))
-                                (QREFELT $ 22))
-                      (QREFELT $ 24))))
+                                                       (QREFELT % 22))
+                                             (QREFELT % 22))
+                                            (QREFELT % 22))
+                                  (QREFELT % 22))
+                                 (QREFELT % 22))
+                                (QREFELT % 22))
+                      (QREFELT % 24))))
                (LETT #8# (CDR #8#)) (GO G190) G191 (EXIT NIL))
-          (SPADCALL (|make_full_CVEC2| (QREFELT $ 6) (|STR_to_CHAR| "="))
-                    (QREFELT $ 24))
-          (SPADCALL "File summary." (QREFELT $ 24))
+          (SPADCALL (|make_full_CVEC2| (QREFELT % 6) (|STR_to_CHAR| "="))
+                    (QREFELT % 24))
+          (SPADCALL "File summary." (QREFELT % 24))
           (SPADCALL
            (SPADCALL "unexpected failures: " (STRINGIMAGE |failedTests|)
-                     (QREFELT $ 22))
-           (QREFELT $ 24))
+                     (QREFELT % 22))
+           (QREFELT % 24))
           (SPADCALL
            (SPADCALL "expected failures: " (STRINGIMAGE |xfailedTests|)
-                     (QREFELT $ 22))
-           (QREFELT $ 24))
+                     (QREFELT % 22))
+           (QREFELT % 24))
           (SPADCALL
            (SPADCALL "unexpected passes: " (STRINGIMAGE |xfpassedTests|)
-                     (QREFELT $ 22))
-           (QREFELT $ 24))
+                     (QREFELT % 22))
+           (QREFELT % 24))
           (EXIT
            (SPADCALL
             (SPADCALL "total tests: " (STRINGIMAGE |totalTests|)
-                      (QREFELT $ 22))
-            (QREFELT $ 24)))))) 
+                      (QREFELT % 22))
+            (QREFELT % 24)))))) 
 
 (DECLAIM (NOTINLINE |UnittestCount;|)) 
 
@@ -881,21 +881,21 @@
                  ((NOT #1#) (HREM |$ConstructorCache| '|UnittestCount|)))))))))) 
 
 (DEFUN |UnittestCount;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|UnittestCount|))
-          (LETT $ (GETREFV 59))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|UnittestCount| NIL (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 6 77)
-          (QSETREFV $ 12 (SPADCALL (QREFELT $ 11)))
-          (QSETREFV $ 13 NIL)
-          (QSETREFV $ 14 #1="")
-          (QSETREFV $ 15 #1#)
-          $))) 
+          (LETT % (GETREFV 59))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|UnittestCount| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6 77)
+          (QSETREFV % 12 (SPADCALL (QREFELT % 11)))
+          (QSETREFV % 13 NIL)
+          (QSETREFV % 14 #1="")
+          (QSETREFV % 15 #1#)
+          %))) 
 
 (MAKEPROP '|UnittestCount| '|infovec|
           (LIST
@@ -921,7 +921,7 @@
               |TESTCNT;incLibraryError;SLV;7| |TESTCNT;incXfLibraryError;SLV;8|
               |TESTCNT;incXfFail;V;9| |TESTCNT;incFail;SLV;10|
               |TESTCNT;incXfPass;SLV;11| |TESTCNT;incFatal;SV;12|
-              |TESTCNT;incXfFatal;SV;13| (52 . |message|) (|List| $)
+              |TESTCNT;incXfFatal;SV;13| (52 . |message|) (|List| %)
               (57 . |pile|) |TESTCNT;addWarning;OfV;14| (|OutputPackage|)
               (62 . |output|) (67 . |output|) (|List| 27) (72 . |parts|)
               (|List| 30) (77 . |parts|) (82 . |hconcat|)

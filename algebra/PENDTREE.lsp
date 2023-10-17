@@ -1,49 +1,49 @@
 
-(PUT '|PENDTREE;coerce;$T;1| '|SPADreplace| '(XLAM (|t|) |t|)) 
+(PUT '|PENDTREE;coerce;%T;1| '|SPADreplace| '(XLAM (|t|) |t|)) 
 
-(SDEFUN |PENDTREE;coerce;$T;1| ((|t| ($)) ($ (|Tree| S))) |t|) 
+(SDEFUN |PENDTREE;coerce;%T;1| ((|t| (%)) (% (|Tree| S))) |t|) 
 
-(SDEFUN |PENDTREE;ptree;S$;2| ((|n| (S)) ($ ($)))
-        (SPADCALL |n| NIL (QREFELT $ 11))) 
+(SDEFUN |PENDTREE;ptree;S%;2| ((|n| (S)) (% (%)))
+        (SPADCALL |n| NIL (QREFELT % 11))) 
 
-(SDEFUN |PENDTREE;ptree;3$;3| ((|l| ($)) (|r| ($)) ($ ($)))
-        (SPADCALL (SPADCALL |r| (QREFELT $ 13))
-                  (SPADCALL |l| (SPADCALL |r| (QREFELT $ 14)) (QREFELT $ 16))
-                  (QREFELT $ 11))) 
+(SDEFUN |PENDTREE;ptree;3%;3| ((|l| (%)) (|r| (%)) (% (%)))
+        (SPADCALL (SPADCALL |r| (QREFELT % 13))
+                  (SPADCALL |l| (SPADCALL |r| (QREFELT % 14)) (QREFELT % 16))
+                  (QREFELT % 11))) 
 
-(SDEFUN |PENDTREE;leaf?;$B;4| ((|t| ($)) ($ (|Boolean|)))
-        (SPADCALL (SPADCALL |t| (QREFELT $ 14)) (QREFELT $ 19))) 
+(SDEFUN |PENDTREE;leaf?;%B;4| ((|t| (%)) (% (|Boolean|)))
+        (SPADCALL (SPADCALL |t| (QREFELT % 14)) (QREFELT % 19))) 
 
-(SDEFUN |PENDTREE;=;2$B;5| ((|t1| ($)) (|t2| ($)) ($ (|Boolean|)))
-        (SPADCALL |t1| |t2| (QREFELT $ 21))) 
+(SDEFUN |PENDTREE;=;2%B;5| ((|t1| (%)) (|t2| (%)) (% (|Boolean|)))
+        (SPADCALL |t1| |t2| (QREFELT % 21))) 
 
-(SDEFUN |PENDTREE;left;2$;6| ((|b| ($)) ($ ($)))
-        (COND ((SPADCALL |b| (QREFELT $ 20)) (|error| "ptree:no left"))
-              ('T (SPADCALL (SPADCALL |b| (QREFELT $ 14)) (QREFELT $ 22))))) 
+(SDEFUN |PENDTREE;left;2%;6| ((|b| (%)) (% (%)))
+        (COND ((SPADCALL |b| (QREFELT % 20)) (|error| "ptree:no left"))
+              ('T (SPADCALL (SPADCALL |b| (QREFELT % 14)) (QREFELT % 22))))) 
 
-(SDEFUN |PENDTREE;right;2$;7| ((|b| ($)) ($ ($)))
-        (COND ((SPADCALL |b| (QREFELT $ 20)) (|error| "ptree:no right"))
+(SDEFUN |PENDTREE;right;2%;7| ((|b| (%)) (% (%)))
+        (COND ((SPADCALL |b| (QREFELT % 20)) (|error| "ptree:no right"))
               ('T
-               (SPADCALL (SPADCALL |b| (QREFELT $ 13))
-                         (SPADCALL (SPADCALL |b| (QREFELT $ 14))
-                                   (QREFELT $ 24))
-                         (QREFELT $ 11))))) 
+               (SPADCALL (SPADCALL |b| (QREFELT % 13))
+                         (SPADCALL (SPADCALL |b| (QREFELT % 14))
+                                   (QREFELT % 24))
+                         (QREFELT % 11))))) 
 
-(SDEFUN |PENDTREE;value;$S;8| ((|b| ($)) ($ (S)))
-        (COND ((SPADCALL |b| (QREFELT $ 20)) (SPADCALL |b| (QREFELT $ 13)))
+(SDEFUN |PENDTREE;value;%S;8| ((|b| (%)) (% (S)))
+        (COND ((SPADCALL |b| (QREFELT % 20)) (SPADCALL |b| (QREFELT % 13)))
               ('T (|error| "the pendant tree has no value")))) 
 
-(SDEFUN |PENDTREE;coerce;$Of;9| ((|b| ($)) ($ (|OutputForm|)))
+(SDEFUN |PENDTREE;coerce;%Of;9| ((|b| (%)) (% (|OutputForm|)))
         (COND
-         ((SPADCALL |b| (QREFELT $ 20))
-          (SPADCALL (SPADCALL |b| (QREFELT $ 13)) (QREFELT $ 28)))
+         ((SPADCALL |b| (QREFELT % 20))
+          (SPADCALL (SPADCALL |b| (QREFELT % 13)) (QREFELT % 28)))
          ('T
           (SPADCALL
            (SPADCALL
-            (LIST (SPADCALL (SPADCALL |b| (QREFELT $ 23)) (QREFELT $ 29))
-                  (SPADCALL (SPADCALL |b| (QREFELT $ 25)) (QREFELT $ 29)))
-            (QREFELT $ 30))
-           (QREFELT $ 31))))) 
+            (LIST (SPADCALL (SPADCALL |b| (QREFELT % 23)) (QREFELT % 29))
+                  (SPADCALL (SPADCALL |b| (QREFELT % 25)) (QREFELT % 29)))
+            (QREFELT % 30))
+           (QREFELT % 31))))) 
 
 (DECLAIM (NOTINLINE |PendantTree;|)) 
 
@@ -65,13 +65,13 @@
 
 (DEFUN |PendantTree;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G124 NIL) (#2=#:G125 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G124 NIL) (#2=#:G125 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|PendantTree| DV$1))
-    (LETT $ (GETREFV 46))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 46))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -97,35 +97,35 @@
                                                                   (|devaluate|
                                                                    |#1|)))
                                              #2#))))))
-    (|haddProp| |$ConstructorCache| '|PendantTree| (LIST DV$1) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 64))
+    (|haddProp| |$ConstructorCache| '|PendantTree| (LIST DV$1) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (AND (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 64))
     (AND (|HasCategory| |#1| '(|OrderedSet|))
-         (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 128))
+         (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 128))
     (AND (|HasCategory| |#1| '(|BasicType|))
-         (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 256))
+         (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 256))
     (AND
      (OR
       (AND (|HasCategory| |#1| '(|BasicType|))
-           (|HasCategory| $ '(|finiteAggregate|)))
+           (|HasCategory| % '(|finiteAggregate|)))
       #2#)
-     (|augmentPredVector| $ 512))
-    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 1024))
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 7 (|Tree| |#1|))
-    $))) 
+     (|augmentPredVector| % 512))
+    (AND (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 1024))
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 7 (|Tree| |#1|))
+    %))) 
 
 (MAKEPROP '|PendantTree| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep| (|Tree| 6)
-              |PENDTREE;coerce;$T;1| (|List| $) (0 . |tree|)
-              |PENDTREE;ptree;S$;2| (6 . |value|) (11 . |children|) (|List| $$)
-              (16 . |cons|) |PENDTREE;ptree;3$;3| (|Boolean|) (22 . |empty?|)
-              |PENDTREE;leaf?;$B;4| |PENDTREE;=;2$B;5| (27 . |first|)
-              |PENDTREE;left;2$;6| (32 . |rest|) |PENDTREE;right;2$;7|
-              |PENDTREE;value;$S;8| (|OutputForm|) (37 . |coerce|)
-              |PENDTREE;coerce;$Of;9| (42 . |blankSeparate|) (47 . |paren|)
+              |PENDTREE;coerce;%T;1| (|List| %) (0 . |tree|)
+              |PENDTREE;ptree;S%;2| (6 . |value|) (11 . |children|) (|List| $$)
+              (16 . |cons|) |PENDTREE;ptree;3%;3| (|Boolean|) (22 . |empty?|)
+              |PENDTREE;leaf?;%B;4| |PENDTREE;=;2%B;5| (27 . |first|)
+              |PENDTREE;left;2%;6| (32 . |rest|) |PENDTREE;right;2%;7|
+              |PENDTREE;value;%S;8| (|OutputForm|) (37 . |coerce|)
+              |PENDTREE;coerce;%Of;9| (42 . |blankSeparate|) (47 . |paren|)
               (|NonNegativeInteger|) (|List| 6) (|List| 35) (|Equation| 6)
               (|Mapping| 18 6 6) (|Mapping| 18 6) '"right" '"left" '"value"
               (|Mapping| 6 6) (|SingleInteger|) (|String|) (|HashState|)

@@ -25,12 +25,12 @@
                                                 (|Join| (|CoercibleTo| '|t#1|)
                                                         (|mkCategory|
                                                          '(((|retractIfCan|
-                                                             ((|Union| $
+                                                             ((|Union| %
                                                                        "failed")
                                                               |t#1|))
                                                             T)
                                                            ((|retract|
-                                                             ($ |t#1|))
+                                                             (% |t#1|))
                                                             T))
                                                          NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|RetractableFrom| |t#1|))))) 

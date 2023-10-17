@@ -26,17 +26,17 @@
                                                  (|VectorCategory| '|t#1|)
                                                  (|mkCategory|
                                                   '(((|point|
-                                                      ($ (|List| |t#1|)))
+                                                      (% (|List| |t#1|)))
                                                      T)
                                                     ((|dimension|
-                                                      ((|PositiveInteger|) $))
+                                                      ((|PositiveInteger|) %))
                                                      T)
                                                     ((|convert|
-                                                      ($ (|List| |t#1|)))
+                                                      (% (|List| |t#1|)))
                                                      T)
-                                                    ((|cross| ($ $ $)) T)
+                                                    ((|cross| (% % %)) T)
                                                     ((|extend|
-                                                      ($ $ (|List| |t#1|)))
+                                                      (% % (|List| |t#1|)))
                                                      T))
                                                   NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|PointCategory| |t#1|))))) 

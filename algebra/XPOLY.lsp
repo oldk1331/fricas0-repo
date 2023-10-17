@@ -18,13 +18,13 @@
                  ((NOT #2#) (HREM |$ConstructorCache| '|XPolynomial|)))))))))) 
 
 (DEFUN |XPolynomial;| (|#1|)
-  (SPROG ((|pv$| NIL) (#1=#:G121 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (#1=#:G121 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|XPolynomial| DV$1))
-          (LETT $ (GETREFV 31))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3
+          (LETT % (GETREFV 31))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
@@ -41,11 +41,11 @@
                                                               '(|Comparable|))
                                                #1#)))))
           (|haddProp| |$ConstructorCache| '|XPolynomial| (LIST DV$1)
-                      (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|XPolynomial| '|infovec|
           (LIST
@@ -53,10 +53,10 @@
               (|Boolean|) (|Record| (|:| |k| 10) (|:| |c| 6)) (|List| 8)
               (|FreeMonoid| 21) (|Mapping| 6 10) (|NonNegativeInteger|)
               (|XDistributedPolynomial| 21 6)
-              (|Record| (|:| |k| 21) (|:| |c| $)) (|List| 14) (|List| 10)
-              (|List| 6) (|List| $) (|Mapping| 6 6) (|List| 21) (|Symbol|)
+              (|Record| (|:| |k| 21) (|:| |c| %)) (|List| 14) (|List| 10)
+              (|List| 6) (|List| %) (|Mapping| 6 6) (|List| 21) (|Symbol|)
               (|Union| 10 '#1="failed") (|Union| 6 '#1#) (|Integer|)
-              (|Union| $ '"failed") (|PositiveInteger|) (|String|)
+              (|Union| % '"failed") (|PositiveInteger|) (|String|)
               (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#() 'NIL
            (CONS

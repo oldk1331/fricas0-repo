@@ -27,14 +27,14 @@
                                                  (|XFreeAlgebra| '|t#1| '|t#2|)
                                                  (|mkCategory|
                                                   '(((|maxdeg|
-                                                      ((|FreeMonoid| |t#1|) $))
+                                                      ((|FreeMonoid| |t#1|) %))
                                                      T)
                                                     ((|degree|
                                                       ((|NonNegativeInteger|)
-                                                       $))
+                                                       %))
                                                      T)
                                                     ((|trunc|
-                                                      ($ $
+                                                      (% %
                                                        (|NonNegativeInteger|)))
                                                      T))
                                                   NIL NIL NIL)))))))

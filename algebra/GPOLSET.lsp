@@ -1,31 +1,31 @@
 
-(SDEFUN |GPOLSET;construct;L$;1| ((|lp| (|List| P)) ($ ($)))
-        (SPADCALL |lp| (QREFELT $ 12))) 
+(SDEFUN |GPOLSET;construct;L%;1| ((|lp| (|List| P)) (% (%)))
+        (SPADCALL |lp| (QREFELT % 12))) 
 
-(SDEFUN |GPOLSET;copy;2$;2| ((|ps| ($)) ($ ($)))
-        (SPADCALL (SPADCALL (SPADCALL |ps| (QREFELT $ 14)) (QREFELT $ 15))
-                  (QREFELT $ 13))) 
+(SDEFUN |GPOLSET;copy;2%;2| ((|ps| (%)) (% (%)))
+        (SPADCALL (SPADCALL (SPADCALL |ps| (QREFELT % 14)) (QREFELT % 15))
+                  (QREFELT % 13))) 
 
-(PUT '|GPOLSET;empty;$;3| '|SPADreplace| '(XLAM NIL NIL)) 
+(PUT '|GPOLSET;empty;%;3| '|SPADreplace| '(XLAM NIL NIL)) 
 
-(SDEFUN |GPOLSET;empty;$;3| (($ ($))) NIL) 
+(SDEFUN |GPOLSET;empty;%;3| ((% (%))) NIL) 
 
-(PUT '|GPOLSET;parts;$L;4| '|SPADreplace| '(XLAM (|ps|) |ps|)) 
+(PUT '|GPOLSET;parts;%L;4| '|SPADreplace| '(XLAM (|ps|) |ps|)) 
 
-(SDEFUN |GPOLSET;parts;$L;4| ((|ps| ($)) ($ (|List| P))) |ps|) 
+(SDEFUN |GPOLSET;parts;%L;4| ((|ps| (%)) (% (|List| P))) |ps|) 
 
-(SDEFUN |GPOLSET;map;M2$;5| ((|f| (|Mapping| P P)) (|ps| ($)) ($ ($)))
-        (SPADCALL (SPADCALL |f| (SPADCALL |ps| (QREFELT $ 14)) (QREFELT $ 20))
-                  (QREFELT $ 13))) 
+(SDEFUN |GPOLSET;map;M2%;5| ((|f| (|Mapping| P P)) (|ps| (%)) (% (%)))
+        (SPADCALL (SPADCALL |f| (SPADCALL |ps| (QREFELT % 14)) (QREFELT % 20))
+                  (QREFELT % 13))) 
 
-(SDEFUN |GPOLSET;map!;M2$;6| ((|f| (|Mapping| P P)) (|ps| ($)) ($ ($)))
-        (SPADCALL (SPADCALL |f| (SPADCALL |ps| (QREFELT $ 14)) (QREFELT $ 22))
-                  (QREFELT $ 13))) 
+(SDEFUN |GPOLSET;map!;M2%;6| ((|f| (|Mapping| P P)) (|ps| (%)) (% (%)))
+        (SPADCALL (SPADCALL |f| (SPADCALL |ps| (QREFELT % 14)) (QREFELT % 22))
+                  (QREFELT % 13))) 
 
-(SDEFUN |GPOLSET;member?;P$B;7| ((|p| (P)) (|ps| ($)) ($ (|Boolean|)))
-        (SPADCALL |p| (SPADCALL |ps| (QREFELT $ 14)) (QREFELT $ 25))) 
+(SDEFUN |GPOLSET;member?;P%B;7| ((|p| (P)) (|ps| (%)) (% (|Boolean|)))
+        (SPADCALL |p| (SPADCALL |ps| (QREFELT % 14)) (QREFELT % 25))) 
 
-(SDEFUN |GPOLSET;=;2$B;8| ((|ps1| ($)) (|ps2| ($)) ($ (|Boolean|)))
+(SDEFUN |GPOLSET;=;2%B;8| ((|ps1| (%)) (|ps2| (%)) (% (|Boolean|)))
         (SPROG
          ((#1=#:G123 NIL) (|p| NIL) (#2=#:G122 NIL) (#3=#:G121 NIL)
           (#4=#:G120 NIL))
@@ -34,33 +34,33 @@
            (SPADCALL
             (PROGN
              (LETT #4# NIL)
-             (SEQ (LETT |p| NIL) (LETT #3# (SPADCALL |ps1| (QREFELT $ 18)))
+             (SEQ (LETT |p| NIL) (LETT #3# (SPADCALL |ps1| (QREFELT % 18)))
                   G190
                   (COND
                    ((OR (ATOM #3#) (PROGN (LETT |p| (CAR #3#)) NIL))
                     (GO G191)))
                   (SEQ (EXIT (LETT #4# (CONS |p| #4#)))) (LETT #3# (CDR #3#))
                   (GO G190) G191 (EXIT (NREVERSE #4#))))
-            (QREFELT $ 28))
+            (QREFELT % 28))
            (SPADCALL
             (PROGN
              (LETT #2# NIL)
-             (SEQ (LETT |p| NIL) (LETT #1# (SPADCALL |ps2| (QREFELT $ 18)))
+             (SEQ (LETT |p| NIL) (LETT #1# (SPADCALL |ps2| (QREFELT % 18)))
                   G190
                   (COND
                    ((OR (ATOM #1#) (PROGN (LETT |p| (CAR #1#)) NIL))
                     (GO G191)))
                   (SEQ (EXIT (LETT #2# (CONS |p| #2#)))) (LETT #1# (CDR #1#))
                   (GO G190) G191 (EXIT (NREVERSE #2#))))
-            (QREFELT $ 28))
-           (QREFELT $ 29))))) 
+            (QREFELT % 28))
+           (QREFELT % 29))))) 
 
-(SDEFUN |GPOLSET;coerce;$Of;9| ((|ps| ($)) ($ (|OutputForm|)))
+(SDEFUN |GPOLSET;coerce;%Of;9| ((|ps| (%)) (% (|OutputForm|)))
         (SPROG ((#1=#:G131 NIL) (|p| NIL) (#2=#:G130 NIL) (|lp| (|List| P)))
                (SEQ
                 (LETT |lp|
-                      (SPADCALL (ELT $ 31) (SPADCALL |ps| (QREFELT $ 14))
-                                (QREFELT $ 33)))
+                      (SPADCALL (ELT % 31) (SPADCALL |ps| (QREFELT % 14))
+                                (QREFELT % 33)))
                 (EXIT
                  (SPADCALL
                   (PROGN
@@ -71,36 +71,36 @@
                           (GO G191)))
                         (SEQ
                          (EXIT
-                          (LETT #2# (CONS (SPADCALL |p| (QREFELT $ 35)) #2#))))
+                          (LETT #2# (CONS (SPADCALL |p| (QREFELT % 35)) #2#))))
                         (LETT #1# (CDR #1#)) (GO G190) G191
                         (EXIT (NREVERSE #2#))))
-                  (QREFELT $ 37)))))) 
+                  (QREFELT % 37)))))) 
 
-(SDEFUN |GPOLSET;mvar;$VarSet;10| ((|ps| ($)) ($ (|VarSet|)))
+(SDEFUN |GPOLSET;mvar;%VarSet;10| ((|ps| (%)) (% (|VarSet|)))
         (SPROG ((|lv| (|List| |VarSet|)))
                (SEQ
                 (COND
-                 ((SPADCALL |ps| (QREFELT $ 39))
+                 ((SPADCALL |ps| (QREFELT % 39))
                   (|error| "Error from GPOLSET in mvar : #1 is empty"))
                  (#1='T
-                  (SEQ (LETT |lv| (SPADCALL |ps| (QREFELT $ 41)))
+                  (SEQ (LETT |lv| (SPADCALL |ps| (QREFELT % 41)))
                        (EXIT
                         (COND
                          ((NULL |lv|)
                           (|error|
                            "Error from GPOLSET in mvar : every polynomial in #1 is constant"))
-                         (#1# (SPADCALL (ELT $ 42) |lv| (QREFELT $ 44))))))))))) 
+                         (#1# (SPADCALL (ELT % 42) |lv| (QREFELT % 44))))))))))) 
 
 (SDEFUN |GPOLSET;retractIfCan;LU;11|
-        ((|lp| (|List| P)) ($ (|Union| $ "failed")))
-        (CONS 0 (SPADCALL |lp| (QREFELT $ 13)))) 
+        ((|lp| (|List| P)) (% (|Union| % "failed")))
+        (CONS 0 (SPADCALL |lp| (QREFELT % 13)))) 
 
-(PUT '|GPOLSET;coerce;$L;12| '|SPADreplace| '(XLAM (|ps|) |ps|)) 
+(PUT '|GPOLSET;coerce;%L;12| '|SPADreplace| '(XLAM (|ps|) |ps|)) 
 
-(SDEFUN |GPOLSET;coerce;$L;12| ((|ps| ($)) ($ (|List| P))) |ps|) 
+(SDEFUN |GPOLSET;coerce;%L;12| ((|ps| (%)) (% (|List| P))) |ps|) 
 
-(SDEFUN |GPOLSET;convert;L$;13| ((|lp| (|List| P)) ($ ($)))
-        (SPADCALL |lp| (QREFELT $ 13))) 
+(SDEFUN |GPOLSET;convert;L%;13| ((|lp| (|List| P)) (% (%)))
+        (SPADCALL |lp| (QREFELT % 13))) 
 
 (DECLAIM (NOTINLINE |GeneralPolynomialSet;|)) 
 
@@ -125,7 +125,7 @@
 
 (DEFUN |GeneralPolynomialSet;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((#1=#:G154 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
+   ((#1=#:G154 NIL) (|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
     (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
@@ -133,9 +133,9 @@
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$| (LIST '|GeneralPolynomialSet| DV$1 DV$2 DV$3 DV$4))
-    (LETT $ (GETREFV 63))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 63))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -153,41 +153,41 @@
                                         (|HasCategory| |#1|
                                                        '(|IntegralDomain|))))))
     (|haddProp| |$ConstructorCache| '|GeneralPolynomialSet|
-                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (QSETREFV $ 8 |#3|)
-    (QSETREFV $ 9 |#4|)
-    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 32))
-    (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)))
-         (|augmentPredVector| $ 64))
-    (AND (|HasCategory| |#4| '(|BasicType|)) #1# (|augmentPredVector| $ 128))
-    (AND (|HasCategory| |#4| '(|OrderedSet|)) #1# (|augmentPredVector| $ 256))
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 10 (|List| |#4|))
-    $))) 
+                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (QSETREFV % 8 |#3|)
+    (QSETREFV % 9 |#4|)
+    (AND (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 32))
+    (AND (LETT #1# (|HasCategory| % '(|finiteAggregate|)))
+         (|augmentPredVector| % 64))
+    (AND (|HasCategory| |#4| '(|BasicType|)) #1# (|augmentPredVector| % 128))
+    (AND (|HasCategory| |#4| '(|OrderedSet|)) #1# (|augmentPredVector| % 256))
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 10 (|List| |#4|))
+    %))) 
 
 (MAKEPROP '|GeneralPolynomialSet| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) '|Rep| (|List| 9)
-              (0 . |removeDuplicates|) |GPOLSET;construct;L$;1| (5 . |members|)
-              (10 . |copy|) |GPOLSET;copy;2$;2| |GPOLSET;empty;$;3|
-              |GPOLSET;parts;$L;4| (|Mapping| 9 9) (15 . |map|)
-              |GPOLSET;map;M2$;5| (21 . |map!|) |GPOLSET;map!;M2$;6|
-              (|Boolean|) (27 . |member?|) |GPOLSET;member?;P$B;7| (|Set| 9)
-              (33 . |set|) (38 . =) |GPOLSET;=;2$B;8| (44 . |infRittWu?|)
+              (0 . |removeDuplicates|) |GPOLSET;construct;L%;1| (5 . |members|)
+              (10 . |copy|) |GPOLSET;copy;2%;2| |GPOLSET;empty;%;3|
+              |GPOLSET;parts;%L;4| (|Mapping| 9 9) (15 . |map|)
+              |GPOLSET;map;M2%;5| (21 . |map!|) |GPOLSET;map!;M2%;6|
+              (|Boolean|) (27 . |member?|) |GPOLSET;member?;P%B;7| (|Set| 9)
+              (33 . |set|) (38 . =) |GPOLSET;=;2%B;8| (44 . |infRittWu?|)
               (|Mapping| 24 9 9) (50 . |sort|) (|OutputForm|) (56 . |coerce|)
-              (|List| $) (61 . |brace|) |GPOLSET;coerce;$Of;9| (66 . |empty?|)
+              (|List| %) (61 . |brace|) |GPOLSET;coerce;%Of;9| (66 . |empty?|)
               (|List| 8) (71 . |variables|) (76 . |max|) (|Mapping| 8 8 8)
-              (82 . |reduce|) |GPOLSET;mvar;$VarSet;10| (|Union| $ '"failed")
-              |GPOLSET;retractIfCan;LU;11| |GPOLSET;coerce;$L;12|
-              |GPOLSET;convert;L$;13| (|NonNegativeInteger|) (|Mapping| 9 9 9)
+              (82 . |reduce|) |GPOLSET;mvar;%VarSet;10| (|Union| % '"failed")
+              |GPOLSET;retractIfCan;LU;11| |GPOLSET;coerce;%L;12|
+              |GPOLSET;convert;L%;13| (|NonNegativeInteger|) (|Mapping| 9 9 9)
               (|List| 53) (|Equation| 9) (|Mapping| 24 9) (|InputForm|)
               (|Record| (|:| |rnum| 6) (|:| |polnum| 9) (|:| |den| 6))
               (|Record| (|:| |num| 9) (|:| |den| 6))
-              (|Record| (|:| |under| $) (|:| |floor| $) (|:| |upper| $))
+              (|Record| (|:| |under| %) (|:| |floor| %) (|:| |upper| %))
               (|Union| 9 '"failed") (|String|) (|SingleInteger|) (|HashState|))
            '#(~= 88 |variables| 94 |trivialIdeal?| 99 |triangular?| 104 |sort|
               109 |size?| 115 |select| 121 |sample| 127 |roughUnitIdeal?| 131

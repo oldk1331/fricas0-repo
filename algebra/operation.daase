@@ -295,7 +295,7 @@
        (|ofCategory| *3
                      (|Join| (|UnivariatePolynomialCategory| *4)
                              (|IntegralDomain|)
-                             (CATEGORY |domain| (SIGNATURE |gcd| ($ $ $)))))))
+                             (CATEGORY |domain| (SIGNATURE |gcd| (% % %)))))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|RegularChain| *4 *5))
        (|ofCategory| *4
@@ -1249,9 +1249,9 @@
        (|ofCategory| *8 (|Join| (|SemiRng|) (|AbelianMonoid|)))
        (|ofCategory| *6 (|OrderedAbelianMonoidSup|))
        (|ofCategory| *2
-                     (CATEGORY |domain| (SIGNATURE + ($ $ $))
-                      (SIGNATURE * ($ $ $))
-                      (SIGNATURE ^ ($ $ (|NonNegativeInteger|)))))
+                     (CATEGORY |domain| (SIGNATURE + (% % %))
+                      (SIGNATURE * (% % %))
+                      (SIGNATURE ^ (% % (|NonNegativeInteger|)))))
        (|isDomain| *1 (|PolynomialCategoryLifting| *6 *7 *8 *5 *2))
        (|ofCategory| *5 (|PolynomialCategory| *8 *6 *7))))
  ((*1 *2 *3 *4)
@@ -1271,9 +1271,9 @@
        (|ofCategory| *6
                      (|Join| (|OrderedSet|)
                              (CATEGORY |domain|
-                              (SIGNATURE |convert| ((|Symbol|) $))
+                              (SIGNATURE |convert| ((|Symbol|) %))
                               (SIGNATURE |variable|
-                               ((|Union| $ "failed") (|Symbol|))))))
+                               ((|Union| % "failed") (|Symbol|))))))
        (|isDomain| *1 (|PushVariables| *4 *5 *6 *2))))
  ((*1 *2 *3 *4)
   (AND (|isDomain| *3 (|Mapping| *6 *5)) (|ofCategory| *5 (|IntegralDomain|))
@@ -1504,9 +1504,9 @@
        (|ofCategory| *3
                      (|Join| (|OrderedSet|)
                              (CATEGORY |domain|
-                              (SIGNATURE |elt| ((|String|) $ (|Symbol|)))
-                              (SIGNATURE |display| ((|Void|) $))
-                              (SIGNATURE |fullDisplay| ((|Void|) $)))))
+                              (SIGNATURE |elt| ((|String|) % (|Symbol|)))
+                              (SIGNATURE |display| ((|Void|) %))
+                              (SIGNATURE |fullDisplay| ((|Void|) %)))))
        (|isDomain| *1 (|Database| *3))))
  ((*1 *2 *1)
   (AND (|isDomain| *2 (|RadixExpansion| 10))
@@ -2766,7 +2766,7 @@
    (|ofCategory| *4
                  (|Join| (|OrderedSet|)
                          (CATEGORY |domain|
-                          (SIGNATURE |convert| ((|Symbol|) $)))))
+                          (SIGNATURE |convert| ((|Symbol|) %)))))
    (|ofCategory| *5 (|OrderedAbelianMonoidSup|))
    (|ofCategory| *7 (|IntegralDomain|)) (|isDomain| *2 (|Factored| *3))
    (|isDomain| *1 (|GeneralizedMultivariateFactorize| *4 *5 *6 *7 *3))
@@ -2884,7 +2884,7 @@
        (|ofCategory| *5
                      (|Join| (|OrderedSet|)
                              (CATEGORY |domain|
-                              (SIGNATURE |convert| ((|Symbol|) $)))))
+                              (SIGNATURE |convert| ((|Symbol|) %)))))
        (|ofCategory| *6 (|EuclideanDomain|)) (|isDomain| *2 (|Factored| *3))
        (|isDomain| *1 (|MPolyCatPolyFactorizer| *4 *5 *6 *3))
        (|ofCategory| *3 (|PolynomialCategory| (|Polynomial| *6) *4 *5))))
@@ -2893,7 +2893,7 @@
        (|ofCategory| *5
                      (|Join| (|OrderedSet|)
                              (CATEGORY |domain|
-                              (SIGNATURE |convert| ((|Symbol|) $)))))
+                              (SIGNATURE |convert| ((|Symbol|) %)))))
        (|ofCategory| *6 (|IntegralDomain|)) (|isDomain| *2 (|Factored| *3))
        (|isDomain| *1 (|MPolyCatRationalFunctionFactorizer| *4 *5 *6 *3))
        (|ofCategory| *3
@@ -3492,9 +3492,9 @@
        (|ofCategory| *3
                      (|Join| (|OrderedSet|)
                              (CATEGORY |domain|
-                              (SIGNATURE |elt| ((|String|) $ (|Symbol|)))
-                              (SIGNATURE |display| (*2 $))
-                              (SIGNATURE |fullDisplay| (*2 $)))))))
+                              (SIGNATURE |elt| ((|String|) % (|Symbol|)))
+                              (SIGNATURE |display| (*2 %))
+                              (SIGNATURE |fullDisplay| (*2 %)))))))
  ((*1 *2 *1 *3)
   (AND (|isDomain| *3 (|List| (|Symbol|))) (|isDomain| *2 (|OutputForm|))
        (|isDomain| *1 (|FreeDivisionAlgebra| *4 *5))
@@ -3769,7 +3769,7 @@
    (|ofCategory| *3
                  (|Join| (|EuclideanDomain|)
                          (CATEGORY |domain|
-                          (SIGNATURE |squareFree| ((|Factored| $) $)))))
+                          (SIGNATURE |squareFree| ((|Factored| %) %)))))
    (|ofCategory| *4 (|UnivariatePolynomialCategory| *3))
    (|isDomain| *2
                (|Record| (|:| |basis| (|Matrix| *3)) (|:| |basisDen| *3)
@@ -3814,7 +3814,7 @@
    (|ofCategory| *3
                  (|Join| (|EuclideanDomain|)
                          (CATEGORY |domain|
-                          (SIGNATURE |squareFree| ((|Factored| $) $)))))
+                          (SIGNATURE |squareFree| ((|Factored| %) %)))))
    (|ofCategory| *4 (|UnivariatePolynomialCategory| *3))
    (|isDomain| *2
                (|Record| (|:| |basis| (|Matrix| *3)) (|:| |basisDen| *3)
@@ -3969,9 +3969,9 @@
        (|ofCategory| *2
                      (|Join| (|OrderedSet|)
                              (CATEGORY |domain|
-                              (SIGNATURE |elt| ((|String|) $ (|Symbol|)))
-                              (SIGNATURE |display| ((|Void|) $))
-                              (SIGNATURE |fullDisplay| ((|Void|) $)))))))
+                              (SIGNATURE |elt| ((|String|) % (|Symbol|)))
+                              (SIGNATURE |display| ((|Void|) %))
+                              (SIGNATURE |fullDisplay| ((|Void|) %)))))))
  ((*1 *1 *1 *2)
   (AND (|isDomain| *1 (|Equation| *2)) (|ofCategory| *2 (|AbelianSemiGroup|))
        (|ofCategory| *2 (|Type|))))
@@ -4934,9 +4934,9 @@
        (|ofCategory| *2
                      (|Join| (|OrderedSet|)
                              (CATEGORY |domain|
-                              (SIGNATURE |elt| ((|String|) $ (|Symbol|)))
-                              (SIGNATURE |display| ((|Void|) $))
-                              (SIGNATURE |fullDisplay| ((|Void|) $)))))))
+                              (SIGNATURE |elt| ((|String|) % (|Symbol|)))
+                              (SIGNATURE |display| ((|Void|) %))
+                              (SIGNATURE |fullDisplay| ((|Void|) %)))))))
  ((*1 *1 *1 *2)
   (AND (|isDomain| *1 (|Equation| *2)) (|ofCategory| *2 (|AbelianGroup|))
        (|ofCategory| *2 (|Type|))))
@@ -6407,17 +6407,17 @@
        (|ofCategory| *4
                      (|Join| (|OrderedSet|)
                              (CATEGORY |domain|
-                              (SIGNATURE |elt| ((|String|) $ *3))
-                              (SIGNATURE |display| ((|Void|) $))
-                              (SIGNATURE |fullDisplay| ((|Void|) $)))))))
+                              (SIGNATURE |elt| ((|String|) % *3))
+                              (SIGNATURE |display| ((|Void|) %))
+                              (SIGNATURE |fullDisplay| ((|Void|) %)))))))
  ((*1 *1 *1 *2)
   (AND (|isDomain| *2 (|QueryEquation|)) (|isDomain| *1 (|Database| *3))
        (|ofCategory| *3
                      (|Join| (|OrderedSet|)
                              (CATEGORY |domain|
-                              (SIGNATURE |elt| ((|String|) $ (|Symbol|)))
-                              (SIGNATURE |display| ((|Void|) $))
-                              (SIGNATURE |fullDisplay| ((|Void|) $)))))))
+                              (SIGNATURE |elt| ((|String|) % (|Symbol|)))
+                              (SIGNATURE |display| ((|Void|) %))
+                              (SIGNATURE |fullDisplay| ((|Void|) %)))))))
  ((*1 *2 *1 *3)
   (AND (|isDomain| *3 "count") (|isDomain| *2 (|NonNegativeInteger|))
        (|isDomain| *1 (|DataList| *4)) (|ofCategory| *4 (|OrderedSet|))))
@@ -7179,7 +7179,7 @@
                          (|:| |exponent| (|NonNegativeInteger|))))
    (|ofCategory| *4
                  (|Join| (|UnivariatePolynomialCategory| *3) (|IntegralDomain|)
-                         (CATEGORY |domain| (SIGNATURE |gcd| ($ $ $)))))
+                         (CATEGORY |domain| (SIGNATURE |gcd| (% % %)))))
    (|ofCategory| *3 (|IntegralDomain|))
    (|isDomain| *1 (|UnivariatePolynomialSquareFree| *3 *4))))) 
 (((*1 *1 *1)
@@ -7201,7 +7201,7 @@
        (|ofCategory| *2
                      (|Join| (|UnivariatePolynomialCategory| *3)
                              (|IntegralDomain|)
-                             (CATEGORY |domain| (SIGNATURE |gcd| ($ $ $)))))))) 
+                             (CATEGORY |domain| (SIGNATURE |gcd| (% % %)))))))) 
 (((*1 *2 *1)
   (AND (|ofCategory| *1 (|MonoidRingCategory| *3 *4))
        (|ofCategory| *3 (|Ring|)) (|ofCategory| *4 (|Monoid|))
@@ -10392,7 +10392,7 @@
    (|ofCategory| *4
                  (|Join| (|Field|)
                          (CATEGORY |domain|
-                          (SIGNATURE ^ ($ $ (|Fraction| (|Integer|)))))))
+                          (SIGNATURE ^ (% % (|Fraction| (|Integer|)))))))
    (|isDomain| *2 (|List| *4))
    (|isDomain| *1 (|PolynomialSolveByFormulas| *3 *4 *5))
    (|ofCategory| *3 (|UnivariatePolynomialCategory| *4))
@@ -14012,7 +14012,7 @@
    (|ofCategory| *2
                  (|Join| (|Field|)
                          (CATEGORY |domain|
-                          (SIGNATURE ^ ($ $ (|Fraction| (|Integer|)))))))
+                          (SIGNATURE ^ (% % (|Fraction| (|Integer|)))))))
    (|isDomain| *1 (|PolynomialSolveByFormulas| *3 *2 *4))
    (|ofCategory| *3 (|UnivariatePolynomialCategory| *2))
    (|ofCategory| *4
@@ -14023,7 +14023,7 @@
    (|ofCategory| *2
                  (|Join| (|Field|)
                          (CATEGORY |domain|
-                          (SIGNATURE ^ ($ $ (|Fraction| (|Integer|)))))))
+                          (SIGNATURE ^ (% % (|Fraction| (|Integer|)))))))
    (|isDomain| *1 (|PolynomialSolveByFormulas| *3 *2 *4))
    (|ofCategory| *3 (|UnivariatePolynomialCategory| *2))
    (|ofCategory| *4
@@ -14034,7 +14034,7 @@
    (|ofCategory| *2
                  (|Join| (|Field|)
                          (CATEGORY |domain|
-                          (SIGNATURE ^ ($ $ (|Fraction| (|Integer|)))))))
+                          (SIGNATURE ^ (% % (|Fraction| (|Integer|)))))))
    (|isDomain| *1 (|PolynomialSolveByFormulas| *3 *2 *4))
    (|ofCategory| *3 (|UnivariatePolynomialCategory| *2))
    (|ofCategory| *4
@@ -14045,7 +14045,7 @@
    (|ofCategory| *2
                  (|Join| (|Field|)
                          (CATEGORY |domain|
-                          (SIGNATURE ^ ($ $ (|Fraction| (|Integer|)))))))
+                          (SIGNATURE ^ (% % (|Fraction| (|Integer|)))))))
    (|isDomain| *1 (|PolynomialSolveByFormulas| *3 *2 *4))
    (|ofCategory| *3 (|UnivariatePolynomialCategory| *2))
    (|ofCategory| *4
@@ -14056,7 +14056,7 @@
    (|ofCategory| *4
                  (|Join| (|Field|)
                          (CATEGORY |domain|
-                          (SIGNATURE ^ ($ $ (|Fraction| (|Integer|)))))))
+                          (SIGNATURE ^ (% % (|Fraction| (|Integer|)))))))
    (|isDomain| *2 (|List| *4))
    (|isDomain| *1 (|PolynomialSolveByFormulas| *3 *4 *5))
    (|ofCategory| *3 (|UnivariatePolynomialCategory| *4))
@@ -14068,7 +14068,7 @@
    (|ofCategory| *3
                  (|Join| (|Field|)
                          (CATEGORY |domain|
-                          (SIGNATURE ^ ($ $ (|Fraction| (|Integer|)))))))
+                          (SIGNATURE ^ (% % (|Fraction| (|Integer|)))))))
    (|isDomain| *2 (|List| *3))
    (|isDomain| *1 (|PolynomialSolveByFormulas| *4 *3 *5))
    (|ofCategory| *4 (|UnivariatePolynomialCategory| *3))
@@ -14080,7 +14080,7 @@
    (|ofCategory| *4
                  (|Join| (|Field|)
                          (CATEGORY |domain|
-                          (SIGNATURE ^ ($ $ (|Fraction| (|Integer|)))))))
+                          (SIGNATURE ^ (% % (|Fraction| (|Integer|)))))))
    (|isDomain| *2 (|List| *4))
    (|isDomain| *1 (|PolynomialSolveByFormulas| *3 *4 *5))
    (|ofCategory| *3 (|UnivariatePolynomialCategory| *4))
@@ -14092,7 +14092,7 @@
    (|ofCategory| *3
                  (|Join| (|Field|)
                          (CATEGORY |domain|
-                          (SIGNATURE ^ ($ $ (|Fraction| (|Integer|)))))))
+                          (SIGNATURE ^ (% % (|Fraction| (|Integer|)))))))
    (|isDomain| *2 (|List| *3))
    (|isDomain| *1 (|PolynomialSolveByFormulas| *4 *3 *5))
    (|ofCategory| *4 (|UnivariatePolynomialCategory| *3))
@@ -14104,7 +14104,7 @@
    (|ofCategory| *4
                  (|Join| (|Field|)
                          (CATEGORY |domain|
-                          (SIGNATURE ^ ($ $ (|Fraction| (|Integer|)))))))
+                          (SIGNATURE ^ (% % (|Fraction| (|Integer|)))))))
    (|isDomain| *2 (|List| *4))
    (|isDomain| *1 (|PolynomialSolveByFormulas| *3 *4 *5))
    (|ofCategory| *3 (|UnivariatePolynomialCategory| *4))
@@ -14116,7 +14116,7 @@
    (|ofCategory| *3
                  (|Join| (|Field|)
                          (CATEGORY |domain|
-                          (SIGNATURE ^ ($ $ (|Fraction| (|Integer|)))))))
+                          (SIGNATURE ^ (% % (|Fraction| (|Integer|)))))))
    (|isDomain| *2 (|List| *3))
    (|isDomain| *1 (|PolynomialSolveByFormulas| *4 *3 *5))
    (|ofCategory| *4 (|UnivariatePolynomialCategory| *3))
@@ -14128,7 +14128,7 @@
    (|ofCategory| *4
                  (|Join| (|Field|)
                          (CATEGORY |domain|
-                          (SIGNATURE ^ ($ $ (|Fraction| (|Integer|)))))))
+                          (SIGNATURE ^ (% % (|Fraction| (|Integer|)))))))
    (|isDomain| *2 (|List| *4))
    (|isDomain| *1 (|PolynomialSolveByFormulas| *3 *4 *5))
    (|ofCategory| *3 (|UnivariatePolynomialCategory| *4))
@@ -14140,7 +14140,7 @@
    (|ofCategory| *3
                  (|Join| (|Field|)
                          (CATEGORY |domain|
-                          (SIGNATURE ^ ($ $ (|Fraction| (|Integer|)))))))
+                          (SIGNATURE ^ (% % (|Fraction| (|Integer|)))))))
    (|isDomain| *2 (|List| *3))
    (|isDomain| *1 (|PolynomialSolveByFormulas| *4 *3 *5))
    (|ofCategory| *4 (|UnivariatePolynomialCategory| *3))
@@ -14188,7 +14188,7 @@
    (|ofCategory| *2
                  (|Join| (|Field|)
                          (CATEGORY |domain|
-                          (SIGNATURE ^ ($ $ (|Fraction| (|Integer|)))))))
+                          (SIGNATURE ^ (% % (|Fraction| (|Integer|)))))))
    (|isDomain| *1 (|PolynomialSolveByFormulas| *3 *2 *4))
    (|ofCategory| *3 (|UnivariatePolynomialCategory| *2))
    (|ofCategory| *4
@@ -14345,7 +14345,7 @@
        (|ofCategory| *2
                      (|Join| (|EuclideanDomain|)
                              (CATEGORY |domain|
-                              (SIGNATURE |squareFree| ((|Factored| $) $)))))
+                              (SIGNATURE |squareFree| ((|Factored| %) %)))))
        (|isDomain| *1 (|IntegralBasisTools| *2 *4 *5))
        (|ofCategory| *5 (|FramedAlgebra| *2 *4))))
  ((*1 *2 *1)
@@ -18386,9 +18386,9 @@
        (|ofCategory| *4 (|OrderedSet|)) (|ofCategory| *6 (|Ring|))
        (|ofCategory| *2
                      (|Join| (|Field|)
-                             (CATEGORY |domain| (SIGNATURE |coerce| ($ *7))
-                              (SIGNATURE |numer| (*7 $))
-                              (SIGNATURE |denom| (*7 $)))))
+                             (CATEGORY |domain| (SIGNATURE |coerce| (% *7))
+                              (SIGNATURE |numer| (*7 %))
+                              (SIGNATURE |denom| (*7 %)))))
        (|isDomain| *1 (|PolynomialCategoryQuotientFunctions| *5 *4 *6 *7 *2))
        (|ofCategory| *7 (|PolynomialCategory| *6 *5 *4))))
  ((*1 *2 *3 *4)
@@ -18443,16 +18443,16 @@
        (|isDomain| *1 (|PolynomialCategoryQuotientFunctions| *5 *4 *6 *7 *3))
        (|ofCategory| *3
                      (|Join| (|Field|)
-                             (CATEGORY |domain| (SIGNATURE |coerce| ($ *7))
-                              (SIGNATURE |numer| (*7 $))
-                              (SIGNATURE |denom| (*7 $)))))))
+                             (CATEGORY |domain| (SIGNATURE |coerce| (% *7))
+                              (SIGNATURE |numer| (*7 %))
+                              (SIGNATURE |denom| (*7 %)))))))
  ((*1 *2 *3 *4 *2)
   (AND (|isDomain| *2 (|SparseUnivariatePolynomial| *3))
        (|ofCategory| *3
                      (|Join| (|Field|)
-                             (CATEGORY |domain| (SIGNATURE |coerce| ($ *7))
-                              (SIGNATURE |numer| (*7 $))
-                              (SIGNATURE |denom| (*7 $)))))
+                             (CATEGORY |domain| (SIGNATURE |coerce| (% *7))
+                              (SIGNATURE |numer| (*7 %))
+                              (SIGNATURE |denom| (*7 %)))))
        (|ofCategory| *7 (|PolynomialCategory| *6 *5 *4))
        (|ofCategory| *5 (|OrderedAbelianMonoidSup|))
        (|ofCategory| *4 (|OrderedSet|)) (|ofCategory| *6 (|Ring|))
@@ -18477,9 +18477,9 @@
    (|isDomain| *1 (|PolynomialCategoryQuotientFunctions| *4 *2 *5 *6 *3))
    (|ofCategory| *3
                  (|Join| (|Field|)
-                         (CATEGORY |domain| (SIGNATURE |coerce| ($ *6))
-                          (SIGNATURE |numer| (*6 $))
-                          (SIGNATURE |denom| (*6 $)))))))
+                         (CATEGORY |domain| (SIGNATURE |coerce| (% *6))
+                          (SIGNATURE |numer| (*6 %))
+                          (SIGNATURE |denom| (*6 %)))))))
  ((*1 *2 *3)
   (|partial| AND (|isDomain| *3 (|Fraction| (|Polynomial| *4)))
    (|ofCategory| *4 (|IntegralDomain|)) (|isDomain| *2 (|Symbol|))
@@ -18528,9 +18528,9 @@
        (|isDomain| *1 (|PolynomialCategoryQuotientFunctions| *4 *5 *6 *7 *3))
        (|ofCategory| *3
                      (|Join| (|Field|)
-                             (CATEGORY |domain| (SIGNATURE |coerce| ($ *7))
-                              (SIGNATURE |numer| (*7 $))
-                              (SIGNATURE |denom| (*7 $)))))))
+                             (CATEGORY |domain| (SIGNATURE |coerce| (% *7))
+                              (SIGNATURE |numer| (*7 %))
+                              (SIGNATURE |denom| (*7 %)))))))
  ((*1 *2 *1)
   (AND (|ofCategory| *1 (|PolynomialSetCategory| *3 *4 *5 *6))
        (|ofCategory| *3 (|Ring|)) (|ofCategory| *4 (|OrderedAbelianMonoidSup|))
@@ -18595,13 +18595,13 @@
        (|isDomain| *1 (|RepeatedSquaring| *2))
        (|ofCategory| *2
                      (|Join| (|SetCategory|)
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $)))))))) 
+                             (CATEGORY |domain| (SIGNATURE * (% % %)))))))) 
 (((*1 *2 *3 *2)
   (AND (|isDomain| *3 (|PositiveInteger|))
        (|isDomain| *1 (|RepeatedDoubling| *2))
        (|ofCategory| *2
                      (|Join| (|SetCategory|)
-                             (CATEGORY |domain| (SIGNATURE + ($ $ $)))))))) 
+                             (CATEGORY |domain| (SIGNATURE + (% % %)))))))) 
 (((*1 *2 *3 *4)
   (AND (|isDomain| *3 (|List| (|Vector| *5))) (|isDomain| *4 (|Integer|))
        (|isDomain| *2 (|Vector| *5))
@@ -19591,7 +19591,7 @@
        (|ofCategory| *3
                      (|Join| (|OrderedSet|)
                              (CATEGORY |domain|
-                              (SIGNATURE |convert| ((|Symbol|) $)))))
+                              (SIGNATURE |convert| ((|Symbol|) %)))))
        (|ofCategory| *5 (|IntegralDomain|))
        (|isDomain| *1 (|MPolyCatRationalFunctionFactorizer| *4 *3 *5 *2))
        (|ofCategory| *2
@@ -19602,9 +19602,9 @@
        (|ofCategory| *6
                      (|Join| (|OrderedSet|)
                              (CATEGORY |domain|
-                              (SIGNATURE |convert| ((|Symbol|) $))
+                              (SIGNATURE |convert| ((|Symbol|) %))
                               (SIGNATURE |variable|
-                               ((|Union| $ "failed") (|Symbol|))))))
+                               ((|Union| % "failed") (|Symbol|))))))
        (|ofCategory| *4 (|Ring|)) (|ofCategory| *5 (|OrderedAbelianMonoidSup|))
        (|isDomain| *1 (|PushVariables| *4 *5 *6 *2))
        (|ofCategory| *2 (|PolynomialCategory| (|Polynomial| *4) *5 *6))))) 
@@ -19613,7 +19613,7 @@
        (|ofCategory| *3
                      (|Join| (|OrderedSet|)
                              (CATEGORY |domain|
-                              (SIGNATURE |convert| ((|Symbol|) $)))))
+                              (SIGNATURE |convert| ((|Symbol|) %)))))
        (|ofCategory| *5 (|IntegralDomain|))
        (|isDomain| *1 (|MPolyCatRationalFunctionFactorizer| *4 *3 *5 *2))
        (|ofCategory| *2
@@ -19624,9 +19624,9 @@
        (|ofCategory| *6
                      (|Join| (|OrderedSet|)
                              (CATEGORY |domain|
-                              (SIGNATURE |convert| ((|Symbol|) $))
+                              (SIGNATURE |convert| ((|Symbol|) %))
                               (SIGNATURE |variable|
-                               ((|Union| $ "failed") (|Symbol|))))))
+                               ((|Union| % "failed") (|Symbol|))))))
        (|ofCategory| *4 (|Ring|)) (|ofCategory| *5 (|OrderedAbelianMonoidSup|))
        (|isDomain| *1 (|PushVariables| *4 *5 *6 *2))
        (|ofCategory| *2 (|PolynomialCategory| (|Polynomial| *4) *5 *6))))) 
@@ -20874,9 +20874,9 @@
        (|isDomain| *1 (|PolynomialRoots| *5 *6 *7 *3 *8))
        (|ofCategory| *8
                      (|Join| (|Field|)
-                             (CATEGORY |domain| (SIGNATURE |numer| (*3 $))
-                              (SIGNATURE |denom| (*3 $))
-                              (SIGNATURE |coerce| ($ *3)))))))) 
+                             (CATEGORY |domain| (SIGNATURE |numer| (*3 %))
+                              (SIGNATURE |denom| (*3 %))
+                              (SIGNATURE |coerce| (% *3)))))))) 
 (((*1 *2 *3 *4)
   (AND (|isDomain| *4 (|NonNegativeInteger|)) (|ofCategory| *7 (|GcdDomain|))
        (|ofCategory| *5 (|OrderedAbelianMonoidSup|))
@@ -20888,9 +20888,9 @@
        (|isDomain| *1 (|PolynomialRoots| *5 *6 *7 *8 *3))
        (|ofCategory| *3
                      (|Join| (|Field|)
-                             (CATEGORY |domain| (SIGNATURE |numer| (*8 $))
-                              (SIGNATURE |denom| (*8 $))
-                              (SIGNATURE |coerce| ($ *8)))))))) 
+                             (CATEGORY |domain| (SIGNATURE |numer| (*8 %))
+                              (SIGNATURE |denom| (*8 %))
+                              (SIGNATURE |coerce| (% *8)))))))) 
 (((*1 *2 *3 *4)
   (AND (|isDomain| *3 (|Fraction| (|Integer|)))
        (|isDomain| *4 (|NonNegativeInteger|))
@@ -20903,9 +20903,9 @@
        (|isDomain| *1 (|PolynomialRoots| *5 *6 *7 *8 *9))
        (|ofCategory| *9
                      (|Join| (|Field|)
-                             (CATEGORY |domain| (SIGNATURE |numer| (*8 $))
-                              (SIGNATURE |denom| (*8 $))
-                              (SIGNATURE |coerce| ($ *8)))))))) 
+                             (CATEGORY |domain| (SIGNATURE |numer| (*8 %))
+                              (SIGNATURE |denom| (*8 %))
+                              (SIGNATURE |coerce| (% *8)))))))) 
 (((*1 *2 *3 *4)
   (AND (|isDomain| *4 (|NonNegativeInteger|))
        (|ofCategory| *5 (|OrderedAbelianMonoidSup|))
@@ -20917,9 +20917,9 @@
        (|isDomain| *1 (|PolynomialRoots| *5 *6 *3 *7 *8))
        (|ofCategory| *8
                      (|Join| (|Field|)
-                             (CATEGORY |domain| (SIGNATURE |numer| (*7 $))
-                              (SIGNATURE |denom| (*7 $))
-                              (SIGNATURE |coerce| ($ *7)))))))) 
+                             (CATEGORY |domain| (SIGNATURE |numer| (*7 %))
+                              (SIGNATURE |denom| (*7 %))
+                              (SIGNATURE |coerce| (% *7)))))))) 
 (((*1 *2 *1)
   (|partial| AND (|ofCategory| *3 (|Ring|)) (|ofCategory| *3 (|Comparable|))
    (|isDomain| *2 (|Record| (|:| |val| *1) (|:| |exponent| (|Integer|))))
@@ -20938,9 +20938,9 @@
    (|isDomain| *1 (|PolynomialCategoryQuotientFunctions| *4 *5 *6 *7 *3))
    (|ofCategory| *3
                  (|Join| (|Field|)
-                         (CATEGORY |domain| (SIGNATURE |coerce| ($ *7))
-                          (SIGNATURE |numer| (*7 $))
-                          (SIGNATURE |denom| (*7 $)))))))) 
+                         (CATEGORY |domain| (SIGNATURE |coerce| (% *7))
+                          (SIGNATURE |numer| (*7 %))
+                          (SIGNATURE |denom| (*7 %)))))))) 
 (((*1 *2 *1 *3)
   (|partial| AND (|isDomain| *3 (|Symbol|)) (|ofCategory| *4 (|Ring|))
    (|ofCategory| *4 (|Comparable|))
@@ -20984,9 +20984,9 @@
    (|isDomain| *1 (|PolynomialCategoryQuotientFunctions| *4 *5 *6 *7 *3))
    (|ofCategory| *3
                  (|Join| (|Field|)
-                         (CATEGORY |domain| (SIGNATURE |coerce| ($ *7))
-                          (SIGNATURE |numer| (*7 $))
-                          (SIGNATURE |denom| (*7 $)))))))) 
+                         (CATEGORY |domain| (SIGNATURE |coerce| (% *7))
+                          (SIGNATURE |numer| (*7 %))
+                          (SIGNATURE |denom| (*7 %)))))))) 
 (((*1 *2 *1)
   (|partial| AND (|ofCategory| *3 (|SemiGroup|))
    (|ofCategory| *3 (|Comparable|)) (|isDomain| *2 (|List| *1))
@@ -21008,9 +21008,9 @@
    (|isDomain| *1 (|PolynomialCategoryQuotientFunctions| *4 *5 *6 *7 *3))
    (|ofCategory| *3
                  (|Join| (|Field|)
-                         (CATEGORY |domain| (SIGNATURE |coerce| ($ *7))
-                          (SIGNATURE |numer| (*7 $))
-                          (SIGNATURE |denom| (*7 $)))))))) 
+                         (CATEGORY |domain| (SIGNATURE |coerce| (% *7))
+                          (SIGNATURE |numer| (*7 %))
+                          (SIGNATURE |denom| (*7 %)))))))) 
 (((*1 *2 *1)
   (|partial| AND (|ofCategory| *3 (|AbelianSemiGroup|))
    (|ofCategory| *3 (|Comparable|)) (|isDomain| *2 (|List| *1))
@@ -21031,9 +21031,9 @@
    (|isDomain| *1 (|PolynomialCategoryQuotientFunctions| *4 *5 *6 *7 *3))
    (|ofCategory| *3
                  (|Join| (|Field|)
-                         (CATEGORY |domain| (SIGNATURE |coerce| ($ *7))
-                          (SIGNATURE |numer| (*7 $))
-                          (SIGNATURE |denom| (*7 $)))))))) 
+                         (CATEGORY |domain| (SIGNATURE |coerce| (% *7))
+                          (SIGNATURE |numer| (*7 %))
+                          (SIGNATURE |denom| (*7 %)))))))) 
 (((*1 *2 *1)
   (AND (|ofCategory| *1 (|FiniteAbelianMonoidRing| *3 *2))
        (|ofCategory| *3 (|Join| (|SemiRng|) (|AbelianMonoid|)))
@@ -21210,7 +21210,7 @@
        (|ofCategory| *3
                      (|Join| (|FunctionSpace| *6) (|ConvertibleTo| *4)
                              (|PatternMatchable| *5)
-                             (|RetractableTo| (|Kernel| $))))
+                             (|RetractableTo| (|Kernel| %))))
        (|isDomain| *4 (|Pattern| *5))
        (|ofCategory| *6
                      (|Join| (|IntegralDomain|) (|Comparable|)
@@ -24283,7 +24283,7 @@
                          (|RetractableTo| (|Fraction| (|Integer|)))))
    (|ofCategory| *3
                  (|Join| (|UnivariateSkewPolynomialCategory| *5)
-                         (CATEGORY |domain| (SIGNATURE |adjoint| ($ $)))))
+                         (CATEGORY |domain| (SIGNATURE |adjoint| (% %)))))
    (|isDomain| *2 (|Record| (|:| |ltilde| *3) (|:| |r| (|Union| *3 "failed"))))
    (|isDomain| *1 (|IntegrateSolutions| *5 *3))))
  ((*1 *2 *3)
@@ -25696,7 +25696,7 @@
        (|ofCategory| *4
                      (|Join| (|OrderedSet|)
                              (CATEGORY |domain|
-                              (SIGNATURE |convert| ((|Symbol|) $)))))))) 
+                              (SIGNATURE |convert| ((|Symbol|) %)))))))) 
 (((*1 *2 *3 *4)
   (AND (|isDomain| *3 (|SparseUnivariatePolynomial| (|Polynomial| *6)))
        (|ofCategory| *6 (|IntegralDomain|))
@@ -25708,7 +25708,7 @@
        (|ofCategory| *4
                      (|Join| (|OrderedSet|)
                              (CATEGORY |domain|
-                              (SIGNATURE |convert| ((|Symbol|) $)))))))) 
+                              (SIGNATURE |convert| ((|Symbol|) %)))))))) 
 (((*1 *2 *3 *4)
   (AND (|isDomain| *3 (|SparseUnivariatePolynomial| *2))
        (|ofCategory| *2
@@ -25719,14 +25719,14 @@
        (|ofCategory| *4
                      (|Join| (|OrderedSet|)
                              (CATEGORY |domain|
-                              (SIGNATURE |convert| ((|Symbol|) $)))))
+                              (SIGNATURE |convert| ((|Symbol|) %)))))
        (|ofCategory| *6 (|IntegralDomain|))))) 
 (((*1 *2 *3)
   (AND (|ofCategory| *4 (|OrderedAbelianMonoidSup|))
        (|ofCategory| *5
                      (|Join| (|OrderedSet|)
                              (CATEGORY |domain|
-                              (SIGNATURE |convert| ((|Symbol|) $)))))
+                              (SIGNATURE |convert| ((|Symbol|) %)))))
        (|ofCategory| *6 (|IntegralDomain|))
        (|isDomain| *2
                    (|Record| (|:| |sup| (|Polynomial| *6))
@@ -31748,17 +31748,17 @@
        (|ofCategory| *4
                      (|Join| (|OrderedSet|)
                              (CATEGORY |domain|
-                              (SIGNATURE |elt| ((|String|) $ (|Symbol|)))
-                              (SIGNATURE |display| (*2 $))
-                              (SIGNATURE |fullDisplay| (*2 $)))))))
+                              (SIGNATURE |elt| ((|String|) % (|Symbol|)))
+                              (SIGNATURE |display| (*2 %))
+                              (SIGNATURE |fullDisplay| (*2 %)))))))
  ((*1 *2 *1)
   (AND (|isDomain| *2 (|Void|)) (|isDomain| *1 (|Database| *3))
        (|ofCategory| *3
                      (|Join| (|OrderedSet|)
                              (CATEGORY |domain|
-                              (SIGNATURE |elt| ((|String|) $ (|Symbol|)))
-                              (SIGNATURE |display| (*2 $))
-                              (SIGNATURE |fullDisplay| (*2 $)))))))
+                              (SIGNATURE |elt| ((|String|) % (|Symbol|)))
+                              (SIGNATURE |display| (*2 %))
+                              (SIGNATURE |fullDisplay| (*2 %)))))))
  ((*1 *2 *1) (AND (|isDomain| *2 (|Void|)) (|isDomain| *1 (|IndexCard|))))) 
 (((*1 *2 *3 *4)
   (AND (|isDomain| *3 (|Mapping| *7 *5)) (|ofCategory| *5 (|Ring|))
@@ -31806,7 +31806,7 @@
    (|ofCategory| *3
                  (|Join| (|EuclideanDomain|)
                          (CATEGORY |domain|
-                          (SIGNATURE |squareFree| ((|Factored| $) $)))))
+                          (SIGNATURE |squareFree| ((|Factored| %) %)))))
    (|ofCategory| *4 (|UnivariatePolynomialCategory| *3))
    (|isDomain| *1 (|IntegralBasisTools| *3 *4 *5))
    (|ofCategory| *5 (|FramedAlgebra| *3 *4))))) 
@@ -31815,7 +31815,7 @@
        (|ofCategory| *3
                      (|Join| (|EuclideanDomain|)
                              (CATEGORY |domain|
-                              (SIGNATURE |squareFree| ((|Factored| $) $)))))
+                              (SIGNATURE |squareFree| ((|Factored| %) %)))))
        (|ofCategory| *4 (|UnivariatePolynomialCategory| *3))
        (|isDomain| *1 (|IntegralBasisTools| *3 *4 *5))
        (|ofCategory| *5 (|FramedAlgebra| *3 *4))))) 
@@ -31824,7 +31824,7 @@
        (|ofCategory| *3
                      (|Join| (|EuclideanDomain|)
                              (CATEGORY |domain|
-                              (SIGNATURE |squareFree| ((|Factored| $) $)))))
+                              (SIGNATURE |squareFree| ((|Factored| %) %)))))
        (|ofCategory| *4 (|UnivariatePolynomialCategory| *3))
        (|isDomain| *1 (|IntegralBasisTools| *3 *4 *5))
        (|ofCategory| *5 (|FramedAlgebra| *3 *4))))
@@ -31833,7 +31833,7 @@
        (|ofCategory| *3
                      (|Join| (|EuclideanDomain|)
                              (CATEGORY |domain|
-                              (SIGNATURE |squareFree| ((|Factored| $) $)))))
+                              (SIGNATURE |squareFree| ((|Factored| %) %)))))
        (|ofCategory| *4 (|UnivariatePolynomialCategory| *3))
        (|isDomain| *1 (|IntegralBasisTools| *3 *4 *5))
        (|ofCategory| *5 (|FramedAlgebra| *3 *4))))) 
@@ -31842,7 +31842,7 @@
        (|ofCategory| *3
                      (|Join| (|EuclideanDomain|)
                              (CATEGORY |domain|
-                              (SIGNATURE |squareFree| ((|Factored| $) $)))))
+                              (SIGNATURE |squareFree| ((|Factored| %) %)))))
        (|ofCategory| *4 (|UnivariatePolynomialCategory| *3))
        (|isDomain| *1 (|IntegralBasisTools| *3 *4 *5))
        (|ofCategory| *5 (|FramedAlgebra| *3 *4))))) 
@@ -31851,7 +31851,7 @@
        (|ofCategory| *2
                      (|Join| (|EuclideanDomain|)
                              (CATEGORY |domain|
-                              (SIGNATURE |squareFree| ((|Factored| $) $)))))
+                              (SIGNATURE |squareFree| ((|Factored| %) %)))))
        (|ofCategory| *5 (|UnivariatePolynomialCategory| *2))
        (|isDomain| *1 (|IntegralBasisTools| *2 *5 *6))
        (|ofCategory| *6 (|FramedAlgebra| *2 *5))))) 
@@ -31860,7 +31860,7 @@
        (|ofCategory| *2
                      (|Join| (|EuclideanDomain|)
                              (CATEGORY |domain|
-                              (SIGNATURE |squareFree| ((|Factored| $) $)))))
+                              (SIGNATURE |squareFree| ((|Factored| %) %)))))
        (|ofCategory| *5 (|UnivariatePolynomialCategory| *2))
        (|isDomain| *1 (|IntegralBasisTools| *2 *5 *6))
        (|ofCategory| *6 (|FramedAlgebra| *2 *5))))) 
@@ -32016,11 +32016,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3 *4)
   (AND (|isDomain| *3 (|List| *5)) (|isDomain| *4 (|List| (|GuessOption|)))
        (|ofCategory| *5 (|Join| (|Field|) (|PolynomialFactorizationExplicit|)))
@@ -32033,11 +32033,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|Symbol|))
        (|isDomain| *2
@@ -32053,11 +32053,11 @@
                              (|RetractableTo| *3) (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| *3)
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))
        (|ofType| *7 (|Mapping| *4 *6)) (|ofType| *8 (|Mapping| *6 *4))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|List| (|AlgebraicNumber|)))
@@ -32169,11 +32169,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3 *4)
   (AND (|isDomain| *3 (|List| *5)) (|isDomain| *4 (|List| (|GuessOption|)))
        (|ofCategory| *5 (|Join| (|Field|) (|PolynomialFactorizationExplicit|)))
@@ -32186,11 +32186,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|Symbol|))
        (|isDomain| *2
@@ -32206,11 +32206,11 @@
                              (|RetractableTo| *3) (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| *3)
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))
        (|ofType| *7 (|Mapping| *4 *6)) (|ofType| *8 (|Mapping| *6 *4))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|List| (|AlgebraicNumber|)))
@@ -32322,11 +32322,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|List| *4))
        (|ofCategory| *4 (|Join| (|Field|) (|PolynomialFactorizationExplicit|)))
@@ -32339,11 +32339,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|Symbol|))
        (|isDomain| *2
@@ -32359,11 +32359,11 @@
                              (|RetractableTo| *3) (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| *3)
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))
        (|ofType| *7 (|Mapping| *4 *6)) (|ofType| *8 (|Mapping| *6 *4))))
  ((*1 *2 *3 *4)
   (AND (|isDomain| *3 (|List| (|AlgebraicNumber|)))
@@ -32475,11 +32475,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|List| *4))
        (|ofCategory| *4 (|Join| (|Field|) (|PolynomialFactorizationExplicit|)))
@@ -32492,11 +32492,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|Symbol|))
        (|isDomain| *2
@@ -32512,11 +32512,11 @@
                              (|RetractableTo| *3) (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| *3)
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))
        (|ofType| *7 (|Mapping| *4 *6)) (|ofType| *8 (|Mapping| *6 *4))))
  ((*1 *2 *3 *4)
   (AND (|isDomain| *3 (|List| (|AlgebraicNumber|)))
@@ -32628,11 +32628,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3 *4)
   (AND (|isDomain| *3 (|List| *5)) (|isDomain| *4 (|List| (|GuessOption|)))
        (|ofCategory| *5 (|Join| (|Field|) (|PolynomialFactorizationExplicit|)))
@@ -32645,11 +32645,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|Symbol|))
        (|isDomain| *2
@@ -32665,11 +32665,11 @@
                              (|RetractableTo| *3) (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| *3)
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))
        (|ofType| *7 (|Mapping| *4 *6)) (|ofType| *8 (|Mapping| *6 *4))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|List| (|AlgebraicNumber|)))
@@ -32821,11 +32821,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))
        (|ofType| *7 (|Mapping| *4 *6)) (|ofType| *8 (|Mapping| *6 *4))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|Symbol|))
@@ -32882,11 +32882,11 @@
                              (|RetractableTo| *3) (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| *3)
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))
        (|ofType| *7 (|Mapping| *4 *6)) (|ofType| *8 (|Mapping| *6 *4))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|List| (|GuessOption|)))
@@ -33513,11 +33513,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))
        (|ofType| *7 (|Mapping| *4 *6)) (|ofType| *8 (|Mapping| *6 *4))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|Symbol|))
@@ -33574,11 +33574,11 @@
                              (|RetractableTo| *3) (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| *3)
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))
        (|ofType| *7 (|Mapping| *4 *6)) (|ofType| *8 (|Mapping| *6 *4))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|List| (|GuessOption|)))
@@ -34205,11 +34205,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))
        (|ofType| *7 (|Mapping| *4 *6)) (|ofType| *8 (|Mapping| *6 *4))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|List| (|GuessOption|)))
@@ -34539,11 +34539,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3 *4)
   (AND (|isDomain| *3 (|List| (|List| (|AlgebraicNumber|))))
        (|isDomain| *4 (|List| (|GuessOption|)))
@@ -34837,11 +34837,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|List| *4))
        (|ofCategory| *4 (|Join| (|Field|) (|PolynomialFactorizationExplicit|)))
@@ -34854,11 +34854,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3 *4)
   (AND (|isDomain| *3 (|List| (|AlgebraicNumber|)))
        (|isDomain| *4 (|List| (|GuessOption|)))
@@ -34922,11 +34922,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3 *4)
   (AND (|isDomain| *3 (|List| *5)) (|isDomain| *4 (|List| (|GuessOption|)))
        (|ofCategory| *5 (|Join| (|Field|) (|PolynomialFactorizationExplicit|)))
@@ -34939,11 +34939,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|List| (|AlgebraicNumber|)))
        (|isDomain| *2 (|List| (|Expression| (|Integer|))))
@@ -35007,11 +35007,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3 *4)
   (AND (|isDomain| *3 (|List| *5)) (|isDomain| *4 (|List| (|GuessOption|)))
        (|ofCategory| *5 (|Join| (|Field|) (|PolynomialFactorizationExplicit|)))
@@ -35024,11 +35024,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|List| (|AlgebraicNumber|)))
        (|isDomain| *2 (|List| (|Expression| (|Integer|))))
@@ -35092,11 +35092,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3 *4)
   (AND (|isDomain| *3 (|List| (|List| *5)))
        (|isDomain| *4 (|List| (|GuessOption|)))
@@ -35110,11 +35110,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|List| (|List| (|AlgebraicNumber|))))
        (|isDomain| *2 (|List| (|Expression| (|Integer|))))
@@ -35181,11 +35181,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3 *4)
   (AND (|isDomain| *3 (|List| *5)) (|isDomain| *4 (|List| (|GuessOption|)))
        (|ofCategory| *5 (|Join| (|Field|) (|PolynomialFactorizationExplicit|)))
@@ -35198,11 +35198,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|Symbol|))
        (|isDomain| *2
@@ -35218,11 +35218,11 @@
                              (|RetractableTo| *3) (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| *3)
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))
        (|ofType| *7 (|Mapping| *4 *6)) (|ofType| *8 (|Mapping| *6 *4))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|List| (|AlgebraicNumber|)))
@@ -35254,11 +35254,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|Symbol|))
        (|isDomain| *2
@@ -35274,11 +35274,11 @@
                              (|RetractableTo| *3) (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| *3)
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))
        (|ofType| *7 (|Mapping| *4 *6)) (|ofType| *8 (|Mapping| *6 *4))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|List| *4))
@@ -35373,11 +35373,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3 *4)
   (AND (|isDomain| *3 (|List| *5)) (|isDomain| *4 (|List| (|GuessOption|)))
        (|ofCategory| *5 (|Join| (|Field|) (|PolynomialFactorizationExplicit|)))
@@ -35390,11 +35390,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|Symbol|))
        (|isDomain| *2
@@ -35410,11 +35410,11 @@
                              (|RetractableTo| *3) (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| *3)
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))
        (|ofType| *7 (|Mapping| *4 *6)) (|ofType| *8 (|Mapping| *6 *4))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|List| (|AlgebraicNumber|)))
@@ -35446,11 +35446,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|Symbol|))
        (|isDomain| *2
@@ -35466,11 +35466,11 @@
                              (|RetractableTo| *3) (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| *3)
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))
        (|ofType| *7 (|Mapping| *4 *6)) (|ofType| *8 (|Mapping| *6 *4))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|List| *4))
@@ -35565,11 +35565,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3 *4)
   (AND (|isDomain| *3 (|List| *5)) (|isDomain| *4 (|List| (|GuessOption|)))
        (|ofCategory| *5 (|Join| (|Field|) (|PolynomialFactorizationExplicit|)))
@@ -35582,11 +35582,11 @@
                              (|RetractableTo| (|Integer|))
                              (|CombinatorialOpsCategory|)
                              (|PartialDifferentialRing| (|Symbol|))
-                             (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                              (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                              (SIGNATURE |numerator| ($ $))
-                              (SIGNATURE |denominator| ($ $))
-                              (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                             (CATEGORY |domain| (SIGNATURE * (% % %))
+                              (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                              (SIGNATURE |numerator| (% %))
+                              (SIGNATURE |denominator| (% %))
+                              (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3 *4 *5)
   (AND
    (|isDomain| *4
@@ -35603,11 +35603,11 @@
                          (|RetractableTo| (|Integer|))
                          (|CombinatorialOpsCategory|)
                          (|PartialDifferentialRing| (|Symbol|))
-                         (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                          (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                          (SIGNATURE |numerator| ($ $))
-                          (SIGNATURE |denominator| ($ $))
-                          (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                         (CATEGORY |domain| (SIGNATURE * (% % %))
+                          (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                          (SIGNATURE |numerator| (% %))
+                          (SIGNATURE |denominator| (% %))
+                          (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3 *4 *5 *6)
   (AND
    (|isDomain| *4
@@ -35625,11 +35625,11 @@
                          (|RetractableTo| (|Integer|))
                          (|CombinatorialOpsCategory|)
                          (|PartialDifferentialRing| (|Symbol|))
-                         (CATEGORY |domain| (SIGNATURE * ($ $ $))
-                          (SIGNATURE / ($ $ $)) (SIGNATURE ^ ($ $ $))
-                          (SIGNATURE |numerator| ($ $))
-                          (SIGNATURE |denominator| ($ $))
-                          (SIGNATURE |ground?| ((|Boolean|) $)))))))
+                         (CATEGORY |domain| (SIGNATURE * (% % %))
+                          (SIGNATURE / (% % %)) (SIGNATURE ^ (% % %))
+                          (SIGNATURE |numerator| (% %))
+                          (SIGNATURE |denominator| (% %))
+                          (SIGNATURE |ground?| ((|Boolean|) %)))))))
  ((*1 *2 *3)
   (AND (|isDomain| *3 (|List| (|AlgebraicNumber|)))
        (|isDomain| *2 (|List| (|Expression| (|Integer|))))
@@ -35992,9 +35992,9 @@
    (|isDomain| *1 (|GosperSummationMethod| *5 *3 *6 *7 *2))
    (|ofCategory| *2
                  (|Join| (|RetractableTo| (|Fraction| (|Integer|))) (|Field|)
-                         (CATEGORY |domain| (SIGNATURE |coerce| ($ *7))
-                          (SIGNATURE |numer| (*7 $))
-                          (SIGNATURE |denom| (*7 $)))))))) 
+                         (CATEGORY |domain| (SIGNATURE |coerce| (% *7))
+                          (SIGNATURE |numer| (*7 %))
+                          (SIGNATURE |denom| (*7 %)))))))) 
 (((*1 *1 *2)
   (AND (|isDomain| *2 (|Union| (|NonNegativeInteger|) "arbitrary"))
        (|isDomain| *1 (|GuessOption|))))
@@ -37513,7 +37513,7 @@
                              (|TranscendentalFunctionCategory|)
                              (|Algebra| (|Fraction| (|Integer|)))
                              (|FunctionSpace| *6)
-                             (CATEGORY |domain| (SIGNATURE |coerce| ($ *7)))))
+                             (CATEGORY |domain| (SIGNATURE |coerce| (% *7)))))
        (|ofCategory| *7 (|Join| (|OrderedAbelianMonoid|) (|OrderedRing|)))
        (|ofCategory| *8
                      (|Join| (|UnivariatePowerSeriesCategory| *3 *7) (|Field|)
@@ -37542,7 +37542,7 @@
                              (|TranscendentalFunctionCategory|)
                              (|Algebra| (|Fraction| (|Integer|)))
                              (|FunctionSpace| *7)
-                             (CATEGORY |domain| (SIGNATURE |coerce| ($ *8)))))
+                             (CATEGORY |domain| (SIGNATURE |coerce| (% *8)))))
        (|ofCategory| *8 (|Join| (|OrderedAbelianMonoid|) (|OrderedRing|)))
        (|isDomain| *4 (|Boolean|))
        (|ofCategory| *7
@@ -37652,7 +37652,7 @@
                              (|TranscendentalFunctionCategory|)
                              (|Algebra| (|Fraction| (|Integer|)))
                              (|FunctionSpace| *6)
-                             (CATEGORY |domain| (SIGNATURE |coerce| ($ *7)))))
+                             (CATEGORY |domain| (SIGNATURE |coerce| (% *7)))))
        (|ofCategory| *7 (|Join| (|OrderedAbelianMonoid|) (|OrderedRing|)))
        (|ofCategory| *8
                      (|Join| (|UnivariatePowerSeriesCategory| *3 *7) (|Field|)
@@ -37722,7 +37722,7 @@
                              (|TranscendentalFunctionCategory|)
                              (|Algebra| (|Fraction| (|Integer|)))
                              (|FunctionSpace| *6)
-                             (CATEGORY |domain| (SIGNATURE |coerce| ($ *7)))))
+                             (CATEGORY |domain| (SIGNATURE |coerce| (% *7)))))
        (|ofCategory| *7 (|Join| (|OrderedAbelianMonoid|) (|OrderedRing|)))
        (|ofCategory| *8
                      (|Join| (|UnivariatePowerSeriesCategory| *3 *7) (|Field|)
@@ -38846,11 +38846,11 @@
        (|ofCategory| *4 (|FiniteFieldCategory|))
        (|ofCategory| *2
                      (|Join| (|FieldOfPrimeCharacteristic|)
-                             (CATEGORY |domain| (SIGNATURE |coerce| ($ *4))
-                              (SIGNATURE |lookup| ((|PositiveInteger|) $))
+                             (CATEGORY |domain| (SIGNATURE |coerce| (% *4))
+                              (SIGNATURE |lookup| ((|PositiveInteger|) %))
                               (SIGNATURE |basis|
-                               ((|Vector| $) (|PositiveInteger|)))
-                              (SIGNATURE |Frobenius| ($ $)))))
+                               ((|Vector| %) (|PositiveInteger|)))
+                              (SIGNATURE |Frobenius| (% %)))))
        (|isDomain| *1 (|FiniteFieldPolynomialPackage2| *2 *4))))) 
 (((*1 *2 *3)
   (AND (|isDomain| *3 (|SparseUnivariatePolynomial| *4))
@@ -40459,8 +40459,8 @@
                                                                       *2))
    (|ofCategory| *2
                  (|Join| (|UnivariatePowerSeriesCategory| *3 *4)
-                         (CATEGORY |domain| (SIGNATURE |removeZeros| ($ $ *4))
-                          (SIGNATURE |apply_taylor| ($ (|Stream| *3) $)))))))) 
+                         (CATEGORY |domain| (SIGNATURE |removeZeros| (% % *4))
+                          (SIGNATURE |apply_taylor| (% (|Stream| *3) %)))))))) 
 (((*1 *2 *3)
   (AND
    (|isDomain| *3
@@ -41189,7 +41189,7 @@
    (|ofCategory| *3
                  (|Join| (|Monoid|) (|Finite|)
                          (CATEGORY |domain|
-                          (SIGNATURE ^ ($ $ (|Integer|))))))))) 
+                          (SIGNATURE ^ (% % (|Integer|))))))))) 
 (((*1 *1 *2)
   (AND (|isDomain| *2 (|List| *3)) (|ofCategory| *3 (|OrderedSet|))
        (|isDomain| *1 (|DataList| *3))))) 
@@ -42994,17 +42994,17 @@
                              (CATEGORY |domain|
                               (SIGNATURE |numer|
                                ((|SparseMultivariatePolynomial| *5
-                                                                (|Kernel| $))
-                                $))
+                                                                (|Kernel| %))
+                                %))
                               (SIGNATURE |denom|
                                ((|SparseMultivariatePolynomial| *5
-                                                                (|Kernel| $))
-                                $))
+                                                                (|Kernel| %))
+                                %))
                               (SIGNATURE |coerce|
-                               ($
+                               (%
                                 (|SparseMultivariatePolynomial| *5
                                                                 (|Kernel|
-                                                                 $)))))))))) 
+                                                                 %)))))))))) 
 (((*1 *2 *2)
   (AND (|ofCategory| *3 (|Comparable|)) (|ofCategory| *3 (|GcdDomain|))
        (|ofCategory| *3 (|RetractableTo| (|Integer|)))
@@ -43016,17 +43016,17 @@
                              (CATEGORY |domain|
                               (SIGNATURE |numer|
                                ((|SparseMultivariatePolynomial| *3
-                                                                (|Kernel| $))
-                                $))
+                                                                (|Kernel| %))
+                                %))
                               (SIGNATURE |denom|
                                ((|SparseMultivariatePolynomial| *3
-                                                                (|Kernel| $))
-                                $))
+                                                                (|Kernel| %))
+                                %))
                               (SIGNATURE |coerce|
-                               ($
+                               (%
                                 (|SparseMultivariatePolynomial| *3
                                                                 (|Kernel|
-                                                                 $)))))))))) 
+                                                                 %)))))))))) 
 (((*1 *2 *2)
   (AND (|ofCategory| *3 (|Comparable|)) (|ofCategory| *3 (|GcdDomain|))
        (|ofCategory| *3 (|RetractableTo| (|Integer|)))
@@ -43038,17 +43038,17 @@
                              (CATEGORY |domain|
                               (SIGNATURE |numer|
                                ((|SparseMultivariatePolynomial| *3
-                                                                (|Kernel| $))
-                                $))
+                                                                (|Kernel| %))
+                                %))
                               (SIGNATURE |denom|
                                ((|SparseMultivariatePolynomial| *3
-                                                                (|Kernel| $))
-                                $))
+                                                                (|Kernel| %))
+                                %))
                               (SIGNATURE |coerce|
-                               ($
+                               (%
                                 (|SparseMultivariatePolynomial| *3
                                                                 (|Kernel|
-                                                                 $)))))))))) 
+                                                                 %)))))))))) 
 (((*1 *2 *2)
   (AND (|ofCategory| *3 (|Comparable|)) (|ofCategory| *3 (|GcdDomain|))
        (|ofCategory| *3 (|RetractableTo| (|Integer|)))
@@ -43060,17 +43060,17 @@
                              (CATEGORY |domain|
                               (SIGNATURE |numer|
                                ((|SparseMultivariatePolynomial| *3
-                                                                (|Kernel| $))
-                                $))
+                                                                (|Kernel| %))
+                                %))
                               (SIGNATURE |denom|
                                ((|SparseMultivariatePolynomial| *3
-                                                                (|Kernel| $))
-                                $))
+                                                                (|Kernel| %))
+                                %))
                               (SIGNATURE |coerce|
-                               ($
+                               (%
                                 (|SparseMultivariatePolynomial| *3
                                                                 (|Kernel|
-                                                                 $)))))))))) 
+                                                                 %)))))))))) 
 (((*1 *2 *2)
   (AND (|ofCategory| *3 (|Comparable|)) (|ofCategory| *3 (|GcdDomain|))
        (|ofCategory| *3 (|RetractableTo| (|Integer|)))
@@ -43083,17 +43083,17 @@
                              (CATEGORY |domain|
                               (SIGNATURE |numer|
                                ((|SparseMultivariatePolynomial| *3
-                                                                (|Kernel| $))
-                                $))
+                                                                (|Kernel| %))
+                                %))
                               (SIGNATURE |denom|
                                ((|SparseMultivariatePolynomial| *3
-                                                                (|Kernel| $))
-                                $))
+                                                                (|Kernel| %))
+                                %))
                               (SIGNATURE |coerce|
-                               ($
+                               (%
                                 (|SparseMultivariatePolynomial| *3
                                                                 (|Kernel|
-                                                                 $)))))))))) 
+                                                                 %)))))))))) 
 (((*1 *2 *3)
   (AND (|ofCategory| *4 (|IntegralDomain|))
        (|isDomain| *2 (|SparseUnivariatePolynomial| *3))
@@ -43103,17 +43103,17 @@
                              (CATEGORY |domain|
                               (SIGNATURE |numer|
                                ((|SparseMultivariatePolynomial| *4
-                                                                (|Kernel| $))
-                                $))
+                                                                (|Kernel| %))
+                                %))
                               (SIGNATURE |denom|
                                ((|SparseMultivariatePolynomial| *4
-                                                                (|Kernel| $))
-                                $))
+                                                                (|Kernel| %))
+                                %))
                               (SIGNATURE |coerce|
-                               ($
+                               (%
                                 (|SparseMultivariatePolynomial| *4
                                                                 (|Kernel|
-                                                                 $)))))))))) 
+                                                                 %)))))))))) 
 (((*1 *2 *2)
   (AND (|ofCategory| *3 (|IntegralDomain|))
        (|isDomain| *1 (|AlgebraicManipulations| *3 *2))
@@ -43122,17 +43122,17 @@
                              (CATEGORY |domain|
                               (SIGNATURE |numer|
                                ((|SparseMultivariatePolynomial| *3
-                                                                (|Kernel| $))
-                                $))
+                                                                (|Kernel| %))
+                                %))
                               (SIGNATURE |denom|
                                ((|SparseMultivariatePolynomial| *3
-                                                                (|Kernel| $))
-                                $))
+                                                                (|Kernel| %))
+                                %))
                               (SIGNATURE |coerce|
-                               ($
+                               (%
                                 (|SparseMultivariatePolynomial| *3
                                                                 (|Kernel|
-                                                                 $)))))))))
+                                                                 %)))))))))
  ((*1 *2 *2 *2)
   (AND (|ofCategory| *3 (|IntegralDomain|))
        (|isDomain| *1 (|AlgebraicManipulations| *3 *2))
@@ -43141,17 +43141,17 @@
                              (CATEGORY |domain|
                               (SIGNATURE |numer|
                                ((|SparseMultivariatePolynomial| *3
-                                                                (|Kernel| $))
-                                $))
+                                                                (|Kernel| %))
+                                %))
                               (SIGNATURE |denom|
                                ((|SparseMultivariatePolynomial| *3
-                                                                (|Kernel| $))
-                                $))
+                                                                (|Kernel| %))
+                                %))
                               (SIGNATURE |coerce|
-                               ($
+                               (%
                                 (|SparseMultivariatePolynomial| *3
                                                                 (|Kernel|
-                                                                 $)))))))))
+                                                                 %)))))))))
  ((*1 *2 *2 *3)
   (AND (|isDomain| *3 (|List| *2))
        (|ofCategory| *2
@@ -43159,17 +43159,17 @@
                              (CATEGORY |domain|
                               (SIGNATURE |numer|
                                ((|SparseMultivariatePolynomial| *4
-                                                                (|Kernel| $))
-                                $))
+                                                                (|Kernel| %))
+                                %))
                               (SIGNATURE |denom|
                                ((|SparseMultivariatePolynomial| *4
-                                                                (|Kernel| $))
-                                $))
+                                                                (|Kernel| %))
+                                %))
                               (SIGNATURE |coerce|
-                               ($
+                               (%
                                 (|SparseMultivariatePolynomial| *4
                                                                 (|Kernel|
-                                                                 $)))))))
+                                                                 %)))))))
        (|ofCategory| *4 (|IntegralDomain|))
        (|isDomain| *1 (|AlgebraicManipulations| *4 *2))))
  ((*1 *2 *2 *3)
@@ -43179,17 +43179,17 @@
                              (CATEGORY |domain|
                               (SIGNATURE |numer|
                                ((|SparseMultivariatePolynomial| *4
-                                                                (|Kernel| $))
-                                $))
+                                                                (|Kernel| %))
+                                %))
                               (SIGNATURE |denom|
                                ((|SparseMultivariatePolynomial| *4
-                                                                (|Kernel| $))
-                                $))
+                                                                (|Kernel| %))
+                                %))
                               (SIGNATURE |coerce|
-                               ($
+                               (%
                                 (|SparseMultivariatePolynomial| *4
                                                                 (|Kernel|
-                                                                 $)))))))
+                                                                 %)))))))
        (|ofCategory| *4 (|IntegralDomain|))
        (|isDomain| *1 (|AlgebraicManipulations| *4 *2))))) 
 (((*1 *2 *2)
@@ -43200,17 +43200,17 @@
                              (CATEGORY |domain|
                               (SIGNATURE |numer|
                                ((|SparseMultivariatePolynomial| *3
-                                                                (|Kernel| $))
-                                $))
+                                                                (|Kernel| %))
+                                %))
                               (SIGNATURE |denom|
                                ((|SparseMultivariatePolynomial| *3
-                                                                (|Kernel| $))
-                                $))
+                                                                (|Kernel| %))
+                                %))
                               (SIGNATURE |coerce|
-                               ($
+                               (%
                                 (|SparseMultivariatePolynomial| *3
                                                                 (|Kernel|
-                                                                 $)))))))))) 
+                                                                 %)))))))))) 
 (((*1 *2 *3)
   (AND (|isDomain| *3 (|NonNegativeInteger|)) (|ofCategory| *4 (|Field|))
        (|ofCategory| *5 (|UnivariatePolynomialCategory| *4))

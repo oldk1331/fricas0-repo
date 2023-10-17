@@ -12,8 +12,8 @@
              (LETT #1#
                    (|Join|
                     (|mkCategory|
-                     '(((< ((|Boolean|) $ $)) T) ((> ((|Boolean|) $ $)) T)
-                       ((>= ((|Boolean|) $ $)) T) ((<= ((|Boolean|) $ $)) T))
+                     '(((< ((|Boolean|) % %)) T) ((> ((|Boolean|) % %)) T)
+                       ((>= ((|Boolean|) % %)) T) ((<= ((|Boolean|) % %)) T))
                      NIL NIL NIL)))
            (SETELT #1# 0 '(|PartialOrder|))))) 
 

@@ -13,9 +13,9 @@
                    (|Join| (|OrderedAbelianGroup|) (|Ring|)
                            (|CharacteristicZero|)
                            (|mkCategory|
-                            '(((|positive?| ((|Boolean|) $)) T)
-                              ((|negative?| ((|Boolean|) $)) T)
-                              ((|sign| ((|Integer|) $)) T) ((|abs| ($ $)) T))
+                            '(((|positive?| ((|Boolean|) %)) T)
+                              ((|negative?| ((|Boolean|) %)) T)
+                              ((|sign| ((|Integer|) %)) T) ((|abs| (% %)) T))
                             NIL NIL NIL)))
            (SETELT #1# 0 '(|OrderedRing|))))) 
 

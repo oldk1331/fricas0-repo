@@ -12,8 +12,8 @@
              (LETT #1#
                    (|Join| (|CancellationAbelianMonoid|)
                            (|mkCategory|
-                            '(((- ($ $)) T) ((- ($ $ $)) T)
-                              ((* ($ (|Integer|) $)) T))
+                            '(((- (% %)) T) ((- (% % %)) T)
+                              ((* (% (|Integer|) %)) T))
                             NIL NIL NIL)))
            (SETELT #1# 0 '(|AbelianGroup|))))) 
 

@@ -12,12 +12,12 @@
              (LETT #1#
                    (|Join| (|IntegralDomain|) (|LeftOreRing|)
                            (|mkCategory|
-                            '(((|gcd| ($ $ $)) T) ((|gcd| ($ (|List| $))) T)
-                              ((|lcm| ($ $ $)) T) ((|lcm| ($ (|List| $))) T)
+                            '(((|gcd| (% % %)) T) ((|gcd| (% (|List| %))) T)
+                              ((|lcm| (% % %)) T) ((|lcm| (% (|List| %))) T)
                               ((|gcdPolynomial|
-                                ((|SparseUnivariatePolynomial| $)
-                                 (|SparseUnivariatePolynomial| $)
-                                 (|SparseUnivariatePolynomial| $)))
+                                ((|SparseUnivariatePolynomial| %)
+                                 (|SparseUnivariatePolynomial| %)
+                                 (|SparseUnivariatePolynomial| %)))
                                T))
                             NIL NIL NIL)))
            (SETELT #1# 0 '(|GcdDomain|))))) 

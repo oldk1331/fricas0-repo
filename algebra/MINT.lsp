@@ -1,37 +1,37 @@
 
-(SDEFUN |MINT;maxint;Pi;1| (($ (|PositiveInteger|))) (QREFELT $ 6)) 
+(SDEFUN |MINT;maxint;Pi;1| ((% (|PositiveInteger|))) (QREFELT % 6)) 
 
 (SDEFUN |MINT;maxint;2Pi;2|
-        ((|new| (|PositiveInteger|)) ($ (|PositiveInteger|)))
+        ((|new| (|PositiveInteger|)) (% (|PositiveInteger|)))
         (SPROG ((|old| (|PositiveInteger|)))
-               (SEQ (LETT |old| (QREFELT $ 6)) (SETELT $ 6 |new|)
+               (SEQ (LETT |old| (QREFELT % 6)) (SETELT % 6 |new|)
                     (EXIT |old|)))) 
 
 (SDEFUN |MINT;coerce;EE;3|
-        ((|u| (|Expression| (|Integer|))) ($ (|Expression| $)))
-        (SPADCALL (ELT $ 10) |u| (QREFELT $ 15))) 
+        ((|u| (|Expression| (|Integer|))) (% (|Expression| %)))
+        (SPADCALL (ELT % 10) |u| (QREFELT % 15))) 
 
-(SDEFUN |MINT;coerce;I$;4| ((|u| (|Integer|)) ($ ($)))
+(SDEFUN |MINT;coerce;I%;4| ((|u| (|Integer|)) (% (%)))
         (SPROG ((|message| (|String|)))
                (SEQ
                 (COND
-                 ((> (ABS |u|) (QREFELT $ 6))
+                 ((> (ABS |u|) (QREFELT % 6))
                   (SEQ
                    (LETT |message|
                          (SPADCALL
                           (LIST (STRINGIMAGE |u|) "  > MAXINT("
-                                (STRINGIMAGE (QREFELT $ 6)) ")")
-                          (QREFELT $ 20)))
+                                (STRINGIMAGE (QREFELT % 6)) ")")
+                          (QREFELT % 20)))
                    (EXIT (|error| |message|))))
                  ('T |u|))))) 
 
-(PUT '|MINT;retract;$I;5| '|SPADreplace| '(XLAM (|u|) |u|)) 
+(PUT '|MINT;retract;%I;5| '|SPADreplace| '(XLAM (|u|) |u|)) 
 
-(SDEFUN |MINT;retract;$I;5| ((|u| ($)) ($ (|Integer|))) |u|) 
+(SDEFUN |MINT;retract;%I;5| ((|u| (%)) (% (|Integer|))) |u|) 
 
-(PUT '|MINT;retractIfCan;$U;6| '|SPADreplace| '(XLAM (|u|) (CONS 0 |u|))) 
+(PUT '|MINT;retractIfCan;%U;6| '|SPADreplace| '(XLAM (|u|) (CONS 0 |u|))) 
 
-(SDEFUN |MINT;retractIfCan;$U;6| ((|u| ($)) ($ (|Union| (|Integer|) "failed")))
+(SDEFUN |MINT;retractIfCan;%U;6| ((|u| (%)) (% (|Union| (|Integer|) "failed")))
         (CONS 0 |u|)) 
 
 (DECLAIM (NOTINLINE |MachineInteger;|)) 
@@ -55,39 +55,39 @@
                   (HREM |$ConstructorCache| '|MachineInteger|)))))))))) 
 
 (DEFUN |MachineInteger;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|MachineInteger|))
-          (LETT $ (GETREFV 47))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|MachineInteger| NIL (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 6 (EXPT 2 32))
-          $))) 
+          (LETT % (GETREFV 47))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|MachineInteger| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6 (EXPT 2 32))
+          %))) 
 
 (MAKEPROP '|MachineInteger| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|Integer|) 'MAXINT (|PositiveInteger|)
-              |MINT;maxint;Pi;1| |MINT;maxint;2Pi;2| |MINT;coerce;I$;4|
+              |MINT;maxint;Pi;1| |MINT;maxint;2Pi;2| |MINT;coerce;I%;4|
               (|Expression| $$) (|Mapping| $$ 5) (|Expression| 5)
-              (|ExpressionFunctions2| 5 $$) (0 . |map|) (|Expression| $)
-              |MINT;coerce;EE;3| (|List| $) (|String|) (6 . |concat|)
-              |MINT;retract;$I;5| (|Union| 5 '"failed")
-              |MINT;retractIfCan;$U;6|
-              (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
-              (|Boolean|) (|SparseUnivariatePolynomial| $) (|Factored| $)
+              (|ExpressionFunctions2| 5 $$) (0 . |map|) (|Expression| %)
+              |MINT;coerce;EE;3| (|List| %) (|String|) (6 . |concat|)
+              |MINT;retract;%I;5| (|Union| 5 '"failed")
+              |MINT;retractIfCan;%U;6|
+              (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
+              (|Boolean|) (|SparseUnivariatePolynomial| %) (|Factored| %)
               (|Union| 18 '#1="failed")
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 29 '#1#)
-              (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|Record| (|:| |quotient| $) (|:| |remainder| $))
+              (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 29 '#1#)
+              (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
+              (|Record| (|:| |quotient| %) (|:| |remainder| %))
               (|NonNegativeInteger|)
-              (|Record| (|:| |coef| 18) (|:| |generator| $)) (|InputForm|)
-              (|PatternMatchResult| 5 $) (|Pattern| 5) (|DoubleFloat|)
-              (|Float|) (|Union| $ '"failed") (|Union| 42 '"failed")
+              (|Record| (|:| |coef| 18) (|:| |generator| %)) (|InputForm|)
+              (|PatternMatchResult| 5 %) (|Pattern| 5) (|DoubleFloat|)
+              (|Float|) (|Union| % '"failed") (|Union| 42 '"failed")
               (|Fraction| 5)
-              (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
+              (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (|HashState|) (|OutputForm|) (|SingleInteger|))
            '#(~= 11 |zero?| 17 |unitNormal| 22 |unitCanonical| 27 |unit?| 32
               |symmetricRemainder| 37 |subtractIfCan| 43 |submod| 49

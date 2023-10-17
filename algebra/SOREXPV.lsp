@@ -22,13 +22,13 @@
 
 (DEFUN |SortedExponentVector;| ()
   (SPROG
-   ((|dv$| NIL) ($ NIL) (#1=#:G2997 NIL) (#2=#:G2996 NIL) (#3=#:G2995 NIL)
+   ((|dv$| NIL) (% NIL) (#1=#:G2997 NIL) (#2=#:G2996 NIL) (#3=#:G2995 NIL)
     (|pv$| NIL))
    (PROGN
     (LETT |dv$| '(|SortedExponentVector|))
-    (LETT $ (GETREFV 25))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 25))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -72,50 +72,50 @@
                                             (|HasCategory| (|Integer|)
                                                            '(|OrderedSet|))
                                             #2#)))))
-    (|haddProp| |$ConstructorCache| '|SortedExponentVector| NIL (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 2048))
-    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 4096))
-    (AND (|HasCategory| $ '(|finiteAggregate|))
+    (|haddProp| |$ConstructorCache| '|SortedExponentVector| NIL (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (AND (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 2048))
+    (AND (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 4096))
+    (AND (|HasCategory| % '(|finiteAggregate|))
          (|HasCategory| (|Integer|) '(|BasicType|))
-         (|augmentPredVector| $ 8192))
-    (AND (|HasCategory| $ '(|finiteAggregate|))
-         (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 16384))
-    (AND (|HasCategory| $ '(|finiteAggregate|))
-         (|HasCategory| $ '(|shallowlyMutable|))
+         (|augmentPredVector| % 8192))
+    (AND (|HasCategory| % '(|finiteAggregate|))
+         (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 16384))
+    (AND (|HasCategory| % '(|finiteAggregate|))
+         (|HasCategory| % '(|shallowlyMutable|))
          (|HasCategory| (|Integer|) '(|OrderedSet|))
-         (|augmentPredVector| $ 32768))
-    (AND (|HasCategory| $ '(|finiteAggregate|))
+         (|augmentPredVector| % 32768))
+    (AND (|HasCategory| % '(|finiteAggregate|))
          (|HasCategory| (|Integer|) '(|OrderedSet|))
-         (|augmentPredVector| $ 65536))
+         (|augmentPredVector| % 65536))
     (AND
-     (OR (AND (|HasCategory| $ '(|finiteAggregate|)) #1#)
-         (AND (|HasCategory| $ '(|finiteAggregate|))
+     (OR (AND (|HasCategory| % '(|finiteAggregate|)) #1#)
+         (AND (|HasCategory| % '(|finiteAggregate|))
               (|HasCategory| (|Integer|) '(|OrderedSet|))))
-     (|augmentPredVector| $ 131072))
+     (|augmentPredVector| % 131072))
     (AND
-     (OR (AND (|HasCategory| $ '(|finiteAggregate|)) #1#)
-         (AND (|HasCategory| $ '(|finiteAggregate|))
+     (OR (AND (|HasCategory| % '(|finiteAggregate|)) #1#)
+         (AND (|HasCategory| % '(|finiteAggregate|))
               (|HasCategory| (|Integer|) '(|OrderedSet|)))
          #2#)
-     (|augmentPredVector| $ 262144))
+     (|augmentPredVector| % 262144))
     (AND
-     (OR (AND (|HasCategory| $ '(|finiteAggregate|)) #1#)
-         (AND (|HasCategory| $ '(|finiteAggregate|))
+     (OR (AND (|HasCategory| % '(|finiteAggregate|)) #1#)
+         (AND (|HasCategory| % '(|finiteAggregate|))
               (|HasCategory| (|Integer|) '(|OrderedSet|)))
          #3#)
-     (|augmentPredVector| $ 524288))
+     (|augmentPredVector| % 524288))
     (AND
      (OR
-      (AND (|HasCategory| $ '(|finiteAggregate|))
+      (AND (|HasCategory| % '(|finiteAggregate|))
            (|HasCategory| (|Integer|) '(|BasicType|)))
-      (AND (|HasCategory| $ '(|finiteAggregate|)) #1#)
-      (AND (|HasCategory| $ '(|finiteAggregate|))
+      (AND (|HasCategory| % '(|finiteAggregate|)) #1#)
+      (AND (|HasCategory| % '(|finiteAggregate|))
            (|HasCategory| (|Integer|) '(|OrderedSet|)))
       #2#)
-     (|augmentPredVector| $ 1048576))
-    (SETF |pv$| (QREFELT $ 3))
-    $))) 
+     (|augmentPredVector| % 1048576))
+    (SETF |pv$| (QREFELT % 3))
+    %))) 
 
 (MAKEPROP '|SortedExponentVector| '|infovec|
           (LIST
@@ -124,7 +124,7 @@
               (|NonNegativeInteger|) (|Mapping| 11 6 6) (|OutputForm|)
               (|HashState|) (|SingleInteger|) (|String|) (|InputForm|)
               (|Mapping| 11 6) (|UniversalSegment| 6) (|Void|) (|Mapping| 6 6)
-              (|List| $) (|Union| 6 '"failed"))
+              (|List| %) (|Union| 6 '"failed"))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 11

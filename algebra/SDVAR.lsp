@@ -1,25 +1,25 @@
 
-(PUT '|SDVAR;makeVariable;SNni$;1| '|SPADreplace| 'CONS) 
+(PUT '|SDVAR;makeVariable;SNni%;1| '|SPADreplace| 'CONS) 
 
-(SDEFUN |SDVAR;makeVariable;SNni$;1|
-        ((|s| (S)) (|n| (|NonNegativeInteger|)) ($ ($))) (CONS |s| |n|)) 
+(SDEFUN |SDVAR;makeVariable;SNni%;1|
+        ((|s| (S)) (|n| (|NonNegativeInteger|)) (% (%))) (CONS |s| |n|)) 
 
-(PUT '|SDVAR;variable;$S;2| '|SPADreplace| 'QCAR) 
+(PUT '|SDVAR;variable;%S;2| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |SDVAR;variable;$S;2| ((|v| ($)) ($ (S))) (QCAR |v|)) 
+(SDEFUN |SDVAR;variable;%S;2| ((|v| (%)) (% (S))) (QCAR |v|)) 
 
-(PUT '|SDVAR;order;$Nni;3| '|SPADreplace| 'QCDR) 
+(PUT '|SDVAR;order;%Nni;3| '|SPADreplace| 'QCDR) 
 
-(SDEFUN |SDVAR;order;$Nni;3| ((|v| ($)) ($ (|NonNegativeInteger|))) (QCDR |v|)) 
+(SDEFUN |SDVAR;order;%Nni;3| ((|v| (%)) (% (|NonNegativeInteger|))) (QCDR |v|)) 
 
-(SDEFUN |SDVAR;<;2$B;4| ((|v| ($)) (|u| ($)) ($ (|Boolean|)))
+(SDEFUN |SDVAR;<;2%B;4| ((|v| (%)) (|u| (%)) (% (|Boolean|)))
         (COND
-         ((SPADCALL (SPADCALL |v| (QREFELT $ 10)) (SPADCALL |u| (QREFELT $ 10))
-                    (QREFELT $ 13))
-          (< (SPADCALL |v| (QREFELT $ 11)) (SPADCALL |u| (QREFELT $ 11))))
+         ((SPADCALL (SPADCALL |v| (QREFELT % 10)) (SPADCALL |u| (QREFELT % 10))
+                    (QREFELT % 13))
+          (< (SPADCALL |v| (QREFELT % 11)) (SPADCALL |u| (QREFELT % 11))))
          ('T
-          (SPADCALL (SPADCALL |v| (QREFELT $ 10)) (SPADCALL |u| (QREFELT $ 10))
-                    (QREFELT $ 14))))) 
+          (SPADCALL (SPADCALL |v| (QREFELT % 10)) (SPADCALL |u| (QREFELT % 10))
+                    (QREFELT % 14))))) 
 
 (DECLAIM (NOTINLINE |SequentialDifferentialVariable;|)) 
 
@@ -43,29 +43,29 @@
                         '|SequentialDifferentialVariable|)))))))))) 
 
 (DEFUN |SequentialDifferentialVariable;| (|#1|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|SequentialDifferentialVariable| DV$1))
-          (LETT $ (GETREFV 21))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (LETT % (GETREFV 21))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|SequentialDifferentialVariable|
-                      (LIST DV$1) (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 7
+                      (LIST DV$1) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 7
                     (|Record| (|:| |var| |#1|)
                               (|:| |ord| (|NonNegativeInteger|))))
-          $))) 
+          %))) 
 
 (MAKEPROP '|SequentialDifferentialVariable| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep|
-              (|NonNegativeInteger|) |SDVAR;makeVariable;SNni$;1|
-              |SDVAR;variable;$S;2| |SDVAR;order;$Nni;3| (|Boolean|) (0 . =)
-              (6 . <) |SDVAR;<;2$B;4| (|Union| 6 '"failed") (|String|)
+              (|NonNegativeInteger|) |SDVAR;makeVariable;SNni%;1|
+              |SDVAR;variable;%S;2| |SDVAR;order;%Nni;3| (|Boolean|) (0 . =)
+              (6 . <) |SDVAR;<;2%B;4| (|Union| 6 '"failed") (|String|)
               (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#(~= 12 |weight| 18 |variable| 23 |smaller?| 28 |retractIfCan| 34
               |retract| 39 |order| 44 |min| 49 |max| 55 |makeVariable| 61

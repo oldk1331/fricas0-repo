@@ -1,56 +1,56 @@
 
 (SDEFUN |LPOLY;eval1|
-        ((|lw| (|LyndonWord| |VarSet|)) (|v| (|VarSet|)) (|nv| ($)) ($ ($)))
+        ((|lw| (|LyndonWord| |VarSet|)) (|v| (|VarSet|)) (|nv| (%)) (% (%)))
         (SPROG
          ((|r| (|LyndonWord| |VarSet|)) (|l| (|LyndonWord| |VarSet|))
           (|s| (|Union| |VarSet| "failed")))
          (SEQ
           (COND
-           ((NULL (SPADCALL |v| (SPADCALL |lw| (QREFELT $ 11)) (QREFELT $ 13)))
-            (SPADCALL |lw| (QREFELT $ 14)))
+           ((NULL (SPADCALL |v| (SPADCALL |lw| (QREFELT % 11)) (QREFELT % 13)))
+            (SPADCALL |lw| (QREFELT % 14)))
            ('T
-            (SEQ (LETT |s| (SPADCALL |lw| (QREFELT $ 16)))
+            (SEQ (LETT |s| (SPADCALL |lw| (QREFELT % 16)))
                  (EXIT
                   (COND
                    ((QEQCAR |s| 0)
-                    (COND ((SPADCALL (QCDR |s|) |v| (QREFELT $ 17)) |nv|)
-                          (#1='T (SPADCALL |lw| (QREFELT $ 14)))))
+                    (COND ((SPADCALL (QCDR |s|) |v| (QREFELT % 17)) |nv|)
+                          (#1='T (SPADCALL |lw| (QREFELT % 14)))))
                    (#1#
-                    (SEQ (LETT |l| (SPADCALL |lw| (QREFELT $ 18)))
-                         (LETT |r| (SPADCALL |lw| (QREFELT $ 19)))
+                    (SEQ (LETT |l| (SPADCALL |lw| (QREFELT % 18)))
+                         (LETT |r| (SPADCALL |lw| (QREFELT % 19)))
                          (EXIT
-                          (SPADCALL (|LPOLY;eval1| |l| |v| |nv| $)
-                                    (|LPOLY;eval1| |r| |v| |nv| $)
-                                    (QREFELT $ 20))))))))))))) 
+                          (SPADCALL (|LPOLY;eval1| |l| |v| |nv| %)
+                                    (|LPOLY;eval1| |r| |v| |nv| %)
+                                    (QREFELT % 20))))))))))))) 
 
 (SDEFUN |LPOLY;eval2|
         ((|lw| (|LyndonWord| |VarSet|)) (|lv| (|List| |VarSet|))
-         (|lnv| (|List| $)) ($ ($)))
+         (|lnv| (|List| %)) (% (%)))
         (SPROG
          ((|r| (|LyndonWord| |VarSet|)) (|l| (|LyndonWord| |VarSet|))
           (|p| (|Integer|)) (|s| (|Union| |VarSet| "failed")))
-         (SEQ (LETT |s| (SPADCALL |lw| (QREFELT $ 16)))
+         (SEQ (LETT |s| (SPADCALL |lw| (QREFELT % 16)))
               (EXIT
                (COND
                 ((QEQCAR |s| 0)
-                 (SEQ (LETT |p| (SPADCALL (QCDR |s|) |lv| (QREFELT $ 22)))
+                 (SEQ (LETT |p| (SPADCALL (QCDR |s|) |lv| (QREFELT % 22)))
                       (EXIT
                        (COND
                         ((EQL |p| 0)
-                         (SPADCALL (|spadConstant| $ 25) |lw| (QREFELT $ 26)))
-                        (#1='T (SPADCALL |lnv| |p| (QREFELT $ 28)))))))
+                         (SPADCALL (|spadConstant| % 25) |lw| (QREFELT % 26)))
+                        (#1='T (SPADCALL |lnv| |p| (QREFELT % 28)))))))
                 (#1#
-                 (SEQ (LETT |l| (SPADCALL |lw| (QREFELT $ 18)))
-                      (LETT |r| (SPADCALL |lw| (QREFELT $ 19)))
+                 (SEQ (LETT |l| (SPADCALL |lw| (QREFELT % 18)))
+                      (LETT |r| (SPADCALL |lw| (QREFELT % 19)))
                       (EXIT
-                       (SPADCALL (|LPOLY;eval2| |l| |lv| |lnv| $)
-                                 (|LPOLY;eval2| |r| |lv| |lnv| $)
-                                 (QREFELT $ 20)))))))))) 
+                       (SPADCALL (|LPOLY;eval2| |l| |lv| |lnv| %)
+                                 (|LPOLY;eval2| |r| |lv| |lnv| %)
+                                 (QREFELT % 20)))))))))) 
 
-(SDEFUN |LPOLY;eval;$VarSet2$;3|
-        ((|p| ($)) (|v| (|VarSet|)) (|nv| ($)) ($ ($)))
+(SDEFUN |LPOLY;eval;%VarSet2%;3|
+        ((|p| (%)) (|v| (|VarSet|)) (|nv| (%)) (% (%)))
         (SPROG
-         ((#1=#:G141 NIL) (#2=#:G140 ($)) (#3=#:G142 ($)) (#4=#:G144 NIL)
+         ((#1=#:G141 NIL) (#2=#:G140 (%)) (#3=#:G142 (%)) (#4=#:G144 NIL)
           (|t| NIL))
          (SEQ
           (PROGN
@@ -63,17 +63,17 @@
                   (PROGN
                    (LETT #3#
                          (SPADCALL (QCDR |t|)
-                                   (|LPOLY;eval1| (QCAR |t|) |v| |nv| $)
-                                   (QREFELT $ 29)))
-                   (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 30))))
+                                   (|LPOLY;eval1| (QCAR |t|) |v| |nv| %)
+                                   (QREFELT % 29)))
+                   (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT % 30))))
                          ('T (PROGN (LETT #2# #3#) (LETT #1# 'T)))))))
                 (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
-           (COND (#1# #2#) ('T (|spadConstant| $ 23))))))) 
+           (COND (#1# #2#) ('T (|spadConstant| % 23))))))) 
 
-(SDEFUN |LPOLY;eval;$LL$;4|
-        ((|p| ($)) (|lv| (|List| |VarSet|)) (|lnv| (|List| $)) ($ ($)))
+(SDEFUN |LPOLY;eval;%LL%;4|
+        ((|p| (%)) (|lv| (|List| |VarSet|)) (|lnv| (|List| %)) (% (%)))
         (SPROG
-         ((#1=#:G146 NIL) (#2=#:G145 ($)) (#3=#:G147 ($)) (#4=#:G149 NIL)
+         ((#1=#:G146 NIL) (#2=#:G145 (%)) (#3=#:G147 (%)) (#4=#:G149 NIL)
           (|t| NIL))
          (SEQ
           (PROGN
@@ -86,61 +86,61 @@
                   (PROGN
                    (LETT #3#
                          (SPADCALL (QCDR |t|)
-                                   (|LPOLY;eval2| (QCAR |t|) |lv| |lnv| $)
-                                   (QREFELT $ 29)))
-                   (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 30))))
+                                   (|LPOLY;eval2| (QCAR |t|) |lv| |lnv| %)
+                                   (QREFELT % 29)))
+                   (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT % 30))))
                          ('T (PROGN (LETT #2# #3#) (LETT #1# 'T)))))))
                 (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
-           (COND (#1# #2#) ('T (|spadConstant| $ 23))))))) 
+           (COND (#1# #2#) ('T (|spadConstant| % 23))))))) 
 
 (SDEFUN |LPOLY;lquo1|
         ((|p| (|XRecursivePolynomial| |VarSet| R))
          (|lw| (|LyndonWord| |VarSet|))
-         ($ (|XRecursivePolynomial| |VarSet| R)))
-        (COND ((SPADCALL |p| (QREFELT $ 35)) (|spadConstant| $ 36))
-              ((SPADCALL |lw| (QREFELT $ 37))
-               (SPADCALL |p| (SPADCALL |lw| (QREFELT $ 38)) (QREFELT $ 39)))
+         (% (|XRecursivePolynomial| |VarSet| R)))
+        (COND ((SPADCALL |p| (QREFELT % 35)) (|spadConstant| % 36))
+              ((SPADCALL |lw| (QREFELT % 37))
+               (SPADCALL |p| (SPADCALL |lw| (QREFELT % 38)) (QREFELT % 39)))
               ('T
                (SPADCALL
                 (|LPOLY;lquo1|
-                 (|LPOLY;lquo1| |p| (SPADCALL |lw| (QREFELT $ 18)) $)
-                 (SPADCALL |lw| (QREFELT $ 19)) $)
+                 (|LPOLY;lquo1| |p| (SPADCALL |lw| (QREFELT % 18)) %)
+                 (SPADCALL |lw| (QREFELT % 19)) %)
                 (|LPOLY;lquo1|
-                 (|LPOLY;lquo1| |p| (SPADCALL |lw| (QREFELT $ 19)) $)
-                 (SPADCALL |lw| (QREFELT $ 18)) $)
-                (QREFELT $ 40))))) 
+                 (|LPOLY;lquo1| |p| (SPADCALL |lw| (QREFELT % 19)) %)
+                 (SPADCALL |lw| (QREFELT % 18)) %)
+                (QREFELT % 40))))) 
 
 (SDEFUN |LPOLY;rquo1|
         ((|p| (|XRecursivePolynomial| |VarSet| R))
          (|lw| (|LyndonWord| |VarSet|))
-         ($ (|XRecursivePolynomial| |VarSet| R)))
-        (COND ((SPADCALL |p| (QREFELT $ 35)) (|spadConstant| $ 36))
-              ((SPADCALL |lw| (QREFELT $ 37))
-               (SPADCALL |p| (SPADCALL |lw| (QREFELT $ 38)) (QREFELT $ 41)))
+         (% (|XRecursivePolynomial| |VarSet| R)))
+        (COND ((SPADCALL |p| (QREFELT % 35)) (|spadConstant| % 36))
+              ((SPADCALL |lw| (QREFELT % 37))
+               (SPADCALL |p| (SPADCALL |lw| (QREFELT % 38)) (QREFELT % 41)))
               ('T
                (SPADCALL
                 (|LPOLY;rquo1|
-                 (|LPOLY;rquo1| |p| (SPADCALL |lw| (QREFELT $ 18)) $)
-                 (SPADCALL |lw| (QREFELT $ 19)) $)
+                 (|LPOLY;rquo1| |p| (SPADCALL |lw| (QREFELT % 18)) %)
+                 (SPADCALL |lw| (QREFELT % 19)) %)
                 (|LPOLY;rquo1|
-                 (|LPOLY;rquo1| |p| (SPADCALL |lw| (QREFELT $ 19)) $)
-                 (SPADCALL |lw| (QREFELT $ 18)) $)
-                (QREFELT $ 40))))) 
+                 (|LPOLY;rquo1| |p| (SPADCALL |lw| (QREFELT % 19)) %)
+                 (SPADCALL |lw| (QREFELT % 18)) %)
+                (QREFELT % 40))))) 
 
-(SDEFUN |LPOLY;coef;Xrp$R;7|
-        ((|p| (|XRecursivePolynomial| |VarSet| R)) (|lp| ($)) ($ (R)))
-        (SPADCALL |p| (SPADCALL |lp| (QREFELT $ 42)) (QREFELT $ 43))) 
+(SDEFUN |LPOLY;coef;Xrp%R;7|
+        ((|p| (|XRecursivePolynomial| |VarSet| R)) (|lp| (%)) (% (R)))
+        (SPADCALL |p| (SPADCALL |lp| (QREFELT % 42)) (QREFELT % 43))) 
 
-(SDEFUN |LPOLY;lquo;Xrp$Xrp;8|
-        ((|p| (|XRecursivePolynomial| |VarSet| R)) (|lp| ($))
-         ($ (|XRecursivePolynomial| |VarSet| R)))
+(SDEFUN |LPOLY;lquo;Xrp%Xrp;8|
+        ((|p| (|XRecursivePolynomial| |VarSet| R)) (|lp| (%))
+         (% (|XRecursivePolynomial| |VarSet| R)))
         (SPROG
          ((#1=#:G158 NIL) (#2=#:G157 #3=(|XRecursivePolynomial| |VarSet| R))
           (#4=#:G159 #3#) (#5=#:G161 NIL) (|t| NIL))
          (SEQ
           (COND
-           ((SPADCALL |lp| (|spadConstant| $ 23) (QREFELT $ 45))
-            (|spadConstant| $ 36))
+           ((SPADCALL |lp| (|spadConstant| % 23) (QREFELT % 45))
+            (|spadConstant| % 36))
            (#6='T
             (PROGN
              (LETT #1# NIL)
@@ -153,23 +153,23 @@
                     (PROGN
                      (LETT #4#
                            (SPADCALL (QCDR |t|)
-                                     (|LPOLY;lquo1| |p| (QCAR |t|) $)
-                                     (QREFELT $ 46)))
-                     (COND (#1# (LETT #2# (SPADCALL #2# #4# (QREFELT $ 47))))
+                                     (|LPOLY;lquo1| |p| (QCAR |t|) %)
+                                     (QREFELT % 46)))
+                     (COND (#1# (LETT #2# (SPADCALL #2# #4# (QREFELT % 47))))
                            ('T (PROGN (LETT #2# #4#) (LETT #1# 'T)))))))
                   (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
-             (COND (#1# #2#) (#6# (|spadConstant| $ 36))))))))) 
+             (COND (#1# #2#) (#6# (|spadConstant| % 36))))))))) 
 
-(SDEFUN |LPOLY;rquo;Xrp$Xrp;9|
-        ((|p| (|XRecursivePolynomial| |VarSet| R)) (|lp| ($))
-         ($ (|XRecursivePolynomial| |VarSet| R)))
+(SDEFUN |LPOLY;rquo;Xrp%Xrp;9|
+        ((|p| (|XRecursivePolynomial| |VarSet| R)) (|lp| (%))
+         (% (|XRecursivePolynomial| |VarSet| R)))
         (SPROG
          ((#1=#:G163 NIL) (#2=#:G162 #3=(|XRecursivePolynomial| |VarSet| R))
           (#4=#:G164 #3#) (#5=#:G166 NIL) (|t| NIL))
          (SEQ
           (COND
-           ((SPADCALL |lp| (|spadConstant| $ 23) (QREFELT $ 45))
-            (|spadConstant| $ 36))
+           ((SPADCALL |lp| (|spadConstant| % 23) (QREFELT % 45))
+            (|spadConstant| % 36))
            (#6='T
             (PROGN
              (LETT #1# NIL)
@@ -182,35 +182,35 @@
                     (PROGN
                      (LETT #4#
                            (SPADCALL (QCDR |t|)
-                                     (|LPOLY;rquo1| |p| (QCAR |t|) $)
-                                     (QREFELT $ 46)))
-                     (COND (#1# (LETT #2# (SPADCALL #2# #4# (QREFELT $ 47))))
+                                     (|LPOLY;rquo1| |p| (QCAR |t|) %)
+                                     (QREFELT % 46)))
+                     (COND (#1# (LETT #2# (SPADCALL #2# #4# (QREFELT % 47))))
                            ('T (PROGN (LETT #2# #4#) (LETT #1# 'T)))))))
                   (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
-             (COND (#1# #2#) (#6# (|spadConstant| $ 36))))))))) 
+             (COND (#1# #2#) (#6# (|spadConstant| % 36))))))))) 
 
 (SDEFUN |LPOLY;LiePolyIfCan;XdpU;10|
         ((|p| #1=(|XDistributedPolynomial| |VarSet| R))
-         ($ (|Union| $ "failed")))
+         (% (|Union| % "failed")))
         (SPROG
-         ((|p1| #1#) (|r| ($)) (|lp| ($)) (#2=#:G181 NIL)
+         ((|p1| #1#) (|r| (%)) (|lp| (%)) (#2=#:G181 NIL)
           (|l| (|Union| (|LyndonWord| |VarSet|) "failed")) (|coef| (R))
           (|w| (|FreeMonoid| |VarSet|))
           (|t| (|Record| (|:| |k| (|FreeMonoid| |VarSet|)) (|:| |c| R))))
          (SEQ
           (EXIT
-           (COND ((NULL (SPADCALL |p| (QREFELT $ 51))) (CONS 1 "failed"))
+           (COND ((NULL (SPADCALL |p| (QREFELT % 51))) (CONS 1 "failed"))
                  ('T
-                  (SEQ (LETT |p1| |p|) (LETT |r| (|spadConstant| $ 23))
+                  (SEQ (LETT |p1| |p|) (LETT |r| (|spadConstant| % 23))
                        (SEQ G190
                             (COND
                              ((NULL
-                               (SPADCALL |p1| (|spadConstant| $ 52)
-                                         (QREFELT $ 53)))
+                               (SPADCALL |p1| (|spadConstant| % 52)
+                                         (QREFELT % 53)))
                               (GO G191)))
-                            (SEQ (LETT |t| (SPADCALL |p1| (QREFELT $ 55)))
+                            (SEQ (LETT |t| (SPADCALL |p1| (QREFELT % 55)))
                                  (LETT |w| (QCAR |t|)) (LETT |coef| (QCDR |t|))
-                                 (LETT |l| (SPADCALL |w| (QREFELT $ 58)))
+                                 (LETT |l| (SPADCALL |w| (QREFELT % 58)))
                                  (EXIT
                                   (COND
                                    ((QEQCAR |l| 1)
@@ -222,58 +222,58 @@
                                      (LETT |lp|
                                            (SPADCALL |coef|
                                                      (SPADCALL (QCDR |l|)
-                                                               (QREFELT $ 14))
-                                                     (QREFELT $ 29)))
+                                                               (QREFELT % 14))
+                                                     (QREFELT % 29)))
                                      (LETT |r|
-                                           (SPADCALL |r| |lp| (QREFELT $ 30)))
+                                           (SPADCALL |r| |lp| (QREFELT % 30)))
                                      (EXIT
                                       (LETT |p1|
                                             (SPADCALL |p1|
                                                       (SPADCALL |lp|
-                                                                (QREFELT $ 59))
-                                                      (QREFELT $ 60)))))))))
+                                                                (QREFELT % 59))
+                                                      (QREFELT % 60)))))))))
                             NIL (GO G190) G191 (EXIT NIL))
                        (EXIT (CONS 0 |r|))))))
           #3# (EXIT #2#)))) 
 
 (SDEFUN |LPOLY;makeLyndon|
         ((|u| (|LyndonWord| |VarSet|)) (|v| (|LyndonWord| |VarSet|))
-         ($ (|LyndonWord| |VarSet|)))
-        (SPADCALL (SPADCALL |u| (QREFELT $ 63)) (SPADCALL |v| (QREFELT $ 63))
-                  (QREFELT $ 64))) 
+         (% (|LyndonWord| |VarSet|)))
+        (SPADCALL (SPADCALL |u| (QREFELT % 63)) (SPADCALL |v| (QREFELT % 63))
+                  (QREFELT % 64))) 
 
 (SDEFUN |LPOLY;crw|
-        ((|u| (|LyndonWord| |VarSet|)) (|v| (|LyndonWord| |VarSet|)) ($ ($)))
-        (COND ((SPADCALL |u| |v| (QREFELT $ 65)) (|spadConstant| $ 23))
-              ((SPADCALL |u| |v| (QREFELT $ 66)) (|LPOLY;lyndon| |u| |v| $))
-              ('T (SPADCALL (|LPOLY;lyndon| |v| |u| $) (QREFELT $ 67))))) 
+        ((|u| (|LyndonWord| |VarSet|)) (|v| (|LyndonWord| |VarSet|)) (% (%)))
+        (COND ((SPADCALL |u| |v| (QREFELT % 65)) (|spadConstant| % 23))
+              ((SPADCALL |u| |v| (QREFELT % 66)) (|LPOLY;lyndon| |u| |v| %))
+              ('T (SPADCALL (|LPOLY;lyndon| |v| |u| %) (QREFELT % 67))))) 
 
 (SDEFUN |LPOLY;lyndon|
-        ((|u| (|LyndonWord| |VarSet|)) (|v| (|LyndonWord| |VarSet|)) ($ ($)))
+        ((|u| (|LyndonWord| |VarSet|)) (|v| (|LyndonWord| |VarSet|)) (% (%)))
         (SPROG ((|u2| (|LyndonWord| |VarSet|)) (|u1| (|LyndonWord| |VarSet|)))
                (SEQ
                 (COND
-                 ((SPADCALL |u| (QREFELT $ 37))
-                  (SPADCALL (|spadConstant| $ 25)
-                            (|LPOLY;makeLyndon| |u| |v| $) (QREFELT $ 26)))
+                 ((SPADCALL |u| (QREFELT % 37))
+                  (SPADCALL (|spadConstant| % 25)
+                            (|LPOLY;makeLyndon| |u| |v| %) (QREFELT % 26)))
                  (#1='T
-                  (SEQ (LETT |u1| (SPADCALL |u| (QREFELT $ 18)))
-                       (LETT |u2| (SPADCALL |u| (QREFELT $ 19)))
+                  (SEQ (LETT |u1| (SPADCALL |u| (QREFELT % 18)))
+                       (LETT |u2| (SPADCALL |u| (QREFELT % 19)))
                        (EXIT
                         (COND
-                         ((SPADCALL |u2| |v| (QREFELT $ 66))
+                         ((SPADCALL |u2| |v| (QREFELT % 66))
                           (SPADCALL
-                           (|LPOLY;cr1| |u1| (|LPOLY;lyndon| |u2| |v| $) $)
-                           (|LPOLY;cr2| (|LPOLY;lyndon| |u1| |v| $) |u2| $)
-                           (QREFELT $ 30)))
+                           (|LPOLY;cr1| |u1| (|LPOLY;lyndon| |u2| |v| %) %)
+                           (|LPOLY;cr2| (|LPOLY;lyndon| |u1| |v| %) |u2| %)
+                           (QREFELT % 30)))
                          (#1#
-                          (SPADCALL (|spadConstant| $ 25)
-                                    (|LPOLY;makeLyndon| |u| |v| $)
-                                    (QREFELT $ 26))))))))))) 
+                          (SPADCALL (|spadConstant| % 25)
+                                    (|LPOLY;makeLyndon| |u| |v| %)
+                                    (QREFELT % 26))))))))))) 
 
-(SDEFUN |LPOLY;cr1| ((|l| (|LyndonWord| |VarSet|)) (|p| ($)) ($ ($)))
+(SDEFUN |LPOLY;cr1| ((|l| (|LyndonWord| |VarSet|)) (|p| (%)) (% (%)))
         (SPROG
-         ((#1=#:G189 NIL) (#2=#:G188 ($)) (#3=#:G190 ($)) (#4=#:G192 NIL)
+         ((#1=#:G189 NIL) (#2=#:G188 (%)) (#3=#:G190 (%)) (#4=#:G192 NIL)
           (|t| NIL))
          (SEQ
           (PROGN
@@ -285,16 +285,16 @@
                  (EXIT
                   (PROGN
                    (LETT #3#
-                         (SPADCALL (QCDR |t|) (|LPOLY;crw| |l| (QCAR |t|) $)
-                                   (QREFELT $ 29)))
-                   (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 30))))
+                         (SPADCALL (QCDR |t|) (|LPOLY;crw| |l| (QCAR |t|) %)
+                                   (QREFELT % 29)))
+                   (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT % 30))))
                          ('T (PROGN (LETT #2# #3#) (LETT #1# 'T)))))))
                 (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
-           (COND (#1# #2#) ('T (|spadConstant| $ 23))))))) 
+           (COND (#1# #2#) ('T (|spadConstant| % 23))))))) 
 
-(SDEFUN |LPOLY;cr2| ((|p| ($)) (|l| (|LyndonWord| |VarSet|)) ($ ($)))
+(SDEFUN |LPOLY;cr2| ((|p| (%)) (|l| (|LyndonWord| |VarSet|)) (% (%)))
         (SPROG
-         ((#1=#:G194 NIL) (#2=#:G193 ($)) (#3=#:G195 ($)) (#4=#:G197 NIL)
+         ((#1=#:G194 NIL) (#2=#:G193 (%)) (#3=#:G195 (%)) (#4=#:G197 NIL)
           (|t| NIL))
          (SEQ
           (PROGN
@@ -306,53 +306,53 @@
                  (EXIT
                   (PROGN
                    (LETT #3#
-                         (SPADCALL (QCDR |t|) (|LPOLY;crw| (QCAR |t|) |l| $)
-                                   (QREFELT $ 29)))
-                   (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 30))))
+                         (SPADCALL (QCDR |t|) (|LPOLY;crw| (QCAR |t|) |l| %)
+                                   (QREFELT % 29)))
+                   (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT % 30))))
                          ('T (PROGN (LETT #2# #3#) (LETT #1# 'T)))))))
                 (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
-           (COND (#1# #2#) ('T (|spadConstant| $ 23))))))) 
+           (COND (#1# #2#) ('T (|spadConstant| % 23))))))) 
 
 (SDEFUN |LPOLY;DPoly|
         ((|w| (|LyndonWord| |VarSet|))
-         ($ (|XDistributedPolynomial| |VarSet| R)))
+         (% (|XDistributedPolynomial| |VarSet| R)))
         (SPROG ((|r| #1=(|XDistributedPolynomial| |VarSet| R)) (|l| #1#))
                (SEQ
                 (COND
-                 ((SPADCALL |w| (QREFELT $ 37))
-                  (SPADCALL (SPADCALL |w| (QREFELT $ 38)) (QREFELT $ 68)))
+                 ((SPADCALL |w| (QREFELT % 37))
+                  (SPADCALL (SPADCALL |w| (QREFELT % 38)) (QREFELT % 68)))
                  ('T
                   (SEQ
-                   (LETT |l| (|LPOLY;DPoly| (SPADCALL |w| (QREFELT $ 18)) $))
-                   (LETT |r| (|LPOLY;DPoly| (SPADCALL |w| (QREFELT $ 19)) $))
+                   (LETT |l| (|LPOLY;DPoly| (SPADCALL |w| (QREFELT % 18)) %))
+                   (LETT |r| (|LPOLY;DPoly| (SPADCALL |w| (QREFELT % 19)) %))
                    (EXIT
-                    (SPADCALL (SPADCALL |l| |r| (QREFELT $ 69))
-                              (SPADCALL |r| |l| (QREFELT $ 69))
-                              (QREFELT $ 60))))))))) 
+                    (SPADCALL (SPADCALL |l| |r| (QREFELT % 69))
+                              (SPADCALL |r| |l| (QREFELT % 69))
+                              (QREFELT % 60))))))))) 
 
 (SDEFUN |LPOLY;RPoly|
-        ((|w| (|LyndonWord| |VarSet|)) ($ (|XRecursivePolynomial| |VarSet| R)))
+        ((|w| (|LyndonWord| |VarSet|)) (% (|XRecursivePolynomial| |VarSet| R)))
         (SPROG ((|r| #1=(|XRecursivePolynomial| |VarSet| R)) (|l| #1#))
                (SEQ
                 (COND
-                 ((SPADCALL |w| (QREFELT $ 37))
-                  (SPADCALL (SPADCALL |w| (QREFELT $ 38)) (QREFELT $ 70)))
+                 ((SPADCALL |w| (QREFELT % 37))
+                  (SPADCALL (SPADCALL |w| (QREFELT % 38)) (QREFELT % 70)))
                  ('T
                   (SEQ
-                   (LETT |l| (|LPOLY;RPoly| (SPADCALL |w| (QREFELT $ 18)) $))
-                   (LETT |r| (|LPOLY;RPoly| (SPADCALL |w| (QREFELT $ 19)) $))
+                   (LETT |l| (|LPOLY;RPoly| (SPADCALL |w| (QREFELT % 18)) %))
+                   (LETT |r| (|LPOLY;RPoly| (SPADCALL |w| (QREFELT % 19)) %))
                    (EXIT
-                    (SPADCALL (SPADCALL |l| |r| (QREFELT $ 71))
-                              (SPADCALL |r| |l| (QREFELT $ 71))
-                              (QREFELT $ 40))))))))) 
+                    (SPADCALL (SPADCALL |l| |r| (QREFELT % 71))
+                              (SPADCALL |r| |l| (QREFELT % 71))
+                              (QREFELT % 40))))))))) 
 
-(SDEFUN |LPOLY;coerce;VarSet$;18| ((|v| (|VarSet|)) ($ ($)))
-        (SPADCALL (|spadConstant| $ 25) (SPADCALL |v| (QREFELT $ 72))
-                  (QREFELT $ 26))) 
+(SDEFUN |LPOLY;coerce;VarSet%;18| ((|v| (|VarSet|)) (% (%)))
+        (SPADCALL (|spadConstant| % 25) (SPADCALL |v| (QREFELT % 72))
+                  (QREFELT % 26))) 
 
-(SDEFUN |LPOLY;construct;3$;19| ((|x| ($)) (|y| ($)) ($ ($)))
+(SDEFUN |LPOLY;construct;3%;19| ((|x| (%)) (|y| (%)) (% (%)))
         (SPROG
-         ((#1=#:G206 NIL) (#2=#:G205 ($)) (#3=#:G207 ($)) (#4=#:G209 NIL)
+         ((#1=#:G206 NIL) (#2=#:G205 (%)) (#3=#:G207 (%)) (#4=#:G209 NIL)
           (|t| NIL))
          (SEQ
           (PROGN
@@ -364,27 +364,27 @@
                  (EXIT
                   (PROGN
                    (LETT #3#
-                         (SPADCALL (QCDR |t|) (|LPOLY;cr1| (QCAR |t|) |y| $)
-                                   (QREFELT $ 29)))
-                   (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 30))))
+                         (SPADCALL (QCDR |t|) (|LPOLY;cr1| (QCAR |t|) |y| %)
+                                   (QREFELT % 29)))
+                   (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT % 30))))
                          ('T (PROGN (LETT #2# #3#) (LETT #1# 'T)))))))
                 (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
-           (COND (#1# #2#) ('T (|spadConstant| $ 23))))))) 
+           (COND (#1# #2#) ('T (|spadConstant| % 23))))))) 
 
-(SDEFUN |LPOLY;construct;Lw2$;20|
-        ((|l| (|LyndonWord| |VarSet|)) (|p| ($)) ($ ($)))
-        (|LPOLY;cr1| |l| |p| $)) 
+(SDEFUN |LPOLY;construct;Lw2%;20|
+        ((|l| (|LyndonWord| |VarSet|)) (|p| (%)) (% (%)))
+        (|LPOLY;cr1| |l| |p| %)) 
 
-(SDEFUN |LPOLY;construct;$Lw$;21|
-        ((|p| ($)) (|l| (|LyndonWord| |VarSet|)) ($ ($)))
-        (|LPOLY;cr2| |p| |l| $)) 
+(SDEFUN |LPOLY;construct;%Lw%;21|
+        ((|p| (%)) (|l| (|LyndonWord| |VarSet|)) (% (%)))
+        (|LPOLY;cr2| |p| |l| %)) 
 
-(SDEFUN |LPOLY;construct;2Lw$;22|
-        ((|u| (|LyndonWord| |VarSet|)) (|v| (|LyndonWord| |VarSet|)) ($ ($)))
-        (|LPOLY;crw| |u| |v| $)) 
+(SDEFUN |LPOLY;construct;2Lw%;22|
+        ((|u| (|LyndonWord| |VarSet|)) (|v| (|LyndonWord| |VarSet|)) (% (%)))
+        (|LPOLY;crw| |u| |v| %)) 
 
-(SDEFUN |LPOLY;coerce;$Xdp;23|
-        ((|p| ($)) ($ (|XDistributedPolynomial| |VarSet| R)))
+(SDEFUN |LPOLY;coerce;%Xdp;23|
+        ((|p| (%)) (% (|XDistributedPolynomial| |VarSet| R)))
         (SPROG
          ((#1=#:G214 NIL) (#2=#:G213 #3=(|XDistributedPolynomial| |VarSet| R))
           (#4=#:G215 #3#) (#5=#:G217 NIL) (|t| NIL))
@@ -398,15 +398,15 @@
                  (EXIT
                   (PROGN
                    (LETT #4#
-                         (SPADCALL (QCDR |t|) (|LPOLY;DPoly| (QCAR |t|) $)
-                                   (QREFELT $ 77)))
-                   (COND (#1# (LETT #2# (SPADCALL #2# #4# (QREFELT $ 78))))
+                         (SPADCALL (QCDR |t|) (|LPOLY;DPoly| (QCAR |t|) %)
+                                   (QREFELT % 77)))
+                   (COND (#1# (LETT #2# (SPADCALL #2# #4# (QREFELT % 78))))
                          ('T (PROGN (LETT #2# #4#) (LETT #1# 'T)))))))
                 (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
-           (COND (#1# #2#) ('T (|spadConstant| $ 52))))))) 
+           (COND (#1# #2#) ('T (|spadConstant| % 52))))))) 
 
-(SDEFUN |LPOLY;coerce;$Xrp;24|
-        ((|p| ($)) ($ (|XRecursivePolynomial| |VarSet| R)))
+(SDEFUN |LPOLY;coerce;%Xrp;24|
+        ((|p| (%)) (% (|XRecursivePolynomial| |VarSet| R)))
         (SPROG
          ((#1=#:G219 NIL) (#2=#:G218 #3=(|XRecursivePolynomial| |VarSet| R))
           (#4=#:G220 #3#) (#5=#:G222 NIL) (|t| NIL))
@@ -420,17 +420,17 @@
                  (EXIT
                   (PROGN
                    (LETT #4#
-                         (SPADCALL (QCDR |t|) (|LPOLY;RPoly| (QCAR |t|) $)
-                                   (QREFELT $ 46)))
-                   (COND (#1# (LETT #2# (SPADCALL #2# #4# (QREFELT $ 47))))
+                         (SPADCALL (QCDR |t|) (|LPOLY;RPoly| (QCAR |t|) %)
+                                   (QREFELT % 46)))
+                   (COND (#1# (LETT #2# (SPADCALL #2# #4# (QREFELT % 47))))
                          ('T (PROGN (LETT #2# #4#) (LETT #1# 'T)))))))
                 (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
-           (COND (#1# #2#) ('T (|spadConstant| $ 36))))))) 
+           (COND (#1# #2#) ('T (|spadConstant| % 36))))))) 
 
-(SDEFUN |LPOLY;LiePoly;Lw$;25| ((|l| (|LyndonWord| |VarSet|)) ($ ($)))
-        (SPADCALL (|spadConstant| $ 25) |l| (QREFELT $ 26))) 
+(SDEFUN |LPOLY;LiePoly;Lw%;25| ((|l| (|LyndonWord| |VarSet|)) (% (%)))
+        (SPADCALL (|spadConstant| % 25) |l| (QREFELT % 26))) 
 
-(SDEFUN |LPOLY;varList;$L;26| ((|p| ($)) ($ (|List| |VarSet|)))
+(SDEFUN |LPOLY;varList;%L;26| ((|p| (%)) (% (|List| |VarSet|)))
         (SPROG
          ((|le| #1=(|List| |VarSet|)) (#2=#:G225 NIL) (#3=#:G224 #1#)
           (#4=#:G226 #1#) (#5=#:G229 NIL) (|t| NIL))
@@ -445,15 +445,15 @@
                       (SEQ
                        (EXIT
                         (PROGN
-                         (LETT #4# (SPADCALL (QCAR |t|) (QREFELT $ 11)))
+                         (LETT #4# (SPADCALL (QCAR |t|) (QREFELT % 11)))
                          (COND
-                          (#2# (LETT #3# (SPADCALL #3# #4# (QREFELT $ 79))))
+                          (#2# (LETT #3# (SPADCALL #3# #4# (QREFELT % 79))))
                           ('T (PROGN (LETT #3# #4#) (LETT #2# 'T)))))))
                       (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
                  (COND (#2# #3#) ('T (|IdentityError| '|setUnion|)))))
-          (EXIT (SPADCALL |le| (QREFELT $ 80)))))) 
+          (EXIT (SPADCALL |le| (QREFELT % 80)))))) 
 
-(SDEFUN |LPOLY;mirror;2$;27| ((|p| ($)) ($ ($)))
+(SDEFUN |LPOLY;mirror;2%;27| ((|p| (%)) (% (%)))
         (SPROG ((#1=#:G235 NIL) (|t| NIL) (#2=#:G234 NIL))
                (SEQ
                 (PROGN
@@ -469,40 +469,40 @@
                                (CONS (QCAR |t|)
                                      (COND
                                       ((ODDP
-                                        (SPADCALL (QCAR |t|) (QREFELT $ 83)))
+                                        (SPADCALL (QCAR |t|) (QREFELT % 83)))
                                        (QCDR |t|))
                                       ('T
-                                       (SPADCALL (QCDR |t|) (QREFELT $ 84)))))
+                                       (SPADCALL (QCDR |t|) (QREFELT % 84)))))
                                #2#))))
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(SDEFUN |LPOLY;trunc;$Nni$;28| ((|p| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
+(SDEFUN |LPOLY;trunc;%Nni%;28| ((|p| (%)) (|n| (|NonNegativeInteger|)) (% (%)))
         (COND
-         ((> (SPADCALL |p| (QREFELT $ 87)) |n|)
-          (SPADCALL (SPADCALL |p| (QREFELT $ 88)) |n| (QREFELT $ 89)))
+         ((> (SPADCALL |p| (QREFELT % 87)) |n|)
+          (SPADCALL (SPADCALL |p| (QREFELT % 88)) |n| (QREFELT % 89)))
          ('T |p|))) 
 
-(SDEFUN |LPOLY;degree;$Nni;29| ((|p| ($)) ($ (|NonNegativeInteger|)))
+(SDEFUN |LPOLY;degree;%Nni;29| ((|p| (%)) (% (|NonNegativeInteger|)))
         (COND ((NULL |p|) 0)
-              ('T (SPADCALL (QCAR (|SPADfirst| |p|)) (QREFELT $ 83))))) 
+              ('T (SPADCALL (QCAR (|SPADfirst| |p|)) (QREFELT % 83))))) 
 
 (SDEFUN |LPOLY;outTerm|
-        ((|r| (R)) (|lw| (|LyndonWord| |VarSet|)) ($ (|OutputForm|)))
+        ((|r| (R)) (|lw| (|LyndonWord| |VarSet|)) (% (|OutputForm|)))
         (COND
-         ((SPADCALL |r| (|spadConstant| $ 25) (QREFELT $ 90))
-          (SPADCALL |lw| (QREFELT $ 92)))
+         ((SPADCALL |r| (|spadConstant| % 25) (QREFELT % 90))
+          (SPADCALL |lw| (QREFELT % 92)))
          ('T
-          (SPADCALL (SPADCALL |r| (QREFELT $ 93))
-                    (SPADCALL |lw| (QREFELT $ 92)) (QREFELT $ 94))))) 
+          (SPADCALL (SPADCALL |r| (QREFELT % 93))
+                    (SPADCALL |lw| (QREFELT % 92)) (QREFELT % 94))))) 
 
-(SDEFUN |LPOLY;coerce;$Of;31| ((|a| ($)) ($ (|OutputForm|)))
+(SDEFUN |LPOLY;coerce;%Of;31| ((|a| (%)) (% (|OutputForm|)))
         (SPROG ((#1=#:G248 NIL) (|t| NIL) (#2=#:G247 NIL))
                (SEQ
                 (COND
-                 ((NULL |a|) (SPADCALL (|spadConstant| $ 24) (QREFELT $ 93)))
+                 ((NULL |a|) (SPADCALL (|spadConstant| % 24) (QREFELT % 93)))
                  ('T
-                  (SPADCALL (ELT $ 95)
+                  (SPADCALL (ELT % 95)
                             (NREVERSE
                              (PROGN
                               (LETT #2# NIL)
@@ -516,11 +516,11 @@
                                      (LETT #2#
                                            (CONS
                                             (|LPOLY;outTerm| (QCDR |t|)
-                                             (QCAR |t|) $)
+                                             (QCAR |t|) %)
                                             #2#))))
                                    (LETT #1# (CDR #1#)) (GO G190) G191
                                    (EXIT (NREVERSE #2#)))))
-                            (QREFELT $ 98))))))) 
+                            (QREFELT % 98))))))) 
 
 (DECLAIM (NOTINLINE |LiePolynomial;|)) 
 
@@ -544,15 +544,15 @@
 
 (DEFUN |LiePolynomial;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G253 NIL) (#2=#:G254 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL)
+   ((|pv$| NIL) (#1=#:G253 NIL) (#2=#:G254 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))
     (LETT |dv$| (LIST '|LiePolynomial| DV$1 DV$2))
-    (LETT $ (GETREFV 109))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 109))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -580,46 +580,46 @@
                                          (|HasCategory| |#2| '(|Comparable|))
                                          #1#)))))
     (|haddProp| |$ConstructorCache| '|LiePolynomial| (LIST DV$1 DV$2)
-                (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (QSETREFV $ 7 |#2|)
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 8
+                (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (QSETREFV % 7 |#2|)
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 8
               (|List| (|Record| (|:| |k| (|LyndonWord| |#1|)) (|:| |c| |#2|))))
-    $))) 
+    %))) 
 
 (MAKEPROP '|LiePolynomial| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|FreeModule| 7 10) (|local| |#1|)
               (|local| |#2|) '|Rep| (|List| 6) (|LyndonWord| 6) (0 . |varList|)
-              (|Boolean|) (5 . |member?|) |LPOLY;LiePoly;Lw$;25|
+              (|Boolean|) (5 . |member?|) |LPOLY;LiePoly;Lw%;25|
               (|Union| 6 '"failed") (11 . |retractIfCan|) (16 . =)
-              (22 . |left|) (27 . |right|) |LPOLY;construct;3$;19| (|Integer|)
+              (22 . |left|) (27 . |right|) |LPOLY;construct;3%;19| (|Integer|)
               (32 . |position|) (38 . |Zero|) (42 . |Zero|) (46 . |One|)
               (50 . |monomial|) (|List| $$) (56 . |elt|) (62 . *) (68 . +)
-              |LPOLY;eval;$VarSet2$;3| (|List| $) |LPOLY;eval;$LL$;4|
+              |LPOLY;eval;%VarSet2%;3| (|List| %) |LPOLY;eval;%LL%;4|
               (|XRecursivePolynomial| 6 7) (74 . |constant?|) (79 . |Zero|)
               (83 . |retractable?|) (88 . |retract|) (93 . |lquo|) (99 . -)
-              (105 . |rquo|) |LPOLY;coerce;$Xrp;24| (111 . |coef|)
-              |LPOLY;coef;Xrp$R;7| (117 . =) (123 . *) (129 . +)
-              |LPOLY;lquo;Xrp$Xrp;8| |LPOLY;rquo;Xrp$Xrp;9|
+              (105 . |rquo|) |LPOLY;coerce;%Xrp;24| (111 . |coef|)
+              |LPOLY;coef;Xrp%R;7| (117 . =) (123 . *) (129 . +)
+              |LPOLY;lquo;Xrp%Xrp;8| |LPOLY;rquo;Xrp%Xrp;9|
               (|XDistributedPolynomial| 6 7) (135 . |quasiRegular?|)
               (140 . |Zero|) (144 . ~=) (|Record| (|:| |k| 57) (|:| |c| 7))
-              (150 . |mindegTerm|) (|Union| $ '"failed") (|FreeMonoid| 6)
-              (155 . |lyndonIfCan|) |LPOLY;coerce;$Xdp;23| (160 . -)
+              (150 . |mindegTerm|) (|Union| % '"failed") (|FreeMonoid| 6)
+              (155 . |lyndonIfCan|) |LPOLY;coerce;%Xdp;23| (160 . -)
               |LPOLY;LiePolyIfCan;XdpU;10| (|FreeMagma| 6) (166 . |coerce|)
               (171 . *) (177 . =) (183 . |lexico|) (189 . -) (194 . |coerce|)
               (199 . *) (205 . |coerce|) (210 . *) (216 . |coerce|)
-              |LPOLY;coerce;VarSet$;18| |LPOLY;construct;Lw2$;20|
-              |LPOLY;construct;$Lw$;21| |LPOLY;construct;2Lw$;22| (221 . *)
-              (227 . +) (233 . |setUnion|) (239 . |sort|) |LPOLY;varList;$L;26|
+              |LPOLY;coerce;VarSet%;18| |LPOLY;construct;Lw2%;20|
+              |LPOLY;construct;%Lw%;21| |LPOLY;construct;2Lw%;22| (221 . *)
+              (227 . +) (233 . |setUnion|) (239 . |sort|) |LPOLY;varList;%L;26|
               (|PositiveInteger|) (244 . |length|) (249 . -)
-              |LPOLY;mirror;2$;27| (|NonNegativeInteger|)
-              |LPOLY;degree;$Nni;29| (254 . |reductum|) |LPOLY;trunc;$Nni$;28|
+              |LPOLY;mirror;2%;27| (|NonNegativeInteger|)
+              |LPOLY;degree;%Nni;29| (254 . |reductum|) |LPOLY;trunc;%Nni%;28|
               (259 . =) (|OutputForm|) (265 . |coerce|) (270 . |coerce|)
               (275 . *) (281 . +) (|Mapping| 91 91 91) (|List| 91)
-              (287 . |reduce|) |LPOLY;coerce;$Of;31|
+              (287 . |reduce|) |LPOLY;coerce;%Of;31|
               (|Record| (|:| |k| 10) (|:| |c| 7)) (|List| 100) (|Mapping| 7 10)
               (|Mapping| 7 7) (|List| 10) (|List| 7) (|HashState|) (|String|)
               (|SingleInteger|))

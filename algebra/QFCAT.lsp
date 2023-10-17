@@ -37,30 +37,30 @@
                                                         (|FullyPatternMatchable|
                                                          '|t#1|)
                                                         (|mkCategory|
-                                                         '(((/ ($ |t#1| |t#1|))
+                                                         '(((/ (% |t#1| |t#1|))
                                                             T)
-                                                           ((|numer| (|t#1| $))
+                                                           ((|numer| (|t#1| %))
                                                             T)
-                                                           ((|denom| (|t#1| $))
+                                                           ((|denom| (|t#1| %))
                                                             T)
-                                                           ((|numerator| ($ $))
+                                                           ((|numerator| (% %))
                                                             T)
                                                            ((|denominator|
-                                                             ($ $))
+                                                             (% %))
                                                             T)
                                                            ((|wholePart|
-                                                             (|t#1| $))
+                                                             (|t#1| %))
                                                             (|has| |t#1|
                                                                    (|EuclideanDomain|)))
                                                            ((|fractionPart|
-                                                             ($ $))
+                                                             (% %))
                                                             (|has| |t#1|
                                                                    (|EuclideanDomain|)))
                                                            ((|ceiling|
-                                                             (|t#1| $))
+                                                             (|t#1| %))
                                                             (|has| |t#1|
                                                                    (|IntegerNumberSystem|)))
-                                                           ((|floor| (|t#1| $))
+                                                           ((|floor| (|t#1| %))
                                                             (|has| |t#1|
                                                                    (|IntegerNumberSystem|))))
                                                          '(((|StepThrough|)

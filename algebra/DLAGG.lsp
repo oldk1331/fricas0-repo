@@ -26,19 +26,19 @@
                                                 (|Join|
                                                  (|RecursiveAggregate| '|t#1|)
                                                  (|mkCategory|
-                                                  '(((|last| (|t#1| $)) T)
-                                                    ((|head| ($ $)) T)
-                                                    ((|tail| ($ $)) T)
-                                                    ((|previous| ($ $)) T)
-                                                    ((|next| ($ $)) T)
-                                                    ((|concat!| ($ $ $))
-                                                     (|has| $
+                                                  '(((|last| (|t#1| %)) T)
+                                                    ((|head| (% %)) T)
+                                                    ((|tail| (% %)) T)
+                                                    ((|previous| (% %)) T)
+                                                    ((|next| (% %)) T)
+                                                    ((|concat!| (% % %))
+                                                     (|has| %
                                                             (|shallowlyMutable|)))
-                                                    ((|setprevious!| ($ $ $))
-                                                     (|has| $
+                                                    ((|setprevious!| (% % %))
+                                                     (|has| %
                                                             (|shallowlyMutable|)))
-                                                    ((|setnext!| ($ $ $))
-                                                     (|has| $
+                                                    ((|setnext!| (% % %))
+                                                     (|has| %
                                                             (|shallowlyMutable|))))
                                                   NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|DoublyLinkedAggregate| |t#1|))))) 

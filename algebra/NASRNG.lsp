@@ -12,7 +12,7 @@
          (PROG1
              (LETT #1#
                    (|Join| (|AbelianSemiGroup|) (|Magma|)
-                           (|mkCategory| '(((|antiCommutator| ($ $ $)) T)) NIL
+                           (|mkCategory| '(((|antiCommutator| (% % %)) T)) NIL
                                          NIL NIL)))
            (SETELT #1# 0 '(|NonAssociativeSemiRng|))))) 
 

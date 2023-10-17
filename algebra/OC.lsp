@@ -28,31 +28,31 @@
                                                  (|FullyRetractableTo| '|t#1|)
                                                  (|FullyEvalableOver| '|t#1|)
                                                  (|mkCategory|
-                                                  '(((|conjugate| ($ $)) T)
-                                                    ((|real| (|t#1| $)) T)
-                                                    ((|imagi| (|t#1| $)) T)
-                                                    ((|imagj| (|t#1| $)) T)
-                                                    ((|imagk| (|t#1| $)) T)
-                                                    ((|imagE| (|t#1| $)) T)
-                                                    ((|imagI| (|t#1| $)) T)
-                                                    ((|imagJ| (|t#1| $)) T)
-                                                    ((|imagK| (|t#1| $)) T)
-                                                    ((|norm| (|t#1| $)) T)
+                                                  '(((|conjugate| (% %)) T)
+                                                    ((|real| (|t#1| %)) T)
+                                                    ((|imagi| (|t#1| %)) T)
+                                                    ((|imagj| (|t#1| %)) T)
+                                                    ((|imagk| (|t#1| %)) T)
+                                                    ((|imagE| (|t#1| %)) T)
+                                                    ((|imagI| (|t#1| %)) T)
+                                                    ((|imagJ| (|t#1| %)) T)
+                                                    ((|imagK| (|t#1| %)) T)
+                                                    ((|norm| (|t#1| %)) T)
                                                     ((|octon|
-                                                      ($ |t#1| |t#1| |t#1|
+                                                      (% |t#1| |t#1| |t#1|
                                                        |t#1| |t#1| |t#1| |t#1|
                                                        |t#1|))
                                                      T)
-                                                    ((|abs| (|t#1| $))
+                                                    ((|abs| (|t#1| %))
                                                      (|has| |t#1|
                                                             (|RealNumberSystem|)))
                                                     ((|rational?|
-                                                      ((|Boolean|) $))
+                                                      ((|Boolean|) %))
                                                      (|has| |t#1|
                                                             (|IntegerNumberSystem|)))
                                                     ((|rational|
                                                       ((|Fraction| (|Integer|))
-                                                       $))
+                                                       %))
                                                      (|has| |t#1|
                                                             (|IntegerNumberSystem|)))
                                                     ((|rationalIfCan|
@@ -60,10 +60,10 @@
                                                         (|Fraction|
                                                          (|Integer|))
                                                         "failed")
-                                                       $))
+                                                       %))
                                                      (|has| |t#1|
                                                             (|IntegerNumberSystem|)))
-                                                    ((|inv| ($ $))
+                                                    ((|inv| (% %))
                                                      (|has| |t#1| (|Field|))))
                                                   '(((|OrderedSet|)
                                                      (|has| |t#1|

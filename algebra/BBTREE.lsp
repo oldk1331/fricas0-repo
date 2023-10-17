@@ -1,5 +1,5 @@
 
-(SDEFUN |BBTREE;setleaves!;$L$;1| ((|t| ($)) (|u| (|List| S)) ($ ($)))
+(SDEFUN |BBTREE;setleaves!;%L%;1| ((|t| (%)) (|u| (|List| S)) (% (%)))
         (SPROG
          ((|acc| (|List| S)) (#1=#:G123 NIL) (|i| NIL)
           (|m| (|NonNegativeInteger|)) (|n| (|NonNegativeInteger|)))
@@ -7,12 +7,12 @@
               (EXIT
                (COND
                 ((EQL |n| 0)
-                 (COND ((SPADCALL |t| (QREFELT $ 9)) |t|)
+                 (COND ((SPADCALL |t| (QREFELT % 9)) |t|)
                        (#2='T
                         (|error|
                          "the tree and list must have the same number of elements"))))
                 ((EQL |n| 1)
-                 (SEQ (SPADCALL |t| (|SPADfirst| |u|) (QREFELT $ 10))
+                 (SEQ (SPADCALL |t| (|SPADfirst| |u|) (QREFELT % 10))
                       (EXIT |t|)))
                 (#2#
                  (SEQ (LETT |m| (QUOTIENT2 |n| 2)) (LETT |acc| NIL)
@@ -21,127 +21,127 @@
                            (SEQ (LETT |acc| (CONS (|SPADfirst| |u|) |acc|))
                                 (EXIT (LETT |u| (CDR |u|))))
                            (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-                      (SPADCALL (SPADCALL |t| (QREFELT $ 11)) (NREVERSE |acc|)
-                                (QREFELT $ 13))
-                      (SPADCALL (SPADCALL |t| (QREFELT $ 14)) |u|
-                                (QREFELT $ 13))
+                      (SPADCALL (SPADCALL |t| (QREFELT % 11)) (NREVERSE |acc|)
+                                (QREFELT % 13))
+                      (SPADCALL (SPADCALL |t| (QREFELT % 14)) |u|
+                                (QREFELT % 13))
                       (EXIT |t|)))))))) 
 
-(SDEFUN |BBTREE;balancedBinaryTree;NniS$;2|
-        ((|n| (|NonNegativeInteger|)) (|val| (S)) ($ ($)))
+(SDEFUN |BBTREE;balancedBinaryTree;NniS%;2|
+        ((|n| (|NonNegativeInteger|)) (|val| (S)) (% (%)))
         (SPROG ((|m| (|NonNegativeInteger|)))
                (SEQ
-                (COND ((EQL |n| 0) (SPADCALL (QREFELT $ 15)))
+                (COND ((EQL |n| 0) (SPADCALL (QREFELT % 15)))
                       ((EQL |n| 1)
-                       (SPADCALL (SPADCALL (QREFELT $ 15)) |val|
-                                 (SPADCALL (QREFELT $ 15)) (QREFELT $ 16)))
+                       (SPADCALL (SPADCALL (QREFELT % 15)) |val|
+                                 (SPADCALL (QREFELT % 15)) (QREFELT % 16)))
                       ('T
                        (SEQ (LETT |m| (QUOTIENT2 |n| 2))
                             (EXIT
-                             (SPADCALL (SPADCALL |m| |val| (QREFELT $ 18))
+                             (SPADCALL (SPADCALL |m| |val| (QREFELT % 18))
                                        |val|
                                        (SPADCALL (- |n| |m|) |val|
-                                                 (QREFELT $ 18))
-                                       (QREFELT $ 16))))))))) 
+                                                 (QREFELT % 18))
+                                       (QREFELT % 16))))))))) 
 
-(SDEFUN |BBTREE;mapUp!;$MS;3| ((|x| ($)) (|fn| (|Mapping| S S S)) ($ (S)))
+(SDEFUN |BBTREE;mapUp!;%MS;3| ((|x| (%)) (|fn| (|Mapping| S S S)) (% (S)))
         (COND
-         ((SPADCALL |x| (QREFELT $ 9))
+         ((SPADCALL |x| (QREFELT % 9))
           (|error| "mapUp! called on a null tree"))
-         ((SPADCALL |x| (QREFELT $ 19)) (SPADCALL |x| '|value| (QREFELT $ 21)))
+         ((SPADCALL |x| (QREFELT % 19)) (SPADCALL |x| '|value| (QREFELT % 21)))
          ('T
           (SPADCALL |x| '|value|
                     (SPADCALL
-                     (SPADCALL (SPADCALL |x| '|left| (QREFELT $ 23)) |fn|
-                               (QREFELT $ 25))
-                     (SPADCALL (SPADCALL |x| '|right| (QREFELT $ 27)) |fn|
-                               (QREFELT $ 25))
+                     (SPADCALL (SPADCALL |x| '|left| (QREFELT % 23)) |fn|
+                               (QREFELT % 25))
+                     (SPADCALL (SPADCALL |x| '|right| (QREFELT % 27)) |fn|
+                               (QREFELT % 25))
                      |fn|)
-                    (QREFELT $ 28))))) 
+                    (QREFELT % 28))))) 
 
-(SDEFUN |BBTREE;mapUp!;2$M$;4|
-        ((|x| ($)) (|y| ($)) (|fn| (|Mapping| S S S S S)) ($ ($)))
+(SDEFUN |BBTREE;mapUp!;2%M%;4|
+        ((|x| (%)) (|y| (%)) (|fn| (|Mapping| S S S S S)) (% (%)))
         (SEQ
          (COND
-          ((OR (SPADCALL |x| (QREFELT $ 9)) (SPADCALL |y| (QREFELT $ 9)))
+          ((OR (SPADCALL |x| (QREFELT % 9)) (SPADCALL |y| (QREFELT % 9)))
            (|error| "mapUp! is called on a null tree"))
           ('T
            (COND
-            ((SPADCALL |x| (QREFELT $ 19))
-             (COND ((SPADCALL |y| (QREFELT $ 19)) |x|)
+            ((SPADCALL |x| (QREFELT % 19))
+             (COND ((SPADCALL |y| (QREFELT % 19)) |x|)
                    (#1='T (|error| "balanced binary trees are incompatible"))))
-            ((SPADCALL |y| (QREFELT $ 19))
+            ((SPADCALL |y| (QREFELT % 19))
              (|error| "balanced binary trees are incompatible"))
             (#1#
              (SEQ
-              (SPADCALL (SPADCALL |x| '|left| (QREFELT $ 23))
-                        (SPADCALL |y| '|left| (QREFELT $ 23)) |fn|
-                        (QREFELT $ 30))
-              (SPADCALL (SPADCALL |x| '|right| (QREFELT $ 27))
-                        (SPADCALL |y| '|right| (QREFELT $ 27)) |fn|
-                        (QREFELT $ 30))
+              (SPADCALL (SPADCALL |x| '|left| (QREFELT % 23))
+                        (SPADCALL |y| '|left| (QREFELT % 23)) |fn|
+                        (QREFELT % 30))
+              (SPADCALL (SPADCALL |x| '|right| (QREFELT % 27))
+                        (SPADCALL |y| '|right| (QREFELT % 27)) |fn|
+                        (QREFELT % 30))
               (SPADCALL |x| '|value|
                         (SPADCALL
-                         (SPADCALL (SPADCALL |x| '|left| (QREFELT $ 23))
-                                   '|value| (QREFELT $ 21))
-                         (SPADCALL (SPADCALL |x| '|right| (QREFELT $ 27))
-                                   '|value| (QREFELT $ 21))
-                         (SPADCALL (SPADCALL |y| '|left| (QREFELT $ 23))
-                                   '|value| (QREFELT $ 21))
-                         (SPADCALL (SPADCALL |y| '|right| (QREFELT $ 27))
-                                   '|value| (QREFELT $ 21))
+                         (SPADCALL (SPADCALL |x| '|left| (QREFELT % 23))
+                                   '|value| (QREFELT % 21))
+                         (SPADCALL (SPADCALL |x| '|right| (QREFELT % 27))
+                                   '|value| (QREFELT % 21))
+                         (SPADCALL (SPADCALL |y| '|left| (QREFELT % 23))
+                                   '|value| (QREFELT % 21))
+                         (SPADCALL (SPADCALL |y| '|right| (QREFELT % 27))
+                                   '|value| (QREFELT % 21))
                          |fn|)
-                        (QREFELT $ 28))
+                        (QREFELT % 28))
               (EXIT |x|)))))))) 
 
-(SDEFUN |BBTREE;mapDown!;$SM$;5|
-        ((|x| ($)) (|p| (S)) (|fn| (|Mapping| S S S)) ($ ($)))
+(SDEFUN |BBTREE;mapDown!;%SM%;5|
+        ((|x| (%)) (|p| (S)) (|fn| (|Mapping| S S S)) (% (%)))
         (SEQ
-         (COND ((SPADCALL |x| (QREFELT $ 9)) |x|)
+         (COND ((SPADCALL |x| (QREFELT % 9)) |x|)
                ('T
                 (SEQ
                  (SPADCALL |x| '|value|
-                           (SPADCALL |p| (SPADCALL |x| '|value| (QREFELT $ 21))
+                           (SPADCALL |p| (SPADCALL |x| '|value| (QREFELT % 21))
                                      |fn|)
-                           (QREFELT $ 28))
-                 (SPADCALL (SPADCALL |x| '|left| (QREFELT $ 23))
-                           (SPADCALL |x| '|value| (QREFELT $ 21)) |fn|
-                           (QREFELT $ 31))
-                 (SPADCALL (SPADCALL |x| '|right| (QREFELT $ 27))
-                           (SPADCALL |x| '|value| (QREFELT $ 21)) |fn|
-                           (QREFELT $ 31))
+                           (QREFELT % 28))
+                 (SPADCALL (SPADCALL |x| '|left| (QREFELT % 23))
+                           (SPADCALL |x| '|value| (QREFELT % 21)) |fn|
+                           (QREFELT % 31))
+                 (SPADCALL (SPADCALL |x| '|right| (QREFELT % 27))
+                           (SPADCALL |x| '|value| (QREFELT % 21)) |fn|
+                           (QREFELT % 31))
                  (EXIT |x|)))))) 
 
-(SDEFUN |BBTREE;mapDown!;$SM$;6|
-        ((|x| ($)) (|p| (S)) (|fn| (|Mapping| (|List| S) S S S)) ($ ($)))
+(SDEFUN |BBTREE;mapDown!;%SM%;6|
+        ((|x| (%)) (|p| (S)) (|fn| (|Mapping| (|List| S) S S S)) (% (%)))
         (SPROG ((|u| (|List| S)))
                (SEQ
-                (COND ((SPADCALL |x| (QREFELT $ 9)) |x|)
+                (COND ((SPADCALL |x| (QREFELT % 9)) |x|)
                       (#1='T
-                       (SEQ (SPADCALL |x| '|value| |p| (QREFELT $ 28))
+                       (SEQ (SPADCALL |x| '|value| |p| (QREFELT % 28))
                             (EXIT
-                             (COND ((SPADCALL |x| (QREFELT $ 19)) |x|)
+                             (COND ((SPADCALL |x| (QREFELT % 19)) |x|)
                                    (#1#
                                     (SEQ
                                      (LETT |u|
                                            (SPADCALL
                                             (SPADCALL
                                              (SPADCALL |x| '|left|
-                                                       (QREFELT $ 23))
-                                             '|value| (QREFELT $ 21))
+                                                       (QREFELT % 23))
+                                             '|value| (QREFELT % 21))
                                             (SPADCALL
                                              (SPADCALL |x| '|right|
-                                                       (QREFELT $ 27))
-                                             '|value| (QREFELT $ 21))
+                                                       (QREFELT % 27))
+                                             '|value| (QREFELT % 21))
                                             |p| |fn|))
                                      (SPADCALL
-                                      (SPADCALL |x| '|left| (QREFELT $ 23))
-                                      (SPADCALL |u| 1 (QREFELT $ 33)) |fn|
-                                      (QREFELT $ 35))
+                                      (SPADCALL |x| '|left| (QREFELT % 23))
+                                      (SPADCALL |u| 1 (QREFELT % 33)) |fn|
+                                      (QREFELT % 35))
                                      (SPADCALL
-                                      (SPADCALL |x| '|right| (QREFELT $ 27))
-                                      (SPADCALL |u| 2 (QREFELT $ 33)) |fn|
-                                      (QREFELT $ 35))
+                                      (SPADCALL |x| '|right| (QREFELT % 27))
+                                      (SPADCALL |u| 2 (QREFELT % 33)) |fn|
+                                      (QREFELT % 35))
                                      (EXIT |x|))))))))))) 
 
 (DECLAIM (NOTINLINE |BalancedBinaryTree;|)) 
@@ -165,14 +165,14 @@
 
 (DEFUN |BalancedBinaryTree;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G172 NIL) (#2=#:G173 NIL) (#3=#:G174 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G172 NIL) (#2=#:G173 NIL) (#3=#:G174 NIL) (% NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|BalancedBinaryTree| DV$1))
-    (LETT $ (GETREFV 49))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 49))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -202,35 +202,35 @@
                                                                    |#1|)))
                                              #3#))))))
     (|haddProp| |$ConstructorCache| '|BalancedBinaryTree| (LIST DV$1)
-                (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 128))
+                (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (AND (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 128))
     (AND (|HasCategory| |#1| '(|OrderedSet|))
-         (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 256))
-    (AND #2# (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 512))
-    (AND (OR (AND #2# (|HasCategory| $ '(|finiteAggregate|))) #3#)
-         (|augmentPredVector| $ 1024))
-    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 2048))
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 7 (|BinaryTree| |#1|))
-    $))) 
+         (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 256))
+    (AND #2# (|HasCategory| % '(|finiteAggregate|))
+         (|augmentPredVector| % 512))
+    (AND (OR (AND #2# (|HasCategory| % '(|finiteAggregate|))) #3#)
+         (|augmentPredVector| % 1024))
+    (AND (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 2048))
+    (SETF |pv$| (QREFELT % 3))
+    (QSETREFV % 7 (|BinaryTree| |#1|))
+    %))) 
 
 (MAKEPROP '|BalancedBinaryTree| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|BinaryTree| 6) (|local| |#1|) '|Rep|
               (|Boolean|) (0 . |empty?|) (5 . |setvalue!|) (11 . |left|)
-              (|List| 6) |BBTREE;setleaves!;$L$;1| (16 . |right|)
+              (|List| 6) |BBTREE;setleaves!;%L%;1| (16 . |right|)
               (21 . |empty|) (25 . |node|) (|NonNegativeInteger|)
-              |BBTREE;balancedBinaryTree;NniS$;2| (32 . |leaf?|) '|value|
+              |BBTREE;balancedBinaryTree;NniS%;2| (32 . |leaf?|) '|value|
               (37 . |elt|) '|left| (43 . |elt|) (|Mapping| 6 6 6)
-              |BBTREE;mapUp!;$MS;3| '|right| (49 . |elt|) (55 . |setelt!|)
-              (|Mapping| 6 6 6 6 6) |BBTREE;mapUp!;2$M$;4|
-              |BBTREE;mapDown!;$SM$;5| (|Integer|) (62 . |elt|)
-              (|Mapping| 12 6 6 6) |BBTREE;mapDown!;$SM$;6| (|List| 37)
+              |BBTREE;mapUp!;%MS;3| '|right| (49 . |elt|) (55 . |setelt!|)
+              (|Mapping| 6 6 6 6 6) |BBTREE;mapUp!;2%M%;4|
+              |BBTREE;mapDown!;%SM%;5| (|Integer|) (62 . |elt|)
+              (|Mapping| 12 6 6 6) |BBTREE;mapDown!;%SM%;6| (|List| 37)
               (|Equation| 6) (|Mapping| 8 6 6) (|Mapping| 8 6) '"right" '"left"
-              '"value" (|List| $) (|Mapping| 6 6) (|OutputForm|)
+              '"value" (|List| %) (|Mapping| 6 6) (|OutputForm|)
               (|SingleInteger|) (|String|) (|HashState|))
            '#(~= 68 |value| 74 |size?| 79 |setvalue!| 85 |setright!| 91
               |setleft!| 97 |setleaves!| 103 |setelt!| 109 |setchildren!| 130

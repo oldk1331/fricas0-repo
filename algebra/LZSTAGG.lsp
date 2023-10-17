@@ -26,35 +26,35 @@
                                                  (|StreamAggregate| '|t#1|)
                                                  (|mkCategory|
                                                   '(((|remove|
-                                                      ($
+                                                      (%
                                                        (|Mapping| (|Boolean|)
                                                                   |t#1|)
-                                                       $))
+                                                       %))
                                                      T)
                                                     ((|select|
-                                                      ($
+                                                      (%
                                                        (|Mapping| (|Boolean|)
                                                                   |t#1|)
-                                                       $))
+                                                       %))
                                                      T)
                                                     ((|explicitEntries?|
-                                                      ((|Boolean|) $))
+                                                      ((|Boolean|) %))
                                                      T)
                                                     ((|explicitlyEmpty?|
-                                                      ((|Boolean|) $))
+                                                      ((|Boolean|) %))
                                                      T)
-                                                    ((|lazy?| ((|Boolean|) $))
+                                                    ((|lazy?| ((|Boolean|) %))
                                                      T)
-                                                    ((|lazyEvaluate| ($ $)) T)
-                                                    ((|frst| (|t#1| $)) T)
-                                                    ((|rst| ($ $)) T)
+                                                    ((|lazyEvaluate| (% %)) T)
+                                                    ((|frst| (|t#1| %)) T)
+                                                    ((|rst| (% %)) T)
                                                     ((|numberOfComputedEntries|
                                                       ((|NonNegativeInteger|)
-                                                       $))
+                                                       %))
                                                      T)
                                                     ((|extend|
-                                                      ($ $ (|Integer|)))
+                                                      (% % (|Integer|)))
                                                      T)
-                                                    ((|complete| ($ $)) T))
+                                                    ((|complete| (% %)) T))
                                                   NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|LazyStreamAggregate| |t#1|))))) 

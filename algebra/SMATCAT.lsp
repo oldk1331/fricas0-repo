@@ -39,44 +39,44 @@
                                                          '|t#2|)
                                                         (|mkCategory|
                                                          '(((|scalarMatrix|
-                                                             ($ |t#2|))
+                                                             (% |t#2|))
                                                             T)
                                                            ((|diagonalMatrix|
-                                                             ($
+                                                             (%
                                                               (|List| |t#2|)))
                                                             T)
                                                            ((|diagonal|
-                                                             (|t#3| $))
+                                                             (|t#3| %))
                                                             T)
-                                                           ((|trace| (|t#2| $))
+                                                           ((|trace| (|t#2| %))
                                                             T)
                                                            ((|diagonalProduct|
-                                                             (|t#2| $))
+                                                             (|t#2| %))
                                                             T)
-                                                           ((* (|t#4| $ |t#4|))
+                                                           ((* (|t#4| % |t#4|))
                                                             T)
-                                                           ((* (|t#3| |t#3| $))
+                                                           ((* (|t#3| |t#3| %))
                                                             T)
                                                            ((|determinant|
-                                                             (|t#2| $))
+                                                             (|t#2| %))
                                                             (|has| |t#2|
                                                                    (|CommutativeRing|)))
                                                            ((|minordet|
-                                                             (|t#2| $))
+                                                             (|t#2| %))
                                                             (|has| |t#2|
                                                                    (|CommutativeRing|)))
                                                            ((|Pfaffian|
-                                                             (|t#2| $))
+                                                             (|t#2| %))
                                                             (|has| |t#2|
                                                                    (|CommutativeRing|)))
                                                            ((|inverse|
-                                                             ((|Union| $
+                                                             ((|Union| %
                                                                        "failed")
-                                                              $))
+                                                              %))
                                                             (|has| |t#2|
                                                                    (|Field|)))
                                                            ((^
-                                                             ($ $ (|Integer|)))
+                                                             (% % (|Integer|)))
                                                             (|has| |t#2|
                                                                    (|Field|))))
                                                          '(((|SemiRing|)

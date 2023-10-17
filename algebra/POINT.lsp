@@ -1,56 +1,56 @@
 
-(SDEFUN |POINT;point;L$;1| ((|l| (|List| R)) ($ ($)))
-        (SPROG ((#1=#:G110 NIL) (|x| NIL) (|i| NIL) (|pt| ($)))
-               (SEQ (LETT |pt| (SPADCALL (LENGTH |l|) 'R (QREFELT $ 8)))
-                    (SEQ (LETT |i| (SPADCALL |pt| (QREFELT $ 10)))
+(SDEFUN |POINT;point;L%;1| ((|l| (|List| R)) (% (%)))
+        (SPROG ((#1=#:G110 NIL) (|x| NIL) (|i| NIL) (|pt| (%)))
+               (SEQ (LETT |pt| (SPADCALL (LENGTH |l|) 'R (QREFELT % 8)))
+                    (SEQ (LETT |i| (SPADCALL |pt| (QREFELT % 10)))
                          (LETT |x| NIL) (LETT #1# |l|) G190
                          (COND
                           ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
                            (GO G191)))
-                         (SEQ (EXIT (SPADCALL |pt| |i| |x| (QREFELT $ 11))))
+                         (SEQ (EXIT (SPADCALL |pt| |i| |x| (QREFELT % 11))))
                          (LETT #1# (PROG1 (CDR #1#) (LETT |i| (+ |i| 1))))
                          (GO G190) G191 (EXIT NIL))
                     (EXIT |pt|)))) 
 
-(SDEFUN |POINT;dimension;$Pi;2| ((|p| ($)) ($ (|PositiveInteger|)))
+(SDEFUN |POINT;dimension;%Pi;2| ((|p| (%)) (% (|PositiveInteger|)))
         (SPROG ((#1=#:G111 NIL))
-               (PROG1 (LETT #1# (SPADCALL |p| (QREFELT $ 14)))
+               (PROG1 (LETT #1# (SPADCALL |p| (QREFELT % 14)))
                  (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                    '(|NonNegativeInteger|) #1#)))) 
 
-(SDEFUN |POINT;convert;L$;3| ((|l| (|List| R)) ($ ($)))
-        (SPADCALL |l| (QREFELT $ 13))) 
+(SDEFUN |POINT;convert;L%;3| ((|l| (|List| R)) (% (%)))
+        (SPADCALL |l| (QREFELT % 13))) 
 
-(SDEFUN |POINT;cross;3$;4| ((|p0| ($)) (|p1| ($)) ($ ($)))
+(SDEFUN |POINT;cross;3%;4| ((|p0| (%)) (|p1| (%)) (% (%)))
         (COND
-         ((OR (SPADCALL (SPADCALL |p0| (QREFELT $ 14)) 3 (QREFELT $ 19))
-              (SPADCALL (SPADCALL |p1| (QREFELT $ 14)) 3 (QREFELT $ 19)))
+         ((OR (SPADCALL (SPADCALL |p0| (QREFELT % 14)) 3 (QREFELT % 19))
+              (SPADCALL (SPADCALL |p1| (QREFELT % 14)) 3 (QREFELT % 19)))
           (|error| "Arguments to cross must be three dimensional"))
          ('T
           (SPADCALL
            (LIST
             (SPADCALL
-             (SPADCALL (SPADCALL |p0| 2 (QREFELT $ 20))
-                       (SPADCALL |p1| 3 (QREFELT $ 20)) (QREFELT $ 21))
-             (SPADCALL (SPADCALL |p1| 2 (QREFELT $ 20))
-                       (SPADCALL |p0| 3 (QREFELT $ 20)) (QREFELT $ 21))
-             (QREFELT $ 22))
+             (SPADCALL (SPADCALL |p0| 2 (QREFELT % 20))
+                       (SPADCALL |p1| 3 (QREFELT % 20)) (QREFELT % 21))
+             (SPADCALL (SPADCALL |p1| 2 (QREFELT % 20))
+                       (SPADCALL |p0| 3 (QREFELT % 20)) (QREFELT % 21))
+             (QREFELT % 22))
             (SPADCALL
-             (SPADCALL (SPADCALL |p1| 1 (QREFELT $ 20))
-                       (SPADCALL |p0| 3 (QREFELT $ 20)) (QREFELT $ 21))
-             (SPADCALL (SPADCALL |p0| 1 (QREFELT $ 20))
-                       (SPADCALL |p1| 3 (QREFELT $ 20)) (QREFELT $ 21))
-             (QREFELT $ 22))
+             (SPADCALL (SPADCALL |p1| 1 (QREFELT % 20))
+                       (SPADCALL |p0| 3 (QREFELT % 20)) (QREFELT % 21))
+             (SPADCALL (SPADCALL |p0| 1 (QREFELT % 20))
+                       (SPADCALL |p1| 3 (QREFELT % 20)) (QREFELT % 21))
+             (QREFELT % 22))
             (SPADCALL
-             (SPADCALL (SPADCALL |p0| 1 (QREFELT $ 20))
-                       (SPADCALL |p1| 2 (QREFELT $ 20)) (QREFELT $ 21))
-             (SPADCALL (SPADCALL |p1| 1 (QREFELT $ 20))
-                       (SPADCALL |p0| 2 (QREFELT $ 20)) (QREFELT $ 21))
-             (QREFELT $ 22)))
-           (QREFELT $ 13))))) 
+             (SPADCALL (SPADCALL |p0| 1 (QREFELT % 20))
+                       (SPADCALL |p1| 2 (QREFELT % 20)) (QREFELT % 21))
+             (SPADCALL (SPADCALL |p1| 1 (QREFELT % 20))
+                       (SPADCALL |p0| 2 (QREFELT % 20)) (QREFELT % 21))
+             (QREFELT % 22)))
+           (QREFELT % 13))))) 
 
-(SDEFUN |POINT;extend;$L$;5| ((|p| ($)) (|l| (|List| R)) ($ ($)))
-        (SPADCALL |p| (SPADCALL |l| (QREFELT $ 13)) (QREFELT $ 25))) 
+(SDEFUN |POINT;extend;%L%;5| ((|p| (%)) (|l| (|List| R)) (% (%)))
+        (SPADCALL |p| (SPADCALL |l| (QREFELT % 13)) (QREFELT % 25))) 
 
 (DECLAIM (NOTINLINE |Point;|)) 
 
@@ -71,14 +71,14 @@
 
 (DEFUN |Point;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G126 NIL) (#2=#:G127 NIL) (#3=#:G128 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G126 NIL) (#2=#:G127 NIL) (#3=#:G128 NIL) (% NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|Point| DV$1))
-    (LETT $ (GETREFV 44))
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
+    (LETT % (GETREFV 44))
+    (QSETREFV % 0 |dv$|)
+    (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
@@ -135,66 +135,66 @@
                                          (|HasCategory| |#1|
                                                         '(|RadicalCategory|))
                                          (|HasCategory| |#1| '(|Ring|)))))))
-    (|haddProp| |$ConstructorCache| '|Point| (LIST DV$1) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (AND (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 524288))
-    (AND (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 1048576))
+    (|haddProp| |$ConstructorCache| '|Point| (LIST DV$1) (CONS 1 %))
+    (|stuffDomainSlots| %)
+    (QSETREFV % 6 |#1|)
+    (AND (|HasCategory| % '(|shallowlyMutable|))
+         (|augmentPredVector| % 524288))
+    (AND (|HasCategory| % '(|finiteAggregate|))
+         (|augmentPredVector| % 1048576))
     (AND (|HasCategory| |#1| '(|BasicType|))
-         (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 2097152))
-    (AND (|HasCategory| $ '(|finiteAggregate|))
-         (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 4194304))
+         (|HasCategory| % '(|finiteAggregate|))
+         (|augmentPredVector| % 2097152))
+    (AND (|HasCategory| % '(|finiteAggregate|))
+         (|HasCategory| % '(|shallowlyMutable|))
+         (|augmentPredVector| % 4194304))
     (AND (|HasCategory| |#1| '(|OrderedSet|))
-         (|HasCategory| $ '(|finiteAggregate|))
-         (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 8388608))
+         (|HasCategory| % '(|finiteAggregate|))
+         (|HasCategory| % '(|shallowlyMutable|))
+         (|augmentPredVector| % 8388608))
     (AND (|HasCategory| |#1| '(|OrderedSet|))
-         (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 16777216))
+         (|HasCategory| % '(|finiteAggregate|))
+         (|augmentPredVector| % 16777216))
     (AND
-     (OR (AND #3# (|HasCategory| $ '(|finiteAggregate|)))
+     (OR (AND #3# (|HasCategory| % '(|finiteAggregate|)))
          (AND (|HasCategory| |#1| '(|OrderedSet|))
-              (|HasCategory| $ '(|finiteAggregate|))))
-     (|augmentPredVector| $ 33554432))
+              (|HasCategory| % '(|finiteAggregate|))))
+     (|augmentPredVector| % 33554432))
     (AND
-     (OR (AND #3# (|HasCategory| $ '(|finiteAggregate|)))
+     (OR (AND #3# (|HasCategory| % '(|finiteAggregate|)))
          (AND (|HasCategory| |#1| '(|OrderedSet|))
-              (|HasCategory| $ '(|finiteAggregate|)))
+              (|HasCategory| % '(|finiteAggregate|)))
          #2#)
-     (|augmentPredVector| $ 67108864))
+     (|augmentPredVector| % 67108864))
     (AND
-     (OR #1# (AND #3# (|HasCategory| $ '(|finiteAggregate|)))
+     (OR #1# (AND #3# (|HasCategory| % '(|finiteAggregate|)))
          (AND (|HasCategory| |#1| '(|OrderedSet|))
-              (|HasCategory| $ '(|finiteAggregate|))))
-     (|augmentPredVector| $ 134217728))
+              (|HasCategory| % '(|finiteAggregate|))))
+     (|augmentPredVector| % 134217728))
     (AND
      (OR
       (AND (|HasCategory| |#1| '(|BasicType|))
-           (|HasCategory| $ '(|finiteAggregate|)))
-      (AND #3# (|HasCategory| $ '(|finiteAggregate|)))
+           (|HasCategory| % '(|finiteAggregate|)))
+      (AND #3# (|HasCategory| % '(|finiteAggregate|)))
       (AND (|HasCategory| |#1| '(|OrderedSet|))
-           (|HasCategory| $ '(|finiteAggregate|)))
+           (|HasCategory| % '(|finiteAggregate|)))
       #2#)
-     (|augmentPredVector| $ 268435456))
-    (SETF |pv$| (QREFELT $ 3))
-    $))) 
+     (|augmentPredVector| % 268435456))
+    (SETF |pv$| (QREFELT % 3))
+    %))) 
 
 (MAKEPROP '|Point| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|Vector| 6) (|local| |#1|)
               (|NonNegativeInteger|) (0 . |new|) (|Integer|) (6 . |minIndex|)
-              (11 . |setelt!|) (|List| 6) |POINT;point;L$;1| (18 . |#|)
-              (|PositiveInteger|) |POINT;dimension;$Pi;2| |POINT;convert;L$;3|
+              (11 . |setelt!|) (|List| 6) |POINT;point;L%;1| (18 . |#|)
+              (|PositiveInteger|) |POINT;dimension;%Pi;2| |POINT;convert;L%;3|
               (|Boolean|) (23 . ~=) (29 . |elt|) (35 . *) (41 . -) (47 . |One|)
-              |POINT;cross;3$;4| (51 . |concat|) |POINT;extend;$L$;5|
+              |POINT;cross;3%;4| (51 . |concat|) |POINT;extend;%L%;5|
               (|Mapping| 18 6 6) (|Mapping| 6 6 6) (|List| 30) (|Equation| 6)
               (|OutputForm|) (|SingleInteger|) (|HashState|) (|String|)
               (|Mapping| 18 6) (|UniversalSegment| 9) (|Void|) (|Mapping| 6 6)
-              (|InputForm|) (|Matrix| 6) (|List| $) (|Union| 6 '"failed")
+              (|InputForm|) (|Matrix| 6) (|List| %) (|Union| 6 '"failed")
               (|List| 9))
            '#(~= 57 |zero?| 63 |zero| 68 |trim| 73 |swap!| 79 |sorted?| 86
               |sort!| 97 |sort| 108 |smaller?| 119 |size?| 125 |setelt!| 131

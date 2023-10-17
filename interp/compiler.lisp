@@ -244,9 +244,9 @@
 
 ; compNoStacking(x,m,e) ==
 ;   T:= comp2(x,m,e) =>
-;     (m=$EmptyMode and T.mode=$Representation => [T.expr,"$",T.env]; T)
+;     (m = $EmptyMode and T.mode = $Representation => [T.expr, "%", T.env]; T)
 ;          --$Representation is bound in compDefineFunctor, set by doIt
-;          --this hack says that when something is undeclared, $ is
+;          --this hack says that when something is undeclared, % is
 ;          --preferred to the underlying representation -- RDJ 9/12/83
 ;   compNoStacking1(x,m,e,$compStack)
 
@@ -257,12 +257,12 @@
       ((SETQ T$ (|comp2| |x| |m| |e|))
        (COND
         ((AND (EQUAL |m| |$EmptyMode|) (EQUAL (CADR T$) |$Representation|))
-         (LIST (CAR T$) '$ (CADDR T$)))
+         (LIST (CAR T$) '% (CADDR T$)))
         (#1='T T$)))
       (#1# (|compNoStacking1| |x| |m| |e| |$compStack|))))))
 
 ; compNoStacking1(x,m,e,$compStack) ==
-;   u:= get(if m="$" then "Rep" else m,"value",e) =>
+;   u := get(if m = "%" then "Rep" else m, "value", e) =>
 ;     (T:= comp2(x,u.expr,e) => [T.expr,m,T.env]; nil)
 ;   nil
 
@@ -271,7 +271,7 @@
   (PROG (|u| T$)
     (RETURN
      (COND
-      ((SETQ |u| (|get| (COND ((EQ |m| '$) '|Rep|) (#1='T |m|)) '|value| |e|))
+      ((SETQ |u| (|get| (COND ((EQ |m| '%) '|Rep|) (#1='T |m|)) '|value| |e|))
        (COND
         ((SETQ T$ (|comp2| |x| (CAR |u|) |e|)) (LIST (CAR T$) |m| (CADDR T$)))
         (#1# NIL)))
@@ -691,9 +691,9 @@
 ;   e:= oldE
 ;   isFunctor x =>
 ;     if get(x,"modemap",$CategoryFrame) is [[[.,target,:argModeList],.],:.] and
-;         (and/[extendsCategoryForm("$", s, mode, e) for mode in argModeList
+;         (and/[extendsCategoryForm("%", s, mode, e) for mode in argModeList
 ;                                                    for s in sl]
-;           ) and extendsCategoryForm("$", target, m', e) then return [x, m, e]
+;           ) and extendsCategoryForm("%", target, m', e) then return [x, m, e]
 ;   if STRINGP x then x:= INTERN x
 ;   ress := nil
 ;   old_style := true
@@ -823,12 +823,12 @@
                  (RETURN |bfVar#17|))
                 (#2#
                  (PROGN
-                  (SETQ |bfVar#17| (|extendsCategoryForm| '$ |s| |mode| |e|))
+                  (SETQ |bfVar#17| (|extendsCategoryForm| '% |s| |mode| |e|))
                   (COND ((NOT |bfVar#17|) (RETURN NIL))))))
                (SETQ |bfVar#15| (CDR |bfVar#15|))
                (SETQ |bfVar#16| (CDR |bfVar#16|))))
             T |argModeList| NIL |sl| NIL)
-           (|extendsCategoryForm| '$ |target| |m'| |e|))
+           (|extendsCategoryForm| '% |target| |m'| |e|))
           (RETURN (LIST |x| |m| |e|)))))
        (#2#
         (PROGN
@@ -1832,7 +1832,8 @@
 ;   null atom op => nil
 ;   modemapList:= get(op,"modemap",e)
 ;   if $insideCategoryPackageIfTrue then
-;     modemapList := [x for x in modemapList | x is [[dom,:.],:.] and dom ~= '$]
+;       modemapList := [x for x in modemapList |
+;                         x is [[dom,:.],:.] and dom ~= '%]
 ;   if op = "elt" and #argl = 2 or op = "setelt!" and #argl = 3 then
 ;       modemapList := eltModemapFilter(argl.1, modemapList, e) or return nil
 ;   nargs:= #argl
@@ -1890,7 +1891,7 @@
                                (SETQ |ISTMP#1| (CAR |x|))
                                (AND (CONSP |ISTMP#1|)
                                     (PROGN (SETQ |dom| (CAR |ISTMP#1|)) #1#)))
-                              (NOT (EQ |dom| '$))
+                              (NOT (EQ |dom| '%))
                               (SETQ |bfVar#51| (CONS |x| |bfVar#51|)))))
                        (SETQ |bfVar#50| (CDR |bfVar#50|))))
                     NIL |modemapList| NIL))))
@@ -2171,9 +2172,9 @@
 ; --+
 ;   saveLocVarsTypeDecl(x, id, e')
 ;
-;   if (k:=NRTassocIndex(id))
-;      then form:=['SETELT,"$",k,x]
-;      else form:=
+;   if (k := NRTassocIndex(id)) then
+;       form := ['SETELT, "%", k, x]
+;   else form:=
 ;          $QuickLet => ["LET",id,x]
 ;          ["LET",id,x,
 ;             (isDomainForm(x, e') => ['ELT, id, 0]; first outputComp(id, e'))]
@@ -2207,7 +2208,7 @@
       (|saveLocVarsTypeDecl| |x| |id| |e'|)
       (COND
        ((SETQ |k| (|NRTassocIndex| |id|))
-        (SETQ |form| (LIST 'SETELT '$ |k| |x|)))
+        (SETQ |form| (LIST 'SETELT '% |k| |x|)))
        (#2#
         (SETQ |form|
                 (COND (|$QuickLet| (LIST 'LET |id| |x|))
@@ -3881,7 +3882,7 @@
 ; isUnionMode(m,e) ==
 ;   m is ["Union",:.] => m
 ;   (m':= getmode(m,e)) is ["Mapping",["UnionCategory",:.]] => CADR m'
-;   v:= get(if m="$" then "Rep" else m,"value",e) =>
+;   v := get(if m = "%" then "Rep" else m, "value", e) =>
 ;     (v.expr is ["Union",:.] => v.expr; nil)
 ;   nil
 
@@ -3901,7 +3902,7 @@
                               (EQ (CAR |ISTMP#3|) '|UnionCategory|)))))))
             (CADR |m'|))
            ((SETQ |v|
-                    (|get| (COND ((EQ |m| '$) '|Rep|) (#1='T |m|)) '|value|
+                    (|get| (COND ((EQ |m| '%) '|Rep|) (#1='T |m|)) '|value|
                      |e|))
             (COND
              ((PROGN
@@ -4306,10 +4307,9 @@
       (|coerce| T$ |m|)))))
 
 ; coerce(T,m) ==
-;   $InteractiveMode =>
-;     keyedSystemError("S2GE0016",['"coerce",
+;   $InteractiveMode => keyedSystemError("S2GE0016",['"coerce",
 ;       '"function coerce called from the interpreter."])
-;   rplac(CADR T,substitute("$",$Rep,CADR T))
+;   rplac(CADR(T), substitute("%", $Rep, CADR(T)))
 ;   T':= coerceEasy(T,m) => T'
 ;   T' := constant_coerce(T, m) => T'
 ;   T':= coerceSubset(T,m) => T'
@@ -4331,7 +4331,7 @@
         (LIST "coerce" "function coerce called from the interpreter.")))
       (#1='T
        (PROGN
-        (|rplac| (CADR T$) (|substitute| '$ |$Rep| (CADR T$)))
+        (|rplac| (CADR T$) (|substitute| '% |$Rep| (CADR T$)))
         (COND ((SETQ |T'| (|coerceEasy| T$ |m|)) |T'|)
               ((SETQ |T'| (|constant_coerce| T$ |m|)) |T'|)
               ((SETQ |T'| (|coerceSubset| T$ |m|)) |T'|)
@@ -4372,7 +4372,7 @@
             (LIST (CAR T$) |m| (CADDR T$)))))))
 
 ; coerceSubset([x,m,e],m') ==
-;   isSubset(m,m',e) or m="Rep" and m'="$" => [x,m',e]
+;   isSubset(m, m', e) or m = "Rep" and m' = "%" => [x, m', e]
 ;   m is ['SubDomain,=m',:.] => [x,m',e]
 ;   INTEGERP x and (pred:= isSubset(m',maxSuperType(m,e),e)) -- again temporary
 ;     and eval substitute(x,"*",pred) =>
@@ -4387,7 +4387,7 @@
       (SETQ |m| (CADR . #1=(|bfVar#148|)))
       (SETQ |e| (CADDR . #1#))
       (COND
-       ((OR (|isSubset| |m| |m'| |e|) (AND (EQ |m| '|Rep|) (EQ |m'| '$)))
+       ((OR (|isSubset| |m| |m'| |e|) (AND (EQ |m| '|Rep|) (EQ |m'| '%)))
         (LIST |x| |m'| |e|))
        ((AND (CONSP |m|) (EQ (CAR |m|) '|SubDomain|)
              (PROGN
@@ -4484,7 +4484,7 @@
 ;   (m' := getmode_pl(m, pl)) is ["Mapping", ["UnionCategory", :.]] => CADR m'
 ;   -- FIXME: Hardcoded assumprion about Rep
 ;   v :=
-;       m = "$" => get("Rep", "value", e)
+;       m = "%" => get("Rep", "value", e)
 ;       QLASSQ("value", pl)
 ;   v => (v.expr is ["Union",:.] => v.expr; nil)
 ;   nil
@@ -4507,7 +4507,7 @@
            (#1='T
             (PROGN
              (SETQ |v|
-                     (COND ((EQ |m| '$) (|get| '|Rep| '|value| |e|))
+                     (COND ((EQ |m| '%) (|get| '|Rep| '|value| |e|))
                            (#1# (QLASSQ '|value| |pl|))))
              (COND
               (|v|

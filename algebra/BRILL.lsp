@@ -1,21 +1,21 @@
 
-(SDEFUN |BRILL;squaredPolynomial| ((|p| (UP)) ($ (|Boolean|)))
+(SDEFUN |BRILL;squaredPolynomial| ((|p| (UP)) (% (|Boolean|)))
         (SPROG ((|d| (|NonNegativeInteger|)))
-               (SEQ (LETT |d| (SPADCALL |p| (QREFELT $ 8)))
+               (SEQ (LETT |d| (SPADCALL |p| (QREFELT % 8)))
                     (EXIT
                      (COND ((EQL |d| 0) 'T) ((ODDP |d|) NIL)
                            ('T
                             (|BRILL;squaredPolynomial|
-                             (SPADCALL |p| (QREFELT $ 10)) $))))))) 
+                             (SPADCALL |p| (QREFELT % 10)) %))))))) 
 
 (SDEFUN |BRILL;primeEnough?|
-        ((|n| (|Integer|)) (|b| (|Integer|)) ($ (|Boolean|)))
+        ((|n| (|Integer|)) (|b| (|Integer|)) (% (|Boolean|)))
         (SPROG
          ((#1=#:G129 NIL) (#2=#:G130 NIL) (|bb| (|Float|)) (#3=#:G122 NIL)
           (|d| (|Union| (|Integer|) #4="failed")) (#5=#:G131 NIL) (|i| NIL))
          (SEQ
           (EXIT
-           (SEQ (LETT |bb| (SPADCALL |b| (QREFELT $ 13)))
+           (SEQ (LETT |bb| (SPADCALL |b| (QREFELT % 13)))
                 (SEQ (LETT |i| 2) (LETT #5# |b|) G190
                      (COND ((|greater_SI| |i| #5#) (GO G191)))
                      (SEQ
@@ -24,7 +24,7 @@
                             (COND
                              ((NULL
                                (QEQCAR
-                                (LETT |d| (SPADCALL |n| |i| (QREFELT $ 15)))
+                                (LETT |d| (SPADCALL |n| |i| (QREFELT % 15)))
                                 0))
                               (GO G191)))
                             (SEQ
@@ -40,12 +40,12 @@
                                                        #3#)))
                                (LETT |bb|
                                      (SPADCALL |bb|
-                                               (SPADCALL |i| (QREFELT $ 13))
-                                               (QREFELT $ 16)))
+                                               (SPADCALL |i| (QREFELT % 13))
+                                               (QREFELT % 16)))
                                (EXIT
                                 (COND
-                                 ((SPADCALL |bb| (|spadConstant| $ 17)
-                                            (QREFELT $ 19))
+                                 ((SPADCALL |bb| (|spadConstant| % 17)
+                                            (QREFELT % 19))
                                   (PROGN
                                    (LETT #1#
                                          (PROGN (LETT #2# NIL) (GO #6=#:G128)))
@@ -53,28 +53,28 @@
                              #7# (EXIT #1#))
                             NIL (GO G190) G191 (EXIT NIL))))
                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-                (EXIT (SPADCALL |n| (QREFELT $ 20)))))
+                (EXIT (SPADCALL |n| (QREFELT % 20)))))
           #6# (EXIT #2#)))) 
 
-(SDEFUN |BRILL;brillhartTrials;Nni;3| (($ (|NonNegativeInteger|)))
-        (QREFELT $ 21)) 
+(SDEFUN |BRILL;brillhartTrials;Nni;3| ((% (|NonNegativeInteger|)))
+        (QREFELT % 21)) 
 
 (SDEFUN |BRILL;brillhartTrials;2Nni;4|
-        ((|n| (|NonNegativeInteger|)) ($ (|NonNegativeInteger|)))
+        ((|n| (|NonNegativeInteger|)) (% (|NonNegativeInteger|)))
         (SPROG ((|#G9| (|NonNegativeInteger|)) (|#G8| (|NonNegativeInteger|)))
                (SEQ
                 (PROGN
                  (LETT |#G8| |n|)
-                 (LETT |#G9| (QREFELT $ 21))
-                 (SETELT $ 21 |#G8|)
+                 (LETT |#G9| (QREFELT % 21))
+                 (SETELT % 21 |#G8|)
                  (LETT |n| |#G9|))
                 (EXIT |n|)))) 
 
-(SDEFUN |BRILL;brillhartIrreducible?;UPB;5| ((|p| (UP)) ($ (|Boolean|)))
-        (SPADCALL |p| (SPADCALL |p| (QREFELT $ 24)) (QREFELT $ 25))) 
+(SDEFUN |BRILL;brillhartIrreducible?;UPB;5| ((|p| (UP)) (% (|Boolean|)))
+        (SPADCALL |p| (SPADCALL |p| (QREFELT % 24)) (QREFELT % 25))) 
 
 (SDEFUN |BRILL;brillhartIrreducible?;UP2B;6|
-        ((|p| (UP)) (|noLinears| (|Boolean|)) ($ (|Boolean|)))
+        ((|p| (UP)) (|noLinears| (|Boolean|)) (% (|Boolean|)))
         (SPROG
          ((#1=#:G149 NIL) (#2=#:G150 NIL) (|small| (|Integer|)) (#3=#:G151 NIL)
           (|i| NIL) (|count| #4=(|Integer|)) (|largeEnough| #4#)
@@ -82,19 +82,19 @@
           (|origBound| #4#))
          (SEQ
           (EXIT
-           (COND ((ZEROP (QREFELT $ 21)) NIL)
+           (COND ((ZEROP (QREFELT % 21)) NIL)
                  (#6='T
                   (SEQ
                    (LETT |origBound|
                          (LETT |largeEnough|
-                               (+ (SPADCALL |p| (QREFELT $ 28)) 1)))
-                   (LETT |even0| (EVENP (SPADCALL |p| 0 (QREFELT $ 29))))
-                   (LETT |even1| (EVENP (SPADCALL |p| 1 (QREFELT $ 31))))
-                   (LETT |polyx2| (|BRILL;squaredPolynomial| |p| $))
+                               (+ (SPADCALL |p| (QREFELT % 28)) 1)))
+                   (LETT |even0| (EVENP (SPADCALL |p| 0 (QREFELT % 29))))
+                   (LETT |even1| (EVENP (SPADCALL |p| 1 (QREFELT % 31))))
+                   (LETT |polyx2| (|BRILL;squaredPolynomial| |p| %))
                    (EXIT
                     (COND
-                     ((SPADCALL (SPADCALL |p| |largeEnough| (QREFELT $ 31))
-                                (QREFELT $ 20))
+                     ((SPADCALL (SPADCALL |p| |largeEnough| (QREFELT % 31))
+                                (QREFELT % 20))
                       'T)
                      (#6#
                       (SEQ
@@ -102,19 +102,19 @@
                         ((NULL |polyx2|)
                          (COND
                           ((SPADCALL
-                            (SPADCALL |p| (- |largeEnough|) (QREFELT $ 31))
-                            (QREFELT $ 20))
+                            (SPADCALL |p| (- |largeEnough|) (QREFELT % 31))
+                            (QREFELT % 20))
                            (EXIT 'T)))))
                        (EXIT
-                        (COND ((EQL (QREFELT $ 21) 1) NIL)
+                        (COND ((EQL (QREFELT % 21) 1) NIL)
                               (#6#
                                (SEQ (LETT |largeEnough| (+ |largeEnough| 1))
                                     (EXIT
                                      (COND
                                       ((|BRILL;primeEnough?|
                                         (SPADCALL |p| |largeEnough|
-                                                  (QREFELT $ 31))
-                                        (COND (|noLinears| 4) (#6# 2)) $)
+                                                  (QREFELT % 31))
+                                        (COND (|noLinears| 4) (#6# 2)) %)
                                        'T)
                                       (#6#
                                        (SEQ
@@ -123,8 +123,8 @@
                                           (COND
                                            ((|BRILL;primeEnough?|
                                              (SPADCALL |p| (- |largeEnough|)
-                                                       (QREFELT $ 31))
-                                             (COND (|noLinears| 4) (#6# 2)) $)
+                                                       (QREFELT % 31))
+                                             (COND (|noLinears| 4) (#6# 2)) %)
                                             (EXIT 'T)))))
                                         (COND
                                          ((ODDP |largeEnough|)
@@ -138,7 +138,7 @@
                                         (LETT |count|
                                               (+
                                                (* (COND (|polyx2| 2) (#6# 1))
-                                                  (- (QREFELT $ 21) 2))
+                                                  (- (QREFELT % 21) 2))
                                                |largeEnough|))
                                         (SEQ (LETT |i| (+ |largeEnough| 1))
                                              (LETT #3# |count|) G190
@@ -154,8 +154,8 @@
                                                (COND
                                                 ((|BRILL;primeEnough?|
                                                   (SPADCALL |p| |i|
-                                                            (QREFELT $ 31))
-                                                  |small| $)
+                                                            (QREFELT % 31))
+                                                  |small| %)
                                                  (PROGN
                                                   (LETT #2# 'T)
                                                   (GO #7=#:G148)))
@@ -165,8 +165,8 @@
                                                    (COND
                                                     ((|BRILL;primeEnough?|
                                                       (SPADCALL |p| (- |i|)
-                                                                (QREFELT $ 31))
-                                                      |small| $)
+                                                                (QREFELT % 31))
+                                                      |small| %)
                                                      (PROGN
                                                       (LETT #1#
                                                             (PROGN
@@ -179,12 +179,12 @@
                                         (EXIT NIL)))))))))))))))))
           #7# (EXIT #2#)))) 
 
-(SDEFUN |BRILL;noLinearFactor?;UPB;7| ((|p| (UP)) ($ (|Boolean|)))
+(SDEFUN |BRILL;noLinearFactor?;UPB;7| ((|p| (UP)) (% (|Boolean|)))
         (COND
-         ((ODDP (SPADCALL |p| (QREFELT $ 32)))
+         ((ODDP (SPADCALL |p| (QREFELT % 32)))
           (COND
-           ((ODDP (SPADCALL |p| 0 (QREFELT $ 29)))
-            (ODDP (SPADCALL |p| 1 (QREFELT $ 31))))
+           ((ODDP (SPADCALL |p| 0 (QREFELT % 29)))
+            (ODDP (SPADCALL |p| 1 (QREFELT % 31))))
            (#1='T NIL)))
          (#1# NIL))) 
 
@@ -208,26 +208,26 @@
                   (HREM |$ConstructorCache| '|BrillhartTests|)))))))))) 
 
 (DEFUN |BrillhartTests;| (|#1|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|BrillhartTests| DV$1))
-          (LETT $ (GETREFV 33))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (LETT % (GETREFV 33))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|BrillhartTests| (LIST DV$1)
-                      (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 21 6)
-          $))) 
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 21 6)
+          %))) 
 
 (MAKEPROP '|BrillhartTests| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|NonNegativeInteger|)
               (0 . |degree|) (5 . |Zero|) (9 . |reductum|) (|Integer|)
-              (|Float|) (14 . |coerce|) (|Union| $ '"failed") (19 . |exquo|)
+              (|Float|) (14 . |coerce|) (|Union| % '"failed") (19 . |exquo|)
               (25 . /) (31 . |One|) (|Boolean|) (35 . <) (41 . |prime?|)
               '|brillharttrials| |BRILL;brillhartTrials;Nni;3|
               |BRILL;brillhartTrials;2Nni;4| |BRILL;noLinearFactor?;UPB;7|

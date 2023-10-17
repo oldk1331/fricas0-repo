@@ -1,17 +1,17 @@
 
-(SDEFUN |INDE;coerceOF| ((|t| (|Term|)) ($ (|OutputForm|)))
-        (COND ((EQL (QCDR |t|) 1) (SPADCALL (QCAR |t|) (QREFELT $ 10)))
+(SDEFUN |INDE;coerceOF| ((|t| (|Term|)) (% (|OutputForm|)))
+        (COND ((EQL (QCDR |t|) 1) (SPADCALL (QCAR |t|) (QREFELT % 10)))
               ('T
-               (SPADCALL (SPADCALL (QCAR |t|) (QREFELT $ 10))
-                         (SPADCALL (QCDR |t|) (QREFELT $ 12)) (QREFELT $ 13))))) 
+               (SPADCALL (SPADCALL (QCAR |t|) (QREFELT % 10))
+                         (SPADCALL (QCDR |t|) (QREFELT % 12)) (QREFELT % 13))))) 
 
-(SDEFUN |INDE;coerce;$Of;2| ((|x| ($)) ($ (|OutputForm|)))
+(SDEFUN |INDE;coerce;%Of;2| ((|x| (%)) (% (|OutputForm|)))
         (SPROG ((#1=#:G122 NIL) (|t| NIL) (#2=#:G121 NIL))
                (SEQ
-                (COND ((NULL |x|) (SPADCALL 1 (QREFELT $ 15)))
-                      ((NULL (CDR |x|)) (|INDE;coerceOF| (|SPADfirst| |x|) $))
+                (COND ((NULL |x|) (SPADCALL 1 (QREFELT % 15)))
+                      ((NULL (CDR |x|)) (|INDE;coerceOF| (|SPADfirst| |x|) %))
                       ('T
-                       (SPADCALL (ELT $ 16)
+                       (SPADCALL (ELT % 16)
                                  (PROGN
                                   (LETT #2# NIL)
                                   (SEQ (LETT |t| NIL) (LETT #1# |x|) G190
@@ -22,11 +22,11 @@
                                        (SEQ
                                         (EXIT
                                          (LETT #2#
-                                               (CONS (|INDE;coerceOF| |t| $)
+                                               (CONS (|INDE;coerceOF| |t| %)
                                                      #2#))))
                                        (LETT #1# (CDR #1#)) (GO G190) G191
                                        (EXIT (NREVERSE #2#))))
-                                 (QREFELT $ 19))))))) 
+                                 (QREFELT % 19))))))) 
 
 (DECLAIM (NOTINLINE |IndexedExponents;|)) 
 
@@ -48,13 +48,13 @@
                   (HREM |$ConstructorCache| '|IndexedExponents|)))))))))) 
 
 (DEFUN |IndexedExponents;| (|#1|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|IndexedExponents| DV$1))
-          (LETT $ (GETREFV 30))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3
+          (LETT % (GETREFV 30))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
@@ -64,14 +64,14 @@
                                               (|HasCategory| |#1|
                                                              '(|Comparable|))))))
           (|haddProp| |$ConstructorCache| '|IndexedExponents| (LIST DV$1)
-                      (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 7
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 7
                     (|Record| (|:| |k| |#1|) (|:| |c| (|NonNegativeInteger|))))
-          (QSETREFV $ 8 (|List| (QREFELT $ 7)))
-          $))) 
+          (QSETREFV % 8 (|List| (QREFELT % 7)))
+          %))) 
 
 (MAKEPROP '|IndexedExponents| '|infovec|
           (LIST
@@ -79,9 +79,9 @@
               (|local| |#1|) '|Term| '|Rep| (|OutputForm|) (0 . |coerce|)
               (|NonNegativeInteger|) (5 . |coerce|) (10 . ^) (|Integer|)
               (16 . |coerce|) (21 . *) (|Mapping| 9 9 9) (|List| 9)
-              (27 . |reduce|) |INDE;coerce;$Of;2|
+              (27 . |reduce|) |INDE;coerce;%Of;2|
               (|Record| (|:| |k| 6) (|:| |c| 11)) (|List| 21) (|Mapping| 11 11)
-              (|Boolean|) (|Union| $ '"failed") (|PositiveInteger|) (|String|)
+              (|Boolean|) (|Union| % '"failed") (|PositiveInteger|) (|String|)
               (|SingleInteger|) (|HashState|))
            '#(~= 33 |zero?| 39 |sup| 44 |subtractIfCan| 50 |smaller?| 56
               |sample| 62 |reductum| 66 |opposite?| 71 |numberOfMonomials| 77

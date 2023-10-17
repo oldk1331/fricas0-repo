@@ -14,7 +14,7 @@
                    (|subst_in_cat| '(#2=#:G104) (LIST '(|OutputForm|))
                                    (|Join| (|Type|) (|CoercibleTo| '#2#)
                                            (|mkCategory|
-                                            '(((|outputAsFortran| ((|Void|) $))
+                                            '(((|outputAsFortran| ((|Void|) %))
                                                T))
                                             NIL NIL NIL))))
            (SETELT #1# 0 '(|FortranProgramCategory|))))) 

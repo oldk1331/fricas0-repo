@@ -35,15 +35,15 @@
                                         '|t#1|)
                                        (|Eltable| '|t#1| '|t#1|)
                                        (|mkCategory|
-                                        '(((D ($)) T) ((|adjoint| ($ $)) T)
-                                          ((|symmetricProduct| ($ $ $))
+                                        '(((D (%)) T) ((|adjoint| (% %)) T)
+                                          ((|symmetricProduct| (% % %))
                                            (|has| |t#1| (|Field|)))
                                           ((|symmetricPower|
-                                            ($ $ (|NonNegativeInteger|)))
+                                            (% % (|NonNegativeInteger|)))
                                            (|has| |t#1| (|Field|)))
-                                          ((|symmetricSquare| ($ $))
+                                          ((|symmetricSquare| (% %))
                                            (|has| |t#1| (|Field|)))
-                                          ((|directSum| ($ $ $))
+                                          ((|directSum| (% % %))
                                            (|has| |t#1| (|Field|))))
                                         NIL NIL NIL)))))))
            (SETELT #1# 0

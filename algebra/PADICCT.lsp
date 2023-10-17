@@ -28,35 +28,35 @@
                                                          '(((|digits|
                                                              ((|Stream|
                                                                (|Integer|))
-                                                              $))
+                                                              %))
                                                             T)
                                                            ((|order|
                                                              ((|NonNegativeInteger|)
-                                                              $))
+                                                              %))
                                                             T)
                                                            ((|extend|
-                                                             ($ $ (|Integer|)))
+                                                             (% % (|Integer|)))
                                                             T)
-                                                           ((|complete| ($ $))
+                                                           ((|complete| (% %))
                                                             T)
                                                            ((|modulus|
                                                              ((|Integer|)))
                                                             T)
                                                            ((|moduloP|
-                                                             ((|Integer|) $))
+                                                             ((|Integer|) %))
                                                             T)
                                                            ((|quotientByP|
-                                                             ($ $))
+                                                             (% %))
                                                             T)
                                                            ((|approximate|
-                                                             ((|Integer|) $
+                                                             ((|Integer|) %
                                                               (|Integer|)))
                                                             T)
                                                            ((|sqrt|
-                                                             ($ $ (|Integer|)))
+                                                             (% % (|Integer|)))
                                                             T)
                                                            ((|root|
-                                                             ($
+                                                             (%
                                                               (|SparseUnivariatePolynomial|
                                                                (|Integer|))
                                                               (|Integer|)))

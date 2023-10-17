@@ -1,6 +1,6 @@
 
 (SDEFUN |POLVECP;degree;PaI;1|
-        ((|v| (|PrimitiveArray| (|PrimeField| |p|))) ($ (|Integer|)))
+        ((|v| (|PrimitiveArray| (|PrimeField| |p|))) (% (|Integer|)))
         (SPROG
          ((#1=#:G112 NIL) (#2=#:G113 NIL) (|i| NIL)
           (|n| (|NonNegativeInteger|)))
@@ -14,8 +14,8 @@
                         (EXIT
                          (COND
                           ((NULL
-                            (SPADCALL (QAREF1 |v| |i|) (|spadConstant| $ 8)
-                                      (QREFELT $ 10)))
+                            (SPADCALL (QAREF1 |v| |i|) (|spadConstant| % 8)
+                                      (QREFELT % 10)))
                            (PROGN
                             (LETT #1# (PROGN (LETT #2# |i|) (GO #3=#:G111)))
                             (GO #4=#:G109))))))
@@ -26,36 +26,36 @@
 
 (SDEFUN |POLVECP;to_mod_pa;SupPa;2|
         ((|s| (|SparseUnivariatePolynomial| (|Integer|)))
-         ($ (|PrimitiveArray| (|PrimeField| |p|))))
+         (% (|PrimitiveArray| (|PrimeField| |p|))))
         (SPROG
          ((|n| (|NonNegativeInteger|))
           (|ncoeffs| (|PrimitiveArray| (|PrimeField| |p|)))
           (|n0| (|SingleInteger|)))
          (SEQ
           (COND
-           ((SPADCALL |s| (QREFELT $ 15)) (MAKEARR1 1 (|spadConstant| $ 8)))
+           ((SPADCALL |s| (QREFELT % 15)) (MAKEARR1 1 (|spadConstant| % 8)))
            ('T
-            (SEQ (LETT |n0| (SPADCALL |s| (QREFELT $ 17)))
+            (SEQ (LETT |n0| (SPADCALL |s| (QREFELT % 17)))
                  (LETT |ncoeffs|
-                       (MAKEARR1 (|add_SI| |n0| 1) (|spadConstant| $ 8)))
+                       (MAKEARR1 (|add_SI| |n0| 1) (|spadConstant| % 8)))
                  (SEQ G190
                       (COND
-                       ((NULL (NULL (SPADCALL |s| (QREFELT $ 15)))) (GO G191)))
-                      (SEQ (LETT |n| (SPADCALL |s| (QREFELT $ 17)))
+                       ((NULL (NULL (SPADCALL |s| (QREFELT % 15)))) (GO G191)))
+                      (SEQ (LETT |n| (SPADCALL |s| (QREFELT % 17)))
                            (QSETAREF1 |ncoeffs| |n|
-                                      (SPADCALL (SPADCALL |s| (QREFELT $ 18))
-                                                (QREFELT $ 19)))
-                           (EXIT (LETT |s| (SPADCALL |s| (QREFELT $ 20)))))
+                                      (SPADCALL (SPADCALL |s| (QREFELT % 18))
+                                                (QREFELT % 19)))
+                           (EXIT (LETT |s| (SPADCALL |s| (QREFELT % 20)))))
                       NIL (GO G190) G191 (EXIT NIL))
                  (EXIT |ncoeffs|))))))) 
 
 (SDEFUN |POLVECP;pa_to_sup;PaSup;3|
         ((|v| (|PrimitiveArray| (|PrimeField| |p|)))
-         ($ (|SparseUnivariatePolynomial| (|Integer|))))
+         (% (|SparseUnivariatePolynomial| (|Integer|))))
         (SPROG
          ((|res| (|SparseUnivariatePolynomial| (|Integer|))) (#1=#:G125 NIL)
           (|i| NIL) (|n| (|NonNegativeInteger|)))
-         (SEQ (LETT |n| (QVSIZE |v|)) (LETT |res| (|spadConstant| $ 22))
+         (SEQ (LETT |n| (QVSIZE |v|)) (LETT |res| (|spadConstant| % 22))
               (SEQ (LETT |i| 0) (LETT #1# (- |n| 1)) G190
                    (COND ((|greater_SI| |i| #1#) (GO G191)))
                    (SEQ
@@ -63,9 +63,9 @@
                      (LETT |res|
                            (SPADCALL
                             (SPADCALL
-                             (SPADCALL (QAREF1 |v| |i|) (QREFELT $ 23)) |i|
-                             (QREFELT $ 24))
-                            |res| (QREFELT $ 25)))))
+                             (SPADCALL (QAREF1 |v| |i|) (QREFELT % 23)) |i|
+                             (QREFELT % 24))
+                            |res| (QREFELT % 25)))))
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
@@ -91,24 +91,24 @@
                         '|VectorPolynomialOperationsP|)))))))))) 
 
 (DEFUN |VectorPolynomialOperationsP;| (|#1|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 |#1|)
           (LETT |dv$| (LIST '|VectorPolynomialOperationsP| DV$1))
-          (LETT $ (GETREFV 27))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (LETT % (GETREFV 27))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|VectorPolynomialOperationsP|
-                      (LIST DV$1) (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+                      (LIST DV$1) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|VectorPolynomialOperationsP| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|)
-              (|PrimeField| (NRTEVAL (QREFELT $ 6))) (0 . |Zero|) (|Boolean|)
+              (|PrimeField| (NRTEVAL (QREFELT % 6))) (0 . |Zero|) (|Boolean|)
               (4 . =) (|Integer|) (|PrimitiveArray| 7) |POLVECP;degree;PaI;1|
               (|SparseUnivariatePolynomial| 11) (10 . |zero?|)
               (|NonNegativeInteger|) (15 . |degree|)

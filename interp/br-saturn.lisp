@@ -1269,7 +1269,7 @@
 ;     htSay
 ;       thing = 'nowhere => '"implemented nowhere"
 ;       thing = 'constant => '"constant"
-;       thing = '_$ => '"by the domain"
+;       thing = '_% => '"by the domain"
 ;       INTEGERP thing => '"unexported"
 ;       constructorIfTrue =>
 ;         htSay word
@@ -1329,7 +1329,7 @@
                          (|htSay|
                           (COND ((EQ |thing| '|nowhere|) "implemented nowhere")
                                 ((EQ |thing| '|constant|) "constant")
-                                ((EQ |thing| '$) "by the domain")
+                                ((EQ |thing| '%) "by the domain")
                                 ((INTEGERP |thing|) "unexported")
                                 (|constructorIfTrue|
                                  (PROGN
@@ -1706,7 +1706,7 @@
 ;     pred := sublisFormal(IFCDR conform, predicate)
 ;     count := #pred
 ;     htSayStandard('"\newline\tab{2}{\em Conditions:}")
-;     for p in displayBreakIntoAnds SUBST($conform,"$",pred) repeat
+;     for p in displayBreakIntoAnds(SUBST($conform, "%", pred)) repeat
 ;       htSayIndentRel2(15, count > 1)
 ;       bcPred(p,$conform,true)
 ;       htSayIndentRel2(-15, count > 1)
@@ -1715,15 +1715,15 @@
 ;   if $whereList then
 ;     count := #$whereList
 ;     htSayStandard('"\newline\tab{2}{\em Where:}")
-;     if assoc("$",$whereList) then
+;     if assoc("%", $whereList) then
 ;       htSayIndentRel2(15, true)
-;       htSayStandard '"{\em \$} is "
+;       htSayStandard '"{\em \%} is "
 ;       htSay
 ;         $conkind = '"category" => '"of category "
 ;         '"the domain "
 ;       bcConform(conform,true,true)
 ;       htSayIndentRel2(-15, true)
-;     for [d,key,:t] in $whereList | d ~= "$" repeat
+;     for [d,key,:t] in $whereList | d ~= "%" repeat
 ;       htSayIndentRel2(15, count > 1)
 ;       htSayList(['"{\em ", d, '"} is "])
 ;       htSayConstructor(key, sublisFormal(IFCDR conform, t))
@@ -1952,13 +1952,13 @@
                        (|htSayIndentRel2| (- 15) (< 1 |count|))
                        (|htSayStandard| "\\newline "))))
                     (SETQ |bfVar#40| (CDR |bfVar#40|))))
-                 (|displayBreakIntoAnds| (SUBST |$conform| '$ |pred|)) NIL)))
+                 (|displayBreakIntoAnds| (SUBST |$conform| '% |pred|)) NIL)))
               (COND
                (|$whereList| (SETQ |count| (LENGTH |$whereList|))
                 (|htSayStandard| "\\newline\\tab{2}{\\em Where:}")
                 (COND
-                 ((|assoc| '$ |$whereList|) (|htSayIndentRel2| 15 T)
-                  (|htSayStandard| "{\\em \\$} is ")
+                 ((|assoc| '% |$whereList|) (|htSayIndentRel2| 15 T)
+                  (|htSayStandard| "{\\em \\%} is ")
                   (|htSay|
                    (COND ((EQUAL |$conkind| "category") "of category ")
                          (#1# "the domain ")))
@@ -1979,7 +1979,7 @@
                                   (SETQ |key| (CAR |ISTMP#1|))
                                   (SETQ |t| (CDR |ISTMP#1|))
                                   #1#)))
-                           (NOT (EQ |d| '$))
+                           (NOT (EQ |d| '%))
                            (PROGN
                             (|htSayIndentRel2| 15 (< 1 |count|))
                             (|htSayList| (LIST "{\\em " |d| "} is "))

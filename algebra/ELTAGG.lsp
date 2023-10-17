@@ -27,17 +27,17 @@
                                                  (|Eltable| '|t#1| '|t#2|)
                                                  (|mkCategory|
                                                   '(((|elt|
-                                                      (|t#2| $ |t#1| |t#2|))
+                                                      (|t#2| % |t#1| |t#2|))
                                                      T)
-                                                    ((|qelt| (|t#2| $ |t#1|))
+                                                    ((|qelt| (|t#2| % |t#1|))
                                                      T)
                                                     ((|setelt!|
-                                                      (|t#2| $ |t#1| |t#2|))
-                                                     (|has| $
+                                                      (|t#2| % |t#1| |t#2|))
+                                                     (|has| %
                                                             (|shallowlyMutable|)))
                                                     ((|qsetelt!|
-                                                      (|t#2| $ |t#1| |t#2|))
-                                                     (|has| $
+                                                      (|t#2| % |t#1| |t#2|))
+                                                     (|has| %
                                                             (|shallowlyMutable|))))
                                                   NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|EltableAggregate| |t#1| |t#2|))))) 

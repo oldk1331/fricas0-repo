@@ -24,7 +24,7 @@
                                           (LETT |RightModule;CAT|
                                                 (|Join| (|AbelianSemiGroup|)
                                                         (|mkCategory|
-                                                         '(((* ($ $ |t#1|)) T))
+                                                         '(((* (% % |t#1|)) T))
                                                          '(((|AbelianMonoid|)
                                                             (|has| |t#1|
                                                                    (|AbelianMonoid|)))

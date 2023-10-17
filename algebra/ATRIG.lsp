@@ -15,9 +15,9 @@
              (LETT #1#
                    (|Join|
                     (|mkCategory|
-                     '(((|acos| ($ $)) T) ((|acot| ($ $)) T) ((|acsc| ($ $)) T)
-                       ((|asec| ($ $)) T) ((|asin| ($ $)) T)
-                       ((|atan| ($ $)) T))
+                     '(((|acos| (% %)) T) ((|acot| (% %)) T) ((|acsc| (% %)) T)
+                       ((|asec| (% %)) T) ((|asin| (% %)) T)
+                       ((|atan| (% %)) T))
                      NIL NIL NIL)))
            (SETELT #1# 0 '(|ArcTrigonometricFunctionCategory|))))) 
 

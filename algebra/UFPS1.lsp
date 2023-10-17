@@ -2,11 +2,11 @@
 (SDEFUN |UFPS1;hadamard;3Ufps;1|
         ((|f| (|UnivariateFormalPowerSeries| |Coef|))
          (|g| (|UnivariateFormalPowerSeries| |Coef|))
-         ($ (|UnivariateFormalPowerSeries| |Coef|)))
+         (% (|UnivariateFormalPowerSeries| |Coef|)))
         (SPADCALL
-         (SPADCALL (ELT $ 7) (SPADCALL |f| (QREFELT $ 10))
-                   (SPADCALL |g| (QREFELT $ 10)) (QREFELT $ 13))
-         (QREFELT $ 14))) 
+         (SPADCALL (ELT % 7) (SPADCALL |f| (QREFELT % 10))
+                   (SPADCALL |g| (QREFELT % 10)) (QREFELT % 13))
+         (QREFELT % 14))) 
 
 (DECLAIM (NOTINLINE |UnivariateFormalPowerSeriesFunctions;|)) 
 
@@ -31,20 +31,20 @@
                         '|UnivariateFormalPowerSeriesFunctions|)))))))))) 
 
 (DEFUN |UnivariateFormalPowerSeriesFunctions;| (|#1|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|UnivariateFormalPowerSeriesFunctions| DV$1))
-          (LETT $ (GETREFV 16))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (LETT % (GETREFV 16))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache|
                       '|UnivariateFormalPowerSeriesFunctions| (LIST DV$1)
-                      (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|UnivariateFormalPowerSeriesFunctions| '|infovec|
           (LIST

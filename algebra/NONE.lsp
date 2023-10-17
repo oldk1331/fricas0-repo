@@ -1,10 +1,10 @@
 
-(SDEFUN |NONE;coerce;$Of;1| ((|none| ($)) ($ (|OutputForm|)))
-        (SPADCALL "NONE" (QREFELT $ 8))) 
+(SDEFUN |NONE;coerce;%Of;1| ((|none| (%)) (% (|OutputForm|)))
+        (SPADCALL "NONE" (QREFELT % 8))) 
 
-(PUT '|NONE;=;2$B;2| '|SPADreplace| 'EQ) 
+(PUT '|NONE;=;2%B;2| '|SPADreplace| 'EQ) 
 
-(SDEFUN |NONE;=;2$B;2| ((|x| ($)) (|y| ($)) ($ (|Boolean|))) (EQ |x| |y|)) 
+(SDEFUN |NONE;=;2%B;2| ((|x| (%)) (|y| (%)) (% (|Boolean|))) (EQ |x| |y|)) 
 
 (DECLAIM (NOTINLINE |None;|)) 
 
@@ -25,21 +25,21 @@
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|None|)))))))))) 
 
 (DEFUN |None;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|None|))
-          (LETT $ (GETREFV 14))
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|None| NIL (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (SETF |pv$| (QREFELT $ 3))
-          $))) 
+          (LETT % (GETREFV 14))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|None| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
 
 (MAKEPROP '|None| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|String|) (|OutputForm|) (0 . |message|)
-              |NONE;coerce;$Of;1| (|Boolean|) |NONE;=;2$B;2| (|SingleInteger|)
+              |NONE;coerce;%Of;1| (|Boolean|) |NONE;=;2%B;2| (|SingleInteger|)
               (|HashState|))
            '#(~= 5 |latex| 11 |hashUpdate!| 16 |hash| 22 |coerce| 27 = 32) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
