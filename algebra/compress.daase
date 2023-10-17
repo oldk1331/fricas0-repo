@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5212 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5213 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -910,19 +910,20 @@
  |lazyVariations| |content| |minimumDegree| |isPlus| |isTimes| |isExpt|
  |isPower| |rroot| |qroot| |froot| |nthr| |copy_first| |copy_slice| |eval_at|
  |vector_add_mul| |mul_by_binomial| |mul_by_scalar| |mul|
- |truncated_multiplication| |truncated_mul_add| |pow| |divide!| |remainder!|
- |vector_combination| |to_mod_pa| |pa_to_sup| |lcm| |extended_gcd| < > >= <=
- |createY| |createX| |createWidth| |isDirected?| |coverMatrix| |zetaMatrix|
- |moebius| |isAntiChain?| |isChain?| |isAntisymmetric?| |completeTransitivity|
- |completeReflexivity| |objectToIndex| |indexToObject| |lowerSet| |upperSet|
- |lub| |glb| |joinIfCan| |meetIfCan| |implies| |powerSetStructure| |opposite|
- |addArrow!| |setArr| |setVert| |getArr| |getVert| |finitePoset| |addObject!|
- |powerset| |completelyOrderedSet| |posetN5| |posetM5| |posetO6| |posetP6|
- |posetL7| |firstUncouplingMatrix| |le| |lcx0| |lcz| |coeffs0| |coeffs1|
- |alg_reduce0| |alg_reduce| |alg_trial_division| |integral| |primitiveElement|
- |nextPrime| |prevPrime| |primes| |print| |merge!| |get_rational_roots|
- |integerBound| |resultantEuclidean| |semiResultantEuclidean2|
- |semiResultantEuclidean1| |indiceSubResultant| |indiceSubResultantEuclidean|
+ |truncated_multiplication| |truncated_mul_add| |truncated_mul_add2| |pow|
+ |divide!| |remainder!| |vector_combination| |to_mod_pa| |pa_to_sup| |lcm|
+ |extended_gcd| < > >= <= |createY| |createX| |createWidth| |isDirected?|
+ |coverMatrix| |zetaMatrix| |moebius| |isAntiChain?| |isChain?|
+ |isAntisymmetric?| |completeTransitivity| |completeReflexivity|
+ |objectToIndex| |indexToObject| |lowerSet| |upperSet| |lub| |glb| |joinIfCan|
+ |meetIfCan| |implies| |powerSetStructure| |opposite| |addArrow!| |setArr|
+ |setVert| |getArr| |getVert| |finitePoset| |addObject!| |powerset|
+ |completelyOrderedSet| |posetN5| |posetM5| |posetO6| |posetP6| |posetL7|
+ |firstUncouplingMatrix| |le| |lcx0| |lcz| |coeffs0| |coeffs1| |alg_reduce0|
+ |alg_reduce| |alg_trial_division| |integral| |primitiveElement| |nextPrime|
+ |prevPrime| |primes| |print| |merge!| |get_rational_roots| |integerBound|
+ |resultantEuclidean| |semiResultantEuclidean2| |semiResultantEuclidean1|
+ |indiceSubResultant| |indiceSubResultantEuclidean|
  |semiIndiceSubResultantEuclidean| |degreeSubResultant|
  |degreeSubResultantEuclidean| |semiDegreeSubResultantEuclidean|
  |lastSubResultantEuclidean| |semiLastSubResultantEuclidean|
