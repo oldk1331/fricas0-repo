@@ -2830,7 +2830,7 @@
                                                                         (SPADCALL
                                                                          (QREFELT
                                                                           % 9)
-                                                                         |r|
+                                                                         |s|
                                                                          (QREFELT
                                                                           %
                                                                           66))
@@ -2841,11 +2841,11 @@
                                                                         (SPADCALL
                                                                          (QREFELT
                                                                           % 9)
-                                                                         |s|
+                                                                         |r|
                                                                          (QREFELT
                                                                           %
                                                                           66))
-                                                                        |j| |k|
+                                                                        |s| |k|
                                                                         (QREFELT
                                                                          % 67))
                                                                        (QREFELT
@@ -2856,31 +2856,31 @@
                                                              (SPADCALL
                                                               (SPADCALL
                                                                (QREFELT % 9)
-                                                               |r|
+                                                               |s|
                                                                (QREFELT % 66))
                                                               |j| |k|
                                                               (QREFELT % 67))
                                                              (SPADCALL
                                                               (SPADCALL
                                                                (QREFELT % 9)
-                                                               |s|
+                                                               |r|
                                                                (QREFELT % 66))
-                                                              |k| |i|
+                                                              |s| |i|
                                                               (QREFELT % 67))
                                                              (QREFELT % 65))
                                                             (QREFELT % 68))
                                                            (SPADCALL
                                                             (SPADCALL
                                                              (SPADCALL
-                                                              (QREFELT % 9) |r|
+                                                              (QREFELT % 9) |s|
                                                               (QREFELT % 66))
                                                              |k| |i|
                                                              (QREFELT % 67))
                                                             (SPADCALL
                                                              (SPADCALL
-                                                              (QREFELT % 9) |s|
+                                                              (QREFELT % 9) |r|
                                                               (QREFELT % 66))
-                                                             |i| |j|
+                                                             |s| |j|
                                                              (QREFELT % 67))
                                                             (QREFELT % 65))
                                                            (QREFELT % 68)))))
