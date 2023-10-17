@@ -697,24 +697,24 @@
             (COND
              ((SPADCALL (|SPADfirst| |leq1|) (|spadConstant| $ 78)
                         (QREFELT $ 79))
-              (EXIT (SPADCALL NIL (QREFELT $ 81)))))))
+              (EXIT NIL)))))
           (COND
            ((NULL (|GROEBSOL;zeroDim?| |leq1| |lvar| $))
             (EXIT
              (|error| "system does not have a finite number of solutions"))))
-          (LETT |basis| (SPADCALL |leq1| (QREFELT $ 82))) (LETT |lup| NIL)
+          (LETT |basis| (SPADCALL |leq1| (QREFELT $ 80))) (LETT |lup| NIL)
           (LETT |llfact| NIL)
           (SEQ
            (EXIT
             (SEQ (LETT |x| NIL) (LETT #8# |lvar|) G190
                  (COND
                   ((OR (ATOM #8#) (PROGN (LETT |x| (CAR #8#)) NIL)) (GO G191)))
-                 (SEQ (LETT |g| (SPADCALL |leq1| |basis| |x| (QREFELT $ 83)))
+                 (SEQ (LETT |g| (SPADCALL |leq1| |basis| |x| (QREFELT $ 81)))
                       (LETT |fg| (SPADCALL |g| (QREFELT $ 65)))
                       (LETT |llfact| (CONS |fg| |llfact|))
                       (EXIT
                        (COND
-                        ((EQL (SPADCALL |g| |x| (QREFELT $ 84))
+                        ((EQL (SPADCALL |g| |x| (QREFELT $ 82))
                               (LENGTH |basis|))
                          (PROGN (LETT #7# 1) (GO #11=#:G216))))))
                  (LETT #8# (CDR #8#)) (GO G190) G191 (EXIT NIL)))
@@ -757,18 +757,18 @@
                  (GO G191)))
                (SEQ
                 (LETT |tfact|
-                      (SPADCALL (SPADCALL |tfact| |leq1| (QREFELT $ 85))
+                      (SPADCALL (SPADCALL |tfact| |leq1| (QREFELT $ 83))
                                 (QREFELT $ 52)))
                 (EXIT
                  (COND
                   ((SPADCALL |tfact| (LIST (|spadConstant| $ 78))
-                             (QREFELT $ 86))
+                             (QREFELT $ 84))
                    "next value")
                   ('T
                    (LETT |result|
                          (SPADCALL |result|
                                    (|GROEBSOL;findCompon| |tfact| |lvar| $)
-                                   (QREFELT $ 87)))))))
+                                   (QREFELT $ 86)))))))
                (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
           (EXIT |result|)))) 
 
@@ -820,7 +820,7 @@
           (LETT DV$2 (|devaluate| |#2|))
           (LETT DV$3 (|devaluate| |#3|))
           (LETT |dv$| (LIST '|GroebnerSolve| DV$1 DV$2 DV$3))
-          (LETT $ (GETREFV 91))
+          (LETT $ (GETREFV 90))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|GroebnerSolve|
@@ -879,12 +879,11 @@
               (|List| 67) (179 . |factorList|) (184 . -) (190 . |One|)
               (194 . ~=) (200 . |reductum|) (205 . |mainVariable|)
               (210 . |leadingCoefficient|) (215 . |ground?|) (220 . |remove|)
-              (226 . |One|) (230 . =) (|List| 31) (236 . |list|)
-              (241 . |computeBasis|) (246 . |minPol|) (253 . |degree|)
-              (259 . |concat|) (265 . =) (271 . |concat|)
-              |GROEBSOL;groebSolve;LLL;8| (|Union| 50 '"failed")
-              |GROEBSOL;testDim;LLU;9|)
-           '#(|testDim| 277 |groebSolve| 283 |genericPosition| 289) 'NIL
+              (226 . |One|) (230 . =) (236 . |computeBasis|) (241 . |minPol|)
+              (248 . |degree|) (254 . |concat|) (260 . =) (|List| 31)
+              (266 . |concat|) |GROEBSOL;groebSolve;LLL;8|
+              (|Union| 50 '"failed") |GROEBSOL;testDim;LLU;9|)
+           '#(|testDim| 272 |groebSolve| 278 |genericPosition| 284) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -925,7 +924,7 @@
                                   (|List| (|OrderedVariableList| |#1|))))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 90
+                        (|makeByteWordVec2| 89
                                             '(1 11 10 0 12 0 7 0 13 0 8 0 14 2
                                               11 15 0 10 16 1 7 0 17 18 2 15 19
                                               0 7 20 1 11 15 0 21 2 15 0 0 0 22
@@ -944,9 +943,9 @@
                                               35 0 0 72 1 40 0 0 73 1 40 38 0
                                               74 1 48 40 0 75 1 40 35 0 76 2 57
                                               0 29 0 77 0 40 0 78 2 40 35 0 0
-                                              79 1 80 0 31 81 1 53 50 50 82 3
-                                              53 40 50 50 29 83 2 40 10 0 29 84
-                                              2 50 0 0 0 85 2 50 35 0 0 86 2 80
-                                              0 0 0 87 2 0 89 50 57 90 2 0 80
-                                              31 57 88 2 0 56 31 57 58)))))
+                                              79 1 53 50 50 80 3 53 40 50 50 29
+                                              81 2 40 10 0 29 82 2 50 0 0 0 83
+                                              2 50 35 0 0 84 2 85 0 0 0 86 2 0
+                                              88 50 57 89 2 0 85 31 57 87 2 0
+                                              56 31 57 58)))))
            '|lookupComplete|)) 
