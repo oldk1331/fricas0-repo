@@ -1,80 +1,82 @@
 
-(SDEFUN |LF;Si;2F;1| ((|x| F) ($ F))
+(SDEFUN |LF;Si;2F;1| ((|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 21) |x| (QREFELT $ 30))) 
 
-(SDEFUN |LF;Ci;2F;2| ((|x| F) ($ F))
+(SDEFUN |LF;Ci;2F;2| ((|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 22) |x| (QREFELT $ 30))) 
 
-(SDEFUN |LF;Shi;2F;3| ((|x| F) ($ F))
+(SDEFUN |LF;Shi;2F;3| ((|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 23) |x| (QREFELT $ 30))) 
 
-(SDEFUN |LF;Chi;2F;4| ((|x| F) ($ F))
+(SDEFUN |LF;Chi;2F;4| ((|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 24) |x| (QREFELT $ 30))) 
 
-(SDEFUN |LF;Ei;2F;5| ((|x| F) ($ F))
+(SDEFUN |LF;Ei;2F;5| ((|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 19) |x| (QREFELT $ 30))) 
 
-(SDEFUN |LF;erf;2F;6| ((|x| F) ($ F))
+(SDEFUN |LF;erf;2F;6| ((|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 26) |x| (QREFELT $ 30))) 
 
-(SDEFUN |LF;erfi;2F;7| ((|x| F) ($ F))
+(SDEFUN |LF;erfi;2F;7| ((|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 27) |x| (QREFELT $ 30))) 
 
-(SDEFUN |LF;li;2F;8| ((|x| F) ($ F))
+(SDEFUN |LF;li;2F;8| ((|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 20) |x| (QREFELT $ 30))) 
 
-(SDEFUN |LF;dilog;2F;9| ((|x| F) ($ F))
+(SDEFUN |LF;dilog;2F;9| ((|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 25) |x| (QREFELT $ 30))) 
 
-(SDEFUN |LF;fresnelS;2F;10| ((|x| F) ($ F))
+(SDEFUN |LF;fresnelS;2F;10| ((|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 28) |x| (QREFELT $ 30))) 
 
-(SDEFUN |LF;fresnelC;2F;11| ((|x| F) ($ F))
+(SDEFUN |LF;fresnelC;2F;11| ((|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 29) |x| (QREFELT $ 30))) 
 
-(SDEFUN |LF;belong?;BoB;12| ((|op| |BasicOperator|) ($ |Boolean|))
+(SDEFUN |LF;belong?;BoB;12| ((|op| (|BasicOperator|)) ($ (|Boolean|)))
         (SPADCALL |op| (QREFELT $ 8) (QREFELT $ 43))) 
 
-(SDEFUN |LF;isi| ((|x| F) ($ F))
+(SDEFUN |LF;isi| ((|x| (F)) ($ (F)))
         (COND ((SPADCALL |x| (QREFELT $ 45)) (|spadConstant| $ 46))
               ('T (SPADCALL (QREFELT $ 21) |x| (QREFELT $ 47))))) 
 
-(SDEFUN |LF;ici| ((|x| F) ($ F)) (SPADCALL (QREFELT $ 22) |x| (QREFELT $ 47))) 
+(SDEFUN |LF;ici| ((|x| (F)) ($ (F)))
+        (SPADCALL (QREFELT $ 22) |x| (QREFELT $ 47))) 
 
-(SDEFUN |LF;ishi| ((|x| F) ($ F))
+(SDEFUN |LF;ishi| ((|x| (F)) ($ (F)))
         (COND ((SPADCALL |x| (QREFELT $ 45)) (|spadConstant| $ 46))
               ('T (SPADCALL (QREFELT $ 23) |x| (QREFELT $ 47))))) 
 
-(SDEFUN |LF;ichi| ((|x| F) ($ F)) (SPADCALL (QREFELT $ 24) |x| (QREFELT $ 47))) 
+(SDEFUN |LF;ichi| ((|x| (F)) ($ (F)))
+        (SPADCALL (QREFELT $ 24) |x| (QREFELT $ 47))) 
 
-(SDEFUN |LF;ierf| ((|x| F) ($ F))
+(SDEFUN |LF;ierf| ((|x| (F)) ($ (F)))
         (COND ((SPADCALL |x| (QREFELT $ 45)) (|spadConstant| $ 46))
               ('T (SPADCALL (QREFELT $ 26) |x| (QREFELT $ 47))))) 
 
-(SDEFUN |LF;ierfi| ((|x| F) ($ F))
+(SDEFUN |LF;ierfi| ((|x| (F)) ($ (F)))
         (COND ((SPADCALL |x| (QREFELT $ 45)) (|spadConstant| $ 46))
               ('T (SPADCALL (QREFELT $ 27) |x| (QREFELT $ 47))))) 
 
-(SDEFUN |LF;ili2| ((|x| F) ($ F))
+(SDEFUN |LF;ili2| ((|x| (F)) ($ (F)))
         (COND
          ((SPADCALL |x| (|spadConstant| $ 49) (QREFELT $ 50))
           (|spadConstant| $ 46))
          ('T (SPADCALL (QREFELT $ 25) |x| (QREFELT $ 47))))) 
 
-(SDEFUN |LF;ifis| ((|x| F) ($ F))
+(SDEFUN |LF;ifis| ((|x| (F)) ($ (F)))
         (COND ((SPADCALL |x| (QREFELT $ 45)) (|spadConstant| $ 46))
               ('T (SPADCALL (QREFELT $ 28) |x| (QREFELT $ 47))))) 
 
-(SDEFUN |LF;ific| ((|x| F) ($ F))
+(SDEFUN |LF;ific| ((|x| (F)) ($ (F)))
         (COND ((SPADCALL |x| (QREFELT $ 45)) (|spadConstant| $ 46))
               ('T (SPADCALL (QREFELT $ 29) |x| (QREFELT $ 47))))) 
 
-(SDEFUN |LF;integrand| ((|l| |List| F) ($ F))
+(SDEFUN |LF;integrand| ((|l| (|List| F)) ($ (F)))
         (SPADCALL (|SPADfirst| |l|)
                   (SPADCALL (SPADCALL |l| (QREFELT $ 52)) (QREFELT $ 54))
                   (SPADCALL |l| (QREFELT $ 55)) (QREFELT $ 56))) 
 
-(SDEFUN |LF;integral;FSF;23| ((|f| F) (|x| |Symbol|) ($ F))
+(SDEFUN |LF;integral;FSF;23| ((|f| (F)) (|x| (|Symbol|)) ($ (F)))
         (SPROG ((|k| (|Kernel| F)))
                (SPADCALL (QREFELT $ 16)
                          (LIST
@@ -84,12 +86,12 @@
                           (QREFELT $ 12) (SPADCALL |k| (QREFELT $ 59)))
                          (QREFELT $ 61)))) 
 
-(SDEFUN |LF;iint| ((|l| |List| F) ($ F))
+(SDEFUN |LF;iint| ((|l| (|List| F)) ($ (F)))
         (COND
          ((SPADCALL (|SPADfirst| |l|) (QREFELT $ 45)) (|spadConstant| $ 46))
          ('T (SPADCALL (QREFELT $ 16) |l| (QREFELT $ 63))))) 
 
-(SDEFUN |LF;ddint| ((|l| |List| F) ($ |OutputForm|))
+(SDEFUN |LF;ddint| ((|l| (|List| F)) ($ (|OutputForm|)))
         (SPADCALL
          (SPADCALL (SPADCALL (|LF;integrand| |l| $) (QREFELT $ 65))
                    (SPADCALL (SPADCALL '|d| (QREFELT $ 66))
@@ -101,7 +103,7 @@
          (SPADCALL (SPADCALL (CDR (CDR |l|)) (QREFELT $ 55)) (QREFELT $ 65))
          (QREFELT $ 69))) 
 
-(SDEFUN |LF;eqint| ((|k1| |Kernel| F) (|k2| |Kernel| F) ($ |Boolean|))
+(SDEFUN |LF;eqint| ((|k1| (|Kernel| F)) (|k2| (|Kernel| F)) ($ (|Boolean|)))
         (SPROG
          ((|res| (|Boolean|)) (#1=#:G164 NIL) (|a2| #2=(|List| F)) (|a1| #2#))
          (SEQ
@@ -131,7 +133,7 @@
                         ('T NIL))))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |LF;dvint| ((|l| |List| F) (|x| |Symbol|) ($ F))
+(SDEFUN |LF;dvint| ((|l| (|List| F)) (|x| (|Symbol|)) ($ (F)))
         (SPROG ((|k| (|Kernel| F)))
                (SEQ
                 (LETT |k|
@@ -149,7 +151,7 @@
                             (QREFELT $ 61))
                   (QREFELT $ 80)))))) 
 
-(SDEFUN |LF;iiint| ((|l| |List| F) ($ F))
+(SDEFUN |LF;iiint| ((|l| (|List| F)) ($ (F)))
         (SPROG
          ((|lval| (|List| F)) (|n| (|NonNegativeInteger|))
           (|nu| (|Union| (|NonNegativeInteger|) "failed")))
@@ -167,7 +169,7 @@
                               (SPADCALL (QREFELT $ 17) |l|
                                         (QREFELT $ 63)))))))))))) 
 
-(SDEFUN |LF;dviint| ((|l| |List| F) (|v| |Symbol|) ($ F))
+(SDEFUN |LF;dviint| ((|l| (|List| F)) (|v| (|Symbol|)) ($ (F)))
         (SPROG
          ((|m| (|Integer|)) (|lv| (|List| (|Symbol|))) (#1=#:G182 NIL)
           (|vf| NIL) (#2=#:G181 NIL) (|lvf| (|List| F))
@@ -202,7 +204,7 @@
                                    (SPADCALL |l| (+ |n| |m|)
                                              (QREFELT $ 75)))))))))))) 
 
-(SDEFUN |LF;dvdint| ((|l| |List| F) (|x| |Symbol|) ($ F))
+(SDEFUN |LF;dvdint| ((|l| (|List| F)) (|x| (|Symbol|)) ($ (F)))
         (SPROG
          ((|g| (F)) (|f| (F)) (|h| (F)) (|k| (|Kernel| F)) (|d| (F)) (|y| (F)))
          (SEQ
@@ -235,7 +237,7 @@
                          (QREFELT $ 61))
                (QREFELT $ 80))))))))) 
 
-(SDEFUN |LF;integral;FSbF;31| ((|f| F) (|s| |SegmentBinding| F) ($ F))
+(SDEFUN |LF;integral;FSbF;31| ((|f| (F)) (|s| (|SegmentBinding| F)) ($ (F)))
         (SPROG ((|x| (|Kernel| F)))
                (SEQ
                 (LETT |x|
@@ -251,7 +253,7 @@
                                       (QREFELT $ 98)))
                            (QREFELT $ 61)))))) 
 
-(SDEFUN |LF;ili| ((|x| F) ($ F))
+(SDEFUN |LF;ili| ((|x| (F)) ($ (F)))
         (COND
          ((SPADCALL |x| (|spadConstant| $ 49) (QREFELT $ 50))
           (|error| "Invalid argument"))
@@ -262,7 +264,7 @@
            (QREFELT $ 35)))
          ('T (SPADCALL (QREFELT $ 20) |x| (QREFELT $ 47))))) 
 
-(SDEFUN |LF;iei| ((|x| F) ($ F))
+(SDEFUN |LF;iei| ((|x| (F)) ($ (F)))
         (COND
          ((SPADCALL |x| (|spadConstant| $ 46) (QREFELT $ 50))
           (|error| "Invalid argument"))
@@ -273,7 +275,7 @@
            (QREFELT $ 38)))
          ('T (SPADCALL (QREFELT $ 19) |x| (QREFELT $ 47))))) 
 
-(SDEFUN |LF;operator;2Bo;34| ((|op| |BasicOperator|) ($ |BasicOperator|))
+(SDEFUN |LF;operator;2Bo;34| ((|op| (|BasicOperator|)) ($ (|BasicOperator|)))
         (COND ((SPADCALL |op| '|integral| (QREFELT $ 101)) (QREFELT $ 16))
               ((SPADCALL |op| '|%iint| (QREFELT $ 101)) (QREFELT $ 17))
               ((SPADCALL |op| '|%defint| (QREFELT $ 101)) (QREFELT $ 18))
@@ -290,11 +292,11 @@
               ((SPADCALL |op| '|fresnelS| (QREFELT $ 101)) (QREFELT $ 28))
               ('T (|error| "Not a Liouvillian operator")))) 
 
-(SDEFUN |LF;pint| ((|l| |List| (|InputForm|)) ($ |InputForm|))
+(SDEFUN |LF;pint| ((|l| (|List| (|InputForm|))) ($ (|InputForm|)))
         (SPADCALL (CONS (SPADCALL '|integral| (QREFELT $ 127)) |l|)
                   (QREFELT $ 128))) 
 
-(SDEFUN |LF;inint| ((|l| |List| F) ($ |InputForm|))
+(SDEFUN |LF;inint| ((|l| (|List| F)) ($ (|InputForm|)))
         (SPROG ((|r2| (|InputForm|)))
                (SEQ
                 (LETT |r2|
@@ -309,7 +311,7 @@
                   (LIST (SPADCALL (|LF;integrand| |l| $) (QREFELT $ 129)) |r2|)
                   $))))) 
 
-(SDEFUN |LF;indint| ((|l| |List| F) ($ |InputForm|))
+(SDEFUN |LF;indint| ((|l| (|List| F)) ($ (|InputForm|)))
         (|LF;pint|
          (LIST (SPADCALL (|LF;integrand| |l| $) (QREFELT $ 129))
                (SPADCALL

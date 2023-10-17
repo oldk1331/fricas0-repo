@@ -1,5 +1,6 @@
 
-(SDEFUN |ORTHPOL;laguerreL;Nni2R;1| ((|n| |NonNegativeInteger|) (|x| R) ($ R))
+(SDEFUN |ORTHPOL;laguerreL;Nni2R;1|
+        ((|n| (|NonNegativeInteger|)) (|x| (R)) ($ (R)))
         (SPROG
          ((|p0| (R)) (|p1| (R)) (|#G9| (R)) (|#G8| (R)) (#1=#:G106 NIL)
           (|i| NIL) (|#G6| (R)) (|#G5| (R)))
@@ -38,7 +39,8 @@
                   (EXIT |p1|))))))) 
 
 (SDEFUN |ORTHPOL;laguerreL;2Nni2R;2|
-        ((|m| |NonNegativeInteger|) (|n| |NonNegativeInteger|) (|x| R) ($ R))
+        ((|m| (|NonNegativeInteger|)) (|n| (|NonNegativeInteger|)) (|x| (R))
+         ($ (R)))
         (SPROG
          ((|p1| (R)) (|p0| (R)) (|cx| (|Integer|)) (#1=#:G108 NIL)
           (#2=#:G114 NIL) (|j| NIL) (|mi| (|Integer|)) (|ni| (|Integer|)))
@@ -71,7 +73,8 @@
                    (LETT |j| (|inc_SI| |j|)) (GO G190) G191 (EXIT NIL))
               (EXIT |p1|)))) 
 
-(SDEFUN |ORTHPOL;chebyshevT;Nni2R;3| ((|n| |NonNegativeInteger|) (|x| R) ($ R))
+(SDEFUN |ORTHPOL;chebyshevT;Nni2R;3|
+        ((|n| (|NonNegativeInteger|)) (|x| (R)) ($ (R)))
         (SPROG
          ((|p0| (R)) (|p1| (R)) (|#G20| (R)) (|#G19| (R)) (#1=#:G118 NIL)
           (|i| NIL) (|#G17| (R)) (|#G16| (R)))
@@ -100,7 +103,8 @@
                        (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                   (EXIT |p1|))))))) 
 
-(SDEFUN |ORTHPOL;chebyshevU;Nni2R;4| ((|n| |NonNegativeInteger|) (|x| R) ($ R))
+(SDEFUN |ORTHPOL;chebyshevU;Nni2R;4|
+        ((|n| (|NonNegativeInteger|)) (|x| (R)) ($ (R)))
         (SPROG
          ((|p0| (R)) (|p1| (R)) (|#G27| (R)) (|#G26| (R)) (#1=#:G122 NIL)
           (|i| NIL) (|#G24| (R)) (|#G23| (R)))
@@ -129,7 +133,8 @@
                        (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                   (EXIT |p1|))))))) 
 
-(SDEFUN |ORTHPOL;hermiteH;Nni2R;5| ((|n| |NonNegativeInteger|) (|x| R) ($ R))
+(SDEFUN |ORTHPOL;hermiteH;Nni2R;5|
+        ((|n| (|NonNegativeInteger|)) (|x| (R)) ($ (R)))
         (SPROG
          ((|p0| (R)) (|p1| (R)) (|#G34| (R)) (|#G33| (R)) (#1=#:G126 NIL)
           (|i| NIL) (|#G31| (R)) (|#G30| (R)))
@@ -159,7 +164,8 @@
                        (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                   (EXIT |p1|))))))) 
 
-(SDEFUN |ORTHPOL;legendreP;Nni2R;6| ((|n| |NonNegativeInteger|) (|x| R) ($ R))
+(SDEFUN |ORTHPOL;legendreP;Nni2R;6|
+        ((|n| (|NonNegativeInteger|)) (|x| (R)) ($ (R)))
         (SPROG
          ((|p0| (R)) (|p1| (R)) (|#G39| (R)) (|#G38| (R))
           (|c| (|Fraction| (|Integer|))) (#1=#:G131 NIL) (|i| NIL))

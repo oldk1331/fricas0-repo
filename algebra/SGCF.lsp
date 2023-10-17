@@ -1,6 +1,7 @@
 
 (SDEFUN |SGCF;numberOfImproperPartitionsInternal|
-        ((|n| |Integer|) (|m| |Integer|) (|cm| |Integer|) ($ |Integer|))
+        ((|n| (|Integer|)) (|m| (|Integer|)) (|cm| (|Integer|))
+         ($ (|Integer|)))
         (SPROG ((|s| (|Integer|)) (#1=#:G116 NIL) (|i| NIL))
                (SEQ
                 (COND ((EQL |n| 0) (SPADCALL |m| |cm| (QREFELT $ 8)))
@@ -20,7 +21,7 @@
                             (EXIT |s|))))))) 
 
 (SDEFUN |SGCF;numberOfImproperPartitions;3I;2|
-        ((|n| |Integer|) (|m| |Integer|) ($ |Integer|))
+        ((|n| (|Integer|)) (|m| (|Integer|)) ($ (|Integer|)))
         (SPROG ((|s| (|Integer|)) (#1=#:G121 NIL) (|i| NIL) (#2=#:G120 NIL))
                (SEQ
                 (EXIT
@@ -45,8 +46,8 @@
                 #3# (EXIT #2#)))) 
 
 (SDEFUN |SGCF;unrankImproperPartitions0;3IL;3|
-        ((|n| |Integer|) (|m| |Integer|) (|k| |Integer|)
-         ($ |List| (|Integer|)))
+        ((|n| (|Integer|)) (|m| (|Integer|)) (|k| (|Integer|))
+         ($ (|List| (|Integer|))))
         (SPROG
          ((|l| (|List| (|Integer|))) (#1=#:G130 NIL) (|s| #2=(|Integer|))
           (|sOld| #2#) (#3=#:G132 NIL) (|y| NIL) (#4=#:G131 NIL) (|t| NIL))
@@ -92,8 +93,8 @@
                   (EXIT |l|)))))))) 
 
 (SDEFUN |SGCF;unrankImproperPartitions1;3IL;4|
-        ((|n| |Integer|) (|m| . #1=(|Integer|)) (|k| |Integer|)
-         ($ |List| (|Integer|)))
+        ((|n| (|Integer|)) (|m| #1=(|Integer|)) (|k| (|Integer|))
+         ($ (|List| (|Integer|))))
         (SPROG
          ((#2=#:G145 NIL) (|i| NIL) (|nonZeroPos| (|List| (|Integer|)))
           (|nonZeros| (|List| (|Integer|))) (#3=#:G144 NIL)
@@ -158,8 +159,8 @@
                       (EXIT (SPADCALL |partition| (QREFELT $ 20)))))))))) 
 
 (SDEFUN |SGCF;subSet;3IL;5|
-        ((|n| |Integer|) (|m| . #1=(|Integer|)) (|k| . #2=(|Integer|))
-         ($ |List| (|Integer|)))
+        ((|n| (|Integer|)) (|m| #1=(|Integer|)) (|k| #2=(|Integer|))
+         ($ (|List| (|Integer|))))
         (SPROG
          ((|s| #1#) (|mm| #2#) (|l| (|List| (|Integer|))) (#3=#:G154 NIL)
           (#4=#:G156 NIL) (|y| NIL) (#5=#:G155 NIL) (|t| NIL)
@@ -220,8 +221,8 @@
                                       (EXIT |l|))))))))))))))) 
 
 (SDEFUN |SGCF;nextLatticePermutation;2LBL;6|
-        ((|lambda| |List| #1=(|Integer|)) (|lattP| |List| (|Integer|))
-         (|constructNotFirst| |Boolean|) ($ |List| (|Integer|)))
+        ((|lambda| (|List| #1=(|Integer|))) (|lattP| (|List| (|Integer|)))
+         (|constructNotFirst| (|Boolean|)) ($ (|List| (|Integer|))))
         (SPROG
          ((#2=#:G187 NIL) (|l| NIL) (|i| NIL)
           (|rightPosition| #3=(|NonNegativeInteger|)) (#4=#:G175 NIL)
@@ -432,8 +433,8 @@
                       (EXIT |lattP|)))))))) 
 
 (SDEFUN |SGCF;makeYoungTableau;2LM;7|
-        ((|lambda| |List| (|Integer|)) (|gitter| |List| (|Integer|))
-         ($ |Matrix| (|Integer|)))
+        ((|lambda| (|List| (|Integer|))) (|gitter| (|List| (|Integer|)))
+         ($ (|Matrix| (|Integer|))))
         (SPROG
          ((|i| (|Integer|)) (|j| (|Integer|)) (#1=#:G194 NIL) (|l| NIL)
           (|help| (|Vector| (|Integer|))) (|ytab| (|Matrix| (|Integer|)))
@@ -465,7 +466,7 @@
               (EXIT |ytab|)))) 
 
 (SDEFUN |SGCF;listYoungTableaus;LL;8|
-        ((|lambda| |List| (|Integer|)) ($ |List| (|Matrix| (|Integer|))))
+        ((|lambda| (|List| (|Integer|))) ($ (|List| (|Matrix| (|Integer|)))))
         (SPROG
          ((|lattice| (|List| (|Integer|)))
           (|younglist| (|List| (|Matrix| (|Integer|))))
@@ -484,8 +485,8 @@
               (EXIT |younglist|)))) 
 
 (SDEFUN |SGCF;nextColeman;2L2M;9|
-        ((|alpha| |List| (|Integer|)) (|beta| |List| (|Integer|))
-         (C |Matrix| (|Integer|)) ($ |Matrix| (|Integer|)))
+        ((|alpha| (|List| (|Integer|))) (|beta| (|List| (|Integer|)))
+         (C (|Matrix| (|Integer|))) ($ (|Matrix| (|Integer|))))
         (SPROG
          ((|vrest| #1=(|Vector| (|Integer|)))
           (|coleman| (|Matrix| (|Integer|))) (|succ| (|Vector| (|Integer|)))
@@ -576,14 +577,14 @@
           #8# (EXIT #5#)))) 
 
 (SDEFUN |SGCF;nextPartition;2VIV;10|
-        ((|gamma| |Vector| (|Integer|)) (|part| |Vector| (|Integer|))
-         (|number| |Integer|) ($ |Vector| (|Integer|)))
+        ((|gamma| (|Vector| (|Integer|))) (|part| (|Vector| (|Integer|)))
+         (|number| (|Integer|)) ($ (|Vector| (|Integer|))))
         (SPADCALL (SPADCALL |gamma| (QREFELT $ 20)) |part| |number|
                   (QREFELT $ 43))) 
 
 (SDEFUN |SGCF;nextPartition;LVIV;11|
-        ((|gamma| |List| (|Integer|)) (|part| |Vector| (|Integer|))
-         (|number| |Integer|) ($ |Vector| (|Integer|)))
+        ((|gamma| (|List| (|Integer|))) (|part| (|Vector| (|Integer|)))
+         (|number| (|Integer|)) ($ (|Vector| (|Integer|))))
         (SPROG
          ((#1=#:G229 NIL) (|k| NIL) (|j| (|NonNegativeInteger|))
           (|sum| (|Integer|)) (|i| (|NonNegativeInteger|)) (#2=#:G228 NIL)
@@ -644,8 +645,8 @@
           #3# (EXIT #2#)))) 
 
 (SDEFUN |SGCF;inverseColeman;2LML;12|
-        ((|alpha| |List| (|Integer|)) (|beta| |List| (|Integer|))
-         (C |Matrix| (|Integer|)) ($ |List| (|Integer|)))
+        ((|alpha| (|List| (|Integer|))) (|beta| (|List| (|Integer|)))
+         (C (|Matrix| (|Integer|))) ($ (|List| (|Integer|))))
         (SPROG
          ((|pi| (|List| (|Integer|))) (#1=#:G241 NIL) (|k| NIL) (#2=#:G240 NIL)
           (|i| NIL) (#3=#:G239 NIL) (|j| NIL) (|sum| (|Integer|))
@@ -698,8 +699,8 @@
               (EXIT |pi|)))) 
 
 (SDEFUN |SGCF;coleman;3LM;13|
-        ((|alpha| |List| (|Integer|)) (|beta| |List| (|Integer|))
-         (|pi| |List| (|Integer|)) ($ |Matrix| (|Integer|)))
+        ((|alpha| (|List| (|Integer|))) (|beta| (|List| (|Integer|)))
+         (|pi| (|List| (|Integer|))) ($ (|Matrix| (|Integer|))))
         (SPROG
          ((#1=#:G259 NIL) (|j| NIL) (|betasum| #2=(|NonNegativeInteger|))
           (#3=#:G251 NIL) (|help| (|List| (|Integer|))) (#4=#:G249 NIL)

@@ -1,13 +1,14 @@
 
-(SDEFUN |FSAGG2;map;MAB;1| ((|fn| |Mapping| R S) (|a| A) ($ B))
+(SDEFUN |FSAGG2;map;MAB;1| ((|fn| (|Mapping| R S)) (|a| (A)) ($ (B)))
         (SPADCALL (SPADCALL |fn| (SPADCALL |a| (QREFELT $ 11)) (QREFELT $ 15))
                   (QREFELT $ 16))) 
 
 (SDEFUN |FSAGG2;reduce;MA2R;2|
-        ((|fn| |Mapping| R S R) (|a| A) (|ident| R) ($ R))
+        ((|fn| (|Mapping| R S R)) (|a| (A)) (|ident| (R)) ($ (R)))
         (SPADCALL |fn| (SPADCALL |a| (QREFELT $ 11)) |ident| (QREFELT $ 19))) 
 
-(SDEFUN |FSAGG2;scan;MARB;3| ((|fn| |Mapping| R S R) (|a| A) (|ident| R) ($ B))
+(SDEFUN |FSAGG2;scan;MARB;3|
+        ((|fn| (|Mapping| R S R)) (|a| (A)) (|ident| (R)) ($ (B)))
         (SPADCALL
          (SPADCALL |fn| (SPADCALL |a| (QREFELT $ 11)) |ident| (QREFELT $ 21))
          (QREFELT $ 16))) 

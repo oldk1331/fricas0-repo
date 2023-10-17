@@ -1,6 +1,6 @@
 
 (SDEFUN |CYCLOTOM;cyclotomic;ISup;1|
-        ((|n| |Integer|) ($ |SparseUnivariatePolynomial| (|Integer|)))
+        ((|n| (|Integer|)) ($ (|SparseUnivariatePolynomial| (|Integer|))))
         (SPROG
          ((|l| (|SparseUnivariatePolynomial| (|Integer|))) (#1=#:G110 NIL)
           (#2=#:G109 NIL) (#3=#:G107 NIL) (#4=#:G115 NIL) (|u| NIL)
@@ -53,7 +53,8 @@
               (EXIT |l|)))) 
 
 (SDEFUN |CYCLOTOM;cyclotomicDecomposition;IL;2|
-        ((|n| |Integer|) ($ |List| (|SparseUnivariatePolynomial| (|Integer|))))
+        ((|n| (|Integer|))
+         ($ (|List| (|SparseUnivariatePolynomial| (|Integer|)))))
         (SPROG
          ((|l| (|List| (|SparseUnivariatePolynomial| (|Integer|))))
           (|m| (|List| (|SparseUnivariatePolynomial| (|Integer|))))
@@ -141,8 +142,8 @@
               (EXIT |l|)))) 
 
 (SDEFUN |CYCLOTOM;cyclotomicFactorization;IF;3|
-        ((|n| |Integer|)
-         ($ |Factored| (|SparseUnivariatePolynomial| (|Integer|))))
+        ((|n| (|Integer|))
+         ($ (|Factored| (|SparseUnivariatePolynomial| (|Integer|)))))
         (SPROG
          ((|fr| (|Factored| (|SparseUnivariatePolynomial| (|Integer|))))
           (#1=#:G138 NIL) (|f| NIL))

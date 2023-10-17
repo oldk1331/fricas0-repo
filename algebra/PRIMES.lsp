@@ -1,5 +1,5 @@
 
-(SDEFUN |PRIMES;primes;2IL;1| ((|m| I) (|n| I) ($ |List| I))
+(SDEFUN |PRIMES;primes;2IL;1| ((|m| (I)) (|n| (I)) ($ (|List| I)))
         (SPROG
          ((|ll| (|List| I)) (#1=#:G140 NIL) (|k| NIL) (#2=#:G139 NIL)
           (|m0| (I)))
@@ -37,8 +37,8 @@
             ('T |ll|)))))) 
 
 (SDEFUN |PRIMES;rabinProvesCompositeSmall|
-        ((|p| I) (|n| I) (|nm1| I) (|q| I) (|k| |NonNegativeInteger|)
-         ($ |Boolean|))
+        ((|p| (I)) (|n| (I)) (|nm1| (I)) (|q| (I)) (|k| (|NonNegativeInteger|))
+         ($ (|Boolean|)))
         (SPROG
          ((#1=#:G147 NIL) (#2=#:G146 NIL) (|t| (I)) (|oldt| (I))
           (#3=#:G148 NIL) (|j| NIL))
@@ -77,8 +77,8 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |PRIMES;rabinProvesComposite|
-        ((|p| I) (|n| I) (|nm1| I) (|q| I) (|k| |NonNegativeInteger|)
-         ($ |Boolean|))
+        ((|p| (I)) (|n| (I)) (|nm1| (I)) (|q| (I)) (|k| (|NonNegativeInteger|))
+         ($ (|Boolean|)))
         (SPROG
          ((#1=#:G156 NIL) (#2=#:G155 NIL) (|t| (I)) (|oldt| (I))
           (#3=#:G157 NIL) (|j| NIL))
@@ -135,7 +135,7 @@
                        ('T NIL)))))
           #4# (EXIT #1#)))) 
 
-(SDEFUN |PRIMES;prime?;IB;4| ((|n| I) ($ |Boolean|))
+(SDEFUN |PRIMES;prime?;IB;4| ((|n| (I)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G189 NIL) (#2=#:G192 NIL) (|probablySafe| (I))
           (|currPrime| (I)) (#3=#:G191 NIL) (|n9| (I)) (#4=#:G190 NIL)
@@ -340,7 +340,7 @@
                            #9# (EXIT #3#)))))))))))))
           #7# (EXIT #2#)))) 
 
-(SDEFUN |PRIMES;nextPrime;2I;5| ((|n| I) ($ I))
+(SDEFUN |PRIMES;nextPrime;2I;5| ((|n| (I)) ($ (I)))
         (SEQ
          (COND ((SPADCALL |n| (QREFELT $ 17) (QREFELT $ 35)) (QREFELT $ 17))
                (#1='T
@@ -361,7 +361,7 @@
                       NIL (GO G190) G191 (EXIT NIL))
                  (EXIT |n|)))))) 
 
-(SDEFUN |PRIMES;prevPrime;2I;6| ((|n| I) ($ I))
+(SDEFUN |PRIMES;prevPrime;2I;6| ((|n| (I)) ($ (I)))
         (SEQ
          (COND
           ((SPADCALL |n| (SPADCALL 3 (QREFELT $ 8)) (QREFELT $ 35))

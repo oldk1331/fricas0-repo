@@ -1,6 +1,6 @@
 
 (SDEFUN |PRROOT;get_rational_roots;UPL;1|
-        ((|p| UP) ($ |List| (|Fraction| (|Integer|))))
+        ((|p| (UP)) ($ (|List| (|Fraction| (|Integer|)))))
         (SPROG
          ((|res| (|List| (|Fraction| (|Integer|))))
           (|val1r| (|Fraction| (|Integer|)))
@@ -63,7 +63,7 @@
                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
-(SDEFUN |PRROOT;integerBound;UPI;2| ((|p| UP) ($ |Integer|))
+(SDEFUN |PRROOT;integerBound;UPI;2| ((|p| (UP)) ($ (|Integer|)))
         (SPROG
          ((|res| (|Integer|)) (|q| (|Integer|))
           (|qu| (|Union| (|Integer|) "failed")) (#1=#:G122 NIL) (|r| NIL)

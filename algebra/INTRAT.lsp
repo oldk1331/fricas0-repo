@@ -1,6 +1,6 @@
 
 (SDEFUN |INTRAT;infieldint;FU;1|
-        ((|f| |Fraction| UP) ($ |Union| (|Fraction| UP) "failed"))
+        ((|f| (|Fraction| UP)) ($ (|Union| (|Fraction| UP) "failed")))
         (SPROG
          ((|s1|
            (|Record| (|:| |ratpart| (|Fraction| UP))
@@ -55,7 +55,7 @@
                        (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |INTRAT;integrate;FIr;2|
-        ((|f| |Fraction| UP) ($ |IntegrationResult| (|Fraction| UP)))
+        ((|f| (|Fraction| UP)) ($ (|IntegrationResult| (|Fraction| UP))))
         (SPROG
          ((|rec|
            (|Record| (|:| |ir| (|IntegrationResult| (|Fraction| UP)))

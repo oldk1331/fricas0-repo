@@ -1,28 +1,29 @@
 
 (PUT '|DISTRO;rep| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |DISTRO;rep| ((|x| $) ($ |Rep|)) |x|) 
+(SDEFUN |DISTRO;rep| ((|x| ($)) ($ (|Rep|))) |x|) 
 
 (PUT '|DISTRO;per| '|SPADreplace| '(XLAM (|r|) |r|)) 
 
-(SDEFUN |DISTRO;per| ((|r| |Rep|) ($ $)) |r|) 
+(SDEFUN |DISTRO;per| ((|r| (|Rep|)) ($ ($))) |r|) 
 
-(SDEFUN |DISTRO;Zero;$;3| (($ $))
+(SDEFUN |DISTRO;Zero;$;3| (($ ($)))
         (SPADCALL
          (SPADCALL (SPADCALL (LIST (|spadConstant| $ 8)) (QREFELT $ 11))
                    (QREFELT $ 13))
          (QREFELT $ 14))) 
 
-(SDEFUN |DISTRO;distributionByMoments;S$;4| ((|mm| |Sequence| R) ($ $))
+(SDEFUN |DISTRO;distributionByMoments;S$;4| ((|mm| (|Sequence| R)) ($ ($)))
         (|DISTRO;per|
          (VECTOR |mm| (SPADCALL |mm| (QREFELT $ 17))
                  (SPADCALL |mm| (QREFELT $ 18)) (SPADCALL |mm| (QREFELT $ 19)))
          $)) 
 
-(SDEFUN |DISTRO;distributionByMoments;S$;5| ((|mm| |Stream| R) ($ $))
+(SDEFUN |DISTRO;distributionByMoments;S$;5| ((|mm| (|Stream| R)) ($ ($)))
         (SPADCALL (SPADCALL |mm| (QREFELT $ 13)) (QREFELT $ 14))) 
 
-(SDEFUN |DISTRO;interlace| ((|x| |Stream| R) (|y| |Stream| R) ($ |Stream| R))
+(SDEFUN |DISTRO;interlace|
+        ((|x| (|Stream| R)) (|y| (|Stream| R)) ($ (|Stream| R)))
         (SPROG NIL
                (SPADCALL (CONS #'|DISTRO;interlace!0| (VECTOR |y| $ |x|))
                          (QREFELT $ 25)))) 
@@ -42,7 +43,7 @@
                                 (QREFELT $ 23))
                       (QREFELT $ 23)))))) 
 
-(SDEFUN |DISTRO;distributionByEvenMoments;S$;7| ((|mm| |Sequence| R) ($ $))
+(SDEFUN |DISTRO;distributionByEvenMoments;S$;7| ((|mm| (|Sequence| R)) ($ ($)))
         (SPADCALL
          (SPADCALL
           (|DISTRO;interlace|
@@ -51,11 +52,11 @@
           (QREFELT $ 13))
          (QREFELT $ 14))) 
 
-(SDEFUN |DISTRO;distributionByEvenMoments;S$;8| ((|mm| |Stream| R) ($ $))
+(SDEFUN |DISTRO;distributionByEvenMoments;S$;8| ((|mm| (|Stream| R)) ($ ($)))
         (SPADCALL (SPADCALL |mm| (QREFELT $ 13)) (QREFELT $ 27))) 
 
 (SDEFUN |DISTRO;distributionByClassicalCumulants;S$;9|
-        ((|cc| |Sequence| R) ($ $))
+        ((|cc| (|Sequence| R)) ($ ($)))
         (SPROG ((|mm| (|Sequence| R)))
                (SEQ (LETT |mm| (SPADCALL |cc| (QREFELT $ 29)))
                     (EXIT
@@ -65,10 +66,11 @@
                       $))))) 
 
 (SDEFUN |DISTRO;distributionByClassicalCumulants;S$;10|
-        ((|mm| |Stream| R) ($ $))
+        ((|mm| (|Stream| R)) ($ ($)))
         (SPADCALL (SPADCALL |mm| (QREFELT $ 13)) (QREFELT $ 30))) 
 
-(SDEFUN |DISTRO;distributionByFreeCumulants;S$;11| ((|fc| |Sequence| R) ($ $))
+(SDEFUN |DISTRO;distributionByFreeCumulants;S$;11|
+        ((|fc| (|Sequence| R)) ($ ($)))
         (SPROG ((|mm| (|Sequence| R)))
                (SEQ (LETT |mm| (SPADCALL |fc| (QREFELT $ 32)))
                     (EXIT
@@ -77,11 +79,12 @@
                               (SPADCALL |mm| (QREFELT $ 19)))
                       $))))) 
 
-(SDEFUN |DISTRO;distributionByFreeCumulants;S$;12| ((|mm| |Stream| R) ($ $))
+(SDEFUN |DISTRO;distributionByFreeCumulants;S$;12|
+        ((|mm| (|Stream| R)) ($ ($)))
         (SPADCALL (SPADCALL |mm| (QREFELT $ 13)) (QREFELT $ 33))) 
 
 (SDEFUN |DISTRO;distributionByBooleanCumulants;S$;13|
-        ((|bc| |Sequence| R) ($ $))
+        ((|bc| (|Sequence| R)) ($ ($)))
         (SPROG ((|mm| (|Sequence| R)))
                (SEQ (LETT |mm| (SPADCALL |bc| (QREFELT $ 35)))
                     (EXIT
@@ -90,11 +93,12 @@
                               (SPADCALL |mm| (QREFELT $ 18)) |bc|)
                       $))))) 
 
-(SDEFUN |DISTRO;distributionByBooleanCumulants;S$;14| ((|mm| |Stream| R) ($ $))
+(SDEFUN |DISTRO;distributionByBooleanCumulants;S$;14|
+        ((|mm| (|Stream| R)) ($ ($)))
         (SPADCALL (SPADCALL |mm| (QREFELT $ 13)) (QREFELT $ 36))) 
 
 (SDEFUN |DISTRO;booleanCumulantFromJacobi;I2SR;15|
-        ((|n| |Integer|) (|aa| |Sequence| R) (|bb| |Sequence| R) ($ R))
+        ((|n| (|Integer|)) (|aa| (|Sequence| R)) (|bb| (|Sequence| R)) ($ (R)))
         (COND ((ZEROP |n|) (|spadConstant| $ 38))
               ((EQL |n| 1) (SPADCALL |aa| 1 (QREFELT $ 40)))
               ('T
@@ -105,7 +109,7 @@
                          (QREFELT $ 43))))) 
 
 (SDEFUN |DISTRO;distributionByJacobiParameters;2S$;16|
-        ((|aa| |Sequence| R) (|bb| |Sequence| R) ($ $))
+        ((|aa| (|Sequence| R)) (|bb| (|Sequence| R)) ($ ($)))
         (SPROG ((|mom| (|Stream| R)) (|rior| (|Stream| (|List| R))))
                (SEQ
                 (LETT |rior|
@@ -118,20 +122,20 @@
                  (SPADCALL (SPADCALL |mom| (QREFELT $ 13)) (QREFELT $ 14)))))) 
 
 (SDEFUN |DISTRO;distributionByJacobiParameters;2S$;17|
-        ((|aa| |Stream| R) (|bb| |Stream| R) ($ $))
+        ((|aa| (|Stream| R)) (|bb| (|Stream| R)) ($ ($)))
         (SPADCALL (SPADCALL |aa| (QREFELT $ 13)) (SPADCALL |bb| (QREFELT $ 13))
                   (QREFELT $ 48))) 
 
 (SDEFUN |DISTRO;construct;4S$;18|
-        ((|mom| |Sequence| R) (|ccum| |Sequence| R) (|fcum| |Sequence| R)
-         (|bcum| |Sequence| R) ($ $))
+        ((|mom| (|Sequence| R)) (|ccum| (|Sequence| R)) (|fcum| (|Sequence| R))
+         (|bcum| (|Sequence| R)) ($ ($)))
         (|DISTRO;per| (VECTOR |mom| |ccum| |fcum| |bcum|) $)) 
 
-(SDEFUN |DISTRO;monotoneCumulants;$S;19| ((|x| $) ($ |Sequence| R))
+(SDEFUN |DISTRO;monotoneCumulants;$S;19| ((|x| ($)) ($ (|Sequence| R)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 51)) (QREFELT $ 52))) 
 
 (SDEFUN |DISTRO;distributionByMonotoneCumulants;S$;20|
-        ((|mc| |Sequence| R) ($ $))
+        ((|mc| (|Sequence| R)) ($ ($)))
         (SPROG ((|mm| (|Sequence| R)))
                (SEQ (LETT |mm| (SPADCALL |mc| (QREFELT $ 54)))
                     (EXIT
@@ -142,12 +146,12 @@
                       $))))) 
 
 (SDEFUN |DISTRO;distributionByMonotoneCumulants;S$;21|
-        ((|mm| |Stream| R) ($ $))
+        ((|mm| (|Stream| R)) ($ ($)))
         (SPADCALL (SPADCALL |mm| (QREFELT $ 13)) (QREFELT $ 55))) 
 
 (SDEFUN |DISTRO;distributionBySTransform;2FS$;22|
-        ((|puiseux| |Fraction| (|Integer|)) (|laurent| |Fraction| (|Integer|))
-         (|coef| |Sequence| R) ($ $))
+        ((|puiseux| (|Fraction| (|Integer|)))
+         (|laurent| (|Fraction| (|Integer|))) (|coef| (|Sequence| R)) ($ ($)))
         (SPROG
          ((|psi| #1=(|Stream| R)) (|psi2| #1#) (|chi2| #2=(|Stream| R))
           (|z1z| #2#) (S2 (|Sequence| R)) (#3=#:G151 NIL) (|chi| (|Stream| R)))
@@ -207,12 +211,15 @@
           #4# (EXIT #3#)))) 
 
 (SDEFUN |DISTRO;distributionBySTransform;R$;23|
-        ((S |Record| (|:| |puiseux| (|Fraction| (|Integer|)))
-          (|:| |laurent| (|Fraction| (|Integer|))) (|:| |coef| (|Sequence| R)))
-         ($ $))
+        ((S
+          (|Record| (|:| |puiseux| (|Fraction| (|Integer|)))
+                    (|:| |laurent| (|Fraction| (|Integer|)))
+                    (|:| |coef| (|Sequence| R))))
+         ($ ($)))
         (SPADCALL (QVELT S 0) (QVELT S 1) (QVELT S 2) (QREFELT $ 69))) 
 
-(SDEFUN |DISTRO;freeMultiplicativeConvolution;3$;24| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DISTRO;freeMultiplicativeConvolution;3$;24|
+        ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG
          ((|Sxyc| (|Stream| R)) (#1=#:G166 NIL) (|Syc| #2=(|Stream| R))
           (|Sxc| #2#)
@@ -272,10 +279,11 @@
                        (SPADCALL |Sxyc| (QREFELT $ 13)) (QREFELT $ 69)))))
           #4# (EXIT #1#)))) 
 
-(SDEFUN |DISTRO;coerce;$Of;25| ((|x| $) ($ |OutputForm|))
+(SDEFUN |DISTRO;coerce;$Of;25| ((|x| ($)) ($ (|OutputForm|)))
         (SPADCALL (QVELT (|DISTRO;rep| |x| $) 0) (QREFELT $ 77))) 
 
-(SDEFUN |DISTRO;moment;$NniR;26| ((|x| $) (|n| |NonNegativeInteger|) ($ R))
+(SDEFUN |DISTRO;moment;$NniR;26|
+        ((|x| ($)) (|n| (|NonNegativeInteger|)) ($ (R)))
         (SPROG ((|mm| (|Sequence| R)))
                (SEQ
                 (COND ((ZEROP |n|) (|spadConstant| $ 38))
@@ -284,36 +292,37 @@
                             (EXIT (SPADCALL |mm| |n| (QREFELT $ 40))))))))) 
 
 (SDEFUN |DISTRO;classicalCumulant;$PiR;27|
-        ((|x| $) (|n| |PositiveInteger|) ($ R))
+        ((|x| ($)) (|n| (|PositiveInteger|)) ($ (R)))
         (SPROG ((|cc| (|Sequence| R)))
                (SEQ (LETT |cc| (QVELT (|DISTRO;rep| |x| $) 1))
                     (EXIT (SPADCALL |cc| |n| (QREFELT $ 40)))))) 
 
-(SDEFUN |DISTRO;freeCumulant;$PiR;28| ((|x| $) (|n| |PositiveInteger|) ($ R))
+(SDEFUN |DISTRO;freeCumulant;$PiR;28|
+        ((|x| ($)) (|n| (|PositiveInteger|)) ($ (R)))
         (SPROG ((|fc| (|Sequence| R)))
                (SEQ (LETT |fc| (QVELT (|DISTRO;rep| |x| $) 2))
                     (EXIT (SPADCALL |fc| |n| (QREFELT $ 40)))))) 
 
 (SDEFUN |DISTRO;booleanCumulant;$PiR;29|
-        ((|x| $) (|n| |PositiveInteger|) ($ R))
+        ((|x| ($)) (|n| (|PositiveInteger|)) ($ (R)))
         (SPROG ((|fc| (|Sequence| R)))
                (SEQ (LETT |fc| (QVELT (|DISTRO;rep| |x| $) 3))
                     (EXIT (SPADCALL |fc| |n| (QREFELT $ 40)))))) 
 
-(SDEFUN |DISTRO;moments;$S;30| ((|x| $) ($ |Sequence| R))
+(SDEFUN |DISTRO;moments;$S;30| ((|x| ($)) ($ (|Sequence| R)))
         (QVELT (|DISTRO;rep| |x| $) 0)) 
 
-(SDEFUN |DISTRO;classicalCumulants;$S;31| ((|x| $) ($ |Sequence| R))
+(SDEFUN |DISTRO;classicalCumulants;$S;31| ((|x| ($)) ($ (|Sequence| R)))
         (QVELT (|DISTRO;rep| |x| $) 1)) 
 
-(SDEFUN |DISTRO;freeCumulants;$S;32| ((|x| $) ($ |Sequence| R))
+(SDEFUN |DISTRO;freeCumulants;$S;32| ((|x| ($)) ($ (|Sequence| R)))
         (QVELT (|DISTRO;rep| |x| $) 2)) 
 
-(SDEFUN |DISTRO;booleanCumulants;$S;33| ((|x| $) ($ |Sequence| R))
+(SDEFUN |DISTRO;booleanCumulants;$S;33| ((|x| ($)) ($ (|Sequence| R)))
         (QVELT (|DISTRO;rep| |x| $) 3)) 
 
 (SDEFUN |DISTRO;hankelDeterminants1|
-        ((|x| $) (|n| |NonNegativeInteger|) ($ |Stream| R))
+        ((|x| ($)) (|n| (|NonNegativeInteger|)) ($ (|Stream| R)))
         (SPROG NIL
                (SPADCALL
                 (CONS #'|DISTRO;hankelDeterminants1!0| (VECTOR |n| $ |x|))
@@ -332,24 +341,26 @@
               (SPADCALL |n| (|spadConstant| $ 89) (QREFELT $ 90)) $)
              (QREFELT $ 23)))))) 
 
-(SDEFUN |DISTRO;hankelDeterminants;$S;35| ((|x| $) ($ |Stream| R))
+(SDEFUN |DISTRO;hankelDeterminants;$S;35| ((|x| ($)) ($ (|Stream| R)))
         (|DISTRO;hankelDeterminants1| |x| 1 $)) 
 
 (SDEFUN |DISTRO;jacobiParameters;$R;36|
-        ((|x| $) ($ |Record| (|:| |an| (|Stream| R)) (|:| |bn| (|Stream| R))))
+        ((|x| ($))
+         ($ (|Record| (|:| |an| (|Stream| R)) (|:| |bn| (|Stream| R)))))
         (SPADCALL (SPADCALL |x| (QREFELT $ 51)) (QREFELT $ 93))) 
 
 (SDEFUN |DISTRO;orthogonalPolynomials;$S;37|
-        ((|x| $) ($ |Stream| (|SparseUnivariatePolynomial| R)))
+        ((|x| ($)) ($ (|Stream| (|SparseUnivariatePolynomial| R))))
         (SPROG
          ((|jac| (|Record| (|:| |an| (|Stream| R)) (|:| |bn| (|Stream| R)))))
          (SEQ (LETT |jac| (SPADCALL |x| (QREFELT $ 94)))
               (EXIT (SPADCALL (QCAR |jac|) (QCDR |jac|) (QREFELT $ 96)))))) 
 
 (SDEFUN |DISTRO;jacobiParameters;$R;38|
-        ((|x| $)
-         ($ |Record| (|:| |an| (|Stream| (|Fraction| R)))
-          (|:| |bn| (|Stream| (|Fraction| R)))))
+        ((|x| ($))
+         ($
+          (|Record| (|:| |an| (|Stream| (|Fraction| R)))
+                    (|:| |bn| (|Stream| (|Fraction| R))))))
         (SPROG ((|mm| (|Stream| (|Fraction| R))) (|mm1| (|Stream| R)))
                (SEQ
                 (LETT |mm1|
@@ -359,7 +370,8 @@
                  (SPADCALL (SPADCALL |mm| (QREFELT $ 105)) (QREFELT $ 108)))))) 
 
 (SDEFUN |DISTRO;orthogonalPolynomials;$S;39|
-        ((|x| $) ($ |Stream| (|SparseUnivariatePolynomial| (|Fraction| R))))
+        ((|x| ($))
+         ($ (|Stream| (|SparseUnivariatePolynomial| (|Fraction| R)))))
         (SPROG
          ((|jac|
            (|Record| (|:| |an| (|Stream| (|Fraction| R)))
@@ -367,25 +379,25 @@
          (SEQ (LETT |jac| (SPADCALL |x| (QREFELT $ 109)))
               (EXIT (SPADCALL (QCAR |jac|) (QCDR |jac|) (QREFELT $ 111)))))) 
 
-(SDEFUN |DISTRO;classicalConvolution;3$;40| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DISTRO;classicalConvolution;3$;40| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL
          (SPADCALL (SPADCALL |x| (QREFELT $ 85)) (SPADCALL |y| (QREFELT $ 85))
                    (QREFELT $ 113))
          (QREFELT $ 30))) 
 
-(SDEFUN |DISTRO;freeConvolution;3$;41| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DISTRO;freeConvolution;3$;41| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL
          (SPADCALL (SPADCALL |x| (QREFELT $ 86)) (SPADCALL |y| (QREFELT $ 86))
                    (QREFELT $ 113))
          (QREFELT $ 33))) 
 
-(SDEFUN |DISTRO;booleanConvolution;3$;42| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DISTRO;booleanConvolution;3$;42| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL
          (SPADCALL (SPADCALL |x| (QREFELT $ 87)) (SPADCALL |y| (QREFELT $ 87))
                    (QREFELT $ 113))
          (QREFELT $ 36))) 
 
-(SDEFUN |DISTRO;monotoneConvolution;3$;43| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DISTRO;monotoneConvolution;3$;43| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL
          (SPADCALL
           (SPADCALL
@@ -409,7 +421,8 @@
           (QREFELT $ 13))
          (QREFELT $ 14))) 
 
-(SDEFUN |DISTRO;nth| ((|s| |Stream| R) (|n| |PositiveInteger|) ($ |Stream| R))
+(SDEFUN |DISTRO;nth|
+        ((|s| (|Stream| R)) (|n| (|PositiveInteger|)) ($ (|Stream| R)))
         (SPROG NIL
                (SEQ
                 (SPADCALL (CONS #'|DISTRO;nth!0| (VECTOR $ |n| |s|))
@@ -437,7 +450,7 @@
                                     (SPADCALL |res| (QREFELT $ 22)) |n| $)
                                    (QREFELT $ 23))))))))) 
 
-(SDEFUN |DISTRO;^;$Pi$;45| ((|x| $) (|n| |PositiveInteger|) ($ $))
+(SDEFUN |DISTRO;^;$Pi$;45| ((|x| ($)) (|n| (|PositiveInteger|)) ($ ($)))
         (SPROG ((|momn| (|Stream| R)))
                (SEQ
                 (LETT |momn|
@@ -447,7 +460,7 @@
                 (EXIT
                  (SPADCALL (SPADCALL |momn| (QREFELT $ 13)) (QREFELT $ 14)))))) 
 
-(SDEFUN |DISTRO;orthogonalConvolution;3$;46| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DISTRO;orthogonalConvolution;3$;46| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG ((|Bxy| (|Stream| R)) (|zMy| (|Stream| R)) (|Bx| (|Stream| R)))
                (SEQ
                 (LETT |Bx|
@@ -463,7 +476,7 @@
                 (LETT |Bxy| (SPADCALL |Bx| |zMy| (QREFELT $ 117)))
                 (EXIT (SPADCALL |Bxy| (QREFELT $ 37)))))) 
 
-(SDEFUN |DISTRO;subordinationConvolution;3$;47| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DISTRO;subordinationConvolution;3$;47| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG ((|Rxy| (|Stream| R)) (|zMy| (|Stream| R)) (|Rx| (|Stream| R)))
                (SEQ
                 (LETT |Rx|

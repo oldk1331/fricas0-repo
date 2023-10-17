@@ -1,15 +1,15 @@
 
 (PUT '|SETLAT;subsetLattice;L$;1| '|SPADreplace| '(XLAM (|obj|) |obj|)) 
 
-(SDEFUN |SETLAT;subsetLattice;L$;1| ((|obj| |List| S) ($ $)) |obj|) 
+(SDEFUN |SETLAT;subsetLattice;L$;1| ((|obj| (|List| S)) ($ ($))) |obj|) 
 
-(SDEFUN |SETLAT;/\\;3$;2| ((|a| $) (|b| $) ($ $))
+(SDEFUN |SETLAT;/\\;3$;2| ((|a| ($)) (|b| ($)) ($ ($)))
         (SPADCALL |a| |b| (QREFELT $ 11))) 
 
-(SDEFUN |SETLAT;\\/;3$;3| ((|a| $) (|b| $) ($ $))
+(SDEFUN |SETLAT;\\/;3$;3| ((|a| ($)) (|b| ($)) ($ ($)))
         (SPADCALL |a| |b| (QREFELT $ 13))) 
 
-(SDEFUN |SETLAT;complement;2$;4| ((|a| $) ($ $))
+(SDEFUN |SETLAT;complement;2$;4| ((|a| ($)) ($ ($)))
         (SPROG
          ((|r| (|List| S)) (|contains| (|Boolean|)) (#1=#:G112 NIL) (|c| NIL)
           (#2=#:G111 NIL) (|b| NIL))
@@ -36,7 +36,7 @@
                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (EXIT |r|)))) 
 
-(SDEFUN |SETLAT;complement;$L$;5| ((|a| $) (|pseudoTop| |List| S) ($ $))
+(SDEFUN |SETLAT;complement;$L$;5| ((|a| ($)) (|pseudoTop| (|List| S)) ($ ($)))
         (SPROG
          ((|r| (|List| S)) (|contains| (|Boolean|)) (#1=#:G119 NIL) (|c| NIL)
           (#2=#:G118 NIL) (|b| NIL))
@@ -65,16 +65,16 @@
 
 (PUT '|SETLAT;hash;$Si;6| '|SPADreplace| '(XLAM (|s|) 0)) 
 
-(SDEFUN |SETLAT;hash;$Si;6| ((|s| $) ($ |SingleInteger|)) 0) 
+(SDEFUN |SETLAT;hash;$Si;6| ((|s| ($)) ($ (|SingleInteger|))) 0) 
 
 (PUT '|SETLAT;=;2$B;7| '|SPADreplace| 'EQL) 
 
-(SDEFUN |SETLAT;=;2$B;7| ((|x| $) (|y| $) ($ |Boolean|)) (EQL |x| |y|)) 
+(SDEFUN |SETLAT;=;2$B;7| ((|x| ($)) (|y| ($)) ($ (|Boolean|))) (EQL |x| |y|)) 
 
-(SDEFUN |SETLAT;~=;2$B;8| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |SETLAT;~=;2$B;8| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (NULL (SPADCALL |x| |y| (QREFELT $ 22)))) 
 
-(SDEFUN |SETLAT;coerce;$Of;9| ((|s| $) ($ |OutputForm|))
+(SDEFUN |SETLAT;coerce;$Of;9| ((|s| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|oup| (|List| (|OutputForm|))) (#1=#:G126 NIL) (|x| NIL)
           (|inp| ($)))

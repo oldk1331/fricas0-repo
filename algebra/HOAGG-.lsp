@@ -1,5 +1,5 @@
 
-(SDEFUN |HOAGG-;eval;ALA;1| ((|u| A) (|l| |List| (|Equation| S)) ($ A))
+(SDEFUN |HOAGG-;eval;ALA;1| ((|u| (A)) (|l| (|List| (|Equation| S))) ($ (A)))
         (SPROG NIL
                (SPADCALL (CONS #'|HOAGG-;eval;ALA;1!0| (VECTOR $ |l|)) |u|
                          (QREFELT $ 11)))) 
@@ -10,11 +10,11 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |x| |l| (QREFELT $ 9)))))) 
 
-(SDEFUN |HOAGG-;#;ANni;2| ((|c| A) ($ |NonNegativeInteger|))
+(SDEFUN |HOAGG-;#;ANni;2| ((|c| (A)) ($ (|NonNegativeInteger|)))
         (LENGTH (SPADCALL |c| (QREFELT $ 14)))) 
 
 (SDEFUN |HOAGG-;any?;MAB;3|
-        ((|f| |Mapping| (|Boolean|) S) (|c| A) ($ |Boolean|))
+        ((|f| (|Mapping| (|Boolean|) S)) (|c| (A)) ($ (|Boolean|)))
         (SPROG ((#1=#:G123 NIL) (#2=#:G124 NIL) (|x| NIL))
                (SEQ
                 (EXIT
@@ -34,7 +34,7 @@
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |HOAGG-;every?;MAB;4|
-        ((|f| |Mapping| (|Boolean|) S) (|c| A) ($ |Boolean|))
+        ((|f| (|Mapping| (|Boolean|) S)) (|c| (A)) ($ (|Boolean|)))
         (SPROG ((#1=#:G129 NIL) (#2=#:G130 NIL) (|x| NIL))
                (SEQ
                 (EXIT
@@ -54,7 +54,7 @@
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |HOAGG-;count;MANni;5|
-        ((|f| |Mapping| (|Boolean|) S) (|c| A) ($ |NonNegativeInteger|))
+        ((|f| (|Mapping| (|Boolean|) S)) (|c| (A)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((#1=#:G132 NIL) (#2=#:G131 #3=(|NonNegativeInteger|)) (#4=#:G133 #3#)
           (#5=#:G135 NIL) (|x| NIL))
@@ -75,10 +75,11 @@
                 (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
            (COND (#1# #2#) ('T 0)))))) 
 
-(SDEFUN |HOAGG-;members;AL;6| ((|x| A) ($ |List| S))
+(SDEFUN |HOAGG-;members;AL;6| ((|x| (A)) ($ (|List| S)))
         (SPADCALL |x| (QREFELT $ 14))) 
 
-(SDEFUN |HOAGG-;max;MAS;7| ((|p| |Mapping| (|Boolean|) S S) (|u| A) ($ S))
+(SDEFUN |HOAGG-;max;MAS;7|
+        ((|p| (|Mapping| (|Boolean|) S S)) (|u| (A)) ($ (S)))
         (SPROG ((|r| (S)) (#1=#:G143 NIL) (|x| NIL) (|l| (|List| S)))
                (SEQ
                 (COND
@@ -96,16 +97,17 @@
                             (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                        (EXIT |r|))))))) 
 
-(SDEFUN |HOAGG-;min;AS;8| ((|u| A) ($ S))
+(SDEFUN |HOAGG-;min;AS;8| ((|u| (A)) ($ (S)))
         (SPADCALL (CONS #'|HOAGG-;min;AS;8!0| $) |u| (QREFELT $ 27))) 
 
 (SDEFUN |HOAGG-;min;AS;8!0| ((|x| NIL) (|y| NIL) ($ NIL))
         (SPADCALL |y| |x| (QREFELT $ 26))) 
 
-(SDEFUN |HOAGG-;max;AS;9| ((|u| A) ($ S))
+(SDEFUN |HOAGG-;max;AS;9| ((|u| (A)) ($ (S)))
         (SPADCALL (ELT $ 26) |u| (QREFELT $ 27))) 
 
-(SDEFUN |HOAGG-;count;SANni;10| ((|e| S) (|c| A) ($ |NonNegativeInteger|))
+(SDEFUN |HOAGG-;count;SANni;10|
+        ((|e| (S)) (|c| (A)) ($ (|NonNegativeInteger|)))
         (SPROG NIL
                (SPADCALL (CONS #'|HOAGG-;count;SANni;10!0| (VECTOR $ |e|)) |c|
                          (QREFELT $ 31)))) 
@@ -116,7 +118,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |e| |x| (QREFELT $ 30)))))) 
 
-(SDEFUN |HOAGG-;member?;SAB;11| ((|e| S) (|c| A) ($ |Boolean|))
+(SDEFUN |HOAGG-;member?;SAB;11| ((|e| (S)) (|c| (A)) ($ (|Boolean|)))
         (SPROG NIL
                (SPADCALL (CONS #'|HOAGG-;member?;SAB;11!0| (VECTOR $ |e|)) |c|
                          (QREFELT $ 33)))) 
@@ -127,7 +129,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |e| |x| (QREFELT $ 30)))))) 
 
-(SDEFUN |HOAGG-;=;2AB;12| ((|x| A) (|y| A) ($ |Boolean|))
+(SDEFUN |HOAGG-;=;2AB;12| ((|x| (A)) (|y| (A)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G155 NIL) (#2=#:G156 NIL) (|a| NIL) (#3=#:G157 NIL) (|b| NIL))
          (SEQ
@@ -153,7 +155,7 @@
               (EXIT 'T)))))
           #4# (EXIT #1#)))) 
 
-(SDEFUN |HOAGG-;coerce;AOf;13| ((|x| A) ($ |OutputForm|))
+(SDEFUN |HOAGG-;coerce;AOf;13| ((|x| (A)) ($ (|OutputForm|)))
         (SPROG ((#1=#:G161 NIL) (|a| NIL) (#2=#:G160 NIL))
                (SEQ
                 (SPADCALL

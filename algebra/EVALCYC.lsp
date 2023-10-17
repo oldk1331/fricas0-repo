@@ -1,5 +1,6 @@
 
-(SDEFUN |EVALCYC;evp| ((|fn| |Mapping| F (|Integer|)) (|pt| |Partition|) ($ F))
+(SDEFUN |EVALCYC;evp|
+        ((|fn| (|Mapping| F (|Integer|))) (|pt| (|Partition|)) ($ (F)))
         (SPROG
          ((#1=#:G104 NIL) (#2=#:G103 (F)) (#3=#:G105 (F)) (#4=#:G107 NIL)
           (|i| NIL))
@@ -19,8 +20,8 @@
            (COND (#1# #2#) ('T (|spadConstant| $ 11))))))) 
 
 (SDEFUN |EVALCYC;eval;MSpF;2|
-        ((|fn| |Mapping| F (|Integer|))
-         (|spol| |SymmetricPolynomial| (|Fraction| (|Integer|))) ($ F))
+        ((|fn| (|Mapping| F (|Integer|)))
+         (|spol| (|SymmetricPolynomial| (|Fraction| (|Integer|)))) ($ (F)))
         (COND
          ((SPADCALL |spol| (|spadConstant| $ 15) (QREFELT $ 17))
           (|spadConstant| $ 12))

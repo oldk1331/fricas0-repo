@@ -1,7 +1,7 @@
 
 (SDEFUN |FLOATCP;complexRoots;FParL;1|
-        ((|q| |Fraction| (|Polynomial| (|Complex| (|Integer|)))) (|eps| |Par|)
-         ($ |List| (|Complex| |Par|)))
+        ((|q| (|Fraction| (|Polynomial| (|Complex| (|Integer|)))))
+         (|eps| (|Par|)) ($ (|List| (|Complex| |Par|))))
         (SPROG ((|p| (|Polynomial| (|Complex| (|Integer|)))))
                (SEQ (LETT |p| (SPADCALL |q| (QREFELT $ 9)))
                     (EXIT
@@ -9,9 +9,9 @@
                                (QREFELT $ 14)))))) 
 
 (SDEFUN |FLOATCP;complexRoots;LLParL;2|
-        ((|lp| |List| (|Fraction| (|Polynomial| (|Complex| (|Integer|)))))
-         (|lv| |List| (|Symbol|)) (|eps| |Par|)
-         ($ |List| (|List| (|Complex| |Par|))))
+        ((|lp| (|List| (|Fraction| (|Polynomial| (|Complex| (|Integer|))))))
+         (|lv| (|List| (|Symbol|))) (|eps| (|Par|))
+         ($ (|List| (|List| (|Complex| |Par|)))))
         (SPROG
          ((|lden| (|List| #1=(|Polynomial| (|Complex| (|Integer|)))))
           (|dp| #1#) (#2=#:G114 NIL) (|p| NIL) (#3=#:G113 NIL)
@@ -48,17 +48,17 @@
           (EXIT (SPADCALL |lnum| |lden| |lv| |eps| (QREFELT $ 24)))))) 
 
 (SDEFUN |FLOATCP;complexSolve;LParL;3|
-        ((|lp| |List| (|Fraction| (|Polynomial| (|Complex| (|Integer|)))))
-         (|eps| |Par|)
-         ($ |List| (|List| (|Equation| (|Polynomial| (|Complex| |Par|))))))
+        ((|lp| (|List| (|Fraction| (|Polynomial| (|Complex| (|Integer|))))))
+         (|eps| (|Par|))
+         ($ (|List| (|List| (|Equation| (|Polynomial| (|Complex| |Par|)))))))
         (SPROG
          ((#1=#:G137 NIL) (|x| NIL) (#2=#:G138 NIL) (|r| NIL) (#3=#:G136 NIL)
           (#4=#:G135 NIL) (|nres| NIL) (#5=#:G134 NIL)
           (|lv| #6=(|List| (|Symbol|))) (#7=#:G121 NIL) (#8=#:G120 #6#)
-          (#9=#:G122 #6#) (#10=#:G133 NIL)
-          (|dp| #11=(|Polynomial| (|Complex| (|Integer|)))) (#12=#:G118 NIL)
-          (#13=#:G117 #6#) (#14=#:G119 #6#) (#15=#:G132 NIL) (|np| NIL)
-          (|lden| (|List| #11#)) (#16=#:G131 NIL) (|p| NIL) (#17=#:G130 NIL)
+          (#9=#:G122 #6#) (#10=#:G133 NIL) (#11=#:G118 NIL) (#12=#:G117 #6#)
+          (#13=#:G119 #6#) (#14=#:G132 NIL) (|np| NIL)
+          (|lden| (|List| #15=(|Polynomial| (|Complex| (|Integer|)))))
+          (|dp| #15#) (#16=#:G131 NIL) (|p| NIL) (#17=#:G130 NIL)
           (|lnum| (|List| (|Polynomial| (|Complex| (|Integer|)))))
           (#18=#:G129 NIL) (#19=#:G128 NIL))
          (SEQ
@@ -91,28 +91,28 @@
                       (EXIT (NREVERSE #17#)))))
           (LETT |lv|
                 (PROGN
-                 (LETT #12# NIL)
-                 (SEQ (LETT |np| NIL) (LETT #15# |lnum|) G190
+                 (LETT #11# NIL)
+                 (SEQ (LETT |np| NIL) (LETT #14# |lnum|) G190
                       (COND
-                       ((OR (ATOM #15#) (PROGN (LETT |np| (CAR #15#)) NIL))
+                       ((OR (ATOM #14#) (PROGN (LETT |np| (CAR #14#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
                         (PROGN
-                         (LETT #14# (SPADCALL |np| (QREFELT $ 27)))
+                         (LETT #13# (SPADCALL |np| (QREFELT $ 27)))
                          (COND
-                          (#12#
-                           (LETT #13# (SPADCALL #13# #14# (QREFELT $ 28))))
-                          ('T (PROGN (LETT #13# #14#) (LETT #12# 'T)))))))
-                      (LETT #15# (CDR #15#)) (GO G190) G191 (EXIT NIL))
-                 (COND (#12# #13#) (#20='T (|IdentityError| '|setUnion|)))))
+                          (#11#
+                           (LETT #12# (SPADCALL #12# #13# (QREFELT $ 28))))
+                          ('T (PROGN (LETT #12# #13#) (LETT #11# 'T)))))))
+                      (LETT #14# (CDR #14#)) (GO G190) G191 (EXIT NIL))
+                 (COND (#11# #12#) (#20='T (|IdentityError| '|setUnion|)))))
           (COND
            ((SPADCALL |lden| NIL (QREFELT $ 29))
             (LETT |lv|
                   (SPADCALL |lv|
                             (PROGN
                              (LETT #7# NIL)
-                             (SEQ (LETT |dp| NIL) (LETT #10# |lden|) G190
+                             (SEQ (LETT #10# |lden|) G190
                                   (COND
                                    ((OR (ATOM #10#)
                                         (PROGN (LETT |dp| (CAR #10#)) NIL))
@@ -174,18 +174,19 @@
                  (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT (NREVERSE #5#)))))))) 
 
 (SDEFUN |FLOATCP;complexSolve;LParL;4|
-        ((|le| |List|
-          (|Equation| (|Fraction| (|Polynomial| (|Complex| (|Integer|))))))
-         (|eps| |Par|)
-         ($ |List| (|List| (|Equation| (|Polynomial| (|Complex| |Par|))))))
+        ((|le|
+          (|List|
+           (|Equation| (|Fraction| (|Polynomial| (|Complex| (|Integer|)))))))
+         (|eps| (|Par|))
+         ($ (|List| (|List| (|Equation| (|Polynomial| (|Complex| |Par|)))))))
         (SPROG
          ((#1=#:G164 NIL) (|x| NIL) (#2=#:G165 NIL) (|r| NIL) (#3=#:G163 NIL)
           (#4=#:G162 NIL) (|nres| NIL) (#5=#:G161 NIL)
           (|lv| #6=(|List| (|Symbol|))) (#7=#:G146 NIL) (#8=#:G145 #6#)
-          (#9=#:G147 #6#) (#10=#:G160 NIL)
-          (|dp| #11=(|Polynomial| (|Complex| (|Integer|)))) (#12=#:G143 NIL)
-          (#13=#:G142 #6#) (#14=#:G144 #6#) (#15=#:G159 NIL) (|np| NIL)
-          (|lden| (|List| #11#)) (#16=#:G158 NIL) (|p| NIL) (#17=#:G157 NIL)
+          (#9=#:G147 #6#) (#10=#:G160 NIL) (#11=#:G143 NIL) (#12=#:G142 #6#)
+          (#13=#:G144 #6#) (#14=#:G159 NIL) (|np| NIL)
+          (|lden| (|List| #15=(|Polynomial| (|Complex| (|Integer|)))))
+          (|dp| #15#) (#16=#:G158 NIL) (|p| NIL) (#17=#:G157 NIL)
           (|lnum| (|List| (|Polynomial| (|Complex| (|Integer|)))))
           (#18=#:G156 NIL) (#19=#:G155 NIL)
           (|lp| (|List| (|Fraction| (|Polynomial| (|Complex| (|Integer|))))))
@@ -237,28 +238,28 @@
                       (EXIT (NREVERSE #17#)))))
           (LETT |lv|
                 (PROGN
-                 (LETT #12# NIL)
-                 (SEQ (LETT |np| NIL) (LETT #15# |lnum|) G190
+                 (LETT #11# NIL)
+                 (SEQ (LETT |np| NIL) (LETT #14# |lnum|) G190
                       (COND
-                       ((OR (ATOM #15#) (PROGN (LETT |np| (CAR #15#)) NIL))
+                       ((OR (ATOM #14#) (PROGN (LETT |np| (CAR #14#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
                         (PROGN
-                         (LETT #14# (SPADCALL |np| (QREFELT $ 27)))
+                         (LETT #13# (SPADCALL |np| (QREFELT $ 27)))
                          (COND
-                          (#12#
-                           (LETT #13# (SPADCALL #13# #14# (QREFELT $ 28))))
-                          ('T (PROGN (LETT #13# #14#) (LETT #12# 'T)))))))
-                      (LETT #15# (CDR #15#)) (GO G190) G191 (EXIT NIL))
-                 (COND (#12# #13#) (#22='T (|IdentityError| '|setUnion|)))))
+                          (#11#
+                           (LETT #12# (SPADCALL #12# #13# (QREFELT $ 28))))
+                          ('T (PROGN (LETT #12# #13#) (LETT #11# 'T)))))))
+                      (LETT #14# (CDR #14#)) (GO G190) G191 (EXIT NIL))
+                 (COND (#11# #12#) (#22='T (|IdentityError| '|setUnion|)))))
           (COND
            ((SPADCALL |lden| NIL (QREFELT $ 29))
             (LETT |lv|
                   (SPADCALL |lv|
                             (PROGN
                              (LETT #7# NIL)
-                             (SEQ (LETT |dp| NIL) (LETT #10# |lden|) G190
+                             (SEQ (LETT #10# |lden|) G190
                                   (COND
                                    ((OR (ATOM #10#)
                                         (PROGN (LETT |dp| (CAR #10#)) NIL))
@@ -320,8 +321,9 @@
                  (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT (NREVERSE #5#)))))))) 
 
 (SDEFUN |FLOATCP;complexSolve;FParL;5|
-        ((|p| |Fraction| (|Polynomial| (|Complex| (|Integer|)))) (|eps| |Par|)
-         ($ |List| (|Equation| (|Polynomial| (|Complex| |Par|)))))
+        ((|p| (|Fraction| (|Polynomial| (|Complex| (|Integer|)))))
+         (|eps| (|Par|))
+         ($ (|List| (|Equation| (|Polynomial| (|Complex| |Par|))))))
         (SPROG
          ((#1=#:G174 NIL) (|val| NIL) (#2=#:G173 NIL)
           (|x| (|Polynomial| (|Complex| |Par|)))
@@ -355,9 +357,10 @@
                               (EXIT (NREVERSE #2#)))))))))))) 
 
 (SDEFUN |FLOATCP;complexSolve;EParL;6|
-        ((|eq| |Equation| (|Fraction| (|Polynomial| (|Complex| (|Integer|)))))
-         (|eps| |Par|)
-         ($ |List| (|Equation| (|Polynomial| (|Complex| |Par|)))))
+        ((|eq|
+          (|Equation| (|Fraction| (|Polynomial| (|Complex| (|Integer|))))))
+         (|eps| (|Par|))
+         ($ (|List| (|Equation| (|Polynomial| (|Complex| |Par|))))))
         (SPADCALL
          (SPADCALL (SPADCALL |eq| (QREFELT $ 40))
                    (SPADCALL |eq| (QREFELT $ 41)) (QREFELT $ 42))

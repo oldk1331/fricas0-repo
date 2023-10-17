@@ -1,6 +1,6 @@
 
 (SDEFUN |CHVAR;eval;UPUP2FUPUP;1|
-        ((|p| UPUP) (|x| |Fraction| UP) (|y| |Fraction| UP) ($ UPUP))
+        ((|p| (UPUP)) (|x| (|Fraction| UP)) (|y| (|Fraction| UP)) ($ (UPUP)))
         (SPROG NIL
                (SPADCALL
                 (SPADCALL (CONS #'|CHVAR;eval;UPUP2FUPUP;1!0| (VECTOR $ |x|))
@@ -13,7 +13,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |s| |x| (QREFELT $ 10)))))) 
 
-(SDEFUN |CHVAR;good?| ((|a| F) (|p| UP) (|lq| |List| UP) ($ |Boolean|))
+(SDEFUN |CHVAR;good?| ((|a| (F)) (|p| (UP)) (|lq| (|List| UP)) ($ (|Boolean|)))
         (SPROG ((#1=#:G121 NIL) (#2=#:G122 NIL) (|q| NIL))
                (SEQ
                 (EXIT
@@ -38,8 +38,8 @@
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |CHVAR;algPoly|
-        ((|p| UPUP)
-         ($ |Record| (|:| |coef| (|Fraction| UP)) (|:| |poly| UPUP)))
+        ((|p| (UPUP))
+         ($ (|Record| (|:| |coef| (|Fraction| UP)) (|:| |poly| UPUP))))
         (SPROG ((|q| (UPUP)) (|c| (UP)) (|d| (UP)) (|a| (UP)))
                (SEQ
                 (COND
@@ -95,8 +95,8 @@
                        (EXIT (|CHVAR;RPrim| |c| |a| |q| $)))))))) 
 
 (SDEFUN |CHVAR;RPrim|
-        ((|c| UP) (|a| UP) (|q| UPUP)
-         ($ |Record| (|:| |coef| (|Fraction| UP)) (|:| |poly| UPUP)))
+        ((|c| (UP)) (|a| (UP)) (|q| (UPUP))
+         ($ (|Record| (|:| |coef| (|Fraction| UP)) (|:| |poly| UPUP))))
         (COND
          ((SPADCALL |a| (|spadConstant| $ 14) (QREFELT $ 34))
           (CONS (SPADCALL |c| (QREFELT $ 30)) |q|))
@@ -112,10 +112,11 @@
                  (QREFELT $ 25)))))) 
 
 (SDEFUN |CHVAR;chvar;LUPUPR;5|
-        ((|lf| |List| UPUP) (|modulus| UPUP)
-         ($ |Record| (|:| |func| (|List| UPUP)) (|:| |poly| UPUP)
-          (|:| |c1| (|Fraction| UP)) (|:| |c2| (|Fraction| UP))
-          (|:| |deg| (|NonNegativeInteger|))))
+        ((|lf| (|List| UPUP)) (|modulus| (UPUP))
+         ($
+          (|Record| (|:| |func| (|List| UPUP)) (|:| |poly| UPUP)
+                    (|:| |c1| (|Fraction| UP)) (|:| |c2| (|Fraction| UP))
+                    (|:| |deg| (|NonNegativeInteger|)))))
         (SPROG
          ((#1=#:G148 NIL) (|f| NIL) (#2=#:G147 NIL) (|ir2| #3=(|Fraction| UP))
           (|im2| (|Fraction| UP)) (|t| #3#) (|r2c| (UP))
@@ -234,10 +235,11 @@
           (RETURN (PROGN (|CHVAR;infIntegral?| |f| (QCDR |r1|) $))))) 
 
 (SDEFUN |CHVAR;chvar;2UPUPR;6|
-        ((|f| UPUP) (|p| UPUP)
-         ($ |Record| (|:| |func| UPUP) (|:| |poly| UPUP)
-          (|:| |c1| (|Fraction| UP)) (|:| |c2| (|Fraction| UP))
-          (|:| |deg| (|NonNegativeInteger|))))
+        ((|f| (UPUP)) (|p| (UPUP))
+         ($
+          (|Record| (|:| |func| UPUP) (|:| |poly| UPUP)
+                    (|:| |c1| (|Fraction| UP)) (|:| |c2| (|Fraction| UP))
+                    (|:| |deg| (|NonNegativeInteger|)))))
         (SPROG
          ((|res1|
            (|Record| (|:| |func| (|List| UPUP)) (|:| |poly| UPUP)
@@ -248,7 +250,7 @@
                (VECTOR (|SPADfirst| (QVELT |res1| 0)) (QVELT |res1| 1)
                        (QVELT |res1| 2) (QVELT |res1| 3) (QVELT |res1| 4)))))) 
 
-(SDEFUN |CHVAR;infIntegral?| ((|p| UPUP) (|modulus| UPUP) ($ |Boolean|))
+(SDEFUN |CHVAR;infIntegral?| ((|p| (UPUP)) (|modulus| (UPUP)) ($ (|Boolean|)))
         (SPROG
          ((|degp| (|Fraction| (|Integer|))) (|c| (|Fraction| UP))
           (|degy| (|Fraction| (|Integer|))) (|ninv| (|Fraction| (|Integer|)))
@@ -308,8 +310,8 @@
                        (EXIT (SPADCALL |degp| |ninv| (QREFELT $ 72)))))))))) 
 
 (SDEFUN |CHVAR;mkIntegral;UPUPR;8|
-        ((|p| UPUP)
-         ($ |Record| (|:| |coef| (|Fraction| UP)) (|:| |poly| UPUP)))
+        ((|p| (UPUP))
+         ($ (|Record| (|:| |coef| (|Fraction| UP)) (|:| |poly| UPUP))))
         (SPROG
          ((|rp|
            (|Record| (|:| |exponent| (|NonNegativeInteger|))
@@ -337,7 +339,8 @@
                                 (QREFELT $ 76))
                                (QREFELT $ 77))))))))))) 
 
-(SDEFUN |CHVAR;goodPoint;LUPUPF;9| ((|lp| |List| UPUP) (|modulus| UPUP) ($ F))
+(SDEFUN |CHVAR;goodPoint;LUPUPF;9|
+        ((|lp| (|List| UPUP)) (|modulus| (UPUP)) ($ (F)))
         (SPROG
          ((#1=#:G183 NIL) (#2=#:G184 NIL) (|a| (F)) (|i| NIL)
           (|ld| (|List| UP)) (#3=#:G186 NIL) (|p| NIL) (#4=#:G185 NIL)
@@ -398,11 +401,12 @@
           #5# (EXIT #2#)))) 
 
 (SDEFUN |CHVAR;radPoly;UPUPU;10|
-        ((|p| UPUP)
-         ($ |Union|
-          (|Record| (|:| |radicand| (|Fraction| UP))
-                    (|:| |deg| (|NonNegativeInteger|)))
-          "failed"))
+        ((|p| (UPUP))
+         ($
+          (|Union|
+           (|Record| (|:| |radicand| (|Fraction| UP))
+                     (|:| |deg| (|NonNegativeInteger|)))
+           "failed")))
         (SPROG ((|r| (|Union| (|Fraction| UP) "failed")))
                (SEQ
                 (LETT |r|
@@ -415,9 +419,10 @@
                                     (SPADCALL |p| (QREFELT $ 68)))))))))) 
 
 (SDEFUN |CHVAR;rootPoly;FNniR;11|
-        ((|g| |Fraction| UP) (|m| |NonNegativeInteger|)
-         ($ |Record| (|:| |exponent| (|NonNegativeInteger|))
-          (|:| |coef| (|Fraction| UP)) (|:| |radicand| UP)))
+        ((|g| (|Fraction| UP)) (|m| (|NonNegativeInteger|))
+         ($
+          (|Record| (|:| |exponent| (|NonNegativeInteger|))
+                    (|:| |coef| (|Fraction| UP)) (|:| |radicand| UP))))
         (SPROG
          ((#1=#:G201 NIL) (#2=#:G200 (UP)) (#3=#:G202 (UP)) (#4=#:G206 NIL)
           (#5=#:G103 NIL)

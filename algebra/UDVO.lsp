@@ -1,17 +1,18 @@
 
-(SDEFUN |UDVO;setVariableOrder;LV;1| ((|l| |List| (|Symbol|)) ($ |Void|))
+(SDEFUN |UDVO;setVariableOrder;LV;1| ((|l| (|List| (|Symbol|))) ($ (|Void|)))
         (SPADCALL (REVERSE |l|) (QREFELT $ 9))) 
 
 (SDEFUN |UDVO;setVariableOrder;2LV;2|
-        ((|l1| |List| (|Symbol|)) (|l2| |List| (|Symbol|)) ($ |Void|))
+        ((|l1| (|List| (|Symbol|))) (|l2| (|List| (|Symbol|))) ($ (|Void|)))
         (SPADCALL (REVERSE |l2|) (REVERSE |l1|) (QREFELT $ 11))) 
 
-(SDEFUN |UDVO;resetVariableOrder;V;3| (($ |Void|))
+(SDEFUN |UDVO;resetVariableOrder;V;3| (($ (|Void|)))
         (SPADCALL NIL NIL (QREFELT $ 12))) 
 
 (SDEFUN |UDVO;getVariableOrder;R;4|
-        (($ |Record| (|:| |high| (|List| (|Symbol|)))
-          (|:| |low| (|List| (|Symbol|)))))
+        (($
+          (|Record| (|:| |high| (|List| (|Symbol|)))
+                    (|:| |low| (|List| (|Symbol|))))))
         (SPROG
          ((|r|
            (|Record| (|:| |low| (|List| (|Symbol|)))

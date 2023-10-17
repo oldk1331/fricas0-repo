@@ -1,12 +1,12 @@
 
 (SDEFUN |FLASORT;quickSort;M2V;1|
-        ((|l| |Mapping| (|Boolean|) S S) (|r| V) ($ V))
+        ((|l| (|Mapping| (|Boolean|) S S)) (|r| (V)) ($ (V)))
         (|FLASORT;QuickSort| |l| |r| (SPADCALL |r| (QREFELT $ 9))
          (SPADCALL |r| (QREFELT $ 10)) $)) 
 
 (SDEFUN |FLASORT;siftUp|
-        ((|l| |Mapping| (|Boolean|) S S) (|r| V) (|i| |Integer|)
-         (|n| |Integer|) ($ |Void|))
+        ((|l| (|Mapping| (|Boolean|) S S)) (|r| (V)) (|i| (|Integer|))
+         (|n| (|Integer|)) ($ (|Void|)))
         (SPROG ((#1=#:G119 NIL) (|j| #2=(|Integer|)) (|k| #2#) (|t| (S)))
                (SEQ (LETT |t| (SPADCALL |r| |i| (QREFELT $ 13)))
                     (EXIT
@@ -41,7 +41,7 @@
                       #3# (EXIT #1#)))))) 
 
 (SDEFUN |FLASORT;heapSort;M2V;3|
-        ((|l| |Mapping| (|Boolean|) S S) (|r| V) ($ V))
+        ((|l| (|Mapping| (|Boolean|) S S)) (|r| (V)) ($ (V)))
         (SPROG ((|k| NIL) (|n| (|Integer|)))
                (SEQ
                 (COND
@@ -61,8 +61,8 @@
                        (EXIT |r|))))))) 
 
 (SDEFUN |FLASORT;partition|
-        ((|l| |Mapping| (|Boolean|) S S) (|r| V) (|i| |Integer|)
-         (|j| |Integer|) (|k| |Integer|) ($ |Integer|))
+        ((|l| (|Mapping| (|Boolean|) S S)) (|r| (V)) (|i| (|Integer|))
+         (|j| (|Integer|)) (|k| (|Integer|)) ($ (|Integer|)))
         (SPROG ((|s| (S)) (|t| (S)) (|x| (S)))
                (SEQ (LETT |x| (SPADCALL |r| |k| (QREFELT $ 13)))
                     (SEQ G190 (COND ((NULL (<= |i| |j|)) (GO G191)))
@@ -97,8 +97,8 @@
                     (EXIT (+ |j| 1))))) 
 
 (SDEFUN |FLASORT;QuickSort|
-        ((|l| |Mapping| (|Boolean|) S S) (|r| V) (|i| |Integer|)
-         (|j| |Integer|) ($ V))
+        ((|l| (|Mapping| (|Boolean|) S S)) (|r| (V)) (|i| (|Integer|))
+         (|j| (|Integer|)) ($ (V)))
         (SPROG ((|k| (|Integer|)) (#1=#:G152 NIL) (|n| (|Integer|)))
                (SEQ
                 (EXIT
@@ -132,7 +132,7 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |FLASORT;shellSort;M2V;6|
-        ((|l| |Mapping| (|Boolean|) S S) (|r| V) ($ V))
+        ((|l| (|Mapping| (|Boolean|) S S)) (|r| (V)) ($ (V)))
         (SPROG
          ((|g| (|Integer|)) (|j| (|Integer|)) (#1=#:G162 NIL) (|i| NIL)
           (|n| (|Integer|)) (|m| (|Integer|)))

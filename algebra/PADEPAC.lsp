@@ -1,9 +1,9 @@
 
 (SDEFUN |PADEPAC;pade;2Nni2UtsU;1|
-        ((|n| |NonNegativeInteger|) (|m| |NonNegativeInteger|)
-         (|u| |UnivariateTaylorSeries| R |x| |pt|)
-         (|v| |UnivariateTaylorSeries| R |x| |pt|)
-         ($ |Union| (|Fraction| (|UnivariatePolynomial| |x| R)) "failed"))
+        ((|n| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|))
+         (|u| (|UnivariateTaylorSeries| R |x| |pt|))
+         (|v| (|UnivariateTaylorSeries| R |x| |pt|))
+         ($ (|Union| (|Fraction| (|UnivariatePolynomial| |x| R)) "failed")))
         (SPROG
          ((|den| (|UnivariatePolynomial| |x| R))
           (|num| (|UnivariatePolynomial| |x| R))
@@ -31,9 +31,9 @@
                        (CONS 0 (SPADCALL |num| |den| (QREFELT $ 25))))))))))) 
 
 (SDEFUN |PADEPAC;pade;2NniUtsU;2|
-        ((|n| |NonNegativeInteger|) (|m| |NonNegativeInteger|)
-         (|u| |UnivariateTaylorSeries| R |x| |pt|)
-         ($ |Union| (|Fraction| (|UnivariatePolynomial| |x| R)) "failed"))
+        ((|n| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|))
+         (|u| (|UnivariateTaylorSeries| R |x| |pt|))
+         ($ (|Union| (|Fraction| (|UnivariatePolynomial| |x| R)) "failed")))
         (SPADCALL |n| |m| |u| (|spadConstant| $ 27) (QREFELT $ 26))) 
 
 (DECLAIM (NOTINLINE |PadeApproximantPackage;|)) 

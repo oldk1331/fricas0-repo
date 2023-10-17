@@ -1,10 +1,10 @@
 
-(SDEFUN |FSERIES;One;$;1| (($ $))
+(SDEFUN |FSERIES;One;$;1| (($ ($)))
         (LIST
          (CONS (SPADCALL (|spadConstant| $ 12) (QREFELT $ 14))
                (|spadConstant| $ 15)))) 
 
-(SDEFUN |FSERIES;coerce;Fc$;2| ((|e| |FourierComponent| E) ($ $))
+(SDEFUN |FSERIES;coerce;Fc$;2| ((|e| (|FourierComponent| E)) ($ ($)))
         (SPROG ((#1=#:G125 NIL))
                (SEQ
                 (EXIT
@@ -39,7 +39,7 @@
                   (EXIT (LIST (CONS |e| (|spadConstant| $ 15))))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |FSERIES;multiply| ((|t1| |Term|) (|t2| |Term|) ($ $))
+(SDEFUN |FSERIES;multiply| ((|t1| (|Term|)) (|t2| (|Term|)) ($ ($)))
         (SPROG ((|diff| (E)) (|sum| (E)) (|s2| (E)) (|s1| (E)) (|r| (R)))
                (SEQ
                 (LETT |r|
@@ -72,7 +72,7 @@
                              (SPADCALL |sum| |r| (QREFELT $ 34))
                              (QREFELT $ 35)))))))) 
 
-(SDEFUN |FSERIES;*;3$;4| ((|x1| $) (|x2| $) ($ $))
+(SDEFUN |FSERIES;*;3$;4| ((|x1| ($)) (|x2| ($)) ($ ($)))
         (SPROG
          ((#1=#:G131 NIL) (#2=#:G130 ($)) (#3=#:G132 ($)) (#4=#:G134 NIL)
           (#5=#:G133 ($)) (#6=#:G135 ($)) (#7=#:G140 NIL) (|t2| NIL)
@@ -121,14 +121,14 @@
                        (LETT #8# (CDR #8#)) (GO G190) G191 (EXIT NIL))
                   (COND (#1# #2#) ('T (|spadConstant| $ 10))))))))) 
 
-(SDEFUN |FSERIES;makeCos;ER$;5| ((|a| E) (|r| R) ($ $))
+(SDEFUN |FSERIES;makeCos;ER$;5| ((|a| (E)) (|r| (R)) ($ ($)))
         (COND
          ((SPADCALL |a| (|spadConstant| $ 12) (QREFELT $ 21))
           (LIST
            (CONS (SPADCALL (SPADCALL |a| (QREFELT $ 22)) (QREFELT $ 14)) |r|)))
          ('T (LIST (CONS (SPADCALL |a| (QREFELT $ 14)) |r|))))) 
 
-(SDEFUN |FSERIES;makeSin;ER$;6| ((|a| E) (|r| R) ($ $))
+(SDEFUN |FSERIES;makeSin;ER$;6| ((|a| (E)) (|r| (R)) ($ ($)))
         (COND ((SPADCALL |a| (QREFELT $ 20)) NIL)
               ((SPADCALL |a| (|spadConstant| $ 12) (QREFELT $ 21))
                (LIST

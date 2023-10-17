@@ -1,7 +1,7 @@
 
 (SDEFUN |DFINTTLS;variation|
-        ((|p| |SparseUnivariatePolynomial| F) (|a| F)
-         ($ |Union| (|Integer|) "failed"))
+        ((|p| (|SparseUnivariatePolynomial| F)) (|a| (F))
+         ($ (|Union| (|Integer|) "failed")))
         (|DFINTTLS;var|
          (SPADCALL |p|
                    (SPADCALL (SPADCALL (|spadConstant| $ 9) 1 (QREFELT $ 12))
@@ -10,16 +10,17 @@
          $)) 
 
 (SDEFUN |DFINTTLS;keeprec?|
-        ((|a| |Fraction| (|Integer|))
-         (|rec| |Record| (|:| |left| (|Fraction| (|Integer|)))
-          (|:| |right| (|Fraction| (|Integer|))))
-         ($ |Boolean|))
+        ((|a| (|Fraction| (|Integer|)))
+         (|rec|
+          (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                    (|:| |right| (|Fraction| (|Integer|)))))
+         ($ (|Boolean|)))
         (COND ((SPADCALL |a| (QCDR |rec|) (QREFELT $ 18)) 'T)
               ('T (SPADCALL |a| (QCAR |rec|) (QREFELT $ 19))))) 
 
 (SDEFUN |DFINTTLS;checkHalfAx|
-        ((|p| |SparseUnivariatePolynomial| F) (|a| F) (|d| |Integer|)
-         (|incl?| |Boolean|) ($ |Union| (|Boolean|) "failed"))
+        ((|p| (|SparseUnivariatePolynomial| F)) (|a| (F)) (|d| (|Integer|))
+         (|incl?| (|Boolean|)) ($ (|Union| (|Boolean|) "failed")))
         (|DFINTTLS;posRoot|
          (SPADCALL |p|
                    (SPADCALL |d|
@@ -30,14 +31,14 @@
                    (QREFELT $ 15))
          |incl?| $)) 
 
-(SDEFUN |DFINTTLS;ignore?;SB;4| ((|str| |String|) ($ |Boolean|))
+(SDEFUN |DFINTTLS;ignore?;SB;4| ((|str| (|String|)) ($ (|Boolean|)))
         (COND ((EQUAL |str| "noPole") 'T)
               ('T (|error| "integrate: last argument must be 'noPole'")))) 
 
 (SDEFUN |DFINTTLS;computeInt;KF2OcBU;5|
-        ((|k| |Kernel| F) (|f| F) (|a| |OrderedCompletion| F)
-         (|b| |OrderedCompletion| F) (|eval?| |Boolean|)
-         ($ |Union| (|OrderedCompletion| F) "failed"))
+        ((|k| (|Kernel| F)) (|f| (F)) (|a| (|OrderedCompletion| F))
+         (|b| (|OrderedCompletion| F)) (|eval?| (|Boolean|))
+         ($ (|Union| (|OrderedCompletion| F) "failed")))
         (SPROG
          ((#1=#:G145 NIL) (|ia| #2=(|Union| (|OrderedCompletion| F) "failed"))
           (|ib| #2#))
@@ -78,8 +79,9 @@
                   #5# (EXIT #1#))))))) 
 
 (SDEFUN |DFINTTLS;findLimit|
-        ((|f| F) (|k| |Kernel| F) (|a| |OrderedCompletion| F) (|dir| |String|)
-         (|eval?| |Boolean|) ($ |Union| (|OrderedCompletion| F) "failed"))
+        ((|f| (F)) (|k| (|Kernel| F)) (|a| (|OrderedCompletion| F))
+         (|dir| (|String|)) (|eval?| (|Boolean|))
+         ($ (|Union| (|OrderedCompletion| F) "failed")))
         (SPROG
          ((|u|
            (|Union| (|OrderedCompletion| F)
@@ -124,7 +126,7 @@
                    (COND ((QEQCAR |u| 0) (CONS 0 (QCDR |u|)))
                          (#2# (CONS 1 "failed"))))))))))) 
 
-(SDEFUN |DFINTTLS;mkLogPos| ((|f| F) ($ F))
+(SDEFUN |DFINTTLS;mkLogPos| ((|f| (F)) ($ (F)))
         (SPROG
          ((|lv| (|List| F)) (|lk| (|List| (|Kernel| F)))
           (|v| (|Union| F "positive")) (#1=#:G169 NIL) (|k| NIL))
@@ -148,7 +150,7 @@
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL |f| |lk| |lv| (QREFELT $ 53)))))) 
 
-(SDEFUN |DFINTTLS;mkKerPos| ((|k| |Kernel| F) ($ |Union| F "positive"))
+(SDEFUN |DFINTTLS;mkKerPos| ((|k| (|Kernel| F)) ($ (|Union| F "positive")))
         (SPROG ((|u| (|Union| (|Boolean|) "failed")) (|f| (F)))
                (SEQ
                 (LETT |u|
@@ -169,7 +171,7 @@
                                    (QREFELT $ 58))))
                   ('T (CONS 1 "positive"))))))) 
 
-(SDEFUN |DFINTTLS;negative| ((|f| F) ($ |Union| (|Boolean|) "failed"))
+(SDEFUN |DFINTTLS;negative| ((|f| (F)) ($ (|Union| (|Boolean|) "failed")))
         (SPROG ((|u| (|Union| (|Integer|) "failed")))
                (SEQ (LETT |u| (SPADCALL |f| (QREFELT $ 64)))
                     (EXIT
@@ -177,17 +179,17 @@
                            ('T (CONS 0 (< (QCDR |u|) 0)))))))) 
 
 (SDEFUN |DFINTTLS;checkForZero;PS2OcBU;10|
-        ((|p| |Polynomial| R) (|x| |Symbol|) (|a| |OrderedCompletion| F)
-         (|b| |OrderedCompletion| F) (|incl?| |Boolean|)
-         ($ |Union| (|Boolean|) "failed"))
+        ((|p| (|Polynomial| R)) (|x| (|Symbol|)) (|a| (|OrderedCompletion| F))
+         (|b| (|OrderedCompletion| F)) (|incl?| (|Boolean|))
+         ($ (|Union| (|Boolean|) "failed")))
         (SPADCALL
          (SPADCALL (ELT $ 68) (SPADCALL |p| |x| (QREFELT $ 70)) (QREFELT $ 74))
          |a| |b| |incl?| (QREFELT $ 76))) 
 
 (SDEFUN |DFINTTLS;checkForZero;Sup2OcBU;11|
-        ((|q| |SparseUnivariatePolynomial| F) (|a| |OrderedCompletion| F)
-         (|b| |OrderedCompletion| F) (|incl?| |Boolean|)
-         ($ |Union| (|Boolean|) "failed"))
+        ((|q| (|SparseUnivariatePolynomial| F)) (|a| (|OrderedCompletion| F))
+         (|b| (|OrderedCompletion| F)) (|incl?| (|Boolean|))
+         ($ (|Union| (|Boolean|) "failed")))
         (SPROG
          ((|u| (|Union| (|Boolean|) "failed")) (#1=#:G208 NIL)
           (|i|
@@ -233,8 +235,8 @@
                   #3# (EXIT #1#))))))) 
 
 (SDEFUN |DFINTTLS;maprat|
-        ((|p| |SparseUnivariatePolynomial| F)
-         ($ |Union| (|SparseUnivariatePolynomial| (|Integer|)) "failed"))
+        ((|p| (|SparseUnivariatePolynomial| F))
+         ($ (|Union| (|SparseUnivariatePolynomial| (|Integer|)) "failed")))
         (SPROG
          ((|ans| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
           (#1=#:G222 NIL) (|r| (|Union| (|Fraction| (|Integer|)) "failed"))
@@ -274,15 +276,16 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |DFINTTLS;intrat|
-        ((|a| |OrderedCompletion| F) (|b| |OrderedCompletion| F)
-         ($ |Union|
-          (|:| |fin|
-               (|Record| (|:| |left| (|Fraction| (|Integer|)))
-                         (|:| |right| (|Fraction| (|Integer|)))))
-          (|:| |halfinf|
-               (|Record| (|:| |endpoint| (|Fraction| (|Integer|)))
-                         (|:| |dir| (|Integer|))))
-          (|:| |all| #1="all") (|:| |failed| #2="failed")))
+        ((|a| (|OrderedCompletion| F)) (|b| (|OrderedCompletion| F))
+         ($
+          (|Union|
+           (|:| |fin|
+                (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                          (|:| |right| (|Fraction| (|Integer|)))))
+           (|:| |halfinf|
+                (|Record| (|:| |endpoint| (|Fraction| (|Integer|)))
+                          (|:| |dir| (|Integer|))))
+           (|:| |all| #1="all") (|:| |failed| #2="failed"))))
         (SPROG
          ((|t| #3=(|Union| (|Fraction| (|Integer|)) "failed"))
           (|n| (|SingleInteger|)) (|q| #3#) (|r| (|Union| F "failed")))
@@ -319,19 +322,21 @@
                               (CONS 0 (CONS (QCDR |q|) (QCDR |t|)))))))))))))))) 
 
 (SDEFUN |DFINTTLS;findRealZero|
-        ((|p| |SparseUnivariatePolynomial| (|Integer|))
-         (|i| |Union|
-          (|:| |fin|
-               #1=(|Record| (|:| |left| (|Fraction| (|Integer|)))
-                            (|:| |right| (|Fraction| (|Integer|)))))
-          (|:| |halfinf|
-               (|Record| (|:| |endpoint| #2=(|Fraction| (|Integer|)))
-                         (|:| |dir| (|Integer|))))
-          (|:| |all| #3="all") (|:| |failed| #4="failed"))
-         (|incl?| |Boolean|)
-         ($ |List|
-          (|Record| (|:| |left| #5=(|Fraction| (|Integer|)))
-                    (|:| |right| #6=(|Fraction| (|Integer|))))))
+        ((|p| (|SparseUnivariatePolynomial| (|Integer|)))
+         (|i|
+          (|Union|
+           (|:| |fin|
+                #1=(|Record| (|:| |left| (|Fraction| (|Integer|)))
+                             (|:| |right| (|Fraction| (|Integer|)))))
+           (|:| |halfinf|
+                (|Record| (|:| |endpoint| #2=(|Fraction| (|Integer|)))
+                          (|:| |dir| (|Integer|))))
+           (|:| |all| #3="all") (|:| |failed| #4="failed")))
+         (|incl?| (|Boolean|))
+         ($
+          (|List|
+           (|Record| (|:| |left| #5=(|Fraction| (|Integer|)))
+                     (|:| |right| #6=(|Fraction| (|Integer|)))))))
         (SPROG
          ((|ep| #2#) (#7=#:G245 NIL)
           (|l|
@@ -614,9 +619,9 @@
              ('T NIL)))))) 
 
 (SDEFUN |DFINTTLS;checkBudan|
-        ((|p| |SparseUnivariatePolynomial| F) (|a| |OrderedCompletion| F)
-         (|b| |OrderedCompletion| F) (|incl?| |Boolean|)
-         ($ |Union| (|Boolean|) "failed"))
+        ((|p| (|SparseUnivariatePolynomial| F)) (|a| (|OrderedCompletion| F))
+         (|b| (|OrderedCompletion| F)) (|incl?| (|Boolean|))
+         ($ (|Union| (|Boolean|) "failed")))
         (SPROG
          ((|v| (|Integer|)) (|m| (|Integer|)) (#1=#:G292 NIL)
           (|vb| #2=(|Union| (|Integer|) "failed")) (|va| #2#)
@@ -714,8 +719,8 @@
                   #7# (EXIT #5#)))))))) 
 
 (SDEFUN |DFINTTLS;checkDeriv|
-        ((|p| |SparseUnivariatePolynomial| F) (|a| |OrderedCompletion| F)
-         (|b| |OrderedCompletion| F) ($ |Union| (|Boolean|) #1="failed"))
+        ((|p| (|SparseUnivariatePolynomial| F)) (|a| (|OrderedCompletion| F))
+         (|b| (|OrderedCompletion| F)) ($ (|Union| (|Boolean|) #1="failed")))
         (SPROG
          ((|u| (|Union| (|Boolean|) #1#)) (|s| (|Union| (|Boolean|) "failed"))
           (|r| (|Union| F "failed")))
@@ -741,7 +746,8 @@
                              (#2# (CONS 0 'T))))))))))) 
 
 (SDEFUN |DFINTTLS;realRoot|
-        ((|p| |SparseUnivariatePolynomial| F) ($ |Union| (|Boolean|) "failed"))
+        ((|p| (|SparseUnivariatePolynomial| F))
+         ($ (|Union| (|Boolean|) "failed")))
         (SPROG ((|b| (|Union| (|Boolean|) "failed")))
                (SEQ (LETT |b| (|DFINTTLS;posRoot| |p| 'T $))
                     (EXIT
@@ -758,8 +764,8 @@
                              'T $))))))) 
 
 (SDEFUN |DFINTTLS;sameSign|
-        ((|p| |SparseUnivariatePolynomial| F) (|a| |OrderedCompletion| F)
-         (|b| |OrderedCompletion| F) ($ |Union| (|Boolean|) "failed"))
+        ((|p| (|SparseUnivariatePolynomial| F)) (|a| (|OrderedCompletion| F))
+         (|b| (|OrderedCompletion| F)) ($ (|Union| (|Boolean|) "failed")))
         (SPROG
          ((|s| (|Union| (|Integer|) "failed")) (|eb| #1=(|Union| F "failed"))
           (|ea| #1#))
@@ -785,8 +791,8 @@
                                                      0)))))))))))))))) 
 
 (SDEFUN |DFINTTLS;posRoot|
-        ((|p| |SparseUnivariatePolynomial| F) (|incl0?| |Boolean|)
-         ($ |Union| (|Boolean|) "failed"))
+        ((|p| (|SparseUnivariatePolynomial| F)) (|incl0?| (|Boolean|))
+         ($ (|Union| (|Boolean|) "failed")))
         (SPROG
          ((|v| (|Union| (|Integer|) "failed")) (#1=#:G334 NIL)
           (|z0?| (|Boolean|)))
@@ -813,8 +819,8 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |DFINTTLS;infeval|
-        ((|p| |SparseUnivariatePolynomial| F) (|a| |OrderedCompletion| F)
-         ($ |Union| F "failed"))
+        ((|p| (|SparseUnivariatePolynomial| F)) (|a| (|OrderedCompletion| F))
+         ($ (|Union| F "failed")))
         (SPROG ((|u| (|Union| (|Integer|) "failed")) (|n| (|SingleInteger|)))
                (SEQ
                 (COND
@@ -832,7 +838,8 @@
                                                (QREFELT $ 59)))))))))))) 
 
 (SDEFUN |DFINTTLS;var|
-        ((|q| |SparseUnivariatePolynomial| F) ($ |Union| (|Integer|) "failed"))
+        ((|q| (|SparseUnivariatePolynomial| F))
+         ($ (|Union| (|Integer|) "failed")))
         (SPROG
          ((|lastCoef| #1=(|Union| (|Boolean|) "failed")) (|i| (|Integer|))
           (#2=#:G357 NIL) (|next| #1#))

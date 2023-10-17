@@ -1,5 +1,5 @@
 
-(SDEFUN |FM2;linearExtend;MM1M2;1| ((|f| |Mapping| M2 S) (|x| M1) ($ M2))
+(SDEFUN |FM2;linearExtend;MM1M2;1| ((|f| (|Mapping| M2 S)) (|x| (M1)) ($ (M2)))
         (SPROG ((|res| (M2)) (#1=#:G110 NIL) (|t| NIL))
                (SEQ
                 (COND ((SPADCALL |x| (QREFELT $ 11)) (|spadConstant| $ 12))

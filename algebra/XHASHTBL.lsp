@@ -1,7 +1,7 @@
 
 (SDEFUN |XHASHTBL;localSearch|
-        ((|a| |PrimitiveArray| (|None|)) (|k| |Key|)
-         (|h| |Mapping| (|SingleInteger|) |Key|) ($ |Integer|))
+        ((|a| (|PrimitiveArray| (|None|))) (|k| (|Key|))
+         (|h| (|Mapping| (|SingleInteger|) |Key|)) ($ (|Integer|)))
         (SPROG
          ((|q| (|Integer|)) (|mk| (|None|)) (|p| (|Integer|)) (#1=#:G133 NIL)
           (#2=#:G132 NIL) (|deletedPosition?| (|Boolean|)) (|h2| (|Integer|))
@@ -58,10 +58,10 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |XHASHTBL;newArr|
-        ((|n| |NonNegativeInteger|) ($ |PrimitiveArray| (|None|)))
+        ((|n| (|NonNegativeInteger|)) ($ (|PrimitiveArray| (|None|))))
         (MAKEARR1 (* 2 |n|) (QREFELT $ 8))) 
 
-(SDEFUN |XHASHTBL;rehashAux!| ((|x| $) (|ix| |Integer|) ($ $))
+(SDEFUN |XHASHTBL;rehashAux!| ((|x| ($)) (|ix| (|Integer|)) ($ ($)))
         (SPROG
          ((|p| (|Integer|)) (|k| (|Key|)) (|mk| (|None|)) (#1=#:G151 NIL)
           (|i| NIL) (|c| (|PrimitiveArray| (|None|))) (|n| (|Integer|))
@@ -104,14 +104,14 @@
               (QSETVELT |r| 1 (QUOTIENT2 (* |m| 7) 10)) (QSETVELT |r| 2 0)
               (QSETVELT |r| 3 (QUOTIENT2 (* |m| 9) 10)) (EXIT |x|)))) 
 
-(SDEFUN |XHASHTBL;grow!| ((|x| $) ($ $))
+(SDEFUN |XHASHTBL;grow!| ((|x| ($)) ($ ($)))
         (|XHASHTBL;rehashAux!| |x| (+ (QVELT |x| 4) 1) $)) 
 
-(SDEFUN |XHASHTBL;rehash!| ((|x| $) ($ $))
+(SDEFUN |XHASHTBL;rehash!| ((|x| ($)) ($ ($)))
         (|XHASHTBL;rehashAux!| |x| (QVELT |x| 4) $)) 
 
 (SDEFUN |XHASHTBL;table;M$;6|
-        ((|hashfunction| |Mapping| (|SingleInteger|) |Key|) ($ $))
+        ((|hashfunction| (|Mapping| (|SingleInteger|) |Key|)) ($ ($)))
         (SPROG
          ((|maxVirtualEntries| (|Integer|)) (|maxEntries| (|Integer|))
           (|n| (|NonNegativeInteger|)))
@@ -122,11 +122,11 @@
                (VECTOR 0 |maxEntries| 0 |maxVirtualEntries| 0
                        (|XHASHTBL;newArr| |n| $) |hashfunction|))))) 
 
-(SDEFUN |XHASHTBL;empty;$;7| (($ $))
+(SDEFUN |XHASHTBL;empty;$;7| (($ ($)))
         (SPADCALL (|forceLazySlot| (ELT $ 21)) (QREFELT $ 19))) 
 
 (SDEFUN |XHASHTBL;inspect;$R;8|
-        ((|x| $) ($ |Record| (|:| |key| |Key|) (|:| |entry| |Entry|)))
+        ((|x| ($)) ($ (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))))
         (SPROG
          ((#1=#:G185 NIL) (|mk| (|None|)) (#2=#:G186 NIL) (|i| NIL)
           (|n| (|Integer|)) (|a| (|PrimitiveArray| (|None|))))
@@ -150,14 +150,14 @@
                 (EXIT (|error| "table must be non-empty"))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |XHASHTBL;#;$Nni;9| ((|x| $) ($ |NonNegativeInteger|))
+(SDEFUN |XHASHTBL;#;$Nni;9| ((|x| ($)) ($ (|NonNegativeInteger|)))
         (SPROG ((#1=#:G188 NIL))
                (PROG1 (LETT #1# (QVELT |x| 0))
                  (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
                                    '(|Integer|) #1#)))) 
 
 (SDEFUN |XHASHTBL;search;Key$U;10|
-        ((|k| |Key|) (|x| $) ($ |Union| |Entry| "failed"))
+        ((|k| (|Key|)) (|x| ($)) ($ (|Union| |Entry| "failed")))
         (SPROG
          ((|p| (|Integer|)) (|h| (|Mapping| (|SingleInteger|) |Key|))
           (|a| (|PrimitiveArray| (|None|))))
@@ -168,7 +168,7 @@
                      ('T
                       (CONS 0 (QAREF1 |a| (+ (ASH (QVSIZE |a|) -1) |p|))))))))) 
 
-(SDEFUN |XHASHTBL;elt;$KeyEntry;11| ((|x| $) (|k| |Key|) ($ |Entry|))
+(SDEFUN |XHASHTBL;elt;$KeyEntry;11| ((|x| ($)) (|k| (|Key|)) ($ (|Entry|)))
         (SPROG
          ((|p| (|Integer|)) (|h| (|Mapping| (|SingleInteger|) |Key|))
           (|a| (|PrimitiveArray| (|None|))))
@@ -179,7 +179,7 @@
                      ('T (QAREF1 |a| (+ (ASH (QVSIZE |a|) -1) |p|)))))))) 
 
 (SDEFUN |XHASHTBL;elt;$Key2Entry;12|
-        ((|x| $) (|k| |Key|) (|e| |Entry|) ($ |Entry|))
+        ((|x| ($)) (|k| (|Key|)) (|e| (|Entry|)) ($ (|Entry|)))
         (SPROG
          ((|p| (|Integer|)) (|h| (|Mapping| (|SingleInteger|) |Key|))
           (|a| (|PrimitiveArray| (|None|))))
@@ -190,7 +190,7 @@
                      ('T (QAREF1 |a| (+ (ASH (QVSIZE |a|) -1) |p|)))))))) 
 
 (SDEFUN |XHASHTBL;setelt!;$Key2Entry;13|
-        ((|x| $) (|k| |Key|) (|e| |Entry|) ($ |Entry|))
+        ((|x| ($)) (|k| (|Key|)) (|e| (|Entry|)) ($ (|Entry|)))
         (SPROG
          ((|p| (|Integer|))
           (|r|
@@ -232,7 +232,7 @@
                            (EXIT |e|)))))))))))) 
 
 (SDEFUN |XHASHTBL;remove!;Key$U;14|
-        ((|k| |Key|) (|x| $) ($ |Union| |Entry| "failed"))
+        ((|k| (|Key|)) (|x| ($)) ($ (|Union| |Entry| "failed")))
         (SPROG
          ((|e| (|Entry|)) (|n| (|Integer|)) (|p| (|Integer|))
           (|h| (|Mapping| (|SingleInteger|) |Key|))
@@ -251,7 +251,7 @@
                            (QSETVELT |x| 2 (+ (QVELT |x| 2) 1))
                            (EXIT (CONS 0 |e|))))))))) 
 
-(SDEFUN |XHASHTBL;copy;2$;15| ((|x| $) ($ $))
+(SDEFUN |XHASHTBL;copy;2$;15| ((|x| ($)) ($ ($)))
         (SPROG
          ((|r|
            (|Record| (|:| |numOfEntries| (|Integer|))
@@ -268,7 +268,7 @@
                        (QVELT |r| 4) (SPADCALL (QVELT |r| 5) (QREFELT $ 34))
                        (QVELT |r| 6)))))) 
 
-(SDEFUN |XHASHTBL;fill!;$Entry$;16| ((|x| $) (|e| |Entry|) ($ $))
+(SDEFUN |XHASHTBL;fill!;$Entry$;16| ((|x| ($)) (|e| (|Entry|)) ($ ($)))
         (SPROG
          ((#1=#:G244 NIL) (|i| NIL) (|n| (|NonNegativeInteger|))
           (|a| (|PrimitiveArray| (|None|))))
@@ -284,7 +284,8 @@
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (EXIT |x|)))) 
 
-(SDEFUN |XHASHTBL;map!;M2$;17| ((|f| |Mapping| |Entry| |Entry|) (|x| $) ($ $))
+(SDEFUN |XHASHTBL;map!;M2$;17|
+        ((|f| (|Mapping| |Entry| |Entry|)) (|x| ($)) ($ ($)))
         (SPROG
          ((#1=#:G252 NIL) (|i| NIL) (|n| (|NonNegativeInteger|))
           (|a| (|PrimitiveArray| (|None|))))
@@ -301,7 +302,7 @@
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (EXIT |x|)))) 
 
-(SDEFUN |XHASHTBL;keys;$L;18| ((|x| $) ($ |List| |Key|))
+(SDEFUN |XHASHTBL;keys;$L;18| ((|x| ($)) ($ (|List| |Key|)))
         (SPROG
          ((|l| (|List| |Key|)) (|mk| (|None|)) (#1=#:G259 NIL) (|i| NIL)
           (|a| (|PrimitiveArray| (|None|))))
@@ -320,7 +321,7 @@
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (EXIT |l|)))) 
 
-(SDEFUN |XHASHTBL;parts;$L;19| ((|x| $) ($ |List| |Entry|))
+(SDEFUN |XHASHTBL;parts;$L;19| ((|x| ($)) ($ (|List| |Entry|)))
         (SPROG
          ((|l| (|List| |Entry|)) (#1=#:G266 NIL) (|i| NIL)
           (|n| (|NonNegativeInteger|)) (|a| (|PrimitiveArray| (|None|))))
@@ -338,7 +339,8 @@
               (EXIT |l|)))) 
 
 (SDEFUN |XHASHTBL;parts;$L;20|
-        ((|x| $) ($ |List| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))))
+        ((|x| ($))
+         ($ (|List| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|)))))
         (SPROG
          ((|l| (|List| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))))
           (|mk| (|None|)) (#1=#:G275 NIL) (|i| NIL)
@@ -363,9 +365,9 @@
 
 (PUT '|XHASHTBL;removeDuplicates;2$;21| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |XHASHTBL;removeDuplicates;2$;21| ((|x| $) ($ $)) |x|) 
+(SDEFUN |XHASHTBL;removeDuplicates;2$;21| ((|x| ($)) ($ ($))) |x|) 
 
-(SDEFUN |XHASHTBL;=;2$B;22| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |XHASHTBL;=;2$B;22| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G287 NIL) (#2=#:G288 NIL) (|p| (|Integer|)) (|mk| (|None|))
           (#3=#:G289 NIL) (|i| NIL) (|h| (|Mapping| (|SingleInteger|) |Key|))

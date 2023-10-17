@@ -1,6 +1,6 @@
 
 (SDEFUN |PMDOWN;fixPredicate;MM;1|
-        ((|f| |Mapping| (|Boolean|) B) ($ |Mapping| (|Boolean|) A))
+        ((|f| (|Mapping| (|Boolean|) B)) ($ (|Mapping| (|Boolean|) A)))
         (SPROG NIL (CONS #'|PMDOWN;fixPredicate;MM;1!0| (VECTOR |f| $)))) 
 
 (SDEFUN |PMDOWN;fixPredicate;MM;1!0| ((|a1| NIL) ($$ NIL))
@@ -10,8 +10,8 @@
           (RETURN (PROGN (SPADCALL (SPADCALL |a1| (QREFELT $ 9)) |f|))))) 
 
 (SDEFUN |PMDOWN;patternMatch;AP2Pmr;2|
-        ((|a| A) (|p| |Pattern| S) (|l| |PatternMatchResult| S B)
-         ($ |PatternMatchResult| S B))
+        ((|a| (A)) (|p| (|Pattern| S)) (|l| (|PatternMatchResult| S B))
+         ($ (|PatternMatchResult| S B)))
         (SPROG
          ((|u|
            (|Union|
@@ -33,8 +33,8 @@
                             (QREFELT $ 23)))))))) 
 
 (SDEFUN |PMDOWN;inA|
-        ((|p| |Pattern| S) (|l| |PatternMatchResult| S B)
-         ($ |Union| (|List| A) "failed"))
+        ((|p| (|Pattern| S)) (|l| (|PatternMatchResult| S B))
+         ($ (|Union| (|List| A) "failed")))
         (SPROG ((|r| (|Union| A "failed")) (|u| (|Union| B "failed")))
                (SEQ (LETT |u| (SPADCALL |p| |l| (QREFELT $ 26)))
                     (EXIT
@@ -47,13 +47,14 @@
                                     (#1# (CONS 1 "failed"))))))))))) 
 
 (SDEFUN |PMDOWN;fixList|
-        ((|fn| |Mapping| (|Pattern| S) (|List| (|Pattern| S)))
-         (|l| |List| (|Pattern| S)) (|lb| |PatternMatchResult| S B)
-         (|la| |PatternMatchResult| S A)
-         ($ |Union|
-          (|Record| (|:| |pat| (|Pattern| S))
-                    (|:| |res| (|PatternMatchResult| S A)))
-          "failed"))
+        ((|fn| (|Mapping| (|Pattern| S) (|List| (|Pattern| S))))
+         (|l| (|List| (|Pattern| S))) (|lb| (|PatternMatchResult| S B))
+         (|la| (|PatternMatchResult| S A))
+         ($
+          (|Union|
+           (|Record| (|:| |pat| (|Pattern| S))
+                     (|:| |res| (|PatternMatchResult| S A)))
+           "failed")))
         (SPROG
          ((|ll| (|List| (|Pattern| S))) (#1=#:G137 NIL)
           (|f|
@@ -83,7 +84,7 @@
                 (EXIT (CONS 0 (CONS (SPADCALL |ll| |fn|) |la|)))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |PMDOWN;fixPred| ((|f| |Any|) ($ |Union| (|Any|) "failed"))
+(SDEFUN |PMDOWN;fixPred| ((|f| (|Any|)) ($ (|Union| (|Any|) "failed")))
         (SPROG
          ((|g| (|Mapping| (|Boolean|) A))
           (|u| (|Union| (|Mapping| (|Boolean|) B) "failed")))
@@ -95,12 +96,13 @@
                            (EXIT (CONS 0 (SPADCALL |g| (QREFELT $ 34))))))))))) 
 
 (SDEFUN |PMDOWN;fixPredicates|
-        ((|p| |Pattern| S) (|lb| |PatternMatchResult| S B)
-         (|la| |PatternMatchResult| S A)
-         ($ |Union|
-          (|Record| (|:| |pat| (|Pattern| S))
-                    (|:| |res| (|PatternMatchResult| S A)))
-          #1="failed"))
+        ((|p| (|Pattern| S)) (|lb| (|PatternMatchResult| S B))
+         (|la| (|PatternMatchResult| S A))
+         ($
+          (|Union|
+           (|Record| (|:| |pat| (|Pattern| S))
+                     (|:| |res| (|PatternMatchResult| S A)))
+           #1="failed")))
         (SPROG
          ((|q| (|Pattern| S)) (|lp| (|List| (|Any|))) (#2=#:G215 NIL)
           (|h| (|Union| (|Any|) "failed")) (#3=#:G217 NIL) (|g| NIL)

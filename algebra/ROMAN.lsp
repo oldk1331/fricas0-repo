@@ -1,14 +1,15 @@
 
-(SDEFUN |ROMAN;roman;I$;1| ((|n| |Integer|) ($ $)) (SPADCALL |n| (QREFELT $ 6))) 
+(SDEFUN |ROMAN;roman;I$;1| ((|n| (|Integer|)) ($ ($)))
+        (SPADCALL |n| (QREFELT $ 6))) 
 
-(SDEFUN |ROMAN;roman;S$;2| ((|sy| |Symbol|) ($ $))
+(SDEFUN |ROMAN;roman;S$;2| ((|sy| (|Symbol|)) ($ ($)))
         (SPADCALL |sy| (QREFELT $ 9))) 
 
-(SDEFUN |ROMAN;convert;S$;3| ((|sy| |Symbol|) ($ $))
+(SDEFUN |ROMAN;convert;S$;3| ((|sy| (|Symbol|)) ($ ($)))
         (SPADCALL (SPADCALL (SPADCALL |sy| (QREFELT $ 12)) (QREFELT $ 15))
                   (QREFELT $ 6))) 
 
-(SDEFUN |ROMAN;coerce;$Of;4| ((|r| $) ($ |OutputForm|))
+(SDEFUN |ROMAN;coerce;$Of;4| ((|r| ($)) ($ (|OutputForm|)))
         (SPROG ((#1=#:G117 NIL) (|n| (|Integer|)))
                (SEQ (LETT |n| (SPADCALL |r| (QREFELT $ 16)))
                     (EXIT

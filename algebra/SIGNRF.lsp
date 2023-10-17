@@ -1,6 +1,7 @@
 
 (SDEFUN |SIGNRF;sign;FU;1|
-        ((|f| |Fraction| (|Polynomial| R)) ($ |Union| (|Integer|) #1="failed"))
+        ((|f| (|Fraction| (|Polynomial| R)))
+         ($ (|Union| (|Integer|) #1="failed")))
         (SPROG ((|ud| #2=(|Union| (|Integer|) #1#)) (|un| #2#))
                (SEQ (LETT |un| (|SIGNRF;psign| (SPADCALL |f| (QREFELT $ 9)) $))
                     (EXIT
@@ -18,9 +19,11 @@
                                               (QCDR |ud|))))))))))))) 
 
 (SDEFUN |SIGNRF;finiteSign|
-        ((|g| |Fraction|
-          (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R))))
-         (|a| |Fraction| (|Polynomial| R)) ($ |Union| (|Integer|) "failed"))
+        ((|g|
+          (|Fraction|
+           (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R)))))
+         (|a| (|Fraction| (|Polynomial| R)))
+         ($ (|Union| (|Integer|) "failed")))
         (SPROG ((|un| #1=(|Union| (|Integer|) "failed")) (|ud| #1#))
                (SEQ
                 (LETT |ud|
@@ -39,9 +42,9 @@
                                  (CONS 0 (* (QCDR |un|) (QCDR |ud|))))))))))))) 
 
 (SDEFUN |SIGNRF;sign;FSOcU;3|
-        ((|f| |Fraction| (|Polynomial| R)) (|x| |Symbol|)
-         (|a| |OrderedCompletion| (|Fraction| (|Polynomial| R)))
-         ($ |Union| (|Integer|) "failed"))
+        ((|f| (|Fraction| (|Polynomial| R))) (|x| (|Symbol|))
+         (|a| (|OrderedCompletion| (|Fraction| (|Polynomial| R))))
+         ($ (|Union| (|Integer|) "failed")))
         (SPROG
          ((|un| #1=(|Union| (|Integer|) "failed")) (|ud| #1#) (|n| (|Integer|))
           (|g|
@@ -72,9 +75,9 @@
                                             (QCDR |ud|))))))))))))))))) 
 
 (SDEFUN |SIGNRF;sign;FSFSU;4|
-        ((|f| |Fraction| (|Polynomial| R)) (|x| |Symbol|)
-         (|a| |Fraction| (|Polynomial| R)) (|st| |String|)
-         ($ |Union| (|Integer|) "failed"))
+        ((|f| (|Fraction| (|Polynomial| R))) (|x| (|Symbol|))
+         (|a| (|Fraction| (|Polynomial| R))) (|st| (|String|))
+         ($ (|Union| (|Integer|) "failed")))
         (SPROG
          ((|un| #1=(|Union| (|Integer|) "failed")) (|ud| #1#) (|d| (|Integer|))
           (|g|
@@ -98,7 +101,8 @@
                     (COND ((QEQCAR |un| 1) (CONS 1 "failed"))
                           (#2# (CONS 0 (* (QCDR |un|) (QCDR |ud|))))))))))))) 
 
-(SDEFUN |SIGNRF;psign| ((|p| |Polynomial| R) ($ |Union| (|Integer|) "failed"))
+(SDEFUN |SIGNRF;psign|
+        ((|p| (|Polynomial| R)) ($ (|Union| (|Integer|) "failed")))
         (SPROG
          ((|ans| (|Integer|)) (#1=#:G153 NIL)
           (|u| (|Union| (|Integer|) "failed")) (#2=#:G154 NIL) (|term| NIL)
@@ -158,7 +162,7 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |SIGNRF;sqfrSign|
-        ((|p| |Polynomial| R) ($ |Union| (|Integer|) #1="failed"))
+        ((|p| (|Polynomial| R)) ($ (|Union| (|Integer|) #1="failed")))
         (SPROG
          ((|u| (|Union| (|Integer|) #1#)) (|l| (|List| (|Polynomial| R))))
          (SEQ
@@ -170,8 +174,8 @@
                  ('T (|SIGNRF;listSign| (CDR |l|) (QCDR |u|) $))))))) 
 
 (SDEFUN |SIGNRF;listSign|
-        ((|l| |List| (|Polynomial| R)) (|s| |Integer|)
-         ($ |Union| (|Integer|) #1="failed"))
+        ((|l| (|List| (|Polynomial| R))) (|s| (|Integer|))
+         ($ (|Union| (|Integer|) #1="failed")))
         (SPROG
          ((#2=#:G168 NIL) (#3=#:G169 NIL) (|u| (|Union| (|Integer|) #1#))
           (#4=#:G170 NIL) (|term| NIL))
@@ -204,7 +208,7 @@
           #5# (EXIT #3#)))) 
 
 (SDEFUN |SIGNRF;termSign|
-        ((|term| |Polynomial| R) ($ |Union| (|Integer|) "failed"))
+        ((|term| (|Polynomial| R)) ($ (|Union| (|Integer|) "failed")))
         (SPROG ((#1=#:G178 NIL) (#2=#:G179 NIL) (#3=#:G180 NIL) (|var| NIL))
                (SEQ
                 (EXIT

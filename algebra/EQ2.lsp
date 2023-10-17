@@ -1,6 +1,6 @@
 
 (SDEFUN |EQ2;map;MEE;1|
-        ((|fn| |Mapping| R S) (|eqn| |Equation| S) ($ |Equation| R))
+        ((|fn| (|Mapping| R S)) (|eqn| (|Equation| S)) ($ (|Equation| R)))
         (SPADCALL (SPADCALL (SPADCALL |eqn| (QREFELT $ 9)) |fn|)
                   (SPADCALL (SPADCALL |eqn| (QREFELT $ 10)) |fn|)
                   (QREFELT $ 12))) 

@@ -1,8 +1,8 @@
 
-(SDEFUN |SETMN;=;2$B;1| ((|s1| $) (|s2| $) ($ |Boolean|))
+(SDEFUN |SETMN;=;2$B;1| ((|s1| ($)) (|s2| ($)) ($ (|Boolean|)))
         (SPADCALL (QCAR |s1|) (QCAR |s2|) (QREFELT $ 15))) 
 
-(SDEFUN |SETMN;coerce;$Of;2| ((|s| $) ($ |OutputForm|))
+(SDEFUN |SETMN;coerce;$Of;2| ((|s| ($)) ($ (|OutputForm|)))
         (SPROG ((#1=#:G126 NIL) (|i| NIL) (#2=#:G125 NIL))
                (SEQ
                 (SPADCALL
@@ -20,7 +20,7 @@
                        (EXIT (NREVERSE #2#))))
                  (QREFELT $ 23))))) 
 
-(SDEFUN |SETMN;reallyEnumerate| (($ |Vector| $))
+(SDEFUN |SETMN;reallyEnumerate| (($ (|Vector| $)))
         (SPROG
          ((#1=#:G129 NIL) (|i| NIL) (#2=#:G131 NIL) (|b| NIL) (#3=#:G130 NIL))
          (SEQ
@@ -41,10 +41,11 @@
                 (GO G190) G191 (EXIT NIL))
            #3#)))) 
 
-(SDEFUN |SETMN;member?;Pi$B;4| ((|p| |PositiveInteger|) (|s| $) ($ |Boolean|))
+(SDEFUN |SETMN;member?;Pi$B;4|
+        ((|p| (|PositiveInteger|)) (|s| ($)) ($ (|Boolean|)))
         (SPADCALL (QCAR |s|) |p| (QREFELT $ 26))) 
 
-(SDEFUN |SETMN;enumerate;V;5| (($ |Vector| $))
+(SDEFUN |SETMN;enumerate;V;5| (($ (|Vector| $)))
         (SEQ
          (COND
           ((SPADCALL (QREFELT $ 11) (QREFELT $ 28))
@@ -52,8 +53,8 @@
          (EXIT (QREFELT $ 11)))) 
 
 (SDEFUN |SETMN;enum|
-        ((|p| |NonNegativeInteger|) (|q| |NonNegativeInteger|)
-         (|n| |PositiveInteger|) ($ |List| (|Bits|)))
+        ((|p| (|NonNegativeInteger|)) (|q| (|NonNegativeInteger|))
+         (|n| (|PositiveInteger|)) ($ (|List| (|Bits|))))
         (SPROG
          ((#1=#:G149 NIL) (|s| NIL) (|l| (|List| (|Bits|))) (#2=#:G142 NIL)
           (|q1| (|NonNegativeInteger|)) (#3=#:G141 NIL) (#4=#:G148 NIL)
@@ -99,7 +100,7 @@
                      (SPADCALL (|SETMN;enum| |p| |q1| (QREFELT $ 7) $) |l|
                                (QREFELT $ 35))))))))))) 
 
-(SDEFUN |SETMN;size;Nni;7| (($ |NonNegativeInteger|))
+(SDEFUN |SETMN;size;Nni;7| (($ (|NonNegativeInteger|)))
         (SPROG ((#1=#:G150 NIL))
                (SEQ
                 (COND
@@ -114,7 +115,7 @@
                                               '(|Integer|) #1#)))))
                 (EXIT (QREFELT $ 12))))) 
 
-(SDEFUN |SETMN;lookup;$Pi;8| ((|s| $) ($ |PositiveInteger|))
+(SDEFUN |SETMN;lookup;$Pi;8| ((|s| ($)) ($ (|PositiveInteger|)))
         (SPROG ((#1=#:G157 NIL) (#2=#:G155 NIL))
                (SEQ
                 (COND
@@ -137,7 +138,7 @@
                    (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                      '(|NonNegativeInteger|) #1#)))))) 
 
-(SDEFUN |SETMN;index;Pi$;9| ((|p| |PositiveInteger|) ($ $))
+(SDEFUN |SETMN;index;Pi$;9| ((|p| (|PositiveInteger|)) ($ ($)))
         (SEQ
          (COND
           ((> |p| (SPADCALL (QREFELT $ 38)))
@@ -149,7 +150,7 @@
               (SETELT $ 11 (|SETMN;reallyEnumerate| $))))
             (EXIT (SPADCALL (QREFELT $ 11) |p| (QREFELT $ 41)))))))) 
 
-(SDEFUN |SETMN;setOfMinN;L$;10| ((|l| |List| (|PositiveInteger|)) ($ $))
+(SDEFUN |SETMN;setOfMinN;L$;10| ((|l| (|List| (|PositiveInteger|))) ($ ($)))
         (SPROG
          ((|count| (|NonNegativeInteger|)) (#1=#:G170 NIL) (|i| NIL)
           (|s| (|Bits|)))
@@ -174,7 +175,7 @@
                  (|error| "setOfMinN: improper set of integers"))
                 ('T (CONS |s| 0))))))) 
 
-(SDEFUN |SETMN;elements;$L;11| ((|s| $) ($ |List| (|PositiveInteger|)))
+(SDEFUN |SETMN;elements;$L;11| ((|s| ($)) ($ (|List| (|PositiveInteger|))))
         (SPROG
          ((|i| (|PositiveInteger|)) (|found| (|NonNegativeInteger|))
           (|l| (|List| (|PositiveInteger|))) (|b| (|Bits|)))
@@ -191,7 +192,7 @@
               (EXIT (NREVERSE |l|))))) 
 
 (SDEFUN |SETMN;incrementKthElement;$PiU;12|
-        ((|s| $) (|k| |PositiveInteger|) ($ |Union| $ "failed"))
+        ((|s| ($)) (|k| (|PositiveInteger|)) ($ (|Union| $ "failed")))
         (SPROG
          ((#1=#:G185 NIL) (|newb| (|Bits|)) (|i| (|NonNegativeInteger|))
           (|found| (|NonNegativeInteger|)) (|b| (|Bits|)))
@@ -216,8 +217,8 @@
               (EXIT (CONS 0 (CONS |newb| 0)))))) 
 
 (SDEFUN |SETMN;delta;$2PiNni;13|
-        ((|s| $) (|k| |PositiveInteger|) (|p| |PositiveInteger|)
-         ($ |NonNegativeInteger|))
+        ((|s| ($)) (|k| (|PositiveInteger|)) (|p| (|PositiveInteger|))
+         ($ (|NonNegativeInteger|)))
         (SPROG
          ((|i| (|PositiveInteger|)) (|count| #1=(|NonNegativeInteger|))
           (|found| #1#) (|b| (|Bits|)))
@@ -239,8 +240,8 @@
               (EXIT |count|)))) 
 
 (SDEFUN |SETMN;replaceKthElement;$2PiU;14|
-        ((|s| $) (|k| |PositiveInteger|) (|p| |PositiveInteger|)
-         ($ |Union| $ "failed"))
+        ((|s| ($)) (|k| (|PositiveInteger|)) (|p| (|PositiveInteger|))
+         ($ (|Union| $ "failed")))
         (SPROG
          ((|newb| (|Bits|)) (|i| (|PositiveInteger|))
           (|found| (|NonNegativeInteger|)) (|b| (|Bits|)))

@@ -1,36 +1,36 @@
 
 (PUT '|PALETTE;dark;C$;1| '|SPADreplace| '(XLAM (|c|) (CONS 1 |c|))) 
 
-(SDEFUN |PALETTE;dark;C$;1| ((|c| |Color|) ($ $)) (CONS 1 |c|)) 
+(SDEFUN |PALETTE;dark;C$;1| ((|c| (|Color|)) ($ ($))) (CONS 1 |c|)) 
 
 (PUT '|PALETTE;dim;C$;2| '|SPADreplace| '(XLAM (|c|) (CONS 2 |c|))) 
 
-(SDEFUN |PALETTE;dim;C$;2| ((|c| |Color|) ($ $)) (CONS 2 |c|)) 
+(SDEFUN |PALETTE;dim;C$;2| ((|c| (|Color|)) ($ ($))) (CONS 2 |c|)) 
 
 (PUT '|PALETTE;bright;C$;3| '|SPADreplace| '(XLAM (|c|) (CONS 3 |c|))) 
 
-(SDEFUN |PALETTE;bright;C$;3| ((|c| |Color|) ($ $)) (CONS 3 |c|)) 
+(SDEFUN |PALETTE;bright;C$;3| ((|c| (|Color|)) ($ ($))) (CONS 3 |c|)) 
 
 (PUT '|PALETTE;pastel;C$;4| '|SPADreplace| '(XLAM (|c|) (CONS 4 |c|))) 
 
-(SDEFUN |PALETTE;pastel;C$;4| ((|c| |Color|) ($ $)) (CONS 4 |c|)) 
+(SDEFUN |PALETTE;pastel;C$;4| ((|c| (|Color|)) ($ ($))) (CONS 4 |c|)) 
 
 (PUT '|PALETTE;light;C$;5| '|SPADreplace| '(XLAM (|c|) (CONS 5 |c|))) 
 
-(SDEFUN |PALETTE;light;C$;5| ((|c| |Color|) ($ $)) (CONS 5 |c|)) 
+(SDEFUN |PALETTE;light;C$;5| ((|c| (|Color|)) ($ ($))) (CONS 5 |c|)) 
 
 (PUT '|PALETTE;hue;$C;6| '|SPADreplace| 'QCDR) 
 
-(SDEFUN |PALETTE;hue;$C;6| ((|p| $) ($ |Color|)) (QCDR |p|)) 
+(SDEFUN |PALETTE;hue;$C;6| ((|p| ($)) ($ (|Color|))) (QCDR |p|)) 
 
 (PUT '|PALETTE;shade;$I;7| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |PALETTE;shade;$I;7| ((|p| $) ($ |Integer|)) (QCAR |p|)) 
+(SDEFUN |PALETTE;shade;$I;7| ((|p| ($)) ($ (|Integer|))) (QCAR |p|)) 
 
-(SDEFUN |PALETTE;coerce;C$;8| ((|c| |Color|) ($ $))
+(SDEFUN |PALETTE;coerce;C$;8| ((|c| (|Color|)) ($ ($)))
         (SPADCALL |c| (QREFELT $ 10))) 
 
-(SDEFUN |PALETTE;coerce;$Of;9| ((|p| $) ($ |OutputForm|))
+(SDEFUN |PALETTE;coerce;$Of;9| ((|p| ($)) ($ (|OutputForm|)))
         (SPADCALL
          (LIST (SPADCALL "[" (QREFELT $ 19))
                (SPADCALL (QCDR |p|) (QREFELT $ 20))

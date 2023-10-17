@@ -1,9 +1,11 @@
 
 (SDEFUN |NUMQUAD;aromberg;M4F3IR;1|
-        ((|func| |Mapping| F F) (|a| F) (|b| F) (|epsrel| F) (|epsabs| F)
-         (|nmin| |Integer|) (|nmax| |Integer|) (|nint| |Integer|)
-         ($ |Record| (|:| |value| F) (|:| |error| F)
-          (|:| |totalpts| (|Integer|)) (|:| |success| (|Boolean|))))
+        ((|func| (|Mapping| F F)) (|a| (F)) (|b| (F)) (|epsrel| (F))
+         (|epsabs| (F)) (|nmin| (|Integer|)) (|nmax| (|Integer|))
+         (|nint| (|Integer|))
+         ($
+          (|Record| (|:| |value| F) (|:| |error| F)
+                    (|:| |totalpts| (|Integer|)) (|:| |success| (|Boolean|)))))
         (SPROG
          ((|x2| (F)) (|x1| (F)) (|done| (|Boolean|)) (|pts| (|Integer|))
           (|err| (F)) (|sum| (F))
@@ -56,10 +58,12 @@
               (EXIT (VECTOR |sum| |err| |pts| |done|))))) 
 
 (SDEFUN |NUMQUAD;asimpson;M4F3IR;2|
-        ((|func| |Mapping| F F) (|a| F) (|b| F) (|epsrel| F) (|epsabs| F)
-         (|nmin| |Integer|) (|nmax| |Integer|) (|nint| |Integer|)
-         ($ |Record| (|:| |value| F) (|:| |error| F)
-          (|:| |totalpts| (|Integer|)) (|:| |success| (|Boolean|))))
+        ((|func| (|Mapping| F F)) (|a| (F)) (|b| (F)) (|epsrel| (F))
+         (|epsabs| (F)) (|nmin| (|Integer|)) (|nmax| (|Integer|))
+         (|nint| (|Integer|))
+         ($
+          (|Record| (|:| |value| F) (|:| |error| F)
+                    (|:| |totalpts| (|Integer|)) (|:| |success| (|Boolean|)))))
         (SPROG
          ((|x2| (F)) (|x1| (F)) (|done| (|Boolean|)) (|pts| (|Integer|))
           (|err| (F)) (|sum| (F))
@@ -112,10 +116,12 @@
               (EXIT (VECTOR |sum| |err| |pts| |done|))))) 
 
 (SDEFUN |NUMQUAD;atrapezoidal;M4F3IR;3|
-        ((|func| |Mapping| F F) (|a| F) (|b| F) (|epsrel| F) (|epsabs| F)
-         (|nmin| |Integer|) (|nmax| |Integer|) (|nint| |Integer|)
-         ($ |Record| (|:| |value| F) (|:| |error| F)
-          (|:| |totalpts| (|Integer|)) (|:| |success| (|Boolean|))))
+        ((|func| (|Mapping| F F)) (|a| (F)) (|b| (F)) (|epsrel| (F))
+         (|epsabs| (F)) (|nmin| (|Integer|)) (|nmax| (|Integer|))
+         (|nint| (|Integer|))
+         ($
+          (|Record| (|:| |value| F) (|:| |error| F)
+                    (|:| |totalpts| (|Integer|)) (|:| |success| (|Boolean|)))))
         (SPROG
          ((|x2| (F)) (|x1| (F)) (|done| (|Boolean|)) (|pts| (|Integer|))
           (|err| (F)) (|sum| (F))
@@ -168,10 +174,11 @@
               (EXIT (VECTOR |sum| |err| |pts| |done|))))) 
 
 (SDEFUN |NUMQUAD;romberg;M4F2IR;4|
-        ((|func| |Mapping| F F) (|a| F) (|b| F) (|epsrel| F) (|epsabs| F)
-         (|nmin| |Integer|) (|nmax| |Integer|)
-         ($ |Record| (|:| |value| F) (|:| |error| F)
-          (|:| |totalpts| (|Integer|)) (|:| |success| (|Boolean|))))
+        ((|func| (|Mapping| F F)) (|a| (F)) (|b| (F)) (|epsrel| (F))
+         (|epsabs| (F)) (|nmin| (|Integer|)) (|nmax| (|Integer|))
+         ($
+          (|Record| (|:| |value| F) (|:| |error| F)
+                    (|:| |totalpts| (|Integer|)) (|:| |success| (|Boolean|)))))
         (SPROG
          ((|qx1| (F)) (|pts| (|Integer|)) (|delta| (F)) (|oldest| (F))
           (|oldsum| (F)) (#1=#:G154 NIL) (|change| (F))
@@ -331,10 +338,11 @@
           #5# (EXIT #1#)))) 
 
 (SDEFUN |NUMQUAD;simpson;M4F2IR;5|
-        ((|func| |Mapping| F F) (|a| F) (|b| F) (|epsrel| F) (|epsabs| F)
-         (|nmin| |Integer|) (|nmax| |Integer|)
-         ($ |Record| (|:| |value| F) (|:| |error| F)
-          (|:| |totalpts| (|Integer|)) (|:| |success| (|Boolean|))))
+        ((|func| (|Mapping| F F)) (|a| (F)) (|b| (F)) (|epsrel| (F))
+         (|epsabs| (F)) (|nmin| (|Integer|)) (|nmax| (|Integer|))
+         ($
+          (|Record| (|:| |value| F) (|:| |error| F)
+                    (|:| |totalpts| (|Integer|)) (|:| |success| (|Boolean|)))))
         (SPROG
          ((|pts| (|Integer|)) (|delta| (F)) (|oldest| (F)) (|oldsum| (F))
           (#1=#:G169 NIL) (|change| (F)) (|newest| (F)) (|newsum| (F))
@@ -460,10 +468,11 @@
           #3# (EXIT #1#)))) 
 
 (SDEFUN |NUMQUAD;trapezoidal;M4F2IR;6|
-        ((|func| |Mapping| F F) (|a| F) (|b| F) (|epsrel| F) (|epsabs| F)
-         (|nmin| |Integer|) (|nmax| |Integer|)
-         ($ |Record| (|:| |value| F) (|:| |error| F)
-          (|:| |totalpts| (|Integer|)) (|:| |success| (|Boolean|))))
+        ((|func| (|Mapping| F F)) (|a| (F)) (|b| (F)) (|epsrel| (F))
+         (|epsabs| (F)) (|nmin| (|Integer|)) (|nmax| (|Integer|))
+         ($
+          (|Record| (|:| |value| F) (|:| |error| F)
+                    (|:| |totalpts| (|Integer|)) (|:| |success| (|Boolean|)))))
         (SPROG
          ((|pts| (|Integer|)) (|delta| (F)) (#1=#:G183 NIL) (|change| (F))
           (|newsum| (F)) (|oldsum| (F)) (#2=#:G184 NIL) (|n| NIL)
@@ -580,10 +589,11 @@
           #3# (EXIT #1#)))) 
 
 (SDEFUN |NUMQUAD;rombergo;M4F2IR;7|
-        ((|func| |Mapping| F F) (|a| F) (|b| F) (|epsrel| F) (|epsabs| F)
-         (|nmin| |Integer|) (|nmax| |Integer|)
-         ($ |Record| (|:| |value| F) (|:| |error| F)
-          (|:| |totalpts| (|Integer|)) (|:| |success| (|Boolean|))))
+        ((|func| (|Mapping| F F)) (|a| (F)) (|b| (F)) (|epsrel| (F))
+         (|epsabs| (F)) (|nmin| (|Integer|)) (|nmax| (|Integer|))
+         ($
+          (|Record| (|:| |value| F) (|:| |error| F)
+                    (|:| |totalpts| (|Integer|)) (|:| |success| (|Boolean|)))))
         (SPROG
          ((|qx1| (F)) (|pts| (|Integer|)) (|delta| (F)) (|oldest| (F))
           (|oldsum| (F)) (#1=#:G195 NIL) (|change| (F))
@@ -691,10 +701,11 @@
           #5# (EXIT #1#)))) 
 
 (SDEFUN |NUMQUAD;simpsono;M4F2IR;8|
-        ((|func| |Mapping| F F) (|a| F) (|b| F) (|epsrel| F) (|epsabs| F)
-         (|nmin| |Integer|) (|nmax| |Integer|)
-         ($ |Record| (|:| |value| F) (|:| |error| F)
-          (|:| |totalpts| (|Integer|)) (|:| |success| (|Boolean|))))
+        ((|func| (|Mapping| F F)) (|a| (F)) (|b| (F)) (|epsrel| (F))
+         (|epsabs| (F)) (|nmin| (|Integer|)) (|nmax| (|Integer|))
+         ($
+          (|Record| (|:| |value| F) (|:| |error| F)
+                    (|:| |totalpts| (|Integer|)) (|:| |success| (|Boolean|)))))
         (SPROG
          ((|pts| (|Integer|)) (|delta| (F)) (|oldest| (F)) (|oldsum| (F))
           (#1=#:G205 NIL) (|change| (F)) (|newest| (F)) (|newsum| (F))
@@ -764,10 +775,11 @@
           #3# (EXIT #1#)))) 
 
 (SDEFUN |NUMQUAD;trapezoidalo;M4F2IR;9|
-        ((|func| |Mapping| F F) (|a| F) (|b| F) (|epsrel| F) (|epsabs| F)
-         (|nmin| |Integer|) (|nmax| |Integer|)
-         ($ |Record| (|:| |value| F) (|:| |error| F)
-          (|:| |totalpts| (|Integer|)) (|:| |success| (|Boolean|))))
+        ((|func| (|Mapping| F F)) (|a| (F)) (|b| (F)) (|epsrel| (F))
+         (|epsabs| (F)) (|nmin| (|Integer|)) (|nmax| (|Integer|))
+         ($
+          (|Record| (|:| |value| F) (|:| |error| F)
+                    (|:| |totalpts| (|Integer|)) (|:| |success| (|Boolean|)))))
         (SPROG
          ((|pts| (|Integer|)) (|delta| (F)) (#1=#:G214 NIL) (|change| (F))
           (|newsum| (F)) (|oldsum| (F)) (#2=#:G215 NIL) (|n| NIL)
@@ -828,8 +840,8 @@
           #3# (EXIT #1#)))) 
 
 (SDEFUN |NUMQUAD;trapclosed|
-        ((|func| |Mapping| F F) (|start| F) (|h| F) (|oldsum| F)
-         (|numpoints| |Integer|) ($ F))
+        ((|func| (|Mapping| F F)) (|start| (F)) (|h| (F)) (|oldsum| (F))
+         (|numpoints| (|Integer|)) ($ (F)))
         (SPROG ((|x| (F)) (|sum| (F)) (#1=#:G220 NIL) (|i| NIL))
                (SEQ
                 (LETT |x|
@@ -851,8 +863,8 @@
                   2 (QREFELT $ 10)))))) 
 
 (SDEFUN |NUMQUAD;trapopen|
-        ((|func| |Mapping| F F) (|start| F) (|del| F) (|oldsum| F)
-         (|numpoints| |Integer|) ($ F))
+        ((|func| (|Mapping| F F)) (|start| (F)) (|del| (F)) (|oldsum| (F))
+         (|numpoints| (|Integer|)) ($ (F)))
         (SPROG ((|x| (F)) (|sum| (F)) (#1=#:G225 NIL) (|i| NIL) (|ddel| (F)))
                (SEQ (LETT |ddel| (SPADCALL 2 |del| (QREFELT $ 40)))
                     (LETT |x|

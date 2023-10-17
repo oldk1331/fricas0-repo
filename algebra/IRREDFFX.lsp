@@ -1,6 +1,6 @@
 
 (SDEFUN |IRREDFFX;qAdicExpansion|
-        ((|z| |Integer|) ($ |SparseUnivariatePolynomial| GF))
+        ((|z| (|Integer|)) ($ (|SparseUnivariatePolynomial| GF)))
         (SPROG
          ((|r| (|SparseUnivariatePolynomial| GF))
           (|qr|
@@ -30,8 +30,8 @@
                                     (QREFELT $ 19)))))))))))) 
 
 (SDEFUN |IRREDFFX;getIrredPoly|
-        ((|start| |Integer|) (|n| |PositiveInteger|)
-         ($ |SparseUnivariatePolynomial| GF))
+        ((|start| (|Integer|)) (|n| (|PositiveInteger|))
+         ($ (|SparseUnivariatePolynomial| GF)))
         (SPROG
          ((|found| (|Boolean|)) (|pol| (|SparseUnivariatePolynomial| GF))
           (|end| (|Integer|)) (|mon| (|SparseUnivariatePolynomial| GF)))
@@ -61,7 +61,7 @@
                 ('T |pol|)))))) 
 
 (SDEFUN |IRREDFFX;generateIrredPoly;PiSup;3|
-        ((|n| |PositiveInteger|) ($ |SparseUnivariatePolynomial| GF))
+        ((|n| (|PositiveInteger|)) ($ (|SparseUnivariatePolynomial| GF)))
         (COND ((EQL |n| 1) (SPADCALL (|spadConstant| $ 12) 1 (QREFELT $ 14)))
               ((OR (EQL (GCD (QREFELT $ 9) |n|) 1) (< |n| (QREFELT $ 11)))
                (COND ((ODDP |n|) (|IRREDFFX;getIrredPoly| 2 |n| $))

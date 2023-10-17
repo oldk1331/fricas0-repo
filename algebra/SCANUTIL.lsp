@@ -1,8 +1,8 @@
 
 (SDEFUN |SCANUTIL;parse_integer2|
-        ((|str| |String|) (|i0| |SingleInteger|) (|l| |SingleInteger|)
-         (|l2l| |List| (|SingleInteger|)) (|tpl| |List| (|Integer|))
-         ($ |Integer|))
+        ((|str| (|String|)) (|i0| (|SingleInteger|)) (|l| (|SingleInteger|))
+         (|l2l| (|List| (|SingleInteger|))) (|tpl| (|List| (|Integer|)))
+         ($ (|Integer|)))
         (SPROG
          ((|res| (|Integer|)) (|l2| #1=(|SingleInteger|)) (|tp| (|Integer|))
           (|l1| (|SingleInteger|)) (|s1| (|SingleInteger|)) (|dig_val| #1#)
@@ -70,7 +70,7 @@
                              (|SCANUTIL;parse_integer2| |str| |i0| |l2| |l2l|
                               |tpl| $))))))))))) 
 
-(SDEFUN |SCANUTIL;parse_integer;SI;2| ((|str| |String|) ($ |Integer|))
+(SDEFUN |SCANUTIL;parse_integer;SI;2| ((|str| (|String|)) ($ (|Integer|)))
         (SPROG
          ((|res| (|Integer|)) (|j| (|SingleInteger|))
           (|s1| #1=(|SingleInteger|)) (|dig_val| #2=(|SingleInteger|))

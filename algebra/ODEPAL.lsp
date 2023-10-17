@@ -1,13 +1,14 @@
 
 (SDEFUN |ODEPAL;rat_solve|
-        ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
-         (|lf| |List| (|Fraction| UP))
-         ($ |Record|
-          (|:| |particular|
-               (|List|
-                (|Record| (|:| |ratpart| (|Fraction| UP))
-                          (|:| |coeffs| (|Vector| (|Fraction| UP))))))
-          (|:| |basis| (|List| (|Fraction| UP)))))
+        ((|l| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+         (|lf| (|List| (|Fraction| UP)))
+         ($
+          (|Record|
+           (|:| |particular|
+                (|List|
+                 (|Record| (|:| |ratpart| (|Fraction| UP))
+                           (|:| |coeffs| (|Vector| (|Fraction| UP))))))
+           (|:| |basis| (|List| (|Fraction| UP))))))
         (SPROG
          ((|bl| (|List| (|Fraction| UP))) (|s| (|Fraction| UP)) (#1=#:G132 NIL)
           (|k| NIL) (#2=#:G133 NIL) (|bf| NIL) (#3=#:G131 NIL) (|i| NIL)
@@ -173,19 +174,20 @@
                                 (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL))
                            (EXIT (CONS |sl| |bl|))))))))) 
 
-(SDEFUN |ODEPAL;RF_to_F| ((|rf| |Fraction| UP) ($ F))
+(SDEFUN |ODEPAL;RF_to_F| ((|rf| (|Fraction| UP)) ($ (F)))
         (SPADCALL (SPADCALL |rf| (QREFELT $ 44)) (QREFELT $ 45))) 
 
-(SDEFUN |ODEPAL;V_to_VF| ((|v| |Vector| (|Fraction| UP)) ($ |Vector| F))
+(SDEFUN |ODEPAL;V_to_VF| ((|v| (|Vector| (|Fraction| UP))) ($ (|Vector| F)))
         (SPADCALL (CONS (|function| |ODEPAL;RF_to_F|) $) |v| (QREFELT $ 48))) 
 
 (SDEFUN |ODEPAL;algDsolve;LodoLR;4|
-        ((|l| |LinearOrdinaryDifferentialOperator1| R) (|lg| |List| R)
-         ($ |Record|
-          (|:| |particular|
-               (|List|
-                (|Record| (|:| |ratpart| R) (|:| |coeffs| (|Vector| F)))))
-          (|:| |basis| (|List| R))))
+        ((|l| (|LinearOrdinaryDifferentialOperator1| R)) (|lg| (|List| R))
+         ($
+          (|Record|
+           (|:| |particular|
+                (|List|
+                 (|Record| (|:| |ratpart| R) (|:| |coeffs| (|Vector| F)))))
+           (|:| |basis| (|List| R)))))
         (SPROG
          ((|part|
            (|List| (|Record| (|:| |ratpart| R) (|:| |coeffs| (|Vector| F)))))
@@ -241,9 +243,10 @@
               (EXIT (CONS |part| |bas|))))) 
 
 (SDEFUN |ODEPAL;algDsolve;LodoRR;5|
-        ((|l| |LinearOrdinaryDifferentialOperator1| R) (|g| R)
-         ($ |Record| (|:| |particular| (|Union| R "failed"))
-          (|:| |basis| (|List| R))))
+        ((|l| (|LinearOrdinaryDifferentialOperator1| R)) (|g| (R))
+         ($
+          (|Record| (|:| |particular| (|Union| R "failed"))
+                    (|:| |basis| (|List| R)))))
         (SPROG
          ((|s1| (R)) (|s0| (R)) (|c1inv| (F))
           (|part1| (|Record| (|:| |ratpart| R) (|:| |coeffs| (|Vector| F))))

@@ -1,20 +1,21 @@
 
-(SDEFUN |ODEPRIM;UP2UP2| ((|p| UP) ($ |SparseUnivariatePolynomial| UP))
+(SDEFUN |ODEPRIM;UP2UP2| ((|p| (UP)) ($ (|SparseUnivariatePolynomial| UP)))
         (SPADCALL (ELT $ 12) |p| (QREFELT $ 16))) 
 
 (SDEFUN |ODEPRIM;indicialEquations;LL;2|
-        ((|op| L) ($ |List| (|Record| (|:| |center| UP) (|:| |equation| UP))))
+        ((|op| (L))
+         ($ (|List| (|Record| (|:| |center| UP) (|:| |equation| UP)))))
         (SPADCALL |op| (SPADCALL |op| (QREFELT $ 17)) (QREFELT $ 20))) 
 
-(SDEFUN |ODEPRIM;indicialEquation;LFUP;3| ((|op| L) (|a| F) ($ UP))
+(SDEFUN |ODEPRIM;indicialEquation;LFUP;3| ((|op| (L)) (|a| (F)) ($ (UP)))
         (|ODEPRIM;indeq|
          (SPADCALL (SPADCALL (|spadConstant| $ 22) 1 (QREFELT $ 25))
                    (SPADCALL |a| (QREFELT $ 12)) (QREFELT $ 26))
          |op| $)) 
 
 (SDEFUN |ODEPRIM;splitDenominator;LQLR;4|
-        ((|op| LQ) (|lg| |List| (|Fraction| UP))
-         ($ |Record| (|:| |eq| L) (|:| |rh| (|List| (|Fraction| UP)))))
+        ((|op| (LQ)) (|lg| (|List| (|Fraction| UP)))
+         ($ (|Record| (|:| |eq| L) (|:| |rh| (|List| (|Fraction| UP))))))
         (SPROG
          ((#1=#:G121 NIL) (|g| NIL) (#2=#:G120 NIL) (|l| (L))
           (|f| (|Fraction| UP))
@@ -57,7 +58,8 @@
                        (EXIT (NREVERSE #2#))))))))) 
 
 (SDEFUN |ODEPRIM;tau|
-        ((|p| UP) (|pp| UP) (|q| UP) (|n| |NonNegativeInteger|) ($ UP))
+        ((|p| (UP)) (|pp| (UP)) (|q| (UP)) (|n| (|NonNegativeInteger|))
+         ($ (UP)))
         (SPROG ((#1=#:G123 NIL))
                (SPADCALL
                 (SPADCALL (SPADCALL |pp| |n| (QREFELT $ 52))
@@ -78,21 +80,22 @@
                 |p| (QREFELT $ 57)))) 
 
 (SDEFUN |ODEPRIM;indicialEquations;LQL;6|
-        ((|op| LQ) ($ |List| (|Record| (|:| |center| UP) (|:| |equation| UP))))
+        ((|op| (LQ))
+         ($ (|List| (|Record| (|:| |center| UP) (|:| |equation| UP)))))
         (SPADCALL (QCAR (SPADCALL |op| NIL (QREFELT $ 51))) (QREFELT $ 21))) 
 
 (SDEFUN |ODEPRIM;indicialEquations;LQUPL;7|
-        ((|op| LQ) (|p| UP)
-         ($ |List| (|Record| (|:| |center| UP) (|:| |equation| UP))))
+        ((|op| (LQ)) (|p| (UP))
+         ($ (|List| (|Record| (|:| |center| UP) (|:| |equation| UP)))))
         (SPADCALL (QCAR (SPADCALL |op| NIL (QREFELT $ 51))) |p| (QREFELT $ 20))) 
 
-(SDEFUN |ODEPRIM;indicialEquation;LQFUP;8| ((|op| LQ) (|a| F) ($ UP))
+(SDEFUN |ODEPRIM;indicialEquation;LQFUP;8| ((|op| (LQ)) (|a| (F)) ($ (UP)))
         (|ODEPRIM;indeq|
          (SPADCALL (SPADCALL (|spadConstant| $ 22) 1 (QREFELT $ 25))
                    (SPADCALL |a| (QREFELT $ 12)) (QREFELT $ 26))
          (QCAR (SPADCALL |op| NIL (QREFELT $ 51))) $)) 
 
-(SDEFUN |ODEPRIM;UPfact| ((|n| |NonNegativeInteger|) ($ UP))
+(SDEFUN |ODEPRIM;UPfact| ((|n| (|NonNegativeInteger|)) ($ (UP)))
         (SPROG
          ((#1=#:G137 NIL) (#2=#:G136 (UP)) (#3=#:G138 (UP)) (#4=#:G142 NIL)
           (#5=#:G135 NIL) (|i| NIL) (|z| (UP)))
@@ -127,8 +130,8 @@
                     (COND (#1# #2#) (#6# (|spadConstant| $ 23))))))))))) 
 
 (SDEFUN |ODEPRIM;indicialEq|
-        ((|c| UP) (|lamb| |List| (|NonNegativeInteger|)) (|lf| |List| UP)
-         ($ UP))
+        ((|c| (UP)) (|lamb| (|List| (|NonNegativeInteger|))) (|lf| (|List| UP))
+         ($ (UP)))
         (SPROG
          ((|s| (|SparseUnivariatePolynomial| UP)) (#1=#:G146 NIL) (|i| NIL)
           (#2=#:G147 NIL) (|f| NIL) (|cc| (|SparseUnivariatePolynomial| UP))
@@ -159,10 +162,11 @@
                (SPADCALL (SPADCALL |cc| |s| (QREFELT $ 67)) (QREFELT $ 68)))))) 
 
 (SDEFUN |ODEPRIM;NPmulambda|
-        ((|c| UP) (|l| L)
-         ($ |Record| (|:| |mu| (|Integer|))
-          (|:| |lambda| (|List| (|NonNegativeInteger|)))
-          (|:| |func| (|List| UP))))
+        ((|c| (UP)) (|l| (L))
+         ($
+          (|Record| (|:| |mu| (|Integer|))
+                    (|:| |lambda| (|List| (|NonNegativeInteger|)))
+                    (|:| |func| (|List| UP)))))
         (SPROG
          ((|lf| (|List| UP)) (|lamb| (|List| #1=(|NonNegativeInteger|)))
           (|mup| #2=(|Integer|)) (|m| #2#) (|d| #1#) (|a| (UP)))
@@ -190,7 +194,8 @@
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT (VECTOR |mup| |lamb| |lf|))))) 
 
-(SDEFUN |ODEPRIM;NPbound| ((|c| UP) (|l| L) (|e| UP) ($ |NonNegativeInteger|))
+(SDEFUN |ODEPRIM;NPbound|
+        ((|c| (UP)) (|l| (L)) (|e| (UP)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((#1=#:G161 NIL) (#2=#:G156 NIL) (|n| (|Integer|))
           (|rec|
@@ -220,7 +225,7 @@
                    (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
                                      '(|Integer|) #1#)))))))) 
 
-(SDEFUN |ODEPRIM;hdenom| ((|l| L) (|d| UP) (|e| UP) ($ UP))
+(SDEFUN |ODEPRIM;hdenom| ((|l| (L)) (|d| (UP)) (|e| (UP)) ($ (UP)))
         (SPROG
          ((#1=#:G166 NIL) (#2=#:G165 (UP)) (#3=#:G167 (UP)) (#4=#:G169 NIL)
           (|dd| NIL))
@@ -249,7 +254,7 @@
            (COND (#1# #2#) ('T (|spadConstant| $ 23))))))) 
 
 (SDEFUN |ODEPRIM;denom0|
-        ((|n| |Integer|) (|l| L) (|d| UP) (|e| UP) (|h| UP) ($ UP))
+        ((|n| (|Integer|)) (|l| (L)) (|d| (UP)) (|e| (UP)) (|h| (UP)) ($ (UP)))
         (SPROG
          ((#1=#:G172 NIL) (#2=#:G171 (UP)) (#3=#:G173 (UP)) (#4=#:G175 NIL)
           (#5=#:G177 NIL) (|hh| NIL))
@@ -293,7 +298,7 @@
                      (COND (#1# #2#) ('T (|spadConstant| $ 23))))
                     (QREFELT $ 56))))) 
 
-(SDEFUN |ODEPRIM;separateZeros| ((|d| UP) (|e| UP) ($ UP))
+(SDEFUN |ODEPRIM;separateZeros| ((|d| (UP)) (|e| (UP)) ($ (UP)))
         (SPROG ((#1=#:G179 NIL) (|g| (UP)))
                (PROG2
                    (LETT #1#
@@ -305,7 +310,7 @@
                  (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
                                  (|Union| (QREFELT $ 7) "failed") #1#)))) 
 
-(SDEFUN |ODEPRIM;indeq| ((|c| UP) (|l| L) ($ UP))
+(SDEFUN |ODEPRIM;indeq| ((|c| (UP)) (|l| (L)) ($ (UP)))
         (SPROG
          ((|rec|
            (|Record| (|:| |mu| (|Integer|))
@@ -316,8 +321,8 @@
                (|ODEPRIM;indicialEq| |c| (QVELT |rec| 1) (QVELT |rec| 2) $))))) 
 
 (SDEFUN |ODEPRIM;indicialEquations;LUPL;17|
-        ((|op| L) (|p| UP)
-         ($ |List| (|Record| (|:| |center| UP) (|:| |equation| UP))))
+        ((|op| (L)) (|p| (UP))
+         ($ (|List| (|Record| (|:| |center| UP) (|:| |equation| UP)))))
         (SPROG ((#1=#:G190 NIL) (|dd| NIL) (#2=#:G189 NIL))
                (SEQ
                 (PROGN
@@ -343,7 +348,7 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |ODEPRIM;denomLODE;LFU;18|
-        ((|l| L) (|g| |Fraction| UP) ($ |Union| UP "failed"))
+        ((|l| (L)) (|g| (|Fraction| UP)) ($ (|Union| UP "failed")))
         (SPROG ((|n| (|NonNegativeInteger|)) (|h| (UP)) (|e| (UP)) (|d| (UP)))
                (SEQ (LETT |d| (SPADCALL |l| (QREFELT $ 17)))
                     (EXIT
@@ -372,7 +377,7 @@
                                   $)))))))))))) 
 
 (SDEFUN |ODEPRIM;denomLODE;LLUP;19|
-        ((|l| L) (|lg| |List| (|Fraction| UP)) ($ UP))
+        ((|l| (L)) (|lg| (|List| (|Fraction| UP))) ($ (UP)))
         (SPROG
          ((|h| (UP)) (|e| (UP)) (#1=#:G204 NIL) (#2=#:G203 (UP))
           (#3=#:G205 (UP)) (#4=#:G209 NIL) (|g| NIL) (|d| (UP))

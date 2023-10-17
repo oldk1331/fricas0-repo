@@ -1,5 +1,5 @@
 
-(SDEFUN |CRAPACK;modTree;R2L;1| ((|a| R) (|lm| |List| R) ($ |List| R))
+(SDEFUN |CRAPACK;modTree;R2L;1| ((|a| (R)) (|lm| (|List| R)) ($ (|List| R)))
         (SPROG ((|t| (BB)))
                (SEQ
                 (LETT |t|
@@ -12,12 +12,13 @@
                            (QREFELT $ 18)))))) 
 
 (SDEFUN |CRAPACK;chineseRemainder;2LR;2|
-        ((|lv| |List| R) (|lm| |List| R) ($ R))
+        ((|lv| (|List| R)) (|lm| (|List| R)) ($ (R)))
         (SPROG
          ((|y| (BB)) (|l| (|List| R)) (#1=#:G127 NIL) (|v| NIL) (#2=#:G128 NIL)
-          (|u| (|Union| (|Record| (|:| |coef1| R) (|:| |coef2| R)) "failed"))
           (#3=#:G129 NIL) (|m| NIL) (#4=#:G126 NIL) (|linv| (|List| R))
-          (|inv| (R)) (|x| (BB)))
+          (|inv| (R))
+          (|u| (|Union| (|Record| (|:| |coef1| R) (|:| |coef2| R)) "failed"))
+          (|x| (BB)))
          (SEQ
           (COND
            ((SPADCALL (LENGTH |lm|) (LENGTH |lv|) (QREFELT $ 21))
@@ -49,8 +50,8 @@
                                 (PROGN
                                  (LETT #4# NIL)
                                  (SEQ (LETT |m| NIL) (LETT #3# |lm|)
-                                      (LETT |u| NIL) (LETT #2# |linv|)
-                                      (LETT |v| NIL) (LETT #1# |lv|) G190
+                                      (LETT #2# |linv|) (LETT |v| NIL)
+                                      (LETT #1# |lv|) G190
                                       (COND
                                        ((OR (ATOM #1#)
                                             (PROGN (LETT |v| (CAR #1#)) NIL)
@@ -97,7 +98,7 @@
                   (SPADCALL |x2| |x3| (QREFELT $ 13)) (QREFELT $ 24))) 
 
 (SDEFUN |CRAPACK;chineseRemainder;L2L;3|
-        ((|llv| |List| (|List| R)) (|lm| |List| R) ($ |List| R))
+        ((|llv| (|List| (|List| R))) (|lm| (|List| R)) ($ (|List| R)))
         (SPROG
          ((|retVal| (|List| R)) (|y| (BB)) (|l| (|List| R)) (#1=#:G146 NIL)
           (|v| NIL) (#2=#:G147 NIL) (|u3| NIL) (#3=#:G148 NIL) (|m| NIL)
@@ -194,7 +195,7 @@
         (SPADCALL (SPADCALL |x1| |x4| (QREFELT $ 13))
                   (SPADCALL |x2| |x3| (QREFELT $ 13)) (QREFELT $ 24))) 
 
-(SDEFUN |CRAPACK;extEuclidean| ((|a| R) (|b| R) (|c| R) ($ |List| R))
+(SDEFUN |CRAPACK;extEuclidean| ((|a| (R)) (|b| (R)) (|c| (R)) ($ (|List| R)))
         (SPROG
          ((|u| (|Union| (|Record| (|:| |coef1| R) (|:| |coef2| R)) "failed")))
          (SEQ (LETT |u| (SPADCALL |a| |b| |c| (QREFELT $ 30)))
@@ -211,7 +212,7 @@
                 ('T (LIST (QCDR (QCDR |u|)) (QCAR (QCDR |u|))))))))) 
 
 (SDEFUN |CRAPACK;multiEuclideanTree;LRL;5|
-        ((|fl| |List| R) (|rhs| R) ($ |List| R))
+        ((|fl| (|List| R)) (|rhs| (R)) ($ (|List| R)))
         (SPROG ((|x| (BB)))
                (SEQ (LETT |x| (SPADCALL (LENGTH |fl|) |rhs| (QREFELT $ 10)))
                     (LETT |x| (SPADCALL |x| |fl| (QREFELT $ 12)))

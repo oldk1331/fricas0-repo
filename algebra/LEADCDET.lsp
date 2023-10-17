@@ -1,6 +1,7 @@
 
 (SDEFUN |LEADCDET;polCase;ZNniLB;1|
-        ((|d| Z) (|nk| |NonNegativeInteger|) (|lval| |List| Z) ($ |Boolean|))
+        ((|d| (Z)) (|nk| (|NonNegativeInteger|)) (|lval| (|List| Z))
+         ($ (|Boolean|)))
         (SPROG
          ((|distlist| (|List| Z)) (#1=#:G123 NIL) (|q| (Z)) (#2=#:G113 NIL)
           (|y| (Z)) (#3=#:G111 NIL) (#4=#:G125 NIL) (#5=#:G110 NIL) (|j| NIL)
@@ -67,7 +68,7 @@
                 (EXIT 'T)))
           #7# (EXIT #1#)))) 
 
-(SDEFUN |LEADCDET;checkpow| ((|a| Z) (|b| Z) ($ |NonNegativeInteger|))
+(SDEFUN |LEADCDET;checkpow| ((|a| (Z)) (|b| (Z)) ($ (|NonNegativeInteger|)))
         (SPROG ((#1=#:G133 NIL) (|qt| (|Union| Z "failed")) (|i| NIL))
                (SEQ
                 (EXIT
@@ -81,12 +82,15 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |LEADCDET;distribute|
-        ((|contm| Z) (|unilist| |List| (|SparseUnivariatePolynomial| Z))
-         (|pl| |List| P) (|vl| |List| Z) (|lvar| |List| OV) (|lval| |List| Z)
-         ($ |Union|
-          (|Record| (|:| |polfac| (|List| P)) (|:| |correct| Z)
-                    (|:| |corrfact| (|List| (|SparseUnivariatePolynomial| Z))))
-          "failed"))
+        ((|contm| (Z)) (|unilist| (|List| (|SparseUnivariatePolynomial| Z)))
+         (|pl| (|List| P)) (|vl| (|List| Z)) (|lvar| (|List| OV))
+         (|lval| (|List| Z))
+         ($
+          (|Union|
+           (|Record| (|:| |polfac| (|List| P)) (|:| |correct| Z)
+                     (|:| |corrfact|
+                          (|List| (|SparseUnivariatePolynomial| Z))))
+           "failed")))
         (SPROG
          ((#1=#:G149 NIL) (|i| NIL) (#2=#:G147 NIL)
           (|conu| (|Union| Z #3="failed")) (|d| (Z)) (#4=#:G139 NIL)
@@ -154,16 +158,20 @@
           #6# (EXIT #2#)))) 
 
 (SDEFUN |LEADCDET;distFact;ZLRLLLU;4|
-        ((|contm| Z) (|unilist| |List| (|SparseUnivariatePolynomial| Z))
-         (|plead| |Record| (|:| |contp| Z)
-          (|:| |factors|
-               (|List|
-                (|Record| (|:| |irr| P) (|:| |pow| (|NonNegativeInteger|))))))
-         (|vl| |List| Z) (|lvar| |List| OV) (|lval| |List| Z)
-         ($ |Union|
-          (|Record| (|:| |polfac| (|List| P)) (|:| |correct| Z)
-                    (|:| |corrfact| (|List| (|SparseUnivariatePolynomial| Z))))
-          "failed"))
+        ((|contm| (Z)) (|unilist| (|List| (|SparseUnivariatePolynomial| Z)))
+         (|plead|
+          (|Record| (|:| |contp| Z)
+                    (|:| |factors|
+                         (|List|
+                          (|Record| (|:| |irr| P)
+                                    (|:| |pow| (|NonNegativeInteger|)))))))
+         (|vl| (|List| Z)) (|lvar| (|List| OV)) (|lval| (|List| Z))
+         ($
+          (|Union|
+           (|Record| (|:| |polfac| (|List| P)) (|:| |correct| Z)
+                     (|:| |corrfact|
+                          (|List| (|SparseUnivariatePolynomial| Z))))
+           "failed")))
         (SPROG
          ((#1=#:G187 NIL) (|i| NIL) (#2=#:G186 NIL) (#3=#:G177 NIL)
           (#4=#:G185 NIL) (|k| NIL) (|c| (Z)) (#5=#:G159 NIL) (|d| (Z))

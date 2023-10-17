@@ -1,8 +1,9 @@
 
-(SDEFUN |KERNEL2;constantKernel;RK;1| ((|r| R) ($ |Kernel| S))
+(SDEFUN |KERNEL2;constantKernel;RK;1| ((|r| (R)) ($ (|Kernel| S)))
         (SPADCALL (SPADCALL |r| (QREFELT $ 10)) NIL 1 (QREFELT $ 14))) 
 
-(SDEFUN |KERNEL2;constantIfCan;KU;2| ((|k| |Kernel| S) ($ |Union| R "failed"))
+(SDEFUN |KERNEL2;constantIfCan;KU;2|
+        ((|k| (|Kernel| S)) ($ (|Union| R "failed")))
         (SPADCALL (SPADCALL |k| (QREFELT $ 16)) (QREFELT $ 18))) 
 
 (DECLAIM (NOTINLINE |KernelFunctions2;|)) 

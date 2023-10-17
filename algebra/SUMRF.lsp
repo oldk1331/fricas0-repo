@@ -1,8 +1,8 @@
 
 (SDEFUN |SUMRF;sum;FSbU;1|
-        ((|f| |Fraction| (|Polynomial| R))
-         (|s| |SegmentBinding| (|Fraction| (|Polynomial| R)))
-         ($ |Union| (|Fraction| (|Polynomial| R)) (|Expression| R)))
+        ((|f| (|Fraction| (|Polynomial| R)))
+         (|s| (|SegmentBinding| (|Fraction| (|Polynomial| R))))
+         ($ (|Union| (|Fraction| (|Polynomial| R)) (|Expression| R))))
         (SPROG
          ((|indef| (|Union| (|Fraction| (|Polynomial| R)) "failed"))
           (|v| (|Symbol|)))
@@ -33,8 +33,8 @@
                     (QREFELT $ 28))))))))) 
 
 (SDEFUN |SUMRF;sum;FSU;2|
-        ((|an| |Fraction| (|Polynomial| R)) (|n| |Symbol|)
-         ($ |Union| (|Fraction| (|Polynomial| R)) (|Expression| R)))
+        ((|an| (|Fraction| (|Polynomial| R))) (|n| (|Symbol|))
+         ($ (|Union| (|Fraction| (|Polynomial| R)) (|Expression| R))))
         (SPROG ((|u| (|Union| (|Fraction| (|Polynomial| R)) "failed")))
                (SEQ (LETT |u| (|SUMRF;innersum| |an| |n| $))
                     (EXIT
@@ -46,8 +46,8 @@
                       ('T (CONS 0 (QCDR |u|)))))))) 
 
 (SDEFUN |SUMRF;sum;PSbF;3|
-        ((|p| |Polynomial| R) (|s| |SegmentBinding| (|Polynomial| R))
-         ($ |Fraction| (|Polynomial| R)))
+        ((|p| (|Polynomial| R)) (|s| (|SegmentBinding| (|Polynomial| R)))
+         ($ (|Fraction| (|Polynomial| R))))
         (SPROG ((|f| (|Fraction| (|Polynomial| R))) (|v| (|Symbol|)))
                (SEQ
                 (LETT |f|
@@ -72,8 +72,8 @@
                   (QREFELT $ 28)))))) 
 
 (SDEFUN |SUMRF;innersum|
-        ((|an| |Fraction| (|Polynomial| R)) (|n| |Symbol|)
-         ($ |Union| (|Fraction| (|Polynomial| R)) "failed"))
+        ((|an| (|Fraction| (|Polynomial| R))) (|n| (|Symbol|))
+         ($ (|Union| (|Fraction| (|Polynomial| R)) "failed")))
         (SPROG
          ((|u| (|Union| (|Fraction| (|Polynomial| R)) "failed"))
           (|an1| (|Fraction| (|Polynomial| R)))
@@ -112,7 +112,8 @@
                 (#1# (CONS 0 (SPADCALL (QCDR |r|) |n| (QREFELT $ 36))))))))) 
 
 (SDEFUN |SUMRF;sum;PSF;5|
-        ((|p| |Polynomial| R) (|n| |Symbol|) ($ |Fraction| (|Polynomial| R)))
+        ((|p| (|Polynomial| R)) (|n| (|Symbol|))
+         ($ (|Fraction| (|Polynomial| R))))
         (SPROG
          ((|rec|
            (|Record| (|:| |num| (|Polynomial| R)) (|:| |den| (|Integer|)))))

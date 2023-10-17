@@ -1,8 +1,8 @@
 
-(SDEFUN |LA;One;$;1| (($ $))
+(SDEFUN |LA;One;$;1| (($ ($)))
         (SPADCALL (|spadConstant| $ 8) (|spadConstant| $ 9) (QREFELT $ 10))) 
 
-(SDEFUN |LA;*;3$;2| ((|x| $) (|y| $) ($ $))
+(SDEFUN |LA;*;3$;2| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL
          (SPADCALL (SPADCALL |x| (QREFELT $ 12)) (SPADCALL |y| (QREFELT $ 12))
                    (QREFELT $ 13))
@@ -10,7 +10,7 @@
                    (QREFELT $ 15))
          (QREFELT $ 10))) 
 
-(SDEFUN |LA;characteristic;Nni;3| (($ |NonNegativeInteger|))
+(SDEFUN |LA;characteristic;Nni;3| (($ (|NonNegativeInteger|)))
         (SPADCALL (QREFELT $ 18))) 
 
 (DECLAIM (NOTINLINE |LocalAlgebra;|)) 

@@ -1,24 +1,24 @@
 
-(SDEFUN |MCMPLX;coerce;C$;1| ((|u| |Complex| (|Float|)) ($ $))
+(SDEFUN |MCMPLX;coerce;C$;1| ((|u| (|Complex| (|Float|))) ($ ($)))
         (SPADCALL (SPADCALL (SPADCALL |u| (QREFELT $ 8)) (QREFELT $ 10))
                   (SPADCALL (SPADCALL |u| (QREFELT $ 11)) (QREFELT $ 10))
                   (QREFELT $ 12))) 
 
-(SDEFUN |MCMPLX;coerce;C$;2| ((|u| |Complex| (|Integer|)) ($ $))
+(SDEFUN |MCMPLX;coerce;C$;2| ((|u| (|Complex| (|Integer|))) ($ ($)))
         (SPADCALL (SPADCALL (SPADCALL |u| (QREFELT $ 16)) (QREFELT $ 17))
                   (SPADCALL (SPADCALL |u| (QREFELT $ 18)) (QREFELT $ 17))
                   (QREFELT $ 12))) 
 
-(SDEFUN |MCMPLX;coerce;C$;3| ((|u| |Complex| (|MachineInteger|)) ($ $))
+(SDEFUN |MCMPLX;coerce;C$;3| ((|u| (|Complex| (|MachineInteger|))) ($ ($)))
         (SPADCALL (SPADCALL (SPADCALL |u| (QREFELT $ 22)) (QREFELT $ 23))
                   (SPADCALL (SPADCALL |u| (QREFELT $ 24)) (QREFELT $ 23))
                   (QREFELT $ 12))) 
 
-(SDEFUN |MCMPLX;coerce;C$;4| ((|u| |Complex| (|MachineFloat|)) ($ $))
+(SDEFUN |MCMPLX;coerce;C$;4| ((|u| (|Complex| (|MachineFloat|))) ($ ($)))
         (SPADCALL (SPADCALL |u| (QREFELT $ 26)) (SPADCALL |u| (QREFELT $ 27))
                   (QREFELT $ 12))) 
 
-(SDEFUN |MCMPLX;coerce;$C;5| ((|u| $) ($ |Complex| (|Float|)))
+(SDEFUN |MCMPLX;coerce;$C;5| ((|u| ($)) ($ (|Complex| (|Float|))))
         (SPADCALL (SPADCALL (SPADCALL |u| (QREFELT $ 29)) (QREFELT $ 30))
                   (SPADCALL (SPADCALL |u| (QREFELT $ 31)) (QREFELT $ 30))
                   (QREFELT $ 32))) 

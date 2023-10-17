@@ -1,7 +1,7 @@
 
 (SDEFUN |LPEFRAC;pullback|
-        ((|pF| |SparseUnivariatePolynomial| (|Fraction| R))
-         ($ . #1=(|Union| (|SparseUnivariatePolynomial| R) "failed")))
+        ((|pF| (|SparseUnivariatePolynomial| (|Fraction| R)))
+         ($ #1=(|Union| (|SparseUnivariatePolynomial| R) "failed")))
         (SPROG ((|r| #1#) (|c| (|Union| R "failed")))
                (SEQ
                 (COND
@@ -32,9 +32,9 @@
                                            (QREFELT $ 22)))))))))))))))) 
 
 (SDEFUN |LPEFRAC;solveLinearPolynomialEquationByFractions;LSupU;2|
-        ((|lp| |List| (|SparseUnivariatePolynomial| R))
-         (|pp| |SparseUnivariatePolynomial| R)
-         ($ |Union| (|List| (|SparseUnivariatePolynomial| R)) "failed"))
+        ((|lp| (|List| (|SparseUnivariatePolynomial| R)))
+         (|pp| (|SparseUnivariatePolynomial| R))
+         ($ (|Union| (|List| (|SparseUnivariatePolynomial| R)) "failed")))
         (SPROG
          ((#1=#:G126 NIL)
           (|vv| (|Union| (|SparseUnivariatePolynomial| R) "failed"))

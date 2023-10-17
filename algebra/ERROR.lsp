@@ -1,11 +1,11 @@
 
-(SDEFUN |ERROR;doit| ((|s| |String|) ($ |Exit|))
+(SDEFUN |ERROR;doit| ((|s| (|String|)) ($ (|Exit|)))
         (SEQ (|throwPatternMsg| |s| NIL) (EXIT "exit"))) 
 
-(SDEFUN |ERROR;error;SE;2| ((|s| |String|) ($ |Exit|))
+(SDEFUN |ERROR;error;SE;2| ((|s| (|String|)) ($ (|Exit|)))
         (|ERROR;doit| (SPADCALL (LIST (QREFELT $ 6) |s|) (QREFELT $ 10)) $)) 
 
-(SDEFUN |ERROR;error;LE;3| ((|l| |List| (|String|)) ($ |Exit|))
+(SDEFUN |ERROR;error;LE;3| ((|l| (|List| (|String|))) ($ (|Exit|)))
         (SPROG ((|s| (|String|)) (#1=#:G109 NIL) (|x| NIL))
                (SEQ (LETT |s| (QREFELT $ 6))
                     (SEQ (LETT |x| NIL) (LETT #1# |l|) G190
@@ -20,12 +20,12 @@
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT (|ERROR;doit| |s| $))))) 
 
-(SDEFUN |ERROR;error;2SE;4| ((|fn| |String|) (|s| |String|) ($ |Exit|))
+(SDEFUN |ERROR;error;2SE;4| ((|fn| (|String|)) (|s| (|String|)) ($ (|Exit|)))
         (|ERROR;doit|
          (SPADCALL (LIST (QREFELT $ 7) |fn| ": %d %l " |s|) (QREFELT $ 10)) $)) 
 
 (SDEFUN |ERROR;error;SLE;5|
-        ((|fn| |String|) (|l| |List| (|String|)) ($ |Exit|))
+        ((|fn| (|String|)) (|l| (|List| (|String|))) ($ (|Exit|)))
         (SPROG ((|s| (|String|)) (#1=#:G114 NIL) (|x| NIL))
                (SEQ
                 (LETT |s|

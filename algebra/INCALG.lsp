@@ -1,6 +1,6 @@
 
 (SDEFUN |INCALG;incidenceAlgebra;MOda$;1|
-        ((|Ai| |Matrix| R) (|ssa| |OneDimensionalArray| S) ($ $))
+        ((|Ai| (|Matrix| R)) (|ssa| (|OneDimensionalArray| S)) ($ ($)))
         (SEQ
          (COND
           ((OR (SPADCALL (ANROWS |Ai|) (QVSIZE |ssa|) (QREFELT $ 11))
@@ -9,21 +9,23 @@
          (EXIT (CONS |Ai| |ssa|)))) 
 
 (SDEFUN |INCALG;incidenceAlgebra;ML$;2|
-        ((|Ai| |Matrix| R) (|ss| |List| S) ($ $))
+        ((|Ai| (|Matrix| R)) (|ss| (|List| S)) ($ ($)))
         (SPADCALL |Ai| (SPADCALL |ss| (QREFELT $ 16)) (QREFELT $ 14))) 
 
 (PUT '|INCALG;indices;$Oda;3| '|SPADreplace| 'QCDR) 
 
-(SDEFUN |INCALG;indices;$Oda;3| ((A $) ($ |OneDimensionalArray| S)) (QCDR A)) 
+(SDEFUN |INCALG;indices;$Oda;3| ((A ($)) ($ (|OneDimensionalArray| S)))
+        (QCDR A)) 
 
 (PUT '|INCALG;matrix;$M;4| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |INCALG;matrix;$M;4| ((A $) ($ |Matrix| R)) (QCAR A)) 
+(SDEFUN |INCALG;matrix;$M;4| ((A ($)) ($ (|Matrix| R))) (QCAR A)) 
 
-(SDEFUN |INCALG;apply;$2IR;5| ((A $) (|i| |Integer|) (|j| |Integer|) ($ R))
+(SDEFUN |INCALG;apply;$2IR;5|
+        ((A ($)) (|i| (|Integer|)) (|j| (|Integer|)) ($ (R)))
         (SPADCALL (QCAR A) |i| |j| (QREFELT $ 20))) 
 
-(SDEFUN |INCALG;apply;$2SR;6| ((A $) (|u| S) (|v| S) ($ R))
+(SDEFUN |INCALG;apply;$2SR;6| ((A ($)) (|u| (S)) (|v| (S)) ($ (R)))
         (SPROG ((|j| #1=(|Integer|)) (|i| #1#))
                (SEQ
                 (LETT |i|
@@ -43,7 +45,7 @@
                            (#2#
                             (SPADCALL (QCAR A) |i| |j| (QREFELT $ 20)))))))))))) 
 
-(SDEFUN |INCALG;*;P2$;7| ((|p| |Permutation| (|Integer|)) (A $) ($ $))
+(SDEFUN |INCALG;*;P2$;7| ((|p| (|Permutation| (|Integer|))) (A ($)) ($ ($)))
         (SPROG
          ((|newA| (|Matrix| R)) (|indic| (|List| (|Integer|))) (#1=#:G136 NIL)
           (|i| NIL) (#2=#:G135 NIL) (|newindices| (|OneDimensionalArray| S))
@@ -89,13 +91,13 @@
                               (QREFELT $ 32)))
               (EXIT (CONS |newA| |newindices|))))) 
 
-(SDEFUN |INCALG;coerce;$Of;8| ((A $) ($ |OutputForm|))
+(SDEFUN |INCALG;coerce;$Of;8| ((A ($)) ($ (|OutputForm|)))
         (SPADCALL
          (LIST (SPADCALL (SPADCALL A (QREFELT $ 19)) (QREFELT $ 35))
                (SPADCALL (SPADCALL A (QREFELT $ 18)) (QREFELT $ 36)))
          (QREFELT $ 38))) 
 
-(SDEFUN |INCALG;=;2$B;9| ((A1 $) (A2 $) ($ |Boolean|))
+(SDEFUN |INCALG;=;2$B;9| ((A1 ($)) (A2 ($)) ($ (|Boolean|)))
         (COND
          ((SPADCALL (SPADCALL A1 (QREFELT $ 18)) (SPADCALL A2 (QREFELT $ 18))
                     (QREFELT $ 40))
@@ -103,7 +105,7 @@
                     (QREFELT $ 41)))
          ('T NIL))) 
 
-(SDEFUN |INCALG;+;3$;10| ((A $) (B $) ($ $))
+(SDEFUN |INCALG;+;3$;10| ((A ($)) (B ($)) ($ ($)))
         (SPROG
          ((|Ci| (|Matrix| R)) (|Bind| #1=(|OneDimensionalArray| S))
           (|Aind| #1#))
@@ -117,7 +119,7 @@
                               (SPADCALL B (QREFELT $ 19)) (QREFELT $ 44)))
               (EXIT (SPADCALL |Ci| |Aind| (QREFELT $ 14)))))) 
 
-(SDEFUN |INCALG;*;3$;11| ((A $) (B $) ($ $))
+(SDEFUN |INCALG;*;3$;11| ((A ($)) (B ($)) ($ ($)))
         (SPROG
          ((|Ci| (|Matrix| R)) (|Bind| #1=(|OneDimensionalArray| S))
           (|Aind| #1#))
@@ -131,7 +133,7 @@
                               (SPADCALL B (QREFELT $ 19)) (QREFELT $ 46)))
               (EXIT (SPADCALL |Ci| |Aind| (QREFELT $ 14)))))) 
 
-(SDEFUN |INCALG;*;R2$;12| ((|r| R) (A $) ($ $))
+(SDEFUN |INCALG;*;R2$;12| ((|r| (R)) (A ($)) ($ ($)))
         (SPROG ((|Ci| (|Matrix| R)) (|Aind| (|OneDimensionalArray| S)))
                (SEQ (LETT |Aind| (SPADCALL A (QREFELT $ 18)))
                     (LETT |Ci|
@@ -139,7 +141,7 @@
                                     (QREFELT $ 48)))
                     (EXIT (SPADCALL |Ci| |Aind| (QREFELT $ 14)))))) 
 
-(SDEFUN |INCALG;*;$R$;13| ((A $) (|r| R) ($ $))
+(SDEFUN |INCALG;*;$R$;13| ((A ($)) (|r| (R)) ($ ($)))
         (SPROG ((|Ci| (|Matrix| R)) (|Aind| (|OneDimensionalArray| S)))
                (SEQ (LETT |Aind| (SPADCALL A (QREFELT $ 18)))
                     (LETT |Ci|
@@ -147,7 +149,7 @@
                                     (QREFELT $ 50)))
                     (EXIT (SPADCALL |Ci| |Aind| (QREFELT $ 14)))))) 
 
-(SDEFUN |INCALG;^;$Nni$;14| ((A $) (|n| |NonNegativeInteger|) ($ $))
+(SDEFUN |INCALG;^;$Nni$;14| ((A ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (SPROG ((|Ci| (|Matrix| R)) (|Aind| (|OneDimensionalArray| S)))
                (SEQ (LETT |Aind| (SPADCALL A (QREFELT $ 18)))
                     (LETT |Ci|

@@ -1,12 +1,12 @@
 
 (SDEFUN |ONECOMP2;map;MOpcOpc;1|
-        ((|f| |Mapping| S R) (|r| |OnePointCompletion| R)
-         ($ |OnePointCompletion| S))
+        ((|f| (|Mapping| S R)) (|r| (|OnePointCompletion| R))
+         ($ (|OnePointCompletion| S)))
         (SPADCALL |f| |r| (SPADCALL (QREFELT $ 9)) (QREFELT $ 12))) 
 
 (SDEFUN |ONECOMP2;map;MOpc2Opc;2|
-        ((|f| |Mapping| S R) (|r| |OnePointCompletion| R)
-         (|i| |OnePointCompletion| S) ($ |OnePointCompletion| S))
+        ((|f| (|Mapping| S R)) (|r| (|OnePointCompletion| R))
+         (|i| (|OnePointCompletion| S)) ($ (|OnePointCompletion| S)))
         (SPROG ((|u| (|Union| R "failed")))
                (SEQ (LETT |u| (SPADCALL |r| (QREFELT $ 15)))
                     (EXIT

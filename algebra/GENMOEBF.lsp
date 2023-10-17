@@ -1,17 +1,17 @@
 
 (PUT '|GENMOEBF;rep| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |GENMOEBF;rep| ((|x| $) ($ |Rep|)) |x|) 
+(SDEFUN |GENMOEBF;rep| ((|x| ($)) ($ (|Rep|))) |x|) 
 
 (PUT '|GENMOEBF;per| '|SPADreplace| '(XLAM (|r|) |r|)) 
 
-(SDEFUN |GENMOEBF;per| ((|r| |Rep|) ($ $)) |r|) 
+(SDEFUN |GENMOEBF;per| ((|r| (|Rep|)) ($ ($))) |r|) 
 
-(SDEFUN |GENMOEBF;members;$L;3| ((|mf| $) ($ |List| P))
+(SDEFUN |GENMOEBF;members;$L;3| ((|mf| ($)) ($ (|List| P)))
         (QVELT (|GENMOEBF;rep| |mf| $) 2)) 
 
 (SDEFUN |GENMOEBF;generalizedMoebiusFunction;LM$;4|
-        ((|xx| |List| P) (|z| |Mapping| R P P) ($ $))
+        ((|xx| (|List| P)) (|z| (|Mapping| R P P)) ($ ($)))
         (SPROG
          ((#1=#:G121 NIL) (|mf| (|Union| (|Matrix| R) "failed"))
           (|zf| (|Matrix| R)) (#2=#:G125 NIL) (|x| NIL) (#3=#:G124 NIL)
@@ -67,7 +67,7 @@
                      (GO #6=#:G120)))))))
           #6# (EXIT #1#)))) 
 
-(SDEFUN |GENMOEBF;canonicalZeta| ((|pi| P) (|si| P) ($ R))
+(SDEFUN |GENMOEBF;canonicalZeta| ((|pi| (P)) (|si| (P)) ($ (R)))
         (SPROG ((#1=#:G128 NIL))
                (SEQ
                 (EXIT
@@ -78,7 +78,7 @@
                   (EXIT (|spadConstant| $ 17))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |GENMOEBF;apply;$2PR;6| ((|mf| $) (|x| P) (|y| P) ($ R))
+(SDEFUN |GENMOEBF;apply;$2PR;6| ((|mf| ($)) (|x| (P)) (|y| (P)) ($ (R)))
         (SPROG
          ((#1=#:G134 NIL) (|ky| #2=(|Integer|)) (|kx| #2#)
           (|mfn| (|Matrix| R)))
@@ -100,13 +100,13 @@
                   (GO #3=#:G133)))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |GENMOEBF;moebiusMatrix;$M;7| ((|mf| $) ($ |Matrix| R))
+(SDEFUN |GENMOEBF;moebiusMatrix;$M;7| ((|mf| ($)) ($ (|Matrix| R)))
         (QVELT (|GENMOEBF;rep| |mf| $) 1)) 
 
-(SDEFUN |GENMOEBF;zetaMatrix| ((|mf| $) ($ |Matrix| R))
+(SDEFUN |GENMOEBF;zetaMatrix| ((|mf| ($)) ($ (|Matrix| R)))
         (QVELT (|GENMOEBF;rep| |mf| $) 0)) 
 
-(SDEFUN |GENMOEBF;coerce| ((|mf| $) ($ |OutputForm|))
+(SDEFUN |GENMOEBF;coerce| ((|mf| ($)) ($ (|OutputForm|)))
         (SPADCALL "m" (QREFELT $ 33))) 
 
 (DECLAIM (NOTINLINE |GeneralizedFiniteMoebiusFunction;|)) 

@@ -1,17 +1,18 @@
 
-(SDEFUN |ODERAT;infOrder| ((|f| |Fraction| UP) ($ |Integer|))
+(SDEFUN |ODERAT;infOrder| ((|f| (|Fraction| UP)) ($ (|Integer|)))
         (- (SPADCALL (SPADCALL |f| (QREFELT $ 12)) (QREFELT $ 14))
            (SPADCALL (SPADCALL |f| (QREFELT $ 15)) (QREFELT $ 14)))) 
 
-(SDEFUN |ODERAT;evenodd| ((|n| |NonNegativeInteger|) ($ F))
+(SDEFUN |ODERAT;evenodd| ((|n| (|NonNegativeInteger|)) ($ (F)))
         (COND ((EVENP |n|) (|spadConstant| $ 16))
               ('T (SPADCALL (|spadConstant| $ 16) (QREFELT $ 18))))) 
 
 (SDEFUN |ODERAT;ratDsolve1|
-        ((|op| |LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP))
-         (|lg| |List| (|Fraction| UP))
-         ($ |Record| (|:| |basis| (|List| (|Fraction| UP)))
-          (|:| |mat| (|Matrix| F))))
+        ((|op| (|LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP)))
+         (|lg| (|List| (|Fraction| UP)))
+         ($
+          (|Record| (|:| |basis| (|List| (|Fraction| UP)))
+                    (|:| |mat| (|Matrix| F)))))
         (SPROG
          ((|sys1| (|Matrix| UP)) (|l| (|List| (|Fraction| UP))) (#1=#:G143 NIL)
           (|q| NIL) (#2=#:G142 NIL) (#3=#:G141 NIL) (|i| NIL) (#4=#:G140 NIL)
@@ -88,17 +89,18 @@
                         (SPADCALL |sys1| (QREFELT $ 42)))))))))) 
 
 (SDEFUN |ODERAT;ratDsolve0|
-        ((|op| |LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP))
-         (|g| |Fraction| UP)
-         ($ |Record| (|:| |particular| (|Union| (|Fraction| UP) #1="failed"))
-          (|:| |basis| (|List| (|Fraction| UP)))))
+        ((|op| (|LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP)))
+         (|g| (|Fraction| UP))
+         ($
+          (|Record| (|:| |particular| (|Union| (|Fraction| UP) #1="failed"))
+                    (|:| |basis| (|List| (|Fraction| UP))))))
         (SPROG
-         ((#2=#:G183 NIL) (|v| (|Vector| F)) (#3=#:G182 NIL)
+         ((#2=#:G183 NIL) (#3=#:G182 NIL)
           (|part| (|Union| (|Fraction| UP) #1#)) (#4=#:G169 NIL)
           (|sol|
            (|Record| (|:| |particular| (|Union| (|Vector| F) #5="failed"))
                      (|:| |basis| (|List| (|Vector| F)))))
-          (|m| (|Matrix| F))
+          (|v| (|Vector| F)) (|m| (|Matrix| F))
           (|sys2| (|Record| (|:| |mat| (|Matrix| F)) (|:| |vec| (|Vector| F))))
           (|sys1|
            (|Record| (|:| |mat| (|Matrix| UP)) (|:| |vec| (|Vector| UP))))
@@ -265,8 +267,7 @@
                                      (SPADCALL |lsol|
                                                (PROGN
                                                 (LETT #3# NIL)
-                                                (SEQ (LETT |v| NIL)
-                                                     (LETT #2# (QCDR |sol|))
+                                                (SEQ (LETT #2# (QCDR |sol|))
                                                      G190
                                                      (COND
                                                       ((OR (ATOM #2#)
@@ -291,8 +292,8 @@
                                                (QREFELT $ 70)))))))))))))))))) 
 
 (SDEFUN |ODERAT;indicialEquationAtInfinity;LodoUP;5|
-        ((|op| |LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP))
-         ($ UP))
+        ((|op| (|LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP)))
+         ($ (UP)))
         (SPROG
          ((|rec|
            (|Record| (|:| |mu| (|Integer|))
@@ -304,7 +305,8 @@
                 $))))) 
 
 (SDEFUN |ODERAT;indicialEquationAtInfinity;LodoUP;6|
-        ((|op| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP)) ($ UP))
+        ((|op| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+         ($ (UP)))
         (SPROG
          ((|rec|
            (|Record|
@@ -315,8 +317,8 @@
               (EXIT (SPADCALL (QCAR |rec|) (QREFELT $ 71)))))) 
 
 (SDEFUN |ODERAT;regularPoint|
-        ((|l| |LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP))
-         (|lg| |List| (|Fraction| UP)) ($ |Integer|))
+        ((|l| (|LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP)))
+         (|lg| (|List| (|Fraction| UP))) ($ (|Integer|)))
         (SPROG ((#1=#:G195 NIL) (#2=#:G196 NIL) (|j| (F)) (|i| NIL) (|a| (UP)))
                (SEQ
                 (EXIT
@@ -360,17 +362,19 @@
                 #3# (EXIT #2#)))) 
 
 (SDEFUN |ODERAT;unitlist|
-        ((|i| |NonNegativeInteger|) (|q| |NonNegativeInteger|) ($ |List| F))
+        ((|i| (|NonNegativeInteger|)) (|q| (|NonNegativeInteger|))
+         ($ (|List| F)))
         (SPROG ((|v| (|Vector| F)))
                (SEQ (LETT |v| (MAKEARR1 |q| (|spadConstant| $ 25)))
                     (SPADCALL |v| |i| (|spadConstant| $ 16) (QREFELT $ 83))
                     (EXIT (SPADCALL |v| (QREFELT $ 85)))))) 
 
 (SDEFUN |ODERAT;candidates|
-        ((|op| |LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP))
-         (|lg| |List| (|Fraction| UP)) (|d| UP)
-         ($ |Record| (|:| |basis| (|List| (|Fraction| UP)))
-          (|:| |particular| (|List| (|Fraction| UP)))))
+        ((|op| (|LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP)))
+         (|lg| (|List| (|Fraction| UP))) (|d| (UP))
+         ($
+          (|Record| (|:| |basis| (|List| (|Fraction| UP)))
+                    (|:| |particular| (|List| (|Fraction| UP))))))
         (SPROG
          ((|part| (|List| (|Fraction| UP))) (#1=#:G212 NIL) (|g| NIL)
           (#2=#:G211 NIL) (|a1| (|Fraction| UP))
@@ -589,7 +593,7 @@
              (SPADCALL |l1| |f|)
              (|compiledLookupCheck| '+ (LIST '$ '$ '$) |uts|)))))) 
 
-(SDEFUN |ODERAT;nzero?| ((|v| |Vector| F) ($ |Boolean|))
+(SDEFUN |ODERAT;nzero?| ((|v| (|Vector| F)) ($ (|Boolean|)))
         (SPROG ((#1=#:G217 NIL) (#2=#:G218 NIL) (#3=#:G219 NIL) (|i| NIL))
                (SEQ
                 (EXIT
@@ -612,7 +616,7 @@
                   (EXIT NIL)))
                 #4# (EXIT #2#)))) 
 
-(SDEFUN |ODERAT;UPfact| ((|n| |NonNegativeInteger|) ($ UP))
+(SDEFUN |ODERAT;UPfact| ((|n| (|NonNegativeInteger|)) ($ (UP)))
         (SPROG
          ((#1=#:G223 NIL) (#2=#:G222 (UP)) (#3=#:G224 (UP)) (#4=#:G228 NIL)
           (#5=#:G221 NIL) (|i| NIL) (|z| (UP)))
@@ -647,10 +651,11 @@
                     (COND (#1# #2#) (#6# (|spadConstant| $ 17))))))))))) 
 
 (SDEFUN |ODERAT;infMuLambda|
-        ((|l| |LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP))
-         ($ |Record| (|:| |mu| (|Integer|))
-          (|:| |lambda| (|List| (|NonNegativeInteger|)))
-          (|:| |func| (|List| UP))))
+        ((|l| (|LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP)))
+         ($
+          (|Record| (|:| |mu| (|Integer|))
+                    (|:| |lambda| (|List| (|NonNegativeInteger|)))
+                    (|:| |func| (|List| UP)))))
         (SPROG
          ((|lf| (|List| UP)) (|lamb| (|List| #1=(|NonNegativeInteger|)))
           (|mup| #2=(|Integer|)) (|m| #2#) (|d| #1#) (|a| (UP)))
@@ -679,7 +684,8 @@
               (EXIT (VECTOR |mup| |lamb| |lf|))))) 
 
 (SDEFUN |ODERAT;infIndicialEquation|
-        ((|lambda| |List| (|NonNegativeInteger|)) (|lf| |List| UP) ($ UP))
+        ((|lambda| (|List| (|NonNegativeInteger|))) (|lf| (|List| UP))
+         ($ (UP)))
         (SPROG
          ((|ans| (UP)) (#1=#:G239 NIL) (|i| NIL) (#2=#:G240 NIL) (|f| NIL))
          (SEQ (LETT |ans| (|spadConstant| $ 26))
@@ -704,8 +710,8 @@
               (EXIT |ans|)))) 
 
 (SDEFUN |ODERAT;infBound|
-        ((|l| |LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP))
-         (|lg| |List| (|Fraction| UP)) ($ |NonNegativeInteger|))
+        ((|l| (|LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP)))
+         (|lg| (|List| (|Fraction| UP))) ($ (|NonNegativeInteger|)))
         (SPROG
          ((#1=#:G248 NIL) (|m| #2=(|Integer|)) (|mm| #2#) (#3=#:G252 NIL)
           (|g| NIL) (#4=#:G244 NIL) (|n| (|Integer|))
@@ -764,7 +770,8 @@
                                            '(|Integer|) #1#)))))))))) 
 
 (SDEFUN |ODERAT;makeDot|
-        ((|v| |Vector| F) (|bas| |List| (|Fraction| UP)) ($ |Fraction| UP))
+        ((|v| (|Vector| F)) (|bas| (|List| (|Fraction| UP)))
+         ($ (|Fraction| UP)))
         (SPROG ((|ans| (|Fraction| UP)) (|i| NIL) (#1=#:G256 NIL) (|b| NIL))
                (SEQ (LETT |ans| (|spadConstant| $ 55))
                     (SEQ (LETT |b| NIL) (LETT #1# |bas|) (LETT |i| 1) G190
@@ -786,10 +793,11 @@
                     (EXIT |ans|)))) 
 
 (SDEFUN |ODERAT;ratDsolve;LodoFR;16|
-        ((|op| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
-         (|g| |Fraction| UP)
-         ($ |Record| (|:| |particular| (|Union| (|Fraction| UP) "failed"))
-          (|:| |basis| (|List| (|Fraction| UP)))))
+        ((|op| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+         (|g| (|Fraction| UP))
+         ($
+          (|Record| (|:| |particular| (|Union| (|Fraction| UP) "failed"))
+                    (|:| |basis| (|List| (|Fraction| UP))))))
         (SPROG
          ((|rec|
            (|Record|
@@ -802,10 +810,11 @@
                 $))))) 
 
 (SDEFUN |ODERAT;ratDsolve;LodoLR;17|
-        ((|op| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
-         (|lg| |List| (|Fraction| UP))
-         ($ |Record| (|:| |basis| (|List| (|Fraction| UP)))
-          (|:| |mat| (|Matrix| F))))
+        ((|op| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+         (|lg| (|List| (|Fraction| UP)))
+         ($
+          (|Record| (|:| |basis| (|List| (|Fraction| UP)))
+                    (|:| |mat| (|Matrix| F)))))
         (SPROG
          ((|rec|
            (|Record|
@@ -816,10 +825,11 @@
               (EXIT (|ODERAT;ratDsolve1| (QCAR |rec|) (QCDR |rec|) $))))) 
 
 (SDEFUN |ODERAT;ratDsolve;LodoFR;18|
-        ((|op| |LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP))
-         (|g| |Fraction| UP)
-         ($ |Record| (|:| |particular| (|Union| (|Fraction| UP) "failed"))
-          (|:| |basis| (|List| (|Fraction| UP)))))
+        ((|op| (|LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP)))
+         (|g| (|Fraction| UP))
+         ($
+          (|Record| (|:| |particular| (|Union| (|Fraction| UP) "failed"))
+                    (|:| |basis| (|List| (|Fraction| UP))))))
         (SPROG ((#1=#:G269 NIL) (|c| (UP)))
                (COND
                 ((SPADCALL (LETT |c| (SPADCALL |op| (QREFELT $ 106)))
@@ -843,10 +853,11 @@
                   $))))) 
 
 (SDEFUN |ODERAT;ratDsolve;LodoLR;19|
-        ((|op| |LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP))
-         (|lg| |List| (|Fraction| UP))
-         ($ |Record| (|:| |basis| (|List| (|Fraction| UP)))
-          (|:| |mat| (|Matrix| F))))
+        ((|op| (|LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP)))
+         (|lg| (|List| (|Fraction| UP)))
+         ($
+          (|Record| (|:| |basis| (|List| (|Fraction| UP)))
+                    (|:| |mat| (|Matrix| F)))))
         (SPROG
          ((#1=#:G281 NIL) (|g| NIL) (#2=#:G280 NIL) (#3=#:G275 NIL) (|c| (UP)))
          (SEQ
@@ -885,13 +896,15 @@
              $)))))) 
 
 (SDEFUN |ODERAT;integrate_sols;LodoR;20|
-        ((|op| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
-         ($ |Record|
-          (|:| |ltilde|
-               (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
-          (|:| |r|
-               (|Union| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
-                        "failed"))))
+        ((|op| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+         ($
+          (|Record|
+           (|:| |ltilde|
+                (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+           (|:| |r|
+                (|Union|
+                 (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
+                 "failed")))))
         (SPADCALL |op| (ELT $ 103) (QREFELT $ 116))) 
 
 (DECLAIM (NOTINLINE |RationalLODE;|)) 

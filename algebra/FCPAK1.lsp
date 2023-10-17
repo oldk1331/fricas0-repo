@@ -1,6 +1,7 @@
 
 (SDEFUN |FCPAK1;zeroVector;SPFc;1|
-        ((|fname| |Symbol|) (|n| |Polynomial| (|Integer|)) ($ |FortranCode|))
+        ((|fname| (|Symbol|)) (|n| (|Polynomial| (|Integer|)))
+         ($ (|FortranCode|)))
         (SPROG
          ((|fa| (|FortranCode|))
           (|indices| (|List| #1=(|Polynomial| (|Integer|)))) (|ip1| #1#)
@@ -21,8 +22,8 @@
               (EXIT |fa|)))) 
 
 (SDEFUN |FCPAK1;zeroMatrix;S2PFc;2|
-        ((|fname| |Symbol|) (|m| |Polynomial| (|Integer|))
-         (|n| |Polynomial| (|Integer|)) ($ |FortranCode|))
+        ((|fname| (|Symbol|)) (|m| (|Polynomial| (|Integer|)))
+         (|n| (|Polynomial| (|Integer|))) ($ (|FortranCode|)))
         (SPROG
          ((|fa| (|FortranCode|))
           (|indices| (|List| #1=(|Polynomial| (|Integer|)))) (|ip2| #1#)
@@ -53,10 +54,10 @@
               (EXIT |fa|)))) 
 
 (SDEFUN |FCPAK1;zeroMatrix;S2SbFc;3|
-        ((|fname| |Symbol|)
-         (|segbp1| |SegmentBinding| (|Polynomial| (|Integer|)))
-         (|segbp2| |SegmentBinding| (|Polynomial| (|Integer|)))
-         ($ |FortranCode|))
+        ((|fname| (|Symbol|))
+         (|segbp1| (|SegmentBinding| (|Polynomial| (|Integer|))))
+         (|segbp2| (|SegmentBinding| (|Polynomial| (|Integer|))))
+         ($ (|FortranCode|)))
         (SPROG
          ((|fa| (|FortranCode|))
           (|indices| (|List| #1=(|Polynomial| (|Integer|)))) (|ip2| #1#)
@@ -78,7 +79,8 @@
               (EXIT |fa|)))) 
 
 (SDEFUN |FCPAK1;zeroSquareMatrix;SPFc;4|
-        ((|fname| |Symbol|) (|n| |Polynomial| (|Integer|)) ($ |FortranCode|))
+        ((|fname| (|Symbol|)) (|n| (|Polynomial| (|Integer|)))
+         ($ (|FortranCode|)))
         (SPROG
          ((|fa| (|FortranCode|))
           (|indices| (|List| #1=(|Polynomial| (|Integer|)))) (|ip2| #1#)
@@ -107,7 +109,8 @@
               (EXIT |fa|)))) 
 
 (SDEFUN |FCPAK1;identitySquareMatrix;SPFc;5|
-        ((|fname| |Symbol|) (|n| |Polynomial| (|Integer|)) ($ |FortranCode|))
+        ((|fname| (|Symbol|)) (|n| (|Polynomial| (|Integer|)))
+         ($ (|FortranCode|)))
         (SPROG
          ((|fa| #1=(|FortranCode|)) (|fl| (|List| #2=(|FortranCode|)))
           (|f1| #2#) (|fc| #1#)

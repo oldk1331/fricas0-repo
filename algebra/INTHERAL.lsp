@@ -1,12 +1,12 @@
 
 (SDEFUN |INTHERAL;HermiteIntegrate;RMR;1|
-        ((|f| R) (|derivation| |Mapping| UP UP)
-         ($ |Record| (|:| |answer| R) (|:| |logpart| R)))
+        ((|f| (R)) (|derivation| (|Mapping| UP UP))
+         ($ (|Record| (|:| |answer| R) (|:| |logpart| R))))
         (SPADCALL |f| |derivation| (|spadConstant| $ 12) (QREFELT $ 15))) 
 
 (SDEFUN |INTHERAL;HermiteIntegrate;RMRR;2|
-        ((|f| R) (|derivation| |Mapping| UP UP) (|d0| R)
-         ($ |Record| (|:| |answer| R) (|:| |logpart| R)))
+        ((|f| (R)) (|derivation| (|Mapping| UP UP)) (|d0| (R))
+         ($ (|Record| (|:| |answer| R) (|:| |logpart| R))))
         (SPROG
          ((|iden| (UP)) (|inum| #1=(|Vector| UP)) (#2=#:G120 NIL)
           (#3=#:G136 NIL) (#4=#:G138 NIL) (|i| NIL) (#5=#:G137 NIL)
@@ -264,8 +264,8 @@
                          (SPADCALL |inum| |iden| (QREFELT $ 51))))))))))) 
 
 (SDEFUN |INTHERAL;localsolve|
-        ((|mat| |Matrix| UP) (|vec| |Vector| UP) (|modulus| UP)
-         ($ |Vector| UP))
+        ((|mat| (|Matrix| UP)) (|vec| (|Vector| UP)) (|modulus| (UP))
+         ($ (|Vector| UP)))
         (SPROG
          ((#1=#:G155 NIL)
           (|bc|

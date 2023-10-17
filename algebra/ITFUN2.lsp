@@ -1,6 +1,7 @@
 
 (SDEFUN |ITFUN2;map;MItIt;1|
-        ((|f| |Mapping| B A) (|x| |InfiniteTuple| A) ($ |InfiniteTuple| B))
+        ((|f| (|Mapping| B A)) (|x| (|InfiniteTuple| A))
+         ($ (|InfiniteTuple| B)))
         (SPADCALL |f| |x| (QREFELT $ 12))) 
 
 (DECLAIM (NOTINLINE |InfiniteTupleFunctions2;|)) 

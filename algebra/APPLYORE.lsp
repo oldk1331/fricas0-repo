@@ -1,5 +1,6 @@
 
-(SDEFUN |APPLYORE;apply;PM2M;1| ((|p| P) (|f| |Mapping| M M) (|m| M) ($ M))
+(SDEFUN |APPLYORE;apply;PM2M;1|
+        ((|p| (P)) (|f| (|Mapping| M M)) (|m| (M)) ($ (M)))
         (SPROG ((|mn| (M)) (|w| (M)) (#1=#:G108 NIL) (|i| NIL))
                (SEQ (LETT |w| (|spadConstant| $ 9)) (LETT |mn| |m|)
                     (SEQ (LETT |i| 0) (LETT #1# (SPADCALL |p| (QREFELT $ 11)))

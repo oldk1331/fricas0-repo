@@ -1,7 +1,7 @@
 
 (SDEFUN |SMITH;test1|
-        ((|sm| M) (|b| |Col|) (|m1| . #1=(|Integer|))
-         ($ |Union| (|Integer|) "failed"))
+        ((|sm| (M)) (|b| (|Col|)) (|m1| #1=(|Integer|))
+         ($ (|Union| (|Integer|) "failed")))
         (SPROG
          ((|km| #1#) (#2=#:G124 NIL) (|m2| (|Integer|)) (|m0| (|Integer|)))
          (SEQ
@@ -38,8 +38,8 @@
           #3# (EXIT #2#)))) 
 
 (SDEFUN |SMITH;test2|
-        ((|sm| M) (|b| |Col|) (|n1| |NonNegativeInteger|) (|dk| |Integer|)
-         ($ |Union| |Col| "failed"))
+        ((|sm| (M)) (|b| (|Col|)) (|n1| (|NonNegativeInteger|))
+         (|dk| (|Integer|)) ($ (|Union| |Col| "failed")))
         (SPROG
          ((|sol| (|List| R)) (#1=#:G139 NIL) (|k| NIL) (#2=#:G137 NIL)
           (|c| (|Union| R "failed")) (#3=#:G138 NIL) (|m0| (|Integer|)))
@@ -70,7 +70,7 @@
                 (EXIT (CONS 0 (SPADCALL (NREVERSE |sol|) (QREFELT $ 22))))))
           #4# (EXIT #2#)))) 
 
-(SDEFUN |SMITH;isDiagonal?| ((|m| M) ($ |Boolean|))
+(SDEFUN |SMITH;isDiagonal?| ((|m| (M)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G145 NIL) (#2=#:G147 NIL) (|j| NIL) (#3=#:G146 NIL) (|i| NIL)
           (|n1| (|NonNegativeInteger|)) (|m1| (|NonNegativeInteger|)))
@@ -100,14 +100,15 @@
                 (EXIT 'T)))
           #4# (EXIT #1#)))) 
 
-(SDEFUN |SMITH;elRow1| ((|m| M) (|i| |Integer|) (|j| |Integer|) ($ M))
+(SDEFUN |SMITH;elRow1| ((|m| (M)) (|i| (|Integer|)) (|j| (|Integer|)) ($ (M)))
         (SPROG ((|vec| (|Row|)))
                (SEQ (LETT |vec| (SPADCALL |m| |i| (QREFELT $ 27)))
                     (SPADCALL |m| |i| (SPADCALL |m| |j| (QREFELT $ 27))
                               (QREFELT $ 28))
                     (SPADCALL |m| |j| |vec| (QREFELT $ 28)) (EXIT |m|)))) 
 
-(SDEFUN |SMITH;elRow2| ((|m| M) (|a| R) (|i| |Integer|) (|j| |Integer|) ($ M))
+(SDEFUN |SMITH;elRow2|
+        ((|m| (M)) (|a| (R)) (|i| (|Integer|)) (|j| (|Integer|)) ($ (M)))
         (SPROG ((|vec| (|Row|)))
                (SEQ
                 (LETT |vec|
@@ -126,7 +127,7 @@
           (RETURN (PROGN (SPADCALL |a| |x| (QREFELT $ 29)))))) 
 
 (SDEFUN |SMITH;elColumn2|
-        ((|m| M) (|a| R) (|i| |Integer|) (|j| |Integer|) ($ M))
+        ((|m| (M)) (|a| (R)) (|i| (|Integer|)) (|j| (|Integer|)) ($ (M)))
         (SPROG ((|vec| (|Col|)))
                (SEQ
                 (LETT |vec|
@@ -145,10 +146,11 @@
           (RETURN (PROGN (SPADCALL |a| |x| (QREFELT $ 29)))))) 
 
 (SDEFUN |SMITH;ijDivide|
-        ((|sf| |Record| (|:| |Smith| M) (|:| |leftEqMat| M)
-          (|:| |rightEqMat| M))
-         (|i| |Integer|) (|j| |Integer|)
-         ($ |Record| (|:| |Smith| M) (|:| |leftEqMat| M) (|:| |rightEqMat| M)))
+        ((|sf|
+          (|Record| (|:| |Smith| M) (|:| |leftEqMat| M) (|:| |rightEqMat| M)))
+         (|i| (|Integer|)) (|j| (|Integer|))
+         ($
+          (|Record| (|:| |Smith| M) (|:| |leftEqMat| M) (|:| |rightEqMat| M))))
         (SPROG
          ((|rMat| (M)) (|lMat| (M)) (|mjj| (R)) (#1=#:G164 NIL) (|mii| (R))
           (|d| (R))
@@ -201,9 +203,10 @@
                   (QREFELT $ 41))) 
 
 (SDEFUN |SMITH;lastStep|
-        ((|sf| |Record| (|:| |Smith| M) (|:| |leftEqMat| M)
-          (|:| |rightEqMat| M))
-         ($ |Record| (|:| |Smith| M) (|:| |leftEqMat| M) (|:| |rightEqMat| M)))
+        ((|sf|
+          (|Record| (|:| |Smith| M) (|:| |leftEqMat| M) (|:| |rightEqMat| M)))
+         ($
+          (|Record| (|:| |Smith| M) (|:| |leftEqMat| M) (|:| |rightEqMat| M))))
         (SPROG
          ((#1=#:G177 NIL) (#2=#:G179 NIL) (|j| NIL) (|mii| (R)) (#3=#:G178 NIL)
           (|i| NIL) (|m1| (|Integer|)) (|m| (M)))
@@ -244,7 +247,7 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |SMITH;findEqMat|
-        ((|m| M) (|t| M) ($ |Record| (|:| |Hermite| M) (|:| |eqMat| M)))
+        ((|m| (M)) (|t| (M)) ($ (|Record| (|:| |Hermite| M) (|:| |eqMat| M))))
         (SPROG
          ((#1=#:G210 NIL) (|u1| (|Matrix| (|Fraction| R))) (#2=#:G192 NIL)
           (#3=#:G202 NIL) (#4=#:G201 (R)) (#5=#:G203 (R)) (#6=#:G221 NIL)
@@ -513,33 +516,37 @@
                                               (QREFELT $ 65))))))))))
           #20# (EXIT #9#)))) 
 
-(SDEFUN |SMITH;hermite;2M;10| ((|m| M) ($ M)) (SPADCALL |m| (QREFELT $ 50))) 
+(SDEFUN |SMITH;hermite;2M;10| ((|m| (M)) ($ (M))) (SPADCALL |m| (QREFELT $ 50))) 
 
 (SDEFUN |SMITH;completeHermite;MR;11|
-        ((|m| M) ($ |Record| (|:| |Hermite| M) (|:| |eqMat| M)))
+        ((|m| (M)) ($ (|Record| (|:| |Hermite| M) (|:| |eqMat| M))))
         (|SMITH;findEqMat| |m| (SPADCALL |m| (QREFELT $ 50)) $)) 
 
-(SDEFUN |SMITH;smith0| ((|m| M) ($ M)) (QVELT (|SMITH;completeSmith0| |m| $) 0)) 
+(SDEFUN |SMITH;smith0| ((|m| (M)) ($ (M)))
+        (QVELT (|SMITH;completeSmith0| |m| $) 0)) 
 
-(SDEFUN |SMITH;smith;2M;13| ((|m| M) ($ M))
+(SDEFUN |SMITH;smith;2M;13| ((|m| (M)) ($ (M)))
         (SPADCALL |m| (CONS (|function| |SMITH;smith0|) $) (QREFELT $ 72))) 
 
 (SDEFUN |SMITH;completeSmith;MR;14|
-        ((|m| M)
-         ($ |Record| (|:| |Smith| M) (|:| |leftEqMat| M) (|:| |rightEqMat| M)))
+        ((|m| (M))
+         ($
+          (|Record| (|:| |Smith| M) (|:| |leftEqMat| M) (|:| |rightEqMat| M))))
         (SPADCALL |m| (CONS (|function| |SMITH;completeSmith0|) $)
                   (QREFELT $ 76))) 
 
-(SDEFUN |SMITH;smith;2M;15| ((|m| M) ($ M)) (|SMITH;smith0| |m| $)) 
+(SDEFUN |SMITH;smith;2M;15| ((|m| (M)) ($ (M))) (|SMITH;smith0| |m| $)) 
 
 (SDEFUN |SMITH;completeSmith;MR;16|
-        ((|m| M)
-         ($ |Record| (|:| |Smith| M) (|:| |leftEqMat| M) (|:| |rightEqMat| M)))
+        ((|m| (M))
+         ($
+          (|Record| (|:| |Smith| M) (|:| |leftEqMat| M) (|:| |rightEqMat| M))))
         (|SMITH;completeSmith0| |m| $)) 
 
 (SDEFUN |SMITH;completeSmith0|
-        ((|m| M)
-         ($ |Record| (|:| |Smith| M) (|:| |leftEqMat| M) (|:| |rightEqMat| M)))
+        ((|m| (M))
+         ($
+          (|Record| (|:| |Smith| M) (|:| |leftEqMat| M) (|:| |rightEqMat| M))))
         (SPROG
          ((|cm2|
            (|Record| (|:| |Smith| M) (|:| |leftEqMat| M) (|:| |rightEqMat| M)))
@@ -608,9 +615,10 @@
                                          (QVELT |cm2| 2)))))))))))))))) 
 
 (SDEFUN |SMITH;diophantineSystem;MColR;18|
-        ((|m| M) (|b| |Col|)
-         ($ |Record| (|:| |particular| (|Union| |Col| "failed"))
-          (|:| |basis| (|List| |Col|))))
+        ((|m| (M)) (|b| (|Col|))
+         ($
+          (|Record| (|:| |particular| (|Union| |Col| "failed"))
+                    (|:| |basis| (|List| |Col|)))))
         (SPROG
          ((|lsol| (|List| |Col|)) (#1=#:G250 NIL) (|i| NIL) (#2=#:G249 NIL)
           (|sol| (|Col|)) (|rm| (M)) (|t2| (|Union| |Col| "failed"))

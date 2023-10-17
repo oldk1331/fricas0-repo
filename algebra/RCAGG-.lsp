@@ -1,12 +1,12 @@
 
-(SDEFUN |RCAGG-;elt;AvalueS;1| ((|x| A) (T3 "value") ($ S))
+(SDEFUN |RCAGG-;elt;AvalueS;1| ((|x| (A)) (T3 ("value")) ($ (S)))
         (SPADCALL |x| (QREFELT $ 8))) 
 
-(SDEFUN |RCAGG-;leaf?;AB;2| ((|x| A) ($ |Boolean|))
+(SDEFUN |RCAGG-;leaf?;AB;2| ((|x| (A)) ($ (|Boolean|)))
         (COND ((SPADCALL |x| (QREFELT $ 12)) NIL)
               ('T (NULL (SPADCALL |x| (QREFELT $ 14)))))) 
 
-(SDEFUN |RCAGG-;nodes;AL;3| ((|x| A) ($ |List| A))
+(SDEFUN |RCAGG-;nodes;AL;3| ((|x| (A)) ($ (|List| A)))
         (SPROG ((#1=#:G122 NIL) (|y| NIL) (#2=#:G121 NIL))
                (SEQ
                 (COND ((SPADCALL |x| (QREFELT $ 12)) NIL)
@@ -31,7 +31,7 @@
                                     (EXIT (NREVERSE #2#))))
                               (QREFELT $ 18)))))))) 
 
-(SDEFUN |RCAGG-;leaves;AL;4| ((|x| A) ($ |List| S))
+(SDEFUN |RCAGG-;leaves;AL;4| ((|x| (A)) ($ (|List| S)))
         (SPROG ((#1=#:G128 NIL) (|y| NIL) (#2=#:G127 NIL))
                (SEQ
                 (COND ((SPADCALL |x| (QREFELT $ 12)) NIL)
@@ -56,14 +56,15 @@
                               (EXIT (NREVERSE #2#))))
                         (QREFELT $ 23))))))) 
 
-(SDEFUN |RCAGG-;setelt!;Avalue2S;5| ((|x| A) (T4 "value") (|y| S) ($ S))
+(SDEFUN |RCAGG-;setelt!;Avalue2S;5|
+        ((|x| (A)) (T4 ("value")) (|y| (S)) ($ (S)))
         (SPADCALL |x| |y| (QREFELT $ 25))) 
 
-(SDEFUN |RCAGG-;child?;2AB;6| ((|x| A) (|l| A) ($ |Boolean|))
+(SDEFUN |RCAGG-;child?;2AB;6| ((|x| (A)) (|l| (A)) ($ (|Boolean|)))
         (COND ((SPADCALL |l| (QREFELT $ 12)) NIL)
               ('T (SPADCALL |x| (SPADCALL |l| (QREFELT $ 14)) (QREFELT $ 27))))) 
 
-(SDEFUN |RCAGG-;parts;AL;7| ((|x| A) ($ |List| S))
+(SDEFUN |RCAGG-;parts;AL;7| ((|x| (A)) ($ (|List| S)))
         (SPROG ((#1=#:G135 NIL) (|i| NIL) (#2=#:G134 NIL))
                (SEQ
                 (PROGN

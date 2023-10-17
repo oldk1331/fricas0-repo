@@ -1,5 +1,5 @@
 
-(SDEFUN |MAPPKG2;const;CM;1| ((|c| C) ($ |Mapping| C A))
+(SDEFUN |MAPPKG2;const;CM;1| ((|c| (C)) ($ (|Mapping| C A)))
         (SPROG NIL (CONS #'|MAPPKG2;const;CM;1!0| (VECTOR $ |c|)))) 
 
 (SDEFUN |MAPPKG2;const;CM;1!0| ((|a1| NIL) ($$ NIL))
@@ -8,7 +8,8 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |a1| |c| (QREFELT $ 9)))))) 
 
-(SDEFUN |MAPPKG2;curry;MAM;2| ((|fac| |Mapping| C A) (|a| A) ($ |Mapping| C))
+(SDEFUN |MAPPKG2;curry;MAM;2|
+        ((|fac| (|Mapping| C A)) (|a| (A)) ($ (|Mapping| C)))
         (SPROG NIL (CONS #'|MAPPKG2;curry;MAM;2!0| (VECTOR |fac| |a|)))) 
 
 (SDEFUN |MAPPKG2;curry;MAM;2!0| (($$ NIL))
@@ -17,7 +18,7 @@
           (LETT |fac| (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |a| |fac|))))) 
 
-(SDEFUN |MAPPKG2;constant;MM;3| ((|f0c| |Mapping| C) ($ |Mapping| C A))
+(SDEFUN |MAPPKG2;constant;MM;3| ((|f0c| (|Mapping| C)) ($ (|Mapping| C A)))
         (SPROG NIL (CONS #'|MAPPKG2;constant;MM;3!0| (VECTOR $ |f0c|)))) 
 
 (SDEFUN |MAPPKG2;constant;MM;3!0| ((|a1| NIL) ($$ NIL))
@@ -26,7 +27,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |a1| (SPADCALL |f0c|) (QREFELT $ 9)))))) 
 
-(SDEFUN |MAPPKG2;diag;MM;4| ((|faac| |Mapping| C A A) ($ |Mapping| C A))
+(SDEFUN |MAPPKG2;diag;MM;4| ((|faac| (|Mapping| C A A)) ($ (|Mapping| C A)))
         (CONS #'|MAPPKG2;diag;MM;4!0| |faac|)) 
 
 (SDEFUN |MAPPKG2;diag;MM;4!0| ((|a1| NIL) (|faac| NIL))

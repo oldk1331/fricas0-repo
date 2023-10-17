@@ -1,20 +1,21 @@
 
-(SDEFUN |TYPED;var;S$;1| ((|n| |String|) ($ $))
+(SDEFUN |TYPED;var;S$;1| ((|n| (|String|)) ($ ($)))
         (CONS |n| (SPADCALL (QREFELT $ 8)))) 
 
 (PUT '|TYPED;var;SIl$;2| '|SPADreplace| 'CONS) 
 
-(SDEFUN |TYPED;var;SIl$;2| ((|n| |String|) (|t| |ILogic|) ($ $)) (CONS |n| |t|)) 
+(SDEFUN |TYPED;var;SIl$;2| ((|n| (|String|)) (|t| (|ILogic|)) ($ ($)))
+        (CONS |n| |t|)) 
 
 (PUT '|TYPED;getName;$S;3| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |TYPED;getName;$S;3| ((|v| $) ($ |String|)) (QCAR |v|)) 
+(SDEFUN |TYPED;getName;$S;3| ((|v| ($)) ($ (|String|))) (QCAR |v|)) 
 
 (PUT '|TYPED;getType;$Il;4| '|SPADreplace| 'QCDR) 
 
-(SDEFUN |TYPED;getType;$Il;4| ((|v| $) ($ |ILogic|)) (QCDR |v|)) 
+(SDEFUN |TYPED;getType;$Il;4| ((|v| ($)) ($ (|ILogic|))) (QCDR |v|)) 
 
-(SDEFUN |TYPED;toString;$S;5| ((|v| $) ($ |String|))
+(SDEFUN |TYPED;toString;$S;5| ((|v| ($)) ($ (|String|)))
         (SPROG ((|s| (|String|)))
                (SEQ
                 (LETT |s|
@@ -25,8 +26,8 @@
                 (EXIT |s|)))) 
 
 (SDEFUN |TYPED;parseVarTerm;SNniR;6|
-        ((|t1| |String|) (|pin| |NonNegativeInteger|)
-         ($ |Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
+        ((|t1| (|String|)) (|pin| (|NonNegativeInteger|))
+         ($ (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|)))))
         (SPROG
          ((#1=#:G126 NIL) (|pt| (|NonNegativeInteger|))
           (|r|
@@ -69,18 +70,18 @@
                 (EXIT (CONS (SPADCALL |vnm| (QREFELT $ 10)) |pt|))))
           #2# (EXIT #1#)))) 
 
-(SDEFUN |TYPED;parseVar;S$;7| ((|t1| |String|) ($ $))
+(SDEFUN |TYPED;parseVar;S$;7| ((|t1| (|String|)) ($ ($)))
         (SPROG
          ((|r| (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|)))))
          (SEQ (LETT |r| (SPADCALL |t1| 1 (QREFELT $ 27))) (EXIT (QCAR |r|))))) 
 
-(SDEFUN |TYPED;=;2$B;8| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |TYPED;=;2$B;8| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (COND
          ((EQUAL (QCAR |x|) (QCAR |y|))
           (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 29)))
          ('T NIL))) 
 
-(SDEFUN |TYPED;coerce;$Of;9| ((|n| $) ($ |OutputForm|))
+(SDEFUN |TYPED;coerce;$Of;9| ((|n| ($)) ($ (|OutputForm|)))
         (SPADCALL
          (LIST (SPADCALL (QCAR |n|) (QREFELT $ 32))
                (SPADCALL ":" (QREFELT $ 32))

@@ -1,6 +1,7 @@
 
 (SDEFUN |GROUPPF1;convert;LLGp;1|
-        ((|lg| |List| S) (|lr| |List| (|FreeGroup| S)) ($ |GroupPresentation|))
+        ((|lg| (|List| S)) (|lr| (|List| (|FreeGroup| S)))
+         ($ (|GroupPresentation|)))
         (SPROG
          ((#1=#:G118 NIL) (|l| NIL) (#2=#:G117 NIL)
           (|nlr| (|List| (|List| (|Integer|)))) (|nr| (|List| (|Integer|)))

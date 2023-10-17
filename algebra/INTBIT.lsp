@@ -3,11 +3,11 @@
      '(XLAM (|n| |i|) (LOGBITP |i| |n|))) 
 
 (SDEFUN |INTBIT;bitTruth;INniB;1|
-        ((|n| |Integer|) (|i| |NonNegativeInteger|) ($ |Boolean|))
+        ((|n| (|Integer|)) (|i| (|NonNegativeInteger|)) ($ (|Boolean|)))
         (LOGBITP |i| |n|)) 
 
 (SDEFUN |INTBIT;bitCoef;INniI;2|
-        ((|n| |Integer|) (|i| |NonNegativeInteger|) ($ |Integer|))
+        ((|n| (|Integer|)) (|i| (|NonNegativeInteger|)) ($ (|Integer|)))
         (COND ((SPADCALL |n| |i| (QREFELT $ 9)) 1) ('T 0))) 
 
 (DECLAIM (NOTINLINE |IntegerBits;|)) 

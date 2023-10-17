@@ -1,5 +1,5 @@
 
-(SDEFUN |LOOP;loop;L$;1| ((|lis| |List| (|NonNegativeInteger|)) ($ $))
+(SDEFUN |LOOP;loop;L$;1| ((|lis| (|List| (|NonNegativeInteger|))) ($ ($)))
         (SPROG
          ((|li| #1=(|List| (|NonNegativeInteger|)))
           (|lx| #2=(|List| (|NonNegativeInteger|)))
@@ -35,14 +35,14 @@
                         (SPADCALL (SPADCALL |l1| (REVERSE |l2|) (QREFELT $ 8))
                                   (QREFELT $ 9)))))))))) 
 
-(SDEFUN |LOOP;entries;$L;2| ((|lp| $) ($ |List| (|NonNegativeInteger|)))
+(SDEFUN |LOOP;entries;$L;2| ((|lp| ($)) ($ (|List| (|NonNegativeInteger|))))
         (SPADCALL |lp| (QREFELT $ 11))) 
 
 (PUT '|LOOP;hash;$Si;3| '|SPADreplace| '(XLAM (|s|) 0)) 
 
-(SDEFUN |LOOP;hash;$Si;3| ((|s| $) ($ |SingleInteger|)) 0) 
+(SDEFUN |LOOP;hash;$Si;3| ((|s| ($)) ($ (|SingleInteger|))) 0) 
 
-(SDEFUN |LOOP;latex;$S;4| ((|lp| $) ($ |String|))
+(SDEFUN |LOOP;latex;$S;4| ((|lp| ($)) ($ (|String|)))
         (SPROG
          ((|res| (|String|)) (|x| (|NonNegativeInteger|)) (#1=#:G125 NIL)
           (|i| NIL))
@@ -57,7 +57,7 @@
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL (LIST "[" |res| "]") (QREFELT $ 19)))))) 
 
-(SDEFUN |LOOP;=;2$B;5| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |LOOP;=;2$B;5| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPROG ((#1=#:G131 NIL) (#2=#:G132 NIL) (|i| NIL))
                (SEQ
                 (EXIT
@@ -78,7 +78,7 @@
                   (EXIT 'T)))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |LOOP;coerce;$Of;6| ((|lp| $) ($ |OutputForm|))
+(SDEFUN |LOOP;coerce;$Of;6| ((|lp| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|res| (|OutputForm|)) (|x| (|NonNegativeInteger|)) (#1=#:G137 NIL)
           (|i| NIL))

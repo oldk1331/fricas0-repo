@@ -1,25 +1,29 @@
 
 (SDEFUN |REAL0;negate|
-        ((|int| |Record| (|:| |left| (|Fraction| (|Integer|)))
-          (|:| |right| (|Fraction| (|Integer|))))
-         ($ |Record| (|:| |left| (|Fraction| (|Integer|)))
-          (|:| |right| (|Fraction| (|Integer|)))))
+        ((|int|
+          (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                    (|:| |right| (|Fraction| (|Integer|)))))
+         ($
+          (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                    (|:| |right| (|Fraction| (|Integer|))))))
         (CONS (SPADCALL (QCDR |int|) (QREFELT $ 8))
               (SPADCALL (QCAR |int|) (QREFELT $ 8)))) 
 
 (SDEFUN |REAL0;midpoint;RF;2|
-        ((|i| |Record| (|:| |left| (|Fraction| (|Integer|)))
-          (|:| |right| (|Fraction| (|Integer|))))
-         ($ |Fraction| (|Integer|)))
+        ((|i|
+          (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                    (|:| |right| (|Fraction| (|Integer|)))))
+         ($ (|Fraction| (|Integer|))))
         (SPADCALL (SPADCALL 1 2 (QREFELT $ 12))
                   (SPADCALL (QCAR |i|) (QCDR |i|) (QREFELT $ 13))
                   (QREFELT $ 14))) 
 
 (SDEFUN |REAL0;midpoints;LL;3|
-        ((|li| |List|
-          (|Record| (|:| |left| (|Fraction| (|Integer|)))
-                    (|:| |right| (|Fraction| (|Integer|)))))
-         ($ |List| (|Fraction| (|Integer|))))
+        ((|li|
+          (|List|
+           (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                     (|:| |right| (|Fraction| (|Integer|))))))
+         ($ (|List| (|Fraction| (|Integer|)))))
         (SPROG ((#1=#:G118 NIL) (|x| NIL) (#2=#:G117 NIL))
                (SEQ
                 (PROGN
@@ -34,7 +38,7 @@
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(SDEFUN |REAL0;makeSqfr| ((F |Pol|) ($ |Pol|))
+(SDEFUN |REAL0;makeSqfr| ((F (|Pol|)) ($ (|Pol|)))
         (SPROG
          ((#1=#:G121 NIL) (#2=#:G120 (|Pol|)) (#3=#:G122 (|Pol|))
           (#4=#:G125 NIL) (|s| NIL) (|sqfr| (|Factored| |Pol|)))
@@ -60,17 +64,19 @@
                       (COND (#1# #2#) ('T (|spadConstant| $ 9))))))))) 
 
 (SDEFUN |REAL0;realZeros;PolL;5|
-        ((F |Pol|)
-         ($ |List|
-          (|Record| (|:| |left| (|Fraction| (|Integer|)))
-                    (|:| |right| (|Fraction| (|Integer|))))))
+        ((F (|Pol|))
+         ($
+          (|List|
+           (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                     (|:| |right| (|Fraction| (|Integer|)))))))
         (|REAL0;ReZeroSqfr| (|REAL0;makeSqfr| F $) $)) 
 
 (SDEFUN |REAL0;realZeros;PolFL;6|
-        ((F |Pol|) (|rn| |Fraction| (|Integer|))
-         ($ |List|
-          (|Record| (|:| |left| (|Fraction| (|Integer|)))
-                    (|:| |right| (|Fraction| (|Integer|))))))
+        ((F (|Pol|)) (|rn| (|Fraction| (|Integer|)))
+         ($
+          (|List|
+           (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                     (|:| |right| (|Fraction| (|Integer|)))))))
         (SPROG ((#1=#:G131 NIL) (|int| NIL) (#2=#:G130 NIL))
                (SEQ (LETT F (|REAL0;makeSqfr| F $))
                     (EXIT
@@ -90,12 +96,14 @@
                            (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |REAL0;realZeros;PolRL;7|
-        ((F |Pol|)
-         (|bounds| |Record| (|:| |left| (|Fraction| (|Integer|)))
-          (|:| |right| (|Fraction| (|Integer|))))
-         ($ |List|
+        ((F (|Pol|))
+         (|bounds|
           (|Record| (|:| |left| (|Fraction| (|Integer|)))
-                    (|:| |right| (|Fraction| (|Integer|))))))
+                    (|:| |right| (|Fraction| (|Integer|)))))
+         ($
+          (|List|
+           (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                     (|:| |right| (|Fraction| (|Integer|)))))))
         (SPROG
          ((#1=#:G133 NIL)
           (|rint|
@@ -146,13 +154,15 @@
                      (EXIT (NREVERSE #4#)))))))) 
 
 (SDEFUN |REAL0;realZeros;PolRFL;8|
-        ((F |Pol|)
-         (|bounds| |Record| (|:| |left| (|Fraction| (|Integer|)))
-          (|:| |right| (|Fraction| (|Integer|))))
-         (|rn| |Fraction| (|Integer|))
-         ($ |List|
+        ((F (|Pol|))
+         (|bounds|
           (|Record| (|:| |left| (|Fraction| (|Integer|)))
-                    (|:| |right| (|Fraction| (|Integer|))))))
+                    (|:| |right| (|Fraction| (|Integer|)))))
+         (|rn| (|Fraction| (|Integer|)))
+         ($
+          (|List|
+           (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                     (|:| |right| (|Fraction| (|Integer|)))))))
         (SPROG ((#1=#:G144 NIL) (|int| NIL) (#2=#:G143 NIL))
                (SEQ (LETT F (|REAL0;makeSqfr| F $))
                     (EXIT
@@ -172,10 +182,11 @@
                            (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |REAL0;ReZeroSqfr|
-        ((F |Pol|)
-         ($ |List|
-          (|Record| (|:| |left| (|Fraction| (|Integer|)))
-                    (|:| |right| (|Fraction| (|Integer|))))))
+        ((F (|Pol|))
+         ($
+          (|List|
+           (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                     (|:| |right| (|Fraction| (|Integer|)))))))
         (SPROG
          ((K
            (|List|
@@ -246,10 +257,11 @@
                                      (QREFELT $ 45))))))))))))) 
 
 (SDEFUN |REAL0;PosZero|
-        ((F |Pol|)
-         ($ |List|
-          (|Record| (|:| |left| (|Fraction| (|Integer|)))
-                    (|:| |right| (|Fraction| (|Integer|))))))
+        ((F (|Pol|))
+         ($
+          (|List|
+           (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                     (|:| |right| (|Fraction| (|Integer|)))))))
         (SPROG
          ((L
            (|List|
@@ -279,10 +291,11 @@
                            (EXIT (NREVERSE #2#))))))))) 
 
 (SDEFUN |REAL0;Zero1|
-        ((F |Pol|)
-         ($ |List|
-          (|Record| (|:| |left| (|Fraction| (|Integer|)))
-                    (|:| |right| (|Fraction| (|Integer|))))))
+        ((F (|Pol|))
+         ($
+          (|List|
+           (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                     (|:| |right| (|Fraction| (|Integer|)))))))
         (SPROG
          ((K
            (|List|
@@ -400,7 +413,7 @@
                             (SPADCALL (SPADCALL J L (QREFELT $ 45)) K
                                       (QREFELT $ 45)))))))))) 
 
-(SDEFUN |REAL0;rootBound| ((F |Pol|) ($ |Integer|))
+(SDEFUN |REAL0;rootBound| ((F (|Pol|)) ($ (|Integer|)))
         (SPROG
          ((|b| (|Integer|)) (|i| (|Integer|)) (|an| #1=(|Integer|))
           (|lcoef| #1#))
@@ -425,7 +438,7 @@
                (SEQ (EXIT (LETT |b| (* 2 |b|)))) NIL (GO G190) G191 (EXIT NIL))
           (EXIT |b|)))) 
 
-(SDEFUN |REAL0;transMult| ((|c| |Integer|) (F |Pol|) ($ |Pol|))
+(SDEFUN |REAL0;transMult| ((|c| (|Integer|)) (F (|Pol|)) ($ (|Pol|)))
         (SPROG ((G (|Pol|)) (|n| (|NonNegativeInteger|)))
                (SEQ (LETT G (|spadConstant| $ 35))
                     (SEQ G190
@@ -447,7 +460,7 @@
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT G)))) 
 
-(SDEFUN |REAL0;transMultInv| ((|c| |Integer|) (F |Pol|) ($ |Pol|))
+(SDEFUN |REAL0;transMultInv| ((|c| (|Integer|)) (F (|Pol|)) ($ (|Pol|)))
         (SPROG
          ((|d| #1=(|NonNegativeInteger|)) (G (|Pol|)) (|cc| (|Integer|))
           (#2=#:G188 NIL) (|n| #1#))
@@ -479,7 +492,7 @@
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT G)))) 
 
-(SDEFUN |REAL0;transAdd1| ((F |Pol|) ($ |Pol|))
+(SDEFUN |REAL0;transAdd1| ((F (|Pol|)) ($ (|Pol|)))
         (SPROG
          ((|ans| (|Pol|)) (#1=#:G200 NIL) (|i| NIL) (#2=#:G199 NIL) (|j| NIL)
           (#3=#:G198 NIL) (|v| (|Vector| (|Integer|)))
@@ -513,7 +526,7 @@
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (EXIT |ans|)))) 
 
-(SDEFUN |REAL0;minus| ((F |Pol|) ($ |Pol|))
+(SDEFUN |REAL0;minus| ((F (|Pol|)) ($ (|Pol|)))
         (SPROG ((G (|Pol|)) (|coef| (|Integer|)) (|n| (|NonNegativeInteger|)))
                (SEQ (LETT G (|spadConstant| $ 35))
                     (SEQ G190
@@ -547,7 +560,7 @@
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT G)))) 
 
-(SDEFUN |REAL0;invert| ((F |Pol|) ($ |Pol|))
+(SDEFUN |REAL0;invert| ((F (|Pol|)) ($ (|Pol|)))
         (SPROG ((G (|Pol|)) (#1=#:G207 NIL) (|n| (|NonNegativeInteger|)))
                (SEQ (LETT G (|spadConstant| $ 35))
                     (LETT |n| (SPADCALL F (QREFELT $ 39)))
@@ -579,7 +592,7 @@
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT G)))) 
 
-(SDEFUN |REAL0;var| ((F |Pol|) ($ |Integer|))
+(SDEFUN |REAL0;var| ((F (|Pol|)) ($ (|Integer|)))
         (SPROG ((|LastCoef| #1=(|Boolean|)) (|i| (|Integer|)) (|next| #1#))
                (SEQ (LETT |i| 0)
                     (LETT |LastCoef| (< (SPADCALL F (QREFELT $ 48)) 0))
@@ -604,15 +617,18 @@
                     (EXIT |i|)))) 
 
 (SDEFUN |REAL0;refine;Pol2RU;19|
-        ((F |Pol|)
-         (|int| |Record| (|:| |left| (|Fraction| (|Integer|)))
-          (|:| |right| (|Fraction| (|Integer|))))
-         (|bounds| |Record| (|:| |left| (|Fraction| (|Integer|)))
-          (|:| |right| (|Fraction| (|Integer|))))
-         ($ |Union|
+        ((F (|Pol|))
+         (|int|
           (|Record| (|:| |left| (|Fraction| (|Integer|)))
-                    (|:| |right| (|Fraction| (|Integer|))))
-          "failed"))
+                    (|:| |right| (|Fraction| (|Integer|)))))
+         (|bounds|
+          (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                    (|:| |right| (|Fraction| (|Integer|)))))
+         ($
+          (|Union|
+           (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                     (|:| |right| (|Fraction| (|Integer|))))
+           "failed")))
         (SPROG
          ((|pt| (|Fraction| (|Integer|))) (|lseg| (|Fraction| (|Integer|))))
          (SEQ
@@ -652,12 +668,14 @@
                          (QREFELT $ 32)))))))))) 
 
 (SDEFUN |REAL0;refine;PolRFR;20|
-        ((F |Pol|)
-         (|int| |Record| (|:| |left| (|Fraction| (|Integer|)))
-          (|:| |right| (|Fraction| (|Integer|))))
-         (|eps| |Fraction| (|Integer|))
-         ($ |Record| (|:| |left| (|Fraction| (|Integer|)))
-          (|:| |right| (|Fraction| (|Integer|)))))
+        ((F (|Pol|))
+         (|int|
+          (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                    (|:| |right| (|Fraction| (|Integer|)))))
+         (|eps| (|Fraction| (|Integer|)))
+         ($
+          (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                    (|:| |right| (|Fraction| (|Integer|))))))
         (SPROG
          ((|xfl| (|Boolean|)) (|ad| #1=(|Integer|)) (|an| #2=(|Integer|))
           (|b| (|Fraction| (|Integer|))) (|a| (|Fraction| (|Integer|)))

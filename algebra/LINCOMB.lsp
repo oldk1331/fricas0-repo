@@ -1,14 +1,16 @@
 
 (SDEFUN |LINCOMB;dehomogenize;LR;1|
-        ((|ls| |List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
-         ($ |Record|
-          (|:| |particular|
-               (|Union|
-                (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))
-                "failed"))
-          (|:| |basis|
-               (|List|
-                (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))))
+        ((|ls|
+          (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
+         ($
+          (|Record|
+           (|:| |particular|
+                (|Union|
+                 (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))
+                 "failed"))
+           (|:| |basis|
+                (|List|
+                 (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))))))
         (SPROG
          ((|res3|
            (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
@@ -85,7 +87,7 @@
                       (EXIT (CONS (CONS 0 (CONS |ppa| |ppv|)) |res3|))))
                     (#4# (CONS (CONS 1 "failed") NIL)))))))))) 
 
-(SDEFUN |LINCOMB;lin_comb;VLF;2| ((|v| |Vector| F) (|lf| |List| F) ($ F))
+(SDEFUN |LINCOMB;lin_comb;VLF;2| ((|v| (|Vector| F)) (|lf| (|List| F)) ($ (F)))
         (SPROG
          ((|res| (F)) (#1=#:G130 NIL) (|i| NIL) (#2=#:G131 NIL) (|f| NIL))
          (SEQ (LETT |res| (|spadConstant| $ 16))
@@ -108,7 +110,7 @@
               (EXIT |res|)))) 
 
 (SDEFUN |LINCOMB;lin_comb;VLF;3|
-        ((|v| |Vector| (|Fraction| (|Integer|))) (|lf| |List| F) ($ F))
+        ((|v| (|Vector| (|Fraction| (|Integer|)))) (|lf| (|List| F)) ($ (F)))
         (SPROG
          ((|res| (F)) (#1=#:G135 NIL) (|i| NIL) (#2=#:G136 NIL) (|f| NIL))
          (SEQ (LETT |res| (|spadConstant| $ 16))
@@ -133,8 +135,8 @@
               (EXIT |res|)))) 
 
 (SDEFUN |LINCOMB;lin_comb!;2VLV;4|
-        ((|u| |Vector| F) (|v| |Vector| F) (|lw| |List| (|Vector| F))
-         ($ |Vector| F))
+        ((|u| (|Vector| F)) (|v| (|Vector| F)) (|lw| (|List| (|Vector| F)))
+         ($ (|Vector| F)))
         (SPROG
          ((#1=#:G144 NIL) (|j| NIL) (|c| (F)) (#2=#:G142 NIL) (|i| NIL)
           (#3=#:G143 NIL) (|w| NIL) (|n| (|NonNegativeInteger|))
@@ -168,7 +170,7 @@
               (EXIT |res|)))) 
 
 (SDEFUN |LINCOMB;lin_comb;VLV;5|
-        ((|u| |Vector| F) (|lw| |List| (|Vector| F)) ($ |Vector| F))
+        ((|u| (|Vector| F)) (|lw| (|List| (|Vector| F))) ($ (|Vector| F)))
         (SPROG ((|n| (|NonNegativeInteger|)))
                (SEQ (LETT |n| (QVSIZE (|SPADfirst| |lw|)))
                     (EXIT
@@ -176,7 +178,8 @@
                                (QREFELT $ 42)))))) 
 
 (SDEFUN |LINCOMB;lin_comb;VLF;6|
-        ((|v| |Vector| F) (|lf| |List| (|Fraction| UP)) ($ |Fraction| UP))
+        ((|v| (|Vector| F)) (|lf| (|List| (|Fraction| UP)))
+         ($ (|Fraction| UP)))
         (SPROG
          ((|res| (|Fraction| UP)) (#1=#:G150 NIL) (|i| NIL) (#2=#:G151 NIL)
           (|f| NIL))
@@ -202,8 +205,8 @@
               (EXIT |res|)))) 
 
 (SDEFUN |LINCOMB;lin_comb;VLF;7|
-        ((|v| |Vector| (|Fraction| (|Integer|))) (|lg| |List| (|Fraction| UP))
-         ($ |Fraction| UP))
+        ((|v| (|Vector| (|Fraction| (|Integer|))))
+         (|lg| (|List| (|Fraction| UP))) ($ (|Fraction| UP)))
         (SPROG
          ((|res| (|Fraction| UP)) (#1=#:G155 NIL) (|i| NIL) (#2=#:G156 NIL)
           (|g| NIL))
@@ -233,8 +236,8 @@
               (EXIT |res|)))) 
 
 (SDEFUN |LINCOMB;lin_comb;VLLp;8|
-        ((|v| |Vector| F) (|lf| |List| (|LaurentPolynomial| F UP))
-         ($ |LaurentPolynomial| F UP))
+        ((|v| (|Vector| F)) (|lf| (|List| (|LaurentPolynomial| F UP)))
+         ($ (|LaurentPolynomial| F UP)))
         (SPROG
          ((|res| (|LaurentPolynomial| F UP)) (#1=#:G160 NIL) (|i| NIL)
           (#2=#:G161 NIL) (|f| NIL))
@@ -259,7 +262,8 @@
                    (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
-(SDEFUN |LINCOMB;lin_comb;VLUP;9| ((|v| |Vector| F) (|lf| |List| UP) ($ UP))
+(SDEFUN |LINCOMB;lin_comb;VLUP;9|
+        ((|v| (|Vector| F)) (|lf| (|List| UP)) ($ (UP)))
         (SPROG
          ((|res| (UP)) (#1=#:G165 NIL) (|i| NIL) (#2=#:G166 NIL) (|f| NIL))
          (SEQ (LETT |res| (|spadConstant| $ 17))

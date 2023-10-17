@@ -1,20 +1,22 @@
 
 (SDEFUN |ODEEF;solve;EBoSU;1|
-        ((|diffeq| |Equation| F) (|y| |BasicOperator|) (|x| |Symbol|)
-         ($ |Union| (|Record| (|:| |particular| F) (|:| |basis| (|List| F))) F
-          "failed"))
+        ((|diffeq| (|Equation| F)) (|y| (|BasicOperator|)) (|x| (|Symbol|))
+         ($
+          (|Union| (|Record| (|:| |particular| F) (|:| |basis| (|List| F))) F
+                   "failed")))
         (SPADCALL
          (SPADCALL (SPADCALL |diffeq| (QREFELT $ 9))
                    (SPADCALL |diffeq| (QREFELT $ 10)) (QREFELT $ 11))
          |y| |x| (QREFELT $ 16))) 
 
 (SDEFUN |ODEEF;solve;LLSU;2|
-        ((|leq| |List| (|Equation| F)) (|lop| |List| (|BasicOperator|))
-         (|x| |Symbol|)
-         ($ |Union|
-          (|Record| (|:| |particular| (|Vector| F))
-                    (|:| |basis| (|List| (|Vector| F))))
-          "failed"))
+        ((|leq| (|List| (|Equation| F))) (|lop| (|List| (|BasicOperator|)))
+         (|x| (|Symbol|))
+         ($
+          (|Union|
+           (|Record| (|:| |particular| (|Vector| F))
+                     (|:| |basis| (|List| (|Vector| F))))
+           "failed")))
         (SPROG ((#1=#:G133 NIL) (|eq| NIL) (#2=#:G132 NIL))
                (SEQ
                 (SPADCALL
@@ -37,16 +39,16 @@
                  |lop| |x| (QREFELT $ 22))))) 
 
 (SDEFUN |ODEEF;solve;EBoELU;3|
-        ((|diffeq| |Equation| F) (|y| |BasicOperator|) (|center| |Equation| F)
-         (|y0| |List| F) ($ |Union| F "failed"))
+        ((|diffeq| (|Equation| F)) (|y| (|BasicOperator|))
+         (|center| (|Equation| F)) (|y0| (|List| F)) ($ (|Union| F "failed")))
         (SPADCALL
          (SPADCALL (SPADCALL |diffeq| (QREFELT $ 9))
                    (SPADCALL |diffeq| (QREFELT $ 10)) (QREFELT $ 11))
          |y| |center| |y0| (QREFELT $ 26))) 
 
 (SDEFUN |ODEEF;solve;MSU;4|
-        ((|m| |Matrix| F) (|x| |Symbol|)
-         ($ |Union| (|List| (|Vector| F)) "failed"))
+        ((|m| (|Matrix| F)) (|x| (|Symbol|))
+         ($ (|Union| (|List| (|Vector| F)) "failed")))
         (SPROG
          ((|u|
            (|Union|
@@ -62,11 +64,12 @@
                  ('T (CONS 0 (QCDR (QCDR |u|))))))))) 
 
 (SDEFUN |ODEEF;solve;MVSU;5|
-        ((|m| |Matrix| F) (|v| |Vector| F) (|x| |Symbol|)
-         ($ |Union|
-          (|Record| (|:| |particular| (|Vector| F))
-                    (|:| |basis| (|List| (|Vector| F))))
-          "failed"))
+        ((|m| (|Matrix| F)) (|v| (|Vector| F)) (|x| (|Symbol|))
+         ($
+          (|Union|
+           (|Record| (|:| |particular| (|Vector| F))
+                     (|:| |basis| (|List| (|Vector| F))))
+           "failed")))
         (SPROG
          ((#1=#:G170 NIL) (|i| NIL) (#2=#:G169 NIL)
           (|rec|
@@ -187,8 +190,8 @@
                                               (ELT $ 6) (ELT $ 7) |Lx|))))))) 
 
 (SDEFUN |ODEEF;solve;FBoELU;6|
-        ((|diffeq| F) (|y| |BasicOperator|) (|center| |Equation| F)
-         (|y0| |List| F) ($ |Union| F "failed"))
+        ((|diffeq| (F)) (|y| (|BasicOperator|)) (|center| (|Equation| F))
+         (|y0| (|List| F)) ($ (|Union| F "failed")))
         (SPROG
          ((|p| #1=(|SparseUnivariatePolynomial| F)) (|op| (|Lx|))
           (|Lx| (|LinearOrdinaryDifferentialOperatorCategory| F))
@@ -304,11 +307,12 @@
                                                          |Lx|))))))))))) 
 
 (SDEFUN |ODEEF;solve;LLSU;7|
-        ((|leq| |List| F) (|lop| |List| (|BasicOperator|)) (|x| |Symbol|)
-         ($ |Union|
-          (|Record| (|:| |particular| (|Vector| F))
-                    (|:| |basis| (|List| (|Vector| F))))
-          "failed"))
+        ((|leq| (|List| F)) (|lop| (|List| (|BasicOperator|))) (|x| (|Symbol|))
+         ($
+          (|Union|
+           (|Record| (|:| |particular| (|Vector| F))
+                     (|:| |basis| (|List| (|Vector| F))))
+           "failed")))
         (SPROG
          ((|rec| (|Record| (|:| |mat| (|Matrix| F)) (|:| |vec| (|Vector| F))))
           (|u|
@@ -326,9 +330,10 @@
                 ('T (|error| "solve: not a first order linear system"))))))) 
 
 (SDEFUN |ODEEF;solve;FBoSU;8|
-        ((|diffeq| F) (|y| |BasicOperator|) (|x| |Symbol|)
-         ($ |Union| (|Record| (|:| |particular| F) (|:| |basis| (|List| F))) F
-          "failed"))
+        ((|diffeq| (F)) (|y| (|BasicOperator|)) (|x| (|Symbol|))
+         ($
+          (|Union| (|Record| (|:| |particular| F) (|:| |basis| (|List| F))) F
+                   "failed")))
         (SPROG
          ((|uuu|
            (|Union| (|Record| (|:| |particular| F) (|:| |basis| (|List| F)))
@@ -428,10 +433,10 @@
                              (#3# (CONS 0 (QCDR |uuu|)))))))))))) 
 
 (SDEFUN |ODEEF;parseSYS|
-        ((|eqs| |List| F) (|ly| |List| (|BasicOperator|)) (|x| |Symbol|)
-         ($ |Union|
-          (|Record| (|:| |mat| (|Matrix| F)) (|:| |vec| (|Vector| F)))
-          "failed"))
+        ((|eqs| (|List| F)) (|ly| (|List| (|BasicOperator|))) (|x| (|Symbol|))
+         ($
+          (|Union| (|Record| (|:| |mat| (|Matrix| F)) (|:| |vec| (|Vector| F)))
+                   "failed")))
         (SPROG
          ((|rec|
            (|Record| (|:| |index| (|Integer|)) (|:| |row| (|Vector| F))
@@ -528,12 +533,13 @@
           #9# (EXIT #1#)))) 
 
 (SDEFUN |ODEEF;parseSYSeq|
-        ((|eq| F) (|l0| |List| (|Kernel| F)) (|l1| |List| (|Kernel| F))
-         (|lf| |List| F) (|x| |Symbol|)
-         ($ |Union|
-          (|Record| (|:| |index| (|Integer|)) (|:| |row| (|Vector| F))
-                    (|:| |rh| F))
-          "failed"))
+        ((|eq| (F)) (|l0| (|List| (|Kernel| F))) (|l1| (|List| (|Kernel| F)))
+         (|lf| (|List| F)) (|x| (|Symbol|))
+         ($
+          (|Union|
+           (|Record| (|:| |index| (|Integer|)) (|:| |row| (|Vector| F))
+                     (|:| |rh| F))
+           "failed")))
         (SPROG
          ((|ci| (F)) (#1=#:G270 NIL) (|y| NIL) (|i| NIL) (|v| (|Vector| F))
           (|c| (F)) (|n| (|Integer|)) (|k| (|Kernel| F))
@@ -542,21 +548,20 @@
           (LETT |l|
                 (PROGN
                  (LETT #3# NIL)
-                 (SEQ (LETT |k| NIL)
-                      (LETT #2#
-                            (SPADCALL (SPADCALL |eq| (QREFELT $ 65)) |x|
-                                      (QREFELT $ 68)))
-                      G190
-                      (COND
-                       ((OR (ATOM #2#) (PROGN (LETT |k| (CAR #2#)) NIL))
-                        (GO G191)))
-                      (SEQ
-                       (EXIT
-                        (COND
-                         ((SPADCALL |k| '|%diff| (QREFELT $ 69))
-                          (LETT #3# (CONS |k| #3#))))))
-                      (LETT #2# (CDR #2#)) (GO G190) G191
-                      (EXIT (NREVERSE #3#)))))
+                 (SEQ
+                  (LETT #2#
+                        (SPADCALL (SPADCALL |eq| (QREFELT $ 65)) |x|
+                                  (QREFELT $ 68)))
+                  G190
+                  (COND
+                   ((OR (ATOM #2#) (PROGN (LETT |k| (CAR #2#)) NIL))
+                    (GO G191)))
+                  (SEQ
+                   (EXIT
+                    (COND
+                     ((SPADCALL |k| '|%diff| (QREFELT $ 69))
+                      (LETT #3# (CONS |k| #3#))))))
+                  (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT (NREVERSE #3#)))))
           (COND
            ((OR (OR (NULL |l|) (NULL (NULL (CDR |l|))))
                 (ZEROP
@@ -591,11 +596,12 @@
           (EXIT (CONS 0 (VECTOR |n| |v| (SPADCALL |eq| (QREFELT $ 75)))))))) 
 
 (SDEFUN |ODEEF;parseODE|
-        ((|diffeq| F) (|y| |BasicOperator|) (|x| |Symbol|)
-         ($ |Union|
-          (|Record| (|:| |left| (|SparseUnivariatePolynomial| F))
-                    (|:| |right| F))
-          (|Record| (|:| |dx| F) (|:| |dy| F))))
+        ((|diffeq| (F)) (|y| (|BasicOperator|)) (|x| (|Symbol|))
+         ($
+          (|Union|
+           (|Record| (|:| |left| (|SparseUnivariatePolynomial| F))
+                     (|:| |right| F))
+           (|Record| (|:| |dx| F) (|:| |dy| F)))))
         (SPROG
          ((|eqrhs| (F)) (|d| (F)) (|u| (|Union| F "failed")) (|k| (|Kernel| F))
           (|l| (|List| (|Kernel| F))) (|ny| (|Symbol|)) (|c| (F)) (|f| (F))
@@ -605,20 +611,19 @@
           (LETT |f|
                 (SPADCALL |y| (SPADCALL |x| (QREFELT $ 45)) (QREFELT $ 46)))
           (LETT |l| (LIST (SPADCALL |f| (QREFELT $ 48)))) (LETT |n| 2)
-          (SEQ (LETT |k| NIL)
-               (LETT #3#
-                     (SPADCALL (SPADCALL |diffeq| (QREFELT $ 65)) |x|
-                               (QREFELT $ 68)))
-               G190
-               (COND
-                ((OR (ATOM #3#) (PROGN (LETT |k| (CAR #3#)) NIL)) (GO G191)))
-               (SEQ
-                (EXIT
-                 (COND
-                  ((SPADCALL |k| '|%diff| (QREFELT $ 69))
-                   (SEQ (LETT |m| (SPADCALL |k| (QREFELT $ 76)))
-                        (EXIT (COND ((> |m| |n|) (LETT |n| |m|)))))))))
-               (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
+          (SEQ
+           (LETT #3#
+                 (SPADCALL (SPADCALL |diffeq| (QREFELT $ 65)) |x|
+                           (QREFELT $ 68)))
+           G190
+           (COND ((OR (ATOM #3#) (PROGN (LETT |k| (CAR #3#)) NIL)) (GO G191)))
+           (SEQ
+            (EXIT
+             (COND
+              ((SPADCALL |k| '|%diff| (QREFELT $ 69))
+               (SEQ (LETT |m| (SPADCALL |k| (QREFELT $ 76)))
+                    (EXIT (COND ((> |m| |n|) (LETT |n| |m|)))))))))
+           (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
           (LETT |n|
                 (PROG1 (LETT #2# (- |n| 2))
                   (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
@@ -690,10 +695,11 @@
                        (EXIT (CONS 1 (CONS |diffeq| |c|)))))))))))))) 
 
 (SDEFUN |ODEEF;parseLODE|
-        ((|diffeq| F) (|l| |List| (|Kernel| F))
-         (|p| |SparseUnivariatePolynomial| F) (|y| |Symbol|)
-         ($ |Record| (|:| |left| (|SparseUnivariatePolynomial| F))
-          (|:| |right| F)))
+        ((|diffeq| (F)) (|l| (|List| (|Kernel| F)))
+         (|p| (|SparseUnivariatePolynomial| F)) (|y| (|Symbol|))
+         ($
+          (|Record| (|:| |left| (|SparseUnivariatePolynomial| F))
+                    (|:| |right| F))))
         (SPROG
          ((|d| (|Integer|)) (#1=#:G298 NIL) (|c| (F)) (#2=#:G303 NIL)
           (|k| NIL))
@@ -737,7 +743,8 @@
                     (|error|
                      "parseLODE: not a linear ordinary differential equation")))))))))) 
 
-(SDEFUN |ODEEF;getfreelincoeff| ((|f| F) (|k| |Kernel| F) (|y| |Symbol|) ($ F))
+(SDEFUN |ODEEF;getfreelincoeff|
+        ((|f| (F)) (|k| (|Kernel| F)) (|y| (|Symbol|)) ($ (F)))
         (SPROG ((|c| (F)))
                (COND
                 ((SPADCALL (LETT |c| (|ODEEF;getlincoeff| |f| |k| $)) |y|
@@ -748,7 +755,7 @@
                   "getfreelincoeff: not a linear ordinary differential equation"))))) 
 
 (SDEFUN |ODEEF;getfreelincoeff1|
-        ((|f| F) (|k| |Kernel| F) (|ly| |List| F) ($ F))
+        ((|f| (F)) (|k| (|Kernel| F)) (|ly| (|List| F)) ($ (F)))
         (SPROG ((#1=#:G310 NIL) (#2=#:G311 NIL) (|y| NIL) (|c| (F)))
                (SEQ (LETT |c| (|ODEEF;getlincoeff| |f| |k| $))
                     (SEQ
@@ -770,7 +777,7 @@
                      #3# (EXIT #1#))
                     (EXIT |c|)))) 
 
-(SDEFUN |ODEEF;getlincoeff| ((|f| F) (|k| |Kernel| F) ($ F))
+(SDEFUN |ODEEF;getlincoeff| ((|f| (F)) (|k| (|Kernel| F)) ($ (F)))
         (SPROG ((|u| (|Union| F "failed")))
                (SEQ (LETT |u| (|ODEEF;getcoeff| |f| |k| $))
                     (EXIT
@@ -780,7 +787,8 @@
                         "getlincoeff: not an appropriate ordinary differential equation"))
                       ('T (QCDR |u|))))))) 
 
-(SDEFUN |ODEEF;getcoeff| ((|f| F) (|k| |Kernel| F) ($ |Union| F "failed"))
+(SDEFUN |ODEEF;getcoeff|
+        ((|f| (F)) (|k| (|Kernel| F)) ($ (|Union| F "failed")))
         (SPROG
          ((#1=#:G327 NIL)
           (|p|

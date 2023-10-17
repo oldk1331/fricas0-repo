@@ -1,12 +1,12 @@
 
 (PUT '|PBWLB;One;$;1| '|SPADreplace| '(XLAM NIL NIL)) 
 
-(SDEFUN |PBWLB;One;$;1| (($ $)) NIL) 
+(SDEFUN |PBWLB;One;$;1| (($ ($))) NIL) 
 
-(SDEFUN |PBWLB;=;2$B;2| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |PBWLB;=;2$B;2| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPADCALL |x| |y| (QREFELT $ 10))) 
 
-(SDEFUN |PBWLB;varList;$L;3| ((|x| $) ($ |List| |VarSet|))
+(SDEFUN |PBWLB;varList;$L;3| ((|x| ($)) ($ (|List| |VarSet|)))
         (SPROG
          ((|le| #1=(|List| |VarSet|)) (#2=#:G115 NIL) (#3=#:G114 #1#)
           (#4=#:G116 #1#) (#5=#:G119 NIL) (|l| NIL))
@@ -34,32 +34,32 @@
 
 (PUT '|PBWLB;first;$Lw;4| '|SPADreplace| '|SPADfirst|) 
 
-(SDEFUN |PBWLB;first;$Lw;4| ((|x| $) ($ |LyndonWord| |VarSet|))
+(SDEFUN |PBWLB;first;$Lw;4| ((|x| ($)) ($ (|LyndonWord| |VarSet|)))
         (|SPADfirst| |x|)) 
 
 (PUT '|PBWLB;rest;2$;5| '|SPADreplace| 'CDR) 
 
-(SDEFUN |PBWLB;rest;2$;5| ((|x| $) ($ $)) (CDR |x|)) 
+(SDEFUN |PBWLB;rest;2$;5| ((|x| ($)) ($ ($))) (CDR |x|)) 
 
-(SDEFUN |PBWLB;coerce;VarSet$;6| ((|v| |VarSet|) ($ $))
+(SDEFUN |PBWLB;coerce;VarSet$;6| ((|v| (|VarSet|)) ($ ($)))
         (LIST (SPADCALL |v| (QREFELT $ 19)))) 
 
 (PUT '|PBWLB;coerce;Lw$;7| '|SPADreplace| 'LIST) 
 
-(SDEFUN |PBWLB;coerce;Lw$;7| ((|l| |LyndonWord| |VarSet|) ($ $)) (LIST |l|)) 
+(SDEFUN |PBWLB;coerce;Lw$;7| ((|l| (|LyndonWord| |VarSet|)) ($ ($))) (LIST |l|)) 
 
 (PUT '|PBWLB;listOfTerms;$L;8| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |PBWLB;listOfTerms;$L;8| ((|x| $) ($ |List| (|LyndonWord| |VarSet|)))
-        |x|) 
+(SDEFUN |PBWLB;listOfTerms;$L;8|
+        ((|x| ($)) ($ (|List| (|LyndonWord| |VarSet|)))) |x|) 
 
-(SDEFUN |PBWLB;coerce;$Fm;9| ((|x| $) ($ |FreeMonoid| |VarSet|))
+(SDEFUN |PBWLB;coerce;$Fm;9| ((|x| ($)) ($ (|FreeMonoid| |VarSet|)))
         (COND ((NULL |x|) (|spadConstant| $ 25))
               ('T
                (SPADCALL (SPADCALL (|SPADfirst| |x|) (QREFELT $ 26))
                          (SPADCALL (CDR |x|) (QREFELT $ 27)) (QREFELT $ 28))))) 
 
-(SDEFUN |PBWLB;coerce;$Of;10| ((|x| $) ($ |OutputForm|))
+(SDEFUN |PBWLB;coerce;$Of;10| ((|x| ($)) ($ (|OutputForm|)))
         (SPROG ((#1=#:G133 NIL) (|l| NIL) (#2=#:G132 NIL))
                (SEQ
                 (COND ((NULL |x|) (SPADCALL 1 (QREFELT $ 31)))
@@ -82,21 +82,21 @@
                                        (EXIT (NREVERSE #2#))))
                                  (QREFELT $ 36))))))) 
 
-(SDEFUN |PBWLB;retractable?;$B;11| ((|x| $) ($ |Boolean|))
+(SDEFUN |PBWLB;retractable?;$B;11| ((|x| ($)) ($ (|Boolean|)))
         (COND ((NULL |x|) NIL) ('T (NULL (CDR |x|))))) 
 
-(SDEFUN |PBWLB;retract;$Lw;12| ((|x| $) ($ |LyndonWord| |VarSet|))
+(SDEFUN |PBWLB;retract;$Lw;12| ((|x| ($)) ($ (|LyndonWord| |VarSet|)))
         (COND
          ((SPADCALL (LENGTH |x|) 1 (QREFELT $ 40))
           (|error| "cannot convert to Lyndon word"))
          ('T (|SPADfirst| |x|)))) 
 
 (SDEFUN |PBWLB;retractIfCan;$U;13|
-        ((|x| $) ($ |Union| (|LyndonWord| |VarSet|) "failed"))
+        ((|x| ($)) ($ (|Union| (|LyndonWord| |VarSet|) "failed")))
         (COND ((SPADCALL |x| (QREFELT $ 38)) (CONS 0 (|SPADfirst| |x|)))
               ('T (CONS 1 "failed")))) 
 
-(SDEFUN |PBWLB;length;$Nni;14| ((|x| $) ($ |NonNegativeInteger|))
+(SDEFUN |PBWLB;length;$Nni;14| ((|x| ($)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((#1=#:G149 NIL) (|n| #2=(|Integer|)) (#3=#:G147 NIL) (#4=#:G146 #2#)
           (#5=#:G148 #2#) (#6=#:G152 NIL) (|l| NIL))
@@ -121,7 +121,7 @@
              (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|) '(|Integer|)
                                #1#)))))) 
 
-(SDEFUN |PBWLB;recursif| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |PBWLB;recursif| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (COND ((NULL |y|) NIL) ((NULL |x|) 'T)
               ((SPADCALL (|SPADfirst| |x|) (|SPADfirst| |y|) (QREFELT $ 47))
                (|PBWLB;recursif| (SPADCALL |x| (QREFELT $ 18))
@@ -129,7 +129,7 @@
               ('T
                (SPADCALL (|SPADfirst| |x|) (|SPADfirst| |y|) (QREFELT $ 48))))) 
 
-(SDEFUN |PBWLB;<;2$B;16| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |PBWLB;<;2$B;16| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPROG ((|ly| #1=(|NonNegativeInteger|)) (|lx| #1#))
                (SEQ (LETT |lx| (SPADCALL |x| (QREFELT $ 46)))
                     (LETT |ly| (SPADCALL |y| (QREFELT $ 46)))

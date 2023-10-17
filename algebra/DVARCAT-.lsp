@@ -1,28 +1,29 @@
 
-(SDEFUN |DVARCAT-;coerce;SA;1| ((|s| S) ($ A)) (SPADCALL |s| 0 (QREFELT $ 9))) 
+(SDEFUN |DVARCAT-;coerce;SA;1| ((|s| (S)) ($ (A)))
+        (SPADCALL |s| 0 (QREFELT $ 9))) 
 
-(SDEFUN |DVARCAT-;differentiate;2A;2| ((|v| A) ($ A))
+(SDEFUN |DVARCAT-;differentiate;2A;2| ((|v| (A)) ($ (A)))
         (SPADCALL |v| 1 (QREFELT $ 11))) 
 
 (SDEFUN |DVARCAT-;differentiate;ANniA;3|
-        ((|v| A) (|n| |NonNegativeInteger|) ($ A))
+        ((|v| (A)) (|n| (|NonNegativeInteger|)) ($ (A)))
         (SPADCALL (SPADCALL |v| (QREFELT $ 13))
                   (+ |n| (SPADCALL |v| (QREFELT $ 14))) (QREFELT $ 9))) 
 
-(SDEFUN |DVARCAT-;retractIfCan;AU;4| ((|v| A) ($ |Union| S "failed"))
+(SDEFUN |DVARCAT-;retractIfCan;AU;4| ((|v| (A)) ($ (|Union| S "failed")))
         (COND
          ((ZEROP (SPADCALL |v| (QREFELT $ 14)))
           (CONS 0 (SPADCALL |v| (QREFELT $ 13))))
          ('T (CONS 1 "failed")))) 
 
-(SDEFUN |DVARCAT-;=;2AB;5| ((|v| A) (|u| A) ($ |Boolean|))
+(SDEFUN |DVARCAT-;=;2AB;5| ((|v| (A)) (|u| (A)) ($ (|Boolean|)))
         (COND
          ((SPADCALL (SPADCALL |v| (QREFELT $ 13)) (SPADCALL |u| (QREFELT $ 13))
                     (QREFELT $ 19))
           (EQL (SPADCALL |v| (QREFELT $ 14)) (SPADCALL |u| (QREFELT $ 14))))
          ('T NIL))) 
 
-(SDEFUN |DVARCAT-;coerce;AOf;6| ((|v| A) ($ |OutputForm|))
+(SDEFUN |DVARCAT-;coerce;AOf;6| ((|v| (A)) ($ (|OutputForm|)))
         (SPROG ((|nn| (|Integer|)) (|a| (|OutputForm|)))
                (SEQ
                 (LETT |a|
@@ -33,19 +34,19 @@
                         (SPADCALL |a| (SPADCALL |nn| (QREFELT $ 24))
                                   (QREFELT $ 25)))))))) 
 
-(SDEFUN |DVARCAT-;retract;AS;7| ((|v| A) ($ S))
+(SDEFUN |DVARCAT-;retract;AS;7| ((|v| (A)) ($ (S)))
         (COND
          ((ZEROP (SPADCALL |v| (QREFELT $ 14))) (SPADCALL |v| (QREFELT $ 13)))
          ('T (|error| "Not retractable")))) 
 
-(SDEFUN |DVARCAT-;<;2AB;8| ((|v| A) (|u| A) ($ |Boolean|))
+(SDEFUN |DVARCAT-;<;2AB;8| ((|v| (A)) (|u| (A)) ($ (|Boolean|)))
         (COND
          ((EQL (SPADCALL |v| (QREFELT $ 14)) (SPADCALL |u| (QREFELT $ 14)))
           (SPADCALL (SPADCALL |v| (QREFELT $ 13)) (SPADCALL |u| (QREFELT $ 13))
                     (QREFELT $ 28)))
          ('T (< (SPADCALL |v| (QREFELT $ 14)) (SPADCALL |u| (QREFELT $ 14)))))) 
 
-(SDEFUN |DVARCAT-;weight;ANni;9| ((|v| A) ($ |NonNegativeInteger|))
+(SDEFUN |DVARCAT-;weight;ANni;9| ((|v| (A)) ($ (|NonNegativeInteger|)))
         (SPADCALL |v| (QREFELT $ 14))) 
 
 (DECLAIM (NOTINLINE |DifferentialVariableCategory&;|)) 

@@ -1,5 +1,5 @@
 
-(SDEFUN |VIEW3D;checkViewport| ((|viewport| $) ($ |Boolean|))
+(SDEFUN |VIEW3D;checkViewport| ((|viewport| ($)) ($ (|Boolean|)))
         (SPROG ((|i| (|Integer|)))
                (SEQ (|sockSendInt| |$ViewportServer| (QVELT |viewport| 0))
                     (LETT |i| (|sockGetInt| |$ViewportServer|))
@@ -12,7 +12,7 @@
                               "This viewport has already been closed!"))))
                       ('T 'T)))))) 
 
-(SDEFUN |VIEW3D;doOptions| ((|v| |Rep|) ($ |Void|))
+(SDEFUN |VIEW3D;doOptions| ((|v| (|Rep|)) ($ (|Void|)))
         (SPROG ((|st| (|String|)))
                (SEQ
                 (QSETVELT |v| 2
@@ -35,7 +35,7 @@
                                              (QREFELT $ 22) (QREFELT $ 23))
                                      (QREFELT $ 30))))))) 
 
-(SDEFUN |VIEW3D;viewport3D;$;3| (($ $))
+(SDEFUN |VIEW3D;viewport3D;$;3| (($ ($)))
         (VECTOR 0 1 "FriCAS3D"
                 (CONS (SPADCALL (SPADCALL (QREFELT $ 33)) 1 (QREFELT $ 35))
                       (SPADCALL (SPADCALL (QREFELT $ 33)) 2 (QREFELT $ 35)))
@@ -54,27 +54,28 @@
      '(XLAM (|viewport|) (QVELT |viewport| 11))) 
 
 (SDEFUN |VIEW3D;subspace;$Ts;4|
-        ((|viewport| $) ($ |ThreeSpace| (|DoubleFloat|))) (QVELT |viewport| 11)) 
+        ((|viewport| ($)) ($ (|ThreeSpace| (|DoubleFloat|))))
+        (QVELT |viewport| 11)) 
 
 (SDEFUN |VIEW3D;subspace;$Ts$;5|
-        ((|viewport| $) (|space| |ThreeSpace| (|DoubleFloat|)) ($ $))
+        ((|viewport| ($)) (|space| (|ThreeSpace| (|DoubleFloat|))) ($ ($)))
         (SEQ (QSETVELT |viewport| 11 |space|) (EXIT |viewport|))) 
 
 (PUT '|VIEW3D;options;$L;6| '|SPADreplace|
      '(XLAM (|viewport|) (QVELT |viewport| 12))) 
 
-(SDEFUN |VIEW3D;options;$L;6| ((|viewport| $) ($ |List| (|DrawOption|)))
+(SDEFUN |VIEW3D;options;$L;6| ((|viewport| ($)) ($ (|List| (|DrawOption|))))
         (QVELT |viewport| 12)) 
 
 (SDEFUN |VIEW3D;options;$L$;7|
-        ((|viewport| $) (|opts| |List| (|DrawOption|)) ($ $))
+        ((|viewport| ($)) (|opts| (|List| (|DrawOption|))) ($ ($)))
         (SEQ (QSETVELT |viewport| 12 |opts|) (EXIT |viewport|))) 
 
-(SDEFUN |VIEW3D;makeViewport3D;2$;8| ((|viewport| $) ($ $))
+(SDEFUN |VIEW3D;makeViewport3D;2$;8| ((|viewport| ($)) ($ ($)))
         (|VIEW3D;makeViewport3D0| (MOVEVEC (MAKE_VEC 13) |viewport|) $)) 
 
 (SDEFUN |VIEW3D;makeViewport3D;TsS$;9|
-        ((|space| |ThreeSpace| (|DoubleFloat|)) (|Title| |String|) ($ $))
+        ((|space| (|ThreeSpace| (|DoubleFloat|))) (|Title| (|String|)) ($ ($)))
         (SPROG ((|v| ($)))
                (SEQ (LETT |v| (SPADCALL (QREFELT $ 41)))
                     (QSETVELT |v| 11 |space|)
@@ -82,14 +83,14 @@
                     (EXIT (|VIEW3D;makeViewport3D0| |v| $))))) 
 
 (SDEFUN |VIEW3D;makeViewport3D;TsL$;10|
-        ((|space| |ThreeSpace| (|DoubleFloat|)) (|opts| |List| (|DrawOption|))
-         ($ $))
+        ((|space| (|ThreeSpace| (|DoubleFloat|)))
+         (|opts| (|List| (|DrawOption|))) ($ ($)))
         (SPROG ((|v| ($)))
                (SEQ (LETT |v| (SPADCALL (QREFELT $ 41)))
                     (QSETVELT |v| 11 |space|) (QSETVELT |v| 12 |opts|)
                     (EXIT (|VIEW3D;makeViewport3D0| |v| $))))) 
 
-(SDEFUN |VIEW3D;makeViewport3D0| ((|viewport| $) ($ $))
+(SDEFUN |VIEW3D;makeViewport3D0| ((|viewport| ($)) ($ ($)))
         (SPROG
          ((#1=#:G225 NIL) (|oneIndexedPoint| NIL) (#2=#:G223 NIL)
           (|alipts| NIL) (#3=#:G224 NIL) (|tinyprop| NIL) (#4=#:G220 NIL)
@@ -315,39 +316,39 @@
                                     (|sockGetInt| |$ViewportServer|))
                           (EXIT |viewport|)))))))))))) 
 
-(SDEFUN |VIEW3D;viewThetaDefault;F;12| (($ |Float|))
+(SDEFUN |VIEW3D;viewThetaDefault;F;12| (($ (|Float|)))
         (SPADCALL (QREFELT $ 18) (QREFELT $ 85))) 
 
-(SDEFUN |VIEW3D;viewThetaDefault;2F;13| ((|t| |Float|) ($ |Float|))
+(SDEFUN |VIEW3D;viewThetaDefault;2F;13| ((|t| (|Float|)) ($ (|Float|)))
         (SEQ (SETELT $ 18 (SPADCALL |t| (QREFELT $ 17))) (EXIT |t|))) 
 
-(SDEFUN |VIEW3D;viewPhiDefault;F;14| (($ |Float|))
+(SDEFUN |VIEW3D;viewPhiDefault;F;14| (($ (|Float|)))
         (SPADCALL (QREFELT $ 20) (QREFELT $ 85))) 
 
-(SDEFUN |VIEW3D;viewPhiDefault;2F;15| ((|t| |Float|) ($ |Float|))
+(SDEFUN |VIEW3D;viewPhiDefault;2F;15| ((|t| (|Float|)) ($ (|Float|)))
         (SEQ (SETELT $ 20 (SPADCALL |t| (QREFELT $ 17))) (EXIT |t|))) 
 
-(SDEFUN |VIEW3D;viewZoomDefault;F;16| (($ |Float|))
+(SDEFUN |VIEW3D;viewZoomDefault;F;16| (($ (|Float|)))
         (SPADCALL (QREFELT $ 21) (QREFELT $ 85))) 
 
-(SDEFUN |VIEW3D;viewZoomDefault;2F;17| ((|t| |Float|) ($ |Float|))
+(SDEFUN |VIEW3D;viewZoomDefault;2F;17| ((|t| (|Float|)) ($ (|Float|)))
         (SEQ (SETELT $ 21 (SPADCALL |t| (QREFELT $ 17))) (EXIT |t|))) 
 
-(SDEFUN |VIEW3D;viewDeltaXDefault;F;18| (($ |Float|))
+(SDEFUN |VIEW3D;viewDeltaXDefault;F;18| (($ (|Float|)))
         (SPADCALL (QREFELT $ 22) (QREFELT $ 85))) 
 
-(SDEFUN |VIEW3D;viewDeltaXDefault;2F;19| ((|t| |Float|) ($ |Float|))
+(SDEFUN |VIEW3D;viewDeltaXDefault;2F;19| ((|t| (|Float|)) ($ (|Float|)))
         (SEQ (SETELT $ 22 (SPADCALL |t| (QREFELT $ 17))) (EXIT |t|))) 
 
-(SDEFUN |VIEW3D;viewDeltaYDefault;F;20| (($ |Float|))
+(SDEFUN |VIEW3D;viewDeltaYDefault;F;20| (($ (|Float|)))
         (SPADCALL (QREFELT $ 23) (QREFELT $ 85))) 
 
-(SDEFUN |VIEW3D;viewDeltaYDefault;2F;21| ((|t| |Float|) ($ |Float|))
+(SDEFUN |VIEW3D;viewDeltaYDefault;2F;21| ((|t| (|Float|)) ($ (|Float|)))
         (SEQ (SETELT $ 23 (SPADCALL |t| (QREFELT $ 17))) (EXIT |t|))) 
 
 (SDEFUN |VIEW3D;lighting;$3FV;22|
-        ((|viewport| $) (|Xlight| |Float|) (|Ylight| |Float|)
-         (|Zlight| |Float|) ($ |Void|))
+        ((|viewport| ($)) (|Xlight| (|Float|)) (|Ylight| (|Float|))
+         (|Zlight| (|Float|)) ($ (|Void|)))
         (SPROG ((#1=#:G246 NIL))
                (SEQ
                 (EXIT
@@ -384,7 +385,8 @@
                       (GO #2=#:G244)))))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |VIEW3D;axes;$SV;23| ((|viewport| $) (|onOff| |String|) ($ |Void|))
+(SDEFUN |VIEW3D;axes;$SV;23|
+        ((|viewport| ($)) (|onOff| (|String|)) ($ (|Void|)))
         (SPROG ((#1=#:G252 NIL))
                (SEQ
                 (EXIT
@@ -413,7 +415,7 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;diagonals;$SV;24|
-        ((|viewport| $) (|onOff| |String|) ($ |Void|))
+        ((|viewport| ($)) (|onOff| (|String|)) ($ (|Void|)))
         (SPROG ((#1=#:G258 NIL))
                (SEQ
                 (EXIT
@@ -442,7 +444,7 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;outlineRender;$SV;25|
-        ((|viewport| $) (|onOff| |String|) ($ |Void|))
+        ((|viewport| ($)) (|onOff| (|String|)) ($ (|Void|)))
         (SPROG ((#1=#:G264 NIL))
                (SEQ
                 (EXIT
@@ -471,7 +473,7 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;controlPanel;$SV;26|
-        ((|viewport| $) (|onOff| |String|) ($ |Void|))
+        ((|viewport| ($)) (|onOff| (|String|)) ($ (|Void|)))
         (SPROG ((#1=#:G270 NIL))
                (SEQ
                 (EXIT
@@ -499,7 +501,8 @@
                       (GO #2=#:G268)))))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |VIEW3D;drawStyle;$SV;27| ((|viewport| $) (|how| |String|) ($ |Void|))
+(SDEFUN |VIEW3D;drawStyle;$SV;27|
+        ((|viewport| ($)) (|how| (|String|)) ($ (|Void|)))
         (SPROG ((#1=#:G275 NIL))
                (SEQ
                 (EXIT
@@ -528,7 +531,7 @@
                       (GO #2=#:G273)))))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |VIEW3D;reset;$V;28| ((|viewport| $) ($ |Void|))
+(SDEFUN |VIEW3D;reset;$V;28| ((|viewport| ($)) ($ (|Void|)))
         (SEQ
          (COND
           ((SPADCALL (SPADCALL |viewport| (QREFELT $ 96)) 0 (QREFELT $ 97))
@@ -541,7 +544,7 @@
                         (EXIT (|sockGetInt| |$ViewportServer|))))))))
           ('T (SPADCALL (QREFELT $ 104)))))) 
 
-(SDEFUN |VIEW3D;close;$V;29| ((|viewport| $) ($ |Void|))
+(SDEFUN |VIEW3D;close;$V;29| ((|viewport| ($)) ($ (|Void|)))
         (SEQ
          (COND
           ((SPADCALL (SPADCALL |viewport| (QREFELT $ 96)) 0 (QREFELT $ 97))
@@ -555,11 +558,15 @@
           ('T (SPADCALL (QREFELT $ 104)))))) 
 
 (SDEFUN |VIEW3D;viewpoint;$R;30|
-        ((|viewport| $)
-         ($ |Record| (|:| |theta| (|DoubleFloat|)) (|:| |phi| (|DoubleFloat|))
-          (|:| |scale| (|DoubleFloat|)) (|:| |scaleX| (|DoubleFloat|))
-          (|:| |scaleY| (|DoubleFloat|)) (|:| |scaleZ| (|DoubleFloat|))
-          (|:| |deltaX| (|DoubleFloat|)) (|:| |deltaY| (|DoubleFloat|))))
+        ((|viewport| ($))
+         ($
+          (|Record| (|:| |theta| (|DoubleFloat|)) (|:| |phi| (|DoubleFloat|))
+                    (|:| |scale| (|DoubleFloat|))
+                    (|:| |scaleX| (|DoubleFloat|))
+                    (|:| |scaleY| (|DoubleFloat|))
+                    (|:| |scaleZ| (|DoubleFloat|))
+                    (|:| |deltaX| (|DoubleFloat|))
+                    (|:| |deltaY| (|DoubleFloat|)))))
         (SPROG
          ((|phi_sf| (|DoubleFloat|)) (|theta_sf| (|DoubleFloat|))
           (|scaleZ_sf| (|DoubleFloat|)) (|scaleY_sf| (|DoubleFloat|))
@@ -591,13 +598,16 @@
            (#1# (QVELT |viewport| 5)))))) 
 
 (SDEFUN |VIEW3D;viewpoint;$RV;31|
-        ((|viewport| $)
-         (|viewpt| |Record| (|:| |theta| (|DoubleFloat|))
-          (|:| |phi| (|DoubleFloat|)) (|:| |scale| (|DoubleFloat|))
-          (|:| |scaleX| (|DoubleFloat|)) (|:| |scaleY| (|DoubleFloat|))
-          (|:| |scaleZ| (|DoubleFloat|)) (|:| |deltaX| (|DoubleFloat|))
-          (|:| |deltaY| (|DoubleFloat|)))
-         ($ |Void|))
+        ((|viewport| ($))
+         (|viewpt|
+          (|Record| (|:| |theta| (|DoubleFloat|)) (|:| |phi| (|DoubleFloat|))
+                    (|:| |scale| (|DoubleFloat|))
+                    (|:| |scaleX| (|DoubleFloat|))
+                    (|:| |scaleY| (|DoubleFloat|))
+                    (|:| |scaleZ| (|DoubleFloat|))
+                    (|:| |deltaX| (|DoubleFloat|))
+                    (|:| |deltaY| (|DoubleFloat|))))
+         ($ (|Void|)))
         (SPROG ((#1=#:G296 NIL))
                (SEQ
                 (EXIT
@@ -653,8 +663,9 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;viewpoint;$5FV;32|
-        ((|viewport| $) (|Theta| |Float|) (|Phi| |Float|) (|Scale| |Float|)
-         (|DeltaX| |Float|) (|DeltaY| |Float|) ($ |Void|))
+        ((|viewport| ($)) (|Theta| (|Float|)) (|Phi| (|Float|))
+         (|Scale| (|Float|)) (|DeltaX| (|Float|)) (|DeltaY| (|Float|))
+         ($ (|Void|)))
         (QSETVELT |viewport| 5
                   (VECTOR (SPADCALL |Theta| (QREFELT $ 17))
                           (SPADCALL |Phi| (QREFELT $ 17))
@@ -663,8 +674,9 @@
                           (SPADCALL |DeltaY| (QREFELT $ 17))))) 
 
 (SDEFUN |VIEW3D;viewpoint;$2I3FV;33|
-        ((|viewport| $) (|Theta| |Integer|) (|Phi| |Integer|) (|Scale| |Float|)
-         (|DeltaX| |Float|) (|DeltaY| |Float|) ($ |Void|))
+        ((|viewport| ($)) (|Theta| (|Integer|)) (|Phi| (|Integer|))
+         (|Scale| (|Float|)) (|DeltaX| (|Float|)) (|DeltaY| (|Float|))
+         ($ (|Void|)))
         (QSETVELT |viewport| 5
                   (VECTOR
                    (|mul_DF| (FLOAT |Theta| MOST-POSITIVE-DOUBLE-FLOAT)
@@ -676,14 +688,15 @@
                    (SPADCALL |DeltaY| (QREFELT $ 17))))) 
 
 (SDEFUN |VIEW3D;viewpoint;$2FV;34|
-        ((|viewport| $) (|Theta| |Float|) (|Phi| |Float|) ($ |Void|))
+        ((|viewport| ($)) (|Theta| (|Float|)) (|Phi| (|Float|)) ($ (|Void|)))
         (SEQ
          (QSETVELT (QVELT |viewport| 5) 0 (SPADCALL |Theta| (QREFELT $ 17)))
          (EXIT
           (QSETVELT (QVELT |viewport| 5) 1 (SPADCALL |Phi| (QREFELT $ 17)))))) 
 
 (SDEFUN |VIEW3D;viewpoint;$3FV;35|
-        ((|viewport| $) (X |Float|) (Y |Float|) (Z |Float|) ($ |Void|))
+        ((|viewport| ($)) (X (|Float|)) (Y (|Float|)) (Z (|Float|))
+         ($ (|Void|)))
         (SPROG ((|Phi| #1=(|Float|)) (|Theta| #1#) (R (|Float|)))
                (SEQ
                 (COND
@@ -748,7 +761,8 @@
                                       (QREFELT $ 119)))))))))
                 (EXIT (SPADCALL |viewport| |Theta| |Phi| (QREFELT $ 120)))))) 
 
-(SDEFUN |VIEW3D;title;$SV;36| ((|viewport| $) (|Title| |String|) ($ |Void|))
+(SDEFUN |VIEW3D;title;$SV;36|
+        ((|viewport| ($)) (|Title| (|String|)) ($ (|Void|)))
         (SPROG ((#1=#:G313 NIL))
                (SEQ
                 (EXIT
@@ -774,7 +788,8 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;colorDef;$2CV;37|
-        ((|viewport| $) (|HueOffset| |Color|) (|HueNumber| |Color|) ($ |Void|))
+        ((|viewport| ($)) (|HueOffset| (|Color|)) (|HueNumber| (|Color|))
+         ($ (|Void|)))
         (SPROG ((#1=#:G320 NIL) (|h| (|Integer|)))
                (SEQ
                 (EXIT
@@ -807,15 +822,15 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;dimensions;$2Nni2PiV;38|
-        ((|viewport| $) (|ViewX| |NonNegativeInteger|)
-         (|ViewY| |NonNegativeInteger|) (|ViewWidth| |PositiveInteger|)
-         (|ViewHeight| |PositiveInteger|) ($ |Void|))
+        ((|viewport| ($)) (|ViewX| (|NonNegativeInteger|))
+         (|ViewY| (|NonNegativeInteger|)) (|ViewWidth| (|PositiveInteger|))
+         (|ViewHeight| (|PositiveInteger|)) ($ (|Void|)))
         (SEQ (QSETVELT |viewport| 3 (CONS |ViewX| |ViewY|))
              (EXIT (QSETVELT |viewport| 4 (CONS |ViewWidth| |ViewHeight|))))) 
 
 (SDEFUN |VIEW3D;move;$2NniV;39|
-        ((|viewport| $) (|xLoc| |NonNegativeInteger|)
-         (|yLoc| |NonNegativeInteger|) ($ |Void|))
+        ((|viewport| ($)) (|xLoc| (|NonNegativeInteger|))
+         (|yLoc| (|NonNegativeInteger|)) ($ (|Void|)))
         (SPROG ((#1=#:G331 NIL))
                (SEQ
                 (EXIT
@@ -843,8 +858,8 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;resize;$2PiV;40|
-        ((|viewport| $) (|xSize| |PositiveInteger|) (|ySize| |PositiveInteger|)
-         ($ |Void|))
+        ((|viewport| ($)) (|xSize| (|PositiveInteger|))
+         (|ySize| (|PositiveInteger|)) ($ (|Void|)))
         (SPROG ((#1=#:G338 NIL))
                (SEQ
                 (EXIT
@@ -871,7 +886,7 @@
                           (GO #2=#:G336)))))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |VIEW3D;coerce;$Of;41| ((|viewport| $) ($ |OutputForm|))
+(SDEFUN |VIEW3D;coerce;$Of;41| ((|viewport| ($)) ($ (|OutputForm|)))
         (COND
          ((EQL (SPADCALL |viewport| (QREFELT $ 96)) 0)
           (SPADCALL
@@ -889,10 +904,12 @@
 (PUT '|VIEW3D;key;$I;42| '|SPADreplace|
      '(XLAM (|viewport|) (QVELT |viewport| 0))) 
 
-(SDEFUN |VIEW3D;key;$I;42| ((|viewport| $) ($ |Integer|)) (QVELT |viewport| 0)) 
+(SDEFUN |VIEW3D;key;$I;42| ((|viewport| ($)) ($ (|Integer|)))
+        (QVELT |viewport| 0)) 
 
 (SDEFUN |VIEW3D;rotate;$2IV;43|
-        ((|viewport| $) (|Theta| |Integer|) (|Phi| |Integer|) ($ |Void|))
+        ((|viewport| ($)) (|Theta| (|Integer|)) (|Phi| (|Integer|))
+         ($ (|Void|)))
         (SPADCALL |viewport|
                   (SPADCALL (SPADCALL |Theta| (QREFELT $ 118)) (QREFELT $ 14)
                             (QREFELT $ 114))
@@ -901,7 +918,7 @@
                   (QREFELT $ 120))) 
 
 (SDEFUN |VIEW3D;rotate;$2FV;44|
-        ((|viewport| $) (|Theta| |Float|) (|Phi| |Float|) ($ |Void|))
+        ((|viewport| ($)) (|Theta| (|Float|)) (|Phi| (|Float|)) ($ (|Void|)))
         (SPROG ((#1=#:G349 NIL))
                (SEQ
                 (EXIT
@@ -933,7 +950,8 @@
                       (GO #2=#:G347)))))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |VIEW3D;zoom;$FV;45| ((|viewport| $) (|Scale| |Float|) ($ |Void|))
+(SDEFUN |VIEW3D;zoom;$FV;45|
+        ((|viewport| ($)) (|Scale| (|Float|)) ($ (|Void|)))
         (SPROG ((#1=#:G355 NIL))
                (SEQ
                 (EXIT
@@ -961,8 +979,8 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;zoom;$3FV;46|
-        ((|viewport| $) (|ScaleX| |Float|) (|ScaleY| |Float|)
-         (|ScaleZ| |Float|) ($ |Void|))
+        ((|viewport| ($)) (|ScaleX| (|Float|)) (|ScaleY| (|Float|))
+         (|ScaleZ| (|Float|)) ($ (|Void|)))
         (SPROG ((#1=#:G361 NIL))
                (SEQ
                 (EXIT
@@ -1000,7 +1018,8 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;translate;$2FV;47|
-        ((|viewport| $) (|DeltaX| |Float|) (|DeltaY| |Float|) ($ |Void|))
+        ((|viewport| ($)) (|DeltaX| (|Float|)) (|DeltaY| (|Float|))
+         ($ (|Void|)))
         (SPROG ((#1=#:G367 NIL))
                (SEQ
                 (EXIT
@@ -1033,7 +1052,7 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;intensity;$FV;48|
-        ((|viewport| $) (|Amount| |Float|) ($ |Void|))
+        ((|viewport| ($)) (|Amount| (|Float|)) ($ (|Void|)))
         (SPROG ((#1=#:G375 NIL))
                (SEQ
                 (EXIT
@@ -1067,18 +1086,18 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;write;$3S;49|
-        ((|viewport| $) (|Filename| |String|) (|aThingToWrite| |String|)
-         ($ |String|))
+        ((|viewport| ($)) (|Filename| (|String|)) (|aThingToWrite| (|String|))
+         ($ (|String|)))
         (SPADCALL |viewport| |Filename| (LIST |aThingToWrite|) (QREFELT $ 143))) 
 
 (SDEFUN |VIEW3D;write;$2S;50|
-        ((|viewport| $) (|Filename| |String|) ($ |String|))
+        ((|viewport| ($)) (|Filename| (|String|)) ($ (|String|)))
         (SPADCALL |viewport| |Filename| (SPADCALL (QREFELT $ 145))
                   (QREFELT $ 143))) 
 
 (SDEFUN |VIEW3D;write;$SLS;51|
-        ((|viewport| $) (|Filename| |String|)
-         (|thingsToWrite| |List| (|String|)) ($ |String|))
+        ((|viewport| ($)) (|Filename| (|String|))
+         (|thingsToWrite| (|List| (|String|))) ($ (|String|)))
         (SPROG
          ((#1=#:G388 NIL) (|writeTypeInt| (|Integer|)) (#2=#:G389 NIL)
           (|aTypeOfFile| NIL) (|m| (|Integer|)) (|avail| (|List| (|String|)))
@@ -1141,7 +1160,7 @@
           #3# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;perspective;$SV;52|
-        ((|viewport| $) (|onOff| |String|) ($ |Void|))
+        ((|viewport| ($)) (|onOff| (|String|)) ($ (|Void|)))
         (SPROG ((#1=#:G395 NIL))
                (SEQ
                 (EXIT
@@ -1170,7 +1189,7 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;showRegion;$SV;53|
-        ((|viewport| $) (|onOff| |String|) ($ |Void|))
+        ((|viewport| ($)) (|onOff| (|String|)) ($ (|Void|)))
         (SPROG ((#1=#:G401 NIL))
                (SEQ
                 (EXIT
@@ -1199,7 +1218,7 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;showClipRegion;$SV;54|
-        ((|viewport| $) (|onOff| |String|) ($ |Void|))
+        ((|viewport| ($)) (|onOff| (|String|)) ($ (|Void|)))
         (SPROG ((#1=#:G407 NIL))
                (SEQ
                 (EXIT
@@ -1228,7 +1247,7 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;clipSurface;$SV;55|
-        ((|viewport| $) (|onOff| |String|) ($ |Void|))
+        ((|viewport| ($)) (|onOff| (|String|)) ($ (|Void|)))
         (SPROG ((#1=#:G413 NIL))
                (SEQ
                 (EXIT
@@ -1257,7 +1276,7 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;eyeDistance;$FV;56|
-        ((|viewport| $) (|EyeDistance| |Float|) ($ |Void|))
+        ((|viewport| ($)) (|EyeDistance| (|Float|)) ($ (|Void|)))
         (SPROG ((#1=#:G419 NIL))
                (SEQ
                 (EXIT
@@ -1285,7 +1304,7 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;hitherPlane;$FV;57|
-        ((|viewport| $) (|HitherPlane| |Float|) ($ |Void|))
+        ((|viewport| ($)) (|HitherPlane| (|Float|)) ($ (|Void|)))
         (SPROG ((#1=#:G425 NIL))
                (SEQ
                 (EXIT
@@ -1313,8 +1332,8 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;modifyPointData;$NniPV;58|
-        ((|viewport| $) (|anIndex| |NonNegativeInteger|)
-         (|aPoint| |Point| (|DoubleFloat|)) ($ |Void|))
+        ((|viewport| ($)) (|anIndex| (|NonNegativeInteger|))
+         (|aPoint| (|Point| (|DoubleFloat|))) ($ (|Void|)))
         (SPROG ((#1=#:G432 NIL) (|n| (|PositiveInteger|)))
                (SEQ (LETT |n| (SPADCALL |aPoint| (QREFELT $ 70)))
                     (EXIT

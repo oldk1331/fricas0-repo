@@ -1,25 +1,26 @@
 
 (SDEFUN |INTTR;logprmderiv|
-        ((|f| |Fraction| UP) (|derivation| |Mapping| UP UP) ($ |Fraction| UP))
+        ((|f| (|Fraction| UP)) (|derivation| (|Mapping| UP UP))
+         ($ (|Fraction| UP)))
         (SPADCALL (SPADCALL |f| |derivation| (QREFELT $ 12)) |f|
                   (QREFELT $ 13))) 
 
-(SDEFUN |INTTR;UP2UP2| ((|p| UP) ($ |SparseUnivariatePolynomial| UP))
+(SDEFUN |INTTR;UP2UP2| ((|p| (UP)) ($ (|SparseUnivariatePolynomial| UP)))
         (SPADCALL (ELT $ 14) |p| (QREFELT $ 18))) 
 
 (SDEFUN |INTTR;UP2UPR|
-        ((|p| UP) ($ |SparseUnivariatePolynomial| (|Fraction| UP)))
+        ((|p| (UP)) ($ (|SparseUnivariatePolynomial| (|Fraction| UP))))
         (SPADCALL (CONS #'|INTTR;UP2UPR!0| $) |p| (QREFELT $ 23))) 
 
 (SDEFUN |INTTR;UP2UPR!0| ((|x1| NIL) ($ NIL))
         (SPADCALL (SPADCALL |x1| (QREFELT $ 14)) (QREFELT $ 19))) 
 
 (SDEFUN |INTTR;UP22UPR|
-        ((|p| |SparseUnivariatePolynomial| UP)
-         ($ |SparseUnivariatePolynomial| (|Fraction| UP)))
+        ((|p| (|SparseUnivariatePolynomial| UP))
+         ($ (|SparseUnivariatePolynomial| (|Fraction| UP))))
         (SPADCALL (ELT $ 19) |p| (QREFELT $ 26))) 
 
-(SDEFUN |INTTR;kappa| ((|p| UP) (|derivation| |Mapping| UP UP) ($ UP))
+(SDEFUN |INTTR;kappa| ((|p| (UP)) (|derivation| (|Mapping| UP UP)) ($ (UP)))
         (SPROG ((|ans| (UP)))
                (SEQ (LETT |ans| (|spadConstant| $ 27))
                     (SEQ G190
@@ -48,22 +49,25 @@
                     (EXIT |ans|)))) 
 
 (SDEFUN |INTTR;denint_dummy|
-        ((|f| |Fraction| UP)
-         ($ |Record| (|:| |answer| (|Fraction| UP))
-          (|:| |logpart| (|Fraction| UP))
-          (|:| |ir| (|IntegrationResult| (|Fraction| UP)))))
+        ((|f| (|Fraction| UP))
+         ($
+          (|Record| (|:| |answer| (|Fraction| UP))
+                    (|:| |logpart| (|Fraction| UP))
+                    (|:| |ir| (|IntegrationResult| (|Fraction| UP))))))
         (VECTOR (|spadConstant| $ 9) |f| (|spadConstant| $ 41))) 
 
 (SDEFUN |INTTR;monomialIntegrate1|
-        ((|f| |Fraction| UP)
-         (|denint| |Mapping|
-          #1=(|Record| (|:| |answer| (|Fraction| UP))
-                       (|:| |logpart| (|Fraction| UP))
-                       (|:| |ir| (|IntegrationResult| (|Fraction| UP))))
-          (|Fraction| UP))
-         (|derivation| |Mapping| UP UP)
-         ($ |Record| (|:| |ir| (|IntegrationResult| (|Fraction| UP)))
-          (|:| |specpart| (|Fraction| UP)) (|:| |polypart| UP)))
+        ((|f| (|Fraction| UP))
+         (|denint|
+          (|Mapping|
+           #1=(|Record| (|:| |answer| (|Fraction| UP))
+                        (|:| |logpart| (|Fraction| UP))
+                        (|:| |ir| (|IntegrationResult| (|Fraction| UP))))
+           (|Fraction| UP)))
+         (|derivation| (|Mapping| UP UP))
+         ($
+          (|Record| (|:| |ir| (|IntegrationResult| (|Fraction| UP)))
+                    (|:| |specpart| (|Fraction| UP)) (|:| |polypart| UP))))
         (SPROG
          ((|u| (|Union| UP "failed")) (|p| (|Fraction| UP))
           (|dlog| (|Fraction| UP))
@@ -212,15 +216,16 @@
           (RETURN (PROGN (|INTTR;kappa| |x1| |derivation| $))))) 
 
 (SDEFUN |INTTR;monomialIntegrate;FMR;8|
-        ((|f| |Fraction| UP) (|derivation| |Mapping| UP UP)
-         ($ |Record| (|:| |ir| (|IntegrationResult| (|Fraction| UP)))
-          (|:| |specpart| (|Fraction| UP)) (|:| |polypart| UP)))
+        ((|f| (|Fraction| UP)) (|derivation| (|Mapping| UP UP))
+         ($
+          (|Record| (|:| |ir| (|IntegrationResult| (|Fraction| UP)))
+                    (|:| |specpart| (|Fraction| UP)) (|:| |polypart| UP))))
         (|INTTR;monomialIntegrate1| |f|
          (CONS (|function| |INTTR;denint_dummy|) $) |derivation| $)) 
 
 (SDEFUN |INTTR;monomialIntPoly;UPMR;9|
-        ((|p| UP) (|derivation| |Mapping| UP UP)
-         ($ |Record| (|:| |answer| UP) (|:| |polypart| UP)))
+        ((|p| (UP)) (|derivation| (|Mapping| UP UP))
+         ($ (|Record| (|:| |answer| UP) (|:| |polypart| UP))))
         (SPROG
          ((|ans| (UP)) (|term| (UP)) (#1=#:G161 NIL) (|n| (|Integer|))
           (|l| (F)) (|d| (|Integer|)) (|dt| (UP)))
@@ -272,15 +277,17 @@
                   (EXIT (CONS |ans| |p|))))))))) 
 
 (SDEFUN |INTTR;expintegratepoly2|
-        ((|p| |LaurentPolynomial| F UP)
-         (FRDE |Mapping|
-          #1=(|Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
-                       (|:| |sol?| (|Boolean|)))
-          (|Integer|) F)
-         ($ |Union|
-          (|Record| (|:| |answer| (|LaurentPolynomial| F UP)) (|:| |a0| F))
-          (|Record| (|:| |elem| (|LaurentPolynomial| F UP))
-                    (|:| |notelem| (|LaurentPolynomial| F UP)))))
+        ((|p| (|LaurentPolynomial| F UP))
+         (FRDE
+          (|Mapping|
+           #1=(|Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
+                        (|:| |sol?| (|Boolean|)))
+           (|Integer|) F))
+         ($
+          (|Union|
+           (|Record| (|:| |answer| (|LaurentPolynomial| F UP)) (|:| |a0| F))
+           (|Record| (|:| |elem| (|LaurentPolynomial| F UP))
+                     (|:| |notelem| (|LaurentPolynomial| F UP))))))
         (SPROG
          ((|notelm| #2=(|LaurentPolynomial| F UP)) (|coef0| (F))
           (|missing| (F)) (|answr| #2#) (|ans1| #1#) (|a| (F))
@@ -331,9 +338,10 @@
                                        (QREFELT $ 99)))))))))) 
 
 (SDEFUN |INTTR;notelementary|
-        ((|rec| |Record| (|:| |ir| (|IntegrationResult| (|Fraction| UP)))
-          (|:| |specpart| (|Fraction| UP)) (|:| |polypart| UP))
-         ($ |IntegrationResult| (|Fraction| UP)))
+        ((|rec|
+          (|Record| (|:| |ir| (|IntegrationResult| (|Fraction| UP)))
+                    (|:| |specpart| (|Fraction| UP)) (|:| |polypart| UP)))
+         ($ (|IntegrationResult| (|Fraction| UP))))
         (SPADCALL (QVELT |rec| 0)
                   (SPADCALL
                    (SPADCALL (SPADCALL (QVELT |rec| 2) (QREFELT $ 19))
@@ -344,18 +352,21 @@
                   (QREFELT $ 83))) 
 
 (SDEFUN |INTTR;primintegrate;FMMMR;12|
-        ((|f| |Fraction| UP) (|derivation| |Mapping| UP UP)
-         (|denint| |Mapping|
-          (|Record| (|:| |answer| (|Fraction| UP))
-                    (|:| |logpart| (|Fraction| UP))
-                    (|:| |ir| (|IntegrationResult| (|Fraction| UP))))
-          (|Fraction| UP))
-         (|extendedint| |Mapping|
-          (|Union| (|Record| (|:| |ratpart| F) (|:| |coeff| F) (|:| |prim| F))
-                   "failed")
-          F (|NonNegativeInteger|))
-         ($ |Record| (|:| |answer| (|IntegrationResult| (|Fraction| UP)))
-          (|:| |a0| F)))
+        ((|f| (|Fraction| UP)) (|derivation| (|Mapping| UP UP))
+         (|denint|
+          (|Mapping|
+           (|Record| (|:| |answer| (|Fraction| UP))
+                     (|:| |logpart| (|Fraction| UP))
+                     (|:| |ir| (|IntegrationResult| (|Fraction| UP))))
+           (|Fraction| UP)))
+         (|extendedint|
+          (|Mapping|
+           (|Union| (|Record| (|:| |ratpart| F) (|:| |coeff| F) (|:| |prim| F))
+                    "failed")
+           F (|NonNegativeInteger|)))
+         ($
+          (|Record| (|:| |answer| (|IntegrationResult| (|Fraction| UP)))
+                    (|:| |a0| F))))
         (SPROG
          ((|u2|
            (|Union| (|Record| (|:| |answer| UP) (|:| |a0| F))
@@ -402,18 +413,21 @@
               (QCDR (QCDR |u2|))))))))) 
 
 (SDEFUN |INTTR;expintegrate;FMMMR;13|
-        ((|f| |Fraction| UP) (|derivation| |Mapping| UP UP)
-         (|denint| |Mapping|
-          (|Record| (|:| |answer| (|Fraction| UP))
-                    (|:| |logpart| (|Fraction| UP))
-                    (|:| |ir| (|IntegrationResult| (|Fraction| UP))))
-          (|Fraction| UP))
-         (FRDE |Mapping|
-          (|Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
-                    (|:| |sol?| (|Boolean|)))
-          (|Integer|) F)
-         ($ |Record| (|:| |answer| (|IntegrationResult| (|Fraction| UP)))
-          (|:| |a0| F)))
+        ((|f| (|Fraction| UP)) (|derivation| (|Mapping| UP UP))
+         (|denint|
+          (|Mapping|
+           (|Record| (|:| |answer| (|Fraction| UP))
+                     (|:| |logpart| (|Fraction| UP))
+                     (|:| |ir| (|IntegrationResult| (|Fraction| UP))))
+           (|Fraction| UP)))
+         (FRDE
+          (|Mapping|
+           (|Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
+                     (|:| |sol?| (|Boolean|)))
+           (|Integer|) F))
+         ($
+          (|Record| (|:| |answer| (|IntegrationResult| (|Fraction| UP)))
+                    (|:| |a0| F))))
         (SPROG
          ((|u2|
            (|Union|
@@ -481,9 +495,9 @@
               (QCDR (QCDR |u2|))))))))) 
 
 (SDEFUN |INTTR;mkir|
-        ((|ans| |LaurentPolynomial| F UP) (|lcoeff| F)
-         (|p| |LaurentPolynomial| F UP)
-         ($ |IntegrationResult| (|Fraction| UP)))
+        ((|ans| (|LaurentPolynomial| F UP)) (|lcoeff| (F))
+         (|p| (|LaurentPolynomial| F UP))
+         ($ (|IntegrationResult| (|Fraction| UP))))
         (SPROG
          ((|logs|
            (|List|
@@ -522,13 +536,15 @@
             (QREFELT $ 83)))))) 
 
 (SDEFUN |INTTR;lambintegrate;FFMMMMR;15|
-        ((|f| |Fraction| UP) (|dx| F) (|fderiv| |Mapping| F F)
-         (|pderiv| |Mapping| UP UP)
-         (|extint| |Mapping|
-          (|Union| (|Record| (|:| |ratpart| F) (|:| |coeff| F)) "failed") F)
-         (|lfint| |Mapping| (|IntegrationResult| F) F)
-         ($ |Record| (|:| |answer| (|IntegrationResult| (|Fraction| UP)))
-          (|:| |a0| (|IntegrationResult| F))))
+        ((|f| (|Fraction| UP)) (|dx| (F)) (|fderiv| (|Mapping| F F))
+         (|pderiv| (|Mapping| UP UP))
+         (|extint|
+          (|Mapping|
+           (|Union| (|Record| (|:| |ratpart| F) (|:| |coeff| F)) "failed") F))
+         (|lfint| (|Mapping| (|IntegrationResult| F) F))
+         ($
+          (|Record| (|:| |answer| (|IntegrationResult| (|Fraction| UP)))
+                    (|:| |a0| (|IntegrationResult| F)))))
         (SPROG
          ((|ri2|
            (|Record| (|:| |answer| (|IntegrationResult| (|Fraction| UP)))
@@ -587,13 +603,16 @@
                          (QCDR |ri2|)))))))))) 
 
 (SDEFUN |INTTR;lamintegratepoly|
-        ((|p| |LaurentPolynomial| F UP) (|dx| F) (|n| |Integer|)
-         (|fderiv| |Mapping| F F)
-         (|extint| |Mapping|
-          #1=(|Union| (|Record| (|:| |ratpart| F) (|:| |coeff| F)) "failed") F)
-         (|lfint| |Mapping| (|IntegrationResult| F) F)
-         ($ |Record| (|:| |answer| (|IntegrationResult| (|Fraction| UP)))
-          (|:| |a0| (|IntegrationResult| F))))
+        ((|p| (|LaurentPolynomial| F UP)) (|dx| (F)) (|n| (|Integer|))
+         (|fderiv| (|Mapping| F F))
+         (|extint|
+          (|Mapping|
+           #1=(|Union| (|Record| (|:| |ratpart| F) (|:| |coeff| F)) "failed")
+           F))
+         (|lfint| (|Mapping| (|IntegrationResult| F) F))
+         ($
+          (|Record| (|:| |answer| (|IntegrationResult| (|Fraction| UP)))
+                    (|:| |a0| (|IntegrationResult| F)))))
         (SPROG
          ((#2=#:G273 NIL) (|answr| (|LaurentPolynomial| F UP)) (|clg0| (F))
           (|db1| (F)) (|b1| (F)) (#3=#:G274 NIL) (|i0| (|IntegrationResult| F))
@@ -726,15 +745,17 @@
           #4# (EXIT #3#)))) 
 
 (SDEFUN |INTTR;primintegratepoly|
-        ((|p| UP)
-         (|extendedint| |Mapping|
-          #1=(|Union|
-              (|Record| (|:| |ratpart| F) (|:| |coeff| F) (|:| |prim| F))
-              "failed")
-          F (|NonNegativeInteger|))
-         (|t'| F)
-         ($ |Union| (|Record| (|:| |answer| UP) (|:| |a0| F))
-          (|Record| (|:| |elem| UP) (|:| |notelem| UP))))
+        ((|p| (UP))
+         (|extendedint|
+          (|Mapping|
+           #1=(|Union|
+               (|Record| (|:| |ratpart| F) (|:| |coeff| F) (|:| |prim| F))
+               "failed")
+           F (|NonNegativeInteger|)))
+         (|t'| (F))
+         ($
+          (|Union| (|Record| (|:| |answer| UP) (|:| |a0| F))
+                   (|Record| (|:| |elem| UP) (|:| |notelem| UP)))))
         (SPROG
          ((|ans1| #1#) (|rp| (F)) (|ans| (UP)) (#2=#:G284 NIL) (#3=#:G291 NIL)
           (|d| (|NonNegativeInteger|)))

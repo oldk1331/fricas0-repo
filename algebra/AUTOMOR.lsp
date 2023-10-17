@@ -1,23 +1,24 @@
 
-(SDEFUN |AUTOMOR;One;$;1| (($ $)) (CONS (|function| |AUTOMOR;ident|) $)) 
+(SDEFUN |AUTOMOR;One;$;1| (($ ($))) (CONS (|function| |AUTOMOR;ident|) $)) 
 
 (PUT '|AUTOMOR;err| '|SPADreplace|
      '(XLAM (|r|) (|error| "Morphism is not invertible"))) 
 
-(SDEFUN |AUTOMOR;err| ((|r| R) ($ R)) (|error| "Morphism is not invertible")) 
+(SDEFUN |AUTOMOR;err| ((|r| (R)) ($ (R)))
+        (|error| "Morphism is not invertible")) 
 
 (PUT '|AUTOMOR;ident| '|SPADreplace| '(XLAM (|r| |n|) |r|)) 
 
-(SDEFUN |AUTOMOR;ident| ((|r| R) (|n| |Integer|) ($ R)) |r|) 
+(SDEFUN |AUTOMOR;ident| ((|r| (R)) (|n| (|Integer|)) ($ (R))) |r|) 
 
 (PUT '|AUTOMOR;=;2$B;4| '|SPADreplace| 'EQ) 
 
-(SDEFUN |AUTOMOR;=;2$B;4| ((|f| $) (|g| $) ($ |Boolean|)) (EQ |f| |g|)) 
+(SDEFUN |AUTOMOR;=;2$B;4| ((|f| ($)) (|g| ($)) ($ (|Boolean|))) (EQ |f| |g|)) 
 
-(SDEFUN |AUTOMOR;elt;$2R;5| ((|f| $) (|r| R) ($ R))
+(SDEFUN |AUTOMOR;elt;$2R;5| ((|f| ($)) (|r| (R)) ($ (R)))
         (|AUTOMOR;apply| |f| |r| 1 $)) 
 
-(SDEFUN |AUTOMOR;inv;2$;6| ((|f| $) ($ $))
+(SDEFUN |AUTOMOR;inv;2$;6| ((|f| ($)) ($ ($)))
         (SPROG NIL (CONS #'|AUTOMOR;inv;2$;6!0| (VECTOR $ |f|)))) 
 
 (SDEFUN |AUTOMOR;inv;2$;6!0| ((|r1| NIL) (|i2| NIL) ($$ NIL))
@@ -28,7 +29,7 @@
            (PROGN
             (|AUTOMOR;apply| |f| |r1| (SPADCALL |i2| (QREFELT $ 13)) $))))) 
 
-(SDEFUN |AUTOMOR;^;$I$;7| ((|f| $) (|n| |Integer|) ($ $))
+(SDEFUN |AUTOMOR;^;$I$;7| ((|f| ($)) (|n| (|Integer|)) ($ ($)))
         (SPROG NIL (CONS #'|AUTOMOR;^;$I$;7!0| (VECTOR $ |n| |f|)))) 
 
 (SDEFUN |AUTOMOR;^;$I$;7!0| ((|r1| NIL) (|i2| NIL) ($$ NIL))
@@ -40,18 +41,18 @@
            (PROGN
             (|AUTOMOR;apply| |f| |r1| (SPADCALL |n| |i2| (QREFELT $ 15)) $))))) 
 
-(SDEFUN |AUTOMOR;coerce;$Of;8| ((|f| $) ($ |OutputForm|))
+(SDEFUN |AUTOMOR;coerce;$Of;8| ((|f| ($)) ($ (|OutputForm|)))
         (SPADCALL "R -> R" (QREFELT $ 19))) 
 
 (PUT '|AUTOMOR;morphism;M$;9| '|SPADreplace| '(XLAM (|f|) |f|)) 
 
-(SDEFUN |AUTOMOR;morphism;M$;9| ((|f| |Mapping| R R (|Integer|)) ($ $)) |f|) 
+(SDEFUN |AUTOMOR;morphism;M$;9| ((|f| (|Mapping| R R (|Integer|))) ($ ($))) |f|) 
 
-(SDEFUN |AUTOMOR;morphism;M$;10| ((|f| |Mapping| R R) ($ $))
+(SDEFUN |AUTOMOR;morphism;M$;10| ((|f| (|Mapping| R R)) ($ ($)))
         (SPADCALL |f| (CONS (|function| |AUTOMOR;err|) $) (QREFELT $ 24))) 
 
 (SDEFUN |AUTOMOR;morphism;2M$;11|
-        ((|f| |Mapping| R R) (|g| |Mapping| R R) ($ $))
+        ((|f| (|Mapping| R R)) (|g| (|Mapping| R R)) ($ ($)))
         (SPROG NIL (CONS #'|AUTOMOR;morphism;2M$;11!0| (VECTOR $ |g| |f|)))) 
 
 (SDEFUN |AUTOMOR;morphism;2M$;11!0| ((|r1| NIL) (|i2| NIL) ($$ NIL))
@@ -61,12 +62,13 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (|AUTOMOR;iterat| |f| |g| |i2| |r1| $))))) 
 
-(SDEFUN |AUTOMOR;apply| ((|f| $) (|r| R) (|n| |Integer|) ($ R))
+(SDEFUN |AUTOMOR;apply| ((|f| ($)) (|r| (R)) (|n| (|Integer|)) ($ (R)))
         (SPROG ((|g| (|Mapping| R R (|Integer|))))
                (SEQ (LETT |g| |f|) (EXIT (SPADCALL |r| |n| |g|))))) 
 
 (SDEFUN |AUTOMOR;iterat|
-        ((|f| |Mapping| R R) (|g| |Mapping| R R) (|n| |Integer|) (|r| R) ($ R))
+        ((|f| (|Mapping| R R)) (|g| (|Mapping| R R)) (|n| (|Integer|))
+         (|r| (R)) ($ (R)))
         (SPROG ((#1=#:G139 NIL) (#2=#:G137 NIL))
                (COND
                 ((< |n| 0)
@@ -83,7 +85,7 @@
                   |r| $))))) 
 
 (SDEFUN |AUTOMOR;iter|
-        ((|f| |Mapping| R R) (|n| |NonNegativeInteger|) (|r| R) ($ R))
+        ((|f| (|Mapping| R R)) (|n| (|NonNegativeInteger|)) (|r| (R)) ($ (R)))
         (SPROG ((#1=#:G144 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 1) (LETT #1# |n|) G190
@@ -92,7 +94,7 @@
                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (EXIT |r|)))) 
 
-(SDEFUN |AUTOMOR;*;3$;15| ((|f| $) (|g| $) ($ $))
+(SDEFUN |AUTOMOR;*;3$;15| ((|f| ($)) (|g| ($)) ($ ($)))
         (SPROG NIL
                (COND
                 ((SPADCALL |f| |g| (QREFELT $ 10))

@@ -1,22 +1,24 @@
 
-(SDEFUN |INTPAR2;prim?| ((|k| |Kernel| F) (|x| |Symbol|) ($ |Boolean|))
+(SDEFUN |INTPAR2;prim?| ((|k| (|Kernel| F)) (|x| (|Symbol|)) ($ (|Boolean|)))
         (COND ((SPADCALL |k| '|log| (QREFELT $ 13)) 'T)
               ('T
                (SPADCALL (SPADCALL |k| (QREFELT $ 15)) (QREFELT $ 8)
                          (QREFELT $ 16))))) 
 
 (SDEFUN |INTPAR2;csolve2|
-        ((|m| |Matrix| F) ($ |List| (|Vector| (|Fraction| (|Integer|)))))
+        ((|m| (|Matrix| F)) ($ (|List| (|Vector| (|Fraction| (|Integer|))))))
         (SPROG ((|v| (|Vector| F)) (|n| (|NonNegativeInteger|)))
                (SEQ (LETT |n| (ANROWS |m|))
                     (LETT |v| (MAKEARR1 |n| (|spadConstant| $ 18)))
                     (EXIT (QCDR (SPADCALL |m| |v| (QREFELT $ 24))))))) 
 
 (SDEFUN |INTPAR2;primlogextint|
-        ((|x| |Symbol|) (|k| |Kernel| F) (|l| |List| (|Kernel| F))
-         (|lg| |List| F)
-         ($ |Record| (|:| |logands| (|List| F))
-          (|:| |basis| (|List| (|Vector| (|Fraction| (|Integer|)))))))
+        ((|x| (|Symbol|)) (|k| (|Kernel| F)) (|l| (|List| (|Kernel| F)))
+         (|lg| (|List| F))
+         ($
+          (|Record| (|:| |logands| (|List| F))
+                    (|:| |basis|
+                         (|List| (|Vector| (|Fraction| (|Integer|))))))))
         (SPROG
          ((#1=#:G168 NIL) (|le| NIL) (#2=#:G167 NIL)
           (|bl| #3=(|List| (|Vector| (|Fraction| (|Integer|)))))
@@ -125,15 +127,18 @@
           (RETURN (PROGN (SPADCALL |x| |l| |lg1| (QREFELT $ 28)))))) 
 
 (SDEFUN |INTPAR2;explogextint1|
-        ((|lg| |List| (|SparseUnivariatePolynomial| F)) (|eta| F)
-         (|rec1| |Mapping|
-          (|Record| (|:| |logands| (|List| F))
-                    (|:| |basis| (|List| (|Vector| (|Fraction| (|Integer|))))))
-          (|List| F))
-         ($ |Record|
-          (|:| |logands|
-               (|List| (|Fraction| (|SparseUnivariatePolynomial| F))))
-          (|:| |basis| (|List| (|Vector| (|Fraction| (|Integer|)))))))
+        ((|lg| (|List| (|SparseUnivariatePolynomial| F))) (|eta| (F))
+         (|rec1|
+          (|Mapping|
+           (|Record| (|:| |logands| (|List| F))
+                     (|:| |basis|
+                          (|List| (|Vector| (|Fraction| (|Integer|))))))
+           (|List| F)))
+         ($
+          (|Record|
+           (|:| |logands|
+                (|List| (|Fraction| (|SparseUnivariatePolynomial| F))))
+           (|:| |basis| (|List| (|Vector| (|Fraction| (|Integer|))))))))
         (SPROG
          ((|ll1| (|List| (|Fraction| (|SparseUnivariatePolynomial| F))))
           (|bl| (|List| (|Vector| (|Fraction| (|Integer|)))))
@@ -162,10 +167,12 @@
           (EXIT (CONS |ll1| |bl|))))) 
 
 (SDEFUN |INTPAR2;explogextint|
-        ((|x| |Symbol|) (|k| |Kernel| F) (|l| |List| (|Kernel| F))
-         (|lg| |List| F)
-         ($ |Record| (|:| |logands| (|List| F))
-          (|:| |basis| (|List| (|Vector| (|Fraction| (|Integer|)))))))
+        ((|x| (|Symbol|)) (|k| (|Kernel| F)) (|l| (|List| (|Kernel| F)))
+         (|lg| (|List| F))
+         ($
+          (|Record| (|:| |logands| (|List| F))
+                    (|:| |basis|
+                         (|List| (|Vector| (|Fraction| (|Integer|))))))))
         (SPROG
          ((#1=#:G193 NIL) (|le| NIL) (#2=#:G192 NIL)
           (|bl| (|List| (|Vector| (|Fraction| (|Integer|)))))
@@ -275,10 +282,12 @@
           (RETURN (PROGN (SPADCALL |x1| |x| (QREFELT $ 35)))))) 
 
 (SDEFUN |INTPAR2;alglogextint|
-        ((|x| |Symbol|) (|k| |Kernel| F) (|l| |List| (|Kernel| F))
-         (|lg| |List| F)
-         ($ |Record| (|:| |logands| (|List| F))
-          (|:| |basis| (|List| (|Vector| (|Fraction| (|Integer|)))))))
+        ((|x| (|Symbol|)) (|k| (|Kernel| F)) (|l| (|List| (|Kernel| F)))
+         (|lg| (|List| F))
+         ($
+          (|Record| (|:| |logands| (|List| F))
+                    (|:| |basis|
+                         (|List| (|Vector| (|Fraction| (|Integer|))))))))
         (SPROG NIL
                (COND
                 ((SPADCALL (CONS #'|INTPAR2;alglogextint!0| (VECTOR $ |k|))
@@ -296,9 +305,11 @@
              (SPADCALL |k| (SPADCALL |g| (QREFELT $ 64)) (QREFELT $ 65))))))) 
 
 (SDEFUN |INTPAR2;logextint;SLLR;7|
-        ((|x| |Symbol|) (|l| |List| (|Kernel| F)) (|lg| |List| F)
-         ($ |Record| (|:| |logands| (|List| F))
-          (|:| |basis| (|List| (|Vector| (|Fraction| (|Integer|)))))))
+        ((|x| (|Symbol|)) (|l| (|List| (|Kernel| F))) (|lg| (|List| F))
+         ($
+          (|Record| (|:| |logands| (|List| F))
+                    (|:| |basis|
+                         (|List| (|Vector| (|Fraction| (|Integer|))))))))
         (SPROG
          ((#1=#:G218 NIL) (|k1| NIL) (#2=#:G217 NIL) (|k| (|Kernel| F))
           (|cb| (|List| (|Vector| (|Fraction| (|Integer|))))))
@@ -340,15 +351,16 @@
                    (#3# (|error| "logextint: unhandled kernel")))))))))) 
 
 (SDEFUN |INTPAR2;extendedint;FSLR;8|
-        ((|f| F) (|x| |Symbol|) (|lg| |List| F)
-         ($ |Record|
-          (|:| |particular|
-               (|Union|
-                (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))
-                "failed"))
-          (|:| |basis|
-               (|List|
-                (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))))
+        ((|f| (F)) (|x| (|Symbol|)) (|lg| (|List| F))
+         ($
+          (|Record|
+           (|:| |particular|
+                (|Union|
+                 (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))
+                 "failed"))
+           (|:| |basis|
+                (|List|
+                 (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))))))
         (SPROG ((|l| (|List| (|Kernel| F))))
                (SEQ
                 (LETT |l|
@@ -360,8 +372,8 @@
                 (EXIT (SPADCALL |f| |x| |l| |lg| (QREFELT $ 82)))))) 
 
 (SDEFUN |INTPAR2;extendedint;SLLL;9|
-        ((|x| |Symbol|) (|l| |List| (|Kernel| F)) (|lg| |List| F)
-         ($ |List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
+        ((|x| (|Symbol|)) (|l| (|List| (|Kernel| F))) (|lg| (|List| F))
+         ($ (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((#1=#:G240 NIL) (|k1| NIL) (#2=#:G239 NIL) (|k| (|Kernel| F))
           (#3=#:G238 NIL) (|kv| NIL) (#4=#:G237 NIL)
@@ -418,24 +430,27 @@
                    (#5# (|INTPAR2;unkextint| |x| |k| |l| |lg| $)))))))))) 
 
 (SDEFUN |INTPAR2;extendedint;FSLLR;10|
-        ((|f| F) (|x| |Symbol|) (|l| |List| (|Kernel| F)) (|lg| |List| F)
-         ($ |Record|
-          (|:| |particular|
-               (|Union|
-                (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))
-                "failed"))
-          (|:| |basis|
-               (|List|
-                (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))))
+        ((|f| (F)) (|x| (|Symbol|)) (|l| (|List| (|Kernel| F)))
+         (|lg| (|List| F))
+         ($
+          (|Record|
+           (|:| |particular|
+                (|Union|
+                 (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))
+                 "failed"))
+           (|:| |basis|
+                (|List|
+                 (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))))))
         (SPADCALL
          (SPADCALL |x| |l| (CONS (SPADCALL |f| (QREFELT $ 88)) |lg|)
                    (QREFELT $ 87))
          (QREFELT $ 90))) 
 
 (SDEFUN |INTPAR2;extendedint0|
-        ((|f| F) (|x| |Symbol|) (|l| |List| (|Kernel| F)) (|g| F)
-         ($ |Union| (|Record| (|:| |ratpart| F) (|:| |coeff| F) (|:| |prim| F))
-          "failed"))
+        ((|f| (F)) (|x| (|Symbol|)) (|l| (|List| (|Kernel| F))) (|g| (F))
+         ($
+          (|Union| (|Record| (|:| |ratpart| F) (|:| |coeff| F) (|:| |prim| F))
+                   "failed")))
         (SPROG
          ((|rf| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
           (|r1|
@@ -454,8 +469,8 @@
                                       (|spadConstant| $ 18))))))))))) 
 
 (SDEFUN |INTPAR2;hermite_integrate|
-        ((|lf| |List| F) (|x| |Symbol|) (|k| |Kernel| F)
-         ($ |List| (|Record| (|:| |answer| F) (|:| |rest| F))))
+        ((|lf| (|List| F)) (|x| (|Symbol|)) (|k| (|Kernel| F))
+         ($ (|List| (|Record| (|:| |answer| F) (|:| |rest| F)))))
         (SPROG
          ((#1=#:G286 NIL) (|h1| NIL) (#2=#:G285 NIL)
           (|lher|
@@ -572,7 +587,7 @@
           (RETURN (PROGN (SPADCALL |x1| |x| (QREFELT $ 35)))))) 
 
 (SDEFUN |INTPAR2;gen_polylog|
-        ((|d| |NonNegativeInteger|) (|v| F) (|k| F) ($ F))
+        ((|d| (|NonNegativeInteger|)) (|v| (F)) (|k| (F)) ($ (F)))
         (SPROG
          ((|nn| (|Fraction| (|Integer|))) (|s| (F)) (#1=#:G290 NIL) (|j| NIL)
           (|lv| (F)) (|res| (F)))
@@ -624,10 +639,11 @@
                         (QREFELT $ 102))))))))) 
 
 (SDEFUN |INTPAR2;polylog_int;FSKNniLFU;14|
-        ((|f| F) (|x| |Symbol|) (|k0| |Kernel| F) (|d| |NonNegativeInteger|)
-         (|l| |List| (|Kernel| F)) (|g| F)
-         ($ |Union| (|Record| (|:| |ratpart| F) (|:| |coeff| F) (|:| |prim| F))
-          #1="failed"))
+        ((|f| (F)) (|x| (|Symbol|)) (|k0| (|Kernel| F))
+         (|d| (|NonNegativeInteger|)) (|l| (|List| (|Kernel| F))) (|g| (F))
+         ($
+          (|Union| (|Record| (|:| |ratpart| F) (|:| |coeff| F) (|:| |prim| F))
+                   #1="failed")))
         (SPROG
          ((|res2|
            (|Union| (|Record| (|:| |ratpart| F) (|:| |coeff| F) (|:| |prim| F))
@@ -698,27 +714,30 @@
           #3# (EXIT #2#)))) 
 
 (SDEFUN |INTPAR2;polylog_int;FSKNniLFU;15|
-        ((|f| F) (|x| |Symbol|) (|k0| |Kernel| F) (|d| |NonNegativeInteger|)
-         (|l| |List| (|Kernel| F)) (|g| F)
-         ($ |Union| (|Record| (|:| |ratpart| F) (|:| |coeff| F) (|:| |prim| F))
-          "failed"))
+        ((|f| (F)) (|x| (|Symbol|)) (|k0| (|Kernel| F))
+         (|d| (|NonNegativeInteger|)) (|l| (|List| (|Kernel| F))) (|g| (F))
+         ($
+          (|Union| (|Record| (|:| |ratpart| F) (|:| |coeff| F) (|:| |prim| F))
+                   "failed")))
         (|INTPAR2;extendedint0| |f| |x| |l| |g| $)) 
 
 (SDEFUN |INTPAR2;csolve1|
-        ((|m| |Matrix| F) (|d1| |Mapping| F F) ($ |List| (|Vector| F)))
+        ((|m| (|Matrix| F)) (|d1| (|Mapping| F F)) ($ (|List| (|Vector| F))))
         (SPADCALL |m| (LIST |d1|) (QREFELT $ 124))) 
 
 (SDEFUN |INTPAR2;wrapfn|
-        ((|fn| |Mapping|
-          (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
-          (|List| F))
-         (|k| |Kernel| F)
-         ($ |Mapping|
-          (|List|
-           (|Record|
-            (|:| |ratpart| (|Fraction| (|SparseUnivariatePolynomial| F)))
-            (|:| |coeffs| (|Vector| F))))
-          (|List| (|Fraction| (|SparseUnivariatePolynomial| F)))))
+        ((|fn|
+          (|Mapping|
+           (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
+           (|List| F)))
+         (|k| (|Kernel| F))
+         ($
+          (|Mapping|
+           (|List|
+            (|Record|
+             (|:| |ratpart| (|Fraction| (|SparseUnivariatePolynomial| F)))
+             (|:| |coeffs| (|Vector| F))))
+           (|List| (|Fraction| (|SparseUnivariatePolynomial| F))))))
         (SPROG NIL (SEQ (CONS #'|INTPAR2;wrapfn!0| (VECTOR |fn| $ |k|))))) 
 
 (SDEFUN |INTPAR2;wrapfn!0| ((|lrf| NIL) ($$ NIL))
@@ -777,9 +796,9 @@
                      (GO G190) G191 (EXIT (NREVERSE #3#))))))))))) 
 
 (SDEFUN |INTPAR2;algextint|
-        ((|x| |Symbol|) (|k| |Kernel| F) (|l| |List| (|Kernel| F))
-         (|lg| |List| F)
-         ($ |List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
+        ((|x| (|Symbol|)) (|k| (|Kernel| F)) (|l| (|List| (|Kernel| F)))
+         (|lg| (|List| F))
+         ($ (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((#1=#:G469 NIL) (|be| NIL) (#2=#:G468 NIL)
           (|res1|
@@ -978,7 +997,7 @@
                                      (PROG1 (|inc_SI| |i|)
                                        (LETT #22# (CDR #22#))))
                                (GO G190) G191 (EXIT NIL))
-                          (SEQ (LETT |rec| NIL) (LETT #20# |al|) G190
+                          (SEQ (LETT #20# |al|) G190
                                (COND
                                 ((OR (ATOM #20#)
                                      (PROGN (LETT |rec| (CAR #20#)) NIL))
@@ -1273,9 +1292,9 @@
           (RETURN (PROGN (SPADCALL |x1| |x| (QREFELT $ 35)))))) 
 
 (SDEFUN |INTPAR2;primextint|
-        ((|x| |Symbol|) (|k| |Kernel| F) (|l| |List| (|Kernel| F))
-         (|lu| |List| F)
-         ($ |List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
+        ((|x| (|Symbol|)) (|k| (|Kernel| F)) (|l| (|List| (|Kernel| F)))
+         (|lu| (|List| F))
+         ($ (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((#1=#:G489 NIL) (|si| NIL) (#2=#:G488 NIL)
           (|res1|
@@ -1368,9 +1387,9 @@
           (RETURN (PROGN (SPADCALL |x1| |x| (QREFELT $ 35)))))) 
 
 (SDEFUN |INTPAR2;expextint|
-        ((|x| |Symbol|) (|k| |Kernel| F) (|l| |List| (|Kernel| F))
-         (|lu| |List| F)
-         ($ |List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
+        ((|x| (|Symbol|)) (|k| (|Kernel| F)) (|l| (|List| (|Kernel| F)))
+         (|lu| (|List| F))
+         ($ (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((#1=#:G516 NIL) (|si| NIL) (#2=#:G515 NIL)
           (|res1|
@@ -1493,10 +1512,10 @@
           (RETURN (PROGN (SPADCALL |x1| |x| (QREFELT $ 35)))))) 
 
 (SDEFUN |INTPAR2;diffextint1|
-        ((|lup| |List| (|SparseUnivariatePolynomial| F)) (|x| |Symbol|)
-         (|k| |Kernel| F) (|lk| |List| (|Kernel| F))
-         (|csolve| |Mapping| (|List| (|Vector| F)) (|Matrix| F))
-         ($ |List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
+        ((|lup| (|List| (|SparseUnivariatePolynomial| F))) (|x| (|Symbol|))
+         (|k| (|Kernel| F)) (|lk| (|List| (|Kernel| F)))
+         (|csolve| (|Mapping| (|List| (|Vector| F)) (|Matrix| F)))
+         ($ (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((#1=#:G582 NIL) (|ba| NIL) (#2=#:G583 NIL) (|bv| NIL) (#3=#:G581 NIL)
           (|nlca| (|List| F)) (#4=#:G579 NIL) (#5=#:G580 NIL) (|be| NIL)
@@ -2098,9 +2117,9 @@
           (RETURN (PROGN (SPADCALL |x1| |x| (QREFELT $ 35)))))) 
 
 (SDEFUN |INTPAR2;diffextint|
-        ((|x| |Symbol|) (|k| |Kernel| F) (|l| |List| (|Kernel| F))
-         (|lg| |List| F)
-         ($ |List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
+        ((|x| (|Symbol|)) (|k| (|Kernel| F)) (|l| (|List| (|Kernel| F)))
+         (|lg| (|List| F))
+         ($ (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((#1=#:G595 NIL) (|u| NIL) (#2=#:G594 NIL)
           (|diffi1|
@@ -2154,9 +2173,9 @@
           (RETURN (PROGN (SPADCALL |x1| |x| (QREFELT $ 35)))))) 
 
 (SDEFUN |INTPAR2;unkextint|
-        ((|x| |Symbol|) (|k| |Kernel| F) (|l| |List| (|Kernel| F))
-         (|lg| |List| F)
-         ($ |List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
+        ((|x| (|Symbol|)) (|k| (|Kernel| F)) (|l| (|List| (|Kernel| F)))
+         (|lg| (|List| F))
+         ($ (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((#1=#:G606 NIL) (|u| NIL) (#2=#:G605 NIL)
           (|ext|

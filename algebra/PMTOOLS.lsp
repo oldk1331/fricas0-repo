@@ -1,5 +1,5 @@
 
-(SDEFUN |PMTOOLS;negConstant| ((|l| |List| P) ($ |Union| P "failed"))
+(SDEFUN |PMTOOLS;negConstant| ((|l| (|List| P)) ($ (|Union| P "failed")))
         (SPROG
          ((#1=#:G148 NIL) (#2=#:G149 NIL) (|r| (|Union| R "failed"))
           (#3=#:G150 NIL) (|x| NIL))
@@ -31,16 +31,19 @@
           #4# (EXIT #2#)))) 
 
 (SDEFUN |PMTOOLS;tryToMatch|
-        ((|lp| |List| (|Pattern| S))
-         (|rc| |Record| (|:| |res| (|PatternMatchResult| S P))
-          (|:| |s| (|List| P)))
-         (|ident| P)
-         (|pmatch| |Mapping| (|PatternMatchResult| S P) P (|Pattern| S)
-                   (|PatternMatchResult| S P))
-         ($ |Union|
-          #1=(|Record| (|:| |res| #2=(|PatternMatchResult| S P))
-                       (|:| |s| #3=(|List| P)))
-          "failed"))
+        ((|lp| (|List| (|Pattern| S)))
+         (|rc|
+          (|Record| (|:| |res| (|PatternMatchResult| S P))
+                    (|:| |s| (|List| P))))
+         (|ident| (P))
+         (|pmatch|
+          (|Mapping| (|PatternMatchResult| S P) P (|Pattern| S)
+                     (|PatternMatchResult| S P)))
+         ($
+          (|Union|
+           #1=(|Record| (|:| |res| #2=(|PatternMatchResult| S P))
+                        (|:| |s| #3=(|List| P)))
+           "failed")))
         (SPROG
          ((|ls| #3#) (#4=#:G162 NIL) (|l| #2#) (|rec| #1#) (#5=#:G163 NIL)
           (|p| NIL))
@@ -64,11 +67,12 @@
           #6# (EXIT #4#)))) 
 
 (SDEFUN |PMTOOLS;patternMatchTimes;LLPmrMPmr;3|
-        ((|ls| |List| P) (|lp| |List| (|Pattern| S))
-         (|l| |PatternMatchResult| S P)
-         (|pmatch| |Mapping| (|PatternMatchResult| S P) P (|Pattern| S)
-                   (|PatternMatchResult| S P))
-         ($ |PatternMatchResult| S P))
+        ((|ls| (|List| P)) (|lp| (|List| (|Pattern| S)))
+         (|l| (|PatternMatchResult| S P))
+         (|pmatch|
+          (|Mapping| (|PatternMatchResult| S P) P (|Pattern| S)
+                     (|PatternMatchResult| S P)))
+         ($ (|PatternMatchResult| S P)))
         (SPROG ((|u| (|Union| P "failed")))
                (SEQ
                 (COND
@@ -140,12 +144,14 @@
            (COND (#1# #2#) ('T (|spadConstant| $ 9))))))) 
 
 (SDEFUN |PMTOOLS;findMatch|
-        ((|p| |Pattern| S) (|ls| |List| P) (|l| |PatternMatchResult| S P)
-         (|ident| P)
-         (|pmatch| |Mapping| (|PatternMatchResult| S P) P (|Pattern| S)
-                   (|PatternMatchResult| S P))
-         ($ |Record| (|:| |res| (|PatternMatchResult| S P))
-          (|:| |s| (|List| P))))
+        ((|p| (|Pattern| S)) (|ls| (|List| P)) (|l| (|PatternMatchResult| S P))
+         (|ident| (P))
+         (|pmatch|
+          (|Mapping| (|PatternMatchResult| S P) P (|Pattern| S)
+                     (|PatternMatchResult| S P)))
+         ($
+          (|Record| (|:| |res| (|PatternMatchResult| S P))
+                    (|:| |s| (|List| P)))))
         (SPROG
          ((|l1| (|PatternMatchResult| S P)) (|t| (P)) (#1=#:G198 NIL) (|x| NIL)
           (#2=#:G197 NIL) (|bad| (|List| P)))
@@ -193,8 +199,8 @@
             (#3# (CONS |l1| (SPADCALL |t| |ls| (QREFELT $ 26))))))))) 
 
 (SDEFUN |PMTOOLS;preprocessList|
-        ((|pattern| |Pattern| S) (|ls| |List| P) (|l| |PatternMatchResult| S P)
-         ($ |Union| (|List| P) "failed"))
+        ((|pattern| (|Pattern| S)) (|ls| (|List| P))
+         (|l| (|PatternMatchResult| S P)) ($ (|Union| (|List| P) "failed")))
         (SPROG ((|u| (|Union| P "failed")))
                (SEQ
                 (COND
@@ -211,11 +217,12 @@
                  (#1# (CONS 0 NIL)))))) 
 
 (SDEFUN |PMTOOLS;filterMatchedPatterns|
-        ((|lp| |List| (|Pattern| S)) (|ls| |List| P)
-         (|l| |PatternMatchResult| S P)
-         ($ |Union|
-          (|Record| (|:| |pat| (|List| (|Pattern| S))) (|:| |s| (|List| P)))
-          "failed"))
+        ((|lp| (|List| (|Pattern| S))) (|ls| (|List| P))
+         (|l| (|PatternMatchResult| S P))
+         ($
+          (|Union|
+           (|Record| (|:| |pat| (|List| (|Pattern| S))) (|:| |s| (|List| P)))
+           "failed")))
         (SPROG
          ((#1=#:G222 NIL) (|rc| (|Union| (|List| P) "failed")) (#2=#:G223 NIL)
           (|p| NIL))
@@ -241,7 +248,7 @@
           #3# (EXIT #1#)))) 
 
 (SDEFUN |PMTOOLS;selBestGen|
-        ((|l| |List| (|Pattern| S)) ($ |List| (|Pattern| S)))
+        ((|l| (|List| (|Pattern| S))) ($ (|List| (|Pattern| S))))
         (SPROG
          ((#1=#:G228 NIL) (#2=#:G229 NIL) (|ans| (|List| (|Pattern| S)))
           (#3=#:G230 NIL) (|p| NIL))
@@ -274,11 +281,12 @@
           #4# (EXIT #2#)))) 
 
 (SDEFUN |PMTOOLS;patternMatch;LLMPmrMPmr;8|
-        ((|ls| |List| P) (|lp| |List| (|Pattern| S))
-         (|op| |Mapping| P (|List| P)) (|l| |PatternMatchResult| S P)
-         (|pmatch| |Mapping| (|PatternMatchResult| S P) P (|Pattern| S)
-                   (|PatternMatchResult| S P))
-         ($ |PatternMatchResult| S P))
+        ((|ls| (|List| P)) (|lp| (|List| (|Pattern| S)))
+         (|op| (|Mapping| P (|List| P))) (|l| (|PatternMatchResult| S P))
+         (|pmatch|
+          (|Mapping| (|PatternMatchResult| S P) P (|Pattern| S)
+                     (|PatternMatchResult| S P)))
+         ($ (|PatternMatchResult| S P)))
         (SPROG
          ((|rec|
            (|Record| (|:| |res| (|PatternMatchResult| S P))

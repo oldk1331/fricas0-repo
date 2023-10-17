@@ -1,6 +1,6 @@
 
 (SDEFUN |ALGMFACT;factor;PLF;1|
-        ((|p| P) (|lalg| |List| (|AlgebraicNumber|)) ($ |Factored| P))
+        ((|p| (P)) (|lalg| (|List| (|AlgebraicNumber|))) ($ (|Factored| P)))
         (SPROG NIL
                (SPADCALL |p|
                          (CONS #'|ALGMFACT;factor;PLF;1!0| (VECTOR $ |lalg|))
@@ -13,9 +13,9 @@
           (RETURN (PROGN (SPADCALL |z1| |lalg| (QREFELT $ 13)))))) 
 
 (SDEFUN |ALGMFACT;factor;SupLF;2|
-        ((|up| |SparseUnivariatePolynomial| P)
-         (|lalg| |List| (|AlgebraicNumber|))
-         ($ |Factored| (|SparseUnivariatePolynomial| P)))
+        ((|up| (|SparseUnivariatePolynomial| P))
+         (|lalg| (|List| (|AlgebraicNumber|)))
+         ($ (|Factored| (|SparseUnivariatePolynomial| P))))
         (SPROG NIL
                (SPADCALL |up|
                          (CONS #'|ALGMFACT;factor;SupLF;2!0| (VECTOR $ |lalg|))

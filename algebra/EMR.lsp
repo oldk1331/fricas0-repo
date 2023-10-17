@@ -1,7 +1,7 @@
 
 (SDEFUN |EMR;divide;2$R;1|
-        ((|x| $) (|y| $)
-         ($ |Record| (|:| |quotient| . #1=($)) (|:| |remainder| . #1#)))
+        ((|x| ($)) (|y| ($))
+         ($ (|Record| (|:| |quotient| . #1=($)) (|:| |remainder| . #1#))))
         (SPROG
          ((|r| (|Record| (|:| |quotient| R) (|:| |remainder| R))) (|yv| (R))
           (|invlcy| (R)) (|xm| (|Mod|)) (|t| (|Union| |Mod| "failed")))
@@ -37,7 +37,7 @@
                               |xm| (QREFELT $ 19))
                              (SPADCALL (QCDR |r|) |xm| (QREFELT $ 19))))))))))) 
 
-(SDEFUN |EMR;rem;3$;2| ((|x| $) (|y| $) ($ $))
+(SDEFUN |EMR;rem;3$;2| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG
          ((#1=#:G165 NIL) (|xv| (R)) (#2=#:G158 NIL) (|xvl| (R))
           (|d| (|Integer|)) (|dy| (|NonNegativeInteger|)) (|yv| (R))
@@ -123,7 +123,7 @@
                                     |xm|))))))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |EMR;rem;3$;3| ((|x| $) (|y| $) ($ $))
+(SDEFUN |EMR;rem;3$;3| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG
          ((|r| (|Record| (|:| |quotient| R) (|:| |remainder| R))) (|yv| (R))
           (|invlcy| (R)) (|xm| (|Mod|)) (|t| (|Union| |Mod| "failed")))
@@ -154,10 +154,10 @@
                            (EXIT
                             (SPADCALL (QCDR |r|) |xm| (QREFELT $ 19)))))))))) 
 
-(SDEFUN |EMR;euclideanSize;$Nni;4| ((|x| $) ($ |NonNegativeInteger|))
+(SDEFUN |EMR;euclideanSize;$Nni;4| ((|x| ($)) ($ (|NonNegativeInteger|)))
         (SPADCALL (QCAR |x|) (QREFELT $ 26))) 
 
-(SDEFUN |EMR;unitCanonical;2$;5| ((|x| $) ($ $))
+(SDEFUN |EMR;unitCanonical;2$;5| ((|x| ($)) ($ ($)))
         (SPROG ((|invlcx| ($)))
                (SEQ
                 (COND ((SPADCALL |x| (QREFELT $ 37)) |x|)
@@ -178,9 +178,10 @@
                         (EXIT (SPADCALL |invlcx| |x| (QREFELT $ 39))))))))) 
 
 (SDEFUN |EMR;unitNormal;$R;6|
-        ((|x| $)
-         ($ |Record| (|:| |unit| . #1=($)) (|:| |canonical| . #1#)
-          (|:| |associate| . #1#)))
+        ((|x| ($))
+         ($
+          (|Record| (|:| |unit| . #1=($)) (|:| |canonical| . #1#)
+                    (|:| |associate| . #1#))))
         (SPROG ((|invlcx| ($)) (|lcx| ($)))
                (SEQ
                 (COND
@@ -204,7 +205,7 @@
                       (VECTOR |lcx| (SPADCALL |invlcx| |x| (QREFELT $ 39))
                               |invlcx|)))))))))) 
 
-(SDEFUN |EMR;elt;$2R;7| ((|x| $) (|s| R) ($ R))
+(SDEFUN |EMR;elt;$2R;7| ((|x| ($)) (|s| (R)) ($ (R)))
         (SPADCALL (SPADCALL (QCAR |x|) |s| (QREFELT $ 43)) (QCDR |x|)
                   (QREFELT $ 9))) 
 

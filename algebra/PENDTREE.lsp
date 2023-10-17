@@ -1,26 +1,27 @@
 
 (PUT '|PENDTREE;coerce;$T;1| '|SPADreplace| '(XLAM (|t|) |t|)) 
 
-(SDEFUN |PENDTREE;coerce;$T;1| ((|t| $) ($ |Tree| S)) |t|) 
+(SDEFUN |PENDTREE;coerce;$T;1| ((|t| ($)) ($ (|Tree| S))) |t|) 
 
-(SDEFUN |PENDTREE;ptree;S$;2| ((|n| S) ($ $)) (SPADCALL |n| NIL (QREFELT $ 11))) 
+(SDEFUN |PENDTREE;ptree;S$;2| ((|n| (S)) ($ ($)))
+        (SPADCALL |n| NIL (QREFELT $ 11))) 
 
-(SDEFUN |PENDTREE;ptree;3$;3| ((|l| $) (|r| $) ($ $))
+(SDEFUN |PENDTREE;ptree;3$;3| ((|l| ($)) (|r| ($)) ($ ($)))
         (SPADCALL (SPADCALL |r| (QREFELT $ 13))
                   (SPADCALL |l| (SPADCALL |r| (QREFELT $ 14)) (QREFELT $ 16))
                   (QREFELT $ 11))) 
 
-(SDEFUN |PENDTREE;leaf?;$B;4| ((|t| $) ($ |Boolean|))
+(SDEFUN |PENDTREE;leaf?;$B;4| ((|t| ($)) ($ (|Boolean|)))
         (SPADCALL (SPADCALL |t| (QREFELT $ 14)) (QREFELT $ 19))) 
 
-(SDEFUN |PENDTREE;=;2$B;5| ((|t1| $) (|t2| $) ($ |Boolean|))
+(SDEFUN |PENDTREE;=;2$B;5| ((|t1| ($)) (|t2| ($)) ($ (|Boolean|)))
         (SPADCALL |t1| |t2| (QREFELT $ 21))) 
 
-(SDEFUN |PENDTREE;left;2$;6| ((|b| $) ($ $))
+(SDEFUN |PENDTREE;left;2$;6| ((|b| ($)) ($ ($)))
         (COND ((SPADCALL |b| (QREFELT $ 20)) (|error| "ptree:no left"))
               ('T (SPADCALL (SPADCALL |b| (QREFELT $ 14)) (QREFELT $ 22))))) 
 
-(SDEFUN |PENDTREE;right;2$;7| ((|b| $) ($ $))
+(SDEFUN |PENDTREE;right;2$;7| ((|b| ($)) ($ ($)))
         (COND ((SPADCALL |b| (QREFELT $ 20)) (|error| "ptree:no right"))
               ('T
                (SPADCALL (SPADCALL |b| (QREFELT $ 13))
@@ -28,11 +29,11 @@
                                    (QREFELT $ 24))
                          (QREFELT $ 11))))) 
 
-(SDEFUN |PENDTREE;value;$S;8| ((|b| $) ($ S))
+(SDEFUN |PENDTREE;value;$S;8| ((|b| ($)) ($ (S)))
         (COND ((SPADCALL |b| (QREFELT $ 20)) (SPADCALL |b| (QREFELT $ 13)))
               ('T (|error| "the pendant tree has no value")))) 
 
-(SDEFUN |PENDTREE;coerce;$Of;9| ((|b| $) ($ |OutputForm|))
+(SDEFUN |PENDTREE;coerce;$Of;9| ((|b| ($)) ($ (|OutputForm|)))
         (COND
          ((SPADCALL |b| (QREFELT $ 20))
           (SPADCALL (SPADCALL |b| (QREFELT $ 13)) (QREFELT $ 28)))

@@ -2,9 +2,10 @@
 (PUT '|MATSTOR;rep| '|SPADreplace| '(XLAM (|m|) |m|)) 
 
 (SDEFUN |MATSTOR;rep|
-        ((|m| |Matrix| R) ($ |PrimitiveArray| (|PrimitiveArray| R))) |m|) 
+        ((|m| (|Matrix| R)) ($ (|PrimitiveArray| (|PrimitiveArray| R)))) |m|) 
 
-(SDEFUN |MATSTOR;copy!;3M;2| ((|c| |Matrix| R) (|a| |Matrix| R) ($ |Matrix| R))
+(SDEFUN |MATSTOR;copy!;3M;2|
+        ((|c| (|Matrix| R)) (|a| (|Matrix| R)) ($ (|Matrix| R)))
         (SPROG
          ((#1=#:G139 NIL) (|j| NIL) (|cRow| #2=(|PrimitiveArray| R))
           (|aRow| #2#) (#3=#:G138 NIL) (|i| NIL)
@@ -37,7 +38,8 @@
               (EXIT |c|)))) 
 
 (SDEFUN |MATSTOR;plus!;4M;3|
-        ((|c| |Matrix| R) (|a| |Matrix| R) (|b| |Matrix| R) ($ |Matrix| R))
+        ((|c| (|Matrix| R)) (|a| (|Matrix| R)) (|b| (|Matrix| R))
+         ($ (|Matrix| R)))
         (SPROG
          ((#1=#:G150 NIL) (|j| NIL) (|cRow| #2=(|PrimitiveArray| R))
           (|bRow| #2#) (|aRow| #2#) (#3=#:G149 NIL) (|i| NIL)
@@ -83,7 +85,7 @@
               (EXIT |c|)))) 
 
 (SDEFUN |MATSTOR;minus!;3M;4|
-        ((|c| |Matrix| R) (|a| |Matrix| R) ($ |Matrix| R))
+        ((|c| (|Matrix| R)) (|a| (|Matrix| R)) ($ (|Matrix| R)))
         (SPROG
          ((#1=#:G159 NIL) (|j| NIL) (|cRow| #2=(|PrimitiveArray| R))
           (|aRow| #2#) (#3=#:G158 NIL) (|i| NIL)
@@ -118,7 +120,8 @@
               (EXIT |c|)))) 
 
 (SDEFUN |MATSTOR;minus!;4M;5|
-        ((|c| |Matrix| R) (|a| |Matrix| R) (|b| |Matrix| R) ($ |Matrix| R))
+        ((|c| (|Matrix| R)) (|a| (|Matrix| R)) (|b| (|Matrix| R))
+         ($ (|Matrix| R)))
         (SPROG
          ((#1=#:G170 NIL) (|j| NIL) (|cRow| #2=(|PrimitiveArray| R))
           (|bRow| #2#) (|aRow| #2#) (#3=#:G169 NIL) (|i| NIL)
@@ -164,7 +167,7 @@
               (EXIT |c|)))) 
 
 (SDEFUN |MATSTOR;leftScalarTimes!;MR2M;6|
-        ((|c| |Matrix| R) (|r| R) (|a| |Matrix| R) ($ |Matrix| R))
+        ((|c| (|Matrix| R)) (|r| (R)) (|a| (|Matrix| R)) ($ (|Matrix| R)))
         (SPROG
          ((#1=#:G179 NIL) (|j| NIL) (|cRow| #2=(|PrimitiveArray| R))
           (|aRow| #2#) (#3=#:G178 NIL) (|i| NIL)
@@ -199,7 +202,7 @@
               (EXIT |c|)))) 
 
 (SDEFUN |MATSTOR;rightScalarTimes!;2MRM;7|
-        ((|c| |Matrix| R) (|a| |Matrix| R) (|r| R) ($ |Matrix| R))
+        ((|c| (|Matrix| R)) (|a| (|Matrix| R)) (|r| (R)) ($ (|Matrix| R)))
         (SPROG
          ((#1=#:G188 NIL) (|j| NIL) (|cRow| #2=(|PrimitiveArray| R))
           (|aRow| #2#) (#3=#:G187 NIL) (|i| NIL)
@@ -234,9 +237,9 @@
               (EXIT |c|)))) 
 
 (SDEFUN |MATSTOR;copyCol!|
-        ((|bCol| |PrimitiveArray| R)
-         (|bb| |PrimitiveArray| (|PrimitiveArray| R)) (|j| |Integer|)
-         (|n1| |Integer|) ($ |PrimitiveArray| R))
+        ((|bCol| (|PrimitiveArray| R))
+         (|bb| (|PrimitiveArray| (|PrimitiveArray| R))) (|j| (|Integer|))
+         (|n1| (|Integer|)) ($ (|PrimitiveArray| R)))
         (SPROG ((#1=#:G191 NIL) (|i| NIL))
                (SEQ (LETT |i| 0) (LETT #1# |n1|) G190
                     (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -246,7 +249,8 @@
                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL)))) 
 
 (SDEFUN |MATSTOR;times!;4M;9|
-        ((|c| |Matrix| R) (|a| |Matrix| R) (|b| |Matrix| R) ($ |Matrix| R))
+        ((|c| (|Matrix| R)) (|a| (|Matrix| R)) (|b| (|Matrix| R))
+         ($ (|Matrix| R)))
         (SPROG
          ((|sum| (R)) (#1=#:G204 NIL) (|k| NIL)
           (|cRow| #2=(|PrimitiveArray| R)) (|aRow| #2#) (#3=#:G203 NIL)
@@ -303,8 +307,8 @@
               (EXIT |c|)))) 
 
 (SDEFUN |MATSTOR;power!;4MNniM;10|
-        ((|a| |Matrix| R) (|b| |Matrix| R) (|c| |Matrix| R) (|m| |Matrix| R)
-         (|p| |NonNegativeInteger|) ($ |Matrix| R))
+        ((|a| (|Matrix| R)) (|b| (|Matrix| R)) (|c| (|Matrix| R))
+         (|m| (|Matrix| R)) (|p| (|NonNegativeInteger|)) ($ (|Matrix| R)))
         (SPROG
          ((#1=#:G220 NIL) (|flag| (|Boolean|)) (|nn| (|NonNegativeInteger|))
           (|mm| (|NonNegativeInteger|)))
@@ -366,7 +370,7 @@
           #6# (EXIT #1#)))) 
 
 (SDEFUN |MATSTOR;^;MNniM;11|
-        ((|m| |Matrix| R) (|n| |NonNegativeInteger|) ($ |Matrix| R))
+        ((|m| (|Matrix| R)) (|n| (|NonNegativeInteger|)) ($ (|Matrix| R)))
         (SPROG ((|c| #1=(|Matrix| R)) (|b| #1#) (|a| #1#))
                (SEQ
                 (COND

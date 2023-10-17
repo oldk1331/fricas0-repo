@@ -1,7 +1,7 @@
 
 (SDEFUN |TSEREXPL;taylor_via_deriv;ULSLLULS;1|
-        ((|f| ULS) (|lx| |List| ULS) (|ld| |List| (|Mapping| |Coef| |Coef|))
-         ($ ULS))
+        ((|f| (ULS)) (|lx| (|List| ULS))
+         (|ld| (|List| (|Mapping| |Coef| |Coef|))) ($ (ULS)))
         (SPROG
          ((|lxt| (|List| UTS)) (#1=#:G107 NIL) (|x| NIL) (#2=#:G106 NIL)
           (|ft| (UTS)))
@@ -24,7 +24,7 @@
                          (QREFELT $ 15)))))) 
 
 (SDEFUN |TSEREXPL;taylor_via_lode;LULSLULS;2|
-        ((|la| |List| UTS) (|z| ULS) (|lc| |List| |Coef|) ($ ULS))
+        ((|la| (|List| UTS)) (|z| (ULS)) (|lc| (|List| |Coef|)) ($ (ULS)))
         (SPROG ((|zt| (UTS)))
                (SEQ (LETT |zt| (SPADCALL |z| (QREFELT $ 9)))
                     (EXIT
@@ -32,11 +32,11 @@
                                (QREFELT $ 15)))))) 
 
 (SDEFUN |TSEREXPL;applyTaylor;M2ULS;3|
-        ((|g| |Mapping| UTS UTS) (|f| ULS) ($ ULS))
+        ((|g| (|Mapping| UTS UTS)) (|f| (ULS)) ($ (ULS)))
         (SPADCALL (SPADCALL |g| (SPADCALL |f| (QREFELT $ 9)) (QREFELT $ 22))
                   (QREFELT $ 15))) 
 
-(SDEFUN |TSEREXPL;apply_taylor;UTS2ULS;4| ((|g| UTS) (|f| ULS) ($ ULS))
+(SDEFUN |TSEREXPL;apply_taylor;UTS2ULS;4| ((|g| (UTS)) (|f| (ULS)) ($ (ULS)))
         (SPADCALL (SPADCALL |g| (SPADCALL |f| (QREFELT $ 9)) (QREFELT $ 24))
                   (QREFELT $ 15))) 
 

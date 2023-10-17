@@ -1,8 +1,8 @@
 
-(SDEFUN |WP;changeWeightLevel;NniV;1| ((|n| |NonNegativeInteger|) ($ |Void|))
-        (SETELT $ 12 |n|)) 
+(SDEFUN |WP;changeWeightLevel;NniV;1|
+        ((|n| (|NonNegativeInteger|)) ($ (|Void|))) (SETELT $ 12 |n|)) 
 
-(SDEFUN |WP;lookup| ((|v| |VarSet|) ($ |NonNegativeInteger|))
+(SDEFUN |WP;lookup| ((|v| (|VarSet|)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((|l|
            (|List|
@@ -27,7 +27,7 @@
                 (EXIT 0)))
           #2# (EXIT #1#)))) 
 
-(SDEFUN |WP;innercoerce| ((|p| P) (|z| |Integer|) ($ $))
+(SDEFUN |WP;innercoerce| ((|p| (P)) (|z| (|Integer|)) ($ ($)))
         (SPROG
          ((|tmp| ($)) (|ans| ($)) (|mon| (P))
           (|up| (|SparseUnivariatePolynomial| P)) (|lcup| (P))
@@ -110,10 +110,10 @@
                                    NIL (GO G190) G191 (EXIT NIL))
                               (EXIT |ans|))))))))))) 
 
-(SDEFUN |WP;coerce;P$;4| ((|p| P) ($ $))
+(SDEFUN |WP;coerce;P$;4| ((|p| (P)) ($ ($)))
         (|WP;innercoerce| |p| (QREFELT $ 12) $)) 
 
-(SDEFUN |WP;coerce;$P;5| ((|w| $) ($ P))
+(SDEFUN |WP;coerce;$P;5| ((|w| ($)) ($ (P)))
         (SPROG
          ((#1=#:G137 NIL) (#2=#:G136 (P)) (#3=#:G138 (P)) (#4=#:G140 NIL)
           (|c| NIL))
@@ -132,7 +132,7 @@
                 (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
            (COND (#1# #2#) ('T (|spadConstant| $ 52))))))) 
 
-(SDEFUN |WP;coerce;$Of;6| ((|p| $) ($ |OutputForm|))
+(SDEFUN |WP;coerce;$Of;6| ((|p| ($)) ($ (|OutputForm|)))
         (SPROG ((#1=#:G153 NIL) (|c| NIL) (#2=#:G152 NIL))
                (SEQ
                 (COND
@@ -163,11 +163,11 @@
                                    (EXIT (NREVERSE #2#)))))
                             (QREFELT $ 62))))))) 
 
-(SDEFUN |WP;Zero;$;7| (($ $)) (|spadConstant| $ 64)) 
+(SDEFUN |WP;Zero;$;7| (($ ($))) (|spadConstant| $ 64)) 
 
-(SDEFUN |WP;One;$;8| (($ $)) (|spadConstant| $ 65)) 
+(SDEFUN |WP;One;$;8| (($ ($))) (|spadConstant| $ 65)) 
 
-(SDEFUN |WP;=;2$B;9| ((|x1| $) (|x2| $) ($ |Boolean|))
+(SDEFUN |WP;=;2$B;9| ((|x1| ($)) (|x2| ($)) ($ (|Boolean|)))
         (SEQ
          (SEQ G190
               (COND
@@ -183,15 +183,15 @@
               (GO G190) G191 (EXIT NIL))
          (EXIT (SPADCALL |x1| |x2| (QREFELT $ 67))))) 
 
-(SDEFUN |WP;+;3$;10| ((|x1| $) (|x2| $) ($ $))
+(SDEFUN |WP;+;3$;10| ((|x1| ($)) (|x2| ($)) ($ ($)))
         (SPADCALL |x1| |x2| (QREFELT $ 69))) 
 
-(SDEFUN |WP;-;2$;11| ((|x1| $) ($ $)) (SPADCALL |x1| (QREFELT $ 70))) 
+(SDEFUN |WP;-;2$;11| ((|x1| ($)) ($ ($))) (SPADCALL |x1| (QREFELT $ 70))) 
 
-(SDEFUN |WP;*;I2$;12| ((|z| |Integer|) (|x1| $) ($ $))
+(SDEFUN |WP;*;I2$;12| ((|z| (|Integer|)) (|x1| ($)) ($ ($)))
         (SPADCALL |z| |x1| (QREFELT $ 71))) 
 
-(SDEFUN |WP;*;3$;13| ((|x1| $) (|x2| $) ($ $))
+(SDEFUN |WP;*;3$;13| ((|x1| ($)) (|x2| ($)) ($ ($)))
         (SPROG ((|w| ($)))
                (SEQ (LETT |w| (SPADCALL |x1| |x2| (QREFELT $ 73)))
                     (SEQ G190
@@ -203,7 +203,7 @@
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT |w|)))) 
 
-(SDEFUN |WP;characteristic;Nni;14| (($ |NonNegativeInteger|))
+(SDEFUN |WP;characteristic;Nni;14| (($ (|NonNegativeInteger|)))
         (SPADCALL (QREFELT $ 75))) 
 
 (DECLAIM (NOTINLINE |WeightedPolynomials;|)) 

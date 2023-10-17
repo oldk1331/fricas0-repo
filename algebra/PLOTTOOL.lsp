@@ -1,8 +1,8 @@
 
 (SDEFUN |PLOTTOOL;drawToScaleRanges|
-        ((|xVals| |Segment| (|DoubleFloat|))
-         (|yVals| |Segment| (|DoubleFloat|))
-         ($ |List| (|Segment| (|DoubleFloat|))))
+        ((|xVals| (|Segment| (|DoubleFloat|)))
+         (|yVals| (|Segment| (|DoubleFloat|)))
+         ($ (|List| (|Segment| (|DoubleFloat|)))))
         (SPROG
          ((|pad| (|DoubleFloat|)) (|yDiff| #1=(|DoubleFloat|))
           (|yLo| #2=(|DoubleFloat|)) (|yHi| #3=(|DoubleFloat|)) (|xDiff| #1#)
@@ -28,10 +28,10 @@
                              (QREFELT $ 12))))))))) 
 
 (SDEFUN |PLOTTOOL;select|
-        ((|l| |List| (|Point| (|DoubleFloat|)))
-         (|f| |Mapping| #1=(|DoubleFloat|) (|Point| (|DoubleFloat|)))
-         (|g| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
-         ($ |DoubleFloat|))
+        ((|l| (|List| (|Point| (|DoubleFloat|))))
+         (|f| (|Mapping| #1=(|DoubleFloat|) (|Point| (|DoubleFloat|))))
+         (|g| (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)))
+         ($ (|DoubleFloat|)))
         (SPROG ((|m| #1#) (#2=#:G108 NIL) (|p| NIL))
                (SEQ (LETT |m| (SPADCALL (|SPADfirst| |l|) |f|))
                     (SEQ (LETT |p| NIL) (LETT #2# (CDR |l|)) G190
@@ -45,24 +45,25 @@
                     (EXIT |m|)))) 
 
 (SDEFUN |PLOTTOOL;xRange0|
-        ((|list| |List| (|Point| (|DoubleFloat|)))
-         ($ |Segment| (|DoubleFloat|)))
+        ((|list| (|List| (|Point| (|DoubleFloat|))))
+         ($ (|Segment| (|DoubleFloat|))))
         (SPADCALL (|PLOTTOOL;select| |list| (ELT $ 15) (ELT $ 16) $)
                   (|PLOTTOOL;select| |list| (ELT $ 15) (ELT $ 17) $)
                   (QREFELT $ 18))) 
 
 (SDEFUN |PLOTTOOL;yRange0|
-        ((|list| |List| (|Point| (|DoubleFloat|)))
-         ($ |Segment| (|DoubleFloat|)))
+        ((|list| (|List| (|Point| (|DoubleFloat|))))
+         ($ (|Segment| (|DoubleFloat|))))
         (SPADCALL (|PLOTTOOL;select| |list| (ELT $ 19) (ELT $ 16) $)
                   (|PLOTTOOL;select| |list| (ELT $ 19) (ELT $ 17) $)
                   (QREFELT $ 18))) 
 
 (SDEFUN |PLOTTOOL;select2|
-        ((|l| |List| (|List| (|Point| (|DoubleFloat|))))
-         (|f| |Mapping| #1=(|DoubleFloat|) (|List| (|Point| (|DoubleFloat|))))
-         (|g| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
-         ($ |DoubleFloat|))
+        ((|l| (|List| (|List| (|Point| (|DoubleFloat|)))))
+         (|f|
+          (|Mapping| #1=(|DoubleFloat|) (|List| (|Point| (|DoubleFloat|)))))
+         (|g| (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)))
+         ($ (|DoubleFloat|)))
         (SPROG ((|m| #1#) (#2=#:G126 NIL) (|p| NIL))
                (SEQ (LETT |m| (SPADCALL (|SPADfirst| |l|) |f|))
                     (SEQ (LETT |p| NIL) (LETT #2# (CDR |l|)) G190
@@ -76,8 +77,8 @@
                     (EXIT |m|)))) 
 
 (SDEFUN |PLOTTOOL;xRange|
-        ((|list| |List| (|List| (|Point| (|DoubleFloat|))))
-         ($ |Segment| (|DoubleFloat|)))
+        ((|list| (|List| (|List| (|Point| (|DoubleFloat|)))))
+         ($ (|Segment| (|DoubleFloat|))))
         (SPADCALL
          (|PLOTTOOL;select2| |list| (CONS #'|PLOTTOOL;xRange!0| $) (ELT $ 16)
           $)
@@ -92,8 +93,8 @@
         (SPADCALL (|PLOTTOOL;xRange0| |u1| $) (QREFELT $ 9))) 
 
 (SDEFUN |PLOTTOOL;yRange|
-        ((|list| |List| (|List| (|Point| (|DoubleFloat|))))
-         ($ |Segment| (|DoubleFloat|)))
+        ((|list| (|List| (|List| (|Point| (|DoubleFloat|)))))
+         ($ (|Segment| (|DoubleFloat|))))
         (SPADCALL
          (|PLOTTOOL;select2| |list| (CONS #'|PLOTTOOL;yRange!0| $) (ELT $ 16)
           $)
@@ -108,8 +109,8 @@
         (SPADCALL (|PLOTTOOL;yRange0| |u1| $) (QREFELT $ 9))) 
 
 (SDEFUN |PLOTTOOL;calcRanges;LL;8|
-        ((|llp| |List| (|List| (|Point| (|DoubleFloat|))))
-         ($ |List| (|Segment| (|DoubleFloat|))))
+        ((|llp| (|List| (|List| (|Point| (|DoubleFloat|)))))
+         ($ (|List| (|Segment| (|DoubleFloat|)))))
         (COND
          ((SPADCALL (QREFELT $ 21))
           (|PLOTTOOL;drawToScaleRanges| (|PLOTTOOL;xRange| |llp| $)

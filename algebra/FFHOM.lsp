@@ -1,7 +1,7 @@
 
 (SDEFUN |FFHOM;compare|
-        ((|g| |SparseUnivariatePolynomial| GF)
-         (|f| |SparseUnivariatePolynomial| GF) ($ |Boolean|))
+        ((|g| (|SparseUnivariatePolynomial| GF))
+         (|f| (|SparseUnivariatePolynomial| GF)) ($ (|Boolean|)))
         (SPROG
          ((|equal| (|Integer|)) (|g1| #1=(|PositiveInteger|)) (|f1| #1#)
           (|i| NIL))
@@ -43,7 +43,7 @@
                       (LETT |i| (+ |i| -1)) (GO G190) G191 (EXIT NIL))
                  (EXIT (COND ((EQL |equal| 1) 'T) (#2# NIL))))))))) 
 
-(SDEFUN |FFHOM;initialize| (($ |Void|))
+(SDEFUN |FFHOM;initialize| (($ (|Void|)))
         (SPROG
          ((|matbs| #1=(|Matrix| GF)) (#2=#:G137 NIL) (|matsb| #1#)
           (#3=#:G163 NIL) (|i| NIL) (|mat| #1#)
@@ -273,7 +273,7 @@
                          (SETELT $ 27 NIL)
                          (EXIT (SPADCALL (QREFELT $ 54))))))))))))) 
 
-(SDEFUN |FFHOM;coerce;F1F2;3| ((|x| F1) ($ F2))
+(SDEFUN |FFHOM;coerce;F1F2;3| ((|x| (F1)) ($ (F2)))
         (COND
          ((SPADCALL |x| (QREFELT $ 64))
           (SPADCALL (SPADCALL |x| (QREFELT $ 65)) (QREFELT $ 66)))
@@ -281,7 +281,7 @@
           (|FFHOM;convertWRTsameDefPol12| |x| $))
          ('T (|FFHOM;convertWRTdifferentDefPol12| |x| $)))) 
 
-(SDEFUN |FFHOM;convertWRTsameDefPol12| ((|x| F1) ($ F2))
+(SDEFUN |FFHOM;convertWRTsameDefPol12| ((|x| (F1)) ($ (F2)))
         (SEQ
          (COND ((SPADCALL (QREFELT $ 24) (QREFELT $ 26) (QREFELT $ 49)) |x|)
                ((SPADCALL (QREFELT $ 24) (CONS 3 "cyclic") (QREFELT $ 49))
@@ -303,7 +303,7 @@
                                  (QREFELT $ 74))
                        (QREFELT $ 75)))))))) 
 
-(SDEFUN |FFHOM;convertWRTdifferentDefPol12| ((|x| F1) ($ F2))
+(SDEFUN |FFHOM;convertWRTdifferentDefPol12| ((|x| (F1)) ($ (F2)))
         (SEQ (COND ((QREFELT $ 27) (|FFHOM;initialize| $)))
              (COND
               ((> (QREFELT $ 11) (QREFELT $ 13))
@@ -320,7 +320,7 @@
                          (QREFELT $ 74))
                (QREFELT $ 75))))) 
 
-(SDEFUN |FFHOM;coerce;F2F1;6| ((|x| F2) ($ F1))
+(SDEFUN |FFHOM;coerce;F2F1;6| ((|x| (F2)) ($ (F1)))
         (COND
          ((SPADCALL |x| (QREFELT $ 81))
           (SPADCALL (SPADCALL |x| (QREFELT $ 82)) (QREFELT $ 83)))
@@ -328,7 +328,7 @@
           (|FFHOM;convertWRTsameDefPol21| |x| $))
          ('T (|FFHOM;convertWRTdifferentDefPol21| |x| $)))) 
 
-(SDEFUN |FFHOM;convertWRTsameDefPol21| ((|x| F2) ($ F1))
+(SDEFUN |FFHOM;convertWRTsameDefPol21| ((|x| (F2)) ($ (F1)))
         (SEQ
          (COND ((SPADCALL (QREFELT $ 24) (QREFELT $ 26) (QREFELT $ 49)) |x|)
                ((SPADCALL (QREFELT $ 26) (CONS 3 "cyclic") (QREFELT $ 49))
@@ -350,7 +350,7 @@
                                  (QREFELT $ 74))
                        (QREFELT $ 90)))))))) 
 
-(SDEFUN |FFHOM;convertWRTdifferentDefPol21| ((|x| F2) ($ F1))
+(SDEFUN |FFHOM;convertWRTdifferentDefPol21| ((|x| (F2)) ($ (F1)))
         (SEQ (COND ((QREFELT $ 27) (|FFHOM;initialize| $)))
              (COND
               ((> (QREFELT $ 13) (QREFELT $ 11))

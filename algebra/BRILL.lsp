@@ -1,5 +1,5 @@
 
-(SDEFUN |BRILL;squaredPolynomial| ((|p| UP) ($ |Boolean|))
+(SDEFUN |BRILL;squaredPolynomial| ((|p| (UP)) ($ (|Boolean|)))
         (SPROG ((|d| (|NonNegativeInteger|)))
                (SEQ (LETT |d| (SPADCALL |p| (QREFELT $ 8)))
                     (EXIT
@@ -8,7 +8,8 @@
                             (|BRILL;squaredPolynomial|
                              (SPADCALL |p| (QREFELT $ 10)) $))))))) 
 
-(SDEFUN |BRILL;primeEnough?| ((|n| |Integer|) (|b| |Integer|) ($ |Boolean|))
+(SDEFUN |BRILL;primeEnough?|
+        ((|n| (|Integer|)) (|b| (|Integer|)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G126 NIL) (#2=#:G127 NIL) (|bb| (|Float|)) (#3=#:G119 NIL)
           (|d| (|Union| (|Integer|) #4="failed")) (#5=#:G128 NIL) (|i| NIL))
@@ -55,10 +56,11 @@
                 (EXIT (SPADCALL |n| (QREFELT $ 20)))))
           #6# (EXIT #2#)))) 
 
-(SDEFUN |BRILL;brillhartTrials;Nni;3| (($ |NonNegativeInteger|)) (QREFELT $ 21)) 
+(SDEFUN |BRILL;brillhartTrials;Nni;3| (($ (|NonNegativeInteger|)))
+        (QREFELT $ 21)) 
 
 (SDEFUN |BRILL;brillhartTrials;2Nni;4|
-        ((|n| |NonNegativeInteger|) ($ |NonNegativeInteger|))
+        ((|n| (|NonNegativeInteger|)) ($ (|NonNegativeInteger|)))
         (SPROG ((|#G9| (|NonNegativeInteger|)) (|#G8| (|NonNegativeInteger|)))
                (SEQ
                 (PROGN
@@ -68,11 +70,11 @@
                  (LETT |n| |#G9|))
                 (EXIT |n|)))) 
 
-(SDEFUN |BRILL;brillhartIrreducible?;UPB;5| ((|p| UP) ($ |Boolean|))
+(SDEFUN |BRILL;brillhartIrreducible?;UPB;5| ((|p| (UP)) ($ (|Boolean|)))
         (SPADCALL |p| (SPADCALL |p| (QREFELT $ 24)) (QREFELT $ 25))) 
 
 (SDEFUN |BRILL;brillhartIrreducible?;UP2B;6|
-        ((|p| UP) (|noLinears| |Boolean|) ($ |Boolean|))
+        ((|p| (UP)) (|noLinears| (|Boolean|)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G145 NIL) (#2=#:G146 NIL) (|small| (|Integer|)) (#3=#:G147 NIL)
           (|i| NIL) (|count| #4=(|Integer|)) (|largeEnough| #4#)
@@ -177,7 +179,7 @@
                                         (EXIT NIL)))))))))))))))))
           #7# (EXIT #2#)))) 
 
-(SDEFUN |BRILL;noLinearFactor?;UPB;7| ((|p| UP) ($ |Boolean|))
+(SDEFUN |BRILL;noLinearFactor?;UPB;7| ((|p| (UP)) ($ (|Boolean|)))
         (COND
          ((ODDP (SPADCALL |p| (QREFELT $ 32)))
           (COND

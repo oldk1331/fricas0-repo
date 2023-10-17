@@ -1,10 +1,11 @@
 
 (SDEFUN |DEFINTEF;innerint;FS2OcBU;1|
-        ((|f| F) (|x| |Symbol|) (|a| |OrderedCompletion| F)
-         (|b| |OrderedCompletion| F) (|ignor?| |Boolean|)
-         ($ |Union| (|:| |f1| (|OrderedCompletion| F))
-          (|:| |f2| (|List| (|OrderedCompletion| F))) (|:| |fail| #1="failed")
-          (|:| |pole| #2="potentialPole")))
+        ((|f| (F)) (|x| (|Symbol|)) (|a| (|OrderedCompletion| F))
+         (|b| (|OrderedCompletion| F)) (|ignor?| (|Boolean|))
+         ($
+          (|Union| (|:| |f1| (|OrderedCompletion| F))
+                   (|:| |f2| (|List| (|OrderedCompletion| F)))
+                   (|:| |fail| #1="failed") (|:| |pole| #2="potentialPole"))))
         (SPROG
          ((#3=#:G171 NIL) (|v| (|Union| F "failed"))
           (|u|
@@ -29,56 +30,62 @@
           #4# (EXIT #3#)))) 
 
 (SDEFUN |DEFINTEF;innerint;FS2OcBU;2|
-        ((|f| F) (|x| |Symbol|) (|a| |OrderedCompletion| F)
-         (|b| |OrderedCompletion| F) (|ignor?| |Boolean|)
-         ($ |Union| (|:| |f1| (|OrderedCompletion| F))
-          (|:| |f2| (|List| (|OrderedCompletion| F))) (|:| |fail| "failed")
-          (|:| |pole| "potentialPole")))
+        ((|f| (F)) (|x| (|Symbol|)) (|a| (|OrderedCompletion| F))
+         (|b| (|OrderedCompletion| F)) (|ignor?| (|Boolean|))
+         ($
+          (|Union| (|:| |f1| (|OrderedCompletion| F))
+                   (|:| |f2| (|List| (|OrderedCompletion| F)))
+                   (|:| |fail| "failed") (|:| |pole| "potentialPole"))))
         (|DEFINTEF;int| |f| |x| |a| |b| |ignor?| $)) 
 
 (SDEFUN |DEFINTEF;innerint;FS2OcBU;3|
-        ((|f| F) (|x| |Symbol|) (|a| |OrderedCompletion| F)
-         (|b| |OrderedCompletion| F) (|ignor?| |Boolean|)
-         ($ |Union| (|:| |f1| (|OrderedCompletion| F))
-          (|:| |f2| (|List| (|OrderedCompletion| F))) (|:| |fail| "failed")
-          (|:| |pole| "potentialPole")))
+        ((|f| (F)) (|x| (|Symbol|)) (|a| (|OrderedCompletion| F))
+         (|b| (|OrderedCompletion| F)) (|ignor?| (|Boolean|))
+         ($
+          (|Union| (|:| |f1| (|OrderedCompletion| F))
+                   (|:| |f2| (|List| (|OrderedCompletion| F)))
+                   (|:| |fail| "failed") (|:| |pole| "potentialPole"))))
         (|DEFINTEF;int| |f| |x| |a| |b| |ignor?| $)) 
 
 (SDEFUN |DEFINTEF;innerint;FS2OcBU;4|
-        ((|f| F) (|x| |Symbol|) (|a| |OrderedCompletion| F)
-         (|b| |OrderedCompletion| F) (|ignor?| |Boolean|)
-         ($ |Union| (|:| |f1| (|OrderedCompletion| F))
-          (|:| |f2| (|List| (|OrderedCompletion| F))) (|:| |fail| "failed")
-          (|:| |pole| "potentialPole")))
+        ((|f| (F)) (|x| (|Symbol|)) (|a| (|OrderedCompletion| F))
+         (|b| (|OrderedCompletion| F)) (|ignor?| (|Boolean|))
+         ($
+          (|Union| (|:| |f1| (|OrderedCompletion| F))
+                   (|:| |f2| (|List| (|OrderedCompletion| F)))
+                   (|:| |fail| "failed") (|:| |pole| "potentialPole"))))
         (|DEFINTEF;int| |f| |x| |a| |b| |ignor?| $)) 
 
 (SDEFUN |DEFINTEF;integrate;FSbU;5|
-        ((|f| F) (|s| |SegmentBinding| (|OrderedCompletion| F))
-         ($ |Union| (|:| |f1| (|OrderedCompletion| F))
-          (|:| |f2| (|List| (|OrderedCompletion| F))) (|:| |fail| "failed")
-          (|:| |pole| "potentialPole")))
+        ((|f| (F)) (|s| (|SegmentBinding| (|OrderedCompletion| F)))
+         ($
+          (|Union| (|:| |f1| (|OrderedCompletion| F))
+                   (|:| |f2| (|List| (|OrderedCompletion| F)))
+                   (|:| |fail| "failed") (|:| |pole| "potentialPole"))))
         (SPADCALL |f| (SPADCALL |s| (QREFELT $ 18))
                   (SPADCALL (SPADCALL |s| (QREFELT $ 20)) (QREFELT $ 21))
                   (SPADCALL (SPADCALL |s| (QREFELT $ 20)) (QREFELT $ 22)) NIL
                   (QREFELT $ 16))) 
 
 (SDEFUN |DEFINTEF;integrate;FSbSU;6|
-        ((|f| F) (|s| |SegmentBinding| (|OrderedCompletion| F))
-         (|str| |String|)
-         ($ |Union| (|:| |f1| (|OrderedCompletion| F))
-          (|:| |f2| (|List| (|OrderedCompletion| F))) (|:| |fail| "failed")
-          (|:| |pole| "potentialPole")))
+        ((|f| (F)) (|s| (|SegmentBinding| (|OrderedCompletion| F)))
+         (|str| (|String|))
+         ($
+          (|Union| (|:| |f1| (|OrderedCompletion| F))
+                   (|:| |f2| (|List| (|OrderedCompletion| F)))
+                   (|:| |fail| "failed") (|:| |pole| "potentialPole"))))
         (SPADCALL |f| (SPADCALL |s| (QREFELT $ 18))
                   (SPADCALL (SPADCALL |s| (QREFELT $ 20)) (QREFELT $ 21))
                   (SPADCALL (SPADCALL |s| (QREFELT $ 20)) (QREFELT $ 22))
                   (SPADCALL |str| (QREFELT $ 26)) (QREFELT $ 16))) 
 
 (SDEFUN |DEFINTEF;int|
-        ((|f| F) (|x| |Symbol|) (|a| |OrderedCompletion| F)
-         (|b| |OrderedCompletion| F) (|ignor?| |Boolean|)
-         ($ |Union| (|:| |f1| (|OrderedCompletion| F))
-          (|:| |f2| (|List| (|OrderedCompletion| F))) (|:| |fail| "failed")
-          (|:| |pole| #1="potentialPole")))
+        ((|f| (F)) (|x| (|Symbol|)) (|a| (|OrderedCompletion| F))
+         (|b| (|OrderedCompletion| F)) (|ignor?| (|Boolean|))
+         ($
+          (|Union| (|:| |f1| (|OrderedCompletion| F))
+                   (|:| |f2| (|List| (|OrderedCompletion| F)))
+                   (|:| |fail| "failed") (|:| |pole| #1="potentialPole"))))
         (SPROG ((|z| (|Union| (|Boolean|) "failed")) (|k| (|Kernel| F)))
                (SEQ
                 (COND
@@ -99,8 +106,9 @@
                          (#2# (|DEFINTEF;nopole| |f| |x| |k| |a| |b| $)))))))))) 
 
 (SDEFUN |DEFINTEF;checkForPole|
-        ((|f| F) (|x| |Symbol|) (|k| |Kernel| F) (|a| |OrderedCompletion| F)
-         (|b| |OrderedCompletion| F) ($ |Union| (|Boolean|) "failed"))
+        ((|f| (F)) (|x| (|Symbol|)) (|k| (|Kernel| F))
+         (|a| (|OrderedCompletion| F)) (|b| (|OrderedCompletion| F))
+         ($ (|Union| (|Boolean|) "failed")))
         (SPROG
          ((#1=#:G216 NIL) (|u| (|Union| (|Boolean|) "failed"))
           (|d| (|SparseMultivariatePolynomial| R (|Kernel| F))))
@@ -126,9 +134,9 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |DEFINTEF;checkFor0|
-        ((|p| |SparseMultivariatePolynomial| R (|Kernel| F)) (|x| |Kernel| F)
-         (|a| |OrderedCompletion| F) (|b| |OrderedCompletion| F)
-         ($ |Union| (|Boolean|) #1="failed"))
+        ((|p| (|SparseMultivariatePolynomial| R (|Kernel| F)))
+         (|x| (|Kernel| F)) (|a| (|OrderedCompletion| F))
+         (|b| (|OrderedCompletion| F)) ($ (|Union| (|Boolean|) #1="failed")))
         (SPROG
          ((#2=#:G246 NIL) (|w| (|Union| (|Boolean|) #1#)) (|k| #3=(|Kernel| F))
           (|z|
@@ -229,8 +237,8 @@
           #9# (EXIT #6#)))) 
 
 (SDEFUN |DEFINTEF;moreThan|
-        ((|a| |OrderedCompletion| F) (|b| |Fraction| (|Integer|))
-         ($ |Union| (|Boolean|) "failed"))
+        ((|a| (|OrderedCompletion| F)) (|b| (|Fraction| (|Integer|)))
+         ($ (|Union| (|Boolean|) "failed")))
         (SPROG
          ((|u| (|Union| (|Fraction| (|Integer|)) "failed"))
           (|r| (|Union| F "failed")))
@@ -251,9 +259,9 @@
                                               (QREFELT $ 58))))))))))))) 
 
 (SDEFUN |DEFINTEF;checkSMP|
-        ((|p| |SparseMultivariatePolynomial| R (|Kernel| F)) (|x| |Symbol|)
-         (|k| |Kernel| F) (|a| |OrderedCompletion| F)
-         (|b| |OrderedCompletion| F) ($ |Union| (|Boolean|) #1="failed"))
+        ((|p| (|SparseMultivariatePolynomial| R (|Kernel| F))) (|x| (|Symbol|))
+         (|k| (|Kernel| F)) (|a| (|OrderedCompletion| F))
+         (|b| (|OrderedCompletion| F)) ($ (|Union| (|Boolean|) #1="failed")))
         (SPROG
          ((#2=#:G364 NIL) (|w| (|Union| (|Boolean|) #1#)) (|f2| (F))
           (#3=#:G365 NIL) (#4=#:G366 NIL) (#5=#:G363 NIL) (#6=#:G372 NIL)
@@ -729,8 +737,9 @@
           #14# (EXIT #9#)))) 
 
 (SDEFUN |DEFINTEF;posit|
-        ((|f| F) (|x| |Symbol|) (|k| |Kernel| F) (|a| |OrderedCompletion| F)
-         (|b| |OrderedCompletion| F) ($ |Union| (|Boolean|) "failed"))
+        ((|f| (F)) (|x| (|Symbol|)) (|k| (|Kernel| F))
+         (|a| (|OrderedCompletion| F)) (|b| (|OrderedCompletion| F))
+         ($ (|Union| (|Boolean|) "failed")))
         (SPROG
          ((#1=#:G396 NIL) (|w| (|Union| (|Boolean|) "failed")) (#2=#:G397 NIL)
           (#3=#:G385 NIL) (|b2| #4=(|Boolean|))
@@ -801,8 +810,9 @@
           #7# (EXIT #2#)))) 
 
 (SDEFUN |DEFINTEF;negat|
-        ((|f| F) (|x| |Symbol|) (|k| |Kernel| F) (|a| |OrderedCompletion| F)
-         (|b| |OrderedCompletion| F) ($ |Union| (|Boolean|) "failed"))
+        ((|f| (F)) (|x| (|Symbol|)) (|k| (|Kernel| F))
+         (|a| (|OrderedCompletion| F)) (|b| (|OrderedCompletion| F))
+         ($ (|Union| (|Boolean|) "failed")))
         (SPROG
          ((#1=#:G416 NIL) (|w| (|Union| (|Boolean|) "failed")) (#2=#:G417 NIL)
           (#3=#:G405 NIL) (|b2| #4=(|Boolean|))
@@ -873,8 +883,9 @@
           #7# (EXIT #2#)))) 
 
 (SDEFUN |DEFINTEF;polyIfCan|
-        ((|p| |SparseMultivariatePolynomial| R (|Kernel| F)) (|x| |Kernel| F)
-         ($ |Union| (|SparseUnivariatePolynomial| F) "failed"))
+        ((|p| (|SparseMultivariatePolynomial| R (|Kernel| F)))
+         (|x| (|Kernel| F))
+         ($ (|Union| (|SparseUnivariatePolynomial| F) "failed")))
         (SPROG
          ((|q|
            (|SparseUnivariatePolynomial|
@@ -916,11 +927,12 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |DEFINTEF;nopole|
-        ((|f| F) (|x| |Symbol|) (|k| |Kernel| F) (|a| |OrderedCompletion| F)
-         (|b| |OrderedCompletion| F)
-         ($ |Union| (|:| |f1| (|OrderedCompletion| F))
-          (|:| |f2| (|List| (|OrderedCompletion| F))) (|:| |fail| #1="failed")
-          (|:| |pole| "potentialPole")))
+        ((|f| (F)) (|x| (|Symbol|)) (|k| (|Kernel| F))
+         (|a| (|OrderedCompletion| F)) (|b| (|OrderedCompletion| F))
+         ($
+          (|Union| (|:| |f1| (|OrderedCompletion| F))
+                   (|:| |f2| (|List| (|OrderedCompletion| F)))
+                   (|:| |fail| #1="failed") (|:| |pole| "potentialPole"))))
         (SPROG
          ((|ans| (|List| (|OrderedCompletion| F))) (#2=#:G443 NIL)
           (|v| (|Union| (|OrderedCompletion| F) "failed")) (#3=#:G444 NIL)

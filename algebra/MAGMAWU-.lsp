@@ -1,15 +1,15 @@
 
-(SDEFUN |MAGMAWU-;one?;SB;1| ((|x| S) ($ |Boolean|))
+(SDEFUN |MAGMAWU-;one?;SB;1| ((|x| (S)) ($ (|Boolean|)))
         (SPADCALL |x| (|spadConstant| $ 7) (QREFELT $ 9))) 
 
-(SDEFUN |MAGMAWU-;sample;S;2| (($ S)) (|spadConstant| $ 7)) 
+(SDEFUN |MAGMAWU-;sample;S;2| (($ (S))) (|spadConstant| $ 7)) 
 
-(SDEFUN |MAGMAWU-;^;SNniS;3| ((|x| S) (|n| |NonNegativeInteger|) ($ S))
+(SDEFUN |MAGMAWU-;^;SNniS;3| ((|x| (S)) (|n| (|NonNegativeInteger|)) ($ (S)))
         (COND ((ZEROP |n|) (|spadConstant| $ 7))
               ('T (SPADCALL |x| |n| (QREFELT $ 14))))) 
 
 (SDEFUN |MAGMAWU-;rightPower;SNniS;4|
-        ((|a| S) (|n| |NonNegativeInteger|) ($ S))
+        ((|a| (S)) (|n| (|NonNegativeInteger|)) ($ (S)))
         (SPROG ((|res| (S)) (#1=#:G121 NIL) (|i| NIL))
                (SEQ
                 (COND ((ZEROP |n|) (|spadConstant| $ 7))
@@ -25,7 +25,8 @@
                                  (EXIT NIL))
                             (EXIT |res|))))))) 
 
-(SDEFUN |MAGMAWU-;leftPower;SNniS;5| ((|a| S) (|n| |NonNegativeInteger|) ($ S))
+(SDEFUN |MAGMAWU-;leftPower;SNniS;5|
+        ((|a| (S)) (|n| (|NonNegativeInteger|)) ($ (S)))
         (SPROG ((|res| (S)) (#1=#:G126 NIL) (|i| NIL))
                (SEQ
                 (COND ((ZEROP |n|) (|spadConstant| $ 7))
@@ -41,14 +42,14 @@
                                  (EXIT NIL))
                             (EXIT |res|))))))) 
 
-(SDEFUN |MAGMAWU-;recip;SU;6| ((|x| S) ($ |Union| S "failed"))
+(SDEFUN |MAGMAWU-;recip;SU;6| ((|x| (S)) ($ (|Union| S "failed")))
         (COND ((SPADCALL |x| (|spadConstant| $ 7) (QREFELT $ 9)) (CONS 0 |x|))
               ('T (CONS 1 "failed")))) 
 
-(SDEFUN |MAGMAWU-;leftRecip;SU;7| ((|x| S) ($ |Union| S "failed"))
+(SDEFUN |MAGMAWU-;leftRecip;SU;7| ((|x| (S)) ($ (|Union| S "failed")))
         (SPADCALL |x| (QREFELT $ 22))) 
 
-(SDEFUN |MAGMAWU-;rightRecip;SU;8| ((|x| S) ($ |Union| S "failed"))
+(SDEFUN |MAGMAWU-;rightRecip;SU;8| ((|x| (S)) ($ (|Union| S "failed")))
         (SPADCALL |x| (QREFELT $ 22))) 
 
 (DECLAIM (NOTINLINE |MagmaWithUnit&;|)) 

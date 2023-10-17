@@ -1,9 +1,9 @@
 
-(SDEFUN |SULS;variable;$S;1| ((|x| $) ($ |Symbol|)) (QREFELT $ 7)) 
+(SDEFUN |SULS;variable;$S;1| ((|x| ($)) ($ (|Symbol|))) (QREFELT $ 7)) 
 
-(SDEFUN |SULS;center;$Coef;2| ((|x| $) ($ |Coef|)) (QREFELT $ 8)) 
+(SDEFUN |SULS;center;$Coef;2| ((|x| ($)) ($ (|Coef|))) (QREFELT $ 8)) 
 
-(SDEFUN |SULS;coerce;V$;3| ((|v| |Variable| |var|) ($ $))
+(SDEFUN |SULS;coerce;V$;3| ((|v| (|Variable| |var|)) ($ ($)))
         (COND
          ((SPADCALL (QREFELT $ 8) (QREFELT $ 14))
           (SPADCALL (|spadConstant| $ 15) 1 (QREFELT $ 18)))
@@ -11,23 +11,25 @@
           (SPADCALL (SPADCALL (|spadConstant| $ 15) 1 (QREFELT $ 18))
                     (SPADCALL (QREFELT $ 8) 0 (QREFELT $ 18)) (QREFELT $ 21))))) 
 
-(SDEFUN |SULS;pole?;$B;4| ((|x| $) ($ |Boolean|))
+(SDEFUN |SULS;pole?;$B;4| ((|x| ($)) ($ (|Boolean|)))
         (MINUSP (SPADCALL |x| 0 (QREFELT $ 24)))) 
 
 (PUT '|SULS;coerce;Suts$;5| '|SPADreplace| '(XLAM (|uts|) |uts|)) 
 
 (SDEFUN |SULS;coerce;Suts$;5|
-        ((|uts| |SparseUnivariateTaylorSeries| |Coef| |var| |cen|) ($ $)) |uts|) 
+        ((|uts| (|SparseUnivariateTaylorSeries| |Coef| |var| |cen|)) ($ ($)))
+        |uts|) 
 
 (SDEFUN |SULS;taylorIfCan;$U;6|
-        ((|uls| $)
-         ($ |Union| (|SparseUnivariateTaylorSeries| |Coef| |var| |cen|)
-          "failed"))
+        ((|uls| ($))
+         ($
+          (|Union| (|SparseUnivariateTaylorSeries| |Coef| |var| |cen|)
+                   "failed")))
         (COND ((SPADCALL |uls| (QREFELT $ 25)) (CONS 1 "failed"))
               ('T (CONS 0 |uls|)))) 
 
 (SDEFUN |SULS;taylor;$Suts;7|
-        ((|uls| $) ($ |SparseUnivariateTaylorSeries| |Coef| |var| |cen|))
+        ((|uls| ($)) ($ (|SparseUnivariateTaylorSeries| |Coef| |var| |cen|)))
         (SPROG
          ((|uts|
            (|Union| (|SparseUnivariateTaylorSeries| |Coef| |var| |cen|)
@@ -40,27 +42,29 @@
                 ('T (QCDR |uts|))))))) 
 
 (SDEFUN |SULS;retractIfCan;$U;8|
-        ((|x| $)
-         ($ |Union| (|SparseUnivariateTaylorSeries| |Coef| |var| |cen|)
-          "failed"))
+        ((|x| ($))
+         ($
+          (|Union| (|SparseUnivariateTaylorSeries| |Coef| |var| |cen|)
+                   "failed")))
         (SPADCALL |x| (QREFELT $ 29))) 
 
 (SDEFUN |SULS;laurent;ISuts$;9|
-        ((|n| |Integer|)
-         (|uts| |SparseUnivariateTaylorSeries| |Coef| |var| |cen|) ($ $))
+        ((|n| (|Integer|))
+         (|uts| (|SparseUnivariateTaylorSeries| |Coef| |var| |cen|)) ($ ($)))
         (SPADCALL (SPADCALL (|spadConstant| $ 15) |n| (QREFELT $ 18))
                   (SPADCALL |uts| (QREFELT $ 27)) (QREFELT $ 32))) 
 
 (PUT '|SULS;removeZeroes;2$;10| '|SPADreplace| '(XLAM (|uls|) |uls|)) 
 
-(SDEFUN |SULS;removeZeroes;2$;10| ((|uls| $) ($ $)) |uls|) 
+(SDEFUN |SULS;removeZeroes;2$;10| ((|uls| ($)) ($ ($))) |uls|) 
 
 (PUT '|SULS;removeZeroes;I2$;11| '|SPADreplace| '(XLAM (|n| |uls|) |uls|)) 
 
-(SDEFUN |SULS;removeZeroes;I2$;11| ((|n| |Integer|) (|uls| $) ($ $)) |uls|) 
+(SDEFUN |SULS;removeZeroes;I2$;11| ((|n| (|Integer|)) (|uls| ($)) ($ ($)))
+        |uls|) 
 
 (SDEFUN |SULS;taylorRep;$Suts;12|
-        ((|uls| $) ($ |SparseUnivariateTaylorSeries| |Coef| |var| |cen|))
+        ((|uls| ($)) ($ (|SparseUnivariateTaylorSeries| |Coef| |var| |cen|)))
         (SPADCALL
          (SPADCALL
           (SPADCALL (|spadConstant| $ 15) (- (SPADCALL |uls| 0 (QREFELT $ 24)))
@@ -68,15 +72,15 @@
           |uls| (QREFELT $ 32))
          (QREFELT $ 30))) 
 
-(SDEFUN |SULS;degree;$I;13| ((|uls| $) ($ |Integer|))
+(SDEFUN |SULS;degree;$I;13| ((|uls| ($)) ($ (|Integer|)))
         (SPADCALL |uls| 0 (QREFELT $ 24))) 
 
 (SDEFUN |SULS;numer;$Suts;14|
-        ((|uls| $) ($ |SparseUnivariateTaylorSeries| |Coef| |var| |cen|))
+        ((|uls| ($)) ($ (|SparseUnivariateTaylorSeries| |Coef| |var| |cen|)))
         (SPADCALL |uls| (QREFELT $ 36))) 
 
 (SDEFUN |SULS;denom;$Suts;15|
-        ((|uls| $) ($ |SparseUnivariateTaylorSeries| |Coef| |var| |cen|))
+        ((|uls| ($)) ($ (|SparseUnivariateTaylorSeries| |Coef| |var| |cen|)))
         (SPROG ((#1=#:G144 NIL))
                (SPADCALL (|spadConstant| $ 15)
                          (PROG1
@@ -86,28 +90,29 @@
                          (QREFELT $ 40)))) 
 
 (SDEFUN |SULS;*;Suts2$;16|
-        ((|uts| |SparseUnivariateTaylorSeries| |Coef| |var| |cen|) (|uls| $)
-         ($ $))
+        ((|uts| (|SparseUnivariateTaylorSeries| |Coef| |var| |cen|))
+         (|uls| ($)) ($ ($)))
         (SPADCALL (SPADCALL |uts| (QREFELT $ 27)) |uls| (QREFELT $ 32))) 
 
 (SDEFUN |SULS;*;$Suts$;17|
-        ((|uls| $) (|uts| |SparseUnivariateTaylorSeries| |Coef| |var| |cen|)
-         ($ $))
+        ((|uls| ($))
+         (|uts| (|SparseUnivariateTaylorSeries| |Coef| |var| |cen|)) ($ ($)))
         (SPADCALL |uls| (SPADCALL |uts| (QREFELT $ 27)) (QREFELT $ 32))) 
 
 (SDEFUN |SULS;/;2Suts$;18|
-        ((|uts1| . #1=(|SparseUnivariateTaylorSeries| |Coef| |var| |cen|))
-         (|uts2| . #1#) ($ $))
+        ((|uts1| #1=(|SparseUnivariateTaylorSeries| |Coef| |var| |cen|))
+         (|uts2| #1#) ($ ($)))
         (SPADCALL (SPADCALL |uts1| (QREFELT $ 27))
                   (SPADCALL |uts2| (QREFELT $ 27)) (QREFELT $ 44))) 
 
-(SDEFUN |SULS;recip;$U;19| ((|uls| $) ($ |Union| $ "failed"))
+(SDEFUN |SULS;recip;$U;19| ((|uls| ($)) ($ (|Union| $ "failed")))
         (SPADCALL (|spadConstant| $ 16) |uls| NIL (QREFELT $ 47))) 
 
-(SDEFUN |SULS;exquo;2$U;20| ((|uls1| $) (|uls2| $) ($ |Union| $ "failed"))
+(SDEFUN |SULS;exquo;2$U;20|
+        ((|uls1| ($)) (|uls2| ($)) ($ (|Union| $ "failed")))
         (SPADCALL |uls1| |uls2| NIL (QREFELT $ 47))) 
 
-(SDEFUN |SULS;/;3$;21| ((|uls1| $) (|uls2| $) ($ $))
+(SDEFUN |SULS;/;3$;21| ((|uls1| ($)) (|uls2| ($)) ($ ($)))
         (SPROG ((|q| (|Union| $ "failed")))
                (SEQ (LETT |q| (SPADCALL |uls1| |uls2| (QREFELT $ 49)))
                     (EXIT
@@ -115,10 +120,11 @@
                       ((QEQCAR |q| 1) (|error| "quotient cannot be computed"))
                       ('T (QCDR |q|))))))) 
 
-(SDEFUN |SULS;differentiate;$V$;22| ((|uls| $) (|v| |Variable| |var|) ($ $))
+(SDEFUN |SULS;differentiate;$V$;22|
+        ((|uls| ($)) (|v| (|Variable| |var|)) ($ ($)))
         (SPADCALL |uls| (QREFELT $ 50))) 
 
-(SDEFUN |SULS;elt;3$;23| ((|uls1| $) (|uls2| $) ($ $))
+(SDEFUN |SULS;elt;3$;23| ((|uls1| ($)) (|uls2| ($)) ($ ($)))
         (SPROG
          ((#1=#:G171 NIL) (|uls3| ($)) (|recipr| (|Union| $ "failed"))
           (|ord| (|Integer|)))
@@ -152,7 +158,7 @@
            (#2# (SPADCALL |uls1| |uls2| (QREFELT $ 52))))))) 
 
 (SDEFUN |SULS;rationalFunction;$IF;24|
-        ((|uls| $) (|n| |Integer|) ($ |Fraction| (|Polynomial| |Coef|)))
+        ((|uls| ($)) (|n| (|Integer|)) ($ (|Fraction| (|Polynomial| |Coef|))))
         (SPROG
          ((#1=#:G182 NIL) (|c| (|Fraction| (|Polynomial| |Coef|)))
           (|v| (|Fraction| (|Polynomial| |Coef|)))
@@ -204,81 +210,94 @@
                         (QREFELT $ 64))))))))) 
 
 (SDEFUN |SULS;rationalFunction;$2IF;25|
-        ((|uls| $) (|n1| . #1=(|Integer|)) (|n2| . #1#)
-         ($ |Fraction| (|Polynomial| |Coef|)))
+        ((|uls| ($)) (|n1| #1=(|Integer|)) (|n2| #1#)
+         ($ (|Fraction| (|Polynomial| |Coef|))))
         (SPADCALL (SPADCALL |uls| |n1| |n2| (QREFELT $ 66)) |n2|
                   (QREFELT $ 65))) 
 
-(SDEFUN |SULS;integrate;2$;26| ((|uls| $) ($ $))
+(SDEFUN |SULS;integrate;2$;26| ((|uls| ($)) ($ ($)))
         (COND
          ((SPADCALL (SPADCALL |uls| -1 (QREFELT $ 68)) (QREFELT $ 14))
           (|error| "integrate: series has term of order -1"))
          ('T (SPADCALL |uls| (QREFELT $ 69))))) 
 
-(SDEFUN |SULS;integrate;$V$;27| ((|uls| $) (|v| |Variable| |var|) ($ $))
+(SDEFUN |SULS;integrate;$V$;27| ((|uls| ($)) (|v| (|Variable| |var|)) ($ ($)))
         (SPADCALL |uls| (QREFELT $ 70))) 
 
-(SDEFUN |SULS;^;3$;28| ((|uls1| $) (|uls2| $) ($ $))
+(SDEFUN |SULS;^;3$;28| ((|uls1| ($)) (|uls2| ($)) ($ ($)))
         (SPADCALL
          (SPADCALL (SPADCALL |uls1| (QREFELT $ 72)) |uls2| (QREFELT $ 32))
          (QREFELT $ 73))) 
 
-(SDEFUN |SULS;exp;2$;29| ((|uls| $) ($ $)) (SPADCALL |uls| (QREFELT $ 76))) 
+(SDEFUN |SULS;exp;2$;29| ((|uls| ($)) ($ ($))) (SPADCALL |uls| (QREFELT $ 76))) 
 
-(SDEFUN |SULS;log;2$;30| ((|uls| $) ($ $)) (SPADCALL |uls| (QREFELT $ 77))) 
+(SDEFUN |SULS;log;2$;30| ((|uls| ($)) ($ ($))) (SPADCALL |uls| (QREFELT $ 77))) 
 
-(SDEFUN |SULS;sin;2$;31| ((|uls| $) ($ $)) (SPADCALL |uls| (QREFELT $ 78))) 
+(SDEFUN |SULS;sin;2$;31| ((|uls| ($)) ($ ($))) (SPADCALL |uls| (QREFELT $ 78))) 
 
-(SDEFUN |SULS;cos;2$;32| ((|uls| $) ($ $)) (SPADCALL |uls| (QREFELT $ 80))) 
+(SDEFUN |SULS;cos;2$;32| ((|uls| ($)) ($ ($))) (SPADCALL |uls| (QREFELT $ 80))) 
 
-(SDEFUN |SULS;tan;2$;33| ((|uls| $) ($ $)) (SPADCALL |uls| (QREFELT $ 82))) 
+(SDEFUN |SULS;tan;2$;33| ((|uls| ($)) ($ ($))) (SPADCALL |uls| (QREFELT $ 82))) 
 
-(SDEFUN |SULS;cot;2$;34| ((|uls| $) ($ $)) (SPADCALL |uls| (QREFELT $ 84))) 
+(SDEFUN |SULS;cot;2$;34| ((|uls| ($)) ($ ($))) (SPADCALL |uls| (QREFELT $ 84))) 
 
-(SDEFUN |SULS;sec;2$;35| ((|uls| $) ($ $)) (SPADCALL |uls| (QREFELT $ 86))) 
+(SDEFUN |SULS;sec;2$;35| ((|uls| ($)) ($ ($))) (SPADCALL |uls| (QREFELT $ 86))) 
 
-(SDEFUN |SULS;csc;2$;36| ((|uls| $) ($ $)) (SPADCALL |uls| (QREFELT $ 88))) 
+(SDEFUN |SULS;csc;2$;36| ((|uls| ($)) ($ ($))) (SPADCALL |uls| (QREFELT $ 88))) 
 
-(SDEFUN |SULS;asin;2$;37| ((|uls| $) ($ $)) (SPADCALL |uls| (QREFELT $ 90))) 
+(SDEFUN |SULS;asin;2$;37| ((|uls| ($)) ($ ($))) (SPADCALL |uls| (QREFELT $ 90))) 
 
-(SDEFUN |SULS;acos;2$;38| ((|uls| $) ($ $)) (SPADCALL |uls| (QREFELT $ 92))) 
+(SDEFUN |SULS;acos;2$;38| ((|uls| ($)) ($ ($))) (SPADCALL |uls| (QREFELT $ 92))) 
 
-(SDEFUN |SULS;atan;2$;39| ((|uls| $) ($ $)) (SPADCALL |uls| (QREFELT $ 94))) 
+(SDEFUN |SULS;atan;2$;39| ((|uls| ($)) ($ ($))) (SPADCALL |uls| (QREFELT $ 94))) 
 
-(SDEFUN |SULS;acot;2$;40| ((|uls| $) ($ $)) (SPADCALL |uls| (QREFELT $ 96))) 
+(SDEFUN |SULS;acot;2$;40| ((|uls| ($)) ($ ($))) (SPADCALL |uls| (QREFELT $ 96))) 
 
-(SDEFUN |SULS;asec;2$;41| ((|uls| $) ($ $)) (SPADCALL |uls| (QREFELT $ 98))) 
+(SDEFUN |SULS;asec;2$;41| ((|uls| ($)) ($ ($))) (SPADCALL |uls| (QREFELT $ 98))) 
 
-(SDEFUN |SULS;acsc;2$;42| ((|uls| $) ($ $)) (SPADCALL |uls| (QREFELT $ 100))) 
+(SDEFUN |SULS;acsc;2$;42| ((|uls| ($)) ($ ($)))
+        (SPADCALL |uls| (QREFELT $ 100))) 
 
-(SDEFUN |SULS;sinh;2$;43| ((|uls| $) ($ $)) (SPADCALL |uls| (QREFELT $ 102))) 
+(SDEFUN |SULS;sinh;2$;43| ((|uls| ($)) ($ ($)))
+        (SPADCALL |uls| (QREFELT $ 102))) 
 
-(SDEFUN |SULS;cosh;2$;44| ((|uls| $) ($ $)) (SPADCALL |uls| (QREFELT $ 104))) 
+(SDEFUN |SULS;cosh;2$;44| ((|uls| ($)) ($ ($)))
+        (SPADCALL |uls| (QREFELT $ 104))) 
 
-(SDEFUN |SULS;tanh;2$;45| ((|uls| $) ($ $)) (SPADCALL |uls| (QREFELT $ 106))) 
+(SDEFUN |SULS;tanh;2$;45| ((|uls| ($)) ($ ($)))
+        (SPADCALL |uls| (QREFELT $ 106))) 
 
-(SDEFUN |SULS;coth;2$;46| ((|uls| $) ($ $)) (SPADCALL |uls| (QREFELT $ 108))) 
+(SDEFUN |SULS;coth;2$;46| ((|uls| ($)) ($ ($)))
+        (SPADCALL |uls| (QREFELT $ 108))) 
 
-(SDEFUN |SULS;sech;2$;47| ((|uls| $) ($ $)) (SPADCALL |uls| (QREFELT $ 110))) 
+(SDEFUN |SULS;sech;2$;47| ((|uls| ($)) ($ ($)))
+        (SPADCALL |uls| (QREFELT $ 110))) 
 
-(SDEFUN |SULS;csch;2$;48| ((|uls| $) ($ $)) (SPADCALL |uls| (QREFELT $ 112))) 
+(SDEFUN |SULS;csch;2$;48| ((|uls| ($)) ($ ($)))
+        (SPADCALL |uls| (QREFELT $ 112))) 
 
-(SDEFUN |SULS;asinh;2$;49| ((|uls| $) ($ $)) (SPADCALL |uls| (QREFELT $ 114))) 
+(SDEFUN |SULS;asinh;2$;49| ((|uls| ($)) ($ ($)))
+        (SPADCALL |uls| (QREFELT $ 114))) 
 
-(SDEFUN |SULS;acosh;2$;50| ((|uls| $) ($ $)) (SPADCALL |uls| (QREFELT $ 116))) 
+(SDEFUN |SULS;acosh;2$;50| ((|uls| ($)) ($ ($)))
+        (SPADCALL |uls| (QREFELT $ 116))) 
 
-(SDEFUN |SULS;atanh;2$;51| ((|uls| $) ($ $)) (SPADCALL |uls| (QREFELT $ 118))) 
+(SDEFUN |SULS;atanh;2$;51| ((|uls| ($)) ($ ($)))
+        (SPADCALL |uls| (QREFELT $ 118))) 
 
-(SDEFUN |SULS;acoth;2$;52| ((|uls| $) ($ $)) (SPADCALL |uls| (QREFELT $ 120))) 
+(SDEFUN |SULS;acoth;2$;52| ((|uls| ($)) ($ ($)))
+        (SPADCALL |uls| (QREFELT $ 120))) 
 
-(SDEFUN |SULS;asech;2$;53| ((|uls| $) ($ $)) (SPADCALL |uls| (QREFELT $ 122))) 
+(SDEFUN |SULS;asech;2$;53| ((|uls| ($)) ($ ($)))
+        (SPADCALL |uls| (QREFELT $ 122))) 
 
-(SDEFUN |SULS;acsch;2$;54| ((|uls| $) ($ $)) (SPADCALL |uls| (QREFELT $ 124))) 
+(SDEFUN |SULS;acsch;2$;54| ((|uls| ($)) ($ ($)))
+        (SPADCALL |uls| (QREFELT $ 124))) 
 
-(SDEFUN |SULS;^;$F$;55| ((|uls| $) (|r| |Fraction| (|Integer|)) ($ $))
+(SDEFUN |SULS;^;$F$;55| ((|uls| ($)) (|r| (|Fraction| (|Integer|))) ($ ($)))
         (SPADCALL |uls| |r| (QREFELT $ 127))) 
 
-(SDEFUN |SULS;^;$F$;56| ((|uls| $) (|r| |Fraction| (|Integer|)) ($ $))
+(SDEFUN |SULS;^;$F$;56| ((|uls| ($)) (|r| (|Fraction| (|Integer|))) ($ ($)))
         (SPROG
          ((|uts| (|SparseUnivariateTaylorSeries| |Coef| |var| |cen|))
           (|utsPow| ($)) (|n| (|Union| (|Integer|) "failed"))
@@ -318,7 +337,7 @@
                   (SPADCALL (SPADCALL |uts| |r| (QREFELT $ 132))
                             (QREFELT $ 27))))))))) 
 
-(SDEFUN |SULS;coerce;$Of;57| ((|uls| $) ($ |OutputForm|))
+(SDEFUN |SULS;coerce;$Of;57| ((|uls| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|degr| (|Integer|)) (#1=#:G228 NIL) (|count| (|NonNegativeInteger|))
           (|nx| (|Union| (|Integer|) "failed"))

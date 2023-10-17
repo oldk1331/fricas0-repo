@@ -1,5 +1,5 @@
 
-(SDEFUN |QALGSET;factorset| ((|y| |Dpoly|) ($ |List| |Dpoly|))
+(SDEFUN |QALGSET;factorset| ((|y| (|Dpoly|)) ($ (|List| |Dpoly|)))
         (SPROG ((#1=#:G128 NIL) (|j| NIL) (#2=#:G127 NIL))
                (SEQ
                 (COND ((SPADCALL |y| (QREFELT $ 12)) NIL)
@@ -18,7 +18,7 @@
                              (LETT #1# (CDR #1#)) (GO G190) G191
                              (EXIT (NREVERSE #2#))))))))) 
 
-(SDEFUN |QALGSET;simplify;2$;2| ((|x| $) ($ $))
+(SDEFUN |QALGSET;simplify;2$;2| ((|x| ($)) ($ ($)))
         (SPROG
          ((#1=#:G140 NIL) (#2=#:G139 (|Dpoly|)) (#3=#:G141 (|Dpoly|))
           (#4=#:G152 NIL) (#5=#:G104 NIL) (|zro| (|List| |Dpoly|))
@@ -155,8 +155,8 @@
                               (QREFELT $ 35))))))))))))) 
 
 (SDEFUN |QALGSET;npoly|
-        ((|f| |Dpoly|)
-         ($ |PolynomialRing| R (|Product| (|NonNegativeInteger|) |Expon|)))
+        ((|f| (|Dpoly|))
+         ($ (|PolynomialRing| R (|Product| (|NonNegativeInteger|) |Expon|))))
         (COND ((SPADCALL |f| (QREFELT $ 37)) (|spadConstant| $ 39))
               ('T
                (SPADCALL
@@ -168,8 +168,8 @@
                 (QREFELT $ 47))))) 
 
 (SDEFUN |QALGSET;oldpoly|
-        ((|q| |PolynomialRing| R (|Product| (|NonNegativeInteger|) |Expon|))
-         ($ . #1=(|Union| |Dpoly| "failed")))
+        ((|q| (|PolynomialRing| R (|Product| (|NonNegativeInteger|) |Expon|)))
+         ($ #1=(|Union| |Dpoly| "failed")))
         (SPROG
          ((|g| #1#) (|n| (|NonNegativeInteger|))
           (|dq| (|Product| (|NonNegativeInteger|) |Expon|)))
@@ -199,7 +199,7 @@
                                          (QCDR |g|)
                                          (QREFELT $ 56)))))))))))))))) 
 
-(SDEFUN |QALGSET;coerce;$Of;5| ((|x| $) ($ |OutputForm|))
+(SDEFUN |QALGSET;coerce;$Of;5| ((|x| ($)) ($ (|OutputForm|)))
         (SPROG ((#1=#:G173 NIL) (|f| NIL) (#2=#:G172 NIL))
                (SEQ
                 (COND
@@ -231,7 +231,7 @@
                               (QREFELT $ 63)))
                    (QREFELT $ 67))))))) 
 
-(SDEFUN |QALGSET;empty?;$B;6| ((|x| $) ($ |Boolean|))
+(SDEFUN |QALGSET;empty?;$B;6| ((|x| ($)) ($ (|Boolean|)))
         (SPROG ((#1=#:G175 NIL))
                (SEQ
                 (COND
@@ -243,35 +243,35 @@
                    (|check_union2| (QEQCAR #1# 0) (|Boolean|)
                                    (|Union| (|Boolean|) "failed") #1#)))))) 
 
-(SDEFUN |QALGSET;empty;$;7| (($ $))
+(SDEFUN |QALGSET;empty;$;7| (($ ($)))
         (VECTOR (CONS 0 'T) (LIST (|spadConstant| $ 33)) (|spadConstant| $ 28))) 
 
 (PUT '|QALGSET;status;$U;8| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 0))) 
 
-(SDEFUN |QALGSET;status;$U;8| ((|x| $) ($ |Union| (|Boolean|) "failed"))
+(SDEFUN |QALGSET;status;$U;8| ((|x| ($)) ($ (|Union| (|Boolean|) "failed")))
         (QVELT |x| 0)) 
 
 (SDEFUN |QALGSET;setStatus;$U$;9|
-        ((|x| $) (|t| |Union| (|Boolean|) "failed") ($ $))
+        ((|x| ($)) (|t| (|Union| (|Boolean|) "failed")) ($ ($)))
         (VECTOR |t| (QVELT |x| 1) (QVELT |x| 2))) 
 
 (PUT '|QALGSET;definingEquations;$L;10| '|SPADreplace|
      '(XLAM (|x|) (QVELT |x| 1))) 
 
-(SDEFUN |QALGSET;definingEquations;$L;10| ((|x| $) ($ |List| |Dpoly|))
+(SDEFUN |QALGSET;definingEquations;$L;10| ((|x| ($)) ($ (|List| |Dpoly|)))
         (QVELT |x| 1)) 
 
 (PUT '|QALGSET;definingInequation;$Dpoly;11| '|SPADreplace|
      '(XLAM (|x|) (QVELT |x| 2))) 
 
-(SDEFUN |QALGSET;definingInequation;$Dpoly;11| ((|x| $) ($ |Dpoly|))
+(SDEFUN |QALGSET;definingInequation;$Dpoly;11| ((|x| ($)) ($ (|Dpoly|)))
         (QVELT |x| 2)) 
 
 (SDEFUN |QALGSET;quasiAlgebraicSet;LDpoly$;12|
-        ((|z0| |List| |Dpoly|) (|n0| |Dpoly|) ($ $))
+        ((|z0| (|List| |Dpoly|)) (|n0| (|Dpoly|)) ($ ($)))
         (VECTOR (CONS 1 "failed") |z0| |n0|)) 
 
-(SDEFUN |QALGSET;idealSimplify;2$;13| ((|x| $) ($ $))
+(SDEFUN |QALGSET;idealSimplify;2$;13| ((|x| ($)) ($ ($)))
         (SPROG
          ((|ngb|
            (|List|
@@ -359,7 +359,7 @@
                                                  (QREFELT $ 35)))))))))))))))))) 
 
 (SDEFUN |QALGSET;minset|
-        ((|lset| |List| (|List| |Dpoly|)) ($ |List| (|List| |Dpoly|)))
+        ((|lset| (|List| (|List| |Dpoly|))) ($ (|List| (|List| |Dpoly|))))
         (SPROG ((#1=#:G220 NIL) (|s| NIL) (#2=#:G219 NIL))
                (SEQ
                 (COND ((NULL |lset|) |lset|)
@@ -379,7 +379,8 @@
                              (EXIT (NREVERSE #2#))))))))) 
 
 (SDEFUN |QALGSET;overset?|
-        ((|p| |List| |Dpoly|) (|qlist| |List| (|List| |Dpoly|)) ($ |Boolean|))
+        ((|p| (|List| |Dpoly|)) (|qlist| (|List| (|List| |Dpoly|)))
+         ($ (|Boolean|)))
         (SPROG
          ((#1=#:G222 NIL) (#2=#:G221 #3=(|Boolean|)) (#4=#:G223 #3#)
           (#5=#:G226 NIL) (|q| NIL))

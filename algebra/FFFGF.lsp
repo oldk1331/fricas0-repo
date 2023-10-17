@@ -1,7 +1,7 @@
 
 (SDEFUN |FFFGF;multiplyRows!|
-        ((|v| |Vector| D) (M |Matrix| (|SparseUnivariatePolynomial| D))
-         ($ |Matrix| (|SparseUnivariatePolynomial| D)))
+        ((|v| (|Vector| D)) (M (|Matrix| (|SparseUnivariatePolynomial| D)))
+         ($ (|Matrix| (|SparseUnivariatePolynomial| D))))
         (SPROG
          ((#1=#:G108 NIL) (|j| NIL) (#2=#:G107 NIL) (|i| NIL)
           (|n| (|NonNegativeInteger|)))
@@ -26,11 +26,11 @@
               (EXIT M)))) 
 
 (SDEFUN |FFFGF;generalInterpolation;LMVLM;2|
-        ((C |List| D)
-         (|coeffAction| |Mapping| D (|NonNegativeInteger|)
-          (|NonNegativeInteger|) V)
-         (|f| |Vector| VF) (|eta| |List| (|NonNegativeInteger|))
-         ($ |Matrix| (|SparseUnivariatePolynomial| D)))
+        ((C (|List| D))
+         (|coeffAction|
+          (|Mapping| D (|NonNegativeInteger|) (|NonNegativeInteger|) V))
+         (|f| (|Vector| VF)) (|eta| (|List| (|NonNegativeInteger|)))
+         ($ (|Matrix| (|SparseUnivariatePolynomial| D))))
         (SPROG
          ((M (|Matrix| (|SparseUnivariatePolynomial| D)))
           (|c| (|List| (|Fraction| D))) (#1=#:G117 NIL) (|i| NIL)

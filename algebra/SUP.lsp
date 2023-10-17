@@ -1,16 +1,17 @@
 
 (PUT '|SUP;makeSUP;2$;1| '|SPADreplace| '(XLAM (|p|) |p|)) 
 
-(SDEFUN |SUP;makeSUP;2$;1| ((|p| $) ($ |SparseUnivariatePolynomial| R)) |p|) 
+(SDEFUN |SUP;makeSUP;2$;1| ((|p| ($)) ($ (|SparseUnivariatePolynomial| R))) |p|) 
 
 (PUT '|SUP;unmakeSUP;2$;2| '|SPADreplace| '(XLAM (|sp|) |sp|)) 
 
-(SDEFUN |SUP;unmakeSUP;2$;2| ((|sp| |SparseUnivariatePolynomial| R) ($ $)) |sp|) 
+(SDEFUN |SUP;unmakeSUP;2$;2| ((|sp| (|SparseUnivariatePolynomial| R)) ($ ($)))
+        |sp|) 
 
-(SDEFUN |SUP;^;$Pi$;3| ((|p| $) (|np| |PositiveInteger|) ($ $))
+(SDEFUN |SUP;^;$Pi$;3| ((|p| ($)) (|np| (|PositiveInteger|)) ($ ($)))
         (SPADCALL |p| |np| (QREFELT $ 12))) 
 
-(SDEFUN |SUP;^;$Nni$;4| ((|p| $) (|n| |NonNegativeInteger|) ($ $))
+(SDEFUN |SUP;^;$Nni$;4| ((|p| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (SPROG
          ((|rn| #1=(|NonNegativeInteger|)) (|qn| #2=(|NonNegativeInteger|))
           (|rec| (|Record| (|:| |quotient| #2#) (|:| |remainder| #1#)))
@@ -94,9 +95,9 @@
 
 (PUT '|SUP;zero?;$B;5| '|SPADreplace| 'NULL) 
 
-(SDEFUN |SUP;zero?;$B;5| ((|p| $) ($ |Boolean|)) (NULL |p|)) 
+(SDEFUN |SUP;zero?;$B;5| ((|p| ($)) ($ (|Boolean|))) (NULL |p|)) 
 
-(SDEFUN |SUP;one?;$B;6| ((|p| $) ($ |Boolean|))
+(SDEFUN |SUP;one?;$B;6| ((|p| ($)) ($ (|Boolean|)))
         (COND
          ((OR (OR (NULL |p|) (NULL (NULL (CDR |p|))))
               (NULL (ZEROP (QCAR (|SPADfirst| |p|)))))
@@ -105,12 +106,12 @@
           (SPADCALL (QCDR (|SPADfirst| |p|)) (|spadConstant| $ 27)
                     (QREFELT $ 28))))) 
 
-(SDEFUN |SUP;ground?;$B;7| ((|p| $) ($ |Boolean|))
+(SDEFUN |SUP;ground?;$B;7| ((|p| ($)) ($ (|Boolean|)))
         (COND ((NULL |p|) 'T)
               ((NULL (CDR |p|)) (ZEROP (QCAR (|SPADfirst| |p|)))) ('T NIL))) 
 
 (SDEFUN |SUP;multiplyExponents;$Nni$;8|
-        ((|p| $) (|n| |NonNegativeInteger|) ($ $))
+        ((|p| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (SPROG ((#1=#:G173 NIL) (|u| NIL) (#2=#:G172 NIL))
                (SEQ
                 (PROGN
@@ -128,7 +129,7 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |SUP;divideExponents;$NniU;9|
-        ((|p| $) (|n| |NonNegativeInteger|) ($ |Union| $ #1="failed"))
+        ((|p| ($)) (|n| (|NonNegativeInteger|)) ($ (|Union| $ #1="failed")))
         (SPROG
          ((#2=#:G181 NIL) (|u| (|Union| $ #1#))
           (|m| (|Union| (|Integer|) "failed")))
@@ -158,8 +159,8 @@
                                           (QCDR |u|)))))))))))))))) 
 
 (SDEFUN |SUP;karatsubaDivide;$NniR;10|
-        ((|p| $) (|n| |NonNegativeInteger|)
-         ($ |Record| (|:| |quotient| . #1=($)) (|:| |remainder| . #1#)))
+        ((|p| ($)) (|n| (|NonNegativeInteger|))
+         ($ (|Record| (|:| |quotient| . #1=($)) (|:| |remainder| . #1#))))
         (SPROG
          ((|highp| (|Rep|)) (#2=#:G191 NIL) (|lowp| (|Rep|)) (#3=#:G199 NIL)
           (|t| (|Record| (|:| |k| (|NonNegativeInteger|)) (|:| |c| R))))
@@ -200,7 +201,8 @@
                        #4# (EXIT #3#))
                       (EXIT (CONS (REVERSE |highp|) |lowp|)))))))) 
 
-(SDEFUN |SUP;shiftRight;$Nni$;11| ((|p| $) (|n| |NonNegativeInteger|) ($ $))
+(SDEFUN |SUP;shiftRight;$Nni$;11|
+        ((|p| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (SPROG ((#1=#:G202 NIL) (#2=#:G207 NIL) (|t| NIL) (#3=#:G206 NIL))
                (SEQ
                 (PROGN
@@ -230,7 +232,8 @@
                       (LETT #2# (CDR #2#)) (GO G190) G191
                       (EXIT (NREVERSE #3#))))))) 
 
-(SDEFUN |SUP;shiftLeft;$Nni$;12| ((|p| $) (|n| |NonNegativeInteger|) ($ $))
+(SDEFUN |SUP;shiftLeft;$Nni$;12|
+        ((|p| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (SPROG ((#1=#:G212 NIL) (|t| NIL) (#2=#:G211 NIL))
                (SEQ
                 (PROGN
@@ -249,18 +252,19 @@
 
 (PUT '|SUP;univariate;2$;13| '|SPADreplace| '(XLAM (|p|) |p|)) 
 
-(SDEFUN |SUP;univariate;2$;13| ((|p| $) ($ |SparseUnivariatePolynomial| R)) |p|) 
+(SDEFUN |SUP;univariate;2$;13| ((|p| ($)) ($ (|SparseUnivariatePolynomial| R)))
+        |p|) 
 
 (PUT '|SUP;multivariate;$Saos$;14| '|SPADreplace| '(XLAM (|sup| |v|) |sup|)) 
 
 (SDEFUN |SUP;multivariate;$Saos$;14|
-        ((|sup| |SparseUnivariatePolynomial| R) (|v| |SingletonAsOrderedSet|)
-         ($ $))
+        ((|sup| (|SparseUnivariatePolynomial| R))
+         (|v| (|SingletonAsOrderedSet|)) ($ ($)))
         |sup|) 
 
 (SDEFUN |SUP;univariate;$SaosSup;15|
-        ((|p| $) (|v| |SingletonAsOrderedSet|)
-         ($ |SparseUnivariatePolynomial| $))
+        ((|p| ($)) (|v| (|SingletonAsOrderedSet|))
+         ($ (|SparseUnivariatePolynomial| $)))
         (COND ((SPADCALL |p| (QREFELT $ 26)) (|spadConstant| $ 46))
               ('T
                (SPADCALL
@@ -271,8 +275,8 @@
                 (QREFELT $ 54))))) 
 
 (SDEFUN |SUP;multivariate;SupSaos$;16|
-        ((|supp| |SparseUnivariatePolynomial| $) (|v| |SingletonAsOrderedSet|)
-         ($ $))
+        ((|supp| (|SparseUnivariatePolynomial| $))
+         (|v| (|SingletonAsOrderedSet|)) ($ ($)))
         (SPROG ((|lc| ($)))
                (SEQ
                 (COND ((SPADCALL |supp| (QREFELT $ 55)) (|spadConstant| $ 16))
@@ -292,26 +296,26 @@
                                 (QREFELT $ 61))))))))))) 
 
 (SDEFUN |SUP;squareFreePolynomial;SupF;17|
-        ((|pp| . #1=(|SparseUnivariatePolynomial| $)) ($ |Factored| #1#))
+        ((|pp| #1=(|SparseUnivariatePolynomial| $)) ($ (|Factored| #1#)))
         (SPADCALL |pp| (QREFELT $ 64))) 
 
 (SDEFUN |SUP;factorPolynomial;SupF;18|
-        ((|pp| . #1=(|SparseUnivariatePolynomial| $)) ($ |Factored| #1#))
+        ((|pp| #1=(|SparseUnivariatePolynomial| $)) ($ (|Factored| #1#)))
         (SPADCALL |pp| (QREFELT $ 70))) 
 
 (SDEFUN |SUP;factorSquareFreePolynomial;SupF;19|
-        ((|pp| . #1=(|SparseUnivariatePolynomial| $)) ($ |Factored| #1#))
+        ((|pp| #1=(|SparseUnivariatePolynomial| $)) ($ (|Factored| #1#)))
         (SPADCALL |pp| (QREFELT $ 70))) 
 
-(SDEFUN |SUP;factor;$F;20| ((|p| $) ($ |Factored| $))
+(SDEFUN |SUP;factor;$F;20| ((|p| ($)) ($ (|Factored| $)))
         (SPADCALL |p| (QREFELT $ 75))) 
 
 (SDEFUN |SUP;solveLinearPolynomialEquation;LSupU;21|
-        ((|lpp| . #1=(|List| #2=(|SparseUnivariatePolynomial| $))) (|pp| . #2#)
-         ($ |Union| #1# "failed"))
+        ((|lpp| #1=(|List| #2=(|SparseUnivariatePolynomial| $))) (|pp| #2#)
+         ($ (|Union| #1# "failed")))
         (SPADCALL |lpp| |pp| (QREFELT $ 81))) 
 
-(SDEFUN |SUP;init_one| (($ |Void|))
+(SDEFUN |SUP;init_one| (($ (|Void|)))
         (SEQ
          (COND ((QREFELT $ 87) "done")
                ('T
@@ -328,8 +332,8 @@
                      (EXIT (SETELT $ 87 'T))))))) 
 
 (SDEFUN |SUP;toutput|
-        ((|t1| |Record| (|:| |k| (|NonNegativeInteger|)) (|:| |c| R))
-         (|v| . #1=(|OutputForm|)) ($ |OutputForm|))
+        ((|t1| (|Record| (|:| |k| (|NonNegativeInteger|)) (|:| |c| R)))
+         (|v| #1=(|OutputForm|)) ($ (|OutputForm|)))
         (SPROG ((|mon| #1#))
                (SEQ (COND ((NULL (QREFELT $ 87)) (|SUP;init_one| $)))
                     (EXIT
@@ -366,7 +370,8 @@
                              (SPADCALL (SPADCALL (QCDR |t1|) (QREFELT $ 90))
                                        |mon| (QREFELT $ 97)))))))))))))) 
 
-(SDEFUN |SUP;outputForm;$2Of;24| ((|p| $) (|v| |OutputForm|) ($ |OutputForm|))
+(SDEFUN |SUP;outputForm;$2Of;24|
+        ((|p| ($)) (|v| (|OutputForm|)) ($ (|OutputForm|)))
         (SPROG
          ((|l| (|List| (|OutputForm|))) (#1=#:G254 NIL) (|t| NIL)
           (#2=#:G253 NIL))
@@ -386,10 +391,10 @@
            (COND ((NULL |l|) (SPADCALL 0 (QREFELT $ 94)))
                  ('T (SPADCALL (ELT $ 98) |l| (QREFELT $ 101)))))))) 
 
-(SDEFUN |SUP;coerce;$Of;25| ((|p| $) ($ |OutputForm|))
+(SDEFUN |SUP;coerce;$Of;25| ((|p| ($)) ($ (|OutputForm|)))
         (SPADCALL |p| (SPADCALL "?" (QREFELT $ 104)) (QREFELT $ 102))) 
 
-(SDEFUN |SUP;elt;$2R;26| ((|p| $) (|val| R) ($ R))
+(SDEFUN |SUP;elt;$2R;26| ((|p| ($)) (|val| (R)) ($ (R)))
         (SPROG
          ((#1=#:G260 NIL) (|co| (R)) (#2=#:G257 NIL)
           (|n| (|NonNegativeInteger|)) (#3=#:G264 NIL) (|tm| NIL))
@@ -435,7 +440,7 @@
                                                   (QREFELT $ 106))
                                         (QREFELT $ 107))))))))))) 
 
-(SDEFUN |SUP;elt;3$;27| ((|p| $) (|val| $) ($ $))
+(SDEFUN |SUP;elt;3$;27| ((|p| ($)) (|val| ($)) ($ ($)))
         (SPROG
          ((#1=#:G269 NIL) (|coef| ($)) (#2=#:G266 NIL)
           (|n| (|NonNegativeInteger|)) (#3=#:G273 NIL) (|tm| NIL))
@@ -485,8 +490,8 @@
                                     (QREFELT $ 23))))))))))) 
 
 (SDEFUN |SUP;monicDivide;2$R;28|
-        ((|p1| $) (|p2| $)
-         ($ |Record| (|:| |quotient| . #1=($)) (|:| |remainder| . #1#)))
+        ((|p1| ($)) (|p2| ($))
+         ($ (|Record| (|:| |quotient| . #1=($)) (|:| |remainder| . #1#))))
         (SPROG
          ((|rout| (|Rep|)) (#2=#:G289 NIL)
           (|u| (|Union| (|NonNegativeInteger|) "failed"))
@@ -539,15 +544,16 @@
                          #4# (EXIT #2#))
                         (EXIT (CONS (NREVERSE |rout|) |p1|)))))))))) 
 
-(SDEFUN |SUP;discriminant;$R;29| ((|p| $) ($ R)) (SPADCALL |p| (QREFELT $ 116))) 
+(SDEFUN |SUP;discriminant;$R;29| ((|p| ($)) ($ (R)))
+        (SPADCALL |p| (QREFELT $ 116))) 
 
-(SDEFUN |SUP;subResultantGcd;3$;30| ((|p1| $) (|p2| $) ($ $))
+(SDEFUN |SUP;subResultantGcd;3$;30| ((|p1| ($)) (|p2| ($)) ($ ($)))
         (SPADCALL |p1| |p2| (QREFELT $ 118))) 
 
-(SDEFUN |SUP;resultant;2$R;31| ((|p1| $) (|p2| $) ($ R))
+(SDEFUN |SUP;resultant;2$R;31| ((|p1| ($)) (|p2| ($)) ($ (R)))
         (SPADCALL |p1| |p2| (QREFELT $ 120))) 
 
-(SDEFUN |SUP;content;$R;32| ((|p| $) ($ R))
+(SDEFUN |SUP;content;$R;32| ((|p| ($)) ($ (R)))
         (SPROG
          ((#1=#:G295 NIL) (#2=#:G294 (R)) (#3=#:G296 (R)) (#4=#:G299 NIL)
           (|tm| NIL))
@@ -570,7 +576,7 @@
                        (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
                   (COND (#1# #2#) (#5# (|spadConstant| $ 36))))))))) 
 
-(SDEFUN |SUP;primitivePart;2$;33| ((|p| $) ($ $))
+(SDEFUN |SUP;primitivePart;2$;33| ((|p| ($)) ($ ($)))
         (SPROG ((#1=#:G302 NIL) (|ct| (R)))
                (SEQ
                 (COND ((NULL |p|) |p|)
@@ -586,12 +592,12 @@
                                                 (|Union| $ "failed") #1#))
                               (QREFELT $ 125))))))))) 
 
-(SDEFUN |SUP;gcd;3$;34| ((|p1| $) (|p2| $) ($ $))
+(SDEFUN |SUP;gcd;3$;34| ((|p1| ($)) (|p2| ($)) ($ ($)))
         (SPADCALL |p1| |p2| (QREFELT $ 127))) 
 
 (SDEFUN |SUP;divide;2$R;35|
-        ((|p1| $) (|p2| $)
-         ($ |Record| (|:| |quotient| . #1=($)) (|:| |remainder| . #1#)))
+        ((|p1| ($)) (|p2| ($))
+         ($ (|Record| (|:| |quotient| . #1=($)) (|:| |remainder| . #1#))))
         (SPROG
          ((|rout| ($)) (#2=#:G320 NIL)
           (|u| (|Union| (|NonNegativeInteger|) "failed"))
@@ -641,7 +647,7 @@
                    #3# (EXIT #2#))
                   (EXIT (CONS (NREVERSE |rout|) |p1|)))))))) 
 
-(SDEFUN |SUP;/;$R$;36| ((|p| $) (|co| R) ($ $))
+(SDEFUN |SUP;/;$R$;36| ((|p| ($)) (|co| (R)) ($ ($)))
         (SPADCALL (SPADCALL |co| (QREFELT $ 129)) |p| (QREFELT $ 132))) 
 
 (DECLAIM (NOTINLINE |SparseUnivariatePolynomial;|)) 

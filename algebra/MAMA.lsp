@@ -1,12 +1,13 @@
 
-(SDEFUN |MAMA;element;M2IM;1| ((A M) (|r| |Integer|) (|c| |Integer|) ($ M))
+(SDEFUN |MAMA;element;M2IM;1|
+        ((A (M)) (|r| (|Integer|)) (|c| (|Integer|)) ($ (M)))
         (SPADCALL A |r| |r| |c| |c| (QREFELT $ 11))) 
 
-(SDEFUN |MAMA;rowMatrix;MIM;2| ((A M) (|r| |Integer|) ($ M))
+(SDEFUN |MAMA;rowMatrix;MIM;2| ((A (M)) (|r| (|Integer|)) ($ (M)))
         (SPADCALL A |r| |r| (SPADCALL A (QREFELT $ 13))
                   (SPADCALL A (QREFELT $ 14)) (QREFELT $ 11))) 
 
-(SDEFUN |MAMA;rows;MLM;3| ((A M) (|lst| |List| (|Integer|)) ($ M))
+(SDEFUN |MAMA;rows;MLM;3| ((A (M)) (|lst| (|List| (|Integer|))) ($ (M)))
         (SPROG ((|ls| (|List| (|Integer|))) (|nc| (|NonNegativeInteger|)))
                (SEQ (LETT |nc| (SPADCALL A (QREFELT $ 17)))
                     (EXIT
@@ -23,14 +24,14 @@
                                (QREFELT $ 22)))
                         (EXIT (SPADCALL A |lst| |ls| (QREFELT $ 23)))))))))) 
 
-(SDEFUN |MAMA;rows;MSM;4| ((A M) (|si| |Segment| (|Integer|)) ($ M))
+(SDEFUN |MAMA;rows;MSM;4| ((A (M)) (|si| (|Segment| (|Integer|))) ($ (M)))
         (SPADCALL A (SPADCALL |si| (QREFELT $ 22)) (QREFELT $ 24))) 
 
-(SDEFUN |MAMA;columnMatrix;MIM;5| ((A M) (|c| |Integer|) ($ M))
+(SDEFUN |MAMA;columnMatrix;MIM;5| ((A (M)) (|c| (|Integer|)) ($ (M)))
         (SPADCALL A (SPADCALL A (QREFELT $ 26)) (SPADCALL A (QREFELT $ 27)) |c|
                   |c| (QREFELT $ 11))) 
 
-(SDEFUN |MAMA;columns;MLM;6| ((A M) (|lst| |List| (|Integer|)) ($ M))
+(SDEFUN |MAMA;columns;MLM;6| ((A (M)) (|lst| (|List| (|Integer|))) ($ (M)))
         (SPROG ((|ls| (|List| (|Integer|))) (|nr| (|NonNegativeInteger|)))
                (SEQ (LETT |nr| (SPADCALL A (QREFELT $ 29)))
                     (EXIT
@@ -47,12 +48,12 @@
                                (QREFELT $ 22)))
                         (EXIT (SPADCALL A |ls| |lst| (QREFELT $ 23)))))))))) 
 
-(SDEFUN |MAMA;columns;MSM;7| ((A M) (|si| |Segment| (|Integer|)) ($ M))
+(SDEFUN |MAMA;columns;MSM;7| ((A (M)) (|si| (|Segment| (|Integer|))) ($ (M)))
         (SPADCALL A (SPADCALL |si| (QREFELT $ 22)) (QREFELT $ 30))) 
 
 (SDEFUN |MAMA;fill_diagonal|
-        ((B M) (A M) (|nr| |NonNegativeInteger|) (|nc| |NonNegativeInteger|)
-         (|n| |Integer|) ($ |Void|))
+        ((B (M)) (A (M)) (|nr| (|NonNegativeInteger|))
+         (|nc| (|NonNegativeInteger|)) (|n| (|Integer|)) ($ (|Void|)))
         (SPROG
          ((#1=#:G123 NIL) (|i| NIL) (|sc| (|Integer|)) (|sr| (|Integer|))
           (|dl| (|Integer|)))
@@ -86,7 +87,7 @@
                                (QREFELT $ 33))))
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))))))))) 
 
-(SDEFUN |MAMA;diagonalMatrix;MIM;9| ((A M) (|n| |Integer|) ($ M))
+(SDEFUN |MAMA;diagonalMatrix;MIM;9| ((A (M)) (|n| (|Integer|)) ($ (M)))
         (SPROG
          ((B (M)) (|nc| (|NonNegativeInteger|)) (|nr| (|NonNegativeInteger|)))
          (SEQ (LETT |nr| (SPADCALL A (QREFELT $ 29)))
@@ -95,9 +96,10 @@
                     (SPADCALL |nr| |nc| (|spadConstant| $ 34) (QREFELT $ 35)))
               (|MAMA;fill_diagonal| B A |nr| |nc| |n| $) (EXIT B)))) 
 
-(SDEFUN |MAMA;diagonalMatrix;2M;10| ((A M) ($ M)) (SPADCALL A 0 (QREFELT $ 36))) 
+(SDEFUN |MAMA;diagonalMatrix;2M;10| ((A (M)) ($ (M)))
+        (SPADCALL A 0 (QREFELT $ 36))) 
 
-(SDEFUN |MAMA;bandMatrix;MLM;11| ((A M) (|ln| |List| (|Integer|)) ($ M))
+(SDEFUN |MAMA;bandMatrix;MLM;11| ((A (M)) (|ln| (|List| (|Integer|))) ($ (M)))
         (SPROG
          ((#1=#:G130 NIL) (|n| NIL) (B (M)) (|nc| (|NonNegativeInteger|))
           (|nr| (|NonNegativeInteger|)))
@@ -113,11 +115,13 @@
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT B)))) 
 
-(SDEFUN |MAMA;bandMatrix;MSM;12| ((A M) (|si| |Segment| (|Integer|)) ($ M))
+(SDEFUN |MAMA;bandMatrix;MSM;12|
+        ((A (M)) (|si| (|Segment| (|Integer|))) ($ (M)))
         (SPADCALL A (SPADCALL |si| (QREFELT $ 22)) (QREFELT $ 38))) 
 
 (SDEFUN |MAMA;subMatrix;M2LM;13|
-        ((A M) (|lr| |List| (|Integer|)) (|lc| |List| (|Integer|)) ($ M))
+        ((A (M)) (|lr| (|List| (|Integer|))) (|lc| (|List| (|Integer|)))
+         ($ (M)))
         (SPROG
          ((#1=#:G138 NIL) (|j| NIL) (#2=#:G139 NIL) (|jj| NIL) (#3=#:G136 NIL)
           (|i| NIL) (#4=#:G137 NIL) (|ii| NIL) (|res| (M)) (|minC| (|Integer|))
@@ -154,14 +158,15 @@
               (EXIT |res|)))) 
 
 (SDEFUN |MAMA;subMatrix;M2SM;14|
-        ((A M) (|sr| |Segment| (|Integer|)) (|sc| |Segment| (|Integer|)) ($ M))
+        ((A (M)) (|sr| (|Segment| (|Integer|))) (|sc| (|Segment| (|Integer|)))
+         ($ (M)))
         (SPADCALL A (SPADCALL |sr| (QREFELT $ 41))
                   (SPADCALL |sr| (QREFELT $ 42)) (SPADCALL |sc| (QREFELT $ 41))
                   (SPADCALL |sc| (QREFELT $ 42)) (QREFELT $ 11))) 
 
 (SDEFUN |MAMA;blockSplit;MLPiL;15|
-        ((A M) (|lr| |List| (|NonNegativeInteger|)) (|nc| |PositiveInteger|)
-         ($ |List| (|List| M)))
+        ((A (M)) (|lr| (|List| (|NonNegativeInteger|)))
+         (|nc| (|PositiveInteger|)) ($ (|List| (|List| M))))
         (SPROG ((#1=#:G144 NIL) (X NIL) (#2=#:G143 NIL))
                (SEQ
                 (PROGN
@@ -179,8 +184,8 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |MAMA;blockSplit;MPiLL;16|
-        ((A M) (|nr| |PositiveInteger|) (|lc| |List| (|NonNegativeInteger|))
-         ($ |List| (|List| M)))
+        ((A (M)) (|nr| (|PositiveInteger|))
+         (|lc| (|List| (|NonNegativeInteger|))) ($ (|List| (|List| M))))
         (SPROG ((#1=#:G148 NIL) (X NIL) (#2=#:G147 NIL))
                (SEQ
                 (PROGN

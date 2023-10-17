@@ -1,33 +1,37 @@
 
 (SDEFUN |FS2EXPXP;ratIfCan|
-        ((|fcn| FE) ($ |Union| (|Fraction| (|Integer|)) "failed"))
+        ((|fcn| (FE)) ($ (|Union| (|Fraction| (|Integer|)) "failed")))
         (SPADCALL |fcn| (QREFELT $ 16))) 
 
 (SDEFUN |FS2EXPXP;stateSeriesProblem|
-        ((|function| |String|) (|problem| |String|)
-         ($ |Union| (|:| |%series| (|UnivariatePuiseuxSeries| FE |x| |cen|))
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|function| (|String|)) (|problem| (|String|))
+         ($
+          (|Union| (|:| |%series| (|UnivariatePuiseuxSeries| FE |x| |cen|))
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (CONS 1 (CONS |function| |problem|))) 
 
 (SDEFUN |FS2EXPXP;stateProblem|
-        ((|function| |String|) (|problem| |String|)
-         ($ |Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|function| (|String|)) (|problem| (|String|))
+         ($
+          (|Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (CONS 1 (CONS |function| |problem|))) 
 
-(SDEFUN |FS2EXPXP;newElem| ((|f| FE) ($ FE))
+(SDEFUN |FS2EXPXP;newElem| ((|f| (FE)) ($ (FE)))
         (SPADCALL (|FS2EXPXP;smpElem| (SPADCALL |f| (QREFELT $ 18)) $)
                   (|FS2EXPXP;smpElem| (SPADCALL |f| (QREFELT $ 19)) $)
                   (QREFELT $ 20))) 
 
 (SDEFUN |FS2EXPXP;smpElem|
-        ((|p| |SparseMultivariatePolynomial| R (|Kernel| FE)) ($ FE))
+        ((|p| (|SparseMultivariatePolynomial| R (|Kernel| FE))) ($ (FE)))
         (SPADCALL (CONS (|function| |FS2EXPXP;k2Elem|) $) (ELT $ 21) |p|
                   (QREFELT $ 26))) 
 
-(SDEFUN |FS2EXPXP;k2Elem| ((|k| |Kernel| FE) ($ FE))
+(SDEFUN |FS2EXPXP;k2Elem| ((|k| (|Kernel| FE)) ($ (FE)))
         (SPROG
          ((|cosz| (FE)) (|sinz| (FE)) (|iez| (FE)) (|ez| (FE)) (|z| (FE))
           (|args| (|List| FE)) (#1=#:G199 NIL) (|a| NIL) (#2=#:G198 NIL))
@@ -142,17 +146,21 @@
                           (QREFELT $ 50))))))))))) 
 
 (SDEFUN |FS2EXPXP;exprToXXP;FEBU;7|
-        ((|fcn| FE) (|posCheck?| |Boolean|)
-         ($ |Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|fcn| (FE)) (|posCheck?| (|Boolean|))
+         ($
+          (|Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (|FS2EXPXP;iExprToXXP| (|FS2EXPXP;newElem| |fcn| $) |posCheck?| $)) 
 
 (SDEFUN |FS2EXPXP;iExprToXXP|
-        ((|fcn| FE) (|posCheck?| |Boolean|)
-         ($ |Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|fcn| (FE)) (|posCheck?| (|Boolean|))
+         ($
+          (|Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|ker| (|Union| (|Kernel| FE) #1="failed"))
           (|power| (|Record| (|:| |val| FE) (|:| |exponent| (|Integer|))))
@@ -230,14 +238,17 @@
                                           "exprToXXP: neither a sum, product, power, nor kernel"))))))))))))))))))))))) 
 
 (SDEFUN |FS2EXPXP;listToXXP|
-        ((|list| |List| FE) (|posCheck?| |Boolean|)
-         (|ans| |ExponentialExpansion| R FE |x| |cen|)
-         (|op| |Mapping| (|ExponentialExpansion| R FE |x| |cen|)
-          (|ExponentialExpansion| R FE |x| |cen|)
-          (|ExponentialExpansion| R FE |x| |cen|))
-         ($ |Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|list| (|List| FE)) (|posCheck?| (|Boolean|))
+         (|ans| (|ExponentialExpansion| R FE |x| |cen|))
+         (|op|
+          (|Mapping| (|ExponentialExpansion| R FE |x| |cen|)
+                     (|ExponentialExpansion| R FE |x| |cen|)
+                     (|ExponentialExpansion| R FE |x| |cen|)))
+         ($
+          (|Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((#1=#:G247 NIL)
           (|term|
@@ -265,9 +276,10 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |FS2EXPXP;isNonTrivPower|
-        ((|fcn| FE)
-         ($ |Union| (|Record| (|:| |val| FE) (|:| |exponent| (|Integer|)))
-          "failed"))
+        ((|fcn| (FE))
+         ($
+          (|Union| (|Record| (|:| |val| FE) (|:| |exponent| (|Integer|)))
+                   "failed")))
         (SPROG
          ((|power| (|Record| (|:| |val| FE) (|:| |exponent| (|Integer|))))
           (|expt|
@@ -283,7 +295,7 @@
                                   (#1# (CONS 0 |power|))))))))))) 
 
 (SDEFUN |FS2EXPXP;negativePowerOK?|
-        ((|upxs| |UnivariatePuiseuxSeries| FE |x| |cen|) ($ |Boolean|))
+        ((|upxs| (|UnivariatePuiseuxSeries| FE |x| |cen|)) ($ (|Boolean|)))
         (SPROG
          ((|xOpList| (|List| (|BasicOperator|))) (|coef| (FE))
           (|deg| (|Fraction| (|Integer|))))
@@ -321,11 +333,12 @@
                               (#1# NIL)))))))))) 
 
 (SDEFUN |FS2EXPXP;powerToXXP|
-        ((|fcn| FE) (|n| |Integer|) (|posCheck?| |Boolean|)
-         ($ |Union|
-          (|:| |%expansion| #1=(|ExponentialExpansion| R FE |x| |cen|))
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|fcn| (FE)) (|n| (|Integer|)) (|posCheck?| (|Boolean|))
+         ($
+          (|Union|
+           (|:| |%expansion| #1=(|ExponentialExpansion| R FE |x| |cen|))
+           (|:| |%problem|
+                (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|)))))))
         (SPROG
          ((|nn| (|NonNegativeInteger|)) (#2=#:G268 NIL)
           (|rec|
@@ -407,11 +420,13 @@
                            "lowest order coefficient involves x" $))))))))))) 
 
 (SDEFUN |FS2EXPXP;carefulNthRootIfCan|
-        ((|ups| |UnivariatePuiseuxSeries| FE |x| |cen|)
-         (|n| |NonNegativeInteger|) (|posCheck?| |Boolean|)
-         ($ |Union| (|:| |%series| (|UnivariatePuiseuxSeries| FE |x| |cen|))
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|ups| (|UnivariatePuiseuxSeries| FE |x| |cen|))
+         (|n| (|NonNegativeInteger|)) (|posCheck?| (|Boolean|))
+         ($
+          (|Union| (|:| |%series| (|UnivariatePuiseuxSeries| FE |x| |cen|))
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|ans| (|Union| (|UnivariatePuiseuxSeries| FE |x| |cen|) "failed"))
           (#1=#:G292 NIL) (#2=#:G293 NIL)
@@ -475,11 +490,13 @@
           #4# (EXIT #2#)))) 
 
 (SDEFUN |FS2EXPXP;nthRootXXPIfCan|
-        ((|xxp| |ExponentialExpansion| R FE |x| |cen|)
-         (|n| |NonNegativeInteger|) (|posCheck?| |Boolean|)
-         ($ |Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|xxp| (|ExponentialExpansion| R FE |x| |cen|))
+         (|n| (|NonNegativeInteger|)) (|posCheck?| (|Boolean|))
+         ($
+          (|Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|newDen|
            #1=(|UnivariatePuiseuxSeriesWithExponentialSingularity| R FE |x|
@@ -603,10 +620,12 @@
           #8# (EXIT #3#)))) 
 
 (SDEFUN |FS2EXPXP;nthRootToXXP|
-        ((|arg| FE) (|n| |NonNegativeInteger|) (|posCheck?| |Boolean|)
-         ($ |Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|arg| (FE)) (|n| (|NonNegativeInteger|)) (|posCheck?| (|Boolean|))
+         ($
+          (|Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|ans|
            (|Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
@@ -631,10 +650,12 @@
                               (#1# (CONS 0 (CDR |ans|)))))))))))) 
 
 (SDEFUN |FS2EXPXP;genPowerToXXP|
-        ((|args| |List| FE) (|posCheck?| |Boolean|)
-         ($ |Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|args| (|List| FE)) (|posCheck?| (|Boolean|))
+         ($
+          (|Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|f| (|Union| (|UnivariatePuiseuxSeries| FE |x| |cen|) "failed"))
           (|xxp| (|ExponentialExpansion| R FE |x| |cen|))
@@ -676,10 +697,12 @@
                                 $))))))))))))))) 
 
 (SDEFUN |FS2EXPXP;kernelToXXP|
-        ((|ker| |Kernel| FE) (|posCheck?| |Boolean|)
-         ($ |Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|ker| (|Kernel| FE)) (|posCheck?| (|Boolean|))
+         ($
+          (|Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((#1=#:G333 NIL) (|n| (|Integer|)) (|arg| (FE)) (|args| (|List| FE))
           (|sym| (|Union| (|Symbol|) "failed")))
@@ -737,10 +760,13 @@
                   "unknown kernel" $))))))) 
 
 (SDEFUN |FS2EXPXP;genExp|
-        ((|ups| |UnivariatePuiseuxSeries| FE |x| |cen|) (|posCheck?| |Boolean|)
-         ($ |Union| (|:| |%series| (|UnivariatePuiseuxSeries| FE |x| |cen|))
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|ups| (|UnivariatePuiseuxSeries| FE |x| |cen|))
+         (|posCheck?| (|Boolean|))
+         ($
+          (|Union| (|:| |%series| (|UnivariatePuiseuxSeries| FE |x| |cen|))
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|result|
            (|Union| (|:| |%series| (|UnivariatePuiseuxSeries| FE |x| |cen|))
@@ -787,10 +813,13 @@
                                       (QREFELT $ 126))))))))))))) 
 
 (SDEFUN |FS2EXPXP;exponential|
-        ((|f| |UnivariatePuiseuxSeries| FE |x| |cen|) (|posCheck?| |Boolean|)
-         ($ |Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|f| (|UnivariatePuiseuxSeries| FE |x| |cen|))
+         (|posCheck?| (|Boolean|))
+         ($
+          (|Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|coef|
            (|Union| (|:| |%series| (|UnivariatePuiseuxSeries| FE |x| |cen|))
@@ -819,11 +848,12 @@
                          (QREFELT $ 93))))))))) 
 
 (SDEFUN |FS2EXPXP;expToXXP|
-        ((|arg| FE) (|posCheck?| |Boolean|)
-         ($ |Union|
-          (|:| |%expansion| #1=(|ExponentialExpansion| R FE |x| |cen|))
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|arg| (FE)) (|posCheck?| (|Boolean|))
+         ($
+          (|Union|
+           (|:| |%expansion| #1=(|ExponentialExpansion| R FE |x| |cen|))
+           (|:| |%problem|
+                (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|)))))))
         (SPROG
          ((|f| (|Union| (|UnivariatePuiseuxSeries| FE |x| |cen|) "failed"))
           (|xxp| #1#) (#2=#:G362 NIL)
@@ -868,10 +898,13 @@
                            $))))))))))) 
 
 (SDEFUN |FS2EXPXP;genLog|
-        ((|ups| |UnivariatePuiseuxSeries| FE |x| |cen|) (|posCheck?| |Boolean|)
-         ($ |Union| (|:| |%series| (|UnivariatePuiseuxSeries| FE |x| |cen|))
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|ups| (|UnivariatePuiseuxSeries| FE |x| |cen|))
+         (|posCheck?| (|Boolean|))
+         ($
+          (|Union| (|:| |%series| (|UnivariatePuiseuxSeries| FE |x| |cen|))
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|logTerm| (FE)) (|term1| (FE)) (|pow| (FE)) (|mon| (FE))
           (|negRat?| (|Boolean|))
@@ -966,11 +999,12 @@
           #3# (EXIT #2#)))) 
 
 (SDEFUN |FS2EXPXP;logToXXP|
-        ((|arg| FE) (|posCheck?| |Boolean|)
-         ($ |Union|
-          (|:| |%expansion| #1=(|ExponentialExpansion| R FE |x| |cen|))
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|arg| (FE)) (|posCheck?| (|Boolean|))
+         ($
+          (|Union|
+           (|:| |%expansion| #1=(|ExponentialExpansion| R FE |x| |cen|))
+           (|:| |%problem|
+                (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|)))))))
         (SPROG
          ((|denLog| #2=(|UnivariatePuiseuxSeries| FE |x| |cen|)) (|numLog| #2#)
           (|denCoefLog| (|UnivariatePuiseuxSeries| FE |x| |cen|))
@@ -1119,14 +1153,16 @@
           #10# (EXIT #4#)))) 
 
 (SDEFUN |FS2EXPXP;applyIfCan|
-        ((|fcn| |Mapping|
-          (|Union| (|UnivariatePuiseuxSeries| FE |x| |cen|) "failed")
-          (|UnivariatePuiseuxSeries| FE |x| |cen|))
-         (|arg| FE) (|fcnName| |String|) (|posCheck?| |Boolean|)
-         ($ |Union|
-          (|:| |%expansion| #1=(|ExponentialExpansion| R FE |x| |cen|))
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|fcn|
+          (|Mapping|
+           (|Union| (|UnivariatePuiseuxSeries| FE |x| |cen|) "failed")
+           (|UnivariatePuiseuxSeries| FE |x| |cen|)))
+         (|arg| (FE)) (|fcnName| (|String|)) (|posCheck?| (|Boolean|))
+         ($
+          (|Union|
+           (|:| |%expansion| #1=(|ExponentialExpansion| R FE |x| |cen|))
+           (|:| |%problem|
+                (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|)))))))
         (SPROG
          ((#2=#:G408 NIL) (|xOpList| (|List| (|BasicOperator|))) (|lc| (FE))
           (|deg| (|Fraction| (|Integer|)))
@@ -1260,15 +1296,18 @@
                                        $))))))))))))))))))) 
 
 (SDEFUN |FS2EXPXP;applyBddIfCan|
-        ((|fe| FE)
-         (|fcn| |Mapping|
-          #1=(|Union| (|UnivariatePuiseuxSeries| FE |x| |cen|) "failed")
-          (|UnivariatePuiseuxSeries| FE |x| |cen|))
-         (|arg| FE) (|fcnName| |String|) (|posCheck?| |Boolean|)
-         ($ |Union|
-          (|:| |%expansion| #2=(|ExponentialExpansion| R FE |x| |cen|))
-          (|:| |%problem|
-               #3=(|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|fe| (FE))
+         (|fcn|
+          (|Mapping|
+           #1=(|Union| (|UnivariatePuiseuxSeries| FE |x| |cen|) "failed")
+           (|UnivariatePuiseuxSeries| FE |x| |cen|)))
+         (|arg| (FE)) (|fcnName| (|String|)) (|posCheck?| (|Boolean|))
+         ($
+          (|Union|
+           (|:| |%expansion| #2=(|ExponentialExpansion| R FE |x| |cen|))
+           (|:| |%problem|
+                #3=(|Record| (|:| |func| (|String|))
+                             (|:| |prob| (|String|)))))))
         (SPROG
          ((|ans| #1#)
           (|f| (|Union| (|UnivariatePuiseuxSeries| FE |x| |cen|) "failed"))
@@ -1334,13 +1373,13 @@
                                    (SPADCALL (QCDR |ans|)
                                              (QREFELT $ 62))))))))))))))))) 
 
-(SDEFUN |FS2EXPXP;contOnReals?| ((|fcn| |String|) ($ |Boolean|))
+(SDEFUN |FS2EXPXP;contOnReals?| ((|fcn| (|String|)) ($ (|Boolean|)))
         (SPADCALL |fcn| (QREFELT $ 137) (QREFELT $ 140))) 
 
-(SDEFUN |FS2EXPXP;bddOnReals?| ((|fcn| |String|) ($ |Boolean|))
+(SDEFUN |FS2EXPXP;bddOnReals?| ((|fcn| (|String|)) ($ (|Boolean|)))
         (SPADCALL |fcn| (QREFELT $ 138) (QREFELT $ 140))) 
 
-(SDEFUN |FS2EXPXP;opsInvolvingX| ((|fcn| FE) ($ |List| (|BasicOperator|)))
+(SDEFUN |FS2EXPXP;opsInvolvingX| ((|fcn| (FE)) ($ (|List| (|BasicOperator|))))
         (SPROG
          ((|opList| (|List| #1=(|BasicOperator|))) (|op| #1#) (#2=#:G435 NIL)
           (|k| NIL) (#3=#:G434 NIL))
@@ -1372,7 +1411,8 @@
           (EXIT (SPADCALL |opList| (QREFELT $ 148)))))) 
 
 (SDEFUN |FS2EXPXP;opInOpList?|
-        ((|name| |Symbol|) (|opList| |List| (|BasicOperator|)) ($ |Boolean|))
+        ((|name| (|Symbol|)) (|opList| (|List| (|BasicOperator|)))
+         ($ (|Boolean|)))
         (SPROG ((#1=#:G440 NIL) (#2=#:G441 NIL) (#3=#:G442 NIL) (|op| NIL))
                (SEQ
                 (EXIT
@@ -1395,7 +1435,7 @@
                   (EXIT NIL)))
                 #4# (EXIT #2#)))) 
 
-(SDEFUN |FS2EXPXP;exponential?| ((|fcn| FE) ($ |Boolean|))
+(SDEFUN |FS2EXPXP;exponential?| ((|fcn| (FE)) ($ (|Boolean|)))
         (SPROG ((|ker| (|Union| (|Kernel| FE) "failed")))
                (SEQ (LETT |ker| (SPADCALL |fcn| (QREFELT $ 71)))
                     (EXIT
@@ -1404,7 +1444,7 @@
                        (SPADCALL (QCDR |ker|) '|exp| (QREFELT $ 38)))
                       ('T NIL)))))) 
 
-(SDEFUN |FS2EXPXP;productOfNonZeroes?| ((|fcn| FE) ($ |Boolean|))
+(SDEFUN |FS2EXPXP;productOfNonZeroes?| ((|fcn| (FE)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G458 NIL) (#2=#:G459 NIL) (#3=#:G460 NIL) (|term| NIL)
           (|prod| (|Union| (|List| FE) "failed")))
@@ -1451,10 +1491,12 @@
           #5# (EXIT #2#)))) 
 
 (SDEFUN |FS2EXPXP;tranToXXP|
-        ((|ker| |Kernel| FE) (|arg| FE) (|posCheck?| |Boolean|)
-         ($ |Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|ker| (|Kernel| FE)) (|arg| (FE)) (|posCheck?| (|Boolean|))
+         ($
+          (|Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (COND
          ((SPADCALL |ker| '|sin| (QREFELT $ 38))
           (|FS2EXPXP;applyBddIfCan| (SPADCALL |ker| (QREFELT $ 31)) (ELT $ 149)
@@ -1483,20 +1525,23 @@
            (SPADCALL (SPADCALL |ker| (QREFELT $ 116)) (QREFELT $ 118))
            "unknown kernel" $)))) 
 
-(SDEFUN |FS2EXPXP;localAbs;2FE;32| ((|fcn| FE) ($ FE))
+(SDEFUN |FS2EXPXP;localAbs;2FE;32| ((|fcn| (FE)) ($ (FE)))
         (SPADCALL |fcn| (QREFELT $ 156))) 
 
-(SDEFUN |FS2EXPXP;localAbs;2FE;33| ((|fcn| FE) ($ FE))
+(SDEFUN |FS2EXPXP;localAbs;2FE;33| ((|fcn| (FE)) ($ (FE)))
         (SPADCALL (SPADCALL |fcn| |fcn| (QREFELT $ 132)) (QREFELT $ 45))) 
 
-(SDEFUN |FS2EXPXP;signOfExpression| ((|arg| FE) ($ FE))
+(SDEFUN |FS2EXPXP;signOfExpression| ((|arg| (FE)) ($ (FE)))
         (SPADCALL (SPADCALL |arg| (QREFELT $ 157)) |arg| (QREFELT $ 20))) 
 
 (SDEFUN |FS2EXPXP;atancotToXXP|
-        ((|fe| FE) (|arg| FE) (|posCheck?| |Boolean|) (|plusMinus| |Integer|)
-         ($ |Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|fe| (FE)) (|arg| (FE)) (|posCheck?| (|Boolean|))
+         (|plusMinus| (|Integer|))
+         ($
+          (|Union| (|:| |%expansion| (|ExponentialExpansion| R FE |x| |cen|))
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|cc| (FE)) (|n| (|Integer|)) (|posNegPi2| (FE))
           (|signum| (|Union| (|Integer|) "failed")) (|lc| (FE)) (#1=#:G516 NIL)

@@ -1,5 +1,6 @@
 
-(SDEFUN |VECREC2;modInverse| ((|c| |Integer|) (|p| |Integer|) ($ |Integer|))
+(SDEFUN |VECREC2;modInverse|
+        ((|c| (|Integer|)) (|p| (|Integer|)) ($ (|Integer|)))
         (SPROG ((#1=#:G118 NIL))
                (QCAR
                 (PROG2 (LETT #1# (SPADCALL |c| |p| 1 (QREFELT $ 10)))
@@ -13,7 +14,7 @@
                                    "failed")
                                   #1#))))) 
 
-(SDEFUN |VECREC2;empty;I$;2| ((|nint| |Integer|) ($ $))
+(SDEFUN |VECREC2;empty;I$;2| ((|nint| (|Integer|)) ($ ($)))
         (SPROG ((|intvec| (|PrimitiveArray| (|Integer|))) (#1=#:G122 NIL))
                (SEQ
                 (LETT |intvec|
@@ -27,7 +28,7 @@
                          (MAKE-ARRAY 0) (MAKE-ARRAY 0)))))) 
 
 (SDEFUN |VECREC2;chinese_update;UvI$V;3|
-        ((|vec| |U32Vector|) (|p| |Integer|) (|statearg| $) ($ |Void|))
+        ((|vec| (|U32Vector|)) (|p| (|Integer|)) (|statearg| ($)) ($ (|Void|)))
         (SPROG
          ((|nmp| #1=(|Integer|)) (|cor| #2=(|Integer|)) (|ii| (|Integer|))
           (#3=#:G143 NIL) (|i| NIL) (|mpfact| #1#) (|nbmp| #1#)
@@ -146,7 +147,7 @@
                            (EXIT (QSETVELT |state| 0 |nmp|))))))))) 
 
 (SDEFUN |VECREC2;hensel_update;UvI$V;4|
-        ((|vec| |U32Vector|) (|p| |Integer|) (|statearg| $) ($ |Void|))
+        ((|vec| (|U32Vector|)) (|p| (|Integer|)) (|statearg| ($)) ($ (|Void|)))
         (SPROG
          ((#1=#:G148 NIL) (|i| NIL) (|intvec| (|PrimitiveArray| (|Integer|)))
           (|mp| (|Integer|)) (|state| (|Rep|)))
@@ -163,9 +164,11 @@
               (EXIT (QSETVELT |state| 0 (* |p| |mp|)))))) 
 
 (SDEFUN |VECREC2;rational_reconstruction;4IU;5|
-        ((|x| |Integer|) (|y| |Integer|) (|i| |Integer|) (|j| |Integer|)
-         ($ |Union| (|Record| (|:| |num| (|Integer|)) (|:| |den| (|Integer|)))
-          "failed"))
+        ((|x| (|Integer|)) (|y| (|Integer|)) (|i| (|Integer|))
+         (|j| (|Integer|))
+         ($
+          (|Union| (|Record| (|:| |num| (|Integer|)) (|:| |den| (|Integer|)))
+                   "failed")))
         (SPROG
          ((|r1| (|Integer|)) (|s1| (|Integer|)) (|s0| (|Integer|))
           (|tmp| (|Integer|)) (|r0| (|Integer|))
@@ -190,11 +193,12 @@
                 ('T (CONS 0 (CONS |r1| |s1|)))))))) 
 
 (SDEFUN |VECREC2;rational_reconstruction2|
-        ((|statearg| $) (|block_offsets| |Vector| (|Integer|))
-         ($ |Union|
-          (|Record| (|:| |numers| (|PrimitiveArray| (|Integer|)))
-                    (|:| |denoms| (|PrimitiveArray| (|Integer|))))
-          "failed"))
+        ((|statearg| ($)) (|block_offsets| (|Vector| (|Integer|)))
+         ($
+          (|Union|
+           (|Record| (|:| |numers| (|PrimitiveArray| (|Integer|)))
+                     (|:| |denoms| (|PrimitiveArray| (|Integer|))))
+           "failed")))
         (SPROG
          ((#1=#:G203 NIL) (|cden| #2=(|Integer|))
           (|ppr| (|Record| (|:| |num| (|Integer|)) (|:| |den| (|Integer|))))
@@ -387,16 +391,17 @@
           #9# (EXIT #1#)))) 
 
 (SDEFUN |VECREC2;rational_reconstruction;$U;7|
-        ((|statearg| $)
-         ($ |Union|
-          (|Record| (|:| |numers| (|PrimitiveArray| (|Integer|)))
-                    (|:| |denoms| (|PrimitiveArray| (|Integer|))))
-          "failed"))
+        ((|statearg| ($))
+         ($
+          (|Union|
+           (|Record| (|:| |numers| (|PrimitiveArray| (|Integer|)))
+                     (|:| |denoms| (|PrimitiveArray| (|Integer|))))
+           "failed")))
         (|VECREC2;rational_reconstruction2| |statearg| (MAKEARR1 1 0) $)) 
 
 (SDEFUN |VECREC2;lcm|
-        ((|nums| |PrimitiveArray| (|Integer|)) (|lo| |Integer|)
-         (|hi| |Integer|) ($ |Integer|))
+        ((|nums| (|PrimitiveArray| (|Integer|))) (|lo| (|Integer|))
+         (|hi| (|Integer|)) ($ (|Integer|)))
         (SPROG ((|res| (|Integer|)) (#1=#:G213 NIL) (|i| NIL))
                (SEQ (LETT |res| (QAREF1 |nums| |lo|))
                     (SEQ (LETT |i| (+ |lo| 1)) (LETT #1# |hi|) G190
@@ -410,8 +415,8 @@
                     (EXIT |res|)))) 
 
 (SDEFUN |VECREC2;gcd|
-        ((|nums| |PrimitiveArray| (|Integer|)) (|lo| |Integer|)
-         (|hi| |Integer|) ($ |Integer|))
+        ((|nums| (|PrimitiveArray| (|Integer|))) (|lo| (|Integer|))
+         (|hi| (|Integer|)) ($ (|Integer|)))
         (SPROG ((|res| (|Integer|)) (#1=#:G217 NIL) (|i| NIL))
                (SEQ (LETT |res| (QAREF1 |nums| |lo|))
                     (SEQ (LETT |i| (+ |lo| 1)) (LETT #1# |hi|) G190
@@ -422,10 +427,10 @@
                     (EXIT |res|)))) 
 
 (SDEFUN |VECREC2;remove_denoms;V3Pa;10|
-        ((|block_offsets| |Vector| (|Integer|))
-         (|nums| |PrimitiveArray| (|Integer|))
-         (|dens| |PrimitiveArray| (|Integer|))
-         ($ |PrimitiveArray| (|Integer|)))
+        ((|block_offsets| (|Vector| (|Integer|)))
+         (|nums| (|PrimitiveArray| (|Integer|)))
+         (|dens| (|PrimitiveArray| (|Integer|)))
+         ($ (|PrimitiveArray| (|Integer|))))
         (SPROG
          ((#1=#:G220 NIL) (#2=#:G232 NIL) (|i| NIL) (|cfactor| (|Integer|))
           (|tmpp2| (|Integer|)) (#3=#:G231 NIL) (|cden| (|Integer|))
@@ -491,8 +496,8 @@
               (EXIT |res|)))) 
 
 (SDEFUN |VECREC2;reconstruct;$VU;11|
-        ((|statearg| $) (|block_offsets| |Vector| (|Integer|))
-         ($ |Union| (|PrimitiveArray| (|Integer|)) "failed"))
+        ((|statearg| ($)) (|block_offsets| (|Vector| (|Integer|)))
+         ($ (|Union| (|PrimitiveArray| (|Integer|)) "failed")))
         (SPROG
          ((|ppr|
            (|Record| (|:| |numers| (|PrimitiveArray| (|Integer|)))

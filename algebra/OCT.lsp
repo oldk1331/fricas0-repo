@@ -1,40 +1,49 @@
 
-(SDEFUN |OCT;Zero;$;1| (($ $))
+(SDEFUN |OCT;Zero;$;1| (($ ($)))
         (CONS (|spadConstant| $ 11) (|spadConstant| $ 11))) 
 
-(SDEFUN |OCT;One;$;2| (($ $))
+(SDEFUN |OCT;One;$;2| (($ ($)))
         (CONS (|spadConstant| $ 13) (|spadConstant| $ 11))) 
 
-(SDEFUN |OCT;real;$R;3| ((|x| $) ($ R)) (SPADCALL (QCAR |x|) (QREFELT $ 15))) 
+(SDEFUN |OCT;real;$R;3| ((|x| ($)) ($ (R)))
+        (SPADCALL (QCAR |x|) (QREFELT $ 15))) 
 
-(SDEFUN |OCT;imagi;$R;4| ((|x| $) ($ R)) (SPADCALL (QCAR |x|) (QREFELT $ 17))) 
+(SDEFUN |OCT;imagi;$R;4| ((|x| ($)) ($ (R)))
+        (SPADCALL (QCAR |x|) (QREFELT $ 17))) 
 
-(SDEFUN |OCT;imagj;$R;5| ((|x| $) ($ R)) (SPADCALL (QCAR |x|) (QREFELT $ 19))) 
+(SDEFUN |OCT;imagj;$R;5| ((|x| ($)) ($ (R)))
+        (SPADCALL (QCAR |x|) (QREFELT $ 19))) 
 
-(SDEFUN |OCT;imagk;$R;6| ((|x| $) ($ R)) (SPADCALL (QCAR |x|) (QREFELT $ 21))) 
+(SDEFUN |OCT;imagk;$R;6| ((|x| ($)) ($ (R)))
+        (SPADCALL (QCAR |x|) (QREFELT $ 21))) 
 
-(SDEFUN |OCT;imagE;$R;7| ((|x| $) ($ R)) (SPADCALL (QCDR |x|) (QREFELT $ 15))) 
+(SDEFUN |OCT;imagE;$R;7| ((|x| ($)) ($ (R)))
+        (SPADCALL (QCDR |x|) (QREFELT $ 15))) 
 
-(SDEFUN |OCT;imagI;$R;8| ((|x| $) ($ R)) (SPADCALL (QCDR |x|) (QREFELT $ 17))) 
+(SDEFUN |OCT;imagI;$R;8| ((|x| ($)) ($ (R)))
+        (SPADCALL (QCDR |x|) (QREFELT $ 17))) 
 
-(SDEFUN |OCT;imagJ;$R;9| ((|x| $) ($ R)) (SPADCALL (QCDR |x|) (QREFELT $ 19))) 
+(SDEFUN |OCT;imagJ;$R;9| ((|x| ($)) ($ (R)))
+        (SPADCALL (QCDR |x|) (QREFELT $ 19))) 
 
-(SDEFUN |OCT;imagK;$R;10| ((|x| $) ($ R)) (SPADCALL (QCDR |x|) (QREFELT $ 21))) 
+(SDEFUN |OCT;imagK;$R;10| ((|x| ($)) ($ (R)))
+        (SPADCALL (QCDR |x|) (QREFELT $ 21))) 
 
 (SDEFUN |OCT;octon;8R$;11|
-        ((|a| R) (|b| R) (|c| R) (|d| R) (|f| R) (|g| R) (|h| R) (|i| R) ($ $))
+        ((|a| (R)) (|b| (R)) (|c| (R)) (|d| (R)) (|f| (R)) (|g| (R)) (|h| (R))
+         (|i| (R)) ($ ($)))
         (CONS (SPADCALL |a| |b| |c| |d| (QREFELT $ 27))
               (SPADCALL |f| |g| |h| |i| (QREFELT $ 27)))) 
 
 (PUT '|OCT;octon;2Q$;12| '|SPADreplace| 'CONS) 
 
-(SDEFUN |OCT;octon;2Q$;12| ((|p| |Quaternion| R) (|q| |Quaternion| R) ($ $))
-        (CONS |p| |q|)) 
+(SDEFUN |OCT;octon;2Q$;12|
+        ((|p| (|Quaternion| R)) (|q| (|Quaternion| R)) ($ ($))) (CONS |p| |q|)) 
 
-(SDEFUN |OCT;coerce;Q$;13| ((|q| |Quaternion| R) ($ $))
+(SDEFUN |OCT;coerce;Q$;13| ((|q| (|Quaternion| R)) ($ ($)))
         (CONS |q| (|spadConstant| $ 11))) 
 
-(SDEFUN |OCT;retract;$Q;14| ((|x| $) ($ |Quaternion| R))
+(SDEFUN |OCT;retract;$Q;14| ((|x| ($)) ($ (|Quaternion| R)))
         (SEQ
          (COND
           ((SPADCALL (SPADCALL |x| (QREFELT $ 23)) (QREFELT $ 32))
@@ -55,7 +64,7 @@
                     (QREFELT $ 27))))) 
 
 (SDEFUN |OCT;retractIfCan;$U;15|
-        ((|x| $) ($ |Union| (|Quaternion| R) "failed"))
+        ((|x| ($)) ($ (|Union| (|Quaternion| R) "failed")))
         (SEQ
          (COND
           ((SPADCALL (SPADCALL |x| (QREFELT $ 23)) (QREFELT $ 32))
@@ -76,7 +85,7 @@
                           (SPADCALL |x| (QREFELT $ 20))
                           (SPADCALL |x| (QREFELT $ 22)) (QREFELT $ 27)))))) 
 
-(SDEFUN |OCT;*;3$;16| ((|x| $) (|y| $) ($ $))
+(SDEFUN |OCT;*;3$;16| ((|x| ($)) (|y| ($)) ($ ($)))
         (CONS
          (SPADCALL (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 36))
                    (SPADCALL (SPADCALL (QCDR |y|) (QREFELT $ 37)) (QCDR |x|)

@@ -1,5 +1,5 @@
 
-(SDEFUN |ONECOMP;convert;$If;1| ((|x| $) ($ |InputForm|))
+(SDEFUN |ONECOMP;convert;$If;1| ((|x| ($)) ($ (|InputForm|)))
         (COND ((QEQCAR |x| 0) (SPADCALL (QCDR |x|) (QREFELT $ 9)))
               ('T
                (SPADCALL (LIST (SPADCALL '|infinity| (QREFELT $ 11)))
@@ -7,42 +7,42 @@
 
 (PUT '|ONECOMP;coerce;R$;2| '|SPADreplace| '(XLAM (|r|) (CONS 0 |r|))) 
 
-(SDEFUN |ONECOMP;coerce;R$;2| ((|r| R) ($ $)) (CONS 0 |r|)) 
+(SDEFUN |ONECOMP;coerce;R$;2| ((|r| (R)) ($ ($))) (CONS 0 |r|)) 
 
-(SDEFUN |ONECOMP;retract;$R;3| ((|x| $) ($ R))
+(SDEFUN |ONECOMP;retract;$R;3| ((|x| ($)) ($ (R)))
         (COND ((QEQCAR |x| 0) (QCDR |x|)) ('T (|error| "Not finite")))) 
 
 (PUT '|ONECOMP;finite?;$B;4| '|SPADreplace| '(XLAM (|x|) (QEQCAR |x| 0))) 
 
-(SDEFUN |ONECOMP;finite?;$B;4| ((|x| $) ($ |Boolean|)) (QEQCAR |x| 0)) 
+(SDEFUN |ONECOMP;finite?;$B;4| ((|x| ($)) ($ (|Boolean|))) (QEQCAR |x| 0)) 
 
 (PUT '|ONECOMP;infinite?;$B;5| '|SPADreplace| '(XLAM (|x|) (QEQCAR |x| 1))) 
 
-(SDEFUN |ONECOMP;infinite?;$B;5| ((|x| $) ($ |Boolean|)) (QEQCAR |x| 1)) 
+(SDEFUN |ONECOMP;infinite?;$B;5| ((|x| ($)) ($ (|Boolean|))) (QEQCAR |x| 1)) 
 
 (PUT '|ONECOMP;infinity;$;6| '|SPADreplace| '(XLAM NIL (CONS 1 "infinity"))) 
 
-(SDEFUN |ONECOMP;infinity;$;6| (($ $)) (CONS 1 "infinity")) 
+(SDEFUN |ONECOMP;infinity;$;6| (($ ($))) (CONS 1 "infinity")) 
 
-(SDEFUN |ONECOMP;retractIfCan;$U;7| ((|x| $) ($ |Union| R "failed"))
+(SDEFUN |ONECOMP;retractIfCan;$U;7| ((|x| ($)) ($ (|Union| R "failed")))
         (COND ((QEQCAR |x| 0) (CONS 0 (QCDR |x|))) ('T (CONS 1 "failed")))) 
 
-(SDEFUN |ONECOMP;coerce;$Of;8| ((|x| $) ($ |OutputForm|))
+(SDEFUN |ONECOMP;coerce;$Of;8| ((|x| ($)) ($ (|OutputForm|)))
         (COND ((QEQCAR |x| 1) (SPADCALL '|infinity| (QREFELT $ 24)))
               ('T (SPADCALL (QCDR |x|) (QREFELT $ 25))))) 
 
-(SDEFUN |ONECOMP;=;2$B;9| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |ONECOMP;=;2$B;9| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (COND ((QEQCAR |x| 1) (QEQCAR |y| 1)) ((QEQCAR |y| 1) NIL)
               ('T (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 27))))) 
 
-(SDEFUN |ONECOMP;rational?;$B;10| ((|x| $) ($ |Boolean|))
+(SDEFUN |ONECOMP;rational?;$B;10| ((|x| ($)) ($ (|Boolean|)))
         (SPADCALL |x| (QREFELT $ 18))) 
 
-(SDEFUN |ONECOMP;rational;$F;11| ((|x| $) ($ |Fraction| (|Integer|)))
+(SDEFUN |ONECOMP;rational;$F;11| ((|x| ($)) ($ (|Fraction| (|Integer|))))
         (SPADCALL (CONS 0 (SPADCALL |x| (QREFELT $ 16))) (QREFELT $ 31))) 
 
 (SDEFUN |ONECOMP;rationalIfCan;$U;12|
-        ((|x| $) ($ |Union| (|Fraction| (|Integer|)) "failed"))
+        ((|x| ($)) ($ (|Union| (|Fraction| (|Integer|)) "failed")))
         (SPROG ((|r| (|Union| R "failed")))
                (SEQ (LETT |r| (SPADCALL |x| (QREFELT $ 22)))
                     (EXIT

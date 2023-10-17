@@ -1,5 +1,5 @@
 
-(SDEFUN |FINGRP-;order;SI;1| ((|x| S) ($ |Integer|))
+(SDEFUN |FINGRP-;order;SI;1| ((|x| (S)) ($ (|Integer|)))
         (SPROG ((|y| (S)) (|k| (|Integer|)))
                (SEQ (LETT |k| 1) (LETT |y| |x|)
                     (SEQ G190

@@ -1,6 +1,7 @@
 
 (SDEFUN |REP1;calcCoef|
-        ((|beta| |List| (|Integer|)) (C |Matrix| (|Integer|)) ($ |Integer|))
+        ((|beta| (|List| (|Integer|))) (C (|Matrix| (|Integer|)))
+         ($ (|Integer|)))
         (SPROG ((|prod| (|Integer|)) (#1=#:G108 NIL) (|i| NIL))
                (SEQ (LETT |prod| 1)
                     (SEQ (LETT |i| 1) (LETT #1# (LENGTH |beta|)) G190
@@ -18,7 +19,7 @@
                     (EXIT |prod|)))) 
 
 (SDEFUN |REP1;invContent|
-        ((|alpha| |List| #1=(|Integer|)) ($ |Vector| (|Integer|)))
+        ((|alpha| (|List| #1=(|Integer|))) ($ (|Vector| (|Integer|))))
         (SPROG
          ((|i| (|NonNegativeInteger|)) (#2=#:G124 NIL) (|k| NIL)
           (|j| (|Integer|)) (#3=#:G123 NIL) (|og| NIL)
@@ -65,7 +66,7 @@
           (EXIT |f|)))) 
 
 (SDEFUN |REP1;antisymmetricTensors;MPiM;3|
-        ((|a| |Matrix| R) (|k| |PositiveInteger|) ($ |Matrix| R))
+        ((|a| (|Matrix| R)) (|k| (|PositiveInteger|)) ($ (|Matrix| R)))
         (SPROG
          ((#1=#:G150 NIL) (|t| NIL) (#2=#:G151 NIL) (|tt| NIL) (#3=#:G148 NIL)
           (|r| NIL) (#4=#:G149 NIL) (|rr| NIL) (|c| #5=(|Matrix| R))
@@ -206,8 +207,8 @@
                            (EXIT |b|)))))))) 
 
 (SDEFUN |REP1;antisymmetricTensors;LPiL;4|
-        ((|la| |List| (|Matrix| R)) (|k| |PositiveInteger|)
-         ($ |List| (|Matrix| R)))
+        ((|la| (|List| (|Matrix| R))) (|k| (|PositiveInteger|))
+         ($ (|List| (|Matrix| R))))
         (SPROG ((#1=#:G155 NIL) (|ma| NIL) (#2=#:G154 NIL))
                (SEQ
                 (PROGN
@@ -224,7 +225,7 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |REP1;symmetricTensors;MPiM;5|
-        ((|a| |Matrix| R) (|n| |PositiveInteger|) ($ |Matrix| R))
+        ((|a| (|Matrix| R)) (|n| (|PositiveInteger|)) ($ (|Matrix| R)))
         (SPROG
          ((|colemanMatrix| (|Matrix| (|Integer|))) (|help| (R)) (#1=#:G159 NIL)
           (#2=#:G158 NIL) (#3=#:G172 NIL) (|k| NIL)
@@ -374,8 +375,8 @@
                        (EXIT |c|)))))))) 
 
 (SDEFUN |REP1;symmetricTensors;LPiL;6|
-        ((|la| |List| (|Matrix| R)) (|k| |PositiveInteger|)
-         ($ |List| (|Matrix| R)))
+        ((|la| (|List| (|Matrix| R))) (|k| (|PositiveInteger|))
+         ($ (|List| (|Matrix| R))))
         (SPROG ((#1=#:G176 NIL) (|ma| NIL) (#2=#:G175 NIL))
                (SEQ
                 (PROGN
@@ -392,12 +393,12 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |REP1;tensorProduct;3M;7|
-        ((|a| |Matrix| R) (|b| |Matrix| R) ($ |Matrix| R))
+        ((|a| (|Matrix| R)) (|b| (|Matrix| R)) ($ (|Matrix| R)))
         (SPADCALL |a| |b| (QREFELT $ 43))) 
 
 (SDEFUN |REP1;tensorProduct;3L;8|
-        ((|la| |List| (|Matrix| R)) (|lb| |List| (|Matrix| R))
-         ($ |List| (|Matrix| R)))
+        ((|la| (|List| (|Matrix| R))) (|lb| (|List| (|Matrix| R)))
+         ($ (|List| (|Matrix| R))))
         (SPROG ((#1=#:G181 NIL) (|i| NIL) (#2=#:G180 NIL))
                (SEQ
                 (PROGN
@@ -415,16 +416,16 @@
                       (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(SDEFUN |REP1;tensorProduct;2M;9| ((|a| |Matrix| R) ($ |Matrix| R))
+(SDEFUN |REP1;tensorProduct;2M;9| ((|a| (|Matrix| R)) ($ (|Matrix| R)))
         (SPADCALL |a| |a| (QREFELT $ 44))) 
 
 (SDEFUN |REP1;tensorProduct;2L;10|
-        ((|la| |List| (|Matrix| R)) ($ |List| (|Matrix| R)))
+        ((|la| (|List| (|Matrix| R))) ($ (|List| (|Matrix| R))))
         (SPADCALL |la| |la| (QREFELT $ 46))) 
 
 (SDEFUN |REP1;permutationRepresentation;PIM;11|
-        ((|p| |Permutation| (|Integer|)) (|n| |Integer|)
-         ($ |Matrix| (|Integer|)))
+        ((|p| (|Permutation| (|Integer|))) (|n| (|Integer|))
+         ($ (|Matrix| (|Integer|))))
         (SPROG
          ((#1=#:G191 NIL) (|i| NIL) (|a| (|Matrix| (|Integer|)))
           (#2=#:G187 NIL) (#3=#:G186 NIL))
@@ -448,7 +449,7 @@
           (EXIT |a|)))) 
 
 (SDEFUN |REP1;permutationRepresentation;LM;12|
-        ((|p| |List| (|Integer|)) ($ |Matrix| (|Integer|)))
+        ((|p| (|List| (|Integer|))) ($ (|Matrix| (|Integer|))))
         (SPROG
          ((#1=#:G199 NIL) (|i| NIL) (|a| (|Matrix| (|Integer|)))
           (#2=#:G195 NIL) (#3=#:G194 NIL) (|n| (|Integer|)))
@@ -472,8 +473,8 @@
               (EXIT |a|)))) 
 
 (SDEFUN |REP1;permutationRepresentation;LIL;13|
-        ((|listperm| |List| (|Permutation| (|Integer|))) (|n| |Integer|)
-         ($ |List| (|Matrix| (|Integer|))))
+        ((|listperm| (|List| (|Permutation| (|Integer|)))) (|n| (|Integer|))
+         ($ (|List| (|Matrix| (|Integer|)))))
         (SPROG ((#1=#:G203 NIL) (|perm| NIL) (#2=#:G202 NIL))
                (SEQ
                 (PROGN
@@ -491,8 +492,8 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |REP1;permutationRepresentation;LL;14|
-        ((|listperm| |List| (|List| (|Integer|)))
-         ($ |List| (|Matrix| (|Integer|))))
+        ((|listperm| (|List| (|List| (|Integer|))))
+         ($ (|List| (|Matrix| (|Integer|)))))
         (SPROG ((#1=#:G207 NIL) (|perm| NIL) (#2=#:G206 NIL))
                (SEQ
                 (PROGN
@@ -509,7 +510,7 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |REP1;createGenericMatrix;NniM;15|
-        ((|m| |NonNegativeInteger|) ($ |Matrix| (|Polynomial| R)))
+        ((|m| (|NonNegativeInteger|)) ($ (|Matrix| (|Polynomial| R))))
         (SPROG
          ((|sy| (|Symbol|)) (|le| (|List| (|OutputForm|)))
           (|jof| #1=(|OutputForm|)) (|iof| #1#) (#2=#:G214 NIL) (|j| NIL)

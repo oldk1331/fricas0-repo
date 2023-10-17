@@ -1,11 +1,11 @@
 
-(SDEFUN |IMATQF;qfMat| ((|m| M) ($ M2))
+(SDEFUN |IMATQF;qfMat| ((|m| (M)) ($ (M2)))
         (SPADCALL (ELT $ 14) |m| (QREFELT $ 17))) 
 
-(SDEFUN |IMATQF;rowEchelon;MM2;2| ((|m| M) ($ M2))
+(SDEFUN |IMATQF;rowEchelon;MM2;2| ((|m| (M)) ($ (M2)))
         (SPADCALL (|IMATQF;qfMat| |m| $) (QREFELT $ 19))) 
 
-(SDEFUN |IMATQF;inverse;MU;3| ((|m| M) ($ |Union| M2 "failed"))
+(SDEFUN |IMATQF;inverse;MU;3| ((|m| (M)) ($ (|Union| M2 "failed")))
         (SPROG ((|inv| (|Union| M2 "failed")))
                (SEQ
                 (LETT |inv| (SPADCALL (|IMATQF;qfMat| |m| $) (QREFELT $ 22)))
@@ -13,7 +13,7 @@
                  (COND ((QEQCAR |inv| 1) (CONS 1 "failed"))
                        ('T (CONS 0 (QCDR |inv|)))))))) 
 
-(SDEFUN |IMATQF;nullSpace;ML;4| ((|m| M) ($ |List| |Col|))
+(SDEFUN |IMATQF;nullSpace;ML;4| ((|m| (M)) ($ (|List| |Col|)))
         (SPROG ((#1=#:G113 NIL) (|v| NIL) (#2=#:G112 NIL))
                (SEQ
                 (PROGN

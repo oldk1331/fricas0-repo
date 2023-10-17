@@ -2,15 +2,15 @@
 (PUT '|COCHNC;coChainComplex;L$;1| '|SPADreplace| '(XLAM (|v|) |v|)) 
 
 (SDEFUN |COCHNC;coChainComplex;L$;1|
-        ((|v| |List| (|Matrix| (|Integer|))) ($ $)) |v|) 
+        ((|v| (|List| (|Matrix| (|Integer|)))) ($ ($))) |v|) 
 
-(SDEFUN |COCHNC;coChainComplex;Cc$;2| ((|s| |ChainComplex|) ($ $))
+(SDEFUN |COCHNC;coChainComplex;Cc$;2| ((|s| (|ChainComplex|)) ($ ($)))
         (SPROG ((|tm| ($)))
                (SEQ (LETT |tm| (SPADCALL |s| (QREFELT $ 11)))
                     (LETT |tm| (NREVERSE |tm|))
                     (EXIT (SPADCALL (ELT $ 13) |tm| (QREFELT $ 15)))))) 
 
-(SDEFUN |COCHNC;validate;$B;3| ((|a| $) ($ |Boolean|))
+(SDEFUN |COCHNC;validate;$B;3| ((|a| ($)) ($ (|Boolean|)))
         (SPROG
          ((|last| #1=(|Matrix| (|Integer|))) (#2=#:G118 NIL)
           (|prod| (|Matrix| (|Integer|))) (|m| #1#) (#3=#:G119 NIL) (|x| NIL)
@@ -73,7 +73,8 @@
           #4# (EXIT #2#)))) 
 
 (SDEFUN |COCHNC;coboundary;$Nni2L;4|
-        ((|a| $) (|n| |NonNegativeInteger|) (|inp| |List| VS) ($ |List| VS))
+        ((|a| ($)) (|n| (|NonNegativeInteger|)) (|inp| (|List| VS))
+         ($ (|List| VS)))
         (SPROG
          ((|res| (|List| VS)) (#1=#:G133 NIL) (|i| NIL) (#2=#:G132 NIL)
           (|res1| (|List| VS)) (|val| (VS)) (#3=#:G131 NIL) (|v| NIL)
@@ -156,7 +157,7 @@
                    (LETT |p| (|inc_SI| |p|)) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
-(SDEFUN |COCHNC;coHomology;$L;5| ((|a| $) ($ |List| (|Homology|)))
+(SDEFUN |COCHNC;coHomology;$L;5| ((|a| ($)) ($ (|List| (|Homology|))))
         (SPROG
          ((|prev| (|Matrix| (|Integer|))) (|notFirst| (|Boolean|))
           (|res| (|List| (|Homology|))) (|m2| (|Homology|)) (#1=#:G139 NIL)
@@ -178,7 +179,7 @@
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
-(SDEFUN |COCHNC;coerce;$Of;6| ((|s| $) ($ |OutputForm|))
+(SDEFUN |COCHNC;coerce;$Of;6| ((|s| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|lst| (|List| (|OutputForm|))) (#1=#:G144 NIL) (|x| NIL)
           (#2=#:G143 NIL))

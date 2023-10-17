@@ -1,33 +1,34 @@
 
-(SDEFUN |DFLOAT;doubleFloatFormat;2S;1| ((|s| |String|) ($ |String|))
+(SDEFUN |DFLOAT;doubleFloatFormat;2S;1| ((|s| (|String|)) ($ (|String|)))
         (SPROG ((|ss| (|String|)))
                (SEQ (LETT |ss| (QREFELT $ 6)) (SETELT $ 6 |s|) (EXIT |ss|)))) 
 
 (SDEFUN |DFLOAT;OMwrite;Omd$BV;2|
-        ((|dev| |OpenMathDevice|) (|x| $) (|wholeObj| |Boolean|) ($ |Void|))
+        ((|dev| (|OpenMathDevice|)) (|x| ($)) (|wholeObj| (|Boolean|))
+         ($ (|Void|)))
         (SEQ (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 11))))
              (SPADCALL |dev| |x| (QREFELT $ 13))
              (EXIT (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 14))))))) 
 
 (PUT '|DFLOAT;checkComplex| '|SPADreplace| '|c_to_r|) 
 
-(SDEFUN |DFLOAT;checkComplex| ((|x| $) ($ $)) (|c_to_r| |x|)) 
+(SDEFUN |DFLOAT;checkComplex| ((|x| ($)) ($ ($))) (|c_to_r| |x|)) 
 
 (PUT '|DFLOAT;base;Pi;4| '|SPADreplace| '(XLAM NIL (FLOAT-RADIX 0.0))) 
 
-(SDEFUN |DFLOAT;base;Pi;4| (($ |PositiveInteger|)) (FLOAT-RADIX 0.0)) 
+(SDEFUN |DFLOAT;base;Pi;4| (($ (|PositiveInteger|))) (FLOAT-RADIX 0.0)) 
 
-(SDEFUN |DFLOAT;mantissa;$I;5| ((|x| $) ($ |Integer|))
+(SDEFUN |DFLOAT;mantissa;$I;5| ((|x| ($)) ($ (|Integer|)))
         (QCAR (|DFLOAT;manexp| |x| $))) 
 
-(SDEFUN |DFLOAT;exponent;$I;6| ((|x| $) ($ |Integer|))
+(SDEFUN |DFLOAT;exponent;$I;6| ((|x| ($)) ($ (|Integer|)))
         (QCDR (|DFLOAT;manexp| |x| $))) 
 
 (PUT '|DFLOAT;precision;Pi;7| '|SPADreplace| '(XLAM NIL (FLOAT-DIGITS 0.0))) 
 
-(SDEFUN |DFLOAT;precision;Pi;7| (($ |PositiveInteger|)) (FLOAT-DIGITS 0.0)) 
+(SDEFUN |DFLOAT;precision;Pi;7| (($ (|PositiveInteger|))) (FLOAT-DIGITS 0.0)) 
 
-(SDEFUN |DFLOAT;bits;Pi;8| (($ |PositiveInteger|))
+(SDEFUN |DFLOAT;bits;Pi;8| (($ (|PositiveInteger|)))
         (SPROG ((#1=#:G418 NIL))
                (COND
                 ((EQL (SPADCALL (QREFELT $ 18)) 2) (SPADCALL (QREFELT $ 22)))
@@ -48,38 +49,38 @@
 
 (PUT '|DFLOAT;max;$;9| '|SPADreplace| '(XLAM NIL MOST-POSITIVE-DOUBLE-FLOAT)) 
 
-(SDEFUN |DFLOAT;max;$;9| (($ $)) MOST-POSITIVE-DOUBLE-FLOAT) 
+(SDEFUN |DFLOAT;max;$;9| (($ ($))) MOST-POSITIVE-DOUBLE-FLOAT) 
 
 (PUT '|DFLOAT;min;$;10| '|SPADreplace| '(XLAM NIL MOST-NEGATIVE-DOUBLE-FLOAT)) 
 
-(SDEFUN |DFLOAT;min;$;10| (($ $)) MOST-NEGATIVE-DOUBLE-FLOAT) 
+(SDEFUN |DFLOAT;min;$;10| (($ ($))) MOST-NEGATIVE-DOUBLE-FLOAT) 
 
-(SDEFUN |DFLOAT;order;$I;11| ((|a| $) ($ |Integer|))
+(SDEFUN |DFLOAT;order;$I;11| ((|a| ($)) ($ (|Integer|)))
         (- (+ (SPADCALL (QREFELT $ 22)) (SPADCALL |a| (QREFELT $ 21))) 1)) 
 
 (PUT '|DFLOAT;Zero;$;12| '|SPADreplace|
      '(XLAM NIL (FLOAT 0 MOST-POSITIVE-DOUBLE-FLOAT))) 
 
-(SDEFUN |DFLOAT;Zero;$;12| (($ $)) (FLOAT 0 MOST-POSITIVE-DOUBLE-FLOAT)) 
+(SDEFUN |DFLOAT;Zero;$;12| (($ ($))) (FLOAT 0 MOST-POSITIVE-DOUBLE-FLOAT)) 
 
 (PUT '|DFLOAT;One;$;13| '|SPADreplace|
      '(XLAM NIL (FLOAT 1 MOST-POSITIVE-DOUBLE-FLOAT))) 
 
-(SDEFUN |DFLOAT;One;$;13| (($ $)) (FLOAT 1 MOST-POSITIVE-DOUBLE-FLOAT)) 
+(SDEFUN |DFLOAT;One;$;13| (($ ($))) (FLOAT 1 MOST-POSITIVE-DOUBLE-FLOAT)) 
 
-(SDEFUN |DFLOAT;exp1;$;14| (($ $))
+(SDEFUN |DFLOAT;exp1;$;14| (($ ($)))
         (|div_DF| (FLOAT 534625820200 MOST-POSITIVE-DOUBLE-FLOAT)
                   (FLOAT 196677847971 MOST-POSITIVE-DOUBLE-FLOAT))) 
 
 (PUT '|DFLOAT;pi;$;15| '|SPADreplace|
      '(XLAM NIL (FLOAT PI MOST-POSITIVE-DOUBLE-FLOAT))) 
 
-(SDEFUN |DFLOAT;pi;$;15| (($ $)) (FLOAT PI MOST-POSITIVE-DOUBLE-FLOAT)) 
+(SDEFUN |DFLOAT;pi;$;15| (($ ($))) (FLOAT PI MOST-POSITIVE-DOUBLE-FLOAT)) 
 
-(SDEFUN |DFLOAT;convert;$S;16| ((|x| $) ($ |String|))
+(SDEFUN |DFLOAT;convert;$S;16| ((|x| ($)) ($ (|String|)))
         (FORMAT NIL (QREFELT $ 6) |x|)) 
 
-(SDEFUN |DFLOAT;coerce;$Of;17| ((|x| $) ($ |OutputForm|))
+(SDEFUN |DFLOAT;coerce;$Of;17| ((|x| ($)) ($ (|OutputForm|)))
         (COND
          ((SPADCALL |x| 0.0 (QREFELT $ 34))
           (SPADCALL (SPADCALL |x| (QREFELT $ 33)) (QREFELT $ 36)))
@@ -87,120 +88,125 @@
           (SPADCALL (SPADCALL (|minus_DF| |x|) (QREFELT $ 37))
                     (QREFELT $ 38))))) 
 
-(SDEFUN |DFLOAT;convert;$If;18| ((|x| $) ($ |InputForm|))
+(SDEFUN |DFLOAT;convert;$If;18| ((|x| ($)) ($ (|InputForm|)))
         (SPADCALL |x| (QREFELT $ 40))) 
 
 (PUT '|DFLOAT;<;2$B;19| '|SPADreplace| '|less_DF|) 
 
-(SDEFUN |DFLOAT;<;2$B;19| ((|x| $) (|y| $) ($ |Boolean|)) (|less_DF| |x| |y|)) 
+(SDEFUN |DFLOAT;<;2$B;19| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
+        (|less_DF| |x| |y|)) 
 
 (PUT '|DFLOAT;-;2$;20| '|SPADreplace| '|minus_DF|) 
 
-(SDEFUN |DFLOAT;-;2$;20| ((|x| $) ($ $)) (|minus_DF| |x|)) 
+(SDEFUN |DFLOAT;-;2$;20| ((|x| ($)) ($ ($))) (|minus_DF| |x|)) 
 
 (PUT '|DFLOAT;+;3$;21| '|SPADreplace| '|add_DF|) 
 
-(SDEFUN |DFLOAT;+;3$;21| ((|x| $) (|y| $) ($ $)) (|add_DF| |x| |y|)) 
+(SDEFUN |DFLOAT;+;3$;21| ((|x| ($)) (|y| ($)) ($ ($))) (|add_DF| |x| |y|)) 
 
 (PUT '|DFLOAT;-;3$;22| '|SPADreplace| '|sub_DF|) 
 
-(SDEFUN |DFLOAT;-;3$;22| ((|x| $) (|y| $) ($ $)) (|sub_DF| |x| |y|)) 
+(SDEFUN |DFLOAT;-;3$;22| ((|x| ($)) (|y| ($)) ($ ($))) (|sub_DF| |x| |y|)) 
 
 (PUT '|DFLOAT;*;3$;23| '|SPADreplace| '|mul_DF|) 
 
-(SDEFUN |DFLOAT;*;3$;23| ((|x| $) (|y| $) ($ $)) (|mul_DF| |x| |y|)) 
+(SDEFUN |DFLOAT;*;3$;23| ((|x| ($)) (|y| ($)) ($ ($))) (|mul_DF| |x| |y|)) 
 
 (PUT '|DFLOAT;*;I2$;24| '|SPADreplace| '(XLAM (|i| |x|) (|mul_DF_I| |x| |i|))) 
 
-(SDEFUN |DFLOAT;*;I2$;24| ((|i| |Integer|) (|x| $) ($ $)) (|mul_DF_I| |x| |i|)) 
+(SDEFUN |DFLOAT;*;I2$;24| ((|i| (|Integer|)) (|x| ($)) ($ ($)))
+        (|mul_DF_I| |x| |i|)) 
 
 (PUT '|DFLOAT;max;3$;25| '|SPADreplace| '|max_DF|) 
 
-(SDEFUN |DFLOAT;max;3$;25| ((|x| $) (|y| $) ($ $)) (|max_DF| |x| |y|)) 
+(SDEFUN |DFLOAT;max;3$;25| ((|x| ($)) (|y| ($)) ($ ($))) (|max_DF| |x| |y|)) 
 
 (PUT '|DFLOAT;min;3$;26| '|SPADreplace| '|min_DF|) 
 
-(SDEFUN |DFLOAT;min;3$;26| ((|x| $) (|y| $) ($ $)) (|min_DF| |x| |y|)) 
+(SDEFUN |DFLOAT;min;3$;26| ((|x| ($)) (|y| ($)) ($ ($))) (|min_DF| |x| |y|)) 
 
 (PUT '|DFLOAT;=;2$B;27| '|SPADreplace| '|eql_DF|) 
 
-(SDEFUN |DFLOAT;=;2$B;27| ((|x| $) (|y| $) ($ |Boolean|)) (|eql_DF| |x| |y|)) 
+(SDEFUN |DFLOAT;=;2$B;27| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
+        (|eql_DF| |x| |y|)) 
 
 (PUT '|DFLOAT;/;$I$;28| '|SPADreplace| '|div_DF_I|) 
 
-(SDEFUN |DFLOAT;/;$I$;28| ((|x| $) (|i| |Integer|) ($ $)) (|div_DF_I| |x| |i|)) 
+(SDEFUN |DFLOAT;/;$I$;28| ((|x| ($)) (|i| (|Integer|)) ($ ($)))
+        (|div_DF_I| |x| |i|)) 
 
-(SDEFUN |DFLOAT;sqrt;2$;29| ((|x| $) ($ $))
+(SDEFUN |DFLOAT;sqrt;2$;29| ((|x| ($)) ($ ($)))
         (|DFLOAT;checkComplex| (|sqrt_DF| |x|) $)) 
 
 (PUT '|DFLOAT;qsqrt;2$;30| '|SPADreplace| '|qsqrt_DF|) 
 
-(SDEFUN |DFLOAT;qsqrt;2$;30| ((|x| $) ($ $)) (|qsqrt_DF| |x|)) 
+(SDEFUN |DFLOAT;qsqrt;2$;30| ((|x| ($)) ($ ($))) (|qsqrt_DF| |x|)) 
 
-(SDEFUN |DFLOAT;log10;2$;31| ((|x| $) ($ $))
+(SDEFUN |DFLOAT;log10;2$;31| ((|x| ($)) ($ ($)))
         (|DFLOAT;checkComplex| (LOG10 |x|) $)) 
 
 (PUT '|DFLOAT;^;$I$;32| '|SPADreplace| '|expt_DF_I|) 
 
-(SDEFUN |DFLOAT;^;$I$;32| ((|x| $) (|i| |Integer|) ($ $)) (|expt_DF_I| |x| |i|)) 
+(SDEFUN |DFLOAT;^;$I$;32| ((|x| ($)) (|i| (|Integer|)) ($ ($)))
+        (|expt_DF_I| |x| |i|)) 
 
-(SDEFUN |DFLOAT;^;3$;33| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DFLOAT;^;3$;33| ((|x| ($)) (|y| ($)) ($ ($)))
         (|DFLOAT;checkComplex| (|expt_DF| |x| |y|) $)) 
 
 (PUT '|DFLOAT;coerce;I$;34| '|SPADreplace|
      '(XLAM (|i|) (FLOAT |i| MOST-POSITIVE-DOUBLE-FLOAT))) 
 
-(SDEFUN |DFLOAT;coerce;I$;34| ((|i| |Integer|) ($ $))
+(SDEFUN |DFLOAT;coerce;I$;34| ((|i| (|Integer|)) ($ ($)))
         (FLOAT |i| MOST-POSITIVE-DOUBLE-FLOAT)) 
 
 (PUT '|DFLOAT;exp;2$;35| '|SPADreplace| '|exp_DF|) 
 
-(SDEFUN |DFLOAT;exp;2$;35| ((|x| $) ($ $)) (|exp_DF| |x|)) 
+(SDEFUN |DFLOAT;exp;2$;35| ((|x| ($)) ($ ($))) (|exp_DF| |x|)) 
 
-(SDEFUN |DFLOAT;log;2$;36| ((|x| $) ($ $))
+(SDEFUN |DFLOAT;log;2$;36| ((|x| ($)) ($ ($)))
         (|DFLOAT;checkComplex| (|log_DF| |x|) $)) 
 
 (PUT '|DFLOAT;qlog;2$;37| '|SPADreplace| '|qlog_DF|) 
 
-(SDEFUN |DFLOAT;qlog;2$;37| ((|x| $) ($ $)) (|qlog_DF| |x|)) 
+(SDEFUN |DFLOAT;qlog;2$;37| ((|x| ($)) ($ ($))) (|qlog_DF| |x|)) 
 
-(SDEFUN |DFLOAT;log2;2$;38| ((|x| $) ($ $))
+(SDEFUN |DFLOAT;log2;2$;38| ((|x| ($)) ($ ($)))
         (|DFLOAT;checkComplex| (LOG2 |x|) $)) 
 
 (PUT '|DFLOAT;sin;2$;39| '|SPADreplace| '|sin_DF|) 
 
-(SDEFUN |DFLOAT;sin;2$;39| ((|x| $) ($ $)) (|sin_DF| |x|)) 
+(SDEFUN |DFLOAT;sin;2$;39| ((|x| ($)) ($ ($))) (|sin_DF| |x|)) 
 
 (PUT '|DFLOAT;cos;2$;40| '|SPADreplace| '|cos_DF|) 
 
-(SDEFUN |DFLOAT;cos;2$;40| ((|x| $) ($ $)) (|cos_DF| |x|)) 
+(SDEFUN |DFLOAT;cos;2$;40| ((|x| ($)) ($ ($))) (|cos_DF| |x|)) 
 
 (PUT '|DFLOAT;tan;2$;41| '|SPADreplace| '|tan_DF|) 
 
-(SDEFUN |DFLOAT;tan;2$;41| ((|x| $) ($ $)) (|tan_DF| |x|)) 
+(SDEFUN |DFLOAT;tan;2$;41| ((|x| ($)) ($ ($))) (|tan_DF| |x|)) 
 
 (PUT '|DFLOAT;cot;2$;42| '|SPADreplace| 'COT) 
 
-(SDEFUN |DFLOAT;cot;2$;42| ((|x| $) ($ $)) (COT |x|)) 
+(SDEFUN |DFLOAT;cot;2$;42| ((|x| ($)) ($ ($))) (COT |x|)) 
 
-(SDEFUN |DFLOAT;sec;2$;43| ((|x| $) ($ $)) (|div_DF| 1.0 (|cos_DF| |x|))) 
+(SDEFUN |DFLOAT;sec;2$;43| ((|x| ($)) ($ ($))) (|div_DF| 1.0 (|cos_DF| |x|))) 
 
-(SDEFUN |DFLOAT;csc;2$;44| ((|x| $) ($ $)) (|div_DF| 1.0 (|sin_DF| |x|))) 
+(SDEFUN |DFLOAT;csc;2$;44| ((|x| ($)) ($ ($))) (|div_DF| 1.0 (|sin_DF| |x|))) 
 
-(SDEFUN |DFLOAT;asin;2$;45| ((|x| $) ($ $))
+(SDEFUN |DFLOAT;asin;2$;45| ((|x| ($)) ($ ($)))
         (|DFLOAT;checkComplex| (ASIN |x|) $)) 
 
-(SDEFUN |DFLOAT;acos;2$;46| ((|x| $) ($ $))
+(SDEFUN |DFLOAT;acos;2$;46| ((|x| ($)) ($ ($)))
         (|DFLOAT;checkComplex| (ACOS |x|) $)) 
 
 (PUT '|DFLOAT;atan;2$;47| '|SPADreplace| '|atan_DF|) 
 
-(SDEFUN |DFLOAT;atan;2$;47| ((|x| $) ($ $)) (|atan_DF| |x|)) 
+(SDEFUN |DFLOAT;atan;2$;47| ((|x| ($)) ($ ($))) (|atan_DF| |x|)) 
 
-(SDEFUN |DFLOAT;acsc;2$;48| ((|x| $) ($ $))
+(SDEFUN |DFLOAT;acsc;2$;48| ((|x| ($)) ($ ($)))
         (SPADCALL (|div_DF| 1.0 |x|) (QREFELT $ 67))) 
 
-(SDEFUN |DFLOAT;acot;2$;49| ((|x| $) ($ $))
+(SDEFUN |DFLOAT;acot;2$;49| ((|x| ($)) ($ ($)))
         (COND
          ((|less_DF| 0.0 |x|)
           (COND ((|less_DF| |x| 1.0) (|sub_DF| (QREFELT $ 71) (|atan_DF| |x|)))
@@ -210,88 +216,90 @@
                     (|atan_DF| (|minus_DF| (|div_DF| 1.0 |x|)))))
          ('T (|add_DF| (QREFELT $ 71) (|atan_DF| (|minus_DF| |x|)))))) 
 
-(SDEFUN |DFLOAT;asec;2$;50| ((|x| $) ($ $))
+(SDEFUN |DFLOAT;asec;2$;50| ((|x| ($)) ($ ($)))
         (SPADCALL (|div_DF| 1.0 |x|) (QREFELT $ 68))) 
 
 (PUT '|DFLOAT;sinh;2$;51| '|SPADreplace| '|sinh_DF|) 
 
-(SDEFUN |DFLOAT;sinh;2$;51| ((|x| $) ($ $)) (|sinh_DF| |x|)) 
+(SDEFUN |DFLOAT;sinh;2$;51| ((|x| ($)) ($ ($))) (|sinh_DF| |x|)) 
 
 (PUT '|DFLOAT;cosh;2$;52| '|SPADreplace| '|cosh_DF|) 
 
-(SDEFUN |DFLOAT;cosh;2$;52| ((|x| $) ($ $)) (|cosh_DF| |x|)) 
+(SDEFUN |DFLOAT;cosh;2$;52| ((|x| ($)) ($ ($))) (|cosh_DF| |x|)) 
 
 (PUT '|DFLOAT;tanh;2$;53| '|SPADreplace| '|tanh_DF|) 
 
-(SDEFUN |DFLOAT;tanh;2$;53| ((|x| $) ($ $)) (|tanh_DF| |x|)) 
+(SDEFUN |DFLOAT;tanh;2$;53| ((|x| ($)) ($ ($))) (|tanh_DF| |x|)) 
 
-(SDEFUN |DFLOAT;csch;2$;54| ((|x| $) ($ $)) (|div_DF| 1.0 (|sinh_DF| |x|))) 
+(SDEFUN |DFLOAT;csch;2$;54| ((|x| ($)) ($ ($))) (|div_DF| 1.0 (|sinh_DF| |x|))) 
 
-(SDEFUN |DFLOAT;coth;2$;55| ((|x| $) ($ $)) (|div_DF| 1.0 (|tanh_DF| |x|))) 
+(SDEFUN |DFLOAT;coth;2$;55| ((|x| ($)) ($ ($))) (|div_DF| 1.0 (|tanh_DF| |x|))) 
 
-(SDEFUN |DFLOAT;sech;2$;56| ((|x| $) ($ $)) (|div_DF| 1.0 (|cosh_DF| |x|))) 
+(SDEFUN |DFLOAT;sech;2$;56| ((|x| ($)) ($ ($))) (|div_DF| 1.0 (|cosh_DF| |x|))) 
 
 (PUT '|DFLOAT;asinh;2$;57| '|SPADreplace| 'ASINH) 
 
-(SDEFUN |DFLOAT;asinh;2$;57| ((|x| $) ($ $)) (ASINH |x|)) 
+(SDEFUN |DFLOAT;asinh;2$;57| ((|x| ($)) ($ ($))) (ASINH |x|)) 
 
-(SDEFUN |DFLOAT;acosh;2$;58| ((|x| $) ($ $))
+(SDEFUN |DFLOAT;acosh;2$;58| ((|x| ($)) ($ ($)))
         (|DFLOAT;checkComplex| (ACOSH |x|) $)) 
 
-(SDEFUN |DFLOAT;atanh;2$;59| ((|x| $) ($ $))
+(SDEFUN |DFLOAT;atanh;2$;59| ((|x| ($)) ($ ($)))
         (|DFLOAT;checkComplex| (ATANH |x|) $)) 
 
-(SDEFUN |DFLOAT;acsch;2$;60| ((|x| $) ($ $)) (ASINH (|div_DF| 1.0 |x|))) 
+(SDEFUN |DFLOAT;acsch;2$;60| ((|x| ($)) ($ ($))) (ASINH (|div_DF| 1.0 |x|))) 
 
-(SDEFUN |DFLOAT;acoth;2$;61| ((|x| $) ($ $))
+(SDEFUN |DFLOAT;acoth;2$;61| ((|x| ($)) ($ ($)))
         (SPADCALL (|div_DF| 1.0 |x|) (QREFELT $ 82))) 
 
-(SDEFUN |DFLOAT;asech;2$;62| ((|x| $) ($ $))
+(SDEFUN |DFLOAT;asech;2$;62| ((|x| ($)) ($ ($)))
         (SPADCALL (|div_DF| 1.0 |x|) (QREFELT $ 81))) 
 
 (PUT '|DFLOAT;/;3$;63| '|SPADreplace| '|div_DF|) 
 
-(SDEFUN |DFLOAT;/;3$;63| ((|x| $) (|y| $) ($ $)) (|div_DF| |x| |y|)) 
+(SDEFUN |DFLOAT;/;3$;63| ((|x| ($)) (|y| ($)) ($ ($))) (|div_DF| |x| |y|)) 
 
 (PUT '|DFLOAT;negative?;$B;64| '|SPADreplace| '|negative?_DF|) 
 
-(SDEFUN |DFLOAT;negative?;$B;64| ((|x| $) ($ |Boolean|)) (|negative?_DF| |x|)) 
+(SDEFUN |DFLOAT;negative?;$B;64| ((|x| ($)) ($ (|Boolean|)))
+        (|negative?_DF| |x|)) 
 
 (PUT '|DFLOAT;zero?;$B;65| '|SPADreplace| '|zero?_DF|) 
 
-(SDEFUN |DFLOAT;zero?;$B;65| ((|x| $) ($ |Boolean|)) (|zero?_DF| |x|)) 
+(SDEFUN |DFLOAT;zero?;$B;65| ((|x| ($)) ($ (|Boolean|))) (|zero?_DF| |x|)) 
 
 (SDEFUN |DFLOAT;hashUpdate!;Hs$Hs;66|
-        ((|hs| . #1=(|HashState|)) (|s| $) ($ . #1#))
+        ((|hs| #1=(|HashState|)) (|s| ($)) ($ #1#))
         (HASHSTATEUPDATE |hs| (SXHASH |s|))) 
 
-(SDEFUN |DFLOAT;recip;$U;67| ((|x| $) ($ |Union| $ "failed"))
+(SDEFUN |DFLOAT;recip;$U;67| ((|x| ($)) ($ (|Union| $ "failed")))
         (COND ((|zero?_DF| |x|) (CONS 1 "failed"))
               ('T (CONS 0 (|div_DF| 1.0 |x|))))) 
 
 (PUT '|DFLOAT;differentiate;2$;68| '|SPADreplace| '(XLAM (|x|) 0.0)) 
 
-(SDEFUN |DFLOAT;differentiate;2$;68| ((|x| $) ($ $)) 0.0) 
+(SDEFUN |DFLOAT;differentiate;2$;68| ((|x| ($)) ($ ($))) 0.0) 
 
-(SDEFUN |DFLOAT;airyAi;2$;69| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 95))) 
+(SDEFUN |DFLOAT;airyAi;2$;69| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 95))) 
 
-(SDEFUN |DFLOAT;airyBi;2$;70| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 97))) 
+(SDEFUN |DFLOAT;airyBi;2$;70| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 97))) 
 
-(SDEFUN |DFLOAT;besselI;3$;71| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DFLOAT;besselI;3$;71| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL |x| |y| (QREFELT $ 99))) 
 
-(SDEFUN |DFLOAT;besselJ;3$;72| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DFLOAT;besselJ;3$;72| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL |x| |y| (QREFELT $ 101))) 
 
-(SDEFUN |DFLOAT;besselK;3$;73| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DFLOAT;besselK;3$;73| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL |x| |y| (QREFELT $ 103))) 
 
-(SDEFUN |DFLOAT;besselY;3$;74| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DFLOAT;besselY;3$;74| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL |x| |y| (QREFELT $ 105))) 
 
-(SDEFUN |DFLOAT;digamma;2$;75| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 107))) 
+(SDEFUN |DFLOAT;digamma;2$;75| ((|x| ($)) ($ ($)))
+        (SPADCALL |x| (QREFELT $ 107))) 
 
-(SDEFUN |DFLOAT;polygamma;3$;76| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DFLOAT;polygamma;3$;76| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG ((#1=#:G500 NIL) (|n| (|Union| (|Integer|) "failed")))
                (SEQ (LETT |n| (SPADCALL |x| (QREFELT $ 110)))
                     (EXIT
@@ -310,27 +318,30 @@
                           #3="polygamma: first argument should be a nonnegative integer"))))
                       (#2# (|error| #3#))))))) 
 
-(SDEFUN |DFLOAT;Beta;3$;77| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DFLOAT;Beta;3$;77| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL |x| |y| (QREFELT $ 115))) 
 
-(SDEFUN |DFLOAT;Gamma;2$;78| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 117))) 
+(SDEFUN |DFLOAT;Gamma;2$;78| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 117))) 
 
-(SDEFUN |DFLOAT;lambertW;2$;79| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 120))) 
+(SDEFUN |DFLOAT;lambertW;2$;79| ((|x| ($)) ($ ($)))
+        (SPADCALL |x| (QREFELT $ 120))) 
 
-(SDEFUN |DFLOAT;ellipticF;3$;80| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DFLOAT;ellipticF;3$;80| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL |x| |y| (QREFELT $ 123))) 
 
-(SDEFUN |DFLOAT;ellipticK;2$;81| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 125))) 
+(SDEFUN |DFLOAT;ellipticK;2$;81| ((|x| ($)) ($ ($)))
+        (SPADCALL |x| (QREFELT $ 125))) 
 
-(SDEFUN |DFLOAT;ellipticE;3$;82| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DFLOAT;ellipticE;3$;82| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL |x| |y| (QREFELT $ 127))) 
 
-(SDEFUN |DFLOAT;ellipticE;2$;83| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 129))) 
+(SDEFUN |DFLOAT;ellipticE;2$;83| ((|x| ($)) ($ ($)))
+        (SPADCALL |x| (QREFELT $ 129))) 
 
-(SDEFUN |DFLOAT;ellipticPi;4$;84| ((|x| $) (|y| $) (|z| $) ($ $))
+(SDEFUN |DFLOAT;ellipticPi;4$;84| ((|x| ($)) (|y| ($)) (|z| ($)) ($ ($)))
         (SPADCALL |x| |y| |z| (QREFELT $ 131))) 
 
-(SDEFUN |DFLOAT;jacobiSn;3$;85| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DFLOAT;jacobiSn;3$;85| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG ((|obits| (|PositiveInteger|)))
                (SEQ (LETT |obits| (SPADCALL (QREFELT $ 134)))
                     (EXIT
@@ -344,7 +355,7 @@
                              (QREFELT $ 139))))
                       (SPADCALL |obits| (QREFELT $ 135))))))) 
 
-(SDEFUN |DFLOAT;jacobiCn;3$;86| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DFLOAT;jacobiCn;3$;86| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG ((|obits| (|PositiveInteger|)))
                (SEQ (LETT |obits| (SPADCALL (QREFELT $ 134)))
                     (EXIT
@@ -358,7 +369,7 @@
                              (QREFELT $ 139))))
                       (SPADCALL |obits| (QREFELT $ 135))))))) 
 
-(SDEFUN |DFLOAT;jacobiDn;3$;87| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DFLOAT;jacobiDn;3$;87| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG ((|obits| (|PositiveInteger|)))
                (SEQ (LETT |obits| (SPADCALL (QREFELT $ 134)))
                     (EXIT
@@ -372,7 +383,7 @@
                              (QREFELT $ 139))))
                       (SPADCALL |obits| (QREFELT $ 135))))))) 
 
-(SDEFUN |DFLOAT;weierstrassP;4$;88| ((|x| $) (|y| $) (|z| $) ($ $))
+(SDEFUN |DFLOAT;weierstrassP;4$;88| ((|x| ($)) (|y| ($)) (|z| ($)) ($ ($)))
         (SPROG ((|obits| (|PositiveInteger|)))
                (SEQ (LETT |obits| (SPADCALL (QREFELT $ 134)))
                     (EXIT
@@ -387,7 +398,8 @@
                              (QREFELT $ 139))))
                       (SPADCALL |obits| (QREFELT $ 135))))))) 
 
-(SDEFUN |DFLOAT;weierstrassPPrime;4$;89| ((|x| $) (|y| $) (|z| $) ($ $))
+(SDEFUN |DFLOAT;weierstrassPPrime;4$;89|
+        ((|x| ($)) (|y| ($)) (|z| ($)) ($ ($)))
         (SPROG ((|obits| (|PositiveInteger|)))
                (SEQ (LETT |obits| (SPADCALL (QREFELT $ 134)))
                     (EXIT
@@ -404,25 +416,25 @@
 
 (PUT '|DFLOAT;wholePart;$I;90| '|SPADreplace| 'TRUNCATE) 
 
-(SDEFUN |DFLOAT;wholePart;$I;90| ((|x| $) ($ |Integer|)) (TRUNCATE |x|)) 
+(SDEFUN |DFLOAT;wholePart;$I;90| ((|x| ($)) ($ (|Integer|))) (TRUNCATE |x|)) 
 
 (SDEFUN |DFLOAT;float;2IPi$;91|
-        ((|ma| . #1=(|Integer|)) (|ex| . #1#) (|b| |PositiveInteger|) ($ $))
+        ((|ma| #1=(|Integer|)) (|ex| #1#) (|b| (|PositiveInteger|)) ($ ($)))
         (|mul_DF_I| (|expt_DF_I| (FLOAT |b| MOST-POSITIVE-DOUBLE-FLOAT) |ex|)
                     |ma|)) 
 
 (PUT '|DFLOAT;convert;2$;92| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |DFLOAT;convert;2$;92| ((|x| $) ($ |DoubleFloat|)) |x|) 
+(SDEFUN |DFLOAT;convert;2$;92| ((|x| ($)) ($ (|DoubleFloat|))) |x|) 
 
-(SDEFUN |DFLOAT;convert;$F;93| ((|x| $) ($ |Float|))
+(SDEFUN |DFLOAT;convert;$F;93| ((|x| ($)) ($ (|Float|)))
         (SPADCALL |x| (QREFELT $ 136))) 
 
 (SDEFUN |DFLOAT;rationalApproximation;$NniF;94|
-        ((|x| $) (|d| |NonNegativeInteger|) ($ |Fraction| (|Integer|)))
+        ((|x| ($)) (|d| (|NonNegativeInteger|)) ($ (|Fraction| (|Integer|))))
         (SPADCALL |x| |d| 10 (QREFELT $ 154))) 
 
-(SDEFUN |DFLOAT;atan;3$;95| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DFLOAT;atan;3$;95| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG ((|theta| ($)))
                (SEQ
                 (COND
@@ -446,7 +458,7 @@
                          (LETT |theta| (|minus_DF| |theta|))))
                        (EXIT |theta|))))))) 
 
-(SDEFUN |DFLOAT;retract;$F;96| ((|x| $) ($ |Fraction| (|Integer|)))
+(SDEFUN |DFLOAT;retract;$F;96| ((|x| ($)) ($ (|Fraction| (|Integer|))))
         (SPROG ((#1=#:G533 NIL))
                (SPADCALL |x|
                          (PROG1 (LETT #1# (- (SPADCALL (QREFELT $ 22)) 1))
@@ -455,7 +467,7 @@
                          (SPADCALL (QREFELT $ 18)) (QREFELT $ 154)))) 
 
 (SDEFUN |DFLOAT;retractIfCan;$U;97|
-        ((|x| $) ($ |Union| (|Fraction| (|Integer|)) "failed"))
+        ((|x| ($)) ($ (|Union| (|Fraction| (|Integer|)) "failed")))
         (SPROG ((#1=#:G538 NIL))
                (CONS 0
                      (SPADCALL |x|
@@ -466,7 +478,7 @@
                                                    '(|Integer|) #1#))
                                (SPADCALL (QREFELT $ 18)) (QREFELT $ 154))))) 
 
-(SDEFUN |DFLOAT;retract;$I;98| ((|x| $) ($ |Integer|))
+(SDEFUN |DFLOAT;retract;$I;98| ((|x| ($)) ($ (|Integer|)))
         (SPROG ((|n| (|Integer|)))
                (SEQ (LETT |n| (TRUNCATE |x|))
                     (EXIT
@@ -475,7 +487,8 @@
                        |n|)
                       ('T (|error| "Not an integer"))))))) 
 
-(SDEFUN |DFLOAT;retractIfCan;$U;99| ((|x| $) ($ |Union| (|Integer|) "failed"))
+(SDEFUN |DFLOAT;retractIfCan;$U;99|
+        ((|x| ($)) ($ (|Union| (|Integer|) "failed")))
         (SPROG ((|n| (|Integer|)))
                (SEQ (LETT |n| (TRUNCATE |x|))
                     (EXIT
@@ -484,20 +497,20 @@
                        (CONS 0 |n|))
                       ('T (CONS 1 "failed"))))))) 
 
-(SDEFUN |DFLOAT;sign;$I;100| ((|x| $) ($ |Integer|))
+(SDEFUN |DFLOAT;sign;$I;100| ((|x| ($)) ($ (|Integer|)))
         (SPADCALL (FLOAT-SIGN |x| 1.0) (QREFELT $ 161))) 
 
 (PUT '|DFLOAT;abs;2$;101| '|SPADreplace| '|abs_DF|) 
 
-(SDEFUN |DFLOAT;abs;2$;101| ((|x| $) ($ $)) (|abs_DF| |x|)) 
+(SDEFUN |DFLOAT;abs;2$;101| ((|x| ($)) ($ ($))) (|abs_DF| |x|)) 
 
 (PUT '|DFLOAT;conjugate;2$;102| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |DFLOAT;conjugate;2$;102| ((|x| $) ($ $)) |x|) 
+(SDEFUN |DFLOAT;conjugate;2$;102| ((|x| ($)) ($ ($))) |x|) 
 
 (SDEFUN |DFLOAT;manexp|
-        ((|x| $)
-         ($ |Record| (|:| MANTISSA (|Integer|)) (|:| EXPONENT (|Integer|))))
+        ((|x| ($))
+         ($ (|Record| (|:| MANTISSA (|Integer|)) (|:| EXPONENT (|Integer|)))))
         (SPROG
          ((|two53| (|PositiveInteger|))
           (|me| (|Record| (|:| |man| $) (|:| |exp| (|Integer|))))
@@ -535,8 +548,8 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |DFLOAT;rationalApproximation;$2NniF;104|
-        ((|f| $) (|d| |NonNegativeInteger|) (|b| |NonNegativeInteger|)
-         ($ |Fraction| (|Integer|)))
+        ((|f| ($)) (|d| (|NonNegativeInteger|)) (|b| (|NonNegativeInteger|))
+         ($ (|Fraction| (|Integer|))))
         (SPROG
          ((|t| #1=(|Integer|)) (|s| #2=(|Integer|)) (|#G145| #3=(|Integer|))
           (|#G144| #1#) (|q1| #4=(|Integer|)) (|q0| (|Integer|))
@@ -625,7 +638,7 @@
                                    NIL (GO G190) G191 (EXIT NIL)))))))))))))
           #13# (EXIT #7#)))) 
 
-(SDEFUN |DFLOAT;^;$F$;105| ((|x| $) (|r| |Fraction| (|Integer|)) ($ $))
+(SDEFUN |DFLOAT;^;$F$;105| ((|x| ($)) (|r| (|Fraction| (|Integer|))) ($ ($)))
         (SPROG ((#1=#:G601 NIL) (|d| (|Integer|)) (|n| (|Integer|)))
                (SEQ
                 (EXIT

@@ -1,9 +1,9 @@
 
-(SDEFUN |TESTCNT;testsuite;SV;1| ((|s| |String|) ($ |Void|))
+(SDEFUN |TESTCNT;testsuite;SV;1| ((|s| (|String|)) ($ (|Void|)))
         (SEQ (SPADCALL "clear all" (QREFELT $ 19))
              (EXIT (SPADCALL |s| (QREFELT $ 20))))) 
 
-(SDEFUN |TESTCNT;testsuiteNoClear;SV;2| ((|s| |String|) ($ |Void|))
+(SDEFUN |TESTCNT;testsuiteNoClear;SV;2| ((|s| (|String|)) ($ (|Void|)))
         (SEQ
          (COND
           ((> (QCSIZE |s|) 15)
@@ -16,18 +16,18 @@
           (SPADCALL (CONS (QREFELT $ 15) (SPADCALL (QREFELT $ 26)))
                     (QREFELT $ 12) (QREFELT $ 28))))) 
 
-(SDEFUN |TESTCNT;testcaseNoClear;SV;3| ((|s| |String|) ($ |Void|))
+(SDEFUN |TESTCNT;testcaseNoClear;SV;3| ((|s| (|String|)) ($ (|Void|)))
         (SEQ (SETELT $ 14 |s|)
              (EXIT
               (SPADCALL (CONS (QREFELT $ 14) (VECTOR 0 0 0 0 NIL NIL NIL))
                         (SPADCALL (QREFELT $ 12) (QREFELT $ 15) (QREFELT $ 29))
                         (QREFELT $ 31))))) 
 
-(SDEFUN |TESTCNT;testcase;SV;4| ((|s| |String|) ($ |Void|))
+(SDEFUN |TESTCNT;testcase;SV;4| ((|s| (|String|)) ($ (|Void|)))
         (SEQ (SPADCALL "clear all" (QREFELT $ 19))
              (EXIT (SPADCALL |s| (QREFELT $ 32))))) 
 
-(SDEFUN |TESTCNT;incPass;V;5| (($ |Void|))
+(SDEFUN |TESTCNT;incPass;V;5| (($ (|Void|)))
         (SPROG
          ((|cur|
            (|Record| (|:| |total| (|Integer|)) (|:| |fail| (|Integer|))
@@ -54,7 +54,7 @@
                  (QREFELT $ 14) (QREFELT $ 34)))
           (EXIT (QSETVELT |cur| 0 (+ (QVELT |cur| 0) 1)))))) 
 
-(SDEFUN |TESTCNT;chkLibraryError;V;6| (($ |Void|))
+(SDEFUN |TESTCNT;chkLibraryError;V;6| (($ (|Void|)))
         (SPROG
          ((|cur|
            (|Record| (|:| |total| (|Integer|)) (|:| |fail| (|Integer|))
@@ -82,7 +82,7 @@
           (EXIT (QSETVELT |cur| 0 (+ (QVELT |cur| 0) 1)))))) 
 
 (SDEFUN |TESTCNT;incLibraryError;SLV;7|
-        ((|inp| |String|) (|out| |List| (|OutputForm|)) ($ |Void|))
+        ((|inp| (|String|)) (|out| (|List| (|OutputForm|))) ($ (|Void|)))
         (SPROG
          ((|cur|
            (|Record| (|:| |total| (|Integer|)) (|:| |fail| (|Integer|))
@@ -114,7 +114,7 @@
                            (QVELT |cur| 6))))))) 
 
 (SDEFUN |TESTCNT;incXfLibraryError;SLV;8|
-        ((|inp| |String|) (|out| |List| (|OutputForm|)) ($ |Void|))
+        ((|inp| (|String|)) (|out| (|List| (|OutputForm|))) ($ (|Void|)))
         (SPROG
          ((|cur|
            (|Record| (|:| |total| (|Integer|)) (|:| |fail| (|Integer|))
@@ -141,7 +141,7 @@
                  (QREFELT $ 14) (QREFELT $ 34)))
           (EXIT (QSETVELT |cur| 2 (+ (QVELT |cur| 2) 1)))))) 
 
-(SDEFUN |TESTCNT;incXfFail;V;9| (($ |Void|))
+(SDEFUN |TESTCNT;incXfFail;V;9| (($ (|Void|)))
         (SPROG
          ((|cur|
            (|Record| (|:| |total| (|Integer|)) (|:| |fail| (|Integer|))
@@ -170,7 +170,7 @@
           (EXIT (QSETVELT |cur| 0 (+ (QVELT |cur| 0) 1)))))) 
 
 (SDEFUN |TESTCNT;incFail;SLV;10|
-        ((|inp| |String|) (|out| |List| (|OutputForm|)) ($ |Void|))
+        ((|inp| (|String|)) (|out| (|List| (|OutputForm|))) ($ (|Void|)))
         (SPROG
          ((|cur|
            (|Record| (|:| |total| (|Integer|)) (|:| |fail| (|Integer|))
@@ -202,7 +202,7 @@
           (EXIT (QSETVELT |cur| 0 (+ (QVELT |cur| 0) 1)))))) 
 
 (SDEFUN |TESTCNT;incXfPass;SLV;11|
-        ((|inp| |String|) (|out| |List| (|OutputForm|)) ($ |Void|))
+        ((|inp| (|String|)) (|out| (|List| (|OutputForm|))) ($ (|Void|)))
         (SPROG
          ((|cur|
            (|Record| (|:| |total| (|Integer|)) (|:| |fail| (|Integer|))
@@ -233,7 +233,7 @@
                           (QVELT |cur| 5)))
           (EXIT (QSETVELT |cur| 0 (+ (QVELT |cur| 0) 1)))))) 
 
-(SDEFUN |TESTCNT;decXfPass;V;12| (($ |Void|))
+(SDEFUN |TESTCNT;decXfPass;V;12| (($ (|Void|)))
         (SPROG
          ((|cur|
            (|Record| (|:| |total| (|Integer|)) (|:| |fail| (|Integer|))
@@ -262,7 +262,7 @@
           (QSETVELT |cur| 5 (CDR (QVELT |cur| 5)))
           (EXIT (QSETVELT |cur| 3 (- (QVELT |cur| 3) 1)))))) 
 
-(SDEFUN |TESTCNT;incFatal;SV;13| ((|inp| |String|) ($ |Void|))
+(SDEFUN |TESTCNT;incFatal;SV;13| ((|inp| (|String|)) ($ (|Void|)))
         (SPROG
          ((|cur|
            (|Record| (|:| |total| (|Integer|)) (|:| |fail| (|Integer|))
@@ -293,7 +293,7 @@
            (QSETVELT |cur| 4
                      (CONS (CONS (QVELT |cur| 0) |inp|) (QVELT |cur| 4))))))) 
 
-(SDEFUN |TESTCNT;decFatal;V;14| (($ |Void|))
+(SDEFUN |TESTCNT;decFatal;V;14| (($ (|Void|)))
         (SPROG
          ((|cur|
            (|Record| (|:| |total| (|Integer|)) (|:| |fail| (|Integer|))
@@ -322,7 +322,7 @@
           (QSETVELT |cur| 1 (- (QVELT |cur| 1) 1))
           (EXIT (QSETVELT |cur| 4 (CDR (QVELT |cur| 4))))))) 
 
-(SDEFUN |TESTCNT;incXfFatal;SV;15| ((|inp| |String|) ($ |Void|))
+(SDEFUN |TESTCNT;incXfFatal;SV;15| ((|inp| (|String|)) ($ (|Void|)))
         (SPROG
          ((|cur|
            (|Record| (|:| |total| (|Integer|)) (|:| |fail| (|Integer|))
@@ -350,7 +350,7 @@
           (QSETVELT |cur| 0 (+ (QVELT |cur| 0) 1))
           (EXIT (QSETVELT |cur| 2 (+ (QVELT |cur| 2) 1)))))) 
 
-(SDEFUN |TESTCNT;decXfFatal;V;16| (($ |Void|))
+(SDEFUN |TESTCNT;decXfFatal;V;16| (($ (|Void|)))
         (SPROG
          ((|cur|
            (|Record| (|:| |total| (|Integer|)) (|:| |fail| (|Integer|))
@@ -378,7 +378,7 @@
           (QSETVELT |cur| 0 (- (QVELT |cur| 0) 1))
           (EXIT (QSETVELT |cur| 2 (- (QVELT |cur| 2) 1)))))) 
 
-(SDEFUN |TESTCNT;addWarning;OfV;17| ((|s| |OutputForm|) ($ |Void|))
+(SDEFUN |TESTCNT;addWarning;OfV;17| ((|s| (|OutputForm|)) ($ (|Void|)))
         (SPROG ((|idx| (|Integer|)))
                (SEQ
                 (LETT |idx|
@@ -408,7 +408,7 @@
                            (QREFELT $ 50))
                           (QREFELT $ 13))))))) 
 
-(SDEFUN |TESTCNT;statistics;V;18| (($ |Void|))
+(SDEFUN |TESTCNT;statistics;V;18| (($ (|Void|)))
         (SPROG
          ((#1=#:G244 NIL) (#2=#:G240 NIL) (#3=#:G236 NIL) (#4=#:G232 NIL)
           (#5=#:G228 NIL) (|stotalTests| #6=(|String|)) (|sfailedTests| #6#)

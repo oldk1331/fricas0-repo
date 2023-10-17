@@ -1,15 +1,17 @@
 
 (PUT '|ARRAY1;qelt;$IS;1| '|SPADreplace| '(XLAM (|x| |i|) (QAREF1O |x| |i| 1))) 
 
-(SDEFUN |ARRAY1;qelt;$IS;1| ((|x| $) (|i| |Integer|) ($ S)) (QAREF1O |x| |i| 1)) 
+(SDEFUN |ARRAY1;qelt;$IS;1| ((|x| ($)) (|i| (|Integer|)) ($ (S)))
+        (QAREF1O |x| |i| 1)) 
 
 (PUT '|ARRAY1;qsetelt!;$I2S;2| '|SPADreplace|
      '(XLAM (|x| |i| |s|) (QSETAREF1O |x| |i| |s| 1))) 
 
-(SDEFUN |ARRAY1;qsetelt!;$I2S;2| ((|x| $) (|i| |Integer|) (|s| S) ($ S))
+(SDEFUN |ARRAY1;qsetelt!;$I2S;2|
+        ((|x| ($)) (|i| (|Integer|)) (|s| (S)) ($ (S)))
         (QSETAREF1O |x| |i| |s| 1)) 
 
-(SDEFUN |ARRAY1;oneDimensionalArray;L$;3| ((|u| |List| S) ($ $))
+(SDEFUN |ARRAY1;oneDimensionalArray;L$;3| ((|u| (|List| S)) ($ ($)))
         (SPROG
          ((#1=#:G2255 NIL) (|i| NIL) (#2=#:G2256 NIL) (|x| NIL) (|a| ($))
           (|n| (|NonNegativeInteger|)))
@@ -35,7 +37,7 @@
 (PUT '|ARRAY1;oneDimensionalArray;NniS$;4| '|SPADreplace| 'MAKEARR1) 
 
 (SDEFUN |ARRAY1;oneDimensionalArray;NniS$;4|
-        ((|n| |NonNegativeInteger|) (|s| S) ($ $)) (MAKEARR1 |n| |s|)) 
+        ((|n| (|NonNegativeInteger|)) (|s| (S)) ($ ($))) (MAKEARR1 |n| |s|)) 
 
 (DECLAIM (NOTINLINE |OneDimensionalArray;|)) 
 

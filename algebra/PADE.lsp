@@ -1,13 +1,14 @@
 
 (SDEFUN |PADE;constInner|
-        ((|up| UP)
-         ($ |Union|
-          (|Record| (|:| |ais| (|List| UP))
-                    (|:| |degs| (|List| (|NonNegativeInteger|))))
-          "failed"))
+        ((|up| (UP))
+         ($
+          (|Union|
+           (|Record| (|:| |ais| (|List| UP))
+                     (|:| |degs| (|List| (|NonNegativeInteger|))))
+           "failed")))
         (CONS 0 (CONS (LIST |up|) NIL))) 
 
-(SDEFUN |PADE;truncPoly| ((|p| UP) (|n| |NonNegativeInteger|) ($ UP))
+(SDEFUN |PADE;truncPoly| ((|p| (UP)) (|n| (|NonNegativeInteger|)) ($ (UP)))
         (SEQ
          (SEQ G190
               (COND ((NULL (< |n| (SPADCALL |p| (QREFELT $ 10)))) (GO G191)))
@@ -15,7 +16,7 @@
               (GO G190) G191 (EXIT NIL))
          (EXIT |p|))) 
 
-(SDEFUN |PADE;truncSeries| ((|s| PS) (|n| |NonNegativeInteger|) ($ UP))
+(SDEFUN |PADE;truncSeries| ((|s| (PS)) (|n| (|NonNegativeInteger|)) ($ (UP)))
         (SPROG ((|p| (UP)) (#1=#:G121 NIL) (|i| NIL))
                (SEQ (LETT |p| (|spadConstant| $ 12))
                     (SEQ (LETT |i| 0) (LETT #1# |n|) G190
@@ -31,7 +32,7 @@
                          (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                     (EXIT |p|)))) 
 
-(SDEFUN |PADE;divOutDegree| ((|s| PS) (|n| |NonNegativeInteger|) ($ PS))
+(SDEFUN |PADE;divOutDegree| ((|s| (PS)) (|n| (|NonNegativeInteger|)) ($ (PS)))
         (SPROG ((#1=#:G125 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 1) (LETT #1# |n|) G190
@@ -41,8 +42,8 @@
                 (EXIT |s|)))) 
 
 (SDEFUN |PADE;pade;2Nni2PSU;5|
-        ((|l| |NonNegativeInteger|) (|m| |NonNegativeInteger|) (|gps| PS)
-         (|dps| PS) ($ |Union| (|Fraction| UP) "failed"))
+        ((|l| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|)) (|gps| (PS))
+         (|dps| (PS)) ($ (|Union| (|Fraction| UP) "failed")))
         (SPROG
          ((|approx| (|Fraction| UP)) (#1=#:G136 NIL) (|d| NIL) (#2=#:G137 NIL)
           (|p| NIL) (|dlist| (|List| (|NonNegativeInteger|)))
@@ -87,8 +88,8 @@
                            (EXIT (CONS 0 |approx|))))))))) 
 
 (SDEFUN |PADE;padecf;2Nni2PSU;6|
-        ((|l| |NonNegativeInteger|) (|m| |NonNegativeInteger|) (|gps| PS)
-         (|dps| PS) ($ |Union| (|ContinuedFraction| UP) "failed"))
+        ((|l| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|)) (|gps| (PS))
+         (|dps| (PS)) ($ (|Union| (|ContinuedFraction| UP) "failed")))
         (SPROG
          ((|blist| (|List| UP)) (#1=#:G149 NIL) (|d| NIL) (#2=#:G148 NIL)
           (|alist| (|List| UP))
@@ -130,12 +131,13 @@
                                             (QREFELT $ 29))))))))))) 
 
 (SDEFUN |PADE;padeNormalize|
-        ((|l| |NonNegativeInteger|) (|m| |NonNegativeInteger|) (|gps| PS)
-         (|dps| PS)
-         ($ |Union|
-          (|Record| (|:| |ais| (|List| UP))
-                    (|:| |degs| (|List| (|NonNegativeInteger|))))
-          "failed"))
+        ((|l| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|)) (|gps| (PS))
+         (|dps| (PS))
+         ($
+          (|Union|
+           (|Record| (|:| |ais| (|List| UP))
+                     (|:| |degs| (|List| (|NonNegativeInteger|))))
+           "failed")))
         (SPROG ((|ldeg| (|NonNegativeInteger|)))
                (SEQ
                 (COND ((SPADCALL |dps| (QREFELT $ 33)) (CONS 1 "failed"))
@@ -156,12 +158,13 @@
                         (EXIT (|PADE;padeInner| |l| |m| |gps| |dps| $)))))))) 
 
 (SDEFUN |PADE;padeInner|
-        ((|l| . #1=(|NonNegativeInteger|)) (|m| . #2=(|NonNegativeInteger|))
-         (|gps| PS) (|dps| PS)
-         ($ |Union|
-          (|Record| (|:| |ais| (|List| UP))
-                    (|:| |degs| (|List| (|NonNegativeInteger|))))
-          "failed"))
+        ((|l| #1=(|NonNegativeInteger|)) (|m| #2=(|NonNegativeInteger|))
+         (|gps| (PS)) (|dps| (PS))
+         ($
+          (|Union|
+           (|Record| (|:| |ais| (|List| UP))
+                     (|:| |degs| (|List| (|NonNegativeInteger|))))
+           "failed")))
         (SPROG
          ((|#G44| (|NonNegativeInteger|)) (#3=#:G170 NIL) (|#G43| #2#)
           (|d| (UP)) (|g| (UP)) (|degbd| (|NonNegativeInteger|))

@@ -1,25 +1,25 @@
 
-(SDEFUN |MULTFACT;factor;PF;1| ((|p| P) ($ |Factored| P))
+(SDEFUN |MULTFACT;factor;PF;1| ((|p| (P)) ($ (|Factored| P)))
         (SPADCALL |p| (QREFELT $ 12))) 
 
-(SDEFUN |MULTFACT;factor;PF;2| ((|p| P) ($ |Factored| P))
+(SDEFUN |MULTFACT;factor;PF;2| ((|p| (P)) ($ (|Factored| P)))
         (SPADCALL |p| (QREFELT $ 15))) 
 
-(SDEFUN |MULTFACT;factor;PF;3| ((|p| P) ($ |Factored| P))
+(SDEFUN |MULTFACT;factor;PF;3| ((|p| (P)) ($ (|Factored| P)))
         (SPADCALL |p| (QREFELT $ 17))) 
 
-(SDEFUN |MULTFACT;factor;PF;4| ((|p| P) ($ |Factored| P))
+(SDEFUN |MULTFACT;factor;PF;4| ((|p| (P)) ($ (|Factored| P)))
         (SPADCALL |p| (ELT $ 20) (QREFELT $ 23))) 
 
-(SDEFUN |MULTFACT;factor;PF;5| ((|p| P) ($ |Factored| P))
+(SDEFUN |MULTFACT;factor;PF;5| ((|p| (P)) ($ (|Factored| P)))
         (SPADCALL |p| (ELT $ 20) (QREFELT $ 23))) 
 
-(SDEFUN |MULTFACT;factor;PF;6| ((|p| P) ($ |Factored| P))
+(SDEFUN |MULTFACT;factor;PF;6| ((|p| (P)) ($ (|Factored| P)))
         (SPADCALL |p| (QREFELT $ 25))) 
 
 (SDEFUN |MULTFACT;factor;SupF;7|
-        ((|up| |SparseUnivariatePolynomial| P)
-         ($ |Factored| (|SparseUnivariatePolynomial| P)))
+        ((|up| (|SparseUnivariatePolynomial| P))
+         ($ (|Factored| (|SparseUnivariatePolynomial| P))))
         (SPADCALL |up| (ELT $ 20) (QREFELT $ 28))) 
 
 (DECLAIM (NOTINLINE |MultivariateFactorize;|)) 

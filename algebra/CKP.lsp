@@ -1,15 +1,15 @@
 
 (SDEFUN |CKP;setSimpMode;2Nni;1|
-        ((|i| |NonNegativeInteger|) ($ |NonNegativeInteger|))
+        ((|i| (|NonNegativeInteger|)) ($ (|NonNegativeInteger|)))
         (SPADCALL |i| (QREFELT $ 19))) 
 
 (SDEFUN |CKP;setRedMode;2Nni;2|
-        ((|i| |NonNegativeInteger|) ($ |NonNegativeInteger|))
+        ((|i| (|NonNegativeInteger|)) ($ (|NonNegativeInteger|)))
         (SPROG ((|j| (|NonNegativeInteger|)))
                (SEQ (LETT |j| (QREFELT $ 14)) (SETELT $ 14 |i|) (EXIT |j|)))) 
 
 (SDEFUN |CKP;setOutMode;2Nni;3|
-        ((|i| |NonNegativeInteger|) ($ |NonNegativeInteger|))
+        ((|i| (|NonNegativeInteger|)) ($ (|NonNegativeInteger|)))
         (SPROG ((|j| (|NonNegativeInteger|)))
                (SEQ (LETT |j| (QREFELT $ 16))
                     (COND ((QREFELT $ 15) (LETT |j| (+ |j| 10))))
@@ -18,7 +18,7 @@
                           ('T (SETELT $ 16 |i|)))
                     (EXIT |j|)))) 
 
-(SDEFUN |CKP;write| ((|str| |OutputForm|) ($ |Void|))
+(SDEFUN |CKP;write| ((|str| (|OutputForm|)) ($ (|Void|)))
         (SEQ
          (COND
           ((QREFELT $ 15)
@@ -27,8 +27,8 @@
          (EXIT (SPADCALL (QREFELT $ 29))))) 
 
 (SDEFUN |CKP;outR|
-        ((|q| |NonNegativeInteger|) (|s| |NonNegativeInteger|)
-         ($ |OutputForm|))
+        ((|q| (|NonNegativeInteger|)) (|s| (|NonNegativeInteger|))
+         ($ (|OutputForm|)))
         (COND
          ((ZEROP |s|)
           (SPADCALL (SPADCALL "R" (QREFELT $ 31)) (SPADCALL |q| (QREFELT $ 32))
@@ -41,8 +41,8 @@
                     (QREFELT $ 36))))) 
 
 (SDEFUN |CKP;outM|
-        ((|q| |NonNegativeInteger|) (|s| |NonNegativeInteger|)
-         ($ |OutputForm|))
+        ((|q| (|NonNegativeInteger|)) (|s| (|NonNegativeInteger|))
+         ($ (|OutputForm|)))
         (COND
          ((ZEROP |s|)
           (SPADCALL (SPADCALL "M" (QREFELT $ 31)) (SPADCALL |q| (QREFELT $ 32))
@@ -55,8 +55,9 @@
                     (QREFELT $ 36))))) 
 
 (SDEFUN |CKP;info|
-        ((|flag| |NonNegativeInteger|) (|q| |NonNegativeInteger|)
-         (|s| |NonNegativeInteger|) (|dim| |NonNegativeInteger|) ($ |Void|))
+        ((|flag| (|NonNegativeInteger|)) (|q| (|NonNegativeInteger|))
+         (|s| (|NonNegativeInteger|)) (|dim| (|NonNegativeInteger|))
+         ($ (|Void|)))
         (SEQ
          (COND ((< (QREFELT $ 16) 4) (SPADCALL (QREFELT $ 29)))
                (#1='T
@@ -95,9 +96,10 @@
                      (EXIT (SPADCALL (QREFELT $ 29)))))))) 
 
 (SDEFUN |CKP;display|
-        ((|q| |NonNegativeInteger|) (|s| |NonNegativeInteger|) (|Sys| |List| D)
-         (|Symb| |SparseEchelonMatrix| JB D) (|DimRq| |NonNegativeInteger|)
-         (|DimMq| |NonNegativeInteger|) ($ |Void|))
+        ((|q| (|NonNegativeInteger|)) (|s| (|NonNegativeInteger|))
+         (|Sys| (|List| D)) (|Symb| (|SparseEchelonMatrix| JB D))
+         (|DimRq| (|NonNegativeInteger|)) (|DimMq| (|NonNegativeInteger|))
+         ($ (|Void|)))
         (SEQ
          (COND ((< (QREFELT $ 16) 5) (SPADCALL (QREFELT $ 29)))
                ('T
@@ -137,7 +139,7 @@
                      (EXIT (SPADCALL (QREFELT $ 29)))))))) 
 
 (SDEFUN |CKP;displayIntCond|
-        ((|s| |NonNegativeInteger|) (|Cond| |List| D) ($ |Void|))
+        ((|s| (|NonNegativeInteger|)) (|Cond| (|List| D)) ($ (|Void|)))
         (SEQ
          (COND ((< (QREFELT $ 16) 3) (SPADCALL (QREFELT $ 29)))
                ('T
@@ -158,9 +160,9 @@
                      (EXIT (SPADCALL (QREFELT $ 29)))))))) 
 
 (SDEFUN |CKP;displayCartan|
-        ((|Sys| |List| D) (|dim| |NonNegativeInteger|)
-         (|q| |NonNegativeInteger|) (|s| |NonNegativeInteger|)
-         (|CarChar| |List| (|NonNegativeInteger|)) ($ |Void|))
+        ((|Sys| (|List| D)) (|dim| (|NonNegativeInteger|))
+         (|q| (|NonNegativeInteger|)) (|s| (|NonNegativeInteger|))
+         (|CarChar| (|List| (|NonNegativeInteger|))) ($ (|Void|)))
         (SPROG ((#1=#:G152 NIL) (|cc| NIL) (#2=#:G151 NIL))
                (SEQ
                 (COND ((EQL (QREFELT $ 16) 0) (SPADCALL (QREFELT $ 29)))
@@ -231,8 +233,8 @@
                             (EXIT (SPADCALL (QREFELT $ 29))))))))) 
 
 (SDEFUN |CKP;stirling;4Nni;11|
-        ((|i| |NonNegativeInteger|) (|k| |NonNegativeInteger|)
-         (|q| |NonNegativeInteger|) ($ |NonNegativeInteger|))
+        ((|i| (|NonNegativeInteger|)) (|k| (|NonNegativeInteger|))
+         (|q| (|NonNegativeInteger|)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((|res| (|NonNegativeInteger|)) (#1=#:G183 NIL) (#2=#:G182 NIL)
           (#3=#:G181 NIL) (#4=#:G193 NIL) (|j| NIL) (#5=#:G192 NIL)
@@ -314,8 +316,8 @@
                                       (QREFELT $ 61))))))))))))) 
 
 (SDEFUN |CKP;alpha;Nni2L;12|
-        ((|q| |NonNegativeInteger|) (|beta| |List| (|NonNegativeInteger|))
-         ($ |List| (|NonNegativeInteger|)))
+        ((|q| (|NonNegativeInteger|)) (|beta| (|List| (|NonNegativeInteger|)))
+         ($ (|List| (|NonNegativeInteger|))))
         (SPROG
          ((#1=#:G194 NIL) (#2=#:G198 NIL) (|bi| NIL) (#3=#:G199 NIL) (|i| NIL)
           (#4=#:G197 NIL))
@@ -347,8 +349,8 @@
                 (GO G190) G191 (EXIT (NREVERSE #4#))))))) 
 
 (SDEFUN |CKP;hilbert;LSup;13|
-        ((|CarChar| |List| (|NonNegativeInteger|))
-         ($ |SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
+        ((|CarChar| (|List| (|NonNegativeInteger|)))
+         ($ (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))))
         (SPROG
          ((|ifac| #1=(|Integer|))
           (|res| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
@@ -395,8 +397,8 @@
               (EXIT |res|)))) 
 
 (SDEFUN |CKP;alphaHilbert;SupL;14|
-        ((|hilp| |SparseUnivariatePolynomial| (|Fraction| (|Integer|)))
-         ($ |List| (|NonNegativeInteger|)))
+        ((|hilp| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
+         ($ (|List| (|NonNegativeInteger|))))
         (SPROG
          ((|res| (|List| (|NonNegativeInteger|))) (#1=#:G317 NIL)
           (|ai| (|Integer|)) (#2=#:G315 NIL) (|kfac| #3=(|Integer|))
@@ -458,8 +460,8 @@
               (EXIT |res|)))) 
 
 (SDEFUN |CKP;arbFunctions;NniILL;15|
-        ((|q| |NonNegativeInteger|) (|j| |Integer|)
-         (|CarChar| |List| (|NonNegativeInteger|)) ($ |List| (|Integer|)))
+        ((|q| (|NonNegativeInteger|)) (|j| (|Integer|))
+         (|CarChar| (|List| (|NonNegativeInteger|))) ($ (|List| (|Integer|))))
         (SPROG
          ((|res| (|List| (|Integer|))) (|t| (|Fraction| (|Integer|)))
           (#1=#:G360 NIL) (#2=#:G359 NIL) (#3=#:G350 NIL) (|kfac| (|Integer|))
@@ -528,8 +530,8 @@
           (EXIT |res|)))) 
 
 (SDEFUN |CKP;gauge;NniILL;16|
-        ((|q| |NonNegativeInteger|) (|j| |Integer|)
-         (|gamma| |List| (|NonNegativeInteger|)) ($ |List| (|Integer|)))
+        ((|q| (|NonNegativeInteger|)) (|j| (|Integer|))
+         (|gamma| (|List| (|NonNegativeInteger|))) ($ (|List| (|Integer|))))
         (SPROG
          ((|res| (|List| (|Integer|))) (|t| (|Fraction| (|Integer|)))
           (#1=#:G387 NIL) (#2=#:G386 NIL) (|kfac| (|Integer|))
@@ -646,8 +648,8 @@
                        (EXIT |res|)))))))) 
 
 (SDEFUN |CKP;gaugeHilbert;NniLSup;17|
-        ((|q| |NonNegativeInteger|) (|gamma| |List| (|NonNegativeInteger|))
-         ($ |SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
+        ((|q| (|NonNegativeInteger|)) (|gamma| (|List| (|NonNegativeInteger|)))
+         ($ (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))))
         (SPROG
          ((|res| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
           (|t| (|NonNegativeInteger|)) (#1=#:G399 NIL) (#2=#:G398 NIL)
@@ -725,8 +727,8 @@
                            (EXIT |res|)))))))) 
 
 (SDEFUN |CKP;bound;4Nni;18|
-        ((|nn| |NonNegativeInteger|) (|mm| |NonNegativeInteger|)
-         (|qq| |NonNegativeInteger|) ($ |NonNegativeInteger|))
+        ((|nn| (|NonNegativeInteger|)) (|mm| (|NonNegativeInteger|))
+         (|qq| (|NonNegativeInteger|)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((#1=#:G413 NIL) (#2=#:G410 NIL) (|tmp| (|NonNegativeInteger|))
           (#3=#:G409 NIL))
@@ -764,7 +766,7 @@
                       1 (QREFELT $ 94))))))) 
 
 (SDEFUN |CKP;complete;JdeV;19|
-        ((|De| |JetDifferentialEquation| JB D) ($ |Void|))
+        ((|De| (|JetDifferentialEquation| JB D)) ($ (|Void|)))
         (SPROG
          ((|tmp|
            (|Record| (|:| |IDe| (|JetDifferentialEquation| JB D))
@@ -777,12 +779,14 @@
               (EXIT (SPADCALL (QREFELT $ 29)))))) 
 
 (SDEFUN |CKP;complete2;JdeR;20|
-        ((|De| |JetDifferentialEquation| JB D)
-         ($ |Record| (|:| |IDe| (|JetDifferentialEquation| JB D))
-          (|:| |ISys| (|List| D)) (|:| |Order| (|NonNegativeInteger|))
-          (|:| |NumProj| (|NonNegativeInteger|))
-          (|:| |Dim| (|NonNegativeInteger|))
-          (|:| |CarChar| (|List| (|NonNegativeInteger|)))))
+        ((|De| (|JetDifferentialEquation| JB D))
+         ($
+          (|Record| (|:| |IDe| (|JetDifferentialEquation| JB D))
+                    (|:| |ISys| (|List| D))
+                    (|:| |Order| (|NonNegativeInteger|))
+                    (|:| |NumProj| (|NonNegativeInteger|))
+                    (|:| |Dim| (|NonNegativeInteger|))
+                    (|:| |CarChar| (|List| (|NonNegativeInteger|))))))
         (SPROG
          ((|Cartan| (|List| (|NonNegativeInteger|)))
           (|PrevSymb| (|SparseEchelonMatrix| JB D)) (|ICs| (|List| D))

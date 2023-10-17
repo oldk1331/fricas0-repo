@@ -1,16 +1,17 @@
 
 (SDEFUN |NORMPK;normInvertible?;PTSL;1|
-        ((|p| P) (|ts| TS)
-         ($ |List| (|Record| (|:| |val| (|Boolean|)) (|:| |tower| TS))))
+        ((|p| (P)) (|ts| (TS))
+         ($ (|List| (|Record| (|:| |val| (|Boolean|)) (|:| |tower| TS)))))
         (SPADCALL |p| |ts| (QREFELT $ 14))) 
 
 (SDEFUN |NORMPK;normInvertible?;PTSL;2|
-        ((|p| P) (|ts| TS)
-         ($ |List| (|Record| (|:| |val| (|Boolean|)) (|:| |tower| TS))))
+        ((|p| (P)) (|ts| (TS))
+         ($ (|List| (|Record| (|:| |val| (|Boolean|)) (|:| |tower| TS)))))
         (SPADCALL |p| |ts| (QREFELT $ 16))) 
 
 (SDEFUN |NORMPK;outputArgs;2SPTSV;3|
-        ((|s1| |String|) (|s2| |String|) (|p| P) (|ts| TS) ($ |Void|))
+        ((|s1| (|String|)) (|s2| (|String|)) (|p| (P)) (|ts| (TS))
+         ($ (|Void|)))
         (SPROG ((#1=#:G133 NIL) (|q| NIL) (|lp| (|List| P)))
                (SEQ
                 (COND
@@ -53,7 +54,8 @@
                                (QREFELT $ 33)))))))))) 
 
 (SDEFUN |NORMPK;outputArgs;2SPTSV;4|
-        ((|s1| |String|) (|s2| |String|) (|p| P) (|ts| TS) ($ |Void|))
+        ((|s1| (|String|)) (|s2| (|String|)) (|p| (P)) (|ts| (TS))
+         ($ (|Void|)))
         (SEQ
          (COND
           ((NULL (SPADCALL |s1| (QREFELT $ 19)))
@@ -65,7 +67,8 @@
          (EXIT (SPADCALL (SPADCALL " " (QREFELT $ 30)) (QREFELT $ 33))))) 
 
 (SDEFUN |NORMPK;outputArgs;2SPTSV;5|
-        ((|s1| |String|) (|s2| |String|) (|p| P) (|ts| TS) ($ |Void|))
+        ((|s1| (|String|)) (|s2| (|String|)) (|p| (P)) (|ts| (TS))
+         ($ (|Void|)))
         (SEQ
          (COND
           ((NULL (SPADCALL |s1| (QREFELT $ 19)))
@@ -77,7 +80,7 @@
          (EXIT (SPADCALL (SPADCALL " " (QREFELT $ 30)) (QREFELT $ 33))))) 
 
 (SDEFUN |NORMPK;recip;PTSR;6|
-        ((|p| P) (|ts| TS) ($ |Record| (|:| |num| P) (|:| |den| P)))
+        ((|p| (P)) (|ts| (TS)) ($ (|Record| (|:| |num| P) (|:| |den| P))))
         (SPROG
          ((|pd| (P)) (|pn| (P)) (|k| (|Fraction| R)) (|dp| (R)) (|cd| (R))
           (|dn| (R)) (|cn| (R))
@@ -134,7 +137,7 @@
                 (SPADCALL (SPADCALL |k| (QREFELT $ 55)) |pd|
                           (QREFELT $ 54))))))) 
 
-(SDEFUN |NORMPK;normalizedAssociate;PTSP;7| ((|p| P) (|ts| TS) ($ P))
+(SDEFUN |NORMPK;normalizedAssociate;PTSP;7| ((|p| (P)) (|ts| (TS)) ($ (P)))
         (SPROG
          ((|r| (P)) (|ip| (P)) (|mp| (P)) (|tp| (P))
           (|qr| (|Record| (|:| |num| P) (|:| |den| P))) (|ts_v| (P))
@@ -224,8 +227,8 @@
                             (QREFELT $ 68))))))))) 
 
 (SDEFUN |NORMPK;normalize;PTSL;8|
-        ((|p| P) (|ts| TS)
-         ($ |List| (|Record| (|:| |val| P) (|:| |tower| TS))))
+        ((|p| (P)) (|ts| (TS))
+         ($ (|List| (|Record| (|:| |val| P) (|:| |tower| TS)))))
         (SPROG
          ((|lpwt| (|List| (|Record| (|:| |val| P) (|:| |tower| TS)))) (|q| (P))
           (|us| (TS)) (#1=#:G184 NIL) (|bwt| NIL)

@@ -1,7 +1,7 @@
 
-(SDEFUN |LOGIC-;T$;S;1| (($ S)) (|spadConstant| $ 7)) 
+(SDEFUN |LOGIC-;T$;S;1| (($ (S))) (|spadConstant| $ 7)) 
 
-(SDEFUN |LOGIC-;_\|_;S;2| (($ S)) (|spadConstant| $ 9)) 
+(SDEFUN |LOGIC-;_\|_;S;2| (($ (S))) (|spadConstant| $ 9)) 
 
 (DECLAIM (NOTINLINE |Logic&;|)) 
 

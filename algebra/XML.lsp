@@ -1,6 +1,6 @@
 
 (SDEFUN |XML;writeXml;XeSV;1|
-        ((|content| |XmlElement|) (|filename| |String|) ($ |Void|))
+        ((|content| (|XmlElement|)) (|filename| (|String|)) ($ (|Void|)))
         (SPROG
          ((#1=#:G106 NIL) (|line| NIL) (|lines| (|List| (|String|)))
           (|s1| (|String|)) (|f1| (|TextFile|)))
@@ -31,7 +31,7 @@
           (EXIT (SPADCALL |f1| (QREFELT $ 18)))))) 
 
 (SDEFUN |XML;writeVRML;XeSV;2|
-        ((|content| |XmlElement|) (|filename| |String|) ($ |Void|))
+        ((|content| (|XmlElement|)) (|filename| (|String|)) ($ (|Void|)))
         (SPROG ((|f1| (|TextFile|)))
                (SEQ
                 (LETT |f1|

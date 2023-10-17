@@ -1,36 +1,37 @@
 
 (PUT '|STRING;ucodeToString;I$;1| '|SPADreplace| 'NUM2USTR) 
 
-(SDEFUN |STRING;ucodeToString;I$;1| ((|n| |Integer|) ($ $)) (NUM2USTR |n|)) 
+(SDEFUN |STRING;ucodeToString;I$;1| ((|n| (|Integer|)) ($ ($))) (NUM2USTR |n|)) 
 
 (PUT '|STRING;uentries;$L;2| '|SPADreplace| 'UENTRIES) 
 
-(SDEFUN |STRING;uentries;$L;2| ((|s| $) ($ |List| (|SingleInteger|)))
+(SDEFUN |STRING;uentries;$L;2| ((|s| ($)) ($ (|List| (|SingleInteger|))))
         (UENTRIES |s|)) 
 
 (PUT '|STRING;string;I$;3| '|SPADreplace| 'STRINGIMAGE) 
 
-(SDEFUN |STRING;string;I$;3| ((|n| |Integer|) ($ $)) (STRINGIMAGE |n|)) 
+(SDEFUN |STRING;string;I$;3| ((|n| (|Integer|)) ($ ($))) (STRINGIMAGE |n|)) 
 
 (SDEFUN |STRING;OMwrite;Omd$BV;4|
-        ((|dev| |OpenMathDevice|) (|x| $) (|wholeObj| |Boolean|) ($ |Void|))
+        ((|dev| (|OpenMathDevice|)) (|x| ($)) (|wholeObj| (|Boolean|))
+         ($ (|Void|)))
         (SEQ (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 13))))
              (SPADCALL |dev| |x| (QREFELT $ 15))
              (EXIT (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 16))))))) 
 
 (PUT '|STRING;convert;$If;5| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |STRING;convert;$If;5| ((|x| $) ($ |InputForm|)) |x|) 
+(SDEFUN |STRING;convert;$If;5| ((|x| ($)) ($ (|InputForm|))) |x|) 
 
 (PUT '|STRING;qelt;$IC;6| '|SPADreplace| 'STR_ELT1) 
 
-(SDEFUN |STRING;qelt;$IC;6| ((|s| $) (|i| |Integer|) ($ |Character|))
+(SDEFUN |STRING;qelt;$IC;6| ((|s| ($)) (|i| (|Integer|)) ($ (|Character|)))
         (STR_ELT1 |s| |i|)) 
 
 (PUT '|STRING;qsetelt!;$I2C;7| '|SPADreplace| 'STR_SETELT1) 
 
 (SDEFUN |STRING;qsetelt!;$I2C;7|
-        ((|s| $) (|i| |Integer|) (|c| . #1=(|Character|)) ($ . #1#))
+        ((|s| ($)) (|i| (|Integer|)) (|c| #1=(|Character|)) ($ #1#))
         (STR_SETELT1 |s| |i| |c|)) 
 
 (DECLAIM (NOTINLINE |String;|)) 

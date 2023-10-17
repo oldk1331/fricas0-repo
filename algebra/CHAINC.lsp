@@ -1,15 +1,15 @@
 
 (PUT '|CHAINC;chainComplex;L$;1| '|SPADreplace| '(XLAM (|v|) |v|)) 
 
-(SDEFUN |CHAINC;chainComplex;L$;1| ((|v| |List| (|Matrix| (|Integer|))) ($ $))
-        |v|) 
+(SDEFUN |CHAINC;chainComplex;L$;1|
+        ((|v| (|List| (|Matrix| (|Integer|)))) ($ ($))) |v|) 
 
 (PUT '|CHAINC;transition_matrices;$L;2| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
 (SDEFUN |CHAINC;transition_matrices;$L;2|
-        ((|a| $) ($ |List| (|Matrix| (|Integer|)))) |a|) 
+        ((|a| ($)) ($ (|List| (|Matrix| (|Integer|))))) |a|) 
 
-(SDEFUN |CHAINC;validate;$B;3| ((|a| $) ($ |Boolean|))
+(SDEFUN |CHAINC;validate;$B;3| ((|a| ($)) ($ (|Boolean|)))
         (SPROG
          ((|last| #1=(|Matrix| (|Integer|))) (#2=#:G115 NIL)
           (|prod| (|Matrix| (|Integer|))) (|m| #1#) (#3=#:G116 NIL) (|x| NIL)
@@ -71,7 +71,7 @@
                 (EXIT 'T)))
           #4# (EXIT #2#)))) 
 
-(SDEFUN |CHAINC;homology;$L;4| ((|a| $) ($ |List| (|Homology|)))
+(SDEFUN |CHAINC;homology;$L;4| ((|a| ($)) ($ (|List| (|Homology|))))
         (SPROG
          ((|prev| (|Matrix| (|Integer|))) (|notFirst| (|Boolean|))
           (|res| (|List| (|Homology|))) (|m2| (|Homology|)) (#1=#:G122 NIL)
@@ -93,7 +93,7 @@
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
-(SDEFUN |CHAINC;coerce;$Of;5| ((|s| $) ($ |OutputForm|))
+(SDEFUN |CHAINC;coerce;$Of;5| ((|s| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|lst| (|List| (|OutputForm|))) (#1=#:G127 NIL) (|x| NIL)
           (#2=#:G126 NIL))

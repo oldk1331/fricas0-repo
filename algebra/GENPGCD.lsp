@@ -1,8 +1,8 @@
 
 (SDEFUN |GENPGCD;gcdPolynomial;3Sup;1|
-        ((|p1| |SparseUnivariatePolynomial| P)
-         (|p2| |SparseUnivariatePolynomial| P)
-         ($ |SparseUnivariatePolynomial| P))
+        ((|p1| (|SparseUnivariatePolynomial| P))
+         (|p2| (|SparseUnivariatePolynomial| P))
+         ($ (|SparseUnivariatePolynomial| P)))
         (SPROG
          ((|v2| #1=(|List| OV)) (|v| #1#) (#2=#:G176 NIL)
           (|g| (|SparseUnivariatePolynomial| P)) (|v1| #1#)
@@ -208,7 +208,7 @@
                                                       23)))))))))))))))))))))))
           #9# (EXIT #2#)))) 
 
-(SDEFUN |GENPGCD;randomR;R;2| (($ R))
+(SDEFUN |GENPGCD;randomR;R;2| (($ (R)))
         (SPROG ((|v| (|Union| R "failed")))
                (SEQ (LETT |v| (SPADCALL (QREFELT $ 33) (QREFELT $ 34)))
                     (EXIT
@@ -222,13 +222,13 @@
                         (SETELT $ 33 (|spadConstant| $ 32))
                         (EXIT (QREFELT $ 33))))))))) 
 
-(SDEFUN |GENPGCD;randomR;R;3| (($ R)) (SPADCALL (RANDOM 100) (QREFELT $ 37))) 
+(SDEFUN |GENPGCD;randomR;R;3| (($ (R))) (SPADCALL (RANDOM 100) (QREFELT $ 37))) 
 
 (SDEFUN |GENPGCD;gcdSameVariables|
-        ((|p1| . #1=(|SparseUnivariatePolynomial| P))
-         (|p2| . #2=(|SparseUnivariatePolynomial| P))
-         (|prim1| . #3=(|Boolean|)) (|prim2| . #4=(|Boolean|)) (|lv| |List| OV)
-         ($ |SparseUnivariatePolynomial| P))
+        ((|p1| #1=(|SparseUnivariatePolynomial| P))
+         (|p2| #2=(|SparseUnivariatePolynomial| P)) (|prim1| #3=(|Boolean|))
+         (|prim2| #4=(|Boolean|)) (|lv| (|List| OV))
+         ($ (|SparseUnivariatePolynomial| P)))
         (SPROG
          ((#5=#:G225 NIL) (#6=#:G226 NIL)
           (|ans| (|Union| (|SparseUnivariatePolynomial| P) "failed"))
@@ -581,8 +581,8 @@
                       (QREFELT $ 39)))))) 
 
 (SDEFUN |GENPGCD;fix_lc|
-        ((|u| |SparseUnivariatePolynomial| R) (|lc| P) (|elc| R)
-         ($ |Union| (|SparseUnivariatePolynomial| P) "failed"))
+        ((|u| (|SparseUnivariatePolynomial| R)) (|lc| (P)) (|elc| (R))
+         ($ (|Union| (|SparseUnivariatePolynomial| P) "failed")))
         (SPROG
          ((|u1u| (|Union| (|SparseUnivariatePolynomial| R) "failed"))
           (|u1| (|SparseUnivariatePolynomial| R)))
@@ -598,10 +598,11 @@
                                       (QREFELT $ 48))))))))) 
 
 (SDEFUN |GENPGCD;lift|
-        ((|gR| |SparseUnivariatePolynomial| R)
-         (|p| |SparseUnivariatePolynomial| P)
-         (|cfR| |SparseUnivariatePolynomial| R) (|gcdLC| P) (|lv| |List| OV)
-         (|lr| |List| R) ($ |Union| (|SparseUnivariatePolynomial| P) "failed"))
+        ((|gR| (|SparseUnivariatePolynomial| R))
+         (|p| (|SparseUnivariatePolynomial| P))
+         (|cfR| (|SparseUnivariatePolynomial| R)) (|gcdLC| (P))
+         (|lv| (|List| OV)) (|lr| (|List| R))
+         ($ (|Union| (|SparseUnivariatePolynomial| P) "failed")))
         (SPROG
          ((#1=#:G259 NIL) (#2=#:G260 NIL) (|pn| (P))
           (|cf| #3=(|SparseUnivariatePolynomial| P))
@@ -900,9 +901,9 @@
           (RETURN (PROGN (SPADCALL |x| |lv| |lr| (QREFELT $ 54)))))) 
 
 (SDEFUN |GENPGCD;recursivelyGCDCoefficients|
-        ((|g| . #1=(|SparseUnivariatePolynomial| P)) (|v| . #2=(|List| OV))
-         (|p| |SparseUnivariatePolynomial| P) (|pv| |List| OV)
-         ($ |SparseUnivariatePolynomial| P))
+        ((|g| #1=(|SparseUnivariatePolynomial| P)) (|v| #2=(|List| OV))
+         (|p| (|SparseUnivariatePolynomial| P)) (|pv| (|List| OV))
+         ($ (|SparseUnivariatePolynomial| P)))
         (SPROG
          ((#3=#:G273 NIL) (|oldv| #2#) (#4=#:G274 NIL) (|oldg| #1#)
           (|p1| (|SparseUnivariatePolynomial| P)) (#5=#:G276 NIL) (|i| NIL)
@@ -983,8 +984,8 @@
           (RETURN (PROGN (SPADCALL |x| |mv| |i| (QREFELT $ 84)))))) 
 
 (SDEFUN |GENPGCD;flatten|
-        ((|p1| |SparseUnivariatePolynomial| P) (|lv| |List| OV)
-         ($ |SparseUnivariatePolynomial| P))
+        ((|p1| (|SparseUnivariatePolynomial| P)) (|lv| (|List| OV))
+         ($ (|SparseUnivariatePolynomial| P)))
         (SPROG
          ((|lr| (|List| R)) (#1=#:G287 NIL) (|vv| NIL) (#2=#:G286 NIL)
           (|ans| (|SparseUnivariatePolynomial| P))
@@ -1049,7 +1050,7 @@
           (RETURN (PROGN (SPADCALL |x| |lv| |lr| (QREFELT $ 54)))))) 
 
 (SDEFUN |GENPGCD;variables|
-        ((|p1| |SparseUnivariatePolynomial| P) ($ |List| OV))
+        ((|p1| (|SparseUnivariatePolynomial| P)) ($ (|List| OV)))
         (SPROG
          ((#1=#:G289 NIL) (#2=#:G288 #3=(|List| OV)) (#4=#:G290 #3#)
           (#5=#:G292 NIL) (|u| NIL))
@@ -1071,9 +1072,9 @@
            (QREFELT $ 90))))) 
 
 (SDEFUN |GENPGCD;gcdTrivial|
-        ((|p1| |SparseUnivariatePolynomial| P)
-         (|p2| |SparseUnivariatePolynomial| P)
-         ($ |SparseUnivariatePolynomial| P))
+        ((|p1| (|SparseUnivariatePolynomial| P))
+         (|p2| (|SparseUnivariatePolynomial| P))
+         ($ (|SparseUnivariatePolynomial| P)))
         (SPROG ((|un?| (|Boolean|)) (|cp1| (P)))
                (SEQ (LETT |cp1| (SPADCALL |p1| (QREFELT $ 51)))
                     (EXIT
@@ -1109,9 +1110,9 @@
                                     (SPADCALL |cp1| (QREFELT $ 91)))))))))))) 
 
 (SDEFUN |GENPGCD;gcd_monomial|
-        ((|p1| |SparseUnivariatePolynomial| P)
-         (|p2| |SparseUnivariatePolynomial| P)
-         ($ |SparseUnivariatePolynomial| P))
+        ((|p1| (|SparseUnivariatePolynomial| P))
+         (|p2| (|SparseUnivariatePolynomial| P))
+         ($ (|SparseUnivariatePolynomial| P)))
         (SPADCALL
          (SPADCALL (SPADCALL |p1| (QREFELT $ 51))
                    (SPADCALL |p2| (QREFELT $ 51)) (QREFELT $ 52))
@@ -1119,8 +1120,8 @@
          (QREFELT $ 73))) 
 
 (SDEFUN |GENPGCD;monomContentSup|
-        ((|u| |SparseUnivariatePolynomial| P)
-         ($ |SparseUnivariatePolynomial| P))
+        ((|u| (|SparseUnivariatePolynomial| P))
+         ($ (|SparseUnivariatePolynomial| P)))
         (SPROG ((|md| (|NonNegativeInteger|)))
                (SEQ (LETT |md| (SPADCALL |u| (QREFELT $ 93)))
                     (EXIT
@@ -1131,7 +1132,7 @@
                        (QREFELT $ 97))
                       |md| (QREFELT $ 73)))))) 
 
-(SDEFUN |GENPGCD;better| ((|p1| P) (|p2| P) ($ |Boolean|))
+(SDEFUN |GENPGCD;better| ((|p1| (P)) (|p2| (P)) ($ (|Boolean|)))
         (SPROG ((#1=#:G306 NIL))
                (COND ((SPADCALL |p1| (QREFELT $ 98)) 'T)
                      ((SPADCALL |p2| (QREFELT $ 98)) NIL)

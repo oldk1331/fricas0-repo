@@ -1,11 +1,14 @@
 
 (SDEFUN |RECOP;getINFOREC|
-        ((|infoOp| |BasicOperator|)
-         ($ |Record| (|:| |eqn| F) (|:| |idx| (|Symbol|))
-          (|:| |fnc| (|BasicOperator|)) (|:| |par| (|List| F))
-          (|:| |val| (|Stream| F))
-          (|:| |ord| (|Union| (|NonNegativeInteger|) "failed"))
-          (|:| |gen| (|Union| (|Mapping| (|List| F) (|List| F)) "failed"))))
+        ((|infoOp| (|BasicOperator|))
+         ($
+          (|Record| (|:| |eqn| F) (|:| |idx| (|Symbol|))
+                    (|:| |fnc| (|BasicOperator|)) (|:| |par| (|List| F))
+                    (|:| |val| (|Stream| F))
+                    (|:| |ord| (|Union| (|NonNegativeInteger|) "failed"))
+                    (|:| |gen|
+                         (|Union| (|Mapping| (|List| F) (|List| F))
+                                  "failed")))))
         (SPROG ((#1=#:G141 NIL))
                (PROG2 (LETT #1# (SPADCALL |infoOp| '%INFOREC (QREFELT $ 17)))
                    (QCDR #1#)
@@ -13,23 +16,27 @@
                                  (|Union| (|None|) "failed") #1#)))) 
 
 (SDEFUN |RECOP;setINFOREC|
-        ((|infoOp| |BasicOperator|)
-         (|rec| |Record| (|:| |eqn| F) (|:| |idx| (|Symbol|))
-          (|:| |fnc| (|BasicOperator|)) (|:| |par| (|List| F))
-          (|:| |val| (|Stream| F))
-          (|:| |ord| (|Union| (|NonNegativeInteger|) "failed"))
-          (|:| |gen| (|Union| (|Mapping| (|List| F) (|List| F)) "failed")))
-         ($ |Void|))
+        ((|infoOp| (|BasicOperator|))
+         (|rec|
+          (|Record| (|:| |eqn| F) (|:| |idx| (|Symbol|))
+                    (|:| |fnc| (|BasicOperator|)) (|:| |par| (|List| F))
+                    (|:| |val| (|Stream| F))
+                    (|:| |ord| (|Union| (|NonNegativeInteger|) "failed"))
+                    (|:| |gen|
+                         (|Union| (|Mapping| (|List| F) (|List| F))
+                                  "failed"))))
+         ($ (|Void|)))
         (SPADCALL |infoOp| '%INFOREC |rec| (QREFELT $ 15))) 
 
 (SDEFUN |RECOP;getINFOSER|
-        ((|infoOp| |BasicOperator|)
-         ($ |Record| (|:| |eqn| F) (|:| |idx| (|Symbol|))
-          (|:| |fnc| (|BasicOperator|)) (|:| |var| (|Symbol|))
-          (|:| |par| (|List| F)) (|:| |val| (|Stream| F))
-          (|:| |ord| (|Union| (|NonNegativeInteger|) "failed"))
-          (|:| |gen| (|Union| (|Mapping| (|Stream| F)) "failed"))
-          (|:| |ex?| (|Boolean|))))
+        ((|infoOp| (|BasicOperator|))
+         ($
+          (|Record| (|:| |eqn| F) (|:| |idx| (|Symbol|))
+                    (|:| |fnc| (|BasicOperator|)) (|:| |var| (|Symbol|))
+                    (|:| |par| (|List| F)) (|:| |val| (|Stream| F))
+                    (|:| |ord| (|Union| (|NonNegativeInteger|) "failed"))
+                    (|:| |gen| (|Union| (|Mapping| (|Stream| F)) "failed"))
+                    (|:| |ex?| (|Boolean|)))))
         (SPROG ((#1=#:G147 NIL))
                (PROG2 (LETT #1# (SPADCALL |infoOp| '%INFOSER (QREFELT $ 17)))
                    (QCDR #1#)
@@ -37,19 +44,20 @@
                                  (|Union| (|None|) "failed") #1#)))) 
 
 (SDEFUN |RECOP;setINFOSER|
-        ((|infoOp| |BasicOperator|)
-         (|ser| |Record| (|:| |eqn| F) (|:| |idx| (|Symbol|))
-          (|:| |fnc| (|BasicOperator|)) (|:| |var| (|Symbol|))
-          (|:| |par| (|List| F)) (|:| |val| (|Stream| F))
-          (|:| |ord| (|Union| (|NonNegativeInteger|) "failed"))
-          (|:| |gen| (|Union| (|Mapping| (|Stream| F)) "failed"))
-          (|:| |ex?| (|Boolean|)))
-         ($ |Void|))
+        ((|infoOp| (|BasicOperator|))
+         (|ser|
+          (|Record| (|:| |eqn| F) (|:| |idx| (|Symbol|))
+                    (|:| |fnc| (|BasicOperator|)) (|:| |var| (|Symbol|))
+                    (|:| |par| (|List| F)) (|:| |val| (|Stream| F))
+                    (|:| |ord| (|Union| (|NonNegativeInteger|) "failed"))
+                    (|:| |gen| (|Union| (|Mapping| (|Stream| F)) "failed"))
+                    (|:| |ex?| (|Boolean|))))
+         ($ (|Void|)))
         (SPADCALL |infoOp| '%INFOSER |ser| (QREFELT $ 15))) 
 
 (SDEFUN |RECOP;getShiftRec|
-        ((|op| |BasicOperator|) (|f| |Kernel| F) (|n| |Symbol|)
-         ($ |Union| (|Integer|) "failed"))
+        ((|op| (|BasicOperator|)) (|f| (|Kernel| F)) (|n| (|Symbol|))
+         ($ (|Union| (|Integer|) "failed")))
         (SPROG
          ((#1=#:G163 NIL) (|num| (|SparseUnivariatePolynomial| F))
           (|p| (|Fraction| (|SparseUnivariatePolynomial| F))) (|a| (|List| F)))
@@ -111,11 +119,12 @@
             (SPADCALL |z| (SPADCALL |n| (QREFELT $ 21)) (QREFELT $ 23)))))) 
 
 (SDEFUN |RECOP;shiftInfoRec|
-        ((|op| |BasicOperator|) (|argsym| |Symbol|) (|eq| F)
-         ($ |Union|
-          (|Record| (|:| |ord| (|NonNegativeInteger|)) (|:| |max| (|Integer|))
-                    (|:| |ker| (|Kernel| F)))
-          "failed"))
+        ((|op| (|BasicOperator|)) (|argsym| (|Symbol|)) (|eq| (F))
+         ($
+          (|Union|
+           (|Record| (|:| |ord| (|NonNegativeInteger|)) (|:| |max| (|Integer|))
+                     (|:| |ker| (|Kernel| F)))
+           "failed")))
         (SPROG
          ((#1=#:G175 NIL) (#2=#:G178 NIL) (|minShift| (|Integer|))
           (|nextKernel| (|Kernel| F)) (|maxShift| (|Integer|))
@@ -178,8 +187,8 @@
           #4# (EXIT #2#)))) 
 
 (SDEFUN |RECOP;makeRec;BoSFLSF;7|
-        ((|op| |BasicOperator|) (|argsym| |Symbol|) (|eq| F)
-         (|params| |List| F) (|values| |Stream| F) ($ F))
+        ((|op| (|BasicOperator|)) (|argsym| (|Symbol|)) (|eq| (F))
+         (|params| (|List| F)) (|values| (|Stream| F)) ($ (F)))
         (SPROG
          ((#1=#:G225 NIL) (|info| (|BasicOperator|))
           (|fn| (|Mapping| (|List| F) (|List| F))) (|fl| (|List| F))
@@ -520,7 +529,7 @@
                               (QREFELT $ 71))
                     (QREFELT $ 56))))))) 
 
-(SDEFUN |RECOP;irecur| ((|l| |List| F) ($ F))
+(SDEFUN |RECOP;irecur| ((|l| (|List| F)) ($ (F)))
         (SPROG
          ((#1=#:G252 NIL) (|s| (|Stream| F)) (|ll| (|List| F)) (#2=#:G254 NIL)
           (|i| NIL) (#3=#:G253 NIL) (|o| (|NonNegativeInteger|))
@@ -640,7 +649,7 @@
                     (GO #9#)))))))
           #9# (EXIT #1#)))) 
 
-(SDEFUN |RECOP;ddrec| ((|l| |List| F) ($ |OutputForm|))
+(SDEFUN |RECOP;ddrec| ((|l| (|List| F)) ($ (|OutputForm|)))
         (SPROG
          ((|RecList| (|List| (|OutputForm|))) (#1=#:G264 NIL) (|i| NIL)
           (#2=#:G263 NIL) (|RecEq| #3=(|OutputForm|)) (|RecCoeff| #3#)
@@ -714,7 +723,7 @@
                       (EXIT (NREVERSE #2#)))))
           (EXIT (SPADCALL (CONS |RecEq| |RecList|) (QREFELT $ 100)))))) 
 
-(SDEFUN |RECOP;diffRec| ((|l| |List| F) (|x| |Symbol|) ($ F))
+(SDEFUN |RECOP;diffRec| ((|l| (|List| F)) (|x| (|Symbol|)) ($ (F)))
         (SPROG ((|xF| (F)) (|dummyF| (F)))
                (SEQ
                 (LETT |dummyF|
@@ -730,8 +739,8 @@
                            (QREFELT $ 55)))))) 
 
 (SDEFUN |RECOP;makeFEq;Bo2SFLSF;11|
-        ((|op| |BasicOperator|) (|v| |Symbol|) (|argsym| |Symbol|) (|eq| F)
-         (|params| |List| F) (|values| |Stream| F) ($ F))
+        ((|op| (|BasicOperator|)) (|v| (|Symbol|)) (|argsym| (|Symbol|))
+         (|eq| (F)) (|params| (|List| F)) (|values| (|Stream| F)) ($ (F)))
         (SPROG
          ((#1=#:G309 NIL) (|fn| (|Mapping| (|Stream| F)))
           (|explicit?| (|Boolean|)) (|s| (|uts|)) (|a| (|Any|))
@@ -1098,7 +1107,7 @@
                                               '$)
                                              |uts|)))))) 
 
-(SDEFUN |RECOP;iADE| ((|l| |List| F) ($ F))
+(SDEFUN |RECOP;iADE| ((|l| (|List| F)) ($ (F)))
         (SPROG
          ((#1=#:G325 NIL) (|g| (|Mapping| (|Stream| F))) (#2=#:G317 NIL)
           (N (|NonNegativeInteger|)) (#3=#:G315 NIL)
@@ -1176,7 +1185,7 @@
                     (GO #5#)))))))
           #5# (EXIT #1#)))) 
 
-(SDEFUN |RECOP;getEq;2F;13| ((|f| F) ($ F))
+(SDEFUN |RECOP;getEq;2F;13| ((|f| (F)) ($ (F)))
         (SPROG
          ((#1=#:G334 NIL) (|info| #2=(|BasicOperator|)) (|arg| (|List| F))
           (|op| #2#) (|kl| (|List| (|Kernel| F))))
@@ -1218,7 +1227,7 @@
                   "getEq: argument should be a single rootOfADE or rootOfRec object"))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |RECOP;eltable?;FB;14| ((|f| F) ($ |Boolean|))
+(SDEFUN |RECOP;eltable?;FB;14| ((|f| (F)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G350 NIL) (|info| #2=(|BasicOperator|)) (|arg| (|List| F))
           (|op| #2#) (|kl| (|List| (|Kernel| F))))
@@ -1268,15 +1277,15 @@
                   "eltable?: argument should be a single rootOfADE or rootOfRec object"))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |RECOP;values;Nni;15| (($ |NonNegativeInteger|)) (QREFELT $ 122)) 
+(SDEFUN |RECOP;values;Nni;15| (($ (|NonNegativeInteger|))) (QREFELT $ 122)) 
 
 (SDEFUN |RECOP;values;2Nni;16|
-        ((|n| |NonNegativeInteger|) ($ |NonNegativeInteger|))
+        ((|n| (|NonNegativeInteger|)) ($ (|NonNegativeInteger|)))
         (SPROG ((|v| (|NonNegativeInteger|)))
                (SEQ (LETT |v| (SPADCALL (QREFELT $ 92))) (SETELT $ 122 |n|)
                     (EXIT |v|)))) 
 
-(SDEFUN |RECOP;ddADE| ((|l| |List| F) ($ |OutputForm|))
+(SDEFUN |RECOP;ddADE| ((|l| (|List| F)) ($ (|OutputForm|)))
         (SPROG
          ((|TaylorPoly| (|OutputForm|)) (|TaylorO| (|OutputForm|))
           (|TaylorList| (|List| (|OutputForm|))) (#1=#:G366 NIL) (|i| NIL)
@@ -1379,7 +1388,7 @@
               (EXIT
                (SPADCALL (LIST |DiffEq| |TaylorPoly|) (QREFELT $ 100)))))))))) 
 
-(SDEFUN |RECOP;diffADE| ((|l| |List| F) (|x| |Symbol|) ($ F))
+(SDEFUN |RECOP;diffADE| ((|l| (|List| F)) (|x| (|Symbol|)) ($ (F)))
         (SPROG ((|xF| (F)) (|dummyF| (F)))
                (SEQ
                 (LETT |dummyF|

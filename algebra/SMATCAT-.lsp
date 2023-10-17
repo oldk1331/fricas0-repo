@@ -1,5 +1,5 @@
 
-(SDEFUN |SMATCAT-;positivePower| ((|x| S) (|n| |Integer|) ($ S))
+(SDEFUN |SMATCAT-;positivePower| ((|x| (S)) (|n| (|Integer|)) ($ (S)))
         (SPROG ((|y| (S)))
                (SEQ
                 (COND ((EQL |n| 1) |x|)
@@ -13,16 +13,18 @@
                                $))
                         (EXIT (SPADCALL |y| |y| (QREFELT $ 11))))))))) 
 
-(SDEFUN |SMATCAT-;^;SNniS;2| ((|x| S) (|n| |NonNegativeInteger|) ($ S))
+(SDEFUN |SMATCAT-;^;SNniS;2| ((|x| (S)) (|n| (|NonNegativeInteger|)) ($ (S)))
         (COND ((ZEROP |n|) (SPADCALL (|spadConstant| $ 12) (QREFELT $ 13)))
               ('T (|SMATCAT-;positivePower| |x| |n| $)))) 
 
-(SDEFUN |SMATCAT-;coerce;RS;3| ((|r| R) ($ S)) (SPADCALL |r| (QREFELT $ 13))) 
+(SDEFUN |SMATCAT-;coerce;RS;3| ((|r| (R)) ($ (S)))
+        (SPADCALL |r| (QREFELT $ 13))) 
 
-(SDEFUN |SMATCAT-;differentiate;SMS;4| ((|x| S) (|d| |Mapping| R R) ($ S))
+(SDEFUN |SMATCAT-;differentiate;SMS;4|
+        ((|x| (S)) (|d| (|Mapping| R R)) ($ (S)))
         (SPADCALL |d| |x| (QREFELT $ 18))) 
 
-(SDEFUN |SMATCAT-;diagonal;SRow;5| ((|x| S) ($ |Row|))
+(SDEFUN |SMATCAT-;diagonal;SRow;5| ((|x| (S)) ($ (|Row|)))
         (SPROG
          ((#1=#:G129 NIL) (|i| NIL) (#2=#:G130 NIL) (|j| NIL) (#3=#:G131 NIL)
           (|k| NIL) (|v| (|Vector| R)))
@@ -44,19 +46,19 @@
                    (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL |v| (QREFELT $ 29)))))) 
 
-(SDEFUN |SMATCAT-;retract;SR;6| ((|x| S) ($ R))
+(SDEFUN |SMATCAT-;retract;SR;6| ((|x| (S)) ($ (R)))
         (COND
          ((SPADCALL |x| (QREFELT $ 32))
           (SPADCALL (SPADCALL |x| (QREFELT $ 33)) (QREFELT $ 34)))
          ('T (|error| "Not retractable")))) 
 
-(SDEFUN |SMATCAT-;retractIfCan;SU;7| ((|x| S) ($ |Union| R "failed"))
+(SDEFUN |SMATCAT-;retractIfCan;SU;7| ((|x| (S)) ($ (|Union| R "failed")))
         (COND
          ((SPADCALL |x| (QREFELT $ 32))
           (SPADCALL (SPADCALL |x| (QREFELT $ 33)) (QREFELT $ 37)))
          ('T (CONS 1 "failed")))) 
 
-(SDEFUN |SMATCAT-;equation2R| ((|v| |Vector| S) ($ |Matrix| R))
+(SDEFUN |SMATCAT-;equation2R| ((|v| (|Vector| S)) ($ (|Matrix| R)))
         (SPROG
          ((#1=#:G144 NIL) (|j| NIL) (#2=#:G143 NIL) (|i| NIL)
           (|ans| (|Matrix| |Col|)))
@@ -82,7 +84,7 @@
                (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL))
           (EXIT (SPADCALL |ans| (QREFELT $ 46)))))) 
 
-(SDEFUN |SMATCAT-;reducedSystem;MM;9| ((|x| |Matrix| S) ($ |Matrix| R))
+(SDEFUN |SMATCAT-;reducedSystem;MM;9| ((|x| (|Matrix| S)) ($ (|Matrix| R)))
         (SPROG ((#1=#:G151 NIL) (|i| NIL) (#2=#:G150 NIL))
                (SEQ
                 (COND
@@ -110,8 +112,8 @@
                             (QREFELT $ 55))))))) 
 
 (SDEFUN |SMATCAT-;reducedSystem;MVR;10|
-        ((|m| |Matrix| S) (|v| |Vector| S)
-         ($ |Record| (|:| |mat| (|Matrix| R)) (|:| |vec| (|Vector| R))))
+        ((|m| (|Matrix| S)) (|v| (|Vector| S))
+         ($ (|Record| (|:| |mat| (|Matrix| R)) (|:| |vec| (|Vector| R)))))
         (SPROG ((|vh| (|Vector| R)) (|rh| (|Matrix| R)))
                (SEQ
                 (LETT |vh|
@@ -127,7 +129,7 @@
                           (SPADCALL |rh| (PROGN |rh| 1) (QREFELT $ 60)))))))
                 (EXIT (CONS (SPADCALL |m| (QREFELT $ 59)) |vh|))))) 
 
-(SDEFUN |SMATCAT-;trace;SR;11| ((|x| S) ($ R))
+(SDEFUN |SMATCAT-;trace;SR;11| ((|x| (S)) ($ (R)))
         (SPROG ((|tr| (R)) (#1=#:G161 NIL) (|i| NIL) (#2=#:G162 NIL) (|j| NIL))
                (SEQ (LETT |tr| (|spadConstant| $ 20))
                     (SEQ (LETT |j| (SPADCALL |x| (QREFELT $ 24)))
@@ -146,7 +148,7 @@
                          (GO G190) G191 (EXIT NIL))
                     (EXIT |tr|)))) 
 
-(SDEFUN |SMATCAT-;diagonalProduct;SR;12| ((|x| S) ($ R))
+(SDEFUN |SMATCAT-;diagonalProduct;SR;12| ((|x| (S)) ($ (R)))
         (SPROG ((|pr| (R)) (#1=#:G166 NIL) (|i| NIL) (#2=#:G167 NIL) (|j| NIL))
                (SEQ
                 (LETT |pr|
@@ -167,7 +169,7 @@
                      (GO G190) G191 (EXIT NIL))
                 (EXIT |pr|)))) 
 
-(SDEFUN |SMATCAT-;^;SIS;13| ((|x| S) (|n| |Integer|) ($ S))
+(SDEFUN |SMATCAT-;^;SIS;13| ((|x| (S)) (|n| (|Integer|)) ($ (S)))
         (SPROG ((|xInv| (|Union| S "failed")))
                (SEQ
                 (COND

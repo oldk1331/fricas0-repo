@@ -2,14 +2,14 @@
 (PUT '|ARRAY2;qelt;$2IR;1| '|SPADreplace|
      '(XLAM (|m| |i| |j|) (QAREF2O |m| |i| |j| 1 1))) 
 
-(SDEFUN |ARRAY2;qelt;$2IR;1| ((|m| $) (|i| . #1=(|Integer|)) (|j| . #1#) ($ R))
+(SDEFUN |ARRAY2;qelt;$2IR;1| ((|m| ($)) (|i| #1=(|Integer|)) (|j| #1#) ($ (R)))
         (QAREF2O |m| |i| |j| 1 1)) 
 
 (PUT '|ARRAY2;qsetelt!;$2I2R;2| '|SPADreplace|
      '(XLAM (|m| |i| |j| |r|) (QSETAREF2O |m| |i| |j| |r| 1 1))) 
 
 (SDEFUN |ARRAY2;qsetelt!;$2I2R;2|
-        ((|m| $) (|i| . #1=(|Integer|)) (|j| . #1#) (|r| R) ($ R))
+        ((|m| ($)) (|i| #1=(|Integer|)) (|j| #1#) (|r| (R)) ($ (R)))
         (QSETAREF2O |m| |i| |j| |r| 1 1)) 
 
 (DECLAIM (NOTINLINE |TwoDimensionalArray;|)) 

@@ -1,5 +1,5 @@
 
-(SDEFUN |GPOLCAT-;monomials;SL;1| ((|p| S) ($ |List| S))
+(SDEFUN |GPOLCAT-;monomials;SL;1| ((|p| (S)) ($ (|List| S)))
         (SPROG ((|ml| (|List| S)))
                (SEQ (LETT |ml| NIL)
                     (SEQ G190
@@ -15,8 +15,8 @@
                     (EXIT (NREVERSE |ml|))))) 
 
 (SDEFUN |GPOLCAT-;monomial;SLLS;2|
-        ((|p| S) (|lv| |List| |VarSet|) (|ln| |List| (|NonNegativeInteger|))
-         ($ S))
+        ((|p| (S)) (|lv| (|List| |VarSet|))
+         (|ln| (|List| (|NonNegativeInteger|))) ($ (S)))
         (COND
          ((NULL |lv|)
           (COND ((NULL |ln|) |p|)
@@ -27,11 +27,11 @@
            (SPADCALL |p| (|SPADfirst| |lv|) (|SPADfirst| |ln|) (QREFELT $ 19))
            (CDR |lv|) (CDR |ln|) (QREFELT $ 22))))) 
 
-(SDEFUN |GPOLCAT-;mkPrim| ((|p| S) ($ S))
+(SDEFUN |GPOLCAT-;mkPrim| ((|p| (S)) ($ (S)))
         (SPADCALL (|spadConstant| $ 25) (SPADCALL |p| (QREFELT $ 26))
                   (QREFELT $ 27))) 
 
-(SDEFUN |GPOLCAT-;primitiveMonomials;SL;4| ((|p| S) ($ |List| S))
+(SDEFUN |GPOLCAT-;primitiveMonomials;SL;4| ((|p| (S)) ($ (|List| S)))
         (SPROG ((|ml| (|List| S)))
                (SEQ (LETT |ml| NIL)
                     (SEQ G190

@@ -1,8 +1,8 @@
 
 (SDEFUN |REP;evalvect|
-        ((|vect| |Matrix| (|Fraction| (|Polynomial| (|Integer|))))
-         (|alg| |Expression| (|Integer|)) (|x| |Symbol|)
-         ($ |Matrix| (|Expression| (|Integer|))))
+        ((|vect| (|Matrix| (|Fraction| (|Polynomial| (|Integer|)))))
+         (|alg| (|Expression| (|Integer|))) (|x| (|Symbol|))
+         ($ (|Matrix| (|Expression| (|Integer|)))))
         (SPROG
          ((|v| (|Expression| (|Integer|))) (#1=#:G112 NIL) (|i| NIL)
           (|w| (|Matrix| (|Expression| (|Integer|))))
@@ -24,15 +24,15 @@
               (EXIT |w|)))) 
 
 (SDEFUN |REP;innerprod|
-        ((|v1| |Matrix| (|Expression| (|Integer|)))
-         (|v2| |Matrix| (|Expression| (|Integer|)))
-         ($ |Expression| (|Integer|)))
+        ((|v1| (|Matrix| (|Expression| (|Integer|))))
+         (|v2| (|Matrix| (|Expression| (|Integer|))))
+         ($ (|Expression| (|Integer|))))
         (SPADCALL (SPADCALL (SPADCALL |v1| (QREFELT $ 23)) |v2| (QREFELT $ 24))
                   1 1 (QREFELT $ 25))) 
 
 (SDEFUN |REP;normalise;2M;3|
-        ((|v| |Matrix| (|Expression| (|Integer|)))
-         ($ |Matrix| (|Expression| (|Integer|))))
+        ((|v| (|Matrix| (|Expression| (|Integer|))))
+         ($ (|Matrix| (|Expression| (|Integer|)))))
         (SPROG ((|normv| (|Expression| (|Integer|))))
                (SEQ
                 (LETT |normv|
@@ -46,8 +46,8 @@
                     (QREFELT $ 31)))))))) 
 
 (SDEFUN |REP;radicalEigenvalues;ML;4|
-        ((A |Matrix| (|Fraction| (|Polynomial| (|Integer|))))
-         ($ |List| (|Expression| (|Integer|))))
+        ((A (|Matrix| (|Fraction| (|Polynomial| (|Integer|)))))
+         ($ (|List| (|Expression| (|Integer|)))))
         (SPROG
          ((|pol| (|Fraction| (|Polynomial| (|Integer|)))) (|x| (|Symbol|)))
          (SEQ (LETT |x| (SPADCALL (QREFELT $ 33)))
@@ -56,9 +56,9 @@
               (EXIT (SPADCALL |pol| |x| (QREFELT $ 39)))))) 
 
 (SDEFUN |REP;radicalEigenvector;EML;5|
-        ((|alpha| |Expression| (|Integer|))
-         (A |Matrix| (|Fraction| (|Polynomial| (|Integer|))))
-         ($ |List| (|Matrix| (|Expression| (|Integer|)))))
+        ((|alpha| (|Expression| (|Integer|)))
+         (A (|Matrix| (|Fraction| (|Polynomial| (|Integer|)))))
+         ($ (|List| (|Matrix| (|Expression| (|Integer|))))))
         (SPROG
          ((#1=#:G127 NIL) (|v| NIL) (#2=#:G126 NIL) (#3=#:G125 NIL) (|j| NIL)
           (#4=#:G124 NIL) (|i| NIL) (B (|Matrix| (|Expression| (|Integer|))))
@@ -97,12 +97,14 @@
                      (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |REP;radicalEigenvectors;ML;6|
-        ((A |Matrix| (|Fraction| (|Polynomial| (|Integer|))))
-         ($ |List|
-          #1=(|Record| (|:| |radval| (|Expression| (|Integer|)))
-                       (|:| |radmult| (|Integer|))
-                       (|:| |radvect|
-                            (|List| (|Matrix| (|Expression| (|Integer|))))))))
+        ((A (|Matrix| (|Fraction| (|Polynomial| (|Integer|)))))
+         ($
+          (|List|
+           #1=(|Record| (|:| |radval| (|Expression| (|Integer|)))
+                        (|:| |radmult| (|Integer|))
+                        (|:| |radvect|
+                             (|List|
+                              (|Matrix| (|Expression| (|Integer|)))))))))
         (SPROG
          ((|sln|
            (|List|
@@ -245,13 +247,13 @@
               (EXIT |sln|)))) 
 
 (SDEFUN |REP;gramschmidt;2L;7|
-        ((|lvect| |List| (|Matrix| (|Expression| (|Integer|))))
-         ($ |List| (|Matrix| (|Expression| (|Integer|)))))
+        ((|lvect| (|List| (|Matrix| (|Expression| (|Integer|)))))
+         ($ (|List| (|Matrix| (|Expression| (|Integer|))))))
         (SPROG
          ((|orth| (|List| (|Matrix| (|Expression| (|Integer|)))))
           (|pol| (|Matrix| (|Expression| (|Integer|)))) (#1=#:G160 NIL)
           (#2=#:G159 (RMR)) (#3=#:G161 (RMR)) (#4=#:G167 NIL) (|w| NIL)
-          (#5=#:G166 NIL) (|v| (|Matrix| (|Expression| (|Integer|))))
+          (#5=#:G166 NIL)
           (RMR
            (|Join|
             (|RectangularMatrixCategory|
@@ -269,7 +271,8 @@
                  |noBranch|)
              (SIGNATURE |rectangularMatrix| ($ (|Matrix| #10#)))
              (SIGNATURE |coerce| ((|Matrix| #10#) $)))))
-          (#11=#:G155 NIL) (|n| #8#))
+          (#11=#:G155 NIL) (|n| #8#)
+          (|v| (|Matrix| (|Expression| (|Integer|)))))
          (SEQ
           (COND ((SPADCALL |lvect| NIL (QREFELT $ 58)) NIL)
                 ('T
@@ -282,7 +285,7 @@
                                                  '(|NonNegativeInteger|) #11#))
                              1 (|Expression| (|Integer|))))
                       (LETT |orth| (LIST (SPADCALL |v| (QREFELT $ 32))))
-                      (SEQ (LETT |v| NIL) (LETT #5# (CDR |lvect|)) G190
+                      (SEQ (LETT #5# (CDR |lvect|)) G190
                            (COND
                             ((OR (ATOM #5#) (PROGN (LETT |v| (CAR #5#)) NIL))
                              (GO G191)))
@@ -352,8 +355,8 @@
                       (EXIT |orth|))))))) 
 
 (SDEFUN |REP;eigenMatrix;MU;8|
-        ((A |Matrix| (|Fraction| (|Polynomial| (|Integer|))))
-         ($ |Union| (|Matrix| (|Expression| (|Integer|))) "failed"))
+        ((A (|Matrix| (|Fraction| (|Polynomial| (|Integer|)))))
+         ($ (|Union| (|Matrix| (|Expression| (|Integer|))) "failed")))
         (SPROG
          ((|d| (|Matrix| (|Expression| (|Integer|)))) (#1=#:G183 NIL) (|v| NIL)
           (|n| (|NonNegativeInteger|))
@@ -394,8 +397,8 @@
                        (EXIT (CONS 0 |d|))))))))) 
 
 (SDEFUN |REP;orthonormalBasis;ML;9|
-        ((A |Matrix| (|Fraction| (|Polynomial| (|Integer|))))
-         ($ |List| (|Matrix| (|Expression| (|Integer|)))))
+        ((A (|Matrix| (|Fraction| (|Polynomial| (|Integer|)))))
+         ($ (|List| (|Matrix| (|Expression| (|Integer|))))))
         (SPROG
          ((|basis| (|List| (|Matrix| (|Expression| (|Integer|)))))
           (|lvec| (|List| (|Matrix| (|Expression| (|Integer|)))))

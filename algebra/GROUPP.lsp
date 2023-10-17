@@ -1,7 +1,7 @@
 
 (SDEFUN |GROUPP;groupPresentation;LL$;1|
-        ((|gens1| |List| (|NonNegativeInteger|))
-         (|rels1| |List| (|List| (|Integer|))) ($ $))
+        ((|gens1| (|List| (|NonNegativeInteger|)))
+         (|rels1| (|List| (|List| (|Integer|)))) ($ ($)))
         (SPROG
          ((#1=#:G162 NIL) (|r| NIL) (#2=#:G161 NIL)
           (|g| (|PrimitiveArray| (|NonNegativeInteger|))))
@@ -22,14 +22,14 @@
                            (EXIT (NREVERSE #2#))))))))) 
 
 (SDEFUN |GROUPP;groupPresentation;L$;2|
-        ((|gens1| |List| (|NonNegativeInteger|)) ($ $))
+        ((|gens1| (|List| (|NonNegativeInteger|))) ($ ($)))
         (SPROG
          ((|rels2| (|List| (|List| (|Integer|))))
           (|g| (|PrimitiveArray| (|NonNegativeInteger|))))
          (SEQ (LETT |g| (SPADCALL |gens1| (QREFELT $ 9))) (LETT |rels2| NIL)
               (EXIT (CONS |g| |rels2|))))) 
 
-(SDEFUN |GROUPP;groupPresentation;$;3| (($ $))
+(SDEFUN |GROUPP;groupPresentation;$;3| (($ ($)))
         (SPROG
          ((|rels1| (|List| (|List| (|Integer|))))
           (|gens1| (|List| (|NonNegativeInteger|))))
@@ -37,11 +37,12 @@
               (EXIT (SPADCALL |gens1| |rels1| (QREFELT $ 11)))))) 
 
 (SDEFUN |GROUPP;mapGen|
-        ((|a| |Integer|)
-         (|ms| |List|
-          (|Record| (|:| |OldGen| (|NonNegativeInteger|))
-                    (|:| |NewGen| (|NonNegativeInteger|))))
-         ($ |Integer|))
+        ((|a| (|Integer|))
+         (|ms|
+          (|List|
+           (|Record| (|:| |OldGen| (|NonNegativeInteger|))
+                     (|:| |NewGen| (|NonNegativeInteger|)))))
+         ($ (|Integer|)))
         (SPROG ((#1=#:G174 NIL) (#2=#:G175 NIL) (|m| NIL))
                (SEQ
                 (EXIT
@@ -66,7 +67,7 @@
                   (EXIT |a|)))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |GROUPP;refactor;2$;5| ((|a| $) ($ $))
+(SDEFUN |GROUPP;refactor;2$;5| ((|a| ($)) ($ ($)))
         (SPROG
          ((|gens1| (|List| (|NonNegativeInteger|))) (#1=#:G192 NIL) (|gn| NIL)
           (#2=#:G191 NIL) (|rels1| (|List| (|List| (|Integer|))))
@@ -127,7 +128,7 @@
                           (EXIT (NREVERSE #2#)))))
               (EXIT (SPADCALL |gens1| |rels1| (QREFELT $ 11)))))) 
 
-(SDEFUN |GROUPP;=;2$B;6| ((|a| $) (|b| $) ($ |Boolean|))
+(SDEFUN |GROUPP;=;2$B;6| ((|a| ($)) (|b| ($)) ($ (|Boolean|)))
         (SPROG
          ((|brs| #1=(|List| (|List| (|Integer|)))) (|ars| #1#) (#2=#:G197 NIL)
           (|bgs| #3=(|List| (|NonNegativeInteger|))) (|ags| #3#) (|br| ($))
@@ -149,7 +150,7 @@
                            (SPADCALL |brs| (QREFELT $ 34)) (QREFELT $ 35)))))
           #4# (EXIT #2#)))) 
 
-(SDEFUN |GROUPP;outputGen| ((|i2| |Integer|) ($ |OutputForm|))
+(SDEFUN |GROUPP;outputGen| ((|i2| (|Integer|)) ($ (|OutputForm|)))
         (SPROG
          ((#1=#:G201 NIL) (|n| (|OutputForm|)) (|letters| (|String|))
           (|i| #2=(|Integer|)) (|suffix| #3=(|Integer|))
@@ -181,7 +182,7 @@
             (EXIT |n|)))
           #4# (EXIT #1#)))) 
 
-(SDEFUN |GROUPP;outputRel| ((|r| |List| (|Integer|)) ($ |OutputForm|))
+(SDEFUN |GROUPP;outputRel| ((|r| (|List| (|Integer|))) ($ (|OutputForm|)))
         (SPROG
          ((|seperator| #1=(|OutputForm|)) (|eleout| #1#)
           (|newterm| (|OutputForm|)) (#2=#:G206 NIL) (|ele| NIL))
@@ -201,7 +202,7 @@
               (EXIT |eleout|)))) 
 
 (SDEFUN |GROUPP;outputRelList|
-        ((|i2| |List| (|List| (|Integer|))) ($ |OutputForm|))
+        ((|i2| (|List| (|List| (|Integer|)))) ($ (|OutputForm|)))
         (SPROG
          ((#1=#:G211 NIL) (|rels1| (|List| (|OutputForm|))) (#2=#:G212 NIL)
           (|r| NIL))
@@ -227,7 +228,7 @@
           #3# (EXIT #1#)))) 
 
 (SDEFUN |GROUPP;outputGenList|
-        ((|ps| |List| (|NonNegativeInteger|)) ($ |OutputForm|))
+        ((|ps| (|List| (|NonNegativeInteger|))) ($ (|OutputForm|)))
         (SPROG
          ((#1=#:G217 NIL) (|gens1| (|List| (|OutputForm|))) (#2=#:G218 NIL)
           (|p| NIL))
@@ -253,8 +254,8 @@
           #3# (EXIT #1#)))) 
 
 (SDEFUN |GROUPP;indexesOfRelUsingGen|
-        ((|s| $) (|gen| |NonNegativeInteger|)
-         ($ |List| (|NonNegativeInteger|)))
+        ((|s| ($)) (|gen| (|NonNegativeInteger|))
+         ($ (|List| (|NonNegativeInteger|))))
         (SPROG
          ((|res| (|List| (|NonNegativeInteger|))) (#1=#:G225 NIL) (|rel| NIL)
           (#2=#:G226 NIL) (|reln| NIL) (|r| (|List| (|List| (|Integer|)))))
@@ -281,14 +282,14 @@
               (EXIT |res|)))) 
 
 (SDEFUN |GROUPP;removeGen|
-        ((|gens1| |PrimitiveArray| (|NonNegativeInteger|))
-         (|val| |NonNegativeInteger|)
-         ($ |PrimitiveArray| (|NonNegativeInteger|)))
+        ((|gens1| (|PrimitiveArray| (|NonNegativeInteger|)))
+         (|val| (|NonNegativeInteger|))
+         ($ (|PrimitiveArray| (|NonNegativeInteger|))))
         (SPADCALL |val| |gens1| (QREFELT $ 51))) 
 
 (SDEFUN |GROUPP;removeGen2|
-        ((|rels1| |List| (|List| (|Integer|))) (|val| |NonNegativeInteger|)
-         ($ |List| (|List| (|Integer|))))
+        ((|rels1| (|List| (|List| (|Integer|)))) (|val| (|NonNegativeInteger|))
+         ($ (|List| (|List| (|Integer|)))))
         (SPROG ((#1=#:G231 NIL) (|rel| NIL) (#2=#:G230 NIL))
                (SEQ
                 (PROGN
@@ -309,8 +310,9 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |GROUPP;replaceGen|
-        ((|rels1| |List| (|List| (|Integer|))) (|val1| |NonNegativeInteger|)
-         (|val2| |Integer|) ($ |List| (|List| (|Integer|))))
+        ((|rels1| (|List| (|List| (|Integer|))))
+         (|val1| (|NonNegativeInteger|)) (|val2| (|Integer|))
+         ($ (|List| (|List| (|Integer|)))))
         (SPROG
          ((|rels2| (|List| (|List| (|Integer|)))) (|rel2| (|List| (|Integer|)))
           (|e| (|Integer|)) (#1=#:G240 NIL) (|ele| NIL) (#2=#:G239 NIL)
@@ -341,7 +343,7 @@
               (EXIT |rels2|)))) 
 
 (SDEFUN |GROUPP;TTRemoveGeneratorIfIdentity|
-        ((|s| $) (|trace| |Boolean|) ($ $))
+        ((|s| ($)) (|trace| (|Boolean|)) ($ ($)))
         (SPROG
          ((|rels1| (|List| (|List| (|Integer|))))
           (|gens1| (|PrimitiveArray| (|NonNegativeInteger|))) (#1=#:G246 NIL)
@@ -383,7 +385,7 @@
                 (EXIT (CONS |gens1| |rels1|))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |GROUPP;TTRenameGenerator| ((|s| $) (|trace| |Boolean|) ($ $))
+(SDEFUN |GROUPP;TTRenameGenerator| ((|s| ($)) (|trace| (|Boolean|)) ($ ($)))
         (SPROG
          ((|rels1| (|List| (|List| (|Integer|))))
           (|gens1| (|PrimitiveArray| (|NonNegativeInteger|))) (#1=#:G255 NIL)
@@ -438,7 +440,7 @@
                 (EXIT (CONS |gens1| |rels1|))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |GROUPP;TTRemoveEmpty| ((|s| $) (|trace| |Boolean|) ($ $))
+(SDEFUN |GROUPP;TTRemoveEmpty| ((|s| ($)) (|trace| (|Boolean|)) ($ ($)))
         (SPROG
          ((|rels2| (|List| (|List| (|Integer|)))) (#1=#:G261 NIL) (|rel| NIL)
           (|rels1| (|List| (|List| (|Integer|))))
@@ -458,7 +460,7 @@
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT (CONS |gens1| |rels2|))))) 
 
-(SDEFUN |GROUPP;TTRemoveZero| ((|s| $) (|trace| |Boolean|) ($ $))
+(SDEFUN |GROUPP;TTRemoveZero| ((|s| ($)) (|trace| (|Boolean|)) ($ ($)))
         (SPROG
          ((|rels1| (|List| (|List| (|Integer|))))
           (|gens1| (|PrimitiveArray| (|NonNegativeInteger|))))
@@ -467,7 +469,8 @@
               (LETT |rels1| (|GROUPP;removeGen2| |rels1| 0 $))
               (EXIT (CONS |gens1| |rels1|))))) 
 
-(SDEFUN |GROUPP;TTRemoveEleTimesInverse| ((|s| $) (|trace| |Boolean|) ($ $))
+(SDEFUN |GROUPP;TTRemoveEleTimesInverse|
+        ((|s| ($)) (|trace| (|Boolean|)) ($ ($)))
         (SPROG
          ((|rels2| (|List| (|List| (|Integer|)))) (|rel2| (|List| (|Integer|)))
           (|lastele| (|Integer|)) (|changed| (|Boolean|)) (#1=#:G279 NIL)
@@ -547,7 +550,7 @@
               (EXIT (CONS |gens1| |rels2|))))) 
 
 (SDEFUN |GROUPP;invertRelation|
-        ((|relationIn| |List| (|Integer|)) ($ |List| (|Integer|)))
+        ((|relationIn| (|List| (|Integer|))) ($ (|List| (|Integer|))))
         (SPROG
          ((|relationOut| (|List| (|Integer|))) (#1=#:G283 NIL) (|ele| NIL))
          (SEQ (LETT |relationOut| NIL)
@@ -561,7 +564,7 @@
               (EXIT |relationOut|)))) 
 
 (SDEFUN |GROUPP;cycleRelation|
-        ((|relationIn| |List| (|Integer|)) ($ |List| (|Integer|)))
+        ((|relationIn| (|List| (|Integer|))) ($ (|List| (|Integer|))))
         (SPROG ((|relationOut| (|List| (|Integer|))))
                (SEQ
                 (LETT |relationOut|
@@ -570,7 +573,8 @@
                 (EXIT |relationOut|)))) 
 
 (SDEFUN |GROUPP;relationEquivalent|
-        ((|relA| |List| (|Integer|)) (|relB| |List| (|Integer|)) ($ |Boolean|))
+        ((|relA| (|List| (|Integer|))) (|relB| (|List| (|Integer|)))
+         ($ (|Boolean|)))
         (SPROG
          ((#1=#:G293 NIL) (|relBCycle| (|List| (|Integer|))) (#2=#:G294 NIL)
           (|n| NIL))
@@ -604,7 +608,8 @@
             (EXIT NIL)))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |GROUPP;TTRemoveDuplicateRelation| ((|s| $) (|trace| |Boolean|) ($ $))
+(SDEFUN |GROUPP;TTRemoveDuplicateRelation|
+        ((|s| ($)) (|trace| (|Boolean|)) ($ ($)))
         (SPROG
          ((|rels2| (|List| (|List| (|Integer|)))) (|include| (|Boolean|))
           (#1=#:G305 NIL) (|relb| NIL) (#2=#:G306 NIL) (|nrelb| NIL)
@@ -666,7 +671,7 @@
                    (GO G190) G191 (EXIT NIL))
               (EXIT (CONS |gens1| |rels2|))))) 
 
-(SDEFUN |GROUPP;TTMinimiseInverses| ((|s| $) (|trace| |Boolean|) ($ $))
+(SDEFUN |GROUPP;TTMinimiseInverses| ((|s| ($)) (|trace| (|Boolean|)) ($ ($)))
         (SPROG
          ((|rels2| (|List| (|List| (|Integer|))))
           (|numNonInverts| #1=(|NonNegativeInteger|)) (|numInverts| #1#)
@@ -708,8 +713,8 @@
               (EXIT (CONS |gens1| |rels2|))))) 
 
 (SDEFUN |GROUPP;generatorOccurrences|
-        ((|rel| |List| (|Integer|)) (|gen| |NonNegativeInteger|)
-         ($ |NonNegativeInteger|))
+        ((|rel| (|List| (|Integer|))) (|gen| (|NonNegativeInteger|))
+         ($ (|NonNegativeInteger|)))
         (SPROG ((|res| (|NonNegativeInteger|)) (#1=#:G320 NIL) (|g| NIL))
                (SEQ (LETT |res| 0)
                     (SEQ (LETT |g| NIL) (LETT #1# |rel|) G190
@@ -727,8 +732,8 @@
                     (EXIT |res|)))) 
 
 (SDEFUN |GROUPP;removeRelations|
-        ((|rels1| |List| (|List| (|Integer|))) (|val| |NonNegativeInteger|)
-         ($ |List| (|List| (|Integer|))))
+        ((|rels1| (|List| (|List| (|Integer|)))) (|val| (|NonNegativeInteger|))
+         ($ (|List| (|List| (|Integer|)))))
         (SPROG
          ((|res| (|List| (|List| (|Integer|)))) (#1=#:G326 NIL) (|rel| NIL))
          (SEQ (LETT |res| NIL)
@@ -747,14 +752,15 @@
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
-(SDEFUN |GROUPP;TTSubstitute| ((|s| $) (|trace| |Boolean|) ($ $))
+(SDEFUN |GROUPP;TTSubstitute| ((|s| ($)) (|trace| (|Boolean|)) ($ ($)))
         (SPROG
          ((|rels1| #1=(|List| (|List| (|Integer|))))
           (|gens1| (|PrimitiveArray| (|NonNegativeInteger|)))
-          (|newRel| (|List| (|Integer|))) (#2=#:G350 NIL) (|x| (|Integer|))
+          (|newRel| (|List| (|Integer|))) (#2=#:G350 NIL)
           (|replacement| (|List| (|Integer|))) (|postr| (|List| (|Integer|)))
-          (|restr| (|List| #3=(|Integer|))) (|prer| (|List| (|Integer|)))
-          (|genInverted| #4=(|Boolean|)) (|found| #4#) (#5=#:G348 NIL)
+          (|restr| (|List| #3=(|Integer|))) (|x| (|Integer|))
+          (|prer| (|List| (|Integer|))) (|genInverted| #4=(|Boolean|))
+          (|found| #4#) (#5=#:G348 NIL)
           (|genToBeRemoved| #6=(|NonNegativeInteger|)) (|n2| #6#)
           (|r2| (|List| (|Integer|))) (|n1| #6#) (|r1| (|List| #3#))
           (|n3| (|NonNegativeInteger|)) (|r3| (|List| (|Integer|)))
@@ -887,7 +893,7 @@
                     (|GROUPP;outputRel| |r2| $) (QREFELT $ 42))
                    (QREFELT $ 54))))
                 (LETT |newRel| NIL)
-                (SEQ (LETT |x| NIL) (LETT #2# |r2|) G190
+                (SEQ (LETT #2# |r2|) G190
                      (COND
                       ((OR (ATOM #2#) (PROGN (LETT |x| (CAR #2#)) NIL))
                        (GO G191)))
@@ -936,7 +942,7 @@
                 (EXIT (CONS |gens1| |rels1|))))
           #8# (EXIT #5#)))) 
 
-(SDEFUN |GROUPP;isSimpler?| ((|a| $) (|b| $) ($ |Boolean|))
+(SDEFUN |GROUPP;isSimpler?| ((|a| ($)) (|b| ($)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G357 NIL) (|relationCompleityB| #2=(|NonNegativeInteger|))
           (#3=#:G359 NIL) (|rel| NIL) (|relationCompleityA| #2#)
@@ -980,10 +986,10 @@
                 (EXIT NIL)))
           #7# (EXIT #1#)))) 
 
-(SDEFUN |GROUPP;simplify;2$;29| ((|s| $) ($ $))
+(SDEFUN |GROUPP;simplify;2$;29| ((|s| ($)) ($ ($)))
         (SPADCALL |s| NIL (QREFELT $ 68))) 
 
-(SDEFUN |GROUPP;simplify;$B$;30| ((|s| $) (|trace| |Boolean|) ($ $))
+(SDEFUN |GROUPP;simplify;$B$;30| ((|s| ($)) (|trace| (|Boolean|)) ($ ($)))
         (SPROG
          ((|lastpass| ($)) (|level| #1=(|NonNegativeInteger|)) (#2=#:G367 NIL)
           (|res| ($)) (|loopBreaker| #1#))
@@ -1067,7 +1073,8 @@
             (EXIT |res|)))
           #3# (EXIT #2#)))) 
 
-(SDEFUN |GROUPP;offsetIndexes| ((|a| $) (|offset| |NonNegativeInteger|) ($ $))
+(SDEFUN |GROUPP;offsetIndexes|
+        ((|a| ($)) (|offset| (|NonNegativeInteger|)) ($ ($)))
         (SPROG
          ((|rb| (|List| (|List| (|Integer|)))) (#1=#:G378 NIL) (|y| NIL)
           (#2=#:G377 NIL) (#3=#:G376 NIL) (|z| NIL) (#4=#:G375 NIL)
@@ -1122,7 +1129,7 @@
               (EXIT (SPADCALL |gb| |rb| (QREFELT $ 11)))))) 
 
 (SDEFUN |GROUPP;quotient;$L$;32|
-        ((|a| $) (|remgen| |List| (|NonNegativeInteger|)) ($ $))
+        ((|a| ($)) (|remgen| (|List| (|NonNegativeInteger|))) ($ ($)))
         (SPROG
          ((|rels1| (|List| (|List| (|Integer|))))
           (|gens1| (|PrimitiveArray| (|NonNegativeInteger|))) (#1=#:G383 NIL)
@@ -1145,7 +1152,7 @@
                 (QREFELT $ 69)))))) 
 
 (SDEFUN |GROUPP;quotient;$L$;33|
-        ((|a| $) (|addrel| |List| (|List| (|Integer|))) ($ $))
+        ((|a| ($)) (|addrel| (|List| (|List| (|Integer|)))) ($ ($)))
         (SPROG
          ((|rels1| (|List| (|List| (|Integer|))))
           (|gens1| (|List| (|NonNegativeInteger|))))
@@ -1158,7 +1165,7 @@
                           (QREFELT $ 11))
                 (QREFELT $ 69)))))) 
 
-(SDEFUN |GROUPP;directProduct;3$;34| ((|a| $) (|b| $) ($ $))
+(SDEFUN |GROUPP;directProduct;3$;34| ((|a| ($)) (|b| ($)) ($ ($)))
         (SPROG
          ((|rc| (|List| (|List| (|Integer|)))) (|gcx| (|List| (|Integer|)))
           (#1=#:G392 NIL) (|gbx| NIL) (#2=#:G391 NIL) (|gax| NIL)
@@ -1196,7 +1203,7 @@
                 (SPADCALL (LIST |ra| |rb| |rc|) (QREFELT $ 75))
                 (QREFELT $ 11)))))) 
 
-(SDEFUN |GROUPP;cyclicGroup;Pi$;35| ((|n| |PositiveInteger|) ($ $))
+(SDEFUN |GROUPP;cyclicGroup;Pi$;35| ((|n| (|PositiveInteger|)) ($ ($)))
         (SPROG
          ((|ra| (|List| (|List| (|Integer|)))) (#1=#:G397 NIL) (|x| NIL)
           (#2=#:G396 NIL) (|ga| (|List| (|NonNegativeInteger|))))
@@ -1212,13 +1219,13 @@
                            (EXIT (NREVERSE #2#))))))
               (EXIT (SPADCALL |ga| |ra| (QREFELT $ 11)))))) 
 
-(SDEFUN |GROUPP;dihedralGroup;Pi$;36| ((|n| |PositiveInteger|) ($ $))
+(SDEFUN |GROUPP;dihedralGroup;Pi$;36| ((|n| (|PositiveInteger|)) ($ ($)))
         (SPROG ((|c2| ($)) (|c1| ($)))
                (SEQ (LETT |c1| (SPADCALL |n| (QREFELT $ 78)))
                     (LETT |c2| (SPADCALL 2 (QREFELT $ 78)))
                     (EXIT (SPADCALL |c1| |c2| (QREFELT $ 76)))))) 
 
-(SDEFUN |GROUPP;symmetricGroup;Pi$;37| ((|n| |PositiveInteger|) ($ $))
+(SDEFUN |GROUPP;symmetricGroup;Pi$;37| ((|n| (|PositiveInteger|)) ($ ($)))
         (SPROG
          ((|r| (|List| (|List| (|Integer|)))) (|y| (|List| (|Integer|)))
           (#1=#:G416 NIL) (|b| NIL) (#2=#:G415 NIL) (|a| NIL)
@@ -1270,8 +1277,8 @@
           #7# (EXIT #6#)))) 
 
 (SDEFUN |GROUPP;outCosetTable|
-        ((|ct| |TwoDimensionalArray| (|NonNegativeInteger|))
-         (|np| . #1=(|NonNegativeInteger|)) ($ |OutputForm|))
+        ((|ct| (|TwoDimensionalArray| (|NonNegativeInteger|)))
+         (|np| #1=(|NonNegativeInteger|)) ($ (|OutputForm|)))
         (SPROG
          ((|cts| (|List| (|TwoDimensionalArray| (|NonNegativeInteger|))))
           (|part2| (|NonNegativeInteger|)) (#2=#:G418 NIL) (|part1| #1#)
@@ -1305,23 +1312,25 @@
           #4# (EXIT #3#)))) 
 
 (SDEFUN |GROUPP;outStatus|
-        ((|state| |Record|
-          (|:| |coset_table| #1=(|TwoDimensionalArray| (|NonNegativeInteger|)))
-          (|:| |equiv_table| (|OneDimensionalArray| (|NonNegativeInteger|)))
-          (|:| |inverse_table| (|OneDimensionalArray| (|NonNegativeInteger|)))
-          (|:| |closed_point| (|NonNegativeInteger|))
-          (|:| |number_of_generators| (|NonNegativeInteger|))
-          (|:| |number_of_indices| #2=(|NonNegativeInteger|))
-          (|:| |number_of_points| (|NonNegativeInteger|))
-          (|:| |max_number_of_indices| (|NonNegativeInteger|)))
-         ($ |OutputForm|))
+        ((|state|
+          (|Record|
+           (|:| |coset_table|
+                #1=(|TwoDimensionalArray| (|NonNegativeInteger|)))
+           (|:| |equiv_table| (|OneDimensionalArray| (|NonNegativeInteger|)))
+           (|:| |inverse_table| (|OneDimensionalArray| (|NonNegativeInteger|)))
+           (|:| |closed_point| (|NonNegativeInteger|))
+           (|:| |number_of_generators| (|NonNegativeInteger|))
+           (|:| |number_of_indices| #2=(|NonNegativeInteger|))
+           (|:| |number_of_points| (|NonNegativeInteger|))
+           (|:| |max_number_of_indices| (|NonNegativeInteger|))))
+         ($ (|OutputForm|)))
         (SPROG ((|np| #2#) (|ct| #1#))
                (SEQ (LETT |ct| (QVELT |state| 0)) (LETT |np| (QVELT |state| 5))
                     (EXIT (|GROUPP;outCosetTable| |ct| |np| $))))) 
 
 (SDEFUN |GROUPP;find|
-        ((|et| |OneDimensionalArray| (|NonNegativeInteger|))
-         (|ind| |NonNegativeInteger|) ($ |NonNegativeInteger|))
+        ((|et| (|OneDimensionalArray| (|NonNegativeInteger|)))
+         (|ind| (|NonNegativeInteger|)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((|j| (|NonNegativeInteger|)) (|nj| (|NonNegativeInteger|))
           (|pj| (|NonNegativeInteger|)))
@@ -1342,10 +1351,10 @@
                       (EXIT |pj|))))))) 
 
 (SDEFUN |GROUPP;infer_coincidencies|
-        ((|ct| |TwoDimensionalArray| (|NonNegativeInteger|))
-         (|et| |OneDimensionalArray| (|NonNegativeInteger|))
-         (|pb| . #1=(|NonNegativeInteger|)) (|pe| . #2=(|NonNegativeInteger|))
-         (|trace| |Boolean|) ($ |Void|))
+        ((|ct| (|TwoDimensionalArray| (|NonNegativeInteger|)))
+         (|et| (|OneDimensionalArray| (|NonNegativeInteger|)))
+         (|pb| #1=(|NonNegativeInteger|)) (|pe| #2=(|NonNegativeInteger|))
+         (|trace| (|Boolean|)) ($ (|Void|)))
         (SPROG
          ((|i2| #3=(|NonNegativeInteger|)) (|i1| #3#) (#4=#:G445 NIL) (|i| NIL)
           (#5=#:G444 NIL) (|nn| (|Integer|)) (|#G135| #1#) (|#G134| #2#))
@@ -1403,20 +1412,23 @@
                 (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL)))))) 
 
 (SDEFUN |GROUPP;inferFromRelations|
-        ((|state| |Record|
-          (|:| |coset_table| #1=(|TwoDimensionalArray| (|NonNegativeInteger|)))
-          (|:| |equiv_table| #2=(|OneDimensionalArray| (|NonNegativeInteger|)))
-          (|:| |inverse_table|
-               #3=(|OneDimensionalArray| (|NonNegativeInteger|)))
-          (|:| |closed_point| (|NonNegativeInteger|))
-          (|:| |number_of_generators| (|NonNegativeInteger|))
-          (|:| |number_of_indices| #4=(|NonNegativeInteger|))
-          (|:| |number_of_points| (|NonNegativeInteger|))
-          (|:| |max_number_of_indices| (|NonNegativeInteger|)))
-         (|rels| |List| #5=(|List| (|NonNegativeInteger|)))
-         (|rrels| |List| (|List| (|NonNegativeInteger|)))
-         (|rel_lens| |List| (|NonNegativeInteger|)) (|trace| |Boolean|)
-         ($ |Boolean|))
+        ((|state|
+          (|Record|
+           (|:| |coset_table|
+                #1=(|TwoDimensionalArray| (|NonNegativeInteger|)))
+           (|:| |equiv_table|
+                #2=(|OneDimensionalArray| (|NonNegativeInteger|)))
+           (|:| |inverse_table|
+                #3=(|OneDimensionalArray| (|NonNegativeInteger|)))
+           (|:| |closed_point| (|NonNegativeInteger|))
+           (|:| |number_of_generators| (|NonNegativeInteger|))
+           (|:| |number_of_indices| #4=(|NonNegativeInteger|))
+           (|:| |number_of_points| (|NonNegativeInteger|))
+           (|:| |max_number_of_indices| (|NonNegativeInteger|))))
+         (|rels| (|List| #5=(|List| (|NonNegativeInteger|))))
+         (|rrels| (|List| (|List| (|NonNegativeInteger|))))
+         (|rel_lens| (|List| (|NonNegativeInteger|))) (|trace| (|Boolean|))
+         ($ (|Boolean|)))
         (SPROG
          ((#6=#:G488 NIL) (|npb| #7=(|NonNegativeInteger|)) (|npe| #7#)
           (|genIn| (|Integer|)) (|pb| #8=(|NonNegativeInteger|))
@@ -2419,8 +2431,8 @@
           #29# (EXIT #13#)))) 
 
 (SDEFUN |GROUPP;invertMap|
-        ((|a| |TwoDimensionalArray| (|NonNegativeInteger|))
-         ($ |TwoDimensionalArray| (|NonNegativeInteger|)))
+        ((|a| (|TwoDimensionalArray| (|NonNegativeInteger|)))
+         ($ (|TwoDimensionalArray| (|NonNegativeInteger|))))
         (SPROG
          ((|i| (|NonNegativeInteger|)) (#1=#:G509 NIL) (|x| NIL)
           (|invm| (|TwoDimensionalArray| (|NonNegativeInteger|))))
@@ -2439,17 +2451,19 @@
           (EXIT |invm|)))) 
 
 (SDEFUN |GROUPP;relatorTables|
-        ((|state| |Record|
-          (|:| |coset_table| #1=(|TwoDimensionalArray| (|NonNegativeInteger|)))
-          (|:| |equiv_table| (|OneDimensionalArray| (|NonNegativeInteger|)))
-          (|:| |inverse_table| (|OneDimensionalArray| (|NonNegativeInteger|)))
-          (|:| |closed_point| (|NonNegativeInteger|))
-          (|:| |number_of_generators| (|NonNegativeInteger|))
-          (|:| |number_of_indices| #2=(|NonNegativeInteger|))
-          (|:| |number_of_points| (|NonNegativeInteger|))
-          (|:| |max_number_of_indices| (|NonNegativeInteger|)))
-         (|rels| |List| (|List| (|Integer|)))
-         ($ |List| (|TwoDimensionalArray| (|NonNegativeInteger|))))
+        ((|state|
+          (|Record|
+           (|:| |coset_table|
+                #1=(|TwoDimensionalArray| (|NonNegativeInteger|)))
+           (|:| |equiv_table| (|OneDimensionalArray| (|NonNegativeInteger|)))
+           (|:| |inverse_table| (|OneDimensionalArray| (|NonNegativeInteger|)))
+           (|:| |closed_point| (|NonNegativeInteger|))
+           (|:| |number_of_generators| (|NonNegativeInteger|))
+           (|:| |number_of_indices| #2=(|NonNegativeInteger|))
+           (|:| |number_of_points| (|NonNegativeInteger|))
+           (|:| |max_number_of_indices| (|NonNegativeInteger|))))
+         (|rels| (|List| (|List| (|Integer|))))
+         ($ (|List| (|TwoDimensionalArray| (|NonNegativeInteger|)))))
         (SPROG
          ((|relators| (|List| (|TwoDimensionalArray| (|NonNegativeInteger|))))
           (|relatorTrim| #3=(|TwoDimensionalArray| (|NonNegativeInteger|)))
@@ -2552,16 +2566,19 @@
               (EXIT |relators|)))) 
 
 (SDEFUN |GROUPP;generators2Permutation|
-        ((|state| |Record|
-          (|:| |coset_table| #1=(|TwoDimensionalArray| (|NonNegativeInteger|)))
-          (|:| |equiv_table| #2=(|OneDimensionalArray| (|NonNegativeInteger|)))
-          (|:| |inverse_table| (|OneDimensionalArray| (|NonNegativeInteger|)))
-          (|:| |closed_point| (|NonNegativeInteger|))
-          (|:| |number_of_generators| #3=(|NonNegativeInteger|))
-          (|:| |number_of_indices| #4=(|NonNegativeInteger|))
-          (|:| |number_of_points| (|NonNegativeInteger|))
-          (|:| |max_number_of_indices| (|NonNegativeInteger|)))
-         (|trace| |Boolean|) ($ |PermutationGroup| (|Integer|)))
+        ((|state|
+          (|Record|
+           (|:| |coset_table|
+                #1=(|TwoDimensionalArray| (|NonNegativeInteger|)))
+           (|:| |equiv_table|
+                #2=(|OneDimensionalArray| (|NonNegativeInteger|)))
+           (|:| |inverse_table| (|OneDimensionalArray| (|NonNegativeInteger|)))
+           (|:| |closed_point| (|NonNegativeInteger|))
+           (|:| |number_of_generators| #3=(|NonNegativeInteger|))
+           (|:| |number_of_indices| #4=(|NonNegativeInteger|))
+           (|:| |number_of_points| (|NonNegativeInteger|))
+           (|:| |max_number_of_indices| (|NonNegativeInteger|))))
+         (|trace| (|Boolean|)) ($ (|PermutationGroup| (|Integer|))))
         (SPROG
          ((|pl| (|List| (|Permutation| (|Integer|))))
           (|p| (|Permutation| (|Integer|))) (|gl| (|List| (|Integer|)))
@@ -2664,18 +2681,18 @@
               (EXIT (SPADCALL |pl| (QREFELT $ 114)))))) 
 
 (SDEFUN |GROUPP;toPermutationIfCan;$U;46|
-        ((|a| $) ($ |Union| (|PermutationGroup| (|Integer|)) "failed"))
+        ((|a| ($)) ($ (|Union| (|PermutationGroup| (|Integer|)) "failed")))
         (SPADCALL |a| NIL (QREFELT $ 116))) 
 
 (SDEFUN |GROUPP;toPermutationIfCan;$BU;47|
-        ((|a| $) (|trace| |Boolean|)
-         ($ |Union| (|PermutationGroup| (|Integer|)) "failed"))
+        ((|a| ($)) (|trace| (|Boolean|))
+         ($ (|Union| (|PermutationGroup| (|Integer|)) "failed")))
         (SPADCALL |a| NIL |trace| (QREFELT $ 118))) 
 
 (SDEFUN |GROUPP;convert_words|
-        ((|words| |List| (|List| #1=(|Integer|)))
-         (|inv_tab| |OneDimensionalArray| (|NonNegativeInteger|))
-         ($ |List| (|List| (|List| (|NonNegativeInteger|)))))
+        ((|words| (|List| (|List| #1=(|Integer|))))
+         (|inv_tab| (|OneDimensionalArray| (|NonNegativeInteger|)))
+         ($ (|List| (|List| (|List| (|NonNegativeInteger|))))))
         (SPROG
          ((|nrwords| (|List| (|List| (|NonNegativeInteger|))))
           (|nwords| (|List| (|List| (|NonNegativeInteger|)))) (#2=#:G569 NIL)
@@ -2727,8 +2744,8 @@
               (EXIT (LIST |nwords| |nrwords|))))) 
 
 (SDEFUN |GROUPP;toPermutationIfCan;$LBU;49|
-        ((|a| $) (|sg| |List| (|List| (|Integer|))) (|trace| |Boolean|)
-         ($ |Union| (|PermutationGroup| (|Integer|)) "failed"))
+        ((|a| ($)) (|sg| (|List| (|List| (|Integer|)))) (|trace| (|Boolean|))
+         ($ (|Union| (|PermutationGroup| (|Integer|)) "failed")))
         (SPROG
          ((#1=#:G589 NIL) (#2=#:G590 NIL) (#3=#:G591 NIL)
           (|changedByDeduction| #4=(|Boolean|)) (|dummy| #4#)
@@ -2891,7 +2908,7 @@
                 (EXIT (CONS 1 "failed"))))
           #13# (EXIT #3#)))) 
 
-(SDEFUN |GROUPP;coerce;$Of;50| ((|s| $) ($ |OutputForm|))
+(SDEFUN |GROUPP;coerce;$Of;50| ((|s| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|r| (|OutputForm|)) (|rs| (|List| (|List| (|Integer|))))
           (|g| (|OutputForm|)) (|ps| (|List| (|NonNegativeInteger|))))

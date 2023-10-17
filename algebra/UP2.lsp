@@ -1,7 +1,7 @@
 
 (SDEFUN |UP2;map;MUpUp;1|
-        ((|f| |Mapping| S R) (|p| |UnivariatePolynomial| |x| R)
-         ($ |UnivariatePolynomial| |y| S))
+        ((|f| (|Mapping| S R)) (|p| (|UnivariatePolynomial| |x| R))
+         ($ (|UnivariatePolynomial| |y| S)))
         (SPADCALL |f| |p| (QREFELT $ 14))) 
 
 (DECLAIM (NOTINLINE |UnivariatePolynomialFunctions2;|)) 

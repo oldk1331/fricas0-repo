@@ -1,5 +1,5 @@
 
-(SDEFUN |POLY;coerce;$Of;1| ((|p| $) ($ |OutputForm|))
+(SDEFUN |POLY;coerce;$Of;1| ((|p| ($)) ($ (|OutputForm|)))
         (SPROG ((|a| (|Symbol|)) (#1=#:G107 NIL) (|r| (|Union| R "failed")))
                (SEQ (LETT |r| (SPADCALL |p| (QREFELT $ 8)))
                     (EXIT
@@ -23,7 +23,7 @@
                                    (SPADCALL |a| (QREFELT $ 22))
                                    (QREFELT $ 24)))))))))) 
 
-(SDEFUN |POLY;integrate;$S$;2| ((|p| $) (|x| |Symbol|) ($ $))
+(SDEFUN |POLY;integrate;$S$;2| ((|p| ($)) (|x| (|Symbol|)) ($ ($)))
         (SPADCALL (SPADCALL (SPADCALL |p| |x| (QREFELT $ 21)) (QREFELT $ 26))
                   (SPADCALL |x| (QREFELT $ 27)) (QREFELT $ 28))) 
 

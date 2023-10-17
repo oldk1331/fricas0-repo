@@ -1,7 +1,7 @@
 
 (SDEFUN |SIMPC;simplicialComplex;LNniL$;1|
-        ((|v| |List| VS) (|numPoints| |NonNegativeInteger|)
-         (|fs| |List| (|List| (|NonNegativeInteger|))) ($ $))
+        ((|v| (|List| VS)) (|numPoints| (|NonNegativeInteger|))
+         (|fs| (|List| (|List| (|NonNegativeInteger|)))) ($ ($)))
         (SPROG ((|res| (|List| (|OrientedFacet|))) (#1=#:G132 NIL) (|f| NIL))
                (SEQ (LETT |res| NIL)
                     (SEQ (LETT |f| NIL) (LETT #1# |fs|) G190
@@ -18,7 +18,8 @@
                     (EXIT (VECTOR |v| |numPoints| |res|))))) 
 
 (SDEFUN |SIMPC;simplicialComplex;LL$;2|
-        ((|v| |List| VS) (|fs| |List| (|List| (|NonNegativeInteger|))) ($ $))
+        ((|v| (|List| VS)) (|fs| (|List| (|List| (|NonNegativeInteger|))))
+         ($ ($)))
         (SPROG
          ((|numPoints| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|))
           (#1=#:G139 NIL) (|fac| NIL) (|facs| (|List| (|OrientedFacet|)))
@@ -45,16 +46,17 @@
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT (VECTOR |v| |numPoints| |facs|))))) 
 
-(SDEFUN |SIMPC;simplicialComplex;L$;3| ((|v| |List| VS) ($ $))
+(SDEFUN |SIMPC;simplicialComplex;L$;3| ((|v| (|List| VS)) ($ ($)))
         (SPROG ((|res| (|List| (|OrientedFacet|))))
                (SEQ (LETT |res| NIL) (EXIT (VECTOR |v| 0 |res|))))) 
 
 (SDEFUN |SIMPC;simplicialComplexIfCan;DcU;4|
-        ((|dc| |DeltaComplex| VS) ($ |Union| $ "failed"))
+        ((|dc| (|DeltaComplex| VS)) ($ (|Union| $ "failed")))
         (SPADCALL |dc| NIL (QREFELT $ 25))) 
 
 (SDEFUN |SIMPC;simplicialComplexIfCan;DcBU;5|
-        ((|dc| |DeltaComplex| VS) (|trace| |Boolean|) ($ |Union| $ "failed"))
+        ((|dc| (|DeltaComplex| VS)) (|trace| (|Boolean|))
+         ($ (|Union| $ "failed")))
         (SPROG
          ((|res| (|List| (|OrientedFacet|))) (#1=#:G174 NIL) (|r| NIL)
           (|orf| (|OrientedFacet|)) (#2=#:G168 NIL)
@@ -242,7 +244,7 @@
             (EXIT (CONS 0 (VECTOR |vertset| |NumPoints| |res|)))))
           #11# (EXIT #2#)))) 
 
-(SDEFUN |SIMPC;addSimplex;$Of$;6| ((|a| $) (|f| |OrientedFacet|) ($ $))
+(SDEFUN |SIMPC;addSimplex;$Of$;6| ((|a| ($)) (|f| (|OrientedFacet|)) ($ ($)))
         (SPROG
          ((|numPoints| (|NonNegativeInteger|)) (|max| (|NonNegativeInteger|))
           (#1=#:G187 NIL) (|orf2| NIL) (|res2| (|List| (|OrientedFacet|)))
@@ -292,7 +294,7 @@
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT (VECTOR (QVELT |a| 0) |numPoints| |res2|))))) 
 
-(SDEFUN |SIMPC;maxIndex;$Nni;7| ((|s| $) ($ |NonNegativeInteger|))
+(SDEFUN |SIMPC;maxIndex;$Nni;7| ((|s| ($)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((|res| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|))
           (#1=#:G192 NIL) (|fac| NIL) (|facs| (|List| (|OrientedFacet|))))
@@ -306,7 +308,7 @@
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
-(SDEFUN |SIMPC;minIndex;$Nni;8| ((|s| $) ($ |NonNegativeInteger|))
+(SDEFUN |SIMPC;minIndex;$Nni;8| ((|s| ($)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((|res| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|))
           (#1=#:G200 NIL) (|fac| NIL) (#2=#:G199 NIL)
@@ -326,7 +328,7 @@
                 (EXIT |res|)))
           #3# (EXIT #2#)))) 
 
-(SDEFUN |SIMPC;grade;$L;9| ((|s| $) ($ |List| (|List| (|OrientedFacet|))))
+(SDEFUN |SIMPC;grade;$L;9| ((|s| ($)) ($ (|List| (|List| (|OrientedFacet|)))))
         (SPROG
          ((|gr| (|Integer|)) (#1=#:G211 NIL) (|face| NIL)
           (|res| (|List| (|List| (|OrientedFacet|)))) (#2=#:G210 NIL) (|a| NIL)
@@ -370,7 +372,7 @@
                 (EXIT |res|)))
           #5# (EXIT #3#)))) 
 
-(SDEFUN |SIMPC;sort;2$;10| ((|s| $) ($ $))
+(SDEFUN |SIMPC;sort;2$;10| ((|s| ($)) ($ ($)))
         (SPROG ((|fs| (|List| (|OrientedFacet|))) (|v| (|List| VS)))
                (SEQ (LETT |v| (QVELT |s| 0)) (LETT |fs| (QVELT |s| 2))
                     (EXIT
@@ -378,8 +380,8 @@
                              (SPADCALL |fs| (QREFELT $ 64))))))) 
 
 (SDEFUN |SIMPC;orderedPermutation|
-        ((|lst| |List| (|Integer|)) (|len| |NonNegativeInteger|)
-         ($ |List| (|List| (|Integer|))))
+        ((|lst| (|List| (|Integer|))) (|len| (|NonNegativeInteger|))
+         ($ (|List| (|List| (|Integer|)))))
         (SPROG
          ((|reslt| (|List| (|List| (|Integer|)))) (|r1| (|List| (|Integer|)))
           (#1=#:G227 NIL) (#2=#:G219 NIL) (|x| NIL)
@@ -436,7 +438,8 @@
           #5# (EXIT #3#)))) 
 
 (SDEFUN |SIMPC;isNewFace?|
-        ((|lst| |List| (|OrientedFacet|)) (|b| |OrientedFacet|) ($ |Boolean|))
+        ((|lst| (|List| (|OrientedFacet|))) (|b| (|OrientedFacet|))
+         ($ (|Boolean|)))
         (SPROG ((#1=#:G232 NIL) (#2=#:G233 NIL) (|a| NIL))
                (SEQ
                 (EXIT
@@ -455,8 +458,8 @@
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |SIMPC;unorientedUnion|
-        ((|a| . #1=(|List| (|OrientedFacet|))) (|b| |List| (|OrientedFacet|))
-         ($ |List| (|OrientedFacet|)))
+        ((|a| #1=(|List| (|OrientedFacet|))) (|b| (|List| (|OrientedFacet|)))
+         ($ (|List| (|OrientedFacet|))))
         (SPROG ((|res| #1#) (#2=#:G238 NIL) (|b1| NIL))
                (SEQ (LETT |res| |a|)
                     (SEQ (LETT |b1| NIL) (LETT #2# |b|) G190
@@ -472,7 +475,7 @@
                     (EXIT |res|)))) 
 
 (SDEFUN |SIMPC;addImpliedFaces;$L;14|
-        ((|s| $) ($ |List| (|List| (|OrientedFacet|))))
+        ((|s| ($)) ($ (|List| (|List| (|OrientedFacet|)))))
         (SPROG
          ((|newFaces| (|List| (|OrientedFacet|)))
           (|len| (|NonNegativeInteger|)) (#1=#:G248 NIL) (|face| NIL)
@@ -526,7 +529,7 @@
                 (EXIT |res|)))
           #4# (EXIT #3#)))) 
 
-(SDEFUN |SIMPC;boundary;2$;15| ((|s| $) ($ $))
+(SDEFUN |SIMPC;boundary;2$;15| ((|s| ($)) ($ ($)))
         (SPROG
          ((|res| ($)) (#1=#:G255 NIL) (|y| NIL)
           (|x| (|List| (|OrientedFacet|))) (#2=#:G254 NIL) (|facet| NIL))
@@ -550,7 +553,7 @@
                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
-(SDEFUN |SIMPC;star;$Of$;16| ((|s| $) (|simplex| |OrientedFacet|) ($ $))
+(SDEFUN |SIMPC;star;$Of$;16| ((|s| ($)) (|simplex| (|OrientedFacet|)) ($ ($)))
         (SPROG
          ((|res| (|List| (|OrientedFacet|))) (#1=#:G260 NIL) (|simp| NIL))
          (SEQ (LETT |res| NIL)
@@ -566,7 +569,7 @@
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT (VECTOR (QVELT |s| 0) (QVELT |s| 1) |res|))))) 
 
-(SDEFUN |SIMPC;link;$Of$;17| ((|s| $) (|simplex| |OrientedFacet|) ($ $))
+(SDEFUN |SIMPC;link;$Of$;17| ((|s| ($)) (|simplex| (|OrientedFacet|)) ($ ($)))
         (SPROG
          ((|res| (|List| (|OrientedFacet|))) (|x| (|List| (|OrientedFacet|)))
           (#1=#:G266 NIL) (|facet| NIL))
@@ -586,7 +589,8 @@
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT (VECTOR (QVELT |s| 0) (QVELT |s| 1) |res|))))) 
 
-(SDEFUN |SIMPC;cone;$Nni$;18| ((|s| $) (|vertex| |NonNegativeInteger|) ($ $))
+(SDEFUN |SIMPC;cone;$Nni$;18|
+        ((|s| ($)) (|vertex| (|NonNegativeInteger|)) ($ ($)))
         (SPROG
          ((|res| (|List| (|OrientedFacet|))) (|x| (|OrientedFacet|))
           (#1=#:G271 NIL) (|facet| NIL))
@@ -602,7 +606,7 @@
               (EXIT (VECTOR (QVELT |s| 0) (QVELT |s| 1) |res|))))) 
 
 (SDEFUN |SIMPC;refactorIndexes;$Nni$;19|
-        ((|a| $) (|n| |NonNegativeInteger|) ($ $))
+        ((|a| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (SPROG
          ((|res| (|List| (|OrientedFacet|))) (|r| (|OrientedFacet|))
           (#1=#:G276 NIL) (|facet| NIL))
@@ -617,7 +621,7 @@
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT (VECTOR (QVELT |a| 0) (QVELT |a| 1) |res|))))) 
 
-(SDEFUN |SIMPC;makeDisjoint;3$;20| ((|a| $) (|b| $) ($ $))
+(SDEFUN |SIMPC;makeDisjoint;3$;20| ((|a| ($)) (|b| ($)) ($ ($)))
         (SPROG
          ((#1=#:G279 NIL) (|maxb| #2=(|NonNegativeInteger|))
           (|minb| #3=(|NonNegativeInteger|)) (|maxa| #2#) (|mina| #3#))
@@ -634,7 +638,7 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |SIMPC;simplicialJoin;2$B$;21|
-        ((|a| $) (|b| $) (|enforceDisjoint| |Boolean|) ($ $))
+        ((|a| ($)) (|b| ($)) (|enforceDisjoint| (|Boolean|)) ($ ($)))
         (SPROG
          ((|numPoints| (|NonNegativeInteger|)) (|verts| (|List| VS))
           (|res| (|List| (|OrientedFacet|))) (|fac| (|OrientedFacet|))
@@ -670,7 +674,7 @@
             (EXIT (VECTOR |verts| |numPoints| |res|))))
           #4# (EXIT #3#)))) 
 
-(SDEFUN |SIMPC;merge;3$;22| ((|a| $) (|b| $) ($ $))
+(SDEFUN |SIMPC;merge;3$;22| ((|a| ($)) (|b| ($)) ($ ($)))
         (SPROG ((|res| ($)) (#1=#:G293 NIL) (|x| NIL))
                (SEQ (LETT |res| (MOVEVEC (MAKE_VEC 3) |a|))
                     (SEQ (LETT |x| NIL) (LETT #1# (QVELT |b| 2)) G190
@@ -684,15 +688,17 @@
                     (EXIT |res|)))) 
 
 (SDEFUN |SIMPC;concatIfNew|
-        ((|a| |List|
-          (|Record| (|:| |value| (|NonNegativeInteger|))
-                    (|:| |posX| (|NonNegativeInteger|))
-                    (|:| |posY| (|NonNegativeInteger|))))
-         (|b| |NonNegativeInteger|)
-         ($ |List|
-          (|Record| (|:| |value| (|NonNegativeInteger|))
-                    (|:| |posX| (|NonNegativeInteger|))
-                    (|:| |posY| (|NonNegativeInteger|)))))
+        ((|a|
+          (|List|
+           (|Record| (|:| |value| (|NonNegativeInteger|))
+                     (|:| |posX| (|NonNegativeInteger|))
+                     (|:| |posY| (|NonNegativeInteger|)))))
+         (|b| (|NonNegativeInteger|))
+         ($
+          (|List|
+           (|Record| (|:| |value| (|NonNegativeInteger|))
+                     (|:| |posX| (|NonNegativeInteger|))
+                     (|:| |posY| (|NonNegativeInteger|))))))
         (SPROG ((#1=#:G301 NIL))
                (SEQ
                 (EXIT
@@ -704,21 +710,23 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |SIMPC;concatIfNewArrow|
-        ((|a| |List|
-          (|Record| (|:| |name| (|String|))
-                    (|:| |arrType| (|NonNegativeInteger|))
-                    (|:| |fromOb| (|NonNegativeInteger|))
-                    (|:| |toOb| (|NonNegativeInteger|))
-                    (|:| |xOffset| (|Integer|)) (|:| |yOffset| (|Integer|))
-                    (|:| |map| (|List| (|NonNegativeInteger|)))))
-         (|p| |NonNegativeInteger|) (|m| |NonNegativeInteger|)
-         ($ |List|
-          (|Record| (|:| |name| (|String|))
-                    (|:| |arrType| (|NonNegativeInteger|))
-                    (|:| |fromOb| (|NonNegativeInteger|))
-                    (|:| |toOb| (|NonNegativeInteger|))
-                    (|:| |xOffset| (|Integer|)) (|:| |yOffset| (|Integer|))
-                    (|:| |map| (|List| (|NonNegativeInteger|))))))
+        ((|a|
+          (|List|
+           (|Record| (|:| |name| (|String|))
+                     (|:| |arrType| (|NonNegativeInteger|))
+                     (|:| |fromOb| (|NonNegativeInteger|))
+                     (|:| |toOb| (|NonNegativeInteger|))
+                     (|:| |xOffset| (|Integer|)) (|:| |yOffset| (|Integer|))
+                     (|:| |map| (|List| (|NonNegativeInteger|))))))
+         (|p| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|))
+         ($
+          (|List|
+           (|Record| (|:| |name| (|String|))
+                     (|:| |arrType| (|NonNegativeInteger|))
+                     (|:| |fromOb| (|NonNegativeInteger|))
+                     (|:| |toOb| (|NonNegativeInteger|))
+                     (|:| |xOffset| (|Integer|)) (|:| |yOffset| (|Integer|))
+                     (|:| |map| (|List| (|NonNegativeInteger|)))))))
         (SPROG ((#1=#:G312 NIL))
                (SEQ
                 (EXIT
@@ -737,7 +745,7 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |SIMPC;oneSkeleton;$Dg;25|
-        ((|s| $) ($ |DirectedGraph| (|NonNegativeInteger|)))
+        ((|s| ($)) ($ (|DirectedGraph| (|NonNegativeInteger|))))
         (SPROG
          ((|edges|
            (|List|
@@ -914,35 +922,35 @@
                                                                           '|NonNegativeInteger|))))))
                                                 GS)))))) 
 
-(SDEFUN |SIMPC;fundamentalGroup;$Gp;26| ((|s| $) ($ |GroupPresentation|))
+(SDEFUN |SIMPC;fundamentalGroup;$Gp;26| ((|s| ($)) ($ (|GroupPresentation|)))
         (SPADCALL |s| 'T NIL (QREFELT $ 99))) 
 
 (SDEFUN |SIMPC;fundamentalGroup;$2BGp;27|
-        ((|s| $) (|simplify| |Boolean|) (|trace| |Boolean|)
-         ($ |GroupPresentation|))
+        ((|s| ($)) (|simplify| (|Boolean|)) (|trace| (|Boolean|))
+         ($ (|GroupPresentation|)))
         (SPROG ((|dc| (|DeltaComplex| VS)))
                (SEQ (LETT |dc| (SPADCALL |s| (QREFELT $ 102)))
                     (EXIT (SPADCALL |dc| |simplify| |trace| (QREFELT $ 103)))))) 
 
-(SDEFUN |SIMPC;chain;$Cc;28| ((|s| $) ($ |ChainComplex|))
+(SDEFUN |SIMPC;chain;$Cc;28| ((|s| ($)) ($ (|ChainComplex|)))
         (SPROG ((|dc| (|DeltaComplex| VS)))
                (SEQ (LETT |dc| (SPADCALL |s| (QREFELT $ 102)))
                     (EXIT (SPADCALL |dc| (QREFELT $ 105)))))) 
 
-(SDEFUN |SIMPC;coChain;$Ccc;29| ((|s| $) ($ |CoChainComplex| VS))
+(SDEFUN |SIMPC;coChain;$Ccc;29| ((|s| ($)) ($ (|CoChainComplex| VS)))
         (SPADCALL (SPADCALL |s| (QREFELT $ 106)) (QREFELT $ 108))) 
 
-(SDEFUN |SIMPC;homology;$L;30| ((|s| $) ($ |List| (|Homology|)))
+(SDEFUN |SIMPC;homology;$L;30| ((|s| ($)) ($ (|List| (|Homology|))))
         (SPROG ((|dc| (|DeltaComplex| VS)))
                (SEQ (LETT |dc| (SPADCALL |s| (QREFELT $ 102)))
                     (EXIT (SPADCALL |dc| (QREFELT $ 111)))))) 
 
-(SDEFUN |SIMPC;coHomology;$L;31| ((|s| $) ($ |List| (|Homology|)))
+(SDEFUN |SIMPC;coHomology;$L;31| ((|s| ($)) ($ (|List| (|Homology|))))
         (SPROG ((|dc| (|DeltaComplex| VS)))
                (SEQ (LETT |dc| (SPADCALL |s| (QREFELT $ 102)))
                     (EXIT (SPADCALL |dc| (QREFELT $ 113)))))) 
 
-(SDEFUN |SIMPC;product;3$;32| ((|a| $) (|b| $) ($ $))
+(SDEFUN |SIMPC;product;3$;32| ((|a| ($)) (|b| ($)) ($ ($)))
         (SPROG
          ((|numPoints| (|NonNegativeInteger|))
           (|res3| (|List| (|OrientedFacet|)))
@@ -1075,8 +1083,8 @@
               (EXIT (VECTOR |vs| |numPoints| |res3|))))) 
 
 (SDEFUN |SIMPC;equalSimplex|
-        ((|a| |List| (|NonNegativeInteger|))
-         (|b| |List| (|NonNegativeInteger|)) ($ |Boolean|))
+        ((|a| (|List| (|NonNegativeInteger|)))
+         (|b| (|List| (|NonNegativeInteger|))) ($ (|Boolean|)))
         (SPROG
          ((|offset| (|Integer|)) (#1=#:G369 NIL) (#2=#:G370 NIL) (|n| NIL)
           (|fst| (|NonNegativeInteger|)) (|len| (|NonNegativeInteger|)))
@@ -1108,7 +1116,7 @@
                 (EXIT 'T)))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |SIMPC;=;2$B;34| ((|a| $) (|b| $) ($ |Boolean|))
+(SDEFUN |SIMPC;=;2$B;34| ((|a| ($)) (|b| ($)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G382 NIL) (#2=#:G386 NIL) (|f| NIL)
           (|x| (|NonNegativeInteger|)) (#3=#:G385 NIL) (|a1| NIL)
@@ -1125,7 +1133,7 @@
                 (LETT |flags|
                       (PROGN
                        (LETT #5# NIL)
-                       (SEQ (LETT |x| NIL) (LETT #4# |as|) G190
+                       (SEQ (LETT #4# |as|) G190
                             (COND
                              ((OR (ATOM #4#) (PROGN (LETT |x| (CAR #4#)) NIL))
                               (GO G191)))
@@ -1170,7 +1178,7 @@
                 (EXIT 'T)))
           #7# (EXIT #1#)))) 
 
-(SDEFUN |SIMPC;coerce;$Of;35| ((|s| $) ($ |OutputForm|))
+(SDEFUN |SIMPC;coerce;$Of;35| ((|s| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|res| (|OutputForm|)) (#1=#:G392 NIL) (|a| NIL) (#2=#:G391 NIL))
          (SEQ
@@ -1200,7 +1208,7 @@
             (EXIT |res|)))
           #3# (EXIT #2#)))) 
 
-(SDEFUN |SIMPC;coerce;$Dc;36| ((|s| $) ($ |DeltaComplex| VS))
+(SDEFUN |SIMPC;coerce;$Dc;36| ((|s| ($)) ($ (|DeltaComplex| VS)))
         (SPADCALL |s| (QREFELT $ 102))) 
 
 (DECLAIM (NOTINLINE |FiniteSimplicialComplex;|)) 

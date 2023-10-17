@@ -1,5 +1,5 @@
 
-(SDEFUN |MDDFACT;reduction| ((|u| U) (|p| |Integer|) ($ U))
+(SDEFUN |MDDFACT;reduction| ((|u| (U)) (|p| (|Integer|)) ($ (U)))
         (SPROG NIL
                (COND ((ZEROP |p|) |u|)
                      ('T
@@ -13,11 +13,13 @@
           (RETURN (PROGN (SPADCALL |i1| |p| (QREFELT $ 8)))))) 
 
 (SDEFUN |MDDFACT;merge|
-        ((|p| |Integer|) (|q| |Integer|) ($ |Union| (|Integer|) "failed"))
+        ((|p| (|Integer|)) (|q| (|Integer|))
+         ($ (|Union| (|Integer|) "failed")))
         (COND ((EQL |p| |q|) (CONS 0 |p|)) ((EQL |p| 0) (CONS 0 |q|))
               ((EQL |q| 0) (CONS 0 |p|)) ('T (CONS 1 "failed")))) 
 
-(SDEFUN |MDDFACT;modInverse| ((|c| |Integer|) (|p| |Integer|) ($ |Integer|))
+(SDEFUN |MDDFACT;modInverse|
+        ((|c| (|Integer|)) (|p| (|Integer|)) ($ (|Integer|)))
         (SPROG ((#1=#:G124 NIL))
                (QCAR
                 (PROG2 (LETT #1# (SPADCALL |c| |p| 1 (QREFELT $ 15)))
@@ -32,7 +34,7 @@
                                   #1#))))) 
 
 (SDEFUN |MDDFACT;exactquo|
-        ((|u| U) (|v| U) (|p| |Integer|) ($ |Union| U "failed"))
+        ((|u| (U)) (|v| (U)) (|p| (|Integer|)) ($ (|Union| U "failed")))
         (SPROG
          ((|r| (|Record| (|:| |quotient| U) (|:| |remainder| U)))
           (|invlcv| (|Integer|)))
@@ -54,19 +56,20 @@
                    (|MDDFACT;reduction|
                     (SPADCALL |invlcv| (QCAR |r|) (QREFELT $ 17)) |p| $)))))))) 
 
-(SDEFUN |MDDFACT;lc| ((|u| EMR) ($ |Integer|))
+(SDEFUN |MDDFACT;lc| ((|u| (EMR)) ($ (|Integer|)))
         (SPADCALL (SPADCALL |u| (QREFELT $ 23)) (QREFELT $ 16))) 
 
-(SDEFUN |MDDFACT;degree| ((|u| EMR) ($ |Integer|))
+(SDEFUN |MDDFACT;degree| ((|u| (EMR)) ($ (|Integer|)))
         (SPADCALL (SPADCALL |u| (QREFELT $ 23)) (QREFELT $ 25))) 
 
-(SDEFUN |MDDFACT;makeMonic| ((|u| EMR) ($ EMR))
+(SDEFUN |MDDFACT;makeMonic| ((|u| (EMR)) ($ (EMR)))
         (SPADCALL
          (|MDDFACT;modInverse| (|MDDFACT;lc| |u| $)
           (SPADCALL |u| (QREFELT $ 26)) $)
          |u| (QREFELT $ 27))) 
 
-(SDEFUN |MDDFACT;exptmod| ((|u1| EMR) (|i| |Integer|) (|u2| EMR) ($ EMR))
+(SDEFUN |MDDFACT;exptmod|
+        ((|u1| (EMR)) (|i| (|Integer|)) (|u2| (EMR)) ($ (EMR)))
         (SPROG ((|ans| (EMR)))
                (SEQ
                 (COND
@@ -91,7 +94,7 @@
                             NIL (GO G190) G191 (EXIT NIL))
                        (EXIT |ans|))))))) 
 
-(SDEFUN |MDDFACT;ddfactor| ((|u| EMR) ($ |List| EMR))
+(SDEFUN |MDDFACT;ddfactor| ((|u| (EMR)) ($ (|List| EMR)))
         (SPROG
          ((#1=#:G161 NIL) (|f| NIL) (#2=#:G160 NIL) (|ans| (|List| EMR))
           (|c| (|Integer|)))
@@ -117,15 +120,15 @@
                        (LETT #1# (CDR #1#)) (GO G190) G191
                        (EXIT (NREVERSE #2#))))))))) 
 
-(SDEFUN |MDDFACT;gcd;2UIU;10| ((|u| U) (|v| U) (|q| |Integer|) ($ U))
+(SDEFUN |MDDFACT;gcd;2UIU;10| ((|u| (U)) (|v| (U)) (|q| (|Integer|)) ($ (U)))
         (SPADCALL
          (SPADCALL (SPADCALL |u| |q| (QREFELT $ 33))
                    (SPADCALL |v| |q| (QREFELT $ 33)) (QREFELT $ 34))
          (QREFELT $ 23))) 
 
 (SDEFUN |MDDFACT;ddfact|
-        ((|u| EMR)
-         ($ |List| (|Record| (|:| |factor| EMR) (|:| |degree| (|Integer|)))))
+        ((|u| (EMR))
+         ($ (|List| (|Record| (|:| |factor| EMR) (|:| |degree| (|Integer|))))))
         (SPROG
          ((#1=#:G172 NIL) (#2=#:G173 NIL) (|d| (|Integer|))
           (|ans|
@@ -196,8 +199,8 @@
           #3# (EXIT #2#)))) 
 
 (SDEFUN |MDDFACT;ddFact;UIL;12|
-        ((|u| U) (|q| |Integer|)
-         ($ |List| (|Record| (|:| |factor| U) (|:| |degree| (|Integer|)))))
+        ((|u| (U)) (|q| (|Integer|))
+         ($ (|List| (|Record| (|:| |factor| U) (|:| |degree| (|Integer|))))))
         (SPROG
          ((#1=#:G182 NIL) (|dd| NIL) (#2=#:G181 NIL)
           (|ans|
@@ -221,9 +224,9 @@
                  (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |MDDFACT;sepfact|
-        ((|factList| |List|
-          (|Record| (|:| |factor| EMR) (|:| |degree| (|Integer|))))
-         ($ |List| EMR))
+        ((|factList|
+          (|List| (|Record| (|:| |factor| EMR) (|:| |degree| (|Integer|)))))
+         ($ (|List| EMR)))
         (SPROG
          ((#1=#:G185 NIL) (#2=#:G184 #3=(|List| EMR)) (#4=#:G186 #3#)
           (#5=#:G188 NIL) (|f| NIL))
@@ -243,9 +246,9 @@
            (COND (#1# #2#) ('T NIL)))))) 
 
 (SDEFUN |MDDFACT;separateFactors;LIL;14|
-        ((|uddList| |List|
-          (|Record| (|:| |factor| U) (|:| |degree| (|Integer|))))
-         (|q| |Integer|) ($ |List| U))
+        ((|uddList|
+          (|List| (|Record| (|:| |factor| U) (|:| |degree| (|Integer|)))))
+         (|q| (|Integer|)) ($ (|List| U)))
         (SPROG
          ((#1=#:G198 NIL) (|f| NIL) (#2=#:G197 NIL) (|ans| (|List| EMR))
           (#3=#:G196 NIL) (|udd| NIL) (#4=#:G195 NIL))
@@ -279,7 +282,8 @@
                   (EXIT (LETT #2# (CONS (SPADCALL |f| (QREFELT $ 23)) #2#))))
                  (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT (NREVERSE #2#)))))))) 
 
-(SDEFUN |MDDFACT;decode| ((|s| |Integer|) (|p| |Integer|) (|x| U) ($ U))
+(SDEFUN |MDDFACT;decode|
+        ((|s| (|Integer|)) (|p| (|Integer|)) (|x| (U)) ($ (U)))
         (SPROG
          ((|qr|
            (|Record| (|:| |quotient| (|Integer|))
@@ -297,8 +301,8 @@
                                  (QREFELT $ 48))))))))) 
 
 (SDEFUN |MDDFACT;sepFact1|
-        ((|f| |Record| (|:| |factor| EMR) (|:| |degree| #1=(|Integer|)))
-         ($ |List| EMR))
+        ((|f| (|Record| (|:| |factor| EMR) (|:| |degree| #1=(|Integer|))))
+         ($ (|List| EMR)))
         (SPROG
          ((#2=#:G225 NIL) (|x| (U)) (|ss| (|Integer|)) (|s| (|Integer|))
           (|ans| (|List| EMR)) (|stack| (|List| EMR)) (|df1| #3=(|Integer|))
@@ -495,7 +499,8 @@
                                       (CDR |ans|)))))))))))))) 
 
 (SDEFUN |MDDFACT;probSplit|
-        ((|u| EMR) (|t| EMR) (|d| |Integer|) ($ |Union| (|List| EMR) "failed"))
+        ((|u| (EMR)) (|t| (EMR)) (|d| (|Integer|))
+         ($ (|Union| (|List| EMR) "failed")))
         (SPROG
          ((|g| (EMR)) (|f2| (EMR)) (|n| (EMR)) (|r| (|NonNegativeInteger|))
           (#1=#:G299 NIL) (#2=#:G298 NIL) (|f1| (EMR)) (|p| (|Integer|)))
@@ -541,7 +546,8 @@
                                                     (QREFELT $ 38)))))))))))))) 
 
 (SDEFUN |MDDFACT;probSplit2|
-        ((|u| EMR) (|t| EMR) (|d| |Integer|) ($ |Union| (|List| EMR) "failed"))
+        ((|u| (EMR)) (|t| (EMR)) (|d| (|Integer|))
+         ($ (|Union| (|List| EMR) "failed")))
         (SPROG ((|f| (EMR)))
                (SEQ
                 (LETT |f|
@@ -557,7 +563,7 @@
                          (LIST (|spadConstant| $ 28) |f|
                                (SPADCALL |u| |f| (QREFELT $ 38)))))))))) 
 
-(SDEFUN |MDDFACT;trace| ((|t| EMR) (|d| |Integer|) (|u| EMR) ($ EMR))
+(SDEFUN |MDDFACT;trace| ((|t| (EMR)) (|d| (|Integer|)) (|u| (EMR)) ($ (EMR)))
         (SPROG ((|tt| (EMR)) (|p| (|Integer|)))
                (SEQ (LETT |p| (SPADCALL |t| (QREFELT $ 26)))
                     (LETT |d| (- |d| 1)) (LETT |tt| |t|)

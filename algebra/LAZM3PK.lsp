@@ -1,5 +1,5 @@
 
-(SDEFUN |LAZM3PK;convert| ((|st| ST) ($ TS))
+(SDEFUN |LAZM3PK;convert| ((|st| (ST)) ($ (TS)))
         (SPROG ((|ts| (TS)) (#1=#:G115 NIL) (|p| NIL) (|lp| (|List| P)))
                (SEQ (LETT |ts| (SPADCALL (QREFELT $ 12)))
                     (LETT |lp| (SPADCALL |st| (QREFELT $ 14)))
@@ -14,7 +14,7 @@
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT |ts|)))) 
 
-(SDEFUN |LAZM3PK;squareFree| ((|ts| TS) ($ |List| ST))
+(SDEFUN |LAZM3PK;squareFree| ((|ts| (TS)) ($ (|List| ST)))
         (SPROG
          ((|toSee| (|List| ST)) (|toSave| (|List| ST)) (|newus| (ST))
           (#1=#:G130 NIL) (|pwt| NIL)
@@ -64,7 +64,7 @@
                       (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                  (EXIT |toSave|))))))) 
 
-(SDEFUN |LAZM3PK;normalizeIfCan;2ST;3| ((|ts| ST) ($ ST))
+(SDEFUN |LAZM3PK;normalizeIfCan;2ST;3| ((|ts| (ST)) ($ (ST)))
         (SPROG
          ((|newts| (ST)) (|p| (P)) (|lp| (|List| P)) (#1=#:G143 NIL)
           (#2=#:G144 NIL) (#3=#:G145 NIL) (|v| NIL) (|lv| (|List| V)))
@@ -128,7 +128,7 @@
           #4# (EXIT #2#)))) 
 
 (SDEFUN |LAZM3PK;zeroSetSplit;LBL;4|
-        ((|lp| |List| P) (|clos?| |Boolean|) ($ |List| ST))
+        ((|lp| (|List| P)) (|clos?| (|Boolean|)) ($ (|List| ST)))
         (SPROG
          ((#1=#:G152 NIL) (|ts| NIL) (#2=#:G151 NIL) (|toSave| (|List| ST))
           (#3=#:G150 NIL) (|toSee| (|List| TS)))

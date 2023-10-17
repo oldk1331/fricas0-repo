@@ -1,7 +1,7 @@
 
 (SDEFUN |PARSU2;map;MPsPs;1|
-        ((|f| |Mapping| CF2 CF1) (|c| |ParametricSurface| CF1)
-         ($ |ParametricSurface| CF2))
+        ((|f| (|Mapping| CF2 CF1)) (|c| (|ParametricSurface| CF1))
+         ($ (|ParametricSurface| CF2)))
         (SPADCALL (SPADCALL (SPADCALL |c| 1 (QREFELT $ 10)) |f|)
                   (SPADCALL (SPADCALL |c| 2 (QREFELT $ 10)) |f|)
                   (SPADCALL (SPADCALL |c| 3 (QREFELT $ 10)) |f|)

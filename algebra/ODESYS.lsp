@@ -1,19 +1,21 @@
 
 (SDEFUN |ODESYS;solve;MLMR;1|
-        ((|mm| |Matrix| F) (|lv| |List| (|Vector| F))
-         (|solf| |Mapping|
+        ((|mm| (|Matrix| F)) (|lv| (|List| (|Vector| F)))
+         (|solf|
+          (|Mapping|
+           (|Record|
+            (|:| |particular|
+                 (|List|
+                  (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
+            (|:| |basis| (|List| F)))
+           LO (|List| F)))
+         ($
           (|Record|
            (|:| |particular|
                 (|List|
-                 (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
-           (|:| |basis| (|List| F)))
-          LO (|List| F))
-         ($ |Record|
-          (|:| |particular|
-               (|List|
-                (|Record| (|:| |ratpart| (|Vector| F))
-                          (|:| |coeffs| (|Vector| F)))))
-          (|:| |basis| (|List| (|Vector| F)))))
+                 (|Record| (|:| |ratpart| (|Vector| F))
+                           (|:| |coeffs| (|Vector| F)))))
+           (|:| |basis| (|List| (|Vector| F))))))
         (SPROG
          ((#1=#:G157 NIL) (|bvec| NIL) (#2=#:G156 NIL) (#3=#:G154 NIL)
           (|np| NIL) (#4=#:G155 NIL) (|bv| NIL) (#5=#:G153 NIL)
@@ -243,13 +245,15 @@
                       (EXIT (NREVERSE #2#))))))))) 
 
 (SDEFUN |ODESYS;USL_to_FPL|
-        ((|u| |Union| (|Record| (|:| |particular| F) (|:| |basis| (|List| F)))
-          "failed")
-         ($ |Record|
-          (|:| |particular|
-               (|List|
-                (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
-          (|:| |basis| (|List| F))))
+        ((|u|
+          (|Union| (|Record| (|:| |particular| F) (|:| |basis| (|List| F)))
+                   "failed"))
+         ($
+          (|Record|
+           (|:| |particular|
+                (|List|
+                 (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
+           (|:| |basis| (|List| F)))))
         (SPROG
          ((|us| (|Record| (|:| |particular| F) (|:| |basis| (|List| F)))))
          (SEQ
@@ -263,14 +267,17 @@
                         (QCDR |us|))))))))) 
 
 (SDEFUN |ODESYS;solve;MVMU;3|
-        ((|mm| |Matrix| F) (|v| |Vector| F)
-         (|solf| |Mapping|
-          (|Union| (|Record| (|:| |particular| F) (|:| |basis| (|List| F)))
-                   "failed")
-          LO F)
-         ($ |Union|
-          (|Record| (|:| |particular| (|Vector| F)) (|:| |basis| (|Matrix| F)))
-          "failed"))
+        ((|mm| (|Matrix| F)) (|v| (|Vector| F))
+         (|solf|
+          (|Mapping|
+           (|Union| (|Record| (|:| |particular| F) (|:| |basis| (|List| F)))
+                    "failed")
+           LO F))
+         ($
+          (|Union|
+           (|Record| (|:| |particular| (|Vector| F))
+                     (|:| |basis| (|Matrix| F)))
+           "failed")))
         (SPROG
          ((|bm| (|Matrix| F)) (#1=#:G191 NIL) (|bv| NIL) (#2=#:G190 NIL)
           (|s1| (|Vector| F)) (|c1inv| (F))
@@ -333,12 +340,14 @@
              (SPADCALL |lo| (SPADCALL |lf| (QREFELT $ 36)) |solf|) $))))) 
 
 (SDEFUN |ODESYS;triangulate;MLR;4|
-        ((|m| |Matrix| F) (|lv| |List| (|Vector| F))
-         ($ |Record| (|:| A (|Matrix| F))
-          (|:| |eqs|
-               (|List|
-                (|Record| (|:| C (|Matrix| F)) (|:| |lg| (|List| (|Vector| F)))
-                          (|:| |eq| LO) (|:| |lrh| (|List| F)))))))
+        ((|m| (|Matrix| F)) (|lv| (|List| (|Vector| F)))
+         ($
+          (|Record| (|:| A (|Matrix| F))
+                    (|:| |eqs|
+                         (|List|
+                          (|Record| (|:| C (|Matrix| F))
+                                    (|:| |lg| (|List| (|Vector| F)))
+                                    (|:| |eq| LO) (|:| |lrh| (|List| F))))))))
         (SPROG
          ((|k| (|NonNegativeInteger|))
           (|ler|
@@ -478,12 +487,13 @@
             (SPADCALL (SPADCALL |diff| |f1| (QREFELT $ 27)) (QREFELT $ 51)))))) 
 
 (SDEFUN |ODESYS;triangulate;MVR;5|
-        ((|m| |Matrix| F) (|v| |Vector| F)
-         ($ |Record| (|:| A (|Matrix| F))
-          (|:| |eqs|
-               (|List|
-                (|Record| (|:| C (|Matrix| F)) (|:| |g| (|Vector| F))
-                          (|:| |eq| LO) (|:| |rh| F))))))
+        ((|m| (|Matrix| F)) (|v| (|Vector| F))
+         ($
+          (|Record| (|:| A (|Matrix| F))
+                    (|:| |eqs|
+                         (|List|
+                          (|Record| (|:| C (|Matrix| F)) (|:| |g| (|Vector| F))
+                                    (|:| |eq| LO) (|:| |rh| F)))))))
         (SPROG
          ((|ler|
            (|List|
@@ -516,20 +526,22 @@
               (LETT |ler| (NREVERSE |ler|)) (EXIT (CONS (QCAR |res1|) |ler|))))) 
 
 (SDEFUN |ODESYS;solveInField;MLMR;6|
-        ((|m| |Matrix| LO) (|lv| |List| (|Vector| F))
-         (|solf| |Mapping|
+        ((|m| (|Matrix| LO)) (|lv| (|List| (|Vector| F)))
+         (|solf|
+          (|Mapping|
+           (|Record|
+            (|:| |particular|
+                 (|List|
+                  (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
+            (|:| |basis| (|List| F)))
+           LO (|List| F)))
+         ($
           (|Record|
            (|:| |particular|
                 (|List|
-                 (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
-           (|:| |basis| (|List| F)))
-          LO (|List| F))
-         ($ |Record|
-          (|:| |particular|
-               (|List|
-                (|Record| (|:| |ratpart| (|Vector| F))
-                          (|:| |coeffs| (|Vector| F)))))
-          (|:| |basis| (|List| (|Vector| F)))))
+                 (|Record| (|:| |ratpart| (|Vector| F))
+                           (|:| |coeffs| (|Vector| F)))))
+           (|:| |basis| (|List| (|Vector| F))))))
         (SPROG
          ((|rec|
            (|Union|
@@ -582,7 +594,7 @@
               ('T (QCDR |rec|))))))
           #5# (EXIT #1#)))) 
 
-(SDEFUN |ODESYS;M2F| ((|m| |Matrix| LO) ($ |Union| (|Matrix| F) "failed"))
+(SDEFUN |ODESYS;M2F| ((|m| (|Matrix| LO)) ($ (|Union| (|Matrix| F) "failed")))
         (SPROG
          ((#1=#:G257 NIL) (|u| (|Union| F "failed")) (#2=#:G259 NIL) (|j| NIL)
           (#3=#:G258 NIL) (|i| NIL) (|mf| (|Matrix| F)))
@@ -619,14 +631,15 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |ODESYS;triangulate;MLR;8|
-        ((|m| |Matrix| LO) (|lv| |List| (|Vector| F))
-         ($ |Record| (|:| |mat| (|Matrix| LO))
-          (|:| |vecs| (|List| (|Vector| F)))))
+        ((|m| (|Matrix| LO)) (|lv| (|List| (|Vector| F)))
+         ($
+          (|Record| (|:| |mat| (|Matrix| LO))
+                    (|:| |vecs| (|List| (|Vector| F))))))
         (SPADCALL |m| (|spadConstant| $ 15) |lv| (QREFELT $ 84))) 
 
 (SDEFUN |ODESYS;triangulate;MVR;9|
-        ((|m| |Matrix| LO) (|v| |Vector| F)
-         ($ |Record| (|:| |mat| (|Matrix| LO)) (|:| |vec| (|Vector| F))))
+        ((|m| (|Matrix| LO)) (|v| (|Vector| F))
+         ($ (|Record| (|:| |mat| (|Matrix| LO)) (|:| |vec| (|Vector| F)))))
         (SPROG
          ((|res1|
            (|Record| (|:| |mat| (|Matrix| LO))

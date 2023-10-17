@@ -1,16 +1,18 @@
 
-(SDEFUN |CLIP;Fnan?| ((|x| |DoubleFloat|) ($ |Boolean|))
+(SDEFUN |CLIP;Fnan?| ((|x| (|DoubleFloat|)) ($ (|Boolean|)))
         (SPADCALL |x| |x| (QREFELT $ 8))) 
 
-(SDEFUN |CLIP;Pnan?| ((|p| |Point| (|DoubleFloat|)) ($ |Boolean|))
+(SDEFUN |CLIP;Pnan?| ((|p| (|Point| (|DoubleFloat|))) ($ (|Boolean|)))
         (SPADCALL (CONS (|function| |CLIP;Fnan?|) $) |p| (QREFELT $ 11))) 
 
 (SDEFUN |CLIP;iClipParametric|
-        ((|pointLists| |List| (|List| (|Point| (|DoubleFloat|))))
-         (|fraction| |Fraction| (|Integer|)) (|scale| |Fraction| (|Integer|))
-         ($ |Record| (|:| |brans| (|List| (|List| (|Point| (|DoubleFloat|)))))
-          (|:| |xValues| (|Segment| (|DoubleFloat|)))
-          (|:| |yValues| (|Segment| (|DoubleFloat|)))))
+        ((|pointLists| (|List| (|List| (|Point| (|DoubleFloat|)))))
+         (|fraction| (|Fraction| (|Integer|)))
+         (|scale| (|Fraction| (|Integer|)))
+         ($
+          (|Record| (|:| |brans| (|List| (|List| (|Point| (|DoubleFloat|)))))
+                    (|:| |xValues| (|Segment| (|DoubleFloat|)))
+                    (|:| |yValues| (|Segment| (|DoubleFloat|))))))
         (SPROG
          ((|yseg| #1=(|Segment| (|DoubleFloat|))) (|xseg| #1#)
           (|yMax| #2=(|DoubleFloat|)) (|xMax| #3=(|DoubleFloat|)) (|yMin| #2#)
@@ -209,14 +211,15 @@
         (SPADCALL (|CLIP;norm| |x| $) (|CLIP;norm| |y| $) (QREFELT $ 19))) 
 
 (SDEFUN |CLIP;point|
-        ((|xx| |DoubleFloat|) (|yy| . #1=(|DoubleFloat|))
-         ($ |Point| (|DoubleFloat|)))
+        ((|xx| (|DoubleFloat|)) (|yy| #1=(|DoubleFloat|))
+         ($ (|Point| (|DoubleFloat|))))
         (SPROG ((|l| (|List| #1#)))
                (SPADCALL (LETT |l| (LIST |xx| |yy|)) (QREFELT $ 45)))) 
 
 (SDEFUN |CLIP;intersectWithHorizLine|
-        ((|x1| |DoubleFloat|) (|y1| |DoubleFloat|) (|x2| |DoubleFloat|)
-         (|y2| |DoubleFloat|) (|yy| |DoubleFloat|) ($ |Point| (|DoubleFloat|)))
+        ((|x1| (|DoubleFloat|)) (|y1| (|DoubleFloat|)) (|x2| (|DoubleFloat|))
+         (|y2| (|DoubleFloat|)) (|yy| (|DoubleFloat|))
+         ($ (|Point| (|DoubleFloat|))))
         (COND ((|eql_DF| |x1| |x2|) (|CLIP;point| |x1| |yy| $))
               ('T
                (|CLIP;point|
@@ -227,8 +230,9 @@
                 |yy| $)))) 
 
 (SDEFUN |CLIP;intersectWithVertLine|
-        ((|x1| |DoubleFloat|) (|y1| |DoubleFloat|) (|x2| |DoubleFloat|)
-         (|y2| |DoubleFloat|) (|xx| |DoubleFloat|) ($ |Point| (|DoubleFloat|)))
+        ((|x1| (|DoubleFloat|)) (|y1| (|DoubleFloat|)) (|x2| (|DoubleFloat|))
+         (|y2| (|DoubleFloat|)) (|xx| (|DoubleFloat|))
+         ($ (|Point| (|DoubleFloat|))))
         (COND ((|eql_DF| |y1| |y2|) (|CLIP;point| |xx| |y1| $))
               ('T
                (|CLIP;point| |xx|
@@ -239,9 +243,10 @@
                 $)))) 
 
 (SDEFUN |CLIP;intersectWithBdry|
-        ((|xMin| |DoubleFloat|) (|xMax| |DoubleFloat|) (|yMin| |DoubleFloat|)
-         (|yMax| |DoubleFloat|) (|pt1| |Point| (|DoubleFloat|))
-         (|pt2| |Point| (|DoubleFloat|)) ($ |Point| (|DoubleFloat|)))
+        ((|xMin| (|DoubleFloat|)) (|xMax| (|DoubleFloat|))
+         (|yMin| (|DoubleFloat|)) (|yMax| (|DoubleFloat|))
+         (|pt1| (|Point| (|DoubleFloat|))) (|pt2| (|Point| (|DoubleFloat|)))
+         ($ (|Point| (|DoubleFloat|))))
         (SPROG
          ((|y2| #1=(|DoubleFloat|)) (|x2| #2=(|DoubleFloat|)) (|y1| #1#)
           (|x1| #2#))
@@ -281,10 +286,11 @@
               (EXIT |pt2|)))) 
 
 (SDEFUN |CLIP;discardAndSplit|
-        ((|pointList| |List| (|Point| (|DoubleFloat|)))
-         (|pred| |Mapping| (|Boolean|) (|Point| (|DoubleFloat|)))
-         (|xMin| |DoubleFloat|) (|xMax| |DoubleFloat|) (|yMin| |DoubleFloat|)
-         (|yMax| |DoubleFloat|) ($ |List| (|List| (|Point| (|DoubleFloat|)))))
+        ((|pointList| (|List| (|Point| (|DoubleFloat|))))
+         (|pred| (|Mapping| (|Boolean|) (|Point| (|DoubleFloat|))))
+         (|xMin| (|DoubleFloat|)) (|xMax| (|DoubleFloat|))
+         (|yMin| (|DoubleFloat|)) (|yMax| (|DoubleFloat|))
+         ($ (|List| (|List| (|Point| (|DoubleFloat|))))))
         (SPROG
          ((|list| (|List| (|Point| (|DoubleFloat|)))) (|lastPt?| (|Boolean|))
           (|lastPt| (|Point| (|DoubleFloat|)))
@@ -326,11 +332,12 @@
                      ('T (NREVERSE (CONS (NREVERSE |list|) |ans|)))))))) 
 
 (SDEFUN |CLIP;clip;P2FR;9|
-        ((|plot| |Plot|) (|fraction| |Fraction| (|Integer|))
-         (|scale| |Fraction| (|Integer|))
-         ($ |Record| (|:| |brans| (|List| (|List| (|Point| (|DoubleFloat|)))))
-          (|:| |xValues| (|Segment| (|DoubleFloat|)))
-          (|:| |yValues| (|Segment| (|DoubleFloat|)))))
+        ((|plot| (|Plot|)) (|fraction| (|Fraction| (|Integer|)))
+         (|scale| (|Fraction| (|Integer|)))
+         ($
+          (|Record| (|:| |brans| (|List| (|List| (|Point| (|DoubleFloat|)))))
+                    (|:| |xValues| (|Segment| (|DoubleFloat|)))
+                    (|:| |yValues| (|Segment| (|DoubleFloat|))))))
         (SPROG
          ((|yMax| #1=(|DoubleFloat|)) (|yMin| #1#) (#2=#:G211 NIL) (|pt| NIL)
           (#3=#:G210 NIL) (|list| NIL)
@@ -491,14 +498,15 @@
                   (QREFELT $ 19))) 
 
 (SDEFUN |CLIP;clip;PR;10|
-        ((|plot| |Plot|)
-         ($ |Record| (|:| |brans| (|List| (|List| (|Point| (|DoubleFloat|)))))
-          (|:| |xValues| (|Segment| (|DoubleFloat|)))
-          (|:| |yValues| (|Segment| (|DoubleFloat|)))))
+        ((|plot| (|Plot|))
+         ($
+          (|Record| (|:| |brans| (|List| (|List| (|Point| (|DoubleFloat|)))))
+                    (|:| |xValues| (|Segment| (|DoubleFloat|)))
+                    (|:| |yValues| (|Segment| (|DoubleFloat|))))))
         (SPADCALL |plot| (SPADCALL 1 4 (QREFELT $ 47))
                   (SPADCALL 5 1 (QREFELT $ 47)) (QREFELT $ 56))) 
 
-(SDEFUN |CLIP;norm| ((|pt| |Point| (|DoubleFloat|)) ($ |DoubleFloat|))
+(SDEFUN |CLIP;norm| ((|pt| (|Point| (|DoubleFloat|))) ($ (|DoubleFloat|)))
         (SPROG
          ((|r| (|DoubleFloat|)) (|y| (|DoubleFloat|)) (|x| (|DoubleFloat|)))
          (SEQ (LETT |x| (SPADCALL |pt| (QREFELT $ 31)))
@@ -516,8 +524,8 @@
               (EXIT |r|)))) 
 
 (SDEFUN |CLIP;findPt|
-        ((|lists| |List| (|List| (|Point| (|DoubleFloat|))))
-         ($ |Union| (|Point| (|DoubleFloat|)) "failed"))
+        ((|lists| (|List| (|List| (|Point| (|DoubleFloat|)))))
+         ($ (|Union| (|Point| (|DoubleFloat|)) "failed")))
         (SPROG
          ((#1=#:G229 NIL) (#2=#:G228 NIL) (#3=#:G230 NIL) (#4=#:G232 NIL)
           (|p| NIL) (#5=#:G231 NIL) (|list| NIL))
@@ -563,15 +571,17 @@
           #6# (EXIT #3#)))) 
 
 (SDEFUN |CLIP;clipWithRanges;L4DfR;13|
-        ((|pointLists| |List| (|List| (|Point| (|DoubleFloat|))))
-         (|xMin| |DoubleFloat|) (|xMax| |DoubleFloat|) (|yMin| |DoubleFloat|)
-         (|yMax| |DoubleFloat|)
-         ($ |Record| (|:| |brans| (|List| (|List| (|Point| (|DoubleFloat|)))))
-          (|:| |xValues| (|Segment| (|DoubleFloat|)))
-          (|:| |yValues| (|Segment| (|DoubleFloat|)))))
+        ((|pointLists| (|List| (|List| (|Point| (|DoubleFloat|)))))
+         (|xMin| (|DoubleFloat|)) (|xMax| (|DoubleFloat|))
+         (|yMin| (|DoubleFloat|)) (|yMax| (|DoubleFloat|))
+         ($
+          (|Record| (|:| |brans| (|List| (|List| (|Point| (|DoubleFloat|)))))
+                    (|:| |xValues| (|Segment| (|DoubleFloat|)))
+                    (|:| |yValues| (|Segment| (|DoubleFloat|))))))
         (SPROG
-         ((#1=#:G267 NIL) (|pt| (|Union| (|Point| (|DoubleFloat|)) "failed"))
-          (#2=#:G266 NIL) (|list| NIL) (|firstPt| (|Point| (|DoubleFloat|)))
+         ((#1=#:G267 NIL) (#2=#:G266 NIL) (|list| NIL)
+          (|firstPt| (|Point| (|DoubleFloat|)))
+          (|pt| (|Union| (|Point| (|DoubleFloat|)) "failed"))
           (|lists| (|List| (|List| (|Point| (|DoubleFloat|))))) (#3=#:G265 NIL)
           (|pointList| NIL))
          (SEQ (LETT |lists| NIL)
@@ -609,7 +619,7 @@
                              (GO G191)))
                            (SEQ
                             (EXIT
-                             (SEQ (LETT |pt| NIL) (LETT #1# |list|) G190
+                             (SEQ (LETT #1# |list|) G190
                                   (COND
                                    ((OR (ATOM #1#)
                                         (PROGN (LETT |pt| (CAR #1#)) NIL))
@@ -670,35 +680,39 @@
              ('T NIL)))))) 
 
 (SDEFUN |CLIP;clipParametric;P2FR;14|
-        ((|plot| |Plot|) (|fraction| |Fraction| (|Integer|))
-         (|scale| |Fraction| (|Integer|))
-         ($ |Record| (|:| |brans| (|List| (|List| (|Point| (|DoubleFloat|)))))
-          (|:| |xValues| (|Segment| (|DoubleFloat|)))
-          (|:| |yValues| (|Segment| (|DoubleFloat|)))))
+        ((|plot| (|Plot|)) (|fraction| (|Fraction| (|Integer|)))
+         (|scale| (|Fraction| (|Integer|)))
+         ($
+          (|Record| (|:| |brans| (|List| (|List| (|Point| (|DoubleFloat|)))))
+                    (|:| |xValues| (|Segment| (|DoubleFloat|)))
+                    (|:| |yValues| (|Segment| (|DoubleFloat|))))))
         (|CLIP;iClipParametric| (SPADCALL |plot| (QREFELT $ 50)) |fraction|
          |scale| $)) 
 
 (SDEFUN |CLIP;clipParametric;PR;15|
-        ((|plot| |Plot|)
-         ($ |Record| (|:| |brans| (|List| (|List| (|Point| (|DoubleFloat|)))))
-          (|:| |xValues| (|Segment| (|DoubleFloat|)))
-          (|:| |yValues| (|Segment| (|DoubleFloat|)))))
+        ((|plot| (|Plot|))
+         ($
+          (|Record| (|:| |brans| (|List| (|List| (|Point| (|DoubleFloat|)))))
+                    (|:| |xValues| (|Segment| (|DoubleFloat|)))
+                    (|:| |yValues| (|Segment| (|DoubleFloat|))))))
         (SPADCALL |plot| (SPADCALL 1 2 (QREFELT $ 47))
                   (SPADCALL 5 1 (QREFELT $ 47)) (QREFELT $ 63))) 
 
 (SDEFUN |CLIP;clip;LR;16|
-        ((|l| |List| (|Point| (|DoubleFloat|)))
-         ($ |Record| (|:| |brans| (|List| (|List| (|Point| (|DoubleFloat|)))))
-          (|:| |xValues| (|Segment| (|DoubleFloat|)))
-          (|:| |yValues| (|Segment| (|DoubleFloat|)))))
+        ((|l| (|List| (|Point| (|DoubleFloat|))))
+         ($
+          (|Record| (|:| |brans| (|List| (|List| (|Point| (|DoubleFloat|)))))
+                    (|:| |xValues| (|Segment| (|DoubleFloat|)))
+                    (|:| |yValues| (|Segment| (|DoubleFloat|))))))
         (|CLIP;iClipParametric| (SPADCALL |l| (QREFELT $ 65))
          (SPADCALL 1 2 (QREFELT $ 47)) (SPADCALL 5 1 (QREFELT $ 47)) $)) 
 
 (SDEFUN |CLIP;clip;LR;17|
-        ((|l| |List| (|List| (|Point| (|DoubleFloat|))))
-         ($ |Record| (|:| |brans| (|List| (|List| (|Point| (|DoubleFloat|)))))
-          (|:| |xValues| (|Segment| (|DoubleFloat|)))
-          (|:| |yValues| (|Segment| (|DoubleFloat|)))))
+        ((|l| (|List| (|List| (|Point| (|DoubleFloat|)))))
+         ($
+          (|Record| (|:| |brans| (|List| (|List| (|Point| (|DoubleFloat|)))))
+                    (|:| |xValues| (|Segment| (|DoubleFloat|)))
+                    (|:| |yValues| (|Segment| (|DoubleFloat|))))))
         (|CLIP;iClipParametric| |l| (SPADCALL 1 2 (QREFELT $ 47))
          (SPADCALL 5 1 (QREFELT $ 47)) $)) 
 

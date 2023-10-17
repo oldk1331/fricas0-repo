@@ -1,9 +1,10 @@
 
 (PUT '|BITST;starts;L$;1| '|SPADreplace| 'LIST) 
 
-(SDEFUN |BITST;starts;L$;1| ((|index| |List| (|Boolean|)) ($ $)) (LIST |index|)) 
+(SDEFUN |BITST;starts;L$;1| ((|index| (|List| (|Boolean|))) ($ ($)))
+        (LIST |index|)) 
 
-(SDEFUN |BITST;starts;S$;2| ((|str| |String|) ($ $))
+(SDEFUN |BITST;starts;S$;2| ((|str| (|String|)) ($ ($)))
         (SPROG
          ((|res| (|List| (|Boolean|))) (#1=#:G113 NIL) (|c| NIL)
           (|cs| (|List| (|Character|))))
@@ -23,21 +24,21 @@
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT (LIST |res|))))) 
 
-(SDEFUN |BITST;/\\;3$;3| ((|a| $) (|b| $) ($ $))
+(SDEFUN |BITST;/\\;3$;3| ((|a| ($)) (|b| ($)) ($ ($)))
         (SPROG ((|res| (|List| (|List| (|Boolean|)))))
                (SEQ (LETT |res| (SPADCALL |a| |b| (QREFELT $ 16)))
                     (EXIT |res|)))) 
 
-(SDEFUN |BITST;\\/;3$;4| ((|a| $) (|b| $) ($ $))
+(SDEFUN |BITST;\\/;3$;4| ((|a| ($)) (|b| ($)) ($ ($)))
         (SPROG ((|res| (|List| (|List| (|Boolean|)))))
                (SEQ (LETT |res| (SPADCALL |a| |b| (QREFELT $ 16)))
                     (EXIT |res|)))) 
 
 (PUT '|BITST;hash;$Si;5| '|SPADreplace| '(XLAM (|s|) 0)) 
 
-(SDEFUN |BITST;hash;$Si;5| ((|s| $) ($ |SingleInteger|)) 0) 
+(SDEFUN |BITST;hash;$Si;5| ((|s| ($)) ($ (|SingleInteger|))) 0) 
 
-(SDEFUN |BITST;=;2$B;6| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |BITST;=;2$B;6| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G124 NIL) (#2=#:G125 NIL) (|i| NIL)
           (|len| (|NonNegativeInteger|)))
@@ -61,10 +62,10 @@
             (EXIT 'T)))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |BITST;~=;2$B;7| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |BITST;~=;2$B;7| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (NULL (SPADCALL |x| |y| (QREFELT $ 26)))) 
 
-(SDEFUN |BITST;coerce;$Of;8| ((|s| $) ($ |OutputForm|))
+(SDEFUN |BITST;coerce;$Of;8| ((|s| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|cs| (|List| (|OutputForm|))) (|c| (|OutputForm|))
           (|r| (|List| #1=(|OutputForm|))) (|ro| #1#) (#2=#:G134 NIL) (|x| NIL)

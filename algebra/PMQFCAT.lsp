@@ -1,7 +1,7 @@
 
 (SDEFUN |PMQFCAT;patternMatch;QP2Pmr;1|
-        ((|x| Q) (|p| |Pattern| S) (|l| |PatternMatchResult| S Q)
-         ($ |PatternMatchResult| S Q))
+        ((|x| (Q)) (|p| (|Pattern| S)) (|l| (|PatternMatchResult| S Q))
+         ($ (|PatternMatchResult| S Q)))
         (SPROG
          ((|ur| (|Record| (|:| |num| (|Pattern| S)) (|:| |den| (|Pattern| S))))
           (|u|

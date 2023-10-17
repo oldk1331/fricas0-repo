@@ -1,38 +1,40 @@
 
 (SDEFUN |IEP;eigenvalues;ML;1|
-        ((|m| |Matrix| F)
-         ($ |List| (|Union| F (|SparseUnivariatePolynomial| F))))
+        ((|m| (|Matrix| F))
+         ($ (|List| (|Union| F (|SparseUnivariatePolynomial| F)))))
         (SPADCALL |m| (ELT $ 9) (QREFELT $ 14))) 
 
 (SDEFUN |IEP;eigenvectors;ML;2|
-        ((|m| |Matrix| F)
-         ($ |List|
-          (|Record| (|:| |eigval| (|Union| F (|SparseUnivariatePolynomial| F)))
-                    (|:| |eigmult| (|NonNegativeInteger|))
-                    (|:| |eigvec|
-                         (|List|
-                          (|Vector| (|SparseUnivariatePolynomial| F)))))))
+        ((|m| (|Matrix| F))
+         ($
+          (|List|
+           (|Record|
+            (|:| |eigval| (|Union| F (|SparseUnivariatePolynomial| F)))
+            (|:| |eigmult| (|NonNegativeInteger|))
+            (|:| |eigvec|
+                 (|List| (|Vector| (|SparseUnivariatePolynomial| F))))))))
         (SPADCALL |m| (ELT $ 9) (QREFELT $ 18))) 
 
 (SDEFUN |IEP;generalizedEigenvectors;ML;3|
-        ((|m| |Matrix| F)
-         ($ |List|
-          (|Record| (|:| |eigval| (|Union| F (|SparseUnivariatePolynomial| F)))
-                    (|:| |geneigvec|
-                         (|List|
-                          (|Vector| (|SparseUnivariatePolynomial| F)))))))
+        ((|m| (|Matrix| F))
+         ($
+          (|List|
+           (|Record|
+            (|:| |eigval| (|Union| F (|SparseUnivariatePolynomial| F)))
+            (|:| |geneigvec|
+                 (|List| (|Vector| (|SparseUnivariatePolynomial| F))))))))
         (SPADCALL |m| (ELT $ 9) (QREFELT $ 22))) 
 
 (SDEFUN |IEP;reduction|
-        ((|u| |SparseUnivariatePolynomial| F)
-         (|p| |SparseUnivariatePolynomial| F)
-         ($ |SparseUnivariatePolynomial| F))
+        ((|u| (|SparseUnivariatePolynomial| F))
+         (|p| (|SparseUnivariatePolynomial| F))
+         ($ (|SparseUnivariatePolynomial| F)))
         (SPADCALL |u| |p| (QREFELT $ 25))) 
 
 (SDEFUN |IEP;merge|
-        ((|p| |SparseUnivariatePolynomial| F)
-         (|q| |SparseUnivariatePolynomial| F)
-         ($ |Union| (|SparseUnivariatePolynomial| F) "failed"))
+        ((|p| (|SparseUnivariatePolynomial| F))
+         (|q| (|SparseUnivariatePolynomial| F))
+         ($ (|Union| (|SparseUnivariatePolynomial| F) "failed")))
         (COND ((SPADCALL |p| |q| (QREFELT $ 27)) (CONS 0 |p|))
               ((SPADCALL |p| (|spadConstant| $ 29) (QREFELT $ 27))
                (CONS 0 |q|))
@@ -41,10 +43,10 @@
               ('T (CONS 1 "failed")))) 
 
 (SDEFUN |IEP;exactquo|
-        ((|u| |SparseUnivariatePolynomial| F)
-         (|v| |SparseUnivariatePolynomial| F)
-         (|p| |SparseUnivariatePolynomial| F)
-         ($ |Union| (|SparseUnivariatePolynomial| F) "failed"))
+        ((|u| (|SparseUnivariatePolynomial| F))
+         (|v| (|SparseUnivariatePolynomial| F))
+         (|p| (|SparseUnivariatePolynomial| F))
+         ($ (|Union| (|SparseUnivariatePolynomial| F) "failed")))
         (SPROG
          ((|val|
            (|Union|
@@ -57,15 +59,18 @@
                      ('T (CONS 0 (QCAR (QCDR |val|))))))))) 
 
 (SDEFUN |IEP;genEigForm|
-        ((|eigen| |Record|
-          (|:| |eigval| #1=(|Union| F (|SparseUnivariatePolynomial| F)))
-          (|:| |eigmult| #2=(|NonNegativeInteger|))
-          (|:| |eigvec| (|List| (|Vector| (|SparseUnivariatePolynomial| F)))))
-         (A |Matrix| F)
-         ($ |Record|
-          (|:| |eigval| (|Union| F (|SparseUnivariatePolynomial| F)))
-          (|:| |geneigvec|
-               (|List| (|Vector| (|SparseUnivariatePolynomial| F))))))
+        ((|eigen|
+          (|Record|
+           (|:| |eigval| #1=(|Union| F (|SparseUnivariatePolynomial| F)))
+           (|:| |eigmult| #2=(|NonNegativeInteger|))
+           (|:| |eigvec|
+                (|List| (|Vector| (|SparseUnivariatePolynomial| F))))))
+         (A (|Matrix| F))
+         ($
+          (|Record| (|:| |eigval| (|Union| F (|SparseUnivariatePolynomial| F)))
+                    (|:| |geneigvec|
+                         (|List|
+                          (|Vector| (|SparseUnivariatePolynomial| F)))))))
         (SPROG ((|g| (|NonNegativeInteger|)) (|k| #2#) (|alpha| #1#))
                (SEQ (LETT |alpha| (QVELT |eigen| 0))
                     (LETT |k| (QVELT |eigen| 1))
@@ -78,11 +83,11 @@
                                             (QREFELT $ 35))))))))) 
 
 (SDEFUN |IEP;characteristicPolynomial;MSup;8|
-        ((A |Matrix| F) ($ |SparseUnivariatePolynomial| F))
+        ((A (|Matrix| F)) ($ (|SparseUnivariatePolynomial| F)))
         (SPADCALL A (QREFELT $ 37))) 
 
 (SDEFUN |IEP;characteristicPolynomial;MSup;9|
-        ((A |Matrix| F) ($ |SparseUnivariatePolynomial| F))
+        ((A (|Matrix| F)) ($ (|SparseUnivariatePolynomial| F)))
         (SPROG
          ((#1=#:G143 NIL) (|j| NIL) (#2=#:G142 NIL) (|i| NIL)
           (B (|Matrix| (|SparseUnivariatePolynomial| F)))
@@ -122,10 +127,11 @@
                       (EXIT (SPADCALL B (QREFELT $ 51)))))))))) 
 
 (SDEFUN |IEP;eigenvalues;MML;10|
-        ((A |Matrix| F)
-         (|fac| |Mapping| (|Factored| (|SparseUnivariatePolynomial| F))
-          (|SparseUnivariatePolynomial| F))
-         ($ |List| (|Union| F (|SparseUnivariatePolynomial| F))))
+        ((A (|Matrix| F))
+         (|fac|
+          (|Mapping| (|Factored| (|SparseUnivariatePolynomial| F))
+                     (|SparseUnivariatePolynomial| F)))
+         ($ (|List| (|Union| F (|SparseUnivariatePolynomial| F)))))
         (SPROG
          ((#1=#:G159 NIL) (|ls| NIL) (#2=#:G158 NIL) (#3=#:G157 NIL) (|lr| NIL)
           (#4=#:G156 NIL) (|lsym| (|List| (|SparseUnivariatePolynomial| F)))
@@ -177,14 +183,15 @@
                 (QREFELT $ 62)))))) 
 
 (SDEFUN |IEP;eigenvector;UML;11|
-        ((|alpha| |Union| F (|SparseUnivariatePolynomial| F)) (A |Matrix| F)
-         ($ |List| (|Vector| (|SparseUnivariatePolynomial| F))))
+        ((|alpha| (|Union| F (|SparseUnivariatePolynomial| F)))
+         (A (|Matrix| F))
+         ($ (|List| (|Vector| (|SparseUnivariatePolynomial| F)))))
         (COND ((QEQCAR |alpha| 0) (|IEP;intRatEig| (QCDR |alpha|) A 1 $))
               ('T (|IEP;intAlgEig| (QCDR |alpha|) A 1 $)))) 
 
 (SDEFUN |IEP;intRatEig|
-        ((|alpha| F) (A |Matrix| F) (|m| |NonNegativeInteger|)
-         ($ |List| (|Vector| (|SparseUnivariatePolynomial| F))))
+        ((|alpha| (F)) (A (|Matrix| F)) (|m| (|NonNegativeInteger|))
+         ($ (|List| (|Vector| (|SparseUnivariatePolynomial| F)))))
         (SPROG
          ((|sol| (|List| (|Vector| (|SparseUnivariatePolynomial| F))))
           (#1=#:G175 NIL) (|i| NIL)
@@ -235,9 +242,9 @@
               (EXIT |sol|)))) 
 
 (SDEFUN |IEP;intAlgEig|
-        ((|alpha| |SparseUnivariatePolynomial| F) (A |Matrix| F)
-         (|m| |NonNegativeInteger|)
-         ($ |List| (|Vector| (|SparseUnivariatePolynomial| F))))
+        ((|alpha| (|SparseUnivariatePolynomial| F)) (A (|Matrix| F))
+         (|m| (|NonNegativeInteger|))
+         ($ (|List| (|Vector| (|SparseUnivariatePolynomial| F)))))
         (SPROG
          ((|sol| (|List| (|Vector| (|SparseUnivariatePolynomial| F))))
           (#1=#:G201 NIL) (|i| NIL)
@@ -406,9 +413,10 @@
               (EXIT |sol|)))) 
 
 (SDEFUN |IEP;generalizedEigenvector;UM2NniL;14|
-        ((|alpha| |Union| F (|SparseUnivariatePolynomial| F)) (A |Matrix| F)
-         (|k| |NonNegativeInteger|) (|g| |NonNegativeInteger|)
-         ($ |List| (|Vector| (|SparseUnivariatePolynomial| F))))
+        ((|alpha| (|Union| F (|SparseUnivariatePolynomial| F)))
+         (A (|Matrix| F)) (|k| (|NonNegativeInteger|))
+         (|g| (|NonNegativeInteger|))
+         ($ (|List| (|Vector| (|SparseUnivariatePolynomial| F)))))
         (SPROG ((#1=#:G206 NIL) (#2=#:G205 NIL))
                (COND
                 ((QEQCAR |alpha| 0)
@@ -425,23 +433,28 @@
                   $))))) 
 
 (SDEFUN |IEP;generalizedEigenvector;RML;15|
-        ((|ei| |Record|
-          (|:| |eigval| (|Union| F (|SparseUnivariatePolynomial| F)))
-          (|:| |eigmult| (|NonNegativeInteger|))
-          (|:| |eigvec| (|List| (|Vector| (|SparseUnivariatePolynomial| F)))))
-         (A |Matrix| F) ($ |List| (|Vector| (|SparseUnivariatePolynomial| F))))
+        ((|ei|
+          (|Record| (|:| |eigval| (|Union| F (|SparseUnivariatePolynomial| F)))
+                    (|:| |eigmult| (|NonNegativeInteger|))
+                    (|:| |eigvec|
+                         (|List|
+                          (|Vector| (|SparseUnivariatePolynomial| F))))))
+         (A (|Matrix| F))
+         ($ (|List| (|Vector| (|SparseUnivariatePolynomial| F)))))
         (SPADCALL (QVELT |ei| 0) A (QVELT |ei| 1) (LENGTH (QVELT |ei| 2))
                   (QREFELT $ 35))) 
 
 (SDEFUN |IEP;generalizedEigenvectors;MML;16|
-        ((A |Matrix| F)
-         (|fac| |Mapping| (|Factored| (|SparseUnivariatePolynomial| F))
-          (|SparseUnivariatePolynomial| F))
-         ($ |List|
-          (|Record| (|:| |eigval| (|Union| F (|SparseUnivariatePolynomial| F)))
-                    (|:| |geneigvec|
-                         (|List|
-                          (|Vector| (|SparseUnivariatePolynomial| F)))))))
+        ((A (|Matrix| F))
+         (|fac|
+          (|Mapping| (|Factored| (|SparseUnivariatePolynomial| F))
+                     (|SparseUnivariatePolynomial| F)))
+         ($
+          (|List|
+           (|Record|
+            (|:| |eigval| (|Union| F (|SparseUnivariatePolynomial| F)))
+            (|:| |geneigvec|
+                 (|List| (|Vector| (|SparseUnivariatePolynomial| F))))))))
         (SPROG
          ((#1=#:G219 NIL) (|leg| NIL) (#2=#:G218 NIL)
           (|leig|
@@ -468,15 +481,17 @@
                      (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |IEP;eigenvectors;MML;17|
-        ((A |Matrix| F)
-         (|fac| |Mapping| (|Factored| (|SparseUnivariatePolynomial| F))
-          (|SparseUnivariatePolynomial| F))
-         ($ |List|
-          (|Record| (|:| |eigval| (|Union| F (|SparseUnivariatePolynomial| F)))
-                    (|:| |eigmult| (|NonNegativeInteger|))
-                    (|:| |eigvec|
-                         (|List|
-                          (|Vector| (|SparseUnivariatePolynomial| F)))))))
+        ((A (|Matrix| F))
+         (|fac|
+          (|Mapping| (|Factored| (|SparseUnivariatePolynomial| F))
+                     (|SparseUnivariatePolynomial| F)))
+         ($
+          (|List|
+           (|Record|
+            (|:| |eigval| (|Union| F (|SparseUnivariatePolynomial| F)))
+            (|:| |eigmult| (|NonNegativeInteger|))
+            (|:| |eigvec|
+                 (|List| (|Vector| (|SparseUnivariatePolynomial| F))))))))
         (SPROG
          ((|algSol|
            #1=(|List|

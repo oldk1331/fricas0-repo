@@ -4,19 +4,19 @@
        (VECTOR |name| |elements| |attributes| ""))) 
 
 (SDEFUN |XMLEL;xmlElement;SLL$;1|
-        ((|name| |String|) (|elements| |List| $)
-         (|attributes| |List| (|XmlAttribute|)) ($ $))
+        ((|name| (|String|)) (|elements| (|List| $))
+         (|attributes| (|List| (|XmlAttribute|))) ($ ($)))
         (VECTOR |name| |elements| |attributes| "")) 
 
 (PUT '|XMLEL;xmlElement;2SL$;2| '|SPADreplace|
      '(XLAM (|name| |txt| |attributes|) (VECTOR |name| NIL |attributes| |txt|))) 
 
 (SDEFUN |XMLEL;xmlElement;2SL$;2|
-        ((|name| |String|) (|txt| |String|)
-         (|attributes| |List| (|XmlAttribute|)) ($ $))
+        ((|name| (|String|)) (|txt| (|String|))
+         (|attributes| (|List| (|XmlAttribute|))) ($ ($)))
         (VECTOR |name| NIL |attributes| |txt|)) 
 
-(SDEFUN |XMLEL;outputStructured| ((|rp| $) ($ |List| (|String|)))
+(SDEFUN |XMLEL;outputStructured| ((|rp| ($)) ($ (|List| (|String|))))
         (SPROG
          ((|res| (|List| #1=(|String|))) (#2=#:G123 NIL) (|el| NIL)
           (|atts| #1#) (#3=#:G122 NIL) (|s| NIL) (#4=#:G121 NIL))
@@ -63,7 +63,7 @@
                                    (QREFELT $ 14))
                          (QREFELT $ 21)))))))))) 
 
-(SDEFUN |XMLEL;outputUnstructured| ((|rp| $) ($ |List| (|String|)))
+(SDEFUN |XMLEL;outputUnstructured| ((|rp| ($)) ($ (|List| (|String|))))
         (SPROG
          ((|res| (|List| #1=(|String|))) (|atts| #1#) (#2=#:G128 NIL) (|s| NIL)
           (#3=#:G127 NIL))
@@ -92,14 +92,14 @@
                      (SPADCALL (LIST "</" (QVELT |rp| 0) ">") (QREFELT $ 14))
                      (QREFELT $ 21)))))) 
 
-(SDEFUN |XMLEL;coerce;$L;5| ((|rp| $) ($ |List| (|String|)))
+(SDEFUN |XMLEL;coerce;$L;5| ((|rp| ($)) ($ (|List| (|String|))))
         (COND ((EQUAL (QVELT |rp| 3) "") (|XMLEL;outputStructured| |rp| $))
               ('T (|XMLEL;outputUnstructured| |rp| $)))) 
 
-(SDEFUN |XMLEL;empty?;$B;6| ((|el| $) ($ |Boolean|))
+(SDEFUN |XMLEL;empty?;$B;6| ((|el| ($)) ($ (|Boolean|)))
         (COND ((EQUAL (QVELT |el| 0) "") 'T) ('T NIL))) 
 
-(SDEFUN |XMLEL;outputVRML;$TfV;7| ((|rp| $) (|f1| |TextFile|) ($ |Void|))
+(SDEFUN |XMLEL;outputVRML;$TfV;7| ((|rp| ($)) (|f1| (|TextFile|)) ($ (|Void|)))
         (SPROG
          ((#1=#:G153 NIL) (|el| NIL) (#2=#:G152 NIL) (|att| NIL)
           (#3=#:G150 NIL) (#4=#:G151 NIL))

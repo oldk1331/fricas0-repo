@@ -1,20 +1,20 @@
 
-(SDEFUN |FRAMALG-;traceMatrix;M;1| (($ |Matrix| R))
+(SDEFUN |FRAMALG-;traceMatrix;M;1| (($ (|Matrix| R)))
         (SPADCALL (SPADCALL (QREFELT $ 10)) (QREFELT $ 12))) 
 
-(SDEFUN |FRAMALG-;discriminant;R;2| (($ R))
+(SDEFUN |FRAMALG-;discriminant;R;2| (($ (R)))
         (SPADCALL (SPADCALL (QREFELT $ 10)) (QREFELT $ 14))) 
 
-(SDEFUN |FRAMALG-;regularRepresentation;SM;3| ((|x| S) ($ |Matrix| R))
+(SDEFUN |FRAMALG-;regularRepresentation;SM;3| ((|x| (S)) ($ (|Matrix| R)))
         (SPADCALL |x| (SPADCALL (QREFELT $ 10)) (QREFELT $ 16))) 
 
-(SDEFUN |FRAMALG-;coordinates;SV;4| ((|x| S) ($ |Vector| R))
+(SDEFUN |FRAMALG-;coordinates;SV;4| ((|x| (S)) ($ (|Vector| R)))
         (SPADCALL |x| (SPADCALL (QREFELT $ 10)) (QREFELT $ 19))) 
 
-(SDEFUN |FRAMALG-;represents;VS;5| ((|x| |Vector| R) ($ S))
+(SDEFUN |FRAMALG-;represents;VS;5| ((|x| (|Vector| R)) ($ (S)))
         (SPADCALL |x| (SPADCALL (QREFELT $ 10)) (QREFELT $ 21))) 
 
-(SDEFUN |FRAMALG-;regularRepresentation;SM;6| ((|x| S) ($ |Matrix| R))
+(SDEFUN |FRAMALG-;regularRepresentation;SM;6| ((|x| (S)) ($ (|Matrix| R)))
         (SPROG
          ((#1=#:G118 NIL) (|i| NIL) (|j| NIL) (|b| (|Vector| S))
           (|m| (|Matrix| R)) (|n| (|NonNegativeInteger|)))
@@ -37,7 +37,7 @@
                (EXIT NIL))
           (EXIT (SPADCALL |m| (QREFELT $ 32)))))) 
 
-(SDEFUN |FRAMALG-;characteristicPolynomial;SUP;7| ((|x| S) ($ UP))
+(SDEFUN |FRAMALG-;characteristicPolynomial;SUP;7| ((|x| (S)) ($ (UP)))
         (SPROG
          ((|mat1| (|Matrix| UP)) (|mat0| (|Matrix| UP)) (|mat00| (|Matrix| R)))
          (SEQ (LETT |mat00| (SPADCALL |x| (QREFELT $ 33)))
@@ -50,7 +50,7 @@
                (SPADCALL (SPADCALL |mat1| |mat0| (QREFELT $ 44))
                          (QREFELT $ 45)))))) 
 
-(SDEFUN |FRAMALG-;minimalPolynomial;SUP;8| ((|x| S) ($ UP))
+(SDEFUN |FRAMALG-;minimalPolynomial;SUP;8| ((|x| (S)) ($ (UP)))
         (SPROG
          ((#1=#:G124 NIL) (#2=#:G123 (UP)) (#3=#:G125 (UP)) (#4=#:G129 NIL)
           (|i| NIL) (|v| (|Vector| R)) (|y| (S)) (#5=#:G128 NIL)

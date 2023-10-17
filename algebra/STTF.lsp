@@ -1,7 +1,7 @@
 
 (SDEFUN |STTF;expre|
-        ((|r| |Coef|) (|e| |Stream| |Coef|) (|dx| |Stream| |Coef|)
-         ($ |Stream| |Coef|))
+        ((|r| (|Coef|)) (|e| (|Stream| |Coef|)) (|dx| (|Stream| |Coef|))
+         ($ (|Stream| |Coef|)))
         (SPROG NIL
                (SPADCALL |r| (CONS #'|STTF;expre!0| (VECTOR $ |dx| |e|))
                          (QREFELT $ 20)))) 
@@ -13,7 +13,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |e| |dx| (QREFELT $ 18)))))) 
 
-(SDEFUN |STTF;exp;2S;2| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STTF;exp;2S;2| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG ((|coef| (|Coef|)))
                (SEQ
                 (COND
@@ -52,7 +52,7 @@
             (|STTF;expre| (|spadConstant| $ 23) |y|
              (SPADCALL |z| (QREFELT $ 28)) $))))) 
 
-(SDEFUN |STTF;log;2S;3| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STTF;log;2S;3| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG ((|coef| (|Coef|)))
                (SEQ
                 (COND
@@ -94,13 +94,15 @@
             (SPADCALL (SPADCALL |z| (QREFELT $ 28)) |z| (QREFELT $ 34)))))) 
 
 (SDEFUN |STTF;^;3S;4|
-        ((|z1| |Stream| |Coef|) (|z2| |Stream| |Coef|) ($ |Stream| |Coef|))
+        ((|z1| (|Stream| |Coef|)) (|z2| (|Stream| |Coef|))
+         ($ (|Stream| |Coef|)))
         (SPADCALL (SPADCALL |z2| (SPADCALL |z1| (QREFELT $ 36)) (QREFELT $ 18))
                   (QREFELT $ 33))) 
 
 (SDEFUN |STTF;sincosre|
-        ((|rs| |Coef|) (|rc| |Coef|) (|sc| |List| (|Stream| |Coef|))
-         (|dx| |Stream| |Coef|) (|sign| |Coef|) ($ |List| (|Stream| |Coef|)))
+        ((|rs| (|Coef|)) (|rc| (|Coef|)) (|sc| (|List| (|Stream| |Coef|)))
+         (|dx| (|Stream| |Coef|)) (|sign| (|Coef|))
+         ($ (|List| (|Stream| |Coef|))))
         (SPROG NIL
                (LIST
                 (SPADCALL |rs| (CONS #'|STTF;sincosre!0| (VECTOR |dx| $ |sc|))
@@ -132,9 +134,10 @@
             (SPADCALL (SPADCALL |sc| (QREFELT $ 39)) |dx| (QREFELT $ 18)))))) 
 
 (SDEFUN |STTF;sincos;SR;6|
-        ((|z| |Stream| |Coef|)
-         ($ |Record| (|:| |sin| (|Stream| |Coef|))
-          (|:| |cos| (|Stream| |Coef|))))
+        ((|z| (|Stream| |Coef|))
+         ($
+          (|Record| (|:| |sin| (|Stream| |Coef|))
+                    (|:| |cos| (|Stream| |Coef|)))))
         (SPROG ((|l| (|List| (|Stream| |Coef|))) (|coef| (|Coef|)))
                (SEQ
                 (COND
@@ -185,15 +188,15 @@
              (SPADCALL |z| (QREFELT $ 28))
              (SPADCALL (|spadConstant| $ 23) (QREFELT $ 42)) $))))) 
 
-(SDEFUN |STTF;sin;2S;7| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STTF;sin;2S;7| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (QCAR (SPADCALL |z| (QREFELT $ 50)))) 
 
-(SDEFUN |STTF;cos;2S;8| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STTF;cos;2S;8| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (QCDR (SPADCALL |z| (QREFELT $ 50)))) 
 
 (SDEFUN |STTF;tanre|
-        ((|r| |Coef|) (|t| |Stream| |Coef|) (|dx| |Stream| |Coef|)
-         (|sign| |Coef|) ($ |Stream| |Coef|))
+        ((|r| (|Coef|)) (|t| (|Stream| |Coef|)) (|dx| (|Stream| |Coef|))
+         (|sign| (|Coef|)) ($ (|Stream| |Coef|)))
         (SPROG NIL
                (SPADCALL |r| (CONS #'|STTF;tanre!0| (VECTOR |dx| |t| |sign| $))
                          (QREFELT $ 20)))) 
@@ -213,7 +216,7 @@
                        (QREFELT $ 55))
              |dx| (QREFELT $ 18)))))) 
 
-(SDEFUN |STTF;tan;2S;10| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STTF;tan;2S;10| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG ((|coef| (|Coef|)))
                (SEQ
                 (COND
@@ -253,8 +256,8 @@
              (SPADCALL |z| (QREFELT $ 28)) (|spadConstant| $ 23) $))))) 
 
 (SDEFUN |STTF;cotre|
-        ((|r| |Coef|) (|t| |Stream| |Coef|) (|dx| |Stream| |Coef|)
-         ($ |Stream| |Coef|))
+        ((|r| (|Coef|)) (|t| (|Stream| |Coef|)) (|dx| (|Stream| |Coef|))
+         ($ (|Stream| |Coef|)))
         (SPROG NIL
                (SPADCALL |r| (CONS #'|STTF;cotre!0| (VECTOR |dx| |t| $))
                          (QREFELT $ 20)))) 
@@ -273,7 +276,7 @@
               |dx| (QREFELT $ 18))
              (QREFELT $ 58)))))) 
 
-(SDEFUN |STTF;cot;2S;12| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STTF;cot;2S;12| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG ((|coef| (|Coef|)))
                (SEQ
                 (COND
@@ -302,7 +305,7 @@
             (|STTF;cotre| (SPADCALL |coef| (QREFELT $ 59)) |y|
              (SPADCALL |z| (QREFELT $ 28)) $))))) 
 
-(SDEFUN |STTF;sec;2S;13| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STTF;sec;2S;13| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG ((#1=#:G203 NIL) (|cosz| (|Stream| |Coef|)))
                (SEQ
                 (COND
@@ -336,7 +339,7 @@
                                             #1#)))))))
                  (#3# (|error| (STRCONC "sec: " (QREFELT $ 8)))))))) 
 
-(SDEFUN |STTF;csc;2S;14| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STTF;csc;2S;14| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG ((#1=#:G210 NIL) (|sinz| (|Stream| |Coef|)))
                (SEQ
                 (COND
@@ -360,7 +363,7 @@
                  (#2# (|error| (STRCONC "csc: " (QREFELT $ 8)))))))) 
 
 (SDEFUN |STTF;orderOrFailed|
-        ((|x| |Stream| |Coef|) ($ |Union| (|Integer|) "failed"))
+        ((|x| (|Stream| |Coef|)) ($ (|Union| (|Integer|) "failed")))
         (SPROG ((#1=#:G224 NIL) (|n| NIL))
                (SEQ
                 (EXIT
@@ -381,7 +384,7 @@
                   (EXIT (CONS 1 "failed"))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |STTF;asin;2S;16| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STTF;asin;2S;16| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG
          ((|quot| (|Union| (|Stream| |Coef|) "failed"))
           (|squirt| (|Stream| |Coef|)) (#1=#:G244 NIL) (|order| (|Integer|))
@@ -469,7 +472,7 @@
                     (#2# (|error| (STRCONC "asin: " (QREFELT $ 8))))))))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |STTF;acos;2S;17| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STTF;acos;2S;17| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG
          ((|quot| (|Union| (|Stream| |Coef|) "failed"))
           (|squirt| (|Stream| |Coef|)) (#1=#:G263 NIL) (|order| (|Integer|))
@@ -547,7 +550,7 @@
             (#2# (|error| (STRCONC "acos: " (QREFELT $ 8))))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |STTF;atan;2S;18| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STTF;atan;2S;18| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG
          ((|y| (|Union| (|Stream| |Coef|) #1="failed")) (#2=#:G265 NIL)
           (|coef| (|Coef|)))
@@ -599,7 +602,7 @@
                                   (QREFELT $ 74)))))))
                    (#3# (|error| (STRCONC "atan: " (QREFELT $ 8)))))))))))) 
 
-(SDEFUN |STTF;acot;2S;19| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STTF;acot;2S;19| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG ((|y| (|Union| (|Stream| |Coef|) "failed")))
                (SEQ
                 (COND
@@ -631,7 +634,7 @@
                        (QREFELT $ 74)))))))
                  (#1# (|error| (STRCONC "acot: " (QREFELT $ 8)))))))) 
 
-(SDEFUN |STTF;asec;2S;20| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STTF;asec;2S;20| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG
          ((|quot2| #1=(|Union| (|Stream| |Coef|) "failed")) (|quot| #1#)
           (|squirt| (|Stream| |Coef|)) (#2=#:G298 NIL) (|order| (|Integer|))
@@ -715,7 +718,7 @@
             (#4# (|error| (STRCONC "asec: " (QREFELT $ 8))))))
           #3# (EXIT #2#)))) 
 
-(SDEFUN |STTF;acsc;2S;21| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STTF;acsc;2S;21| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG
          ((|quot2| #1=(|Union| (|Stream| |Coef|) "failed")) (|quot| #1#)
           (|squirt| (|Stream| |Coef|)) (#2=#:G320 NIL) (|order| (|Integer|))
@@ -804,9 +807,10 @@
           #3# (EXIT #2#)))) 
 
 (SDEFUN |STTF;sinhcosh;SR;22|
-        ((|z| |Stream| |Coef|)
-         ($ |Record| (|:| |sinh| (|Stream| |Coef|))
-          (|:| |cosh| (|Stream| |Coef|))))
+        ((|z| (|Stream| |Coef|))
+         ($
+          (|Record| (|:| |sinh| (|Stream| |Coef|))
+                    (|:| |cosh| (|Stream| |Coef|)))))
         (SPROG ((|l| (|List| (|Stream| |Coef|))) (|coef| (|Coef|)))
                (SEQ
                 (COND
@@ -857,13 +861,13 @@
             (|STTF;sincosre| (|spadConstant| $ 26) (|spadConstant| $ 23) |y|
              (SPADCALL |z| (QREFELT $ 28)) (|spadConstant| $ 23) $))))) 
 
-(SDEFUN |STTF;sinh;2S;23| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STTF;sinh;2S;23| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (QCAR (SPADCALL |z| (QREFELT $ 91)))) 
 
-(SDEFUN |STTF;cosh;2S;24| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STTF;cosh;2S;24| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (QCDR (SPADCALL |z| (QREFELT $ 91)))) 
 
-(SDEFUN |STTF;tanh;2S;25| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STTF;tanh;2S;25| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG ((|coef| (|Coef|)))
                (SEQ
                 (COND
@@ -905,7 +909,7 @@
              (SPADCALL |z| (QREFELT $ 28))
              (SPADCALL (|spadConstant| $ 23) (QREFELT $ 42)) $))))) 
 
-(SDEFUN |STTF;coth;2S;26| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STTF;coth;2S;26| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG ((#1=#:G339 NIL) (|tanhz| (|Stream| |Coef|)))
                (SEQ (LETT |tanhz| (SPADCALL |z| (QREFELT $ 95)))
                     (EXIT
@@ -924,7 +928,7 @@
                                                   "failed")
                                          #1#)))))))) 
 
-(SDEFUN |STTF;sech;2S;27| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STTF;sech;2S;27| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG ((#1=#:G347 NIL) (|coshz| (|Stream| |Coef|)))
                (SEQ (LETT |coshz| (SPADCALL |z| (QREFELT $ 93)))
                     (COND
@@ -940,7 +944,7 @@
                                                 "failed")
                                        #1#)))))) 
 
-(SDEFUN |STTF;csch;2S;28| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STTF;csch;2S;28| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG ((#1=#:G354 NIL) (|sinhz| (|Stream| |Coef|)))
                (SEQ (LETT |sinhz| (SPADCALL |z| (QREFELT $ 92)))
                     (COND
@@ -956,7 +960,7 @@
                                                 "failed")
                                        #1#)))))) 
 
-(SDEFUN |STTF;asinh;2S;29| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STTF;asinh;2S;29| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG
          ((#1=#:G367 NIL) (|order| (|Integer|))
           (|ord| (|Union| (|Integer|) "failed")) (|x| (|Stream| |Coef|))
@@ -1011,7 +1015,7 @@
                     (#2# (|error| (STRCONC "asinh: " (QREFELT $ 8))))))))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |STTF;acosh;2S;30| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STTF;acosh;2S;30| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG
          ((#1=#:G381 NIL) (|order| (|Integer|))
           (|ord| (|Union| (|Integer|) "failed")) (|x| (|Stream| |Coef|))
@@ -1075,7 +1079,7 @@
             (#2# (|error| (STRCONC "acosh: " (QREFELT $ 8))))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |STTF;atanh;2S;31| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STTF;atanh;2S;31| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG ((|coef| (|Coef|)))
                (SEQ
                 (COND
@@ -1133,7 +1137,7 @@
                          (#1#
                           (|error| (STRCONC "atanh: " (QREFELT $ 8)))))))))))) 
 
-(SDEFUN |STTF;acoth;2S;32| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STTF;acoth;2S;32| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (COND
          ((SPADCALL |z| (QREFELT $ 22))
           (COND
@@ -1165,7 +1169,7 @@
              (QREFELT $ 41)))))
          (#1# (|error| (STRCONC "acoth: " (QREFELT $ 8)))))) 
 
-(SDEFUN |STTF;asech;2S;33| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STTF;asech;2S;33| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG
          ((#1=#:G406 NIL) (|order| (|Integer|))
           (|ord| (|Union| (|Integer|) "failed")) (|x| (|Stream| |Coef|))
@@ -1232,7 +1236,7 @@
             (#3# (|error| (STRCONC "asech: " (QREFELT $ 8))))))
           #2# (EXIT #1#)))) 
 
-(SDEFUN |STTF;acsch;2S;34| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STTF;acsch;2S;34| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG
          ((#1=#:G416 NIL) (|order| (|Integer|))
           (|ord| (|Union| (|Integer|) "failed")) (|x| (|Stream| |Coef|)))

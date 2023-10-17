@@ -1,6 +1,6 @@
 
 (SDEFUN |XEXPPKG;log;XPOLYNniXPOLY;1|
-        ((|p| XPOLY) (|n| |NonNegativeInteger|) ($ XPOLY))
+        ((|p| (XPOLY)) (|n| (|NonNegativeInteger|)) ($ (XPOLY)))
         (SPROG
          ((|k| (|Integer|)) (|s| (XPOLY)) (|k2| (R))
           (|k1| (|Fraction| (|Integer|))) (#1=#:G110 NIL) (|i| NIL)
@@ -29,7 +29,7 @@
               (EXIT |s|)))) 
 
 (SDEFUN |XEXPPKG;exp;XPOLYNniXPOLY;2|
-        ((|p| XPOLY) (|n| |NonNegativeInteger|) ($ XPOLY))
+        ((|p| (XPOLY)) (|n| (|NonNegativeInteger|)) ($ (XPOLY)))
         (SPROG
          ((|k| (|Integer|)) (|s| (XPOLY)) (|k2| (R))
           (|k1| (|Fraction| (|Integer|))) (#1=#:G117 NIL) (|i| NIL))
@@ -66,7 +66,7 @@
                    (EXIT |s|))))))))) 
 
 (SDEFUN |XEXPPKG;Hausdorff;2XPOLYNniXPOLY;3|
-        ((|p| XPOLY) (|q| XPOLY) (|n| |NonNegativeInteger|) ($ XPOLY))
+        ((|p| (XPOLY)) (|q| (XPOLY)) (|n| (|NonNegativeInteger|)) ($ (XPOLY)))
         (SPROG ((|q1| (XPOLY)) (|p1| (XPOLY)))
                (SEQ (LETT |p1| (SPADCALL |p| |n| (QREFELT $ 28)))
                     (LETT |q1| (SPADCALL |q| |n| (QREFELT $ 28)))

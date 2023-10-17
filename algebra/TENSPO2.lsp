@@ -1,6 +1,7 @@
 
 (SDEFUN |TENSPO2;linearExtend;MTpM2;1|
-        ((|f| |Mapping| M2 (|List| B)) (|x| |TensorPower| |n| R B M1) ($ M2))
+        ((|f| (|Mapping| M2 (|List| B))) (|x| (|TensorPower| |n| R B M1))
+         ($ (M2)))
         (SPROG ((|res| (M2)) (#1=#:G109 NIL) (|t| NIL))
                (SEQ (LETT |res| (|spadConstant| $ 11))
                     (SEQ (LETT |t| NIL)

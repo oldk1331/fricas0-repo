@@ -2,7 +2,7 @@
 (PUT '|MKRECORD;makeRecord;ST$R;1| '|SPADreplace| 'CONS) 
 
 (SDEFUN |MKRECORD;makeRecord;ST$R;1|
-        ((|s| S) (|t| T$) ($ |Record| (|:| |part1| S) (|:| |part2| T$)))
+        ((|s| (S)) (|t| (T$)) ($ (|Record| (|:| |part1| S) (|:| |part2| T$))))
         (CONS |s| |t|)) 
 
 (DECLAIM (NOTINLINE |MakeRecord;|)) 

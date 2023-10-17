@@ -1,6 +1,7 @@
 
 (SDEFUN |DROPT1;option;LSU;1|
-        ((|l| |List| (|DrawOption|)) (|s| |Symbol|) ($ |Union| S "failed"))
+        ((|l| (|List| (|DrawOption|))) (|s| (|Symbol|))
+         ($ (|Union| S "failed")))
         (SPROG ((|u| (|Union| (|Any|) "failed")))
                (SEQ (LETT |u| (SPADCALL |l| |s| (QREFELT $ 11)))
                     (EXIT

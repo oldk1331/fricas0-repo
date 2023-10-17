@@ -1,5 +1,5 @@
 
-(SDEFUN |ODEINT;diff;SM;1| ((|x| |Symbol|) ($ |Mapping| F F))
+(SDEFUN |ODEINT;diff;SM;1| ((|x| (|Symbol|)) ($ (|Mapping| F F)))
         (SPROG NIL (CONS #'|ODEINT;diff;SM;1!0| (VECTOR $ |x|)))) 
 
 (SDEFUN |ODEINT;diff;SM;1!0| ((|f1| NIL) ($$ NIL))
@@ -8,7 +8,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |f1| |x| (QREFELT $ 9)))))) 
 
-(SDEFUN |ODEINT;int;FSF;2| ((|f| F) (|x| |Symbol|) ($ F))
+(SDEFUN |ODEINT;int;FSF;2| ((|f| (F)) (|x| (|Symbol|)) ($ (F)))
         (SPROG ((|u| (|Union| F (|List| F))))
                (SEQ (LETT |u| (SPADCALL |f| |x| (QREFELT $ 14)))
                     (EXIT
@@ -16,9 +16,10 @@
                            ('T (|SPADfirst| (QCDR |u|)))))))) 
 
 (SDEFUN |ODEINT;mkprod|
-        ((|l| |List|
-          (|Record| (|:| |coef| (|Fraction| (|Integer|))) (|:| |logand| F)))
-         ($ F))
+        ((|l|
+          (|List|
+           (|Record| (|:| |coef| (|Fraction| (|Integer|))) (|:| |logand| F))))
+         ($ (F)))
         (SPROG
          ((#1=#:G123 NIL) (#2=#:G122 (F)) (#3=#:G124 (F)) (#4=#:G129 NIL)
           (|r| NIL)
@@ -75,7 +76,7 @@
             (SPADCALL (SPADCALL (QCAR |z1|) (QREFELT $ 19)) |d|
                       (QREFELT $ 21)))))) 
 
-(SDEFUN |ODEINT;expint;FSF;4| ((|f| F) (|x| |Symbol|) ($ F))
+(SDEFUN |ODEINT;expint;FSF;4| ((|f| (F)) (|x| (|Symbol|)) ($ (F)))
         (SPROG
          ((|exponent| (|SparseMultivariatePolynomial| R (|Kernel| F)))
           (|lrec|
@@ -140,7 +141,7 @@
                                       (QREFELT $ 28)))))))))) 
 
 (SDEFUN |ODEINT;isQ|
-        ((|l| |List| F) ($ |Union| (|Fraction| (|Integer|)) "failed"))
+        ((|l| (|List| F)) ($ (|Union| (|Fraction| (|Integer|)) "failed")))
         (SPROG
          ((|prod| (|Fraction| (|Integer|))) (#1=#:G154 NIL)
           (|u| (|Union| (|Fraction| (|Integer|)) "failed")) (#2=#:G155 NIL)
@@ -168,10 +169,11 @@
           #3# (EXIT #1#)))) 
 
 (SDEFUN |ODEINT;isQlog|
-        ((|f| F)
-         ($ |Union|
-          (|Record| (|:| |coef| (|Fraction| (|Integer|))) (|:| |logand| F))
-          "failed"))
+        ((|f| (F))
+         ($
+          (|Union|
+           (|Record| (|:| |coef| (|Fraction| (|Integer|))) (|:| |logand| F))
+           "failed")))
         (SPROG
          ((#1=#:G177 NIL) (#2=#:G176 NIL)
           (|u| (|Union| (|Fraction| (|Integer|)) "failed")) (|l| (|List| F))

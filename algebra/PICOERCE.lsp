@@ -1,5 +1,5 @@
 
-(SDEFUN |PICOERCE;coerce;PE;1| ((|x| |Pi|) ($ |Expression| R))
+(SDEFUN |PICOERCE;coerce;PE;1| ((|x| (|Pi|)) ($ (|Expression| R)))
         (SPROG ((|f| (|Fraction| (|SparseUnivariatePolynomial| (|Integer|)))))
                (SEQ (LETT |f| (SPADCALL |x| (QREFELT $ 9)))
                     (EXIT
@@ -8,7 +8,7 @@
                                (QREFELT $ 14)))))) 
 
 (SDEFUN |PICOERCE;p2e|
-        ((|p| |SparseUnivariatePolynomial| (|Integer|)) ($ |Expression| R))
+        ((|p| (|SparseUnivariatePolynomial| (|Integer|))) ($ (|Expression| R)))
         (SPADCALL (SPADCALL (ELT $ 17) |p| (QREFELT $ 21))
                   (SPADCALL (QREFELT $ 22)) (QREFELT $ 23))) 
 

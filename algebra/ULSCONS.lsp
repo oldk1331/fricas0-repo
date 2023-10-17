@@ -1,41 +1,42 @@
 
 (PUT '|ULSCONS;getExpon| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |ULSCONS;getExpon| ((|x| $) ($ |Integer|)) (QCAR |x|)) 
+(SDEFUN |ULSCONS;getExpon| ((|x| ($)) ($ (|Integer|))) (QCAR |x|)) 
 
 (PUT '|ULSCONS;getUTS| '|SPADreplace| 'QCDR) 
 
-(SDEFUN |ULSCONS;getUTS| ((|x| $) ($ UTS)) (QCDR |x|)) 
+(SDEFUN |ULSCONS;getUTS| ((|x| ($)) ($ (UTS))) (QCDR |x|)) 
 
 (PUT '|ULSCONS;laurent;IUTS$;3| '|SPADreplace| 'CONS) 
 
-(SDEFUN |ULSCONS;laurent;IUTS$;3| ((|n| |Integer|) (|psr| UTS) ($ $))
+(SDEFUN |ULSCONS;laurent;IUTS$;3| ((|n| (|Integer|)) (|psr| (UTS)) ($ ($)))
         (CONS |n| |psr|)) 
 
-(SDEFUN |ULSCONS;taylorRep;$UTS;4| ((|x| $) ($ UTS)) (|ULSCONS;getUTS| |x| $)) 
+(SDEFUN |ULSCONS;taylorRep;$UTS;4| ((|x| ($)) ($ (UTS)))
+        (|ULSCONS;getUTS| |x| $)) 
 
-(SDEFUN |ULSCONS;degree;$I;5| ((|x| $) ($ |Integer|))
+(SDEFUN |ULSCONS;degree;$I;5| ((|x| ($)) ($ (|Integer|)))
         (|ULSCONS;getExpon| |x| $)) 
 
-(SDEFUN |ULSCONS;Zero;$;6| (($ $))
+(SDEFUN |ULSCONS;Zero;$;6| (($ ($)))
         (SPADCALL 0 (|spadConstant| $ 15) (QREFELT $ 10))) 
 
-(SDEFUN |ULSCONS;One;$;7| (($ $))
+(SDEFUN |ULSCONS;One;$;7| (($ ($)))
         (SPADCALL 0 (|spadConstant| $ 17) (QREFELT $ 10))) 
 
-(SDEFUN |ULSCONS;monomial;CoefI$;8| ((|s| |Coef|) (|e| |Integer|) ($ $))
+(SDEFUN |ULSCONS;monomial;CoefI$;8| ((|s| (|Coef|)) (|e| (|Integer|)) ($ ($)))
         (SPADCALL |e| (SPADCALL |s| (QREFELT $ 18)) (QREFELT $ 10))) 
 
-(SDEFUN |ULSCONS;coerce;UTS$;9| ((|uts| UTS) ($ $))
+(SDEFUN |ULSCONS;coerce;UTS$;9| ((|uts| (UTS)) ($ ($)))
         (SPADCALL 0 |uts| (QREFELT $ 10))) 
 
-(SDEFUN |ULSCONS;coerce;Coef$;10| ((|r| |Coef|) ($ $))
+(SDEFUN |ULSCONS;coerce;Coef$;10| ((|r| (|Coef|)) ($ ($)))
         (SPADCALL (SPADCALL |r| (QREFELT $ 18)) (QREFELT $ 20))) 
 
-(SDEFUN |ULSCONS;coerce;I$;11| ((|i| |Integer|) ($ $))
+(SDEFUN |ULSCONS;coerce;I$;11| ((|i| (|Integer|)) ($ ($)))
         (SPADCALL (SPADCALL |i| (QREFELT $ 22)) (QREFELT $ 21))) 
 
-(SDEFUN |ULSCONS;taylorIfCan;$U;12| ((|uls| $) ($ |Union| UTS "failed"))
+(SDEFUN |ULSCONS;taylorIfCan;$U;12| ((|uls| ($)) ($ (|Union| UTS "failed")))
         (SPROG ((#1=#:G166 NIL) (|n| (|Integer|)))
                (SEQ (LETT |n| (|ULSCONS;getExpon| |uls| $))
                     (EXIT
@@ -61,7 +62,7 @@
                                                  (QREFELT $ 27))
                                        (QREFELT $ 28))))))))) 
 
-(SDEFUN |ULSCONS;taylor;$UTS;13| ((|uls| $) ($ UTS))
+(SDEFUN |ULSCONS;taylor;$UTS;13| ((|uls| ($)) ($ (UTS)))
         (SPROG ((|uts| (|Union| UTS "failed")))
                (SEQ (LETT |uts| (SPADCALL |uls| (QREFELT $ 30)))
                     (EXIT
@@ -73,26 +74,27 @@
 (PUT '|ULSCONS;termExpon| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |ULSCONS;termExpon|
-        ((|term| |Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))
-         ($ |Integer|))
+        ((|term| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))
+         ($ (|Integer|)))
         (QCAR |term|)) 
 
 (PUT '|ULSCONS;termCoef| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |ULSCONS;termCoef|
-        ((|term| |Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)) ($ |Coef|))
+        ((|term| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))
+         ($ (|Coef|)))
         (QCDR |term|)) 
 
 (PUT '|ULSCONS;rec| '|SPADreplace| 'CONS) 
 
 (SDEFUN |ULSCONS;rec|
-        ((|exponent| |Integer|) (|coef| |Coef|)
-         ($ |Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))
+        ((|exponent| (|Integer|)) (|coef| (|Coef|))
+         ($ (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
         (CONS |exponent| |coef|)) 
 
 (SDEFUN |ULSCONS;recs|
-        ((|st| |Stream| |Coef|) (|n| |Integer|)
-         ($ |Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
+        ((|st| (|Stream| |Coef|)) (|n| (|Integer|))
+         ($ (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))))
         (SPROG NIL
                (SPADCALL (CONS #'|ULSCONS;recs!0| (VECTOR |n| $ |st|))
                          (QREFELT $ 45)))) 
@@ -120,14 +122,14 @@
                                (QREFELT $ 43))))))))) 
 
 (SDEFUN |ULSCONS;terms;$S;18|
-        ((|x| $)
-         ($ |Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
+        ((|x| ($))
+         ($ (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))))
         (|ULSCONS;recs| (SPADCALL (|ULSCONS;getUTS| |x| $) (QREFELT $ 46))
          (|ULSCONS;getExpon| |x| $) $)) 
 
 (SDEFUN |ULSCONS;recsToCoefs|
-        ((|st| |Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))
-         (|n| |Integer|) ($ |Stream| |Coef|))
+        ((|st| (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
+         (|n| (|Integer|)) ($ (|Stream| |Coef|)))
         (SPROG NIL
                (SEQ
                 (SPADCALL (CONS #'|ULSCONS;recsToCoefs!0| (VECTOR |n| $ |st|))
@@ -166,8 +168,8 @@
                                         (QREFELT $ 53)))))))))))))) 
 
 (SDEFUN |ULSCONS;series;S$;20|
-        ((|st| |Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))
-         ($ $))
+        ((|st| (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
+         ($ ($)))
         (SPROG ((|ex| (|Integer|)))
                (SEQ
                 (COND ((SPADCALL |st| (QREFELT $ 48)) (|spadConstant| $ 13))
@@ -183,7 +185,7 @@
                                     (QREFELT $ 55))
                                    (QREFELT $ 10))))))))) 
 
-(SDEFUN |ULSCONS;removeZeroes;2$;21| ((|x| $) ($ $))
+(SDEFUN |ULSCONS;removeZeroes;2$;21| ((|x| ($)) ($ ($)))
         (SPROG ((|xUTS| (UTS)))
                (COND
                 ((SPADCALL
@@ -199,7 +201,7 @@
                   (QREFELT $ 60)))
                 ('T |x|)))) 
 
-(SDEFUN |ULSCONS;removeZeroes;I2$;22| ((|n| |Integer|) (|x| $) ($ $))
+(SDEFUN |ULSCONS;removeZeroes;I2$;22| ((|n| (|Integer|)) (|x| ($)) ($ ($)))
         (SPROG ((|xUTS| (UTS)))
                (COND ((<= |n| 0) |x|)
                      ((SPADCALL
@@ -216,7 +218,7 @@
                                 (QREFELT $ 24)))
                      ('T |x|)))) 
 
-(SDEFUN |ULSCONS;=;2$B;23| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |ULSCONS;=;2$B;23| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPROG ((#1=#:G234 NIL) (#2=#:G225 NIL) (|expDiff| (|Integer|)))
                (SEQ
                 (COND ((EQ |x| |y|) 'T)
@@ -256,7 +258,7 @@
                                       (QREFELT $ 28))
                             (|ULSCONS;getUTS| |x| $) (QREFELT $ 61))))))))))) 
 
-(SDEFUN |ULSCONS;pole?;$B;24| ((|x| $) ($ |Boolean|))
+(SDEFUN |ULSCONS;pole?;$B;24| ((|x| ($)) ($ (|Boolean|)))
         (SPROG ((|n| (|Integer|)))
                (SEQ (LETT |n| (SPADCALL |x| (QREFELT $ 12)))
                     (EXIT
@@ -266,7 +268,7 @@
                              (LETT |x| (SPADCALL (- |n|) |x| (QREFELT $ 24)))
                              (EXIT (< (SPADCALL |x| (QREFELT $ 12)) 0))))))))) 
 
-(SDEFUN |ULSCONS;+;3$;25| ((|x| $) (|y| $) ($ $))
+(SDEFUN |ULSCONS;+;3$;25| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG ((#1=#:G251 NIL) (#2=#:G247 NIL) (|n| (|Integer|)))
                (SEQ
                 (LETT |n|
@@ -305,7 +307,7 @@
                                        (QREFELT $ 64))
                              (QREFELT $ 10)))))))) 
 
-(SDEFUN |ULSCONS;-;3$;26| ((|x| $) (|y| $) ($ $))
+(SDEFUN |ULSCONS;-;3$;26| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG ((#1=#:G262 NIL) (#2=#:G258 NIL) (|n| (|Integer|)))
                (SEQ
                 (LETT |n|
@@ -343,20 +345,20 @@
                                        (QREFELT $ 66))
                              (QREFELT $ 10)))))))) 
 
-(SDEFUN |ULSCONS;*;3$;27| ((|x| $) (|y| $) ($ $))
+(SDEFUN |ULSCONS;*;3$;27| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL (+ (|ULSCONS;getExpon| |x| $) (|ULSCONS;getExpon| |y| $))
                   (SPADCALL (|ULSCONS;getUTS| |x| $) (|ULSCONS;getUTS| |y| $)
                             (QREFELT $ 28))
                   (QREFELT $ 10))) 
 
-(SDEFUN |ULSCONS;^;$Nni$;28| ((|x| $) (|n| |NonNegativeInteger|) ($ $))
+(SDEFUN |ULSCONS;^;$Nni$;28| ((|x| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (COND ((ZEROP |n|) (|spadConstant| $ 16))
               ('T
                (SPADCALL (* |n| (|ULSCONS;getExpon| |x| $))
                          (SPADCALL (|ULSCONS;getUTS| |x| $) |n| (QREFELT $ 69))
                          (QREFELT $ 10))))) 
 
-(SDEFUN |ULSCONS;recip;$U;29| ((|x| $) ($ |Union| $ #1="failed"))
+(SDEFUN |ULSCONS;recip;$U;29| ((|x| ($)) ($ (|Union| $ #1="failed")))
         (SPROG ((|uts| (|Union| UTS #1#)) (|d| (|Integer|)))
                (SEQ (LETT |x| (SPADCALL 1000 |x| (QREFELT $ 24)))
                     (EXIT
@@ -378,7 +380,7 @@
                                       (SPADCALL (- |d|) (QCDR |uts|)
                                                 (QREFELT $ 10))))))))))))) 
 
-(SDEFUN |ULSCONS;elt;3$;30| ((|uls1| $) (|uls2| $) ($ $))
+(SDEFUN |ULSCONS;elt;3$;30| ((|uls1| ($)) (|uls2| ($)) ($ ($)))
         (SPROG
          ((#1=#:G292 NIL) (|uts1| (UTS)) (|recipr| (|Union| $ "failed"))
           (|deg| (|Integer|)) (|uts2| (UTS)) (|uts| (|Union| UTS "failed")))
@@ -444,7 +446,8 @@
                                     (QREFELT $ 75))
                           (QREFELT $ 20)))))))))))) 
 
-(SDEFUN |ULSCONS;eval;$CoefS;31| ((|uls| $) (|r| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |ULSCONS;eval;$CoefS;31|
+        ((|uls| ($)) (|r| (|Coef|)) ($ (|Stream| |Coef|)))
         (SPROG
          ((#1=#:G311 NIL) (#2=#:G304 NIL) (|recipr| (|Union| |Coef| "failed"))
           (|n| (|Integer|)) (|uts| (UTS)))
@@ -488,13 +491,14 @@
                         (QREFELT $ 78))
               (SPADCALL |uts| |r| (QREFELT $ 79)) (QREFELT $ 81)))))))) 
 
-(SDEFUN |ULSCONS;variable;$S;32| ((|x| $) ($ |Symbol|))
+(SDEFUN |ULSCONS;variable;$S;32| ((|x| ($)) ($ (|Symbol|)))
         (SPADCALL (|ULSCONS;getUTS| |x| $) (QREFELT $ 84))) 
 
-(SDEFUN |ULSCONS;center;$Coef;33| ((|x| $) ($ |Coef|))
+(SDEFUN |ULSCONS;center;$Coef;33| ((|x| ($)) ($ (|Coef|)))
         (SPADCALL (|ULSCONS;getUTS| |x| $) (QREFELT $ 86))) 
 
-(SDEFUN |ULSCONS;coefficient;$ICoef;34| ((|x| $) (|n| |Integer|) ($ |Coef|))
+(SDEFUN |ULSCONS;coefficient;$ICoef;34|
+        ((|x| ($)) (|n| (|Integer|)) ($ (|Coef|)))
         (SPROG ((#1=#:G320 NIL) (|a| (|Integer|)))
                (SEQ (LETT |a| (- |n| (|ULSCONS;getExpon| |x| $)))
                     (EXIT
@@ -508,14 +512,14 @@
                                  (QREFELT $ 57)))
                       ('T (|spadConstant| $ 14))))))) 
 
-(SDEFUN |ULSCONS;elt;$ICoef;35| ((|x| $) (|n| |Integer|) ($ |Coef|))
+(SDEFUN |ULSCONS;elt;$ICoef;35| ((|x| ($)) (|n| (|Integer|)) ($ (|Coef|)))
         (SPADCALL |x| |n| (QREFELT $ 71))) 
 
-(SDEFUN |ULSCONS;order;$I;36| ((|x| $) ($ |Integer|))
+(SDEFUN |ULSCONS;order;$I;36| ((|x| ($)) ($ (|Integer|)))
         (+ (|ULSCONS;getExpon| |x| $)
            (SPADCALL (|ULSCONS;getUTS| |x| $) (QREFELT $ 89)))) 
 
-(SDEFUN |ULSCONS;order;$2I;37| ((|x| $) (|n| . #1=(|Integer|)) ($ . #1#))
+(SDEFUN |ULSCONS;order;$2I;37| ((|x| ($)) (|n| #1=(|Integer|)) ($ #1#))
         (SPROG ((#2=#:G327 NIL) (|m| (|Integer|)) (|e| (|Integer|)))
                (SEQ (LETT |m| (- |n| (LETT |e| (|ULSCONS;getExpon| |x| $))))
                     (EXIT
@@ -529,7 +533,7 @@
                                                              '(|Integer|) #2#))
                                          (QREFELT $ 91))))))))) 
 
-(SDEFUN |ULSCONS;truncate;$I$;38| ((|x| $) (|n| |Integer|) ($ $))
+(SDEFUN |ULSCONS;truncate;$I$;38| ((|x| ($)) (|n| (|Integer|)) ($ ($)))
         (SPROG ((#1=#:G331 NIL) (|m| (|Integer|)) (|e| (|Integer|)))
                (SEQ (LETT |m| (- |n| (LETT |e| (|ULSCONS;getExpon| |x| $))))
                     (EXIT
@@ -546,7 +550,7 @@
                                       (QREFELT $ 10)))))))) 
 
 (SDEFUN |ULSCONS;truncate;$2I$;39|
-        ((|x| $) (|n1| . #1=(|Integer|)) (|n2| . #1#) ($ $))
+        ((|x| ($)) (|n1| #1=(|Integer|)) (|n2| #1#) ($ ($)))
         (SPROG
          ((#2=#:G337 NIL) (#3=#:G336 NIL) (|m1| (|Integer|)) (|e| (|Integer|))
           (|#G61| #1#) (|#G60| #1#))
@@ -576,7 +580,7 @@
                             (QREFELT $ 10)))))))) 
 
 (SDEFUN |ULSCONS;rationalFunction;$IF;40|
-        ((|x| $) (|n| |Integer|) ($ |Fraction| (|Polynomial| |Coef|)))
+        ((|x| ($)) (|n| (|Integer|)) ($ (|Fraction| (|Polynomial| |Coef|))))
         (SPROG
          ((#1=#:G345 NIL) (#2=#:G344 NIL)
           (|c| (|Fraction| (|Polynomial| |Coef|)))
@@ -637,8 +641,8 @@
                                              (QREFELT $ 107)))))))))))))))) 
 
 (SDEFUN |ULSCONS;rationalFunction;$2IF;41|
-        ((|x| $) (|n1| . #1=(|Integer|)) (|n2| . #1#)
-         ($ |Fraction| (|Polynomial| |Coef|)))
+        ((|x| ($)) (|n1| #1=(|Integer|)) (|n2| #1#)
+         ($ (|Fraction| (|Polynomial| |Coef|))))
         (SPROG
          ((#2=#:G357 NIL) (#3=#:G356 NIL)
           (|c| (|Fraction| (|Polynomial| |Coef|)))
@@ -709,7 +713,8 @@
                                           (QREFELT $ 105))
                                          (QREFELT $ 107)))))))))))))))) 
 
-(SDEFUN |ULSCONS;exquo;2$U;42| ((|x| $) (|y| $) ($ |Union| $ #1="failed"))
+(SDEFUN |ULSCONS;exquo;2$U;42|
+        ((|x| ($)) (|y| ($)) ($ (|Union| $ #1="failed")))
         (SPROG ((|uts| (|Union| UTS #1#)) (|d| (|Integer|)))
                (SEQ (LETT |x| (SPADCALL 1000 |x| (QREFELT $ 24)))
                     (LETT |y| (SPADCALL 1000 |y| (QREFELT $ 24)))
@@ -734,7 +739,8 @@
                                        (- (SPADCALL |x| (QREFELT $ 12)) |d|)
                                        (QCDR |uts|) (QREFELT $ 10))))))))))))) 
 
-(SDEFUN |ULSCONS;approximate;$ICoef;43| ((|x| $) (|n| |Integer|) ($ |Coef|))
+(SDEFUN |ULSCONS;approximate;$ICoef;43|
+        ((|x| ($)) (|n| (|Integer|)) ($ (|Coef|)))
         (SPROG
          ((|app| (|Coef|)) (#1=#:G373 NIL) (|m| (|Integer|)) (|e| (|Integer|)))
          (SEQ (LETT |m| (- |n| (LETT |e| (|ULSCONS;getExpon| |x| $))))
@@ -763,12 +769,12 @@
                                           |e| (QREFELT $ 116))
                                          (QREFELT $ 117)))))))))))) 
 
-(SDEFUN |ULSCONS;complete;2$;44| ((|x| $) ($ $))
+(SDEFUN |ULSCONS;complete;2$;44| ((|x| ($)) ($ ($)))
         (SPADCALL (|ULSCONS;getExpon| |x| $)
                   (SPADCALL (|ULSCONS;getUTS| |x| $) (QREFELT $ 119))
                   (QREFELT $ 10))) 
 
-(SDEFUN |ULSCONS;extend;$I$;45| ((|x| $) (|n| |Integer|) ($ $))
+(SDEFUN |ULSCONS;extend;$I$;45| ((|x| ($)) (|n| (|Integer|)) ($ ($)))
         (SPROG ((#1=#:G379 NIL) (|m| (|Integer|)) (|e| (|Integer|)))
                (SEQ (LETT |e| (|ULSCONS;getExpon| |x| $))
                     (LETT |m| (- |n| |e|))
@@ -785,13 +791,14 @@
                                                 (QREFELT $ 121))
                                       (QREFELT $ 10)))))))) 
 
-(SDEFUN |ULSCONS;map;M2$;46| ((|f| |Mapping| |Coef| |Coef|) (|x| $) ($ $))
+(SDEFUN |ULSCONS;map;M2$;46|
+        ((|f| (|Mapping| |Coef| |Coef|)) (|x| ($)) ($ ($)))
         (SPADCALL (|ULSCONS;getExpon| |x| $)
                   (SPADCALL |f| (|ULSCONS;getUTS| |x| $) (QREFELT $ 124))
                   (QREFELT $ 10))) 
 
 (SDEFUN |ULSCONS;multiplyCoefficients;M2$;47|
-        ((|f| |Mapping| |Coef| (|Integer|)) (|x| $) ($ $))
+        ((|f| (|Mapping| |Coef| (|Integer|))) (|x| ($)) ($ ($)))
         (SPROG ((|e| (|Integer|)))
                (SEQ (LETT |e| (|ULSCONS;getExpon| |x| $))
                     (EXIT
@@ -810,12 +817,12 @@
           (RETURN (PROGN (SPADCALL (SPADCALL |e| |z1| (QREFELT $ 42)) |f|))))) 
 
 (SDEFUN |ULSCONS;multiplyExponents;$Pi$;48|
-        ((|x| $) (|n| |PositiveInteger|) ($ $))
+        ((|x| ($)) (|n| (|PositiveInteger|)) ($ ($)))
         (SPADCALL (* |n| (|ULSCONS;getExpon| |x| $))
                   (SPADCALL (|ULSCONS;getUTS| |x| $) |n| (QREFELT $ 130))
                   (QREFELT $ 10))) 
 
-(SDEFUN |ULSCONS;differentiate;2$;49| ((|x| $) ($ $))
+(SDEFUN |ULSCONS;differentiate;2$;49| ((|x| ($)) ($ ($)))
         (SPROG ((|e| (|Integer|)))
                (SEQ (LETT |e| (|ULSCONS;getExpon| |x| $))
                     (EXIT
@@ -834,7 +841,7 @@
            (PROGN
             (SPADCALL (SPADCALL |e| |z1| (QREFELT $ 42)) (QREFELT $ 22)))))) 
 
-(SDEFUN |ULSCONS;differentiate;$S$;50| ((|x| $) (|s| |Symbol|) ($ $))
+(SDEFUN |ULSCONS;differentiate;$S$;50| ((|x| ($)) (|s| (|Symbol|)) ($ ($)))
         (SPROG NIL
                (COND
                 ((EQUAL |s| (SPADCALL |x| (QREFELT $ 85)))
@@ -855,16 +862,16 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |z1| |s| (QREFELT $ 133)))))) 
 
-(SDEFUN |ULSCONS;characteristic;Nni;51| (($ |NonNegativeInteger|))
+(SDEFUN |ULSCONS;characteristic;Nni;51| (($ (|NonNegativeInteger|)))
         (SPADCALL (QREFELT $ 136))) 
 
-(SDEFUN |ULSCONS;retract;$UTS;52| ((|x| $) ($ UTS))
+(SDEFUN |ULSCONS;retract;$UTS;52| ((|x| ($)) ($ (UTS)))
         (SPADCALL |x| (QREFELT $ 31))) 
 
-(SDEFUN |ULSCONS;retractIfCan;$U;53| ((|x| $) ($ |Union| UTS "failed"))
+(SDEFUN |ULSCONS;retractIfCan;$U;53| ((|x| ($)) ($ (|Union| UTS "failed")))
         (SPADCALL |x| (QREFELT $ 30))) 
 
-(SDEFUN |ULSCONS;^;$I$;54| ((|x| $) (|n| |Integer|) ($ $))
+(SDEFUN |ULSCONS;^;$I$;54| ((|x| ($)) (|n| (|Integer|)) ($ ($)))
         (SPROG
          ((|minusN| (|NonNegativeInteger|)) (#1=#:G410 NIL) (|xInv| ($))
           (#2=#:G409 NIL))
@@ -892,13 +899,13 @@
                                            (QREFELT $ 69))
                                  (QREFELT $ 10))))))))) 
 
-(SDEFUN |ULSCONS;*;UTS2$;55| ((|x| UTS) (|y| $) ($ $))
+(SDEFUN |ULSCONS;*;UTS2$;55| ((|x| (UTS)) (|y| ($)) ($ ($)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 20)) |y| (QREFELT $ 68))) 
 
-(SDEFUN |ULSCONS;*;$UTS$;56| ((|x| $) (|y| UTS) ($ $))
+(SDEFUN |ULSCONS;*;$UTS$;56| ((|x| ($)) (|y| (UTS)) ($ ($)))
         (SPADCALL |x| (SPADCALL |y| (QREFELT $ 20)) (QREFELT $ 68))) 
 
-(SDEFUN |ULSCONS;inv;2$;57| ((|x| $) ($ $))
+(SDEFUN |ULSCONS;inv;2$;57| ((|x| ($)) ($ ($)))
         (SPROG ((|xInv| (|Union| $ "failed")))
                (SEQ (LETT |xInv| (SPADCALL |x| (QREFELT $ 74)))
                     (EXIT
@@ -907,7 +914,7 @@
                        (|error| "multiplicative inverse does not exist"))
                       ('T (QCDR |xInv|))))))) 
 
-(SDEFUN |ULSCONS;/;3$;58| ((|x| $) (|y| $) ($ $))
+(SDEFUN |ULSCONS;/;3$;58| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG ((|yInv| (|Union| $ "failed")))
                (SEQ (LETT |yInv| (SPADCALL |y| (QREFELT $ 74)))
                     (EXIT
@@ -916,11 +923,11 @@
                        (|error| "inv: multiplicative inverse does not exist"))
                       ('T (SPADCALL |x| (QCDR |yInv|) (QREFELT $ 68)))))))) 
 
-(SDEFUN |ULSCONS;/;2UTS$;59| ((|x| UTS) (|y| UTS) ($ $))
+(SDEFUN |ULSCONS;/;2UTS$;59| ((|x| (UTS)) (|y| (UTS)) ($ ($)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 20)) (SPADCALL |y| (QREFELT $ 20))
                   (QREFELT $ 144))) 
 
-(SDEFUN |ULSCONS;numer;$UTS;60| ((|x| $) ($ UTS))
+(SDEFUN |ULSCONS;numer;$UTS;60| ((|x| ($)) ($ (UTS)))
         (SPROG ((|n| (|Integer|)))
                (SEQ (LETT |n| (SPADCALL |x| (QREFELT $ 12)))
                     (EXIT
@@ -933,7 +940,7 @@
                               (COND ((EQL |n| 0) (SPADCALL |x| (QREFELT $ 31)))
                                     (#1# (|ULSCONS;getUTS| |x| $))))))))))) 
 
-(SDEFUN |ULSCONS;denom;$UTS;61| ((|x| $) ($ UTS))
+(SDEFUN |ULSCONS;denom;$UTS;61| ((|x| ($)) ($ (UTS)))
         (SPROG ((#1=#:G433 NIL) (|n| (|Integer|)))
                (SEQ (LETT |n| (SPADCALL |x| (QREFELT $ 12)))
                     (EXIT
@@ -953,72 +960,78 @@
                                                                    #1#))
                                                (QREFELT $ 27)))))))))))) 
 
-(SDEFUN |ULSCONS;coerce;F$;62| ((|r| |Fraction| (|Integer|)) ($ $))
+(SDEFUN |ULSCONS;coerce;F$;62| ((|r| (|Fraction| (|Integer|))) ($ ($)))
         (SPADCALL (SPADCALL |r| (QREFELT $ 149)) (QREFELT $ 21))) 
 
-(SDEFUN |ULSCONS;^;$F$;63| ((|x| $) (|r| |Fraction| (|Integer|)) ($ $))
+(SDEFUN |ULSCONS;^;$F$;63| ((|x| ($)) (|r| (|Fraction| (|Integer|))) ($ ($)))
         (SPADCALL |x| |r| (QREFELT $ 152))) 
 
-(SDEFUN |ULSCONS;exp;2$;64| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 154))) 
+(SDEFUN |ULSCONS;exp;2$;64| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 154))) 
 
-(SDEFUN |ULSCONS;log;2$;65| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 156))) 
+(SDEFUN |ULSCONS;log;2$;65| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 156))) 
 
-(SDEFUN |ULSCONS;sin;2$;66| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 158))) 
+(SDEFUN |ULSCONS;sin;2$;66| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 158))) 
 
-(SDEFUN |ULSCONS;cos;2$;67| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 160))) 
+(SDEFUN |ULSCONS;cos;2$;67| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 160))) 
 
-(SDEFUN |ULSCONS;tan;2$;68| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 162))) 
+(SDEFUN |ULSCONS;tan;2$;68| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 162))) 
 
-(SDEFUN |ULSCONS;cot;2$;69| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 164))) 
+(SDEFUN |ULSCONS;cot;2$;69| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 164))) 
 
-(SDEFUN |ULSCONS;sec;2$;70| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 166))) 
+(SDEFUN |ULSCONS;sec;2$;70| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 166))) 
 
-(SDEFUN |ULSCONS;csc;2$;71| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 168))) 
+(SDEFUN |ULSCONS;csc;2$;71| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 168))) 
 
-(SDEFUN |ULSCONS;asin;2$;72| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 170))) 
+(SDEFUN |ULSCONS;asin;2$;72| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 170))) 
 
-(SDEFUN |ULSCONS;acos;2$;73| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 172))) 
+(SDEFUN |ULSCONS;acos;2$;73| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 172))) 
 
-(SDEFUN |ULSCONS;atan;2$;74| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 174))) 
+(SDEFUN |ULSCONS;atan;2$;74| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 174))) 
 
-(SDEFUN |ULSCONS;acot;2$;75| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 176))) 
+(SDEFUN |ULSCONS;acot;2$;75| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 176))) 
 
-(SDEFUN |ULSCONS;asec;2$;76| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 178))) 
+(SDEFUN |ULSCONS;asec;2$;76| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 178))) 
 
-(SDEFUN |ULSCONS;acsc;2$;77| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 180))) 
+(SDEFUN |ULSCONS;acsc;2$;77| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 180))) 
 
-(SDEFUN |ULSCONS;sinh;2$;78| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 182))) 
+(SDEFUN |ULSCONS;sinh;2$;78| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 182))) 
 
-(SDEFUN |ULSCONS;cosh;2$;79| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 184))) 
+(SDEFUN |ULSCONS;cosh;2$;79| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 184))) 
 
-(SDEFUN |ULSCONS;tanh;2$;80| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 186))) 
+(SDEFUN |ULSCONS;tanh;2$;80| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 186))) 
 
-(SDEFUN |ULSCONS;coth;2$;81| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 188))) 
+(SDEFUN |ULSCONS;coth;2$;81| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 188))) 
 
-(SDEFUN |ULSCONS;sech;2$;82| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 190))) 
+(SDEFUN |ULSCONS;sech;2$;82| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 190))) 
 
-(SDEFUN |ULSCONS;csch;2$;83| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 192))) 
+(SDEFUN |ULSCONS;csch;2$;83| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 192))) 
 
-(SDEFUN |ULSCONS;asinh;2$;84| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 194))) 
+(SDEFUN |ULSCONS;asinh;2$;84| ((|x| ($)) ($ ($)))
+        (SPADCALL |x| (QREFELT $ 194))) 
 
-(SDEFUN |ULSCONS;acosh;2$;85| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 196))) 
+(SDEFUN |ULSCONS;acosh;2$;85| ((|x| ($)) ($ ($)))
+        (SPADCALL |x| (QREFELT $ 196))) 
 
-(SDEFUN |ULSCONS;atanh;2$;86| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 198))) 
+(SDEFUN |ULSCONS;atanh;2$;86| ((|x| ($)) ($ ($)))
+        (SPADCALL |x| (QREFELT $ 198))) 
 
-(SDEFUN |ULSCONS;acoth;2$;87| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 200))) 
+(SDEFUN |ULSCONS;acoth;2$;87| ((|x| ($)) ($ ($)))
+        (SPADCALL |x| (QREFELT $ 200))) 
 
-(SDEFUN |ULSCONS;asech;2$;88| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 202))) 
+(SDEFUN |ULSCONS;asech;2$;88| ((|x| ($)) ($ ($)))
+        (SPADCALL |x| (QREFELT $ 202))) 
 
-(SDEFUN |ULSCONS;acsch;2$;89| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 204))) 
+(SDEFUN |ULSCONS;acsch;2$;89| ((|x| ($)) ($ ($)))
+        (SPADCALL |x| (QREFELT $ 204))) 
 
-(SDEFUN |ULSCONS;ratInv| ((|n| |Integer|) ($ |Coef|))
+(SDEFUN |ULSCONS;ratInv| ((|n| (|Integer|)) ($ (|Coef|)))
         (COND ((ZEROP |n|) (|spadConstant| $ 25))
               ('T
                (SPADCALL
                 (SPADCALL (SPADCALL |n| (QREFELT $ 206)) (QREFELT $ 207))
                 (QREFELT $ 149))))) 
 
-(SDEFUN |ULSCONS;integrate;2$;91| ((|x| $) ($ $))
+(SDEFUN |ULSCONS;integrate;2$;91| ((|x| ($)) ($ ($)))
         (SPROG ((|e| (|Integer|)))
                (SEQ
                 (COND
@@ -1046,7 +1059,7 @@
                        (QREFELT $ 42))
              $))))) 
 
-(SDEFUN |ULSCONS;integrate;$S$;92| ((|x| $) (|s| |Symbol|) ($ $))
+(SDEFUN |ULSCONS;integrate;$S$;92| ((|x| ($)) (|s| (|Symbol|)) ($ ($)))
         (SPROG NIL
                (COND
                 ((EQUAL |s| (SPADCALL |x| (QREFELT $ 85)))
@@ -1069,14 +1082,14 @@
           (RETURN (PROGN (SPADCALL |z1| |s| (QREFELT $ 213)))))) 
 
 (SDEFUN |ULSCONS;integrateWithOneAnswer|
-        ((|f| |Coef|) (|s| |Symbol|) ($ |Coef|))
+        ((|f| (|Coef|)) (|s| (|Symbol|)) ($ (|Coef|)))
         (SPROG ((|res| (|Union| |Coef| (|List| |Coef|))))
                (SEQ (LETT |res| (SPADCALL |f| |s| (QREFELT $ 217)))
                     (EXIT
                      (COND ((QEQCAR |res| 0) (QCDR |res|))
                            ('T (|SPADfirst| (QCDR |res|)))))))) 
 
-(SDEFUN |ULSCONS;integrate;$S$;94| ((|x| $) (|s| |Symbol|) ($ $))
+(SDEFUN |ULSCONS;integrate;$S$;94| ((|x| ($)) (|s| (|Symbol|)) ($ ($)))
         (SPROG NIL
                (COND
                 ((EQUAL |s| (SPADCALL |x| (QREFELT $ 85)))
@@ -1099,7 +1112,8 @@
           (RETURN (PROGN (|ULSCONS;integrateWithOneAnswer| |z1| |s| $))))) 
 
 (SDEFUN |ULSCONS;termOutput|
-        ((|k| |Integer|) (|c| |Coef|) (|vv| |OutputForm|) ($ |OutputForm|))
+        ((|k| (|Integer|)) (|c| (|Coef|)) (|vv| (|OutputForm|))
+         ($ (|OutputForm|)))
         (SPROG ((|mon| (|OutputForm|)))
                (SEQ
                 (COND ((EQL |k| 0) (SPADCALL |c| (QREFELT $ 219)))
@@ -1126,11 +1140,11 @@
 
 (PUT '|ULSCONS;showAll?| '|SPADreplace| '(XLAM NIL |$streamsShowAll|)) 
 
-(SDEFUN |ULSCONS;showAll?| (($ |Boolean|)) |$streamsShowAll|) 
+(SDEFUN |ULSCONS;showAll?| (($ (|Boolean|))) |$streamsShowAll|) 
 
 (SDEFUN |ULSCONS;termsToOutputForm|
-        ((|m| |Integer|) (|uu| |Stream| |Coef|) (|xxx| |OutputForm|)
-         ($ |OutputForm|))
+        ((|m| (|Integer|)) (|uu| (|Stream| |Coef|)) (|xxx| (|OutputForm|))
+         ($ (|OutputForm|)))
         (SPROG
          ((|l| (|List| (|OutputForm|))) (|uu1| (|Stream| |Coef|)) (|n| NIL)
           (#1=#:G516 NIL) (|count| (|NonNegativeInteger|)))
@@ -1225,7 +1239,7 @@
                          (SPADCALL (ELT $ 232) (NREVERSE |l|)
                                    (QREFELT $ 235)))))))))))) 
 
-(SDEFUN |ULSCONS;coerce;$Of;98| ((|x| $) ($ |OutputForm|))
+(SDEFUN |ULSCONS;coerce;$Of;98| ((|x| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|xxx| (|OutputForm|)) (|cen| (|Coef|)) (|var| (|Symbol|))
           (|p| (|Stream| |Coef|)) (|uts| (UTS)) (|m| (|Integer|)))

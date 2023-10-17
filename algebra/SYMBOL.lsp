@@ -1,17 +1,18 @@
 
-(SDEFUN |SYMBOL;writeOMSym| ((|dev| |OpenMathDevice|) (|x| $) ($ |Void|))
+(SDEFUN |SYMBOL;writeOMSym| ((|dev| (|OpenMathDevice|)) (|x| ($)) ($ (|Void|)))
         (COND
          ((SPADCALL |x| (QREFELT $ 18))
           (|error| "Cannot convert a scripted symbol to OpenMath"))
          ('T (SPADCALL |dev| |x| (QREFELT $ 22))))) 
 
 (SDEFUN |SYMBOL;OMwrite;Omd$BV;2|
-        ((|dev| |OpenMathDevice|) (|x| $) (|wholeObj| |Boolean|) ($ |Void|))
+        ((|dev| (|OpenMathDevice|)) (|x| ($)) (|wholeObj| (|Boolean|))
+         ($ (|Void|)))
         (SEQ (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 23))))
              (|SYMBOL;writeOMSym| |dev| |x| $)
              (EXIT (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 24))))))) 
 
-(SDEFUN |SYMBOL;convert;$If;3| ((|s| $) ($ |InputForm|))
+(SDEFUN |SYMBOL;convert;$If;3| ((|s| ($)) ($ (|InputForm|)))
         (SPROG
          ((|d| (|InputForm|)) (G (|List| (|InputForm|))) (#1=#:G2036 NIL)
           (F NIL) (#2=#:G2035 NIL) (FF (|List| (|List| (|InputForm|))))
@@ -126,23 +127,24 @@
 
 (PUT '|SYMBOL;convert;2$;4| '|SPADreplace| '(XLAM (|s|) |s|)) 
 
-(SDEFUN |SYMBOL;convert;2$;4| ((|s| $) ($ |Symbol|)) |s|) 
+(SDEFUN |SYMBOL;convert;2$;4| ((|s| ($)) ($ (|Symbol|))) |s|) 
 
-(SDEFUN |SYMBOL;coerce;S$;5| ((|s| |String|) ($ $)) (VALUES (INTERN |s|))) 
+(SDEFUN |SYMBOL;coerce;S$;5| ((|s| (|String|)) ($ ($))) (VALUES (INTERN |s|))) 
 
 (PUT '|SYMBOL;=;2$B;6| '|SPADreplace| 'EQUAL) 
 
-(SDEFUN |SYMBOL;=;2$B;6| ((|x| $) (|y| $) ($ |Boolean|)) (EQUAL |x| |y|)) 
+(SDEFUN |SYMBOL;=;2$B;6| ((|x| ($)) (|y| ($)) ($ (|Boolean|))) (EQUAL |x| |y|)) 
 
 (SDEFUN |SYMBOL;hashUpdate!;Hs$Hs;7|
-        ((|hs| . #1=(|HashState|)) (|s| $) ($ . #1#))
+        ((|hs| #1=(|HashState|)) (|s| ($)) ($ #1#))
         (HASHSTATEUPDATE |hs| (SXHASH |s|))) 
 
 (PUT '|SYMBOL;<;2$B;8| '|SPADreplace| '(XLAM (|x| |y|) (GGREATERP |y| |x|))) 
 
-(SDEFUN |SYMBOL;<;2$B;8| ((|x| $) (|y| $) ($ |Boolean|)) (GGREATERP |y| |x|)) 
+(SDEFUN |SYMBOL;<;2$B;8| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
+        (GGREATERP |y| |x|)) 
 
-(SDEFUN |SYMBOL;coerce;$Of;9| ((|x| $) ($ |OutputForm|))
+(SDEFUN |SYMBOL;coerce;$Of;9| ((|x| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|a| (|List| (|OutputForm|))) (|x0| (|OutputForm|))
           (|sl| (|List| (|OutputForm|))) (|se| (|OutputForm|)) (#1=#:G2051 NIL)
@@ -183,44 +185,47 @@
                   (COND ((NULL |a|) |x0|)
                         ('T (SPADCALL |x0| |a| (QREFELT $ 49))))))))))) 
 
-(SDEFUN |SYMBOL;subscript;$L$;10| ((|sy| $) (|lx| |List| (|OutputForm|)) ($ $))
+(SDEFUN |SYMBOL;subscript;$L$;10|
+        ((|sy| ($)) (|lx| (|List| (|OutputForm|))) ($ ($)))
         (SPADCALL |sy| (LIST |lx| NIL NIL NIL NIL) (QREFELT $ 52))) 
 
-(SDEFUN |SYMBOL;elt;$L$;11| ((|sy| $) (|lx| |List| (|OutputForm|)) ($ $))
+(SDEFUN |SYMBOL;elt;$L$;11| ((|sy| ($)) (|lx| (|List| (|OutputForm|))) ($ ($)))
         (SPADCALL |sy| |lx| (QREFELT $ 54))) 
 
 (SDEFUN |SYMBOL;superscript;$L$;12|
-        ((|sy| $) (|lx| |List| (|OutputForm|)) ($ $))
+        ((|sy| ($)) (|lx| (|List| (|OutputForm|))) ($ ($)))
         (SPADCALL |sy| (LIST NIL |lx| NIL NIL NIL) (QREFELT $ 52))) 
 
-(SDEFUN |SYMBOL;argscript;$L$;13| ((|sy| $) (|lx| |List| (|OutputForm|)) ($ $))
+(SDEFUN |SYMBOL;argscript;$L$;13|
+        ((|sy| ($)) (|lx| (|List| (|OutputForm|))) ($ ($)))
         (SPADCALL |sy| (LIST NIL NIL NIL NIL |lx|) (QREFELT $ 52))) 
 
 (SDEFUN |SYMBOL;patternMatch;$P2Pmr;14|
-        ((|x| $) (|p| |Pattern| #1=(|Integer|))
-         (|l| |PatternMatchResult| #1# . #2=($))
-         ($ |PatternMatchResult| #1# . #2#))
+        ((|x| ($)) (|p| (|Pattern| #1=(|Integer|)))
+         (|l| (|PatternMatchResult| #1# . #2=($)))
+         ($ (|PatternMatchResult| #1# . #2#)))
         (SPADCALL |x| |p| |l| (QREFELT $ 61))) 
 
 (SDEFUN |SYMBOL;patternMatch;$P2Pmr;15|
-        ((|x| $) (|p| |Pattern| #1=(|Float|))
-         (|l| |PatternMatchResult| #1# . #2=($))
-         ($ |PatternMatchResult| #1# . #2#))
+        ((|x| ($)) (|p| (|Pattern| #1=(|Float|)))
+         (|l| (|PatternMatchResult| #1# . #2=($)))
+         ($ (|PatternMatchResult| #1# . #2#)))
         (SPADCALL |x| |p| |l| (QREFELT $ 67))) 
 
-(SDEFUN |SYMBOL;convert;$P;16| ((|x| $) ($ |Pattern| (|Float|)))
+(SDEFUN |SYMBOL;convert;$P;16| ((|x| ($)) ($ (|Pattern| (|Float|))))
         (SPADCALL |x| (QREFELT $ 70))) 
 
-(SDEFUN |SYMBOL;convert;$P;17| ((|x| $) ($ |Pattern| (|Integer|)))
+(SDEFUN |SYMBOL;convert;$P;17| ((|x| ($)) ($ (|Pattern| (|Integer|))))
         (SPADCALL |x| (QREFELT $ 72))) 
 
 (SDEFUN |SYMBOL;syprefix|
-        ((|sc| |Record| (|:| |sub| (|List| (|OutputForm|)))
-          (|:| |sup| (|List| (|OutputForm|)))
-          (|:| |presup| (|List| (|OutputForm|)))
-          (|:| |presub| (|List| (|OutputForm|)))
-          (|:| |args| (|List| (|OutputForm|))))
-         ($ |String|))
+        ((|sc|
+          (|Record| (|:| |sub| (|List| (|OutputForm|)))
+                    (|:| |sup| (|List| (|OutputForm|)))
+                    (|:| |presup| (|List| (|OutputForm|)))
+                    (|:| |presub| (|List| (|OutputForm|)))
+                    (|:| |args| (|List| (|OutputForm|)))))
+         ($ (|String|)))
         (SPROG
          ((#1=#:G2065 NIL) (|n| NIL) (#2=#:G2064 NIL)
           (|ns| (|List| (|Integer|))))
@@ -244,12 +249,13 @@
             (QREFELT $ 74)))))) 
 
 (SDEFUN |SYMBOL;syscripts|
-        ((|sc| |Record| (|:| |sub| (|List| (|OutputForm|)))
-          (|:| |sup| (|List| (|OutputForm|)))
-          (|:| |presup| (|List| (|OutputForm|)))
-          (|:| |presub| #1=(|List| (|OutputForm|)))
-          (|:| |args| (|List| (|OutputForm|))))
-         ($ |List| (|OutputForm|)))
+        ((|sc|
+          (|Record| (|:| |sub| (|List| (|OutputForm|)))
+                    (|:| |sup| (|List| (|OutputForm|)))
+                    (|:| |presup| (|List| (|OutputForm|)))
+                    (|:| |presub| #1=(|List| (|OutputForm|)))
+                    (|:| |args| (|List| (|OutputForm|)))))
+         ($ (|List| (|OutputForm|))))
         (SPROG ((|all| #1#))
                (SEQ (LETT |all| (QVELT |sc| 3))
                     (LETT |all| (SPADCALL (QVELT |sc| 2) |all| (QREFELT $ 75)))
@@ -258,7 +264,7 @@
                     (EXIT (SPADCALL |all| (QVELT |sc| 4) (QREFELT $ 75)))))) 
 
 (SDEFUN |SYMBOL;script;$L$;20|
-        ((|sy| $) (|ls| |List| (|List| (|OutputForm|))) ($ $))
+        ((|sy| ($)) (|ls| (|List| (|List| (|OutputForm|)))) ($ ($)))
         (SPROG
          ((|sc|
            (|Record| (|:| |sub| (|List| (|OutputForm|)))
@@ -290,13 +296,14 @@
               (EXIT (SPADCALL |sy| |sc| (QREFELT $ 76)))))) 
 
 (SDEFUN |SYMBOL;script;$R$;21|
-        ((|sy| $)
-         (|sc| |Record| (|:| |sub| (|List| (|OutputForm|)))
-          (|:| |sup| (|List| (|OutputForm|)))
-          (|:| |presup| (|List| (|OutputForm|)))
-          (|:| |presub| (|List| (|OutputForm|)))
-          (|:| |args| (|List| (|OutputForm|))))
-         ($ $))
+        ((|sy| ($))
+         (|sc|
+          (|Record| (|:| |sub| (|List| (|OutputForm|)))
+                    (|:| |sup| (|List| (|OutputForm|)))
+                    (|:| |presup| (|List| (|OutputForm|)))
+                    (|:| |presub| (|List| (|OutputForm|)))
+                    (|:| |args| (|List| (|OutputForm|)))))
+         ($ ($)))
         (COND
          ((SPADCALL |sy| (QREFELT $ 18))
           (|error| "Cannot add scripts to a scripted symbol"))
@@ -310,11 +317,11 @@
             (QREFELT $ 50))
            (|SYMBOL;syscripts| |sc| $))))) 
 
-(SDEFUN |SYMBOL;string;$S;22| ((|e| $) ($ |String|))
+(SDEFUN |SYMBOL;string;$S;22| ((|e| ($)) ($ (|String|)))
         (COND ((NULL (SPADCALL |e| (QREFELT $ 18))) (PNAME |e|))
               ('T (|error| "Cannot form string from non-atomic symbols.")))) 
 
-(SDEFUN |SYMBOL;latex;$S;23| ((|e| $) ($ |String|))
+(SDEFUN |SYMBOL;latex;$S;23| ((|e| ($)) ($ (|String|)))
         (SPROG
          ((|s| (|String|)) (|sc| (|String|)) (|lo| (|List| (|OutputForm|)))
           (|ss|
@@ -424,7 +431,7 @@
                      (EXIT (LETT |s| (STRCONC |s| |sc|))))))
               (EXIT |s|)))) 
 
-(SDEFUN |SYMBOL;anyRadix| ((|n| |Integer|) (|s| |String|) ($ |String|))
+(SDEFUN |SYMBOL;anyRadix| ((|n| (|Integer|)) (|s| (|String|)) ($ (|String|)))
         (SPROG
          ((#1=#:G2125 NIL) (|ns| (|String|))
           (|qr|
@@ -451,14 +458,14 @@
                       NIL (GO G190) G191 (EXIT NIL)))))
           #2# (EXIT #1#)))) 
 
-(SDEFUN |SYMBOL;new;$;25| (($ $))
+(SDEFUN |SYMBOL;new;$;25| (($ ($)))
         (SPROG ((|sym| (|String|)))
                (SEQ
                 (LETT |sym| (|SYMBOL;anyRadix| (QREFELT $ 6) (QREFELT $ 15) $))
                 (SETELT $ 6 (+ (QREFELT $ 6) 1))
                 (EXIT (SPADCALL (STRCONC "%" |sym|) (QREFELT $ 41)))))) 
 
-(SDEFUN |SYMBOL;new;2$;26| ((|x| $) ($ $))
+(SDEFUN |SYMBOL;new;2$;26| ((|x| ($)) ($ ($)))
         (SPROG
          ((|xx| (|String|)) (|n| (|Integer|))
           (|u| (|Union| (|Integer|) "failed")))
@@ -492,7 +499,7 @@
            (SPADCALL (SPADCALL |xx| (QREFELT $ 41))
                      (SPADCALL |x| (QREFELT $ 31)) (QREFELT $ 76)))))) 
 
-(SDEFUN |SYMBOL;resetNew;V;27| (($ |Void|))
+(SDEFUN |SYMBOL;resetNew;V;27| (($ (|Void|)))
         (SPROG ((#1=#:G2147 NIL) (|k| NIL))
                (SEQ (SETELT $ 6 0)
                     (SEQ (LETT |k| NIL)
@@ -506,13 +513,14 @@
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT (SPADCALL (QREFELT $ 96)))))) 
 
-(SDEFUN |SYMBOL;scripted?;$B;28| ((|sy| $) ($ |Boolean|)) (NULL (ATOM |sy|))) 
+(SDEFUN |SYMBOL;scripted?;$B;28| ((|sy| ($)) ($ (|Boolean|)))
+        (NULL (ATOM |sy|))) 
 
 (PUT '|SYMBOL;of_list| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |SYMBOL;of_list| ((|x| $) ($ |List| (|OutputForm|))) |x|) 
+(SDEFUN |SYMBOL;of_list| ((|x| ($)) ($ (|List| (|OutputForm|)))) |x|) 
 
-(SDEFUN |SYMBOL;name;2$;30| ((|sy| $) ($ $))
+(SDEFUN |SYMBOL;name;2$;30| ((|sy| ($)) ($ ($)))
         (SPROG ((|si| (|NonNegativeInteger|)) (|str| (|String|)))
                (SEQ
                 (COND ((NULL (SPADCALL |sy| (QREFELT $ 18))) |sy|)
@@ -531,12 +539,13 @@
                           (QREFELT $ 41))))))))) 
 
 (SDEFUN |SYMBOL;scripts;$R;31|
-        ((|sy| $)
-         ($ |Record| (|:| |sub| (|List| (|OutputForm|)))
-          (|:| |sup| (|List| (|OutputForm|)))
-          (|:| |presup| (|List| (|OutputForm|)))
-          (|:| |presub| (|List| (|OutputForm|)))
-          (|:| |args| (|List| (|OutputForm|)))))
+        ((|sy| ($))
+         ($
+          (|Record| (|:| |sub| (|List| (|OutputForm|)))
+                    (|:| |sup| (|List| (|OutputForm|)))
+                    (|:| |presup| (|List| (|OutputForm|)))
+                    (|:| |presub| (|List| (|OutputForm|)))
+                    (|:| |args| (|List| (|OutputForm|))))))
         (SPROG
          ((|allscripts| (|List| (|OutputForm|))) (|i| NIL) (#1=#:G2163 NIL)
           (|n| NIL) (|m| (|Integer|))
@@ -605,11 +614,11 @@
                           (SPADCALL |lscripts| (+ |m| 4)
                                     (QREFELT $ 108)))))))))) 
 
-(SDEFUN |SYMBOL;istring| ((|n| |Integer|) ($ |String|))
+(SDEFUN |SYMBOL;istring| ((|n| (|Integer|)) ($ (|String|)))
         (COND ((> |n| 9) (|error| "Can have at most 9 scripts of each kind"))
               ('T (QAREF1 (QREFELT $ 13) (+ |n| (PROGN (QREFELT $ 13) 0)))))) 
 
-(SDEFUN |SYMBOL;sample;$;33| (($ $)) (SPADCALL "aSymbol" (QREFELT $ 41))) 
+(SDEFUN |SYMBOL;sample;$;33| (($ ($))) (SPADCALL "aSymbol" (QREFELT $ 41))) 
 
 (DECLAIM (NOTINLINE |Symbol;|)) 
 

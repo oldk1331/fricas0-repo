@@ -1,5 +1,5 @@
 
-(SDEFUN |ITRIGMNP;GR2F| ((|g| |Complex| R) ($ F))
+(SDEFUN |ITRIGMNP;GR2F| ((|g| (|Complex| R)) ($ (F)))
         (SPADCALL (SPADCALL (SPADCALL |g| (QREFELT $ 11)) (QREFELT $ 12))
                   (SPADCALL
                    (SPADCALL (SPADCALL (|spadConstant| $ 13) (QREFELT $ 14))
@@ -8,17 +8,17 @@
                    (QREFELT $ 17))
                   (QREFELT $ 18))) 
 
-(SDEFUN |ITRIGMNP;FG2F;FGF;2| ((|f| FG) ($ F))
+(SDEFUN |ITRIGMNP;FG2F;FGF;2| ((|f| (FG)) ($ (F)))
         (SPADCALL (|ITRIGMNP;PG2F| (SPADCALL |f| (QREFELT $ 20)) $)
                   (|ITRIGMNP;PG2F| (SPADCALL |f| (QREFELT $ 21)) $)
                   (QREFELT $ 22))) 
 
-(SDEFUN |ITRIGMNP;F2FG;FFG;3| ((|f| F) ($ FG))
+(SDEFUN |ITRIGMNP;F2FG;FFG;3| ((|f| (F)) ($ (FG)))
         (SPADCALL (|ITRIGMNP;PF2FG| (SPADCALL |f| (QREFELT $ 25)) $)
                   (|ITRIGMNP;PF2FG| (SPADCALL |f| (QREFELT $ 26)) $)
                   (QREFELT $ 27))) 
 
-(SDEFUN |ITRIGMNP;GF2FG;CFG;4| ((|f| |Complex| F) ($ FG))
+(SDEFUN |ITRIGMNP;GF2FG;CFG;4| ((|f| (|Complex| F)) ($ (FG)))
         (SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 30)) (QREFELT $ 28))
                   (SPADCALL
                    (SPADCALL
@@ -29,12 +29,12 @@
                    (QREFELT $ 37))
                   (QREFELT $ 38))) 
 
-(SDEFUN |ITRIGMNP;GR2GF| ((|gr| |Complex| R) ($ |Complex| F))
+(SDEFUN |ITRIGMNP;GR2GF| ((|gr| (|Complex| R)) ($ (|Complex| F)))
         (SPADCALL (SPADCALL (SPADCALL |gr| (QREFELT $ 11)) (QREFELT $ 12))
                   (SPADCALL (SPADCALL |gr| (QREFELT $ 16)) (QREFELT $ 12))
                   (QREFELT $ 40))) 
 
-(SDEFUN |ITRIGMNP;KG2F| ((|k| |Kernel| FG) ($ F))
+(SDEFUN |ITRIGMNP;KG2F| ((|k| (|Kernel| FG)) ($ (F)))
         (SPROG ((#1=#:G157 NIL) (|a| NIL) (#2=#:G156 NIL))
                (SEQ
                 (SPADCALL
@@ -53,7 +53,7 @@
                        (EXIT (NREVERSE #2#))))
                  (QREFELT $ 49))))) 
 
-(SDEFUN |ITRIGMNP;KF2FG| ((|k| |Kernel| F) ($ FG))
+(SDEFUN |ITRIGMNP;KF2FG| ((|k| (|Kernel| F)) ($ (FG)))
         (SPROG
          ((#1=#:G165 NIL) (|a| NIL) (#2=#:G164 NIL) (|op| (|BasicOperator|))
           (|akl| (|List| F)))
@@ -88,7 +88,7 @@
                          (QREFELT $ 62)))))) 
 
 (SDEFUN |ITRIGMNP;ker2explogs|
-        ((|k| |Kernel| FG) (|l| |List| (|Kernel| FG)) ($ FG))
+        ((|k| (|Kernel| FG)) (|l| (|List| (|Kernel| FG))) ($ (FG)))
         (SPROG
          ((|e| (FG)) (|z| (FG)) (|args| (|List| FG)) (#1=#:G178 NIL) (|a| NIL)
           (#2=#:G177 NIL) (|kf| (FG)))
@@ -167,13 +167,14 @@
                                    (QREFELT $ 62)))))))))))) 
 
 (SDEFUN |ITRIGMNP;trigs2explogs;FGLFG;9|
-        ((|f| FG) (|l| |List| (|Kernel| FG)) ($ FG))
+        ((|f| (FG)) (|l| (|List| (|Kernel| FG))) ($ (FG)))
         (SPADCALL (|ITRIGMNP;smp2explogs| (SPADCALL |f| (QREFELT $ 20)) |l| $)
                   (|ITRIGMNP;smp2explogs| (SPADCALL |f| (QREFELT $ 21)) |l| $)
                   (QREFELT $ 27))) 
 
 (SDEFUN |ITRIGMNP;ker2trigs_error|
-        ((|op| |BasicOperator|) (|arg| |List| (|Complex| F)) ($ |Complex| F))
+        ((|op| (|BasicOperator|)) (|arg| (|List| (|Complex| F)))
+         ($ (|Complex| F)))
         (SEQ (SPADCALL (SPADCALL |op| (QREFELT $ 79)) (QREFELT $ 81))
              (SPADCALL (SPADCALL |arg| (QREFELT $ 83)) (QREFELT $ 81))
              (EXIT
@@ -181,7 +182,8 @@
                "ker2trigs: cannot convert kernel to gaussian function")))) 
 
 (SDEFUN |ITRIGMNP;do_liou;BoLC;11|
-        ((|op| |BasicOperator|) (|arg| |List| (|Complex| F)) ($ |Complex| F))
+        ((|op| (|BasicOperator|)) (|arg| (|List| (|Complex| F)))
+         ($ (|Complex| F)))
         (SPROG ((|a1| (F)) (|a| (|Complex| F)))
                (SEQ (LETT |a| (|SPADfirst| |arg|))
                     (COND
@@ -258,11 +260,13 @@
                     (EXIT (|ITRIGMNP;ker2trigs_error| |op| |arg| $))))) 
 
 (SDEFUN |ITRIGMNP;do_liou;BoLC;12|
-        ((|op| |BasicOperator|) (|args| |List| (|Complex| F)) ($ |Complex| F))
+        ((|op| (|BasicOperator|)) (|args| (|List| (|Complex| F)))
+         ($ (|Complex| F)))
         (|ITRIGMNP;ker2trigs_error| |op| |args| $)) 
 
 (SDEFUN |ITRIGMNP;ker2trigs|
-        ((|op| |BasicOperator|) (|arg| |List| (|Complex| F)) ($ |Complex| F))
+        ((|op| (|BasicOperator|)) (|arg| (|List| (|Complex| F)))
+         ($ (|Complex| F)))
         (SPROG
          ((#1=#:G238 NIL) (|x| NIL) (#2=#:G237 NIL) (#3=#:G236 NIL)
           (#4=#:G235 NIL) (|a| (|Complex| F)) (#5=#:G234 NIL) (#6=#:G233 NIL)
@@ -420,24 +424,25 @@
                        (#12# (SPADCALL |op| |arg| (QREFELT $ 92))))))))))))))) 
 
 (SDEFUN |ITRIGMNP;sup2trigs|
-        ((|p| |SparseUnivariatePolynomial|
-          (|SparseMultivariatePolynomial| (|Complex| R) (|Kernel| FG)))
-         (|f| |Complex| F) ($ |Complex| F))
+        ((|p|
+          (|SparseUnivariatePolynomial|
+           (|SparseMultivariatePolynomial| (|Complex| R) (|Kernel| FG))))
+         (|f| (|Complex| F)) ($ (|Complex| F)))
         (SPADCALL
          (SPADCALL (CONS (|function| |ITRIGMNP;smp2trigs|) $) |p|
                    (QREFELT $ 130))
          |f| (QREFELT $ 131))) 
 
 (SDEFUN |ITRIGMNP;smp2trigs|
-        ((|p| |SparseMultivariatePolynomial| (|Complex| R) (|Kernel| FG))
-         ($ |Complex| F))
+        ((|p| (|SparseMultivariatePolynomial| (|Complex| R) (|Kernel| FG)))
+         ($ (|Complex| F)))
         (SPADCALL (CONS #'|ITRIGMNP;smp2trigs!0| $)
                   (CONS (|function| |ITRIGMNP;GR2GF|) $) |p| (QREFELT $ 137))) 
 
 (SDEFUN |ITRIGMNP;smp2trigs!0| ((|x| NIL) ($ NIL))
         (SPADCALL (SPADCALL |x| (QREFELT $ 64)) (QREFELT $ 132))) 
 
-(SDEFUN |ITRIGMNP;explogs2trigs;FGC;16| ((|f| FG) ($ |Complex| F))
+(SDEFUN |ITRIGMNP;explogs2trigs;FGC;16| ((|f| (FG)) ($ (|Complex| F)))
         (SPROG
          ((|g| #1=(|Complex| F)) (|b| (|Integer|)) (|gi| #1#) (|y| (F))
           (|e| (F))
@@ -523,10 +528,11 @@
                       (QREFELT $ 141)))))))))))) 
 
 (SDEFUN |ITRIGMNP;supexp|
-        ((|p| |SparseUnivariatePolynomial|
-          (|SparseMultivariatePolynomial| (|Complex| R) (|Kernel| FG)))
-         (|f1| |Complex| F) (|f2| |Complex| F) (|bse| |Integer|)
-         ($ |Complex| F))
+        ((|p|
+          (|SparseUnivariatePolynomial|
+           (|SparseMultivariatePolynomial| (|Complex| R) (|Kernel| FG))))
+         (|f1| (|Complex| F)) (|f2| (|Complex| F)) (|bse| (|Integer|))
+         ($ (|Complex| F)))
         (SPROG ((|ans| (|Complex| F)) (|d| (|Integer|)) (|g| (|Complex| F)))
                (SEQ (LETT |ans| (|spadConstant| $ 149))
                     (SEQ G190
@@ -568,13 +574,13 @@
                     (EXIT |ans|)))) 
 
 (SDEFUN |ITRIGMNP;PG2F|
-        ((|p| |SparseMultivariatePolynomial| (|Complex| R) (|Kernel| FG))
-         ($ F))
+        ((|p| (|SparseMultivariatePolynomial| (|Complex| R) (|Kernel| FG)))
+         ($ (F)))
         (SPADCALL (CONS (|function| |ITRIGMNP;KG2F|) $)
                   (CONS (|function| |ITRIGMNP;GR2F|) $) |p| (QREFELT $ 160))) 
 
 (SDEFUN |ITRIGMNP;PF2FG|
-        ((|p| |SparseMultivariatePolynomial| R (|Kernel| F)) ($ FG))
+        ((|p| (|SparseMultivariatePolynomial| R (|Kernel| F))) ($ (FG)))
         (SPADCALL (CONS (|function| |ITRIGMNP;KF2FG|) $)
                   (CONS #'|ITRIGMNP;PF2FG!0| $) |p| (QREFELT $ 166))) 
 
@@ -582,8 +588,8 @@
         (SPADCALL (SPADCALL |x| (QREFELT $ 161)) (QREFELT $ 35))) 
 
 (SDEFUN |ITRIGMNP;smp2explogs|
-        ((|p| |SparseMultivariatePolynomial| (|Complex| R) (|Kernel| FG))
-         (|l| |List| (|Kernel| FG)) ($ FG))
+        ((|p| (|SparseMultivariatePolynomial| (|Complex| R) (|Kernel| FG)))
+         (|l| (|List| (|Kernel| FG))) ($ (FG)))
         (SPROG NIL
                (SPADCALL (CONS #'|ITRIGMNP;smp2explogs!0| (VECTOR $ |l|))
                          (ELT $ 35) |p| (QREFELT $ 170)))) 

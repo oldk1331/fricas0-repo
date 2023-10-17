@@ -1,7 +1,7 @@
 
 (SDEFUN |ULSCAT-;laurentTerms|
-        ((|n| |Integer|) (|st| |Stream| |Coef|)
-         ($ |Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
+        ((|n| (|Integer|)) (|st| (|Stream| |Coef|))
+         ($ (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))))
         (SPROG NIL
                (SEQ
                 (SPADCALL (CONS #'|ULSCAT-;laurentTerms!0| (VECTOR |n| $ |st|))
@@ -35,7 +35,8 @@
                                          (SPADCALL |st| (QREFELT $ 21)) $)
                                         (QREFELT $ 22)))))))))))))) 
 
-(SDEFUN |ULSCAT-;laurent;ISS;2| ((|n| |Integer|) (|st| |Stream| |Coef|) ($ S))
+(SDEFUN |ULSCAT-;laurent;ISS;2|
+        ((|n| (|Integer|)) (|st| (|Stream| |Coef|)) ($ (S)))
         (SPADCALL (|ULSCAT-;laurentTerms| |n| |st| $) (QREFELT $ 25))) 
 
 (DECLAIM (NOTINLINE |UnivariateLaurentSeriesCategory&;|)) 

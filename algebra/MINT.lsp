@@ -1,15 +1,17 @@
 
-(SDEFUN |MINT;maxint;Pi;1| (($ |PositiveInteger|)) (QREFELT $ 6)) 
+(SDEFUN |MINT;maxint;Pi;1| (($ (|PositiveInteger|))) (QREFELT $ 6)) 
 
-(SDEFUN |MINT;maxint;2Pi;2| ((|new| |PositiveInteger|) ($ |PositiveInteger|))
+(SDEFUN |MINT;maxint;2Pi;2|
+        ((|new| (|PositiveInteger|)) ($ (|PositiveInteger|)))
         (SPROG ((|old| (|PositiveInteger|)))
                (SEQ (LETT |old| (QREFELT $ 6)) (SETELT $ 6 |new|)
                     (EXIT |old|)))) 
 
-(SDEFUN |MINT;coerce;EE;3| ((|u| |Expression| (|Integer|)) ($ |Expression| $))
+(SDEFUN |MINT;coerce;EE;3|
+        ((|u| (|Expression| (|Integer|))) ($ (|Expression| $)))
         (SPADCALL (ELT $ 10) |u| (QREFELT $ 15))) 
 
-(SDEFUN |MINT;coerce;I$;4| ((|u| |Integer|) ($ $))
+(SDEFUN |MINT;coerce;I$;4| ((|u| (|Integer|)) ($ ($)))
         (SPROG ((|message| (|String|)))
                (SEQ
                 (COND
@@ -25,11 +27,11 @@
 
 (PUT '|MINT;retract;$I;5| '|SPADreplace| '(XLAM (|u|) |u|)) 
 
-(SDEFUN |MINT;retract;$I;5| ((|u| $) ($ |Integer|)) |u|) 
+(SDEFUN |MINT;retract;$I;5| ((|u| ($)) ($ (|Integer|))) |u|) 
 
 (PUT '|MINT;retractIfCan;$U;6| '|SPADreplace| '(XLAM (|u|) (CONS 0 |u|))) 
 
-(SDEFUN |MINT;retractIfCan;$U;6| ((|u| $) ($ |Union| (|Integer|) "failed"))
+(SDEFUN |MINT;retractIfCan;$U;6| ((|u| ($)) ($ (|Union| (|Integer|) "failed")))
         (CONS 0 |u|)) 
 
 (DECLAIM (NOTINLINE |MachineInteger;|)) 

@@ -1,5 +1,5 @@
 
-(SDEFUN |STREAM1;concat;SS;1| ((|z| |Stream| (|Stream| S)) ($ |Stream| S))
+(SDEFUN |STREAM1;concat;SS;1| ((|z| (|Stream| (|Stream| S))) ($ (|Stream| S)))
         (SPROG NIL
                (SPADCALL (CONS #'|STREAM1;concat;SS;1!0| (VECTOR $ |z|))
                          (QREFELT $ 21)))) 

@@ -1,9 +1,10 @@
 
 (SDEFUN |LEXP;ident|
-        ((|l1| |List|
-          (|Record| (|:| |k| #1=(|LyndonWord| |VarSet|)) (|:| |c| R)))
-         (|l2| |List| (|Record| (|:| |k| (|LyndonWord| |VarSet|)) (|:| |c| R)))
-         ($ |List| (|Equation| R)))
+        ((|l1|
+          (|List| (|Record| (|:| |k| #1=(|LyndonWord| |VarSet|)) (|:| |c| R))))
+         (|l2|
+          (|List| (|Record| (|:| |k| (|LyndonWord| |VarSet|)) (|:| |c| R))))
+         ($ (|List| (|Equation| R))))
         (SPROG
          ((|r| (R)) (|c2| (R)) (|u2| #1#) (|c1| (R)) (|u1| #1#) (#2=#:G121 NIL)
           (|t| NIL) (#3=#:G120 NIL) (#4=#:G119 NIL) (#5=#:G118 NIL))
@@ -63,14 +64,14 @@
                           (|LEXP;ident| (CDR |l1|) |l2| $))))))))))) 
 
 (SDEFUN |LEXP;compareTerm1s|
-        ((|u| |Record| (|:| |k| (|LyndonWord| |VarSet|)) (|:| |c| R))
-         (|v| |Record| (|:| |k| (|LyndonWord| |VarSet|)) (|:| |c| R))
-         ($ |Boolean|))
+        ((|u| (|Record| (|:| |k| (|LyndonWord| |VarSet|)) (|:| |c| R)))
+         (|v| (|Record| (|:| |k| (|LyndonWord| |VarSet|)) (|:| |c| R)))
+         ($ (|Boolean|)))
         (SPADCALL (QCAR |v|) (QCAR |u|) (QREFELT $ 18))) 
 
 (SDEFUN |LEXP;out|
-        ((|t| |Record| (|:| |k| (|LyndonWord| |VarSet|)) (|:| |c| R))
-         ($ |OutputForm|))
+        ((|t| (|Record| (|:| |k| (|LyndonWord| |VarSet|)) (|:| |c| R)))
+         ($ (|OutputForm|)))
         (COND
          ((SPADCALL (QCDR |t|) (|spadConstant| $ 19) (QREFELT $ 17))
           (SPADCALL (SPADCALL (|STR_to_CHAR| "e") (QREFELT $ 22))
@@ -82,7 +83,8 @@
                               (QREFELT $ 26))
                     (QREFELT $ 24))))) 
 
-(SDEFUN |LEXP;identification;2$L;4| ((|x| $) (|y| $) ($ |List| (|Equation| R)))
+(SDEFUN |LEXP;identification;2$L;4|
+        ((|x| ($)) (|y| ($)) ($ (|List| (|Equation| R))))
         (SPROG
          ((|l2|
            #1=(|List|
@@ -93,8 +95,8 @@
               (EXIT (|LEXP;ident| |l1| |l2| $))))) 
 
 (SDEFUN |LEXP;LyndonCoordinates;$L;5|
-        ((|x| $)
-         ($ |List| (|Record| (|:| |k| (|LyndonWord| |VarSet|)) (|:| |c| R))))
+        ((|x| ($))
+         ($ (|List| (|Record| (|:| |k| (|LyndonWord| |VarSet|)) (|:| |c| R)))))
         (SPROG
          ((|lt|
            (|List| (|Record| (|:| |k| (|LyndonWord| |VarSet|)) (|:| |c| R))))
@@ -136,7 +138,7 @@
                  (SPADCALL (CONS (|function| |LEXP;compareTerm1s|) $) |lt|
                            (QREFELT $ 39))))))) 
 
-(SDEFUN |LEXP;*;3$;6| ((|x| $) (|y| $) ($ $))
+(SDEFUN |LEXP;*;3$;6| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG ((#1=#:G144 NIL))
                (SPADCALL |x| |y|
                          (PROG1 (LETT #1# (QREFELT $ 8))
@@ -144,7 +146,7 @@
                                              '(|Integer|) #1#))
                          (QREFELT $ 41)))) 
 
-(SDEFUN |LEXP;exp;Lp$;7| ((|p| |LiePolynomial| |VarSet| R) ($ $))
+(SDEFUN |LEXP;exp;Lp$;7| ((|p| (|LiePolynomial| |VarSet| R)) ($ ($)))
         (SPROG ((#1=#:G147 NIL))
                (SPADCALL (SPADCALL |p| (QREFELT $ 44))
                          (PROG1 (LETT #1# (QREFELT $ 8))
@@ -152,7 +154,7 @@
                                              '(|Integer|) #1#))
                          (QREFELT $ 45)))) 
 
-(SDEFUN |LEXP;log;$Lp;8| ((|p| $) ($ |LiePolynomial| |VarSet| R))
+(SDEFUN |LEXP;log;$Lp;8| ((|p| ($)) ($ (|LiePolynomial| |VarSet| R)))
         (SPROG ((#1=#:G154 NIL) (#2=#:G152 NIL))
                (PROG2
                    (LETT #1#
@@ -172,7 +174,7 @@
                                   "failed")
                                  #1#)))) 
 
-(SDEFUN |LEXP;coerce;$Of;9| ((|p| $) ($ |OutputForm|))
+(SDEFUN |LEXP;coerce;$Of;9| ((|p| ($)) ($ (|OutputForm|)))
         (SPROG
          ((#1=#:G165 NIL) (|t| NIL) (#2=#:G164 NIL)
           (|lt|
@@ -200,7 +202,7 @@
                             (QREFELT $ 55))))))))) 
 
 (SDEFUN |LEXP;LyndonBasis;LL;10|
-        ((|lv| |List| |VarSet|) ($ |List| (|LiePolynomial| |VarSet| R)))
+        ((|lv| (|List| |VarSet|)) ($ (|List| (|LiePolynomial| |VarSet| R))))
         (SPROG ((#1=#:G169 NIL) (|l| NIL) (#2=#:G168 NIL))
                (SEQ
                 (PROGN
@@ -219,9 +221,10 @@
 
 (PUT '|LEXP;coerce;$Xpbwp;11| '|SPADreplace| '(XLAM (|p|) |p|)) 
 
-(SDEFUN |LEXP;coerce;$Xpbwp;11| ((|p| $) ($ |XPBWPolynomial| |VarSet| R)) |p|) 
+(SDEFUN |LEXP;coerce;$Xpbwp;11| ((|p| ($)) ($ (|XPBWPolynomial| |VarSet| R)))
+        |p|) 
 
-(SDEFUN |LEXP;inv;2$;12| ((|x| $) ($ $))
+(SDEFUN |LEXP;inv;2$;12| ((|x| ($)) ($ ($)))
         (SPROG
          ((|lt|
            (|List|

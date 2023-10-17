@@ -1,5 +1,5 @@
 
-(SDEFUN |FSRED;newReduc;IV;1| ((|n| |Integer|) ($ |Void|))
+(SDEFUN |FSRED;newReduc;IV;1| ((|n| (|Integer|)) ($ (|Void|)))
         (SPROG ((#1=#:G107 NIL) (|k| NIL))
                (SEQ (SETELT $ 12 |n|)
                     (EXIT
@@ -14,8 +14,8 @@
                           (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL)))))) 
 
 (SDEFUN |FSRED;bringDown;FKSup;2|
-        ((|f| F) (|k| |Kernel| F)
-         ($ |SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
+        ((|f| (F)) (|k| (|Kernel| F))
+         ($ (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))))
         (SPROG
          ((|bc|
            (|Union|
@@ -46,7 +46,7 @@
                         (QCAR (QCDR |bc|)) (QREFELT $ 40))
                        |m| (QREFELT $ 41)))))))) 
 
-(SDEFUN |FSRED;bringDown;FF;3| ((|f| F) ($ |Fraction| (|Integer|)))
+(SDEFUN |FSRED;bringDown;FF;3| ((|f| (F)) ($ (|Fraction| (|Integer|))))
         (SPROG
          ((#1=#:G124 NIL) (|k| NIL) (#2=#:G123 NIL)
           (|lk| (|List| (|Kernel| F))))
@@ -66,7 +66,7 @@
                      (QREFELT $ 46))
            (QREFELT $ 47))))) 
 
-(SDEFUN |FSRED;K2Z| ((|k| |Kernel| F) ($ F))
+(SDEFUN |FSRED;K2Z| ((|k| (|Kernel| F)) ($ (F)))
         (SPROG ((|u| (|Union| (|Integer|) "failed")))
                (SEQ
                 (COND

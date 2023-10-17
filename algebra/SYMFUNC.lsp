@@ -1,11 +1,11 @@
 
 (SDEFUN |SYMFUNC;coef_vect|
-        ((|p| |SparseUnivariatePolynomial| R) (|n| |NonNegativeInteger|)
-         ($ |Vector| R))
+        ((|p| (|SparseUnivariatePolynomial| R)) (|n| (|NonNegativeInteger|))
+         ($ (|Vector| R)))
         (SPADCALL (SPADCALL |p| |n| (QREFELT $ 10)) (QREFELT $ 11))) 
 
 (SDEFUN |SYMFUNC;symFunc;RPiV;2|
-        ((|x| R) (|n| |PositiveInteger|) ($ |Vector| R))
+        ((|x| (R)) (|n| (|PositiveInteger|)) ($ (|Vector| R)))
         (|SYMFUNC;coef_vect|
          (SPADCALL
           (SPADCALL (SPADCALL (|spadConstant| $ 12) 1 (QREFELT $ 13))
@@ -13,7 +13,7 @@
           |n| (QREFELT $ 16))
          |n| $)) 
 
-(SDEFUN |SYMFUNC;symFunc;LV;3| ((|l| |List| R) ($ |Vector| R))
+(SDEFUN |SYMFUNC;symFunc;LV;3| ((|l| (|List| R)) ($ (|Vector| R)))
         (SPROG
          ((#1=#:G106 NIL) (#2=#:G105 #3=(|SparseUnivariatePolynomial| R))
           (#4=#:G107 #3#) (#5=#:G109 NIL) (|a| NIL))

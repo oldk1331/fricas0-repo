@@ -1,7 +1,7 @@
 
 (SDEFUN |CHARPOL3;char_pol_via_interpolation0|
-        ((|m| |Matrix| R) (|ld| |List| R)
-         ($ |SparseUnivariatePolynomial| (|Fraction| R)))
+        ((|m| (|Matrix| R)) (|ld| (|List| R))
+         ($ (|SparseUnivariatePolynomial| (|Fraction| R))))
         (SPROG
          ((#1=#:G111 NIL) (|j| NIL) (#2=#:G112 NIL) (|di| NIL)
           (|m1| (|SparseUnivariatePolynomial| (|Fraction| R)))
@@ -74,7 +74,7 @@
                       (EXIT |res|)))))))) 
 
 (SDEFUN |CHARPOL3;char_pol_via_interpolation;MSup;2|
-        ((|m| |Matrix| R) ($ |SparseUnivariatePolynomial| R))
+        ((|m| (|Matrix| R)) ($ (|SparseUnivariatePolynomial| R)))
         (SPROG
          ((|p1| (|SparseUnivariatePolynomial| (|Fraction| R)))
           (|ld| (|List| R)) (#1=#:G118 NIL) (|i| NIL) (#2=#:G117 NIL))
@@ -91,8 +91,8 @@
           (EXIT (SPADCALL (ELT $ 37) |p1| (QREFELT $ 41)))))) 
 
 (SDEFUN |CHARPOL3;to_common_denominator|
-        ((|m| |Matrix| (|Fraction| R))
-         ($ |Record| (|:| |mr| (|Matrix| R)) (|:| |rd| (|List| R))))
+        ((|m| (|Matrix| (|Fraction| R)))
+         ($ (|Record| (|:| |mr| (|Matrix| R)) (|:| |rd| (|List| R)))))
         (SPROG
          ((|g1| (R)) (#1=#:G122 NIL) (|a| (|Fraction| R)) (#2=#:G132 NIL)
           (|j| NIL) (|lg| (|List| R)) (|g| (R)) (|lr| (|List| R))
@@ -149,7 +149,7 @@
               (EXIT (CONS B (NREVERSE |lg|)))))) 
 
 (SDEFUN |CHARPOL3;det_via_common_denominator;MF;4|
-        ((|m| |Matrix| (|Fraction| R)) ($ |Fraction| R))
+        ((|m| (|Matrix| (|Fraction| R))) ($ (|Fraction| R)))
         (SPROG
          ((|d| (R)) (|det1| (R)) (|lg| (|List| R)) (B (|Matrix| R))
           (|#G15| (|Record| (|:| |mr| (|Matrix| R)) (|:| |rd| (|List| R)))))
@@ -166,8 +166,8 @@
           (EXIT (SPADCALL |det1| |d| (QREFELT $ 54)))))) 
 
 (SDEFUN |CHARPOL3;char_pol_via_den_interpolation;MSup;5|
-        ((|m| |Matrix| (|Fraction| R))
-         ($ |SparseUnivariatePolynomial| (|Fraction| R)))
+        ((|m| (|Matrix| (|Fraction| R)))
+         ($ (|SparseUnivariatePolynomial| (|Fraction| R))))
         (SPROG
          ((|d| (|Fraction| R))
           (|res1| (|SparseUnivariatePolynomial| (|Fraction| R)))

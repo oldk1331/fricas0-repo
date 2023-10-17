@@ -1,31 +1,35 @@
 
 (SDEFUN |GBINTERN;virtualDegree;DpolNni;1|
-        ((|p| |Dpol|) ($ |NonNegativeInteger|)) (SPADCALL |p| (QREFELT $ 10))) 
+        ((|p| (|Dpol|)) ($ (|NonNegativeInteger|)))
+        (SPADCALL |p| (QREFELT $ 10))) 
 
 (PUT '|GBINTERN;virtualDegree;DpolNni;2| '|SPADreplace| '(XLAM (|p|) 0)) 
 
 (SDEFUN |GBINTERN;virtualDegree;DpolNni;2|
-        ((|p| |Dpol|) ($ |NonNegativeInteger|)) 0) 
+        ((|p| (|Dpol|)) ($ (|NonNegativeInteger|))) 0) 
 
 (SDEFUN |GBINTERN;critpOrder;2RB;3|
-        ((|cp1| |Record| (|:| |lcmfij| |Expon|)
-          (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
-          (|:| |polj| |Dpol|))
-         (|cp2| |Record| (|:| |lcmfij| |Expon|)
-          (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
-          (|:| |polj| |Dpol|))
-         ($ |Boolean|))
+        ((|cp1|
+          (|Record| (|:| |lcmfij| |Expon|)
+                    (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
+                    (|:| |polj| |Dpol|)))
+         (|cp2|
+          (|Record| (|:| |lcmfij| |Expon|)
+                    (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
+                    (|:| |polj| |Dpol|)))
+         ($ (|Boolean|)))
         (COND ((< (QVELT |cp1| 1) (QVELT |cp2| 1)) 'T)
               ((< (QVELT |cp2| 1) (QVELT |cp1| 1)) NIL)
               ('T (SPADCALL (QVELT |cp1| 0) (QVELT |cp2| 0) (QREFELT $ 13))))) 
 
 (SDEFUN |GBINTERN;makeCrit;RDpolNniR;4|
-        ((|sp1| |Record| (|:| |totdeg| (|NonNegativeInteger|))
-          (|:| |pol| |Dpol|))
-         (|p2| |Dpol|) (|totdeg2| |NonNegativeInteger|)
-         ($ |Record| (|:| |lcmfij| |Expon|)
-          (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
-          (|:| |polj| |Dpol|)))
+        ((|sp1|
+          (|Record| (|:| |totdeg| (|NonNegativeInteger|)) (|:| |pol| |Dpol|)))
+         (|p2| (|Dpol|)) (|totdeg2| (|NonNegativeInteger|))
+         ($
+          (|Record| (|:| |lcmfij| |Expon|)
+                    (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
+                    (|:| |polj| |Dpol|))))
         (SPROG
          ((|tdeg| (|NonNegativeInteger|)) (|e2| (|Expon|)) (#1=#:G134 NIL)
           (|e1| (|Expon|)) (|deg| (|Expon|)) (|p1| (|Dpol|)))
@@ -63,13 +67,13 @@
               (EXIT (VECTOR |deg| |tdeg| |p1| |p2|))))) 
 
 (SDEFUN |GBINTERN;gbasis;L2IL;5|
-        ((|Pol| |List| |Dpol|) (|xx1| |Integer|) (|xx2| |Integer|)
-         ($ |List| |Dpol|))
+        ((|Pol| (|List| |Dpol|)) (|xx1| (|Integer|)) (|xx2| (|Integer|))
+         ($ (|List| |Dpol|)))
         (SPADCALL |Pol| NIL |xx1| |xx2| (QREFELT $ 27))) 
 
 (SDEFUN |GBINTERN;gbasisExtend;2L2IL;6|
-        ((|Pol| |List| |Dpol|) (|gb| |List| |Dpol|) (|xx1| |Integer|)
-         (|xx2| |Integer|) ($ |List| |Dpol|))
+        ((|Pol| (|List| |Dpol|)) (|gb| (|List| |Dpol|)) (|xx1| (|Integer|))
+         (|xx2| (|Integer|)) ($ (|List| |Dpol|)))
         (SPROG
          ((#1=#:G191 NIL) (|x| NIL) (#2=#:G190 NIL) (|xx| (|Integer|))
           (|redPols| (|List| |Dpol|))
@@ -265,15 +269,17 @@
                   (QREFELT $ 30))) 
 
 (SDEFUN |GBINTERN;critMonD1;Expon2L;7|
-        ((|e| |Expon|)
-         (D2 |List|
-          (|Record| (|:| |lcmfij| |Expon|)
-                    (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
-                    (|:| |polj| |Dpol|)))
-         ($ |List|
-          (|Record| (|:| |lcmfij| |Expon|)
-                    (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
-                    (|:| |polj| |Dpol|))))
+        ((|e| (|Expon|))
+         (D2
+          (|List|
+           (|Record| (|:| |lcmfij| |Expon|)
+                     (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
+                     (|:| |polj| |Dpol|))))
+         ($
+          (|List|
+           (|Record| (|:| |lcmfij| |Expon|)
+                     (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
+                     (|:| |polj| |Dpol|)))))
         (SPROG ((#1=#:G197 NIL) (|x| NIL) (#2=#:G196 NIL))
                (SEQ
                 (PROGN
@@ -291,14 +297,16 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |GBINTERN;critMTonD1;2L;8|
-        ((D1 |List|
-          (|Record| (|:| |lcmfij| |Expon|)
-                    (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
-                    (|:| |polj| |Dpol|)))
-         ($ |List|
-          (|Record| (|:| |lcmfij| |Expon|)
-                    (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
-                    (|:| |polj| |Dpol|))))
+        ((D1
+          (|List|
+           (|Record| (|:| |lcmfij| |Expon|)
+                     (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
+                     (|:| |polj| |Dpol|))))
+         ($
+          (|List|
+           (|Record| (|:| |lcmfij| |Expon|)
+                     (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
+                     (|:| |polj| |Dpol|)))))
         (SPROG
          ((|r1|
            (|List|
@@ -346,15 +354,17 @@
                                                                    38)))))))))))))))))))) 
 
 (SDEFUN |GBINTERN;critBonD;Dpol2L;9|
-        ((|h| |Dpol|)
-         (D |List|
-          (|Record| (|:| |lcmfij| |Expon|)
-                    (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
-                    (|:| |polj| |Dpol|)))
-         ($ |List|
-          (|Record| (|:| |lcmfij| |Expon|)
-                    (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
-                    (|:| |polj| |Dpol|))))
+        ((|h| (|Dpol|))
+         (D
+          (|List|
+           (|Record| (|:| |lcmfij| |Expon|)
+                     (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
+                     (|:| |polj| |Dpol|))))
+         ($
+          (|List|
+           (|Record| (|:| |lcmfij| |Expon|)
+                     (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
+                     (|:| |polj| |Dpol|)))))
         (SPROG ((#1=#:G211 NIL) (|x| NIL) (#2=#:G210 NIL) (|d| (|Expon|)))
                (SEQ (LETT |d| (SPADCALL |h| (QREFELT $ 16)))
                     (EXIT
@@ -379,11 +389,15 @@
                            (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |GBINTERN;updatF;DpolNni2L;10|
-        ((|h| |Dpol|) (|deg| |NonNegativeInteger|)
-         (F |List|
-          (|Record| (|:| |totdeg| (|NonNegativeInteger|)) (|:| |pol| |Dpol|)))
-         ($ |List|
-          (|Record| (|:| |totdeg| (|NonNegativeInteger|)) (|:| |pol| |Dpol|))))
+        ((|h| (|Dpol|)) (|deg| (|NonNegativeInteger|))
+         (F
+          (|List|
+           (|Record| (|:| |totdeg| (|NonNegativeInteger|))
+                     (|:| |pol| |Dpol|))))
+         ($
+          (|List|
+           (|Record| (|:| |totdeg| (|NonNegativeInteger|))
+                     (|:| |pol| |Dpol|)))))
         (SPROG ((#1=#:G218 NIL) (|f| NIL) (#2=#:G217 NIL) (|d| (|Expon|)))
                (SEQ (LETT |d| (SPADCALL |h| (QREFELT $ 16)))
                     (EXIT
@@ -407,18 +421,21 @@
                       (CONS |deg| |h|) (QREFELT $ 61)))))) 
 
 (SDEFUN |GBINTERN;updatD;3L;11|
-        ((D1 |List|
-          (|Record| (|:| |lcmfij| |Expon|)
-                    (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
-                    (|:| |polj| |Dpol|)))
-         (D2 |List|
-          (|Record| (|:| |lcmfij| |Expon|)
-                    (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
-                    (|:| |polj| |Dpol|)))
-         ($ |List|
-          (|Record| (|:| |lcmfij| |Expon|)
-                    (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
-                    (|:| |polj| |Dpol|))))
+        ((D1
+          (|List|
+           (|Record| (|:| |lcmfij| |Expon|)
+                     (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
+                     (|:| |polj| |Dpol|))))
+         (D2
+          (|List|
+           (|Record| (|:| |lcmfij| |Expon|)
+                     (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
+                     (|:| |polj| |Dpol|))))
+         ($
+          (|List|
+           (|Record| (|:| |lcmfij| |Expon|)
+                     (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
+                     (|:| |polj| |Dpol|)))))
         (SPROG
          ((|res|
            (|List|
@@ -466,8 +483,8 @@
                       (EXIT (NREVERSE |res|)))))))) 
 
 (SDEFUN |GBINTERN;gcdCo|
-        ((|c1| |Dom|) (|c2| |Dom|)
-         ($ |Record| (|:| |co1| |Dom|) (|:| |co2| |Dom|)))
+        ((|c1| (|Dom|)) (|c2| (|Dom|))
+         ($ (|Record| (|:| |co1| |Dom|) (|:| |co2| |Dom|))))
         (SPROG ((#1=#:G238 NIL) (|d| (|Dom|)))
                (SEQ (LETT |d| (SPADCALL |c1| |c2| (QREFELT $ 62)))
                     (EXIT
@@ -483,10 +500,11 @@
                                         (|Union| (QREFELT $ 6) #2#) #1#))))))) 
 
 (SDEFUN |GBINTERN;sPol;RDpol;13|
-        ((|p| |Record| (|:| |lcmfij| |Expon|)
-          (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
-          (|:| |polj| |Dpol|))
-         ($ |Dpol|))
+        ((|p|
+          (|Record| (|:| |lcmfij| |Expon|)
+                    (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
+                    (|:| |polj| |Dpol|)))
+         ($ (|Dpol|)))
         (SPROG
          ((#1=#:G244 NIL) (|cc| (|Record| (|:| |co1| |Dom|) (|:| |co2| |Dom|)))
           (|fj| (|Dpol|)) (|fi| (|Dpol|)) (|Tij| (|Expon|)))
@@ -534,8 +552,8 @@
                 (QREFELT $ 67)))))) 
 
 (SDEFUN |GBINTERN;redPo;DpolLR;14|
-        ((|s| |Dpol|) (F |List| |Dpol|)
-         ($ |Record| (|:| |poly| |Dpol|) (|:| |mult| |Dom|)))
+        ((|s| (|Dpol|)) (F (|List| |Dpol|))
+         ($ (|Record| (|:| |poly| |Dpol|) (|:| |mult| |Dom|))))
         (SPROG
          ((|m| (|Dom|)) (|cc| (|Record| (|:| |co1| |Dom|) (|:| |co2| |Dom|)))
           (|e| (|Union| |Expon| "failed")) (|s1| (|Expon|)) (|f1| (|Dpol|))
@@ -581,14 +599,15 @@
               (EXIT (CONS |s| |m|))))) 
 
 (SDEFUN |GBINTERN;redPol;DpolLDpol;15|
-        ((|s| |Dpol|) (F |List| |Dpol|) ($ |Dpol|))
+        ((|s| (|Dpol|)) (F (|List| |Dpol|)) ($ (|Dpol|)))
         (SPADCALL (QCAR (SPADCALL |s| F (QREFELT $ 71))) F (QREFELT $ 72))) 
 
 (SDEFUN |GBINTERN;critT;RB;16|
-        ((|p| |Record| (|:| |lcmfij| |Expon|)
-          (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
-          (|:| |polj| |Dpol|))
-         ($ |Boolean|))
+        ((|p|
+          (|Record| (|:| |lcmfij| |Expon|)
+                    (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
+                    (|:| |polj| |Dpol|)))
+         ($ (|Boolean|)))
         (SPADCALL (QVELT |p| 0)
                   (SPADCALL (SPADCALL (QVELT |p| 2) (QREFELT $ 16))
                             (SPADCALL (QVELT |p| 3) (QREFELT $ 16))
@@ -596,13 +615,13 @@
                   (QREFELT $ 50))) 
 
 (SDEFUN |GBINTERN;critM;2ExponB;17|
-        ((|e1| |Expon|) (|e2| |Expon|) ($ |Boolean|))
+        ((|e1| (|Expon|)) (|e2| (|Expon|)) ($ (|Boolean|)))
         (SPROG ((|en| (|Union| |Expon| "failed")))
                (QEQCAR (LETT |en| (SPADCALL |e2| |e1| (QREFELT $ 19))) 0))) 
 
 (SDEFUN |GBINTERN;critB;4ExponB;18|
-        ((|eh| |Expon|) (|eik| |Expon|) (|ei| |Expon|) (|ek| |Expon|)
-         ($ |Boolean|))
+        ((|eh| (|Expon|)) (|eik| (|Expon|)) (|ei| (|Expon|)) (|ek| (|Expon|))
+         ($ (|Boolean|)))
         (COND
          ((SPADCALL |eh| |eik| (QREFELT $ 57))
           (COND
@@ -612,12 +631,12 @@
            (#1='T NIL)))
          (#1# NIL))) 
 
-(SDEFUN |GBINTERN;hMonic;2Dpol;19| ((|p| |Dpol|) ($ |Dpol|))
+(SDEFUN |GBINTERN;hMonic;2Dpol;19| ((|p| (|Dpol|)) ($ (|Dpol|)))
         (COND ((SPADCALL |p| (|spadConstant| $ 47) (QREFELT $ 48)) |p|)
               ('T (SPADCALL |p| (QREFELT $ 75))))) 
 
 (SDEFUN |GBINTERN;credPol;DpolLDpol;20|
-        ((|h| |Dpol|) (F |List| |Dpol|) ($ |Dpol|))
+        ((|h| (|Dpol|)) (F (|List| |Dpol|)) ($ (|Dpol|)))
         (SPROG
          ((|h0| (|Dpol|))
           (|hred| (|Record| (|:| |poly| |Dpol|) (|:| |mult| |Dom|))))
@@ -649,7 +668,7 @@
                        NIL (GO G190) G191 (EXIT NIL))
                   (EXIT |h0|))))))) 
 
-(SDEFUN |GBINTERN;minGbasis;2L;21| ((F |List| |Dpol|) ($ |List| |Dpol|))
+(SDEFUN |GBINTERN;minGbasis;2L;21| ((F (|List| |Dpol|)) ($ (|List| |Dpol|)))
         (SPROG ((|newbas| (|List| |Dpol|)))
                (SEQ
                 (COND ((NULL F) NIL)
@@ -663,7 +682,7 @@
                                (QREFELT $ 29))
                               |newbas|)))))))) 
 
-(SDEFUN |GBINTERN;lepol;DpolI;22| ((|p1| |Dpol|) ($ |Integer|))
+(SDEFUN |GBINTERN;lepol;DpolI;22| ((|p1| (|Dpol|)) ($ (|Integer|)))
         (SPROG ((|n| (|Integer|)))
                (SEQ (LETT |n| 0)
                     (SEQ G190
@@ -678,14 +697,14 @@
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT |n|)))) 
 
-(SDEFUN |GBINTERN;prinb;IV;23| ((|n| |Integer|) ($ |Void|))
+(SDEFUN |GBINTERN;prinb;IV;23| ((|n| (|Integer|)) ($ (|Void|)))
         (SPROG ((#1=#:G287 NIL) (|x| NIL))
                (SEQ (LETT |x| 1) (LETT #1# |n|) G190
                     (COND ((|greater_SI| |x| #1#) (GO G191)))
                     (SEQ (EXIT (SPADCALL "    " (QREFELT $ 55))))
                     (LETT |x| (|inc_SI| |x|)) (GO G190) G191 (EXIT NIL)))) 
 
-(SDEFUN |GBINTERN;prinshINFO;DpolV;24| ((|h| |Dpol|) ($ |Void|))
+(SDEFUN |GBINTERN;prinshINFO;DpolV;24| ((|h| (|Dpol|)) ($ (|Void|)))
         (SEQ (SPADCALL 2 (QREFELT $ 80))
              (SPADCALL " reduced Critpair - Polynom :" (QREFELT $ 55))
              (SPADCALL 2 (QREFELT $ 80))
@@ -693,11 +712,12 @@
              (EXIT (SPADCALL 2 (QREFELT $ 80))))) 
 
 (SDEFUN |GBINTERN;prindINFO;R2Dpol4I;25|
-        ((|cp| |Record| (|:| |lcmfij| |Expon|)
-          (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
-          (|:| |polj| |Dpol|))
-         (|ps| |Dpol|) (|ph| |Dpol|) (|i1| |Integer|) (|i2| |Integer|)
-         (|n| |Integer|) ($ |Integer|))
+        ((|cp|
+          (|Record| (|:| |lcmfij| |Expon|)
+                    (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
+                    (|:| |polj| |Dpol|)))
+         (|ps| (|Dpol|)) (|ph| (|Dpol|)) (|i1| (|Integer|)) (|i2| (|Integer|))
+         (|n| (|Integer|)) ($ (|Integer|)))
         (SPROG
          ((|ll|
            (|List|
@@ -798,7 +818,7 @@
                   (SPADCALL (SPADCALL |ll| (QREFELT $ 85)) (QREFELT $ 82))
                   (SPADCALL 1 (QREFELT $ 80)) (EXIT |n|)))))))) 
 
-(SDEFUN |GBINTERN;prinpolINFO;LV;26| ((|pl| |List| |Dpol|) ($ |Void|))
+(SDEFUN |GBINTERN;prinpolINFO;LV;26| ((|pl| (|List| |Dpol|)) ($ (|Void|)))
         (SPROG ((|n| (|Integer|)))
                (SEQ (LETT |n| (LENGTH |pl|)) (SPADCALL 1 (QREFELT $ 80))
                     (EXIT
@@ -819,11 +839,12 @@
                             (EXIT (SPADCALL 2 (QREFELT $ 80)))))))))) 
 
 (SDEFUN |GBINTERN;fprindINFO;R2Dpol5I;27|
-        ((|cp| |Record| (|:| |lcmfij| |Expon|)
-          (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
-          (|:| |polj| |Dpol|))
-         (|ps| |Dpol|) (|ph| |Dpol|) (|i1| |Integer|) (|i2| |Integer|)
-         (|i3| |Integer|) (|n| |Integer|) ($ |Integer|))
+        ((|cp|
+          (|Record| (|:| |lcmfij| |Expon|)
+                    (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
+                    (|:| |polj| |Dpol|)))
+         (|ps| (|Dpol|)) (|ph| (|Dpol|)) (|i1| (|Integer|)) (|i2| (|Integer|))
+         (|i3| (|Integer|)) (|n| (|Integer|)) ($ (|Integer|)))
         (SPROG
          ((|ll|
            (|List|

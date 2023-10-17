@@ -1,7 +1,7 @@
 
 (SDEFUN |LODOCONV;convert;LodoLodo;1|
-        ((|l1| |LinearOrdinaryDifferentialOperator1| R)
-         ($ |LinearOrdinaryDifferentialOperator3| |Coeff| |Ab| R))
+        ((|l1| (|LinearOrdinaryDifferentialOperator1| R))
+         ($ (|LinearOrdinaryDifferentialOperator3| |Coeff| |Ab| R)))
         (SPROG
          ((|l3| (|LinearOrdinaryDifferentialOperator3| |Coeff| |Ab| R))
           (#1=#:G104 NIL))
@@ -46,8 +46,8 @@
               (EXIT |l3|)))) 
 
 (SDEFUN |LODOCONV;convert;LodoLodo;2|
-        ((|l3| |LinearOrdinaryDifferentialOperator3| |Coeff| |Ab| R)
-         ($ |LinearOrdinaryDifferentialOperator1| R))
+        ((|l3| (|LinearOrdinaryDifferentialOperator3| |Coeff| |Ab| R))
+         ($ (|LinearOrdinaryDifferentialOperator1| R)))
         (SPROG ((|l1| (|LinearOrdinaryDifferentialOperator1| R)))
                (SEQ (LETT |l1| (|spadConstant| $ 14))
                     (SEQ G190

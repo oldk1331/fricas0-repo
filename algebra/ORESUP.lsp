@@ -1,39 +1,39 @@
 
-(SDEFUN |ORESUP;^;$Pi$;1| ((|x| $) (|n| |PositiveInteger|) ($ $))
+(SDEFUN |ORESUP;^;$Pi$;1| ((|x| ($)) (|n| (|PositiveInteger|)) ($ ($)))
         (SPADCALL |x| |n| (QREFELT $ 11))) 
 
-(SDEFUN |ORESUP;^;$Nni$;2| ((|x| $) (|n| |NonNegativeInteger|) ($ $))
+(SDEFUN |ORESUP;^;$Nni$;2| ((|x| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (COND ((ZEROP |n|) (|spadConstant| $ 13))
               ('T (SPADCALL |x| |n| (QREFELT $ 11))))) 
 
-(SDEFUN |ORESUP;*;3$;3| ((|x| $) (|y| $) ($ $))
+(SDEFUN |ORESUP;*;3$;3| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL |x| |y| (QREFELT $ 7) (QREFELT $ 8) (QREFELT $ 19))) 
 
-(SDEFUN |ORESUP;*;$R$;4| ((|x| $) (|r| R) ($ $))
+(SDEFUN |ORESUP;*;$R$;4| ((|x| ($)) (|r| (R)) ($ ($)))
         (SPADCALL |x| (SPADCALL |r| (|spadConstant| $ 13) (QREFELT $ 22))
                   (QREFELT $ 7) (QREFELT $ 8) (QREFELT $ 19))) 
 
-(SDEFUN |ORESUP;apply;$3R;5| ((|p| $) (|c| R) (|r| R) ($ R))
+(SDEFUN |ORESUP;apply;$3R;5| ((|p| ($)) (|c| (R)) (|r| (R)) ($ (R)))
         (SPADCALL |p| |c| |r| (QREFELT $ 7) (QREFELT $ 8) (QREFELT $ 24))) 
 
 (SDEFUN |ORESUP;monicLeftDivide;2$R;6|
-        ((|a| $) (|b| $)
-         ($ |Record| (|:| |quotient| . #1=($)) (|:| |remainder| . #1#)))
+        ((|a| ($)) (|b| ($))
+         ($ (|Record| (|:| |quotient| . #1=($)) (|:| |remainder| . #1#))))
         (SPADCALL |a| |b| (QREFELT $ 7) (QREFELT $ 27))) 
 
 (SDEFUN |ORESUP;monicRightDivide;2$R;7|
-        ((|a| $) (|b| $)
-         ($ |Record| (|:| |quotient| . #1=($)) (|:| |remainder| . #1#)))
+        ((|a| ($)) (|b| ($))
+         ($ (|Record| (|:| |quotient| . #1=($)) (|:| |remainder| . #1#))))
         (SPADCALL |a| |b| (QREFELT $ 7) (QREFELT $ 30))) 
 
 (SDEFUN |ORESUP;leftDivide;2$R;8|
-        ((|a| $) (|b| $)
-         ($ |Record| (|:| |quotient| . #1=($)) (|:| |remainder| . #1#)))
+        ((|a| ($)) (|b| ($))
+         ($ (|Record| (|:| |quotient| . #1=($)) (|:| |remainder| . #1#))))
         (SPADCALL |a| |b| (QREFELT $ 7) (QREFELT $ 32))) 
 
 (SDEFUN |ORESUP;rightDivide;2$R;9|
-        ((|a| $) (|b| $)
-         ($ |Record| (|:| |quotient| . #1=($)) (|:| |remainder| . #1#)))
+        ((|a| ($)) (|b| ($))
+         ($ (|Record| (|:| |quotient| . #1=($)) (|:| |remainder| . #1#))))
         (SPADCALL |a| |b| (QREFELT $ 7) (QREFELT $ 34))) 
 
 (DECLAIM (NOTINLINE |SparseUnivariateSkewPolynomial;|)) 

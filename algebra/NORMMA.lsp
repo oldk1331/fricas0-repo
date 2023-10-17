@@ -1,9 +1,9 @@
 
 (SDEFUN |NORMMA;PolR2SUP|
-        ((|q| |PolR|) ($ |SparseUnivariatePolynomial| |PolR|))
+        ((|q| (|PolR|)) ($ (|SparseUnivariatePolynomial| |PolR|)))
         (SPADCALL (ELT $ 10) |q| (QREFELT $ 14))) 
 
-(SDEFUN |NORMMA;norm;PolEPolR;2| ((|q| |PolE|) ($ |PolR|))
+(SDEFUN |NORMMA;norm;PolEPolR;2| ((|q| (|PolE|)) ($ (|PolR|)))
         (SPROG ((|p| (|SparseUnivariatePolynomial| |PolR|)))
                (SEQ (LETT |p| (|spadConstant| $ 17))
                     (SEQ G190

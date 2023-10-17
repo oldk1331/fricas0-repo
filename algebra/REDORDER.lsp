@@ -1,15 +1,17 @@
 
-(SDEFUN |REDORDER;localbinom| ((|j| |Integer|) (|i| |Integer|) ($ |Integer|))
+(SDEFUN |REDORDER;localbinom|
+        ((|j| (|Integer|)) (|i| (|Integer|)) ($ (|Integer|)))
         (COND ((> |j| |i|) (SPADCALL |j| (+ |i| 1) (QREFELT $ 13))) ('T 0))) 
 
 (SDEFUN |REDORDER;locals|
-        ((|s| |PrimitiveArray| F) (|j| |Integer|) (|i| |Integer|) ($ F))
+        ((|s| (|PrimitiveArray| F)) (|j| (|Integer|)) (|i| (|Integer|))
+         ($ (F)))
         (COND ((> |j| |i|) (QAREF1 |s| (- (- |j| |i|) 1)))
               ('T (|spadConstant| $ 14)))) 
 
 (SDEFUN |REDORDER;ReduceOrder;LLR;3|
-        ((|l| L) (|sols| |List| F)
-         ($ |Record| (|:| |eq| L) (|:| |op| (|List| F))))
+        ((|l| (L)) (|sols| (|List| F))
+         ($ (|Record| (|:| |eq| L) (|:| |op| (|List| F)))))
         (SPROG
          ((|rec| (|Record| (|:| |eq| L) (|:| |op| (|List| F)))) (#1=#:G112 NIL)
           (|s| NIL) (#2=#:G111 NIL) (|neweq| (L)) (|sol| (F)))
@@ -48,7 +50,7 @@
                          (SPADCALL (QCDR |rec|) |sol| (QREFELT $ 21)))))))))) 
 
 (SDEFUN |REDORDER;ithcoef|
-        ((|eq| L) (|i| |Integer|) (|s| |PrimitiveArray| F) ($ F))
+        ((|eq| (L)) (|i| (|Integer|)) (|s| (|PrimitiveArray| F)) ($ (F)))
         (SPROG ((|ans| (F)) (|j| (|NonNegativeInteger|)))
                (SEQ (LETT |ans| (|spadConstant| $ 14))
                     (SEQ G190
@@ -75,7 +77,7 @@
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT |ans|)))) 
 
-(SDEFUN |REDORDER;ReduceOrder;LFL;5| ((|eq| L) (|sol| F) ($ L))
+(SDEFUN |REDORDER;ReduceOrder;LFL;5| ((|eq| (L)) (|sol| (F)) ($ (L)))
         (SPROG
          ((|ans| (L)) (#1=#:G126 NIL) (#2=#:G121 NIL) (|i| NIL) (|si| (F))
           (#3=#:G125 NIL) (#4=#:G118 NIL) (|s| (|PrimitiveArray| F))

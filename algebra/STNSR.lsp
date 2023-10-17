@@ -1,6 +1,6 @@
 
 (SDEFUN |STNSR;tensorMap;SMS;1|
-        ((|s| |Stream| R) (|f| |Mapping| (|List| R) R) ($ |Stream| R))
+        ((|s| (|Stream| R)) (|f| (|Mapping| (|List| R) R)) ($ (|Stream| R)))
         (SPROG NIL
                (COND ((SPADCALL |s| (QREFELT $ 9)) (SPADCALL (QREFELT $ 10)))
                      ('T

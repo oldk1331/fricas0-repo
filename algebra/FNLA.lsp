@@ -1,8 +1,8 @@
 
-(SDEFUN |FNLA;dimension;Nni;1| (($ |NonNegativeInteger|))
+(SDEFUN |FNLA;dimension;Nni;1| (($ (|NonNegativeInteger|)))
         (QVSIZE (QREFELT $ 14))) 
 
-(SDEFUN |FNLA;have| ((|i| |Integer|) (|j| |Integer|) ($ $))
+(SDEFUN |FNLA;have| ((|i| (|Integer|)) (|j| (|Integer|)) ($ ($)))
         (SPROG
          ((|hi| (|Integer|)) (|lo| (|Integer|)) (|mid| (|Integer|))
           (|wt| (|Integer|)))
@@ -57,17 +57,17 @@
                                   (SPADCALL |hi| (QREFELT $ 22))
                                   (QREFELT $ 24)))))))))) 
 
-(SDEFUN |FNLA;generator;Nni$;3| ((|i| |NonNegativeInteger|) ($ $))
+(SDEFUN |FNLA;generator;Nni$;3| ((|i| (|NonNegativeInteger|)) ($ ($)))
         (COND ((> |i| (SPADCALL (QREFELT $ 15))) (|spadConstant| $ 25))
               ('T
                (SPADCALL (|spadConstant| $ 23) (SPADCALL |i| (QREFELT $ 22))
                          (QREFELT $ 24))))) 
 
-(SDEFUN |FNLA;putIn| ((|i| |Integer|) ($ $))
+(SDEFUN |FNLA;putIn| ((|i| (|Integer|)) ($ ($)))
         (SPADCALL (|spadConstant| $ 23) (SPADCALL |i| (QREFELT $ 22))
                   (QREFELT $ 24))) 
 
-(SDEFUN |FNLA;brkt| ((|k| |Integer|) (|f| $) ($ $))
+(SDEFUN |FNLA;brkt| ((|k| (|Integer|)) (|f| ($)) ($ ($)))
         (SPROG ((|dg| (|Integer|)))
                (SEQ
                 (COND
@@ -143,7 +143,7 @@
                        (|FNLA;brkt| |k| (SPADCALL |f| (QREFELT $ 31)) $)
                        (QREFELT $ 37))))))))))) 
 
-(SDEFUN |FNLA;*;3$;6| ((|f| $) (|g| $) ($ $))
+(SDEFUN |FNLA;*;3$;6| ((|f| ($)) (|g| ($)) ($ ($)))
         (COND
          ((SPADCALL (SPADCALL |f| (QREFELT $ 31)) (|spadConstant| $ 20)
                     (QREFELT $ 28))
@@ -161,7 +161,7 @@
            (SPADCALL (SPADCALL |f| (QREFELT $ 31)) |g| (QREFELT $ 38))
            (QREFELT $ 37))))) 
 
-(SDEFUN |FNLA;Fac| ((|m| |Integer|) ($ |Commutator|))
+(SDEFUN |FNLA;Fac| ((|m| (|Integer|)) ($ (|Commutator|)))
         (COND
          ((EQL
            (SPADCALL (SPADCALL (QREFELT $ 14) |m| (QREFELT $ 18)) 1
@@ -180,7 +180,7 @@
             $)
            (QREFELT $ 41))))) 
 
-(SDEFUN |FNLA;shallowE| ((|r| R) (|s| |OrdSetInts|) ($ |OutputForm|))
+(SDEFUN |FNLA;shallowE| ((|r| (R)) (|s| (|OrdSetInts|)) ($ (|OutputForm|)))
         (SPROG ((|k| (|Integer|)))
                (SEQ (LETT |k| (SPADCALL |s| (QREFELT $ 30)))
                     (EXIT
@@ -226,7 +226,7 @@
                                   (QREFELT $ 45))
                                  (QREFELT $ 47)))))))) 
 
-(SDEFUN |FNLA;shallowExpand;$Of;9| ((|f| $) ($ |OutputForm|))
+(SDEFUN |FNLA;shallowExpand;$Of;9| ((|f| ($)) ($ (|OutputForm|)))
         (COND
          ((SPADCALL |f| (|spadConstant| $ 20) (QREFELT $ 28))
           (SPADCALL 0 (QREFELT $ 48)))
@@ -241,7 +241,7 @@
            (SPADCALL (SPADCALL |f| (QREFELT $ 31)) (QREFELT $ 49))
            (QREFELT $ 50))))) 
 
-(SDEFUN |FNLA;deepExpand;$Of;10| ((|f| $) ($ |OutputForm|))
+(SDEFUN |FNLA;deepExpand;$Of;10| ((|f| ($)) ($ (|OutputForm|)))
         (COND
          ((SPADCALL |f| (|spadConstant| $ 20) (QREFELT $ 28))
           (SPADCALL 0 (QREFELT $ 48)))

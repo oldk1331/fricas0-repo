@@ -1,5 +1,5 @@
 
-(SDEFUN |LALG-;coerce;RS;1| ((|x| R) ($ S))
+(SDEFUN |LALG-;coerce;RS;1| ((|x| (R)) ($ (S)))
         (SPADCALL |x| (|spadConstant| $ 8) (QREFELT $ 9))) 
 
 (DECLAIM (NOTINLINE |LeftAlgebra&;|)) 

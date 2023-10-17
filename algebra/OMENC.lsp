@@ -1,9 +1,10 @@
 
 (PUT '|OMENC;=;2$B;1| '|SPADreplace| '|eql_SI|) 
 
-(SDEFUN |OMENC;=;2$B;1| ((|u| $) (|v| $) ($ |Boolean|)) (|eql_SI| |u| |v|)) 
+(SDEFUN |OMENC;=;2$B;1| ((|u| ($)) (|v| ($)) ($ (|Boolean|)))
+        (|eql_SI| |u| |v|)) 
 
-(SDEFUN |OMENC;coerce;$Of;2| ((|u| $) ($ |OutputForm|))
+(SDEFUN |OMENC;coerce;$Of;2| ((|u| ($)) ($ (|OutputForm|)))
         (COND
          ((SPADCALL |u| 0 (QREFELT $ 8)) (SPADCALL "Unknown" (QREFELT $ 11)))
          ((SPADCALL |u| 1 (QREFELT $ 8)) (SPADCALL "Binary" (QREFELT $ 11)))
@@ -13,19 +14,19 @@
 
 (PUT '|OMENC;OMencodingUnknown;$;3| '|SPADreplace| '(XLAM NIL 0)) 
 
-(SDEFUN |OMENC;OMencodingUnknown;$;3| (($ $)) 0) 
+(SDEFUN |OMENC;OMencodingUnknown;$;3| (($ ($))) 0) 
 
 (PUT '|OMENC;OMencodingBinary;$;4| '|SPADreplace| '(XLAM NIL 1)) 
 
-(SDEFUN |OMENC;OMencodingBinary;$;4| (($ $)) 1) 
+(SDEFUN |OMENC;OMencodingBinary;$;4| (($ ($))) 1) 
 
 (PUT '|OMENC;OMencodingXML;$;5| '|SPADreplace| '(XLAM NIL 2)) 
 
-(SDEFUN |OMENC;OMencodingXML;$;5| (($ $)) 2) 
+(SDEFUN |OMENC;OMencodingXML;$;5| (($ ($))) 2) 
 
 (PUT '|OMENC;OMencodingSGML;$;6| '|SPADreplace| '(XLAM NIL 3)) 
 
-(SDEFUN |OMENC;OMencodingSGML;$;6| (($ $)) 3) 
+(SDEFUN |OMENC;OMencodingSGML;$;6| (($ ($))) 3) 
 
 (DECLAIM (NOTINLINE |OpenMathEncoding;|)) 
 

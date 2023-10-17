@@ -1,25 +1,36 @@
 
 (SDEFUN |LODOF2;convertUPtoUTS|
-        ((|np| |UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-         ($ |UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|))
+        ((|np| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+         ($ (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)))
         (SPADCALL |np| (QREFELT $ 10))) 
 
 (SDEFUN |LODOF2;convertUTStoUP|
-        ((|ns| |UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-         (|n| |Integer|)
-         ($ |UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+        ((|ns|
+          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|))
+         (|n| (|Integer|))
+         ($ (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
         (SPADCALL |ns| (- |n| 1) (QREFELT $ 16))) 
 
 (SDEFUN |LODOF2;convertL3toLL|
         ((|f|
-          . #1=(|LinearOrdinaryDifferentialOperator3|
-                (|Expression| (|Integer|))
-                (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-                (|Fraction|
-                 (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
-         ($ |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|)))
+          #1=(|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                    (|UnivariatePolynomial|
+                                                     |var|
+                                                     (|Expression|
+                                                      (|Integer|)))
+                                                    (|Fraction|
+                                                     (|UnivariatePolynomial|
+                                                      |var|
+                                                      (|Expression|
+                                                       (|Integer|))))))
+         ($
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|))))
         (SPROG
          ((|ftmp| #1#)
           (|apf|
@@ -83,13 +94,14 @@
 
 (SDEFUN |LODOF2;newtonpolygonPoints|
         ((|f|
-          . #1=(|LinearOrdinaryDifferentialOperator3|
-                (|Expression| (|Integer|))
-                (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                          |cen|)
-                (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                           |cen|)))
-         ($ |List| (|Record| (|:| |x| (|Integer|)) (|:| |y| (|Integer|)))))
+          #1=(|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                    (|UnivariateTaylorSeries|
+                                                     (|Expression| (|Integer|))
+                                                     |var| |cen|)
+                                                    (|UnivariateLaurentSeries|
+                                                     (|Expression| (|Integer|))
+                                                     |var| |cen|)))
+         ($ (|List| (|Record| (|:| |x| (|Integer|)) (|:| |y| (|Integer|))))))
         (SPROG
          ((|npg|
            (|List| #2=(|Record| (|:| |x| (|Integer|)) (|:| |y| (|Integer|)))))
@@ -153,15 +165,22 @@
               (EXIT (NREVERSE |npg|))))) 
 
 (SDEFUN |LODOF2;newtonpolygon|
-        ((|f| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
-         ($ |List|
-          (|Record|
-           (|:| |point| (|Record| (|:| |x| (|Integer|)) (|:| |y| (|Integer|))))
-           (|:| |slope| (|Fraction| (|Integer|)))
-           (|:| |npoly|
-                (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))))
+        ((|f|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)))
+         ($
+          (|List|
+           (|Record|
+            (|:| |point|
+                 (|Record| (|:| |x| (|Integer|)) (|:| |y| (|Integer|))))
+            (|:| |slope| (|Fraction| (|Integer|)))
+            (|:| |npoly|
+                 (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))))
         (SPROG
          ((|res|
            (|List|
@@ -228,35 +247,49 @@
               (EXIT |res|)))) 
 
 (SDEFUN |LODOF2;testnp;LodoL;6|
-        ((|f| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-          (|Fraction|
-           (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         ($ |List|
-          (|Record|
-           (|:| |point| (|Record| (|:| |x| (|Integer|)) (|:| |y| (|Integer|))))
-           (|:| |slope| (|Fraction| (|Integer|)))
-           (|:| |npoly|
-                (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))))
+        ((|f|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariatePolynomial| |var|
+                                                                         (|Expression|
+                                                                          (|Integer|)))
+                                                 (|Fraction|
+                                                  (|UnivariatePolynomial| |var|
+                                                                          (|Expression|
+                                                                           (|Integer|))))))
+         ($
+          (|List|
+           (|Record|
+            (|:| |point|
+                 (|Record| (|:| |x| (|Integer|)) (|:| |y| (|Integer|))))
+            (|:| |slope| (|Fraction| (|Integer|)))
+            (|:| |npoly|
+                 (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))))
         (|LODOF2;newtonpolygon| (|LODOF2;convertL3toLL| |f| $) $)) 
 
 (SDEFUN |LODOF2;factor_newton|
-        ((|f| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
-         (|factorizer| |Mapping|
-          (|Factored|
-           (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-          (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-         (|option| |String|)
-         ($ |List|
+        ((|f|
           (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
                                                  (|UnivariateTaylorSeries|
                                                   (|Expression| (|Integer|))
                                                   |var| |cen|)
                                                  (|UnivariateLaurentSeries|
                                                   (|Expression| (|Integer|))
-                                                  |var| |cen|))))
+                                                  |var| |cen|)))
+         (|factorizer|
+          (|Mapping|
+           (|Factored|
+            (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
+           (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))))
+         (|option| (|String|))
+         ($
+          (|List|
+           (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                  (|UnivariateTaylorSeries|
+                                                   (|Expression| (|Integer|))
+                                                   |var| |cen|)
+                                                  (|UnivariateLaurentSeries|
+                                                   (|Expression| (|Integer|))
+                                                   |var| |cen|)))))
         (SPROG
          ((|res|
            (|List|
@@ -616,34 +649,43 @@
           #19# (EXIT #1#)))) 
 
 (SDEFUN |LODOF2;testfn;LodoMSL;8|
-        ((|f| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-          (|Fraction|
-           (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         (|factorizer| |Mapping|
-          (|Factored|
-           (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-          (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-         (|option| |String|)
-         ($ |List|
+        ((|f|
           (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-                                                 (|UnivariateTaylorSeries|
-                                                  (|Expression| (|Integer|))
-                                                  |var| |cen|)
-                                                 (|UnivariateLaurentSeries|
-                                                  (|Expression| (|Integer|))
-                                                  |var| |cen|))))
+                                                 (|UnivariatePolynomial| |var|
+                                                                         (|Expression|
+                                                                          (|Integer|)))
+                                                 (|Fraction|
+                                                  (|UnivariatePolynomial| |var|
+                                                                          (|Expression|
+                                                                           (|Integer|))))))
+         (|factorizer|
+          (|Mapping|
+           (|Factored|
+            (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
+           (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))))
+         (|option| (|String|))
+         ($
+          (|List|
+           (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                  (|UnivariateTaylorSeries|
+                                                   (|Expression| (|Integer|))
+                                                   |var| |cen|)
+                                                  (|UnivariateLaurentSeries|
+                                                   (|Expression| (|Integer|))
+                                                   |var| |cen|)))))
         (|LODOF2;factor_newton| (|LODOF2;convertL3toLL| |f| $) |factorizer|
          |option| $)) 
 
 (SDEFUN |LODOF2;factorUP|
-        ((|np| |UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-         (|factorSUP| |Mapping|
-          #1=(|Factored|
-              (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-          (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-         ($ |Factored|
-          (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
+        ((|np| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+         (|factorSUP|
+          (|Mapping|
+           #1=(|Factored|
+               (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
+           (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))))
+         ($
+          (|Factored|
+           (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
         (SPROG
          ((|fsnp| #1#)
           (|snp| (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))))
@@ -652,30 +694,37 @@
               (EXIT (SPADCALL (ELT $ 97) |fsnp| (QREFELT $ 101)))))) 
 
 (SDEFUN |LODOF2;factor_newton2|
-        ((|f| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
-         (|r| |UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-         (|l| |Record|
-          (|:| |point| (|Record| (|:| |x| (|Integer|)) (|:| |y| (|Integer|))))
-          (|:| |slope| #1=(|Fraction| (|Integer|)))
-          (|:| |npoly|
-               #2=(|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         ($ |Record|
-          (|:| |Qt|
-               (|LinearOrdinaryDifferentialOperator3|
-                (|Expression| (|Integer|))
-                (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                          |cen|)
-                (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                           |cen|)))
-          (|:| |Rt|
-               (|LinearOrdinaryDifferentialOperator3|
-                (|Expression| (|Integer|))
-                (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                          |cen|)
-                (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                           |cen|)))))
+        ((|f|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)))
+         (|r| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+         (|l|
+          (|Record|
+           (|:| |point| (|Record| (|:| |x| (|Integer|)) (|:| |y| (|Integer|))))
+           (|:| |slope| #1=(|Fraction| (|Integer|)))
+           (|:| |npoly|
+                #2=(|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
+         ($
+          (|Record|
+           (|:| |Qt|
+                (|LinearOrdinaryDifferentialOperator3|
+                 (|Expression| (|Integer|))
+                 (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
+                                           |cen|)
+                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                            |cen|)))
+           (|:| |Rt|
+                (|LinearOrdinaryDifferentialOperator3|
+                 (|Expression| (|Integer|))
+                 (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
+                                           |cen|)
+                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                            |cen|))))))
         (SPROG
          ((|right|
            #3=(|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
@@ -776,27 +825,33 @@
               (EXIT (CONS |left| |right|))))) 
 
 (SDEFUN |LODOF2;testf2;LodoUpFR;11|
-        ((|f| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-          (|Fraction|
-           (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         (|r| |UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-         (|slop| |Fraction| (|Integer|))
-         ($ |Record|
-          (|:| |Qt|
-               (|LinearOrdinaryDifferentialOperator3|
-                (|Expression| (|Integer|))
-                (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                          |cen|)
-                (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                           |cen|)))
-          (|:| |Rt|
-               (|LinearOrdinaryDifferentialOperator3|
-                (|Expression| (|Integer|))
-                (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                          |cen|)
-                (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                           |cen|)))))
+        ((|f|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariatePolynomial| |var|
+                                                                         (|Expression|
+                                                                          (|Integer|)))
+                                                 (|Fraction|
+                                                  (|UnivariatePolynomial| |var|
+                                                                          (|Expression|
+                                                                           (|Integer|))))))
+         (|r| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+         (|slop| (|Fraction| (|Integer|)))
+         ($
+          (|Record|
+           (|:| |Qt|
+                (|LinearOrdinaryDifferentialOperator3|
+                 (|Expression| (|Integer|))
+                 (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
+                                           |cen|)
+                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                            |cen|)))
+           (|:| |Rt|
+                (|LinearOrdinaryDifferentialOperator3|
+                 (|Expression| (|Integer|))
+                 (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
+                                           |cen|)
+                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                            |cen|))))))
         (SPROG
          ((|l|
            #1=(|Record|
@@ -823,12 +878,18 @@
             $))))) 
 
 (SDEFUN |LODOF2;laurent_op|
-        ((|llaur| |List|
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
-         (|dgf| |Integer|)
-         ($ |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|)))
+        ((|llaur|
+          (|List|
+           (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|)))
+         (|dgf| (|Integer|))
+         ($
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|))))
         (SPROG
          ((|f|
            (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
@@ -855,27 +916,29 @@
               (EXIT |f|)))) 
 
 (SDEFUN |LODOF2;list_laurent|
-        ((|lsc| |Record|
-          (|:| |llc|
-               (|List|
-                (|Stream|
-                 (|Record| (|:| |k| (|Integer|))
-                           (|:| |c| (|Expression| (|Integer|)))))))
-          (|:| |rlc|
-               (|List|
-                (|Stream|
-                 (|Record| (|:| |k| (|Integer|))
-                           (|:| |c| (|Expression| (|Integer|))))))))
-         (|dgl| |Integer|) (|dgr| |Integer|)
-         ($ |Record|
-          (|:| |laurl|
-               (|List|
-                (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                           |cen|)))
-          (|:| |laurr|
-               (|List|
-                (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                           |cen|)))))
+        ((|lsc|
+          (|Record|
+           (|:| |llc|
+                (|List|
+                 (|Stream|
+                  (|Record| (|:| |k| (|Integer|))
+                            (|:| |c| (|Expression| (|Integer|)))))))
+           (|:| |rlc|
+                (|List|
+                 (|Stream|
+                  (|Record| (|:| |k| (|Integer|))
+                            (|:| |c| (|Expression| (|Integer|)))))))))
+         (|dgl| (|Integer|)) (|dgr| (|Integer|))
+         ($
+          (|Record|
+           (|:| |laurl|
+                (|List|
+                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                            |cen|)))
+           (|:| |laurr|
+                (|List|
+                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                            |cen|))))))
         (SPROG
          ((|laurer|
            #1=(|List|
@@ -887,23 +950,29 @@
               (EXIT (CONS |laurel| |laurer|))))) 
 
 (SDEFUN |LODOF2;testll;FLodo2UpFIR;14|
-        ((|slop| |Fraction| (|Integer|))
-         (|f| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-          (|Fraction|
-           (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         (|l_low| |UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-         (|r_low| |UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-         (|shift| |Fraction| (|Integer|)) (|dgr| |Integer|)
-         ($ |Record|
-          (|:| |laurl|
-               (|List|
-                (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                           |cen|)))
-          (|:| |laurr|
-               (|List|
-                (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                           |cen|)))))
+        ((|slop| (|Fraction| (|Integer|)))
+         (|f|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariatePolynomial| |var|
+                                                                         (|Expression|
+                                                                          (|Integer|)))
+                                                 (|Fraction|
+                                                  (|UnivariatePolynomial| |var|
+                                                                          (|Expression|
+                                                                           (|Integer|))))))
+         (|l_low| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+         (|r_low| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+         (|shift| (|Fraction| (|Integer|))) (|dgr| (|Integer|))
+         ($
+          (|Record|
+           (|:| |laurl|
+                (|List|
+                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                            |cen|)))
+           (|:| |laurr|
+                (|List|
+                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                            |cen|))))))
         (SPROG
          ((|lcr|
            (|Record|
@@ -947,13 +1016,16 @@
             |dgr| $))))) 
 
 (SDEFUN |LODOF2;list_laurentop|
-        ((|lsc| |List|
-          (|Stream|
-           (|Record| (|:| |k| (|Integer|))
-                     (|:| |c| (|Expression| (|Integer|))))))
-         (|dgf| |Integer|)
-         ($ |List|
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|)))
+        ((|lsc|
+          (|List|
+           (|Stream|
+            (|Record| (|:| |k| (|Integer|))
+                      (|:| |c| (|Expression| (|Integer|)))))))
+         (|dgf| (|Integer|))
+         ($
+          (|List|
+           (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                      |cen|))))
         (SPROG
          ((|res|
            (|List|
@@ -977,35 +1049,37 @@
               (EXIT |res|)))) 
 
 (SDEFUN |LODOF2;listream_coefs|
-        ((|slr| |Stream|
+        ((|slr|
+          (|Stream|
+           (|Record|
+            (|:| |Qt|
+                 (|LinearOrdinaryDifferentialOperator3|
+                  (|Expression| (|Integer|))
+                  (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
+                                            |cen|)
+                  (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                             |cen|)))
+            (|:| |Rt|
+                 (|LinearOrdinaryDifferentialOperator3|
+                  (|Expression| (|Integer|))
+                  (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
+                                            |cen|)
+                  (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                             |cen|))))))
+         (|dgl| (|Integer|)) (|dgr| (|Integer|))
+         (|shift| (|Fraction| (|Integer|))) (|slop| (|Fraction| (|Integer|)))
+         ($
           (|Record|
-           (|:| |Qt|
-                (|LinearOrdinaryDifferentialOperator3|
-                 (|Expression| (|Integer|))
-                 (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                           |cen|)
-                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                            |cen|)))
-           (|:| |Rt|
-                (|LinearOrdinaryDifferentialOperator3|
-                 (|Expression| (|Integer|))
-                 (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                           |cen|)
-                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                            |cen|)))))
-         (|dgl| |Integer|) (|dgr| |Integer|) (|shift| |Fraction| (|Integer|))
-         (|slop| |Fraction| (|Integer|))
-         ($ |Record|
-          (|:| |llc|
-               (|List|
-                (|Stream|
-                 (|Record| (|:| |k| (|Integer|))
-                           (|:| |c| (|Expression| (|Integer|)))))))
-          (|:| |rlc|
-               (|List|
-                (|Stream|
-                 (|Record| (|:| |k| (|Integer|))
-                           (|:| |c| (|Expression| (|Integer|)))))))))
+           (|:| |llc|
+                (|List|
+                 (|Stream|
+                  (|Record| (|:| |k| (|Integer|))
+                            (|:| |c| (|Expression| (|Integer|)))))))
+           (|:| |rlc|
+                (|List|
+                 (|Stream|
+                  (|Record| (|:| |k| (|Integer|))
+                            (|:| |c| (|Expression| (|Integer|))))))))))
         (SPROG
          ((|rsc|
            #1=(|List|
@@ -1045,25 +1119,31 @@
 (SDEFUN |LODOF2;listream_coefs!0| ((|landr| NIL) ($$ NIL)) (QCAR |landr|)) 
 
 (SDEFUN |LODOF2;testlc;FLodo2UpFIR;17|
-        ((|slop| |Fraction| (|Integer|))
-         (|f| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-          (|Fraction|
-           (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         (|l_low| |UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-         (|r_low| |UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-         (|shift| |Fraction| (|Integer|)) (|dgr| |Integer|)
-         ($ |Record|
-          (|:| |llc|
-               (|List|
-                (|Stream|
-                 (|Record| (|:| |k| (|Integer|))
-                           (|:| |c| (|Expression| (|Integer|)))))))
-          (|:| |rlc|
-               (|List|
-                (|Stream|
-                 (|Record| (|:| |k| (|Integer|))
-                           (|:| |c| (|Expression| (|Integer|)))))))))
+        ((|slop| (|Fraction| (|Integer|)))
+         (|f|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariatePolynomial| |var|
+                                                                         (|Expression|
+                                                                          (|Integer|)))
+                                                 (|Fraction|
+                                                  (|UnivariatePolynomial| |var|
+                                                                          (|Expression|
+                                                                           (|Integer|))))))
+         (|l_low| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+         (|r_low| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+         (|shift| (|Fraction| (|Integer|))) (|dgr| (|Integer|))
+         ($
+          (|Record|
+           (|:| |llc|
+                (|List|
+                 (|Stream|
+                  (|Record| (|:| |k| (|Integer|))
+                            (|:| |c| (|Expression| (|Integer|)))))))
+           (|:| |rlc|
+                (|List|
+                 (|Stream|
+                  (|Record| (|:| |k| (|Integer|))
+                            (|:| |c| (|Expression| (|Integer|))))))))))
         (SPROG
          ((|lwr|
            (|Stream|
@@ -1091,19 +1171,22 @@
             (- (SPADCALL |f| (QREFELT $ 33)) |dgr|) |dgr| |shift| |slop| $))))) 
 
 (SDEFUN |LODOF2;listream_coefsop|
-        ((|sfe| |Stream|
-          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-                                                 (|UnivariateTaylorSeries|
-                                                  (|Expression| (|Integer|))
-                                                  |var| |cen|)
-                                                 (|UnivariateLaurentSeries|
-                                                  (|Expression| (|Integer|))
-                                                  |var| |cen|)))
-         (|dgf| |Integer|) (|fe| |Integer|) (|slop| |Fraction| (|Integer|))
-         ($ |List|
+        ((|sfe|
           (|Stream|
-           (|Record| (|:| |k| (|Integer|))
-                     (|:| |c| (|Expression| (|Integer|)))))))
+           (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                  (|UnivariateTaylorSeries|
+                                                   (|Expression| (|Integer|))
+                                                   |var| |cen|)
+                                                  (|UnivariateLaurentSeries|
+                                                   (|Expression| (|Integer|))
+                                                   |var| |cen|))))
+         (|dgf| (|Integer|)) (|fe| (|Integer|))
+         (|slop| (|Fraction| (|Integer|)))
+         ($
+          (|List|
+           (|Stream|
+            (|Record| (|:| |k| (|Integer|))
+                      (|:| |c| (|Expression| (|Integer|))))))))
         (SPROG
          ((|dgc|
            (|List|
@@ -1207,72 +1290,84 @@
         (SPADCALL |x| (|spadConstant| $ 129) (QREFELT $ 130))) 
 
 (SDEFUN |LODOF2;lift_newton|
-        ((|slop| |Fraction| (|Integer|))
-         (|ff| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
-         (|l_low| |UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-         (|r_low| |UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-         (|shift| |Fraction| (|Integer|)) (|dgr| |Integer|)
-         (|v| |Record|
-          (|:| |Qt|
-               #1=(|LinearOrdinaryDifferentialOperator3|
-                   (|Expression| (|Integer|))
-                   (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                             |cen|)
-                   (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                              |cen|)))
-          (|:| |Rt|
-               #2=(|LinearOrdinaryDifferentialOperator3|
-                   (|Expression| (|Integer|))
-                   (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                             |cen|)
-                   (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                              |cen|))))
-         (|ei| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
-         (|n_l| |PositiveInteger|)
-         ($ |Record|
-          (|:| |main|
-               (|Record|
-                (|:| |Qt|
-                     (|LinearOrdinaryDifferentialOperator3|
-                      (|Expression| (|Integer|))
-                      (|UnivariateTaylorSeries| (|Expression| (|Integer|))
-                                                |var| |cen|)
-                      (|UnivariateLaurentSeries| (|Expression| (|Integer|))
-                                                 |var| |cen|)))
-                (|:| |Rt|
-                     (|LinearOrdinaryDifferentialOperator3|
-                      (|Expression| (|Integer|))
-                      (|UnivariateTaylorSeries| (|Expression| (|Integer|))
-                                                |var| |cen|)
-                      (|UnivariateLaurentSeries| (|Expression| (|Integer|))
-                                                 |var| |cen|)))))
-          (|:| |nf|
-               (|Record|
-                (|:| |Qt|
-                     (|LinearOrdinaryDifferentialOperator3|
-                      (|Expression| (|Integer|))
-                      (|UnivariateTaylorSeries| (|Expression| (|Integer|))
-                                                |var| |cen|)
-                      (|UnivariateLaurentSeries| (|Expression| (|Integer|))
-                                                 |var| |cen|)))
-                (|:| |Rt|
-                     (|LinearOrdinaryDifferentialOperator3|
-                      (|Expression| (|Integer|))
-                      (|UnivariateTaylorSeries| (|Expression| (|Integer|))
-                                                |var| |cen|)
-                      (|UnivariateLaurentSeries| (|Expression| (|Integer|))
-                                                 |var| |cen|)))))
-          (|:| |error|
-               (|LinearOrdinaryDifferentialOperator3|
-                (|Expression| (|Integer|))
-                (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                          |cen|)
-                (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                           |cen|)))))
+        ((|slop| (|Fraction| (|Integer|)))
+         (|ff|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)))
+         (|l_low| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+         (|r_low| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+         (|shift| (|Fraction| (|Integer|))) (|dgr| (|Integer|))
+         (|v|
+          (|Record|
+           (|:| |Qt|
+                #1=(|LinearOrdinaryDifferentialOperator3|
+                    (|Expression| (|Integer|))
+                    (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
+                                              |cen|)
+                    (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                               |cen|)))
+           (|:| |Rt|
+                #2=(|LinearOrdinaryDifferentialOperator3|
+                    (|Expression| (|Integer|))
+                    (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
+                                              |cen|)
+                    (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                               |cen|)))))
+         (|ei|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)))
+         (|n_l| (|PositiveInteger|))
+         ($
+          (|Record|
+           (|:| |main|
+                (|Record|
+                 (|:| |Qt|
+                      (|LinearOrdinaryDifferentialOperator3|
+                       (|Expression| (|Integer|))
+                       (|UnivariateTaylorSeries| (|Expression| (|Integer|))
+                                                 |var| |cen|)
+                       (|UnivariateLaurentSeries| (|Expression| (|Integer|))
+                                                  |var| |cen|)))
+                 (|:| |Rt|
+                      (|LinearOrdinaryDifferentialOperator3|
+                       (|Expression| (|Integer|))
+                       (|UnivariateTaylorSeries| (|Expression| (|Integer|))
+                                                 |var| |cen|)
+                       (|UnivariateLaurentSeries| (|Expression| (|Integer|))
+                                                  |var| |cen|)))))
+           (|:| |nf|
+                (|Record|
+                 (|:| |Qt|
+                      (|LinearOrdinaryDifferentialOperator3|
+                       (|Expression| (|Integer|))
+                       (|UnivariateTaylorSeries| (|Expression| (|Integer|))
+                                                 |var| |cen|)
+                       (|UnivariateLaurentSeries| (|Expression| (|Integer|))
+                                                  |var| |cen|)))
+                 (|:| |Rt|
+                      (|LinearOrdinaryDifferentialOperator3|
+                       (|Expression| (|Integer|))
+                       (|UnivariateTaylorSeries| (|Expression| (|Integer|))
+                                                 |var| |cen|)
+                       (|UnivariateLaurentSeries| (|Expression| (|Integer|))
+                                                  |var| |cen|)))))
+           (|:| |error|
+                (|LinearOrdinaryDifferentialOperator3|
+                 (|Expression| (|Integer|))
+                 (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
+                                           |cen|)
+                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                            |cen|))))))
         (SPROG
          ((|ri| #2#) (|li| #1#)
           (|r_extra|
@@ -1495,54 +1590,60 @@
                 (CONS |li| |ri|) |ei|))))) 
 
 (SDEFUN |LODOF2;testln;FLodo2UpFIR;20|
-        ((|slop| |Fraction| (|Integer|))
-         (|f| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-          (|Fraction|
-           (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         (|l_low| |UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-         (|r_low| |UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-         (|shift| |Fraction| (|Integer|)) (|dgr| |Integer|)
-         ($ |Record|
-          (|:| |main|
-               (|Record|
-                (|:| |Qt|
-                     (|LinearOrdinaryDifferentialOperator3|
-                      (|Expression| (|Integer|))
-                      (|UnivariateTaylorSeries| (|Expression| (|Integer|))
-                                                |var| |cen|)
-                      (|UnivariateLaurentSeries| (|Expression| (|Integer|))
-                                                 |var| |cen|)))
-                (|:| |Rt|
-                     (|LinearOrdinaryDifferentialOperator3|
-                      (|Expression| (|Integer|))
-                      (|UnivariateTaylorSeries| (|Expression| (|Integer|))
-                                                |var| |cen|)
-                      (|UnivariateLaurentSeries| (|Expression| (|Integer|))
-                                                 |var| |cen|)))))
-          (|:| |nf|
-               (|Record|
-                (|:| |Qt|
-                     (|LinearOrdinaryDifferentialOperator3|
-                      (|Expression| (|Integer|))
-                      (|UnivariateTaylorSeries| (|Expression| (|Integer|))
-                                                |var| |cen|)
-                      (|UnivariateLaurentSeries| (|Expression| (|Integer|))
-                                                 |var| |cen|)))
-                (|:| |Rt|
-                     (|LinearOrdinaryDifferentialOperator3|
-                      (|Expression| (|Integer|))
-                      (|UnivariateTaylorSeries| (|Expression| (|Integer|))
-                                                |var| |cen|)
-                      (|UnivariateLaurentSeries| (|Expression| (|Integer|))
-                                                 |var| |cen|)))))
-          (|:| |error|
-               (|LinearOrdinaryDifferentialOperator3|
-                (|Expression| (|Integer|))
-                (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                          |cen|)
-                (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                           |cen|)))))
+        ((|slop| (|Fraction| (|Integer|)))
+         (|f|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariatePolynomial| |var|
+                                                                         (|Expression|
+                                                                          (|Integer|)))
+                                                 (|Fraction|
+                                                  (|UnivariatePolynomial| |var|
+                                                                          (|Expression|
+                                                                           (|Integer|))))))
+         (|l_low| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+         (|r_low| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+         (|shift| (|Fraction| (|Integer|))) (|dgr| (|Integer|))
+         ($
+          (|Record|
+           (|:| |main|
+                (|Record|
+                 (|:| |Qt|
+                      (|LinearOrdinaryDifferentialOperator3|
+                       (|Expression| (|Integer|))
+                       (|UnivariateTaylorSeries| (|Expression| (|Integer|))
+                                                 |var| |cen|)
+                       (|UnivariateLaurentSeries| (|Expression| (|Integer|))
+                                                  |var| |cen|)))
+                 (|:| |Rt|
+                      (|LinearOrdinaryDifferentialOperator3|
+                       (|Expression| (|Integer|))
+                       (|UnivariateTaylorSeries| (|Expression| (|Integer|))
+                                                 |var| |cen|)
+                       (|UnivariateLaurentSeries| (|Expression| (|Integer|))
+                                                  |var| |cen|)))))
+           (|:| |nf|
+                (|Record|
+                 (|:| |Qt|
+                      (|LinearOrdinaryDifferentialOperator3|
+                       (|Expression| (|Integer|))
+                       (|UnivariateTaylorSeries| (|Expression| (|Integer|))
+                                                 |var| |cen|)
+                       (|UnivariateLaurentSeries| (|Expression| (|Integer|))
+                                                  |var| |cen|)))
+                 (|:| |Rt|
+                      (|LinearOrdinaryDifferentialOperator3|
+                       (|Expression| (|Integer|))
+                       (|UnivariateTaylorSeries| (|Expression| (|Integer|))
+                                                 |var| |cen|)
+                       (|UnivariateLaurentSeries| (|Expression| (|Integer|))
+                                                  |var| |cen|)))))
+           (|:| |error|
+                (|LinearOrdinaryDifferentialOperator3|
+                 (|Expression| (|Integer|))
+                 (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
+                                           |cen|)
+                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                            |cen|))))))
         (SPROG
          ((|ei|
            (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
@@ -1629,29 +1730,35 @@
               (EXIT |lnr|)))) 
 
 (SDEFUN |LODOF2;ln_wrapper|
-        ((|slop| |Fraction| (|Integer|))
-         (|f| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
-         (|l_low| |UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-         (|r_low| |UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-         (|shift| |Fraction| (|Integer|)) (|dgr| |Integer|)
-         ($ |Stream|
-          (|Record|
-           (|:| |Qt|
-                (|LinearOrdinaryDifferentialOperator3|
-                 (|Expression| (|Integer|))
-                 (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                           |cen|)
-                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                            |cen|)))
-           (|:| |Rt|
-                (|LinearOrdinaryDifferentialOperator3|
-                 (|Expression| (|Integer|))
-                 (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                           |cen|)
-                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                            |cen|))))))
+        ((|slop| (|Fraction| (|Integer|)))
+         (|f|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)))
+         (|l_low| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+         (|r_low| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+         (|shift| (|Fraction| (|Integer|))) (|dgr| (|Integer|))
+         ($
+          (|Stream|
+           (|Record|
+            (|:| |Qt|
+                 (|LinearOrdinaryDifferentialOperator3|
+                  (|Expression| (|Integer|))
+                  (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
+                                            |cen|)
+                  (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                             |cen|)))
+            (|:| |Rt|
+                 (|LinearOrdinaryDifferentialOperator3|
+                  (|Expression| (|Integer|))
+                  (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
+                                            |cen|)
+                  (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                             |cen|)))))))
         (SPROG
          ((|res|
            (|Stream|
@@ -1801,39 +1908,50 @@
                         (EXIT (CONS |lnr| |n_l|)))))))) 
 
 (SDEFUN |LODOF2;testlw;FLodo2UpFIS;22|
-        ((|slop| |Fraction| (|Integer|))
-         (|f| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-          (|Fraction|
-           (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         (|l_low| |UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-         (|r_low| |UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-         (|shift| |Fraction| (|Integer|)) (|dgr| |Integer|)
-         ($ |Stream|
-          (|Record|
-           (|:| |Qt|
-                (|LinearOrdinaryDifferentialOperator3|
-                 (|Expression| (|Integer|))
-                 (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                           |cen|)
-                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                            |cen|)))
-           (|:| |Rt|
-                (|LinearOrdinaryDifferentialOperator3|
-                 (|Expression| (|Integer|))
-                 (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                           |cen|)
-                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                            |cen|))))))
+        ((|slop| (|Fraction| (|Integer|)))
+         (|f|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariatePolynomial| |var|
+                                                                         (|Expression|
+                                                                          (|Integer|)))
+                                                 (|Fraction|
+                                                  (|UnivariatePolynomial| |var|
+                                                                          (|Expression|
+                                                                           (|Integer|))))))
+         (|l_low| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+         (|r_low| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+         (|shift| (|Fraction| (|Integer|))) (|dgr| (|Integer|))
+         ($
+          (|Stream|
+           (|Record|
+            (|:| |Qt|
+                 (|LinearOrdinaryDifferentialOperator3|
+                  (|Expression| (|Integer|))
+                  (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
+                                            |cen|)
+                  (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                             |cen|)))
+            (|:| |Rt|
+                 (|LinearOrdinaryDifferentialOperator3|
+                  (|Expression| (|Integer|))
+                  (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
+                                            |cen|)
+                  (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                             |cen|)))))))
         (|LODOF2;ln_wrapper| |slop| (|LODOF2;convertL3toLL| |f| $) |l_low|
          |r_low| |shift| |dgr| $)) 
 
 (SDEFUN |LODOF2;coefs_poly|
-        ((|f| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
-         (|slop| |Fraction| (|Integer|)) (|i| |Integer|)
-         ($ |UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+        ((|f|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)))
+         (|slop| (|Fraction| (|Integer|))) (|i| (|Integer|))
+         ($ (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
         (SPROG
          ((|res| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
           (|npc| (|Expression| (|Integer|)))
@@ -1891,24 +2009,39 @@
           (EXIT |res|)))) 
 
 (SDEFUN |LODOF2;testcp;LodoFILodo;24|
-        ((|f| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-          (|Fraction|
-           (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         (|slop| |Fraction| (|Integer|)) (|i| |Integer|)
-         ($ |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|)))
+        ((|f|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariatePolynomial| |var|
+                                                                         (|Expression|
+                                                                          (|Integer|)))
+                                                 (|Fraction|
+                                                  (|UnivariatePolynomial| |var|
+                                                                          (|Expression|
+                                                                           (|Integer|))))))
+         (|slop| (|Fraction| (|Integer|))) (|i| (|Integer|))
+         ($
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|))))
         (|LODOF2;coefs_operator|
          (|LODOF2;coefs_poly| (|LODOF2;convertL3toLL| |f| $) |slop| |i| $)
          |slop| |i| $)) 
 
 (SDEFUN |LODOF2;coefs_operator|
-        ((|np| |UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-         (|slop| |Fraction| (|Integer|)) (|i| |Integer|)
-         ($ |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|)))
+        ((|np| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+         (|slop| (|Fraction| (|Integer|))) (|i| (|Integer|))
+         ($
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|))))
         (SPROG
          ((|res|
            (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
@@ -1972,11 +2105,16 @@
           (EXIT |res|)))) 
 
 (SDEFUN |LODOF2;testco;LodoFIB;26|
-        ((|f| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-          (|Fraction|
-           (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         (|slop| |Fraction| (|Integer|)) (|i| |Integer|) ($ |Boolean|))
+        ((|f|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariatePolynomial| |var|
+                                                                         (|Expression|
+                                                                          (|Integer|)))
+                                                 (|Fraction|
+                                                  (|UnivariatePolynomial| |var|
+                                                                          (|Expression|
+                                                                           (|Integer|))))))
+         (|slop| (|Fraction| (|Integer|))) (|i| (|Integer|)) ($ (|Boolean|)))
         (SPROG
          ((|np| (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
          (SEQ
@@ -1991,14 +2129,15 @@
 
 (SDEFUN |LODOF2;coeffx|
         ((|f|
-          . #1=(|LinearOrdinaryDifferentialOperator3|
-                (|Expression| (|Integer|))
-                (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                          |cen|)
-                (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                           |cen|)))
-         (|e| |Fraction| (|Integer|))
-         ($ |UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+          #1=(|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                    (|UnivariateTaylorSeries|
+                                                     (|Expression| (|Integer|))
+                                                     |var| |cen|)
+                                                    (|UnivariateLaurentSeries|
+                                                     (|Expression| (|Integer|))
+                                                     |var| |cen|)))
+         (|e| (|Fraction| (|Integer|)))
+         ($ (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
         (SPROG
          ((|ftmp| #1#)
           (|res| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
@@ -2026,19 +2165,29 @@
               (EXIT |res|)))) 
 
 (SDEFUN |LODOF2;testcx;LodoFUp;28|
-        ((|f| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-          (|Fraction|
-           (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         (|e| |Fraction| (|Integer|))
-         ($ |UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+        ((|f|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariatePolynomial| |var|
+                                                                         (|Expression|
+                                                                          (|Integer|)))
+                                                 (|Fraction|
+                                                  (|UnivariatePolynomial| |var|
+                                                                          (|Expression|
+                                                                           (|Integer|))))))
+         (|e| (|Fraction| (|Integer|)))
+         ($ (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
         (|LODOF2;coeffx| (|LODOF2;convertL3toLL| |f| $) |e| $)) 
 
 (SDEFUN |LODOF2;plug_delta|
-        ((|np| . #1=(|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
-         ($ |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|)))
+        ((|np| #1=(|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+         ($
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|))))
         (SPROG
          ((|nptmp| #1#)
           (|f|
@@ -2070,58 +2219,70 @@
               (EXIT |f|)))) 
 
 (SDEFUN |LODOF2;testpd;UpLodo;30|
-        ((|np| |UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-         ($ |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|)))
+        ((|np| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+         ($
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|))))
         (|LODOF2;plug_delta| |np| $)) 
 
 (SDEFUN |LODOF2;factor_riccati|
-        ((|f| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
-         (|factorizer| |Mapping|
-          (|Factored|
-           (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-          (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-         (|option| |String|)
-         ($ |Union|
-          (|List|
-           (|Record|
-            (|:| |op|
-                 (|LinearOrdinaryDifferentialOperator3|
-                  (|Expression| (|Integer|))
-                  (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                            |cen|)
-                  (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                             |cen|)))
-            (|:| |ram|
-                 (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
-            (|:| |expart|
-                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                            |cen|))))
-          (|List|
-           (|Union|
-            (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-                                                   (|UnivariateTaylorSeries|
-                                                    (|Expression| (|Integer|))
-                                                    |var| |cen|)
-                                                   (|UnivariateLaurentSeries|
-                                                    (|Expression| (|Integer|))
-                                                    |var| |cen|))
+        ((|f|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)))
+         (|factorizer|
+          (|Mapping|
+           (|Factored|
+            (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
+           (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))))
+         (|option| (|String|))
+         ($
+          (|Union|
+           (|List|
             (|Record|
-             (|:| |ope|
+             (|:| |op|
                   (|LinearOrdinaryDifferentialOperator3|
                    (|Expression| (|Integer|))
                    (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
                                              |cen|)
                    (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
                                               |cen|)))
-             (|:| |dext| (|PositiveInteger|))
-             (|:| |alpha| (|Expression| (|Integer|)))
-             (|:| |rami|
-                  (|UnivariatePolynomial| |var|
-                                          (|Expression| (|Integer|)))))))))
+             (|:| |ram|
+                  (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+             (|:| |expart|
+                  (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                             |cen|))))
+           (|List|
+            (|Union|
+             (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                    (|UnivariateTaylorSeries|
+                                                     (|Expression| (|Integer|))
+                                                     |var| |cen|)
+                                                    (|UnivariateLaurentSeries|
+                                                     (|Expression| (|Integer|))
+                                                     |var| |cen|))
+             (|Record|
+              (|:| |ope|
+                   (|LinearOrdinaryDifferentialOperator3|
+                    (|Expression| (|Integer|))
+                    (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
+                                              |cen|)
+                    (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                               |cen|)))
+              (|:| |dext| (|PositiveInteger|))
+              (|:| |alpha| (|Expression| (|Integer|)))
+              (|:| |rami|
+                   (|UnivariatePolynomial| |var|
+                                           (|Expression| (|Integer|))))))))))
         (SPROG
          ((#1=#:G485 NIL)
           (|res|
@@ -2174,7 +2335,6 @@
             (|:| |rami|
                  (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
           (#3=#:G496 NIL)
-          (|i| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
           (|vrs|
            (|List|
             (|Union|
@@ -2405,6 +2565,7 @@
             (|Record| (|:| |flag| (|Union| #18# #19# #20# #21#))
                       (|:| |factor| #24#)
                       (|:| |exponent| (|NonNegativeInteger|)))))
+          (|i| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
           (|vr_ope| #2#)
           (|xx| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
           (|vr|
@@ -3136,8 +3297,7 @@
                                   (CONS 1
                                         (PROGN
                                          (LETT #14# NIL)
-                                         (SEQ (LETT |i| NIL) (LETT #13# |vrs|)
-                                              G190
+                                         (SEQ (LETT #13# |vrs|) G190
                                               (COND
                                                ((OR (ATOM #13#)
                                                     (PROGN
@@ -3585,7 +3745,7 @@
                                                            (|Integer|))))))))
                                                 #12#)))
                         (LETT |res| NIL)
-                        (SEQ (LETT |i| NIL) (LETT #11# |ric|) G190
+                        (SEQ (LETT #11# |ric|) G190
                              (COND
                               ((OR (ATOM #11#)
                                    (PROGN (LETT |i| (CAR #11#)) NIL))
@@ -3700,7 +3860,7 @@
                             ((QEQCAR |v| 0) (PROGN (LETT #1# |v|) (GO #27#)))
                             (#26#
                              (SEQ (LETT |vrs| (QCDR |v|)) (LETT |res| NIL)
-                                  (SEQ (LETT |i| NIL) (LETT #9# |vrs|) G190
+                                  (SEQ (LETT #9# |vrs|) G190
                                        (COND
                                         ((OR (ATOM #9#)
                                              (PROGN (LETT |i| (CAR #9#)) NIL))
@@ -3776,7 +3936,7 @@
                                   (QREFELT $ 83))
                                  (QVELT |npf| 2) (QREFELT $ 67)))
                           (LETT |np| (|LODOF2;newtonpolygon| |ror| $))
-                          (SEQ (LETT |i| NIL) (LETT #8# |np|) G190
+                          (SEQ (LETT #8# |np|) G190
                                (COND
                                 ((OR (ATOM #8#)
                                      (PROGN (LETT |i| (CAR #8#)) NIL))
@@ -3809,8 +3969,7 @@
                                   (LETT |res_sp|
                                         (PROGN
                                          (LETT #5# NIL)
-                                         (SEQ (LETT |i| NIL) (LETT #4# |vsp|)
-                                              G190
+                                         (SEQ (LETT #4# |vsp|) G190
                                               (COND
                                                ((OR (ATOM #4#)
                                                     (PROGN
@@ -3847,7 +4006,7 @@
                                     (GO #27#)))))
                             (#26#
                              (SEQ (LETT |vrs| (QCDR |v|)) (LETT |res| NIL)
-                                  (SEQ (LETT |i| NIL) (LETT #3# |vrs|) G190
+                                  (SEQ (LETT #3# |vrs|) G190
                                        (COND
                                         ((OR (ATOM #3#)
                                              (PROGN (LETT |i| (CAR #3#)) NIL))
@@ -3894,98 +4053,109 @@
           #27# (EXIT #1#)))) 
 
 (SDEFUN |LODOF2;testfr;LodoMSU;32|
-        ((|f| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-          (|Fraction|
-           (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         (|factorizer| |Mapping|
-          (|Factored|
-           (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-          (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-         (|option| |String|)
-         ($ |Union|
-          (|List|
-           (|Record|
-            (|:| |op|
-                 (|LinearOrdinaryDifferentialOperator3|
-                  (|Expression| (|Integer|))
-                  (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                            |cen|)
-                  (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                             |cen|)))
-            (|:| |ram|
-                 (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
-            (|:| |expart|
-                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                            |cen|))))
-          (|List|
-           (|Union|
-            (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-                                                   (|UnivariateTaylorSeries|
-                                                    (|Expression| (|Integer|))
-                                                    |var| |cen|)
-                                                   (|UnivariateLaurentSeries|
-                                                    (|Expression| (|Integer|))
-                                                    |var| |cen|))
+        ((|f|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariatePolynomial| |var|
+                                                                         (|Expression|
+                                                                          (|Integer|)))
+                                                 (|Fraction|
+                                                  (|UnivariatePolynomial| |var|
+                                                                          (|Expression|
+                                                                           (|Integer|))))))
+         (|factorizer|
+          (|Mapping|
+           (|Factored|
+            (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
+           (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))))
+         (|option| (|String|))
+         ($
+          (|Union|
+           (|List|
             (|Record|
-             (|:| |ope|
+             (|:| |op|
                   (|LinearOrdinaryDifferentialOperator3|
                    (|Expression| (|Integer|))
                    (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
                                              |cen|)
                    (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
                                               |cen|)))
-             (|:| |dext| (|PositiveInteger|))
-             (|:| |alpha| (|Expression| (|Integer|)))
-             (|:| |rami|
-                  (|UnivariatePolynomial| |var|
-                                          (|Expression| (|Integer|)))))))))
+             (|:| |ram|
+                  (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+             (|:| |expart|
+                  (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                             |cen|))))
+           (|List|
+            (|Union|
+             (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                    (|UnivariateTaylorSeries|
+                                                     (|Expression| (|Integer|))
+                                                     |var| |cen|)
+                                                    (|UnivariateLaurentSeries|
+                                                     (|Expression| (|Integer|))
+                                                     |var| |cen|))
+             (|Record|
+              (|:| |ope|
+                   (|LinearOrdinaryDifferentialOperator3|
+                    (|Expression| (|Integer|))
+                    (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
+                                              |cen|)
+                    (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                               |cen|)))
+              (|:| |dext| (|PositiveInteger|))
+              (|:| |alpha| (|Expression| (|Integer|)))
+              (|:| |rami|
+                   (|UnivariatePolynomial| |var|
+                                           (|Expression| (|Integer|))))))))))
         (|LODOF2;factor_riccati| (|LODOF2;convertL3toLL| |f| $) |factorizer|
          |option| $)) 
 
 (SDEFUN |LODOF2;substitute|
-        ((|a| |Union| (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
-         (|f| |Union|
-          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-                                                 (|UnivariateTaylorSeries|
-                                                  (|Expression| (|Integer|))
-                                                  |var| |cen|)
-                                                 (|UnivariateLaurentSeries|
-                                                  (|Expression| (|Integer|))
-                                                  |var| |cen|))
-          (|Record|
-           (|:| |ope|
-                (|LinearOrdinaryDifferentialOperator3|
-                 (|Expression| (|Integer|))
-                 (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                           |cen|)
-                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                            |cen|)))
-           (|:| |dext| (|PositiveInteger|))
-           (|:| |alpha| (|Expression| (|Integer|)))
-           (|:| |rami|
-                (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
-         ($ |Union|
-          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-                                                 (|UnivariateTaylorSeries|
-                                                  (|Expression| (|Integer|))
-                                                  |var| |cen|)
-                                                 (|UnivariateLaurentSeries|
-                                                  (|Expression| (|Integer|))
-                                                  |var| |cen|))
-          (|Record|
-           (|:| |ope|
-                (|LinearOrdinaryDifferentialOperator3|
-                 (|Expression| (|Integer|))
-                 (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                           |cen|)
-                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                            |cen|)))
-           (|:| |dext| (|PositiveInteger|))
-           (|:| |alpha| (|Expression| (|Integer|)))
-           (|:| |rami|
-                (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))))
+        ((|a|
+          (|Union| (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))
+                   (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                              |cen|)))
+         (|f|
+          (|Union|
+           (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                  (|UnivariateTaylorSeries|
+                                                   (|Expression| (|Integer|))
+                                                   |var| |cen|)
+                                                  (|UnivariateLaurentSeries|
+                                                   (|Expression| (|Integer|))
+                                                   |var| |cen|))
+           (|Record|
+            (|:| |ope|
+                 (|LinearOrdinaryDifferentialOperator3|
+                  (|Expression| (|Integer|))
+                  (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
+                                            |cen|)
+                  (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                             |cen|)))
+            (|:| |dext| (|PositiveInteger|))
+            (|:| |alpha| (|Expression| (|Integer|)))
+            (|:| |rami|
+                 (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))))
+         ($
+          (|Union|
+           (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                  (|UnivariateTaylorSeries|
+                                                   (|Expression| (|Integer|))
+                                                   |var| |cen|)
+                                                  (|UnivariateLaurentSeries|
+                                                   (|Expression| (|Integer|))
+                                                   |var| |cen|))
+           (|Record|
+            (|:| |ope|
+                 (|LinearOrdinaryDifferentialOperator3|
+                  (|Expression| (|Integer|))
+                  (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
+                                            |cen|)
+                  (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                             |cen|)))
+            (|:| |dext| (|PositiveInteger|))
+            (|:| |alpha| (|Expression| (|Integer|)))
+            (|:| |rami|
+                 (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))))
         (SPROG
          ((#1=#:G516 NIL)
           (|fr|
@@ -4096,15 +4266,27 @@
           #3# (EXIT #1#)))) 
 
 (SDEFUN |LODOF2;testsb;ULodoLodo;34|
-        ((|a| |Union| (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
-         (|f| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-          (|Fraction|
-           (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         ($ |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|)))
+        ((|a|
+          (|Union| (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))
+                   (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                              |cen|)))
+         (|f|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariatePolynomial| |var|
+                                                                         (|Expression|
+                                                                          (|Integer|)))
+                                                 (|Fraction|
+                                                  (|UnivariatePolynomial| |var|
+                                                                          (|Expression|
+                                                                           (|Integer|))))))
+         ($
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|))))
         (SPROG ((#1=#:G175 NIL))
                (PROG2
                    (LETT #1#
@@ -4149,16 +4331,22 @@
 
 (SDEFUN |LODOF2;ramification_of|
         ((|f|
-          . #1=(|LinearOrdinaryDifferentialOperator3|
-                (|Expression| (|Integer|))
-                (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                          |cen|)
-                (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                           |cen|)))
-         (|coefr| |Expression| (|Integer|)) (|n| |PositiveInteger|)
-         ($ |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|)))
+          #1=(|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                    (|UnivariateTaylorSeries|
+                                                     (|Expression| (|Integer|))
+                                                     |var| |cen|)
+                                                    (|UnivariateLaurentSeries|
+                                                     (|Expression| (|Integer|))
+                                                     |var| |cen|)))
+         (|coefr| (|Expression| (|Integer|))) (|n| (|PositiveInteger|))
+         ($
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|))))
         (SPROG
          ((|ftmp| #1#)
           (|res|
@@ -4228,62 +4416,79 @@
           (RETURN (PROGN (SPADCALL |coefr| |x| (QREFELT $ 228)))))) 
 
 (SDEFUN |LODOF2;testro;LodoEPiLodo;36|
-        ((|f| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-          (|Fraction|
-           (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         (|coefr| |Expression| (|Integer|)) (|n| |PositiveInteger|)
-         ($ |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|)))
+        ((|f|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariatePolynomial| |var|
+                                                                         (|Expression|
+                                                                          (|Integer|)))
+                                                 (|Fraction|
+                                                  (|UnivariatePolynomial| |var|
+                                                                          (|Expression|
+                                                                           (|Integer|))))))
+         (|coefr| (|Expression| (|Integer|))) (|n| (|PositiveInteger|))
+         ($
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|))))
         (|LODOF2;ramification_of| (|LODOF2;convertL3toLL| |f| $) |coefr| |n| $)) 
 
 (SDEFUN |LODOF2;factor_op|
-        ((|f| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
-         (|factorizer| |Mapping|
-          (|Factored|
-           (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-          (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-         (|option| |String|)
-         ($ |Union|
-          (|List|
-           (|Record|
-            (|:| |op|
-                 (|LinearOrdinaryDifferentialOperator3|
-                  (|Expression| (|Integer|))
-                  (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                            |cen|)
-                  (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                             |cen|)))
-            (|:| |ram|
-                 (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
-            (|:| |expart|
-                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                            |cen|))))
-          (|List|
-           (|Union|
-            (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-                                                   (|UnivariateTaylorSeries|
-                                                    (|Expression| (|Integer|))
-                                                    |var| |cen|)
-                                                   (|UnivariateLaurentSeries|
-                                                    (|Expression| (|Integer|))
-                                                    |var| |cen|))
+        ((|f|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)))
+         (|factorizer|
+          (|Mapping|
+           (|Factored|
+            (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
+           (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))))
+         (|option| (|String|))
+         ($
+          (|Union|
+           (|List|
             (|Record|
-             (|:| |ope|
+             (|:| |op|
                   (|LinearOrdinaryDifferentialOperator3|
                    (|Expression| (|Integer|))
                    (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
                                              |cen|)
                    (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
                                               |cen|)))
-             (|:| |dext| (|PositiveInteger|))
-             (|:| |alpha| (|Expression| (|Integer|)))
-             (|:| |rami|
-                  (|UnivariatePolynomial| |var|
-                                          (|Expression| (|Integer|)))))))))
+             (|:| |ram|
+                  (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+             (|:| |expart|
+                  (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                             |cen|))))
+           (|List|
+            (|Union|
+             (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                    (|UnivariateTaylorSeries|
+                                                     (|Expression| (|Integer|))
+                                                     |var| |cen|)
+                                                    (|UnivariateLaurentSeries|
+                                                     (|Expression| (|Integer|))
+                                                     |var| |cen|))
+             (|Record|
+              (|:| |ope|
+                   (|LinearOrdinaryDifferentialOperator3|
+                    (|Expression| (|Integer|))
+                    (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
+                                              |cen|)
+                    (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                               |cen|)))
+              (|:| |dext| (|PositiveInteger|))
+              (|:| |alpha| (|Expression| (|Integer|)))
+              (|:| |rami|
+                   (|UnivariatePolynomial| |var|
+                                           (|Expression| (|Integer|))))))))))
         (SPROG
          ((#1=#:G548 NIL)
           (|res|
@@ -4617,74 +4822,92 @@
           #6# (EXIT #1#)))) 
 
 (SDEFUN |LODOF2;testfo;LodoMSU;38|
-        ((|f| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-          (|Fraction|
-           (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         (|factorizer| |Mapping|
-          (|Factored|
-           (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-          (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-         (|option| |String|)
-         ($ |Union|
-          (|List|
-           (|Record|
-            (|:| |op|
-                 (|LinearOrdinaryDifferentialOperator3|
-                  (|Expression| (|Integer|))
-                  (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                            |cen|)
-                  (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                             |cen|)))
-            (|:| |ram|
-                 (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
-            (|:| |expart|
-                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                            |cen|))))
-          (|List|
-           (|Union|
-            (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-                                                   (|UnivariateTaylorSeries|
-                                                    (|Expression| (|Integer|))
-                                                    |var| |cen|)
-                                                   (|UnivariateLaurentSeries|
-                                                    (|Expression| (|Integer|))
-                                                    |var| |cen|))
+        ((|f|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariatePolynomial| |var|
+                                                                         (|Expression|
+                                                                          (|Integer|)))
+                                                 (|Fraction|
+                                                  (|UnivariatePolynomial| |var|
+                                                                          (|Expression|
+                                                                           (|Integer|))))))
+         (|factorizer|
+          (|Mapping|
+           (|Factored|
+            (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
+           (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))))
+         (|option| (|String|))
+         ($
+          (|Union|
+           (|List|
             (|Record|
-             (|:| |ope|
+             (|:| |op|
                   (|LinearOrdinaryDifferentialOperator3|
                    (|Expression| (|Integer|))
                    (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
                                              |cen|)
                    (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
                                               |cen|)))
-             (|:| |dext| (|PositiveInteger|))
-             (|:| |alpha| (|Expression| (|Integer|)))
-             (|:| |rami|
-                  (|UnivariatePolynomial| |var|
-                                          (|Expression| (|Integer|)))))))))
+             (|:| |ram|
+                  (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+             (|:| |expart|
+                  (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                             |cen|))))
+           (|List|
+            (|Union|
+             (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                    (|UnivariateTaylorSeries|
+                                                     (|Expression| (|Integer|))
+                                                     |var| |cen|)
+                                                    (|UnivariateLaurentSeries|
+                                                     (|Expression| (|Integer|))
+                                                     |var| |cen|))
+             (|Record|
+              (|:| |ope|
+                   (|LinearOrdinaryDifferentialOperator3|
+                    (|Expression| (|Integer|))
+                    (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
+                                              |cen|)
+                    (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                               |cen|)))
+              (|:| |dext| (|PositiveInteger|))
+              (|:| |alpha| (|Expression| (|Integer|)))
+              (|:| |rami|
+                   (|UnivariatePolynomial| |var|
+                                           (|Expression| (|Integer|))))))))))
         (|LODOF2;factor_op| (|LODOF2;convertL3toLL| |f| $) |factorizer|
          |option| $)) 
 
 (SDEFUN |LODOF2;make_rightfactor|
-        ((|f| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
-         (|ric| |Record|
-          (|:| |ope|
-               (|LinearOrdinaryDifferentialOperator3|
-                (|Expression| (|Integer|))
-                (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                          |cen|)
-                (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                           |cen|)))
-          (|:| |dext| (|PositiveInteger|))
-          (|:| |alpha| (|Expression| (|Integer|)))
-          (|:| |rami|
-               (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         ($ |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|)))
+        ((|f|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)))
+         (|ric|
+          (|Record|
+           (|:| |ope|
+                (|LinearOrdinaryDifferentialOperator3|
+                 (|Expression| (|Integer|))
+                 (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
+                                           |cen|)
+                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                            |cen|)))
+           (|:| |dext| (|PositiveInteger|))
+           (|:| |alpha| (|Expression| (|Integer|)))
+           (|:| |rami|
+                (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
+         ($
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|))))
         (SPROG ((#1=#:G560 NIL) (|d| (|PositiveInteger|)))
                (SEQ
                 (EXIT
@@ -4697,22 +4920,28 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |LODOF2;lift_rightfactor|
-        ((|order| |PositiveInteger|)
-         (|ric| |Record|
-          (|:| |ope|
-               (|LinearOrdinaryDifferentialOperator3|
-                (|Expression| (|Integer|))
-                (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                          |cen|)
-                (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                           |cen|)))
-          (|:| |dext| (|PositiveInteger|))
-          (|:| |alpha| (|Expression| (|Integer|)))
-          (|:| |rami|
-               (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         ($ |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|)))
+        ((|order| (|PositiveInteger|))
+         (|ric|
+          (|Record|
+           (|:| |ope|
+                (|LinearOrdinaryDifferentialOperator3|
+                 (|Expression| (|Integer|))
+                 (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
+                                           |cen|)
+                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                            |cen|)))
+           (|:| |dext| (|PositiveInteger|))
+           (|:| |alpha| (|Expression| (|Integer|)))
+           (|:| |rami|
+                (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
+         ($
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|))))
         (SPROG
          ((|res|
            (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
@@ -5238,17 +5467,28 @@
                       (QREFELT $ 252)))))) 
 
 (SDEFUN |LODOF2;same_charclass?|
-        ((|f| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
-         (|g| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
-         (|factorizer| |Mapping|
-          (|Factored|
-           (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-          (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-         ($ |Boolean|))
+        ((|f|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)))
+         (|g|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)))
+         (|factorizer|
+          (|Mapping|
+           (|Factored|
+            (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
+           (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))))
+         ($ (|Boolean|)))
         (SPROG
          ((#1=#:G682 NIL) (#2=#:G685 NIL) (|i| NIL)
           (|fff|
@@ -5661,47 +5901,66 @@
           #10# (EXIT #1#)))) 
 
 (SDEFUN |LODOF2;testsc;2LodoMB;42|
-        ((|f| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-          (|Fraction|
-           (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         (|g| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))
-          (|Fraction|
-           (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         (|factorizer| |Mapping|
-          (|Factored|
-           (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-          (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-         ($ |Boolean|))
+        ((|f|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariatePolynomial| |var|
+                                                                         (|Expression|
+                                                                          (|Integer|)))
+                                                 (|Fraction|
+                                                  (|UnivariatePolynomial| |var|
+                                                                          (|Expression|
+                                                                           (|Integer|))))))
+         (|g|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariatePolynomial| |var|
+                                                                         (|Expression|
+                                                                          (|Integer|)))
+                                                 (|Fraction|
+                                                  (|UnivariatePolynomial| |var|
+                                                                          (|Expression|
+                                                                           (|Integer|))))))
+         (|factorizer|
+          (|Mapping|
+           (|Factored|
+            (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
+           (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))))
+         ($ (|Boolean|)))
         (|LODOF2;same_charclass?| (|LODOF2;convertL3toLL| |f| $)
          (|LODOF2;convertL3toLL| |g| $) |factorizer| $)) 
 
 (SDEFUN |LODOF2;try_factorization|
-        ((|r| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
-         (|max_order| |Integer|) (|bound| |List| (|Fraction| (|Integer|)))
-         (|sng| |Record|
-          (|:| |point| (|Union| (|Expression| (|Integer|)) #1="infinity"))
-          (|:| |lpf|
-               (|LinearOrdinaryDifferentialOperator3|
-                (|Expression| (|Integer|))
-                (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                          |cen|)
-                (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                           |cen|)))
-          (|:| |dxt| (|PositiveInteger|)))
-         (|f| |LinearOrdinaryDifferentialOperator1|
-          (|Fraction|
-           (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         (|eb| |Integer|) (|min_order| |Integer|) (|option| |String|)
-         ($ |Union|
-          (|List|
-           (|LinearOrdinaryDifferentialOperator1|
-            (|Fraction|
-             (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
-          "failed"))
+        ((|r|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)))
+         (|max_order| (|Integer|)) (|bound| (|List| (|Fraction| (|Integer|))))
+         (|sng|
+          (|Record|
+           (|:| |point| (|Union| (|Expression| (|Integer|)) #1="infinity"))
+           (|:| |lpf|
+                (|LinearOrdinaryDifferentialOperator3|
+                 (|Expression| (|Integer|))
+                 (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
+                                           |cen|)
+                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                            |cen|)))
+           (|:| |dxt| (|PositiveInteger|))))
+         (|f|
+          (|LinearOrdinaryDifferentialOperator1|
+           (|Fraction|
+            (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
+         (|eb| (|Integer|)) (|min_order| (|Integer|)) (|option| (|String|))
+         ($
+          (|Union|
+           (|List|
+            (|LinearOrdinaryDifferentialOperator1|
+             (|Fraction|
+              (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
+           "failed")))
         (SPROG
          ((#2=#:G727 NIL)
           (|re|
@@ -6138,14 +6397,17 @@
           #24# (EXIT #2#)))) 
 
 (SDEFUN |LODOF2;try_factorization2|
-        ((|fl| |List|
+        ((|fl|
           (|List|
-           (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)))
-         (|n| |Integer|) (|bound| |List| (|Fraction| (|Integer|)))
-         (|eb| |Integer|)
-         ($ |Union|
-          (|List| (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-          "failed"))
+           (|List|
+            (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
+                                      |cen|))))
+         (|n| (|Integer|)) (|bound| (|List| (|Fraction| (|Integer|))))
+         (|eb| (|Integer|))
+         ($
+          (|Union|
+           (|List| (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
+           "failed")))
         (SPROG
          ((|nstep| (|Integer|)) (|acc| (|Integer|)) (#1=#:G752 NIL)
           (|hps|
@@ -6251,14 +6513,20 @@
           #8# (EXIT #1#)))) 
 
 (SDEFUN |LODOF2;flist|
-        ((|r| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
-         (|order| |Integer|)
-         ($ |List|
+        ((|r|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)))
+         (|order| (|Integer|))
+         ($
           (|List|
-           (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                      |cen|))))
+           (|List|
+            (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                       |cen|)))))
         (SPROG
          ((|res|
            (|List|
@@ -6312,13 +6580,23 @@
               (EXIT |res|)))) 
 
 (SDEFUN |LODOF2;xDn_modr|
-        ((|n| |Integer|)
-         (|r| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
-         ($ |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|)))
+        ((|n| (|Integer|))
+         (|r|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)))
+         ($
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|))))
         (SPROG
          ((|coefa|
            (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
@@ -6355,19 +6633,22 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |LODOF2;factor;LodoMLL;47|
-        ((|f| |LinearOrdinaryDifferentialOperator1|
-          (|Fraction|
-           (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         (|factorizer| |Mapping|
-          (|Factored|
-           (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-          (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))
-          (|List| (|Expression| (|Integer|))))
-         (|y| |List| (|Expression| (|Integer|)))
-         ($ |List|
+        ((|f|
           (|LinearOrdinaryDifferentialOperator1|
            (|Fraction|
-            (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))))
+            (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
+         (|factorizer|
+          (|Mapping|
+           (|Factored|
+            (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
+           (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))
+           (|List| (|Expression| (|Integer|)))))
+         (|y| (|List| (|Expression| (|Integer|))))
+         ($
+          (|List|
+           (|LinearOrdinaryDifferentialOperator1|
+            (|Fraction|
+             (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))))
         (SPROG
          ((#1=#:G786 NIL) (#2=#:G787 NIL) (|i| NIL)
           (|res|
@@ -6427,10 +6708,10 @@
 
 (SDEFUN |LODOF2;inf_singularity?|
         ((|f|
-          . #1=(|LinearOrdinaryDifferentialOperator1|
-                (|Fraction|
-                 (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
-         ($ |Boolean|))
+          #1=(|LinearOrdinaryDifferentialOperator1|
+              (|Fraction|
+               (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
+         ($ (|Boolean|)))
         (SPROG
          ((#2=#:G794 NIL)
           (|dlc|
@@ -6531,24 +6812,28 @@
           #7# (EXIT #2#)))) 
 
 (SDEFUN |LODOF2;testis;LodoB;49|
-        ((|f| |LinearOrdinaryDifferentialOperator1|
-          (|Fraction|
-           (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         ($ |Boolean|))
+        ((|f|
+          (|LinearOrdinaryDifferentialOperator1|
+           (|Fraction|
+            (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
+         ($ (|Boolean|)))
         (|LODOF2;inf_singularity?| |f| $)) 
 
 (SDEFUN |LODOF2;factor_global|
-        ((|f| |LinearOrdinaryDifferentialOperator1|
-          (|Fraction|
-           (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         (|factorizer| |Mapping|
-          (|Factored|
-           (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-          (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-         ($ |List|
+        ((|f|
           (|LinearOrdinaryDifferentialOperator1|
            (|Fraction|
-            (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))))
+            (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
+         (|factorizer|
+          (|Mapping|
+           (|Factored|
+            (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
+           (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))))
+         ($
+          (|List|
+           (|LinearOrdinaryDifferentialOperator1|
+            (|Fraction|
+             (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))))
         (SPROG
          ((#1=#:G903 NIL) (#2=#:G868 NIL)
           (|t|
@@ -8334,46 +8619,58 @@
           #35# (EXIT #1#)))) 
 
 (SDEFUN |LODOF2;testfg;LodoML;51|
-        ((|f| |LinearOrdinaryDifferentialOperator1|
-          (|Fraction|
-           (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         (|factorizer| |Mapping|
-          (|Factored|
-           (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-          (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-         ($ |List|
+        ((|f|
           (|LinearOrdinaryDifferentialOperator1|
            (|Fraction|
-            (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))))
+            (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
+         (|factorizer|
+          (|Mapping|
+           (|Factored|
+            (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
+           (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))))
+         ($
+          (|List|
+           (|LinearOrdinaryDifferentialOperator1|
+            (|Fraction|
+             (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))))
         (|LODOF2;factor_global| |f| |factorizer| $)) 
 
 (SDEFUN |LODOF2;factor_minmult1|
-        ((|bound| |List| (|Fraction| (|Integer|)))
-         (|sng| |Record|
-          (|:| |point| (|Union| (|Expression| (|Integer|)) "infinity"))
-          (|:| |lpf|
-               (|LinearOrdinaryDifferentialOperator3|
-                (|Expression| (|Integer|))
-                (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                          |cen|)
-                (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                           |cen|)))
-          (|:| |dxt| (|PositiveInteger|)))
-         (|f| |LinearOrdinaryDifferentialOperator1|
-          (|Fraction|
-           (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         (|eb| |Integer|) (|eba| |Integer|)
-         (|r| |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
-         (|factorizer| |Mapping|
-          (|Factored|
-           (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-          (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-         ($ |List|
+        ((|bound| (|List| (|Fraction| (|Integer|))))
+         (|sng|
+          (|Record|
+           (|:| |point| (|Union| (|Expression| (|Integer|)) "infinity"))
+           (|:| |lpf|
+                (|LinearOrdinaryDifferentialOperator3|
+                 (|Expression| (|Integer|))
+                 (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
+                                           |cen|)
+                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                            |cen|)))
+           (|:| |dxt| (|PositiveInteger|))))
+         (|f|
           (|LinearOrdinaryDifferentialOperator1|
            (|Fraction|
-            (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))))
+            (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
+         (|eb| (|Integer|)) (|eba| (|Integer|))
+         (|r|
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)))
+         (|factorizer|
+          (|Mapping|
+           (|Factored|
+            (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
+           (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))))
+         ($
+          (|List|
+           (|LinearOrdinaryDifferentialOperator1|
+            (|Fraction|
+             (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))))
         (SPROG
          ((#1=#:G950 NIL) (#2=#:G932 NIL)
           (|t|
@@ -8715,13 +9012,18 @@
 
 (SDEFUN |LODOF2;l_p|
         ((|f|
-          . #1=(|LinearOrdinaryDifferentialOperator1|
-                (|Fraction|
-                 (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
-         (|p| |Union| (|Expression| (|Integer|)) #2="infinity")
-         ($ |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|)))
+          #1=(|LinearOrdinaryDifferentialOperator1|
+              (|Fraction|
+               (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
+         (|p| (|Union| (|Expression| (|Integer|)) #2="infinity"))
+         ($
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|))))
         (SPROG
          ((|llr|
            (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
@@ -8846,21 +9148,29 @@
                 |llr| (QREFELT $ 157)))))) 
 
 (SDEFUN |LODOF2;testlp;LodoULodo;54|
-        ((|f| |LinearOrdinaryDifferentialOperator1|
-          (|Fraction|
-           (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         (|p| |Union| (|Expression| (|Integer|)) "infinity")
-         ($ |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
-          (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
-          (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|)))
+        ((|f|
+          (|LinearOrdinaryDifferentialOperator1|
+           (|Fraction|
+            (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
+         (|p| (|Union| (|Expression| (|Integer|)) "infinity"))
+         ($
+          (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |var| |cen|))))
         (|LODOF2;l_p| |f| |p| $)) 
 
 (SDEFUN |LODOF2;subsup|
-        ((|np| . #1=(|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
-         (|newx| |Fraction|
-          (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
-         ($ |Fraction|
-          (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
+        ((|np| #1=(|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+         (|newx|
+          (|Fraction|
+           (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
+         ($
+          (|Fraction|
+           (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
         (SPROG
          ((|nptmp| #1#)
           (|res|
@@ -8888,9 +9198,9 @@
               (EXIT |res|)))) 
 
 (SDEFUN |LODOF2;get_trace|
-        ((|f| |Expression| (|Integer|))
-         (|k| |Kernel| (|Expression| (|Integer|)))
-         ($ |Expression| (|Integer|)))
+        ((|f| (|Expression| (|Integer|)))
+         (|k| (|Kernel| (|Expression| (|Integer|))))
+         ($ (|Expression| (|Integer|))))
         (SPROG
          ((|fa| (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
           (|Sae|
@@ -8935,20 +9245,21 @@
                                        |Sae|)))))) 
 
 (SDEFUN |LODOF2;testgt;EKE;57|
-        ((|f| |Expression| (|Integer|))
-         (|k| |Kernel| (|Expression| (|Integer|)))
-         ($ |Expression| (|Integer|)))
+        ((|f| (|Expression| (|Integer|)))
+         (|k| (|Kernel| (|Expression| (|Integer|))))
+         ($ (|Expression| (|Integer|))))
         (|LODOF2;get_trace| |f| |k| $)) 
 
 (SDEFUN |LODOF2;make_poly|
         ((|f|
-          . #1=(|LinearOrdinaryDifferentialOperator3|
-                (|Expression| (|Integer|))
-                (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
-                                          |cen|)
-                (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                           |cen|)))
-         ($ |SparseUnivariatePolynomial| (|Expression| (|Integer|))))
+          #1=(|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
+                                                    (|UnivariateTaylorSeries|
+                                                     (|Expression| (|Integer|))
+                                                     |var| |cen|)
+                                                    (|UnivariateLaurentSeries|
+                                                     (|Expression| (|Integer|))
+                                                     |var| |cen|)))
+         ($ (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))))
         (SPROG
          ((|ftmp| #1#)
           (|res| (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
@@ -8974,40 +9285,41 @@
               (EXIT |res|)))) 
 
 (SDEFUN |LODOF2;compute_bound|
-        ((|gem| |List|
-          (|Record|
-           (|:| |singularity|
-                (|Record|
-                 (|:| |point| (|Union| (|Expression| (|Integer|)) "infinity"))
-                 (|:| |lpf|
-                      (|LinearOrdinaryDifferentialOperator3|
-                       (|Expression| (|Integer|))
-                       (|UnivariateTaylorSeries| (|Expression| (|Integer|))
-                                                 |var| |cen|)
-                       (|UnivariateLaurentSeries| (|Expression| (|Integer|))
-                                                  |var| |cen|)))
-                 (|:| |dxt| (|PositiveInteger|))))
-           (|:| |fos|
-                (|List|
+        ((|gem|
+          (|List|
+           (|Record|
+            (|:| |singularity|
                  (|Record|
-                  (|:| |op|
+                  (|:| |point| (|Union| (|Expression| (|Integer|)) "infinity"))
+                  (|:| |lpf|
                        (|LinearOrdinaryDifferentialOperator3|
                         (|Expression| (|Integer|))
                         (|UnivariateTaylorSeries| (|Expression| (|Integer|))
                                                   |var| |cen|)
                         (|UnivariateLaurentSeries| (|Expression| (|Integer|))
                                                    |var| |cen|)))
-                  (|:| |ram|
-                       (|UnivariatePolynomial| |var|
-                                               (|Expression| (|Integer|))))
-                  (|:| |expart|
-                       (|UnivariateLaurentSeries| (|Expression| (|Integer|))
-                                                  |var| |cen|)))))
-           (|:| |mge|
-                (|List|
-                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                            |cen|)))))
-         (|rlc| |Expression| (|Integer|)) ($ |Integer|))
+                  (|:| |dxt| (|PositiveInteger|))))
+            (|:| |fos|
+                 (|List|
+                  (|Record|
+                   (|:| |op|
+                        (|LinearOrdinaryDifferentialOperator3|
+                         (|Expression| (|Integer|))
+                         (|UnivariateTaylorSeries| (|Expression| (|Integer|))
+                                                   |var| |cen|)
+                         (|UnivariateLaurentSeries| (|Expression| (|Integer|))
+                                                    |var| |cen|)))
+                   (|:| |ram|
+                        (|UnivariatePolynomial| |var|
+                                                (|Expression| (|Integer|))))
+                   (|:| |expart|
+                        (|UnivariateLaurentSeries| (|Expression| (|Integer|))
+                                                   |var| |cen|)))))
+            (|:| |mge|
+                 (|List|
+                  (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                             |cen|))))))
+         (|rlc| (|Expression| (|Integer|))) ($ (|Integer|)))
         (SPROG
          ((|res| (|Fraction| (|Integer|))) (#1=#:G977 NIL) (#2=#:G999 NIL)
           (|ma| (|Union| (|Fraction| (|Integer|)) #3="-infinity"))
@@ -9190,27 +9502,31 @@
           #13# (EXIT #2#)))) 
 
 (SDEFUN |LODOF2;gen_exp;LodoUMLL;60|
-        ((|f| |LinearOrdinaryDifferentialOperator1|
-          (|Fraction|
-           (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         (|p| |Union| (|Expression| (|Integer|)) #1="infinity")
-         (|factorizer| |Mapping|
-          (|Factored|
-           (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-          (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))
-          (|List| (|Expression| (|Integer|))))
-         (|y| |List| (|Expression| (|Integer|)))
-         ($ |List|
-          (|Record|
-           (|:| |ecs|
-                (|List|
-                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                            |cen|)))
-           (|:| |ecr|
-                (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
-           (|:| |ect|
-                (|Fraction|
-                 (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))))
+        ((|f|
+          (|LinearOrdinaryDifferentialOperator1|
+           (|Fraction|
+            (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
+         (|p| (|Union| (|Expression| (|Integer|)) #1="infinity"))
+         (|factorizer|
+          (|Mapping|
+           (|Factored|
+            (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
+           (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))
+           (|List| (|Expression| (|Integer|)))))
+         (|y| (|List| (|Expression| (|Integer|))))
+         ($
+          (|List|
+           (|Record|
+            (|:| |ecs|
+                 (|List|
+                  (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                             |cen|)))
+            (|:| |ecr|
+                 (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
+            (|:| |ect|
+                 (|Fraction|
+                  (|UnivariatePolynomial| |var|
+                                          (|Expression| (|Integer|)))))))))
         (SPROG
          ((|res|
            (|List|
@@ -9428,48 +9744,51 @@
           (RETURN (PROGN (SPADCALL |x| |y| |factorizer|))))) 
 
 (SDEFUN |LODOF2;ge_minimal;LodoMSL;61|
-        ((|f| |LinearOrdinaryDifferentialOperator1|
-          (|Fraction|
-           (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-         (|factorizer| |Mapping|
-          (|Factored|
-           (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-          (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-         (|option| |String|)
-         ($ |List|
-          (|Record|
-           (|:| |singularity|
-                (|Record|
-                 (|:| |point|
-                      (|Union| (|Expression| (|Integer|)) #1="infinity"))
-                 (|:| |lpf|
-                      (|LinearOrdinaryDifferentialOperator3|
-                       (|Expression| (|Integer|))
-                       (|UnivariateTaylorSeries| (|Expression| (|Integer|))
-                                                 |var| |cen|)
-                       (|UnivariateLaurentSeries| (|Expression| (|Integer|))
-                                                  |var| |cen|)))
-                 (|:| |dxt| (|PositiveInteger|))))
-           (|:| |fos|
-                (|List|
+        ((|f|
+          (|LinearOrdinaryDifferentialOperator1|
+           (|Fraction|
+            (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
+         (|factorizer|
+          (|Mapping|
+           (|Factored|
+            (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
+           (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))))
+         (|option| (|String|))
+         ($
+          (|List|
+           (|Record|
+            (|:| |singularity|
                  (|Record|
-                  (|:| |op|
+                  (|:| |point|
+                       (|Union| (|Expression| (|Integer|)) #1="infinity"))
+                  (|:| |lpf|
                        (|LinearOrdinaryDifferentialOperator3|
                         (|Expression| (|Integer|))
                         (|UnivariateTaylorSeries| (|Expression| (|Integer|))
                                                   |var| |cen|)
                         (|UnivariateLaurentSeries| (|Expression| (|Integer|))
                                                    |var| |cen|)))
-                  (|:| |ram|
-                       (|UnivariatePolynomial| |var|
-                                               (|Expression| (|Integer|))))
-                  (|:| |expart|
-                       (|UnivariateLaurentSeries| (|Expression| (|Integer|))
-                                                  |var| |cen|)))))
-           (|:| |mge|
-                (|List|
-                 (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
-                                            |cen|))))))
+                  (|:| |dxt| (|PositiveInteger|))))
+            (|:| |fos|
+                 (|List|
+                  (|Record|
+                   (|:| |op|
+                        (|LinearOrdinaryDifferentialOperator3|
+                         (|Expression| (|Integer|))
+                         (|UnivariateTaylorSeries| (|Expression| (|Integer|))
+                                                   |var| |cen|)
+                         (|UnivariateLaurentSeries| (|Expression| (|Integer|))
+                                                    |var| |cen|)))
+                   (|:| |ram|
+                        (|UnivariatePolynomial| |var|
+                                                (|Expression| (|Integer|))))
+                   (|:| |expart|
+                        (|UnivariateLaurentSeries| (|Expression| (|Integer|))
+                                                   |var| |cen|)))))
+            (|:| |mge|
+                 (|List|
+                  (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
+                                             |cen|)))))))
         (SPROG
          ((|res|
            (|List|

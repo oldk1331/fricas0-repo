@@ -1,11 +1,12 @@
 
-(SDEFUN |PMPREDFS;suchThat;FMF;1| ((|p| F) (|f| |Mapping| (|Boolean|) D) ($ F))
+(SDEFUN |PMPREDFS;suchThat;FMF;1|
+        ((|p| (F)) (|f| (|Mapping| (|Boolean|) D)) ($ (F)))
         (SPADCALL |p| (LIST |f|) (QREFELT $ 12))) 
 
-(SDEFUN |PMPREDFS;mkk| ((|op| |BasicOperator|) ($ F))
+(SDEFUN |PMPREDFS;mkk| ((|op| (|BasicOperator|)) ($ (F)))
         (SPADCALL |op| NIL (QREFELT $ 16))) 
 
-(SDEFUN |PMPREDFS;preds| ((|k| |Kernel| F) ($ |List| (|Any|)))
+(SDEFUN |PMPREDFS;preds| ((|k| (|Kernel| F)) ($ (|List| (|Any|))))
         (SPROG ((|u| (|Union| (|None|) "failed")))
                (SEQ
                 (LETT |u|
@@ -13,7 +14,7 @@
                                 (QREFELT $ 21)))
                 (EXIT (COND ((QEQCAR |u| 1) NIL) ('T (QCDR |u|))))))) 
 
-(SDEFUN |PMPREDFS;st| ((|k| |Kernel| F) (|l| |List| (|Any|)) ($ F))
+(SDEFUN |PMPREDFS;st| ((|k| (|Kernel| F)) (|l| (|List| (|Any|))) ($ (F)))
         (SPROG ((|kk| (|BasicOperator|)))
                (SEQ
                 (LETT |kk|
@@ -26,7 +27,7 @@
                 (EXIT (SPADCALL |kk| NIL (QREFELT $ 16)))))) 
 
 (SDEFUN |PMPREDFS;suchThat;FLF;5|
-        ((|p| F) (|l| |List| (|Mapping| (|Boolean|) D)) ($ F))
+        ((|p| (F)) (|l| (|List| (|Mapping| (|Boolean|) D))) ($ (F)))
         (SPROG ((#1=#:G122 NIL) (|f| NIL) (#2=#:G121 NIL))
                (SEQ
                 (COND

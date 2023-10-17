@@ -1,16 +1,16 @@
 
 (PUT '|ANY;obj;$N;1| '|SPADreplace| 'QCDR) 
 
-(SDEFUN |ANY;obj;$N;1| ((|x| $) ($ |None|)) (QCDR |x|)) 
+(SDEFUN |ANY;obj;$N;1| ((|x| ($)) ($ (|None|))) (QCDR |x|)) 
 
 (PUT '|ANY;dom;$Se;2| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |ANY;dom;$Se;2| ((|x| $) ($ |SExpression|)) (QCAR |x|)) 
+(SDEFUN |ANY;dom;$Se;2| ((|x| ($)) ($ (|SExpression|))) (QCAR |x|)) 
 
-(SDEFUN |ANY;domainOf;$Of;3| ((|x| $) ($ |OutputForm|))
+(SDEFUN |ANY;domainOf;$Of;3| ((|x| ($)) ($ (|OutputForm|)))
         (|typeToOutputForm| (QCAR |x|))) 
 
-(SDEFUN |ANY;=;2$B;4| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |ANY;=;2$B;4| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPROG ((|Dx| (|Type|)) (|dy| #1=(|SExpression|)) (|dx| #1#))
                (SEQ (LETT |dx| (SPADCALL |x| (QREFELT $ 11)))
                     (LETT |dy| (SPADCALL |y| (QREFELT $ 11)))
@@ -33,11 +33,11 @@
                                     (EQ (SPADCALL |x| (QREFELT $ 9))
                                         (SPADCALL |y| (QREFELT $ 9))))))))))))) 
 
-(SDEFUN |ANY;objectOf;$Of;5| ((|x| $) ($ |OutputForm|))
+(SDEFUN |ANY;objectOf;$Of;5| ((|x| ($)) ($ (|OutputForm|)))
         (|spad2BootCoerce| (QCDR |x|) (QCAR |x|)
                            (SPADCALL '|OutputForm| (QREFELT $ 19)))) 
 
-(SDEFUN |ANY;showTypeInOutput;BS;6| ((|b| |Boolean|) ($ |String|))
+(SDEFUN |ANY;showTypeInOutput;BS;6| ((|b| (|Boolean|)) ($ (|String|)))
         (SEQ (SETELT $ 7 |b|)
              (EXIT
               (COND
@@ -46,7 +46,7 @@
                ('T
                 "Type of object will not be displayed in output of a member of Any"))))) 
 
-(SDEFUN |ANY;coerce;$Of;7| ((|x| $) ($ |OutputForm|))
+(SDEFUN |ANY;coerce;$Of;7| ((|x| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|dom1| (|List| (|OutputForm|))) (|p| (|SExpression|))
           (|obj1| (|OutputForm|)))
@@ -69,7 +69,8 @@
                     (QREFELT $ 28)))))
                 (#1# |obj1|)))))) 
 
-(SDEFUN |ANY;any;SeN$;8| ((|domain| |SExpression|) (|object| |None|) ($ $))
+(SDEFUN |ANY;any;SeN$;8|
+        ((|domain| (|SExpression|)) (|object| (|None|)) ($ ($)))
         (SEQ
          (COND ((|isValidType| |domain|) (CONS |domain| |object|))
                (#1='T

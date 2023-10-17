@@ -2,12 +2,12 @@
 (PUT '|PARSCURV;curve;3ComponentFunction$;1| '|SPADreplace| 'VECTOR) 
 
 (SDEFUN |PARSCURV;curve;3ComponentFunction$;1|
-        ((|x| |ComponentFunction|) (|y| |ComponentFunction|)
-         (|z| |ComponentFunction|) ($ $))
+        ((|x| (|ComponentFunction|)) (|y| (|ComponentFunction|))
+         (|z| (|ComponentFunction|)) ($ ($)))
         (VECTOR |x| |y| |z|)) 
 
 (SDEFUN |PARSCURV;coordinate;$NniComponentFunction;2|
-        ((|c| $) (|n| |NonNegativeInteger|) ($ |ComponentFunction|))
+        ((|c| ($)) (|n| (|NonNegativeInteger|)) ($ (|ComponentFunction|)))
         (COND ((EQL |n| 1) (QVELT |c| 0)) ((EQL |n| 2) (QVELT |c| 1))
               ((EQL |n| 3) (QVELT |c| 2))
               ('T (|error| "coordinate: index out of bounds")))) 

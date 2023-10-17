@@ -1,5 +1,6 @@
 
-(SDEFUN |FSPRMELT;F2P| ((|f| F) (|l| |List| (|Symbol|)) ($ |Polynomial| F))
+(SDEFUN |FSPRMELT;F2P|
+        ((|f| (F)) (|l| (|List| (|Symbol|))) ($ (|Polynomial| F)))
         (SPROG NIL
                (SPADCALL
                 (SPADCALL
@@ -20,7 +21,7 @@
           (RETURN (PROGN (|FSPRMELT;K2P| |k1| |l| $))))) 
 
 (SDEFUN |FSPRMELT;K2P|
-        ((|k| |Kernel| F) (|l| |List| (|Symbol|)) ($ |Polynomial| F))
+        ((|k| (|Kernel| F)) (|l| (|List| (|Symbol|))) ($ (|Polynomial| F)))
         (SPROG ((#1=#:G117 NIL) (|v| (|Union| (|Symbol|) "failed")))
                (SEQ
                 (EXIT
@@ -39,10 +40,11 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |FSPRMELT;primitiveElement;LR;3|
-        ((|l| |List| F)
-         ($ |Record| (|:| |primelt| F)
-          (|:| |poly| (|List| (|SparseUnivariatePolynomial| F)))
-          (|:| |prim| (|SparseUnivariatePolynomial| F))))
+        ((|l| (|List| F))
+         ($
+          (|Record| (|:| |primelt| F)
+                    (|:| |poly| (|List| (|SparseUnivariatePolynomial| F)))
+                    (|:| |prim| (|SparseUnivariatePolynomial| F)))))
         (SPROG
          ((#1=#:G125 NIL) (#2=#:G124 (F)) (#3=#:G126 (F)) (#4=#:G139 NIL)
           (|c| NIL) (#5=#:G140 NIL) (|a| NIL)
@@ -149,9 +151,9 @@
             (QVELT |rec| 1) (QVELT |rec| 2)))))) 
 
 (SDEFUN |FSPRMELT;F2UP|
-        ((|p| |SparseUnivariatePolynomial| F) (|k| |Kernel| F)
-         (|q| |SparseUnivariatePolynomial| F)
-         ($ |SparseUnivariatePolynomial| F))
+        ((|p| (|SparseUnivariatePolynomial| F)) (|k| (|Kernel| F))
+         (|q| (|SparseUnivariatePolynomial| F))
+         ($ (|SparseUnivariatePolynomial| F)))
         (SPROG
          ((|ans| (|SparseUnivariatePolynomial| F))
           (|f| (|Fraction| (|SparseUnivariatePolynomial| F))))
@@ -182,11 +184,12 @@
               (EXIT |ans|)))) 
 
 (SDEFUN |FSPRMELT;primitiveElement;2FR;5|
-        ((|a1| F) (|a2| F)
-         ($ |Record| (|:| |primelt| F)
-          (|:| |pol1| (|SparseUnivariatePolynomial| F))
-          (|:| |pol2| (|SparseUnivariatePolynomial| F))
-          (|:| |prim| (|SparseUnivariatePolynomial| F))))
+        ((|a1| (F)) (|a2| (F))
+         ($
+          (|Record| (|:| |primelt| F)
+                    (|:| |pol1| (|SparseUnivariatePolynomial| F))
+                    (|:| |pol2| (|SparseUnivariatePolynomial| F))
+                    (|:| |prim| (|SparseUnivariatePolynomial| F)))))
         (SPROG
          ((|q| (|SparseUnivariatePolynomial| F))
           (|r| (|SparseUnivariatePolynomial| F)) (|kg| #1=(|Kernel| F))
@@ -289,8 +292,8 @@
                       (LIST |a|) (QREFELT $ 47)))))) 
 
 (SDEFUN |FSPRMELT;getpoly|
-        ((|r| |SparseUnivariatePolynomial| F) (|g| F)
-         ($ |SparseUnivariatePolynomial| F))
+        ((|r| (|SparseUnivariatePolynomial| F)) (|g| (F))
+         ($ (|SparseUnivariatePolynomial| F)))
         (SPROG ((|k| (|Kernel| F)))
                (SEQ
                 (COND

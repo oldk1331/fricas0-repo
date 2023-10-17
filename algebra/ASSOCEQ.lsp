@@ -1,6 +1,7 @@
 
 (SDEFUN |ASSOCEQ;makeMatrix|
-        ((|v| |Vector| (|Matrix| R)) (|n| |NonNegativeInteger|) ($ |Matrix| R))
+        ((|v| (|Vector| (|Matrix| R))) (|n| (|NonNegativeInteger|))
+         ($ (|Matrix| R)))
         (SPROG ((#1=#:G108 NIL) (|i| NIL) (#2=#:G107 NIL))
                (SEQ
                 (SPADCALL
@@ -22,9 +23,10 @@
                  (QREFELT $ 19))))) 
 
 (SDEFUN |ASSOCEQ;associatedSystem;LPiR;2|
-        ((|op| L) (|m| |PositiveInteger|)
-         ($ |Record| (|:| |mat| (|Matrix| R))
-          (|:| |vec| (|Vector| (|List| (|PositiveInteger|))))))
+        ((|op| (L)) (|m| (|PositiveInteger|))
+         ($
+          (|Record| (|:| |mat| (|Matrix| R))
+                    (|:| |vec| (|Vector| (|List| (|PositiveInteger|)))))))
         (SPROG
          ((|u| (|Union| S #1="failed")) (#2=#:G130 NIL) (#3=#:G125 NIL)
           (#4=#:G145 NIL) (|j| NIL) (#5=#:G118 NIL) (#6=#:G144 NIL) (|k| NIL)
@@ -249,7 +251,7 @@
           (EXIT (CONS M |ww|))))) 
 
 (SDEFUN |ASSOCEQ;uncouplingMatrices;MV;3|
-        ((|m| . #1=(|Matrix| R)) ($ |Vector| (|Matrix| R)))
+        ((|m| #1=(|Matrix| R)) ($ (|Vector| (|Matrix| R))))
         (SPROG
          ((#2=#:G152 NIL) (#3=#:G154 NIL) (|i| NIL) (#4=#:G153 NIL) (|mi| #1#)
           (#5=#:G151 NIL) (|v| (|Vector| (|Matrix| R)))
@@ -292,11 +294,12 @@
           (RETURN (PROGN (SPADCALL |diff| |z1| (QREFELT $ 44)))))) 
 
 (SDEFUN |ASSOCEQ;makeeq|
-        ((|v| |Vector| (|List| (|PositiveInteger|))) (|m| |Matrix| R)
-         (|i| |NonNegativeInteger|) (|n| |NonNegativeInteger|)
-         ($ |Record| (|:| |minor| (|List| (|PositiveInteger|))) (|:| |eq| L)
-          (|:| |minors| (|List| (|List| (|PositiveInteger|))))
-          (|:| |ops| (|List| L))))
+        ((|v| (|Vector| (|List| (|PositiveInteger|)))) (|m| (|Matrix| R))
+         (|i| (|NonNegativeInteger|)) (|n| (|NonNegativeInteger|))
+         ($
+          (|Record| (|:| |minor| (|List| (|PositiveInteger|))) (|:| |eq| L)
+                    (|:| |minors| (|List| (|List| (|PositiveInteger|))))
+                    (|:| |ops| (|List| L)))))
         (SPROG
          ((#1=#:G162 NIL) (|j| NIL) (#2=#:G161 NIL) (#3=#:G160 NIL)
           (#4=#:G159 NIL))
@@ -335,10 +338,11 @@
                         (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |ASSOCEQ;associatedEquations;LPiR;5|
-        ((|op| L) (|m| |PositiveInteger|)
-         ($ |Record| (|:| |minor| (|List| (|PositiveInteger|))) (|:| |eq| L)
-          (|:| |minors| (|List| (|List| (|PositiveInteger|))))
-          (|:| |ops| (|List| L))))
+        ((|op| (L)) (|m| (|PositiveInteger|))
+         ($
+          (|Record| (|:| |minor| (|List| (|PositiveInteger|))) (|:| |eq| L)
+                    (|:| |minors| (|List| (|List| (|PositiveInteger|))))
+                    (|:| |ops| (|List| L)))))
         (SPROG
          ((#1=#:G174 NIL) (|i| NIL)
           (|ww| (|Vector| (|List| (|PositiveInteger|))))
@@ -429,10 +433,11 @@
                                  $))))))))))))) 
 
 (SDEFUN |ASSOCEQ;computeIt|
-        ((|op| L) (|m| |PositiveInteger|) (|k| |NonNegativeInteger|)
-         ($ |Record| (|:| |minor| (|List| (|PositiveInteger|))) (|:| |eq| L)
-          (|:| |minors| (|List| (|List| (|PositiveInteger|))))
-          (|:| |ops| (|List| L))))
+        ((|op| (L)) (|m| (|PositiveInteger|)) (|k| (|NonNegativeInteger|))
+         ($
+          (|Record| (|:| |minor| (|List| (|PositiveInteger|))) (|:| |eq| L)
+                    (|:| |minors| (|List| (|List| (|PositiveInteger|))))
+                    (|:| |ops| (|List| L)))))
         (SPROG
          ((#1=#:G184 NIL) (#2=#:G185 NIL) (|u| (|Union| (|Matrix| R) "failed"))
           (#3=#:G186 NIL) (|i| NIL) (|n| (|NonNegativeInteger|))
@@ -469,7 +474,7 @@
                 (EXIT (|error| "associatedEquations: full degenerate case"))))
           #4# (EXIT #2#)))) 
 
-(SDEFUN |ASSOCEQ;makeop| ((|v| |Vector| R) ($ L))
+(SDEFUN |ASSOCEQ;makeop| ((|v| (|Vector| R)) ($ (L)))
         (SPROG ((|op| (L)) (#1=#:G190 NIL) (|i| NIL))
                (SEQ (LETT |op| (|spadConstant| $ 23))
                     (SEQ (LETT |i| 1) (LETT #1# (QVSIZE |v|)) G190

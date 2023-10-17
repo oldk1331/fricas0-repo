@@ -1,5 +1,5 @@
 
-(SDEFUN |SOLVERAD;New| ((|s| |Expression| R) ($ |Expression| R))
+(SDEFUN |SOLVERAD;New| ((|s| (|Expression| R)) ($ (|Expression| R)))
         (SPROG ((S (|Expression| R)))
                (SEQ
                 (COND
@@ -19,8 +19,8 @@
                    (EXIT S))))))) 
 
 (SDEFUN |SOLVERAD;linear|
-        ((|u| |SparseUnivariatePolynomial| (|Polynomial| R))
-         ($ |List| (|Expression| R)))
+        ((|u| (|SparseUnivariatePolynomial| (|Polynomial| R)))
+         ($ (|List| (|Expression| R))))
         (LIST
          (SPADCALL
           (SPADCALL (SPADCALL (SPADCALL |u| 0 (QREFELT $ 28)) (QREFELT $ 29))
@@ -29,29 +29,29 @@
           (QREFELT $ 33)))) 
 
 (SDEFUN |SOLVERAD;quadratic|
-        ((|u| |SparseUnivariatePolynomial| (|Polynomial| R))
-         ($ |List| (|Expression| R)))
+        ((|u| (|SparseUnivariatePolynomial| (|Polynomial| R)))
+         ($ (|List| (|Expression| R))))
         (SPADCALL (SPADCALL (ELT $ 30) |u| (QREFELT $ 37)) (QREFELT $ 40))) 
 
 (SDEFUN |SOLVERAD;cubic|
-        ((|u| |SparseUnivariatePolynomial| (|Polynomial| R))
-         ($ |List| (|Expression| R)))
+        ((|u| (|SparseUnivariatePolynomial| (|Polynomial| R)))
+         ($ (|List| (|Expression| R))))
         (SPADCALL (SPADCALL (ELT $ 30) |u| (QREFELT $ 37)) (QREFELT $ 41))) 
 
 (SDEFUN |SOLVERAD;quartic|
-        ((|u| |SparseUnivariatePolynomial| (|Polynomial| R))
-         ($ |List| (|Expression| R)))
+        ((|u| (|SparseUnivariatePolynomial| (|Polynomial| R)))
+         ($ (|List| (|Expression| R))))
         (SPADCALL (SPADCALL (ELT $ 30) |u| (QREFELT $ 37)) (QREFELT $ 42))) 
 
-(SDEFUN |SOLVERAD;rad| ((|n| |PositiveInteger|) ($ |Expression| R))
+(SDEFUN |SOLVERAD;rad| ((|n| (|PositiveInteger|)) ($ (|Expression| R)))
         (SPADCALL |n| (QREFELT $ 44))) 
 
-(SDEFUN |SOLVERAD;wrap| ((|s| |Expression| R) ($ |Expression| R))
+(SDEFUN |SOLVERAD;wrap| ((|s| (|Expression| R)) ($ (|Expression| R)))
         (COND ((QREFELT $ 8) (|SOLVERAD;New| |s| $)) ('T |s|))) 
 
 (SDEFUN |SOLVERAD;findGenZeros|
-        ((|rlp| |List| (|Polynomial| R)) (|rlv| |List| (|Symbol|))
-         ($ |List| (|List| (|Expression| R))))
+        ((|rlp| (|List| (|Polynomial| R))) (|rlv| (|List| (|Symbol|)))
+         ($ (|List| (|List| (|Expression| R)))))
         (SPROG
          ((|res| (|List| (|List| (|Expression| R)))) (#1=#:G132 NIL) (|vv| NIL)
           (#2=#:G133 NIL) (|p| NIL) (#3=#:G131 NIL) (#4=#:G130 NIL) (|r| NIL)
@@ -136,8 +136,8 @@
               (EXIT |res|)))) 
 
 (SDEFUN |SOLVERAD;findZeros|
-        ((|rlp| |List| (|Polynomial| R)) (|rlv| |List| (|Symbol|))
-         ($ |List| (|List| (|Expression| R))))
+        ((|rlp| (|List| (|Polynomial| R))) (|rlv| (|List| (|Symbol|)))
+         ($ (|List| (|List| (|Expression| R)))))
         (SPROG
          ((|res| (|List| (|List| (|Expression| R))))
           (|rlv1| (|List| (|Symbol|)))
@@ -195,8 +195,8 @@
           (EXIT |res|)))) 
 
 (SDEFUN |SOLVERAD;radicalSolve;FSL;10|
-        ((|pol| |Fraction| (|Polynomial| R)) (|v| |Symbol|)
-         ($ |List| (|Equation| (|Expression| R))))
+        ((|pol| (|Fraction| (|Polynomial| R))) (|v| (|Symbol|))
+         ($ (|List| (|Equation| (|Expression| R)))))
         (SPROG ((#1=#:G148 NIL) (|r| NIL) (#2=#:G147 NIL))
                (SEQ
                 (PROGN
@@ -217,8 +217,8 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |SOLVERAD;radicalSolve;FL;11|
-        ((|p| |Fraction| (|Polynomial| R))
-         ($ |List| (|Equation| (|Expression| R))))
+        ((|p| (|Fraction| (|Polynomial| R)))
+         ($ (|List| (|Equation| (|Expression| R)))))
         (SPROG ((|lv| (|List| (|Symbol|))))
                (SEQ
                 (COND
@@ -243,24 +243,24 @@
                                      (QREFELT $ 62))))))))))) 
 
 (SDEFUN |SOLVERAD;radicalSolve;EL;12|
-        ((|eq| |Equation| (|Fraction| (|Polynomial| R)))
-         ($ |List| (|Equation| (|Expression| R))))
+        ((|eq| (|Equation| (|Fraction| (|Polynomial| R))))
+         ($ (|List| (|Equation| (|Expression| R)))))
         (SPADCALL
          (SPADCALL (SPADCALL |eq| (QREFELT $ 72))
                    (SPADCALL |eq| (QREFELT $ 73)) (QREFELT $ 74))
          (QREFELT $ 70))) 
 
 (SDEFUN |SOLVERAD;radicalSolve;ESL;13|
-        ((|eq| |Equation| (|Fraction| (|Polynomial| R))) (|v| |Symbol|)
-         ($ |List| (|Equation| (|Expression| R))))
+        ((|eq| (|Equation| (|Fraction| (|Polynomial| R)))) (|v| (|Symbol|))
+         ($ (|List| (|Equation| (|Expression| R)))))
         (SPADCALL
          (SPADCALL (SPADCALL |eq| (QREFELT $ 72))
                    (SPADCALL |eq| (QREFELT $ 73)) (QREFELT $ 74))
          |v| (QREFELT $ 62))) 
 
 (SDEFUN |SOLVERAD;radicalRoots;LLL;14|
-        ((|lp| |List| (|Fraction| (|Polynomial| R))) (|lv| |List| (|Symbol|))
-         ($ |List| (|List| (|Expression| R))))
+        ((|lp| (|List| (|Fraction| (|Polynomial| R))))
+         (|lv| (|List| (|Symbol|))) ($ (|List| (|List| (|Expression| R)))))
         (SPROG
          ((#1=#:G164 NIL) (#2=#:G163 #3=(|List| (|List| (|Expression| R))))
           (#4=#:G165 #3#) (#5=#:G174 NIL) (|res| NIL)
@@ -360,8 +360,9 @@
                        |result| (QREFELT $ 55)))))))) 
 
 (SDEFUN |SOLVERAD;radicalSolve;LLL;15|
-        ((|lp| |List| (|Fraction| (|Polynomial| R))) (|lv| |List| (|Symbol|))
-         ($ |List| (|List| (|Equation| (|Expression| R)))))
+        ((|lp| (|List| (|Fraction| (|Polynomial| R))))
+         (|lv| (|List| (|Symbol|)))
+         ($ (|List| (|List| (|Equation| (|Expression| R))))))
         (SPROG ((#1=#:G178 NIL) (|lres| NIL) (#2=#:G177 NIL))
                (SEQ
                 (PROGN
@@ -379,8 +380,8 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |SOLVERAD;radicalSolve;LL;16|
-        ((|lp| |List| (|Fraction| (|Polynomial| R)))
-         ($ |List| (|List| (|Equation| (|Expression| R)))))
+        ((|lp| (|List| (|Fraction| (|Polynomial| R))))
+         ($ (|List| (|List| (|Equation| (|Expression| R))))))
         (SPROG
          ((#1=#:G187 NIL) (|lres| NIL) (#2=#:G186 NIL)
           (|lv| #3=(|List| (|Symbol|))) (#4=#:G180 NIL) (#5=#:G179 #3#)
@@ -422,9 +423,9 @@
                  (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |SOLVERAD;radicalSolve;LLL;17|
-        ((|le| |List| (|Equation| (|Fraction| (|Polynomial| R))))
-         (|lv| |List| (|Symbol|))
-         ($ |List| (|List| (|Equation| (|Expression| R)))))
+        ((|le| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))
+         (|lv| (|List| (|Symbol|)))
+         ($ (|List| (|List| (|Equation| (|Expression| R))))))
         (SPROG
          ((#1=#:G195 NIL) (|lres| NIL) (#2=#:G194 NIL)
           (|lp| (|List| (|Fraction| (|Polynomial| R)))) (#3=#:G193 NIL)
@@ -461,8 +462,8 @@
                  (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |SOLVERAD;radicalSolve;LL;18|
-        ((|le| |List| (|Equation| (|Fraction| (|Polynomial| R))))
-         ($ |List| (|List| (|Equation| (|Expression| R)))))
+        ((|le| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))
+         ($ (|List| (|List| (|Equation| (|Expression| R))))))
         (SPROG
          ((#1=#:G207 NIL) (|lres| NIL) (#2=#:G206 NIL)
           (|lv| #3=(|List| (|Symbol|))) (#4=#:G198 NIL) (#5=#:G197 #3#)
@@ -523,9 +524,10 @@
                  (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |SOLVERAD;contractSolve;ESSt;19|
-        ((|eq| |Equation| (|Fraction| (|Polynomial| R))) (|v| |Symbol|)
-         ($ |SuchThat| (|List| (|Expression| R))
-          (|List| (|Equation| (|Expression| R)))))
+        ((|eq| (|Equation| (|Fraction| (|Polynomial| R)))) (|v| (|Symbol|))
+         ($
+          (|SuchThat| (|List| (|Expression| R))
+                      (|List| (|Equation| (|Expression| R))))))
         (|SOLVERAD;solveInner|
          (SPADCALL
           (SPADCALL (SPADCALL |eq| (QREFELT $ 72))
@@ -534,21 +536,22 @@
          |v| 'T $)) 
 
 (SDEFUN |SOLVERAD;contractSolve;FSSt;20|
-        ((|pq| |Fraction| (|Polynomial| R)) (|v| |Symbol|)
-         ($ |SuchThat| (|List| (|Expression| R))
-          (|List| (|Equation| (|Expression| R)))))
+        ((|pq| (|Fraction| (|Polynomial| R))) (|v| (|Symbol|))
+         ($
+          (|SuchThat| (|List| (|Expression| R))
+                      (|List| (|Equation| (|Expression| R))))))
         (|SOLVERAD;solveInner| (SPADCALL |pq| (QREFELT $ 64)) |v| 'T $)) 
 
 (SDEFUN |SOLVERAD;radicalRoots;FSL;21|
-        ((|pq| |Fraction| (|Polynomial| R)) (|v| |Symbol|)
-         ($ |List| (|Expression| R)))
+        ((|pq| (|Fraction| (|Polynomial| R))) (|v| (|Symbol|))
+         ($ (|List| (|Expression| R))))
         (SPADCALL
          (|SOLVERAD;solveInner| (SPADCALL |pq| (QREFELT $ 64)) |v| NIL $)
          (QREFELT $ 97))) 
 
 (SDEFUN |SOLVERAD;isGeneric?|
-        ((|rlp| |List| (|Polynomial| R)) (|rlv| |List| (|Symbol|))
-         ($ |Boolean|))
+        ((|rlp| (|List| (|Polynomial| R))) (|rlv| (|List| (|Symbol|)))
+         ($ (|Boolean|)))
         (SPROG
          ((#1=#:G212 NIL) (#2=#:G211 #3=(|Boolean|)) (#4=#:G213 #3#)
           (#5=#:G215 NIL) (|f| NIL) (#6=#:G216 NIL) (|x| NIL))
@@ -572,8 +575,8 @@
            (COND (#1# #2#) ('T 'T)))))) 
 
 (SDEFUN |SOLVERAD;select|
-        ((|lp| |List| (|List| (|Expression| R)))
-         ($ . #1=(|List| (|List| (|Expression| R)))))
+        ((|lp| (|List| (|List| (|Expression| R))))
+         ($ #1=(|List| (|List| (|Expression| R)))))
         (SPROG
          ((#2=#:G218 NIL) (#3=#:G217 #1#) (#4=#:G219 #1#) (#5=#:G224 NIL)
           (|lsel| NIL) (#6=#:G223 NIL) (#7=#:G222 NIL) (|f| NIL))
@@ -611,8 +614,8 @@
              (COND (#2# #3#) (#8# NIL)))))))) 
 
 (SDEFUN |SOLVERAD;makeEq|
-        ((|nres| |List| (|Expression| R)) (|lv| |List| (|Symbol|))
-         ($ |List| (|Equation| (|Expression| R))))
+        ((|nres| (|List| (|Expression| R))) (|lv| (|List| (|Symbol|)))
+         ($ (|List| (|Equation| (|Expression| R)))))
         (SPROG
          ((#1=#:G228 NIL) (|x| NIL) (#2=#:G229 NIL) (|r| NIL) (#3=#:G227 NIL))
          (SEQ
@@ -635,8 +638,8 @@
                 G191 (EXIT (NREVERSE #3#))))))) 
 
 (SDEFUN |SOLVERAD;cyclotomic_case?;SupU;25|
-        ((|u| |SparseUnivariatePolynomial| (|Polynomial| R))
-         ($ |Union| (|Integer|) "failed"))
+        ((|u| (|SparseUnivariatePolynomial| (|Polynomial| R)))
+         ($ (|Union| (|Integer|) "failed")))
         (SPROG
          ((|iu| (|SparseUnivariatePolynomial| (|Integer|))) (#1=#:G239 NIL)
           (|icu| (|Union| (|Integer|) "failed")) (|c| (R))
@@ -684,14 +687,15 @@
      '(XLAM (|u|) (CONS 1 "failed"))) 
 
 (SDEFUN |SOLVERAD;cyclotomic_case?;SupU;26|
-        ((|u| |SparseUnivariatePolynomial| (|Polynomial| R))
-         ($ |Union| (|Integer|) "failed"))
+        ((|u| (|SparseUnivariatePolynomial| (|Polynomial| R)))
+         ($ (|Union| (|Integer|) "failed")))
         (CONS 1 "failed")) 
 
 (SDEFUN |SOLVERAD;solveInner|
-        ((|pq| |Polynomial| R) (|v| |Symbol|) (|contractFlag| |Boolean|)
-         ($ |SuchThat| (|List| (|Expression| R))
-          (|List| (|Equation| (|Expression| R)))))
+        ((|pq| (|Polynomial| R)) (|v| (|Symbol|)) (|contractFlag| (|Boolean|))
+         ($
+          (|SuchThat| (|List| (|Expression| R))
+                      (|List| (|Equation| (|Expression| R))))))
         (SPROG
          ((|re| (|List| (|Equation| (|Expression| R))))
           (|solutions| (|List| (|Expression| R))) (#1=#:G270 NIL) (|i| NIL)
@@ -798,7 +802,7 @@
                                                 (CONS |ff| |unsolved|))
                                           (EXIT NIL)))))))))
                         (EXIT
-                         (SEQ (LETT |s| NIL) (LETT #2# |l|) G190
+                         (SEQ (LETT #2# |l|) G190
                               (COND
                                ((OR (ATOM #2#)
                                     (PROGN (LETT |s| (CAR #2#)) NIL))

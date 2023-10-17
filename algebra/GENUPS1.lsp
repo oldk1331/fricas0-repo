@@ -1,6 +1,6 @@
 
 (SDEFUN |GENUPS1;genStream|
-        ((|f| |Mapping| R (|Integer|)) (|n| |Integer|) ($ |Stream| R))
+        ((|f| (|Mapping| R (|Integer|))) (|n| (|Integer|)) ($ (|Stream| R)))
         (SPROG NIL
                (SPADCALL (CONS #'|GENUPS1;genStream!0| (VECTOR $ |f| |n|))
                          (QREFELT $ 14)))) 
@@ -18,14 +18,14 @@
                       (QREFELT $ 12)))))) 
 
 (SDEFUN |GENUPS1;genFiniteStream|
-        ((|f| |Mapping| R (|Integer|)) (|n| |Integer|) (|m| |Integer|)
-         ($ |Stream| R))
+        ((|f| (|Mapping| R (|Integer|))) (|n| (|Integer|)) (|m| (|Integer|))
+         ($ (|Stream| R)))
         (COND ((> |n| |m|) (SPADCALL (QREFELT $ 15)))
               ('T (|GENUPS1;genFiniteStream0| |f| |n| |m| $)))) 
 
 (SDEFUN |GENUPS1;genFiniteStream0|
-        ((|f| |Mapping| R (|Integer|)) (|n| |Integer|) (|m| |Integer|)
-         ($ |Stream| R))
+        ((|f| (|Mapping| R (|Integer|))) (|n| (|Integer|)) (|m| (|Integer|))
+         ($ (|Stream| R)))
         (SPROG NIL
                (SPADCALL
                 (CONS #'|GENUPS1;genFiniteStream0!0| (VECTOR |f| $ |m| |n|))
@@ -51,7 +51,8 @@
                         (QREFELT $ 12)))))))) 
 
 (SDEFUN |GENUPS1;taylor;MSRA;4|
-        ((|f| |Mapping| R (|Integer|)) (|x| |Symbol|) (|a| R) ($ |Any|))
+        ((|f| (|Mapping| R (|Integer|))) (|x| (|Symbol|)) (|a| (R))
+         ($ (|Any|)))
         (SPADCALL
          (SPADCALL (|GENUPS1;genStream| |f| 0 $)
                    (|compiledLookupCheck| '|series|
@@ -69,8 +70,8 @@
                                                            |a|))))) 
 
 (SDEFUN |GENUPS1;taylor;MSRUsA;5|
-        ((|f| |Mapping| R (|Integer|)) (|x| |Symbol|) (|a| R)
-         (|seg| |UniversalSegment| (|NonNegativeInteger|)) ($ |Any|))
+        ((|f| (|Mapping| R (|Integer|))) (|x| (|Symbol|)) (|a| (R))
+         (|seg| (|UniversalSegment| (|NonNegativeInteger|))) ($ (|Any|)))
         (SPROG
          ((|uts| (|UnivariateTaylorSeries| R |x| |a|))
           (|n0| #1=(|NonNegativeInteger|)) (|n1| #2=(|NonNegativeInteger|))
@@ -168,8 +169,8 @@
                                                      |a|))))))))))) 
 
 (SDEFUN |GENUPS1;laurent;MSRUsA;6|
-        ((|f| |Mapping| R (|Integer|)) (|x| |Symbol|) (|a| R)
-         (|seg| |UniversalSegment| (|Integer|)) ($ |Any|))
+        ((|f| (|Mapping| R (|Integer|))) (|x| (|Symbol|)) (|a| (R))
+         (|seg| (|UniversalSegment| (|Integer|))) ($ (|Any|)))
         (SPROG
          ((|uts| (|UnivariateTaylorSeries| R |x| |a|)) (|n0| #1=(|Integer|))
           (|n1| #2=(|Integer|)) (|#G26| #1#) (|#G25| #2#))
@@ -253,17 +254,17 @@
                                                                       |a|))))))))))) 
 
 (SDEFUN |GENUPS1;modifyFcn|
-        ((|f| |Mapping| R (|Fraction| (|Integer|))) (|n0| |Integer|)
-         (|nn| |Integer|) (|q| |Integer|) (|m| |Integer|) ($ R))
+        ((|f| (|Mapping| R (|Fraction| (|Integer|)))) (|n0| (|Integer|))
+         (|nn| (|Integer|)) (|q| (|Integer|)) (|m| (|Integer|)) ($ (R)))
         (COND
          ((ZEROP (REM (- |m| |n0|) |nn|))
           (SPADCALL (SPADCALL |m| |q| (QREFELT $ 34)) |f|))
          ('T (|spadConstant| $ 35)))) 
 
 (SDEFUN |GENUPS1;puiseux;MSRUsFA;8|
-        ((|f| |Mapping| R (|Fraction| (|Integer|))) (|x| |Symbol|) (|a| R)
-         (|seg| |UniversalSegment| (|Fraction| (|Integer|)))
-         (|r| |Fraction| (|Integer|)) ($ |Any|))
+        ((|f| (|Mapping| R (|Fraction| (|Integer|)))) (|x| (|Symbol|))
+         (|a| (R)) (|seg| (|UniversalSegment| (|Fraction| (|Integer|))))
+         (|r| (|Fraction| (|Integer|))) ($ (|Any|)))
         (SPROG
          ((|uls| (|UnivariateLaurentSeries| R |x| |a|)) (|ulsUnion| (|Any|))
           (|nn| #1=(|Integer|)) (|n0| #1#) (|q| (|Integer|))

@@ -1,21 +1,21 @@
 
-(SDEFUN |GROUP-;/;3S;1| ((|x| S) (|y| S) ($ S))
+(SDEFUN |GROUP-;/;3S;1| ((|x| (S)) (|y| (S)) ($ (S)))
         (SPADCALL |x| (SPADCALL |y| (QREFELT $ 7)) (QREFELT $ 8))) 
 
-(SDEFUN |GROUP-;recip;SU;2| ((|x| S) ($ |Union| S "failed"))
+(SDEFUN |GROUP-;recip;SU;2| ((|x| (S)) ($ (|Union| S "failed")))
         (CONS 0 (SPADCALL |x| (QREFELT $ 7)))) 
 
-(SDEFUN |GROUP-;^;SIS;3| ((|x| S) (|n| |Integer|) ($ S))
+(SDEFUN |GROUP-;^;SIS;3| ((|x| (S)) (|n| (|Integer|)) ($ (S)))
         (COND ((ZEROP |n|) (|spadConstant| $ 12))
               ((< |n| 0)
                (SPADCALL (SPADCALL |x| (QREFELT $ 7)) (- |n|) (QREFELT $ 15)))
               ('T (SPADCALL |x| |n| (QREFELT $ 15))))) 
 
-(SDEFUN |GROUP-;conjugate;3S;4| ((|p| S) (|q| S) ($ S))
+(SDEFUN |GROUP-;conjugate;3S;4| ((|p| (S)) (|q| (S)) ($ (S)))
         (SPADCALL (SPADCALL (SPADCALL |q| (QREFELT $ 7)) |p| (QREFELT $ 8)) |q|
                   (QREFELT $ 8))) 
 
-(SDEFUN |GROUP-;commutator;3S;5| ((|p| S) (|q| S) ($ S))
+(SDEFUN |GROUP-;commutator;3S;5| ((|p| (S)) (|q| (S)) ($ (S)))
         (SPADCALL
          (SPADCALL
           (SPADCALL (SPADCALL |p| (QREFELT $ 7)) (SPADCALL |q| (QREFELT $ 7))

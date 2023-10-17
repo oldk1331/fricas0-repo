@@ -1,18 +1,20 @@
 
-(SDEFUN |TBAGG-;table;S;1| (($ S)) (SPADCALL (QREFELT $ 9))) 
+(SDEFUN |TBAGG-;table;S;1| (($ (S))) (SPADCALL (QREFELT $ 9))) 
 
 (SDEFUN |TBAGG-;table;LS;2|
-        ((|l| |List| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))) ($ S))
+        ((|l| (|List| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))))
+         ($ (S)))
         (SPADCALL |l| (QREFELT $ 13))) 
 
 (SDEFUN |TBAGG-;insert!;R2S;3|
-        ((|p| |Record| (|:| |key| |Key|) (|:| |entry| |Entry|)) (|t| S) ($ S))
+        ((|p| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))) (|t| (S))
+         ($ (S)))
         (SEQ (SPADCALL |t| (QCAR |p|) (QCDR |p|) (QREFELT $ 15)) (EXIT |t|))) 
 
-(SDEFUN |TBAGG-;indices;SL;4| ((|t| S) ($ |List| |Key|))
+(SDEFUN |TBAGG-;indices;SL;4| ((|t| (S)) ($ (|List| |Key|)))
         (SPADCALL |t| (QREFELT $ 18))) 
 
-(SDEFUN |TBAGG-;coerce;SOf;5| ((|t| S) ($ |OutputForm|))
+(SDEFUN |TBAGG-;coerce;SOf;5| ((|t| (S)) ($ (|OutputForm|)))
         (SPROG ((#1=#:G127 NIL) (|k| NIL) (#2=#:G126 NIL))
                (SEQ
                 (SPADCALL (SPADCALL "table" (QREFELT $ 22))
@@ -39,7 +41,7 @@
                                 (EXIT (NREVERSE #2#))))
                           (QREFELT $ 28))))) 
 
-(SDEFUN |TBAGG-;elt;SKeyEntry;6| ((|t| S) (|k| |Key|) ($ |Entry|))
+(SDEFUN |TBAGG-;elt;SKeyEntry;6| ((|t| (S)) (|k| (|Key|)) ($ (|Entry|)))
         (SPROG ((|r| (|Union| |Entry| "failed")))
                (SEQ (LETT |r| (SPADCALL |k| |t| (QREFELT $ 31)))
                     (EXIT
@@ -47,12 +49,13 @@
                            ('T (|error| "key not in table"))))))) 
 
 (SDEFUN |TBAGG-;elt;SKey2Entry;7|
-        ((|t| S) (|k| |Key|) (|e| |Entry|) ($ |Entry|))
+        ((|t| (S)) (|k| (|Key|)) (|e| (|Entry|)) ($ (|Entry|)))
         (SPROG ((|r| (|Union| |Entry| "failed")))
                (SEQ (LETT |r| (SPADCALL |k| |t| (QREFELT $ 31)))
                     (EXIT (COND ((QEQCAR |r| 0) (QCDR |r|)) ('T |e|)))))) 
 
-(SDEFUN |TBAGG-;map!;M2S;8| ((|f| |Mapping| |Entry| |Entry|) (|t| S) ($ S))
+(SDEFUN |TBAGG-;map!;M2S;8|
+        ((|f| (|Mapping| |Entry| |Entry|)) (|t| (S)) ($ (S)))
         (SPROG ((#1=#:G142 NIL) (|k| NIL))
                (SEQ
                 (SEQ (LETT |k| NIL) (LETT #1# (SPADCALL |t| (QREFELT $ 18)))
@@ -70,7 +73,7 @@
                 (EXIT |t|)))) 
 
 (SDEFUN |TBAGG-;map;M3S;9|
-        ((|f| |Mapping| |Entry| |Entry| |Entry|) (|s| S) (|t| S) ($ S))
+        ((|f| (|Mapping| |Entry| |Entry| |Entry|)) (|s| (S)) (|t| (S)) ($ (S)))
         (SPROG ((#1=#:G147 NIL) (|k| NIL) (|z| (S)))
                (SEQ (LETT |z| (SPADCALL (QREFELT $ 36)))
                     (SEQ (LETT |k| NIL)
@@ -91,7 +94,8 @@
                     (EXIT |z|)))) 
 
 (SDEFUN |TBAGG-;parts;SL;10|
-        ((|t| S) ($ |List| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))))
+        ((|t| (S))
+         ($ (|List| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|)))))
         (SPROG ((#1=#:G152 NIL) (|k| NIL) (#2=#:G151 NIL))
                (SEQ
                 (PROGN
@@ -110,7 +114,7 @@
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(SDEFUN |TBAGG-;parts;SL;11| ((|t| S) ($ |List| |Entry|))
+(SDEFUN |TBAGG-;parts;SL;11| ((|t| (S)) ($ (|List| |Entry|)))
         (SPROG ((#1=#:G156 NIL) (|k| NIL) (#2=#:G155 NIL))
                (SEQ
                 (PROGN
@@ -127,10 +131,10 @@
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(SDEFUN |TBAGG-;entries;SL;12| ((|t| S) ($ |List| |Entry|))
+(SDEFUN |TBAGG-;entries;SL;12| ((|t| (S)) ($ (|List| |Entry|)))
         (SPADCALL |t| (QREFELT $ 44))) 
 
-(SDEFUN |TBAGG-;=;2SB;13| ((|s| S) (|t| S) ($ |Boolean|))
+(SDEFUN |TBAGG-;=;2SB;13| ((|s| (S)) (|t| (S)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G168 NIL) (#2=#:G169 NIL) (|e| (|Union| |Entry| "failed"))
           (#3=#:G170 NIL) (|k| NIL))
@@ -167,9 +171,10 @@
           #4# (EXIT #2#)))) 
 
 (SDEFUN |TBAGG-;map;M2S;14|
-        ((|f| |Mapping| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))
-          (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|)))
-         (|t| S) ($ S))
+        ((|f|
+          (|Mapping| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))
+                     (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))))
+         (|t| (S)) ($ (S)))
         (SPROG
          ((|ke| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|)))
           (#1=#:G177 NIL) (|k| NIL) (|z| (S)))
@@ -188,9 +193,10 @@
               (EXIT |z|)))) 
 
 (SDEFUN |TBAGG-;map!;M2S;15|
-        ((|f| |Mapping| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))
-          (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|)))
-         (|t| S) ($ S))
+        ((|f|
+          (|Mapping| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))
+                     (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))))
+         (|t| (S)) ($ (S)))
         (SPROG
          ((#1=#:G187 NIL) (|ke| NIL)
           (|lke| (|List| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))))
@@ -229,7 +235,7 @@
               (EXIT |t|)))) 
 
 (SDEFUN |TBAGG-;inspect;SR;16|
-        ((|t| S) ($ |Record| (|:| |key| |Key|) (|:| |entry| |Entry|)))
+        ((|t| (S)) ($ (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))))
         (SPROG ((|ks| (|List| |Key|)))
                (SEQ (LETT |ks| (SPADCALL |t| (QREFELT $ 18)))
                     (EXIT
@@ -242,11 +248,13 @@
                                        (QREFELT $ 24))))))))) 
 
 (SDEFUN |TBAGG-;find;MSU;17|
-        ((|f| |Mapping| (|Boolean|)
-          (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|)))
-         (|t| S)
-         ($ |Union| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))
-          "failed"))
+        ((|f|
+          (|Mapping| (|Boolean|)
+                     (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))))
+         (|t| (S))
+         ($
+          (|Union| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))
+                   "failed")))
         (SPROG ((#1=#:G203 NIL) (#2=#:G204 NIL) (|ke| NIL))
                (SEQ
                 (EXIT
@@ -265,11 +273,12 @@
                   (EXIT (CONS 1 "failed"))))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |TBAGG-;index?;KeySB;18| ((|k| |Key|) (|t| S) ($ |Boolean|))
+(SDEFUN |TBAGG-;index?;KeySB;18| ((|k| (|Key|)) (|t| (S)) ($ (|Boolean|)))
         (QEQCAR (SPADCALL |k| |t| (QREFELT $ 31)) 0)) 
 
 (SDEFUN |TBAGG-;remove!;R2S;19|
-        ((|x| |Record| (|:| |key| |Key|) (|:| |entry| |Entry|)) (|t| S) ($ S))
+        ((|x| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))) (|t| (S))
+         ($ (S)))
         (SEQ
          (COND
           ((SPADCALL |x| |t| (QREFELT $ 63))
@@ -277,13 +286,13 @@
          (EXIT |t|))) 
 
 (SDEFUN |TBAGG-;extract!;SR;20|
-        ((|t| S) ($ |Record| (|:| |key| |Key|) (|:| |entry| |Entry|)))
+        ((|t| (S)) ($ (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))))
         (SPROG ((|k| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))))
                (SEQ (LETT |k| (SPADCALL |t| (QREFELT $ 65)))
                     (SPADCALL (QCAR |k|) |t| (QREFELT $ 55)) (EXIT |k|)))) 
 
 (SDEFUN |TBAGG-;any?;MSB;21|
-        ((|f| |Mapping| (|Boolean|) |Entry|) (|t| S) ($ |Boolean|))
+        ((|f| (|Mapping| (|Boolean|) |Entry|)) (|t| (S)) ($ (|Boolean|)))
         (SPROG ((#1=#:G223 NIL) (#2=#:G224 NIL) (|k| NIL))
                (SEQ
                 (EXIT
@@ -303,7 +312,7 @@
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |TBAGG-;every?;MSB;22|
-        ((|f| |Mapping| (|Boolean|) |Entry|) (|t| S) ($ |Boolean|))
+        ((|f| (|Mapping| (|Boolean|) |Entry|)) (|t| (S)) ($ (|Boolean|)))
         (SPROG ((#1=#:G229 NIL) (#2=#:G230 NIL) (|k| NIL))
                (SEQ
                 (EXIT
@@ -324,7 +333,8 @@
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |TBAGG-;count;MSNni;23|
-        ((|f| |Mapping| (|Boolean|) |Entry|) (|t| S) ($ |NonNegativeInteger|))
+        ((|f| (|Mapping| (|Boolean|) |Entry|)) (|t| (S))
+         ($ (|NonNegativeInteger|)))
         (SPROG ((|tally| (|NonNegativeInteger|)) (#1=#:G234 NIL) (|k| NIL))
                (SEQ (LETT |tally| 0)
                     (SEQ (LETT |k| NIL)

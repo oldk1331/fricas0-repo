@@ -1,6 +1,6 @@
 
 (SDEFUN |M3D;matrixConcat3D;S3$;1|
-        ((|dir| |Symbol|) (|mat1| $) (|mat2| $) ($ $))
+        ((|dir| (|Symbol|)) (|mat1| ($)) (|mat2| ($)) ($ ($)))
         (SPROG
          ((|retVal| ($)) (#1=#:G131 NIL) (|j| NIL)
           (|temp| (|PrimitiveArray| (|PrimitiveArray| R))) (#2=#:G130 NIL)
@@ -92,7 +92,7 @@
           (EXIT |retVal|)))) 
 
 (SDEFUN |M3D;matrixDimensions;$V;2|
-        ((|mat| $) ($ |Vector| (|NonNegativeInteger|)))
+        ((|mat| ($)) ($ (|Vector| (|NonNegativeInteger|))))
         (SPROG
          ((|retVal| (|Vector| (|NonNegativeInteger|)))
           (|kDim| (|NonNegativeInteger|)) (|matRep3| (|PrimitiveArray| R))
@@ -115,20 +115,21 @@
 (PUT '|M3D;coerce;Pa$;3| '|SPADreplace| '(XLAM (|matrixRep|) |matrixRep|)) 
 
 (SDEFUN |M3D;coerce;Pa$;3|
-        ((|matrixRep| |PrimitiveArray| (|PrimitiveArray| (|PrimitiveArray| R)))
-         ($ $))
+        ((|matrixRep|
+          (|PrimitiveArray| (|PrimitiveArray| (|PrimitiveArray| R))))
+         ($ ($)))
         |matrixRep|) 
 
 (PUT '|M3D;coerce;$Pa;4| '|SPADreplace| '(XLAM (|mat|) |mat|)) 
 
 (SDEFUN |M3D;coerce;$Pa;4|
-        ((|mat| $)
-         ($ |PrimitiveArray| (|PrimitiveArray| (|PrimitiveArray| R))))
+        ((|mat| ($))
+         ($ (|PrimitiveArray| (|PrimitiveArray| (|PrimitiveArray| R)))))
         |mat|) 
 
 (SDEFUN |M3D;elt;$3NniR;5|
-        ((|mat| $) (|i| |NonNegativeInteger|) (|j| |NonNegativeInteger|)
-         (|k| |NonNegativeInteger|) ($ R))
+        ((|mat| ($)) (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
+         (|k| (|NonNegativeInteger|)) ($ (R)))
         (SPROG
          ((|matrixRep|
            (|PrimitiveArray| (|PrimitiveArray| (|PrimitiveArray| R))))
@@ -156,8 +157,8 @@
                        (- |k| 1)))))) 
 
 (SDEFUN |M3D;setelt!;$3Nni2R;6|
-        ((|mat| $) (|i| |NonNegativeInteger|) (|j| |NonNegativeInteger|)
-         (|k| |NonNegativeInteger|) (|val| R) ($ R))
+        ((|mat| ($)) (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
+         (|k| (|NonNegativeInteger|)) (|val| (R)) ($ (R)))
         (SPROG
          ((|row1| (|PrimitiveArray| R))
           (|row2| (|PrimitiveArray| (|PrimitiveArray| R)))
@@ -190,15 +191,16 @@
               (QSETAREF1 |matrixRep| (- |i| 1) |row2|) (EXIT |val|)))) 
 
 (SDEFUN |M3D;zeroMatrix;3Nni$;7|
-        ((|iLength| |NonNegativeInteger|) (|jLength| |NonNegativeInteger|)
-         (|kLength| |NonNegativeInteger|) ($ $))
+        ((|iLength| (|NonNegativeInteger|)) (|jLength| (|NonNegativeInteger|))
+         (|kLength| (|NonNegativeInteger|)) ($ ($)))
         (SPADCALL
          (MAKEARR1 |iLength|
                    (MAKEARR1 |jLength|
                              (MAKEARR1 |kLength| (|spadConstant| $ 28))))
          (QREFELT $ 15))) 
 
-(SDEFUN |M3D;identityMatrix;Nni$;8| ((|iLength| |NonNegativeInteger|) ($ $))
+(SDEFUN |M3D;identityMatrix;Nni$;8|
+        ((|iLength| (|NonNegativeInteger|)) ($ ($)))
         (SPROG
          ((|row2| (|PrimitiveArray| (|PrimitiveArray| R)))
           (|row1| (|PrimitiveArray| R)) (#1=#:G145 NIL) (|count| NIL)
@@ -226,7 +228,7 @@
                (LETT |count| (|inc_SI| |count|)) (GO G190) G191 (EXIT NIL))
           (EXIT (SPADCALL |retValueRep| (QREFELT $ 15)))))) 
 
-(SDEFUN |M3D;plus;3$;9| ((|mat1| $) (|mat2| $) ($ $))
+(SDEFUN |M3D;plus;3$;9| ((|mat1| ($)) (|mat2| ($)) ($ ($)))
         (SPROG
          ((|resultMatrix| ($)) (|sum| (R)) (#1=#:G156 NIL) (|k| NIL)
           (#2=#:G155 NIL) (|j| NIL) (#3=#:G154 NIL) (|i| NIL)
@@ -288,7 +290,8 @@
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (LETT |resultMatrix| |row3|) (EXIT |resultMatrix|)))) 
 
-(SDEFUN |M3D;construct;L$;10| ((|listRep| |List| (|List| (|List| R))) ($ $))
+(SDEFUN |M3D;construct;L$;10|
+        ((|listRep| (|List| (|List| (|List| R)))) ($ ($)))
         (SPROG
          ((|resultMatrix| ($)) (|element| (R)) (#1=#:G178 NIL) (|k| NIL)
           (#2=#:G177 NIL) (|j| NIL) (#3=#:G176 NIL) (|i| NIL)

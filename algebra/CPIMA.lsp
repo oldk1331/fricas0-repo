@@ -1,11 +1,11 @@
 
-(SDEFUN |CPIMA;XtoY| ((Q |PolR|) ($ |SparseUnivariatePolynomial| |PolR|))
+(SDEFUN |CPIMA;XtoY| ((Q (|PolR|)) ($ (|SparseUnivariatePolynomial| |PolR|)))
         (SPADCALL (CONS #'|CPIMA;XtoY!0| $) Q (QREFELT $ 17))) 
 
 (SDEFUN |CPIMA;XtoY!0| ((|x| NIL) ($ NIL))
         (SPADCALL |x| (|spadConstant| $ 12) (QREFELT $ 13))) 
 
-(SDEFUN |CPIMA;characteristicPolynomial;EPolR;2| ((|x| E) ($ |PolR|))
+(SDEFUN |CPIMA;characteristicPolynomial;EPolR;2| ((|x| (E)) ($ (|PolR|)))
         (SPROG ((#1=#:G107 NIL) (|Qx| (|PolR|)))
                (SEQ
                 (EXIT

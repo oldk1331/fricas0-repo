@@ -1,30 +1,30 @@
 
 (PUT '|SEGBIND;equation;SS$;1| '|SPADreplace| 'CONS) 
 
-(SDEFUN |SEGBIND;equation;SS$;1| ((|x| |Symbol|) (|s| |Segment| S) ($ $))
+(SDEFUN |SEGBIND;equation;SS$;1| ((|x| (|Symbol|)) (|s| (|Segment| S)) ($ ($)))
         (CONS |x| |s|)) 
 
 (PUT '|SEGBIND;variable;$S;2| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |SEGBIND;variable;$S;2| ((|b| $) ($ |Symbol|)) (QCAR |b|)) 
+(SDEFUN |SEGBIND;variable;$S;2| ((|b| ($)) ($ (|Symbol|))) (QCAR |b|)) 
 
 (PUT '|SEGBIND;segment;$S;3| '|SPADreplace| 'QCDR) 
 
-(SDEFUN |SEGBIND;segment;$S;3| ((|b| $) ($ |Segment| S)) (QCDR |b|)) 
+(SDEFUN |SEGBIND;segment;$S;3| ((|b| ($)) ($ (|Segment| S))) (QCDR |b|)) 
 
-(SDEFUN |SEGBIND;=;2$B;4| ((|b1| $) (|b2| $) ($ |Boolean|))
+(SDEFUN |SEGBIND;=;2$B;4| ((|b1| ($)) (|b2| ($)) ($ (|Boolean|)))
         (COND
          ((EQUAL (SPADCALL |b1| (QREFELT $ 11)) (SPADCALL |b2| (QREFELT $ 11)))
           (SPADCALL (SPADCALL |b1| (QREFELT $ 12))
                     (SPADCALL |b2| (QREFELT $ 12)) (QREFELT $ 14)))
          ('T NIL))) 
 
-(SDEFUN |SEGBIND;coerce;$Of;5| ((|b| $) ($ |OutputForm|))
+(SDEFUN |SEGBIND;coerce;$Of;5| ((|b| ($)) ($ (|OutputForm|)))
         (SPADCALL (SPADCALL (SPADCALL |b| (QREFELT $ 11)) (QREFELT $ 17))
                   (SPADCALL (SPADCALL |b| (QREFELT $ 12)) (QREFELT $ 18))
                   (QREFELT $ 19))) 
 
-(SDEFUN |SEGBIND;convert;$If;6| ((|b| $) ($ |InputForm|))
+(SDEFUN |SEGBIND;convert;$If;6| ((|b| ($)) ($ (|InputForm|)))
         (SPADCALL '|equation|
                   (LIST (SPADCALL (SPADCALL |b| (QREFELT $ 11)) (QREFELT $ 22))
                         (SPADCALL (SPADCALL |b| (QREFELT $ 12))

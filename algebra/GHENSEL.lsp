@@ -1,11 +1,11 @@
 
-(SDEFUN |GHENSEL;reduceCoef| ((|c| RP) (|p| RP) ($ RP))
+(SDEFUN |GHENSEL;reduceCoef| ((|c| (RP)) (|p| (RP)) ($ (RP)))
         (COND ((SPADCALL |p| (QREFELT $ 9)) |c|)
               ((|domainEqual| (QREFELT $ 6) (|Integer|))
                (SPADCALL |c| |p| (QREFELT $ 11)))
               ('T (SPADCALL |c| |p| (QREFELT $ 12))))) 
 
-(SDEFUN |GHENSEL;reduction;TPRPTP;2| ((|u| TP) (|p| RP) ($ TP))
+(SDEFUN |GHENSEL;reduction;TPRPTP;2| ((|u| (TP)) (|p| (RP)) ($ (TP)))
         (SPROG NIL
                (COND ((SPADCALL |p| (QREFELT $ 9)) |u|)
                      ((|domainEqual| (QREFELT $ 6) (|Integer|))
@@ -29,7 +29,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |x| |p| (QREFELT $ 11)))))) 
 
-(SDEFUN |GHENSEL;merge| ((|p| RP) (|q| RP) ($ |Union| RP "failed"))
+(SDEFUN |GHENSEL;merge| ((|p| (RP)) (|q| (RP)) ($ (|Union| RP "failed")))
         (COND ((SPADCALL |p| |q| (QREFELT $ 16)) (CONS 0 |p|))
               ((SPADCALL |p| (|spadConstant| $ 17) (QREFELT $ 16))
                (CONS 0 |q|))
@@ -37,7 +37,7 @@
                (CONS 0 |p|))
               ('T (CONS 1 "failed")))) 
 
-(SDEFUN |GHENSEL;modInverse| ((|c| RP) (|p| RP) ($ RP))
+(SDEFUN |GHENSEL;modInverse| ((|c| (RP)) (|p| (RP)) ($ (RP)))
         (SPROG ((#1=#:G130 NIL))
                (QCAR
                 (PROG2
@@ -54,7 +54,8 @@
                                    "failed")
                                   #1#))))) 
 
-(SDEFUN |GHENSEL;exactquo| ((|u| TP) (|v| TP) (|p| RP) ($ |Union| TP "failed"))
+(SDEFUN |GHENSEL;exactquo|
+        ((|u| (TP)) (|v| (TP)) (|p| (RP)) ($ (|Union| TP "failed")))
         (SPROG
          ((|r| (|Record| (|:| |quotient| TP) (|:| |remainder| TP)))
           (|invlcv| (RP)))
@@ -76,7 +77,7 @@
                    (SPADCALL (SPADCALL |invlcv| (QCAR |r|) (QREFELT $ 25)) |p|
                              (QREFELT $ 15))))))))) 
 
-(SDEFUN |GHENSEL;mQuo| ((|poly| TP) (|n| RP) ($ TP))
+(SDEFUN |GHENSEL;mQuo| ((|poly| (TP)) (|n| (RP)) ($ (TP)))
         (SPROG NIL
                (SPADCALL (CONS #'|GHENSEL;mQuo!0| (VECTOR $ |n|)) |poly|
                          (QREFELT $ 14)))) 
@@ -88,7 +89,7 @@
           (RETURN (PROGN (SPADCALL |x| |n| (QREFELT $ 30)))))) 
 
 (SDEFUN |GHENSEL;GenExEuclid|
-        ((|fl| |List| FP) (|cl| |List| FP) (|rhs| FP) ($ |List| FP))
+        ((|fl| (|List| FP)) (|cl| (|List| FP)) (|rhs| (FP)) ($ (|List| FP)))
         (SPROG
          ((#1=#:G158 NIL) (|clp| NIL) (#2=#:G159 NIL) (|flp| NIL)
           (#3=#:G157 NIL))
@@ -112,8 +113,8 @@
                 G191 (EXIT (NREVERSE #3#))))))) 
 
 (SDEFUN |GHENSEL;genFact|
-        ((|fln| |List| TP) (|factlist| |List| (|List| TP))
-         ($ |List| (|List| TP)))
+        ((|fln| (|List| TP)) (|factlist| (|List| (|List| TP)))
+         ($ (|List| (|List| TP))))
         (SPROG
          ((|auxfl| (|List| (|List| TP))) (#1=#:G230 NIL)
           (#2=#:G229 #3=(|NonNegativeInteger|)) (#4=#:G231 #3#) (#5=#:G245 NIL)
@@ -221,8 +222,9 @@
              (EXIT |auxfl|))))))) 
 
 (SDEFUN |GHENSEL;HenselLift1|
-        ((|poly| TP) (|fln| |List| TP) (|fl1| |List| FP) (|cl1| |List| FP)
-         (|prime| RP) (|Modulus| RP) (|cinv| RP) ($ |List| TP))
+        ((|poly| (TP)) (|fln| (|List| TP)) (|fl1| (|List| FP))
+         (|cl1| (|List| FP)) (|prime| (RP)) (|Modulus| (RP)) (|cinv| (RP))
+         ($ (|List| TP)))
         (SPROG
          ((#1=#:G255 NIL) (|flp| NIL) (#2=#:G256 NIL) (|vlp| NIL)
           (#3=#:G254 NIL) (|vl| (|List| FP)) (|lcinv| (FP)) (|rhs| (FP))
@@ -304,8 +306,9 @@
                               (GO G190) G191 (EXIT (NREVERSE #3#)))))))))))) 
 
 (SDEFUN |GHENSEL;HenselLift;TPLRPPiR;10|
-        ((|poly| TP) (|tl1| |List| TP) (|prime| RP) (|bound| |PositiveInteger|)
-         ($ |Record| (|:| |plist| (|List| TP)) (|:| |modulo| RP)))
+        ((|poly| (TP)) (|tl1| (|List| TP)) (|prime| (RP))
+         (|bound| (|PositiveInteger|))
+         ($ (|Record| (|:| |plist| (|List| TP)) (|:| |modulo| RP))))
         (SPROG
          ((|fln| (|List| TP)) (|Modulus| (RP)) (#1=#:G290 NIL) (|err| (TP))
           (#2=#:G281 NIL) (#3=#:G280 (TP)) (#4=#:G282 (TP)) (#5=#:G295 NIL)
@@ -428,18 +431,18 @@
               (EXIT (CONS |fln| |Modulus|))))) 
 
 (SDEFUN |GHENSEL;completeHensel;TPLRPPiL;11|
-        ((|m| TP) (|tl1| |List| TP) (|prime| RP) (|bound| |PositiveInteger|)
-         ($ |List| TP))
+        ((|m| (TP)) (|tl1| (|List| TP)) (|prime| (RP))
+         (|bound| (|PositiveInteger|)) ($ (|List| TP)))
         (SPROG
          ((|finallist| (|List| TP)) (|factlist| (|List| #1=(|List| TP)))
           (|fln| #2=(|List| TP)) (#3=#:G324 NIL) (|term| NIL) (#4=#:G323 NIL)
           (|auxfl| (|List| #1#)) (#5=#:G322 NIL) (#6=#:G321 NIL)
-          (|aux| (|List| TP)) (#7=#:G320 NIL) (|poly| (TP))
-          (|dfn| #8=(|NonNegativeInteger|)) (|mm| (TP)) (|lcm1| (RP))
-          (|poly1| (TP)) (|u| (|Union| TP "failed")) (|pol| (TP))
-          (#9=#:G301 NIL) (#10=#:G300 (TP)) (#11=#:G302 (TP)) (#12=#:G319 NIL)
-          (|tc| (RP)) (#13=#:G298 NIL) (#14=#:G297 (RP)) (#15=#:G299 (RP))
-          (#16=#:G318 NIL) (|auxl| (|List| TP)) (|nm| #8#) (|Modulus| (RP))
+          (|aux| (|List| TP)) (#7=#:G320 NIL) (|dfn| #8=(|NonNegativeInteger|))
+          (|mm| (TP)) (|lcm1| (RP)) (|poly1| (TP)) (|u| (|Union| TP "failed"))
+          (|poly| (TP)) (|pol| (TP)) (#9=#:G301 NIL) (#10=#:G300 (TP))
+          (#11=#:G302 (TP)) (#12=#:G319 NIL) (|tc| (RP)) (#13=#:G298 NIL)
+          (#14=#:G297 (RP)) (#15=#:G299 (RP)) (#16=#:G318 NIL)
+          (|auxl| (|List| TP)) (|nm| #8#) (|Modulus| (RP))
           (|hlift| (|Record| (|:| |plist| #2#) (|:| |modulo| RP))))
          (SEQ
           (LETT |hlift| (SPADCALL |m| |tl1| |prime| |bound| (QREFELT $ 59)))
@@ -469,8 +472,7 @@
                                      (SPADCALL |lcm1|
                                                (PROGN
                                                 (LETT #13# NIL)
-                                                (SEQ (LETT |poly| NIL)
-                                                     (LETT #16# |auxl|) G190
+                                                (SEQ (LETT #16# |auxl|) G190
                                                      (COND
                                                       ((OR (ATOM #16#)
                                                            (PROGN
@@ -518,8 +520,7 @@
                                   (LETT |pol|
                                         (PROGN
                                          (LETT #9# NIL)
-                                         (SEQ (LETT |poly| NIL)
-                                              (LETT #12# |auxl|) G190
+                                         (SEQ (LETT #12# |auxl|) G190
                                               (COND
                                                ((OR (ATOM #12#)
                                                     (PROGN
@@ -572,8 +573,7 @@
                                       (LETT |dfn|
                                             (SPADCALL |m| (QREFELT $ 36)))
                                       (LETT |aux| NIL)
-                                      (SEQ (LETT |poly| NIL) (LETT #7# |fln|)
-                                           G190
+                                      (SEQ (LETT #7# |fln|) G190
                                            (COND
                                             ((OR (ATOM #7#)
                                                  (PROGN

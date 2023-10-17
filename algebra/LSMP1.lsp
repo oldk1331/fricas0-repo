@@ -1,40 +1,45 @@
 
 (SDEFUN |LSMP1;solve;MVR;1|
-        ((|m| |Matrix| F) (|c| |Vector| F)
-         ($ |Record| (|:| |particular| (|Union| (|Vector| F) "failed"))
-          (|:| |basis| (|List| (|Vector| F)))))
+        ((|m| (|Matrix| F)) (|c| (|Vector| F))
+         ($
+          (|Record| (|:| |particular| (|Union| (|Vector| F) "failed"))
+                    (|:| |basis| (|List| (|Vector| F))))))
         (SPADCALL |m| |c| (QREFELT $ 12))) 
 
 (SDEFUN |LSMP1;solve;LVR;2|
-        ((|ll| |List| (|List| F)) (|c| |Vector| F)
-         ($ |Record| (|:| |particular| (|Union| (|Vector| F) "failed"))
-          (|:| |basis| (|List| (|Vector| F)))))
+        ((|ll| (|List| (|List| F))) (|c| (|Vector| F))
+         ($
+          (|Record| (|:| |particular| (|Union| (|Vector| F) "failed"))
+                    (|:| |basis| (|List| (|Vector| F))))))
         (SPADCALL (SPADCALL |ll| (QREFELT $ 15)) |c| (QREFELT $ 12))) 
 
 (SDEFUN |LSMP1;solve;MLL;3|
-        ((|m| |Matrix| F) (|l| |List| (|Vector| F))
-         ($ |List|
-          (|Record| (|:| |particular| (|Union| (|Vector| F) "failed"))
-                    (|:| |basis| (|List| (|Vector| F))))))
+        ((|m| (|Matrix| F)) (|l| (|List| (|Vector| F)))
+         ($
+          (|List|
+           (|Record| (|:| |particular| (|Union| (|Vector| F) "failed"))
+                     (|:| |basis| (|List| (|Vector| F)))))))
         (SPADCALL |m| |l| (QREFELT $ 19))) 
 
 (SDEFUN |LSMP1;solve;LLL;4|
-        ((|ll| |List| (|List| F)) (|l| |List| (|Vector| F))
-         ($ |List|
-          (|Record| (|:| |particular| (|Union| (|Vector| F) "failed"))
-                    (|:| |basis| (|List| (|Vector| F))))))
+        ((|ll| (|List| (|List| F))) (|l| (|List| (|Vector| F)))
+         ($
+          (|List|
+           (|Record| (|:| |particular| (|Union| (|Vector| F) "failed"))
+                     (|:| |basis| (|List| (|Vector| F)))))))
         (SPADCALL (SPADCALL |ll| (QREFELT $ 15)) |l| (QREFELT $ 19))) 
 
 (SDEFUN |LSMP1;particularSolution;MVU;5|
-        ((|m| |Matrix| F) (|c| |Vector| F) ($ |Union| (|Vector| F) "failed"))
+        ((|m| (|Matrix| F)) (|c| (|Vector| F))
+         ($ (|Union| (|Vector| F) "failed")))
         (SPADCALL |m| |c| (QREFELT $ 22))) 
 
 (SDEFUN |LSMP1;hasSolution?;MVB;6|
-        ((|m| |Matrix| F) (|c| |Vector| F) ($ |Boolean|))
+        ((|m| (|Matrix| F)) (|c| (|Vector| F)) ($ (|Boolean|)))
         (SPADCALL |m| |c| (QREFELT $ 25))) 
 
 (SDEFUN |LSMP1;rank;MVNni;7|
-        ((|m| |Matrix| F) (|c| |Vector| F) ($ |NonNegativeInteger|))
+        ((|m| (|Matrix| F)) (|c| (|Vector| F)) ($ (|NonNegativeInteger|)))
         (SPADCALL |m| |c| (QREFELT $ 28))) 
 
 (DECLAIM (NOTINLINE |LinearSystemMatrixPackage1;|)) 

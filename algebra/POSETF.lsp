@@ -1,6 +1,6 @@
 
 (SDEFUN |POSETF;addDimensionToObjects|
-        ((|a| |List| (|List| S)) (|newObj| S) ($ |List| (|List| S)))
+        ((|a| (|List| (|List| S))) (|newObj| (S)) ($ (|List| (|List| S))))
         (SPROG
          ((|b| (|List| (|List| S))) (|x1| (|List| S)) (#1=#:G107 NIL)
           (|x| NIL))
@@ -15,7 +15,7 @@
               (EXIT (SPADCALL |a| |b| (QREFELT $ 11)))))) 
 
 (SDEFUN |POSETF;addDimensionToArrows|
-        ((|a| |List| (|List| (|Boolean|))) ($ |List| (|List| (|Boolean|))))
+        ((|a| (|List| (|List| (|Boolean|)))) ($ (|List| (|List| (|Boolean|)))))
         (SPROG
          ((|res| (|List| #1=(|List| (|Boolean|)))) (|fst| #2=(|Boolean|))
           (|thisRow| #1#) (|topRight| #2#) (#3=#:G118 NIL) (|y| NIL)
@@ -79,7 +79,7 @@
               (EXIT |res|)))) 
 
 (SDEFUN |POSETF;powerset;LFbcpo;3|
-        ((|objs| |List| S) ($ |FiniteBiCPO| (|List| S)))
+        ((|objs| (|List| S)) ($ (|FiniteBiCPO| (|List| S))))
         (SPROG
          ((|arrows| (|List| (|List| (|Boolean|)))) (|eles| (|List| (|List| S)))
           (#1=#:G123 NIL) (|x| NIL))
@@ -97,7 +97,7 @@
               (EXIT (SPADCALL |eles| |arrows| (QREFELT $ 19)))))) 
 
 (SDEFUN |POSETF;completelyOrderedSet;LFbcpo;4|
-        ((|objs| |List| S) ($ |FiniteBiCPO| S))
+        ((|objs| (|List| S)) ($ (|FiniteBiCPO| S)))
         (SPROG
          ((|arrows| (|List| (|List| (|Boolean|)))) (|row| (|List| (|Boolean|)))
           (|g| (|Boolean|)) (#1=#:G131 NIL) (|y| NIL) (#2=#:G130 NIL) (|x| NIL)
@@ -120,21 +120,21 @@
                    (LETT |x| (|inc_SI| |x|)) (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL |objs| |arrows| (QREFELT $ 22)))))) 
 
-(SDEFUN |POSETF;posetN5;LFbcpo;5| ((|objs| |List| S) ($ |FiniteBiCPO| S))
+(SDEFUN |POSETF;posetN5;LFbcpo;5| ((|objs| (|List| S)) ($ (|FiniteBiCPO| S)))
         (SPADCALL |objs|
                   (LIST (LIST 'T 'T 'T 'T 'T) (LIST NIL 'T NIL NIL 'T)
                         (LIST NIL NIL 'T 'T 'T) (LIST NIL NIL NIL 'T 'T)
                         (LIST NIL NIL NIL NIL 'T))
                   (QREFELT $ 22))) 
 
-(SDEFUN |POSETF;posetM5;LFbcpo;6| ((|objs| |List| S) ($ |FiniteBiCPO| S))
+(SDEFUN |POSETF;posetM5;LFbcpo;6| ((|objs| (|List| S)) ($ (|FiniteBiCPO| S)))
         (SPADCALL |objs|
                   (LIST (LIST 'T 'T 'T 'T 'T) (LIST NIL 'T NIL NIL 'T)
                         (LIST NIL NIL 'T NIL 'T) (LIST NIL NIL NIL 'T 'T)
                         (LIST NIL NIL NIL NIL 'T))
                   (QREFELT $ 22))) 
 
-(SDEFUN |POSETF;posetO6;LFbcpo;7| ((|objs| |List| S) ($ |FiniteBiCPO| S))
+(SDEFUN |POSETF;posetO6;LFbcpo;7| ((|objs| (|List| S)) ($ (|FiniteBiCPO| S)))
         (SPADCALL |objs|
                   (LIST (LIST 'T 'T 'T 'T 'T 'T) (LIST NIL 'T 'T NIL NIL 'T)
                         (LIST NIL NIL 'T NIL NIL 'T)
@@ -143,7 +143,7 @@
                         (LIST NIL NIL NIL NIL NIL 'T))
                   (QREFELT $ 22))) 
 
-(SDEFUN |POSETF;posetP6;LFbcpo;8| ((|objs| |List| S) ($ |FiniteBiCPO| S))
+(SDEFUN |POSETF;posetP6;LFbcpo;8| ((|objs| (|List| S)) ($ (|FiniteBiCPO| S)))
         (SPADCALL |objs|
                   (LIST (LIST 'T 'T 'T 'T 'T 'T) (LIST NIL 'T 'T NIL 'T 'T)
                         (LIST NIL NIL 'T NIL NIL 'T) (LIST NIL NIL 'T 'T 'T 'T)
@@ -151,7 +151,7 @@
                         (LIST NIL NIL NIL NIL NIL 'T))
                   (QREFELT $ 22))) 
 
-(SDEFUN |POSETF;posetL7;LFbcpo;9| ((|objs| |List| S) ($ |FiniteBiCPO| S))
+(SDEFUN |POSETF;posetL7;LFbcpo;9| ((|objs| (|List| S)) ($ (|FiniteBiCPO| S)))
         (SPADCALL |objs|
                   (LIST (LIST 'T 'T 'T 'T 'T 'T 'T)
                         (LIST NIL 'T NIL 'T 'T NIL 'T)

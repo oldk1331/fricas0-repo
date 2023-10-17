@@ -1,15 +1,15 @@
 
-(SDEFUN |FRIMOD;One;$;1| (($ $)) (QREFELT $ 10)) 
+(SDEFUN |FRIMOD;One;$;1| (($ ($))) (QREFELT $ 10)) 
 
 (PUT '|FRIMOD;module;V$;2| '|SPADreplace| '(XLAM (|v|) |v|)) 
 
-(SDEFUN |FRIMOD;module;V$;2| ((|v| |Vector| A) ($ $)) |v|) 
+(SDEFUN |FRIMOD;module;V$;2| ((|v| (|Vector| A)) ($ ($))) |v|) 
 
 (PUT '|FRIMOD;basis;$V;3| '|SPADreplace| '(XLAM (|m|) |m|)) 
 
-(SDEFUN |FRIMOD;basis;$V;3| ((|m| $) ($ |Vector| A)) |m|) 
+(SDEFUN |FRIMOD;basis;$V;3| ((|m| ($)) ($ (|Vector| A))) |m|) 
 
-(SDEFUN |FRIMOD;rowdiv| ((|r| |Vector| R) (|f| R) ($ |Vector| F))
+(SDEFUN |FRIMOD;rowdiv| ((|r| (|Vector| R)) (|f| (R)) ($ (|Vector| F)))
         (SPROG ((#1=#:G109 NIL) (#2=#:G111 NIL) (|i| NIL) (#3=#:G110 NIL))
                (SEQ
                 (PROGN
@@ -29,18 +29,18 @@
                       (GO G190) G191 (EXIT NIL))
                  #3#)))) 
 
-(SDEFUN |FRIMOD;coerce;$Of;5| ((|m| $) ($ |OutputForm|))
+(SDEFUN |FRIMOD;coerce;$Of;5| ((|m| ($)) ($ (|OutputForm|)))
         (SPADCALL (SPADCALL |m| (QREFELT $ 20)) (QREFELT $ 27))) 
 
-(SDEFUN |FRIMOD;W2A| ((|v| |Vector| F) ($ A))
+(SDEFUN |FRIMOD;W2A| ((|v| (|Vector| F)) ($ (A)))
         (SPADCALL (SPADCALL |v| (|FRIMOD;intmat| $) (QREFELT $ 31))
                   (QREFELT $ 32))) 
 
-(SDEFUN |FRIMOD;wmatrix| ((|v| |Vector| A) ($ |Matrix| F))
+(SDEFUN |FRIMOD;wmatrix| ((|v| (|Vector| A)) ($ (|Matrix| F)))
         (SPADCALL (SPADCALL |v| (QREFELT $ 34)) (|FRIMOD;invintmat| $)
                   (QREFELT $ 35))) 
 
-(SDEFUN |FRIMOD;getinvintmat| (($ |Boolean|))
+(SDEFUN |FRIMOD;getinvintmat| (($ (|Boolean|)))
         (SPROG
          ((#1=#:G123 NIL) (|j| NIL) (#2=#:G122 NIL) (|i| NIL)
           (|m| (|Matrix| F)) (#3=#:G116 NIL))
@@ -67,7 +67,7 @@
                (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL))
           (EXIT NIL)))) 
 
-(SDEFUN |FRIMOD;getintmat| (($ |Boolean|))
+(SDEFUN |FRIMOD;getintmat| (($ (|Boolean|)))
         (SPROG
          ((#1=#:G129 NIL) (|j| NIL) (#2=#:G128 NIL) (|i| NIL)
           (|m| (|Matrix| F)))
@@ -89,15 +89,16 @@
                    (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL))
               (EXIT NIL)))) 
 
-(SDEFUN |FRIMOD;invintmat| (($ |Matrix| F))
+(SDEFUN |FRIMOD;invintmat| (($ (|Matrix| F)))
         (SEQ (COND ((QREFELT $ 12) (SETELT $ 12 (|FRIMOD;getinvintmat| $))))
              (EXIT (QREFELT $ 15)))) 
 
-(SDEFUN |FRIMOD;intmat| (($ |Matrix| F))
+(SDEFUN |FRIMOD;intmat| (($ (|Matrix| F)))
         (SEQ (COND ((QREFELT $ 13) (SETELT $ 13 (|FRIMOD;getintmat| $))))
              (EXIT (QREFELT $ 16)))) 
 
-(SDEFUN |FRIMOD;vectProd| ((|v1| |Vector| A) (|v2| |Vector| A) ($ |Vector| A))
+(SDEFUN |FRIMOD;vectProd|
+        ((|v1| (|Vector| A)) (|v2| (|Vector| A)) ($ (|Vector| A)))
         (SPROG
          ((|k| (|Integer|)) (#1=#:G140 NIL) (|j| NIL) (#2=#:G139 NIL) (|i| NIL)
           (|v| (|Vector| A)))
@@ -126,7 +127,7 @@
                (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL))
           (EXIT |v|)))) 
 
-(SDEFUN |FRIMOD;norm;$F;13| ((|m| $) ($ F))
+(SDEFUN |FRIMOD;norm;$F;13| ((|m| ($)) ($ (F)))
         (COND
          ((SPADCALL (QVSIZE (SPADCALL |m| (QREFELT $ 20)))
                     (QVSIZE (QREFELT $ 10)) (QREFELT $ 48))
@@ -137,7 +138,7 @@
                      (|FRIMOD;invintmat| $) (QREFELT $ 35))
            (QREFELT $ 49))))) 
 
-(SDEFUN |FRIMOD;*;3$;14| ((|m1| $) (|m2| $) ($ $))
+(SDEFUN |FRIMOD;*;3$;14| ((|m1| ($)) (|m2| ($)) ($ ($)))
         (SPROG
          ((|u| (A)) (#1=#:G148 NIL) (|i| NIL) (#2=#:G147 NIL)
           (|m| (|Matrix| R))
@@ -177,7 +178,7 @@
                    (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT (NREVERSE #2#)))))
             (QREFELT $ 19)))))) 
 
-(SDEFUN |FRIMOD;module;Fi$;15| ((|i| |FractionalIdeal| R F UP A) ($ $))
+(SDEFUN |FRIMOD;module;Fi$;15| ((|i| (|FractionalIdeal| R F UP A)) ($ ($)))
         (SPADCALL (SPADCALL (SPADCALL |i| (QREFELT $ 62)) (QREFELT $ 19))
                   (SPADCALL (QREFELT $ 10) (QREFELT $ 19)) (QREFELT $ 60))) 
 

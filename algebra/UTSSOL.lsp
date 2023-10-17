@@ -1,6 +1,6 @@
 
 (SDEFUN |UTSSOL;seriesSolve;MLUTSF;1|
-        ((|f| |Mapping| UTSSMPF UTSSMPF) (|l| |List| F) ($ UTSF))
+        ((|f| (|Mapping| UTSSMPF UTSSMPF)) (|l| (|List| F)) ($ (UTSF)))
         (SPROG
          ((|next| (|Mapping| F))
           (|st|

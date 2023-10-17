@@ -1,8 +1,9 @@
 
 (SDEFUN |PFOTOOLS;mix;LI;1|
-        ((|l| |List|
-          (|Record| (|:| |den| (|Integer|)) (|:| |gcdnum| (|Integer|))))
-         ($ |Integer|))
+        ((|l|
+          (|List|
+           (|Record| (|:| |den| (|Integer|)) (|:| |gcdnum| (|Integer|)))))
+         ($ (|Integer|)))
         (SPROG
          ((#1=#:G112 NIL) (|p| NIL) (#2=#:G111 NIL) (#3=#:G110 NIL)
           (#4=#:G109 NIL))
@@ -30,7 +31,7 @@
             (QREFELT $ 11))
            (QREFELT $ 12))))) 
 
-(SDEFUN |PFOTOOLS;badNum;UPUPI;2| ((|p| UPUP) ($ |Integer|))
+(SDEFUN |PFOTOOLS;badNum;UPUPI;2| ((|p| (UPUP)) ($ (|Integer|)))
         (SPROG ((#1=#:G117 NIL) (|c| NIL) (#2=#:G116 NIL))
                (SEQ
                 (SPADCALL
@@ -52,7 +53,7 @@
                        (EXIT (NREVERSE #2#))))
                  (QREFELT $ 15))))) 
 
-(SDEFUN |PFOTOOLS;polyred;2UPUP;3| ((|r| UPUP) ($ UPUP))
+(SDEFUN |PFOTOOLS;polyred;2UPUP;3| ((|r| (UPUP)) ($ (UPUP)))
         (SPROG
          ((|ld| (|List| (|Integer|))) (#1=#:G122 NIL) (|c| NIL)
           (#2=#:G121 NIL))
@@ -77,8 +78,8 @@
           (EXIT (SPADCALL (SPADCALL |ld| (QREFELT $ 10)) |r| (QREFELT $ 24)))))) 
 
 (SDEFUN |PFOTOOLS;badNum;UPR;4|
-        ((|p| UP)
-         ($ |Record| (|:| |den| (|Integer|)) (|:| |gcdnum| (|Integer|))))
+        ((|p| (UP))
+         ($ (|Record| (|:| |den| (|Integer|)) (|:| |gcdnum| (|Integer|)))))
         (SPROG
          ((#1=#:G129 NIL) (|c| NIL) (#2=#:G128 NIL)
           (|cd| (|Record| (|:| |num| UP) (|:| |den| (|Integer|)))))
@@ -102,7 +103,8 @@
                             (EXIT (NREVERSE #2#))))
                       (QREFELT $ 11))))))) 
 
-(SDEFUN |PFOTOOLS;getGoodPrime;IPi;5| ((|n| |Integer|) ($ |PositiveInteger|))
+(SDEFUN |PFOTOOLS;getGoodPrime;IPi;5|
+        ((|n| (|Integer|)) ($ (|PositiveInteger|)))
         (SPROG ((|p| (|PositiveInteger|)) (#1=#:G130 NIL))
                (SEQ (LETT |p| 3)
                     (SEQ G190 (COND ((NULL (ZEROP (REM |n| |p|))) (GO G191)))
@@ -117,7 +119,7 @@
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT |p|)))) 
 
-(SDEFUN |PFOTOOLS;doubleDisc;UPUPI;6| ((|r| UPUP) ($ |Integer|))
+(SDEFUN |PFOTOOLS;doubleDisc;UPUPI;6| ((|r| (UPUP)) ($ (|Integer|)))
         (SPROG ((#1=#:G135 NIL) (|d| (UP)))
                (SEQ
                 (LETT |d|

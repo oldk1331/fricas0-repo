@@ -1,5 +1,5 @@
 
-(SDEFUN |CDEN;clearDenominator;2A;1| ((|l| A) ($ A))
+(SDEFUN |CDEN;clearDenominator;2A;1| ((|l| (A)) ($ (A)))
         (SPROG ((|d| (R)))
                (SEQ (LETT |d| (SPADCALL |l| (QREFELT $ 9)))
                     (EXIT
@@ -18,7 +18,7 @@
              (QREFELT $ 12)))))) 
 
 (SDEFUN |CDEN;splitDenominator;AR;2|
-        ((|l| A) ($ |Record| (|:| |num| A) (|:| |den| R)))
+        ((|l| (A)) ($ (|Record| (|:| |num| A) (|:| |den| R))))
         (SPROG ((|d| (R)))
                (SEQ (LETT |d| (SPADCALL |l| (QREFELT $ 9)))
                     (EXIT
@@ -38,13 +38,13 @@
              (SPADCALL (SPADCALL |d| |x| (QREFELT $ 10)) (QREFELT $ 11))
              (QREFELT $ 12)))))) 
 
-(SDEFUN |CDEN;qlcm| ((|a| Q) (|b| Q) ($ Q))
+(SDEFUN |CDEN;qlcm| ((|a| (Q)) (|b| (Q)) ($ (Q)))
         (SPADCALL
          (SPADCALL (SPADCALL |a| (QREFELT $ 11)) (SPADCALL |b| (QREFELT $ 11))
                    (QREFELT $ 18))
          (QREFELT $ 12))) 
 
-(SDEFUN |CDEN;commonDenominator;AR;4| ((|l| A) ($ R))
+(SDEFUN |CDEN;commonDenominator;AR;4| ((|l| (A)) ($ (R)))
         (SPADCALL
          (SPADCALL (CONS (|function| |CDEN;qlcm|) $)
                    (SPADCALL (CONS #'|CDEN;commonDenominator;AR;4!0| $) |l|
@@ -55,7 +55,7 @@
 (SDEFUN |CDEN;commonDenominator;AR;4!0| ((|x| NIL) ($ NIL))
         (SPADCALL (SPADCALL |x| (QREFELT $ 19)) (QREFELT $ 12))) 
 
-(SDEFUN |CDEN;commonDenominator;AR;5| ((|l| A) ($ R))
+(SDEFUN |CDEN;commonDenominator;AR;5| ((|l| (A)) ($ (R)))
         (SPADCALL
          (SPADCALL (ELT $ 23)
                    (SPADCALL (CONS #'|CDEN;commonDenominator;AR;5!0| $) |l|

@@ -1,6 +1,6 @@
 
 (SDEFUN |RIDIST;uniform;SM;1|
-        ((|aTob| |Segment| (|Integer|)) ($ |Mapping| (|Integer|)))
+        ((|aTob| (|Segment| (|Integer|))) ($ (|Mapping| (|Integer|))))
         (SPROG NIL (SEQ (CONS #'|RIDIST;uniform;SM;1!0| (VECTOR $ |aTob|))))) 
 
 (SDEFUN |RIDIST;uniform;SM;1!0| (($$ NIL))
@@ -50,8 +50,8 @@
                   (EXIT (SPADCALL |mq| |n| |w| |l| (QREFELT $ 28))))))))) 
 
 (SDEFUN |RIDIST;ridHack1;5I;2|
-        ((|mq| |Integer|) (|n| |Integer|) (|w| |Integer|) (|l| |Integer|)
-         ($ |Integer|))
+        ((|mq| (|Integer|)) (|n| (|Integer|)) (|w| (|Integer|))
+         (|l| (|Integer|)) ($ (|Integer|)))
         (SPROG ((|r| (|Integer|)) (#1=#:G123 NIL) (|i| NIL))
                (SEQ (LETT |r| (SPADCALL |mq| (QREFELT $ 32)))
                     (SEQ (LETT |i| 1) (LETT #1# |n|) G190

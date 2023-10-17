@@ -1,9 +1,10 @@
 
 (SDEFUN |RDEEFX2;do_param_RDE;2FLSLU;1|
-        ((|f| F) (|h| F) (|lg| |List| F) (|x| |Symbol|)
-         (|lk| |List| (|Kernel| F))
-         ($ |Union| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))
-          "failed"))
+        ((|f| (F)) (|h| (F)) (|lg| (|List| F)) (|x| (|Symbol|))
+         (|lk| (|List| (|Kernel| F)))
+         ($
+          (|Union| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))
+                   "failed")))
         (SPROG
          ((|res1|
            (|Record|
@@ -46,9 +47,10 @@
           (RETURN (PROGN (SPADCALL |x| |x4| |x3| (QREFELT $ 14)))))) 
 
 (SDEFUN |RDEEFX2;do_risch_DE;2FSLR;2|
-        ((|f| F) (|g| F) (|x| |Symbol|) (|lk| |List| (|Kernel| F))
-         ($ |Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
-          (|:| |sol?| (|Boolean|))))
+        ((|f| (F)) (|g| (F)) (|x| (|Symbol|)) (|lk| (|List| (|Kernel| F)))
+         ($
+          (|Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
+                    (|:| |sol?| (|Boolean|)))))
         (SPROG
          ((|p1| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
           (|part|
@@ -66,15 +68,17 @@
                        (VECTOR (QCAR |p1|) |g| (|spadConstant| $ 28) 'T))))))))) 
 
 (SDEFUN |RDEEFX2;risch_de_ext;I2FSR;3|
-        ((|n| |Integer|) (|f| F) (|g| F) (|x| |Symbol|)
-         ($ |Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
-          (|:| |sol?| (|Boolean|))))
+        ((|n| (|Integer|)) (|f| (F)) (|g| (F)) (|x| (|Symbol|))
+         ($
+          (|Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
+                    (|:| |sol?| (|Boolean|)))))
         (SPADCALL |n| |f| |g| |x| (QREFELT $ 32))) 
 
 (SDEFUN |RDEEFX2;risch_de_ext;I2FSR;4|
-        ((|n| |Integer|) (|f| F) (|g| F) (|x| |Symbol|)
-         ($ |Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
-          (|:| |sol?| (|Boolean|))))
+        ((|n| (|Integer|)) (|f| (F)) (|g| (F)) (|x| (|Symbol|))
+         ($
+          (|Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
+                    (|:| |sol?| (|Boolean|)))))
         (SPROG ((|lk| (|List| (|Kernel| F))))
                (SEQ
                 (LETT |lk|
@@ -87,9 +91,10 @@
                            (QREFELT $ 30)))))) 
 
 (SDEFUN |RDEEFX2;risch_de_ext;I2FSR;5|
-        ((|n| |Integer|) (|f| F) (|g| F) (|x| |Symbol|)
-         ($ |Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
-          (|:| |sol?| (|Boolean|))))
+        ((|n| (|Integer|)) (|f| (F)) (|g| (F)) (|x| (|Symbol|))
+         ($
+          (|Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
+                    (|:| |sol?| (|Boolean|)))))
         (SPROG ((|lk| (|List| (|Kernel| F))))
                (SEQ
                 (LETT |lk|
@@ -102,9 +107,10 @@
                            (QREFELT $ 30)))))) 
 
 (SDEFUN |RDEEFX2;risch_de_ext;I2FSR;6|
-        ((|n| |Integer|) (|f| F) (|g| F) (|x| |Symbol|)
-         ($ |Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
-          (|:| |sol?| (|Boolean|))))
+        ((|n| (|Integer|)) (|f| (F)) (|g| (F)) (|x| (|Symbol|))
+         ($
+          (|Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
+                    (|:| |sol?| (|Boolean|)))))
         (SPROG ((|lk| (|List| (|Kernel| F))))
                (SEQ
                 (LETT |lk|

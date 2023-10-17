@@ -1,5 +1,5 @@
 
-(SDEFUN |FMCF2;map;MM1M2;1| ((|f| |Mapping| R2 R1) (|x| M1) ($ M2))
+(SDEFUN |FMCF2;map;MM1M2;1| ((|f| (|Mapping| R2 R1)) (|x| (M1)) ($ (M2)))
         (SPROG
          ((|ry| (|List| (|Record| (|:| |k| S) (|:| |c| R2))))
           (|rx| (|List| (|Record| (|:| |k| S) (|:| |c| R1)))))

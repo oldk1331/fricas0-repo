@@ -1,7 +1,7 @@
 
 (SDEFUN |DRAWHACK;coerce;SbSb;1|
-        ((|s| |SegmentBinding| (|Expression| R))
-         ($ |SegmentBinding| (|Float|)))
+        ((|s| (|SegmentBinding| (|Expression| R)))
+         ($ (|SegmentBinding| (|Float|))))
         (SPADCALL (ELT $ 10) |s| (QREFELT $ 15))) 
 
 (DECLAIM (NOTINLINE |DrawNumericHack;|)) 

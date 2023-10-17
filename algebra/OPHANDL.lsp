@@ -1,19 +1,20 @@
 
-(SDEFUN |OPHANDL;new;$;1| (($ $)) (SPADCALL (QREFELT $ 8))) 
+(SDEFUN |OPHANDL;new;$;1| (($ ($))) (SPADCALL (QREFELT $ 8))) 
 
 (SDEFUN |OPHANDL;knownHandler?;$ISB;2|
-        ((|t| $) (|n| |Integer|) (|op| |String|) ($ |Boolean|))
+        ((|t| ($)) (|n| (|Integer|)) (|op| (|String|)) ($ (|Boolean|)))
         (COND
          ((SPADCALL |n| |t| (QREFELT $ 12))
           (SPADCALL |op| (SPADCALL |t| |n| (QREFELT $ 14)) (QREFELT $ 16)))
          ('T NIL))) 
 
 (SDEFUN |OPHANDL;handler;$ISHANDLER;3|
-        ((|t| $) (|n| |Integer|) (|op| |String|) ($ HANDLER))
+        ((|t| ($)) (|n| (|Integer|)) (|op| (|String|)) ($ (HANDLER)))
         (SPADCALL (SPADCALL |t| |n| (QREFELT $ 14)) |op| (QREFELT $ 18))) 
 
 (SDEFUN |OPHANDL;setHandler!;$IS2HANDLER;4|
-        ((|t| $) (|n| |Integer|) (|op| |String|) (|h| HANDLER) ($ HANDLER))
+        ((|t| ($)) (|n| (|Integer|)) (|op| (|String|)) (|h| (HANDLER))
+         ($ (HANDLER)))
         (SEQ
          (COND
           ((NULL (SPADCALL |n| |t| (QREFELT $ 12)))
@@ -23,7 +24,7 @@
                     (QREFELT $ 22))))) 
 
 (SDEFUN |OPHANDL;removeHandler!;$ISV;5|
-        ((|t| $) (|n| |Integer|) (|op| |String|) ($ |Void|))
+        ((|t| ($)) (|n| (|Integer|)) (|op| (|String|)) ($ (|Void|)))
         (COND
          ((SPADCALL |n| |t| (QREFELT $ 12))
           (SPADCALL |op| (SPADCALL |t| |n| (QREFELT $ 14)) (QREFELT $ 25))))) 

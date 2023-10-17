@@ -1,12 +1,12 @@
 
 (SDEFUN |XPFACT;my_degree|
-        ((|p| |XDistributedPolynomial| |vl| F) ($ |Integer|))
+        ((|p| (|XDistributedPolynomial| |vl| F)) ($ (|Integer|)))
         (COND ((SPADCALL |p| (|spadConstant| $ 10) (QREFELT $ 12)) -1)
               ('T (SPADCALL |p| (QREFELT $ 15))))) 
 
 (SDEFUN |XPFACT;top_split;XdpL;2|
-        ((|p| |XDistributedPolynomial| |vl| F)
-         ($ |List| (|XDistributedPolynomial| |vl| F)))
+        ((|p| (|XDistributedPolynomial| |vl| F))
+         ($ (|List| (|XDistributedPolynomial| |vl| F))))
         (SPROG
          ((|p2| #1=(|XDistributedPolynomial| |vl| F)) (|p1| #1#)
           (|lt2|
@@ -60,10 +60,11 @@
                            (EXIT (LIST |p1| |p2|))))))))) 
 
 (SDEFUN |XPFACT;ldivide;2XdpR;3|
-        ((|x| |XDistributedPolynomial| |vl| F)
-         (|y| |XDistributedPolynomial| |vl| F)
-         ($ |Record| (|:| |quotient| (|XDistributedPolynomial| |vl| F))
-          (|:| |remainder| (|XDistributedPolynomial| |vl| F))))
+        ((|x| (|XDistributedPolynomial| |vl| F))
+         (|y| (|XDistributedPolynomial| |vl| F))
+         ($
+          (|Record| (|:| |quotient| (|XDistributedPolynomial| |vl| F))
+                    (|:| |remainder| (|XDistributedPolynomial| |vl| F)))))
         (SPROG
          ((|dx| #1=(|Integer|)) (#2=#:G152 NIL) (|ndx| #1#)
           (|qq| (|XDistributedPolynomial| |vl| F))
@@ -111,9 +112,9 @@
           #3# (EXIT #2#)))) 
 
 (SDEFUN |XPFACT;lexquo|
-        ((|x| |XDistributedPolynomial| |vl| F)
-         (|y| |XDistributedPolynomial| |vl| F)
-         ($ |Union| (|XDistributedPolynomial| |vl| F) "failed"))
+        ((|x| (|XDistributedPolynomial| |vl| F))
+         (|y| (|XDistributedPolynomial| |vl| F))
+         ($ (|Union| (|XDistributedPolynomial| |vl| F) "failed")))
         (SPROG
          ((|r| #1=(|XDistributedPolynomial| |vl| F))
           (|q| #2=(|XDistributedPolynomial| |vl| F))
@@ -130,15 +131,16 @@
             ('T (CONS 1 "failed"))))))) 
 
 (SDEFUN |XPFACT;left_ext_GCD;2XdpU;5|
-        ((|a| |XDistributedPolynomial| |vl| F)
-         (|b| |XDistributedPolynomial| |vl| F)
-         ($ |Union|
-          (|Record| (|:| |g| (|XDistributedPolynomial| |vl| F))
-                    (|:| |c1| (|XDistributedPolynomial| |vl| F))
-                    (|:| |c2| (|XDistributedPolynomial| |vl| F))
-                    (|:| |cu| (|XDistributedPolynomial| |vl| F))
-                    (|:| |cv| (|XDistributedPolynomial| |vl| F)))
-          "failed"))
+        ((|a| (|XDistributedPolynomial| |vl| F))
+         (|b| (|XDistributedPolynomial| |vl| F))
+         ($
+          (|Union|
+           (|Record| (|:| |g| (|XDistributedPolynomial| |vl| F))
+                     (|:| |c1| (|XDistributedPolynomial| |vl| F))
+                     (|:| |c2| (|XDistributedPolynomial| |vl| F))
+                     (|:| |cu| (|XDistributedPolynomial| |vl| F))
+                     (|:| |cv| (|XDistributedPolynomial| |vl| F)))
+           "failed")))
         (SPROG
          ((|v| #1=(|XDistributedPolynomial| |vl| F))
           (|v0| #2=(|XDistributedPolynomial| |vl| F))
@@ -195,8 +197,8 @@
           #7# (EXIT #5#)))) 
 
 (SDEFUN |XPFACT;homo_fact1|
-        ((|p1| |XDistributedPolynomial| |vl| F)
-         ($ |List| (|XDistributedPolynomial| |vl| F)))
+        ((|p1| (|XDistributedPolynomial| |vl| F))
+         ($ (|List| (|XDistributedPolynomial| |vl| F))))
         (SPROG
          ((#1=#:G185 NIL) (#2=#:G187 NIL)
           (|lf| (|XDistributedPolynomial| |vl| F)) (|n1| (|Integer|))
@@ -300,8 +302,8 @@
           #6# (EXIT #2#)))) 
 
 (SDEFUN |XPFACT;homo_fact;XdpL;7|
-        ((|p| |XDistributedPolynomial| |vl| F)
-         ($ |List| (|XDistributedPolynomial| |vl| F)))
+        ((|p| (|XDistributedPolynomial| |vl| F))
+         ($ (|List| (|XDistributedPolynomial| |vl| F))))
         (SPROG
          ((|res| (|List| (|XDistributedPolynomial| |vl| F)))
           (|p1| (|XDistributedPolynomial| |vl| F)) (#1=#:G194 NIL)
@@ -328,8 +330,8 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |XPFACT;XDP_to_YDP|
-        ((|p| |XDistributedPolynomial| |vl| F)
-         ($ |XDistributedPolynomial| |vl| (|Polynomial| F)))
+        ((|p| (|XDistributedPolynomial| |vl| F))
+         ($ (|XDistributedPolynomial| |vl| (|Polynomial| F))))
         (SPROG
          ((|lt2|
            (|List|
@@ -354,9 +356,9 @@
               (EXIT (SPADCALL |lt2| (QREFELT $ 56)))))) 
 
 (SDEFUN |XPFACT;eval_YDP|
-        ((|p| |XDistributedPolynomial| |vl| (|Polynomial| F))
-         (|ls| |List| (|Symbol|)) (|lval| |List| F)
-         ($ |XDistributedPolynomial| |vl| F))
+        ((|p| (|XDistributedPolynomial| |vl| (|Polynomial| F)))
+         (|ls| (|List| (|Symbol|))) (|lval| (|List| F))
+         ($ (|XDistributedPolynomial| |vl| F)))
         (SPROG
          ((|lt2| (|List| (|Record| (|:| |k| (|FreeMonoid| |vl|)) (|:| |c| F))))
           (|nc| (F)) (#1=#:G209 NIL) (|t| NIL)
@@ -383,9 +385,9 @@
               (EXIT (SPADCALL |lt2| (QREFELT $ 21)))))) 
 
 (SDEFUN |XPFACT;eval_sup|
-        ((|p1| |SparseUnivariatePolynomial| F)
-         (|w| |XDistributedPolynomial| |vl| F)
-         ($ |XDistributedPolynomial| |vl| F))
+        ((|p1| (|SparseUnivariatePolynomial| F))
+         (|w| (|XDistributedPolynomial| |vl| F))
+         ($ (|XDistributedPolynomial| |vl| F)))
         (SPROG
          ((|res| (|XDistributedPolynomial| |vl| F)) (#1=#:G217 NIL) (|i| NIL)
           (|od| (|Integer|)) (#2=#:G216 NIL) (|nd| (|NonNegativeInteger|))
@@ -419,7 +421,7 @@
               (EXIT |res|)))) 
 
 (SDEFUN |XPFACT;restn|
-        ((|w| |FreeMonoid| |vl|) (|j| |Integer|) ($ |FreeMonoid| |vl|))
+        ((|w| (|FreeMonoid| |vl|)) (|j| (|Integer|)) ($ (|FreeMonoid| |vl|)))
         (SPROG ((#1=#:G221 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 1) (LETT #1# |j|) G190
@@ -429,7 +431,7 @@
                 (EXIT |w|)))) 
 
 (SDEFUN |XPFACT;firstn|
-        ((|w| |FreeMonoid| |vl|) (|j| |Integer|) ($ |FreeMonoid| |vl|))
+        ((|w| (|FreeMonoid| |vl|)) (|j| (|Integer|)) ($ (|FreeMonoid| |vl|)))
         (SPROG ((|res| (|FreeMonoid| |vl|)) (#1=#:G226 NIL) (|i| NIL))
                (SEQ (LETT |res| (|spadConstant| $ 40))
                     (SEQ (LETT |i| 1) (LETT #1# |j|) G190
@@ -445,14 +447,14 @@
                          (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                     (EXIT |res|)))) 
 
-(SDEFUN |XPFACT;my_ground| ((|fr| |Fraction| (|Polynomial| F)) ($ F))
+(SDEFUN |XPFACT;my_ground| ((|fr| (|Fraction| (|Polynomial| F))) ($ (F)))
         (SPADCALL (SPADCALL (SPADCALL |fr| (QREFELT $ 71)) (QREFELT $ 61))
                   (SPADCALL (SPADCALL |fr| (QREFELT $ 72)) (QREFELT $ 61))
                   (QREFELT $ 26))) 
 
 (SDEFUN |XPFACT;rational_solution1|
-        ((|eq| |Equation| (|Fraction| (|Polynomial| F)))
-         ($ |List| (|Fraction| (|Polynomial| F))))
+        ((|eq| (|Equation| (|Fraction| (|Polynomial| F))))
+         ($ (|List| (|Fraction| (|Polynomial| F)))))
         (SPROG
          ((|dr| (|Polynomial| F)) (|nr| #1=(|Polynomial| F))
           (|re| (|Fraction| (|Polynomial| F))) (|nl| #1#)
@@ -488,8 +490,8 @@
                               (QREFELT $ 87))))))))))) 
 
 (SDEFUN |XPFACT;rational_solution|
-        ((|leq| |List| (|Equation| (|Fraction| (|Polynomial| F))))
-         (|ls| |List| (|Symbol|)) ($ |List| F))
+        ((|leq| (|List| (|Equation| (|Fraction| (|Polynomial| F)))))
+         (|ls| (|List| (|Symbol|))) ($ (|List| F)))
         (SPROG
          ((|sol| (|List| F)) (|v| (|Symbol|)) (#1=#:G240 NIL)
           (|sol1| (|List| (|Fraction| (|Polynomial| F)))) (#2=#:G241 NIL)
@@ -533,8 +535,8 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |XPFACT;get_rational_solution|
-        ((|lsol| |List| (|List| (|Equation| (|Fraction| (|Polynomial| F)))))
-         (|ls| |List| (|Symbol|)) ($ |List| F))
+        ((|lsol| (|List| (|List| (|Equation| (|Fraction| (|Polynomial| F))))))
+         (|ls| (|List| (|Symbol|))) ($ (|List| F)))
         (SPROG ((#1=#:G247 NIL) (|sol| (|List| F)) (#2=#:G248 NIL) (|leq| NIL))
                (SEQ
                 (EXIT
@@ -556,11 +558,12 @@
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |XPFACT;algebraic_solution|
-        ((|leq| |List| (|Equation| (|Fraction| (|Polynomial| F))))
-         (|alg_sym| |Symbol|) (|ls| |List| (|Symbol|))
-         ($ |Union|
-          (|Record| (|:| |pol| (|Polynomial| F)) (|:| |sol1| (|List| F)))
-          "failed"))
+        ((|leq| (|List| (|Equation| (|Fraction| (|Polynomial| F)))))
+         (|alg_sym| (|Symbol|)) (|ls| (|List| (|Symbol|)))
+         ($
+          (|Union|
+           (|Record| (|:| |pol| (|Polynomial| F)) (|:| |sol1| (|List| F)))
+           "failed")))
         (SPROG
          ((|v_lst| (|List| (|Symbol|))) (|eq| (|Polynomial| F))
           (|eqf| (|Fraction| (|Polynomial| F)))
@@ -585,11 +588,12 @@
                              (#1# (CONS 1 "failed"))))))))))) 
 
 (SDEFUN |XPFACT;get_algebraic_solution|
-        ((|lsol| |List| (|List| (|Equation| (|Fraction| (|Polynomial| F)))))
-         (|alg_sym| |Symbol|) (|ls| |List| (|Symbol|))
-         ($ |Union|
-          (|Record| (|:| |pol| (|Polynomial| F)) (|:| |sol1| (|List| F)))
-          "failed"))
+        ((|lsol| (|List| (|List| (|Equation| (|Fraction| (|Polynomial| F))))))
+         (|alg_sym| (|Symbol|)) (|ls| (|List| (|Symbol|)))
+         ($
+          (|Union|
+           (|Record| (|:| |pol| (|Polynomial| F)) (|:| |sol1| (|List| F)))
+           "failed")))
         (SPROG
          ((#1=#:G260 NIL)
           (|sol|
@@ -616,8 +620,8 @@
           #3# (EXIT #1#)))) 
 
 (SDEFUN |XPFACT;my_mul|
-        ((|l| |List| (|XDistributedPolynomial| |vl| F))
-         ($ |XDistributedPolynomial| |vl| F))
+        ((|l| (|List| (|XDistributedPolynomial| |vl| F)))
+         ($ (|XDistributedPolynomial| |vl| F)))
         (SPROG
          ((|res| (|XDistributedPolynomial| |vl| F)) (#1=#:G265 NIL) (|p| NIL))
          (SEQ (LETT |l| (REVERSE |l|)) (LETT |res| (|SPADfirst| |l|))
@@ -631,9 +635,9 @@
               (EXIT |res|)))) 
 
 (SDEFUN |XPFACT;overlap_steps|
-        ((|ll| |List| (|XDistributedPolynomial| |vl| F))
-         (|rl| |List| (|XDistributedPolynomial| |vl| F))
-         ($ |List| (|Integer|)))
+        ((|ll| (|List| (|XDistributedPolynomial| |vl| F)))
+         (|rl| (|List| (|XDistributedPolynomial| |vl| F)))
+         ($ (|List| (|Integer|))))
         (SPROG
          ((|d| (|NonNegativeInteger|)) (|res| (|List| (|Integer|)))
           (#1=#:G266 NIL) (#2=#:G272 NIL) (|p2| NIL) (#3=#:G273 NIL) (|k| NIL)
@@ -668,17 +672,19 @@
               (EXIT (REVERSE |res|))))) 
 
 (SDEFUN |XPFACT;lift1;FmXdpIFmXdpIFXdpBR;21|
-        ((|lw| |FreeMonoid| |vl|)
-         (|lfy| |XDistributedPolynomial| |vl| (|Polynomial| F))
-         (|d1| |Integer|) (|rw| |FreeMonoid| |vl|)
-         (|rfy| |XDistributedPolynomial| |vl| (|Polynomial| F)) (|j| |Integer|)
-         (|lc| F) (|rp| |XDistributedPolynomial| |vl| (|Polynomial| F))
-         (|o_case| |Boolean|)
-         ($ |Record|
-          (|:| |l_fac| (|XDistributedPolynomial| |vl| (|Polynomial| F)))
-          (|:| |r_fac| (|XDistributedPolynomial| |vl| (|Polynomial| F)))
-          (|:| |residual| (|XDistributedPolynomial| |vl| (|Polynomial| F)))
-          (|:| |nsym| (|Union| (|Symbol|) "none"))))
+        ((|lw| (|FreeMonoid| |vl|))
+         (|lfy| (|XDistributedPolynomial| |vl| (|Polynomial| F)))
+         (|d1| (|Integer|)) (|rw| (|FreeMonoid| |vl|))
+         (|rfy| (|XDistributedPolynomial| |vl| (|Polynomial| F)))
+         (|j| (|Integer|)) (|lc| (F))
+         (|rp| (|XDistributedPolynomial| |vl| (|Polynomial| F)))
+         (|o_case| (|Boolean|))
+         ($
+          (|Record|
+           (|:| |l_fac| (|XDistributedPolynomial| |vl| (|Polynomial| F)))
+           (|:| |r_fac| (|XDistributedPolynomial| |vl| (|Polynomial| F)))
+           (|:| |residual| (|XDistributedPolynomial| |vl| (|Polynomial| F)))
+           (|:| |nsym| (|Union| (|Symbol|) "none")))))
         (SPROG
          ((|lf1| #1=(|XDistributedPolynomial| |vl| (|Polynomial| F)))
           (|rf1| (|XDistributedPolynomial| |vl| (|Polynomial| F)))
@@ -967,10 +973,10 @@
               (EXIT (VECTOR |lf1| |rf1| |rp| |nsu|))))) 
 
 (SDEFUN |XPFACT;dc_fact11|
-        ((|lf| |XDistributedPolynomial| |vl| F)
-         (|lrl| |List| (|XDistributedPolynomial| |vl| (|Polynomial| F)))
-         (|eqs| |List| (|Polynomial| F))
-         ($ |Union| (|XDistributedPolynomial| |vl| F) "failed"))
+        ((|lf| (|XDistributedPolynomial| |vl| F))
+         (|lrl| (|List| (|XDistributedPolynomial| |vl| (|Polynomial| F))))
+         (|eqs| (|List| (|Polynomial| F)))
+         ($ (|Union| (|XDistributedPolynomial| |vl| F) "failed")))
         (SPROG
          ((#1=#:G314 NIL) (|w| (|XDistributedPolynomial| |vl| F))
           (|nfac| (|SparseUnivariatePolynomial| F))
@@ -1096,10 +1102,10 @@
           #9# (EXIT #1#)))) 
 
 (SDEFUN |XPFACT;dc_fact12|
-        ((|lf| |XDistributedPolynomial| |vl| F)
-         (|lrl| |List| (|XDistributedPolynomial| |vl| (|Polynomial| F)))
-         (|eq| |Polynomial| F) (|sol1| |List| F) (|ls| |List| (|Symbol|))
-         ($ |XDistributedPolynomial| |vl| F))
+        ((|lf| (|XDistributedPolynomial| |vl| F))
+         (|lrl| (|List| (|XDistributedPolynomial| |vl| (|Polynomial| F))))
+         (|eq| (|Polynomial| F)) (|sol1| (|List| F)) (|ls| (|List| (|Symbol|)))
+         ($ (|XDistributedPolynomial| |vl| F)))
         (SPROG
          ((|w| (|XDistributedPolynomial| |vl| F))
           (|nfac| (|SparseUnivariatePolynomial| F))
@@ -1142,12 +1148,13 @@
                       (EXIT (|XPFACT;eval_sup| |nfac| |w| $))))))))) 
 
 (SDEFUN |XPFACT;dc_fact1|
-        ((|d| |NonNegativeInteger|) (|lc| F)
-         (|ll| |List| (|XDistributedPolynomial| |vl| F))
-         (|rl| |List| (|XDistributedPolynomial| |vl| F))
-         (|rs| |XDistributedPolynomial| |vl| F)
-         ($ |Union| (|List| (|XDistributedPolynomial| |vl| F))
-          (|XDistributedPolynomial| |vl| F) "failed"))
+        ((|d| (|NonNegativeInteger|)) (|lc| (F))
+         (|ll| (|List| (|XDistributedPolynomial| |vl| F)))
+         (|rl| (|List| (|XDistributedPolynomial| |vl| F)))
+         (|rs| (|XDistributedPolynomial| |vl| F))
+         ($
+          (|Union| (|List| (|XDistributedPolynomial| |vl| F))
+                   (|XDistributedPolynomial| |vl| F) "failed")))
         (SPROG
          ((|rf| (|XDistributedPolynomial| |vl| F))
           (|lf| (|XDistributedPolynomial| |vl| F))
@@ -1519,8 +1526,8 @@
                   (EXIT (CONS 0 (LIST |lf| |rf|)))))))))))))) 
 
 (SDEFUN |XPFACT;factor;XdpL;25|
-        ((|p| |XDistributedPolynomial| |vl| F)
-         ($ |List| (|XDistributedPolynomial| |vl| F)))
+        ((|p| (|XDistributedPolynomial| |vl| F))
+         ($ (|List| (|XDistributedPolynomial| |vl| F))))
         (SPROG
          ((|rf| #1=(|List| (|XDistributedPolynomial| |vl| F)))
           (|d| (|NonNegativeInteger|)) (#2=#:G407 NIL) (|rf0| #1#)

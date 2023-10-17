@@ -1,6 +1,6 @@
 
 (SDEFUN |FRAC2;map;MFF;1|
-        ((|f| |Mapping| B A) (|r| |Fraction| A) ($ |Fraction| B))
+        ((|f| (|Mapping| B A)) (|r| (|Fraction| A)) ($ (|Fraction| B)))
         (SPADCALL |f| |r| (QREFELT $ 12))) 
 
 (DECLAIM (NOTINLINE |FractionFunctions2;|)) 

@@ -1,22 +1,23 @@
 
 (PUT '|OMERRK;OMParseError?;$B;1| '|SPADreplace| '(XLAM (|u|) (QEQCAR |u| 0))) 
 
-(SDEFUN |OMERRK;OMParseError?;$B;1| ((|u| $) ($ |Boolean|)) (QEQCAR |u| 0)) 
+(SDEFUN |OMERRK;OMParseError?;$B;1| ((|u| ($)) ($ (|Boolean|))) (QEQCAR |u| 0)) 
 
 (PUT '|OMERRK;OMUnknownCD?;$B;2| '|SPADreplace| '(XLAM (|u|) (QEQCAR |u| 1))) 
 
-(SDEFUN |OMERRK;OMUnknownCD?;$B;2| ((|u| $) ($ |Boolean|)) (QEQCAR |u| 1)) 
+(SDEFUN |OMERRK;OMUnknownCD?;$B;2| ((|u| ($)) ($ (|Boolean|))) (QEQCAR |u| 1)) 
 
 (PUT '|OMERRK;OMUnknownSymbol?;$B;3| '|SPADreplace|
      '(XLAM (|u|) (QEQCAR |u| 2))) 
 
-(SDEFUN |OMERRK;OMUnknownSymbol?;$B;3| ((|u| $) ($ |Boolean|)) (QEQCAR |u| 2)) 
+(SDEFUN |OMERRK;OMUnknownSymbol?;$B;3| ((|u| ($)) ($ (|Boolean|)))
+        (QEQCAR |u| 2)) 
 
 (PUT '|OMERRK;OMReadError?;$B;4| '|SPADreplace| '(XLAM (|u|) (QEQCAR |u| 3))) 
 
-(SDEFUN |OMERRK;OMReadError?;$B;4| ((|u| $) ($ |Boolean|)) (QEQCAR |u| 3)) 
+(SDEFUN |OMERRK;OMReadError?;$B;4| ((|u| ($)) ($ (|Boolean|))) (QEQCAR |u| 3)) 
 
-(SDEFUN |OMERRK;coerce;S$;5| ((|s| |Symbol|) ($ $))
+(SDEFUN |OMERRK;coerce;S$;5| ((|s| (|Symbol|)) ($ ($)))
         (COND ((EQUAL |s| '|OMParseError|) (CONS 0 "OMParseError"))
               ((EQUAL |s| '|OMUnknownCD|) (CONS 1 "OMUnknownCD"))
               ((EQUAL |s| '|OMUnknownSymbol|) (CONS 2 "OMUnknownSymbol"))
@@ -26,10 +27,10 @@
                 (STRCONC (SPADCALL |s| (QREFELT $ 14))
                          " is not a valid OpenMathErrorKind."))))) 
 
-(SDEFUN |OMERRK;=;2$B;6| ((|a| $) (|b| $) ($ |Boolean|))
+(SDEFUN |OMERRK;=;2$B;6| ((|a| ($)) (|b| ($)) ($ (|Boolean|)))
         (SPADCALL |a| |b| (QREFELT $ 16))) 
 
-(SDEFUN |OMERRK;coerce;$Of;7| ((|e| $) ($ |OutputForm|))
+(SDEFUN |OMERRK;coerce;$Of;7| ((|e| ($)) ($ (|OutputForm|)))
         (SPADCALL |e| (QREFELT $ 19))) 
 
 (DECLAIM (NOTINLINE |OpenMathErrorKind;|)) 

@@ -1,66 +1,69 @@
 
 (PUT '|KERNEL;operator;$Bo;1| '|SPADreplace| 'SPAD_KERNEL-OP) 
 
-(SDEFUN |KERNEL;operator;$Bo;1| ((|k| $) ($ |BasicOperator|))
+(SDEFUN |KERNEL;operator;$Bo;1| ((|k| ($)) ($ (|BasicOperator|)))
         (SPAD_KERNEL-OP |k|)) 
 
 (PUT '|KERNEL;argument;$L;2| '|SPADreplace| 'SPAD_KERNEL-ARG) 
 
-(SDEFUN |KERNEL;argument;$L;2| ((|k| $) ($ |List| S)) (SPAD_KERNEL-ARG |k|)) 
+(SDEFUN |KERNEL;argument;$L;2| ((|k| ($)) ($ (|List| S))) (SPAD_KERNEL-ARG |k|)) 
 
 (PUT '|KERNEL;height;$Nni;3| '|SPADreplace| 'SPAD_KERNEL-NEST) 
 
-(SDEFUN |KERNEL;height;$Nni;3| ((|k| $) ($ |NonNegativeInteger|))
+(SDEFUN |KERNEL;height;$Nni;3| ((|k| ($)) ($ (|NonNegativeInteger|)))
         (SPAD_KERNEL-NEST |k|)) 
 
 (PUT '|KERNEL;position;$Nni;4| '|SPADreplace| 'SPAD_KERNEL-POSIT) 
 
-(SDEFUN |KERNEL;position;$Nni;4| ((|k| $) ($ |NonNegativeInteger|))
+(SDEFUN |KERNEL;position;$Nni;4| ((|k| ($)) ($ (|NonNegativeInteger|)))
         (SPAD_KERNEL-POSIT |k|)) 
 
 (PUT '|KERNEL;setPosition;$NniV;5| '|SPADreplace| 'SET_SPAD_KERNEL_POSIT) 
 
 (SDEFUN |KERNEL;setPosition;$NniV;5|
-        ((|k| $) (|n| |NonNegativeInteger|) ($ |Void|))
+        ((|k| ($)) (|n| (|NonNegativeInteger|)) ($ (|Void|)))
         (SET_SPAD_KERNEL_POSIT |k| |n|)) 
 
 (PUT '|KERNEL;mkKer| '|SPADreplace| '|makeSpadKernel|) 
 
 (SDEFUN |KERNEL;mkKer|
-        ((|o| |BasicOperator|) (|a| |List| S) (|n| |NonNegativeInteger|) ($ $))
+        ((|o| (|BasicOperator|)) (|a| (|List| S)) (|n| (|NonNegativeInteger|))
+         ($ ($)))
         (|makeSpadKernel| |o| |a| |n|)) 
 
-(SDEFUN |KERNEL;is?;$SB;7| ((|k| $) (|s| |Symbol|) ($ |Boolean|))
+(SDEFUN |KERNEL;is?;$SB;7| ((|k| ($)) (|s| (|Symbol|)) ($ (|Boolean|)))
         (SPADCALL (SPADCALL |k| (QREFELT $ 8)) |s| (QREFELT $ 28))) 
 
-(SDEFUN |KERNEL;is?;$BoB;8| ((|k| $) (|o| |BasicOperator|) ($ |Boolean|))
+(SDEFUN |KERNEL;is?;$BoB;8| ((|k| ($)) (|o| (|BasicOperator|)) ($ (|Boolean|)))
         (SPADCALL (SPADCALL |k| (QREFELT $ 8)) |o| (QREFELT $ 30))) 
 
-(SDEFUN |KERNEL;name;$S;9| ((|k| $) ($ |Symbol|))
+(SDEFUN |KERNEL;name;$S;9| ((|k| ($)) ($ (|Symbol|)))
         (SPADCALL (SPADCALL |k| (QREFELT $ 8)) (QREFELT $ 32))) 
 
-(SDEFUN |KERNEL;B2Z| ((|flag| |Boolean|) ($ |Integer|))
+(SDEFUN |KERNEL;B2Z| ((|flag| (|Boolean|)) ($ (|Integer|)))
         (COND (|flag| -1) ('T 1))) 
 
-(SDEFUN |KERNEL;kernel;S$;11| ((|s| |Symbol|) ($ $))
+(SDEFUN |KERNEL;kernel;S$;11| ((|s| (|Symbol|)) ($ ($)))
         (SPADCALL
          (SPADCALL (SPADCALL |s| 0 (QREFELT $ 34)) (QREFELT $ 16)
                    (QREFELT $ 35))
          NIL 1 (QREFELT $ 36))) 
 
-(SDEFUN |KERNEL;preds| ((|o| |BasicOperator|) ($ |List| (|Any|)))
+(SDEFUN |KERNEL;preds| ((|o| (|BasicOperator|)) ($ (|List| (|Any|))))
         (SPROG ((|u| (|Union| (|None|) "failed")))
                (SEQ (LETT |u| (SPADCALL |o| (QREFELT $ 17) (QREFELT $ 39)))
                     (EXIT (COND ((QEQCAR |u| 1) NIL) ('T (QCDR |u|))))))) 
 
-(SDEFUN |KERNEL;symbolIfCan;$U;13| ((|k| $) ($ |Union| (|Symbol|) "failed"))
+(SDEFUN |KERNEL;symbolIfCan;$U;13|
+        ((|k| ($)) ($ (|Union| (|Symbol|) "failed")))
         (COND
          ((SPADCALL (SPADCALL |k| (QREFELT $ 8)) (QREFELT $ 16) (QREFELT $ 40))
           (CONS 0 (SPADCALL (SPADCALL |k| (QREFELT $ 8)) (QREFELT $ 32))))
          ('T (CONS 1 "failed")))) 
 
 (SDEFUN |KERNEL;kerEqual|
-        ((|k1| $) (|k2| $) (|f| |Mapping| (|Boolean|) $ $) ($ |Boolean|))
+        ((|k1| ($)) (|k2| ($)) (|f| (|Mapping| (|Boolean|) $ $))
+         ($ (|Boolean|)))
         (COND
          ((OR
            (SPADCALL (SPADCALL |k1| (QREFELT $ 12))
@@ -73,10 +76,10 @@
           NIL)
          ('T (SPADCALL |k1| |k2| |f|)))) 
 
-(SDEFUN |KERNEL;kerEqual0| ((|k1| $) (|k2| $) ($ |Boolean|))
+(SDEFUN |KERNEL;kerEqual0| ((|k1| ($)) (|k2| ($)) ($ (|Boolean|)))
         (EQL (|KERNEL;triage| |k1| |k2| $) 0)) 
 
-(SDEFUN |KERNEL;kernelEnterInCache| ((|k| $) ($ $))
+(SDEFUN |KERNEL;kernelEnterInCache| ((|k| ($)) ($ ($)))
         (SPROG
          ((#1=#:G169 NIL) (#2=#:G170 NIL) (|res| (|Union| $ "failed"))
           (|f1| (|Mapping| (|Boolean|) $ $))
@@ -147,7 +150,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (|KERNEL;kerEqual| |k| |y| |f1| $))))) 
 
-(SDEFUN |KERNEL;=;2$B;17| ((|k1| $) (|k2| $) ($ |Boolean|))
+(SDEFUN |KERNEL;=;2$B;17| ((|k1| ($)) (|k2| ($)) ($ (|Boolean|)))
         (SEQ
          (COND
           ((EQL (SPADCALL |k1| (QREFELT $ 13)) 0)
@@ -158,7 +161,7 @@
          (EXIT
           (EQL (SPADCALL |k1| (QREFELT $ 13)) (SPADCALL |k2| (QREFELT $ 13)))))) 
 
-(SDEFUN |KERNEL;<;2$B;18| ((|k1| $) (|k2| $) ($ |Boolean|))
+(SDEFUN |KERNEL;<;2$B;18| ((|k1| ($)) (|k2| ($)) ($ (|Boolean|)))
         (SEQ
          (COND
           ((EQL (SPADCALL |k1| (QREFELT $ 13)) 0)
@@ -170,8 +173,8 @@
           (< (SPADCALL |k1| (QREFELT $ 13)) (SPADCALL |k2| (QREFELT $ 13)))))) 
 
 (SDEFUN |KERNEL;kernel;BoLNni$;19|
-        ((|fn| |BasicOperator|) (|x| |List| S) (|n| |NonNegativeInteger|)
-         ($ $))
+        ((|fn| (|BasicOperator|)) (|x| (|List| S)) (|n| (|NonNegativeInteger|))
+         ($ ($)))
         (SPROG
          ((#1=#:G186 NIL) (|u| (|Union| (|NonNegativeInteger|) "failed")))
          (SEQ
@@ -190,7 +193,7 @@
              (|KERNEL;kernelEnterInCache| (|KERNEL;mkKer| |fn| |x| |n| $) $))))
           #2# (EXIT #1#)))) 
 
-(SDEFUN |KERNEL;coerce;$Of;20| ((|k| $) ($ |OutputForm|))
+(SDEFUN |KERNEL;coerce;$Of;20| ((|k| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|u|
            (|Union| (|Mapping| (|OutputForm|) (|List| (|OutputForm|)))
@@ -240,7 +243,7 @@
                                |l| (QREFELT $ 62)))
                              (#3# (SPADCALL |l| (QCDR |u|)))))))))))))))) 
 
-(SDEFUN |KERNEL;triage| ((|k1| $) (|k2| $) ($ |Integer|))
+(SDEFUN |KERNEL;triage| ((|k1| ($)) (|k2| ($)) ($ (|Integer|)))
         (SPROG
          ((#1=#:G212 NIL) (#2=#:G213 NIL) (#3=#:G214 NIL) (|x1| NIL)
           (#4=#:G215 NIL) (|x2| NIL) (|n2| (|Integer|)) (|n1| (|Integer|)))
@@ -291,7 +294,7 @@
               (EXIT 0)))))
           #5# (EXIT #2#)))) 
 
-(SDEFUN |KERNEL;convert;$If;22| ((|k| $) ($ |InputForm|))
+(SDEFUN |KERNEL;convert;$If;22| ((|k| ($)) ($ (|InputForm|)))
         (SPROG
          ((|u|
            (|Union| (|Mapping| (|InputForm|) (|List| (|InputForm|))) "failed"))
@@ -346,7 +349,7 @@
                                (QREFELT $ 77)))
                              (#3# (SPADCALL |l| (QCDR |u|)))))))))))))))) 
 
-(SDEFUN |KERNEL;convert;$P;23| ((|k| $) ($ |Pattern| (|Integer|)))
+(SDEFUN |KERNEL;convert;$P;23| ((|k| ($)) ($ (|Pattern| (|Integer|))))
         (SPROG
          ((#1=#:G242 NIL) (|x| NIL) (#2=#:G241 NIL) (|l| (|List| (|Any|)))
           (|s| (|Pattern| (|Integer|))) (|v| (|Union| (|Symbol|) "failed"))
@@ -385,7 +388,7 @@
                                  (EXIT (NREVERSE #2#))))
                            (QREFELT $ 84)))))))) 
 
-(SDEFUN |KERNEL;convert;$P;24| ((|k| $) ($ |Pattern| (|Float|)))
+(SDEFUN |KERNEL;convert;$P;24| ((|k| ($)) ($ (|Pattern| (|Float|))))
         (SPROG
          ((#1=#:G251 NIL) (|x| NIL) (#2=#:G250 NIL) (|l| (|List| (|Any|)))
           (|s| (|Pattern| (|Float|))) (|v| (|Union| (|Symbol|) "failed"))

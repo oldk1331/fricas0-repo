@@ -1,11 +1,12 @@
 
 (SDEFUN |INTTOOLS;union;3L;1|
-        ((|l1| |List| (|Kernel| F)) (|l2| |List| (|Kernel| F))
-         ($ |List| (|Kernel| F)))
+        ((|l1| (|List| (|Kernel| F))) (|l2| (|List| (|Kernel| F)))
+         ($ (|List| (|Kernel| F))))
         (SPADCALL |l1| |l2| (QREFELT $ 10))) 
 
 (SDEFUN |INTTOOLS;varselect;LSL;2|
-        ((|l| |List| (|Kernel| F)) (|x| |Symbol|) ($ |List| (|Kernel| F)))
+        ((|l| (|List| (|Kernel| F))) (|x| (|Symbol|))
+         ($ (|List| (|Kernel| F))))
         (SPROG ((#1=#:G121 NIL) (|k| NIL) (#2=#:G120 NIL))
                (SEQ
                 (PROGN
@@ -26,8 +27,8 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |INTTOOLS;ksec;KLSK;3|
-        ((|k| |Kernel| F) (|l| |List| (|Kernel| F)) (|x| |Symbol|)
-         ($ |Kernel| F))
+        ((|k| (|Kernel| F)) (|l| (|List| (|Kernel| F))) (|x| (|Symbol|))
+         ($ (|Kernel| F)))
         (SPADCALL
          (SPADCALL (SPADCALL |k| |l| (QREFELT $ 21))
                    (SPADCALL (SPADCALL |k| (QREFELT $ 23)) |x| (QREFELT $ 24))
@@ -35,7 +36,7 @@
          (QREFELT $ 25))) 
 
 (SDEFUN |INTTOOLS;vark;LSL;4|
-        ((|l| |List| F) (|x| |Symbol|) ($ |List| (|Kernel| F)))
+        ((|l| (|List| F)) (|x| (|Symbol|)) ($ (|List| (|Kernel| F))))
         (SPROG ((#1=#:G129 NIL) (|f| NIL) (#2=#:G128 NIL))
                (SEQ
                 (SPADCALL
@@ -57,7 +58,7 @@
                            NIL (QREFELT $ 31))
                  |x| (QREFELT $ 19))))) 
 
-(SDEFUN |INTTOOLS;kmax;LK;5| ((|l| |List| (|Kernel| F)) ($ |Kernel| F))
+(SDEFUN |INTTOOLS;kmax;LK;5| ((|l| (|List| (|Kernel| F))) ($ (|Kernel| F)))
         (SPROG ((|ans| (|Kernel| F)) (#1=#:G134 NIL) (|k| NIL))
                (SEQ (LETT |ans| (|SPADfirst| |l|))
                     (SEQ (LETT |k| NIL) (LETT #1# (CDR |l|)) G190
@@ -72,7 +73,8 @@
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT |ans|)))) 
 
-(SDEFUN |INTTOOLS;better?| ((|x| |Kernel| F) (|y| |Kernel| F) ($ |Boolean|))
+(SDEFUN |INTTOOLS;better?|
+        ((|x| (|Kernel| F)) (|y| (|Kernel| F)) ($ (|Boolean|)))
         (COND
          ((SPADCALL (SPADCALL |y| (QREFELT $ 33)) (SPADCALL |x| (QREFELT $ 33))
                     (QREFELT $ 34))
@@ -87,7 +89,8 @@
                             (QREFELT $ 37))))))
          (#1# NIL))) 
 
-(SDEFUN |INTTOOLS;removeConstantTerm;FSF;7| ((|f| F) (|x| |Symbol|) ($ F))
+(SDEFUN |INTTOOLS;removeConstantTerm;FSF;7|
+        ((|f| (F)) (|x| (|Symbol|)) ($ (F)))
         (SPROG
          ((|ans| (|SparseMultivariatePolynomial| R (|Kernel| F)))
           (#1=#:G151 NIL) (|term| NIL)
@@ -133,7 +136,7 @@
                           (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                      (EXIT (SPADCALL |ans| |den| (QREFELT $ 50))))))))))))) 
 
-(SDEFUN |INTTOOLS;logsimp| ((|f| F) (|x| |Symbol|) ($ F))
+(SDEFUN |INTTOOLS;logsimp| ((|f| (F)) (|x| (|Symbol|)) ($ (F)))
         (SPROG
          ((|g| (|Integer|))
           (|r2| #1=(|Record| (|:| |coef| (|Integer|)) (|:| |logand| F)))
@@ -155,9 +158,9 @@
                      (QREFELT $ 56)))))) 
 
 (SDEFUN |INTTOOLS;cont|
-        ((|p| |SparseMultivariatePolynomial| R (|Kernel| F))
-         (|l| |List| (|Kernel| F))
-         ($ |SparseMultivariatePolynomial| R (|Kernel| F)))
+        ((|p| (|SparseMultivariatePolynomial| R (|Kernel| F)))
+         (|l| (|List| (|Kernel| F)))
+         ($ (|SparseMultivariatePolynomial| R (|Kernel| F))))
         (SPROG
          ((|q|
            (|SparseUnivariatePolynomial|
@@ -177,7 +180,7 @@
                     (CDR |l|) $)))))))) 
 
 (SDEFUN |INTTOOLS;linearLog?|
-        ((|k| |Kernel| F) (|f| F) (|x| |Symbol|) ($ |Boolean|))
+        ((|k| (|Kernel| F)) (|f| (F)) (|x| (|Symbol|)) ($ (|Boolean|)))
         (SPROG
          ((|p0| (|SparseUnivariatePolynomial| F))
           (|pol| (|SparseUnivariatePolynomial| F))
@@ -216,7 +219,7 @@
                (#1# NIL)))))
            (#1# NIL))))) 
 
-(SDEFUN |INTTOOLS;mkPrim;FSF;11| ((|f| F) (|x| |Symbol|) ($ F))
+(SDEFUN |INTTOOLS;mkPrim;FSF;11| ((|f| (F)) (|x| (|Symbol|)) ($ (F)))
         (SPROG
          ((#1=#:G176 NIL) (|k| NIL) (#2=#:G175 NIL)
           (|lg| (|List| (|Kernel| F))) (#3=#:G174 NIL) (#4=#:G173 NIL))
@@ -258,8 +261,8 @@
                      (QREFELT $ 81)))))) 
 
 (SDEFUN |INTTOOLS;psimp|
-        ((|p| |SparseMultivariatePolynomial| R (|Kernel| F)) (|x| |Symbol|)
-         ($ |Record| (|:| |coef| (|Integer|)) (|:| |logand| F)))
+        ((|p| (|SparseMultivariatePolynomial| R (|Kernel| F))) (|x| (|Symbol|))
+         ($ (|Record| (|:| |coef| (|Integer|)) (|:| |logand| F))))
         (SPROG
          ((|u|
            (|Union|

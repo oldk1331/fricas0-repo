@@ -1,5 +1,5 @@
 
-(SDEFUN |ALGEBRA-;coerce;RS;1| ((|x| R) ($ S))
+(SDEFUN |ALGEBRA-;coerce;RS;1| ((|x| (R)) ($ (S)))
         (SPADCALL |x| (|spadConstant| $ 8) (QREFELT $ 9))) 
 
 (DECLAIM (NOTINLINE |Algebra&;|)) 

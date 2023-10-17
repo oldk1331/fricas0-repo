@@ -1,24 +1,25 @@
 
 (SDEFUN |RDEAUX;multi_SPDE;2SupLIMU;1|
-        ((|a| |SparseUnivariatePolynomial| F)
-         (|b| |SparseUnivariatePolynomial| F)
-         (|lc| |List| (|SparseUnivariatePolynomial| F)) (|d| |Integer|)
-         (|der| |Mapping| (|SparseUnivariatePolynomial| F)
-          (|SparseUnivariatePolynomial| F))
-         ($ |Union|
-          (|List|
-           (|Record| (|:| |ans| (|SparseUnivariatePolynomial| F))
-                     (|:| |remainder| (|SparseUnivariatePolynomial| F))))
-          (|Record| (|:| |ans| (|List| (|SparseUnivariatePolynomial| F)))
-                    (|:| |acoeff| (|SparseUnivariatePolynomial| F))
-                    (|:| |eegen| (|SparseUnivariatePolynomial| F))
-                    (|:| |bpar| (|SparseUnivariatePolynomial| F))
-                    (|:| |lcpar| (|List| (|SparseUnivariatePolynomial| F)))
-                    (|:| |dpar| (|Integer|)))))
+        ((|a| (|SparseUnivariatePolynomial| F))
+         (|b| (|SparseUnivariatePolynomial| F))
+         (|lc| (|List| (|SparseUnivariatePolynomial| F))) (|d| (|Integer|))
+         (|der|
+          (|Mapping| (|SparseUnivariatePolynomial| F)
+                     (|SparseUnivariatePolynomial| F)))
+         ($
+          (|Union|
+           (|List|
+            (|Record| (|:| |ans| (|SparseUnivariatePolynomial| F))
+                      (|:| |remainder| (|SparseUnivariatePolynomial| F))))
+           (|Record| (|:| |ans| (|List| (|SparseUnivariatePolynomial| F)))
+                     (|:| |acoeff| (|SparseUnivariatePolynomial| F))
+                     (|:| |eegen| (|SparseUnivariatePolynomial| F))
+                     (|:| |bpar| (|SparseUnivariatePolynomial| F))
+                     (|:| |lcpar| (|List| (|SparseUnivariatePolynomial| F)))
+                     (|:| |dpar| (|Integer|))))))
         (SPROG
-         ((#1=#:G138 NIL) (|s1| NIL) (#2=#:G139 NIL)
-          (|r| #3=(|SparseUnivariatePolynomial| F)) (#4=#:G137 NIL)
-          (#5=#:G135 NIL) (|s2| NIL) (#6=#:G136 NIL) (#7=#:G134 NIL)
+         ((#1=#:G138 NIL) (|s1| NIL) (#2=#:G139 NIL) (#3=#:G137 NIL)
+          (#4=#:G135 NIL) (|s2| NIL) (#5=#:G136 NIL) (#6=#:G134 NIL)
           (|dres|
            (|Record| (|:| |ans| (|List| (|SparseUnivariatePolynomial| F)))
                      (|:| |acoeff| (|SparseUnivariatePolynomial| F))
@@ -40,9 +41,10 @@
           (|lr| (|List| (|SparseUnivariatePolynomial| F)))
           (|lnc| (|List| (|SparseUnivariatePolynomial| F)))
           (|nc| (|SparseUnivariatePolynomial| F))
+          (|r| #7=(|SparseUnivariatePolynomial| F))
           (|qr|
            (|Record| (|:| |quotient| (|SparseUnivariatePolynomial| F))
-                     (|:| |remainder| #3#)))
+                     (|:| |remainder| #7#)))
           (|cc2| #8=(|SparseUnivariatePolynomial| F)) (|cc1| #8#)
           (#9=#:G133 NIL) (|c| NIL) (#10=#:G132 NIL) (#11=#:G131 NIL)
           (|ee|
@@ -147,35 +149,34 @@
                                   (CONS 1
                                         (VECTOR
                                          (PROGN
-                                          (LETT #7# NIL)
-                                          (SEQ (LETT |r| NIL) (LETT #6# |lr|)
-                                               (LETT |s2| NIL)
-                                               (LETT #5# (QVELT |dres| 0)) G190
+                                          (LETT #6# NIL)
+                                          (SEQ (LETT #5# |lr|) (LETT |s2| NIL)
+                                               (LETT #4# (QVELT |dres| 0)) G190
                                                (COND
-                                                ((OR (ATOM #5#)
+                                                ((OR (ATOM #4#)
                                                      (PROGN
-                                                      (LETT |s2| (CAR #5#))
+                                                      (LETT |s2| (CAR #4#))
                                                       NIL)
-                                                     (ATOM #6#)
+                                                     (ATOM #5#)
                                                      (PROGN
-                                                      (LETT |r| (CAR #6#))
+                                                      (LETT |r| (CAR #5#))
                                                       NIL))
                                                  (GO G191)))
                                                (SEQ
                                                 (EXIT
-                                                 (LETT #7#
+                                                 (LETT #6#
                                                        (CONS
                                                         (SPADCALL
                                                          (SPADCALL |a| |s2|
                                                                    (QREFELT $
                                                                             19))
                                                          |r| (QREFELT $ 22))
-                                                        #7#))))
-                                               (LETT #5#
-                                                     (PROG1 (CDR #5#)
-                                                       (LETT #6# (CDR #6#))))
+                                                        #6#))))
+                                               (LETT #4#
+                                                     (PROG1 (CDR #4#)
+                                                       (LETT #5# (CDR #5#))))
                                                (GO G190) G191
-                                               (EXIT (NREVERSE #7#))))
+                                               (EXIT (NREVERSE #6#))))
                                          (SPADCALL |a| (QVELT |dres| 1)
                                                    (QREFELT $ 19))
                                          (QVELT |dres| 2) (QVELT |dres| 3)
@@ -183,9 +184,8 @@
                            (#16#
                             (CONS 0
                                   (PROGN
-                                   (LETT #4# NIL)
-                                   (SEQ (LETT |r| NIL) (LETT #2# |lr|)
-                                        (LETT |s1| NIL)
+                                   (LETT #3# NIL)
+                                   (SEQ (LETT #2# |lr|) (LETT |s1| NIL)
                                         (LETT #1# (QCDR |res1|)) G190
                                         (COND
                                          ((OR (ATOM #1#)
@@ -195,7 +195,7 @@
                                           (GO G191)))
                                         (SEQ
                                          (EXIT
-                                          (LETT #4#
+                                          (LETT #3#
                                                 (CONS
                                                  (CONS
                                                   (SPADCALL
@@ -203,20 +203,22 @@
                                                              (QREFELT $ 19))
                                                    |r| (QREFELT $ 22))
                                                   (QCDR |s1|))
-                                                 #4#))))
+                                                 #3#))))
                                         (LETT #1#
                                               (PROG1 (CDR #1#)
                                                 (LETT #2# (CDR #2#))))
                                         (GO G190) G191
-                                        (EXIT (NREVERSE #4#)))))))))))))))))) 
+                                        (EXIT (NREVERSE #3#)))))))))))))))))) 
 
 (SDEFUN |RDEAUX;SPDE1;2SupMR;2|
-        ((|b| |SparseUnivariatePolynomial| F)
-         (|c| |SparseUnivariatePolynomial| F)
-         (|der| |Mapping| (|SparseUnivariatePolynomial| F)
-          (|SparseUnivariatePolynomial| F))
-         ($ |Record| (|:| |ans| (|SparseUnivariatePolynomial| F))
-          (|:| |remainder| (|SparseUnivariatePolynomial| F))))
+        ((|b| (|SparseUnivariatePolynomial| F))
+         (|c| (|SparseUnivariatePolynomial| F))
+         (|der|
+          (|Mapping| (|SparseUnivariatePolynomial| F)
+                     (|SparseUnivariatePolynomial| F)))
+         ($
+          (|Record| (|:| |ans| (|SparseUnivariatePolynomial| F))
+                    (|:| |remainder| (|SparseUnivariatePolynomial| F)))))
         (SPROG
          ((|q| (|SparseUnivariatePolynomial| F))
           (|qq| (|SparseUnivariatePolynomial| F)) (#1=#:G141 NIL)

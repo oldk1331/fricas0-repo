@@ -1,5 +1,5 @@
 
-(SDEFUN |PWFFINTB;reducedDiscriminant;UPR;1| ((|f| UP) ($ R))
+(SDEFUN |PWFFINTB;reducedDiscriminant;UPR;1| ((|f| (UP)) ($ (R)))
         (SPROG
          ((|ans| (|Union| R "failed")) (|gg| (R)) (|denom| (R))
           (|cden| (|Record| (|:| |num| (|List| (|Fraction| R))) (|:| |den| R)))
@@ -33,9 +33,10 @@
                 ('T (QCDR |ans|))))))) 
 
 (SDEFUN |PWFFINTB;compLocalBasis|
-        ((|poly| UP) (|prime| R)
-         ($ |Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
-          (|:| |basisInv| (|Matrix| R))))
+        ((|poly| (UP)) (|prime| (R))
+         ($
+          (|Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
+                    (|:| |basisInv| (|Matrix| R)))))
         (SPROG
          ((|sae|
            (|Join| (|MonogenicAlgebra| R UP)
@@ -71,9 +72,11 @@
                                              |sae|))))))) 
 
 (SDEFUN |PWFFINTB;compLocalBasisOverExt|
-        ((|poly0| UP) (|prime0| R) (|irrPoly0| UP) (|k| |NonNegativeInteger|)
-         ($ |Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
-          (|:| |basisInv| (|Matrix| R))))
+        ((|poly0| (UP)) (|prime0| (R)) (|irrPoly0| (UP))
+         (|k| (|NonNegativeInteger|))
+         ($
+          (|Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
+                    (|:| |basisInv| (|Matrix| R)))))
         (SPROG
          ((|bDen| (R)) (|p| (|Union| R #1="failed")) (|bInv| (|Matrix| R))
           (|bas| (|Union| (|Matrix| R) #2="failed")) (|b| (|Matrix| R))
@@ -747,9 +750,10 @@
                       (EXIT (VECTOR |b| |bDen| |bInv|))))))))) 
 
 (SDEFUN |PWFFINTB;padicLocalIntegralBasis|
-        ((|p| UP) (|disc| R) (|redDisc| R) (|prime| R)
-         ($ |Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
-          (|:| |basisInv| (|Matrix| R)) (|:| |discr| R)))
+        ((|p| (UP)) (|disc| (R)) (|redDisc| (R)) (|prime| (R))
+         ($
+          (|Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
+                    (|:| |basisInv| (|Matrix| R)) (|:| |discr| R))))
         (SPROG
          ((|index| (R))
           (|ib|
@@ -1031,9 +1035,10 @@
                                  (QREFELT $ 57))))))))))) 
 
 (SDEFUN |PWFFINTB;localIntegralBasis;RR;5|
-        ((|prime| R)
-         ($ |Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
-          (|:| |basisInv| (|Matrix| R))))
+        ((|prime| (R))
+         ($
+          (|Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
+                    (|:| |basisInv| (|Matrix| R)))))
         (SPROG
          ((|ib|
            (|Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
@@ -1047,7 +1052,7 @@
                      |prime| $))
               (EXIT (VECTOR (QVELT |ib| 0) (QVELT |ib| 1) (QVELT |ib| 2)))))) 
 
-(SDEFUN |PWFFINTB;listSquaredFactors| ((|px| R) ($ |List| R))
+(SDEFUN |PWFFINTB;listSquaredFactors| ((|px| (R)) ($ (|List| R)))
         (SPROG
          ((|ans| (|List| R)) (#1=#:G202 NIL) (|f| NIL)
           (|factored| (|Factored| R)))
@@ -1066,8 +1071,9 @@
               (EXIT |ans|)))) 
 
 (SDEFUN |PWFFINTB;integralBasis;R;7|
-        (($ |Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
-          (|:| |basisInv| (|Matrix| R))))
+        (($
+          (|Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
+                    (|:| |basisInv| (|Matrix| R)))))
         (SPROG
          ((|runningRbinv| #1=(|Matrix| R)) (|runningRb| #1#)
           (|runningRbden| (R)) (|mat| (|Matrix| R)) (|disc| (R)) (|rbden| (R))

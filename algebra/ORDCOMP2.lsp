@@ -1,14 +1,14 @@
 
 (SDEFUN |ORDCOMP2;map;MOcOc;1|
-        ((|f| |Mapping| S R) (|r| |OrderedCompletion| R)
-         ($ |OrderedCompletion| S))
+        ((|f| (|Mapping| S R)) (|r| (|OrderedCompletion| R))
+         ($ (|OrderedCompletion| S)))
         (SPADCALL |f| |r| (SPADCALL (QREFELT $ 9)) (SPADCALL (QREFELT $ 10))
                   (QREFELT $ 13))) 
 
 (SDEFUN |ORDCOMP2;map;MOc3Oc;2|
-        ((|f| |Mapping| S R) (|r| |OrderedCompletion| R)
-         (|p| |OrderedCompletion| S) (|m| |OrderedCompletion| S)
-         ($ |OrderedCompletion| S))
+        ((|f| (|Mapping| S R)) (|r| (|OrderedCompletion| R))
+         (|p| (|OrderedCompletion| S)) (|m| (|OrderedCompletion| S))
+         ($ (|OrderedCompletion| S)))
         (SPROG ((|n| (|SingleInteger|)))
                (COND
                 ((|zero?_SI| (LETT |n| (SPADCALL |r| (QREFELT $ 16))))

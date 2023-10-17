@@ -1,7 +1,7 @@
 
 (SDEFUN |TSEREXPG;stream_taylor|
-        ((|f| UPS) (|x| UPS) (|xn| UPS) (|d| |Mapping| UPS UPS) (|n| |Integer|)
-         ($ |Stream| UPS))
+        ((|f| (UPS)) (|x| (UPS)) (|xn| (UPS)) (|d| (|Mapping| UPS UPS))
+         (|n| (|Integer|)) ($ (|Stream| UPS)))
         (SPROG NIL
                (SEQ
                 (SPADCALL
@@ -38,8 +38,8 @@
                                (QREFELT $ 21))))))))) 
 
 (SDEFUN |TSEREXPG;taylor_via_deriv;UPSLLUPS;2|
-        ((|f| UPS) (|lx| |List| UPS) (|ld| |List| (|Mapping| |Coef| |Coef|))
-         ($ UPS))
+        ((|f| (UPS)) (|lx| (|List| UPS))
+         (|ld| (|List| (|Mapping| |Coef| |Coef|))) ($ (UPS)))
         (SPROG
          ((|ss| (|Stream| UPS)) (|d1| (|Mapping| |Coef| |Coef|)) (|x1| (UPS)))
          (SEQ
@@ -85,7 +85,7 @@
           (RETURN (PROGN (SPADCALL |d1| |y| (QREFELT $ 41)))))) 
 
 (SDEFUN |TSEREXPG;taylor_via_lode;LUPSLUPS;3|
-        ((|la| |List| UTS) (|z| UPS) (|lc| |List| |Coef|) ($ UPS))
+        ((|la| (|List| UTS)) (|z| (UPS)) (|lc| (|List| |Coef|)) ($ (UPS)))
         (SPROG ((|ts| (UTS)))
                (SEQ
                 (COND
@@ -133,7 +133,7 @@
                         (QREFELT $ 48)))))))) 
 
 (SDEFUN |TSEREXPG;applyTaylor;M2UPS;4|
-        ((|g| |Mapping| UTS UTS) (|f| UPS) ($ UPS))
+        ((|g| (|Mapping| UTS UTS)) (|f| (UPS)) ($ (UPS)))
         (SPROG ((|sg| (UTS)) (|c0| (|Coef|)))
                (SEQ
                 (LETT |f| (SPADCALL |f| (|spadConstant| $ 27) (QREFELT $ 28)))
@@ -159,7 +159,7 @@
                                          (QREFELT $ 60))
                                (QREFELT $ 55)))))))))) 
 
-(SDEFUN |TSEREXPG;apply_taylor;UTS2UPS;5| ((|g| UTS) (|f| UPS) ($ UPS))
+(SDEFUN |TSEREXPG;apply_taylor;UTS2UPS;5| ((|g| (UTS)) (|f| (UPS)) ($ (UPS)))
         (SPADCALL (SPADCALL |g| (QREFELT $ 54)) |f| (QREFELT $ 55))) 
 
 (DECLAIM (NOTINLINE |TaylorSeriesExpansionGeneralized;|)) 

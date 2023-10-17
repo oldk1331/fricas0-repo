@@ -1,5 +1,5 @@
 
-(SDEFUN |SMPEXPR;log;2$;1| ((|p| $) ($ $))
+(SDEFUN |SMPEXPR;log;2$;1| ((|p| ($)) ($ ($)))
         (SEQ
          (COND
           ((SPADCALL |p| (QREFELT $ 8))
@@ -13,7 +13,7 @@
              (|error|
               "SUPTRAFUN: log only defined for elements of the coefficient ring"))))))) 
 
-(SDEFUN |SMPEXPR;exp;2$;2| ((|p| $) ($ $))
+(SDEFUN |SMPEXPR;exp;2$;2| ((|p| ($)) ($ ($)))
         (SEQ
          (COND
           ((SPADCALL |p| (QREFELT $ 8))
@@ -27,7 +27,7 @@
              (|error|
               "SUPTRAFUN: exp only defined for elements of the coefficient ring"))))))) 
 
-(SDEFUN |SMPEXPR;sin;2$;3| ((|p| $) ($ $))
+(SDEFUN |SMPEXPR;sin;2$;3| ((|p| ($)) ($ ($)))
         (SEQ
          (COND
           ((SPADCALL |p| (QREFELT $ 8))
@@ -41,7 +41,7 @@
              (|error|
               "SUPTRAFUN: sin only defined for elements of the coefficient ring"))))))) 
 
-(SDEFUN |SMPEXPR;asin;2$;4| ((|p| $) ($ $))
+(SDEFUN |SMPEXPR;asin;2$;4| ((|p| ($)) ($ ($)))
         (SEQ
          (COND
           ((SPADCALL |p| (QREFELT $ 8))
@@ -55,7 +55,7 @@
              (|error|
               "SUPTRAFUN: asin only defined for elements of the coefficient ring"))))))) 
 
-(SDEFUN |SMPEXPR;cos;2$;5| ((|p| $) ($ $))
+(SDEFUN |SMPEXPR;cos;2$;5| ((|p| ($)) ($ ($)))
         (SEQ
          (COND
           ((SPADCALL |p| (QREFELT $ 8))
@@ -69,7 +69,7 @@
              (|error|
               "SUPTRAFUN: cos only defined for elements of the coefficient ring"))))))) 
 
-(SDEFUN |SMPEXPR;acos;2$;6| ((|p| $) ($ $))
+(SDEFUN |SMPEXPR;acos;2$;6| ((|p| ($)) ($ ($)))
         (SEQ
          (COND
           ((SPADCALL |p| (QREFELT $ 8))

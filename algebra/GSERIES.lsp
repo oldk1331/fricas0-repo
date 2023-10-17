@@ -2,24 +2,26 @@
 (PUT '|GSERIES;coerce;Ups$;1| '|SPADreplace| '(XLAM (|upxs|) |upxs|)) 
 
 (SDEFUN |GSERIES;coerce;Ups$;1|
-        ((|upxs| |UnivariatePuiseuxSeries| |Coef| |var| |cen|) ($ $)) |upxs|) 
+        ((|upxs| (|UnivariatePuiseuxSeries| |Coef| |var| |cen|)) ($ ($)))
+        |upxs|) 
 
 (PUT '|GSERIES;puiseux| '|SPADreplace| '(XLAM (|f|) |f|)) 
 
 (SDEFUN |GSERIES;puiseux|
-        ((|f| $) ($ |UnivariatePuiseuxSeries| |Coef| |var| |cen|)) |f|) 
+        ((|f| ($)) ($ (|UnivariatePuiseuxSeries| |Coef| |var| |cen|))) |f|) 
 
-(SDEFUN |GSERIES;differentiate;2$;3| ((|f| $) ($ $))
+(SDEFUN |GSERIES;differentiate;2$;3| ((|f| ($)) ($ ($)))
         (SPROG ((|str2| (|String|)) (|str1| (|String|)))
                (SEQ
                 (LETT |str1| "'differentiate' unavailable on this domain;  ")
                 (LETT |str2| "use 'approximate' first")
                 (EXIT (|error| (STRCONC |str1| |str2|)))))) 
 
-(SDEFUN |GSERIES;differentiate;$V$;4| ((|f| $) (|v| |Variable| |var|) ($ $))
+(SDEFUN |GSERIES;differentiate;$V$;4|
+        ((|f| ($)) (|v| (|Variable| |var|)) ($ ($)))
         (SPADCALL |f| (QREFELT $ 10))) 
 
-(SDEFUN |GSERIES;differentiate;$S$;5| ((|f| $) (|s| |Symbol|) ($ $))
+(SDEFUN |GSERIES;differentiate;$S$;5| ((|f| ($)) (|s| (|Symbol|)) ($ ($)))
         (SPROG
          ((|deriv| ($)) (|dcds| (|Coef|)) (|str2| (|String|))
           (|str1| (|String|)))
@@ -50,16 +52,16 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |x| |s| (QREFELT $ 16)))))) 
 
-(SDEFUN |GSERIES;integrate;2$;6| ((|f| $) ($ $))
+(SDEFUN |GSERIES;integrate;2$;6| ((|f| ($)) ($ ($)))
         (SPROG ((|str2| (|String|)) (|str1| (|String|)))
                (SEQ (LETT |str1| "'integrate' unavailable on this domain;  ")
                     (LETT |str2| "use 'approximate' first")
                     (EXIT (|error| (STRCONC |str1| |str2|)))))) 
 
-(SDEFUN |GSERIES;integrate;$V$;7| ((|f| $) (|v| |Variable| |var|) ($ $))
+(SDEFUN |GSERIES;integrate;$V$;7| ((|f| ($)) (|v| (|Variable| |var|)) ($ ($)))
         (SPADCALL |f| (QREFELT $ 23))) 
 
-(SDEFUN |GSERIES;integrate;$S$;8| ((|f| $) (|s| |Symbol|) ($ $))
+(SDEFUN |GSERIES;integrate;$S$;8| ((|f| ($)) (|s| (|Symbol|)) ($ ($)))
         (SPROG ((|str2| (|String|)) (|str1| (|String|)))
                (SEQ
                 (COND
@@ -86,14 +88,14 @@
           (RETURN (PROGN (SPADCALL |x| |s| (QREFELT $ 29)))))) 
 
 (SDEFUN |GSERIES;integrateWithOneAnswer|
-        ((|f| |Coef|) (|s| |Symbol|) ($ |Coef|))
+        ((|f| (|Coef|)) (|s| (|Symbol|)) ($ (|Coef|)))
         (SPROG ((|res| (|Union| |Coef| (|List| |Coef|))))
                (SEQ (LETT |res| (SPADCALL |f| |s| (QREFELT $ 33)))
                     (EXIT
                      (COND ((QEQCAR |res| 0) (QCDR |res|))
                            ('T (|SPADfirst| (QCDR |res|)))))))) 
 
-(SDEFUN |GSERIES;integrate;$S$;10| ((|f| $) (|s| |Symbol|) ($ $))
+(SDEFUN |GSERIES;integrate;$S$;10| ((|f| ($)) (|s| (|Symbol|)) ($ ($)))
         (SPROG ((|str2| (|String|)) (|str1| (|String|)))
                (SEQ
                 (COND

@@ -1,6 +1,7 @@
 
 (SDEFUN |HOMOL;homologyGroup;2M$;1|
-        ((|AInt| |Matrix| (|Integer|)) (|BInt| |Matrix| (|Integer|)) ($ $))
+        ((|AInt| (|Matrix| (|Integer|))) (|BInt| (|Matrix| (|Integer|)))
+         ($ ($)))
         (SPROG
          ((|kernelFree| (|List| (|Vector| (|Integer|))))
           (|v| (|Vector| (|Integer|))) (#1=#:G132 NIL) (|i| NIL)
@@ -105,9 +106,9 @@
           (EXIT (CONS |res| (NREVERSE |kernelFree|)))))) 
 
 (SDEFUN |HOMOL;homology;LLL$;2|
-        ((|torsionVec| |List| (|List| (|Integer|)))
-         (|torsionOrd| |List| (|Integer|))
-         (|free1| |List| (|List| (|Integer|))) ($ $))
+        ((|torsionVec| (|List| (|List| (|Integer|))))
+         (|torsionOrd| (|List| (|Integer|)))
+         (|free1| (|List| (|List| (|Integer|)))) ($ ($)))
         (SPROG
          ((|kernelFree| (|List| (|Vector| (|Integer|)))) (#1=#:G144 NIL)
           (|v| NIL) (#2=#:G143 NIL)
@@ -150,21 +151,21 @@
                       (EXIT (NREVERSE #2#)))))
           (EXIT (CONS |res| |kernelFree|))))) 
 
-(SDEFUN |HOMOL;homology0;$;3| (($ $)) (SPADCALL NIL NIL NIL (QREFELT $ 41))) 
+(SDEFUN |HOMOL;homology0;$;3| (($ ($))) (SPADCALL NIL NIL NIL (QREFELT $ 41))) 
 
-(SDEFUN |HOMOL;homologyz;$;4| (($ $))
+(SDEFUN |HOMOL;homologyz;$;4| (($ ($)))
         (SPADCALL NIL NIL (LIST (LIST 1)) (QREFELT $ 41))) 
 
-(SDEFUN |HOMOL;homologyzz;$;5| (($ $))
+(SDEFUN |HOMOL;homologyzz;$;5| (($ ($)))
         (SPADCALL NIL NIL (LIST (LIST 1 0) (LIST 0 1)) (QREFELT $ 41))) 
 
-(SDEFUN |HOMOL;homologyc2;$;6| (($ $))
+(SDEFUN |HOMOL;homologyc2;$;6| (($ ($)))
         (SPADCALL (LIST (LIST 1)) (LIST 2) NIL (QREFELT $ 41))) 
 
-(SDEFUN |HOMOL;homologyzc2;$;7| (($ $))
+(SDEFUN |HOMOL;homologyzc2;$;7| (($ ($)))
         (SPADCALL (LIST (LIST 1 0)) (LIST 2) (LIST (LIST 0 1)) (QREFELT $ 41))) 
 
-(SDEFUN |HOMOL;dispGenerators;$Of;8| ((|s| $) ($ |OutputForm|))
+(SDEFUN |HOMOL;dispGenerators;$Of;8| ((|s| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|res| (|OutputForm|)) (|ln2| #1=(|OutputForm|)) (|ln| #1#)
           (#2=#:G155 NIL) (|g| NIL) (|s1| (|Rep|)))
@@ -190,7 +191,7 @@
                      (QREFELT $ 51)))
               (LETT |res| (SPADCALL |res| |ln2| (QREFELT $ 52))) (EXIT |res|)))) 
 
-(SDEFUN |HOMOL;=;2$B;9| ((|a| $) (|b| $) ($ |Boolean|))
+(SDEFUN |HOMOL;=;2$B;9| ((|a| ($)) (|b| ($)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G167 NIL) (|noTorsionB| #2=(|Boolean|)) (#3=#:G169 NIL)
           (|tb| NIL) (|noTorsionA| #2#) (#4=#:G168 NIL) (|ta| NIL)
@@ -233,7 +234,7 @@
                 (EXIT (EQL (LENGTH (QCDR |a|)) (LENGTH (QCDR |b|))))))
           #6# (EXIT #1#)))) 
 
-(SDEFUN |HOMOL;coerce;$Of;10| ((|s| $) ($ |OutputForm|))
+(SDEFUN |HOMOL;coerce;$Of;10| ((|s| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|res| (|OutputForm|)) (|firstTermRead| (|Boolean|))
           (|ln2| (|OutputForm|)) (#1=#:G179 NIL) (|t| NIL)

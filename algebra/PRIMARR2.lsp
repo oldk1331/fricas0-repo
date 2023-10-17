@@ -1,15 +1,16 @@
 
 (SDEFUN |PRIMARR2;map;MPaPa;1|
-        ((|f| |Mapping| B A) (|v| |PrimitiveArray| A) ($ |PrimitiveArray| B))
+        ((|f| (|Mapping| B A)) (|v| (|PrimitiveArray| A))
+         ($ (|PrimitiveArray| B)))
         (SPADCALL |f| |v| (QREFELT $ 12))) 
 
 (SDEFUN |PRIMARR2;scan;MPaBPa;2|
-        ((|f| |Mapping| B A B) (|v| |PrimitiveArray| A) (|b| B)
-         ($ |PrimitiveArray| B))
+        ((|f| (|Mapping| B A B)) (|v| (|PrimitiveArray| A)) (|b| (B))
+         ($ (|PrimitiveArray| B)))
         (SPADCALL |f| |v| |b| (QREFELT $ 15))) 
 
 (SDEFUN |PRIMARR2;reduce;MPa2B;3|
-        ((|f| |Mapping| B A B) (|v| |PrimitiveArray| A) (|b| B) ($ B))
+        ((|f| (|Mapping| B A B)) (|v| (|PrimitiveArray| A)) (|b| (B)) ($ (B)))
         (SPADCALL |f| |v| |b| (QREFELT $ 17))) 
 
 (DECLAIM (NOTINLINE |PrimitiveArrayFunctions2;|)) 

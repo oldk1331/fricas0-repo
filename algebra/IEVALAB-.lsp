@@ -1,5 +1,5 @@
 
-(SDEFUN |IEVALAB-;eval;SABS;1| ((|f| S) (|x| A) (|v| B) ($ S))
+(SDEFUN |IEVALAB-;eval;SABS;1| ((|f| (S)) (|x| (A)) (|v| (B)) ($ (S)))
         (SPADCALL |f| (LIST |x|) (LIST |v|) (QREFELT $ 11))) 
 
 (DECLAIM (NOTINLINE |InnerEvalable&;|)) 

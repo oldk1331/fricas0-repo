@@ -1,6 +1,6 @@
 
 (SDEFUN |JFRICAS;setFormatsAux!|
-        ((|lf| |List| (|FormatterCategory|)) ($ |Void|))
+        ((|lf| (|List| (|FormatterCategory|))) ($ (|Void|)))
         (SPROG
          ((#1=#:G114 NIL) (|f| NIL) (#2=#:G113 NIL) (|e| #3=(|OutputBox|))
           (|b| #3#) (|n| (|String|)) (#4=#:G112 NIL))
@@ -94,7 +94,7 @@
              (|spadConstant| $ 13)
              (SPADCALL (|spadConstant| $ 13) (QREFELT $ 16)) (QREFELT $ 18)))))) 
 
-(SDEFUN |JFRICAS;setFormats!;LV;2| ((|lt| |List| (|Type|)) ($ |Void|))
+(SDEFUN |JFRICAS;setFormats!;LV;2| ((|lt| (|List| (|Type|))) ($ (|Void|)))
         (SPROG ((#1=#:G118 NIL) (|t| NIL))
                (SEQ
                 (SEQ (LETT |t| NIL) (LETT #1# |lt|) G190
@@ -110,7 +110,7 @@
                      (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                 (EXIT (|JFRICAS;setFormatsAux!| |lt| $))))) 
 
-(SDEFUN |JFRICAS;setFormat!;TV;3| ((|t| |Type|) ($ |Void|))
+(SDEFUN |JFRICAS;setFormat!;TV;3| ((|t| (|Type|)) ($ (|Void|)))
         (COND
          ((|HasCategory| |t| '(|FormatterCategory|))
           (SPADCALL (LIST |t|) (QREFELT $ 23)))

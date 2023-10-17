@@ -1,6 +1,7 @@
 
 (SDEFUN |PREASSOC;firstUncouplingMatrix;LPiU;1|
-        ((|op| L) (|m| |PositiveInteger|) ($ |Union| (|Matrix| R) "failed"))
+        ((|op| (L)) (|m| (|PositiveInteger|))
+         ($ (|Union| (|Matrix| R) "failed")))
         (SPROG ((|n| (|NonNegativeInteger|)))
                (SEQ (LETT |n| (SPADCALL |op| (QREFELT $ 11)))
                     (COND
@@ -12,7 +13,7 @@
                     (EXIT (CONS 1 "failed"))))) 
 
 (SDEFUN |PREASSOC;makeMonic|
-        ((|op| L) ($ |Union| (|PrimitiveArray| R) "failed"))
+        ((|op| (L)) ($ (|Union| (|PrimitiveArray| R) "failed")))
         (SPROG
          ((#1=#:G123 NIL) (|u| (|Union| R "failed")) (#2=#:G124 NIL)
           (#3=#:G115 NIL) (|i| NIL) (|a| (|PrimitiveArray| R))
@@ -45,7 +46,7 @@
                 (EXIT (CONS 0 |a|))))
           #4# (EXIT #1#)))) 
 
-(SDEFUN |PREASSOC;A32| ((|op| L) ($ |Union| (|Matrix| R) "failed"))
+(SDEFUN |PREASSOC;A32| ((|op| (L)) ($ (|Union| (|Matrix| R) "failed")))
         (SPROG
          ((|a| (|PrimitiveArray| R))
           (|u| (|Union| (|PrimitiveArray| R) "failed")))
@@ -84,7 +85,7 @@
                                                (QREFELT $ 29))))
                                    (QREFELT $ 32))))))))))) 
 
-(SDEFUN |PREASSOC;A42| ((|op| L) ($ |Union| (|Matrix| R) "failed"))
+(SDEFUN |PREASSOC;A42| ((|op| (L)) ($ (|Union| (|Matrix| R) "failed")))
         (SPROG
          ((|i| NIL) (|a''| #1=(|PrimitiveArray| R)) (|a'| #1#)
           (|a| (|PrimitiveArray| R))
@@ -161,8 +162,8 @@
                                    (QREFELT $ 32))))))))))) 
 
 (SDEFUN |PREASSOC;A425|
-        ((|a| |PrimitiveArray| R) (|a'| |PrimitiveArray| R)
-         (|a''| |PrimitiveArray| R) ($ |List| R))
+        ((|a| (|PrimitiveArray| R)) (|a'| (|PrimitiveArray| R))
+         (|a''| (|PrimitiveArray| R)) ($ (|List| R)))
         (LIST
          (SPADCALL
           (SPADCALL
@@ -234,8 +235,8 @@
          (SPADCALL 5 (QAREF1 |a| 3) (QREFELT $ 29)))) 
 
 (SDEFUN |PREASSOC;A426|
-        ((|a| |PrimitiveArray| R) (|a'| |PrimitiveArray| R)
-         (|a''| |PrimitiveArray| R) ($ |List| R))
+        ((|a| (|PrimitiveArray| R)) (|a'| (|PrimitiveArray| R))
+         (|a''| (|PrimitiveArray| R)) ($ (|List| R)))
         (LIST
          (SPADCALL
           (SPADCALL

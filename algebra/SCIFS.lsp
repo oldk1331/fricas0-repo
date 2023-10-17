@@ -2,22 +2,22 @@
 (PUT '|SCIFS;indexes;$L;1| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |SCIFS;indexes;$L;1|
-        ((|me| $) ($ |List| (|List| (|NonNegativeInteger|)))) (QCAR |me|)) 
+        ((|me| ($)) ($ (|List| (|List| (|NonNegativeInteger|))))) (QCAR |me|)) 
 
 (PUT '|SCIFS;pointList;$L;2| '|SPADreplace| 'QCDR) 
 
-(SDEFUN |SCIFS;pointList;$L;2| ((|me| $) ($ |List| PT)) (QCDR |me|)) 
+(SDEFUN |SCIFS;pointList;$L;2| ((|me| ($)) ($ (|List| PT))) (QCDR |me|)) 
 
 (SDEFUN |SCIFS;meshIndex|
-        ((|i| |Integer|) (|j| |Integer|) (|c| |Integer|)
-         ($ |NonNegativeInteger|))
+        ((|i| (|Integer|)) (|j| (|Integer|)) (|c| (|Integer|))
+         ($ (|NonNegativeInteger|)))
         (SPROG ((#1=#:G114 NIL))
                (PROG1 (LETT #1# (+ (* |j| |c|) |i|))
                  (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
                                    '(|Integer|) #1#)))) 
 
 (SDEFUN |SCIFS;smesh;LB$;4|
-        ((|ptin| |List| (|List| PT)) (|clos| |Boolean|) ($ $))
+        ((|ptin| (|List| (|List| PT))) (|clos| (|Boolean|)) ($ ($)))
         (SPROG
          ((|j| #1=(|NonNegativeInteger|))
           (|in2| (|List| (|List| (|NonNegativeInteger|))))
@@ -82,7 +82,7 @@
                    (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
               (EXIT (CONS |in2| |pt2|))))) 
 
-(SDEFUN |SCIFS;singleFace;L$;5| ((|ptin| |List| PT) ($ $))
+(SDEFUN |SCIFS;singleFace;L$;5| ((|ptin| (|List| PT)) ($ ($)))
         (SPROG
          ((|in2| (|List| (|List| (|NonNegativeInteger|)))) (#1=#:G130 NIL)
           (|i| NIL) (#2=#:G129 NIL) (|pt2| (|List| PT)))
@@ -98,7 +98,7 @@
                            (EXIT (NREVERSE #2#))))))
               (EXIT (CONS |in2| |pt2|))))) 
 
-(SDEFUN |SCIFS;subdivide;2$;6| ((|me| $) ($ $))
+(SDEFUN |SCIFS;subdivide;2$;6| ((|me| ($)) ($ ($)))
         (SPROG
          ((|indexSize| (|NonNegativeInteger|))
           (|in2| (|List| (|List| (|NonNegativeInteger|))))
@@ -185,7 +185,7 @@
               (EXIT (CONS |in2| |pt2|))))) 
 
 (SDEFUN |SCIFS;sierpinskiDivide;$Nni$;7|
-        ((|me| $) (|level| |NonNegativeInteger|) ($ $))
+        ((|me| ($)) (|level| (|NonNegativeInteger|)) ($ ($)))
         (SPROG
          ((#1=#:G159 NIL) (#2=#:G162 NIL) (|indexSize| (|NonNegativeInteger|))
           (|in2| (|List| (|List| (|NonNegativeInteger|))))
@@ -301,12 +301,13 @@
           #10# (EXIT #2#)))) 
 
 (SDEFUN |SCIFS;listBranches|
-        ((|functions| |List|
-          (|Record| (|:| |source| (|Mapping| PT (|DoubleFloat|)))
-                    (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
-                    (|:| |knots| (|List| (|DoubleFloat|)))
-                    (|:| |points| (|List| PT))))
-         ($ |List| (|List| PT)))
+        ((|functions|
+          (|List|
+           (|Record| (|:| |source| (|Mapping| PT (|DoubleFloat|)))
+                     (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
+                     (|:| |knots| (|List| (|DoubleFloat|)))
+                     (|:| |points| (|List| PT)))))
+         ($ (|List| (|List| PT))))
         (SPROG ((|outList| (|List| (|List| PT))) (#1=#:G172 NIL) (|curve| NIL))
                (SEQ (LETT |outList| NIL)
                     (SEQ (LETT |curve| NIL) (LETT #1# |functions|) G190
@@ -320,7 +321,7 @@
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT |outList|)))) 
 
-(SDEFUN |SCIFS;orthog| ((|x| PT) (|y| PT) ($ PT))
+(SDEFUN |SCIFS;orthog| ((|x| (PT)) (|y| (PT)) ($ (PT)))
         (SPROG ((|a| (|DoubleFloat|)))
                (SEQ
                 (COND
@@ -347,8 +348,8 @@
                                    (QREFELT $ 22))))))) 
 
 (SDEFUN |SCIFS;poTriad|
-        ((|pl| PT) (|po| PT) (|pr| PT)
-         ($ |Record| (|:| |tang| PT) (|:| |norm| PT) (|:| |bin| PT)))
+        ((|pl| (PT)) (|po| (PT)) (|pr| (PT))
+         ($ (|Record| (|:| |tang| PT) (|:| |norm| PT) (|:| |bin| PT))))
         (SPROG ((|n| (PT)) (|pol| (PT)) (|t| (PT)))
                (SEQ
                 (LETT |t|
@@ -360,8 +361,9 @@
                 (EXIT (VECTOR |t| |n| (SPADCALL |t| |n| (QREFELT $ 41))))))) 
 
 (SDEFUN |SCIFS;curveTriads|
-        ((|l| |List| PT)
-         ($ |List| (|Record| (|:| |tang| PT) (|:| |norm| PT) (|:| |bin| PT))))
+        ((|l| (|List| PT))
+         ($
+          (|List| (|Record| (|:| |tang| PT) (|:| |norm| PT) (|:| |bin| PT)))))
         (SPROG
          ((|endtriad|
            #1=(|Record| (|:| |tang| PT) (|:| |norm| PT) (|:| |bin| PT)))
@@ -458,7 +460,7 @@
                                            (QREFELT $ 46))))))))))))))) 
 
 (SDEFUN |SCIFS;cosSinInfo|
-        ((|n| |Integer|) ($ |List| (|List| (|DoubleFloat|))))
+        ((|n| (|Integer|)) ($ (|List| (|List| (|DoubleFloat|)))))
         (SPROG
          ((|ans| (|List| (|List| (|DoubleFloat|)))) (|angle| (|DoubleFloat|))
           (#1=#:G197 NIL) (|i| NIL) (|theta| (|DoubleFloat|)))
@@ -480,8 +482,8 @@
               (EXIT |ans|)))) 
 
 (SDEFUN |SCIFS;loopPoints|
-        ((|ctr| PT) (|pNorm| PT) (|bNorm| PT) (|rad| |DoubleFloat|)
-         (|cosSin| |List| (|List| (|DoubleFloat|))) ($ |List| PT))
+        ((|ctr| (PT)) (|pNorm| (PT)) (|bNorm| (PT)) (|rad| (|DoubleFloat|))
+         (|cosSin| (|List| (|List| (|DoubleFloat|)))) ($ (|List| PT)))
         (SPROG
          ((|pt| (PT)) (|ans| (|List| PT)) (|sin| (|DoubleFloat|))
           (|cos| (|DoubleFloat|)) (|cossin| (|List| (|DoubleFloat|))))
@@ -511,8 +513,8 @@
               (EXIT (CONS |pt| (SPADCALL |ans| |pt| (QREFELT $ 12))))))) 
 
 (SDEFUN |SCIFS;curveLoops;LDfIL;14|
-        ((|pts1| |List| PT) (|r| |DoubleFloat|) (|nn| |Integer|)
-         ($ |List| (|List| PT)))
+        ((|pts1| (|List| PT)) (|r| (|DoubleFloat|)) (|nn| (|Integer|))
+         ($ (|List| (|List| PT))))
         (SPROG
          ((|loops| (|List| (|List| PT))) (|b| (PT)) (|n| (PT)) (#1=#:G207 NIL)
           (|pt| NIL) (#2=#:G208 NIL) (|triad| NIL)
@@ -540,12 +542,13 @@
               (EXIT (NREVERSE |loops|))))) 
 
 (SDEFUN |SCIFS;stube;LDfI$;15|
-        ((|functions| |List|
-          (|Record| (|:| |source| (|Mapping| PT (|DoubleFloat|)))
-                    (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
-                    (|:| |knots| (|List| (|DoubleFloat|)))
-                    (|:| |points| (|List| PT))))
-         (|r| |DoubleFloat|) (|n| |Integer|) ($ $))
+        ((|functions|
+          (|List|
+           (|Record| (|:| |source| (|Mapping| PT (|DoubleFloat|)))
+                     (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
+                     (|:| |knots| (|List| (|DoubleFloat|)))
+                     (|:| |points| (|List| PT)))))
+         (|r| (|DoubleFloat|)) (|n| (|Integer|)) ($ ($)))
         (SPROG
          ((|loops| (|List| (|List| PT))) (#1=#:G216 NIL) (|bran| NIL)
           (|brans| (|List| (|List| PT))))
@@ -569,7 +572,7 @@
                            (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                       (EXIT (SPADCALL |loops| 'T (QREFELT $ 17))))))))) 
 
-(SDEFUN |SCIFS;coerce;$Of;16| ((|me| $) ($ |OutputForm|))
+(SDEFUN |SCIFS;coerce;$Of;16| ((|me| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|res| (|List| (|OutputForm|))) (|r| (|OutputForm|)) (#1=#:G227 NIL)
           (|pIx| NIL) (#2=#:G226 NIL) (|faceIx| NIL) (#3=#:G225 NIL) (|p| NIL))

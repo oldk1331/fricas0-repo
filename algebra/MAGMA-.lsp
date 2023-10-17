@@ -1,8 +1,9 @@
 
-(SDEFUN |MAGMA-;^;SPiS;1| ((|x| S) (|n| |PositiveInteger|) ($ S))
+(SDEFUN |MAGMA-;^;SPiS;1| ((|x| (S)) (|n| (|PositiveInteger|)) ($ (S)))
         (SPADCALL |x| |n| (QREFELT $ 9))) 
 
-(SDEFUN |MAGMA-;rightPower;SPiS;2| ((|a| S) (|n| |PositiveInteger|) ($ S))
+(SDEFUN |MAGMA-;rightPower;SPiS;2|
+        ((|a| (S)) (|n| (|PositiveInteger|)) ($ (S)))
         (SPROG ((|res| (S)) (#1=#:G131 NIL) (|i| NIL))
                (SEQ
                 (COND ((EQL |n| 1) |a|)
@@ -18,7 +19,7 @@
                                  (EXIT NIL))
                             (EXIT |res|))))))) 
 
-(SDEFUN |MAGMA-;leftPower;SPiS;3| ((|a| S) (|n| |PositiveInteger|) ($ S))
+(SDEFUN |MAGMA-;leftPower;SPiS;3| ((|a| (S)) (|n| (|PositiveInteger|)) ($ (S)))
         (SPROG ((|res| (S)) (#1=#:G135 NIL) (|i| NIL))
                (SEQ
                 (COND ((EQL |n| 1) |a|)

@@ -1,5 +1,6 @@
 
-(SDEFUN |COMPLEX;writeOMComplex| ((|dev| |OpenMathDevice|) (|x| $) ($ |Void|))
+(SDEFUN |COMPLEX;writeOMComplex|
+        ((|dev| (|OpenMathDevice|)) (|x| ($)) ($ (|Void|)))
         (SEQ (SPADCALL |dev| (QREFELT $ 10))
              (SPADCALL |dev| "complex1" "complex_cartesian" (QREFELT $ 12))
              (SPADCALL |dev| (SPADCALL |x| (QREFELT $ 13)) (QREFELT $ 14))
@@ -7,67 +8,69 @@
              (EXIT (SPADCALL |dev| (QREFELT $ 16))))) 
 
 (SDEFUN |COMPLEX;OMwrite;Omd$BV;2|
-        ((|dev| |OpenMathDevice|) (|x| $) (|wholeObj| |Boolean|) ($ |Void|))
+        ((|dev| (|OpenMathDevice|)) (|x| ($)) (|wholeObj| (|Boolean|))
+         ($ (|Void|)))
         (SEQ (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 17))))
              (|COMPLEX;writeOMComplex| |dev| |x| $)
              (EXIT (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 18))))))) 
 
-(SDEFUN |COMPLEX;Zero;$;3| (($ $))
+(SDEFUN |COMPLEX;Zero;$;3| (($ ($)))
         (CONS (|spadConstant| $ 22) (|spadConstant| $ 22))) 
 
-(SDEFUN |COMPLEX;One;$;4| (($ $))
+(SDEFUN |COMPLEX;One;$;4| (($ ($)))
         (CONS (|spadConstant| $ 24) (|spadConstant| $ 22))) 
 
-(SDEFUN |COMPLEX;zero?;$B;5| ((|x| $) ($ |Boolean|))
+(SDEFUN |COMPLEX;zero?;$B;5| ((|x| ($)) ($ (|Boolean|)))
         (COND
          ((SPADCALL (QCAR |x|) (QREFELT $ 25))
           (SPADCALL (QCDR |x|) (QREFELT $ 25)))
          ('T NIL))) 
 
-(SDEFUN |COMPLEX;one?;$B;6| ((|x| $) ($ |Boolean|))
+(SDEFUN |COMPLEX;one?;$B;6| ((|x| ($)) ($ (|Boolean|)))
         (COND
          ((SPADCALL (QCAR |x|) (|spadConstant| $ 24) (QREFELT $ 27))
           (SPADCALL (QCDR |x|) (QREFELT $ 25)))
          ('T NIL))) 
 
-(SDEFUN |COMPLEX;coerce;R$;7| ((|r| R) ($ $)) (CONS |r| (|spadConstant| $ 22))) 
+(SDEFUN |COMPLEX;coerce;R$;7| ((|r| (R)) ($ ($)))
+        (CONS |r| (|spadConstant| $ 22))) 
 
 (PUT '|COMPLEX;complex;2R$;8| '|SPADreplace| 'CONS) 
 
-(SDEFUN |COMPLEX;complex;2R$;8| ((|r| R) (|i| R) ($ $)) (CONS |r| |i|)) 
+(SDEFUN |COMPLEX;complex;2R$;8| ((|r| (R)) (|i| (R)) ($ ($))) (CONS |r| |i|)) 
 
 (PUT '|COMPLEX;real;$R;9| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |COMPLEX;real;$R;9| ((|x| $) ($ R)) (QCAR |x|)) 
+(SDEFUN |COMPLEX;real;$R;9| ((|x| ($)) ($ (R))) (QCAR |x|)) 
 
 (PUT '|COMPLEX;imag;$R;10| '|SPADreplace| 'QCDR) 
 
-(SDEFUN |COMPLEX;imag;$R;10| ((|x| $) ($ R)) (QCDR |x|)) 
+(SDEFUN |COMPLEX;imag;$R;10| ((|x| ($)) ($ (R))) (QCDR |x|)) 
 
-(SDEFUN |COMPLEX;+;3$;11| ((|x| $) (|y| $) ($ $))
+(SDEFUN |COMPLEX;+;3$;11| ((|x| ($)) (|y| ($)) ($ ($)))
         (CONS (|add_DF| (QCAR |x|) (QCAR |y|))
               (|add_DF| (QCDR |x|) (QCDR |y|)))) 
 
-(SDEFUN |COMPLEX;-;3$;12| ((|x| $) (|y| $) ($ $))
+(SDEFUN |COMPLEX;-;3$;12| ((|x| ($)) (|y| ($)) ($ ($)))
         (CONS (|sub_DF| (QCAR |x|) (QCAR |y|))
               (|sub_DF| (QCDR |x|) (QCDR |y|)))) 
 
-(SDEFUN |COMPLEX;*;3$;13| ((|x| $) (|y| $) ($ $))
+(SDEFUN |COMPLEX;*;3$;13| ((|x| ($)) (|y| ($)) ($ ($)))
         (CONS
          (|sub_DF| (|mul_DF| (QCAR |x|) (QCAR |y|))
                    (|mul_DF| (QCDR |x|) (QCDR |y|)))
          (|add_DF| (|mul_DF| (QCDR |x|) (QCAR |y|))
                    (|mul_DF| (QCDR |y|) (QCAR |x|))))) 
 
-(SDEFUN |COMPLEX;+;3$;14| ((|x| $) (|y| $) ($ $))
+(SDEFUN |COMPLEX;+;3$;14| ((|x| ($)) (|y| ($)) ($ ($)))
         (CONS (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 34))
               (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 34)))) 
 
-(SDEFUN |COMPLEX;-;3$;15| ((|x| $) (|y| $) ($ $))
+(SDEFUN |COMPLEX;-;3$;15| ((|x| ($)) (|y| ($)) ($ ($)))
         (CONS (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 35))
               (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 35)))) 
 
-(SDEFUN |COMPLEX;*;3$;16| ((|x| $) (|y| $) ($ $))
+(SDEFUN |COMPLEX;*;3$;16| ((|x| ($)) (|y| ($)) ($ ($)))
         (CONS
          (SPADCALL (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 36))
                    (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 36))
@@ -76,7 +79,7 @@
                    (SPADCALL (QCDR |y|) (QCAR |x|) (QREFELT $ 36))
                    (QREFELT $ 34)))) 
 
-(SDEFUN |COMPLEX;exquo;2$U;17| ((|x| $) (|y| $) ($ |Union| $ "failed"))
+(SDEFUN |COMPLEX;exquo;2$U;17| ((|x| ($)) (|y| ($)) ($ (|Union| $ "failed")))
         (COND
          ((SPADCALL (QCDR |y|) (QREFELT $ 25))
           (SPADCALL |x| (QCAR |y|) (QREFELT $ 38)))

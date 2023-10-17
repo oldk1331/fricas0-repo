@@ -1,6 +1,6 @@
 
 (SDEFUN |PFRPAC;partialFraction;FSA;1|
-        ((|rf| |Fraction| (|Polynomial| R)) (|v| |Symbol|) ($ |Any|))
+        ((|rf| (|Fraction| (|Polynomial| R))) (|v| (|Symbol|)) ($ (|Any|)))
         (SPROG ((|df| (|Factored| (|Polynomial| R))))
                (SEQ
                 (LETT |df|
@@ -10,15 +10,15 @@
                            (QREFELT $ 16)))))) 
 
 (SDEFUN |PFRPAC;makeSup|
-        ((|p| |Polynomial| R) (|v| |Symbol|)
-         ($ |SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R))))
+        ((|p| (|Polynomial| R)) (|v| (|Symbol|))
+         ($ (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R)))))
         (SPROG ((|up| (|SparseUnivariatePolynomial| (|Polynomial| R))))
                (SEQ (LETT |up| (SPADCALL |p| |v| (QREFELT $ 19)))
                     (EXIT (SPADCALL (ELT $ 20) |up| (QREFELT $ 25)))))) 
 
 (SDEFUN |PFRPAC;partialFraction;PFSA;3|
-        ((|p| |Polynomial| R) (|facq| |Factored| (|Polynomial| R))
-         (|v| |Symbol|) ($ |Any|))
+        ((|p| (|Polynomial| R)) (|facq| (|Factored| (|Polynomial| R)))
+         (|v| (|Symbol|)) ($ (|Any|)))
         (SPROG
          ((|pfup| (|PartialFraction| |up|)) (|nflist| (|fup|)) (#1=#:G109 NIL)
           (#2=#:G108 (|fup|)) (#3=#:G110 (|fup|)) (#4=#:G113 NIL) (|u| NIL)

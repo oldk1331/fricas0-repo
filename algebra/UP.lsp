@@ -1,8 +1,8 @@
 
-(SDEFUN |UP;coerce;$Of;1| ((|p| $) ($ |OutputForm|))
+(SDEFUN |UP;coerce;$Of;1| ((|p| ($)) ($ (|OutputForm|)))
         (SPADCALL |p| (SPADCALL (QREFELT $ 6) (QREFELT $ 11)) (QREFELT $ 12))) 
 
-(SDEFUN |UP;coerce;V$;2| ((|v| |Variable| |x|) ($ $))
+(SDEFUN |UP;coerce;V$;2| ((|v| (|Variable| |x|)) ($ ($)))
         (SPADCALL (|spadConstant| $ 15) 1 (QREFELT $ 17))) 
 
 (DECLAIM (NOTINLINE |UnivariatePolynomial;|)) 

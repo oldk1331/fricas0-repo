@@ -1,5 +1,5 @@
 
-(SDEFUN |DJBP;lookup| ((|jv| JB) ($ |NonNegativeInteger|))
+(SDEFUN |DJBP;lookup| ((|jv| (JB)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((#1=#:G138 NIL) (#2=#:G139 NIL) (|i| NIL) (#3=#:G140 NIL)
           (|ljv| NIL))
@@ -23,7 +23,7 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |DJBP;monomial;$JBNni$;2|
-        ((|p| $) (|jv| JB) (|e| |NonNegativeInteger|) ($ $))
+        ((|p| ($)) (|jv| (JB)) (|e| (|NonNegativeInteger|)) ($ ($)))
         (SPROG
          ((|v| (|Vector| (|NonNegativeInteger|))) (|j| (|NonNegativeInteger|)))
          (SEQ (LETT |j| (|DJBP;lookup| |jv| $))
@@ -36,27 +36,27 @@
                                    (QREFELT $ 25))
                          (QREFELT $ 26)))))) 
 
-(SDEFUN |DJBP;coerce;JB$;3| ((|jv| JB) ($ $))
+(SDEFUN |DJBP;coerce;JB$;3| ((|jv| (JB)) ($ ($)))
         (SPADCALL (|spadConstant| $ 22) |jv| 1 (QREFELT $ 27))) 
 
 (PUT '|DJBP;zero?;$B;4| '|SPADreplace| 'NULL) 
 
-(SDEFUN |DJBP;zero?;$B;4| ((|p| $) ($ |Boolean|)) (NULL |p|)) 
+(SDEFUN |DJBP;zero?;$B;4| ((|p| ($)) ($ (|Boolean|))) (NULL |p|)) 
 
-(SDEFUN |DJBP;ground?;$B;5| ((|p| $) ($ |Boolean|))
+(SDEFUN |DJBP;ground?;$B;5| ((|p| ($)) ($ (|Boolean|)))
         (QEQCAR (SPADCALL |p| (QREFELT $ 31)) 1)) 
 
-(SDEFUN |DJBP;monomial?;$B;6| ((|p| $) ($ |Boolean|))
+(SDEFUN |DJBP;monomial?;$B;6| ((|p| ($)) ($ (|Boolean|)))
         (SPROG ((|l| (|Rep|)))
                (SEQ (LETT |l| |p|)
                     (EXIT (COND ((NULL |l|) 'T) ('T (NULL (CDR |l|)))))))) 
 
-(SDEFUN |DJBP;numberOfMonomials;$Nni;7| ((|p| $) ($ |NonNegativeInteger|))
+(SDEFUN |DJBP;numberOfMonomials;$Nni;7| ((|p| ($)) ($ (|NonNegativeInteger|)))
         (SPROG ((|l| (|Rep|)))
                (SEQ (LETT |l| |p|)
                     (EXIT (COND ((NULL |l|) 1) ('T (LENGTH |l|))))))) 
 
-(SDEFUN |DJBP;mainVariable;$U;8| ((|p| $) ($ |Union| JB "failed"))
+(SDEFUN |DJBP;mainVariable;$U;8| ((|p| ($)) ($ (|Union| JB "failed")))
         (SPROG
          ((#1=#:G162 NIL) (#2=#:G163 NIL) (|i| NIL) (#3=#:G164 NIL) (|jv| NIL)
           (|tdeg| (E)))
@@ -85,7 +85,7 @@
                        (EXIT (CONS 1 "failed"))))))
           #4# (EXIT #1#)))) 
 
-(SDEFUN |DJBP;variables;$L;9| ((|p| $) ($ |List| JB))
+(SDEFUN |DJBP;variables;$L;9| ((|p| ($)) ($ (|List| JB)))
         (SPROG
          ((#1=#:G177 NIL) (|jv| NIL) (#2=#:G178 NIL) (|i| NIL) (#3=#:G176 NIL)
           (#4=#:G175 NIL) (|tdeg| (E))
@@ -129,7 +129,7 @@
                      (LETT #1# (PROG1 (CDR #1#) (LETT |i| (|inc_SI| |i|))))
                      (GO G190) G191 (EXIT (NREVERSE #3#)))))))) 
 
-(SDEFUN |DJBP;coerce;$Of;10| ((|p| $) ($ |OutputForm|))
+(SDEFUN |DJBP;coerce;$Of;10| ((|p| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|lt| #1=(|List| (|OutputForm|))) (|l| #1#) (#2=#:G195 NIL) (|i| NIL)
           (#3=#:G194 NIL) (|t| NIL))
@@ -198,7 +198,7 @@
                   (COND ((EQL (LENGTH |lt|) 1) (|SPADfirst| |lt|))
                         (#4# (SPADCALL (ELT $ 56) |lt| (QREFELT $ 55))))))))))) 
 
-(SDEFUN |DJBP;convert;Jbp$;11| ((|p| |JetBundlePolynomial| R JB) ($ $))
+(SDEFUN |DJBP;convert;Jbp$;11| ((|p| (|JetBundlePolynomial| R JB)) ($ ($)))
         (SPROG
          ((|up| (|SparseUnivariatePolynomial| (|JetBundlePolynomial| R JB)))
           (|res| ($)) (|x| (JB)) (|cc| (R)) (|xx| (|Union| JB "failed")))
@@ -233,7 +233,7 @@
                            NIL (GO G190) G191 (EXIT NIL))
                       (EXIT |res|)))))))) 
 
-(SDEFUN |DJBP;convert;$Jbp;12| ((|p| $) ($ |JetBundlePolynomial| R JB))
+(SDEFUN |DJBP;convert;$Jbp;12| ((|p| ($)) ($ (|JetBundlePolynomial| R JB)))
         (SPROG
          ((|up| (|SparseUnivariatePolynomial| $))
           (|res| (|JetBundlePolynomial| R JB)) (|x| (JB)) (|cc| (R))
@@ -266,19 +266,19 @@
                            NIL (GO G190) G191 (EXIT NIL))
                       (EXIT |res|)))))))) 
 
-(SDEFUN |DJBP;const;$R;13| ((|p| $) ($ R))
+(SDEFUN |DJBP;const;$R;13| ((|p| ($)) ($ (R)))
         (COND ((NULL (SPADCALL |p| (QREFELT $ 32))) (|error| "not a constant"))
               ('T (SPADCALL |p| (QREFELT $ 84))))) 
 
-(SDEFUN |DJBP;retractIfCan;$U;14| ((|p| $) ($ |Union| R "failed"))
+(SDEFUN |DJBP;retractIfCan;$U;14| ((|p| ($)) ($ (|Union| R "failed")))
         (COND
          ((SPADCALL |p| (QREFELT $ 32)) (CONS 0 (SPADCALL |p| (QREFELT $ 84))))
          ('T (CONS 1 "failed")))) 
 
-(SDEFUN |DJBP;retract;$R;15| ((|p| $) ($ R)) (SPADCALL |p| (QREFELT $ 85))) 
+(SDEFUN |DJBP;retract;$R;15| ((|p| ($)) ($ (R))) (SPADCALL |p| (QREFELT $ 85))) 
 
 (SDEFUN |DJBP;univariate;$JBSup;16|
-        ((|p| $) (|jv| JB) ($ |SparseUnivariatePolynomial| $))
+        ((|p| ($)) (|jv| (JB)) ($ (|SparseUnivariatePolynomial| $)))
         (SPROG
          ((|nexp| (E)) (|deg| (|NonNegativeInteger|)) (#1=#:G234 NIL)
           (#2=#:G236 NIL) (|i| NIL) (#3=#:G235 NIL)
@@ -325,7 +325,8 @@
                                   (QREFELT $ 74))
                         (QREFELT $ 90))))))))) 
 
-(SDEFUN |DJBP;univariate;$Sup;17| ((|p| $) ($ |SparseUnivariatePolynomial| R))
+(SDEFUN |DJBP;univariate;$Sup;17|
+        ((|p| ($)) ($ (|SparseUnivariatePolynomial| R)))
         (SPROG
          ((|up| (|SparseUnivariatePolynomial| $))
           (|res| (|SparseUnivariatePolynomial| R))
@@ -357,7 +358,7 @@
                       (EXIT |res|)))))))) 
 
 (SDEFUN |DJBP;multivariate;SupJB$;18|
-        ((|p1| |SparseUnivariatePolynomial| $) (|jv| JB) ($ $))
+        ((|p1| (|SparseUnivariatePolynomial| $)) (|jv| (JB)) ($ ($)))
         (COND ((SPADCALL |p1| (QREFELT $ 77)) (|spadConstant| $ 38))
               ((ZEROP (SPADCALL |p1| (QREFELT $ 80)))
                (SPADCALL |p1| (QREFELT $ 78)))
@@ -372,7 +373,7 @@
                 (QREFELT $ 70))))) 
 
 (SDEFUN |DJBP;multivariate;SupJB$;19|
-        ((|p| |SparseUnivariatePolynomial| R) (|jv| JB) ($ $))
+        ((|p| (|SparseUnivariatePolynomial| R)) (|jv| (JB)) ($ ($)))
         (COND ((SPADCALL |p| (QREFELT $ 98)) (|spadConstant| $ 38))
               ('T
                (SPADCALL
@@ -384,7 +385,7 @@
                 (SPADCALL (SPADCALL |p| (QREFELT $ 102)) |jv| (QREFELT $ 103))
                 (QREFELT $ 70))))) 
 
-(SDEFUN |DJBP;totalDegree;$Nni;20| ((|p| $) ($ |NonNegativeInteger|))
+(SDEFUN |DJBP;totalDegree;$Nni;20| ((|p| ($)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((#1=#:G252 NIL) (#2=#:G251 #3=(|NonNegativeInteger|)) (#4=#:G253 #3#)
           (#5=#:G258 NIL) (|t| NIL))
@@ -409,11 +410,12 @@
                        (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
                   (COND (#1# #2#) (#6# (|IdentityError| '|max|))))))))) 
 
-(SDEFUN |DJBP;degree;$JBNni;21| ((|p| $) (|jv| JB) ($ |NonNegativeInteger|))
+(SDEFUN |DJBP;degree;$JBNni;21|
+        ((|p| ($)) (|jv| (JB)) ($ (|NonNegativeInteger|)))
         (SPADCALL (SPADCALL |p| |jv| (QREFELT $ 74)) (QREFELT $ 80))) 
 
 (SDEFUN |DJBP;degree;$LL;22|
-        ((|p| $) (|ljv| |List| JB) ($ |List| (|NonNegativeInteger|)))
+        ((|p| ($)) (|ljv| (|List| JB)) ($ (|List| (|NonNegativeInteger|))))
         (SPROG ((#1=#:G263 NIL) (|jv| NIL) (#2=#:G262 NIL))
                (SEQ
                 (PROGN
@@ -430,11 +432,11 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |DJBP;minimumDegree;$JBNni;23|
-        ((|p| $) (|jv| JB) ($ |NonNegativeInteger|))
+        ((|p| ($)) (|jv| (JB)) ($ (|NonNegativeInteger|)))
         (SPADCALL (SPADCALL |p| |jv| (QREFELT $ 74)) (QREFELT $ 112))) 
 
 (SDEFUN |DJBP;minimumDegree;$LL;24|
-        ((|p| $) (|ljv| |List| JB) ($ |List| (|NonNegativeInteger|)))
+        ((|p| ($)) (|ljv| (|List| JB)) ($ (|List| (|NonNegativeInteger|))))
         (SPROG ((#1=#:G268 NIL) (|jv| NIL) (#2=#:G267 NIL))
                (SEQ
                 (PROGN
@@ -450,13 +452,14 @@
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(SDEFUN |DJBP;eval;$JB2$;25| ((|p| $) (|jv| JB) (|val| $) ($ $))
+(SDEFUN |DJBP;eval;$JB2$;25| ((|p| ($)) (|jv| (JB)) (|val| ($)) ($ ($)))
         (SPADCALL (SPADCALL |p| |jv| (QREFELT $ 74)) |val| (QREFELT $ 115))) 
 
-(SDEFUN |DJBP;eval;$JBR$;26| ((|p| $) (|jv| JB) (|val| R) ($ $))
+(SDEFUN |DJBP;eval;$JBR$;26| ((|p| ($)) (|jv| (JB)) (|val| (R)) ($ ($)))
         (SPADCALL |p| |jv| (SPADCALL |val| (QREFELT $ 61)) (QREFELT $ 116))) 
 
-(SDEFUN |DJBP;eval;$LL$;27| ((|p| $) (|ljv| |List| JB) (|lval| |List| R) ($ $))
+(SDEFUN |DJBP;eval;$LL$;27|
+        ((|p| ($)) (|ljv| (|List| JB)) (|lval| (|List| R)) ($ ($)))
         (COND ((NULL |ljv|) |p|)
               ('T
                (SPADCALL
@@ -466,7 +469,7 @@
                 (CDR |ljv|) (CDR |lval|) (QREFELT $ 119))))) 
 
 (SDEFUN |DJBP;evalSortedVarlist|
-        ((|p| $) (|Ljvar| |List| JB) (|Lpval| |List| $) ($ $))
+        ((|p| ($)) (|Ljvar| (|List| JB)) (|Lpval| (|List| $)) ($ ($)))
         (SPROG
          ((|pts| (|SparseUnivariatePolynomial| $)) (|pval| ($)) (|mvar| (JB))
           (|pv| (JB)) (|j| (|Union| JB "failed")))
@@ -512,7 +515,7 @@
           (RETURN (PROGN (|DJBP;evalSortedVarlist| |x| |Ljvar| |Lpval| $))))) 
 
 (SDEFUN |DJBP;eval;$LL$;29|
-        ((|p| $) (|Ljvar| |List| JB) (|Lpval| |List| $) ($ $))
+        ((|p| ($)) (|Ljvar| (|List| JB)) (|Lpval| (|List| $)) ($ ($)))
         (SPROG
          ((|nlpval| (|List| $)) (#1=#:G288 NIL) (|mvar| NIL) (#2=#:G287 NIL)
           (|nljvar| (|List| JB)))
@@ -548,14 +551,14 @@
 (SDEFUN |DJBP;eval;$LL$;29!0| ((|x| NIL) (|y| NIL) ($ NIL))
         (SPADCALL (|DJBP;lookup| |x| $) (|DJBP;lookup| |y| $) (QREFELT $ 129))) 
 
-(SDEFUN |DJBP;differentiate;$JB$;30| ((|p| $) (|jv| JB) ($ $))
+(SDEFUN |DJBP;differentiate;$JB$;30| ((|p| ($)) (|jv| (JB)) ($ ($)))
         (SPADCALL (SPADCALL (SPADCALL |p| |jv| (QREFELT $ 74)) (QREFELT $ 137))
                   |jv| (QREFELT $ 97))) 
 
-(SDEFUN |DJBP;/;$R$;31| ((|p| $) (|r| R) ($ $))
+(SDEFUN |DJBP;/;$R$;31| ((|p| ($)) (|r| (R)) ($ ($)))
         (SPADCALL (SPADCALL |r| (QREFELT $ 139)) |p| (QREFELT $ 101))) 
 
-(SDEFUN |DJBP;content;$R;32| ((|p| $) ($ R))
+(SDEFUN |DJBP;content;$R;32| ((|p| ($)) ($ (R)))
         (SPROG
          ((#1=#:G292 NIL) (#2=#:G291 (R)) (#3=#:G293 (R)) (#4=#:G296 NIL)
           (|t| NIL))
@@ -578,7 +581,7 @@
                        (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
                   (COND (#1# #2#) (#5# (|spadConstant| $ 39))))))))) 
 
-(SDEFUN |DJBP;gcd;3$;33| ((|p1| $) (|p2| $) ($ $))
+(SDEFUN |DJBP;gcd;3$;33| ((|p1| ($)) (|p2| ($)) ($ ($)))
         (SPROG ((|r| (R)) (|pv2| #1=(|Union| JB "failed")) (|pv1| #1#))
                (SEQ (LETT |pv1| (SPADCALL |p1| (QREFELT $ 31)))
                     (EXIT
@@ -632,10 +635,10 @@
                                  (QREFELT $ 147))
                                 (QCDR |pv1|) (QREFELT $ 97)))))))))))) 
 
-(SDEFUN |DJBP;gcd;3$;34| ((|p1| $) (|p2| $) ($ $))
+(SDEFUN |DJBP;gcd;3$;34| ((|p1| ($)) (|p2| ($)) ($ ($)))
         (SPADCALL |p1| |p2| (QREFELT $ 149))) 
 
-(SDEFUN |DJBP;gcd;3$;35| ((|p1| $) (|p2| $) ($ $))
+(SDEFUN |DJBP;gcd;3$;35| ((|p1| ($)) (|p2| ($)) ($ ($)))
         (SPROG ((|r| (R)) (|pv2| #1=(|Union| JB "failed")) (|pv1| #1#))
                (SEQ (LETT |pv1| (SPADCALL |p1| (QREFELT $ 31)))
                     (EXIT
@@ -689,7 +692,7 @@
                                  (QREFELT $ 147))
                                 (QCDR |pv1|) (QREFELT $ 97)))))))))))) 
 
-(SDEFUN |DJBP;groebner;2L;36| ((|lp| |List| $) ($ |List| $))
+(SDEFUN |DJBP;groebner;2L;36| ((|lp| (|List| $)) ($ (|List| $)))
         (SEQ
          (SPADCALL (SPADCALL "groebner$DJBP" (QREFELT $ 151)) (QREFELT $ 153))
          (EXIT (SPADCALL |lp| (QREFELT $ 155))))) 

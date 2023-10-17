@@ -1,7 +1,7 @@
 
 (PUT '|U64INT;qconvert;I$;1| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |U64INT;qconvert;I$;1| ((|x| |Integer|) ($ $)) |x|) 
+(SDEFUN |U64INT;qconvert;I$;1| ((|x| (|Integer|)) ($ ($))) |x|) 
 
 (DECLAIM (NOTINLINE |U64Int;|)) 
 

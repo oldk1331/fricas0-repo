@@ -1,9 +1,11 @@
 
 (SDEFUN |VHPSOLV;power_action|
-        ((|m| |NonNegativeInteger|)
-         ($ |Mapping| (|Expression| (|Integer|)) (|NonNegativeInteger|)
-          (|NonNegativeInteger|)
-          (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))))
+        ((|m| (|NonNegativeInteger|))
+         ($
+          (|Mapping| (|Expression| (|Integer|)) (|NonNegativeInteger|)
+                     (|NonNegativeInteger|)
+                     (|SparseUnivariatePolynomial|
+                      (|Expression| (|Integer|))))))
         (SPROG NIL (CONS #'|VHPSOLV;power_action!0| (VECTOR $ |m|)))) 
 
 (SDEFUN |VHPSOLV;power_action!0| ((|k| NIL) (|l| NIL) (|g| NIL) ($$ NIL))
@@ -16,11 +18,14 @@
                       (QREFELT $ 11)))))) 
 
 (SDEFUN |VHPSOLV;hp_solve;LLNniM;2|
-        ((|lv| |List|
-          (|Vector| (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))))
-         (|eta| |List| (|NonNegativeInteger|)) (K |NonNegativeInteger|)
-         ($ |Matrix|
-          (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))))
+        ((|lv|
+          (|List|
+           (|Vector|
+            (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))))
+         (|eta| (|List| (|NonNegativeInteger|))) (K (|NonNegativeInteger|))
+         ($
+          (|Matrix|
+           (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))))
         (SPROG
          ((#1=#:G137 NIL) (|j| NIL) (|i1| #2=(|NonNegativeInteger|))
           (#3=#:G136 NIL) (|i| NIL)

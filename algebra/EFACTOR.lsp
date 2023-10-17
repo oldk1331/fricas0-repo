@@ -1,42 +1,50 @@
 
 (SDEFUN |EFACTOR;poly_factor;SupF;1|
-        ((|p| |SparseUnivariatePolynomial|
-          (|SparseMultivariatePolynomial| R (|Kernel| F)))
-         ($ |Factored|
+        ((|p|
           (|SparseUnivariatePolynomial|
-           (|SparseMultivariatePolynomial| R (|Kernel| F)))))
+           (|SparseMultivariatePolynomial| R (|Kernel| F))))
+         ($
+          (|Factored|
+           (|SparseUnivariatePolynomial|
+            (|SparseMultivariatePolynomial| R (|Kernel| F))))))
         (SPADCALL |p| (QREFELT $ 11))) 
 
 (SDEFUN |EFACTOR;poly_factor;SupF;2|
-        ((|p| |SparseUnivariatePolynomial|
-          (|SparseMultivariatePolynomial| R (|Kernel| F)))
-         ($ |Factored|
+        ((|p|
           (|SparseUnivariatePolynomial|
-           (|SparseMultivariatePolynomial| R (|Kernel| F)))))
+           (|SparseMultivariatePolynomial| R (|Kernel| F))))
+         ($
+          (|Factored|
+           (|SparseUnivariatePolynomial|
+            (|SparseMultivariatePolynomial| R (|Kernel| F))))))
         (SPADCALL |p| (QREFELT $ 11))) 
 
 (SDEFUN |EFACTOR;poly_factor;SupF;3|
-        ((|p| |SparseUnivariatePolynomial|
-          (|SparseMultivariatePolynomial| R (|Kernel| F)))
-         ($ |Factored|
+        ((|p|
           (|SparseUnivariatePolynomial|
-           (|SparseMultivariatePolynomial| R (|Kernel| F)))))
+           (|SparseMultivariatePolynomial| R (|Kernel| F))))
+         ($
+          (|Factored|
+           (|SparseUnivariatePolynomial|
+            (|SparseMultivariatePolynomial| R (|Kernel| F))))))
         (SPADCALL |p| (QREFELT $ 16))) 
 
 (PUT '|EFACTOR;poly_factor;SupF;4| '|SPADreplace|
      '(XLAM (|p|) (|error| "factorPolynomial unimplemented"))) 
 
 (SDEFUN |EFACTOR;poly_factor;SupF;4|
-        ((|p| |SparseUnivariatePolynomial|
-          (|SparseMultivariatePolynomial| R (|Kernel| F)))
-         ($ |Factored|
+        ((|p|
           (|SparseUnivariatePolynomial|
-           (|SparseMultivariatePolynomial| R (|Kernel| F)))))
+           (|SparseMultivariatePolynomial| R (|Kernel| F))))
+         ($
+          (|Factored|
+           (|SparseUnivariatePolynomial|
+            (|SparseMultivariatePolynomial| R (|Kernel| F))))))
         (|error| "factorPolynomial unimplemented")) 
 
 (SDEFUN |EFACTOR;fpoly_factor|
-        ((|p| |SparseUnivariatePolynomial| F)
-         ($ |Factored| (|SparseUnivariatePolynomial| F)))
+        ((|p| (|SparseUnivariatePolynomial| F))
+         ($ (|Factored| (|SparseUnivariatePolynomial| F))))
         (SPROG
          ((|res| (|Factored| (|SparseUnivariatePolynomial| F)))
           (|fr2| (|SparseUnivariatePolynomial| F))
@@ -113,8 +121,8 @@
                       (EXIT |res|)))))))) 
 
 (SDEFUN |EFACTOR;ifactor|
-        ((|p| |SparseUnivariatePolynomial| F) (|lk| |List| #1=(|Kernel| F))
-         ($ |Factored| (|SparseUnivariatePolynomial| F)))
+        ((|p| (|SparseUnivariatePolynomial| F)) (|lk| (|List| #1=(|Kernel| F)))
+         ($ (|Factored| (|SparseUnivariatePolynomial| F))))
         (SPROG
          ((|res| (|Factored| (|SparseUnivariatePolynomial| F)))
           (|fr2| (|SparseUnivariatePolynomial| F))
@@ -383,14 +391,14 @@
                                              |sae|)))))) 
 
 (SDEFUN |EFACTOR;factorPolynomial;SupF;7|
-        ((|p| |SparseUnivariatePolynomial| F)
-         ($ |Factored| (|SparseUnivariatePolynomial| F)))
+        ((|p| (|SparseUnivariatePolynomial| F))
+         ($ (|Factored| (|SparseUnivariatePolynomial| F))))
         (|EFACTOR;ifactor| |p|
          (SPADCALL (SPADCALL |p| (QREFELT $ 72)) (QREFELT $ 75)) $)) 
 
 (SDEFUN |EFACTOR;factor;SupLF;8|
-        ((|p| |SparseUnivariatePolynomial| F) (|lf| |List| F)
-         ($ |Factored| (|SparseUnivariatePolynomial| F)))
+        ((|p| (|SparseUnivariatePolynomial| F)) (|lf| (|List| F))
+         ($ (|Factored| (|SparseUnivariatePolynomial| F))))
         (|EFACTOR;ifactor| |p|
          (SPADCALL (SPADCALL |lf| (SPADCALL |p| (QREFELT $ 72)) (QREFELT $ 77))
                    (QREFELT $ 75))

@@ -1,26 +1,26 @@
 
-(SDEFUN |TUPLE;coerce;Pa$;1| ((|x| |PrimitiveArray| S) ($ $))
+(SDEFUN |TUPLE;coerce;Pa$;1| ((|x| (|PrimitiveArray| S)) ($ ($)))
         (CONS (QVSIZE |x|) |x|)) 
 
 (PUT '|TUPLE;coerce;$Pa;2| '|SPADreplace| 'QCDR) 
 
-(SDEFUN |TUPLE;coerce;$Pa;2| ((|x| $) ($ |PrimitiveArray| S)) (QCDR |x|)) 
+(SDEFUN |TUPLE;coerce;$Pa;2| ((|x| ($)) ($ (|PrimitiveArray| S))) (QCDR |x|)) 
 
 (PUT '|TUPLE;#;$Nni;3| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |TUPLE;#;$Nni;3| ((|x| $) ($ |NonNegativeInteger|)) (QCAR |x|)) 
+(SDEFUN |TUPLE;#;$Nni;3| ((|x| ($)) ($ (|NonNegativeInteger|))) (QCAR |x|)) 
 
-(SDEFUN |TUPLE;select;$NniS;4| ((|x| $) (|n| |NonNegativeInteger|) ($ S))
+(SDEFUN |TUPLE;select;$NniS;4| ((|x| ($)) (|n| (|NonNegativeInteger|)) ($ (S)))
         (COND ((>= |n| (QCAR |x|)) (|error| "Index out of bounds"))
               ('T (QAREF1 (QCDR |x|) |n|)))) 
 
-(SDEFUN |TUPLE;=;2$B;5| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |TUPLE;=;2$B;5| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (COND
          ((EQL (QCAR |x|) (QCAR |y|))
           (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 15)))
          ('T NIL))) 
 
-(SDEFUN |TUPLE;coerce;$Of;6| ((|x| $) ($ |OutputForm|))
+(SDEFUN |TUPLE;coerce;$Of;6| ((|x| ($)) ($ (|OutputForm|)))
         (SPROG ((#1=#:G119 NIL) (|i| NIL) (#2=#:G118 NIL))
                (SEQ
                 (SPADCALL

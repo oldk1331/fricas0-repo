@@ -1,16 +1,17 @@
 
 (SDEFUN |ARRAY12;map;MOdaOda;1|
-        ((|f| |Mapping| B A) (|v| |OneDimensionalArray| A)
-         ($ |OneDimensionalArray| B))
+        ((|f| (|Mapping| B A)) (|v| (|OneDimensionalArray| A))
+         ($ (|OneDimensionalArray| B)))
         (SPADCALL |f| |v| (QREFELT $ 12))) 
 
 (SDEFUN |ARRAY12;scan;MOdaBOda;2|
-        ((|f| |Mapping| B A B) (|v| |OneDimensionalArray| A) (|b| B)
-         ($ |OneDimensionalArray| B))
+        ((|f| (|Mapping| B A B)) (|v| (|OneDimensionalArray| A)) (|b| (B))
+         ($ (|OneDimensionalArray| B)))
         (SPADCALL |f| |v| |b| (QREFELT $ 15))) 
 
 (SDEFUN |ARRAY12;reduce;MOda2B;3|
-        ((|f| |Mapping| B A B) (|v| |OneDimensionalArray| A) (|b| B) ($ B))
+        ((|f| (|Mapping| B A B)) (|v| (|OneDimensionalArray| A)) (|b| (B))
+         ($ (B)))
         (SPADCALL |f| |v| |b| (QREFELT $ 17))) 
 
 (DECLAIM (NOTINLINE |OneDimensionalArrayFunctions2;|)) 

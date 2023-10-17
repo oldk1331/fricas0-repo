@@ -1,30 +1,30 @@
 
-(SDEFUN |SPTCAT-;colinearity;2SDf;1| ((|x| S) (|y| S) ($ |DoubleFloat|))
+(SDEFUN |SPTCAT-;colinearity;2SDf;1| ((|x| (S)) (|y| (S)) ($ (|DoubleFloat|)))
         (|div_DF| (|expt_DF_I| (SPADCALL |x| |y| (QREFELT $ 8)) 2)
                   (|mul_DF| (SPADCALL |x| |x| (QREFELT $ 8))
                             (SPADCALL |y| |y| (QREFELT $ 8))))) 
 
-(SDEFUN |SPTCAT-;sipnt;2IS;2| ((|a| |Integer|) (|b| |Integer|) ($ S))
+(SDEFUN |SPTCAT-;sipnt;2IS;2| ((|a| (|Integer|)) (|b| (|Integer|)) ($ (S)))
         (SPADCALL (FLOAT |a| MOST-POSITIVE-DOUBLE-FLOAT)
                   (FLOAT |b| MOST-POSITIVE-DOUBLE-FLOAT) (QREFELT $ 10))) 
 
 (SDEFUN |SPTCAT-;sipnt;3IS;3|
-        ((|a| |Integer|) (|b| |Integer|) (|c| |Integer|) ($ S))
+        ((|a| (|Integer|)) (|b| (|Integer|)) (|c| (|Integer|)) ($ (S)))
         (SPADCALL (FLOAT |a| MOST-POSITIVE-DOUBLE-FLOAT)
                   (FLOAT |b| MOST-POSITIVE-DOUBLE-FLOAT)
                   (FLOAT |c| MOST-POSITIVE-DOUBLE-FLOAT) (QREFELT $ 13))) 
 
-(SDEFUN |SPTCAT-;sivec;2IS;4| ((|a| |Integer|) (|b| |Integer|) ($ S))
+(SDEFUN |SPTCAT-;sivec;2IS;4| ((|a| (|Integer|)) (|b| (|Integer|)) ($ (S)))
         (SPADCALL (FLOAT |a| MOST-POSITIVE-DOUBLE-FLOAT)
                   (FLOAT |b| MOST-POSITIVE-DOUBLE-FLOAT) (QREFELT $ 15))) 
 
 (SDEFUN |SPTCAT-;sivec;3IS;5|
-        ((|a| |Integer|) (|b| |Integer|) (|c| |Integer|) ($ S))
+        ((|a| (|Integer|)) (|b| (|Integer|)) (|c| (|Integer|)) ($ (S)))
         (SPADCALL (FLOAT |a| MOST-POSITIVE-DOUBLE-FLOAT)
                   (FLOAT |b| MOST-POSITIVE-DOUBLE-FLOAT)
                   (FLOAT |c| MOST-POSITIVE-DOUBLE-FLOAT) (QREFELT $ 17))) 
 
-(SDEFUN |SPTCAT-;distance;2SDf;6| ((|p1| S) (|p2| S) ($ |DoubleFloat|))
+(SDEFUN |SPTCAT-;distance;2SDf;6| ((|p1| (S)) (|p2| (S)) ($ (|DoubleFloat|)))
         (SPADCALL (SPADCALL |p1| |p2| (QREFELT $ 19)) (QREFELT $ 20))) 
 
 (DECLAIM (NOTINLINE |SPointCategory&;|)) 

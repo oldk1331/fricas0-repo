@@ -1,7 +1,7 @@
 
 (SDEFUN |NODE1;solve;2FBoSU;1|
-        ((|m| F) (|n| F) (|y| |BasicOperator|) (|x| |Symbol|)
-         ($ |Union| F #1="failed"))
+        ((|m| (F)) (|n| (F)) (|y| (|BasicOperator|)) (|x| (|Symbol|))
+         ($ (|Union| F #1="failed")))
         (SPROG
          ((|v| (|Union| (|List| F) "failed"))
           (|w|
@@ -70,8 +70,8 @@
                         (#2# (CONS 1 "failed"))))))))))))))) 
 
 (SDEFUN |NODE1;integratingFactor|
-        ((|m| F) (|n| F) (|den| F) (|y| |Symbol|) (|x| |Symbol|)
-         ($ |Union| F "failed"))
+        ((|m| (F)) (|n| (F)) (|den| (F)) (|y| (|Symbol|)) (|x| (|Symbol|))
+         ($ (|Union| F "failed")))
         (SPROG ((|f| (F)) (|d| (F)))
                (COND
                 ((SPADCALL
@@ -110,11 +110,12 @@
                 ('T (CONS 1 "failed"))))) 
 
 (SDEFUN |NODE1;checkBernoulli|
-        ((|m| F) (|n| F) (|ky| |Kernel| F)
-         ($ |Union|
-          (|Record| (|:| |coef1| F) (|:| |coefn| F)
-                    (|:| |exponent| (|NonNegativeInteger|)))
-          "failed"))
+        ((|m| (F)) (|n| (F)) (|ky| (|Kernel| F))
+         ($
+          (|Union|
+           (|Record| (|:| |coef1| F) (|:| |coefn| F)
+                     (|:| |exponent| (|NonNegativeInteger|)))
+           "failed")))
         (SPROG
          ((#1=#:G157 NIL) (|b| (F)) (|a| (F))
           (|pp|
@@ -176,9 +177,11 @@
           #3# (EXIT #1#)))) 
 
 (SDEFUN |NODE1;solveBernoulli|
-        ((|rec| |Record| (|:| |coef1| F) (|:| |coefn| F)
-          (|:| |exponent| (|NonNegativeInteger|)))
-         (|y| |BasicOperator|) (|x| |Symbol|) (|yx| F) ($ |Union| F "failed"))
+        ((|rec|
+          (|Record| (|:| |coef1| F) (|:| |coefn| F)
+                    (|:| |exponent| (|NonNegativeInteger|))))
+         (|y| (|BasicOperator|)) (|x| (|Symbol|)) (|yx| (F))
+         ($ (|Union| F "failed")))
         (SPROG
          ((|sol| (|Record| (|:| |particular| F) (|:| |basis| (|List| F))))
           (#1=#:G164 NIL) (|deq| (F)) (|n1| (|Integer|)))
@@ -213,7 +216,8 @@
                       (|SPADfirst| (QCDR |sol|)) (QREFELT $ 39))))))) 
 
 (SDEFUN |NODE1;checkRiccati|
-        ((|m| F) (|n| F) (|ky| |Kernel| F) ($ |Union| (|List| F) "failed"))
+        ((|m| (F)) (|n| (F)) (|ky| (|Kernel| F))
+         ($ (|Union| (|List| F) "failed")))
         (SPROG
          ((|a2| (F)) (|a1| (F)) (|a0| (F))
           (|p|
@@ -267,8 +271,8 @@
                        (SPADCALL |a2| |q| (QREFELT $ 39)))))))) 
 
 (SDEFUN |NODE1;solveRiccati|
-        ((|l| |List| F) (|y| |BasicOperator|) (|x| |Symbol|) (|yx| F)
-         ($ |Union| F "failed"))
+        ((|l| (|List| F)) (|y| (|BasicOperator|)) (|x| (|Symbol|)) (|yx| (F))
+         ($ (|Union| F "failed")))
         (SPROG
          ((|gsol| (|Record| (|:| |particular| F) (|:| |basis| (|List| F))))
           (#1=#:G184 NIL) (|deq| (F)) (|u| (|Union| F "failed")))
@@ -324,8 +328,8 @@
                                (QREFELT $ 39))))))))))) 
 
 (SDEFUN |NODE1;partSolRiccati|
-        ((|l| |List| F) (|y| |BasicOperator|) (|x| |Symbol|) (|yx| F)
-         ($ |Union| F "failed"))
+        ((|l| (|List| F)) (|y| (|BasicOperator|)) (|x| (|Symbol|)) (|yx| (F))
+         ($ (|Union| F "failed")))
         (SPROG
          ((#1=#:G202 NIL) (|bas| #2=(|List| F))
           (|gsol|

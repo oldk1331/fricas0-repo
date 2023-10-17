@@ -1,9 +1,9 @@
 
-(SDEFUN |FFIELDC-;differentiate;2S;1| ((|x| S) ($ S)) (|spadConstant| $ 7)) 
+(SDEFUN |FFIELDC-;differentiate;2S;1| ((|x| (S)) ($ (S))) (|spadConstant| $ 7)) 
 
-(SDEFUN |FFIELDC-;init;S;2| (($ S)) (|spadConstant| $ 7)) 
+(SDEFUN |FFIELDC-;init;S;2| (($ (S))) (|spadConstant| $ 7)) 
 
-(SDEFUN |FFIELDC-;nextItem;SU;3| ((|a| S) ($ |Union| S "failed"))
+(SDEFUN |FFIELDC-;nextItem;SU;3| ((|a| (S)) ($ (|Union| S "failed")))
         (COND
          ((SPADCALL
            (LETT |a|
@@ -13,11 +13,11 @@
          ('T (CONS 0 |a|)))) 
 
 (SDEFUN |FFIELDC-;order;SOpc;4|
-        ((|e| S) ($ |OnePointCompletion| (|PositiveInteger|)))
+        ((|e| (S)) ($ (|OnePointCompletion| (|PositiveInteger|))))
         (SPADCALL (SPADCALL |e| (QREFELT $ 17)) (QREFELT $ 19))) 
 
 (SDEFUN |FFIELDC-;conditionP;MU;5|
-        ((|mat| |Matrix| S) ($ |Union| (|Vector| S) "failed"))
+        ((|mat| (|Matrix| S)) ($ (|Union| (|Vector| S) "failed")))
         (SPROG ((|l| (|List| (|Vector| S))))
                (SEQ (LETT |l| (SPADCALL |mat| (QREFELT $ 23)))
                     (EXIT
@@ -27,16 +27,16 @@
                                   (SPADCALL (ELT $ 24) (|SPADfirst| |l|)
                                             (QREFELT $ 27))))))))) 
 
-(SDEFUN |FFIELDC-;charthRoot;2S;6| ((|x| S) ($ S))
+(SDEFUN |FFIELDC-;charthRoot;2S;6| ((|x| (S)) ($ (S)))
         (SPADCALL |x|
                   (QUOTIENT2 (SPADCALL (QREFELT $ 32))
                              (SPADCALL (QREFELT $ 33)))
                   (QREFELT $ 34))) 
 
-(SDEFUN |FFIELDC-;charthRoot;SU;7| ((|x| S) ($ |Union| S "failed"))
+(SDEFUN |FFIELDC-;charthRoot;SU;7| ((|x| (S)) ($ (|Union| S "failed")))
         (CONS 0 (SPADCALL |x| (QREFELT $ 24)))) 
 
-(SDEFUN |FFIELDC-;createPrimitiveElement;S;8| (($ S))
+(SDEFUN |FFIELDC-;createPrimitiveElement;S;8| (($ (S)))
         (SPROG
          ((|found| (|Boolean|)) (|e| (S)) (#1=#:G148 NIL) (|i| NIL)
           (|start| (|Integer|)) (|sm1| (|PositiveInteger|)))
@@ -62,7 +62,7 @@
                    (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL))
               (EXIT |e|)))) 
 
-(SDEFUN |FFIELDC-;primitive?;SB;9| ((|a| S) ($ |Boolean|))
+(SDEFUN |FFIELDC-;primitive?;SB;9| ((|a| (S)) ($ (|Boolean|)))
         (SPROG
          ((|equalone| (|Boolean|)) (#1=#:G158 NIL) (|exp| NIL)
           (|q| (|Integer|))
@@ -91,7 +91,7 @@
                            (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                       (EXIT (NULL |equalone|)))))))) 
 
-(SDEFUN |FFIELDC-;order;SPi;10| ((|e| S) ($ |PositiveInteger|))
+(SDEFUN |FFIELDC-;order;SPi;10| ((|e| (S)) ($ (|PositiveInteger|)))
         (SPROG
          ((|ord| (|Integer|)) (|goon| (|Boolean|)) (|a| (|Integer|))
           (#1=#:G167 NIL) (|j| NIL) (|primeDivisor| #2=(|Integer|))
@@ -136,7 +136,7 @@
                       (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
                  (EXIT |ord|))))))) 
 
-(SDEFUN |FFIELDC-;discreteLog;SNni;11| ((|b| S) ($ |NonNegativeInteger|))
+(SDEFUN |FFIELDC-;discreteLog;SNni;11| ((|b| (S)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((|a| (S)) (|disclog| (|Integer|)) (|mult| (|Integer|)) (|c| (S))
           (|disc1| (|Integer|)) (|found| (|Boolean|))
@@ -268,7 +268,8 @@
                               (EXIT |disclog|))))))))))) 
 
 (SDEFUN |FFIELDC-;discreteLog;2SU;12|
-        ((|logbase| S) (|b| S) ($ |Union| (|NonNegativeInteger|) "failed"))
+        ((|logbase| (S)) (|b| (S))
+         ($ (|Union| (|NonNegativeInteger|) "failed")))
         (SPROG
          ((|a| (S)) (|mult| (|Integer|)) (|disclog| (|Integer|))
           (|rho| (|Integer|)) (#1=#:G207 NIL)
@@ -356,18 +357,18 @@
           #5# (EXIT #1#)))) 
 
 (SDEFUN |FFIELDC-;squareFreePolynomial;SupF;13|
-        ((|f| |SparseUnivariatePolynomial| S)
-         ($ |Factored| (|SparseUnivariatePolynomial| S)))
+        ((|f| (|SparseUnivariatePolynomial| S))
+         ($ (|Factored| (|SparseUnivariatePolynomial| S))))
         (SPADCALL |f| (QREFELT $ 77))) 
 
 (SDEFUN |FFIELDC-;factorPolynomial;SupF;14|
-        ((|f| |SparseUnivariatePolynomial| S)
-         ($ |Factored| (|SparseUnivariatePolynomial| S)))
+        ((|f| (|SparseUnivariatePolynomial| S))
+         ($ (|Factored| (|SparseUnivariatePolynomial| S))))
         (SPADCALL |f| (QREFELT $ 82))) 
 
 (SDEFUN |FFIELDC-;factorSquareFreePolynomial;SupF;15|
-        ((|f| |SparseUnivariatePolynomial| S)
-         ($ |Factored| (|SparseUnivariatePolynomial| S)))
+        ((|f| (|SparseUnivariatePolynomial| S))
+         ($ (|Factored| (|SparseUnivariatePolynomial| S))))
         (SPROG
          ((#1=#:G223 NIL)
           (#2=#:G222 #3=(|Factored| (|SparseUnivariatePolynomial| S)))
@@ -415,9 +416,9 @@
                             (QREFELT $ 94))))))))) 
 
 (SDEFUN |FFIELDC-;gcdPolynomial;3Sup;16|
-        ((|f| |SparseUnivariatePolynomial| S)
-         (|g| |SparseUnivariatePolynomial| S)
-         ($ |SparseUnivariatePolynomial| S))
+        ((|f| (|SparseUnivariatePolynomial| S))
+         (|g| (|SparseUnivariatePolynomial| S))
+         ($ (|SparseUnivariatePolynomial| S)))
         (SPADCALL |f| |g| (QREFELT $ 97))) 
 
 (DECLAIM (NOTINLINE |FiniteFieldCategory&;|)) 

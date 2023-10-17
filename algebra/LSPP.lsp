@@ -1,8 +1,9 @@
 
 (SDEFUN |LSPP;poly2vect|
-        ((|p| P) (|vs| |List| OV)
-         ($ |Record| (|:| |coefvec| (|Vector| (|Fraction| P)))
-          (|:| |reductum| (|Fraction| P))))
+        ((|p| (P)) (|vs| (|List| OV))
+         ($
+          (|Record| (|:| |coefvec| (|Vector| (|Fraction| P)))
+                    (|:| |reductum| (|Fraction| P)))))
         (SPROG
          ((|c| (P)) (|u| (|SparseUnivariatePolynomial| P)) (#1=#:G111 NIL)
           (|v| NIL) (|i| NIL) (|coefs| (|Vector| (|Fraction| P))))
@@ -36,9 +37,10 @@
               (EXIT (CONS |coefs| (SPADCALL |p| (QREFELT $ 23))))))) 
 
 (SDEFUN |LSPP;intoMatrix;LLR;2|
-        ((|ps| |List| P) (|vs| |List| OV)
-         ($ |Record| (|:| |mat| (|Matrix| (|Fraction| P)))
-          (|:| |vec| (|Vector| (|Fraction| P)))))
+        ((|ps| (|List| P)) (|vs| (|List| OV))
+         ($
+          (|Record| (|:| |mat| (|Matrix| (|Fraction| P)))
+                    (|:| |vec| (|Vector| (|Fraction| P))))))
         (SPROG
          ((|m| (|Matrix| (|Fraction| P)))
           (|r|
@@ -69,10 +71,11 @@
               (EXIT (CONS |m| |v|))))) 
 
 (SDEFUN |LSPP;linSolve;LLR;3|
-        ((|ps| |List| P) (|vs| |List| OV)
-         ($ |Record|
-          (|:| |particular| (|Union| (|Vector| (|Fraction| P)) "failed"))
-          (|:| |basis| (|List| (|Vector| (|Fraction| P))))))
+        ((|ps| (|List| P)) (|vs| (|List| OV))
+         ($
+          (|Record|
+           (|:| |particular| (|Union| (|Vector| (|Fraction| P)) "failed"))
+           (|:| |basis| (|List| (|Vector| (|Fraction| P)))))))
         (SPROG
          ((|r|
            (|Record| (|:| |mat| (|Matrix| (|Fraction| P)))

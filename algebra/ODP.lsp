@@ -1,5 +1,5 @@
 
-(SDEFUN |ODP;<;2$B;1| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |ODP;<;2$B;1| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPADCALL |x| |y| (QREFELT $ 8))) 
 
 (DECLAIM (NOTINLINE |OrderedDirectProduct;|)) 

@@ -1,5 +1,5 @@
 
-(SDEFUN |REPSQ;expt;SPiS;1| ((|x| S) (|n| |PositiveInteger|) ($ S))
+(SDEFUN |REPSQ;expt;SPiS;1| ((|x| (S)) (|n| (|PositiveInteger|)) ($ (S)))
         (COND ((EQL |n| 1) |x|)
               ((ODDP |n|)
                (SPADCALL |x|

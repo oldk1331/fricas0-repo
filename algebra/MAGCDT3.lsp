@@ -1,8 +1,8 @@
 
 (SDEFUN |MAGCDT3;pack_modulus1|
-        ((|lm| |List| (|Polynomial| (|Integer|))) (|lvz| |List| (|Symbol|))
-         (|p| |Integer|)
-         ($ . #1=(|Union| (|List| (|Polynomial| (|Integer|))) "failed")))
+        ((|lm| (|List| (|Polynomial| (|Integer|)))) (|lvz| (|List| (|Symbol|)))
+         (|p| (|Integer|))
+         ($ #1=(|Union| (|List| (|Polynomial| (|Integer|))) "failed")))
         (SPROG
          ((|res1u| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
           (|ic0| (|Polynomial| (|Integer|)))
@@ -89,13 +89,15 @@
           (RETURN (PROGN (SPADCALL |c| |p| (QREFELT $ 13)))))) 
 
 (SDEFUN |MAGCDT3;pack_modulus;LLIU;2|
-        ((|lm| |List| (|Polynomial| (|Integer|))) (|lvz| |List| (|Symbol|))
-         (|p| |Integer|)
-         ($ |Union|
-          (|Record| (|:| |svz| (|List| (|Symbol|)))
-                    (|:| |sm| (|List| (|Polynomial| (|Integer|))))
-                    (|:| |msizes| (|List| (|Integer|))) (|:| |sp| (|Integer|)))
-          "failed"))
+        ((|lm| (|List| (|Polynomial| (|Integer|)))) (|lvz| (|List| (|Symbol|)))
+         (|p| (|Integer|))
+         ($
+          (|Union|
+           (|Record| (|:| |svz| (|List| (|Symbol|)))
+                     (|:| |sm| (|List| (|Polynomial| (|Integer|))))
+                     (|:| |msizes| (|List| (|Integer|)))
+                     (|:| |sp| (|Integer|)))
+           "failed")))
         (SPROG
          ((|sizes| (|List| (|Integer|))) (|msize| (|Integer|)) (#1=#:G159 NIL)
           (|deg| NIL) (|ldeg| (|List| (|NonNegativeInteger|))) (#2=#:G157 NIL)
@@ -150,8 +152,8 @@
                                          |p|))))))))))))) 
 
 (SDEFUN |MAGCDT3;pack_exps0;SevL2IV;3|
-        ((|exps| |SortedExponentVector|) (|sizes| |List| (|Integer|))
-         (|ns| |Integer|) (|start| |Integer|) ($ |Void|))
+        ((|exps| (|SortedExponentVector|)) (|sizes| (|List| (|Integer|)))
+         (|ns| (|Integer|)) (|start| (|Integer|)) ($ (|Void|)))
         (SPROG
          ((#1=#:G167 NIL) (|j| NIL) (|nstart| (|Integer|)) (#2=#:G166 NIL)
           (|i| NIL) (|deg| (|Integer|)) (|msize| (|Integer|))
@@ -181,11 +183,13 @@
                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL)))))) 
 
 (SDEFUN |MAGCDT3;pack_exps;2IRSev;4|
-        ((|dg| . #1=(|Integer|)) (|msize| . #1#)
-         (|mu| |Record| (|:| |svz| (|List| (|Symbol|)))
-          (|:| |sm| (|List| (|Polynomial| (|Integer|))))
-          (|:| |msizes| (|List| (|Integer|))) (|:| |sp| (|Integer|)))
-         ($ |SortedExponentVector|))
+        ((|dg| #1=(|Integer|)) (|msize| #1#)
+         (|mu|
+          (|Record| (|:| |svz| (|List| (|Symbol|)))
+                    (|:| |sm| (|List| (|Polynomial| (|Integer|))))
+                    (|:| |msizes| (|List| (|Integer|)))
+                    (|:| |sp| (|Integer|))))
+         ($ (|SortedExponentVector|)))
         (SPROG
          ((|exps| (|SortedExponentVector|)) (|nsize| (|NonNegativeInteger|))
           (|ns| (|NonNegativeInteger|)) (|size0| (|Integer|))
@@ -200,9 +204,10 @@
               (EXIT |exps|)))) 
 
 (SDEFUN |MAGCDT3;repack0|
-        ((|res0| |SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))
-         (|coeffs| |U32Vector|) (|start| |Integer|) (|lv| |List| (|Symbol|))
-         (|sizes| |List| (|Integer|)) ($ |Void|))
+        ((|res0| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
+         (|coeffs| (|U32Vector|)) (|start| (|Integer|))
+         (|lv| (|List| (|Symbol|))) (|sizes| (|List| (|Integer|)))
+         ($ (|Void|)))
         (SPROG
          ((|j| (|Integer|)) (|nsizes| (|List| (|Integer|)))
           (|msize| (|Integer|)) (|nlv| (|List| (|Symbol|))) (|v1| (|Symbol|))
@@ -248,12 +253,14 @@
                        NIL (GO G190) G191 (EXIT NIL))))))))) 
 
 (SDEFUN |MAGCDT3;repack1;SupUvIRV;6|
-        ((|res00| |SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))
-         (|coeffs| |U32Vector|) (|dg| |Integer|)
-         (|mu| |Record| (|:| |svz| (|List| (|Symbol|)))
-          (|:| |sm| (|List| (|Polynomial| (|Integer|))))
-          (|:| |msizes| (|List| (|Integer|))) (|:| |sp| (|Integer|)))
-         ($ |Void|))
+        ((|res00| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
+         (|coeffs| (|U32Vector|)) (|dg| (|Integer|))
+         (|mu|
+          (|Record| (|:| |svz| (|List| (|Symbol|)))
+                    (|:| |sm| (|List| (|Polynomial| (|Integer|))))
+                    (|:| |msizes| (|List| (|Integer|)))
+                    (|:| |sp| (|Integer|))))
+         ($ (|Void|)))
         (SPROG
          ((#1=#:G183 NIL) (|i| NIL) (|msize| (|Integer|))
           (|sizes| (|List| (|Integer|))) (|lv| (|List| (|Symbol|))))
@@ -266,29 +273,32 @@
               (EXIT (|MAGCDT3;repack0| |res00| |coeffs| 0 |lv| |sizes| $))))) 
 
 (SDEFUN |MAGCDT3;MPtoMPT;PSLRU;7|
-        ((|x| |Polynomial| (|Integer|)) (|ivx| . #1=(|Symbol|))
-         (|ivz| |List| #1#)
-         (|mu| |Record| (|:| |svz| (|List| (|Symbol|)))
-          (|:| |sm| (|List| (|Polynomial| (|Integer|))))
-          (|:| |msizes| (|List| (|Integer|))) (|:| |sp| (|Integer|)))
-         ($ |Union| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))
-          "failed"))
+        ((|x| (|Polynomial| (|Integer|))) (|ivx| #1=(|Symbol|))
+         (|ivz| (|List| #1#))
+         (|mu|
+          (|Record| (|:| |svz| (|List| (|Symbol|)))
+                    (|:| |sm| (|List| (|Polynomial| (|Integer|))))
+                    (|:| |msizes| (|List| (|Integer|)))
+                    (|:| |sp| (|Integer|))))
+         ($
+          (|Union| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))
+                   "failed")))
         (CONS 0 (SPADCALL |x| |ivx| (QREFELT $ 20)))) 
 
 (SDEFUN |MAGCDT3;zero?;SupB;8|
-        ((|x| |SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))
-         ($ |Boolean|))
+        ((|x| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
+         ($ (|Boolean|)))
         (SPADCALL |x| (|spadConstant| $ 44) (QREFELT $ 45))) 
 
 (SDEFUN |MAGCDT3;degree;SupI;9|
-        ((|x| |SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))
-         ($ |Integer|))
+        ((|x| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
+         ($ (|Integer|)))
         (SPADCALL |x| (QREFELT $ 55))) 
 
 (SDEFUN |MAGCDT3;mreduction1|
-        ((|x| |Polynomial| (|Integer|))
-         (|lm| |List| (|Polynomial| (|Integer|))) (|lv| |List| (|Symbol|))
-         (|p| |Integer|) ($ |Polynomial| (|Integer|)))
+        ((|x| (|Polynomial| (|Integer|)))
+         (|lm| (|List| (|Polynomial| (|Integer|)))) (|lv| (|List| (|Symbol|)))
+         (|p| (|Integer|)) ($ (|Polynomial| (|Integer|))))
         (SPROG
          ((|ux| #1=(|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
           (|c| (|Polynomial| (|Integer|))) (|dx| #2=(|Integer|)) (|dm1| #2#)
@@ -346,11 +356,13 @@
              (SPADCALL |lv| (QREFELT $ 61)) |p| $))))) 
 
 (SDEFUN |MAGCDT3;mreduction|
-        ((|x| |SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))
-         (|mu| |Record| (|:| |svz| #1=(|List| (|Symbol|)))
-          (|:| |sm| #2=(|List| (|Polynomial| (|Integer|))))
-          (|:| |msizes| (|List| (|Integer|))) (|:| |sp| #3=(|Integer|)))
-         ($ |SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
+        ((|x| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
+         (|mu|
+          (|Record| (|:| |svz| #1=(|List| (|Symbol|)))
+                    (|:| |sm| #2=(|List| (|Polynomial| (|Integer|))))
+                    (|:| |msizes| (|List| (|Integer|)))
+                    (|:| |sp| #3=(|Integer|))))
+         ($ (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))))
         (SPROG ((|p| #3#) (|lv| #1#) (|lm| #2#))
                (SEQ (LETT |lm| (QVELT |mu| 1)) (LETT |lv| (QVELT |mu| 0))
                     (LETT |p| (QVELT |mu| 3))
@@ -368,11 +380,12 @@
           (RETURN (PROGN (|MAGCDT3;mreduction1| |c| |lm| |lv| |p| $))))) 
 
 (SDEFUN |MAGCDT3;extended_gcd|
-        ((|x| |SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))
-         (|y| |SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))
-         (|lm| |List| (|Polynomial| (|Integer|))) (|lv| |List| (|Symbol|))
-         (|p| |Integer|)
-         ($ |List| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))))
+        ((|x| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
+         (|y| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
+         (|lm| (|List| (|Polynomial| (|Integer|)))) (|lv| (|List| (|Symbol|)))
+         (|p| (|Integer|))
+         ($
+          (|List| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))))
         (SPROG
          ((#1=#:G223 NIL)
           (|t1| #2=(|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
@@ -515,9 +528,9 @@
           (RETURN (PROGN (|MAGCDT3;mreduction1| |c| |lm| |lv| |p| $))))) 
 
 (SDEFUN |MAGCDT3;m_inverse;PLLIU;13|
-        ((|x| |Polynomial| (|Integer|))
-         (|lm| |List| (|Polynomial| (|Integer|))) (|lv| |List| (|Symbol|))
-         (|p| |Integer|) ($ |Union| (|Polynomial| (|Integer|)) "failed"))
+        ((|x| (|Polynomial| (|Integer|)))
+         (|lm| (|List| (|Polynomial| (|Integer|)))) (|lv| (|List| (|Symbol|)))
+         (|p| (|Integer|)) ($ (|Union| (|Polynomial| (|Integer|)) "failed")))
         (SPROG
          ((|res1| (|Polynomial| (|Integer|)))
           (|ic0| (|Polynomial| (|Integer|)))
@@ -572,12 +585,15 @@
                                           |lv| |p| $))))))))))))))))) 
 
 (SDEFUN |MAGCDT3;canonicalIfCan;SupRU;14|
-        ((|x| |SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))
-         (|mu| |Record| (|:| |svz| (|List| (|Symbol|)))
-          (|:| |sm| (|List| (|Polynomial| (|Integer|))))
-          (|:| |msizes| (|List| (|Integer|))) (|:| |sp| (|Integer|)))
-         ($ |Union| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))
-          "failed"))
+        ((|x| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
+         (|mu|
+          (|Record| (|:| |svz| (|List| (|Symbol|)))
+                    (|:| |sm| (|List| (|Polynomial| (|Integer|))))
+                    (|:| |msizes| (|List| (|Integer|)))
+                    (|:| |sp| (|Integer|))))
+         ($
+          (|Union| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))
+                   "failed")))
         (SPROG
          ((|rr| (|Union| (|Polynomial| (|Integer|)) "failed"))
           (|cl| (|Polynomial| (|Integer|))) (|p| (|Integer|))
@@ -596,12 +612,14 @@
                              $)))))))) 
 
 (SDEFUN |MAGCDT3;pseudoRem;2SupRSup;15|
-        ((|x| . #1=(|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
-         (|y| . #1#)
-         (|mu| |Record| (|:| |svz| (|List| (|Symbol|)))
-          (|:| |sm| (|List| (|Polynomial| (|Integer|))))
-          (|:| |msizes| (|List| (|Integer|))) (|:| |sp| (|Integer|)))
-         ($ |SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
+        ((|x| #1=(|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
+         (|y| #1#)
+         (|mu|
+          (|Record| (|:| |svz| (|List| (|Symbol|)))
+                    (|:| |sm| (|List| (|Polynomial| (|Integer|))))
+                    (|:| |msizes| (|List| (|Integer|)))
+                    (|:| |sp| (|Integer|))))
+         ($ (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))))
         (SPROG
          ((|cy| #2=(|Polynomial| (|Integer|)))
           (|cm| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))

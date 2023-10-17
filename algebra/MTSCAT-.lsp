@@ -1,6 +1,6 @@
 
 (SDEFUN |MTSCAT-;coefficient;SVarNniS;1|
-        ((|s| S) (|v| |Var|) (|n| |NonNegativeInteger|) ($ S))
+        ((|s| (S)) (|v| (|Var|)) (|n| (|NonNegativeInteger|)) ($ (S)))
         (SPADCALL |s| (LIST |v|) (LIST |n|) (QREFELT $ 11))) 
 
 (DECLAIM (NOTINLINE |MultivariateTaylorSeriesCategory&;|)) 

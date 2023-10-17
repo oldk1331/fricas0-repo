@@ -1,5 +1,5 @@
 
-(SDEFUN |DIAGG-;dictionary;LA;1| ((|l| |List| S) ($ A))
+(SDEFUN |DIAGG-;dictionary;LA;1| ((|l| (|List| S)) ($ (A)))
         (SPROG ((|d| (A)) (#1=#:G117 NIL) (|x| NIL))
                (SEQ (LETT |d| (SPADCALL (QREFELT $ 8)))
                     (SEQ (LETT |x| NIL) (LETT #1# |l|) G190
@@ -11,13 +11,14 @@
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT |d|)))) 
 
-(SDEFUN |DIAGG-;select!;M2A;2| ((|f| |Mapping| (|Boolean|) S) (|t| A) ($ A))
+(SDEFUN |DIAGG-;select!;M2A;2|
+        ((|f| (|Mapping| (|Boolean|) S)) (|t| (A)) ($ (A)))
         (SPADCALL (CONS #'|DIAGG-;select!;M2A;2!0| |f|) |t| (QREFELT $ 13))) 
 
 (SDEFUN |DIAGG-;select!;M2A;2!0| ((|x| NIL) (|f| NIL))
         (NULL (SPADCALL |x| |f|))) 
 
-(SDEFUN |DIAGG-;=;2AB;3| ((|s| A) (|t| A) ($ |Boolean|))
+(SDEFUN |DIAGG-;=;2AB;3| ((|s| (A)) (|t| (A)) ($ (|Boolean|)))
         (SPROG NIL
                (COND ((SPADCALL |s| |t| (QREFELT $ 16)) 'T)
                      ((SPADCALL (SPADCALL |s| (QREFELT $ 18))
@@ -34,7 +35,8 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |x| |t| (QREFELT $ 21)))))) 
 
-(SDEFUN |DIAGG-;remove!;M2A;4| ((|f| |Mapping| (|Boolean|) S) (|t| A) ($ A))
+(SDEFUN |DIAGG-;remove!;M2A;4|
+        ((|f| (|Mapping| (|Boolean|) S)) (|t| (A)) ($ (A)))
         (SPROG ((#1=#:G134 NIL) (|m| NIL))
                (SEQ
                 (SEQ (LETT |m| NIL) (LETT #1# (SPADCALL |t| (QREFELT $ 22)))

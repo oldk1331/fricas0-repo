@@ -1,26 +1,27 @@
 
 (SDEFUN |TUBETOOL;point;4DfP;1|
-        ((|x| |DoubleFloat|) (|y| |DoubleFloat|) (|z| |DoubleFloat|)
-         (|c| . #1=(|DoubleFloat|)) ($ |Point| (|DoubleFloat|)))
+        ((|x| (|DoubleFloat|)) (|y| (|DoubleFloat|)) (|z| (|DoubleFloat|))
+         (|c| #1=(|DoubleFloat|)) ($ (|Point| (|DoubleFloat|))))
         (SPROG ((|l| (|List| #1#)))
                (SPADCALL (LETT |l| (LIST |x| |y| |z| |c|)) (QREFELT $ 8)))) 
 
-(SDEFUN |TUBETOOL;getColor| ((|pt| |Point| (|DoubleFloat|)) ($ |DoubleFloat|))
+(SDEFUN |TUBETOOL;getColor|
+        ((|pt| (|Point| (|DoubleFloat|))) ($ (|DoubleFloat|)))
         (COND
          ((> (SPADCALL |pt| (QREFELT $ 12)) 3) (SPADCALL |pt| (QREFELT $ 14)))
          ('T 0.0))) 
 
 (SDEFUN |TUBETOOL;getColor2|
-        ((|p0| |Point| (|DoubleFloat|)) (|p1| |Point| (|DoubleFloat|))
-         ($ |DoubleFloat|))
+        ((|p0| (|Point| (|DoubleFloat|))) (|p1| (|Point| (|DoubleFloat|)))
+         ($ (|DoubleFloat|)))
         (COND
          ((> (SPADCALL |p0| (QREFELT $ 12)) 3) (SPADCALL |p0| (QREFELT $ 14)))
          ((> (SPADCALL |p1| (QREFELT $ 12)) 3) (SPADCALL |p1| (QREFELT $ 14)))
          ('T 0.0))) 
 
 (SDEFUN |TUBETOOL;*;Df2P;4|
-        ((|a| |DoubleFloat|) (|p| |Point| (|DoubleFloat|))
-         ($ |Point| (|DoubleFloat|)))
+        ((|a| (|DoubleFloat|)) (|p| (|Point| (|DoubleFloat|)))
+         ($ (|Point| (|DoubleFloat|))))
         (SPROG ((|l| (|List| (|DoubleFloat|))))
                (SEQ
                 (LETT |l|
@@ -31,8 +32,8 @@
                 (EXIT (SPADCALL |l| (QREFELT $ 8)))))) 
 
 (SDEFUN |TUBETOOL;+;3P;5|
-        ((|p0| |Point| (|DoubleFloat|)) (|p1| |Point| (|DoubleFloat|))
-         ($ |Point| (|DoubleFloat|)))
+        ((|p0| (|Point| (|DoubleFloat|))) (|p1| (|Point| (|DoubleFloat|)))
+         ($ (|Point| (|DoubleFloat|))))
         (SPROG ((|l| (|List| (|DoubleFloat|))))
                (SEQ
                 (LETT |l|
@@ -47,8 +48,8 @@
                 (EXIT (SPADCALL |l| (QREFELT $ 8)))))) 
 
 (SDEFUN |TUBETOOL;-;3P;6|
-        ((|p0| |Point| (|DoubleFloat|)) (|p1| |Point| (|DoubleFloat|))
-         ($ |Point| (|DoubleFloat|)))
+        ((|p0| (|Point| (|DoubleFloat|))) (|p1| (|Point| (|DoubleFloat|)))
+         ($ (|Point| (|DoubleFloat|))))
         (SPROG ((|l| (|List| (|DoubleFloat|))))
                (SEQ
                 (LETT |l|
@@ -63,8 +64,8 @@
                 (EXIT (SPADCALL |l| (QREFELT $ 8)))))) 
 
 (SDEFUN |TUBETOOL;dot;2PDf;7|
-        ((|p0| |Point| (|DoubleFloat|)) (|p1| |Point| (|DoubleFloat|))
-         ($ |DoubleFloat|))
+        ((|p0| (|Point| (|DoubleFloat|))) (|p1| (|Point| (|DoubleFloat|)))
+         ($ (|DoubleFloat|)))
         (|add_DF|
          (|add_DF|
           (|mul_DF| (SPADCALL |p0| (QREFELT $ 15))
@@ -75,8 +76,8 @@
                    (SPADCALL |p1| (QREFELT $ 17))))) 
 
 (SDEFUN |TUBETOOL;cross;3P;8|
-        ((|p0| |Point| (|DoubleFloat|)) (|p1| |Point| (|DoubleFloat|))
-         ($ |Point| (|DoubleFloat|)))
+        ((|p0| (|Point| (|DoubleFloat|))) (|p1| (|Point| (|DoubleFloat|)))
+         ($ (|Point| (|DoubleFloat|))))
         (SPROG
          ((|l| (|List| (|DoubleFloat|))) (|z1| #1=(|DoubleFloat|))
           (|y1| #2=(|DoubleFloat|)) (|x1| #3=(|DoubleFloat|)) (|z0| #1#)
@@ -95,14 +96,14 @@
               (EXIT (SPADCALL |l| (QREFELT $ 8)))))) 
 
 (SDEFUN |TUBETOOL;unitVector;2P;9|
-        ((|p| |Point| (|DoubleFloat|)) ($ |Point| (|DoubleFloat|)))
+        ((|p| (|Point| (|DoubleFloat|))) ($ (|Point| (|DoubleFloat|))))
         (SPADCALL
          (SPADCALL (SPADCALL (SPADCALL |p| |p| (QREFELT $ 21)) (QREFELT $ 23))
                    (QREFELT $ 24))
          |p| (QREFELT $ 18))) 
 
 (SDEFUN |TUBETOOL;cosSinInfo;IL;10|
-        ((|n| |Integer|) ($ |List| (|List| (|DoubleFloat|))))
+        ((|n| (|Integer|)) ($ (|List| (|List| (|DoubleFloat|)))))
         (SPROG
          ((|ans| (|List| (|List| (|DoubleFloat|)))) (|angle| (|DoubleFloat|))
           (#1=#:G127 NIL) (|i| NIL) (|theta| (|DoubleFloat|)))
@@ -124,10 +125,10 @@
               (EXIT |ans|)))) 
 
 (SDEFUN |TUBETOOL;loopPoints;3PDfLL;11|
-        ((|ctr| |Point| (|DoubleFloat|)) (|pNorm| |Point| (|DoubleFloat|))
-         (|bNorm| |Point| (|DoubleFloat|)) (|rad| |DoubleFloat|)
-         (|cosSin| |List| (|List| (|DoubleFloat|)))
-         ($ |List| (|Point| (|DoubleFloat|))))
+        ((|ctr| (|Point| (|DoubleFloat|))) (|pNorm| (|Point| (|DoubleFloat|)))
+         (|bNorm| (|Point| (|DoubleFloat|))) (|rad| (|DoubleFloat|))
+         (|cosSin| (|List| (|List| (|DoubleFloat|))))
+         ($ (|List| (|Point| (|DoubleFloat|)))))
         (SPROG
          ((|pt| (|Point| (|DoubleFloat|)))
           (|ans| (|List| (|Point| (|DoubleFloat|)))) (|sin| (|DoubleFloat|))

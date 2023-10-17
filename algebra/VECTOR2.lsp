@@ -1,19 +1,19 @@
 
 (SDEFUN |VECTOR2;scan;MVBV;1|
-        ((|f| |Mapping| B A B) (|v| |Vector| A) (|b| B) ($ |Vector| B))
+        ((|f| (|Mapping| B A B)) (|v| (|Vector| A)) (|b| (B)) ($ (|Vector| B)))
         (SPADCALL |f| |v| |b| (QREFELT $ 12))) 
 
 (SDEFUN |VECTOR2;reduce;MV2B;2|
-        ((|f| |Mapping| B A B) (|v| |Vector| A) (|b| B) ($ B))
+        ((|f| (|Mapping| B A B)) (|v| (|Vector| A)) (|b| (B)) ($ (B)))
         (SPADCALL |f| |v| |b| (QREFELT $ 14))) 
 
 (SDEFUN |VECTOR2;map;MVV;3|
-        ((|f| |Mapping| B A) (|v| |Vector| A) ($ |Vector| B))
+        ((|f| (|Mapping| B A)) (|v| (|Vector| A)) ($ (|Vector| B)))
         (SPADCALL |f| |v| (QREFELT $ 17))) 
 
 (SDEFUN |VECTOR2;map;MVU;4|
-        ((|f| |Mapping| (|Union| B #1="failed") A) (|a| |Vector| A)
-         ($ |Union| (|Vector| B) "failed"))
+        ((|f| (|Mapping| (|Union| B #1="failed") A)) (|a| (|Vector| A))
+         ($ (|Union| (|Vector| B) "failed")))
         (SPROG
          ((|res| (|List| B)) (#2=#:G115 NIL) (#3=#:G128 NIL)
           (|r| (|Union| B #1#)) (#4=#:G129 NIL) (|u| NIL))

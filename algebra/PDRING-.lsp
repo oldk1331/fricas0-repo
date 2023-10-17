@@ -1,5 +1,5 @@
 
-(SDEFUN |PDRING-;differentiate;ALA;1| ((|r| A) (|l| |List| S) ($ A))
+(SDEFUN |PDRING-;differentiate;ALA;1| ((|r| (A)) (|l| (|List| S)) ($ (A)))
         (SPROG ((#1=#:G113 NIL) (|s| NIL))
                (SEQ
                 (SEQ (LETT |s| NIL) (LETT #1# |l|) G190
@@ -11,7 +11,7 @@
                 (EXIT |r|)))) 
 
 (SDEFUN |PDRING-;differentiate;ASNniA;2|
-        ((|r| A) (|s| S) (|n| |NonNegativeInteger|) ($ A))
+        ((|r| (A)) (|s| (S)) (|n| (|NonNegativeInteger|)) ($ (A)))
         (SPROG ((#1=#:G117 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 1) (LETT #1# |n|) G190
@@ -21,7 +21,8 @@
                 (EXIT |r|)))) 
 
 (SDEFUN |PDRING-;differentiate;ALLA;3|
-        ((|r| A) (|ls| |List| S) (|ln| |List| (|NonNegativeInteger|)) ($ A))
+        ((|r| (A)) (|ls| (|List| S)) (|ln| (|List| (|NonNegativeInteger|)))
+         ($ (A)))
         (SPROG ((#1=#:G121 NIL) (|s| NIL) (#2=#:G122 NIL) (|n| NIL))
                (SEQ
                 (SEQ (LETT |n| NIL) (LETT #2# |ln|) (LETT |s| NIL)
@@ -36,17 +37,19 @@
                      (GO G190) G191 (EXIT NIL))
                 (EXIT |r|)))) 
 
-(SDEFUN |PDRING-;D;ASA;4| ((|r| A) (|v| S) ($ A))
+(SDEFUN |PDRING-;D;ASA;4| ((|r| (A)) (|v| (S)) ($ (A)))
         (SPADCALL |r| |v| (QREFELT $ 8))) 
 
-(SDEFUN |PDRING-;D;ALA;5| ((|r| A) (|lv| |List| S) ($ A))
+(SDEFUN |PDRING-;D;ALA;5| ((|r| (A)) (|lv| (|List| S)) ($ (A)))
         (SPADCALL |r| |lv| (QREFELT $ 17))) 
 
-(SDEFUN |PDRING-;D;ASNniA;6| ((|r| A) (|v| S) (|n| |NonNegativeInteger|) ($ A))
+(SDEFUN |PDRING-;D;ASNniA;6|
+        ((|r| (A)) (|v| (S)) (|n| (|NonNegativeInteger|)) ($ (A)))
         (SPADCALL |r| |v| |n| (QREFELT $ 13))) 
 
 (SDEFUN |PDRING-;D;ALLA;7|
-        ((|r| A) (|lv| |List| S) (|ln| |List| (|NonNegativeInteger|)) ($ A))
+        ((|r| (A)) (|lv| (|List| S)) (|ln| (|List| (|NonNegativeInteger|)))
+         ($ (A)))
         (SPADCALL |r| |lv| |ln| (QREFELT $ 20))) 
 
 (DECLAIM (NOTINLINE |PartialDifferentialRing&;|)) 

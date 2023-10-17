@@ -1,21 +1,21 @@
 
 (SDEFUN |PLOT1;plot;SSSP;1|
-        ((|f| S) (|x| |Symbol|) (|xRange| |Segment| (|DoubleFloat|))
-         ($ |Plot|))
+        ((|f| (S)) (|x| (|Symbol|)) (|xRange| (|Segment| (|DoubleFloat|)))
+         ($ (|Plot|)))
         (SPADCALL (SPADCALL |f| |x| (QREFELT $ 10)) |xRange| (QREFELT $ 13))) 
 
-(SDEFUN |PLOT1;plotPolar;SSP;2| ((|f| S) (|theta| |Symbol|) ($ |Plot|))
+(SDEFUN |PLOT1;plotPolar;SSP;2| ((|f| (S)) (|theta| (|Symbol|)) ($ (|Plot|)))
         (SPADCALL (SPADCALL |f| |theta| (QREFELT $ 10)) (QREFELT $ 15))) 
 
 (SDEFUN |PLOT1;plot;2SSSP;3|
-        ((|f1| S) (|f2| S) (|t| |Symbol|) (|tRange| |Segment| (|DoubleFloat|))
-         ($ |Plot|))
+        ((|f1| (S)) (|f2| (S)) (|t| (|Symbol|))
+         (|tRange| (|Segment| (|DoubleFloat|))) ($ (|Plot|)))
         (SPADCALL (SPADCALL |f1| |t| (QREFELT $ 10))
                   (SPADCALL |f2| |t| (QREFELT $ 10)) |tRange| (QREFELT $ 17))) 
 
 (SDEFUN |PLOT1;plotPolar;SSSP;4|
-        ((|f| S) (|theta| |Symbol|) (|thetaRange| |Segment| (|DoubleFloat|))
-         ($ |Plot|))
+        ((|f| (S)) (|theta| (|Symbol|))
+         (|thetaRange| (|Segment| (|DoubleFloat|))) ($ (|Plot|)))
         (SPADCALL (SPADCALL |f| |theta| (QREFELT $ 10)) |thetaRange|
                   (QREFELT $ 19))) 
 

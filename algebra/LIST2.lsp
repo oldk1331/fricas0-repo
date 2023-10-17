@@ -1,13 +1,14 @@
 
-(SDEFUN |LIST2;map;MLL;1| ((|f| |Mapping| B A) (|l| |List| A) ($ |List| B))
+(SDEFUN |LIST2;map;MLL;1|
+        ((|f| (|Mapping| B A)) (|l| (|List| A)) ($ (|List| B)))
         (SPADCALL |f| |l| (QREFELT $ 12))) 
 
 (SDEFUN |LIST2;scan;MLBL;2|
-        ((|f| |Mapping| B A B) (|l| |List| A) (|b| B) ($ |List| B))
+        ((|f| (|Mapping| B A B)) (|l| (|List| A)) (|b| (B)) ($ (|List| B)))
         (SPADCALL |f| |l| |b| (QREFELT $ 15))) 
 
 (SDEFUN |LIST2;reduce;ML2B;3|
-        ((|f| |Mapping| B A B) (|l| |List| A) (|b| B) ($ B))
+        ((|f| (|Mapping| B A B)) (|l| (|List| A)) (|b| (B)) ($ (B)))
         (SPADCALL |f| |l| |b| (QREFELT $ 17))) 
 
 (DECLAIM (NOTINLINE |ListFunctions2;|)) 

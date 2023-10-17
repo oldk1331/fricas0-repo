@@ -1,7 +1,7 @@
 
 (SDEFUN |STREAM3;mapp|
-        ((|g| |Mapping| C A B) (|x| |Stream| A) (|y| |Stream| B)
-         ($ |Stream| C))
+        ((|g| (|Mapping| C A B)) (|x| (|Stream| A)) (|y| (|Stream| B))
+         ($ (|Stream| C)))
         (SPROG NIL
                (SPADCALL (CONS #'|STREAM3;mapp!0| (VECTOR |g| |y| $ |x|))
                          (QREFELT $ 24)))) 
@@ -26,8 +26,8 @@
                (QREFELT $ 22)))))))) 
 
 (SDEFUN |STREAM3;map;MSSS;2|
-        ((|g| |Mapping| C A B) (|x| |Stream| A) (|y| |Stream| B)
-         ($ |Stream| C))
+        ((|g| (|Mapping| C A B)) (|x| (|Stream| A)) (|y| (|Stream| B))
+         ($ (|Stream| C)))
         (SPROG NIL
                (COND ((SPADCALL |x| (QREFELT $ 25)) (SPADCALL (QREFELT $ 13)))
                      ((SPADCALL |x| (SPADCALL |x| (QREFELT $ 18))

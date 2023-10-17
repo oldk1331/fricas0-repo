@@ -1,9 +1,9 @@
 
-(SDEFUN |ELIPIDF;rabs| ((|x| |Complex| (|DoubleFloat|)) ($ |DoubleFloat|))
+(SDEFUN |ELIPIDF;rabs| ((|x| (|Complex| (|DoubleFloat|))) ($ (|DoubleFloat|)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 34)) (QREFELT $ 36))) 
 
 (SDEFUN |ELIPIDF;ellipticRC;3Df;2|
-        ((|x| |DoubleFloat|) (|y| |DoubleFloat|) ($ |DoubleFloat|))
+        ((|x| (|DoubleFloat|)) (|y| (|DoubleFloat|)) ($ (|DoubleFloat|)))
         (SPROG
          ((Q #1=(|DoubleFloat|)) (|mu| #1#) (|lambda| #2=(|DoubleFloat|))
           (#3=#:G114 NIL) (S0 #2#) (S1 #2#) (|sn2| #1#) (|sn| #1#)
@@ -70,8 +70,8 @@
           #4# (EXIT #3#)))) 
 
 (SDEFUN |ELIPIDF;ellipticRF;4Df;3|
-        ((|x| |DoubleFloat|) (|y| |DoubleFloat|) (|z| |DoubleFloat|)
-         ($ |DoubleFloat|))
+        ((|x| (|DoubleFloat|)) (|y| (|DoubleFloat|)) (|z| (|DoubleFloat|))
+         ($ (|DoubleFloat|)))
         (SPROG
          ((Q #1=(|DoubleFloat|)) (|mu| #1#) (|lambda| #2=(|DoubleFloat|))
           (|znroot| #3=(|DoubleFloat|)) (|ynroot| #3#) (|xnroot| #3#)
@@ -148,8 +148,8 @@
           #6# (EXIT #4#)))) 
 
 (SDEFUN |ELIPIDF;ellipticRD;4Df;4|
-        ((|x| |DoubleFloat|) (|y| |DoubleFloat|) (|z| |DoubleFloat|)
-         ($ |DoubleFloat|))
+        ((|x| (|DoubleFloat|)) (|y| (|DoubleFloat|)) (|z| (|DoubleFloat|))
+         ($ (|DoubleFloat|)))
         (SPROG
          ((Q #1=(|DoubleFloat|)) (|mu| #1#) (|power4| (|DoubleFloat|))
           (|sigma| (|DoubleFloat|)) (|lambda| #2=(|DoubleFloat|))
@@ -276,8 +276,8 @@
           #7# (EXIT #4#)))) 
 
 (SDEFUN |ELIPIDF;ellipticRJ;5Df;5|
-        ((|x| |DoubleFloat|) (|y| |DoubleFloat|) (|z| |DoubleFloat|)
-         (|p| |DoubleFloat|) ($ |DoubleFloat|))
+        ((|x| (|DoubleFloat|)) (|y| (|DoubleFloat|)) (|z| (|DoubleFloat|))
+         (|p| (|DoubleFloat|)) ($ (|DoubleFloat|)))
         (SPROG
          ((Q #1=(|DoubleFloat|)) (|mu| #1#) (|power4| (|DoubleFloat|))
           (|sigma| (|DoubleFloat|)) (|beta| #1#) (|alfa| #2=(|DoubleFloat|))
@@ -442,17 +442,17 @@
           #7# (EXIT #4#)))) 
 
 (SDEFUN |ELIPIDF;ellipticF;3Df;6|
-        ((|z| |DoubleFloat|) (|m| |DoubleFloat|) ($ |DoubleFloat|))
+        ((|z| (|DoubleFloat|)) (|m| (|DoubleFloat|)) ($ (|DoubleFloat|)))
         (|mul_DF| |z|
                   (SPADCALL (|sub_DF| 1.0 (|mul_DF| |z| |z|))
                             (|sub_DF| 1.0 (|mul_DF| (|mul_DF| |m| |z|) |z|))
                             1.0 (QREFELT $ 40)))) 
 
-(SDEFUN |ELIPIDF;ellipticK;2Df;7| ((|m| |DoubleFloat|) ($ |DoubleFloat|))
+(SDEFUN |ELIPIDF;ellipticK;2Df;7| ((|m| (|DoubleFloat|)) ($ (|DoubleFloat|)))
         (SPADCALL 0.0 (|sub_DF| 1.0 |m|) 1.0 (QREFELT $ 40))) 
 
 (SDEFUN |ELIPIDF;ellipticE;3Df;8|
-        ((|z| |DoubleFloat|) (|m| |DoubleFloat|) ($ |DoubleFloat|))
+        ((|z| (|DoubleFloat|)) (|m| (|DoubleFloat|)) ($ (|DoubleFloat|)))
         (|sub_DF|
          (|mul_DF| |z|
                    (SPADCALL (|sub_DF| 1.0 (|mul_DF| |z| |z|))
@@ -468,15 +468,15 @@
                     (|sub_DF| 1.0 (|mul_DF| (|mul_DF| |m| |z|) |z|)) 1.0
                     (QREFELT $ 41))))) 
 
-(SDEFUN |ELIPIDF;ellipticE;2Df;9| ((|m| |DoubleFloat|) ($ |DoubleFloat|))
+(SDEFUN |ELIPIDF;ellipticE;2Df;9| ((|m| (|DoubleFloat|)) ($ (|DoubleFloat|)))
         (|sub_DF| (SPADCALL 0.0 (|sub_DF| 1.0 |m|) 1.0 (QREFELT $ 40))
                   (|mul_DF| (|div_DF| |m| (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT))
                             (SPADCALL 0.0 (|sub_DF| 1.0 |m|) 1.0
                                       (QREFELT $ 41))))) 
 
 (SDEFUN |ELIPIDF;ellipticPi;4Df;10|
-        ((|z| |DoubleFloat|) (|n| |DoubleFloat|) (|m| |DoubleFloat|)
-         ($ |DoubleFloat|))
+        ((|z| (|DoubleFloat|)) (|n| (|DoubleFloat|)) (|m| (|DoubleFloat|))
+         ($ (|DoubleFloat|)))
         (|add_DF|
          (|mul_DF| |z|
                    (SPADCALL (|sub_DF| 1.0 (|mul_DF| |z| |z|))
@@ -494,8 +494,8 @@
                     (QREFELT $ 42))))) 
 
 (SDEFUN |ELIPIDF;ellipticRC;3C;11|
-        ((|x| |Complex| (|DoubleFloat|)) (|y| |Complex| (|DoubleFloat|))
-         ($ |Complex| (|DoubleFloat|)))
+        ((|x| (|Complex| (|DoubleFloat|))) (|y| (|Complex| (|DoubleFloat|)))
+         ($ (|Complex| (|DoubleFloat|))))
         (SPROG
          ((Q (|DoubleFloat|)) (|mu| (|Complex| (|DoubleFloat|)))
           (|lambda| #1=(|Complex| (|DoubleFloat|))) (#2=#:G147 NIL) (S0 #1#)
@@ -600,8 +600,8 @@
           #4# (EXIT #2#)))) 
 
 (SDEFUN |ELIPIDF;ellipticRF;4C;12|
-        ((|x| |Complex| (|DoubleFloat|)) (|y| |Complex| (|DoubleFloat|))
-         (|z| |Complex| (|DoubleFloat|)) ($ |Complex| (|DoubleFloat|)))
+        ((|x| (|Complex| (|DoubleFloat|))) (|y| (|Complex| (|DoubleFloat|)))
+         (|z| (|Complex| (|DoubleFloat|))) ($ (|Complex| (|DoubleFloat|))))
         (SPROG
          ((Q (|DoubleFloat|)) (|mu| (|Complex| (|DoubleFloat|)))
           (|lambda| #1=(|Complex| (|DoubleFloat|)))
@@ -717,8 +717,8 @@
           #6# (EXIT #3#)))) 
 
 (SDEFUN |ELIPIDF;ellipticRD;4C;13|
-        ((|x| |Complex| (|DoubleFloat|)) (|y| |Complex| (|DoubleFloat|))
-         (|z| |Complex| (|DoubleFloat|)) ($ |Complex| (|DoubleFloat|)))
+        ((|x| (|Complex| (|DoubleFloat|))) (|y| (|Complex| (|DoubleFloat|)))
+         (|z| (|Complex| (|DoubleFloat|))) ($ (|Complex| (|DoubleFloat|))))
         (SPROG
          ((Q (|DoubleFloat|)) (|mu| (|Complex| (|DoubleFloat|)))
           (|power4| (|Complex| (|DoubleFloat|)))
@@ -901,9 +901,9 @@
           #7# (EXIT #3#)))) 
 
 (SDEFUN |ELIPIDF;ellipticRJ;5C;14|
-        ((|x| |Complex| (|DoubleFloat|)) (|y| |Complex| (|DoubleFloat|))
-         (|z| |Complex| (|DoubleFloat|)) (|p| |Complex| (|DoubleFloat|))
-         ($ |Complex| (|DoubleFloat|)))
+        ((|x| (|Complex| (|DoubleFloat|))) (|y| (|Complex| (|DoubleFloat|)))
+         (|z| (|Complex| (|DoubleFloat|))) (|p| (|Complex| (|DoubleFloat|)))
+         ($ (|Complex| (|DoubleFloat|))))
         (SPROG
          ((Q (|DoubleFloat|)) (|mu| (|Complex| (|DoubleFloat|)))
           (|power4| (|Complex| (|DoubleFloat|)))
@@ -1149,8 +1149,8 @@
           #7# (EXIT #4#)))) 
 
 (SDEFUN |ELIPIDF;ellipticF;3C;15|
-        ((|z| |Complex| (|DoubleFloat|)) (|m| |Complex| (|DoubleFloat|))
-         ($ |Complex| (|DoubleFloat|)))
+        ((|z| (|Complex| (|DoubleFloat|))) (|m| (|Complex| (|DoubleFloat|)))
+         ($ (|Complex| (|DoubleFloat|))))
         (SPADCALL |z|
                   (SPADCALL
                    (SPADCALL (|spadConstant| $ 51)
@@ -1163,14 +1163,14 @@
                   (QREFELT $ 53))) 
 
 (SDEFUN |ELIPIDF;ellipticK;2C;16|
-        ((|m| |Complex| (|DoubleFloat|)) ($ |Complex| (|DoubleFloat|)))
+        ((|m| (|Complex| (|DoubleFloat|))) ($ (|Complex| (|DoubleFloat|))))
         (SPADCALL (|spadConstant| $ 60)
                   (SPADCALL (|spadConstant| $ 51) |m| (QREFELT $ 50))
                   (|spadConstant| $ 51) (QREFELT $ 59))) 
 
 (SDEFUN |ELIPIDF;ellipticE;3C;17|
-        ((|z| |Complex| (|DoubleFloat|)) (|m| |Complex| (|DoubleFloat|))
-         ($ |Complex| (|DoubleFloat|)))
+        ((|z| (|Complex| (|DoubleFloat|))) (|m| (|Complex| (|DoubleFloat|)))
+         ($ (|Complex| (|DoubleFloat|))))
         (SPADCALL
          (SPADCALL |z|
                    (SPADCALL
@@ -1201,7 +1201,7 @@
          (QREFELT $ 50))) 
 
 (SDEFUN |ELIPIDF;ellipticE;2C;18|
-        ((|m| |Complex| (|DoubleFloat|)) ($ |Complex| (|DoubleFloat|)))
+        ((|m| (|Complex| (|DoubleFloat|))) ($ (|Complex| (|DoubleFloat|))))
         (SPADCALL
          (SPADCALL (|spadConstant| $ 60)
                    (SPADCALL (|spadConstant| $ 51) |m| (QREFELT $ 50))
@@ -1215,8 +1215,8 @@
          (QREFELT $ 50))) 
 
 (SDEFUN |ELIPIDF;ellipticPi;4C;19|
-        ((|z| |Complex| (|DoubleFloat|)) (|n| |Complex| (|DoubleFloat|))
-         (|m| |Complex| (|DoubleFloat|)) ($ |Complex| (|DoubleFloat|)))
+        ((|z| (|Complex| (|DoubleFloat|))) (|n| (|Complex| (|DoubleFloat|)))
+         (|m| (|Complex| (|DoubleFloat|))) ($ (|Complex| (|DoubleFloat|))))
         (SPADCALL
          (SPADCALL |z|
                    (SPADCALL

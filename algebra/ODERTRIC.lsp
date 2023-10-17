@@ -1,11 +1,11 @@
 
 (SDEFUN |ODERTRIC;UP2SUP|
-        ((|p| UP) ($ |SparseUnivariatePolynomial| (|Polynomial| F)))
+        ((|p| (UP)) ($ (|SparseUnivariatePolynomial| (|Polynomial| F))))
         (SPADCALL (ELT $ 12) |p| (QREFELT $ 16))) 
 
 (SDEFUN |ODERTRIC;logDerOnly|
-        ((|l| |LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP))
-         ($ |List| (|Fraction| UP)))
+        ((|l| (|LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP)))
+         ($ (|List| (|Fraction| UP))))
         (SPROG ((#1=#:G118 NIL) (|s| NIL) (#2=#:G117 NIL))
                (SEQ
                 (PROGN
@@ -30,37 +30,39 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |ODERTRIC;ricDsolve;LodoML;3|
-        ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
-         (|zeros| |Mapping| (|List| F) UP) ($ |List| (|Fraction| UP)))
+        ((|l| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+         (|zeros| (|Mapping| (|List| F) UP)) ($ (|List| (|Fraction| UP))))
         (SPADCALL |l| |zeros| (ELT $ 29) (QREFELT $ 34))) 
 
 (SDEFUN |ODERTRIC;ricDsolve;LodoML;4|
-        ((|l| |LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP))
-         (|zeros| |Mapping| (|List| F) UP) ($ |List| (|Fraction| UP)))
+        ((|l| (|LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP)))
+         (|zeros| (|Mapping| (|List| F) UP)) ($ (|List| (|Fraction| UP))))
         (SPADCALL |l| |zeros| (ELT $ 29) (QREFELT $ 36))) 
 
 (SDEFUN |ODERTRIC;singRicDE;LodoML;5|
-        ((|l| |LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP))
-         (|ezfactor| |Mapping| (|Factored| UP) UP)
-         ($ |List|
-          (|Record| (|:| |frac| (|Fraction| UP))
-                    (|:| |eq|
-                         (|LinearOrdinaryDifferentialOperator2| UP
-                                                                (|Fraction|
-                                                                 UP))))))
+        ((|l| (|LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP)))
+         (|ezfactor| (|Mapping| (|Factored| UP) UP))
+         ($
+          (|List|
+           (|Record| (|:| |frac| (|Fraction| UP))
+                     (|:| |eq|
+                          (|LinearOrdinaryDifferentialOperator2| UP
+                                                                 (|Fraction|
+                                                                  UP)))))))
         (SPADCALL |l| (CONS (|function| |ODERTRIC;solveModulo|) $) |ezfactor|
                   (QREFELT $ 42))) 
 
 (SDEFUN |ODERTRIC;ricDsolve;LodoMML;6|
-        ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
-         (|zeros| |Mapping| (|List| F) UP)
-         (|ezfactor| |Mapping| (|Factored| UP) UP) ($ |List| (|Fraction| UP)))
+        ((|l| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+         (|zeros| (|Mapping| (|List| F) UP))
+         (|ezfactor| (|Mapping| (|Factored| UP) UP))
+         ($ (|List| (|Fraction| UP))))
         (SPADCALL (QCAR (SPADCALL |l| NIL (QREFELT $ 46))) |zeros| |ezfactor|
                   (QREFELT $ 36))) 
 
 (SDEFUN |ODERTRIC;mapeval|
-        ((|p| |SparseUnivariatePolynomial| (|Polynomial| F))
-         (|ls| |List| (|Symbol|)) (|lv| |List| F) ($ UP))
+        ((|p| (|SparseUnivariatePolynomial| (|Polynomial| F)))
+         (|ls| (|List| (|Symbol|))) (|lv| (|List| F)) ($ (UP)))
         (SPROG NIL
                (SPADCALL (CONS #'|ODERTRIC;mapeval!0| (VECTOR $ |lv| |ls|)) |p|
                          (QREFELT $ 53)))) 
@@ -76,7 +78,7 @@
                       (QREFELT $ 50)))))) 
 
 (SDEFUN |ODERTRIC;FifCan|
-        ((|f| |Fraction| (|Polynomial| F)) ($ |Union| F #1="failed"))
+        ((|f| (|Fraction| (|Polynomial| F))) ($ (|Union| F #1="failed")))
         (SPROG ((#2=#:G137 NIL) (|d| #3=(|Union| F "failed")) (|n| #3#))
                (SEQ
                 (COND
@@ -106,10 +108,11 @@
                 (EXIT (CONS 1 "failed"))))) 
 
 (SDEFUN |ODERTRIC;genericPolynomial|
-        ((|s| |Symbol|) (|n| |Integer|)
-         ($ |Record|
-          (|:| |poly| (|SparseUnivariatePolynomial| (|Polynomial| F)))
-          (|:| |vars| (|List| (|Symbol|)))))
+        ((|s| (|Symbol|)) (|n| (|Integer|))
+         ($
+          (|Record|
+           (|:| |poly| (|SparseUnivariatePolynomial| (|Polynomial| F)))
+           (|:| |vars| (|List| (|Symbol|))))))
         (SPROG
          ((|l| (|List| (|Symbol|)))
           (|ans| (|SparseUnivariatePolynomial| (|Polynomial| F)))
@@ -131,10 +134,11 @@
               (EXIT (CONS |ans| (NREVERSE |l|)))))) 
 
 (SDEFUN |ODERTRIC;ratsln|
-        ((|l| |List| (|Equation| (|Fraction| (|Polynomial| F))))
-         ($ |Union|
-          (|Record| (|:| |var| (|List| (|Symbol|))) (|:| |val| (|List| F)))
-          "failed"))
+        ((|l| (|List| (|Equation| (|Fraction| (|Polynomial| F)))))
+         ($
+          (|Union|
+           (|Record| (|:| |var| (|List| (|Symbol|))) (|:| |val| (|List| F)))
+           "failed")))
         (SPROG
          ((|ls| (|List| (|Symbol|))) (|lv| (|List| F)) (#1=#:G165 NIL)
           (#2=#:G166 NIL) (|v| (|Union| (|Symbol|) "failed"))
@@ -184,9 +188,10 @@
           #5# (EXIT #2#)))) 
 
 (SDEFUN |ODERTRIC;ratsol|
-        ((|l| |List| (|List| (|Equation| (|Fraction| (|Polynomial| F)))))
-         ($ |List|
-          (|Record| (|:| |var| (|List| (|Symbol|))) (|:| |val| (|List| F)))))
+        ((|l| (|List| (|List| (|Equation| (|Fraction| (|Polynomial| F))))))
+         ($
+          (|List|
+           (|Record| (|:| |var| (|List| (|Symbol|))) (|:| |val| (|List| F))))))
         (SPROG
          ((|ans|
            (|List|
@@ -210,14 +215,15 @@
               (EXIT |ans|)))) 
 
 (SDEFUN |ODERTRIC;polyRicDE;LodoML;12|
-        ((|l| |LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP))
-         (|zeros| |Mapping| (|List| F) UP)
-         ($ |List|
-          #1=(|Record| (|:| |poly| UP)
-                       (|:| |eq|
-                            (|LinearOrdinaryDifferentialOperator2| UP
-                                                                   (|Fraction|
-                                                                    UP))))))
+        ((|l| (|LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP)))
+         (|zeros| (|Mapping| (|List| F) UP))
+         ($
+          (|List|
+           #1=(|Record| (|:| |poly| UP)
+                        (|:| |eq|
+                             (|LinearOrdinaryDifferentialOperator2| UP
+                                                                    (|Fraction|
+                                                                     UP)))))))
         (SPROG
          ((|ans| (|List| #1#)) (|p| (UP)) (#2=#:G201 NIL) (|a| NIL)
           (#3=#:G200 NIL) (|rec| NIL)
@@ -267,7 +273,7 @@
                        (EXIT |ans|)))))))) 
 
 (SDEFUN |ODERTRIC;reverseUP|
-        ((|p| UP) ($ |UnivariateTaylorSeries| F |dummy| (|Zero|)))
+        ((|p| (UP)) ($ (|UnivariateTaylorSeries| F |dummy| (|Zero|))))
         (SPROG
          ((|ans| (|UnivariateTaylorSeries| F |dummy| (|Zero|))) (#1=#:G202 NIL)
           (|n| (|Integer|)))
@@ -298,8 +304,8 @@
               (EXIT |ans|)))) 
 
 (SDEFUN |ODERTRIC;reverseUTS|
-        ((|s| |UnivariateTaylorSeries| F |dummy| (|Zero|))
-         (|n| |NonNegativeInteger|) ($ UP))
+        ((|s| (|UnivariateTaylorSeries| F |dummy| (|Zero|)))
+         (|n| (|NonNegativeInteger|)) ($ (UP)))
         (SPROG
          ((#1=#:G208 NIL) (#2=#:G207 (UP)) (#3=#:G209 (UP)) (#4=#:G210 NIL)
           (#5=#:G212 NIL) (|i| NIL))
@@ -324,9 +330,9 @@
            (COND (#1# #2#) ('T (|spadConstant| $ 18))))))) 
 
 (SDEFUN |ODERTRIC;newtonSolution|
-        ((|l| . #1=(|LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP)))
-         (|a| F) (|n| |NonNegativeInteger|) (|zeros| |Mapping| (|List| F) UP)
-         ($ UP))
+        ((|l| #1=(|LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP)))
+         (|a| (F)) (|n| (|NonNegativeInteger|))
+         (|zeros| (|Mapping| (|List| F) UP)) ($ (UP)))
         (SPROG
          ((|sols| (|List| UP)) (#2=#:G235 NIL) (|sol| NIL) (#3=#:G234 NIL)
           (|neq| (|LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP)))
@@ -417,10 +423,11 @@
                                              (QREFELT $ 90)))))))))))) 
 
 (SDEFUN |ODERTRIC;newtonSolve|
-        ((|eq| |SparseUnivariatePolynomial|
-          (|UnivariateTaylorSeries| F |dummy| (|Zero|)))
-         (|a| F) (|n| |NonNegativeInteger|)
-         ($ |Union| (|UnivariateTaylorSeries| F |dummy| (|Zero|)) "failed"))
+        ((|eq|
+          (|SparseUnivariatePolynomial|
+           (|UnivariateTaylorSeries| F |dummy| (|Zero|))))
+         (|a| (F)) (|n| (|NonNegativeInteger|))
+         ($ (|Union| (|UnivariateTaylorSeries| F |dummy| (|Zero|)) "failed")))
         (SPROG
          ((|sol| (|UnivariateTaylorSeries| F |dummy| (|Zero|))) (#1=#:G243 NIL)
           (|xquo|
@@ -454,9 +461,10 @@
           #3# (EXIT #1#)))) 
 
 (SDEFUN |ODERTRIC;ricDsolve;LodoMML;17|
-        ((|l| |LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP))
-         (|zeros| |Mapping| (|List| F) UP)
-         (|ezfactor| |Mapping| (|Factored| UP) UP) ($ |List| (|Fraction| UP)))
+        ((|l| (|LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP)))
+         (|zeros| (|Mapping| (|List| F) UP))
+         (|ezfactor| (|Mapping| (|Factored| UP) UP))
+         ($ (|List| (|Fraction| UP))))
         (SPROG
          ((#1=#:G254 NIL) (#2=#:G255 NIL) (|ans| (|List| (|Fraction| UP)))
           (#3=#:G258 NIL) (|f| NIL) (#4=#:G257 NIL) (#5=#:G256 NIL) (|rec| NIL)
@@ -514,9 +522,9 @@
           #6# (EXIT #2#)))) 
 
 (SDEFUN |ODERTRIC;nonSingSolve|
-        ((|n| |NonNegativeInteger|)
-         (|l| |LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP))
-         (|zeros| |Mapping| (|List| F) UP) ($ |List| (|Fraction| UP)))
+        ((|n| (|NonNegativeInteger|))
+         (|l| (|LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP)))
+         (|zeros| (|Mapping| (|List| F) UP)) ($ (|List| (|Fraction| UP))))
         (SPROG
          ((#1=#:G269 NIL) (#2=#:G270 NIL) (|ans| (|List| (|Fraction| UP)))
           (#3=#:G271 NIL) (|rec| NIL))
@@ -550,14 +558,14 @@
           #4# (EXIT #2#)))) 
 
 (SDEFUN |ODERTRIC;constantRic|
-        ((|p| UP) (|zeros| |Mapping| (|List| F) UP) ($ |List| F))
+        ((|p| (UP)) (|zeros| (|Mapping| (|List| F) UP)) ($ (|List| F)))
         (COND ((ZEROP (SPADCALL |p| (QREFELT $ 83))) NIL)
               ('T (SPADCALL (SPADCALL |p| (QREFELT $ 113)) |zeros|)))) 
 
 (SDEFUN |ODERTRIC;nopoly|
-        ((|n| |NonNegativeInteger|) (|p| UP)
-         (|l| |LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP))
-         (|zeros| |Mapping| (|List| F) UP) ($ |List| (|Fraction| UP)))
+        ((|n| (|NonNegativeInteger|)) (|p| (UP))
+         (|l| (|LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP)))
+         (|zeros| (|Mapping| (|List| F) UP)) ($ (|List| (|Fraction| UP))))
         (SPROG
          ((#1=#:G282 NIL) (#2=#:G283 NIL) (|ans| (|List| (|Fraction| UP)))
           (#3=#:G286 NIL) (|f| NIL) (#4=#:G285 NIL) (#5=#:G284 NIL)
@@ -630,7 +638,7 @@
           (RETURN (PROGN (|ODERTRIC;constantRic| |z| |zeros| $))))) 
 
 (SDEFUN |ODERTRIC;solveModulo|
-        ((|c| UP) (|h| |SparseUnivariatePolynomial| UP) ($ |List| UP))
+        ((|c| (UP)) (|h| (|SparseUnivariatePolynomial| UP)) ($ (|List| UP)))
         (SPROG
          ((#1=#:G297 NIL) (|s| NIL) (#2=#:G296 NIL)
           (|sol|
@@ -686,18 +694,19 @@
                  (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |ODERTRIC;ricDsolve;LodoL;22|
-        ((|l| |LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP))
-         ($ |List| (|Fraction| UP)))
+        ((|l| (|LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP)))
+         ($ (|List| (|Fraction| UP))))
         (SPADCALL |l| (ELT $ 29) (QREFELT $ 133))) 
 
 (SDEFUN |ODERTRIC;ricDsolve;LodoL;23|
-        ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
-         ($ |List| (|Fraction| UP)))
+        ((|l| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+         ($ (|List| (|Fraction| UP))))
         (SPADCALL |l| (ELT $ 29) (QREFELT $ 135))) 
 
 (SDEFUN |ODERTRIC;ricDsolve;LodoML;24|
-        ((|l| |LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP))
-         (|ezfactor| |Mapping| (|Factored| UP) UP) ($ |List| (|Fraction| UP)))
+        ((|l| (|LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP)))
+         (|ezfactor| (|Mapping| (|Factored| UP) UP))
+         ($ (|List| (|Fraction| UP))))
         (SPROG NIL
                (SPADCALL |l|
                          (CONS #'|ODERTRIC;ricDsolve;LodoML;24!0|
@@ -711,8 +720,9 @@
           (RETURN (PROGN (|ODERTRIC;zro| |z| |ezfactor| $))))) 
 
 (SDEFUN |ODERTRIC;ricDsolve;LodoML;25|
-        ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
-         (|ezfactor| |Mapping| (|Factored| UP) UP) ($ |List| (|Fraction| UP)))
+        ((|l| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+         (|ezfactor| (|Mapping| (|Factored| UP) UP))
+         ($ (|List| (|Fraction| UP))))
         (SPROG NIL
                (SPADCALL |l|
                          (CONS #'|ODERTRIC;ricDsolve;LodoML;25!0|
@@ -726,7 +736,7 @@
           (RETURN (PROGN (|ODERTRIC;zro| |z| |ezfactor| $))))) 
 
 (SDEFUN |ODERTRIC;zro|
-        ((|p| UP) (|ezfactor| |Mapping| (|Factored| UP) UP) ($ |List| F))
+        ((|p| (UP)) (|ezfactor| (|Mapping| (|Factored| UP) UP)) ($ (|List| F)))
         (SPROG ((#1=#:G314 NIL) (|r| NIL) (#2=#:G313 NIL))
                (SEQ
                 (SPADCALL
@@ -748,7 +758,7 @@
                        (EXIT (NREVERSE #2#))))
                  (QREFELT $ 143))))) 
 
-(SDEFUN |ODERTRIC;zro1| ((|p| UP) ($ |List| F))
+(SDEFUN |ODERTRIC;zro1| ((|p| (UP)) ($ (|List| F)))
         (LIST
          (SPADCALL (SPADCALL (LIST #'|ODERTRIC;zro1!0|) |p| (QREFELT $ 147))
                    (QREFELT $ 149)))) 

@@ -1,10 +1,10 @@
 
-(SDEFUN |ROIRC;size;$TheField;1| ((|rootCode| $) ($ |TheField|))
+(SDEFUN |ROIRC;size;$TheField;1| ((|rootCode| ($)) ($ (|TheField|)))
         (SPADCALL (QVELT |rootCode| 1) (QVELT |rootCode| 0) (QREFELT $ 9))) 
 
 (SDEFUN |ROIRC;relativeApprox;ThePolDom$2TheField;2|
-        ((|pval| |ThePolDom|) (|rootCode| $) (|prec| |TheField|)
-         ($ |TheField|))
+        ((|pval| (|ThePolDom|)) (|rootCode| ($)) (|prec| (|TheField|))
+         ($ (|TheField|)))
         (SPROG
          ((|b| (|TheField|)) (|a| (|TheField|)) (|r| (|TheField|))
           (|l| (|TheField|)) (|dpval| (|ThePolDom|)) (|c| (|TheField|))
@@ -144,8 +144,8 @@
                                          (QREFELT $ 18)))))))))))))))))) 
 
 (SDEFUN |ROIRC;approximate;ThePolDom$2TheField;3|
-        ((|pval| |ThePolDom|) (|rootCode| $) (|prec| |TheField|)
-         ($ |TheField|))
+        ((|pval| (|ThePolDom|)) (|rootCode| ($)) (|prec| (|TheField|))
+         ($ (|TheField|)))
         (SPROG
          ((|r| (|TheField|)) (|l| (|TheField|)) (|b| (|TheField|))
           (|a| (|TheField|)) (|dpval| (|ThePolDom|)) (|c| (|TheField|))
@@ -272,28 +272,30 @@
                                              (SPADCALL 2 (QREFELT $ 35))
                                              (QREFELT $ 18)))))))))))))))))) 
 
-(SDEFUN |ROIRC;addOne| ((|p| |ThePolDom|) ($ |ThePolDom|))
+(SDEFUN |ROIRC;addOne| ((|p| (|ThePolDom|)) ($ (|ThePolDom|)))
         (SPADCALL |p|
                   (SPADCALL (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 40))
                             (|spadConstant| $ 39) (QREFELT $ 41))
                   (QREFELT $ 42))) 
 
-(SDEFUN |ROIRC;minus| ((|p| |ThePolDom|) ($ |ThePolDom|))
+(SDEFUN |ROIRC;minus| ((|p| (|ThePolDom|)) ($ (|ThePolDom|)))
         (SPADCALL |p|
                   (SPADCALL (SPADCALL (|spadConstant| $ 13) (QREFELT $ 19)) 1
                             (QREFELT $ 40))
                   (QREFELT $ 42))) 
 
-(SDEFUN |ROIRC;translate| ((|p| |ThePolDom|) (|a| |TheField|) ($ |ThePolDom|))
+(SDEFUN |ROIRC;translate|
+        ((|p| (|ThePolDom|)) (|a| (|TheField|)) ($ (|ThePolDom|)))
         (SPADCALL |p|
                   (SPADCALL (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 40))
                             (SPADCALL |a| (QREFELT $ 43)) (QREFELT $ 41))
                   (QREFELT $ 42))) 
 
-(SDEFUN |ROIRC;dilate| ((|p| |ThePolDom|) (|a| |TheField|) ($ |ThePolDom|))
+(SDEFUN |ROIRC;dilate|
+        ((|p| (|ThePolDom|)) (|a| (|TheField|)) ($ (|ThePolDom|)))
         (SPADCALL |p| (SPADCALL |a| 1 (QREFELT $ 40)) (QREFELT $ 42))) 
 
-(SDEFUN |ROIRC;evalOne| ((|p| |ThePolDom|) ($ |TheField|))
+(SDEFUN |ROIRC;evalOne| ((|p| (|ThePolDom|)) ($ (|TheField|)))
         (SPROG
          ((#1=#:G198 NIL) (#2=#:G197 (|TheField|)) (#3=#:G199 (|TheField|))
           (#4=#:G201 NIL) (#5=#:G103 NIL))
@@ -312,7 +314,7 @@
                 (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
            (COND (#1# #2#) ('T (|spadConstant| $ 14))))))) 
 
-(SDEFUN |ROIRC;invert| ((|p| |ThePolDom|) ($ |ThePolDom|))
+(SDEFUN |ROIRC;invert| ((|p| (|ThePolDom|)) ($ (|ThePolDom|)))
         (SPROG ((|d| (|NonNegativeInteger|)))
                (SEQ (LETT |d| (SPADCALL |p| (QREFELT $ 12)))
                     (EXIT
@@ -330,7 +332,7 @@
                      (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
                                        '(|Integer|) #1#))))))) 
 
-(SDEFUN |ROIRC;rootBound| ((|p| |ThePolDom|) ($ |TheField|))
+(SDEFUN |ROIRC;rootBound| ((|p| (|ThePolDom|)) ($ (|TheField|)))
         (SPROG ((|res| (|TheField|)) (|raw| (|TheField|)))
                (SEQ (LETT |res| (|spadConstant| $ 13))
                     (LETT |raw|
@@ -348,11 +350,12 @@
                     (EXIT |res|)))) 
 
 (SDEFUN |ROIRC;sturmNthRoot|
-        ((|lp| |List| |ThePolDom|) (|l| |TheField|) (|r| |TheField|)
-         (|vl| |NonNegativeInteger|) (|vr| |NonNegativeInteger|)
-         (|n| |NonNegativeInteger|)
-         ($ |Union| (|Record| (|:| |low| |TheField|) (|:| |high| |TheField|))
-          "failed"))
+        ((|lp| (|List| |ThePolDom|)) (|l| (|TheField|)) (|r| (|TheField|))
+         (|vl| (|NonNegativeInteger|)) (|vr| (|NonNegativeInteger|))
+         (|n| (|NonNegativeInteger|))
+         ($
+          (|Union| (|Record| (|:| |low| |TheField|) (|:| |high| |TheField|))
+                   "failed")))
         (SPROG
          ((#1=#:G215 NIL) (|o| (|Integer|)) (|vi| (|NonNegativeInteger|))
           (|lt| (|List| |TheField|)) (#2=#:G219 NIL) (|t| NIL)
@@ -398,9 +401,10 @@
                        $))))))))))) 
 
 (SDEFUN |ROIRC;sturmIsolate|
-        ((|lp| |List| |ThePolDom|) (|l| |TheField|) (|r| |TheField|)
-         (|vl| |NonNegativeInteger|) (|vr| |NonNegativeInteger|)
-         ($ |List| (|Record| (|:| |low| |TheField|) (|:| |high| |TheField|))))
+        ((|lp| (|List| |ThePolDom|)) (|l| (|TheField|)) (|r| (|TheField|))
+         (|vl| (|NonNegativeInteger|)) (|vr| (|NonNegativeInteger|))
+         ($
+          (|List| (|Record| (|:| |low| |TheField|) (|:| |high| |TheField|)))))
         (SPROG
          ((|vi| (|NonNegativeInteger|)) (#1=#:G229 NIL) (|t| NIL)
           (#2=#:G228 NIL) (|int| (|TheField|)) (|n| (|NonNegativeInteger|))
@@ -448,8 +452,9 @@
                         (QREFELT $ 56))))))))))))) 
 
 (SDEFUN |ROIRC;isolate|
-        ((|lp| |List| |ThePolDom|)
-         ($ |List| (|Record| (|:| |low| |TheField|) (|:| |high| |TheField|))))
+        ((|lp| (|List| |ThePolDom|))
+         ($
+          (|List| (|Record| (|:| |low| |TheField|) (|:| |high| |TheField|)))))
         (SPROG
          ((|l2| #1=(|List| |TheField|)) (|l1| #2=(|List| |TheField|))
           (|#G41| #3=(|List| |TheField|)) (|#G40| #3#) (|#G39| #3#)
@@ -491,7 +496,8 @@
                 $))))) 
 
 (SDEFUN |ROIRC;rootOf;ThePolDomPiU;14|
-        ((|pol| |ThePolDom|) (|n| |PositiveInteger|) ($ |Union| $ "failed"))
+        ((|pol| (|ThePolDom|)) (|n| (|PositiveInteger|))
+         ($ (|Union| $ "failed")))
         (SPROG
          ((|res|
            (|Union| (|Record| (|:| |low| |TheField|) (|:| |high| |TheField|))
@@ -559,7 +565,7 @@
                                     (|ROIRC;makeChar| (QCAR (QCDR |res|))
                                      (QCDR (QCDR |res|)) |pol| $)))))))))))) 
 
-(SDEFUN |ROIRC;allRootsOf;ThePolDomL;15| ((|pol| |ThePolDom|) ($ |List| $))
+(SDEFUN |ROIRC;allRootsOf;ThePolDomL;15| ((|pol| (|ThePolDom|)) ($ (|List| $)))
         (SPROG
          ((#1=#:G261 NIL) (|term| NIL) (#2=#:G260 NIL)
           (|ls| (|List| |ThePolDom|)))
@@ -590,7 +596,7 @@
                         (LETT #1# (CDR #1#)) (GO G190) G191
                         (EXIT (NREVERSE #2#)))))))))) 
 
-(SDEFUN |ROIRC;hasVarsl| ((|l| |List| |TheField|) ($ |Boolean|))
+(SDEFUN |ROIRC;hasVarsl| ((|l| (|List| |TheField|)) ($ (|Boolean|)))
         (SPROG ((#1=#:G267 NIL) (#2=#:G268 NIL) (|term| NIL) (|f| (|Integer|)))
                (SEQ
                 (EXIT
@@ -614,7 +620,7 @@
                          (EXIT NIL)))))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |ROIRC;hasVars| ((|p| |ThePolDom|) ($ |Boolean|))
+(SDEFUN |ROIRC;hasVars| ((|p| (|ThePolDom|)) ($ (|Boolean|)))
         (COND
          ((SPADCALL |p| (QREFELT $ 67))
           (|error| "ROIRC: hasVars: null polynomial"))
@@ -622,7 +628,7 @@
          ('T (|ROIRC;hasVarsl| (SPADCALL |p| (QREFELT $ 45)) $)))) 
 
 (SDEFUN |ROIRC;mightHaveRoots;ThePolDom$B;18|
-        ((|p| |ThePolDom|) (|rootChar| $) ($ |Boolean|))
+        ((|p| (|ThePolDom|)) (|rootChar| ($)) ($ (|Boolean|)))
         (SPROG ((|q| (|ThePolDom|)) (|a| (|TheField|)))
                (SEQ (LETT |a| (QVELT |rootChar| 0))
                     (LETT |q| (|ROIRC;translate| |p| |a| $))
@@ -646,7 +652,7 @@
                             (EXIT
                              (|ROIRC;hasVars| (|ROIRC;addOne| |q| $) $))))))))) 
 
-(SDEFUN |ROIRC;coerce;$Of;19| ((|rootChar| $) ($ |OutputForm|))
+(SDEFUN |ROIRC;coerce;$Of;19| ((|rootChar| ($)) ($ (|OutputForm|)))
         (SPADCALL
          (LIST
           (SPADCALL (SPADCALL "[" (QREFELT $ 71))
@@ -656,7 +662,7 @@
                     (SPADCALL "[" (QREFELT $ 71)) (QREFELT $ 73)))
          (QREFELT $ 74))) 
 
-(SDEFUN |ROIRC;=;2$B;20| ((|c1| $) (|c2| $) ($ |Boolean|))
+(SDEFUN |ROIRC;=;2$B;20| ((|c1| ($)) (|c2| ($)) ($ (|Boolean|)))
         (SPROG ((|rr| (|ThePolDom|)) (|Mm| (|TheField|)) (|mM| (|TheField|)))
                (SEQ
                 (LETT |mM|
@@ -684,7 +690,8 @@
                                   0))))))))))) 
 
 (SDEFUN |ROIRC;makeChar|
-        ((|left| |TheField|) (|right| |TheField|) (|pol| |ThePolDom|) ($ $))
+        ((|left| (|TheField|)) (|right| (|TheField|)) (|pol| (|ThePolDom|))
+         ($ ($)))
         (SPROG ((|res| ($)))
                (SEQ
                 (LETT |res|
@@ -726,11 +733,11 @@
      '(XLAM (|rootChar|) (QVELT |rootChar| 2))) 
 
 (SDEFUN |ROIRC;definingPolynomial;$ThePolDom;22|
-        ((|rootChar| $) ($ |ThePolDom|)) (QVELT |rootChar| 2)) 
+        ((|rootChar| ($)) ($ (|ThePolDom|))) (QVELT |rootChar| 2)) 
 
 (SDEFUN |ROIRC;linearRecip|
-        ((|toTest| |ThePolDom|) (|rootChar| $)
-         ($ |Union| |ThePolDom| #1="failed"))
+        ((|toTest| (|ThePolDom|)) (|rootChar| ($))
+         ($ (|Union| |ThePolDom| #1="failed")))
         (SPROG
          ((#2=#:G288 NIL) (|newPol| (|ThePolDom|))
           (|r| (|Union| |TheField| "failed")) (|c| (|TheField|)))
@@ -798,8 +805,8 @@
                                      (|Union| (QREFELT $ 7) #1#) #2#))))))))) 
 
 (SDEFUN |ROIRC;recip;ThePolDom$U;24|
-        ((|toTest| |ThePolDom|) (|rootChar| $)
-         ($ |Union| |ThePolDom| #1="failed"))
+        ((|toTest| (|ThePolDom|)) (|rootChar| ($))
+         ($ (|Union| |ThePolDom| #1="failed")))
         (SPROG
          ((|d|
            (|Record| (|:| |coef1| |ThePolDom|) (|:| |coef2| |ThePolDom|)
@@ -908,7 +915,7 @@
                                (EXIT (CONS 0 (QVELT |d| 1))))))))))))))))))))))) 
 
 (SDEFUN |ROIRC;linearSign|
-        ((|toTest| |ThePolDom|) (|rootChar| $) ($ |Integer|))
+        ((|toTest| (|ThePolDom|)) (|rootChar| ($)) ($ (|Integer|)))
         (SPROG ((|ev| (|Integer|)) (|c| (|TheField|)))
                (SEQ
                 (LETT |c|
@@ -953,7 +960,7 @@
                     (QREFELT $ 65)))))))) 
 
 (SDEFUN |ROIRC;sign;ThePolDom$I;26|
-        ((|toTest| |ThePolDom|) (|rootChar| $) ($ |Integer|))
+        ((|toTest| (|ThePolDom|)) (|rootChar| ($)) ($ (|Integer|)))
         (SPROG
          ((|newChar| ($)) (#1=#:G325 NIL) (#2=#:G337 NIL)
           (|delta| (|ThePolDom|)) (|s| (|Integer|)))
@@ -1044,7 +1051,8 @@
                          (QREFELT $ 65))))))))))))))
           #4# (EXIT #2#)))) 
 
-(SDEFUN |ROIRC;linearZero?| ((|c| |TheField|) (|rootChar| $) ($ |Boolean|))
+(SDEFUN |ROIRC;linearZero?|
+        ((|c| (|TheField|)) (|rootChar| ($)) ($ (|Boolean|)))
         (COND
          ((SPADCALL (SPADCALL (QVELT |rootChar| 2) |c| (QREFELT $ 20))
                     (QREFELT $ 68))
@@ -1056,7 +1064,7 @@
          ('T NIL))) 
 
 (SDEFUN |ROIRC;zero?;ThePolDom$B;28|
-        ((|toTest| |ThePolDom|) (|rootChar| $) ($ |Boolean|))
+        ((|toTest| (|ThePolDom|)) (|rootChar| ($)) ($ (|Boolean|)))
         (SPROG ((|delta| (|ThePolDom|)))
                (SEQ
                 (COND
@@ -1106,7 +1114,7 @@
                                (QREFELT $ 65))
                               0)))))))))))) 
 
-(SDEFUN |ROIRC;refine!| ((|rootChar| $) ($ $))
+(SDEFUN |ROIRC;refine!| ((|rootChar| ($)) ($ ($)))
         (SPROG ((|s2| #1=(|Integer|)) (|s1| #1#) (|int| (|TheField|)))
                (SEQ (LETT |int| (SPADCALL |rootChar| (QREFELT $ 94)))
                     (LETT |s1|
@@ -1152,7 +1160,7 @@
                              (#2# (QSETVELT |rootChar| 0 |int|)))
                             (EXIT |rootChar|)))))))))))) 
 
-(SDEFUN |ROIRC;refine;2$;30| ((|rootChar| $) ($ $))
+(SDEFUN |ROIRC;refine;2$;30| ((|rootChar| ($)) ($ ($)))
         (SPROG ((|s| (|TheField|)) (|int| (|TheField|)))
                (SEQ (LETT |int| (SPADCALL |rootChar| (QREFELT $ 94)))
                     (LETT |s|
@@ -1180,16 +1188,16 @@
 (PUT '|ROIRC;left;$TheField;31| '|SPADreplace|
      '(XLAM (|rootChar|) (QVELT |rootChar| 0))) 
 
-(SDEFUN |ROIRC;left;$TheField;31| ((|rootChar| $) ($ |TheField|))
+(SDEFUN |ROIRC;left;$TheField;31| ((|rootChar| ($)) ($ (|TheField|)))
         (QVELT |rootChar| 0)) 
 
 (PUT '|ROIRC;right;$TheField;32| '|SPADreplace|
      '(XLAM (|rootChar|) (QVELT |rootChar| 1))) 
 
-(SDEFUN |ROIRC;right;$TheField;32| ((|rootChar| $) ($ |TheField|))
+(SDEFUN |ROIRC;right;$TheField;32| ((|rootChar| ($)) ($ (|TheField|)))
         (QVELT |rootChar| 1)) 
 
-(SDEFUN |ROIRC;middle;$TheField;33| ((|rootChar| $) ($ |TheField|))
+(SDEFUN |ROIRC;middle;$TheField;33| ((|rootChar| ($)) ($ (|TheField|)))
         (SPADCALL
          (SPADCALL (QVELT |rootChar| 0) (QVELT |rootChar| 1) (QREFELT $ 31))
          (SPADCALL 2 (QREFELT $ 35)) (QREFELT $ 18))) 

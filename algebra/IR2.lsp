@@ -1,24 +1,25 @@
 
 (SDEFUN |IR2;NLE2F|
-        ((|func| |Mapping| F E) (|r| |Record| (|:| |coeff| E) (|:| |logand| E))
-         ($ |Record| (|:| |coeff| F) (|:| |logand| F)))
+        ((|func| (|Mapping| F E))
+         (|r| (|Record| (|:| |coeff| E) (|:| |logand| E)))
+         ($ (|Record| (|:| |coeff| F) (|:| |logand| F))))
         (CONS (SPADCALL (QCAR |r|) |func|) (SPADCALL (QCDR |r|) |func|))) 
 
 (SDEFUN |IR2;NEE2F|
-        ((|func| |Mapping| F E)
-         (|n| |Record| (|:| |integrand| E) (|:| |intvar| E))
-         ($ |Record| (|:| |integrand| F) (|:| |intvar| F)))
+        ((|func| (|Mapping| F E))
+         (|n| (|Record| (|:| |integrand| E) (|:| |intvar| E)))
+         ($ (|Record| (|:| |integrand| F) (|:| |intvar| F))))
         (CONS (SPADCALL (QCAR |n|) |func|) (SPADCALL (QCDR |n|) |func|))) 
 
 (SDEFUN |IR2;map;MUU;3|
-        ((|func| |Mapping| F E) (|u| |Union| E "failed")
-         ($ |Union| F "failed"))
+        ((|func| (|Mapping| F E)) (|u| (|Union| E "failed"))
+         ($ (|Union| F "failed")))
         (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
               ('T (CONS 0 (SPADCALL (QCDR |u|) |func|))))) 
 
 (SDEFUN |IR2;map;MIrIr;4|
-        ((|func| |Mapping| F E) (|ir| |IntegrationResult| E)
-         ($ |IntegrationResult| F))
+        ((|func| (|Mapping| F E)) (|ir| (|IntegrationResult| E))
+         ($ (|IntegrationResult| F)))
         (SPROG
          ((#1=#:G135 NIL) (|g| NIL) (#2=#:G134 NIL) (#3=#:G133 NIL) (|f| NIL)
           (#4=#:G132 NIL))
@@ -51,9 +52,9 @@
                     (QREFELT $ 25))))) 
 
 (SDEFUN |IR2;map;MUU;5|
-        ((|func| |Mapping| F E)
-         (|u| |Union| (|Record| (|:| |ratpart| E) (|:| |coeff| E)) "failed")
-         ($ |Union| (|Record| (|:| |ratpart| F) (|:| |coeff| F)) "failed"))
+        ((|func| (|Mapping| F E))
+         (|u| (|Union| (|Record| (|:| |ratpart| E) (|:| |coeff| E)) "failed"))
+         ($ (|Union| (|Record| (|:| |ratpart| F) (|:| |coeff| F)) "failed")))
         (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
               ('T
                (CONS 0
@@ -61,17 +62,21 @@
                            (SPADCALL (QCDR (QCDR |u|)) |func|)))))) 
 
 (SDEFUN |IR2;map;MUU;6|
-        ((|func| |Mapping| F E)
-         (|u| |Union|
-          (|Record| (|:| |mainpart| E)
-                    (|:| |limitedlogs|
-                         (|List| (|Record| (|:| |coeff| E) (|:| |logand| E)))))
-          "failed")
-         ($ |Union|
-          (|Record| (|:| |mainpart| F)
-                    (|:| |limitedlogs|
-                         (|List| (|Record| (|:| |coeff| F) (|:| |logand| F)))))
-          "failed"))
+        ((|func| (|Mapping| F E))
+         (|u|
+          (|Union|
+           (|Record| (|:| |mainpart| E)
+                     (|:| |limitedlogs|
+                          (|List|
+                           (|Record| (|:| |coeff| E) (|:| |logand| E)))))
+           "failed"))
+         ($
+          (|Union|
+           (|Record| (|:| |mainpart| F)
+                     (|:| |limitedlogs|
+                          (|List|
+                           (|Record| (|:| |coeff| F) (|:| |logand| F)))))
+           "failed")))
         (SPROG ((#1=#:G177 NIL) (|f| NIL) (#2=#:G176 NIL))
                (SEQ
                 (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
@@ -98,13 +103,15 @@
                                          (EXIT (NREVERSE #2#))))))))))) 
 
 (SDEFUN |IR2;LGE2F|
-        ((|func| |Mapping| F E)
-         (|lg| |Record| (|:| |scalar| (|Fraction| (|Integer|)))
-          (|:| |coeff| (|SparseUnivariatePolynomial| E))
-          (|:| |logand| (|SparseUnivariatePolynomial| E)))
-         ($ |Record| (|:| |scalar| (|Fraction| (|Integer|)))
-          (|:| |coeff| (|SparseUnivariatePolynomial| F))
-          (|:| |logand| (|SparseUnivariatePolynomial| F))))
+        ((|func| (|Mapping| F E))
+         (|lg|
+          (|Record| (|:| |scalar| (|Fraction| (|Integer|)))
+                    (|:| |coeff| (|SparseUnivariatePolynomial| E))
+                    (|:| |logand| (|SparseUnivariatePolynomial| E))))
+         ($
+          (|Record| (|:| |scalar| (|Fraction| (|Integer|)))
+                    (|:| |coeff| (|SparseUnivariatePolynomial| F))
+                    (|:| |logand| (|SparseUnivariatePolynomial| F)))))
         (VECTOR (QVELT |lg| 0) (SPADCALL |func| (QVELT |lg| 1) (QREFELT $ 42))
                 (SPADCALL |func| (QVELT |lg| 2) (QREFELT $ 42)))) 
 

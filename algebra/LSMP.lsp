@@ -1,21 +1,22 @@
 
-(SDEFUN |LSMP;hasSolution?;MColB;1| ((A M) (|b| |Col|) ($ |Boolean|))
+(SDEFUN |LSMP;hasSolution?;MColB;1| ((A (M)) (|b| (|Col|)) ($ (|Boolean|)))
         (EQL (SPADCALL A (QREFELT $ 11))
              (SPADCALL (|LSMP;systemMatrix| A |b| $) (QREFELT $ 11)))) 
 
-(SDEFUN |LSMP;systemMatrix| ((|m| M) (|v| |Col|) ($ M))
+(SDEFUN |LSMP;systemMatrix| ((|m| (M)) (|v| (|Col|)) ($ (M)))
         (SPADCALL |m| (SPADCALL (SPADCALL |v| (QREFELT $ 14)) (QREFELT $ 15))
                   (QREFELT $ 16))) 
 
-(SDEFUN |LSMP;rank;MColNni;3| ((A M) (|b| |Col|) ($ |NonNegativeInteger|))
+(SDEFUN |LSMP;rank;MColNni;3|
+        ((A (M)) (|b| (|Col|)) ($ (|NonNegativeInteger|)))
         (SPADCALL (|LSMP;systemMatrix| A |b| $) (QREFELT $ 11))) 
 
 (SDEFUN |LSMP;particularSolution;MColU;4|
-        ((A M) (|b| |Col|) ($ |Union| |Col| "failed"))
+        ((A (M)) (|b| (|Col|)) ($ (|Union| |Col| "failed")))
         (|LSMP;aSolution|
          (SPADCALL (|LSMP;systemMatrix| A |b| $) (QREFELT $ 18)) $)) 
 
-(SDEFUN |LSMP;aSolution| ((|m| M) ($ |Union| |Col| "failed"))
+(SDEFUN |LSMP;aSolution| ((|m| (M)) ($ (|Union| |Col| "failed")))
         (SPROG
          ((#1=#:G139 NIL) (|j| NIL) (#2=#:G138 NIL) (|i| NIL)
           (|v| (|PrimitiveArray| (|Integer|))) (|sol| (|Col|))
@@ -107,9 +108,10 @@
                       (EXIT (CONS 0 |sol|))))))))))))) 
 
 (SDEFUN |LSMP;solve;MColR;6|
-        ((A M) (|b| |Col|)
-         ($ |Record| (|:| |particular| (|Union| |Col| "failed"))
-          (|:| |basis| (|List| |Col|))))
+        ((A (M)) (|b| (|Col|))
+         ($
+          (|Record| (|:| |particular| (|Union| |Col| "failed"))
+                    (|:| |basis| (|List| |Col|)))))
         (SPROG ((|m| (M)))
                (SEQ
                 (COND
@@ -135,10 +137,11 @@
                            (QREFELT $ 40)))))))))) 
 
 (SDEFUN |LSMP;solve;MLL;7|
-        ((A M) (|l| |List| |Col|)
-         ($ |List|
-          (|Record| (|:| |particular| (|Union| |Col| #1="failed"))
-                    (|:| |basis| #2=(|List| |Col|)))))
+        ((A (M)) (|l| (|List| |Col|))
+         ($
+          (|List|
+           (|Record| (|:| |particular| (|Union| |Col| #1="failed"))
+                     (|:| |basis| #2=(|List| |Col|))))))
         (SPROG
          ((#3=#:G160 NIL) (|b| NIL) (#4=#:G159 NIL) (|nl| #2#)
           (|sol0|

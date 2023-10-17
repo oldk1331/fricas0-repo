@@ -1,7 +1,7 @@
 
 (SDEFUN |NREP;characteristicPolynomial;MP;1|
-        ((|m| |Matrix| (|Fraction| (|Integer|)))
-         ($ |Polynomial| (|Fraction| (|Integer|))))
+        ((|m| (|Matrix| (|Fraction| (|Integer|))))
+         ($ (|Polynomial| (|Fraction| (|Integer|)))))
         (SPROG ((|x| (|Symbol|)))
                (SEQ (LETT |x| (SPADCALL (QREFELT $ 8)))
                     (EXIT
@@ -9,20 +9,21 @@
                                (QREFELT $ 14)))))) 
 
 (SDEFUN |NREP;characteristicPolynomial;MSP;2|
-        ((A |Matrix| (|Fraction| (|Integer|))) (|x| |Symbol|)
-         ($ |Polynomial| (|Fraction| (|Integer|))))
+        ((A (|Matrix| (|Fraction| (|Integer|)))) (|x| (|Symbol|))
+         ($ (|Polynomial| (|Fraction| (|Integer|)))))
         (SPADCALL (SPADCALL A (QREFELT $ 12)) |x| (QREFELT $ 14))) 
 
 (SDEFUN |NREP;realEigenvalues;MParL;3|
-        ((|m| |Matrix| (|Fraction| (|Integer|))) (|eps| |Par|)
-         ($ |List| |Par|))
+        ((|m| (|Matrix| (|Fraction| (|Integer|)))) (|eps| (|Par|))
+         ($ (|List| |Par|)))
         (SPADCALL (SPADCALL |m| (QREFELT $ 12)) |eps| (QREFELT $ 18))) 
 
 (SDEFUN |NREP;realEigenvectors;MParL;4|
-        ((|m| |Matrix| (|Fraction| (|Integer|))) (|eps| |Par|)
-         ($ |List|
-          (|Record| (|:| |outval| |Par|) (|:| |outmult| (|Integer|))
-                    (|:| |outvect| (|List| (|Matrix| |Par|))))))
+        ((|m| (|Matrix| (|Fraction| (|Integer|)))) (|eps| (|Par|))
+         ($
+          (|List|
+           (|Record| (|:| |outval| |Par|) (|:| |outmult| (|Integer|))
+                     (|:| |outvect| (|List| (|Matrix| |Par|)))))))
         (SPADCALL |m| |eps| (ELT $ 23) (QREFELT $ 27))) 
 
 (DECLAIM (NOTINLINE |NumericRealEigenPackage;|)) 

@@ -1,9 +1,9 @@
 
-(SDEFUN |ODETOOLS;wronskianMatrix;LM;1| ((|l| |List| F) ($ |Matrix| F))
+(SDEFUN |ODETOOLS;wronskianMatrix;LM;1| ((|l| (|List| F)) ($ (|Matrix| F)))
         (SPADCALL |l| (LENGTH |l|) (QREFELT $ 13))) 
 
 (SDEFUN |ODETOOLS;wronskianMatrix;LNniM;2|
-        ((|l| |List| F) (|q| |NonNegativeInteger|) ($ |Matrix| F))
+        ((|l| (|List| F)) (|q| (|NonNegativeInteger|)) ($ (|Matrix| F)))
         (SPROG
          ((|v| (|Vector| F)) (#1=#:G111 NIL) (|i| NIL) (|m| (|Matrix| F)))
          (SEQ (LETT |v| (SPADCALL |l| (QREFELT $ 16)))
@@ -28,7 +28,8 @@
           (RETURN (PROGN (SPADCALL |diff| |f1| (QREFELT $ 21)))))) 
 
 (SDEFUN |ODETOOLS;variationOfParameters;LODOFLU;3|
-        ((|op| LODO) (|g| F) (|b| |List| F) ($ |Union| (|Vector| F) "failed"))
+        ((|op| (LODO)) (|g| (F)) (|b| (|List| F))
+         ($ (|Union| (|Vector| F) "failed")))
         (SPROG ((|v| (|Vector| F)) (|n| (|NonNegativeInteger|)))
                (SEQ
                 (COND ((NULL |b|) (CONS 1 "failed"))
@@ -48,8 +49,8 @@
                                    (QREFELT $ 30))))))))) 
 
 (SDEFUN |ODETOOLS;particularSolution;LODOFLMU;4|
-        ((|op| LODO) (|g| F) (|b| |List| F) (|integration| |Mapping| F F)
-         ($ |Union| F "failed"))
+        ((|op| (LODO)) (|g| (F)) (|b| (|List| F))
+         (|integration| (|Mapping| F F)) ($ (|Union| F "failed")))
         (SPROG
          ((|ans| (F)) (#1=#:G132 NIL) (|f| NIL) (|i| NIL) (|s| (|Vector| F))
           (|sol| (|Union| (|Vector| F) "failed")))

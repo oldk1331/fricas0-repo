@@ -1,15 +1,15 @@
 
 (SDEFUN |FC;get_assignment|
-        ((|name| |OutputForm|) (|e| |OutputForm|) (|int_to_floats?| |Boolean|)
-         ($ |List| (|String|)))
+        ((|name| (|OutputForm|)) (|e| (|OutputForm|))
+         (|int_to_floats?| (|Boolean|)) ($ (|List| (|String|))))
         (SPADCALL
          (SPADCALL (SPADCALL '= (QREFELT $ 8)) (LIST |name| |e|)
                    (QREFELT $ 10))
          |int_to_floats?| (QREFELT $ 14))) 
 
 (SDEFUN |FC;format_switch|
-        ((|switch1| |OutputForm|) (|l| |List| (|String|))
-         ($ |List| (|List| (|String|))))
+        ((|switch1| (|OutputForm|)) (|l| (|List| (|String|)))
+         ($ (|List| (|List| (|String|)))))
         (SPROG ((|r| (|List| (|String|))) (|l1| (|List| (|OutputForm|))))
                (SEQ
                 (COND
@@ -32,8 +32,8 @@
                 (EXIT (LIST |l| |r|))))) 
 
 (SDEFUN |FC;fortFormatIf1|
-        ((|switch1| |OutputForm|) (|i| |Integer|) (|kind| |String|)
-         ($ |List| (|String|)))
+        ((|switch1| (|OutputForm|)) (|i| (|Integer|)) (|kind| (|String|))
+         ($ (|List| (|String|))))
         (SPROG
          ((|r| NIL) (|#G11| #1=(|List| (|List| (|String|))))
           (|l| (|List| (|String|))) (|#G10| #1#))
@@ -50,7 +50,7 @@
                (NREVERSE
                 (SPADCALL (NREVERSE |l|) (CONS |kind| |r|) (QREFELT $ 19))))))) 
 
-(SDEFUN |FC;fortFormatIf| ((|switch1| |OutputForm|) ($ |List| (|String|)))
+(SDEFUN |FC;fortFormatIf| ((|switch1| (|OutputForm|)) ($ (|List| (|String|))))
         (SPROG NIL
                (SPADCALL (CONS #'|FC;fortFormatIf!0| (VECTOR $ |switch1|))
                          (QREFELT $ 21)))) 
@@ -61,7 +61,8 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (|FC;fortFormatIf1| |switch1| 8 "IF(" $))))) 
 
-(SDEFUN |FC;fortFormatElseIf| ((|switch1| |OutputForm|) ($ |List| (|String|)))
+(SDEFUN |FC;fortFormatElseIf|
+        ((|switch1| (|OutputForm|)) ($ (|List| (|String|))))
         (SPROG NIL
                (SPADCALL (CONS #'|FC;fortFormatElseIf!0| (VECTOR $ |switch1|))
                          (QREFELT $ 21)))) 
@@ -73,8 +74,8 @@
           (RETURN (PROGN (|FC;fortFormatIf1| |switch1| 12 "ELSEIF(" $))))) 
 
 (SDEFUN |FC;fortFormatIfGoto1|
-        ((|switch1| |OutputForm|) (|lab| |SingleInteger|)
-         ($ |List| (|String|)))
+        ((|switch1| (|OutputForm|)) (|lab| (|SingleInteger|))
+         ($ (|List| (|String|))))
         (SPROG
          ((|r| NIL) (|#G19| #1=(|List| (|List| (|String|))))
           (|l| (|List| (|String|))) (|#G18| #1#))
@@ -93,8 +94,8 @@
                 (SPADCALL (NREVERSE |l|) (CONS "IF(" |r|) (QREFELT $ 19))))))) 
 
 (SDEFUN |FC;fortFormatIfGoto|
-        ((|switch1| |OutputForm|) (|lab| |SingleInteger|)
-         ($ |List| (|String|)))
+        ((|switch1| (|OutputForm|)) (|lab| (|SingleInteger|))
+         ($ (|List| (|String|))))
         (SPROG NIL
                (SPADCALL
                 (CONS #'|FC;fortFormatIfGoto!0| (VECTOR $ |lab| |switch1|))
@@ -108,8 +109,8 @@
           (RETURN (PROGN (|FC;fortFormatIfGoto1| |switch1| |lab| $))))) 
 
 (SDEFUN |FC;fortFormatLabelledIfGoto1|
-        ((|switch1| |OutputForm|) (|lab1| |SingleInteger|)
-         (|lab2| |SingleInteger|) ($ |List| (|String|)))
+        ((|switch1| (|OutputForm|)) (|lab1| (|SingleInteger|))
+         (|lab2| (|SingleInteger|)) ($ (|List| (|String|))))
         (SPROG ((|l| (|List| (|String|))) (|labString| (|String|)) (|i| NIL))
                (SEQ (LETT |l| (|FC;fortFormatIfGoto1| |switch1| |lab2| $))
                     (LETT |labString| (STRINGIMAGE |lab1|))
@@ -128,13 +129,13 @@
                       (CDR |l|)))))) 
 
 (SDEFUN |FC;fortFormatLabelledIfGoto|
-        ((|switch1| |OutputForm|) (|lab1| |SingleInteger|)
-         (|lab2| |SingleInteger|) ($ |List| (|String|)))
+        ((|switch1| (|OutputForm|)) (|lab1| (|SingleInteger|))
+         (|lab2| (|SingleInteger|)) ($ (|List| (|String|))))
         (|FC;fortFormatLabelledIfGoto1| |switch1| |lab1| |lab2| $)) 
 
 (SDEFUN |FC;getfortarrayexp1|
-        ((|name| |Symbol|) (|of| |OutputForm|) (|int_to_floats?| |Boolean|)
-         ($ |List| (|String|)))
+        ((|name| (|Symbol|)) (|of| (|OutputForm|))
+         (|int_to_floats?| (|Boolean|)) ($ (|List| (|String|))))
         (SPROG ((#1=#:G144 NIL) (|l| (|List| (|String|))))
                (SEQ
                 (LETT |l|
@@ -151,8 +152,8 @@
 (SDEFUN |FC;getfortarrayexp1!0| ((|name| NIL)) |name|) 
 
 (SDEFUN |FC;getfortarrayexp|
-        ((|name| |Symbol|) (|of| |OutputForm|) (|int_to_floats?| |Boolean|)
-         ($ |List| (|String|)))
+        ((|name| (|Symbol|)) (|of| (|OutputForm|))
+         (|int_to_floats?| (|Boolean|)) ($ (|List| (|String|))))
         (SPROG NIL
                (SPADCALL |int_to_floats?|
                          (CONS #'|FC;getfortarrayexp!0|
@@ -169,8 +170,9 @@
            (PROGN (|FC;getfortarrayexp1| |name| |of| |int_to_floats?| $))))) 
 
 (SDEFUN |FC;fortFormatDo1|
-        ((|var1| |Symbol|) (|lo| |OutputForm|) (|hi| |OutputForm|)
-         (|incr| |OutputForm|) (|lab| |SingleInteger|) ($ |List| (|String|)))
+        ((|var1| (|Symbol|)) (|lo| (|OutputForm|)) (|hi| (|OutputForm|))
+         (|incr| (|OutputForm|)) (|lab| (|SingleInteger|))
+         ($ (|List| (|String|))))
         (SPROG
          ((|il| (|List| (|String|))) (|incl| (|List| (|String|)))
           (|hil| #1=(|List| (|String|))) (|lol| #1#))
@@ -192,8 +194,9 @@
                 |il| (QREFELT $ 19)))))) 
 
 (SDEFUN |FC;fortFormatDo|
-        ((|var1| |Symbol|) (|lo| |OutputForm|) (|hi| |OutputForm|)
-         (|inc| |OutputForm|) (|lab| |SingleInteger|) ($ |List| (|String|)))
+        ((|var1| (|Symbol|)) (|lo| (|OutputForm|)) (|hi| (|OutputForm|))
+         (|inc| (|OutputForm|)) (|lab| (|SingleInteger|))
+         ($ (|List| (|String|))))
         (SPROG NIL
                (SPADCALL NIL
                          (CONS #'|FC;fortFormatDo!0|
@@ -210,7 +213,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (|FC;fortFormatDo1| |var1| |lo| |hi| |inc| |lab| $))))) 
 
-(SDEFUN |FC;addCommas| ((|l| |List| (|Symbol|)) ($ |List| (|String|)))
+(SDEFUN |FC;addCommas| ((|l| (|List| (|Symbol|))) ($ (|List| (|String|))))
         (SPROG ((|r| (|List| (|String|))) (#1=#:G159 NIL) (|e| NIL))
                (SEQ
                 (COND ((NULL |l|) NIL)
@@ -231,13 +234,13 @@
                              (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                         (EXIT (NREVERSE |r|)))))))) 
 
-(SDEFUN |FC;setLabelValue;2Si;15| ((|u| |SingleInteger|) ($ |SingleInteger|))
-        (SETELT $ 34 |u|)) 
+(SDEFUN |FC;setLabelValue;2Si;15|
+        ((|u| (|SingleInteger|)) ($ (|SingleInteger|))) (SETELT $ 34 |u|)) 
 
-(SDEFUN |FC;newLabel| (($ |SingleInteger|))
+(SDEFUN |FC;newLabel| (($ (|SingleInteger|)))
         (SEQ (SETELT $ 34 (|add_SI| (QREFELT $ 34) 1)) (EXIT (QREFELT $ 34)))) 
 
-(SDEFUN |FC;commaSep| ((|l| |List| (|String|)) ($ |List| (|String|)))
+(SDEFUN |FC;commaSep| ((|l| (|List| (|String|))) ($ (|List| (|String|))))
         (SPROG
          ((#1=#:G166 NIL) (#2=#:G165 #3=(|List| (|String|))) (#4=#:G167 #3#)
           (#5=#:G169 NIL) (|u| NIL))
@@ -260,11 +263,12 @@
                  (COND (#1# #2#) ('T NIL))))))) 
 
 (SDEFUN |FC;getReturn|
-        ((|rec| |Record| (|:| |empty?| (|Boolean|))
-          (|:| |value|
-               (|Record| (|:| |ints2Floats?| (|Boolean|))
-                         (|:| |expr| (|OutputForm|)))))
-         ($ |List| (|String|)))
+        ((|rec|
+          (|Record| (|:| |empty?| (|Boolean|))
+                    (|:| |value|
+                         (|Record| (|:| |ints2Floats?| (|Boolean|))
+                                   (|:| |expr| (|OutputForm|))))))
+         ($ (|List| (|String|))))
         (SPROG
          ((|rv| (|OutputForm|))
           (|rt|
@@ -282,23 +286,24 @@
                                        (QREFELT $ 10))
                              (QCAR |rt|) (QREFELT $ 14)))))))))) 
 
-(SDEFUN |FC;getStop| (($ |List| (|String|)))
+(SDEFUN |FC;getStop| (($ (|List| (|String|))))
         (SPADCALL (LIST "STOP") (QREFELT $ 22))) 
 
-(SDEFUN |FC;getSave| (($ |List| (|String|)))
+(SDEFUN |FC;getSave| (($ (|List| (|String|))))
         (SPADCALL (LIST "SAVE") (QREFELT $ 22))) 
 
 (SDEFUN |FC;getCommon|
-        ((|u| |Record| (|:| |name| (|Symbol|))
-          (|:| |contents| (|List| (|Symbol|))))
-         ($ |List| (|String|)))
+        ((|u|
+          (|Record| (|:| |name| (|Symbol|))
+                    (|:| |contents| (|List| (|Symbol|)))))
+         ($ (|List| (|String|))))
         (SPADCALL
          (SPADCALL
           (LIST "COMMON" " /" (SPADCALL (QCAR |u|) (QREFELT $ 32)) "/ ")
           (|FC;addCommas| (QCDR |u|) $) (QREFELT $ 19))
          (QREFELT $ 22))) 
 
-(SDEFUN |FC;getPrint| ((|l| |List| (|OutputForm|)) ($ |List| (|String|)))
+(SDEFUN |FC;getPrint| ((|l| (|List| (|OutputForm|))) ($ (|List| (|String|))))
         (SPROG ((|ll| (|List| (|String|))) (#1=#:G181 NIL) (|i| NIL))
                (SEQ (LETT |ll| (LIST "PRINT*"))
                     (SEQ (LETT |i| NIL) (LETT #1# |l|) G190
@@ -315,7 +320,7 @@
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT (SPADCALL |ll| (QREFELT $ 22)))))) 
 
-(SDEFUN |FC;getBlock| ((|rec| |List| $) ($ |List| (|String|)))
+(SDEFUN |FC;getBlock| ((|rec| (|List| $)) ($ (|List| (|String|))))
         (SPROG ((|expr| (|List| (|String|))) (#1=#:G185 NIL) (|u| NIL))
                (SEQ (SPADCALL 1 (QREFELT $ 41)) (LETT |expr| NIL)
                     (SEQ (LETT |u| NIL) (LETT #1# |rec|) G190
@@ -330,7 +335,7 @@
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (SPADCALL -1 (QREFELT $ 41)) (EXIT |expr|)))) 
 
-(SDEFUN |FC;getBody| ((|f| $) ($ |List| (|String|)))
+(SDEFUN |FC;getBody| ((|f| ($)) ($ (|List| (|String|))))
         (SPROG ((|expr| (|List| (|String|))))
                (SEQ
                 (COND
@@ -341,7 +346,7 @@
                        (LETT |expr| (SPADCALL |f| (QREFELT $ 42)))
                        (SPADCALL -1 (QREFELT $ 41)) (EXIT |expr|))))))) 
 
-(SDEFUN |FC;getElseIf| ((|f| $) ($ |List| (|String|)))
+(SDEFUN |FC;getElseIf| ((|f| ($)) ($ (|List| (|String|))))
         (SPROG
          ((|expr| (|List| (|String|))) (|elseBranch| ($)) (#1=#:G213 NIL)
           (|rec|
@@ -650,7 +655,7 @@
                                      (QREFELT $ 19))))))))))
               (EXIT |expr|)))) 
 
-(SDEFUN |FC;getContinue| ((|label| |SingleInteger|) ($ |List| (|String|)))
+(SDEFUN |FC;getContinue| ((|label| (|SingleInteger|)) ($ (|List| (|String|))))
         (SPROG
          ((|sp| (|OutputForm|)) (|cnt| (#1="CONTINUE")) (|lab| (|String|)))
          (SEQ (LETT |lab| (STRINGIMAGE |label|))
@@ -661,13 +666,13 @@
                               (QREFELT $ 58)))
               (EXIT (STRCONC |lab| |sp| |cnt|))))) 
 
-(SDEFUN |FC;getGoto| ((|label| |SingleInteger|) ($ |List| (|String|)))
+(SDEFUN |FC;getGoto| ((|label| (|SingleInteger|)) ($ (|List| (|String|))))
         (SPADCALL (LIST (STRCONC "GOTO " (STRINGIMAGE |label|)))
                   (QREFELT $ 22))) 
 
 (SDEFUN |FC;getRepeat|
-        ((|repRec| |Record| (|:| |switch| (|Switch|)) (|:| |body| $))
-         ($ |List| (|String|)))
+        ((|repRec| (|Record| (|:| |switch| (|Switch|)) (|:| |body| $)))
+         ($ (|List| (|String|))))
         (SPROG ((|bod| ($)) (|lab| (|SingleInteger|)) (|sw| (|Switch|)))
                (SEQ (LETT |sw| (SPADCALL (QCAR |repRec|) (QREFELT $ 59)))
                     (LETT |lab| (|FC;newLabel| $)) (LETT |bod| (QCDR |repRec|))
@@ -681,8 +686,8 @@
                                (QREFELT $ 19)))))) 
 
 (SDEFUN |FC;getWhile|
-        ((|whileRec| |Record| (|:| |switch| (|Switch|)) (|:| |body| $))
-         ($ |List| (|String|)))
+        ((|whileRec| (|Record| (|:| |switch| (|Switch|)) (|:| |body| $)))
+         ($ (|List| (|String|))))
         (SPROG
          ((|rl1| (|List| (|List| (|String|)))) (|ig| (|List| (|String|)))
           (|bod| ($)) (|lab2| #1=(|SingleInteger|)) (|lab1| #1#)
@@ -700,19 +705,21 @@
               (EXIT (SPADCALL |rl1| (QREFELT $ 61)))))) 
 
 (SDEFUN |FC;getArrayAssign|
-        ((|rec| |Record| (|:| |var| (|Symbol|)) (|:| |rand| (|OutputForm|))
-          (|:| |ints2Floats?| (|Boolean|)))
-         ($ |List| (|String|)))
+        ((|rec|
+          (|Record| (|:| |var| (|Symbol|)) (|:| |rand| (|OutputForm|))
+                    (|:| |ints2Floats?| (|Boolean|))))
+         ($ (|List| (|String|))))
         (|FC;getfortarrayexp| (QVELT |rec| 0) (QVELT |rec| 1) (QVELT |rec| 2)
          $)) 
 
 (SDEFUN |FC;getAssign|
-        ((|rec| |Record| (|:| |var| (|Symbol|))
-          (|:| |arrayIndex| (|List| (|Polynomial| (|Integer|))))
-          (|:| |rand|
-               (|Record| (|:| |ints2Floats?| (|Boolean|))
-                         (|:| |expr| (|OutputForm|)))))
-         ($ |List| (|String|)))
+        ((|rec|
+          (|Record| (|:| |var| (|Symbol|))
+                    (|:| |arrayIndex| (|List| (|Polynomial| (|Integer|))))
+                    (|:| |rand|
+                         (|Record| (|:| |ints2Floats?| (|Boolean|))
+                                   (|:| |expr| (|OutputForm|))))))
+         ($ (|List| (|String|))))
         (SPROG
          ((|ex| #1=(|OutputForm|))
           (|ass| (|Record| (|:| |ints2Floats?| (|Boolean|)) (|:| |expr| #1#)))
@@ -730,9 +737,10 @@
               (EXIT (|FC;get_assignment| |lhs| |ex| (QCAR |ass|) $))))) 
 
 (SDEFUN |FC;getCond|
-        ((|rec| |Record| (|:| |switch| (|Switch|)) (|:| |thenClause| $)
-          (|:| |elseClause| $))
-         ($ |List| (|String|)))
+        ((|rec|
+          (|Record| (|:| |switch| (|Switch|)) (|:| |thenClause| $)
+                    (|:| |elseClause| $)))
+         ($ (|List| (|String|))))
         (SPROG ((|expr| (|List| (|String|))) (|elseBranch| ($)))
                (SEQ
                 (LETT |expr|
@@ -763,7 +771,7 @@
                                      (QREFELT $ 14))
                            (QREFELT $ 19)))))) 
 
-(SDEFUN |FC;getComment| ((|rec| |List| (|String|)) ($ |List| (|String|)))
+(SDEFUN |FC;getComment| ((|rec| (|List| (|String|))) ($ (|List| (|String|))))
         (SPROG ((#1=#:G285 NIL) (|c| NIL) (#2=#:G284 NIL))
                (SEQ
                 (PROGN
@@ -776,7 +784,7 @@
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(SDEFUN |FC;getCall| ((|rec| |String|) ($ |List| (|String|)))
+(SDEFUN |FC;getCall| ((|rec| (|String|)) ($ (|List| (|String|))))
         (SPROG ((|expr| (|String|)))
                (SEQ (LETT |expr| (STRCONC "CALL " |rec|))
                     (EXIT
@@ -786,10 +794,11 @@
                       ('T (SPADCALL (LIST |expr|) (QREFELT $ 22)))))))) 
 
 (SDEFUN |FC;getFor|
-        ((|rec| |Record|
-          (|:| |range| #1=(|SegmentBinding| (|Polynomial| (|Integer|))))
-          (|:| |span| #2=(|Polynomial| (|Integer|))) (|:| |body| $))
-         ($ |List| (|String|)))
+        ((|rec|
+          (|Record|
+           (|:| |range| #1=(|SegmentBinding| (|Polynomial| (|Integer|))))
+           (|:| |span| #2=(|Polynomial| (|Integer|))) (|:| |body| $)))
+         ($ (|List| (|String|))))
         (SPROG
          ((|expr| (|List| (|String|))) (|lab| (|SingleInteger|))
           (|increment| #2#) (|rnge| #1#))
@@ -814,7 +823,7 @@
                                    (|FC;getContinue| |lab| $) (QREFELT $ 19))
                          (QREFELT $ 19)))))) 
 
-(SDEFUN |FC;getCode;$L;36| ((|f| $) ($ |List| (|String|)))
+(SDEFUN |FC;getCode;$L;36| ((|f| ($)) ($ (|List| (|String|))))
         (SPROG
          ((#1=#:G323 NIL) (#2=#:G324 NIL) (#3=#:G322 NIL) (#4=#:G321 NIL)
           (#5=#:G320 NIL) (#6=#:G319 NIL) (#7=#:G318 NIL) (#8=#:G317 NIL)
@@ -1865,80 +1874,91 @@
                   $))
                 ('T (|error| "Unsupported program construct."))))))) 
 
-(SDEFUN |FC;printCode;$V;37| ((|f| $) ($ |Void|))
+(SDEFUN |FC;printCode;$V;37| ((|f| ($)) ($ (|Void|)))
         (SEQ (SPADCALL (SPADCALL |f| (QREFELT $ 42)) (QREFELT $ 78))
              (EXIT (SPADCALL (QREFELT $ 79))))) 
 
 (PUT '|FC;code;$U;38| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |FC;code;$U;38|
-        ((|f| $)
-         ($ |Union| (|:| |nullBranch| "null")
-          (|:| |assignmentBranch|
-               (|Record| (|:| |var| (|Symbol|))
-                         (|:| |arrayIndex| (|List| (|Polynomial| (|Integer|))))
-                         (|:| |rand|
-                              (|Record| (|:| |ints2Floats?| (|Boolean|))
+        ((|f| ($))
+         ($
+          (|Union| (|:| |nullBranch| "null")
+                   (|:| |assignmentBranch|
+                        (|Record| (|:| |var| (|Symbol|))
+                                  (|:| |arrayIndex|
+                                       (|List| (|Polynomial| (|Integer|))))
+                                  (|:| |rand|
+                                       (|Record|
+                                        (|:| |ints2Floats?| (|Boolean|))
                                         (|:| |expr| (|OutputForm|))))))
-          (|:| |arrayAssignmentBranch|
-               (|Record| (|:| |var| (|Symbol|)) (|:| |rand| (|OutputForm|))
-                         (|:| |ints2Floats?| (|Boolean|))))
-          (|:| |conditionalBranch|
-               (|Record| (|:| |switch| (|Switch|)) (|:| |thenClause| $)
-                         (|:| |elseClause| $)))
-          (|:| |returnBranch|
-               (|Record| (|:| |empty?| (|Boolean|))
-                         (|:| |value|
-                              (|Record| (|:| |ints2Floats?| (|Boolean|))
+                   (|:| |arrayAssignmentBranch|
+                        (|Record| (|:| |var| (|Symbol|))
+                                  (|:| |rand| (|OutputForm|))
+                                  (|:| |ints2Floats?| (|Boolean|))))
+                   (|:| |conditionalBranch|
+                        (|Record| (|:| |switch| (|Switch|))
+                                  (|:| |thenClause| $) (|:| |elseClause| $)))
+                   (|:| |returnBranch|
+                        (|Record| (|:| |empty?| (|Boolean|))
+                                  (|:| |value|
+                                       (|Record|
+                                        (|:| |ints2Floats?| (|Boolean|))
                                         (|:| |expr| (|OutputForm|))))))
-          (|:| |blockBranch| (|List| $))
-          (|:| |commentBranch| (|List| (|String|)))
-          (|:| |callBranch| (|String|))
-          (|:| |forBranch|
-               (|Record|
-                (|:| |range| (|SegmentBinding| (|Polynomial| (|Integer|))))
-                (|:| |span| (|Polynomial| (|Integer|))) (|:| |body| $)))
-          (|:| |labelBranch| (|SingleInteger|))
-          (|:| |loopBranch|
-               (|Record| (|:| |switch| (|Switch|)) (|:| |body| $)))
-          (|:| |commonBranch|
-               (|Record| (|:| |name| (|Symbol|))
-                         (|:| |contents| (|List| (|Symbol|)))))
-          (|:| |printBranch| (|List| (|OutputForm|)))))
+                   (|:| |blockBranch| (|List| $))
+                   (|:| |commentBranch| (|List| (|String|)))
+                   (|:| |callBranch| (|String|))
+                   (|:| |forBranch|
+                        (|Record|
+                         (|:| |range|
+                              (|SegmentBinding| (|Polynomial| (|Integer|))))
+                         (|:| |span| (|Polynomial| (|Integer|)))
+                         (|:| |body| $)))
+                   (|:| |labelBranch| (|SingleInteger|))
+                   (|:| |loopBranch|
+                        (|Record| (|:| |switch| (|Switch|)) (|:| |body| $)))
+                   (|:| |commonBranch|
+                        (|Record| (|:| |name| (|Symbol|))
+                                  (|:| |contents| (|List| (|Symbol|)))))
+                   (|:| |printBranch| (|List| (|OutputForm|))))))
         (QCDR |f|)) 
 
 (PUT '|FC;operation;$U;39| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |FC;operation;$U;39|
-        ((|f| $)
-         ($ |Union| (|:| |Null| "null") (|:| |Assignment| "assignment")
-          (|:| |Conditional| "conditional") (|:| |Return| "return")
-          (|:| |Block| "block") (|:| |Comment| "comment") (|:| |Call| "call")
-          (|:| |For| "for") (|:| |While| "while") (|:| |Repeat| "repeat")
-          (|:| |Goto| "goto") (|:| |Continue| "continue")
-          (|:| |ArrayAssignment| "arrayAssignment") (|:| |Save| "save")
-          (|:| |Stop| "stop") (|:| |Common| "common") (|:| |Print| "print")))
+        ((|f| ($))
+         ($
+          (|Union| (|:| |Null| "null") (|:| |Assignment| "assignment")
+                   (|:| |Conditional| "conditional") (|:| |Return| "return")
+                   (|:| |Block| "block") (|:| |Comment| "comment")
+                   (|:| |Call| "call") (|:| |For| "for") (|:| |While| "while")
+                   (|:| |Repeat| "repeat") (|:| |Goto| "goto")
+                   (|:| |Continue| "continue")
+                   (|:| |ArrayAssignment| "arrayAssignment")
+                   (|:| |Save| "save") (|:| |Stop| "stop")
+                   (|:| |Common| "common") (|:| |Print| "print"))))
         (QCAR |f|)) 
 
 (SDEFUN |FC;common;SL$;40|
-        ((|name| |Symbol|) (|contents| |List| (|Symbol|)) ($ $))
+        ((|name| (|Symbol|)) (|contents| (|List| (|Symbol|))) ($ ($)))
         (CONS (CONS 15 "common") (CONS 11 (CONS |name| |contents|)))) 
 
-(SDEFUN |FC;stop;$;41| (($ $)) (CONS (CONS 14 "stop") (CONS 0 "null"))) 
+(SDEFUN |FC;stop;$;41| (($ ($))) (CONS (CONS 14 "stop") (CONS 0 "null"))) 
 
-(SDEFUN |FC;save;$;42| (($ $)) (CONS (CONS 13 "save") (CONS 0 "null"))) 
+(SDEFUN |FC;save;$;42| (($ ($))) (CONS (CONS 13 "save") (CONS 0 "null"))) 
 
-(SDEFUN |FC;printStatement;L$;43| ((|l| |List| (|OutputForm|)) ($ $))
+(SDEFUN |FC;printStatement;L$;43| ((|l| (|List| (|OutputForm|))) ($ ($)))
         (CONS (CONS 16 "print") (CONS 12 |l|))) 
 
-(SDEFUN |FC;comment;L$;44| ((|s| |List| (|String|)) ($ $))
+(SDEFUN |FC;comment;L$;44| ((|s| (|List| (|String|))) ($ ($)))
         (CONS (CONS 5 "comment") (CONS 6 |s|))) 
 
-(SDEFUN |FC;comment;S$;45| ((|s| |String|) ($ $))
+(SDEFUN |FC;comment;S$;45| ((|s| (|String|)) ($ ($)))
         (CONS (CONS 5 "comment") (CONS 6 (SPADCALL |s| (QREFELT $ 87))))) 
 
 (SDEFUN |FC;forLoop;Sb2$;46|
-        ((|r| |SegmentBinding| (|Polynomial| (|Integer|))) (|body| $) ($ $))
+        ((|r| (|SegmentBinding| (|Polynomial| (|Integer|)))) (|body| ($))
+         ($ ($)))
         (CONS (CONS 7 "for")
               (CONS 8
                     (VECTOR |r|
@@ -1949,23 +1969,23 @@
                             |body|)))) 
 
 (SDEFUN |FC;forLoop;SbP2$;47|
-        ((|r| |SegmentBinding| (|Polynomial| (|Integer|)))
-         (|increment| |Polynomial| (|Integer|)) (|body| $) ($ $))
+        ((|r| (|SegmentBinding| (|Polynomial| (|Integer|))))
+         (|increment| (|Polynomial| (|Integer|))) (|body| ($)) ($ ($)))
         (CONS (CONS 7 "for") (CONS 8 (VECTOR |r| |increment| |body|)))) 
 
-(SDEFUN |FC;gotoJump;Si$;48| ((|l| |SingleInteger|) ($ $))
+(SDEFUN |FC;gotoJump;Si$;48| ((|l| (|SingleInteger|)) ($ ($)))
         (CONS (CONS 10 "goto") (CONS 9 |l|))) 
 
-(SDEFUN |FC;continue;Si$;49| ((|l| |SingleInteger|) ($ $))
+(SDEFUN |FC;continue;Si$;49| ((|l| (|SingleInteger|)) ($ ($)))
         (CONS (CONS 11 "continue") (CONS 9 |l|))) 
 
-(SDEFUN |FC;whileLoop;S2$;50| ((|sw| |Switch|) (|b| $) ($ $))
+(SDEFUN |FC;whileLoop;S2$;50| ((|sw| (|Switch|)) (|b| ($)) ($ ($)))
         (CONS (CONS 8 "while") (CONS 10 (CONS |sw| |b|)))) 
 
-(SDEFUN |FC;repeatUntilLoop;S2$;51| ((|sw| |Switch|) (|b| $) ($ $))
+(SDEFUN |FC;repeatUntilLoop;S2$;51| ((|sw| (|Switch|)) (|b| ($)) ($ ($)))
         (CONS (CONS 9 "repeat") (CONS 10 (CONS |sw| |b|)))) 
 
-(SDEFUN |FC;returns;$;52| (($ $))
+(SDEFUN |FC;returns;$;52| (($ ($)))
         (SPROG
          ((|v|
            (|Record| (|:| |ints2Floats?| (|Boolean|))
@@ -1974,238 +1994,243 @@
           (LETT |v| (CONS NIL (SPADCALL (|spadConstant| $ 96) (QREFELT $ 62))))
           (EXIT (CONS (CONS 3 "return") (CONS 4 (CONS 'T |v|))))))) 
 
-(SDEFUN |FC;returns;E$;53| ((|v| |Expression| (|MachineInteger|)) ($ $))
+(SDEFUN |FC;returns;E$;53| ((|v| (|Expression| (|MachineInteger|))) ($ ($)))
         (CONS (CONS 3 "return")
               (CONS 4 (CONS NIL (CONS NIL (SPADCALL |v| (QREFELT $ 99))))))) 
 
-(SDEFUN |FC;returns;E$;54| ((|v| |Expression| (|MachineFloat|)) ($ $))
+(SDEFUN |FC;returns;E$;54| ((|v| (|Expression| (|MachineFloat|))) ($ ($)))
         (CONS (CONS 3 "return")
               (CONS 4 (CONS NIL (CONS NIL (SPADCALL |v| (QREFELT $ 102))))))) 
 
-(SDEFUN |FC;returns;E$;55| ((|v| |Expression| (|MachineComplex|)) ($ $))
+(SDEFUN |FC;returns;E$;55| ((|v| (|Expression| (|MachineComplex|))) ($ ($)))
         (CONS (CONS 3 "return")
               (CONS 4 (CONS NIL (CONS NIL (SPADCALL |v| (QREFELT $ 105))))))) 
 
-(SDEFUN |FC;returns;E$;56| ((|v| |Expression| (|Integer|)) ($ $))
+(SDEFUN |FC;returns;E$;56| ((|v| (|Expression| (|Integer|))) ($ ($)))
         (CONS (CONS 3 "return")
               (CONS 4 (CONS NIL (CONS NIL (SPADCALL |v| (QREFELT $ 108))))))) 
 
-(SDEFUN |FC;returns;E$;57| ((|v| |Expression| (|Float|)) ($ $))
+(SDEFUN |FC;returns;E$;57| ((|v| (|Expression| (|Float|))) ($ ($)))
         (CONS (CONS 3 "return")
               (CONS 4 (CONS NIL (CONS NIL (SPADCALL |v| (QREFELT $ 111))))))) 
 
-(SDEFUN |FC;returns;E$;58| ((|v| |Expression| (|Complex| (|Float|))) ($ $))
+(SDEFUN |FC;returns;E$;58| ((|v| (|Expression| (|Complex| (|Float|)))) ($ ($)))
         (CONS (CONS 3 "return")
               (CONS 4 (CONS NIL (CONS NIL (SPADCALL |v| (QREFELT $ 114))))))) 
 
-(SDEFUN |FC;block;L$;59| ((|l| |List| $) ($ $))
+(SDEFUN |FC;block;L$;59| ((|l| (|List| $)) ($ ($)))
         (CONS (CONS 4 "block") (CONS 5 |l|))) 
 
-(SDEFUN |FC;cond;S2$;60| ((|sw| |Switch|) (|thenC| $) ($ $))
+(SDEFUN |FC;cond;S2$;60| ((|sw| (|Switch|)) (|thenC| ($)) ($ ($)))
         (CONS (CONS 2 "conditional")
               (CONS 3
                     (VECTOR |sw| |thenC|
                             (CONS (CONS 0 "null") (CONS 0 "null")))))) 
 
-(SDEFUN |FC;cond;S3$;61| ((|sw| |Switch|) (|thenC| $) (|elseC| $) ($ $))
+(SDEFUN |FC;cond;S3$;61|
+        ((|sw| (|Switch|)) (|thenC| ($)) (|elseC| ($)) ($ ($)))
         (CONS (CONS 2 "conditional") (CONS 3 (VECTOR |sw| |thenC| |elseC|)))) 
 
-(SDEFUN |FC;coerce;$Of;62| ((|f| $) ($ |OutputForm|))
+(SDEFUN |FC;coerce;$Of;62| ((|f| ($)) ($ (|OutputForm|)))
         (SPADCALL (QCAR |f|) (QREFELT $ 119))) 
 
-(SDEFUN |FC;assign;SS$;63| ((|v| |Symbol|) (|rhs| |String|) ($ $))
+(SDEFUN |FC;assign;SS$;63| ((|v| (|Symbol|)) (|rhs| (|String|)) ($ ($)))
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| NIL
                             (CONS NIL (SPADCALL |rhs| (QREFELT $ 121))))))) 
 
 (SDEFUN |FC;assign;SM$;64|
-        ((|v| |Symbol|) (|rhs| |Matrix| (|MachineInteger|)) ($ $))
+        ((|v| (|Symbol|)) (|rhs| (|Matrix| (|MachineInteger|))) ($ ($)))
         (CONS (CONS 12 "arrayAssignment")
               (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 124)) NIL)))) 
 
 (SDEFUN |FC;assign;SM$;65|
-        ((|v| |Symbol|) (|rhs| |Matrix| (|MachineFloat|)) ($ $))
+        ((|v| (|Symbol|)) (|rhs| (|Matrix| (|MachineFloat|))) ($ ($)))
         (CONS (CONS 12 "arrayAssignment")
               (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 127)) 'T)))) 
 
 (SDEFUN |FC;assign;SM$;66|
-        ((|v| |Symbol|) (|rhs| |Matrix| (|MachineComplex|)) ($ $))
+        ((|v| (|Symbol|)) (|rhs| (|Matrix| (|MachineComplex|))) ($ ($)))
         (CONS (CONS 12 "arrayAssignment")
               (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 130)) 'T)))) 
 
 (SDEFUN |FC;assign;SV$;67|
-        ((|v| |Symbol|) (|rhs| |Vector| (|MachineInteger|)) ($ $))
+        ((|v| (|Symbol|)) (|rhs| (|Vector| (|MachineInteger|))) ($ ($)))
         (CONS (CONS 12 "arrayAssignment")
               (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 133)) NIL)))) 
 
 (SDEFUN |FC;assign;SV$;68|
-        ((|v| |Symbol|) (|rhs| |Vector| (|MachineFloat|)) ($ $))
+        ((|v| (|Symbol|)) (|rhs| (|Vector| (|MachineFloat|))) ($ ($)))
         (CONS (CONS 12 "arrayAssignment")
               (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 136)) 'T)))) 
 
 (SDEFUN |FC;assign;SV$;69|
-        ((|v| |Symbol|) (|rhs| |Vector| (|MachineComplex|)) ($ $))
+        ((|v| (|Symbol|)) (|rhs| (|Vector| (|MachineComplex|))) ($ ($)))
         (CONS (CONS 12 "arrayAssignment")
               (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 139)) 'T)))) 
 
 (SDEFUN |FC;assign;SM$;70|
-        ((|v| |Symbol|) (|rhs| |Matrix| (|Expression| (|MachineInteger|)))
-         ($ $))
+        ((|v| (|Symbol|)) (|rhs| (|Matrix| (|Expression| (|MachineInteger|))))
+         ($ ($)))
         (CONS (CONS 12 "arrayAssignment")
               (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 142)) NIL)))) 
 
 (SDEFUN |FC;assign;SM$;71|
-        ((|v| |Symbol|) (|rhs| |Matrix| (|Expression| (|MachineFloat|))) ($ $))
+        ((|v| (|Symbol|)) (|rhs| (|Matrix| (|Expression| (|MachineFloat|))))
+         ($ ($)))
         (CONS (CONS 12 "arrayAssignment")
               (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 145)) 'T)))) 
 
 (SDEFUN |FC;assign;SM$;72|
-        ((|v| |Symbol|) (|rhs| |Matrix| (|Expression| (|MachineComplex|)))
-         ($ $))
+        ((|v| (|Symbol|)) (|rhs| (|Matrix| (|Expression| (|MachineComplex|))))
+         ($ ($)))
         (CONS (CONS 12 "arrayAssignment")
               (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 148)) 'T)))) 
 
 (SDEFUN |FC;assign;SV$;73|
-        ((|v| |Symbol|) (|rhs| |Vector| (|Expression| (|MachineInteger|)))
-         ($ $))
+        ((|v| (|Symbol|)) (|rhs| (|Vector| (|Expression| (|MachineInteger|))))
+         ($ ($)))
         (CONS (CONS 12 "arrayAssignment")
               (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 151)) NIL)))) 
 
 (SDEFUN |FC;assign;SV$;74|
-        ((|v| |Symbol|) (|rhs| |Vector| (|Expression| (|MachineFloat|))) ($ $))
+        ((|v| (|Symbol|)) (|rhs| (|Vector| (|Expression| (|MachineFloat|))))
+         ($ ($)))
         (CONS (CONS 12 "arrayAssignment")
               (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 154)) 'T)))) 
 
 (SDEFUN |FC;assign;SV$;75|
-        ((|v| |Symbol|) (|rhs| |Vector| (|Expression| (|MachineComplex|)))
-         ($ $))
+        ((|v| (|Symbol|)) (|rhs| (|Vector| (|Expression| (|MachineComplex|))))
+         ($ ($)))
         (CONS (CONS 12 "arrayAssignment")
               (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 157)) 'T)))) 
 
 (SDEFUN |FC;assign;SLE$;76|
-        ((|v| |Symbol|) (|index| |List| (|Polynomial| (|Integer|)))
-         (|rhs| |Expression| (|MachineInteger|)) ($ $))
+        ((|v| (|Symbol|)) (|index| (|List| (|Polynomial| (|Integer|))))
+         (|rhs| (|Expression| (|MachineInteger|))) ($ ($)))
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| |index|
                             (CONS NIL (SPADCALL |rhs| (QREFELT $ 99))))))) 
 
 (SDEFUN |FC;assign;SLE$;77|
-        ((|v| |Symbol|) (|index| |List| (|Polynomial| (|Integer|)))
-         (|rhs| |Expression| (|MachineFloat|)) ($ $))
+        ((|v| (|Symbol|)) (|index| (|List| (|Polynomial| (|Integer|))))
+         (|rhs| (|Expression| (|MachineFloat|))) ($ ($)))
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| |index|
                             (CONS 'T (SPADCALL |rhs| (QREFELT $ 102))))))) 
 
 (SDEFUN |FC;assign;SLE$;78|
-        ((|v| |Symbol|) (|index| |List| (|Polynomial| (|Integer|)))
-         (|rhs| |Expression| (|MachineComplex|)) ($ $))
+        ((|v| (|Symbol|)) (|index| (|List| (|Polynomial| (|Integer|))))
+         (|rhs| (|Expression| (|MachineComplex|))) ($ ($)))
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| |index|
                             (CONS 'T (SPADCALL |rhs| (QREFELT $ 105))))))) 
 
 (SDEFUN |FC;assign;SE$;79|
-        ((|v| |Symbol|) (|rhs| |Expression| (|MachineInteger|)) ($ $))
+        ((|v| (|Symbol|)) (|rhs| (|Expression| (|MachineInteger|))) ($ ($)))
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| NIL
                             (CONS NIL (SPADCALL |rhs| (QREFELT $ 99))))))) 
 
 (SDEFUN |FC;assign;SE$;80|
-        ((|v| |Symbol|) (|rhs| |Expression| (|MachineFloat|)) ($ $))
+        ((|v| (|Symbol|)) (|rhs| (|Expression| (|MachineFloat|))) ($ ($)))
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| NIL
                             (CONS 'T (SPADCALL |rhs| (QREFELT $ 102))))))) 
 
 (SDEFUN |FC;assign;SE$;81|
-        ((|v| |Symbol|) (|rhs| |Expression| (|MachineComplex|)) ($ $))
+        ((|v| (|Symbol|)) (|rhs| (|Expression| (|MachineComplex|))) ($ ($)))
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| NIL
                             (CONS 'T (SPADCALL |rhs| (QREFELT $ 105))))))) 
 
 (SDEFUN |FC;assign;SM$;82|
-        ((|v| |Symbol|) (|rhs| |Matrix| (|Expression| (|Integer|))) ($ $))
+        ((|v| (|Symbol|)) (|rhs| (|Matrix| (|Expression| (|Integer|))))
+         ($ ($)))
         (CONS (CONS 12 "arrayAssignment")
               (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 166)) NIL)))) 
 
 (SDEFUN |FC;assign;SM$;83|
-        ((|v| |Symbol|) (|rhs| |Matrix| (|Expression| (|Float|))) ($ $))
+        ((|v| (|Symbol|)) (|rhs| (|Matrix| (|Expression| (|Float|)))) ($ ($)))
         (CONS (CONS 12 "arrayAssignment")
               (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 169)) 'T)))) 
 
 (SDEFUN |FC;assign;SM$;84|
-        ((|v| |Symbol|) (|rhs| |Matrix| (|Expression| (|Complex| (|Float|))))
-         ($ $))
+        ((|v| (|Symbol|))
+         (|rhs| (|Matrix| (|Expression| (|Complex| (|Float|))))) ($ ($)))
         (CONS (CONS 12 "arrayAssignment")
               (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 172)) 'T)))) 
 
 (SDEFUN |FC;assign;SV$;85|
-        ((|v| |Symbol|) (|rhs| |Vector| (|Expression| (|Integer|))) ($ $))
+        ((|v| (|Symbol|)) (|rhs| (|Vector| (|Expression| (|Integer|))))
+         ($ ($)))
         (CONS (CONS 12 "arrayAssignment")
               (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 175)) NIL)))) 
 
 (SDEFUN |FC;assign;SV$;86|
-        ((|v| |Symbol|) (|rhs| |Vector| (|Expression| (|Float|))) ($ $))
+        ((|v| (|Symbol|)) (|rhs| (|Vector| (|Expression| (|Float|)))) ($ ($)))
         (CONS (CONS 12 "arrayAssignment")
               (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 178)) 'T)))) 
 
 (SDEFUN |FC;assign;SV$;87|
-        ((|v| |Symbol|) (|rhs| |Vector| (|Expression| (|Complex| (|Float|))))
-         ($ $))
+        ((|v| (|Symbol|))
+         (|rhs| (|Vector| (|Expression| (|Complex| (|Float|))))) ($ ($)))
         (CONS (CONS 12 "arrayAssignment")
               (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 181)) 'T)))) 
 
 (SDEFUN |FC;assign;SLE$;88|
-        ((|v| |Symbol|) (|index| |List| (|Polynomial| (|Integer|)))
-         (|rhs| |Expression| (|Integer|)) ($ $))
+        ((|v| (|Symbol|)) (|index| (|List| (|Polynomial| (|Integer|))))
+         (|rhs| (|Expression| (|Integer|))) ($ ($)))
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| |index|
                             (CONS NIL (SPADCALL |rhs| (QREFELT $ 108))))))) 
 
 (SDEFUN |FC;assign;SLE$;89|
-        ((|v| |Symbol|) (|index| |List| (|Polynomial| (|Integer|)))
-         (|rhs| |Expression| (|Float|)) ($ $))
+        ((|v| (|Symbol|)) (|index| (|List| (|Polynomial| (|Integer|))))
+         (|rhs| (|Expression| (|Float|))) ($ ($)))
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| |index|
                             (CONS 'T (SPADCALL |rhs| (QREFELT $ 111))))))) 
 
 (SDEFUN |FC;assign;SLE$;90|
-        ((|v| |Symbol|) (|index| |List| (|Polynomial| (|Integer|)))
-         (|rhs| |Expression| (|Complex| (|Float|))) ($ $))
+        ((|v| (|Symbol|)) (|index| (|List| (|Polynomial| (|Integer|))))
+         (|rhs| (|Expression| (|Complex| (|Float|)))) ($ ($)))
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| |index|
                             (CONS 'T (SPADCALL |rhs| (QREFELT $ 114))))))) 
 
 (SDEFUN |FC;assign;SE$;91|
-        ((|v| |Symbol|) (|rhs| |Expression| (|Integer|)) ($ $))
+        ((|v| (|Symbol|)) (|rhs| (|Expression| (|Integer|))) ($ ($)))
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| NIL
                             (CONS NIL (SPADCALL |rhs| (QREFELT $ 108))))))) 
 
 (SDEFUN |FC;assign;SE$;92|
-        ((|v| |Symbol|) (|rhs| |Expression| (|Float|)) ($ $))
+        ((|v| (|Symbol|)) (|rhs| (|Expression| (|Float|))) ($ ($)))
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| NIL
                             (CONS 'T (SPADCALL |rhs| (QREFELT $ 111))))))) 
 
 (SDEFUN |FC;assign;SE$;93|
-        ((|v| |Symbol|) (|rhs| |Expression| (|Complex| (|Float|))) ($ $))
+        ((|v| (|Symbol|)) (|rhs| (|Expression| (|Complex| (|Float|)))) ($ ($)))
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| NIL
                             (CONS 'T (SPADCALL |rhs| (QREFELT $ 114))))))) 
 
-(SDEFUN |FC;call;S$;94| ((|s| |String|) ($ $))
+(SDEFUN |FC;call;S$;94| ((|s| (|String|)) ($ ($)))
         (CONS (CONS 6 "call") (CONS 7 |s|))) 
 
 (DECLAIM (NOTINLINE |FortranCode;|)) 

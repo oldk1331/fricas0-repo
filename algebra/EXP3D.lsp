@@ -1,7 +1,7 @@
 
 (SDEFUN |EXP3D;faceIndex|
-        ((|subSp| |SubSpace| 3 (|DoubleFloat|))
-         ($ |List| (|NonNegativeInteger|)))
+        ((|subSp| (|SubSpace| 3 (|DoubleFloat|)))
+         ($ (|List| (|NonNegativeInteger|))))
         (SPROG
          ((|faceIndexList| (|List| (|NonNegativeInteger|))) (#1=#:G111 NIL)
           (|poly| NIL))
@@ -20,8 +20,8 @@
               (EXIT (REVERSE |faceIndexList|))))) 
 
 (SDEFUN |EXP3D;writePolygon|
-        ((|f1| |TextFile|) (|curves| |List| (|SubSpace| 3 (|DoubleFloat|)))
-         ($ |Void|))
+        ((|f1| (|TextFile|)) (|curves| (|List| (|SubSpace| 3 (|DoubleFloat|))))
+         ($ (|Void|)))
         (SPROG
          ((|s| (|String|)) (#1=#:G118 NIL) (|i| NIL)
           (|faceIndexList| (|List| (|NonNegativeInteger|))) (#2=#:G117 NIL)
@@ -49,8 +49,8 @@
               (EXIT (SPADCALL |f1| |s| (QREFELT $ 15)))))) 
 
 (SDEFUN |EXP3D;writeMesh|
-        ((|f1| |TextFile|) (|curves| |List| (|SubSpace| 3 (|DoubleFloat|)))
-         ($ |Void|))
+        ((|f1| (|TextFile|)) (|curves| (|List| (|SubSpace| 3 (|DoubleFloat|))))
+         ($ (|Void|)))
         (SPROG
          ((|s| (|String|)) (#1=#:G127 NIL) (|j| NIL) (#2=#:G126 NIL) (|i| NIL)
           (|colLength| (|NonNegativeInteger|))
@@ -113,12 +113,12 @@
                            (EXIT NIL))))
                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL)))))) 
 
-(SDEFUN |EXP3D;toString| ((|d| |DoubleFloat|) ($ |String|))
+(SDEFUN |EXP3D;toString| ((|d| (|DoubleFloat|)) ($ (|String|)))
         (SPADCALL (SPADCALL |d| (QREFELT $ 24)) (QREFELT $ 25))) 
 
 (SDEFUN |EXP3D;writeObj;SsSV;5|
-        ((|subSp| |SubSpace| 3 (|DoubleFloat|)) (|filename| |String|)
-         ($ |Void|))
+        ((|subSp| (|SubSpace| 3 (|DoubleFloat|))) (|filename| (|String|))
+         ($ (|Void|)))
         (SPROG
          ((|curves| (|List| (|SubSpace| 3 (|DoubleFloat|)))) (#1=#:G139 NIL)
           (|component| NIL) (#2=#:G138 NIL) (|v| NIL)

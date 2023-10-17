@@ -1,6 +1,7 @@
 
 (SDEFUN |MODFACT;mvmul|
-        ((|m| |U32Matrix|) (|v| |U32Vector|) (|p| |Integer|) ($ |U32Vector|))
+        ((|m| (|U32Matrix|)) (|v| (|U32Vector|)) (|p| (|Integer|))
+         ($ (|U32Vector|)))
         (SPROG
          ((|ss| (|Integer|)) (#1=#:G117 NIL) (|j| NIL) (#2=#:G116 NIL)
           (|i| NIL) (|res| (|U32Vector|)) (|nc| (|NonNegativeInteger|))
@@ -31,7 +32,8 @@
                       (EXIT |res|)))))))) 
 
 (SDEFUN |MODFACT;mmul;2UmIUm;2|
-        ((|m1| |U32Matrix|) (|m2| |U32Matrix|) (|p| |Integer|) ($ |U32Matrix|))
+        ((|m1| (|U32Matrix|)) (|m2| (|U32Matrix|)) (|p| (|Integer|))
+         ($ (|U32Matrix|)))
         (SPROG
          ((|ss| (|Integer|)) (#1=#:G127 NIL) (|k| NIL) (#2=#:G126 NIL)
           (|j| NIL) (#3=#:G125 NIL) (|i| NIL) (|res| (|U32Matrix|))
@@ -75,8 +77,8 @@
                       (EXIT |res|)))))))) 
 
 (SDEFUN |MODFACT;copy_slice2|
-        ((|np| |U32Vector|) (|op| |U32Vector|) (|n| |Integer|) (|m| |Integer|)
-         ($ |Void|))
+        ((|np| (|U32Vector|)) (|op| (|U32Vector|)) (|n| (|Integer|))
+         (|m| (|Integer|)) ($ (|Void|)))
         (SPROG ((#1=#:G130 NIL) (|i| NIL))
                (SEQ (LETT |i| 0) (LETT #1# (- |m| 1)) G190
                     (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -85,11 +87,12 @@
                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL)))) 
 
 (SDEFUN |MODFACT;red_pol;UvLV;4|
-        ((|pol| |U32Vector|)
-         (|rdata| |List|
-          (|Record| (|:| |ind| (|NonNegativeInteger|))
-                    (|:| |poly| (|U32Vector|))))
-         ($ |Void|))
+        ((|pol| (|U32Vector|))
+         (|rdata|
+          (|List|
+           (|Record| (|:| |ind| (|NonNegativeInteger|))
+                     (|:| |poly| (|U32Vector|)))))
+         ($ (|Void|)))
         (SPROG
          ((#1=#:G141 NIL) (|i| NIL) (|tmp| (|U32Vector|))
           (|mi| (|NonNegativeInteger|)) (|ni| #2=(|Integer|))
@@ -126,11 +129,12 @@
               (EXIT (SPADCALL |pol| |f| |p| (QREFELT $ 17)))))) 
 
 (SDEFUN |MODFACT;mod_exp;UvILUv;5|
-        ((|pol| |U32Vector|) (|n| |Integer|)
-         (|rdata| |List|
-          (|Record| (|:| |ind| (|NonNegativeInteger|))
-                    (|:| |poly| (|U32Vector|))))
-         ($ |U32Vector|))
+        ((|pol| (|U32Vector|)) (|n| (|Integer|))
+         (|rdata|
+          (|List|
+           (|Record| (|:| |ind| (|NonNegativeInteger|))
+                     (|:| |poly| (|U32Vector|)))))
+         ($ (|U32Vector|)))
         (SPROG
          ((|pow1| #1=(|U32Vector|)) (#2=#:G151 NIL) (|has_res| (|Boolean|))
           (|res1| #1#) (|res| #3=(|U32Vector|)) (|pow| #3#)
@@ -190,11 +194,12 @@
                       (EXIT |res|))))))) 
 
 (SDEFUN |MODFACT;power_matrix;UvNniLR;6|
-        ((|xp| |U32Vector|) (|l| |NonNegativeInteger|)
-         (|rdata| |List|
-          (|Record| (|:| |ind| (|NonNegativeInteger|))
-                    (|:| |poly| (|U32Vector|))))
-         ($ |Record| (|:| |matr| (|U32Matrix|)) (|:| |poly| (|U32Vector|))))
+        ((|xp| (|U32Vector|)) (|l| (|NonNegativeInteger|))
+         (|rdata|
+          (|List|
+           (|Record| (|:| |ind| (|NonNegativeInteger|))
+                     (|:| |poly| (|U32Vector|)))))
+         ($ (|Record| (|:| |matr| (|U32Matrix|)) (|:| |poly| (|U32Vector|)))))
         (SPROG
          ((#1=#:G163 NIL) (|k| NIL) (|nn1| (|Integer|)) (|pow1| (|U32Vector|))
           (#2=#:G162 NIL) (#3=#:G161 NIL) (|j| NIL) (|n1| (|SingleInteger|))
@@ -233,12 +238,13 @@
               (EXIT (CONS |pm| |pow|))))) 
 
 (SDEFUN |MODFACT;modular_compose;UvUmUv2NniLUv;7|
-        ((|pol| |U32Vector|) (|pm| |U32Matrix|) (|xp1| |U32Vector|)
-         (|l1| |NonNegativeInteger|) (|l2| |NonNegativeInteger|)
-         (|rdata| |List|
-          (|Record| (|:| |ind| (|NonNegativeInteger|))
-                    (|:| |poly| (|U32Vector|))))
-         ($ |U32Vector|))
+        ((|pol| (|U32Vector|)) (|pm| (|U32Matrix|)) (|xp1| (|U32Vector|))
+         (|l1| (|NonNegativeInteger|)) (|l2| (|NonNegativeInteger|))
+         (|rdata|
+          (|List|
+           (|Record| (|:| |ind| (|NonNegativeInteger|))
+                     (|:| |poly| (|U32Vector|)))))
+         ($ (|U32Vector|)))
         (SPROG
          ((|res1| (|U32Vector|)) (#1=#:G176 NIL) (|i| (|SingleInteger|))
           (|k| NIL) (|ns1| (|SingleInteger|)) (|res| #2=(|U32Vector|))
@@ -291,10 +297,11 @@
               (EXIT |res|)))) 
 
 (SDEFUN |MODFACT;ini_rdata;UvIL;8|
-        ((|pol| |U32Vector|) (|p| |Integer|)
-         ($ |List|
-          #1=(|Record| (|:| |ind| (|NonNegativeInteger|))
-                       (|:| |poly| (|U32Vector|)))))
+        ((|pol| (|U32Vector|)) (|p| (|Integer|))
+         ($
+          (|List|
+           #1=(|Record| (|:| |ind| (|NonNegativeInteger|))
+                        (|:| |poly| (|U32Vector|))))))
         (SPROG
          ((|res| (|List| #1#)) (|tmp1| #2=(|U32Vector|)) (#3=#:G185 NIL)
           (|i| NIL) (|ni| #4=(|Integer|)) (|ii| #4#) (|nn| (|Integer|))
@@ -320,7 +327,7 @@
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT (NREVERSE |res|))))) 
 
-(SDEFUN |MODFACT;floor_sqrt| ((|n| |Integer|) ($ |Integer|))
+(SDEFUN |MODFACT;floor_sqrt| ((|n| (|Integer|)) ($ (|Integer|)))
         (SPROG ((|res| (|Integer|)))
                (SEQ (LETT |res| (SPADCALL |n| (QREFELT $ 31)))
                     (EXIT
@@ -328,14 +335,15 @@
                            ('T (+ |res| 1))))))) 
 
 (SDEFUN |MODFACT;eqfact|
-        ((|pol| |U32Vector|) (|l| |Integer|) (|pmat1| |U32Matrix|)
-         (|xp1| |U32Vector|) (|pmat2| |U32Matrix|) (|xp2| |U32Vector|)
-         (|l1| |NonNegativeInteger|) (|l2| |NonNegativeInteger|)
-         (|k1| |Integer|) (|k2| |Integer|)
-         (|rdata| |List|
-          (|Record| (|:| |ind| #1=(|NonNegativeInteger|))
-                    (|:| |poly| #2=(|U32Vector|))))
-         (|res| |List| (|U32Vector|)) ($ |List| (|U32Vector|)))
+        ((|pol| (|U32Vector|)) (|l| (|Integer|)) (|pmat1| (|U32Matrix|))
+         (|xp1| (|U32Vector|)) (|pmat2| (|U32Matrix|)) (|xp2| (|U32Vector|))
+         (|l1| (|NonNegativeInteger|)) (|l2| (|NonNegativeInteger|))
+         (|k1| (|Integer|)) (|k2| (|Integer|))
+         (|rdata|
+          (|List|
+           (|Record| (|:| |ind| #1=(|NonNegativeInteger|))
+                     (|:| |poly| #2=(|U32Vector|)))))
+         (|res| (|List| (|U32Vector|))) ($ (|List| (|U32Vector|))))
         (SPROG
          ((|dg| #3=(|NonNegativeInteger|)) (|dp| (|NonNegativeInteger|))
           (|#G64| (|NonNegativeInteger|)) (|#G63| #3#) (|g| #4=(|U32Vector|))
@@ -453,12 +461,13 @@
                       (EXIT (CONS |pol| |res|)))))))) 
 
 (SDEFUN |MODFACT;do_ddfact|
-        ((|pol| |U32Vector|) (|p| |Integer|) (|do_eqfact?| |Boolean|)
-         ($ |List|
-          (|Record| (|:| |poly| (|U32Vector|))
-                    (|:| |degree| (|NonNegativeInteger|))
-                    (|:| |separate_factors|
-                         (|Mapping| (|List| (|U32Vector|)))))))
+        ((|pol| (|U32Vector|)) (|p| (|Integer|)) (|do_eqfact?| (|Boolean|))
+         ($
+          (|List|
+           (|Record| (|:| |poly| (|U32Vector|))
+                     (|:| |degree| (|NonNegativeInteger|))
+                     (|:| |separate_factors|
+                          (|Mapping| (|List| (|U32Vector|))))))))
         (SPROG
          ((|res|
            (|List|
@@ -471,15 +480,15 @@
           (|n| #5=(|NonNegativeInteger|)) (|tmp| #6=(|U32Vector|))
           (#7=#:G234 NIL) (|g1| NIL) (|res1| (|List| (|U32Vector|)))
           (|g| (|U32Vector|)) (|i| (|NonNegativeInteger|)) (#8=#:G233 NIL)
-          (|pj| #9=(|U32Vector|)) (#10=#:G232 NIL) (|i1| NIL)
-          (|xp2| #11=(|U32Vector|)) (|pmat2| #12=(|U32Matrix|)) (|#G72| #11#)
-          (|#G71| #12#)
-          (|#G70| #13=(|Record| (|:| |matr| #12#) (|:| |poly| #11#)))
-          (|pk1| #6#) (|lpj| (|List| #6#)) (#14=#:G231 NIL)
-          (|k2| (|NonNegativeInteger|)) (|k1| (|NonNegativeInteger|))
-          (|n2| (|NonNegativeInteger|)) (|xp1| #11#) (|pmat1| #12#)
-          (|#G68| #13#) (|l1| (|NonNegativeInteger|))
-          (|l2| (|NonNegativeInteger|)) (|n0| #5#) (|xp| #9#)
+          (#9=#:G232 NIL) (|i1| NIL) (|xp2| #10=(|U32Vector|))
+          (|pmat2| #11=(|U32Matrix|)) (|#G72| #10#) (|#G71| #11#)
+          (|#G70| #12=(|Record| (|:| |matr| #11#) (|:| |poly| #10#)))
+          (|pk1| #6#) (|pj| #13=(|U32Vector|)) (|lpj| (|List| #6#))
+          (#14=#:G231 NIL) (|k2| (|NonNegativeInteger|))
+          (|k1| (|NonNegativeInteger|)) (|n2| (|NonNegativeInteger|))
+          (|xp1| #10#) (|pmat1| #11#) (|#G68| #12#)
+          (|l1| (|NonNegativeInteger|)) (|l2| (|NonNegativeInteger|))
+          (|n0| #5#) (|xp| #13#)
           (|rdata|
            (|List|
             (|Record| (|:| |ind| (|NonNegativeInteger|))
@@ -530,12 +539,12 @@
               (LETT |i| 0)
               (SEQ
                (EXIT
-                (SEQ (LETT |i1| 1) (LETT #10# |k2|) G190
-                     (COND ((|greater_SI| |i1| #10#) (GO G191)))
+                (SEQ (LETT |i1| 1) (LETT #9# |k2|) G190
+                     (COND ((|greater_SI| |i1| #9#) (GO G191)))
                      (SEQ
                       (SEQ
                        (EXIT
-                        (SEQ (LETT |pj| NIL) (LETT #8# |lpj|) G190
+                        (SEQ (LETT #8# |lpj|) G190
                              (COND
                               ((OR (ATOM #8#)
                                    (PROGN (LETT |pj| (CAR #8#)) NIL))
@@ -688,16 +697,18 @@
 (SDEFUN |MODFACT;do_ddfact!0| ((|g| NIL)) (LIST |g|)) 
 
 (SDEFUN |MODFACT;ddfact;UvIL;12|
-        ((|pol| |U32Vector|) (|prime| |Integer|)
-         ($ |List|
-          (|Record| (|:| |poly| (|U32Vector|))
-                    (|:| |degree| (|NonNegativeInteger|))
-                    (|:| |separate_factors|
-                         (|Mapping| (|List| (|U32Vector|)))))))
+        ((|pol| (|U32Vector|)) (|prime| (|Integer|))
+         ($
+          (|List|
+           (|Record| (|:| |poly| (|U32Vector|))
+                     (|:| |degree| (|NonNegativeInteger|))
+                     (|:| |separate_factors|
+                          (|Mapping| (|List| (|U32Vector|))))))))
         (|MODFACT;do_ddfact| |pol| |prime| NIL $)) 
 
 (SDEFUN |MODFACT;mfactor;UvIL;13|
-        ((|pol| |U32Vector|) (|prime| |Integer|) ($ |List| (|U32Vector|)))
+        ((|pol| (|U32Vector|)) (|prime| (|Integer|))
+         ($ (|List| (|U32Vector|))))
         (SPROG
          ((#1=#:G243 NIL) (|el| NIL) (#2=#:G242 NIL)
           (|rl1|

@@ -1,9 +1,9 @@
 
-(SDEFUN |ULS;variable;$S;1| ((|x| $) ($ |Symbol|)) (QREFELT $ 7)) 
+(SDEFUN |ULS;variable;$S;1| ((|x| ($)) ($ (|Symbol|))) (QREFELT $ 7)) 
 
-(SDEFUN |ULS;center;$Coef;2| ((|x| $) ($ |Coef|)) (QREFELT $ 8)) 
+(SDEFUN |ULS;center;$Coef;2| ((|x| ($)) ($ (|Coef|))) (QREFELT $ 8)) 
 
-(SDEFUN |ULS;coerce;V$;3| ((|v| |Variable| |var|) ($ $))
+(SDEFUN |ULS;coerce;V$;3| ((|v| (|Variable| |var|)) ($ ($)))
         (COND
          ((SPADCALL (QREFELT $ 8) (QREFELT $ 13))
           (SPADCALL (|spadConstant| $ 14) 1 (QREFELT $ 17)))
@@ -11,10 +11,10 @@
           (SPADCALL (SPADCALL (|spadConstant| $ 14) 1 (QREFELT $ 17))
                     (SPADCALL (QREFELT $ 8) 0 (QREFELT $ 17)) (QREFELT $ 20))))) 
 
-(SDEFUN |ULS;differentiate;$V$;4| ((|x| $) (|v| |Variable| |var|) ($ $))
+(SDEFUN |ULS;differentiate;$V$;4| ((|x| ($)) (|v| (|Variable| |var|)) ($ ($)))
         (SPADCALL |x| (QREFELT $ 23))) 
 
-(SDEFUN |ULS;integrate;$V$;5| ((|x| $) (|v| |Variable| |var|) ($ $))
+(SDEFUN |ULS;integrate;$V$;5| ((|x| ($)) (|v| (|Variable| |var|)) ($ ($)))
         (SPADCALL |x| (QREFELT $ 25))) 
 
 (DECLAIM (NOTINLINE |UnivariateLaurentSeries;|)) 

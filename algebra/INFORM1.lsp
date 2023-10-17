@@ -1,31 +1,32 @@
 
-(SDEFUN |INFORM1;getType;If;1| (($ |InputForm|)) (QREFELT $ 7)) 
+(SDEFUN |INFORM1;getType;If;1| (($ (|InputForm|))) (QREFELT $ 7)) 
 
-(SDEFUN |INFORM1;packageCall;SIf;2| ((|name| |Symbol|) ($ |InputForm|))
+(SDEFUN |INFORM1;packageCall;SIf;2| ((|name| (|Symbol|)) ($ (|InputForm|)))
         (SPADCALL
          (LIST (SPADCALL '|$elt| (QREFELT $ 11)) (QREFELT $ 7)
                (SPADCALL |name| (QREFELT $ 11)))
          (QREFELT $ 13))) 
 
 (SDEFUN |INFORM1;packageCall;SLIf;3|
-        ((|name| |Symbol|) (|args| |List| (|InputForm|)) ($ |InputForm|))
+        ((|name| (|Symbol|)) (|args| (|List| (|InputForm|))) ($ (|InputForm|)))
         (SPADCALL (CONS (SPADCALL |name| (QREFELT $ 14)) |args|)
                   (QREFELT $ 13))) 
 
-(SDEFUN |INFORM1;coerceToType;2If;4| ((|form| |InputForm|) ($ |InputForm|))
+(SDEFUN |INFORM1;coerceToType;2If;4| ((|form| (|InputForm|)) ($ (|InputForm|)))
         (SPADCALL (LIST (SPADCALL '|::| (QREFELT $ 11)) |form| (QREFELT $ 7))
                   (QREFELT $ 13))) 
 
-(SDEFUN |INFORM1;atType;2If;5| ((|form| |InputForm|) ($ |InputForm|))
+(SDEFUN |INFORM1;atType;2If;5| ((|form| (|InputForm|)) ($ (|InputForm|)))
         (SPADCALL (LIST (SPADCALL '@ (QREFELT $ 11)) |form| (QREFELT $ 7))
                   (QREFELT $ 13))) 
 
-(SDEFUN |INFORM1;pretendOfType;2If;6| ((|form| |InputForm|) ($ |InputForm|))
+(SDEFUN |INFORM1;pretendOfType;2If;6|
+        ((|form| (|InputForm|)) ($ (|InputForm|)))
         (SPADCALL
          (LIST (SPADCALL '|pretend| (QREFELT $ 11)) |form| (QREFELT $ 7))
          (QREFELT $ 13))) 
 
-(SDEFUN |INFORM1;interpret;IfR;7| ((|form| |InputForm|) ($ R))
+(SDEFUN |INFORM1;interpret;IfR;7| ((|form| (|InputForm|)) ($ (R)))
         (SPADCALL (SPADCALL (SPADCALL |form| (QREFELT $ 18)) (QREFELT $ 21))
                   (QREFELT $ 23))) 
 

@@ -1,6 +1,6 @@
 
 (SDEFUN |FFPOLY2;rootOfIrreduciblePoly;SupF;1|
-        ((|pf| |SparseUnivariatePolynomial| GF) ($ F))
+        ((|pf| (|SparseUnivariatePolynomial| GF)) ($ (F)))
         (SPROG
          ((|stillToFactor| #1=(|SparseUnivariatePolynomial| F)) (|root| (F))
           (|degSTF| #2=(|NonNegativeInteger|)) (|degh| #2#)

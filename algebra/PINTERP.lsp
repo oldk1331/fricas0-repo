@@ -1,13 +1,14 @@
 
 (SDEFUN |PINTERP;interpolate;Up2LUp;1|
-        ((|qx| |UnivariatePolynomial| |xx| F) (|lx| |List| F) (|ly| |List| F)
-         ($ |UnivariatePolynomial| |xx| F))
+        ((|qx| (|UnivariatePolynomial| |xx| F)) (|lx| (|List| F))
+         (|ly| (|List| F)) ($ (|UnivariatePolynomial| |xx| F)))
         (SPROG ((|px| (|UnivariatePolynomial| |xx| F)))
                (SEQ (LETT |px| (SPADCALL |lx| |ly| (QREFELT $ 11)))
                     (EXIT (SPADCALL |px| |qx| (QREFELT $ 12)))))) 
 
 (SDEFUN |PINTERP;interpolate;2LSup;2|
-        ((|lx| |List| F) (|ly| |List| F) ($ |SparseUnivariatePolynomial| F))
+        ((|lx| (|List| F)) (|ly| (|List| F))
+         ($ (|SparseUnivariatePolynomial| F)))
         (SPADCALL |lx| |ly| (QREFELT $ 16))) 
 
 (DECLAIM (NOTINLINE |PolynomialInterpolation;|)) 

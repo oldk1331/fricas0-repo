@@ -1,12 +1,12 @@
 
 (SDEFUN |CARTEN2;reshape;LCtCt;1|
-        ((|l| |List| T$) (|s| |CartesianTensor| |minix| |dim| S)
-         ($ |CartesianTensor| |minix| |dim| T$))
+        ((|l| (|List| T$)) (|s| (|CartesianTensor| |minix| |dim| S))
+         ($ (|CartesianTensor| |minix| |dim| T$)))
         (SPADCALL |l| (QREFELT $ 12))) 
 
 (SDEFUN |CARTEN2;map;MCtCt;2|
-        ((|f| |Mapping| T$ S) (|s| |CartesianTensor| |minix| |dim| S)
-         ($ |CartesianTensor| |minix| |dim| T$))
+        ((|f| (|Mapping| T$ S)) (|s| (|CartesianTensor| |minix| |dim| S))
+         ($ (|CartesianTensor| |minix| |dim| T$)))
         (SPROG ((#1=#:G108 NIL) (|e| NIL) (#2=#:G107 NIL))
                (SEQ
                 (SPADCALL

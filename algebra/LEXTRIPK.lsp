@@ -1,8 +1,9 @@
 
 (SDEFUN |LEXTRIPK;trueVariables|
-        ((|lp| |List|
-          (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|)))
-         ($ |List| (|Symbol|)))
+        ((|lp|
+          (|List|
+           (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|))))
+         ($ (|List| (|Symbol|))))
         (SPROG
          ((|truels| (|List| (|Symbol|))) (#1=#:G121 NIL) (#2=#:G127 NIL)
           (|s| NIL) (|lv| (|List| (|OrderedVariableList| |ls|))))
@@ -30,9 +31,10 @@
           (EXIT (REVERSE |truels|))))) 
 
 (SDEFUN |LEXTRIPK;zeroDimensional?;LB;2|
-        ((|lp| |List|
-          (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|)))
-         ($ |Boolean|))
+        ((|lp|
+          (|List|
+           (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|))))
+         ($ (|Boolean|)))
         (SPROG
          ((|lq1| (|List| (|Polynomial| R))) (#1=#:G132 NIL) (|p| NIL)
           (#2=#:G131 NIL)
@@ -73,12 +75,14 @@
                                                 |fglmpack|)))))) 
 
 (SDEFUN |LEXTRIPK;fglmIfCan;LU;3|
-        ((|lp| |List|
-          (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|)))
-         ($ |Union|
+        ((|lp|
           (|List|
-           (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|)))
-          "failed"))
+           (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|))))
+         ($
+          (|Union|
+           (|List|
+            (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|)))
+           "failed")))
         (SPROG
          ((#1=#:G151 NIL) (|q1| NIL) (#2=#:G150 NIL) (#3=#:G147 NIL)
           (|foo| (|Union| (|List| (|Polynomial| R)) #4="failed"))
@@ -154,10 +158,13 @@
           #7# (EXIT #3#)))) 
 
 (SDEFUN |LEXTRIPK;groebner;2L;4|
-        ((|lp| |List|
-          (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|)))
-         ($ |List|
-          (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|))))
+        ((|lp|
+          (|List|
+           (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|))))
+         ($
+          (|List|
+           (|NewSparseMultivariatePolynomial| R
+                                              (|OrderedVariableList| |ls|)))))
         (SPROG
          ((#1=#:G159 NIL) (|q1| NIL) (#2=#:G158 NIL)
           (|lq1| (|List| (|Polynomial| R))) (#3=#:G157 NIL) (|p| NIL)
@@ -217,9 +224,10 @@
                            (EXIT (NREVERSE #2#))))))))) 
 
 (SDEFUN |LEXTRIPK;lexTriangular;LBL;5|
-        ((|base| |List|
-          (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|)))
-         (|norm?| |Boolean|) ($ |List| (|RegularChain| R |ls|)))
+        ((|base|
+          (|List|
+           (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|))))
+         (|norm?| (|Boolean|)) ($ (|List| (|RegularChain| R |ls|))))
         (SPROG
          ((|toSee|
            (|List|
@@ -230,7 +238,7 @@
                                                          (|OrderedVariableList|
                                                           |ls|))))
              (|:| |tower| (|RegularChain| R |ls|)))))
-          (#2=#:G187 NIL) (|us| (|RegularChain| R |ls|))
+          (#2=#:G187 NIL)
           (|newlp|
            (|List|
             (|NewSparseMultivariatePolynomial| R
@@ -238,7 +246,7 @@
           (|lus| (|List| (|RegularChain| R |ls|)))
           (|newp|
            (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|)))
-          (|b| (|Boolean|))
+          (|us| (|RegularChain| R |ls|)) (|b| (|Boolean|))
           (|lbwt|
            (|List|
             (|Record| (|:| |val| (|Boolean|))
@@ -408,7 +416,6 @@
                                                                  (EXIT NIL))
                                                             (EXIT
                                                              (SEQ
-                                                              (LETT |us| NIL)
                                                               (LETT #2# |lus|)
                                                               G190
                                                               (COND
@@ -443,9 +450,10 @@
                            (EXIT (SPADCALL |toSave| (QREFELT $ 54)))))))))) 
 
 (SDEFUN |LEXTRIPK;zeroSetSplit;LBL;6|
-        ((|lp| |List|
-          (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|)))
-         (|norm?| |Boolean|) ($ |List| (|RegularChain| R |ls|)))
+        ((|lp|
+          (|List|
+           (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|))))
+         (|norm?| (|Boolean|)) ($ (|List| (|RegularChain| R |ls|))))
         (SPROG
          ((|bar|
            (|Union|
@@ -461,16 +469,19 @@
                 ('T (SPADCALL (QCDR |bar|) |norm?| (QREFELT $ 55)))))))) 
 
 (SDEFUN |LEXTRIPK;squareFreeLexTriangular;LBL;7|
-        ((|base| |List|
-          (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|)))
-         (|norm?| |Boolean|)
-         ($ |List|
-          (|SquareFreeRegularTriangularSet| R
-                                            (|IndexedExponents|
-                                             (|OrderedVariableList| |ls|))
-                                            (|OrderedVariableList| |ls|)
-                                            (|NewSparseMultivariatePolynomial|
-                                             R (|OrderedVariableList| |ls|)))))
+        ((|base|
+          (|List|
+           (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|))))
+         (|norm?| (|Boolean|))
+         ($
+          (|List|
+           (|SquareFreeRegularTriangularSet| R
+                                             (|IndexedExponents|
+                                              (|OrderedVariableList| |ls|))
+                                             (|OrderedVariableList| |ls|)
+                                             (|NewSparseMultivariatePolynomial|
+                                              R
+                                              (|OrderedVariableList| |ls|))))))
         (SPROG
          ((|toSee|
            (|List|
@@ -492,13 +503,6 @@
                                                      (|OrderedVariableList|
                                                       |ls|)))))))
           (#2=#:G219 NIL)
-          (|us|
-           (|SquareFreeRegularTriangularSet| R
-                                             (|IndexedExponents|
-                                              (|OrderedVariableList| |ls|))
-                                             (|OrderedVariableList| |ls|)
-                                             (|NewSparseMultivariatePolynomial|
-                                              R (|OrderedVariableList| |ls|))))
           (|newlp|
            (|List|
             (|NewSparseMultivariatePolynomial| R
@@ -514,6 +518,13 @@
                                                (|OrderedVariableList| |ls|)))))
           (|newp|
            (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|)))
+          (|us|
+           (|SquareFreeRegularTriangularSet| R
+                                             (|IndexedExponents|
+                                              (|OrderedVariableList| |ls|))
+                                             (|OrderedVariableList| |ls|)
+                                             (|NewSparseMultivariatePolynomial|
+                                              R (|OrderedVariableList| |ls|))))
           (|b| (|Boolean|))
           (|lbwt|
            (|List|
@@ -720,7 +731,6 @@
                                                                  (EXIT NIL))
                                                             (EXIT
                                                              (SEQ
-                                                              (LETT |us| NIL)
                                                               (LETT #2# |lus|)
                                                               G190
                                                               (COND
@@ -755,16 +765,19 @@
                            (EXIT (SPADCALL |toSave| (QREFELT $ 68)))))))))) 
 
 (SDEFUN |LEXTRIPK;zeroSetSplit;LBL;8|
-        ((|lp| |List|
-          (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|)))
-         (|norm?| |Boolean|)
-         ($ |List|
-          (|SquareFreeRegularTriangularSet| R
-                                            (|IndexedExponents|
-                                             (|OrderedVariableList| |ls|))
-                                            (|OrderedVariableList| |ls|)
-                                            (|NewSparseMultivariatePolynomial|
-                                             R (|OrderedVariableList| |ls|)))))
+        ((|lp|
+          (|List|
+           (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|))))
+         (|norm?| (|Boolean|))
+         ($
+          (|List|
+           (|SquareFreeRegularTriangularSet| R
+                                             (|IndexedExponents|
+                                              (|OrderedVariableList| |ls|))
+                                             (|OrderedVariableList| |ls|)
+                                             (|NewSparseMultivariatePolynomial|
+                                              R
+                                              (|OrderedVariableList| |ls|))))))
         (SPROG
          ((|bar|
            (|Union|

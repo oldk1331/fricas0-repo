@@ -1,15 +1,15 @@
 
-(SDEFUN |SETAGG-;symmetricDifference;3A;1| ((|x| A) (|y| A) ($ A))
+(SDEFUN |SETAGG-;symmetricDifference;3A;1| ((|x| (A)) (|y| (A)) ($ (A)))
         (SPADCALL (SPADCALL |x| |y| (QREFELT $ 8))
                   (SPADCALL |y| |x| (QREFELT $ 8)) (QREFELT $ 9))) 
 
-(SDEFUN |SETAGG-;union;ASA;2| ((|s| A) (|x| S) ($ A))
+(SDEFUN |SETAGG-;union;ASA;2| ((|s| (A)) (|x| (S)) ($ (A)))
         (SPADCALL |s| (SPADCALL (LIST |x|) (QREFELT $ 12)) (QREFELT $ 9))) 
 
-(SDEFUN |SETAGG-;union;S2A;3| ((|x| S) (|s| A) ($ A))
+(SDEFUN |SETAGG-;union;S2A;3| ((|x| (S)) (|s| (A)) ($ (A)))
         (SPADCALL |s| (SPADCALL (LIST |x|) (QREFELT $ 12)) (QREFELT $ 9))) 
 
-(SDEFUN |SETAGG-;difference;ASA;4| ((|s| A) (|x| S) ($ A))
+(SDEFUN |SETAGG-;difference;ASA;4| ((|s| (A)) (|x| (S)) ($ (A)))
         (SPADCALL |s| (SPADCALL (LIST |x|) (QREFELT $ 12)) (QREFELT $ 8))) 
 
 (DECLAIM (NOTINLINE |SetAggregate&;|)) 

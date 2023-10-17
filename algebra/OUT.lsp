@@ -1,14 +1,15 @@
 
-(SDEFUN |OUT;output;OfV;1| ((|e| |OutputForm|) ($ |Void|))
+(SDEFUN |OUT;output;OfV;1| ((|e| (|OutputForm|)) ($ (|Void|)))
         (SEQ (|mathprint| |e|) (EXIT (SPADCALL (QREFELT $ 7))))) 
 
-(SDEFUN |OUT;output;SV;2| ((|s| |String|) ($ |Void|))
+(SDEFUN |OUT;output;SV;2| ((|s| (|String|)) ($ (|Void|)))
         (SPADCALL |s| (QREFELT $ 9))) 
 
-(SDEFUN |OUT;output;SOfV;3| ((|s| |String|) (|e| |OutputForm|) ($ |Void|))
+(SDEFUN |OUT;output;SOfV;3|
+        ((|s| (|String|)) (|e| (|OutputForm|)) ($ (|Void|)))
         (SPADCALL (SPADCALL (LIST |s| |e|) (QREFELT $ 13)) (QREFELT $ 9))) 
 
-(SDEFUN |OUT;outputList;LV;4| ((|l| |List| (|Any|)) ($ |Void|))
+(SDEFUN |OUT;outputList;LV;4| ((|l| (|List| (|Any|))) ($ (|Void|)))
         (SPROG ((#1=#:G112 NIL) (|x| NIL) (#2=#:G111 NIL))
                (SEQ
                 (SPADCALL

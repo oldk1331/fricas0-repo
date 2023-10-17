@@ -1,23 +1,23 @@
 
-(SDEFUN |FTEM;fortranLiteralLine;SV;1| ((|s| |String|) ($ |Void|))
+(SDEFUN |FTEM;fortranLiteralLine;SV;1| ((|s| (|String|)) ($ (|Void|)))
         (SEQ (|sayString| |s| (|get_fortran_stream|))
              (EXIT (TERPRI (|get_fortran_stream|))))) 
 
-(SDEFUN |FTEM;fortranLiteral;SV;2| ((|s| |String|) ($ |Void|))
+(SDEFUN |FTEM;fortranLiteral;SV;2| ((|s| (|String|)) ($ (|Void|)))
         (|sayString| |s| (|get_fortran_stream|))) 
 
-(SDEFUN |FTEM;fortranCarriageReturn;V;3| (($ |Void|))
+(SDEFUN |FTEM;fortranCarriageReturn;V;3| (($ (|Void|)))
         (TERPRI (|get_fortran_stream|))) 
 
-(SDEFUN |FTEM;writePassiveLine!| ((|line| |String|) ($ |Void|))
+(SDEFUN |FTEM;writePassiveLine!| ((|line| (|String|)) ($ (|Void|)))
         (SPADCALL |line| (QREFELT $ 9))) 
 
 (SDEFUN |FTEM;processTemplate;3Fn;5|
-        ((|tp| |FileName|) (|fn| |FileName|) ($ |FileName|))
+        ((|tp| (|FileName|)) (|fn| (|FileName|)) ($ (|FileName|)))
         (SEQ (SPADCALL |fn| (QREFELT $ 14)) (SPADCALL |tp| (QREFELT $ 15))
              (SPADCALL (QREFELT $ 16)) (EXIT |fn|))) 
 
-(SDEFUN |FTEM;getLine| ((|fp| |TextFile|) ($ |String|))
+(SDEFUN |FTEM;getLine| ((|fp| (|TextFile|)) ($ (|String|)))
         (SPROG ((|line| (|String|)))
                (SEQ
                 (LETT |line|
@@ -44,7 +44,7 @@
                      NIL (GO G190) G191 (EXIT NIL))
                 (EXIT |line|)))) 
 
-(SDEFUN |FTEM;processTemplate;2Fn;7| ((|tp| |FileName|) ($ |FileName|))
+(SDEFUN |FTEM;processTemplate;2Fn;7| ((|tp| (|FileName|)) ($ (|FileName|)))
         (SPROG
          ((|active| #1=(|Boolean|)) (|line| (|String|)) (#2=#:G125 NIL)
           (|endInput| #1#) (|fp| (|TextFile|)))

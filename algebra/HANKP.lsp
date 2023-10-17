@@ -1,5 +1,5 @@
 
-(SDEFUN |HANKP;HankelMatrix;LM;1| ((|l| |List| R) ($ |Matrix| R))
+(SDEFUN |HANKP;HankelMatrix;LM;1| ((|l| (|List| R)) ($ (|Matrix| R)))
         (SPROG
          ((#1=#:G118 NIL) (|x| NIL) (#2=#:G119 NIL) (|i| NIL) (#3=#:G117 NIL)
           (|lloc| (|List| R)) (#4=#:G116 NIL) (|j| NIL) (#5=#:G115 NIL)

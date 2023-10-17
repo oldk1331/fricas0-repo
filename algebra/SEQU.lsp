@@ -1,20 +1,20 @@
 
 (PUT '|SEQU;rep| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |SEQU;rep| ((|x| $) ($ |Rep|)) |x|) 
+(SDEFUN |SEQU;rep| ((|x| ($)) ($ (|Rep|))) |x|) 
 
 (PUT '|SEQU;per| '|SPADreplace| '(XLAM (|r|) |r|)) 
 
-(SDEFUN |SEQU;per| ((|r| |Rep|) ($ $)) |r|) 
+(SDEFUN |SEQU;per| ((|r| (|Rep|)) ($ ($))) |r|) 
 
-(SDEFUN |SEQU;Zero;$;3| (($ $))
+(SDEFUN |SEQU;Zero;$;3| (($ ($)))
         (|SEQU;per| (SPADCALL (LIST (|spadConstant| $ 8)) (QREFELT $ 10)) $)) 
 
-(SDEFUN |SEQU;elt;$IR;4| ((|mm| $) (|n| |Integer|) ($ R))
+(SDEFUN |SEQU;elt;$IR;4| ((|mm| ($)) (|n| (|Integer|)) ($ (R)))
         (COND ((< |n| 1) (|error| "no such element"))
               ('T (SPADCALL (|SEQU;rep| |mm| $) |n| (QREFELT $ 14))))) 
 
-(SDEFUN |SEQU;apply;$PR;5| ((|mm| $) (|pi| |Partition|) ($ R))
+(SDEFUN |SEQU;apply;$PR;5| ((|mm| ($)) (|pi| (|Partition|)) ($ (R)))
         (SPROG
          ((#1=#:G117 NIL) (|k| NIL) (#2=#:G116 NIL)
           (|pil| (|List| (|Integer|))))
@@ -37,25 +37,25 @@
                                (EXIT (NREVERSE #2#))))
                          (QREFELT $ 21)))))) 
 
-(SDEFUN |SEQU;cons;R2$;6| ((|r| R) (|s| $) ($ $))
+(SDEFUN |SEQU;cons;R2$;6| ((|r| (R)) (|s| ($)) ($ ($)))
         (|SEQU;per| (SPADCALL |r| (|SEQU;rep| |s| $) (QREFELT $ 23)) $)) 
 
-(SDEFUN |SEQU;+;3$;7| ((|x| $) (|y| $) ($ $))
+(SDEFUN |SEQU;+;3$;7| ((|x| ($)) (|y| ($)) ($ ($)))
         (|SEQU;per|
          (SPADCALL (ELT $ 25) (|SEQU;rep| |x| $) (|SEQU;rep| |y| $)
                    (QREFELT $ 26))
          $)) 
 
-(SDEFUN |SEQU;-;2$;8| ((|x| $) ($ $))
+(SDEFUN |SEQU;-;2$;8| ((|x| ($)) ($ ($)))
         (|SEQU;per| (SPADCALL (ELT $ 28) (|SEQU;rep| |x| $) (QREFELT $ 30)) $)) 
 
-(SDEFUN |SEQU;multiply| ((|x| $) (|y| $) ($ $))
+(SDEFUN |SEQU;multiply| ((|x| ($)) (|y| ($)) ($ ($)))
         (|SEQU;per|
          (SPADCALL (ELT $ 19) (|SEQU;rep| |x| $) (|SEQU;rep| |y| $)
                    (QREFELT $ 26))
          $)) 
 
-(SDEFUN |SEQU;*;R2$;10| ((|x| R) (|y| $) ($ $))
+(SDEFUN |SEQU;*;R2$;10| ((|x| (R)) (|y| ($)) ($ ($)))
         (SPROG NIL
                (|SEQU;per|
                 (SPADCALL (CONS #'|SEQU;*;R2$;10!0| (VECTOR $ |x|))
@@ -68,32 +68,32 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |x| |t| (QREFELT $ 19)))))) 
 
-(SDEFUN |SEQU;=;2$B;11| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |SEQU;=;2$B;11| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPADCALL (|SEQU;rep| |x| $) (|SEQU;rep| |y| $) (QREFELT $ 34))) 
 
-(SDEFUN |SEQU;coerce;S$;12| ((|x| |Stream| R) ($ $)) (|SEQU;per| |x| $)) 
+(SDEFUN |SEQU;coerce;S$;12| ((|x| (|Stream| R)) ($ ($))) (|SEQU;per| |x| $)) 
 
-(SDEFUN |SEQU;sequence;S$;13| ((|x| |Stream| R) ($ $)) (|SEQU;per| |x| $)) 
+(SDEFUN |SEQU;sequence;S$;13| ((|x| (|Stream| R)) ($ ($))) (|SEQU;per| |x| $)) 
 
-(SDEFUN |SEQU;stream;$S;14| ((|x| $) ($ |Stream| R)) (|SEQU;rep| |x| $)) 
+(SDEFUN |SEQU;stream;$S;14| ((|x| ($)) ($ (|Stream| R))) (|SEQU;rep| |x| $)) 
 
-(SDEFUN |SEQU;first;$Nni$;15| ((|x| $) (|n| |NonNegativeInteger|) ($ $))
+(SDEFUN |SEQU;first;$Nni$;15| ((|x| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (|SEQU;per| (SPADCALL (|SEQU;rep| |x| $) |n| (QREFELT $ 39)) $)) 
 
 (SDEFUN |SEQU;firstn;$NniL;16|
-        ((|x| $) (|n| |NonNegativeInteger|) ($ |List| R))
+        ((|x| ($)) (|n| (|NonNegativeInteger|)) ($ (|List| R)))
         (SPADCALL
          (SPADCALL (SPADCALL (|SEQU;rep| |x| $) |n| (QREFELT $ 39))
                    (QREFELT $ 41))
          (QREFELT $ 42))) 
 
-(SDEFUN |SEQU;sequence;MR$;17| ((|f| |Mapping| R R) (|r| R) ($ $))
+(SDEFUN |SEQU;sequence;MR$;17| ((|f| (|Mapping| R R)) (|r| (R)) ($ ($)))
         (|SEQU;per| (SPADCALL |f| |r| (QREFELT $ 44)) $)) 
 
-(SDEFUN |SEQU;coerce;$Of;18| ((|mm| $) ($ |OutputForm|))
+(SDEFUN |SEQU;coerce;$Of;18| ((|mm| ($)) ($ (|OutputForm|)))
         (SPADCALL (|SEQU;rep| |mm| $) (QREFELT $ 47))) 
 
-(SDEFUN |SEQU;dilate;R2$;19| ((|a| R) (|mm| $) ($ $))
+(SDEFUN |SEQU;dilate;R2$;19| ((|a| (R)) (|mm| ($)) ($ ($)))
         (SPROG ((|apow| ($)))
                (SEQ
                 (LETT |apow|

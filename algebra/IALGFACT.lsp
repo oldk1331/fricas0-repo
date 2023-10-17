@@ -1,7 +1,7 @@
 
 (SDEFUN |IALGFACT;perturbfactor|
-        ((|f| |AlPol|) (|k| |Integer|) (|fact| |Mapping| (|Factored| UP) UP)
-         ($ |List| |AlPol|))
+        ((|f| (|AlPol|)) (|k| (|Integer|))
+         (|fact| (|Mapping| (|Factored| UP) UP)) ($ (|List| |AlPol|)))
         (SPROG
          ((#1=#:G112 NIL) (|pp| NIL) (#2=#:G111 NIL) (|pol| (|AlPol|))
           (|lsols| (|List| |AlPol|)) (|newf| (|AlPol|)))
@@ -39,8 +39,8 @@
                  (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |IALGFACT;irrfactor|
-        ((|f| |AlPol|) (|k| |Integer|) (|fact| |Mapping| (|Factored| UP) UP)
-         ($ |List| |AlPol|))
+        ((|f| (|AlPol|)) (|k| (|Integer|))
+         (|fact| (|Mapping| (|Factored| UP) UP)) ($ (|List| |AlPol|)))
         (SPROG
          ((|listerm| (|List| |AlPol|)) (|newf| (|AlPol|)) (#1=#:G118 NIL)
           (|g| (|AlPol|)) (#2=#:G128 NIL) (|pelt| NIL)
@@ -104,8 +104,8 @@
                               (EXIT |listerm|))))))))))) 
 
 (SDEFUN |IALGFACT;factor;AlPolMF;3|
-        ((|f| |AlPol|) (|fact| |Mapping| (|Factored| UP) UP)
-         ($ |Factored| |AlPol|))
+        ((|f| (|AlPol|)) (|fact| (|Mapping| (|Factored| UP) UP))
+         ($ (|Factored| |AlPol|)))
         (SPROG
          ((#1=#:G131 NIL) (#2=#:G130 #3=(|Factored| |AlPol|)) (#4=#:G132 #3#)
           (#5=#:G135 NIL) (#6=#:G134 #3#) (#7=#:G136 #3#) (#8=#:G141 NIL)
@@ -173,13 +173,14 @@
                           (COND (#1# #2#) ('T (|spadConstant| $ 42))))
                          (QREFELT $ 43)))))) 
 
-(SDEFUN |IALGFACT;pnorm| ((|q| |AlPol|) ($ UP))
+(SDEFUN |IALGFACT;pnorm| ((|q| (|AlPol|)) ($ (UP)))
         (SPADCALL (|IALGFACT;convrt| |q| $) (QREFELT $ 53) (QREFELT $ 54))) 
 
-(SDEFUN |IALGFACT;change| ((|q| UP) ($ |AlPol|))
+(SDEFUN |IALGFACT;change| ((|q| (UP)) ($ (|AlPol|)))
         (SPADCALL (ELT $ 55) |q| (QREFELT $ 58))) 
 
-(SDEFUN |IALGFACT;convrt| ((|q| |AlPol|) ($ |SparseUnivariatePolynomial| UP))
+(SDEFUN |IALGFACT;convrt|
+        ((|q| (|AlPol|)) ($ (|SparseUnivariatePolynomial| UP)))
         (SPADCALL (SPADCALL (ELT $ 59) |q| (QREFELT $ 62)) (QREFELT $ 64))) 
 
 (DECLAIM (NOTINLINE |InnerAlgFactor;|)) 

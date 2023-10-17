@@ -1,18 +1,18 @@
 
-(SDEFUN |LODO;coerce;$Of;1| ((|l| $) ($ |OutputForm|))
+(SDEFUN |LODO;coerce;$Of;1| ((|l| ($)) ($ (|OutputForm|)))
         (SPADCALL |l| (QREFELT $ 16) (QREFELT $ 17))) 
 
-(SDEFUN |LODO;elt;$2A;2| ((|p| $) (|a| A) ($ A))
+(SDEFUN |LODO;elt;$2A;2| ((|p| ($)) (|a| (A)) ($ (A)))
         (SPADCALL |p| (|spadConstant| $ 20) |a| (QREFELT $ 21))) 
 
-(SDEFUN |LODO;symmetricProduct;3$;3| ((|a| $) (|b| $) ($ $))
+(SDEFUN |LODO;symmetricProduct;3$;3| ((|a| ($)) (|b| ($)) ($ ($)))
         (SPADCALL |a| |b| (QREFELT $ 7) (QREFELT $ 25))) 
 
 (SDEFUN |LODO;symmetricPower;$Nni$;4|
-        ((|a| $) (|n| |NonNegativeInteger|) ($ $))
+        ((|a| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (SPADCALL |a| |n| (QREFELT $ 7) (QREFELT $ 28))) 
 
-(SDEFUN |LODO;directSum;3$;5| ((|a| $) (|b| $) ($ $))
+(SDEFUN |LODO;directSum;3$;5| ((|a| ($)) (|b| ($)) ($ ($)))
         (SPADCALL |a| |b| (QREFELT $ 7) (QREFELT $ 30))) 
 
 (DECLAIM (NOTINLINE |LinearOrdinaryDifferentialOperator;|)) 

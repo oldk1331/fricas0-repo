@@ -1,7 +1,8 @@
 
-(SDEFUN |STTAYLOR;zro| (($ |Stream| A)) (SPADCALL (QREFELT $ 8))) 
+(SDEFUN |STTAYLOR;zro| (($ (|Stream| A))) (SPADCALL (QREFELT $ 8))) 
 
-(SDEFUN |STTAYLOR;+;3S;2| ((|x| |Stream| A) (|y| |Stream| A) ($ |Stream| A))
+(SDEFUN |STTAYLOR;+;3S;2|
+        ((|x| (|Stream| A)) (|y| (|Stream| A)) ($ (|Stream| A)))
         (SPROG NIL
                (SPADCALL (CONS #'|STTAYLOR;+;3S;2!2| (VECTOR |x| $ |y|))
                          (QREFELT $ 20)))) 
@@ -50,7 +51,8 @@
            (PROGN
             (SPADCALL (SPADCALL |x| (QREFELT $ 13)) |z| (QREFELT $ 14)))))) 
 
-(SDEFUN |STTAYLOR;-;3S;3| ((|x| |Stream| A) (|y| |Stream| A) ($ |Stream| A))
+(SDEFUN |STTAYLOR;-;3S;3|
+        ((|x| (|Stream| A)) (|y| (|Stream| A)) ($ (|Stream| A)))
         (SPROG NIL
                (SPADCALL (CONS #'|STTAYLOR;-;3S;3!2| (VECTOR |x| $ |y|))
                          (QREFELT $ 20)))) 
@@ -100,10 +102,10 @@
            (PROGN
             (SPADCALL (SPADCALL |x| (QREFELT $ 13)) |z| (QREFELT $ 22)))))) 
 
-(SDEFUN |STTAYLOR;-;2S;4| ((|y| |Stream| A) ($ |Stream| A))
+(SDEFUN |STTAYLOR;-;2S;4| ((|y| (|Stream| A)) ($ (|Stream| A)))
         (SPADCALL (ELT $ 24) |y| (QREFELT $ 16))) 
 
-(SDEFUN |STTAYLOR;*;A2S;5| ((|s| A) (|x| |Stream| A) ($ |Stream| A))
+(SDEFUN |STTAYLOR;*;A2S;5| ((|s| (A)) (|x| (|Stream| A)) ($ (|Stream| A)))
         (SPROG NIL
                (COND ((SPADCALL |s| (QREFELT $ 25)) (|STTAYLOR;zro| $))
                      ('T
@@ -116,7 +118,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |s| |z| (QREFELT $ 26)))))) 
 
-(SDEFUN |STTAYLOR;*;SAS;6| ((|x| |Stream| A) (|s| A) ($ |Stream| A))
+(SDEFUN |STTAYLOR;*;SAS;6| ((|x| (|Stream| A)) (|s| (A)) ($ (|Stream| A)))
         (SPROG NIL
                (COND ((SPADCALL |s| (QREFELT $ 25)) (|STTAYLOR;zro| $))
                      ('T
@@ -130,7 +132,8 @@
           (RETURN (PROGN (SPADCALL |z| |s| (QREFELT $ 26)))))) 
 
 (SDEFUN |STTAYLOR;iDiv|
-        ((|x| |Stream| A) (|rst_y| |Stream| A) (|ry0| A) ($ |Stream| A))
+        ((|x| (|Stream| A)) (|rst_y| (|Stream| A)) (|ry0| (A))
+         ($ (|Stream| A)))
         (SPROG NIL
                (SEQ
                 (SPADCALL
@@ -165,8 +168,8 @@
                                   (QREFELT $ 18)))))))))))) 
 
 (SDEFUN |STTAYLOR;i_div1|
-        ((|rst_x| |Stream| A) (|rst_y| |Stream| A) (|ry0| A) (|c0| A)
-         ($ |Stream| A))
+        ((|rst_x| (|Stream| A)) (|rst_y| (|Stream| A)) (|ry0| (A)) (|c0| (A))
+         ($ (|Stream| A)))
         (SPROG NIL
                (SPADCALL
                 (CONS #'|STTAYLOR;i_div1!1|
@@ -200,7 +203,8 @@
           (RETURN (PROGN (SPADCALL |z| |ry0| (QREFELT $ 26)))))) 
 
 (SDEFUN |STTAYLOR;exquo;2SU;9|
-        ((|x| |Stream| A) (|y| |Stream| A) ($ |Union| (|Stream| A) "failed"))
+        ((|x| (|Stream| A)) (|y| (|Stream| A))
+         ($ (|Union| (|Stream| A) "failed")))
         (SPROG
          ((|c0| (A)) (|x0| (A)) (|ry0| (A)) (|ry0u| (|Union| A "failed"))
           (#1=#:G250 NIL) (#2=#:G251 NIL) (|y0| (A)) (|n| NIL))
@@ -260,7 +264,8 @@
                                           (QREFELT $ 18))))))))))
           #3# (EXIT #2#)))) 
 
-(SDEFUN |STTAYLOR;/;3S;10| ((|x| |Stream| A) (|y| |Stream| A) ($ |Stream| A))
+(SDEFUN |STTAYLOR;/;3S;10|
+        ((|x| (|Stream| A)) (|y| (|Stream| A)) ($ (|Stream| A)))
         (SPROG NIL
                (SEQ
                 (SPADCALL (CONS #'|STTAYLOR;/;3S;10!0| (VECTOR |x| $ |y|))
@@ -301,7 +306,7 @@
                                           (QREFELT $ 18)))))))))))))))) 
 
 (SDEFUN |STTAYLOR;recip;SU;11|
-        ((|x| |Stream| A) ($ |Union| (|Stream| A) "failed"))
+        ((|x| (|Stream| A)) ($ (|Union| (|Stream| A) "failed")))
         (SPROG ((|rh| (A)) (|rh1| (|Union| A "failed")))
                (SEQ
                 (COND ((SPADCALL |x| (QREFELT $ 10)) (CONS 1 "failed"))
@@ -337,10 +342,10 @@
                        (SPADCALL |x| (QREFELT $ 11)) |rh| $)
                       (QREFELT $ 18)))))) 
 
-(SDEFUN |STTAYLOR;rp| ((|z| |Integer|) (|s| A) ($ |List| A))
+(SDEFUN |STTAYLOR;rp| ((|z| (|Integer|)) (|s| (A)) ($ (|List| A)))
         (COND ((<= |z| 0) NIL) ('T (CONS |s| (|STTAYLOR;rp| (- |z| 1) |s| $))))) 
 
-(SDEFUN |STTAYLOR;rpSt| ((|z| |Integer|) (|s| A) ($ |Stream| A))
+(SDEFUN |STTAYLOR;rpSt| ((|z| (|Integer|)) (|s| (A)) ($ (|Stream| A)))
         (SPROG NIL
                (SPADCALL (CONS #'|STTAYLOR;rpSt!0| (VECTOR |s| $ |z|))
                          (QREFELT $ 20)))) 
@@ -362,7 +367,7 @@
                          |s| $)
                         (QREFELT $ 18)))))))) 
 
-(SDEFUN |STTAYLOR;monom;AIS;14| ((|s| A) (|z| |Integer|) ($ |Stream| A))
+(SDEFUN |STTAYLOR;monom;AIS;14| ((|s| (A)) (|z| (|Integer|)) ($ (|Stream| A)))
         (COND
          ((< |z| 0)
           (|error| "monom: cannot create monomial of negative degree"))
@@ -372,33 +377,35 @@
                     (QREFELT $ 43))))) 
 
 (SDEFUN |STTAYLOR;nnintegers|
-        ((|zz| |NonNegativeInteger|) ($ |Stream| (|NonNegativeInteger|)))
+        ((|zz| (|NonNegativeInteger|)) ($ (|Stream| (|NonNegativeInteger|))))
         (SPADCALL (CONS #'|STTAYLOR;nnintegers!0| $) |zz| (QREFELT $ 50))) 
 
 (SDEFUN |STTAYLOR;nnintegers!0| ((|y| NIL) ($ NIL))
         (SPADCALL |y| (|spadConstant| $ 46) (QREFELT $ 47))) 
 
-(SDEFUN |STTAYLOR;integers;IS;16| ((|z| |Integer|) ($ |Stream| (|Integer|)))
+(SDEFUN |STTAYLOR;integers;IS;16|
+        ((|z| (|Integer|)) ($ (|Stream| (|Integer|))))
         (SPADCALL (CONS #'|STTAYLOR;integers;IS;16!0| $) |z| (QREFELT $ 54))) 
 
 (SDEFUN |STTAYLOR;integers;IS;16!0| ((|y| NIL) ($ NIL))
         (SPADCALL |y| (|spadConstant| $ 41) (QREFELT $ 51))) 
 
-(SDEFUN |STTAYLOR;oddintegers;IS;17| ((|z| |Integer|) ($ |Stream| (|Integer|)))
+(SDEFUN |STTAYLOR;oddintegers;IS;17|
+        ((|z| (|Integer|)) ($ (|Stream| (|Integer|))))
         (SPADCALL (CONS #'|STTAYLOR;oddintegers;IS;17!0| $) |z| (QREFELT $ 54))) 
 
 (SDEFUN |STTAYLOR;oddintegers;IS;17!0| ((|y| NIL) ($ NIL))
         (SPADCALL |y| 2 (QREFELT $ 51))) 
 
-(SDEFUN |STTAYLOR;int;AS;18| ((|s| A) ($ |Stream| A))
+(SDEFUN |STTAYLOR;int;AS;18| ((|s| (A)) ($ (|Stream| A)))
         (SPADCALL (CONS #'|STTAYLOR;int;AS;18!0| $) |s| (QREFELT $ 57))) 
 
 (SDEFUN |STTAYLOR;int;AS;18!0| ((|y| NIL) ($ NIL))
         (SPADCALL |y| (|spadConstant| $ 37) (QREFELT $ 14))) 
 
 (SDEFUN |STTAYLOR;stmult|
-        ((|n0| |Integer|) (|x0| |Stream| A) (|y0| |Stream| A) (|ll0| |List| A)
-         ($ |Stream| A))
+        ((|n0| (|Integer|)) (|x0| (|Stream| A)) (|y0| (|Stream| A))
+         (|ll0| (|List| A)) ($ (|Stream| A)))
         (SPROG NIL
                (SEQ
                 (SPADCALL
@@ -507,7 +514,8 @@
                                (QREFELT $ 18)))))
               #4# (EXIT #2#))))))) 
 
-(SDEFUN |STTAYLOR;*;3S;20| ((|x| |Stream| A) (|y| |Stream| A) ($ |Stream| A))
+(SDEFUN |STTAYLOR;*;3S;20|
+        ((|x| (|Stream| A)) (|y| (|Stream| A)) ($ (|Stream| A)))
         (SPROG NIL
                (SPADCALL (CONS #'|STTAYLOR;*;3S;20!0| (VECTOR |x| $ |y|))
                          (QREFELT $ 20)))) 
@@ -528,7 +536,7 @@
                $))))))) 
 
 (SDEFUN |STTAYLOR;mapmult;3S;21|
-        ((|x| |Stream| A) (|y| |Stream| A) ($ |Stream| A))
+        ((|x| (|Stream| A)) (|y| (|Stream| A)) ($ (|Stream| A)))
         (SPROG NIL
                (SPADCALL (CONS #'|STTAYLOR;mapmult;3S;21!0| (VECTOR |x| $ |y|))
                          (QREFELT $ 20)))) 
@@ -551,25 +559,25 @@
                          (SPADCALL |y| (QREFELT $ 11)) (QREFELT $ 72))
                (QREFELT $ 18)))))))) 
 
-(SDEFUN |STTAYLOR;deriv;2S;22| ((|x| |Stream| A) ($ |Stream| A))
+(SDEFUN |STTAYLOR;deriv;2S;22| ((|x| (|Stream| A)) ($ (|Stream| A)))
         (COND ((SPADCALL |x| (QREFELT $ 10)) (|STTAYLOR;zro| $))
               ('T
                (SPADCALL (SPADCALL (|spadConstant| $ 37) (QREFELT $ 58))
                          (SPADCALL |x| (QREFELT $ 73)) (QREFELT $ 72))))) 
 
 (SDEFUN |STTAYLOR;gderiv;M2S;23|
-        ((|f| |Mapping| A (|Integer|)) (|x| |Stream| A) ($ |Stream| A))
+        ((|f| (|Mapping| A (|Integer|))) (|x| (|Stream| A)) ($ (|Stream| A)))
         (COND ((SPADCALL |x| (QREFELT $ 10)) (|STTAYLOR;zro| $))
               ('T
                (SPADCALL
                 (SPADCALL |f| (SPADCALL 0 (QREFELT $ 55)) (QREFELT $ 77)) |x|
                 (QREFELT $ 72))))) 
 
-(SDEFUN |STTAYLOR;coerce;AS;24| ((|s| A) ($ |Stream| A))
+(SDEFUN |STTAYLOR;coerce;AS;24| ((|s| (A)) ($ (|Stream| A)))
         (COND ((SPADCALL |s| (QREFELT $ 25)) (|STTAYLOR;zro| $))
               ('T (SPADCALL |s| (|STTAYLOR;zro| $) (QREFELT $ 18))))) 
 
-(SDEFUN |STTAYLOR;eval;SAS;25| ((|x| |Stream| A) (|at| A) ($ |Stream| A))
+(SDEFUN |STTAYLOR;eval;SAS;25| ((|x| (|Stream| A)) (|at| (A)) ($ (|Stream| A)))
         (SPROG NIL
                (SPADCALL (|spadConstant| $ 29) (ELT $ 14)
                          (SPADCALL |x|
@@ -587,7 +595,7 @@
           (RETURN (PROGN (SPADCALL |at| |y| (QREFELT $ 26)))))) 
 
 (SDEFUN |STTAYLOR;compose;3S;26|
-        ((|x| |Stream| A) (|y| |Stream| A) ($ |Stream| A))
+        ((|x| (|Stream| A)) (|y| (|Stream| A)) ($ (|Stream| A)))
         (SPROG NIL
                (SPADCALL (CONS #'|STTAYLOR;compose;3S;26!0| (VECTOR |x| $ |y|))
                          (QREFELT $ 20)))) 
@@ -617,7 +625,7 @@
                                (QREFELT $ 18)))))))))) 
 
 (SDEFUN |STTAYLOR;lagrangere|
-        ((|x| |Stream| A) (|c| |Stream| A) ($ |Stream| A))
+        ((|x| (|Stream| A)) (|c| (|Stream| A)) ($ (|Stream| A)))
         (SPROG NIL
                (SPADCALL (CONS #'|STTAYLOR;lagrangere!0| (VECTOR |c| |x| $))
                          (QREFELT $ 20)))) 
@@ -632,7 +640,7 @@
             (SPADCALL (|spadConstant| $ 29) (SPADCALL |x| |c| (QREFELT $ 84))
                       (QREFELT $ 18)))))) 
 
-(SDEFUN |STTAYLOR;lagrange;2S;28| ((|x| |Stream| A) ($ |Stream| A))
+(SDEFUN |STTAYLOR;lagrange;2S;28| ((|x| (|Stream| A)) ($ (|Stream| A)))
         (SPROG NIL
                (SPADCALL (CONS #'|STTAYLOR;lagrange;2S;28!0| (VECTOR $ |x|))
                          (QREFELT $ 87)))) 
@@ -643,7 +651,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (|STTAYLOR;lagrangere| |x| |y| $))))) 
 
-(SDEFUN |STTAYLOR;revert;2S;29| ((|x| |Stream| A) ($ |Stream| A))
+(SDEFUN |STTAYLOR;revert;2S;29| ((|x| (|Stream| A)) ($ (|Stream| A)))
         (SPROG ((|y| (|Union| (|Stream| A) "failed")))
                (SEQ
                 (COND
@@ -667,7 +675,7 @@
                  (#1# (|error| "revert: should start 0, x, ...")))))) 
 
 (SDEFUN |STTAYLOR;prodiag1|
-        ((|ststa| |Stream| (|Stream| A)) (|n| |Integer|) ($ |Stream| A))
+        ((|ststa| (|Stream| (|Stream| A))) (|n| (|Integer|)) ($ (|Stream| A)))
         (SPROG NIL
                (SEQ
                 (SPADCALL (CONS #'|STTAYLOR;prodiag1!0| (VECTOR |n| $ |ststa|))
@@ -712,12 +720,12 @@
                                         (QREFELT $ 18)))))))))))))) 
 
 (SDEFUN |STTAYLOR;prodiag;SS;31|
-        ((|ststa| |Stream| (|Stream| A)) ($ |Stream| A))
+        ((|ststa| (|Stream| (|Stream| A))) ($ (|Stream| A)))
         (SPADCALL (|spadConstant| $ 37) (|STTAYLOR;prodiag1| |ststa| 1 $)
                   (QREFELT $ 18))) 
 
 (SDEFUN |STTAYLOR;addiag;SS;32|
-        ((|ststa| |Stream| (|Stream| A)) ($ |Stream| A))
+        ((|ststa| (|Stream| (|Stream| A))) ($ (|Stream| A)))
         (SPROG NIL
                (SPADCALL (CONS #'|STTAYLOR;addiag;SS;32!0| (VECTOR $ |ststa|))
                          (QREFELT $ 20)))) 
@@ -745,11 +753,11 @@
                      (QREFELT $ 17))
                     (QREFELT $ 18)))))))) 
 
-(SDEFUN |STTAYLOR;rptg1| ((|z| |Integer|) (|s| A) ($ |Stream| A))
+(SDEFUN |STTAYLOR;rptg1| ((|z| (|Integer|)) (|s| (A)) ($ (|Stream| A)))
         (SPADCALL (CONS |s| (|STTAYLOR;rp| |z| (|spadConstant| $ 29) $))
                   (QREFELT $ 98))) 
 
-(SDEFUN |STTAYLOR;rptg2| ((|z| |Integer|) (|s| A) ($ |Stream| A))
+(SDEFUN |STTAYLOR;rptg2| ((|z| (|Integer|)) (|s| (A)) ($ (|Stream| A)))
         (SPADCALL
          (SPADCALL (|STTAYLOR;rp| |z| (|spadConstant| $ 29) $)
                    (CONS |s| (|STTAYLOR;rp| (- |z| 1) (|spadConstant| $ 29) $))
@@ -757,8 +765,8 @@
          (QREFELT $ 98))) 
 
 (SDEFUN |STTAYLOR;rptg3|
-        ((|a| |Integer|) (|d| |Integer|) (|n| |Integer|) (|s| A)
-         ($ |Stream| A))
+        ((|a| (|Integer|)) (|d| (|Integer|)) (|n| (|Integer|)) (|s| (A))
+         ($ (|Stream| A)))
         (SPADCALL (|STTAYLOR;rpSt| (* |n| (- |a| 1)) (|spadConstant| $ 29) $)
                   (SPADCALL
                    (CONS |s|
@@ -767,7 +775,7 @@
                    (QREFELT $ 98))
                   (QREFELT $ 43))) 
 
-(SDEFUN |STTAYLOR;lambert;2S;36| ((|x| |Stream| A) ($ |Stream| A))
+(SDEFUN |STTAYLOR;lambert;2S;36| ((|x| (|Stream| A)) ($ (|Stream| A)))
         (SPROG NIL
                (SPADCALL (CONS #'|STTAYLOR;lambert;2S;36!0| (VECTOR $ |x|))
                          (QREFELT $ 20)))) 
@@ -792,7 +800,7 @@
                   ('T
                    (|error| "lambert:constant coefficient should be zero"))))))) 
 
-(SDEFUN |STTAYLOR;oddlambert;2S;37| ((|x| |Stream| A) ($ |Stream| A))
+(SDEFUN |STTAYLOR;oddlambert;2S;37| ((|x| (|Stream| A)) ($ (|Stream| A)))
         (SPROG NIL
                (SPADCALL (CONS #'|STTAYLOR;oddlambert;2S;37!0| (VECTOR $ |x|))
                          (QREFELT $ 20)))) 
@@ -818,7 +826,7 @@
                    (|error|
                     "oddlambert: constant coefficient should be zero"))))))) 
 
-(SDEFUN |STTAYLOR;evenlambert;2S;38| ((|x| |Stream| A) ($ |Stream| A))
+(SDEFUN |STTAYLOR;evenlambert;2S;38| ((|x| (|Stream| A)) ($ (|Stream| A)))
         (SPROG NIL
                (SPADCALL (CONS #'|STTAYLOR;evenlambert;2S;38!0| (VECTOR $ |x|))
                          (QREFELT $ 20)))) 
@@ -845,7 +853,8 @@
                     "evenlambert: constant coefficient should be zero"))))))) 
 
 (SDEFUN |STTAYLOR;generalLambert;S2IS;39|
-        ((|st| |Stream| A) (|a| |Integer|) (|d| |Integer|) ($ |Stream| A))
+        ((|st| (|Stream| A)) (|a| (|Integer|)) (|d| (|Integer|))
+         ($ (|Stream| A)))
         (SPROG NIL
                (SPADCALL
                 (CONS #'|STTAYLOR;generalLambert;S2IS;39!1|
@@ -894,7 +903,8 @@
           (RETURN (PROGN (|STTAYLOR;rptg3| |a| |d| |x| |y| $))))) 
 
 (SDEFUN |STTAYLOR;rptg4|
-        ((|a| |Integer|) (|d| |Integer|) (|st| |Stream| A) ($ |Stream| A))
+        ((|a| (|Integer|)) (|d| (|Integer|)) (|st| (|Stream| A))
+         ($ (|Stream| A)))
         (SPROG NIL
                (SPADCALL (CONS #'|STTAYLOR;rptg4!0| (VECTOR |d| |a| $ |st|))
                          (QREFELT $ 20)))) 
@@ -917,7 +927,8 @@
                              (QREFELT $ 43)))))))) 
 
 (SDEFUN |STTAYLOR;general_Lambert_product;S2IS;41|
-        ((|st| |Stream| A) (|a| |Integer|) (|d| |Integer|) ($ |Stream| A))
+        ((|st| (|Stream| A)) (|a| (|Integer|)) (|d| (|Integer|))
+         ($ (|Stream| A)))
         (SPROG NIL
                (SEQ
                 (SPADCALL
@@ -977,7 +988,8 @@
              |st1| $))))) 
 
 (SDEFUN |STTAYLOR;ms|
-        ((|m| |Integer|) (|n| |Integer|) (|s| |Stream| A) ($ |Stream| A))
+        ((|m| (|Integer|)) (|n| (|Integer|)) (|s| (|Stream| A))
+         ($ (|Stream| A)))
         (SPROG NIL
                (SPADCALL (CONS #'|STTAYLOR;ms!0| (VECTOR |m| |n| $ |s|))
                          (QREFELT $ 20)))) 
@@ -1004,7 +1016,8 @@
                     (SPADCALL |s| (QREFELT $ 11)) $))))))) 
 
 (SDEFUN |STTAYLOR;multisect;2I2S;43|
-        ((|b| |Integer|) (|a| |Integer|) (|x| |Stream| A) ($ |Stream| A))
+        ((|b| (|Integer|)) (|a| (|Integer|)) (|x| (|Stream| A))
+         ($ (|Stream| A)))
         (SPROG ((#1=#:G479 NIL))
                (|STTAYLOR;ms| (+ |a| |b|) 0
                 (SPADCALL |x|
@@ -1015,7 +1028,8 @@
                           (QREFELT $ 114))
                 $))) 
 
-(SDEFUN |STTAYLOR;altn| ((|zs| |Stream| A) (|s| |Stream| A) ($ |Stream| A))
+(SDEFUN |STTAYLOR;altn|
+        ((|zs| (|Stream| A)) (|s| (|Stream| A)) ($ (|Stream| A)))
         (SPROG NIL
                (SPADCALL (CONS #'|STTAYLOR;altn!0| (VECTOR |zs| $ |s|))
                          (QREFELT $ 20)))) 
@@ -1037,7 +1051,8 @@
                              (QREFELT $ 18)))))))) 
 
 (SDEFUN |STTAYLOR;invmultisect;2I2S;45|
-        ((|a| |Integer|) (|b| |Integer|) (|x| |Stream| A) ($ |Stream| A))
+        ((|a| (|Integer|)) (|b| (|Integer|)) (|x| (|Stream| A))
+         ($ (|Stream| A)))
         (SPADCALL (|STTAYLOR;rpSt| |b| (|spadConstant| $ 29) $)
                   (|STTAYLOR;altn|
                    (|STTAYLOR;rpSt| (- (+ |a| |b|) 1) (|spadConstant| $ 29) $)
@@ -1045,8 +1060,8 @@
                   (QREFELT $ 43))) 
 
 (SDEFUN |STTAYLOR;comps|
-        ((|ststa| |Stream| (|Stream| A)) (|x| |Stream| A)
-         ($ |Stream| (|Stream| A)))
+        ((|ststa| (|Stream| (|Stream| A))) (|x| (|Stream| A))
+         ($ (|Stream| (|Stream| A))))
         (SPROG NIL
                (SPADCALL (CONS #'|STTAYLOR;comps!1| (VECTOR |x| $ |ststa|))
                          (QREFELT $ 121)))) 
@@ -1082,7 +1097,8 @@
            (PROGN
             (SPADCALL (SPADCALL |x| (QREFELT $ 11)) |y| (QREFELT $ 71)))))) 
 
-(SDEFUN |STTAYLOR;integre| ((|x| |Stream| A) (|n| |Integer|) ($ |Stream| A))
+(SDEFUN |STTAYLOR;integre|
+        ((|x| (|Stream| A)) (|n| (|Integer|)) ($ (|Stream| A)))
         (SPROG NIL
                (SPADCALL (CONS #'|STTAYLOR;integre!0| (VECTOR |n| $ |x|))
                          (QREFELT $ 20)))) 
@@ -1104,19 +1120,20 @@
                      (SPADCALL |n| (|spadConstant| $ 41) (QREFELT $ 51)) $)
                     (QREFELT $ 18)))))))) 
 
-(SDEFUN |STTAYLOR;integ| ((|x| |Stream| A) ($ |Stream| A))
+(SDEFUN |STTAYLOR;integ| ((|x| (|Stream| A)) ($ (|Stream| A)))
         (|STTAYLOR;integre| |x| 1 $)) 
 
-(SDEFUN |STTAYLOR;integrate;A2S;49| ((|a| A) (|x| |Stream| A) ($ |Stream| A))
+(SDEFUN |STTAYLOR;integrate;A2S;49|
+        ((|a| (A)) (|x| (|Stream| A)) ($ (|Stream| A)))
         (SPADCALL |a| (|STTAYLOR;integ| |x| $) (QREFELT $ 18))) 
 
 (SDEFUN |STTAYLOR;lazyIntegrate;AMS;50|
-        ((|s| A) (|xf| |Mapping| (|Stream| A)) ($ |Stream| A))
+        ((|s| (A)) (|xf| (|Mapping| (|Stream| A))) ($ (|Stream| A)))
         (SPADCALL |s| (|STTAYLOR;integ| (SPADCALL |xf| (QREFELT $ 20)) $)
                   (QREFELT $ 18))) 
 
 (SDEFUN |STTAYLOR;nldere|
-        ((|lslsa| |Stream| (|Stream| A)) (|c| |Stream| A) ($ |Stream| A))
+        ((|lslsa| (|Stream| (|Stream| A))) (|c| (|Stream| A)) ($ (|Stream| A)))
         (SPROG NIL
                (SPADCALL (|spadConstant| $ 29)
                          (CONS #'|STTAYLOR;nldere!0| (VECTOR $ |c| |lslsa|))
@@ -1130,7 +1147,8 @@
           (RETURN
            (PROGN (SPADCALL (|STTAYLOR;comps| |lslsa| |c| $) (QREFELT $ 97)))))) 
 
-(SDEFUN |STTAYLOR;nlde;SS;52| ((|lslsa| |Stream| (|Stream| A)) ($ |Stream| A))
+(SDEFUN |STTAYLOR;nlde;SS;52|
+        ((|lslsa| (|Stream| (|Stream| A))) ($ (|Stream| A)))
         (SPROG NIL
                (SPADCALL (CONS #'|STTAYLOR;nlde;SS;52!0| (VECTOR $ |lslsa|))
                          (QREFELT $ 87)))) 
@@ -1142,7 +1160,7 @@
           (RETURN (PROGN (|STTAYLOR;nldere| |lslsa| |y| $))))) 
 
 (SDEFUN |STTAYLOR;smult|
-        ((|rn| |Fraction| (|Integer|)) (|x| |Stream| A) ($ |Stream| A))
+        ((|rn| (|Fraction| (|Integer|))) (|x| (|Stream| A)) ($ (|Stream| A)))
         (SPROG NIL
                (SPADCALL (CONS #'|STTAYLOR;smult!0| (VECTOR $ |rn|)) |x|
                          (QREFELT $ 16)))) 
@@ -1154,8 +1172,8 @@
           (RETURN (PROGN (SPADCALL |rn| |y| (QREFELT $ 124)))))) 
 
 (SDEFUN |STTAYLOR;powerrn|
-        ((|rn| |Fraction| (|Integer|)) (|x| |Stream| A) (|c| |Stream| A)
-         ($ |Stream| A))
+        ((|rn| (|Fraction| (|Integer|))) (|x| (|Stream| A)) (|c| (|Stream| A))
+         ($ (|Stream| A)))
         (SPROG NIL
                (SPADCALL (CONS #'|STTAYLOR;powerrn!0| (VECTOR |x| |c| |rn| $))
                          (QREFELT $ 20)))) 
@@ -1183,7 +1201,7 @@
                       (QREFELT $ 18)))))) 
 
 (SDEFUN |STTAYLOR;powern;F2S;55|
-        ((|rn| |Fraction| (|Integer|)) (|x| |Stream| A) ($ |Stream| A))
+        ((|rn| (|Fraction| (|Integer|))) (|x| (|Stream| A)) ($ (|Stream| A)))
         (SPROG
          ((|power| (|Stream| A)) (#1=#:G537 NIL) (#2=#:G531 NIL)
           (|num| (|Integer|)) (|invCo| (|Union| A "failed")) (|co| (A))
@@ -1345,7 +1363,7 @@
           (RETURN (PROGN (|STTAYLOR;powerrn| |rn| |x| |y| $))))) 
 
 (SDEFUN |STTAYLOR;mapdiv;3S;56|
-        ((|x| |Stream| A) (|y| |Stream| A) ($ |Stream| A))
+        ((|x| (|Stream| A)) (|y| (|Stream| A)) ($ (|Stream| A)))
         (SPROG NIL
                (SPADCALL (CONS #'|STTAYLOR;mapdiv;3S;56!0| (VECTOR |x| $ |y|))
                          (QREFELT $ 20)))) 
@@ -1370,23 +1388,23 @@
                (QREFELT $ 18)))))))) 
 
 (SDEFUN |STTAYLOR;ginteg|
-        ((|f| |Mapping| A (|Integer|)) (|x| |Stream| A) ($ |Stream| A))
+        ((|f| (|Mapping| A (|Integer|))) (|x| (|Stream| A)) ($ (|Stream| A)))
         (SPADCALL |x| (SPADCALL |f| (SPADCALL 1 (QREFELT $ 55)) (QREFELT $ 77))
                   (QREFELT $ 141))) 
 
 (SDEFUN |STTAYLOR;lazyGintegrate;MAMS;58|
-        ((|fntoa| |Mapping| A (|Integer|)) (|s| A)
-         (|xf| |Mapping| (|Stream| A)) ($ |Stream| A))
+        ((|fntoa| (|Mapping| A (|Integer|))) (|s| (A))
+         (|xf| (|Mapping| (|Stream| A))) ($ (|Stream| A)))
         (SPADCALL |s|
                   (|STTAYLOR;ginteg| |fntoa| (SPADCALL |xf| (QREFELT $ 20)) $)
                   (QREFELT $ 18))) 
 
-(SDEFUN |STTAYLOR;finteg| ((|x| |Stream| A) ($ |Stream| A))
+(SDEFUN |STTAYLOR;finteg| ((|x| (|Stream| A)) ($ (|Stream| A)))
         (SPADCALL |x| (SPADCALL (|spadConstant| $ 37) (QREFELT $ 58))
                   (QREFELT $ 141))) 
 
 (SDEFUN |STTAYLOR;powerre|
-        ((|s| A) (|x| |Stream| A) (|c| |Stream| A) ($ |Stream| A))
+        ((|s| (A)) (|x| (|Stream| A)) (|c| (|Stream| A)) ($ (|Stream| A)))
         (SPROG NIL
                (SPADCALL (CONS #'|STTAYLOR;powerre!0| (VECTOR |c| |s| $ |x|))
                          (QREFELT $ 20)))) 
@@ -1419,7 +1437,7 @@
                               (QREFELT $ 23))
                              (QREFELT $ 18)))))))) 
 
-(SDEFUN |STTAYLOR;power;A2S;61| ((|s| A) (|x| |Stream| A) ($ |Stream| A))
+(SDEFUN |STTAYLOR;power;A2S;61| ((|s| (A)) (|x| (|Stream| A)) ($ (|Stream| A)))
         (SPROG NIL
                (SPADCALL (CONS #'|STTAYLOR;power;A2S;61!0| (VECTOR $ |x| |s|))
                          (QREFELT $ 87)))) 

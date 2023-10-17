@@ -1,6 +1,6 @@
 
 (SDEFUN |PINTERPA;LagrangeInterpolation;2LP;1|
-        ((|lx| |List| F) (|ly| |List| F) ($ P))
+        ((|lx| (|List| F)) (|ly| (|List| F)) ($ (P)))
         (SPROG
          ((|ip| (P)) (|xp| (F)) (|pp| (P)) (#1=#:G113 NIL) (|xj| NIL) (|j| NIL)
           (#2=#:G111 NIL) (|xi| NIL) (#3=#:G112 NIL) (|yi| NIL) (|i| NIL))

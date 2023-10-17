@@ -1,26 +1,26 @@
 
 (SDEFUN |PMINS;patternMatch;IP2Pmr;1|
-        ((|x| I) (|p| |Pattern| (|Integer|))
-         (|l| |PatternMatchResult| (|Integer|) I)
-         ($ |PatternMatchResult| (|Integer|) I))
+        ((|x| (I)) (|p| (|Pattern| (|Integer|)))
+         (|l| (|PatternMatchResult| (|Integer|) I))
+         ($ (|PatternMatchResult| (|Integer|) I)))
         (COND
          ((SPADCALL |p| (QREFELT $ 9)) (SPADCALL |p| |x| |l| (QREFELT $ 11)))
          ('T (|PMINS;patternMatchInner| |x| |p| |l| $)))) 
 
 (SDEFUN |PMINS;patternMatchRestricted|
-        ((|x| I) (|p| |Pattern| (|Integer|))
-         (|l| |PatternMatchResult| (|Integer|) I) (|y| I)
-         ($ |PatternMatchResult| (|Integer|) I))
+        ((|x| (I)) (|p| (|Pattern| (|Integer|)))
+         (|l| (|PatternMatchResult| (|Integer|) I)) (|y| (I))
+         ($ (|PatternMatchResult| (|Integer|) I)))
         (COND
          ((SPADCALL |p| (QREFELT $ 9))
           (SPADCALL |p| |x| |l| |y| (QREFELT $ 13)))
          ('T (|PMINS;patternMatchInner| |x| |p| |l| $)))) 
 
 (SDEFUN |PMINS;patternMatchSumProd|
-        ((|x| I) (|lp| |List| (|Pattern| (|Integer|)))
-         (|l| |PatternMatchResult| (|Integer|) I)
-         (|invOp| |Mapping| #1=(|Union| I "failed") I I) (|ident| I)
-         ($ |PatternMatchResult| (|Integer|) I))
+        ((|x| (I)) (|lp| (|List| (|Pattern| (|Integer|))))
+         (|l| (|PatternMatchResult| (|Integer|) I))
+         (|invOp| (|Mapping| #1=(|Union| I "failed") I I)) (|ident| (I))
+         ($ (|PatternMatchResult| (|Integer|) I)))
         (SPROG
          ((|y| #1#) (|r| (|Union| (|Integer|) "failed"))
           (|p2| (|Pattern| (|Integer|))) (|p1| (|Pattern| (|Integer|))))
@@ -54,9 +54,9 @@
            (#2# (SPADCALL (QREFELT $ 18))))))) 
 
 (SDEFUN |PMINS;patternMatchInner|
-        ((|x| I) (|p| |Pattern| (|Integer|))
-         (|l| |PatternMatchResult| (|Integer|) I)
-         ($ |PatternMatchResult| (|Integer|) I))
+        ((|x| (I)) (|p| (|Pattern| (|Integer|)))
+         (|l| (|PatternMatchResult| (|Integer|) I))
+         ($ (|PatternMatchResult| (|Integer|) I)))
         (SPROG
          ((|r| (|Union| (|Integer|) "failed")) (#1=#:G162 NIL)
           (|v| (|Union| I "failed"))

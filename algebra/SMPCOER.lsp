@@ -1,24 +1,26 @@
 
 (SDEFUN |SMPCOER;convert_sorted|
-        ((|p1| |Union| R
-          (|Record| (|:| |v| |VarSet1|)
-                    (|:| |ts|
-                         #1=(|List|
-                             (|Record| (|:| |k| (|NonNegativeInteger|))
+        ((|p1|
+          (|Union| R
+                   (|Record| (|:| |v| |VarSet1|)
+                             (|:| |ts|
+                                  #1=(|List|
+                                      (|Record|
+                                       (|:| |k| (|NonNegativeInteger|))
                                        (|:| |c|
                                             (|SparseMultivariatePolynomial| R
-                                                                            |VarSet1|)))))))
-         (|lv1| |List| |VarSet1|) (|lv2| |List| |VarSet2|)
+                                                                            |VarSet1|))))))))
+         (|lv1| (|List| |VarSet1|)) (|lv2| (|List| |VarSet2|))
          ($
-          . #2=(|Union| R
-                        (|Record| (|:| |v| |VarSet2|)
-                                  (|:| |ts|
-                                       (|List|
-                                        (|Record|
-                                         (|:| |k| (|NonNegativeInteger|))
-                                         (|:| |c|
-                                              (|SparseMultivariatePolynomial| R
-                                                                              |VarSet2|)))))))))
+          #2=(|Union| R
+                      (|Record| (|:| |v| |VarSet2|)
+                                (|:| |ts|
+                                     (|List|
+                                      (|Record|
+                                       (|:| |k| (|NonNegativeInteger|))
+                                       (|:| |c|
+                                            (|SparseMultivariatePolynomial| R
+                                                                            |VarSet2|)))))))))
         (SPROG
          ((|pu2|
            (|List|
@@ -78,11 +80,13 @@
           #6# (EXIT #4#)))) 
 
 (SDEFUN |SMPCOER;find_var|
-        ((|x| |VarSet1|)
-         (|pl| |List|
-          (|Record| (|:| |elt1| |VarSet1|)
-                    (|:| |elt2| (|SparseMultivariatePolynomial| R |VarSet2|))))
-         ($ |SparseMultivariatePolynomial| R |VarSet2|))
+        ((|x| (|VarSet1|))
+         (|pl|
+          (|List|
+           (|Record| (|:| |elt1| |VarSet1|)
+                     (|:| |elt2|
+                          (|SparseMultivariatePolynomial| R |VarSet2|)))))
+         ($ (|SparseMultivariatePolynomial| R |VarSet2|)))
         (SPROG ((#1=#:G134 NIL) (#2=#:G135 NIL) (|y| NIL))
                (SEQ
                 (EXIT
@@ -101,9 +105,9 @@
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |SMPCOER;remap_variables;SmpLLSmp;3|
-        ((|p| |SparseMultivariatePolynomial| R |VarSet1|)
-         (|lv1| |List| |VarSet1|) (|lv2| |List| |VarSet2|)
-         ($ |SparseMultivariatePolynomial| R |VarSet2|))
+        ((|p| (|SparseMultivariatePolynomial| R |VarSet1|))
+         (|lv1| (|List| |VarSet1|)) (|lv2| (|List| |VarSet2|))
+         ($ (|SparseMultivariatePolynomial| R |VarSet2|)))
         (SPROG
          ((|pl2|
            (|List|

@@ -2,11 +2,12 @@
 (PUT '|FPOSET;finitePoset;LL$;1| '|SPADreplace| 'CONS) 
 
 (SDEFUN |FPOSET;finitePoset;LL$;1|
-        ((|carrier| |List| S) (|struct1| |List| (|List| (|Boolean|))) ($ $))
+        ((|carrier| (|List| S)) (|struct1| (|List| (|List| (|Boolean|))))
+         ($ ($)))
         (CONS |carrier| |struct1|)) 
 
 (SDEFUN |FPOSET;finitePoset;LM$;2|
-        ((|carrier| |List| S) (|pred| |Mapping| (|Boolean|) S S) ($ $))
+        ((|carrier| (|List| S)) (|pred| (|Mapping| (|Boolean|) S S)) ($ ($)))
         (SPROG
          ((|struct1| (|List| (|List| (|Boolean|)))) (#1=#:G114 NIL) (|x| NIL)
           (#2=#:G113 NIL) (#3=#:G112 NIL) (|y| NIL) (#4=#:G111 NIL))
@@ -43,19 +44,19 @@
 
 (PUT '|FPOSET;getVert;$L;3| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |FPOSET;getVert;$L;3| ((|s| $) ($ |List| S)) (QCAR |s|)) 
+(SDEFUN |FPOSET;getVert;$L;3| ((|s| ($)) ($ (|List| S))) (QCAR |s|)) 
 
 (PUT '|FPOSET;getArr;$L;4| '|SPADreplace| 'QCDR) 
 
-(SDEFUN |FPOSET;getArr;$L;4| ((|s| $) ($ |List| (|List| (|Boolean|))))
+(SDEFUN |FPOSET;getArr;$L;4| ((|s| ($)) ($ (|List| (|List| (|Boolean|)))))
         (QCDR |s|)) 
 
-(SDEFUN |FPOSET;setVert;$LV;5| ((|s| $) (|v| |List| S) ($ |Void|))
+(SDEFUN |FPOSET;setVert;$LV;5| ((|s| ($)) (|v| (|List| S)) ($ (|Void|)))
         (SEQ (PROGN (RPLACA |s| |v|) (QCAR |s|))
              (EXIT (SPADCALL (QREFELT $ 16))))) 
 
 (SDEFUN |FPOSET;setArr;$LV;6|
-        ((|s| $) (|v| |List| (|List| (|Boolean|))) ($ |Void|))
+        ((|s| ($)) (|v| (|List| (|List| (|Boolean|)))) ($ (|Void|)))
         (SEQ (PROGN (RPLACD |s| |v|) (QCDR |s|))
              (EXIT (SPADCALL (QREFELT $ 16))))) 
 

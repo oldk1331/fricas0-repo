@@ -1,7 +1,7 @@
 
 (SDEFUN |SHDP;lessThanRlex|
-        ((|v1| $) (|v2| $) (|low| |NonNegativeInteger|)
-         (|high| |NonNegativeInteger|) ($ |Boolean|))
+        ((|v1| ($)) (|v2| ($)) (|low| (|NonNegativeInteger|))
+         (|high| (|NonNegativeInteger|)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G115 NIL) (#2=#:G117 NIL) (|i| NIL) (|n2| (S)) (|n1| (S))
           (#3=#:G116 NIL))
@@ -43,7 +43,7 @@
                          (EXIT NIL)))))))
           #4# (EXIT #1#)))) 
 
-(SDEFUN |SHDP;<;2$B;2| ((|v1| $) (|v2| $) ($ |Boolean|))
+(SDEFUN |SHDP;<;2$B;2| ((|v1| ($)) (|v2| ($)) ($ (|Boolean|)))
         (SPROG ((#1=#:G123 NIL) (#2=#:G124 NIL) (|i| NIL))
                (SEQ
                 (EXIT

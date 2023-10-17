@@ -1,10 +1,11 @@
 
-(SDEFUN |GALFACTU;height;UPF;1| ((|p| UP) ($ F)) (SPADCALL |p| (QREFELT $ 9))) 
+(SDEFUN |GALFACTU;height;UPF;1| ((|p| (UP)) ($ (F)))
+        (SPADCALL |p| (QREFELT $ 9))) 
 
-(SDEFUN |GALFACTU;length;UPF;2| ((|p| UP) ($ F))
+(SDEFUN |GALFACTU;length;UPF;2| ((|p| (UP)) ($ (F)))
         (SPADCALL |p| 1 (QREFELT $ 14))) 
 
-(SDEFUN |GALFACTU;norm;UPPiF;3| ((|f| UP) (|p| |PositiveInteger|) ($ F))
+(SDEFUN |GALFACTU;norm;UPPiF;3| ((|f| (UP)) (|p| (|PositiveInteger|)) ($ (F)))
         (SPROG ((|n| (F)) (#1=#:G112 NIL) (|c| NIL))
                (SEQ (LETT |n| (|spadConstant| $ 16))
                     (SEQ (LETT |c| NIL)
@@ -25,10 +26,10 @@
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT (SPADCALL |n| |p| (QREFELT $ 24)))))) 
 
-(SDEFUN |GALFACTU;quadraticNorm;UPF;4| ((|f| UP) ($ F))
+(SDEFUN |GALFACTU;quadraticNorm;UPF;4| ((|f| (UP)) ($ (F)))
         (SPADCALL |f| 2 (QREFELT $ 14))) 
 
-(SDEFUN |GALFACTU;infinityNorm;UPF;5| ((|f| UP) ($ F))
+(SDEFUN |GALFACTU;infinityNorm;UPF;5| ((|f| (UP)) ($ (F)))
         (SPROG ((|n| (F)) (#1=#:G117 NIL) (|c| NIL))
                (SEQ (LETT |n| (|spadConstant| $ 16))
                     (SEQ (LETT |c| NIL)
@@ -48,7 +49,7 @@
                     (EXIT |n|)))) 
 
 (SDEFUN |GALFACTU;singleFactorBound;UPNniI;6|
-        ((|p| UP) (|r| |NonNegativeInteger|) ($ |Integer|))
+        ((|p| (UP)) (|r| (|NonNegativeInteger|)) ($ (|Integer|)))
         (SPROG
          ((|den| (F)) (|num| (F)) (|nf| (F)) (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (SPADCALL |p| (QREFELT $ 28))) (LETT |r| (MAX 2 |r|))
@@ -116,10 +117,10 @@
                        (SPADCALL (SPADCALL |num| |den| (QREFELT $ 34))
                                  (QREFELT $ 43)))))))))) 
 
-(SDEFUN |GALFACTU;singleFactorBound;UPI;7| ((|p| UP) ($ |Integer|))
+(SDEFUN |GALFACTU;singleFactorBound;UPI;7| ((|p| (UP)) ($ (|Integer|)))
         (SPADCALL |p| 2 (QREFELT $ 44))) 
 
-(SDEFUN |GALFACTU;rootBound;UPI;8| ((|p| UP) ($ |Integer|))
+(SDEFUN |GALFACTU;rootBound;UPI;8| ((|p| (UP)) ($ (|Integer|)))
         (SPROG
          ((|b4| (F)) (|b3| (F)) (|b2| (F)) (|cl| (F)) (|b1| (F)) (|c| (F))
           (#1=#:G126 NIL) (#2=#:G132 NIL) (|i| NIL) (|lc| (F))
@@ -200,7 +201,7 @@
                             (QREFELT $ 50))
                            (SPADCALL |b4| (QREFELT $ 50))))))))))))) 
 
-(SDEFUN |GALFACTU;beauzamyBound;UPI;9| ((|f| UP) ($ |Integer|))
+(SDEFUN |GALFACTU;beauzamyBound;UPI;9| ((|f| (UP)) ($ (|Integer|)))
         (SPROG ((|d| (|NonNegativeInteger|)))
                (SEQ (LETT |d| (SPADCALL |f| (QREFELT $ 28)))
                     (EXIT
@@ -229,7 +230,7 @@
                         (QREFELT $ 43)))))))) 
 
 (SDEFUN |GALFACTU;bombieriNorm;UPPiF;10|
-        ((|f| UP) (|p| |PositiveInteger|) ($ F))
+        ((|f| (UP)) (|p| (|PositiveInteger|)) ($ (F)))
         (SPROG
          ((|b| (F)) (#1=#:G158 NIL) (|dd| (|Integer|)) (#2=#:G141 NIL)
           (#3=#:G164 NIL) (|i| NIL) (#4=#:G163 NIL)
@@ -315,7 +316,7 @@
                 (EXIT (SPADCALL |b| |p| (QREFELT $ 24)))))
           #5# (EXIT #4#)))) 
 
-(SDEFUN |GALFACTU;bombieriNorm;UPF;11| ((|f| UP) ($ F))
+(SDEFUN |GALFACTU;bombieriNorm;UPF;11| ((|f| (UP)) ($ (F)))
         (SPADCALL |f| 2 (QREFELT $ 57))) 
 
 (DECLAIM (NOTINLINE |GaloisGroupFactorizationUtilities;|)) 

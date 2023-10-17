@@ -1,17 +1,17 @@
 
-(SDEFUN |ABELMON-;zero?;SB;1| ((|x| S) ($ |Boolean|))
+(SDEFUN |ABELMON-;zero?;SB;1| ((|x| (S)) ($ (|Boolean|)))
         (SPADCALL |x| (|spadConstant| $ 7) (QREFELT $ 9))) 
 
-(SDEFUN |ABELMON-;*;Pi2S;2| ((|n| |PositiveInteger|) (|x| S) ($ S))
+(SDEFUN |ABELMON-;*;Pi2S;2| ((|n| (|PositiveInteger|)) (|x| (S)) ($ (S)))
         (SPADCALL |n| |x| (QREFELT $ 12))) 
 
-(SDEFUN |ABELMON-;sample;S;3| (($ S)) (|spadConstant| $ 7)) 
+(SDEFUN |ABELMON-;sample;S;3| (($ (S))) (|spadConstant| $ 7)) 
 
-(SDEFUN |ABELMON-;*;Nni2S;4| ((|n| |NonNegativeInteger|) (|x| S) ($ S))
+(SDEFUN |ABELMON-;*;Nni2S;4| ((|n| (|NonNegativeInteger|)) (|x| (S)) ($ (S)))
         (COND ((ZEROP |n|) (|spadConstant| $ 7))
               ('T (SPADCALL |n| |x| (QREFELT $ 17))))) 
 
-(SDEFUN |ABELMON-;opposite?;2SB;5| ((|x| S) (|y| S) ($ |Boolean|))
+(SDEFUN |ABELMON-;opposite?;2SB;5| ((|x| (S)) (|y| (S)) ($ (|Boolean|)))
         (SPADCALL (SPADCALL |x| |y| (QREFELT $ 19)) (QREFELT $ 20))) 
 
 (DECLAIM (NOTINLINE |AbelianMonoid&;|)) 

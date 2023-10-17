@@ -1,15 +1,15 @@
 
-(SDEFUN |VECTCAT-;+;3S;1| ((|u| S) (|v| S) ($ S))
+(SDEFUN |VECTCAT-;+;3S;1| ((|u| (S)) (|v| (S)) ($ (S)))
         (COND
          ((SPADCALL (SPADCALL |u| (QREFELT $ 9)) (SPADCALL |v| (QREFELT $ 9))
                     (QREFELT $ 12))
           (|error| "Vectors must be of the same length"))
          ('T (SPADCALL (ELT $ 13) |u| |v| (QREFELT $ 15))))) 
 
-(SDEFUN |VECTCAT-;zero;NniS;2| ((|n| |NonNegativeInteger|) ($ S))
+(SDEFUN |VECTCAT-;zero;NniS;2| ((|n| (|NonNegativeInteger|)) ($ (S)))
         (SPADCALL |n| (|spadConstant| $ 17) (QREFELT $ 18))) 
 
-(SDEFUN |VECTCAT-;zero?;SB;3| ((|y| S) ($ |Boolean|))
+(SDEFUN |VECTCAT-;zero?;SB;3| ((|y| (S)) ($ (|Boolean|)))
         (SPROG ((#1=#:G124 NIL) (#2=#:G125 NIL) (|i| NIL))
                (SEQ
                 (EXIT
@@ -27,10 +27,10 @@
                   (EXIT 'T)))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |VECTCAT-;-;2S;4| ((|u| S) ($ S))
+(SDEFUN |VECTCAT-;-;2S;4| ((|u| (S)) ($ (S)))
         (SPADCALL (ELT $ 25) |u| (QREFELT $ 27))) 
 
-(SDEFUN |VECTCAT-;*;I2S;5| ((|n| |Integer|) (|u| S) ($ S))
+(SDEFUN |VECTCAT-;*;I2S;5| ((|n| (|Integer|)) (|u| (S)) ($ (S)))
         (SPROG NIL
                (SPADCALL (CONS #'|VECTCAT-;*;I2S;5!0| (VECTOR $ |n|)) |u|
                          (QREFELT $ 27)))) 
@@ -41,10 +41,10 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |n| |x| (QREFELT $ 29)))))) 
 
-(SDEFUN |VECTCAT-;-;3S;6| ((|u| S) (|v| S) ($ S))
+(SDEFUN |VECTCAT-;-;3S;6| ((|u| (S)) (|v| (S)) ($ (S)))
         (SPADCALL |u| (SPADCALL |v| (QREFELT $ 31)) (QREFELT $ 32))) 
 
-(SDEFUN |VECTCAT-;*;SRS;7| ((|u| S) (|r| R) ($ S))
+(SDEFUN |VECTCAT-;*;SRS;7| ((|u| (S)) (|r| (R)) ($ (S)))
         (SPROG NIL
                (SPADCALL (CONS #'|VECTCAT-;*;SRS;7!0| (VECTOR $ |r|)) |u|
                          (QREFELT $ 27)))) 
@@ -55,7 +55,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |x| |r| (QREFELT $ 34)))))) 
 
-(SDEFUN |VECTCAT-;*;R2S;8| ((|r| R) (|u| S) ($ S))
+(SDEFUN |VECTCAT-;*;R2S;8| ((|r| (R)) (|u| (S)) ($ (S)))
         (SPROG NIL
                (SPADCALL (CONS #'|VECTCAT-;*;R2S;8!0| (VECTOR $ |r|)) |u|
                          (QREFELT $ 27)))) 
@@ -66,7 +66,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |r| |x| (QREFELT $ 34)))))) 
 
-(SDEFUN |VECTCAT-;dot;2SR;9| ((|u| S) (|v| S) ($ R))
+(SDEFUN |VECTCAT-;dot;2SR;9| ((|u| (S)) (|v| (S)) ($ (R)))
         (SPROG
          ((#1=#:G135 NIL) (#2=#:G134 (R)) (#3=#:G136 (R)) (#4=#:G139 NIL)
           (|i| NIL))
@@ -93,7 +93,7 @@
                   (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL))
              (COND (#1# #2#) (#5# (|spadConstant| $ 17))))))))) 
 
-(SDEFUN |VECTCAT-;outerProduct;2SM;10| ((|u| S) (|v| S) ($ |Matrix| R))
+(SDEFUN |VECTCAT-;outerProduct;2SM;10| ((|u| (S)) (|v| (S)) ($ (|Matrix| R)))
         (SPROG
          ((#1=#:G146 NIL) (|i| NIL) (#2=#:G145 NIL) (#3=#:G144 NIL) (|j| NIL)
           (#4=#:G143 NIL))
@@ -128,7 +128,7 @@
                  (LETT |j| (+ |j| 1)) (GO G190) G191 (EXIT (NREVERSE #4#))))
            (QREFELT $ 40))))) 
 
-(SDEFUN |VECTCAT-;cross;3S;11| ((|u| S) (|v| S) ($ S))
+(SDEFUN |VECTCAT-;cross;3S;11| ((|u| (S)) (|v| (S)) ($ (S)))
         (COND
          ((OR (SPADCALL (SPADCALL |u| (QREFELT $ 9)) 3 (QREFELT $ 12))
               (SPADCALL (SPADCALL |v| (QREFELT $ 9)) 3 (QREFELT $ 12)))
@@ -156,7 +156,7 @@
              (QREFELT $ 42)))
            (QREFELT $ 44))))) 
 
-(SDEFUN |VECTCAT-;length;SR;12| ((|p| S) ($ R))
+(SDEFUN |VECTCAT-;length;SR;12| ((|p| (S)) ($ (R)))
         (SPADCALL (SPADCALL |p| |p| (QREFELT $ 46)) (QREFELT $ 47))) 
 
 (DECLAIM (NOTINLINE |VectorCategory&;|)) 

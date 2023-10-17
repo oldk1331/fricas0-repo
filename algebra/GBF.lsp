@@ -1,25 +1,27 @@
 
 (SDEFUN |GBF;createGroebnerBases|
-        ((|basis| |List|
-          (|Record| (|:| |totdeg| (|NonNegativeInteger|)) (|:| |pol| |Dpol|)))
-         (|redPols| |List| |Dpol|) (|nonZeroRestrictions| |List| |Dpol|)
-         (|inputPolys| |List| |Dpol|)
-         (|lcP| |List|
-          (|Record| (|:| |lcmfij| |Expon|)
-                    (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
-                    (|:| |polj| |Dpol|)))
-         (|listOfBases| |List| (|List| |Dpol|)) (|info| |Boolean|)
-         ($ |List| (|List| |Dpol|)))
+        ((|basis|
+          (|List|
+           (|Record| (|:| |totdeg| (|NonNegativeInteger|))
+                     (|:| |pol| |Dpol|))))
+         (|redPols| (|List| |Dpol|)) (|nonZeroRestrictions| (|List| |Dpol|))
+         (|inputPolys| (|List| |Dpol|))
+         (|lcP|
+          (|List|
+           (|Record| (|:| |lcmfij| |Expon|)
+                     (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
+                     (|:| |polj| |Dpol|))))
+         (|listOfBases| (|List| (|List| |Dpol|))) (|info| (|Boolean|))
+         ($ (|List| (|List| |Dpol|))))
         (SPROG
-         ((|newBasis| (|List| |Dpol|)) (#1=#:G160 NIL) (|p| (|Dpol|))
-          (#2=#:G159 NIL) (|newInputPolys| (|List| |Dpol|)) (#3=#:G158 NIL)
-          (|fnP| (|Dpol|)) (#4=#:G154 NIL) (|nP| (|Dpol|))
-          (|allReducedFactors| (|List| |Dpol|)) (#5=#:G157 NIL)
-          (|doSplitting?| #6=(|Boolean|))
+         ((|newBasis| (|List| |Dpol|)) (#1=#:G160 NIL) (#2=#:G159 NIL)
+          (|newInputPolys| (|List| |Dpol|)) (#3=#:G158 NIL) (#4=#:G154 NIL)
+          (|nP| (|Dpol|)) (|allReducedFactors| (|List| |Dpol|))
+          (|fnP| (|Dpol|)) (#5=#:G157 NIL) (|doSplitting?| #6=(|Boolean|))
           (|irreducibleFactors| (|List| |Dpol|)) (|terminateWithBasis| #6#)
           (|stopDividing| #6#) (#7=#:G121 NIL)
           (|nPq| (|Union| |Dpol| #8="failed")) (#9=#:G156 NIL) (#10=#:G155 NIL)
-          (|q| NIL) (|h| (|Dpol|)))
+          (|q| NIL) (|h| (|Dpol|)) (|p| (|Dpol|)))
          (SEQ (LETT |doSplitting?| NIL) (LETT |terminateWithBasis| NIL)
               (LETT |allReducedFactors| NIL)
               (SEQ G190
@@ -176,35 +178,31 @@
                                                 (COND
                                                  (|doSplitting?|
                                                   (SEQ
-                                                   (SEQ (LETT |fnP| NIL)
-                                                        (LETT #5#
-                                                              |irreducibleFactors|)
-                                                        G190
-                                                        (COND
-                                                         ((OR (ATOM #5#)
-                                                              (PROGN
-                                                               (LETT |fnP|
-                                                                     (CAR #5#))
-                                                               NIL))
-                                                          (GO G191)))
-                                                        (SEQ
-                                                         (LETT |fnP|
-                                                               (SPADCALL
-                                                                (SPADCALL |fnP|
-                                                                          |redPols|
-                                                                          (QREFELT
-                                                                           $
-                                                                           12))
-                                                                (QREFELT $
-                                                                         13)))
-                                                         (EXIT
-                                                          (LETT
-                                                           |allReducedFactors|
-                                                           (CONS |fnP|
-                                                                 |allReducedFactors|))))
-                                                        (LETT #5# (CDR #5#))
-                                                        (GO G190) G191
-                                                        (EXIT NIL))
+                                                   (SEQ
+                                                    (LETT #5#
+                                                          |irreducibleFactors|)
+                                                    G190
+                                                    (COND
+                                                     ((OR (ATOM #5#)
+                                                          (PROGN
+                                                           (LETT |fnP|
+                                                                 (CAR #5#))
+                                                           NIL))
+                                                      (GO G191)))
+                                                    (SEQ
+                                                     (LETT |fnP|
+                                                           (SPADCALL
+                                                            (SPADCALL |fnP|
+                                                                      |redPols|
+                                                                      (QREFELT
+                                                                       $ 12))
+                                                            (QREFELT $ 13)))
+                                                     (EXIT
+                                                      (LETT |allReducedFactors|
+                                                            (CONS |fnP|
+                                                                  |allReducedFactors|))))
+                                                    (LETT #5# (CDR #5#))
+                                                    (GO G190) G191 (EXIT NIL))
                                                    (EXIT
                                                     (LETT |allReducedFactors|
                                                           (REVERSE
@@ -240,7 +238,7 @@
                (COND
                 (|doSplitting?|
                  (SEQ
-                  (SEQ (LETT |fnP| NIL) (LETT #3# |allReducedFactors|) G190
+                  (SEQ (LETT #3# |allReducedFactors|) G190
                        (COND
                         ((OR (ATOM #3#) (PROGN (LETT |fnP| (CAR #3#)) NIL))
                          (GO G191)))
@@ -280,7 +278,7 @@
                          (SPADCALL (CONS #'|GBF;createGroebnerBases!1| $)
                                    (PROGN
                                     (LETT #2# NIL)
-                                    (SEQ (LETT |p| NIL) (LETT #1# |basis|) G190
+                                    (SEQ (LETT #1# |basis|) G190
                                          (COND
                                           ((OR (ATOM #1#)
                                                (PROGN
@@ -318,7 +316,7 @@
         (SPADCALL (SPADCALL |x| (QREFELT $ 25)) (SPADCALL |y| (QREFELT $ 25))
                   (QREFELT $ 30))) 
 
-(SDEFUN |GBF;createAllFactors| ((|p| |Dpol|) ($ |List| |Dpol|))
+(SDEFUN |GBF;createAllFactors| ((|p| (|Dpol|)) ($ (|List| |Dpol|)))
         (SPROG
          ((|loF| (|List| |Dpol|)) (#1=#:G167 NIL) (|el| NIL) (#2=#:G166 NIL))
          (SEQ
@@ -345,13 +343,16 @@
                   (QREFELT $ 51))) 
 
 (SDEFUN |GBF;newPairs|
-        ((|lp| |List|
-          (|Record| (|:| |totdeg| (|NonNegativeInteger|)) (|:| |pol| |Dpol|)))
-         (|p| |Dpol|)
-         ($ |List|
-          (|Record| (|:| |lcmfij| |Expon|)
-                    (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
-                    (|:| |polj| |Dpol|))))
+        ((|lp|
+          (|List|
+           (|Record| (|:| |totdeg| (|NonNegativeInteger|))
+                     (|:| |pol| |Dpol|))))
+         (|p| (|Dpol|))
+         ($
+          (|List|
+           (|Record| (|:| |lcmfij| |Expon|)
+                     (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
+                     (|:| |polj| |Dpol|)))))
         (SPROG
          ((|lcP|
            (|List|
@@ -382,37 +383,45 @@
                          (QREFELT $ 58)))))) 
 
 (SDEFUN |GBF;updateCritPairs|
-        ((|oldListOfcritPairs| |List|
-          (|Record| (|:| |lcmfij| |Expon|)
-                    (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
-                    (|:| |polj| |Dpol|)))
-         (|newListOfcritPairs| |List|
-          (|Record| (|:| |lcmfij| |Expon|)
-                    (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
-                    (|:| |polj| |Dpol|)))
-         (|p| |Dpol|)
-         ($ |List|
-          (|Record| (|:| |lcmfij| |Expon|)
-                    (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
-                    (|:| |polj| |Dpol|))))
+        ((|oldListOfcritPairs|
+          (|List|
+           (|Record| (|:| |lcmfij| |Expon|)
+                     (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
+                     (|:| |polj| |Dpol|))))
+         (|newListOfcritPairs|
+          (|List|
+           (|Record| (|:| |lcmfij| |Expon|)
+                     (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
+                     (|:| |polj| |Dpol|))))
+         (|p| (|Dpol|))
+         ($
+          (|List|
+           (|Record| (|:| |lcmfij| |Expon|)
+                     (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
+                     (|:| |polj| |Dpol|)))))
         (SPADCALL |newListOfcritPairs|
                   (SPADCALL |p| |oldListOfcritPairs| (QREFELT $ 59))
                   (QREFELT $ 60))) 
 
 (SDEFUN |GBF;updateBasis|
-        ((|lp| |List|
-          (|Record| (|:| |totdeg| (|NonNegativeInteger|)) (|:| |pol| |Dpol|)))
-         (|p| |Dpol|) (|deg| |NonNegativeInteger|)
-         ($ |List|
-          (|Record| (|:| |totdeg| (|NonNegativeInteger|)) (|:| |pol| |Dpol|))))
+        ((|lp|
+          (|List|
+           (|Record| (|:| |totdeg| (|NonNegativeInteger|))
+                     (|:| |pol| |Dpol|))))
+         (|p| (|Dpol|)) (|deg| (|NonNegativeInteger|))
+         ($
+          (|List|
+           (|Record| (|:| |totdeg| (|NonNegativeInteger|))
+                     (|:| |pol| |Dpol|)))))
         (SPADCALL |p| |deg| |lp| (QREFELT $ 62))) 
 
 (SDEFUN |GBF;factorGroebnerBasis;LL;6|
-        ((|basis| |List| |Dpol|) ($ |List| (|List| |Dpol|)))
+        ((|basis| (|List| |Dpol|)) ($ (|List| (|List| |Dpol|))))
         (SPADCALL |basis| NIL (QREFELT $ 41))) 
 
 (SDEFUN |GBF;factorGroebnerBasis;LBL;7|
-        ((|basis| |List| |Dpol|) (|info| |Boolean|) ($ |List| (|List| |Dpol|)))
+        ((|basis| (|List| |Dpol|)) (|info| (|Boolean|))
+         ($ (|List| (|List| |Dpol|))))
         (SPROG
          ((|foundAReducible| (|Boolean|)) (#1=#:G194 NIL) (|el| NIL)
           (#2=#:G193 NIL) (#3=#:G192 NIL) (|p| NIL))
@@ -467,13 +476,13 @@
                   (EXIT (LIST |basis|))))))))) 
 
 (SDEFUN |GBF;groebnerFactorize;2LL;8|
-        ((|basis| |List| |Dpol|) (|nonZeroRestrictions| |List| |Dpol|)
-         ($ |List| (|List| |Dpol|)))
+        ((|basis| (|List| |Dpol|)) (|nonZeroRestrictions| (|List| |Dpol|))
+         ($ (|List| (|List| |Dpol|))))
         (SPADCALL |basis| |nonZeroRestrictions| NIL (QREFELT $ 65))) 
 
 (SDEFUN |GBF;groebnerFactorize;2LBL;9|
-        ((|basis| |List| |Dpol|) (|nonZeroRestrictions| |List| |Dpol|)
-         (|info| |Boolean|) ($ |List| (|List| |Dpol|)))
+        ((|basis| (|List| |Dpol|)) (|nonZeroRestrictions| (|List| |Dpol|))
+         (|info| (|Boolean|)) ($ (|List| (|List| |Dpol|))))
         (SPROG ((#1=#:G205 NIL) (|p| NIL) (#2=#:G204 NIL))
                (SEQ
                 (COND ((SPADCALL |basis| NIL (QREFELT $ 67)) (LIST |basis|))
@@ -525,11 +534,12 @@
                   (QREFELT $ 30))) 
 
 (SDEFUN |GBF;groebnerFactorize;LL;10|
-        ((|basis| |List| |Dpol|) ($ |List| (|List| |Dpol|)))
+        ((|basis| (|List| |Dpol|)) ($ (|List| (|List| |Dpol|))))
         (SPADCALL |basis| NIL NIL (QREFELT $ 65))) 
 
 (SDEFUN |GBF;groebnerFactorize;LBL;11|
-        ((|basis| |List| |Dpol|) (|info| |Boolean|) ($ |List| (|List| |Dpol|)))
+        ((|basis| (|List| |Dpol|)) (|info| (|Boolean|))
+         ($ (|List| (|List| |Dpol|))))
         (SPADCALL |basis| NIL |info| (QREFELT $ 65))) 
 
 (DECLAIM (NOTINLINE |GroebnerFactorizationPackage;|)) 

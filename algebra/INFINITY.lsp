@@ -1,11 +1,11 @@
 
-(SDEFUN |INFINITY;infinity;Opc;1| (($ |OnePointCompletion| (|Integer|)))
+(SDEFUN |INFINITY;infinity;Opc;1| (($ (|OnePointCompletion| (|Integer|))))
         (SPADCALL (QREFELT $ 7))) 
 
-(SDEFUN |INFINITY;plusInfinity;Oc;2| (($ |OrderedCompletion| (|Integer|)))
+(SDEFUN |INFINITY;plusInfinity;Oc;2| (($ (|OrderedCompletion| (|Integer|))))
         (SPADCALL (QREFELT $ 10))) 
 
-(SDEFUN |INFINITY;minusInfinity;Oc;3| (($ |OrderedCompletion| (|Integer|)))
+(SDEFUN |INFINITY;minusInfinity;Oc;3| (($ (|OrderedCompletion| (|Integer|))))
         (SPADCALL (QREFELT $ 12))) 
 
 (DECLAIM (NOTINLINE |Infinity;|)) 

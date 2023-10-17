@@ -1,6 +1,6 @@
 
 (SDEFUN |DEGRED;degrees|
-        ((|u| |SparseUnivariatePolynomial| R1) ($ |List| (|Integer|)))
+        ((|u| (|SparseUnivariatePolynomial| R1)) ($ (|List| (|Integer|))))
         (SPROG ((|l| (|List| (|Integer|))))
                (SEQ (LETT |l| NIL)
                     (SEQ G190
@@ -16,9 +16,10 @@
                     (EXIT |l|)))) 
 
 (SDEFUN |DEGRED;reduce;SupR;2|
-        ((|u| |SparseUnivariatePolynomial| R1)
-         ($ |Record| (|:| |pol| (|SparseUnivariatePolynomial| R1))
-          (|:| |deg| (|PositiveInteger|))))
+        ((|u| (|SparseUnivariatePolynomial| R1))
+         ($
+          (|Record| (|:| |pol| (|SparseUnivariatePolynomial| R1))
+                    (|:| |deg| (|PositiveInteger|)))))
         (SPROG
          ((#1=#:G121 NIL) (#2=#:G118 NIL) (#3=#:G116 NIL) (|g| #4=(|Integer|))
           (#5=#:G110 NIL) (#6=#:G109 #4#) (#7=#:G111 #4#) (#8=#:G125 NIL)
@@ -62,7 +63,7 @@
                                      '(|Integer|) #1#))))))) 
 
 (SDEFUN |DEGRED;rootOfUnity|
-        ((|j| |Integer|) (|n| |Integer|) ($ |Expression| R2))
+        ((|j| (|Integer|)) (|n| (|Integer|)) ($ (|Expression| R2)))
         (SPROG ((|arg| (|Expression| R2)))
                (SEQ
                 (COND ((EQL |j| 0) (|spadConstant| $ 22))
@@ -85,7 +86,7 @@
                                     (QREFELT $ 40))
                                    (QREFELT $ 41))))))))) 
 
-(SDEFUN |DEGRED;even_part| ((|gp| |PositiveInteger|) ($ |PositiveInteger|))
+(SDEFUN |DEGRED;even_part| ((|gp| (|PositiveInteger|)) ($ (|PositiveInteger|)))
         (SPROG ((|res| (|PositiveInteger|)) (|g| (|NonNegativeInteger|)))
                (SEQ (LETT |g| |gp|) (LETT |res| 1)
                     (SEQ G190 (COND ((NULL (EVENP |g|)) (GO G191)))
@@ -95,8 +96,8 @@
                     (EXIT |res|)))) 
 
 (SDEFUN |DEGRED;expand;EPiL;5|
-        ((|s| |Expression| R2) (|g| |PositiveInteger|)
-         ($ |List| (|Expression| R2)))
+        ((|s| (|Expression| R2)) (|g| (|PositiveInteger|))
+         ($ (|List| (|Expression| R2))))
         (SPROG
          ((#1=#:G138 NIL) (|i| NIL) (#2=#:G137 NIL) (|sr| (|Expression| R2))
           (|g2| (|PositiveInteger|)))
@@ -137,7 +138,7 @@
                          (EXIT (NREVERSE #2#))))))))))) 
 
 (SDEFUN |DEGRED;cyclotomic_roots;PiL;6|
-        ((|n| |PositiveInteger|) ($ |List| (|Expression| R2)))
+        ((|n| (|PositiveInteger|)) ($ (|List| (|Expression| R2))))
         (SPROG ((#1=#:G142 NIL) (|i| NIL) (#2=#:G141 NIL))
                (SEQ
                 (PROGN

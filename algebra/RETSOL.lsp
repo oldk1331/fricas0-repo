@@ -1,16 +1,16 @@
 
-(SDEFUN |RETSOL;PQ2P| ((|p| |Polynomial| Q) ($ |Polynomial| R))
+(SDEFUN |RETSOL;PQ2P| ((|p| (|Polynomial| Q)) ($ (|Polynomial| R)))
         (SPADCALL (ELT $ 8) |p| (QREFELT $ 13))) 
 
 (SDEFUN |RETSOL;FQ2F|
-        ((|f| |Fraction| (|Polynomial| Q)) ($ |Fraction| (|Polynomial| R)))
+        ((|f| (|Fraction| (|Polynomial| Q))) ($ (|Fraction| (|Polynomial| R))))
         (SPADCALL (|RETSOL;PQ2P| (SPADCALL |f| (QREFELT $ 15)) $)
                   (|RETSOL;PQ2P| (SPADCALL |f| (QREFELT $ 16)) $)
                   (QREFELT $ 18))) 
 
 (SDEFUN |RETSOL;LEQQ2F|
-        ((|l| |List| (|Equation| (|Fraction| (|Polynomial| Q))))
-         ($ |List| (|Equation| (|Fraction| (|Polynomial| R)))))
+        ((|l| (|List| (|Equation| (|Fraction| (|Polynomial| Q)))))
+         ($ (|List| (|Equation| (|Fraction| (|Polynomial| R))))))
         (SPROG ((#1=#:G108 NIL) (|eq| NIL) (#2=#:G107 NIL))
                (SEQ
                 (PROGN
@@ -34,8 +34,8 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |RETSOL;solveRetract;LLL;4|
-        ((|lp| |List| (|Polynomial| R)) (|lv| |List| (|Symbol|))
-         ($ |List| (|List| (|Equation| (|Fraction| (|Polynomial| R))))))
+        ((|lp| (|List| (|Polynomial| R))) (|lv| (|List| (|Symbol|)))
+         ($ (|List| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))))
         (SPROG
          ((#1=#:G119 NIL) (|l| NIL) (#2=#:G118 NIL) (#3=#:G117 NIL) (|p| NIL)
           (#4=#:G116 NIL)
@@ -72,8 +72,8 @@
                        (EXIT (NREVERSE #2#)))))))))) 
 
 (SDEFUN |RETSOL;QIfCan|
-        ((|l| |List| (|Polynomial| R))
-         ($ |Union| (|List| (|Fraction| (|Polynomial| Q))) "failed"))
+        ((|l| (|List| (|Polynomial| R)))
+         ($ (|Union| (|List| (|Fraction| (|Polynomial| Q))) "failed")))
         (SPROG
          ((|ans| (|List| (|Fraction| (|Polynomial| Q)))) (#1=#:G130 NIL)
           (|u| (|Union| (|Fraction| (|Polynomial| Q)) "failed"))
@@ -98,8 +98,8 @@
           #3# (EXIT #1#)))) 
 
 (SDEFUN |RETSOL;PQIfCan|
-        ((|p| |Polynomial| R)
-         ($ |Union| (|Fraction| (|Polynomial| Q)) #1="failed"))
+        ((|p| (|Polynomial| R))
+         ($ (|Union| (|Fraction| (|Polynomial| Q)) #1="failed")))
         (SPROG
          ((|up| (|SparseUnivariatePolynomial| (|Polynomial| R)))
           (|ans| (|Fraction| (|Polynomial| Q))) (#2=#:G148 NIL)

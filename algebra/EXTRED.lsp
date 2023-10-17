@@ -2,26 +2,29 @@
 (PUT '|EXTRED;polynomial| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 0))) 
 
 (SDEFUN |EXTRED;polynomial|
-        ((|x| |Record| (|:| |poly| R) (|:| |repr| (|Vector| R)) (|:| |mult| C))
-         ($ R))
+        ((|x|
+          (|Record| (|:| |poly| R) (|:| |repr| (|Vector| R)) (|:| |mult| C)))
+         ($ (R)))
         (QVELT |x| 0)) 
 
 (PUT '|EXTRED;representation| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 1))) 
 
 (SDEFUN |EXTRED;representation|
-        ((|x| |Record| (|:| |poly| R) (|:| |repr| (|Vector| R)) (|:| |mult| C))
-         ($ |Vector| R))
+        ((|x|
+          (|Record| (|:| |poly| R) (|:| |repr| (|Vector| R)) (|:| |mult| C)))
+         ($ (|Vector| R)))
         (QVELT |x| 1)) 
 
 (PUT '|EXTRED;multiplier| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 2))) 
 
 (SDEFUN |EXTRED;multiplier|
-        ((|x| |Record| (|:| |poly| R) (|:| |repr| (|Vector| R)) (|:| |mult| C))
-         ($ C))
+        ((|x|
+          (|Record| (|:| |poly| R) (|:| |repr| (|Vector| R)) (|:| |mult| C)))
+         ($ (C)))
         (QVELT |x| 2)) 
 
 (SDEFUN |EXTRED;cancelGcd|
-        ((|c1| C) (|c2| C) ($ |Record| (|:| |co1| C) (|:| |co2| C)))
+        ((|c1| (C)) (|c2| (C)) ($ (|Record| (|:| |co1| C) (|:| |co2| C))))
         (SPROG ((#1=#:G116 NIL) (|g| (C)))
                (SEQ (LETT |g| (SPADCALL |c1| |c2| (QREFELT $ 9)))
                     (EXIT
@@ -37,8 +40,9 @@
                                         (|Union| (QREFELT $ 6) #2#) #1#))))))) 
 
 (SDEFUN |EXTRED;embedBasisElement|
-        ((|r| R) (|i| |NonNegativeInteger|) (|n| |NonNegativeInteger|)
-         ($ |Record| (|:| |poly| R) (|:| |repr| (|Vector| R)) (|:| |mult| C)))
+        ((|r| (R)) (|i| (|NonNegativeInteger|)) (|n| (|NonNegativeInteger|))
+         ($
+          (|Record| (|:| |poly| R) (|:| |repr| (|Vector| R)) (|:| |mult| C))))
         (SPROG ((|v| (|Vector| R)))
                (SEQ (LETT |v| (MAKEARR1 |n| (|spadConstant| $ 14)))
                     (SPADCALL |v| |i|
@@ -47,12 +51,14 @@
                     (EXIT (VECTOR |r| |v| (|spadConstant| $ 15)))))) 
 
 (SDEFUN |EXTRED;denominatorFreeTopReduce|
-        ((|x| |Record| (|:| |poly| R) (|:| |repr| (|Vector| R)) (|:| |mult| C))
+        ((|x|
+          (|Record| (|:| |poly| R) (|:| |repr| (|Vector| R)) (|:| |mult| C)))
          (|basis|
-          . #1=(|List|
-                (|Record| (|:| |poly| R) (|:| |repr| (|Vector| R))
-                          (|:| |mult| C))))
-         ($ |Record| (|:| |poly| R) (|:| |repr| (|Vector| R)) (|:| |mult| C)))
+          #1=(|List|
+              (|Record| (|:| |poly| R) (|:| |repr| (|Vector| R))
+                        (|:| |mult| C))))
+         ($
+          (|Record| (|:| |poly| R) (|:| |repr| (|Vector| R)) (|:| |mult| C))))
         (SPROG
          ((#2=#:G135 NIL) (|bas| #1#) (|f2| (R)) (|f1| (C)) (|a| (C))
           (|l| (|Record| (|:| |llcm_res| C) (|:| |coeff1| C) (|:| |coeff2| C)))
@@ -136,10 +142,13 @@
           #3# (EXIT #2#)))) 
 
 (SDEFUN |EXTRED;tailReduce|
-        ((|x| |Record| (|:| |poly| R) (|:| |repr| (|Vector| R)) (|:| |mult| C))
-         (|basis| |List|
+        ((|x|
           (|Record| (|:| |poly| R) (|:| |repr| (|Vector| R)) (|:| |mult| C)))
-         ($ |Record| (|:| |poly| R) (|:| |repr| (|Vector| R)) (|:| |mult| C)))
+         (|basis|
+          (|List|
+           (|Record| (|:| |poly| R) (|:| |repr| (|Vector| R)) (|:| |mult| C))))
+         ($
+          (|Record| (|:| |poly| R) (|:| |repr| (|Vector| R)) (|:| |mult| C))))
         (SPROG ((|r| (R)) (|m| (C)) (|p| (R)) (|v| (|Vector| R)))
                (SEQ
                 (COND ((NULL |basis|) |x|)
@@ -175,8 +184,9 @@
                             (EXIT (VECTOR |r| |v| |m|)))))))) 
 
 (SDEFUN |EXTRED;reduce;RLR;8|
-        ((|r| R) (|basis| |List| R)
-         ($ |Record| (|:| |poly| R) (|:| |repr| (|Vector| R)) (|:| |mult| C)))
+        ((|r| (R)) (|basis| (|List| R))
+         ($
+          (|Record| (|:| |poly| R) (|:| |repr| (|Vector| R)) (|:| |mult| C))))
         (SPROG
          ((|x|
            (|Record| (|:| |poly| R) (|:| |repr| (|Vector| R)) (|:| |mult| C)))

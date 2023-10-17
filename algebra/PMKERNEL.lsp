@@ -1,7 +1,7 @@
 
 (SDEFUN |PMKERNEL;patternMatchArg|
-        ((|ls| |List| E) (|lp| |List| (|Pattern| S))
-         (|l| |PatternMatchResult| S E) ($ |PatternMatchResult| S E))
+        ((|ls| (|List| E)) (|lp| (|List| (|Pattern| S)))
+         (|l| (|PatternMatchResult| S E)) ($ (|PatternMatchResult| S E)))
         (SPROG
          ((#1=#:G126 NIL) (#2=#:G128 NIL) (#3=#:G131 NIL) (|p| NIL)
           (#4=#:G132 NIL) (|s| NIL) (#5=#:G127 NIL) (#6=#:G129 NIL)
@@ -67,8 +67,9 @@
           #8# (EXIT #2#)))) 
 
 (SDEFUN |PMKERNEL;patternMatchInner|
-        ((|s| |Kernel| E) (|p| |Pattern| S) (|l| |PatternMatchResult| S E)
-         ($ |Union| (|PatternMatchResult| S E) "failed"))
+        ((|s| (|Kernel| E)) (|p| (|Pattern| S))
+         (|l| (|PatternMatchResult| S E))
+         ($ (|Union| (|PatternMatchResult| S E) "failed")))
         (SPROG
          ((#1=#:G152 NIL) (|w| (|Union| (|Symbol|) "failed"))
           (|v| (|Union| (|Symbol|) "failed"))
@@ -123,8 +124,9 @@
                    (#2# (CONS 1 "failed")))))))))) 
 
 (SDEFUN |PMKERNEL;patternMatchOpt|
-        ((|x| E) (|lp| |List| (|Pattern| S)) (|l| |PatternMatchResult| S E)
-         (|id| E) ($ |PatternMatchResult| S E))
+        ((|x| (E)) (|lp| (|List| (|Pattern| S)))
+         (|l| (|PatternMatchResult| S E)) (|id| (E))
+         ($ (|PatternMatchResult| S E)))
         (SPROG ((|u| (|Union| (|List| (|Pattern| S)) "failed")))
                (SEQ (LETT |u| (SPADCALL |lp| (QREFELT $ 36)))
                     (EXIT
@@ -143,8 +145,9 @@
                       (#1# (SPADCALL (QREFELT $ 12)))))))) 
 
 (SDEFUN |PMKERNEL;patternMatchMonoid|
-        ((|s| |Kernel| E) (|p| |Pattern| S) (|l| |PatternMatchResult| S E)
-         ($ |Union| (|PatternMatchResult| S E) "failed"))
+        ((|s| (|Kernel| E)) (|p| (|Pattern| S))
+         (|l| (|PatternMatchResult| S E))
+         ($ (|Union| (|PatternMatchResult| S E) "failed")))
         (SPROG
          ((|w| (|Union| (|List| (|Pattern| S)) "failed")) (#1=#:G181 NIL)
           (|r| (|Union| E "failed")) (|arg| (|List| E))
@@ -248,8 +251,8 @@
                                      (#2# (CONS 1 "failed"))))))))))))))) 
 
 (SDEFUN |PMKERNEL;patternMatch;KP2Pmr;5|
-        ((|s| |Kernel| E) (|p| |Pattern| S) (|l| |PatternMatchResult| S E)
-         ($ |PatternMatchResult| S E))
+        ((|s| (|Kernel| E)) (|p| (|Pattern| S))
+         (|l| (|PatternMatchResult| S E)) ($ (|PatternMatchResult| S E)))
         (SPROG
          ((|w| (|Union| (|List| (|Pattern| S)) "failed"))
           (|u| (|Union| (|PatternMatchResult| S E) "failed")))
@@ -267,8 +270,8 @@
                              (#1# (SPADCALL (QREFELT $ 12)))))))))))) 
 
 (SDEFUN |PMKERNEL;patternMatch;KP2Pmr;6|
-        ((|s| |Kernel| E) (|p| |Pattern| S) (|l| |PatternMatchResult| S E)
-         ($ |PatternMatchResult| S E))
+        ((|s| (|Kernel| E)) (|p| (|Pattern| S))
+         (|l| (|PatternMatchResult| S E)) ($ (|PatternMatchResult| S E)))
         (SPROG ((|u| (|Union| (|PatternMatchResult| S E) "failed")))
                (SEQ (LETT |u| (|PMKERNEL;patternMatchMonoid| |s| |p| |l| $))
                     (EXIT
@@ -276,8 +279,8 @@
                            ('T (SPADCALL (QREFELT $ 12)))))))) 
 
 (SDEFUN |PMKERNEL;patternMatch;KP2Pmr;7|
-        ((|s| |Kernel| E) (|p| |Pattern| S) (|l| |PatternMatchResult| S E)
-         ($ |PatternMatchResult| S E))
+        ((|s| (|Kernel| E)) (|p| (|Pattern| S))
+         (|l| (|PatternMatchResult| S E)) ($ (|PatternMatchResult| S E)))
         (SPROG ((|u| (|Union| (|PatternMatchResult| S E) "failed")))
                (SEQ (LETT |u| (|PMKERNEL;patternMatchInner| |s| |p| |l| $))
                     (EXIT

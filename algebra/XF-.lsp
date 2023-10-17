@@ -1,14 +1,15 @@
 
-(SDEFUN |XF-;algebraic?;SB;1| ((|a| S) ($ |Boolean|))
+(SDEFUN |XF-;algebraic?;SB;1| ((|a| (S)) ($ (|Boolean|)))
         (NULL (SPADCALL (SPADCALL |a| (QREFELT $ 9)) (QREFELT $ 11)))) 
 
-(SDEFUN |XF-;transcendent?;SB;2| ((|a| S) ($ |Boolean|))
+(SDEFUN |XF-;transcendent?;SB;2| ((|a| (S)) ($ (|Boolean|)))
         (SPADCALL (SPADCALL |a| (QREFELT $ 9)) (QREFELT $ 11))) 
 
-(SDEFUN |XF-;Frobenius;2S;3| ((|a| S) ($ S))
+(SDEFUN |XF-;Frobenius;2S;3| ((|a| (S)) ($ (S)))
         (SPADCALL |a| (SPADCALL (QREFELT $ 15)) (QREFELT $ 16))) 
 
-(SDEFUN |XF-;Frobenius;SNniS;4| ((|a| S) (|s| |NonNegativeInteger|) ($ S))
+(SDEFUN |XF-;Frobenius;SNniS;4|
+        ((|a| (S)) (|s| (|NonNegativeInteger|)) ($ (S)))
         (SPADCALL |a| (EXPT (SPADCALL (QREFELT $ 15)) |s|) (QREFELT $ 16))) 
 
 (DECLAIM (NOTINLINE |ExtensionField&;|)) 

@@ -1,5 +1,5 @@
 
-(SDEFUN |FRIDEAL2;fmap| ((|f| |Mapping| F2 F1) (|a| A1) ($ A2))
+(SDEFUN |FRIDEAL2;fmap| ((|f| (|Mapping| F2 F1)) (|a| (A1)) ($ (A2)))
         (SPROG
          ((#1=#:G106 NIL) (#2=#:G108 NIL) (|i| NIL) (#3=#:G107 NIL)
           (|v| (|Vector| F1)))
@@ -23,8 +23,8 @@
                 (QREFELT $ 19)))))) 
 
 (SDEFUN |FRIDEAL2;map;MFiFi;2|
-        ((|f| |Mapping| R2 R1) (|i| |FractionalIdeal| R1 F1 U1 A1)
-         ($ |FractionalIdeal| R2 F2 U2 A2))
+        ((|f| (|Mapping| R2 R1)) (|i| (|FractionalIdeal| R1 F1 U1 A1))
+         ($ (|FractionalIdeal| R2 F2 U2 A2)))
         (SPROG
          ((#1=#:G114 NIL) (#2=#:G116 NIL) (|j| NIL) (#3=#:G115 NIL)
           (|b| (|Vector| A1)))

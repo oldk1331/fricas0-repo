@@ -1,6 +1,6 @@
 
 (SDEFUN |ES1;map;MSKS;1|
-        ((F2S |Mapping| S F) (|prop| |Symbol|) (|k| |Kernel| F) ($ S))
+        ((F2S (|Mapping| S F)) (|prop| (|Symbol|)) (|k| (|Kernel| F)) ($ (S)))
         (SPROG
          ((|p| (|Union| (|None|) "failed")) (|args| (|List| S)) (#1=#:G112 NIL)
           (|x| NIL) (#2=#:G111 NIL))

@@ -1,7 +1,7 @@
 
 (SDEFUN |UGAUSS;pre_gauss0|
-        ((|m| |Matrix| (|Integer|)) (|pivotsj| |Vector| (|Integer|))
-         (|pivotsk| |Vector| (|Integer|)) ($ |Void|))
+        ((|m| (|Matrix| (|Integer|))) (|pivotsj| (|Vector| (|Integer|)))
+         (|pivotsk| (|Vector| (|Integer|))) ($ (|Void|)))
         (SPROG
          ((#1=#:G131 NIL) (|l| NIL) (|pp| (|Integer|)) (#2=#:G130 NIL)
           (|n| NIL) (|ml| #3=(|Integer|)) (|l0| (|Integer|)) (#4=#:G127 NIL)
@@ -97,8 +97,8 @@
                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL)))))) 
 
 (SDEFUN |UGAUSS;pre_lr;M2VM;2|
-        ((|m| |Matrix| (|Integer|)) (|pivotsj| |Vector| (|Integer|))
-         (|pivotsk| |Vector| (|Integer|)) ($ |Matrix| (|Integer|)))
+        ((|m| (|Matrix| (|Integer|))) (|pivotsj| (|Vector| (|Integer|)))
+         (|pivotsk| (|Vector| (|Integer|))) ($ (|Matrix| (|Integer|))))
         (SPROG
          ((#1=#:G155 NIL) (|l| NIL) (#2=#:G154 NIL) (|pp| (|Integer|))
           (#3=#:G153 NIL) (|n| NIL) (|ml| #4=(|Integer|)) (|l0| (|Integer|))
@@ -223,7 +223,7 @@
               (EXIT |m2|)))) 
 
 (SDEFUN |UGAUSS;pre_gauss;2M;3|
-        ((|m| |Matrix| (|Integer|)) ($ |Matrix| (|Integer|)))
+        ((|m| (|Matrix| (|Integer|))) ($ (|Matrix| (|Integer|))))
         (SPROG
          ((|pivotsk| #1=(|Vector| (|Integer|))) (|pivotsj| #1#)
           (|k| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|)))
@@ -233,7 +233,7 @@
               (|UGAUSS;pre_gauss0| |m| |pivotsj| |pivotsk| $) (EXIT |m|)))) 
 
 (SDEFUN |UGAUSS;pre_smith;2M;4|
-        ((|m| |Matrix| (|Integer|)) ($ |Matrix| (|Integer|)))
+        ((|m| (|Matrix| (|Integer|))) ($ (|Matrix| (|Integer|))))
         (SPROG
          ((|l0| #1=(|NonNegativeInteger|)) (#2=#:G173 NIL) (|l| NIL) (|i0| #1#)
           (#3=#:G172 NIL) (|i| NIL) (|ress| (|Matrix| (|Integer|)))

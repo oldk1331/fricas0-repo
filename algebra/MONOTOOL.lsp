@@ -1,12 +1,12 @@
 
 (SDEFUN |MONOTOOL;normalDenom;FMUP;1|
-        ((|f| |Fraction| UP) (|derivation| |Mapping| UP UP) ($ UP))
+        ((|f| (|Fraction| UP)) (|derivation| (|Mapping| UP UP)) ($ (UP)))
         (QCAR
          (SPADCALL (SPADCALL |f| (QREFELT $ 9)) |derivation| (QREFELT $ 12)))) 
 
 (SDEFUN |MONOTOOL;split;UPMR;2|
-        ((|p| UP) (|derivation| |Mapping| UP UP)
-         ($ |Record| (|:| |normal| UP) (|:| |special| UP)))
+        ((|p| (UP)) (|derivation| (|Mapping| UP UP))
+         ($ (|Record| (|:| |normal| UP) (|:| |special| UP))))
         (SPROG
          ((|rec| (|Record| (|:| |normal| UP) (|:| |special| UP)))
           (#1=#:G113 NIL) (|pbar| (UP)) (|g| (UP)) (|difp| (UP)) (|derp| (UP)))
@@ -61,9 +61,10 @@
                                                (QREFELT $ 24))))))))))))))))))) 
 
 (SDEFUN |MONOTOOL;splitSquarefree;UPMR;3|
-        ((|p| UP) (|derivation| |Mapping| UP UP)
-         ($ |Record| (|:| |normal| (|Factored| UP))
-          (|:| |special| (|Factored| UP))))
+        ((|p| (UP)) (|derivation| (|Mapping| UP UP))
+         ($
+          (|Record| (|:| |normal| (|Factored| UP))
+                    (|:| |special| (|Factored| UP)))))
         (SPROG
          ((|n| #1=(|Factored| UP)) (|h| (UP)) (#2=#:G125 NIL) (|s| #1#)
           (|g| (UP)) (|r| (UP)) (#3=#:G132 NIL) (|rec| NIL)
@@ -109,9 +110,10 @@
                                (QREFELT $ 37))))))) 
 
 (SDEFUN |MONOTOOL;decompose;FMR;4|
-        ((|f| |Fraction| UP) (|derivation| |Mapping| UP UP)
-         ($ |Record| (|:| |poly| UP) (|:| |normal| (|Fraction| UP))
-          (|:| |special| (|Fraction| UP))))
+        ((|f| (|Fraction| UP)) (|derivation| (|Mapping| UP UP))
+         ($
+          (|Record| (|:| |poly| UP) (|:| |normal| (|Fraction| UP))
+                    (|:| |special| (|Fraction| UP)))))
         (SPROG
          ((|eeu| (|Record| (|:| |coef1| UP) (|:| |coef2| UP))) (#1=#:G139 NIL)
           (|rec| (|Record| (|:| |normal| UP) (|:| |special| UP)))

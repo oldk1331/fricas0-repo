@@ -1,6 +1,6 @@
 
 (SDEFUN |FINAALG-;leftCharacteristicPolynomial;SSup;1|
-        ((|a| S) ($ |SparseUnivariatePolynomial| R))
+        ((|a| (S)) ($ (|SparseUnivariatePolynomial| R)))
         (SPROG
          ((#1=#:G136 NIL) (|j| NIL) (#2=#:G135 NIL) (|i| NIL)
           (|mb| (|Matrix| (|SparseUnivariatePolynomial| R)))
@@ -39,7 +39,7 @@
               (EXIT (SPADCALL |mb| (QREFELT $ 24)))))) 
 
 (SDEFUN |FINAALG-;rightCharacteristicPolynomial;SSup;2|
-        ((|a| S) ($ |SparseUnivariatePolynomial| R))
+        ((|a| (S)) ($ (|SparseUnivariatePolynomial| R)))
         (SPROG
          ((#1=#:G142 NIL) (|j| NIL) (#2=#:G141 NIL) (|i| NIL)
           (|mb| (|Matrix| (|SparseUnivariatePolynomial| R)))
@@ -77,7 +77,7 @@
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL |mb| (QREFELT $ 24)))))) 
 
-(SDEFUN |FINAALG-;leftTrace;SR;3| ((|a| S) ($ R))
+(SDEFUN |FINAALG-;leftTrace;SR;3| ((|a| (S)) ($ (R)))
         (SPROG ((|t| (R)) (#1=#:G146 NIL) (|i| NIL) (|ma| (|Matrix| R)))
                (SEQ (LETT |t| (|spadConstant| $ 28))
                     (LETT |ma|
@@ -95,7 +95,7 @@
                          (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                     (EXIT |t|)))) 
 
-(SDEFUN |FINAALG-;rightTrace;SR;4| ((|a| S) ($ R))
+(SDEFUN |FINAALG-;rightTrace;SR;4| ((|a| (S)) ($ (R)))
         (SPROG ((|t| (R)) (#1=#:G150 NIL) (|i| NIL) (|ma| (|Matrix| R)))
                (SEQ (LETT |t| (|spadConstant| $ 28))
                     (LETT |ma|
@@ -113,15 +113,15 @@
                          (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                     (EXIT |t|)))) 
 
-(SDEFUN |FINAALG-;leftNorm;SR;5| ((|a| S) ($ R))
+(SDEFUN |FINAALG-;leftNorm;SR;5| ((|a| (S)) ($ (R)))
         (SPADCALL (SPADCALL |a| (SPADCALL (QREFELT $ 11)) (QREFELT $ 13))
                   (QREFELT $ 32))) 
 
-(SDEFUN |FINAALG-;rightNorm;SR;6| ((|a| S) ($ R))
+(SDEFUN |FINAALG-;rightNorm;SR;6| ((|a| (S)) ($ (R)))
         (SPADCALL (SPADCALL |a| (SPADCALL (QREFELT $ 11)) (QREFELT $ 26))
                   (QREFELT $ 32))) 
 
-(SDEFUN |FINAALG-;antiAssociative?;B;7| (($ |Boolean|))
+(SDEFUN |FINAALG-;antiAssociative?;B;7| (($ (|Boolean|)))
         (SPROG
          ((#1=#:G160 NIL) (#2=#:G161 NIL) (#3=#:G164 NIL) (|k| NIL)
           (#4=#:G163 NIL) (|j| NIL) (#5=#:G162 NIL) (|i| NIL)
@@ -183,7 +183,7 @@
                 (EXIT 'T)))
           #6# (EXIT #2#)))) 
 
-(SDEFUN |FINAALG-;jordanAdmissible?;B;8| (($ |Boolean|))
+(SDEFUN |FINAALG-;jordanAdmissible?;B;8| (($ (|Boolean|)))
         (SPROG
          ((#1=#:G178 NIL) (#2=#:G179 NIL) (#3=#:G183 NIL) (|l| NIL)
           (#4=#:G182 NIL) (|k| NIL) (#5=#:G181 NIL) (|j| NIL) (#6=#:G180 NIL)
@@ -310,7 +310,7 @@
                     (EXIT 'T)))))))
           #7# (EXIT #2#)))) 
 
-(SDEFUN |FINAALG-;lieAdmissible?;B;9| (($ |Boolean|))
+(SDEFUN |FINAALG-;lieAdmissible?;B;9| (($ (|Boolean|)))
         (SPROG
          ((#1=#:G191 NIL) (#2=#:G192 NIL) (#3=#:G195 NIL) (|k| NIL)
           (#4=#:G194 NIL) (|j| NIL) (#5=#:G193 NIL) (|i| NIL)
@@ -382,7 +382,7 @@
           #6# (EXIT #2#)))) 
 
 (SDEFUN |FINAALG-;structuralConstants;VV;10|
-        ((|b| |Vector| S) ($ |Vector| (|Matrix| R)))
+        ((|b| (|Vector| S)) ($ (|Vector| (|Matrix| R))))
         (SPROG
          ((#1=#:G209 NIL) (|k| NIL) (|covec| (|Vector| R)) (#2=#:G208 NIL)
           (|j| NIL) (#3=#:G207 NIL) (|i| NIL) (|sC| (|Vector| (|Matrix| R)))
@@ -434,7 +434,7 @@
                (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
           (EXIT |sC|)))) 
 
-(SDEFUN |FINAALG-;leftRecip;SU;11| ((|x| S) ($ |Union| S "failed"))
+(SDEFUN |FINAALG-;leftRecip;SU;11| ((|x| (S)) ($ (|Union| S "failed")))
         (SPROG
          ((#1=#:G226 NIL) (#2=#:G228 NIL) (|power| NIL) (#3=#:G229 NIL)
           (|i| NIL) (#4=#:G227 NIL) (|invCR| (R)) (|invC| (|Union| R "failed"))
@@ -575,7 +575,7 @@
                                                              (QREFELT $
                                                                       70)))))))))))))))))) 
 
-(SDEFUN |FINAALG-;rightRecip;SU;12| ((|x| S) ($ |Union| S "failed"))
+(SDEFUN |FINAALG-;rightRecip;SU;12| ((|x| (S)) ($ (|Union| S "failed")))
         (SPROG
          ((#1=#:G246 NIL) (#2=#:G248 NIL) (|power| NIL) (#3=#:G249 NIL)
           (|i| NIL) (#4=#:G247 NIL) (|invCR| (R)) (|invC| (|Union| R "failed"))
@@ -716,7 +716,7 @@
                                                              (QREFELT $
                                                                       70)))))))))))))))))) 
 
-(SDEFUN |FINAALG-;recip;SU;13| ((|x| S) ($ |Union| S "failed"))
+(SDEFUN |FINAALG-;recip;SU;13| ((|x| (S)) ($ (|Union| S "failed")))
         (SPROG ((|rrx| (|Union| S "failed")) (|lrx| (|Union| S "failed")))
                (SEQ (LETT |lrx| (SPADCALL |x| (QREFELT $ 74)))
                     (EXIT
@@ -732,7 +732,7 @@
                                    ('T (CONS 0 (QCDR |lrx|)))))))))))) 
 
 (SDEFUN |FINAALG-;leftMinimalPolynomial;SSup;14|
-        ((|x| S) ($ |SparseUnivariatePolynomial| R))
+        ((|x| (S)) ($ (|SparseUnivariatePolynomial| R)))
         (SPROG
          ((|res| (|SparseUnivariatePolynomial| R)) (#1=#:G263 NIL) (|i| NIL)
           (|vectorOfCoef| (|Vector| R)) (|cond| (|Matrix| R)) (|xx| (S))
@@ -779,7 +779,7 @@
                  (EXIT |res|))))))) 
 
 (SDEFUN |FINAALG-;rightMinimalPolynomial;SSup;15|
-        ((|x| S) ($ |SparseUnivariatePolynomial| R))
+        ((|x| (S)) ($ (|SparseUnivariatePolynomial| R)))
         (SPROG
          ((|res| (|SparseUnivariatePolynomial| R)) (#1=#:G270 NIL) (|i| NIL)
           (|vectorOfCoef| (|Vector| R)) (|cond| (|Matrix| R)) (|xx| (S))
@@ -825,7 +825,7 @@
                       (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                  (EXIT |res|))))))) 
 
-(SDEFUN |FINAALG-;associatorDependence;L;16| (($ |List| (|Vector| R)))
+(SDEFUN |FINAALG-;associatorDependence;L;16| (($ (|List| (|Vector| R))))
         (SPROG
          ((|z| (|Integer|)) (#1=#:G282 NIL) (|r| NIL) (|a213| #2=(|Vector| R))
           (|a321| #2#) (|a132| #2#) (|a312| #2#) (|a231| #2#) (|a123| #2#)
@@ -940,7 +940,7 @@
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL |cond| (QREFELT $ 65)))))) 
 
-(SDEFUN |FINAALG-;jacobiIdentity?;B;17| (($ |Boolean|))
+(SDEFUN |FINAALG-;jacobiIdentity?;B;17| (($ (|Boolean|)))
         (SPROG
          ((#1=#:G290 NIL) (#2=#:G291 NIL) (#3=#:G294 NIL) (|k| NIL)
           (#4=#:G293 NIL) (|j| NIL) (#5=#:G292 NIL) (|i| NIL)
@@ -1010,7 +1010,7 @@
                 (SPADCALL "Jacobi identity holds" (QREFELT $ 44)) (EXIT 'T)))
           #6# (EXIT #2#)))) 
 
-(SDEFUN |FINAALG-;lieAlgebra?;B;18| (($ |Boolean|))
+(SDEFUN |FINAALG-;lieAlgebra?;B;18| (($ (|Boolean|)))
         (SEQ
          (COND
           ((SPADCALL (QREFELT $ 85))
@@ -1024,7 +1024,7 @@
            (SEQ (SPADCALL "this is not a Lie algebra" (QREFELT $ 44))
                 (EXIT NIL)))))) 
 
-(SDEFUN |FINAALG-;jordanAlgebra?;B;19| (($ |Boolean|))
+(SDEFUN |FINAALG-;jordanAlgebra?;B;19| (($ (|Boolean|)))
         (SPROG
          ((#1=#:G313 NIL) (#2=#:G314 NIL) (#3=#:G318 NIL) (|l| NIL)
           (#4=#:G317 NIL) (|k| NIL) (#5=#:G316 NIL) (|j| NIL) (#6=#:G315 NIL)
@@ -1146,7 +1146,7 @@
                     (EXIT NIL)))))))
           #7# (EXIT #2#)))) 
 
-(SDEFUN |FINAALG-;noncommutativeJordanAlgebra?;B;20| (($ |Boolean|))
+(SDEFUN |FINAALG-;noncommutativeJordanAlgebra?;B;20| (($ (|Boolean|)))
         (SPROG ((|n| (|PositiveInteger|)) (|b| (|Vector| S)))
                (SEQ (LETT |b| (SPADCALL (QREFELT $ 11)))
                     (LETT |n| (SPADCALL (QREFELT $ 9)))
@@ -1182,7 +1182,7 @@
                          (QREFELT $ 44))
                         (EXIT NIL)))))))) 
 
-(SDEFUN |FINAALG-;antiCommutative?;B;21| (($ |Boolean|))
+(SDEFUN |FINAALG-;antiCommutative?;B;21| (($ (|Boolean|)))
         (SPROG
          ((#1=#:G334 NIL) (#2=#:G335 NIL) (#3=#:G337 NIL) (|j| NIL)
           (#4=#:G336 NIL) (|i| NIL) (|n| (|PositiveInteger|))
@@ -1237,7 +1237,7 @@
                 (EXIT 'T)))
           #5# (EXIT #2#)))) 
 
-(SDEFUN |FINAALG-;commutative?;B;22| (($ |Boolean|))
+(SDEFUN |FINAALG-;commutative?;B;22| (($ (|Boolean|)))
         (SPROG
          ((#1=#:G344 NIL) (#2=#:G345 NIL) (#3=#:G347 NIL) (|j| NIL)
           (#4=#:G346 NIL) (|i| NIL) (|n| (|PositiveInteger|))
@@ -1277,7 +1277,7 @@
                 (SPADCALL "algebra is commutative" (QREFELT $ 44)) (EXIT 'T)))
           #5# (EXIT #2#)))) 
 
-(SDEFUN |FINAALG-;associative?;B;23| (($ |Boolean|))
+(SDEFUN |FINAALG-;associative?;B;23| (($ (|Boolean|)))
         (SPROG
          ((#1=#:G355 NIL) (#2=#:G356 NIL) (#3=#:G359 NIL) (|k| NIL)
           (#4=#:G358 NIL) (|j| NIL) (#5=#:G357 NIL) (|i| NIL)
@@ -1327,7 +1327,7 @@
                 (SPADCALL "algebra is associative" (QREFELT $ 44)) (EXIT 'T)))
           #6# (EXIT #2#)))) 
 
-(SDEFUN |FINAALG-;leftAlternative?;B;24| (($ |Boolean|))
+(SDEFUN |FINAALG-;leftAlternative?;B;24| (($ (|Boolean|)))
         (SPROG
          ((#1=#:G367 NIL) (#2=#:G368 NIL) (#3=#:G371 NIL) (|k| NIL)
           (#4=#:G370 NIL) (|j| NIL) (#5=#:G369 NIL) (|i| NIL)
@@ -1386,7 +1386,7 @@
                 (EXIT 'T)))
           #6# (EXIT #2#)))) 
 
-(SDEFUN |FINAALG-;rightAlternative?;B;25| (($ |Boolean|))
+(SDEFUN |FINAALG-;rightAlternative?;B;25| (($ (|Boolean|)))
         (SPROG
          ((#1=#:G379 NIL) (#2=#:G380 NIL) (#3=#:G383 NIL) (|k| NIL)
           (#4=#:G382 NIL) (|j| NIL) (#5=#:G381 NIL) (|i| NIL)
@@ -1445,7 +1445,7 @@
                 (EXIT 'T)))
           #6# (EXIT #2#)))) 
 
-(SDEFUN |FINAALG-;flexible?;B;26| (($ |Boolean|))
+(SDEFUN |FINAALG-;flexible?;B;26| (($ (|Boolean|)))
         (SPROG
          ((#1=#:G391 NIL) (#2=#:G392 NIL) (#3=#:G395 NIL) (|k| NIL)
           (#4=#:G394 NIL) (|j| NIL) (#5=#:G393 NIL) (|i| NIL)
@@ -1504,7 +1504,7 @@
                 (EXIT 'T)))
           #6# (EXIT #2#)))) 
 
-(SDEFUN |FINAALG-;alternative?;B;27| (($ |Boolean|))
+(SDEFUN |FINAALG-;alternative?;B;27| (($ (|Boolean|)))
         (SPROG
          ((#1=#:G405 NIL) (#2=#:G406 NIL) (#3=#:G409 NIL) (|k| NIL)
           (#4=#:G408 NIL) (|j| NIL) (#5=#:G407 NIL) (|i| NIL)
@@ -1586,14 +1586,14 @@
                 (EXIT 'T)))
           #6# (EXIT #2#)))) 
 
-(SDEFUN |FINAALG-;leftDiscriminant;VR;28| ((|v| |Vector| S) ($ R))
+(SDEFUN |FINAALG-;leftDiscriminant;VR;28| ((|v| (|Vector| S)) ($ (R)))
         (SPADCALL (SPADCALL |v| (QREFELT $ 100)) (QREFELT $ 32))) 
 
-(SDEFUN |FINAALG-;rightDiscriminant;VR;29| ((|v| |Vector| S) ($ R))
+(SDEFUN |FINAALG-;rightDiscriminant;VR;29| ((|v| (|Vector| S)) ($ (R)))
         (SPADCALL (SPADCALL |v| (QREFELT $ 102)) (QREFELT $ 32))) 
 
 (SDEFUN |FINAALG-;coordinates;2VM;30|
-        ((|v| |Vector| S) (|b| |Vector| S) ($ |Matrix| R))
+        ((|v| (|Vector| S)) (|b| (|Vector| S)) ($ (|Matrix| R)))
         (SPROG ((#1=#:G415 NIL) (|i| NIL) (|j| NIL) (|m| (|Matrix| R)))
                (SEQ
                 (LETT |m|
@@ -1613,7 +1613,8 @@
                      (GO G190) G191 (EXIT NIL))
                 (EXIT |m|)))) 
 
-(SDEFUN |FINAALG-;represents;VVS;31| ((|v| |Vector| R) (|b| |Vector| S) ($ S))
+(SDEFUN |FINAALG-;represents;VVS;31|
+        ((|v| (|Vector| R)) (|b| (|Vector| S)) ($ (S)))
         (SPROG
          ((#1=#:G421 NIL) (#2=#:G423 NIL) (|i| NIL) (#3=#:G422 NIL)
           (|m| (|Integer|)))
@@ -1640,7 +1641,7 @@
                           #3#)
                          (QREFELT $ 70)))))) 
 
-(SDEFUN |FINAALG-;leftTraceMatrix;VM;32| ((|v| |Vector| S) ($ |Matrix| R))
+(SDEFUN |FINAALG-;leftTraceMatrix;VM;32| ((|v| (|Vector| S)) ($ (|Matrix| R)))
         (SPROG
          ((#1=#:G430 NIL) (|j| NIL) (#2=#:G429 NIL) (#3=#:G428 NIL) (|i| NIL)
           (#4=#:G427 NIL))
@@ -1676,7 +1677,7 @@
                  (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT (NREVERSE #4#))))
            (QREFELT $ 111))))) 
 
-(SDEFUN |FINAALG-;rightTraceMatrix;VM;33| ((|v| |Vector| S) ($ |Matrix| R))
+(SDEFUN |FINAALG-;rightTraceMatrix;VM;33| ((|v| (|Vector| S)) ($ (|Matrix| R)))
         (SPROG
          ((#1=#:G437 NIL) (|j| NIL) (#2=#:G436 NIL) (#3=#:G435 NIL) (|i| NIL)
           (#4=#:G434 NIL))
@@ -1713,7 +1714,7 @@
            (QREFELT $ 111))))) 
 
 (SDEFUN |FINAALG-;leftRegularRepresentation;SVM;34|
-        ((|x| S) (|b| |Vector| S) ($ |Matrix| R))
+        ((|x| (S)) (|b| (|Vector| S)) ($ (|Matrix| R)))
         (SPROG ((#1=#:G443 NIL) (|i| NIL) (#2=#:G442 NIL) (|m| (|Integer|)))
                (SEQ (LETT |m| (- (SPADCALL |b| (QREFELT $ 104)) 1))
                     (EXIT
@@ -1742,7 +1743,7 @@
                       (QREFELT $ 117)))))) 
 
 (SDEFUN |FINAALG-;rightRegularRepresentation;SVM;35|
-        ((|x| S) (|b| |Vector| S) ($ |Matrix| R))
+        ((|x| (S)) (|b| (|Vector| S)) ($ (|Matrix| R)))
         (SPROG ((#1=#:G449 NIL) (|i| NIL) (#2=#:G448 NIL) (|m| (|Integer|)))
                (SEQ (LETT |m| (- (SPADCALL |b| (QREFELT $ 104)) 1))
                     (EXIT

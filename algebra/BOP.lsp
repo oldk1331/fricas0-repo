@@ -1,66 +1,67 @@
 
-(SDEFUN |BOP;is?;$SB;1| ((|op| $) (|s| |Symbol|) ($ |Boolean|))
+(SDEFUN |BOP;is?;$SB;1| ((|op| ($)) (|s| (|Symbol|)) ($ (|Boolean|)))
         (EQUAL (SPADCALL |op| (QREFELT $ 13)) |s|)) 
 
 (PUT '|BOP;name;$S;2| '|SPADreplace| '(XLAM (|op|) (QVELT |op| 0))) 
 
-(SDEFUN |BOP;name;$S;2| ((|op| $) ($ |Symbol|)) (QVELT |op| 0)) 
+(SDEFUN |BOP;name;$S;2| ((|op| ($)) ($ (|Symbol|))) (QVELT |op| 0)) 
 
 (PUT '|BOP;properties;$Al;3| '|SPADreplace| '(XLAM (|op|) (QVELT |op| 2))) 
 
 (SDEFUN |BOP;properties;$Al;3|
-        ((|op| $) ($ |AssociationList| (|Symbol|) (|None|))) (QVELT |op| 2)) 
+        ((|op| ($)) ($ (|AssociationList| (|Symbol|) (|None|)))) (QVELT |op| 2)) 
 
 (SDEFUN |BOP;setProperties;$Al$;4|
-        ((|op| $) (|l| |AssociationList| (|Symbol|) (|None|)) ($ $))
+        ((|op| ($)) (|l| (|AssociationList| (|Symbol|) (|None|))) ($ ($)))
         (SEQ (QSETVELT |op| 2 |l|) (EXIT |op|))) 
 
-(SDEFUN |BOP;operator;S$;5| ((|s| |Symbol|) ($ $))
+(SDEFUN |BOP;operator;S$;5| ((|s| (|Symbol|)) ($ ($)))
         (|BOP;oper| |s| -1 (SPADCALL (QREFELT $ 19)) $)) 
 
 (SDEFUN |BOP;operator;SNni$;6|
-        ((|s| |Symbol|) (|n| |NonNegativeInteger|) ($ $))
+        ((|s| (|Symbol|)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (|BOP;oper| |s| (SPADCALL |n| (QREFELT $ 23)) (SPADCALL (QREFELT $ 19))
          $)) 
 
 (SDEFUN |BOP;property;$SU;7|
-        ((|op| $) (|name| |Symbol|) ($ |Union| (|None|) "failed"))
+        ((|op| ($)) (|name| (|Symbol|)) ($ (|Union| (|None|) "failed")))
         (SPADCALL |name| (QVELT |op| 2) (QREFELT $ 27))) 
 
-(SDEFUN |BOP;assert;$S$;8| ((|op| $) (|s| |Symbol|) ($ $))
+(SDEFUN |BOP;assert;$S$;8| ((|op| ($)) (|s| (|Symbol|)) ($ ($)))
         (SPADCALL |op| |s| NIL (QREFELT $ 30))) 
 
-(SDEFUN |BOP;has?;$SB;9| ((|op| $) (|name| |Symbol|) ($ |Boolean|))
+(SDEFUN |BOP;has?;$SB;9| ((|op| ($)) (|name| (|Symbol|)) ($ (|Boolean|)))
         (SPADCALL |name| (QVELT |op| 2) (QREFELT $ 32))) 
 
 (PUT '|BOP;oper| '|SPADreplace| 'VECTOR) 
 
 (SDEFUN |BOP;oper|
-        ((|se| |Symbol|) (|n| |SingleInteger|)
-         (|prop| |AssociationList| (|Symbol|) (|None|)) ($ $))
+        ((|se| (|Symbol|)) (|n| (|SingleInteger|))
+         (|prop| (|AssociationList| (|Symbol|) (|None|))) ($ ($)))
         (VECTOR |se| |n| |prop|)) 
 
-(SDEFUN |BOP;weight;$Nni$;11| ((|op| $) (|n| |NonNegativeInteger|) ($ $))
+(SDEFUN |BOP;weight;$Nni$;11| ((|op| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (SPADCALL |op| (QREFELT $ 9) |n| (QREFELT $ 30))) 
 
-(SDEFUN |BOP;nullary?;$B;12| ((|op| $) ($ |Boolean|))
+(SDEFUN |BOP;nullary?;$B;12| ((|op| ($)) ($ (|Boolean|)))
         (|zero?_SI| (QVELT |op| 1))) 
 
-(SDEFUN |BOP;unary?;$B;13| ((|op| $) ($ |Boolean|)) (|eql_SI| (QVELT |op| 1) 1)) 
+(SDEFUN |BOP;unary?;$B;13| ((|op| ($)) ($ (|Boolean|)))
+        (|eql_SI| (QVELT |op| 1) 1)) 
 
-(SDEFUN |BOP;nary?;$B;14| ((|op| $) ($ |Boolean|))
+(SDEFUN |BOP;nary?;$B;14| ((|op| ($)) ($ (|Boolean|)))
         (|negative?_SI| (QVELT |op| 1))) 
 
 (SDEFUN |BOP;equality;$M$;15|
-        ((|op| $) (|func| |Mapping| (|Boolean|) $ $) ($ $))
+        ((|op| ($)) (|func| (|Mapping| (|Boolean|) $ $)) ($ ($)))
         (SPADCALL |op| (QREFELT $ 8) |func| (QREFELT $ 30))) 
 
 (SDEFUN |BOP;comparison;$M$;16|
-        ((|op| $) (|func| |Mapping| (|Boolean|) $ $) ($ $))
+        ((|op| ($)) (|func| (|Mapping| (|Boolean|) $ $)) ($ ($)))
         (SPADCALL |op| (QREFELT $ 7) |func| (QREFELT $ 30))) 
 
 (SDEFUN |BOP;display;$M$;17|
-        ((|op| $) (|f| |Mapping| (|OutputForm|) (|OutputForm|)) ($ $))
+        ((|op| ($)) (|f| (|Mapping| (|OutputForm|) (|OutputForm|))) ($ ($)))
         (SPROG NIL
                (SPADCALL |op| (CONS #'|BOP;display;$M$;17!0| (VECTOR |f| $))
                          (QREFELT $ 45)))) 
@@ -71,30 +72,33 @@
           (LETT |f| (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL (SPADCALL |l1| (QREFELT $ 43)) |f|))))) 
 
-(SDEFUN |BOP;deleteProperty!;$S$;18| ((|op| $) (|name| |Symbol|) ($ $))
+(SDEFUN |BOP;deleteProperty!;$S$;18| ((|op| ($)) (|name| (|Symbol|)) ($ ($)))
         (SEQ (SPADCALL |name| (SPADCALL |op| (QREFELT $ 17)) (QREFELT $ 48))
              (EXIT |op|))) 
 
 (SDEFUN |BOP;setProperty;$SN$;19|
-        ((|op| $) (|name| |Symbol|) (|valu| |None|) ($ $))
+        ((|op| ($)) (|name| (|Symbol|)) (|valu| (|None|)) ($ ($)))
         (SEQ (SPADCALL (QVELT |op| 2) |name| |valu| (QREFELT $ 50))
              (EXIT |op|))) 
 
-(SDEFUN |BOP;coerce;$Of;20| ((|op| $) ($ |OutputForm|))
+(SDEFUN |BOP;coerce;$Of;20| ((|op| ($)) ($ (|OutputForm|)))
         (SPADCALL (SPADCALL |op| (QREFELT $ 13)) (QREFELT $ 51))) 
 
 (SDEFUN |BOP;input;$M$;21|
-        ((|op| $) (|f| |Mapping| (|InputForm|) (|List| (|InputForm|))) ($ $))
+        ((|op| ($)) (|f| (|Mapping| (|InputForm|) (|List| (|InputForm|))))
+         ($ ($)))
         (SPADCALL |op| (QREFELT $ 11) |f| (QREFELT $ 30))) 
 
 (SDEFUN |BOP;display;$M$;22|
-        ((|op| $) (|f| |Mapping| (|OutputForm|) (|List| (|OutputForm|))) ($ $))
+        ((|op| ($)) (|f| (|Mapping| (|OutputForm|) (|List| (|OutputForm|))))
+         ($ ($)))
         (SPADCALL |op| (QREFELT $ 10) |f| (QREFELT $ 30))) 
 
 (SDEFUN |BOP;display;$U;23|
-        ((|op| $)
-         ($ |Union| (|Mapping| (|OutputForm|) (|List| (|OutputForm|)))
-          "failed"))
+        ((|op| ($))
+         ($
+          (|Union| (|Mapping| (|OutputForm|) (|List| (|OutputForm|)))
+                   "failed")))
         (SPROG ((|u| (|Union| (|None|) "failed")))
                (SEQ (LETT |u| (SPADCALL |op| (QREFELT $ 10) (QREFELT $ 28)))
                     (EXIT
@@ -102,8 +106,9 @@
                            ('T (CONS 0 (QCDR |u|)))))))) 
 
 (SDEFUN |BOP;input;$U;24|
-        ((|op| $)
-         ($ |Union| (|Mapping| (|InputForm|) (|List| (|InputForm|))) "failed"))
+        ((|op| ($))
+         ($
+          (|Union| (|Mapping| (|InputForm|) (|List| (|InputForm|))) "failed")))
         (SPROG ((|u| (|Union| (|None|) "failed")))
                (SEQ (LETT |u| (SPADCALL |op| (QREFELT $ 11) (QREFELT $ 28)))
                     (EXIT
@@ -111,7 +116,7 @@
                            ('T (CONS 0 (QCDR |u|)))))))) 
 
 (SDEFUN |BOP;arity;$U;25|
-        ((|op| $) ($ |Union| (|NonNegativeInteger|) "failed"))
+        ((|op| ($)) ($ (|Union| (|NonNegativeInteger|) "failed")))
         (SPROG ((#1=#:G179 NIL) (|n| (|SingleInteger|)))
                (COND
                 ((|negative?_SI| (LETT |n| (QVELT |op| 1))) (CONS 1 "failed"))
@@ -121,7 +126,7 @@
                          (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
                                            '(|Integer|) #1#))))))) 
 
-(SDEFUN |BOP;copy;2$;26| ((|op| $) ($ $))
+(SDEFUN |BOP;copy;2$;26| ((|op| ($)) ($ ($)))
         (SPROG ((#1=#:G189 NIL) (|r| NIL) (#2=#:G188 NIL))
                (SEQ
                 (|BOP;oper| (SPADCALL |op| (QREFELT $ 13)) (QVELT |op| 1)
@@ -144,7 +149,7 @@
                   (QREFELT $ 64))
                  $)))) 
 
-(SDEFUN |BOP;=;2$B;27| ((|op1| $) (|op2| $) ($ |Boolean|))
+(SDEFUN |BOP;=;2$B;27| ((|op1| ($)) (|op2| ($)) ($ (|Boolean|)))
         (SPROG ((|func| (|Union| (|None|) "failed")))
                (SEQ
                 (COND ((EQ |op1| |op2|) 'T)
@@ -176,12 +181,12 @@
                            (SPADCALL |op1| |op2| (QCDR |func|)))
                           ('T 'T))))))))) 
 
-(SDEFUN |BOP;weight;$Nni;28| ((|op| $) ($ |NonNegativeInteger|))
+(SDEFUN |BOP;weight;$Nni;28| ((|op| ($)) ($ (|NonNegativeInteger|)))
         (SPROG ((|w| (|Union| (|None|) "failed")))
                (SEQ (LETT |w| (SPADCALL |op| (QREFELT $ 9) (QREFELT $ 28)))
                     (EXIT (COND ((QEQCAR |w| 1) 1) ('T (QCDR |w|))))))) 
 
-(SDEFUN |BOP;<;2$B;29| ((|op1| $) (|op2| $) ($ |Boolean|))
+(SDEFUN |BOP;<;2$B;29| ((|op1| ($)) (|op2| ($)) ($ (|Boolean|)))
         (SPROG
          ((|func| (|Union| (|None|) "failed")) (|n2| #1=(|NonNegativeInteger|))
           (|d2| #2=(|Set| (|Symbol|))) (|n1| #1#) (|d1| #2#)

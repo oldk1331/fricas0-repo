@@ -1,5 +1,5 @@
 
-(SDEFUN |RANDSRC;randnum;I;1| (($ |Integer|))
+(SDEFUN |RANDSRC;randnum;I;1| (($ (|Integer|)))
         (SPROG ((|t| (|Integer|)))
                (SEQ
                 (LETT |t|
@@ -10,16 +10,16 @@
                 (COND ((< |t| 0) (LETT |t| (+ |t| (QREFELT $ 6)))))
                 (SETELT $ 7 (QREFELT $ 8)) (EXIT (SETELT $ 8 |t|))))) 
 
-(SDEFUN |RANDSRC;size;I;2| (($ |Integer|)) (QREFELT $ 6)) 
+(SDEFUN |RANDSRC;size;I;2| (($ (|Integer|))) (QREFELT $ 6)) 
 
-(SDEFUN |RANDSRC;reseed;IV;3| ((|n| |Integer|) ($ |Void|))
+(SDEFUN |RANDSRC;reseed;IV;3| ((|n| (|Integer|)) ($ (|Void|)))
         (SEQ (SETELT $ 7 (REM |n| (QREFELT $ 6)))
              (EXIT (SETELT $ 8 (QUOTIENT2 |n| (QREFELT $ 6)))))) 
 
-(SDEFUN |RANDSRC;seed;I;4| (($ |Integer|))
+(SDEFUN |RANDSRC;seed;I;4| (($ (|Integer|)))
         (+ (* (QREFELT $ 8) (QREFELT $ 6)) (QREFELT $ 7))) 
 
-(SDEFUN |RANDSRC;randnum;2I;5| ((|n| |Integer|) ($ |Integer|))
+(SDEFUN |RANDSRC;randnum;2I;5| ((|n| (|Integer|)) ($ (|Integer|)))
         (QUOTIENT2 (* |n| (SPADCALL (QREFELT $ 10))) (QREFELT $ 6))) 
 
 (DECLAIM (NOTINLINE |RandomNumberSource;|)) 

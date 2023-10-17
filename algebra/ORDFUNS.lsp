@@ -1,6 +1,6 @@
 
 (SDEFUN |ORDFUNS;pureLex;2VB;1|
-        ((|v1| |Vector| S) (|v2| |Vector| S) ($ |Boolean|))
+        ((|v1| (|Vector| S)) (|v2| (|Vector| S)) ($ (|Boolean|)))
         (SPROG ((#1=#:G114 NIL) (#2=#:G115 NIL) (|i| NIL))
                (SEQ
                 (EXIT
@@ -22,7 +22,7 @@
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |ORDFUNS;totalLex;2VB;2|
-        ((|v1| |Vector| S) (|v2| |Vector| S) ($ |Boolean|))
+        ((|v1| (|Vector| S)) (|v2| (|Vector| S)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G124 NIL) (#2=#:G126 NIL) (|i| NIL) (|n2| (S)) (|n1| (S))
           (#3=#:G125 NIL))
@@ -65,7 +65,7 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |ORDFUNS;reverseLex;2VB;3|
-        ((|v1| |Vector| S) (|v2| |Vector| S) ($ |Boolean|))
+        ((|v1| (|Vector| S)) (|v2| (|Vector| S)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G135 NIL) (|i| NIL) (|n2| (S)) (|n1| (S)) (#2=#:G136 NIL))
          (SEQ

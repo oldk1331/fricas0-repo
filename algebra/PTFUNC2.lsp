@@ -1,6 +1,6 @@
 
 (SDEFUN |PTFUNC2;map;MPP;1|
-        ((|mapping| |Mapping| R2 R1) (|p| |Point| R1) ($ |Point| R2))
+        ((|mapping| (|Mapping| R2 R1)) (|p| (|Point| R1)) ($ (|Point| R2)))
         (SPROG ((#1=#:G104 NIL) (#2=#:G109 NIL) (|i| NIL) (#3=#:G108 NIL))
                (SEQ
                 (SPADCALL

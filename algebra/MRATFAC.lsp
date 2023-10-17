@@ -1,20 +1,22 @@
 
 (SDEFUN |MRATFAC;numer1|
-        ((|c| |Fraction| R) ($ |SparseMultivariatePolynomial| R OV))
+        ((|c| (|Fraction| R)) ($ (|SparseMultivariatePolynomial| R OV)))
         (SPADCALL (SPADCALL |c| (QREFELT $ 11)) (QREFELT $ 13))) 
 
-(SDEFUN |MRATFAC;numer2| ((|pol| P) ($ |SparseMultivariatePolynomial| R OV))
+(SDEFUN |MRATFAC;numer2|
+        ((|pol| (P)) ($ (|SparseMultivariatePolynomial| R OV)))
         (SPADCALL (ELT $ 14) (CONS (|function| |MRATFAC;numer1|) $) |pol|
                   (QREFELT $ 18))) 
 
-(SDEFUN |MRATFAC;coerce1| ((|d| R) ($ P))
+(SDEFUN |MRATFAC;coerce1| ((|d| (R)) ($ (P)))
         (SPADCALL (SPADCALL |d| (QREFELT $ 19)) (QREFELT $ 20))) 
 
-(SDEFUN |MRATFAC;coerce2| ((|pp| |SparseMultivariatePolynomial| R OV) ($ P))
+(SDEFUN |MRATFAC;coerce2|
+        ((|pp| (|SparseMultivariatePolynomial| R OV)) ($ (P)))
         (SPADCALL (ELT $ 21) (CONS (|function| |MRATFAC;coerce1|) $) |pp|
                   (QREFELT $ 25))) 
 
-(SDEFUN |MRATFAC;factor;PF;5| ((|p| P) ($ |Factored| P))
+(SDEFUN |MRATFAC;factor;PF;5| ((|p| (P)) ($ (|Factored| P)))
         (SPROG
          ((#1=#:G120 NIL) (#2=#:G119 #3=(|Factored| P)) (#4=#:G121 #3#)
           (#5=#:G128 NIL) (|u| NIL)

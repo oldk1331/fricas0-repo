@@ -1,31 +1,31 @@
 
-(SDEFUN |PTPACK;xCoord;PR;1| ((|p| |Point| R) ($ R))
+(SDEFUN |PTPACK;xCoord;PR;1| ((|p| (|Point| R)) ($ (R)))
         (SPADCALL |p| 1 (QREFELT $ 10))) 
 
-(SDEFUN |PTPACK;yCoord;PR;2| ((|p| |Point| R) ($ R))
+(SDEFUN |PTPACK;yCoord;PR;2| ((|p| (|Point| R)) ($ (R)))
         (SPADCALL |p| 2 (QREFELT $ 10))) 
 
-(SDEFUN |PTPACK;zCoord;PR;3| ((|p| |Point| R) ($ R))
+(SDEFUN |PTPACK;zCoord;PR;3| ((|p| (|Point| R)) ($ (R)))
         (SPADCALL |p| 3 (QREFELT $ 10))) 
 
-(SDEFUN |PTPACK;rCoord;PR;4| ((|p| |Point| R) ($ R))
+(SDEFUN |PTPACK;rCoord;PR;4| ((|p| (|Point| R)) ($ (R)))
         (SPADCALL |p| 1 (QREFELT $ 10))) 
 
-(SDEFUN |PTPACK;thetaCoord;PR;5| ((|p| |Point| R) ($ R))
+(SDEFUN |PTPACK;thetaCoord;PR;5| ((|p| (|Point| R)) ($ (R)))
         (SPADCALL |p| 2 (QREFELT $ 10))) 
 
-(SDEFUN |PTPACK;phiCoord;PR;6| ((|p| |Point| R) ($ R))
+(SDEFUN |PTPACK;phiCoord;PR;6| ((|p| (|Point| R)) ($ (R)))
         (SPADCALL |p| 3 (QREFELT $ 10))) 
 
-(SDEFUN |PTPACK;color;PR;7| ((|p| |Point| R) ($ R))
+(SDEFUN |PTPACK;color;PR;7| ((|p| (|Point| R)) ($ (R)))
         (COND
          ((> (SPADCALL |p| (QREFELT $ 18)) 3) (SPADCALL |p| 4 (QREFELT $ 10)))
          ('T (SPADCALL |p| 3 (QREFELT $ 10))))) 
 
-(SDEFUN |PTPACK;hue;PR;8| ((|p| |Point| R) ($ R))
+(SDEFUN |PTPACK;hue;PR;8| ((|p| (|Point| R)) ($ (R)))
         (SPADCALL |p| 3 (QREFELT $ 10))) 
 
-(SDEFUN |PTPACK;shade;PR;9| ((|p| |Point| R) ($ R))
+(SDEFUN |PTPACK;shade;PR;9| ((|p| (|Point| R)) ($ (R)))
         (SPADCALL |p| 4 (QREFELT $ 10))) 
 
 (DECLAIM (NOTINLINE |PointPackage;|)) 

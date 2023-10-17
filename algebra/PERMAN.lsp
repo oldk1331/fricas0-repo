@@ -1,5 +1,5 @@
 
-(SDEFUN |PERMAN;permanent3| ((|x| |SquareMatrix| |n| R) ($ R))
+(SDEFUN |PERMAN;permanent3| ((|x| (|SquareMatrix| |n| R)) ($ (R)))
         (SPROG
          ((|a| (R)) (|j| (|Integer|)) (|vv| (|Vector| (|Vector| (|Integer|))))
           (|b| (R)) (#1=#:G118 NIL) (|i| NIL) (|k| (R)) (|sgn| (R))
@@ -55,7 +55,7 @@
                ((ODDP (QREFELT $ 6)) (LETT |a| (SPADCALL |a| (QREFELT $ 17)))))
               (EXIT |a|)))) 
 
-(SDEFUN |PERMAN;permanent;SmR;2| ((|x| |SquareMatrix| |n| R) ($ R))
+(SDEFUN |PERMAN;permanent;SmR;2| ((|x| (|SquareMatrix| |n| R)) ($ (R)))
         (SPROG
          ((|a| (R)) (|j| #1=(|Integer|))
           (|vv| (|Vector| (|Vector| (|Integer|)))) (#2=#:G130 NIL) (|b| (R))
@@ -196,7 +196,7 @@
                        (EXIT (SPADCALL |two| |a| (QREFELT $ 25)))))))
           #11# (EXIT #9#)))) 
 
-(SDEFUN |PERMAN;permanent2| ((|x| |SquareMatrix| |n| R) ($ R))
+(SDEFUN |PERMAN;permanent2| ((|x| (|SquareMatrix| |n| R)) ($ (R)))
         (SPROG
          ((#1=#:G157 NIL) (|b| (R)) (#2=#:G155 NIL) (|a| (R))
           (|j| #3=(|Integer|)) (|vv| (|Vector| (|Vector| (|Integer|))))

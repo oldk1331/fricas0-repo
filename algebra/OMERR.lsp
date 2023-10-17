@@ -1,5 +1,5 @@
 
-(SDEFUN |OMERR;coerce;$Of;1| ((|e| $) ($ |OutputForm|))
+(SDEFUN |OMERR;coerce;$Of;1| ((|e| ($)) ($ (|OutputForm|)))
         (SPROG ((|infoSize| (|NonNegativeInteger|)))
                (SEQ
                 (COND
@@ -44,16 +44,17 @@
 (PUT '|OMERR;omError;OmekL$;2| '|SPADreplace| 'CONS) 
 
 (SDEFUN |OMERR;omError;OmekL$;2|
-        ((|e| |OpenMathErrorKind|) (|i| |List| (|Symbol|)) ($ $))
+        ((|e| (|OpenMathErrorKind|)) (|i| (|List| (|Symbol|))) ($ ($)))
         (CONS |e| |i|)) 
 
 (PUT '|OMERR;errorKind;$Omek;3| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |OMERR;errorKind;$Omek;3| ((|e| $) ($ |OpenMathErrorKind|)) (QCAR |e|)) 
+(SDEFUN |OMERR;errorKind;$Omek;3| ((|e| ($)) ($ (|OpenMathErrorKind|)))
+        (QCAR |e|)) 
 
 (PUT '|OMERR;errorInfo;$L;4| '|SPADreplace| 'QCDR) 
 
-(SDEFUN |OMERR;errorInfo;$L;4| ((|e| $) ($ |List| (|Symbol|))) (QCDR |e|)) 
+(SDEFUN |OMERR;errorInfo;$L;4| ((|e| ($)) ($ (|List| (|Symbol|)))) (QCDR |e|)) 
 
 (DECLAIM (NOTINLINE |OpenMathError;|)) 
 

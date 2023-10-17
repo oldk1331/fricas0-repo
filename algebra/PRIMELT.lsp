@@ -1,15 +1,15 @@
 
 (SDEFUN |PRIMELT;multi|
-        ((|p| |SparseUnivariatePolynomial| F) (|v| |Symbol|)
-         ($ |Polynomial| F))
+        ((|p| (|SparseUnivariatePolynomial| F)) (|v| (|Symbol|))
+         ($ (|Polynomial| F)))
         (SPADCALL (SPADCALL (LIST #'|PRIMELT;multi!0|) |p| (QREFELT $ 9)) |v|
                   (QREFELT $ 12))) 
 
 (SDEFUN |PRIMELT;multi!0| ((|f1| NIL) ($$ NIL)) |f1|) 
 
 (SDEFUN |PRIMELT;randomInts|
-        ((|n| |NonNegativeInteger|) (|m| |NonNegativeInteger|)
-         ($ |List| (|Integer|)))
+        ((|n| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|))
+         ($ (|List| (|Integer|))))
         (SPROG ((#1=#:G119 NIL) (|i| NIL) (#2=#:G118 NIL))
                (SEQ
                 (PROGN
@@ -25,7 +25,7 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |PRIMELT;incl?|
-        ((|a| |List| (|Symbol|)) (|b| |List| (|Symbol|)) ($ |Boolean|))
+        ((|a| (|List| (|Symbol|))) (|b| (|List| (|Symbol|))) ($ (|Boolean|)))
         (SPROG NIL
                (SPADCALL (CONS #'|PRIMELT;incl?!0| (VECTOR $ |b|)) |a|
                          (QREFELT $ 19)))) 
@@ -37,17 +37,19 @@
           (RETURN (PROGN (SPADCALL |s1| |b| (QREFELT $ 17)))))) 
 
 (SDEFUN |PRIMELT;primitiveElement;LLR;4|
-        ((|l| |List| (|Polynomial| F)) (|v| |List| (|Symbol|))
-         ($ |Record| (|:| |coef| (|List| (|Integer|)))
-          (|:| |poly| (|List| (|SparseUnivariatePolynomial| F)))
-          (|:| |prim| (|SparseUnivariatePolynomial| F))))
+        ((|l| (|List| (|Polynomial| F))) (|v| (|List| (|Symbol|)))
+         ($
+          (|Record| (|:| |coef| (|List| (|Integer|)))
+                    (|:| |poly| (|List| (|SparseUnivariatePolynomial| F)))
+                    (|:| |prim| (|SparseUnivariatePolynomial| F)))))
         (SPADCALL |l| |v| (SPADCALL (QREFELT $ 20)) (QREFELT $ 23))) 
 
 (SDEFUN |PRIMELT;primitiveElement;PSPSR;5|
-        ((|p1| |Polynomial| F) (|a1| |Symbol|) (|p2| |Polynomial| F)
-         (|a2| |Symbol|)
-         ($ |Record| (|:| |coef1| (|Integer|)) (|:| |coef2| (|Integer|))
-          (|:| |prim| (|SparseUnivariatePolynomial| F))))
+        ((|p1| (|Polynomial| F)) (|a1| (|Symbol|)) (|p2| (|Polynomial| F))
+         (|a2| (|Symbol|))
+         ($
+          (|Record| (|:| |coef1| (|Integer|)) (|:| |coef2| (|Integer|))
+                    (|:| |prim| (|SparseUnivariatePolynomial| F)))))
         (SPROG
          ((#1=#:G132 NIL) (#2=#:G133 NIL)
           (|r| (|SparseUnivariatePolynomial| F)) (|w| (|Polynomial| F))
@@ -96,8 +98,8 @@
           #3# (EXIT #2#)))) 
 
 (SDEFUN |PRIMELT;findUniv|
-        ((|l| |List| (|Polynomial| F)) (|v| |Symbol|) (|opt| |Symbol|)
-         ($ |Union| (|Polynomial| F) "failed"))
+        ((|l| (|List| (|Polynomial| F))) (|v| (|Symbol|)) (|opt| (|Symbol|))
+         ($ (|Union| (|Polynomial| F) "failed")))
         (SPROG ((#1=#:G142 NIL) (#2=#:G143 NIL) (#3=#:G144 NIL) (|p| NIL))
                (SEQ
                 (EXIT
@@ -127,8 +129,9 @@
                 #4# (EXIT #2#)))) 
 
 (SDEFUN |PRIMELT;triangularLinearIfCan|
-        ((|l| |List| (|Polynomial| F)) (|lv| |List| (|Symbol|)) (|w| |Symbol|)
-         ($ |Union| (|List| (|SparseUnivariatePolynomial| F)) "failed"))
+        ((|l| (|List| (|Polynomial| F))) (|lv| (|List| (|Symbol|)))
+         (|w| (|Symbol|))
+         ($ (|Union| (|List| (|SparseUnivariatePolynomial| F)) "failed")))
         (SPROG
          ((|ll| (|List| (|SparseUnivariatePolynomial| F)))
           (|bc|
@@ -223,11 +226,12 @@
 (SDEFUN |PRIMELT;triangularLinearIfCan!0| ((|z1| NIL) ($$ NIL)) |z1|) 
 
 (SDEFUN |PRIMELT;primitiveElement;LLSR;8|
-        ((|l| |List| (|Polynomial| F)) (|vars| |List| (|Symbol|))
-         (|uu| |Symbol|)
-         ($ |Record| (|:| |coef| (|List| (|Integer|)))
-          (|:| |poly| (|List| (|SparseUnivariatePolynomial| F)))
-          (|:| |prim| (|SparseUnivariatePolynomial| F))))
+        ((|l| (|List| (|Polynomial| F))) (|vars| (|List| (|Symbol|)))
+         (|uu| (|Symbol|))
+         ($
+          (|Record| (|:| |coef| (|List| (|Integer|)))
+                    (|:| |poly| (|List| (|SparseUnivariatePolynomial| F)))
+                    (|:| |prim| (|SparseUnivariatePolynomial| F)))))
         (SPROG
          ((#1=#:G193 NIL) (#2=#:G194 NIL)
           (|ltt| (|List| (|SparseUnivariatePolynomial| F)))

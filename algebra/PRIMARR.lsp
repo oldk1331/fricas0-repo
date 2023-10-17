@@ -1,40 +1,42 @@
 
 (PUT '|PRIMARR;#;$Nni;1| '|SPADreplace| 'QVSIZE) 
 
-(SDEFUN |PRIMARR;#;$Nni;1| ((|x| $) ($ |NonNegativeInteger|)) (QVSIZE |x|)) 
+(SDEFUN |PRIMARR;#;$Nni;1| ((|x| ($)) ($ (|NonNegativeInteger|))) (QVSIZE |x|)) 
 
 (PUT '|PRIMARR;minIndex;$I;2| '|SPADreplace| '(XLAM (|x|) 0)) 
 
-(SDEFUN |PRIMARR;minIndex;$I;2| ((|x| $) ($ |Integer|)) 0) 
+(SDEFUN |PRIMARR;minIndex;$I;2| ((|x| ($)) ($ (|Integer|))) 0) 
 
 (PUT '|PRIMARR;empty;$;3| '|SPADreplace| '(XLAM NIL (MAKE-ARRAY 0))) 
 
-(SDEFUN |PRIMARR;empty;$;3| (($ $)) (MAKE-ARRAY 0)) 
+(SDEFUN |PRIMARR;empty;$;3| (($ ($))) (MAKE-ARRAY 0)) 
 
 (PUT '|PRIMARR;new;NniS$;4| '|SPADreplace| 'MAKEARR1) 
 
-(SDEFUN |PRIMARR;new;NniS$;4| ((|n| |NonNegativeInteger|) (|x| S) ($ $))
+(SDEFUN |PRIMARR;new;NniS$;4| ((|n| (|NonNegativeInteger|)) (|x| (S)) ($ ($)))
         (MAKEARR1 |n| |x|)) 
 
 (PUT '|PRIMARR;qelt;$IS;5| '|SPADreplace| 'QAREF1) 
 
-(SDEFUN |PRIMARR;qelt;$IS;5| ((|x| $) (|i| |Integer|) ($ S)) (QAREF1 |x| |i|)) 
+(SDEFUN |PRIMARR;qelt;$IS;5| ((|x| ($)) (|i| (|Integer|)) ($ (S)))
+        (QAREF1 |x| |i|)) 
 
 (PUT '|PRIMARR;elt;$IS;6| '|SPADreplace| 'QAREF1) 
 
-(SDEFUN |PRIMARR;elt;$IS;6| ((|x| $) (|i| |Integer|) ($ S)) (QAREF1 |x| |i|)) 
+(SDEFUN |PRIMARR;elt;$IS;6| ((|x| ($)) (|i| (|Integer|)) ($ (S)))
+        (QAREF1 |x| |i|)) 
 
 (PUT '|PRIMARR;qsetelt!;$I2S;7| '|SPADreplace| 'QSETAREF1) 
 
-(SDEFUN |PRIMARR;qsetelt!;$I2S;7| ((|x| $) (|i| |Integer|) (|s| S) ($ S))
-        (QSETAREF1 |x| |i| |s|)) 
+(SDEFUN |PRIMARR;qsetelt!;$I2S;7|
+        ((|x| ($)) (|i| (|Integer|)) (|s| (S)) ($ (S))) (QSETAREF1 |x| |i| |s|)) 
 
 (PUT '|PRIMARR;setelt!;$I2S;8| '|SPADreplace| 'QSETAREF1) 
 
-(SDEFUN |PRIMARR;setelt!;$I2S;8| ((|x| $) (|i| |Integer|) (|s| S) ($ S))
-        (QSETAREF1 |x| |i| |s|)) 
+(SDEFUN |PRIMARR;setelt!;$I2S;8|
+        ((|x| ($)) (|i| (|Integer|)) (|s| (S)) ($ (S))) (QSETAREF1 |x| |i| |s|)) 
 
-(SDEFUN |PRIMARR;fill!;$S$;9| ((|x| $) (|s| S) ($ $))
+(SDEFUN |PRIMARR;fill!;$S$;9| ((|x| ($)) (|s| (S)) ($ ($)))
         (SPROG ((#1=#:G1824 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 0) (LETT #1# (QVMAXINDEX |x|)) G190
@@ -44,7 +46,7 @@
                 (EXIT |x|)))) 
 
 (SDEFUN |PRIMARR;hashUpdate!;Hs$Hs;10|
-        ((|s| |HashState|) (|x| $) ($ |HashState|))
+        ((|s| (|HashState|)) (|x| ($)) ($ (|HashState|)))
         (SPROG ((#1=#:G1828 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 0) (LETT #1# (QVMAXINDEX |x|)) G190

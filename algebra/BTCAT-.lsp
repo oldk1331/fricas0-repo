@@ -1,5 +1,5 @@
 
-(SDEFUN |BTCAT-;copy;2A;1| ((|t| A) ($ A))
+(SDEFUN |BTCAT-;copy;2A;1| ((|t| (A)) ($ (A)))
         (COND ((SPADCALL |t| (QREFELT $ 9)) (SPADCALL (QREFELT $ 10)))
               ('T
                (SPADCALL
@@ -8,7 +8,7 @@
                 (SPADCALL (SPADCALL |t| (QREFELT $ 14)) (QREFELT $ 12))
                 (QREFELT $ 15))))) 
 
-(SDEFUN |BTCAT-;map;M2A;2| ((|f| |Mapping| S S) (|t| A) ($ A))
+(SDEFUN |BTCAT-;map;M2A;2| ((|f| (|Mapping| S S)) (|t| (A)) ($ (A)))
         (COND ((SPADCALL |t| (QREFELT $ 9)) (SPADCALL (QREFELT $ 10)))
               ('T
                (SPADCALL
@@ -17,7 +17,7 @@
                 (SPADCALL |f| (SPADCALL |t| (QREFELT $ 14)) (QREFELT $ 18))
                 (QREFELT $ 15))))) 
 
-(SDEFUN |BTCAT-;map!;M2A;3| ((|f| |Mapping| S S) (|t| A) ($ A))
+(SDEFUN |BTCAT-;map!;M2A;3| ((|f| (|Mapping| S S)) (|t| (A)) ($ (A)))
         (SEQ
          (COND ((SPADCALL |t| (QREFELT $ 9)) |t|)
                ('T
@@ -30,13 +30,13 @@
                  (SPADCALL |f| (SPADCALL |t| (QREFELT $ 14)) (QREFELT $ 23))
                  (EXIT |t|)))))) 
 
-(SDEFUN |BTCAT-;#;ANni;4| ((|t| A) ($ |NonNegativeInteger|))
+(SDEFUN |BTCAT-;#;ANni;4| ((|t| (A)) ($ (|NonNegativeInteger|)))
         (COND ((SPADCALL |t| (QREFELT $ 9)) 0)
               ('T
                (+ (+ 1 (SPADCALL (SPADCALL |t| (QREFELT $ 11)) (QREFELT $ 26)))
                   (SPADCALL (SPADCALL |t| (QREFELT $ 14)) (QREFELT $ 26)))))) 
 
-(SDEFUN |BTCAT-;distance1| ((|t1| A) (|t2| A) ($ . #1=(|Integer|)))
+(SDEFUN |BTCAT-;distance1| ((|t1| (A)) (|t2| (A)) ($ #1=(|Integer|)))
         (SPROG
          ((#2=#:G133 NIL) (#3=#:G132 #1#) (#4=#:G134 #1#) (#5=#:G140 NIL)
           (#6=#:G103 NIL) (|u| (|List| #1#)) (|n| #1#) (#7=#:G139 NIL)
@@ -88,7 +88,7 @@
                          (COND (#2# #3#) (#9# (|IdentityError| '|min|))))))
                     (#9# -1))))))))) 
 
-(SDEFUN |BTCAT-;distance;2AI;6| ((|t1| A) (|t2| A) ($ |Integer|))
+(SDEFUN |BTCAT-;distance;2AI;6| ((|t1| (A)) (|t2| (A)) ($ (|Integer|)))
         (SPROG ((|n| (|Integer|)))
                (SEQ (LETT |n| (|BTCAT-;distance1| |t1| |t2| $))
                     (EXIT
@@ -96,7 +96,7 @@
                            ('T (|BTCAT-;distance1| |t2| |t1| $))))))) 
 
 (SDEFUN |BTCAT-;hashUpdate!;HsAHs;7|
-        ((|s| |HashState|) (|t| A) ($ |HashState|))
+        ((|s| (|HashState|)) (|t| (A)) ($ (|HashState|)))
         (SEQ
          (COND ((SPADCALL |t| (QREFELT $ 9)) |s|)
                ('T

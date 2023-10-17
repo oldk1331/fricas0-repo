@@ -1,5 +1,5 @@
 
-(SDEFUN |FACTCAT-;empty?;SB;1| ((|orf| S) ($ |Boolean|))
+(SDEFUN |FACTCAT-;empty?;SB;1| ((|orf| (S)) ($ (|Boolean|)))
         (SPROG ((#1=#:G112 NIL))
                (SEQ
                 (EXIT

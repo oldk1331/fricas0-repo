@@ -1,34 +1,34 @@
 
 (PUT '|DIHGRP;rep| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |DIHGRP;rep| ((|x| $) ($ |Rep|)) |x|) 
+(SDEFUN |DIHGRP;rep| ((|x| ($)) ($ (|Rep|))) |x|) 
 
 (PUT '|DIHGRP;per| '|SPADreplace| '(XLAM (|r|) |r|)) 
 
-(SDEFUN |DIHGRP;per| ((|r| |Rep|) ($ $)) |r|) 
+(SDEFUN |DIHGRP;per| ((|r| (|Rep|)) ($ ($))) |r|) 
 
-(SDEFUN |DIHGRP;expa;$Im;3| ((|x| $) ($ |IntegerMod| |n|))
+(SDEFUN |DIHGRP;expa;$Im;3| ((|x| ($)) ($ (|IntegerMod| |n|)))
         (QCAR (|DIHGRP;rep| |x| $))) 
 
-(SDEFUN |DIHGRP;expb;$Im;4| ((|x| $) ($ |IntegerMod| 2))
+(SDEFUN |DIHGRP;expb;$Im;4| ((|x| ($)) ($ (|IntegerMod| 2)))
         (QCDR (|DIHGRP;rep| |x| $))) 
 
-(SDEFUN |DIHGRP;exponenta;$I;5| ((|x| $) ($ |Integer|))
+(SDEFUN |DIHGRP;exponenta;$I;5| ((|x| ($)) ($ (|Integer|)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 15))) 
 
-(SDEFUN |DIHGRP;exponentb;$I;6| ((|x| $) ($ |Integer|))
+(SDEFUN |DIHGRP;exponentb;$I;6| ((|x| ($)) ($ (|Integer|)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 13)) (QREFELT $ 17))) 
 
-(SDEFUN |DIHGRP;One;$;7| (($ $))
+(SDEFUN |DIHGRP;One;$;7| (($ ($)))
         (|DIHGRP;per| (CONS (|spadConstant| $ 19) (|spadConstant| $ 20)) $)) 
 
-(SDEFUN |DIHGRP;one?;$B;8| ((|x| $) ($ |Boolean|))
+(SDEFUN |DIHGRP;one?;$B;8| ((|x| ($)) ($ (|Boolean|)))
         (COND
          ((SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 23))
           (SPADCALL (SPADCALL |x| (QREFELT $ 13)) (QREFELT $ 24)))
          ('T NIL))) 
 
-(SDEFUN |DIHGRP;coerce;$Of;9| ((|y| $) ($ |OutputForm|))
+(SDEFUN |DIHGRP;coerce;$Of;9| ((|y| ($)) ($ (|OutputForm|)))
         (SPROG ((|aout| (|OutputForm|)))
                (SEQ
                 (COND
@@ -54,12 +54,12 @@
                       (SPADCALL |aout| (SPADCALL (QREFELT $ 8) (QREFELT $ 29))
                                 (QREFELT $ 33))))))))))) 
 
-(SDEFUN |DIHGRP;generators;L;10| (($ |List| $))
+(SDEFUN |DIHGRP;generators;L;10| (($ (|List| $)))
         (LIST
          (|DIHGRP;per| (CONS (|spadConstant| $ 35) (|spadConstant| $ 20)) $)
          (|DIHGRP;per| (CONS (|spadConstant| $ 19) (|spadConstant| $ 36)) $))) 
 
-(SDEFUN |DIHGRP;*;3$;11| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DIHGRP;*;3$;11| ((|x| ($)) (|y| ($)) ($ ($)))
         (COND
          ((SPADCALL (SPADCALL |x| (QREFELT $ 13)) (QREFELT $ 24))
           (|DIHGRP;per|
@@ -77,7 +77,7 @@
                       (SPADCALL |y| (QREFELT $ 13)) (QREFELT $ 41)))
            $)))) 
 
-(SDEFUN |DIHGRP;inv;2$;12| ((|x| $) ($ $))
+(SDEFUN |DIHGRP;inv;2$;12| ((|x| ($)) ($ ($)))
         (COND
          ((SPADCALL (SPADCALL |x| (QREFELT $ 13)) (QREFELT $ 24))
           (|DIHGRP;per|
@@ -86,7 +86,7 @@
            $))
          ('T |x|))) 
 
-(SDEFUN |DIHGRP;order;$I;13| ((|x| $) ($ |Integer|))
+(SDEFUN |DIHGRP;order;$I;13| ((|x| ($)) ($ (|Integer|)))
         (COND ((SPADCALL |x| (QREFELT $ 25)) 0)
               ((SPADCALL (SPADCALL |x| (QREFELT $ 13)) (QREFELT $ 45)) 2)
               ('T
@@ -96,7 +96,7 @@
                                      (QREFELT $ 15))
                            (QREFELT $ 6)))))) 
 
-(SDEFUN |DIHGRP;=;2$B;14| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |DIHGRP;=;2$B;14| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (COND
          ((SPADCALL (SPADCALL |x| (QREFELT $ 11)) (SPADCALL |y| (QREFELT $ 11))
                     (QREFELT $ 47))
@@ -104,7 +104,7 @@
                     (QREFELT $ 48)))
          ('T NIL))) 
 
-(SDEFUN |DIHGRP;smaller?;2$B;15| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |DIHGRP;smaller?;2$B;15| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (COND
          ((< (SPADCALL (SPADCALL |x| (QREFELT $ 13)) (QREFELT $ 17))
              (SPADCALL (SPADCALL |y| (QREFELT $ 13)) (QREFELT $ 17)))
@@ -118,9 +118,9 @@
              (< (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 15))
                 (SPADCALL (SPADCALL |y| (QREFELT $ 11)) (QREFELT $ 15))))))))) 
 
-(SDEFUN |DIHGRP;size;Nni;16| (($ |NonNegativeInteger|)) (* 2 (QREFELT $ 6))) 
+(SDEFUN |DIHGRP;size;Nni;16| (($ (|NonNegativeInteger|))) (* 2 (QREFELT $ 6))) 
 
-(SDEFUN |DIHGRP;index;Pi$;17| ((|i| |PositiveInteger|) ($ $))
+(SDEFUN |DIHGRP;index;Pi$;17| ((|i| (|PositiveInteger|)) ($ ($)))
         (SPROG ((|imodn| (|IntegerMod| |n|)))
                (SEQ
                 (COND ((> |i| (* 2 (QREFELT $ 6))) (|error| "out of range"))
@@ -135,7 +135,7 @@
                                (|DIHGRP;per|
                                 (CONS |imodn| (|spadConstant| $ 20)) $)))))))))) 
 
-(SDEFUN |DIHGRP;lookup;$Pi;18| ((|x| $) ($ |PositiveInteger|))
+(SDEFUN |DIHGRP;lookup;$Pi;18| ((|x| ($)) ($ (|PositiveInteger|)))
         (SPROG ((|xa| (|PositiveInteger|)))
                (LETT |xa|
                      (+
@@ -146,7 +146,7 @@
                          (SPADCALL (SPADCALL |x| (QREFELT $ 13))
                                    (QREFELT $ 17))))))) 
 
-(SDEFUN |DIHGRP;enumerate;L;19| (($ |List| $))
+(SDEFUN |DIHGRP;enumerate;L;19| (($ (|List| $)))
         (SPROG
          ((#1=#:G165 NIL) (|k| NIL) (#2=#:G164 NIL) (#3=#:G163 NIL)
           (#4=#:G162 NIL))

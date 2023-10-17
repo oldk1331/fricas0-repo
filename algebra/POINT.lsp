@@ -1,5 +1,5 @@
 
-(SDEFUN |POINT;point;L$;1| ((|l| |List| R) ($ $))
+(SDEFUN |POINT;point;L$;1| ((|l| (|List| R)) ($ ($)))
         (SPROG ((#1=#:G108 NIL) (|x| NIL) (|i| NIL) (|pt| ($)))
                (SEQ (LETT |pt| (SPADCALL (LENGTH |l|) 'R (QREFELT $ 8)))
                     (SEQ (LETT |i| (SPADCALL |pt| (QREFELT $ 10)))
@@ -12,16 +12,16 @@
                          (GO G190) G191 (EXIT NIL))
                     (EXIT |pt|)))) 
 
-(SDEFUN |POINT;dimension;$Pi;2| ((|p| $) ($ |PositiveInteger|))
+(SDEFUN |POINT;dimension;$Pi;2| ((|p| ($)) ($ (|PositiveInteger|)))
         (SPROG ((#1=#:G109 NIL))
                (PROG1 (LETT #1# (SPADCALL |p| (QREFELT $ 14)))
                  (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                    '(|NonNegativeInteger|) #1#)))) 
 
-(SDEFUN |POINT;convert;L$;3| ((|l| |List| R) ($ $))
+(SDEFUN |POINT;convert;L$;3| ((|l| (|List| R)) ($ ($)))
         (SPADCALL |l| (QREFELT $ 13))) 
 
-(SDEFUN |POINT;cross;3$;4| ((|p0| $) (|p1| $) ($ $))
+(SDEFUN |POINT;cross;3$;4| ((|p0| ($)) (|p1| ($)) ($ ($)))
         (COND
          ((OR (SPADCALL (SPADCALL |p0| (QREFELT $ 14)) 3 (QREFELT $ 19))
               (SPADCALL (SPADCALL |p1| (QREFELT $ 14)) 3 (QREFELT $ 19)))
@@ -49,7 +49,7 @@
              (QREFELT $ 22)))
            (QREFELT $ 13))))) 
 
-(SDEFUN |POINT;extend;$L$;5| ((|p| $) (|l| |List| R) ($ $))
+(SDEFUN |POINT;extend;$L$;5| ((|p| ($)) (|l| (|List| R)) ($ ($)))
         (SPADCALL |p| (SPADCALL |l| (QREFELT $ 13)) (QREFELT $ 25))) 
 
 (DECLAIM (NOTINLINE |Point;|)) 

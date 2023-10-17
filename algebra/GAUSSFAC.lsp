@@ -1,15 +1,17 @@
 
-(SDEFUN |GAUSSFAC;reduction| ((|u| |Integer|) (|p| |Integer|) ($ |Integer|))
+(SDEFUN |GAUSSFAC;reduction|
+        ((|u| (|Integer|)) (|p| (|Integer|)) ($ (|Integer|)))
         (COND ((EQL |p| 0) |u|) ('T (SPADCALL |u| |p| (QREFELT $ 7))))) 
 
 (SDEFUN |GAUSSFAC;merge|
-        ((|p| |Integer|) (|q| |Integer|) ($ |Union| (|Integer|) "failed"))
+        ((|p| (|Integer|)) (|q| (|Integer|))
+         ($ (|Union| (|Integer|) "failed")))
         (COND ((EQL |p| |q|) (CONS 0 |p|)) ((EQL |p| 0) (CONS 0 |q|))
               ((EQL |q| 0) (CONS 0 |p|)) ('T (CONS 1 "failed")))) 
 
 (SDEFUN |GAUSSFAC;exactquo|
-        ((|u| |Integer|) (|v| |Integer|) (|p| |Integer|)
-         ($ |Union| (|Integer|) "failed"))
+        ((|u| (|Integer|)) (|v| (|Integer|)) (|p| (|Integer|))
+         ($ (|Union| (|Integer|) "failed")))
         (SPROG ((#1=#:G120 NIL))
                (COND ((EQL |p| 0) (SPADCALL |u| |v| (QREFELT $ 9)))
                      ((EQL (REM |v| |p|) 0) (CONS 1 "failed"))
@@ -33,7 +35,7 @@
                                                 #1#)))
                              |p| (QREFELT $ 7))))))) 
 
-(SDEFUN |GAUSSFAC;findelt| ((|q| |Integer|) ($ |Integer|))
+(SDEFUN |GAUSSFAC;findelt| ((|q| (|Integer|)) ($ (|Integer|)))
         (SPROG
          ((|t| (|FMod|)) (|s| (|FMod|)) (#1=#:G140 NIL) (|i| NIL)
           (|qq1| (|FMod|)) (|r1| (|Union| (|Integer|) "failed"))
@@ -78,7 +80,7 @@
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL |s| (QREFELT $ 26)))))) 
 
-(SDEFUN |GAUSSFAC;sumsq1| ((|p| . #1=(|Integer|)) ($ |List| (|Integer|)))
+(SDEFUN |GAUSSFAC;sumsq1| ((|p| #1=(|Integer|)) ($ (|List| (|Integer|))))
         (SPROG ((|s| (|Integer|)) (|u| #1#) (|w| (|Integer|)))
                (SEQ (LETT |s| (|GAUSSFAC;findelt| |p| $)) (LETT |u| |p|)
                     (SEQ G190 (COND ((NULL (> (EXPT |u| 2) |p|)) (GO G191)))
@@ -88,7 +90,7 @@
                     (EXIT (LIST |u| |s|))))) 
 
 (SDEFUN |GAUSSFAC;intfactor|
-        ((|n| |Integer|) ($ |Factored| (|Complex| (|Integer|))))
+        ((|n| (|Integer|)) ($ (|Factored| (|Complex| (|Integer|)))))
         (SPROG
          ((|r|
            (|List|
@@ -152,7 +154,8 @@
               (EXIT (SPADCALL |unity| |r| (QREFELT $ 43)))))) 
 
 (SDEFUN |GAUSSFAC;factor;CF;7|
-        ((|m| |Complex| (|Integer|)) ($ |Factored| (|Complex| (|Integer|))))
+        ((|m| (|Complex| (|Integer|)))
+         ($ (|Factored| (|Complex| (|Integer|)))))
         (SPROG
          ((|unity| (|Complex| (|Integer|)))
           (|result|
@@ -305,13 +308,13 @@
                                (SPADCALL |unity| |result|
                                          (QREFELT $ 43))))))))))))) 
 
-(SDEFUN |GAUSSFAC;sumSquares;IL;8| ((|p| |Integer|) ($ |List| (|Integer|)))
+(SDEFUN |GAUSSFAC;sumSquares;IL;8| ((|p| (|Integer|)) ($ (|List| (|Integer|))))
         (COND ((EQL |p| 2) (LIST 1 1))
               ((SPADCALL (REM |p| 4) 1 (QREFELT $ 53))
                (|error| "no solutions"))
               ('T (|GAUSSFAC;sumsq1| |p| $)))) 
 
-(SDEFUN |GAUSSFAC;prime?;CB;9| ((|a| |Complex| (|Integer|)) ($ |Boolean|))
+(SDEFUN |GAUSSFAC;prime?;CB;9| ((|a| (|Complex| (|Integer|))) ($ (|Boolean|)))
         (SPROG
          ((|p| (|Integer|)) (|im| (|Integer|)) (|re| (|Integer|))
           (|n| (|Integer|)))

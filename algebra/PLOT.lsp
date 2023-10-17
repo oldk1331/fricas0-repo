@@ -1,12 +1,12 @@
 
-(SDEFUN |PLOT;Fnan?| ((|x| |DoubleFloat|) ($ |Boolean|))
+(SDEFUN |PLOT;Fnan?| ((|x| (|DoubleFloat|)) ($ (|Boolean|)))
         (SPADCALL |x| |x| (QREFELT $ 17))) 
 
-(SDEFUN |PLOT;Pnan?| ((|x| |Point| (|DoubleFloat|)) ($ |Boolean|))
+(SDEFUN |PLOT;Pnan?| ((|x| (|Point| (|DoubleFloat|))) ($ (|Boolean|)))
         (SPADCALL (CONS (|function| |PLOT;Fnan?|) $) |x| (QREFELT $ 20))) 
 
 (SDEFUN |PLOT;listBranches;$L;3|
-        ((|plot| $) ($ |List| (|List| (|Point| (|DoubleFloat|)))))
+        ((|plot| ($)) ($ (|List| (|List| (|Point| (|DoubleFloat|))))))
         (SPROG
          ((|outList| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (|newl| (|List| (|Point| (|DoubleFloat|)))) (#1=#:G143 NIL) (|p| NIL)
@@ -44,7 +44,7 @@
               (EXIT |outList|)))) 
 
 (SDEFUN |PLOT;checkRange|
-        ((|r| |Segment| (|DoubleFloat|)) ($ |Segment| (|DoubleFloat|)))
+        ((|r| (|Segment| (|DoubleFloat|))) ($ (|Segment| (|DoubleFloat|))))
         (COND
          ((SPADCALL (SPADCALL |r| (QREFELT $ 24)) (SPADCALL |r| (QREFELT $ 25))
                     (QREFELT $ 26))
@@ -52,8 +52,8 @@
          ('T |r|))) 
 
 (SDEFUN |PLOT;intersect|
-        ((|s| |Segment| (|DoubleFloat|)) (|t| |Segment| (|DoubleFloat|))
-         ($ |Segment| (|DoubleFloat|)))
+        ((|s| (|Segment| (|DoubleFloat|))) (|t| (|Segment| (|DoubleFloat|)))
+         ($ (|Segment| (|DoubleFloat|))))
         (|PLOT;checkRange|
          (SPADCALL
           (|max_DF| (SPADCALL |s| (QREFELT $ 24))
@@ -64,21 +64,23 @@
          $)) 
 
 (SDEFUN |PLOT;union|
-        ((|s| |Segment| (|DoubleFloat|)) (|t| |Segment| (|DoubleFloat|))
-         ($ |Segment| (|DoubleFloat|)))
+        ((|s| (|Segment| (|DoubleFloat|))) (|t| (|Segment| (|DoubleFloat|)))
+         ($ (|Segment| (|DoubleFloat|))))
         (SPADCALL
          (|min_DF| (SPADCALL |s| (QREFELT $ 24)) (SPADCALL |t| (QREFELT $ 24)))
          (|max_DF| (SPADCALL |s| (QREFELT $ 25)) (SPADCALL |t| (QREFELT $ 25)))
          (QREFELT $ 27))) 
 
 (SDEFUN |PLOT;join|
-        ((|l| |List|
-          (|Record|
-           (|:| |source| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
-           (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
-           (|:| |knots| (|List| (|DoubleFloat|)))
-           (|:| |points| (|List| (|Point| (|DoubleFloat|))))))
-         (|i| |Integer|) ($ |Segment| (|DoubleFloat|)))
+        ((|l|
+          (|List|
+           (|Record|
+            (|:| |source|
+                 (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
+            (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
+            (|:| |knots| (|List| (|DoubleFloat|)))
+            (|:| |points| (|List| (|Point| (|DoubleFloat|)))))))
+         (|i| (|Integer|)) ($ (|Segment| (|DoubleFloat|))))
         (SPROG
          ((|u| (|Segment| (|DoubleFloat|))) (#1=#:G152 NIL) (|r| NIL)
           (|rr|
@@ -115,56 +117,57 @@
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT |u|)))) 
 
-(SDEFUN |PLOT;parametricRange| ((|r| $) ($ |Segment| (|DoubleFloat|)))
+(SDEFUN |PLOT;parametricRange| ((|r| ($)) ($ (|Segment| (|DoubleFloat|))))
         (|SPADfirst| (QVELT |r| 2))) 
 
-(SDEFUN |PLOT;minPoints;I;9| (($ |Integer|)) (QREFELT $ 8)) 
+(SDEFUN |PLOT;minPoints;I;9| (($ (|Integer|))) (QREFELT $ 8)) 
 
-(SDEFUN |PLOT;setMinPoints;2I;10| ((|n| |Integer|) ($ |Integer|))
+(SDEFUN |PLOT;setMinPoints;2I;10| ((|n| (|Integer|)) ($ (|Integer|)))
         (SEQ (COND ((< |n| 3) (|error| "three points minimum required")))
              (COND ((< (QREFELT $ 9) |n|) (SETELT $ 9 |n|)))
              (EXIT (SETELT $ 8 |n|)))) 
 
-(SDEFUN |PLOT;maxPoints;I;11| (($ |Integer|)) (QREFELT $ 9)) 
+(SDEFUN |PLOT;maxPoints;I;11| (($ (|Integer|))) (QREFELT $ 9)) 
 
-(SDEFUN |PLOT;setMaxPoints;2I;12| ((|n| |Integer|) ($ |Integer|))
+(SDEFUN |PLOT;setMaxPoints;2I;12| ((|n| (|Integer|)) ($ (|Integer|)))
         (SEQ (COND ((< |n| 3) (|error| "three points minimum required")))
              (COND ((> (QREFELT $ 8) |n|) (SETELT $ 8 |n|)))
              (EXIT (SETELT $ 9 |n|)))) 
 
-(SDEFUN |PLOT;screenResolution;I;13| (($ |Integer|)) (QREFELT $ 11)) 
+(SDEFUN |PLOT;screenResolution;I;13| (($ (|Integer|))) (QREFELT $ 11)) 
 
-(SDEFUN |PLOT;setScreenResolution;2I;14| ((|n| |Integer|) ($ |Integer|))
+(SDEFUN |PLOT;setScreenResolution;2I;14| ((|n| (|Integer|)) ($ (|Integer|)))
         (SEQ (COND ((< |n| 2) (|error| "buy a new terminal")))
              (EXIT (SETELT $ 11 |n|)))) 
 
-(SDEFUN |PLOT;adaptive?;B;15| (($ |Boolean|)) (QREFELT $ 7)) 
+(SDEFUN |PLOT;adaptive?;B;15| (($ (|Boolean|))) (QREFELT $ 7)) 
 
-(SDEFUN |PLOT;setAdaptive;2B;16| ((|b| |Boolean|) ($ |Boolean|))
+(SDEFUN |PLOT;setAdaptive;2B;16| ((|b| (|Boolean|)) ($ (|Boolean|)))
         (SETELT $ 7 |b|)) 
 
 (PUT '|PLOT;parametric?;$B;17| '|SPADreplace| '(XLAM (|p|) (QVELT |p| 0))) 
 
-(SDEFUN |PLOT;parametric?;$B;17| ((|p| $) ($ |Boolean|)) (QVELT |p| 0)) 
+(SDEFUN |PLOT;parametric?;$B;17| ((|p| ($)) ($ (|Boolean|))) (QVELT |p| 0)) 
 
-(SDEFUN |PLOT;numFunEvals;I;18| (($ |Integer|)) (QREFELT $ 10)) 
+(SDEFUN |PLOT;numFunEvals;I;18| (($ (|Integer|))) (QREFELT $ 10)) 
 
-(SDEFUN |PLOT;debug;2B;19| ((|b| |Boolean|) ($ |Boolean|)) (SETELT $ 15 |b|)) 
+(SDEFUN |PLOT;debug;2B;19| ((|b| (|Boolean|)) ($ (|Boolean|)))
+        (SETELT $ 15 |b|)) 
 
-(SDEFUN |PLOT;xRange;$S;20| ((|plot| $) ($ |Segment| (|DoubleFloat|)))
+(SDEFUN |PLOT;xRange;$S;20| ((|plot| ($)) ($ (|Segment| (|DoubleFloat|))))
         (SPADCALL (QVELT |plot| 2) (QREFELT $ 29))) 
 
-(SDEFUN |PLOT;yRange;$S;21| ((|plot| $) ($ |Segment| (|DoubleFloat|)))
+(SDEFUN |PLOT;yRange;$S;21| ((|plot| ($)) ($ (|Segment| (|DoubleFloat|))))
         (SPADCALL (QVELT |plot| 2) (QREFELT $ 30))) 
 
-(SDEFUN |PLOT;tRange;$S;22| ((|plot| $) ($ |Segment| (|DoubleFloat|)))
+(SDEFUN |PLOT;tRange;$S;22| ((|plot| ($)) ($ (|Segment| (|DoubleFloat|))))
         (|SPADfirst| (QVELT |plot| 2))) 
 
 (SDEFUN |PLOT;select|
-        ((|l| |List| (|Point| (|DoubleFloat|)))
-         (|f| |Mapping| #1=(|DoubleFloat|) (|Point| (|DoubleFloat|)))
-         (|g| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
-         ($ |DoubleFloat|))
+        ((|l| (|List| (|Point| (|DoubleFloat|))))
+         (|f| (|Mapping| #1=(|DoubleFloat|) (|Point| (|DoubleFloat|))))
+         (|g| (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)))
+         ($ (|DoubleFloat|)))
         (SPROG ((|m| #1#) (|n| #1#) (#2=#:G176 NIL) (|p| NIL))
                (SEQ (LETT |m| (SPADCALL (|SPADfirst| |l|) |f|))
                     (COND ((|PLOT;Fnan?| |m| $) (LETT |m| 0.0)))
@@ -180,18 +183,20 @@
                     (EXIT |m|)))) 
 
 (SDEFUN |PLOT;rangeRefine|
-        ((|curve| |Record|
-          (|:| |source| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
-          (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
-          (|:| |knots| (|List| (|DoubleFloat|)))
-          (|:| |points| (|List| (|Point| (|DoubleFloat|)))))
-         (|nRange| |Segment| (|DoubleFloat|))
-         ($ |Record|
-          (|:| |source|
-               #1=(|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
-          (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
-          (|:| |knots| #2=(|List| (|DoubleFloat|)))
-          (|:| |points| #3=(|List| (|Point| (|DoubleFloat|))))))
+        ((|curve|
+          (|Record|
+           (|:| |source| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
+           (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
+           (|:| |knots| (|List| (|DoubleFloat|)))
+           (|:| |points| (|List| (|Point| (|DoubleFloat|))))))
+         (|nRange| (|Segment| (|DoubleFloat|)))
+         ($
+          (|Record|
+           (|:| |source|
+                #1=(|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
+           (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
+           (|:| |knots| #2=(|List| (|DoubleFloat|)))
+           (|:| |points| #3=(|List| (|Point| (|DoubleFloat|)))))))
         (SPROG
          ((|yRange| #4=(|Segment| (|DoubleFloat|))) (|xRange| #4#) (|p| #3#)
           (|t| #2#) (#5=#:G212 NIL) (|i| NIL) (|d| #6=(|DoubleFloat|))
@@ -292,20 +297,22 @@
           #8# (EXIT #7#)))) 
 
 (SDEFUN |PLOT;adaptivePlot|
-        ((|curve| |Record|
-          (|:| |source| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
-          (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
-          (|:| |knots| (|List| (|DoubleFloat|)))
-          (|:| |points| (|List| (|Point| (|DoubleFloat|)))))
-         (|tRange| |Segment| (|DoubleFloat|))
-         (|xRange| |Segment| (|DoubleFloat|))
-         (|yRange| |Segment| (|DoubleFloat|)) (|pixelfraction| |Integer|)
-         ($ |Record|
-          (|:| |source|
-               #1=(|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
-          (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
-          (|:| |knots| #2=(|List| (|DoubleFloat|)))
-          (|:| |points| #3=(|List| (|Point| (|DoubleFloat|))))))
+        ((|curve|
+          (|Record|
+           (|:| |source| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
+           (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
+           (|:| |knots| (|List| (|DoubleFloat|)))
+           (|:| |points| (|List| (|Point| (|DoubleFloat|))))))
+         (|tRange| (|Segment| (|DoubleFloat|)))
+         (|xRange| (|Segment| (|DoubleFloat|)))
+         (|yRange| (|Segment| (|DoubleFloat|))) (|pixelfraction| (|Integer|))
+         ($
+          (|Record|
+           (|:| |source|
+                #1=(|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
+           (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
+           (|:| |knots| #2=(|List| (|DoubleFloat|)))
+           (|:| |points| #3=(|List| (|Point| (|DoubleFloat|)))))))
         (SPROG
          ((|p| #3#) (|t| #2#) (|tj| #4=(|DoubleFloat|)) (|n| (|Integer|))
           (#5=#:G248 NIL) (|sp| #6=(|List| (|Point| (|DoubleFloat|))))
@@ -691,13 +698,14 @@
                                                     |curve|)))))))))))))))))) 
 
 (SDEFUN |PLOT;basicPlot|
-        ((|f| |Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|))
-         (|tRange| |Segment| (|DoubleFloat|))
-         ($ |Record|
-          (|:| |source| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
-          (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
-          (|:| |knots| (|List| (|DoubleFloat|)))
-          (|:| |points| (|List| (|Point| (|DoubleFloat|))))))
+        ((|f| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
+         (|tRange| (|Segment| (|DoubleFloat|)))
+         ($
+          (|Record|
+           (|:| |source| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
+           (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
+           (|:| |knots| (|List| (|DoubleFloat|)))
+           (|:| |points| (|List| (|Point| (|DoubleFloat|)))))))
         (SPROG
          ((|yRange| #1=(|Segment| (|DoubleFloat|))) (|xRange| #1#)
           (|p| (|List| (|Point| (|DoubleFloat|))))
@@ -729,30 +737,33 @@
                               (QREFELT $ 27)))
               (EXIT (VECTOR |f| (LIST |tRange| |xRange| |yRange|) |t| |p|))))) 
 
-(SDEFUN |PLOT;zoom;$S$;27| ((|p| $) (|xRange| |Segment| (|DoubleFloat|)) ($ $))
+(SDEFUN |PLOT;zoom;$S$;27|
+        ((|p| ($)) (|xRange| (|Segment| (|DoubleFloat|))) ($ ($)))
         (VECTOR (QVELT |p| 0)
                 (LIST |xRange| (SPADCALL (QVELT |p| 1) (QREFELT $ 30)))
                 (QVELT |p| 2) (QVELT |p| 3) (QVELT |p| 4))) 
 
 (SDEFUN |PLOT;zoom;$2S$;28|
-        ((|p| $) (|xRange| |Segment| (|DoubleFloat|))
-         (|yRange| |Segment| (|DoubleFloat|)) ($ $))
+        ((|p| ($)) (|xRange| (|Segment| (|DoubleFloat|)))
+         (|yRange| (|Segment| (|DoubleFloat|))) ($ ($)))
         (VECTOR (QVELT |p| 0) (LIST |xRange| |yRange|) (QVELT |p| 2)
                 (QVELT |p| 3) (QVELT |p| 4))) 
 
 (SDEFUN |PLOT;basicRefine|
-        ((|curve| |Record|
-          (|:| |source| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
-          (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
-          (|:| |knots| (|List| (|DoubleFloat|)))
-          (|:| |points| (|List| (|Point| (|DoubleFloat|)))))
-         (|nRange| |Segment| (|DoubleFloat|))
-         ($ |Record|
-          (|:| |source|
-               #1=(|Mapping| #2=(|Point| (|DoubleFloat|)) (|DoubleFloat|)))
-          (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
-          (|:| |knots| #3=(|List| (|DoubleFloat|)))
-          (|:| |points| #4=(|List| (|Point| (|DoubleFloat|))))))
+        ((|curve|
+          (|Record|
+           (|:| |source| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
+           (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
+           (|:| |knots| (|List| (|DoubleFloat|)))
+           (|:| |points| (|List| (|Point| (|DoubleFloat|))))))
+         (|nRange| (|Segment| (|DoubleFloat|)))
+         ($
+          (|Record|
+           (|:| |source|
+                #1=(|Mapping| #2=(|Point| (|DoubleFloat|)) (|DoubleFloat|)))
+           (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
+           (|:| |knots| #3=(|List| (|DoubleFloat|)))
+           (|:| |points| #4=(|List| (|Point| (|DoubleFloat|)))))))
         (SPROG
          ((|yRange| #5=(|Segment| (|DoubleFloat|))) (|xRange| #5#) (|p| #4#)
           (|t| #3#) (|pm| #2#) (|tm| (|DoubleFloat|)) (|f| #1#)
@@ -811,11 +822,11 @@
                (VECTOR (QVELT |curve| 0) (LIST |tRange| |xRange| |yRange|) |t|
                        |p|))))) 
 
-(SDEFUN |PLOT;refine;2$;30| ((|p| $) ($ $))
+(SDEFUN |PLOT;refine;2$;30| ((|p| ($)) ($ ($)))
         (SPADCALL |p| (|PLOT;parametricRange| |p| $) (QREFELT $ 70))) 
 
 (SDEFUN |PLOT;refine;$S$;31|
-        ((|p| $) (|nRange| |Segment| (|DoubleFloat|)) ($ $))
+        ((|p| ($)) (|nRange| (|Segment| (|DoubleFloat|))) ($ ($)))
         (SPROG
          ((|yRange| #1=(|Segment| (|DoubleFloat|))) (|xRange| #1#)
           (|curves|
@@ -875,7 +886,8 @@
                        (LIST |tRange| |xRange| |yRange|) (QVELT |p| 3)
                        |curves|))))) 
 
-(SDEFUN |PLOT;plot;$S$;32| ((|p| $) (|tRange| |Segment| (|DoubleFloat|)) ($ $))
+(SDEFUN |PLOT;plot;$S$;32|
+        ((|p| ($)) (|tRange| (|Segment| (|DoubleFloat|))) ($ ($)))
         (SPROG
          ((|yRange| #1=(|Segment| (|DoubleFloat|))) (|xRange| #1#)
           (|curves|
@@ -934,14 +946,14 @@
                        |curves|))))) 
 
 (SDEFUN |PLOT;pt|
-        ((|xx| |DoubleFloat|) (|yy| . #1=(|DoubleFloat|))
-         ($ |Point| (|DoubleFloat|)))
+        ((|xx| (|DoubleFloat|)) (|yy| #1=(|DoubleFloat|))
+         ($ (|Point| (|DoubleFloat|))))
         (SPROG ((|l| (|List| #1#)))
                (SPADCALL (LETT |l| (LIST |xx| |yy|)) (QREFELT $ 73)))) 
 
 (SDEFUN |PLOT;myTrap|
-        ((|ff| |Mapping| (|DoubleFloat|) (|DoubleFloat|)) (|f| |DoubleFloat|)
-         ($ |DoubleFloat|))
+        ((|ff| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+         (|f| (|DoubleFloat|)) ($ (|DoubleFloat|)))
         (SPROG ((|r| (|DoubleFloat|)) (|s| (|Union| (|DoubleFloat|) "failed")))
                (SEQ (LETT |s| (|trapNumericErrors| (SPADCALL |f| |ff|)))
                     (EXIT
@@ -958,8 +970,8 @@
                                    (#1# |r|)))))))))) 
 
 (SDEFUN |PLOT;plot;MS$;35|
-        ((|f| |Mapping| (|DoubleFloat|) (|DoubleFloat|))
-         (|xRange| |Segment| (|DoubleFloat|)) ($ $))
+        ((|f| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+         (|xRange| (|Segment| (|DoubleFloat|))) ($ ($)))
         (SPROG
          ((|r| #1=(|List| (|Segment| (|DoubleFloat|))))
           (|p|
@@ -990,9 +1002,9 @@
           (RETURN (PROGN (|PLOT;pt| |u1| (|PLOT;myTrap| |f| |u1| $) $))))) 
 
 (SDEFUN |PLOT;plot;M2S$;36|
-        ((|f| |Mapping| (|DoubleFloat|) (|DoubleFloat|))
-         (|xRange| |Segment| (|DoubleFloat|))
-         (|yRange| |Segment| (|DoubleFloat|)) ($ $))
+        ((|f| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+         (|xRange| (|Segment| (|DoubleFloat|)))
+         (|yRange| (|Segment| (|DoubleFloat|))) ($ ($)))
         (SPROG ((|p| ($)))
                (SEQ (LETT |p| (SPADCALL |f| |xRange| (QREFELT $ 75)))
                     (QSETVELT |p| 1
@@ -1000,9 +1012,9 @@
                     (EXIT |p|)))) 
 
 (SDEFUN |PLOT;plot;2MS$;37|
-        ((|f| |Mapping| (|DoubleFloat|) (|DoubleFloat|))
-         (|g| |Mapping| (|DoubleFloat|) (|DoubleFloat|))
-         (|tRange| |Segment| (|DoubleFloat|)) ($ $))
+        ((|f| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+         (|g| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+         (|tRange| (|Segment| (|DoubleFloat|))) ($ ($)))
         (SPROG
          ((|r| #1=(|List| (|Segment| (|DoubleFloat|))))
           (|p|
@@ -1037,11 +1049,11 @@
              $))))) 
 
 (SDEFUN |PLOT;plot;2M3S$;38|
-        ((|f| |Mapping| (|DoubleFloat|) (|DoubleFloat|))
-         (|g| |Mapping| (|DoubleFloat|) (|DoubleFloat|))
-         (|tRange| |Segment| (|DoubleFloat|))
-         (|xRange| |Segment| (|DoubleFloat|))
-         (|yRange| |Segment| (|DoubleFloat|)) ($ $))
+        ((|f| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+         (|g| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+         (|tRange| (|Segment| (|DoubleFloat|)))
+         (|xRange| (|Segment| (|DoubleFloat|)))
+         (|yRange| (|Segment| (|DoubleFloat|))) ($ ($)))
         (SPROG ((|p| ($)))
                (SEQ (LETT |p| (SPADCALL |f| |g| |tRange| (QREFELT $ 77)))
                     (QSETVELT |p| 1
@@ -1050,8 +1062,8 @@
                     (EXIT |p|)))) 
 
 (SDEFUN |PLOT;pointPlot;MS$;39|
-        ((|f| |Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|))
-         (|tRange| |Segment| (|DoubleFloat|)) ($ $))
+        ((|f| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
+         (|tRange| (|Segment| (|DoubleFloat|))) ($ ($)))
         (SPROG
          ((|r| #1=(|List| (|Segment| (|DoubleFloat|))))
           (|p|
@@ -1073,10 +1085,10 @@
               (EXIT (VECTOR 'T (CDR |r|) |r| NIL (LIST |p|)))))) 
 
 (SDEFUN |PLOT;pointPlot;M3S$;40|
-        ((|f| |Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|))
-         (|tRange| |Segment| (|DoubleFloat|))
-         (|xRange| |Segment| (|DoubleFloat|))
-         (|yRange| |Segment| (|DoubleFloat|)) ($ $))
+        ((|f| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
+         (|tRange| (|Segment| (|DoubleFloat|)))
+         (|xRange| (|Segment| (|DoubleFloat|)))
+         (|yRange| (|Segment| (|DoubleFloat|))) ($ ($)))
         (SPROG ((|p| ($)))
                (SEQ (LETT |p| (SPADCALL |f| |tRange| (QREFELT $ 80)))
                     (QSETVELT |p| 1
@@ -1085,8 +1097,8 @@
                     (EXIT |p|)))) 
 
 (SDEFUN |PLOT;plot;LS$;41|
-        ((|l| |List| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
-         (|xRange| |Segment| (|DoubleFloat|)) ($ $))
+        ((|l| (|List| (|Mapping| (|DoubleFloat|) (|DoubleFloat|))))
+         (|xRange| (|Segment| (|DoubleFloat|))) ($ ($)))
         (SPROG
          ((|yRange| (|Segment| (|DoubleFloat|)))
           (|t|
@@ -1153,9 +1165,9 @@
           (RETURN (PROGN (|PLOT;pt| |z1| (|PLOT;myTrap| |f| |z1| $) $))))) 
 
 (SDEFUN |PLOT;plot;L2S$;42|
-        ((|l| |List| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
-         (|xRange| |Segment| (|DoubleFloat|))
-         (|yRange| |Segment| (|DoubleFloat|)) ($ $))
+        ((|l| (|List| (|Mapping| (|DoubleFloat|) (|DoubleFloat|))))
+         (|xRange| (|Segment| (|DoubleFloat|)))
+         (|yRange| (|Segment| (|DoubleFloat|))) ($ ($)))
         (SPROG ((|p| ($)))
                (SEQ (LETT |p| (SPADCALL |l| |xRange| (QREFELT $ 83)))
                     (QSETVELT |p| 1
@@ -1163,8 +1175,8 @@
                     (EXIT |p|)))) 
 
 (SDEFUN |PLOT;plotPolar;MS$;43|
-        ((|f| |Mapping| (|DoubleFloat|) (|DoubleFloat|))
-         (|thetaRange| |Segment| (|DoubleFloat|)) ($ $))
+        ((|f| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+         (|thetaRange| (|Segment| (|DoubleFloat|))) ($ ($)))
         (SPROG NIL
                (SPADCALL (CONS #'|PLOT;plotPolar;MS$;43!0| (VECTOR $ |f|))
                          (CONS #'|PLOT;plotPolar;MS$;43!1| (VECTOR $ |f|))
@@ -1189,7 +1201,7 @@
                       (QREFELT $ 86)))))) 
 
 (SDEFUN |PLOT;plotPolar;M$;44|
-        ((|f| |Mapping| (|DoubleFloat|) (|DoubleFloat|)) ($ $))
+        ((|f| (|Mapping| (|DoubleFloat|) (|DoubleFloat|))) ($ ($)))
         (SPADCALL |f|
                   (SPADCALL 0.0
                             (SPADCALL 2 (FLOAT PI MOST-POSITIVE-DOUBLE-FLOAT)
@@ -1197,7 +1209,7 @@
                             (QREFELT $ 90))
                   (QREFELT $ 88))) 
 
-(SDEFUN |PLOT;coerce;$Of;45| ((|r| $) ($ |OutputForm|))
+(SDEFUN |PLOT;coerce;$Of;45| ((|r| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|f| (|List| (|OutputForm|))) (|l| (|List| #1=(|OutputForm|)))
           (#2=#:G392 NIL) (|p| NIL) (#3=#:G391 NIL) (|h| (|OutputForm|))

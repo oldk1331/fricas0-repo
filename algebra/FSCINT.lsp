@@ -1,22 +1,22 @@
 
 (SDEFUN |FSCINT;K2KG|
-        ((|k| |Kernel| F) ($ |Kernel| (|Expression| (|Complex| R))))
+        ((|k| (|Kernel| F)) ($ (|Kernel| (|Expression| (|Complex| R)))))
         (SPADCALL
          (SPADCALL
           (SPADCALL (|SPADfirst| (SPADCALL |k| (QREFELT $ 11))) (QREFELT $ 14))
           (QREFELT $ 15))
          (QREFELT $ 17))) 
 
-(SDEFUN |FSCINT;complexIntegrate;FSF;2| ((|f| F) (|x| |Symbol|) ($ F))
+(SDEFUN |FSCINT;complexIntegrate;FSF;2| ((|f| (F)) (|x| (|Symbol|)) ($ (F)))
         (SPADCALL (SPADCALL (SPADCALL |f| |x| (QREFELT $ 20)) (QREFELT $ 22))
                   |x| (QREFELT $ 24))) 
 
 (SDEFUN |FSCINT;internalIntegrate0;FSIr;3|
-        ((|f| F) (|x| |Symbol|) ($ |IntegrationResult| F))
+        ((|f| (F)) (|x| (|Symbol|)) ($ (|IntegrationResult| F)))
         (SPADCALL |f| |x| (QREFELT $ 27))) 
 
 (SDEFUN |FSCINT;internalIntegrate;FSIr;4|
-        ((|f| F) (|x| |Symbol|) ($ |IntegrationResult| F))
+        ((|f| (F)) (|x| (|Symbol|)) ($ (|IntegrationResult| F)))
         (SPROG
          ((|g| (F)) (|h| (|Expression| (|Complex| R))) (#1=#:G124 NIL)
           (|k| NIL) (#2=#:G123 NIL) (#3=#:G122 NIL) (#4=#:G121 NIL))

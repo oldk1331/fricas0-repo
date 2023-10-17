@@ -1,11 +1,12 @@
 
 (SDEFUN |INTPM;mkalist|
-        ((|res| |PatternMatchResult| (|Integer|) F)
-         ($ |AssociationList| (|Symbol|) F))
+        ((|res| (|PatternMatchResult| (|Integer|) F))
+         ($ (|AssociationList| (|Symbol|) F)))
         (SPADCALL (SPADCALL |res| (QREFELT $ 53)) (QREFELT $ 55))) 
 
 (SDEFUN |INTPM;splitConstant;FSR;2|
-        ((|f| F) (|x| |Symbol|) ($ |Record| (|:| |const| F) (|:| |nconst| F)))
+        ((|f| (F)) (|x| (|Symbol|))
+         ($ (|Record| (|:| |const| F) (|:| |nconst| F))))
         (SPROG
          ((#1=#:G157 NIL) (|rec| (|Record| (|:| |const| F) (|:| |nconst| F)))
           (|vv| (|Record| (|:| |val| F) (|:| |exponent| (|Integer|))))
@@ -126,7 +127,8 @@
           #6# (EXIT #1#)))) 
 
 (SDEFUN |INTPM;formula1|
-        ((|f| F) (|x| |Symbol|) (|t| F) (|cc| F) ($ |Union| F "failed"))
+        ((|f| (F)) (|x| (|Symbol|)) (|t| (F)) (|cc| (F))
+         ($ (|Union| F "failed")))
         (SPROG
          ((#1=#:G179 NIL) (|mmi| (|Integer|)) (|mm| (F)) (#2=#:G183 NIL)
           (|sgz| #3=(|Union| (|Integer|) "failed")) (|z| (F)) (|sgs| #3#)
@@ -191,7 +193,8 @@
                            (QREFELT $ 64))))))
              #6# (EXIT #2#))))))) 
 
-(SDEFUN |INTPM;match1| ((|f| F) (|x| |Symbol|) (|t| F) (|cc| F) ($ |List| F))
+(SDEFUN |INTPM;match1|
+        ((|f| (F)) (|x| (|Symbol|)) (|t| (F)) (|cc| (F)) ($ (|List| F)))
         (SPROG
          ((|l| (|AssociationList| (|Symbol|) F))
           (|res| (|PatternMatchResult| (|Integer|) F)) (|pat| (F))
@@ -336,8 +339,8 @@
               (EXIT NIL)))) 
 
 (SDEFUN |INTPM;pmintegrate;FS2OcU;5|
-        ((|f| F) (|x| |Symbol|) (|a| |OrderedCompletion| F)
-         (|b| |OrderedCompletion| F) ($ |Union| F "failed"))
+        ((|f| (F)) (|x| (|Symbol|)) (|a| (|OrderedCompletion| F))
+         (|b| (|OrderedCompletion| F)) ($ (|Union| F "failed")))
         (SPROG NIL
                (SEQ
                 (COND

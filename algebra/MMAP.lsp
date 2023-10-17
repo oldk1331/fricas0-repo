@@ -1,11 +1,12 @@
 
 (SDEFUN |MMAP;rfmap|
-        ((|f| |Mapping| R2 R1) (|q| |Fraction| UP1) ($ |Fraction| UP2))
+        ((|f| (|Mapping| R2 R1)) (|q| (|Fraction| UP1)) ($ (|Fraction| UP2)))
         (SPADCALL (SPADCALL |f| (SPADCALL |q| (QREFELT $ 13)) (QREFELT $ 16))
                   (SPADCALL |f| (SPADCALL |q| (QREFELT $ 17)) (QREFELT $ 16))
                   (QREFELT $ 19))) 
 
-(SDEFUN |MMAP;map;MUPUP1UPUP2;2| ((|f| |Mapping| R2 R1) (|p| UPUP1) ($ UPUP2))
+(SDEFUN |MMAP;map;MUPUP1UPUP2;2|
+        ((|f| (|Mapping| R2 R1)) (|p| (UPUP1)) ($ (UPUP2)))
         (SPROG NIL
                (SPADCALL (CONS #'|MMAP;map;MUPUP1UPUP2;2!0| (VECTOR $ |f|)) |p|
                          (QREFELT $ 22)))) 

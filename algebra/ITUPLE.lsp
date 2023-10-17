@@ -1,21 +1,22 @@
 
-(SDEFUN |ITUPLE;stream;MS$;1| ((|f| |Mapping| S S) (|x| S) ($ $))
+(SDEFUN |ITUPLE;stream;MS$;1| ((|f| (|Mapping| S S)) (|x| (S)) ($ ($)))
         (SPADCALL |f| |x| (QREFELT $ 8))) 
 
 (SDEFUN |ITUPLE;filterWhile;M2$;2|
-        ((|f| |Mapping| (|Boolean|) S) (|x| $) ($ $))
+        ((|f| (|Mapping| (|Boolean|) S)) (|x| ($)) ($ ($)))
         (SPADCALL |f| |x| (QREFELT $ 11))) 
 
 (SDEFUN |ITUPLE;filterUntil;M2$;3|
-        ((|f| |Mapping| (|Boolean|) S) (|x| $) ($ $))
+        ((|f| (|Mapping| (|Boolean|) S)) (|x| ($)) ($ ($)))
         (SPADCALL |f| |x| (QREFELT $ 13))) 
 
-(SDEFUN |ITUPLE;select;M2$;4| ((|f| |Mapping| (|Boolean|) S) (|x| $) ($ $))
+(SDEFUN |ITUPLE;select;M2$;4|
+        ((|f| (|Mapping| (|Boolean|) S)) (|x| ($)) ($ ($)))
         (SPADCALL |f| |x| (QREFELT $ 15))) 
 
 (PUT '|ITUPLE;construct;$S;5| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |ITUPLE;construct;$S;5| ((|x| $) ($ |Stream| S)) |x|) 
+(SDEFUN |ITUPLE;construct;$S;5| ((|x| ($)) ($ (|Stream| S))) |x|) 
 
 (DECLAIM (NOTINLINE |InfiniteTuple;|)) 
 

@@ -1,15 +1,15 @@
 
 (SDEFUN |LODOF;factor;LodoML;1|
-        ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
-         (|zeros| |Mapping| (|List| F) UP)
-         ($ |List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))))
+        ((|l| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+         (|zeros| (|Mapping| (|List| F) UP))
+         ($ (|List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))))
         (|LODOF;innerFactor| |l| |zeros| (ELT $ 12) 'T $)) 
 
 (SDEFUN |LODOF;expsol|
-        ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
-         (|zeros| |Mapping| (|List| F) UP)
-         (|ezfactor| |Mapping| (|Factored| UP) UP)
-         ($ |Union| (|Fraction| UP) "failed"))
+        ((|l| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+         (|zeros| (|Mapping| (|List| F) UP))
+         (|ezfactor| (|Mapping| (|Factored| UP) UP))
+         ($ (|Union| (|Fraction| UP) "failed")))
         (SPROG ((|sol| (|List| (|Fraction| UP))))
                (COND
                 ((NULL
@@ -18,10 +18,10 @@
                 ('T (CONS 0 (|SPADfirst| |sol|)))))) 
 
 (SDEFUN |LODOF;expsols|
-        ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
-         (|zeros| |Mapping| (|List| F) UP)
-         (|ezfactor| |Mapping| (|Factored| UP) UP) (|all?| |Boolean|)
-         ($ |List| (|Fraction| UP)))
+        ((|l| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+         (|zeros| (|Mapping| (|List| F) UP))
+         (|ezfactor| (|Mapping| (|Factored| UP) UP)) (|all?| (|Boolean|))
+         ($ (|List| (|Fraction| UP))))
         (SPROG
          ((|sol| (|List| (|Fraction| UP))) (#1=#:G131 NIL) (|f| NIL)
           (#2=#:G130 NIL))
@@ -55,9 +55,9 @@
                      (QREFELT $ 32)))))) 
 
 (SDEFUN |LODOF;opeval|
-        ((|l1| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
-         (|l2| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
-         ($ |LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+        ((|l1| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+         (|l2| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+         ($ (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))))
         (SPROG
          ((|l2n| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
           (|ans| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
@@ -78,11 +78,11 @@
               (EXIT |ans|)))) 
 
 (SDEFUN |LODOF;recurfactor|
-        ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
-         (|r| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
-         (|zeros| |Mapping| (|List| F) UP)
-         (|ezfactor| |Mapping| (|Factored| UP) UP) (|adj?| |Boolean|)
-         ($ |List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))))
+        ((|l| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+         (|r| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+         (|zeros| (|Mapping| (|List| F) UP))
+         (|ezfactor| (|Mapping| (|Factored| UP) UP)) (|adj?| (|Boolean|))
+         ($ (|List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))))
         (SPROG
          ((|q| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
           (#1=#:G138 NIL))
@@ -101,11 +101,11 @@
           (EXIT (|LODOF;innerFactor| |q| |zeros| |ezfactor| 'T $))))) 
 
 (SDEFUN |LODOF;rfactor|
-        ((|op| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
-         (|r| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
-         (|zeros| |Mapping| (|List| F) UP)
-         (|ezfactor| |Mapping| (|Factored| UP) UP) (|adj?| |Boolean|)
-         ($ |List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))))
+        ((|op| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+         (|r| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+         (|zeros| (|Mapping| (|List| F) UP))
+         (|ezfactor| (|Mapping| (|Factored| UP) UP)) (|adj?| (|Boolean|))
+         ($ (|List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))))
         (SPROG
          ((|op1| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))))
          (SEQ
@@ -137,10 +137,10 @@
           (RETURN (PROGN (|LODOF;opeval| |z1| |r| $))))) 
 
 (SDEFUN |LODOF;innerFactor|
-        ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
-         (|zeros| |Mapping| (|List| F) UP)
-         (|ezfactor| |Mapping| (|Factored| UP) UP) (|r1?| |Boolean|)
-         ($ |List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))))
+        ((|l| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+         (|zeros| (|Mapping| (|List| F) UP))
+         (|ezfactor| (|Mapping| (|Factored| UP) UP)) (|r1?| (|Boolean|))
+         ($ (|List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))))
         (SPROG
          ((#1=#:G179 NIL) (#2=#:G180 NIL)
           (|u|
@@ -221,11 +221,12 @@
           #4# (EXIT #2#)))) 
 
 (SDEFUN |LODOF;rightFactor|
-        ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
-         (|n| |NonNegativeInteger|) (|zeros| |Mapping| (|List| F) UP)
-         (|ezfactor| |Mapping| (|Factored| UP) UP)
-         ($ |Union| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
-          "failed"))
+        ((|l| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+         (|n| (|NonNegativeInteger|)) (|zeros| (|Mapping| (|List| F) UP))
+         (|ezfactor| (|Mapping| (|Factored| UP) UP))
+         ($
+          (|Union| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
+                   "failed")))
         (SPROG ((|u| (|Union| (|Fraction| UP) "failed")))
                (SEQ
                 (COND
@@ -242,7 +243,7 @@
                  (#1# (CONS 1 "failed")))))) 
 
 (SDEFUN |LODOF;zro|
-        ((|p| UP) (|ezfactor| |Mapping| (|Factored| UP) UP) ($ |List| F))
+        ((|p| (UP)) (|ezfactor| (|Mapping| (|Factored| UP) UP)) ($ (|List| F)))
         (SPROG ((#1=#:G196 NIL) (|r| NIL) (#2=#:G195 NIL))
                (SEQ
                 (SPADCALL
@@ -263,7 +264,7 @@
                        (EXIT (NREVERSE #2#))))
                  (QREFELT $ 60))))) 
 
-(SDEFUN |LODOF;zro1| ((|p| UP) ($ |List| F))
+(SDEFUN |LODOF;zro1| ((|p| (UP)) ($ (|List| F)))
         (LIST
          (SPADCALL (SPADCALL (LIST #'|LODOF;zro1!0|) |p| (QREFELT $ 64))
                    (QREFELT $ 66)))) 
@@ -271,8 +272,8 @@
 (SDEFUN |LODOF;zro1!0| ((|z1| NIL) ($$ NIL)) |z1|) 
 
 (SDEFUN |LODOF;factor;LodoL;11|
-        ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
-         ($ |List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))))
+        ((|l| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+         ($ (|List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))))
         (|LODOF;innerFactor| |l| (CONS #'|LODOF;factor;LodoL;11!0| $)
          (ELT $ 67) 'T $)) 
 
@@ -280,8 +281,8 @@
         (|LODOF;zro| |p1| (ELT $ 67) $)) 
 
 (SDEFUN |LODOF;factor1;LodoL;12|
-        ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
-         ($ |List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))))
+        ((|l| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+         ($ (|List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))))
         (|LODOF;innerFactor| |l| (CONS #'|LODOF;factor1;LodoL;12!0| $)
          (ELT $ 67) NIL $)) 
 
@@ -289,8 +290,8 @@
         (|LODOF;zro| |p1| (ELT $ 67) $)) 
 
 (SDEFUN |LODOF;factor;LodoL;13|
-        ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
-         ($ |List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))))
+        ((|l| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+         ($ (|List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))))
         (|LODOF;innerFactor| |l| (CONS #'|LODOF;factor;LodoL;13!0| $)
          (ELT $ 12) 'T $)) 
 
@@ -298,8 +299,8 @@
         (|LODOF;zro| |p1| (ELT $ 12) $)) 
 
 (SDEFUN |LODOF;factor1;LodoL;14|
-        ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
-         ($ |List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))))
+        ((|l| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+         ($ (|List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))))
         (|LODOF;innerFactor| |l| (CONS #'|LODOF;factor1;LodoL;14!0| $)
          (ELT $ 12) NIL $)) 
 

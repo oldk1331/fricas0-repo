@@ -1,6 +1,6 @@
 
 (SDEFUN |LIST2MAP;match;LLM;1|
-        ((|la| |List| A) (|lb| |List| B) ($ |Mapping| B A))
+        ((|la| (|List| A)) (|lb| (|List| B)) ($ (|Mapping| B A)))
         (SPROG NIL (CONS #'|LIST2MAP;match;LLM;1!0| (VECTOR $ |lb| |la|)))) 
 
 (SDEFUN |LIST2MAP;match;LLM;1!0| ((|z1| NIL) ($$ NIL))
@@ -10,11 +10,12 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |la| |lb| |z1| (QREFELT $ 10)))))) 
 
-(SDEFUN |LIST2MAP;match;LLAB;2| ((|la| |List| A) (|lb| |List| B) (|a| A) ($ B))
+(SDEFUN |LIST2MAP;match;LLAB;2|
+        ((|la| (|List| A)) (|lb| (|List| B)) (|a| (A)) ($ (B)))
         (SPADCALL |lb| (SPADCALL |a| |la| (QREFELT $ 14)) (QREFELT $ 15))) 
 
 (SDEFUN |LIST2MAP;match;LLBM;3|
-        ((|la| |List| A) (|lb| |List| B) (|b| B) ($ |Mapping| B A))
+        ((|la| (|List| A)) (|lb| (|List| B)) (|b| (B)) ($ (|Mapping| B A)))
         (SPROG NIL (CONS #'|LIST2MAP;match;LLBM;3!0| (VECTOR $ |b| |lb| |la|)))) 
 
 (SDEFUN |LIST2MAP;match;LLBM;3!0| ((|z1| NIL) ($$ NIL))
@@ -26,7 +27,8 @@
           (RETURN (PROGN (SPADCALL |la| |lb| |z1| |b| (QREFELT $ 16)))))) 
 
 (SDEFUN |LIST2MAP;match;LL2M;4|
-        ((|la| |List| A) (|lb| |List| B) (|f| |Mapping| B A) ($ |Mapping| B A))
+        ((|la| (|List| A)) (|lb| (|List| B)) (|f| (|Mapping| B A))
+         ($ (|Mapping| B A)))
         (SPROG NIL (CONS #'|LIST2MAP;match;LL2M;4!0| (VECTOR $ |f| |lb| |la|)))) 
 
 (SDEFUN |LIST2MAP;match;LL2M;4!0| ((|z1| NIL) ($$ NIL))
@@ -38,7 +40,7 @@
           (RETURN (PROGN (SPADCALL |la| |lb| |z1| |f| (QREFELT $ 18)))))) 
 
 (SDEFUN |LIST2MAP;match;LLA2B;5|
-        ((|la| |List| A) (|lb| |List| B) (|a| A) (|b| B) ($ B))
+        ((|la| (|List| A)) (|lb| (|List| B)) (|a| (A)) (|b| (B)) ($ (B)))
         (SPROG ((|p| (|Integer|)))
                (COND
                 ((< (LETT |p| (SPADCALL |a| |la| (QREFELT $ 14)))
@@ -47,7 +49,8 @@
                 ('T (SPADCALL |lb| |p| (QREFELT $ 15)))))) 
 
 (SDEFUN |LIST2MAP;match;LLAMB;6|
-        ((|la| |List| A) (|lb| |List| B) (|a| A) (|f| |Mapping| B A) ($ B))
+        ((|la| (|List| A)) (|lb| (|List| B)) (|a| (A)) (|f| (|Mapping| B A))
+         ($ (B)))
         (SPROG ((|p| (|Integer|)))
                (COND
                 ((< (LETT |p| (SPADCALL |a| |la| (QREFELT $ 14)))

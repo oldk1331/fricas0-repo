@@ -1,5 +1,5 @@
 
-(SDEFUN |JCT;num1| (($ |PositiveInteger|))
+(SDEFUN |JCT;num1| (($ (|PositiveInteger|)))
         (COND
          ((OR
            (SPADCALL (SPADCALL (QREFELT $ 11)) (SPADCALL (QREFELT $ 12))
@@ -9,7 +9,7 @@
           (|error| "Number of variables must match"))
          ('T (SPADCALL (QREFELT $ 11))))) 
 
-(SDEFUN |JCT;num2| (($ |PositiveInteger|))
+(SDEFUN |JCT;num2| (($ (|PositiveInteger|)))
         (COND
          ((OR
            (SPADCALL (SPADCALL (QREFELT $ 17)) (SPADCALL (QREFELT $ 18))
@@ -20,8 +20,8 @@
          ('T (SPADCALL (QREFELT $ 17))))) 
 
 (SDEFUN |JCT;jacobi|
-        ((|y| |Vector| (|JetBundleExpression| JB2))
-         ($ |Matrix| (|JetBundleExpression| JB2)))
+        ((|y| (|Vector| (|JetBundleExpression| JB2)))
+         ($ (|Matrix| (|JetBundleExpression| JB2))))
         (SPROG
          ((|res| (|Matrix| (|JetBundleExpression| JB2)))
           (|tmp|
@@ -54,7 +54,7 @@
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
-(SDEFUN |JCT;transform;JB1Jbe;4| ((|jv| JB1) ($ |JetBundleExpression| JB2))
+(SDEFUN |JCT;transform;JB1Jbe;4| ((|jv| (JB1)) ($ (|JetBundleExpression| JB2)))
         (SPROG
          ((|res| (|JetBundleExpression| JB2)) (#1=#:G136 NIL) (#2=#:G142 NIL)
           (#3=#:G144 NIL) (|k| NIL) (#4=#:G143 NIL)
@@ -152,7 +152,7 @@
                                   |res| (QREFELT $ 59)))))))))) 
 
 (SDEFUN |JCT;transform;JbeJbe;5|
-        ((|e1| |JetBundleExpression| JB1) ($ |JetBundleExpression| JB2))
+        ((|e1| (|JetBundleExpression| JB1)) ($ (|JetBundleExpression| JB2)))
         (SPROG
          ((|e2| (|JetBundleExpression| JB2)) (#1=#:G151 NIL) (|jv| NIL)
           (#2=#:G152 NIL) (|je| NIL) (JE (|List| (|JetBundleExpression| JB2)))

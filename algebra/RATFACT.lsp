@@ -1,5 +1,5 @@
 
-(SDEFUN |RATFACT;factor;RPF;1| ((|p| RP) ($ |Factored| RP))
+(SDEFUN |RATFACT;factor;RPF;1| ((|p| (RP)) ($ (|Factored| RP)))
         (SPROG
          ((#1=#:G120 NIL) (|u| NIL) (#2=#:G119 NIL)
           (|ffact|
@@ -60,7 +60,7 @@
                      (EXIT (NREVERSE #2#))))
                (QREFELT $ 38))))))))) 
 
-(SDEFUN |RATFACT;factorSquareFree;RPF;2| ((|p| RP) ($ |Factored| RP))
+(SDEFUN |RATFACT;factorSquareFree;RPF;2| ((|p| (RP)) ($ (|Factored| RP)))
         (SPROG
          ((#1=#:G138 NIL) (|u| NIL) (#2=#:G137 NIL)
           (|ffact|

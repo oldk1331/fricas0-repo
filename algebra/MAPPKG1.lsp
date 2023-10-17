@@ -1,18 +1,19 @@
 
-(SDEFUN |MAPPKG1;nullary;AM;1| ((|a| A) ($ |Mapping| A))
+(SDEFUN |MAPPKG1;nullary;AM;1| ((|a| (A)) ($ (|Mapping| A)))
         (CONS #'|MAPPKG1;nullary;AM;1!0| |a|)) 
 
 (SDEFUN |MAPPKG1;nullary;AM;1!0| ((|a| NIL)) |a|) 
 
-(SDEFUN |MAPPKG1;coerce;AM;2| ((|a| A) ($ |Mapping| A))
+(SDEFUN |MAPPKG1;coerce;AM;2| ((|a| (A)) ($ (|Mapping| A)))
         (SPADCALL |a| (QREFELT $ 8))) 
 
 (PUT '|MAPPKG1;id;2A;3| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
-(SDEFUN |MAPPKG1;id;2A;3| ((|a| A) ($ A)) |a|) 
+(SDEFUN |MAPPKG1;id;2A;3| ((|a| (A)) ($ (A))) |a|) 
 
 (SDEFUN |MAPPKG1;^;MNniM;4|
-        ((|g| |Mapping| A A) (|n| |NonNegativeInteger|) ($ |Mapping| A A))
+        ((|g| (|Mapping| A A)) (|n| (|NonNegativeInteger|))
+         ($ (|Mapping| A A)))
         (SPROG NIL (CONS #'|MAPPKG1;^;MNniM;4!0| (VECTOR $ |n| |g|)))) 
 
 (SDEFUN |MAPPKG1;^;MNniM;4!0| ((|a1| NIL) ($$ NIL))
@@ -23,8 +24,8 @@
           (RETURN (PROGN (SPADCALL |g| |n| |a1| (QREFELT $ 14)))))) 
 
 (SDEFUN |MAPPKG1;recur;2M;5|
-        ((|fnaa| |Mapping| A (|NonNegativeInteger|) A)
-         ($ |Mapping| A (|NonNegativeInteger|) A))
+        ((|fnaa| (|Mapping| A (|NonNegativeInteger|) A))
+         ($ (|Mapping| A (|NonNegativeInteger|) A)))
         (SPROG NIL (CONS #'|MAPPKG1;recur;2M;5!0| (VECTOR $ |fnaa|)))) 
 
 (SDEFUN |MAPPKG1;recur;2M;5!0| ((|n1| NIL) (|a2| NIL) ($$ NIL))

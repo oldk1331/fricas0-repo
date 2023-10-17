@@ -1,14 +1,14 @@
 
-(SDEFUN |FUNCTION;name;$S;1| ((|r| $) ($ |Symbol|)) (QREFELT $ 6)) 
+(SDEFUN |FUNCTION;name;$S;1| ((|r| ($)) ($ (|Symbol|))) (QREFELT $ 6)) 
 
-(SDEFUN |FUNCTION;coerce;$Of;2| ((|r| $) ($ |OutputForm|))
+(SDEFUN |FUNCTION;coerce;$Of;2| ((|r| ($)) ($ (|OutputForm|)))
         (|outputMapTran| (QREFELT $ 6) |r|)) 
 
 (PUT '|FUNCTION;=;2$B;3| '|SPADreplace| '(XLAM (|x| |y|) 'T)) 
 
-(SDEFUN |FUNCTION;=;2$B;3| ((|x| $) (|y| $) ($ |Boolean|)) 'T) 
+(SDEFUN |FUNCTION;=;2$B;3| ((|x| ($)) (|y| ($)) ($ (|Boolean|))) 'T) 
 
-(SDEFUN |FUNCTION;latex;$S;4| ((|x| $) ($ |String|))
+(SDEFUN |FUNCTION;latex;$S;4| ((|x| ($)) ($ (|String|)))
         (SPADCALL (QREFELT $ 6) (QREFELT $ 14))) 
 
 (DECLAIM (NOTINLINE |FunctionCalled;|)) 

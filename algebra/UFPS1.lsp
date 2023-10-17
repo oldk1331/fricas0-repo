@@ -1,8 +1,8 @@
 
 (SDEFUN |UFPS1;hadamard;3Ufps;1|
-        ((|f| |UnivariateFormalPowerSeries| |Coef|)
-         (|g| |UnivariateFormalPowerSeries| |Coef|)
-         ($ |UnivariateFormalPowerSeries| |Coef|))
+        ((|f| (|UnivariateFormalPowerSeries| |Coef|))
+         (|g| (|UnivariateFormalPowerSeries| |Coef|))
+         ($ (|UnivariateFormalPowerSeries| |Coef|)))
         (SPADCALL
          (SPADCALL (ELT $ 7) (SPADCALL |f| (QREFELT $ 10))
                    (SPADCALL |g| (QREFELT $ 10)) (QREFELT $ 13))

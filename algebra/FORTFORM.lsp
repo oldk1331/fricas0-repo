@@ -1,5 +1,5 @@
 
-(SDEFUN |FORTFORM;assignable_form?| ((|o| |OutputForm|) ($ |Boolean|))
+(SDEFUN |FORTFORM;assignable_form?| ((|o| (|OutputForm|)) ($ (|Boolean|)))
         (SPROG ((|sop| (|Symbol|)) (|op| (|OutputForm|)))
                (SEQ
                 (COND ((SPADCALL |o| (QREFELT $ 10)) 'T)
@@ -17,7 +17,8 @@
                                     (EXIT 'T)))
                               (#1# 'T))))))))) 
 
-(SDEFUN |FORTFORM;convert;OfI$;2| ((|o| |OutputForm|) (|i| |Integer|) ($ $))
+(SDEFUN |FORTFORM;convert;OfI$;2|
+        ((|o| (|OutputForm|)) (|i| (|Integer|)) ($ ($)))
         (SPROG ((|var| ($)))
                (SEQ
                 (COND ((NULL (|FORTFORM;assignable_form?| |o| $)) |o|)
@@ -32,7 +33,7 @@
                          (SPADCALL (SPADCALL '= (QREFELT $ 18))
                                    (LIST |var| |o|) (QREFELT $ 20))))))))) 
 
-(SDEFUN |FORTFORM;display;$V;3| ((|x| $) ($ |Void|))
+(SDEFUN |FORTFORM;display;$V;3| ((|x| ($)) ($ (|Void|)))
         (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 25)) (QREFELT $ 26))
                   (QREFELT $ 28))) 
 

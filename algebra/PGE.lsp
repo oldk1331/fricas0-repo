@@ -1,10 +1,10 @@
 
 (SDEFUN |PGE;llli2gp|
-        ((|l| |List| (|List| (|List| (|Integer|))))
-         ($ |PermutationGroup| (|Integer|)))
+        ((|l| (|List| (|List| (|List| (|Integer|)))))
+         ($ (|PermutationGroup| (|Integer|))))
         (SPADCALL (SPADCALL (ELT $ 8) |l| (QREFELT $ 13)) (QREFELT $ 15))) 
 
-(SDEFUN |PGE;li1n| ((|n| |Integer|) ($ |List| (|Integer|)))
+(SDEFUN |PGE;li1n| ((|n| (|Integer|)) ($ (|List| (|Integer|))))
         (SPROG ((#1=#:G124 NIL) (|i| NIL) (#2=#:G123 NIL))
                (SEQ
                 (PROGN
@@ -16,7 +16,7 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |PGE;youngGroup;LPg;3|
-        ((|l| |List| (|Integer|)) ($ |PermutationGroup| (|Integer|)))
+        ((|l| (|List| (|Integer|))) ($ (|PermutationGroup| (|Integer|))))
         (SPROG
          ((|element| (|Integer|))
           (|gens| (|List| (|List| (|List| (|Integer|))))) (#1=#:G133 NIL)
@@ -58,10 +58,10 @@
                 $))))) 
 
 (SDEFUN |PGE;youngGroup;PPg;4|
-        ((|lambda| |Partition|) ($ |PermutationGroup| (|Integer|)))
+        ((|lambda| (|Partition|)) ($ (|PermutationGroup| (|Integer|))))
         (SPADCALL (SPADCALL |lambda| (QREFELT $ 21)) (QREFELT $ 19))) 
 
-(SDEFUN |PGE;rubiksGroup;Pg;5| (($ |PermutationGroup| (|Integer|)))
+(SDEFUN |PGE;rubiksGroup;Pg;5| (($ (|PermutationGroup| (|Integer|))))
         (SPROG
          ((|b| (|List| (|List| (|Integer|))))
           (|l| (|List| (|List| (|Integer|))))
@@ -91,7 +91,7 @@
           (EXIT (|PGE;llli2gp| (LIST |f| |r| |u| |d| |l| |b|) $))))) 
 
 (SDEFUN |PGE;mathieu11;LPg;6|
-        ((|l| |List| (|Integer|)) ($ |PermutationGroup| (|Integer|)))
+        ((|l| (|List| (|Integer|))) ($ (|PermutationGroup| (|Integer|))))
         (SPROG ((|a| (|List| (|List| (|Integer|)))))
                (SEQ (LETT |l| (SPADCALL |l| (QREFELT $ 24)))
                     (EXIT
@@ -124,11 +124,11 @@
                                        (SPADCALL |l| 9 (QREFELT $ 28)))))
                           $))))))))) 
 
-(SDEFUN |PGE;mathieu11;Pg;7| (($ |PermutationGroup| (|Integer|)))
+(SDEFUN |PGE;mathieu11;Pg;7| (($ (|PermutationGroup| (|Integer|))))
         (SPADCALL (|PGE;li1n| 11 $) (QREFELT $ 29))) 
 
 (SDEFUN |PGE;mathieu12;LPg;8|
-        ((|l| |List| (|Integer|)) ($ |PermutationGroup| (|Integer|)))
+        ((|l| (|List| (|Integer|))) ($ (|PermutationGroup| (|Integer|))))
         (SPROG ((|a| (|List| (|List| (|Integer|)))))
                (SEQ (LETT |l| (SPADCALL |l| (QREFELT $ 24)))
                     (EXIT
@@ -168,11 +168,11 @@
                                        (SPADCALL |l| 12 (QREFELT $ 28)))))
                           $))))))))) 
 
-(SDEFUN |PGE;mathieu12;Pg;9| (($ |PermutationGroup| (|Integer|)))
+(SDEFUN |PGE;mathieu12;Pg;9| (($ (|PermutationGroup| (|Integer|))))
         (SPADCALL (|PGE;li1n| 12 $) (QREFELT $ 31))) 
 
 (SDEFUN |PGE;mathieu22;LPg;10|
-        ((|l| |List| (|Integer|)) ($ |PermutationGroup| (|Integer|)))
+        ((|l| (|List| (|Integer|))) ($ (|PermutationGroup| (|Integer|))))
         (SPROG
          ((|b| (|List| (|List| #1=(|Integer|)))) (|a| (|List| (|List| #1#))))
          (SEQ (LETT |l| (SPADCALL |l| (QREFELT $ 24)))
@@ -230,11 +230,11 @@
                                (SPADCALL |l| 22 (QREFELT $ 28)))))
                   (EXIT (|PGE;llli2gp| (LIST |a| |b|) $))))))))) 
 
-(SDEFUN |PGE;mathieu22;Pg;11| (($ |PermutationGroup| (|Integer|)))
+(SDEFUN |PGE;mathieu22;Pg;11| (($ (|PermutationGroup| (|Integer|))))
         (SPADCALL (|PGE;li1n| 22 $) (QREFELT $ 33))) 
 
 (SDEFUN |PGE;mathieu23;LPg;12|
-        ((|l| |List| (|Integer|)) ($ |PermutationGroup| (|Integer|)))
+        ((|l| (|List| (|Integer|))) ($ (|PermutationGroup| (|Integer|))))
         (SPROG
          ((|b| (|List| (|List| #1=(|Integer|)))) (|a| (|List| (|List| #1#))))
          (SEQ (LETT |l| (SPADCALL |l| (QREFELT $ 24)))
@@ -293,11 +293,11 @@
                                (SPADCALL |l| 15 (QREFELT $ 28)))))
                   (EXIT (|PGE;llli2gp| (LIST |a| |b|) $))))))))) 
 
-(SDEFUN |PGE;mathieu23;Pg;13| (($ |PermutationGroup| (|Integer|)))
+(SDEFUN |PGE;mathieu23;Pg;13| (($ (|PermutationGroup| (|Integer|))))
         (SPADCALL (|PGE;li1n| 23 $) (QREFELT $ 35))) 
 
 (SDEFUN |PGE;mathieu24;LPg;14|
-        ((|l| |List| (|Integer|)) ($ |PermutationGroup| (|Integer|)))
+        ((|l| (|List| (|Integer|))) ($ (|PermutationGroup| (|Integer|))))
         (SPROG
          ((|b| (|List| (|List| #1=(|Integer|)))) (|a| (|List| (|List| #1#))))
          (SEQ (LETT |l| (SPADCALL |l| (QREFELT $ 24)))
@@ -357,11 +357,11 @@
                                (SPADCALL |l| 24 (QREFELT $ 28)))))
                   (EXIT (|PGE;llli2gp| (LIST |a| |b|) $))))))))) 
 
-(SDEFUN |PGE;mathieu24;Pg;15| (($ |PermutationGroup| (|Integer|)))
+(SDEFUN |PGE;mathieu24;Pg;15| (($ (|PermutationGroup| (|Integer|))))
         (SPADCALL (|PGE;li1n| 24 $) (QREFELT $ 37))) 
 
 (SDEFUN |PGE;janko2;LPg;16|
-        ((|l| |List| (|Integer|)) ($ |PermutationGroup| (|Integer|)))
+        ((|l| (|List| (|Integer|))) ($ (|PermutationGroup| (|Integer|))))
         (SPROG
          ((|b| (|List| (|List| #1=(|Integer|)))) (|a| (|List| (|List| #1#))))
          (SEQ (LETT |l| (SPADCALL |l| (QREFELT $ 24)))
@@ -575,11 +575,12 @@
                                (SPADCALL |l| 12 (QREFELT $ 28)))))
                   (EXIT (|PGE;llli2gp| (LIST |a| |b|) $))))))))) 
 
-(SDEFUN |PGE;janko2;Pg;17| (($ |PermutationGroup| (|Integer|)))
+(SDEFUN |PGE;janko2;Pg;17| (($ (|PermutationGroup| (|Integer|))))
         (SPADCALL (|PGE;li1n| 100 $) (QREFELT $ 39))) 
 
 (SDEFUN |PGE;abelianGroup;LPg;18|
-        ((|l| |List| (|PositiveInteger|)) ($ |PermutationGroup| (|Integer|)))
+        ((|l| (|List| (|PositiveInteger|)))
+         ($ (|PermutationGroup| (|Integer|))))
         (SPROG
          ((|element| (|Integer|))
           (|gens| (|List| (|List| (|List| (|Integer|))))) (#1=#:G169 NIL)
@@ -616,7 +617,7 @@
                 $))))) 
 
 (SDEFUN |PGE;alternatingGroup;LPg;19|
-        ((|l| |List| (|Integer|)) ($ |PermutationGroup| (|Integer|)))
+        ((|l| (|List| (|Integer|))) ($ (|PermutationGroup| (|Integer|))))
         (SPROG
          ((|gens| (|List| (|List| (|List| #1=(|Integer|)))))
           (|tmp| (|List| #1#)) (#2=#:G178 NIL) (|i| NIL) (#3=#:G177 NIL))
@@ -669,11 +670,11 @@
                            (EXIT (|PGE;llli2gp| |gens| $))))))))))))) 
 
 (SDEFUN |PGE;alternatingGroup;PiPg;20|
-        ((|n| |PositiveInteger|) ($ |PermutationGroup| (|Integer|)))
+        ((|n| (|PositiveInteger|)) ($ (|PermutationGroup| (|Integer|))))
         (SPADCALL (|PGE;li1n| |n| $) (QREFELT $ 45))) 
 
 (SDEFUN |PGE;symmetricGroup;LPg;21|
-        ((|l| |List| (|Integer|)) ($ |PermutationGroup| (|Integer|)))
+        ((|l| (|List| (|Integer|))) ($ (|PermutationGroup| (|Integer|))))
         (SEQ (LETT |l| (SPADCALL |l| (QREFELT $ 24)))
              (EXIT
               (COND
@@ -689,11 +690,11 @@
                  $)))))) 
 
 (SDEFUN |PGE;symmetricGroup;PiPg;22|
-        ((|n| |PositiveInteger|) ($ |PermutationGroup| (|Integer|)))
+        ((|n| (|PositiveInteger|)) ($ (|PermutationGroup| (|Integer|))))
         (SPADCALL (|PGE;li1n| |n| $) (QREFELT $ 48))) 
 
 (SDEFUN |PGE;cyclicGroup;LPg;23|
-        ((|l| |List| (|Integer|)) ($ |PermutationGroup| (|Integer|)))
+        ((|l| (|List| (|Integer|))) ($ (|PermutationGroup| (|Integer|))))
         (SEQ (LETT |l| (SPADCALL |l| (QREFELT $ 24)))
              (EXIT
               (COND
@@ -702,11 +703,11 @@
                ('T (|PGE;llli2gp| (LIST (LIST |l|)) $)))))) 
 
 (SDEFUN |PGE;cyclicGroup;PiPg;24|
-        ((|n| |PositiveInteger|) ($ |PermutationGroup| (|Integer|)))
+        ((|n| (|PositiveInteger|)) ($ (|PermutationGroup| (|Integer|))))
         (SPADCALL (|PGE;li1n| |n| $) (QREFELT $ 50))) 
 
 (SDEFUN |PGE;dihedralGroup;LPg;25|
-        ((|l| |List| (|Integer|)) ($ |PermutationGroup| (|Integer|)))
+        ((|l| (|List| (|Integer|))) ($ (|PermutationGroup| (|Integer|))))
         (SPROG
          ((|tmp| (|List| (|List| (|Integer|)))) (#1=#:G192 NIL) (|i| NIL)
           (#2=#:G191 NIL))
@@ -738,7 +739,7 @@
                   (EXIT (|PGE;llli2gp| (LIST (LIST |l|) |tmp|) $))))))))) 
 
 (SDEFUN |PGE;dihedralGroup;PiPg;26|
-        ((|n| |PositiveInteger|) ($ |PermutationGroup| (|Integer|)))
+        ((|n| (|PositiveInteger|)) ($ (|PermutationGroup| (|Integer|))))
         (COND ((EQL |n| 1) (SPADCALL 2 (QREFELT $ 49)))
               ((EQL |n| 2)
                (|PGE;llli2gp| (LIST (LIST (LIST 1 2)) (LIST (LIST 3 4))) $))

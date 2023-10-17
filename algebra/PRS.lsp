@@ -1,8 +1,8 @@
 
-(SDEFUN |PRS;*| ((|r| R) (|v| |Vector| |polR|) ($ |Vector| |polR|))
+(SDEFUN |PRS;*| ((|r| (R)) (|v| (|Vector| |polR|)) ($ (|Vector| |polR|)))
         (SPADCALL (SPADCALL |r| (QREFELT $ 12)) |v| (QREFELT $ 14))) 
 
-(SDEFUN |PRS;exquo| ((|v| |Vector| |polR|) (|r| R) ($ |Vector| |polR|))
+(SDEFUN |PRS;exquo| ((|v| (|Vector| |polR|)) (|r| (R)) ($ (|Vector| |polR|)))
         (SPROG NIL
                (SPADCALL (CONS #'|PRS;exquo!0| (VECTOR (QREFELT $ 7) $ |r|))
                          |v| (QREFELT $ 18)))) 
@@ -21,8 +21,8 @@
                                      (|Union| |polR| "failed") #1#))))))) 
 
 (SDEFUN |PRS;divide;2polRR;3|
-        ((F |polR|) (G |polR|)
-         ($ |Record| (|:| |quotient| |polR|) (|:| |remainder| |polR|)))
+        ((F (|polR|)) (G (|polR|))
+         ($ (|Record| (|:| |quotient| |polR|) (|:| |remainder| |polR|))))
         (SPROG
          ((#1=#:G292 NIL) (|quot| (|polR|)) (|mon| (|polR|)) (#2=#:G285 NIL)
           (#3=#:G283 NIL) (|delta| (|Integer|)) (#4=#:G279 NIL)
@@ -88,7 +88,7 @@
                          (PROGN (LETT #1# (CONS |quot| F)) (GO #5#)))))))))
           #5# (EXIT #1#)))) 
 
-(SDEFUN |PRS;resultant_naif| ((P |polR|) (Q |polR|) ($ R))
+(SDEFUN |PRS;resultant_naif| ((P (|polR|)) (Q (|polR|)) ($ (R)))
         (SPROG
          ((|#G19| (|polR|)) (|#G18| (|polR|)) (|a| (R)) (#1=#:G298 NIL)
           (U (|polR|)) (#2=#:G305 NIL) (|degQ| #3=(|NonNegativeInteger|))
@@ -158,9 +158,10 @@
           #4# (EXIT #2#)))) 
 
 (SDEFUN |PRS;resultantEuclidean_naif|
-        ((P |polR|) (Q |polR|)
-         ($ |Record| (|:| |coef1| |polR|) (|:| |coef2| |polR|)
-          (|:| |resultant| R)))
+        ((P (|polR|)) (Q (|polR|))
+         ($
+          (|Record| (|:| |coef1| |polR|) (|:| |coef2| |polR|)
+                    (|:| |resultant| R))))
         (SPROG
          ((|cf2| (|polR|)) (|cf1| (|polR|)) (|old_cf2| (|polR|))
           (|old_cf1| (|polR|)) (|#G29| (|polR|)) (|#G28| (|polR|))
@@ -268,8 +269,8 @@
           #5# (EXIT #2#)))) 
 
 (SDEFUN |PRS;semiResultantEuclidean_naif|
-        ((P |polR|) (Q |polR|)
-         ($ |Record| (|:| |coef2| |polR|) (|:| |resultant| R)))
+        ((P (|polR|)) (Q (|polR|))
+         ($ (|Record| (|:| |coef2| |polR|) (|:| |resultant| R))))
         (SPROG
          ((|cf2| (|polR|)) (|old_cf2| (|polR|)) (|#G37| (|polR|))
           (|#G36| (|polR|)) (|#G35| (|polR|)) (|#G34| (|polR|)) (|a| (R))
@@ -363,7 +364,7 @@
                       NIL (GO G190) G191 (EXIT NIL)))))
           #5# (EXIT #2#)))) 
 
-(SDEFUN |PRS;exactQuo| ((|x| R) (|y| R) ($ R))
+(SDEFUN |PRS;exactQuo| ((|x| (R)) (|y| (R)) ($ (R)))
         (SPROG ((|ex| (|Union| R "failed")))
                (SEQ (LETT |ex| (SPADCALL |x| |y| (QREFELT $ 24)))
                     (EXIT
@@ -371,7 +372,7 @@
                            ('T (|error| "exactQuo$PRS: bad args"))))))) 
 
 (SDEFUN |PRS;LazardQuotient;2RNniR;8|
-        ((|x| R) (|y| R) (|n| |NonNegativeInteger|) ($ R))
+        ((|x| (R)) (|y| (R)) (|n| (|NonNegativeInteger|)) ($ (R)))
         (SPROG
          ((#1=#:G349 NIL) (|c| (R)) (|a| (|NonNegativeInteger|))
           (#2=#:G356 NIL) (#3=#:G348 NIL) (|b| (|NonNegativeInteger|)))
@@ -424,7 +425,8 @@
           #4# (EXIT #2#)))) 
 
 (SDEFUN |PRS;LazardQuotient2;polR2RNnipolR;9|
-        ((F |polR|) (|x| R) (|y| R) (|n| |NonNegativeInteger|) ($ |polR|))
+        ((F (|polR|)) (|x| (R)) (|y| (R)) (|n| (|NonNegativeInteger|))
+         ($ (|polR|)))
         (SPROG ((#1=#:G364 NIL) (#2=#:G359 NIL) (#3=#:G357 NIL))
                (SEQ
                 (EXIT
@@ -456,8 +458,8 @@
                 #4# (EXIT #1#)))) 
 
 (SDEFUN |PRS;Lazard3|
-        ((V |Vector| |polR|) (|x| R) (|y| R) (|n| |NonNegativeInteger|)
-         ($ |Vector| |polR|))
+        ((V (|Vector| |polR|)) (|x| (R)) (|y| (R)) (|n| (|NonNegativeInteger|))
+         ($ (|Vector| |polR|)))
         (SPROG ((#1=#:G365 NIL))
                (SEQ
                 (COND ((ZEROP |n|) (|error| "Lazard3$prs : n = 0"))
@@ -474,7 +476,7 @@
                         (EXIT (|PRS;exquo| (|PRS;*| |x| V $) |y| $)))))))) 
 
 (SDEFUN |PRS;next_sousResultant2;3polRRpolR;11|
-        ((P |polR|) (Q |polR|) (Z |polR|) (|s| R) ($ |polR|))
+        ((P (|polR|)) (Q (|polR|)) (Z (|polR|)) (|s| (R)) ($ (|polR|)))
         (SPROG
          ((#1=#:G380 NIL) (A (|polR|)) (#2=#:G370 NIL) (H (|polR|))
           (#3=#:G381 NIL) (|i| NIL) (|#G64| (|polR|)) (|#G63| (|polR|))
@@ -579,8 +581,8 @@
           #7# (EXIT #1#)))) 
 
 (SDEFUN |PRS;next_sousResultant3|
-        ((VP |Vector| |polR|) (VQ |Vector| |polR|) (|s| R) (|ss| R)
-         ($ |Vector| |polR|))
+        ((VP (|Vector| |polR|)) (VQ (|Vector| |polR|)) (|s| (R)) (|ss| (R))
+         ($ (|Vector| |polR|)))
         (SPROG
          ((#1=#:G395 NIL) (#2=#:G386 NIL) (#3=#:G396 NIL) (|i| NIL)
           (|divid| (|Record| (|:| |quotient| |polR|) (|:| |remainder| |polR|)))
@@ -692,7 +694,7 @@
               (GO #7=#:G394)))))
           #7# (EXIT #1#)))) 
 
-(SDEFUN |PRS;algo_new| ((P |polR|) (Q |polR|) ($ R))
+(SDEFUN |PRS;algo_new| ((P (|polR|)) (Q (|polR|)) ($ (R)))
         (SPROG
          ((|s| (R)) (|#G82| (|polR|)) (|#G81| (|polR|)) (#1=#:G405 NIL)
           (Z (|polR|)) (|delta| (|NonNegativeInteger|)) (#2=#:G398 NIL)
@@ -754,7 +756,7 @@
                   NIL (GO G190) G191 (EXIT NIL)))))
           #4# (EXIT #1#)))) 
 
-(SDEFUN |PRS;resultant;2polRR;14| ((P |polR|) (Q |polR|) ($ R))
+(SDEFUN |PRS;resultant;2polRR;14| ((P (|polR|)) (Q (|polR|)) ($ (R)))
         (SPROG
          ((|degQ| #1=(|NonNegativeInteger|)) (|degP| #1#) (|#G90| #1#)
           (|#G89| #1#) (|#G88| (|polR|)) (|#G87| (|polR|)) (|#G86| #1#)
@@ -794,7 +796,7 @@
                 (SPADCALL (SPADCALL Q (QREFELT $ 19)) |degP| (QREFELT $ 49)))
                ('T (|PRS;resultant_naif| P Q $)))))))))) 
 
-(SDEFUN |PRS;resultant;2polRR;15| ((P |polR|) (Q |polR|) ($ R))
+(SDEFUN |PRS;resultant;2polRR;15| ((P (|polR|)) (Q (|polR|)) ($ (R)))
         (SPROG
          ((|degQ| #1=(|NonNegativeInteger|)) (|degP| #1#) (|#G98| #1#)
           (|#G97| #1#) (|#G96| (|polR|)) (|#G95| (|polR|)) (|#G94| #1#)
@@ -835,9 +837,10 @@
                ('T (|PRS;algo_new| P Q $)))))))))) 
 
 (SDEFUN |PRS;subResultantEuclidean|
-        ((P |polR|) (Q |polR|)
-         ($ |Record| (|:| |coef1| |polR|) (|:| |coef2| |polR|)
-          (|:| |resultant| R)))
+        ((P (|polR|)) (Q (|polR|))
+         ($
+          (|Record| (|:| |coef1| |polR|) (|:| |coef2| |polR|)
+                    (|:| |resultant| R))))
         (SPROG
          ((|s| (R)) (VQ #1=(|Vector| |polR|)) (VP (|Vector| |polR|))
           (|#G104| (|Vector| |polR|)) (|#G103| #1#) (|ss| (R)) (#2=#:G429 NIL)
@@ -929,9 +932,10 @@
           #5# (EXIT #2#)))) 
 
 (SDEFUN |PRS;resultantEuclidean;2polRR;17|
-        ((P |polR|) (Q |polR|)
-         ($ |Record| (|:| |coef1| |polR|) (|:| |coef2| |polR|)
-          (|:| |resultant| R)))
+        ((P (|polR|)) (Q (|polR|))
+         ($
+          (|Record| (|:| |coef1| |polR|) (|:| |coef2| |polR|)
+                    (|:| |resultant| R))))
         (SPROG
          ((|s| (R)) (#1=#:G435 NIL)
           (|l|
@@ -985,9 +989,10 @@
                (#3# (|PRS;resultantEuclidean_naif| P Q $)))))))))) 
 
 (SDEFUN |PRS;resultantEuclidean;2polRR;18|
-        ((P |polR|) (Q |polR|)
-         ($ |Record| (|:| |coef1| |polR|) (|:| |coef2| |polR|)
-          (|:| |resultant| R)))
+        ((P (|polR|)) (Q (|polR|))
+         ($
+          (|Record| (|:| |coef1| |polR|) (|:| |coef2| |polR|)
+                    (|:| |resultant| R))))
         (SPROG
          ((|s| (R)) (#1=#:G447 NIL)
           (|l|
@@ -1041,8 +1046,8 @@
                (#3# (|PRS;subResultantEuclidean| P Q $)))))))))) 
 
 (SDEFUN |PRS;semiSubResultantEuclidean|
-        ((P |polR|) (Q |polR|)
-         ($ |Record| (|:| |coef2| |polR|) (|:| |resultant| R)))
+        ((P (|polR|)) (Q (|polR|))
+         ($ (|Record| (|:| |coef2| |polR|) (|:| |resultant| R))))
         (SPROG
          ((|s| (R)) (VQ #1=(|Vector| |polR|)) (VP (|Vector| |polR|))
           (|#G118| (|Vector| |polR|)) (|#G117| #1#) (|ss| (R)) (#2=#:G464 NIL)
@@ -1125,8 +1130,8 @@
           #5# (EXIT #2#)))) 
 
 (SDEFUN |PRS;semiResultantEuclidean2;2polRR;20|
-        ((P |polR|) (Q |polR|)
-         ($ |Record| (|:| |coef2| |polR|) (|:| |resultant| R)))
+        ((P (|polR|)) (Q (|polR|))
+         ($ (|Record| (|:| |coef2| |polR|) (|:| |resultant| R))))
         (SPROG
          ((|s| (R)) (#1=#:G467 NIL) (|degQ| #2=(|NonNegativeInteger|))
           (|degP| #2#) (|#G122| #2#) (|#G121| #2#))
@@ -1165,8 +1170,8 @@
                (#3# (|PRS;semiResultantEuclidean_naif| P Q $)))))))))) 
 
 (SDEFUN |PRS;semiResultantEuclidean2;2polRR;21|
-        ((P |polR|) (Q |polR|)
-         ($ |Record| (|:| |coef2| |polR|) (|:| |resultant| R)))
+        ((P (|polR|)) (Q (|polR|))
+         ($ (|Record| (|:| |coef2| |polR|) (|:| |resultant| R))))
         (SPROG
          ((|s| (R)) (#1=#:G477 NIL) (|degQ| #2=(|NonNegativeInteger|))
           (|degP| #2#) (|#G126| #2#) (|#G125| #2#))
@@ -1205,8 +1210,8 @@
                (#3# (|PRS;semiSubResultantEuclidean| P Q $)))))))))) 
 
 (SDEFUN |PRS;semiResultantEuclidean1;2polRR;22|
-        ((P |polR|) (Q |polR|)
-         ($ |Record| (|:| |coef1| |polR|) (|:| |resultant| R)))
+        ((P (|polR|)) (Q (|polR|))
+         ($ (|Record| (|:| |coef1| |polR|) (|:| |resultant| R))))
         (SPROG
          ((|result|
            (|Record| (|:| |coef1| |polR|) (|:| |coef2| |polR|)
@@ -1215,7 +1220,7 @@
               (EXIT (CONS (QVELT |result| 0) (QVELT |result| 2)))))) 
 
 (SDEFUN |PRS;indiceSubResultant;2polRNnipolR;23|
-        ((P |polR|) (Q |polR|) (|i| |NonNegativeInteger|) ($ |polR|))
+        ((P (|polR|)) (Q (|polR|)) (|i| (|NonNegativeInteger|)) ($ (|polR|)))
         (SPROG
          ((|s| (R)) (|#G139| (|polR|)) (|#G138| (|polR|)) (#1=#:G509 NIL)
           (Z (|polR|)) (#2=#:G501 NIL) (|degQ| #3=(|NonNegativeInteger|))
@@ -1336,9 +1341,10 @@
           #8# (EXIT #1#)))) 
 
 (SDEFUN |PRS;indiceSubResultantEuclidean;2polRNniR;24|
-        ((P |polR|) (Q |polR|) (|i| |NonNegativeInteger|)
-         ($ |Record| (|:| |coef1| |polR|) (|:| |coef2| |polR|)
-          (|:| |subResultant| |polR|)))
+        ((P (|polR|)) (Q (|polR|)) (|i| (|NonNegativeInteger|))
+         ($
+          (|Record| (|:| |coef1| |polR|) (|:| |coef2| |polR|)
+                    (|:| |subResultant| |polR|))))
         (SPROG
          ((|s| (R)) (VQ #1=(|Vector| |polR|)) (VP (|Vector| |polR|))
           (|#G152| (|Vector| |polR|)) (|#G151| #1#) (|ss| (R)) (#2=#:G535 NIL)
@@ -1516,8 +1522,8 @@
           #9# (EXIT #2#)))) 
 
 (SDEFUN |PRS;semiIndiceSubResultantEuclidean;2polRNniR;25|
-        ((P |polR|) (Q |polR|) (|i| |NonNegativeInteger|)
-         ($ |Record| (|:| |coef2| |polR|) (|:| |subResultant| |polR|)))
+        ((P (|polR|)) (Q (|polR|)) (|i| (|NonNegativeInteger|))
+         ($ (|Record| (|:| |coef2| |polR|) (|:| |subResultant| |polR|))))
         (SPROG
          ((|s| (R)) (VQ #1=(|Vector| |polR|)) (VP (|Vector| |polR|))
           (|#G161| (|Vector| |polR|)) (|#G160| #1#) (|ss| (R)) (#2=#:G559 NIL)
@@ -1666,7 +1672,7 @@
           #9# (EXIT #2#)))) 
 
 (SDEFUN |PRS;degreeSubResultant;2polRNnipolR;26|
-        ((P |polR|) (Q |polR|) (|i| |NonNegativeInteger|) ($ |polR|))
+        ((P (|polR|)) (Q (|polR|)) (|i| (|NonNegativeInteger|)) ($ (|polR|)))
         (SPROG
          ((|s| (R)) (|#G174| (|polR|)) (|#G173| (|polR|)) (Z (|polR|))
           (#1=#:G573 NIL) (#2=#:G580 NIL) (|#G172| (|polR|)) (|#G171| (|polR|))
@@ -1774,9 +1780,10 @@
           #7# (EXIT #2#)))) 
 
 (SDEFUN |PRS;degreeSubResultantEuclidean;2polRNniR;27|
-        ((P |polR|) (Q |polR|) (|i| |NonNegativeInteger|)
-         ($ |Record| (|:| |coef1| |polR|) (|:| |coef2| |polR|)
-          (|:| |subResultant| |polR|)))
+        ((P (|polR|)) (Q (|polR|)) (|i| (|NonNegativeInteger|))
+         ($
+          (|Record| (|:| |coef1| |polR|) (|:| |coef2| |polR|)
+                    (|:| |subResultant| |polR|))))
         (SPROG
          ((|s| (R)) (VQ #1=(|Vector| |polR|)) (VP (|Vector| |polR|))
           (|#G184| (|Vector| |polR|)) (|#G183| #1#) (|ss| (R)) (#2=#:G597 NIL)
@@ -1919,8 +1926,8 @@
           #7# (EXIT #3#)))) 
 
 (SDEFUN |PRS;semiDegreeSubResultantEuclidean;2polRNniR;28|
-        ((P |polR|) (Q |polR|) (|i| |NonNegativeInteger|)
-         ($ |Record| (|:| |coef2| |polR|) (|:| |subResultant| |polR|)))
+        ((P (|polR|)) (Q (|polR|)) (|i| (|NonNegativeInteger|))
+         ($ (|Record| (|:| |coef2| |polR|) (|:| |subResultant| |polR|))))
         (SPROG
          ((|s| (R)) (VQ #1=(|Vector| |polR|)) (VP (|Vector| |polR|))
           (|#G191| (|Vector| |polR|)) (|#G190| #1#) (|ss| (R)) (#2=#:G619 NIL)
@@ -2046,7 +2053,8 @@
                           NIL (GO G190) G191 (EXIT NIL)))))))))))))
           #8# (EXIT #3#)))) 
 
-(SDEFUN |PRS;lastSubResultant;3polR;29| ((P |polR|) (Q |polR|) ($ |polR|))
+(SDEFUN |PRS;lastSubResultant;3polR;29|
+        ((P (|polR|)) (Q (|polR|)) ($ (|polR|)))
         (SPROG
          ((|s| (R)) (|#G202| (|polR|)) (|#G201| (|polR|)) (#1=#:G641 NIL)
           (Z (|polR|)) (#2=#:G633 NIL) (|#G200| (|polR|)) (|#G199| (|polR|))
@@ -2136,9 +2144,10 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |PRS;lastSubResultantEuclidean;2polRR;30|
-        ((P |polR|) (Q |polR|)
-         ($ |Record| (|:| |coef1| |polR|) (|:| |coef2| |polR|)
-          (|:| |subResultant| |polR|)))
+        ((P (|polR|)) (Q (|polR|))
+         ($
+          (|Record| (|:| |coef1| |polR|) (|:| |coef2| |polR|)
+                    (|:| |subResultant| |polR|))))
         (SPROG
          ((|s| (R)) (VQ #1=(|Vector| |polR|)) (VP (|Vector| |polR|))
           (|#G208| (|Vector| |polR|)) (|#G207| #1#) (|ss| (R)) (#2=#:G662 NIL)
@@ -2266,8 +2275,8 @@
           #6# (EXIT #2#)))) 
 
 (SDEFUN |PRS;semiLastSubResultantEuclidean;2polRR;31|
-        ((P |polR|) (Q |polR|)
-         ($ |Record| (|:| |coef2| |polR|) (|:| |subResultant| |polR|)))
+        ((P (|polR|)) (Q (|polR|))
+         ($ (|Record| (|:| |coef2| |polR|) (|:| |subResultant| |polR|))))
         (SPROG
          ((|s| (R)) (VQ #1=(|Vector| |polR|)) (VP (|Vector| |polR|))
           (|#G214| (|Vector| |polR|)) (|#G213| #1#) (|ss| (R)) (#2=#:G682 NIL)
@@ -2381,7 +2390,7 @@
           #7# (EXIT #2#)))) 
 
 (SDEFUN |PRS;chainSubResultants;2polRL;32|
-        ((P |polR|) (Q |polR|) ($ |List| |polR|))
+        ((P (|polR|)) (Q (|polR|)) ($ (|List| |polR|)))
         (SPROG
          ((|s| (R)) (|#G224| (|polR|)) (|#G223| (|polR|)) (#1=#:G698 NIL)
           (L (|List| |polR|)) (Z (|polR|)) (|delta| (|NonNegativeInteger|))
@@ -2489,7 +2498,7 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |PRS;schema;2polRL;33|
-        ((P |polR|) (Q |polR|) ($ |List| (|NonNegativeInteger|)))
+        ((P (|polR|)) (Q (|polR|)) ($ (|List| (|NonNegativeInteger|))))
         (SPROG
          ((|s| (R)) (|#G232| (|polR|)) (|#G231| (|polR|)) (#1=#:G712 NIL)
           (L (|List| (|NonNegativeInteger|))) (Z (|polR|))
@@ -2585,7 +2594,7 @@
                                  NIL (GO G190) G191 (EXIT NIL)))))))))))
           #4# (EXIT #1#)))) 
 
-(SDEFUN |PRS;subResultantGcd;3polR;34| ((P |polR|) (Q |polR|) ($ |polR|))
+(SDEFUN |PRS;subResultantGcd;3polR;34| ((P (|polR|)) (Q (|polR|)) ($ (|polR|)))
         (SPROG
          ((|s| (R)) (|#G240| (|polR|)) (|#G239| (|polR|)) (Z (|polR|))
           (#1=#:G718 NIL) (#2=#:G728 NIL) (|#G238| (|polR|)) (|#G237| (|polR|))
@@ -2681,9 +2690,10 @@
           #5# (EXIT #2#)))) 
 
 (SDEFUN |PRS;subResultantGcdEuclidean;2polRR;35|
-        ((P |polR|) (Q |polR|)
-         ($ |Record| (|:| |coef1| |polR|) (|:| |coef2| |polR|)
-          (|:| |gcd| |polR|)))
+        ((P (|polR|)) (Q (|polR|))
+         ($
+          (|Record| (|:| |coef1| |polR|) (|:| |coef2| |polR|)
+                    (|:| |gcd| |polR|))))
         (SPROG
          ((|s| (R)) (VQ #1=(|Vector| |polR|)) (VP (|Vector| |polR|))
           (|#G246| (|Vector| |polR|)) (|#G245| #1#) (|ss| (R)) (#2=#:G737 NIL)
@@ -2806,8 +2816,8 @@
           #6# (EXIT #3#)))) 
 
 (SDEFUN |PRS;semiSubResultantGcdEuclidean2;2polRR;36|
-        ((P |polR|) (Q |polR|)
-         ($ |Record| (|:| |coef2| |polR|) (|:| |gcd| |polR|)))
+        ((P (|polR|)) (Q (|polR|))
+         ($ (|Record| (|:| |coef2| |polR|) (|:| |gcd| |polR|))))
         (SPROG
          ((|s| (R)) (VQ #1=(|Vector| |polR|)) (VP (|Vector| |polR|))
           (|#G252| (|Vector| |polR|)) (|#G251| #1#) (|ss| (R)) (#2=#:G754 NIL)
@@ -2905,8 +2915,8 @@
           #5# (EXIT #3#)))) 
 
 (SDEFUN |PRS;semiSubResultantGcdEuclidean1;2polRR;37|
-        ((P |polR|) (Q |polR|)
-         ($ |Record| (|:| |coef1| |polR|) (|:| |gcd| |polR|)))
+        ((P (|polR|)) (Q (|polR|))
+         ($ (|Record| (|:| |coef1| |polR|) (|:| |gcd| |polR|))))
         (SPROG
          ((|result|
            (|Record| (|:| |coef1| |polR|) (|:| |coef2| |polR|)
@@ -2914,7 +2924,7 @@
          (SEQ (LETT |result| (SPADCALL P Q (QREFELT $ 78)))
               (EXIT (CONS (QVELT |result| 0) (QVELT |result| 2)))))) 
 
-(SDEFUN |PRS;discriminant;polRR;38| ((P |polR|) ($ R))
+(SDEFUN |PRS;discriminant;polRR;38| ((P (|polR|)) ($ (R)))
         (SPROG
          ((#1=#:G783 NIL) (#2=#:G778 NIL) (#3=#:G774 NIL) (|d| (|Integer|))
           (|r| (R)) (|dP| (|polR|)) (|a| (|Integer|)) (#4=#:G772 NIL))
@@ -2974,9 +2984,10 @@
           #6# (EXIT #1#)))) 
 
 (SDEFUN |PRS;discriminantEuclidean;polRR;39|
-        ((P |polR|)
-         ($ |Record| (|:| |coef1| |polR|) (|:| |coef2| |polR|)
-          (|:| |discriminant| R)))
+        ((P (|polR|))
+         ($
+          (|Record| (|:| |coef1| |polR|) (|:| |coef2| |polR|)
+                    (|:| |discriminant| R))))
         (SPROG
          ((#1=#:G810 NIL) (|cr| (R)) (#2=#:G803 NIL) (|c2| (|polR|))
           (#3=#:G800 NIL) (|c1| (|polR|)) (#4=#:G796 NIL) (#5=#:G790 NIL)
@@ -3105,7 +3116,8 @@
           #10# (EXIT #1#)))) 
 
 (SDEFUN |PRS;semiDiscriminantEuclidean;polRR;40|
-        ((P |polR|) ($ |Record| (|:| |coef2| |polR|) (|:| |discriminant| R)))
+        ((P (|polR|))
+         ($ (|Record| (|:| |coef2| |polR|) (|:| |discriminant| R))))
         (SPROG
          ((#1=#:G833 NIL) (|cr| (R)) (#2=#:G826 NIL) (|c2| (|polR|))
           (#3=#:G823 NIL) (#4=#:G817 NIL) (#5=#:G814 NIL) (|d| (|Integer|))
@@ -3201,7 +3213,7 @@
                           (GO #8=#:G832)))))))))
           #8# (EXIT #1#)))) 
 
-(SDEFUN |PRS;resultantReduit;2polRR;41| ((P |polR|) (Q |polR|) ($ R))
+(SDEFUN |PRS;resultantReduit;2polRR;41| ((P (|polR|)) (Q (|polR|)) ($ (R)))
         (SPROG
          ((#1=#:G841 NIL) (#2=#:G836 NIL) (|l| (|List| R)) (|UVs| (|polR|))
           (UV
@@ -3236,9 +3248,10 @@
           #3# (EXIT #1#)))) 
 
 (SDEFUN |PRS;resultantReduitEuclidean;2polRR;42|
-        ((P |polR|) (Q |polR|)
-         ($ |Record| (|:| |coef1| |polR|) (|:| |coef2| |polR|)
-          (|:| |resultantReduit| R)))
+        ((P (|polR|)) (Q (|polR|))
+         ($
+          (|Record| (|:| |coef1| |polR|) (|:| |coef2| |polR|)
+                    (|:| |resultantReduit| R))))
         (SPROG
          ((#1=#:G854 NIL) (|rr| (R)) (#2=#:G848 NIL) (|c2| (|polR|))
           (#3=#:G845 NIL) (|c1| (|polR|)) (|gl| (R)) (|l| (|List| R))
@@ -3295,8 +3308,8 @@
           #5# (EXIT #1#)))) 
 
 (SDEFUN |PRS;semiResultantReduitEuclidean;2polRR;43|
-        ((P |polR|) (Q |polR|)
-         ($ |Record| (|:| |coef2| |polR|) (|:| |resultantReduit| R)))
+        ((P (|polR|)) (Q (|polR|))
+         ($ (|Record| (|:| |coef2| |polR|) (|:| |resultantReduit| R))))
         (SPROG
          ((#1=#:G867 NIL) (|rr| (R)) (#2=#:G861 NIL) (|c2| (|polR|))
           (#3=#:G858 NIL) (|gl| (R)) (|l| (|List| R)) (|UVs| (|polR|))
@@ -3340,7 +3353,7 @@
                      (PROGN (LETT #1# (CONS |c2| |rr|)) (GO #4=#:G866)))))))))
           #4# (EXIT #1#)))) 
 
-(SDEFUN |PRS;gcd_naif| ((P |polR|) (Q |polR|) ($ |polR|))
+(SDEFUN |PRS;gcd_naif| ((P (|polR|)) (Q (|polR|)) ($ (|polR|)))
         (SPROG
          ((|#G272| (|polR|)) (|#G271| (|polR|)) (#1=#:G877 NIL)
           (#2=#:G869 NIL))
@@ -3382,10 +3395,10 @@
                   NIL (GO G190) G191 (EXIT NIL)))))
           #4# (EXIT #1#)))) 
 
-(SDEFUN |PRS;gcd;3polR;45| ((P |polR|) (Q |polR|) ($ |polR|))
+(SDEFUN |PRS;gcd;3polR;45| ((P (|polR|)) (Q (|polR|)) ($ (|polR|)))
         (|PRS;gcd_naif| P Q $)) 
 
-(SDEFUN |PRS;gcd;3polR;46| ((P |polR|) (Q |polR|) ($ |polR|))
+(SDEFUN |PRS;gcd;3polR;46| ((P (|polR|)) (Q (|polR|)) ($ (|polR|)))
         (SPROG ((G (|polR|)) (#1=#:G880 NIL) (|cQ| (R)) (|cP| (R)))
                (SEQ
                 (COND ((SPADCALL P (QREFELT $ 31)) Q)

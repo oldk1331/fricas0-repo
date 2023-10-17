@@ -1,10 +1,11 @@
 
-(SDEFUN |VIEWDEF;viewPosDefault;L;1| (($ |List| (|NonNegativeInteger|)))
+(SDEFUN |VIEWDEF;viewPosDefault;L;1| (($ (|List| (|NonNegativeInteger|))))
         (LIST (SPADCALL (QREFELT $ 27) (QREFELT $ 46))
               (SPADCALL (QREFELT $ 28) (QREFELT $ 46)))) 
 
 (SDEFUN |VIEWDEF;viewPosDefault;2L;2|
-        ((|l| |List| (|NonNegativeInteger|)) ($ |List| (|NonNegativeInteger|)))
+        ((|l| (|List| (|NonNegativeInteger|)))
+         ($ (|List| (|NonNegativeInteger|))))
         (COND
          ((< (SPADCALL |l| (QREFELT $ 49)) 2)
           (|error| "viewPosDefault expects a list with two elements"))
@@ -13,12 +14,12 @@
                 (SPADCALL (QREFELT $ 28) (SPADCALL |l| (QREFELT $ 51))
                           (QREFELT $ 50)))))) 
 
-(SDEFUN |VIEWDEF;viewSizeDefault;L;3| (($ |List| (|PositiveInteger|)))
+(SDEFUN |VIEWDEF;viewSizeDefault;L;3| (($ (|List| (|PositiveInteger|))))
         (LIST (SPADCALL (QREFELT $ 29) (QREFELT $ 53))
               (SPADCALL (QREFELT $ 30) (QREFELT $ 53)))) 
 
 (SDEFUN |VIEWDEF;viewSizeDefault;2L;4|
-        ((|l| |List| (|PositiveInteger|)) ($ |List| (|PositiveInteger|)))
+        ((|l| (|List| (|PositiveInteger|))) ($ (|List| (|PositiveInteger|))))
         (COND
          ((< (LENGTH |l|) 2)
           (|error| "viewSizeDefault expects a list with two elements"))
@@ -27,7 +28,7 @@
                 (SPADCALL (QREFELT $ 30) (SPADCALL |l| (QREFELT $ 57))
                           (QREFELT $ 56)))))) 
 
-(SDEFUN |VIEWDEF;viewDefaults;V;5| (($ |Void|))
+(SDEFUN |VIEWDEF;viewDefaults;V;5| (($ (|Void|)))
         (SEQ
          (SETELT $ 12
                  (SPADCALL (SPADCALL (SPADCALL (QREFELT $ 7)) (QREFELT $ 9))
@@ -47,75 +48,76 @@
          (SETELT $ 29 (SPADCALL 400 (QREFELT $ 22)))
          (EXIT (SETELT $ 30 (SPADCALL 427 (QREFELT $ 22)))))) 
 
-(SDEFUN |VIEWDEF;pointColorDefault;P;6| (($ |Palette|))
+(SDEFUN |VIEWDEF;pointColorDefault;P;6| (($ (|Palette|)))
         (SPADCALL (QREFELT $ 12) (QREFELT $ 61))) 
 
-(SDEFUN |VIEWDEF;pointColorDefault;2P;7| ((|p| |Palette|) ($ |Palette|))
+(SDEFUN |VIEWDEF;pointColorDefault;2P;7| ((|p| (|Palette|)) ($ (|Palette|)))
         (SPADCALL (QREFELT $ 12) |p| (QREFELT $ 63))) 
 
-(SDEFUN |VIEWDEF;lineColorDefault;P;8| (($ |Palette|))
+(SDEFUN |VIEWDEF;lineColorDefault;P;8| (($ (|Palette|)))
         (SPADCALL (QREFELT $ 15) (QREFELT $ 61))) 
 
-(SDEFUN |VIEWDEF;lineColorDefault;2P;9| ((|p| |Palette|) ($ |Palette|))
+(SDEFUN |VIEWDEF;lineColorDefault;2P;9| ((|p| (|Palette|)) ($ (|Palette|)))
         (SPADCALL (QREFELT $ 15) |p| (QREFELT $ 63))) 
 
-(SDEFUN |VIEWDEF;axesColorDefault;P;10| (($ |Palette|))
+(SDEFUN |VIEWDEF;axesColorDefault;P;10| (($ (|Palette|)))
         (SPADCALL (QREFELT $ 17) (QREFELT $ 61))) 
 
-(SDEFUN |VIEWDEF;axesColorDefault;2P;11| ((|p| |Palette|) ($ |Palette|))
+(SDEFUN |VIEWDEF;axesColorDefault;2P;11| ((|p| (|Palette|)) ($ (|Palette|)))
         (SPADCALL (QREFELT $ 17) |p| (QREFELT $ 63))) 
 
-(SDEFUN |VIEWDEF;unitsColorDefault;P;12| (($ |Palette|))
+(SDEFUN |VIEWDEF;unitsColorDefault;P;12| (($ (|Palette|)))
         (SPADCALL (QREFELT $ 19) (QREFELT $ 61))) 
 
-(SDEFUN |VIEWDEF;unitsColorDefault;2P;13| ((|p| |Palette|) ($ |Palette|))
+(SDEFUN |VIEWDEF;unitsColorDefault;2P;13| ((|p| (|Palette|)) ($ (|Palette|)))
         (SPADCALL (QREFELT $ 19) |p| (QREFELT $ 63))) 
 
-(SDEFUN |VIEWDEF;pointSizeDefault;Pi;14| (($ |PositiveInteger|))
+(SDEFUN |VIEWDEF;pointSizeDefault;Pi;14| (($ (|PositiveInteger|)))
         (SPADCALL (QREFELT $ 23) (QREFELT $ 53))) 
 
 (SDEFUN |VIEWDEF;pointSizeDefault;2Pi;15|
-        ((|x| |PositiveInteger|) ($ |PositiveInteger|))
+        ((|x| (|PositiveInteger|)) ($ (|PositiveInteger|)))
         (SPADCALL (QREFELT $ 23) |x| (QREFELT $ 56))) 
 
-(SDEFUN |VIEWDEF;var1StepsDefault;Pi;16| (($ |PositiveInteger|))
+(SDEFUN |VIEWDEF;var1StepsDefault;Pi;16| (($ (|PositiveInteger|)))
         (SPADCALL (QREFELT $ 35) (QREFELT $ 53))) 
 
 (SDEFUN |VIEWDEF;var1StepsDefault;2Pi;17|
-        ((|i| |PositiveInteger|) ($ |PositiveInteger|))
+        ((|i| (|PositiveInteger|)) ($ (|PositiveInteger|)))
         (SPADCALL (QREFELT $ 35) |i| (QREFELT $ 56))) 
 
-(SDEFUN |VIEWDEF;var2StepsDefault;Pi;18| (($ |PositiveInteger|))
+(SDEFUN |VIEWDEF;var2StepsDefault;Pi;18| (($ (|PositiveInteger|)))
         (SPADCALL (QREFELT $ 36) (QREFELT $ 53))) 
 
 (SDEFUN |VIEWDEF;var2StepsDefault;2Pi;19|
-        ((|i| |PositiveInteger|) ($ |PositiveInteger|))
+        ((|i| (|PositiveInteger|)) ($ (|PositiveInteger|)))
         (SPADCALL (QREFELT $ 36) |i| (QREFELT $ 56))) 
 
-(SDEFUN |VIEWDEF;tubePointsDefault;Pi;20| (($ |PositiveInteger|))
+(SDEFUN |VIEWDEF;tubePointsDefault;Pi;20| (($ (|PositiveInteger|)))
         (SPADCALL (QREFELT $ 37) (QREFELT $ 53))) 
 
 (SDEFUN |VIEWDEF;tubePointsDefault;2Pi;21|
-        ((|i| |PositiveInteger|) ($ |PositiveInteger|))
+        ((|i| (|PositiveInteger|)) ($ (|PositiveInteger|)))
         (SPADCALL (QREFELT $ 37) |i| (QREFELT $ 56))) 
 
-(SDEFUN |VIEWDEF;tubeRadiusDefault;Df;22| (($ |DoubleFloat|))
+(SDEFUN |VIEWDEF;tubeRadiusDefault;Df;22| (($ (|DoubleFloat|)))
         (SPADCALL (QREFELT $ 41) (QREFELT $ 79))) 
 
-(SDEFUN |VIEWDEF;tubeRadiusDefault;FDf;23| ((|f| |Float|) ($ |DoubleFloat|))
+(SDEFUN |VIEWDEF;tubeRadiusDefault;FDf;23|
+        ((|f| (|Float|)) ($ (|DoubleFloat|)))
         (SPADCALL (QREFELT $ 41) (SPADCALL |f| (QREFELT $ 82)) (QREFELT $ 83))) 
 
 (PUT '|VIEWDEF;viewWriteAvailable;L;24| '|SPADreplace|
      '(XLAM NIL (LIST "PIXMAP" "BITMAP" "POSTSCRIPT" "IMAGE"))) 
 
-(SDEFUN |VIEWDEF;viewWriteAvailable;L;24| (($ |List| (|String|)))
+(SDEFUN |VIEWDEF;viewWriteAvailable;L;24| (($ (|List| (|String|))))
         (LIST "PIXMAP" "BITMAP" "POSTSCRIPT" "IMAGE")) 
 
-(SDEFUN |VIEWDEF;viewWriteDefault;L;25| (($ |List| (|String|)))
+(SDEFUN |VIEWDEF;viewWriteDefault;L;25| (($ (|List| (|String|))))
         (SPADCALL (QREFELT $ 34) (QREFELT $ 86))) 
 
 (SDEFUN |VIEWDEF;viewWriteDefault;2L;26|
-        ((|listOfThings| |List| (|String|)) ($ |List| (|String|)))
+        ((|listOfThings| (|List| (|String|))) ($ (|List| (|String|))))
         (SPROG
          ((|thingsToWrite| (|List| (|String|))) (|writeTypeInt| (|Integer|))
           (#1=#:G139 NIL) (|aTypeOfFile| NIL))

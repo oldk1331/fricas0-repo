@@ -1,6 +1,7 @@
 
 (SDEFUN |COMPCODE;genCatHeader|
-        ((|shortName| |String|) (|longName| |String|) ($ |List| (|String|)))
+        ((|shortName| (|String|)) (|longName| (|String|))
+         ($ (|List| (|String|))))
         (LIST
          (SPADCALL (LIST ")abbrev category " |shortName| " " |longName|)
                    (QREFELT $ 8))
@@ -10,8 +11,8 @@
          "" "")) 
 
 (SDEFUN |COMPCODE;genFuncDeclar|
-        ((|content| |ILogic|) (|numb| |NonNegativeInteger|)
-         ($ |List| (|String|)))
+        ((|content| (|ILogic|)) (|numb| (|NonNegativeInteger|))
+         ($ (|List| (|String|))))
         (SPROG
          ((|resStr| (|String|)) (|notfst| (|Boolean|)) (#1=#:G119 NIL)
           (|thisTerm| NIL) (|resType| (|ILogic|))
@@ -58,11 +59,11 @@
 
 (PUT '|COMPCODE;genCatFooter| '|SPADreplace| '(XLAM NIL (LIST "" "@"))) 
 
-(SDEFUN |COMPCODE;genCatFooter| (($ |List| (|String|))) (LIST "" "@")) 
+(SDEFUN |COMPCODE;genCatFooter| (($ (|List| (|String|)))) (LIST "" "@")) 
 
 (SDEFUN |COMPCODE;genPackageHeader|
-        ((|shortName| |String|) (|longName| |String|) (|catName| |String|)
-         ($ |List| (|String|)))
+        ((|shortName| (|String|)) (|longName| (|String|))
+         (|catName| (|String|)) ($ (|List| (|String|))))
         (LIST
          (SPADCALL (LIST ")abbrev package " |shortName| " " |longName|)
                    (QREFELT $ 8))
@@ -73,7 +74,8 @@
          "" " Implementation ==> add" "")) 
 
 (SDEFUN |COMPCODE;genLambdaTerm|
-        ((|n| |Lambda| (|Typed|)) (|boundL| |List| (|String|)) ($ |String|))
+        ((|n| (|Lambda| (|Typed|))) (|boundL| (|List| (|String|)))
+         ($ (|String|)))
         (SPROG
          ((|s| (|String|)) (|ch| (|List| (|Lambda| (|Typed|))))
           (|boundL2| (|List| (|String|))) (|varName| (|String|))
@@ -139,8 +141,8 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |COMPCODE;genFuncDefn|
-        ((|content| |Lambda| (|Typed|)) (|numb| |NonNegativeInteger|)
-         ($ |List| (|String|)))
+        ((|content| (|Lambda| (|Typed|))) (|numb| (|NonNegativeInteger|))
+         ($ (|List| (|String|))))
         (SPROG
          ((#1=#:G138 NIL) (|lhst| (|String|)) (|lhsn| (|String|))
           (|lhs| (|String|)) (|var| (|Typed|)) (|sl| (|List| (|String|))))
@@ -173,11 +175,11 @@
 
 (PUT '|COMPCODE;genPackageFooter| '|SPADreplace| '(XLAM NIL (LIST "" "@"))) 
 
-(SDEFUN |COMPCODE;genPackageFooter| (($ |List| (|String|))) (LIST "" "@")) 
+(SDEFUN |COMPCODE;genPackageFooter| (($ (|List| (|String|)))) (LIST "" "@")) 
 
 (SDEFUN |COMPCODE;writeCategory;L3SV;8|
-        ((|content| |List| (|ILogic|)) (|filename| |String|)
-         (|shortName| |String|) (|longName| |String|) ($ |Void|))
+        ((|content| (|List| (|ILogic|))) (|filename| (|String|))
+         (|shortName| (|String|)) (|longName| (|String|)) ($ (|Void|)))
         (SPROG
          ((#1=#:G146 NIL) (|line| NIL) (|lines| (|List| (|String|)))
           (|fnNum| (|NonNegativeInteger|)) (#2=#:G145 NIL) (|thisEq| NIL)
@@ -210,9 +212,9 @@
           (EXIT (SPADCALL |f1| (QREFELT $ 41)))))) 
 
 (SDEFUN |COMPCODE;writePackage;L4SV;9|
-        ((|content| |List| (|Lambda| (|Typed|))) (|filename| |String|)
-         (|shortName| |String|) (|longName| |String|) (|catName| |String|)
-         ($ |Void|))
+        ((|content| (|List| (|Lambda| (|Typed|)))) (|filename| (|String|))
+         (|shortName| (|String|)) (|longName| (|String|))
+         (|catName| (|String|)) ($ (|Void|)))
         (SPROG
          ((#1=#:G153 NIL) (|line| NIL) (|lines| (|List| (|String|)))
           (|fnNum| (|NonNegativeInteger|)) (#2=#:G152 NIL) (|thisEq| NIL)

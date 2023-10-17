@@ -1,5 +1,5 @@
 
-(SDEFUN |RESULT;cleanUpDomainForm| ((|d| |SExpression|) ($ |OutputForm|))
+(SDEFUN |RESULT;cleanUpDomainForm| ((|d| (|SExpression|)) ($ (|OutputForm|)))
         (SPROG ((#1=#:G116 NIL) (|u| NIL) (#2=#:G115 NIL))
                (SEQ
                 (COND
@@ -34,7 +34,8 @@
                            (EXIT (NREVERSE #2#))))
                      (QREFELT $ 24))))))))) 
 
-(SDEFUN |RESULT;display| ((|v| |Any|) (|d| |SExpression|) ($ |OutputForm|))
+(SDEFUN |RESULT;display|
+        ((|v| (|Any|)) (|d| (|SExpression|)) ($ (|OutputForm|)))
         (COND
          ((NULL (SPADCALL |d| (QREFELT $ 15)))
           (|error| "Domain form is non-list"))
@@ -48,13 +49,13 @@
            ((QREFELT $ 12) (SPADCALL |v| (QREFELT $ 26)))
            (#1# (|RESULT;cleanUpDomainForm| |d| $)))))) 
 
-(SDEFUN |RESULT;makeEntry| ((|k| |Symbol|) (|v| |Any|) ($ |OutputForm|))
+(SDEFUN |RESULT;makeEntry| ((|k| (|Symbol|)) (|v| (|Any|)) ($ (|OutputForm|)))
         (SPADCALL
          (LIST (SPADCALL |k| (QREFELT $ 8)) (QREFELT $ 9)
                (|RESULT;display| |v| (SPADCALL |v| (QREFELT $ 29)) $))
          (QREFELT $ 30))) 
 
-(SDEFUN |RESULT;coerce;$Of;4| ((|r| $) ($ |OutputForm|))
+(SDEFUN |RESULT;coerce;$Of;4| ((|r| ($)) ($ (|OutputForm|)))
         (SPROG ((#1=#:G125 NIL) (|key| NIL) (#2=#:G124 NIL))
                (SEQ
                 (SPADCALL
@@ -76,10 +77,10 @@
                        (EXIT (NREVERSE #2#))))
                  (QREFELT $ 34))))) 
 
-(SDEFUN |RESULT;showArrayValues;2B;5| ((|b| |Boolean|) ($ |Boolean|))
+(SDEFUN |RESULT;showArrayValues;2B;5| ((|b| (|Boolean|)) ($ (|Boolean|)))
         (SETELT $ 12 |b|)) 
 
-(SDEFUN |RESULT;showScalarValues;2B;6| ((|b| |Boolean|) ($ |Boolean|))
+(SDEFUN |RESULT;showScalarValues;2B;6| ((|b| (|Boolean|)) ($ (|Boolean|)))
         (SETELT $ 11 |b|)) 
 
 (DECLAIM (NOTINLINE |Result;|)) 

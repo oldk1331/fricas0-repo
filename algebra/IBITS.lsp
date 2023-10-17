@@ -1,14 +1,14 @@
 
-(SDEFUN |IBITS;minIndex;$I;1| ((|u| $) ($ |Integer|)) (QREFELT $ 6)) 
+(SDEFUN |IBITS;minIndex;$I;1| ((|u| ($)) ($ (|Integer|))) (QREFELT $ 6)) 
 
-(SDEFUN |IBITS;range| ((|v| $) (|i| |Integer|) ($ |Integer|))
+(SDEFUN |IBITS;range| ((|v| ($)) (|i| (|Integer|)) ($ (|Integer|)))
         (SEQ
          (COND
           ((>= |i| 0)
            (COND ((< |i| (SPADCALL |v| (QREFELT $ 10))) (EXIT |i|)))))
          (EXIT (|error| "Index out of range")))) 
 
-(SDEFUN |IBITS;coerce;$Of;3| ((|v| $) ($ |OutputForm|))
+(SDEFUN |IBITS;coerce;$Of;3| ((|v| ($)) ($ (|OutputForm|)))
         (SPROG
          ((#1=#:G118 NIL) (|i| NIL) (|j| NIL) (|s| (|String|))
           (|f| #2=(|Character|)) (|t| #2#))
@@ -30,68 +30,71 @@
                    G191 (EXIT NIL))
               (EXIT (SPADCALL |s| (QREFELT $ 20)))))) 
 
-(SDEFUN |IBITS;new;NniB$;4| ((|n| |NonNegativeInteger|) (|b| |Boolean|) ($ $))
+(SDEFUN |IBITS;new;NniB$;4|
+        ((|n| (|NonNegativeInteger|)) (|b| (|Boolean|)) ($ ($)))
         (|make_BVEC| |n| (|bool_to_bit| |b|))) 
 
 (PUT '|IBITS;empty;$;5| '|SPADreplace| '(XLAM NIL (|make_BVEC| 0 0))) 
 
-(SDEFUN |IBITS;empty;$;5| (($ $)) (|make_BVEC| 0 0)) 
+(SDEFUN |IBITS;empty;$;5| (($ ($))) (|make_BVEC| 0 0)) 
 
 (PUT '|IBITS;copy;2$;6| '|SPADreplace| '|copy_BVEC|) 
 
-(SDEFUN |IBITS;copy;2$;6| ((|v| $) ($ $)) (|copy_BVEC| |v|)) 
+(SDEFUN |IBITS;copy;2$;6| ((|v| ($)) ($ ($))) (|copy_BVEC| |v|)) 
 
 (PUT '|IBITS;#;$Nni;7| '|SPADreplace| '|size_BVEC|) 
 
-(SDEFUN |IBITS;#;$Nni;7| ((|v| $) ($ |NonNegativeInteger|)) (|size_BVEC| |v|)) 
+(SDEFUN |IBITS;#;$Nni;7| ((|v| ($)) ($ (|NonNegativeInteger|)))
+        (|size_BVEC| |v|)) 
 
 (PUT '|IBITS;=;2$B;8| '|SPADreplace| '|equal_BVEC|) 
 
-(SDEFUN |IBITS;=;2$B;8| ((|v| $) (|u| $) ($ |Boolean|)) (|equal_BVEC| |v| |u|)) 
+(SDEFUN |IBITS;=;2$B;8| ((|v| ($)) (|u| ($)) ($ (|Boolean|)))
+        (|equal_BVEC| |v| |u|)) 
 
 (PUT '|IBITS;<;2$B;9| '|SPADreplace| '(XLAM (|v| |u|) (|greater_BVEC| |u| |v|))) 
 
-(SDEFUN |IBITS;<;2$B;9| ((|v| $) (|u| $) ($ |Boolean|))
+(SDEFUN |IBITS;<;2$B;9| ((|v| ($)) (|u| ($)) ($ (|Boolean|)))
         (|greater_BVEC| |u| |v|)) 
 
-(SDEFUN |IBITS;and;3$;10| ((|u| $) (|v| $) ($ $))
+(SDEFUN |IBITS;and;3$;10| ((|u| ($)) (|v| ($)) ($ ($)))
         (COND
          ((EQL (SPADCALL |v| (QREFELT $ 10)) (SPADCALL |u| (QREFELT $ 10)))
           (|and_BVEC| |v| |u|))
          ('T (SPADCALL (ELT $ 27) |v| |u| (QREFELT $ 29))))) 
 
-(SDEFUN |IBITS;or;3$;11| ((|u| $) (|v| $) ($ $))
+(SDEFUN |IBITS;or;3$;11| ((|u| ($)) (|v| ($)) ($ ($)))
         (COND
          ((EQL (SPADCALL |v| (QREFELT $ 10)) (SPADCALL |u| (QREFELT $ 10)))
           (|or_BVEC| |v| |u|))
          ('T (SPADCALL (ELT $ 31) |v| |u| (QREFELT $ 29))))) 
 
-(SDEFUN |IBITS;xor;3$;12| ((|v| $) (|u| $) ($ $))
+(SDEFUN |IBITS;xor;3$;12| ((|v| ($)) (|u| ($)) ($ ($)))
         (COND
          ((EQL (SPADCALL |v| (QREFELT $ 10)) (SPADCALL |u| (QREFELT $ 10)))
           (|xor_BVEC| |v| |u|))
          ('T (SPADCALL (ELT $ 33) |v| |u| (QREFELT $ 29))))) 
 
 (SDEFUN |IBITS;setelt!;$I2B;13|
-        ((|v| $) (|i| |Integer|) (|f| . #1=(|Boolean|)) ($ . #1#))
+        ((|v| ($)) (|i| (|Integer|)) (|f| #1=(|Boolean|)) ($ #1#))
         (SETELT_BVEC |v| (|IBITS;range| |v| (- |i| (QREFELT $ 6)) $)
                      (|bool_to_bit| |f|))) 
 
-(SDEFUN |IBITS;elt;$IB;14| ((|v| $) (|i| |Integer|) ($ |Boolean|))
+(SDEFUN |IBITS;elt;$IB;14| ((|v| ($)) (|i| (|Integer|)) ($ (|Boolean|)))
         (|bit_to_bool|
          (ELT_BVEC |v| (|IBITS;range| |v| (- |i| (QREFELT $ 6)) $)))) 
 
 (PUT '|IBITS;Not;2$;15| '|SPADreplace| '|not_BVEC|) 
 
-(SDEFUN |IBITS;Not;2$;15| ((|v| $) ($ $)) (|not_BVEC| |v|)) 
+(SDEFUN |IBITS;Not;2$;15| ((|v| ($)) ($ ($))) (|not_BVEC| |v|)) 
 
-(SDEFUN |IBITS;And;3$;16| ((|u| $) (|v| $) ($ $))
+(SDEFUN |IBITS;And;3$;16| ((|u| ($)) (|v| ($)) ($ ($)))
         (COND
          ((EQL (SPADCALL |v| (QREFELT $ 10)) (SPADCALL |u| (QREFELT $ 10)))
           (|and_BVEC| |v| |u|))
          ('T (SPADCALL (ELT $ 27) |v| |u| (QREFELT $ 29))))) 
 
-(SDEFUN |IBITS;Or;3$;17| ((|u| $) (|v| $) ($ $))
+(SDEFUN |IBITS;Or;3$;17| ((|u| ($)) (|v| ($)) ($ ($)))
         (COND
          ((EQL (SPADCALL |v| (QREFELT $ 10)) (SPADCALL |u| (QREFELT $ 10)))
           (|or_BVEC| |v| |u|))

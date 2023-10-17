@@ -1,14 +1,15 @@
 
 (SDEFUN |PMPLCAT;patternMatch;PP2Pmr;1|
-        ((|x| P) (|p| |Pattern| S) (|l| |PatternMatchResult| S P)
-         ($ |PatternMatchResult| S P))
+        ((|x| (P)) (|p| (|Pattern| S)) (|l| (|PatternMatchResult| S P))
+         ($ (|PatternMatchResult| S P)))
         (SPADCALL |x| |p| |l| (ELT $ 14) (QREFELT $ 16))) 
 
 (SDEFUN |PMPLCAT;patternMatch;PPPmrMPmr;2|
-        ((|x| P) (|p| |Pattern| S) (|l| |PatternMatchResult| S P)
-         (|vmatch| |Mapping| (|PatternMatchResult| S P) V (|Pattern| S)
-          (|PatternMatchResult| S P))
-         ($ |PatternMatchResult| S P))
+        ((|x| (P)) (|p| (|Pattern| S)) (|l| (|PatternMatchResult| S P))
+         (|vmatch|
+          (|Mapping| (|PatternMatchResult| S P) V (|Pattern| S)
+                     (|PatternMatchResult| S P)))
+         ($ (|PatternMatchResult| S P)))
         (SPROG
          ((#1=#:G185 NIL)
           (|ex|

@@ -1,14 +1,14 @@
 
 (SDEFUN |NUMTUBE;colinearity|
-        ((|x| |Point| (|DoubleFloat|)) (|y| |Point| (|DoubleFloat|))
-         ($ |DoubleFloat|))
+        ((|x| (|Point| (|DoubleFloat|))) (|y| (|Point| (|DoubleFloat|)))
+         ($ (|DoubleFloat|)))
         (|div_DF| (|expt_DF_I| (SPADCALL |x| |y| (QREFELT $ 16)) 2)
                   (|mul_DF| (SPADCALL |x| |x| (QREFELT $ 16))
                             (SPADCALL |y| |y| (QREFELT $ 16))))) 
 
 (SDEFUN |NUMTUBE;orthog|
-        ((|x| |Point| (|DoubleFloat|)) (|y| |Point| (|DoubleFloat|))
-         ($ |Point| (|DoubleFloat|)))
+        ((|x| (|Point| (|DoubleFloat|))) (|y| (|Point| (|DoubleFloat|)))
+         ($ (|Point| (|DoubleFloat|))))
         (SPROG ((|a| (|DoubleFloat|)))
                (SEQ
                 (COND
@@ -35,11 +35,12 @@
                                    (QREFELT $ 20))))))) 
 
 (SDEFUN |NUMTUBE;poTriad|
-        ((|pl| |Point| (|DoubleFloat|)) (|po| |Point| (|DoubleFloat|))
-         (|pr| |Point| (|DoubleFloat|))
-         ($ |Record| (|:| |tang| (|Point| (|DoubleFloat|)))
-          (|:| |norm| (|Point| (|DoubleFloat|)))
-          (|:| |bin| (|Point| (|DoubleFloat|)))))
+        ((|pl| (|Point| (|DoubleFloat|))) (|po| (|Point| (|DoubleFloat|)))
+         (|pr| (|Point| (|DoubleFloat|)))
+         ($
+          (|Record| (|:| |tang| (|Point| (|DoubleFloat|)))
+                    (|:| |norm| (|Point| (|DoubleFloat|)))
+                    (|:| |bin| (|Point| (|DoubleFloat|))))))
         (SPROG
          ((|n| #1=(|Point| (|DoubleFloat|))) (|pol| (|Point| (|DoubleFloat|)))
           (|t| #1#))
@@ -51,11 +52,12 @@
           (EXIT (VECTOR |t| |n| (SPADCALL |t| |n| (QREFELT $ 23))))))) 
 
 (SDEFUN |NUMTUBE;curveTriads|
-        ((|l| |List| (|Point| (|DoubleFloat|)))
-         ($ |List|
-          #1=(|Record| (|:| |tang| (|Point| (|DoubleFloat|)))
-                       (|:| |norm| (|Point| (|DoubleFloat|)))
-                       (|:| |bin| (|Point| (|DoubleFloat|))))))
+        ((|l| (|List| (|Point| (|DoubleFloat|))))
+         ($
+          (|List|
+           #1=(|Record| (|:| |tang| (|Point| (|DoubleFloat|)))
+                        (|:| |norm| (|Point| (|DoubleFloat|)))
+                        (|:| |bin| (|Point| (|DoubleFloat|)))))))
         (SPROG
          ((|endtriad| #1#) (|n| #2=(|Point| (|DoubleFloat|))) (|t| #2#)
           (|x|
@@ -158,8 +160,8 @@
                                            (QREFELT $ 31))))))))))))))) 
 
 (SDEFUN |NUMTUBE;curveLoops|
-        ((|pts| |List| (|Point| (|DoubleFloat|))) (|r| |DoubleFloat|)
-         (|nn| |Integer|) ($ |List| (|List| (|Point| (|DoubleFloat|)))))
+        ((|pts| (|List| (|Point| (|DoubleFloat|)))) (|r| (|DoubleFloat|))
+         (|nn| (|Integer|)) ($ (|List| (|List| (|Point| (|DoubleFloat|))))))
         (SPROG
          ((|loops| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (|b| #1=(|Point| (|DoubleFloat|))) (|n| #2=(|Point| (|DoubleFloat|)))
@@ -190,8 +192,8 @@
               (EXIT (NREVERSE |loops|))))) 
 
 (SDEFUN |NUMTUBE;tube;CurveDfITp;6|
-        ((|curve| |Curve|) (|r| |DoubleFloat|) (|n| |Integer|)
-         ($ |TubePlot| |Curve|))
+        ((|curve| (|Curve|)) (|r| (|DoubleFloat|)) (|n| (|Integer|))
+         ($ (|TubePlot| |Curve|)))
         (SPROG
          ((|loops| (|List| (|List| (|Point| (|DoubleFloat|))))) (#1=#:G137 NIL)
           (|bran| NIL) (|brans| (|List| (|List| (|Point| (|DoubleFloat|))))))

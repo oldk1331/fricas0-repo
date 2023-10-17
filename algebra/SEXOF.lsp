@@ -1,5 +1,5 @@
 
-(SDEFUN |SEXOF;coerce;$Of;1| ((|b| $) ($ |OutputForm|))
+(SDEFUN |SEXOF;coerce;$Of;1| ((|b| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|l1| (|List| (|OutputForm|))) (#1=#:G128 NIL) (|l| (|List| $))
           (|b1| NIL) (#2=#:G127 NIL) (|r| ($)))
@@ -61,94 +61,95 @@
 
 (PUT '|SEXOF;=;2$B;2| '|SPADreplace| 'EQUAL) 
 
-(SDEFUN |SEXOF;=;2$B;2| ((|b1| $) (|b2| $) ($ |Boolean|)) (EQUAL |b1| |b2|)) 
+(SDEFUN |SEXOF;=;2$B;2| ((|b1| ($)) (|b2| ($)) ($ (|Boolean|)))
+        (EQUAL |b1| |b2|)) 
 
 (PUT '|SEXOF;eq;2$B;3| '|SPADreplace| 'EQ) 
 
-(SDEFUN |SEXOF;eq;2$B;3| ((|b1| $) (|b2| $) ($ |Boolean|)) (EQ |b1| |b2|)) 
+(SDEFUN |SEXOF;eq;2$B;3| ((|b1| ($)) (|b2| ($)) ($ (|Boolean|))) (EQ |b1| |b2|)) 
 
 (PUT '|SEXOF;null?;$B;4| '|SPADreplace| 'NULL) 
 
-(SDEFUN |SEXOF;null?;$B;4| ((|b| $) ($ |Boolean|)) (NULL |b|)) 
+(SDEFUN |SEXOF;null?;$B;4| ((|b| ($)) ($ (|Boolean|))) (NULL |b|)) 
 
 (PUT '|SEXOF;atom?;$B;5| '|SPADreplace| 'ATOM) 
 
-(SDEFUN |SEXOF;atom?;$B;5| ((|b| $) ($ |Boolean|)) (ATOM |b|)) 
+(SDEFUN |SEXOF;atom?;$B;5| ((|b| ($)) ($ (|Boolean|))) (ATOM |b|)) 
 
 (PUT '|SEXOF;pair?;$B;6| '|SPADreplace| 'PAIRP) 
 
-(SDEFUN |SEXOF;pair?;$B;6| ((|b| $) ($ |Boolean|)) (PAIRP |b|)) 
+(SDEFUN |SEXOF;pair?;$B;6| ((|b| ($)) ($ (|Boolean|))) (PAIRP |b|)) 
 
-(SDEFUN |SEXOF;list?;$B;7| ((|b| $) ($ |Boolean|))
+(SDEFUN |SEXOF;list?;$B;7| ((|b| ($)) ($ (|Boolean|)))
         (COND ((PAIRP |b|) 'T) ('T (NULL |b|)))) 
 
 (PUT '|SEXOF;string?;$B;8| '|SPADreplace| 'STRINGP) 
 
-(SDEFUN |SEXOF;string?;$B;8| ((|b| $) ($ |Boolean|)) (STRINGP |b|)) 
+(SDEFUN |SEXOF;string?;$B;8| ((|b| ($)) ($ (|Boolean|))) (STRINGP |b|)) 
 
 (PUT '|SEXOF;symbol?;$B;9| '|SPADreplace| 'IDENTP) 
 
-(SDEFUN |SEXOF;symbol?;$B;9| ((|b| $) ($ |Boolean|)) (IDENTP |b|)) 
+(SDEFUN |SEXOF;symbol?;$B;9| ((|b| ($)) ($ (|Boolean|))) (IDENTP |b|)) 
 
 (PUT '|SEXOF;integer?;$B;10| '|SPADreplace| 'INTEGERP) 
 
-(SDEFUN |SEXOF;integer?;$B;10| ((|b| $) ($ |Boolean|)) (INTEGERP |b|)) 
+(SDEFUN |SEXOF;integer?;$B;10| ((|b| ($)) ($ (|Boolean|))) (INTEGERP |b|)) 
 
 (PUT '|SEXOF;float?;$B;11| '|SPADreplace| 'FLOATP) 
 
-(SDEFUN |SEXOF;float?;$B;11| ((|b| $) ($ |Boolean|)) (FLOATP |b|)) 
+(SDEFUN |SEXOF;float?;$B;11| ((|b| ($)) ($ (|Boolean|))) (FLOATP |b|)) 
 
-(SDEFUN |SEXOF;destruct;$L;12| ((|b| $) ($ |List| $))
+(SDEFUN |SEXOF;destruct;$L;12| ((|b| ($)) ($ (|List| $)))
         (COND ((SPADCALL |b| (QREFELT $ 37)) |b|) ('T (|error| "Non-list")))) 
 
-(SDEFUN |SEXOF;string;$Str;13| ((|b| $) ($ |Str|))
+(SDEFUN |SEXOF;string;$Str;13| ((|b| ($)) ($ (|Str|)))
         (COND ((STRINGP |b|) |b|) ('T (|error| "Non-string")))) 
 
-(SDEFUN |SEXOF;symbol;$Sym;14| ((|b| $) ($ |Sym|))
+(SDEFUN |SEXOF;symbol;$Sym;14| ((|b| ($)) ($ (|Sym|)))
         (COND ((IDENTP |b|) |b|) ('T (|error| "Non-symbol")))) 
 
-(SDEFUN |SEXOF;float;$Flt;15| ((|b| $) ($ |Flt|))
+(SDEFUN |SEXOF;float;$Flt;15| ((|b| ($)) ($ (|Flt|)))
         (COND ((FLOATP |b|) |b|) ('T (|error| "Non-float")))) 
 
-(SDEFUN |SEXOF;integer;$Int;16| ((|b| $) ($ |Int|))
+(SDEFUN |SEXOF;integer;$Int;16| ((|b| ($)) ($ (|Int|)))
         (COND ((INTEGERP |b|) |b|) ('T (|error| "Non-integer")))) 
 
 (PUT '|SEXOF;convert;L$;17| '|SPADreplace| '(XLAM (|l|) |l|)) 
 
-(SDEFUN |SEXOF;convert;L$;17| ((|l| |List| $) ($ $)) |l|) 
+(SDEFUN |SEXOF;convert;L$;17| ((|l| (|List| $)) ($ ($))) |l|) 
 
 (PUT '|SEXOF;convert;Str$;18| '|SPADreplace| '(XLAM (|st|) |st|)) 
 
-(SDEFUN |SEXOF;convert;Str$;18| ((|st| |Str|) ($ $)) |st|) 
+(SDEFUN |SEXOF;convert;Str$;18| ((|st| (|Str|)) ($ ($))) |st|) 
 
 (PUT '|SEXOF;convert;Sym$;19| '|SPADreplace| '(XLAM (|sy|) |sy|)) 
 
-(SDEFUN |SEXOF;convert;Sym$;19| ((|sy| |Sym|) ($ $)) |sy|) 
+(SDEFUN |SEXOF;convert;Sym$;19| ((|sy| (|Sym|)) ($ ($))) |sy|) 
 
 (PUT '|SEXOF;convert;Int$;20| '|SPADreplace| '(XLAM (|n|) |n|)) 
 
-(SDEFUN |SEXOF;convert;Int$;20| ((|n| |Int|) ($ $)) |n|) 
+(SDEFUN |SEXOF;convert;Int$;20| ((|n| (|Int|)) ($ ($))) |n|) 
 
 (PUT '|SEXOF;convert;Flt$;21| '|SPADreplace| '(XLAM (|f|) |f|)) 
 
-(SDEFUN |SEXOF;convert;Flt$;21| ((|f| |Flt|) ($ $)) |f|) 
+(SDEFUN |SEXOF;convert;Flt$;21| ((|f| (|Flt|)) ($ ($))) |f|) 
 
 (PUT '|SEXOF;car;2$;22| '|SPADreplace| 'CAR) 
 
-(SDEFUN |SEXOF;car;2$;22| ((|b| $) ($ $)) (CAR |b|)) 
+(SDEFUN |SEXOF;car;2$;22| ((|b| ($)) ($ ($))) (CAR |b|)) 
 
 (PUT '|SEXOF;cdr;2$;23| '|SPADreplace| 'CDR) 
 
-(SDEFUN |SEXOF;cdr;2$;23| ((|b| $) ($ $)) (CDR |b|)) 
+(SDEFUN |SEXOF;cdr;2$;23| ((|b| ($)) ($ ($))) (CDR |b|)) 
 
 (PUT '|SEXOF;#;$I;24| '|SPADreplace| 'LENGTH) 
 
-(SDEFUN |SEXOF;#;$I;24| ((|b| $) ($ |Integer|)) (LENGTH |b|)) 
+(SDEFUN |SEXOF;#;$I;24| ((|b| ($)) ($ (|Integer|))) (LENGTH |b|)) 
 
-(SDEFUN |SEXOF;elt;$I$;25| ((|b| $) (|i| |Integer|) ($ $))
+(SDEFUN |SEXOF;elt;$I$;25| ((|b| ($)) (|i| (|Integer|)) ($ ($)))
         (SPADCALL (SPADCALL |b| (QREFELT $ 21)) |i| (QREFELT $ 53))) 
 
-(SDEFUN |SEXOF;elt;$L$;26| ((|b| $) (|li| |List| (|Integer|)) ($ $))
+(SDEFUN |SEXOF;elt;$L$;26| ((|b| ($)) (|li| (|List| (|Integer|))) ($ ($)))
         (SPROG ((#1=#:G162 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| NIL) (LETT #1# |li|) G190
@@ -164,7 +165,7 @@
                 (EXIT |b|)))) 
 
 (SDEFUN |SEXOF;hashUpdate!;Hs$Hs;27|
-        ((|hs| |HashState|) (|s| $) ($ |HashState|))
+        ((|hs| (|HashState|)) (|s| ($)) ($ (|HashState|)))
         (HASHSTATEUPDATE |hs| (SXHASH |s|))) 
 
 (DECLAIM (NOTINLINE |SExpressionOf;|)) 

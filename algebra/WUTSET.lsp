@@ -1,13 +1,13 @@
 
 (PUT '|WUTSET;rep| '|SPADreplace| '(XLAM (|s|) |s|)) 
 
-(SDEFUN |WUTSET;rep| ((|s| $) ($ |List| P)) |s|) 
+(SDEFUN |WUTSET;rep| ((|s| ($)) ($ (|List| P))) |s|) 
 
 (PUT '|WUTSET;per| '|SPADreplace| '(XLAM (|l|) |l|)) 
 
-(SDEFUN |WUTSET;per| ((|l| |List| P) ($ $)) |l|) 
+(SDEFUN |WUTSET;per| ((|l| (|List| P)) ($ ($))) |l|) 
 
-(SDEFUN |WUTSET;removeAssociates| ((|lp| |List| P) ($ |List| P))
+(SDEFUN |WUTSET;removeAssociates| ((|lp| (|List| P)) ($ (|List| P)))
         (SPROG ((#1=#:G126 NIL) (|p| NIL) (#2=#:G125 NIL))
                (SEQ
                 (SPADCALL
@@ -25,10 +25,11 @@
                  (QREFELT $ 12))))) 
 
 (SDEFUN |WUTSET;medialSetWithTrace|
-        ((|ps| |List| P) (|redOp?| |Mapping| (|Boolean|) P P)
-         (|redOp| |Mapping| P P P)
-         ($ |Union| (|Record| (|:| |bas| $) (|:| |top| (|List| P)))
-          #1="failed"))
+        ((|ps| (|List| P)) (|redOp?| (|Mapping| (|Boolean|) P P))
+         (|redOp| (|Mapping| P P P))
+         ($
+          (|Union| (|Record| (|:| |bas| $) (|:| |top| (|List| P)))
+                   #1="failed")))
         (SPROG
          ((|contradiction| (|Boolean|)) (|rs| #2=(|List| P)) (#3=#:G129 NIL)
           (|bs| ($))
@@ -153,8 +154,8 @@
                                   (#4# (CONS 0 (CONS |bs| |qs|)))))))))))) 
 
 (SDEFUN |WUTSET;medialSet;LMMU;5|
-        ((|ps| |List| P) (|redOp?| |Mapping| (|Boolean|) P P)
-         (|redOp| |Mapping| P P P) ($ |Union| $ "failed"))
+        ((|ps| (|List| P)) (|redOp?| (|Mapping| (|Boolean|) P P))
+         (|redOp| (|Mapping| P P P)) ($ (|Union| $ "failed")))
         (SPROG
          ((|foo|
            (|Union| (|Record| (|:| |bas| $) (|:| |top| (|List| P))) "failed")))
@@ -164,12 +165,12 @@
            (COND ((QEQCAR |foo| 1) (CONS 1 "failed"))
                  ('T (CONS 0 (QCAR (QCDR |foo|))))))))) 
 
-(SDEFUN |WUTSET;medialSet;LU;6| ((|ps| |List| P) ($ |Union| $ "failed"))
+(SDEFUN |WUTSET;medialSet;LU;6| ((|ps| (|List| P)) ($ (|Union| $ "failed")))
         (SPADCALL |ps| (ELT $ 32) (ELT $ 33) (QREFELT $ 31))) 
 
 (SDEFUN |WUTSET;characteristicSetUsingTrace|
-        ((|ps| |List| P) (|redOp?| |Mapping| (|Boolean|) P P)
-         (|redOp| |Mapping| P P P) ($ |Union| $ "failed"))
+        ((|ps| (|List| P)) (|redOp?| (|Mapping| (|Boolean|) P P))
+         (|redOp| (|Mapping| P P P)) ($ (|Union| $ "failed")))
         (SPROG
          ((|qs| #1=(|List| P)) (|contradiction| (|Boolean|)) (|rs| #1#)
           (#2=#:G129 NIL) (|ms| ($))
@@ -283,17 +284,17 @@
                                   (#4# (CONS 0 |ms|))))))))))) 
 
 (SDEFUN |WUTSET;characteristicSet;LMMU;8|
-        ((|ps| |List| P) (|redOp?| |Mapping| (|Boolean|) P P)
-         (|redOp| |Mapping| P P P) ($ |Union| $ "failed"))
+        ((|ps| (|List| P)) (|redOp?| (|Mapping| (|Boolean|) P P))
+         (|redOp| (|Mapping| P P P)) ($ (|Union| $ "failed")))
         (|WUTSET;characteristicSetUsingTrace| |ps| |redOp?| |redOp| $)) 
 
 (SDEFUN |WUTSET;characteristicSet;LU;9|
-        ((|ps| |List| P) ($ |Union| $ "failed"))
+        ((|ps| (|List| P)) ($ (|Union| $ "failed")))
         (SPADCALL |ps| (ELT $ 32) (ELT $ 33) (QREFELT $ 39))) 
 
 (SDEFUN |WUTSET;characteristicSerie;LMML;10|
-        ((|ps| |List| P) (|redOp?| |Mapping| (|Boolean|) P P)
-         (|redOp| |Mapping| P P P) ($ |List| $))
+        ((|ps| (|List| P)) (|redOp?| (|Mapping| (|Boolean|) P P))
+         (|redOp| (|Mapping| P P P)) ($ (|List| $)))
         (SPROG
          ((#1=#:G215 NIL) (|ln| (|List| (|SplittingNode| (|List| P) $)))
           (|newps| (|List| P)) (|lics| (|List| P)) (|cs| ($))
@@ -414,10 +415,10 @@
            (SPADCALL (SPADCALL (QREFELT $ 41)) (SPADCALL |a| (QREFELT $ 61))
                      (QREFELT $ 62)))))) 
 
-(SDEFUN |WUTSET;characteristicSerie;LL;11| ((|ps| |List| P) ($ |List| $))
+(SDEFUN |WUTSET;characteristicSerie;LL;11| ((|ps| (|List| P)) ($ (|List| $)))
         (SPADCALL |ps| (ELT $ 32) (ELT $ 33) (QREFELT $ 64))) 
 
-(SDEFUN |WUTSET;removeSquares| ((|ts| $) ($ . #1=(|Union| $ "failed")))
+(SDEFUN |WUTSET;removeSquares| ((|ts| ($)) ($ #1=(|Union| $ "failed")))
         (SPROG
          ((|p| (P)) (|newts| ($)) (|rsts| #1#) (#2=#:G180 NIL) (#3=#:G242 NIL))
          (SEQ
@@ -481,7 +482,7 @@
                                               $)))))))))))))
                     (#4# (CONS 1 "failed")))))))))) 
 
-(SDEFUN |WUTSET;zeroSetSplit;LL;13| ((|lp| |List| P) ($ |List| $))
+(SDEFUN |WUTSET;zeroSetSplit;LL;13| ((|lp| (|List| P)) ($ (|List| $)))
         (SPROG
          ((|newlts| (|List| $)) (|iic| (|Union| $ "failed")) (|lts| (|List| $))
           (|ts| ($)))
@@ -503,7 +504,7 @@
               (LETT |newlts| (SPADCALL |newlts| (QREFELT $ 79)))
               (EXIT (SPADCALL (ELT $ 84) |newlts| (QREFELT $ 86)))))) 
 
-(SDEFUN |WUTSET;zeroSetSplit;LL;14| ((|lp| |List| P) ($ |List| $))
+(SDEFUN |WUTSET;zeroSetSplit;LL;14| ((|lp| (|List| P)) ($ (|List| $)))
         (SPROG ((|lts| (|List| $)))
                (SEQ
                 (LETT |lts|

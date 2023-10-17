@@ -1,7 +1,7 @@
 
 (SDEFUN |RDIST;weighted;LM;1|
-        ((|lvw| |List| (|Record| (|:| |value| S) (|:| |weight| (|Integer|))))
-         ($ |Mapping| S))
+        ((|lvw| (|List| (|Record| (|:| |value| S) (|:| |weight| (|Integer|)))))
+         ($ (|Mapping| S)))
         (SPROG
          ((|totwt| (|Integer|)) (#1=#:G117 NIL) (|k| NIL) (#2=#:G118 NIL)
           (|i| NIL) (|wv| (|Vector| (|Integer|))) (|kv| (|Vector| S))
@@ -55,8 +55,8 @@
                   (EXIT (SPADCALL |kv| |wv| |totwt| (QREFELT $ 34)))))))))) 
 
 (SDEFUN |RDIST;rdHack1;VVIM;2|
-        ((|kv| |Vector| S) (|wv| |Vector| (|Integer|)) (|totwt| |Integer|)
-         ($ |Mapping| S))
+        ((|kv| (|Vector| S)) (|wv| (|Vector| (|Integer|)))
+         (|totwt| (|Integer|)) ($ (|Mapping| S)))
         (SPROG NIL
                (SEQ (CONS #'|RDIST;rdHack1;VVIM;2!0| (VECTOR |kv| $ |totwt|))))) 
 
@@ -73,7 +73,7 @@
                          (SPADCALL |kv| (|spadConstant| $ 40)
                                    (QREFELT $ 41))))))))) 
 
-(SDEFUN |RDIST;uniform;SM;3| ((|fset| |Set| S) ($ |Mapping| S))
+(SDEFUN |RDIST;uniform;SM;3| ((|fset| (|Set| S)) ($ (|Mapping| S)))
         (SPROG NIL (SEQ (CONS #'|RDIST;uniform;SM;3!0| (VECTOR $ |fset|))))) 
 
 (SDEFUN |RDIST;uniform;SM;3!0| (($$ NIL))

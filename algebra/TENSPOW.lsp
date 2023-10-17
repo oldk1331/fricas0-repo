@@ -1,5 +1,5 @@
 
-(SDEFUN |TENSPOW;coerce;$Of;1| ((|x| $) ($ |OutputForm|))
+(SDEFUN |TENSPOW;coerce;$Of;1| ((|x| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|le| (|List| (|OutputForm|))) (|ko| (|OutputForm|)) (#1=#:G122 NIL)
           (|b| NIL) (#2=#:G121 NIL) (#3=#:G120 NIL) (|rec| NIL))
@@ -56,8 +56,8 @@
                  (EXIT (SPADCALL (ELT $ 29) |le| (QREFELT $ 25))))))))) 
 
 (SDEFUN |TENSPOW;partialTensor|
-        ((|bb| |List| B) (|xx| |List| M)
-         ($ |List| (|Record| (|:| |k| (|List| B)) (|:| |c| R))))
+        ((|bb| (|List| B)) (|xx| (|List| M))
+         ($ (|List| (|Record| (|:| |k| (|List| B)) (|:| |c| R)))))
         (SPROG
          ((|res| (|List| (|Record| (|:| |k| (|List| B)) (|:| |c| R))))
           (#1=#:G134 NIL) (|tt| NIL) (#2=#:G133 NIL) (|s1| NIL) (#3=#:G132 NIL)
@@ -104,11 +104,11 @@
                      (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))))
               (EXIT (REVERSE |res|))))) 
 
-(SDEFUN |TENSPOW;tensor;L$;3| ((|bb| |List| B) ($ $))
+(SDEFUN |TENSPOW;tensor;L$;3| ((|bb| (|List| B)) ($ ($)))
         (SPADCALL (|spadConstant| $ 26) (SPADCALL |bb| (QREFELT $ 35))
                   (QREFELT $ 36))) 
 
-(SDEFUN |TENSPOW;tensor;L$;4| ((|xx| |List| M) ($ $))
+(SDEFUN |TENSPOW;tensor;L$;4| ((|xx| (|List| M)) ($ ($)))
         (SPROG
          ((|res| (|List| (|Record| (|:| |k| (|Vector| B)) (|:| |c| R))))
           (#1=#:G146 NIL) (|tt| NIL))
@@ -138,7 +138,7 @@
                         (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                    (EXIT (SPADCALL (REVERSE |res|) (QREFELT $ 45))))))))))) 
 
-(SDEFUN |TENSPOW;*;3$;5| ((|x1| $) (|x2| $) ($ $))
+(SDEFUN |TENSPOW;*;3$;5| ((|x1| ($)) (|x2| ($)) ($ ($)))
         (SPROG
          ((|res| (|List| (|Record| (|:| |k| (|Vector| B)) (|:| |c| R))))
           (#1=#:G160 NIL) (|t| NIL) (|t1t2| ($)) (#2=#:G158 NIL) (|b1| NIL)

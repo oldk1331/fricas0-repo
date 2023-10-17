@@ -1,5 +1,5 @@
 
-(SDEFUN |COMPUTIL;Ski2Lambda| ((|s| |SKICombinators| UT) ($ |Lambda| UT))
+(SDEFUN |COMPUTIL;Ski2Lambda| ((|s| (|SKICombinators| UT)) ($ (|Lambda| UT)))
         (SPROG
          ((#1=#:G152 NIL) (|s112| #2=(|String|)) (|s12| #2#)
           (|s2| #3=(|String|)) (|c112| #4=(|SKICombinators| UT))
@@ -254,13 +254,14 @@
                        (|COMPUTIL;Ski2Lambda| |c2| $) (QREFELT $ 32)))))
           #8# (EXIT #1#)))) 
 
-(SDEFUN |COMPUTIL;coerce;SkicL;2| ((|s| |SKICombinators| UT) ($ |Lambda| UT))
+(SDEFUN |COMPUTIL;coerce;SkicL;2|
+        ((|s| (|SKICombinators| UT)) ($ (|Lambda| UT)))
         (SPROG ((|term| (|Lambda| UT)))
                (SEQ (SETELT $ 7 0) (LETT |term| (|COMPUTIL;Ski2Lambda| |s| $))
                     (EXIT |term|)))) 
 
 (SDEFUN |COMPUTIL;lambdaOverSki|
-        ((|var| UT) (|sk| |SKICombinators| UT) ($ |SKICombinators| UT))
+        ((|var| (UT)) (|sk| (|SKICombinators| UT)) ($ (|SKICombinators| UT)))
         (SPROG
          ((#1=#:G163 NIL) (|right| (|SKICombinators| UT))
           (|left| (|SKICombinators| UT)) (|ch| (|List| (|SKICombinators| UT))))
@@ -384,7 +385,8 @@
               (GO #2#)))))
           #2# (EXIT #1#)))) 
 
-(SDEFUN |COMPUTIL;coerce;LSkic;4| ((|lam| |Lambda| UT) ($ |SKICombinators| UT))
+(SDEFUN |COMPUTIL;coerce;LSkic;4|
+        ((|lam| (|Lambda| UT)) ($ (|SKICombinators| UT)))
         (SPROG
          ((#1=#:G180 NIL) (|c32| #2=(|Lambda| UT)) (|c31| #3=(|Lambda| UT))
           (|ch3| #4=(|List| (|Lambda| UT))) (|cxx| (|Lambda| UT)) (|c33| #3#)
@@ -566,7 +568,7 @@
             (EXIT (SPADCALL (QREFELT $ 38)))))
           #5# (EXIT #1#)))) 
 
-(SDEFUN |COMPUTIL;coerce;SkicIl;5| ((|s| |SKICombinators| UT) ($ |ILogic|))
+(SDEFUN |COMPUTIL;coerce;SkicIl;5| ((|s| (|SKICombinators| UT)) ($ (|ILogic|)))
         (SPROG
          ((#1=#:G199 NIL) (|bc| #2=(|ILogic|)) (|ac| #2#) (|ab| #2#)
           (|c| #3=(|ILogic|)) (|b| #3#) (|a| #3#)

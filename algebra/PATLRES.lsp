@@ -1,24 +1,24 @@
 
-(SDEFUN |PATLRES;new;$;1| (($ $))
+(SDEFUN |PATLRES;new;$;1| (($ ($)))
         (CONS (SPADCALL (QREFELT $ 11)) (SPADCALL (QREFELT $ 13)))) 
 
 (PUT '|PATLRES;atoms;$Pmr;2| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |PATLRES;atoms;$Pmr;2| ((|r| $) ($ |PatternMatchResult| R S))
+(SDEFUN |PATLRES;atoms;$Pmr;2| ((|r| ($)) ($ (|PatternMatchResult| R S)))
         (QCAR |r|)) 
 
 (PUT '|PATLRES;lists;$Pmr;3| '|SPADreplace| 'QCDR) 
 
-(SDEFUN |PATLRES;lists;$Pmr;3| ((|r| $) ($ |PatternMatchResult| R L))
+(SDEFUN |PATLRES;lists;$Pmr;3| ((|r| ($)) ($ (|PatternMatchResult| R L)))
         (QCDR |r|)) 
 
-(SDEFUN |PATLRES;failed;$;4| (($ $))
+(SDEFUN |PATLRES;failed;$;4| (($ ($)))
         (CONS (SPADCALL (QREFELT $ 17)) (SPADCALL (QREFELT $ 18)))) 
 
-(SDEFUN |PATLRES;failed?;$B;5| ((|r| $) ($ |Boolean|))
+(SDEFUN |PATLRES;failed?;$B;5| ((|r| ($)) ($ (|Boolean|)))
         (SPADCALL (SPADCALL |r| (QREFELT $ 15)) (QREFELT $ 21))) 
 
-(SDEFUN |PATLRES;=;2$B;6| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |PATLRES;=;2$B;6| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (COND
          ((SPADCALL (SPADCALL |x| (QREFELT $ 15)) (SPADCALL |y| (QREFELT $ 15))
                     (QREFELT $ 23))
@@ -27,13 +27,14 @@
          ('T NIL))) 
 
 (SDEFUN |PATLRES;makeResult;PmrPmr$;7|
-        ((|r1| |PatternMatchResult| R S) (|r2| |PatternMatchResult| R L) ($ $))
+        ((|r1| (|PatternMatchResult| R S)) (|r2| (|PatternMatchResult| R L))
+         ($ ($)))
         (COND
          ((OR (SPADCALL |r1| (QREFELT $ 21)) (SPADCALL |r2| (QREFELT $ 26)))
           (SPADCALL (QREFELT $ 19)))
          ('T (CONS |r1| |r2|)))) 
 
-(SDEFUN |PATLRES;coerce;$Of;8| ((|r| $) ($ |OutputForm|))
+(SDEFUN |PATLRES;coerce;$Of;8| ((|r| ($)) ($ (|OutputForm|)))
         (COND
          ((SPADCALL |r| (QREFELT $ 22))
           (SPADCALL (SPADCALL |r| (QREFELT $ 15)) (QREFELT $ 29)))

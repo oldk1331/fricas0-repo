@@ -1,5 +1,5 @@
 
-(SDEFUN |ES2;map;MKF;1| ((|f| |Mapping| F E) (|k| |Kernel| E) ($ F))
+(SDEFUN |ES2;map;MKF;1| ((|f| (|Mapping| F E)) (|k| (|Kernel| E)) ($ (F)))
         (SPROG ((#1=#:G107 NIL) (|x| NIL) (#2=#:G106 NIL))
                (SEQ
                 (SPADCALL

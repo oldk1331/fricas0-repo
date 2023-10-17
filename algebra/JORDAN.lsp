@@ -1,5 +1,5 @@
 
-(SDEFUN |JORDAN;*;3$;1| ((|a| $) (|b| $) ($ $))
+(SDEFUN |JORDAN;*;3$;1| ((|a| ($)) (|b| ($)) ($ ($)))
         (COND
          ((SPADCALL (QREFELT $ 11) (QREFELT $ 16))
           (|error|
@@ -12,15 +12,15 @@
 
 (PUT '|JORDAN;coerce;$A;2| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
-(SDEFUN |JORDAN;coerce;$A;2| ((|a| $) ($ A)) |a|) 
+(SDEFUN |JORDAN;coerce;$A;2| ((|a| ($)) ($ (A))) |a|) 
 
 (PUT '|JORDAN;coerce;A$;3| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
-(SDEFUN |JORDAN;coerce;A$;3| ((|a| A) ($ $)) |a|) 
+(SDEFUN |JORDAN;coerce;A$;3| ((|a| (A)) ($ ($))) |a|) 
 
 (PUT '|JORDAN;^;$Pi$;4| '|SPADreplace| '(XLAM (|a| |n|) |a|)) 
 
-(SDEFUN |JORDAN;^;$Pi$;4| ((|a| $) (|n| |PositiveInteger|) ($ $)) |a|) 
+(SDEFUN |JORDAN;^;$Pi$;4| ((|a| ($)) (|n| (|PositiveInteger|)) ($ ($))) |a|) 
 
 (DECLAIM (NOTINLINE |AssociatedJordanAlgebra;|)) 
 

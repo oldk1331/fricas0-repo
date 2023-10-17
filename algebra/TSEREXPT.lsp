@@ -1,8 +1,9 @@
 
 (SDEFUN |TSEREXPT;stream_taylor|
-        ((|f| |Stream| |Coef|) (|x| |Stream| |Coef|) (|xn| |Stream| |Coef|)
-         (|d| |Mapping| (|Stream| |Coef|) (|Stream| |Coef|)) (|n| |Integer|)
-         ($ |Stream| (|Stream| |Coef|)))
+        ((|f| (|Stream| |Coef|)) (|x| (|Stream| |Coef|))
+         (|xn| (|Stream| |Coef|))
+         (|d| (|Mapping| (|Stream| |Coef|) (|Stream| |Coef|)))
+         (|n| (|Integer|)) ($ (|Stream| (|Stream| |Coef|))))
         (SPROG NIL
                (SEQ
                 (SPADCALL
@@ -39,8 +40,8 @@
                                (QREFELT $ 21))))))))) 
 
 (SDEFUN |TSEREXPT;taylor_via_deriv;UTSLLUTS;2|
-        ((|f| UTS) (|lx| |List| UTS) (|ld| |List| (|Mapping| |Coef| |Coef|))
-         ($ UTS))
+        ((|f| (UTS)) (|lx| (|List| UTS))
+         (|ld| (|List| (|Mapping| |Coef| |Coef|))) ($ (UTS)))
         (SPROG
          ((|ds| (|Stream| (|Stream| |Coef|))) (|one| #1=(|Stream| |Coef|))
           (|xs| #1#) (|fs| #1#) (|x1| (UTS)))
@@ -89,7 +90,7 @@
             (SPADCALL (SPADCALL |ld| (QREFELT $ 35)) |s| (QREFELT $ 36)))))) 
 
 (SDEFUN |TSEREXPT;taylor_via_lode;LUTSLUTS;3|
-        ((|la| |List| UTS) (|z| UTS) (|lc| |List| |Coef|) ($ UTS))
+        ((|la| (|List| UTS)) (|z| (UTS)) (|lc| (|List| |Coef|)) ($ (UTS)))
         (SPROG NIL
                (SEQ
                 (COND
@@ -139,9 +140,9 @@
      '(XLAM (|g| |f|) (SPADCALL |f| |g|))) 
 
 (SDEFUN |TSEREXPT;applyTaylor;M2UTS;4|
-        ((|g| |Mapping| UTS UTS) (|f| UTS) ($ UTS)) (SPADCALL |f| |g|)) 
+        ((|g| (|Mapping| UTS UTS)) (|f| (UTS)) ($ (UTS))) (SPADCALL |f| |g|)) 
 
-(SDEFUN |TSEREXPT;apply_taylor;3UTS;5| ((|g| UTS) (|f| UTS) ($ UTS))
+(SDEFUN |TSEREXPT;apply_taylor;3UTS;5| ((|g| (UTS)) (|f| (UTS)) ($ (UTS)))
         (SPADCALL |g| |f| (QREFELT $ 47))) 
 
 (DECLAIM (NOTINLINE |TaylorSeriesExpansionTaylor;|)) 

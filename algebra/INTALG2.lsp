@@ -1,7 +1,7 @@
 
 (SDEFUN |INTALG2;exp_hermite1|
-        ((|f| R) (|der| |Mapping| UP UP)
-         ($ |Record| (|:| |answer| R) (|:| |logpart| R) (|:| |polypart| R)))
+        ((|f| (R)) (|der| (|Mapping| UP UP))
+         ($ (|Record| (|:| |answer| R) (|:| |logpart| R) (|:| |polypart| R))))
         (SPROG
          ((|h| (|Record| (|:| |answer| R) (|:| |logpart| R))) (|fp| (R))
           (|ff| (R)) (|w| (|Vector| R))
@@ -36,8 +36,8 @@
               (EXIT (VECTOR (QCAR |h|) (QCDR |h|) |fp|))))) 
 
 (SDEFUN |INTALG2;prim_hermite1|
-        ((|f| R) (|der| |Mapping| UP UP)
-         ($ |Record| (|:| |answer| R) (|:| |logpart| R) (|:| |polypart| R)))
+        ((|f| (R)) (|der| (|Mapping| UP UP))
+         ($ (|Record| (|:| |answer| R) (|:| |logpart| R) (|:| |polypart| R))))
         (SPROG
          ((|fp| (R)) (|ff| (R)) (|w| (|Vector| R))
           (|r| (|Record| (|:| |quotient| UP) (|:| |remainder| UP)))
@@ -79,11 +79,13 @@
                   (EXIT (VECTOR (QCAR |h|) |ff| |fp|))))))))) 
 
 (SDEFUN |INTALG2;list_hermite|
-        ((|lf| |List| R)
-         (|hermite1| |Mapping|
-          (|Record| (|:| |answer| R) (|:| |logpart| R) (|:| |polypart| R)) R)
-         ($ |List|
-          (|Record| (|:| |answer| R) (|:| |logpart| R) (|:| |polypart| R))))
+        ((|lf| (|List| R))
+         (|hermite1|
+          (|Mapping|
+           (|Record| (|:| |answer| R) (|:| |logpart| R) (|:| |polypart| R)) R))
+         ($
+          (|List|
+           (|Record| (|:| |answer| R) (|:| |logpart| R) (|:| |polypart| R)))))
         (SPROG ((#1=#:G135 NIL) (|f| NIL) (#2=#:G134 NIL))
                (SEQ
                 (PROGN
@@ -97,7 +99,7 @@
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(SDEFUN |INTALG2;lin_comb2| ((|v| |Vector| F) (|lr| |List| R) ($ R))
+(SDEFUN |INTALG2;lin_comb2| ((|v| (|Vector| F)) (|lr| (|List| R)) ($ (R)))
         (SPROG
          ((|res| (R)) (#1=#:G139 NIL) (|i| NIL) (#2=#:G140 NIL) (|r| NIL))
          (SEQ (LETT |res| (|spadConstant| $ 35))
@@ -124,9 +126,10 @@
               (EXIT |res|)))) 
 
 (SDEFUN |INTALG2;split_logpart|
-        ((|p| |Fraction| UP) (|lg| |Fraction| UP) (|dden| UP)
-         ($ |Record| (|:| |polypart| (|Fraction| UP))
-          (|:| |logpart| (|Fraction| UP))))
+        ((|p| (|Fraction| UP)) (|lg| (|Fraction| UP)) (|dden| (UP))
+         ($
+          (|Record| (|:| |polypart| (|Fraction| UP))
+                    (|:| |logpart| (|Fraction| UP)))))
         (SPROG
          ((|b| (UP)) (|a| (UP))
           (|#G23| (|Record| (|:| |coef1| UP) (|:| |coef2| UP))) (#1=#:G147 NIL)
@@ -185,10 +188,11 @@
                              (SPADCALL |b| |g| (QREFELT $ 20))))))))))))))) 
 
 (SDEFUN |INTALG2;split_logparts|
-        ((|lup| |List| (|Fraction| UP)) (|llog| |List| (|Fraction| UP))
-         (|dden| UP)
-         ($ |Record| (|:| |polypart| (|List| (|Fraction| UP)))
-          (|:| |logpart| (|List| (|Fraction| UP)))))
+        ((|lup| (|List| (|Fraction| UP))) (|llog| (|List| (|Fraction| UP)))
+         (|dden| (UP))
+         ($
+          (|Record| (|:| |polypart| (|List| (|Fraction| UP)))
+                    (|:| |logpart| (|List| (|Fraction| UP))))))
         (SPROG
          ((|lres| (|List| (|Fraction| UP))) (|pres| (|List| (|Fraction| UP)))
           (|lg2| (|Fraction| UP)) (|p2| (|Fraction| UP))
@@ -218,21 +222,23 @@
               (EXIT (CONS |pres| |lres|))))) 
 
 (SDEFUN |INTALG2;diagextint|
-        ((|dden| UP) (|dm| |Matrix| UP) (|w| |Vector| R)
-         (|lpv| |List| (|Vector| (|Fraction| UP)))
-         (|lgv| |List| (|Vector| (|Fraction| UP))) (|ca0| |List| R)
-         (|ext| |Mapping|
-          #1=(|List|
-              (|Record| (|:| |ratpart| (|Fraction| UP))
-                        (|:| |coeffs| #2=(|Vector| F))))
-          (|List| (|Fraction| UP)))
-         (|rde| |Mapping|
-          #3=(|List|
-              (|Record| (|:| |ratpart| (|Fraction| UP))
-                        (|:| |coeffs| (|Vector| F))))
-          (|Fraction| UP) (|List| (|Fraction| UP)))
-         (|csolve| |Mapping| (|List| (|Vector| F)) (|Matrix| F))
-         ($ |List| (|Record| (|:| |ratpart| R) (|:| |coeffs| (|Vector| F)))))
+        ((|dden| (UP)) (|dm| (|Matrix| UP)) (|w| (|Vector| R))
+         (|lpv| (|List| (|Vector| (|Fraction| UP))))
+         (|lgv| (|List| (|Vector| (|Fraction| UP)))) (|ca0| (|List| R))
+         (|ext|
+          (|Mapping|
+           #1=(|List|
+               (|Record| (|:| |ratpart| (|Fraction| UP))
+                         (|:| |coeffs| #2=(|Vector| F))))
+           (|List| (|Fraction| UP))))
+         (|rde|
+          (|Mapping|
+           #3=(|List|
+               (|Record| (|:| |ratpart| (|Fraction| UP))
+                         (|:| |coeffs| (|Vector| F))))
+           (|Fraction| UP) (|List| (|Fraction| UP))))
+         (|csolve| (|Mapping| (|List| (|Vector| F)) (|Matrix| F)))
+         ($ (|List| (|Record| (|:| |ratpart| R) (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((#4=#:G204 NIL) (|ai| NIL) (#5=#:G205 NIL) (|bv| NIL) (#6=#:G203 NIL)
           (|ca| (|List| R)) (|cb| (|List| #2#)) (|nca1| (|List| R))
@@ -465,7 +471,7 @@
                  (LETT #4# (PROG1 (CDR #4#) (LETT #5# (CDR #5#)))) (GO G190)
                  G191 (EXIT (NREVERSE #6#)))))))) 
 
-(SDEFUN |INTALG2;R_to_VQF| ((|p| R) ($ |Vector| (|Fraction| UP)))
+(SDEFUN |INTALG2;R_to_VQF| ((|p| (R)) ($ (|Vector| (|Fraction| UP))))
         (SPROG
          ((#1=#:G210 NIL) (|i| NIL) (|cden| (UP))
           (|res| (|Vector| (|Fraction| UP))) (|n| (|NonNegativeInteger|))
@@ -487,20 +493,22 @@
               (EXIT |res|)))) 
 
 (SDEFUN |INTALG2;algprimextint|
-        ((|der| |Mapping| UP UP)
-         (|ext| |Mapping|
-          (|List|
-           (|Record| (|:| |ratpart| (|Fraction| UP))
-                     (|:| |coeffs| (|Vector| F))))
-          (|List| (|Fraction| UP)))
-         (|rde| |Mapping|
-          (|List|
-           (|Record| (|:| |ratpart| (|Fraction| UP))
-                     (|:| |coeffs| (|Vector| F))))
-          (|Fraction| UP) (|List| (|Fraction| UP)))
-         (|csolve| |Mapping| (|List| (|Vector| F)) (|Matrix| F))
-         (|lg| |List| R)
-         ($ |List| (|Record| (|:| |ratpart| R) (|:| |coeffs| (|Vector| F)))))
+        ((|der| (|Mapping| UP UP))
+         (|ext|
+          (|Mapping|
+           (|List|
+            (|Record| (|:| |ratpart| (|Fraction| UP))
+                      (|:| |coeffs| (|Vector| F))))
+           (|List| (|Fraction| UP))))
+         (|rde|
+          (|Mapping|
+           (|List|
+            (|Record| (|:| |ratpart| (|Fraction| UP))
+                      (|:| |coeffs| (|Vector| F))))
+           (|Fraction| UP) (|List| (|Fraction| UP))))
+         (|csolve| (|Mapping| (|List| (|Vector| F)) (|Matrix| F)))
+         (|lg| (|List| R))
+         ($ (|List| (|Record| (|:| |ratpart| R) (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((|ca0| (|List| R)) (#1=#:G230 NIL) (|h| NIL) (#2=#:G229 NIL)
           (|dden| (UP))
@@ -557,20 +565,22 @@
           (RETURN (PROGN (|INTALG2;prim_hermite1| |g| |der| $))))) 
 
 (SDEFUN |INTALG2;algexpextint|
-        ((|der| |Mapping| UP UP)
-         (|ext| |Mapping|
-          (|List|
-           (|Record| (|:| |ratpart| (|Fraction| UP))
-                     (|:| |coeffs| (|Vector| F))))
-          (|List| (|Fraction| UP)))
-         (|rde| |Mapping|
-          (|List|
-           (|Record| (|:| |ratpart| (|Fraction| UP))
-                     (|:| |coeffs| (|Vector| F))))
-          (|Fraction| UP) (|List| (|Fraction| UP)))
-         (|csolve| |Mapping| (|List| (|Vector| F)) (|Matrix| F))
-         (|lg| |List| R)
-         ($ |List| (|Record| (|:| |ratpart| R) (|:| |coeffs| (|Vector| F)))))
+        ((|der| (|Mapping| UP UP))
+         (|ext|
+          (|Mapping|
+           (|List|
+            (|Record| (|:| |ratpart| (|Fraction| UP))
+                      (|:| |coeffs| (|Vector| F))))
+           (|List| (|Fraction| UP))))
+         (|rde|
+          (|Mapping|
+           (|List|
+            (|Record| (|:| |ratpart| (|Fraction| UP))
+                      (|:| |coeffs| (|Vector| F))))
+           (|Fraction| UP) (|List| (|Fraction| UP))))
+         (|csolve| (|Mapping| (|List| (|Vector| F)) (|Matrix| F)))
+         (|lg| (|List| R))
+         ($ (|List| (|Record| (|:| |ratpart| R) (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((|ca0| (|List| R)) (#1=#:G250 NIL) (|h| NIL) (#2=#:G249 NIL)
           (|dden| (UP))
@@ -628,10 +638,10 @@
           (RETURN (PROGN (|INTALG2;exp_hermite1| |g| |der| $))))) 
 
 (SDEFUN |INTALG2;algextint_base;MMLL;11|
-        ((|der| |Mapping| UP UP)
-         (|csolve| |Mapping| (|List| (|Vector| F)) (|Matrix| F))
-         (|lg| |List| R)
-         ($ |List| (|Record| (|:| |ratpart| R) (|:| |coeffs| (|Vector| F)))))
+        ((|der| (|Mapping| UP UP))
+         (|csolve| (|Mapping| (|List| (|Vector| F)) (|Matrix| F)))
+         (|lg| (|List| R))
+         ($ (|List| (|Record| (|:| |ratpart| R) (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((#1=#:G267 NIL) (|bv| NIL) (#2=#:G266 NIL) (|ca0| (|List| R))
           (#3=#:G265 NIL) (|h| NIL) (#4=#:G264 NIL)
@@ -703,20 +713,22 @@
           (RETURN (PROGN (|INTALG2;prim_hermite1| |g| |der| $))))) 
 
 (SDEFUN |INTALG2;algextint;MMMMLL;12|
-        ((|der| |Mapping| UP UP)
-         (|ext| |Mapping|
-          (|List|
-           (|Record| (|:| |ratpart| (|Fraction| UP))
-                     (|:| |coeffs| (|Vector| F))))
-          (|List| (|Fraction| UP)))
-         (|rde| |Mapping|
-          (|List|
-           (|Record| (|:| |ratpart| (|Fraction| UP))
-                     (|:| |coeffs| (|Vector| F))))
-          (|Fraction| UP) (|List| (|Fraction| UP)))
-         (|csolve| |Mapping| (|List| (|Vector| F)) (|Matrix| F))
-         (|lg| |List| R)
-         ($ |List| (|Record| (|:| |ratpart| R) (|:| |coeffs| (|Vector| F)))))
+        ((|der| (|Mapping| UP UP))
+         (|ext|
+          (|Mapping|
+           (|List|
+            (|Record| (|:| |ratpart| (|Fraction| UP))
+                      (|:| |coeffs| (|Vector| F))))
+           (|List| (|Fraction| UP))))
+         (|rde|
+          (|Mapping|
+           (|List|
+            (|Record| (|:| |ratpart| (|Fraction| UP))
+                      (|:| |coeffs| (|Vector| F))))
+           (|Fraction| UP) (|List| (|Fraction| UP))))
+         (|csolve| (|Mapping| (|List| (|Vector| F)) (|Matrix| F)))
+         (|lg| (|List| R))
+         ($ (|List| (|Record| (|:| |ratpart| R) (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((#1=#:G293 NIL) (|xx| (|Union| UP "failed")) (|x'| (UP)) (|x| (UP)))
          (SEQ

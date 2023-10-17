@@ -1,10 +1,11 @@
 
 (SDEFUN |TENSOR;termgreater?|
-        ((|t1| |Record| (|:| |k| (|Product| B1 B2)) (|:| |c| R))
-         (|t2| |Record| (|:| |k| (|Product| B1 B2)) (|:| |c| R)) ($ |Boolean|))
+        ((|t1| (|Record| (|:| |k| (|Product| B1 B2)) (|:| |c| R)))
+         (|t2| (|Record| (|:| |k| (|Product| B1 B2)) (|:| |c| R)))
+         ($ (|Boolean|)))
         (SPADCALL (QCAR |t2|) (QCAR |t1|) (QREFELT $ 13))) 
 
-(SDEFUN |TENSOR;tensor;M1M2$;2| ((|x1| M1) (|x2| M2) ($ $))
+(SDEFUN |TENSOR;tensor;M1M2$;2| ((|x1| (M1)) (|x2| (M2)) ($ ($)))
         (SPROG
          ((|res| (|List| (|Record| (|:| |k| (|Product| B1 B2)) (|:| |c| R))))
           (#1=#:G121 NIL) (|s2| NIL) (#2=#:G120 NIL) (|s1| NIL)
@@ -45,7 +46,7 @@
                   (EXIT (SPADCALL |res| (QREFELT $ 27)))))))
           #4# (EXIT #3#)))) 
 
-(SDEFUN |TENSOR;*;3$;3| ((|x1| $) (|x2| $) ($ $))
+(SDEFUN |TENSOR;*;3$;3| ((|x1| ($)) (|x2| ($)) ($ ($)))
         (SPROG
          ((|res| (|List| (|Record| (|:| |k| (|Product| B1 B2)) (|:| |c| R))))
           (#1=#:G130 NIL) (|t| NIL) (|t2b| (M2)) (|t2a| (M1)) (|t1b| (M2))
@@ -107,7 +108,7 @@
                    (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL |res| (QREFELT $ 38)))))) 
 
-(SDEFUN |TENSOR;coerce;$Of;4| ((|x| $) ($ |OutputForm|))
+(SDEFUN |TENSOR;coerce;$Of;4| ((|x| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|le| (|List| (|OutputForm|))) (|ko| (|OutputForm|)) (#1=#:G139 NIL)
           (|rec| NIL))

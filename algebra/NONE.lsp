@@ -1,10 +1,10 @@
 
-(SDEFUN |NONE;coerce;$Of;1| ((|none| $) ($ |OutputForm|))
+(SDEFUN |NONE;coerce;$Of;1| ((|none| ($)) ($ (|OutputForm|)))
         (SPADCALL "NONE" (QREFELT $ 8))) 
 
 (PUT '|NONE;=;2$B;2| '|SPADreplace| 'EQ) 
 
-(SDEFUN |NONE;=;2$B;2| ((|x| $) (|y| $) ($ |Boolean|)) (EQ |x| |y|)) 
+(SDEFUN |NONE;=;2$B;2| ((|x| ($)) (|y| ($)) ($ (|Boolean|))) (EQ |x| |y|)) 
 
 (DECLAIM (NOTINLINE |None;|)) 
 

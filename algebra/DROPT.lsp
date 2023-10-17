@@ -2,86 +2,92 @@
 (PUT '|DROPT;length| '|SPADreplace| 'LENGTH) 
 
 (SDEFUN |DROPT;length|
-        ((|tup| |List| (|Segment| (|Float|))) ($ |NonNegativeInteger|))
+        ((|tup| (|List| (|Segment| (|Float|)))) ($ (|NonNegativeInteger|)))
         (LENGTH |tup|)) 
 
 (PUT '|DROPT;lengthR| '|SPADreplace| 'LENGTH) 
 
 (SDEFUN |DROPT;lengthR|
-        ((|tup| |List| (|Segment| (|Fraction| (|Integer|))))
-         ($ |NonNegativeInteger|))
+        ((|tup| (|List| (|Segment| (|Fraction| (|Integer|)))))
+         ($ (|NonNegativeInteger|)))
         (LENGTH |tup|)) 
 
 (PUT '|DROPT;lengthI| '|SPADreplace| 'LENGTH) 
 
-(SDEFUN |DROPT;lengthI| ((|tup| |List| (|Integer|)) ($ |NonNegativeInteger|))
+(SDEFUN |DROPT;lengthI|
+        ((|tup| (|List| (|Integer|))) ($ (|NonNegativeInteger|)))
         (LENGTH |tup|)) 
 
 (SDEFUN |DROPT;viewpoint;R$;4|
-        ((|vp| |Record| (|:| |theta| (|DoubleFloat|))
-          (|:| |phi| (|DoubleFloat|)) (|:| |scale| (|DoubleFloat|))
-          (|:| |scaleX| (|DoubleFloat|)) (|:| |scaleY| (|DoubleFloat|))
-          (|:| |scaleZ| (|DoubleFloat|)) (|:| |deltaX| (|DoubleFloat|))
-          (|:| |deltaY| (|DoubleFloat|)))
-         ($ $))
+        ((|vp|
+          (|Record| (|:| |theta| (|DoubleFloat|)) (|:| |phi| (|DoubleFloat|))
+                    (|:| |scale| (|DoubleFloat|))
+                    (|:| |scaleX| (|DoubleFloat|))
+                    (|:| |scaleY| (|DoubleFloat|))
+                    (|:| |scaleZ| (|DoubleFloat|))
+                    (|:| |deltaX| (|DoubleFloat|))
+                    (|:| |deltaY| (|DoubleFloat|))))
+         ($ ($)))
         (CONS '|viewpoint| (SPADCALL |vp| (QREFELT $ 10)))) 
 
-(SDEFUN |DROPT;title;S$;5| ((|s| |String|) ($ $))
+(SDEFUN |DROPT;title;S$;5| ((|s| (|String|)) ($ ($)))
         (CONS '|title| (SPADCALL |s| (QREFELT $ 14)))) 
 
-(SDEFUN |DROPT;style;S$;6| ((|s| |String|) ($ $))
+(SDEFUN |DROPT;style;S$;6| ((|s| (|String|)) ($ ($)))
         (CONS '|style| (SPADCALL |s| (QREFELT $ 14)))) 
 
-(SDEFUN |DROPT;toScale;B$;7| ((|b| |Boolean|) ($ $))
+(SDEFUN |DROPT;toScale;B$;7| ((|b| (|Boolean|)) ($ ($)))
         (CONS '|toScale| (SPADCALL |b| (QREFELT $ 19)))) 
 
-(SDEFUN |DROPT;clip;B$;8| ((|b| |Boolean|) ($ $))
+(SDEFUN |DROPT;clip;B$;8| ((|b| (|Boolean|)) ($ ($)))
         (CONS '|clipBoolean| (SPADCALL |b| (QREFELT $ 19)))) 
 
-(SDEFUN |DROPT;adaptive;B$;9| ((|b| |Boolean|) ($ $))
+(SDEFUN |DROPT;adaptive;B$;9| ((|b| (|Boolean|)) ($ ($)))
         (CONS '|adaptive| (SPADCALL |b| (QREFELT $ 19)))) 
 
-(SDEFUN |DROPT;pointColor;F$;10| ((|x| |Float|) ($ $))
+(SDEFUN |DROPT;pointColor;F$;10| ((|x| (|Float|)) ($ ($)))
         (CONS '|pointColorFloat| (SPADCALL |x| (QREFELT $ 25)))) 
 
-(SDEFUN |DROPT;pointColor;P$;11| ((|c| |Palette|) ($ $))
+(SDEFUN |DROPT;pointColor;P$;11| ((|c| (|Palette|)) ($ ($)))
         (CONS '|pointColorPalette| (SPADCALL |c| (QREFELT $ 29)))) 
 
-(SDEFUN |DROPT;curveColor;F$;12| ((|x| |Float|) ($ $))
+(SDEFUN |DROPT;curveColor;F$;12| ((|x| (|Float|)) ($ ($)))
         (CONS '|curveColorFloat| (SPADCALL |x| (QREFELT $ 25)))) 
 
-(SDEFUN |DROPT;curveColor;P$;13| ((|c| |Palette|) ($ $))
+(SDEFUN |DROPT;curveColor;P$;13| ((|c| (|Palette|)) ($ ($)))
         (CONS '|curveColorPalette| (SPADCALL |c| (QREFELT $ 29)))) 
 
 (SDEFUN |DROPT;colorFunction;M$;14|
-        ((|f| |Mapping| (|DoubleFloat|) (|DoubleFloat|)) ($ $))
+        ((|f| (|Mapping| (|DoubleFloat|) (|DoubleFloat|))) ($ ($)))
         (CONS '|colorFunction1| (SPADCALL |f| (QREFELT $ 35)))) 
 
 (SDEFUN |DROPT;colorFunction;M$;15|
-        ((|f| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)) ($ $))
+        ((|f| (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)))
+         ($ ($)))
         (CONS '|colorFunction2| (SPADCALL |f| (QREFELT $ 39)))) 
 
 (SDEFUN |DROPT;colorFunction;M$;16|
-        ((|f| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)
-          (|DoubleFloat|))
-         ($ $))
+        ((|f|
+          (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)
+                     (|DoubleFloat|)))
+         ($ ($)))
         (CONS '|colorFunction3| (SPADCALL |f| (QREFELT $ 43)))) 
 
-(SDEFUN |DROPT;clip;L$;17| ((|tup| |List| (|Segment| (|Float|))) ($ $))
+(SDEFUN |DROPT;clip;L$;17| ((|tup| (|List| (|Segment| (|Float|)))) ($ ($)))
         (COND
          ((> (|DROPT;length| |tup| $) 3)
           (|error| "clip: at most 3 segments may be specified"))
          ('T (CONS '|clipSegment| (SPADCALL |tup| (QREFELT $ 47)))))) 
 
 (SDEFUN |DROPT;coordinates;M$;18|
-        ((|f| |Mapping| (|Point| (|DoubleFloat|)) (|Point| (|DoubleFloat|)))
-         ($ $))
+        ((|f| (|Mapping| (|Point| (|DoubleFloat|)) (|Point| (|DoubleFloat|))))
+         ($ ($)))
         (CONS '|coordinates| (SPADCALL |f| (QREFELT $ 51)))) 
 
-(SDEFUN |DROPT;tubeRadius;F$;19| ((|x| |Float|) ($ $))
+(SDEFUN |DROPT;tubeRadius;F$;19| ((|x| (|Float|)) ($ ($)))
         (CONS '|tubeRadius| (SPADCALL |x| (QREFELT $ 25)))) 
 
-(SDEFUN |DROPT;range;L$;20| ((|tup| |List| (|Segment| (|Float|))) ($ $))
+(SDEFUN |DROPT;range;L$;20| ((|tup| (|List| (|Segment| (|Float|)))) ($ ($)))
         (SPROG ((|n| (|NonNegativeInteger|)))
                (SEQ (LETT |n| (|DROPT;length| |tup| $))
                     (EXIT
@@ -95,7 +101,7 @@
                              (SPADCALL |tup| (QREFELT $ 47))))))))) 
 
 (SDEFUN |DROPT;range;L$;21|
-        ((|tup| |List| (|Segment| (|Fraction| (|Integer|)))) ($ $))
+        ((|tup| (|List| (|Segment| (|Fraction| (|Integer|))))) ($ ($)))
         (SPROG ((|n| (|NonNegativeInteger|)))
                (SEQ (LETT |n| (|DROPT;lengthR| |tup| $))
                     (EXIT
@@ -107,40 +113,41 @@
                       ('T
                        (CONS '|rangeRat| (SPADCALL |tup| (QREFELT $ 57))))))))) 
 
-(SDEFUN |DROPT;ranges;L$;22| ((|s| |List| (|Segment| (|Float|))) ($ $))
+(SDEFUN |DROPT;ranges;L$;22| ((|s| (|List| (|Segment| (|Float|)))) ($ ($)))
         (CONS '|ranges| (SPADCALL |s| (QREFELT $ 47)))) 
 
-(SDEFUN |DROPT;space;Ts$;23| ((|s| |ThreeSpace| (|DoubleFloat|)) ($ $))
+(SDEFUN |DROPT;space;Ts$;23| ((|s| (|ThreeSpace| (|DoubleFloat|))) ($ ($)))
         (CONS '|space| (SPADCALL |s| (QREFELT $ 62)))) 
 
-(SDEFUN |DROPT;var1Steps;Pi$;24| ((|s| |PositiveInteger|) ($ $))
+(SDEFUN |DROPT;var1Steps;Pi$;24| ((|s| (|PositiveInteger|)) ($ ($)))
         (CONS '|var1Steps| (SPADCALL |s| (QREFELT $ 66)))) 
 
-(SDEFUN |DROPT;var2Steps;Pi$;25| ((|s| |PositiveInteger|) ($ $))
+(SDEFUN |DROPT;var2Steps;Pi$;25| ((|s| (|PositiveInteger|)) ($ ($)))
         (CONS '|var2Steps| (SPADCALL |s| (QREFELT $ 66)))) 
 
-(SDEFUN |DROPT;tubePoints;Pi$;26| ((|s| |PositiveInteger|) ($ $))
+(SDEFUN |DROPT;tubePoints;Pi$;26| ((|s| (|PositiveInteger|)) ($ ($)))
         (CONS '|tubePoints| (SPADCALL |s| (QREFELT $ 66)))) 
 
 (SDEFUN |DROPT;coord;M$;27|
-        ((|s| |Mapping| (|Point| (|DoubleFloat|)) (|Point| (|DoubleFloat|)))
-         ($ $))
+        ((|s| (|Mapping| (|Point| (|DoubleFloat|)) (|Point| (|DoubleFloat|))))
+         ($ ($)))
         (CONS '|coord| (SPADCALL |s| (QREFELT $ 51)))) 
 
-(SDEFUN |DROPT;unit;L$;28| ((|s| |List| (|Float|)) ($ $))
+(SDEFUN |DROPT;unit;L$;28| ((|s| (|List| (|Float|))) ($ ($)))
         (CONS '|unit| (SPADCALL |s| (QREFELT $ 73)))) 
 
-(SDEFUN |DROPT;coerce;$Of;29| ((|x| $) ($ |OutputForm|))
+(SDEFUN |DROPT;coerce;$Of;29| ((|x| ($)) ($ (|OutputForm|)))
         (SPADCALL (SPADCALL (QCAR |x|) (QREFELT $ 77))
                   (SPADCALL (QCDR |x|) (QREFELT $ 78)) (QREFELT $ 79))) 
 
-(SDEFUN |DROPT;=;2$B;30| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |DROPT;=;2$B;30| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (COND
          ((EQUAL (QCAR |x|) (QCAR |y|))
           (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 81)))
          ('T NIL))) 
 
-(SDEFUN |DROPT;option?;LSB;31| ((|l| |List| $) (|s| |Symbol|) ($ |Boolean|))
+(SDEFUN |DROPT;option?;LSB;31|
+        ((|l| (|List| $)) (|s| (|Symbol|)) ($ (|Boolean|)))
         (SPROG ((#1=#:G155 NIL) (#2=#:G156 NIL) (#3=#:G157 NIL) (|x| NIL))
                (SEQ
                 (EXIT
@@ -164,7 +171,7 @@
                 #4# (EXIT #2#)))) 
 
 (SDEFUN |DROPT;option;LSU;32|
-        ((|l| |List| $) (|s| |Symbol|) ($ |Union| (|Any|) "failed"))
+        ((|l| (|List| $)) (|s| (|Symbol|)) ($ (|Union| (|Any|) "failed")))
         (SPROG ((#1=#:G169 NIL) (#2=#:G170 NIL) (#3=#:G171 NIL) (|x| NIL))
                (SEQ
                 (EXIT

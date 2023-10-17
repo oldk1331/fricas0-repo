@@ -1,7 +1,7 @@
 
 (SDEFUN |PIT;split;PMR;1|
-        ((|p| P) (|der| |Mapping| P P)
-         ($ |Record| (|:| |normal| P) (|:| |special| P)))
+        ((|p| (P)) (|der| (|Mapping| P P))
+         ($ (|Record| (|:| |normal| P) (|:| |special| P))))
         (SPROG
          ((|rec1| #1=(|Record| (|:| |normal| P) (|:| |special| P)))
           (#2=#:G109 NIL) (|pbar| (P)) (|gdif| (P)) (|gder| (P)) (|p1| (P))

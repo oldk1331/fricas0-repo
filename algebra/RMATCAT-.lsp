@@ -1,8 +1,8 @@
 
-(SDEFUN |RMATCAT-;size;Nni;1| (($ |NonNegativeInteger|))
+(SDEFUN |RMATCAT-;size;Nni;1| (($ (|NonNegativeInteger|)))
         (EXPT (SPADCALL (QREFELT $ 13)) (* (QREFELT $ 7) (QREFELT $ 8)))) 
 
-(SDEFUN |RMATCAT-;random;S;2| (($ S))
+(SDEFUN |RMATCAT-;random;S;2| (($ (S)))
         (SPROG
          ((#1=#:G123 NIL) (|i| NIL) (#2=#:G122 NIL) (#3=#:G121 NIL) (|j| NIL)
           (#4=#:G120 NIL))
@@ -31,7 +31,7 @@
                  (EXIT (NREVERSE #4#))))
            (QREFELT $ 17))))) 
 
-(SDEFUN |RMATCAT-;lookup;SPi;3| ((|x| S) ($ |PositiveInteger|))
+(SDEFUN |RMATCAT-;lookup;SPi;3| ((|x| (S)) ($ (|PositiveInteger|)))
         (SPROG
          ((#1=#:G127 NIL) (|pow| (|Integer|)) (|res| (|Integer|))
           (#2=#:G131 NIL) (|c| NIL) (#3=#:G130 NIL) (|r| NIL)
@@ -61,7 +61,7 @@
                  (|check_subtype2| (> #1# 0) '(|PositiveInteger|) '(|Integer|)
                                    #1#)))))) 
 
-(SDEFUN |RMATCAT-;index;PiS;4| ((|i| |PositiveInteger|) ($ S))
+(SDEFUN |RMATCAT-;index;PiS;4| ((|i| (|PositiveInteger|)) ($ (S)))
         (SPROG
          ((|res| (|List| (|List| R)))
           (|old|
@@ -92,16 +92,16 @@
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL (NREVERSE |res|) (QREFELT $ 17)))))) 
 
-(SDEFUN |RMATCAT-;nrows;SNni;5| ((|x| S) ($ |NonNegativeInteger|))
+(SDEFUN |RMATCAT-;nrows;SNni;5| ((|x| (S)) ($ (|NonNegativeInteger|)))
         (QREFELT $ 7)) 
 
-(SDEFUN |RMATCAT-;ncols;SNni;6| ((|x| S) ($ |NonNegativeInteger|))
+(SDEFUN |RMATCAT-;ncols;SNni;6| ((|x| (S)) ($ (|NonNegativeInteger|)))
         (QREFELT $ 8)) 
 
-(SDEFUN |RMATCAT-;square?;SB;7| ((|x| S) ($ |Boolean|))
+(SDEFUN |RMATCAT-;square?;SB;7| ((|x| (S)) ($ (|Boolean|)))
         (EQL (QREFELT $ 7) (QREFELT $ 8))) 
 
-(SDEFUN |RMATCAT-;diagonal?;SB;8| ((|x| S) ($ |Boolean|))
+(SDEFUN |RMATCAT-;diagonal?;SB;8| ((|x| (S)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G151 NIL) (#2=#:G152 NIL) (#3=#:G154 NIL) (|j| NIL)
           (#4=#:G153 NIL) (|i| NIL))
@@ -142,7 +142,7 @@
                    (EXIT 'T)))))
           #5# (EXIT #2#)))) 
 
-(SDEFUN |RMATCAT-;symmetric?;SB;9| ((|x| S) ($ |Boolean|))
+(SDEFUN |RMATCAT-;symmetric?;SB;9| ((|x| (S)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G161 NIL) (#2=#:G162 NIL) (#3=#:G164 NIL) (|j| NIL)
           (#4=#:G163 NIL) (|i| NIL) (|mc| (|Integer|)) (|mr| (|Integer|)))
@@ -182,7 +182,7 @@
                        (EXIT 'T)))))
           #5# (EXIT #2#)))) 
 
-(SDEFUN |RMATCAT-;antisymmetric?;SB;10| ((|x| S) ($ |Boolean|))
+(SDEFUN |RMATCAT-;antisymmetric?;SB;10| ((|x| (S)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G171 NIL) (#2=#:G172 NIL) (#3=#:G174 NIL) (|j| NIL)
           (#4=#:G173 NIL) (|i| NIL) (|mc| (|Integer|)) (|mr| (|Integer|))

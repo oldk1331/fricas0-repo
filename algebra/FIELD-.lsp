@@ -1,34 +1,34 @@
 
 (SDEFUN |FIELD-;unitNormal;SR;1|
-        ((|x| S)
-         ($ |Record| (|:| |unit| S) (|:| |canonical| S) (|:| |associate| S)))
+        ((|x| (S))
+         ($ (|Record| (|:| |unit| S) (|:| |canonical| S) (|:| |associate| S))))
         (COND
          ((SPADCALL |x| (QREFELT $ 8))
           (VECTOR (|spadConstant| $ 9) (|spadConstant| $ 10)
                   (|spadConstant| $ 9)))
          ('T (VECTOR |x| (|spadConstant| $ 9) (SPADCALL |x| (QREFELT $ 11)))))) 
 
-(SDEFUN |FIELD-;unitCanonical;2S;2| ((|x| S) ($ S))
+(SDEFUN |FIELD-;unitCanonical;2S;2| ((|x| (S)) ($ (S)))
         (COND ((SPADCALL |x| (QREFELT $ 8)) |x|) ('T (|spadConstant| $ 9)))) 
 
-(SDEFUN |FIELD-;associates?;2SB;3| ((|x| S) (|y| S) ($ |Boolean|))
+(SDEFUN |FIELD-;associates?;2SB;3| ((|x| (S)) (|y| (S)) ($ (|Boolean|)))
         (COND ((SPADCALL |x| (QREFELT $ 8)) (SPADCALL |y| (QREFELT $ 8)))
               ('T (NULL (SPADCALL |y| (QREFELT $ 8)))))) 
 
-(SDEFUN |FIELD-;inv;2S;4| ((|x| S) ($ S))
+(SDEFUN |FIELD-;inv;2S;4| ((|x| (S)) ($ (S)))
         (SPROG ((|u| (|Union| S "failed")))
                (SEQ (LETT |u| (SPADCALL |x| (QREFELT $ 17)))
                     (EXIT
                      (COND ((QEQCAR |u| 1) (|error| "not invertible"))
                            ('T (QCDR |u|))))))) 
 
-(SDEFUN |FIELD-;exquo;2SU;5| ((|x| S) (|y| S) ($ |Union| S "failed"))
+(SDEFUN |FIELD-;exquo;2SU;5| ((|x| (S)) (|y| (S)) ($ (|Union| S "failed")))
         (COND
          ((SPADCALL |y| (|spadConstant| $ 10) (QREFELT $ 19))
           (CONS 1 "failed"))
          ('T (CONS 0 (SPADCALL |x| |y| (QREFELT $ 20)))))) 
 
-(SDEFUN |FIELD-;gcd;3S;6| ((|x| S) (|y| S) ($ S))
+(SDEFUN |FIELD-;gcd;3S;6| ((|x| (S)) (|y| (S)) ($ (S)))
         (SEQ
          (COND
           ((SPADCALL |x| (|spadConstant| $ 10) (QREFELT $ 19))
@@ -39,25 +39,26 @@
 
 (PUT '|FIELD-;euclideanSize;SNni;7| '|SPADreplace| '(XLAM (|x|) 0)) 
 
-(SDEFUN |FIELD-;euclideanSize;SNni;7| ((|x| S) ($ |NonNegativeInteger|)) 0) 
+(SDEFUN |FIELD-;euclideanSize;SNni;7| ((|x| (S)) ($ (|NonNegativeInteger|))) 0) 
 
 (PUT '|FIELD-;prime?;SB;8| '|SPADreplace| '(XLAM (|x|) NIL)) 
 
-(SDEFUN |FIELD-;prime?;SB;8| ((|x| S) ($ |Boolean|)) NIL) 
+(SDEFUN |FIELD-;prime?;SB;8| ((|x| (S)) ($ (|Boolean|))) NIL) 
 
-(SDEFUN |FIELD-;squareFree;SF;9| ((|x| S) ($ |Factored| S))
+(SDEFUN |FIELD-;squareFree;SF;9| ((|x| (S)) ($ (|Factored| S)))
         (SPADCALL |x| (QREFELT $ 27))) 
 
-(SDEFUN |FIELD-;factor;SF;10| ((|x| S) ($ |Factored| S))
+(SDEFUN |FIELD-;factor;SF;10| ((|x| (S)) ($ (|Factored| S)))
         (SPADCALL |x| (QREFELT $ 27))) 
 
-(SDEFUN |FIELD-;/;3S;11| ((|x| S) (|y| S) ($ S))
+(SDEFUN |FIELD-;/;3S;11| ((|x| (S)) (|y| (S)) ($ (S)))
         (COND
          ((SPADCALL |y| (QREFELT $ 8)) (|error| "catdef: division by zero"))
          ('T (SPADCALL |x| (SPADCALL |y| (QREFELT $ 11)) (QREFELT $ 31))))) 
 
 (SDEFUN |FIELD-;divide;2SR;12|
-        ((|x| S) (|y| S) ($ |Record| (|:| |quotient| S) (|:| |remainder| S)))
+        ((|x| (S)) (|y| (S))
+         ($ (|Record| (|:| |quotient| S) (|:| |remainder| S))))
         (CONS (SPADCALL |x| |y| (QREFELT $ 20)) (|spadConstant| $ 10))) 
 
 (DECLAIM (NOTINLINE |Field&;|)) 

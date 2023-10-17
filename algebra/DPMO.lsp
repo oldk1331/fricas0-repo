@@ -1,5 +1,5 @@
 
-(SDEFUN |DPMO;*;R2$;1| ((|r| R) (|x| $) ($ $))
+(SDEFUN |DPMO;*;R2$;1| ((|r| (R)) (|x| ($)) ($ ($)))
         (SPROG ((#1=#:G105 NIL) (#2=#:G107 NIL) (|i| NIL) (#3=#:G106 NIL))
                (SEQ
                 (PROGN

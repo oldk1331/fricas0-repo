@@ -1,8 +1,8 @@
 
 (SDEFUN |ELFUTS;sncndnre|
-        ((|m| |Coef|) (|s0| |Coef|) (|c0| |Coef|) (|d0| |Coef|)
-         (|scd| |List| (|Stream| |Coef|)) (|dx| |Stream| |Coef|)
-         (|sign| |Coef|) ($ |List| (|Stream| |Coef|)))
+        ((|m| (|Coef|)) (|s0| (|Coef|)) (|c0| (|Coef|)) (|d0| (|Coef|))
+         (|scd| (|List| (|Stream| |Coef|))) (|dx| (|Stream| |Coef|))
+         (|sign| (|Coef|)) ($ (|List| (|Stream| |Coef|))))
         (SPROG NIL
                (LIST
                 (SPADCALL |s0|
@@ -63,7 +63,7 @@
              |dx| (QREFELT $ 14)))))) 
 
 (SDEFUN |ELFUTS;sncndn;SCoefL;2|
-        ((|z| |Stream| |Coef|) (|m| |Coef|) ($ |List| (|Stream| |Coef|)))
+        ((|z| (|Stream| |Coef|)) (|m| (|Coef|)) ($ (|List| (|Stream| |Coef|))))
         (SPROG
          ((|dn1| #1=(|Stream| |Coef|)) (|cn1| #1#) (|sn1| #1#)
           (|invden| (|Stream| |Coef|)) (#2=#:G114 NIL) (|c1| (|Coef|))
@@ -195,25 +195,25 @@
              (|spadConstant| $ 17) |x| (SPADCALL |z| (QREFELT $ 30))
              (SPADCALL (|spadConstant| $ 17) (QREFELT $ 31)) $))))) 
 
-(SDEFUN |ELFUTS;jacobiSn;UTSCoefUTS;3| ((|z| UTS) (|m| |Coef|) ($ UTS))
+(SDEFUN |ELFUTS;jacobiSn;UTSCoefUTS;3| ((|z| (UTS)) (|m| (|Coef|)) ($ (UTS)))
         (SPADCALL
          (SPADCALL (SPADCALL (SPADCALL |z| (QREFELT $ 44)) |m| (QREFELT $ 43))
                    1 (QREFELT $ 12))
          (QREFELT $ 45))) 
 
-(SDEFUN |ELFUTS;jacobiCn;UTSCoefUTS;4| ((|z| UTS) (|m| |Coef|) ($ UTS))
+(SDEFUN |ELFUTS;jacobiCn;UTSCoefUTS;4| ((|z| (UTS)) (|m| (|Coef|)) ($ (UTS)))
         (SPADCALL
          (SPADCALL (SPADCALL (SPADCALL |z| (QREFELT $ 44)) |m| (QREFELT $ 43))
                    2 (QREFELT $ 12))
          (QREFELT $ 45))) 
 
-(SDEFUN |ELFUTS;jacobiDn;UTSCoefUTS;5| ((|z| UTS) (|m| |Coef|) ($ UTS))
+(SDEFUN |ELFUTS;jacobiDn;UTSCoefUTS;5| ((|z| (UTS)) (|m| (|Coef|)) ($ (UTS)))
         (SPADCALL
          (SPADCALL (SPADCALL (SPADCALL |z| (QREFELT $ 44)) |m| (QREFELT $ 43))
                    3 (QREFELT $ 12))
          (QREFELT $ 45))) 
 
-(SDEFUN |ELFUTS;ellipticE;UTSCoefUTS;6| ((|z| UTS) (|m| |Coef|) ($ UTS))
+(SDEFUN |ELFUTS;ellipticE;UTSCoefUTS;6| ((|z| (UTS)) (|m| (|Coef|)) ($ (UTS)))
         (SPROG
          ((|c0| (|Coef|)) (|z0| (|Coef|)) (|s2| (UTS)) (|s1| (UTS))
           (|dz| (UTS)) (|cz| (|Stream| |Coef|)))
@@ -263,7 +263,7 @@
                               (|error|
                                "ELFUTS:ellipticE: constant coefficient should be 0"))))))))))) 
 
-(SDEFUN |ELFUTS;ellipticF;UTSCoefUTS;7| ((|z| UTS) (|m| |Coef|) ($ UTS))
+(SDEFUN |ELFUTS;ellipticF;UTSCoefUTS;7| ((|z| (UTS)) (|m| (|Coef|)) ($ (UTS)))
         (SPROG
          ((|c0| (|Coef|)) (|z0| (|Coef|)) (|s2| (UTS)) (|s1| (UTS))
           (|dz| (UTS)) (|cz| (|Stream| |Coef|)))
@@ -316,7 +316,7 @@
                                "ELFUTS:ellipticF: constant coefficient should be 0"))))))))))) 
 
 (SDEFUN |ELFUTS;ellipticPi;UTS2CoefUTS;8|
-        ((|z| UTS) (|n| |Coef|) (|m| |Coef|) ($ UTS))
+        ((|z| (UTS)) (|n| (|Coef|)) (|m| (|Coef|)) ($ (UTS)))
         (SPROG
          ((|c0| (|Coef|)) (|z0| (|Coef|)) (|ss| (UTS)) (|s2| (UTS))
           (|s1| (UTS)) (|dz| (UTS)) (|cz| (|Stream| |Coef|)))

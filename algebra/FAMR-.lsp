@@ -1,5 +1,6 @@
 
-(SDEFUN |FAMR-;pomopo!;SRE2S;1| ((|p1| S) (|r| R) (|e| E) (|p2| S) ($ S))
+(SDEFUN |FAMR-;pomopo!;SRE2S;1|
+        ((|p1| (S)) (|r| (R)) (|e| (E)) (|p2| (S)) ($ (S)))
         (SPROG NIL
                (SPADCALL |p1|
                          (SPADCALL |r|
@@ -16,7 +17,8 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |x1| |e| (QREFELT $ 9)))))) 
 
-(SDEFUN |FAMR-;fmecg;SER2S;2| ((|p1| S) (|e| E) (|r| R) (|p2| S) ($ S))
+(SDEFUN |FAMR-;fmecg;SER2S;2|
+        ((|p1| (S)) (|e| (E)) (|r| (R)) (|p2| (S)) ($ (S)))
         (SPROG NIL
                (SPADCALL |p1|
                          (SPADCALL |r|
@@ -34,7 +36,7 @@
           (RETURN (PROGN (SPADCALL |x1| |e| (QREFELT $ 9)))))) 
 
 (SDEFUN |FAMR-;binomThmExpt;2SNniS;3|
-        ((|x| S) (|y| S) (|nn| |NonNegativeInteger|) ($ S))
+        ((|x| (S)) (|y| (S)) (|nn| (|NonNegativeInteger|)) ($ (S)))
         (SPROG
          ((|yn| (S)) (|i| (|NonNegativeInteger|)) (|bincoef| (|Integer|))
           (|ans| (S)) (#1=#:G129 NIL) (|xn| NIL) (|powl| (|List| S))
@@ -75,12 +77,12 @@
                            (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                       (EXIT (SPADCALL |ans| |yn| (QREFELT $ 13))))))))) 
 
-(SDEFUN |FAMR-;ground?;SB;4| ((|x| S) ($ |Boolean|))
+(SDEFUN |FAMR-;ground?;SB;4| ((|x| (S)) ($ (|Boolean|)))
         (NULL (QEQCAR (SPADCALL |x| (QREFELT $ 26)) 1))) 
 
-(SDEFUN |FAMR-;ground;SR;5| ((|x| S) ($ R)) (SPADCALL |x| (QREFELT $ 29))) 
+(SDEFUN |FAMR-;ground;SR;5| ((|x| (S)) ($ (R))) (SPADCALL |x| (QREFELT $ 29))) 
 
-(SDEFUN |FAMR-;mapExponents;M2S;6| ((|fn| |Mapping| E E) (|x| S) ($ S))
+(SDEFUN |FAMR-;mapExponents;M2S;6| ((|fn| (|Mapping| E E)) (|x| (S)) ($ (S)))
         (COND ((SPADCALL |x| (QREFELT $ 31)) (|spadConstant| $ 17))
               ('T
                (SPADCALL
@@ -90,13 +92,13 @@
                 (SPADCALL |fn| (SPADCALL |x| (QREFELT $ 35)) (QREFELT $ 11))
                 (QREFELT $ 13))))) 
 
-(SDEFUN |FAMR-;coefficients;SL;7| ((|x| S) ($ |List| R))
+(SDEFUN |FAMR-;coefficients;SL;7| ((|x| (S)) ($ (|List| R)))
         (COND ((SPADCALL |x| (QREFELT $ 31)) NIL)
               ('T
                (CONS (SPADCALL |x| (QREFELT $ 32))
                      (SPADCALL (SPADCALL |x| (QREFELT $ 35)) (QREFELT $ 38)))))) 
 
-(SDEFUN |FAMR-;/;SRS;8| ((|x| S) (|r| R) ($ S))
+(SDEFUN |FAMR-;/;SRS;8| ((|x| (S)) (|r| (R)) ($ (S)))
         (SPROG NIL
                (SPADCALL (CONS #'|FAMR-;/;SRS;8!0| (VECTOR $ |r|)) |x|
                          (QREFELT $ 42)))) 
@@ -107,7 +109,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |x1| |r| (QREFELT $ 40)))))) 
 
-(SDEFUN |FAMR-;exquo;SRU;9| ((|x| S) (|r| R) ($ |Union| S "failed"))
+(SDEFUN |FAMR-;exquo;SRU;9| ((|x| (S)) (|r| (R)) ($ (|Union| S "failed")))
         (SPROG ((|ans| (S)) (#1=#:G157 NIL) (|t| (|Union| R "failed")))
                (SEQ
                 (EXIT
@@ -148,7 +150,7 @@
                         (EXIT (CONS 0 |ans|))))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |FAMR-;content;SR;10| ((|x| S) ($ R))
+(SDEFUN |FAMR-;content;SR;10| ((|x| (S)) ($ (R)))
         (SPROG ((|r| (R)))
                (SEQ
                 (COND ((SPADCALL |x| (QREFELT $ 31)) (|spadConstant| $ 18))
@@ -173,7 +175,7 @@
                                  NIL (GO G190) G191 (EXIT NIL))
                             (EXIT |r|))))))) 
 
-(SDEFUN |FAMR-;primitivePart;2S;11| ((|x| S) ($ S))
+(SDEFUN |FAMR-;primitivePart;2S;11| ((|x| (S)) ($ (S)))
         (SPROG ((#1=#:G165 NIL) (|c| (R)))
                (SEQ
                 (COND ((SPADCALL |x| (QREFELT $ 31)) |x|)

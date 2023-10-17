@@ -1,5 +1,6 @@
 
-(SDEFUN |VECREC1;empty;2I$;1| ((|npoly| |Integer|) (|np| |Integer|) ($ $))
+(SDEFUN |VECREC1;empty;2I$;1|
+        ((|npoly| (|Integer|)) (|np| (|Integer|)) ($ ($)))
         (SPROG
          ((|state| ($)) (#1=#:G123 NIL) (|i| NIL)
           (|polyvec| (|PrimitiveArray| (|U32Vector|))) (#2=#:G118 NIL))
@@ -20,7 +21,7 @@
           (SETELT_U32 (QVELT |state| 1) 0 1) (EXIT |state|)))) 
 
 (SDEFUN |VECREC1;add_slots;L$V;2|
-        ((|ndl| |List| (|Integer|)) (|statearg| $) ($ |Void|))
+        ((|ndl| (|List| (|Integer|))) (|statearg| ($)) ($ (|Void|)))
         (SPROG
          ((|j| (|Integer|)) (|li| (|Integer|)) (#1=#:G126 NIL) (#2=#:G135 NIL)
           (|i| NIL) (|nvec| (|PrimitiveArray| (|U32Vector|)))
@@ -64,7 +65,7 @@
               (QSETVELT |state| 6 |polyvec|)
               (EXIT (QSETVELT |state| 4 |npoly|))))) 
 
-(SDEFUN |VECREC1;double_poly_space| ((|statearg| $) ($ |Void|))
+(SDEFUN |VECREC1;double_poly_space| ((|statearg| ($)) ($ (|Void|)))
         (SPROG
          ((|op| (|U32Vector|)) (|np| (|U32Vector|)) (#1=#:G137 NIL)
           (#2=#:G143 NIL) (|i| NIL) (|n| (|Integer|)) (|m| (|Integer|))
@@ -88,7 +89,8 @@
               (EXIT (QSETVELT |state| 5 |n|))))) 
 
 (SDEFUN |VECREC1;chinese_update;UvI$V;4|
-        ((|vec| |U32Vector|) (|pt| |Integer|) (|statearg| $) ($ |Void|))
+        ((|vec| (|U32Vector|)) (|pt| (|Integer|)) (|statearg| ($))
+         ($ (|Void|)))
         (SPROG
          ((|mtvec| (|U32Vector|)) (|nmt| (|U32Vector|)) (#1=#:G149 NIL)
           (|cor| #2=(|Integer|)) (|pol| (|U32Vector|)) (#3=#:G155 NIL)
@@ -145,10 +147,12 @@
                            (EXIT (QSETVELT |state| 1 |mtvec|))))))))) 
 
 (SDEFUN |VECREC1;rational_reconstruction;2Uv2IU;5|
-        ((|x| |U32Vector|) (|y| |U32Vector|) (|i| |Integer|) (|p| |Integer|)
-         ($ |Union|
-          (|Record| (|:| |numer| (|U32Vector|)) (|:| |denom| (|U32Vector|)))
-          "failed"))
+        ((|x| (|U32Vector|)) (|y| (|U32Vector|)) (|i| (|Integer|))
+         (|p| (|Integer|))
+         ($
+          (|Union|
+           (|Record| (|:| |numer| (|U32Vector|)) (|:| |denom| (|U32Vector|)))
+           "failed")))
         (SPROG
          ((|c| #1=(|Integer|)) (|ds1| #2=(|Integer|)) (|s1| #3=(|U32Vector|))
           (|ds0| #2#) (|s0| #3#) (|tmp| #4=(|Integer|)) (|tmpp| #3#)
@@ -237,11 +241,12 @@
                       (EXIT (CONS 0 (CONS |r1| |s1|)))))))))) 
 
 (SDEFUN |VECREC1;rational_reconstruction;$U;6|
-        ((|statearg| $)
-         ($ |Union|
-          (|Record| (|:| |numers| (|PrimitiveArray| (|U32Vector|)))
-                    (|:| |denoms| (|PrimitiveArray| (|U32Vector|))))
-          "failed"))
+        ((|statearg| ($))
+         ($
+          (|Union|
+           (|Record| (|:| |numers| (|PrimitiveArray| (|U32Vector|)))
+                     (|:| |denoms| (|PrimitiveArray| (|U32Vector|))))
+           "failed")))
         (SPROG
          ((#1=#:G209 NIL) (|cden| #2=(|U32Vector|))
           (|ppr|
@@ -414,13 +419,14 @@
           #6# (EXIT #1#)))) 
 
 (SDEFUN |VECREC1;repack_polys;IVSevPaR;7|
-        ((|var_cnt| |Integer|) (|poly_offsets| |Vector| (|Integer|))
-         (|exps| |SortedExponentVector|)
-         (|coeffs| |PrimitiveArray| (|U32Vector|))
-         ($ |Record| (|:| |nvars| (|Integer|))
-          (|:| |offsetdata| (|Vector| (|Integer|)))
-          (|:| |expdata| (|SortedExponentVector|))
-          (|:| |coeffdata| (|U32Vector|))))
+        ((|var_cnt| (|Integer|)) (|poly_offsets| (|Vector| (|Integer|)))
+         (|exps| (|SortedExponentVector|))
+         (|coeffs| (|PrimitiveArray| (|U32Vector|)))
+         ($
+          (|Record| (|:| |nvars| (|Integer|))
+                    (|:| |offsetdata| (|Vector| (|Integer|)))
+                    (|:| |expdata| (|SortedExponentVector|))
+                    (|:| |coeffdata| (|U32Vector|)))))
         (SPROG
          ((#1=#:G234 NIL) (|i| NIL) (|oei| #2=(|SingleInteger|)) (|nei| #2#)
           (|oei0| #2#) (#3=#:G233 NIL) (|i1| NIL) (|nm| #2#)
@@ -509,10 +515,10 @@
               (EXIT (VECTOR |nnvars| |npo| |nexps| |ncoeffs|))))) 
 
 (SDEFUN |VECREC1;remove_denoms;V2PaIPa;8|
-        ((|block_offsets| |Vector| (|Integer|))
-         (|nums| |PrimitiveArray| (|U32Vector|))
-         (|dens| |PrimitiveArray| (|U32Vector|)) (|p| |Integer|)
-         ($ |PrimitiveArray| (|U32Vector|)))
+        ((|block_offsets| (|Vector| (|Integer|)))
+         (|nums| (|PrimitiveArray| (|U32Vector|)))
+         (|dens| (|PrimitiveArray| (|U32Vector|))) (|p| (|Integer|))
+         ($ (|PrimitiveArray| (|U32Vector|))))
         (SPROG
          ((|dt| #1=(|Integer|)) (#2=#:G253 NIL) (|j| NIL)
           (|tmpp2| #3=(|U32Vector|)) (|tmpp1| #3#) (|dtmp| #1#) (|dresi| #1#)
@@ -611,14 +617,16 @@
               (EXIT |res|)))) 
 
 (SDEFUN |VECREC1;reconstruct;I2VSev2PaIR;9|
-        ((|var_cnt| |Integer|) (|block_offsets| |Vector| (|Integer|))
-         (|poly_offsets| |Vector| (|Integer|)) (|exps| |SortedExponentVector|)
-         (|nums| |PrimitiveArray| (|U32Vector|))
-         (|dens| |PrimitiveArray| (|U32Vector|)) (|p| |Integer|)
-         ($ |Record| (|:| |nvars| (|Integer|))
-          (|:| |offsetdata| (|Vector| (|Integer|)))
-          (|:| |expdata| (|SortedExponentVector|))
-          (|:| |coeffdata| (|U32Vector|))))
+        ((|var_cnt| (|Integer|)) (|block_offsets| (|Vector| (|Integer|)))
+         (|poly_offsets| (|Vector| (|Integer|)))
+         (|exps| (|SortedExponentVector|))
+         (|nums| (|PrimitiveArray| (|U32Vector|)))
+         (|dens| (|PrimitiveArray| (|U32Vector|))) (|p| (|Integer|))
+         ($
+          (|Record| (|:| |nvars| (|Integer|))
+                    (|:| |offsetdata| (|Vector| (|Integer|)))
+                    (|:| |expdata| (|SortedExponentVector|))
+                    (|:| |coeffdata| (|U32Vector|)))))
         (SPROG ((|ppa| (|PrimitiveArray| (|U32Vector|))))
                (SEQ
                 (LETT |ppa|
@@ -629,15 +637,17 @@
                            (QREFELT $ 42)))))) 
 
 (SDEFUN |VECREC1;reconstruct;$I2VSevU;10|
-        ((|statearg| $) (|var_cnt| |Integer|)
-         (|block_offsets| |Vector| (|Integer|))
-         (|poly_offsets| |Vector| (|Integer|)) (|exps| |SortedExponentVector|)
-         ($ |Union|
-          (|Record| (|:| |nvars| (|Integer|))
-                    (|:| |offsetdata| (|Vector| (|Integer|)))
-                    (|:| |expdata| (|SortedExponentVector|))
-                    (|:| |coeffdata| (|U32Vector|)))
-          "failed"))
+        ((|statearg| ($)) (|var_cnt| (|Integer|))
+         (|block_offsets| (|Vector| (|Integer|)))
+         (|poly_offsets| (|Vector| (|Integer|)))
+         (|exps| (|SortedExponentVector|))
+         ($
+          (|Union|
+           (|Record| (|:| |nvars| (|Integer|))
+                     (|:| |offsetdata| (|Vector| (|Integer|)))
+                     (|:| |expdata| (|SortedExponentVector|))
+                     (|:| |coeffdata| (|U32Vector|)))
+           "failed")))
         (SPROG
          ((|ppr|
            (|Record| (|:| |numers| (|PrimitiveArray| (|U32Vector|)))

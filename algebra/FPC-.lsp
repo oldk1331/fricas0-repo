@@ -1,9 +1,9 @@
 
-(SDEFUN |FPC-;primeFrobenius;2S;1| ((|a| S) ($ S))
+(SDEFUN |FPC-;primeFrobenius;2S;1| ((|a| (S)) ($ (S)))
         (SPADCALL |a| (SPADCALL (QREFELT $ 8)) (QREFELT $ 9))) 
 
 (SDEFUN |FPC-;primeFrobenius;SNniS;2|
-        ((|a| S) (|s| |NonNegativeInteger|) ($ S))
+        ((|a| (S)) (|s| (|NonNegativeInteger|)) ($ (S)))
         (SPADCALL |a| (EXPT (SPADCALL (QREFELT $ 8)) |s|) (QREFELT $ 9))) 
 
 (DECLAIM (NOTINLINE |FieldOfPrimeCharacteristic&;|)) 

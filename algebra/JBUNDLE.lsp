@@ -1,5 +1,5 @@
 
-(SDEFUN |JBUNDLE;setNotation;2S;1| ((|s| |Symbol|) ($ |Symbol|))
+(SDEFUN |JBUNDLE;setNotation;2S;1| ((|s| (|Symbol|)) ($ (|Symbol|)))
         (SEQ
          (SPADCALL
           (SPADCALL "only repeated index notation possible" (QREFELT $ 18))
@@ -8,18 +8,19 @@
 
 (PUT '|JBUNDLE;getNotation;S;2| '|SPADreplace| '(XLAM NIL '|Repeated|)) 
 
-(SDEFUN |JBUNDLE;getNotation;S;2| (($ |Symbol|)) '|Repeated|) 
+(SDEFUN |JBUNDLE;getNotation;S;2| (($ (|Symbol|))) '|Repeated|) 
 
-(SDEFUN |JBUNDLE;multiIndex;$L;3| ((|jv| $) ($ |List| (|NonNegativeInteger|)))
+(SDEFUN |JBUNDLE;multiIndex;$L;3|
+        ((|jv| ($)) ($ (|List| (|NonNegativeInteger|))))
         (SPADCALL (CDR (CDR |jv|)) (QREFELT $ 24))) 
 
-(SDEFUN |JBUNDLE;index;$Pi;4| ((|jv| $) ($ |PositiveInteger|))
+(SDEFUN |JBUNDLE;index;$Pi;4| ((|jv| ($)) ($ (|PositiveInteger|)))
         (SPROG ((#1=#:G120 NIL))
                (PROG1 (LETT #1# (|SPADfirst| (CDR |jv|)))
                  (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                    '(|NonNegativeInteger|) #1#)))) 
 
-(SDEFUN |JBUNDLE;type;$S;5| ((|jv| $) ($ |Symbol|))
+(SDEFUN |JBUNDLE;type;$S;5| ((|jv| ($)) ($ (|Symbol|)))
         (SPROG ((|t| (|NonNegativeInteger|)))
                (SEQ (LETT |t| (|SPADfirst| |jv|))
                     (EXIT
@@ -27,7 +28,7 @@
                            ((EQL |t| 2) '|Dep|) ('T '|Deriv|)))))) 
 
 (SDEFUN |JBUNDLE;CheckZeroIndex|
-        ((|il| |List| (|NonNegativeInteger|)) ($ |Boolean|))
+        ((|il| (|List| (|NonNegativeInteger|))) ($ (|Boolean|)))
         (SPROG ((#1=#:G129 NIL) (#2=#:G130 NIL) (|i| NIL))
                (SEQ
                 (EXIT
@@ -45,11 +46,11 @@
                   (EXIT 'T)))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |JBUNDLE;X;Pi$;7| ((|up| |PositiveInteger|) ($ $))
+(SDEFUN |JBUNDLE;X;Pi$;7| ((|up| (|PositiveInteger|)) ($ ($)))
         (COND ((> |up| (QREFELT $ 8)) (|error| "Improper upper index"))
               ('T (LIST 1 |up|)))) 
 
-(SDEFUN |JBUNDLE;U;Pi$;8| ((|up| |PositiveInteger|) ($ $))
+(SDEFUN |JBUNDLE;U;Pi$;8| ((|up| (|PositiveInteger|)) ($ ($)))
         (SPROG ((#1=#:G135 NIL) (|i| NIL) (#2=#:G134 NIL))
                (SEQ
                 (COND ((> |up| (QREFELT $ 9)) (|error| "Improper upper index"))
@@ -67,7 +68,8 @@
                                          G191 (EXIT (NREVERSE #2#))))))))))) 
 
 (SDEFUN |JBUNDLE;Pm;PiL$;9|
-        ((|up| |PositiveInteger|) (|lo| |List| (|NonNegativeInteger|)) ($ $))
+        ((|up| (|PositiveInteger|)) (|lo| (|List| (|NonNegativeInteger|)))
+         ($ ($)))
         (COND ((> |up| (QREFELT $ 9)) (|error| "Improper upper index"))
               ((SPADCALL (SPADCALL |lo| (QREFELT $ 34)) (QREFELT $ 8)
                          (QREFELT $ 36))
@@ -76,7 +78,7 @@
                (SPADCALL |up| (QREFELT $ 32)))
               ('T (CONS 3 (CONS |up| |lo|))))) 
 
-(SDEFUN |JBUNDLE;coerce;S$;10| ((|s| |Symbol|) ($ $))
+(SDEFUN |JBUNDLE;coerce;S$;10| ((|s| (|Symbol|)) ($ ($)))
         (SPROG ((#1=#:G143 NIL) (#2=#:G140 NIL) (|pos| (|Integer|)))
                (SEQ (LETT |pos| (SPADCALL |s| (QREFELT $ 6) (QREFELT $ 39)))
                     (EXIT
@@ -102,7 +104,8 @@
                                             '(|Integer|) #1#))
                         (QREFELT $ 31)))))))) 
 
-(SDEFUN |JBUNDLE;D;SL$;11| ((|u| |Symbol|) (|der| |List| (|Symbol|)) ($ $))
+(SDEFUN |JBUNDLE;D;SL$;11|
+        ((|u| (|Symbol|)) (|der| (|List| (|Symbol|))) ($ ($)))
         (SPROG
          ((#1=#:G151 NIL) (|lower| (|List| (|PositiveInteger|)))
           (#2=#:G147 NIL) (|pos| #3=(|Integer|)) (#4=#:G155 NIL) (|d| NIL)
@@ -143,21 +146,21 @@
 
 (PUT '|JBUNDLE;One;$;12| '|SPADreplace| '(XLAM NIL (LIST 0 1))) 
 
-(SDEFUN |JBUNDLE;One;$;12| (($ $)) (LIST 0 1)) 
+(SDEFUN |JBUNDLE;One;$;12| (($ ($))) (LIST 0 1)) 
 
-(SDEFUN |JBUNDLE;numIndVar;Pi;13| (($ |PositiveInteger|))
+(SDEFUN |JBUNDLE;numIndVar;Pi;13| (($ (|PositiveInteger|)))
         (SPROG ((#1=#:G157 NIL))
                (PROG1 (LETT #1# (QREFELT $ 8))
                  (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                    '(|NonNegativeInteger|) #1#)))) 
 
-(SDEFUN |JBUNDLE;numDepVar;Pi;14| (($ |PositiveInteger|))
+(SDEFUN |JBUNDLE;numDepVar;Pi;14| (($ (|PositiveInteger|)))
         (SPROG ((#1=#:G159 NIL))
                (PROG1 (LETT #1# (QREFELT $ 9))
                  (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                    '(|NonNegativeInteger|) #1#)))) 
 
-(SDEFUN |JBUNDLE;name;$S;15| ((|jv| $) ($ |Symbol|))
+(SDEFUN |JBUNDLE;name;$S;15| ((|jv| ($)) ($ (|Symbol|)))
         (SPROG
          ((|lower| (|List| (|OutputForm|))) (#1=#:G167 NIL) (|j| NIL)
           (|res| (|Symbol|)) (|mu| (|List| (|PositiveInteger|)))
@@ -196,10 +199,10 @@
 
 (PUT '|JBUNDLE;opdisp| '|SPADreplace| '|SPADfirst|) 
 
-(SDEFUN |JBUNDLE;opdisp| ((|l| |List| (|OutputForm|)) ($ |OutputForm|))
+(SDEFUN |JBUNDLE;opdisp| ((|l| (|List| (|OutputForm|))) ($ (|OutputForm|)))
         (|SPADfirst| |l|)) 
 
-(SDEFUN |JBUNDLE;coerce;$E;17| ((|jv| $) ($ |Expression| (|Integer|)))
+(SDEFUN |JBUNDLE;coerce;$E;17| ((|jv| ($)) ($ (|Expression| (|Integer|))))
         (SPROG
          ((|arg| (|List| (|Expression| (|Integer|)))) (#1=#:G175 NIL) (|i| NIL)
           (#2=#:G174 NIL) (|jop| (|BasicOperator|)) (|tmp| (|None|))

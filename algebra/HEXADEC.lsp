@@ -1,10 +1,10 @@
 
-(SDEFUN |HEXADEC;hex;F$;1| ((|r| |Fraction| (|Integer|)) ($ $))
+(SDEFUN |HEXADEC;hex;F$;1| ((|r| (|Fraction| (|Integer|))) ($ ($)))
         (SPADCALL |r| (QREFELT $ 7))) 
 
 (PUT '|HEXADEC;coerce;$Re;2| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |HEXADEC;coerce;$Re;2| ((|x| $) ($ |RadixExpansion| 16)) |x|) 
+(SDEFUN |HEXADEC;coerce;$Re;2| ((|x| ($)) ($ (|RadixExpansion| 16))) |x|) 
 
 (DECLAIM (NOTINLINE |HexadecimalExpansion;|)) 
 

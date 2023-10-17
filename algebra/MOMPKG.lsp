@@ -1,18 +1,20 @@
 
-(SDEFUN |MOMPKG;cumulant2moment;2S;1| ((|cum| |Sequence| R) ($ |Sequence| R))
+(SDEFUN |MOMPKG;cumulant2moment;2S;1|
+        ((|cum| (|Sequence| R)) ($ (|Sequence| R)))
         (SPADCALL
          (SPADCALL (SPADCALL (SPADCALL |cum| (QREFELT $ 9)) (QREFELT $ 11))
                    (QREFELT $ 12))
          (QREFELT $ 13))) 
 
-(SDEFUN |MOMPKG;moment2cumulant;2S;2| ((|mom| |Sequence| R) ($ |Sequence| R))
+(SDEFUN |MOMPKG;moment2cumulant;2S;2|
+        ((|mom| (|Sequence| R)) ($ (|Sequence| R)))
         (SPADCALL
          (SPADCALL (SPADCALL (SPADCALL |mom| (QREFELT $ 9)) (QREFELT $ 15))
                    (QREFELT $ 12))
          (QREFELT $ 13))) 
 
 (SDEFUN |MOMPKG;freeCumulant2moment;2S;3|
-        ((|cum| |Sequence| R) ($ |Sequence| R))
+        ((|cum| (|Sequence| R)) ($ (|Sequence| R)))
         (SPADCALL
          (SPADCALL
           (SPADCALL
@@ -25,7 +27,7 @@
          (QREFELT $ 21))) 
 
 (SDEFUN |MOMPKG;moment2freeCumulant;2S;4|
-        ((|mom| |Sequence| R) ($ |Sequence| R))
+        ((|mom| (|Sequence| R)) ($ (|Sequence| R)))
         (SPROG
          ((#1=#:G109 NIL) (|f1| #2=(|Union| (|Stream| R) "failed"))
           (|f| (|Stream| R)) (|g1| #2#) (|g| (|Stream| R)))
@@ -55,7 +57,7 @@
             (QREFELT $ 21)))))) 
 
 (SDEFUN |MOMPKG;booleanCumulant2moment;2S;5|
-        ((|x| |Sequence| R) ($ |Sequence| R))
+        ((|x| (|Sequence| R)) ($ (|Sequence| R)))
         (SPROG
          ((#1=#:G114 NIL) (|boo| (|Union| (|Stream| R) "failed"))
           (|rec| (|Stream| R)))
@@ -78,7 +80,7 @@
             (QREFELT $ 28)))))) 
 
 (SDEFUN |MOMPKG;moment2booleanCumulant;2S;6|
-        ((|x| |Sequence| R) ($ |Sequence| R))
+        ((|x| (|Sequence| R)) ($ (|Sequence| R)))
         (SPROG
          ((#1=#:G119 NIL) (|mom| (|Union| (|Stream| R) "failed"))
           (|boo| (|Stream| R)))
@@ -101,7 +103,7 @@
             (QREFELT $ 28)))))) 
 
 (SDEFUN |MOMPKG;hankelDeterminant;SNniR;7|
-        ((|x| |Sequence| R) (|n| |NonNegativeInteger|) ($ R))
+        ((|x| (|Sequence| R)) (|n| (|NonNegativeInteger|)) ($ (R)))
         (SPADCALL
          (SPADCALL
           (CONS (|spadConstant| $ 17) (SPADCALL |x| (* 2 |n|) (QREFELT $ 33)))
@@ -109,8 +111,8 @@
          (QREFELT $ 37))) 
 
 (SDEFUN |MOMPKG;moment2nthJacobi;LR;8|
-        ((|mom| |List| R)
-         ($ |Record| (|:| |an| (|List| R)) (|:| |bn| (|List| R))))
+        ((|mom| (|List| R))
+         ($ (|Record| (|:| |an| (|List| R)) (|:| |bn| (|List| R)))))
         (SPROG
          ((N (|Integer|)) (G (|List| R)) (#1=#:G139 NIL) (|h| NIL)
           (#2=#:G138 NIL) (H (|List| R)) (|Hk| (R)) (#3=#:G137 NIL) (|l| NIL)
@@ -180,8 +182,8 @@
               (EXIT (CONS |aa| |bb|))))) 
 
 (SDEFUN |MOMPKG;moment2jacobi2;SS;9|
-        ((|mom| |Sequence| R)
-         ($ |Stream| (|Record| (|:| |an| R) (|:| |bn| R))))
+        ((|mom| (|Sequence| R))
+         ($ (|Stream| (|Record| (|:| |an| R) (|:| |bn| R)))))
         (SPROG NIL
                (SEQ
                 (SPADCALL
@@ -232,8 +234,8 @@
                          (QREFELT $ 56))))))))) 
 
 (SDEFUN |MOMPKG;moment2jacobi;SR;10|
-        ((|mom| |Sequence| R)
-         ($ |Record| (|:| |an| (|Stream| R)) (|:| |bn| (|Stream| R))))
+        ((|mom| (|Sequence| R))
+         ($ (|Record| (|:| |an| (|Stream| R)) (|:| |bn| (|Stream| R)))))
         (SPROG ((|res| (|Stream| (|Record| (|:| |an| R) (|:| |bn| R)))))
                (SEQ (LETT |res| (SPADCALL |mom| (QREFELT $ 55)))
                     (EXIT
@@ -248,12 +250,13 @@
 (SDEFUN |MOMPKG;moment2jacobi;SR;10!0| ((|y| NIL) ($$ NIL)) (QCAR |y|)) 
 
 (SDEFUN |MOMPKG;jacobi2polypq|
-        ((|aa| |Stream| R) (|bb| |Stream| R)
-         (|p| |SparseUnivariatePolynomial| R)
-         (|q| |SparseUnivariatePolynomial| R)
-         ($ |Stream|
-          (|Record| (|:| |first| (|SparseUnivariatePolynomial| R))
-                    (|:| |second| (|SparseUnivariatePolynomial| R)))))
+        ((|aa| (|Stream| R)) (|bb| (|Stream| R))
+         (|p| (|SparseUnivariatePolynomial| R))
+         (|q| (|SparseUnivariatePolynomial| R))
+         ($
+          (|Stream|
+           (|Record| (|:| |first| (|SparseUnivariatePolynomial| R))
+                     (|:| |second| (|SparseUnivariatePolynomial| R))))))
         (SPROG NIL
                (SEQ
                 (SPADCALL
@@ -294,8 +297,8 @@
                                (QREFELT $ 75))))))))) 
 
 (SDEFUN |MOMPKG;jacobi2poly;2SS;12|
-        ((|aa| |Stream| R) (|bb| |Stream| R)
-         ($ |Stream| (|SparseUnivariatePolynomial| R)))
+        ((|aa| (|Stream| R)) (|bb| (|Stream| R))
+         ($ (|Stream| (|SparseUnivariatePolynomial| R))))
         (SPROG
          ((|res|
            (|Stream|
@@ -319,10 +322,11 @@
 (SDEFUN |MOMPKG;jacobi2poly;2SS;12!0| ((|pp| NIL) ($$ NIL)) (QCAR |pp|)) 
 
 (SDEFUN |MOMPKG;moment2Stransform;SR;13|
-        ((|x| |Sequence| R)
-         ($ |Record| (|:| |puiseux| (|Fraction| (|Integer|)))
-          (|:| |laurent| (|Fraction| (|Integer|)))
-          (|:| |coef| (|Sequence| R))))
+        ((|x| (|Sequence| R))
+         ($
+          (|Record| (|:| |puiseux| (|Fraction| (|Integer|)))
+                    (|:| |laurent| (|Fraction| (|Integer|)))
+                    (|:| |coef| (|Sequence| R)))))
         (SPROG
          ((S #1=(|Sequence| R)) (|chi| #2=(|Stream| R)) (|mom| (|Stream| R))
           (S2 #1#) (|chi2s| (|Sequence| R)) (|chi2| #2#) (|mom2| (|Stream| R)))
@@ -363,10 +367,12 @@
                            S))))))))) 
 
 (SDEFUN |MOMPKG;moment2monotoneCumulantGenerator|
-        ((|srm| |Record| (|:| |momt| (|List| (|SparseUnivariatePolynomial| R)))
-          (|:| |cum| (|List| R)) (|:| |mom| (|Stream| R)))
-         ($ |Record| (|:| |momt| (|List| (|SparseUnivariatePolynomial| R)))
-          (|:| |cum| (|List| R)) (|:| |mom| (|Stream| R))))
+        ((|srm|
+          (|Record| (|:| |momt| (|List| (|SparseUnivariatePolynomial| R)))
+                    (|:| |cum| (|List| R)) (|:| |mom| (|Stream| R))))
+         ($
+          (|Record| (|:| |momt| (|List| (|SparseUnivariatePolynomial| R)))
+                    (|:| |cum| (|List| R)) (|:| |mom| (|Stream| R)))))
         (SPROG
          ((#1=#:G179 NIL) (|mtnew| (|List| (|SparseUnivariatePolynomial| R)))
           (|rrnew| (|List| R)) (|mnt| (|SparseUnivariatePolynomial| R))
@@ -420,7 +426,7 @@
           #5# (EXIT #1#)))) 
 
 (SDEFUN |MOMPKG;moment2monotoneCumulant;2S;15|
-        ((|mm| |Sequence| R) ($ |Sequence| R))
+        ((|mm| (|Sequence| R)) ($ (|Sequence| R)))
         (SPROG
          ((|res1| (|Stream| R))
           (|res|
@@ -453,10 +459,12 @@
         (SPADCALL (QVELT |s| 1) (QREFELT $ 108))) 
 
 (SDEFUN |MOMPKG;monotoneCumulant2momentGenerator|
-        ((|srm| |Record| (|:| |cum| (|Stream| R))
-          (|:| |momt| (|List| (|SparseUnivariatePolynomial| R))))
-         ($ |Record| (|:| |cum| (|Stream| R))
-          (|:| |momt| (|List| (|SparseUnivariatePolynomial| R)))))
+        ((|srm|
+          (|Record| (|:| |cum| (|Stream| R))
+                    (|:| |momt| (|List| (|SparseUnivariatePolynomial| R)))))
+         ($
+          (|Record| (|:| |cum| (|Stream| R))
+                    (|:| |momt| (|List| (|SparseUnivariatePolynomial| R))))))
         (SPROG
          ((#1=#:G194 NIL) (|mtnew| (|List| (|SparseUnivariatePolynomial| R)))
           (|mnt| (|SparseUnivariatePolynomial| R)) (|rr| (|Stream| R))
@@ -499,7 +507,7 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |MOMPKG;monotoneCumulant2moment;2S;17|
-        ((|rr| |Sequence| R) ($ |Sequence| R))
+        ((|rr| (|Sequence| R)) ($ (|Sequence| R)))
         (SPROG
          ((|res1| (|Stream| R))
           (|res|
@@ -529,7 +537,8 @@
                   (QREFELT $ 102))) 
 
 (SDEFUN |MOMPKG;monotoneCumulant2momentPoly;SS;18|
-        ((|rr| |Sequence| R) ($ |Sequence| (|SparseUnivariatePolynomial| R)))
+        ((|rr| (|Sequence| R))
+         ($ (|Sequence| (|SparseUnivariatePolynomial| R))))
         (SPROG
          ((|res1| (|Stream| (|SparseUnivariatePolynomial| R)))
           (|res|

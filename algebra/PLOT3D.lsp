@@ -1,18 +1,18 @@
 
 (SDEFUN |PLOT3D;point|
-        ((|xx| |DoubleFloat|) (|yy| |DoubleFloat|) (|zz| |DoubleFloat|)
-         (|col| . #1=(|DoubleFloat|)) ($ |Point| (|DoubleFloat|)))
+        ((|xx| (|DoubleFloat|)) (|yy| (|DoubleFloat|)) (|zz| (|DoubleFloat|))
+         (|col| #1=(|DoubleFloat|)) ($ (|Point| (|DoubleFloat|))))
         (SPROG ((|l| (|List| #1#)))
                (SPADCALL (LETT |l| (LIST |xx| |yy| |zz| |col|))
                          (QREFELT $ 18)))) 
 
 (SDEFUN |PLOT3D;fourth|
-        ((|list| |List| (|Segment| (|DoubleFloat|)))
-         ($ |Segment| (|DoubleFloat|)))
+        ((|list| (|List| (|Segment| (|DoubleFloat|))))
+         ($ (|Segment| (|DoubleFloat|))))
         (|SPADfirst| (CDR (CDR (CDR |list|))))) 
 
 (SDEFUN |PLOT3D;checkRange|
-        ((|r| |Segment| (|DoubleFloat|)) ($ |Segment| (|DoubleFloat|)))
+        ((|r| (|Segment| (|DoubleFloat|))) ($ (|Segment| (|DoubleFloat|))))
         (COND
          ((SPADCALL (SPADCALL |r| (QREFELT $ 20)) (SPADCALL |r| (QREFELT $ 21))
                     (QREFELT $ 23))
@@ -20,8 +20,8 @@
          ('T |r|))) 
 
 (SDEFUN |PLOT3D;intersect|
-        ((|s| |Segment| (|DoubleFloat|)) (|t| |Segment| (|DoubleFloat|))
-         ($ |Segment| (|DoubleFloat|)))
+        ((|s| (|Segment| (|DoubleFloat|))) (|t| (|Segment| (|DoubleFloat|)))
+         ($ (|Segment| (|DoubleFloat|))))
         (|PLOT3D;checkRange|
          (SPADCALL
           (|max_DF| (SPADCALL |s| (QREFELT $ 20))
@@ -32,21 +32,23 @@
          $)) 
 
 (SDEFUN |PLOT3D;union|
-        ((|s| |Segment| (|DoubleFloat|)) (|t| |Segment| (|DoubleFloat|))
-         ($ |Segment| (|DoubleFloat|)))
+        ((|s| (|Segment| (|DoubleFloat|))) (|t| (|Segment| (|DoubleFloat|)))
+         ($ (|Segment| (|DoubleFloat|))))
         (SPADCALL
          (|min_DF| (SPADCALL |s| (QREFELT $ 20)) (SPADCALL |t| (QREFELT $ 20)))
          (|max_DF| (SPADCALL |s| (QREFELT $ 21)) (SPADCALL |t| (QREFELT $ 21)))
          (QREFELT $ 24))) 
 
 (SDEFUN |PLOT3D;join|
-        ((|l| |List|
-          (|Record|
-           (|:| |source| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
-           (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
-           (|:| |knots| (|List| (|DoubleFloat|)))
-           (|:| |points| (|List| (|Point| (|DoubleFloat|))))))
-         (|i| |Integer|) ($ |Segment| (|DoubleFloat|)))
+        ((|l|
+          (|List|
+           (|Record|
+            (|:| |source|
+                 (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
+            (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
+            (|:| |knots| (|List| (|DoubleFloat|)))
+            (|:| |points| (|List| (|Point| (|DoubleFloat|)))))))
+         (|i| (|Integer|)) ($ (|Segment| (|DoubleFloat|))))
         (SPROG
          ((|u| (|Segment| (|DoubleFloat|))) (#1=#:G132 NIL) (|r| NIL)
           (|rr|
@@ -90,52 +92,54 @@
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT |u|)))) 
 
-(SDEFUN |PLOT3D;parametricRange| ((|r| $) ($ |Segment| (|DoubleFloat|)))
+(SDEFUN |PLOT3D;parametricRange| ((|r| ($)) ($ (|Segment| (|DoubleFloat|))))
         (|SPADfirst| (QVELT |r| 1))) 
 
-(SDEFUN |PLOT3D;minPoints3D;I;8| (($ |Integer|)) (QREFELT $ 8)) 
+(SDEFUN |PLOT3D;minPoints3D;I;8| (($ (|Integer|))) (QREFELT $ 8)) 
 
-(SDEFUN |PLOT3D;setMinPoints3D;2I;9| ((|n| |Integer|) ($ |Integer|))
+(SDEFUN |PLOT3D;setMinPoints3D;2I;9| ((|n| (|Integer|)) ($ (|Integer|)))
         (SEQ (COND ((< |n| 3) (|error| "three points minimum required")))
              (COND ((< (QREFELT $ 9) |n|) (SETELT $ 9 |n|)))
              (EXIT (SETELT $ 8 |n|)))) 
 
-(SDEFUN |PLOT3D;maxPoints3D;I;10| (($ |Integer|)) (QREFELT $ 9)) 
+(SDEFUN |PLOT3D;maxPoints3D;I;10| (($ (|Integer|))) (QREFELT $ 9)) 
 
-(SDEFUN |PLOT3D;setMaxPoints3D;2I;11| ((|n| |Integer|) ($ |Integer|))
+(SDEFUN |PLOT3D;setMaxPoints3D;2I;11| ((|n| (|Integer|)) ($ (|Integer|)))
         (SEQ (COND ((< |n| 3) (|error| "three points minimum required")))
              (COND ((> (QREFELT $ 8) |n|) (SETELT $ 8 |n|)))
              (EXIT (SETELT $ 9 |n|)))) 
 
-(SDEFUN |PLOT3D;screenResolution3D;I;12| (($ |Integer|)) (QREFELT $ 11)) 
+(SDEFUN |PLOT3D;screenResolution3D;I;12| (($ (|Integer|))) (QREFELT $ 11)) 
 
-(SDEFUN |PLOT3D;setScreenResolution3D;2I;13| ((|n| |Integer|) ($ |Integer|))
+(SDEFUN |PLOT3D;setScreenResolution3D;2I;13|
+        ((|n| (|Integer|)) ($ (|Integer|)))
         (SEQ (COND ((< |n| 2) (|error| "buy a new terminal")))
              (EXIT (SETELT $ 11 |n|)))) 
 
-(SDEFUN |PLOT3D;adaptive3D?;B;14| (($ |Boolean|)) (QREFELT $ 7)) 
+(SDEFUN |PLOT3D;adaptive3D?;B;14| (($ (|Boolean|))) (QREFELT $ 7)) 
 
-(SDEFUN |PLOT3D;setAdaptive3D;2B;15| ((|b| |Boolean|) ($ |Boolean|))
+(SDEFUN |PLOT3D;setAdaptive3D;2B;15| ((|b| (|Boolean|)) ($ (|Boolean|)))
         (SETELT $ 7 |b|)) 
 
-(SDEFUN |PLOT3D;numFunEvals3D;I;16| (($ |Integer|)) (QREFELT $ 10)) 
+(SDEFUN |PLOT3D;numFunEvals3D;I;16| (($ (|Integer|))) (QREFELT $ 10)) 
 
-(SDEFUN |PLOT3D;debug3D;2B;17| ((|b| |Boolean|) ($ |Boolean|))
+(SDEFUN |PLOT3D;debug3D;2B;17| ((|b| (|Boolean|)) ($ (|Boolean|)))
         (SETELT $ 15 |b|)) 
 
-(SDEFUN |PLOT3D;xRange;$S;18| ((|plot| $) ($ |Segment| (|DoubleFloat|)))
+(SDEFUN |PLOT3D;xRange;$S;18| ((|plot| ($)) ($ (|Segment| (|DoubleFloat|))))
         (SPADCALL (QVELT |plot| 1) (QREFELT $ 26))) 
 
-(SDEFUN |PLOT3D;yRange;$S;19| ((|plot| $) ($ |Segment| (|DoubleFloat|)))
+(SDEFUN |PLOT3D;yRange;$S;19| ((|plot| ($)) ($ (|Segment| (|DoubleFloat|))))
         (SPADCALL (QVELT |plot| 1) (QREFELT $ 27))) 
 
-(SDEFUN |PLOT3D;zRange;$S;20| ((|plot| $) ($ |Segment| (|DoubleFloat|)))
+(SDEFUN |PLOT3D;zRange;$S;20| ((|plot| ($)) ($ (|Segment| (|DoubleFloat|))))
         (|PLOT3D;fourth| (QVELT |plot| 1) $)) 
 
-(SDEFUN |PLOT3D;tRange;$S;21| ((|plot| $) ($ |Segment| (|DoubleFloat|)))
+(SDEFUN |PLOT3D;tRange;$S;21| ((|plot| ($)) ($ (|Segment| (|DoubleFloat|))))
         (|SPADfirst| (QVELT |plot| 1))) 
 
-(SDEFUN |PLOT3D;tValues;$L;22| ((|plot| $) ($ |List| (|List| (|DoubleFloat|))))
+(SDEFUN |PLOT3D;tValues;$L;22|
+        ((|plot| ($)) ($ (|List| (|List| (|DoubleFloat|)))))
         (SPROG
          ((|outList| (|List| (|List| (|DoubleFloat|)))) (#1=#:G155 NIL)
           (|curve| NIL))
@@ -150,10 +154,10 @@
               (EXIT |outList|)))) 
 
 (SDEFUN |PLOT3D;select|
-        ((|l| |List| (|Point| (|DoubleFloat|)))
-         (|f| |Mapping| #1=(|DoubleFloat|) (|Point| (|DoubleFloat|)))
-         (|g| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
-         ($ |DoubleFloat|))
+        ((|l| (|List| (|Point| (|DoubleFloat|))))
+         (|f| (|Mapping| #1=(|DoubleFloat|) (|Point| (|DoubleFloat|))))
+         (|g| (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)))
+         ($ (|DoubleFloat|)))
         (SPROG ((|m| #1#) (|fp| #1#) (#2=#:G160 NIL) (|p| NIL))
                (SEQ (LETT |m| (SPADCALL (|SPADfirst| |l|) |f|))
                     (SEQ (LETT |p| NIL) (LETT #2# (CDR |l|)) G190
@@ -166,18 +170,20 @@
                     (EXIT |m|)))) 
 
 (SDEFUN |PLOT3D;rangeRefine|
-        ((|curve| |Record|
-          (|:| |source| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
-          (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
-          (|:| |knots| (|List| (|DoubleFloat|)))
-          (|:| |points| (|List| (|Point| (|DoubleFloat|)))))
-         (|nRange| |Segment| (|DoubleFloat|))
-         ($ |Record|
-          (|:| |source|
-               #1=(|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
-          (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
-          (|:| |knots| #2=(|List| (|DoubleFloat|)))
-          (|:| |points| #3=(|List| (|Point| (|DoubleFloat|))))))
+        ((|curve|
+          (|Record|
+           (|:| |source| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
+           (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
+           (|:| |knots| (|List| (|DoubleFloat|)))
+           (|:| |points| (|List| (|Point| (|DoubleFloat|))))))
+         (|nRange| (|Segment| (|DoubleFloat|)))
+         ($
+          (|Record|
+           (|:| |source|
+                #1=(|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
+           (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
+           (|:| |knots| #2=(|List| (|DoubleFloat|)))
+           (|:| |points| #3=(|List| (|Point| (|DoubleFloat|)))))))
         (SPROG
          ((|zRange| #4=(|Segment| (|DoubleFloat|))) (|yRange| #4#)
           (|xRange| #4#) (|p| #3#) (|t| #2#) (|t1| (|DoubleFloat|))
@@ -283,20 +289,24 @@
           #8# (EXIT #7#)))) 
 
 (SDEFUN |PLOT3D;adaptivePlot|
-        ((|curve| |Record|
-          (|:| |source| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
-          (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
-          (|:| |knots| (|List| (|DoubleFloat|)))
-          (|:| |points| (|List| (|Point| (|DoubleFloat|)))))
-         (|tRg| |Segment| (|DoubleFloat|)) (|xRg| |Segment| (|DoubleFloat|))
-         (|yRg| |Segment| (|DoubleFloat|)) (|zRg| |Segment| (|DoubleFloat|))
-         (|pixelfraction| |Integer|) (|resolution| |Integer|)
-         ($ |Record|
-          (|:| |source|
-               #1=(|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
-          (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
-          (|:| |knots| #2=(|List| (|DoubleFloat|)))
-          (|:| |points| #3=(|List| (|Point| (|DoubleFloat|))))))
+        ((|curve|
+          (|Record|
+           (|:| |source| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
+           (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
+           (|:| |knots| (|List| (|DoubleFloat|)))
+           (|:| |points| (|List| (|Point| (|DoubleFloat|))))))
+         (|tRg| (|Segment| (|DoubleFloat|)))
+         (|xRg| (|Segment| (|DoubleFloat|)))
+         (|yRg| (|Segment| (|DoubleFloat|)))
+         (|zRg| (|Segment| (|DoubleFloat|))) (|pixelfraction| (|Integer|))
+         (|resolution| (|Integer|))
+         ($
+          (|Record|
+           (|:| |source|
+                #1=(|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
+           (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
+           (|:| |knots| #2=(|List| (|DoubleFloat|)))
+           (|:| |points| #3=(|List| (|Point| (|DoubleFloat|)))))))
         (SPROG
          ((|p| #3#) (|t| #2#) (|tj| #4=(|DoubleFloat|)) (|n| (|Integer|))
           (#5=#:G244 NIL) (|sp| #6=(|List| (|Point| (|DoubleFloat|))))
@@ -745,13 +755,14 @@
                                                     |curve|)))))))))))))))))) 
 
 (SDEFUN |PLOT3D;basicPlot|
-        ((|f| |Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|))
-         (|tRange| |Segment| (|DoubleFloat|))
-         ($ |Record|
-          (|:| |source| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
-          (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
-          (|:| |knots| (|List| (|DoubleFloat|)))
-          (|:| |points| (|List| (|Point| (|DoubleFloat|))))))
+        ((|f| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
+         (|tRange| (|Segment| (|DoubleFloat|)))
+         ($
+          (|Record|
+           (|:| |source| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
+           (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
+           (|:| |knots| (|List| (|DoubleFloat|)))
+           (|:| |points| (|List| (|Point| (|DoubleFloat|)))))))
         (SPROG
          ((|zRange| #1=(|Segment| (|DoubleFloat|))) (|yRange| #1#)
           (|xRange| #1#) (|p| (|List| (|Point| (|DoubleFloat|))))
@@ -790,25 +801,27 @@
                        |p|))))) 
 
 (SDEFUN |PLOT3D;zoom;$3S$;27|
-        ((|p| $) (|xRange| |Segment| (|DoubleFloat|))
-         (|yRange| |Segment| (|DoubleFloat|))
-         (|zRange| |Segment| (|DoubleFloat|)) ($ $))
+        ((|p| ($)) (|xRange| (|Segment| (|DoubleFloat|)))
+         (|yRange| (|Segment| (|DoubleFloat|)))
+         (|zRange| (|Segment| (|DoubleFloat|))) ($ ($)))
         (VECTOR (LIST |xRange| |yRange| |zRange|) (QVELT |p| 1) (QVELT |p| 2)
                 (QVELT |p| 3) (QVELT |p| 4))) 
 
 (SDEFUN |PLOT3D;basicRefine|
-        ((|curve| |Record|
-          (|:| |source| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
-          (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
-          (|:| |knots| (|List| (|DoubleFloat|)))
-          (|:| |points| (|List| (|Point| (|DoubleFloat|)))))
-         (|nRange| |Segment| (|DoubleFloat|))
-         ($ |Record|
-          (|:| |source|
-               #1=(|Mapping| #2=(|Point| (|DoubleFloat|)) (|DoubleFloat|)))
-          (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
-          (|:| |knots| #3=(|List| (|DoubleFloat|)))
-          (|:| |points| #4=(|List| (|Point| (|DoubleFloat|))))))
+        ((|curve|
+          (|Record|
+           (|:| |source| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
+           (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
+           (|:| |knots| (|List| (|DoubleFloat|)))
+           (|:| |points| (|List| (|Point| (|DoubleFloat|))))))
+         (|nRange| (|Segment| (|DoubleFloat|)))
+         ($
+          (|Record|
+           (|:| |source|
+                #1=(|Mapping| #2=(|Point| (|DoubleFloat|)) (|DoubleFloat|)))
+           (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
+           (|:| |knots| #3=(|List| (|DoubleFloat|)))
+           (|:| |points| #4=(|List| (|Point| (|DoubleFloat|)))))))
         (SPROG
          ((|zRange| #5=(|Segment| (|DoubleFloat|))) (|yRange| #5#)
           (|xRange| #5#) (|p| #4#) (|t| #3#) (|pm| #2#) (|tm| (|DoubleFloat|))
@@ -871,11 +884,11 @@
                (VECTOR (QVELT |curve| 0)
                        (LIST |tRange| |xRange| |yRange| |zRange|) |t| |p|))))) 
 
-(SDEFUN |PLOT3D;refine;2$;29| ((|p| $) ($ $))
+(SDEFUN |PLOT3D;refine;2$;29| ((|p| ($)) ($ ($)))
         (SPADCALL |p| (|PLOT3D;parametricRange| |p| $) (QREFELT $ 69))) 
 
 (SDEFUN |PLOT3D;refine;$S$;30|
-        ((|p| $) (|nRange| |Segment| (|DoubleFloat|)) ($ $))
+        ((|p| ($)) (|nRange| (|Segment| (|DoubleFloat|))) ($ ($)))
         (SPROG
          ((|zRange| #1=(|Segment| (|DoubleFloat|))) (|yRange| #1#)
           (|xRange| #1#)
@@ -939,7 +952,7 @@
                        |scrres| (QVELT |p| 3) |curves|))))) 
 
 (SDEFUN |PLOT3D;plot;$S$;31|
-        ((|p| $) (|tRange| |Segment| (|DoubleFloat|)) ($ $))
+        ((|p| ($)) (|tRange| (|Segment| (|DoubleFloat|))) ($ ($)))
         (SPROG
          ((|zRange| #1=(|Segment| (|DoubleFloat|))) (|yRange| #1#)
           (|xRange| #1#)
@@ -1001,8 +1014,8 @@
                        (QVELT |p| 3) |curves|))))) 
 
 (SDEFUN |PLOT3D;pointPlot;MS$;32|
-        ((|f| |Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|))
-         (|tRange| |Segment| (|DoubleFloat|)) ($ $))
+        ((|f| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
+         (|tRange| (|Segment| (|DoubleFloat|))) ($ ($)))
         (SPROG
          ((|p|
            (|Record|
@@ -1024,11 +1037,11 @@
               (EXIT (VECTOR (CDR |r|) |r| (QREFELT $ 11) NIL (LIST |p|)))))) 
 
 (SDEFUN |PLOT3D;pointPlot;M4S$;33|
-        ((|f| |Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|))
-         (|tRange| |Segment| (|DoubleFloat|))
-         (|xRange| |Segment| (|DoubleFloat|))
-         (|yRange| |Segment| (|DoubleFloat|))
-         (|zRange| |Segment| (|DoubleFloat|)) ($ $))
+        ((|f| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)))
+         (|tRange| (|Segment| (|DoubleFloat|)))
+         (|xRange| (|Segment| (|DoubleFloat|)))
+         (|yRange| (|Segment| (|DoubleFloat|)))
+         (|zRange| (|Segment| (|DoubleFloat|))) ($ ($)))
         (SPROG ((|p| ($)))
                (SEQ (LETT |p| (SPADCALL |f| |tRange| (QREFELT $ 73)))
                     (QSETVELT |p| 0
@@ -1038,8 +1051,8 @@
                     (EXIT |p|)))) 
 
 (SDEFUN |PLOT3D;myTrap|
-        ((|ff| |Mapping| (|DoubleFloat|) (|DoubleFloat|)) (|f| |DoubleFloat|)
-         ($ |DoubleFloat|))
+        ((|ff| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+         (|f| (|DoubleFloat|)) ($ (|DoubleFloat|)))
         (SPROG ((|r| (|DoubleFloat|)) (|s| (|Union| (|DoubleFloat|) "failed")))
                (SEQ (LETT |s| (|trapNumericErrors| (SPADCALL |f| |ff|)))
                     (COND ((QEQCAR |s| 1) (LETT |r| 0.0))
@@ -1047,11 +1060,11 @@
                     (EXIT |r|)))) 
 
 (SDEFUN |PLOT3D;plot;4MS$;35|
-        ((|f1| |Mapping| (|DoubleFloat|) (|DoubleFloat|))
-         (|f2| |Mapping| (|DoubleFloat|) (|DoubleFloat|))
-         (|f3| |Mapping| (|DoubleFloat|) (|DoubleFloat|))
-         (|col| |Mapping| (|DoubleFloat|) (|DoubleFloat|))
-         (|tRange| |Segment| (|DoubleFloat|)) ($ $))
+        ((|f1| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+         (|f2| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+         (|f3| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+         (|col| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+         (|tRange| (|Segment| (|DoubleFloat|))) ($ ($)))
         (SPROG
          ((|p|
            (|Record|
@@ -1090,14 +1103,14 @@
              (SPADCALL |z1| |col|) $))))) 
 
 (SDEFUN |PLOT3D;plot;4M4S$;36|
-        ((|f1| |Mapping| (|DoubleFloat|) (|DoubleFloat|))
-         (|f2| |Mapping| (|DoubleFloat|) (|DoubleFloat|))
-         (|f3| |Mapping| (|DoubleFloat|) (|DoubleFloat|))
-         (|col| |Mapping| (|DoubleFloat|) (|DoubleFloat|))
-         (|tRange| |Segment| (|DoubleFloat|))
-         (|xRange| |Segment| (|DoubleFloat|))
-         (|yRange| |Segment| (|DoubleFloat|))
-         (|zRange| |Segment| (|DoubleFloat|)) ($ $))
+        ((|f1| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+         (|f2| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+         (|f3| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+         (|col| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+         (|tRange| (|Segment| (|DoubleFloat|)))
+         (|xRange| (|Segment| (|DoubleFloat|)))
+         (|yRange| (|Segment| (|DoubleFloat|)))
+         (|zRange| (|Segment| (|DoubleFloat|))) ($ ($)))
         (SPROG ((|p| ($)))
                (SEQ
                 (LETT |p|
@@ -1108,7 +1121,7 @@
                                 (|PLOT3D;checkRange| |zRange| $)))
                 (EXIT |p|)))) 
 
-(SDEFUN |PLOT3D;coerce;$Of;37| ((|r| $) ($ |OutputForm|))
+(SDEFUN |PLOT3D;coerce;$Of;37| ((|r| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|f| (|List| (|OutputForm|))) (|l| (|List| #1=(|OutputForm|)))
           (#2=#:G357 NIL) (|p| NIL) (#3=#:G356 NIL) (|h| (|OutputForm|))
@@ -1173,7 +1186,7 @@
                          (QREFELT $ 89)))))) 
 
 (SDEFUN |PLOT3D;listBranches;$L;38|
-        ((|plot| $) ($ |List| (|List| (|Point| (|DoubleFloat|)))))
+        ((|plot| ($)) ($ (|List| (|List| (|Point| (|DoubleFloat|))))))
         (SPROG
          ((|outList| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (#1=#:G362 NIL) (|curve| NIL))

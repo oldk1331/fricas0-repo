@@ -1,7 +1,7 @@
 
 (SDEFUN |UPXSSING;retractIfCan;$U;1|
-        ((|f| $)
-         ($ |Union| (|UnivariatePuiseuxSeries| FE |var| |cen|) "failed"))
+        ((|f| ($))
+         ($ (|Union| (|UnivariatePuiseuxSeries| FE |var| |cen|) "failed")))
         (SEQ
          (COND
           ((EQL (SPADCALL |f| (QREFELT $ 11)) 1)
@@ -10,7 +10,7 @@
              (EXIT (CONS 0 (SPADCALL |f| (QREFELT $ 18))))))))
          (EXIT (CONS 1 "failed")))) 
 
-(SDEFUN |UPXSSING;recip;$U;2| ((|f| $) ($ |Union| $ "failed"))
+(SDEFUN |UPXSSING;recip;$U;2| ((|f| ($)) ($ (|Union| $ "failed")))
         (COND
          ((EQL (SPADCALL |f| (QREFELT $ 11)) 1)
           (CONS 0
@@ -24,90 +24,9 @@
      '(XLAM (|coef| |expon|) (VECTOR |coef| |expon| NIL))) 
 
 (SDEFUN |UPXSSING;makeTerm|
-        ((|coef| |UnivariatePuiseuxSeries| FE |var| |cen|)
-         (|expon| |ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|)
-         ($ |Record| (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
-          (|:| |%expon|
-               (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
-          (|:| |%expTerms|
-               (|List|
-                (|Record| (|:| |k| (|Fraction| (|Integer|))) (|:| |c| FE))))))
-        (VECTOR |coef| |expon| NIL)) 
-
-(PUT '|UPXSSING;coeff| '|SPADreplace| '(XLAM (|term|) (QVELT |term| 0))) 
-
-(SDEFUN |UPXSSING;coeff|
-        ((|term| |Record|
-          (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
-          (|:| |%expon|
-               (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
-          (|:| |%expTerms|
-               (|List|
-                (|Record| (|:| |k| (|Fraction| (|Integer|))) (|:| |c| FE)))))
-         ($ |UnivariatePuiseuxSeries| FE |var| |cen|))
-        (QVELT |term| 0)) 
-
-(PUT '|UPXSSING;exponent| '|SPADreplace| '(XLAM (|term|) (QVELT |term| 1))) 
-
-(SDEFUN |UPXSSING;exponent|
-        ((|term| |Record|
-          (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
-          (|:| |%expon|
-               (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
-          (|:| |%expTerms|
-               (|List|
-                (|Record| (|:| |k| (|Fraction| (|Integer|))) (|:| |c| FE)))))
-         ($ |ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
-        (QVELT |term| 1)) 
-
-(PUT '|UPXSSING;exponentTerms| '|SPADreplace| '(XLAM (|term|) (QVELT |term| 2))) 
-
-(SDEFUN |UPXSSING;exponentTerms|
-        ((|term| |Record|
-          (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
-          (|:| |%expon|
-               (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
-          (|:| |%expTerms|
-               (|List|
-                (|Record| (|:| |k| (|Fraction| (|Integer|))) (|:| |c| FE)))))
-         ($ |List| (|Record| (|:| |k| (|Fraction| (|Integer|))) (|:| |c| FE))))
-        (QVELT |term| 2)) 
-
-(PUT '|UPXSSING;setExponentTerms!| '|SPADreplace|
-     '(XLAM (|term| |list|) (QSETVELT |term| 2 |list|))) 
-
-(SDEFUN |UPXSSING;setExponentTerms!|
-        ((|term| |Record|
-          (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
-          (|:| |%expon|
-               (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
-          (|:| |%expTerms|
-               (|List|
-                (|Record| (|:| |k| (|Fraction| (|Integer|))) (|:| |c| FE)))))
-         (|list| |List|
-          (|Record| (|:| |k| (|Fraction| (|Integer|))) (|:| |c| FE)))
-         ($ |List| (|Record| (|:| |k| (|Fraction| (|Integer|))) (|:| |c| FE))))
-        (QSETVELT |term| 2 |list|)) 
-
-(SDEFUN |UPXSSING;computeExponentTerms!|
-        ((|term| |Record|
-          (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
-          (|:| |%expon|
-               (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
-          (|:| |%expTerms|
-               (|List|
-                (|Record| (|:| |k| (|Fraction| (|Integer|))) (|:| |c| FE)))))
-         ($ |List| (|Record| (|:| |k| (|Fraction| (|Integer|))) (|:| |c| FE))))
-        (|UPXSSING;setExponentTerms!| |term|
-         (SPADCALL
-          (SPADCALL (SPADCALL (|UPXSSING;exponent| |term| $) (QREFELT $ 28))
-                    (QREFELT $ 29))
-          (QREFELT $ 31))
-         $)) 
-
-(SDEFUN |UPXSSING;terms|
-        ((|f| $)
-         ($ |List|
+        ((|coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
+         (|expon| (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
+         ($
           (|Record| (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
                     (|:| |%expon|
                          (|ExponentialOfUnivariatePuiseuxSeries| FE |var|
@@ -116,15 +35,12 @@
                          (|List|
                           (|Record| (|:| |k| (|Fraction| (|Integer|)))
                                     (|:| |c| FE)))))))
-        (COND ((SPADCALL |f| (QREFELT $ 32)) NIL)
-              ('T
-               (CONS
-                (|UPXSSING;makeTerm| (SPADCALL |f| (QREFELT $ 18))
-                 (SPADCALL |f| (QREFELT $ 14)) $)
-                (|UPXSSING;terms| (SPADCALL |f| (QREFELT $ 33)) $))))) 
+        (VECTOR |coef| |expon| NIL)) 
 
-(SDEFUN |UPXSSING;sortAndDiscardTerms|
-        ((|termList| |List|
+(PUT '|UPXSSING;coeff| '|SPADreplace| '(XLAM (|term|) (QVELT |term| 0))) 
+
+(SDEFUN |UPXSSING;coeff|
+        ((|term|
           (|Record| (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
                     (|:| |%expon|
                          (|ExponentialOfUnivariatePuiseuxSeries| FE |var|
@@ -133,38 +49,141 @@
                          (|List|
                           (|Record| (|:| |k| (|Fraction| (|Integer|)))
                                     (|:| |c| FE))))))
-         ($ |Record|
-          (|:| |%zeroTerms|
-               (|List|
-                (|Record|
-                 (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
-                 (|:| |%expon|
-                      (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
-                 (|:| |%expTerms|
-                      (|List|
-                       (|Record| (|:| |k| (|Fraction| (|Integer|)))
-                                 (|:| |c| FE)))))))
-          (|:| |%infiniteTerms|
-               (|List|
-                (|Record|
-                 (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
-                 (|:| |%expon|
-                      (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
-                 (|:| |%expTerms|
-                      (|List|
-                       (|Record| (|:| |k| (|Fraction| (|Integer|)))
-                                 (|:| |c| FE)))))))
-          (|:| |%failedTerms|
-               (|List|
-                (|Record|
-                 (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
-                 (|:| |%expon|
-                      (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
-                 (|:| |%expTerms|
-                      (|List|
-                       (|Record| (|:| |k| (|Fraction| (|Integer|)))
-                                 (|:| |c| FE)))))))
-          (|:| |%puiseuxSeries| (|UnivariatePuiseuxSeries| FE |var| |cen|))))
+         ($ (|UnivariatePuiseuxSeries| FE |var| |cen|)))
+        (QVELT |term| 0)) 
+
+(PUT '|UPXSSING;exponent| '|SPADreplace| '(XLAM (|term|) (QVELT |term| 1))) 
+
+(SDEFUN |UPXSSING;exponent|
+        ((|term|
+          (|Record| (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
+                    (|:| |%expon|
+                         (|ExponentialOfUnivariatePuiseuxSeries| FE |var|
+                                                                 |cen|))
+                    (|:| |%expTerms|
+                         (|List|
+                          (|Record| (|:| |k| (|Fraction| (|Integer|)))
+                                    (|:| |c| FE))))))
+         ($ (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|)))
+        (QVELT |term| 1)) 
+
+(PUT '|UPXSSING;exponentTerms| '|SPADreplace| '(XLAM (|term|) (QVELT |term| 2))) 
+
+(SDEFUN |UPXSSING;exponentTerms|
+        ((|term|
+          (|Record| (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
+                    (|:| |%expon|
+                         (|ExponentialOfUnivariatePuiseuxSeries| FE |var|
+                                                                 |cen|))
+                    (|:| |%expTerms|
+                         (|List|
+                          (|Record| (|:| |k| (|Fraction| (|Integer|)))
+                                    (|:| |c| FE))))))
+         ($
+          (|List| (|Record| (|:| |k| (|Fraction| (|Integer|))) (|:| |c| FE)))))
+        (QVELT |term| 2)) 
+
+(PUT '|UPXSSING;setExponentTerms!| '|SPADreplace|
+     '(XLAM (|term| |list|) (QSETVELT |term| 2 |list|))) 
+
+(SDEFUN |UPXSSING;setExponentTerms!|
+        ((|term|
+          (|Record| (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
+                    (|:| |%expon|
+                         (|ExponentialOfUnivariatePuiseuxSeries| FE |var|
+                                                                 |cen|))
+                    (|:| |%expTerms|
+                         (|List|
+                          (|Record| (|:| |k| (|Fraction| (|Integer|)))
+                                    (|:| |c| FE))))))
+         (|list|
+          (|List| (|Record| (|:| |k| (|Fraction| (|Integer|))) (|:| |c| FE))))
+         ($
+          (|List| (|Record| (|:| |k| (|Fraction| (|Integer|))) (|:| |c| FE)))))
+        (QSETVELT |term| 2 |list|)) 
+
+(SDEFUN |UPXSSING;computeExponentTerms!|
+        ((|term|
+          (|Record| (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
+                    (|:| |%expon|
+                         (|ExponentialOfUnivariatePuiseuxSeries| FE |var|
+                                                                 |cen|))
+                    (|:| |%expTerms|
+                         (|List|
+                          (|Record| (|:| |k| (|Fraction| (|Integer|)))
+                                    (|:| |c| FE))))))
+         ($
+          (|List| (|Record| (|:| |k| (|Fraction| (|Integer|))) (|:| |c| FE)))))
+        (|UPXSSING;setExponentTerms!| |term|
+         (SPADCALL
+          (SPADCALL (SPADCALL (|UPXSSING;exponent| |term| $) (QREFELT $ 28))
+                    (QREFELT $ 29))
+          (QREFELT $ 31))
+         $)) 
+
+(SDEFUN |UPXSSING;terms|
+        ((|f| ($))
+         ($
+          (|List|
+           (|Record| (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
+                     (|:| |%expon|
+                          (|ExponentialOfUnivariatePuiseuxSeries| FE |var|
+                                                                  |cen|))
+                     (|:| |%expTerms|
+                          (|List|
+                           (|Record| (|:| |k| (|Fraction| (|Integer|)))
+                                     (|:| |c| FE))))))))
+        (COND ((SPADCALL |f| (QREFELT $ 32)) NIL)
+              ('T
+               (CONS
+                (|UPXSSING;makeTerm| (SPADCALL |f| (QREFELT $ 18))
+                 (SPADCALL |f| (QREFELT $ 14)) $)
+                (|UPXSSING;terms| (SPADCALL |f| (QREFELT $ 33)) $))))) 
+
+(SDEFUN |UPXSSING;sortAndDiscardTerms|
+        ((|termList|
+          (|List|
+           (|Record| (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
+                     (|:| |%expon|
+                          (|ExponentialOfUnivariatePuiseuxSeries| FE |var|
+                                                                  |cen|))
+                     (|:| |%expTerms|
+                          (|List|
+                           (|Record| (|:| |k| (|Fraction| (|Integer|)))
+                                     (|:| |c| FE)))))))
+         ($
+          (|Record|
+           (|:| |%zeroTerms|
+                (|List|
+                 (|Record|
+                  (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
+                  (|:| |%expon|
+                       (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
+                  (|:| |%expTerms|
+                       (|List|
+                        (|Record| (|:| |k| (|Fraction| (|Integer|)))
+                                  (|:| |c| FE)))))))
+           (|:| |%infiniteTerms|
+                (|List|
+                 (|Record|
+                  (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
+                  (|:| |%expon|
+                       (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
+                  (|:| |%expTerms|
+                       (|List|
+                        (|Record| (|:| |k| (|Fraction| (|Integer|)))
+                                  (|:| |c| FE)))))))
+           (|:| |%failedTerms|
+                (|List|
+                 (|Record|
+                  (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
+                  (|:| |%expon|
+                       (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
+                  (|:| |%expTerms|
+                       (|List|
+                        (|Record| (|:| |k| (|Fraction| (|Integer|)))
+                                  (|:| |c| FE)))))))
+           (|:| |%puiseuxSeries| (|UnivariatePuiseuxSeries| FE |var| |cen|)))))
         (SPROG
          ((|zeroTerms|
            #1=(|List|
@@ -262,17 +281,7 @@
                        |pSeries|))))) 
 
 (SDEFUN |UPXSSING;termsWithExtremeLeadingCoef|
-        ((|termList| |List|
-          (|Record| (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
-                    (|:| |%expon|
-                         (|ExponentialOfUnivariatePuiseuxSeries| FE |var|
-                                                                 |cen|))
-                    (|:| |%expTerms|
-                         (|List|
-                          (|Record| (|:| |k| (|Fraction| (|Integer|)))
-                                    (|:| |c| FE))))))
-         (|ord| |Fraction| (|Integer|)) (|signum| |Integer|)
-         ($ |Union|
+        ((|termList|
           (|List|
            (|Record| (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
                      (|:| |%expon|
@@ -281,8 +290,20 @@
                      (|:| |%expTerms|
                           (|List|
                            (|Record| (|:| |k| (|Fraction| (|Integer|)))
-                                     (|:| |c| FE))))))
-          "failed"))
+                                     (|:| |c| FE)))))))
+         (|ord| (|Fraction| (|Integer|))) (|signum| (|Integer|))
+         ($
+          (|Union|
+           (|List|
+            (|Record| (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
+                      (|:| |%expon|
+                           (|ExponentialOfUnivariatePuiseuxSeries| FE |var|
+                                                                   |cen|))
+                      (|:| |%expTerms|
+                           (|List|
+                            (|Record| (|:| |k| (|Fraction| (|Integer|)))
+                                      (|:| |c| FE))))))
+           "failed")))
         (SPROG
          ((#1=#:G200 NIL)
           (|outList|
@@ -363,29 +384,32 @@
           #4# (EXIT #2#)))) 
 
 (SDEFUN |UPXSSING;filterByOrder|
-        ((|termList| |List|
-          (|Record| (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
-                    (|:| |%expon|
-                         (|ExponentialOfUnivariatePuiseuxSeries| FE |var|
-                                                                 |cen|))
-                    (|:| |%expTerms|
-                         (|List|
-                          (|Record| (|:| |k| (|Fraction| (|Integer|)))
-                                    (|:| |c| FE))))))
-         (|predicate| |Mapping| (|Boolean|) (|Fraction| (|Integer|))
-          (|Fraction| (|Integer|)))
-         ($ |Record|
-          (|:| |%list|
-               (|List|
-                (|Record|
-                 (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
-                 (|:| |%expon|
-                      (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
-                 (|:| |%expTerms|
-                      (|List|
-                       (|Record| (|:| |k| (|Fraction| (|Integer|)))
-                                 (|:| |c| FE)))))))
-          (|:| |%order| (|Fraction| (|Integer|)))))
+        ((|termList|
+          (|List|
+           (|Record| (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
+                     (|:| |%expon|
+                          (|ExponentialOfUnivariatePuiseuxSeries| FE |var|
+                                                                  |cen|))
+                     (|:| |%expTerms|
+                          (|List|
+                           (|Record| (|:| |k| (|Fraction| (|Integer|)))
+                                     (|:| |c| FE)))))))
+         (|predicate|
+          (|Mapping| (|Boolean|) (|Fraction| (|Integer|))
+                     (|Fraction| (|Integer|))))
+         ($
+          (|Record|
+           (|:| |%list|
+                (|List|
+                 (|Record|
+                  (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
+                  (|:| |%expon|
+                       (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
+                  (|:| |%expTerms|
+                       (|List|
+                        (|Record| (|:| |k| (|Fraction| (|Integer|)))
+                                  (|:| |c| FE)))))))
+           (|:| |%order| (|Fraction| (|Integer|))))))
         (SPROG
          ((#1=#:G220 NIL) (|term| NIL) (#2=#:G217 NIL) (#3=#:G216 NIL)
           (|outList|
@@ -473,26 +497,28 @@
           (EXIT (CONS |outList| |ordExtreme|))))) 
 
 (SDEFUN |UPXSSING;dominantTermOnList|
-        ((|termList| |List|
-          (|Record| (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
-                    (|:| |%expon|
-                         (|ExponentialOfUnivariatePuiseuxSeries| FE |var|
-                                                                 |cen|))
-                    (|:| |%expTerms|
-                         (|List|
-                          (|Record| (|:| |k| (|Fraction| (|Integer|)))
-                                    (|:| |c| FE))))))
-         (|ord0| |Fraction| (|Integer|)) (|signum| |Integer|)
-         ($ |Union|
-          (|Record| (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
-                    (|:| |%expon|
-                         (|ExponentialOfUnivariatePuiseuxSeries| FE |var|
-                                                                 |cen|))
-                    (|:| |%expTerms|
-                         (|List|
-                          (|Record| (|:| |k| (|Fraction| (|Integer|)))
-                                    (|:| |c| FE)))))
-          "failed"))
+        ((|termList|
+          (|List|
+           (|Record| (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
+                     (|:| |%expon|
+                          (|ExponentialOfUnivariatePuiseuxSeries| FE |var|
+                                                                  |cen|))
+                     (|:| |%expTerms|
+                          (|List|
+                           (|Record| (|:| |k| (|Fraction| (|Integer|)))
+                                     (|:| |c| FE)))))))
+         (|ord0| (|Fraction| (|Integer|))) (|signum| (|Integer|))
+         ($
+          (|Union|
+           (|Record| (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
+                     (|:| |%expon|
+                          (|ExponentialOfUnivariatePuiseuxSeries| FE |var|
+                                                                  |cen|))
+                     (|:| |%expTerms|
+                          (|List|
+                           (|Record| (|:| |k| (|Fraction| (|Integer|)))
+                                     (|:| |c| FE)))))
+           "failed")))
         (SPROG
          ((|filtered|
            (|Record|
@@ -552,28 +578,30 @@
                                (QCDR |filtered|) |signum| $))))))))))))))) 
 
 (SDEFUN |UPXSSING;iDominantTerm|
-        ((|termList| |List|
-          (|Record| (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
-                    (|:| |%expon|
-                         (|ExponentialOfUnivariatePuiseuxSeries| FE |var|
-                                                                 |cen|))
-                    (|:| |%expTerms|
-                         (|List|
-                          (|Record| (|:| |k| (|Fraction| (|Integer|)))
-                                    (|:| |c| FE))))))
-         ($ |Union|
-          (|Record|
-           (|:| |%term|
-                (|Record|
-                 (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
-                 (|:| |%expon|
-                      (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
-                 (|:| |%expTerms|
-                      (|List|
-                       (|Record| (|:| |k| (|Fraction| (|Integer|)))
-                                 (|:| |c| FE))))))
-           (|:| |%type| (|String|)))
-          "failed"))
+        ((|termList|
+          (|List|
+           (|Record| (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
+                     (|:| |%expon|
+                          (|ExponentialOfUnivariatePuiseuxSeries| FE |var|
+                                                                  |cen|))
+                     (|:| |%expTerms|
+                          (|List|
+                           (|Record| (|:| |k| (|Fraction| (|Integer|)))
+                                     (|:| |c| FE)))))))
+         ($
+          (|Union|
+           (|Record|
+            (|:| |%term|
+                 (|Record|
+                  (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
+                  (|:| |%expon|
+                       (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
+                  (|:| |%expTerms|
+                       (|List|
+                        (|Record| (|:| |k| (|Fraction| (|Integer|)))
+                                  (|:| |c| FE))))))
+            (|:| |%type| (|String|)))
+           "failed")))
         (SPROG
          ((#1=#:G252 NIL)
           (|dTerm|
@@ -691,24 +719,25 @@
           #9# (EXIT #1#)))) 
 
 (SDEFUN |UPXSSING;dominantTerm;$U;15|
-        ((|f| $)
-         ($ |Union|
-          (|Record|
-           (|:| |%term|
-                (|Record|
-                 (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
-                 (|:| |%expon|
-                      (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
-                 (|:| |%expTerms|
-                      (|List|
-                       (|Record| (|:| |k| (|Fraction| (|Integer|)))
-                                 (|:| |c| FE))))))
-           (|:| |%type| (|String|)))
-          "failed"))
+        ((|f| ($))
+         ($
+          (|Union|
+           (|Record|
+            (|:| |%term|
+                 (|Record|
+                  (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
+                  (|:| |%expon|
+                       (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
+                  (|:| |%expTerms|
+                       (|List|
+                        (|Record| (|:| |k| (|Fraction| (|Integer|)))
+                                  (|:| |c| FE))))))
+            (|:| |%type| (|String|)))
+           "failed")))
         (|UPXSSING;iDominantTerm| (|UPXSSING;terms| |f| $) $)) 
 
 (SDEFUN |UPXSSING;limitPlus;$U;16|
-        ((|f| $) ($ |Union| (|OrderedCompletion| FE) "failed"))
+        ((|f| ($)) ($ (|Union| (|OrderedCompletion| FE) "failed")))
         (SPROG
          ((|signum| (|Union| (|Integer|) "failed")) (|coef| (FE))
           (|ord| (|Fraction| (|Integer|)))

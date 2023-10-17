@@ -1,5 +1,5 @@
 
-(SDEFUN |GENMFACT;factor;PF;1| ((|p| P) ($ |Factored| P))
+(SDEFUN |GENMFACT;factor;PF;1| ((|p| (P)) ($ (|Factored| P)))
         (SEQ
          (COND
           ((|HasCategory| (QREFELT $ 9) '(|FiniteFieldCategory|))

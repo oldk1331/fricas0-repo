@@ -1,25 +1,28 @@
 
 (SDEFUN |SFRGCD;startTableGcd!;3SV;1|
-        ((|ok| |String|) (|ko| |String|) (|domainName| |String|) ($ |Void|))
+        ((|ok| (|String|)) (|ko| (|String|)) (|domainName| (|String|))
+         ($ (|Void|)))
         (SEQ (SPADCALL (QREFELT $ 15)) (SPADCALL |ok| |ko| (QREFELT $ 17))
              (SPADCALL |domainName| (QREFELT $ 18))
              (EXIT (SPADCALL (QREFELT $ 19))))) 
 
-(SDEFUN |SFRGCD;stopTableGcd!;V;2| (($ |Void|))
+(SDEFUN |SFRGCD;stopTableGcd!;V;2| (($ (|Void|)))
         (SEQ (COND ((SPADCALL (QREFELT $ 22)) (SPADCALL (QREFELT $ 23))))
              (EXIT (SPADCALL (QREFELT $ 24))))) 
 
 (SDEFUN |SFRGCD;startTableInvSet!;3SV;3|
-        ((|ok| |String|) (|ko| |String|) (|domainName| |String|) ($ |Void|))
+        ((|ok| (|String|)) (|ko| (|String|)) (|domainName| (|String|))
+         ($ (|Void|)))
         (SEQ (SPADCALL (QREFELT $ 28)) (SPADCALL |ok| |ko| (QREFELT $ 29))
              (SPADCALL |domainName| (QREFELT $ 30))
              (EXIT (SPADCALL (QREFELT $ 19))))) 
 
-(SDEFUN |SFRGCD;stopTableInvSet!;V;4| (($ |Void|))
+(SDEFUN |SFRGCD;stopTableInvSet!;V;4| (($ (|Void|)))
         (SEQ (COND ((SPADCALL (QREFELT $ 32)) (SPADCALL (QREFELT $ 33))))
              (EXIT (SPADCALL (QREFELT $ 34))))) 
 
-(SDEFUN |SFRGCD;stoseInvertible?;PTSB;5| ((|p| P) (|ts| TS) ($ |Boolean|))
+(SDEFUN |SFRGCD;stoseInvertible?;PTSB;5|
+        ((|p| (P)) (|ts| (TS)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G201 NIL) (#2=#:G203 NIL) (|g| (P)) (#3=#:G205 NIL) (|gwt| NIL)
           (|lgwt| (|List| (|Record| (|:| |val| P) (|:| |tower| TS))))
@@ -105,8 +108,8 @@
           #7# (EXIT #2#)))) 
 
 (SDEFUN |SFRGCD;stosePrepareSubResAlgo;2PTSL;6|
-        ((|p1| P) (|p2| P) (|ts| TS)
-         ($ |List| #1=(|Record| (|:| |val| (|List| P)) (|:| |tower| TS))))
+        ((|p1| (P)) (|p2| (P)) (|ts| (TS))
+         ($ (|List| #1=(|Record| (|:| |val| (|List| P)) (|:| |tower| TS)))))
         (SPROG
          ((|toSee| (|List| #1#))
           (|toSave|
@@ -202,8 +205,8 @@
               (EXIT |toSave|)))) 
 
 (SDEFUN |SFRGCD;stoseIntegralLastSubResultant;2PTSL;7|
-        ((|p1| P) (|p2| P) (|ts| TS)
-         ($ |List| (|Record| (|:| |val| P) (|:| |tower| TS))))
+        ((|p1| (P)) (|p2| (P)) (|ts| (TS))
+         ($ (|List| (|Record| (|:| |val| P) (|:| |tower| TS)))))
         (SPROG ((|ex| (|Union| P "failed")) (|gi1i2| (P)) (|lsr| (P)))
                (SEQ (LETT |lsr| (SPADCALL |p1| |p2| (QREFELT $ 69)))
                     (EXIT
@@ -228,8 +231,9 @@
                                ('T (LIST (CONS (QCDR |ex|) |ts|)))))))))))) 
 
 (SDEFUN |SFRGCD;stoseInternalLastSubResultant;2PTS2BL;8|
-        ((|p1| P) (|p2| P) (|ts| TS) (|b1| |Boolean|) (|b2| |Boolean|)
-         ($ |List| (|Record| (|:| |val| P) (|:| |tower| TS))))
+        ((|p1| (P)) (|p2| (P)) (|ts| (TS)) (|b1| (|Boolean|))
+         (|b2| (|Boolean|))
+         ($ (|List| (|Record| (|:| |val| P) (|:| |tower| TS)))))
         (SPROG
          ((|toSave| (|List| (|Record| (|:| |val| P) (|:| |tower| TS))))
           (|toSee| (|List| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS))))
@@ -290,17 +294,17 @@
           #3# (EXIT #2#)))) 
 
 (SDEFUN |SFRGCD;stoseInternalLastSubResultant;LVBL;9|
-        ((|llpwt| |List| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS)))
-         (|v| V) (|b2| |Boolean|)
-         ($ |List| (|Record| (|:| |val| P) (|:| |tower| TS))))
+        ((|llpwt| (|List| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS))))
+         (|v| (V)) (|b2| (|Boolean|))
+         ($ (|List| (|Record| (|:| |val| P) (|:| |tower| TS)))))
         (SPROG
-         ((#1=#:G271 NIL)
-          (|lpwt| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS))) (|s| (P))
-          (|p2| (P)) (|p1| (P)) (|#G38| (P)) (|#G37| (P))
+         ((#1=#:G271 NIL) (|s| (P)) (|p2| (P)) (|p1| (P)) (|#G38| (P))
+          (|#G37| (P))
           (|toReturn| (|List| (|Record| (|:| |val| P) (|:| |tower| TS))))
           (#2=#:G270 NIL) (|p3| (P)) (|delta| (|NonNegativeInteger|))
           (#3=#:G257 NIL)
           (|toSee| (|List| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS))))
+          (|lpwt| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS)))
           (#4=#:G267 NIL) (#5=#:G269 NIL) (|bwt| NIL)
           (|lbwt| (|List| (|Record| (|:| |val| (|Boolean|)) (|:| |tower| TS))))
           (|ts| (TS)) (#6=#:G268 NIL))
@@ -309,7 +313,7 @@
            (SEQ (LETT |toReturn| NIL)
                 (SEQ G190 (COND ((NULL (NULL (NULL |llpwt|))) (GO G191)))
                      (SEQ (LETT |toSee| |llpwt|) (LETT |llpwt| NIL)
-                          (SEQ (LETT |lpwt| NIL) (LETT #6# |toSee|) G190
+                          (SEQ (LETT #6# |toSee|) G190
                                (COND
                                 ((OR (ATOM #6#)
                                      (PROGN (LETT |lpwt| (CAR #6#)) NIL))
@@ -409,8 +413,7 @@
                                                   (CONS |p3| (QCDR |lpwt|))
                                                   |toReturn|))
                                            (EXIT
-                                            (SEQ (LETT |lpwt| NIL)
-                                                 (LETT #2# |toSee|) G190
+                                            (SEQ (LETT #2# |toSee|) G190
                                                  (COND
                                                   ((OR (ATOM #2#)
                                                        (PROGN
@@ -444,8 +447,7 @@
                                                         (QCDR |lpwt|))
                                                   |llpwt|))
                                            (EXIT
-                                            (SEQ (LETT |lpwt| NIL)
-                                                 (LETT #1# |toSee|) G190
+                                            (SEQ (LETT #1# |toSee|) G190
                                                  (COND
                                                   ((OR (ATOM #1#)
                                                        (PROGN
@@ -467,8 +469,8 @@
           #7# (EXIT #4#)))) 
 
 (SDEFUN |SFRGCD;stoseLastSubResultant;2PTSL;10|
-        ((|p1| P) (|p2| P) (|ts| TS)
-         ($ |List| (|Record| (|:| |val| P) (|:| |tower| TS))))
+        ((|p1| (P)) (|p2| (P)) (|ts| (TS))
+         ($ (|List| (|Record| (|:| |val| P) (|:| |tower| TS)))))
         (SPROG ((|#G45| (P)) (|#G44| (P)))
                (SEQ
                 (COND
@@ -516,8 +518,8 @@
                    (EXIT (SPADCALL |p1| |p2| |ts| NIL NIL (QREFELT $ 49))))))))) 
 
 (SDEFUN |SFRGCD;stoseSquareFreePart_wip|
-        ((|p| P) (|ts| TS)
-         ($ |List| (|Record| (|:| |val| P) (|:| |tower| TS))))
+        ((|p| (P)) (|ts| (TS))
+         ($ (|List| (|Record| (|:| |val| P) (|:| |tower| TS)))))
         (SPROG
          ((|lpwt| (|List| (|Record| (|:| |val| P) (|:| |tower| TS))))
           (|sfp| (P)) (|g| (P)) (|us| (TS)) (#1=#:G294 NIL) (|gwt| NIL)
@@ -559,18 +561,18 @@
                       (EXIT |lpwt|))))))) 
 
 (SDEFUN |SFRGCD;stoseSquareFreePart_base|
-        ((|p| P) (|ts| TS)
-         ($ |List| (|Record| (|:| |val| P) (|:| |tower| TS))))
+        ((|p| (P)) (|ts| (TS))
+         ($ (|List| (|Record| (|:| |val| P) (|:| |tower| TS)))))
         (LIST (CONS |p| |ts|))) 
 
 (SDEFUN |SFRGCD;stoseSquareFreePart;PTSL;13|
-        ((|p| P) (|ts| TS)
-         ($ |List| (|Record| (|:| |val| P) (|:| |tower| TS))))
+        ((|p| (P)) (|ts| (TS))
+         ($ (|List| (|Record| (|:| |val| P) (|:| |tower| TS)))))
         (|SFRGCD;stoseSquareFreePart_wip| |p| |ts| $)) 
 
 (SDEFUN |SFRGCD;stoseInvertible?_sqfreg;PTSL;14|
-        ((|p| P) (|ts| TS)
-         ($ |List| (|Record| (|:| |val| (|Boolean|)) (|:| |tower| TS))))
+        ((|p| (P)) (|ts| (TS))
+         ($ (|List| (|Record| (|:| |val| (|Boolean|)) (|:| |tower| TS)))))
         (SPROG
          ((|lbwt| (|List| (|Record| (|:| |val| (|Boolean|)) (|:| |tower| TS))))
           (#1=#:G329 NIL) (|ts_h| NIL) (|lts_h| #2=(|List| TS)) (|h| (P))
@@ -669,8 +671,7 @@
                                               (SPADCALL |ts_v+| (QREFELT $ 98))
                                               |lts| (QREFELT $ 99)))
                                        (EXIT
-                                        (SEQ (LETT |ts| NIL) (LETT #4# |lts|)
-                                             G190
+                                        (SEQ (LETT #4# |lts|) G190
                                              (COND
                                               ((OR (ATOM #4#)
                                                    (PROGN
@@ -750,7 +751,7 @@
         (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 100))) 
 
 (SDEFUN |SFRGCD;stoseInvertibleSet_sqfreg;PTSL;15|
-        ((|p| P) (|ts| TS) ($ |List| TS))
+        ((|p| (P)) (|ts| (TS)) ($ (|List| TS)))
         (SPROG
          ((|toSave| (|List| TS)) (|lts_h| #1=(|List| TS)) (|h| (P)) (|g| (P))
           (|lts| #1#) (#2=#:G358 NIL) (|gwt| NIL)
@@ -944,8 +945,8 @@
           #7# (EXIT #4#)))) 
 
 (SDEFUN |SFRGCD;stoseInvertible?_reg;PTSL;16|
-        ((|p| P) (|ts| TS)
-         ($ |List| (|Record| (|:| |val| (|Boolean|)) (|:| |tower| TS))))
+        ((|p| (P)) (|ts| (TS))
+         ($ (|List| (|Record| (|:| |val| (|Boolean|)) (|:| |tower| TS)))))
         (SPROG
          ((|lbwt| (|List| (|Record| (|:| |val| (|Boolean|)) (|:| |tower| TS))))
           (#1=#:G396 NIL) (|bwt| NIL) (#2=#:G395 NIL)
@@ -1049,8 +1050,7 @@
                                               (SPADCALL |ts_v+| (QREFELT $ 98))
                                               |lts| (QREFELT $ 99)))
                                        (EXIT
-                                        (SEQ (LETT |ts| NIL) (LETT #7# |lts|)
-                                             G190
+                                        (SEQ (LETT #7# |lts|) G190
                                              (COND
                                               ((OR (ATOM #7#)
                                                    (PROGN
@@ -1152,7 +1152,7 @@
         (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 100))) 
 
 (SDEFUN |SFRGCD;stoseInvertibleSet_reg;PTSL;17|
-        ((|p| P) (|ts| TS) ($ |List| TS))
+        ((|p| (P)) (|ts| (TS)) ($ (|List| TS)))
         (SPROG
          ((|toSave| (|List| TS)) (|inv| (|List| TS)) (#1=#:G428 NIL)
           (|ts_h| NIL) (|lts_h| #2=(|List| TS)) (|h| (P)) (|g| (P)) (|lts| #2#)
@@ -1371,19 +1371,21 @@
           #8# (EXIT #5#)))) 
 
 (SDEFUN |SFRGCD;stoseInvertible?;PTSL;18|
-        ((|p| P) (|ts| TS)
-         ($ |List| (|Record| (|:| |val| (|Boolean|)) (|:| |tower| TS))))
+        ((|p| (P)) (|ts| (TS))
+         ($ (|List| (|Record| (|:| |val| (|Boolean|)) (|:| |tower| TS)))))
         (SPADCALL |p| |ts| (QREFELT $ 92))) 
 
-(SDEFUN |SFRGCD;stoseInvertibleSet;PTSL;19| ((|p| P) (|ts| TS) ($ |List| TS))
+(SDEFUN |SFRGCD;stoseInvertibleSet;PTSL;19|
+        ((|p| (P)) (|ts| (TS)) ($ (|List| TS)))
         (SPADCALL |p| |ts| (QREFELT $ 106))) 
 
 (SDEFUN |SFRGCD;stoseInvertible?;PTSL;20|
-        ((|p| P) (|ts| TS)
-         ($ |List| (|Record| (|:| |val| (|Boolean|)) (|:| |tower| TS))))
+        ((|p| (P)) (|ts| (TS))
+         ($ (|List| (|Record| (|:| |val| (|Boolean|)) (|:| |tower| TS)))))
         (SPADCALL |p| |ts| (QREFELT $ 112))) 
 
-(SDEFUN |SFRGCD;stoseInvertibleSet;PTSL;21| ((|p| P) (|ts| TS) ($ |List| TS))
+(SDEFUN |SFRGCD;stoseInvertibleSet;PTSL;21|
+        ((|p| (P)) (|ts| (TS)) ($ (|List| TS)))
         (SPADCALL |p| |ts| (QREFELT $ 113))) 
 
 (DECLAIM (NOTINLINE |SquareFreeRegularTriangularSetGcdPackage;|)) 

@@ -1,7 +1,7 @@
 
 (SDEFUN |NSUP2;map;MNsupNsup;1|
-        ((|f| |Mapping| S R) (|p| |NewSparseUnivariatePolynomial| R)
-         ($ |NewSparseUnivariatePolynomial| S))
+        ((|f| (|Mapping| S R)) (|p| (|NewSparseUnivariatePolynomial| R))
+         ($ (|NewSparseUnivariatePolynomial| S)))
         (SPADCALL |f| |p| (QREFELT $ 12))) 
 
 (DECLAIM (NOTINLINE |NewSparseUnivariatePolynomialFunctions2;|)) 

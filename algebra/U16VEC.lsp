@@ -1,44 +1,46 @@
 
 (PUT '|U16VEC;#;$Nni;1| '|SPADreplace| 'QV_LEN_U16) 
 
-(SDEFUN |U16VEC;#;$Nni;1| ((|x| $) ($ |NonNegativeInteger|)) (QV_LEN_U16 |x|)) 
+(SDEFUN |U16VEC;#;$Nni;1| ((|x| ($)) ($ (|NonNegativeInteger|)))
+        (QV_LEN_U16 |x|)) 
 
 (PUT '|U16VEC;minIndex;$I;2| '|SPADreplace| '(XLAM (|x|) 0)) 
 
-(SDEFUN |U16VEC;minIndex;$I;2| ((|x| $) ($ |Integer|)) 0) 
+(SDEFUN |U16VEC;minIndex;$I;2| ((|x| ($)) ($ (|Integer|))) 0) 
 
 (PUT '|U16VEC;empty;$;3| '|SPADreplace| '(XLAM NIL (GETREFV_U16 0 0))) 
 
-(SDEFUN |U16VEC;empty;$;3| (($ $)) (GETREFV_U16 0 0)) 
+(SDEFUN |U16VEC;empty;$;3| (($ ($))) (GETREFV_U16 0 0)) 
 
 (PUT '|U16VEC;new;NniI$;4| '|SPADreplace| 'GETREFV_U16) 
 
-(SDEFUN |U16VEC;new;NniI$;4| ((|n| |NonNegativeInteger|) (|x| |Integer|) ($ $))
+(SDEFUN |U16VEC;new;NniI$;4|
+        ((|n| (|NonNegativeInteger|)) (|x| (|Integer|)) ($ ($)))
         (GETREFV_U16 |n| |x|)) 
 
 (PUT '|U16VEC;qelt;$2I;5| '|SPADreplace| 'ELT_U16) 
 
-(SDEFUN |U16VEC;qelt;$2I;5| ((|x| $) (|i| |Integer|) ($ |Integer|))
+(SDEFUN |U16VEC;qelt;$2I;5| ((|x| ($)) (|i| (|Integer|)) ($ (|Integer|)))
         (ELT_U16 |x| |i|)) 
 
 (PUT '|U16VEC;elt;$2I;6| '|SPADreplace| 'ELT_U16) 
 
-(SDEFUN |U16VEC;elt;$2I;6| ((|x| $) (|i| |Integer|) ($ |Integer|))
+(SDEFUN |U16VEC;elt;$2I;6| ((|x| ($)) (|i| (|Integer|)) ($ (|Integer|)))
         (ELT_U16 |x| |i|)) 
 
 (PUT '|U16VEC;qsetelt!;$3I;7| '|SPADreplace| 'SETELT_U16) 
 
 (SDEFUN |U16VEC;qsetelt!;$3I;7|
-        ((|x| $) (|i| |Integer|) (|s| . #1=(|Integer|)) ($ . #1#))
+        ((|x| ($)) (|i| (|Integer|)) (|s| #1=(|Integer|)) ($ #1#))
         (SETELT_U16 |x| |i| |s|)) 
 
 (PUT '|U16VEC;setelt!;$3I;8| '|SPADreplace| 'SETELT_U16) 
 
 (SDEFUN |U16VEC;setelt!;$3I;8|
-        ((|x| $) (|i| |Integer|) (|s| . #1=(|Integer|)) ($ . #1#))
+        ((|x| ($)) (|i| (|Integer|)) (|s| #1=(|Integer|)) ($ #1#))
         (SETELT_U16 |x| |i| |s|)) 
 
-(SDEFUN |U16VEC;fill!;$I$;9| ((|x| $) (|s| |Integer|) ($ $))
+(SDEFUN |U16VEC;fill!;$I$;9| ((|x| ($)) (|s| (|Integer|)) ($ ($)))
         (SPROG ((#1=#:G2402 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 0) (LETT #1# (|sub_SI| (QV_LEN_U16 |x|) 1)) G190

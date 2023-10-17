@@ -1,5 +1,5 @@
 
-(SDEFUN |MPCPF;factor;PPRF;1| ((|p| PPR) ($ |Factored| PPR))
+(SDEFUN |MPCPF;factor;PPRF;1| ((|p| (PPR)) ($ (|Factored| PPR)))
         (SPROG
          ((#1=#:G117 NIL) (#2=#:G116 #3=(|Factored| PPR)) (#4=#:G118 #3#)
           (#5=#:G124 NIL) (|ff| NIL) (|fcont| (PPR))

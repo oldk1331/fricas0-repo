@@ -1,13 +1,13 @@
 
-(SDEFUN |DIOPS-;construct;LA;1| ((|l| |List| S) ($ A))
+(SDEFUN |DIOPS-;construct;LA;1| ((|l| (|List| S)) ($ (A)))
         (SPADCALL |l| (QREFELT $ 9))) 
 
-(SDEFUN |DIOPS-;dictionary;A;2| (($ A)) (SPADCALL (QREFELT $ 11))) 
+(SDEFUN |DIOPS-;dictionary;A;2| (($ (A))) (SPADCALL (QREFELT $ 11))) 
 
-(SDEFUN |DIOPS-;copy;2A;3| ((|d| A) ($ A))
+(SDEFUN |DIOPS-;copy;2A;3| ((|d| (A)) ($ (A)))
         (SPADCALL (SPADCALL |d| (QREFELT $ 13)) (QREFELT $ 9))) 
 
-(SDEFUN |DIOPS-;coerce;AOf;4| ((|s| A) ($ |OutputForm|))
+(SDEFUN |DIOPS-;coerce;AOf;4| ((|s| (A)) ($ (|OutputForm|)))
         (SPROG ((#1=#:G116 NIL) (|x| NIL) (#2=#:G115 NIL))
                (SEQ
                 (SPADCALL (SPADCALL "dictionary" (QREFELT $ 17))

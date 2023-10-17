@@ -1,5 +1,5 @@
 
-(SDEFUN |SCACHE;expandCache| ((|x| S) ($ |Void|))
+(SDEFUN |SCACHE;expandCache| ((|x| (S)) ($ (|Void|)))
         (SPROG ((#1=#:G119 NIL) (|k| NIL) (|ocache| (|PrimitiveArray| S)))
                (SEQ
                 (COND
@@ -18,7 +18,8 @@
                              (EXIT NIL))))))
                 (EXIT (SPADCALL (QREFELT $ 11)))))) 
 
-(SDEFUN |SCACHE;insertBefore| ((|l| |NonNegativeInteger|) (|x| S) ($ |Void|))
+(SDEFUN |SCACHE;insertBefore|
+        ((|l| (|NonNegativeInteger|)) (|x| (S)) ($ (|Void|)))
         (SPROG ((#1=#:G123 NIL) (|k| NIL) (|vscan| (|PrimitiveArray| S)))
                (SEQ (|SCACHE;expandCache| |x| $) (LETT |vscan| (QREFELT $ 7))
                     (SEQ (LETT |k| 0) (LETT #1# (- (- (QREFELT $ 9) |l|) 1))
@@ -34,7 +35,8 @@
                     (EXIT (SPADCALL (QREFELT $ 11)))))) 
 
 (SDEFUN |SCACHE;shiftCache|
-        ((|l| |NonNegativeInteger|) (|n| |NonNegativeInteger|) ($ |Void|))
+        ((|l| (|NonNegativeInteger|)) (|n| (|NonNegativeInteger|))
+         ($ (|Void|)))
         (SPROG
          ((|x| (S)) (#1=#:G128 NIL) (|k| NIL) (|vscan| (|PrimitiveArray| S)))
          (SEQ (LETT |vscan| (QREFELT $ 7))
@@ -47,7 +49,7 @@
                    (LETT |k| (+ |k| 1)) (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL (QREFELT $ 11)))))) 
 
-(SDEFUN |SCACHE;clearCache;V;4| (($ |Void|))
+(SDEFUN |SCACHE;clearCache;V;4| (($ (|Void|)))
         (SPROG
          ((|x| (S)) (#1=#:G133 NIL) (|k| NIL) (|vscan| (|PrimitiveArray| S)))
          (SEQ (LETT |vscan| (QREFELT $ 7))
@@ -59,13 +61,14 @@
               (SETELT $ 7 (MAKE-ARRAY 0)) (SETELT $ 8 0) (SETELT $ 9 0)
               (EXIT (SPADCALL (QREFELT $ 11)))))) 
 
-(SDEFUN |SCACHE;insertAtEnd| ((|x| S) ($ |Void|))
+(SDEFUN |SCACHE;insertAtEnd| ((|x| (S)) ($ (|Void|)))
         (SEQ (|SCACHE;expandCache| |x| $)
              (QSETAREF1 (QREFELT $ 7) (QREFELT $ 9) |x|)
              (SETELT $ 9 (+ (QREFELT $ 9) 1)) (EXIT (SPADCALL (QREFELT $ 11))))) 
 
 (SDEFUN |SCACHE;linearSearch;SMU;6|
-        ((|x| S) (|equal?| |Mapping| (|Boolean|) S) ($ |Union| S "failed"))
+        ((|x| (S)) (|equal?| (|Mapping| (|Boolean|) S))
+         ($ (|Union| S "failed")))
         (SPROG
          ((#1=#:G150 NIL) (|k| (|Integer|)) (|vscan| (|PrimitiveArray| S))
           (|y| (S)))
@@ -94,7 +97,7 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |SCACHE;enterInCache;SMS;7|
-        ((|x| S) (|equal?| |Mapping| (|Boolean|) S) ($ S))
+        ((|x| (S)) (|equal?| (|Mapping| (|Boolean|) S)) ($ (S)))
         (SPROG ((|res| (|Union| S "failed")))
                (SEQ (LETT |res| (SPADCALL |x| |equal?| (QREFELT $ 18)))
                     (EXIT
@@ -105,7 +108,8 @@
                              (|SCACHE;insertAtEnd| |x| $) (EXIT |x|)))))))) 
 
 (SDEFUN |SCACHE;binarySearch;SMU;8|
-        ((|x| S) (|triage| |Mapping| (|Integer|) S S) ($ |Union| S "failed"))
+        ((|x| (S)) (|triage| (|Mapping| (|Integer|) S S))
+         ($ (|Union| S "failed")))
         (SPROG
          ((|l| #1=(|Integer|)) (|m| #2=(|Integer|)) (|i| #3=(|Integer|))
           (|i0| #3#) (|l0| #1#) (|vscan| (|PrimitiveArray| S)) (#4=#:G181 NIL)
@@ -217,7 +221,7 @@
           #5# (EXIT #4#)))) 
 
 (SDEFUN |SCACHE;enterInCache;SMS;9|
-        ((|x| S) (|triage| |Mapping| (|Integer|) S S) ($ S))
+        ((|x| (S)) (|triage| (|Mapping| (|Integer|) S S)) ($ (S)))
         (SPROG
          ((#1=#:G200 NIL) (|pos| (|NonNegativeInteger|)) (#2=#:G205 NIL)
           (|l| #3=(|Integer|)) (|m| #4=(|Integer|)) (|i| #5=(|Integer|))
@@ -344,8 +348,8 @@
           #6# (EXIT #2#)))) 
 
 (SDEFUN |SCACHE;insertInCache|
-        ((|before| |NonNegativeInteger|) (|x| S) (|pos| |NonNegativeInteger|)
-         ($ S))
+        ((|before| (|NonNegativeInteger|)) (|x| (S))
+         (|pos| (|NonNegativeInteger|)) ($ (S)))
         (SPROG ((#1=#:G207 NIL) (|y| (S)))
                (SEQ (LETT |y| (QAREF1 (QREFELT $ 7) |before|))
                     (COND

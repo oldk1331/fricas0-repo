@@ -1,6 +1,6 @@
 
 (SDEFUN |REAL0Q;convert2PolInt|
-        ((|f| |Pol|) ($ |SparseUnivariatePolynomial| (|Integer|)))
+        ((|f| (|Pol|)) ($ (|SparseUnivariatePolynomial| (|Integer|))))
         (SPROG ((|pden| (|Integer|)) (#1=#:G108 NIL) (|c| NIL) (#2=#:G107 NIL))
                (SEQ
                 (LETT |pden|
@@ -25,57 +25,68 @@
                            (QREFELT $ 19)))))) 
 
 (SDEFUN |REAL0Q;realZeros;PolL;2|
-        ((|f| |Pol|)
-         ($ |List|
-          (|Record| (|:| |left| (|Fraction| (|Integer|)))
-                    (|:| |right| (|Fraction| (|Integer|))))))
+        ((|f| (|Pol|))
+         ($
+          (|List|
+           (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                     (|:| |right| (|Fraction| (|Integer|)))))))
         (SPADCALL (|REAL0Q;convert2PolInt| |f| $) (QREFELT $ 23))) 
 
 (SDEFUN |REAL0Q;realZeros;PolFL;3|
-        ((|f| |Pol|) (|rn| |Fraction| (|Integer|))
-         ($ |List|
-          (|Record| (|:| |left| (|Fraction| (|Integer|)))
-                    (|:| |right| (|Fraction| (|Integer|))))))
+        ((|f| (|Pol|)) (|rn| (|Fraction| (|Integer|)))
+         ($
+          (|List|
+           (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                     (|:| |right| (|Fraction| (|Integer|)))))))
         (SPADCALL (|REAL0Q;convert2PolInt| |f| $) |rn| (QREFELT $ 25))) 
 
 (SDEFUN |REAL0Q;realZeros;PolRL;4|
-        ((|f| |Pol|)
-         (|bounds| |Record| (|:| |left| (|Fraction| (|Integer|)))
-          (|:| |right| (|Fraction| (|Integer|))))
-         ($ |List|
+        ((|f| (|Pol|))
+         (|bounds|
           (|Record| (|:| |left| (|Fraction| (|Integer|)))
-                    (|:| |right| (|Fraction| (|Integer|))))))
+                    (|:| |right| (|Fraction| (|Integer|)))))
+         ($
+          (|List|
+           (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                     (|:| |right| (|Fraction| (|Integer|)))))))
         (SPADCALL (|REAL0Q;convert2PolInt| |f| $) |bounds| (QREFELT $ 27))) 
 
 (SDEFUN |REAL0Q;realZeros;PolRFL;5|
-        ((|f| |Pol|)
-         (|bounds| |Record| (|:| |left| (|Fraction| (|Integer|)))
-          (|:| |right| (|Fraction| (|Integer|))))
-         (|rn| |Fraction| (|Integer|))
-         ($ |List|
+        ((|f| (|Pol|))
+         (|bounds|
           (|Record| (|:| |left| (|Fraction| (|Integer|)))
-                    (|:| |right| (|Fraction| (|Integer|))))))
+                    (|:| |right| (|Fraction| (|Integer|)))))
+         (|rn| (|Fraction| (|Integer|)))
+         ($
+          (|List|
+           (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                     (|:| |right| (|Fraction| (|Integer|)))))))
         (SPADCALL (|REAL0Q;convert2PolInt| |f| $) |bounds| |rn| (QREFELT $ 29))) 
 
 (SDEFUN |REAL0Q;refine;PolRFR;6|
-        ((|f| |Pol|)
-         (|int| |Record| (|:| |left| (|Fraction| (|Integer|)))
-          (|:| |right| (|Fraction| (|Integer|))))
-         (|eps| |Fraction| (|Integer|))
-         ($ |Record| (|:| |left| (|Fraction| (|Integer|)))
-          (|:| |right| (|Fraction| (|Integer|)))))
+        ((|f| (|Pol|))
+         (|int|
+          (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                    (|:| |right| (|Fraction| (|Integer|)))))
+         (|eps| (|Fraction| (|Integer|)))
+         ($
+          (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                    (|:| |right| (|Fraction| (|Integer|))))))
         (SPADCALL (|REAL0Q;convert2PolInt| |f| $) |int| |eps| (QREFELT $ 31))) 
 
 (SDEFUN |REAL0Q;refine;Pol2RU;7|
-        ((|f| |Pol|)
-         (|int| |Record| (|:| |left| (|Fraction| (|Integer|)))
-          (|:| |right| (|Fraction| (|Integer|))))
-         (|bounds| |Record| (|:| |left| (|Fraction| (|Integer|)))
-          (|:| |right| (|Fraction| (|Integer|))))
-         ($ |Union|
+        ((|f| (|Pol|))
+         (|int|
           (|Record| (|:| |left| (|Fraction| (|Integer|)))
-                    (|:| |right| (|Fraction| (|Integer|))))
-          "failed"))
+                    (|:| |right| (|Fraction| (|Integer|)))))
+         (|bounds|
+          (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                    (|:| |right| (|Fraction| (|Integer|)))))
+         ($
+          (|Union|
+           (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                     (|:| |right| (|Fraction| (|Integer|))))
+           "failed")))
         (SPADCALL (|REAL0Q;convert2PolInt| |f| $) |int| |bounds|
                   (QREFELT $ 34))) 
 

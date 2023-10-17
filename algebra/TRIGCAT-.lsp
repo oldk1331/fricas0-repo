@@ -1,5 +1,5 @@
 
-(SDEFUN |TRIGCAT-;csc;2S;1| ((|x| S) ($ S))
+(SDEFUN |TRIGCAT-;csc;2S;1| ((|x| (S)) ($ (S)))
         (SPROG ((|a| (|Union| S "failed")))
                (SEQ
                 (LETT |a|
@@ -8,7 +8,7 @@
                  (COND ((QEQCAR |a| 1) (|error| "csc: no reciprocal"))
                        ('T (QCDR |a|))))))) 
 
-(SDEFUN |TRIGCAT-;sec;2S;2| ((|x| S) ($ S))
+(SDEFUN |TRIGCAT-;sec;2S;2| ((|x| (S)) ($ (S)))
         (SPROG ((|a| (|Union| S "failed")))
                (SEQ
                 (LETT |a|
@@ -17,11 +17,11 @@
                  (COND ((QEQCAR |a| 1) (|error| "sec: no reciprocal"))
                        ('T (QCDR |a|))))))) 
 
-(SDEFUN |TRIGCAT-;tan;2S;3| ((|x| S) ($ S))
+(SDEFUN |TRIGCAT-;tan;2S;3| ((|x| (S)) ($ (S)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 7)) (SPADCALL |x| (QREFELT $ 13))
                   (QREFELT $ 14))) 
 
-(SDEFUN |TRIGCAT-;cot;2S;4| ((|x| S) ($ S))
+(SDEFUN |TRIGCAT-;cot;2S;4| ((|x| (S)) ($ (S)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (SPADCALL |x| (QREFELT $ 16))
                   (QREFELT $ 14))) 
 

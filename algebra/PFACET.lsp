@@ -2,27 +2,29 @@
 (PUT '|PFACET;productFacet;IL$;1| '|SPADreplace| 'CONS) 
 
 (SDEFUN |PFACET;productFacet;IL$;1|
-        ((|mul1| |Integer|)
-         (|ind1| |List|
-          (|Record| (|:| |left| (|NonNegativeInteger|))
-                    (|:| |right| (|NonNegativeInteger|))))
-         ($ $))
+        ((|mul1| (|Integer|))
+         (|ind1|
+          (|List|
+           (|Record| (|:| |left| (|NonNegativeInteger|))
+                     (|:| |right| (|NonNegativeInteger|)))))
+         ($ ($)))
         (CONS |mul1| |ind1|)) 
 
 (SDEFUN |PFACET;productFacet;I2$;2|
-        ((|mul1| |Integer|) (|other| |ProductFacet|) ($ $))
+        ((|mul1| (|Integer|)) (|other| (|ProductFacet|)) ($ ($)))
         (CONS |mul1| (SPADCALL |other| (QREFELT $ 12)))) 
 
 (PUT '|PFACET;getIndexs;$L;3| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |PFACET;getIndexs;$L;3|
-        ((|orf| $)
-         ($ |List|
-          (|Record| (|:| |left| (|NonNegativeInteger|))
-                    (|:| |right| (|NonNegativeInteger|)))))
+        ((|orf| ($))
+         ($
+          (|List|
+           (|Record| (|:| |left| (|NonNegativeInteger|))
+                     (|:| |right| (|NonNegativeInteger|))))))
         (QCDR |orf|)) 
 
-(SDEFUN |PFACET;getMaxLeft;$Nni;4| ((|orf| $) ($ |NonNegativeInteger|))
+(SDEFUN |PFACET;getMaxLeft;$Nni;4| ((|orf| ($)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((|m| (|NonNegativeInteger|)) (#1=#:G127 NIL) (|index| NIL)
           (|indexes|
@@ -41,7 +43,7 @@
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT |m|)))) 
 
-(SDEFUN |PFACET;getMaxRight;$Nni;5| ((|orf| $) ($ |NonNegativeInteger|))
+(SDEFUN |PFACET;getMaxRight;$Nni;5| ((|orf| ($)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((|m| (|NonNegativeInteger|)) (#1=#:G134 NIL) (|index| NIL)
           (|indexes|
@@ -60,21 +62,22 @@
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT |m|)))) 
 
-(SDEFUN |PFACET;order;$Nni;6| ((|f| $) ($ |NonNegativeInteger|))
+(SDEFUN |PFACET;order;$Nni;6| ((|f| ($)) ($ (|NonNegativeInteger|)))
         (LENGTH (SPADCALL |f| (QREFELT $ 14)))) 
 
 (PUT '|PFACET;getMult;$I;7| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |PFACET;getMult;$I;7| ((|orf| $) ($ |Integer|)) (QCAR |orf|)) 
+(SDEFUN |PFACET;getMult;$I;7| ((|orf| ($)) ($ (|Integer|))) (QCAR |orf|)) 
 
-(SDEFUN |PFACET;setMult!;$I$;8| ((|orf| $) (|m| |Integer|) ($ $))
+(SDEFUN |PFACET;setMult!;$I$;8| ((|orf| ($)) (|m| (|Integer|)) ($ ($)))
         (SEQ (PROGN (RPLACA |orf| |m|) (QCAR |orf|)) (EXIT |orf|))) 
 
 (SDEFUN |PFACET;addVertex2;$R$;9|
-        ((|sa| $)
-         (|v| |Record| (|:| |left| (|NonNegativeInteger|))
-          (|:| |right| (|NonNegativeInteger|)))
-         ($ $))
+        ((|sa| ($))
+         (|v|
+          (|Record| (|:| |left| (|NonNegativeInteger|))
+                    (|:| |right| (|NonNegativeInteger|))))
+         ($ ($)))
         (SPROG
          ((|f|
            (|List|
@@ -84,7 +87,7 @@
               (LETT |f| (SPADCALL |f| |v| (QREFELT $ 21)))
               (EXIT (SPADCALL 1 |f| (QREFELT $ 10)))))) 
 
-(SDEFUN |PFACET;=;2$B;10| ((|a| $) (|b| $) ($ |Boolean|))
+(SDEFUN |PFACET;=;2$B;10| ((|a| ($)) (|b| ($)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G155 NIL) (#2=#:G156 NIL) (|inda| NIL) (#3=#:G157 NIL)
           (|indb| NIL)
@@ -123,7 +126,7 @@
             (EXIT 'T)))
           #5# (EXIT #1#)))) 
 
-(SDEFUN |PFACET;coerce;$Of;11| ((|s| $) ($ |OutputForm|))
+(SDEFUN |PFACET;coerce;$Of;11| ((|s| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|body| (|OutputForm|)) (|elements| (|List| (|OutputForm|)))
           (|element| (|OutputForm|)) (|r| (|NonNegativeInteger|))

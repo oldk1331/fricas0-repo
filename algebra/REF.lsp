@@ -1,27 +1,27 @@
 
 (PUT '|REF;=;2$B;1| '|SPADreplace| 'EQ) 
 
-(SDEFUN |REF;=;2$B;1| ((|p| $) (|q| $) ($ |Boolean|)) (EQ |p| |q|)) 
+(SDEFUN |REF;=;2$B;1| ((|p| ($)) (|q| ($)) ($ (|Boolean|))) (EQ |p| |q|)) 
 
 (PUT '|REF;ref;S$;2| '|SPADreplace| 'LIST) 
 
-(SDEFUN |REF;ref;S$;2| ((|v| S) ($ $)) (LIST |v|)) 
+(SDEFUN |REF;ref;S$;2| ((|v| (S)) ($ ($))) (LIST |v|)) 
 
 (PUT '|REF;elt;$S;3| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |REF;elt;$S;3| ((|p| $) ($ S)) (QCAR |p|)) 
+(SDEFUN |REF;elt;$S;3| ((|p| ($)) ($ (S))) (QCAR |p|)) 
 
-(SDEFUN |REF;setelt!;$2S;4| ((|p| $) (|v| S) ($ S))
+(SDEFUN |REF;setelt!;$2S;4| ((|p| ($)) (|v| (S)) ($ (S)))
         (PROGN (RPLACA |p| |v|) (QCAR |p|))) 
 
 (PUT '|REF;deref;$S;5| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |REF;deref;$S;5| ((|p| $) ($ S)) (QCAR |p|)) 
+(SDEFUN |REF;deref;$S;5| ((|p| ($)) ($ (S))) (QCAR |p|)) 
 
-(SDEFUN |REF;setref;$2S;6| ((|p| $) (|v| S) ($ S))
+(SDEFUN |REF;setref;$2S;6| ((|p| ($)) (|v| (S)) ($ (S)))
         (PROGN (RPLACA |p| |v|) (QCAR |p|))) 
 
-(SDEFUN |REF;coerce;$Of;7| ((|p| $) ($ |OutputForm|))
+(SDEFUN |REF;coerce;$Of;7| ((|p| ($)) ($ (|OutputForm|)))
         (SPADCALL (SPADCALL "ref" (QREFELT $ 17))
                   (LIST (SPADCALL (QCAR |p|) (QREFELT $ 18))) (QREFELT $ 20))) 
 

@@ -1,38 +1,39 @@
 
-(SDEFUN |HACKPI;pi;$;1| (($ $))
+(SDEFUN |HACKPI;pi;$;1| (($ ($)))
         (SPADCALL (SPADCALL 1 1 (QREFELT $ 13)) (QREFELT $ 14))) 
 
 (PUT '|HACKPI;convert;$F;2| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |HACKPI;convert;$F;2|
-        ((|x| $) ($ |Fraction| (|SparseUnivariatePolynomial| (|Integer|)))) |x|) 
+        ((|x| ($)) ($ (|Fraction| (|SparseUnivariatePolynomial| (|Integer|)))))
+        |x|) 
 
-(SDEFUN |HACKPI;convert;$F;3| ((|x| $) ($ |Float|))
+(SDEFUN |HACKPI;convert;$F;3| ((|x| ($)) ($ (|Float|)))
         (SPADCALL |x| (QREFELT $ 18))) 
 
-(SDEFUN |HACKPI;convert;$Df;4| ((|x| $) ($ |DoubleFloat|))
+(SDEFUN |HACKPI;convert;$Df;4| ((|x| ($)) ($ (|DoubleFloat|)))
         (SPADCALL |x| (QREFELT $ 21))) 
 
-(SDEFUN |HACKPI;coerce;$Df;5| ((|x| $) ($ |DoubleFloat|))
+(SDEFUN |HACKPI;coerce;$Df;5| ((|x| ($)) ($ (|DoubleFloat|)))
         (|div_DF| (|HACKPI;p2sf| (SPADCALL |x| (QREFELT $ 23)) $)
                   (|HACKPI;p2sf| (SPADCALL |x| (QREFELT $ 24)) $))) 
 
-(SDEFUN |HACKPI;coerce;$F;6| ((|x| $) ($ |Float|))
+(SDEFUN |HACKPI;coerce;$F;6| ((|x| ($)) ($ (|Float|)))
         (SPADCALL (|HACKPI;p2f| (SPADCALL |x| (QREFELT $ 23)) $)
                   (|HACKPI;p2f| (SPADCALL |x| (QREFELT $ 24)) $)
                   (QREFELT $ 25))) 
 
 (SDEFUN |HACKPI;p2o|
-        ((|p| |SparseUnivariatePolynomial| (|Integer|)) ($ |OutputForm|))
+        ((|p| (|SparseUnivariatePolynomial| (|Integer|))) ($ (|OutputForm|)))
         (SPADCALL |p| (SPADCALL (QREFELT $ 7) (QREFELT $ 28)) (QREFELT $ 29))) 
 
 (SDEFUN |HACKPI;p2i|
-        ((|p| |SparseUnivariatePolynomial| (|Integer|)) ($ |InputForm|))
+        ((|p| (|SparseUnivariatePolynomial| (|Integer|))) ($ (|InputForm|)))
         (SPADCALL (|HACKPI;p2p| |p| $) (QREFELT $ 32))) 
 
 (SDEFUN |HACKPI;p2p|
-        ((|p| |SparseUnivariatePolynomial| (|Integer|))
-         ($ |Polynomial| (|Integer|)))
+        ((|p| (|SparseUnivariatePolynomial| (|Integer|)))
+         ($ (|Polynomial| (|Integer|))))
         (SPROG ((|ans| (|Polynomial| (|Integer|))))
                (SEQ (LETT |ans| (|spadConstant| $ 33))
                     (SEQ G190
@@ -56,7 +57,7 @@
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT |ans|)))) 
 
-(SDEFUN |HACKPI;coerce;$Of;10| ((|x| $) ($ |OutputForm|))
+(SDEFUN |HACKPI;coerce;$Of;10| ((|x| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|r| (|Union| (|SparseUnivariatePolynomial| (|Integer|)) "failed")))
          (SEQ (LETT |r| (SPADCALL |x| (QREFELT $ 46)))
@@ -67,7 +68,7 @@
                                 (|HACKPI;p2o| (SPADCALL |x| (QREFELT $ 24)) $)
                                 (QREFELT $ 47)))))))) 
 
-(SDEFUN |HACKPI;convert;$If;11| ((|x| $) ($ |InputForm|))
+(SDEFUN |HACKPI;convert;$If;11| ((|x| ($)) ($ (|InputForm|)))
         (SPROG
          ((|r| (|Union| (|SparseUnivariatePolynomial| (|Integer|)) "failed")))
          (SEQ (LETT |r| (SPADCALL |x| (QREFELT $ 46)))
@@ -79,12 +80,12 @@
                                 (QREFELT $ 49)))))))) 
 
 (SDEFUN |HACKPI;p2sf|
-        ((|p| |SparseUnivariatePolynomial| (|Integer|)) ($ |DoubleFloat|))
+        ((|p| (|SparseUnivariatePolynomial| (|Integer|))) ($ (|DoubleFloat|)))
         (SPADCALL (SPADCALL (ELT $ 51) |p| (QREFELT $ 55))
                   (FLOAT PI MOST-POSITIVE-DOUBLE-FLOAT) (QREFELT $ 56))) 
 
 (SDEFUN |HACKPI;p2f|
-        ((|p| |SparseUnivariatePolynomial| (|Integer|)) ($ |Float|))
+        ((|p| (|SparseUnivariatePolynomial| (|Integer|))) ($ (|Float|)))
         (SPADCALL (SPADCALL (ELT $ 57) |p| (QREFELT $ 61))
                   (SPADCALL (QREFELT $ 62)) (QREFELT $ 63))) 
 

@@ -1,12 +1,13 @@
 
-(SDEFUN |SPECOUT;juxtaposeTerms| ((|l| |List| (|OutputForm|)) ($ |OutputForm|))
+(SDEFUN |SPECOUT;juxtaposeTerms|
+        ((|l| (|List| (|OutputForm|))) ($ (|OutputForm|)))
         (SPADCALL |l| (QREFELT $ 8))) 
 
-(SDEFUN |SPECOUT;outputAsFortran;OfV;2| ((|e| |OutputForm|) ($ |Void|))
+(SDEFUN |SPECOUT;outputAsFortran;OfV;2| ((|e| (|OutputForm|)) ($ (|Void|)))
         (SEQ (|dispfortexp| |e|) (EXIT (SPADCALL (QREFELT $ 10))))) 
 
 (SDEFUN |SPECOUT;outputAsFortran;SOfV;3|
-        ((|var| |String|) (|e| |OutputForm|) ($ |Void|))
+        ((|var| (|String|)) (|e| (|OutputForm|)) ($ (|Void|)))
         (SEQ
          (LETT |e|
                (SPADCALL
@@ -14,19 +15,21 @@
                 (QREFELT $ 16)))
          (EXIT (SPADCALL |e| (QREFELT $ 11))))) 
 
-(SDEFUN |SPECOUT;outputAsFortran;LV;4| ((|l| |List| (|OutputForm|)) ($ |Void|))
+(SDEFUN |SPECOUT;outputAsFortran;LV;4|
+        ((|l| (|List| (|OutputForm|))) ($ (|Void|)))
         (SPADCALL (|SPECOUT;juxtaposeTerms| |l| $) (QREFELT $ 11))) 
 
-(SDEFUN |SPECOUT;outputAsScript;OfV;5| ((|e| |OutputForm|) ($ |Void|))
+(SDEFUN |SPECOUT;outputAsScript;OfV;5| ((|e| (|OutputForm|)) ($ (|Void|)))
         (SEQ (|formulaFormat| |e|) (EXIT (SPADCALL (QREFELT $ 10))))) 
 
-(SDEFUN |SPECOUT;outputAsScript;LV;6| ((|l| |List| (|OutputForm|)) ($ |Void|))
+(SDEFUN |SPECOUT;outputAsScript;LV;6|
+        ((|l| (|List| (|OutputForm|))) ($ (|Void|)))
         (SPADCALL (|SPECOUT;juxtaposeTerms| |l| $) (QREFELT $ 20))) 
 
-(SDEFUN |SPECOUT;outputAsTex;OfV;7| ((|e| |OutputForm|) ($ |Void|))
+(SDEFUN |SPECOUT;outputAsTex;OfV;7| ((|e| (|OutputForm|)) ($ (|Void|)))
         (SEQ (|texFormat| |e|) (EXIT (SPADCALL (QREFELT $ 10))))) 
 
-(SDEFUN |SPECOUT;outputAsTex;LV;8| ((|l| |List| (|OutputForm|)) ($ |Void|))
+(SDEFUN |SPECOUT;outputAsTex;LV;8| ((|l| (|List| (|OutputForm|))) ($ (|Void|)))
         (SPADCALL (|SPECOUT;juxtaposeTerms| |l| $) (QREFELT $ 22))) 
 
 (DECLAIM (NOTINLINE |SpecialOutputPackage;|)) 

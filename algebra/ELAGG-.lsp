@@ -1,38 +1,40 @@
 
-(SDEFUN |ELAGG-;delete;AIA;1| ((|x| A) (|i| |Integer|) ($ A))
+(SDEFUN |ELAGG-;delete;AIA;1| ((|x| (A)) (|i| (|Integer|)) ($ (A)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 8)) |i| (QREFELT $ 10))) 
 
 (SDEFUN |ELAGG-;delete;AUsA;2|
-        ((|x| A) (|i| |UniversalSegment| (|Integer|)) ($ A))
+        ((|x| (A)) (|i| (|UniversalSegment| (|Integer|))) ($ (A)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 8)) |i| (QREFELT $ 13))) 
 
-(SDEFUN |ELAGG-;remove;M2A;3| ((|f| |Mapping| (|Boolean|) S) (|x| A) ($ A))
+(SDEFUN |ELAGG-;remove;M2A;3|
+        ((|f| (|Mapping| (|Boolean|) S)) (|x| (A)) ($ (A)))
         (SPADCALL |f| (SPADCALL |x| (QREFELT $ 8)) (QREFELT $ 16))) 
 
-(SDEFUN |ELAGG-;insert;SAIA;4| ((|s| S) (|x| A) (|i| |Integer|) ($ A))
+(SDEFUN |ELAGG-;insert;SAIA;4| ((|s| (S)) (|x| (A)) (|i| (|Integer|)) ($ (A)))
         (SPADCALL |s| (SPADCALL |x| (QREFELT $ 8)) |i| (QREFELT $ 18))) 
 
-(SDEFUN |ELAGG-;insert;2AIA;5| ((|w| A) (|x| A) (|i| |Integer|) ($ A))
+(SDEFUN |ELAGG-;insert;2AIA;5| ((|w| (A)) (|x| (A)) (|i| (|Integer|)) ($ (A)))
         (SPADCALL (SPADCALL |w| (QREFELT $ 8)) (SPADCALL |x| (QREFELT $ 8)) |i|
                   (QREFELT $ 20))) 
 
-(SDEFUN |ELAGG-;select;M2A;6| ((|f| |Mapping| (|Boolean|) S) (|x| A) ($ A))
+(SDEFUN |ELAGG-;select;M2A;6|
+        ((|f| (|Mapping| (|Boolean|) S)) (|x| (A)) ($ (A)))
         (SPADCALL |f| (SPADCALL |x| (QREFELT $ 8)) (QREFELT $ 22))) 
 
-(SDEFUN |ELAGG-;concat;3A;7| ((|x| A) (|y| A) ($ A))
+(SDEFUN |ELAGG-;concat;3A;7| ((|x| (A)) (|y| (A)) ($ (A)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 8)) |y| (QREFELT $ 24))) 
 
-(SDEFUN |ELAGG-;concat;ASA;8| ((|x| A) (|y| S) ($ A))
+(SDEFUN |ELAGG-;concat;ASA;8| ((|x| (A)) (|y| (S)) ($ (A)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 8)) (SPADCALL 1 |y| (QREFELT $ 27))
                   (QREFELT $ 24))) 
 
-(SDEFUN |ELAGG-;concat!;ASA;9| ((|x| A) (|y| S) ($ A))
+(SDEFUN |ELAGG-;concat!;ASA;9| ((|x| (A)) (|y| (S)) ($ (A)))
         (SPADCALL |x| (SPADCALL 1 |y| (QREFELT $ 27)) (QREFELT $ 24))) 
 
-(SDEFUN |ELAGG-;remove;S2A;10| ((|s| S) (|x| A) ($ A))
+(SDEFUN |ELAGG-;remove;S2A;10| ((|s| (S)) (|x| (A)) ($ (A)))
         (SPADCALL |s| (SPADCALL |x| (QREFELT $ 8)) (QREFELT $ 30))) 
 
-(SDEFUN |ELAGG-;remove!;S2A;11| ((|s| S) (|x| A) ($ A))
+(SDEFUN |ELAGG-;remove!;S2A;11| ((|s| (S)) (|x| (A)) ($ (A)))
         (SPROG NIL
                (SPADCALL (CONS #'|ELAGG-;remove!;S2A;11!0| (VECTOR $ |s|)) |x|
                          (QREFELT $ 16)))) 
@@ -43,10 +45,10 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |y| |s| (QREFELT $ 33)))))) 
 
-(SDEFUN |ELAGG-;removeDuplicates;2A;12| ((|x| A) ($ A))
+(SDEFUN |ELAGG-;removeDuplicates;2A;12| ((|x| (A)) ($ (A)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 8)) (QREFELT $ 35))) 
 
-(SDEFUN |ELAGG-;merge!;3A;13| ((|x| A) (|y| A) ($ A))
+(SDEFUN |ELAGG-;merge!;3A;13| ((|x| (A)) (|y| (A)) ($ (A)))
         (SPADCALL (ELT $ 37) |x| |y| (QREFELT $ 39))) 
 
 (DECLAIM (NOTINLINE |ExtensibleLinearAggregate&;|)) 

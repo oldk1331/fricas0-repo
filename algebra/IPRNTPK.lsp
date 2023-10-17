@@ -1,5 +1,5 @@
 
-(SDEFUN |IPRNTPK;iprint;SV;1| ((|s| |String|) ($ |Void|))
+(SDEFUN |IPRNTPK;iprint;SV;1| ((|s| (|String|)) ($ (|Void|)))
         (SEQ (PRINC (SPADCALL |s| (QREFELT $ 8))) (EXIT (FORCE-OUTPUT)))) 
 
 (DECLAIM (NOTINLINE |InternalPrintPackage;|)) 

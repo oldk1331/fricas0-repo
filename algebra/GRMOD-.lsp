@@ -1,5 +1,5 @@
 
-(SDEFUN |GRMOD-;-;3S;1| ((|x| S) (|y| S) ($ S))
+(SDEFUN |GRMOD-;-;3S;1| ((|x| (S)) (|y| (S)) ($ (S)))
         (SPADCALL |x| (SPADCALL |y| (QREFELT $ 9)) (QREFELT $ 10))) 
 
 (DECLAIM (NOTINLINE |GradedModule&;|)) 

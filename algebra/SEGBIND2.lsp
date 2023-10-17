@@ -1,6 +1,7 @@
 
 (SDEFUN |SEGBIND2;map;MSbSb;1|
-        ((|f| |Mapping| S R) (|b| |SegmentBinding| R) ($ |SegmentBinding| S))
+        ((|f| (|Mapping| S R)) (|b| (|SegmentBinding| R))
+         ($ (|SegmentBinding| S)))
         (SPADCALL (SPADCALL |b| (QREFELT $ 10))
                   (SPADCALL |f| (SPADCALL |b| (QREFELT $ 12)) (QREFELT $ 16))
                   (QREFELT $ 18))) 

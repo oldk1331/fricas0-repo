@@ -1,16 +1,17 @@
 
 (SDEFUN |DRAWPT;draw;LLTdv;1|
-        ((|lp| |List| (|Point| (|DoubleFloat|))) (|l| |List| (|DrawOption|))
-         ($ |TwoDimensionalViewport|))
+        ((|lp| (|List| (|Point| (|DoubleFloat|))))
+         (|l| (|List| (|DrawOption|))) ($ (|TwoDimensionalViewport|)))
         (SPADCALL (SPADCALL (LIST |lp|) (QREFELT $ 8)) |l| (QREFELT $ 11))) 
 
 (SDEFUN |DRAWPT;draw;LTdv;2|
-        ((|lp| |List| (|Point| (|DoubleFloat|))) ($ |TwoDimensionalViewport|))
+        ((|lp| (|List| (|Point| (|DoubleFloat|))))
+         ($ (|TwoDimensionalViewport|)))
         (SPADCALL |lp| NIL (QREFELT $ 13))) 
 
 (SDEFUN |DRAWPT;draw;2LLTdv;3|
-        ((|lx| |List| (|DoubleFloat|)) (|ly| |List| (|DoubleFloat|))
-         (|l| |List| (|DrawOption|)) ($ |TwoDimensionalViewport|))
+        ((|lx| (|List| (|DoubleFloat|))) (|ly| (|List| (|DoubleFloat|)))
+         (|l| (|List| (|DrawOption|))) ($ (|TwoDimensionalViewport|)))
         (SPROG
          ((#1=#:G112 NIL) (|x| NIL) (#2=#:G113 NIL) (|y| NIL) (#3=#:G111 NIL))
          (SEQ
@@ -32,19 +33,19 @@
            |l| (QREFELT $ 13))))) 
 
 (SDEFUN |DRAWPT;draw;2LTdv;4|
-        ((|lx| |List| (|DoubleFloat|)) (|ly| |List| (|DoubleFloat|))
-         ($ |TwoDimensionalViewport|))
+        ((|lx| (|List| (|DoubleFloat|))) (|ly| (|List| (|DoubleFloat|)))
+         ($ (|TwoDimensionalViewport|)))
         (SPADCALL |lx| |ly| NIL (QREFELT $ 18))) 
 
 (SDEFUN |DRAWPT;draw;3LTdv;5|
-        ((|x| |List| (|DoubleFloat|)) (|y| |List| (|DoubleFloat|))
-         (|z| |List| (|DoubleFloat|)) ($ |ThreeDimensionalViewport|))
+        ((|x| (|List| (|DoubleFloat|))) (|y| (|List| (|DoubleFloat|)))
+         (|z| (|List| (|DoubleFloat|))) ($ (|ThreeDimensionalViewport|)))
         (SPADCALL |x| |y| |z| NIL (QREFELT $ 21))) 
 
 (SDEFUN |DRAWPT;draw;3LLTdv;6|
-        ((|x| |List| (|DoubleFloat|)) (|y| |List| (|DoubleFloat|))
-         (|z| |List| (|DoubleFloat|)) (|l| |List| (|DrawOption|))
-         ($ |ThreeDimensionalViewport|))
+        ((|x| (|List| (|DoubleFloat|))) (|y| (|List| (|DoubleFloat|)))
+         (|z| (|List| (|DoubleFloat|))) (|l| (|List| (|DrawOption|)))
+         ($ (|ThreeDimensionalViewport|)))
         (SPROG
          ((|points| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (|row| (|List| (|Point| (|DoubleFloat|)))) (|zval| (|Integer|))

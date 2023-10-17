@@ -1,7 +1,7 @@
 
 (SDEFUN |PATRES2;map;MPmrPmr;1|
-        ((|f| |Mapping| B A) (|r| |PatternMatchResult| R A)
-         ($ |PatternMatchResult| R B))
+        ((|f| (|Mapping| B A)) (|r| (|PatternMatchResult| R A))
+         ($ (|PatternMatchResult| R B)))
         (SPROG ((#1=#:G111 NIL) (|rec| NIL) (#2=#:G110 NIL))
                (SEQ
                 (COND ((SPADCALL |r| (QREFELT $ 11)) (SPADCALL (QREFELT $ 13)))

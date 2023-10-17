@@ -1,33 +1,35 @@
 
 (PUT '|OMCONN;OMmakeConn;Si$;1| '|SPADreplace| 'OM-MAKECONN) 
 
-(SDEFUN |OMCONN;OMmakeConn;Si$;1| ((|timeout| |SingleInteger|) ($ $))
+(SDEFUN |OMCONN;OMmakeConn;Si$;1| ((|timeout| (|SingleInteger|)) ($ ($)))
         (OM-MAKECONN |timeout|)) 
 
 (PUT '|OMCONN;OMcloseConn;$V;2| '|SPADreplace| 'OM-CLOSECONN) 
 
-(SDEFUN |OMCONN;OMcloseConn;$V;2| ((|conn| $) ($ |Void|)) (OM-CLOSECONN |conn|)) 
+(SDEFUN |OMCONN;OMcloseConn;$V;2| ((|conn| ($)) ($ (|Void|)))
+        (OM-CLOSECONN |conn|)) 
 
 (PUT '|OMCONN;OMconnInDevice;$Omd;3| '|SPADreplace| 'OM-GETCONNINDEV) 
 
-(SDEFUN |OMCONN;OMconnInDevice;$Omd;3| ((|conn| $) ($ |OpenMathDevice|))
+(SDEFUN |OMCONN;OMconnInDevice;$Omd;3| ((|conn| ($)) ($ (|OpenMathDevice|)))
         (OM-GETCONNINDEV |conn|)) 
 
 (PUT '|OMCONN;OMconnOutDevice;$Omd;4| '|SPADreplace| 'OM-GETCONNOUTDEV) 
 
-(SDEFUN |OMCONN;OMconnOutDevice;$Omd;4| ((|conn| $) ($ |OpenMathDevice|))
+(SDEFUN |OMCONN;OMconnOutDevice;$Omd;4| ((|conn| ($)) ($ (|OpenMathDevice|)))
         (OM-GETCONNOUTDEV |conn|)) 
 
 (PUT '|OMCONN;OMconnectTCP;$SSiB;5| '|SPADreplace| 'OM-CONNECTTCP) 
 
 (SDEFUN |OMCONN;OMconnectTCP;$SSiB;5|
-        ((|conn| $) (|host| |String|) (|port| |SingleInteger|) ($ |Boolean|))
+        ((|conn| ($)) (|host| (|String|)) (|port| (|SingleInteger|))
+         ($ (|Boolean|)))
         (OM-CONNECTTCP |conn| |host| |port|)) 
 
 (PUT '|OMCONN;OMbindTCP;$SiB;6| '|SPADreplace| 'OM-BINDTCP) 
 
 (SDEFUN |OMCONN;OMbindTCP;$SiB;6|
-        ((|conn| $) (|port| |SingleInteger|) ($ |Boolean|))
+        ((|conn| ($)) (|port| (|SingleInteger|)) ($ (|Boolean|)))
         (OM-BINDTCP |conn| |port|)) 
 
 (DECLAIM (NOTINLINE |OpenMathConnection;|)) 

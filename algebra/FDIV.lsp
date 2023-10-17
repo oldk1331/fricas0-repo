@@ -1,100 +1,104 @@
 
-(SDEFUN |FDIV;Zero;$;1| (($ $)) (|spadConstant| $ 13)) 
+(SDEFUN |FDIV;Zero;$;1| (($ ($))) (|spadConstant| $ 13)) 
 
-(SDEFUN |FDIV;coerce;$Of;2| ((|d| $) ($ |OutputForm|))
+(SDEFUN |FDIV;coerce;$Of;2| ((|d| ($)) ($ (|OutputForm|)))
         (SPADCALL |d| (QREFELT $ 16))) 
 
-(SDEFUN |FDIV;=;2$B;3| ((|d1| $) (|d2| $) ($ |Boolean|))
+(SDEFUN |FDIV;=;2$B;3| ((|d1| ($)) (|d2| ($)) ($ (|Boolean|)))
         (SPADCALL |d1| |d2| (QREFELT $ 19))) 
 
-(SDEFUN |FDIV;*;I2$;4| ((|n| |Integer|) (|d| $) ($ $))
+(SDEFUN |FDIV;*;I2$;4| ((|n| (|Integer|)) (|d| ($)) ($ ($)))
         (SPADCALL |n| |d| (QREFELT $ 22))) 
 
-(SDEFUN |FDIV;+;3$;5| ((|d1| $) (|d2| $) ($ $))
+(SDEFUN |FDIV;+;3$;5| ((|d1| ($)) (|d2| ($)) ($ ($)))
         (SPADCALL |d1| |d2| (QREFELT $ 24))) 
 
-(SDEFUN |FDIV;-;2$;6| ((|d| $) ($ $)) (SPADCALL |d| (QREFELT $ 26))) 
+(SDEFUN |FDIV;-;2$;6| ((|d| ($)) ($ ($))) (SPADCALL |d| (QREFELT $ 26))) 
 
 (SDEFUN |FDIV;ideal;$Fi;7|
-        ((|d| $) ($ |FractionalIdeal| UP (|Fraction| UP) UPUP R))
+        ((|d| ($)) ($ (|FractionalIdeal| UP (|Fraction| UP) UPUP R)))
         (SPADCALL |d| (QREFELT $ 29))) 
 
-(SDEFUN |FDIV;reduce;2$;8| ((|d| $) ($ $)) (SPADCALL |d| (QREFELT $ 31))) 
+(SDEFUN |FDIV;reduce;2$;8| ((|d| ($)) ($ ($))) (SPADCALL |d| (QREFELT $ 31))) 
 
-(SDEFUN |FDIV;generator;$U;9| ((|d| $) ($ |Union| R "failed"))
+(SDEFUN |FDIV;generator;$U;9| ((|d| ($)) ($ (|Union| R "failed")))
         (SPADCALL |d| (QREFELT $ 34))) 
 
 (SDEFUN |FDIV;generator;$ILU;10|
-        ((|d| $) (|k| |Integer|) (|lp| |List| UP) ($ |Union| R "failed"))
+        ((|d| ($)) (|k| (|Integer|)) (|lp| (|List| UP))
+         ($ (|Union| R "failed")))
         (SPADCALL |d| |k| |lp| (QREFELT $ 37))) 
 
 (SDEFUN |FDIV;decompose;$R;11|
-        ((|d| $)
-         ($ |Record| (|:| |id| (|FractionalIdeal| UP (|Fraction| UP) UPUP R))
-          (|:| |principalPart| R)))
+        ((|d| ($))
+         ($
+          (|Record| (|:| |id| (|FractionalIdeal| UP (|Fraction| UP) UPUP R))
+                    (|:| |principalPart| R))))
         (SPADCALL |d| (QREFELT $ 40))) 
 
 (SDEFUN |FDIV;divisor;Fi$;12|
-        ((|i| |FractionalIdeal| UP (|Fraction| UP) UPUP R) ($ $))
+        ((|i| (|FractionalIdeal| UP (|Fraction| UP) UPUP R)) ($ ($)))
         (SPADCALL |i| (QREFELT $ 42))) 
 
-(SDEFUN |FDIV;divisor;R$;13| ((|f| R) ($ $)) (SPADCALL |f| (QREFELT $ 44))) 
+(SDEFUN |FDIV;divisor;R$;13| ((|f| (R)) ($ ($))) (SPADCALL |f| (QREFELT $ 44))) 
 
-(SDEFUN |FDIV;divisor;2F$;14| ((|a| F) (|b| F) ($ $))
+(SDEFUN |FDIV;divisor;2F$;14| ((|a| (F)) (|b| (F)) ($ ($)))
         (SPADCALL |a| |b| (QREFELT $ 46))) 
 
-(SDEFUN |FDIV;divisor;2FI$;15| ((|a| F) (|b| F) (|n| |Integer|) ($ $))
+(SDEFUN |FDIV;divisor;2FI$;15| ((|a| (F)) (|b| (F)) (|n| (|Integer|)) ($ ($)))
         (SPADCALL |a| |b| |n| (QREFELT $ 48))) 
 
-(SDEFUN |FDIV;divisor;R2UP$;16| ((|h| R) (|d| UP) (|g| UP) ($ $))
+(SDEFUN |FDIV;divisor;R2UP$;16| ((|h| (R)) (|d| (UP)) (|g| (UP)) ($ ($)))
         (SPADCALL |h| |d| |g| (QREFELT $ 50))) 
 
-(SDEFUN |FDIV;Zero;$;17| (($ $)) (CONS (|spadConstant| $ 57) (MAKE-ARRAY 0))) 
+(SDEFUN |FDIV;Zero;$;17| (($ ($))) (CONS (|spadConstant| $ 57) (MAKE-ARRAY 0))) 
 
 (SDEFUN |FDIV;divisor;Fi$;18|
-        ((|i| |FractionalIdeal| UP (|Fraction| UP) UPUP R) ($ $))
+        ((|i| (|FractionalIdeal| UP (|Fraction| UP) UPUP R)) ($ ($)))
         (CONS |i| (MAKE-ARRAY 0))) 
 
-(SDEFUN |FDIV;divisor;R$;19| ((|f| R) ($ $))
+(SDEFUN |FDIV;divisor;R$;19| ((|f| (R)) ($ ($)))
         (SPADCALL (SPADCALL (VECTOR |f|) (QREFELT $ 59)) (QREFELT $ 43))) 
 
-(SDEFUN |FDIV;coerce;$Of;20| ((|d| $) ($ |OutputForm|))
+(SDEFUN |FDIV;coerce;$Of;20| ((|d| ($)) ($ (|OutputForm|)))
         (SPADCALL (SPADCALL |d| (QREFELT $ 30)) (QREFELT $ 60))) 
 
 (PUT '|FDIV;ideal;$Fi;21| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |FDIV;ideal;$Fi;21|
-        ((|d| $) ($ |FractionalIdeal| UP (|Fraction| UP) UPUP R)) (QCAR |d|)) 
+        ((|d| ($)) ($ (|FractionalIdeal| UP (|Fraction| UP) UPUP R)))
+        (QCAR |d|)) 
 
 (SDEFUN |FDIV;decompose;$R;22|
-        ((|d| $)
-         ($ |Record| (|:| |id| (|FractionalIdeal| UP (|Fraction| UP) UPUP R))
-          (|:| |principalPart| R)))
+        ((|d| ($))
+         ($
+          (|Record| (|:| |id| (|FractionalIdeal| UP (|Fraction| UP) UPUP R))
+                    (|:| |principalPart| R))))
         (CONS (SPADCALL |d| (QREFELT $ 30)) (|spadConstant| $ 61))) 
 
-(SDEFUN |FDIV;=;2$B;23| ((|d1| $) (|d2| $) ($ |Boolean|))
+(SDEFUN |FDIV;=;2$B;23| ((|d1| ($)) (|d2| ($)) ($ (|Boolean|)))
         (SPADCALL (SPADCALL (SPADCALL |d1| (QREFELT $ 30)) (QREFELT $ 63))
                   (SPADCALL (SPADCALL |d2| (QREFELT $ 30)) (QREFELT $ 63))
                   (QREFELT $ 64))) 
 
-(SDEFUN |FDIV;*;I2$;24| ((|n| |Integer|) (|d| $) ($ $))
+(SDEFUN |FDIV;*;I2$;24| ((|n| (|Integer|)) (|d| ($)) ($ ($)))
         (SPADCALL (SPADCALL (SPADCALL |d| (QREFELT $ 30)) |n| (QREFELT $ 65))
                   (QREFELT $ 43))) 
 
-(SDEFUN |FDIV;+;3$;25| ((|d1| $) (|d2| $) ($ $))
+(SDEFUN |FDIV;+;3$;25| ((|d1| ($)) (|d2| ($)) ($ ($)))
         (SPADCALL
          (SPADCALL (SPADCALL |d1| (QREFELT $ 30))
                    (SPADCALL |d2| (QREFELT $ 30)) (QREFELT $ 66))
          (QREFELT $ 43))) 
 
-(SDEFUN |FDIV;-;2$;26| ((|d| $) ($ $))
+(SDEFUN |FDIV;-;2$;26| ((|d| ($)) ($ ($)))
         (SPADCALL (SPADCALL (SPADCALL |d| (QREFELT $ 30)) (QREFELT $ 67))
                   (QREFELT $ 43))) 
 
-(SDEFUN |FDIV;divisor;R2UP$;27| ((|h| R) (|d| UP) (|g| UP) ($ $))
+(SDEFUN |FDIV;divisor;R2UP$;27| ((|h| (R)) (|d| (UP)) (|g| (UP)) ($ ($)))
         (|FDIV;makeDivisor| |d| (SPADCALL |h| (QREFELT $ 68)) |g| $)) 
 
-(SDEFUN |FDIV;intReduce| ((|h| R) (|b| UP) ($ R))
+(SDEFUN |FDIV;intReduce| ((|h| (R)) (|b| (UP)) ($ (R)))
         (SPROG
          ((#1=#:G156 NIL) (#2=#:G158 NIL) (|i| NIL) (#3=#:G157 NIL)
           (|v| (|Vector| UP)))
@@ -119,7 +123,7 @@
                  #3#)
                 (|spadConstant| $ 56) (QREFELT $ 74)))))) 
 
-(SDEFUN |FDIV;divisor;2F$;29| ((|a| F) (|b| F) ($ $))
+(SDEFUN |FDIV;divisor;2F$;29| ((|a| (F)) (|b| (F)) ($ ($)))
         (SPROG ((|d| (UP)) (|x| (UP)))
                (SEQ
                 (LETT |x| (SPADCALL (|spadConstant| $ 55) 1 (QREFELT $ 76)))
@@ -144,7 +148,7 @@
                             (QREFELT $ 88))
                   (|spadConstant| $ 56) $))))) 
 
-(SDEFUN |FDIV;divisor;2FI$;30| ((|a| F) (|b| F) (|n| |Integer|) ($ $))
+(SDEFUN |FDIV;divisor;2FI$;30| ((|a| (F)) (|b| (F)) (|n| (|Integer|)) ($ ($)))
         (SPROG
          ((|g| ($)) (|m| (|NonNegativeInteger|)) (#1=#:G168 NIL)
           (#2=#:G167 NIL) (|d| (UP)))
@@ -187,7 +191,7 @@
                  (|spadConstant| $ 56) $))
           (EXIT (COND ((< |n| 0) (SPADCALL |g| (QREFELT $ 27))) (#3# |g|)))))) 
 
-(SDEFUN |FDIV;reduce;2$;31| ((|d| $) ($ $))
+(SDEFUN |FDIV;reduce;2$;31| ((|d| ($)) ($ ($)))
         (SPROG
          ((|e| (UP)) (|b| (UP))
           (|cd| (|Record| (|:| |num| UPUP) (|:| |den| UP))) (|n| (|Vector| R))
@@ -255,7 +259,7 @@
              (SPADCALL (SPADCALL |s| (QREFELT $ 81)) |b| (QREFELT $ 73)) |e|
              (QREFELT $ 110)))))) 
 
-(SDEFUN |FDIV;finiteBasis;$V;32| ((|d| $) ($ |Vector| R))
+(SDEFUN |FDIV;finiteBasis;$V;32| ((|d| ($)) ($ (|Vector| R)))
         (SEQ
          (COND
           ((SPADCALL (QCDR |d|) (QREFELT $ 114))
@@ -269,7 +273,7 @@
             (QCDR |d|))))
          (EXIT (QCDR |d|)))) 
 
-(SDEFUN |FDIV;generator;$U;33| ((|d| $) ($ |Union| R "failed"))
+(SDEFUN |FDIV;generator;$U;33| ((|d| ($)) ($ (|Union| R "failed")))
         (SPROG
          ((#1=#:G195 NIL) (#2=#:G196 NIL) (#3=#:G197 NIL) (|i| NIL)
           (|bsis| (|Vector| R)))
@@ -300,7 +304,8 @@
           #4# (EXIT #2#)))) 
 
 (SDEFUN |FDIV;generator;$ILU;34|
-        ((|d| $) (|k| |Integer|) (|lp| |List| UP) ($ |Union| R "failed"))
+        ((|d| ($)) (|k| (|Integer|)) (|lp| (|List| UP))
+         ($ (|Union| R "failed")))
         (SPROG
          ((#1=#:G205 NIL) (#2=#:G206 NIL) (|kk| (|Integer|)) (|fi| (R))
           (#3=#:G207 NIL) (|i| NIL) (|bas| (|Vector| R)))
@@ -333,14 +338,14 @@
                 (EXIT (CONS 1 "failed"))))
           #4# (EXIT #2#)))) 
 
-(SDEFUN |FDIV;lSpaceBasis;$V;35| ((|d| $) ($ |Vector| R))
+(SDEFUN |FDIV;lSpaceBasis;$V;35| ((|d| ($)) ($ (|Vector| R)))
         (SPADCALL (ELT $ 121)
                   (SPADCALL
                    (SPADCALL (SPADCALL |d| (QREFELT $ 27)) (QREFELT $ 119))
                    (QREFELT $ 123))
                   (QREFELT $ 125))) 
 
-(SDEFUN |FDIV;makeDivisor| ((|b| UP) (|hh| UPUP) (|g| UP) ($ $))
+(SDEFUN |FDIV;makeDivisor| ((|b| (UP)) (|hh| (UPUP)) (|g| (UP)) ($ ($)))
         (SPROG ((|h| (R)))
                (SEQ
                 (LETT |b|

@@ -1,5 +1,5 @@
 
-(SDEFUN |IJB;setNotation;2S;1| ((|s| |Symbol|) ($ |Symbol|))
+(SDEFUN |IJB;setNotation;2S;1| ((|s| (|Symbol|)) ($ (|Symbol|)))
         (SPROG ((|t| (|Symbol|)))
                (SEQ
                 (COND
@@ -10,18 +10,18 @@
                   (SEQ (LETT |t| (QREFELT $ 12)) (SETELT $ 12 |s|)
                        (EXIT |t|))))))) 
 
-(SDEFUN |IJB;getNotation;S;2| (($ |Symbol|)) (QREFELT $ 12)) 
+(SDEFUN |IJB;getNotation;S;2| (($ (|Symbol|))) (QREFELT $ 12)) 
 
-(SDEFUN |IJB;multiIndex;$L;3| ((|jv| $) ($ |List| (|NonNegativeInteger|)))
+(SDEFUN |IJB;multiIndex;$L;3| ((|jv| ($)) ($ (|List| (|NonNegativeInteger|))))
         (SPADCALL (CDR (CDR |jv|)) (QREFELT $ 19))) 
 
-(SDEFUN |IJB;index;$Pi;4| ((|jv| $) ($ |PositiveInteger|))
+(SDEFUN |IJB;index;$Pi;4| ((|jv| ($)) ($ (|PositiveInteger|)))
         (SPROG ((#1=#:G115 NIL))
                (PROG1 (LETT #1# (|SPADfirst| (CDR |jv|)))
                  (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                    '(|NonNegativeInteger|) #1#)))) 
 
-(SDEFUN |IJB;type;$S;5| ((|jv| $) ($ |Symbol|))
+(SDEFUN |IJB;type;$S;5| ((|jv| ($)) ($ (|Symbol|)))
         (SPROG ((|t| (|NonNegativeInteger|)))
                (SEQ (LETT |t| (|SPADfirst| |jv|))
                     (EXIT
@@ -29,7 +29,7 @@
                            ((EQL |t| 2) '|Dep|) ('T '|Deriv|)))))) 
 
 (SDEFUN |IJB;CheckZeroIndex|
-        ((|il| |List| (|NonNegativeInteger|)) ($ |Boolean|))
+        ((|il| (|List| (|NonNegativeInteger|))) ($ (|Boolean|)))
         (SPROG ((#1=#:G124 NIL) (#2=#:G125 NIL) (|i| NIL))
                (SEQ
                 (EXIT
@@ -47,11 +47,11 @@
                   (EXIT 'T)))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |IJB;X;Pi$;7| ((|up| |PositiveInteger|) ($ $))
+(SDEFUN |IJB;X;Pi$;7| ((|up| (|PositiveInteger|)) ($ ($)))
         (COND ((> |up| (QREFELT $ 9)) (|error| "Improper upper index"))
               ('T (LIST 1 |up|)))) 
 
-(SDEFUN |IJB;U;Pi$;8| ((|up| |PositiveInteger|) ($ $))
+(SDEFUN |IJB;U;Pi$;8| ((|up| (|PositiveInteger|)) ($ ($)))
         (SPROG ((#1=#:G130 NIL) (|i| NIL) (#2=#:G129 NIL))
                (SEQ
                 (COND
@@ -68,7 +68,8 @@
                                     (EXIT (NREVERSE #2#))))))))))) 
 
 (SDEFUN |IJB;Pm;PiL$;9|
-        ((|up| |PositiveInteger|) (|lo| |List| (|NonNegativeInteger|)) ($ $))
+        ((|up| (|PositiveInteger|)) (|lo| (|List| (|NonNegativeInteger|)))
+         ($ ($)))
         (COND ((> |up| (QREFELT $ 10)) (|error| "Improper upper index"))
               ((SPADCALL (SPADCALL |lo| (QREFELT $ 28)) (QREFELT $ 9)
                          (QREFELT $ 29))
@@ -78,13 +79,13 @@
 
 (PUT '|IJB;One;$;10| '|SPADreplace| '(XLAM NIL (LIST 0 1))) 
 
-(SDEFUN |IJB;One;$;10| (($ $)) (LIST 0 1)) 
+(SDEFUN |IJB;One;$;10| (($ ($))) (LIST 0 1)) 
 
-(SDEFUN |IJB;numIndVar;Pi;11| (($ |PositiveInteger|)) (QREFELT $ 9)) 
+(SDEFUN |IJB;numIndVar;Pi;11| (($ (|PositiveInteger|))) (QREFELT $ 9)) 
 
-(SDEFUN |IJB;numDepVar;Pi;12| (($ |PositiveInteger|)) (QREFELT $ 10)) 
+(SDEFUN |IJB;numDepVar;Pi;12| (($ (|PositiveInteger|))) (QREFELT $ 10)) 
 
-(SDEFUN |IJB;name;$S;13| ((|jv| $) ($ |Symbol|))
+(SDEFUN |IJB;name;$S;13| ((|jv| ($)) ($ (|Symbol|)))
         (SPROG
          ((#1=#:G151 NIL) (|j| NIL) (#2=#:G150 NIL) (#3=#:G149 NIL)
           (#4=#:G148 NIL) (#5=#:G147 NIL) (|i| NIL) (#6=#:G146 NIL)
@@ -230,10 +231,10 @@
 
 (PUT '|IJB;opdisp| '|SPADreplace| '|SPADfirst|) 
 
-(SDEFUN |IJB;opdisp| ((|l| |List| (|OutputForm|)) ($ |OutputForm|))
+(SDEFUN |IJB;opdisp| ((|l| (|List| (|OutputForm|))) ($ (|OutputForm|)))
         (|SPADfirst| |l|)) 
 
-(SDEFUN |IJB;coerce;$E;15| ((|jv| $) ($ |Expression| (|Integer|)))
+(SDEFUN |IJB;coerce;$E;15| ((|jv| ($)) ($ (|Expression| (|Integer|))))
         (SPROG
          ((|arg| (|List| (|Expression| (|Integer|)))) (#1=#:G162 NIL) (|j| NIL)
           (#2=#:G161 NIL) (#3=#:G160 NIL) (|i| NIL) (#4=#:G159 NIL)

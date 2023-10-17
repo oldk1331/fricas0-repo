@@ -1,22 +1,22 @@
 
 (PUT '|PRTITION;Zero;$;1| '|SPADreplace| '(XLAM NIL NIL)) 
 
-(SDEFUN |PRTITION;Zero;$;1| (($ $)) NIL) 
+(SDEFUN |PRTITION;Zero;$;1| (($ ($))) NIL) 
 
 (PUT '|PRTITION;coerce;$L;2| '|SPADreplace| '(XLAM (|s|) |s|)) 
 
-(SDEFUN |PRTITION;coerce;$L;2| ((|s| $) ($ |List| (|Integer|))) |s|) 
+(SDEFUN |PRTITION;coerce;$L;2| ((|s| ($)) ($ (|List| (|Integer|)))) |s|) 
 
-(SDEFUN |PRTITION;convert;$L;3| ((|x| $) ($ |List| (|Integer|)))
+(SDEFUN |PRTITION;convert;$L;3| ((|x| ($)) ($ (|List| (|Integer|))))
         (SPADCALL |x| (QREFELT $ 10))) 
 
-(SDEFUN |PRTITION;partition;L$;4| ((|list| |List| (|Integer|)) ($ $))
+(SDEFUN |PRTITION;partition;L$;4| ((|list| (|List| (|Integer|))) ($ ($)))
         (SPADCALL (CONS #'|PRTITION;partition;L$;4!0| $) |list| (QREFELT $ 16))) 
 
 (SDEFUN |PRTITION;partition;L$;4!0| ((|i1| NIL) (|i2| NIL) ($ NIL))
         (SPADCALL |i2| |i1| (QREFELT $ 14))) 
 
-(SDEFUN |PRTITION;<;2$B;5| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |PRTITION;<;2$B;5| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (COND ((NULL |x|) (NULL (NULL |y|))) ((NULL |y|) NIL)
               ((EQL (|SPADfirst| |x|) (|SPADfirst| |y|))
                (SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 18)))
@@ -24,9 +24,10 @@
 
 (PUT '|PRTITION;=;2$B;6| '|SPADreplace| 'EQUAL) 
 
-(SDEFUN |PRTITION;=;2$B;6| ((|x| $) (|y| $) ($ |Boolean|)) (EQUAL |x| |y|)) 
+(SDEFUN |PRTITION;=;2$B;6| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
+        (EQUAL |x| |y|)) 
 
-(SDEFUN |PRTITION;+;3$;7| ((|x| $) (|y| $) ($ $))
+(SDEFUN |PRTITION;+;3$;7| ((|x| ($)) (|y| ($)) ($ ($)))
         (COND ((NULL |x|) |y|) ((NULL |y|) |x|)
               ((> (|SPADfirst| |x|) (|SPADfirst| |y|))
                (CONS (|SPADfirst| |x|)
@@ -35,7 +36,7 @@
                (CONS (|SPADfirst| |y|)
                      (SPADCALL |x| (CDR |y|) (QREFELT $ 20)))))) 
 
-(SDEFUN |PRTITION;*;Nni2$;8| ((|n| |NonNegativeInteger|) (|x| $) ($ $))
+(SDEFUN |PRTITION;*;Nni2$;8| ((|n| (|NonNegativeInteger|)) (|x| ($)) ($ ($)))
         (SPROG ((#1=#:G140 NIL))
                (COND ((ZEROP |n|) (|spadConstant| $ 7))
                      ('T
@@ -53,18 +54,18 @@
                                  |x| (QREFELT $ 24))
                                 (QREFELT $ 20)))))) 
 
-(SDEFUN |PRTITION;dp| ((|i| |Integer|) (|x| $) ($ $))
+(SDEFUN |PRTITION;dp| ((|i| (|Integer|)) (|x| ($)) ($ ($)))
         (COND ((NULL |x|) (|spadConstant| $ 7))
               ((EQL (|SPADfirst| |x|) |i|) (CDR |x|))
               ('T (CONS (|SPADfirst| |x|) (|PRTITION;dp| |i| (CDR |x|) $))))) 
 
-(SDEFUN |PRTITION;remv| ((|i| |Integer|) (|x| $) ($ |Union| $ "failed"))
+(SDEFUN |PRTITION;remv| ((|i| (|Integer|)) (|x| ($)) ($ (|Union| $ "failed")))
         (COND
          ((SPADCALL |i| |x| (QREFELT $ 25)) (CONS 0 (|PRTITION;dp| |i| |x| $)))
          ('T (CONS 1 "failed")))) 
 
 (SDEFUN |PRTITION;subtractIfCan;2$U;11|
-        ((|x| $) (|y| $) ($ |Union| $ "failed"))
+        ((|x| ($)) (|y| ($)) ($ (|Union| $ "failed")))
         (SPROG ((|aa| (|Union| $ "failed")))
                (SEQ
                 (COND
@@ -81,7 +82,8 @@
                                          (QREFELT $ 26))))))))))) 
 
 (SDEFUN |PRTITION;bite|
-        ((|i| |Integer|) (|li| |List| (|Integer|)) ($ |List| (|Integer|)))
+        ((|i| (|Integer|)) (|li| (|List| (|Integer|)))
+         ($ (|List| (|Integer|))))
         (SPROG ((|li1| (|List| (|Integer|))))
                (SEQ
                 (COND ((NULL |li|) (CONS 0 NIL))
@@ -92,7 +94,7 @@
                       ('T (CONS 0 |li|)))))) 
 
 (SDEFUN |PRTITION;powers;LL;13|
-        ((|l| |List| (|Integer|)) ($ |List| (|List| (|Integer|))))
+        ((|l| (|List| (|Integer|))) ($ (|List| (|List| (|Integer|)))))
         (SPROG ((|li| (|List| (|Integer|))))
                (SEQ
                 (COND ((NULL |l|) NIL)
@@ -105,10 +107,11 @@
                           (LIST (|SPADfirst| |l|) (+ (|SPADfirst| |li|) 1))
                           (SPADCALL (CDR |li|) (QREFELT $ 28)))))))))) 
 
-(SDEFUN |PRTITION;conjugate;2$;14| ((|x| $) ($ $))
+(SDEFUN |PRTITION;conjugate;2$;14| ((|x| ($)) ($ ($)))
         (SPADCALL |x| (QREFELT $ 30))) 
 
-(SDEFUN |PRTITION;mkterm| ((|i1| |Integer|) (|i2| |Integer|) ($ |OutputForm|))
+(SDEFUN |PRTITION;mkterm|
+        ((|i1| (|Integer|)) (|i2| (|Integer|)) ($ (|OutputForm|)))
         (COND
          ((EQL |i2| 1)
           (SPADCALL (SPADCALL |i1| (QREFELT $ 33))
@@ -118,7 +121,7 @@
                     (SPADCALL |i2| (QREFELT $ 33)) (QREFELT $ 36))))) 
 
 (SDEFUN |PRTITION;mkexp1|
-        ((|lli| |List| (|List| (|Integer|))) ($ |List| (|OutputForm|)))
+        ((|lli| (|List| (|List| (|Integer|)))) ($ (|List| (|OutputForm|))))
         (SPROG ((|li| (|List| (|Integer|))))
                (SEQ
                 (COND ((NULL |lli|) NIL)
@@ -138,7 +141,7 @@
                                (SPADCALL |li| (QREFELT $ 37)) $)
                               (|PRTITION;mkexp1| (CDR |lli|) $))))))))) 
 
-(SDEFUN |PRTITION;coerce;$Of;17| ((|x| $) ($ |OutputForm|))
+(SDEFUN |PRTITION;coerce;$Of;17| ((|x| ($)) ($ (|OutputForm|)))
         (COND ((NULL |x|) (SPADCALL |x| (QREFELT $ 38)))
               ('T
                (SPADCALL
@@ -147,7 +150,7 @@
                           (QREFELT $ 42))
                 (QREFELT $ 43))))) 
 
-(SDEFUN |PRTITION;pdct;$I;18| ((|x| $) ($ |Integer|))
+(SDEFUN |PRTITION;pdct;$I;18| ((|x| ($)) ($ (|Integer|)))
         (SPROG
          ((#1=#:G179 NIL) (#2=#:G178 #3=(|Integer|)) (#4=#:G180 #3#)
           (#5=#:G182 NIL) (|a| NIL))

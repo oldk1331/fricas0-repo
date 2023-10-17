@@ -1,21 +1,22 @@
 
 (PUT '|MKCHSET;position;$Nni;1| '|SPADreplace| 'QCDR) 
 
-(SDEFUN |MKCHSET;position;$Nni;1| ((|x| $) ($ |NonNegativeInteger|)) (QCDR |x|)) 
+(SDEFUN |MKCHSET;position;$Nni;1| ((|x| ($)) ($ (|NonNegativeInteger|)))
+        (QCDR |x|)) 
 
 (SDEFUN |MKCHSET;setPosition;$NniV;2|
-        ((|x| $) (|n| |NonNegativeInteger|) ($ |Void|))
+        ((|x| ($)) (|n| (|NonNegativeInteger|)) ($ (|Void|)))
         (SEQ (PROGN (RPLACD |x| |n|) (QCDR |x|))
              (EXIT (SPADCALL (QREFELT $ 13))))) 
 
 (PUT '|MKCHSET;coerce;$S;3| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |MKCHSET;coerce;$S;3| ((|x| $) ($ S)) (QCAR |x|)) 
+(SDEFUN |MKCHSET;coerce;$S;3| ((|x| ($)) ($ (S))) (QCAR |x|)) 
 
-(SDEFUN |MKCHSET;coerce;$Of;4| ((|x| $) ($ |OutputForm|))
+(SDEFUN |MKCHSET;coerce;$Of;4| ((|x| ($)) ($ (|OutputForm|)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 15)) (QREFELT $ 17))) 
 
-(SDEFUN |MKCHSET;coerce;S$;5| ((|s| S) ($ $))
+(SDEFUN |MKCHSET;coerce;S$;5| ((|s| (S)) ($ ($)))
         (SPROG NIL
                (SPADCALL (CONS |s| 0)
                          (CONS #'|MKCHSET;coerce;S$;5!0| (VECTOR $ |s|))
@@ -29,7 +30,7 @@
            (PROGN
             (SPADCALL |s| (SPADCALL |x1| (QREFELT $ 15)) (QREFELT $ 20)))))) 
 
-(SDEFUN |MKCHSET;=;2$B;6| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |MKCHSET;=;2$B;6| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPROG NIL
                (SEQ
                 (COND

@@ -1,18 +1,18 @@
 
 (PUT '|SDVAR;makeVariable;SNni$;1| '|SPADreplace| 'CONS) 
 
-(SDEFUN |SDVAR;makeVariable;SNni$;1| ((|s| S) (|n| |NonNegativeInteger|) ($ $))
-        (CONS |s| |n|)) 
+(SDEFUN |SDVAR;makeVariable;SNni$;1|
+        ((|s| (S)) (|n| (|NonNegativeInteger|)) ($ ($))) (CONS |s| |n|)) 
 
 (PUT '|SDVAR;variable;$S;2| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |SDVAR;variable;$S;2| ((|v| $) ($ S)) (QCAR |v|)) 
+(SDEFUN |SDVAR;variable;$S;2| ((|v| ($)) ($ (S))) (QCAR |v|)) 
 
 (PUT '|SDVAR;order;$Nni;3| '|SPADreplace| 'QCDR) 
 
-(SDEFUN |SDVAR;order;$Nni;3| ((|v| $) ($ |NonNegativeInteger|)) (QCDR |v|)) 
+(SDEFUN |SDVAR;order;$Nni;3| ((|v| ($)) ($ (|NonNegativeInteger|))) (QCDR |v|)) 
 
-(SDEFUN |SDVAR;<;2$B;4| ((|v| $) (|u| $) ($ |Boolean|))
+(SDEFUN |SDVAR;<;2$B;4| ((|v| ($)) (|u| ($)) ($ (|Boolean|)))
         (COND
          ((SPADCALL (SPADCALL |v| (QREFELT $ 10)) (SPADCALL |u| (QREFELT $ 10))
                     (QREFELT $ 13))

@@ -1,13 +1,13 @@
 
 (PUT '|CYCGRP;rep| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |CYCGRP;rep| ((|x| $) ($ |Rep|)) |x|) 
+(SDEFUN |CYCGRP;rep| ((|x| ($)) ($ (|Rep|))) |x|) 
 
 (PUT '|CYCGRP;per| '|SPADreplace| '(XLAM (|r|) |r|)) 
 
-(SDEFUN |CYCGRP;per| ((|r| |Rep|) ($ $)) |r|) 
+(SDEFUN |CYCGRP;per| ((|r| (|Rep|)) ($ ($))) |r|) 
 
-(SDEFUN |CYCGRP;coerce;$Of;3| ((|x| $) ($ |OutputForm|))
+(SDEFUN |CYCGRP;coerce;$Of;3| ((|x| ($)) ($ (|OutputForm|)))
         (SPROG ((#1=#:G112 NIL))
                (SEQ
                 (EXIT
@@ -27,39 +27,40 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |CYCGRP;hashUpdate!;Hs$Hs;4|
-        ((|hs| . #1=(|HashState|)) (|s| $) ($ . #1#))
+        ((|hs| #1=(|HashState|)) (|s| ($)) ($ #1#))
         (HASHSTATEUPDATE |hs| (|CYCGRP;rep| |s| $))) 
 
-(SDEFUN |CYCGRP;convert;$Se;5| ((|x| $) ($ |SExpression|))
+(SDEFUN |CYCGRP;convert;$Se;5| ((|x| ($)) ($ (|SExpression|)))
         (SPADCALL (|CYCGRP;rep| |x| $) (QREFELT $ 21))) 
 
-(SDEFUN |CYCGRP;One;$;6| (($ $)) (|CYCGRP;per| 0 $)) 
+(SDEFUN |CYCGRP;One;$;6| (($ ($))) (|CYCGRP;per| 0 $)) 
 
-(SDEFUN |CYCGRP;one?;$B;7| ((|x| $) ($ |Boolean|)) (ZEROP (|CYCGRP;rep| |x| $))) 
+(SDEFUN |CYCGRP;one?;$B;7| ((|x| ($)) ($ (|Boolean|)))
+        (ZEROP (|CYCGRP;rep| |x| $))) 
 
-(SDEFUN |CYCGRP;order;$I;8| ((|x| $) ($ |Integer|))
+(SDEFUN |CYCGRP;order;$I;8| ((|x| ($)) ($ (|Integer|)))
         (QUOTIENT2 (QREFELT $ 6)
                    (GCD (SPADCALL |x| (QREFELT $ 24)) (QREFELT $ 6)))) 
 
-(SDEFUN |CYCGRP;*;3$;9| ((|x| $) (|y| $) ($ $))
+(SDEFUN |CYCGRP;*;3$;9| ((|x| ($)) (|y| ($)) ($ ($)))
         (|CYCGRP;per|
          (SPADCALL (|CYCGRP;rep| |x| $) (|CYCGRP;rep| |y| $) (QREFELT $ 6)
                    (QREFELT $ 26))
          $)) 
 
-(SDEFUN |CYCGRP;inv;2$;10| ((|x| $) ($ $))
+(SDEFUN |CYCGRP;inv;2$;10| ((|x| ($)) ($ ($)))
         (COND ((SPADCALL |x| (QREFELT $ 10)) (|spadConstant| $ 23))
               ('T (|CYCGRP;per| (- (QREFELT $ 6) (|CYCGRP;rep| |x| $)) $)))) 
 
-(SDEFUN |CYCGRP;=;2$B;11| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |CYCGRP;=;2$B;11| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (EQL (|CYCGRP;rep| |x| $) (|CYCGRP;rep| |y| $))) 
 
-(SDEFUN |CYCGRP;smaller?;2$B;12| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |CYCGRP;smaller?;2$B;12| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (< (|CYCGRP;rep| |x| $) (|CYCGRP;rep| |y| $))) 
 
-(SDEFUN |CYCGRP;size;Nni;13| (($ |NonNegativeInteger|)) (QREFELT $ 6)) 
+(SDEFUN |CYCGRP;size;Nni;13| (($ (|NonNegativeInteger|))) (QREFELT $ 6)) 
 
-(SDEFUN |CYCGRP;index;Pi$;14| ((|i| |PositiveInteger|) ($ $))
+(SDEFUN |CYCGRP;index;Pi$;14| ((|i| (|PositiveInteger|)) ($ ($)))
         (SPROG ((#1=#:G126 NIL) (|imodn| ($)))
                (SEQ
                 (EXIT
@@ -77,12 +78,12 @@
                            (#2# (|CYCGRP;per| |imodn| $))))))))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |CYCGRP;lookup;$Pi;15| ((|x| $) ($ |PositiveInteger|))
+(SDEFUN |CYCGRP;lookup;$Pi;15| ((|x| ($)) ($ (|PositiveInteger|)))
         (+ (REM (|CYCGRP;rep| |x| $) (QREFELT $ 6)) 1)) 
 
-(SDEFUN |CYCGRP;random;$;16| (($ $)) (|CYCGRP;per| (RANDOM (QREFELT $ 6)) $)) 
+(SDEFUN |CYCGRP;random;$;16| (($ ($))) (|CYCGRP;per| (RANDOM (QREFELT $ 6)) $)) 
 
-(SDEFUN |CYCGRP;enumerate;L;17| (($ |List| $))
+(SDEFUN |CYCGRP;enumerate;L;17| (($ (|List| $)))
         (SPROG ((#1=#:G132 NIL) (|k| NIL) (#2=#:G131 NIL))
                (SEQ
                 (PROGN
@@ -93,11 +94,12 @@
                       (LETT |k| (|inc_SI| |k|)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(SDEFUN |CYCGRP;generator;$;18| (($ $)) (|CYCGRP;per| 1 $)) 
+(SDEFUN |CYCGRP;generator;$;18| (($ ($))) (|CYCGRP;per| 1 $)) 
 
-(SDEFUN |CYCGRP;exponent;$I;19| ((|x| $) ($ |Integer|)) (|CYCGRP;rep| |x| $)) 
+(SDEFUN |CYCGRP;exponent;$I;19| ((|x| ($)) ($ (|Integer|)))
+        (|CYCGRP;rep| |x| $)) 
 
-(SDEFUN |CYCGRP;generators;L;20| (($ |List| $))
+(SDEFUN |CYCGRP;generators;L;20| (($ (|List| $)))
         (LIST (SPADCALL (QREFELT $ 40)))) 
 
 (DECLAIM (NOTINLINE |CyclicGroup;|)) 

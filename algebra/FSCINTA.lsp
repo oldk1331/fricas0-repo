@@ -1,6 +1,6 @@
 
 (SDEFUN |FSCINTA;internalIntegrate;FGSIr;1|
-        ((|f| FG) (|x| |Symbol|) ($ |IntegrationResult| FG))
+        ((|f| (FG)) (|x| (|Symbol|)) ($ (|IntegrationResult| FG)))
         (SPROG
          ((|h| (FG)) (#1=#:G116 NIL) (|k| NIL) (#2=#:G115 NIL)
           (|lt| (|List| #3=(|Kernel| FG))) (#4=#:G114 NIL) (#5=#:G113 NIL)

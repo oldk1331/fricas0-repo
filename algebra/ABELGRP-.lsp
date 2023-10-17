@@ -1,20 +1,21 @@
 
-(SDEFUN |ABELGRP-;-;3S;1| ((|x| S) (|y| S) ($ S))
+(SDEFUN |ABELGRP-;-;3S;1| ((|x| (S)) (|y| (S)) ($ (S)))
         (SPADCALL |x| (SPADCALL |y| (QREFELT $ 7)) (QREFELT $ 8))) 
 
-(SDEFUN |ABELGRP-;subtractIfCan;2SU;2| ((|x| S) (|y| S) ($ |Union| S "failed"))
+(SDEFUN |ABELGRP-;subtractIfCan;2SU;2|
+        ((|x| (S)) (|y| (S)) ($ (|Union| S "failed")))
         (CONS 0 (SPADCALL |x| |y| (QREFELT $ 10)))) 
 
-(SDEFUN |ABELGRP-;*;Nni2S;3| ((|n| |NonNegativeInteger|) (|x| S) ($ S))
+(SDEFUN |ABELGRP-;*;Nni2S;3| ((|n| (|NonNegativeInteger|)) (|x| (S)) ($ (S)))
         (SPADCALL |n| |x| (QREFELT $ 14))) 
 
-(SDEFUN |ABELGRP-;*;I2S;4| ((|n| |Integer|) (|x| S) ($ S))
+(SDEFUN |ABELGRP-;*;I2S;4| ((|n| (|Integer|)) (|x| (S)) ($ (S)))
         (COND ((ZEROP |n|) (|spadConstant| $ 17))
               ((> |n| 0) (SPADCALL |n| |x| (QREFELT $ 20)))
               ('T
                (SPADCALL (- |n|) (SPADCALL |x| (QREFELT $ 7)) (QREFELT $ 20))))) 
 
-(SDEFUN |ABELGRP-;opposite?;2SB;5| ((|x| S) (|y| S) ($ |Boolean|))
+(SDEFUN |ABELGRP-;opposite?;2SB;5| ((|x| (S)) (|y| (S)) ($ (|Boolean|)))
         (SPADCALL |x| (SPADCALL |y| (QREFELT $ 7)) (QREFELT $ 23))) 
 
 (DECLAIM (NOTINLINE |AbelianGroup&;|)) 

@@ -1,5 +1,5 @@
 
-(SDEFUN |DGRPH;directedGraph;L$;1| ((|objs| |List| S) ($ $))
+(SDEFUN |DGRPH;directedGraph;L$;1| ((|objs| (|List| S)) ($ ($)))
         (SPROG
          ((|obs|
            (|List|
@@ -28,34 +28,38 @@
 (PUT '|DGRPH;directedGraph;L$;2| '|SPADreplace| '(XLAM (|ob|) (CONS |ob| NIL))) 
 
 (SDEFUN |DGRPH;directedGraph;L$;2|
-        ((|ob| |List|
-          (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
-                    (|:| |posY| (|NonNegativeInteger|))))
-         ($ $))
+        ((|ob|
+          (|List|
+           (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
+                     (|:| |posY| (|NonNegativeInteger|)))))
+         ($ ($)))
         (CONS |ob| NIL)) 
 
 (PUT '|DGRPH;directedGraph;LL$;3| '|SPADreplace| 'CONS) 
 
 (SDEFUN |DGRPH;directedGraph;LL$;3|
-        ((|ob| |List|
-          (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
-                    (|:| |posY| (|NonNegativeInteger|))))
-         (|ar| |List|
-          (|Record| (|:| |name| (|String|))
-                    (|:| |arrType| (|NonNegativeInteger|))
-                    (|:| |fromOb| (|NonNegativeInteger|))
-                    (|:| |toOb| (|NonNegativeInteger|))
-                    (|:| |xOffset| (|Integer|)) (|:| |yOffset| (|Integer|))
-                    (|:| |map| (|List| (|NonNegativeInteger|)))))
-         ($ $))
+        ((|ob|
+          (|List|
+           (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
+                     (|:| |posY| (|NonNegativeInteger|)))))
+         (|ar|
+          (|List|
+           (|Record| (|:| |name| (|String|))
+                     (|:| |arrType| (|NonNegativeInteger|))
+                     (|:| |fromOb| (|NonNegativeInteger|))
+                     (|:| |toOb| (|NonNegativeInteger|))
+                     (|:| |xOffset| (|Integer|)) (|:| |yOffset| (|Integer|))
+                     (|:| |map| (|List| (|NonNegativeInteger|))))))
+         ($ ($)))
         (CONS |ob| |ar|)) 
 
 (SDEFUN |DGRPH;directedGraph;LL$;4|
-        ((|obs| |List| S)
-         (|ars| |List|
-          (|Record| (|:| |fromOb| (|NonNegativeInteger|))
-                    (|:| |toOb| (|NonNegativeInteger|))))
-         ($ $))
+        ((|obs| (|List| S))
+         (|ars|
+          (|List|
+           (|Record| (|:| |fromOb| (|NonNegativeInteger|))
+                     (|:| |toOb| (|NonNegativeInteger|)))))
+         ($ ($)))
         (SPROG
          ((|edges|
            (|List|
@@ -109,7 +113,7 @@
                    (GO G190) G191 (EXIT NIL))
               (EXIT (CONS |nodes| |edges|))))) 
 
-(SDEFUN |DGRPH;directedGraph;Fp$;5| ((|poset| |FinitePoset| S) ($ $))
+(SDEFUN |DGRPH;directedGraph;Fp$;5| ((|poset| (|FinitePoset| S)) ($ ($)))
         (SPROG
          ((|ars|
            (|List|
@@ -151,7 +155,8 @@
               (EXIT (SPADCALL |obs| |ars| (QREFELT $ 23)))))) 
 
 (SDEFUN |DGRPH;directedGraph;LL$;6|
-        ((|objs| |List| S) (|am| |List| (|List| (|NonNegativeInteger|))) ($ $))
+        ((|objs| (|List| S)) (|am| (|List| (|List| (|NonNegativeInteger|))))
+         ($ ($)))
         (SPROG
          ((|ar|
            (|List|
@@ -212,7 +217,8 @@
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (EXIT (CONS |obs| |ar|))))) 
 
-(SDEFUN |DGRPH;directedGraph;L$;7| ((|perms| |List| (|Permutation| S)) ($ $))
+(SDEFUN |DGRPH;directedGraph;L$;7|
+        ((|perms| (|List| (|Permutation| S))) ($ ($)))
         (SPROG
          ((|ars|
            (|List|
@@ -358,7 +364,7 @@
                    (GO G190) G191 (EXIT NIL))
               (EXIT (CONS |verts| |ars|))))) 
 
-(SDEFUN |DGRPH;addObject!;$S$;8| ((|s| $) (|n| S) ($ $))
+(SDEFUN |DGRPH;addObject!;$S$;8| ((|s| ($)) (|n| (S)) ($ ($)))
         (SPROG
          ((|obj|
            (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
@@ -378,10 +384,11 @@
               (EXIT |s|)))) 
 
 (SDEFUN |DGRPH;addObject!;$R$;9|
-        ((|s| $)
-         (|n| |Record| (|:| |value| S)
-          (|:| |posX| . #1=((|NonNegativeInteger|))) (|:| |posY| . #1#))
-         ($ $))
+        ((|s| ($))
+         (|n|
+          (|Record| (|:| |value| S) (|:| |posX| . #1=((|NonNegativeInteger|)))
+                    (|:| |posY| . #1#)))
+         ($ ($)))
         (SPROG
          ((|obs|
            (|List|
@@ -398,12 +405,14 @@
               (EXIT |s|)))) 
 
 (SDEFUN |DGRPH;addArrow!;$R$;10|
-        ((|s| $)
-         (|ar| |Record| (|:| |name| (|String|))
-          (|:| |arrType| . #1=((|NonNegativeInteger|))) (|:| |fromOb| . #1#)
-          (|:| |toOb| . #1#) (|:| |xOffset| . #2=((|Integer|)))
-          (|:| |yOffset| . #2#) (|:| |map| (|List| . #1#)))
-         ($ $))
+        ((|s| ($))
+         (|ar|
+          (|Record| (|:| |name| (|String|))
+                    (|:| |arrType| . #1=((|NonNegativeInteger|)))
+                    (|:| |fromOb| . #1#) (|:| |toOb| . #1#)
+                    (|:| |xOffset| . #2=((|Integer|))) (|:| |yOffset| . #2#)
+                    (|:| |map| (|List| . #1#))))
+         ($ ($)))
         (SEQ
          (PROGN
           (RPLACD |s| (SPADCALL (QCDR |s|) |ar| (QREFELT $ 20)))
@@ -411,8 +420,8 @@
          (EXIT |s|))) 
 
 (SDEFUN |DGRPH;addArrow!;$S2Nni$;11|
-        ((|s| $) (|nm| |String|) (|n1| . #1=(|NonNegativeInteger|))
-         (|n2| . #1#) ($ $))
+        ((|s| ($)) (|nm| (|String|)) (|n1| #1=(|NonNegativeInteger|))
+         (|n2| #1#) ($ ($)))
         (SPROG
          ((|a|
            (|Record| (|:| |name| (|String|))
@@ -425,8 +434,8 @@
               (EXIT (SPADCALL |s| |a| (QREFELT $ 51)))))) 
 
 (SDEFUN |DGRPH;addArrow!;$S2NniL$;12|
-        ((|s| $) (|nm| |String|) (|n1| . #1=(|NonNegativeInteger|))
-         (|n2| . #1#) (|mp| |List| #1#) ($ $))
+        ((|s| ($)) (|nm| (|String|)) (|n1| #1=(|NonNegativeInteger|))
+         (|n2| #1#) (|mp| (|List| #1#)) ($ ($)))
         (SPROG
          ((|a|
            (|Record| (|:| |name| (|String|))
@@ -441,26 +450,28 @@
 (PUT '|DGRPH;getVertices;$L;13| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |DGRPH;getVertices;$L;13|
-        ((|s| $)
-         ($ |List|
-          (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
-                    (|:| |posY| (|NonNegativeInteger|)))))
+        ((|s| ($))
+         ($
+          (|List|
+           (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
+                     (|:| |posY| (|NonNegativeInteger|))))))
         (QCAR |s|)) 
 
 (PUT '|DGRPH;getArrows;$L;14| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |DGRPH;getArrows;$L;14|
-        ((|s| $)
-         ($ |List|
-          (|Record| (|:| |name| (|String|))
-                    (|:| |arrType| (|NonNegativeInteger|))
-                    (|:| |fromOb| (|NonNegativeInteger|))
-                    (|:| |toOb| (|NonNegativeInteger|))
-                    (|:| |xOffset| (|Integer|)) (|:| |yOffset| (|Integer|))
-                    (|:| |map| (|List| (|NonNegativeInteger|))))))
+        ((|s| ($))
+         ($
+          (|List|
+           (|Record| (|:| |name| (|String|))
+                     (|:| |arrType| (|NonNegativeInteger|))
+                     (|:| |fromOb| (|NonNegativeInteger|))
+                     (|:| |toOb| (|NonNegativeInteger|))
+                     (|:| |xOffset| (|Integer|)) (|:| |yOffset| (|Integer|))
+                     (|:| |map| (|List| (|NonNegativeInteger|)))))))
         (QCDR |s|)) 
 
-(SDEFUN |DGRPH;flatten;Dg$;15| ((|n| |DirectedGraph| $) ($ $))
+(SDEFUN |DGRPH;flatten;Dg$;15| ((|n| (|DirectedGraph| $)) ($ ($)))
         (SPROG
          ((|a|
            (|List|
@@ -651,9 +662,9 @@
 
 (PUT '|DGRPH;initial;$;16| '|SPADreplace| '(XLAM NIL (CONS NIL NIL))) 
 
-(SDEFUN |DGRPH;initial;$;16| (($ $)) (CONS NIL NIL)) 
+(SDEFUN |DGRPH;initial;$;16| (($ ($))) (CONS NIL NIL)) 
 
-(SDEFUN |DGRPH;terminal;S$;17| ((|a| S) ($ $))
+(SDEFUN |DGRPH;terminal;S$;17| ((|a| (S)) ($ ($)))
         (SPROG
          ((|ar|
            (|Record| (|:| |name| (|String|))
@@ -670,7 +681,7 @@
               (EXIT (CONS (LIST |o|) (LIST |ar|)))))) 
 
 (SDEFUN |DGRPH;cycleOpen;LS$;18|
-        ((|objs| |List| S) (|arrowName| |String|) ($ $))
+        ((|objs| (|List| S)) (|arrowName| (|String|)) ($ ($)))
         (SPROG
          ((|arn| (|Integer|))
           (|ars|
@@ -720,7 +731,7 @@
               (EXIT (CONS |obs| |ars|))))) 
 
 (SDEFUN |DGRPH;cycleClosed;LS$;19|
-        ((|objs| |List| S) (|arrowName| |String|) ($ $))
+        ((|objs| (|List| S)) (|arrowName| (|String|)) ($ ($)))
         (SPROG
          ((|arn| (|Integer|))
           (|ars|
@@ -768,7 +779,8 @@
                    (GO G190) G191 (EXIT NIL))
               (EXIT (CONS |obs| |ars|))))) 
 
-(SDEFUN |DGRPH;unit;LS$;20| ((|objs| |List| S) (|arrowName| |String|) ($ $))
+(SDEFUN |DGRPH;unit;LS$;20|
+        ((|objs| (|List| S)) (|arrowName| (|String|)) ($ ($)))
         (SPROG
          ((|arn| (|Integer|))
           (|ars|
@@ -810,7 +822,8 @@
                    (GO G190) G191 (EXIT NIL))
               (EXIT (CONS |obs| |ars|))))) 
 
-(SDEFUN |DGRPH;kgraph;LS$;21| ((|objs| |List| S) (|arrowName| |String|) ($ $))
+(SDEFUN |DGRPH;kgraph;LS$;21|
+        ((|objs| (|List| S)) (|arrowName| (|String|)) ($ ($)))
         (SPROG
          ((|arn| (|Integer|))
           (|ars|
@@ -863,7 +876,7 @@
                    (GO G190) G191 (EXIT NIL))
               (EXIT (CONS |obs| |ars|))))) 
 
-(SDEFUN |DGRPH;+;3$;22| ((|a| $) (|b| $) ($ $))
+(SDEFUN |DGRPH;+;3$;22| ((|a| ($)) (|b| ($)) ($ ($)))
         (SPROG
          ((|la|
            (|List|
@@ -905,7 +918,7 @@
               (LETT |la| (SPADCALL (QCDR |a|) |lb| (QREFELT $ 75)))
               (EXIT (CONS |lo| |la|))))) 
 
-(SDEFUN |DGRPH;merge;3$;23| ((|a| $) (|b| $) ($ $))
+(SDEFUN |DGRPH;merge;3$;23| ((|a| ($)) (|b| ($)) ($ ($)))
         (SPROG
          ((|la|
            (|List|
@@ -988,11 +1001,12 @@
           (EXIT (CONS |mergedObjects| |la|))))) 
 
 (SDEFUN |DGRPH;objProd|
-        ((|a| $) (|b| $)
-         ($ |List|
-          (|Record| (|:| |value| (|Product| S S))
-                    (|:| |posX| (|NonNegativeInteger|))
-                    (|:| |posY| (|NonNegativeInteger|)))))
+        ((|a| ($)) (|b| ($))
+         ($
+          (|List|
+           (|Record| (|:| |value| (|Product| S S))
+                     (|:| |posX| (|NonNegativeInteger|))
+                     (|:| |posY| (|NonNegativeInteger|))))))
         (SPROG
          ((|newObjs|
            (|List|
@@ -1052,8 +1066,8 @@
               (EXIT |newObjs|)))) 
 
 (SDEFUN |DGRPH;indexProd|
-        ((|aObj| $) (|a| |NonNegativeInteger|) (|b| |NonNegativeInteger|)
-         ($ |NonNegativeInteger|))
+        ((|aObj| ($)) (|a| (|NonNegativeInteger|)) (|b| (|NonNegativeInteger|))
+         ($ (|NonNegativeInteger|)))
         (SPROG ((#1=#:G498 NIL))
                (+ |a|
                   (*
@@ -1062,7 +1076,8 @@
                                        '(|Integer|) #1#))
                    (LENGTH (QCAR |aObj|)))))) 
 
-(SDEFUN |DGRPH;*;2$Dg;26| ((|a| $) (|b| $) ($ |DirectedGraph| (|Product| S S)))
+(SDEFUN |DGRPH;*;2$Dg;26|
+        ((|a| ($)) (|b| ($)) ($ (|DirectedGraph| (|Product| S S))))
         (SPROG
          ((|newArrs|
            (|List|
@@ -1138,7 +1153,7 @@
                          (QREFELT $ 91)))))) 
 
 (SDEFUN |DGRPH;cartesian;2$Dg;27|
-        ((|a| $) (|b| $) ($ |DirectedGraph| (|Product| S S)))
+        ((|a| ($)) (|b| ($)) ($ (|DirectedGraph| (|Product| S S))))
         (SPROG
          ((|newArrs|
            (|List|
@@ -1352,10 +1367,11 @@
                          (QREFELT $ 91)))))) 
 
 (SDEFUN |DGRPH;closedObjProd|
-        ((|a| $) (|b| $) (|f| |Mapping| S S S)
-         ($ |List|
-          (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
-                    (|:| |posY| (|NonNegativeInteger|)))))
+        ((|a| ($)) (|b| ($)) (|f| (|Mapping| S S S))
+         ($
+          (|List|
+           (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
+                     (|:| |posY| (|NonNegativeInteger|))))))
         (SPROG
          ((|newObjs|
            (|List|
@@ -1411,7 +1427,7 @@
               (EXIT |newObjs|)))) 
 
 (SDEFUN |DGRPH;closedTensor;2$M$;29|
-        ((|a| $) (|b| $) (|f| |Mapping| S S S) ($ $))
+        ((|a| ($)) (|b| ($)) (|f| (|Mapping| S S S)) ($ ($)))
         (SPROG
          ((|newArrs|
            (|List|
@@ -1487,7 +1503,7 @@
                          (QREFELT $ 19)))))) 
 
 (SDEFUN |DGRPH;closedCartesian;2$M$;30|
-        ((|a| $) (|b| $) (|f| |Mapping| S S S) ($ $))
+        ((|a| ($)) (|b| ($)) (|f| (|Mapping| S S S)) ($ ($)))
         (SPROG
          ((|newArrs|
            (|List|
@@ -1700,7 +1716,7 @@
                (SPADCALL (|DGRPH;closedObjProd| |a| |b| |f| $) |newArrs|
                          (QREFELT $ 19)))))) 
 
-(SDEFUN |DGRPH;~;2$;31| ((|s| $) ($ $))
+(SDEFUN |DGRPH;~;2$;31| ((|s| ($)) ($ ($)))
         (SPROG
          ((|newArrs|
            (|List|
@@ -1758,8 +1774,8 @@
               (EXIT (CONS |obs| |newArrs|))))) 
 
 (SDEFUN |DGRPH;map;$LL2I$;32|
-        ((|s| $) (|m| |List| (|NonNegativeInteger|)) (|newOb| |List| S)
-         (|offsetX| . #1=(|Integer|)) (|offsetY| . #1#) ($ $))
+        ((|s| ($)) (|m| (|List| (|NonNegativeInteger|))) (|newOb| (|List| S))
+         (|offsetX| #1=(|Integer|)) (|offsetY| #1#) ($ ($)))
         (SPROG
          ((|newArrs|
            (|List|
@@ -1842,8 +1858,8 @@
           (EXIT (CONS |newObjs| |newArrs|))))) 
 
 (SDEFUN |DGRPH;mapContra;$LL2I$;33|
-        ((|s| $) (|m| |List| (|NonNegativeInteger|)) (|newOb| |List| S)
-         (|offsetX| . #1=(|Integer|)) (|offsetY| . #1#) ($ $))
+        ((|s| ($)) (|m| (|List| (|NonNegativeInteger|))) (|newOb| (|List| S))
+         (|offsetX| #1=(|Integer|)) (|offsetY| #1#) ($ ($)))
         (SPROG
          ((|newArrs|
            (|List|
@@ -1925,13 +1941,13 @@
                (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
           (EXIT (CONS |newObjs| |newArrs|))))) 
 
-(SDEFUN |DGRPH;coerce;Pg$;34| ((|pg| |PermutationGroup| S) ($ $))
+(SDEFUN |DGRPH;coerce;Pg$;34| ((|pg| (|PermutationGroup| S)) ($ ($)))
         (SPADCALL (SPADCALL |pg| (QREFELT $ 103)) (QREFELT $ 46))) 
 
-(SDEFUN |DGRPH;coerce;Fp$;35| ((|poset| |FinitePoset| S) ($ $))
+(SDEFUN |DGRPH;coerce;Fp$;35| ((|poset| (|FinitePoset| S)) ($ ($)))
         (SPADCALL |poset| (QREFELT $ 29))) 
 
-(SDEFUN |DGRPH;coerce;L$;36| ((|lst| |List| S) ($ $))
+(SDEFUN |DGRPH;coerce;L$;36| ((|lst| (|List| S)) ($ ($)))
         (SPROG
          ((|arn| (|Integer|))
           (|ars|

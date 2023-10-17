@@ -1,16 +1,16 @@
 
 (PUT '|FMOEBF;rep| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |FMOEBF;rep| ((|x| $) ($ |Rep|)) |x|) 
+(SDEFUN |FMOEBF;rep| ((|x| ($)) ($ (|Rep|))) |x|) 
 
 (PUT '|FMOEBF;per| '|SPADreplace| '(XLAM (|r|) |r|)) 
 
-(SDEFUN |FMOEBF;per| ((|r| |Rep|) ($ $)) |r|) 
+(SDEFUN |FMOEBF;per| ((|r| (|Rep|)) ($ ($))) |r|) 
 
-(SDEFUN |FMOEBF;members;$L;3| ((|mf| $) ($ |List| P))
+(SDEFUN |FMOEBF;members;$L;3| ((|mf| ($)) ($ (|List| P)))
         (QCDR (|FMOEBF;rep| |mf| $))) 
 
-(SDEFUN |FMOEBF;moebiusFunction;L$;4| ((|xx| |List| P) ($ $))
+(SDEFUN |FMOEBF;moebiusFunction;L$;4| ((|xx| (|List| P)) ($ ($)))
         (SPROG
          ((|mf| (|Matrix| (|Integer|))) (|zf| (|Matrix| (|Integer|)))
           (#1=#:G122 NIL) (|y| NIL) (#2=#:G121 NIL) (#3=#:G120 NIL) (|x| NIL)
@@ -57,7 +57,7 @@
           (LETT |mf| (SPADCALL |zf| 1 (QREFELT $ 21)))
           (EXIT (|FMOEBF;per| (CONS |mf| |xxo|) $))))) 
 
-(SDEFUN |FMOEBF;canonicalZeta| ((|pi| P) (|si| P) ($ |Integer|))
+(SDEFUN |FMOEBF;canonicalZeta| ((|pi| (P)) (|si| (P)) ($ (|Integer|)))
         (SPROG ((#1=#:G125 NIL))
                (SEQ
                 (EXIT
@@ -68,7 +68,8 @@
                   (EXIT 0)))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |FMOEBF;moebiusMu;$2PI;6| ((|mf| $) (|x| P) (|y| P) ($ |Integer|))
+(SDEFUN |FMOEBF;moebiusMu;$2PI;6|
+        ((|mf| ($)) (|x| (P)) (|y| (P)) ($ (|Integer|)))
         (SPROG
          ((#1=#:G131 NIL) (|ky| #2=(|Integer|)) (|kx| #2#)
           (|mfn| (|Matrix| (|Integer|))))
@@ -90,7 +91,7 @@
                   (GO #3=#:G130)))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |FMOEBF;apply;$2PI;7| ((|mf| $) (|x| P) (|y| P) ($ |Integer|))
+(SDEFUN |FMOEBF;apply;$2PI;7| ((|mf| ($)) (|x| (P)) (|y| (P)) ($ (|Integer|)))
         (SPROG
          ((#1=#:G137 NIL) (|ky| #2=(|Integer|)) (|kx| #2#)
           (|mfn| (|Matrix| (|Integer|))))
@@ -112,10 +113,10 @@
                   (GO #3=#:G136)))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |FMOEBF;moebiusMatrix;$M;8| ((|mf| $) ($ |Matrix| (|Integer|)))
+(SDEFUN |FMOEBF;moebiusMatrix;$M;8| ((|mf| ($)) ($ (|Matrix| (|Integer|))))
         (QCAR (|FMOEBF;rep| |mf| $))) 
 
-(SDEFUN |FMOEBF;coerce;$Of;9| ((|mf| $) ($ |OutputForm|))
+(SDEFUN |FMOEBF;coerce;$Of;9| ((|mf| ($)) ($ (|OutputForm|)))
         (SPADCALL (SPADCALL "Moebius Function" (QREFELT $ 30))
                   (SPADCALL (SPADCALL |mf| (QREFELT $ 9)) (QREFELT $ 31))
                   (QREFELT $ 32))) 

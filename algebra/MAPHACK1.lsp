@@ -1,6 +1,6 @@
 
 (SDEFUN |MAPHACK1;iter;MNni2A;1|
-        ((|g| |Mapping| A A) (|n| |NonNegativeInteger|) (|x| A) ($ A))
+        ((|g| (|Mapping| A A)) (|n| (|NonNegativeInteger|)) (|x| (A)) ($ (A)))
         (SPROG ((#1=#:G107 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 1) (LETT #1# |n|) G190
@@ -10,8 +10,8 @@
                 (EXIT |x|)))) 
 
 (SDEFUN |MAPHACK1;recur;MNni2A;2|
-        ((|g| |Mapping| A (|NonNegativeInteger|) A) (|n| |NonNegativeInteger|)
-         (|x| A) ($ A))
+        ((|g| (|Mapping| A (|NonNegativeInteger|) A))
+         (|n| (|NonNegativeInteger|)) (|x| (A)) ($ (A)))
         (SPROG ((#1=#:G112 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 1) (LETT #1# |n|) G190

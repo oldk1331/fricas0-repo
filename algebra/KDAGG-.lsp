@@ -1,10 +1,10 @@
 
-(SDEFUN |KDAGG-;key?;KeySB;1| ((|k| |Key|) (|t| S) ($ |Boolean|))
+(SDEFUN |KDAGG-;key?;KeySB;1| ((|k| (|Key|)) (|t| (S)) ($ (|Boolean|)))
         (QEQCAR (SPADCALL |k| |t| (QREFELT $ 10)) 0)) 
 
 (SDEFUN |KDAGG-;member?;RSB;2|
-        ((|p| |Record| (|:| |key| |Key|) (|:| |entry| |Entry|)) (|t| S)
-         ($ |Boolean|))
+        ((|p| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))) (|t| (S))
+         ($ (|Boolean|)))
         (SPROG ((|r| (|Union| |Entry| "failed")))
                (SEQ (LETT |r| (SPADCALL (QCAR |p|) |t| (QREFELT $ 10)))
                     (EXIT
@@ -14,7 +14,7 @@
                                  (QREFELT $ 13)))
                       ('T NIL)))))) 
 
-(SDEFUN |KDAGG-;keys;SL;3| ((|t| S) ($ |List| |Key|))
+(SDEFUN |KDAGG-;keys;SL;3| ((|t| (S)) ($ (|List| |Key|)))
         (SPROG ((#1=#:G128 NIL) (|x| NIL) (#2=#:G127 NIL))
                (SEQ
                 (PROGN

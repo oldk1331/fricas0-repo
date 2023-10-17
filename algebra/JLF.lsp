@@ -1,5 +1,5 @@
 
-(SDEFUN |JLF;statistics;V;1| (($ |Void|))
+(SDEFUN |JLF;statistics;V;1| (($ (|Void|)))
         (SEQ
          (SPADCALL
           (SPADCALL (SPADCALL "Number of lazy differentiations" (QREFELT $ 12))
@@ -12,7 +12,7 @@
           (QREFELT $ 17))
          (EXIT (SPADCALL (QREFELT $ 18))))) 
 
-(SDEFUN |JLF;emptyDer?| ((|der| |LazyDer|) ($ |Boolean|))
+(SDEFUN |JLF;emptyDer?| ((|der| (|LazyDer|)) ($ (|Boolean|)))
         (SPROG ((#1=#:G190 NIL))
                (COND
                 ((OR (SPADCALL (QVELT |der| 1) (CONS 1 '|0|) (QREFELT $ 35))
@@ -26,10 +26,10 @@
                                     (|Union| (QREFELT $ 7) $) #1#))
                   (QREFELT $ 36)))))) 
 
-(SDEFUN |JLF;groundFlag?| ((|exp| $) ($ |Boolean|))
+(SDEFUN |JLF;groundFlag?| ((|exp| ($)) ($ (|Boolean|)))
         (QVELT (SPADCALL |exp| (QREFELT $ 37)) 2)) 
 
-(SDEFUN |JLF;extract| ((|exp| $) ($ D))
+(SDEFUN |JLF;extract| ((|exp| ($)) ($ (D)))
         (SPROG ((#1=#:G190 NIL))
                (PROG2
                    (LETT #1#
@@ -43,21 +43,21 @@
                  (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
                                  (|Union| (QREFELT $ 7) $) #1#)))) 
 
-(SDEFUN |JLF;jetVars| ((|f| |Union| D $) ($ |List| JB))
+(SDEFUN |JLF;jetVars| ((|f| (|Union| D $)) ($ (|List| JB)))
         (COND ((QEQCAR |f| 0) (SPADCALL (QCDR |f|) (QREFELT $ 40)))
               ('T (SPADCALL (QCDR |f|) (QREFELT $ 41))))) 
 
 (SDEFUN |JLF;greater|
-        ((|lt1| |Reference| |LazyTerm|) (|lt2| |Reference| |LazyTerm|)
-         ($ |Boolean|))
+        ((|lt1| (|Reference| |LazyTerm|)) (|lt2| (|Reference| |LazyTerm|))
+         ($ (|Boolean|)))
         (SPADCALL (QVELT (SPADCALL |lt1| (QREFELT $ 38)) 0)
                   (QVELT (SPADCALL |lt2| (QREFELT $ 38)) 0) (QREFELT $ 42))) 
 
-(SDEFUN |JLF;lazyTerm| ((|d| D) ($ |LazyTerm|))
+(SDEFUN |JLF;lazyTerm| ((|d| (D)) ($ (|LazyTerm|)))
         (VECTOR (SPADCALL |d| (QREFELT $ 43)) 'T 'T (CONS 0 |d|)
                 (SPADCALL (QREFELT $ 25) (QREFELT $ 29)))) 
 
-(SDEFUN |JLF;convert| ((|lt| |LazyTerm|) ($ $))
+(SDEFUN |JLF;convert| ((|lt| (|LazyTerm|)) ($ ($)))
         (SPROG ((JV (|List| JB)))
                (SEQ
                 (LETT JV
@@ -76,8 +76,8 @@
                   (QREFELT $ 48)))))) 
 
 (SDEFUN |JLF;adapt|
-        ((|rec| |RepRec|) (|newLazy| |List| (|Reference| |LazyTerm|))
-         ($ |RepRec|))
+        ((|rec| (|RepRec|)) (|newLazy| (|List| (|Reference| |LazyTerm|)))
+         ($ (|RepRec|)))
         (SPROG
          ((|newJV2| (|List| JB)) (|newJV1| (|List| JB))
           (|newSharp?| (|Boolean|)) (|newLD| (JB)) (|lt| (|LazyTerm|)))
@@ -127,15 +127,15 @@
                    (VECTOR |newLD| |newSharp?| (QVELT |rec| 2) |newJV1|
                            |newJV2| |newLazy|)))))))) 
 
-(SDEFUN |JLF;zeroU?| ((|f| |Union| D $) ($ |Boolean|))
+(SDEFUN |JLF;zeroU?| ((|f| (|Union| D $)) ($ (|Boolean|)))
         (COND ((QEQCAR |f| 0) (SPADCALL (QCDR |f|) (QREFELT $ 51)))
               ('T (SPADCALL (QCDR |f|) (QREFELT $ 52))))) 
 
-(SDEFUN |JLF;oneU?| ((|f| |Union| D $) ($ |Boolean|))
+(SDEFUN |JLF;oneU?| ((|f| (|Union| D $)) ($ (|Boolean|)))
         (COND ((QEQCAR |f| 0) (SPADCALL (QCDR |f|) (QREFELT $ 36)))
               ('T (SPADCALL (QCDR |f|) (QREFELT $ 53))))) 
 
-(SDEFUN |JLF;minus| ((|f| |Union| D $) ($ |Union| D $))
+(SDEFUN |JLF;minus| ((|f| (|Union| D $)) ($ (|Union| D $)))
         (SPROG ((|fs| ($)))
                (SEQ
                 (COND
@@ -150,7 +150,7 @@
                                           (QREFELT $ 54))))
                          (#1# (CONS 1 (SPADCALL |fs| (QREFELT $ 55)))))))))))) 
 
-(SDEFUN |JLF;mult| ((|f| |Union| D $) (|g| |Union| D $) ($ |Union| D $))
+(SDEFUN |JLF;mult| ((|f| (|Union| D $)) (|g| (|Union| D $)) ($ (|Union| D $)))
         (SPROG ((|gs| ($)) (|fs| ($)) (|fd| (D)))
                (SEQ
                 (COND
@@ -192,8 +192,8 @@
                                                   (QREFELT $ 58)))))))))))))))) 
 
 (SDEFUN |JLF;multLazy|
-        ((|rlt1| |Reference| |LazyTerm|) (|rlt2| |Reference| |LazyTerm|)
-         ($ |Reference| |LazyTerm|))
+        ((|rlt1| (|Reference| |LazyTerm|)) (|rlt2| (|Reference| |LazyTerm|))
+         ($ (|Reference| |LazyTerm|)))
         (SPROG
          ((|resDer| (|Reference| |LazyDer|)) (|resCoeff| (|Union| D $))
           (|resEval?| (|Boolean|)) (|resSharp?| (|Boolean|)) (|resLD| (JB))
@@ -242,7 +242,7 @@
                 (VECTOR |resLD| |resSharp?| |resEval?| |resCoeff| |resDer|)
                 (QREFELT $ 31)))))) 
 
-(SDEFUN |JLF;coerce;JB$;15| ((|jv| JB) ($ $))
+(SDEFUN |JLF;coerce;JB$;15| ((|jv| (JB)) ($ ($)))
         (SPADCALL
          (VECTOR |jv| 'T 'T (LIST |jv|) NIL
                  (LIST
@@ -252,7 +252,7 @@
                    (QREFELT $ 31))))
          (QREFELT $ 48))) 
 
-(SDEFUN |JLF;coerce;D$;16| ((|d| D) ($ $))
+(SDEFUN |JLF;coerce;D$;16| ((|d| (D)) ($ ($)))
         (SPROG ((JV (|List| JB)) (|ld| (JB)))
                (SEQ (LETT |ld| (SPADCALL |d| (QREFELT $ 43)))
                     (LETT JV (SPADCALL |d| (QREFELT $ 40)))
@@ -267,15 +267,15 @@
                                 (QREFELT $ 31))))
                       (QREFELT $ 48)))))) 
 
-(SDEFUN |JLF;coerce;$D;17| ((|exp| $) ($ D))
+(SDEFUN |JLF;coerce;$D;17| ((|exp| ($)) ($ (D)))
         (SEQ (LETT |exp| (SPADCALL |exp| (QREFELT $ 63)))
              (EXIT (|JLF;extract| |exp| $)))) 
 
-(SDEFUN |JLF;printFun| ((|fun| |Union| D $) ($ |OutputForm|))
+(SDEFUN |JLF;printFun| ((|fun| (|Union| D $)) ($ (|OutputForm|)))
         (COND ((QEQCAR |fun| 0) (SPADCALL (QCDR |fun|) (QREFELT $ 65)))
               ('T (SPADCALL (QCDR |fun|) (QREFELT $ 66))))) 
 
-(SDEFUN |JLF;printDiff| ((|der| |LazyDer|) ($ |OutputForm|))
+(SDEFUN |JLF;printDiff| ((|der| (|LazyDer|)) ($ (|OutputForm|)))
         (COND ((QVELT |der| 0) (|JLF;printFun| (QVELT |der| 2) $))
               ('T
                (SPADCALL (SPADCALL "diff" (QREFELT $ 12))
@@ -283,7 +283,7 @@
                                (SPADCALL (QVELT |der| 1) (QREFELT $ 67)))
                          (QREFELT $ 69))))) 
 
-(SDEFUN |JLF;printLazyTerm| ((|lt| |LazyTerm|) ($ |OutputForm|))
+(SDEFUN |JLF;printLazyTerm| ((|lt| (|LazyTerm|)) ($ (|OutputForm|)))
         (SPROG ((|co| (|Union| D $)))
                (SEQ
                 (COND ((QVELT |lt| 2) (|JLF;printFun| (QVELT |lt| 3) $))
@@ -298,7 +298,7 @@
                                        (QREFELT $ 70))))))))) 
 
 (SDEFUN |JLF;printLazy|
-        ((|llt| |List| (|Reference| |LazyTerm|)) ($ |OutputForm|))
+        ((|llt| (|List| (|Reference| |LazyTerm|))) ($ (|OutputForm|)))
         (COND
          ((EQL (LENGTH |llt|) 1)
           (|JLF;printLazyTerm| (SPADCALL (|SPADfirst| |llt|) (QREFELT $ 38))
@@ -309,13 +309,13 @@
             $)
            (|JLF;printLazy| (CDR |llt|) $) (QREFELT $ 71))))) 
 
-(SDEFUN |JLF;coerce;$Of;22| ((|exp| $) ($ |OutputForm|))
+(SDEFUN |JLF;coerce;$Of;22| ((|exp| ($)) ($ (|OutputForm|)))
         (COND
          ((|JLF;groundFlag?| |exp| $)
           (SPADCALL (|JLF;extract| |exp| $) (QREFELT $ 65)))
          ('T (|JLF;printLazy| (QVELT (SPADCALL |exp| (QREFELT $ 37)) 5) $)))) 
 
-(SDEFUN |JLF;collect;2$;23| ((|exp| $) ($ $))
+(SDEFUN |JLF;collect;2$;23| ((|exp| ($)) ($ ($)))
         (SPROG
          ((|rec| (|RepRec|)) (|newLazy| (|List| (|Reference| |LazyTerm|)))
           (|res| #1=(|Boolean|)) (|co| (D)) (#2=#:G191 NIL) (|newSharp?| #1#)
@@ -500,11 +500,11 @@
                       (QSETVELT |rec| 2 |res|)
                       (SPADCALL |exp| |rec| (QREFELT $ 72)) (EXIT |exp|)))))))) 
 
-(SDEFUN |JLF;ground?;$B;24| ((|exp| $) ($ |Boolean|))
+(SDEFUN |JLF;ground?;$B;24| ((|exp| ($)) ($ (|Boolean|)))
         (|JLF;groundFlag?| (SPADCALL |exp| (QREFELT $ 79)) $)) 
 
 (SDEFUN |JLF;evalDeriv|
-        ((|rder| |Reference| |LazyDer|) ($ |Reference| |LazyDer|))
+        ((|rder| (|Reference| |LazyDer|)) ($ (|Reference| |LazyDer|)))
         (SPROG
          ((|dfun| (D)) (#1=#:G188 NIL) (#2=#:G187 NIL) (|fun| (D))
           (#3=#:G191 NIL) (#4=#:G190 NIL) (|der| (|LazyDer|)))
@@ -567,7 +567,7 @@
                        (EXIT |rder|)))))))) 
 
 (SDEFUN |JLF;evalTerm|
-        ((|rlt| |Reference| |LazyTerm|) ($ |Reference| |LazyTerm|))
+        ((|rlt| (|Reference| |LazyTerm|)) ($ (|Reference| |LazyTerm|)))
         (SPROG
          ((|res| (D)) (#1=#:G190 NIL) (|co| (D)) (#2=#:G191 NIL)
           (|lt| (|LazyTerm|)))
@@ -623,7 +623,7 @@
                                      (QREFELT $ 75))
                            (EXIT |rlt|)))))))))))) 
 
-(SDEFUN |JLF;eval1;2$;27| ((|exp| $) ($ $))
+(SDEFUN |JLF;eval1;2$;27| ((|exp| ($)) ($ ($)))
         (SPROG
          ((|lazy| (|List| (|Reference| |LazyTerm|))) (|ld| (JB))
           (|rlt| (|Reference| |LazyTerm|)) (|d| (D)) (|co| (D)) (#1=#:G190 NIL)
@@ -752,7 +752,7 @@
                                      (EXIT |exp|)))))))))))
           #5# (EXIT #2#)))) 
 
-(SDEFUN |JLF;eval;2$;28| ((|exp| $) ($ $))
+(SDEFUN |JLF;eval;2$;28| ((|exp| ($)) ($ ($)))
         (SEQ
          (SEQ G190
               (COND ((NULL (NULL (SPADCALL |exp| (QREFELT $ 74)))) (GO G191)))
@@ -760,9 +760,9 @@
               (GO G190) G191 (EXIT NIL))
          (EXIT |exp|))) 
 
-(SDEFUN |JLF;Zero;$;29| (($ $)) (SPADCALL (QREFELT $ 32) (QREFELT $ 48))) 
+(SDEFUN |JLF;Zero;$;29| (($ ($))) (SPADCALL (QREFELT $ 32) (QREFELT $ 48))) 
 
-(SDEFUN |JLF;One;$;30| (($ $))
+(SDEFUN |JLF;One;$;30| (($ ($)))
         (SPADCALL
          (VECTOR (|spadConstant| $ 26) 'T 'T NIL NIL
                  (LIST
@@ -773,7 +773,7 @@
                    (QREFELT $ 31))))
          (QREFELT $ 48))) 
 
-(SDEFUN |JLF;zero?;$B;31| ((|exp| $) ($ |Boolean|))
+(SDEFUN |JLF;zero?;$B;31| ((|exp| ($)) ($ (|Boolean|)))
         (SPROG ((|ld| (JB)))
                (SEQ
                 (COND
@@ -789,15 +789,15 @@
                            (QREFELT $ 51)))
                          (#1# NIL))))))))) 
 
-(SDEFUN |JLF;eqRep?;2$B;32| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |JLF;eqRep?;2$B;32| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 37)) (SPADCALL |y| (QREFELT $ 37))
                   (QREFELT $ 89))) 
 
-(SDEFUN |JLF;=;2$B;33| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |JLF;=;2$B;33| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (COND ((SPADCALL |x| |y| (QREFELT $ 90)) 'T)
               ('T (SPADCALL (SPADCALL |x| |y| (QREFELT $ 91)) (QREFELT $ 52))))) 
 
-(SDEFUN |JLF;one?;$B;34| ((|exp| $) ($ |Boolean|))
+(SDEFUN |JLF;one?;$B;34| ((|exp| ($)) ($ (|Boolean|)))
         (SPROG ((|ld| (JB)))
                (SEQ
                 (COND
@@ -815,11 +815,11 @@
 
 (PUT '|JLF;numerator;2$;35| '|SPADreplace| '(XLAM (|exp|) |exp|)) 
 
-(SDEFUN |JLF;numerator;2$;35| ((|exp| $) ($ $)) |exp|) 
+(SDEFUN |JLF;numerator;2$;35| ((|exp| ($)) ($ ($))) |exp|) 
 
-(SDEFUN |JLF;denominator;2$;36| ((|exp| $) ($ $)) (|spadConstant| $ 80)) 
+(SDEFUN |JLF;denominator;2$;36| ((|exp| ($)) ($ ($))) (|spadConstant| $ 80)) 
 
-(SDEFUN |JLF;-;2$;37| ((|x| $) ($ $))
+(SDEFUN |JLF;-;2$;37| ((|x| ($)) ($ ($)))
         (SPROG
          ((|resLazy| (|List| (|Reference| |LazyTerm|))) (|lt| (|LazyTerm|))
           (#1=#:G340 NIL) (|rlt| NIL) (#2=#:G339 NIL) (|rec| (|RepRec|)))
@@ -853,7 +853,7 @@
                         (QVELT |rec| 3) (QVELT |rec| 4) |resLazy|)
                 (QREFELT $ 48)))))) 
 
-(SDEFUN |JLF;+;3$;38| ((|x| $) (|y| $) ($ $))
+(SDEFUN |JLF;+;3$;38| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG
          ((|resJV2| #1=(|List| JB)) (|resJV1| #1#) (|yJV| #2=(|List| JB))
           (|xJV| #2#) (|resSharp?| (|Boolean|)) (|resLD| (JB))
@@ -902,7 +902,7 @@
                 (VECTOR |resLD| |resSharp?| NIL |resJV1| |resJV2| |resLazy|)
                 (QREFELT $ 48)))))) 
 
-(SDEFUN |JLF;*;I2$;39| ((|i| |Integer|) (|x| $) ($ $))
+(SDEFUN |JLF;*;I2$;39| ((|i| (|Integer|)) (|x| ($)) ($ ($)))
         (SPROG
          ((|resLazy| (|List| (|Reference| |LazyTerm|))) (|lt| (|LazyTerm|))
           (#1=#:G359 NIL) (|rlt| NIL) (|rec| (|RepRec|)))
@@ -936,10 +936,10 @@
                         (QVELT |rec| 3) (QVELT |rec| 4) |resLazy|)
                 (QREFELT $ 48)))))) 
 
-(SDEFUN |JLF;*;D2$;40| ((|d| D) (|x| $) ($ $))
+(SDEFUN |JLF;*;D2$;40| ((|d| (D)) (|x| ($)) ($ ($)))
         (SPADCALL (SPADCALL |d| (QREFELT $ 62)) |x| (QREFELT $ 58))) 
 
-(SDEFUN |JLF;*;3$;41| ((|x| $) (|y| $) ($ $))
+(SDEFUN |JLF;*;3$;41| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG
          ((|resSharp?| (|Boolean|)) (|resLD| (JB)) (|resJV2| #1=(|List| JB))
           (|resJV1| #1#) (|resLazy| (|List| (|Reference| |LazyTerm|)))
@@ -1006,7 +1006,7 @@
                (VECTOR |resLD| |resSharp?| NIL |resJV1| |resJV2| |resLazy|)
                (QREFELT $ 48))))))))) 
 
-(SDEFUN |JLF;recip;$U;42| ((|exp| $) ($ |Union| $ "failed"))
+(SDEFUN |JLF;recip;$U;42| ((|exp| ($)) ($ (|Union| $ "failed")))
         (SPROG ((|rd| (|Union| D "failed")))
                (SEQ
                 (COND
@@ -1020,7 +1020,7 @@
                            (CONS 0 (SPADCALL (QCDR |rd|) (QREFELT $ 62))))))))
                  (#1# (CONS 1 "failed")))))) 
 
-(SDEFUN |JLF;const?;$B;43| ((|exp| $) ($ |Boolean|))
+(SDEFUN |JLF;const?;$B;43| ((|exp| ($)) ($ (|Boolean|)))
         (SPROG ((|rec| (|RepRec|)))
                (SEQ (LETT |rec| (SPADCALL |exp| (QREFELT $ 37)))
                     (EXIT
@@ -1030,20 +1030,20 @@
                                  (QREFELT $ 107)))
                       ('T NIL)))))) 
 
-(SDEFUN |JLF;order;$Nni;44| ((|exp| $) ($ |NonNegativeInteger|))
+(SDEFUN |JLF;order;$Nni;44| ((|exp| ($)) ($ (|NonNegativeInteger|)))
         (SPADCALL (SPADCALL |exp| (QREFELT $ 87)) (QREFELT $ 109))) 
 
-(SDEFUN |JLF;class;$Nni;45| ((|exp| $) ($ |NonNegativeInteger|))
+(SDEFUN |JLF;class;$Nni;45| ((|exp| ($)) ($ (|NonNegativeInteger|)))
         (SPADCALL (SPADCALL |exp| (QREFELT $ 87)) (QREFELT $ 111))) 
 
-(SDEFUN |JLF;jetVariables;$L;46| ((|exp| $) ($ |List| JB))
+(SDEFUN |JLF;jetVariables;$L;46| ((|exp| ($)) ($ (|List| JB)))
         (SPROG ((|rec| (|RepRec|)))
                (SEQ (LETT |rec| (SPADCALL |exp| (QREFELT $ 37)))
                     (EXIT
                      (SPADCALL (ELT $ 42) (QVELT |rec| 3) (QVELT |rec| 4)
                                (QREFELT $ 46)))))) 
 
-(SDEFUN |JLF;differentiate;$JB$;47| ((|exp| $) (|jv| JB) ($ $))
+(SDEFUN |JLF;differentiate;$JB$;47| ((|exp| ($)) (|jv| (JB)) ($ ($)))
         (SPROG ((|newJV| (|List| JB)) (|ld| (JB)) (|rec| (|RepRec|)))
                (SEQ (LETT |rec| (SPADCALL |exp| (QREFELT $ 37)))
                     (LETT |ld| (QVELT |rec| 0))
@@ -1076,7 +1076,7 @@
                                     (QREFELT $ 31))))
                           (QREFELT $ 48)))))))))) 
 
-(SDEFUN |JLF;differentiate;$S$;48| ((|exp| $) (|x| |Symbol|) ($ $))
+(SDEFUN |JLF;differentiate;$S$;48| ((|exp| ($)) (|x| (|Symbol|)) ($ ($)))
         (SPROG ((|newJV| (|List| JB)) (|ld| (JB)) (|rec| (|RepRec|)))
                (SEQ (SETELT $ 8 (+ (QREFELT $ 8) 1))
                     (LETT |rec| (SPADCALL |exp| (QREFELT $ 37)))
@@ -1101,10 +1101,11 @@
                       (QREFELT $ 48)))))) 
 
 (SDEFUN |JLF;formalDiff2;LPiSemR;49|
-        ((|Sys| |List| . #1=($)) (|i| |PositiveInteger|)
-         (JM |SparseEchelonMatrix| JB . #1#)
-         ($ |Record| (|:| |DSys| (|List| $))
-          (|:| |JVars| (|List| (|List| JB)))))
+        ((|Sys| (|List| . #1=($))) (|i| (|PositiveInteger|))
+         (JM (|SparseEchelonMatrix| JB . #1#))
+         ($
+          (|Record| (|:| |DSys| (|List| $))
+                    (|:| |JVars| (|List| (|List| JB))))))
         (SPROG
          ((LJV (|List| (|List| JB))) (JV (|List| JB)) (|LRes| (|List| $))
           (|res| ($)) (|djv| (|Union| JB "0")) (#2=#:G432 NIL) (|df| NIL)
@@ -1226,7 +1227,7 @@
                        (CONS (SPADCALL |LRes| (QREFELT $ 129))
                              (NREVERSE LJV)))))))))) 
 
-(SDEFUN |JLF;leadingDer;$JB;50| ((|exp| $) ($ JB))
+(SDEFUN |JLF;leadingDer;$JB;50| ((|exp| ($)) ($ (JB)))
         (SPROG ((|rec| (|RepRec|)))
                (SEQ (LETT |rec| (SPADCALL |exp| (QREFELT $ 37)))
                     (SEQ G190
@@ -1245,7 +1246,7 @@
                             (SPADCALL (SPADCALL |exp| (QREFELT $ 64))
                                       (QREFELT $ 43)))))))) 
 
-(SDEFUN |JLF;freeOf?;$JBB;51| ((|exp| $) (|jv| JB) ($ |Boolean|))
+(SDEFUN |JLF;freeOf?;$JBB;51| ((|exp| ($)) (|jv| (JB)) ($ (|Boolean|)))
         (SEQ
          (SEQ G190
               (COND
@@ -1266,7 +1267,8 @@
            ('T
             (SPADCALL (SPADCALL |exp| (QREFELT $ 64)) |jv| (QREFELT $ 133))))))) 
 
-(SDEFUN |JLF;solveFor;$JBU;52| ((|exp| $) (|jv| JB) ($ |Union| $ "failed"))
+(SDEFUN |JLF;solveFor;$JBU;52|
+        ((|exp| ($)) (|jv| (JB)) ($ (|Union| $ "failed")))
         (SPROG ((|sf| (|Union| D "failed")))
                (SEQ
                 (LETT |sf|
@@ -1276,43 +1278,45 @@
                  (COND ((QEQCAR |sf| 1) (CONS 1 "failed"))
                        ('T (CONS 0 (SPADCALL (QCDR |sf|) (QREFELT $ 62))))))))) 
 
-(SDEFUN |JLF;subst;$JB2$;53| ((|exp| $) (|jv| JB) (|sub| $) ($ $))
+(SDEFUN |JLF;subst;$JB2$;53| ((|exp| ($)) (|jv| (JB)) (|sub| ($)) ($ ($)))
         (SPADCALL
          (SPADCALL (SPADCALL |exp| (QREFELT $ 64)) |jv|
                    (SPADCALL |sub| (QREFELT $ 64)) (QREFELT $ 137))
          (QREFELT $ 62))) 
 
 (SDEFUN |JLF;ld|
-        ((|r| |Record| (|:| |Dep| (|List| (|NonNegativeInteger|)))
-          (|:| |Fun| $))
-         ($ JB))
+        ((|r|
+          (|Record| (|:| |Dep| (|List| (|NonNegativeInteger|))) (|:| |Fun| $)))
+         ($ (JB)))
         (QVELT (SPADCALL (QCDR |r|) (QREFELT $ 37)) 0)) 
 
 (SDEFUN |JLF;greaterLD|
-        ((|r1| |Record| (|:| |Dep| (|List| (|NonNegativeInteger|)))
-          (|:| |Fun| $))
-         (|r2| |Record| (|:| |Dep| (|List| (|NonNegativeInteger|)))
-          (|:| |Fun| $))
-         ($ |Boolean|))
+        ((|r1|
+          (|Record| (|:| |Dep| (|List| (|NonNegativeInteger|))) (|:| |Fun| $)))
+         (|r2|
+          (|Record| (|:| |Dep| (|List| (|NonNegativeInteger|))) (|:| |Fun| $)))
+         ($ (|Boolean|)))
         (SPADCALL (|JLF;ld| |r1| $) (|JLF;ld| |r2| $) (QREFELT $ 42))) 
 
 (SDEFUN |JLF;simpLD|
-        ((|l| |List|
-          (|Record| (|:| |Dep| (|List| (|NonNegativeInteger|))) (|:| |Fun| $)))
-         ($ |List|
-          (|Record| (|:| |Dep| (|List| (|NonNegativeInteger|)))
-                    (|:| |Fun| $))))
+        ((|l|
+          (|List|
+           (|Record| (|:| |Dep| (|List| (|NonNegativeInteger|)))
+                     (|:| |Fun| $))))
+         ($
+          (|List|
+           (|Record| (|:| |Dep| (|List| (|NonNegativeInteger|)))
+                     (|:| |Fun| $)))))
         (SPROG
          ((|newL|
            (|List|
             (|Record| (|:| |Dep| (|List| (|NonNegativeInteger|)))
                       (|:| |Fun| $))))
-          (#1=#:G518 NIL) (|deq| NIL) (#2=#:G519 NIL)
-          (|dep| (|List| (|NonNegativeInteger|))) (#3=#:G517 NIL)
+          (#1=#:G518 NIL) (|deq| NIL) (#2=#:G519 NIL) (#3=#:G517 NIL)
           (|newDep| (|List| (|List| (|NonNegativeInteger|))))
           (|ndep| (|List| (|NonNegativeInteger|))) (#4=#:G516 NIL) (|d| NIL)
           (#5=#:G515 NIL) (#6=#:G483 NIL) (#7=#:G514 NIL) (|eq| NIL)
-          (#8=#:G513 NIL)
+          (#8=#:G513 NIL) (|dep| (|List| (|NonNegativeInteger|)))
           (|tmp|
            (|Record| (|:| |Sys| (|List| D))
                      (|:| JM (|SparseEchelonMatrix| JB D))
@@ -1512,70 +1516,63 @@
                                                  (EXIT (NREVERSE #8#))))))))
                                   (#19#
                                    (SEQ (LETT |newDep| NIL)
-                                        (SEQ (LETT |dep| NIL)
-                                             (LETT #5#
-                                                   (PROG2
-                                                       (LETT #6#
-                                                             (QVELT |tmp| 2))
-                                                       (QCDR #6#)
-                                                     (|check_union2|
-                                                      (QEQCAR #6# 1)
-                                                      (|List|
-                                                       (|List|
-                                                        (|NonNegativeInteger|)))
-                                                      (|Union| #9#
-                                                               (|List|
-                                                                (|List|
-                                                                 (|NonNegativeInteger|))))
-                                                      #6#)))
-                                             G190
-                                             (COND
-                                              ((OR (ATOM #5#)
-                                                   (PROGN
-                                                    (LETT |dep| (CAR #5#))
-                                                    NIL))
-                                               (GO G191)))
-                                             (SEQ (LETT |ndep| NIL)
-                                                  (SEQ (LETT |d| NIL)
-                                                       (LETT #4# |dep|) G190
-                                                       (COND
-                                                        ((OR (ATOM #4#)
-                                                             (PROGN
-                                                              (LETT |d|
-                                                                    (CAR #4#))
-                                                              NIL))
-                                                         (GO G191)))
-                                                       (SEQ
-                                                        (EXIT
-                                                         (LETT |ndep|
-                                                               (SPADCALL
-                                                                (SPADCALL
-                                                                 |ndep|
-                                                                 (SPADCALL
-                                                                  |oldDep| |d|
-                                                                  (QREFELT $
-                                                                           159))
-                                                                 (QREFELT $
-                                                                          160))
-                                                                (QREFELT $
-                                                                         158)))))
-                                                       (LETT #4# (CDR #4#))
-                                                       (GO G190) G191
-                                                       (EXIT NIL))
-                                                  (EXIT
-                                                   (LETT |newDep|
-                                                         (CONS |ndep|
-                                                               |newDep|))))
-                                             (LETT #5# (CDR #5#)) (GO G190)
-                                             G191 (EXIT NIL))
+                                        (SEQ
+                                         (LETT #5#
+                                               (PROG2
+                                                   (LETT #6# (QVELT |tmp| 2))
+                                                   (QCDR #6#)
+                                                 (|check_union2| (QEQCAR #6# 1)
+                                                                 (|List|
+                                                                  (|List|
+                                                                   (|NonNegativeInteger|)))
+                                                                 (|Union| #9#
+                                                                          (|List|
+                                                                           (|List|
+                                                                            (|NonNegativeInteger|))))
+                                                                 #6#)))
+                                         G190
+                                         (COND
+                                          ((OR (ATOM #5#)
+                                               (PROGN
+                                                (LETT |dep| (CAR #5#))
+                                                NIL))
+                                           (GO G191)))
+                                         (SEQ (LETT |ndep| NIL)
+                                              (SEQ (LETT |d| NIL)
+                                                   (LETT #4# |dep|) G190
+                                                   (COND
+                                                    ((OR (ATOM #4#)
+                                                         (PROGN
+                                                          (LETT |d| (CAR #4#))
+                                                          NIL))
+                                                     (GO G191)))
+                                                   (SEQ
+                                                    (EXIT
+                                                     (LETT |ndep|
+                                                           (SPADCALL
+                                                            (SPADCALL |ndep|
+                                                                      (SPADCALL
+                                                                       |oldDep|
+                                                                       |d|
+                                                                       (QREFELT
+                                                                        $ 159))
+                                                                      (QREFELT
+                                                                       $ 160))
+                                                            (QREFELT $ 158)))))
+                                                   (LETT #4# (CDR #4#))
+                                                   (GO G190) G191 (EXIT NIL))
+                                              (EXIT
+                                               (LETT |newDep|
+                                                     (CONS |ndep| |newDep|))))
+                                         (LETT #5# (CDR #5#)) (GO G190) G191
+                                         (EXIT NIL))
                                         (EXIT
                                          (LETT |newDep|
                                                (NREVERSE |newDep|))))))
                                  (LETT |newL|
                                        (PROGN
                                         (LETT #3# NIL)
-                                        (SEQ (LETT |dep| NIL)
-                                             (LETT #2# |newDep|)
+                                        (SEQ (LETT #2# |newDep|)
                                              (LETT |deq| NIL)
                                              (LETT #1# (QVELT |tmp| 0)) G190
                                              (COND
@@ -1618,11 +1615,13 @@
                                          (QREFELT $ 143))))))))))))) 
 
 (SDEFUN |JLF;simplify;LSemR;57|
-        ((|sys| |List| . #1=($)) (|jm| |SparseEchelonMatrix| JB . #1#)
-         ($ |Record| (|:| |Sys| (|List| $))
-          (|:| JM (|SparseEchelonMatrix| JB $))
-          (|:| |Depend|
-               (|Union| "failed" (|List| (|List| (|NonNegativeInteger|)))))))
+        ((|sys| (|List| . #1=($))) (|jm| (|SparseEchelonMatrix| JB . #1#))
+         ($
+          (|Record| (|:| |Sys| (|List| $))
+                    (|:| JM (|SparseEchelonMatrix| JB $))
+                    (|:| |Depend|
+                         (|Union| "failed"
+                                  (|List| (|List| (|NonNegativeInteger|))))))))
         (SPROG
          ((|r|
            (|Record| (|:| |Indices| (|List| JB)) (|:| |Entries| (|List| $))))
@@ -1703,7 +1702,7 @@
           (EXIT (VECTOR |resSys| |resJM| (CONS 1 |resDep|)))))) 
 
 (SDEFUN |JLF;reduceMod;3L;58|
-        ((|sys1| . #1=(|List| $)) (|sys2| . #1#) ($ |List| $))
+        ((|sys1| #1=(|List| $)) (|sys2| #1#) ($ (|List| $)))
         (SPROG
          ((#2=#:G557 NIL) (|d| NIL) (#3=#:G556 NIL) (|sys2D| (|List| D))
           (#4=#:G555 NIL) (|exp| NIL) (#5=#:G554 NIL) (|sys1D| (|List| D))
@@ -1752,7 +1751,7 @@
                   (EXIT (LETT #3# (CONS (SPADCALL |d| (QREFELT $ 62)) #3#))))
                  (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT (NREVERSE #3#)))))))) 
 
-(SDEFUN |JLF;autoReduce;2L;59| ((|sys| |List| $) ($ |List| $))
+(SDEFUN |JLF;autoReduce;2L;59| ((|sys| (|List| $)) ($ (|List| $)))
         (SPROG
          ((#1=#:G565 NIL) (|d| NIL) (#2=#:G564 NIL) (|sysD| (|List| D))
           (#3=#:G563 NIL) (|exp| NIL) (#4=#:G562 NIL))

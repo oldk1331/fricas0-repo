@@ -1,5 +1,5 @@
 
-(SDEFUN |RMCAT2;map;MM1M2;1| ((|f| |Mapping| R2 R1) (|mat| M1) ($ M2))
+(SDEFUN |RMCAT2;map;MM1M2;1| ((|f| (|Mapping| R2 R1)) (|mat| (M1)) ($ (M2)))
         (SPROG
          ((#1=#:G110 NIL) (|j| NIL) (#2=#:G111 NIL) (|l| NIL) (#3=#:G108 NIL)
           (|i| NIL) (#4=#:G109 NIL) (|k| NIL) (|ans| (M2)))
@@ -33,7 +33,7 @@
           (EXIT |ans|)))) 
 
 (SDEFUN |RMCAT2;reduce;MM12R2;2|
-        ((|f| |Mapping| R2 R1 R2) (|mat| M1) (|ident| R2) ($ R2))
+        ((|f| (|Mapping| R2 R1 R2)) (|mat| (M1)) (|ident| (R2)) ($ (R2)))
         (SPROG ((|s| (R2)) (#1=#:G118 NIL) (|j| NIL) (#2=#:G117 NIL) (|i| NIL))
                (SEQ (LETT |s| |ident|)
                     (SEQ (LETT |i| (SPADCALL |mat| (QREFELT $ 18)))

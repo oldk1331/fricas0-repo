@@ -1,5 +1,5 @@
 
-(SDEFUN |DIVRING-;^;SIS;1| ((|x| S) (|n| |Integer|) ($ S))
+(SDEFUN |DIVRING-;^;SIS;1| ((|x| (S)) (|n| (|Integer|)) ($ (S)))
         (COND ((ZEROP |n|) (|spadConstant| $ 7))
               ((SPADCALL |x| (QREFELT $ 9))
                (COND ((< |n| 0) (|error| "division by zero")) (#1='T |x|)))
@@ -7,7 +7,7 @@
                (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (- |n|) (QREFELT $ 14)))
               (#1# (SPADCALL |x| |n| (QREFELT $ 14))))) 
 
-(SDEFUN |DIVRING-;*;F2S;2| ((|q| |Fraction| (|Integer|)) (|x| S) ($ S))
+(SDEFUN |DIVRING-;*;F2S;2| ((|q| (|Fraction| (|Integer|))) (|x| (S)) ($ (S)))
         (SPADCALL
          (SPADCALL (SPADCALL |q| (QREFELT $ 18))
                    (SPADCALL

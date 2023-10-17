@@ -1,5 +1,5 @@
 
-(SDEFUN |LNAGG-;indices;AL;1| ((|a| A) ($ |List| (|Integer|)))
+(SDEFUN |LNAGG-;indices;AL;1| ((|a| (A)) ($ (|List| (|Integer|))))
         (SPROG ((#1=#:G116 NIL) (|i| NIL) (#2=#:G115 NIL))
                (SEQ
                 (PROGN
@@ -11,35 +11,35 @@
                       (LETT |i| (+ |i| 1)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(SDEFUN |LNAGG-;index?;IAB;2| ((|i| |Integer|) (|a| A) ($ |Boolean|))
+(SDEFUN |LNAGG-;index?;IAB;2| ((|i| (|Integer|)) (|a| (A)) ($ (|Boolean|)))
         (COND
          ((>= |i| (SPADCALL |a| (QREFELT $ 9)))
           (<= |i| (SPADCALL |a| (QREFELT $ 10))))
          ('T NIL))) 
 
-(SDEFUN |LNAGG-;concat;ASA;3| ((|a| A) (|x| S) ($ A))
+(SDEFUN |LNAGG-;concat;ASA;3| ((|a| (A)) (|x| (S)) ($ (A)))
         (SPADCALL |a| (SPADCALL 1 |x| (QREFELT $ 16)) (QREFELT $ 17))) 
 
-(SDEFUN |LNAGG-;concat;S2A;4| ((|x| S) (|y| A) ($ A))
+(SDEFUN |LNAGG-;concat;S2A;4| ((|x| (S)) (|y| (A)) ($ (A)))
         (SPADCALL (SPADCALL 1 |x| (QREFELT $ 16)) |y| (QREFELT $ 17))) 
 
-(SDEFUN |LNAGG-;insert;SAIA;5| ((|x| S) (|a| A) (|i| |Integer|) ($ A))
+(SDEFUN |LNAGG-;insert;SAIA;5| ((|x| (S)) (|a| (A)) (|i| (|Integer|)) ($ (A)))
         (SPADCALL (SPADCALL 1 |x| (QREFELT $ 16)) |a| |i| (QREFELT $ 20))) 
 
-(SDEFUN |LNAGG-;first;ANniA;6| ((|x| A) (|n| |NonNegativeInteger|) ($ A))
+(SDEFUN |LNAGG-;first;ANniA;6| ((|x| (A)) (|n| (|NonNegativeInteger|)) ($ (A)))
         (SPADCALL |x|
                   (SPADCALL (SPADCALL |x| (QREFELT $ 9))
                             (SPADCALL 0 (- |n| 1) (QREFELT $ 23))
                             (QREFELT $ 24))
                   (QREFELT $ 25))) 
 
-(SDEFUN |LNAGG-;maxIndex;AI;7| ((|l| A) ($ |Integer|))
+(SDEFUN |LNAGG-;maxIndex;AI;7| ((|l| (A)) ($ (|Integer|)))
         (+ (- (SPADCALL |l| (QREFELT $ 27)) 1) (SPADCALL |l| (QREFELT $ 9)))) 
 
-(SDEFUN |LNAGG-;position;SAI;8| ((|x| S) (|t| A) ($ |Integer|))
+(SDEFUN |LNAGG-;position;SAI;8| ((|x| (S)) (|t| (A)) ($ (|Integer|)))
         (SPADCALL |x| |t| (SPADCALL |t| (QREFELT $ 9)) (QREFELT $ 29))) 
 
-(SDEFUN |LNAGG-;leftTrim;ASA;9| ((|u| A) (|x| S) ($ A))
+(SDEFUN |LNAGG-;leftTrim;ASA;9| ((|u| (A)) (|x| (S)) ($ (A)))
         (SPROG ((#1=#:G128 NIL) (|i| NIL) (|n| (|Integer|)))
                (SEQ (LETT |n| (SPADCALL |u| (QREFELT $ 10)))
                     (SEQ (LETT |i| (SPADCALL |u| (QREFELT $ 9))) (LETT #1# |n|)
@@ -56,7 +56,7 @@
                      (SPADCALL |u| (SPADCALL |i| |n| (QREFELT $ 23))
                                (QREFELT $ 25)))))) 
 
-(SDEFUN |LNAGG-;rightTrim;ASA;10| ((|u| A) (|x| S) ($ A))
+(SDEFUN |LNAGG-;rightTrim;ASA;10| ((|u| (A)) (|x| (S)) ($ (A)))
         (SPROG ((#1=#:G132 NIL) (|j| NIL) (|mn| (|Integer|)))
                (SEQ (LETT |mn| (SPADCALL |u| (QREFELT $ 9)))
                     (SEQ (LETT |j| (SPADCALL |u| (QREFELT $ 10)))
@@ -73,7 +73,7 @@
                      (SPADCALL |u| (SPADCALL |mn| |j| (QREFELT $ 23))
                                (QREFELT $ 25)))))) 
 
-(SDEFUN |LNAGG-;trim;ASA;11| ((|u| A) (|x| S) ($ A))
+(SDEFUN |LNAGG-;trim;ASA;11| ((|u| (A)) (|x| (S)) ($ (A)))
         (SPROG
          ((#1=#:G138 NIL) (|j| NIL) (#2=#:G137 NIL) (|i| NIL)
           (|mn| (|Integer|)) (|n| (|Integer|)))
@@ -102,7 +102,7 @@
                          (QREFELT $ 25)))))) 
 
 (SDEFUN |LNAGG-;hashUpdate!;HsAHs;12|
-        ((|s| |HashState|) (|x| A) ($ |HashState|))
+        ((|s| (|HashState|)) (|x| (A)) ($ (|HashState|)))
         (SPROG ((#1=#:G142 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| (SPADCALL |x| (QREFELT $ 9)))
@@ -116,22 +116,23 @@
                      (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL))
                 (EXIT |s|)))) 
 
-(SDEFUN |LNAGG-;sorted?;AB;13| ((|l| A) ($ |Boolean|))
+(SDEFUN |LNAGG-;sorted?;AB;13| ((|l| (A)) ($ (|Boolean|)))
         (SPADCALL (ELT $ 40) |l| (QREFELT $ 42))) 
 
-(SDEFUN |LNAGG-;merge;3A;14| ((|x| A) (|y| A) ($ A))
+(SDEFUN |LNAGG-;merge;3A;14| ((|x| (A)) (|y| (A)) ($ (A)))
         (SPADCALL (ELT $ 44) |x| |y| (QREFELT $ 45))) 
 
-(SDEFUN |LNAGG-;sort;2A;15| ((|l| A) ($ A))
+(SDEFUN |LNAGG-;sort;2A;15| ((|l| (A)) ($ (A)))
         (SPADCALL (ELT $ 44) |l| (QREFELT $ 47))) 
 
-(SDEFUN |LNAGG-;reverse;2A;16| ((|x| A) ($ A))
+(SDEFUN |LNAGG-;reverse;2A;16| ((|x| (A)) ($ (A)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 49)) (QREFELT $ 50))) 
 
-(SDEFUN |LNAGG-;sort;M2A;17| ((|f| |Mapping| (|Boolean|) S S) (|l| A) ($ A))
+(SDEFUN |LNAGG-;sort;M2A;17|
+        ((|f| (|Mapping| (|Boolean|) S S)) (|l| (A)) ($ (A)))
         (SPADCALL |f| (SPADCALL |l| (QREFELT $ 49)) (QREFELT $ 52))) 
 
-(SDEFUN |LNAGG-;sort!;2A;18| ((|l| A) ($ A))
+(SDEFUN |LNAGG-;sort!;2A;18| ((|l| (A)) ($ (A)))
         (SPADCALL (ELT $ 44) |l| (QREFELT $ 52))) 
 
 (DECLAIM (NOTINLINE |LinearAggregate&;|)) 

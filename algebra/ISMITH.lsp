@@ -1,8 +1,8 @@
 
 (SDEFUN |ISMITH;smith;MMM;1|
-        ((|m| |Matrix| (|Integer|))
-         (|full| |Mapping| (|Matrix| (|Integer|)) (|Matrix| (|Integer|)))
-         ($ |Matrix| (|Integer|)))
+        ((|m| (|Matrix| (|Integer|)))
+         (|full| (|Mapping| (|Matrix| (|Integer|)) (|Matrix| (|Integer|))))
+         ($ (|Matrix| (|Integer|))))
         (SPROG
          ((#1=#:G111 NIL) (|i| NIL) (|nn2| #2=(|Integer|)) (#3=#:G110 NIL)
           (|res| (|Matrix| (|Integer|))) (|count| #2#)
@@ -30,19 +30,21 @@
               (EXIT |res|)))) 
 
 (SDEFUN |ISMITH;smith;2M;2|
-        ((|m| |Matrix| (|Integer|)) ($ |Matrix| (|Integer|)))
+        ((|m| (|Matrix| (|Integer|))) ($ (|Matrix| (|Integer|))))
         (SPADCALL |m| (ELT $ 15) (QREFELT $ 13))) 
 
 (SDEFUN |ISMITH;completeSmith;MMR;3|
-        ((|m| |Matrix| (|Integer|))
-         (|full| |Mapping|
+        ((|m| (|Matrix| (|Integer|)))
+         (|full|
+          (|Mapping|
+           (|Record| (|:| |Smith| (|Matrix| (|Integer|)))
+                     (|:| |leftEqMat| (|Matrix| (|Integer|)))
+                     (|:| |rightEqMat| (|Matrix| (|Integer|))))
+           (|Matrix| (|Integer|))))
+         ($
           (|Record| (|:| |Smith| (|Matrix| (|Integer|)))
                     (|:| |leftEqMat| (|Matrix| (|Integer|)))
-                    (|:| |rightEqMat| (|Matrix| (|Integer|))))
-          (|Matrix| (|Integer|)))
-         ($ |Record| (|:| |Smith| (|Matrix| (|Integer|)))
-          (|:| |leftEqMat| (|Matrix| (|Integer|)))
-          (|:| |rightEqMat| (|Matrix| (|Integer|)))))
+                    (|:| |rightEqMat| (|Matrix| (|Integer|))))))
         (SPROG
          ((#1=#:G158 NIL) (|n| NIL) (#2=#:G157 NIL) (|pp| (|Integer|))
           (#3=#:G156 NIL) (|l| NIL) (#4=#:G155 NIL) (#5=#:G154 NIL)

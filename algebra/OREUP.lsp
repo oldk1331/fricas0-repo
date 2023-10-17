@@ -1,8 +1,8 @@
 
-(SDEFUN |OREUP;coerce;V$;1| ((|v| |Variable| |x|) ($ $))
+(SDEFUN |OREUP;coerce;V$;1| ((|v| (|Variable| |x|)) ($ ($)))
         (SPADCALL (|spadConstant| $ 14) 1 (QREFELT $ 16))) 
 
-(SDEFUN |OREUP;coerce;$Of;2| ((|p| $) ($ |OutputForm|))
+(SDEFUN |OREUP;coerce;$Of;2| ((|p| ($)) ($ (|OutputForm|)))
         (SPADCALL |p| (SPADCALL (QREFELT $ 6) (QREFELT $ 21)) (QREFELT $ 22))) 
 
 (DECLAIM (NOTINLINE |UnivariateSkewPolynomial;|)) 

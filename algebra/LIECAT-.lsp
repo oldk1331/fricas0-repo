@@ -1,5 +1,5 @@
 
-(SDEFUN |LIECAT-;/;SRS;1| ((|x| S) (|r| R) ($ S))
+(SDEFUN |LIECAT-;/;SRS;1| ((|x| (S)) (|r| (R)) ($ (S)))
         (SPADCALL (SPADCALL |r| (QREFELT $ 8)) |x| (QREFELT $ 9))) 
 
 (DECLAIM (NOTINLINE |LieAlgebra&;|)) 

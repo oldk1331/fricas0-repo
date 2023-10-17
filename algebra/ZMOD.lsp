@@ -1,9 +1,9 @@
 
-(SDEFUN |ZMOD;size;Nni;1| (($ |NonNegativeInteger|)) (QREFELT $ 6)) 
+(SDEFUN |ZMOD;size;Nni;1| (($ (|NonNegativeInteger|))) (QREFELT $ 6)) 
 
-(SDEFUN |ZMOD;characteristic;Nni;2| (($ |NonNegativeInteger|)) (QREFELT $ 6)) 
+(SDEFUN |ZMOD;characteristic;Nni;2| (($ (|NonNegativeInteger|))) (QREFELT $ 6)) 
 
-(SDEFUN |ZMOD;lookup;$Pi;3| ((|x| $) ($ |PositiveInteger|))
+(SDEFUN |ZMOD;lookup;$Pi;3| ((|x| ($)) ($ (|PositiveInteger|)))
         (SPROG ((#1=#:G109 NIL))
                (COND ((SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 6))
                      ('T
@@ -11,32 +11,32 @@
                         (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                           '(|Integer|) #1#)))))) 
 
-(SDEFUN |ZMOD;bloodyCompiler| ((|n| |Integer|) ($ $))
+(SDEFUN |ZMOD;bloodyCompiler| ((|n| (|Integer|)) ($ ($)))
         (SPADCALL |n| (QREFELT $ 6) (QREFELT $ 21))) 
 
 (PUT '|ZMOD;convert;$I;5| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |ZMOD;convert;$I;5| ((|x| $) ($ |Integer|)) |x|) 
+(SDEFUN |ZMOD;convert;$I;5| ((|x| ($)) ($ (|Integer|))) |x|) 
 
-(SDEFUN |ZMOD;coerce;$Of;6| ((|x| $) ($ |OutputForm|))
+(SDEFUN |ZMOD;coerce;$Of;6| ((|x| ($)) ($ (|OutputForm|)))
         (SPADCALL |x| (QREFELT $ 23))) 
 
-(SDEFUN |ZMOD;coerce;I$;7| ((|n| |Integer|) ($ $))
+(SDEFUN |ZMOD;coerce;I$;7| ((|n| (|Integer|)) ($ ($)))
         (|ZMOD;bloodyCompiler| |n| $)) 
 
 (PUT '|ZMOD;Zero;$;8| '|SPADreplace| '(XLAM NIL 0)) 
 
-(SDEFUN |ZMOD;Zero;$;8| (($ $)) 0) 
+(SDEFUN |ZMOD;Zero;$;8| (($ ($))) 0) 
 
 (PUT '|ZMOD;One;$;9| '|SPADreplace| '(XLAM NIL 1)) 
 
-(SDEFUN |ZMOD;One;$;9| (($ $)) 1) 
+(SDEFUN |ZMOD;One;$;9| (($ ($))) 1) 
 
 (PUT '|ZMOD;init;$;10| '|SPADreplace| '(XLAM NIL 0)) 
 
-(SDEFUN |ZMOD;init;$;10| (($ $)) 0) 
+(SDEFUN |ZMOD;init;$;10| (($ ($))) 0) 
 
-(SDEFUN |ZMOD;nextItem;$U;11| ((|n| $) ($ |Union| $ "failed"))
+(SDEFUN |ZMOD;nextItem;$U;11| ((|n| ($)) ($ (|Union| $ "failed")))
         (SPROG ((|m| ($)))
                (SEQ
                 (LETT |m| (SPADCALL |n| (|spadConstant| $ 27) (QREFELT $ 29)))
@@ -48,30 +48,31 @@
 
 (PUT '|ZMOD;=;2$B;12| '|SPADreplace| '|eql_SI|) 
 
-(SDEFUN |ZMOD;=;2$B;12| ((|x| $) (|y| $) ($ |Boolean|)) (|eql_SI| |x| |y|)) 
+(SDEFUN |ZMOD;=;2$B;12| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
+        (|eql_SI| |x| |y|)) 
 
-(SDEFUN |ZMOD;*;3$;13| ((|x| $) (|y| $) ($ $))
+(SDEFUN |ZMOD;*;3$;13| ((|x| ($)) (|y| ($)) ($ ($)))
         (|mulmod_SI| |x| |y| (QREFELT $ 20))) 
 
-(SDEFUN |ZMOD;*;I2$;14| ((|n| |Integer|) (|x| $) ($ $))
+(SDEFUN |ZMOD;*;I2$;14| ((|n| (|Integer|)) (|x| ($)) ($ ($)))
         (|mulmod_SI| (|ZMOD;bloodyCompiler| |n| $) |x| (QREFELT $ 20))) 
 
-(SDEFUN |ZMOD;+;3$;15| ((|x| $) (|y| $) ($ $))
+(SDEFUN |ZMOD;+;3$;15| ((|x| ($)) (|y| ($)) ($ ($)))
         (|addmod_SI| |x| |y| (QREFELT $ 20))) 
 
-(SDEFUN |ZMOD;-;3$;16| ((|x| $) (|y| $) ($ $))
+(SDEFUN |ZMOD;-;3$;16| ((|x| ($)) (|y| ($)) ($ ($)))
         (|submod_SI| |x| |y| (QREFELT $ 20))) 
 
-(SDEFUN |ZMOD;random;$;17| (($ $)) (RANDOM (QREFELT $ 20))) 
+(SDEFUN |ZMOD;random;$;17| (($ ($))) (RANDOM (QREFELT $ 20))) 
 
-(SDEFUN |ZMOD;index;Pi$;18| ((|a| |PositiveInteger|) ($ $))
+(SDEFUN |ZMOD;index;Pi$;18| ((|a| (|PositiveInteger|)) ($ ($)))
         (SPADCALL (SPADCALL |a| (QREFELT $ 25)) (QREFELT $ 20) (QREFELT $ 37))) 
 
-(SDEFUN |ZMOD;-;2$;19| ((|x| $) ($ $))
+(SDEFUN |ZMOD;-;2$;19| ((|x| ($)) ($ ($)))
         (COND ((SPADCALL |x| (QREFELT $ 11)) (|spadConstant| $ 26))
               ('T (|sub_SI| (QREFELT $ 20) |x|)))) 
 
-(SDEFUN |ZMOD;^;$Nni$;20| ((|x| $) (|n| |NonNegativeInteger|) ($ $))
+(SDEFUN |ZMOD;^;$Nni$;20| ((|x| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (COND
          ((< |n| (QREFELT $ 6))
           (SPADCALL |x| (SPADCALL |n| (QREFELT $ 25)) (QREFELT $ 20)
@@ -82,7 +83,7 @@
                      (QREFELT $ 41))
            (QREFELT $ 25))))) 
 
-(SDEFUN |ZMOD;recip;$U;21| ((|x| $) ($ |Union| $ "failed"))
+(SDEFUN |ZMOD;recip;$U;21| ((|x| ($)) ($ (|Union| $ "failed")))
         (SPROG
          ((|g| ($)) (|c2| ($)) (|c1| ($))
           (|#G24|
@@ -102,33 +103,32 @@
 
 (PUT '|ZMOD;hashUpdate!;Hs$Hs;22| '|SPADreplace| 'HASHSTATEUPDATE) 
 
-(SDEFUN |ZMOD;hashUpdate!;Hs$Hs;22|
-        ((|hs| . #1=(|HashState|)) (|s| $) ($ . #1#))
+(SDEFUN |ZMOD;hashUpdate!;Hs$Hs;22| ((|hs| #1=(|HashState|)) (|s| ($)) ($ #1#))
         (HASHSTATEUPDATE |hs| |s|)) 
 
 (PUT '|ZMOD;convert;$I;23| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |ZMOD;convert;$I;23| ((|x| $) ($ |Integer|)) |x|) 
+(SDEFUN |ZMOD;convert;$I;23| ((|x| ($)) ($ (|Integer|))) |x|) 
 
-(SDEFUN |ZMOD;coerce;I$;24| ((|n| |Integer|) ($ $))
+(SDEFUN |ZMOD;coerce;I$;24| ((|n| (|Integer|)) ($ ($)))
         (SPADCALL |n| (QREFELT $ 6) (QREFELT $ 37))) 
 
-(SDEFUN |ZMOD;coerce;$Of;25| ((|x| $) ($ |OutputForm|))
+(SDEFUN |ZMOD;coerce;$Of;25| ((|x| ($)) ($ (|OutputForm|)))
         (SPADCALL |x| (QREFELT $ 23))) 
 
 (PUT '|ZMOD;Zero;$;26| '|SPADreplace| '(XLAM NIL 0)) 
 
-(SDEFUN |ZMOD;Zero;$;26| (($ $)) 0) 
+(SDEFUN |ZMOD;Zero;$;26| (($ ($))) 0) 
 
 (PUT '|ZMOD;One;$;27| '|SPADreplace| '(XLAM NIL 1)) 
 
-(SDEFUN |ZMOD;One;$;27| (($ $)) 1) 
+(SDEFUN |ZMOD;One;$;27| (($ ($))) 1) 
 
 (PUT '|ZMOD;init;$;28| '|SPADreplace| '(XLAM NIL 0)) 
 
-(SDEFUN |ZMOD;init;$;28| (($ $)) 0) 
+(SDEFUN |ZMOD;init;$;28| (($ ($))) 0) 
 
-(SDEFUN |ZMOD;nextItem;$U;29| ((|n| $) ($ |Union| $ "failed"))
+(SDEFUN |ZMOD;nextItem;$U;29| ((|n| ($)) ($ (|Union| $ "failed")))
         (SPROG ((|m| ($)))
                (SEQ
                 (LETT |m| (SPADCALL |n| (|spadConstant| $ 27) (QREFELT $ 29)))
@@ -140,34 +140,34 @@
 
 (PUT '|ZMOD;=;2$B;30| '|SPADreplace| 'EQL) 
 
-(SDEFUN |ZMOD;=;2$B;30| ((|x| $) (|y| $) ($ |Boolean|)) (EQL |x| |y|)) 
+(SDEFUN |ZMOD;=;2$B;30| ((|x| ($)) (|y| ($)) ($ (|Boolean|))) (EQL |x| |y|)) 
 
-(SDEFUN |ZMOD;*;3$;31| ((|x| $) (|y| $) ($ $))
+(SDEFUN |ZMOD;*;3$;31| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL |x| |y| (QREFELT $ 6) (QREFELT $ 48))) 
 
-(SDEFUN |ZMOD;*;I2$;32| ((|n| |Integer|) (|x| $) ($ $))
+(SDEFUN |ZMOD;*;I2$;32| ((|n| (|Integer|)) (|x| ($)) ($ ($)))
         (SPADCALL (SPADCALL |n| (QREFELT $ 6) (QREFELT $ 37)) |x| (QREFELT $ 6)
                   (QREFELT $ 48))) 
 
-(SDEFUN |ZMOD;+;3$;33| ((|x| $) (|y| $) ($ $))
+(SDEFUN |ZMOD;+;3$;33| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL |x| |y| (QREFELT $ 6) (QREFELT $ 49))) 
 
-(SDEFUN |ZMOD;-;3$;34| ((|x| $) (|y| $) ($ $))
+(SDEFUN |ZMOD;-;3$;34| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL |x| |y| (QREFELT $ 6) (QREFELT $ 50))) 
 
-(SDEFUN |ZMOD;random;$;35| (($ $)) (RANDOM (QREFELT $ 6))) 
+(SDEFUN |ZMOD;random;$;35| (($ ($))) (RANDOM (QREFELT $ 6))) 
 
-(SDEFUN |ZMOD;index;Pi$;36| ((|a| |PositiveInteger|) ($ $))
+(SDEFUN |ZMOD;index;Pi$;36| ((|a| (|PositiveInteger|)) ($ ($)))
         (SPADCALL |a| (QREFELT $ 6) (QREFELT $ 37))) 
 
-(SDEFUN |ZMOD;-;2$;37| ((|x| $) ($ $))
+(SDEFUN |ZMOD;-;2$;37| ((|x| ($)) ($ ($)))
         (COND ((SPADCALL |x| (QREFELT $ 11)) (|spadConstant| $ 26))
               ('T (- (QREFELT $ 6) |x|)))) 
 
-(SDEFUN |ZMOD;^;$Nni$;38| ((|x| $) (|n| |NonNegativeInteger|) ($ $))
+(SDEFUN |ZMOD;^;$Nni$;38| ((|x| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (SPADCALL |x| |n| (QREFELT $ 6) (QREFELT $ 40))) 
 
-(SDEFUN |ZMOD;recip;$U;39| ((|x| $) ($ |Union| $ "failed"))
+(SDEFUN |ZMOD;recip;$U;39| ((|x| ($)) ($ (|Union| $ "failed")))
         (SPROG
          ((|g| ($)) (|c2| ($)) (|c1| ($))
           (|#G46|
@@ -185,8 +185,7 @@
              (CONS 0 (SPADCALL |c1| (QREFELT $ 6) (QREFELT $ 37))))
             ('T (CONS 1 "failed"))))))) 
 
-(SDEFUN |ZMOD;hashUpdate!;Hs$Hs;40|
-        ((|hs| . #1=(|HashState|)) (|s| $) ($ . #1#))
+(SDEFUN |ZMOD;hashUpdate!;Hs$Hs;40| ((|hs| #1=(|HashState|)) (|s| ($)) ($ #1#))
         (HASHSTATEUPDATE |hs| (SXHASH |s|))) 
 
 (DECLAIM (NOTINLINE |IntegerMod;|)) 

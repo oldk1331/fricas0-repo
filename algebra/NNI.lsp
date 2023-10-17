@@ -8,21 +8,22 @@
 
 (PUT '|NNI;sup;3$;1| '|SPADreplace| 'MAX) 
 
-(SDEFUN |NNI;sup;3$;1| ((|x| $) (|y| $) ($ $)) (MAX |x| |y|)) 
+(SDEFUN |NNI;sup;3$;1| ((|x| ($)) (|y| ($)) ($ ($))) (MAX |x| |y|)) 
 
 (PUT '|NNI;inf;3$;2| '|SPADreplace| 'MIN) 
 
-(SDEFUN |NNI;inf;3$;2| ((|x| $) (|y| $) ($ $)) (MIN |x| |y|)) 
+(SDEFUN |NNI;inf;3$;2| ((|x| ($)) (|y| ($)) ($ ($))) (MIN |x| |y|)) 
 
 (PUT '|NNI;shift;$I$;3| '|SPADreplace| 'ASH) 
 
-(SDEFUN |NNI;shift;$I$;3| ((|x| $) (|n| |Integer|) ($ $)) (ASH |x| |n|)) 
+(SDEFUN |NNI;shift;$I$;3| ((|x| ($)) (|n| (|Integer|)) ($ ($))) (ASH |x| |n|)) 
 
 (PUT '|NNI;qcoerce;I$;4| '|SPADreplace| '(XLAM (|n|) |n|)) 
 
-(SDEFUN |NNI;qcoerce;I$;4| ((|n| |Integer|) ($ $)) |n|) 
+(SDEFUN |NNI;qcoerce;I$;4| ((|n| (|Integer|)) ($ ($))) |n|) 
 
-(SDEFUN |NNI;subtractIfCan;2$U;5| ((|x| $) (|y| $) ($ |Union| $ "failed"))
+(SDEFUN |NNI;subtractIfCan;2$U;5|
+        ((|x| ($)) (|y| ($)) ($ (|Union| $ "failed")))
         (SPROG ((|c| (|Integer|)))
                (SEQ (LETT |c| (- |x| |y|))
                     (EXIT

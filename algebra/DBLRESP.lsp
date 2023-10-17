@@ -1,5 +1,5 @@
 
-(SDEFUN |DBLRESP;remove0| ((|p| UP) ($ UP))
+(SDEFUN |DBLRESP;remove0| ((|p| (UP)) ($ (UP)))
         (SPROG ((#1=#:G104 NIL))
                (SPADCALL
                 (PROG2
@@ -14,19 +14,19 @@
                                   (|Union| (QREFELT $ 7) "failed") #1#))
                 (QREFELT $ 17)))) 
 
-(SDEFUN |DBLRESP;UP22| ((|p| UP) ($ |SparseUnivariatePolynomial| UP))
+(SDEFUN |DBLRESP;UP22| ((|p| (UP)) ($ (|SparseUnivariatePolynomial| UP)))
         (SPADCALL (ELT $ 18) |p| (QREFELT $ 22))) 
 
 (SDEFUN |DBLRESP;UP23|
-        ((|p| UPUP)
-         ($ |SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| UP)))
+        ((|p| (UPUP))
+         ($ (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| UP))))
         (SPADCALL (CONS #'|DBLRESP;UP23!0| $) |p| (QREFELT $ 28))) 
 
 (SDEFUN |DBLRESP;UP23!0| ((|x1| NIL) ($ NIL))
         (|DBLRESP;UP22| (SPADCALL |x1| (QREFELT $ 24)) $)) 
 
 (SDEFUN |DBLRESP;doubleResultant;RMUP;4|
-        ((|h| R) (|derivation| |Mapping| UP UP) ($ UP))
+        ((|h| (R)) (|derivation| (|Mapping| UP UP)) ($ (UP)))
         (SPROG
          ((|r| (|SparseUnivariatePolynomial| UP)) (|d| (UP)) (#1=#:G112 NIL)
           (|g| (UP)) (|cd| (|Record| (|:| |num| UPUP) (|:| |den| UP))))

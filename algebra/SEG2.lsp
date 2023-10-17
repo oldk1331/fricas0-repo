@@ -1,10 +1,11 @@
 
 (SDEFUN |SEG2;map;MSS;1|
-        ((|f| |Mapping| S R) (|r| |Segment| R) ($ |Segment| S))
+        ((|f| (|Mapping| S R)) (|r| (|Segment| R)) ($ (|Segment| S)))
         (SPADCALL (SPADCALL (SPADCALL |r| (QREFELT $ 9)) |f|)
                   (SPADCALL (SPADCALL |r| (QREFELT $ 10)) |f|) (QREFELT $ 12))) 
 
-(SDEFUN |SEG2;map;MSL;2| ((|f| |Mapping| S R) (|r| |Segment| R) ($ |List| S))
+(SDEFUN |SEG2;map;MSL;2|
+        ((|f| (|Mapping| S R)) (|r| (|Segment| R)) ($ (|List| S)))
         (SPROG ((|l| (R)) (|lr| (|List| S)) (|inc| (R)) (|h| (R)))
                (SEQ (LETT |lr| NIL) (LETT |l| (SPADCALL |r| (QREFELT $ 9)))
                     (LETT |h| (SPADCALL |r| (QREFELT $ 10)))

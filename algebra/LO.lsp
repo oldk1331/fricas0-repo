@@ -1,48 +1,48 @@
 
-(SDEFUN |LO;Zero;$;1| (($ $))
+(SDEFUN |LO;Zero;$;1| (($ ($)))
         (CONS (|spadConstant| $ 10) (|spadConstant| $ 11))) 
 
-(SDEFUN |LO;zero?;$B;2| ((|x| $) ($ |Boolean|))
+(SDEFUN |LO;zero?;$B;2| ((|x| ($)) ($ (|Boolean|)))
         (SPADCALL (QCAR |x|) (QREFELT $ 13))) 
 
-(SDEFUN |LO;-;2$;3| ((|x| $) ($ $))
+(SDEFUN |LO;-;2$;3| ((|x| ($)) ($ ($)))
         (CONS (SPADCALL (QCAR |x|) (QREFELT $ 15)) (QCDR |x|))) 
 
-(SDEFUN |LO;=;2$B;4| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |LO;=;2$B;4| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPADCALL (SPADCALL (QCDR |y|) (QCAR |x|) (QREFELT $ 17))
                   (SPADCALL (QCDR |x|) (QCAR |y|) (QREFELT $ 17))
                   (QREFELT $ 18))) 
 
 (PUT '|LO;numer;$M;5| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |LO;numer;$M;5| ((|x| $) ($ M)) (QCAR |x|)) 
+(SDEFUN |LO;numer;$M;5| ((|x| ($)) ($ (M))) (QCAR |x|)) 
 
 (PUT '|LO;denom;$R;6| '|SPADreplace| 'QCDR) 
 
-(SDEFUN |LO;denom;$R;6| ((|x| $) ($ R)) (QCDR |x|)) 
+(SDEFUN |LO;denom;$R;6| ((|x| ($)) ($ (R))) (QCDR |x|)) 
 
-(SDEFUN |LO;<;2$B;7| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |LO;<;2$B;7| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPADCALL (SPADCALL (QCDR |y|) (QCAR |x|) (QREFELT $ 17))
                   (SPADCALL (QCDR |x|) (QCAR |y|) (QREFELT $ 17))
                   (QREFELT $ 22))) 
 
-(SDEFUN |LO;+;3$;8| ((|x| $) (|y| $) ($ $))
+(SDEFUN |LO;+;3$;8| ((|x| ($)) (|y| ($)) ($ ($)))
         (CONS
          (SPADCALL (SPADCALL (QCDR |y|) (QCAR |x|) (QREFELT $ 17))
                    (SPADCALL (QCDR |x|) (QCAR |y|) (QREFELT $ 17))
                    (QREFELT $ 24))
          (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 25)))) 
 
-(SDEFUN |LO;*;I2$;9| ((|n| |Integer|) (|x| $) ($ $))
+(SDEFUN |LO;*;I2$;9| ((|n| (|Integer|)) (|x| ($)) ($ ($)))
         (CONS (SPADCALL |n| (QCAR |x|) (QREFELT $ 28)) (QCDR |x|))) 
 
-(SDEFUN |LO;*;R2$;10| ((|r| R) (|x| $) ($ $))
+(SDEFUN |LO;*;R2$;10| ((|r| (R)) (|x| ($)) ($ ($)))
         (COND
          ((SPADCALL |r| (QCDR |x|) (QREFELT $ 30))
           (CONS (QCAR |x|) (|spadConstant| $ 11)))
          ('T (CONS (SPADCALL |r| (QCAR |x|) (QREFELT $ 17)) (QCDR |x|))))) 
 
-(SDEFUN |LO;/;$R$;11| ((|x| $) (|d| R) ($ $))
+(SDEFUN |LO;/;$R$;11| ((|x| ($)) (|d| (R)) ($ ($)))
         (SPROG ((|u| (R)))
                (COND
                 ((SPADCALL (LETT |u| (SPADCALL |d| (QCDR |x|) (QREFELT $ 25)))
@@ -50,11 +50,11 @@
                  (|error| "division by zero"))
                 ('T (CONS (QCAR |x|) |u|))))) 
 
-(SDEFUN |LO;/;MR$;12| ((|m| M) (|d| R) ($ $))
+(SDEFUN |LO;/;MR$;12| ((|m| (M)) (|d| (R)) ($ ($)))
         (COND ((SPADCALL |d| (QREFELT $ 32)) (|error| "division by zero"))
               ('T (CONS |m| |d|)))) 
 
-(SDEFUN |LO;coerce;$Of;13| ((|x| $) ($ |OutputForm|))
+(SDEFUN |LO;coerce;$Of;13| ((|x| ($)) ($ (|OutputForm|)))
         (SPROG ((|xd| (R)))
                (SEQ (LETT |xd| (QCDR |x|))
                     (EXIT
@@ -66,7 +66,7 @@
                                  (SPADCALL |xd| (QREFELT $ 37))
                                  (QREFELT $ 38)))))))) 
 
-(SDEFUN |LO;latex;$S;14| ((|x| $) ($ |String|))
+(SDEFUN |LO;latex;$S;14| ((|x| ($)) ($ (|String|)))
         (SPROG ((|dl| #1=(|String|)) (|nl| #1#) (|xd| (R)))
                (SEQ (LETT |xd| (QCDR |x|))
                     (EXIT

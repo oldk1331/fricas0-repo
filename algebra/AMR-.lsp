@@ -1,9 +1,9 @@
 
-(SDEFUN |AMR-;monomial?;SB;1| ((|x| S) ($ |Boolean|))
+(SDEFUN |AMR-;monomial?;SB;1| ((|x| (S)) ($ (|Boolean|)))
         (COND ((SPADCALL |x| (QREFELT $ 10)) NIL)
               ('T (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 10))))) 
 
-(SDEFUN |AMR-;map;M2S;2| ((|fn| |Mapping| R R) (|x| S) ($ S))
+(SDEFUN |AMR-;map;M2S;2| ((|fn| (|Mapping| R R)) (|x| (S)) ($ (S)))
         (SPROG ((|r| (R)))
                (SEQ
                 (COND ((SPADCALL |x| (QREFELT $ 10)) (|spadConstant| $ 13))
@@ -24,7 +24,7 @@
                                       (QREFELT $ 17))
                             (QREFELT $ 20))))))))))) 
 
-(SDEFUN |AMR-;*;F2S;3| ((|q| |Fraction| (|Integer|)) (|p| S) ($ S))
+(SDEFUN |AMR-;*;F2S;3| ((|q| (|Fraction| (|Integer|))) (|p| (S)) ($ (S)))
         (SPROG NIL
                (SPADCALL (CONS #'|AMR-;*;F2S;3!0| (VECTOR $ |q|)) |p|
                          (QREFELT $ 17)))) 

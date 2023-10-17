@@ -1,8 +1,8 @@
 
-(SDEFUN |SETCAT-;hash;SSi;1| ((|s| S) ($ |SingleInteger|))
+(SDEFUN |SETCAT-;hash;SSi;1| ((|s| (S)) ($ (|SingleInteger|)))
         (HASHSTATEMAKEFIXNUM (SPADCALL HASHSTATEBASIS |s| (QREFELT $ 8)))) 
 
-(SDEFUN |SETCAT-;latex;SS;2| ((|s| S) ($ |String|))
+(SDEFUN |SETCAT-;latex;SS;2| ((|s| (S)) ($ (|String|)))
         (SPROG
          ((|sl| (|List| (|String|))) (|tf| (|TexFormat|))
           (|of| (|OutputForm|)))

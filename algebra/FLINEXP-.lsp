@@ -1,12 +1,13 @@
 
 (SDEFUN |FLINEXP-;reducedSystem;MM;1|
-        ((|m| |Matrix| S) ($ |Matrix| (|Integer|)))
+        ((|m| (|Matrix| S)) ($ (|Matrix| (|Integer|))))
         (SPADCALL (SPADCALL |m| (QREFELT $ 10)) (QREFELT $ 12))) 
 
 (SDEFUN |FLINEXP-;reducedSystem;MVR;2|
-        ((|m| |Matrix| S) (|v| |Vector| S)
-         ($ |Record| (|:| |mat| (|Matrix| (|Integer|)))
-          (|:| |vec| (|Vector| (|Integer|)))))
+        ((|m| (|Matrix| S)) (|v| (|Vector| S))
+         ($
+          (|Record| (|:| |mat| (|Matrix| (|Integer|)))
+                    (|:| |vec| (|Vector| (|Integer|))))))
         (SPROG
          ((|rec| (|Record| (|:| |mat| (|Matrix| R)) (|:| |vec| (|Vector| R)))))
          (SEQ (LETT |rec| (SPADCALL |m| |v| (QREFELT $ 16)))

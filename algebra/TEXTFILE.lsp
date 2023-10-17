@@ -1,11 +1,12 @@
 
-(SDEFUN |TEXTFILE;read!;$S;1| ((|f| $) ($ |String|))
+(SDEFUN |TEXTFILE;read!;$S;1| ((|f| ($)) ($ (|String|)))
         (SPADCALL |f| (QREFELT $ 8))) 
 
-(SDEFUN |TEXTFILE;readIfCan!;$U;2| ((|f| $) ($ |Union| (|String|) "failed"))
+(SDEFUN |TEXTFILE;readIfCan!;$U;2|
+        ((|f| ($)) ($ (|Union| (|String|) "failed")))
         (SPADCALL |f| (QREFELT $ 11))) 
 
-(SDEFUN |TEXTFILE;readLine!;$S;3| ((|f| $) ($ |String|))
+(SDEFUN |TEXTFILE;readLine!;$S;3| ((|f| ($)) ($ (|String|)))
         (SPROG ((|s| (|None|)))
                (SEQ
                 (COND
@@ -18,7 +19,7 @@
                               (#1# |s|))))))))) 
 
 (SDEFUN |TEXTFILE;readLineIfCan!;$U;4|
-        ((|f| $) ($ |Union| (|String|) "failed"))
+        ((|f| ($)) ($ (|Union| (|String|) "failed")))
         (SPROG ((|s| (|None|)))
                (SEQ
                 (COND
@@ -30,21 +31,21 @@
                         (COND ((NULL |s|) (CONS 1 "failed"))
                               (#1# (CONS 0 |s|)))))))))) 
 
-(SDEFUN |TEXTFILE;write!;$2S;5| ((|f| $) (|x| . #1=(|String|)) ($ . #1#))
+(SDEFUN |TEXTFILE;write!;$2S;5| ((|f| ($)) (|x| #1=(|String|)) ($ #1#))
         (SEQ
          (COND
           ((SPADCALL (QVELT |f| 2) "output" (QREFELT $ 14))
            (|error| "File not in write state"))
           ('T (SEQ (PRINTEXP |x| (QVELT |f| 1)) (EXIT |x|)))))) 
 
-(SDEFUN |TEXTFILE;writeLine!;$S;6| ((|f| $) ($ |String|))
+(SDEFUN |TEXTFILE;writeLine!;$S;6| ((|f| ($)) ($ (|String|)))
         (SEQ
          (COND
           ((SPADCALL (QVELT |f| 2) "output" (QREFELT $ 14))
            (|error| "File not in write state"))
           ('T (SEQ (TERPRI (QVELT |f| 1)) (EXIT "")))))) 
 
-(SDEFUN |TEXTFILE;writeLine!;$2S;7| ((|f| $) (|x| |String|) ($ |String|))
+(SDEFUN |TEXTFILE;writeLine!;$2S;7| ((|f| ($)) (|x| (|String|)) ($ (|String|)))
         (SEQ
          (COND
           ((SPADCALL (QVELT |f| 2) "output" (QREFELT $ 14))
@@ -53,7 +54,7 @@
            (SEQ (PRINTEXP |x| (QVELT |f| 1)) (TERPRI (QVELT |f| 1))
                 (EXIT |x|)))))) 
 
-(SDEFUN |TEXTFILE;endOfFile?;$B;8| ((|f| $) ($ |Boolean|))
+(SDEFUN |TEXTFILE;endOfFile?;$B;8| ((|f| ($)) ($ (|Boolean|)))
         (NULL (OR (EQUAL (QVELT |f| 2) "output") (NULL (EOFP (QVELT |f| 1)))))) 
 
 (DECLAIM (NOTINLINE |TextFile;|)) 

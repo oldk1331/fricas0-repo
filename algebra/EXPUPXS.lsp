@@ -1,23 +1,24 @@
 
 (SDEFUN |EXPUPXS;exponential;Ups$;1|
-        ((|f| |UnivariatePuiseuxSeries| FE |var| |cen|) ($ $))
+        ((|f| (|UnivariatePuiseuxSeries| FE |var| |cen|)) ($ ($)))
         (SPADCALL |f| (QREFELT $ 10))) 
 
 (PUT '|EXPUPXS;exponent;$Ups;2| '|SPADreplace| '(XLAM (|f|) |f|)) 
 
 (SDEFUN |EXPUPXS;exponent;$Ups;2|
-        ((|f| $) ($ |UnivariatePuiseuxSeries| FE |var| |cen|)) |f|) 
+        ((|f| ($)) ($ (|UnivariatePuiseuxSeries| FE |var| |cen|))) |f|) 
 
-(SDEFUN |EXPUPXS;exponentialOrder;$F;3| ((|f| $) ($ |Fraction| (|Integer|)))
+(SDEFUN |EXPUPXS;exponentialOrder;$F;3|
+        ((|f| ($)) ($ (|Fraction| (|Integer|))))
         (SPADCALL (SPADCALL |f| (QREFELT $ 12)) (|spadConstant| $ 14)
                   (QREFELT $ 15))) 
 
-(SDEFUN |EXPUPXS;zero?;$B;4| ((|f| $) ($ |Boolean|))
+(SDEFUN |EXPUPXS;zero?;$B;4| ((|f| ($)) ($ (|Boolean|)))
         (NULL
          (SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 19)) (QREFELT $ 20))
                    (QREFELT $ 22)))) 
 
-(SDEFUN |EXPUPXS;=;2$B;5| ((|f| $) (|g| $) ($ |Boolean|))
+(SDEFUN |EXPUPXS;=;2$B;5| ((|f| ($)) (|g| ($)) ($ (|Boolean|)))
         (SPADCALL
          (SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 19)) (QREFELT $ 20))
                    (QREFELT $ 22))
@@ -25,7 +26,7 @@
                    (QREFELT $ 22))
          (QREFELT $ 25))) 
 
-(SDEFUN |EXPUPXS;<;2$B;6| ((|f| $) (|g| $) ($ |Boolean|))
+(SDEFUN |EXPUPXS;<;2$B;6| ((|f| ($)) (|g| ($)) ($ (|Boolean|)))
         (SPROG
          ((|gCoef| (FE)) (|fCoef| (FE)) (|ordg| #1=(|Fraction| (|Integer|)))
           (|ordf| #1#))
@@ -53,7 +54,7 @@
                              (SPADCALL |fCoef| |gCoef|
                                        (QREFELT $ 33))))))))))))))) 
 
-(SDEFUN |EXPUPXS;coerce;$Of;7| ((|f| $) ($ |OutputForm|))
+(SDEFUN |EXPUPXS;coerce;$Of;7| ((|f| ($)) ($ (|OutputForm|)))
         (SPADCALL (SPADCALL "%e" (QREFELT $ 36))
                   (SPADCALL (SPADCALL |f| (QREFELT $ 10)) (QREFELT $ 37))
                   (QREFELT $ 38))) 

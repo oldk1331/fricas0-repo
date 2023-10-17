@@ -2,27 +2,28 @@
 (PUT '|SFORT;fortran;SFstFS$;1| '|SPADreplace| 'VECTOR) 
 
 (SDEFUN |SFORT;fortran;SFstFS$;1|
-        ((|fname| |Symbol|) (|ftype| |FortranScalarType|) (|res| FS) ($ $))
+        ((|fname| (|Symbol|)) (|ftype| (|FortranScalarType|)) (|res| (FS))
+         ($ ($)))
         (VECTOR |fname| |ftype| |res|)) 
 
 (PUT '|SFORT;nameOf| '|SPADreplace| '(XLAM (|u|) (QVELT |u| 0))) 
 
-(SDEFUN |SFORT;nameOf| ((|u| $) ($ |Symbol|)) (QVELT |u| 0)) 
+(SDEFUN |SFORT;nameOf| ((|u| ($)) ($ (|Symbol|))) (QVELT |u| 0)) 
 
-(SDEFUN |SFORT;typeOf| ((|u| $) ($ |Union| (|FortranScalarType|) "void"))
+(SDEFUN |SFORT;typeOf| ((|u| ($)) ($ (|Union| (|FortranScalarType|) "void")))
         (CONS 0 (QVELT |u| 1))) 
 
 (PUT '|SFORT;bodyOf| '|SPADreplace| '(XLAM (|u|) (QVELT |u| 2))) 
 
-(SDEFUN |SFORT;bodyOf| ((|u| $) ($ FS)) (QVELT |u| 2)) 
+(SDEFUN |SFORT;bodyOf| ((|u| ($)) ($ (FS))) (QVELT |u| 2)) 
 
-(SDEFUN |SFORT;argumentsOf| ((|u| $) ($ |List| (|Symbol|)))
+(SDEFUN |SFORT;argumentsOf| ((|u| ($)) ($ (|List| (|Symbol|))))
         (SPADCALL (|SFORT;bodyOf| |u| $) (QREFELT $ 13))) 
 
-(SDEFUN |SFORT;coerce;$Of;6| ((|u| $) ($ |OutputForm|))
+(SDEFUN |SFORT;coerce;$Of;6| ((|u| ($)) ($ (|OutputForm|)))
         (SPADCALL (|SFORT;nameOf| |u| $) (QREFELT $ 15))) 
 
-(SDEFUN |SFORT;outputAsFortran;$V;7| ((|u| $) ($ |Void|))
+(SDEFUN |SFORT;outputAsFortran;$V;7| ((|u| ($)) ($ (|Void|)))
         (SPROG
          ((|val| (|OutputForm|)) (|nargs| (|List| (|OutputForm|)))
           (#1=#:G120 NIL) (|arg| NIL) (#2=#:G119 NIL)

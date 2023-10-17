@@ -1,11 +1,12 @@
 
-(SDEFUN |ILOGIC;proposition;S$;1| ((|s| |String|) ($ $)) (CONS 1 (LIST |s|))) 
+(SDEFUN |ILOGIC;proposition;S$;1| ((|s| (|String|)) ($ ($)))
+        (CONS 1 (LIST |s|))) 
 
-(SDEFUN |ILOGIC;logicT;$;2| (($ $)) (CONS 0 (LIST 'T))) 
+(SDEFUN |ILOGIC;logicT;$;2| (($ ($))) (CONS 0 (LIST 'T))) 
 
-(SDEFUN |ILOGIC;logicF;$;3| (($ $)) (CONS 0 (LIST 'F))) 
+(SDEFUN |ILOGIC;logicF;$;3| (($ ($))) (CONS 0 (LIST 'F))) 
 
-(SDEFUN |ILOGIC;~;2$;4| ((|b| $) ($ $))
+(SDEFUN |ILOGIC;~;2$;4| ((|b| ($)) ($ ($)))
         (SPROG ((#1=#:G207 NIL) (|d| ($)) (|c| ($)))
                (SEQ
                 (EXIT
@@ -33,7 +34,7 @@
                   (EXIT (CONS 3 (CONS 'NOT |b|)))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |ILOGIC;/\\;3$;5| ((|a| $) (|b| $) ($ $))
+(SDEFUN |ILOGIC;/\\;3$;5| ((|a| ($)) (|b| ($)) ($ ($)))
         (SPROG ((#1=#:G224 NIL))
                (SEQ
                 (EXIT
@@ -70,7 +71,7 @@
                   (EXIT (CONS 2 (VECTOR 'AND |a| |b|)))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |ILOGIC;\\/;3$;6| ((|a| $) (|b| $) ($ $))
+(SDEFUN |ILOGIC;\\/;3$;6| ((|a| ($)) (|b| ($)) ($ ($)))
         (SPROG ((#1=#:G239 NIL))
                (SEQ
                 (EXIT
@@ -101,7 +102,7 @@
                   (EXIT (CONS 2 (VECTOR 'OR |a| |b|)))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |ILOGIC;implies;3$;7| ((|a| $) (|b| $) ($ $))
+(SDEFUN |ILOGIC;implies;3$;7| ((|a| ($)) (|b| ($)) ($ ($)))
         (SPROG ((#1=#:G253 NIL))
                (SEQ
                 (EXIT
@@ -123,7 +124,7 @@
                   (EXIT (CONS 2 (VECTOR 'IMPLY |a| |b|)))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |ILOGIC;redux;2$;8| ((|n| $) ($ $))
+(SDEFUN |ILOGIC;redux;2$;8| ((|n| ($)) ($ ($)))
         (SPROG ((#1=#:G267 NIL) (#2=#:G177 NIL))
                (SEQ
                 (EXIT
@@ -424,7 +425,7 @@
                   (EXIT |n|)))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |ILOGIC;factor;$L;9| ((|n| $) ($ |List| $))
+(SDEFUN |ILOGIC;factor;$L;9| ((|n| ($)) ($ (|List| $)))
         (SPROG ((|ch| (|List| $)) (#1=#:G280 NIL) (#2=#:G177 NIL))
                (SEQ
                 (EXIT
@@ -467,7 +468,7 @@
                     (QREFELT $ 26)))))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |ILOGIC;removeDup| ((|a| |List| $) (|b| |List| $) ($ |List| $))
+(SDEFUN |ILOGIC;removeDup| ((|a| (|List| $)) (|b| (|List| $)) ($ (|List| $)))
         (SPROG
          ((|res| (|List| $)) (|fnd| (|Boolean|)) (#1=#:G287 NIL) (|a1| NIL)
           (#2=#:G286 NIL) (|b1| NIL))
@@ -496,7 +497,7 @@
                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
-(SDEFUN |ILOGIC;deductions1| ((|ln| |List| $) ($ |List| $))
+(SDEFUN |ILOGIC;deductions1| ((|ln| (|List| $)) ($ (|List| $)))
         (SPROG
          ((|res| (|List| $)) (#1=#:G304 NIL) (|n2| NIL) (|ch| (|List| $))
           (#2=#:G303 NIL) (|n| NIL))
@@ -535,7 +536,7 @@
                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
-(SDEFUN |ILOGIC;deductions;2L;12| ((|ln| |List| $) ($ |List| $))
+(SDEFUN |ILOGIC;deductions;2L;12| ((|ln| (|List| $)) ($ (|List| $)))
         (SPROG
          ((|loopbreaker| (|NonNegativeInteger|)) (|emptyres| (|Boolean|))
           (|res| (|List| $)) (|thisres| (|List| $)) (|allres| (|List| $)))
@@ -558,7 +559,7 @@
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
-(SDEFUN |ILOGIC;opType;$S;13| ((|n| $) ($ |Symbol|))
+(SDEFUN |ILOGIC;opType;$S;13| ((|n| ($)) ($ (|Symbol|)))
         (SPROG ((#1=#:G312 NIL))
                (SEQ
                 (EXIT
@@ -570,10 +571,10 @@
                   (EXIT 'OTHER)))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |ILOGIC;atom?;$B;14| ((|n| $) ($ |Boolean|))
+(SDEFUN |ILOGIC;atom?;$B;14| ((|n| ($)) ($ (|Boolean|)))
         (COND ((QEQCAR |n| 1) 'T) ('T (QEQCAR |n| 0)))) 
 
-(SDEFUN |ILOGIC;value;$S;15| ((|n| $) ($ |Symbol|))
+(SDEFUN |ILOGIC;value;$S;15| ((|n| ($)) ($ (|Symbol|)))
         (SPROG ((#1=#:G327 NIL))
                (SEQ
                 (EXIT
@@ -592,7 +593,7 @@
                   (EXIT 'C)))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |ILOGIC;getChildren;$L;16| ((|n| $) ($ |List| $))
+(SDEFUN |ILOGIC;getChildren;$L;16| ((|n| ($)) ($ (|List| $)))
         (SPROG ((#1=#:G333 NIL) (#2=#:G178 NIL))
                (SEQ
                 (EXIT
@@ -638,7 +639,7 @@
                       (GO #3#)))))))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |ILOGIC;=;2$B;17| ((|a| $) (|b| $) ($ |Boolean|))
+(SDEFUN |ILOGIC;=;2$B;17| ((|a| ($)) (|b| ($)) ($ (|Boolean|)))
         (SEQ
          (COND
           ((QEQCAR |a| 0)
@@ -692,8 +693,8 @@
          (EXIT NIL))) 
 
 (SDEFUN |ILOGIC;parseBracketTerm|
-        ((|t1| |String|) (|pin| . #1=(|NonNegativeInteger|))
-         ($ |Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
+        ((|t1| (|String|)) (|pin| #1=(|NonNegativeInteger|))
+         ($ (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|)))))
         (SPROG
          ((|p1| #1#) (#2=#:G365 NIL) (|ch| (|Character|)) (|trm| ($))
           (|r2| (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|)))))
@@ -722,8 +723,8 @@
           #3# (EXIT #2#)))) 
 
 (SDEFUN |ILOGIC;parseILand|
-        ((|t1| |String|) (|pin| . #1=(|NonNegativeInteger|)) (|firstTerm| $)
-         ($ |Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
+        ((|t1| (|String|)) (|pin| #1=(|NonNegativeInteger|)) (|firstTerm| ($))
+         ($ (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|)))))
         (SPROG
          ((|p1| #1#) (|secondTerm| ($))
           (|r| (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
@@ -752,8 +753,8 @@
           #3# (EXIT #2#)))) 
 
 (SDEFUN |ILOGIC;parseILor|
-        ((|t1| |String|) (|pin| . #1=(|NonNegativeInteger|)) (|firstTerm| $)
-         ($ |Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
+        ((|t1| (|String|)) (|pin| #1=(|NonNegativeInteger|)) (|firstTerm| ($))
+         ($ (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|)))))
         (SPROG
          ((|p1| #1#) (|secondTerm| ($))
           (|r| (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
@@ -782,8 +783,8 @@
           #3# (EXIT #2#)))) 
 
 (SDEFUN |ILOGIC;parseILfn|
-        ((|t1| |String|) (|pin| . #1=(|NonNegativeInteger|)) (|firstTerm| $)
-         ($ |Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
+        ((|t1| (|String|)) (|pin| #1=(|NonNegativeInteger|)) (|firstTerm| ($))
+         ($ (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|)))))
         (SPROG
          ((|p1| #1#) (|secondTerm| ($))
           (|r| (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
@@ -812,8 +813,8 @@
           #3# (EXIT #2#)))) 
 
 (SDEFUN |ILOGIC;parseILName|
-        ((|t1| |String|) (|pin| . #1=(|NonNegativeInteger|))
-         ($ |Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
+        ((|t1| (|String|)) (|pin| #1=(|NonNegativeInteger|))
+         ($ (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|)))))
         (SPROG
          ((|ch| (|Character|)) (#2=#:G392 NIL) (|pt| #1#) (|vnm| (|String|)))
          (SEQ
@@ -836,8 +837,8 @@
           #3# (EXIT #2#)))) 
 
 (SDEFUN |ILOGIC;parseILTerm;SNniR;23|
-        ((|t1| |String|) (|pin| |NonNegativeInteger|)
-         ($ |Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
+        ((|t1| (|String|)) (|pin| (|NonNegativeInteger|))
+         ($ (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|)))))
         (SPROG
          ((|p1| (|NonNegativeInteger|)) (|res| ($))
           (|r| (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
@@ -893,8 +894,8 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |ILOGIC;parseIL2;SNniR;24|
-        ((|t1| |String|) (|pin| |NonNegativeInteger|)
-         ($ |Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
+        ((|t1| (|String|)) (|pin| (|NonNegativeInteger|))
+         ($ (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|)))))
         (SPROG
          ((|p1| (|NonNegativeInteger|)) (|res| ($))
           (|r| (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
@@ -925,7 +926,7 @@
                 (EXIT (CONS |res| |p1|))))
           #2# (EXIT #1#)))) 
 
-(SDEFUN |ILOGIC;parseIL;S$;25| ((|t1| |String|) ($ $))
+(SDEFUN |ILOGIC;parseIL;S$;25| ((|t1| (|String|)) ($ ($)))
         (SPROG
          ((|r| (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
           (#1=#:G418 NIL))
@@ -939,7 +940,7 @@
                           (QREFELT $ 37)))
           (EXIT (QCAR |r|))))) 
 
-(SDEFUN |ILOGIC;toString;$S;26| ((|n| $) ($ |String|))
+(SDEFUN |ILOGIC;toString;$S;26| ((|n| ($)) ($ (|String|)))
         (SPROG ((#1=#:G437 NIL) (#2=#:G177 NIL) (|s1| (|String|)))
                (SEQ
                 (EXIT
@@ -1110,7 +1111,7 @@
                   (EXIT (|error| "toString: unexpected representation"))))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |ILOGIC;toStringUnwrapped;$S;27| ((|n| $) ($ |String|))
+(SDEFUN |ILOGIC;toStringUnwrapped;$S;27| ((|n| ($)) ($ (|String|)))
         (SPROG ((#1=#:G454 NIL) (#2=#:G177 NIL) (|s1| (|String|)))
                (SEQ
                 (EXIT
@@ -1275,7 +1276,7 @@
                    (|error| "toStringUnwrapped: unexpected representation"))))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |ILOGIC;coerce;$Of;28| ((|n| $) ($ |OutputForm|))
+(SDEFUN |ILOGIC;coerce;$Of;28| ((|n| ($)) ($ (|OutputForm|)))
         (SPROG
          ((#1=#:G178 NIL) (#2=#:G177 NIL) (|s1| (|OutputForm|))
           (#3=#:G176 NIL))

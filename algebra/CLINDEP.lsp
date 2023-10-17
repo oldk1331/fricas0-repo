@@ -1,8 +1,8 @@
 
 (SDEFUN |CLINDEP;kmap|
-        ((|k| |Kernel| F) (|ldmvar| |List| (|Kernel| F))
-         (|ldmval| |List| (|Expression| F)) (|ld| |List| (|Mapping| F F))
-         ($ |Expression| F))
+        ((|k| (|Kernel| F)) (|ldmvar| (|List| (|Kernel| F)))
+         (|ldmval| (|List| (|Expression| F))) (|ld| (|List| (|Mapping| F F)))
+         ($ (|Expression| F)))
         (SPROG
          ((#1=#:G136 NIL) (|a| NIL) (#2=#:G135 NIL)
           (|kmap1| (|Mapping| (|Expression| F) (|Kernel| F)))
@@ -155,8 +155,8 @@
           (RETURN (PROGN (SPADCALL |ff| |sa1| (QREFELT $ 33)))))) 
 
 (SDEFUN |CLINDEP;F_to_EF1|
-        ((|f| F) (|kmap1| |Mapping| (|Expression| F) (|Kernel| F))
-         ($ |Expression| F))
+        ((|f| (F)) (|kmap1| (|Mapping| (|Expression| F) (|Kernel| F)))
+         ($ (|Expression| F)))
         (SPADCALL
          (SPADCALL |kmap1| (CONS #'|CLINDEP;F_to_EF1!0| $)
                    (SPADCALL |f| (QREFELT $ 40)) (QREFELT $ 45))
@@ -171,7 +171,7 @@
         (SPADCALL (SPADCALL |c| (QREFELT $ 38)) (QREFELT $ 17))) 
 
 (SDEFUN |CLINDEP;F_to_EF|
-        ((|f| F) (|ld| |List| (|Mapping| F F)) ($ |Expression| F))
+        ((|f| (F)) (|ld| (|List| (|Mapping| F F))) ($ (|Expression| F)))
         (SPROG NIL
                (|CLINDEP;F_to_EF1| |f|
                 (CONS #'|CLINDEP;F_to_EF!0| (VECTOR $ |ld|)) $))) 
@@ -183,8 +183,8 @@
           (RETURN (PROGN (|CLINDEP;kmap| |k| NIL NIL |ld| $))))) 
 
 (SDEFUN |CLINDEP;VF_to_VEF|
-        ((|v| |Vector| F) (|ld| |List| (|Mapping| F F))
-         ($ |Vector| (|Expression| F)))
+        ((|v| (|Vector| F)) (|ld| (|List| (|Mapping| F F)))
+         ($ (|Vector| (|Expression| F))))
         (SPROG NIL
                (SPADCALL (CONS #'|CLINDEP;VF_to_VEF!0| (VECTOR $ |ld|)) |v|
                          (QREFELT $ 52)))) 
@@ -196,8 +196,8 @@
           (RETURN (PROGN (|CLINDEP;F_to_EF| |x| |ld| $))))) 
 
 (SDEFUN |CLINDEP;MF_to_MEF|
-        ((|m| |Matrix| F) (|ld| |List| (|Mapping| F F))
-         ($ |Matrix| (|Expression| F)))
+        ((|m| (|Matrix| F)) (|ld| (|List| (|Mapping| F F)))
+         ($ (|Matrix| (|Expression| F))))
         (SPROG NIL
                (SPADCALL (CONS #'|CLINDEP;MF_to_MEF!0| (VECTOR $ |ld|)) |m|
                          (QREFELT $ 56)))) 
@@ -209,61 +209,64 @@
           (RETURN (PROGN (|CLINDEP;F_to_EF| |x| |ld| $))))) 
 
 (SDEFUN |CLINDEP;linearlyDependentOverConstants?;VLB;6|
-        ((|v| |Vector| F) (|ld| |List| (|Mapping| F F)) ($ |Boolean|))
+        ((|v| (|Vector| F)) (|ld| (|List| (|Mapping| F F))) ($ (|Boolean|)))
         (SPADCALL (|CLINDEP;VF_to_VEF| |v| |ld| $) (QREFELT $ 58))) 
 
 (SDEFUN |CLINDEP;linearDependenceOverConstants;VLU;7|
-        ((|v| |Vector| F) (|ld| |List| (|Mapping| F F))
-         ($ |Union| (|Vector| F) "failed"))
+        ((|v| (|Vector| F)) (|ld| (|List| (|Mapping| F F)))
+         ($ (|Union| (|Vector| F) "failed")))
         (SPADCALL (|CLINDEP;VF_to_VEF| |v| |ld| $) (QREFELT $ 63))) 
 
 (SDEFUN |CLINDEP;particularSolutionOverConstants;VFLU;8|
-        ((|v| |Vector| F) (|u| F) (|ld| |List| (|Mapping| F F))
-         ($ |Union| (|Vector| F) "failed"))
+        ((|v| (|Vector| F)) (|u| (F)) (|ld| (|List| (|Mapping| F F)))
+         ($ (|Union| (|Vector| F) "failed")))
         (SPADCALL (|CLINDEP;VF_to_VEF| |v| |ld| $)
                   (|CLINDEP;F_to_EF| |u| |ld| $) (QREFELT $ 65))) 
 
 (SDEFUN |CLINDEP;particularSolutionOverConstants;MVLU;9|
-        ((|m| |Matrix| F) (|v| |Vector| F) (|ld| |List| (|Mapping| F F))
-         ($ |Union| (|Vector| F) "failed"))
+        ((|m| (|Matrix| F)) (|v| (|Vector| F)) (|ld| (|List| (|Mapping| F F)))
+         ($ (|Union| (|Vector| F) "failed")))
         (SPADCALL (|CLINDEP;MF_to_MEF| |m| |ld| $)
                   (|CLINDEP;VF_to_VEF| |v| |ld| $) (QREFELT $ 67))) 
 
 (SDEFUN |CLINDEP;solveLinearOverConstants;VFLR;10|
-        ((|v| |Vector| F) (|u| F) (|ld| |List| (|Mapping| F F))
-         ($ |Record| (|:| |particular| (|Union| (|Vector| F) "failed"))
-          (|:| |basis| (|List| (|Vector| F)))))
+        ((|v| (|Vector| F)) (|u| (F)) (|ld| (|List| (|Mapping| F F)))
+         ($
+          (|Record| (|:| |particular| (|Union| (|Vector| F) "failed"))
+                    (|:| |basis| (|List| (|Vector| F))))))
         (SPADCALL (|CLINDEP;VF_to_VEF| |v| |ld| $)
                   (|CLINDEP;F_to_EF| |u| |ld| $) (QREFELT $ 70))) 
 
 (SDEFUN |CLINDEP;solveLinearOverConstants;MVLR;11|
-        ((|m| |Matrix| F) (|v| |Vector| F) (|ld| |List| (|Mapping| F F))
-         ($ |Record| (|:| |particular| (|Union| (|Vector| F) "failed"))
-          (|:| |basis| (|List| (|Vector| F)))))
+        ((|m| (|Matrix| F)) (|v| (|Vector| F)) (|ld| (|List| (|Mapping| F F)))
+         ($
+          (|Record| (|:| |particular| (|Union| (|Vector| F) "failed"))
+                    (|:| |basis| (|List| (|Vector| F))))))
         (SPADCALL (|CLINDEP;MF_to_MEF| |m| |ld| $)
                   (|CLINDEP;VF_to_VEF| |v| |ld| $) (QREFELT $ 72))) 
 
 (SDEFUN |CLINDEP;reducedSystem;MLM;12|
-        ((|m| |Matrix| F) (|ld| |List| (|Mapping| F F)) ($ |Matrix| F))
+        ((|m| (|Matrix| F)) (|ld| (|List| (|Mapping| F F))) ($ (|Matrix| F)))
         (SPADCALL (|CLINDEP;MF_to_MEF| |m| |ld| $) (QREFELT $ 75))) 
 
 (SDEFUN |CLINDEP;reducedSystem;MVLR;13|
-        ((|m| |Matrix| F) (|v| |Vector| F) (|ld| |List| (|Mapping| F F))
-         ($ |Record| (|:| |mat| (|Matrix| F)) (|:| |vec| (|Vector| F))))
+        ((|m| (|Matrix| F)) (|v| (|Vector| F)) (|ld| (|List| (|Mapping| F F)))
+         ($ (|Record| (|:| |mat| (|Matrix| F)) (|:| |vec| (|Vector| F)))))
         (SPADCALL (|CLINDEP;MF_to_MEF| |m| |ld| $)
                   (|CLINDEP;VF_to_VEF| |v| |ld| $) (QREFELT $ 79))) 
 
 (SDEFUN |CLINDEP;nullSpaceOverConstants;MLL;14|
-        ((|m| |Matrix| F) (|ld| |List| (|Mapping| F F))
-         ($ |List| (|Vector| F)))
+        ((|m| (|Matrix| F)) (|ld| (|List| (|Mapping| F F)))
+         ($ (|List| (|Vector| F))))
         (QCDR
          (SPADCALL |m| (MAKEARR1 (ANROWS |m|) (|spadConstant| $ 14)) |ld|
                    (QREFELT $ 73)))) 
 
 (SDEFUN |CLINDEP;constant_subspace;LLR;15|
-        ((|b| |List| (|Vector| F)) (|ld| |List| (|Mapping| F F))
-         ($ |Record| (|:| |transform| (|Matrix| F))
-          (|:| |basis| (|List| (|Vector| F)))))
+        ((|b| (|List| (|Vector| F))) (|ld| (|List| (|Mapping| F F)))
+         ($
+          (|Record| (|:| |transform| (|Matrix| F))
+                    (|:| |basis| (|List| (|Vector| F))))))
         (SPROG
          ((#1=#:G207 NIL) (|bv| NIL) (#2=#:G206 NIL) (|m2| #3=(|Matrix| F))
           (#4=#:G205 NIL) (|i| NIL) (#5=#:G204 NIL) (#6=#:G203 NIL)

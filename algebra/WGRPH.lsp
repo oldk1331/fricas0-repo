@@ -1,5 +1,5 @@
 
-(SDEFUN |WGRPH;weightedGraph;L$;1| ((|ob| |List| S) ($ $))
+(SDEFUN |WGRPH;weightedGraph;L$;1| ((|ob| (|List| S)) ($ ($)))
         (SPROG
          ((|objs|
            (|List|
@@ -26,39 +26,44 @@
 (PUT '|WGRPH;weightedGraph;L$;2| '|SPADreplace| '(XLAM (|ob|) (CONS |ob| NIL))) 
 
 (SDEFUN |WGRPH;weightedGraph;L$;2|
-        ((|ob| |List|
-          (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
-                    (|:| |posY| (|NonNegativeInteger|)) (|:| |weight| W)))
-         ($ $))
+        ((|ob|
+          (|List|
+           (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
+                     (|:| |posY| (|NonNegativeInteger|)) (|:| |weight| W))))
+         ($ ($)))
         (CONS |ob| NIL)) 
 
 (PUT '|WGRPH;weightedGraph;LL$;3| '|SPADreplace| 'CONS) 
 
 (SDEFUN |WGRPH;weightedGraph;LL$;3|
-        ((|ob| |List|
-          (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
-                    (|:| |posY| (|NonNegativeInteger|)) (|:| |weight| W)))
-         (|ar| |List|
-          (|Record| (|:| |name| (|String|)) (|:| |weight| W)
-                    (|:| |fromOb| (|NonNegativeInteger|))
-                    (|:| |toOb| (|NonNegativeInteger|))
-                    (|:| |xOffset| (|Integer|)) (|:| |yOffset| (|Integer|))
-                    (|:| |map| (|List| (|NonNegativeInteger|)))))
-         ($ $))
+        ((|ob|
+          (|List|
+           (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
+                     (|:| |posY| (|NonNegativeInteger|)) (|:| |weight| W))))
+         (|ar|
+          (|List|
+           (|Record| (|:| |name| (|String|)) (|:| |weight| W)
+                     (|:| |fromOb| (|NonNegativeInteger|))
+                     (|:| |toOb| (|NonNegativeInteger|))
+                     (|:| |xOffset| (|Integer|)) (|:| |yOffset| (|Integer|))
+                     (|:| |map| (|List| (|NonNegativeInteger|))))))
+         ($ ($)))
         (CONS |ob| |ar|)) 
 
 (SDEFUN |WGRPH;weightedGraph;LL$;4|
-        ((|ob| |List|
-          (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
-                    (|:| |posY| (|NonNegativeInteger|))))
-         (|ar| |List|
-          (|Record| (|:| |name| (|String|))
-                    (|:| |arrType| (|NonNegativeInteger|))
-                    (|:| |fromOb| (|NonNegativeInteger|))
-                    (|:| |toOb| (|NonNegativeInteger|))
-                    (|:| |xOffset| (|Integer|)) (|:| |yOffset| (|Integer|))
-                    (|:| |map| (|List| (|NonNegativeInteger|)))))
-         ($ $))
+        ((|ob|
+          (|List|
+           (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
+                     (|:| |posY| (|NonNegativeInteger|)))))
+         (|ar|
+          (|List|
+           (|Record| (|:| |name| (|String|))
+                     (|:| |arrType| (|NonNegativeInteger|))
+                     (|:| |fromOb| (|NonNegativeInteger|))
+                     (|:| |toOb| (|NonNegativeInteger|))
+                     (|:| |xOffset| (|Integer|)) (|:| |yOffset| (|Integer|))
+                     (|:| |map| (|List| (|NonNegativeInteger|))))))
+         ($ ($)))
         (SPROG
          ((|fobs|
            (|List|
@@ -105,11 +110,12 @@
               (EXIT (CONS |fobs| |arrs|))))) 
 
 (SDEFUN |WGRPH;weightedGraph;LL$;5|
-        ((|obs| |List| S)
-         (|ars| |List|
-          (|Record| (|:| |fromOb| (|NonNegativeInteger|))
-                    (|:| |toOb| (|NonNegativeInteger|))))
-         ($ $))
+        ((|obs| (|List| S))
+         (|ars|
+          (|List|
+           (|Record| (|:| |fromOb| (|NonNegativeInteger|))
+                     (|:| |toOb| (|NonNegativeInteger|)))))
+         ($ ($)))
         (SPROG
          ((|edges|
            (|List|
@@ -164,7 +170,7 @@
                    (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL |nodes| |edges| (QREFELT $ 24)))))) 
 
-(SDEFUN |WGRPH;weightedGraph;Fp$;6| ((|poset| |FinitePoset| S) ($ $))
+(SDEFUN |WGRPH;weightedGraph;Fp$;6| ((|poset| (|FinitePoset| S)) ($ ($)))
         (SPROG
          ((|ars|
            (|List|
@@ -206,7 +212,8 @@
               (EXIT (SPADCALL |obs| |ars| (QREFELT $ 32)))))) 
 
 (SDEFUN |WGRPH;weightedGraph;LL$;7|
-        ((|objs| |List| S) (|am| |List| (|List| (|NonNegativeInteger|))) ($ $))
+        ((|objs| (|List| S)) (|am| (|List| (|List| (|NonNegativeInteger|))))
+         ($ ($)))
         (SPROG
          ((|ar|
            (|List|
@@ -266,7 +273,7 @@
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (EXIT (CONS |obs| |ar|))))) 
 
-(SDEFUN |WGRPH;addObject!;$S$;8| ((|s| $) (|n| S) ($ $))
+(SDEFUN |WGRPH;addObject!;$S$;8| ((|s| ($)) (|n| (S)) ($ ($)))
         (SPROG
          ((|obj|
            (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
@@ -287,33 +294,36 @@
               (EXIT |s|)))) 
 
 (SDEFUN |WGRPH;addObject!;$R$;9|
-        ((|s| $)
-         (|n| |Record| (|:| |value| S)
-          (|:| |posX| . #1=((|NonNegativeInteger|))) (|:| |posY| . #1#))
-         ($ $))
+        ((|s| ($))
+         (|n|
+          (|Record| (|:| |value| S) (|:| |posX| . #1=((|NonNegativeInteger|)))
+                    (|:| |posY| . #1#)))
+         ($ ($)))
         (SEQ
          (|error|
           "this form of addObject! not supported in multifunctionGraph")
          (EXIT (CONS NIL NIL)))) 
 
 (SDEFUN |WGRPH;addArrow!;$R$;10|
-        ((|s| $)
-         (|ar| |Record| (|:| |name| (|String|))
-          (|:| |arrType| . #1=((|NonNegativeInteger|))) (|:| |fromOb| . #1#)
-          (|:| |toOb| . #1#) (|:| |xOffset| . #2=((|Integer|)))
-          (|:| |yOffset| . #2#) (|:| |map| (|List| . #1#)))
-         ($ $))
+        ((|s| ($))
+         (|ar|
+          (|Record| (|:| |name| (|String|))
+                    (|:| |arrType| . #1=((|NonNegativeInteger|)))
+                    (|:| |fromOb| . #1#) (|:| |toOb| . #1#)
+                    (|:| |xOffset| . #2=((|Integer|))) (|:| |yOffset| . #2#)
+                    (|:| |map| (|List| . #1#))))
+         ($ ($)))
         (SPADCALL |s| (QVELT |ar| 0) (QVELT |ar| 2) (QVELT |ar| 3)
                   (|spadConstant| $ 9) (QREFELT $ 52))) 
 
 (SDEFUN |WGRPH;addArrow!;$S2Nni$;11|
-        ((|s| $) (|nm| |String|) (|n1| . #1=(|NonNegativeInteger|))
-         (|n2| . #1#) ($ $))
+        ((|s| ($)) (|nm| (|String|)) (|n1| #1=(|NonNegativeInteger|))
+         (|n2| #1#) ($ ($)))
         (SPADCALL |s| |nm| |n1| |n2| (|spadConstant| $ 9) (QREFELT $ 52))) 
 
 (SDEFUN |WGRPH;addWArrow!;$S2NniW$;12|
-        ((|s| $) (|nm| |String|) (|n1| |NonNegativeInteger|)
-         (|n2| |NonNegativeInteger|) (|w| W) ($ $))
+        ((|s| ($)) (|nm| (|String|)) (|n1| (|NonNegativeInteger|))
+         (|n2| (|NonNegativeInteger|)) (|w| (W)) ($ ($)))
         (SPROG
          ((#1=#:G233 NIL)
           (|arrs|
@@ -352,10 +362,11 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |WGRPH;getVertices;$L;13|
-        ((|s| $)
-         ($ |List|
-          #1=(|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
-                       (|:| |posY| (|NonNegativeInteger|)))))
+        ((|s| ($))
+         ($
+          (|List|
+           #1=(|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
+                        (|:| |posY| (|NonNegativeInteger|))))))
         (SPROG
          ((|res|
            (|List|
@@ -376,14 +387,15 @@
               (EXIT |res|)))) 
 
 (SDEFUN |WGRPH;getArrows;$L;14|
-        ((|s| $)
-         ($ |List|
-          #1=(|Record| (|:| |name| (|String|))
-                       (|:| |arrType| (|NonNegativeInteger|))
-                       (|:| |fromOb| (|NonNegativeInteger|))
-                       (|:| |toOb| (|NonNegativeInteger|))
-                       (|:| |xOffset| (|Integer|)) (|:| |yOffset| (|Integer|))
-                       (|:| |map| (|List| (|NonNegativeInteger|))))))
+        ((|s| ($))
+         ($
+          (|List|
+           #1=(|Record| (|:| |name| (|String|))
+                        (|:| |arrType| (|NonNegativeInteger|))
+                        (|:| |fromOb| (|NonNegativeInteger|))
+                        (|:| |toOb| (|NonNegativeInteger|))
+                        (|:| |xOffset| (|Integer|)) (|:| |yOffset| (|Integer|))
+                        (|:| |map| (|List| (|NonNegativeInteger|)))))))
         (SPROG
          ((|arrs|
            (|List|
@@ -409,9 +421,9 @@
 
 (PUT '|WGRPH;initial;$;15| '|SPADreplace| '(XLAM NIL (CONS NIL NIL))) 
 
-(SDEFUN |WGRPH;initial;$;15| (($ $)) (CONS NIL NIL)) 
+(SDEFUN |WGRPH;initial;$;15| (($ ($))) (CONS NIL NIL)) 
 
-(SDEFUN |WGRPH;terminal;S$;16| ((|a| S) ($ $))
+(SDEFUN |WGRPH;terminal;S$;16| ((|a| (S)) ($ ($)))
         (SPROG
          ((|ar|
            (|Record| (|:| |name| (|String|)) (|:| |weight| W)
@@ -427,7 +439,7 @@
               (EXIT (CONS (LIST |o|) (LIST |ar|)))))) 
 
 (SDEFUN |WGRPH;cycleOpen;LS$;17|
-        ((|objs| |List| S) (|arrowName| |String|) ($ $))
+        ((|objs| (|List| S)) (|arrowName| (|String|)) ($ ($)))
         (SPROG
          ((|arn| (|Integer|))
           (|ars|
@@ -472,7 +484,7 @@
               (EXIT (CONS |obs| |ars|))))) 
 
 (SDEFUN |WGRPH;cycleClosed;LS$;18|
-        ((|objs| |List| S) (|arrowName| |String|) ($ $))
+        ((|objs| (|List| S)) (|arrowName| (|String|)) ($ ($)))
         (SPROG
          ((|arn| (|Integer|))
           (|ars|
@@ -518,7 +530,8 @@
                    (LETT |obn| (|inc_SI| |obn|)) (GO G190) G191 (EXIT NIL))
               (EXIT (CONS |obs| |ars|))))) 
 
-(SDEFUN |WGRPH;unit;LS$;19| ((|objs| |List| S) (|arrowName| |String|) ($ $))
+(SDEFUN |WGRPH;unit;LS$;19|
+        ((|objs| (|List| S)) (|arrowName| (|String|)) ($ ($)))
         (SPROG
          ((|arn| (|Integer|))
           (|ars|
@@ -557,7 +570,8 @@
                    (LETT |obn| (|inc_SI| |obn|)) (GO G190) G191 (EXIT NIL))
               (EXIT (CONS |obs| |ars|))))) 
 
-(SDEFUN |WGRPH;kgraph;LS$;20| ((|objs| |List| S) (|arrowName| |String|) ($ $))
+(SDEFUN |WGRPH;kgraph;LS$;20|
+        ((|objs| (|List| S)) (|arrowName| (|String|)) ($ ($)))
         (SPROG
          ((|arn| (|Integer|))
           (|ars|
@@ -609,7 +623,7 @@
                    (LETT |obn| (|inc_SI| |obn|)) (GO G190) G191 (EXIT NIL))
               (EXIT (CONS |obs| |ars|))))) 
 
-(SDEFUN |WGRPH;+;3$;21| ((|a| $) (|b| $) ($ $))
+(SDEFUN |WGRPH;+;3$;21| ((|a| ($)) (|b| ($)) ($ ($)))
         (SPROG
          ((|la|
            (|List|
@@ -649,7 +663,7 @@
               (LETT |la| (SPADCALL (QCDR |a|) |lb| (QREFELT $ 65)))
               (EXIT (CONS |lo| |la|))))) 
 
-(SDEFUN |WGRPH;merge;3$;22| ((|a| $) (|b| $) ($ $))
+(SDEFUN |WGRPH;merge;3$;22| ((|a| ($)) (|b| ($)) ($ ($)))
         (SPROG
          ((|la|
            (|List|
@@ -730,11 +744,12 @@
           (EXIT (CONS |mergedObjects| |la|))))) 
 
 (SDEFUN |WGRPH;objProd|
-        ((|a| $) (|b| $)
-         ($ |List|
-          (|Record| (|:| |value| (|Product| S S))
-                    (|:| |posX| (|NonNegativeInteger|))
-                    (|:| |posY| (|NonNegativeInteger|)) (|:| |weight| W))))
+        ((|a| ($)) (|b| ($))
+         ($
+          (|List|
+           (|Record| (|:| |value| (|Product| S S))
+                     (|:| |posX| (|NonNegativeInteger|))
+                     (|:| |posY| (|NonNegativeInteger|)) (|:| |weight| W)))))
         (SPROG
          ((|newObjs|
            (|List|
@@ -796,8 +811,8 @@
               (EXIT |newObjs|)))) 
 
 (SDEFUN |WGRPH;indexProd|
-        ((|aObj| $) (|a| |NonNegativeInteger|) (|b| |NonNegativeInteger|)
-         ($ |NonNegativeInteger|))
+        ((|aObj| ($)) (|a| (|NonNegativeInteger|)) (|b| (|NonNegativeInteger|))
+         ($ (|NonNegativeInteger|)))
         (SPROG ((#1=#:G334 NIL))
                (+ |a|
                   (*
@@ -807,7 +822,7 @@
                    (LENGTH (QCAR |aObj|)))))) 
 
 (SDEFUN |WGRPH;*;2$Wg;25|
-        ((|a| $) (|b| $) ($ |WeightedGraph| (|Product| S S) W))
+        ((|a| ($)) (|b| ($)) ($ (|WeightedGraph| (|Product| S S) W)))
         (SPROG
          ((|newArrs|
            (|List|
@@ -884,7 +899,7 @@
                          (QREFELT $ 82)))))) 
 
 (SDEFUN |WGRPH;cartesian;2$Wg;26|
-        ((|a| $) (|b| $) ($ |WeightedGraph| (|Product| S S) W))
+        ((|a| ($)) (|b| ($)) ($ (|WeightedGraph| (|Product| S S) W)))
         (SPROG
          ((|newArrs|
            (|List|
@@ -1103,10 +1118,11 @@
                          (QREFELT $ 82)))))) 
 
 (SDEFUN |WGRPH;closedObjProd|
-        ((|a| $) (|b| $) (|f| |Mapping| S S S)
-         ($ |List|
-          (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
-                    (|:| |posY| (|NonNegativeInteger|)) (|:| |weight| W))))
+        ((|a| ($)) (|b| ($)) (|f| (|Mapping| S S S))
+         ($
+          (|List|
+           (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
+                     (|:| |posY| (|NonNegativeInteger|)) (|:| |weight| W)))))
         (SPROG
          ((|newObjs|
            (|List|
@@ -1164,7 +1180,7 @@
               (EXIT |newObjs|)))) 
 
 (SDEFUN |WGRPH;closedTensor;2$M$;28|
-        ((|a| $) (|b| $) (|f| |Mapping| S S S) ($ $))
+        ((|a| ($)) (|b| ($)) (|f| (|Mapping| S S S)) ($ ($)))
         (SPROG
          ((|newArrs|
            (|List|
@@ -1241,7 +1257,7 @@
                          (QREFELT $ 17)))))) 
 
 (SDEFUN |WGRPH;closedCartesian;2$M$;29|
-        ((|a| $) (|b| $) (|f| |Mapping| S S S) ($ $))
+        ((|a| ($)) (|b| ($)) (|f| (|Mapping| S S S)) ($ ($)))
         (SPROG
          ((|newArrs|
            (|List|
@@ -1460,8 +1476,8 @@
                          (QREFELT $ 17)))))) 
 
 (SDEFUN |WGRPH;map;$LL2I$;30|
-        ((|s| $) (|m| |List| (|NonNegativeInteger|)) (|newOb| |List| S)
-         (|offsetX| . #1=(|Integer|)) (|offsetY| . #1#) ($ $))
+        ((|s| ($)) (|m| (|List| (|NonNegativeInteger|))) (|newOb| (|List| S))
+         (|offsetX| #1=(|Integer|)) (|offsetY| #1#) ($ ($)))
         (SPROG
          ((|newArrs|
            (|List|
@@ -1548,8 +1564,8 @@
           (EXIT (CONS |newObjs| |newArrs|))))) 
 
 (SDEFUN |WGRPH;mapContra;$LL2I$;31|
-        ((|s| $) (|m| |List| (|NonNegativeInteger|)) (|newOb| |List| S)
-         (|offsetX| . #1=(|Integer|)) (|offsetY| . #1#) ($ $))
+        ((|s| ($)) (|m| (|List| (|NonNegativeInteger|))) (|newOb| (|List| S))
+         (|offsetX| #1=(|Integer|)) (|offsetY| #1#) ($ ($)))
         (SPROG
          ((|newArrs|
            (|List|
@@ -1636,9 +1652,9 @@
           (EXIT (CONS |newObjs| |newArrs|))))) 
 
 (SDEFUN |WGRPH;routeNodeRecursive|
-        ((|s| $) (|a| |NonNegativeInteger|) (|b| |NonNegativeInteger|)
-         (|visited| |List| (|NonNegativeInteger|))
-         ($ . #1=(|List| (|NonNegativeInteger|))))
+        ((|s| ($)) (|a| (|NonNegativeInteger|)) (|b| (|NonNegativeInteger|))
+         (|visited| (|List| (|NonNegativeInteger|)))
+         ($ #1=(|List| (|NonNegativeInteger|))))
         (SPROG
          ((#2=#:G484 NIL) (|shortest| (|List| (|NonNegativeInteger|)))
           (|d| #1#) (#3=#:G485 NIL) (|arr| NIL))
@@ -1685,14 +1701,14 @@
           #4# (EXIT #2#)))) 
 
 (SDEFUN |WGRPH;routeNodes;$2NniL;33|
-        ((|s| $) (|a| . #1=(|NonNegativeInteger|)) (|b| . #1#)
-         ($ |List| (|NonNegativeInteger|)))
+        ((|s| ($)) (|a| #1=(|NonNegativeInteger|)) (|b| #1#)
+         ($ (|List| (|NonNegativeInteger|))))
         (|WGRPH;routeNodeRecursive| |s| |a| |b| NIL $)) 
 
 (SDEFUN |WGRPH;routeArrowRecursive|
-        ((|s| $) (|a| |NonNegativeInteger|) (|b| |NonNegativeInteger|)
-         (|visited| |List| (|NonNegativeInteger|))
-         ($ . #1=(|List| (|NonNegativeInteger|))))
+        ((|s| ($)) (|a| (|NonNegativeInteger|)) (|b| (|NonNegativeInteger|))
+         (|visited| (|List| (|NonNegativeInteger|)))
+         ($ #1=(|List| (|NonNegativeInteger|))))
         (SPROG
          ((#2=#:G502 NIL)
           (|shortestFullPath| (|List| #3=(|NonNegativeInteger|)))
@@ -1761,13 +1777,13 @@
           #5# (EXIT #2#)))) 
 
 (SDEFUN |WGRPH;routeArrows;$2NniL;35|
-        ((|s| $) (|a| . #1=(|NonNegativeInteger|)) (|b| . #1#)
-         ($ |List| (|NonNegativeInteger|)))
+        ((|s| ($)) (|a| #1=(|NonNegativeInteger|)) (|b| #1#)
+         ($ (|List| (|NonNegativeInteger|))))
         (|WGRPH;routeArrowRecursive| |s| |a| |b| NIL $)) 
 
 (SDEFUN |WGRPH;distanceWeighted;$2NniU;36|
-        ((|s| $) (|a| |NonNegativeInteger|) (|b| |NonNegativeInteger|)
-         ($ |Union| W "disjoint"))
+        ((|s| ($)) (|a| (|NonNegativeInteger|)) (|b| (|NonNegativeInteger|))
+         ($ (|Union| W "disjoint")))
         (SPROG ((#1=#:G515 NIL) (|r| (|List| (|NonNegativeInteger|))))
                (SEQ
                 (EXIT
@@ -1779,7 +1795,8 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |WGRPH;getWeightBetween|
-        ((|s| $) (|i1| |NonNegativeInteger|) (|i2| |NonNegativeInteger|) ($ W))
+        ((|s| ($)) (|i1| (|NonNegativeInteger|)) (|i2| (|NonNegativeInteger|))
+         ($ (W)))
         (SPROG
          ((|res| (W)) (|isDisjoint| (|Boolean|)) (#1=#:G527 NIL) (|arr| NIL)
           (|arrs|
@@ -1815,7 +1832,7 @@
               (EXIT |res|)))) 
 
 (SDEFUN |WGRPH;routeNodeWeight;$LW;38|
-        ((|s| $) (|r| |List| (|NonNegativeInteger|)) ($ W))
+        ((|s| ($)) (|r| (|List| (|NonNegativeInteger|))) ($ (W)))
         (SPROG
          ((|lasti| (|NonNegativeInteger|)) (|fst| (|Boolean|)) (|res| (W))
           (|w| (W)) (#1=#:G533 NIL) (|i| NIL))
@@ -1837,7 +1854,7 @@
               (EXIT |res|)))) 
 
 (SDEFUN |WGRPH;routeArrowWeight;$LW;39|
-        ((|s| $) (|r| |List| (|NonNegativeInteger|)) ($ W))
+        ((|s| ($)) (|r| (|List| (|NonNegativeInteger|))) ($ (W)))
         (SPROG
          ((|res| (W))
           (|a|
@@ -1861,7 +1878,7 @@
               (EXIT |res|)))) 
 
 (SDEFUN |WGRPH;weightedDistanceMatrix;$Tda;40|
-        ((|s| $) ($ |TwoDimensionalArray| (|Union| W #1="disjoint")))
+        ((|s| ($)) ($ (|TwoDimensionalArray| (|Union| W #1="disjoint"))))
         (SPROG
          ((#2=#:G553 NIL) (|v| NIL) (#3=#:G552 NIL) (|u| NIL)
           (|m| (|TwoDimensionalArray| (|Union| W #1#)))
@@ -1884,7 +1901,7 @@
                    (LETT |u| (|inc_SI| |u|)) (GO G190) G191 (EXIT NIL))
               (EXIT |m|)))) 
 
-(SDEFUN |WGRPH;coerce;Fp$;41| ((|poset| |FinitePoset| S) ($ $))
+(SDEFUN |WGRPH;coerce;Fp$;41| ((|poset| (|FinitePoset| S)) ($ ($)))
         (SPADCALL |poset| (QREFELT $ 38))) 
 
 (DECLAIM (NOTINLINE |WeightedGraph;|)) 

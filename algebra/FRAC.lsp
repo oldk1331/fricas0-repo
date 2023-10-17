@@ -1,41 +1,41 @@
 
-(SDEFUN |FRAC;coerce;S$;1| ((|d| S) ($ $)) (CONS |d| (|spadConstant| $ 9))) 
+(SDEFUN |FRAC;coerce;S$;1| ((|d| (S)) ($ ($))) (CONS |d| (|spadConstant| $ 9))) 
 
-(SDEFUN |FRAC;zero?;$B;2| ((|x| $) ($ |Boolean|))
+(SDEFUN |FRAC;zero?;$B;2| ((|x| ($)) ($ (|Boolean|)))
         (SPADCALL (QCAR |x|) (QREFELT $ 12))) 
 
-(SDEFUN |FRAC;factorFraction;$F;3| ((|p| $) ($ |Fraction| (|Factored| S)))
+(SDEFUN |FRAC;factorFraction;$F;3| ((|p| ($)) ($ (|Fraction| (|Factored| S))))
         (SPADCALL (SPADCALL (QCAR |p|) (QREFELT $ 15))
                   (SPADCALL (QCDR |p|) (QREFELT $ 15)) (QREFELT $ 18))) 
 
-(SDEFUN |FRAC;=;2$B;4| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |FRAC;=;2$B;4| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (COND
          ((SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 20))
           (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 20)))
          ('T NIL))) 
 
-(SDEFUN |FRAC;hashUpdate!;Hs$Hs;5| ((|s| . #1=(|HashState|)) (|x| $) ($ . #1#))
+(SDEFUN |FRAC;hashUpdate!;Hs$Hs;5| ((|s| #1=(|HashState|)) (|x| ($)) ($ #1#))
         (SEQ (LETT |s| (SPADCALL |s| (QCAR |x|) (QREFELT $ 23)))
              (EXIT (SPADCALL |s| (QCDR |x|) (QREFELT $ 23))))) 
 
-(SDEFUN |FRAC;one?;$B;6| ((|x| $) ($ |Boolean|))
+(SDEFUN |FRAC;one?;$B;6| ((|x| ($)) ($ (|Boolean|)))
         (COND
          ((SPADCALL (QCAR |x|) (|spadConstant| $ 9) (QREFELT $ 20))
           (SPADCALL (QCDR |x|) (|spadConstant| $ 9) (QREFELT $ 20)))
          ('T NIL))) 
 
-(SDEFUN |FRAC;retract;$S;7| ((|x| $) ($ S))
+(SDEFUN |FRAC;retract;$S;7| ((|x| ($)) ($ (S)))
         (COND
          ((SPADCALL (QCDR |x|) (|spadConstant| $ 9) (QREFELT $ 20)) (QCAR |x|))
          ('T (|error| "Denominator not equal to 1")))) 
 
-(SDEFUN |FRAC;retractIfCan;$U;8| ((|x| $) ($ |Union| S "failed"))
+(SDEFUN |FRAC;retractIfCan;$U;8| ((|x| ($)) ($ (|Union| S "failed")))
         (COND
          ((SPADCALL (QCDR |x|) (|spadConstant| $ 9) (QREFELT $ 20))
           (CONS 0 (QCAR |x|)))
          ('T (CONS 1 "failed")))) 
 
-(SDEFUN |FRAC;retract;$S;9| ((|x| $) ($ S))
+(SDEFUN |FRAC;retract;$S;9| ((|x| ($)) ($ (S)))
         (SPROG ((|a| (|Union| S "failed")))
                (SEQ (LETT |a| (SPADCALL (QCAR |x|) (QCDR |x|) (QREFELT $ 30)))
                     (EXIT
@@ -43,10 +43,10 @@
                       ((QEQCAR |a| 1) (|error| "Denominator not equal to 1"))
                       ('T (QCDR |a|))))))) 
 
-(SDEFUN |FRAC;retractIfCan;$U;10| ((|x| $) ($ |Union| S "failed"))
+(SDEFUN |FRAC;retractIfCan;$U;10| ((|x| ($)) ($ (|Union| S "failed")))
         (SPADCALL (QCAR |x|) (QCDR |x|) (QREFELT $ 30))) 
 
-(SDEFUN |FRAC;retract;$S;11| ((|x| $) ($ S))
+(SDEFUN |FRAC;retract;$S;11| ((|x| ($)) ($ (S)))
         (SPROG ((|a| (|Union| S "failed")))
                (SEQ (LETT |a| (SPADCALL (QCAR |x|) (QCDR |x|) (QREFELT $ 30)))
                     (EXIT
@@ -54,15 +54,15 @@
                       ((QEQCAR |a| 1) (|error| "Denominator not equal to 1"))
                       ('T (QCDR |a|))))))) 
 
-(SDEFUN |FRAC;retractIfCan;$U;12| ((|x| $) ($ |Union| S "failed"))
+(SDEFUN |FRAC;retractIfCan;$U;12| ((|x| ($)) ($ (|Union| S "failed")))
         (SPADCALL (QCAR |x|) (QCDR |x|) (QREFELT $ 30))) 
 
-(SDEFUN |FRAC;wholePart;$S;13| ((|x| $) ($ S))
+(SDEFUN |FRAC;wholePart;$S;13| ((|x| ($)) ($ (S)))
         (COND
          ((SPADCALL (QCDR |x|) (|spadConstant| $ 9) (QREFELT $ 20)) (QCAR |x|))
          ('T (SPADCALL (QCAR |x|) (QCDR |x|) (QREFELT $ 31))))) 
 
-(SDEFUN |FRAC;floor;$S;14| ((|x| $) ($ S))
+(SDEFUN |FRAC;floor;$S;14| ((|x| ($)) ($ (S)))
         (COND
          ((SPADCALL (QCDR |x|) (|spadConstant| $ 9) (QREFELT $ 20)) (QCAR |x|))
          ((SPADCALL |x| (|spadConstant| $ 33) (QREFELT $ 35))
@@ -70,7 +70,7 @@
                     (QREFELT $ 38)))
          ('T (SPADCALL |x| (QREFELT $ 32))))) 
 
-(SDEFUN |FRAC;ceiling;$S;15| ((|x| $) ($ S))
+(SDEFUN |FRAC;ceiling;$S;15| ((|x| ($)) ($ (S)))
         (COND
          ((SPADCALL (QCDR |x|) (|spadConstant| $ 9) (QREFELT $ 20)) (QCAR |x|))
          ((SPADCALL |x| (|spadConstant| $ 33) (QREFELT $ 35))
@@ -80,7 +80,7 @@
           (SPADCALL (|spadConstant| $ 9) (SPADCALL |x| (QREFELT $ 32))
                     (QREFELT $ 40))))) 
 
-(SDEFUN |FRAC;writeOMFrac| ((|dev| |OpenMathDevice|) (|x| $) ($ |Void|))
+(SDEFUN |FRAC;writeOMFrac| ((|dev| (|OpenMathDevice|)) (|x| ($)) ($ (|Void|)))
         (SEQ (SPADCALL |dev| (QREFELT $ 43))
              (SPADCALL |dev| "nums1" "rational" (QREFELT $ 45))
              (SPADCALL |dev| (QCAR |x|) NIL (QREFELT $ 46))
@@ -88,12 +88,13 @@
              (EXIT (SPADCALL |dev| (QREFELT $ 47))))) 
 
 (SDEFUN |FRAC;OMwrite;Omd$BV;17|
-        ((|dev| |OpenMathDevice|) (|x| $) (|wholeObj| |Boolean|) ($ |Void|))
+        ((|dev| (|OpenMathDevice|)) (|x| ($)) (|wholeObj| (|Boolean|))
+         ($ (|Void|)))
         (SEQ (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 48))))
              (|FRAC;writeOMFrac| |dev| |x| $)
              (EXIT (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 49))))))) 
 
-(SDEFUN |FRAC;normalize| ((|x| $) ($ $))
+(SDEFUN |FRAC;normalize| ((|x| ($)) ($ ($)))
         (SPROG
          ((|uca|
            (|Record| (|:| |unit| S) (|:| |canonical| S) (|:| |associate| S))))
@@ -117,11 +118,11 @@
                            (QCAR |x|))
                           (EXIT |x|))))))))))) 
 
-(SDEFUN |FRAC;recip;$U;19| ((|x| $) ($ |Union| $ "failed"))
+(SDEFUN |FRAC;recip;$U;19| ((|x| ($)) ($ (|Union| $ "failed")))
         (COND ((SPADCALL (QCAR |x|) (QREFELT $ 12)) (CONS 1 "failed"))
               ('T (CONS 0 (|FRAC;normalize| (CONS (QCDR |x|) (QCAR |x|)) $))))) 
 
-(SDEFUN |FRAC;cancelGcd| ((|x| $) ($ S))
+(SDEFUN |FRAC;cancelGcd| ((|x| ($)) ($ (S)))
         (SPROG ((|xd| #1=(|Union| S "failed")) (|xn| #1#) (|d| (S)))
                (SEQ
                 (COND
@@ -147,7 +148,7 @@
                                    (PROGN (RPLACD |x| (QCDR |xd|)) (QCDR |x|))
                                    (EXIT |d|))))))))))))))) 
 
-(SDEFUN |FRAC;/;2S$;21| ((|nn| S) (|dd| S) ($ $))
+(SDEFUN |FRAC;/;2S$;21| ((|nn| (S)) (|dd| (S)) ($ ($)))
         (SPROG ((|z| ($)))
                (SEQ
                 (COND
@@ -156,7 +157,7 @@
                   (SEQ (|FRAC;cancelGcd| (LETT |z| (CONS |nn| |dd|)) $)
                        (EXIT (|FRAC;normalize| |z| $)))))))) 
 
-(SDEFUN |FRAC;+;3$;22| ((|x| $) (|y| $) ($ $))
+(SDEFUN |FRAC;+;3$;22| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG ((|g| ($)) (|d| (S)) (|z| ($)))
                (SEQ
                 (COND ((SPADCALL |y| (QREFELT $ 13)) |x|)
@@ -183,7 +184,7 @@
                              (QCDR |g|))
                             (EXIT (|FRAC;normalize| |g| $)))))))) 
 
-(SDEFUN |FRAC;-;3$;23| ((|x| $) (|y| $) ($ $))
+(SDEFUN |FRAC;-;3$;23| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG ((|g| ($)) (|d| (S)) (|z| ($)))
                (SEQ
                 (COND ((SPADCALL |y| (QREFELT $ 13)) |x|)
@@ -209,7 +210,7 @@
                              (QCDR |g|))
                             (EXIT (|FRAC;normalize| |g| $)))))))) 
 
-(SDEFUN |FRAC;*;3$;24| ((|x| $) (|y| $) ($ $))
+(SDEFUN |FRAC;*;3$;24| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG ((|#G37| ($)) (|#G36| ($)))
                (SEQ
                 (COND
@@ -234,7 +235,7 @@
                              (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 53)))
                        $)))))))))) 
 
-(SDEFUN |FRAC;*;I2$;25| ((|n| |Integer|) (|x| $) ($ $))
+(SDEFUN |FRAC;*;I2$;25| ((|n| (|Integer|)) (|x| ($)) ($ ($)))
         (SPROG ((|y| ($)))
                (SEQ (LETT |y| (CONS (SPADCALL |n| (QREFELT $ 62)) (QCDR |x|)))
                     (|FRAC;cancelGcd| |y| $)
@@ -244,7 +245,7 @@
                             (QCDR |y|))
                       $))))) 
 
-(SDEFUN |FRAC;*;S2$;26| ((|nn| S) (|x| $) ($ $))
+(SDEFUN |FRAC;*;S2$;26| ((|nn| (S)) (|x| ($)) ($ ($)))
         (SPROG ((|y| ($)))
                (SEQ (LETT |y| (CONS |nn| (QCDR |x|))) (|FRAC;cancelGcd| |y| $)
                     (EXIT
@@ -253,7 +254,8 @@
                             (QCDR |y|))
                       $))))) 
 
-(SDEFUN |FRAC;differentiate;$M$;27| ((|x| $) (|deriv| |Mapping| S S) ($ $))
+(SDEFUN |FRAC;differentiate;$M$;27|
+        ((|x| ($)) (|deriv| (|Mapping| S S)) ($ ($)))
         (SPROG ((|d| (S)) (|#G45| (S)) (|#G44| (S)) (|y| ($)))
                (SEQ (LETT |y| (CONS (SPADCALL (QCDR |x|) |deriv|) (QCDR |x|)))
                     (LETT |d| (|FRAC;cancelGcd| |y| $))
@@ -278,32 +280,32 @@
                      (QCDR |y|))
                     (EXIT (|FRAC;normalize| |y| $))))) 
 
-(SDEFUN |FRAC;/;2S$;28| ((|nn| S) (|dd| S) ($ $))
+(SDEFUN |FRAC;/;2S$;28| ((|nn| (S)) (|dd| (S)) ($ ($)))
         (COND ((SPADCALL |dd| (QREFELT $ 12)) (|error| "division by zero"))
               ('T (CONS |nn| |dd|)))) 
 
-(SDEFUN |FRAC;recip;$U;29| ((|x| $) ($ |Union| $ "failed"))
+(SDEFUN |FRAC;recip;$U;29| ((|x| ($)) ($ (|Union| $ "failed")))
         (COND ((SPADCALL (QCAR |x|) (QREFELT $ 12)) (CONS 1 "failed"))
               ('T (CONS 0 (CONS (QCDR |x|) (QCAR |x|)))))) 
 
-(SDEFUN |FRAC;retract;$F;30| ((|x| $) ($ |Fraction| (|Integer|)))
+(SDEFUN |FRAC;retract;$F;30| ((|x| ($)) ($ (|Fraction| (|Integer|))))
         (SPADCALL (SPADCALL |x| (QREFELT $ 26)) (QREFELT $ 68))) 
 
 (SDEFUN |FRAC;retractIfCan;$U;31|
-        ((|x| $) ($ |Union| (|Fraction| (|Integer|)) "failed"))
+        ((|x| ($)) ($ (|Union| (|Fraction| (|Integer|)) "failed")))
         (SPROG ((|u| (|Union| S "failed")))
                (SEQ (LETT |u| (SPADCALL |x| (QREFELT $ 28)))
                     (EXIT
                      (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
                            ('T (SPADCALL (QCDR |u|) (QREFELT $ 71)))))))) 
 
-(SDEFUN |FRAC;retract;$F;32| ((|x| $) ($ |Fraction| (|Integer|)))
+(SDEFUN |FRAC;retract;$F;32| ((|x| ($)) ($ (|Fraction| (|Integer|))))
         (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 73)) (QREFELT $ 74))
                   (SPADCALL (SPADCALL |x| (QREFELT $ 75)) (QREFELT $ 74))
                   (QREFELT $ 76))) 
 
 (SDEFUN |FRAC;retractIfCan;$U;33|
-        ((|x| $) ($ |Union| (|Fraction| (|Integer|)) "failed"))
+        ((|x| ($)) ($ (|Union| (|Fraction| (|Integer|)) "failed")))
         (SPROG ((|d| #1=(|Union| (|Integer|) "failed")) (|n| #1#))
                (SEQ
                 (LETT |n|
@@ -323,7 +325,7 @@
                                                  (QREFELT $ 76))))))))))))) 
 
 (SDEFUN |FRAC;gcdPolynomial;3Sup;34|
-        ((|pp| . #1=(|SparseUnivariatePolynomial| $)) (|qq| . #1#) ($ . #1#))
+        ((|pp| #1=(|SparseUnivariatePolynomial| $)) (|qq| #1#) ($ #1#))
         (SPROG
          ((|lc| (S)) (|g| (|SparseUnivariatePolynomial| S))
           (|qqD| #2=(|SparseUnivariatePolynomial| S)) (|denqq| (S))
@@ -428,7 +430,7 @@
            (PROGN
             (SPADCALL (SPADCALL |x| |denpp| (QREFELT $ 87)) (QREFELT $ 26)))))) 
 
-(SDEFUN |FRAC;charthRoot;$U;35| ((|x| $) ($ |Union| $ #1="failed"))
+(SDEFUN |FRAC;charthRoot;$U;35| ((|x| ($)) ($ (|Union| $ #1="failed")))
         (SPROG ((|d| #2=(|Union| S #1#)) (|n| #2#))
                (SEQ (LETT |n| (SPADCALL (QCAR |x|) (QREFELT $ 100)))
                     (EXIT
@@ -443,7 +445,7 @@
                                            (SPADCALL (QCDR |n|) (QCDR |d|)
                                                      (QREFELT $ 56))))))))))))) 
 
-(SDEFUN |FRAC;charthRoot;$U;36| ((|x| $) ($ |Union| $ #1="failed"))
+(SDEFUN |FRAC;charthRoot;$U;36| ((|x| ($)) ($ (|Union| $ #1="failed")))
         (SPROG ((|ans| (|Union| S #1#)) (#2=#:G826 NIL))
                (SEQ
                 (LETT |ans|
@@ -470,7 +472,7 @@
                               (SPADCALL (QCDR |ans|) (QCDR |x|)
                                         (QREFELT $ 56))))))))) 
 
-(SDEFUN |FRAC;charthRoot;$U;37| ((|x| $) ($ |Union| $ #1="failed"))
+(SDEFUN |FRAC;charthRoot;$U;37| ((|x| ($)) ($ (|Union| $ #1="failed")))
         (SPROG ((|ans| (|Union| S #1#)) (#2=#:G847 NIL))
                (SEQ
                 (LETT |ans|
@@ -497,7 +499,7 @@
                               (SPADCALL (QCDR |ans|) (QCDR |x|)
                                         (QREFELT $ 56))))))))) 
 
-(SDEFUN |FRAC;clear| ((|l| |List| $) ($ |List| S))
+(SDEFUN |FRAC;clear| ((|l| (|List| $)) ($ (|List| S)))
         (SPROG
          ((#1=#:G857 NIL) (#2=#:G864 NIL) (|x| NIL) (#3=#:G863 NIL) (|d| (S))
           (#4=#:G854 NIL) (#5=#:G853 (S)) (#6=#:G855 (S)) (#7=#:G862 NIL))
@@ -544,7 +546,8 @@
                  (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT (NREVERSE #3#)))))))) 
 
 (SDEFUN |FRAC;conditionP;MU;39|
-        ((|mat| |Matrix| . #1=($)) ($ |Union| (|Vector| . #1#) #2="failed"))
+        ((|mat| (|Matrix| . #1=($)))
+         ($ (|Union| (|Vector| . #1#) #2="failed")))
         (SPROG
          ((#3=#:G882 NIL) (#4=#:G884 NIL) (|i| NIL) (#5=#:G883 NIL)
           (|ansDD| (|Vector| S)) (|ansD| (|Union| (|Vector| S) #2#))
@@ -589,7 +592,7 @@
                                #5#)))))))))) 
 
 (SDEFUN |FRAC;factorPolynomial;SupF;40|
-        ((|pp| . #1=(|SparseUnivariatePolynomial| $)) ($ |Factored| #1#))
+        ((|pp| #1=(|SparseUnivariatePolynomial| $)) ($ (|Factored| #1#)))
         (SPROG
          ((|lfact|
            (|List|
@@ -717,7 +720,7 @@
             (SPADCALL (SPADCALL |x| |denpp| (QREFELT $ 87)) (QREFELT $ 26)))))) 
 
 (SDEFUN |FRAC;factorSquareFreePolynomial;SupF;41|
-        ((|pp| . #1=(|SparseUnivariatePolynomial| $)) ($ |Factored| #1#))
+        ((|pp| #1=(|SparseUnivariatePolynomial| $)) ($ (|Factored| #1#)))
         (SPROG
          ((|lfact|
            (|List|

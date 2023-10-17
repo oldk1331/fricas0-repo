@@ -1,7 +1,7 @@
 
 (SDEFUN |POLY2UP;univariate;PVUp;1|
-        ((|p| |Polynomial| R) (|y| |Variable| |x|)
-         ($ |UnivariatePolynomial| |x| (|Polynomial| R)))
+        ((|p| (|Polynomial| R)) (|y| (|Variable| |x|))
+         ($ (|UnivariatePolynomial| |x| (|Polynomial| R))))
         (SPROG ((|q| (|SparseUnivariatePolynomial| (|Polynomial| R))))
                (SEQ (LETT |q| (SPADCALL |p| (QREFELT $ 6) (QREFELT $ 11)))
                     (EXIT

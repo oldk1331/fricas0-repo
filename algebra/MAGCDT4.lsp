@@ -1,6 +1,6 @@
 
 (SDEFUN |MAGCDT4;FP_to_MP|
-        ((|p| |FakePolynomial|) ($ |Polynomial| (|Integer|)))
+        ((|p| (|FakePolynomial|)) ($ (|Polynomial| (|Integer|))))
         (SPROG
          ((|p2|
            (|Record| (|:| |numer| (|Polynomial| (|Integer|)))
@@ -13,13 +13,15 @@
               (EXIT (QCAR |p2|))))) 
 
 (SDEFUN |MAGCDT4;pack_modulus;LLIU;2|
-        ((|lm| |List| (|FakePolynomial|)) (|lvz| |List| (|Symbol|))
-         (|p| |Integer|)
-         ($ |Union|
-          (|Record| (|:| |svz| (|List| (|Symbol|)))
-                    (|:| |sm| (|List| (|Polynomial| (|Integer|))))
-                    (|:| |msizes| (|List| (|Integer|))) (|:| |sp| (|Integer|)))
-          "failed"))
+        ((|lm| (|List| (|FakePolynomial|))) (|lvz| (|List| (|Symbol|)))
+         (|p| (|Integer|))
+         ($
+          (|Union|
+           (|Record| (|:| |svz| (|List| (|Symbol|)))
+                     (|:| |sm| (|List| (|Polynomial| (|Integer|))))
+                     (|:| |msizes| (|List| (|Integer|)))
+                     (|:| |sp| (|Integer|)))
+           "failed")))
         (SPROG
          ((|lm2| (|List| (|Polynomial| (|Integer|)))) (#1=#:G119 NIL) (|m| NIL)
           (#2=#:G118 NIL))
@@ -38,12 +40,15 @@
           (EXIT (SPADCALL |lm2| |lvz| |p| (QREFELT $ 18)))))) 
 
 (SDEFUN |MAGCDT4;FrP_to_MP|
-        ((|c| |Record| (|:| |numer| (|Polynomial| (|Integer|)))
-          (|:| |denom| (|Polynomial| (|Integer|))))
-         (|mu| |Record| (|:| |svz| (|List| (|Symbol|)))
-          (|:| |sm| (|List| (|Polynomial| (|Integer|))))
-          (|:| |msizes| (|List| (|Integer|))) (|:| |sp| (|Integer|)))
-         ($ |Union| (|Polynomial| (|Integer|)) "failed"))
+        ((|c|
+          (|Record| (|:| |numer| (|Polynomial| (|Integer|)))
+                    (|:| |denom| (|Polynomial| (|Integer|)))))
+         (|mu|
+          (|Record| (|:| |svz| (|List| (|Symbol|)))
+                    (|:| |sm| (|List| (|Polynomial| (|Integer|))))
+                    (|:| |msizes| (|List| (|Integer|)))
+                    (|:| |sp| (|Integer|))))
+         ($ (|Union| (|Polynomial| (|Integer|)) "failed")))
         (SPROG
          ((|res1|
            (|Union| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))
@@ -66,12 +71,15 @@
                      (CONS 0 (SPADCALL (QCDR |res1|) 0 (QREFELT $ 30)))))))))))) 
 
 (SDEFUN |MAGCDT4;MPtoMPT;FpSLRU;4|
-        ((|p| |FakePolynomial|) (|ivx| . #1=(|Symbol|)) (|ivz| |List| #1#)
-         (|mu| |Record| (|:| |svz| (|List| (|Symbol|)))
-          (|:| |sm| (|List| (|Polynomial| (|Integer|))))
-          (|:| |msizes| (|List| (|Integer|))) (|:| |sp| (|Integer|)))
-         ($ |Union| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))
-          "failed"))
+        ((|p| (|FakePolynomial|)) (|ivx| #1=(|Symbol|)) (|ivz| (|List| #1#))
+         (|mu|
+          (|Record| (|:| |svz| (|List| (|Symbol|)))
+                    (|:| |sm| (|List| (|Polynomial| (|Integer|))))
+                    (|:| |msizes| (|List| (|Integer|)))
+                    (|:| |sp| (|Integer|))))
+         ($
+          (|Union| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))
+                   "failed")))
         (SPROG NIL
                (SPADCALL (CONS #'|MAGCDT4;MPtoMPT;FpSLRU;4!0| (VECTOR $ |mu|))
                          |p| (QREFELT $ 33)))) 

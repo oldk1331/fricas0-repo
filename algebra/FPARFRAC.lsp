@@ -1,34 +1,36 @@
 
 (SDEFUN |FPARFRAC;construct;L$;1|
-        ((|l| |List|
-          (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |center| UP)
-                    (|:| |num| UP)))
-         ($ $))
+        ((|l|
+          (|List|
+           (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |center| UP)
+                     (|:| |num| UP))))
+         ($ ($)))
         (CONS (|spadConstant| $ 13) |l|)) 
 
-(SDEFUN |FPARFRAC;D;2$;2| ((|r| $) ($ $)) (SPADCALL |r| (QREFELT $ 32))) 
+(SDEFUN |FPARFRAC;D;2$;2| ((|r| ($)) ($ ($))) (SPADCALL |r| (QREFELT $ 32))) 
 
-(SDEFUN |FPARFRAC;D;$Nni$;3| ((|r| $) (|n| |NonNegativeInteger|) ($ $))
+(SDEFUN |FPARFRAC;D;$Nni$;3| ((|r| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (SPADCALL |r| |n| (QREFELT $ 34))) 
 
 (PUT '|FPARFRAC;polyPart;$UP;4| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |FPARFRAC;polyPart;$UP;4| ((|f| $) ($ UP)) (QCAR |f|)) 
+(SDEFUN |FPARFRAC;polyPart;$UP;4| ((|f| ($)) ($ (UP))) (QCAR |f|)) 
 
 (PUT '|FPARFRAC;fracPart;$L;5| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |FPARFRAC;fracPart;$L;5|
-        ((|f| $)
-         ($ |List|
-          (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |center| UP)
-                    (|:| |num| UP))))
+        ((|f| ($))
+         ($
+          (|List|
+           (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |center| UP)
+                     (|:| |num| UP)))))
         (QCDR |f|)) 
 
-(SDEFUN |FPARFRAC;+;UP2$;6| ((|p| UP) (|f| $) ($ $))
+(SDEFUN |FPARFRAC;+;UP2$;6| ((|p| (UP)) (|f| ($)) ($ ($)))
         (CONS (SPADCALL |p| (SPADCALL |f| (QREFELT $ 36)) (QREFELT $ 38))
               (SPADCALL |f| (QREFELT $ 37)))) 
 
-(SDEFUN |FPARFRAC;differentiate;2$;7| ((|f| $) ($ $))
+(SDEFUN |FPARFRAC;differentiate;2$;7| ((|f| ($)) ($ ($)))
         (SPROG ((#1=#:G126 NIL) (|rec| NIL) (#2=#:G125 NIL))
                (SEQ
                 (SPADCALL
@@ -50,7 +52,7 @@
                  (QREFELT $ 39))))) 
 
 (SDEFUN |FPARFRAC;differentiate;$Nni$;8|
-        ((|r| $) (|n| |NonNegativeInteger|) ($ $))
+        ((|r| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (SPROG ((#1=#:G130 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 1) (LETT #1# |n|) G190
@@ -60,10 +62,12 @@
                 (EXIT |r|)))) 
 
 (SDEFUN |FPARFRAC;diffrec|
-        ((|rec| |Record| (|:| |exponent| (|NonNegativeInteger|))
-          (|:| |center| UP) (|:| |num| UP))
-         ($ |Record| (|:| |exponent| #1=(|NonNegativeInteger|))
-          (|:| |center| UP) (|:| |num| UP)))
+        ((|rec|
+          (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |center| UP)
+                    (|:| |num| UP)))
+         ($
+          (|Record| (|:| |exponent| #1=(|NonNegativeInteger|))
+                    (|:| |center| UP) (|:| |num| UP))))
         (SPROG ((|e| #1#))
                (SEQ (LETT |e| (QVELT |rec| 0))
                     (EXIT
@@ -72,7 +76,7 @@
                               (SPADCALL |e| (QVELT |rec| 2) (QREFELT $ 41))
                               (QREFELT $ 42))))))) 
 
-(SDEFUN |FPARFRAC;convert;$F;10| ((|f| $) ($ |Fraction| UP))
+(SDEFUN |FPARFRAC;convert;$F;10| ((|f| ($)) ($ (|Fraction| UP)))
         (SPROG ((|ans| (|Fraction| UP)) (#1=#:G138 NIL) (|rec| NIL))
                (SEQ
                 (LETT |ans|
@@ -93,14 +97,15 @@
                 (EXIT |ans|)))) 
 
 (SDEFUN |FPARFRAC;UP2SUP|
-        ((|p| UP) ($ |SparseUnivariatePolynomial| (|Fraction| UP)))
+        ((|p| (UP)) ($ (|SparseUnivariatePolynomial| (|Fraction| UP))))
         (SPADCALL (CONS #'|FPARFRAC;UP2SUP!0| $) |p| (QREFELT $ 51))) 
 
 (SDEFUN |FPARFRAC;UP2SUP!0| ((|z1| NIL) ($ NIL))
         (SPADCALL (SPADCALL |z1| (QREFELT $ 47)) (QREFELT $ 44))) 
 
 (SDEFUN |FPARFRAC;REC2RF|
-        ((|d| UP) (|h| UP) (|n| |NonNegativeInteger|) ($ |Fraction| UP))
+        ((|d| (UP)) (|h| (UP)) (|n| (|NonNegativeInteger|))
+         ($ (|Fraction| UP)))
         (SPROG
          ((|ans| (|Fraction| UP))
           (|t| #1=(|SparseUnivariatePolynomial| (|Fraction| UP)))
@@ -192,7 +197,7 @@
                            (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                       (EXIT |ans|)))))))) 
 
-(SDEFUN |FPARFRAC;fullPartialFraction;F$;13| ((|f| |Fraction| UP) ($ $))
+(SDEFUN |FPARFRAC;fullPartialFraction;F$;13| ((|f| (|Fraction| UP)) ($ ($)))
         (SPROG
          ((#1=#:G160 NIL) (|rec| NIL) (#2=#:G159 NIL)
           (|qr| (|Record| (|:| |quotient| UP) (|:| |remainder| UP)))
@@ -233,10 +238,11 @@
                      (QREFELT $ 39)))))) 
 
 (SDEFUN |FPARFRAC;fullParFrac|
-        ((|a| UP) (|d| UP) (|q| UP) (|n| |NonNegativeInteger|)
-         ($ |List|
-          (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |center| UP)
-                    (|:| |num| UP))))
+        ((|a| (UP)) (|d| (UP)) (|q| (UP)) (|n| (|NonNegativeInteger|))
+         ($
+          (|List|
+           (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |center| UP)
+                     (|:| |num| UP)))))
         (SPROG
          ((|bm| (UP)) (|em| (UP)) (|um| (|OrderlyDifferentialPolynomial| UP))
           (|cm| (UP))
@@ -367,7 +373,7 @@
                    (LETT |m| (|inc_SI| |m|)) (GO G190) G191 (EXIT NIL))
               (EXIT |ans|)))) 
 
-(SDEFUN |FPARFRAC;coerce;$Of;15| ((|f| $) ($ |OutputForm|))
+(SDEFUN |FPARFRAC;coerce;$Of;15| ((|f| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|p| (UP)) (|ans| (|OutputForm|))
           (|l|
@@ -388,10 +394,11 @@
                        (QREFELT $ 117)))))))) 
 
 (SDEFUN |FPARFRAC;FP2O|
-        ((|l| |List|
-          (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |center| UP)
-                    (|:| |num| UP)))
-         ($ |OutputForm|))
+        ((|l|
+          (|List|
+           (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |center| UP)
+                     (|:| |num| UP))))
+         ($ (|OutputForm|)))
         (SPROG
          ((|ans| (|OutputForm|)) (#1=#:G189 NIL)
           (|rec|
@@ -404,7 +411,7 @@
                       (LETT |ans|
                             (|FPARFRAC;output| (QVELT |rec| 0) (QVELT |rec| 1)
                              (QVELT |rec| 2) $))
-                      (SEQ (LETT |rec| NIL) (LETT #1# (CDR |l|)) G190
+                      (SEQ (LETT #1# (CDR |l|)) G190
                            (COND
                             ((OR (ATOM #1#) (PROGN (LETT |rec| (CAR #1#)) NIL))
                              (GO G191)))
@@ -420,7 +427,7 @@
                       (EXIT |ans|))))))) 
 
 (SDEFUN |FPARFRAC;output|
-        ((|n| |NonNegativeInteger|) (|d| UP) (|h| UP) ($ |OutputForm|))
+        ((|n| (|NonNegativeInteger|)) (|d| (UP)) (|h| (UP)) ($ (|OutputForm|)))
         (SPROG ((|a| (F)))
                (SEQ
                 (COND
@@ -460,7 +467,7 @@
                    (QREFELT $ 127))))))) 
 
 (SDEFUN |FPARFRAC;outputexp|
-        ((|f| |OutputForm|) (|n| |NonNegativeInteger|) ($ |OutputForm|))
+        ((|f| (|OutputForm|)) (|n| (|NonNegativeInteger|)) ($ (|OutputForm|)))
         (COND ((EQL |n| 1) |f|)
               ('T
                (SPADCALL |f| (SPADCALL |n| (QREFELT $ 27)) (QREFELT $ 128))))) 

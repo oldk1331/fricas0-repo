@@ -1,17 +1,17 @@
 
-(SDEFUN |LIE;*;3$;1| ((|a| $) (|b| $) ($ $))
+(SDEFUN |LIE;*;3$;1| ((|a| ($)) (|b| ($)) ($ ($)))
         (SPADCALL (SPADCALL |a| |b| (QREFELT $ 9))
                   (SPADCALL |b| |a| (QREFELT $ 9)) (QREFELT $ 10))) 
 
 (PUT '|LIE;coerce;$A;2| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
-(SDEFUN |LIE;coerce;$A;2| ((|a| $) ($ A)) |a|) 
+(SDEFUN |LIE;coerce;$A;2| ((|a| ($)) ($ (A))) |a|) 
 
 (PUT '|LIE;coerce;A$;3| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
-(SDEFUN |LIE;coerce;A$;3| ((|a| A) ($ $)) |a|) 
+(SDEFUN |LIE;coerce;A$;3| ((|a| (A)) ($ ($))) |a|) 
 
-(SDEFUN |LIE;^;$Pi$;4| ((|a| $) (|n| |PositiveInteger|) ($ $))
+(SDEFUN |LIE;^;$Pi$;4| ((|a| ($)) (|n| (|PositiveInteger|)) ($ ($)))
         (COND ((EQL |n| 1) |a|) ('T (|spadConstant| $ 15)))) 
 
 (DECLAIM (NOTINLINE |AssociatedLieAlgebra;|)) 

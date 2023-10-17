@@ -1,46 +1,47 @@
 
 (PUT '|RULE;pattern;$P;1| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 0))) 
 
-(SDEFUN |RULE;pattern;$P;1| ((|x| $) ($ |Pattern| |Base|)) (QVELT |x| 0)) 
+(SDEFUN |RULE;pattern;$P;1| ((|x| ($)) ($ (|Pattern| |Base|))) (QVELT |x| 0)) 
 
 (PUT '|RULE;lhs;$F;2| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 1))) 
 
-(SDEFUN |RULE;lhs;$F;2| ((|x| $) ($ F)) (QVELT |x| 1)) 
+(SDEFUN |RULE;lhs;$F;2| ((|x| ($)) ($ (F))) (QVELT |x| 1)) 
 
 (PUT '|RULE;rhs;$F;3| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 2))) 
 
-(SDEFUN |RULE;rhs;$F;3| ((|x| $) ($ F)) (QVELT |x| 2)) 
+(SDEFUN |RULE;rhs;$F;3| ((|x| ($)) ($ (F))) (QVELT |x| 2)) 
 
 (PUT '|RULE;quotedOperators;$L;4| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 3))) 
 
-(SDEFUN |RULE;quotedOperators;$L;4| ((|x| $) ($ |List| (|Symbol|)))
+(SDEFUN |RULE;quotedOperators;$L;4| ((|x| ($)) ($ (|List| (|Symbol|))))
         (QVELT |x| 3)) 
 
 (PUT '|RULE;mkRule| '|SPADreplace| 'VECTOR) 
 
 (SDEFUN |RULE;mkRule|
-        ((|pt| |Pattern| |Base|) (|p| F) (|s| F) (|l| |List| (|Symbol|)) ($ $))
+        ((|pt| (|Pattern| |Base|)) (|p| (F)) (|s| (F))
+         (|l| (|List| (|Symbol|))) ($ ($)))
         (VECTOR |pt| |p| |s| |l|)) 
 
-(SDEFUN |RULE;coerce;E$;6| ((|eq| |Equation| F) ($ $))
+(SDEFUN |RULE;coerce;E$;6| ((|eq| (|Equation| F)) ($ ($)))
         (SPADCALL (SPADCALL |eq| (QREFELT $ 17)) (SPADCALL |eq| (QREFELT $ 18))
                   NIL (QREFELT $ 19))) 
 
-(SDEFUN |RULE;rule;2F$;7| ((|l| F) (|r| F) ($ $))
+(SDEFUN |RULE;rule;2F$;7| ((|l| (F)) (|r| (F)) ($ ($)))
         (SPADCALL |l| |r| NIL (QREFELT $ 19))) 
 
-(SDEFUN |RULE;elt;$2F;8| ((|r| $) (|s| F) ($ F))
+(SDEFUN |RULE;elt;$2F;8| ((|r| ($)) (|s| (F)) ($ (F)))
         (SPADCALL (LIST |r|) |s| (QREFELT $ 24))) 
 
 (SDEFUN |RULE;suchThat;$LM$;9|
-        ((|x| $) (|l| |List| (|Symbol|)) (|f| |Mapping| (|Boolean|) (|List| F))
-         ($ $))
+        ((|x| ($)) (|l| (|List| (|Symbol|)))
+         (|f| (|Mapping| (|Boolean|) (|List| F))) ($ ($)))
         (|RULE;mkRule|
          (SPADCALL (SPADCALL |x| (QREFELT $ 11)) |l| |f| (QREFELT $ 28))
          (SPADCALL |x| (QREFELT $ 12)) (SPADCALL |x| (QREFELT $ 13))
          (SPADCALL |x| (QREFELT $ 15)) $)) 
 
-(SDEFUN |RULE;=;2$B;10| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |RULE;=;2$B;10| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (COND
          ((SPADCALL (SPADCALL |x| (QREFELT $ 12)) (SPADCALL |y| (QREFELT $ 12))
                     (QREFELT $ 31))
@@ -52,10 +53,11 @@
            (#1='T NIL)))
          (#1# NIL))) 
 
-(SDEFUN |RULE;elt;$FPiF;11| ((|r| $) (|s| F) (|n| |PositiveInteger|) ($ F))
+(SDEFUN |RULE;elt;$FPiF;11|
+        ((|r| ($)) (|s| (F)) (|n| (|PositiveInteger|)) ($ (F)))
         (SPADCALL (LIST |r|) |s| |n| (QREFELT $ 35))) 
 
-(SDEFUN |RULE;F2Symbol| ((|f| F) ($ F))
+(SDEFUN |RULE;F2Symbol| ((|f| (F)) ($ (F)))
         (SPROG
          ((#1=#:G130 NIL) (#2=#:G137 NIL) (|k| NIL) (#3=#:G136 NIL)
           (|l| (|List| (|Kernel| F))))
@@ -95,7 +97,7 @@
         (QEQCAR (SPADCALL |z| (QREFELT $ 39)) 0)) 
 
 (SDEFUN |RULE;retractIfCan;$U;13|
-        ((|r| $) ($ |Union| (|Equation| F) #1="failed"))
+        ((|r| ($)) ($ (|Union| (|Equation| F) #1="failed")))
         (SPROG ((|u| (|Union| (|Kernel| F) #1#)))
                (SEQ
                 (COND
@@ -115,7 +117,8 @@
                                   (QREFELT $ 54))))))))
                  (#2# (CONS 1 "failed")))))) 
 
-(SDEFUN |RULE;rule;2FL$;14| ((|p| F) (|s| F) (|l| |List| (|Symbol|)) ($ $))
+(SDEFUN |RULE;rule;2FL$;14|
+        ((|p| (F)) (|s| (F)) (|l| (|List| (|Symbol|))) ($ ($)))
         (SPROG
          ((|lh| (|Record| (|:| |plus| F) (|:| |times| F)))
           (|pt| (|Pattern| |Base|)))
@@ -134,14 +137,15 @@
                       (QREFELT $ 61))
             |l| $))))) 
 
-(SDEFUN |RULE;opt| ((|f| F) ($ |Pattern| |Base|))
+(SDEFUN |RULE;opt| ((|f| (F)) ($ (|Pattern| |Base|)))
         (COND
          ((QEQCAR (SPADCALL |f| (QREFELT $ 63)) 0)
           (SPADCALL |f| (QREFELT $ 57)))
          ('T (SPADCALL (SPADCALL |f| (QREFELT $ 65)) (QREFELT $ 57))))) 
 
 (SDEFUN |RULE;appear?|
-        ((|x| |Pattern| |Base|) (|l| |List| (|Pattern| |Base|)) ($ |Boolean|))
+        ((|x| (|Pattern| |Base|)) (|l| (|List| (|Pattern| |Base|)))
+         ($ (|Boolean|)))
         (SPROG ((#1=#:G162 NIL) (#2=#:G163 NIL) (#3=#:G164 NIL) (|p| NIL))
                (SEQ
                 (EXIT
@@ -168,7 +172,7 @@
                 #4# (EXIT #2#)))) 
 
 (SDEFUN |RULE;bad?|
-        ((|u| |Union| (|List| (|Pattern| |Base|)) "failed") ($ |Boolean|))
+        ((|u| (|Union| (|List| (|Pattern| |Base|)) "failed")) ($ (|Boolean|)))
         (SPROG ((#1=#:G173 NIL) (#2=#:G174 NIL) (#3=#:G175 NIL) (|x| NIL))
                (SEQ
                 (EXIT
@@ -198,7 +202,8 @@
                 #4# (EXIT #2#)))) 
 
 (SDEFUN |RULE;transformLhs|
-        ((|p| |Pattern| |Base|) ($ |Record| (|:| |plus| F) (|:| |times| F)))
+        ((|p| (|Pattern| |Base|))
+         ($ (|Record| (|:| |plus| F) (|:| |times| F))))
         (COND
          ((|RULE;bad?| (SPADCALL |p| (QREFELT $ 72)) $)
           (CONS (SPADCALL (SPADCALL (QREFELT $ 73)) (QREFELT $ 46))
@@ -208,7 +213,7 @@
                 (SPADCALL (SPADCALL (QREFELT $ 73)) (QREFELT $ 46))))
          ('T (CONS (|spadConstant| $ 77) (|spadConstant| $ 74))))) 
 
-(SDEFUN |RULE;coerce;$Of;19| ((|x| $) ($ |OutputForm|))
+(SDEFUN |RULE;coerce;$Of;19| ((|x| ($)) ($ (|OutputForm|)))
         (SPADCALL (SPADCALL '== (QREFELT $ 79))
                   (SPADCALL (SPADCALL |x| (QREFELT $ 12)) (QREFELT $ 80))
                   (SPADCALL (SPADCALL |x| (QREFELT $ 13)) (QREFELT $ 80))

@@ -1,6 +1,6 @@
 
 (SDEFUN |FEXPR;mkEqn|
-        ((|s1| |Symbol|) (|s2| |Symbol|) ($ |Equation| (|Expression| R)))
+        ((|s1| (|Symbol|)) (|s2| (|Symbol|)) ($ (|Equation| (|Expression| R))))
         (SPADCALL (SPADCALL |s2| (QREFELT $ 13))
                   (SPADCALL
                    (SPADCALL |s1| (SPADCALL |s2| (QREFELT $ 15))
@@ -9,7 +9,7 @@
                   (QREFELT $ 18))) 
 
 (SDEFUN |FEXPR;fixUpSymbols|
-        ((|u| |Expression| R) ($ |Union| (|Expression| R) "failed"))
+        ((|u| (|Expression| R)) ($ (|Union| (|Expression| R) "failed")))
         (SPROG
          ((#1=#:G156 NIL) (|i| NIL) (#2=#:G155 NIL) (|sym| (|Symbol|))
           (|syms| (|List| (|Symbol|))) (#3=#:G154 NIL) (|s| NIL)
@@ -112,7 +112,7 @@
                 (EXIT (CONS 1 "failed"))))
           #8# (EXIT #6#)))) 
 
-(SDEFUN |FEXPR;extraSymbols?| ((|u| |Expression| R) ($ |Boolean|))
+(SDEFUN |FEXPR;extraSymbols?| ((|u| (|Expression| R)) ($ (|Boolean|)))
         (SPROG
          ((|extras| (|List| (|Symbol|))) (|syms| (|List| (|Symbol|)))
           (#1=#:G161 NIL) (|v| NIL) (#2=#:G160 NIL))
@@ -136,7 +136,7 @@
                           (QREFELT $ 31)))
           (EXIT (NULL (NULL |extras|)))))) 
 
-(SDEFUN |FEXPR;checkSymbols| ((|u| |Expression| R) ($ |Expression| R))
+(SDEFUN |FEXPR;checkSymbols| ((|u| (|Expression| R)) ($ (|Expression| R)))
         (SPROG
          ((#1=#:G174 NIL) (|v| NIL) (#2=#:G173 NIL)
           (|m| (|Union| (|Expression| R) "failed"))
@@ -196,7 +196,7 @@
                                         (QREFELT $ 37))))))))))))
           (EXIT |u|)))) 
 
-(SDEFUN |FEXPR;notSymbol?| ((|v| |BasicOperator|) ($ |Boolean|))
+(SDEFUN |FEXPR;notSymbol?| ((|v| (|BasicOperator|)) ($ (|Boolean|)))
         (SPROG ((|s| (|Symbol|)))
                (SEQ (LETT |s| (SPADCALL |v| (QREFELT $ 39)))
                     (COND
@@ -208,7 +208,7 @@
                         (EXIT NIL)))))
                     (EXIT 'T)))) 
 
-(SDEFUN |FEXPR;extraOperators?| ((|u| |Expression| R) ($ |Boolean|))
+(SDEFUN |FEXPR;extraOperators?| ((|u| (|Expression| R)) ($ (|Boolean|)))
         (SPROG
          ((|extras| (|List| (|Symbol|)))
           (|fortranFunctions| (|List| (|Symbol|))) (|ops| (|List| (|Symbol|)))
@@ -238,7 +238,7 @@
           (LETT |extras| (SPADCALL |ops| |fortranFunctions| (QREFELT $ 31)))
           (EXIT (NULL (NULL |extras|)))))) 
 
-(SDEFUN |FEXPR;checkOperators| ((|u| |Expression| R) ($ |Void|))
+(SDEFUN |FEXPR;checkOperators| ((|u| (|Expression| R)) ($ (|Void|)))
         (SPROG
          ((#1=#:G196 NIL) (|v| NIL) (#2=#:G195 NIL)
           (|extras| (|List| (|Symbol|)))
@@ -293,7 +293,7 @@
                            (QREFELT $ 37))))))))
           (EXIT (SPADCALL (QREFELT $ 45)))))) 
 
-(SDEFUN |FEXPR;checkForNagOperators| ((|u| |Expression| R) ($ $))
+(SDEFUN |FEXPR;checkForNagOperators| ((|u| (|Expression| R)) ($ ($)))
         (SPROG
          ((|piSub| (|Equation| (|Expression| R))) (|piOp| (|BasicOperator|)))
          (SEQ
@@ -309,80 +309,82 @@
            ('T |u|))))) 
 
 (SDEFUN |FEXPR;retractIfCan;PU;9|
-        ((|u| |Polynomial| (|Integer|)) ($ |Union| $ "failed"))
+        ((|u| (|Polynomial| (|Integer|))) ($ (|Union| $ "failed")))
         (SPADCALL (SPADCALL |u| (QREFELT $ 55)) (QREFELT $ 57))) 
 
-(SDEFUN |FEXPR;retract;P$;10| ((|u| |Polynomial| (|Integer|)) ($ $))
+(SDEFUN |FEXPR;retract;P$;10| ((|u| (|Polynomial| (|Integer|))) ($ ($)))
         (SPADCALL (SPADCALL |u| (QREFELT $ 55)) (QREFELT $ 59))) 
 
 (SDEFUN |FEXPR;retractIfCan;FU;11|
-        ((|u| |Fraction| (|Polynomial| (|Integer|))) ($ |Union| $ "failed"))
+        ((|u| (|Fraction| (|Polynomial| (|Integer|))))
+         ($ (|Union| $ "failed")))
         (SPADCALL (SPADCALL |u| (QREFELT $ 62)) (QREFELT $ 57))) 
 
 (SDEFUN |FEXPR;retract;F$;12|
-        ((|u| |Fraction| (|Polynomial| (|Integer|))) ($ $))
+        ((|u| (|Fraction| (|Polynomial| (|Integer|)))) ($ ($)))
         (SPADCALL (SPADCALL |u| (QREFELT $ 62)) (QREFELT $ 59))) 
 
-(SDEFUN |FEXPR;int2R| ((|u| |Integer|) ($ R)) (SPADCALL |u| (QREFELT $ 66))) 
+(SDEFUN |FEXPR;int2R| ((|u| (|Integer|)) ($ (R))) (SPADCALL |u| (QREFELT $ 66))) 
 
 (SDEFUN |FEXPR;retractIfCan;EU;14|
-        ((|u| |Expression| (|Integer|)) ($ |Union| $ "failed"))
+        ((|u| (|Expression| (|Integer|))) ($ (|Union| $ "failed")))
         (SPADCALL
          (SPADCALL (CONS (|function| |FEXPR;int2R|) $) |u| (QREFELT $ 69))
          (QREFELT $ 70))) 
 
-(SDEFUN |FEXPR;retract;E$;15| ((|u| |Expression| (|Integer|)) ($ $))
+(SDEFUN |FEXPR;retract;E$;15| ((|u| (|Expression| (|Integer|))) ($ ($)))
         (SPADCALL
          (SPADCALL (CONS (|function| |FEXPR;int2R|) $) |u| (QREFELT $ 69))
          (QREFELT $ 71))) 
 
 (SDEFUN |FEXPR;retractIfCan;PU;16|
-        ((|u| |Polynomial| (|Float|)) ($ |Union| $ "failed"))
+        ((|u| (|Polynomial| (|Float|))) ($ (|Union| $ "failed")))
         (SPADCALL (SPADCALL |u| (QREFELT $ 74)) (QREFELT $ 75))) 
 
-(SDEFUN |FEXPR;retract;P$;17| ((|u| |Polynomial| (|Float|)) ($ $))
+(SDEFUN |FEXPR;retract;P$;17| ((|u| (|Polynomial| (|Float|))) ($ ($)))
         (SPADCALL (SPADCALL |u| (QREFELT $ 74)) (QREFELT $ 77))) 
 
 (SDEFUN |FEXPR;retractIfCan;FU;18|
-        ((|u| |Fraction| (|Polynomial| (|Float|))) ($ |Union| $ "failed"))
+        ((|u| (|Fraction| (|Polynomial| (|Float|)))) ($ (|Union| $ "failed")))
         (SPADCALL (SPADCALL |u| (QREFELT $ 80)) (QREFELT $ 75))) 
 
-(SDEFUN |FEXPR;retract;F$;19| ((|u| |Fraction| (|Polynomial| (|Float|))) ($ $))
+(SDEFUN |FEXPR;retract;F$;19|
+        ((|u| (|Fraction| (|Polynomial| (|Float|)))) ($ ($)))
         (SPADCALL (SPADCALL |u| (QREFELT $ 80)) (QREFELT $ 77))) 
 
-(SDEFUN |FEXPR;float2R| ((|u| |Float|) ($ R)) (SPADCALL |u| (QREFELT $ 84))) 
+(SDEFUN |FEXPR;float2R| ((|u| (|Float|)) ($ (R))) (SPADCALL |u| (QREFELT $ 84))) 
 
 (SDEFUN |FEXPR;retractIfCan;EU;21|
-        ((|u| |Expression| (|Float|)) ($ |Union| $ "failed"))
+        ((|u| (|Expression| (|Float|))) ($ (|Union| $ "failed")))
         (SPADCALL
          (SPADCALL (CONS (|function| |FEXPR;float2R|) $) |u| (QREFELT $ 87))
          (QREFELT $ 70))) 
 
-(SDEFUN |FEXPR;retract;E$;22| ((|u| |Expression| (|Float|)) ($ $))
+(SDEFUN |FEXPR;retract;E$;22| ((|u| (|Expression| (|Float|))) ($ ($)))
         (SPADCALL
          (SPADCALL (CONS (|function| |FEXPR;float2R|) $) |u| (QREFELT $ 87))
          (QREFELT $ 71))) 
 
-(SDEFUN |FEXPR;useNagFunctions;B;23| (($ |Boolean|)) (QREFELT $ 11)) 
+(SDEFUN |FEXPR;useNagFunctions;B;23| (($ (|Boolean|))) (QREFELT $ 11)) 
 
-(SDEFUN |FEXPR;useNagFunctions;2B;24| ((|v| |Boolean|) ($ |Boolean|))
+(SDEFUN |FEXPR;useNagFunctions;2B;24| ((|v| (|Boolean|)) ($ (|Boolean|)))
         (SPROG ((|old| (|Boolean|)))
                (SEQ (LETT |old| (QREFELT $ 11)) (SETELT $ 11 |v|)
                     (EXIT |old|)))) 
 
-(SDEFUN |FEXPR;log10;2$;25| ((|x| $) ($ $))
+(SDEFUN |FEXPR;log10;2$;25| ((|x| ($)) ($ ($)))
         (SPADCALL (SPADCALL '|log10| (QREFELT $ 46)) |x| (QREFELT $ 90))) 
 
-(SDEFUN |FEXPR;pi;$;26| (($ $))
+(SDEFUN |FEXPR;pi;$;26| (($ ($)))
         (SPADCALL (SPADCALL 'X01AAF (QREFELT $ 46)) (|spadConstant| $ 92)
                   (QREFELT $ 90))) 
 
 (PUT '|FEXPR;coerce;$E;27| '|SPADreplace| '(XLAM (|u|) |u|)) 
 
-(SDEFUN |FEXPR;coerce;$E;27| ((|u| $) ($ |Expression| R)) |u|) 
+(SDEFUN |FEXPR;coerce;$E;27| ((|u| ($)) ($ (|Expression| R))) |u|) 
 
 (SDEFUN |FEXPR;retractIfCan;EU;28|
-        ((|u| |Expression| R) ($ |Union| $ "failed"))
+        ((|u| (|Expression| R)) ($ (|Union| $ "failed")))
         (SPROG ((#1=#:G248 NIL) (|m| (|Union| (|Expression| R) "failed")))
                (SEQ
                 (EXIT
@@ -403,12 +405,12 @@
                           (CONS 0 (|FEXPR;checkForNagOperators| |u| $)))))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |FEXPR;retract;E$;29| ((|u| |Expression| R) ($ $))
+(SDEFUN |FEXPR;retract;E$;29| ((|u| (|Expression| R)) ($ ($)))
         (SEQ (LETT |u| (|FEXPR;checkSymbols| |u| $))
              (|FEXPR;checkOperators| |u| $)
              (EXIT (|FEXPR;checkForNagOperators| |u| $)))) 
 
-(SDEFUN |FEXPR;retractIfCan;SU;30| ((|u| |Symbol|) ($ |Union| $ "failed"))
+(SDEFUN |FEXPR;retractIfCan;SU;30| ((|u| (|Symbol|)) ($ (|Union| $ "failed")))
         (SEQ
          (COND
           ((NULL (SPADCALL |u| (QREFELT $ 6) (QREFELT $ 40)))
@@ -422,7 +424,7 @@
             ('T (EXIT (CONS 1 #1#))))))
          (EXIT (CONS 0 (SPADCALL |u| (QREFELT $ 13)))))) 
 
-(SDEFUN |FEXPR;retract;S$;31| ((|u| |Symbol|) ($ $))
+(SDEFUN |FEXPR;retract;S$;31| ((|u| (|Symbol|)) ($ ($)))
         (SPROG ((|res| (|Union| $ "failed")))
                (SEQ (LETT |res| (SPADCALL |u| (QREFELT $ 95)))
                     (EXIT

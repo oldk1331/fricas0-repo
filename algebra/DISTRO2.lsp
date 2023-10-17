@@ -1,6 +1,7 @@
 
 (SDEFUN |DISTRO2;mapall;MDD;1|
-        ((|f| |Mapping| R2 R1) (|x| |Distribution| R1) ($ |Distribution| R2))
+        ((|f| (|Mapping| R2 R1)) (|x| (|Distribution| R1))
+         ($ (|Distribution| R2)))
         (SPROG
          ((|bcum2| #1=(|Sequence| R2)) (|fcum2| #1#) (|cum2| #1#) (|mom2| #1#))
          (SEQ
@@ -14,19 +15,20 @@
                 (SPADCALL |f| (SPADCALL |x| (QREFELT $ 17)) (QREFELT $ 14)))
           (EXIT (SPADCALL |mom2| |cum2| |fcum2| |bcum2| (QREFELT $ 19)))))) 
 
-(SDEFUN |DISTRO2;R1_to_R2_coercion;R1R2;2| ((|x| R1) ($ R2))
+(SDEFUN |DISTRO2;R1_to_R2_coercion;R1R2;2| ((|x| (R1)) ($ (R2)))
         (SPADCALL |x| (QREFELT $ 21))) 
 
-(SDEFUN |DISTRO2;R1_to_R2_coercion;R1R2;3| ((|x| R1) ($ R2))
+(SDEFUN |DISTRO2;R1_to_R2_coercion;R1R2;3| ((|x| (R1)) ($ (R2)))
         (SPADCALL |x| (QREFELT $ 23))) 
 
 (PUT '|DISTRO2;R1_to_R2_coercion;R1R2;4| '|SPADreplace|
      '(XLAM (|x|) (|error| "unimplemented"))) 
 
-(SDEFUN |DISTRO2;R1_to_R2_coercion;R1R2;4| ((|x| R1) ($ R2))
+(SDEFUN |DISTRO2;R1_to_R2_coercion;R1R2;4| ((|x| (R1)) ($ (R2)))
         (|error| "unimplemented")) 
 
-(SDEFUN |DISTRO2;coerce;DD;5| ((|x| |Distribution| R1) ($ |Distribution| R2))
+(SDEFUN |DISTRO2;coerce;DD;5|
+        ((|x| (|Distribution| R1)) ($ (|Distribution| R2)))
         (SPADCALL (ELT $ 22) |x| (QREFELT $ 20))) 
 
 (DECLAIM (NOTINLINE |DistributionFunctions2;|)) 

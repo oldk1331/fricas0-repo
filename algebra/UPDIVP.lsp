@@ -1,8 +1,9 @@
 
 (SDEFUN |UPDIVP;divideIfCan;2UPU;1|
-        ((|p1| UP) (|p2| UP)
-         ($ |Union| (|Record| (|:| |quotient| UP) (|:| |remainder| UP))
-          "failed"))
+        ((|p1| (UP)) (|p2| (UP))
+         ($
+          (|Union| (|Record| (|:| |quotient| UP) (|:| |remainder| UP))
+                   "failed")))
         (SPROG
          ((|q| (UP)) (|ee| (|NonNegativeInteger|)) (#1=#:G109 NIL)
           (#2=#:G127 NIL) (|c| (|Union| R "failed"))

@@ -1,9 +1,9 @@
 
-(SDEFUN |FDIVCAT-;principal?;SB;1| ((|d| S) ($ |Boolean|))
+(SDEFUN |FDIVCAT-;principal?;SB;1| ((|d| (S)) ($ (|Boolean|)))
         (QEQCAR (SPADCALL |d| (QREFELT $ 12)) 0)) 
 
 (SDEFUN |FDIVCAT-;divisor;R3UPFS;2|
-        ((|h| R) (|d| UP) (|dp| UP) (|g| UP) (|r| F) ($ S))
+        ((|h| (R)) (|d| (UP)) (|dp| (UP)) (|g| (UP)) (|r| (F)) ($ (S)))
         (SPADCALL
          (SPADCALL |h|
                    (SPADCALL

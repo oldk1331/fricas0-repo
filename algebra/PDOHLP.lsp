@@ -1,8 +1,8 @@
 
-(SDEFUN |PDOHLP;id_map;VarA;1| ((|v| |Var|) ($ |Automorphism| R))
+(SDEFUN |PDOHLP;id_map;VarA;1| ((|v| (|Var|)) ($ (|Automorphism| R)))
         (|spadConstant| $ 9)) 
 
-(SDEFUN |PDOHLP;diff_map;VarM;2| ((|v| |Var|) ($ |Mapping| R R))
+(SDEFUN |PDOHLP;diff_map;VarM;2| ((|v| (|Var|)) ($ (|Mapping| R R)))
         (SPROG NIL (CONS #'|PDOHLP;diff_map;VarM;2!0| (VECTOR $ |v|)))) 
 
 (SDEFUN |PDOHLP;diff_map;VarM;2!0| ((|x| NIL) ($$ NIL))

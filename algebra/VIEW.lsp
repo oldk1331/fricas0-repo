@@ -1,23 +1,23 @@
 
 (SDEFUN |VIEW;graphCurves;LGi;1|
-        ((|listOfListsOfPoints| |List| (|List| (|Point| (|DoubleFloat|))))
-         ($ |GraphImage|))
+        ((|listOfListsOfPoints| (|List| (|List| (|Point| (|DoubleFloat|)))))
+         ($ (|GraphImage|)))
         (SPADCALL |listOfListsOfPoints| (SPADCALL (QREFELT $ 8))
                   (SPADCALL (QREFELT $ 9)) (SPADCALL (QREFELT $ 11)) NIL
                   (QREFELT $ 15))) 
 
 (SDEFUN |VIEW;graphCurves;LLGi;2|
-        ((|listOfListsOfPoints| |List| (|List| (|Point| (|DoubleFloat|))))
-         (|optionsList| |List| (|DrawOption|)) ($ |GraphImage|))
+        ((|listOfListsOfPoints| (|List| (|List| (|Point| (|DoubleFloat|)))))
+         (|optionsList| (|List| (|DrawOption|))) ($ (|GraphImage|)))
         (SPADCALL |listOfListsOfPoints| (SPADCALL (QREFELT $ 8))
                   (SPADCALL (QREFELT $ 9)) (SPADCALL (QREFELT $ 11))
                   |optionsList| (QREFELT $ 15))) 
 
 (SDEFUN |VIEW;graphCurves;L2PPiLGi;3|
-        ((|listOfListsOfPoints| |List| (|List| (|Point| (|DoubleFloat|))))
-         (|ptColor| |Palette|) (|lineColor| |Palette|)
-         (|ptSize| |PositiveInteger|) (|optionsList| |List| (|DrawOption|))
-         ($ |GraphImage|))
+        ((|listOfListsOfPoints| (|List| (|List| (|Point| (|DoubleFloat|)))))
+         (|ptColor| (|Palette|)) (|lineColor| (|Palette|))
+         (|ptSize| (|PositiveInteger|)) (|optionsList| (|List| (|DrawOption|)))
+         ($ (|GraphImage|)))
         (SPROG
          ((|listOfPointSizes| (|List| (|PositiveInteger|))) (#1=#:G115 NIL)
           (|i| NIL) (#2=#:G114 NIL) (|listOfLineColors| (|List| (|Palette|)))
@@ -55,17 +55,18 @@
                          (QREFELT $ 20)))))) 
 
 (SDEFUN |VIEW;drawCurves;LLTdv;4|
-        ((|listOfListsOfPoints| |List| (|List| (|Point| (|DoubleFloat|))))
-         (|optionsList| |List| (|DrawOption|)) ($ |TwoDimensionalViewport|))
+        ((|listOfListsOfPoints| (|List| (|List| (|Point| (|DoubleFloat|)))))
+         (|optionsList| (|List| (|DrawOption|)))
+         ($ (|TwoDimensionalViewport|)))
         (SPADCALL |listOfListsOfPoints| (SPADCALL (QREFELT $ 8))
                   (SPADCALL (QREFELT $ 9)) (SPADCALL (QREFELT $ 11))
                   |optionsList| (QREFELT $ 22))) 
 
 (SDEFUN |VIEW;drawCurves;L2PPiLTdv;5|
-        ((|ptLists| |List| (|List| (|Point| (|DoubleFloat|))))
-         (|ptColor| |Palette|) (|lColor| |Palette|)
-         (|ptSize| |PositiveInteger|) (|optList| |List| (|DrawOption|))
-         ($ |TwoDimensionalViewport|))
+        ((|ptLists| (|List| (|List| (|Point| (|DoubleFloat|)))))
+         (|ptColor| (|Palette|)) (|lColor| (|Palette|))
+         (|ptSize| (|PositiveInteger|)) (|optList| (|List| (|DrawOption|)))
+         ($ (|TwoDimensionalViewport|)))
         (SPROG ((|g| (|GraphImage|)) (|v| (|TwoDimensionalViewport|)))
                (SEQ (LETT |v| (SPADCALL (QREFELT $ 24)))
                     (SPADCALL |v| |optList| (QREFELT $ 25))
@@ -76,7 +77,7 @@
                     (EXIT (SPADCALL |v| (QREFELT $ 28)))))) 
 
 (SDEFUN |VIEW;coerce;GiTdv;6|
-        ((|graf| |GraphImage|) ($ |TwoDimensionalViewport|))
+        ((|graf| (|GraphImage|)) ($ (|TwoDimensionalViewport|)))
         (SPADCALL |graf| NIL (QREFELT $ 29))) 
 
 (DECLAIM (NOTINLINE |ViewportPackage;|)) 

@@ -1,12 +1,13 @@
 
-(SDEFUN |INTEF;prim?| ((|k| |Kernel| F) (|x| |Symbol|) ($ |Boolean|))
+(SDEFUN |INTEF;prim?| ((|k| (|Kernel| F)) (|x| (|Symbol|)) ($ (|Boolean|)))
         (COND ((SPADCALL |k| '|log| (QREFELT $ 13)) 'T)
               ('T
                (SPADCALL (SPADCALL |k| (QREFELT $ 15)) (QREFELT $ 8)
                          (QREFELT $ 16))))) 
 
 (SDEFUN |INTEF;lambint|
-        ((|f| F) (|x| |Symbol|) (|k| |Kernel| F) ($ |IntegrationResult| F))
+        ((|f| (F)) (|x| (|Symbol|)) (|k| (|Kernel| F))
+         ($ (|IntegrationResult| F)))
         (SPROG
          ((|r1|
            (|Record|
@@ -109,7 +110,8 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |x2| |x| (QREFELT $ 19)))))) 
 
-(SDEFUN |INTEF;unknownint| ((|f| F) (|x| |Symbol|) ($ |IntegrationResult| F))
+(SDEFUN |INTEF;unknownint|
+        ((|f| (F)) (|x| (|Symbol|)) ($ (|IntegrationResult| F)))
         (SPROG ((|c| (F)) (|da| (F)) (|a| (F)))
                (SEQ
                 (COND
@@ -142,8 +144,8 @@
                            (QREFELT $ 72)))))) 
 
 (SDEFUN |INTEF;diffint1|
-        ((|f| F) (|x| |Symbol|) (|k| |Kernel| F)
-         ($ |Union| (|IntegrationResult| F) "failed"))
+        ((|f| (F)) (|x| (|Symbol|)) (|k| (|Kernel| F))
+         ($ (|Union| (|IntegrationResult| F) "failed")))
         (SPROG
          ((|f3| (F)) (|nres3| (|IntegrationResult| F))
           (|nres2| (|IntegrationResult| F)) (|nrat| (F)) (|alpha| (F))
@@ -364,7 +366,8 @@
                       (QREFELT $ 84)))))) 
 
 (SDEFUN |INTEF;diffint|
-        ((|f| F) (|x| |Symbol|) (|k| |Kernel| F) ($ |IntegrationResult| F))
+        ((|f| (F)) (|x| (|Symbol|)) (|k| (|Kernel| F))
+         ($ (|IntegrationResult| F)))
         (SPROG ((|r1| (|Union| (|IntegrationResult| F) "failed")))
                (SEQ (LETT |r1| (|INTEF;diffint1| |f| |x| |k| $))
                     (EXIT
@@ -376,7 +379,7 @@
                                              (SPADCALL |x| (QREFELT $ 67))))
                                       (QREFELT $ 72)))))))) 
 
-(SDEFUN |INTEF;isx?| ((|f| F) (|x| |Symbol|) ($ |Boolean|))
+(SDEFUN |INTEF;isx?| ((|f| (F)) (|x| (|Symbol|)) ($ (|Boolean|)))
         (SPROG
          ((|r| (|Union| (|Symbol|) "failed"))
           (|k| (|Union| (|Kernel| F) "failed")))
@@ -390,8 +393,8 @@
                                   (#1# (EQUAL (QCDR |r|) |x|))))))))))) 
 
 (SDEFUN |INTEF;alglfint|
-        ((|f| F) (|k| |Kernel| F) (|l| |List| (|Kernel| F)) (|x| |Symbol|)
-         ($ |IntegrationResult| F))
+        ((|f| (F)) (|k| (|Kernel| F)) (|l| (|List| (|Kernel| F)))
+         (|x| (|Symbol|)) ($ (|IntegrationResult| F)))
         (SPROG
          ((|y| (F))
           (|rec|
@@ -438,7 +441,7 @@
                           (LETT |al|
                                 (SPADCALL (LIST |f|) |k| |kx| (QREFELT $ 126)))
                           (LETT |res| (|spadConstant| $ 127))
-                          (SEQ (LETT |rec| NIL) (LETT #1# |al|) G190
+                          (SEQ (LETT #1# |al|) G190
                                (COND
                                 ((OR (ATOM #1#)
                                      (PROGN (LETT |rec| (CAR #1#)) NIL))
@@ -510,7 +513,7 @@
                       (QREFELT $ 86)))))) 
 
 (SDEFUN |INTEF;lfintegrate;FSIr;8|
-        ((|f| F) (|x| |Symbol|) ($ |IntegrationResult| F))
+        ((|f| (F)) (|x| (|Symbol|)) ($ (|IntegrationResult| F)))
         (SPROG ((|k| (|Kernel| F)) (|l| (|List| (|Kernel| F))) (|xf| (F)))
                (SEQ
                 (COND ((SPADCALL |f| (QREFELT $ 62)) (|spadConstant| $ 127))
@@ -558,7 +561,7 @@
           (RETURN (PROGN (SPADCALL |x1| |k| (QREFELT $ 51)))))) 
 
 (SDEFUN |INTEF;addx|
-        ((|i| |IntegrationResult| F) (|x| F) ($ |IntegrationResult| F))
+        ((|i| (|IntegrationResult| F)) (|x| (F)) ($ (|IntegrationResult| F)))
         (SPROG ((#1=#:G248 NIL) (|ne| NIL) (#2=#:G247 NIL))
                (SEQ
                 (COND ((SPADCALL |i| (QREFELT $ 141)) |i|)
@@ -584,8 +587,8 @@
                                  (QREFELT $ 72))))))) 
 
 (SDEFUN |INTEF;tryChangeVar|
-        ((|f| F) (|t| |Kernel| F) (|x| |Symbol|)
-         ($ |Union| (|IntegrationResult| F) "failed"))
+        ((|f| (F)) (|t| (|Kernel| F)) (|x| (|Symbol|))
+         ($ (|Union| (|IntegrationResult| F) "failed")))
         (SPROG ((|g| (F)) (|z| (|Symbol|)))
                (SEQ (LETT |z| (SPADCALL (QREFELT $ 87)))
                     (LETT |g|
@@ -618,8 +621,8 @@
                       (SPADCALL |t| (QREFELT $ 121)) (QREFELT $ 86)))))) 
 
 (SDEFUN |INTEF;algexpint|
-        ((|f| F) (|t| |Kernel| F) (|y| |Kernel| F) (|x| |Symbol|)
-         ($ |IntegrationResult| F))
+        ((|f| (F)) (|t| (|Kernel| F)) (|y| (|Kernel| F)) (|x| (|Symbol|))
+         ($ (|IntegrationResult| F)))
         (SPROG ((|u| (|Union| (|IntegrationResult| F) "failed")))
                (SEQ (LETT |u| (|INTEF;tryChangeVar| |f| |t| |x| $))
                     (EXIT
@@ -662,8 +665,8 @@
           (RETURN (PROGN (SPADCALL |x2| |x| (QREFELT $ 19)))))) 
 
 (SDEFUN |INTEF;algprimint|
-        ((|f| F) (|t| |Kernel| F) (|y| |Kernel| F) (|x| |Symbol|)
-         ($ |IntegrationResult| F))
+        ((|f| (F)) (|t| (|Kernel| F)) (|y| (|Kernel| F)) (|x| (|Symbol|))
+         ($ (|IntegrationResult| F)))
         (SPROG ((|u| (|Union| (|IntegrationResult| F) "failed")))
                (SEQ (LETT |u| (|INTEF;tryChangeVar| |f| |t| |x| $))
                     (EXIT
@@ -704,8 +707,8 @@
           (RETURN (PROGN (SPADCALL |x2| |x| (QREFELT $ 19)))))) 
 
 (SDEFUN |INTEF;lfextendedint;FSFU;13|
-        ((|f| F) (|x| |Symbol|) (|g| F)
-         ($ |Union| (|Record| (|:| |ratpart| F) (|:| |coeff| F)) "failed"))
+        ((|f| (F)) (|x| (|Symbol|)) (|g| (F))
+         ($ (|Union| (|Record| (|:| |ratpart| F) (|:| |coeff| F)) "failed")))
         (SPROG
          ((|res1|
            (|Union| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))
@@ -721,17 +724,19 @@
                                         (QREFELT $ 154)))))))))) 
 
 (SDEFUN |INTEF;denint_dummy|
-        ((|f| |Fraction| (|SparseUnivariatePolynomial| F))
-         ($ |Record|
-          (|:| |answer| (|Fraction| (|SparseUnivariatePolynomial| F)))
-          (|:| |logpart| (|Fraction| (|SparseUnivariatePolynomial| F)))
-          (|:| |ir|
-               (|IntegrationResult|
-                (|Fraction| (|SparseUnivariatePolynomial| F))))))
+        ((|f| (|Fraction| (|SparseUnivariatePolynomial| F)))
+         ($
+          (|Record|
+           (|:| |answer| (|Fraction| (|SparseUnivariatePolynomial| F)))
+           (|:| |logpart| (|Fraction| (|SparseUnivariatePolynomial| F)))
+           (|:| |ir|
+                (|IntegrationResult|
+                 (|Fraction| (|SparseUnivariatePolynomial| F)))))))
         (VECTOR (|spadConstant| $ 155) |f| (|spadConstant| $ 156))) 
 
 (SDEFUN |INTEF;primint|
-        ((|f| F) (|x| |Symbol|) (|k| |Kernel| F) ($ |IntegrationResult| F))
+        ((|f| (F)) (|x| (|Symbol|)) (|k| (|Kernel| F))
+         ($ (|IntegrationResult| F)))
         (SPROG
          ((|r1|
            (|Record|
@@ -835,13 +840,15 @@
           (RETURN (PROGN (SPADCALL |rf| |k| |x| |denint_li|))))) 
 
 (SDEFUN |INTEF;risch_de_solver|
-        ((|x3| |Integer|) (|x4| F) (|eta| F) (|x| |Symbol|)
-         ($ |Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
-          (|:| |sol?| (|Boolean|))))
+        ((|x3| (|Integer|)) (|x4| (F)) (|eta| (F)) (|x| (|Symbol|))
+         ($
+          (|Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
+                    (|:| |sol?| (|Boolean|)))))
         (SPADCALL |x3| |eta| |x4| |x| (QREFELT $ 173))) 
 
 (SDEFUN |INTEF;expint|
-        ((|f| F) (|x| |Symbol|) (|k| |Kernel| F) ($ |IntegrationResult| F))
+        ((|f| (F)) (|x| (|Symbol|)) (|k| (|Kernel| F))
+         ($ (|IntegrationResult| F)))
         (SPROG
          ((|r1|
            (|Record|

@@ -1,18 +1,20 @@
 
 (SDEFUN |MESH;makePt|
-        ((|x| |DoubleFloat|) (|y| |DoubleFloat|) (|z| |DoubleFloat|)
-         (|c| . #1=(|DoubleFloat|)) ($ |Point| (|DoubleFloat|)))
+        ((|x| (|DoubleFloat|)) (|y| (|DoubleFloat|)) (|z| (|DoubleFloat|))
+         (|c| #1=(|DoubleFloat|)) ($ (|Point| (|DoubleFloat|))))
         (SPROG ((|l| (|List| #1#)))
                (SPADCALL (LETT |l| (LIST |x| |y| |z| |c|)) (QREFELT $ 8)))) 
 
 (SDEFUN |MESH;ptFunc;3MMM;2|
-        ((|f| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
-         (|g| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
-         (|h| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
-         (|c| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)
-          (|DoubleFloat|))
-         ($ |Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)
-          (|DoubleFloat|)))
+        ((|f| (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)))
+         (|g| (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)))
+         (|h| (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)))
+         (|c|
+          (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)
+                     (|DoubleFloat|)))
+         ($
+          (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)
+                     (|DoubleFloat|))))
         (SPROG NIL
                (SEQ
                 (CONS #'|MESH;ptFunc;3MMM;2!0| (VECTOR $ |c| |h| |g| |f|))))) 
@@ -35,11 +37,13 @@
                           $)))))))) 
 
 (SDEFUN |MESH;meshPar2Var;TsM2SLTs;3|
-        ((|sp| . #1=(|ThreeSpace| (|DoubleFloat|)))
-         (|ptFun| |Mapping| #2=(|Point| (|DoubleFloat|)) (|DoubleFloat|)
-          (|DoubleFloat|))
-         (|uSeg| |Segment| (|DoubleFloat|)) (|vSeg| |Segment| (|DoubleFloat|))
-         (|opts| |List| (|DrawOption|)) ($ |ThreeSpace| (|DoubleFloat|)))
+        ((|sp| #1=(|ThreeSpace| (|DoubleFloat|)))
+         (|ptFun|
+          (|Mapping| #2=(|Point| (|DoubleFloat|)) (|DoubleFloat|)
+                     (|DoubleFloat|)))
+         (|uSeg| (|Segment| (|DoubleFloat|)))
+         (|vSeg| (|Segment| (|DoubleFloat|))) (|opts| (|List| (|DrawOption|)))
+         ($ (|ThreeSpace| (|DoubleFloat|))))
         (SPROG
          ((|space| #1#) (|aProp| (|SubSpaceComponentProperty|)) (#3=#:G125 NIL)
           (|lProp| (|List| (|SubSpaceComponentProperty|))) (#4=#:G124 NIL)
@@ -95,7 +99,7 @@
                             (LETT #5# (CONS (SPADCALL (QREFELT $ 26)) #5#))))
                           (LETT #4# (CDR #4#)) (GO G190) G191
                           (EXIT (NREVERSE #5#)))))
-              (SEQ (LETT |aProp| NIL) (LETT #3# |lProp|) G190
+              (SEQ (LETT #3# |lProp|) G190
                    (COND
                     ((OR (ATOM #3#) (PROGN (LETT |aProp| (CAR #3#)) NIL))
                      (GO G191)))
@@ -109,10 +113,12 @@
               (EXIT |space|)))) 
 
 (SDEFUN |MESH;meshPar2Var;M2SLTs;4|
-        ((|ptFun| |Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)
-          (|DoubleFloat|))
-         (|uSeg| |Segment| (|DoubleFloat|)) (|vSeg| |Segment| (|DoubleFloat|))
-         (|opts| |List| (|DrawOption|)) ($ |ThreeSpace| (|DoubleFloat|)))
+        ((|ptFun|
+          (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)
+                     (|DoubleFloat|)))
+         (|uSeg| (|Segment| (|DoubleFloat|)))
+         (|vSeg| (|Segment| (|DoubleFloat|))) (|opts| (|List| (|DrawOption|)))
+         ($ (|ThreeSpace| (|DoubleFloat|))))
         (SPROG ((|sp| (|ThreeSpace| (|DoubleFloat|))))
                (SEQ (LETT |sp| (SPADCALL (QREFELT $ 35)))
                     (EXIT
@@ -122,20 +128,22 @@
 (PUT '|MESH;zCoord| '|SPADreplace| '(XLAM (|x| |y| |z|) |z|)) 
 
 (SDEFUN |MESH;zCoord|
-        ((|x| |DoubleFloat|) (|y| |DoubleFloat|) (|z| |DoubleFloat|)
-         ($ |DoubleFloat|))
+        ((|x| (|DoubleFloat|)) (|y| (|DoubleFloat|)) (|z| (|DoubleFloat|))
+         ($ (|DoubleFloat|)))
         |z|) 
 
 (SDEFUN |MESH;meshPar2Var;3MU2SLTs;6|
-        ((|xFun| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
-         (|yFun| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
-         (|zFun| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
-         (|colorFun| |Union|
-          (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)
-                     (|DoubleFloat|))
-          "undefined")
-         (|uSeg| |Segment| (|DoubleFloat|)) (|vSeg| |Segment| (|DoubleFloat|))
-         (|opts| |List| (|DrawOption|)) ($ |ThreeSpace| (|DoubleFloat|)))
+        ((|xFun| (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)))
+         (|yFun| (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)))
+         (|zFun| (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)))
+         (|colorFun|
+          (|Union|
+           (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)
+                      (|DoubleFloat|))
+           "undefined"))
+         (|uSeg| (|Segment| (|DoubleFloat|)))
+         (|vSeg| (|Segment| (|DoubleFloat|))) (|opts| (|List| (|DrawOption|)))
+         ($ (|ThreeSpace| (|DoubleFloat|))))
         (COND
          ((QEQCAR |colorFun| 0)
           (SPADCALL
@@ -148,13 +156,15 @@
            |uSeg| |vSeg| |opts| (QREFELT $ 36))))) 
 
 (SDEFUN |MESH;meshFun2Var;MU2SLTs;7|
-        ((|zFun| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
-         (|colorFun| |Union|
-          (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)
-                     (|DoubleFloat|))
-          "undefined")
-         (|xSeg| |Segment| (|DoubleFloat|)) (|ySeg| |Segment| (|DoubleFloat|))
-         (|opts| |List| (|DrawOption|)) ($ |ThreeSpace| (|DoubleFloat|)))
+        ((|zFun| (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)))
+         (|colorFun|
+          (|Union|
+           (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)
+                      (|DoubleFloat|))
+           "undefined"))
+         (|xSeg| (|Segment| (|DoubleFloat|)))
+         (|ySeg| (|Segment| (|DoubleFloat|))) (|opts| (|List| (|DrawOption|)))
+         ($ (|ThreeSpace| (|DoubleFloat|))))
         (SPADCALL (LIST #'|MESH;meshFun2Var;MU2SLTs;7!0|)
                   (LIST #'|MESH;meshFun2Var;MU2SLTs;7!1|) |zFun| |colorFun|
                   |xSeg| |ySeg| |opts| (QREFELT $ 38))) 

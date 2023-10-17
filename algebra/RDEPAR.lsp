@@ -1,10 +1,11 @@
 
 (SDEFUN |RDEPAR;get_denom|
-        ((|f| |Fraction| (|SparseUnivariatePolynomial| F))
-         (|lg| |List| (|Fraction| (|SparseUnivariatePolynomial| F)))
-         (|der| |Mapping| (|SparseUnivariatePolynomial| F)
-          (|SparseUnivariatePolynomial| F))
-         ($ |List| (|SparseUnivariatePolynomial| F)))
+        ((|f| (|Fraction| (|SparseUnivariatePolynomial| F)))
+         (|lg| (|List| (|Fraction| (|SparseUnivariatePolynomial| F))))
+         (|der|
+          (|Mapping| (|SparseUnivariatePolynomial| F)
+                     (|SparseUnivariatePolynomial| F)))
+         ($ (|List| (|SparseUnivariatePolynomial| F))))
         (SPROG
          ((|h| (|SparseUnivariatePolynomial| F)) (#1=#:G151 NIL)
           (|gg| (|SparseUnivariatePolynomial| F))
@@ -56,12 +57,14 @@
               (EXIT (LIST |d| |h|))))) 
 
 (SDEFUN |RDEPAR;normalize|
-        ((|f| |Fraction| (|SparseUnivariatePolynomial| F))
-         (|der| |Mapping| #1=(|SparseUnivariatePolynomial| F)
-          (|SparseUnivariatePolynomial| F))
-         ($ |List|
-          (|Record| (|:| |fctr| (|SparseUnivariatePolynomial| F))
-                    (|:| |xpnt| (|Integer|)))))
+        ((|f| (|Fraction| (|SparseUnivariatePolynomial| F)))
+         (|der|
+          (|Mapping| #1=(|SparseUnivariatePolynomial| F)
+                     (|SparseUnivariatePolynomial| F)))
+         ($
+          (|List|
+           (|Record| (|:| |fctr| (|SparseUnivariatePolynomial| F))
+                     (|:| |xpnt| (|Integer|))))))
         (SPROG
          ((|rl|
            (|List|
@@ -192,8 +195,8 @@
               (EXIT |rl|)))) 
 
 (SDEFUN |RDEPAR;RF_to_GP|
-        ((|f| |Fraction| (|SparseUnivariatePolynomial| F))
-         ($ |LaurentPolynomial| F (|SparseUnivariatePolynomial| F)))
+        ((|f| (|Fraction| (|SparseUnivariatePolynomial| F)))
+         ($ (|LaurentPolynomial| F (|SparseUnivariatePolynomial| F))))
         (SPROG ((#1=#:G177 NIL))
                (PROG2
                    (LETT #1#
@@ -216,14 +219,16 @@
                                  #1#)))) 
 
 (SDEFUN |RDEPAR;do_spde1|
-        ((|b| |SparseUnivariatePolynomial| F)
-         (|lc| |List| (|SparseUnivariatePolynomial| F))
-         (|der| |Mapping| (|SparseUnivariatePolynomial| F)
-          (|SparseUnivariatePolynomial| F))
-         (|get_rs| |Mapping| #1=(|Matrix| F) (|Matrix| F))
-         ($ |List|
-          (|Record| (|:| |ratpart| (|SparseUnivariatePolynomial| F))
-                    (|:| |coeffs| (|Vector| F)))))
+        ((|b| (|SparseUnivariatePolynomial| F))
+         (|lc| (|List| (|SparseUnivariatePolynomial| F)))
+         (|der|
+          (|Mapping| (|SparseUnivariatePolynomial| F)
+                     (|SparseUnivariatePolynomial| F)))
+         (|get_rs| (|Mapping| #1=(|Matrix| F) (|Matrix| F)))
+         ($
+          (|List|
+           (|Record| (|:| |ratpart| (|SparseUnivariatePolynomial| F))
+                     (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((#2=#:G196 NIL) (|kv| NIL) (#3=#:G195 NIL)
           (|lkv| (|List| (|Vector| F))) (|rs2| #1#) (|rs1| (|Matrix| F))
@@ -288,24 +293,26 @@
                  (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT (NREVERSE #3#)))))))) 
 
 (SDEFUN |RDEPAR;param_SPDE|
-        ((|a| |SparseUnivariatePolynomial| F)
-         (|b| |SparseUnivariatePolynomial| F)
-         (|lc| |List| (|SparseUnivariatePolynomial| F)) (|d| |Integer|)
-         (|der| |Mapping| #1=(|SparseUnivariatePolynomial| F)
-          (|SparseUnivariatePolynomial| F))
-         (|get_rs| |Mapping| #2=(|Matrix| F) (|Matrix| F))
-         (|do_degrad| |Mapping|
-          #3=(|List|
-              (|Record|
-               (|:| |ratpart| (|Fraction| (|SparseUnivariatePolynomial| F)))
-               (|:| |coeffs| (|Vector| F))))
-          (|Fraction| (|SparseUnivariatePolynomial| F))
-          (|List| (|Fraction| (|SparseUnivariatePolynomial| F))))
-         (|x| |Symbol|)
+        ((|a| (|SparseUnivariatePolynomial| F))
+         (|b| (|SparseUnivariatePolynomial| F))
+         (|lc| (|List| (|SparseUnivariatePolynomial| F))) (|d| (|Integer|))
+         (|der|
+          (|Mapping| #1=(|SparseUnivariatePolynomial| F)
+                     (|SparseUnivariatePolynomial| F)))
+         (|get_rs| (|Mapping| #2=(|Matrix| F) (|Matrix| F)))
+         (|do_degrad|
+          (|Mapping|
+           #3=(|List|
+               (|Record|
+                (|:| |ratpart| (|Fraction| (|SparseUnivariatePolynomial| F)))
+                (|:| |coeffs| (|Vector| F))))
+           (|Fraction| (|SparseUnivariatePolynomial| F))
+           (|List| (|Fraction| (|SparseUnivariatePolynomial| F)))))
+         (|x| (|Symbol|))
          ($
-          . #4=(|List|
-                (|Record| (|:| |ratpart| (|SparseUnivariatePolynomial| F))
-                          (|:| |coeffs| (|Vector| F))))))
+          #4=(|List|
+              (|Record| (|:| |ratpart| (|SparseUnivariatePolynomial| F))
+                        (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((|nres|
            (|List|
@@ -614,8 +621,8 @@
                                    (EXIT (NREVERSE |nres|))))))))))))))))) 
 
 (SDEFUN |RDEPAR;integer_vector|
-        ((|v| |Vector| (|Fraction| (|Integer|)))
-         ($ |Union| (|Vector| (|Integer|)) "failed"))
+        ((|v| (|Vector| (|Fraction| (|Integer|))))
+         ($ (|Union| (|Vector| (|Integer|)) "failed")))
         (SPROG
          ((#1=#:G266 NIL) (|i| NIL) (#2=#:G265 NIL) (|d| #3=(|Integer|))
           (|nv| #4=(|Vector| (|Fraction| (|Integer|))))
@@ -651,22 +658,27 @@
                     (QREFELT $ 94))))))))) 
 
 (SDEFUN |RDEPAR;do_SPDE_prim0|
-        ((|b| F) (|lc| |List| (|SparseUnivariatePolynomial| F))
-         (|lk| |List| (|Kernel| F))
-         (|ext| |Mapping|
-          (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
-          (|List| (|Kernel| F)) (|List| F))
-         (|logi| |Mapping|
-          (|Record| (|:| |logands| (|List| F))
-                    (|:| |basis| (|List| (|Vector| (|Fraction| (|Integer|))))))
-          (|List| (|Kernel| F)) (|List| F))
-         (|der| |Mapping| (|SparseUnivariatePolynomial| F)
-          (|SparseUnivariatePolynomial| F))
-         (|get_rs| |Mapping| (|Matrix| F) (|Matrix| F)) (|x| |Symbol|)
-         ($ |List|
-          (|Record|
-           (|:| |ratpart| (|Fraction| (|SparseUnivariatePolynomial| F)))
-           (|:| |coeffs| (|Vector| F)))))
+        ((|b| (F)) (|lc| (|List| (|SparseUnivariatePolynomial| F)))
+         (|lk| (|List| (|Kernel| F)))
+         (|ext|
+          (|Mapping|
+           (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
+           (|List| (|Kernel| F)) (|List| F)))
+         (|logi|
+          (|Mapping|
+           (|Record| (|:| |logands| (|List| F))
+                     (|:| |basis|
+                          (|List| (|Vector| (|Fraction| (|Integer|))))))
+           (|List| (|Kernel| F)) (|List| F)))
+         (|der|
+          (|Mapping| (|SparseUnivariatePolynomial| F)
+                     (|SparseUnivariatePolynomial| F)))
+         (|get_rs| (|Mapping| (|Matrix| F) (|Matrix| F))) (|x| (|Symbol|))
+         ($
+          (|List|
+           (|Record|
+            (|:| |ratpart| (|Fraction| (|SparseUnivariatePolynomial| F)))
+            (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((#1=#:G317 NIL) (|ba| NIL) (#2=#:G318 NIL) (|bv| NIL) (#3=#:G316 NIL)
           (|lba| (|List| (|Fraction| (|SparseUnivariatePolynomial| F))))
@@ -878,15 +890,17 @@
                      (GO G190) G191 (EXIT (NREVERSE #3#)))))))) 
 
 (SDEFUN |RDEPAR;do_ext|
-        ((|ext| |Mapping|
-          #1=(|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
-          (|List| (|Kernel| F)) (|List| F))
-         (|lcr| |List| (|Fraction| (|SparseUnivariatePolynomial| F)))
-         (|k| |Kernel| F) (|lk| |List| (|Kernel| F))
-         ($ |List|
-          (|Record|
-           (|:| |ratpart| (|Fraction| (|SparseUnivariatePolynomial| F)))
-           (|:| |coeffs| (|Vector| F)))))
+        ((|ext|
+          (|Mapping|
+           #1=(|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
+           (|List| (|Kernel| F)) (|List| F)))
+         (|lcr| (|List| (|Fraction| (|SparseUnivariatePolynomial| F))))
+         (|k| (|Kernel| F)) (|lk| (|List| (|Kernel| F)))
+         ($
+          (|List|
+           (|Record|
+            (|:| |ratpart| (|Fraction| (|SparseUnivariatePolynomial| F)))
+            (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((#2=#:G327 NIL) (|be| NIL) (#3=#:G326 NIL) (|res1| #1#)
           (|lc| (|List| F)) (#4=#:G325 NIL) (|cr| NIL) (#5=#:G324 NIL))
@@ -922,26 +936,30 @@
                  (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT (NREVERSE #3#)))))))) 
 
 (SDEFUN |RDEPAR;do_SPDE_prim|
-        ((|a| |SparseUnivariatePolynomial| F)
-         (|bbr| |Fraction| (|SparseUnivariatePolynomial| F))
-         (|is_der| |Boolean|)
-         (|lcr| |List| (|Fraction| (|SparseUnivariatePolynomial| F)))
-         (|k| |Kernel| F) (|lk| |List| (|Kernel| F))
-         (|ext| |Mapping|
-          (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
-          (|List| (|Kernel| F)) (|List| F))
-         (|logi| |Mapping|
-          #1=(|Record| (|:| |logands| #2=(|List| F))
-                       (|:| |basis|
-                            #3=(|List| (|Vector| (|Fraction| (|Integer|))))))
-          (|List| (|Kernel| F)) (|List| F))
-         (|der| |Mapping| (|SparseUnivariatePolynomial| F)
-          (|SparseUnivariatePolynomial| F))
-         (|get_rs| |Mapping| (|Matrix| F) (|Matrix| F)) (|x| |Symbol|)
-         ($ |List|
-          (|Record|
-           (|:| |ratpart| (|Fraction| (|SparseUnivariatePolynomial| F)))
-           (|:| |coeffs| (|Vector| F)))))
+        ((|a| (|SparseUnivariatePolynomial| F))
+         (|bbr| (|Fraction| (|SparseUnivariatePolynomial| F)))
+         (|is_der| (|Boolean|))
+         (|lcr| (|List| (|Fraction| (|SparseUnivariatePolynomial| F))))
+         (|k| (|Kernel| F)) (|lk| (|List| (|Kernel| F)))
+         (|ext|
+          (|Mapping|
+           (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
+           (|List| (|Kernel| F)) (|List| F)))
+         (|logi|
+          (|Mapping|
+           #1=(|Record| (|:| |logands| #2=(|List| F))
+                        (|:| |basis|
+                             #3=(|List| (|Vector| (|Fraction| (|Integer|))))))
+           (|List| (|Kernel| F)) (|List| F)))
+         (|der|
+          (|Mapping| (|SparseUnivariatePolynomial| F)
+                     (|SparseUnivariatePolynomial| F)))
+         (|get_rs| (|Mapping| (|Matrix| F) (|Matrix| F))) (|x| (|Symbol|))
+         ($
+          (|List|
+           (|Record|
+            (|:| |ratpart| (|Fraction| (|SparseUnivariatePolynomial| F)))
+            (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((#4=#:G380 NIL) (|re| NIL) (#5=#:G379 NIL)
           (|res1|
@@ -1168,22 +1186,26 @@
              |k| |lk| |ext| |logi| |der| |get_rs| |x| $))))) 
 
 (SDEFUN |RDEPAR;do_SPDE_exp0|
-        ((|a| F) (|b| F)
-         (|lcr| |List|
-          (|LaurentPolynomial| F (|SparseUnivariatePolynomial| F)))
-         (|lk| |List| (|Kernel| F)) (|eta| F)
-         (|ext| |Mapping|
-          (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
-          (|List| (|Kernel| F)) (|List| F))
-         (|logi| |Mapping|
-          (|Record| (|:| |logands| (|List| F))
-                    (|:| |basis| (|List| (|Vector| (|Fraction| (|Integer|))))))
-          (|List| (|Kernel| F)) (|List| F))
-         (|x| |Symbol|)
-         ($ |List|
-          (|Record|
-           (|:| |ratpart| (|Fraction| (|SparseUnivariatePolynomial| F)))
-           (|:| |coeffs| (|Vector| F)))))
+        ((|a| (F)) (|b| (F))
+         (|lcr|
+          (|List| (|LaurentPolynomial| F (|SparseUnivariatePolynomial| F))))
+         (|lk| (|List| (|Kernel| F))) (|eta| (F))
+         (|ext|
+          (|Mapping|
+           (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
+           (|List| (|Kernel| F)) (|List| F)))
+         (|logi|
+          (|Mapping|
+           (|Record| (|:| |logands| (|List| F))
+                     (|:| |basis|
+                          (|List| (|Vector| (|Fraction| (|Integer|))))))
+           (|List| (|Kernel| F)) (|List| F)))
+         (|x| (|Symbol|))
+         ($
+          (|List|
+           (|Record|
+            (|:| |ratpart| (|Fraction| (|SparseUnivariatePolynomial| F)))
+            (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((#1=#:G424 NIL) (|re| NIL) (#2=#:G425 NIL) (|bv| NIL) (#3=#:G423 NIL)
           (|j| #4=(|Integer|))
@@ -1402,15 +1424,17 @@
                      (GO G190) G191 (EXIT (NREVERSE #3#)))))))) 
 
 (SDEFUN |RDEPAR;exp_lower_bound;SupLp2ILFMI;11|
-        ((|a| |SparseUnivariatePolynomial| F)
-         (|b| |LaurentPolynomial| F (|SparseUnivariatePolynomial| F))
-         (|ob| |Integer|) (|nc0| |Integer|) (|lk| |List| (|Kernel| F))
-         (|eta| F)
-         (|logi| |Mapping|
-          (|Record| (|:| |logands| (|List| F))
-                    (|:| |basis| (|List| (|Vector| (|Fraction| (|Integer|))))))
-          (|List| (|Kernel| F)) (|List| F))
-         ($ |Integer|))
+        ((|a| (|SparseUnivariatePolynomial| F))
+         (|b| (|LaurentPolynomial| F (|SparseUnivariatePolynomial| F)))
+         (|ob| (|Integer|)) (|nc0| (|Integer|)) (|lk| (|List| (|Kernel| F)))
+         (|eta| (F))
+         (|logi|
+          (|Mapping|
+           (|Record| (|:| |logands| (|List| F))
+                     (|:| |basis|
+                          (|List| (|Vector| (|Fraction| (|Integer|))))))
+           (|List| (|Kernel| F)) (|List| F)))
+         ($ (|Integer|)))
         (SPROG
          ((|nu| (|Union| (|Integer|) "failed"))
           (|bv| (|Vector| (|Fraction| (|Integer|))))
@@ -1456,15 +1480,16 @@
                                                          |n0|)))))))))))))))))) 
 
 (SDEFUN |RDEPAR;exp_upper_bound|
-        ((|a| |SparseUnivariatePolynomial| F)
-         (|b| |SparseUnivariatePolynomial| F) (|nc1| |Integer|)
-         (|lk| |List| (|Kernel| F)) (|eta| F)
-         (|logi| |Mapping|
-          #1=(|Record| (|:| |logands| #2=(|List| F))
-                       (|:| |basis|
-                            #3=(|List| (|Vector| (|Fraction| (|Integer|))))))
-          (|List| (|Kernel| F)) (|List| F))
-         ($ |Integer|))
+        ((|a| (|SparseUnivariatePolynomial| F))
+         (|b| (|SparseUnivariatePolynomial| F)) (|nc1| (|Integer|))
+         (|lk| (|List| (|Kernel| F))) (|eta| (F))
+         (|logi|
+          (|Mapping|
+           #1=(|Record| (|:| |logands| #2=(|List| F))
+                        (|:| |basis|
+                             #3=(|List| (|Vector| (|Fraction| (|Integer|))))))
+           (|List| (|Kernel| F)) (|List| F)))
+         ($ (|Integer|)))
         (SPROG
          ((|nu| (|Union| (|Integer|) "failed"))
           (|bv| (|Vector| (|Fraction| (|Integer|)))) (|bl| #3#) (|ll| #2#)
@@ -1514,24 +1539,29 @@
                                                               |n0|))))))))))))))))))) 
 
 (SDEFUN |RDEPAR;do_SPDE_exp|
-        ((|a| |SparseUnivariatePolynomial| F)
-         (|bbr| |Fraction| (|SparseUnivariatePolynomial| F))
-         (|lcr| |List| (|Fraction| (|SparseUnivariatePolynomial| F)))
-         (|lk| |List| (|Kernel| F))
-         (|ext| |Mapping|
-          (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
-          (|List| (|Kernel| F)) (|List| F))
-         (|logi| |Mapping|
-          (|Record| (|:| |logands| (|List| F))
-                    (|:| |basis| (|List| (|Vector| (|Fraction| (|Integer|))))))
-          (|List| (|Kernel| F)) (|List| F))
-         (|der| |Mapping| (|SparseUnivariatePolynomial| F)
-          (|SparseUnivariatePolynomial| F))
-         (|get_rs| |Mapping| (|Matrix| F) (|Matrix| F)) (|x| |Symbol|)
-         ($ |List|
-          (|Record|
-           (|:| |ratpart| (|Fraction| (|SparseUnivariatePolynomial| F)))
-           (|:| |coeffs| (|Vector| F)))))
+        ((|a| (|SparseUnivariatePolynomial| F))
+         (|bbr| (|Fraction| (|SparseUnivariatePolynomial| F)))
+         (|lcr| (|List| (|Fraction| (|SparseUnivariatePolynomial| F))))
+         (|lk| (|List| (|Kernel| F)))
+         (|ext|
+          (|Mapping|
+           (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
+           (|List| (|Kernel| F)) (|List| F)))
+         (|logi|
+          (|Mapping|
+           (|Record| (|:| |logands| (|List| F))
+                     (|:| |basis|
+                          (|List| (|Vector| (|Fraction| (|Integer|))))))
+           (|List| (|Kernel| F)) (|List| F)))
+         (|der|
+          (|Mapping| (|SparseUnivariatePolynomial| F)
+                     (|SparseUnivariatePolynomial| F)))
+         (|get_rs| (|Mapping| (|Matrix| F) (|Matrix| F))) (|x| (|Symbol|))
+         ($
+          (|List|
+           (|Record|
+            (|:| |ratpart| (|Fraction| (|SparseUnivariatePolynomial| F)))
+            (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((#1=#:G499 NIL) (|re| NIL) (#2=#:G498 NIL)
           (|tt| (|Fraction| (|SparseUnivariatePolynomial| F))) (#3=#:G484 NIL)
@@ -1779,23 +1809,27 @@
                      |lk| |eta| |ext| |logi| |x| $))))))) 
 
 (SDEFUN |RDEPAR;param_rde;I2FLSLMMR;14|
-        ((|m| |Integer|) (|f| F) (|g0| F) (|lg| |List| F) (|x| |Symbol|)
-         (|lk| |List| (|Kernel| F))
-         (|ext| |Mapping|
-          (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
-          (|List| (|Kernel| F)) (|List| F))
-         (|logi| |Mapping|
-          (|Record| (|:| |logands| (|List| F))
-                    (|:| |basis| (|List| (|Vector| (|Fraction| (|Integer|))))))
-          (|List| (|Kernel| F)) (|List| F))
-         ($ |Record|
-          (|:| |particular|
-               (|Union|
-                (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))
-                "failed"))
-          (|:| |basis|
-               (|List|
-                (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))))
+        ((|m| (|Integer|)) (|f| (F)) (|g0| (F)) (|lg| (|List| F))
+         (|x| (|Symbol|)) (|lk| (|List| (|Kernel| F)))
+         (|ext|
+          (|Mapping|
+           (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
+           (|List| (|Kernel| F)) (|List| F)))
+         (|logi|
+          (|Mapping|
+           (|Record| (|:| |logands| (|List| F))
+                     (|:| |basis|
+                          (|List| (|Vector| (|Fraction| (|Integer|))))))
+           (|List| (|Kernel| F)) (|List| F)))
+         ($
+          (|Record|
+           (|:| |particular|
+                (|Union|
+                 (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))
+                 "failed"))
+           (|:| |basis|
+                (|List|
+                 (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))))))
         (SPROG
          ((|res1|
            (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
@@ -1807,15 +1841,19 @@
               (EXIT (SPADCALL |res1| (QREFELT $ 132)))))) 
 
 (SDEFUN |RDEPAR;param_rde2;FLSLMML;15|
-        ((|fp| F) (|lg| |List| F) (|x| |Symbol|) (|lk| |List| (|Kernel| F))
-         (|ext| |Mapping|
-          (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
-          (|List| (|Kernel| F)) (|List| F))
-         (|logi| |Mapping|
-          (|Record| (|:| |logands| (|List| F))
-                    (|:| |basis| (|List| (|Vector| (|Fraction| (|Integer|))))))
-          (|List| (|Kernel| F)) (|List| F))
-         ($ |List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
+        ((|fp| (F)) (|lg| (|List| F)) (|x| (|Symbol|))
+         (|lk| (|List| (|Kernel| F)))
+         (|ext|
+          (|Mapping|
+           (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
+           (|List| (|Kernel| F)) (|List| F)))
+         (|logi|
+          (|Mapping|
+           (|Record| (|:| |logands| (|List| F))
+                     (|:| |basis|
+                          (|List| (|Vector| (|Fraction| (|Integer|))))))
+           (|List| (|Kernel| F)) (|List| F)))
+         ($ (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((#1=#:G566 NIL) (|rs| NIL) (#2=#:G565 NIL)
           (|res1|
@@ -1974,20 +2012,24 @@
           (RETURN (PROGN (SPADCALL |z2| |x| (QREFELT $ 169)))))) 
 
 (SDEFUN |RDEPAR;csolve1|
-        ((|m| |Matrix| F) (|d1| |Mapping| F F) ($ |List| (|Vector| F)))
+        ((|m| (|Matrix| F)) (|d1| (|Mapping| F F)) ($ (|List| (|Vector| F))))
         (SPADCALL |m| (LIST |d1|) (QREFELT $ 177))) 
 
 (SDEFUN |RDEPAR;do_diff_rde1|
-        ((|lg| |List| (|SparseUnivariatePolynomial| F)) (|fp0| F) (|fp1| F)
-         (|x| |Symbol|) (|k| |Kernel| F) (|lk| |List| #1=(|Kernel| F))
-         (|ext| |Mapping|
-          (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
-          (|List| (|Kernel| F)) (|List| F))
-         (|logi| |Mapping|
-          (|Record| (|:| |logands| (|List| F))
-                    (|:| |basis| (|List| (|Vector| (|Fraction| (|Integer|))))))
-          (|List| (|Kernel| F)) (|List| F))
-         ($ |List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
+        ((|lg| (|List| (|SparseUnivariatePolynomial| F))) (|fp0| (F))
+         (|fp1| (F)) (|x| (|Symbol|)) (|k| (|Kernel| F))
+         (|lk| (|List| #1=(|Kernel| F)))
+         (|ext|
+          (|Mapping|
+           (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
+           (|List| (|Kernel| F)) (|List| F)))
+         (|logi|
+          (|Mapping|
+           (|Record| (|:| |logands| (|List| F))
+                     (|:| |basis|
+                          (|List| (|Vector| (|Fraction| (|Integer|))))))
+           (|List| (|Kernel| F)) (|List| F)))
+         ($ (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((#2=#:G652 NIL) (|ba| NIL) (#3=#:G653 NIL) (|bv| NIL) (#4=#:G651 NIL)
           (|nlca| (|List| F)) (#5=#:G649 NIL) (#6=#:G650 NIL) (|ca| NIL)
@@ -2689,16 +2731,19 @@
           (RETURN (PROGN (SPADCALL |dv| |x4| |x3| (QREFELT $ 189)))))) 
 
 (SDEFUN |RDEPAR;do_diff_rde|
-        ((|fp| F) (|lg| |List| F) (|x| |Symbol|) (|k| |Kernel| F)
-         (|lk| |List| (|Kernel| F))
-         (|ext| |Mapping|
-          (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
-          (|List| (|Kernel| F)) (|List| F))
-         (|logi| |Mapping|
-          (|Record| (|:| |logands| (|List| F))
-                    (|:| |basis| (|List| (|Vector| (|Fraction| (|Integer|))))))
-          (|List| (|Kernel| F)) (|List| F))
-         ($ |List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
+        ((|fp| (F)) (|lg| (|List| F)) (|x| (|Symbol|)) (|k| (|Kernel| F))
+         (|lk| (|List| (|Kernel| F)))
+         (|ext|
+          (|Mapping|
+           (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
+           (|List| (|Kernel| F)) (|List| F)))
+         (|logi|
+          (|Mapping|
+           (|Record| (|:| |logands| (|List| F))
+                     (|:| |basis|
+                          (|List| (|Vector| (|Fraction| (|Integer|))))))
+           (|List| (|Kernel| F)) (|List| F)))
+         ($ (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((#1=#:G671 NIL) (|u| NIL) (#2=#:G670 NIL)
           (|diff_rde1|
@@ -2772,16 +2817,19 @@
           (RETURN (PROGN (SPADCALL |x1| |x| (QREFELT $ 169)))))) 
 
 (SDEFUN |RDEPAR;do_alg_rde0|
-        ((|fp| F) (|lg| |List| F) (|x| |Symbol|) (|k| |Kernel| F)
-         (|lk| |List| (|Kernel| F))
-         (|ext| |Mapping|
-          (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
-          (|List| (|Kernel| F)) (|List| F))
-         (|logi| |Mapping|
-          (|Record| (|:| |logands| (|List| F))
-                    (|:| |basis| (|List| (|Vector| (|Fraction| (|Integer|))))))
-          (|List| (|Kernel| F)) (|List| F))
-         ($ |List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
+        ((|fp| (F)) (|lg| (|List| F)) (|x| (|Symbol|)) (|k| (|Kernel| F))
+         (|lk| (|List| (|Kernel| F)))
+         (|ext|
+          (|Mapping|
+           (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
+           (|List| (|Kernel| F)) (|List| F)))
+         (|logi|
+          (|Mapping|
+           (|Record| (|:| |logands| (|List| F))
+                     (|:| |basis|
+                          (|List| (|Vector| (|Fraction| (|Integer|))))))
+           (|List| (|Kernel| F)) (|List| F)))
+         ($ (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((#1=#:G708 NIL) (|ba| NIL) (#2=#:G709 NIL) (|bv| NIL) (#3=#:G707 NIL)
           (|kfi| (F)) (|lba| (|List| F)) (|cb| (|List| (|Vector| F)))
@@ -2958,18 +3006,21 @@
                      (GO G190) G191 (EXIT (NREVERSE #3#)))))))) 
 
 (SDEFUN |RDEPAR;do_alg_rde|
-        ((|fp| F) (|lg| |List| F) (|x| |Symbol|) (|k| |Kernel| F)
-         (|lk| |List| (|Kernel| F))
-         (|ext| |Mapping|
-          (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
-          (|List| (|Kernel| F)) (|List| F))
-         (|logi| |Mapping|
-          (|Record| (|:| |logands| (|List| F))
-                    (|:| |basis| (|List| (|Vector| (|Fraction| (|Integer|))))))
-          (|List| (|Kernel| F)) (|List| F))
+        ((|fp| (F)) (|lg| (|List| F)) (|x| (|Symbol|)) (|k| (|Kernel| F))
+         (|lk| (|List| (|Kernel| F)))
+         (|ext|
+          (|Mapping|
+           (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
+           (|List| (|Kernel| F)) (|List| F)))
+         (|logi|
+          (|Mapping|
+           (|Record| (|:| |logands| (|List| F))
+                     (|:| |basis|
+                          (|List| (|Vector| (|Fraction| (|Integer|))))))
+           (|List| (|Kernel| F)) (|List| F)))
          ($
-          . #1=(|List|
-                (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))))
+          #1=(|List|
+              (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((#2=#:G748 NIL) (|be| NIL) (#3=#:G747 NIL) (|res1| #1#)
           (#4=#:G746 NIL) (|kk| NIL) (#5=#:G745 NIL) (|lg1| (|List| F))
@@ -3135,16 +3186,19 @@
           #13# (EXIT #12#)))) 
 
 (SDEFUN |RDEPAR;param_rde;IFLSLMML;21|
-        ((|m| |Integer|) (|f| F) (|lg| |List| F) (|x| |Symbol|)
-         (|lk| |List| (|Kernel| F))
-         (|ext| |Mapping|
-          (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
-          (|List| (|Kernel| F)) (|List| F))
-         (|logi| |Mapping|
-          (|Record| (|:| |logands| (|List| F))
-                    (|:| |basis| (|List| (|Vector| (|Fraction| (|Integer|))))))
-          (|List| (|Kernel| F)) (|List| F))
-         ($ |List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
+        ((|m| (|Integer|)) (|f| (F)) (|lg| (|List| F)) (|x| (|Symbol|))
+         (|lk| (|List| (|Kernel| F)))
+         (|ext|
+          (|Mapping|
+           (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
+           (|List| (|Kernel| F)) (|List| F)))
+         (|logi|
+          (|Mapping|
+           (|Record| (|:| |logands| (|List| F))
+                     (|:| |basis|
+                          (|List| (|Vector| (|Fraction| (|Integer|))))))
+           (|List| (|Kernel| F)) (|List| F)))
+         ($ (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((#1=#:G759 NIL) (|k1| NIL) (#2=#:G758 NIL) (|k| (|Kernel| F))
           (|fp| (F)))
@@ -3178,16 +3232,19 @@
                     |logi| $))))))))) 
 
 (SDEFUN |RDEPAR;do_param_rde|
-        ((|fp| F) (|is_der| |Boolean|) (|lg| |List| F) (|x| |Symbol|)
-         (|k| |Kernel| F) (|lk| |List| (|Kernel| F))
-         (|ext| |Mapping|
-          (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
-          (|List| (|Kernel| F)) (|List| F))
-         (|logi| |Mapping|
-          (|Record| (|:| |logands| (|List| F))
-                    (|:| |basis| (|List| (|Vector| (|Fraction| (|Integer|))))))
-          (|List| (|Kernel| F)) (|List| F))
-         ($ |List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
+        ((|fp| (F)) (|is_der| (|Boolean|)) (|lg| (|List| F)) (|x| (|Symbol|))
+         (|k| (|Kernel| F)) (|lk| (|List| (|Kernel| F)))
+         (|ext|
+          (|Mapping|
+           (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
+           (|List| (|Kernel| F)) (|List| F)))
+         (|logi|
+          (|Mapping|
+           (|Record| (|:| |logands| (|List| F))
+                     (|:| |basis|
+                          (|List| (|Vector| (|Fraction| (|Integer|))))))
+           (|List| (|Kernel| F)) (|List| F)))
+         ($ (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((|res2|
            (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))

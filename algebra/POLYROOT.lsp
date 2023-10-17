@@ -1,8 +1,9 @@
 
 (SDEFUN |POLYROOT;zroot|
-        ((|x| |Integer|) (|n| |NonNegativeInteger|)
-         ($ |Record| (|:| |exponent| (|NonNegativeInteger|))
-          (|:| |coef| (|Integer|)) (|:| |radicand| (|Integer|))))
+        ((|x| (|Integer|)) (|n| (|NonNegativeInteger|))
+         ($
+          (|Record| (|:| |exponent| (|NonNegativeInteger|))
+                    (|:| |coef| (|Integer|)) (|:| |radicand| (|Integer|)))))
         (SPROG
          ((#1=#:G112 NIL) (#2=#:G111 #3=(|Integer|)) (#4=#:G113 #3#)
           (#5=#:G116 NIL) (#6=#:G103 NIL)
@@ -39,9 +40,10 @@
                             (COND (#1# #2#) ('T 1))))))))))) 
 
 (SDEFUN |POLYROOT;czroot|
-        ((|x| |Integer|) (|n| |NonNegativeInteger|)
-         ($ |Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
-          (|:| |radicand| F)))
+        ((|x| (|Integer|)) (|n| (|NonNegativeInteger|))
+         ($
+          (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
+                    (|:| |radicand| F))))
         (SPROG
          ((|rec|
            (|Record| (|:| |exponent| (|NonNegativeInteger|))
@@ -66,9 +68,10 @@
                        (SPADCALL (QVELT |rec| 2) (QREFELT $ 25))))))) 
 
 (SDEFUN |POLYROOT;qroot;FNniR;3|
-        ((|x| |Fraction| (|Integer|)) (|n| |NonNegativeInteger|)
-         ($ |Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
-          (|:| |radicand| F)))
+        ((|x| (|Fraction| (|Integer|))) (|n| (|NonNegativeInteger|))
+         ($
+          (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
+                    (|:| |radicand| F))))
         (SPROG
          ((|m| (|NonNegativeInteger|)) (#1=#:G124 NIL)
           (|sd|
@@ -95,9 +98,10 @@
                     (QREFELT $ 30))))))) 
 
 (SDEFUN |POLYROOT;qroot;FNniR;4|
-        ((|x| |Fraction| (|Integer|)) (|n| |NonNegativeInteger|)
-         ($ |Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
-          (|:| |radicand| F)))
+        ((|x| (|Fraction| (|Integer|))) (|n| (|NonNegativeInteger|))
+         ($
+          (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
+                    (|:| |radicand| F))))
         (SPROG
          ((|m| (|NonNegativeInteger|)) (#1=#:G130 NIL)
           (|sd|
@@ -129,9 +133,10 @@
                     (QREFELT $ 30))))))) 
 
 (SDEFUN |POLYROOT;rroot;RNniR;5|
-        ((|x| R) (|n| |NonNegativeInteger|)
-         ($ |Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
-          (|:| |radicand| F)))
+        ((|x| (R)) (|n| (|NonNegativeInteger|))
+         ($
+          (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
+                    (|:| |radicand| F))))
         (SPROG ((|r| (|Union| (|Fraction| (|Integer|)) "failed")))
                (SEQ (LETT |r| (SPADCALL |x| (QREFELT $ 35)))
                     (EXIT
@@ -143,9 +148,10 @@
                       ('T (SPADCALL (QCDR |r|) |n| (QREFELT $ 33)))))))) 
 
 (SDEFUN |POLYROOT;rroot;RNniR;6|
-        ((|x| R) (|n| |NonNegativeInteger|)
-         ($ |Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
-          (|:| |radicand| F)))
+        ((|x| (R)) (|n| (|NonNegativeInteger|))
+         ($
+          (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
+                    (|:| |radicand| F))))
         (SPROG ((|r| (|Union| (|Integer|) "failed")))
                (SEQ (LETT |r| (SPADCALL |x| (QREFELT $ 39)))
                     (EXIT
@@ -159,14 +165,15 @@
                                  (QREFELT $ 33)))))))) 
 
 (SDEFUN |POLYROOT;rroot;RNniR;7|
-        ((|x| R) (|n| |NonNegativeInteger|)
-         ($ |Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
-          (|:| |radicand| F)))
+        ((|x| (R)) (|n| (|NonNegativeInteger|))
+         ($
+          (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
+                    (|:| |radicand| F))))
         (VECTOR |n| (|spadConstant| $ 36)
                 (SPADCALL (SPADCALL |x| (QREFELT $ 22)) (QREFELT $ 23)))) 
 
 (SDEFUN |POLYROOT;rsplit|
-        ((|l| |List| P) ($ |Record| (|:| |coef| R) (|:| |poly| P)))
+        ((|l| (|List| P)) ($ (|Record| (|:| |coef| R) (|:| |poly| P))))
         (SPROG
          ((|r| (R)) (|p| (P)) (|u| (|Union| R "failed")) (#1=#:G155 NIL)
           (|q| NIL))
@@ -187,9 +194,10 @@
               (EXIT (CONS |r| |p|))))) 
 
 (SDEFUN |POLYROOT;nthr;PNniR;9|
-        ((|x| P) (|n| |NonNegativeInteger|)
-         ($ |Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| P)
-          (|:| |radicand| (|List| P))))
+        ((|x| (P)) (|n| (|NonNegativeInteger|))
+         ($
+          (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| P)
+                    (|:| |radicand| (|List| P)))))
         (SPROG
          ((|rec|
            (|Record| (|:| |exponent| (|NonNegativeInteger|))
@@ -210,15 +218,17 @@
                                           (QREFELT $ 51)))))))))))) 
 
 (SDEFUN |POLYROOT;nthr;PNniR;10|
-        ((|x| P) (|n| |NonNegativeInteger|)
-         ($ |Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| P)
-          (|:| |radicand| (|List| P))))
+        ((|x| (P)) (|n| (|NonNegativeInteger|))
+         ($
+          (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| P)
+                    (|:| |radicand| (|List| P)))))
         (SPADCALL (SPADCALL |x| (QREFELT $ 46)) |n| (QREFELT $ 50))) 
 
 (SDEFUN |POLYROOT;froot;FNniR;11|
-        ((|x| F) (|n| |NonNegativeInteger|)
-         ($ |Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
-          (|:| |radicand| F)))
+        ((|x| (F)) (|n| (|NonNegativeInteger|))
+         ($
+          (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
+                    (|:| |radicand| F))))
         (SPROG
          ((|m| (|NonNegativeInteger|)) (#1=#:G170 NIL)
           (|rd|

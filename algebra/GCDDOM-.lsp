@@ -1,5 +1,5 @@
 
-(SDEFUN |GCDDOM-;lcm;3S;1| ((|x| S) (|y| S) ($ S))
+(SDEFUN |GCDDOM-;lcm;3S;1| ((|x| (S)) (|y| (S)) ($ (S)))
         (SPROG ((LCM (|Union| S "failed")))
                (SEQ
                 (COND
@@ -16,18 +16,18 @@
                      ((QEQCAR LCM 0) (SPADCALL |x| (QCDR LCM) (QREFELT $ 13)))
                      ('T (|error| "bad gcd in lcm computation")))))))))) 
 
-(SDEFUN |GCDDOM-;lcm;LS;2| ((|l| |List| S) ($ S))
+(SDEFUN |GCDDOM-;lcm;LS;2| ((|l| (|List| S)) ($ (S)))
         (SPADCALL (ELT $ 15) |l| (|spadConstant| $ 16) (|spadConstant| $ 7)
                   (QREFELT $ 19))) 
 
-(SDEFUN |GCDDOM-;gcd;LS;3| ((|l| |List| S) ($ S))
+(SDEFUN |GCDDOM-;gcd;LS;3| ((|l| (|List| S)) ($ (S)))
         (SPADCALL (ELT $ 10) |l| (|spadConstant| $ 7) (|spadConstant| $ 16)
                   (QREFELT $ 19))) 
 
 (SDEFUN |GCDDOM-;gcdPolynomial;3Sup;4|
-        ((|p1| |SparseUnivariatePolynomial| S)
-         (|p2| |SparseUnivariatePolynomial| S)
-         ($ |SparseUnivariatePolynomial| S))
+        ((|p1| (|SparseUnivariatePolynomial| S))
+         (|p2| (|SparseUnivariatePolynomial| S))
+         ($ (|SparseUnivariatePolynomial| S)))
         (SPROG
          ((#1=#:G248 NIL) (|c2| (S)) (|p| (|SparseUnivariatePolynomial| S))
           (|c1| (S)) (|e1| #2=(|NonNegativeInteger|)) (|e2| #2#))
@@ -160,8 +160,8 @@
                                |p1| (QREFELT $ 39))))))))))) 
 
 (SDEFUN |GCDDOM-;lcmCoef;2SR;5|
-        ((|c1| S) (|c2| S)
-         ($ |Record| (|:| |llcm_res| S) (|:| |coeff1| S) (|:| |coeff2| S)))
+        ((|c1| (S)) (|c2| (S))
+         ($ (|Record| (|:| |llcm_res| S) (|:| |coeff1| S) (|:| |coeff2| S))))
         (SPROG ((|cc2| (S)) (#1=#:G340 NIL) (|cc1| (S)) (|g| (S)))
                (SEQ (LETT |g| (SPADCALL |c1| |c2| (QREFELT $ 10)))
                     (LETT |cc1|

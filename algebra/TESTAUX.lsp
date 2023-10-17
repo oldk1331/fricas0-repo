@@ -1,28 +1,31 @@
 
 (SDEFUN |TESTAUX;nPassInc|
-        ((|s| |String|) (|o| |List| (|OutputForm|)) ($ |Void|))
+        ((|s| (|String|)) (|o| (|List| (|OutputForm|))) ($ (|Void|)))
         (SPADCALL (QREFELT $ 9))) 
 
 (SDEFUN |TESTAUX;nFailInc|
-        ((|s| |String|) (|o| |List| (|OutputForm|)) ($ |Void|))
+        ((|s| (|String|)) (|o| (|List| (|OutputForm|))) ($ (|Void|)))
         (SPADCALL |s| |o| (QREFELT $ 12))) 
 
 (SDEFUN |TESTAUX;xPassInc|
-        ((|s| |String|) (|o| |List| (|OutputForm|)) ($ |Void|))
+        ((|s| (|String|)) (|o| (|List| (|OutputForm|))) ($ (|Void|)))
         (SPADCALL |s| |o| (QREFELT $ 13))) 
 
 (SDEFUN |TESTAUX;xFailInc|
-        ((|s| |String|) (|o| |List| (|OutputForm|)) ($ |Void|))
+        ((|s| (|String|)) (|o| (|List| (|OutputForm|))) ($ (|Void|)))
         (SPADCALL (QREFELT $ 14))) 
 
-(SDEFUN |TESTAUX;testEqualsAuxCmp;2RB;5| ((|ex1| R) (|ex2| R) ($ |Boolean|))
+(SDEFUN |TESTAUX;testEqualsAuxCmp;2RB;5|
+        ((|ex1| (R)) (|ex2| (R)) ($ (|Boolean|)))
         (SPADCALL (SPADCALL |ex1| (QREFELT $ 16))
                   (SPADCALL |ex2| (QREFELT $ 16)) (QREFELT $ 18))) 
 
-(SDEFUN |TESTAUX;testEqualsAuxCmp;2RB;6| ((|ex1| R) (|ex2| R) ($ |Boolean|))
+(SDEFUN |TESTAUX;testEqualsAuxCmp;2RB;6|
+        ((|ex1| (R)) (|ex2| (R)) ($ (|Boolean|)))
         (SPADCALL |ex1| |ex2| (QREFELT $ 20))) 
 
-(SDEFUN |TESTAUX;testEqualsAuxCmp;2RB;7| ((|ex1| R) (|ex2| R) ($ |Boolean|))
+(SDEFUN |TESTAUX;testEqualsAuxCmp;2RB;7|
+        ((|ex1| (R)) (|ex2| (R)) ($ (|Boolean|)))
         (SEQ
          (SPADCALL
           (SPADCALL "testing in a domain without InputForm!" (QREFELT $ 22))
@@ -30,10 +33,10 @@
          (EXIT (SPADCALL |ex1| |ex2| (QREFELT $ 20))))) 
 
 (SDEFUN |TESTAUX;testEqualsAux0|
-        ((|inp| |String|) (|ex1| R) (|ex2| R)
-         (|prep| |Mapping| (|Void|) (|String|) (|List| (|OutputForm|)))
-         (|frep| |Mapping| (|Void|) (|String|) (|List| (|OutputForm|)))
-         ($ |Void|))
+        ((|inp| (|String|)) (|ex1| (R)) (|ex2| (R))
+         (|prep| (|Mapping| (|Void|) (|String|) (|List| (|OutputForm|))))
+         (|frep| (|Mapping| (|Void|) (|String|) (|List| (|OutputForm|))))
+         ($ (|Void|)))
         (COND
          ((SPADCALL |ex1| |ex2| (QREFELT $ 19))
           (COND
@@ -51,32 +54,32 @@
          (#1# (SPADCALL |inp| NIL |prep|)))) 
 
 (SDEFUN |TESTAUX;testEqualsAux;S2RV;9|
-        ((|inp| |String|) (|ex1| R) (|ex2| R) ($ |Void|))
+        ((|inp| (|String|)) (|ex1| (R)) (|ex2| (R)) ($ (|Void|)))
         (|TESTAUX;testEqualsAux0| |inp| |ex1| |ex2|
          (CONS (|function| |TESTAUX;nPassInc|) $)
          (CONS (|function| |TESTAUX;nFailInc|) $) $)) 
 
 (SDEFUN |TESTAUX;xftestEqualsAux;S2RV;10|
-        ((|inp| |String|) (|ex1| R) (|ex2| R) ($ |Void|))
+        ((|inp| (|String|)) (|ex1| (R)) (|ex2| (R)) ($ (|Void|)))
         (|TESTAUX;testEqualsAux0| |inp| |ex1| |ex2|
          (CONS (|function| |TESTAUX;xPassInc|) $)
          (CONS (|function| |TESTAUX;xFailInc|) $) $)) 
 
-(SDEFUN |TESTAUX;testRelativePrecision;2R;11| ((|eps| R) ($ R))
+(SDEFUN |TESTAUX;testRelativePrecision;2R;11| ((|eps| (R)) ($ (R)))
         (SPROG ((|old| (R)))
                (SEQ (LETT |old| (QREFELT $ 30)) (SETELT $ 30 |eps|)
                     (EXIT |old|)))) 
 
-(SDEFUN |TESTAUX;testAbsolutePrecision;2R;12| ((|eps| R) ($ R))
+(SDEFUN |TESTAUX;testAbsolutePrecision;2R;12| ((|eps| (R)) ($ (R)))
         (SPROG ((|old| (R)))
                (SEQ (LETT |old| (QREFELT $ 31)) (SETELT $ 31 |eps|)
                     (EXIT |old|)))) 
 
 (SDEFUN |TESTAUX;testRealEqualsAux0|
-        ((|inp| |String|) (|ex1| R) (|ex2| R)
-         (|prep| |Mapping| (|Void|) (|String|) (|List| (|OutputForm|)))
-         (|frep| |Mapping| (|Void|) (|String|) (|List| (|OutputForm|)))
-         ($ |Void|))
+        ((|inp| (|String|)) (|ex1| (R)) (|ex2| (R))
+         (|prep| (|Mapping| (|Void|) (|String|) (|List| (|OutputForm|))))
+         (|frep| (|Mapping| (|Void|) (|String|) (|List| (|OutputForm|))))
+         ($ (|Void|)))
         (SPROG
          ((|res| (|List| (|OutputForm|))) (|relative| (R)) (|absolute| (R)))
          (SEQ
@@ -137,22 +140,22 @@
                        |frep|))))))) 
 
 (SDEFUN |TESTAUX;testRealEqualsAux;S2RV;14|
-        ((|inp| |String|) (|ex1| R) (|ex2| R) ($ |Void|))
+        ((|inp| (|String|)) (|ex1| (R)) (|ex2| (R)) ($ (|Void|)))
         (|TESTAUX;testRealEqualsAux0| |inp| |ex1| |ex2|
          (CONS (|function| |TESTAUX;nPassInc|) $)
          (CONS (|function| |TESTAUX;nFailInc|) $) $)) 
 
 (SDEFUN |TESTAUX;xftestRealEqualsAux;S2RV;15|
-        ((|inp| |String|) (|ex1| R) (|ex2| R) ($ |Void|))
+        ((|inp| (|String|)) (|ex1| (R)) (|ex2| (R)) ($ (|Void|)))
         (|TESTAUX;testRealEqualsAux0| |inp| |ex1| |ex2|
          (CONS (|function| |TESTAUX;xPassInc|) $)
          (CONS (|function| |TESTAUX;xFailInc|) $) $)) 
 
 (SDEFUN |TESTAUX;testComplexEqualsAux0|
-        ((|inp| |String|) (|ex1| |Complex| R) (|ex2| |Complex| R)
-         (|prep| |Mapping| (|Void|) (|String|) (|List| (|OutputForm|)))
-         (|frep| |Mapping| (|Void|) (|String|) (|List| (|OutputForm|)))
-         ($ |Void|))
+        ((|inp| (|String|)) (|ex1| (|Complex| R)) (|ex2| (|Complex| R))
+         (|prep| (|Mapping| (|Void|) (|String|) (|List| (|OutputForm|))))
+         (|frep| (|Mapping| (|Void|) (|String|) (|List| (|OutputForm|))))
+         ($ (|Void|)))
         (SPROG
          ((|res| (|List| (|OutputForm|))) (|relative| (R)) (|absolute| (R)))
          (SEQ
@@ -213,34 +216,36 @@
                        |frep|))))))) 
 
 (SDEFUN |TESTAUX;testComplexEqualsAux;S2CV;17|
-        ((|inp| |String|) (|ex1| |Complex| R) (|ex2| |Complex| R) ($ |Void|))
+        ((|inp| (|String|)) (|ex1| (|Complex| R)) (|ex2| (|Complex| R))
+         ($ (|Void|)))
         (|TESTAUX;testComplexEqualsAux0| |inp| |ex1| |ex2|
          (CONS (|function| |TESTAUX;nPassInc|) $)
          (CONS (|function| |TESTAUX;nFailInc|) $) $)) 
 
 (SDEFUN |TESTAUX;xftestComplexEqualsAux;S2CV;18|
-        ((|inp| |String|) (|ex1| |Complex| R) (|ex2| |Complex| R) ($ |Void|))
+        ((|inp| (|String|)) (|ex1| (|Complex| R)) (|ex2| (|Complex| R))
+         ($ (|Void|)))
         (|TESTAUX;testComplexEqualsAux0| |inp| |ex1| |ex2|
          (CONS (|function| |TESTAUX;xPassInc|) $)
          (CONS (|function| |TESTAUX;xFailInc|) $) $)) 
 
 (SDEFUN |TESTAUX;testNotEqualsAux;S2RV;19|
-        ((|inp| |String|) (|ex1| R) (|ex2| R) ($ |Void|))
+        ((|inp| (|String|)) (|ex1| (R)) (|ex2| (R)) ($ (|Void|)))
         (|TESTAUX;testEqualsAux0| |inp| |ex1| |ex2|
          (CONS (|function| |TESTAUX;nFailInc|) $)
          (CONS (|function| |TESTAUX;nPassInc|) $) $)) 
 
 (SDEFUN |TESTAUX;xftestNotEqualsAux;S2RV;20|
-        ((|inp| |String|) (|ex1| R) (|ex2| R) ($ |Void|))
+        ((|inp| (|String|)) (|ex1| (R)) (|ex2| (R)) ($ (|Void|)))
         (|TESTAUX;testEqualsAux0| |inp| |ex1| |ex2|
          (CONS (|function| |TESTAUX;xFailInc|) $)
          (CONS (|function| |TESTAUX;xPassInc|) $) $)) 
 
 (SDEFUN |TESTAUX;testTrueAux0|
-        ((|inp| |String|) (|ex| R)
-         (|prep| |Mapping| (|Void|) (|String|) (|List| (|OutputForm|)))
-         (|frep| |Mapping| (|Void|) (|String|) (|List| (|OutputForm|)))
-         ($ |Void|))
+        ((|inp| (|String|)) (|ex| (R))
+         (|prep| (|Mapping| (|Void|) (|String|) (|List| (|OutputForm|))))
+         (|frep| (|Mapping| (|Void|) (|String|) (|List| (|OutputForm|))))
+         ($ (|Void|)))
         (COND
          ((|domainEqual| (QREFELT $ 6) (|Boolean|))
           (COND
@@ -251,18 +256,20 @@
           (SPADCALL |inp| (LIST (SPADCALL |ex| (QREFELT $ 24))) |frep|))
          (#1# (SPADCALL |inp| NIL |frep|)))) 
 
-(SDEFUN |TESTAUX;testTrueAux;SRV;22| ((|inp| |String|) (|ex| R) ($ |Void|))
+(SDEFUN |TESTAUX;testTrueAux;SRV;22|
+        ((|inp| (|String|)) (|ex| (R)) ($ (|Void|)))
         (|TESTAUX;testTrueAux0| |inp| |ex|
          (CONS (|function| |TESTAUX;nPassInc|) $)
          (CONS (|function| |TESTAUX;nFailInc|) $) $)) 
 
-(SDEFUN |TESTAUX;xftestTrueAux;SRV;23| ((|inp| |String|) (|ex| R) ($ |Void|))
+(SDEFUN |TESTAUX;xftestTrueAux;SRV;23|
+        ((|inp| (|String|)) (|ex| (R)) ($ (|Void|)))
         (|TESTAUX;testTrueAux0| |inp| |ex|
          (CONS (|function| |TESTAUX;xPassInc|) $)
          (CONS (|function| |TESTAUX;xFailInc|) $) $)) 
 
 (SDEFUN |TESTAUX;testLibraryErrorAux;SRV;24|
-        ((|inp| |String|) (|ex| R) ($ |Void|))
+        ((|inp| (|String|)) (|ex| (R)) ($ (|Void|)))
         (COND
          ((|HasCategory| (QREFELT $ 6) (LIST '|CoercibleTo| '(|OutputForm|)))
           (SPADCALL |inp| (LIST (SPADCALL |ex| (QREFELT $ 24)))
@@ -270,7 +277,7 @@
          ('T (SPADCALL |inp| NIL (QREFELT $ 59))))) 
 
 (SDEFUN |TESTAUX;xftestLibraryErrorAux;SRV;25|
-        ((|inp| |String|) (|ex| R) ($ |Void|))
+        ((|inp| (|String|)) (|ex| (R)) ($ (|Void|)))
         (COND
          ((|HasCategory| (QREFELT $ 6) (LIST '|CoercibleTo| '(|OutputForm|)))
           (SPADCALL |inp| (LIST (SPADCALL |ex| (QREFELT $ 24)))

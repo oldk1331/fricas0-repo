@@ -1,6 +1,7 @@
 
 (SDEFUN |LIST3;map;MLLL;1|
-        ((|fn| |Mapping| C A B) (|la| |List| A) (|lb| |List| B) ($ |List| C))
+        ((|fn| (|Mapping| C A B)) (|la| (|List| A)) (|lb| (|List| B))
+         ($ (|List| C)))
         (SPROG
          ((#1=#:G107 NIL) (|a| NIL) (#2=#:G108 NIL) (|b| NIL) (#3=#:G106 NIL))
          (SEQ

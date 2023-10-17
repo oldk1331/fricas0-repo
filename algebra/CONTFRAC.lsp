@@ -1,5 +1,5 @@
 
-(SDEFUN |CONTFRAC;reducedForm;2$;1| ((|c| $) ($ $))
+(SDEFUN |CONTFRAC;reducedForm;2$;1| ((|c| ($)) ($ ($)))
         (COND ((QCDR |c|) |c|)
               ((SPADCALL (QCDR (QCAR |c|)) (QREFELT $ 11))
                (SPADCALL
@@ -19,11 +19,11 @@
                (|error|
                 "Reduced form not defined for this continued fraction.")))) 
 
-(SDEFUN |CONTFRAC;eucWhole| ((|a| |Fraction| R) ($ R))
+(SDEFUN |CONTFRAC;eucWhole| ((|a| (|Fraction| R)) ($ (R)))
         (SPADCALL (SPADCALL |a| (QREFELT $ 20)) (SPADCALL |a| (QREFELT $ 21))
                   (QREFELT $ 22))) 
 
-(SDEFUN |CONTFRAC;eucWhole0| ((|a| |Fraction| R) ($ R))
+(SDEFUN |CONTFRAC;eucWhole0| ((|a| (|Fraction| R)) ($ (R)))
         (SPROG ((|q| (R)) (|r| (R)) (|d| (R)) (|n| (R)))
                (SEQ
                 (COND
@@ -45,7 +45,7 @@
                        (EXIT |q|)))
                  (#1# (|CONTFRAC;eucWhole| |a| $)))))) 
 
-(SDEFUN |CONTFRAC;=;2$B;4| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |CONTFRAC;=;2$B;4| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPROG
          ((|yl| #1=(|Stream| (|Record| (|:| |num| R) (|:| |den| R))))
           (|xl| #1#) (#2=#:G149 NIL))
@@ -90,16 +90,16 @@
                           (#3# NIL)))))))))
           #4# (EXIT #2#)))) 
 
-(SDEFUN |CONTFRAC;continuedFraction;F$;5| ((|q| |Fraction| R) ($ $))
+(SDEFUN |CONTFRAC;continuedFraction;F$;5| ((|q| (|Fraction| R)) ($ ($)))
         (SPADCALL |q| (QREFELT $ 35))) 
 
 (SDEFUN |CONTFRAC;continuedFraction;R2S$;6|
-        ((|wh| R) (|nums| |Stream| R) (|dens| |Stream| R) ($ $))
+        ((|wh| (R)) (|nums| (|Stream| R)) (|dens| (|Stream| R)) ($ ($)))
         (CONS (CONS |wh| (|CONTFRAC;genFractionA| |nums| |dens| $)) NIL)) 
 
 (SDEFUN |CONTFRAC;genFractionA|
-        ((|nums| |Stream| R) (|dens| |Stream| R)
-         ($ |Stream| (|Record| (|:| |num| R) (|:| |den| R))))
+        ((|nums| (|Stream| R)) (|dens| (|Stream| R))
+         ($ (|Stream| (|Record| (|:| |num| R) (|:| |den| R)))))
         (SPROG ((|d| (R)) (|n| (R)))
                (SEQ
                 (COND
@@ -134,12 +134,12 @@
              (SPADCALL |dens| (QREFELT $ 41)) $))))) 
 
 (SDEFUN |CONTFRAC;continuedFraction;R2S$;8|
-        ((|wh| R) (|nums| |Stream| R) (|dens| |Stream| R) ($ $))
+        ((|wh| (R)) (|nums| (|Stream| R)) (|dens| (|Stream| R)) ($ ($)))
         (CONS (CONS |wh| (|CONTFRAC;genFractionB| |nums| |dens| $)) NIL)) 
 
 (SDEFUN |CONTFRAC;genFractionB|
-        ((|nums| |Stream| R) (|dens| |Stream| R)
-         ($ |Stream| (|Record| (|:| |num| R) (|:| |den| R))))
+        ((|nums| (|Stream| R)) (|dens| (|Stream| R))
+         ($ (|Stream| (|Record| (|:| |num| R) (|:| |den| R)))))
         (SPROG ((|d| (R)) (|n| (R)))
                (SEQ
                 (COND
@@ -168,18 +168,18 @@
              (SPADCALL |dens| (QREFELT $ 41)) $))))) 
 
 (SDEFUN |CONTFRAC;reducedContinuedFraction;RS$;10|
-        ((|wh| R) (|dens| |Stream| R) ($ $))
+        ((|wh| (R)) (|dens| (|Stream| R)) ($ ($)))
         (SPADCALL |wh| (SPADCALL (LIST (|spadConstant| $ 29)) (QREFELT $ 46))
                   |dens| (QREFELT $ 37))) 
 
-(SDEFUN |CONTFRAC;coerce;I$;11| ((|n| |Integer|) ($ $))
+(SDEFUN |CONTFRAC;coerce;I$;11| ((|n| (|Integer|)) ($ ($)))
         (CONS (CONS (SPADCALL |n| (QREFELT $ 49)) (SPADCALL (QREFELT $ 39)))
               'T)) 
 
-(SDEFUN |CONTFRAC;coerce;R$;12| ((|r| R) ($ $))
+(SDEFUN |CONTFRAC;coerce;R$;12| ((|r| (R)) ($ ($)))
         (CONS (CONS |r| (SPADCALL (QREFELT $ 39))) 'T)) 
 
-(SDEFUN |CONTFRAC;coerce;F$;13| ((|a| |Fraction| R) ($ $))
+(SDEFUN |CONTFRAC;coerce;F$;13| ((|a| (|Fraction| R)) ($ ($)))
         (SPROG
          ((|d| (R)) (|n| (R))
           (|l| (|List| (|Record| (|:| |num| R) (|:| |den| R))))
@@ -213,10 +213,10 @@
                               (SPADCALL (CDR (NREVERSE |l|)) (QREFELT $ 59)))
                         'T))))))))) 
 
-(SDEFUN |CONTFRAC;characteristic;Nni;14| (($ |NonNegativeInteger|))
+(SDEFUN |CONTFRAC;characteristic;Nni;14| (($ (|NonNegativeInteger|)))
         (SPADCALL (QREFELT $ 61))) 
 
-(SDEFUN |CONTFRAC;genFromSequence| ((|apps| |Stream| (|Fraction| R)) ($ $))
+(SDEFUN |CONTFRAC;genFromSequence| ((|apps| (|Stream| (|Fraction| R))) ($ ($)))
         (SPROG ((|wh| (R)) (|hi| #1=(|Fraction| R)) (|lo| #1#))
                (SEQ (LETT |lo| (SPADCALL |apps| (QREFELT $ 63)))
                     (LETT |apps| (SPADCALL |apps| (QREFELT $ 64)))
@@ -258,9 +258,9 @@
                                        '(|additiveValuation|))))))))) 
 
 (SDEFUN |CONTFRAC;genReducedForm|
-        ((|wh0| |Fraction| R) (|apps| |Stream| (|Fraction| R))
-         (|mt| |MoebiusTransform| (|Fraction| R))
-         ($ |Stream| (|Record| (|:| |num| R) (|:| |den| R))))
+        ((|wh0| (|Fraction| R)) (|apps| (|Stream| (|Fraction| R)))
+         (|mt| (|MoebiusTransform| (|Fraction| R)))
+         ($ (|Stream| (|Record| (|:| |num| R) (|:| |den| R)))))
         (SPROG ((|whi| (R)) (|wlo| (R)) (|hi| #1=(|Fraction| R)) (|lo| #1#))
                (SEQ
                 (LETT |lo|
@@ -331,25 +331,25 @@
                        (QREFELT $ 73))
              $))))) 
 
-(SDEFUN |CONTFRAC;wholePart;$R;17| ((|c| $) ($ R)) (QCAR (QCAR |c|))) 
+(SDEFUN |CONTFRAC;wholePart;$R;17| ((|c| ($)) ($ (R))) (QCAR (QCAR |c|))) 
 
-(SDEFUN |CONTFRAC;partialNumerators;$S;18| ((|c| $) ($ |Stream| R))
+(SDEFUN |CONTFRAC;partialNumerators;$S;18| ((|c| ($)) ($ (|Stream| R)))
         (SPADCALL (LIST #'|CONTFRAC;partialNumerators;$S;18!0|)
                   (QCDR (QCAR |c|)) (QREFELT $ 77))) 
 
 (SDEFUN |CONTFRAC;partialNumerators;$S;18!0| ((|x| NIL) ($$ NIL)) (QCAR |x|)) 
 
-(SDEFUN |CONTFRAC;partialDenominators;$S;19| ((|c| $) ($ |Stream| R))
+(SDEFUN |CONTFRAC;partialDenominators;$S;19| ((|c| ($)) ($ (|Stream| R)))
         (SPADCALL (LIST #'|CONTFRAC;partialDenominators;$S;19!0|)
                   (QCDR (QCAR |c|)) (QREFELT $ 77))) 
 
 (SDEFUN |CONTFRAC;partialDenominators;$S;19!0| ((|x| NIL) ($$ NIL)) (QCDR |x|)) 
 
-(SDEFUN |CONTFRAC;partialQuotients;$S;20| ((|c| $) ($ |Stream| R))
+(SDEFUN |CONTFRAC;partialQuotients;$S;20| ((|c| ($)) ($ (|Stream| R)))
         (SPADCALL (QCAR (QCAR |c|)) (SPADCALL |c| (QREFELT $ 79))
                   (QREFELT $ 80))) 
 
-(SDEFUN |CONTFRAC;approximants;$S;21| ((|c| $) ($ |Stream| (|Fraction| R)))
+(SDEFUN |CONTFRAC;approximants;$S;21| ((|c| ($)) ($ (|Stream| (|Fraction| R))))
         (COND
          ((SPADCALL (QCDR (QCAR |c|)) (QREFELT $ 31))
           (SPADCALL (LIST (SPADCALL (QCAR (QCAR |c|)) (QREFELT $ 52)))
@@ -359,7 +359,7 @@
            (|spadConstant| $ 26) (QCAR (QCAR |c|)) (|spadConstant| $ 29)
            (QCDR (QCAR |c|)) $)))) 
 
-(SDEFUN |CONTFRAC;convergents;$S;22| ((|c| $) ($ |Stream| (|Fraction| R)))
+(SDEFUN |CONTFRAC;convergents;$S;22| ((|c| ($)) ($ (|Stream| (|Fraction| R))))
         (COND
          ((SPADCALL (QCDR (QCAR |c|)) (QREFELT $ 31))
           (SPADCALL (SPADCALL (QCAR (QCAR |c|)) (QREFELT $ 52))
@@ -369,7 +369,7 @@
            (|spadConstant| $ 26) (QCAR (QCAR |c|)) (|spadConstant| $ 29)
            (QCDR (QCAR |c|)) $)))) 
 
-(SDEFUN |CONTFRAC;numerators;$S;23| ((|c| $) ($ |Stream| R))
+(SDEFUN |CONTFRAC;numerators;$S;23| ((|c| ($)) ($ (|Stream| R)))
         (COND
          ((SPADCALL (QCDR (QCAR |c|)) (QREFELT $ 31))
           (SPADCALL (QCAR (QCAR |c|)) (SPADCALL (QREFELT $ 86))
@@ -378,20 +378,20 @@
           (|CONTFRAC;genNumDen| (|spadConstant| $ 29) (QCAR (QCAR |c|))
            (QCDR (QCAR |c|)) $)))) 
 
-(SDEFUN |CONTFRAC;denominators;$S;24| ((|c| $) ($ |Stream| R))
+(SDEFUN |CONTFRAC;denominators;$S;24| ((|c| ($)) ($ (|Stream| R)))
         (|CONTFRAC;genNumDen| (|spadConstant| $ 26) (|spadConstant| $ 29)
          (QCDR (QCAR |c|)) $)) 
 
-(SDEFUN |CONTFRAC;extend;$I$;25| ((|x| $) (|n| |Integer|) ($ $))
+(SDEFUN |CONTFRAC;extend;$I$;25| ((|x| ($)) (|n| (|Integer|)) ($ ($)))
         (SEQ (SPADCALL (QCDR (QCAR |x|)) |n| (QREFELT $ 89)) (EXIT |x|))) 
 
-(SDEFUN |CONTFRAC;complete;2$;26| ((|x| $) ($ $))
+(SDEFUN |CONTFRAC;complete;2$;26| ((|x| ($)) ($ ($)))
         (SEQ (SPADCALL (QCDR (QCAR |x|)) (QREFELT $ 91)) (EXIT |x|))) 
 
 (SDEFUN |CONTFRAC;iGenApproximants|
-        ((|pm2| R) (|qm2| R) (|pm1| R) (|qm1| R)
-         (|fr| |Stream| (|Record| (|:| |num| R) (|:| |den| R)))
-         ($ |Stream| (|Fraction| R)))
+        ((|pm2| (R)) (|qm2| (R)) (|pm1| (R)) (|qm1| (R))
+         (|fr| (|Stream| (|Record| (|:| |num| R) (|:| |den| R))))
+         ($ (|Stream| (|Fraction| R))))
         (SPROG NIL
                (SEQ
                 (SPADCALL
@@ -426,9 +426,9 @@
                           (SPADCALL |fr| (QREFELT $ 33)) $)))))))) 
 
 (SDEFUN |CONTFRAC;genApproximants|
-        ((|pm2| R) (|qm2| R) (|pm1| R) (|qm1| R)
-         (|fr| |Stream| (|Record| (|:| |num| R) (|:| |den| R)))
-         ($ |Stream| (|Fraction| R)))
+        ((|pm2| (R)) (|qm2| (R)) (|pm1| (R)) (|qm1| (R))
+         (|fr| (|Stream| (|Record| (|:| |num| R) (|:| |den| R))))
+         ($ (|Stream| (|Fraction| R))))
         (COND
          ((SPADCALL |fr| (QREFELT $ 31))
           (SPADCALL (LIST (SPADCALL |pm1| |qm1| (QREFELT $ 95)))
@@ -440,9 +440,9 @@
                     (QREFELT $ 85))))) 
 
 (SDEFUN |CONTFRAC;iGenConvergents|
-        ((|pm2| R) (|qm2| R) (|pm1| R) (|qm1| R)
-         (|fr| |Stream| (|Record| (|:| |num| R) (|:| |den| R)))
-         ($ |Stream| (|Fraction| R)))
+        ((|pm2| (R)) (|qm2| (R)) (|pm1| (R)) (|qm1| (R))
+         (|fr| (|Stream| (|Record| (|:| |num| R) (|:| |den| R))))
+         ($ (|Stream| (|Fraction| R))))
         (SPROG NIL
                (SEQ
                 (SPADCALL
@@ -477,9 +477,9 @@
                           (SPADCALL |fr| (QREFELT $ 33)) $)))))))) 
 
 (SDEFUN |CONTFRAC;genConvergents|
-        ((|pm2| R) (|qm2| R) (|pm1| R) (|qm1| R)
-         (|fr| |Stream| (|Record| (|:| |num| R) (|:| |den| R)))
-         ($ |Stream| (|Fraction| R)))
+        ((|pm2| (R)) (|qm2| (R)) (|pm1| (R)) (|qm1| (R))
+         (|fr| (|Stream| (|Record| (|:| |num| R) (|:| |den| R))))
+         ($ (|Stream| (|Fraction| R))))
         (COND
          ((SPADCALL |fr| (QREFELT $ 31))
           (SPADCALL (SPADCALL |pm1| |qm1| (QREFELT $ 95))
@@ -490,8 +490,9 @@
                     (QREFELT $ 85))))) 
 
 (SDEFUN |CONTFRAC;genNumDen|
-        ((|m2| R) (|m1| R)
-         (|fr| |Stream| (|Record| (|:| |num| R) (|:| |den| R))) ($ |Stream| R))
+        ((|m2| (R)) (|m1| (R))
+         (|fr| (|Stream| (|Record| (|:| |num| R) (|:| |den| R))))
+         ($ (|Stream| R)))
         (SPROG NIL
                (COND
                 ((SPADCALL |fr| (QREFELT $ 31))
@@ -521,39 +522,39 @@
               (QREFELT $ 93))
              (SPADCALL |fr| (QREFELT $ 33)) $))))) 
 
-(SDEFUN |CONTFRAC;Zero;$;32| (($ $))
+(SDEFUN |CONTFRAC;Zero;$;32| (($ ($)))
         (SPADCALL (|spadConstant| $ 26) (QREFELT $ 51))) 
 
-(SDEFUN |CONTFRAC;One;$;33| (($ $))
+(SDEFUN |CONTFRAC;One;$;33| (($ ($)))
         (SPADCALL (|spadConstant| $ 29) (QREFELT $ 51))) 
 
-(SDEFUN |CONTFRAC;+;3$;34| ((|c| $) (|d| $) ($ $))
+(SDEFUN |CONTFRAC;+;3$;34| ((|c| ($)) (|d| ($)) ($ ($)))
         (|CONTFRAC;genFromSequence|
          (SPADCALL (ELT $ 97) (SPADCALL |c| (QREFELT $ 18))
                    (SPADCALL |d| (QREFELT $ 18)) (QREFELT $ 99))
          $)) 
 
-(SDEFUN |CONTFRAC;-;3$;35| ((|c| $) (|d| $) ($ $))
+(SDEFUN |CONTFRAC;-;3$;35| ((|c| ($)) (|d| ($)) ($ ($)))
         (|CONTFRAC;genFromSequence|
          (SPADCALL (ELT $ 53) (SPADCALL |c| (QREFELT $ 18))
                    (SPADCALL (SPADCALL |d| (QREFELT $ 18)) (QREFELT $ 101))
                    (QREFELT $ 99))
          $)) 
 
-(SDEFUN |CONTFRAC;-;2$;36| ((|c| $) ($ $))
+(SDEFUN |CONTFRAC;-;2$;36| ((|c| ($)) ($ ($)))
         (|CONTFRAC;genFromSequence|
          (SPADCALL (ELT $ 72)
                    (SPADCALL (SPADCALL |c| (QREFELT $ 18)) (QREFELT $ 101))
                    (QREFELT $ 104))
          $)) 
 
-(SDEFUN |CONTFRAC;*;3$;37| ((|c| $) (|d| $) ($ $))
+(SDEFUN |CONTFRAC;*;3$;37| ((|c| ($)) (|d| ($)) ($ ($)))
         (|CONTFRAC;genFromSequence|
          (SPADCALL (ELT $ 106) (SPADCALL |c| (QREFELT $ 18))
                    (SPADCALL |d| (QREFELT $ 18)) (QREFELT $ 99))
          $)) 
 
-(SDEFUN |CONTFRAC;*;R2$;38| ((|a| R) (|d| $) ($ $))
+(SDEFUN |CONTFRAC;*;R2$;38| ((|a| (R)) (|d| ($)) ($ ($)))
         (SPROG NIL
                (|CONTFRAC;genFromSequence|
                 (SPADCALL (CONS #'|CONTFRAC;*;R2$;38!0| (VECTOR $ |a|))
@@ -566,7 +567,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |a| |x| (QREFELT $ 108)))))) 
 
-(SDEFUN |CONTFRAC;*;F2$;39| ((|q| |Fraction| R) (|d| $) ($ $))
+(SDEFUN |CONTFRAC;*;F2$;39| ((|q| (|Fraction| R)) (|d| ($)) ($ ($)))
         (SPROG NIL
                (|CONTFRAC;genFromSequence|
                 (SPADCALL (CONS #'|CONTFRAC;*;F2$;39!0| (VECTOR $ |q|))
@@ -579,7 +580,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |q| |x| (QREFELT $ 106)))))) 
 
-(SDEFUN |CONTFRAC;*;I2$;40| ((|n| |Integer|) (|d| $) ($ $))
+(SDEFUN |CONTFRAC;*;I2$;40| ((|n| (|Integer|)) (|d| ($)) ($ ($)))
         (SPROG NIL
                (|CONTFRAC;genFromSequence|
                 (SPADCALL (CONS #'|CONTFRAC;*;I2$;40!0| (VECTOR $ |n|))
@@ -592,14 +593,14 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |n| |x| (QREFELT $ 111)))))) 
 
-(SDEFUN |CONTFRAC;/;3$;41| ((|c| $) (|d| $) ($ $))
+(SDEFUN |CONTFRAC;/;3$;41| ((|c| ($)) (|d| ($)) ($ ($)))
         (|CONTFRAC;genFromSequence|
          (SPADCALL (ELT $ 113) (SPADCALL |c| (QREFELT $ 18))
                    (SPADCALL (SPADCALL |d| (QREFELT $ 18)) (QREFELT $ 101))
                    (QREFELT $ 99))
          $)) 
 
-(SDEFUN |CONTFRAC;recip;$U;42| ((|c| $) ($ |Union| $ "failed"))
+(SDEFUN |CONTFRAC;recip;$U;42| ((|c| ($)) ($ (|Union| $ "failed")))
         (COND
          ((SPADCALL |c| (|spadConstant| $ 25) (QREFELT $ 34))
           (CONS 1 "failed"))
@@ -617,14 +618,14 @@
 
 (PUT '|CONTFRAC;showAll?| '|SPADreplace| '(XLAM NIL |$streamsShowAll|)) 
 
-(SDEFUN |CONTFRAC;showAll?| (($ |Boolean|)) |$streamsShowAll|) 
+(SDEFUN |CONTFRAC;showAll?| (($ (|Boolean|))) |$streamsShowAll|) 
 
 (SDEFUN |CONTFRAC;zagRec|
-        ((|t| |Record| (|:| |num| R) (|:| |den| R)) ($ |OutputForm|))
+        ((|t| (|Record| (|:| |num| R) (|:| |den| R))) ($ (|OutputForm|)))
         (SPADCALL (SPADCALL (QCAR |t|) (QREFELT $ 118))
                   (SPADCALL (QCDR |t|) (QREFELT $ 118)) (QREFELT $ 119))) 
 
-(SDEFUN |CONTFRAC;coerce;$Of;45| ((|c| $) ($ |OutputForm|))
+(SDEFUN |CONTFRAC;coerce;$Of;45| ((|c| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|e| (|OutputForm|)) (|l| (|List| (|OutputForm|)))
           (|fr| (|Stream| (|Record| (|:| |num| R) (|:| |den| R)))) (|n| NIL)

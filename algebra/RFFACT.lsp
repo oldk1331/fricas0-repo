@@ -1,7 +1,7 @@
 
 (SDEFUN |RFFACT;likuniv|
-        ((|p| |Polynomial| (|Integer|)) (|x| |Symbol|)
-         (|d| |Polynomial| (|Integer|)) ($ UP))
+        ((|p| (|Polynomial| (|Integer|))) (|x| (|Symbol|))
+         (|d| (|Polynomial| (|Integer|))) ($ (UP)))
         (SPROG NIL
                (SPADCALL (CONS #'|RFFACT;likuniv!0| (VECTOR $ |d|))
                          (SPADCALL |p| |x| (QREFELT $ 14)) (QREFELT $ 18)))) 
@@ -12,7 +12,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |y| |d| (QREFELT $ 12)))))) 
 
-(SDEFUN |RFFACT;factor;UPF;2| ((|p| UP) ($ |Factored| UP))
+(SDEFUN |RFFACT;factor;UPF;2| ((|p| (UP)) ($ (|Factored| UP)))
         (SPROG
          ((|d| (|Polynomial| (|Integer|)))
           (|q| (|Fraction| (|Polynomial| (|Integer|)))))

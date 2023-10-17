@@ -1,5 +1,5 @@
 
-(SDEFUN |PSQFR;pPolRoot| ((|f| P) ($ P))
+(SDEFUN |PSQFR;pPolRoot| ((|f| (P)) ($ (P)))
         (SPROG
          ((|uf| (|SparseUnivariatePolynomial| P)) (#1=#:G112 NIL)
           (|mv| (|VarSet|)) (|lvar| (|List| |VarSet|)))
@@ -29,7 +29,7 @@
                                   (QREFELT $ 21)))
                            (EXIT (SPADCALL |uf| |mv| (QREFELT $ 22)))))))))) 
 
-(SDEFUN |PSQFR;putPth| ((|f| P) ($ P))
+(SDEFUN |PSQFR;putPth| ((|f| (P)) ($ (P)))
         (SPROG
          ((|uf| (|SparseUnivariatePolynomial| P)) (|mv| (|VarSet|))
           (|lvar| (|List| |VarSet|)))
@@ -46,7 +46,7 @@
                                            |uf| (QREFELT $ 21)))
                            (EXIT (SPADCALL |uf| |mv| (QREFELT $ 22)))))))))) 
 
-(SDEFUN |PSQFR;pthPower| ((|f| P) ($ |Factored| P))
+(SDEFUN |PSQFR;pthPower| ((|f| (P)) ($ (|Factored| P)))
         (SPROG
          ((#1=#:G140 NIL) (|u| NIL) (#2=#:G139 NIL) (#3=#:G138 NIL)
           (#4=#:G137 NIL) (|psqfr| (|Factored| P)) (|isSq| (|Boolean|))
@@ -108,7 +108,8 @@
                                  (EXIT (NREVERSE #2#))))
                            (QREFELT $ 33)))))))) 
 
-(SDEFUN |PSQFR;finSqFr| ((|f| P) (|lvar| |List| |VarSet|) ($ |Factored| P))
+(SDEFUN |PSQFR;finSqFr|
+        ((|f| (P)) (|lvar| (|List| |VarSet|)) ($ (|Factored| P)))
         (SPROG
          ((|pfaclist|
            (|List|
@@ -256,7 +257,7 @@
                                             (QREFELT $ 53))
                                   |pfaclist| (QREFELT $ 33))))))))))))))) 
 
-(SDEFUN |PSQFR;squareFree;PF;5| ((|p| P) ($ |Factored| P))
+(SDEFUN |PSQFR;squareFree;PF;5| ((|p| (P)) ($ (|Factored| P)))
         (SPROG
          ((|sqp| (|Factored| P))
           (|pfaclist|

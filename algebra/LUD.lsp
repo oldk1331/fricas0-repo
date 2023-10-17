@@ -1,8 +1,9 @@
 
 (SDEFUN |LUD;LUDecomp;MR;1|
-        ((AA |Matrix| D)
-         ($ |Record| (|:| LU (|Matrix| D)) (|:| |Perm| (|Vector| (|Integer|)))
-          (|:| |Pivots| (|List| D))))
+        ((AA (|Matrix| D))
+         ($
+          (|Record| (|:| LU (|Matrix| D)) (|:| |Perm| (|Vector| (|Integer|)))
+                    (|:| |Pivots| (|List| D)))))
         (SPROG
          ((#1=#:G132 NIL) (|k| NIL) (|d| (D)) (|Pivs| (|List| D))
           (|i0| (|Integer|)) (|s| (D)) (#2=#:G131 NIL) (#3=#:G130 NIL)
@@ -110,8 +111,8 @@
                   (EXIT (VECTOR A |PermV| |Pivs|))))))))) 
 
 (SDEFUN |LUD;LUSolve;MV2V;2|
-        ((LU |Matrix| D) (|Perm| |Vector| (|Integer|)) (XX |Vector| D)
-         ($ |Vector| D))
+        ((LU (|Matrix| D)) (|Perm| (|Vector| (|Integer|))) (XX (|Vector| D))
+         ($ (|Vector| D)))
         (SPROG
          ((|s| (D)) (#1=#:G146 NIL) (|j| NIL) (#2=#:G145 NIL) (|i| NIL)
           (|ii| (|Integer|)) (#3=#:G144 NIL) (|ip| (|Integer|)) (#4=#:G143 NIL)
@@ -176,8 +177,8 @@
                       (EXIT X)))))))) 
 
 (SDEFUN |LUD;LUInverse;MR;3|
-        ((A |Matrix| D)
-         ($ |Record| (|:| |Inv| (|Matrix| D)) (|:| |Pivots| (|List| D))))
+        ((A (|Matrix| D))
+         ($ (|Record| (|:| |Inv| (|Matrix| D)) (|:| |Pivots| (|List| D)))))
         (SPROG
          ((|res| (|Matrix| D)) (|v| (|Vector| D)) (#1=#:G154 NIL) (|i| NIL)
           (|n| (|NonNegativeInteger|))

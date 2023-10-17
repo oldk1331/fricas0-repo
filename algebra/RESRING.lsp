@@ -1,40 +1,40 @@
 
-(SDEFUN |RESRING;Zero;$;1| (($ $)) (|spadConstant| $ 20)) 
+(SDEFUN |RESRING;Zero;$;1| (($ ($))) (|spadConstant| $ 20)) 
 
-(SDEFUN |RESRING;One;$;2| (($ $)) (|spadConstant| $ 22)) 
+(SDEFUN |RESRING;One;$;2| (($ ($))) (|spadConstant| $ 22)) 
 
-(SDEFUN |RESRING;reduce;FPol$;3| ((|f| |FPol|) ($ $))
+(SDEFUN |RESRING;reduce;FPol$;3| ((|f| (|FPol|)) ($ ($)))
         (SPADCALL |f| (QREFELT $ 15) (QREFELT $ 24))) 
 
-(SDEFUN |RESRING;coerce;FPol$;4| ((|f| |FPol|) ($ $))
+(SDEFUN |RESRING;coerce;FPol$;4| ((|f| (|FPol|)) ($ ($)))
         (SPADCALL |f| (QREFELT $ 15) (QREFELT $ 24))) 
 
 (PUT '|RESRING;lift;$FPol;5| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |RESRING;lift;$FPol;5| ((|x| $) ($ |FPol|)) |x|) 
+(SDEFUN |RESRING;lift;$FPol;5| ((|x| ($)) ($ (|FPol|))) |x|) 
 
-(SDEFUN |RESRING;+;3$;6| ((|x| $) (|y| $) ($ $))
+(SDEFUN |RESRING;+;3$;6| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL |x| |y| (QREFELT $ 28))) 
 
-(SDEFUN |RESRING;-;2$;7| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 30))) 
+(SDEFUN |RESRING;-;2$;7| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 30))) 
 
-(SDEFUN |RESRING;*;3$;8| ((|x| $) (|y| $) ($ $))
+(SDEFUN |RESRING;*;3$;8| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL (SPADCALL (SPADCALL |x| |y| (QREFELT $ 32)) (QREFELT $ 27))
                   (QREFELT $ 15) (QREFELT $ 24))) 
 
-(SDEFUN |RESRING;*;I2$;9| ((|n| |Integer|) (|x| $) ($ $))
+(SDEFUN |RESRING;*;I2$;9| ((|n| (|Integer|)) (|x| ($)) ($ ($)))
         (SPADCALL |n| |x| (QREFELT $ 35))) 
 
-(SDEFUN |RESRING;*;F2$;10| ((|a| F) (|x| $) ($ $))
+(SDEFUN |RESRING;*;F2$;10| ((|a| (F)) (|x| ($)) ($ ($)))
         (SPADCALL |a| |x| (QREFELT $ 37))) 
 
-(SDEFUN |RESRING;=;2$B;11| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |RESRING;=;2$B;11| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPADCALL |x| |y| (QREFELT $ 39))) 
 
-(SDEFUN |RESRING;characteristic;Nni;12| (($ |NonNegativeInteger|))
+(SDEFUN |RESRING;characteristic;Nni;12| (($ (|NonNegativeInteger|)))
         (SPADCALL (QREFELT $ 42))) 
 
-(SDEFUN |RESRING;coerce;$Of;13| ((|x| $) ($ |OutputForm|))
+(SDEFUN |RESRING;coerce;$Of;13| ((|x| ($)) ($ (|OutputForm|)))
         (SPADCALL |x| (QREFELT $ 45))) 
 
 (DECLAIM (NOTINLINE |ResidueRing;|)) 

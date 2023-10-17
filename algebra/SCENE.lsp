@@ -1,15 +1,15 @@
 
-(SDEFUN |SCENE;createSceneRoot;Sb$;1| ((|bb| |SBoundary| PT) ($ $))
+(SDEFUN |SCENE;createSceneRoot;Sb$;1| ((|bb| (|SBoundary| PT)) ($ ($)))
         (VECTOR 'ROOT NIL (CONS 3 |bb|))) 
 
 (SDEFUN |SCENE;createSceneRoot;R$;2|
-        ((|bb| |Record| (|:| |mins| PT) (|:| |maxs| PT)) ($ $))
+        ((|bb| (|Record| (|:| |mins| PT) (|:| |maxs| PT))) ($ ($)))
         (SPADCALL (SPADCALL (QCAR |bb|) (QCDR |bb|) (QREFELT $ 10))
                   (QREFELT $ 9))) 
 
 (SDEFUN |SCENE;createSceneRoot;4I$;3|
-        ((|minx| |Integer|) (|miny| |Integer|) (|maxx| |Integer|)
-         (|maxy| |Integer|) ($ $))
+        ((|minx| (|Integer|)) (|miny| (|Integer|)) (|maxx| (|Integer|))
+         (|maxy| (|Integer|)) ($ ($)))
         (SPROG ((|bb| (|SBoundary| PT)))
                (SEQ
                 (LETT |bb|
@@ -18,36 +18,36 @@
                                 (QREFELT $ 10)))
                 (EXIT (VECTOR 'ROOT NIL (CONS 3 |bb|)))))) 
 
-(SDEFUN |SCENE;createSceneRoot;$;4| (($ $))
+(SDEFUN |SCENE;createSceneRoot;$;4| (($ ($)))
         (VECTOR 'ROOT NIL (CONS 3 (SPADCALL (QREFELT $ 16))))) 
 
-(SDEFUN |SCENE;createSceneGroup;$;5| (($ $))
+(SDEFUN |SCENE;createSceneGroup;$;5| (($ ($)))
         (VECTOR 'GROUP NIL (CONS 11 "empty"))) 
 
-(SDEFUN |SCENE;addSceneGroup;2$;6| ((|n| $) ($ $))
+(SDEFUN |SCENE;addSceneGroup;2$;6| ((|n| ($)) ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL (QREFELT $ 18)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
-(SDEFUN |SCENE;createSceneLine;L$;7| ((|line| |List| PT) ($ $))
+(SDEFUN |SCENE;createSceneLine;L$;7| ((|line| (|List| PT)) ($ ($)))
         (VECTOR 'LINE NIL (CONS 0 (LIST |line|)))) 
 
-(SDEFUN |SCENE;addSceneLine;$L$;8| ((|n| $) (|line| |List| PT) ($ $))
+(SDEFUN |SCENE;addSceneLine;$L$;8| ((|n| ($)) (|line| (|List| PT)) ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |line| (QREFELT $ 23)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createSceneLine;2$Df$;9|
-        ((|st| $) (|en| $) (|fontScale| |DoubleFloat|) ($ $))
+        ((|st| ($)) (|en| ($)) (|fontScale| (|DoubleFloat|)) ($ ($)))
         (SPADCALL |st| |en| |fontScale| 'T (QREFELT $ 27))) 
 
 (SDEFUN |SCENE;addSceneLine;3$Df$;10|
-        ((|n| $) (|st| $) (|en| $) (|fontScale| |DoubleFloat|) ($ $))
+        ((|n| ($)) (|st| ($)) (|en| ($)) (|fontScale| (|DoubleFloat|)) ($ ($)))
         (SPADCALL |n| |st| |en| |fontScale| 'T (QREFELT $ 29))) 
 
 (SDEFUN |SCENE;createSceneLine;2$DfB$;11|
-        ((|st| $) (|en| $) (|fontScale| |DoubleFloat|)
-         (|shortenLine| |Boolean|) ($ $))
+        ((|st| ($)) (|en| ($)) (|fontScale| (|DoubleFloat|))
+         (|shortenLine| (|Boolean|)) ($ ($)))
         (SPROG
          ((|enPoint| (PT)) (|stPoint| (PT)) (|enBoundary| #1=(|SBoundary| PT))
           (|stBoundary| #1#))
@@ -67,8 +67,8 @@
                (VECTOR 'LINE NIL (CONS 0 (LIST (LIST |stPoint| |enPoint|)))))))) 
 
 (SDEFUN |SCENE;addSceneLine;3$DfB$;12|
-        ((|n| $) (|st| $) (|en| $) (|fontScale| |DoubleFloat|)
-         (|shortenLine| |Boolean|) ($ $))
+        ((|n| ($)) (|st| ($)) (|en| ($)) (|fontScale| (|DoubleFloat|))
+         (|shortenLine| (|Boolean|)) ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ
                 (LETT |c|
@@ -76,31 +76,33 @@
                                 (QREFELT $ 27)))
                 (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
-(SDEFUN |SCENE;createSceneLines;L$;13| ((|lines| |List| (|List| PT)) ($ $))
+(SDEFUN |SCENE;createSceneLines;L$;13| ((|lines| (|List| (|List| PT))) ($ ($)))
         (VECTOR 'LINE NIL (CONS 0 |lines|))) 
 
 (SDEFUN |SCENE;addSceneLines;$L$;14|
-        ((|n| $) (|lines| |List| (|List| PT)) ($ $))
+        ((|n| ($)) (|lines| (|List| (|List| PT))) ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |lines| (QREFELT $ 35)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createSceneShape;R$;15|
-        ((|shape| |Record| (|:| |shptype| (|Symbol|)) (|:| |centre| PT)
-          (|:| |size| PT) (|:| |fill| (|Boolean|)))
-         ($ $))
+        ((|shape|
+          (|Record| (|:| |shptype| (|Symbol|)) (|:| |centre| PT)
+                    (|:| |size| PT) (|:| |fill| (|Boolean|))))
+         ($ ($)))
         (VECTOR 'SHAPE NIL (CONS 8 |shape|))) 
 
 (SDEFUN |SCENE;addSceneShape;$R$;16|
-        ((|n| $)
-         (|shape| |Record| (|:| |shptype| (|Symbol|)) (|:| |centre| PT)
-          (|:| |size| PT) (|:| |fill| (|Boolean|)))
-         ($ $))
+        ((|n| ($))
+         (|shape|
+          (|Record| (|:| |shptype| (|Symbol|)) (|:| |centre| PT)
+                    (|:| |size| PT) (|:| |fill| (|Boolean|))))
+         ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |shape| (QREFELT $ 38)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
-(SDEFUN |SCENE;createSceneShape;Sb$;17| ((|shape| |SBoundary| PT) ($ $))
+(SDEFUN |SCENE;createSceneShape;Sb$;17| ((|shape| (|SBoundary| PT)) ($ ($)))
         (SPROG
          ((|sh|
            (|Record| (|:| |shptype| (|Symbol|)) (|:| |centre| PT)
@@ -113,35 +115,37 @@
                             NIL))
               (EXIT (VECTOR 'SHAPE NIL (CONS 8 |sh|)))))) 
 
-(SDEFUN |SCENE;addSceneShape;$Sb$;18| ((|n| $) (|shape| |SBoundary| PT) ($ $))
+(SDEFUN |SCENE;addSceneShape;$Sb$;18|
+        ((|n| ($)) (|shape| (|SBoundary| PT)) ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |shape| (QREFELT $ 43)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
-(SDEFUN |SCENE;createSceneDef;S2$;19| ((|nam| |String|) (|nde| $) ($ $))
+(SDEFUN |SCENE;createSceneDef;S2$;19| ((|nam| (|String|)) (|nde| ($)) ($ ($)))
         (SPROG ((|nn| (|Record| (|:| |nme| (|String|)) (|:| |node| $))))
                (SEQ (LETT |nn| (CONS |nam| |nde|))
                     (EXIT (VECTOR 'DEF NIL (CONS 9 |nn|)))))) 
 
-(SDEFUN |SCENE;addSceneDef;$S2$;20| ((|n| $) (|nam| |String|) (|nde| $) ($ $))
+(SDEFUN |SCENE;addSceneDef;$S2$;20|
+        ((|n| ($)) (|nam| (|String|)) (|nde| ($)) ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |nam| |nde| (QREFELT $ 46)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
-(SDEFUN |SCENE;createSceneUse;S$;21| ((|nam| |String|) ($ $))
+(SDEFUN |SCENE;createSceneUse;S$;21| ((|nam| (|String|)) ($ ($)))
         (SPROG ((|nn| (|Record| (|:| |nme| (|String|)) (|:| |node| $))))
                (SEQ
                 (LETT |nn| (CONS |nam| (VECTOR 'GROUP NIL (CONS 11 "empty"))))
                 (EXIT (VECTOR 'USE NIL (CONS 9 |nn|)))))) 
 
-(SDEFUN |SCENE;addSceneUse;$S$;22| ((|n| $) (|nam| |String|) ($ $))
+(SDEFUN |SCENE;addSceneUse;$S$;22| ((|n| ($)) (|nam| (|String|)) ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |nam| (QREFELT $ 48)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createSceneArrows;LSDf$;23|
-        ((|lines| |List| (|List| PT)) (|mode| |Symbol|) (|size| |DoubleFloat|)
-         ($ $))
+        ((|lines| (|List| (|List| PT))) (|mode| (|Symbol|))
+         (|size| (|DoubleFloat|)) ($ ($)))
         (SPROG
          ((|ar|
            (|Record| (|:| |ln| (|List| (|List| PT))) (|:| |mode| (|Symbol|))
@@ -150,15 +154,15 @@
               (EXIT (VECTOR 'ARROWS NIL (CONS 6 |ar|)))))) 
 
 (SDEFUN |SCENE;addSceneArrows;$LSDf$;24|
-        ((|n| $) (|lines| |List| (|List| PT)) (|mode| |Symbol|)
-         (|size| |DoubleFloat|) ($ $))
+        ((|n| ($)) (|lines| (|List| (|List| PT))) (|mode| (|Symbol|))
+         (|size| (|DoubleFloat|)) ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |lines| |mode| |size| (QREFELT $ 51)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createSceneArrow;2SPTSDf$;25|
-        ((|st| |String|) (|en| |String|) (|offset| PT) (|mode| |Symbol|)
-         (|size| |DoubleFloat|) ($ $))
+        ((|st| (|String|)) (|en| (|String|)) (|offset| (PT))
+         (|mode| (|Symbol|)) (|size| (|DoubleFloat|)) ($ ($)))
         (SPROG
          ((|ar|
            (|Record| (|:| |st| (|String|)) (|:| |en| (|String|))
@@ -168,8 +172,8 @@
               (EXIT (VECTOR 'ARROW NIL (CONS 7 |ar|)))))) 
 
 (SDEFUN |SCENE;addSceneArrow;$2SPTSDf$;26|
-        ((|n| $) (|st| |String|) (|en| |String|) (|offset| PT)
-         (|mode| |Symbol|) (|size| |DoubleFloat|) ($ $))
+        ((|n| ($)) (|st| (|String|)) (|en| (|String|)) (|offset| (PT))
+         (|mode| (|Symbol|)) (|size| (|DoubleFloat|)) ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ
                 (LETT |c|
@@ -178,8 +182,8 @@
                 (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createSceneArrow;2$PTS2Df$;27|
-        ((|st| $) (|en| $) (|offset| PT) (|mode| |Symbol|)
-         (|size| |DoubleFloat|) (|fontScale| |DoubleFloat|) ($ $))
+        ((|st| ($)) (|en| ($)) (|offset| (PT)) (|mode| (|Symbol|))
+         (|size| (|DoubleFloat|)) (|fontScale| (|DoubleFloat|)) ($ ($)))
         (SPROG
          ((|ar|
            (|Record| (|:| |ln| (|List| (|List| PT))) (|:| |mode| (|Symbol|))
@@ -201,8 +205,8 @@
               (EXIT (VECTOR 'ARROWS NIL (CONS 6 |ar|)))))) 
 
 (SDEFUN |SCENE;addSceneArrow;3$PTS2Df$;28|
-        ((|n| $) (|st| $) (|en| $) (|offset| PT) (|mode| |Symbol|)
-         (|size| |DoubleFloat|) (|fontScale| |DoubleFloat|) ($ $))
+        ((|n| ($)) (|st| ($)) (|en| ($)) (|offset| (PT)) (|mode| (|Symbol|))
+         (|size| (|DoubleFloat|)) (|fontScale| (|DoubleFloat|)) ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ
                 (LETT |c|
@@ -211,28 +215,28 @@
                 (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createSceneNamedPoints;Snp$;29|
-        ((|np| |SceneNamedPoints| PT) ($ $))
+        ((|np| (|SceneNamedPoints| PT)) ($ ($)))
         (VECTOR 'NAMEDPOINTS NIL (CONS 10 |np|))) 
 
 (SDEFUN |SCENE;addSceneNamedPoints;$Snp$;30|
-        ((|n| $) (|np| |SceneNamedPoints| PT) ($ $))
+        ((|n| ($)) (|np| (|SceneNamedPoints| PT)) ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |np| (QREFELT $ 58)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createSceneIFS;LL$;31|
-        ((|inx1| |List| (|List| (|NonNegativeInteger|))) (|pts1| |List| PT)
-         ($ $))
+        ((|inx1| (|List| (|List| (|NonNegativeInteger|)))) (|pts1| (|List| PT))
+         ($ ($)))
         (VECTOR 'IFS NIL (CONS 5 (CONS |inx1| |pts1|)))) 
 
 (SDEFUN |SCENE;addSceneIFS;$LL$;32|
-        ((|n| $) (|inx1| |List| (|List| (|NonNegativeInteger|)))
-         (|pts1| |List| PT) ($ $))
+        ((|n| ($)) (|inx1| (|List| (|List| (|NonNegativeInteger|))))
+         (|pts1| (|List| PT)) ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |inx1| |pts1| (QREFELT $ 61)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
-(SDEFUN |SCENE;createSceneIFS;Sifs$;33| ((|in1| |SceneIFS| PT) ($ $))
+(SDEFUN |SCENE;createSceneIFS;Sifs$;33| ((|in1| (|SceneIFS| PT)) ($ ($)))
         (SPROG
          ((|pts1| (|List| PT))
           (|inx1| (|List| (|List| (|NonNegativeInteger|)))))
@@ -240,12 +244,13 @@
               (LETT |pts1| (SPADCALL |in1| (QREFELT $ 65)))
               (EXIT (VECTOR 'IFS NIL (CONS 5 (CONS |inx1| |pts1|))))))) 
 
-(SDEFUN |SCENE;addSceneIFS;$Sifs$;34| ((|n| $) (|in1| |SceneIFS| PT) ($ $))
+(SDEFUN |SCENE;addSceneIFS;$Sifs$;34|
+        ((|n| ($)) (|in1| (|SceneIFS| PT)) ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |in1| (QREFELT $ 66)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
-(SDEFUN |SCENE;createSceneBox;Df$;35| ((|size| |DoubleFloat|) ($ $))
+(SDEFUN |SCENE;createSceneBox;Df$;35| ((|size| (|DoubleFloat|)) ($ ($)))
         (SPROG
          ((|inx| (|List| (|List| (|NonNegativeInteger|)))) (|pts| (|List| PT)))
          (SEQ
@@ -268,30 +273,31 @@
                       (LIST 3 2 5 4) (LIST 1 6 5 2) (LIST 3 4 7 0)))
           (EXIT (SPADCALL |inx| |pts| (QREFELT $ 61)))))) 
 
-(SDEFUN |SCENE;addSceneBox;$Df$;36| ((|n| $) (|size| |DoubleFloat|) ($ $))
+(SDEFUN |SCENE;addSceneBox;$Df$;36|
+        ((|n| ($)) (|size| (|DoubleFloat|)) ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |size| (QREFELT $ 69)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createSceneText;R$;37|
-        ((|text| |Record| (|:| |txt| (|String|))
-          (|:| |siz| (|NonNegativeInteger|)) (|:| |pos| PT)
-          (|:| |np| (|List| (|String|))))
-         ($ $))
+        ((|text|
+          (|Record| (|:| |txt| (|String|)) (|:| |siz| (|NonNegativeInteger|))
+                    (|:| |pos| PT) (|:| |np| (|List| (|String|)))))
+         ($ ($)))
         (VECTOR 'TEXT NIL (CONS 2 |text|))) 
 
 (SDEFUN |SCENE;addSceneText;$R$;38|
-        ((|n| $)
-         (|text| |Record| (|:| |txt| (|String|))
-          (|:| |siz| (|NonNegativeInteger|)) (|:| |pos| PT)
-          (|:| |np| (|List| (|String|))))
-         ($ $))
+        ((|n| ($))
+         (|text|
+          (|Record| (|:| |txt| (|String|)) (|:| |siz| (|NonNegativeInteger|))
+                    (|:| |pos| PT) (|:| |np| (|List| (|String|)))))
+         ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |text| (QREFELT $ 72)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createSceneText;SNniPT$;39|
-        ((|str| |String|) (|sz| |NonNegativeInteger|) (|pz| PT) ($ $))
+        ((|str| (|String|)) (|sz| (|NonNegativeInteger|)) (|pz| (PT)) ($ ($)))
         (SPROG
          ((|text|
            (|Record| (|:| |txt| (|String|)) (|:| |siz| (|NonNegativeInteger|))
@@ -300,13 +306,15 @@
               (EXIT (VECTOR 'TEXT NIL (CONS 2 |text|)))))) 
 
 (SDEFUN |SCENE;addSceneText;$SNniPT$;40|
-        ((|n| $) (|str| |String|) (|sz| |NonNegativeInteger|) (|pz| PT) ($ $))
+        ((|n| ($)) (|str| (|String|)) (|sz| (|NonNegativeInteger|)) (|pz| (PT))
+         ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |str| |sz| |pz| (QREFELT $ 75)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createSceneText;LNniPT$;41|
-        ((|str| |List| (|String|)) (|sz| |NonNegativeInteger|) (|pz| PT) ($ $))
+        ((|str| (|List| (|String|))) (|sz| (|NonNegativeInteger|)) (|pz| (PT))
+         ($ ($)))
         (SPROG
          ((|text|
            (|Record| (|:| |txt| (|String|)) (|:| |siz| (|NonNegativeInteger|))
@@ -315,33 +323,34 @@
               (EXIT (VECTOR 'TEXT NIL (CONS 2 |text|)))))) 
 
 (SDEFUN |SCENE;addSceneText;$LNniPT$;42|
-        ((|n| $) (|str| |List| (|String|)) (|sz| |NonNegativeInteger|)
-         (|pz| PT) ($ $))
+        ((|n| ($)) (|str| (|List| (|String|))) (|sz| (|NonNegativeInteger|))
+         (|pz| (PT)) ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |str| |sz| |pz| (QREFELT $ 78)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
-(SDEFUN |SCENE;createSceneClip;Sb$;43| ((|bb| |SBoundary| PT) ($ $))
+(SDEFUN |SCENE;createSceneClip;Sb$;43| ((|bb| (|SBoundary| PT)) ($ ($)))
         (VECTOR 'CLIP NIL (CONS 3 |bb|))) 
 
-(SDEFUN |SCENE;addSceneClip;$Sb$;44| ((|n| $) (|bb| |SBoundary| PT) ($ $))
+(SDEFUN |SCENE;addSceneClip;$Sb$;44|
+        ((|n| ($)) (|bb| (|SBoundary| PT)) ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |bb| (QREFELT $ 80)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createSceneClip;R$;45|
-        ((|bb| |Record| (|:| |mins| PT) (|:| |maxs| PT)) ($ $))
+        ((|bb| (|Record| (|:| |mins| PT) (|:| |maxs| PT))) ($ ($)))
         (SPADCALL (SPADCALL (QCAR |bb|) (QCDR |bb|) (QREFELT $ 10))
                   (QREFELT $ 80))) 
 
 (SDEFUN |SCENE;addSceneClip;$R$;46|
-        ((|n| $) (|bb| |Record| (|:| |mins| PT) (|:| |maxs| PT)) ($ $))
+        ((|n| ($)) (|bb| (|Record| (|:| |mins| PT) (|:| |maxs| PT))) ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |bb| (QREFELT $ 82)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createSceneGrid;DfSb$;47|
-        ((|stepSize| |DoubleFloat|) (|bb| |SBoundary| PT) ($ $))
+        ((|stepSize| (|DoubleFloat|)) (|bb| (|SBoundary| PT)) ($ ($)))
         (SPROG
          ((|ln| ($)) (#1=#:G750 NIL) (|i| NIL) (#2=#:G749 NIL) (|gp| ($))
           (|stepsy| (|NonNegativeInteger|)) (#3=#:G744 NIL)
@@ -421,25 +430,26 @@
           (EXIT |gp|)))) 
 
 (SDEFUN |SCENE;addSceneGrid;$DfSb$;48|
-        ((|n| $) (|stepSize| |DoubleFloat|) (|bb| |SBoundary| PT) ($ $))
+        ((|n| ($)) (|stepSize| (|DoubleFloat|)) (|bb| (|SBoundary| PT))
+         ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |stepSize| |bb| (QREFELT $ 87)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createSceneGrid;DfR$;49|
-        ((|stepSize| |DoubleFloat|)
-         (|bb| |Record| (|:| |mins| PT) (|:| |maxs| PT)) ($ $))
+        ((|stepSize| (|DoubleFloat|))
+         (|bb| (|Record| (|:| |mins| PT) (|:| |maxs| PT))) ($ ($)))
         (SPADCALL |stepSize| (SPADCALL (QCAR |bb|) (QCDR |bb|) (QREFELT $ 10))
                   (QREFELT $ 87))) 
 
 (SDEFUN |SCENE;addSceneGrid;$DfR$;50|
-        ((|n| $) (|stepSize| |DoubleFloat|)
-         (|bb| |Record| (|:| |mins| PT) (|:| |maxs| PT)) ($ $))
+        ((|n| ($)) (|stepSize| (|DoubleFloat|))
+         (|bb| (|Record| (|:| |mins| PT) (|:| |maxs| PT))) ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |stepSize| |bb| (QREFELT $ 89)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
-(SDEFUN |SCENE;createSceneGrid;Sb$;51| ((|bb| |SBoundary| PT) ($ $))
+(SDEFUN |SCENE;createSceneGrid;Sb$;51| ((|bb| (|SBoundary| PT)) ($ ($)))
         (SPROG
          ((|gd3| ($)) (|mt3| ($)) (|gd2| ($)) (|mt2| ($)) (|gd1| ($))
           (|mt1| ($)) (|gp| ($)) (|stepSize| (|DoubleFloat|))
@@ -477,24 +487,25 @@
                           |bb| (QREFELT $ 88)))
           (EXIT |gp|)))) 
 
-(SDEFUN |SCENE;addSceneGrid;$Sb$;52| ((|n| $) (|bb| |SBoundary| PT) ($ $))
+(SDEFUN |SCENE;addSceneGrid;$Sb$;52|
+        ((|n| ($)) (|bb| (|SBoundary| PT)) ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |bb| (QREFELT $ 93)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createSceneGrid;R$;53|
-        ((|bb| |Record| (|:| |mins| PT) (|:| |maxs| PT)) ($ $))
+        ((|bb| (|Record| (|:| |mins| PT) (|:| |maxs| PT))) ($ ($)))
         (SPADCALL (SPADCALL (QCAR |bb|) (QCDR |bb|) (QREFELT $ 10))
                   (QREFELT $ 93))) 
 
 (SDEFUN |SCENE;addSceneGrid;$R$;54|
-        ((|n| $) (|bb| |Record| (|:| |mins| PT) (|:| |maxs| PT)) ($ $))
+        ((|n| ($)) (|bb| (|Record| (|:| |mins| PT) (|:| |maxs| PT))) ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |bb| (QREFELT $ 95)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createScenePattern1|
-        ((|step| |NonNegativeInteger|) (|bb| |SBoundary| PT) ($ $))
+        ((|step| (|NonNegativeInteger|)) (|bb| (|SBoundary| PT)) ($ ($)))
         (SPROG
          ((|ln| ($)) (|pts| (|List| PT)) (#1=#:G783 NIL) (|j| NIL)
           (#2=#:G782 NIL) (#3=#:G781 NIL) (|i| NIL) (|mt2| ($)) (#4=#:G780 NIL)
@@ -599,7 +610,7 @@
           (EXIT |gp|)))) 
 
 (SDEFUN |SCENE;createScenePattern2|
-        ((|level| |NonNegativeInteger|) (|bb| |SBoundary| PT) ($ $))
+        ((|level| (|NonNegativeInteger|)) (|bb| (|SBoundary| PT)) ($ ($)))
         (SPROG
          ((|ifs2| (|SceneIFS| PT)) (|ifs| (|SceneIFS| PT))
           (|face1| (|List| PT)) (|midx| (|DoubleFloat|))
@@ -626,7 +637,8 @@
                      (SPADCALL |ifs2| (QREFELT $ 65)) (QREFELT $ 61)))))) 
 
 (SDEFUN |SCENE;subdivideLine|
-        ((|level| |NonNegativeInteger|) (|inLine| |List| PT) ($ |List| PT))
+        ((|level| (|NonNegativeInteger|)) (|inLine| (|List| PT))
+         ($ (|List| PT)))
         (SPROG
          ((#1=#:G790 NIL) (|res| (|List| PT)) (|lastPt| (PT)) (|midpt| (PT))
           (#2=#:G793 NIL) (|x| NIL))
@@ -669,7 +681,7 @@
                         |res| $)))))))) 
 
 (SDEFUN |SCENE;createScenePattern3|
-        ((|level| . #1=(|NonNegativeInteger|)) (|bb| |SBoundary| PT) ($ $))
+        ((|level| #1=(|NonNegativeInteger|)) (|bb| (|SBoundary| PT)) ($ ($)))
         (SPROG
          ((|ln| ($)) (|lev2| #1#) (|pts2| (|List| (|List| PT))) (#2=#:G805 NIL)
           (|l2| NIL) (|pts| (|List| (|List| PT))) (#3=#:G804 NIL) (|j| NIL)
@@ -764,8 +776,8 @@
           (EXIT (LETT |ln| (SPADCALL |pts2| (QREFELT $ 35))))))) 
 
 (SDEFUN |SCENE;createScenePattern;SNniSb$;59|
-        ((|ptype| |Symbol|) (|step| |NonNegativeInteger|) (|bb| |SBoundary| PT)
-         ($ $))
+        ((|ptype| (|Symbol|)) (|step| (|NonNegativeInteger|))
+         (|bb| (|SBoundary| PT)) ($ ($)))
         (SPROG ((#1=#:G808 NIL))
                (SEQ
                 (EXIT
@@ -784,28 +796,28 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |SCENE;addScenePattern;$SNniSb$;60|
-        ((|n| $) (|ptype| |Symbol|) (|step| |NonNegativeInteger|)
-         (|bb| |SBoundary| PT) ($ $))
+        ((|n| ($)) (|ptype| (|Symbol|)) (|step| (|NonNegativeInteger|))
+         (|bb| (|SBoundary| PT)) ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |ptype| |step| |bb| (QREFELT $ 109)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createScenePattern;SNniR$;61|
-        ((|ptype| |Symbol|) (|step| |NonNegativeInteger|)
-         (|bb| |Record| (|:| |mins| PT) (|:| |maxs| PT)) ($ $))
+        ((|ptype| (|Symbol|)) (|step| (|NonNegativeInteger|))
+         (|bb| (|Record| (|:| |mins| PT) (|:| |maxs| PT))) ($ ($)))
         (SPADCALL |ptype| |step|
                   (SPADCALL (QCAR |bb|) (QCDR |bb|) (QREFELT $ 10))
                   (QREFELT $ 109))) 
 
 (SDEFUN |SCENE;addScenePattern;$SNniR$;62|
-        ((|n| $) (|ptype| |Symbol|) (|step| |NonNegativeInteger|)
-         (|bb| |Record| (|:| |mins| PT) (|:| |maxs| PT)) ($ $))
+        ((|n| ($)) (|ptype| (|Symbol|)) (|step| (|NonNegativeInteger|))
+         (|bb| (|Record| (|:| |mins| PT) (|:| |maxs| PT))) ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |ptype| |step| |bb| (QREFELT $ 111)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createSceneRuler;SPTSb$;63|
-        ((|ptype| |Symbol|) (|offset| PT) (|bb| |SBoundary| PT) ($ $))
+        ((|ptype| (|Symbol|)) (|offset| (PT)) (|bb| (|SBoundary| PT)) ($ ($)))
         (SPROG
          ((|str| (|String|))
           (|d|
@@ -959,28 +971,29 @@
           (EXIT |gp|)))) 
 
 (SDEFUN |SCENE;addSceneRuler;$SPTSb$;64|
-        ((|n| $) (|ptype| |Symbol|) (|offset| PT) (|bb| |SBoundary| PT) ($ $))
+        ((|n| ($)) (|ptype| (|Symbol|)) (|offset| (PT)) (|bb| (|SBoundary| PT))
+         ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |ptype| |offset| |bb| (QREFELT $ 117)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createSceneRuler;SPTR$;65|
-        ((|ptype| |Symbol|) (|offset| PT)
-         (|bb| |Record| (|:| |mins| PT) (|:| |maxs| PT)) ($ $))
+        ((|ptype| (|Symbol|)) (|offset| (PT))
+         (|bb| (|Record| (|:| |mins| PT) (|:| |maxs| PT))) ($ ($)))
         (SPADCALL |ptype| |offset|
                   (SPADCALL (QCAR |bb|) (QCDR |bb|) (QREFELT $ 10))
                   (QREFELT $ 117))) 
 
 (SDEFUN |SCENE;addSceneRuler;$SPTR$;66|
-        ((|n| $) (|ptype| |Symbol|) (|offset| PT)
-         (|bb| |Record| (|:| |mins| PT) (|:| |maxs| PT)) ($ $))
+        ((|n| ($)) (|ptype| (|Symbol|)) (|offset| (PT))
+         (|bb| (|Record| (|:| |mins| PT) (|:| |maxs| PT))) ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |ptype| |offset| |bb| (QREFELT $ 119)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createSceneGraph;Dg2NniB$;67|
-        ((|g| |DirectedGraph| (|String|)) (|x| |NonNegativeInteger|)
-         (|y| |NonNegativeInteger|) (|dispArrowName| |Boolean|) ($ $))
+        ((|g| (|DirectedGraph| (|String|))) (|x| (|NonNegativeInteger|))
+         (|y| (|NonNegativeInteger|)) (|dispArrowName| (|Boolean|)) ($ ($)))
         (SPROG ((|tr| (|Scene| (|SCartesian| 2))))
                (SEQ
                 (LETT |tr|
@@ -994,8 +1007,9 @@
                 (EXIT |tr|)))) 
 
 (SDEFUN |SCENE;addSceneGraph;$Dg2NniB$;68|
-        ((|n| $) (|g| |DirectedGraph| (|String|)) (|x| |NonNegativeInteger|)
-         (|y| |NonNegativeInteger|) (|dispArrowName| |Boolean|) ($ $))
+        ((|n| ($)) (|g| (|DirectedGraph| (|String|)))
+         (|x| (|NonNegativeInteger|)) (|y| (|NonNegativeInteger|))
+         (|dispArrowName| (|Boolean|)) ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ
                 (LETT |c|
@@ -1003,24 +1017,27 @@
                 (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createSceneMaterial;R$;69|
-        ((|mat| |Record| (|:| |lineWidth| (|DoubleFloat|))
-          (|:| |lineCol| (|String|)) (|:| |fillCol| (|String|))
-          (|:| |matOpacity| (|DoubleFloat|)))
-         ($ $))
+        ((|mat|
+          (|Record| (|:| |lineWidth| (|DoubleFloat|))
+                    (|:| |lineCol| (|String|)) (|:| |fillCol| (|String|))
+                    (|:| |matOpacity| (|DoubleFloat|))))
+         ($ ($)))
         (VECTOR 'MATERIAL NIL (CONS 1 |mat|))) 
 
 (SDEFUN |SCENE;addSceneMaterial;$R$;70|
-        ((|n| $)
-         (|mat| |Record| (|:| |lineWidth| (|DoubleFloat|))
-          (|:| |lineCol| (|String|)) (|:| |fillCol| (|String|))
-          (|:| |matOpacity| (|DoubleFloat|)))
-         ($ $))
+        ((|n| ($))
+         (|mat|
+          (|Record| (|:| |lineWidth| (|DoubleFloat|))
+                    (|:| |lineCol| (|String|)) (|:| |fillCol| (|String|))
+                    (|:| |matOpacity| (|DoubleFloat|))))
+         ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |mat| (QREFELT $ 129)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createSceneMaterial;Df2S$;71|
-        ((|lineW| |DoubleFloat|) (|lineC| |String|) (|fillC| |String|) ($ $))
+        ((|lineW| (|DoubleFloat|)) (|lineC| (|String|)) (|fillC| (|String|))
+         ($ ($)))
         (SPROG
          ((|mat|
            (|Record| (|:| |lineWidth| (|DoubleFloat|))
@@ -1030,26 +1047,27 @@
               (EXIT (VECTOR 'MATERIAL NIL (CONS 1 |mat|)))))) 
 
 (SDEFUN |SCENE;addSceneMaterial;$Df2S$;72|
-        ((|n| $) (|lineW| |DoubleFloat|) (|lineC| |String|) (|fillC| |String|)
-         ($ $))
+        ((|n| ($)) (|lineW| (|DoubleFloat|)) (|lineC| (|String|))
+         (|fillC| (|String|)) ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ
                 (LETT |c| (SPADCALL |lineW| |lineC| |fillC| (QREFELT $ 130)))
                 (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
-(SDEFUN |SCENE;createSceneTransform;St$;73| ((|tran| |STransform| PT) ($ $))
+(SDEFUN |SCENE;createSceneTransform;St$;73|
+        ((|tran| (|STransform| PT)) ($ ($)))
         (VECTOR 'TRANSFORM NIL (CONS 4 |tran|))) 
 
 (SDEFUN |SCENE;addSceneTransform;$St$;74|
-        ((|n| $) (|tran| |STransform| PT) ($ $))
+        ((|n| ($)) (|tran| (|STransform| PT)) ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |tran| (QREFELT $ 133)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createArrows2Din2D;M2SNni$;75|
-        ((|ptFun| |Mapping| PT PT) (|uSeg| |Segment| (|DoubleFloat|))
-         (|vSeg| |Segment| (|DoubleFloat|)) (|numPts| |NonNegativeInteger|)
-         ($ $))
+        ((|ptFun| (|Mapping| PT PT)) (|uSeg| (|Segment| (|DoubleFloat|)))
+         (|vSeg| (|Segment| (|DoubleFloat|))) (|numPts| (|NonNegativeInteger|))
+         ($ ($)))
         (SPROG
          ((|someV| #1=(|DoubleFloat|)) (|arrows| (|List| (|List| PT)))
           (|someU| #1#) (|lp| (|List| PT)) (|outpt| (PT)) (|inPt| (PT))
@@ -1092,9 +1110,10 @@
                (SPADCALL |arrows| '|variable| (|mk_DF| 5 -1) (QREFELT $ 51)))))) 
 
 (SDEFUN |SCENE;addArrows2Din2D;$M2SNni$;76|
-        ((|n| $) (|ptFun| |Mapping| PT PT) (|uSeg| |Segment| (|DoubleFloat|))
-         (|vSeg| |Segment| (|DoubleFloat|)) (|numPts| |NonNegativeInteger|)
-         ($ $))
+        ((|n| ($)) (|ptFun| (|Mapping| PT PT))
+         (|uSeg| (|Segment| (|DoubleFloat|)))
+         (|vSeg| (|Segment| (|DoubleFloat|))) (|numPts| (|NonNegativeInteger|))
+         ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ
                 (LETT |c|
@@ -1102,26 +1121,26 @@
                                 (QREFELT $ 139)))
                 (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
-(SDEFUN |SCENE;addChild!;2$V;77| ((|n| $) (|c| $) ($ |Void|))
+(SDEFUN |SCENE;addChild!;2$V;77| ((|n| ($)) (|c| ($)) ($ (|Void|)))
         (QSETVELT |n| 1 (SPADCALL (QVELT |n| 1) |c| (QREFELT $ 142)))) 
 
 (PUT '|SCENE;removeChild!;2$V;78| '|SPADreplace|
      '(XLAM (|n| |c|) (|error| "removeChild! not yet implemented"))) 
 
-(SDEFUN |SCENE;removeChild!;2$V;78| ((|n| $) (|c| $) ($ |Void|))
+(SDEFUN |SCENE;removeChild!;2$V;78| ((|n| ($)) (|c| ($)) ($ (|Void|)))
         (|error| "removeChild! not yet implemented")) 
 
 (SDEFUN |SCENE;setTransform!;$StV;79|
-        ((|n| $) (|tran| |STransform| PT) ($ |Void|))
+        ((|n| ($)) (|tran| (|STransform| PT)) ($ (|Void|)))
         (COND
          ((SPADCALL (QVELT |n| 0) 'TRANSFORM (QREFELT $ 144))
           (|error| "use setTransform! on transform only"))
          ('T (QSETVELT |n| 2 (CONS 4 |tran|))))) 
 
 (SDEFUN |SCENE;pathString|
-        ((|pts| |List| (|List| PT)) (|tran| |STransform| PT)
-         (|bb| |SBoundary| PT) (|sc| |DoubleFloat|) (|clipEn| |Boolean|)
-         (|useInteger| |Boolean|) ($ |String|))
+        ((|pts| (|List| (|List| PT))) (|tran| (|STransform| PT))
+         (|bb| (|SBoundary| PT)) (|sc| (|DoubleFloat|)) (|clipEn| (|Boolean|))
+         (|useInteger| (|Boolean|)) ($ (|String|)))
         (SPROG
          ((|lastValid| #1=(|Boolean|)) (|ptStr| (|String|))
           (|thisStr| (|String|)) (|minusy| (|DoubleFloat|))
@@ -1210,8 +1229,8 @@
               (EXIT |ptStr|)))) 
 
 (SDEFUN |SCENE;shorternArrow|
-        ((|pts| |Record| (|:| |st| PT) (|:| |en| PT)) (|bb| |SBoundary| PT)
-         ($ |Record| (|:| |st| PT) (|:| |en| PT)))
+        ((|pts| (|Record| (|:| |st| PT) (|:| |en| PT))) (|bb| (|SBoundary| PT))
+         ($ (|Record| (|:| |st| PT) (|:| |en| PT))))
         (SPROG
          ((|newend| (PT)) (|newstart| (PT)) (|relpt| (PT)) (#1=#:G973 NIL)
           (|reductionFactor| (|DoubleFloat|)) (|arrLength| (|DoubleFloat|))
@@ -1251,13 +1270,14 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |SCENE;lineArrow|
-        ((|pts| |List| (|List| PT)) (|tran| |STransform| PT)
-         (|bb| |SBoundary| PT)
-         (|mat| |Record| (|:| |lineWidth| (|DoubleFloat|))
-          (|:| |lineCol| (|String|)) (|:| |fillCol| (|String|))
-          (|:| |matOpacity| (|DoubleFloat|)))
-         (|sc| |DoubleFloat|) (|clipEn| |Boolean|) (|mode| |Symbol|)
-         (|size| |DoubleFloat|) ($ |List| (|XmlElement|)))
+        ((|pts| (|List| (|List| PT))) (|tran| (|STransform| PT))
+         (|bb| (|SBoundary| PT))
+         (|mat|
+          (|Record| (|:| |lineWidth| (|DoubleFloat|))
+                    (|:| |lineCol| (|String|)) (|:| |fillCol| (|String|))
+                    (|:| |matOpacity| (|DoubleFloat|))))
+         (|sc| (|DoubleFloat|)) (|clipEn| (|Boolean|)) (|mode| (|Symbol|))
+         (|size| (|DoubleFloat|)) ($ (|List| (|XmlElement|))))
         (SPROG
          ((|nodeEles| (|List| (|XmlElement|))) (|x| (|XmlElement|))
           (|nodeAtts| (|List| (|XmlAttribute|))) (|linWidth| (|DoubleFloat|))
@@ -1449,10 +1469,11 @@
               (EXIT |nodeEles|)))) 
 
 (SDEFUN |SCENE;faceString|
-        ((|faces| |Record| (|:| |inx| (|List| (|List| (|NonNegativeInteger|))))
-          (|:| |pts| (|List| PT)))
-         (|tran| |STransform| PT) (|bb| |SBoundary| PT) (|sc| |DoubleFloat|)
-         (|clipEn| |Boolean|) ($ |String|))
+        ((|faces|
+          (|Record| (|:| |inx| (|List| (|List| (|NonNegativeInteger|))))
+                    (|:| |pts| (|List| PT))))
+         (|tran| (|STransform| PT)) (|bb| (|SBoundary| PT))
+         (|sc| (|DoubleFloat|)) (|clipEn| (|Boolean|)) ($ (|String|)))
         (SPROG
          ((|ptStr| (|String|)) (|lastValid| #1=(|Boolean|))
           (|thisStr| (|String|)) (|minusy| (|DoubleFloat|))
@@ -1527,13 +1548,15 @@
               (EXIT |ptStr|)))) 
 
 (SDEFUN |SCENE;toSVG;$RStSbDf2BSnpXe;84|
-        ((|n| $)
-         (|mat| |Record| (|:| |lineWidth| (|DoubleFloat|))
-          (|:| |lineCol| (|String|)) (|:| |fillCol| (|String|))
-          (|:| |matOpacity| (|DoubleFloat|)))
-         (|tran| |STransform| PT) (|bb| |SBoundary| PT) (|scale| |DoubleFloat|)
-         (|clipEn| |Boolean|) (|useInteger| |Boolean|)
-         (|npt| |SceneNamedPoints| PT) ($ |XmlElement|))
+        ((|n| ($))
+         (|mat|
+          (|Record| (|:| |lineWidth| (|DoubleFloat|))
+                    (|:| |lineCol| (|String|)) (|:| |fillCol| (|String|))
+                    (|:| |matOpacity| (|DoubleFloat|))))
+         (|tran| (|STransform| PT)) (|bb| (|SBoundary| PT))
+         (|scale| (|DoubleFloat|)) (|clipEn| (|Boolean|))
+         (|useInteger| (|Boolean|)) (|npt| (|SceneNamedPoints| PT))
+         ($ (|XmlElement|)))
         (SPROG
          ((|nodeEles| (|List| (|XmlElement|))) (|xch| (|XmlElement|))
           (#1=#:G1090 NIL) (|ch| NIL) (|nodeName| (|String|)) (|nde| ($))
@@ -5495,19 +5518,22 @@
           #25# (EXIT #9#)))) 
 
 (SDEFUN |SCENE;toSVG;$RStRDf2BSnpXe;85|
-        ((|n| $)
-         (|mat| |Record| (|:| |lineWidth| (|DoubleFloat|))
-          (|:| |lineCol| (|String|)) (|:| |fillCol| (|String|))
-          (|:| |matOpacity| (|DoubleFloat|)))
-         (|tran| |STransform| PT)
-         (|bb| |Record| (|:| |mins| PT) (|:| |maxs| PT))
-         (|scale| |DoubleFloat|) (|clipEn| |Boolean|) (|useInteger| |Boolean|)
-         (|npt| |SceneNamedPoints| PT) ($ |XmlElement|))
+        ((|n| ($))
+         (|mat|
+          (|Record| (|:| |lineWidth| (|DoubleFloat|))
+                    (|:| |lineCol| (|String|)) (|:| |fillCol| (|String|))
+                    (|:| |matOpacity| (|DoubleFloat|))))
+         (|tran| (|STransform| PT))
+         (|bb| (|Record| (|:| |mins| PT) (|:| |maxs| PT)))
+         (|scale| (|DoubleFloat|)) (|clipEn| (|Boolean|))
+         (|useInteger| (|Boolean|)) (|npt| (|SceneNamedPoints| PT))
+         ($ (|XmlElement|)))
         (SPADCALL |n| |mat| |tran|
                   (SPADCALL (QCAR |bb|) (QCDR |bb|) (QREFELT $ 10)) |scale|
                   |clipEn| |useInteger| |npt| (QREFELT $ 169))) 
 
-(SDEFUN |SCENE;writeSvg;$SV;86| ((|n| $) (|filename| |String|) ($ |Void|))
+(SDEFUN |SCENE;writeSvg;$SV;86|
+        ((|n| ($)) (|filename| (|String|)) ($ (|Void|)))
         (SPROG
          ((|defaultBounds| (|SBoundary| PT))
           (|defaultTransform| (|STransform| PT))
@@ -5529,7 +5555,7 @@
             |filename| (QREFELT $ 176)))))) 
 
 (SDEFUN |SCENE;writeSvgQuantised;$SV;87|
-        ((|n| $) (|filename| |String|) ($ |Void|))
+        ((|n| ($)) (|filename| (|String|)) ($ (|Void|)))
         (SPROG
          ((|defaultBounds| (|SBoundary| PT))
           (|defaultTransform| (|STransform| PT))
@@ -5551,9 +5577,9 @@
             |filename| (QREFELT $ 176)))))) 
 
 (SDEFUN |SCENE;boundary1|
-        ((|n| $) (|tran| . #1=(|STransform| PT)) (|scale| |DoubleFloat|)
-         (|useInteger| |Boolean|) (|npt| |SceneNamedPoints| PT)
-         (|fontScale| . #2=(|DoubleFloat|)) ($ . #3=(|SBoundary| PT)))
+        ((|n| ($)) (|tran| #1=(|STransform| PT)) (|scale| (|DoubleFloat|))
+         (|useInteger| (|Boolean|)) (|npt| (|SceneNamedPoints| PT))
+         (|fontScale| #2=(|DoubleFloat|)) ($ #3=(|SBoundary| PT)))
         (SPROG
          ((|res| (|SBoundary| PT)) (|res2| #3#) (#4=#:G1158 NIL) (|ch| NIL)
           (#5=#:G1157 NIL) (|p| NIL) (#6=#:G1156 NIL) (|lp| NIL)
@@ -6612,7 +6638,7 @@
           #21# (EXIT #13#)))) 
 
 (SDEFUN |SCENE;boundary;$DfSb;89|
-        ((|n| $) (|fontScale| |DoubleFloat|) ($ |SBoundary| PT))
+        ((|n| ($)) (|fontScale| (|DoubleFloat|)) ($ (|SBoundary| PT)))
         (SPROG ((|defaultTransform| (|STransform| PT)))
                (SEQ (LETT |defaultTransform| (SPADCALL (QREFELT $ 173)))
                     (EXIT
@@ -6623,8 +6649,8 @@
                       $))))) 
 
 (SDEFUN |SCENE;pointString|
-        ((|pts| |List| PT) (|tran| |STransform| PT) (|bb| |SBoundary| PT)
-         ($ |List| (|String|)))
+        ((|pts| (|List| PT)) (|tran| (|STransform| PT)) (|bb| (|SBoundary| PT))
+         ($ (|List| (|String|))))
         (SPROG
          ((|ptStr| (|List| (|String|))) (|thisStr| (|String|)) (|param2| (PT))
           (#1=#:G1165 NIL) (|param| NIL) (|lastValid| (|Boolean|)))
@@ -6654,8 +6680,9 @@
               (EXIT |ptStr|)))) 
 
 (SDEFUN |SCENE;pointIndexString|
-        ((|pts| |List| (|List| (|NonNegativeInteger|)))
-         (|tran| |STransform| PT) (|bb| |SBoundary| PT) ($ |List| (|String|)))
+        ((|pts| (|List| (|List| (|NonNegativeInteger|))))
+         (|tran| (|STransform| PT)) (|bb| (|SBoundary| PT))
+         ($ (|List| (|String|))))
         (SPROG
          ((|ptStr| (|List| (|String|))) (#1=#:G1172 NIL) (|param| NIL)
           (#2=#:G1171 NIL) (|line| NIL))
@@ -6681,7 +6708,7 @@
                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (EXIT |ptStr|)))) 
 
-(SDEFUN |SCENE;setX3DNodeName| ((|typ| |Symbol|) ($ |String|))
+(SDEFUN |SCENE;setX3DNodeName| ((|typ| (|Symbol|)) ($ (|String|)))
         (SPROG ((|nodeName| (|String|)))
                (SEQ (LETT |nodeName| "")
                     (COND ((EQUAL |typ| 'ROOT) (LETT |nodeName| "X3D")))
@@ -6704,11 +6731,12 @@
                     (EXIT |nodeName|)))) 
 
 (SDEFUN |SCENE;toX3D;$RStSbXe;93|
-        ((|n| $)
-         (|mat| |Record| (|:| |lineWidth| (|DoubleFloat|))
-          (|:| |lineCol| (|String|)) (|:| |fillCol| (|String|))
-          (|:| |matOpacity| (|DoubleFloat|)))
-         (|tran| |STransform| PT) (|bb| |SBoundary| PT) ($ |XmlElement|))
+        ((|n| ($))
+         (|mat|
+          (|Record| (|:| |lineWidth| (|DoubleFloat|))
+                    (|:| |lineCol| (|String|)) (|:| |fillCol| (|String|))
+                    (|:| |matOpacity| (|DoubleFloat|))))
+         (|tran| (|STransform| PT)) (|bb| (|SBoundary| PT)) ($ (|XmlElement|)))
         (SPROG
          ((|nodeEles| (|List| (|XmlElement|))) (|xch| (|XmlElement|))
           (#1=#:G1234 NIL) (|ch| NIL) (#2=#:G1232 NIL)
@@ -7683,17 +7711,19 @@
           #13# (EXIT #2#)))) 
 
 (SDEFUN |SCENE;toX3D;$RStRXe;94|
-        ((|n| $)
-         (|mat| |Record| (|:| |lineWidth| (|DoubleFloat|))
-          (|:| |lineCol| (|String|)) (|:| |fillCol| (|String|))
-          (|:| |matOpacity| (|DoubleFloat|)))
-         (|tran| |STransform| PT)
-         (|bb| |Record| (|:| |mins| PT) (|:| |maxs| PT)) ($ |XmlElement|))
+        ((|n| ($))
+         (|mat|
+          (|Record| (|:| |lineWidth| (|DoubleFloat|))
+                    (|:| |lineCol| (|String|)) (|:| |fillCol| (|String|))
+                    (|:| |matOpacity| (|DoubleFloat|))))
+         (|tran| (|STransform| PT))
+         (|bb| (|Record| (|:| |mins| PT) (|:| |maxs| PT))) ($ (|XmlElement|)))
         (SPADCALL |n| |mat| |tran|
                   (SPADCALL (QCAR |bb|) (QCDR |bb|) (QREFELT $ 10))
                   (QREFELT $ 184))) 
 
-(SDEFUN |SCENE;writeX3d;$SV;95| ((|n| $) (|filename| |String|) ($ |Void|))
+(SDEFUN |SCENE;writeX3d;$SV;95|
+        ((|n| ($)) (|filename| (|String|)) ($ (|Void|)))
         (SPROG
          ((|defaultBounds| (|SBoundary| PT))
           (|defaultTransform| (|STransform| PT))
@@ -7714,10 +7744,10 @@
             |filename| (QREFELT $ 176)))))) 
 
 (SDEFUN |SCENE;toObj;$RRRStSbV;96|
-        ((|n| $) (|ptLst| |Reference| (|List| PT))
-         (|indexLst| |Reference| (|List| (|List| (|NonNegativeInteger|))))
-         (|indexNxt| |Reference| (|NonNegativeInteger|))
-         (|tran| |STransform| PT) (|bb| |SBoundary| PT) ($ |Void|))
+        ((|n| ($)) (|ptLst| (|Reference| (|List| PT)))
+         (|indexLst| (|Reference| (|List| (|List| (|NonNegativeInteger|)))))
+         (|indexNxt| (|Reference| (|NonNegativeInteger|)))
+         (|tran| (|STransform| PT)) (|bb| (|SBoundary| PT)) ($ (|Void|)))
         (SPROG
          ((#1=#:G1315 NIL) (|ch| NIL) (#2=#:G1301 NIL)
           (|i2| (|List| (|List| (|NonNegativeInteger|)))) (#3=#:G1314 NIL)
@@ -8547,16 +8577,17 @@
           #22# (EXIT #2#)))) 
 
 (SDEFUN |SCENE;toObj;$RRRStRV;97|
-        ((|n| $) (|ptLst| |Reference| (|List| PT))
-         (|indexLst| |Reference| (|List| (|List| (|NonNegativeInteger|))))
-         (|indexNxt| |Reference| (|NonNegativeInteger|))
-         (|tran| |STransform| PT)
-         (|bb| |Record| (|:| |mins| PT) (|:| |maxs| PT)) ($ |Void|))
+        ((|n| ($)) (|ptLst| (|Reference| (|List| PT)))
+         (|indexLst| (|Reference| (|List| (|List| (|NonNegativeInteger|)))))
+         (|indexNxt| (|Reference| (|NonNegativeInteger|)))
+         (|tran| (|STransform| PT))
+         (|bb| (|Record| (|:| |mins| PT) (|:| |maxs| PT))) ($ (|Void|)))
         (SPADCALL |n| |ptLst| |indexLst| |indexNxt| |tran|
                   (SPADCALL (QCAR |bb|) (QCDR |bb|) (QREFELT $ 10))
                   (QREFELT $ 193))) 
 
-(SDEFUN |SCENE;writeObj;$SV;98| ((|n| $) (|filename| |String|) ($ |Void|))
+(SDEFUN |SCENE;writeObj;$SV;98|
+        ((|n| ($)) (|filename| (|String|)) ($ (|Void|)))
         (SPROG
          ((|s| (|String|)) (#1=#:G1326 NIL) (|i| NIL) (#2=#:G1325 NIL)
           (|row| NIL) (#3=#:G1324 NIL) (|v| NIL) (|f1| (|TextFile|))
@@ -8619,7 +8650,8 @@
                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (SPADCALL |f1| (QREFELT $ 211)) (EXIT (|Void|))))) 
 
-(SDEFUN |SCENE;writeVRML;$SV;99| ((|n| $) (|filename| |String|) ($ |Void|))
+(SDEFUN |SCENE;writeVRML;$SV;99|
+        ((|n| ($)) (|filename| (|String|)) ($ (|Void|)))
         (SPROG
          ((|defaultBounds| (|SBoundary| PT))
           (|defaultTransform| (|STransform| PT))
@@ -8639,12 +8671,12 @@
                       (QREFELT $ 184))
             |filename| (QREFELT $ 213)))))) 
 
-(SDEFUN |SCENE;Fnan?| ((|x| |DoubleFloat|) ($ |Boolean|))
+(SDEFUN |SCENE;Fnan?| ((|x| (|DoubleFloat|)) ($ (|Boolean|)))
         (SPADCALL |x| |x| (QREFELT $ 215))) 
 
 (SDEFUN |SCENE;applyfxTrap|
-        ((|ff| |Mapping| (|DoubleFloat|) (|DoubleFloat|)) (|f| |DoubleFloat|)
-         ($ |DoubleFloat|))
+        ((|ff| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+         (|f| (|DoubleFloat|)) ($ (|DoubleFloat|)))
         (SPROG ((|r| (|DoubleFloat|)) (|s| (|Union| (|DoubleFloat|) "failed")))
                (SEQ (LETT |s| (|trapNumericErrors| (SPADCALL |f| |ff|)))
                     (EXIT
@@ -8661,8 +8693,8 @@
                                    (#1# |r|)))))))))) 
 
 (SDEFUN |SCENE;applyfxyTrap|
-        ((|ff| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
-         (|u| |DoubleFloat|) (|v| |DoubleFloat|) ($ |DoubleFloat|))
+        ((|ff| (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)))
+         (|u| (|DoubleFloat|)) (|v| (|DoubleFloat|)) ($ (|DoubleFloat|)))
         (SPROG ((|r| (|DoubleFloat|)) (|s| (|Union| (|DoubleFloat|) "failed")))
                (SEQ (LETT |s| (|trapNumericErrors| (SPADCALL |u| |v| |ff|)))
                     (EXIT
@@ -8679,7 +8711,7 @@
                                    (#1# |r|)))))))))) 
 
 (SDEFUN |SCENE;normalize|
-        ((|seg| |Segment| (|DoubleFloat|)) ($ |Segment| (|DoubleFloat|)))
+        ((|seg| (|Segment| (|DoubleFloat|))) ($ (|Segment| (|DoubleFloat|))))
         (SPROG ((|b| #1=(|DoubleFloat|)) (|a| #1#))
                (SEQ (LETT |a| (SPADCALL |seg| (QREFELT $ 136)))
                     (LETT |b| (SPADCALL |seg| (QREFELT $ 137)))
@@ -8691,7 +8723,7 @@
                       ('T (SPADCALL |b| |a| (QREFELT $ 216)))))))) 
 
 (SDEFUN |SCENE;checkRange|
-        ((|r| |Segment| (|DoubleFloat|)) ($ |Segment| (|DoubleFloat|)))
+        ((|r| (|Segment| (|DoubleFloat|))) ($ (|Segment| (|DoubleFloat|))))
         (COND
          ((SPADCALL (SPADCALL |r| (QREFELT $ 136))
                     (SPADCALL |r| (QREFELT $ 137)) (QREFELT $ 150))
@@ -8699,9 +8731,9 @@
          ('T |r|))) 
 
 (SDEFUN |SCENE;createPlot1Din2D;MSNni$;105|
-        ((|f| |Mapping| PT (|DoubleFloat|))
-         (|tRange| |Segment| (|DoubleFloat|)) (|numPts| |NonNegativeInteger|)
-         ($ $))
+        ((|f| (|Mapping| PT (|DoubleFloat|)))
+         (|tRange| (|Segment| (|DoubleFloat|)))
+         (|numPts| (|NonNegativeInteger|)) ($ ($)))
         (SPROG
          ((|branches| (|List| (|List| PT))) (|newl| (|List| PT))
           (#1=#:G1358 NIL) (|p| NIL) (|p0| (|List| PT))
@@ -8748,17 +8780,17 @@
               (EXIT (SPADCALL |branches| (QREFELT $ 35)))))) 
 
 (SDEFUN |SCENE;addPlot1Din2D;$MSNni$;106|
-        ((|n| $) (|f| |Mapping| PT (|DoubleFloat|))
-         (|tRange| |Segment| (|DoubleFloat|)) (|numPts| |NonNegativeInteger|)
-         ($ $))
+        ((|n| ($)) (|f| (|Mapping| PT (|DoubleFloat|)))
+         (|tRange| (|Segment| (|DoubleFloat|)))
+         (|numPts| (|NonNegativeInteger|)) ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |f| |tRange| |numPts| (QREFELT $ 222)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createPlot1Din2D;MSNni$;107|
-        ((|f| |Mapping| (|DoubleFloat|) (|DoubleFloat|))
-         (|seg| |Segment| (|DoubleFloat|)) (|numPts| |NonNegativeInteger|)
-         ($ $))
+        ((|f| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+         (|seg| (|Segment| (|DoubleFloat|))) (|numPts| (|NonNegativeInteger|))
+         ($ ($)))
         (SPROG ((|ff| (|List| (|Mapping| PT (|DoubleFloat|)))))
                (SEQ
                 (LETT |ff|
@@ -8779,18 +8811,18 @@
             (SPADCALL |x| (|SCENE;applyfxTrap| |f| |x| $) (QREFELT $ 86)))))) 
 
 (SDEFUN |SCENE;addPlot1Din2D;$MSNni$;108|
-        ((|n| $) (|f| |Mapping| (|DoubleFloat|) (|DoubleFloat|))
-         (|seg| |Segment| (|DoubleFloat|)) (|numPts| |NonNegativeInteger|)
-         ($ $))
+        ((|n| ($)) (|f| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+         (|seg| (|Segment| (|DoubleFloat|))) (|numPts| (|NonNegativeInteger|))
+         ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |f| |seg| |numPts| (QREFELT $ 227)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createPlot1Din2Dparametric;PpcSNni$;109|
-        ((|ppc| |ParametricPlaneCurve|
-          (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
-         (|seg| |Segment| (|DoubleFloat|)) (|numPts| |NonNegativeInteger|)
-         ($ $))
+        ((|ppc|
+          (|ParametricPlaneCurve| (|Mapping| (|DoubleFloat|) (|DoubleFloat|))))
+         (|seg| (|Segment| (|DoubleFloat|))) (|numPts| (|NonNegativeInteger|))
+         ($ ($)))
         (SPROG
          ((|fcn| (|List| (|Mapping| PT (|DoubleFloat|))))
           (|g| #1=(|Mapping| (|DoubleFloat|) (|DoubleFloat|))) (|f| #1#))
@@ -8816,20 +8848,20 @@
                       (|SCENE;applyfxTrap| |g| |x| $) (QREFELT $ 86)))))) 
 
 (SDEFUN |SCENE;addPlot1Din2Dparametric;$PpcSNni$;110|
-        ((|n| $)
-         (|ppc| |ParametricPlaneCurve|
-          (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
-         (|seg| |Segment| (|DoubleFloat|)) (|numPts| |NonNegativeInteger|)
-         ($ $))
+        ((|n| ($))
+         (|ppc|
+          (|ParametricPlaneCurve| (|Mapping| (|DoubleFloat|) (|DoubleFloat|))))
+         (|seg| (|Segment| (|DoubleFloat|))) (|numPts| (|NonNegativeInteger|))
+         ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |ppc| |seg| |numPts| (QREFELT $ 231)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createPlot1Din3Dparametric;PscSNni$;111|
-        ((|psc| |ParametricSpaceCurve|
-          (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
-         (|seg| |Segment| (|DoubleFloat|)) (|numPts| |NonNegativeInteger|)
-         ($ $))
+        ((|psc|
+          (|ParametricSpaceCurve| (|Mapping| (|DoubleFloat|) (|DoubleFloat|))))
+         (|seg| (|Segment| (|DoubleFloat|))) (|numPts| (|NonNegativeInteger|))
+         ($ ($)))
         (SPROG
          ((|fcn| (|Mapping| PT (|DoubleFloat|)))
           (|h| #1=(|Mapping| (|DoubleFloat|) (|DoubleFloat|))) (|g| #1#)
@@ -8855,18 +8887,19 @@
                       (|SCENE;applyfxTrap| |h| |x| $) (QREFELT $ 68)))))) 
 
 (SDEFUN |SCENE;addPlot1Din3Dparametric;$PscSNni$;112|
-        ((|n| $)
-         (|psc| |ParametricSpaceCurve|
-          (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
-         (|seg| |Segment| (|DoubleFloat|)) (|numPts| |NonNegativeInteger|)
-         ($ $))
+        ((|n| ($))
+         (|psc|
+          (|ParametricSpaceCurve| (|Mapping| (|DoubleFloat|) (|DoubleFloat|))))
+         (|seg| (|Segment| (|DoubleFloat|))) (|numPts| (|NonNegativeInteger|))
+         ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |psc| |seg| |numPts| (QREFELT $ 236)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createPlot1Din3Dparametric;MSNni$;113|
-        ((|psc| |Mapping| PT (|DoubleFloat|)) (|seg| |Segment| (|DoubleFloat|))
-         (|numPts| |NonNegativeInteger|) ($ $))
+        ((|psc| (|Mapping| PT (|DoubleFloat|)))
+         (|seg| (|Segment| (|DoubleFloat|))) (|numPts| (|NonNegativeInteger|))
+         ($ ($)))
         (SPROG
          ((|p| (|List| PT)) (|t| (|List| (|DoubleFloat|)))
           (|l| (|DoubleFloat|)) (#1=#:G1397 NIL) (|i| NIL)
@@ -8893,17 +8926,18 @@
               (EXIT (SPADCALL |p| (QREFELT $ 23)))))) 
 
 (SDEFUN |SCENE;addPlot1Din3Dparametric;$MSNni$;114|
-        ((|n| $) (|psc| |Mapping| PT (|DoubleFloat|))
-         (|seg| |Segment| (|DoubleFloat|)) (|numPts| |NonNegativeInteger|)
-         ($ $))
+        ((|n| ($)) (|psc| (|Mapping| PT (|DoubleFloat|)))
+         (|seg| (|Segment| (|DoubleFloat|))) (|numPts| (|NonNegativeInteger|))
+         ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ (LETT |c| (SPADCALL |psc| |seg| |numPts| (QREFELT $ 235)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createPlot2Din3D;M2SNni$;115|
-        ((|ptFun| |Mapping| PT (|DoubleFloat|) (|DoubleFloat|))
-         (|uSeg| |Segment| (|DoubleFloat|)) (|vSeg| |Segment| (|DoubleFloat|))
-         (|numPts| |NonNegativeInteger|) ($ $))
+        ((|ptFun| (|Mapping| PT (|DoubleFloat|) (|DoubleFloat|)))
+         (|uSeg| (|Segment| (|DoubleFloat|)))
+         (|vSeg| (|Segment| (|DoubleFloat|))) (|numPts| (|NonNegativeInteger|))
+         ($ ($)))
         (SPROG
          ((|someV| #1=(|DoubleFloat|)) (|llp| (|List| (|List| PT)))
           (|someU| #1#) (|lp| (|List| PT)) (|pt| (PT)) (|iu| NIL) (|iv| NIL)
@@ -8945,9 +8979,10 @@
                          (QREFELT $ 66)))))) 
 
 (SDEFUN |SCENE;createPlot2Din3D;M2SNni$;116|
-        ((|f| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
-         (|xSeg| |Segment| (|DoubleFloat|)) (|ySeg| |Segment| (|DoubleFloat|))
-         (|numPts| |NonNegativeInteger|) ($ $))
+        ((|f| (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)))
+         (|xSeg| (|Segment| (|DoubleFloat|)))
+         (|ySeg| (|Segment| (|DoubleFloat|))) (|numPts| (|NonNegativeInteger|))
+         ($ ($)))
         (SPROG
          ((|fcn| (|List| (|Mapping| PT (|DoubleFloat|) (|DoubleFloat|)))))
          (SEQ
@@ -8970,10 +9005,11 @@
                       (QREFELT $ 68)))))) 
 
 (SDEFUN |SCENE;addPlot2Din3D;$M2SNni$;117|
-        ((|n| $)
-         (|f| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
-         (|xSeg| |Segment| (|DoubleFloat|)) (|ySeg| |Segment| (|DoubleFloat|))
-         (|numPts| |NonNegativeInteger|) ($ $))
+        ((|n| ($))
+         (|f| (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)))
+         (|xSeg| (|Segment| (|DoubleFloat|)))
+         (|ySeg| (|Segment| (|DoubleFloat|))) (|numPts| (|NonNegativeInteger|))
+         ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ
                 (LETT |c|
@@ -8981,10 +9017,12 @@
                 (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createPlot2Din3Dparametric;Ps2SNni$;118|
-        ((|s| |ParametricSurface|
-          (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)))
-         (|uSeg| |Segment| (|DoubleFloat|)) (|vSeg| |Segment| (|DoubleFloat|))
-         (|numPts| |NonNegativeInteger|) ($ $))
+        ((|s|
+          (|ParametricSurface|
+           (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))))
+         (|uSeg| (|Segment| (|DoubleFloat|)))
+         (|vSeg| (|Segment| (|DoubleFloat|))) (|numPts| (|NonNegativeInteger|))
+         ($ ($)))
         (SPROG
          ((|fcn| (|List| (|Mapping| PT (|DoubleFloat|) (|DoubleFloat|))))
           (|h|
@@ -9026,11 +9064,13 @@
              (QREFELT $ 68)))))) 
 
 (SDEFUN |SCENE;addPlot2Din3Dparametric;$Ps2SNni$;119|
-        ((|n| $)
-         (|s| |ParametricSurface|
-          (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)))
-         (|uSeg| |Segment| (|DoubleFloat|)) (|vSeg| |Segment| (|DoubleFloat|))
-         (|numPts| |NonNegativeInteger|) ($ $))
+        ((|n| ($))
+         (|s|
+          (|ParametricSurface|
+           (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))))
+         (|uSeg| (|Segment| (|DoubleFloat|)))
+         (|vSeg| (|Segment| (|DoubleFloat|))) (|numPts| (|NonNegativeInteger|))
+         ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ
                 (LETT |c|
@@ -9038,9 +9078,10 @@
                 (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createPlot2Din3Dparametric;M2SNni$;120|
-        ((|s| |Mapping| PT (|DoubleFloat|) (|DoubleFloat|))
-         (|uSeg| |Segment| (|DoubleFloat|)) (|vSeg| |Segment| (|DoubleFloat|))
-         (|numPts| |NonNegativeInteger|) ($ $))
+        ((|s| (|Mapping| PT (|DoubleFloat|) (|DoubleFloat|)))
+         (|uSeg| (|Segment| (|DoubleFloat|)))
+         (|vSeg| (|Segment| (|DoubleFloat|))) (|numPts| (|NonNegativeInteger|))
+         ($ ($)))
         (SPROG
          ((|fcn| (|List| (|Mapping| PT (|DoubleFloat|) (|DoubleFloat|)))))
          (SEQ (LETT |fcn| (LIST |s|))
@@ -9051,16 +9092,17 @@
                          (QREFELT $ 240)))))) 
 
 (SDEFUN |SCENE;addPlot2Din3Dparametric;$M2SNni$;121|
-        ((|n| $) (|s| |Mapping| PT (|DoubleFloat|) (|DoubleFloat|))
-         (|uSeg| |Segment| (|DoubleFloat|)) (|vSeg| |Segment| (|DoubleFloat|))
-         (|numPts| |NonNegativeInteger|) ($ $))
+        ((|n| ($)) (|s| (|Mapping| PT (|DoubleFloat|) (|DoubleFloat|)))
+         (|uSeg| (|Segment| (|DoubleFloat|)))
+         (|vSeg| (|Segment| (|DoubleFloat|))) (|numPts| (|NonNegativeInteger|))
+         ($ ($)))
         (SPROG ((|c| ($)))
                (SEQ
                 (LETT |c|
                       (SPADCALL |s| |uSeg| |vSeg| |numPts| (QREFELT $ 254)))
                 (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
-(SDEFUN |SCENE;outputLPoints| ((|ps| |List| PT) ($ |OutputForm|))
+(SDEFUN |SCENE;outputLPoints| ((|ps| (|List| PT)) ($ (|OutputForm|)))
         (SPROG ((#1=#:G1463 NIL))
                (SEQ
                 (EXIT
@@ -9079,7 +9121,7 @@
                     (QREFELT $ 261)))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |SCENE;outputLLPoints| ((|ps| |List| (|List| PT)) ($ |OutputForm|))
+(SDEFUN |SCENE;outputLLPoints| ((|ps| (|List| (|List| PT))) ($ (|OutputForm|)))
         (SPROG ((#1=#:G1468 NIL) (#2=#:G1470 NIL) (|x| NIL) (#3=#:G1469 NIL))
                (SEQ
                 (EXIT
@@ -9115,7 +9157,7 @@
                 #4# (EXIT #1#)))) 
 
 (SDEFUN |SCENE;outputLIndexes|
-        ((|ps| |List| (|NonNegativeInteger|)) ($ |OutputForm|))
+        ((|ps| (|List| (|NonNegativeInteger|))) ($ (|OutputForm|)))
         (SPROG ((#1=#:G1474 NIL))
                (SEQ
                 (EXIT
@@ -9135,7 +9177,7 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |SCENE;outputLLIndexes|
-        ((|ps| |List| (|List| (|NonNegativeInteger|))) ($ |OutputForm|))
+        ((|ps| (|List| (|List| (|NonNegativeInteger|)))) ($ (|OutputForm|)))
         (SPROG ((#1=#:G1479 NIL) (#2=#:G1481 NIL) (|x| NIL) (#3=#:G1480 NIL))
                (SEQ
                 (EXIT
@@ -9170,7 +9212,7 @@
                     (QREFELT $ 261)))))
                 #4# (EXIT #1#)))) 
 
-(SDEFUN |SCENE;coerce;$Of;126| ((|n| $) ($ |OutputForm|))
+(SDEFUN |SCENE;coerce;$Of;126| ((|n| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|s| (|OutputForm|)) (|nam| (|SceneNamedPoints| PT)) (#1=#:G1500 NIL)
           (|nn| (|String|)) (#2=#:G1499 NIL) (|sz| (|DoubleFloat|))

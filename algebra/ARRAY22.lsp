@@ -1,5 +1,5 @@
 
-(SDEFUN |ARRAY22;map;MMAMB;1| ((|f| |Mapping| B A) (|m| MA) ($ MB))
+(SDEFUN |ARRAY22;map;MMAMB;1| ((|f| (|Mapping| B A)) (|m| (MA)) ($ (MB)))
         (SPROG
          ((#1=#:G109 NIL) (|k| NIL) (#2=#:G108 NIL) (|i| NIL) (|res| (MB))
           (|nc| (|NonNegativeInteger|)) (|nr| (|NonNegativeInteger|)))

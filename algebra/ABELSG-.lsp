@@ -1,5 +1,5 @@
 
-(SDEFUN |ABELSG-;*;Pi2S;1| ((|n| |PositiveInteger|) (|x| S) ($ S))
+(SDEFUN |ABELSG-;*;Pi2S;1| ((|n| (|PositiveInteger|)) (|x| (S)) ($ (S)))
         (SPADCALL |n| |x| (QREFELT $ 9))) 
 
 (DECLAIM (NOTINLINE |AbelianSemiGroup&;|)) 

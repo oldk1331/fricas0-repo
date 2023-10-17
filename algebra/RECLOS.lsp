@@ -1,6 +1,6 @@
 
 (SDEFUN |RECLOS;relativeApprox;2$F;1|
-        ((|nbe| $) (|prec| $) ($ |Fraction| (|Integer|)))
+        ((|nbe| ($)) (|prec| ($)) ($ (|Fraction| (|Integer|))))
         (SPROG ((|appr| ($)))
                (SEQ
                 (COND ((QEQCAR |nbe| 0) (SPADCALL |nbe| (QREFELT $ 14)))
@@ -13,7 +13,7 @@
                         (EXIT (SPADCALL |appr| |prec| (QREFELT $ 18))))))))) 
 
 (SDEFUN |RECLOS;approximate;2$F;2|
-        ((|nbe| $) (|prec| $) ($ |Fraction| (|Integer|)))
+        ((|nbe| ($)) (|prec| ($)) ($ (|Fraction| (|Integer|))))
         (SPROG ((|appr| ($)))
                (SEQ
                 (COND
@@ -30,9 +30,11 @@
                    (EXIT (SPADCALL |appr| |prec| (QREFELT $ 24))))))))) 
 
 (SDEFUN |RECLOS;newElementIfneeded|
-        ((|s| |RightOpenIntervalRootCharacterization| $
-          (|SparseUnivariatePolynomial| $))
-         (|o| |OutputForm|) ($ $))
+        ((|s|
+          (|RightOpenIntervalRootCharacterization| $
+                                                   (|SparseUnivariatePolynomial|
+                                                    $)))
+         (|o| (|OutputForm|)) ($ ($)))
         (SPROG ((|res| (|Rec|)) (|p| (|SparseUnivariatePolynomial| $)))
                (SEQ (LETT |p| (SPADCALL |s| (QREFELT $ 25)))
                     (EXIT
@@ -53,9 +55,11 @@
                         (EXIT (CONS 1 |res|))))))))) 
 
 (SDEFUN |RECLOS;algebraicOf;RoircOf$;4|
-        ((|s| |RightOpenIntervalRootCharacterization| $
-          (|SparseUnivariatePolynomial| $))
-         (|o| |OutputForm|) ($ $))
+        ((|s|
+          (|RightOpenIntervalRootCharacterization| $
+                                                   (|SparseUnivariatePolynomial|
+                                                    $)))
+         (|o| (|OutputForm|)) ($ ($)))
         (SPROG ((|res| (|Rec|)) (|pol| (|SparseUnivariatePolynomial| $)))
                (SEQ (LETT |pol| (SPADCALL |s| (QREFELT $ 25)))
                     (EXIT
@@ -76,17 +80,17 @@
                         (SETELT $ 9 (+ (QREFELT $ 9) 1))
                         (EXIT (CONS 1 |res|))))))))) 
 
-(SDEFUN |RECLOS;rename!;$Of$;5| ((|x| $) (|o| |OutputForm|) ($ $))
+(SDEFUN |RECLOS;rename!;$Of$;5| ((|x| ($)) (|o| (|OutputForm|)) ($ ($)))
         (SEQ (QSETVELT (QCDR |x|) 2 |o|) (EXIT |x|))) 
 
-(SDEFUN |RECLOS;rename;$Of$;6| ((|x| $) (|o| |OutputForm|) ($ $))
+(SDEFUN |RECLOS;rename;$Of$;6| ((|x| ($)) (|o| (|OutputForm|)) ($ ($)))
         (CONS 1
               (VECTOR (QVELT (QCDR |x|) 0) (QVELT (QCDR |x|) 1) |o|
                       (QVELT (QCDR |x|) 3)))) 
 
 (SDEFUN |RECLOS;rootOf;SupPiU;7|
-        ((|pol| |SparseUnivariatePolynomial| $) (|n| |PositiveInteger|)
-         ($ |Union| $ "failed"))
+        ((|pol| (|SparseUnivariatePolynomial| $)) (|n| (|PositiveInteger|))
+         ($ (|Union| $ "failed")))
         (SPROG
          ((|o| (|OutputForm|))
           (|r|
@@ -124,7 +128,7 @@
                                                 (QREFELT $ 39)))))))))))))) 
 
 (SDEFUN |RECLOS;allRootsOf;SupL;8|
-        ((|pol| |SparseUnivariatePolynomial| $) ($ |List| $))
+        ((|pol| (|SparseUnivariatePolynomial| $)) ($ (|List| $)))
         (SPROG
          ((|res| (|List| $)) (|o| (|OutputForm|)) (#1=#:G182 NIL) (|term| NIL)
           (|liste|
@@ -162,7 +166,7 @@
                            (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                       (EXIT (SPADCALL |res| (QREFELT $ 54))))))))) 
 
-(SDEFUN |RECLOS;coerce;2$;9| ((|x| $) ($ $))
+(SDEFUN |RECLOS;coerce;2$;9| ((|x| ($)) ($ ($)))
         (COND ((QEQCAR |x| 0) |x|)
               ('T
                (CONS 1
@@ -173,58 +177,60 @@
                                        (QREFELT $ 56))
                              (QVELT (QCDR |x|) 2) (QVELT (QCDR |x|) 3)))))) 
 
-(SDEFUN |RECLOS;positive?;$B;10| ((|x| $) ($ |Boolean|))
+(SDEFUN |RECLOS;positive?;$B;10| ((|x| ($)) ($ (|Boolean|)))
         (COND ((QEQCAR |x| 0) (SPADCALL (QCDR |x|) (QREFELT $ 58)))
               ('T
                (SPADCALL (QVELT (QCDR |x|) 1) (QVELT (QCDR |x|) 0)
                          (QREFELT $ 59))))) 
 
-(SDEFUN |RECLOS;negative?;$B;11| ((|x| $) ($ |Boolean|))
+(SDEFUN |RECLOS;negative?;$B;11| ((|x| ($)) ($ (|Boolean|)))
         (COND ((QEQCAR |x| 0) (SPADCALL (QCDR |x|) (QREFELT $ 61)))
               ('T
                (SPADCALL (QVELT (QCDR |x|) 1) (QVELT (QCDR |x|) 0)
                          (QREFELT $ 62))))) 
 
-(SDEFUN |RECLOS;abs;2$;12| ((|x| $) ($ $))
+(SDEFUN |RECLOS;abs;2$;12| ((|x| ($)) ($ ($)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 65)) |x| (QREFELT $ 66))) 
 
-(SDEFUN |RECLOS;sign;$I;13| ((|x| $) ($ |Integer|))
+(SDEFUN |RECLOS;sign;$I;13| ((|x| ($)) ($ (|Integer|)))
         (COND ((QEQCAR |x| 0) (SPADCALL (QCDR |x|) (QREFELT $ 67)))
               ('T
                (SPADCALL (QVELT (QCDR |x|) 1) (QVELT (QCDR |x|) 0)
                          (QREFELT $ 68))))) 
 
-(SDEFUN |RECLOS;<;2$B;14| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |RECLOS;<;2$B;14| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPADCALL (SPADCALL |y| |x| (QREFELT $ 69)) (QREFELT $ 60))) 
 
-(SDEFUN |RECLOS;=;2$B;15| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |RECLOS;=;2$B;15| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPADCALL (SPADCALL |x| |y| (QREFELT $ 69)) (QREFELT $ 70))) 
 
 (SDEFUN |RECLOS;mainCharacterization;$U;16|
-        ((|x| $)
-         ($ |Union|
-          (|RightOpenIntervalRootCharacterization| $
-                                                   (|SparseUnivariatePolynomial|
-                                                    $))
-          "failed"))
+        ((|x| ($))
+         ($
+          (|Union|
+           (|RightOpenIntervalRootCharacterization| $
+                                                    (|SparseUnivariatePolynomial|
+                                                     $))
+           "failed")))
         (COND ((QEQCAR |x| 0) (CONS 1 "failed"))
               ('T (CONS 0 (QVELT (QCDR |x|) 0))))) 
 
 (SDEFUN |RECLOS;mainDefiningPolynomial;$U;17|
-        ((|x| $) ($ |Union| (|SparseUnivariatePolynomial| $) "failed"))
+        ((|x| ($)) ($ (|Union| (|SparseUnivariatePolynomial| $) "failed")))
         (COND ((QEQCAR |x| 0) (CONS 1 "failed"))
               ('T (CONS 0 (SPADCALL (QVELT (QCDR |x|) 0) (QREFELT $ 25)))))) 
 
-(SDEFUN |RECLOS;mainForm;$U;18| ((|x| $) ($ |Union| (|OutputForm|) "failed"))
+(SDEFUN |RECLOS;mainForm;$U;18|
+        ((|x| ($)) ($ (|Union| (|OutputForm|) "failed")))
         (COND ((QEQCAR |x| 0) (CONS 1 "failed"))
               ('T (CONS 0 (QVELT (QCDR |x|) 2))))) 
 
 (SDEFUN |RECLOS;mainValue;$U;19|
-        ((|x| $) ($ |Union| (|SparseUnivariatePolynomial| $) "failed"))
+        ((|x| ($)) ($ (|Union| (|SparseUnivariatePolynomial| $) "failed")))
         (COND ((QEQCAR |x| 0) (CONS 1 "failed"))
               ('T (CONS 0 (QVELT (QCDR |x|) 1))))) 
 
-(SDEFUN |RECLOS;coerce;$Of;20| ((|x| $) ($ |OutputForm|))
+(SDEFUN |RECLOS;coerce;$Of;20| ((|x| ($)) ($ (|OutputForm|)))
         (SPROG ((|xx| ($)))
                (SEQ
                 (COND ((QEQCAR |x| 0) (SPADCALL (QCDR |x|) (QREFELT $ 79)))
@@ -235,14 +241,14 @@
                               (SPADCALL (QVELT (QCDR |xx|) 1) (QREFELT $ 80))
                               (QVELT (QCDR |x|) 2) (QREFELT $ 81))))))))) 
 
-(SDEFUN |RECLOS;inv;2$;21| ((|x| $) ($ $))
+(SDEFUN |RECLOS;inv;2$;21| ((|x| ($)) ($ ($)))
         (SPROG ((|res| (|Union| $ "failed")))
                (SEQ (LETT |res| (SPADCALL |x| (QREFELT $ 83)))
                     (EXIT
                      (COND ((QEQCAR |res| 1) (|error| "Division by 0"))
                            ('T (QCDR |res|))))))) 
 
-(SDEFUN |RECLOS;recip;$U;22| ((|x| $) ($ |Union| $ "failed"))
+(SDEFUN |RECLOS;recip;$U;22| ((|x| ($)) ($ (|Union| $ "failed")))
         (SPROG ((|r| (|Union| (|SparseUnivariatePolynomial| $) "failed")))
                (SEQ
                 (COND
@@ -267,7 +273,7 @@
                                                 (QVELT (QCDR |x|) 3)))
                                   $))))))))))) 
 
-(SDEFUN |RECLOS;*;I2$;23| ((|n| |Integer|) (|x| $) ($ $))
+(SDEFUN |RECLOS;*;I2$;23| ((|n| (|Integer|)) (|x| ($)) ($ ($)))
         (SPROG NIL
                (COND
                 ((QEQCAR |x| 0)
@@ -287,7 +293,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |n| |z| (QREFELT $ 66)))))) 
 
-(SDEFUN |RECLOS;*;TheField2$;24| ((|rn| |TheField|) (|x| $) ($ $))
+(SDEFUN |RECLOS;*;TheField2$;24| ((|rn| (|TheField|)) (|x| ($)) ($ ($)))
         (SPROG NIL
                (COND
                 ((QEQCAR |x| 0)
@@ -309,7 +315,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |rn| |z| (QREFELT $ 94)))))) 
 
-(SDEFUN |RECLOS;*;3$;25| ((|x| $) (|y| $) ($ $))
+(SDEFUN |RECLOS;*;3$;25| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG NIL
                (SEQ
                 (COND
@@ -366,7 +372,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |x| |z| (QREFELT $ 95)))))) 
 
-(SDEFUN |RECLOS;nonNull| ((|rep| |Rec|) ($ $))
+(SDEFUN |RECLOS;nonNull| ((|rep| (|Rec|)) ($ ($)))
         (COND
          ((EQL (SPADCALL (QVELT |rep| 1) (QREFELT $ 27)) 0)
           (SPADCALL (QVELT |rep| 1) (QREFELT $ 31)))
@@ -375,10 +381,10 @@
           (CONS 1 |rep|))
          ('T (|spadConstant| $ 28)))) 
 
-(SDEFUN |RECLOS;zero?;$B;27| ((|x| $) ($ |Boolean|))
+(SDEFUN |RECLOS;zero?;$B;27| ((|x| ($)) ($ (|Boolean|)))
         (COND ((QEQCAR |x| 0) (SPADCALL (QCDR |x|) (QREFELT $ 92))) ('T NIL))) 
 
-(SDEFUN |RECLOS;+;3$;28| ((|x| $) (|y| $) ($ $))
+(SDEFUN |RECLOS;+;3$;28| ((|x| ($)) (|y| ($)) ($ ($)))
         (SEQ
          (COND
           ((QEQCAR |x| 0)
@@ -432,7 +438,7 @@
                        (QVELT (QCDR |x|) 2) (QVELT (QCDR |x|) 3))
                $)))))))) 
 
-(SDEFUN |RECLOS;-;2$;29| ((|x| $) ($ $))
+(SDEFUN |RECLOS;-;2$;29| ((|x| ($)) ($ ($)))
         (COND ((QEQCAR |x| 0) (CONS 0 (SPADCALL (QCDR |x|) (QREFELT $ 103))))
               ('T
                (CONS 1
@@ -440,7 +446,8 @@
                              (SPADCALL (QVELT (QCDR |x|) 1) (QREFELT $ 104))
                              (QVELT (QCDR |x|) 2) (QVELT (QCDR |x|) 3)))))) 
 
-(SDEFUN |RECLOS;retractIfCan;$U;30| ((|x| $) ($ |Union| |TheField| "failed"))
+(SDEFUN |RECLOS;retractIfCan;$U;30|
+        ((|x| ($)) ($ (|Union| |TheField| "failed")))
         (SPROG ((|res| ($)) (|o| (|PositiveInteger|)))
                (SEQ
                 (COND ((QEQCAR |x| 0) (CONS 0 (QCDR |x|)))
@@ -454,7 +461,7 @@
                                    (#1#
                                     (SPADCALL |res| (QREFELT $ 106))))))))))) 
 
-(SDEFUN |RECLOS;retract;$TheField;31| ((|x| $) ($ |TheField|))
+(SDEFUN |RECLOS;retract;$TheField;31| ((|x| ($)) ($ (|TheField|)))
         (SPROG ((|res| ($)) (|o| (|PositiveInteger|)))
                (SEQ
                 (COND ((QEQCAR |x| 0) (QCDR |x|))
@@ -468,7 +475,7 @@
                                    (#1#
                                     (SPADCALL |res| (QREFELT $ 107))))))))))) 
 
-(SDEFUN |RECLOS;lessAlgebraic| ((|x| $) ($ $))
+(SDEFUN |RECLOS;lessAlgebraic| ((|x| ($)) ($ ($)))
         (SPROG ((|def| (|SparseUnivariatePolynomial| $)))
                (SEQ
                 (COND ((QEQCAR |x| 0) |x|)
@@ -491,13 +498,14 @@
                                      (QREFELT $ 108)))
                           (#1# |x|))))))))) 
 
-(SDEFUN |RECLOS;Zero;$;33| (($ $)) (CONS 0 (|spadConstant| $ 29))) 
+(SDEFUN |RECLOS;Zero;$;33| (($ ($))) (CONS 0 (|spadConstant| $ 29))) 
 
-(SDEFUN |RECLOS;One;$;34| (($ $)) (CONS 0 (|spadConstant| $ 35))) 
+(SDEFUN |RECLOS;One;$;34| (($ ($))) (CONS 0 (|spadConstant| $ 35))) 
 
 (PUT '|RECLOS;coerce;TheField$;35| '|SPADreplace| '(XLAM (|rn|) (CONS 0 |rn|))) 
 
-(SDEFUN |RECLOS;coerce;TheField$;35| ((|rn| |TheField|) ($ $)) (CONS 0 |rn|)) 
+(SDEFUN |RECLOS;coerce;TheField$;35| ((|rn| (|TheField|)) ($ ($)))
+        (CONS 0 |rn|)) 
 
 (DECLAIM (NOTINLINE |RealClosure;|)) 
 

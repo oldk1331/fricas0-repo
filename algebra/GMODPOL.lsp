@@ -1,22 +1,23 @@
 
 (SDEFUN |GMODPOL;leadingMonomial;$Mm;1|
-        ((|p| $) ($ |ModuleMonomial| IS E |ff|)) (SPADCALL |p| (QREFELT $ 14))) 
+        ((|p| ($)) ($ (|ModuleMonomial| IS E |ff|)))
+        (SPADCALL |p| (QREFELT $ 14))) 
 
-(SDEFUN |GMODPOL;leadingExponent;$E;2| ((|p| $) ($ E))
+(SDEFUN |GMODPOL;leadingExponent;$E;2| ((|p| ($)) ($ (E)))
         (SPADCALL (SPADCALL |p| (QREFELT $ 15)) (QREFELT $ 16))) 
 
-(SDEFUN |GMODPOL;leadingIndex;$IS;3| ((|p| $) ($ IS))
+(SDEFUN |GMODPOL;leadingIndex;$IS;3| ((|p| ($)) ($ (IS)))
         (SPADCALL (SPADCALL |p| (QREFELT $ 15)) (QREFELT $ 18))) 
 
-(SDEFUN |GMODPOL;unitVector;IS$;4| ((|i| IS) ($ $))
+(SDEFUN |GMODPOL;unitVector;IS$;4| ((|i| (IS)) ($ ($)))
         (SPADCALL (|spadConstant| $ 20)
                   (SPADCALL |i| (|spadConstant| $ 22) (QREFELT $ 23))
                   (QREFELT $ 24))) 
 
-(SDEFUN |GMODPOL;build;RISE$;5| ((|c| R) (|i| IS) (|e| E) ($ $))
+(SDEFUN |GMODPOL;build;RISE$;5| ((|c| (R)) (|i| (IS)) (|e| (E)) ($ ($)))
         (SPADCALL |c| (SPADCALL |i| |e| (QREFELT $ 23)) (QREFELT $ 24))) 
 
-(SDEFUN |GMODPOL;multMonom;RE2$;6| ((|c| R) (|e| E) (|mp| $) ($ $))
+(SDEFUN |GMODPOL;multMonom;RE2$;6| ((|c| (R)) (|e| (E)) (|mp| ($)) ($ ($)))
         (COND ((SPADCALL |mp| (QREFELT $ 28)) |mp|)
               ('T
                (SPADCALL
@@ -31,7 +32,7 @@
                           (QREFELT $ 33))
                 (QREFELT $ 34))))) 
 
-(SDEFUN |GMODPOL;*;P2$;7| ((|p| P) (|mp| $) ($ $))
+(SDEFUN |GMODPOL;*;P2$;7| ((|p| (P)) (|mp| ($)) ($ ($)))
         (COND ((SPADCALL |p| (QREFELT $ 35)) (|spadConstant| $ 36))
               ('T
                (SPADCALL

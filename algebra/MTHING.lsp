@@ -1,6 +1,6 @@
 
 (SDEFUN |MTHING;mergeDifference;3L;1|
-        ((|x| |List| S) (|y| |List| S) ($ |List| S))
+        ((|x| (|List| S)) (|y| (|List| S)) ($ (|List| S)))
         (SEQ
          (COND ((OR (NULL |x|) (NULL |y|)) |x|)
                ('T
@@ -14,7 +14,7 @@
                    ('T |x|)))))))) 
 
 (SDEFUN |MTHING;mergeDifference1|
-        ((|x| . #1=(|List| S)) (|fy| S) (|ry| |List| S) ($ |List| S))
+        ((|x| #1=(|List| S)) (|fy| (S)) (|ry| (|List| S)) ($ (|List| S)))
         (SPROG ((#2=#:G123 NIL) (|frx| (S)) (|rx| #1#))
                (SEQ
                 (EXIT

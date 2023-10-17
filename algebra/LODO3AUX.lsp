@@ -1,5 +1,5 @@
 
-(SDEFUN |LODO3AUX;delta_deriv;2R;1| ((|x| R) ($ R))
+(SDEFUN |LODO3AUX;delta_deriv;2R;1| ((|x| (R)) ($ (R)))
         (SPADCALL (SPADCALL (|spadConstant| $ 9) 1 (QREFELT $ 11))
                   (SPADCALL |x| (QREFELT $ 12)) (QREFELT $ 13))) 
 

@@ -1,11 +1,12 @@
 
 (SDEFUN |INTDSOL;integrate_sols;LMR;1|
-        ((|l| L)
-         (|rat_solve| |Mapping|
-          #1=(|Record| (|:| |particular| (|Union| F #2="failed"))
-                       (|:| |basis| (|List| F)))
-          L F)
-         ($ |Record| (|:| |ltilde| L) (|:| |r| (|Union| L "failed"))))
+        ((|l| (L))
+         (|rat_solve|
+          (|Mapping|
+           #1=(|Record| (|:| |particular| (|Union| F #2="failed"))
+                        (|:| |basis| (|List| F)))
+           L F))
+         ($ (|Record| (|:| |ltilde| L) (|:| |r| (|Union| L "failed")))))
         (SPROG ((|rt| (L)) (#3=#:G107 NIL) (|rec| #1#) (|a| (L)))
                (SEQ (LETT |a| (SPADCALL |l| (QREFELT $ 8)))
                     (LETT |rec|

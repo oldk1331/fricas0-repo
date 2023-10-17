@@ -1,36 +1,37 @@
 
-(SDEFUN |FGROUP;One;$;1| (($ $)) (SPADCALL (QREFELT $ 9))) 
+(SDEFUN |FGROUP;One;$;1| (($ ($))) (SPADCALL (QREFELT $ 9))) 
 
-(SDEFUN |FGROUP;one?;$B;2| ((|f| $) ($ |Boolean|))
+(SDEFUN |FGROUP;one?;$B;2| ((|f| ($)) ($ (|Boolean|)))
         (NULL (SPADCALL |f| (QREFELT $ 12)))) 
 
-(SDEFUN |FGROUP;^;SI$;3| ((|s| S) (|n| |Integer|) ($ $))
+(SDEFUN |FGROUP;^;SI$;3| ((|s| (S)) (|n| (|Integer|)) ($ ($)))
         (SPADCALL |s| |n| (QREFELT $ 16))) 
 
-(SDEFUN |FGROUP;*;$S$;4| ((|f| $) (|s| S) ($ $))
+(SDEFUN |FGROUP;*;$S$;4| ((|f| ($)) (|s| (S)) ($ ($)))
         (SPADCALL |f| |s| (QREFELT $ 18))) 
 
-(SDEFUN |FGROUP;*;S2$;5| ((|s| S) (|f| $) ($ $))
+(SDEFUN |FGROUP;*;S2$;5| ((|s| (S)) (|f| ($)) ($ ($)))
         (SPADCALL |s| |f| (QREFELT $ 20))) 
 
-(SDEFUN |FGROUP;inv;2$;6| ((|f| $) ($ $))
+(SDEFUN |FGROUP;inv;2$;6| ((|f| ($)) ($ ($)))
         (SPADCALL (SPADCALL (ELT $ 22) |f| (QREFELT $ 24)) (QREFELT $ 25))) 
 
 (SDEFUN |FGROUP;factors;$L;7|
-        ((|f| $) ($ |List| (|Record| (|:| |gen| S) (|:| |exp| (|Integer|)))))
+        ((|f| ($))
+         ($ (|List| (|Record| (|:| |gen| S) (|:| |exp| (|Integer|))))))
         (SPADCALL (SPADCALL |f| (QREFELT $ 12)) (QREFELT $ 27))) 
 
 (SDEFUN |FGROUP;mapExpon;M2$;8|
-        ((|f| |Mapping| (|Integer|) (|Integer|)) (|x| $) ($ $))
+        ((|f| (|Mapping| (|Integer|) (|Integer|))) (|x| ($)) ($ ($)))
         (SPADCALL |f| |x| (QREFELT $ 29))) 
 
-(SDEFUN |FGROUP;mapGen;M2$;9| ((|f| |Mapping| S S) (|x| $) ($ $))
+(SDEFUN |FGROUP;mapGen;M2$;9| ((|f| (|Mapping| S S)) (|x| ($)) ($ ($)))
         (SPADCALL |f| |x| (QREFELT $ 31))) 
 
-(SDEFUN |FGROUP;coerce;$Of;10| ((|f| $) ($ |OutputForm|))
+(SDEFUN |FGROUP;coerce;$Of;10| ((|f| ($)) ($ (|OutputForm|)))
         (SPADCALL |f| (ELT $ 34) (ELT $ 35) 1 (QREFELT $ 37))) 
 
-(SDEFUN |FGROUP;*;3$;11| ((|f| $) (|g| $) ($ $))
+(SDEFUN |FGROUP;*;3$;11| ((|f| ($)) (|g| ($)) ($ ($)))
         (SPROG
          ((|h| (|List| (|Record| (|:| |gen| S) (|:| |exp| (|Integer|)))))
           (|newexp| (|Integer|))
@@ -85,7 +86,7 @@
                                (SPADCALL (NREVERSE |r|) |q| (QREFELT $ 42))
                                (QREFELT $ 40))))))))))) 
 
-(SDEFUN |FGROUP;smaller?;2$B;12| ((|a| $) (|b| $) ($ |Boolean|))
+(SDEFUN |FGROUP;smaller?;2$B;12| ((|a| ($)) (|b| ($)) ($ (|Boolean|)))
         (SPROG
          ((|lb| #1=(|List| (|Record| (|:| |gen| S) (|:| |exp| (|Integer|)))))
           (|la| #1#) (#2=#:G171 NIL) (|nb| (|Integer|)) (|na| (|Integer|)))

@@ -2,12 +2,14 @@
 (PUT '|CELL;simpleCells;$L;1| '|SPADreplace| '(XLAM (|c|) |c|)) 
 
 (SDEFUN |CELL;simpleCells;$L;1|
-        ((|c| $)
-         ($ |List|
-          (|SimpleCell| |TheField| (|SparseUnivariatePolynomial| |TheField|))))
+        ((|c| ($))
+         ($
+          (|List|
+           (|SimpleCell| |TheField|
+                         (|SparseUnivariatePolynomial| |TheField|)))))
         |c|) 
 
-(SDEFUN |CELL;coerce;$Of;2| ((|c| $) ($ |OutputForm|))
+(SDEFUN |CELL;coerce;$Of;2| ((|c| ($)) ($ (|OutputForm|)))
         (SPROG ((#1=#:G115 NIL) (|sc| NIL) (#2=#:G114 NIL))
                (SEQ
                 (SPADCALL
@@ -24,7 +26,7 @@
                        (EXIT (NREVERSE #2#))))
                  (QREFELT $ 14))))) 
 
-(SDEFUN |CELL;projection;$U;3| ((|cell| $) ($ |Union| $ "failed"))
+(SDEFUN |CELL;projection;$U;3| ((|cell| ($)) ($ (|Union| $ "failed")))
         (SPROG ((|r| ($)))
                (SEQ
                 (COND ((NULL |cell|) (|error| "projection: should not appear"))
@@ -37,36 +39,39 @@
 (PUT '|CELL;makeCell;L$;4| '|SPADreplace| '(XLAM (|l|) |l|)) 
 
 (SDEFUN |CELL;makeCell;L$;4|
-        ((|l| |List|
-          (|SimpleCell| |TheField| (|SparseUnivariatePolynomial| |TheField|)))
-         ($ $))
+        ((|l|
+          (|List|
+           (|SimpleCell| |TheField|
+                         (|SparseUnivariatePolynomial| |TheField|))))
+         ($ ($)))
         |l|) 
 
 (PUT '|CELL;makeCell;Sc2$;5| '|SPADreplace| 'CONS) 
 
 (SDEFUN |CELL;makeCell;Sc2$;5|
-        ((|scell| |SimpleCell| |TheField|
-          (|SparseUnivariatePolynomial| |TheField|))
-         (|toAdd| $) ($ $))
+        ((|scell|
+          (|SimpleCell| |TheField| (|SparseUnivariatePolynomial| |TheField|)))
+         (|toAdd| ($)) ($ ($)))
         (CONS |scell| |toAdd|)) 
 
-(SDEFUN |CELL;mainVariableOf;$S;6| ((|cell| $) ($ |Symbol|))
+(SDEFUN |CELL;mainVariableOf;$S;6| ((|cell| ($)) ($ (|Symbol|)))
         (COND ((NULL |cell|) (|error| "Should not appear"))
               ('T (SPADCALL (|SPADfirst| |cell|) (QREFELT $ 21))))) 
 
-(SDEFUN |CELL;variablesOf;$L;7| ((|cell| $) ($ |List| (|Symbol|)))
+(SDEFUN |CELL;variablesOf;$L;7| ((|cell| ($)) ($ (|List| (|Symbol|))))
         (COND ((NULL |cell|) NIL)
               ('T
                (CONS (SPADCALL |cell| (QREFELT $ 22))
                      (SPADCALL (CDR |cell|) (QREFELT $ 24)))))) 
 
-(SDEFUN |CELL;dimension;$Nni;8| ((|cell| $) ($ |NonNegativeInteger|))
+(SDEFUN |CELL;dimension;$Nni;8| ((|cell| ($)) ($ (|NonNegativeInteger|)))
         (COND ((NULL |cell|) 0)
               ((SPADCALL (|SPADfirst| |cell|) (QREFELT $ 26))
                (+ 1 (SPADCALL (CDR |cell|) (QREFELT $ 29))))
               ('T (SPADCALL (CDR |cell|) (QREFELT $ 29))))) 
 
-(SDEFUN |CELL;hasDimension?;$SB;9| ((|cell| $) (|var| |Symbol|) ($ |Boolean|))
+(SDEFUN |CELL;hasDimension?;$SB;9|
+        ((|cell| ($)) (|var| (|Symbol|)) ($ (|Boolean|)))
         (SPROG
          ((|v| (|Symbol|))
           (|sc|
@@ -83,7 +88,7 @@
                              ((SPADCALL |v| |var| (QREFELT $ 30)) 'T)
                              (#1# (|error| "impossible")))))))))) 
 
-(SDEFUN |CELL;samplePoint;$L;10| ((|cell| $) ($ |List| |TheField|))
+(SDEFUN |CELL;samplePoint;$L;10| ((|cell| ($)) ($ (|List| |TheField|)))
         (COND ((NULL |cell|) NIL)
               ('T
                (CONS (SPADCALL (|SPADfirst| |cell|) (QREFELT $ 32))

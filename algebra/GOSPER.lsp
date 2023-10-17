@@ -1,33 +1,36 @@
 
 (SDEFUN |GOSPER;deg0|
-        ((|p| |SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V)
-         (|v| V) ($ |Integer|))
+        ((|p| (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
+         (|v| (V)) ($ (|Integer|)))
         (COND ((SPADCALL |p| (QREFELT $ 13)) -1)
               ('T (SPADCALL |p| |v| (QREFELT $ 17))))) 
 
-(SDEFUN |GOSPER;rat?| ((|x| R) ($ |Boolean|))
+(SDEFUN |GOSPER;rat?| ((|x| (R)) ($ (|Boolean|)))
         (QEQCAR
          (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 18)) (QREFELT $ 19))
                    (QREFELT $ 21))
          0)) 
 
 (SDEFUN |GOSPER;RFQ2R|
-        ((|f| |Fraction|
-          (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
-         ($ Q))
+        ((|f|
+          (|Fraction|
+           (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V)))
+         ($ (Q)))
         (SPADCALL (|GOSPER;PQ2R| (SPADCALL |f| (QREFELT $ 23)) $)
                   (|GOSPER;PQ2R| (SPADCALL |f| (QREFELT $ 24)) $)
                   (QREFELT $ 25))) 
 
 (SDEFUN |GOSPER;PQ2R|
-        ((|p| |SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V) ($ Q))
+        ((|p| (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
+         ($ (Q)))
         (SPADCALL (CONS #'|GOSPER;PQ2R!0| $) (ELT $ 28) |p| (QREFELT $ 32))) 
 
 (SDEFUN |GOSPER;PQ2R!0| ((|x| NIL) ($ NIL))
         (SPADCALL (SPADCALL |x| (QREFELT $ 26)) (QREFELT $ 19))) 
 
 (SDEFUN |GOSPER;GospersMethod;QVMU;5|
-        ((|aquo| Q) (|n| V) (|newV| |Mapping| V) ($ |Union| Q "failed"))
+        ((|aquo| (Q)) (|n| (V)) (|newV| (|Mapping| V))
+         ($ (|Union| Q "failed")))
         (SPROG
          ((#1=#:G131 NIL)
           (|u|
@@ -61,11 +64,12 @@
           #3# (EXIT #1#)))) 
 
 (SDEFUN |GOSPER;RF2QIfCan|
-        ((|f| Q)
-         ($ |Union|
-          (|Fraction|
-           (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
-          "failed"))
+        ((|f| (Q))
+         ($
+          (|Union|
+           (|Fraction|
+            (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
+           "failed")))
         (SPROG
          ((|d|
            #1=(|Union|
@@ -88,9 +92,10 @@
                                                (QREFELT $ 38))))))))))))) 
 
 (SDEFUN |GOSPER;UP2QIfCan|
-        ((|p| P)
-         ($ |Union| (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V)
-          "failed"))
+        ((|p| (P))
+         ($
+          (|Union| (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V)
+                   "failed")))
         (COND
          ((SPADCALL (CONS (|function| |GOSPER;rat?|) $)
                     (SPADCALL |p| (QREFELT $ 40)) (QREFELT $ 42))
@@ -115,13 +120,15 @@
                 (QREFELT $ 44)))) 
 
 (SDEFUN |GOSPER;InnerGospersMethod|
-        ((|aquo| |Fraction|
-          (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
-         (|n| V) (|newV| |Mapping| V)
-         ($ |Union|
+        ((|aquo|
           (|Fraction|
-           (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
-          "failed"))
+           (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V)))
+         (|n| (V)) (|newV| (|Mapping| V))
+         ($
+          (|Union|
+           (|Fraction|
+            (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
+           "failed")))
         (SPROG
          ((|qn1| (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
           (|fn|
@@ -175,15 +182,16 @@
                                             |fn| (QREFELT $ 57))))))))))))))) 
 
 (SDEFUN |GOSPER;GosperF|
-        ((|k| |Integer|)
-         (|pn| |SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V)
-         (|qn| |SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V)
-         (|rn| |SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V)
-         (|n| V) (|newV| |Mapping| V)
-         ($ |Union|
-          (|Fraction|
-           (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
-          "failed"))
+        ((|k| (|Integer|))
+         (|pn| (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
+         (|qn| (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
+         (|rn| (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
+         (|n| (V)) (|newV| (|Mapping| V))
+         ($
+          (|Union|
+           (|Fraction|
+            (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
+           "failed")))
         (SPROG
          ((#1=#:G173 NIL)
           (#2=#:G172
@@ -350,13 +358,13 @@
                                          (#15# (|spadConstant| $ 68))))))))))))) 
 
 (SDEFUN |GOSPER;GosperPQR|
-        ((|an|
-          . #1=(|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
+        ((|an| #1=(|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
          (|anm1|
-          . #2=(|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
-         (|n| V) (|newV| |Mapping| V)
-         ($ |List|
-          (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V)))
+          #2=(|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
+         (|n| (V)) (|newV| (|Mapping| V))
+         ($
+          (|List|
+           (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))))
         (SPROG
          ((|pn| (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
           (#3=#:G192 NIL)
@@ -366,9 +374,9 @@
           (|qn| #1#)
           (|gn| (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
           (|rtp| (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
-          (#9=#:G200 NIL) (|rt| (|Union| (|Integer|) #10="failed"))
-          (|js| (|List| (|Integer|))) (#11=#:G182 NIL) (#12=#:G199 NIL)
-          (|fe| NIL) (#13=#:G198 NIL)
+          (#9=#:G200 NIL) (|js| (|List| (|Integer|))) (#10=#:G182 NIL)
+          (|rt| (|Union| (|Integer|) #11="failed")) (#12=#:G199 NIL) (|fe| NIL)
+          (#13=#:G198 NIL)
           (|fres|
            (|Factored|
             (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V)))
@@ -403,17 +411,17 @@
                                0)
                               (LETT #13#
                                     (CONS
-                                     (PROG2 (LETT #11# |rt|)
-                                         (QCDR #11#)
-                                       (|check_union2| (QEQCAR #11# 0)
+                                     (PROG2 (LETT #10# |rt|)
+                                         (QCDR #10#)
+                                       (|check_union2| (QEQCAR #10# 0)
                                                        (|Integer|)
                                                        (|Union| (|Integer|)
-                                                                #10#)
-                                                       #11#))
+                                                                #11#)
+                                                       #10#))
                                      #13#))))))
                           (LETT #12# (CDR #12#)) (GO G190) G191
                           (EXIT (NREVERSE #13#)))))
-              (SEQ (LETT |rt| NIL) (LETT #9# |js|) G190
+              (SEQ (LETT #9# |js|) G190
                    (COND
                     ((OR (ATOM #9#) (PROGN (LETT |rt| (CAR #9#)) NIL))
                      (GO G191)))
@@ -506,10 +514,10 @@
               (EXIT (LIST |pn| |qn| |rn|))))) 
 
 (SDEFUN |GOSPER;GosperDegBd|
-        ((|pn| |SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V)
-         (|qn| |SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V)
-         (|rn| |SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V)
-         (|n| V) (|newV| |Mapping| V) ($ |Integer|))
+        ((|pn| (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
+         (|qn| (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
+         (|rn| (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
+         (|n| (V)) (|newV| (|Mapping| V)) ($ (|Integer|)))
         (SPROG
          ((|k0| (|Union| (|Integer|) "failed")) (#1=#:G203 NIL)
           (|lcpk| (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
@@ -589,9 +597,9 @@
                               (#4# (MAX (QCDR |k0|) |k|))))))))))) 
 
 (SDEFUN |GOSPER;pCoef|
-        ((|p| |SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V)
-         (|nom| |SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V)
-         ($ |SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
+        ((|p| (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
+         (|nom| (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
+         ($ (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V)))
         (SPROG
          ((|up|
            #1=(|SparseUnivariatePolynomial|
@@ -621,8 +629,8 @@
                  (EXIT |p|))))))) 
 
 (SDEFUN |GOSPER;linearAndNNIntRoot|
-        ((|mp| |SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V)
-         (|v| V) ($ |Union| (|Integer|) "failed"))
+        ((|mp| (|SparseMultivariatePolynomial| (|Fraction| (|Integer|)) V))
+         (|v| (V)) ($ (|Union| (|Integer|) "failed")))
         (SPROG
          ((|rt| (|Fraction| (|Integer|))) (#1=#:G229 NIL)
           (|p0| #2=(|Union| (|Fraction| (|Integer|)) "failed")) (|p1| #2#)

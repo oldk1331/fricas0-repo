@@ -1,14 +1,14 @@
 
-(SDEFUN |GRALG-;Zero;S;1| (($ S))
+(SDEFUN |GRALG-;Zero;S;1| (($ (S)))
         (SPADCALL (|spadConstant| $ 9) (QREFELT $ 10))) 
 
-(SDEFUN |GRALG-;One;S;2| (($ S))
+(SDEFUN |GRALG-;One;S;2| (($ (S)))
         (SPADCALL (|spadConstant| $ 12) (QREFELT $ 10))) 
 
-(SDEFUN |GRALG-;*;R2S;3| ((|r| R) (|x| S) ($ S))
+(SDEFUN |GRALG-;*;R2S;3| ((|r| (R)) (|x| (S)) ($ (S)))
         (SPADCALL (SPADCALL |r| (QREFELT $ 10)) |x| (QREFELT $ 14))) 
 
-(SDEFUN |GRALG-;*;SRS;4| ((|x| S) (|r| R) ($ S))
+(SDEFUN |GRALG-;*;SRS;4| ((|x| (S)) (|r| (R)) ($ (S)))
         (SPADCALL |x| (SPADCALL |r| (QREFELT $ 10)) (QREFELT $ 14))) 
 
 (DECLAIM (NOTINLINE |GradedAlgebra&;|)) 

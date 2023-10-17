@@ -1,5 +1,5 @@
 
-(SDEFUN |ORDCOMP;convert;$If;1| ((|x| $) ($ |InputForm|))
+(SDEFUN |ORDCOMP;convert;$If;1| ((|x| ($)) ($ (|InputForm|)))
         (COND ((QEQCAR |x| 0) (SPADCALL (CDR |x|) (QREFELT $ 9)))
               ((CDR |x|)
                (SPADCALL (LIST (SPADCALL '|plusInfinity| (QREFELT $ 11)))
@@ -10,29 +10,29 @@
 
 (PUT '|ORDCOMP;coerce;R$;2| '|SPADreplace| '(XLAM (|r|) (CONS 0 |r|))) 
 
-(SDEFUN |ORDCOMP;coerce;R$;2| ((|r| R) ($ $)) (CONS 0 |r|)) 
+(SDEFUN |ORDCOMP;coerce;R$;2| ((|r| (R)) ($ ($))) (CONS 0 |r|)) 
 
-(SDEFUN |ORDCOMP;retract;$R;3| ((|x| $) ($ R))
+(SDEFUN |ORDCOMP;retract;$R;3| ((|x| ($)) ($ (R)))
         (COND ((QEQCAR |x| 0) (CDR |x|)) ('T (|error| "Not finite")))) 
 
 (PUT '|ORDCOMP;finite?;$B;4| '|SPADreplace| '(XLAM (|x|) (QEQCAR |x| 0))) 
 
-(SDEFUN |ORDCOMP;finite?;$B;4| ((|x| $) ($ |Boolean|)) (QEQCAR |x| 0)) 
+(SDEFUN |ORDCOMP;finite?;$B;4| ((|x| ($)) ($ (|Boolean|))) (QEQCAR |x| 0)) 
 
 (PUT '|ORDCOMP;infinite?;$B;5| '|SPADreplace| '(XLAM (|x|) (QEQCAR |x| 1))) 
 
-(SDEFUN |ORDCOMP;infinite?;$B;5| ((|x| $) ($ |Boolean|)) (QEQCAR |x| 1)) 
+(SDEFUN |ORDCOMP;infinite?;$B;5| ((|x| ($)) ($ (|Boolean|))) (QEQCAR |x| 1)) 
 
-(SDEFUN |ORDCOMP;plusInfinity;$;6| (($ $)) (CONS 1 'T)) 
+(SDEFUN |ORDCOMP;plusInfinity;$;6| (($ ($))) (CONS 1 'T)) 
 
 (PUT '|ORDCOMP;minusInfinity;$;7| '|SPADreplace| '(XLAM NIL (CONS 1 NIL))) 
 
-(SDEFUN |ORDCOMP;minusInfinity;$;7| (($ $)) (CONS 1 NIL)) 
+(SDEFUN |ORDCOMP;minusInfinity;$;7| (($ ($))) (CONS 1 NIL)) 
 
-(SDEFUN |ORDCOMP;retractIfCan;$U;8| ((|x| $) ($ |Union| R "failed"))
+(SDEFUN |ORDCOMP;retractIfCan;$U;8| ((|x| ($)) ($ (|Union| R "failed")))
         (COND ((QEQCAR |x| 0) (CONS 0 (CDR |x|))) ('T (CONS 1 "failed")))) 
 
-(SDEFUN |ORDCOMP;coerce;$Of;9| ((|x| $) ($ |OutputForm|))
+(SDEFUN |ORDCOMP;coerce;$Of;9| ((|x| ($)) ($ (|OutputForm|)))
         (SPROG ((|e| (|OutputForm|)))
                (SEQ
                 (COND ((QEQCAR |x| 0) (SPADCALL (CDR |x|) (QREFELT $ 25)))
@@ -45,10 +45,10 @@
                                          (QREFELT $ 28)))
                               (#1# (SPADCALL |e| (QREFELT $ 29))))))))))) 
 
-(SDEFUN |ORDCOMP;whatInfinity;$Si;10| ((|x| $) ($ |SingleInteger|))
+(SDEFUN |ORDCOMP;whatInfinity;$Si;10| ((|x| ($)) ($ (|SingleInteger|)))
         (COND ((QEQCAR |x| 0) 0) ((CDR |x|) 1) ('T -1))) 
 
-(SDEFUN |ORDCOMP;=;2$B;11| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |ORDCOMP;=;2$B;11| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (COND
          ((QEQCAR |x| 1)
           (COND
@@ -58,11 +58,11 @@
          ((QEQCAR |y| 1) NIL)
          (#1# (SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 34))))) 
 
-(SDEFUN |ORDCOMP;-;2$;12| ((|x| $) ($ $))
+(SDEFUN |ORDCOMP;-;2$;12| ((|x| ($)) ($ ($)))
         (COND ((QEQCAR |x| 1) (CONS 1 (NULL (CDR |x|))))
               ('T (CONS 0 (SPADCALL (CDR |x|) (QREFELT $ 36)))))) 
 
-(SDEFUN |ORDCOMP;+;3$;13| ((|x| $) (|y| $) ($ $))
+(SDEFUN |ORDCOMP;+;3$;13| ((|x| ($)) (|y| ($)) ($ ($)))
         (COND
          ((QEQCAR |x| 1)
           (COND
@@ -73,7 +73,7 @@
          ((QEQCAR |y| 1) |y|)
          ('T (CONS 0 (SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 38)))))) 
 
-(SDEFUN |ORDCOMP;<;2$B;14| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |ORDCOMP;<;2$B;14| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (COND
          ((QEQCAR |x| 1)
           (COND
@@ -84,14 +84,14 @@
          ((QEQCAR |y| 1) (CDR |y|))
          (#1# (SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 40))))) 
 
-(SDEFUN |ORDCOMP;rational?;$B;15| ((|x| $) ($ |Boolean|))
+(SDEFUN |ORDCOMP;rational?;$B;15| ((|x| ($)) ($ (|Boolean|)))
         (SPADCALL |x| (QREFELT $ 18))) 
 
-(SDEFUN |ORDCOMP;rational;$F;16| ((|x| $) ($ |Fraction| (|Integer|)))
+(SDEFUN |ORDCOMP;rational;$F;16| ((|x| ($)) ($ (|Fraction| (|Integer|))))
         (SPADCALL (SPADCALL |x| (QREFELT $ 16)) (QREFELT $ 44))) 
 
 (SDEFUN |ORDCOMP;rationalIfCan;$U;17|
-        ((|x| $) ($ |Union| (|Fraction| (|Integer|)) "failed"))
+        ((|x| ($)) ($ (|Union| (|Fraction| (|Integer|)) "failed")))
         (SPROG ((|r| (|Union| R "failed")))
                (SEQ (LETT |r| (SPADCALL |x| (QREFELT $ 23)))
                     (EXIT

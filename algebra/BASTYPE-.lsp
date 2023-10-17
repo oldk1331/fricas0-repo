@@ -1,5 +1,5 @@
 
-(SDEFUN |BASTYPE-;~=;2SB;1| ((|x| S) (|y| S) ($ |Boolean|))
+(SDEFUN |BASTYPE-;~=;2SB;1| ((|x| (S)) (|y| (S)) ($ (|Boolean|)))
         (NULL (SPADCALL |x| |y| (QREFELT $ 8)))) 
 
 (DECLAIM (NOTINLINE |BasicType&;|)) 

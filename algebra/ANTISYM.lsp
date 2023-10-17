@@ -1,9 +1,9 @@
 
-(SDEFUN |ANTISYM;One;$;1| (($ $))
+(SDEFUN |ANTISYM;One;$;1| (($ ($)))
         (LIST
          (CONS (SPADCALL (QREFELT $ 9) (QREFELT $ 12)) (|spadConstant| $ 13)))) 
 
-(SDEFUN |ANTISYM;coefficient;2$R;2| ((|a| $) (|u| $) ($ R))
+(SDEFUN |ANTISYM;coefficient;2$R;2| ((|a| ($)) (|u| ($)) ($ (R)))
         (SPROG
          ((#1=#:G139 NIL) (#2=#:G140 NIL) (|t| NIL) (|x| (|ExtAlgBasis|)))
          (SEQ
@@ -31,14 +31,14 @@
                   (EXIT (|spadConstant| $ 18))))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |ANTISYM;retractable?;$B;3| ((|a| $) ($ |Boolean|))
+(SDEFUN |ANTISYM;retractable?;$B;3| ((|a| ($)) ($ (|Boolean|)))
         (COND ((NULL |a|) 'T)
               ('T
                (SPADCALL (QCAR (|SPADfirst| |a|))
                          (SPADCALL (QREFELT $ 9) (QREFELT $ 12))
                          (QREFELT $ 16))))) 
 
-(SDEFUN |ANTISYM;retractIfCan;$U;4| ((|a| $) ($ |Union| R "failed"))
+(SDEFUN |ANTISYM;retractIfCan;$U;4| ((|a| ($)) ($ (|Union| R "failed")))
         (COND ((NULL |a|) (CONS 0 (|spadConstant| $ 18)))
               ((SPADCALL (QCAR (|SPADfirst| |a|))
                          (SPADCALL (QREFELT $ 9) (QREFELT $ 12))
@@ -46,11 +46,11 @@
                (CONS 0 (SPADCALL |a| (QREFELT $ 21))))
               ('T (CONS 1 "failed")))) 
 
-(SDEFUN |ANTISYM;retract;$R;5| ((|a| $) ($ R))
+(SDEFUN |ANTISYM;retract;$R;5| ((|a| ($)) ($ (R)))
         (COND ((NULL |a|) (|spadConstant| $ 18))
               ('T (SPADCALL |a| (QREFELT $ 21))))) 
 
-(SDEFUN |ANTISYM;homogeneous?;$B;6| ((|a| $) ($ |Boolean|))
+(SDEFUN |ANTISYM;homogeneous?;$B;6| ((|a| ($)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G198 NIL) (#2=#:G199 NIL) (#3=#:G191 NIL)
           (#4=#:G190 #5=(|Integer|)) (#6=#:G192 #5#) (#7=#:G202 NIL)
@@ -130,7 +130,7 @@
                    (EXIT 'T)))))
           #16# (EXIT #2#)))) 
 
-(SDEFUN |ANTISYM;degree;$Nni;7| ((|a| $) ($ |NonNegativeInteger|))
+(SDEFUN |ANTISYM;degree;$Nni;7| ((|a| ($)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((#1=#:G210 NIL) (#2=#:G208 NIL) (#3=#:G207 #4=(|Integer|))
           (#5=#:G209 #4#) (#6=#:G214 NIL) (#7=#:G105 NIL))
@@ -166,11 +166,12 @@
                                      '(|Integer|) #1#)))
                 (#8# (|error| "not a homogeneous element")))))) 
 
-(SDEFUN |ANTISYM;zo| ((|p| |Integer|) (|q| |Integer|) ($ |List| (|Integer|)))
+(SDEFUN |ANTISYM;zo|
+        ((|p| (|Integer|)) (|q| (|Integer|)) ($ (|List| (|Integer|))))
         (COND ((EQL |p| 0) (LIST 1 |q|)) ((EQL |q| 0) (LIST 1 1))
               ('T (LIST 0 0)))) 
 
-(SDEFUN |ANTISYM;getsgn| ((|x| . #1=(|ExtAlgBasis|)) (|y| . #1#) ($ |Integer|))
+(SDEFUN |ANTISYM;getsgn| ((|x| #1=(|ExtAlgBasis|)) (|y| #1#) ($ (|Integer|)))
         (SPROG
          ((|sgn| (|Integer|)) (#2=#:G244 NIL) (#3=#:G243 #4=(|Integer|))
           (#5=#:G245 #4#) (#6=#:G252 NIL) (#7=#:G106 NIL)
@@ -210,7 +211,7 @@
               (EXIT (COND ((EQL (REM |sgn| 2) 0) 1) ('T -1)))))) 
 
 (SDEFUN |ANTISYM;Nalpha|
-        ((|x| . #1=(|ExtAlgBasis|)) (|y| . #1#) ($ |List| (|Integer|)))
+        ((|x| #1=(|ExtAlgBasis|)) (|y| #1#) ($ (|List| (|Integer|))))
         (SPROG
          ((#2=#:G259 NIL) (|i| (|Integer|)) (|dum| (|List| (|Integer|)))
           (#3=#:G262 NIL) (|j| NIL) (|dum2| (|List| (|Integer|)))
@@ -249,7 +250,7 @@
                (COND ((EQL |i| 0) (CONS |i| |dum2|))
                      ('T (CONS (|ANTISYM;getsgn| |x| |y| $) |dum2|))))))) 
 
-(SDEFUN |ANTISYM;*;3$;11| ((|a| $) (|b| $) ($ $))
+(SDEFUN |ANTISYM;*;3$;11| ((|a| ($)) (|b| ($)) ($ ($)))
         (SPROG
          ((|z| ($)) (|r| (R)) (|stuff| (|List| (|Integer|))) (#1=#:G276 NIL)
           (|ta| NIL) (#2=#:G275 NIL) (|tb| NIL))
@@ -312,23 +313,23 @@
                        (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                   (EXIT |z|))))))) 
 
-(SDEFUN |ANTISYM;coerce;R$;12| ((|r| R) ($ $))
+(SDEFUN |ANTISYM;coerce;R$;12| ((|r| (R)) ($ ($)))
         (COND
          ((SPADCALL |r| (|spadConstant| $ 18) (QREFELT $ 42))
           (|spadConstant| $ 32))
          ('T (LIST (CONS (SPADCALL (QREFELT $ 9) (QREFELT $ 12)) |r|))))) 
 
-(SDEFUN |ANTISYM;coerce;I$;13| ((|m| |Integer|) ($ $))
+(SDEFUN |ANTISYM;coerce;I$;13| ((|m| (|Integer|)) ($ ($)))
         (COND ((EQL |m| 0) (|spadConstant| $ 32))
               ('T
                (LIST
                 (CONS (SPADCALL (QREFELT $ 9) (QREFELT $ 12))
                       (SPADCALL |m| (QREFELT $ 44))))))) 
 
-(SDEFUN |ANTISYM;characteristic;Nni;14| (($ |NonNegativeInteger|))
+(SDEFUN |ANTISYM;characteristic;Nni;14| (($ (|NonNegativeInteger|)))
         (SPADCALL (QREFELT $ 46))) 
 
-(SDEFUN |ANTISYM;generator;Nni$;15| ((|j| |NonNegativeInteger|) ($ $))
+(SDEFUN |ANTISYM;generator;Nni$;15| ((|j| (|NonNegativeInteger|)) ($ ($)))
         (SPROG
          ((|dum| (|List| (|Integer|))) (#1=#:G287 NIL) (|i| NIL)
           (#2=#:G286 NIL))
@@ -346,13 +347,13 @@
            (LIST
             (CONS (SPADCALL |dum| (QREFELT $ 39)) (|spadConstant| $ 13))))))) 
 
-(SDEFUN |ANTISYM;exp;L$;16| ((|li| |List| (|Integer|)) ($ $))
+(SDEFUN |ANTISYM;exp;L$;16| ((|li| (|List| (|Integer|))) ($ ($)))
         (LIST (CONS (SPADCALL |li| (QREFELT $ 39)) (|spadConstant| $ 13)))) 
 
-(SDEFUN |ANTISYM;leadingBasisTerm;2$;17| ((|a| $) ($ $))
+(SDEFUN |ANTISYM;leadingBasisTerm;2$;17| ((|a| ($)) ($ ($)))
         (LIST (CONS (QCAR (|SPADfirst| |a|)) (|spadConstant| $ 13)))) 
 
-(SDEFUN |ANTISYM;displayList| ((|x| |ExtAlgBasis|) ($ |OutputForm|))
+(SDEFUN |ANTISYM;displayList| ((|x| (|ExtAlgBasis|)) ($ (|OutputForm|)))
         (SPROG
          ((#1=#:G299 NIL) (|i| NIL) (#2=#:G298 NIL)
           (|le| (|List| (|Integer|))))
@@ -378,7 +379,7 @@
                                (EXIT (NREVERSE #2#))))
                          (QREFELT $ 59)))))) 
 
-(SDEFUN |ANTISYM;makeTerm| ((|r| R) (|x| |ExtAlgBasis|) ($ |OutputForm|))
+(SDEFUN |ANTISYM;makeTerm| ((|r| (R)) (|x| (|ExtAlgBasis|)) ($ (|OutputForm|)))
         (COND
          ((SPADCALL |x| (SPADCALL (QREFELT $ 9) (QREFELT $ 12)) (QREFELT $ 16))
           (SPADCALL |r| (QREFELT $ 60)))
@@ -388,11 +389,10 @@
           (SPADCALL (SPADCALL |r| (QREFELT $ 60)) (|ANTISYM;displayList| |x| $)
                     (QREFELT $ 52))))) 
 
-(SDEFUN |ANTISYM;coerce;$Of;20| ((|a| $) ($ |OutputForm|))
+(SDEFUN |ANTISYM;coerce;$Of;20| ((|a| ($)) ($ (|OutputForm|)))
         (SPROG
-         ((#1=#:G311 NIL)
-          (|t| (|Record| (|:| |k| (|ExtAlgBasis|)) (|:| |c| R)))
-          (#2=#:G310 NIL))
+         ((#1=#:G311 NIL) (#2=#:G310 NIL)
+          (|t| (|Record| (|:| |k| (|ExtAlgBasis|)) (|:| |c| R))))
          (SEQ
           (COND ((SPADCALL |a| (QREFELT $ 61)) (SPADCALL 0 (QREFELT $ 62)))
                 ((NULL (CDR |a|))
@@ -402,7 +402,7 @@
                  (SPADCALL (ELT $ 63)
                            (PROGN
                             (LETT #2# NIL)
-                            (SEQ (LETT |t| NIL) (LETT #1# |a|) G190
+                            (SEQ (LETT #1# |a|) G190
                                  (COND
                                   ((OR (ATOM #1#)
                                        (PROGN (LETT |t| (CAR #1#)) NIL))

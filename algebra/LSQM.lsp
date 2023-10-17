@@ -1,8 +1,8 @@
 
-(SDEFUN |LSQM;convert;Sm$;1| ((|x| |SquareMatrix| |n| R) ($ $))
+(SDEFUN |LSQM;convert;Sm$;1| ((|x| (|SquareMatrix| |n| R)) ($ ($)))
         (SPADCALL |x| (QREFELT $ 11))) 
 
-(SDEFUN |LSQM;conv| ((|v| |DirectProduct| |n2| R) ($ |SquareMatrix| |n| R))
+(SDEFUN |LSQM;conv| ((|v| (|DirectProduct| |n2| R)) ($ (|SquareMatrix| |n| R)))
         (SPROG
          ((|z| (|Integer|)) (#1=#:G110 NIL) (|j| NIL) (#2=#:G109 NIL) (|i| NIL)
           (|cond| (|Matrix| R)))
@@ -26,7 +26,7 @@
                (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
           (EXIT (SPADCALL |cond| (QREFELT $ 19)))))) 
 
-(SDEFUN |LSQM;canonical_coordinates| ((|a| $) ($ |Vector| R))
+(SDEFUN |LSQM;canonical_coordinates| ((|a| ($)) ($ (|Vector| R)))
         (SPROG
          ((|z| (|Integer|)) (#1=#:G117 NIL) (|j| NIL) (#2=#:G116 NIL) (|i| NIL)
           (|as| (|SquareMatrix| |n| R)) (|res| (|Vector| R)))
@@ -49,7 +49,8 @@
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
-(SDEFUN |LSQM;coordinates;$VV;4| ((|a| $) (|b| |Vector| $) ($ |Vector| R))
+(SDEFUN |LSQM;coordinates;$VV;4|
+        ((|a| ($)) (|b| (|Vector| $)) ($ (|Vector| R)))
         (SPROG
          ((|canonical| (|Boolean|)) (#1=#:G124 NIL) (|j| NIL)
           (|bv| (|Vector| R)) (#2=#:G123 NIL) (|i| NIL))
@@ -93,12 +94,12 @@
                       (|error|
                        "coordinates works only in canonical basis"))))))) 
 
-(SDEFUN |LSQM;convDM| ((|v| |DirectProduct| |n2| R) ($ $))
+(SDEFUN |LSQM;convDM| ((|v| (|DirectProduct| |n2| R)) ($ ($)))
         (SPROG ((|sq| (|SquareMatrix| |n| R)))
                (SEQ (LETT |sq| (|LSQM;conv| |v| $))
                     (EXIT (SPADCALL |sq| (QREFELT $ 11)))))) 
 
-(SDEFUN |LSQM;basis;V;6| (($ |Vector| $))
+(SDEFUN |LSQM;basis;V;6| (($ (|Vector| $)))
         (SPROG
          ((|res| (|Vector| $)) (|ldp| (|List| (|DirectProduct| |n2| R)))
           (#1=#:G128 NIL) (#2=#:G134 NIL) (|i| NIL) (#3=#:G133 NIL))
@@ -129,9 +130,9 @@
                                 (QREFELT $ 37))
                       (QREFELT $ 38))))))) 
 
-(SDEFUN |LSQM;someBasis;V;7| (($ |Vector| $)) (SPADCALL (QREFELT $ 39))) 
+(SDEFUN |LSQM;someBasis;V;7| (($ (|Vector| $))) (SPADCALL (QREFELT $ 39))) 
 
-(SDEFUN |LSQM;rank;Pi;8| (($ |PositiveInteger|)) (QREFELT $ 9)) 
+(SDEFUN |LSQM;rank;Pi;8| (($ (|PositiveInteger|))) (QREFELT $ 9)) 
 
 (DECLAIM (NOTINLINE |LieSquareMatrix;|)) 
 

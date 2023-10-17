@@ -1,60 +1,60 @@
 
 (PUT '|DFVEC;qelt;$IDf;1| '|SPADreplace| 'DELT) 
 
-(SDEFUN |DFVEC;qelt;$IDf;1| ((|x| $) (|i| |Integer|) ($ |DoubleFloat|))
+(SDEFUN |DFVEC;qelt;$IDf;1| ((|x| ($)) (|i| (|Integer|)) ($ (|DoubleFloat|)))
         (DELT |x| |i|)) 
 
 (PUT '|DFVEC;qsetelt!;$I2Df;2| '|SPADreplace| 'DSETELT) 
 
 (SDEFUN |DFVEC;qsetelt!;$I2Df;2|
-        ((|x| $) (|i| |Integer|) (|s| . #1=(|DoubleFloat|)) ($ . #1#))
+        ((|x| ($)) (|i| (|Integer|)) (|s| #1=(|DoubleFloat|)) ($ #1#))
         (DSETELT |x| |i| |s|)) 
 
 (PUT '|DFVEC;#;$Nni;3| '|SPADreplace| 'DLEN) 
 
-(SDEFUN |DFVEC;#;$Nni;3| ((|x| $) ($ |NonNegativeInteger|)) (DLEN |x|)) 
+(SDEFUN |DFVEC;#;$Nni;3| ((|x| ($)) ($ (|NonNegativeInteger|))) (DLEN |x|)) 
 
 (PUT '|DFVEC;minIndex;$I;4| '|SPADreplace| '(XLAM (|x|) 0)) 
 
-(SDEFUN |DFVEC;minIndex;$I;4| ((|x| $) ($ |Integer|)) 0) 
+(SDEFUN |DFVEC;minIndex;$I;4| ((|x| ($)) ($ (|Integer|))) 0) 
 
 (PUT '|DFVEC;empty;$;5| '|SPADreplace| '(XLAM NIL (MAKE_DOUBLE_VECTOR 0))) 
 
-(SDEFUN |DFVEC;empty;$;5| (($ $)) (MAKE_DOUBLE_VECTOR 0)) 
+(SDEFUN |DFVEC;empty;$;5| (($ ($))) (MAKE_DOUBLE_VECTOR 0)) 
 
 (PUT '|DFVEC;qnew;I$;6| '|SPADreplace| 'MAKE_DOUBLE_VECTOR) 
 
-(SDEFUN |DFVEC;qnew;I$;6| ((|n| |Integer|) ($ $)) (MAKE_DOUBLE_VECTOR |n|)) 
+(SDEFUN |DFVEC;qnew;I$;6| ((|n| (|Integer|)) ($ ($))) (MAKE_DOUBLE_VECTOR |n|)) 
 
 (PUT '|DFVEC;new;NniDf$;7| '|SPADreplace| 'MAKE_DOUBLE_VECTOR1) 
 
 (SDEFUN |DFVEC;new;NniDf$;7|
-        ((|n| |NonNegativeInteger|) (|x| |DoubleFloat|) ($ $))
+        ((|n| (|NonNegativeInteger|)) (|x| (|DoubleFloat|)) ($ ($)))
         (MAKE_DOUBLE_VECTOR1 |n| |x|)) 
 
 (PUT '|DFVEC;qelt;$IDf;8| '|SPADreplace| 'DELT) 
 
-(SDEFUN |DFVEC;qelt;$IDf;8| ((|x| $) (|i| |Integer|) ($ |DoubleFloat|))
+(SDEFUN |DFVEC;qelt;$IDf;8| ((|x| ($)) (|i| (|Integer|)) ($ (|DoubleFloat|)))
         (DELT |x| |i|)) 
 
 (PUT '|DFVEC;elt;$IDf;9| '|SPADreplace| 'DELT) 
 
-(SDEFUN |DFVEC;elt;$IDf;9| ((|x| $) (|i| |Integer|) ($ |DoubleFloat|))
+(SDEFUN |DFVEC;elt;$IDf;9| ((|x| ($)) (|i| (|Integer|)) ($ (|DoubleFloat|)))
         (DELT |x| |i|)) 
 
 (PUT '|DFVEC;qsetelt!;$I2Df;10| '|SPADreplace| 'DSETELT) 
 
 (SDEFUN |DFVEC;qsetelt!;$I2Df;10|
-        ((|x| $) (|i| |Integer|) (|s| . #1=(|DoubleFloat|)) ($ . #1#))
+        ((|x| ($)) (|i| (|Integer|)) (|s| #1=(|DoubleFloat|)) ($ #1#))
         (DSETELT |x| |i| |s|)) 
 
 (PUT '|DFVEC;setelt!;$I2Df;11| '|SPADreplace| 'DSETELT) 
 
 (SDEFUN |DFVEC;setelt!;$I2Df;11|
-        ((|x| $) (|i| |Integer|) (|s| . #1=(|DoubleFloat|)) ($ . #1#))
+        ((|x| ($)) (|i| (|Integer|)) (|s| #1=(|DoubleFloat|)) ($ #1#))
         (DSETELT |x| |i| |s|)) 
 
-(SDEFUN |DFVEC;fill!;$Df$;12| ((|x| $) (|s| |DoubleFloat|) ($ $))
+(SDEFUN |DFVEC;fill!;$Df$;12| ((|x| ($)) (|s| (|DoubleFloat|)) ($ ($)))
         (SPROG ((#1=#:G2694 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 0) (LETT #1# (|sub_SI| (DLEN |x|) 1)) G190
