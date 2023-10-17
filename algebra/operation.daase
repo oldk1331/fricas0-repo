@@ -44538,7 +44538,7 @@
  (|composites| . 652533) (|components| . 652403)
  (|numberOfComposites| . 652262) (|numberOfComponents| . 651443)
  (|create3Space| . 651217) (|outputAsFortran| . 650706)
- (|outputAsScript| . 650443) (|outputAsTex| . 650180) (|abs| . 649216)
+ (|outputAsMathML| . 650443) (|outputAsTex| . 650180) (|abs| . 649216)
  (|unitStep| . 648966) (|ceiling| . 648501) (|floor| . 648036)
  (|fractionPart| . 647117) (|diracDelta| . 646867) (|conjugate| . 646088)
  (|Beta| . 645228) (|digamma| . 644658) (|polygamma| . 644080)

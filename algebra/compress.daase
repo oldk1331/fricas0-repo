@@ -1077,7 +1077,7 @@
  |objects| |lprop| |llprop| |lllp| |lllip| |lp| |mesh?| |mesh| |polygon?|
  |polygon| |closedCurve?| |closedCurve| |curve?| |curve| |point?|
  |enterPointData| |composites| |components| |numberOfComposites|
- |numberOfComponents| |create3Space| |outputAsFortran| |outputAsScript|
+ |numberOfComponents| |create3Space| |outputAsFortran| |outputAsMathML|
  |outputAsTex| |abs| |unitStep| |ceiling| |floor| |fractionPart| |diracDelta|
  |conjugate| |Beta| |digamma| |polygamma| |Gamma| |besselJ| |besselY| |besselI|
  |besselK| |airyAi| |airyAiPrime| |airyBi| |airyBiPrime| |lambertW| |polylog|
