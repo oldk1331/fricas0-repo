@@ -498,8 +498,8 @@
                NIL 1 |argl| NIL))
       (SUBLIS |arglAssoc| |catform|)))))
 
-; augModemapsFromCategory(domainName,domainView,functorForm,categoryForm,e) ==
-;   [fnAlist,e]:= evalAndSub(domainName,domainView,functorForm,categoryForm,e)
+; augModemapsFromCategory(domainName, functorForm, categoryForm, e) ==
+;   [fnAlist,e]:= evalAndSub(domainName, functorForm, categoryForm, e)
 ;   compilerMessage ["Adding ",domainName," modemaps"]
 ;   e:= putDomainsInScope(domainName,e)
 ;   condlist:=[]
@@ -508,14 +508,13 @@
 ;   e
 
 (DEFUN |augModemapsFromCategory|
-       (|domainName| |domainView| |functorForm| |categoryForm| |e|)
+       (|domainName| |functorForm| |categoryForm| |e|)
   (PROG (|LETTMP#1| |fnAlist| |condlist| |ISTMP#1| |op| |ISTMP#2| |sig|
          |ISTMP#3| |cond| |ISTMP#4| |fnsel|)
     (RETURN
      (PROGN
       (SETQ |LETTMP#1|
-              (|evalAndSub| |domainName| |domainView| |functorForm|
-               |categoryForm| |e|))
+              (|evalAndSub| |domainName| |functorForm| |categoryForm| |e|))
       (SETQ |fnAlist| (CAR |LETTMP#1|))
       (SETQ |e| (CADR |LETTMP#1|))
       (|compilerMessage| (LIST '|Adding | |domainName| '| modemaps|))
@@ -552,17 +551,17 @@
        |fnAlist| NIL)
       |e|))))
 
-; evalAndSub(domainName, viewName, functorForm, form, e) ==
+; evalAndSub(domainName, functorForm, form, e) ==
 ;   $tmp_e : local := e
 ;   --next lines necessary-- see MPOLY for which $ is actual arg. --- RDJ 3/83
 ;   if CONTAINED("$$",form) then
 ;       e := put("$$", "mode", get("$", "mode", e), e)
 ;   $tmp_e : local := e
 ;   opAlist:= getOperationAlist(domainName,functorForm,form)
-;   substAlist:= substNames(domainName,viewName,functorForm,opAlist)
+;   substAlist:= substNames(domainName, functorForm, opAlist)
 ;   [substAlist, $tmp_e]
 
-(DEFUN |evalAndSub| (|domainName| |viewName| |functorForm| |form| |e|)
+(DEFUN |evalAndSub| (|domainName| |functorForm| |form| |e|)
   (PROG (|$tmp_e| |substAlist| |opAlist|)
     (DECLARE (SPECIAL |$tmp_e|))
     (RETURN
@@ -573,8 +572,7 @@
         (SETQ |e| (|put| '$$ '|mode| (|get| '$ '|mode| |e|) |e|))))
       (SETQ |$tmp_e| |e|)
       (SETQ |opAlist| (|getOperationAlist| |domainName| |functorForm| |form|))
-      (SETQ |substAlist|
-              (|substNames| |domainName| |viewName| |functorForm| |opAlist|))
+      (SETQ |substAlist| (|substNames| |domainName| |functorForm| |opAlist|))
       (LIST |substAlist| |$tmp_e|)))))
 
 ; getOperationAlist(name,functorForm,form) ==
@@ -607,7 +605,7 @@
         (PROGN (SETQ |$tmp_e| (CADDR T$)) (ELT (CAR T$) 1)))
        (#1# (|stackMessage| (LIST '|not a category form: | |form|))))))))
 
-; substNames(domainName,viewName,functorForm,opalist) ==
+; substNames(domainName, functorForm, opalist) ==
 ;   functorForm := SUBSTQ("$$","$", functorForm)
 ;   nameForDollar :=
 ;     isCategoryPackageName functorForm => CADR functorForm
@@ -616,12 +614,12 @@
 ;        -- following calls to SUBSTQ must copy to save RPLAC's in
 ;        -- putInLocalDomainReferences
 ;   [[:SUBSTQ("$","$$",SUBSTQ(nameForDollar,"$",modemapform)),
-;        [sel, viewName,if domainName = "$" then pos else
+;        [sel, domainName, if domainName = "$" then pos else
 ;                                          CADAR modemapform]]
 ;      for [:modemapform,[sel,"$",pos]] in
 ;           EQSUBSTLIST(IFCDR functorForm, $FormalMapVariableList, opalist)]
 
-(DEFUN |substNames| (|domainName| |viewName| |functorForm| |opalist|)
+(DEFUN |substNames| (|domainName| |functorForm| |opalist|)
   (PROG (|nameForDollar| |ISTMP#1| |ISTMP#2| |sel| |ISTMP#3| |ISTMP#4| |pos|
          |modemapform|)
     (RETURN
@@ -662,7 +660,7 @@
                            (SUBSTQ '$ '$$
                             (SUBSTQ |nameForDollar| '$ |modemapform|))
                            (CONS
-                            (LIST |sel| |viewName|
+                            (LIST |sel| |domainName|
                                   (COND ((EQ |domainName| '$) |pos|)
                                         (#1# (CADAR |modemapform|))))
                             NIL))

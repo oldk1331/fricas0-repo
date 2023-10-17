@@ -160,22 +160,20 @@
       ((AND (CONSP |y|) (EQ (CAR |y|) 'SIGNATURE)) (LIST |y|))
       (#1# (LIST (|makeNonAtomic| |y|)))))))
 
-; parseDEF [lhs,tList,specialList,body] ==
+; parseDEF [lhs, tList, body] ==
 ;   setDefOp lhs
-;   ['DEF, parseLhs lhs, parseTranList tList, parseTranList specialList,
-;     parseTran(body)]
+;   ['DEF, parseLhs lhs, parseTranList tList, parseTran(body)]
 
 (DEFUN |parseDEF| (|bfVar#10|)
-  (PROG (|lhs| |tList| |specialList| |body|)
+  (PROG (|lhs| |tList| |body|)
     (RETURN
      (PROGN
       (SETQ |lhs| (CAR |bfVar#10|))
       (SETQ |tList| (CADR . #1=(|bfVar#10|)))
-      (SETQ |specialList| (CADDR . #1#))
-      (SETQ |body| (CADDDR . #1#))
+      (SETQ |body| (CADDR . #1#))
       (|setDefOp| |lhs|)
       (LIST 'DEF (|parseLhs| |lhs|) (|parseTranList| |tList|)
-            (|parseTranList| |specialList|) (|parseTran| |body|))))))
+            (|parseTran| |body|))))))
 
 ; parseLhs x ==
 ;   atom x => parseTran x
@@ -200,20 +198,18 @@
                    NIL (CDR |x|) NIL)))
            (#1# (|parseTran| |x|))))))
 
-; parseMDEF [lhs,tList,specialList,body] ==
-;   ['MDEF, parseTran lhs, parseTranList tList, parseTranList specialList,
-;     parseTran(body)]
+; parseMDEF [lhs, tList, body] ==
+;   ['MDEF, parseTran lhs, parseTranList tList, parseTran(body)]
 
 (DEFUN |parseMDEF| (|bfVar#13|)
-  (PROG (|lhs| |tList| |specialList| |body|)
+  (PROG (|lhs| |tList| |body|)
     (RETURN
      (PROGN
       (SETQ |lhs| (CAR |bfVar#13|))
       (SETQ |tList| (CADR . #1=(|bfVar#13|)))
-      (SETQ |specialList| (CADDR . #1#))
-      (SETQ |body| (CADDDR . #1#))
+      (SETQ |body| (CADDR . #1#))
       (LIST 'MDEF (|parseTran| |lhs|) (|parseTranList| |tList|)
-            (|parseTranList| |specialList|) (|parseTran| |body|))))))
+            (|parseTran| |body|))))))
 
 ; parseCategory x ==
 ;   l:= parseTranList x

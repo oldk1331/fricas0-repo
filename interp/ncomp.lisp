@@ -655,7 +655,7 @@
 ;     $globalDefs := [parseTransform postTransform x for x in $globalDefs]
 ;     untypedDefs := []
 ;     for def in $globalDefs repeat
-;         ["DEF", form, sig, sc, body] := def
+;         ["DEF", form, sig, body] := def
 ;         cosig := CONS(nil, [categoryForm? ty for ty in rest(sig)])
 ;         SETDATABASE(first form, 'COSIG, cosig)
 ;         if null first(sig) then
@@ -664,17 +664,16 @@
 ;             handleKind(def)
 ;
 ;     for def in untypedDefs repeat
-;         ["DEF", form, sig, sc, body] := def
+;         ["DEF", form, sig, body] := def
 ;         nt := computeTargetMode(form, body)
 ;         if nt then
-;             handleKind(["DEF", form, [nt, :rest sig], sc, body])
+;             handleKind(["DEF", form, [nt, :rest sig], body])
 ;         else
 ;             SAY(["unhandled target", form])
 ;     boo_comp_cats()
 
 (DEFUN |processGlobals| ()
-  (PROG (|$InteractiveMode| |untypedDefs| |form| |sig| |sc| |body| |cosig|
-         |nt|)
+  (PROG (|$InteractiveMode| |untypedDefs| |form| |sig| |body| |cosig| |nt|)
     (DECLARE (SPECIAL |$InteractiveMode|))
     (RETURN
      (PROGN
@@ -704,8 +703,7 @@
             (PROGN
              (SETQ |form| (CADR . #2=(|def|)))
              (SETQ |sig| (CADDR . #2#))
-             (SETQ |sc| (CADDDR . #2#))
-             (SETQ |body| (CAR (CDDDDR . #2#)))
+             (SETQ |body| (CADDDR . #2#))
              (SETQ |cosig|
                      (CONS NIL
                            ((LAMBDA (|bfVar#17| |bfVar#16| |ty|)
@@ -736,20 +734,19 @@
             (PROGN
              (SETQ |form| (CADR . #3=(|def|)))
              (SETQ |sig| (CADDR . #3#))
-             (SETQ |sc| (CADDDR . #3#))
-             (SETQ |body| (CAR (CDDDDR . #3#)))
+             (SETQ |body| (CADDDR . #3#))
              (SETQ |nt| (|computeTargetMode| |form| |body|))
              (COND
               (|nt|
                (|handleKind|
-                (LIST 'DEF |form| (CONS |nt| (CDR |sig|)) |sc| |body|)))
+                (LIST 'DEF |form| (CONS |nt| (CDR |sig|)) |body|)))
               (#1# (SAY (LIST '|unhandled target| |form|)))))))
           (SETQ |bfVar#18| (CDR |bfVar#18|))))
        |untypedDefs| NIL)
       (|boo_comp_cats|)))))
 
-; handleKind(df is ['DEF,form,sig,sc,body]) ==
-;     [op,:argl] := form
+; handleKind(df is ['DEF, form, sig, body]) ==
+;     [op, :argl] := form
 ;
 ;     null first(sig) => nil
 ;     if sig is [["Category"], :.] then
@@ -774,16 +771,14 @@
 ;     SETDATABASE(op, 'CONSTRUCTORCATEGORY, constructorCategory)
 
 (DEFUN |handleKind| (|df|)
-  (PROG (|form| |sig| |sc| |body| |op| |argl| |ISTMP#1| |cat| |ISTMP#2|
-         |capsule| |sargl| |aList| |formalBody| |signature'|
-         |constructorCategory| |pairlis| |parSignature| |parForm|
-         |constructorModemap|)
+  (PROG (|form| |sig| |body| |op| |argl| |ISTMP#1| |cat| |ISTMP#2| |capsule|
+         |sargl| |aList| |formalBody| |signature'| |constructorCategory|
+         |pairlis| |parSignature| |parForm| |constructorModemap|)
     (RETURN
      (PROGN
       (SETQ |form| (CADR . #1=(|df|)))
       (SETQ |sig| (CADDR . #1#))
-      (SETQ |sc| (CADDDR . #1#))
-      (SETQ |body| (CAR (CDDDDR . #1#)))
+      (SETQ |body| (CADDDR . #1#))
       (SETQ |op| (CAR |form|))
       (SETQ |argl| (CDR |form|))
       (COND ((NULL (CAR |sig|)) NIL)
@@ -862,7 +857,7 @@
 ;     SAY(["boo_comp_cats"])
 ;     hcats := []
 ;     for def in $globalDefs repeat
-;         ["DEF", form, sig, sc, body] := def
+;         ["DEF", form, sig, body] := def
 ;         if sig is [["Category"], :.] then
 ;             SAY(["doing", form, sig])
 ;             not("and"/[categoryForm? ty for ty in rest(sig)]) =>
@@ -871,7 +866,7 @@
 ;     for def in hcats repeat boo_comp1(def)
 
 (DEFUN |boo_comp_cats| ()
-  (PROG (|$bootStrapMode| |hcats| |form| |sig| |sc| |body| |ISTMP#1|)
+  (PROG (|$bootStrapMode| |hcats| |form| |sig| |body| |ISTMP#1|)
     (DECLARE (SPECIAL |$bootStrapMode|))
     (RETURN
      (PROGN
@@ -888,8 +883,7 @@
             (PROGN
              (SETQ |form| (CADR . #2=(|def|)))
              (SETQ |sig| (CADDR . #2#))
-             (SETQ |sc| (CADDDR . #2#))
-             (SETQ |body| (CAR (CDDDDR . #2#)))
+             (SETQ |body| (CADDDR . #2#))
              (COND
               ((AND (CONSP |sig|)
                     (PROGN

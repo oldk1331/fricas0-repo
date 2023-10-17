@@ -2775,7 +2775,7 @@
                       |m| |e|))))))))))
 
 ; compMacro(form,m,e) ==
-;   ["MDEF",lhs,signature,specialCases,rhs]:= form
+;   ["MDEF", lhs, signature, rhs] := form
 ;   prhs :=
 ;     rhs is ['CATEGORY,:.] => ['"-- the constructor category"]
 ;     rhs is ['Join,:.]     => ['"-- the constructor category"]
@@ -2792,13 +2792,12 @@
 ;     ["/throwAway", $NoValueMode, put(first lhs, "macro", nrhs, e)]
 
 (DEFUN |compMacro| (|form| |m| |e|)
-  (PROG (|lhs| |signature| |specialCases| |rhs| |prhs| |margs| |nrhs|)
+  (PROG (|lhs| |signature| |rhs| |prhs| |margs| |nrhs|)
     (RETURN
      (PROGN
       (SETQ |lhs| (CADR . #1=(|form|)))
       (SETQ |signature| (CADDR . #1#))
-      (SETQ |specialCases| (CADDDR . #1#))
-      (SETQ |rhs| (CAR (CDDDDR . #1#)))
+      (SETQ |rhs| (CADDDR . #1#))
       (SETQ |prhs|
               (COND
                ((AND (CONSP |rhs|) (EQ (CAR |rhs|) 'CATEGORY))
