@@ -355,6 +355,7 @@
 
 ; axFormatType(typeform) ==
 ;   atom typeform =>
+;      typeform = '% => '%
 ;      STRINGP typeform =>
 ;         ['Apply,'Enumeration, INTERN typeform]
 ;      INTEGERP typeform =>
@@ -441,30 +442,31 @@
     (RETURN
      (COND
       ((ATOM |typeform|)
-       (COND
-        ((STRINGP |typeform|)
-         (LIST '|Apply| '|Enumeration| (INTERN |typeform|)))
-        ((INTEGERP |typeform|)
-         (COND
-          ((EQL |typeform| 0)
-           (PROGN
-            (|axAddLiteral| '|integer| '|Integer| '|Literal|)
-            (LIST '|RestrictTo| (LIST '|LitInteger| "0") '|Integer|)))
-          (#1='T
-           (PROGN
-            (|axAddLiteral| '|integer| '|PositiveInteger| '|Literal|)
-            (LIST '|RestrictTo| (LIST '|LitInteger| (STRINGIMAGE |typeform|))
-                  '|PositiveInteger|)))))
-        ((FLOATP |typeform|) (LIST '|LitFloat| (STRINGIMAGE |typeform|)))
-        ((MEMQ |typeform| |$TriangleVariableList|)
-         (SUBLISLIS |$FormalMapVariableList| |$TriangleVariableList|
-          |typeform|))
-        ((MEMQ |typeform| |$FormalMapVariableList|) |typeform|)
-        (#1#
-         (PROGN
-          (|axAddLiteral| '|string| '|Symbol| '|Literal|)
-          (LIST '|RestrictTo| (LIST '|LitString| (PNAME |typeform|))
-                '|Symbol|)))))
+       (COND ((EQ |typeform| '%) '%)
+             ((STRINGP |typeform|)
+              (LIST '|Apply| '|Enumeration| (INTERN |typeform|)))
+             ((INTEGERP |typeform|)
+              (COND
+               ((EQL |typeform| 0)
+                (PROGN
+                 (|axAddLiteral| '|integer| '|Integer| '|Literal|)
+                 (LIST '|RestrictTo| (LIST '|LitInteger| "0") '|Integer|)))
+               (#1='T
+                (PROGN
+                 (|axAddLiteral| '|integer| '|PositiveInteger| '|Literal|)
+                 (LIST '|RestrictTo|
+                       (LIST '|LitInteger| (STRINGIMAGE |typeform|))
+                       '|PositiveInteger|)))))
+             ((FLOATP |typeform|) (LIST '|LitFloat| (STRINGIMAGE |typeform|)))
+             ((MEMQ |typeform| |$TriangleVariableList|)
+              (SUBLISLIS |$FormalMapVariableList| |$TriangleVariableList|
+               |typeform|))
+             ((MEMQ |typeform| |$FormalMapVariableList|) |typeform|)
+             (#1#
+              (PROGN
+               (|axAddLiteral| '|string| '|Symbol| '|Literal|)
+               (LIST '|RestrictTo| (LIST '|LitString| (PNAME |typeform|))
+                     '|Symbol|)))))
       ((AND (CONSP |typeform|) (EQ (CAR |typeform|) '|construct|)
             (PROGN (SETQ |args| (CDR |typeform|)) #1#))
        (PROGN
