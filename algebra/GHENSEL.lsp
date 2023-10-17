@@ -88,7 +88,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |x| |n| (QREFELT $ 30)))))) 
 
-(SDEFUN |GHENSEL;GenExEuclid|
+(SDEFUN |GHENSEL;gen_ex_Euclid|
         ((|fl| (|List| FP)) (|cl| (|List| FP)) (|rhs| (FP)) ($ (|List| FP)))
         (SPROG
          ((#1=#:G159 NIL) (|clp| NIL) (#2=#:G160 NIL) (|flp| NIL)
@@ -277,7 +277,7 @@
                              (SPADCALL (SPADCALL |cinv| (QREFELT $ 44)) |prime|
                                        (QREFELT $ 42)))
                        (LETT |vl|
-                             (|GHENSEL;GenExEuclid| |fl1| |cl1|
+                             (|GHENSEL;gen_ex_Euclid| |fl1| |cl1|
                               (SPADCALL |lcinv| |rhs| (QREFELT $ 31)) $))
                        (EXIT
                         (PROGN
