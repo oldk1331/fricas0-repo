@@ -454,8 +454,8 @@
                         (|:| |poly| (|U32Vector|)))))
          (|rdata2| #2#) (% (|Void|)))
         (SPROG
-         ((#3=#:G261 NIL) (|i| NIL) (|rtmp| (|U32Vector|)) (#4=#:G260 NIL)
-          (#5=#:G259 NIL) (#6=#:G258 NIL) (|j| NIL) (|tmp2| #7=(|U32Vector|))
+         ((#3=#:G262 NIL) (|i| NIL) (|rtmp| (|U32Vector|)) (#4=#:G261 NIL)
+          (#5=#:G260 NIL) (#6=#:G259 NIL) (|j| NIL) (|tmp2| #7=(|U32Vector|))
           (|tmp1| #7#) (|nc| (|Integer|)))
          (SEQ
           (COND
@@ -471,11 +471,9 @@
                         (SEQ (LETT |i| 0) (LETT #5# (- |nr0| 1)) G190
                              (COND ((|greater_SI| |i| #5#) (GO G191)))
                              (SEQ
+                              (SETELT_U32 |tmp1| |i| (AREF2_U32 |m| |i| |j|))
                               (EXIT
-                               (SETELT_U32 |tmp2| |i|
-                                           (SETELT_U32 |tmp1| |i|
-                                                       (AREF2_U32 |m| |i|
-                                                                  |j|)))))
+                               (SETELT_U32 |tmp2| |i| (ELT_U32 |tmp1| |i|))))
                              (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                              (EXIT NIL))
                         (COND
@@ -518,7 +516,7 @@
                      (|:| |poly| (|U32Vector|)))))
          (% (|Record| (|:| |matr| (|U32Matrix|)) (|:| |poly| (|U32Vector|)))))
         (SPROG
-         ((#1=#:G273 NIL) (|k| NIL) (#2=#:G272 NIL) (|j| NIL)
+         ((#1=#:G274 NIL) (|k| NIL) (#2=#:G273 NIL) (|j| NIL)
           (|n1| (|SingleInteger|)) (|l1| (|Integer|)) (|pow| (|U32Vector|))
           (|pm| (|U32Matrix|)) (|n| (|NonNegativeInteger|)) (|f| (|U32Vector|))
           (|p| (|NonNegativeInteger|))
@@ -553,9 +551,9 @@
                      (|:| |poly| (|U32Vector|)))))
          (% (|U32Vector|)))
         (SPROG
-         ((#2=#:G291 NIL) (|i| (|SingleInteger|)) (|k| NIL)
+         ((#2=#:G292 NIL) (|i| (|SingleInteger|)) (|k| NIL)
           (|ns1| (|SingleInteger|)) (|res| #3=(|U32Vector|)) (|p1| #3#)
-          (|m2| (|U32Matrix|)) (#4=#:G290 NIL) (#5=#:G289 NIL) (|j| NIL)
+          (|m2| (|U32Matrix|)) (#4=#:G291 NIL) (#5=#:G290 NIL) (|j| NIL)
           (|k1| #6=(|SingleInteger|)) (|l1s| #6#) (|m1| (|U32Matrix|))
           (|l2| #7=(|NonNegativeInteger|)) (|dps1| #6#) (|dp| #7#)
           (|dp0| (|Integer|)) (|ns| #6#) (|n| #7#) (|f| (|U32Vector|))
@@ -632,7 +630,7 @@
 
 (DEFUN |ModularFactorizationTools1| ()
   (SPROG NIL
-         (PROG (#1=#:G295)
+         (PROG (#1=#:G296)
            (RETURN
             (COND
              ((LETT #1#
