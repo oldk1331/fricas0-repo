@@ -95,9 +95,9 @@
                             (|mkCategory|
                              (LIST '((* (|#1| (|NonNegativeInteger|) |#1|)) T)
                                    '((* (|#1| (|Integer|) |#1|)) T)
-                                   '((* (|#1| |#1| (|Fraction| (|Integer|))))
-                                     T)
                                    '((* (|#1| (|Fraction| (|Integer|)) |#1|))
+                                     T)
+                                   '((* (|#1| |#1| (|Fraction| (|Integer|))))
                                      T)
                                    '((|map| (|#1| (|Mapping| |#2| |#2|) |#1|))
                                      T)

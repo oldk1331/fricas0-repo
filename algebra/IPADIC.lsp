@@ -843,34 +843,35 @@
            '#(~= 218 |zero?| 224 |unitNormal| 229 |unitCanonical| 234 |unit?|
               239 |subtractIfCan| 244 |sqrt| 250 |sizeLess?| 256 |sample| 262
               |root| 266 |rightRecip| 272 |rightPower| 277 |rem| 289 |recip|
-              295 |quotientByP| 300 |quo| 305 |principalIdeal| 311 |order| 316
-              |opposite?| 321 |one?| 327 |multiEuclidean| 332 |modulus| 338
-              |moduloP| 342 |leftRecip| 347 |leftPower| 352 |lcmCoef| 364 |lcm|
-              370 |latex| 381 |gcdPolynomial| 386 |gcd| 392 |extendedEuclidean|
-              403 |extend| 416 |exquo| 422 |expressIdealMember| 428
-              |euclideanSize| 434 |divide| 439 |digits| 445 |complete| 450
-              |commutator| 455 |coerce| 461 |characteristic| 476 |associator|
-              480 |associates?| 487 |approximate| 493 |antiCommutator| 499
-              |annihilate?| 505 ^ 511 |Zero| 523 |One| 527 = 531 - 537 + 548 *
-              554)
+              295 |quotientByP| 300 |quo| 305 |principalIdeal| 311
+              |plenaryPower| 316 |order| 322 |opposite?| 327 |one?| 333
+              |multiEuclidean| 338 |modulus| 344 |moduloP| 348 |leftRecip| 353
+              |leftPower| 358 |lcmCoef| 370 |lcm| 376 |latex| 387
+              |gcdPolynomial| 392 |gcd| 398 |extendedEuclidean| 409 |extend|
+              422 |exquo| 428 |expressIdealMember| 434 |euclideanSize| 440
+              |divide| 445 |digits| 451 |complete| 456 |commutator| 461
+              |coerce| 467 |characteristic| 482 |associator| 486 |associates?|
+              493 |approximate| 499 |antiCommutator| 505 |annihilate?| 511 ^
+              517 |Zero| 529 |One| 533 = 537 - 543 + 554 * 560)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(NIL |EuclideanDomain&| NIL |GcdDomain&| NIL NIL NIL NIL
-                |EntireRing&| |Algebra&| NIL |Rng&| NIL |Module&| NIL NIL
-                |NonAssociativeRing&| NIL |NonAssociativeRng&| NIL
-                |AbelianGroup&| NIL NIL NIL NIL |MagmaWithUnit&|
-                |NonAssociativeSemiRng&| |AbelianMonoid&| |Magma&|
-                |AbelianSemiGroup&| NIL |SetCategory&| NIL NIL NIL |BasicType&|
-                NIL)
+                |EntireRing&| |Algebra&| NIL |NonAssociativeAlgebra&| |Rng&|
+                NIL |Module&| NIL NIL |NonAssociativeRing&| NIL
+                |NonAssociativeRng&| NIL |AbelianGroup&| NIL NIL NIL NIL
+                |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&|
+                |Magma&| |AbelianSemiGroup&| NIL |SetCategory&| NIL NIL NIL
+                |BasicType&| NIL)
              (CONS
               '#((|PAdicIntegerCategory| 6) (|EuclideanDomain|)
                  (|PrincipalIdealDomain|) (|GcdDomain|) (|IntegralDomain|)
                  (|CommutativeRing|) (|LeftOreRing|) (|CharacteristicZero|)
-                 (|EntireRing|) (|Algebra| $$) (|Ring|) (|Rng|) (|SemiRing|)
+                 (|EntireRing|) (|Algebra| $$) (|Ring|)
+                 (|NonAssociativeAlgebra| $$) (|Rng|) (|SemiRing|)
                  (|Module| $$) (|SemiRng|) (|BiModule| $$ $$)
                  (|NonAssociativeRing|) (|LeftModule| $$) (|NonAssociativeRng|)
                  (|RightModule| $$) (|AbelianGroup|) (|Monoid|)
@@ -897,19 +898,19 @@
                                     0 1 2 0 57 0 0 1 2 0 0 0 9 66 2 0 26 0 0 1
                                     0 0 0 1 2 0 0 67 9 72 1 0 57 0 1 2 0 0 0 13
                                     1 2 0 0 0 63 1 2 0 0 0 0 1 1 0 57 0 58 1 0
-                                    0 0 34 2 0 0 0 0 1 1 0 93 82 1 1 0 13 0 15
-                                    2 0 26 0 0 1 1 0 26 0 1 2 0 91 82 0 1 0 0 9
-                                    29 1 0 9 0 32 1 0 57 0 1 2 0 0 0 13 1 2 0 0
-                                    0 63 1 2 0 95 0 0 1 1 0 0 82 1 2 0 0 0 0 1
-                                    1 0 97 0 1 2 0 94 94 94 1 1 0 0 82 1 2 0 0
-                                    0 0 1 3 0 90 0 0 0 1 2 0 92 0 0 1 2 0 0 0 9
-                                    21 2 0 57 0 0 59 2 0 91 82 0 1 1 0 13 0 16
-                                    2 0 60 0 0 61 1 0 17 0 18 1 0 0 0 23 2 0 0
-                                    0 0 1 1 0 0 0 1 1 0 0 9 52 1 0 8 0 88 0 0
-                                    13 14 3 0 0 0 0 0 1 2 0 26 0 0 1 2 0 9 0 9
-                                    36 2 0 0 0 0 1 2 0 26 0 0 1 2 0 0 0 13 1 2
-                                    0 0 0 63 1 0 0 0 35 0 0 0 19 2 0 26 0 0 39
-                                    1 0 0 0 51 2 0 0 0 0 37 2 0 0 0 0 50 2 0 0
-                                    13 0 1 2 0 0 9 0 54 2 0 0 0 0 55 2 0 0 63 0
-                                    1)))))
+                                    0 0 34 2 0 0 0 0 1 1 0 93 82 1 2 0 0 0 63 1
+                                    1 0 13 0 15 2 0 26 0 0 1 1 0 26 0 1 2 0 91
+                                    82 0 1 0 0 9 29 1 0 9 0 32 1 0 57 0 1 2 0 0
+                                    0 13 1 2 0 0 0 63 1 2 0 95 0 0 1 1 0 0 82 1
+                                    2 0 0 0 0 1 1 0 97 0 1 2 0 94 94 94 1 1 0 0
+                                    82 1 2 0 0 0 0 1 3 0 90 0 0 0 1 2 0 92 0 0
+                                    1 2 0 0 0 9 21 2 0 57 0 0 59 2 0 91 82 0 1
+                                    1 0 13 0 16 2 0 60 0 0 61 1 0 17 0 18 1 0 0
+                                    0 23 2 0 0 0 0 1 1 0 0 0 1 1 0 0 9 52 1 0 8
+                                    0 88 0 0 13 14 3 0 0 0 0 0 1 2 0 26 0 0 1 2
+                                    0 9 0 9 36 2 0 0 0 0 1 2 0 26 0 0 1 2 0 0 0
+                                    13 1 2 0 0 0 63 1 0 0 0 35 0 0 0 19 2 0 26
+                                    0 0 39 1 0 0 0 51 2 0 0 0 0 37 2 0 0 0 0 50
+                                    2 0 0 13 0 1 2 0 0 9 0 54 2 0 0 0 0 55 2 0
+                                    0 63 0 1)))))
            '|lookupComplete|)) 

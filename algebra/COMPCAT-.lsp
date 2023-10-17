@@ -1669,9 +1669,9 @@
                                    '((|differentiate| (|#1| |#1|)) T)
                                    '((|inv| (|#1| |#1|)) T)
                                    '((^ (|#1| |#1| (|Integer|))) T)
-                                   '((* (|#1| |#1| (|Fraction| (|Integer|))))
-                                     T)
                                    '((* (|#1| (|Fraction| (|Integer|)) |#1|))
+                                     T)
+                                   '((* (|#1| |#1| (|Fraction| (|Integer|))))
                                      T)
                                    '((|reduce|
                                       ((|Union| |#1| "failed")
@@ -1757,8 +1757,8 @@
                                    '((|trace| (|#2| |#1|)) T)
                                    '((|rank| ((|PositiveInteger|))) T)
                                    '((|coerce| (|#1| |#2|)) T)
-                                   '((* (|#1| |#2| |#1|)) T)
                                    '((* (|#1| |#1| |#2|)) T)
+                                   '((* (|#1| |#2| |#1|)) T)
                                    '((|characteristic|
                                       ((|NonNegativeInteger|)))
                                      T)

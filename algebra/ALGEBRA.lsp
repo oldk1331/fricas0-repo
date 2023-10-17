@@ -23,7 +23,8 @@
                                          ('T
                                           (LETT |Algebra;CAT|
                                                 (|Join| (|Ring|)
-                                                        (|Module| '|t#1|)
+                                                        (|NonAssociativeAlgebra|
+                                                         '|t#1|)
                                                         (|mkCategory|
                                                          '(((|coerce|
                                                              (% |t#1|))

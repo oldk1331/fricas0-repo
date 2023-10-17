@@ -61,40 +61,41 @@
 
 (MAKEPROP '|OrderedExpression| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|Expression| 21) '|Rep| |OEXPR;retract;E%;1|
+           '#(NIL NIL NIL NIL NIL (|Expression| 22) '|Rep| |OEXPR;retract;E%;1|
               |OEXPR;coerce;%E;2| (|Union| % '"failed")
               |OEXPR;retractIfCan;EU;3| (0 . -) (6 . |Zero|) (10 . |Zero|)
-              (|Boolean|) (14 . =) (|Union| 21 '"failed")
-              (|ElementaryFunctionSign| 21 5) (20 . |sign|) |OEXPR;<;2%B;4|
-              (|Fraction| 21) (|Integer|) (|PositiveInteger|)
+              (|Boolean|) (14 . =) (|Union| 22 '"failed")
+              (|ElementaryFunctionSign| 22 5) (20 . |sign|) |OEXPR;<;2%B;4|
+              (|PositiveInteger|) (|Fraction| 22) (|Integer|)
               (|NonNegativeInteger|) (|OutputForm|) (|String|))
            '#(~= 25 |zero?| 31 |subtractIfCan| 36 |smaller?| 42 |sign| 48
               |sample| 53 |rightRecip| 57 |rightPower| 62 |retractIfCan| 74
-              |retract| 79 |recip| 84 |positive?| 89 |opposite?| 94 |one?| 100
-              |negative?| 105 |min| 110 |max| 116 |leftRecip| 122 |leftPower|
-              127 |latex| 139 |commutator| 144 |coerce| 150 |characteristic|
-              170 |associator| 174 |antiCommutator| 181 |annihilate?| 187 |abs|
-              193 ^ 198 |Zero| 210 |One| 214 >= 218 > 224 = 230 <= 236 < 242 -
-              248 + 259 * 265)
+              |retract| 79 |recip| 84 |positive?| 89 |plenaryPower| 94
+              |opposite?| 100 |one?| 106 |negative?| 111 |min| 116 |max| 122
+              |leftRecip| 128 |leftPower| 133 |latex| 145 |commutator| 150
+              |coerce| 156 |characteristic| 176 |associator| 180
+              |antiCommutator| 187 |annihilate?| 193 |abs| 199 ^ 204 |Zero| 216
+              |One| 220 >= 224 > 230 = 236 <= 242 < 248 - 254 + 265 * 271)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
-             '#(|OrderedRing&| |Algebra&| NIL NIL |Rng&| NIL |Module&| NIL NIL
-                NIL |NonAssociativeRing&| NIL NIL NIL NIL |NonAssociativeRng&|
-                NIL NIL NIL |AbelianGroup&| NIL NIL NIL NIL |OrderedSet&| NIL
-                |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&| NIL
-                |Magma&| |AbelianSemiGroup&| |RetractableFrom&| |SetCategory&|
-                NIL NIL |BasicType&| |PartialOrder&| NIL)
+             '#(|OrderedRing&| |Algebra&| NIL NIL |NonAssociativeAlgebra&|
+                |Rng&| NIL |Module&| NIL NIL NIL |NonAssociativeRing&| NIL NIL
+                NIL NIL |NonAssociativeRng&| NIL NIL NIL |AbelianGroup&| NIL
+                NIL NIL NIL |OrderedSet&| NIL |MagmaWithUnit&|
+                |NonAssociativeSemiRng&| |AbelianMonoid&| NIL |Magma&|
+                |AbelianSemiGroup&| |RetractableFrom&| |SetCategory&| NIL NIL
+                |BasicType&| |PartialOrder&| NIL)
              (CONS
-              '#((|OrderedRing|) (|Algebra| 20) (|CharacteristicZero|) (|Ring|)
-                 (|Rng|) (|SemiRing|) (|Module| 20) (|SemiRng|)
-                 (|OrderedAbelianGroup|) (|BiModule| 20 20)
-                 (|NonAssociativeRing|) (|BiModule| $$ $$)
-                 (|OrderedCancellationAbelianMonoid|) (|RightModule| 20)
-                 (|LeftModule| 20) (|NonAssociativeRng|) (|RightModule| $$)
+              '#((|OrderedRing|) (|Algebra| 21) (|CharacteristicZero|) (|Ring|)
+                 (|NonAssociativeAlgebra| 21) (|Rng|) (|SemiRing|)
+                 (|Module| 21) (|SemiRng|) (|OrderedAbelianGroup|)
+                 (|BiModule| 21 21) (|NonAssociativeRing|) (|BiModule| $$ $$)
+                 (|OrderedCancellationAbelianMonoid|) (|RightModule| 21)
+                 (|LeftModule| 21) (|NonAssociativeRng|) (|RightModule| $$)
                  (|LeftModule| $$) (|OrderedAbelianMonoid|) (|AbelianGroup|)
                  (|OrderedAbelianSemiGroup|) (|Monoid|)
                  (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
@@ -106,19 +107,20 @@
               (|makeByteWordVec2| 25
                                   '(2 0 0 0 0 11 0 0 0 12 0 6 0 13 2 0 14 0 0
                                     15 1 17 16 5 18 2 0 14 0 0 1 1 0 14 0 1 2 0
-                                    9 0 0 1 2 0 14 0 0 1 1 0 21 0 1 0 0 0 1 1 0
-                                    9 0 1 2 0 0 0 22 1 2 0 0 0 23 1 1 0 9 5 10
-                                    1 0 0 5 7 1 0 9 0 1 1 0 14 0 1 2 0 14 0 0 1
-                                    1 0 14 0 1 1 0 14 0 1 2 0 0 0 0 1 2 0 0 0 0
-                                    1 1 0 9 0 1 2 0 0 0 22 1 2 0 0 0 23 1 1 0
-                                    25 0 1 2 0 0 0 0 1 1 0 5 0 8 1 0 0 20 1 1 0
-                                    0 21 1 1 0 24 0 1 0 0 23 1 3 0 0 0 0 0 1 2
-                                    0 0 0 0 1 2 0 14 0 0 1 1 0 0 0 1 2 0 0 0 22
-                                    1 2 0 0 0 23 1 0 0 0 12 0 0 0 1 2 0 14 0 0
-                                    1 2 0 14 0 0 1 2 0 14 0 0 15 2 0 14 0 0 1 2
-                                    0 14 0 0 19 1 0 0 0 1 2 0 0 0 0 11 2 0 0 0
-                                    0 1 2 0 0 0 20 1 2 0 0 20 0 1 2 0 0 0 0 1 2
-                                    0 0 21 0 1 2 0 0 23 0 1 2 0 0 22 0 1)))))
+                                    9 0 0 1 2 0 14 0 0 1 1 0 22 0 1 0 0 0 1 1 0
+                                    9 0 1 2 0 0 0 20 1 2 0 0 0 23 1 1 0 9 5 10
+                                    1 0 0 5 7 1 0 9 0 1 1 0 14 0 1 2 0 0 0 20 1
+                                    2 0 14 0 0 1 1 0 14 0 1 1 0 14 0 1 2 0 0 0
+                                    0 1 2 0 0 0 0 1 1 0 9 0 1 2 0 0 0 20 1 2 0
+                                    0 0 23 1 1 0 25 0 1 2 0 0 0 0 1 1 0 5 0 8 1
+                                    0 0 21 1 1 0 0 22 1 1 0 24 0 1 0 0 23 1 3 0
+                                    0 0 0 0 1 2 0 0 0 0 1 2 0 14 0 0 1 1 0 0 0
+                                    1 2 0 0 0 20 1 2 0 0 0 23 1 0 0 0 12 0 0 0
+                                    1 2 0 14 0 0 1 2 0 14 0 0 1 2 0 14 0 0 15 2
+                                    0 14 0 0 1 2 0 14 0 0 19 2 0 0 0 0 11 1 0 0
+                                    0 1 2 0 0 0 0 1 2 0 0 0 21 1 2 0 0 21 0 1 2
+                                    0 0 0 0 1 2 0 0 22 0 1 2 0 0 23 0 1 2 0 0
+                                    20 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|OrderedExpression| 'NILADIC T) 

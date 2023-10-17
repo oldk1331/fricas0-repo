@@ -754,9 +754,9 @@
                                        (SPADCALL
                                         (SPADCALL 1
                                                   (SPADCALL (QCDR |t|)
-                                                            (QREFELT % 122))
-                                                  (QREFELT % 123))
-                                        |ans| (QREFELT % 124)))))
+                                                            (QREFELT % 123))
+                                                  (QREFELT % 124))
+                                        |ans| (QREFELT % 125)))))
                            (GO #6=#:G326))))))))))))
             (SEQ
              (LETT |s|
@@ -802,9 +802,9 @@
                                        (SPADCALL
                                         (SPADCALL 1
                                                   (SPADCALL (QCDR |t|)
-                                                            (QREFELT % 122))
-                                                  (QREFELT % 123))
-                                        |ans| (QREFELT % 124)))))
+                                                            (QREFELT % 123))
+                                                  (QREFELT % 124))
+                                        |ans| (QREFELT % 125)))))
                            (GO #6#))))))))))))
             (SEQ (LETT |r1| (SPADCALL (|SPADfirst| |l|) (QREFELT % 115)))
                  (EXIT
@@ -823,7 +823,7 @@
                          (LETT #1# (|COMBF;ibinom| |l| %))
                          (GO #6#))))))))))
             (EXIT
-             (SPADCALL (SPADCALL (QCDR |r1|) (QCDR |r2|) (QREFELT % 125))
+             (SPADCALL (SPADCALL (QCDR |r1|) (QCDR |r2|) (QREFELT % 126))
                        (QREFELT % 82)))))
           #6# (EXIT #1#)))) 
 
@@ -851,7 +851,7 @@
                                (LETT #1# (|COMBF;ibinom| |l| %))
                                (GO #3#))))))))))
                   (EXIT
-                   (SPADCALL (SPADCALL (QCDR |r1|) (QCDR |r2|) (QREFELT % 125))
+                   (SPADCALL (SPADCALL (QCDR |r1|) (QCDR |r2|) (QREFELT % 126))
                              (QREFELT % 82)))))
                 #3# (EXIT #1#)))) 
 
@@ -879,7 +879,7 @@
                                (LETT #1# (|COMBF;ibinom| |l| %))
                                (GO #3#))))))))))
                   (EXIT
-                   (SPADCALL (SPADCALL (QCDR |r1|) (QCDR |r2|) (QREFELT % 125))
+                   (SPADCALL (SPADCALL (QCDR |r1|) (QCDR |r2|) (QREFELT % 126))
                              (QREFELT % 82)))))
                 #3# (EXIT #1#)))) 
 
@@ -913,7 +913,7 @@
                                (LETT #1# (SPADCALL |l| (QREFELT % 111)))
                                (GO #3#))))))))))
                   (EXIT
-                   (SPADCALL (SPADCALL (QCDR |r1|) (QCDR |r2|) (QREFELT % 127))
+                   (SPADCALL (SPADCALL (QCDR |r1|) (QCDR |r2|) (QREFELT % 128))
                              (QREFELT % 82)))))
                 #3# (EXIT #1#)))) 
 
@@ -924,7 +924,7 @@
         (COND
          ((SPADCALL (|SPADfirst| |l|) (QREFELT % 92)) (|spadConstant| % 59))
          ('T
-          (SPADCALL (SPADCALL (|SPADfirst| |l|) (QREFELT % 129))
+          (SPADCALL (SPADCALL (|SPADfirst| |l|) (QREFELT % 130))
                     (SPADCALL (|SPADfirst| |l|) (SPADCALL |l| (QREFELT % 35))
                               (QREFELT % 29))
                     (QREFELT % 38))))) 
@@ -956,7 +956,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|CombinatorialFunction| DV$1 DV$2))
-          (LETT % (GETREFV 139))
+          (LETT % (GETREFV 140))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|CombinatorialFunction|
@@ -1004,71 +1004,71 @@
               ((|HasCategory| |#1| '(|RetractableTo| (|Integer|)))
                (COND
                 ((|HasCategory| |#2| '(|Algebra| (|Fraction| (|Integer|))))
-                 (QSETREFV % 126
+                 (QSETREFV % 127
                            (CONS (|dispatchFunction| |COMBF;iibinom;LF;44|)
                                  %)))
                 ('T
-                 (QSETREFV % 126
+                 (QSETREFV % 127
                            (CONS (|dispatchFunction| |COMBF;iibinom;LF;45|)
                                  %)))))
               ('T
-               (QSETREFV % 126
+               (QSETREFV % 127
                          (CONS (|dispatchFunction| |COMBF;iibinom;LF;46|)
                                %))))))
            ('T
             (PROGN
              (QSETREFV % 117
                        (CONS (|dispatchFunction| |COMBF;iifact;2F;47|) %))
-             (QSETREFV % 126
+             (QSETREFV % 127
                        (CONS (|dispatchFunction| |COMBF;iibinom;LF;48|) %))
              (QSETREFV % 119
                        (CONS (|dispatchFunction| |COMBF;iiperm;LF;49|) %)))))
           (COND
            ((|HasCategory| |#1| '(|ElementaryFunctionCategory|))
-            (QSETREFV % 128 (CONS (|dispatchFunction| |COMBF;iipow;LF;50|) %)))
+            (QSETREFV % 129 (CONS (|dispatchFunction| |COMBF;iipow;LF;50|) %)))
            ('T
-            (QSETREFV % 128
+            (QSETREFV % 129
                       (CONS (|dispatchFunction| |COMBF;iipow;LF;51|) %))))
-          (SPADCALL (QREFELT % 13) (ELT % 117) (QREFELT % 132))
-          (SPADCALL (QREFELT % 20) (ELT % 128) (QREFELT % 134))
-          (SPADCALL (QREFELT % 14) (ELT % 119) (QREFELT % 134))
-          (SPADCALL (QREFELT % 15) (ELT % 126) (QREFELT % 134))
+          (SPADCALL (QREFELT % 13) (ELT % 117) (QREFELT % 133))
+          (SPADCALL (QREFELT % 20) (ELT % 129) (QREFELT % 135))
+          (SPADCALL (QREFELT % 14) (ELT % 119) (QREFELT % 135))
+          (SPADCALL (QREFELT % 15) (ELT % 127) (QREFELT % 135))
           (SPADCALL (QREFELT % 16) (CONS (|function| |COMBF;isum|) %)
-                    (QREFELT % 134))
-          (SPADCALL (QREFELT % 17) (ELT % 101) (QREFELT % 134))
+                    (QREFELT % 135))
+          (SPADCALL (QREFELT % 17) (ELT % 101) (QREFELT % 135))
           (SPADCALL (QREFELT % 18) (CONS (|function| |COMBF;iprod|) %)
-                    (QREFELT % 134))
-          (SPADCALL (QREFELT % 19) (ELT % 102) (QREFELT % 134))
+                    (QREFELT % 135))
+          (SPADCALL (QREFELT % 19) (ELT % 102) (QREFELT % 135))
           (SPADCALL (QREFELT % 20)
                     (LIST (CONS (|function| |COMBF;dvpow1|) %)
                           (CONS (|function| |COMBF;dvpow2|) %))
-                    (QREFELT % 136))
+                    (QREFELT % 137))
           (SPADCALL (QREFELT % 16) '|%specialDiff|
-                    (CONS (|function| |COMBF;dvsum|) %) (QREFELT % 138))
+                    (CONS (|function| |COMBF;dvsum|) %) (QREFELT % 139))
           (SPADCALL (QREFELT % 17) '|%specialDiff|
-                    (CONS (|function| |COMBF;dvdsum|) %) (QREFELT % 138))
+                    (CONS (|function| |COMBF;dvdsum|) %) (QREFELT % 139))
           (SPADCALL (QREFELT % 18) '|%specialDiff|
-                    (CONS (|function| |COMBF;dvprod|) %) (QREFELT % 138))
+                    (CONS (|function| |COMBF;dvprod|) %) (QREFELT % 139))
           (SPADCALL (QREFELT % 19) '|%specialDiff|
-                    (CONS (|function| |COMBF;dvdprod|) %) (QREFELT % 138))
+                    (CONS (|function| |COMBF;dvdprod|) %) (QREFELT % 139))
           (SPADCALL (QREFELT % 16) '|%specialDisp|
-                    (CONS (|function| |COMBF;dsum|) %) (QREFELT % 138))
+                    (CONS (|function| |COMBF;dsum|) %) (QREFELT % 139))
           (SPADCALL (QREFELT % 17) '|%specialDisp|
-                    (CONS (|function| |COMBF;ddsum|) %) (QREFELT % 138))
+                    (CONS (|function| |COMBF;ddsum|) %) (QREFELT % 139))
           (SPADCALL (QREFELT % 18) '|%specialDisp|
-                    (CONS (|function| |COMBF;dprod|) %) (QREFELT % 138))
+                    (CONS (|function| |COMBF;dprod|) %) (QREFELT % 139))
           (SPADCALL (QREFELT % 19) '|%specialDisp|
-                    (CONS (|function| |COMBF;ddprod|) %) (QREFELT % 138))
+                    (CONS (|function| |COMBF;ddprod|) %) (QREFELT % 139))
           (SPADCALL (QREFELT % 16) '|%specialEqual|
-                    (CONS (|function| |COMBF;equalsumprod|) %) (QREFELT % 138))
+                    (CONS (|function| |COMBF;equalsumprod|) %) (QREFELT % 139))
           (SPADCALL (QREFELT % 17) '|%specialEqual|
                     (CONS (|function| |COMBF;equaldsumprod|) %)
-                    (QREFELT % 138))
+                    (QREFELT % 139))
           (SPADCALL (QREFELT % 18) '|%specialEqual|
-                    (CONS (|function| |COMBF;equalsumprod|) %) (QREFELT % 138))
+                    (CONS (|function| |COMBF;equalsumprod|) %) (QREFELT % 139))
           (SPADCALL (QREFELT % 19) '|%specialEqual|
                     (CONS (|function| |COMBF;equaldsumprod|) %)
-                    (QREFELT % 138))
+                    (QREFELT % 139))
           %))) 
 
 (MAKEPROP '|CombinatorialFunction| '|infovec|
@@ -1108,15 +1108,16 @@
               (309 . |ipow|) (314 . ^) (320 . -) (|Union| 6 '#1#)
               (325 . |retractIfCan|) (330 . |factorial|) (335 . |iifact|)
               (340 . |permutation|) (346 . |iiperm|) (351 . |retractIfCan|)
-              (356 . |coerce|) (361 . |factorial|) (366 . /) (372 . *)
-              (378 . |binomial|) (384 . |iibinom|) (389 . ^) (395 . |iipow|)
-              (400 . |log|) (|Mapping| 7 7) (|BasicOperatorFunctions1| 7)
-              (405 . |evaluate|) (|Mapping| 7 33) (411 . |evaluate|)
-              (|List| 133) (417 . |derivative|) (|None|) (423 . |setProperty|))
-           '#(|summation| 430 |product| 442 |permutation| 454 |operator| 460
-              |ipow| 465 |iipow| 470 |iiperm| 475 |iifact| 480 |iidsum| 485
-              |iidprod| 490 |iibinom| 495 |factorials| 500 |factorial| 511
-              |binomial| 516 |belong?| 522 ^ 527)
+              (356 . |coerce|) (361 . |One|) (365 . |factorial|) (370 . /)
+              (376 . *) (382 . |binomial|) (388 . |iibinom|) (393 . ^)
+              (399 . |iipow|) (404 . |log|) (|Mapping| 7 7)
+              (|BasicOperatorFunctions1| 7) (409 . |evaluate|) (|Mapping| 7 33)
+              (415 . |evaluate|) (|List| 134) (421 . |derivative|) (|None|)
+              (427 . |setProperty|))
+           '#(|summation| 434 |product| 446 |permutation| 458 |operator| 464
+              |ipow| 469 |iipow| 474 |iiperm| 479 |iifact| 484 |iidsum| 489
+              |iidprod| 494 |iibinom| 499 |factorials| 504 |factorial| 515
+              |binomial| 520 |belong?| 526 ^ 531)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -1149,7 +1150,7 @@
                               '((|iidprod| (|#2| (|List| |#2|))) T)
                               '((|ipow| (|#2| (|List| |#2|))) T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 138
+                        (|makeByteWordVec2| 139
                                             '(1 11 9 10 12 1 7 9 9 21 2 7 0 9 0
                                               23 2 7 0 9 25 26 2 9 30 0 10 31 1
                                               33 7 0 34 1 33 7 0 35 0 7 0 36 2
@@ -1176,18 +1177,18 @@
                                               0 0 60 112 1 7 0 0 113 1 7 114 0
                                               115 1 6 0 0 116 1 0 7 7 117 2 6 0
                                               0 0 118 1 0 7 33 119 1 6 96 0 120
-                                              1 6 0 60 121 1 60 0 0 122 2 109 0
-                                              60 60 123 2 7 0 109 0 124 2 6 0 0
-                                              0 125 1 0 7 33 126 2 6 0 0 0 127
-                                              1 0 7 33 128 1 7 0 0 129 2 131 9
-                                              9 130 132 2 131 9 9 133 134 2 131
-                                              9 9 135 136 3 9 0 0 10 137 138 2
-                                              0 7 7 10 56 2 0 7 7 74 81 2 0 7 7
-                                              10 55 2 0 7 7 74 80 2 0 7 7 7 28
-                                              1 0 9 9 91 1 0 7 33 111 1 0 7 33
-                                              128 1 0 7 33 119 1 0 7 7 117 1 0
-                                              7 33 101 1 0 7 33 102 1 0 7 33
-                                              126 1 0 7 7 41 2 0 7 7 10 42 1 0
-                                              7 7 24 2 0 7 7 7 27 1 0 30 9 32 2
-                                              0 7 7 7 29)))))
+                                              1 6 0 60 121 0 85 0 122 1 60 0 0
+                                              123 2 109 0 60 60 124 2 7 0 109 0
+                                              125 2 6 0 0 0 126 1 0 7 33 127 2
+                                              6 0 0 0 128 1 0 7 33 129 1 7 0 0
+                                              130 2 132 9 9 131 133 2 132 9 9
+                                              134 135 2 132 9 9 136 137 3 9 0 0
+                                              10 138 139 2 0 7 7 10 56 2 0 7 7
+                                              74 81 2 0 7 7 10 55 2 0 7 7 74 80
+                                              2 0 7 7 7 28 1 0 9 9 91 1 0 7 33
+                                              111 1 0 7 33 129 1 0 7 33 119 1 0
+                                              7 7 117 1 0 7 33 101 1 0 7 33 102
+                                              1 0 7 33 127 1 0 7 7 41 2 0 7 7
+                                              10 42 1 0 7 7 24 2 0 7 7 7 27 1 0
+                                              30 9 32 2 0 7 7 7 29)))))
            '|lookupComplete|)) 

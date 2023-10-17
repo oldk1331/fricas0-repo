@@ -95,25 +95,26 @@
               |subtractIfCan| 66 |squareFreePart| 72 |squareFree| 77
               |sizeLess?| 82 |sample| 88 |rightRecip| 92 |rightPower| 97 |rem|
               109 |recip| 115 |quo| 120 |principalIdeal| 126 |prime?| 131
-              |opposite?| 136 |one?| 142 |multiEuclidean| 147 |leftRecip| 153
-              |leftPower| 158 |lcmCoef| 170 |lcm| 176 |latex| 187 |inv| 192
-              |gcdPolynomial| 197 |gcd| 203 |factor| 214 |extendedEuclidean|
-              219 |exquo| 232 |expressIdealMember| 238 |euclideanSize| 244
-              |divide| 249 |differentiate| 255 |commutator| 266 |coerce| 272
-              |characteristic| 302 |associator| 306 |associates?| 313
-              |antiCommutator| 319 |annihilate?| 325 ^ 331 |Zero| 349 |One| 353
-              D 357 = 368 / 374 - 380 + 391 * 397)
+              |plenaryPower| 136 |opposite?| 142 |one?| 148 |multiEuclidean|
+              153 |leftRecip| 159 |leftPower| 164 |lcmCoef| 176 |lcm| 182
+              |latex| 193 |inv| 198 |gcdPolynomial| 203 |gcd| 209 |factor| 220
+              |extendedEuclidean| 225 |exquo| 238 |expressIdealMember| 244
+              |euclideanSize| 250 |divide| 255 |differentiate| 261 |commutator|
+              272 |coerce| 278 |characteristic| 308 |associator| 312
+              |associates?| 319 |antiCommutator| 325 |annihilate?| 331 ^ 337
+              |Zero| 355 |One| 359 D 363 = 374 / 380 - 386 + 397 * 403)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
-                                '(1 1 1 1 1 1 1 1 1 0 1 1 1 0 0 0 0 1 1 0 0 1 0
-                                  0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1
-                                  1))
+                                '(1 1 1 1 1 1 1 1 1 0 1 1 1 0 0 0 1 1 0 1 1 0 0
+                                  1 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1
+                                  1 1))
             (CONS
              '#(|Field&| |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
                 |GcdDomain&| NIL NIL NIL |DivisionRing&| |DifferentialRing&|
-                |Algebra&| |EntireRing&| |Algebra&| NIL NIL |Rng&| NIL
-                |Module&| |Module&| NIL |NonAssociativeRing&| NIL NIL
+                |Algebra&| |EntireRing&| |Algebra&| NIL NIL |Rng&|
+                |NonAssociativeAlgebra&| |NonAssociativeAlgebra&| NIL |Module&|
+                |Module&| NIL |NonAssociativeRing&| NIL NIL
                 |NonAssociativeRng&| NIL NIL NIL |AbelianGroup&| NIL NIL NIL
                 NIL |MagmaWithUnit&| |AbelianMonoid&| |NonAssociativeSemiRng&|
                 |Magma&| |AbelianSemiGroup&| |SetCategory&| NIL NIL
@@ -123,8 +124,9 @@
                  (|UniqueFactorizationDomain|) (|GcdDomain|) (|IntegralDomain|)
                  (|LeftOreRing|) (|CommutativeRing|) (|DivisionRing|)
                  (|DifferentialRing|) (|Algebra| $$) (|EntireRing|)
-                 (|Algebra| 21) (|Ring|) (|SemiRing|) (|Rng|) (|SemiRng|)
-                 (|Module| $$) (|Module| 21) (|BiModule| $$ $$)
+                 (|Algebra| 21) (|Ring|) (|SemiRing|) (|Rng|)
+                 (|NonAssociativeAlgebra| $$) (|NonAssociativeAlgebra| 21)
+                 (|SemiRng|) (|Module| $$) (|Module| 21) (|BiModule| $$ $$)
                  (|NonAssociativeRing|) (|BiModule| 21 21) (|LeftModule| $$)
                  (|NonAssociativeRng|) (|RightModule| $$) (|LeftModule| 21)
                  (|RightModule| 21) (|AbelianGroup|) (|Monoid|)
@@ -142,20 +144,21 @@
                                     0 1 1 1 22 0 1 2 0 33 0 0 1 1 1 0 0 1 1 1
                                     23 0 1 2 1 22 0 0 1 0 0 0 1 1 0 33 0 1 2 0
                                     0 0 36 1 2 0 0 0 30 1 2 1 0 0 0 1 1 0 33 0
-                                    1 2 1 0 0 0 1 1 1 31 25 1 1 1 22 0 1 2 0 22
-                                    0 0 1 1 0 22 0 1 2 1 24 25 0 1 1 0 33 0 1 2
-                                    0 0 0 36 1 2 0 0 0 30 1 2 1 34 0 0 1 1 1 0
-                                    25 1 2 1 0 0 0 1 1 0 37 0 1 1 1 0 0 20 2 1
-                                    32 32 32 1 2 1 0 0 0 1 1 1 0 25 1 1 1 23 0
-                                    1 2 1 26 0 0 1 3 1 28 0 0 0 1 2 1 33 0 0 1
-                                    2 1 24 25 0 1 1 1 30 0 1 2 1 29 0 0 1 1 0 0
-                                    0 13 2 0 0 0 30 1 2 0 0 0 0 1 1 1 0 21 1 1
-                                    1 0 0 1 1 0 0 5 10 1 0 5 0 11 1 0 0 16 1 1
-                                    0 38 0 1 0 0 30 1 3 0 0 0 0 0 1 2 1 22 0 0
-                                    1 2 0 0 0 0 1 2 0 22 0 0 1 2 1 0 0 16 18 2
-                                    0 0 0 36 1 2 0 0 0 30 1 0 0 0 1 0 0 0 1 1 0
-                                    0 0 1 2 0 0 0 30 1 2 0 22 0 0 1 2 1 0 0 0
-                                    15 2 0 0 0 0 1 1 0 0 0 1 2 0 0 0 0 1 2 1 0
-                                    0 21 1 2 1 0 21 0 1 2 0 0 16 0 1 2 0 0 30 0
-                                    1 2 0 0 0 0 1 2 0 0 36 0 1)))))
+                                    1 2 1 0 0 0 1 1 1 31 25 1 1 1 22 0 1 2 1 0
+                                    0 36 1 2 0 22 0 0 1 1 0 22 0 1 2 1 24 25 0
+                                    1 1 0 33 0 1 2 0 0 0 36 1 2 0 0 0 30 1 2 1
+                                    34 0 0 1 1 1 0 25 1 2 1 0 0 0 1 1 0 37 0 1
+                                    1 1 0 0 20 2 1 32 32 32 1 2 1 0 0 0 1 1 1 0
+                                    25 1 1 1 23 0 1 2 1 26 0 0 1 3 1 28 0 0 0 1
+                                    2 1 33 0 0 1 2 1 24 25 0 1 1 1 30 0 1 2 1
+                                    29 0 0 1 1 0 0 0 13 2 0 0 0 30 1 2 0 0 0 0
+                                    1 1 1 0 21 1 1 1 0 0 1 1 0 0 5 10 1 0 5 0
+                                    11 1 0 0 16 1 1 0 38 0 1 0 0 30 1 3 0 0 0 0
+                                    0 1 2 1 22 0 0 1 2 0 0 0 0 1 2 0 22 0 0 1 2
+                                    1 0 0 16 18 2 0 0 0 36 1 2 0 0 0 30 1 0 0 0
+                                    1 0 0 0 1 1 0 0 0 1 2 0 0 0 30 1 2 0 22 0 0
+                                    1 2 1 0 0 0 15 1 0 0 0 1 2 0 0 0 0 1 2 0 0
+                                    0 0 1 2 1 0 21 0 1 2 1 0 0 21 1 2 0 0 16 0
+                                    1 2 0 0 30 0 1 2 0 0 0 0 1 2 0 0 36 0
+                                    1)))))
            '|lookupComplete|)) 

@@ -1189,36 +1189,39 @@
               530 |sign| 536 |sample| 541 |rightRecip| 545 |rightPower| 550
               |retractIfCan| 562 |retract| 582 |rem| 602 |reducedSystem| 608
               |recip| 630 |quo| 635 |principalIdeal| 641 |prime?| 646
-              |positive?| 651 |patternMatch| 656 |opposite?| 670 |one?| 676
-              |numerator| 681 |numer| 686 |nextItem| 691 |negative?| 696
-              |multiEuclidean| 701 |min| 707 |max| 713 |map| 719 |leftRecip|
-              725 |leftPower| 730 |lcmCoef| 742 |lcm| 748 |latex| 759 |inv| 764
-              |init| 769 |hashUpdate!| 773 |hash| 779 |gcdPolynomial| 784 |gcd|
-              790 |fractionPart| 801 |floor| 806 |factorSquareFreePolynomial|
-              811 |factorPolynomial| 816 |factorFraction| 821 |factor| 826
-              |extendedEuclidean| 831 |exquo| 844 |expressIdealMember| 850
-              |eval| 856 |euclideanSize| 896 |elt| 901 |divide| 907
-              |differentiate| 913 |denominator| 963 |denom| 968 |convert| 973
-              |conditionP| 998 |commutator| 1003 |coerce| 1009 |charthRoot|
-              1039 |characteristic| 1044 |ceiling| 1048 |associator| 1053
-              |associates?| 1060 |antiCommutator| 1066 |annihilate?| 1072 |abs|
-              1078 ^ 1083 |Zero| 1101 |One| 1105 |OMwrite| 1109 D 1133 >= 1183
-              > 1189 = 1195 <= 1201 < 1207 / 1213 - 1225 + 1236 * 1242)
+              |positive?| 651 |plenaryPower| 656 |patternMatch| 662 |opposite?|
+              676 |one?| 682 |numerator| 687 |numer| 692 |nextItem| 697
+              |negative?| 702 |multiEuclidean| 707 |min| 713 |max| 719 |map|
+              725 |leftRecip| 731 |leftPower| 736 |lcmCoef| 748 |lcm| 754
+              |latex| 765 |inv| 770 |init| 775 |hashUpdate!| 779 |hash| 785
+              |gcdPolynomial| 790 |gcd| 796 |fractionPart| 807 |floor| 812
+              |factorSquareFreePolynomial| 817 |factorPolynomial| 822
+              |factorFraction| 827 |factor| 832 |extendedEuclidean| 837 |exquo|
+              850 |expressIdealMember| 856 |eval| 862 |euclideanSize| 902 |elt|
+              907 |divide| 913 |differentiate| 919 |denominator| 969 |denom|
+              974 |convert| 979 |conditionP| 1004 |commutator| 1009 |coerce|
+              1015 |charthRoot| 1045 |characteristic| 1050 |ceiling| 1054
+              |associator| 1059 |associates?| 1066 |antiCommutator| 1072
+              |annihilate?| 1078 |abs| 1084 ^ 1089 |Zero| 1107 |One| 1111
+              |OMwrite| 1115 D 1139 >= 1189 > 1195 = 1201 <= 1207 < 1213 / 1219
+              - 1231 + 1242 * 1248)
            'NIL
            (CONS
             (|makeByteWordVec2| 32
                                 '(0 0 0 1 0 0 0 6 0 0 0 0 0 6 0 0 0 0 3 4 13 14
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 6 15 0 0 0 0 0 0 0
-                                  6 15 0 6 0 0 0 6 0 0 0 0 0 8 0 0 0 30 9 17 26
-                                  0 0 0 0 2 5 32 32 11 18 0 0 0 0 0 0 0 0 0 2
-                                  28 5 5 7 32 32 10 11 12 16 25 19 24))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6 15 0 0 0 0
+                                  0 0 0 6 15 0 6 0 0 0 6 0 0 0 0 0 8 0 0 0 30 9
+                                  17 26 0 0 0 0 2 5 32 32 11 18 0 0 0 0 0 0 0 0
+                                  0 2 28 5 5 7 32 32 10 11 12 16 25 19 24))
             (CONS
              '#(|QuotientFieldCategory&| |Field&| |EuclideanDomain&|
                 |PolynomialFactorizationExplicit&| NIL
                 |UniqueFactorizationDomain&| |GcdDomain&| NIL NIL
                 |DifferentialExtension&| |DivisionRing&| NIL NIL |OrderedRing&|
                 |Algebra&| |Algebra&| |EntireRing&| |Algebra&| NIL NIL
-                |PartialDifferentialRing&| |DifferentialRing&| NIL |Rng&| NIL
+                |PartialDifferentialRing&| |DifferentialRing&| NIL
+                |NonAssociativeAlgebra&| |NonAssociativeAlgebra&|
+                |NonAssociativeAlgebra&| |Rng&| NIL
                 |FullyLinearlyExplicitOver&| |Module&| |Module&| |Module&| NIL
                 NIL NIL NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL NIL NIL
                 NIL |NonAssociativeRng&| NIL NIL NIL |AbelianGroup&| NIL NIL
@@ -1240,33 +1243,35 @@
                  (|Algebra| 6) (|Algebra| 68) (|EntireRing|) (|Algebra| $$)
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
                  (|PartialDifferentialRing| 144) (|DifferentialRing|) (|Ring|)
-                 (|Rng|) (|SemiRing|) (|FullyLinearlyExplicitOver| 6)
-                 (|Module| 6) (|Module| 68) (|Module| $$) (|SemiRng|)
-                 (|LinearlyExplicitOver| 6) (|BiModule| 6 6) (|BiModule| 68 68)
-                 (|BiModule| $$ $$) (|NonAssociativeRing|)
-                 (|OrderedAbelianGroup|) (|LinearlyExplicitOver| 62)
-                 (|RightModule| 6) (|LeftModule| 6) (|RightModule| 68)
-                 (|LeftModule| 68) (|LeftModule| $$) (|NonAssociativeRng|)
-                 (|RightModule| $$) (|OrderedCancellationAbelianMonoid|)
-                 (|RightModule| 62) (|AbelianGroup|) (|OrderedAbelianMonoid|)
-                 (|Monoid|) (|NonAssociativeSemiRing|)
-                 (|CancellationAbelianMonoid|) (|OrderedAbelianSemiGroup|)
-                 (|FullyPatternMatchable| 6) (|SemiGroup|) (|MagmaWithUnit|)
-                 (|NonAssociativeSemiRng|) (|AbelianMonoid|) (|OrderedSet|)
-                 (|FullyEvalableOver| 6) (|Magma|) (|AbelianSemiGroup|)
-                 (|Comparable|) (|StepThrough|) (|PatternMatchable| 155)
-                 (|PatternMatchable| 62) (|Patternable| 6) (|RetractableTo| 6)
-                 (|CommutativeStar|) (|SetCategory|) (|RetractableTo| 144)
-                 (|RealConstant|) (|RetractableTo| 68) (|RetractableTo| 62)
-                 (|Evalable| 6) (|Hashable|) (|Type|) (|CoercibleFrom| 6)
-                 (|canonicalsClosed|) (|canonicalUnitNormal|)
-                 (|noZeroDivisors|) (|TwoSidedRecip|) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 167) (|CoercibleFrom| 144)
-                 (|ConvertibleTo| 137) (|ConvertibleTo| 154)
-                 (|ConvertibleTo| 155) (|PartialOrder|) (|CoercibleFrom| 68)
-                 (|CoercibleFrom| 62) (|InnerEvalable| 144 6)
-                 (|InnerEvalable| 6 6) (|Eltable| 6 $$) (|ConvertibleTo| 138)
-                 (|ConvertibleTo| 139) (|Canonical|) (|OpenMath|))
+                 (|NonAssociativeAlgebra| 6) (|NonAssociativeAlgebra| 68)
+                 (|NonAssociativeAlgebra| $$) (|Rng|) (|SemiRing|)
+                 (|FullyLinearlyExplicitOver| 6) (|Module| 6) (|Module| 68)
+                 (|Module| $$) (|SemiRng|) (|LinearlyExplicitOver| 6)
+                 (|BiModule| 6 6) (|BiModule| 68 68) (|BiModule| $$ $$)
+                 (|NonAssociativeRing|) (|OrderedAbelianGroup|)
+                 (|LinearlyExplicitOver| 62) (|RightModule| 6) (|LeftModule| 6)
+                 (|RightModule| 68) (|LeftModule| 68) (|LeftModule| $$)
+                 (|NonAssociativeRng|) (|RightModule| $$)
+                 (|OrderedCancellationAbelianMonoid|) (|RightModule| 62)
+                 (|AbelianGroup|) (|OrderedAbelianMonoid|) (|Monoid|)
+                 (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
+                 (|OrderedAbelianSemiGroup|) (|FullyPatternMatchable| 6)
+                 (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
+                 (|AbelianMonoid|) (|OrderedSet|) (|FullyEvalableOver| 6)
+                 (|Magma|) (|AbelianSemiGroup|) (|Comparable|) (|StepThrough|)
+                 (|PatternMatchable| 155) (|PatternMatchable| 62)
+                 (|Patternable| 6) (|RetractableTo| 6) (|CommutativeStar|)
+                 (|SetCategory|) (|RetractableTo| 144) (|RealConstant|)
+                 (|RetractableTo| 68) (|RetractableTo| 62) (|Evalable| 6)
+                 (|Hashable|) (|Type|) (|CoercibleFrom| 6) (|canonicalsClosed|)
+                 (|canonicalUnitNormal|) (|noZeroDivisors|) (|TwoSidedRecip|)
+                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 167)
+                 (|CoercibleFrom| 144) (|ConvertibleTo| 137)
+                 (|ConvertibleTo| 154) (|ConvertibleTo| 155) (|PartialOrder|)
+                 (|CoercibleFrom| 68) (|CoercibleFrom| 62)
+                 (|InnerEvalable| 144 6) (|InnerEvalable| 6 6) (|Eltable| 6 $$)
+                 (|ConvertibleTo| 138) (|ConvertibleTo| 139) (|Canonical|)
+                 (|OpenMath|))
               (|makeByteWordVec2| 167
                                   '(0 0 0 8 0 6 0 9 1 6 11 0 12 1 6 14 0 15 2
                                     17 0 16 16 18 1 0 17 0 19 2 6 11 0 0 20 2 0
@@ -1305,40 +1310,40 @@
                                     1 1 0 6 0 26 2 0 0 0 0 1 2 15 146 112 147 1
                                     1 15 148 112 1 1 0 109 112 1 2 0 157 112
                                     147 1 1 0 29 0 54 2 0 0 0 0 1 1 0 164 159 1
-                                    1 0 11 0 1 1 6 11 0 1 3 17 150 0 138 150 1
-                                    3 21 151 0 139 151 1 2 0 11 0 0 1 1 0 11 0
-                                    25 1 0 0 0 1 1 0 6 0 74 1 9 29 0 1 1 6 11 0
-                                    1 2 0 158 159 0 1 2 7 0 0 0 1 2 7 0 0 0 1 2
-                                    0 0 66 0 1 1 0 29 0 1 2 0 0 0 82 1 2 0 0 0
-                                    166 1 2 0 165 0 0 1 2 0 0 0 0 1 1 0 0 159 1
-                                    1 0 44 0 1 1 0 0 0 1 0 9 0 1 2 18 22 22 0
-                                    24 1 18 143 0 1 2 0 93 93 93 100 2 0 0 0 0
-                                    1 1 0 0 159 1 1 22 0 0 1 1 23 6 0 39 1 1
-                                    119 93 136 1 1 119 93 132 1 33 17 0 19 1 0
-                                    14 0 1 2 0 160 0 0 1 3 0 162 0 0 0 1 2 0 29
-                                    0 0 1 2 0 158 159 0 1 2 11 0 0 140 1 3 11 0
-                                    0 6 6 1 2 11 0 0 141 1 3 11 0 0 142 142 1 3
-                                    10 0 0 144 6 1 3 10 0 0 145 142 1 1 0 82 0
-                                    1 2 12 0 0 6 1 2 0 163 0 0 1 2 14 0 0 82 1
-                                    1 14 0 0 1 3 13 0 0 144 82 1 3 13 0 0 145
-                                    149 1 2 13 0 0 144 1 2 13 0 0 145 1 2 0 0 0
-                                    66 67 3 0 0 0 66 82 1 1 0 0 0 1 1 0 6 0 76
-                                    1 27 137 0 1 1 16 138 0 1 1 20 139 0 1 1 5
-                                    154 0 1 1 5 155 0 1 1 34 111 112 116 2 0 0
-                                    0 0 1 1 2 0 144 1 1 0 0 6 10 1 0 0 68 1 1 0
-                                    0 0 1 1 0 0 62 1 1 0 167 0 1 1 35 29 0 102
-                                    0 0 82 103 1 23 6 0 37 3 0 0 0 0 0 1 2 0 11
-                                    0 0 1 2 0 0 0 0 1 2 0 11 0 0 1 1 6 0 0 1 2
-                                    0 0 0 62 1 2 0 0 0 82 126 2 0 0 0 166 1 0 0
-                                    0 33 0 0 0 8 1 24 44 0 1 2 24 41 42 0 1 2
-                                    24 44 0 11 1 3 24 41 42 0 11 50 2 14 0 0 82
-                                    1 1 14 0 0 1 3 13 0 0 145 149 1 2 13 0 0
-                                    145 1 3 13 0 0 144 82 1 2 13 0 0 144 1 2 0
-                                    0 0 66 1 3 0 0 0 66 82 1 2 7 11 0 0 1 2 7
-                                    11 0 0 1 2 0 11 0 0 21 2 7 11 0 0 1 2 7 11
-                                    0 0 35 2 0 0 6 6 57 2 0 0 0 0 127 1 0 0 0
-                                    36 2 0 0 0 0 60 2 0 0 0 0 58 2 15 0 0 62 1
-                                    2 0 0 0 6 88 2 0 0 6 0 65 2 0 0 0 68 1 2 0
-                                    0 68 0 1 2 0 0 82 0 1 2 0 0 62 0 64 2 0 0 0
-                                    0 61 2 0 0 166 0 1)))))
+                                    1 0 11 0 1 1 6 11 0 1 2 0 0 0 166 1 3 17
+                                    150 0 138 150 1 3 21 151 0 139 151 1 2 0 11
+                                    0 0 1 1 0 11 0 25 1 0 0 0 1 1 0 6 0 74 1 9
+                                    29 0 1 1 6 11 0 1 2 0 158 159 0 1 2 7 0 0 0
+                                    1 2 7 0 0 0 1 2 0 0 66 0 1 1 0 29 0 1 2 0 0
+                                    0 82 1 2 0 0 0 166 1 2 0 165 0 0 1 2 0 0 0
+                                    0 1 1 0 0 159 1 1 0 44 0 1 1 0 0 0 1 0 9 0
+                                    1 2 18 22 22 0 24 1 18 143 0 1 2 0 93 93 93
+                                    100 2 0 0 0 0 1 1 0 0 159 1 1 22 0 0 1 1 23
+                                    6 0 39 1 1 119 93 136 1 1 119 93 132 1 33
+                                    17 0 19 1 0 14 0 1 2 0 160 0 0 1 3 0 162 0
+                                    0 0 1 2 0 29 0 0 1 2 0 158 159 0 1 2 11 0 0
+                                    140 1 3 11 0 0 6 6 1 2 11 0 0 141 1 3 11 0
+                                    0 142 142 1 3 10 0 0 144 6 1 3 10 0 0 145
+                                    142 1 1 0 82 0 1 2 12 0 0 6 1 2 0 163 0 0 1
+                                    2 14 0 0 82 1 1 14 0 0 1 3 13 0 0 144 82 1
+                                    3 13 0 0 145 149 1 2 13 0 0 144 1 2 13 0 0
+                                    145 1 2 0 0 0 66 67 3 0 0 0 66 82 1 1 0 0 0
+                                    1 1 0 6 0 76 1 27 137 0 1 1 16 138 0 1 1 20
+                                    139 0 1 1 5 154 0 1 1 5 155 0 1 1 34 111
+                                    112 116 2 0 0 0 0 1 1 2 0 144 1 1 0 0 6 10
+                                    1 0 0 68 1 1 0 0 0 1 1 0 0 62 1 1 0 167 0 1
+                                    1 35 29 0 102 0 0 82 103 1 23 6 0 37 3 0 0
+                                    0 0 0 1 2 0 11 0 0 1 2 0 0 0 0 1 2 0 11 0 0
+                                    1 1 6 0 0 1 2 0 0 0 62 1 2 0 0 0 82 126 2 0
+                                    0 0 166 1 0 0 0 33 0 0 0 8 1 24 44 0 1 2 24
+                                    41 42 0 1 2 24 44 0 11 1 3 24 41 42 0 11 50
+                                    2 14 0 0 82 1 1 14 0 0 1 3 13 0 0 145 149 1
+                                    2 13 0 0 145 1 3 13 0 0 144 82 1 2 13 0 0
+                                    144 1 2 0 0 0 66 1 3 0 0 0 66 82 1 2 7 11 0
+                                    0 1 2 7 11 0 0 1 2 0 11 0 0 21 2 7 11 0 0 1
+                                    2 7 11 0 0 35 2 0 0 6 6 57 2 0 0 0 0 127 1
+                                    0 0 0 36 2 0 0 0 0 60 2 0 0 0 0 58 2 15 0 0
+                                    62 1 2 0 0 6 0 65 2 0 0 0 6 88 2 0 0 68 0 1
+                                    2 0 0 0 68 1 2 0 0 82 0 1 2 0 0 62 0 64 2 0
+                                    0 0 0 61 2 0 0 166 0 1)))))
            '|lookupComplete|)) 

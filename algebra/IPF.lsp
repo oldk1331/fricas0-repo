@@ -439,9 +439,10 @@
               (|Union| 81 '#1="failed") (|Matrix| %) (|Union| 92 '"failed")
               (|OnePointCompletion| 19) (|Factored| 92) (|Union| 102 '#1#)
               (|List| 92) (|InputForm|) (|HashState|) (|List| %)
-              (|Union| 49 '"failed") (|Fraction| 22) (|Union| 105 '#2="failed")
+              (|Union| 49 '"failed") (|Fraction| 22)
+              (|Record| (|:| |coef1| %) (|:| |coef2| %))
+              (|Union| 108 '#2="failed") (|Union| 105 '#2#)
               (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
-              (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 110 '#2#)
               (|Record| (|:| |quotient| %) (|:| |remainder| %))
               (|Record| (|:| |coef| 105) (|:| |generator| %))
               (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
@@ -463,14 +464,15 @@
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|FiniteAlgebraicExtensionField&| |FiniteFieldCategory&|
                 |ExtensionField&| |FieldOfPrimeCharacteristic&| |Field&|
                 |EuclideanDomain&| |PolynomialFactorizationExplicit&| NIL
                 |UniqueFactorizationDomain&| |GcdDomain&| |FramedAlgebra&| NIL
                 |FiniteRankAlgebra&| NIL |DivisionRing&| NIL |Algebra&|
-                |DifferentialRing&| NIL |Algebra&| |EntireRing&| NIL |Rng&| NIL
+                |DifferentialRing&| NIL |Algebra&| |EntireRing&| NIL
+                |NonAssociativeAlgebra&| |Rng&| |NonAssociativeAlgebra&| NIL
                 |Module&| |Module&| NIL |FramedModule&| NIL NIL
                 |NonAssociativeRing&| NIL NIL NIL |NonAssociativeRng&| NIL
                 |AbelianGroup&| NIL NIL NIL |Finite&| NIL |MagmaWithUnit&|
@@ -487,7 +489,8 @@
                  (|FiniteRankAlgebra| $$ 89) (|CommutativeRing|)
                  (|DivisionRing|) (|LeftOreRing|) (|Algebra| $$)
                  (|DifferentialRing|) (|CharacteristicNonZero|) (|Algebra| 107)
-                 (|EntireRing|) (|Ring|) (|Rng|) (|SemiRing|) (|Module| 107)
+                 (|EntireRing|) (|Ring|) (|NonAssociativeAlgebra| 107) (|Rng|)
+                 (|NonAssociativeAlgebra| $$) (|SemiRing|) (|Module| 107)
                  (|Module| $$) (|SemiRng|) (|FramedModule| $$)
                  (|BiModule| 107 107) (|BiModule| $$ $$) (|NonAssociativeRing|)
                  (|RightModule| 107) (|LeftModule| 107) (|LeftModule| $$)

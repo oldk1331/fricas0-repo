@@ -49,33 +49,33 @@
 
 (MAKEPROP '|XPolynomial| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|XRecursivePolynomial| 21 6) (|local| |#1|)
+           '#(NIL NIL NIL NIL NIL (|XRecursivePolynomial| 22 6) (|local| |#1|)
               (|Boolean|) (|Record| (|:| |k| 10) (|:| |c| 6)) (|List| 8)
-              (|FreeMonoid| 21) (|Mapping| 6 10) (|NonNegativeInteger|)
-              (|XDistributedPolynomial| 21 6)
-              (|Record| (|:| |k| 21) (|:| |c| %)) (|List| 14) (|List| 10)
-              (|List| 6) (|List| %) (|Mapping| 6 6) (|List| 21) (|Symbol|)
+              (|FreeMonoid| 22) (|Mapping| 6 10) (|NonNegativeInteger|)
+              (|PositiveInteger|) (|XDistributedPolynomial| 22 6)
+              (|Record| (|:| |k| 22) (|:| |c| %)) (|List| 15) (|List| 10)
+              (|List| 6) (|List| %) (|Mapping| 6 6) (|List| 22) (|Symbol|)
               (|Union| 10 '#1="failed") (|Union| 6 '#1#) (|Integer|)
-              (|Union| % '"failed") (|PositiveInteger|) (|String|)
-              (|OutputForm|))
+              (|Union| % '"failed") (|String|) (|OutputForm|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 4
-                                '(0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 2))
+                                '(0 0 0 1 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0
+                                  0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 2))
             (CONS
-             '#(NIL NIL NIL |Algebra&| NIL |Rng&| |FreeModuleCategory&| NIL NIL
-                NIL |Module&| NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL
-                |NonAssociativeRng&| NIL NIL |AbelianGroup&| NIL NIL NIL NIL
-                |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&|
-                |Magma&| |AbelianSemiGroup&| NIL |RetractableTo&|
-                |RetractableTo&| |SetCategory&| NIL NIL NIL |BasicType&| NIL
-                NIL)
+             '#(NIL NIL NIL |Algebra&| NIL |Rng&| |FreeModuleCategory&| NIL
+                |NonAssociativeAlgebra&| NIL NIL |Module&| NIL NIL
+                |NonAssociativeRing&| NIL NIL NIL NIL |NonAssociativeRng&| NIL
+                NIL |AbelianGroup&| NIL NIL NIL NIL |MagmaWithUnit&|
+                |NonAssociativeSemiRng&| |AbelianMonoid&| |Magma&|
+                |AbelianSemiGroup&| NIL |RetractableTo&| |RetractableTo&|
+                |SetCategory&| NIL NIL NIL |BasicType&| NIL NIL)
              (CONS
-              '#((|XPolynomialsCat| 21 6) (|XFreeAlgebra| 21 6) (|XAlgebra| 6)
+              '#((|XPolynomialsCat| 22 6) (|XFreeAlgebra| 22 6) (|XAlgebra| 6)
                  (|Algebra| 6) (|Ring|) (|Rng|) (|FreeModuleCategory| 6 10)
-                 (|SemiRing|) (|IndexedDirectProductCategory| 6 10) (|SemiRng|)
-                 (|Module| 6) (|IndexedProductCategory| 6 10) (|BiModule| 6 6)
+                 (|SemiRing|) (|NonAssociativeAlgebra| 6)
+                 (|IndexedDirectProductCategory| 6 10) (|SemiRng|) (|Module| 6)
+                 (|IndexedProductCategory| 6 10) (|BiModule| 6 6)
                  (|NonAssociativeRing|) (|BiModule| $$ $$)
                  (|AbelianProductCategory| 6) (|LeftModule| 6)
                  (|RightModule| 6) (|NonAssociativeRng|) (|RightModule| $$)

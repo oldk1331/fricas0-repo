@@ -35,7 +35,7 @@
                   (QREFELT % 25))) 
 
 (SDEFUN |FS2;map;MAB;3| ((|f| (|Mapping| S R)) (|x| (A)) (% (B)))
-        (SPROG ((#1=#:G141 NIL))
+        (SPROG ((#1=#:G138 NIL))
                (SPADCALL (|FS2;smpmap| |f| (SPADCALL |x| (QREFELT % 23)) %)
                          (PROG2
                              (LETT #1#

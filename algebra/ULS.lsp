@@ -40,7 +40,7 @@
 
 (DEFUN |UnivariateLaurentSeries;| (|#1| |#2| |#3|)
   (SPROG
-   ((#1=#:G163 NIL) (|pv$| NIL) (#2=#:G152 NIL) (#3=#:G153 NIL) (#4=#:G154 NIL)
+   ((#1=#:G163 NIL) (|pv$| NIL) (#2=#:G152 NIL) (#3=#:G153 NIL) (#4=#:G155 NIL)
     (#5=#:G156 NIL) (#6=#:G157 NIL) (#7=#:G158 NIL) (#8=#:G159 NIL)
     (#9=#:G161 NIL) (#10=#:G162 NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
@@ -273,102 +273,12 @@
                                                                         |#2|
                                                                         |#3|)
                                               '(|EuclideanDomain|)))
-                                        (|HasCategory| |#1| '(|SemiRing|))
-                                        (|HasSignature| |#1|
-                                                        (LIST '*
-                                                              (LIST
-                                                               (|devaluate|
-                                                                |#1|)
-                                                               '(|Integer|)
-                                                               (|devaluate|
-                                                                |#1|))))
-                                        (OR (|HasCategory| |#1| '(|SemiRing|))
-                                            (|HasSignature| |#1|
-                                                            (LIST '*
-                                                                  (LIST
-                                                                   (|devaluate|
-                                                                    |#1|)
-                                                                   '(|Integer|)
-                                                                   (|devaluate|
-                                                                    |#1|)))))
-                                        (OR
-                                         (AND
-                                          (|HasCategory| |#1|
-                                                         '(|PartialDifferentialRing|
-                                                           (|Symbol|)))
-                                          (|HasSignature| |#1|
-                                                          (LIST '*
-                                                                (LIST
-                                                                 (|devaluate|
-                                                                  |#1|)
-                                                                 '(|Integer|)
-                                                                 (|devaluate|
-                                                                  |#1|)))))
-                                         (AND (|HasCategory| |#1| '(|Field|))
-                                              (|HasCategory|
-                                               (|UnivariateTaylorSeries| |#1|
-                                                                         |#2|
-                                                                         |#3|)
-                                               '(|PartialDifferentialRing|
-                                                 (|Symbol|)))))
-                                        (OR
-                                         (AND (|HasCategory| |#1| '(|Field|))
-                                              (|HasCategory|
-                                               (|UnivariateTaylorSeries| |#1|
-                                                                         |#2|
-                                                                         |#3|)
-                                               '(|DifferentialRing|)))
-                                         (|HasSignature| |#1|
-                                                         (LIST '*
-                                                               (LIST
-                                                                (|devaluate|
-                                                                 |#1|)
-                                                                '(|Integer|)
-                                                                (|devaluate|
-                                                                 |#1|)))))
                                         (LETT #4#
-                                              (|HasCategory| |#1| '(|Ring|)))
-                                        (OR #4#
-                                            (|HasSignature| |#1|
-                                                            (LIST '*
-                                                                  (LIST
-                                                                   (|devaluate|
-                                                                    |#1|)
-                                                                   '(|Integer|)
-                                                                   (|devaluate|
-                                                                    |#1|)))))
-                                        (|HasCategory| |#1| '(|AbelianMonoid|))
-                                        (|HasCategory| |#1|
-                                                       '(|CancellationAbelianMonoid|))
-                                        (LETT #3#
-                                              (|HasCategory| |#1|
-                                                             '(|AbelianGroup|)))
-                                        (OR #3#
-                                            (|HasCategory| |#1|
-                                                           '(|CancellationAbelianMonoid|))
-                                            (|HasSignature| |#1|
-                                                            (LIST '*
-                                                                  (LIST
-                                                                   (|devaluate|
-                                                                    |#1|)
-                                                                   '(|Integer|)
-                                                                   (|devaluate|
-                                                                    |#1|)))))
-                                        (OR #3#
-                                            (|HasSignature| |#1|
-                                                            (LIST '*
-                                                                  (LIST
-                                                                   (|devaluate|
-                                                                    |#1|)
-                                                                   '(|Integer|)
-                                                                   (|devaluate|
-                                                                    |#1|)))))
-                                        (LETT #2#
                                               (|HasCategory| |#1|
                                                              '(|Algebra|
                                                                (|Fraction|
                                                                 (|Integer|)))))
-                                        (OR #2#
+                                        (OR #4#
                                             (AND
                                              (|HasCategory| |#1| '(|Field|))
                                              (|HasCategory|
@@ -497,40 +407,7 @@
                                                                         |#2|
                                                                         |#3|)
                                               '(|StepThrough|))))
-                                        (OR
-                                         (AND #2#
-                                              (|HasCategory|
-                                               (|Fraction| (|Integer|))
-                                               '(|AbelianMonoid|)))
-                                         #3#
-                                         (|HasCategory| |#1|
-                                                        '(|AbelianMonoid|))
-                                         (|HasCategory| |#1|
-                                                        '(|CancellationAbelianMonoid|))
-                                         (|HasSignature| |#1|
-                                                         (LIST '*
-                                                               (LIST
-                                                                (|devaluate|
-                                                                 |#1|)
-                                                                '(|Integer|)
-                                                                (|devaluate|
-                                                                 |#1|)))))
-                                        (OR #2#
-                                            (|HasCategory| |#1|
-                                                           '(|CharacteristicNonZero|))
-                                            (|HasCategory| |#1|
-                                                           '(|CharacteristicZero|))
-                                            #9# (|HasCategory| |#1| '(|Field|))
-                                            #8# #4#
-                                            (|HasSignature| |#1|
-                                                            (LIST '*
-                                                                  (LIST
-                                                                   (|devaluate|
-                                                                    |#1|)
-                                                                   '(|Integer|)
-                                                                   (|devaluate|
-                                                                    |#1|)))))
-                                        (AND #2#
+                                        (AND #4#
                                              (|HasSignature| |#1|
                                                              (LIST '|integrate|
                                                                    (LIST
@@ -545,7 +422,130 @@
                                                                     '(|List|
                                                                       (|Symbol|))
                                                                     (|devaluate|
-                                                                     |#1|)))))))))
+                                                                     |#1|)))))
+                                        (|HasCategory| |#1| '(|SemiRing|))
+                                        (|HasSignature| |#1|
+                                                        (LIST '*
+                                                              (LIST
+                                                               (|devaluate|
+                                                                |#1|)
+                                                               '(|Integer|)
+                                                               (|devaluate|
+                                                                |#1|))))
+                                        (OR (|HasCategory| |#1| '(|SemiRing|))
+                                            (|HasSignature| |#1|
+                                                            (LIST '*
+                                                                  (LIST
+                                                                   (|devaluate|
+                                                                    |#1|)
+                                                                   '(|Integer|)
+                                                                   (|devaluate|
+                                                                    |#1|)))))
+                                        (OR
+                                         (AND
+                                          (|HasCategory| |#1|
+                                                         '(|PartialDifferentialRing|
+                                                           (|Symbol|)))
+                                          (|HasSignature| |#1|
+                                                          (LIST '*
+                                                                (LIST
+                                                                 (|devaluate|
+                                                                  |#1|)
+                                                                 '(|Integer|)
+                                                                 (|devaluate|
+                                                                  |#1|)))))
+                                         (AND (|HasCategory| |#1| '(|Field|))
+                                              (|HasCategory|
+                                               (|UnivariateTaylorSeries| |#1|
+                                                                         |#2|
+                                                                         |#3|)
+                                               '(|PartialDifferentialRing|
+                                                 (|Symbol|)))))
+                                        (OR
+                                         (AND (|HasCategory| |#1| '(|Field|))
+                                              (|HasCategory|
+                                               (|UnivariateTaylorSeries| |#1|
+                                                                         |#2|
+                                                                         |#3|)
+                                               '(|DifferentialRing|)))
+                                         (|HasSignature| |#1|
+                                                         (LIST '*
+                                                               (LIST
+                                                                (|devaluate|
+                                                                 |#1|)
+                                                                '(|Integer|)
+                                                                (|devaluate|
+                                                                 |#1|)))))
+                                        (LETT #3#
+                                              (|HasCategory| |#1| '(|Ring|)))
+                                        (OR #3#
+                                            (|HasSignature| |#1|
+                                                            (LIST '*
+                                                                  (LIST
+                                                                   (|devaluate|
+                                                                    |#1|)
+                                                                   '(|Integer|)
+                                                                   (|devaluate|
+                                                                    |#1|)))))
+                                        (OR #4#
+                                            (|HasCategory| |#1|
+                                                           '(|CharacteristicNonZero|))
+                                            (|HasCategory| |#1|
+                                                           '(|CharacteristicZero|))
+                                            #9# (|HasCategory| |#1| '(|Field|))
+                                            #8# #3#
+                                            (|HasSignature| |#1|
+                                                            (LIST '*
+                                                                  (LIST
+                                                                   (|devaluate|
+                                                                    |#1|)
+                                                                   '(|Integer|)
+                                                                   (|devaluate|
+                                                                    |#1|)))))
+                                        (|HasCategory| |#1| '(|AbelianMonoid|))
+                                        (|HasCategory| |#1|
+                                                       '(|CancellationAbelianMonoid|))
+                                        (LETT #2#
+                                              (|HasCategory| |#1|
+                                                             '(|AbelianGroup|)))
+                                        (OR
+                                         (AND #4#
+                                              (|HasCategory|
+                                               (|Fraction| (|Integer|))
+                                               '(|AbelianMonoid|)))
+                                         #2#
+                                         (|HasCategory| |#1|
+                                                        '(|AbelianMonoid|))
+                                         (|HasCategory| |#1|
+                                                        '(|CancellationAbelianMonoid|))
+                                         (|HasSignature| |#1|
+                                                         (LIST '*
+                                                               (LIST
+                                                                (|devaluate|
+                                                                 |#1|)
+                                                                '(|Integer|)
+                                                                (|devaluate|
+                                                                 |#1|)))))
+                                        (OR #2#
+                                            (|HasCategory| |#1|
+                                                           '(|CancellationAbelianMonoid|))
+                                            (|HasSignature| |#1|
+                                                            (LIST '*
+                                                                  (LIST
+                                                                   (|devaluate|
+                                                                    |#1|)
+                                                                   '(|Integer|)
+                                                                   (|devaluate|
+                                                                    |#1|)))))
+                                        (OR #2#
+                                            (|HasSignature| |#1|
+                                                            (LIST '*
+                                                                  (LIST
+                                                                   (|devaluate|
+                                                                    |#1|)
+                                                                   '(|Integer|)
+                                                                   (|devaluate|
+                                                                    |#1|)))))))))
     (|haddProp| |$ConstructorCache| '|UnivariateLaurentSeries|
                 (LIST DV$1 DV$2 DV$3) (CONS 1 %))
     (|stuffDomainSlots| %)
@@ -570,10 +570,14 @@
          (AND #8# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))))
      (|augmentPredVector| % 72057594037927936))
     (AND
+     (OR #4# (AND #9# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+         (AND #8# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| % 144115188075855872))
+    (AND
      (OR (AND #9# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (|HasCategory| |#1| '(|Field|))
          (AND #8# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))))
-     (|augmentPredVector| % 144115188075855872))
+     (|augmentPredVector| % 288230376151711744))
     (AND
      (OR (AND #9# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (AND #8# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
@@ -582,15 +586,15 @@
                          (LIST '*
                                (LIST (|devaluate| |#1|) '(|Integer|)
                                      (|devaluate| |#1|)))))
-     (|augmentPredVector| % 288230376151711744))
+     (|augmentPredVector| % 576460752303423488))
     (AND
      (OR (AND #9# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
-         (AND #8# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))) #4#
+         (AND #8# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))) #3#
          (|HasSignature| |#1|
                          (LIST '*
                                (LIST (|devaluate| |#1|) '(|Integer|)
                                      (|devaluate| |#1|)))))
-     (|augmentPredVector| % 576460752303423488))
+     (|augmentPredVector| % 1152921504606846976))
     (AND
      (OR (|HasCategory| |#1| '(|AbelianMonoid|))
          (AND #9# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
@@ -600,7 +604,7 @@
                          (LIST '*
                                (LIST (|devaluate| |#1|) '(|Integer|)
                                      (|devaluate| |#1|)))))
-     (|augmentPredVector| % 1152921504606846976))
+     (|augmentPredVector| % 2305843009213693952))
     (AND
      (OR (|HasCategory| |#1| '(|CancellationAbelianMonoid|))
          (AND #9# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
@@ -610,19 +614,19 @@
                          (LIST '*
                                (LIST (|devaluate| |#1|) '(|Integer|)
                                      (|devaluate| |#1|)))))
-     (|augmentPredVector| % 2305843009213693952))
+     (|augmentPredVector| % 4611686018427387904))
     (AND
-     (OR #3# (AND #9# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+     (OR #2# (AND #9# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (AND #8# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (|HasCategory| % '(|AbelianGroup|))
          (|HasSignature| |#1|
                          (LIST '*
                                (LIST (|devaluate| |#1|) '(|Integer|)
                                      (|devaluate| |#1|)))))
-     (|augmentPredVector| % 4611686018427387904))
+     (|augmentPredVector| % 9223372036854775808))
     (SETF |pv$| (QREFELT % 3))
     (COND
-     ((|testBitVector| |pv$| 49)
+     ((|testBitVector| |pv$| 37)
       (QSETREFV % 26 (CONS (|dispatchFunction| |ULS;integrate;%V%;5|) %))))
     %))) 
 
@@ -646,32 +650,32 @@
               (|SparseUnivariatePolynomial| %) (|Union| 45 '#1#) (|List| 43)
               (|Float|) (|DoubleFloat|) (|Fraction| 16)
               (|Union| 48 '#2="failed") (|Union| 16 '#2#) (|Union| 9 '#2#)
-              (|Union| % '"failed") (|NonNegativeInteger|)
+              (|Union| % '"failed") (|PositiveInteger|) (|NonNegativeInteger|)
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
-              (|List| 53) (|Record| (|:| |k| 16) (|:| |c| 6)) (|List| 56)
+              (|List| 54) (|Record| (|:| |k| 16) (|:| |c| 6)) (|List| 57)
               (|Mapping| 32 32) (|Matrix| 32)
-              (|Record| (|:| |mat| 59) (|:| |vec| (|Vector| 32)))
+              (|Record| (|:| |mat| 60) (|:| |vec| (|Vector| 32)))
               (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
-              (|List| %) (|Record| (|:| |coef| 62) (|:| |generator| %))
-              (|Union| 62 '"failed")
+              (|List| %) (|Record| (|:| |coef| 63) (|:| |generator| %))
+              (|Union| 63 '"failed")
               (|Record| (|:| |quotient| %) (|:| |remainder| %))
               (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
-              (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 67 '"failed")
+              (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 68 '"failed")
               (|Factored| %) (|Fraction| (|Polynomial| 6)) (|Stream| 6)
-              (|Union| 32 '"failed") (|Mapping| 6 16) (|Stream| 56)
-              (|PositiveInteger|) (|Mapping| 6 6) (|OutputForm|) (|String|))
+              (|Union| 32 '"failed") (|Mapping| 6 16) (|Stream| 57)
+              (|Mapping| 6 6) (|OutputForm|) (|String|))
            '#(|variable| 49 |monomial| 54 |integrate| 60 |differentiate| 71
               |coerce| 82 |center| 87 |Zero| 92 |One| 96 + 100)
            'NIL
            (CONS
-            (|makeByteWordVec2| 52
+            (|makeByteWordVec2| 53
                                 '(0 0 2 0 2 0 2 32 0 2 2 0 2 6 25 2 2 24 6 2 20
-                                  24 25 50 34 7 2 40 41 52 39 52 0 20 24 50 2 2
-                                  0 0 0 43 50 6 2 2 13 0 0 0 0 0 50 50 6 2 52 2
-                                  13 48 6 47 39 39 6 0 0 51 39 28 2 0 0 29 9 2
-                                  16 17 0 0 50 24 3 5 8 8 11 2 0 0 0 0 1 50 50
-                                  50 50 50 50 24 25 2 2 43 3 4 5 5 28 8 8 10 11
-                                  12 14 15 2))
+                                  24 25 38 34 7 2 43 44 47 20 24 42 38 2 47 0
+                                  20 24 38 2 2 0 0 0 46 38 6 2 2 13 0 0 0 0 0
+                                  38 38 6 2 47 2 13 53 6 52 42 42 6 0 0 51 42
+                                  28 2 0 0 29 9 2 16 17 0 0 38 24 3 5 8 8 11 2
+                                  0 0 0 0 1 38 38 38 38 38 38 24 25 2 2 46 3 4
+                                  5 5 28 8 8 10 11 12 14 15 2))
             (CONS
              '#(|UnivariateLaurentSeriesConstructorCategory&|
                 |UnivariateLaurentSeriesCategory&| |QuotientFieldCategory&| NIL
@@ -681,7 +685,9 @@
                 NIL NIL NIL |DivisionRing&| NIL |OrderedRing&|
                 |DifferentialExtension&| |Algebra&| |Algebra&| |EntireRing&|
                 |Algebra&| NIL NIL |Algebra&| |PartialDifferentialRing&|
-                |DifferentialRing&| NIL NIL |Rng&| NIL |Module&| |Module&|
+                |DifferentialRing&| NIL |NonAssociativeAlgebra&|
+                |NonAssociativeAlgebra&| NIL |NonAssociativeAlgebra&|
+                |NonAssociativeAlgebra&| |Rng&| NIL |Module&| |Module&|
                 |Module&| |Module&| |FullyLinearlyExplicitOver&| NIL NIL NIL
                 |NonAssociativeRing&| NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL
                 NIL NIL NIL NIL |NonAssociativeRng&| NIL NIL |AbelianGroup&|
@@ -716,8 +722,11 @@
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
                  (|Algebra| (|UnivariateTaylorSeries| 6 7 8))
                  (|PartialDifferentialRing| 9) (|DifferentialRing|) (|Ring|)
-                 (|SemiRing|) (|Rng|) (|SemiRng|) (|Module| 6) (|Module| $$)
-                 (|Module| 48) (|Module| (|UnivariateTaylorSeries| 6 7 8))
+                 (|NonAssociativeAlgebra| 6) (|NonAssociativeAlgebra| $$)
+                 (|SemiRing|) (|NonAssociativeAlgebra| 48)
+                 (|NonAssociativeAlgebra| (|UnivariateTaylorSeries| 6 7 8))
+                 (|Rng|) (|SemiRng|) (|Module| 6) (|Module| $$) (|Module| 48)
+                 (|Module| (|UnivariateTaylorSeries| 6 7 8))
                  (|FullyLinearlyExplicitOver| (|UnivariateTaylorSeries| 6 7 8))
                  (|IndexedProductCategory| 6 16) (|BiModule| 6 6)
                  (|BiModule| $$ $$) (|NonAssociativeRing|) (|BiModule| 48 48)
@@ -764,11 +773,11 @@
                                   (|UnivariateTaylorSeries| 6 7 8))
                  (|Eltable| (|UnivariateTaylorSeries| 6 7 8) $$)
                  (|ConvertibleTo| 30) (|ConvertibleTo| 31) (|Type|))
-              (|makeByteWordVec2| 61
+              (|makeByteWordVec2| 62
                                   '(1 6 12 0 13 0 6 0 14 0 0 0 15 2 0 0 6 16 17
                                     0 6 0 18 0 0 0 19 2 0 0 0 0 20 1 0 0 0 23 1
                                     0 0 0 25 2 0 0 0 21 26 1 0 9 0 10 2 0 0 6
-                                    16 17 2 49 0 0 21 26 1 49 0 0 25 1 41 0 0
+                                    16 17 2 37 0 0 21 26 1 37 0 0 25 1 44 0 0
                                     23 2 0 0 0 21 24 1 0 0 21 22 1 0 6 0 11 0
-                                    61 0 19 0 59 0 15 2 0 0 0 0 20)))))
+                                    62 0 19 0 60 0 15 2 0 0 0 0 20)))))
            '|lookupIncomplete|)) 

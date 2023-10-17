@@ -55,8 +55,8 @@
               (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 19 '#1#)
               (|NonNegativeInteger|)
               (|Record| (|:| |quotient| %) (|:| |remainder| %))
-              (|SparseUnivariatePolynomial| %)
               (|Record| (|:| |coef| 17) (|:| |generator| %))
+              (|SparseUnivariatePolynomial| %)
               (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (|PositiveInteger|) (|String|) (|OutputForm|))
@@ -64,13 +64,15 @@
            (CONS
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                                  0))
             (CONS
              '#(|Field&| |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
                 |GcdDomain&| NIL |DivisionRing&| NIL NIL |Algebra&|
-                |EntireRing&| |Algebra&| NIL |Rng&| NIL |Module&| |Module&| NIL
-                NIL NIL |NonAssociativeRing&| NIL NIL NIL |NonAssociativeRng&|
-                NIL |AbelianGroup&| NIL NIL NIL NIL |MagmaWithUnit&|
+                |EntireRing&| |Algebra&| NIL |NonAssociativeAlgebra&|
+                |NonAssociativeAlgebra&| |Rng&| NIL |Module&| |Module&| NIL NIL
+                NIL |NonAssociativeRing&| NIL NIL NIL |NonAssociativeRng&| NIL
+                |AbelianGroup&| NIL NIL NIL NIL |MagmaWithUnit&|
                 |NonAssociativeSemiRng&| |AbelianMonoid&| |Magma&|
                 |AbelianSemiGroup&| NIL |SetCategory&| NIL NIL NIL NIL NIL
                 |BasicType&| NIL)
@@ -78,8 +80,9 @@
               '#((|Field|) (|EuclideanDomain|) (|PrincipalIdealDomain|)
                  (|UniqueFactorizationDomain|) (|GcdDomain|) (|IntegralDomain|)
                  (|DivisionRing|) (|CommutativeRing|) (|LeftOreRing|)
-                 (|Algebra| 12) (|EntireRing|) (|Algebra| $$) (|Ring|) (|Rng|)
-                 (|SemiRing|) (|Module| 12) (|Module| $$) (|SemiRng|)
+                 (|Algebra| 12) (|EntireRing|) (|Algebra| $$) (|Ring|)
+                 (|NonAssociativeAlgebra| 12) (|NonAssociativeAlgebra| $$)
+                 (|Rng|) (|SemiRing|) (|Module| 12) (|Module| $$) (|SemiRng|)
                  (|BiModule| 12 12) (|BiModule| $$ $$) (|NonAssociativeRing|)
                  (|RightModule| 12) (|LeftModule| 12) (|LeftModule| $$)
                  (|NonAssociativeRng|) (|RightModule| $$) (|AbelianGroup|)

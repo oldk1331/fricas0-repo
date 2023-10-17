@@ -614,10 +614,10 @@
            (CONS
             (|makeByteWordVec2| 29
                                 '(0 0 10 0 0 10 0 0 0 0 0 0 0 0 1 2 3 24 9 0 0
-                                  0 0 0 0 0 1 4 9 0 0 0 0 1 9 25 0 0 0 0 0 0 1
-                                  1 25 0 0 0 0 0 0 0 0 0 0 0 8 26 27 0 0 0 0 5
-                                  6 12 13 0 0 0 0 0 0 0 0 0 0 5 6 7 28 29 11
-                                  13))
+                                  0 0 0 1 24 0 0 0 1 4 9 0 0 0 0 1 9 25 0 0 0 0
+                                  0 0 1 1 25 0 0 0 0 0 0 0 0 0 0 0 8 26 27 0 0
+                                  0 0 5 6 12 13 0 0 0 0 0 0 0 0 0 0 5 6 7 28 29
+                                  11 13))
             (CONS
              '#(|PolynomialCategory&| |MaybeSkewPolynomialCategory&|
                 |PolynomialFactorizationExplicit&| |JetBundleFunctionCategory&|
@@ -625,9 +625,10 @@
                 |AbelianMonoidRing&| |GcdDomain&| NIL NIL NIL
                 |PartialDifferentialRing&| |EntireRing&| |Algebra&| |Algebra&|
                 NIL NIL |Algebra&| |PartialDifferentialRing&| NIL
-                |FreeModuleCategory&| |Rng&| NIL NIL NIL |Module&| |Module&|
-                |Module&| |FullyLinearlyExplicitOver&| NIL NIL NIL
-                |NonAssociativeRing&| NIL NIL NIL NIL NIL NIL NIL
+                |FreeModuleCategory&| |NonAssociativeAlgebra&| |Rng&| NIL
+                |NonAssociativeAlgebra&| |NonAssociativeAlgebra&| NIL NIL
+                |Module&| |Module&| |Module&| |FullyLinearlyExplicitOver&| NIL
+                NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL NIL NIL NIL
                 |NonAssociativeRng&| NIL NIL NIL NIL |AbelianGroup&| NIL NIL
                 NIL NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
                 |AbelianMonoid&| |FullyRetractableTo&| |Magma&|
@@ -649,8 +650,9 @@
                  (|Algebra| 56) (|CharacteristicNonZero|)
                  (|CharacteristicZero|) (|Algebra| 6)
                  (|PartialDifferentialRing| 7) (|Ring|)
-                 (|FreeModuleCategory| 6 (|IndexedExponents| 7)) (|Rng|)
-                 (|SemiRing|)
+                 (|FreeModuleCategory| 6 (|IndexedExponents| 7))
+                 (|NonAssociativeAlgebra| $$) (|Rng|) (|SemiRing|)
+                 (|NonAssociativeAlgebra| 56) (|NonAssociativeAlgebra| 6)
                  (|IndexedDirectProductCategory| 6 (|IndexedExponents| 7))
                  (|SemiRng|) (|Module| $$) (|Module| 56) (|Module| 6)
                  (|FullyLinearlyExplicitOver| 6)

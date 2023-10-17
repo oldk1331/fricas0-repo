@@ -105,8 +105,8 @@
               (|local| |#1|) (0 . |One|) (4 . |One|) (8 . -) (|Fraction| 19)
               (|Union| % '"failed") (|InputForm|) (|NonNegativeInteger|)
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
-              (|Boolean|) (|Equation| 6) (|List| 16) (|List| 6) (|Integer|)
-              (|Symbol|) (|List| 20) (|Union| 10 '"failed") (|Matrix| 19)
+              (|Boolean|) (|List| 17) (|Equation| 6) (|List| 6) (|Integer|)
+              (|List| 21) (|Symbol|) (|Union| 10 '"failed") (|Matrix| 19)
               (|Matrix| %) (|Record| (|:| |mat| 23) (|:| |vec| (|Vector| 19)))
               (|Vector| %) (|List| 13) (|Union| 19 '#1="failed") (|Matrix| 6)
               (|Record| (|:| |mat| 29) (|:| |vec| (|Vector| 6)))
@@ -115,13 +115,15 @@
            '#(|One| 13) 'NIL
            (CONS
             (|makeByteWordVec2| 15
-                                '(0 0 4 0 1 2 6 4 10 11 0 0 0 0 0 0 4 0 0 0 0 4
-                                  15 0 0 0 0 0 4 4 15 0 0 0 0 0 0 0 0 7 0 0 0 0
-                                  7 0 0 8 9 13 0 0 0 0 3 5 4 7 8 9 12 13 14))
+                                '(0 0 4 0 1 2 6 4 10 11 0 0 0 0 4 0 0 0 4 0 0 0
+                                  0 4 15 0 0 0 0 0 4 4 15 0 0 0 0 0 0 0 0 7 0 0
+                                  0 0 7 0 0 8 9 13 0 0 0 0 3 5 4 7 8 9 12 13
+                                  14))
             (CONS
              '#(|QuaternionCategory&| |DifferentialExtension&| |DivisionRing&|
                 |Algebra&| NIL NIL |EntireRing&| |Algebra&|
-                |PartialDifferentialRing&| |DifferentialRing&| NIL |Rng&| NIL
+                |PartialDifferentialRing&| |DifferentialRing&| NIL |Rng&|
+                |NonAssociativeAlgebra&| NIL |NonAssociativeAlgebra&|
                 |FullyLinearlyExplicitOver&| |Module&| NIL |Module&| NIL NIL
                 |NonAssociativeRing&| NIL NIL NIL NIL NIL |NonAssociativeRng&|
                 NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL NIL NIL
@@ -135,8 +137,9 @@
               '#((|QuaternionCategory| 6) (|DifferentialExtension| 6)
                  (|DivisionRing|) (|Algebra| 6) (|CharacteristicNonZero|)
                  (|CharacteristicZero|) (|EntireRing|) (|Algebra| 10)
-                 (|PartialDifferentialRing| 20) (|DifferentialRing|) (|Ring|)
-                 (|Rng|) (|SemiRing|) (|FullyLinearlyExplicitOver| 6)
+                 (|PartialDifferentialRing| 21) (|DifferentialRing|) (|Ring|)
+                 (|Rng|) (|NonAssociativeAlgebra| 6) (|SemiRing|)
+                 (|NonAssociativeAlgebra| 10) (|FullyLinearlyExplicitOver| 6)
                  (|Module| 6) (|SemiRng|) (|Module| 10)
                  (|LinearlyExplicitOver| 6) (|BiModule| 6 6)
                  (|NonAssociativeRing|) (|BiModule| $$ $$) (|BiModule| 10 10)
@@ -153,6 +156,6 @@
                  (|BasicType|) (|CoercibleTo| 34) (|ConvertibleTo| 12)
                  (|noZeroDivisors|) (|TwoSidedRecip|) (|PartialOrder|)
                  (|CoercibleFrom| 10) (|CoercibleFrom| 19)
-                 (|InnerEvalable| 20 6) (|InnerEvalable| 6 6) (|Eltable| 6 $$))
+                 (|InnerEvalable| 21 6) (|InnerEvalable| 6 6) (|Eltable| 6 $$))
               (|makeByteWordVec2| 9 '(0 0 0 7 0 6 0 8 1 6 0 0 9 0 0 0 7)))))
            '|lookupIncomplete|)) 

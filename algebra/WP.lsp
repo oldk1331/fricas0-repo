@@ -309,35 +309,38 @@
               (CONS IDENTITY (FUNCALL (|dispatchFunction| |WP;One;%;8|) %))
               (158 . =) |WP;=;2%B;9| (164 . +) |WP;-;2%;11| (170 . *)
               |WP;*;I2%;12| (176 . *) |WP;*;3%;13| (182 . |characteristic|)
-              |WP;characteristic;Nni;14| (|Union| % '"failed")
-              (|PositiveInteger|) (|String|))
+              |WP;characteristic;Nni;14| (|PositiveInteger|)
+              (|Union| % '"failed") (|String|))
            '#(~= 186 |zero?| 192 |subtractIfCan| 197 |sample| 203 |rightRecip|
-              207 |rightPower| 212 |recip| 224 |opposite?| 229 |one?| 235
-              |leftRecip| 240 |leftPower| 245 |latex| 257 |commutator| 262
-              |coerce| 268 |characteristic| 293 |changeWeightLevel| 297
-              |associator| 302 |antiCommutator| 309 |annihilate?| 315 ^ 321
-              |Zero| 333 |One| 337 = 341 / 347 - 353 + 364 * 370)
+              207 |rightPower| 212 |recip| 224 |plenaryPower| 229 |opposite?|
+              235 |one?| 241 |leftRecip| 246 |leftPower| 251 |latex| 263
+              |commutator| 268 |coerce| 274 |characteristic| 299
+              |changeWeightLevel| 303 |associator| 308 |antiCommutator| 315
+              |annihilate?| 321 ^ 327 |Zero| 339 |One| 343 = 347 / 353 - 359 +
+              370 * 376)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
-                                '(1 0 0 0 0 1 0 0 1 0 0 0 1 1 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0))
+                                '(1 0 0 0 1 0 1 0 0 1 0 0 0 1 1 0 0 0 0 0 0 0 0
+                                  0 0 0 0 0 0))
             (CONS
-             '#(|Algebra&| NIL |Rng&| NIL NIL |Module&| |NonAssociativeRing&|
-                NIL NIL |NonAssociativeRng&| NIL NIL NIL NIL |AbelianGroup&|
-                NIL NIL NIL NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
-                |AbelianMonoid&| |Magma&| |AbelianSemiGroup&| |SetCategory&|
-                NIL |BasicType&| NIL)
+             '#(|Algebra&| NIL |Rng&| NIL |NonAssociativeAlgebra&| NIL
+                |Module&| |NonAssociativeRing&| NIL NIL |NonAssociativeRng&|
+                NIL NIL NIL NIL |AbelianGroup&| NIL NIL NIL NIL
+                |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&|
+                |Magma&| |AbelianSemiGroup&| |SetCategory&| NIL |BasicType&|
+                NIL)
              (CONS
-              '#((|Algebra| 6) (|Ring|) (|Rng|) (|SemiRing|) (|SemiRng|)
-                 (|Module| 6) (|NonAssociativeRing|) (|BiModule| $$ $$)
-                 (|BiModule| 6 6) (|NonAssociativeRng|) (|RightModule| $$)
-                 (|LeftModule| $$) (|LeftModule| 6) (|RightModule| 6)
-                 (|AbelianGroup|) (|Monoid|) (|NonAssociativeSemiRing|)
-                 (|CancellationAbelianMonoid|) (|SemiGroup|) (|MagmaWithUnit|)
-                 (|NonAssociativeSemiRng|) (|AbelianMonoid|) (|Magma|)
-                 (|AbelianSemiGroup|) (|SetCategory|) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 54))
+              '#((|Algebra| 6) (|Ring|) (|Rng|) (|SemiRing|)
+                 (|NonAssociativeAlgebra| 6) (|SemiRng|) (|Module| 6)
+                 (|NonAssociativeRing|) (|BiModule| $$ $$) (|BiModule| 6 6)
+                 (|NonAssociativeRng|) (|RightModule| $$) (|LeftModule| $$)
+                 (|LeftModule| 6) (|RightModule| 6) (|AbelianGroup|) (|Monoid|)
+                 (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
+                 (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
+                 (|AbelianMonoid|) (|Magma|) (|AbelianSemiGroup|)
+                 (|SetCategory|) (|unitsKnown|) (|BasicType|)
+                 (|CoercibleTo| 54))
               (|makeByteWordVec2| 79
                                   '(1 17 15 0 18 2 15 19 0 0 20 2 24 19 0 0 25
                                     2 7 19 0 0 26 1 9 19 0 28 1 9 29 0 30 2 13
@@ -350,15 +353,15 @@
                                     0 59 2 61 54 60 0 62 0 13 0 64 0 13 0 65 2
                                     13 19 0 0 67 2 13 0 0 0 69 2 13 0 55 0 71 2
                                     13 0 0 0 73 0 6 15 75 2 0 19 0 0 1 1 0 19 0
-                                    42 2 0 77 0 0 1 0 0 0 1 1 0 77 0 1 2 0 0 0
-                                    15 1 2 0 0 0 78 1 1 0 77 0 1 2 0 19 0 0 1 1
-                                    0 19 0 1 1 0 77 0 1 2 0 0 0 15 1 2 0 0 0 78
-                                    1 1 0 79 0 1 2 0 0 0 0 1 1 1 0 6 1 1 0 0 9
-                                    48 1 0 9 0 53 1 0 0 55 1 1 0 54 0 63 0 0 15
-                                    76 1 0 14 15 16 3 0 0 0 0 0 1 2 0 0 0 0 1 2
-                                    0 19 0 0 1 2 0 0 0 15 1 2 0 0 0 78 1 0 0 0
-                                    27 0 0 0 66 2 0 19 0 0 68 2 2 77 0 0 1 1 0
-                                    0 0 70 2 0 0 0 0 1 2 0 0 0 0 46 2 1 0 0 6 1
-                                    2 1 0 6 0 1 2 0 0 15 0 1 2 0 0 55 0 72 2 0
-                                    0 0 0 74 2 0 0 78 0 1)))))
+                                    42 2 0 78 0 0 1 0 0 0 1 1 0 78 0 1 2 0 0 0
+                                    15 1 2 0 0 0 77 1 1 0 78 0 1 2 1 0 0 77 1 2
+                                    0 19 0 0 1 1 0 19 0 1 1 0 78 0 1 2 0 0 0 15
+                                    1 2 0 0 0 77 1 1 0 79 0 1 2 0 0 0 0 1 1 1 0
+                                    6 1 1 0 0 9 48 1 0 9 0 53 1 0 0 55 1 1 0 54
+                                    0 63 0 0 15 76 1 0 14 15 16 3 0 0 0 0 0 1 2
+                                    0 0 0 0 1 2 0 19 0 0 1 2 0 0 0 15 1 2 0 0 0
+                                    77 1 0 0 0 27 0 0 0 66 2 0 19 0 0 68 2 2 78
+                                    0 0 1 1 0 0 0 70 2 0 0 0 0 1 2 0 0 0 0 46 2
+                                    1 0 6 0 1 2 1 0 0 6 1 2 0 0 15 0 1 2 0 0 55
+                                    0 72 2 0 0 0 0 74 2 0 0 77 0 1)))))
            '|lookupComplete|)) 

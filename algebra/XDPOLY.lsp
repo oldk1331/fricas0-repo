@@ -457,41 +457,43 @@
               |XDPOLY;rquo;%vl%;15| (159 . |lquo|) |XDPOLY;lquo;%vl%;16|
               (165 . |first|) (170 . |rest|) (175 . ~=) |XDPOLY;lquo;3%;18|
               (181 . *) |XDPOLY;rquo;3%;19| (187 . >) |XDPOLY;coef;2%R;20|
-              (193 . <) (199 . +) (|List| 9) (|Mapping| 7 22) (|List| 22)
-              (|List| 7) (|List| %) (|Mapping| 7 7) (|Integer|)
-              (|PositiveInteger|) (|String|) (|OutputForm|))
+              (193 . <) (199 . +) (|List| 9) (|Mapping| 7 22)
+              (|PositiveInteger|) (|List| 22) (|List| 7) (|List| %)
+              (|Mapping| 7 7) (|Integer|) (|String|) (|OutputForm|))
            '#(~= 205 |zero?| 211 |varList| 216 |trunc| 221 |support| 227
               |subtractIfCan| 232 |smaller?| 238 |sh| 244 |sample| 256 |rquo|
               260 |rightRecip| 278 |rightPower| 283 |retractIfCan| 295
               |retract| 305 |reductum| 315 |recip| 320 |quasiRegular?| 325
-              |quasiRegular| 330 |opposite?| 335 |one?| 341 |numberOfMonomials|
-              346 |monomials| 351 |monomial?| 356 |monomial| 361 |mirror| 367
-              |mindegTerm| 372 |mindeg| 377 |maxdeg| 382 |map| 387 |lquo| 393
-              |listOfTerms| 411 |linearExtend| 416 |leftRecip| 422 |leftPower|
-              427 |leadingTerm| 439 |leadingSupport| 444 |leadingMonomial| 449
-              |leadingCoefficient| 454 |latex| 459 |degree| 464
-              |constructOrdered| 469 |construct| 474 |constant?| 479 |constant|
-              484 |commutator| 489 |coerce| 495 |coefficients| 520
-              |coefficient| 525 |coef| 531 |characteristic| 543 |associator|
-              547 |antiCommutator| 554 |annihilate?| 560 ^ 566 |Zero| 578 |One|
-              582 = 586 - 592 + 603 * 609)
+              |quasiRegular| 330 |plenaryPower| 335 |opposite?| 341 |one?| 347
+              |numberOfMonomials| 352 |monomials| 357 |monomial?| 362
+              |monomial| 367 |mirror| 373 |mindegTerm| 378 |mindeg| 383
+              |maxdeg| 388 |map| 393 |lquo| 399 |listOfTerms| 417
+              |linearExtend| 422 |leftRecip| 428 |leftPower| 433 |leadingTerm|
+              445 |leadingSupport| 450 |leadingMonomial| 455
+              |leadingCoefficient| 460 |latex| 465 |degree| 470
+              |constructOrdered| 475 |construct| 480 |constant?| 485 |constant|
+              490 |commutator| 495 |coerce| 501 |coefficients| 526
+              |coefficient| 531 |coef| 537 |characteristic| 549 |associator|
+              553 |antiCommutator| 560 |annihilate?| 566 ^ 572 |Zero| 584 |One|
+              588 = 592 - 598 + 609 * 615)
            'NIL
            (CONS
             (|makeByteWordVec2| 4
-                                '(0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 2))
+                                '(0 0 0 1 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0
+                                  0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 2))
             (CONS
-             '#(NIL NIL NIL |Algebra&| NIL |Rng&| |FreeModuleCategory&| NIL NIL
-                NIL |Module&| NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL
-                |NonAssociativeRng&| NIL NIL |AbelianGroup&| NIL NIL NIL NIL
-                |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&|
-                |Magma&| |AbelianSemiGroup&| NIL |RetractableTo&|
-                |RetractableTo&| |SetCategory&| NIL NIL NIL |BasicType&| NIL
-                NIL)
+             '#(NIL NIL NIL |Algebra&| NIL |Rng&| |FreeModuleCategory&| NIL
+                |NonAssociativeAlgebra&| NIL NIL |Module&| NIL NIL
+                |NonAssociativeRing&| NIL NIL NIL NIL |NonAssociativeRng&| NIL
+                NIL |AbelianGroup&| NIL NIL NIL NIL |MagmaWithUnit&|
+                |NonAssociativeSemiRng&| |AbelianMonoid&| |Magma&|
+                |AbelianSemiGroup&| NIL |RetractableTo&| |RetractableTo&|
+                |SetCategory&| NIL NIL NIL |BasicType&| NIL NIL)
              (CONS
               '#((|XPolynomialsCat| 6 7) (|XFreeAlgebra| 6 7) (|XAlgebra| 7)
                  (|Algebra| 7) (|Ring|) (|Rng|)
                  (|FreeModuleCategory| 7 (|FreeMonoid| 6)) (|SemiRing|)
+                 (|NonAssociativeAlgebra| 7)
                  (|IndexedDirectProductCategory| 7 (|FreeMonoid| 6))
                  (|SemiRng|) (|Module| 7)
                  (|IndexedProductCategory| 7 (|FreeMonoid| 6)) (|BiModule| 7 7)
@@ -520,26 +522,27 @@
                                     22 6 0 62 1 22 0 0 63 2 0 30 0 0 64 2 0 0 0
                                     7 66 2 22 30 0 0 68 2 22 30 0 0 70 2 7 0 0
                                     0 71 2 0 30 0 0 64 1 0 30 0 1 1 0 48 0 52 2
-                                    0 0 0 16 46 1 0 74 0 1 2 0 53 0 0 1 2 4 30
+                                    0 0 0 16 46 1 0 75 0 1 2 0 53 0 0 1 2 4 30
                                     0 0 1 2 1 0 0 0 18 2 1 0 0 16 17 0 0 0 1 2
                                     0 0 0 22 55 2 0 0 0 0 67 2 0 0 0 6 59 1 0
-                                    53 0 1 2 0 0 0 16 1 2 0 0 0 79 1 1 0 35 0
+                                    53 0 1 2 0 0 0 16 1 2 0 0 0 74 1 1 0 35 0
                                     36 1 0 32 0 33 1 0 22 0 1 1 0 7 0 1 1 3 0 0
-                                    40 1 0 53 0 1 1 0 30 0 1 1 0 0 0 1 2 0 30 0
-                                    0 1 1 0 30 0 1 1 0 16 0 1 1 0 76 0 1 1 0 30
-                                    0 1 2 0 0 7 22 23 1 0 0 0 41 1 0 9 0 11 1 0
-                                    22 0 1 1 0 22 0 42 2 0 0 77 0 1 2 0 0 0 22
-                                    57 2 0 0 0 0 65 2 0 0 0 6 61 1 0 72 0 1 2 1
-                                    7 73 0 1 1 0 53 0 1 2 0 0 0 16 1 2 0 0 0 79
-                                    1 1 3 9 0 1 1 3 22 0 38 1 3 0 0 1 1 3 7 0
-                                    37 1 0 80 0 1 1 0 16 0 44 1 3 0 72 1 1 0 0
-                                    72 1 1 0 30 0 47 1 0 7 0 1 2 0 0 0 0 1 1 0
-                                    0 6 26 1 0 0 22 24 1 0 0 7 1 1 0 0 78 1 1 0
-                                    81 0 1 1 0 75 0 1 2 0 7 0 22 1 2 0 7 0 22 1
-                                    2 0 7 0 0 69 0 0 16 1 3 0 0 0 0 0 1 2 0 0 0
-                                    0 1 2 0 30 0 0 1 2 0 0 0 16 1 2 0 0 0 79 1
-                                    0 0 0 12 0 0 0 14 2 0 30 0 0 45 1 0 0 0 1 2
-                                    0 0 0 0 1 2 0 0 0 0 21 2 0 0 6 0 28 2 0 0 7
-                                    0 20 2 0 0 0 7 66 2 0 0 16 0 1 2 0 0 78 0 1
-                                    2 0 0 0 0 1 2 0 0 79 0 1)))))
+                                    40 1 0 53 0 1 1 0 30 0 1 1 0 0 0 1 2 1 0 0
+                                    74 1 2 0 30 0 0 1 1 0 30 0 1 1 0 16 0 1 1 0
+                                    77 0 1 1 0 30 0 1 2 0 0 7 22 23 1 0 0 0 41
+                                    1 0 9 0 11 1 0 22 0 1 1 0 22 0 42 2 0 0 78
+                                    0 1 2 0 0 0 22 57 2 0 0 0 0 65 2 0 0 0 6 61
+                                    1 0 72 0 1 2 1 7 73 0 1 1 0 53 0 1 2 0 0 0
+                                    16 1 2 0 0 0 74 1 1 3 9 0 1 1 3 22 0 38 1 3
+                                    0 0 1 1 3 7 0 37 1 0 80 0 1 1 0 16 0 44 1 3
+                                    0 72 1 1 0 0 72 1 1 0 30 0 47 1 0 7 0 1 2 0
+                                    0 0 0 1 1 0 0 6 26 1 0 0 22 24 1 0 0 7 1 1
+                                    0 0 79 1 1 0 81 0 1 1 0 76 0 1 2 0 7 0 22 1
+                                    2 0 7 0 22 1 2 0 7 0 0 69 0 0 16 1 3 0 0 0
+                                    0 0 1 2 0 0 0 0 1 2 0 30 0 0 1 2 0 0 0 16 1
+                                    2 0 0 0 74 1 0 0 0 12 0 0 0 14 2 0 30 0 0
+                                    45 1 0 0 0 1 2 0 0 0 0 1 2 0 0 0 0 21 2 0 0
+                                    6 0 28 2 0 0 7 0 20 2 0 0 0 7 66 2 0 0 16 0
+                                    1 2 0 0 79 0 1 2 0 0 0 0 1 2 0 0 74 0
+                                    1)))))
            '|lookupComplete|)) 

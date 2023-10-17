@@ -130,8 +130,8 @@
         ((|p| (UP)) (|l| (|List| #1=(|Kernel| (|AlgebraicNumber|))))
          (% (|Factored| UP)))
         (SPROG
-         ((#2=#:G152 NIL) (#3=#:G151 #4=(|Factored| UP)) (#5=#:G153 #4#)
-          (#6=#:G161 NIL) (|fc| NIL) (|newalpha| (|AlgebraicNumber|))
+         ((#2=#:G151 NIL) (#3=#:G150 #4=(|Factored| UP)) (#5=#:G152 #4#)
+          (#6=#:G160 NIL) (|fc| NIL) (|newalpha| (|AlgebraicNumber|))
           (|fr| (|Factored| |ups|))
           (|ups|
            (|Join| (|UnivariatePolynomialCategory| |sae|)
@@ -155,8 +155,8 @@
           (|newl| (|List| (|Kernel| (|AlgebraicNumber|))))
           (|q| (|SparseUnivariatePolynomial| (|AlgebraicNumber|)))
           (|alpha| #1#) (#9=#:G142 NIL) (#10=#:G141 #1#) (#11=#:G143 #1#)
-          (#12=#:G160 NIL) (#13=#:G104 NIL) (#14=#:G138 NIL) (#15=#:G137 #4#)
-          (#16=#:G139 #4#) (#17=#:G159 NIL) (|dc| NIL)
+          (#12=#:G159 NIL) (#13=#:G104 NIL) (#14=#:G138 NIL) (#15=#:G137 #4#)
+          (#16=#:G139 #4#) (#17=#:G158 NIL) (|dc| NIL)
           (|dr|
            (|Factored|
             (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))))
@@ -416,9 +416,9 @@
 
 (DECLAIM (NOTINLINE |AlgFactor;|)) 
 
-(DEFUN |AlgFactor| (#1=#:G162)
+(DEFUN |AlgFactor| (#1=#:G161)
   (SPROG NIL
-         (PROG (#2=#:G163)
+         (PROG (#2=#:G162)
            (RETURN
             (COND
              ((LETT #2#

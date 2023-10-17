@@ -79,10 +79,9 @@
               (|InputForm|) (|List| %) (|SingleInteger|) (|HashState|)
               (|PrimitiveArray| 32) (|PrimeField| (NRTEVAL (QREFELT % 6)))
               (|Matrix| 35) (|Vector| 35) (|Union| 35 '"failed")
-              (|Fraction| 23) (|Factored| %)
-              (|Record| (|:| |coef1| %) (|:| |coef2| %))
-              (|Union| 41 '#2="failed") (|Union| 31 '#2#)
+              (|Fraction| 23) (|Factored| %) (|Union| 31 '#2="failed")
               (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
+              (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 43 '#2#)
               (|Record| (|:| |quotient| %) (|:| |remainder| %))
               (|Record| (|:| |coef| 31) (|:| |generator| %))
               (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
@@ -93,7 +92,8 @@
             (|makeByteWordVec2| 4
                                 '(0 0 2 3 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 3 1 2
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 2 0 0 2 2 0 0 0 4 0 0 0 0 0 0 0 0 2))
+                                  0 0 0 0 0 0 0 2 0 0 2 2 0 0 0 4 0 0 0 0 0 0 0
+                                  0 2))
             (CONS
              '#(|FiniteAlgebraicExtensionField&| |ExtensionField&|
                 |FiniteFieldCategory&| |FieldOfPrimeCharacteristic&| |Field&|
@@ -101,13 +101,14 @@
                 |UniqueFactorizationDomain&| |GcdDomain&| |FramedAlgebra&| NIL
                 |FiniteRankAlgebra&| |DivisionRing&| NIL NIL |Algebra&|
                 |Algebra&| |EntireRing&| |Algebra&| NIL NIL |DifferentialRing&|
-                NIL |Rng&| NIL |Module&| |Module&| |Module&| NIL
-                |FramedModule&| NIL NIL NIL |NonAssociativeRing&| NIL NIL NIL
-                NIL NIL |NonAssociativeRng&| NIL |AbelianGroup&| NIL NIL NIL
-                NIL |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&|
-                |Finite&| |Magma&| |AbelianSemiGroup&| NIL NIL |RetractableTo&|
-                NIL |SetCategory&| |Hashable&| NIL NIL NIL NIL NIL NIL
-                |BasicType&| NIL NIL)
+                NIL |NonAssociativeAlgebra&| |NonAssociativeAlgebra&|
+                |NonAssociativeAlgebra&| |Rng&| NIL |Module&| |Module&|
+                |Module&| NIL |FramedModule&| NIL NIL NIL |NonAssociativeRing&|
+                NIL NIL NIL NIL NIL |NonAssociativeRng&| NIL |AbelianGroup&|
+                NIL NIL NIL NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
+                |AbelianMonoid&| |Finite&| |Magma&| |AbelianSemiGroup&| NIL NIL
+                |RetractableTo&| NIL |SetCategory&| |Hashable&| NIL NIL NIL NIL
+                NIL NIL |BasicType&| NIL NIL)
              (CONS
               '#((|FiniteAlgebraicExtensionField| (|PrimeField| 6))
                  (|ExtensionField| (|PrimeField| 6)) (|FiniteFieldCategory|)
@@ -124,8 +125,10 @@
                  (|DivisionRing|) (|CommutativeRing|) (|LeftOreRing|)
                  (|Algebra| (|PrimeField| 6)) (|Algebra| 39) (|EntireRing|)
                  (|Algebra| $$) (|CharacteristicNonZero|)
-                 (|CharacteristicZero|) (|DifferentialRing|) (|Ring|) (|Rng|)
-                 (|SemiRing|) (|Module| (|PrimeField| 6)) (|Module| 39)
+                 (|CharacteristicZero|) (|DifferentialRing|) (|Ring|)
+                 (|NonAssociativeAlgebra| (|PrimeField| 6))
+                 (|NonAssociativeAlgebra| 39) (|NonAssociativeAlgebra| $$)
+                 (|Rng|) (|SemiRing|) (|Module| (|PrimeField| 6)) (|Module| 39)
                  (|Module| $$) (|SemiRng|) (|FramedModule| (|PrimeField| 6))
                  (|BiModule| (|PrimeField| 6) (|PrimeField| 6))
                  (|BiModule| 39 39) (|BiModule| $$ $$) (|NonAssociativeRing|)

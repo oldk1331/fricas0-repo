@@ -707,30 +707,31 @@
               (|String|))
            '#(~= 295 |zero?| 301 |subtractIfCan| 306 |sample| 312 |rightRecip|
               316 |rightPower| 321 |retractIfCan| 333 |retract| 343 |recip| 353
-              |opposite?| 358 |opeval| 364 |one?| 370 |makeop| 375 |leftRecip|
-              381 |leftPower| 386 |latex| 398 |evaluateInverse| 403 |evaluate|
-              409 |elt| 415 |conjug| 421 |commutator| 426 |coerce| 432
-              |charthRoot| 452 |characteristic| 457 |associator| 461
-              |antiCommutator| 468 |annihilate?| 474 |adjoint| 480 ^ 491 |Zero|
-              509 |One| 513 = 517 - 523 + 534 * 540)
+              |plenaryPower| 358 |opposite?| 364 |opeval| 370 |one?| 376
+              |makeop| 381 |leftRecip| 387 |leftPower| 392 |latex| 404
+              |evaluateInverse| 409 |evaluate| 415 |elt| 421 |conjug| 427
+              |commutator| 432 |coerce| 438 |charthRoot| 458 |characteristic|
+              463 |associator| 467 |antiCommutator| 474 |annihilate?| 480
+              |adjoint| 486 ^ 497 |Zero| 515 |One| 519 = 523 - 529 + 540 * 546)
            'NIL
            (CONS
             (|makeByteWordVec2| 3
-                                '(1 2 3 0 0 0 0 1 0 0 1 0 0 0 1 1 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0))
+                                '(1 2 3 0 0 0 1 0 1 0 0 1 0 0 0 1 1 0 0 0 0 0 0
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
-             '#(|Algebra&| NIL NIL NIL |Rng&| NIL NIL |Module&|
-                |NonAssociativeRing&| NIL NIL |NonAssociativeRng&| NIL NIL NIL
-                NIL |AbelianGroup&| NIL NIL NIL NIL |MagmaWithUnit&|
-                |NonAssociativeSemiRng&| |AbelianMonoid&| |Magma&|
-                |AbelianSemiGroup&| |RetractableTo&| |RetractableTo&|
+             '#(|Algebra&| NIL NIL NIL |Rng&| NIL |NonAssociativeAlgebra&| NIL
+                |Module&| |NonAssociativeRing&| NIL NIL |NonAssociativeRng&|
+                NIL NIL NIL NIL |AbelianGroup&| NIL NIL NIL NIL
+                |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&|
+                |Magma&| |AbelianSemiGroup&| |RetractableTo&| |RetractableTo&|
                 |SetCategory&| NIL NIL NIL NIL |BasicType&| NIL)
              (CONS
               '#((|Algebra| 6) (|CharacteristicNonZero|) (|CharacteristicZero|)
-                 (|Ring|) (|Rng|) (|SemiRing|) (|SemiRng|) (|Module| 6)
-                 (|NonAssociativeRing|) (|BiModule| $$ $$) (|BiModule| 6 6)
-                 (|NonAssociativeRng|) (|RightModule| $$) (|LeftModule| $$)
-                 (|LeftModule| 6) (|RightModule| 6) (|AbelianGroup|) (|Monoid|)
+                 (|Ring|) (|Rng|) (|SemiRing|) (|NonAssociativeAlgebra| 6)
+                 (|SemiRng|) (|Module| 6) (|NonAssociativeRing|)
+                 (|BiModule| $$ $$) (|BiModule| 6 6) (|NonAssociativeRng|)
+                 (|RightModule| $$) (|LeftModule| $$) (|LeftModule| 6)
+                 (|RightModule| 6) (|AbelianGroup|) (|Monoid|)
                  (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
                  (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
                  (|AbelianMonoid|) (|Magma|) (|AbelianSemiGroup|)
@@ -757,16 +758,17 @@
                                     104 1 6 0 0 105 2 0 21 0 0 1 1 0 21 0 62 2
                                     0 54 0 0 1 0 0 0 1 1 0 54 0 1 2 0 0 0 37 1
                                     2 0 0 0 56 1 1 0 94 0 96 1 0 89 0 90 1 0 24
-                                    0 42 1 0 6 0 1 1 0 54 0 91 2 0 21 0 0 1 2 0
-                                    7 24 7 85 1 0 21 0 1 2 0 0 6 14 16 1 0 54 0
-                                    1 2 0 0 0 37 1 2 0 0 0 56 1 1 0 106 0 1 2 0
-                                    0 0 46 61 2 0 0 0 46 47 2 0 7 0 7 35 1 1 6
-                                    6 101 2 0 0 0 0 1 1 0 0 24 26 1 0 0 6 19 1
-                                    0 0 17 20 1 0 63 0 69 1 2 54 0 1 0 0 37 39
-                                    3 0 0 0 0 0 1 2 0 0 0 0 1 2 0 21 0 0 1 2 1
-                                    0 0 0 104 1 1 0 0 100 2 0 0 0 17 60 2 0 0 0
-                                    37 1 2 0 0 0 56 1 0 0 0 23 0 0 0 12 2 0 21
-                                    0 0 1 1 0 0 0 51 2 0 0 0 0 1 2 0 0 0 0 76 2
-                                    1 0 6 0 97 2 1 0 0 6 98 2 0 0 37 0 1 2 0 0
-                                    17 0 99 2 0 0 0 0 53 2 0 0 56 0 1)))))
+                                    0 42 1 0 6 0 1 1 0 54 0 91 2 1 0 0 56 1 2 0
+                                    21 0 0 1 2 0 7 24 7 85 1 0 21 0 1 2 0 0 6
+                                    14 16 1 0 54 0 1 2 0 0 0 37 1 2 0 0 0 56 1
+                                    1 0 106 0 1 2 0 0 0 46 61 2 0 0 0 46 47 2 0
+                                    7 0 7 35 1 1 6 6 101 2 0 0 0 0 1 1 0 0 24
+                                    26 1 0 0 6 19 1 0 0 17 20 1 0 63 0 69 1 2
+                                    54 0 1 0 0 37 39 3 0 0 0 0 0 1 2 0 0 0 0 1
+                                    2 0 21 0 0 1 2 1 0 0 0 104 1 1 0 0 100 2 0
+                                    0 0 17 60 2 0 0 0 37 1 2 0 0 0 56 1 0 0 0
+                                    23 0 0 0 12 2 0 21 0 0 1 1 0 0 0 51 2 0 0 0
+                                    0 1 2 0 0 0 0 76 2 1 0 0 6 98 2 1 0 6 0 97
+                                    2 0 0 37 0 1 2 0 0 17 0 99 2 0 0 0 0 53 2 0
+                                    0 56 0 1)))))
            '|lookupComplete|)) 

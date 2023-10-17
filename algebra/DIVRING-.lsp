@@ -46,9 +46,9 @@
                         '#((|Join|
                             (|mkCategory|
                              (LIST '((^ (|#1| |#1| (|Integer|))) T)
-                                   '((* (|#1| |#1| (|Fraction| (|Integer|))))
-                                     T)
                                    '((* (|#1| (|Fraction| (|Integer|)) |#1|))
+                                     T)
+                                   '((* (|#1| |#1| (|Fraction| (|Integer|))))
                                      T)
                                    '((^ (|#1| |#1| (|NonNegativeInteger|))) T)
                                    '((* (|#1| (|NonNegativeInteger|) |#1|)) T)
