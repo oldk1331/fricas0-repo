@@ -54,34 +54,6 @@
                                              (LIST
                                               (|HasCategory| |#2| '(|Field|))
                                               (|HasCategory| |#2|
-                                                             '(|AlgebraicallyClosedFunctionSpace|
-                                                               (|Integer|)))
-                                              (|HasCategory| |#2|
-                                                             '(|PrimitiveFunctionCategory|))
-                                              (|HasCategory| |#2|
-                                                             '(|TranscendentalFunctionCategory|))
-                                              (|HasSignature| |#2|
-                                                              (LIST
-                                                               '|variables|
-                                                               (LIST
-                                                                '(|List|
-                                                                  (|Symbol|))
-                                                                (|devaluate|
-                                                                 |#2|))))
-                                              (|HasSignature| |#2|
-                                                              (LIST
-                                                               '|integrate|
-                                                               (LIST
-                                                                (|devaluate|
-                                                                 |#2|)
-                                                                (|devaluate|
-                                                                 |#2|)
-                                                                '(|Symbol|))))
-                                              (|HasCategory| |#2|
-                                                             '(|Algebra|
-                                                               (|Fraction|
-                                                                (|Integer|))))
-                                              (|HasCategory| |#2|
                                                              '(|IntegralDomain|))))))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)

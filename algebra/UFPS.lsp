@@ -188,40 +188,27 @@
                                                                    '(|NonNegativeInteger|)
                                                                    (|devaluate|
                                                                     |#1|)))))
-                                        (|HasCategory| |#1| '(|Field|))
-                                        (OR
-                                         (AND
-                                          (|HasCategory| |#1|
-                                                         '(|Algebra|
-                                                           (|Fraction|
-                                                            (|Integer|))))
-                                          (|HasCategory| |#1|
-                                                         '(|AlgebraicallyClosedFunctionSpace|
-                                                           (|Integer|)))
-                                          (|HasCategory| |#1|
-                                                         '(|PrimitiveFunctionCategory|))
-                                          (|HasCategory| |#1|
-                                                         '(|TranscendentalFunctionCategory|)))
-                                         (AND
-                                          (|HasCategory| |#1|
-                                                         '(|Algebra|
-                                                           (|Fraction|
-                                                            (|Integer|))))
-                                          (|HasSignature| |#1|
-                                                          (LIST '|integrate|
-                                                                (LIST
-                                                                 (|devaluate|
-                                                                  |#1|)
-                                                                 (|devaluate|
-                                                                  |#1|)
-                                                                 '(|Symbol|))))
-                                          (|HasSignature| |#1|
-                                                          (LIST '|variables|
-                                                                (LIST
-                                                                 '(|List|
-                                                                   (|Symbol|))
-                                                                 (|devaluate|
-                                                                  |#1|))))))))))
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        '(|Algebra|
+                                                          (|Fraction|
+                                                           (|Integer|))))
+                                         (|HasSignature| |#1|
+                                                         (LIST '|integrate|
+                                                               (LIST
+                                                                (|devaluate|
+                                                                 |#1|)
+                                                                (|devaluate|
+                                                                 |#1|)
+                                                                '(|Symbol|))))
+                                         (|HasSignature| |#1|
+                                                         (LIST '|variables|
+                                                               (LIST
+                                                                '(|List|
+                                                                  (|Symbol|))
+                                                                (|devaluate|
+                                                                 |#1|)))))
+                                        (|HasCategory| |#1| '(|Field|))))))
     (|haddProp| |$ConstructorCache| '|UnivariateFormalPowerSeries| (LIST DV$1)
                 (CONS 1 $))
     (|stuffDomainSlots| $)
@@ -298,7 +285,7 @@
                                         (NRTEVAL (|spadConstant| $ 7)))
               (|local| |#1|) (0 . |Zero|) (|Boolean|)
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|Union| $ '"failed") (|List| 12) (|Symbol|) (|List| 14)
+              (|Union| $ '"failed") (|Symbol|) (|List| 11) (|List| 14)
               (|NonNegativeInteger|) (|Integer|)
               (|Record| (|:| |k| 14) (|:| |c| 6)) (|List| 16)
               (|Variable| (NRTEVAL '|x|)) (|Fraction| 15) (|Stream| 6)
@@ -309,11 +296,11 @@
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 23
-                                '(0 0 0 0 2 6 1 6 2 3 4 5 8 7 17 14 17 0 1 6 5
-                                  0 0 0 1 16 0 0 0 0 0 1 1 17 23 22 14 14 0 0
+                                '(0 0 0 0 0 2 6 1 6 2 3 4 5 8 7 17 14 17 0 1 6
+                                  5 0 0 0 1 16 0 0 0 0 0 1 1 17 23 22 14 14 0 0
                                   21 14 0 0 0 6 1 0 0 0 6 2 16 9 1 1 1 1 1 1))
             (CONS
-             '#(|UnivariateTaylorSeriesCategory&|
+             '#(|UnivariateTaylorSeriesCategory&| NIL
                 |UnivariatePowerSeriesCategory&| |PowerSeriesCategory&|
                 |AbelianMonoidRing&| NIL NIL |Algebra&| |Algebra&|
                 |EntireRing&| NIL NIL |Algebra&| |PartialDifferentialRing&|
@@ -329,13 +316,14 @@
                 |RadicalCategory&|)
              (CONS
               '#((|UnivariateTaylorSeriesCategory| 6)
+                 (|UnivariateSeriesWithRationalExponents| 6 14)
                  (|UnivariatePowerSeriesCategory| 6 14)
                  (|PowerSeriesCategory| 6 14 (|SingletonAsOrderedSet|))
                  (|AbelianMonoidRing| 6 14) (|IntegralDomain|)
                  (|CommutativeRing|) (|Algebra| 19) (|Algebra| $$)
                  (|EntireRing|) (|CharacteristicNonZero|)
                  (|CharacteristicZero|) (|Algebra| 6)
-                 (|PartialDifferentialRing| 12) (|DifferentialRing|) (|Ring|)
+                 (|PartialDifferentialRing| 11) (|DifferentialRing|) (|Ring|)
                  (|SemiRing|) (|Rng|) (|SemiRng|) (|Module| 19) (|Module| $$)
                  (|Module| 6) (|IndexedProductCategory| 6 14) (|BiModule| 6 6)
                  (|BiModule| $$ $$) (|BiModule| 19 19) (|NonAssociativeRing|)

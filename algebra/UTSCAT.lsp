@@ -30,7 +30,7 @@
                                                      (LETT
                                                       |UnivariateTaylorSeriesCategory;CAT|
                                                       (|Join|
-                                                       (|UnivariatePowerSeriesCategory|
+                                                       (|UnivariateSeriesWithRationalExponents|
                                                         '|t#1| '#2#)
                                                        (|mkCategory|
                                                         '(((|series|
@@ -73,54 +73,6 @@
                                                            T)
                                                           ((^ ($ $ |t#1|))
                                                            (|has| |t#1|
-                                                                  (|Field|)))
-                                                          ((|integrate| ($ $))
-                                                           (|has| |t#1|
-                                                                  (|Algebra|
-                                                                   (|Fraction|
-                                                                    (|Integer|)))))
-                                                          ((|integrate|
-                                                            ($ $ (|Symbol|)))
-                                                           (AND
-                                                            (|has| |t#1|
-                                                                   (SIGNATURE
-                                                                    |variables|
-                                                                    ((|List|
-                                                                      (|Symbol|))
-                                                                     |t#1|)))
-                                                            (|has| |t#1|
-                                                                   (SIGNATURE
-                                                                    |integrate|
-                                                                    (|t#1|
-                                                                     |t#1|
-                                                                     (|Symbol|))))
-                                                            (|has| |t#1|
-                                                                   (|Algebra|
-                                                                    (|Fraction|
-                                                                     (|Integer|))))))
-                                                          ((|integrate|
-                                                            ($ $ (|Symbol|)))
-                                                           (AND
-                                                            (|has| |t#1|
-                                                                   (|AlgebraicallyClosedFunctionSpace|
-                                                                    (|Integer|)))
-                                                            (|has| |t#1|
-                                                                   (|PrimitiveFunctionCategory|))
-                                                            (|has| |t#1|
-                                                                   (|TranscendentalFunctionCategory|))
-                                                            (|has| |t#1|
-                                                                   (|Algebra|
-                                                                    (|Fraction|
-                                                                     (|Integer|)))))))
-                                                        '(((|RadicalCategory|)
-                                                           (|has| |t#1|
-                                                                  (|Algebra|
-                                                                   (|Fraction|
-                                                                    (|Integer|)))))
-                                                          ((|TranscendentalFunctionCategory|)
-                                                           (|has| |t#1|
-                                                                  (|Algebra|
-                                                                   (|Fraction|
-                                                                    (|Integer|))))))
-                                                        NIL NIL))))))))
+                                                                  (|Field|))))
+                                                        NIL NIL NIL))))))))
            (SETELT #1# 0 (LIST '|UnivariateTaylorSeriesCategory| |t#1|))))) 
