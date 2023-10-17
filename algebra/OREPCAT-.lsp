@@ -496,6 +496,7 @@
                                    '((|exquo|
                                       ((|Union| |#1| "failed") |#1| |#2|))
                                      T)
+                                   '((* (|#1| |#1| (|Integer|))) T)
                                    '((|exquo| ((|Union| |#1| #1#) |#1| |#1|))
                                      T)
                                    '((|primitivePart| (|#1| |#1|)) T)

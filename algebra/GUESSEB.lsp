@@ -544,7 +544,7 @@
          (|basis| (|Mapping| EXPRR EXPRR)) (|xValues| (|List| (|Integer|)))
          (|options| (|List| (|GuessOption|))) ($ (|List| EXPRR)))
         (SPROG
-         ((#1=#:G296 NIL) (|res| (|List| EXPRR)) (|res4| (EXPRR))
+         ((#1=#:G316 NIL) (|res| (|List| EXPRR)) (|res4| (EXPRR))
           (|denr| #2=(|SparseUnivariatePolynomial| F)) (|numr| #2#)
           (|ri1|
            (|Fraction|
@@ -556,12 +556,12 @@
            #3=(|SparseMultivariatePolynomial| F
                                               (|OrderedVariableList|
                                                (|construct| '|a1| 'A))))
-          (|t1| #3#) (|a1v| (F)) (#4=#:G303 NIL) (|g| NIL)
+          (|t1| #3#) (|a1v| (F)) (#4=#:G323 NIL) (|g| NIL)
           (|evalPoly|
            (|SparseMultivariatePolynomial| F
                                            (|OrderedVariableList|
                                             (|construct| '|a1| 'A))))
-          (|Av| (F)) (#5=#:G302 NIL) (|f| NIL)
+          (|Av| (F)) (#5=#:G322 NIL) (|f| NIL)
           (|res3| (|SparseUnivariatePolynomial| F))
           (|res2| #6=(|SparseUnivariatePolynomial| S)) (|res1| #6#)
           (|d2| (|Integer|)) (|o2| (|Integer|)) (|d1| (|Integer|))
@@ -578,7 +578,7 @@
               (|SparseMultivariatePolynomial| S
                                               (|OrderedVariableList|
                                                (|construct| '|a1| 'A)))))))
-          (#8=#:G272 NIL) (#9=#:G301 NIL) (|i| NIL) (|maxDeg| (|Integer|))
+          (#8=#:G292 NIL) (#9=#:G321 NIL) (|i| NIL) (|maxDeg| (|Integer|))
           (|maxD| (|Union| (|NonNegativeInteger|) "arbitrary"))
           (|y3|
            #10=(|Fraction|
@@ -592,22 +592,22 @@
              (|SparseMultivariatePolynomial| S
                                              (|OrderedVariableList|
                                               (|construct| '|a1| 'A))))))
-          (#11=#:G300 NIL) (#12=#:G299 NIL)
+          (#11=#:G320 NIL) (#12=#:G319 NIL)
           (|y| (|Mapping| #10# (|NonNegativeInteger|)))
           (|x3|
            #13=(|Fraction|
                 (|SparseMultivariatePolynomial| S
                                                 (|OrderedVariableList|
                                                  (|construct| '|a1| 'A)))))
-          (|x2| #13#) (|x1| #13#) (|xlist| (|List| #13#)) (#14=#:G298 NIL)
-          (#15=#:G297 NIL) (|len| (|NonNegativeInteger|)) (#16=#:G244 NIL)
+          (|x2| #13#) (|x1| #13#) (|xlist| (|List| #13#)) (#14=#:G318 NIL)
+          (#15=#:G317 NIL) (|len| (|NonNegativeInteger|)) (#16=#:G248 NIL)
           (A #17=(|OrderedVariableList| (|construct| '|a1| 'A))) (|a1| #17#))
          (SEQ
           (EXIT
            (SEQ (LETT |a1| (SPADCALL 1 (QREFELT $ 72)))
                 (LETT A (SPADCALL 2 (QREFELT $ 72)))
                 (LETT |len| (LENGTH |list|))
-                (COND ((< |len| 4) (PROGN (LETT #1# NIL) (GO #18=#:G295)))
+                (COND ((< |len| 4) (PROGN (LETT #1# NIL) (GO #18=#:G315)))
                       (#19='T
                        (LETT |len|
                              (PROG1 (LETT #16# (- |len| 3))
@@ -929,11 +929,11 @@
         ((|list| (|List| F)) (|basis| (|Mapping| EXPRR EXPRR))
          (|options| (|List| (|GuessOption|))) ($ (|List| EXPRR)))
         (SPROG
-         ((|res| (|List| EXPRR)) (#1=#:G324 NIL) (|f| NIL) (#2=#:G323 NIL)
+         ((|res| (|List| EXPRR)) (#1=#:G344 NIL) (|f| NIL) (#2=#:G343 NIL)
           (|xValues| (|List| (|Integer|))) (|newlist| (|List| F))
-          (|i| (|Integer|)) (#3=#:G322 NIL) (|x| NIL) (|zeros| (EXPRR))
-          (#4=#:G321 NIL) (|shortlist| (|List| F)) (#5=#:G306 NIL)
-          (#6=#:G320 NIL) (|len| (|Integer|)) (|xx| (|Symbol|)))
+          (|i| (|Integer|)) (#3=#:G342 NIL) (|x| NIL) (|zeros| (EXPRR))
+          (#4=#:G341 NIL) (|shortlist| (|List| F)) (#5=#:G326 NIL)
+          (#6=#:G340 NIL) (|len| (|Integer|)) (|xx| (|Symbol|)))
          (SEQ
           (EXIT
            (SEQ
@@ -944,7 +944,7 @@
             (LETT |len| (LENGTH |list|))
             (COND
              ((< (+ (- |len| (SPADCALL |options| (QREFELT $ 163))) 1) 0)
-              (PROGN (LETT #6# NIL) (GO #7=#:G319))))
+              (PROGN (LETT #6# NIL) (GO #7=#:G339))))
             (LETT |shortlist|
                   (SPADCALL |list|
                             (PROG1
@@ -1096,7 +1096,7 @@
             (|SparseMultivariatePolynomial| S
                                             (|OrderedVariableList|
                                              (|construct| '|a1| 'A)))))
-          (#1=#:G338 NIL) (|l| NIL) (#2=#:G337 NIL))
+          (#1=#:G358 NIL) (|l| NIL) (#2=#:G357 NIL))
          (SEQ
           (LETT |numl|
                 (PROGN
@@ -1150,7 +1150,7 @@
          (|xValues| (|List| (|Integer|))) (|options| (|List| (|GuessOption|)))
          ($ (|List| EXPRR)))
         (SPROG
-         ((#1=#:G375 NIL) (|res| (|List| EXPRR)) (|res4| (EXPRR))
+         ((#1=#:G395 NIL) (|res| (|List| EXPRR)) (|res4| (EXPRR))
           (|denr| #2=(|SparseUnivariatePolynomial| F)) (|numr| #2#)
           (|ri1|
            (|Fraction|
@@ -1162,12 +1162,12 @@
            #3=(|SparseMultivariatePolynomial| F
                                               (|OrderedVariableList|
                                                (|construct| '|a1| 'A))))
-          (|t1| #3#) (|a1v| (F)) (#4=#:G382 NIL) (|g| NIL)
+          (|t1| #3#) (|a1v| (F)) (#4=#:G402 NIL) (|g| NIL)
           (|evalPoly|
            (|SparseMultivariatePolynomial| F
                                            (|OrderedVariableList|
                                             (|construct| '|a1| 'A))))
-          (|Av| (F)) (#5=#:G381 NIL) (|f| NIL)
+          (|Av| (F)) (#5=#:G401 NIL) (|f| NIL)
           (|res3| (|SparseUnivariatePolynomial| F))
           (|res2| #6=(|SparseUnivariatePolynomial| S)) (|res1| #6#)
           (|poly3|
@@ -1182,7 +1182,7 @@
               (|SparseMultivariatePolynomial| S
                                               (|OrderedVariableList|
                                                (|construct| '|a1| 'A)))))))
-          (#8=#:G355 NIL) (#9=#:G380 NIL) (|i| NIL) (|maxDeg| (|Integer|))
+          (#8=#:G375 NIL) (#9=#:G400 NIL) (|i| NIL) (|maxDeg| (|Integer|))
           (|maxD| (|Union| (|NonNegativeInteger|) "arbitrary"))
           (|y3|
            #10=(|Fraction|
@@ -1196,22 +1196,22 @@
              (|SparseMultivariatePolynomial| S
                                              (|OrderedVariableList|
                                               (|construct| '|a1| 'A))))))
-          (#11=#:G379 NIL) (#12=#:G378 NIL)
+          (#11=#:G399 NIL) (#12=#:G398 NIL)
           (|y| (|Mapping| #10# (|NonNegativeInteger|)))
           (|x3|
            #13=(|Fraction|
                 (|SparseMultivariatePolynomial| S
                                                 (|OrderedVariableList|
                                                  (|construct| '|a1| 'A)))))
-          (|x2| #13#) (|x1| #13#) (|xlist| (|List| #13#)) (#14=#:G377 NIL)
-          (#15=#:G376 NIL) (|len| (|NonNegativeInteger|)) (#16=#:G340 NIL)
+          (|x2| #13#) (|x1| #13#) (|xlist| (|List| #13#)) (#14=#:G397 NIL)
+          (#15=#:G396 NIL) (|len| (|NonNegativeInteger|)) (#16=#:G360 NIL)
           (A #17=(|OrderedVariableList| (|construct| '|a1| 'A))) (|a1| #17#))
          (SEQ
           (EXIT
            (SEQ (LETT |a1| (SPADCALL 1 (QREFELT $ 72)))
                 (LETT A (SPADCALL 2 (QREFELT $ 72)))
                 (LETT |len| (LENGTH |list|))
-                (COND ((< |len| 4) (PROGN (LETT #1# NIL) (GO #18=#:G374)))
+                (COND ((< |len| 4) (PROGN (LETT #1# NIL) (GO #18=#:G394)))
                       (#19='T
                        (LETT |len|
                              (PROG1 (LETT #16# (- |len| 3))
@@ -1505,11 +1505,11 @@
          (|extEXPR| (|Mapping| EXPRR (|Symbol|) F F))
          (|options| (|List| (|GuessOption|))) ($ (|List| EXPRR)))
         (SPROG
-         ((|res| (|List| EXPRR)) (#1=#:G409 NIL) (|f| NIL) (#2=#:G408 NIL)
+         ((|res| (|List| EXPRR)) (#1=#:G429 NIL) (|f| NIL) (#2=#:G428 NIL)
           (|xValues| (|List| (|Integer|))) (|newlist| (|List| F))
-          (|i| (|Integer|)) (#3=#:G407 NIL) (|x| NIL) (|zeros| (EXPRR))
-          (#4=#:G406 NIL) (|shortlist| (|List| F)) (#5=#:G385 NIL)
-          (#6=#:G405 NIL) (|len| (|Integer|)) (|xx| (|Symbol|)))
+          (|i| (|Integer|)) (#3=#:G427 NIL) (|x| NIL) (|zeros| (EXPRR))
+          (#4=#:G426 NIL) (|shortlist| (|List| F)) (#5=#:G405 NIL)
+          (#6=#:G425 NIL) (|len| (|Integer|)) (|xx| (|Symbol|)))
          (SEQ
           (EXIT
            (SEQ
@@ -1520,7 +1520,7 @@
             (LETT |len| (LENGTH |list|))
             (COND
              ((< (+ (- |len| (SPADCALL |options| (QREFELT $ 163))) 1) 0)
-              (PROGN (LETT #6# NIL) (GO #7=#:G404))))
+              (PROGN (LETT #6# NIL) (GO #7=#:G424))))
             (LETT |shortlist|
                   (SPADCALL |list|
                             (PROG1
@@ -1658,7 +1658,7 @@
              (|SparseMultivariatePolynomial| S
                                              (|OrderedVariableList|
                                               (|construct| '|a1| 'A))))))
-          (#1=#:G427 NIL) (|l| NIL) (#2=#:G426 NIL))
+          (#1=#:G447 NIL) (|l| NIL) (#2=#:G446 NIL))
          (SEQ
           (LETT |fl|
                 (PROGN
@@ -1782,9 +1782,9 @@
 
 (DECLAIM (NOTINLINE |GuessExpBin;|)) 
 
-(DEFUN |GuessExpBin| (&REST #1=#:G443)
+(DEFUN |GuessExpBin| (&REST #1=#:G463)
   (SPROG NIL
-         (PROG (#2=#:G444)
+         (PROG (#2=#:G464)
            (RETURN
             (COND
              ((LETT #2#

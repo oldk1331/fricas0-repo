@@ -247,19 +247,19 @@
                  (NULL
                   (SPADCALL
                    (LETT |a0|
-                         (SPADCALL (SPADCALL |p| 0 (QREFELT $ 67))
+                         (SPADCALL (SPADCALL |p| 0 (QREFELT $ 66))
                                    (QREFELT $ 27)))
                    |y| (QREFELT $ 46))))
                 (NULL
                  (SPADCALL
                   (LETT |a1|
-                        (SPADCALL (SPADCALL |p| 1 (QREFELT $ 67))
+                        (SPADCALL (SPADCALL |p| 1 (QREFELT $ 66))
                                   (QREFELT $ 27)))
                   |y| (QREFELT $ 46))))
                (NULL
                 (SPADCALL
                  (LETT |a2|
-                       (SPADCALL (SPADCALL |p| 2 (QREFELT $ 67))
+                       (SPADCALL (SPADCALL |p| 2 (QREFELT $ 66))
                                  (QREFELT $ 27)))
                  |y| (QREFELT $ 46))))
               (EXIT (CONS 1 #1="failed")))))
@@ -286,17 +286,17 @@
                               (SPADCALL (SPADCALL |yx| |x| (QREFELT $ 31))
                                         (SPADCALL
                                          (SPADCALL
-                                          (SPADCALL |l| 2 (QREFELT $ 69))
+                                          (SPADCALL |l| 2 (QREFELT $ 68))
                                           (SPADCALL
                                            (SPADCALL 2
                                                      (SPADCALL |l| 3
-                                                               (QREFELT $ 69))
-                                                     (QREFELT $ 71))
+                                                               (QREFELT $ 68))
+                                                     (QREFELT $ 70))
                                            (QCDR |u|) (QREFELT $ 28))
                                           (QREFELT $ 33))
                                          |yx| (QREFELT $ 28))
                                         (QREFELT $ 32))
-                              (SPADCALL |l| 3 (QREFELT $ 69)) (QREFELT $ 32)))
+                              (SPADCALL |l| 3 (QREFELT $ 68)) (QREFELT $ 32)))
                        (LETT |gsol|
                              (PROG2
                                  (LETT #1#
@@ -322,7 +322,7 @@
                                (SPADCALL
                                 (SPADCALL
                                  (SPADCALL |yx| (QCDR |u|) (QREFELT $ 32))
-                                 (QREFELT $ 72))
+                                 (QREFELT $ 71))
                                 (QCAR |gsol|) (QREFELT $ 32))
                                (|SPADfirst| (QCDR |gsol|))
                                (QREFELT $ 39))))))))))) 
@@ -340,17 +340,17 @@
           (EXIT
            (SEQ
             (LETT |q0|
-                  (SPADCALL (SPADCALL |l| 1 (QREFELT $ 69))
-                            (LETT |l3| (SPADCALL |l| 3 (QREFELT $ 69)))
+                  (SPADCALL (SPADCALL |l| 1 (QREFELT $ 68))
+                            (LETT |l3| (SPADCALL |l| 3 (QREFELT $ 68)))
                             (QREFELT $ 28)))
             (LETT |q1|
-                  (SPADCALL (SPADCALL |l| 2 (QREFELT $ 69))
+                  (SPADCALL (SPADCALL |l| 2 (QREFELT $ 68))
                             (SPADCALL (SPADCALL |l3| |x| (QREFELT $ 31)) |l3|
                                       (QREFELT $ 39))
                             (QREFELT $ 32)))
             (LETT |lineq|
                   (SPADCALL
-                   (SPADCALL (SPADCALL |yx| |x| 2 (QREFELT $ 73))
+                   (SPADCALL (SPADCALL |yx| |x| 2 (QREFELT $ 72))
                              (SPADCALL |q1| (SPADCALL |yx| |x| (QREFELT $ 31))
                                        (QREFELT $ 28))
                              (QREFELT $ 33))
@@ -399,7 +399,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|NonLinearFirstOrderODESolver| DV$1 DV$2))
-          (LETT $ (GETREFV 74))
+          (LETT $ (GETREFV 73))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|NonLinearFirstOrderODESolver|
@@ -430,13 +430,12 @@
               (|SparseUnivariatePolynomial| 25) (141 . |degree|)
               (146 . |reductum|) (151 . ~=) (157 . |Zero|) (161 . ~=)
               (167 . |leadingCoefficient|) (|Integer|) (172 . *)
-              (|Record| (|:| |particular| 7) (|:| |basis| 68))
+              (|Record| (|:| |particular| 7) (|:| |basis| 67))
               (|Union| 60 7 '"failed") (|ElementaryFunctionODESolver| 6 7)
-              (178 . |solve|) (185 . ^) (191 . |Zero|) (195 . |Zero|)
-              (199 . |coefficient|) (|List| 7) (205 . |elt|)
-              (|PositiveInteger|) (211 . *) (217 . |inv|)
-              (222 . |differentiate|))
-           '#(|solve| 229) 'NIL
+              (178 . |solve|) (185 . ^) (191 . |Zero|) (195 . |coefficient|)
+              (|List| 7) (201 . |elt|) (|PositiveInteger|) (207 . *)
+              (213 . |inv|) (218 . |differentiate|))
+           '#(|solve| 225) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -448,7 +447,7 @@
                                   (|BasicOperator|) (|Symbol|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 73
+                        (|makeByteWordVec2| 72
                                             '(0 8 0 9 1 11 0 8 12 1 7 0 8 14 2
                                               7 0 15 0 16 1 7 17 0 18 1 7 0 17
                                               19 3 7 0 0 20 21 22 1 7 23 0 24 2
@@ -462,8 +461,8 @@
                                               52 1 51 0 0 53 2 50 36 0 0 54 0
                                               51 0 55 2 51 36 0 0 56 1 51 25 0
                                               57 2 7 0 58 0 59 3 62 61 7 15 8
-                                              63 2 7 0 0 58 64 0 6 0 65 0 7 0
-                                              66 2 51 25 0 50 67 2 68 7 0 58 69
-                                              2 7 0 70 0 71 1 7 0 0 72 3 7 0 0
-                                              8 50 73 4 0 34 7 7 15 8 35)))))
+                                              63 2 7 0 0 58 64 0 6 0 65 2 51 25
+                                              0 50 66 2 67 7 0 58 68 2 7 0 69 0
+                                              70 1 7 0 0 71 3 7 0 0 8 50 72 4 0
+                                              34 7 7 15 8 35)))))
            '|lookupComplete|)) 

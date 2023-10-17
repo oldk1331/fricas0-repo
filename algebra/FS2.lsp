@@ -54,9 +54,9 @@
 
 (DECLAIM (NOTINLINE |FunctionSpaceFunctions2;|)) 
 
-(DEFUN |FunctionSpaceFunctions2| (&REST #1=#:G225)
+(DEFUN |FunctionSpaceFunctions2| (&REST #1=#:G247)
   (SPROG NIL
-         (PROG (#2=#:G226)
+         (PROG (#2=#:G248)
            (RETURN
             (COND
              ((LETT #2#

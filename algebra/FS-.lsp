@@ -1804,7 +1804,7 @@
 
 (SDEFUN |FS-;convert;FS;100| ((|x| (|Factored| S)) ($ (S)))
         (SPROG
-         ((#1=#:G803 NIL) (#2=#:G802 (S)) (#3=#:G804 (S)) (#4=#:G806 NIL)
+         ((#1=#:G806 NIL) (#2=#:G805 (S)) (#3=#:G807 (S)) (#4=#:G809 NIL)
           (|f| NIL))
          (SEQ
           (SPADCALL (|FS-;par| (SPADCALL |x| (QREFELT $ 319)) $)
@@ -1871,7 +1871,7 @@
         (SPROG
          ((|q| (|Union| (|Integer|) "failed"))
           (|r| (|Record| (|:| |coef| (|Integer|)) (|:| |var| (|Kernel| S))))
-          (#1=#:G841 NIL) (|w| (|Union| (|Integer|) "failed"))
+          (#1=#:G844 NIL) (|w| (|Union| (|Integer|) "failed"))
           (|v| (|Union| R "failed"))
           (|u|
            (|Union|
@@ -1884,7 +1884,7 @@
                  (EXIT
                   (COND
                    ((QEQCAR |u| 1)
-                    (PROGN (LETT #1# (CONS 1 #2="failed")) (GO #3=#:G839)))
+                    (PROGN (LETT #1# (CONS 1 #2="failed")) (GO #3=#:G842)))
                    (#4='T
                     (SEQ
                      (LETT |v|
@@ -2287,6 +2287,9 @@
                                       ((|Union| (|Polynomial| |#2|) #1#) |#1|))
                                      T)
                                    '((|retract| ((|Polynomial| |#2|) |#1|)) T)
+                                   '((|characteristic|
+                                      ((|NonNegativeInteger|)))
+                                     T)
                                    '((|differentiate| (|#1| |#1| (|Symbol|)))
                                      T)
                                    '((|differentiate|
@@ -2300,10 +2303,8 @@
                                       (|#1| |#1| (|List| (|Symbol|))
                                        (|List| (|NonNegativeInteger|))))
                                      T)
-                                   '((|characteristic|
-                                      ((|NonNegativeInteger|)))
-                                     T)
                                    '((* (|#1| |#1| |#2|)) T)
+                                   '((* (|#1| |#1| (|Integer|))) T)
                                    '((* (|#1| |#2| |#1|)) T)
                                    '((|coerce| (|#1| |#1|)) T)
                                    '((* (|#1| |#1| (|Fraction| (|Integer|))))

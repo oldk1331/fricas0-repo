@@ -462,7 +462,7 @@
               |INT;gcdPolynomial;3Sup;63| |INT;opposite?;2$B;64|
               |INT;annihilate?;2$B;65| |INT;powmod;4$;66|
               |INT;symmetricRemainder;3$;67| (|Union| 54 '"failed")
-              (|Union| 135 '"failed") (|Fraction| 11) (|Pattern| 11)
+              (|Fraction| 11) (|Union| 134 '"failed") (|Pattern| 11)
               (|PatternMatchResult| 11 $) (|Union| 11 '"failed")
               (|Record| (|:| |coef| 140) (|:| |generator| $)) (|List| $)
               (|Union| 140 '"failed")
@@ -501,14 +501,14 @@
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|IntegerNumberSystem&| |PolynomialFactorizationExplicit&|
                 |EuclideanDomain&| |UniqueFactorizationDomain&| NIL NIL
-                |GcdDomain&| NIL |OrderedRing&| NIL NIL NIL |DifferentialRing&|
-                NIL |EntireRing&| |Algebra&| NIL |Rng&| NIL |Module&| NIL NIL
-                NIL |NonAssociativeRing&| NIL NIL |NonAssociativeRng&| NIL NIL
-                |AbelianGroup&| NIL NIL NIL NIL |OrderedSet&| NIL
+                |GcdDomain&| NIL |OrderedRing&| NIL NIL |DifferentialRing&| NIL
+                |EntireRing&| |Algebra&| NIL |Rng&| NIL |Module&| NIL NIL NIL
+                NIL |NonAssociativeRing&| NIL NIL NIL |NonAssociativeRng&| NIL
+                NIL |AbelianGroup&| NIL NIL NIL NIL |OrderedSet&| NIL
                 |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&| NIL
                 NIL NIL |Magma&| |AbelianSemiGroup&| NIL |RetractableTo&| NIL
                 |SetCategory&| NIL NIL |OpenMath&| NIL NIL NIL NIL NIL NIL NIL
@@ -518,13 +518,13 @@
                  (|EuclideanDomain|) (|UniqueFactorizationDomain|)
                  (|PrincipalIdealDomain|) (|OrderedIntegralDomain|)
                  (|GcdDomain|) (|IntegralDomain|) (|OrderedRing|)
-                 (|CommutativeRing|) (|LeftOreRing|)
-                 (|LinearlyExplicitOver| 11) (|DifferentialRing|)
+                 (|CommutativeRing|) (|LeftOreRing|) (|DifferentialRing|)
                  (|CharacteristicZero|) (|EntireRing|) (|Algebra| $$) (|Ring|)
                  (|Rng|) (|SemiRing|) (|Module| $$) (|SemiRng|)
-                 (|OrderedAbelianGroup|) (|BiModule| $$ $$)
-                 (|NonAssociativeRing|) (|OrderedCancellationAbelianMonoid|)
-                 (|LeftModule| $$) (|NonAssociativeRng|) (|RightModule| $$)
+                 (|LinearlyExplicitOver| 11) (|OrderedAbelianGroup|)
+                 (|BiModule| $$ $$) (|NonAssociativeRing|) (|RightModule| 11)
+                 (|OrderedCancellationAbelianMonoid|) (|LeftModule| $$)
+                 (|NonAssociativeRng|) (|RightModule| $$)
                  (|OrderedAbelianMonoid|) (|AbelianGroup|)
                  (|OrderedAbelianSemiGroup|) (|Monoid|)
                  (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
@@ -555,9 +555,9 @@
                                     1 2 0 98 99 100 101 2 0 16 0 0 1 2 0 16 0 0
                                     1 1 0 11 0 1 2 0 0 0 0 83 0 0 6 58 0 0 0 1
                                     1 0 86 0 1 2 0 0 0 71 1 2 0 0 0 69 1 1 0
-                                    138 0 1 1 0 11 0 1 2 0 0 0 0 82 1 0 50 51
-                                    52 2 0 53 51 54 55 1 0 86 0 88 1 0 134 0 1
-                                    1 0 16 0 1 1 0 135 0 1 1 0 0 0 57 2 0 0 0 0
+                                    138 0 1 1 0 11 0 1 2 0 0 0 0 82 2 0 53 51
+                                    54 55 1 0 50 51 52 1 0 86 0 88 1 0 135 0 1
+                                    1 0 16 0 1 1 0 134 0 1 1 0 0 0 57 2 0 0 0 0
                                     81 1 0 139 140 1 1 0 16 0 1 3 0 0 0 0 0 131
                                     2 0 0 0 0 49 1 0 16 0 29 2 0 0 0 0 1 3 0
                                     137 0 136 137 1 2 0 16 0 0 129 1 0 16 0 19
@@ -584,8 +584,8 @@
                                     0 0 1 2 0 0 0 71 1 2 0 16 0 0 62 2 0 16 0 0
                                     61 2 0 16 0 0 59 2 0 16 0 0 63 2 0 16 0 0
                                     60 2 0 0 0 0 66 1 0 0 0 64 2 0 0 0 0 65 2 0
-                                    0 71 0 72 2 0 0 11 0 68 2 0 0 0 0 67 2 0 0
-                                    69 0 70)))))
+                                    0 0 11 1 2 0 0 71 0 72 2 0 0 11 0 68 2 0 0
+                                    0 0 67 2 0 0 69 0 70)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Integer| 'NILADIC T) 

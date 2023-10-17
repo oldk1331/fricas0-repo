@@ -1,10 +1,10 @@
 
 (SDEFUN |IRSN;aIdInverse| (($ (|Void|)))
         (SPROG
-         ((#1=#:G247 NIL) (#2=#:G185 NIL) (#3=#:G162 NIL) (|i| NIL)
-          (#4=#:G258 NIL) (|k| NIL) (#5=#:G148 NIL) (#6=#:G132 NIL) (|j| NIL)
-          (#7=#:G257 NIL) (|l| NIL) (#8=#:G256 NIL)
-          (|idperm| (|List| (|Integer|))) (#9=#:G254 NIL) (#10=#:G255 NIL))
+         ((#1=#:G240 NIL) (#2=#:G185 NIL) (#3=#:G162 NIL) (|i| NIL)
+          (#4=#:G251 NIL) (|k| NIL) (#5=#:G148 NIL) (#6=#:G132 NIL) (|j| NIL)
+          (#7=#:G250 NIL) (|l| NIL) (#8=#:G249 NIL)
+          (|idperm| (|List| (|Integer|))) (#9=#:G247 NIL) (#10=#:G248 NIL))
          (SEQ
           (EXIT
            (SEQ (SETELT $ 13 (MAKE_MATRIX1 (QREFELT $ 7) (QREFELT $ 7) 0))
@@ -16,7 +16,7 @@
                      (LETT |k| (|inc_SI| |k|)) (GO G190) G191 (EXIT NIL))
                 (COND
                  ((< (QREFELT $ 10) 5)
-                  (PROGN (LETT #9# (QREFELT $ 13)) (GO #11=#:G253))))
+                  (PROGN (LETT #9# (QREFELT $ 13)) (GO #11=#:G246))))
                 (LETT |idperm| NIL)
                 (SEQ (LETT |k| (QREFELT $ 10)) G190
                      (COND ((< |k| 1) (GO G191)))
@@ -108,8 +108,8 @@
 (SDEFUN |IRSN;alreadyComputed?|
         ((|lambda| (|List| #1=(|Integer|))) ($ (|Void|)))
         (SPROG
-         ((#2=#:G267 NIL) (#3=#:G265 NIL) (#4=#:G264 #1#) (#5=#:G266 #1#)
-          (#6=#:G270 NIL) (#7=#:G103 NIL) (#8=#:G260 NIL) (#9=#:G259 NIL))
+         ((#2=#:G260 NIL) (#3=#:G258 NIL) (#4=#:G257 #1#) (#5=#:G259 #1#)
+          (#6=#:G263 NIL) (#7=#:G103 NIL) (#8=#:G253 NIL) (#9=#:G252 NIL))
          (SEQ
           (COND
            ((NULL (SPADCALL |lambda| (QREFELT $ 6) (QREFELT $ 20)))
@@ -305,8 +305,8 @@
 (SDEFUN |IRSN;sumPartition|
         ((|lambda| (|List| (|Integer|))) ($ (|NonNegativeInteger|)))
         (SPROG
-         ((#1=#:G300 NIL) (|prev| (|Integer|)) (|ok| (|Boolean|))
-          (|sum| (|Integer|)) (#2=#:G303 NIL) (|x| NIL))
+         ((#1=#:G293 NIL) (|prev| (|Integer|)) (|ok| (|Boolean|))
+          (|sum| (|Integer|)) (#2=#:G296 NIL) (|x| NIL))
          (SEQ (LETT |ok| 'T) (LETT |prev| (|SPADfirst| |lambda|))
               (LETT |sum| 0)
               (SEQ (LETT |x| NIL) (LETT #2# |lambda|) G190
@@ -326,9 +326,9 @@
 (SDEFUN |IRSN;testPermutation|
         ((|pi| (|List| (|Integer|))) ($ (|NonNegativeInteger|)))
         (SPROG
-         ((#1=#:G313 NIL) (#2=#:G317 NIL) (|i| NIL)
-          (|test| (|Vector| (|Boolean|))) (#3=#:G309 NIL) (|ok| (|Boolean|))
-          (#4=#:G316 NIL))
+         ((#1=#:G306 NIL) (#2=#:G310 NIL) (|i| NIL)
+          (|test| (|Vector| (|Boolean|))) (#3=#:G302 NIL) (|ok| (|Boolean|))
+          (#4=#:G309 NIL))
          (SEQ (LETT |ok| 'T) (SETELT $ 10 0)
               (SEQ (LETT |i| NIL) (LETT #4# |pi|) G190
                    (COND
@@ -364,8 +364,8 @@
 (SDEFUN |IRSN;dimensionOfIrreducibleRepresentation;LNni;7|
         ((|lambda| (|List| (|Integer|))) ($ (|NonNegativeInteger|)))
         (SPROG
-         ((#1=#:G322 NIL) (|dd| (|Integer|)) (#2=#:G326 NIL) (|j| NIL)
-          (#3=#:G325 NIL) (|i| NIL) (|lambdaprime| (|List| (|Integer|)))
+         ((#1=#:G315 NIL) (|dd| (|Integer|)) (#2=#:G319 NIL) (|j| NIL)
+          (#3=#:G318 NIL) (|i| NIL) (|lambdaprime| (|List| (|Integer|)))
           (|nn| (|Integer|)))
          (SEQ (LETT |nn| (|IRSN;sumPartition| |lambda| $)) (LETT |dd| 1)
               (LETT |lambdaprime| (SPADCALL |lambda| (QREFELT $ 22)))
@@ -404,7 +404,7 @@
         ((|lambda| (|List| (|Integer|))) (|pi| (|Permutation| (|Integer|)))
          ($ (|Matrix| (|Integer|))))
         (SPROG
-         ((#1=#:G335 NIL) (|l| NIL) (#2=#:G334 NIL) (|k| NIL)
+         ((#1=#:G328 NIL) (|l| NIL) (#2=#:G327 NIL) (|k| NIL)
           (|aPi| (|Matrix| (|Integer|))) (|piList| (|List| (|Integer|)))
           (|nn| (|NonNegativeInteger|)))
          (SEQ (LETT |nn| (|IRSN;sumPartition| |lambda| $))
@@ -461,7 +461,7 @@
         ((|lambda| (|List| (|Integer|)))
          (|listperm| (|List| (|Permutation| (|Integer|))))
          ($ (|List| (|Matrix| (|Integer|)))))
-        (SPROG ((#1=#:G346 NIL) (|pi| NIL) (#2=#:G345 NIL))
+        (SPROG ((#1=#:G339 NIL) (|pi| NIL) (#2=#:G338 NIL))
                (SEQ (|IRSN;sumPartition| |lambda| $)
                     (|IRSN;alreadyComputed?| |lambda| $)
                     (EXIT
@@ -484,7 +484,7 @@
 
 (DEFUN |IrrRepSymNatPackage| ()
   (SPROG NIL
-         (PROG (#1=#:G348)
+         (PROG (#1=#:G341)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|IrrRepSymNatPackage|))
