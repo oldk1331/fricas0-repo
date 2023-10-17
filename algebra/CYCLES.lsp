@@ -10,104 +10,101 @@
         ((|st| |Stream| (|List| (|Integer|))) ($ |List| (|List| (|Integer|))))
         (SPADCALL (SPADCALL |st| (QREFELT $ 15)) (QREFELT $ 17))) 
 
-(SDEFUN |CYCLES;complete;ISp;3|
+(SDEFUN |CYCLES;sorted_partitions| ((|i| |Integer|) ($ |List| (|Partition|)))
+        (SPROG
+         ((|lp| (|List| (|Partition|))) (|lli| (|List| (|List| (|Integer|)))))
+         (SEQ (LETT |lli| (|CYCLES;list| (SPADCALL |i| (QREFELT $ 19)) $))
+              (LETT |lp| (SPADCALL (ELT $ 21) |lli| (QREFELT $ 25)))
+              (EXIT (SPADCALL (REVERSE |lp|) (QREFELT $ 26)))))) 
+
+(SDEFUN |CYCLES;complete;ISp;4|
         ((|i| |Integer|) ($ |SymmetricPolynomial| (|Fraction| (|Integer|))))
         (SPROG
-         ((#1=#:G117 NIL)
-          (#2=#:G116 #3=(|SymmetricPolynomial| (|Fraction| (|Integer|))))
-          (#4=#:G118 #3#) (#5=#:G120 NIL) (|pt| NIL))
+         ((#1=#:G120 NIL)
+          (#2=#:G119 #3=(|SymmetricPolynomial| (|Fraction| (|Integer|))))
+          (#4=#:G121 #3#) (#5=#:G123 NIL) (|pt| NIL))
          (SEQ
-          (COND ((EQL |i| 0) (|spadConstant| $ 19))
-                ((< |i| 0) (|spadConstant| $ 18))
+          (COND ((EQL |i| 0) (|spadConstant| $ 29))
+                ((< |i| 0) (|spadConstant| $ 28))
                 (#6='T
                  (PROGN
                   (LETT #1# NIL)
                   (SEQ (LETT |pt| NIL)
-                       (LETT #5#
-                             (|CYCLES;list| (SPADCALL |i| (QREFELT $ 21)) $))
-                       G190
+                       (LETT #5# (|CYCLES;sorted_partitions| |i| $)) G190
                        (COND
                         ((OR (ATOM #5#) (PROGN (LETT |pt| (CAR #5#)) NIL))
                          (GO G191)))
                        (SEQ
                         (EXIT
                          (PROGN
-                          (LETT #4#
-                                (|CYCLES;trm| (SPADCALL |pt| (QREFELT $ 23))
-                                 $))
+                          (LETT #4# (|CYCLES;trm| |pt| $))
                           (COND
-                           (#1# (LETT #2# (SPADCALL #2# #4# (QREFELT $ 24))))
+                           (#1# (LETT #2# (SPADCALL #2# #4# (QREFELT $ 30))))
                            ('T (PROGN (LETT #2# #4#) (LETT #1# 'T)))))))
                        (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
-                  (COND (#1# #2#) (#6# (|spadConstant| $ 18))))))))) 
+                  (COND (#1# #2#) (#6# (|spadConstant| $ 28))))))))) 
 
-(SDEFUN |CYCLES;even?| ((|li| |List| (|Integer|)) ($ |Boolean|))
-        (SPROG ((#1=#:G125 NIL) (|i| NIL) (#2=#:G124 NIL))
+(SDEFUN |CYCLES;even?| ((|li| |List| #1=(|Integer|)) ($ |Boolean|))
+        (SPROG ((|le| (|List| #1#)) (#2=#:G128 NIL) (|i| NIL) (#3=#:G127 NIL))
                (SEQ
-                (EVENP
-                 (LENGTH
-                  (PROGN
-                   (LETT #2# NIL)
-                   (SEQ (LETT |i| NIL) (LETT #1# |li|) G190
-                        (COND
-                         ((OR (ATOM #1#) (PROGN (LETT |i| (CAR #1#)) NIL))
-                          (GO G191)))
-                        (SEQ
-                         (EXIT (COND ((EVENP |i|) (LETT #2# (CONS |i| #2#))))))
-                        (LETT #1# (CDR #1#)) (GO G190) G191
-                        (EXIT (NREVERSE #2#))))))))) 
+                (LETT |le|
+                      (PROGN
+                       (LETT #3# NIL)
+                       (SEQ (LETT |i| NIL) (LETT #2# |li|) G190
+                            (COND
+                             ((OR (ATOM #2#) (PROGN (LETT |i| (CAR #2#)) NIL))
+                              (GO G191)))
+                            (SEQ
+                             (EXIT
+                              (COND ((EVENP |i|) (LETT #3# (CONS |i| #3#))))))
+                            (LETT #2# (CDR #2#)) (GO G190) G191
+                            (EXIT (NREVERSE #3#)))))
+                (EXIT (EVENP (LENGTH |le|)))))) 
 
-(SDEFUN |CYCLES;alternating;ISp;5|
+(SDEFUN |CYCLES;alternating;ISp;6|
         ((|i| |Integer|) ($ |SymmetricPolynomial| (|Fraction| (|Integer|))))
         (SPROG
-         ((#1=#:G127 NIL)
-          (#2=#:G126 #3=(|SymmetricPolynomial| (|Fraction| (|Integer|))))
-          (#4=#:G128 #3#) (#5=#:G130 NIL) (|li| NIL))
+         ((#1=#:G130 NIL)
+          (#2=#:G129 #3=(|SymmetricPolynomial| (|Fraction| (|Integer|))))
+          (#4=#:G131 #3#) (#5=#:G133 NIL) (|pt| NIL))
          (SEQ
           (SPADCALL 2
                     (PROGN
                      (LETT #1# NIL)
-                     (SEQ (LETT |li| NIL)
-                          (LETT #5#
-                                (|CYCLES;list| (SPADCALL |i| (QREFELT $ 21))
-                                 $))
-                          G190
+                     (SEQ (LETT |pt| NIL)
+                          (LETT #5# (|CYCLES;sorted_partitions| |i| $)) G190
                           (COND
-                           ((OR (ATOM #5#) (PROGN (LETT |li| (CAR #5#)) NIL))
+                           ((OR (ATOM #5#) (PROGN (LETT |pt| (CAR #5#)) NIL))
                             (GO G191)))
                           (SEQ
                            (EXIT
                             (COND
-                             ((|CYCLES;even?| |li| $)
+                             ((|CYCLES;even?| (SPADCALL |pt| (QREFELT $ 32)) $)
                               (PROGN
-                               (LETT #4#
-                                     (|CYCLES;trm|
-                                      (SPADCALL |li| (QREFELT $ 23)) $))
+                               (LETT #4# (|CYCLES;trm| |pt| $))
                                (COND
                                 (#1#
-                                 (LETT #2# (SPADCALL #2# #4# (QREFELT $ 24))))
+                                 (LETT #2# (SPADCALL #2# #4# (QREFELT $ 30))))
                                 ('T (PROGN (LETT #2# #4#) (LETT #1# 'T)))))))))
                           (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
-                     (COND (#1# #2#) ('T (|spadConstant| $ 18))))
-                    (QREFELT $ 27))))) 
+                     (COND (#1# #2#) ('T (|spadConstant| $ 28))))
+                    (QREFELT $ 34))))) 
 
-(SDEFUN |CYCLES;elementary;ISp;6|
+(SDEFUN |CYCLES;elementary;ISp;7|
         ((|i| |Integer|)
          ($ . #1=(|SymmetricPolynomial| (|Fraction| (|Integer|)))))
         (SPROG
-         ((#2=#:G132 NIL) (#3=#:G131 #1#) (#4=#:G133 #1#)
+         ((#2=#:G135 NIL) (#3=#:G134 #1#) (#4=#:G136 #1#)
           (|spol| (|SymmetricPolynomial| (|Fraction| (|Integer|))))
-          (#5=#:G136 NIL) (|pt| NIL))
+          (#5=#:G139 NIL) (|pt| NIL))
          (SEQ
-          (COND ((EQL |i| 0) (|spadConstant| $ 19))
-                ((< |i| 0) (|spadConstant| $ 18))
+          (COND ((EQL |i| 0) (|spadConstant| $ 29))
+                ((< |i| 0) (|spadConstant| $ 28))
                 (#6='T
                  (PROGN
                   (LETT #2# NIL)
                   (SEQ (LETT |pt| NIL)
-                       (LETT #5#
-                             (|CYCLES;list| (SPADCALL |i| (QREFELT $ 21)) $))
-                       G190
+                       (LETT #5# (|CYCLES;sorted_partitions| |i| $)) G190
                        (COND
                         ((OR (ATOM #5#) (PROGN (LETT |pt| (CAR #5#)) NIL))
                          (GO G191)))
@@ -115,32 +112,32 @@
                         (EXIT
                          (PROGN
                           (LETT #4#
-                                (SEQ
-                                 (LETT |spol|
-                                       (|CYCLES;trm|
-                                        (SPADCALL |pt| (QREFELT $ 23)) $))
-                                 (EXIT
-                                  (COND ((|CYCLES;even?| |pt| $) |spol|)
-                                        ('T
-                                         (SPADCALL |spol| (QREFELT $ 29)))))))
+                                (SEQ (LETT |spol| (|CYCLES;trm| |pt| $))
+                                     (EXIT
+                                      (COND
+                                       ((|CYCLES;even?|
+                                         (SPADCALL |pt| (QREFELT $ 32)) $)
+                                        |spol|)
+                                       ('T
+                                        (SPADCALL |spol| (QREFELT $ 36)))))))
                           (COND
-                           (#2# (LETT #3# (SPADCALL #3# #4# (QREFELT $ 24))))
+                           (#2# (LETT #3# (SPADCALL #3# #4# (QREFELT $ 30))))
                            ('T (PROGN (LETT #3# #4#) (LETT #2# 'T)))))))
                        (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
-                  (COND (#2# #3#) (#6# (|spadConstant| $ 18))))))))) 
+                  (COND (#2# #3#) (#6# (|spadConstant| $ 28))))))))) 
 
 (SDEFUN |CYCLES;divisors| ((|n| |Integer|) ($ |List| (|Integer|)))
         (SPROG
-         ((|c| (|List| (|Integer|))) (#1=#:G139 NIL)
-          (#2=#:G138 #3=(|List| (|Integer|))) (#4=#:G140 #3#) (#5=#:G147 NIL)
-          (|j| NIL) (#6=#:G146 NIL) (#7=#:G145 NIL) (|a| NIL)
+         ((|c| (|List| (|Integer|))) (#1=#:G142 NIL)
+          (#2=#:G141 #3=(|List| (|Integer|))) (#4=#:G143 #3#) (#5=#:G150 NIL)
+          (|j| NIL) (#6=#:G149 NIL) (#7=#:G148 NIL) (|a| NIL)
           (|b|
            (|List|
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
                       (|:| |factor| (|Integer|))
                       (|:| |exponent| (|NonNegativeInteger|))))))
          (SEQ
-          (LETT |b| (SPADCALL (SPADCALL |n| (QREFELT $ 32)) (QREFELT $ 36)))
+          (LETT |b| (SPADCALL (SPADCALL |n| (QREFELT $ 39)) (QREFELT $ 44)))
           (LETT |c|
                 (CONS 1
                       (PROGN
@@ -169,7 +166,7 @@
                                            G191 (EXIT (NREVERSE #6#)))))
                                (COND
                                 (#1#
-                                 (LETT #2# (SPADCALL #2# #4# (QREFELT $ 38))))
+                                 (LETT #2# (SPADCALL #2# #4# (QREFELT $ 46))))
                                 ('T (PROGN (LETT #2# #4#) (LETT #1# 'T)))))))
                             (LETT #7# (CDR #7#)) (GO G190) G191 (EXIT NIL))
                        (COND (#1# #2#) (#8='T NIL)))))
@@ -179,8 +176,8 @@
         ((|n| |Integer|) (|m| |Integer|)
          ($ |SymmetricPolynomial| (|Fraction| (|Integer|))))
         (SPROG
-         ((|li| (|List| (|Integer|))) (#1=#:G152 NIL) (|j| NIL)
-          (#2=#:G151 NIL))
+         ((|li| (|List| (|Integer|))) (#1=#:G155 NIL) (|j| NIL)
+          (#2=#:G154 NIL))
          (SEQ
           (LETT |li|
                 (PROGN
@@ -191,21 +188,21 @@
                       (LETT |j| (|inc_SI| |j|)) (GO G190) G191
                       (EXIT (NREVERSE #2#)))))
           (EXIT
-           (SPADCALL (|spadConstant| $ 39) (SPADCALL |li| (QREFELT $ 23))
+           (SPADCALL (|spadConstant| $ 47) (SPADCALL |li| (QREFELT $ 21))
                      (QREFELT $ 13)))))) 
 
-(SDEFUN |CYCLES;powerSum;ISp;9|
+(SDEFUN |CYCLES;powerSum;ISp;10|
         ((|n| |Integer|) ($ |SymmetricPolynomial| (|Fraction| (|Integer|))))
         (|CYCLES;ss| |n| 1 $)) 
 
-(SDEFUN |CYCLES;cyclic;ISp;10|
+(SDEFUN |CYCLES;cyclic;ISp;11|
         ((|n| |Integer|) ($ |SymmetricPolynomial| (|Fraction| (|Integer|))))
         (SPROG
-         ((#1=#:G155 NIL)
-          (#2=#:G154 #3=(|SymmetricPolynomial| (|Fraction| (|Integer|))))
-          (#4=#:G156 #3#) (#5=#:G158 NIL) (|i| NIL))
+         ((#1=#:G158 NIL)
+          (#2=#:G157 #3=(|SymmetricPolynomial| (|Fraction| (|Integer|))))
+          (#4=#:G159 #3#) (#5=#:G161 NIL) (|i| NIL))
          (SEQ
-          (COND ((EQL |n| 1) (SPADCALL 1 (QREFELT $ 40)))
+          (COND ((EQL |n| 1) (SPADCALL 1 (QREFELT $ 48)))
                 (#6='T
                  (PROGN
                   (LETT #1# NIL)
@@ -218,20 +215,20 @@
                          (PROGN
                           (LETT #4#
                                 (SPADCALL
-                                 (SPADCALL (SPADCALL |i| (QREFELT $ 42)) |n|
-                                           (QREFELT $ 43))
+                                 (SPADCALL (SPADCALL |i| (QREFELT $ 50)) |n|
+                                           (QREFELT $ 51))
                                  (|CYCLES;ss| |i|
-                                  (SPADCALL (SPADCALL |n| |i| (QREFELT $ 43))
-                                            (QREFELT $ 44))
+                                  (SPADCALL (SPADCALL |n| |i| (QREFELT $ 51))
+                                            (QREFELT $ 52))
                                   $)
-                                 (QREFELT $ 45)))
+                                 (QREFELT $ 53)))
                           (COND
-                           (#1# (LETT #2# (SPADCALL #2# #4# (QREFELT $ 24))))
+                           (#1# (LETT #2# (SPADCALL #2# #4# (QREFELT $ 30))))
                            ('T (PROGN (LETT #2# #4#) (LETT #1# 'T)))))))
                        (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
-                  (COND (#1# #2#) (#6# (|spadConstant| $ 18))))))))) 
+                  (COND (#1# #2#) (#6# (|spadConstant| $ 28))))))))) 
 
-(SDEFUN |CYCLES;dihedral;ISp;11|
+(SDEFUN |CYCLES;dihedral;ISp;12|
         ((|n| |Integer|) ($ |SymmetricPolynomial| (|Fraction| (|Integer|))))
         (SPROG ((|k| (|Integer|)))
                (SEQ (LETT |k| (QUOTIENT2 |n| 2))
@@ -239,52 +236,52 @@
                      (COND
                       ((ODDP |n|)
                        (SPADCALL
-                        (SPADCALL (SPADCALL 1 2 (QREFELT $ 43))
-                                  (SPADCALL |n| (QREFELT $ 46)) (QREFELT $ 45))
+                        (SPADCALL (SPADCALL 1 2 (QREFELT $ 51))
+                                  (SPADCALL |n| (QREFELT $ 54)) (QREFELT $ 53))
                         (SPADCALL
-                         (SPADCALL (SPADCALL 1 2 (QREFELT $ 43))
-                                   (|CYCLES;ss| 2 |k| $) (QREFELT $ 45))
-                         (SPADCALL 1 (QREFELT $ 40)) (QREFELT $ 47))
-                        (QREFELT $ 24)))
+                         (SPADCALL (SPADCALL 1 2 (QREFELT $ 51))
+                                   (|CYCLES;ss| 2 |k| $) (QREFELT $ 53))
+                         (SPADCALL 1 (QREFELT $ 48)) (QREFELT $ 55))
+                        (QREFELT $ 30)))
                       ('T
                        (SPADCALL
                         (SPADCALL
-                         (SPADCALL (SPADCALL 1 2 (QREFELT $ 43))
-                                   (SPADCALL |n| (QREFELT $ 46))
-                                   (QREFELT $ 45))
-                         (SPADCALL (SPADCALL 1 4 (QREFELT $ 43))
-                                   (|CYCLES;ss| 2 |k| $) (QREFELT $ 45))
-                         (QREFELT $ 24))
+                         (SPADCALL (SPADCALL 1 2 (QREFELT $ 51))
+                                   (SPADCALL |n| (QREFELT $ 54))
+                                   (QREFELT $ 53))
+                         (SPADCALL (SPADCALL 1 4 (QREFELT $ 51))
+                                   (|CYCLES;ss| 2 |k| $) (QREFELT $ 53))
+                         (QREFELT $ 30))
                         (SPADCALL
-                         (SPADCALL (SPADCALL 1 4 (QREFELT $ 43))
-                                   (|CYCLES;ss| 2 (- |k| 1) $) (QREFELT $ 45))
-                         (|CYCLES;ss| 1 2 $) (QREFELT $ 47))
-                        (QREFELT $ 24)))))))) 
+                         (SPADCALL (SPADCALL 1 4 (QREFELT $ 51))
+                                   (|CYCLES;ss| 2 (- |k| 1) $) (QREFELT $ 53))
+                         (|CYCLES;ss| 1 2 $) (QREFELT $ 55))
+                        (QREFELT $ 30)))))))) 
 
 (SDEFUN |CYCLES;trm2|
         ((|li| |List| (|Integer|))
          ($ |SymmetricPolynomial| (|Fraction| (|Integer|))))
         (SPROG
          ((|prod| #1=(|SymmetricPolynomial| (|Fraction| (|Integer|))))
-          (|prod2| #1#) (|r1| #2=(|Integer|)) (|r0| #3=(|Integer|))
-          (#4=#:G169 NIL) (|r| NIL)
+          (|prod2| #1#) (|pp1| (|Integer|)) (|r1| #2=(|Integer|))
+          (|r0| #3=(|Integer|)) (#4=#:G172 NIL) (|r| NIL)
           (|c| (|SymmetricPolynomial| (|Fraction| (|Integer|))))
-          (|k| (|Integer|)) (|ll1| #2#) (|ll0| #3#) (#5=#:G168 NIL) (|ll| NIL)
-          (|xx| (|Fraction| (|Integer|)))
+          (|qq1| #5=(|Integer|)) (|k| #5#) (|ll1| #2#) (|ll0| #3#)
+          (#6=#:G171 NIL) (|ll| NIL) (|xx| (|Fraction| (|Integer|)))
           (|lli| (|List| (|List| (|Integer|)))))
-         (SEQ (LETT |lli| (SPADCALL |li| (QREFELT $ 49)))
+         (SEQ (LETT |lli| (SPADCALL |li| (QREFELT $ 57)))
               (LETT |xx|
                     (SPADCALL 1
-                              (SPADCALL (SPADCALL |li| (QREFELT $ 23))
+                              (SPADCALL (SPADCALL |li| (QREFELT $ 21))
                                         (QREFELT $ 8))
-                              (QREFELT $ 43)))
-              (LETT |prod| (|spadConstant| $ 19))
-              (SEQ (LETT |ll| NIL) (LETT #5# |lli|) G190
+                              (QREFELT $ 51)))
+              (LETT |prod| (|spadConstant| $ 29))
+              (SEQ (LETT |ll| NIL) (LETT #6# |lli|) G190
                    (COND
-                    ((OR (ATOM #5#) (PROGN (LETT |ll| (CAR #5#)) NIL))
+                    ((OR (ATOM #6#) (PROGN (LETT |ll| (CAR #6#)) NIL))
                      (GO G191)))
                    (SEQ (LETT |ll0| (|SPADfirst| |ll|))
-                        (LETT |ll1| (SPADCALL |ll| (QREFELT $ 50)))
+                        (LETT |ll1| (SPADCALL |ll| (QREFELT $ 58)))
                         (LETT |k| (QUOTIENT2 |ll0| 2))
                         (LETT |c|
                               (COND
@@ -294,16 +291,13 @@
                                 (SPADCALL (|CYCLES;ss| |k| |ll1| $)
                                           (|CYCLES;ss| |ll0|
                                            (* |ll1| (- |k| 1)) $)
-                                          (QREFELT $ 47)))))
+                                          (QREFELT $ 55)))))
+                        (LETT |qq1| (QUOTIENT2 (* |ll1| (- |ll1| 1)) 2))
                         (LETT |c|
                               (SPADCALL |c|
-                                        (|CYCLES;ss| |ll0|
-                                         (* |ll0|
-                                            (QUOTIENT2 (* |ll1| (- |ll1| 1))
-                                                       2))
-                                         $)
-                                        (QREFELT $ 47)))
-                        (LETT |prod2| (|spadConstant| $ 19))
+                                        (|CYCLES;ss| |ll0| (* |ll0| |qq1|) $)
+                                        (QREFELT $ 55)))
+                        (LETT |prod2| (|spadConstant| $ 29))
                         (SEQ (LETT |r| NIL) (LETT #4# |lli|) G190
                              (COND
                               ((OR (ATOM #4#) (PROGN (LETT |r| (CAR #4#)) NIL))
@@ -313,46 +307,47 @@
                                (COND
                                 ((< (|SPADfirst| |r|) |ll0|)
                                  (SEQ (LETT |r0| (|SPADfirst| |r|))
-                                      (LETT |r1| (SPADCALL |r| (QREFELT $ 50)))
+                                      (LETT |r1| (SPADCALL |r| (QREFELT $ 58)))
+                                      (LETT |pp1|
+                                            (* (* (GCD |r0| |ll0|) |r1|)
+                                               |ll1|))
                                       (EXIT
                                        (LETT |prod2|
                                              (SPADCALL
                                               (|CYCLES;ss|
                                                (SPADCALL |r0| |ll0|
-                                                         (QREFELT $ 51))
-                                               (* (* (GCD |r0| |ll0|) |r1|)
-                                                  |ll1|)
-                                               $)
-                                              |prod2| (QREFELT $ 47)))))))))
+                                                         (QREFELT $ 59))
+                                               |pp1| $)
+                                              |prod2| (QREFELT $ 55)))))))))
                              (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
                         (EXIT
                          (LETT |prod|
-                               (SPADCALL (SPADCALL |c| |prod2| (QREFELT $ 47))
-                                         |prod| (QREFELT $ 47)))))
-                   (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL |xx| |prod| (QREFELT $ 45)))))) 
+                               (SPADCALL (SPADCALL |c| |prod2| (QREFELT $ 55))
+                                         |prod| (QREFELT $ 55)))))
+                   (LETT #6# (CDR #6#)) (GO G190) G191 (EXIT NIL))
+              (EXIT (SPADCALL |xx| |prod| (QREFELT $ 53)))))) 
 
-(SDEFUN |CYCLES;graphs;ISp;13|
+(SDEFUN |CYCLES;graphs;ISp;14|
         ((|n| |Integer|) ($ |SymmetricPolynomial| (|Fraction| (|Integer|))))
         (SPROG
-         ((#1=#:G171 NIL)
-          (#2=#:G170 #3=(|SymmetricPolynomial| (|Fraction| (|Integer|))))
-          (#4=#:G172 #3#) (#5=#:G174 NIL) (|li| NIL))
+         ((#1=#:G174 NIL)
+          (#2=#:G173 #3=(|SymmetricPolynomial| (|Fraction| (|Integer|))))
+          (#4=#:G175 #3#) (#5=#:G177 NIL) (|li| NIL))
          (SEQ
           (PROGN
            (LETT #1# NIL)
            (SEQ (LETT |li| NIL)
-                (LETT #5# (|CYCLES;list| (SPADCALL |n| (QREFELT $ 21)) $)) G190
+                (LETT #5# (|CYCLES;list| (SPADCALL |n| (QREFELT $ 19)) $)) G190
                 (COND
                  ((OR (ATOM #5#) (PROGN (LETT |li| (CAR #5#)) NIL)) (GO G191)))
                 (SEQ
                  (EXIT
                   (PROGN
                    (LETT #4# (|CYCLES;trm2| |li| $))
-                   (COND (#1# (LETT #2# (SPADCALL #2# #4# (QREFELT $ 24))))
+                   (COND (#1# (LETT #2# (SPADCALL #2# #4# (QREFELT $ 30))))
                          ('T (PROGN (LETT #2# #4#) (LETT #1# 'T)))))))
                 (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
-           (COND (#1# #2#) ('T (|spadConstant| $ 18))))))) 
+           (COND (#1# #2#) ('T (|spadConstant| $ 28))))))) 
 
 (SDEFUN |CYCLES;cupp|
         ((|pt| |Partition|)
@@ -360,68 +355,68 @@
          ($ |SymmetricPolynomial| (|Fraction| (|Integer|))))
         (SPROG ((|dg| (|Partition|)))
                (SEQ
-                (COND ((SPADCALL |spol| (QREFELT $ 54)) (|spadConstant| $ 18))
+                (COND ((SPADCALL |spol| (QREFELT $ 62)) (|spadConstant| $ 28))
                       (#1='T
-                       (SEQ (LETT |dg| (SPADCALL |spol| (QREFELT $ 55)))
+                       (SEQ (LETT |dg| (SPADCALL |spol| (QREFELT $ 63)))
                             (EXIT
                              (COND
-                              ((SPADCALL |dg| |pt| (QREFELT $ 56))
-                               (|spadConstant| $ 18))
-                              ((SPADCALL |dg| |pt| (QREFELT $ 57))
+                              ((SPADCALL |dg| |pt| (QREFELT $ 64))
+                               (|spadConstant| $ 28))
+                              ((SPADCALL |dg| |pt| (QREFELT $ 65))
                                (SPADCALL (SPADCALL |pt| (QREFELT $ 8))
                                          (SPADCALL
-                                          (SPADCALL |spol| (QREFELT $ 58)) |dg|
+                                          (SPADCALL |spol| (QREFELT $ 66)) |dg|
                                           (QREFELT $ 13))
-                                         (QREFELT $ 59)))
+                                         (QREFELT $ 67)))
                               (#1#
                                (|CYCLES;cupp| |pt|
-                                (SPADCALL |spol| (QREFELT $ 60)) $)))))))))) 
+                                (SPADCALL |spol| (QREFELT $ 68)) $)))))))))) 
 
-(SDEFUN |CYCLES;cup;3Sp;15|
+(SDEFUN |CYCLES;cup;3Sp;16|
         ((|spol1| |SymmetricPolynomial| (|Fraction| (|Integer|)))
          (|spol2| |SymmetricPolynomial| (|Fraction| (|Integer|)))
          ($ |SymmetricPolynomial| (|Fraction| (|Integer|))))
         (SPROG ((|p| (|SymmetricPolynomial| (|Fraction| (|Integer|)))))
                (SEQ
-                (COND ((SPADCALL |spol1| (QREFELT $ 54)) (|spadConstant| $ 18))
+                (COND ((SPADCALL |spol1| (QREFELT $ 62)) (|spadConstant| $ 28))
                       ('T
                        (SEQ
                         (LETT |p|
-                              (SPADCALL (SPADCALL |spol1| (QREFELT $ 58))
+                              (SPADCALL (SPADCALL |spol1| (QREFELT $ 66))
                                         (|CYCLES;cupp|
-                                         (SPADCALL |spol1| (QREFELT $ 55))
+                                         (SPADCALL |spol1| (QREFELT $ 63))
                                          |spol2| $)
-                                        (QREFELT $ 45)))
+                                        (QREFELT $ 53)))
                         (EXIT
                          (SPADCALL |p|
-                                   (SPADCALL (SPADCALL |spol1| (QREFELT $ 60))
-                                             |spol2| (QREFELT $ 61))
-                                   (QREFELT $ 24))))))))) 
+                                   (SPADCALL (SPADCALL |spol1| (QREFELT $ 68))
+                                             |spol2| (QREFELT $ 69))
+                                   (QREFELT $ 30))))))))) 
 
-(SDEFUN |CYCLES;eval;SpF;16|
+(SDEFUN |CYCLES;eval;SpF;17|
         ((|spol| |SymmetricPolynomial| (|Fraction| (|Integer|)))
          ($ |Fraction| (|Integer|)))
-        (COND ((SPADCALL |spol| (QREFELT $ 54)) (|spadConstant| $ 62))
+        (COND ((SPADCALL |spol| (QREFELT $ 62)) (|spadConstant| $ 70))
               ('T
-               (SPADCALL (SPADCALL |spol| (QREFELT $ 58))
-                         (SPADCALL (SPADCALL |spol| (QREFELT $ 60))
-                                   (QREFELT $ 63))
-                         (QREFELT $ 64))))) 
+               (SPADCALL (SPADCALL |spol| (QREFELT $ 66))
+                         (SPADCALL (SPADCALL |spol| (QREFELT $ 68))
+                                   (QREFELT $ 71))
+                         (QREFELT $ 72))))) 
 
-(SDEFUN |CYCLES;cap;2SpF;17|
+(SDEFUN |CYCLES;cap;2SpF;18|
         ((|spol1| |SymmetricPolynomial| (|Fraction| (|Integer|)))
          (|spol2| |SymmetricPolynomial| (|Fraction| (|Integer|)))
          ($ |Fraction| (|Integer|)))
-        (SPADCALL (SPADCALL |spol1| |spol2| (QREFELT $ 61)) (QREFELT $ 63))) 
+        (SPADCALL (SPADCALL |spol1| |spol2| (QREFELT $ 69)) (QREFELT $ 71))) 
 
 (SDEFUN |CYCLES;mtpol|
         ((|n| |Integer|)
          (|spol| |SymmetricPolynomial| (|Fraction| (|Integer|)))
          ($ |SymmetricPolynomial| (|Fraction| (|Integer|))))
         (SPROG
-         ((|deg| (|Partition|)) (#1=#:G190 NIL) (|k| NIL) (#2=#:G189 NIL))
+         ((|deg| (|Partition|)) (#1=#:G192 NIL) (|k| NIL) (#2=#:G191 NIL))
          (SEQ
-          (COND ((SPADCALL |spol| (QREFELT $ 54)) (|spadConstant| $ 18))
+          (COND ((SPADCALL |spol| (QREFELT $ 62)) (|spadConstant| $ 28))
                 ('T
                  (SEQ
                   (LETT |deg|
@@ -430,8 +425,8 @@
                           (LETT #2# NIL)
                           (SEQ (LETT |k| NIL)
                                (LETT #1#
-                                     (SPADCALL (SPADCALL |spol| (QREFELT $ 55))
-                                               (QREFELT $ 66)))
+                                     (SPADCALL (SPADCALL |spol| (QREFELT $ 63))
+                                               (QREFELT $ 32)))
                                G190
                                (COND
                                 ((OR (ATOM #1#)
@@ -440,13 +435,13 @@
                                (SEQ (EXIT (LETT #2# (CONS (* |n| |k|) #2#))))
                                (LETT #1# (CDR #1#)) (GO G190) G191
                                (EXIT (NREVERSE #2#))))
-                         (QREFELT $ 23)))
+                         (QREFELT $ 21)))
                   (EXIT
                    (SPADCALL
-                    (SPADCALL (SPADCALL |spol| (QREFELT $ 58)) |deg|
+                    (SPADCALL (SPADCALL |spol| (QREFELT $ 66)) |deg|
                               (QREFELT $ 13))
-                    (|CYCLES;mtpol| |n| (SPADCALL |spol| (QREFELT $ 60)) $)
-                    (QREFELT $ 24))))))))) 
+                    (|CYCLES;mtpol| |n| (SPADCALL |spol| (QREFELT $ 68)) $)
+                    (QREFELT $ 30))))))))) 
 
 (SDEFUN |CYCLES;evspol|
         ((|fn2| |Mapping| (|SymmetricPolynomial| (|Fraction| (|Integer|)))
@@ -455,20 +450,20 @@
          ($ |SymmetricPolynomial| (|Fraction| (|Integer|))))
         (SPROG
          ((|prod| #1=(|SymmetricPolynomial| (|Fraction| (|Integer|))))
-          (#2=#:G192 NIL) (#3=#:G191 #1#) (#4=#:G193 #1#) (#5=#:G198 NIL)
+          (#2=#:G194 NIL) (#3=#:G193 #1#) (#4=#:G195 #1#) (#5=#:G200 NIL)
           (|i| NIL) (|lc| (|Fraction| (|Integer|))))
          (SEQ
-          (COND ((SPADCALL |spol| (QREFELT $ 54)) (|spadConstant| $ 18))
+          (COND ((SPADCALL |spol| (QREFELT $ 62)) (|spadConstant| $ 28))
                 (#6='T
-                 (SEQ (LETT |lc| (SPADCALL |spol| (QREFELT $ 58)))
+                 (SEQ (LETT |lc| (SPADCALL |spol| (QREFELT $ 66)))
                       (LETT |prod|
                             (PROGN
                              (LETT #2# NIL)
                              (SEQ (LETT |i| NIL)
                                   (LETT #5#
                                         (SPADCALL
-                                         (SPADCALL |spol| (QREFELT $ 55))
-                                         (QREFELT $ 66)))
+                                         (SPADCALL |spol| (QREFELT $ 63))
+                                         (QREFELT $ 32)))
                                   G190
                                   (COND
                                    ((OR (ATOM #5#)
@@ -482,30 +477,30 @@
                                       (#2#
                                        (LETT #3#
                                              (SPADCALL #3# #4#
-                                                       (QREFELT $ 47))))
+                                                       (QREFELT $ 55))))
                                       ('T
                                        (PROGN
                                         (LETT #3# #4#)
                                         (LETT #2# 'T)))))))
                                   (LETT #5# (CDR #5#)) (GO G190) G191
                                   (EXIT NIL))
-                             (COND (#2# #3#) (#6# (|spadConstant| $ 19)))))
+                             (COND (#2# #3#) (#6# (|spadConstant| $ 29)))))
                       (EXIT
-                       (SPADCALL (SPADCALL |lc| |prod| (QREFELT $ 45))
+                       (SPADCALL (SPADCALL |lc| |prod| (QREFELT $ 53))
                                  (|CYCLES;evspol| |fn2|
-                                  (SPADCALL |spol| (QREFELT $ 60)) $)
-                                 (QREFELT $ 24))))))))) 
+                                  (SPADCALL |spol| (QREFELT $ 68)) $)
+                                 (QREFELT $ 30))))))))) 
 
-(SDEFUN |CYCLES;wreath;3Sp;20|
+(SDEFUN |CYCLES;wreath;3Sp;21|
         ((|spol1| |SymmetricPolynomial| (|Fraction| (|Integer|)))
          (|spol2| |SymmetricPolynomial| (|Fraction| (|Integer|)))
          ($ |SymmetricPolynomial| (|Fraction| (|Integer|))))
         (SPROG NIL
                (|CYCLES;evspol|
-                (CONS #'|CYCLES;wreath;3Sp;20!0| (VECTOR $ |spol2|)) |spol1|
+                (CONS #'|CYCLES;wreath;3Sp;21!0| (VECTOR $ |spol2|)) |spol1|
                 $))) 
 
-(SDEFUN |CYCLES;wreath;3Sp;20!0| ((|x| NIL) ($$ NIL))
+(SDEFUN |CYCLES;wreath;3Sp;21!0| ((|x| NIL) ($$ NIL))
         (PROG (|spol2| $)
           (LETT |spol2| (QREFELT $$ 1))
           (LETT $ (QREFELT $$ 0))
@@ -513,17 +508,17 @@
 
 (SDEFUN |CYCLES;hh|
         ((|n| |Integer|) ($ |SymmetricPolynomial| (|Fraction| (|Integer|))))
-        (COND ((EQL |n| 0) (|spadConstant| $ 19))
-              ((< |n| 0) (|spadConstant| $ 18))
-              ('T (SPADCALL |n| (QREFELT $ 25))))) 
+        (COND ((EQL |n| 0) (|spadConstant| $ 29))
+              ((< |n| 0) (|spadConstant| $ 28))
+              ('T (SPADCALL |n| (QREFELT $ 31))))) 
 
-(SDEFUN |CYCLES;SFunction;LSp;22|
+(SDEFUN |CYCLES;SFunction;LSp;23|
         ((|li| |List| (|Integer|))
          ($ |SymmetricPolynomial| (|Fraction| (|Integer|))))
         (SPROG
          ((|a| (|Matrix| (|SymmetricPolynomial| (|Fraction| (|Integer|)))))
-          (#1=#:G209 NIL) (|k| NIL) (#2=#:G210 NIL) (|j| NIL) (#3=#:G208 NIL)
-          (#4=#:G207 NIL) (|i| NIL) (#5=#:G206 NIL))
+          (#1=#:G211 NIL) (|k| NIL) (#2=#:G212 NIL) (|j| NIL) (#3=#:G210 NIL)
+          (#4=#:G209 NIL) (|i| NIL) (#5=#:G208 NIL))
          (SEQ
           (LETT |a|
                 (SPADCALL
@@ -558,24 +553,24 @@
                                 #5#))))
                        (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                        (EXIT (NREVERSE #5#))))
-                 (QREFELT $ 70)))
-          (EXIT (SPADCALL |a| (QREFELT $ 71)))))) 
+                 (QREFELT $ 77)))
+          (EXIT (SPADCALL |a| (QREFELT $ 78)))))) 
 
 (SDEFUN |CYCLES;roundup|
         ((|li1| |List| (|Integer|)) (|li2| |List| (|Integer|))
          ($ |List| (|Integer|)))
         (COND
          ((> (LENGTH |li1|) (LENGTH |li2|))
-          (|CYCLES;roundup| |li1| (SPADCALL |li2| 0 (QREFELT $ 73)) $))
+          (|CYCLES;roundup| |li1| (SPADCALL |li2| 0 (QREFELT $ 80)) $))
          ('T |li2|))) 
 
-(SDEFUN |CYCLES;skewSFunction;2LSp;24|
+(SDEFUN |CYCLES;skewSFunction;2LSp;25|
         ((|li1| |List| (|Integer|)) (|li2| |List| (|Integer|))
          ($ |SymmetricPolynomial| (|Fraction| (|Integer|))))
         (SPROG
          ((|a| (|Matrix| (|SymmetricPolynomial| (|Fraction| (|Integer|)))))
-          (#1=#:G221 NIL) (|k| NIL) (#2=#:G222 NIL) (|j| NIL) (#3=#:G220 NIL)
-          (#4=#:G219 NIL) (|i| NIL) (#5=#:G218 NIL))
+          (#1=#:G223 NIL) (|k| NIL) (#2=#:G224 NIL) (|j| NIL) (#3=#:G222 NIL)
+          (#4=#:G221 NIL) (|i| NIL) (#5=#:G220 NIL))
          (SEQ
           (COND
            ((< (LENGTH |li1|) (LENGTH |li2|))
@@ -615,7 +610,7 @@
                                                          (- |k|
                                                             (SPADCALL |li2| |i|
                                                                       (QREFELT
-                                                                       $ 74)))
+                                                                       $ 81)))
                                                          |j|)
                                                         |i|)
                                                        $)
@@ -629,14 +624,14 @@
                                        #5#))))
                               (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                               (EXIT (NREVERSE #5#))))
-                        (QREFELT $ 70)))
-                 (EXIT (SPADCALL |a| (QREFELT $ 71))))))))) 
+                        (QREFELT $ 77)))
+                 (EXIT (SPADCALL |a| (QREFELT $ 78))))))))) 
 
 (DECLAIM (NOTINLINE |CycleIndicators;|)) 
 
 (DEFUN |CycleIndicators| ()
   (SPROG NIL
-         (PROG (#1=#:G224)
+         (PROG (#1=#:G226)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|CycleIndicators|))
@@ -656,7 +651,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|CycleIndicators|))
-          (LETT $ (GETREFV 76))
+          (LETT $ (GETREFV 83))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|CycleIndicators| NIL (CONS 1 $))
@@ -666,12 +661,12 @@
            ((|HasCategory| (|SymmetricPolynomial| (|Fraction| (|Integer|)))
                            '(|CommutativeRing|))
             (PROGN
-             (QSETREFV $ 72
-                       (CONS (|dispatchFunction| |CYCLES;SFunction;LSp;22|) $))
+             (QSETREFV $ 79
+                       (CONS (|dispatchFunction| |CYCLES;SFunction;LSp;23|) $))
              NIL
-             (QSETREFV $ 75
+             (QSETREFV $ 82
                        (CONS
-                        (|dispatchFunction| |CYCLES;skewSFunction;2LSp;24|)
+                        (|dispatchFunction| |CYCLES;skewSFunction;2LSp;25|)
                         $)))))
           $))) 
 
@@ -679,31 +674,33 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|Integer|) (|Partition|) (0 . |pdct|)
               (|Fraction| 6) (5 . |coerce|) (10 . |inv|)
-              (|SymmetricPolynomial| 9) (15 . |monomial|) (|Stream| 22)
-              (21 . |complete|) (|List| 22) (26 . |entries|) (31 . |Zero|)
-              (35 . |One|) (|PartitionsAndPermutations|) (39 . |partitions|)
-              (|List| 6) (44 . |partition|) (49 . +) |CYCLES;complete;ISp;3|
-              (|PositiveInteger|) (55 . *) |CYCLES;alternating;ISp;5| (61 . -)
-              |CYCLES;elementary;ISp;6| (|Factored| 6) (66 . |coerce|)
+              (|SymmetricPolynomial| 9) (15 . |monomial|) (|Stream| 20)
+              (21 . |complete|) (|List| 20) (26 . |entries|)
+              (|PartitionsAndPermutations|) (31 . |partitions|) (|List| 6)
+              (36 . |partition|) (|List| 7) (|Mapping| 7 20)
+              (|ListFunctions2| 20 7) (41 . |map|) (47 . |sort|) (52 . |Zero|)
+              (56 . |Zero|) (60 . |One|) (64 . +) |CYCLES;complete;ISp;4|
+              (70 . |coerce|) (|PositiveInteger|) (75 . *)
+              |CYCLES;alternating;ISp;6| (81 . -) |CYCLES;elementary;ISp;7|
+              (|Factored| $) (86 . |factor|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flag| 33) (|:| |factor| 6)
+              (|Record| (|:| |flag| 40) (|:| |factor| 6)
                         (|:| |exponent| (|NonNegativeInteger|)))
-              (|List| 34) (71 . |factorList|) (76 . |One|) (80 . |append|)
-              (86 . |One|) |CYCLES;powerSum;ISp;9|
-              (|IntegerNumberTheoryFunctions|) (90 . |eulerPhi|) (95 . /)
-              (101 . |numer|) (106 . *) |CYCLES;cyclic;ISp;10| (112 . *)
-              |CYCLES;dihedral;ISp;11| (118 . |powers|) (123 . |second|)
-              (128 . |lcm|) |CYCLES;graphs;ISp;13| (|Boolean|) (134 . |zero?|)
-              (139 . |degree|) (144 . <) (150 . =) (156 . |leadingCoefficient|)
-              (161 . *) (167 . |reductum|) |CYCLES;cup;3Sp;15| (172 . |Zero|)
-              |CYCLES;eval;SpF;16| (176 . +) |CYCLES;cap;2SpF;17|
-              (182 . |coerce|) |CYCLES;wreath;3Sp;20| (|List| (|List| 12))
-              (|Matrix| 12) (187 . |matrix|) (192 . |determinant|)
-              (197 . |SFunction|) (202 . |concat|) (208 . |elt|)
-              (214 . |skewSFunction|))
-           '#(|wreath| 220 |skewSFunction| 226 |powerSum| 232 |graphs| 237
-              |eval| 242 |elementary| 247 |dihedral| 252 |cyclic| 257 |cup| 262
-              |complete| 268 |cap| 273 |alternating| 279 |SFunction| 284)
+              (|List| 41) (|Factored| 6) (91 . |factorList|) (96 . |One|)
+              (100 . |append|) (106 . |One|) |CYCLES;powerSum;ISp;10|
+              (|IntegerNumberTheoryFunctions|) (110 . |eulerPhi|) (115 . /)
+              (121 . |numer|) (126 . *) |CYCLES;cyclic;ISp;11| (132 . *)
+              |CYCLES;dihedral;ISp;12| (138 . |powers|) (143 . |second|)
+              (148 . |lcm|) |CYCLES;graphs;ISp;14| (|Boolean|) (154 . |zero?|)
+              (159 . |degree|) (164 . <) (170 . =) (176 . |leadingCoefficient|)
+              (181 . *) (187 . |reductum|) |CYCLES;cup;3Sp;16| (192 . |Zero|)
+              |CYCLES;eval;SpF;17| (196 . +) |CYCLES;cap;2SpF;18|
+              |CYCLES;wreath;3Sp;21| (|List| (|List| 12)) (|Matrix| 12)
+              (202 . |matrix|) (207 . |determinant|) (212 . |SFunction|)
+              (217 . |concat|) (223 . |elt|) (229 . |skewSFunction|))
+           '#(|wreath| 235 |skewSFunction| 241 |powerSum| 247 |graphs| 252
+              |eval| 257 |elementary| 262 |dihedral| 267 |cyclic| 272 |cup| 277
+              |complete| 283 |cap| 288 |alternating| 294 |SFunction| 299)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -785,28 +782,30 @@
                                   (|List| (|Integer|)) (|List| (|Integer|))))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 75
+                        (|makeByteWordVec2| 82
                                             '(1 7 6 0 8 1 9 0 6 10 1 9 0 0 11 2
                                               12 0 9 7 13 1 14 0 0 15 1 14 16 0
-                                              17 0 12 0 18 0 12 0 19 1 20 14 6
-                                              21 1 7 0 22 23 2 12 0 0 0 24 2 12
-                                              0 26 0 27 1 12 0 0 29 1 31 0 6 32
-                                              1 31 35 0 36 0 31 0 37 2 22 0 0 0
-                                              38 0 9 0 39 1 41 6 6 42 2 9 0 6 6
-                                              43 1 9 6 0 44 2 12 0 9 0 45 2 12
-                                              0 0 0 47 1 7 16 22 49 1 22 6 0 50
-                                              2 6 0 0 0 51 1 12 53 0 54 1 12 7
-                                              0 55 2 7 53 0 0 56 2 7 53 0 0 57
-                                              1 12 9 0 58 2 12 0 6 0 59 1 12 0
-                                              0 60 0 9 0 62 2 9 0 0 0 64 1 7 22
-                                              0 66 1 69 0 68 70 1 69 12 0 71 1
-                                              0 12 22 72 2 22 0 0 6 73 2 22 6 0
-                                              6 74 2 0 12 22 22 75 2 0 12 12 12
-                                              67 2 0 12 22 22 75 1 0 12 6 40 1
-                                              0 12 6 52 1 0 9 12 63 1 0 12 6 30
-                                              1 0 12 6 48 1 0 12 6 46 2 0 12 12
-                                              12 61 1 0 12 6 25 2 0 9 12 12 65
-                                              1 0 12 6 28 1 0 12 22 72)))))
+                                              17 1 18 14 6 19 1 7 0 20 21 2 24
+                                              22 23 16 25 1 22 0 0 26 0 7 0 27
+                                              0 12 0 28 0 12 0 29 2 12 0 0 0 30
+                                              1 7 20 0 32 2 12 0 33 0 34 1 12 0
+                                              0 36 1 6 38 0 39 1 43 42 0 44 0
+                                              43 0 45 2 20 0 0 0 46 0 9 0 47 1
+                                              49 6 6 50 2 9 0 6 6 51 1 9 6 0 52
+                                              2 12 0 9 0 53 2 12 0 0 0 55 1 7
+                                              16 20 57 1 20 6 0 58 2 6 0 0 0 59
+                                              1 12 61 0 62 1 12 7 0 63 2 7 61 0
+                                              0 64 2 7 61 0 0 65 1 12 9 0 66 2
+                                              12 0 6 0 67 1 12 0 0 68 0 9 0 70
+                                              2 9 0 0 0 72 1 76 0 75 77 1 76 12
+                                              0 78 1 0 12 20 79 2 20 0 0 6 80 2
+                                              20 6 0 6 81 2 0 12 20 20 82 2 0
+                                              12 12 12 74 2 0 12 20 20 82 1 0
+                                              12 6 48 1 0 12 6 60 1 0 9 12 71 1
+                                              0 12 6 37 1 0 12 6 56 1 0 12 6 54
+                                              2 0 12 12 12 69 1 0 12 6 31 2 0 9
+                                              12 12 73 1 0 12 6 35 1 0 12 20
+                                              79)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|CycleIndicators| 'NILADIC T) 
