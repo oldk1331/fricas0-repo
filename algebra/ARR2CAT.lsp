@@ -6,8 +6,8 @@
 (DEFPARAMETER |TwoDimensionalArrayCategory;AL| 'NIL) 
 
 (DEFUN |TwoDimensionalArrayCategory| (|t#1| |t#2| |t#3|)
-  (LET (#1=#:G204
-        (#2=#:G205
+  (LET (#1=#:G206
+        (#2=#:G207
          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|) (|devaluate| |t#3|))))
     (COND ((SETQ #1# (|assoc| #2# |TwoDimensionalArrayCategory;AL|)) (CDR #1#))
           (T
@@ -21,7 +21,7 @@
            #1#)))) 
 
 (DEFUN |TwoDimensionalArrayCategory;| (|t#1| |t#2| |t#3|)
-  (SPROG ((#1=#:G203 NIL))
+  (SPROG ((#1=#:G205 NIL))
          (PROG1
              (LETT #1#
                    (|subst_in_cat| '(|t#1| |t#2| |t#3|)
@@ -45,6 +45,9 @@
                                                   (|NonNegativeInteger|)))
                                                 T)
                                                ((|fill!| (% % |t#1|)) T)
+                                               ((|array2|
+                                                 (% (|List| (|List| |t#1|))))
+                                                T)
                                                ((|minRowIndex| ((|Integer|) %))
                                                 T)
                                                ((|maxRowIndex| ((|Integer|) %))

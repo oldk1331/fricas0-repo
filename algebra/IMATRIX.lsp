@@ -179,24 +179,24 @@
           (LIST
            '#(NIL NIL NIL NIL NIL
               (|InnerIndexedTwoDimensionalArray| 6 (NRTEVAL (QREFELT % 7))
-                                                 (NRTEVAL (QREFELT % 8)) 40 41)
+                                                 (NRTEVAL (QREFELT % 8)) 41 40)
               (|local| |#1|) (|local| |#2|) (|local| |#3|) (|Integer|)
               (0 . |minRowIndex|) (5 . |maxRowIndex|) (10 . |maxColIndex|)
               |IMATRIX;swapRows!;%2I%;1|
-              (|MatrixLinearAlgebraFunctions| 6 40 41 $$) (15 . |determinant|)
+              (|MatrixLinearAlgebraFunctions| 6 41 40 $$) (15 . |determinant|)
               (20 . |determinant|) (25 . |minordet|) (30 . |minordet|)
               (35 . |rowEchelon|) (40 . |rowEchelon|) (|NonNegativeInteger|)
               (45 . |rank|) (50 . |rank|) (55 . |nullity|) (60 . |nullity|)
-              (|List| 41) (65 . |nullSpace|) (70 . |nullSpace|)
+              (|List| 40) (65 . |nullSpace|) (70 . |nullSpace|)
               (|Union| $$ '"failed") (75 . |inverse|) (|Union| % '"failed")
               (80 . |inverse|) (|Boolean|) (|List| 6) (|Equation| 6)
               (|List| 35) (|Mapping| 33 6 6) (|Mapping| 33 6) (|OutputForm|)
-              (|IndexedVector| 6 (NRTEVAL (QREFELT % 8)))
-              (|IndexedVector| 6 (NRTEVAL (QREFELT % 7))) (|List| %)
-              (|SingleInteger|) (|String|) (|HashState|) (|Void|) (|List| 53)
-              (|Union| 6 '"one") (|List| 34) (|Mapping| 6 9 9)
-              (|Mapping| 6 6 6) (|List| 42) (|List| 21) (|Mapping| 6 6)
-              (|PositiveInteger|) (|List| 57) (|Segment| 9) (|List| 9))
+              (|IndexedVector| 6 (NRTEVAL (QREFELT % 7)))
+              (|IndexedVector| 6 (NRTEVAL (QREFELT % 8))) (|List| %)
+              (|HashState|) (|SingleInteger|) (|String|) (|Void|) (|List| 55)
+              (|Union| 6 '"one") (|Mapping| 6 9 9) (|List| 34)
+              (|Mapping| 6 6 6) (|Mapping| 6 6) (|List| 42) (|PositiveInteger|)
+              (|List| 21) (|List| 57) (|Segment| 9) (|List| 9))
            '#(|swapRows!| 85 |rowEchelon| 92 |rank| 97 |nullity| 102
               |nullSpace| 107 |minordet| 112 |minRowIndex| 117 |maxRowIndex|
               122 |maxColIndex| 127 |inverse| 132 |determinant| 137)
