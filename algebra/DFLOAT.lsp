@@ -292,135 +292,130 @@
 (SDEFUN |DFLOAT;besselY;3$;72| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL |x| |y| (QREFELT $ 101))) 
 
-(SDEFUN |DFLOAT;digamma;2$;73| ((|x| ($)) ($ ($)))
-        (SPADCALL |x| (QREFELT $ 103))) 
+(SDEFUN |DFLOAT;Beta;3$;73| ((|x| ($)) (|y| ($)) ($ ($)))
+        (SPADCALL |x| |y| (QREFELT $ 104))) 
 
-(SDEFUN |DFLOAT;polygamma;3$;74| ((|x| ($)) (|y| ($)) ($ ($)))
-        (SPROG ((#1=#:G503 NIL) (|n| (|Union| (|Integer|) "failed")))
-               (SEQ (LETT |n| (SPADCALL |x| (QREFELT $ 106)))
+(SDEFUN |DFLOAT;Gamma;2$;74| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 106))) 
+
+(SDEFUN |DFLOAT;airyAi;2$;75| ((|x| ($)) ($ ($)))
+        (SPADCALL |x| (QREFELT $ 108))) 
+
+(SDEFUN |DFLOAT;airyAiPrime;2$;76| ((|x| ($)) ($ ($)))
+        (SPADCALL |x| (QREFELT $ 110))) 
+
+(SDEFUN |DFLOAT;airyBi;2$;77| ((|x| ($)) ($ ($)))
+        (SPADCALL |x| (QREFELT $ 112))) 
+
+(SDEFUN |DFLOAT;airyBiPrime;2$;78| ((|x| ($)) ($ ($)))
+        (SPADCALL |x| (QREFELT $ 114))) 
+
+(SDEFUN |DFLOAT;digamma;2$;79| ((|x| ($)) ($ ($)))
+        (SPADCALL 0 |x| (QREFELT $ 117))) 
+
+(SDEFUN |DFLOAT;polygamma;3$;80| ((|x| ($)) (|y| ($)) ($ ($)))
+        (SPROG ((|n| (|Union| (|Integer|) "failed")))
+               (SEQ (LETT |n| (SPADCALL |x| (QREFELT $ 120)))
                     (EXIT
                      (COND
                       ((QEQCAR |n| 0)
                        (COND
                         ((>= (QCDR |n|) 0)
-                         (SPADCALL
-                          (PROG1 (LETT #1# (QCDR |n|))
-                            (|check_subtype2| (>= #1# 0)
-                                              '(|NonNegativeInteger|)
-                                              '(|Integer|) #1#))
-                          |y| (QREFELT $ 108)))
-                        (#2='T
+                         (SPADCALL (QCDR |n|) |y| (QREFELT $ 117)))
+                        (#1='T
                          (|error|
-                          #3="polygamma: first argument should be a nonnegative integer"))))
-                      (#2# (|error| #3#))))))) 
-
-(SDEFUN |DFLOAT;Beta;3$;75| ((|x| ($)) (|y| ($)) ($ ($)))
-        (SPADCALL |x| |y| (QREFELT $ 111))) 
-
-(SDEFUN |DFLOAT;Gamma;2$;76| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 113))) 
-
-(SDEFUN |DFLOAT;airyAi;2$;77| ((|x| ($)) ($ ($)))
-        (SPADCALL |x| (QREFELT $ 115))) 
-
-(SDEFUN |DFLOAT;airyAiPrime;2$;78| ((|x| ($)) ($ ($)))
-        (SPADCALL |x| (QREFELT $ 117))) 
-
-(SDEFUN |DFLOAT;airyBi;2$;79| ((|x| ($)) ($ ($)))
-        (SPADCALL |x| (QREFELT $ 119))) 
-
-(SDEFUN |DFLOAT;airyBiPrime;2$;80| ((|x| ($)) ($ ($)))
-        (SPADCALL |x| (QREFELT $ 121))) 
+                          #2="polygamma: first argument should be a nonnegative integer"))))
+                      (#1# (|error| #2#))))))) 
 
 (SDEFUN |DFLOAT;lambertW;2$;81| ((|x| ($)) ($ ($)))
-        (SPADCALL |x| (QREFELT $ 124))) 
+        (SPADCALL |x| (QREFELT $ 123))) 
 
 (SDEFUN |DFLOAT;ellipticF;3$;82| ((|x| ($)) (|y| ($)) ($ ($)))
-        (SPADCALL |x| |y| (QREFELT $ 127))) 
+        (SPADCALL |x| |y| (QREFELT $ 126))) 
 
 (SDEFUN |DFLOAT;ellipticK;2$;83| ((|x| ($)) ($ ($)))
-        (SPADCALL |x| (QREFELT $ 129))) 
+        (SPADCALL |x| (QREFELT $ 128))) 
 
 (SDEFUN |DFLOAT;ellipticE;3$;84| ((|x| ($)) (|y| ($)) ($ ($)))
-        (SPADCALL |x| |y| (QREFELT $ 131))) 
+        (SPADCALL |x| |y| (QREFELT $ 130))) 
 
 (SDEFUN |DFLOAT;ellipticE;2$;85| ((|x| ($)) ($ ($)))
-        (SPADCALL |x| (QREFELT $ 133))) 
+        (SPADCALL |x| (QREFELT $ 132))) 
 
 (SDEFUN |DFLOAT;ellipticPi;4$;86| ((|x| ($)) (|y| ($)) (|z| ($)) ($ ($)))
-        (SPADCALL |x| |y| |z| (QREFELT $ 135))) 
+        (SPADCALL |x| |y| |z| (QREFELT $ 134))) 
 
 (SDEFUN |DFLOAT;jacobiSn;3$;87| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG ((|obits| (|PositiveInteger|)))
-               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 138)))
+               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 137)))
                     (EXIT
                      (|finally|
-                      (SEQ (SPADCALL 68 (QREFELT $ 139))
+                      (SEQ (SPADCALL 68 (QREFELT $ 138))
                            (EXIT
                             (SPADCALL
-                             (SPADCALL (SPADCALL |x| (QREFELT $ 140))
-                                       (SPADCALL |y| (QREFELT $ 140))
-                                       (QREFELT $ 142))
-                             (QREFELT $ 143))))
-                      (SPADCALL |obits| (QREFELT $ 139))))))) 
+                             (SPADCALL (SPADCALL |x| (QREFELT $ 139))
+                                       (SPADCALL |y| (QREFELT $ 139))
+                                       (QREFELT $ 141))
+                             (QREFELT $ 142))))
+                      (SPADCALL |obits| (QREFELT $ 138))))))) 
 
 (SDEFUN |DFLOAT;jacobiCn;3$;88| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG ((|obits| (|PositiveInteger|)))
-               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 138)))
+               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 137)))
                     (EXIT
                      (|finally|
-                      (SEQ (SPADCALL 68 (QREFELT $ 139))
+                      (SEQ (SPADCALL 68 (QREFELT $ 138))
                            (EXIT
                             (SPADCALL
-                             (SPADCALL (SPADCALL |x| (QREFELT $ 140))
-                                       (SPADCALL |y| (QREFELT $ 140))
-                                       (QREFELT $ 145))
-                             (QREFELT $ 143))))
-                      (SPADCALL |obits| (QREFELT $ 139))))))) 
+                             (SPADCALL (SPADCALL |x| (QREFELT $ 139))
+                                       (SPADCALL |y| (QREFELT $ 139))
+                                       (QREFELT $ 144))
+                             (QREFELT $ 142))))
+                      (SPADCALL |obits| (QREFELT $ 138))))))) 
 
 (SDEFUN |DFLOAT;jacobiDn;3$;89| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG ((|obits| (|PositiveInteger|)))
-               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 138)))
+               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 137)))
                     (EXIT
                      (|finally|
-                      (SEQ (SPADCALL 68 (QREFELT $ 139))
+                      (SEQ (SPADCALL 68 (QREFELT $ 138))
                            (EXIT
                             (SPADCALL
-                             (SPADCALL (SPADCALL |x| (QREFELT $ 140))
-                                       (SPADCALL |y| (QREFELT $ 140))
-                                       (QREFELT $ 147))
-                             (QREFELT $ 143))))
-                      (SPADCALL |obits| (QREFELT $ 139))))))) 
+                             (SPADCALL (SPADCALL |x| (QREFELT $ 139))
+                                       (SPADCALL |y| (QREFELT $ 139))
+                                       (QREFELT $ 146))
+                             (QREFELT $ 142))))
+                      (SPADCALL |obits| (QREFELT $ 138))))))) 
 
 (SDEFUN |DFLOAT;weierstrassP;4$;90| ((|x| ($)) (|y| ($)) (|z| ($)) ($ ($)))
         (SPROG ((|obits| (|PositiveInteger|)))
-               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 138)))
+               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 137)))
                     (EXIT
                      (|finally|
-                      (SEQ (SPADCALL 68 (QREFELT $ 139))
+                      (SEQ (SPADCALL 68 (QREFELT $ 138))
                            (EXIT
                             (SPADCALL
-                             (SPADCALL (SPADCALL |x| (QREFELT $ 140))
-                                       (SPADCALL |y| (QREFELT $ 140))
-                                       (SPADCALL |z| (QREFELT $ 140))
-                                       (QREFELT $ 149))
-                             (QREFELT $ 143))))
-                      (SPADCALL |obits| (QREFELT $ 139))))))) 
+                             (SPADCALL (SPADCALL |x| (QREFELT $ 139))
+                                       (SPADCALL |y| (QREFELT $ 139))
+                                       (SPADCALL |z| (QREFELT $ 139))
+                                       (QREFELT $ 148))
+                             (QREFELT $ 142))))
+                      (SPADCALL |obits| (QREFELT $ 138))))))) 
 
 (SDEFUN |DFLOAT;weierstrassPPrime;4$;91|
         ((|x| ($)) (|y| ($)) (|z| ($)) ($ ($)))
         (SPROG ((|obits| (|PositiveInteger|)))
-               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 138)))
+               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 137)))
                     (EXIT
                      (|finally|
-                      (SEQ (SPADCALL 68 (QREFELT $ 139))
+                      (SEQ (SPADCALL 68 (QREFELT $ 138))
                            (EXIT
                             (SPADCALL
-                             (SPADCALL (SPADCALL |x| (QREFELT $ 140))
-                                       (SPADCALL |y| (QREFELT $ 140))
-                                       (SPADCALL |z| (QREFELT $ 140))
-                                       (QREFELT $ 151))
-                             (QREFELT $ 143))))
-                      (SPADCALL |obits| (QREFELT $ 139))))))) 
+                             (SPADCALL (SPADCALL |x| (QREFELT $ 139))
+                                       (SPADCALL |y| (QREFELT $ 139))
+                                       (SPADCALL |z| (QREFELT $ 139))
+                                       (QREFELT $ 150))
+                             (QREFELT $ 142))))
+                      (SPADCALL |obits| (QREFELT $ 138))))))) 
 
 (PUT '|DFLOAT;wholePart;$I;92| '|SPADreplace| 'TRUNCATE) 
 
@@ -436,11 +431,11 @@
 (SDEFUN |DFLOAT;convert;2$;94| ((|x| ($)) ($ (|DoubleFloat|))) |x|) 
 
 (SDEFUN |DFLOAT;convert;$F;95| ((|x| ($)) ($ (|Float|)))
-        (SPADCALL |x| (QREFELT $ 140))) 
+        (SPADCALL |x| (QREFELT $ 139))) 
 
 (SDEFUN |DFLOAT;rationalApproximation;$NniF;96|
         ((|x| ($)) (|d| (|NonNegativeInteger|)) ($ (|Fraction| (|Integer|))))
-        (SPADCALL |x| |d| 10 (QREFELT $ 158))) 
+        (SPADCALL |x| |d| 10 (QREFELT $ 157))) 
 
 (SDEFUN |DFLOAT;atan;3$;97| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG ((|theta| ($)))
@@ -448,7 +443,7 @@
                 (COND
                  ((|eql_DF| |x| 0.0)
                   (COND
-                   ((SPADCALL |y| 0.0 (QREFELT $ 160))
+                   ((SPADCALL |y| 0.0 (QREFELT $ 159))
                     (|div_DF_I| (FLOAT PI MOST-POSITIVE-DOUBLE-FLOAT) 2))
                    ((|less_DF| |y| 0.0)
                     (|minus_DF|
@@ -467,16 +462,16 @@
                        (EXIT |theta|))))))) 
 
 (SDEFUN |DFLOAT;retract;$F;98| ((|x| ($)) ($ (|Fraction| (|Integer|))))
-        (SPROG ((#1=#:G540 NIL))
+        (SPROG ((#1=#:G538 NIL))
                (SPADCALL |x|
                          (PROG1 (LETT #1# (- (SPADCALL (QREFELT $ 22)) 1))
                            (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
                                              '(|Integer|) #1#))
-                         (SPADCALL (QREFELT $ 18)) (QREFELT $ 158)))) 
+                         (SPADCALL (QREFELT $ 18)) (QREFELT $ 157)))) 
 
 (SDEFUN |DFLOAT;retractIfCan;$U;99|
         ((|x| ($)) ($ (|Union| (|Fraction| (|Integer|)) "failed")))
-        (SPROG ((#1=#:G545 NIL))
+        (SPROG ((#1=#:G543 NIL))
                (CONS 0
                      (SPADCALL |x|
                                (PROG1
@@ -484,7 +479,7 @@
                                  (|check_subtype2| (>= #1# 0)
                                                    '(|NonNegativeInteger|)
                                                    '(|Integer|) #1#))
-                               (SPADCALL (QREFELT $ 18)) (QREFELT $ 158))))) 
+                               (SPADCALL (QREFELT $ 18)) (QREFELT $ 157))))) 
 
 (SDEFUN |DFLOAT;retract;$I;100| ((|x| ($)) ($ (|Integer|)))
         (SPROG ((|n| (|Integer|)))
@@ -506,7 +501,7 @@
                       ('T (CONS 1 "failed"))))))) 
 
 (SDEFUN |DFLOAT;sign;$I;102| ((|x| ($)) ($ (|Integer|)))
-        (SPADCALL (FLOAT-SIGN |x| 1.0) (QREFELT $ 165))) 
+        (SPADCALL (FLOAT-SIGN |x| 1.0) (QREFELT $ 164))) 
 
 (PUT '|DFLOAT;abs;2$;103| '|SPADreplace| '|abs_DF|) 
 
@@ -522,16 +517,16 @@
         (SPROG
          ((|two53| (|PositiveInteger|))
           (|me| (|Record| (|:| |man| $) (|:| |exp| (|Integer|))))
-          (#1=#:G565 NIL) (|s| (|Integer|)))
+          (#1=#:G563 NIL) (|s| (|Integer|)))
          (SEQ
           (EXIT
            (COND ((|zero?_DF| |x|) (CONS 0 0))
                  ('T
-                  (SEQ (LETT |s| (SPADCALL |x| (QREFELT $ 167)))
+                  (SEQ (LETT |s| (SPADCALL |x| (QREFELT $ 166)))
                        (LETT |x| (|abs_DF| |x|))
                        (COND
                         ((SPADCALL |x| MOST-POSITIVE-DOUBLE-FLOAT
-                                   (QREFELT $ 160))
+                                   (QREFELT $ 159))
                          (PROGN
                           (LETT #1#
                                 (CONS
@@ -542,7 +537,7 @@
                                   1)
                                  (SPADCALL MOST-POSITIVE-DOUBLE-FLOAT
                                            (QREFELT $ 21))))
-                          (GO #2=#:G564))))
+                          (GO #2=#:G562))))
                        (LETT |me| (MANEXP |x|))
                        (LETT |two53|
                              (EXPT (SPADCALL (QREFELT $ 18))
@@ -562,11 +557,11 @@
          ((|t| #1=(|Integer|)) (|s| #2=(|Integer|)) (|#G147| #3=(|Integer|))
           (|#G146| #1#) (|q1| #4=(|Integer|)) (|q0| (|Integer|))
           (|#G145| #5=(|Integer|)) (|#G144| #4#) (|p1| #6=(|Integer|))
-          (|p0| (|Integer|)) (|#G143| #5#) (|#G142| #6#) (#7=#:G599 NIL)
+          (|p0| (|Integer|)) (|#G143| #5#) (|#G142| #6#) (#7=#:G597 NIL)
           (|q2| #5#) (|p2| #5#) (|r| #3#) (|q| #8=(|Integer|))
           (|#G141| (|Record| (|:| |quotient| #8#) (|:| |remainder| #3#)))
-          (|tol| (|NonNegativeInteger|)) (|de| #1#) (#9=#:G589 NIL)
-          (#10=#:G587 NIL) (BASE (|PositiveInteger|)) (|ex| #11=(|Integer|))
+          (|tol| (|NonNegativeInteger|)) (|de| #1#) (#9=#:G587 NIL)
+          (#10=#:G585 NIL) (BASE (|PositiveInteger|)) (|ex| #11=(|Integer|))
           (|nu| #2#)
           (|#G140| (|Record| (|:| MANTISSA #2#) (|:| EXPONENT #11#))))
          (SEQ
@@ -588,7 +583,7 @@
                            (|check_subtype2| (>= #10# 0)
                                              '(|NonNegativeInteger|)
                                              '(|Integer|) #10#))))
-                (QREFELT $ 170)))
+                (QREFELT $ 169)))
               (#12='T
                (SEQ
                 (LETT |de|
@@ -625,8 +620,8 @@
                                        (PROGN
                                         (LETT #7#
                                               (SPADCALL |p2| |q2|
-                                                        (QREFELT $ 171)))
-                                        (GO #13=#:G598)))))
+                                                        (QREFELT $ 170)))
+                                        (GO #13=#:G596)))))
                                     (PROGN
                                      (LETT |#G142| |p1|)
                                      (LETT |#G143| |p2|)
@@ -647,22 +642,22 @@
           #13# (EXIT #7#)))) 
 
 (SDEFUN |DFLOAT;^;$F$;107| ((|x| ($)) (|r| (|Fraction| (|Integer|))) ($ ($)))
-        (SPROG ((#1=#:G609 NIL) (|d| (|Integer|)) (|n| (|Integer|)))
+        (SPROG ((#1=#:G607 NIL) (|d| (|Integer|)) (|n| (|Integer|)))
                (SEQ
                 (EXIT
                  (COND
                   ((|zero?_DF| |x|)
-                   (COND ((SPADCALL |r| (QREFELT $ 172)) 1.0)
-                         ((SPADCALL |r| (QREFELT $ 173))
+                   (COND ((SPADCALL |r| (QREFELT $ 171)) 1.0)
+                         ((SPADCALL |r| (QREFELT $ 172))
                           (|error| "division by 0"))
                          (#2='T 0.0)))
-                  ((OR (SPADCALL |r| (QREFELT $ 172)) (|eql_DF| |x| 1.0)) 1.0)
+                  ((OR (SPADCALL |r| (QREFELT $ 171)) (|eql_DF| |x| 1.0)) 1.0)
                   ('T
                    (COND
-                    ((SPADCALL |r| (|spadConstant| $ 174) (QREFELT $ 175)) |x|)
+                    ((SPADCALL |r| (|spadConstant| $ 173) (QREFELT $ 174)) |x|)
                     (#2#
-                     (SEQ (LETT |n| (SPADCALL |r| (QREFELT $ 176)))
-                          (LETT |d| (SPADCALL |r| (QREFELT $ 177)))
+                     (SEQ (LETT |n| (SPADCALL |r| (QREFELT $ 175)))
+                          (LETT |d| (SPADCALL |r| (QREFELT $ 176)))
                           (EXIT
                            (COND
                             ((|negative?_DF| |x|)
@@ -674,13 +669,13 @@
                                   (LETT #1#
                                         (|minus_DF|
                                          (SPADCALL (|minus_DF| |x|) |r|
-                                                   (QREFELT $ 178))))
-                                  (GO #3=#:G608)))
+                                                   (QREFELT $ 177))))
+                                  (GO #3=#:G606)))
                                 (#2#
                                  (PROGN
                                   (LETT #1#
                                         (SPADCALL (|minus_DF| |x|) |r|
-                                                  (QREFELT $ 178)))
+                                                  (QREFELT $ 177)))
                                   (GO #3#)))))
                               (#2# (|error| "negative root"))))
                             ((EQL |d| 2)
@@ -697,7 +692,7 @@
 
 (DEFUN |DoubleFloat| ()
   (SPROG NIL
-         (PROG (#1=#:G623)
+         (PROG (#1=#:G621)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|DoubleFloat|))
@@ -716,7 +711,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|DoubleFloat|))
-          (LETT $ (GETREFV 193))
+          (LETT $ (GETREFV 192))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|DoubleFloat| NIL (CONS 1 $))
@@ -774,91 +769,90 @@
               (|DoubleFloatSpecialFunctions|) (43 . |besselI|)
               |DFLOAT;besselI;3$;69| (49 . |besselJ|) |DFLOAT;besselJ;3$;70|
               (55 . |besselK|) |DFLOAT;besselK;3$;71| (61 . |besselY|)
-              |DFLOAT;besselY;3$;72| (67 . |digamma|) |DFLOAT;digamma;2$;73|
-              (|Union| 19 '"failed") (72 . |retractIfCan|)
-              (|NonNegativeInteger|) (77 . |polygamma|)
-              |DFLOAT;polygamma;3$;74| (|DoubleFloatSpecialFunctions2|)
-              (83 . |Beta|) |DFLOAT;Beta;3$;75| (89 . |Gamma|)
-              |DFLOAT;Gamma;2$;76| (94 . |airyAi|) |DFLOAT;airyAi;2$;77|
-              (99 . |airyAiPrime|) |DFLOAT;airyAiPrime;2$;78| (104 . |airyBi|)
-              |DFLOAT;airyBi;2$;79| (109 . |airyBiPrime|)
-              |DFLOAT;airyBiPrime;2$;80| (|FloatSpecialFunctions|)
-              (114 . |lambertW|) |DFLOAT;lambertW;2$;81|
-              (|DoubleFloatEllipticIntegrals|) (119 . |ellipticF|)
-              |DFLOAT;ellipticF;3$;82| (125 . |ellipticK|)
-              |DFLOAT;ellipticK;2$;83| (130 . |ellipticE|)
-              |DFLOAT;ellipticE;3$;84| (136 . |ellipticE|)
-              |DFLOAT;ellipticE;2$;85| (141 . |ellipticPi|)
-              |DFLOAT;ellipticPi;4$;86| (|Float|) (148 . |bits|) (152 . |bits|)
-              (157 . |convert|) (|FloatEllipticFunctions|) (162 . |jacobiSn|)
-              (168 . |convert|) |DFLOAT;jacobiSn;3$;87| (173 . |jacobiCn|)
-              |DFLOAT;jacobiCn;3$;88| (179 . |jacobiDn|)
-              |DFLOAT;jacobiDn;3$;89| (185 . |weierstrassP|)
-              |DFLOAT;weierstrassP;4$;90| (192 . |weierstrassPPrime|)
+              |DFLOAT;besselY;3$;72| (|DoubleFloatSpecialFunctions2|)
+              (67 . |Beta|) |DFLOAT;Beta;3$;73| (73 . |Gamma|)
+              |DFLOAT;Gamma;2$;74| (78 . |airyAi|) |DFLOAT;airyAi;2$;75|
+              (83 . |airyAiPrime|) |DFLOAT;airyAiPrime;2$;76| (88 . |airyBi|)
+              |DFLOAT;airyBi;2$;77| (93 . |airyBiPrime|)
+              |DFLOAT;airyBiPrime;2$;78| (|NonNegativeInteger|)
+              (98 . |polygamma|) |DFLOAT;digamma;2$;79| (|Union| 19 '"failed")
+              (104 . |retractIfCan|) |DFLOAT;polygamma;3$;80|
+              (|FloatSpecialFunctions|) (109 . |lambertW|)
+              |DFLOAT;lambertW;2$;81| (|DoubleFloatEllipticIntegrals|)
+              (114 . |ellipticF|) |DFLOAT;ellipticF;3$;82| (120 . |ellipticK|)
+              |DFLOAT;ellipticK;2$;83| (125 . |ellipticE|)
+              |DFLOAT;ellipticE;3$;84| (131 . |ellipticE|)
+              |DFLOAT;ellipticE;2$;85| (136 . |ellipticPi|)
+              |DFLOAT;ellipticPi;4$;86| (|Float|) (143 . |bits|) (147 . |bits|)
+              (152 . |convert|) (|FloatEllipticFunctions|) (157 . |jacobiSn|)
+              (163 . |convert|) |DFLOAT;jacobiSn;3$;87| (168 . |jacobiCn|)
+              |DFLOAT;jacobiCn;3$;88| (174 . |jacobiDn|)
+              |DFLOAT;jacobiDn;3$;89| (180 . |weierstrassP|)
+              |DFLOAT;weierstrassP;4$;90| (187 . |weierstrassPPrime|)
               |DFLOAT;weierstrassPPrime;4$;91| |DFLOAT;wholePart;$I;92|
               |DFLOAT;float;2IPi$;93| |DFLOAT;convert;2$;94|
               |DFLOAT;convert;$F;95| (|Fraction| 19)
               |DFLOAT;rationalApproximation;$2NniF;106|
-              |DFLOAT;rationalApproximation;$NniF;96| (199 . >)
+              |DFLOAT;rationalApproximation;$NniF;96| (194 . >)
               |DFLOAT;atan;3$;97| |DFLOAT;retract;$F;98|
-              (|Union| 157 '"failed") |DFLOAT;retractIfCan;$U;99|
+              (|Union| 156 '"failed") |DFLOAT;retractIfCan;$U;99|
               |DFLOAT;retract;$I;100| |DFLOAT;retractIfCan;$U;101|
               |DFLOAT;sign;$I;102| |DFLOAT;abs;2$;103|
-              |DFLOAT;conjugate;2$;104| (205 . |coerce|) (210 . /)
-              (216 . |zero?|) (221 . |negative?|) (226 . |One|) (230 . =)
-              (236 . |numer|) (241 . |denom|) |DFLOAT;^;$F$;107| (|List| $)
-              (|PatternMatchResult| 137 $) (|Pattern| 137) (|Factored| $)
-              (|Union| 179 '#1="failed")
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 184 '#1#)
+              |DFLOAT;conjugate;2$;104| (200 . |coerce|) (205 . /)
+              (211 . |zero?|) (216 . |negative?|) (221 . |One|) (225 . =)
+              (231 . |numer|) (236 . |denom|) |DFLOAT;^;$F$;107| (|List| $)
+              (|PatternMatchResult| 136 $) (|Pattern| 136) (|Factored| $)
+              (|Union| 178 '#1="failed")
+              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 183 '#1#)
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (|SparseUnivariatePolynomial| $)
-              (|Record| (|:| |coef| 179) (|:| |generator| $))
+              (|Record| (|:| |coef| 178) (|:| |generator| $))
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (|SingleInteger|))
-           '#(~= 246 |zero?| 252 |wholePart| 257 |whittakerW| 262 |whittakerM|
-              269 |weierstrassZeta| 276 |weierstrassSigma| 283
-              |weierstrassPPrime| 290 |weierstrassPInverse| 297 |weierstrassP|
-              304 |weberE| 311 |unitNormal| 317 |unitCanonical| 322 |unit?| 327
-              |truncate| 332 |toString| 337 |tanh| 348 |tan| 353
-              |subtractIfCan| 358 |struveL| 364 |struveH| 370 |squareFreePart|
-              376 |squareFree| 381 |sqrt| 386 |smaller?| 391 |sizeLess?| 397
-              |sinh| 403 |sin| 408 |sign| 413 |sech| 418 |sec| 423 |sample| 428
-              |round| 432 |rightRecip| 437 |rightPower| 442 |riemannZeta| 454
-              |retractIfCan| 459 |retract| 469 |rem| 479 |recip| 485
-              |rationalApproximation| 490 |quo| 503 |qsqrt| 509 |qlog| 514
-              |principalIdeal| 519 |prime?| 524 |precision| 529 |positive?| 538
-              |polylog| 543 |polygamma| 549 |pi| 555 |patternMatch| 559 |order|
-              566 |opposite?| 571 |one?| 577 |nthRoot| 582 |norm| 588
-              |negative?| 593 |multiEuclidean| 598 |min| 604 |meixnerM| 614
-              |meijerG| 622 |max| 631 |mantissa| 641 |lommelS2| 646 |lommelS1|
-              653 |log2| 660 |log10| 665 |log| 670 |lerchPhi| 675 |legendreQ|
-              682 |legendreP| 689 |leftRecip| 696 |leftPower| 701 |lcmCoef| 713
-              |lcm| 719 |latex| 730 |lambertW| 735 |laguerreL| 740 |kummerU|
-              747 |kummerM| 754 |kelvinKer| 761 |kelvinKei| 767 |kelvinBer| 773
-              |kelvinBei| 779 |jacobiZeta| 785 |jacobiTheta| 791 |jacobiSn| 797
-              |jacobiP| 803 |jacobiDn| 811 |jacobiCn| 817 |inv| 823
-              |increasePrecision| 828 |hypergeometricF| 833 |hermiteH| 840
-              |hashUpdate!| 846 |hash| 852 |hankelH2| 857 |hankelH1| 863
-              |gcdPolynomial| 869 |gcd| 875 |fractionPart| 886 |floor| 891
-              |float| 896 |factor| 909 |extendedEuclidean| 914 |exquo| 927
-              |expressIdealMember| 933 |exponent| 939 |exp1| 944 |exp| 948
-              |euclideanSize| 953 |ellipticPi| 958 |ellipticK| 965 |ellipticF|
-              970 |ellipticE| 976 |doubleFloatFormat| 987 |divide| 992 |digits|
-              998 |digamma| 1007 |differentiate| 1012 |decreasePrecision| 1023
-              |csch| 1028 |csc| 1033 |coth| 1038 |cot| 1043 |cosh| 1048 |cos|
-              1053 |convert| 1058 |conjugate| 1083 |commutator| 1088 |coerce|
-              1094 |charlierC| 1114 |characteristic| 1121 |ceiling| 1125 |bits|
-              1130 |besselY| 1139 |besselK| 1145 |besselJ| 1151 |besselI| 1157
-              |base| 1163 |atanh| 1167 |atan| 1172 |associator| 1183
-              |associates?| 1190 |asinh| 1196 |asin| 1201 |asech| 1206 |asec|
-              1211 |antiCommutator| 1216 |annihilate?| 1222 |angerJ| 1228
-              |airyBiPrime| 1234 |airyBi| 1239 |airyAiPrime| 1244 |airyAi| 1249
-              |acsch| 1254 |acsc| 1259 |acoth| 1264 |acot| 1269 |acosh| 1274
-              |acos| 1279 |abs| 1284 ^ 1289 |Zero| 1319 |One| 1323 |OMwrite|
-              1327 |Gamma| 1351 D 1362 |Beta| 1373 >= 1379 > 1385 = 1391 <=
-              1397 < 1403 / 1409 - 1421 + 1432 * 1438)
+           '#(~= 241 |zero?| 247 |wholePart| 252 |whittakerW| 257 |whittakerM|
+              264 |weierstrassZeta| 271 |weierstrassSigma| 278
+              |weierstrassPPrime| 285 |weierstrassPInverse| 292 |weierstrassP|
+              299 |weberE| 306 |unitNormal| 312 |unitCanonical| 317 |unit?| 322
+              |truncate| 327 |toString| 332 |tanh| 343 |tan| 348
+              |subtractIfCan| 353 |struveL| 359 |struveH| 365 |squareFreePart|
+              371 |squareFree| 376 |sqrt| 381 |smaller?| 386 |sizeLess?| 392
+              |sinh| 398 |sin| 403 |sign| 408 |sech| 413 |sec| 418 |sample| 423
+              |round| 427 |rightRecip| 432 |rightPower| 437 |riemannZeta| 449
+              |retractIfCan| 454 |retract| 464 |rem| 474 |recip| 480
+              |rationalApproximation| 485 |quo| 498 |qsqrt| 504 |qlog| 509
+              |principalIdeal| 514 |prime?| 519 |precision| 524 |positive?| 533
+              |polylog| 538 |polygamma| 544 |pi| 550 |patternMatch| 554 |order|
+              561 |opposite?| 566 |one?| 572 |nthRoot| 577 |norm| 583
+              |negative?| 588 |multiEuclidean| 593 |min| 599 |meixnerM| 609
+              |meijerG| 617 |max| 626 |mantissa| 636 |lommelS2| 641 |lommelS1|
+              648 |log2| 655 |log10| 660 |log| 665 |lerchPhi| 670 |legendreQ|
+              677 |legendreP| 684 |leftRecip| 691 |leftPower| 696 |lcmCoef| 708
+              |lcm| 714 |latex| 725 |lambertW| 730 |laguerreL| 735 |kummerU|
+              742 |kummerM| 749 |kelvinKer| 756 |kelvinKei| 762 |kelvinBer| 768
+              |kelvinBei| 774 |jacobiZeta| 780 |jacobiTheta| 786 |jacobiSn| 792
+              |jacobiP| 798 |jacobiDn| 806 |jacobiCn| 812 |inv| 818
+              |increasePrecision| 823 |hypergeometricF| 828 |hermiteH| 835
+              |hashUpdate!| 841 |hash| 847 |hankelH2| 852 |hankelH1| 858
+              |gcdPolynomial| 864 |gcd| 870 |fractionPart| 881 |floor| 886
+              |float| 891 |factor| 904 |extendedEuclidean| 909 |exquo| 922
+              |expressIdealMember| 928 |exponent| 934 |exp1| 939 |exp| 943
+              |euclideanSize| 948 |ellipticPi| 953 |ellipticK| 960 |ellipticF|
+              965 |ellipticE| 971 |doubleFloatFormat| 982 |divide| 987 |digits|
+              993 |digamma| 1002 |differentiate| 1007 |decreasePrecision| 1018
+              |csch| 1023 |csc| 1028 |coth| 1033 |cot| 1038 |cosh| 1043 |cos|
+              1048 |convert| 1053 |conjugate| 1078 |commutator| 1083 |coerce|
+              1089 |charlierC| 1109 |characteristic| 1116 |ceiling| 1120 |bits|
+              1125 |besselY| 1134 |besselK| 1140 |besselJ| 1146 |besselI| 1152
+              |base| 1158 |atanh| 1162 |atan| 1167 |associator| 1178
+              |associates?| 1185 |asinh| 1191 |asin| 1196 |asech| 1201 |asec|
+              1206 |antiCommutator| 1211 |annihilate?| 1217 |angerJ| 1223
+              |airyBiPrime| 1229 |airyBi| 1234 |airyAiPrime| 1239 |airyAi| 1244
+              |acsch| 1249 |acsc| 1254 |acoth| 1259 |acot| 1264 |acosh| 1269
+              |acos| 1274 |abs| 1279 ^ 1284 |Zero| 1314 |One| 1318 |OMwrite|
+              1322 |Gamma| 1346 D 1357 |Beta| 1368 >= 1374 > 1380 = 1386 <=
+              1392 < 1398 / 1404 - 1416 + 1427 * 1433)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -889,115 +883,114 @@
                  (|UniqueFactorizationDomain|) (|GcdDomain|) (|IntegralDomain|)
                  (|OrderedRing|) (|DivisionRing|) (|CommutativeRing|)
                  (|LeftOreRing|) (|DifferentialRing|) (|CharacteristicZero|)
-                 (|Algebra| 157) (|EntireRing|) (|Algebra| $$) (|Ring|) (|Rng|)
-                 (|SemiRing|) (|Module| 157) (|Module| $$) (|SemiRng|)
-                 (|OrderedAbelianGroup|) (|BiModule| 157 157)
+                 (|Algebra| 156) (|EntireRing|) (|Algebra| $$) (|Ring|) (|Rng|)
+                 (|SemiRing|) (|Module| 156) (|Module| $$) (|SemiRng|)
+                 (|OrderedAbelianGroup|) (|BiModule| 156 156)
                  (|BiModule| $$ $$) (|NonAssociativeRing|)
-                 (|OrderedCancellationAbelianMonoid|) (|RightModule| 157)
-                 (|LeftModule| 157) (|LeftModule| $$) (|NonAssociativeRng|)
+                 (|OrderedCancellationAbelianMonoid|) (|RightModule| 156)
+                 (|LeftModule| 156) (|LeftModule| $$) (|NonAssociativeRng|)
                  (|RightModule| $$) (|OrderedAbelianMonoid|) (|AbelianGroup|)
                  (|OrderedAbelianSemiGroup|) (|Monoid|)
                  (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
                  (|OrderedSet|) (|SemiGroup|) (|MagmaWithUnit|)
                  (|NonAssociativeSemiRng|) (|AbelianMonoid|)
-                 (|PatternMatchable| 137) (|Comparable|) (|Magma|)
+                 (|PatternMatchable| 136) (|Comparable|) (|Magma|)
                  (|AbelianSemiGroup|) (|TranscendentalFunctionCategory|)
-                 (|RetractableTo| 157) (|RetractableTo| 19) (|RealConstant|)
+                 (|RetractableTo| 156) (|RetractableTo| 19) (|RealConstant|)
                  (|CommutativeStar|) (|SetCategory|) (|ConvertibleTo| 39)
                  (|SpecialFunctionCategory|) (|ElementaryFunctionCategory|)
                  (|ArcHyperbolicFunctionCategory|)
                  (|HyperbolicFunctionCategory|)
                  (|ArcTrigonometricFunctionCategory|)
                  (|TrigonometricFunctionCategory|) (|OpenMath|)
-                 (|ConvertibleTo| 7) (|Approximate|) (|ConvertibleTo| 181)
-                 (|RadicalCategory|) (|CoercibleFrom| 157) (|CoercibleFrom| 19)
-                 (|ConvertibleTo| 137) (|ConvertibleTo| 12) (|PartialOrder|)
+                 (|ConvertibleTo| 7) (|Approximate|) (|ConvertibleTo| 180)
+                 (|RadicalCategory|) (|CoercibleFrom| 156) (|CoercibleFrom| 19)
+                 (|ConvertibleTo| 136) (|ConvertibleTo| 12) (|PartialOrder|)
                  (|canonicalsClosed|) (|canonicalUnitNormal|)
                  (|noZeroDivisors|) (|TwoSidedRecip|) (|unitsKnown|)
                  (|BasicType|) (|CoercibleTo| 35))
-              (|makeByteWordVec2| 192
+              (|makeByteWordVec2| 191
                                   '(1 10 9 0 11 2 10 9 0 12 13 1 10 9 0 14 2 0
                                     0 17 0 24 2 0 15 0 0 34 1 35 0 7 36 1 35 0
                                     0 38 1 39 0 12 40 2 94 12 12 12 95 2 94 12
                                     12 12 97 2 94 12 12 12 99 2 94 12 12 12 101
-                                    1 94 12 12 103 1 12 105 0 106 2 94 12 107
-                                    12 108 2 110 12 12 12 111 1 110 12 12 113 1
-                                    110 12 12 115 1 110 12 12 117 1 110 12 12
-                                    119 1 110 12 12 121 1 123 12 12 124 2 126
-                                    12 12 12 127 1 126 12 12 129 2 126 12 12 12
-                                    131 1 126 12 12 133 3 126 12 12 12 12 135 0
-                                    137 17 138 1 137 17 17 139 1 137 0 12 140 2
-                                    141 137 137 137 142 1 137 12 0 143 2 141
-                                    137 137 137 145 2 141 137 137 137 147 3 141
-                                    137 137 137 137 149 3 141 137 137 137 137
-                                    151 2 0 15 0 0 160 1 157 0 19 170 2 157 0
-                                    19 19 171 1 157 15 0 172 1 157 15 0 173 0
-                                    157 0 174 2 157 15 0 0 175 1 157 19 0 176 1
-                                    157 19 0 177 2 0 15 0 0 1 1 0 15 0 88 1 0
-                                    19 0 153 3 0 0 0 0 0 1 3 0 0 0 0 0 1 3 0 0
-                                    0 0 0 1 3 0 0 0 0 0 1 3 0 0 0 0 0 152 3 0 0
-                                    0 0 0 1 3 0 0 0 0 0 150 2 0 0 0 0 1 1 0 191
-                                    0 1 1 0 0 0 1 1 0 15 0 1 1 0 0 0 1 2 0 7 0
-                                    107 1 1 0 7 0 1 1 0 0 0 76 1 0 0 0 63 2 0
-                                    91 0 0 1 2 0 0 0 0 1 2 0 0 0 0 1 1 0 0 0 1
-                                    1 0 182 0 1 1 0 0 0 52 2 0 15 0 0 1 2 0 15
-                                    0 0 1 1 0 0 0 74 1 0 0 0 61 1 0 19 0 167 1
-                                    0 0 0 79 1 0 0 0 65 0 0 0 1 1 0 0 0 1 1 0
-                                    91 0 1 2 0 0 0 107 1 2 0 0 0 17 1 1 0 0 0 1
-                                    1 0 163 0 164 1 0 105 0 166 1 0 157 0 162 1
-                                    0 19 0 165 2 0 0 0 0 1 1 0 91 0 92 3 0 157
-                                    0 107 107 158 2 0 157 0 107 159 2 0 0 0 0 1
-                                    1 0 0 0 53 1 0 0 0 60 1 0 189 179 1 1 0 15
-                                    0 1 1 1 17 17 1 0 0 17 22 1 0 15 0 1 2 0 0
-                                    0 0 1 2 0 0 0 0 109 0 0 0 32 3 0 180 0 181
-                                    180 1 1 0 19 0 28 2 0 15 0 0 1 1 0 15 0 1 2
-                                    0 0 0 19 1 1 0 0 0 1 1 0 15 0 87 2 0 183
-                                    179 0 1 0 2 0 27 2 0 0 0 0 49 4 0 0 0 0 0 0
-                                    1 5 3 0 179 179 179 179 0 1 0 2 0 26 2 0 0
-                                    0 0 48 1 0 19 0 20 3 0 0 0 0 0 1 3 0 0 0 0
-                                    0 1 1 0 0 0 23 1 0 0 0 54 1 0 0 0 59 3 0 0
-                                    0 0 0 1 3 0 0 0 0 0 1 3 0 0 0 0 0 1 1 0 91
-                                    0 1 2 0 0 0 107 1 2 0 0 0 17 1 2 0 190 0 0
-                                    1 2 0 0 0 0 1 1 0 0 179 1 1 0 7 0 1 1 0 0 0
-                                    125 3 0 0 0 0 0 1 3 0 0 0 0 0 1 3 0 0 0 0 0
-                                    1 2 0 0 0 0 1 2 0 0 0 0 1 2 0 0 0 0 1 2 0 0
-                                    0 0 1 2 0 0 0 0 1 2 0 0 0 0 1 2 0 0 0 0 144
-                                    4 0 0 0 0 0 0 1 2 0 0 0 0 148 2 0 0 0 0 146
-                                    1 0 0 0 1 1 1 17 19 1 3 3 0 179 179 0 1 2 0
-                                    0 0 0 1 2 0 89 89 0 90 1 0 192 0 1 2 0 0 0
-                                    0 1 2 0 0 0 0 1 2 0 188 188 188 1 2 0 0 0 0
-                                    1 1 0 0 179 1 1 0 0 0 1 1 0 0 0 1 2 0 0 19
-                                    19 1 3 0 0 19 19 17 154 1 0 182 0 1 3 0 185
-                                    0 0 0 1 2 0 186 0 0 1 2 0 91 0 0 1 2 0 183
-                                    179 0 1 1 0 19 0 21 0 0 0 31 1 0 0 0 58 1 0
-                                    107 0 1 3 0 0 0 0 0 136 1 0 0 0 130 2 0 0 0
-                                    0 128 2 0 0 0 0 132 1 0 0 0 134 1 0 7 7 8 2
-                                    0 187 0 0 1 1 1 17 17 1 0 0 17 1 1 0 0 0
-                                    104 1 0 0 0 93 2 0 0 0 107 1 1 1 17 19 1 1
-                                    0 0 0 77 1 0 0 0 66 1 0 0 0 78 1 0 0 0 64 1
-                                    0 0 0 75 1 0 0 0 62 1 0 39 0 41 1 0 7 0 33
-                                    1 0 181 0 1 1 0 12 0 155 1 0 137 0 156 1 0
-                                    0 0 169 2 0 0 0 0 1 1 0 0 157 1 1 0 0 19 57
-                                    1 0 0 0 1 1 0 35 0 37 3 0 0 0 0 0 1 0 0 107
-                                    1 1 0 0 0 1 1 1 17 17 1 0 0 17 25 2 0 0 0 0
-                                    102 2 0 0 0 0 100 2 0 0 0 0 98 2 0 0 0 0 96
-                                    0 0 17 18 1 0 0 0 82 2 0 0 0 0 161 1 0 0 0
-                                    69 3 0 0 0 0 0 1 2 0 15 0 0 1 1 0 0 0 80 1
-                                    0 0 0 67 1 0 0 0 85 1 0 0 0 73 2 0 0 0 0 1
-                                    2 0 15 0 0 1 2 0 0 0 0 1 1 0 0 0 122 1 0 0
-                                    0 120 1 0 0 0 118 1 0 0 0 116 1 0 0 0 83 1
-                                    0 0 0 70 1 0 0 0 84 1 0 0 0 72 1 0 0 0 81 1
-                                    0 0 0 68 1 0 0 0 168 2 0 0 0 0 56 2 0 0 0
-                                    157 178 2 0 0 0 19 55 2 0 0 0 107 1 2 0 0 0
-                                    17 1 0 0 0 29 0 0 0 30 3 0 9 10 0 15 16 2 0
-                                    9 10 0 1 1 0 7 0 1 2 0 7 0 15 1 2 0 0 0 0 1
-                                    1 0 0 0 114 1 0 0 0 1 2 0 0 0 107 1 2 0 0 0
-                                    0 112 2 0 15 0 0 34 2 0 15 0 0 160 2 0 15 0
-                                    0 50 2 0 15 0 0 1 2 0 15 0 0 42 2 0 0 0 19
-                                    51 2 0 0 0 0 86 2 0 0 0 0 45 1 0 0 0 43 2 0
-                                    0 0 0 44 2 0 0 0 157 1 2 0 0 157 0 1 2 0 0
-                                    107 0 1 2 0 0 19 0 47 2 0 0 0 0 46 2 0 0 17
-                                    0 24)))))
+                                    2 103 12 12 12 104 1 103 12 12 106 1 103 12
+                                    12 108 1 103 12 12 110 1 103 12 12 112 1
+                                    103 12 12 114 2 103 12 116 12 117 1 12 119
+                                    0 120 1 122 12 12 123 2 125 12 12 12 126 1
+                                    125 12 12 128 2 125 12 12 12 130 1 125 12
+                                    12 132 3 125 12 12 12 12 134 0 136 17 137 1
+                                    136 17 17 138 1 136 0 12 139 2 140 136 136
+                                    136 141 1 136 12 0 142 2 140 136 136 136
+                                    144 2 140 136 136 136 146 3 140 136 136 136
+                                    136 148 3 140 136 136 136 136 150 2 0 15 0
+                                    0 159 1 156 0 19 169 2 156 0 19 19 170 1
+                                    156 15 0 171 1 156 15 0 172 0 156 0 173 2
+                                    156 15 0 0 174 1 156 19 0 175 1 156 19 0
+                                    176 2 0 15 0 0 1 1 0 15 0 88 1 0 19 0 152 3
+                                    0 0 0 0 0 1 3 0 0 0 0 0 1 3 0 0 0 0 0 1 3 0
+                                    0 0 0 0 1 3 0 0 0 0 0 151 3 0 0 0 0 0 1 3 0
+                                    0 0 0 0 149 2 0 0 0 0 1 1 0 190 0 1 1 0 0 0
+                                    1 1 0 15 0 1 1 0 0 0 1 2 0 7 0 116 1 1 0 7
+                                    0 1 1 0 0 0 76 1 0 0 0 63 2 0 91 0 0 1 2 0
+                                    0 0 0 1 2 0 0 0 0 1 1 0 0 0 1 1 0 181 0 1 1
+                                    0 0 0 52 2 0 15 0 0 1 2 0 15 0 0 1 1 0 0 0
+                                    74 1 0 0 0 61 1 0 19 0 166 1 0 0 0 79 1 0 0
+                                    0 65 0 0 0 1 1 0 0 0 1 1 0 91 0 1 2 0 0 0
+                                    116 1 2 0 0 0 17 1 1 0 0 0 1 1 0 162 0 163
+                                    1 0 119 0 165 1 0 156 0 161 1 0 19 0 164 2
+                                    0 0 0 0 1 1 0 91 0 92 3 0 156 0 116 116 157
+                                    2 0 156 0 116 158 2 0 0 0 0 1 1 0 0 0 53 1
+                                    0 0 0 60 1 0 188 178 1 1 0 15 0 1 1 1 17 17
+                                    1 0 0 17 22 1 0 15 0 1 2 0 0 0 0 1 2 0 0 0
+                                    0 121 0 0 0 32 3 0 179 0 180 179 1 1 0 19 0
+                                    28 2 0 15 0 0 1 1 0 15 0 1 2 0 0 0 19 1 1 0
+                                    0 0 1 1 0 15 0 87 2 0 182 178 0 1 0 2 0 27
+                                    2 0 0 0 0 49 4 0 0 0 0 0 0 1 5 3 0 178 178
+                                    178 178 0 1 0 2 0 26 2 0 0 0 0 48 1 0 19 0
+                                    20 3 0 0 0 0 0 1 3 0 0 0 0 0 1 1 0 0 0 23 1
+                                    0 0 0 54 1 0 0 0 59 3 0 0 0 0 0 1 3 0 0 0 0
+                                    0 1 3 0 0 0 0 0 1 1 0 91 0 1 2 0 0 0 116 1
+                                    2 0 0 0 17 1 2 0 189 0 0 1 2 0 0 0 0 1 1 0
+                                    0 178 1 1 0 7 0 1 1 0 0 0 124 3 0 0 0 0 0 1
+                                    3 0 0 0 0 0 1 3 0 0 0 0 0 1 2 0 0 0 0 1 2 0
+                                    0 0 0 1 2 0 0 0 0 1 2 0 0 0 0 1 2 0 0 0 0 1
+                                    2 0 0 0 0 1 2 0 0 0 0 143 4 0 0 0 0 0 0 1 2
+                                    0 0 0 0 147 2 0 0 0 0 145 1 0 0 0 1 1 1 17
+                                    19 1 3 3 0 178 178 0 1 2 0 0 0 0 1 2 0 89
+                                    89 0 90 1 0 191 0 1 2 0 0 0 0 1 2 0 0 0 0 1
+                                    2 0 187 187 187 1 2 0 0 0 0 1 1 0 0 178 1 1
+                                    0 0 0 1 1 0 0 0 1 2 0 0 19 19 1 3 0 0 19 19
+                                    17 153 1 0 181 0 1 3 0 184 0 0 0 1 2 0 185
+                                    0 0 1 2 0 91 0 0 1 2 0 182 178 0 1 1 0 19 0
+                                    21 0 0 0 31 1 0 0 0 58 1 0 116 0 1 3 0 0 0
+                                    0 0 135 1 0 0 0 129 2 0 0 0 0 127 2 0 0 0 0
+                                    131 1 0 0 0 133 1 0 7 7 8 2 0 186 0 0 1 1 1
+                                    17 17 1 0 0 17 1 1 0 0 0 118 1 0 0 0 93 2 0
+                                    0 0 116 1 1 1 17 19 1 1 0 0 0 77 1 0 0 0 66
+                                    1 0 0 0 78 1 0 0 0 64 1 0 0 0 75 1 0 0 0 62
+                                    1 0 39 0 41 1 0 7 0 33 1 0 180 0 1 1 0 12 0
+                                    154 1 0 136 0 155 1 0 0 0 168 2 0 0 0 0 1 1
+                                    0 0 156 1 1 0 0 19 57 1 0 0 0 1 1 0 35 0 37
+                                    3 0 0 0 0 0 1 0 0 116 1 1 0 0 0 1 1 1 17 17
+                                    1 0 0 17 25 2 0 0 0 0 102 2 0 0 0 0 100 2 0
+                                    0 0 0 98 2 0 0 0 0 96 0 0 17 18 1 0 0 0 82
+                                    2 0 0 0 0 160 1 0 0 0 69 3 0 0 0 0 0 1 2 0
+                                    15 0 0 1 1 0 0 0 80 1 0 0 0 67 1 0 0 0 85 1
+                                    0 0 0 73 2 0 0 0 0 1 2 0 15 0 0 1 2 0 0 0 0
+                                    1 1 0 0 0 115 1 0 0 0 113 1 0 0 0 111 1 0 0
+                                    0 109 1 0 0 0 83 1 0 0 0 70 1 0 0 0 84 1 0
+                                    0 0 72 1 0 0 0 81 1 0 0 0 68 1 0 0 0 167 2
+                                    0 0 0 0 56 2 0 0 0 156 177 2 0 0 0 19 55 2
+                                    0 0 0 116 1 2 0 0 0 17 1 0 0 0 29 0 0 0 30
+                                    3 0 9 10 0 15 16 2 0 9 10 0 1 1 0 7 0 1 2 0
+                                    7 0 15 1 2 0 0 0 0 1 1 0 0 0 107 1 0 0 0 1
+                                    2 0 0 0 116 1 2 0 0 0 0 105 2 0 15 0 0 34 2
+                                    0 15 0 0 159 2 0 15 0 0 50 2 0 15 0 0 1 2 0
+                                    15 0 0 42 2 0 0 0 19 51 2 0 0 0 0 86 2 0 0
+                                    0 0 45 1 0 0 0 43 2 0 0 0 0 44 2 0 0 0 156
+                                    1 2 0 0 156 0 1 2 0 0 116 0 1 2 0 0 19 0 47
+                                    2 0 0 0 0 46 2 0 0 17 0 24)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|DoubleFloat| 'NILADIC T) 
