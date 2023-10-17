@@ -2681,7 +2681,7 @@
 ;
 ;   filestream := MAKE_INSTREAM(helpFile)
 ;   repeat
-;     line := read_line(filestream,false)
+;     line := read_line(filestream)
 ;     NULL line =>
 ;       SHUT filestream
 ;       return true
@@ -2721,7 +2721,7 @@
                      (COND (NIL (RETURN NIL))
                            (#1#
                             (PROGN
-                             (SETQ |line| (|read_line| |filestream| NIL))
+                             (SETQ |line| (|read_line| |filestream|))
                              (COND
                               ((NULL |line|)
                                (PROGN (SHUT |filestream|) (RETURN T)))

@@ -970,7 +970,7 @@
       (|stopTimingProcess| '|debug|)))))
 
 ; recordInstantiation1(op,prop,dropIfTrue) ==
-;   op in '(CategoryDefaults RepeatedSquaring) => nil--ignore defaults for now
+;   op in '(RepeatedSquaring) => nil--ignore defaults for now
 ;   if $reportEachInstantiation = true then
 ;     trailer:= (dropIfTrue => '"  dropped"; '"  instantiated")
 ;     if $insideCoerceInteractive= true then
@@ -1001,7 +1001,7 @@
 (DEFUN |recordInstantiation1| (|op| |prop| |dropIfTrue|)
   (PROG (|trailer| |m1| |ISTMP#1| |m2| |xtra| |u| |v| |val|)
     (RETURN
-     (COND ((|member| |op| '(|CategoryDefaults| |RepeatedSquaring|)) NIL)
+     (COND ((|member| |op| '(|RepeatedSquaring|)) NIL)
            (#1='T
             (PROGN
              (COND

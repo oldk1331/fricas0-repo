@@ -14,7 +14,7 @@
                  (#1='T
                   (SEQ (LETT |s| (|read_line| (QVELT |f| 1)))
                        (EXIT
-                        (COND ((PLACEP |s|) (|error| "End of file"))
+                        (COND ((NULL |s|) (|error| "End of file"))
                               (#1# |s|))))))))) 
 
 (SDEFUN |TEXTFILE;readLineIfCan!;$U;4|
@@ -27,7 +27,7 @@
                  (#1='T
                   (SEQ (LETT |s| (|read_line| (QVELT |f| 1)))
                        (EXIT
-                        (COND ((PLACEP |s|) (CONS 1 "failed"))
+                        (COND ((NULL |s|) (CONS 1 "failed"))
                               (#1# (CONS 0 |s|)))))))))) 
 
 (SDEFUN |TEXTFILE;write!;$2S;5| ((|f| $) (|x| . #1=(|String|)) ($ . #1#))

@@ -1452,8 +1452,6 @@
 ;
 ;   $definition : local := definition
 ;
-;   if code is ['add,.,newstuff] then code := newstuff
-;
 ;   changeDirectoryInSlot1(base_shell, e)  --this extends $NRTslot1PredicateList
 ;
 ;   --pp '"=================="
@@ -1553,8 +1551,8 @@
          |b| |a| |codePart2| |addargname| |argStuffCode| |outsideFunctionCode|
          |storeOperationCode| |predBitVectorCode2| |predBitVectorCode1|
          |LETTMP#1| |domname| |catNames| |domainShell| |makeCatvecCode|
-         |condCats| |catvecListMaker| |argsig| |catsig| |oldtime| |newstuff|
-         |ISTMP#2| |ISTMP#1| |args| |name|)
+         |condCats| |catvecListMaker| |argsig| |catsig| |oldtime| |args|
+         |name|)
     (DECLARE
      (SPECIAL |$devaluateList| |$extraParms| |$epilogue| |$ConstantAssignments|
       |$MissingFunctionInfo| |$SetFunctions| |$catvecList| $GENNO
@@ -1564,16 +1562,6 @@
       (SETQ |name| (CAR |definition|))
       (SETQ |args| (CDR |definition|))
       (SETQ |$definition| |definition|)
-      (COND
-       ((AND (CONSP |code|) (EQ (CAR |code|) '|add|)
-             (PROGN
-              (SETQ |ISTMP#1| (CDR |code|))
-              (AND (CONSP |ISTMP#1|)
-                   (PROGN
-                    (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                    (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                         (PROGN (SETQ |newstuff| (CAR |ISTMP#2|)) #1='T))))))
-        (SETQ |code| |newstuff|)))
       (|changeDirectoryInSlot1| |base_shell| |e|)
       (SETQ $GENNO 0)
       (SETQ |$catvecList| NIL)
@@ -1591,7 +1579,8 @@
                         (ATOM |bfVar#63|)
                         (PROGN (SETQ |b| (CAR |bfVar#63|)) NIL))
                     (RETURN (NREVERSE |bfVar#64|)))
-                   (#1# (SETQ |bfVar#64| (CONS (CONS |arg| |b|) |bfVar#64|))))
+                   (#1='T
+                    (SETQ |bfVar#64| (CONS (CONS |arg| |b|) |bfVar#64|))))
                   (SETQ |bfVar#62| (CDR |bfVar#62|))
                   (SETQ |bfVar#63| (CDR |bfVar#63|))))
                NIL |args| NIL |$ModeVariableList| NIL))

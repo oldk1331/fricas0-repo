@@ -3261,7 +3261,6 @@
 ;       --RPLACd by compCapsuleItems and Friends
 ;   e:= compCapsuleItems(itemList,nil,e)
 ;   localParList:= $functorLocalParameters
-;   if $addForm then data:= ['add,$addForm,data]
 ;   code:=
 ;     $insideCategoryIfTrue and not $insideCategoryPackageIfTrue => BREAK()
 ;     processFunctor($functorForm, $signature, data, localParList, e)
@@ -3275,7 +3274,6 @@
       (SETQ |data| (CONS 'PROGN |itemList|))
       (SETQ |e| (|compCapsuleItems| |itemList| NIL |e|))
       (SETQ |localParList| |$functorLocalParameters|)
-      (COND (|$addForm| (SETQ |data| (LIST '|add| |$addForm| |data|))))
       (SETQ |code|
               (COND
                ((AND |$insideCategoryIfTrue|
@@ -3287,20 +3285,13 @@
       (LIST (MKPF (LIST |code|) 'PROGN) |m| |e|)))))
 
 ; processFunctor(form,signature,data,localParList,e) ==
-;   form is ["CategoryDefaults"] =>
-;     error "CategoryDefaults is a reserved name"
 ;   buildFunctor(form, signature, data, localParList, $domainShell, e)
 
 (DEFUN |processFunctor| (|form| |signature| |data| |localParList| |e|)
   (PROG ()
     (RETURN
-     (COND
-      ((AND (CONSP |form|) (EQ (CDR |form|) NIL)
-            (EQ (CAR |form|) '|CategoryDefaults|))
-       (|error| '|CategoryDefaults is a reserved name|))
-      ('T
-       (|buildFunctor| |form| |signature| |data| |localParList| |$domainShell|
-        |e|))))))
+     (|buildFunctor| |form| |signature| |data| |localParList| |$domainShell|
+      |e|))))
 
 ; compCapsuleItems(itemlist, $predl, e) ==
 ;   $signatureOfForm: local := nil

@@ -166,8 +166,6 @@
 
 ; addModemap0(op,mc,sig,pred,fn,e) ==
 ;   --mc is the "mode of computation"; fn the "implementation"
-;   $functorForm is ['CategoryDefaults,:.] and mc="$" => e
-;     --don't put CD modemaps into environment
 ;   op = 'elt or op = "setelt!" => addEltModemap(op, mc, sig, pred, fn, e)
 ;   addModemap1(op,mc,sig,pred,fn,e)
 
@@ -175,9 +173,6 @@
   (PROG ()
     (RETURN
      (COND
-      ((AND (CONSP |$functorForm|)
-            (EQ (CAR |$functorForm|) '|CategoryDefaults|) (EQ |mc| '$))
-       |e|)
       ((OR (EQ |op| '|elt|) (EQ |op| '|setelt!|))
        (|addEltModemap| |op| |mc| |sig| |pred| |fn| |e|))
       ('T (|addModemap1| |op| |mc| |sig| |pred| |fn| |e|))))))
