@@ -10687,6 +10687,7 @@ otruncated_mul_add`5`n`(U32Vector,U32Vector,U32Vector,Integer,Integer)->Void`pU3
 otruncated_multiplication`4`n`(U32Vector,U32Vector,Integer,Integer)->U32Vector`pU32VectorPolynomialOperations``1282901
 otryFunctionalDecomposition?`0`n`()->Boolean`pGaloisGroupFactorizer(UP)``1283004
 otryFunctionalDecomposition`1`n`(Boolean)->Boolean`pGaloisGroupFactorizer(UP)``1283150
+otry_real`2`n`(F,Symbol)->F`pRealNormalizationUtilities(R,F)``0
 otryTwoFactor`1`n`(SparseUnivariatePolynomial(SparseUnivariatePolynomial(F)))->Factored(SparseUnivariatePolynomial(SparseUnivariatePolynomial(F)))`pTwoFactorize(F)``1283344
 otube`3`n`(Curve,DoubleFloat,Integer)->TubePlot(Curve)`pNumericTubePlot(Curve)``1283534
 otube`3`n`(Curve,List(List(Point(DoubleFloat))),Boolean)->%`dTubePlot(Curve)``1283627
@@ -11617,6 +11618,7 @@ pRationalRetractions`1`x`(RetractableTo(Fraction(Integer)))->etc`(S)`RATRET`1426
 pRationalRicDE`2`n`(F:Join(Field,etc),UP:UnivariatePolynomialCategory(F))->etc`(F,UP)`ODERTRIC`1426105
 pRationalUnivariateRepresentationPackage`2`n`(Join(PolynomialFactorizationExplicit,etc),List(Symbol))->etc`(R,ls)`RURPK`1426170
 pRDEaux`1`n`(Field)->etc`(F)`RDEAUX`0
+pRealNormalizationUtilities`2`n`(R:Join(GcdDomain,etc),F:Join(TranscendentalFunctionCategory,etc))->etc`(R,F)`RNORM`0
 pRealPolynomialUtilitiesPackage`2`x`(TheField:Field,ThePols:UnivariatePolynomialCategory(TheField))->etc`(TheField,ThePols)`POLUTIL`1426597
 pRealSolvePackage`0`n`()->etc``REALSOLV`1426698
 pRealZeroPackage`1`x`(UnivariatePolynomialCategory(Integer))->etc`(Pol)`REAL0`1426816
