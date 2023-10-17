@@ -7508,7 +7508,7 @@
 865367`\spad{size(l)} returns the number of monomials forming \spad{l}.
 865434`The size of the isolating interval
 865827`\spad{size?(u,{} n)} tests if \spad{u} has exactly \spad{n} elements.
-865945`\spad{sizeLess?(x,{} y)} tests whether \spad{x} is strictly smaller than \spad{y} with respect to the \spadfunFrom{euclideanSize}{EuclideanDomain}.
+865945`\spad{sizeLess?(x,{} y)} tests whether \spad{x} is strictly smaller than \spad{y} with respect to the \spadfunFrom{euclideanSize}{EuclideanDomain}. Note: zero is considered smaller than every nonzero element.
 866003`\spad{sizeMultiplication()} returns the number of entries in the multiplication table of the field. Note: the time of multiplication of field elements depends on this size.
 866112`\spad{sizeMultiplication()} returns the number of entries in the multiplication table of the field. Note: the time of multiplication of field elements depends on this size.
 866212`\spad{sizeMultiplication()} returns the number of entries in the multiplication table of the field. Note: The time of multiplication of field elements depends on this size.
