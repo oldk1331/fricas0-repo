@@ -125,12 +125,41 @@
                         (SPADCALL (SPADCALL |spadname| |t| (QREFELT % 31))
                                   (QREFELT % 37)))))))))) 
 
+(SDEFUN |MKFLCFN;make_ri_part_function|
+        ((|f| (S)) (|v| (|Symbol|)) (|s| (|Symbol|))
+         (% (|Mapping| (|DoubleFloat|) (|DoubleFloat|))))
+        (SPROG
+         ((|rf| #1=(|InputForm|)) (|rz| #1#) (|z| #1#) (|u| (|InputForm|)))
+         (SEQ (LETT |u| (SPADCALL |f| (QREFELT % 22)))
+              (LETT |z|
+                    (SPADCALL
+                     (LIST (SPADCALL 'LET (QREFELT % 9)) (QREFELT % 40) |u|)
+                     (QREFELT % 11)))
+              (LETT |rz|
+                    (SPADCALL
+                     (LIST (SPADCALL |s| (QREFELT % 9)) (QREFELT % 39))
+                     (QREFELT % 11)))
+              (LETT |rf|
+                    (SPADCALL (LIST (SPADCALL 'SEQ (QREFELT % 9)) |z| |rz|)
+                              (QREFELT % 11)))
+              (EXIT (SPADCALL |rf| |v| (QREFELT % 42)))))) 
+
+(SDEFUN |MKFLCFN;make_real_part_function;SSM;11|
+        ((|f| (S)) (|v| (|Symbol|))
+         (% (|Mapping| (|DoubleFloat|) (|DoubleFloat|))))
+        (|MKFLCFN;make_ri_part_function| |f| |v| '|real| %)) 
+
+(SDEFUN |MKFLCFN;make_imaginary_part_function;SSM;12|
+        ((|f| (S)) (|v| (|Symbol|))
+         (% (|Mapping| (|DoubleFloat|) (|DoubleFloat|))))
+        (|MKFLCFN;make_ri_part_function| |f| |v| '|imag| %)) 
+
 (SDEFUN |MKFLCFN;mkLispList|
         ((|l| (|List| (|InputForm|)))
          (% (|Union| (|List| (|InputForm|)) "failed")))
         (SPROG
-         ((|ans| (|List| (|InputForm|))) (#1=#:G154 NIL)
-          (|u| (|Union| (|InputForm|) "failed")) (#2=#:G155 NIL) (|s| NIL))
+         ((|ans| (|List| (|InputForm|))) (#1=#:G161 NIL)
+          (|u| (|Union| (|InputForm|) "failed")) (#2=#:G162 NIL) (|s| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |ans| NIL)
@@ -144,7 +173,7 @@
                             ((QEQCAR |u| 1)
                              (PROGN
                               (LETT #1# (CONS 1 "failed"))
-                              (GO #3=#:G153)))
+                              (GO #3=#:G160)))
                             ('T (LETT |ans| (CONS (QCDR |u|) |ans|))))))
                      (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                 (EXIT (CONS 0 (NREVERSE |ans|)))))
@@ -159,18 +188,18 @@
           (|l| (|List| (|InputForm|))))
          (SEQ
           (COND
-           ((SPADCALL |s| (QREFELT % 39))
+           ((SPADCALL |s| (QREFELT % 45))
             (COND
-             ((SPADCALL |s| (QREFELT % 40))
+             ((SPADCALL |s| (QREFELT % 46))
               (CONS 0
                     (SPADCALL
-                     (FLOAT (SPADCALL |s| (QREFELT % 42))
+                     (FLOAT (SPADCALL |s| (QREFELT % 48))
                             MOST-POSITIVE-DOUBLE-FLOAT)
-                     (QREFELT % 44))))
+                     (QREFELT % 50))))
              (#2='T (CONS 0 |s|))))
            (#2#
             (SEQ
-             (LETT |op| (|SPADfirst| (LETT |l| (SPADCALL |s| (QREFELT % 45)))))
+             (LETT |op| (|SPADfirst| (LETT |l| (SPADCALL |s| (QREFELT % 51)))))
              (LETT |u| (|MKFLCFN;mkLispList| (CDR |l|) %))
              (EXIT
               (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
@@ -185,11 +214,11 @@
                             ((|MKFLCFN;streq?| |op| "^" %)
                              (COND
                               ((SPADCALL
-                                (LETT |ii| (SPADCALL |l| 3 (QREFELT % 47)))
-                                (QREFELT % 40))
+                                (LETT |ii| (SPADCALL |l| 3 (QREFELT % 53)))
+                                (QREFELT % 46))
                                (CONS 0
                                      (|MKFLCFN;gencode| "EXPT"
-                                      (LIST (SPADCALL |ll| 1 (QREFELT % 47))
+                                      (LIST (SPADCALL |ll| 1 (QREFELT % 53))
                                             |ii|)
                                       %)))
                               (#2#
@@ -204,12 +233,12 @@
                                     (SPADCALL
                                      (SPADCALL (SPADCALL |op| (QREFELT % 17))
                                                (QREFELT % 18))
-                                     (QREFELT % 49))
+                                     (QREFELT % 55))
                                     |ll| %)))
                             ((|MKFLCFN;streq?| |op| "nthRoot" %)
                              (COND
-                              ((SPADCALL (SPADCALL (CDR |l|) (QREFELT % 50))
-                                         (SPADCALL 2 (QREFELT % 51))
+                              ((SPADCALL (SPADCALL (CDR |l|) (QREFELT % 56))
+                                         (SPADCALL 2 (QREFELT % 57))
                                          (QREFELT % 16))
                                (CONS 0
                                      (|MKFLCFN;gencode| "SQRT"
@@ -219,26 +248,26 @@
                                      (|MKFLCFN;gencode| "EXPT"
                                       (CONS (|SPADfirst| |ll|)
                                             (LIST
-                                             (SPADCALL (|spadConstant| % 48)
+                                             (SPADCALL (|spadConstant| % 54)
                                                        (SPADCALL |ll|
                                                                  (QREFELT %
-                                                                          50))
-                                                       (QREFELT % 52))))
+                                                                          56))
+                                                       (QREFELT % 58))))
                                       %)))))
                             ((|MKFLCFN;streq?| |op| "float" %)
-                             (SEQ (LETT |a| (SPADCALL |ll| 1 (QREFELT % 47)))
-                                  (LETT |e| (SPADCALL |ll| 2 (QREFELT % 47)))
+                             (SEQ (LETT |a| (SPADCALL |ll| 1 (QREFELT % 53)))
+                                  (LETT |e| (SPADCALL |ll| 2 (QREFELT % 53)))
                                   (LETT |b|
-                                        (FLOAT (SPADCALL |ll| 3 (QREFELT % 47))
+                                        (FLOAT (SPADCALL |ll| 3 (QREFELT % 53))
                                                MOST-POSITIVE-DOUBLE-FLOAT))
                                   (EXIT (CONS 0 (* |a| (EXPT |b| |e|))))))
                             (#2# (CONS 1 "failed")))))))))))))) 
 
 (DECLAIM (NOTINLINE |MakeFloatCompiledFunction;|)) 
 
-(DEFUN |MakeFloatCompiledFunction| (#1=#:G174)
+(DEFUN |MakeFloatCompiledFunction| (#1=#:G181)
   (SPROG NIL
-         (PROG (#2=#:G175)
+         (PROG (#2=#:G182)
            (RETURN
             (COND
              ((LETT #2#
@@ -260,7 +289,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|MakeFloatCompiledFunction| DV$1))
-          (LETT % (GETREFV 53))
+          (LETT % (GETREFV 59))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|MakeFloatCompiledFunction|
@@ -271,6 +300,15 @@
           (QSETREFV % 12
                     (SPADCALL (LIST (SPADCALL '|DoubleFloat| (QREFELT % 9)))
                               (QREFELT % 11)))
+          (QSETREFV % 39 (SPADCALL (SPADCALL (QREFELT % 21)) (QREFELT % 9)))
+          (QSETREFV % 40
+                    (SPADCALL
+                     (LIST (SPADCALL '|:| (QREFELT % 9)) (QREFELT % 39)
+                           (SPADCALL
+                            (LIST (SPADCALL '|Complex| (QREFELT % 9))
+                                  (SPADCALL '|DoubleFloat| (QREFELT % 9)))
+                            (QREFELT % 11)))
+                     (QREFELT % 11)))
           %))) 
 
 (MAKEPROP '|MakeFloatCompiledFunction| '|infovec|
@@ -279,19 +317,24 @@
               (0 . |convert|) (|List| %) (5 . |convert|) '|lsf| (|String|)
               (10 . |coerce|) (|Boolean|) (15 . =) (21 . |symbol|)
               (26 . |string|) (|List| 13) (31 . |member?|) (37 . |new|)
-              (41 . |convert|) (|Mapping| 43 43 43)
-              (|MakeBinaryCompiledFunction| 6 43 43 43)
+              (41 . |convert|) (|Mapping| 49 49 49)
+              (|MakeBinaryCompiledFunction| 6 49 49 49)
               (46 . |compiledFunction|) (53 . |declare|) (|List| 7)
               (58 . |function|) (|Any|) (65 . |interpret|) (70 . |compile|)
               (76 . |binaryFunction|) |MKFLCFN;makeFloatFunction;S2SM;8|
-              (|Mapping| 43 43) (|MakeUnaryCompiledFunction| 6 43 43)
+              (|Mapping| 49 49) (|MakeUnaryCompiledFunction| 6 49 49)
               (81 . |compiledFunction|) (87 . |unaryFunction|)
-              |MKFLCFN;makeFloatFunction;SSM;9| (92 . |atom?|)
-              (97 . |integer?|) (|Integer|) (102 . |integer|) (|DoubleFloat|)
-              (107 . |convert|) (112 . |destruct|) (|List| 8) (117 . |elt|)
-              (123 . |One|) (127 . |upperCase|) (132 . |second|)
-              (137 . |convert|) (142 . /))
-           '#(|makeFloatFunction| 148) 'NIL
+              |MKFLCFN;makeFloatFunction;SSM;9| '|z_var| '|z_decl|
+              (|MakeUnaryCompiledFunction| 8 49 49) (92 . |compiledFunction|)
+              |MKFLCFN;make_real_part_function;SSM;11|
+              |MKFLCFN;make_imaginary_part_function;SSM;12| (98 . |atom?|)
+              (103 . |integer?|) (|Integer|) (108 . |integer|) (|DoubleFloat|)
+              (113 . |convert|) (118 . |destruct|) (|List| 8) (123 . |elt|)
+              (129 . |One|) (133 . |upperCase|) (138 . |second|)
+              (143 . |convert|) (148 . /))
+           '#(|make_real_part_function| 154 |make_imaginary_part_function| 160
+              |makeFloatFunction| 166)
+           'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -306,19 +349,28 @@
                                  ((|Mapping| (|DoubleFloat|) (|DoubleFloat|)
                                              (|DoubleFloat|))
                                   |#1| (|Symbol|) (|Symbol|)))
+                                T)
+                              '((|make_real_part_function|
+                                 ((|Mapping| (|DoubleFloat|) (|DoubleFloat|))
+                                  |#1| (|Symbol|)))
+                                T)
+                              '((|make_imaginary_part_function|
+                                 ((|Mapping| (|DoubleFloat|) (|DoubleFloat|))
+                                  |#1| (|Symbol|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 52
+                        (|makeByteWordVec2| 58
                                             '(1 8 0 7 9 1 8 0 10 11 1 7 0 13 14
                                               2 8 15 0 0 16 1 8 7 0 17 1 7 13 0
                                               18 2 19 15 13 0 20 0 7 0 21 1 6 8
                                               0 22 3 24 23 6 7 7 25 1 8 7 10 26
                                               3 8 0 0 27 7 28 1 8 29 0 30 2 8 7
                                               7 10 31 1 24 23 7 32 2 35 34 6 7
-                                              36 1 35 34 7 37 1 8 15 0 39 1 8
-                                              15 0 40 1 8 41 0 42 1 8 0 43 44 1
-                                              8 10 0 45 2 46 8 0 41 47 0 8 0 48
-                                              1 13 0 0 49 1 46 8 0 50 1 8 0 41
-                                              51 2 8 0 0 0 52 3 0 23 6 7 7 33 2
-                                              0 34 6 7 38)))))
+                                              36 1 35 34 7 37 2 41 34 8 7 42 1
+                                              8 15 0 45 1 8 15 0 46 1 8 47 0 48
+                                              1 8 0 49 50 1 8 10 0 51 2 52 8 0
+                                              47 53 0 8 0 54 1 13 0 0 55 1 52 8
+                                              0 56 1 8 0 47 57 2 8 0 0 0 58 2 0
+                                              34 6 7 43 2 0 34 6 7 44 3 0 23 6
+                                              7 7 33 2 0 34 6 7 38)))))
            '|lookupComplete|)) 

@@ -1,4 +1,4 @@
-121023              (|AbelianGroup&| |CoChainComplex| |DeltaComplex|
+121048              (|AbelianGroup&| |CoChainComplex| |DeltaComplex|
                                      |DeltaComplexFactory|
                                      |FiniteCubicalComplex|
                                      |FiniteSimplicialComplex| |FourierSeries|
@@ -1745,7 +1745,7 @@
                           |OneDimensionalArrayAggregate&|
                           |OneDimensionalArrayFunctions2| |OperatorHandlers|
                           |ParadoxicalCombinatorsForStreams|
-                          |ParametricPlaneCurve|
+                          |ParametricComplexCurve| |ParametricPlaneCurve|
                           |ParametricPlaneCurveFunctions2|
                           |ParametricSpaceCurve|
                           |ParametricSpaceCurveFunctions2| |ParametricSurface|
@@ -1904,25 +1904,25 @@
 (|FiniteLinearAggregateSort| |GeneralPolynomialSet| |LinearSystemMatrixPackage|
                              |Multiset| |SortPackage| |SplittingTree| |Stream|
                              |Tree| |XHashTable|)
-(("shallowlyMutable" 0 120814) ("finiteAggregate" 0 120530)
- ("canonicalsClosed" 0 120487) ("canonicalUnitNormal" 0 120459)
- ("arbitraryPrecision" 0 120449) ("arbitraryExponent" 0 120439)
- ("XPolynomialsCat" 0 120310) ("XAlgebra" 0 120290) ("VectorCategory" 0 120170)
- ("Vector" 0 119742) ("VariablesCommuteWithCoefficients" 0 119596)
- ("VarCat" 0 119539) ("UnivariateTaylorSeriesCategory" 0 118715)
- ("UnivariateTaylorSeries" 0 118661)
- ("UnivariateSkewPolynomialCategory" 0 118275)
- ("UnivariatePuiseuxSeriesWithExponentialSingularity" 0 118250)
- ("UnivariatePuiseuxSeriesConstructorCategory" 0 117781)
- ("UnivariatePuiseuxSeriesCategory" 0 117709)
- ("UnivariatePuiseuxSeries" 0 117632)
- ("UnivariatePowerSeriesCategory" 0 117356)
- ("UnivariatePolynomialCategory" 0 113765)
- ("UnivariateLaurentSeriesConstructorCategory" 0 113219)
- ("UnivariateLaurentSeriesCategory" 0 113006)
- ("UnivariateLaurentSeries" 0 112978) ("UniqueFactorizationDomain" 0 112782)
- ("UnaryRecursiveAggregate" 0 112753) ("U8Vector" 0 112740)
- ("U32Vector" 0 112669) ("U32Matrix" 0 112638) ("U16Vector" 0 112624)
+(("shallowlyMutable" 0 120839) ("finiteAggregate" 0 120555)
+ ("canonicalsClosed" 0 120512) ("canonicalUnitNormal" 0 120484)
+ ("arbitraryPrecision" 0 120474) ("arbitraryExponent" 0 120464)
+ ("XPolynomialsCat" 0 120335) ("XAlgebra" 0 120315) ("VectorCategory" 0 120195)
+ ("Vector" 0 119767) ("VariablesCommuteWithCoefficients" 0 119621)
+ ("VarCat" 0 119564) ("UnivariateTaylorSeriesCategory" 0 118740)
+ ("UnivariateTaylorSeries" 0 118686)
+ ("UnivariateSkewPolynomialCategory" 0 118300)
+ ("UnivariatePuiseuxSeriesWithExponentialSingularity" 0 118275)
+ ("UnivariatePuiseuxSeriesConstructorCategory" 0 117806)
+ ("UnivariatePuiseuxSeriesCategory" 0 117734)
+ ("UnivariatePuiseuxSeries" 0 117657)
+ ("UnivariatePowerSeriesCategory" 0 117381)
+ ("UnivariatePolynomialCategory" 0 113790)
+ ("UnivariateLaurentSeriesConstructorCategory" 0 113244)
+ ("UnivariateLaurentSeriesCategory" 0 113031)
+ ("UnivariateLaurentSeries" 0 113003) ("UniqueFactorizationDomain" 0 112807)
+ ("UnaryRecursiveAggregate" 0 112778) ("U8Vector" 0 112765)
+ ("U32Vector" 0 112694) ("U32Matrix" 0 112663) ("U16Vector" 0 112649)
  ("Type" 0 107694) ("TwoDimensionalArrayCategory" 0 107343)
  ("TrigonometricFunctionCategory" 0 107308) ("TriangularSetCategory" 0 107233)
  ("TranscendentalFunctionCategory" 0 104326) ("ThreeSpaceCategory" 0 104311)

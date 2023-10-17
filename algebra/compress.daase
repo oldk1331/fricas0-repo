@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5250 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5255 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -307,12 +307,13 @@
  |OrdinaryWeightedPolynomials| |PadeApproximants| |PadeApproximantPackage|
  |PAdicInteger| |PAdicIntegerCategory| |PAdicRational|
  |PAdicRationalConstructor| |Palette| |PolynomialAN2Expression|
- |ParametricPlaneCurveFunctions2| |ParametricPlaneCurve| |PathArrayPackage|
- |ParametricSpaceCurveFunctions2| |ParametricSpaceCurve|
- |ParametricSurfaceFunctions2| |ParametricSurface| |PartitionsAndPermutations|
- |Patternable| |PatternMatchListResult| |PatternMatchable| |PatternMatch|
- |PatternMatchResult| |PatternMatchResultFunctions2| |Pattern|
- |PatternFunctions1| |PatternFunctions2| |PoincareBirkhoffWittLyndonBasis|
+ |ParametricComplexCurve| |ParametricPlaneCurveFunctions2|
+ |ParametricPlaneCurve| |PathArrayPackage| |ParametricSpaceCurveFunctions2|
+ |ParametricSpaceCurve| |ParametricSurfaceFunctions2| |ParametricSurface|
+ |PartitionsAndPermutations| |Patternable| |PatternMatchListResult|
+ |PatternMatchable| |PatternMatch| |PatternMatchResult|
+ |PatternMatchResultFunctions2| |Pattern| |PatternFunctions1|
+ |PatternFunctions2| |PoincareBirkhoffWittLyndonBasis|
  |PolynomialCommonDenominator| |PartialDifferentialOperator|
  |PartialDifferentialOperatorHelper| |PartialDifferentialRing&|
  |PartialDifferentialRing| |PendantTree| |Permutation| |Permanent|
@@ -811,11 +812,12 @@
  |empty_poly| |empty_mat| |empty_mat?| |trim_mat!| |split_mat!| |shift_mat!|
  |copy_mat_part| |power_matrix| |modular_compose| |rowEch| |rowEchLocal|
  |rowEchelonLocal| |normalizedDivide| |maxint| |binaryFunction|
- |makeFloatFunction| |function| |makeRecord| |unaryFunction| |compiledFunction|
- |corrPoly| |lifting| |coerceS| |mfactor| |ddfact| |HP_solve_I| |HP_solve_A|
- |HP_solve_P| |HP_solve_PA| |HP_solve_M| |check_sol1a| |VSUPI_to_VPA|
- |VSUPPI_to_VPA| |LLFI_to_LPA| |LLFPI_to_LPA| |get_variables| |unpack_poly|
- |HP_solve| |gen_Monte_Carlo_check| |LLF_to_LPA| |VSUPS_to_VPA| |frobenius|
+ |makeFloatFunction| |make_real_part_function| |make_imaginary_part_function|
+ |function| |makeRecord| |unaryFunction| |compiledFunction| |corrPoly|
+ |lifting| |coerceS| |mfactor| |ddfact| |HP_solve_I| |HP_solve_A| |HP_solve_P|
+ |HP_solve_PA| |HP_solve_M| |check_sol1a| |VSUPI_to_VPA| |VSUPPI_to_VPA|
+ |LLFI_to_LPA| |LLFPI_to_LPA| |get_variables| |unpack_poly| |HP_solve|
+ |gen_Monte_Carlo_check| |LLF_to_LPA| |VSUPS_to_VPA| |frobenius|
  |computePowers| |An| |UnVectorise| |Vectorise| |setPoly| |index| |exponent|
  |exQuo| |cumulant2moment| |moment2cumulant| |moment2nthJacobi| |moment2jacobi|
  |moment2jacobi2| |freeCumulant2moment| |moment2freeCumulant|
@@ -878,19 +880,20 @@
  |zag| |box| |label| |infix?| |postfix| |infix| |prefix| |vconcat| |hconcat|
  |rspace| |vspace| |hspace| |messagePrint| |message| |padecf| |pade| |root|
  |quotientByP| |moduloP| |modulus| |digits| |continuedFraction| |light|
- |pastel| |bright| |dim| |dark| |motzkinPathArray| |jacobiPathArray| |bottom|
- |surface| |coordinate| |partitions| |odd_partitions| |distinct_partitions|
- |conjugates| |shuffle| |shufflein| |sequences| |permutations| |lists| |atoms|
- |makeResult| |is?| |Is| |addMatchRestricted| |insertMatch| |addMatch|
- |getMatch| |failed| |failed?| |optpair| |getBadValues| |resetBadValues|
- |hasTopPredicate?| |topPredicate| |setTopPredicate| |patternVariable|
- |withPredicates| |setPredicates| |predicates| |hasPredicate?| |optional?|
- |multiple?| |generic?| |quoted?| |inR?| |depth| |isList| |isQuotient| |isOp|
- |predicate| |satisfy?| |addBadValue| |badValues| |retractable?| |listOfTerms|
- |One| |adjoint| |id_map| |diff_map| |ptree| |coerceImages| |fixedPoints|
- |odd?| |even?| |numberOfCycles| |cyclePartition| |coerceListOfPairs|
- |coercePreimagesImages| |listRepresentation| |permanent| |cycles| |cycle|
- |perm_to_vec| |relationsInGenerators| |relationsInStrongGenerators|
+ |pastel| |bright| |dim| |dark| |complex_curve| |get_value| |motzkinPathArray|
+ |jacobiPathArray| |bottom| |surface| |coordinate| |partitions|
+ |odd_partitions| |distinct_partitions| |conjugates| |shuffle| |shufflein|
+ |sequences| |permutations| |lists| |atoms| |makeResult| |is?| |Is|
+ |addMatchRestricted| |insertMatch| |addMatch| |getMatch| |failed| |failed?|
+ |optpair| |getBadValues| |resetBadValues| |hasTopPredicate?| |topPredicate|
+ |setTopPredicate| |patternVariable| |withPredicates| |setPredicates|
+ |predicates| |hasPredicate?| |optional?| |multiple?| |generic?| |quoted?|
+ |inR?| |depth| |isList| |isQuotient| |isOp| |predicate| |satisfy?|
+ |addBadValue| |badValues| |retractable?| |listOfTerms| |One| |adjoint|
+ |id_map| |diff_map| |ptree| |coerceImages| |fixedPoints| |odd?| |even?|
+ |numberOfCycles| |cyclePartition| |coerceListOfPairs| |coercePreimagesImages|
+ |listRepresentation| |permanent| |cycles| |cycle| |perm_to_vec|
+ |relationsInGenerators| |relationsInStrongGenerators|
  |initializeGroupForWordProblem| |movedPoints| |wordInGenerators|
  |wordInStrongGenerators| |orbits| |orbit| |permutationGroup|
  |wordsForStrongGenerators| |strongGenerators| |base| |random| |generators|
