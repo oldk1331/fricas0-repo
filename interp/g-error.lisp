@@ -143,7 +143,7 @@
 ;   TERPRI()
 ;   -- The next line is to try to deal with some reported cases of unwanted
 ;   -- backtraces appearing, MCD.
-;   ENABLE_-BACKTRACE(nil)
+;   ENABLE_BACKTRACE(nil)
 ;   $BreakMode = 'break =>
 ;     sayBrightly '" "
 ;     BREAK()
@@ -157,7 +157,7 @@
 ;         '"    ",:bright '"top     ",'"  to return to top level, or",'%l,_
 ;         '"    ",:bright '"break   ",'"  to enter a LISP break loop.",'%l,_
 ;         '%l,'"   Please enter your choice now:"]
-;       x := STRING2ID_-N(queryUser msgQ,1)
+;       x := STRING2ID_N(queryUser(msgQ), 1)
 ;       x :=
 ;         selectOptionLC(x,'(top break continue),NIL)
 ;       null x =>
@@ -187,7 +187,7 @@
     (RETURN
      (PROGN
       (TERPRI)
-      (ENABLE-BACKTRACE NIL)
+      (ENABLE_BACKTRACE NIL)
       (COND ((EQ |$BreakMode| '|break|) (PROGN (|sayBrightly| " ") (BREAK)))
             ((EQ |$BreakMode| '|query|)
              (PROGN
@@ -231,7 +231,7 @@
                                                                            (CONS
                                                                             "   Please enter your choice now:"
                                                                             NIL))))))))))))))))))
-                          (SETQ |x| (STRING2ID-N (|queryUser| |msgQ|) 1))
+                          (SETQ |x| (STRING2ID_N (|queryUser| |msgQ|) 1))
                           (SETQ |x|
                                   (|selectOptionLC| |x|
                                    '(|top| |break| |continue|) NIL))
@@ -377,7 +377,7 @@
 ;            str1 := nice_failure_msg(val, branch, umode);
 ;            got_str1 := true)))
 ;     got_str1 => str1
-;     str1 := MAKE_-REASONABLE(STRINGIMAGE val)
+;     str1 := MAKE_REASONABLE(STRINGIMAGE(val))
 ;     STRCONC(str1,
 ;             '" of mode ", STRINGIMAGE(devaluate(umode)),
 ;               '" cannot be coerced to mode ",
@@ -396,7 +396,7 @@
       (COND (|got_str1| |str1|)
             ('T
              (PROGN
-              (SETQ |str1| (MAKE-REASONABLE (STRINGIMAGE |val|)))
+              (SETQ |str1| (MAKE_REASONABLE (STRINGIMAGE |val|)))
               (STRCONC |str1| " of mode " (STRINGIMAGE (|devaluate| |umode|))
                " cannot be coerced to mode "
                (STRINGIMAGE (|devaluate| |branch|))))))))))

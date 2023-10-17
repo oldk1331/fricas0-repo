@@ -530,7 +530,7 @@
 ;     sayKeyedMsg("S2IF0010",[op1])
 ;     if SIZE PNAME op1 < 3 then
 ;       x := UPCASE queryUserKeyedMsg("S2IZ0060",[op1])
-;       null MEMQ(STRING2ID_-N(x,1),'(Y YES)) =>
+;       null MEMQ(STRING2ID_N(x, 1),'(Y YES)) =>
 ;         ok := nil
 ;         sayKeyedMsg("S2IZ0061",[op1])
 ;     ok => apropos [op1]
@@ -562,7 +562,7 @@
           ((< (SIZE (PNAME |op1|)) 3)
            (SETQ |x| (UPCASE (|queryUserKeyedMsg| 'S2IZ0060 (LIST |op1|))))
            (COND
-            ((NULL (MEMQ (STRING2ID-N |x| 1) '(Y YES)))
+            ((NULL (MEMQ (STRING2ID_N |x| 1) '(Y YES)))
              (PROGN (SETQ |ok| NIL) (|sayKeyedMsg| 'S2IZ0061 (LIST |op1|)))))))
          (COND (|ok| (|apropos| (LIST |op1|))))))
        (#1#

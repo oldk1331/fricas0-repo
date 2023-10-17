@@ -104,7 +104,7 @@
 ;         msgCreate('bug,$nopos, erMsgKey, erArgL,$compBugPrefix)
 ;   -- The next line is to try to deal with some reported cases of unwanted
 ;   -- backtraces appearing, MCD.
-;   ENABLE_-BACKTRACE(nil)
+;   ENABLE_BACKTRACE(nil)
 ;   BREAK()
 ;   ncAbort()
 
@@ -117,7 +117,7 @@
               (|processKeyedError|
                (|msgCreate| '|bug| |$nopos| |erMsgKey| |erArgL|
                 |$compBugPrefix|)))
-      (ENABLE-BACKTRACE NIL)
+      (ENABLE_BACKTRACE NIL)
       (BREAK)
       (|ncAbort|)))))
 

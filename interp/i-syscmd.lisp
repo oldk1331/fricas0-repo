@@ -154,7 +154,7 @@
 ;   $UserLevel = 'development => l
 ;   nl := NIL
 ;   for syn in reverse l repeat
-;     cmd := STRING2ID_-N(rest syn, 1)
+;     cmd := STRING2ID_N(rest(syn), 1)
 ;     null selectOptionLC(cmd,commandsForUserLevel
 ;       $systemCommands,NIL) => nil
 ;     nl := [syn,:nl]
@@ -175,7 +175,7 @@
                    (RETURN NIL))
                   (#1#
                    (PROGN
-                    (SETQ |cmd| (STRING2ID-N (CDR |syn|) 1))
+                    (SETQ |cmd| (STRING2ID_N (CDR |syn|) 1))
                     (COND
                      ((NULL
                        (|selectOptionLC| |cmd|
@@ -525,7 +525,7 @@
 
 ; listConstructorAbbreviations() ==
 ;   x := UPCASE queryUserKeyedMsg("S2IZ0056",NIL)
-;   MEMQ(STRING2ID_-N(x,1),'(Y YES)) =>
+;   MEMQ(STRING2ID_N(x, 1), '(Y YES)) =>
 ;     whatSpad2Cmd '(categories)
 ;     whatSpad2Cmd '(domains)
 ;     whatSpad2Cmd '(packages)
@@ -537,7 +537,7 @@
      (PROGN
       (SETQ |x| (UPCASE (|queryUserKeyedMsg| 'S2IZ0056 NIL)))
       (COND
-       ((MEMQ (STRING2ID-N |x| 1) '(Y YES))
+       ((MEMQ (STRING2ID_N |x| 1) '(Y YES))
         (PROGN
          (|whatSpad2Cmd| '(|categories|))
          (|whatSpad2Cmd| '(|domains|))
@@ -893,7 +893,7 @@
 ;     sockSendInt($SessionManager, $currentFrameNum)
 ;     closeInterpreterFrame(NIL)
 ;   x := UPCASE queryUserKeyedMsg("S2IZ0072", nil)
-;   MEMQ(STRING2ID_-N(x,1), '(YES Y)) =>
+;   MEMQ(STRING2ID_N(x, 1), '(YES Y)) =>
 ;     QUIT()
 ;   nil
 
@@ -941,7 +941,7 @@
                   (#1#
                    (PROGN
                     (SETQ |x| (UPCASE (|queryUserKeyedMsg| 'S2IZ0072 NIL)))
-                    (COND ((MEMQ (STRING2ID-N |x| 1) '(YES Y)) (QUIT))
+                    (COND ((MEMQ (STRING2ID_N |x| 1) '(YES Y)) (QUIT))
                           (#1# NIL)))))))))))))))
 
 ; compile args ==
@@ -2019,7 +2019,7 @@
 ; displayOperations l ==
 ;   null l =>
 ;     x := UPCASE queryUserKeyedMsg("S2IZ0058",NIL)
-;     if MEMQ(STRING2ID_-N(x,1),'(Y YES))
+;     if MEMQ(STRING2ID_N(x, 1), '(Y YES))
 ;       then for op in allOperations() repeat reportOpSymbol op
 ;       else sayKeyedMsg("S2IZ0059",NIL)
 ;     nil
@@ -2033,7 +2033,7 @@
        (PROGN
         (SETQ |x| (UPCASE (|queryUserKeyedMsg| 'S2IZ0058 NIL)))
         (COND
-         ((MEMQ (STRING2ID-N |x| 1) '(Y YES))
+         ((MEMQ (STRING2ID_N |x| 1) '(Y YES))
           ((LAMBDA (|bfVar#45| |op|)
              (LOOP
               (COND
@@ -3179,7 +3179,7 @@
 ;   fenv := frameEnvironment fname
 ;   null args =>
 ;     x := UPCASE queryUserKeyedMsg("S2IZ0076",[fname])
-;     MEMQ(STRING2ID_-N(x,1),'(Y YES)) =>
+;     MEMQ(STRING2ID_N(x, 1), '(Y YES)) =>
 ;       vars := NIL
 ;       for [v,:props] in CAAR fenv repeat
 ;         v = "--macros" =>
@@ -3226,7 +3226,7 @@
                             (UPCASE
                              (|queryUserKeyedMsg| 'S2IZ0076 (LIST |fname|))))
                     (COND
-                     ((MEMQ (STRING2ID-N |x| 1) '(Y YES))
+                     ((MEMQ (STRING2ID_N |x| 1) '(Y YES))
                       (PROGN
                        (SETQ |vars| NIL)
                        ((LAMBDA (|bfVar#63| |bfVar#62|)
@@ -3441,7 +3441,7 @@
 ;         initHistList()
 ;         sayKeyedMsg("S2IH0008",NIL)
 ;       x := UPCASE queryUserKeyedMsg("S2IH0009",NIL)
-;       MEMQ(STRING2ID_-N(x,1),'(Y YES)) =>
+;       MEMQ(STRING2ID_N(x, 1), '(Y YES)) =>
 ;         histFileErase histFileName()
 ;         $HiFiAccess:= 'T
 ;         $options := nil
@@ -3519,7 +3519,7 @@
                                    (UPCASE
                                     (|queryUserKeyedMsg| 'S2IH0009 NIL)))
                            (COND
-                            ((MEMQ (STRING2ID-N |x| 1) '(Y YES))
+                            ((MEMQ (STRING2ID_N |x| 1) '(Y YES))
                              (PROGN
                               (|histFileErase| (|histFileName|))
                               (SETQ |$HiFiAccess| 'T)
@@ -4733,14 +4733,14 @@
 ;                 for i in 0..n repeat
 ;                     QSETVELT(nob, i, writifyInner QVELT(ob,i))
 ;                 nob
-;             SPAD_-KERNEL_-P ob =>
-;                 nob := makeSpadKernel(NIL, NIL, SPAD_-KERNEL_-NEST(ob))
+;             SPAD_KERNEL_-P ob =>
+;                 nob := makeSpadKernel(NIL, NIL, SPAD_KERNEL_-NEST(ob))
 ;                 HPUT($seen, ob, nob)
 ;                 HPUT($seen, nob, nob)
-;                 SETF(SPAD_-KERNEL_-OP(nob), _
-;                      writifyInner SPAD_-KERNEL_-OP(ob))
-;                 SETF(SPAD_-KERNEL_-ARG(nob), _
-;                      writifyInner SPAD_-KERNEL_-ARG(ob))
+;                 SETF(SPAD_KERNEL_-OP(nob), _
+;                      writifyInner SPAD_KERNEL_-OP(ob))
+;                 SETF(SPAD_KERNEL_-ARG(nob), _
+;                      writifyInner SPAD_KERNEL_-ARG(ob))
 ;                 nob
 ;             ob = 'WRITIFIED_!_! =>
 ;                 ['WRITIFIED_!_!, 'SELF]
@@ -4861,15 +4861,15 @@
                    (SETQ |i| (+ |i| 1))))
                 0)
                |nob|))))
-           ((SPAD-KERNEL-P |ob|)
+           ((SPAD_KERNEL-P |ob|)
             (PROGN
-             (SETQ |nob| (|makeSpadKernel| NIL NIL (SPAD-KERNEL-NEST |ob|)))
+             (SETQ |nob| (|makeSpadKernel| NIL NIL (SPAD_KERNEL-NEST |ob|)))
              (HPUT |$seen| |ob| |nob|)
              (HPUT |$seen| |nob| |nob|)
-             (SETF (SPAD-KERNEL-OP |nob|)
-                     (|writify,writifyInner| (SPAD-KERNEL-OP |ob|)))
-             (SETF (SPAD-KERNEL-ARG |nob|)
-                     (|writify,writifyInner| (SPAD-KERNEL-ARG |ob|)))
+             (SETF (SPAD_KERNEL-OP |nob|)
+                     (|writify,writifyInner| (SPAD_KERNEL-OP |ob|)))
+             (SETF (SPAD_KERNEL-ARG |nob|)
+                     (|writify,writifyInner| (SPAD_KERNEL-ARG |ob|)))
              |nob|))
            ((EQ |ob| 'WRITIFIED!!) (LIST 'WRITIFIED!! 'SELF))
            ((|constructor?| |ob|) |ob|)
@@ -5051,14 +5051,14 @@
 ;                 for i in 0..n repeat
 ;                     QSETVELT(nob, i, dewritifyInner QVELT(ob,i))
 ;                 nob
-;             SPAD_-KERNEL_-P ob =>
-;                 nob := makeSpadKernel(NIL, NIL, SPAD_-KERNEL_-NEST(ob))
+;             SPAD_KERNEL_-P(ob) =>
+;                 nob := makeSpadKernel(NIL, NIL, SPAD_KERNEL_-NEST(ob))
 ;                 HPUT($seen, ob, nob)
 ;                 HPUT($seen, nob, nob)
-;                 SETF(SPAD_-KERNEL_-OP(nob), _
-;                      dewritifyInner SPAD_-KERNEL_-OP(ob))
-;                 SETF(SPAD_-KERNEL_-ARG(nob), _
-;                      dewritifyInner SPAD_-KERNEL_-ARG(ob))
+;                 SETF(SPAD_KERNEL_-OP(nob), _
+;                      dewritifyInner SPAD_KERNEL_-OP(ob))
+;                 SETF(SPAD_KERNEL_-ARG(nob), _
+;                      dewritifyInner SPAD_KERNEL_-ARG(ob))
 ;                 nob
 ;             -- Default case: return the object itself.
 ;             ob
@@ -5183,15 +5183,15 @@
                  (SETQ |i| (+ |i| 1))))
               0)
              |nob|))
-           ((SPAD-KERNEL-P |ob|)
+           ((SPAD_KERNEL-P |ob|)
             (PROGN
-             (SETQ |nob| (|makeSpadKernel| NIL NIL (SPAD-KERNEL-NEST |ob|)))
+             (SETQ |nob| (|makeSpadKernel| NIL NIL (SPAD_KERNEL-NEST |ob|)))
              (HPUT |$seen| |ob| |nob|)
              (HPUT |$seen| |nob| |nob|)
-             (SETF (SPAD-KERNEL-OP |nob|)
-                     (|dewritify,dewritifyInner| (SPAD-KERNEL-OP |ob|)))
-             (SETF (SPAD-KERNEL-ARG |nob|)
-                     (|dewritify,dewritifyInner| (SPAD-KERNEL-ARG |ob|)))
+             (SETF (SPAD_KERNEL-OP |nob|)
+                     (|dewritify,dewritifyInner| (SPAD_KERNEL-OP |ob|)))
+             (SETF (SPAD_KERNEL-ARG |nob|)
+                     (|dewritify,dewritifyInner| (SPAD_KERNEL-ARG |ob|)))
              |nob|))
            (#1# |ob|)))))
 (DEFUN |dewritify,is?| (|a|) (PROG () (RETURN (EQ |a| 'WRITIFIED!!))))
@@ -5211,9 +5211,9 @@
 ;                 HPUT($seen, ob, true)
 ;                 for i in 0..#ob-1 repeat ScanOrInner(f, ob.i)
 ;                 nil
-;             SPAD_-KERNEL_-P ob =>
-;                 ScanOrInner(f, SPAD_-KERNEL_-OP ob)
-;                 ScanOrInner(f, SPAD_-KERNEL_-ARG ob)
+;             SPAD_KERNEL_-P(ob) =>
+;                 ScanOrInner(f, SPAD_KERNEL_-OP(ob))
+;                 ScanOrInner(f, SPAD_KERNEL_-ARG(ob))
 ;             FUNCALL(f, ob) =>
 ;                 THROW('ScanOrPairVecAnswer, true)
 ;             nil
@@ -5246,10 +5246,10 @@
                  (SETQ |i| (+ |i| 1))))
               (- (LENGTH |ob|) 1) 0)
              NIL))
-           ((SPAD-KERNEL-P |ob|)
+           ((SPAD_KERNEL-P |ob|)
             (PROGN
-             (|ScanOrPairVec,ScanOrInner| |f| (SPAD-KERNEL-OP |ob|))
-             (|ScanOrPairVec,ScanOrInner| |f| (SPAD-KERNEL-ARG |ob|))))
+             (|ScanOrPairVec,ScanOrInner| |f| (SPAD_KERNEL-OP |ob|))
+             (|ScanOrPairVec,ScanOrInner| |f| (SPAD_KERNEL-ARG |ob|))))
            ((FUNCALL |f| |ob|) (THROW '|ScanOrPairVecAnswer| T)) (#1# NIL)))))
 
 ; library(args) ==
@@ -5382,7 +5382,7 @@
 ; quitSpad2Cmd() ==
 ;   $quitCommandType ~= 'protected => leaveScratchpad()
 ;   x := UPCASE queryUserKeyedMsg("S2IZ0031",NIL)
-;   MEMQ(STRING2ID_-N(x,1),'(Y YES)) => leaveScratchpad()
+;   MEMQ(STRING2ID_N(x, 1), '(Y YES)) => leaveScratchpad()
 ;   sayKeyedMsg("S2IZ0032",NIL)
 ;   terminateSystemCommand()
 
@@ -5393,7 +5393,7 @@
            (#1='T
             (PROGN
              (SETQ |x| (UPCASE (|queryUserKeyedMsg| 'S2IZ0031 NIL)))
-             (COND ((MEMQ (STRING2ID-N |x| 1) '(Y YES)) (|leaveScratchpad|))
+             (COND ((MEMQ (STRING2ID_N |x| 1) '(Y YES)) (|leaveScratchpad|))
                    (#1#
                     (PROGN
                      (|sayKeyedMsg| 'S2IZ0032 NIL)
@@ -6266,7 +6266,7 @@
       (|terminateSystemCommand|)))))
 
 ; processSynonymLine line ==
-;   key := STRING2ID_-N (line, 1)
+;   key := STRING2ID_N (line, 1)
 ;   value := removeKeyFromLine line where
 ;     removeKeyFromLine line ==
 ;       line := dropLeadingBlanks line
@@ -6281,7 +6281,7 @@
   (PROG (|key| |value|)
     (RETURN
      (PROGN
-      (SETQ |key| (STRING2ID-N |line| 1))
+      (SETQ |key| (STRING2ID_N |line| 1))
       (SETQ |value| (|processSynonymLine,removeKeyFromLine| |line|))
       (CONS |key| |value|)))))
 (DEFUN |processSynonymLine,removeKeyFromLine| (|line|)
@@ -7543,7 +7543,7 @@
 ;   to := STRPOS ('" ", line, 1, nil)
 ;   if to then to := to - 1
 ;   synstr := SUBSTRING (line, 1, to)
-;   syn := STRING2ID_-N (synstr, 1)
+;   syn := STRING2ID_N (synstr, 1)
 ;   null (fun := LASSOC (syn, $CommandSynonymAlist)) => NIL
 ;   to := STRPOS('")",fun,1,NIL)
 ;   if to and to ~= SIZE(fun)-1 then
@@ -7571,7 +7571,7 @@
       (SETQ |to| (STRPOS " " |line| 1 NIL))
       (COND (|to| (SETQ |to| (- |to| 1))))
       (SETQ |synstr| (SUBSTRING |line| 1 |to|))
-      (SETQ |syn| (STRING2ID-N |synstr| 1))
+      (SETQ |syn| (STRING2ID_N |synstr| 1))
       (COND ((NULL (SETQ |fun| (LASSOC |syn| |$CommandSynonymAlist|))) NIL)
             (#1#
              (PROGN

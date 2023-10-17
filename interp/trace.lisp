@@ -2037,12 +2037,12 @@
 ;   if listOfVariables then
 ;     for [.,.,n] in sigSlotNumberAlist repeat
 ;       fn := first domain.n
-;       $letAssoc := AS_-INSERT(BPINAME fn,
+;       $letAssoc := AS_INSERT(BPINAME(fn),
 ;         listOfVariables,$letAssoc)
 ;   if listOfBreakVars then
 ;     for [.,.,n] in sigSlotNumberAlist repeat
 ;       fn := first domain.n
-;       $letAssoc := AS_-INSERT(BPINAME fn,
+;       $letAssoc := AS_INSERT(BPINAME(fn),
 ;         [["BREAK",:listOfBreakVars]],$letAssoc)
 ;   for (pair:= [op,mm,n]) in sigSlotNumberAlist repeat
 ;     alias:= spadTraceAlias(domainId,op,n)
@@ -2165,7 +2165,7 @@
                       (PROGN
                        (SETQ |fn| (CAR (ELT |domain| |n|)))
                        (SETQ |$letAssoc|
-                               (AS-INSERT (BPINAME |fn|) |listOfVariables|
+                               (AS_INSERT (BPINAME |fn|) |listOfVariables|
                                 |$letAssoc|))))))
                (SETQ |bfVar#64| (CDR |bfVar#64|))))
             |sigSlotNumberAlist| NIL)))
@@ -2189,7 +2189,7 @@
                       (PROGN
                        (SETQ |fn| (CAR (ELT |domain| |n|)))
                        (SETQ |$letAssoc|
-                               (AS-INSERT (BPINAME |fn|)
+                               (AS_INSERT (BPINAME |fn|)
                                 (LIST (CONS 'BREAK |listOfBreakVars|))
                                 |$letAssoc|))))))
                (SETQ |bfVar#66| (CDR |bfVar#66|))))
@@ -3333,7 +3333,7 @@
 ;   condition := monitor_eval_tran($break_condition, nil)
 ;   -- The next line is to try to deal with some reported cases of unwanted
 ;   -- backtraces appearing, MCD.
-;   ENABLE_-BACKTRACE(nil)
+;   ENABLE_BACKTRACE(nil)
 ;   EVAL condition =>
 ;     sayBrightly msg
 ;     INTERRUPT()
@@ -3343,7 +3343,7 @@
     (RETURN
      (PROGN
       (SETQ |condition| (|monitor_eval_tran| |$break_condition| NIL))
-      (ENABLE-BACKTRACE NIL)
+      (ENABLE_BACKTRACE NIL)
       (COND ((EVAL |condition|) (PROGN (|sayBrightly| |msg|) (INTERRUPT))))))))
 
 ; compileBoot fn ==

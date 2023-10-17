@@ -1,28 +1,28 @@
 
-(PUT '|KERNEL;operator;$Bo;1| '|SPADreplace| 'SPAD-KERNEL-OP) 
+(PUT '|KERNEL;operator;$Bo;1| '|SPADreplace| 'SPAD_KERNEL-OP) 
 
 (SDEFUN |KERNEL;operator;$Bo;1| ((|k| $) ($ |BasicOperator|))
-        (SPAD-KERNEL-OP |k|)) 
+        (SPAD_KERNEL-OP |k|)) 
 
-(PUT '|KERNEL;argument;$L;2| '|SPADreplace| 'SPAD-KERNEL-ARG) 
+(PUT '|KERNEL;argument;$L;2| '|SPADreplace| 'SPAD_KERNEL-ARG) 
 
-(SDEFUN |KERNEL;argument;$L;2| ((|k| $) ($ |List| S)) (SPAD-KERNEL-ARG |k|)) 
+(SDEFUN |KERNEL;argument;$L;2| ((|k| $) ($ |List| S)) (SPAD_KERNEL-ARG |k|)) 
 
-(PUT '|KERNEL;height;$Nni;3| '|SPADreplace| 'SPAD-KERNEL-NEST) 
+(PUT '|KERNEL;height;$Nni;3| '|SPADreplace| 'SPAD_KERNEL-NEST) 
 
 (SDEFUN |KERNEL;height;$Nni;3| ((|k| $) ($ |NonNegativeInteger|))
-        (SPAD-KERNEL-NEST |k|)) 
+        (SPAD_KERNEL-NEST |k|)) 
 
-(PUT '|KERNEL;position;$Nni;4| '|SPADreplace| 'SPAD-KERNEL-POSIT) 
+(PUT '|KERNEL;position;$Nni;4| '|SPADreplace| 'SPAD_KERNEL-POSIT) 
 
 (SDEFUN |KERNEL;position;$Nni;4| ((|k| $) ($ |NonNegativeInteger|))
-        (SPAD-KERNEL-POSIT |k|)) 
+        (SPAD_KERNEL-POSIT |k|)) 
 
-(PUT '|KERNEL;setPosition;$NniV;5| '|SPADreplace| 'SET-SPAD-KERNEL-POSIT) 
+(PUT '|KERNEL;setPosition;$NniV;5| '|SPADreplace| 'SET_SPAD_KERNEL_POSIT) 
 
 (SDEFUN |KERNEL;setPosition;$NniV;5|
         ((|k| $) (|n| |NonNegativeInteger|) ($ |Void|))
-        (SET-SPAD-KERNEL-POSIT |k| |n|)) 
+        (SET_SPAD_KERNEL_POSIT |k| |n|)) 
 
 (PUT '|KERNEL;mkKer| '|SPADreplace| '|makeSpadKernel|) 
 

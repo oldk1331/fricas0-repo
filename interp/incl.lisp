@@ -581,7 +581,7 @@
 ;                      '")--premature end",  lno,ufos), StreamNil)
 ;                 StreamNil
 ;
-;             str  :=  EXPAND_-TABS first ss
+;             str  :=  EXPAND_TABS(first(ss))
 ;             has_cont :=
 ;                 (nn := #str) < 1 => false
 ;                 str.(nn - 1) = char('"__")
@@ -713,7 +713,7 @@
          (#2='T |StreamNil|)))
        (#2#
         (PROGN
-         (SETQ |str| (EXPAND-TABS (CAR |ss|)))
+         (SETQ |str| (EXPAND_TABS (CAR |ss|)))
          (SETQ |has_cont|
                  (COND ((< (SETQ |nn| (LENGTH |str|)) 1) NIL)
                        (#2# (EQUAL (ELT |str| (- |nn| 1)) (|char| "_")))))
