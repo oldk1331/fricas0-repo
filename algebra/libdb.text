@@ -267,7 +267,7 @@ cVectorCategory`1`x`(Type)->Category`(R)`VECTCAT`59101
 cXAlgebra`1`x`(Ring)->Category`(R)`XALG`59520
 cXFreeAlgebra`2`x`(OrderedSet,Ring)->Category`(vl,R)`XFALG`59779
 cXPolynomialsCat`2`x`(OrderedSet,Ring)->Category`(vl,R)`XPOLYC`59886
-dAlgebraGivenByStructuralConstants`4`x`(R:CommutativeRing,n:PositiveInteger,List(Symbol),Vector(Matrix(R)))->Join(FramedNonAssociativeAlgebra(R),etc)`(R,n,ls,gamma)`ALGSC`60051
+dAlgebraGivenByStructuralConstants`4`x`(R:CommutativeRing,n:PositiveInteger,ls:List(Symbol),Vector(Matrix(R)))->Join(FramedNonAssociativeAlgebra(R),etc)`(R,n,ls,gamma)`ALGSC`60051
 dAlgebraicFunctionField`4`n`(F:Field,UP:UnivariatePolynomialCategory(F),UPUP:UnivariatePolynomialCategory(Fraction(UP)),UPUP)->Join(FunctionFieldCategory(F,UP,UPUP),etc)`(F,UP,UPUP,modulus)`ALGFF`60510
 dAlgebraicNumber`0`x`()->Join(ExpressionSpace,etc)``AN`60578
 dAnonymousFunction`0`n`()->SetCategory``ANON`60627

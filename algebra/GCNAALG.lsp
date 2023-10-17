@@ -606,15 +606,36 @@
               (|Union| 111 '"failed")
               (|SquareMatrix| (NRTEVAL (QREFELT % 7)) 27)
               (|List| (|Polynomial| 27)) (|OutputForm|))
-           '#(|rightRankPolynomial| 245 |rightMinimalPolynomial| 249
-              |represents| 254 |leftRankPolynomial| 260 |leftMinimalPolynomial|
-              264 |genericRightTraceForm| 269 |genericRightTrace| 275
-              |genericRightNorm| 280 |genericRightMinimalPolynomial| 285
-              |genericRightDiscriminant| 290 |genericLeftTraceForm| 294
-              |genericLeftTrace| 300 |genericLeftNorm| 305
-              |genericLeftMinimalPolynomial| 310 |genericLeftDiscriminant| 315
-              |generic| 319 |coordinates| 350 |convert| 361
-              |conditionsForIdempotents| 366 |basis| 375 - 379 * 385)
+           '#(~= 245 |zero?| 251 |unit| 256 |subtractIfCan| 260
+              |structuralConstants| 266 |someBasis| 275 |smaller?| 279 |size|
+              285 |sample| 289 |rightUnits| 293 |rightUnit| 297
+              |rightTraceMatrix| 301 |rightTrace| 310
+              |rightRegularRepresentation| 315 |rightRecip| 326
+              |rightRankPolynomial| 331 |rightPower| 339 |rightNorm| 345
+              |rightMinimalPolynomial| 350 |rightDiscriminant| 355
+              |rightCharacteristicPolynomial| 364 |rightAlternative?| 369
+              |represents| 373 |recip| 384 |rank| 389 |random| 393
+              |powerAssociative?| 397 |plenaryPower| 401 |opposite?| 407
+              |noncommutativeJordanAlgebra?| 413 |lookup| 417 |lieAlgebra?| 422
+              |lieAdmissible?| 426 |leftUnits| 430 |leftUnit| 434
+              |leftTraceMatrix| 438 |leftTrace| 447 |leftRegularRepresentation|
+              452 |leftRecip| 463 |leftRankPolynomial| 468 |leftPower| 476
+              |leftNorm| 482 |leftMinimalPolynomial| 487 |leftDiscriminant| 492
+              |leftCharacteristicPolynomial| 501 |leftAlternative?| 506 |latex|
+              510 |jordanAlgebra?| 515 |jordanAdmissible?| 519
+              |jacobiIdentity?| 523 |index| 527 |hashUpdate!| 532 |hash| 538
+              |genericRightTraceForm| 543 |genericRightTrace| 549
+              |genericRightNorm| 554 |genericRightMinimalPolynomial| 559
+              |genericRightDiscriminant| 564 |genericLeftTraceForm| 568
+              |genericLeftTrace| 574 |genericLeftNorm| 579
+              |genericLeftMinimalPolynomial| 584 |genericLeftDiscriminant| 589
+              |generic| 593 |flexible?| 624 |enumerate| 628 |elt| 632
+              |coordinates| 638 |convert| 660 |conditionsForIdempotents| 675
+              |commutator| 693 |commutative?| 699 |coerce| 703 |basis| 713
+              |associatorDependence| 717 |associator| 721 |associative?| 728
+              |apply| 732 |antiCommutator| 738 |antiCommutative?| 744
+              |antiAssociative?| 748 |alternative?| 752 ^ 756 |Zero| 762 = 766
+              - 772 + 783 * 789)
            'NIL
            (CONS
             (|makeByteWordVec2| 3
@@ -645,7 +666,7 @@
                  (|AbelianMonoid|) (|Finite|) (|AbelianSemiGroup|) (|Magma|)
                  (|Comparable|) (|SetCategory|) (|Hashable|) (|BasicType|)
                  (|CoercibleTo| 115) (|unitsKnown|) (|ConvertibleTo| 105))
-              (|makeByteWordVec2| 101
+              (|makeByteWordVec2| 115
                                   '(1 12 10 11 13 1 16 0 15 17 0 19 0 20 2 22
                                     16 0 21 23 3 19 0 0 24 25 26 1 27 0 19 28 2
                                     32 29 30 31 33 1 0 0 29 34 1 27 19 0 36 1 0
@@ -660,13 +681,37 @@
                                     82 1 67 83 0 84 2 83 0 0 0 85 2 67 27 0 83
                                     86 1 27 0 0 87 1 0 27 0 88 1 0 27 0 89 2 0
                                     0 0 0 91 2 0 29 0 54 92 1 57 21 0 96 2 0 0
-                                    29 54 97 0 5 67 78 1 1 67 0 76 2 0 0 29 54
-                                    97 0 5 67 77 1 1 67 0 71 2 5 27 0 0 65 1 5
-                                    27 0 64 1 5 27 0 89 1 5 67 0 82 0 5 27 66 2
-                                    5 27 0 0 53 1 5 27 0 52 1 5 27 0 88 1 5 67
-                                    0 81 0 5 27 63 2 0 0 22 54 98 1 0 0 54 90 2
-                                    0 0 16 54 99 1 0 0 16 101 1 0 0 22 100 0 0
-                                    0 95 1 0 29 0 37 2 0 29 0 54 92 1 0 0 29 34
-                                    0 5 40 94 1 5 40 54 93 0 0 54 55 2 0 0 0 0
-                                    91 2 0 0 0 0 51)))))
-           '|lookupIncomplete|)) 
+                                    29 54 97 2 0 106 0 0 1 1 0 106 0 1 0 1 109
+                                    1 2 0 109 0 0 1 0 0 10 1 1 0 10 54 1 0 0 54
+                                    1 2 3 106 0 0 1 0 3 83 1 0 0 0 1 0 0 112 1
+                                    0 1 109 1 0 0 60 1 1 0 60 54 1 1 0 27 0 1 1
+                                    0 60 0 1 2 0 60 0 54 1 1 1 109 0 1 0 4 102
+                                    1 0 5 67 78 2 0 0 0 104 1 1 0 27 0 1 1 1 67
+                                    0 76 0 0 27 1 1 0 27 54 1 1 0 67 0 1 0 0
+                                    106 1 1 0 0 29 1 2 0 0 29 54 97 1 1 109 0 1
+                                    0 0 104 1 0 3 0 1 0 0 106 1 2 0 0 0 104 1 2
+                                    0 106 0 0 1 0 0 106 1 1 3 104 0 1 0 0 106 1
+                                    0 0 106 1 0 0 112 1 0 1 109 1 0 0 60 1 1 0
+                                    60 54 1 1 0 27 0 1 1 0 60 0 1 2 0 60 0 54 1
+                                    1 1 109 0 1 0 4 102 1 0 5 67 77 2 0 0 0 104
+                                    1 1 0 27 0 1 1 1 67 0 71 0 0 27 1 1 0 27 54
+                                    1 1 0 67 0 1 0 0 106 1 1 0 15 0 1 0 0 106 1
+                                    0 0 106 1 0 0 106 1 1 3 0 104 1 2 2 107 107
+                                    0 1 1 2 108 0 1 2 5 27 0 0 65 1 5 27 0 64 1
+                                    5 27 0 89 1 5 67 0 82 0 5 27 66 2 5 27 0 0
+                                    53 1 5 27 0 52 1 5 27 0 88 1 5 67 0 81 0 5
+                                    27 63 2 0 0 22 54 98 1 0 0 54 90 2 0 0 16
+                                    54 99 1 0 0 16 101 1 0 0 22 100 0 0 0 95 0
+                                    0 106 1 0 3 103 1 2 0 27 0 21 1 1 0 29 0 37
+                                    1 0 60 54 1 2 0 60 54 54 1 2 0 29 0 54 92 1
+                                    3 105 0 1 1 0 0 29 34 1 0 29 0 1 0 5 40 94
+                                    1 5 40 54 93 0 0 114 1 1 0 114 54 1 2 0 0 0
+                                    0 1 0 0 106 1 1 0 0 29 1 1 0 115 0 1 0 0 54
+                                    55 0 1 110 1 3 0 0 0 0 0 1 0 0 106 1 2 0 0
+                                    60 0 1 2 0 0 0 0 1 0 0 106 1 0 0 106 1 0 0
+                                    106 1 2 0 0 0 104 1 0 0 0 1 2 0 106 0 0 1 2
+                                    0 0 0 0 91 1 0 0 0 1 2 0 0 0 0 1 2 0 0 113
+                                    0 1 2 0 0 27 0 1 2 0 0 0 27 1 2 0 0 83 0 1
+                                    2 0 0 21 0 1 2 0 0 0 0 51 2 0 0 104 0
+                                    1)))))
+           '|lookupComplete|)) 
