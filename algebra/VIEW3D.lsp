@@ -1099,69 +1099,61 @@
         ((|viewport| ($)) (|Filename| (|String|))
          (|thingsToWrite| (|List| (|String|))) ($ (|String|)))
         (SPROG
-         ((#1=#:G388 NIL) (|writeTypeInt| (|Integer|)) (#2=#:G389 NIL)
-          (|aTypeOfFile| NIL) (|m| (|Integer|)) (|avail| (|List| (|String|)))
+         ((|writeTypeInt| (|Integer|)) (#1=#:G388 NIL) (|aTypeOfFile| NIL)
+          (|m| (|Integer|)) (|avail| (|List| (|String|)))
           (|stringToSend| (|String|)))
-         (SEQ
-          (EXIT
-           (SEQ (LETT |stringToSend| "")
-                (EXIT
-                 (COND
-                  ((SPADCALL (SPADCALL |viewport| (QREFELT $ 96)) 0
-                             (QREFELT $ 97))
-                   (PROGN
-                    (LETT #1#
-                          (SEQ (|sockSendInt| |$ViewportServer| 1)
-                               (|sockSendInt| |$ViewportServer| 110)
-                               (EXIT
-                                (COND
-                                 ((|VIEW3D;checkViewport| |viewport| $)
-                                  (SEQ
-                                   (|sockSendString| |$ViewportServer|
-                                                     |Filename|)
-                                   (LETT |m|
+         (SEQ (LETT |stringToSend| "")
+              (EXIT
+               (COND
+                ((SPADCALL (SPADCALL |viewport| (QREFELT $ 96)) 0
+                           (QREFELT $ 97))
+                 (SEQ (|sockSendInt| |$ViewportServer| 1)
+                      (|sockSendInt| |$ViewportServer| 110)
+                      (EXIT
+                       (COND
+                        ((|VIEW3D;checkViewport| |viewport| $)
+                         (SEQ (|sockSendString| |$ViewportServer| |Filename|)
+                              (LETT |m|
+                                    (PROGN
+                                     (LETT |avail| (SPADCALL (QREFELT $ 147)))
+                                     1))
+                              (SEQ (LETT |aTypeOfFile| NIL)
+                                   (LETT #1# |thingsToWrite|) G190
+                                   (COND
+                                    ((OR (ATOM #1#)
                                          (PROGN
-                                          (LETT |avail|
-                                                (SPADCALL (QREFELT $ 147)))
-                                          1))
-                                   (SEQ (LETT |aTypeOfFile| NIL)
-                                        (LETT #2# |thingsToWrite|) G190
-                                        (COND
-                                         ((OR (ATOM #2#)
-                                              (PROGN
-                                               (LETT |aTypeOfFile| (CAR #2#))
-                                               NIL))
-                                          (GO G191)))
-                                        (SEQ
-                                         (LETT |writeTypeInt|
-                                               (-
-                                                (SPADCALL
-                                                 (SPADCALL |aTypeOfFile|
-                                                           (QREFELT $ 148))
-                                                 |avail| (QREFELT $ 149))
-                                                |m|))
-                                         (EXIT
-                                          (COND
-                                           ((< |writeTypeInt| 0)
-                                            (SPADCALL
-                                             (LIST "  > " |aTypeOfFile|
-                                                   " is not a valid file type for writing a 3D viewport")
-                                             (QREFELT $ 150)))
-                                           ('T
-                                            (|sockSendInt| |$ViewportServer|
-                                                           (+ |writeTypeInt|
-                                                              1))))))
-                                        (LETT #2# (CDR #2#)) (GO G190) G191
-                                        (EXIT NIL))
-                                   (|sockSendInt| |$ViewportServer| 0)
-                                   (|sockGetInt| |$ViewportServer|)
-                                   (EXIT |Filename|)))))))
-                    (GO #3=#:G386)))))))
-          #3# (EXIT #1#)))) 
+                                          (LETT |aTypeOfFile| (CAR #1#))
+                                          NIL))
+                                     (GO G191)))
+                                   (SEQ
+                                    (LETT |writeTypeInt|
+                                          (-
+                                           (SPADCALL
+                                            (SPADCALL |aTypeOfFile|
+                                                      (QREFELT $ 148))
+                                            |avail| (QREFELT $ 149))
+                                           |m|))
+                                    (EXIT
+                                     (COND
+                                      ((< |writeTypeInt| 0)
+                                       (SPADCALL
+                                        (LIST "  > " |aTypeOfFile|
+                                              " is not a valid file type for writing a 3D viewport")
+                                        (QREFELT $ 150)))
+                                      ('T
+                                       (|sockSendInt| |$ViewportServer|
+                                                      (+ |writeTypeInt| 1))))))
+                                   (LETT #1# (CDR #1#)) (GO G190) G191
+                                   (EXIT NIL))
+                              (|sockSendInt| |$ViewportServer| 0)
+                              (|sockGetInt| |$ViewportServer|)
+                              (EXIT |Filename|)))
+                        (#2='T (|error| "write: problem with viewport"))))))
+                (#2# (|error| "write: problem contacting viewman"))))))) 
 
 (SDEFUN |VIEW3D;perspective;$SV;52|
         ((|viewport| ($)) (|onOff| (|String|)) ($ (|Void|)))
-        (SPROG ((#1=#:G395 NIL))
+        (SPROG ((#1=#:G394 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1185,12 +1177,12 @@
                                                            0))
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G393)))))))
+                      (GO #2=#:G392)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;showRegion;$SV;53|
         ((|viewport| ($)) (|onOff| (|String|)) ($ (|Void|)))
-        (SPROG ((#1=#:G401 NIL))
+        (SPROG ((#1=#:G400 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1214,12 +1206,12 @@
                                                            5))
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G399)))))))
+                      (GO #2=#:G398)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;showClipRegion;$SV;54|
         ((|viewport| ($)) (|onOff| (|String|)) ($ (|Void|)))
-        (SPROG ((#1=#:G407 NIL))
+        (SPROG ((#1=#:G406 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1243,12 +1235,12 @@
                                                      (QVELT |viewport| 10) 6))
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G405)))))))
+                      (GO #2=#:G404)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;clipSurface;$SV;55|
         ((|viewport| ($)) (|onOff| (|String|)) ($ (|Void|)))
-        (SPROG ((#1=#:G413 NIL))
+        (SPROG ((#1=#:G412 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1272,12 +1264,12 @@
                                                      (QVELT |viewport| 10) 7))
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G411)))))))
+                      (GO #2=#:G410)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;eyeDistance;$FV;56|
         ((|viewport| ($)) (|EyeDistance| (|Float|)) ($ (|Void|)))
-        (SPROG ((#1=#:G419 NIL))
+        (SPROG ((#1=#:G418 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1300,12 +1292,12 @@
                                                        (QVELT |viewport| 9) 1))
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G417)))))))
+                      (GO #2=#:G416)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;hitherPlane;$FV;57|
         ((|viewport| ($)) (|HitherPlane| (|Float|)) ($ (|Void|)))
-        (SPROG ((#1=#:G425 NIL))
+        (SPROG ((#1=#:G424 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1328,13 +1320,13 @@
                                                        (QVELT |viewport| 9) 2))
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G423)))))))
+                      (GO #2=#:G422)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;modifyPointData;$NniPV;58|
         ((|viewport| ($)) (|anIndex| (|NonNegativeInteger|))
          (|aPoint| (|Point| (|DoubleFloat|))) ($ (|Void|)))
-        (SPROG ((#1=#:G432 NIL) (|n| (|PositiveInteger|)))
+        (SPROG ((#1=#:G431 NIL) (|n| (|PositiveInteger|)))
                (SEQ (LETT |n| (SPADCALL |aPoint| (QREFELT $ 70)))
                     (EXIT
                      (COND
@@ -1391,14 +1383,14 @@
                                              (EXIT
                                               (|sockGetInt|
                                                |$ViewportServer|))))))))
-                              (GO #3=#:G429)))))))
+                              (GO #3=#:G428)))))))
                         #3# (EXIT #1#)))))))) 
 
 (DECLAIM (NOTINLINE |ThreeDimensionalViewport;|)) 
 
 (DEFUN |ThreeDimensionalViewport| ()
   (SPROG NIL
-         (PROG (#1=#:G434)
+         (PROG (#1=#:G433)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|ThreeDimensionalViewport|))
