@@ -1070,8 +1070,8 @@
           (|lrf| (|Record| (|:| |left| UP) (|:| |right| UP)))
           (|pk| (|PositiveInteger|)) (#11=#:G391 NIL)
           (|lm| (|Record| (|:| |plist| #3#) (|:| |modulo| (|Integer|))))
-          (|b| (|PositiveInteger|)) (#12=#:G389 NIL) (|f0| (|Integer|))
-          (|lc| (|Integer|)) (#13=#:G425 NIL) (|cprime| #14=(|Integer|))
+          (|b| (|PositiveInteger|)) (#12=#:G389 NIL) (|lc| (|Integer|))
+          (#13=#:G425 NIL) (|cprime| #14=(|Integer|))
           (|m| (|Record| (|:| |prime| #14#) (|:| |factors| (|List| UP))))
           (|cf| (|Union| (|Record| (|:| |left| UP) (|:| |right| UP)) "failed"))
           (|negativelc?| #15=(|Boolean|)) (|reverse?| #15#))
@@ -1152,7 +1152,6 @@
                                 ((SPADCALL |f| (QREFELT $ 131))
                                  (LETT |d| (SPADCALL 1 |d| (QREFELT $ 132)))))
                                (LETT |lc| (SPADCALL |f| (QREFELT $ 28)))
-                               (LETT |f0| (SPADCALL |f| 0 (QREFELT $ 108)))
                                (LETT |b|
                                      (PROG1
                                          (LETT #12#

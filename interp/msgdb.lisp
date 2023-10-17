@@ -318,10 +318,6 @@
 ;     (n > 2) and (c = char "%") and (x.1 = char "k") =>
 ;         l := NCONC(NREVERSE pkey SUBSTRING(x,2,NIL),l)
 ;
-;     -- ?name gets replaced by '"Push PF10" or '"Type >b (enter)"
-;     (x.0 = char "?") and n > 1 and (v := pushOrTypeFuture(INTERN x,nil)) =>
-;       l := NCONC(NREVERSE v,l)
-;
 ;     -- x requires parameter substitution
 ;     (x.0 = char "%") and (n > 1) and (DIGITP x.1) =>
 ;       a := DIG2FIX x.1
@@ -369,7 +365,7 @@
 ;   addBlanks NREVERSE l
 
 (DEFUN |substituteSegmentedMsg| (|msg| |args|)
-  (PROG (|l| |nargs| |c| |n| |v| |a| |arg| |q| |head| |tail|)
+  (PROG (|l| |nargs| |c| |n| |a| |arg| |q| |head| |tail|)
     (RETURN
      (PROGN
       (SETQ |l| NIL)
@@ -393,9 +389,6 @@
                  (SETQ |l|
                          (NCONC (NREVERSE (|pkey| (SUBSTRING |x| 2 NIL)))
                                 |l|)))
-                ((AND (EQUAL (ELT |x| 0) (|char| '?)) (< 1 |n|)
-                      (SETQ |v| (|pushOrTypeFuture| (INTERN |x|) NIL)))
-                 (SETQ |l| (NCONC (NREVERSE |v|) |l|)))
                 ((AND (EQUAL (ELT |x| 0) (|char| '%)) (< 1 |n|)
                       (DIGITP (ELT |x| 1)))
                  (PROGN

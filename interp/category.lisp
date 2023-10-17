@@ -74,7 +74,6 @@
        (MAXINDEX D) 6)))))
 
 ; mkCategory(sigList, attList, domList, PrincipalAncestor) ==
-;   NSigList := nil
 ;   count := 6
 ;   sigList:=
 ;     [if s is [sig,pred] then
@@ -92,10 +91,9 @@
 ;   v
 
 (DEFUN |mkCategory| (|sigList| |attList| |domList| |PrincipalAncestor|)
-  (PROG (|NSigList| |count| |sig| |ISTMP#1| |pred| |v|)
+  (PROG (|count| |sig| |ISTMP#1| |pred| |v|)
     (RETURN
      (PROGN
-      (SETQ |NSigList| NIL)
       (SETQ |count| 6)
       (SETQ |sigList|
               ((LAMBDA (|bfVar#5| |bfVar#4| |s|)

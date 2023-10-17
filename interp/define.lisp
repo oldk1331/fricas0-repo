@@ -1001,7 +1001,7 @@
 ;     e := makeFunctorArgumentParameters(argl, rest signature',
 ;                                         first signature', e)
 ;  -- must do above to bring categories into scope --see line 5 of genDomainView
-; --  4. compile body in environment of %type declarations for arguments
+; --  4. compile body in environment of type declarations for arguments
 ;     op':= $op
 ;     rettype:= signature'.target
 ;     T := compFunctorBody(body, rettype, e, parForm, base_shell)
@@ -2246,7 +2246,7 @@
 ;     fun:=
 ;       body':= replaceExitEtc(T.expr,catchTag,"TAGGEDreturn",$returnMode)
 ;       finalBody:= ["CATCH",catchTag,body']
-;       compileCases([$op,["LAMBDA",[:argl,'_$],finalBody]],oldE)
+;       do_compile([$op, ["LAMBDA", [:argl, '_$], finalBody]], oldE)
 ;     $functorStats:= addStats($functorStats,$functionStats)
 ;
 ;
@@ -2366,7 +2366,7 @@
                        (|replaceExitEtc| (CAR T$) |catchTag| '|TAGGEDreturn|
                         |$returnMode|))
                (SETQ |finalBody| (LIST 'CATCH |catchTag| |body'|))
-               (|compileCases|
+               (|do_compile|
                 (LIST |$op|
                       (LIST 'LAMBDA (APPEND |argl| (CONS '$ NIL)) |finalBody|))
                 |oldE|)))
@@ -2718,11 +2718,6 @@
       (SETQ |$elt| (COND (|$QuickCode| 'QREFELT) ('T 'ELT)))
       (|NRTputInTail| (CDDADR |def|))
       |def|))))
-
-; compileCases(x, e) ==
-;     do_compile(x, e)
-
-(DEFUN |compileCases| (|x| |e|) (PROG () (RETURN (|do_compile| |x| |e|))))
 
 ; isLocalFunction(op, e) ==
 ;     null member(op, $formalArgList) and
