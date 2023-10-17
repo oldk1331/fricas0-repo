@@ -1242,8 +1242,7 @@
                                                   (QREFELT $ 81)))
                                   (QREFELT $ 158))
                                  (|error|
-                                  (|error|
-                                   "integrate: implementation incomplete (trace 0)")))
+                                  "integrate: implementation incomplete (trace 0)"))
                                 (#12#
                                  (SEQ
                                   (LETT |la|
