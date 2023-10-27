@@ -398,7 +398,7 @@
 
 ; computeElapsedTime() ==
 ;   -- in total time lists, CAR is VIRTCPU and CADR is TOTCPU
-;   currentTime:= elapsedUserTime()
+;   currentTime:= get_run_time()
 ;   currentGCTime:= elapsedGcTime()
 ;   gcDelta := currentGCTime - $oldElapsedGCTime
 ;   elapsedSeconds:= $inverseTimerTicksPerSecond *
@@ -413,7 +413,7 @@
   (PROG (|elapsedSeconds| |gcDelta| |currentGCTime| |currentTime|)
     (RETURN
      (PROGN
-      (SETQ |currentTime| (|elapsedUserTime|))
+      (SETQ |currentTime| (|get_run_time|))
       (SETQ |currentGCTime| (|elapsedGcTime|))
       (SETQ |gcDelta| (- |currentGCTime| |$oldElapsedGCTime|))
       (SETQ |elapsedSeconds|

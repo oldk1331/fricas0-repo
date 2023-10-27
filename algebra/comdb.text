@@ -7849,7 +7849,7 @@
 907058`\spad{sufactor(p)} factorizes \spad{p} into prime factors.
 907254`\spad{sufactor_square_free(p)} factorizes \spad{p} into prime factors. \spad{p} must be square free.
 907396`\spad{suffix?(s,{} t)} tests if the string \spad{s} is the final substring of \spad{t}. Note: \spad{suffix?(s,{} t) = reduce(and,{} [s.i = t.(n - m + i) for i indices s])} where \spad{m} and \spad{n} denote the maxIndex of \spad{s} and \spad{t} respectively.
-907450`irreducible?(\spad{p}) tests if \spad{p} is irreducible. \spad{p} must be monic and square free.
+907450`\spad{su_irreducible?(p)} tests if \spad{p} is irreducible. \spad{p} must be monic and square free.
 907559`\spad{sum(expr)} creates the form prefixing \spad{expr} by a capital sigma.
 907596`\spad{sum(p)} returns a handler \spad{h} such that \spad{h(prec,{} args)} formats a sum expresssion with summation sign and respective limits. Outer parentheses are added if \spad{p < prec}.
 907682`\spad{sum(expr,{} lowerlimit)} creates the form prefixing \spad{expr} by a capital sigma with a lowerlimit.
