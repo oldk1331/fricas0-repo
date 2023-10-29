@@ -224,15 +224,11 @@
 ; startTimingProcess name ==
 ;   updateTimedName peekTimedName()
 ;   pushTimedName name
-;   if EQ(name, 'load) then          statRecordLoadEvent()
 
 (DEFUN |startTimingProcess| (|name|)
   (PROG ()
     (RETURN
-     (PROGN
-      (|updateTimedName| (|peekTimedName|))
-      (|pushTimedName| |name|)
-      (COND ((EQ |name| '|load|) (|statRecordLoadEvent|)))))))
+     (PROGN (|updateTimedName| (|peekTimedName|)) (|pushTimedName| |name|)))))
 
 ; stopTimingProcess name ==
 ;   (name ~= peekTimedName()) and null $InteractiveMode =>
@@ -521,15 +517,3 @@
   (PROG ()
     (RETURN
      (COND (|$printStorageIfTrue| (IDENTITY (|sayBrightly| (OLDHEAPSTATS))))))))
-
-; statRecordInstantiationEvent() == nil
-
-(DEFUN |statRecordInstantiationEvent| () (PROG () (RETURN NIL)))
-
-; statRecordLoadEvent()          == nil
-
-(DEFUN |statRecordLoadEvent| () (PROG () (RETURN NIL)))
-
-; statisticsSummary()  == '"No statistics available."
-
-(DEFUN |statisticsSummary| () (PROG () (RETURN "No statistics available.")))

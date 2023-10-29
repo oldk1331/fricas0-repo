@@ -917,7 +917,6 @@
 ; haddProp(ht,op,prop,val) ==
 ;   --called inside functors (except for union and record types ??)
 ;   --presently, ht always = $ConstructorCache
-;   statRecordInstantiationEvent()
 ;   if $reportInstantiations = true or $reportEachInstantiation = true then
 ;     startTimingProcess 'debug
 ;     recordInstantiation(op,prop,false)
@@ -937,7 +936,6 @@
     (DECLARE (SPECIAL |$op|))
     (RETURN
      (PROGN
-      (|statRecordInstantiationEvent|)
       (COND
        ((OR (EQUAL |$reportInstantiations| T)
             (EQUAL |$reportEachInstantiation| T))

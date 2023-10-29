@@ -316,13 +316,6 @@
 ;       $displayStartMsgs
 ;       (on off)
 ;       on)
-;      (summary
-;       "print statistics after computation"
-;       interpreter
-;       LITERALS
-;       $printStatisticsSummaryIfTrue
-;       (on off)
-;       off)
 ;      (testing
 ;       "print system testing header"
 ;       development
@@ -695,8 +688,6 @@
        |$displaySetValue| (|on| |off|) |off|)
       (|startup| "display messages on start-up" |interpreter| LITERALS
        |$displayStartMsgs| (|on| |off|) |on|)
-      (|summary| "print statistics after computation" |interpreter| LITERALS
-       |$printStatisticsSummaryIfTrue| (|on| |off|) |off|)
       (|testing| "print system testing header" |development| LITERALS
        |$testingSystem| (|on| |off|) |off|)
       (|time| "print timings after computation" |interpreter| LITERALS

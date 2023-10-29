@@ -40,7 +40,6 @@
 ;   createInitializers()
 ;   if $displayStartMsgs then sayKeyedMsg("S2IZ0053",['"interpreter"])
 ;   initializeTimedNames($interpreterTimedNames,$interpreterTimedClasses)
-;   statisticsInitialization()
 ;   $InteractiveFrame := makeInitialModemapFrame()
 ;   initializeSystemCommands()
 ;   initializeInterpreterFrameRing()
@@ -79,7 +78,6 @@
        (|$displayStartMsgs| (|sayKeyedMsg| 'S2IZ0053 (LIST "interpreter"))))
       (|initializeTimedNames| |$interpreterTimedNames|
        |$interpreterTimedClasses|)
-      (|statisticsInitialization|)
       (SETQ |$InteractiveFrame| (|makeInitialModemapFrame|))
       (|initializeSystemCommands|)
       (|initializeInterpreterFrameRing|)
@@ -103,7 +101,6 @@
 ;   $IOindex := 1
 ;   $InteractiveFrame := makeInitialModemapFrame()
 ;   loadExposureGroupData()
-;   statisticsInitialization()
 ;   initHist()
 ;   initializeInterpreterFrameRing()
 ;
@@ -124,7 +121,6 @@
       (SETQ |$IOindex| 1)
       (SETQ |$InteractiveFrame| (|makeInitialModemapFrame|))
       (|loadExposureGroupData|)
-      (|statisticsInitialization|)
       (|initHist|)
       (|initializeInterpreterFrameRing|)
       (COND (|$displayStartMsgs| (|spadStartUpMsgs|)))
@@ -325,7 +321,6 @@
 ;   putHist('%,'value,objNewWrap(x,md),$e)
 ;   if $printTimeIfTrue or $printTypeIfTrue then printTypeAndTime(x',md')
 ;   if $printStorageIfTrue then printStorage()
-;   if $printStatisticsSummaryIfTrue then printStatisticsSummary()
 ;   'done
 
 (DEFUN |recordAndPrint| (|x| |md|)
@@ -346,7 +341,6 @@
        ((OR |$printTimeIfTrue| |$printTypeIfTrue|)
         (|printTypeAndTime| |x'| |md'|)))
       (COND (|$printStorageIfTrue| (|printStorage|)))
-      (COND (|$printStatisticsSummaryIfTrue| (|printStatisticsSummary|)))
       '|done|))))
 
 ; printTypeAndTime(x,m) ==  --m is the mode/type of the result
@@ -511,20 +505,6 @@
                      (|makeLongSpaceString| |$interpreterTimedNames|
                       |$interpreterTimedClasses|))
              (|sayKeyedMsg| 'S2GL0016 (LIST |storeString|))))))))
-
-; printStatisticsSummary() ==
-;   $collectOutput => nil
-;   summary := statisticsSummary()
-;   sayKeyedMsg("S2GL0017",[summary])
-
-(DEFUN |printStatisticsSummary| ()
-  (PROG (|summary|)
-    (RETURN
-     (COND (|$collectOutput| NIL)
-           ('T
-            (PROGN
-             (SETQ |summary| (|statisticsSummary|))
-             (|sayKeyedMsg| 'S2GL0017 (LIST |summary|))))))))
 
 ; interpretTopLevel(x, posnForm) ==
 ;   --  Top level entry point from processInteractive1.  Sets up catch
