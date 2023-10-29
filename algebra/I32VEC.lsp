@@ -41,7 +41,7 @@
         (SETELT_I32 |x| |i| |s|)) 
 
 (SDEFUN |I32VEC;fill!;%I%;9| ((|x| (%)) (|s| (|Integer|)) (% (%)))
-        (SPROG ((#1=#:G2491 NIL) (|i| NIL))
+        (SPROG ((#1=#:G2393 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 0) (LETT #1# (|sub_SI| (QV_LEN_I32 |x|) 1)) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -53,7 +53,7 @@
 
 (DEFUN |I32Vector| ()
   (SPROG NIL
-         (PROG (#1=#:G2503)
+         (PROG (#1=#:G2405)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|I32Vector|))
@@ -70,7 +70,7 @@
 
 (DEFUN |I32Vector;| ()
   (SPROG
-   ((|dv$| NIL) (% NIL) (#1=#:G2501 NIL) (#2=#:G2500 NIL) (#3=#:G2499 NIL)
+   ((|dv$| NIL) (% NIL) (#1=#:G2403 NIL) (#2=#:G2402 NIL) (#3=#:G2401 NIL)
     (|pv$| NIL))
    (PROGN
     (LETT |dv$| '(|I32Vector|))
