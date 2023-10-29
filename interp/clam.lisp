@@ -1378,7 +1378,7 @@
 ; removeAllClams() ==
 ;   for [fun,:.] in $clamList repeat
 ;     sayBrightly ['"Un-clamming function",'%b,fun,'%d]
-;     SET(fun,eval INTERN STRCONC(STRINGIMAGE fun,'";"))
+;     SETF(SYMBOL_-FUNCTION fun, SYMBOL_-FUNCTION INTERN STRCONC(STRINGIMAGE fun,'";"))
 
 (DEFUN |removeAllClams| ()
   (PROG (|fun|)
@@ -1394,7 +1394,8 @@
                 (PROGN
                  (|sayBrightly|
                   (LIST "Un-clamming function" '|%b| |fun| '|%d|))
-                 (SET |fun|
-                      (|eval| (INTERN (STRCONC (STRINGIMAGE |fun|) ";"))))))))
+                 (SETF (SYMBOL-FUNCTION |fun|)
+                         (SYMBOL-FUNCTION
+                          (INTERN (STRCONC (STRINGIMAGE |fun|) ";"))))))))
          (SETQ |bfVar#47| (CDR |bfVar#47|))))
       |$clamList| NIL))))
