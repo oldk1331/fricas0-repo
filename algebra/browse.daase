@@ -15062,7 +15062,7 @@ NIL
 (|GnuDraw|) 
 ((|constructor|
   (NIL
-   "This package provides support for gnuplot. These routines generate output files contain gnuplot scripts that may be processed directly by gnuplot. This is especially convenient in the fricas-wiki environment where gnuplot is called from LaTeX via gnuplottex."))
+   "This package provides support for gnuplot. These routines generate output files contain gnuplot scripts that may be processed directly by gnuplot. This is especially convenient in the FriCAS wiki environment where gnuplot is called from LaTeX via gnuplottex."))
  (|gnuDraw|
   (((|Void|) (|Expression| (|Float|)) (|SegmentBinding| (|Float|))
     (|SegmentBinding| (|Float|)) (|String|))
