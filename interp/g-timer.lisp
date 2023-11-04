@@ -33,7 +33,7 @@
 ;     str := '""
 ;     for [class,name,:ab] in listofclasses repeat
 ;       n := GET(name, classproperty)
-;       n = 0.0 => 'iterate
+;       n = 0.0 or n = 0 => 'iterate
 ;       total := total + n
 ;       timestr := normalizeStatAndStringify n
 ;       str := makeStatString(str,timestr,ab,flag)
@@ -116,7 +116,7 @@
                           #1#)))
                    (PROGN
                     (SETQ |n| (GET |name| |classproperty|))
-                    (COND ((EQUAL |n| 0.0) '|iterate|)
+                    (COND ((OR (EQUAL |n| 0.0) (EQL |n| 0)) '|iterate|)
                           (#1#
                            (PROGN
                             (SETQ |total| (+ |total| |n|))
@@ -135,41 +135,18 @@
 ;       t := roundStat t
 ;       t = 0.0 => '"0"
 ;       FORMAT(nil,'"~,2F",t)
-;   INTEGERP t =>
-;       K := 1024
-;       M := K*K
-;       t > 9*M => CONCAT(STRINGIMAGE((t + 512*K)/M), '"M")
-;       t > 9*K => CONCAT(STRINGIMAGE((t + 512)/K),   '"K")
-;       STRINGIMAGE t
+;   INTEGERP t => FORMAT(nil, '"~:d", t)
 ;   STRINGIMAGE t
 
 (DEFUN |normalizeStatAndStringify| (|t|)
-  (PROG (K M)
+  (PROG ()
     (RETURN
      (COND
       ((FLOATP |t|)
        (PROGN
         (SETQ |t| (|roundStat| |t|))
         (COND ((EQUAL |t| 0.0) "0") (#1='T (FORMAT NIL "~,2F" |t|)))))
-      ((INTEGERP |t|)
-       (PROGN
-        (SETQ K 1024)
-        (SETQ M (* K K))
-        (COND
-         ((< (* 9 M) |t|) (CONCAT (STRINGIMAGE (/ (+ |t| (* 512 K)) M)) "M"))
-         ((< (* 9 K) |t|) (CONCAT (STRINGIMAGE (/ (+ |t| 512) K)) "K"))
-         (#1# (STRINGIMAGE |t|)))))
-      (#1# (STRINGIMAGE |t|))))))
-
-; significantStat t ==
-;    FLOATP t => (t > 0.01)
-;    INTEGERP  t => (t > 100)
-;    true
-
-(DEFUN |significantStat| (|t|)
-  (PROG ()
-    (RETURN
-     (COND ((FLOATP |t|) (< 0.01 |t|)) ((INTEGERP |t|) (< 100 |t|)) ('T T)))))
+      ((INTEGERP |t|) (FORMAT NIL "~:d" |t|)) (#1# (STRINGIMAGE |t|))))))
 
 ; roundStat t ==
 ;   not FLOATP t => t
@@ -312,6 +289,7 @@
 ;     PUT( name, 'ClassSpaceTotal,  0)
 ;   $timedNameStack := '(other)
 ;   computeElapsedTime()
+;   computeElapsedSpace()
 ;   PUT('gc, 'TimeTotal, 0.0)
 ;   PUT('gc, 'SpaceTotal,  0)
 ;   NIL
@@ -350,6 +328,7 @@
        |listofclasses| NIL)
       (SETQ |$timedNameStack| '(|other|))
       (|computeElapsedTime|)
+      (|computeElapsedSpace|)
       (PUT '|gc| '|TimeTotal| 0.0)
       (PUT '|gc| '|SpaceTotal| 0)
       NIL))))
@@ -357,6 +336,8 @@
 ; updateTimedName name ==
 ;   count := (GET(name, 'TimeTotal) or 0) + computeElapsedTime()
 ;   PUT(name, 'TimeTotal, count)
+;   count := (GET(name, 'SpaceTotal) or 0) + computeElapsedSpace()
+;   PUT(name, 'SpaceTotal, count)
 
 (DEFUN |updateTimedName| (|name|)
   (PROG (|count|)
@@ -364,7 +345,10 @@
      (PROGN
       (SETQ |count|
               (+ (OR (GET |name| '|TimeTotal|) 0) (|computeElapsedTime|)))
-      (PUT |name| '|TimeTotal| |count|)))))
+      (PUT |name| '|TimeTotal| |count|)
+      (SETQ |count|
+              (+ (OR (GET |name| '|SpaceTotal|) 0) (|computeElapsedSpace|)))
+      (PUT |name| '|SpaceTotal| |count|)))))
 
 ; makeLongTimeString(listofnames,listofclasses) ==
 ;   makeLongStatStringByProperty(listofnames, listofclasses,  _
@@ -509,11 +493,3 @@
            (SETQ |bfVar#9| (CDR |bfVar#9|))))
         NIL (|splitIntoBlocksOf200| |a|) NIL))
       (#1# (|eval| |code|))))))
-
-; displayHeapStatsIfWanted() ==
-;    $printStorageIfTrue => sayBrightly OLDHEAPSTATS()
-
-(DEFUN |displayHeapStatsIfWanted| ()
-  (PROG ()
-    (RETURN
-     (COND (|$printStorageIfTrue| (IDENTITY (|sayBrightly| (OLDHEAPSTATS))))))))

@@ -316,6 +316,13 @@
 ;       $displayStartMsgs
 ;       (on off)
 ;       on)
+;      (storage
+;       "print memory usage after computation"
+;       interpreter
+;       LITERALS
+;       $printStorageIfTrue
+;       (on off)
+;       off)
 ;      (testing
 ;       "print system testing header"
 ;       development
@@ -688,6 +695,8 @@
        |$displaySetValue| (|on| |off|) |off|)
       (|startup| "display messages on start-up" |interpreter| LITERALS
        |$displayStartMsgs| (|on| |off|) |on|)
+      (|storage| "print memory usage after computation" |interpreter| LITERALS
+       |$printStorageIfTrue| (|on| |off|) |off|)
       (|testing| "print system testing header" |development| LITERALS
        |$testingSystem| (|on| |off|) |off|)
       (|time| "print timings after computation" |interpreter| LITERALS
