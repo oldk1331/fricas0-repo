@@ -321,7 +321,7 @@
 ;       interpreter
 ;       LITERALS
 ;       $printStorageIfTrue
-;       (on off)
+;       (on off long)
 ;       off)
 ;      (testing
 ;       "print system testing header"
@@ -696,7 +696,7 @@
       (|startup| "display messages on start-up" |interpreter| LITERALS
        |$displayStartMsgs| (|on| |off|) |on|)
       (|storage| "print memory usage after computation" |interpreter| LITERALS
-       |$printStorageIfTrue| (|on| |off|) |off|)
+       |$printStorageIfTrue| (|on| |off| |long|) |off|)
       (|testing| "print system testing header" |development| LITERALS
        |$testingSystem| (|on| |off|) |off|)
       (|time| "print timings after computation" |interpreter| LITERALS

@@ -19,11 +19,11 @@
 ;       else
 ;         timestr := '""
 ;         otherStatTotal := otherStatTotal + n
-;     str := makeStatString(str,timestr,ab,flag)
-;   otherStatTotal := otherStatTotal
+;     str := makeStatString(str, timestr, name, flag)
 ;   PUT('other, property, otherStatTotal)
 ;   if otherStatTotal > 0 then
-;     str := makeStatString(str,normalizeStatAndStringify otherStatTotal,'O,flag)
+;     timestr := normalizeStatAndStringify otherStatTotal
+;     str := makeStatString(str, timestr, 'other, flag)
 ;     total := total + otherStatTotal
 ;     cl := first LASSOC('other, listofnames)
 ;     cl := first LASSOC(cl, listofclasses)
@@ -80,17 +80,15 @@
                           (#1# (SETQ |timestr| "")
                            (SETQ |otherStatTotal| (+ |otherStatTotal| |n|))))
                          (SETQ |str|
-                                 (|makeStatString| |str| |timestr| |ab|
+                                 (|makeStatString| |str| |timestr| |name|
                                   |flag|))))))))
           (SETQ |bfVar#2| (CDR |bfVar#2|))))
        |listofnames| NIL)
-      (SETQ |otherStatTotal| |otherStatTotal|)
       (PUT '|other| |property| |otherStatTotal|)
       (COND
        ((< 0 |otherStatTotal|)
-        (SETQ |str|
-                (|makeStatString| |str|
-                 (|normalizeStatAndStringify| |otherStatTotal|) 'O |flag|))
+        (SETQ |timestr| (|normalizeStatAndStringify| |otherStatTotal|))
+        (SETQ |str| (|makeStatString| |str| |timestr| '|other| |flag|))
         (SETQ |total| (+ |total| |otherStatTotal|))
         (SETQ |cl| (CAR (LASSOC '|other| |listofnames|)))
         (SETQ |cl| (CAR (LASSOC |cl| |listofclasses|)))
@@ -259,6 +257,7 @@
 ;   (other          3 .   O) _
 ;   (diskread       3 .   K) _
 ;   (resolve        1 .   R) _
+;   (print          3 .   P) _
 ;   ))
 
 (DEFPARAMETER |$interpreterTimedNames|
@@ -266,7 +265,7 @@
     (|compilation| 3 . T) (|debug| 3 . D) (|evaluation| 2 . E) (|gc| 4 . G)
     (|history| 3 . H) (|instantiation| 3 . I) (|load| 3 . L) (|modemaps| 1 . M)
     (|optimization| 3 . Z) (|querycoerce| 1 . Q) (|other| 3 . O)
-    (|diskread| 3 . K) (|resolve| 1 . R)))
+    (|diskread| 3 . K) (|resolve| 1 . R) (|print| 3 . P)))
 
 ; DEFPARAMETER($interpreterTimedClasses, '(
 ; -- number class name    short name
@@ -377,7 +376,6 @@
 (DEFPARAMETER |$inverseTimerTicksPerSecond| (/ 1.0 |$timerTicksPerSecond|))
 
 ; computeElapsedTime() ==
-;   -- in total time lists, CAR is VIRTCPU and CADR is TOTCPU
 ;   currentTime:= get_run_time()
 ;   currentGCTime:= elapsedGcTime()
 ;   gcDelta := currentGCTime - $oldElapsedGCTime
