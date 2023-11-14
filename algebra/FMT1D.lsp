@@ -756,7 +756,7 @@
          (%
           (|OperatorHandlers|
            (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))))
-        (SPROG ((#1=#:G552 NIL))
+        (SPROG ((#1=#:G556 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1166,8 +1166,12 @@
                             (SPADCALL ":=" 125 (SPADCALL 125 (QREFELT % 92))
                                       (QREFELT % 93))
                             (QREFELT % 101))
-                  (SPADCALL |oh| 2 "TAG"
-                            (SPADCALL " -> " 100 (SPADCALL 100 (QREFELT % 92))
+                  (SPADCALL |oh| 2 "->"
+                            (SPADCALL "->" 1001 (SPADCALL 1001 (QREFELT % 92))
+                                      (QREFELT % 93))
+                            (QREFELT % 101))
+                  (SPADCALL |oh| 2 "~>"
+                            (SPADCALL " ~> " 100 (SPADCALL 100 (QREFELT % 92))
                                       (QREFELT % 93))
                             (QREFELT % 101))
                   (SPADCALL |oh| 2 "+->"
@@ -1252,7 +1256,7 @@
                   (SPADCALL |oh| -1 "MATRIX" (SPADCALL "[" "]" (QREFELT % 98))
                             (QREFELT % 101))
                   (SPADCALL |oh| -1 "theMap" (ELT % 67) (QREFELT % 101))
-                  (EXIT (PROGN (LETT #1# |oh|) (GO #7=#:G551)))))
+                  (EXIT (PROGN (LETT #1# |oh|) (GO #7=#:G555)))))
                 #7# (EXIT #1#)))) 
 
 (SDEFUN |FMT1D;operatorHandlers;Oh;35|
@@ -1265,7 +1269,7 @@
 
 (DEFUN |Format1D| ()
   (SPROG NIL
-         (PROG (#1=#:G555)
+         (PROG (#1=#:G559)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Format1D|))

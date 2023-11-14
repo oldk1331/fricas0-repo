@@ -1373,7 +1373,7 @@
          (%
           (|OperatorHandlers|
            (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))))
-        (SPROG ((#1=#:G657 NIL))
+        (SPROG ((#1=#:G661 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1766,8 +1766,12 @@
                             (SPADCALL " := " 125 (SPADCALL 125 (QREFELT % 89))
                                       (QREFELT % 90))
                             (QREFELT % 138))
-                  (SPADCALL |oh| 2 "TAG"
-                            (SPADCALL " -> " 100 (SPADCALL 100 (QREFELT % 89))
+                  (SPADCALL |oh| 2 "->"
+                            (SPADCALL "->" 1001 (SPADCALL 1001 (QREFELT % 89))
+                                      (QREFELT % 90))
+                            (QREFELT % 138))
+                  (SPADCALL |oh| 2 "~>"
+                            (SPADCALL " ~> " 100 (SPADCALL 100 (QREFELT % 89))
                                       (QREFELT % 90))
                             (QREFELT % 138))
                   (SPADCALL |oh| 2 "+->"
@@ -1858,7 +1862,7 @@
                   (SPADCALL |oh| -1 "MATRIX" (SPADCALL "[" "]" (QREFELT % 135))
                             (QREFELT % 138))
                   (SPADCALL |oh| -1 "theMap" (ELT % 65) (QREFELT % 138))
-                  (EXIT (PROGN (LETT #1# |oh|) (GO #7=#:G656)))))
+                  (EXIT (PROGN (LETT #1# |oh|) (GO #7=#:G660)))))
                 #7# (EXIT #1#)))) 
 
 (SDEFUN |FMT2D;operatorHandlers;Oh;35|
@@ -1871,7 +1875,7 @@
 
 (DEFUN |Format2D| ()
   (SPROG NIL
-         (PROG (#1=#:G660)
+         (PROG (#1=#:G664)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Format2D|))

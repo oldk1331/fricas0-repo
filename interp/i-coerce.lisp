@@ -1985,10 +1985,10 @@
 (DEFUN |typeToInputForm| (|t|)
   (PROG () (RETURN (|typeToForm| |t| '(|InputForm|)))))
 
-; typeToOutputForm(t) == typeToForm(t, $OutputForm)
+; typeToOutputForm(t) == constructor_to_OutputForm(t)
 
 (DEFUN |typeToOutputForm| (|t|)
-  (PROG () (RETURN (|typeToForm| |t| |$OutputForm|))))
+  (PROG () (RETURN (|constructor_to_OutputForm| |t|))))
 
 ; typeToForm(t, toForm) ==
 ;     t0 := devaluate(t)

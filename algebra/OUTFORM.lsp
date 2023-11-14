@@ -441,7 +441,7 @@
         (SPADCALL (LIST (|OUTFORM;eform| 'EQUATNUM %) |a| |b|) (QREFELT % 19))) 
 
 (SDEFUN |OUTFORM;rarrow;3%;90| ((|a| (%)) (|b| (%)) (% (%)))
-        (SPADCALL (LIST (|OUTFORM;eform| 'TAG %) |a| |b|) (QREFELT % 19))) 
+        (SPADCALL (LIST (|OUTFORM;eform| '~> %) |a| |b|) (QREFELT % 19))) 
 
 (SDEFUN |OUTFORM;differentiate;%Nni%;91|
         ((|a| (%)) (|nn| (|NonNegativeInteger|)) (% (%)))
