@@ -8,35 +8,23 @@
 ;   total := 0
 ;   str := '""
 ;   otherStatTotal := GET('other, property)
+;   insignificantStat := 0
 ;   for [name,class,:ab] in listofnames repeat
-;     name = 'other => 'iterate
 ;     cl := first LASSOC(class, listofclasses)
 ;     n := GET(name, property)
 ;     PUT(cl, classproperty, n + GET(cl, classproperty))
 ;     total := total + n
-;     if n >= 0.01
-;       then timestr := normalizeStatAndStringify n
-;       else
-;         timestr := '""
-;         otherStatTotal := otherStatTotal + n
-;     str := makeStatString(str, timestr, name, flag)
-;   PUT('other, property, otherStatTotal)
-;   if otherStatTotal > 0 then
-;     timestr := normalizeStatAndStringify otherStatTotal
-;     str := makeStatString(str, timestr, 'other, flag)
-;     total := total + otherStatTotal
-;     cl := first LASSOC('other, listofnames)
-;     cl := first LASSOC(cl, listofclasses)
-;     PUT(cl, classproperty, otherStatTotal + GET(cl, classproperty))
-;   if flag ~= 'long then
-;     total := 0
-;     str := '""
+;     name = 'other or flag ~= 'long => 'iterate
+;     if n >= 0.01 then
+;         str := makeStatString(str, n, name, flag)
+;     else
+;         insignificantStat := insignificantStat + n
+;   if flag = 'long then
+;     str := makeStatString(str, otherStatTotal + insignificantStat, 'other, flag)
+;   else
 ;     for [class,name,:ab] in listofclasses repeat
 ;       n := GET(name, classproperty)
-;       n = 0.0 or n = 0 => 'iterate
-;       total := total + n
-;       timestr := normalizeStatAndStringify n
-;       str := makeStatString(str,timestr,ab,flag)
+;       str := makeStatString(str, n, ab, flag)
 ;   total := STRCONC(normalizeStatAndStringify total,'" ", units)
 ;   str = '"" =>  total
 ;   STRCONC(str, '" = ", total)
@@ -44,13 +32,14 @@
 (DEFUN |makeLongStatStringByProperty|
        (|listofnames| |listofclasses| |property| |classproperty| |units|
         |flag|)
-  (PROG (|total| |str| |otherStatTotal| |name| |ISTMP#1| |class| |ab| |cl| |n|
-         |timestr|)
+  (PROG (|total| |str| |otherStatTotal| |insignificantStat| |name| |ISTMP#1|
+         |class| |ab| |cl| |n|)
     (RETURN
      (PROGN
       (SETQ |total| 0)
       (SETQ |str| "")
       (SETQ |otherStatTotal| (GET '|other| |property|))
+      (SETQ |insignificantStat| 0)
       ((LAMBDA (|bfVar#2| |bfVar#1|)
          (LOOP
           (COND
@@ -66,36 +55,29 @@
                         (SETQ |class| (CAR |ISTMP#1|))
                         (SETQ |ab| (CDR |ISTMP#1|))
                         #1#)))
-                 (COND ((EQ |name| '|other|) '|iterate|)
-                       (#1#
-                        (PROGN
-                         (SETQ |cl| (CAR (LASSOC |class| |listofclasses|)))
-                         (SETQ |n| (GET |name| |property|))
-                         (PUT |cl| |classproperty|
-                          (+ |n| (GET |cl| |classproperty|)))
-                         (SETQ |total| (+ |total| |n|))
-                         (COND
-                          ((NOT (< |n| 0.01))
-                           (SETQ |timestr| (|normalizeStatAndStringify| |n|)))
-                          (#1# (SETQ |timestr| "")
-                           (SETQ |otherStatTotal| (+ |otherStatTotal| |n|))))
-                         (SETQ |str|
-                                 (|makeStatString| |str| |timestr| |name|
-                                  |flag|))))))))
+                 (PROGN
+                  (SETQ |cl| (CAR (LASSOC |class| |listofclasses|)))
+                  (SETQ |n| (GET |name| |property|))
+                  (PUT |cl| |classproperty| (+ |n| (GET |cl| |classproperty|)))
+                  (SETQ |total| (+ |total| |n|))
+                  (COND
+                   ((OR (EQ |name| '|other|) (NOT (EQ |flag| '|long|)))
+                    '|iterate|)
+                   (#1#
+                    (COND
+                     ((NOT (< |n| 0.01))
+                      (SETQ |str| (|makeStatString| |str| |n| |name| |flag|)))
+                     (#1#
+                      (SETQ |insignificantStat|
+                              (+ |insignificantStat| |n|))))))))))
           (SETQ |bfVar#2| (CDR |bfVar#2|))))
        |listofnames| NIL)
-      (PUT '|other| |property| |otherStatTotal|)
       (COND
-       ((< 0 |otherStatTotal|)
-        (SETQ |timestr| (|normalizeStatAndStringify| |otherStatTotal|))
-        (SETQ |str| (|makeStatString| |str| |timestr| '|other| |flag|))
-        (SETQ |total| (+ |total| |otherStatTotal|))
-        (SETQ |cl| (CAR (LASSOC '|other| |listofnames|)))
-        (SETQ |cl| (CAR (LASSOC |cl| |listofclasses|)))
-        (PUT |cl| |classproperty|
-         (+ |otherStatTotal| (GET |cl| |classproperty|)))))
-      (COND
-       ((NOT (EQ |flag| '|long|)) (SETQ |total| 0) (SETQ |str| "")
+       ((EQ |flag| '|long|)
+        (SETQ |str|
+                (|makeStatString| |str|
+                 (+ |otherStatTotal| |insignificantStat|) '|other| |flag|)))
+       (#1#
         ((LAMBDA (|bfVar#4| |bfVar#3|)
            (LOOP
             (COND
@@ -114,14 +96,7 @@
                           #1#)))
                    (PROGN
                     (SETQ |n| (GET |name| |classproperty|))
-                    (COND ((OR (EQUAL |n| 0.0) (EQL |n| 0)) '|iterate|)
-                          (#1#
-                           (PROGN
-                            (SETQ |total| (+ |total| |n|))
-                            (SETQ |timestr| (|normalizeStatAndStringify| |n|))
-                            (SETQ |str|
-                                    (|makeStatString| |str| |timestr| |ab|
-                                     |flag|)))))))))
+                    (SETQ |str| (|makeStatString| |str| |n| |ab| |flag|))))))
             (SETQ |bfVar#4| (CDR |bfVar#4|))))
          |listofclasses| NIL)))
       (SETQ |total|
@@ -130,8 +105,7 @@
 
 ; normalizeStatAndStringify t ==
 ;   FLOATP t =>
-;       t := roundStat t
-;       t = 0.0 => '"0"
+;       t < 0.01 => '"0"
 ;       FORMAT(nil,'"~,2F",t)
 ;   INTEGERP t => FORMAT(nil, '"~:d", t)
 ;   STRINGIMAGE t
@@ -140,38 +114,28 @@
   (PROG ()
     (RETURN
      (COND
-      ((FLOATP |t|)
-       (PROGN
-        (SETQ |t| (|roundStat| |t|))
-        (COND ((EQUAL |t| 0.0) "0") (#1='T (FORMAT NIL "~,2F" |t|)))))
+      ((FLOATP |t|) (COND ((< |t| 0.01) "0") (#1='T (FORMAT NIL "~,2F" |t|))))
       ((INTEGERP |t|) (FORMAT NIL "~:d" |t|)) (#1# (STRINGIMAGE |t|))))))
 
-; roundStat t ==
-;   not FLOATP t => t
-;   (TRUNCATE (0.5 + t * 1000.0)) / 1000.0
-
-(DEFUN |roundStat| (|t|)
-  (PROG ()
-    (RETURN
-     (COND ((NULL (FLOATP |t|)) |t|)
-           ('T (/ (TRUNCATE (+ 0.5 (* |t| 1000.0))) 1000.0))))))
-
 ; makeStatString(oldstr,time,abb,flag) ==
-;   time = '"" => oldstr
+;   time < 0.01 => oldstr
 ;   opening := (flag = 'long => '"("; '" (")
-;   oldstr = '"" => STRCONC(time,opening,abb,'")")
-;   STRCONC(oldstr,'" + ",time,opening,abb,'")")
+;   timestr := normalizeStatAndStringify time
+;   oldstr = '"" => STRCONC(timestr, opening, abb, '")")
+;   STRCONC(oldstr, '" + ", timestr, opening, abb, '")")
 
 (DEFUN |makeStatString| (|oldstr| |time| |abb| |flag|)
-  (PROG (|opening|)
+  (PROG (|opening| |timestr|)
     (RETURN
-     (COND ((EQUAL |time| "") |oldstr|)
+     (COND ((< |time| 0.01) |oldstr|)
            (#1='T
             (PROGN
              (SETQ |opening| (COND ((EQ |flag| '|long|) "(") (#1# " (")))
-             (COND ((EQUAL |oldstr| "") (STRCONC |time| |opening| |abb| ")"))
-                   (#1#
-                    (STRCONC |oldstr| " + " |time| |opening| |abb| ")")))))))))
+             (SETQ |timestr| (|normalizeStatAndStringify| |time|))
+             (COND
+              ((EQUAL |oldstr| "") (STRCONC |timestr| |opening| |abb| ")"))
+              (#1#
+               (STRCONC |oldstr| " + " |timestr| |opening| |abb| ")")))))))))
 
 ; peekTimedName() == IFCAR $timedNameStack
 
