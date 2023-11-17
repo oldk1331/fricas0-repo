@@ -300,7 +300,8 @@
 
 ; init_output_properties()
 
-(EVAL-WHEN (EVAL LOAD) (PROG () (RETURN (|init_output_properties|))))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (|init_output_properties|))))
 
 ; DEFPARAMETER($plainRTspecialCharacters, [
 ;     '_+,      -- upper left corner   (+)
@@ -331,15 +332,17 @@
 
 ; DEFCONST(MATBORCH, '"*")
 
-(EVAL-WHEN (EVAL LOAD) (PROG () (RETURN (DEFCONST MATBORCH "*"))))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (PROG () (RETURN (DEFCONST MATBORCH "*"))))
 
 ; DEFCONST($EmptyString, '"")
 
-(EVAL-WHEN (EVAL LOAD) (PROG () (RETURN (DEFCONST |$EmptyString| ""))))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (DEFCONST |$EmptyString| ""))))
 
 ; DEFCONST($DoubleQuote, '"_"")
 
-(EVAL-WHEN (EVAL LOAD) (PROG () (RETURN (DEFCONST |$DoubleQuote| "\""))))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (DEFCONST |$DoubleQuote| "\""))))
 
 ; DEFVAR($algebraFormat, true) -- produce 2-d algebra output
 
@@ -437,7 +440,7 @@
 
 ; $collectOutput := nil
 
-(EVAL-WHEN (EVAL LOAD) (SETQ |$collectOutput| NIL))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$collectOutput| NIL))
 
 ; get_lisp_stream(fs) == REST(fs)
 

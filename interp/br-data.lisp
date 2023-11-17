@@ -2299,7 +2299,7 @@
 
 ; $defaultPackageNamesHT := buildDefaultPackageNamesHT()
 
-(EVAL-WHEN (EVAL LOAD)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (SETQ |$defaultPackageNamesHT| (|buildDefaultPackageNamesHT|)))
 
 ; extendLocalLibdb conlist ==   --  called by astran

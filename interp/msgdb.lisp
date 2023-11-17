@@ -576,7 +576,7 @@
 
 ; $msgdbPunct := '(_[ _(  "[" "(" )
 
-(EVAL-WHEN (EVAL LOAD) (SETQ |$msgdbPunct| '([ |(| "[" "(")))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$msgdbPunct| '([ |(| "[" "(")))
 
 ; DEFPARAMETER($msgdbNoBlanksAfterGroup, ['" ", " ",'"%" ,"%",_
 ;                           :$msgdbPrims,:$msgdbPunct])
@@ -2332,7 +2332,7 @@
 ; $htSpecialChars := ['"_#", '"[", '"]", '"%", '"{", '"}", '"_\",
 ;                     '"$", '"&", '"^", '"__", '"_~"]
 
-(EVAL-WHEN (EVAL LOAD)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (SETQ |$htSpecialChars|
           (LIST "#" "[" "]" "%" "{" "}" "\\" "$" "&" "^" "_" "~")))
 
@@ -2344,7 +2344,7 @@
 ;   ("\/" . "\\/" )
 ;   ("/\" . "/\\" ) )
 
-(EVAL-WHEN (EVAL LOAD)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (SETQ |$htCharAlist|
           '(("$" . "\\%") ("[]" . "\\[\\]") ("{}" . "\\{\\}")
             ("\\\\" . "\\\\\\\\") ("\\/" . "\\\\/") ("/\\" . "/\\\\"))))

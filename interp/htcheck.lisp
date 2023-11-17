@@ -50,7 +50,7 @@
 ;   ("\vspace" .      1)
 ;   ("\windowlink"         . 2))
 
-(EVAL-WHEN (EVAL LOAD)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (SETQ |$primitiveHtCommands|
           '(("\\ContinueButton" . 1) ("\\andexample" . 1) ("\\autobutt" . 0)
             ("\\autobuttons" . 0) ("\\begin" . 1) ("\\beginscroll" . 0)
@@ -234,4 +234,4 @@
 
 ; buildHtMacroTable()
 
-(EVAL-WHEN (EVAL LOAD) (PROG () (RETURN (|buildHtMacroTable|))))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (PROG () (RETURN (|buildHtMacroTable|))))

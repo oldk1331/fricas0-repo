@@ -147,7 +147,8 @@
 
 ; init_parser_properties()
 
-(EVAL-WHEN (EVAL LOAD) (PROG () (RETURN (|init_parser_properties|))))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (|init_parser_properties|))))
 
 ; MUST(x) ==
 ;     x => true

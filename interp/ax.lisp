@@ -5,31 +5,31 @@
 
 ; $stripTypes := false
 
-(EVAL-WHEN (EVAL LOAD) (SETQ |$stripTypes| NIL))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$stripTypes| NIL))
 
 ; $pretendFlag := false
 
-(EVAL-WHEN (EVAL LOAD) (SETQ |$pretendFlag| NIL))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$pretendFlag| NIL))
 
 ; $modemapArgs := nil
 
-(EVAL-WHEN (EVAL LOAD) (SETQ |$modemapArgs| NIL))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$modemapArgs| NIL))
 
 ; $augmentedArgs := nil
 
-(EVAL-WHEN (EVAL LOAD) (SETQ |$augmentedArgs| NIL))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$augmentedArgs| NIL))
 
 ; $defaultFlag := false
 
-(EVAL-WHEN (EVAL LOAD) (SETQ |$defaultFlag| NIL))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$defaultFlag| NIL))
 
 ; $baseForms := nil
 
-(EVAL-WHEN (EVAL LOAD) (SETQ |$baseForms| NIL))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$baseForms| NIL))
 
 ; $literals  := nil
 
-(EVAL-WHEN (EVAL LOAD) (SETQ |$literals| NIL))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$literals| NIL))
 
 ; spad2AxTranslatorAutoloadOnceTrigger any == true
 
@@ -37,7 +37,7 @@
 
 ; $foreignTag := 'Foreign
 
-(EVAL-WHEN (EVAL LOAD) (SETQ |$foreignTag| '|Foreign|))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$foreignTag| '|Foreign|))
 
 ; setForeignStyle(tag) ==
 ;     $foreignTag := tag
@@ -46,7 +46,7 @@
 
 ; $conditionalCast := true
 
-(EVAL-WHEN (EVAL LOAD) (SETQ |$conditionalCast| T))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$conditionalCast| T))
 
 ; setConditionalCast(flg) ==
 ;     $conditionalCast := flg
@@ -56,7 +56,7 @@
 
 ; $extendedDomains := nil
 
-(EVAL-WHEN (EVAL LOAD) (SETQ |$extendedDomains| NIL))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$extendedDomains| NIL))
 
 ; setExtendedDomains(l) ==
 ;         $extendedDomains := l

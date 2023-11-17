@@ -2204,7 +2204,7 @@
 
 ; $dbDelimiters := [char " " , char "(", char ")"]
 
-(EVAL-WHEN (EVAL LOAD)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (SETQ |$dbDelimiters| (LIST (|char| '| |) (|char| '|(|) (|char| '|)|))))
 
 ; dbWordFrom(l,i) ==

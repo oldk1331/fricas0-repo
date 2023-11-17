@@ -3021,25 +3021,25 @@
 
 ; X := '"{\sf Record(a:A,b:B)} is used to create the class of pairs of objects made up of a value of type {\em A} selected by the symbol {\em a} and a value of type {\em B} selected by the symbol {\em b}. "
 
-(EVAL-WHEN (EVAL LOAD)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (SETQ X
           "{\\sf Record(a:A,b:B)} is used to create the class of pairs of objects made up of a value of type {\\em A} selected by the symbol {\\em a} and a value of type {\\em B} selected by the symbol {\\em b}. "))
 
 ; Y := '"In general, the {\sf Record} constructor can take any number of arguments and thus can be used to create aggregates of heterogeneous components of arbitrary size selectable by name. "
 
-(EVAL-WHEN (EVAL LOAD)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (SETQ Y
           "In general, the {\\sf Record} constructor can take any number of arguments and thus can be used to create aggregates of heterogeneous components of arbitrary size selectable by name. "))
 
 ; Z := '"{\sf Record} is a primitive domain of \Language{} which cannot be defined in the \Language{} language."
 
-(EVAL-WHEN (EVAL LOAD)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (SETQ Z
           "{\\sf Record} is a primitive domain of \\Language{} which cannot be defined in the \\Language{} language."))
 
 ; MESSAGE := STRCONC(X,Y,Z)
 
-(EVAL-WHEN (EVAL LOAD) (SETQ MESSAGE (STRCONC X Y Z)))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ MESSAGE (STRCONC X Y Z)))
 
 ; PUT('Record,'documentation,SUBST(MESSAGE,'MESSAGE,'(
 ;   (constructor (NIL MESSAGE))
@@ -3061,7 +3061,7 @@
 ;    "\spad{r . b := y} destructively replaces the value stored in record \spad{r} under selector \spad{b} by the value of \spad{y}. Error: if \spad{r} has not been previously assigned a value."))
 ;    )))
 
-(EVAL-WHEN (EVAL LOAD)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (PROG ()
     (RETURN
      (PUT '|Record| '|documentation|
@@ -3091,19 +3091,19 @@
 
 ; X := '"{\sf Union(A,B)} denotes the class of objects which are which are either members of domain {\em A} or of domain {\em B}. The {\sf Union} constructor can take any number of arguments. "
 
-(EVAL-WHEN (EVAL LOAD)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (SETQ X
           "{\\sf Union(A,B)} denotes the class of objects which are which are either members of domain {\\em A} or of domain {\\em B}. The {\\sf Union} constructor can take any number of arguments. "))
 
 ; Y := '"For an alternate form of {\sf Union} with _"tags_", see \downlink{Union(a:A,b:B)}{DomainUnion}. {\sf Union} is a primitive domain of \Language{} which cannot be defined in the \Language{} language."
 
-(EVAL-WHEN (EVAL LOAD)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (SETQ Y
           "For an alternate form of {\\sf Union} with \"tags\", see \\downlink{Union(a:A,b:B)}{DomainUnion}. {\\sf Union} is a primitive domain of \\Language{} which cannot be defined in the \\Language{} language."))
 
 ; MESSAGE := STRCONC(X,Y)
 
-(EVAL-WHEN (EVAL LOAD) (SETQ MESSAGE (STRCONC X Y)))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ MESSAGE (STRCONC X Y)))
 
 ; PUT('UntaggedUnion,'documentation,SUBST(MESSAGE,'MESSAGE,'(
 ;   (constructor (NIL MESSAGE))
@@ -3123,7 +3123,7 @@
 ;     "\spad{coerce(y)}, where \spad{y} has type \spad{B}, returns \spad{y} as a union type."))
 ;   )))
 
-(EVAL-WHEN (EVAL LOAD)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (PROG ()
     (RETURN
      (PUT '|UntaggedUnion| '|documentation|
@@ -3149,37 +3149,37 @@
 
 ; X := '"{\sf Union(a:A,b:B)} denotes the class of objects which are either members of domain {\em A} or of domain {\em B}. "
 
-(EVAL-WHEN (EVAL LOAD)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (SETQ X
           "{\\sf Union(a:A,b:B)} denotes the class of objects which are either members of domain {\\em A} or of domain {\\em B}. "))
 
 ; Y := '"The symbols {\em a} and {\em b} are called _"tags_" and are used to identify the two _"branches_" of the union. "
 
-(EVAL-WHEN (EVAL LOAD)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (SETQ Y
           "The symbols {\\em a} and {\\em b} are called \"tags\" and are used to identify the two \"branches\" of the union. "))
 
 ; Z := '"The {\sf Union} constructor can take any number of arguments and has an alternate form without {\em tags} (see \downlink{Union(A,B)}{UntaggedUnion}). "
 
-(EVAL-WHEN (EVAL LOAD)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (SETQ Z
           "The {\\sf Union} constructor can take any number of arguments and has an alternate form without {\\em tags} (see \\downlink{Union(A,B)}{UntaggedUnion}). "))
 
 ; W := '"This tagged {\sf Union} type is necessary, for example, to disambiguate two branches of a union where {\em A} and {\em B} denote the same type. "
 
-(EVAL-WHEN (EVAL LOAD)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (SETQ W
           "This tagged {\\sf Union} type is necessary, for example, to disambiguate two branches of a union where {\\em A} and {\\em B} denote the same type. "))
 
 ; A := '"{\sf Union} is a primitive domain of \Language{} which cannot be defined in the \Language{} language."
 
-(EVAL-WHEN (EVAL LOAD)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (SETQ A
           "{\\sf Union} is a primitive domain of \\Language{} which cannot be defined in the \\Language{} language."))
 
 ; MESSAGE := STRCONC(X,Y,Z,W,A)
 
-(EVAL-WHEN (EVAL LOAD) (SETQ MESSAGE (STRCONC X Y Z W A)))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ MESSAGE (STRCONC X Y Z W A)))
 
 ; PUT('Union,'documentation,SUBST(MESSAGE,'MESSAGE,'(
 ;   (constructor (NIL MESSAGE))
@@ -3199,7 +3199,7 @@
 ;     "\spad{coerce(y)}, where \spad{y} has type \spad{B}, returns \spad{y} as a union type."))
 ;   )))
 
-(EVAL-WHEN (EVAL LOAD)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (PROG ()
     (RETURN
      (PUT '|Union| '|documentation|
@@ -3225,25 +3225,25 @@
 
 ; X := '"{\sf Mapping(T,S,...)} denotes the class of objects which are mappings from a source domain ({\em S,...}) into a target domain {\em T}. The {\sf Mapping} constructor can take any number of arguments."
 
-(EVAL-WHEN (EVAL LOAD)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (SETQ X
           "{\\sf Mapping(T,S,...)} denotes the class of objects which are mappings from a source domain ({\\em S,...}) into a target domain {\\em T}. The {\\sf Mapping} constructor can take any number of arguments."))
 
 ; Y := '" All but the first argument is regarded as part of a source tuple for the mapping. For example, {\sf Mapping(T,A,B)} denotes the class of mappings from {\em (A,B)} into {\em T}. "
 
-(EVAL-WHEN (EVAL LOAD)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (SETQ Y
           " All but the first argument is regarded as part of a source tuple for the mapping. For example, {\\sf Mapping(T,A,B)} denotes the class of mappings from {\\em (A,B)} into {\\em T}. "))
 
 ; Z := '"{\sf Mapping} is a primitive domain of \Language{} which cannot be defined in the \Language{} language."
 
-(EVAL-WHEN (EVAL LOAD)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (SETQ Z
           "{\\sf Mapping} is a primitive domain of \\Language{} which cannot be defined in the \\Language{} language."))
 
 ; MESSAGE := STRCONC(X,Y,Z)
 
-(EVAL-WHEN (EVAL LOAD) (SETQ MESSAGE (STRCONC X Y Z)))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ MESSAGE (STRCONC X Y Z)))
 
 ; PUT('Mapping,'documentation, SUBST(MESSAGE,'MESSAGE,'(
 ;   (constructor (NIL MESSAGE))
@@ -3251,7 +3251,7 @@
 ;     "\spad{u = v} tests if mapping objects are equal."))
 ;    )))
 
-(EVAL-WHEN (EVAL LOAD)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (PROG ()
     (RETURN
      (PUT '|Mapping| '|documentation|
@@ -3263,19 +3263,19 @@
 
 ; X := '"{\em Enumeration(a1, a2 ,..., aN)} creates an object which is exactly one of the N symbols {\em a1}, {\em a2}, ..., or {\em aN}, N > 0. "
 
-(EVAL-WHEN (EVAL LOAD)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (SETQ X
           "{\\em Enumeration(a1, a2 ,..., aN)} creates an object which is exactly one of the N symbols {\\em a1}, {\\em a2}, ..., or {\\em aN}, N > 0. "))
 
 ; Y := '" The {\em Enumeration} can constructor can take any number of symbols as arguments."
 
-(EVAL-WHEN (EVAL LOAD)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (SETQ Y
           " The {\\em Enumeration} can constructor can take any number of symbols as arguments."))
 
 ; MESSAGE := STRCONC(X, Y)
 
-(EVAL-WHEN (EVAL LOAD) (SETQ MESSAGE (STRCONC X Y)))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ MESSAGE (STRCONC X Y)))
 
 ; PUT('Enumeration, 'documentation, SUBST(MESSAGE, 'MESSAGE, '(
 ;   (constructor (NIL MESSAGE))
@@ -3289,7 +3289,7 @@
 ;      "\spad{coerce(s)} converts a symbol \spad{s} into an enumeration which has \spad{s} as a member symbol"))
 ;   )))
 
-(EVAL-WHEN (EVAL LOAD)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (PROG ()
     (RETURN
      (PUT '|Enumeration| '|documentation|

@@ -817,5 +817,5 @@
 
 ; initializeSetVariables $setOptions
 
-(EVAL-WHEN (EVAL LOAD)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (PROG () (RETURN (|initializeSetVariables| |$setOptions|))))

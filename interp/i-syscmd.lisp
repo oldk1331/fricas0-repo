@@ -2724,11 +2724,11 @@
 
 ; $frameRecord  := nil  --Initial setting for frame record
 
-(EVAL-WHEN (EVAL LOAD) (SETQ |$frameRecord| NIL))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$frameRecord| NIL))
 
 ; $previousBindings := nil
 
-(EVAL-WHEN (EVAL LOAD) (SETQ |$previousBindings| NIL))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$previousBindings| NIL))
 
 ; frame l == frameSpad2Cmd l
 
@@ -4646,7 +4646,7 @@
 
 ; $eof_marker := GENSYM()
 
-(EVAL-WHEN (EVAL LOAD) (SETQ |$eof_marker| (GENSYM)))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$eof_marker| (GENSYM)))
 
 ; eof_marker?(x) == EQ(x, $eof_marker)
 
@@ -5043,7 +5043,7 @@
 ;      ["U32",  ['UNSIGNED_-BYTE, 32]],
 ;       ["DF",  'DOUBLE_-FLOAT]]
 
-(EVAL-WHEN (EVAL LOAD)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (SETQ |$type_tags|
           (LIST (LIST 'U8 (LIST 'UNSIGNED-BYTE 8))
                 (LIST 'U16 (LIST 'UNSIGNED-BYTE 16))
@@ -6549,7 +6549,7 @@
 
 ; $undoFlag := true     --Default setting for undo is "on"
 
-(EVAL-WHEN (EVAL LOAD) (SETQ |$undoFlag| T))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$undoFlag| T))
 
 ; undo(l) ==
 ; --undo takes one option ")redo" which simply reads "redo.input",

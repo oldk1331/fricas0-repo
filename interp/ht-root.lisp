@@ -5,11 +5,11 @@
 
 ; $historyDisplayWidth := 120
 
-(EVAL-WHEN (EVAL LOAD) (SETQ |$historyDisplayWidth| 120))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$historyDisplayWidth| 120))
 
 ; $newline := char 10
 
-(EVAL-WHEN (EVAL LOAD) (SETQ |$newline| (|char| 10)))
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$newline| (|char| 10)))
 
 ; downlink page ==
 ;   htInitPage('"Bridge",nil)
