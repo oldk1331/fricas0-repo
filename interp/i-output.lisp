@@ -6348,7 +6348,6 @@
 
 ; maPrin u ==
 ;   null u => nil
-;   $highlightDelta := 0
 ;   c := CATCH('outputFailure,charybdis(u, $MARGIN, $LINELENGTH))
 ;   c ~= 'outputFailure => c
 ;   sayKeyedMsg("S2IX0009",NIL)
@@ -6367,7 +6366,6 @@
      (COND ((NULL |u|) NIL)
            (#1='T
             (PROGN
-             (SETQ |$highlightDelta| 0)
              (SETQ |c|
                      (CATCH '|outputFailure|
                        (|charybdis| |u| $MARGIN $LINELENGTH)))

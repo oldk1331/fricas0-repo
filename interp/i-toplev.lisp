@@ -481,13 +481,9 @@
             ('T (CONCAT (|fillerSpaces| (- $LINELENGTH |len|) " ") |t|)))))))
 
 ; typeTimePrin x ==
-;   $highlightDelta: local:= 0
 ;   maprinSpecial(x,0,79)
 
-(DEFUN |typeTimePrin| (|x|)
-  (PROG (|$highlightDelta|)
-    (DECLARE (SPECIAL |$highlightDelta|))
-    (RETURN (PROGN (SETQ |$highlightDelta| 0) (|maprinSpecial| |x| 0 79)))))
+(DEFUN |typeTimePrin| (|x|) (PROG () (RETURN (|maprinSpecial| |x| 0 79))))
 
 ; printStorage() ==
 ;   $collectOutput => nil
