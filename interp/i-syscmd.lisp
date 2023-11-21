@@ -1641,17 +1641,16 @@
     (RETURN (PROGN (SETQ |$options| NIL) (LOCALDATABASE |args| |$options|)))))
 
 ; summary l ==
-;  OBEY STRCONC ('"cat ",getEnv('"FRICAS"),'"/lib/summary")
+;  OBEY STRCONC ('"cat ", $spadroot, '"/lib/summary")
 
 (DEFUN |summary| (|l|)
-  (PROG () (RETURN (OBEY (STRCONC "cat " (|getEnv| "FRICAS") "/lib/summary")))))
+  (PROG () (RETURN (OBEY (STRCONC "cat " |$spadroot| "/lib/summary")))))
 
 ; copyright () ==
-;  OBEY STRCONC ('"cat ",getEnv('"FRICAS"),'"/lib/copyright")
+;  OBEY STRCONC ('"cat ", $spadroot, '"/lib/copyright")
 
 (DEFUN |copyright| ()
-  (PROG ()
-    (RETURN (OBEY (STRCONC "cat " (|getEnv| "FRICAS") "/lib/copyright")))))
+  (PROG () (RETURN (OBEY (STRCONC "cat " |$spadroot| "/lib/copyright")))))
 
 ; credits() ==
 ;  for i in CREDITS repeat
