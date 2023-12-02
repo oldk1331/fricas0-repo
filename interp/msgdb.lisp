@@ -3,10 +3,6 @@
 
 (IN-PACKAGE "BOOT")
 
-; DEFPARAMETER($cacheMessages, 'T)  -- for debugging purposes
-
-(DEFPARAMETER |$cacheMessages| 'T)
-
 ; DEFPARAMETER($testingErrorPrefix, '"Daly Bug")
 
 (DEFPARAMETER |$testingErrorPrefix| "Daly Bug")

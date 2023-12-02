@@ -7,14 +7,6 @@
 
 (DEFPARAMETER |$ParseMode| NIL)
 
-; DEFPARAMETER($LABLASOC, NIL)
-
-(DEFPARAMETER $LABLASOC NIL)
-
-; DEFVAR($NONBLANK, nil)
-
-(DEFVAR $NONBLANK NIL)
-
 ; MAKEOP(X, Y) ==
 ;     if OR(NOT (CDR X), NUMBERP (SECOND X)) then
 ;         X := CONS(first X, X)

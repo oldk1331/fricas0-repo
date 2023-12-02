@@ -1207,10 +1207,6 @@
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$checkingXmptex?| NIL))
 
-; $exposeDocHeading:= nil         --see htcheck.boot
-
-(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$exposeDocHeading| NIL))
-
 ; $charPlus := char '_+
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$charPlus| (|char| '+)))
@@ -1234,10 +1230,6 @@
 ; $charDash := char '_-
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$charDash| (|char| '-)))
-
-; $charTab            := CODE_-CHAR(9)
-
-(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$charTab| (CODE-CHAR 9)))
 
 ; $charNewline        := CODE_-CHAR(10)
 

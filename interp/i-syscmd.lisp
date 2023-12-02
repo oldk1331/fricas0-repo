@@ -60,10 +60,6 @@
   '(|abbreviations| |all| |macros| |modes| |names| |operations| |properties|
     |types| |values|))
 
-; DEFPARAMETER($countAssoc, '( (cache countCache) ))
-
-(DEFPARAMETER |$countAssoc| '((|cache| |countCache|)))
-
 ; initializeSystemCommands() ==
 ;   l := $systemCommands
 ;   $SYSCOMMANDS := NIL

@@ -593,7 +593,7 @@
 ;       "prettyprint BOOT func's as they compile"
 ;       development
 ;       LITERALS
-;       $PRETTYPRINT
+;       $PrettyPrint
 ;       (on off)
 ;       off)
 ;    ))
@@ -799,7 +799,7 @@
       (|optimization| "show optimized LISP code" |development| LITERALS
        |$reportOptimization| (|on| |off|) |off|)
       (|prettyprint| "prettyprint BOOT func's as they compile" |development|
-       LITERALS $PRETTYPRINT (|on| |off|) |off|)))
+       LITERALS |$PrettyPrint| (|on| |off|) |off|)))
     (|userlevel| "operation access level of system user" |interpreter| LITERALS
      |$UserLevel| (|interpreter| |compiler| |development|) |development|)))
 

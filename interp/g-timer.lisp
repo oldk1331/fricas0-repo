@@ -195,10 +195,6 @@
 
 (DEFPARAMETER |$oldElapsedTime| 0.0)
 
-; DEFPARAMETER($gcTimeTotal, 0.0)
-
-(DEFPARAMETER |$gcTimeTotal| 0.0)
-
 ; DEFPARAMETER($timedNameStack, '(other))
 
 (DEFPARAMETER |$timedNameStack| '(|other|))

@@ -7,10 +7,6 @@
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$historyDisplayWidth| 120))
 
-; $newline := char 10
-
-(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$newline| (|char| 10)))
-
 ; downlink page ==
 ;   htInitPage('"Bridge",nil)
 ;   htSayList(['"\replacepage{", page, '"}"])

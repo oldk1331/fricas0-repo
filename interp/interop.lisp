@@ -666,10 +666,6 @@
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$hashSeg| (|hashString| "..")))
 
-; $hashPercent := hashString '"%"
-
-(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$hashPercent| (|hashString| "%")))
-
 ; oldAxiomDomainLookupExport _
 ;   (domenv, self, op, sig, box, skipdefaults, env) ==
 ;      domainVec := rest domenv
