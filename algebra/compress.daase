@@ -168,36 +168,36 @@
  |GroupPresentationFunctions1| |GeneralUnivariatePowerSeries|
  |GeneralSparseTable| |GeneralTriangularSet| |Guess| |GuessAlgebraicNumber|
  |GuessExpBin| |GuessFinite| |GuessFiniteFunctions| |GuessInteger|
- |GuessPolynomial| |GuessPolynomialFunctions| |GuessPolynomialInteger| |Pi|
- |HankelPackage| |Hashable&| |Hashable| |HashState| |HashTable| |HallBasis|
- |HomogeneousDistributedMultivariatePolynomial| |HomogeneousDirectProduct|
- |Heap| |HyperellipticFiniteDivisor| |HeuGcd| |HexadecimalExpansion|
- |HomogeneousAggregate&| |HomogeneousAggregate| |Homology| |HopfAlgebra|
- |HTMLFormat| |HyperbolicFunctionCategory&| |HyperbolicFunctionCategory|
- |I16Matrix| |I16Vector| |I32Matrix| |I32Vector| |I8Matrix| |I8Vector|
- |InnerAlgFactor| |IndexedOneDimensionalArray| |IndexedTwoDimensionalArray|
- |ChineseRemainderToolsForIntegralBases| |IntegralBasisTools| |IndexedBits|
- |IntegralBasisPolynomialTools| |IndexCard| |InnerCommonDenominator|
- |PolynomialIdeal| |IdealDecompositionPackage| |IndexedDirectProductCategory|
- |IndexedDirectProductObject| |InnerEigenPackage| |InnerEvalable&|
- |InnerEvalable| |IndexedFlexibleArray| |InnerFiniteField|
- |InnerIndexedTwoDimensionalArray| |IndexedJetBundle| |IndexedList| |ILogic|
- |InnerMatrixLinearAlgebraFunctions| |InnerMatrixQuotientFieldFunctions|
- |IndexedMatrix| |InnerModularHermitePade| |InnerNormalBasisFieldFunctions|
- |IncidenceAlgebra| |IncrementingMaps| |IndexedExponents|
- |InnerNumericEigenPackage| |InfiniteCyclicGroup| |Infinity| |InputForm|
- |InputFormFunctions1| |InfiniteLambertProduct| |InnerNumericFloatSolvePackage|
- |InnerModularGcd| |InnerMultFact| |InnerPolySign| |IntegerNumberSystem&|
- |IntegerNumberSystem| |Integer| |InnerTable| |AlgebraicIntegration|
- |AlgebraicIntegrate| |AlgebraicIntegrate2| |IntegerBits| |IntervalCategory|
- |DenominatorIntegration| |IntegralDomain| |IntegrateSolutions|
- |ElementaryIntegration| |IntegerFactorizationPackage| |GenusZeroIntegration|
- |GenerateEllipticIntegrals| |IntegerNumberTheoryFunctions|
- |AlgebraicHermiteIntegration| |TranscendentalHermiteIntegration|
- |IntegerLocalizedAtPrime| |PureAlgebraicIntegration|
- |ParametricTranscendentalIntegration| |ParametricIntegration|
- |PatternMatchIntegration| |RationalIntegration| |IntegerRetractions|
- |RationalFunctionIntegration| |Interval|
+ |GuessPolynomial| |GuessPolynomialFunctions| |GuessPolynomialInteger|
+ |PiDomain| |HankelPackage| |Hashable&| |Hashable| |HashState| |HashTable|
+ |HallBasis| |HomogeneousDistributedMultivariatePolynomial|
+ |HomogeneousDirectProduct| |Heap| |HyperellipticFiniteDivisor| |HeuGcd|
+ |HexadecimalExpansion| |HomogeneousAggregate&| |HomogeneousAggregate|
+ |Homology| |HopfAlgebra| |HTMLFormat| |HyperbolicFunctionCategory&|
+ |HyperbolicFunctionCategory| |I16Matrix| |I16Vector| |I32Matrix| |I32Vector|
+ |I8Matrix| |I8Vector| |InnerAlgFactor| |IndexedOneDimensionalArray|
+ |IndexedTwoDimensionalArray| |ChineseRemainderToolsForIntegralBases|
+ |IntegralBasisTools| |IndexedBits| |IntegralBasisPolynomialTools| |IndexCard|
+ |InnerCommonDenominator| |PolynomialIdeal| |IdealDecompositionPackage|
+ |IndexedDirectProductCategory| |IndexedDirectProductObject|
+ |InnerEigenPackage| |InnerEvalable&| |InnerEvalable| |IndexedFlexibleArray|
+ |InnerFiniteField| |InnerIndexedTwoDimensionalArray| |IndexedJetBundle|
+ |IndexedList| |ILogic| |InnerMatrixLinearAlgebraFunctions|
+ |InnerMatrixQuotientFieldFunctions| |IndexedMatrix| |InnerModularHermitePade|
+ |InnerNormalBasisFieldFunctions| |IncidenceAlgebra| |IncrementingMaps|
+ |IndexedExponents| |InnerNumericEigenPackage| |InfiniteCyclicGroup| |Infinity|
+ |InputForm| |InputFormFunctions1| |InfiniteLambertProduct|
+ |InnerNumericFloatSolvePackage| |InnerModularGcd| |InnerMultFact|
+ |InnerPolySign| |IntegerNumberSystem&| |IntegerNumberSystem| |Integer|
+ |InnerTable| |AlgebraicIntegration| |AlgebraicIntegrate| |AlgebraicIntegrate2|
+ |IntegerBits| |IntervalCategory| |DenominatorIntegration| |IntegralDomain|
+ |IntegrateSolutions| |ElementaryIntegration| |IntegerFactorizationPackage|
+ |GenusZeroIntegration| |GenerateEllipticIntegrals|
+ |IntegerNumberTheoryFunctions| |AlgebraicHermiteIntegration|
+ |TranscendentalHermiteIntegration| |IntegerLocalizedAtPrime|
+ |PureAlgebraicIntegration| |ParametricTranscendentalIntegration|
+ |ParametricIntegration| |PatternMatchIntegration| |RationalIntegration|
+ |IntegerRetractions| |RationalFunctionIntegration| |Interval|
  |IntegerSolveLinearPolynomialEquation| |IntegrationTools|
  |TranscendentalIntegration| |InverseLaplaceTransform| |InnerPAdicInteger|
  |IndexedProductCategory| |InnerPrimeField| |InternalPrintPackage|
