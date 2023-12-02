@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5301 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5300 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -593,10 +593,10 @@
  |enableAlternativeOutput| |toggleDebugOutput| |disableDebugOutput|
  |enableDebugOutput| |lSpaceBasis| |finiteBasis| |principal?| |divisor|
  |weierstrassHalfPeriods| |weierstrassInvariants| |modularInvariantJ| |landen1|
- |landen2| |landen| |kprod| |sn2| |useNagFunctions| |rationalPoints|
- |nonSingularModel| |algSplitSimple| |hyperelliptic| |elliptic|
- |integralDerivationMatrix| |integralRepresents| |integralCoordinates|
- |yCoordinates| |inverseIntegralMatrixAtInfinity| |integralMatrixAtInfinity|
+ |landen2| |landen| |kprod| |sn2| |rationalPoints| |nonSingularModel|
+ |algSplitSimple| |hyperelliptic| |elliptic| |integralDerivationMatrix|
+ |integralRepresents| |integralCoordinates| |yCoordinates|
+ |inverseIntegralMatrixAtInfinity| |integralMatrixAtInfinity|
  |inverseIntegralMatrix| |integralMatrix| |reduceBasisAtInfinity|
  |normalizeAtInfinity| |complementaryBasis| |integral?| |special_order|
  |integralAtInfinity?| |integralBasisAtInfinity| |ramified?|
