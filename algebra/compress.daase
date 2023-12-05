@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5300 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5299 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -1218,7 +1218,7 @@
  |monomial?| |monomial| |rquo| |lquo| |mindegTerm| |table| |writeXml|
  |writeVRML| |xmlAttribute| |xmlElement| |empty?| |outputVRML| |log| |exp|
  |product| |LiePolyIfCan| |homo_fact| |top_split| |left_ext_GCD| |ldivide|
- |lift1| |factor| |trunc| |degree| / |quasiRegular| |quasiRegular?| |constant|
+ |factor| |trunc| |degree| / |quasiRegular| |quasiRegular?| |constant|
  |constant?| |coef| |reductum| |mindeg| |maxdeg| |coerce| |#| |map| *
  |RemainderList| |unexpand| |expand| Y |triangSolve| |univariateSolve|
  |realSolve| |positiveSolve| |squareFree| |convert| |linearlyDependentOverZ?|
