@@ -15,7 +15,7 @@
 ;     PUT(cl, classproperty, n + GET(cl, classproperty))
 ;     total := total + n
 ;     name = 'other or flag ~= 'long => 'iterate
-;     if n >= 0.01 then
+;     if significantStat? n then
 ;         str := makeStatString(str, n, name, flag)
 ;     else
 ;         insignificantStat := insignificantStat + n
@@ -65,7 +65,7 @@
                     '|iterate|)
                    (#1#
                     (COND
-                     ((NOT (< |n| 0.01))
+                     ((|significantStat?| |n|)
                       (SETQ |str| (|makeStatString| |str| |n| |name| |flag|)))
                      (#1#
                       (SETQ |insignificantStat|
@@ -105,20 +105,27 @@
 
 ; normalizeStatAndStringify t ==
 ;   FLOATP t =>
-;       t < 0.01 => '"0"
-;       FORMAT(nil,'"~,2F",t)
+;       not significantStat? t => '"0"
+;       fmtStr := STRCONC('"~,", STRINGIMAGE $timePrintDigits, '"F")
+;       FORMAT(nil, fmtStr, t)
 ;   INTEGERP t => FORMAT(nil, '"~:d", t)
 ;   STRINGIMAGE t
 
 (DEFUN |normalizeStatAndStringify| (|t|)
-  (PROG ()
+  (PROG (|fmtStr|)
     (RETURN
      (COND
-      ((FLOATP |t|) (COND ((< |t| 0.01) "0") (#1='T (FORMAT NIL "~,2F" |t|))))
+      ((FLOATP |t|)
+       (COND ((NULL (|significantStat?| |t|)) "0")
+             (#1='T
+              (PROGN
+               (SETQ |fmtStr|
+                       (STRCONC "~," (STRINGIMAGE |$timePrintDigits|) "F"))
+               (FORMAT NIL |fmtStr| |t|)))))
       ((INTEGERP |t|) (FORMAT NIL "~:d" |t|)) (#1# (STRINGIMAGE |t|))))))
 
 ; makeStatString(oldstr,time,abb,flag) ==
-;   time < 0.01 => oldstr
+;   not significantStat? time => oldstr
 ;   opening := (flag = 'long => '"("; '" (")
 ;   timestr := normalizeStatAndStringify time
 ;   oldstr = '"" => STRCONC(timestr, opening, abb, '")")
@@ -127,7 +134,7 @@
 (DEFUN |makeStatString| (|oldstr| |time| |abb| |flag|)
   (PROG (|opening| |timestr|)
     (RETURN
-     (COND ((< |time| 0.01) |oldstr|)
+     (COND ((NULL (|significantStat?| |time|)) |oldstr|)
            (#1='T
             (PROGN
              (SETQ |opening| (COND ((EQ |flag| '|long|) "(") (#1# " (")))
@@ -136,6 +143,12 @@
               ((EQUAL |oldstr| "") (STRCONC |timestr| |opening| |abb| ")"))
               (#1#
                (STRCONC |oldstr| " + " |timestr| |opening| |abb| ")")))))))))
+
+; significantStat? t == INTEGERP t or t >= 0.1^$timePrintDigits
+
+(DEFUN |significantStat?| (|t|)
+  (PROG ()
+    (RETURN (OR (INTEGERP |t|) (NOT (< |t| (EXPT 0.1 |$timePrintDigits|)))))))
 
 ; peekTimedName() == IFCAR $timedNameStack
 
@@ -194,6 +207,10 @@
 ; DEFPARAMETER($oldElapsedTime, 0.0)
 
 (DEFPARAMETER |$oldElapsedTime| 0.0)
+
+; DEFPARAMETER($timePrintDigits, 2)
+
+(DEFPARAMETER |$timePrintDigits| 2)
 
 ; DEFPARAMETER($timedNameStack, '(other))
 
