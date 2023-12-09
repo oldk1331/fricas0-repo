@@ -144,11 +144,15 @@
               (#1#
                (STRCONC |oldstr| " + " |timestr| |opening| |abb| ")")))))))))
 
-; significantStat? t == INTEGERP t or t >= 0.1^$timePrintDigits
+; significantStat? s ==
+;   INTEGERP s => s ~= 0
+;   s >= 0.1^$timePrintDigits
 
-(DEFUN |significantStat?| (|t|)
+(DEFUN |significantStat?| (|s|)
   (PROG ()
-    (RETURN (OR (INTEGERP |t|) (NOT (< |t| (EXPT 0.1 |$timePrintDigits|)))))))
+    (RETURN
+     (COND ((INTEGERP |s|) (NOT (EQL |s| 0)))
+           ('T (NOT (< |s| (EXPT 0.1 |$timePrintDigits|))))))))
 
 ; peekTimedName() == IFCAR $timedNameStack
 
