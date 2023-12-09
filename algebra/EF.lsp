@@ -2338,10 +2338,10 @@
               '|opasec| '|opacsc| '|opsinh| '|opcosh| '|optanh| '|opcoth|
               '|opsech| '|opcsch| '|opasinh| '|opacosh| '|opatanh| '|opacoth|
               '|opasech| '|opacsch| (5 . |pi|) (9 . |coerce|) (14 . |pi|)
-              '|Pie| (|List| %) (18 . |kernel|) (24 . |imaginary|) '|isqrt1|
-              (28 . |One|) (32 . -) (37 . |sqrt|) (|Integer|) (42 . |coerce|)
-              (47 . |sqrt|) (52 . |iisqrt2|) (56 . |iisqrt3|) '|isqrt2|
-              '|isqrt3| (60 . |coerce|) (65 . |elt|) |EF;log;2F;12|
+              '|cachedPi| (|List| %) (18 . |kernel|) (24 . |imaginary|)
+              '|isqrt1| (28 . |One|) (32 . -) (37 . |sqrt|) (|Integer|)
+              (42 . |coerce|) (47 . |sqrt|) (52 . |iisqrt2|) (56 . |iisqrt3|)
+              '|isqrt2| '|isqrt3| (60 . |coerce|) (65 . |elt|) |EF;log;2F;12|
               |EF;exp;2F;13| |EF;sin;2F;14| |EF;cos;2F;15| |EF;tan;2F;16|
               |EF;cot;2F;17| |EF;sec;2F;18| |EF;csc;2F;19| |EF;asin;2F;20|
               |EF;acos;2F;21| |EF;atan;2F;22| |EF;acot;2F;23| |EF;asec;2F;24|

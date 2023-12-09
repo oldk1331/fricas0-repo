@@ -25859,7 +25859,7 @@ NIL
    "\\spad{shift_mat!(mat,{} sa,{} nr)} moves modular composition matrix stored in \\spad{nr} rows of \\spad{mat} starting at \\spad{sa} to first \\spad{nr} rows of \\spad{mat}. This is designed to work on output of split_mat!."))
  (|split_mat!|
   (((|Void|) |#2| (|Integer|) (|Integer|) (|Integer|) |#4| |#4|)
-   "\\spad{split_mat!(mat,{} nr0,{} nr1,{} nr2,{} pmod1,{} pmod2)} splits modular composition matrix \\spad{mat} into two matrices,{} first modulo \\spad{pmod1},{} second modulo \\spad{pmod2}. To save space first result replaces first \\spad{nr1} rows of \\spad{mat},{} second result is stored in next \\spad{nr1} rows of \\spad{mat}. \\spad{nr0} is number of rows used in argument."))
+   "\\spad{split_mat!(mat,{} nr0,{} nr1,{} nr2,{} pmod1,{} pmod2)} splits modular composition matrix \\spad{mat} into two matrices,{} first modulo \\spad{pmod1},{} second modulo \\spad{pmod2}. To save space first result replaces first \\spad{nr1} rows of \\spad{mat},{} second result is stored in next \\spad{nr2} rows of \\spad{mat}. \\spad{nr0} is number of rows used in argument."))
  (|trim_mat!|
   (((|Void|) |#2| (|Integer|) (|Integer|) |#4|)
    "\\spad{trim_mat!(mat,{} nr0,{} nc1,{} pmod)} reduces modular composition matrix \\spad{mat} modulo reduction data pmod. \\spad{nr0} is number of rows used in argument,{} \\spad{nr1} is number of rows used in the result. \\spad{mat} is is modified in place."))
