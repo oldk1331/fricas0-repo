@@ -1636,17 +1636,36 @@
     (DECLARE (SPECIAL |$options|))
     (RETURN (PROGN (SETQ |$options| NIL) (LOCALDATABASE |args| |$options|)))))
 
-; summary l ==
-;  OBEY STRCONC ('"cat ", $spadroot, '"/lib/summary")
+; print_text_stream stream ==
+;     if stream then
+;         while (str := read_line stream) repeat
+;             SAY str
+
+(DEFUN |print_text_stream| (|stream|)
+  (PROG (|str|)
+    (RETURN
+     (COND
+      (|stream|
+       ((LAMBDA ()
+          (LOOP
+           (COND ((NOT (SETQ |str| (|read_line| |stream|))) (RETURN NIL))
+                 ('T (SAY |str|)))))))))))
+
+; print_text_file filename ==
+;     handle_input_file(filename, function print_text_stream, [])
+
+(DEFUN |print_text_file| (|filename|)
+  (PROG () (RETURN (|handle_input_file| |filename| #'|print_text_stream| NIL))))
+
+; summary l == print_text_file STRCONC($spadroot, '"/lib/summary")
 
 (DEFUN |summary| (|l|)
-  (PROG () (RETURN (OBEY (STRCONC "cat " |$spadroot| "/lib/summary")))))
+  (PROG () (RETURN (|print_text_file| (STRCONC |$spadroot| "/lib/summary")))))
 
-; copyright () ==
-;  OBEY STRCONC ('"cat ", $spadroot, '"/lib/copyright")
+; copyright() == print_text_file STRCONC($spadroot, '"/lib/copyright")
 
 (DEFUN |copyright| ()
-  (PROG () (RETURN (OBEY (STRCONC "cat " |$spadroot| "/lib/copyright")))))
+  (PROG () (RETURN (|print_text_file| (STRCONC |$spadroot| "/lib/copyright")))))
 
 ; credits() ==
 ;  for i in CREDITS repeat
