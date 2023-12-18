@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5299 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5303 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -370,7 +370,7 @@
  |RectangularMatrixCategory&| |RectangularMatrixCategory| |RectangularMatrix|
  |RectangularMatrixCategoryFunctions2| |RightModule| |Rng&| |Rng|
  |RealNormalizationUtilities| |RealNumberSystem&| |RealNumberSystem|
- |RightOpenIntervalRootCharacterization| |RomanNumeral|
+ |RightOpenIntervalRootCharacterization| |RomanNumeral| |RootUtilities|
  |RecursivePolynomialCategory&| |RecursivePolynomialCategory|
  |RealRootCharacterizationCategory&| |RealRootCharacterizationCategory|
  |RegularSetDecompositionPackage| |RegularTriangularSetCategory&|
@@ -1000,12 +1000,13 @@
  |antisymmetric?| |symmetric?| |diagonal?| |square?| |matrix|
  |rectangularMatrix| |annihilate?| |try_real| |characteristic| |round|
  |wholePart| |norm| |mightHaveRoots| |refine| |middle| |size| |right| |left|
- |roman| |mainSquareFreePart| |mainPrimitivePart| |mainContent|
- |primitivePart!| |gcd| |iexactQuo| |next_subResultant2| |LazardQuotient2|
- |LazardQuotient| |subResultantChain| |halfExtendedSubResultantGcd2|
- |halfExtendedSubResultantGcd1| |extendedSubResultantGcd| |exactQuotient!|
- |exactQuotient| |primPartElseUnitCanonical!| |primPartElseUnitCanonical|
- |retract| |retractIfCan| |lazyResidueClass| |monicModulo| |lazyPseudoDivide|
+ |roman| |complex_roots| |quartic2| |my_root3| |mainSquareFreePart|
+ |mainPrimitivePart| |mainContent| |primitivePart!| |gcd| |iexactQuo|
+ |next_subResultant2| |LazardQuotient2| |LazardQuotient| |subResultantChain|
+ |halfExtendedSubResultantGcd2| |halfExtendedSubResultantGcd1|
+ |extendedSubResultantGcd| |exactQuotient!| |exactQuotient|
+ |primPartElseUnitCanonical!| |primPartElseUnitCanonical| |retract|
+ |retractIfCan| |lazyResidueClass| |monicModulo| |lazyPseudoDivide|
  |lazyPremWithDefault| |lazyPquo| |lazyPrem| |pquo| |prem| |supRittWu?|
  |RittWuCompare| |mainMonomials| |mainCoefficients| |leastMonomial|
  |mainMonomial| |quasiMonic?| |monic?| |deepestInitial| |iteratedInitials|
