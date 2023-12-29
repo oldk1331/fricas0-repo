@@ -231,7 +231,3 @@
                    ((EQ |kind| 'INTEGER) (INTEGERP |arg|))
                    ((EQ |kind| 'FUNCTION) (ATOM |arg|))
                    (#1# (|systemError| "unknown tree branch")))))))))
-
-; buildHtMacroTable()
-
-(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (PROG () (RETURN (|buildHtMacroTable|))))

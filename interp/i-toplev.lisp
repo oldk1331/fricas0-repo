@@ -103,6 +103,7 @@
 ;   loadExposureGroupData()
 ;   initHist()
 ;   initializeInterpreterFrameRing()
+;   buildHtMacroTable()
 ;
 ;   if $displayStartMsgs then spadStartUpMsgs()
 ;   $currentLine := nil
@@ -123,6 +124,7 @@
       (|loadExposureGroupData|)
       (|initHist|)
       (|initializeInterpreterFrameRing|)
+      (|buildHtMacroTable|)
       (COND (|$displayStartMsgs| (|spadStartUpMsgs|)))
       (SETQ |$currentLine| NIL)
       (|compressOpen| T)
