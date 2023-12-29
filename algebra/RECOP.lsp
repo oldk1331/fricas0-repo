@@ -1197,7 +1197,7 @@
                        (LETT |arg|
                              (SPADCALL (|SPADfirst| |kl|) (QREFELT % 20)))
                        (COND
-                        ((SPADCALL |op| '|rootOfADE| (QREFELT % 119))
+                        ((SPADCALL |op| '|ADEseq| (QREFELT % 119))
                          (SEQ
                           (LETT |info|
                                 (SPADCALL
@@ -1223,7 +1223,8 @@
                              (GO #3#))))))))))
                 (EXIT
                  (|error|
-                  "getEq: argument should be a single rootOfADE or rootOfRec object"))))
+                  (SPADCALL "getEq: argument should be a single ADEseq "
+                            "or rootOfRec object" (QREFELT % 120))))))
           #3# (EXIT #1#)))) 
 
 (SDEFUN |RECOP;eltable?;FB;14| ((|f| (F)) (% (|Boolean|)))
@@ -1239,7 +1240,7 @@
                        (LETT |arg|
                              (SPADCALL (|SPADfirst| |kl|) (QREFELT % 20)))
                        (COND
-                        ((SPADCALL |op| '|rootOfADE| (QREFELT % 119))
+                        ((SPADCALL |op| '|ADEseq| (QREFELT % 119))
                          (SEQ
                           (LETT |info|
                                 (SPADCALL
@@ -1273,15 +1274,16 @@
                              (GO #3#))))))))))
                 (EXIT
                  (|error|
-                  "eltable?: argument should be a single rootOfADE or rootOfRec object"))))
+                  (SPADCALL "eltable?: argument should be a single ADEseq "
+                            "or rootOfRec object" (QREFELT % 120))))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |RECOP;values;Nni;15| ((% (|NonNegativeInteger|))) (QREFELT % 122)) 
+(SDEFUN |RECOP;values;Nni;15| ((% (|NonNegativeInteger|))) (QREFELT % 123)) 
 
 (SDEFUN |RECOP;values;2Nni;16|
         ((|n| (|NonNegativeInteger|)) (% (|NonNegativeInteger|)))
         (SPROG ((|v| (|NonNegativeInteger|)))
-               (SEQ (LETT |v| (SPADCALL (QREFELT % 92))) (SETELT % 122 |n|)
+               (SEQ (LETT |v| (SPADCALL (QREFELT % 92))) (SETELT % 123 |n|)
                     (EXIT |v|)))) 
 
 (SDEFUN |RECOP;ddADE| ((|l| (|List| F)) (% (|OutputForm|)))
@@ -1311,15 +1313,15 @@
           (LETT |TaylorCoeff|
                 (SPADCALL
                  (SPADCALL (SPADCALL |x| (QREFELT % 94))
-                           (SPADCALL |n| (QREFELT % 94)) (QREFELT % 124))
-                 (QREFELT % 125)))
+                           (SPADCALL |n| (QREFELT % 94)) (QREFELT % 125))
+                 (QREFELT % 126)))
           (EXIT
            (COND
             ((QVELT |info| 8)
              (SPADCALL
               (SPADCALL |TaylorCoeff| (SPADCALL |e| (QREFELT % 94))
                         (QREFELT % 97))
-              (QREFELT % 125)))
+              (QREFELT % 126)))
             ('T
              (SEQ
               (LETT |DiffEq|
@@ -1332,7 +1334,7 @@
                                      (SPADCALL (|spadConstant| % 45)
                                                (QREFELT % 98))
                                      (QREFELT % 99)))
-                     (QREFELT % 126)))
+                     (QREFELT % 127)))
               (LETT |v| (SPADCALL (QREFELT % 92)))
               (COND
                ((QEQCAR (QVELT |info| 6) 0)
@@ -1363,26 +1365,26 @@
                                       (SPADCALL
                                        (SPADCALL (QVELT |info| 5) |i|
                                                  (QREFELT % 80))
-                                       (SPADCALL |x| (- |i| 1) (QREFELT % 127))
-                                       (QREFELT % 128))
+                                       (SPADCALL |x| (- |i| 1) (QREFELT % 128))
+                                       (QREFELT % 129))
                                       (QREFELT % 94))
                                      #2#))))))
                           (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                           (EXIT (NREVERSE #2#)))))
               (LETT |TaylorO|
-                    (SPADCALL (SPADCALL 'O (QREFELT % 129))
+                    (SPADCALL (SPADCALL 'O (QREFELT % 130))
                               (LIST
-                               (SPADCALL (SPADCALL |x| |v| (QREFELT % 130))
+                               (SPADCALL (SPADCALL |x| |v| (QREFELT % 131))
                                          (QREFELT % 94)))
-                              (QREFELT % 131)))
+                              (QREFELT % 132)))
               (LETT |TaylorPoly|
                     (SPADCALL
                      (SPADCALL (SPADCALL |f| |x| (QREFELT % 67))
                                (QREFELT % 94))
-                     (SPADCALL (ELT % 132)
+                     (SPADCALL (ELT % 133)
                                (SPADCALL |TaylorList| |TaylorO|
-                                         (QREFELT % 134))
-                               (QREFELT % 136))
+                                         (QREFELT % 135))
+                               (QREFELT % 137))
                      (QREFELT % 99)))
               (EXIT
                (SPADCALL (LIST |DiffEq| |TaylorPoly|) (QREFELT % 100)))))))))) 
@@ -1429,7 +1431,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|RecurrenceOperator| DV$1 DV$2))
-          (LETT % (GETREFV 137))
+          (LETT % (GETREFV 138))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|RecurrenceOperator|
@@ -1439,7 +1441,7 @@
           (QSETREFV % 7 |#2|)
           (SETF |pv$| (QREFELT % 3))
           (QSETREFV % 11 (SPADCALL '|rootOfRec| (QREFELT % 10)))
-          (QSETREFV % 12 (SPADCALL '|rootOfADE| (QREFELT % 10)))
+          (QSETREFV % 12 (SPADCALL '|ADEseq| (QREFELT % 10)))
           (SPADCALL (QREFELT % 11) '|%dummyVar| (|spadConstant| % 13)
                     (QREFELT % 15))
           (SPADCALL (QREFELT % 12) '|%dummyVar| (|spadConstant| % 13)
@@ -1455,7 +1457,7 @@
                     (CONS (|function| |RECOP;diffRec|) %) (QREFELT % 15))
           (SPADCALL (QREFELT % 12) (CONS (|function| |RECOP;iADE|) %)
                     (QREFELT % 91))
-          (QSETREFV % 122 4)
+          (QSETREFV % 123 4)
           (SPADCALL (QREFELT % 12) '|%specialDisp|
                     (CONS (|function| |RECOP;ddADE|) %) (QREFELT % 15))
           (SPADCALL (QREFELT % 12) '|%specialDiff|
@@ -1501,13 +1503,14 @@
                                   (|SparseMultivariatePolynomialExpressions|
                                    7)))
               (386 . |seriesSolve|) (394 . |coefficients|)
-              |RECOP;makeFEq;Bo2SFLSF;11| (399 . |is?|) |RECOP;getEq;2F;13|
-              |RECOP;eltable?;FB;14| '|vals| |RECOP;values;2Nni;16| (405 . ^)
-              (411 . |bracket|) (416 . |hconcat|) (421 . ^) (427 . *)
-              (433 . |coerce|) (438 . ^) (444 . |prefix|) (450 . +) (|List| 93)
-              (456 . |concat|) (|Mapping| 93 93 93) (462 . |reduce|))
-           '#(|values| 468 |makeRec| 477 |makeFEq| 486 |getEq| 496 |eltable?|
-              501)
+              |RECOP;makeFEq;Bo2SFLSF;11| (399 . |is?|) (405 . |elt|)
+              |RECOP;getEq;2F;13| |RECOP;eltable?;FB;14| '|vals|
+              |RECOP;values;2Nni;16| (411 . ^) (417 . |bracket|)
+              (422 . |hconcat|) (427 . ^) (433 . *) (439 . |coerce|) (444 . ^)
+              (450 . |prefix|) (456 . +) (|List| 93) (462 . |concat|)
+              (|Mapping| 93 93 93) (468 . |reduce|))
+           '#(|values| 474 |makeRec| 483 |makeFEq| 492 |getEq| 502 |eltable?|
+              507)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -1531,7 +1534,7 @@
                                 T)
                               '((|eltable?| ((|Boolean|) |#2|)) T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 136
+                        (|makeByteWordVec2| 137
                                             '(1 9 0 8 10 0 6 0 13 3 9 0 0 8 14
                                               15 2 9 16 0 8 17 1 19 18 0 20 1 7
                                               0 8 21 2 7 22 0 0 23 2 18 22 24 0
@@ -1562,12 +1565,13 @@
                                               2 110 109 7 107 111 1 74 0 0 112
                                               1 74 18 0 113 4 115 114 7 9 8 18
                                               116 1 114 74 0 117 2 9 22 0 8 119
-                                              2 93 0 0 0 124 1 93 0 0 125 1 93
-                                              0 54 126 2 7 0 0 26 127 2 7 0 0 0
-                                              128 1 8 93 0 129 2 7 0 0 40 130 2
-                                              93 0 0 54 131 2 93 0 0 0 132 2
-                                              133 0 0 93 134 2 133 93 135 0 136
-                                              0 0 40 92 1 0 40 40 123 5 0 7 9 8
-                                              7 18 74 75 6 0 7 9 8 8 7 18 74
-                                              118 1 0 7 7 120 1 0 22 7 121)))))
+                                              2 95 0 0 0 120 2 93 0 0 0 125 1
+                                              93 0 0 126 1 93 0 54 127 2 7 0 0
+                                              26 128 2 7 0 0 0 129 1 8 93 0 130
+                                              2 7 0 0 40 131 2 93 0 0 54 132 2
+                                              93 0 0 0 133 2 134 0 0 93 135 2
+                                              134 93 136 0 137 0 0 40 92 1 0 40
+                                              40 124 5 0 7 9 8 7 18 74 75 6 0 7
+                                              9 8 8 7 18 74 118 1 0 7 7 121 1 0
+                                              22 7 122)))))
            '|lookupComplete|)) 
