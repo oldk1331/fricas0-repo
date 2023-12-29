@@ -1197,7 +1197,7 @@
                        (LETT |arg|
                              (SPADCALL (|SPADfirst| |kl|) (QREFELT % 20)))
                        (COND
-                        ((SPADCALL |op| '|ADEseq| (QREFELT % 119))
+                        ((SPADCALL |op| '|FEseries| (QREFELT % 119))
                          (SEQ
                           (LETT |info|
                                 (SPADCALL
@@ -1223,7 +1223,7 @@
                              (GO #3#))))))))))
                 (EXIT
                  (|error|
-                  (SPADCALL "getEq: argument should be a single ADEseq "
+                  (SPADCALL "getEq: argument should be a single FEseries "
                             "or rootOfRec object" (QREFELT % 120))))))
           #3# (EXIT #1#)))) 
 
@@ -1240,7 +1240,7 @@
                        (LETT |arg|
                              (SPADCALL (|SPADfirst| |kl|) (QREFELT % 20)))
                        (COND
-                        ((SPADCALL |op| '|ADEseq| (QREFELT % 119))
+                        ((SPADCALL |op| '|FEseries| (QREFELT % 119))
                          (SEQ
                           (LETT |info|
                                 (SPADCALL
@@ -1274,7 +1274,7 @@
                              (GO #3#))))))))))
                 (EXIT
                  (|error|
-                  (SPADCALL "eltable?: argument should be a single ADEseq "
+                  (SPADCALL "eltable?: argument should be a single FEseries "
                             "or rootOfRec object" (QREFELT % 120))))))
           #3# (EXIT #1#)))) 
 
@@ -1441,7 +1441,7 @@
           (QSETREFV % 7 |#2|)
           (SETF |pv$| (QREFELT % 3))
           (QSETREFV % 11 (SPADCALL '|rootOfRec| (QREFELT % 10)))
-          (QSETREFV % 12 (SPADCALL '|ADEseq| (QREFELT % 10)))
+          (QSETREFV % 12 (SPADCALL '|FEseries| (QREFELT % 10)))
           (SPADCALL (QREFELT % 11) '|%dummyVar| (|spadConstant| % 13)
                     (QREFELT % 15))
           (SPADCALL (QREFELT % 12) '|%dummyVar| (|spadConstant| % 13)
