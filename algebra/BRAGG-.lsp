@@ -1,8 +1,8 @@
 
-(SDEFUN |BRAGG-;elt;AleftA;1| ((|x| (A)) (T3 ("left")) (% (A)))
+(SDEFUN |BRAGG-;elt;AleftA;1| ((|x| (A)) (T2 ("left")) (% (A)))
         (SPADCALL |x| (QREFELT % 8))) 
 
-(SDEFUN |BRAGG-;elt;ArightA;2| ((|x| (A)) (T4 ("right")) (% (A)))
+(SDEFUN |BRAGG-;elt;ArightA;2| ((|x| (A)) (T3 ("right")) (% (A)))
         (SPADCALL |x| (QREFELT % 11))) 
 
 (SDEFUN |BRAGG-;leaf?;AB;3| ((|x| (A)) (% (|Boolean|)))
@@ -212,11 +212,11 @@
                   (EXIT NIL)))
                 #4# (EXIT #2#)))) 
 
-(SDEFUN |BRAGG-;setelt!;Aleft2A;16| ((|x| (A)) (T5 ("left")) (|b| (A)) (% (A)))
+(SDEFUN |BRAGG-;setelt!;Aleft2A;16| ((|x| (A)) (T4 ("left")) (|b| (A)) (% (A)))
         (SPADCALL |x| |b| (QREFELT % 49))) 
 
 (SDEFUN |BRAGG-;setelt!;Aright2A;17|
-        ((|x| (A)) (T6 ("right")) (|b| (A)) (% (A)))
+        ((|x| (A)) (T5 ("right")) (|b| (A)) (% (A)))
         (SPADCALL |x| |b| (QREFELT % 51))) 
 
 (DECLAIM (NOTINLINE |BinaryRecursiveAggregate&;|)) 

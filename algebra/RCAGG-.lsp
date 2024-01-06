@@ -1,5 +1,5 @@
 
-(SDEFUN |RCAGG-;elt;AvalueS;1| ((|x| (A)) (T3 ("value")) (% (S)))
+(SDEFUN |RCAGG-;elt;AvalueS;1| ((|x| (A)) (T2 ("value")) (% (S)))
         (SPADCALL |x| (QREFELT % 8))) 
 
 (SDEFUN |RCAGG-;leaf?;AB;2| ((|x| (A)) (% (|Boolean|)))
@@ -57,7 +57,7 @@
                         (QREFELT % 23))))))) 
 
 (SDEFUN |RCAGG-;setelt!;Avalue2S;5|
-        ((|x| (A)) (T4 ("value")) (|y| (S)) (% (S)))
+        ((|x| (A)) (T3 ("value")) (|y| (S)) (% (S)))
         (SPADCALL |x| |y| (QREFELT % 25))) 
 
 (SDEFUN |RCAGG-;child?;2AB;6| ((|x| (A)) (|l| (A)) (% (|Boolean|)))

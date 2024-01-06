@@ -667,6 +667,7 @@
 ; clearCmdAll() ==
 ;   clear_sorted_caches()
 ;   ------undo special variables------
+;   $prevCarrier := ($currentCarrier := ['carrier])
 ;   $frameRecord := nil
 ;   $previousBindings := nil
 ;   untraceMapSubNames $trace_names
@@ -687,6 +688,7 @@
     (RETURN
      (PROGN
       (|clear_sorted_caches|)
+      (SETQ |$prevCarrier| (SETQ |$currentCarrier| (LIST '|carrier|)))
       (SETQ |$frameRecord| NIL)
       (SETQ |$previousBindings| NIL)
       (|untraceMapSubNames| |$trace_names|)

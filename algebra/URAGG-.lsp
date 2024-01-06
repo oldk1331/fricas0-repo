@@ -1,11 +1,11 @@
 
-(SDEFUN |URAGG-;elt;AfirstS;1| ((|x| (A)) (T3 ("first")) (% (S)))
+(SDEFUN |URAGG-;elt;AfirstS;1| ((|x| (A)) (T2 ("first")) (% (S)))
         (SPADCALL |x| (QREFELT % 8))) 
 
-(SDEFUN |URAGG-;elt;AlastS;2| ((|x| (A)) (T4 ("last")) (% (S)))
+(SDEFUN |URAGG-;elt;AlastS;2| ((|x| (A)) (T3 ("last")) (% (S)))
         (SPADCALL |x| (QREFELT % 11))) 
 
-(SDEFUN |URAGG-;elt;ArestA;3| ((|x| (A)) (T5 ("rest")) (% (A)))
+(SDEFUN |URAGG-;elt;ArestA;3| ((|x| (A)) (T4 ("rest")) (% (A)))
         (SPADCALL |x| (QREFELT % 14))) 
 
 (SDEFUN |URAGG-;second;AS;4| ((|x| (A)) (% (S)))
@@ -383,13 +383,13 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |URAGG-;setelt!;Afirst2S;27|
-        ((|x| (A)) (T6 ("first")) (|a| (S)) (% (S)))
+        ((|x| (A)) (T5 ("first")) (|a| (S)) (% (S)))
         (SPADCALL |x| |a| (QREFELT % 53))) 
 
-(SDEFUN |URAGG-;setelt!;Alast2S;28| ((|x| (A)) (T7 ("last")) (|a| (S)) (% (S)))
+(SDEFUN |URAGG-;setelt!;Alast2S;28| ((|x| (A)) (T6 ("last")) (|a| (S)) (% (S)))
         (SPADCALL |x| |a| (QREFELT % 55))) 
 
-(SDEFUN |URAGG-;setelt!;Arest2A;29| ((|x| (A)) (T8 ("rest")) (|a| (A)) (% (A)))
+(SDEFUN |URAGG-;setelt!;Arest2A;29| ((|x| (A)) (T7 ("rest")) (|a| (A)) (% (A)))
         (SPADCALL |x| |a| (QREFELT % 57))) 
 
 (SDEFUN |URAGG-;concat;3A;30| ((|x| (A)) (|y| (A)) (% (A)))

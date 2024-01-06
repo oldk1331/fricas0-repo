@@ -1,12 +1,12 @@
 
-(SDEFUN |DLIST;elt;%unique%;1| ((|x| (%)) (T3 ("unique")) (% (%)))
+(SDEFUN |DLIST;elt;%unique%;1| ((|x| (%)) (T2 ("unique")) (% (%)))
         (SPADCALL |x| (QREFELT % 7))) 
 
-(SDEFUN |DLIST;elt;%sort%;2| ((|x| (%)) (T4 ("sort")) (% (%)))
+(SDEFUN |DLIST;elt;%sort%;2| ((|x| (%)) (T3 ("sort")) (% (%)))
         (SPADCALL |x| (QREFELT % 10))) 
 
 (SDEFUN |DLIST;elt;%countNni;3|
-        ((|x| (%)) (T5 ("count")) (% (|NonNegativeInteger|)))
+        ((|x| (%)) (T4 ("count")) (% (|NonNegativeInteger|)))
         (SPADCALL |x| (QREFELT % 14))) 
 
 (PUT '|DLIST;coerce;L%;4| '|SPADreplace| '(XLAM (|x|) |x|)) 
