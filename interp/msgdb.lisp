@@ -856,7 +856,6 @@
       (|spadThrow|)))))
 
 ; breakKeyedMsg(key,args) ==
-;   BUMPCOMPERRORCOUNT()
 ;   sayKeyedMsg(key,args)
 ;   handleLispBreakLoop($BreakMode)
 
@@ -864,7 +863,6 @@
   (PROG ()
     (RETURN
      (PROGN
-      (BUMPCOMPERRORCOUNT)
       (|sayKeyedMsg| |key| |args|)
       (|handleLispBreakLoop| |$BreakMode|)))))
 
