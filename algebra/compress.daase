@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5304 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5307 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -374,11 +374,12 @@
  |RecursivePolynomialCategory&| |RecursivePolynomialCategory|
  |RealRootCharacterizationCategory&| |RealRootCharacterizationCategory|
  |RegularSetDecompositionPackage| |RegularTriangularSetCategory&|
- |RegularTriangularSetCategory| |RegularTriangularSetGcdPackage| |RewriteRule|
- |RuleCalled| |Ruleset| |RationalUnivariateRepresentationPackage|
- |SimpleAlgebraicExtension| |SingletonAsOrderedSet| |SArgand| |SBoundary|
- |SortedCache| |ScanningUtilities| |SimpleCell| |Scene| |SceneIFS|
- |SceneNamedPoints| |SConformal| |StructuralConstantsPackage| |SCartesian|
+ |RegularTriangularSetCategory| |RegularTriangularSetGcdPackage|
+ |RootSimplification| |RewriteRule| |RuleCalled| |Ruleset|
+ |RationalUnivariateRepresentationPackage| |SimpleAlgebraicExtension|
+ |SingletonAsOrderedSet| |SArgand| |SBoundary| |SortedCache|
+ |ScanningUtilities| |SimpleCell| |Scene| |SceneIFS| |SceneNamedPoints|
+ |SConformal| |StructuralConstantsPackage| |SCartesian|
  |SequentialDifferentialPolynomial| |SequentialDifferentialVariable| |Segment|
  |SegmentFunctions2| |SegmentBinding| |SegmentBindingFunctions2|
  |SegmentCategory| |SegmentExpansionCategory| |SparseEchelonMatrix| |Sequence|
@@ -1017,12 +1018,12 @@
  |algebraicCoefficients?| |purelyTranscendental?| |purelyAlgebraic?|
  |prepareSubResAlgo| |internalLastSubResultant| |integralLastSubResultant|
  |toseLastSubResultant| |toseInvertible?| |toseInvertibleSet|
- |toseSquareFreePart| |quotedOperators| |pattern| |suchThat| |rule| |rules|
- |ruleset| |rur| |create| |nullBoundary| |boxBoundary| |ellipseBoundary|
- |intersection| |sunion| |extendToPoint| |containsPoint?| |lineIntersect|
- |isNull?| |isEllipse?| |isBox?| |getMin| |getMax| |getCentre| |clearCache|
- |linearSearch| |enterInCache| |binarySearch| |parse_integer| |variableOf|
- |samplePoint| |hasDimension?| |allSimpleCells| |createSceneRoot|
+ |toseSquareFreePart| |rsimp| |rsimp1| |quotedOperators| |pattern| |suchThat|
+ |rule| |rules| |ruleset| |rur| |create| |nullBoundary| |boxBoundary|
+ |ellipseBoundary| |intersection| |sunion| |extendToPoint| |containsPoint?|
+ |lineIntersect| |isNull?| |isEllipse?| |isBox?| |getMin| |getMax| |getCentre|
+ |clearCache| |linearSearch| |enterInCache| |binarySearch| |parse_integer|
+ |variableOf| |samplePoint| |hasDimension?| |allSimpleCells| |createSceneRoot|
  |createSceneGroup| |addSceneGroup| |createSceneLine| |addSceneLine|
  |createSceneLines| |addSceneLines| |createSceneShape| |addSceneShape|
  |createSceneDef| |addSceneDef| |createSceneUse| |addSceneUse|
