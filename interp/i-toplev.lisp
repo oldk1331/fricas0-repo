@@ -181,11 +181,32 @@
 (DEFPARAMETER |$inRetract| NIL)
 
 ; processInteractive(form, posnForm) ==
+;     $timedNameStack : local := NIL
+;     initializeTimedNames($interpreterTimedNames,$interpreterTimedClasses);
+;     finally(
+;         object := processInteractive0(form, posnForm),
+;           while $timedNameStack repeat stopTimingProcess peekTimedName())
+;     object
+
+(DEFUN |processInteractive| (|form| |posnForm|)
+  (PROG (|$timedNameStack| |object|)
+    (DECLARE (SPECIAL |$timedNameStack|))
+    (RETURN
+     (PROGN
+      (SETQ |$timedNameStack| NIL)
+      (|initializeTimedNames| |$interpreterTimedNames|
+       |$interpreterTimedClasses|)
+      (|finally| (SETQ |object| (|processInteractive0| |form| |posnForm|))
+       ((LAMBDA ()
+          (LOOP
+           (COND ((NOT |$timedNameStack|) (RETURN NIL))
+                 ('T (|stopTimingProcess| (|peekTimedName|))))))))
+      |object|))))
+
+; processInteractive0(form, posnForm) ==
 ;   --  Top-level dispatcher for the interpreter.  It sets local variables
 ;   --  and then calls processInteractive1 to do most of the work.
 ;   --  This function receives the output from the parser.
-;
-;   initializeTimedNames($interpreterTimedNames,$interpreterTimedClasses)
 ;
 ;   $op: local:= (form is [op,:.] => op; form) --name of operator
 ;   $Coerce: local := NIL
@@ -218,7 +239,7 @@
 ;   if $printStorageIfTrue then printStorage()
 ;   object
 
-(DEFUN |processInteractive| (|form| |posnForm|)
+(DEFUN |processInteractive0| (|form| |posnForm|)
   (PROG (|$inRetract| |$domPvar| |$minivector| |$instantMmCondCount|
          |$instantCanCoerceCount| |$instantCoerceCount| |$analyzingMapList|
          |$localVars| |$declaredMode| |$timeGlobalName| |$whereCacheList|
@@ -232,8 +253,6 @@
       |$compErrorMessageStack| |$Coerce| |$op|))
     (RETURN
      (PROGN
-      (|initializeTimedNames| |$interpreterTimedNames|
-       |$interpreterTimedClasses|)
       (SETQ |$op|
               (COND
                ((AND (CONSP |form|) (PROGN (SETQ |op| (CAR |form|)) #1='T))

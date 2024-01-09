@@ -7844,7 +7844,7 @@
               (SETQ LINE |cl|)
               (|processSynonyms|))))))))
 
-; doSystemCommand string ==
+; doSystemCommand1(string) ==
 ;    string := CONCAT('")", string)
 ;    LINE: fluid := string
 ;    processSynonyms()
@@ -7863,7 +7863,7 @@
 ;         nil
 ;    nil
 
-(DEFUN |doSystemCommand| (|string|)
+(DEFUN |doSystemCommand1| (|string|)
   (PROG (LINE |optionList| |unab| |tok|)
     (DECLARE (SPECIAL LINE))
     (RETURN
@@ -7895,6 +7895,12 @@
                        (|handleParsedSystemCommands| |unab| |optionList|)
                        NIL))))))))
                (#1# NIL)))))))))
+
+; doSystemCommand(string) ==
+;     CATCH('SPAD_READER, doSystemCommand1(string))
+
+(DEFUN |doSystemCommand| (|string|)
+  (PROG () (RETURN (CATCH 'SPAD_READER (|doSystemCommand1| |string|)))))
 
 ; handleNoParseCommands(unab, string) ==
 ;   string := stripSpaces string
