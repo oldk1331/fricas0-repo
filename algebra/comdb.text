@@ -516,7 +516,7 @@
 44775`This domain represents truncated weighted polynomials over the "Polynomial" type. The variables must be specified,{} as must the weights. The representation is sparse in the sense that only non-zero terms are represented.
 44917`\indented{1}{Author : Larry Lambe} Date created : 14 August 1988 Description : A domain used in order to take the free \spad{R}-module on the Integers \spad{I}. This is actually the forgetful functor from OrderedRings to OrderedSets applied to \spad{I}
 44970`\indented{2}{A single vertex,{} edge,{} triangle...} \indented{2}{for more documentation see:} \indented{2}{http://www.euclideanspace.com/prog/scratchpad/mycode/topology/simplex/} Date Created: March 2016 Basic Operations: Related packages: Related categories: FacetCategory Related Domains: Also See: AMS Classifications:
-45032`\indented{1}{The domain \spad{OutputBox} represents the two-dimensional form of} an expresssion by a number of strings (lines). Such a box has a baseline (at which such boxes will be horizontally aligned,{} a height (size above and including the baseline),{} a depth (size below the baseline),{} and a width (horizontal size).
+45032`\indented{1}{The domain \spad{OutputBox} represents the two-dimensional form of} an expression by a number of strings (lines). Such a box has a baseline (at which such boxes will be horizontally aligned,{} a height (size above and including the baseline),{} a depth (size below the baseline),{} and a width (horizontal size).
 45100`This domain is used to create and manipulate mathematical expressions for output. It is intended to provide an insulating layer between the expression rendering software (\spadignore{e.g.} TeX,{} or Script) and the output coercions in the various domains.
 45158`Stream-based implementation of \spad{Zp:} \spad{p}-adic numbers are represented as sum(\spad{i} = 0..,{} a[\spad{i}] * p^i),{} where the a[\spad{i}] lie in 0,{} 1,{} ...,{} (\spad{p} - 1).
 45228`Stream-based implementation of \spad{Qp:} numbers are represented as sum(\spad{i} = \spad{k}..,{} a[\spad{i}] * p^i) where the a[\spad{i}] lie in 0,{} 1,{} ...,{} (\spad{p} - 1).
@@ -1409,7 +1409,7 @@
 142830`\spad{binomial(n,{} m)} creates a form for the binomial coefficient of \spad{n} and \spad{m}.
 142873`\spad{binomial(n,{} r)} returns the number of subsets of \spad{r} objects taken among \spad{n} objects,{} \spadignore{i.e.} \spad{n!/}(\spad{r!} * (\spad{n}-\spad{r})!).
 142932`\spad{binomial(n,{} f)} \undocumented
-143023`\spad{binomial} is a handler such that \spad{binomial(prec,{}args)} formats a binomial expresssion of the first two arguments.
+143023`\spad{binomial} is a handler such that \spad{binomial(prec,{}args)} formats a binomial expression of the first two arguments.
 143153`\spad{binomial(n,{} r)} returns the \spad{(n,{} r)} binomial coefficient (often denoted in the literature by \spad{C(n,{} r)}). Note: \spad{C(n,{} r) = n!/(r!(n-r)!)} where \spad{n >= r >= 0}.
 143215`\spad{binomial(n,{} r)} returns the binomial coefficient \spad{C(n,{} r) = n!/(r! (n-r)!)},{} where \spad{n >= r >= 0}. This is the number of combinations of \spad{n} objects taken \spad{r} at a time.
 143361`\spad{binomThmExpt(p,{} q,{} n)} returns \spad{(p+q)^n} by means of the binomial theorem trick.
@@ -5974,7 +5974,7 @@
 668282`\spad{pack_exps0(exps,{} sizes,{} ns,{} start)} is used by pack_exps.
 668392`\spad{pack_exps(d,{} s,{} m)} produces vector of exponents up to degree \spad{d}. \spad{s} is size (degree) of algebraic extension. Use together with \spad{repack1}.
 668500`\spad{pack_modulus(lp,{} ls,{} p)} converts \spad{lp},{} \spad{ls} and prime \spad{p} which together describe algebraic extension to packed representation.
-668620`\spad{pad(t,{} b,{} l,{} r)(box)} returns a new box that is padded by \spad{t} empty lines at the top,{} \spad{b} empty lines at the bottom,{} \spad{l} space characters at the left,{} \spad{r} space characters at the right. If \spad{w},{} \spad{h},{} \spad{d} are the widht,{} heigth and depth of box then the resulting box will have width l+w+r and height \spad{t+h} and depth \spad{d+b}.
+668620`\spad{pad(t,{} b,{} l,{} r)(box)} returns a new box that is padded by \spad{t} empty lines at the top,{} \spad{b} empty lines at the bottom,{} \spad{l} space characters at the left,{} \spad{r} space characters at the right. If \spad{w},{} \spad{h},{} \spad{d} are the width,{} height and depth of box then the resulting box will have width l+w+r and height \spad{t+h} and depth \spad{d+b}.
 668734`\spad{pade(nd,{} dd,{} s)} computes the quotient of polynomials (if it exists) with numerator degree at most \spad{nd} and denominator degree at most \spad{dd} which matches the series \spad{s} to order \spad{nd + dd}.
 668908`\spad{pade(nd,{} dd,{} ns,{} ds)} computes the approximant as a quotient of polynomials (if it exists) for arguments \spad{nd} (numerator degree of approximant),{} \spad{dd} (denominator degree of approximant),{} \spad{ns} (numerator series of function),{} and \spad{ds} (denominator series of function).
 669029`\spad{pade(nd,{} dd,{} ns,{} ds)} computes the approximant as a quotient of polynomials (if it exists) for arguments \spad{nd} (numerator degree of approximant),{} \spad{dd} (denominator degree of approximant),{} \spad{ns} (numerator series of function),{} and \spad{ds} (denominator series of function).
@@ -6238,8 +6238,8 @@
 697006`\spad{pquo(a,{} b,{} v)} computes the pseudo-quotient of \spad{a} by \spad{b},{} both viewed as univariate polynomials in \spad{v}.
 697071`\spad{pr2dmp(p)} converts \spad{p} to target domain
 697154`\spad{Pr(i,{} ind)} is like \spad{P(i,{} ind)} but \spad{ind} is always a repeated index.
-697309`\spad{precedence(p,{} hh)} returns a handler \spad{h} that \spad{h(prec,{} args)} returns \spad{hh(p,{} args)}. This handler can be used to change the context in which an expression is formatted.
-697439`\spad{precedence(p,{} hh)} returns a handler \spad{h} that \spad{h(prec,{} args)} returns \spad{hh(p,{} args)}. This handler can be used to change the context in which an expression is formatted.
+697309`\spad{precedence(p,{} hh)} returns a handler \spad{h} such that \spad{h(prec,{} args)} returns \spad{hh(p,{} args)}. This handler can be used to change the context in which an expression is formatted.
+697439`\spad{precedence(p,{} hh)} returns a handler \spad{h} such that \spad{h(prec,{} args)} returns \spad{hh(p,{} args)}. This handler can be used to change the context in which an expression is formatted.
 697573`\spad{precision()} returns the number of digits in the model
 697630`\spad{precision()} returns the precision in digits base.
 697694`\spad{precision(p)} sets the number of digits in the model to \spad{p}
@@ -7906,7 +7906,7 @@
 909723`\spad{suffix?(s,{} t)} tests if the string \spad{s} is the final substring of \spad{t}. Note: \spad{suffix?(s,{} t) = reduce(and,{} [s.i = t.(n - m + i) for i indices s])} where \spad{m} and \spad{n} denote the maxIndex of \spad{s} and \spad{t} respectively.
 909777`\spad{su_irreducible?(p)} tests if \spad{p} is irreducible. \spad{p} must be monic and square free.
 909886`\spad{sum(expr)} creates the form prefixing \spad{expr} by a capital sigma.
-909923`\spad{sum(p)} returns a handler \spad{h} such that \spad{h(prec,{} args)} formats a sum expresssion with summation sign and respective limits. Outer parentheses are added if \spad{p < prec}.
+909923`\spad{sum(p)} returns a handler \spad{h} such that \spad{h(prec,{} args)} formats a sum expression with summation sign and respective limits. Outer parentheses are added if \spad{p < prec}.
 910009`\spad{sum(expr,{} lowerlimit)} creates the form prefixing \spad{expr} by a capital sigma with a lowerlimit.
 910048`\spad{sum(p(n),{} n)} returns \spad{P(n)},{} the indefinite sum of \spad{p(n)} with respect to upward difference on \spad{n},{} \spadignore{i.e.} \spad{P(n+1) - P(n) = p(n)}.
 910122`\spad{sum(f(n),{} n = a..b)} returns \spad{f(a) + f(a+1) + ... f(b)}.
