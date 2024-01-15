@@ -1452,7 +1452,7 @@
 ;         m = $Symbol and SYMBOLP(y) => y
 ;         form2String1 x
 ;     isValidType(m) and PAIRP(m) and
-;       (GETDATABASE(first(m),'CONSTRUCTORKIND) = 'domain) =>
+;       (get_database(first(m), 'CONSTRUCTORKIND) = 'domain) =>
 ;         (x' := coerceInteractive(objNewWrap(x,m),$OutputForm)) =>
 ;           form2String1 objValUnwrap x'
 ;         form2String1 x
@@ -1489,7 +1489,7 @@
        (COND ((AND (EQUAL |m| |$Symbol|) (SYMBOLP |y|)) |y|)
              (#1# (|form2String1| |x|))))
       ((AND (|isValidType| |m|) (CONSP |m|)
-            (EQ (GETDATABASE (CAR |m|) 'CONSTRUCTORKIND) '|domain|))
+            (EQ (|get_database| (CAR |m|) 'CONSTRUCTORKIND) '|domain|))
        (COND
         ((SETQ |x'| (|coerceInteractive| (|objNewWrap| |x| |m|) |$OutputForm|))
          (|form2String1| (|objValUnwrap| |x'|)))
@@ -2621,7 +2621,7 @@
 ; form2Fence form ==
 ;   -- body of dbMkEvalable
 ;   [op, :.] := form
-;   kind := GETDATABASE(op,'CONSTRUCTORKIND)
+;   kind := get_database(op, 'CONSTRUCTORKIND)
 ;   kind = 'category => form2Fence1 form
 ;   form2Fence1 mkEvalable form
 
@@ -2630,7 +2630,7 @@
     (RETURN
      (PROGN
       (SETQ |op| (CAR |form|))
-      (SETQ |kind| (GETDATABASE |op| 'CONSTRUCTORKIND))
+      (SETQ |kind| (|get_database| |op| 'CONSTRUCTORKIND))
       (COND ((EQ |kind| '|category|) (|form2Fence1| |form|))
             ('T (|form2Fence1| (|mkEvalable| |form|))))))))
 

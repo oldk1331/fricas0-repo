@@ -1991,7 +1991,7 @@
 ; typeToForm(t, toForm) ==
 ;     t0 := devaluate(t)
 ;     [op,:argl] := t0
-;     coSig := rest GETDATABASE(op, 'COSIG)
+;     coSig := rest(get_database(op, 'COSIG))
 ;     sig := getConstructorSignature t0
 ;     ml := replaceSharps(rest sig, t0)
 ;     nl := [fn(x, t1, c, toForm) for x in argl for t1 in ml_
@@ -2008,7 +2008,7 @@
       (SETQ |t0| (|devaluate| |t|))
       (SETQ |op| (CAR |t0|))
       (SETQ |argl| (CDR |t0|))
-      (SETQ |coSig| (CDR (GETDATABASE |op| 'COSIG)))
+      (SETQ |coSig| (CDR (|get_database| |op| 'COSIG)))
       (SETQ |sig| (|getConstructorSignature| |t0|))
       (SETQ |ml| (|replaceSharps| (CDR |sig|) |t0|))
       (SETQ |nl|
@@ -2748,7 +2748,7 @@
 ; coerceSubDomain(val, tSuper, tSub) ==
 ;   -- Try to coerce from a sub domain to a super domain
 ;   val = '_$fromCoerceable_$ => nil
-;   super := GETDATABASE(first tSub, 'SUPERDOMAIN)
+;   super := get_database(first(tSub), 'SUPERDOMAIN)
 ;   superDomain := first super
 ;   superDomain = tSuper =>
 ;     coerceImmediateSubDomain(val, tSuper, tSub, CADR super)
@@ -2762,7 +2762,7 @@
      (COND ((EQ |val| '|$fromCoerceable$|) NIL)
            (#1='T
             (PROGN
-             (SETQ |super| (GETDATABASE (CAR |tSub|) 'SUPERDOMAIN))
+             (SETQ |super| (|get_database| (CAR |tSub|) 'SUPERDOMAIN))
              (SETQ |superDomain| (CAR |super|))
              (COND
               ((EQUAL |superDomain| |tSuper|)
@@ -3309,7 +3309,7 @@
 ; valueArgsEqual?(t1, t2) ==
 ;   -- returns true if the object-valued arguments to t1 and t2 are the same
 ;   -- under coercion
-;   coSig := rest GETDATABASE(first t1, 'COSIG)
+;   coSig := rest(get_database(first(t1), 'COSIG))
 ;   constrSig := rest getConstructorSignature first t1
 ;   tl1 := replaceSharps(constrSig, t1)
 ;   tl2 := replaceSharps(constrSig, t2)
@@ -3330,7 +3330,7 @@
   (PROG (|coSig| |constrSig| |tl1| |tl2| |done| |value| |trip| |newVal|)
     (RETURN
      (PROGN
-      (SETQ |coSig| (CDR (GETDATABASE (CAR |t1|) 'COSIG)))
+      (SETQ |coSig| (CDR (|get_database| (CAR |t1|) 'COSIG)))
       (SETQ |constrSig| (CDR (|getConstructorSignature| (CAR |t1|))))
       (SETQ |tl1| (|replaceSharps| |constrSig| |t1|))
       (SETQ |tl2| (|replaceSharps| |constrSig| |t2|))

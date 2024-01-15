@@ -12,7 +12,7 @@
 ;     op := opOf t
 ;     loadIfNecessary op
 ;     args := rest t
-;     cs := rest GETDATABASE(op, 'COSIG)
+;     cs := rest(get_database(op, 'COSIG))
 ;     nargs := [if c then quoteNontypeArgs(a) else ["QUOTE", a]
 ;                 for a in args for c in cs]
 ;     [op, :nargs]
@@ -26,7 +26,7 @@
              (SETQ |op| (|opOf| |t|))
              (|loadIfNecessary| |op|)
              (SETQ |args| (CDR |t|))
-             (SETQ |cs| (CDR (GETDATABASE |op| 'COSIG)))
+             (SETQ |cs| (CDR (|get_database| |op| 'COSIG)))
              (SETQ |nargs|
                      ((LAMBDA (|bfVar#3| |bfVar#1| |a| |bfVar#2| |c|)
                         (LOOP
@@ -89,8 +89,8 @@
 ;     op="Mapping"=> mkEvalableMapping form
 ;     op="Enumeration" => form
 ;     loadIfNecessary op
-;     kind:= GETDATABASE(op,'CONSTRUCTORKIND)
-;     cosig := GETDATABASE(op, 'COSIG) =>
+;     kind := get_database(op, 'CONSTRUCTORKIND)
+;     cosig := get_database(op, 'COSIG) =>
 ;       [op,:[val for x in argl for typeFlag in rest cosig]] where val ==
 ;         typeFlag =>
 ;           kind = 'category => MKQ x
@@ -119,9 +119,9 @@
              (#1#
               (PROGN
                (|loadIfNecessary| |op|)
-               (SETQ |kind| (GETDATABASE |op| 'CONSTRUCTORKIND))
+               (SETQ |kind| (|get_database| |op| 'CONSTRUCTORKIND))
                (COND
-                ((SETQ |cosig| (GETDATABASE |op| 'COSIG))
+                ((SETQ |cosig| (|get_database| |op| 'COSIG))
                  (CONS |op|
                        ((LAMBDA (|bfVar#6| |bfVar#4| |x| |bfVar#5| |typeFlag|)
                           (LOOP
@@ -487,7 +487,7 @@
 ;           evalCategory(x' := (evaluateType x), m) => x'
 ;           throwEvalTypeMsg("S2IE0004",[form])
 ;         m := evaluateType m
-;         GETDATABASE(opOf m,'CONSTRUCTORKIND) = 'domain and
+;         get_database(opOf(m), 'CONSTRUCTORKIND) = 'domain and
 ;             (tree := mkAtree x) and  putTarget(tree,m) and ((bottomUp tree) is [m1]) =>
 ;                 [zt,:zv]:= z1:= getAndEvalConstructorArgument tree
 ;                 (v1 := coerceOrRetract(z1, m)) => objValUnwrap v1
@@ -546,7 +546,8 @@
                                 (COND
                                  ((AND
                                    (EQ
-                                    (GETDATABASE (|opOf| |m|) 'CONSTRUCTORKIND)
+                                    (|get_database| (|opOf| |m|)
+                                     'CONSTRUCTORKIND)
                                     '|domain|)
                                    (SETQ |tree| (|mkAtree| |x|))
                                    (|putTarget| |tree| |m|)

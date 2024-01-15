@@ -570,7 +570,7 @@
              (|args2LispString,fnTailTail| (CDR |x|))))))))
 
 ; dbConstructorKind x ==
-;   target := CADAR GETDATABASE(x,'CONSTRUCTORMODEMAP)
+;   target := CADAR(get_database(x, 'CONSTRUCTORMODEMAP))
 ;   target = '(Category) => 'category
 ;   target is ['CATEGORY,'package,:.] => 'package
 ;   HGET($defaultPackageNamesHT,x) => 'default_ package
@@ -580,7 +580,7 @@
   (PROG (|target| |ISTMP#1|)
     (RETURN
      (PROGN
-      (SETQ |target| (CADAR (GETDATABASE |x| 'CONSTRUCTORMODEMAP)))
+      (SETQ |target| (CADAR (|get_database| |x| 'CONSTRUCTORMODEMAP)))
       (COND ((EQUAL |target| '(|Category|)) '|category|)
             ((AND (CONSP |target|) (EQ (CAR |target|) 'CATEGORY)
                   (PROGN
@@ -596,7 +596,7 @@
 ;   name = 'Record  => '(Record (_: a A) (_: b B))
 ;   name = 'Mapping => '(Mapping T S)
 ;   name = 'Enumeration => '(Enumeration a b)
-;   GETDATABASE(name,'CONSTRUCTORFORM)
+;   get_database(name, 'CONSTRUCTORFORM)
 
 (DEFUN |getConstructorForm| (|name|)
   (PROG ()
@@ -606,7 +606,7 @@
            ((EQ |name| '|Record|) '(|Record| (|:| |a| A) (|:| |b| B)))
            ((EQ |name| '|Mapping|) '(|Mapping| T S))
            ((EQ |name| '|Enumeration|) '(|Enumeration| |a| |b|))
-           ('T (GETDATABASE |name| 'CONSTRUCTORFORM))))))
+           ('T (|get_database| |name| 'CONSTRUCTORFORM))))))
 
 ; getConstructorArgs conname == rest getConstructorForm conname
 
@@ -832,7 +832,7 @@
 
 ; dbEvalableConstructor? form ==
 ;     form is [op,:argl] =>
-;         null(cosig := GETDATABASE(op, 'COSIG)) => false
+;         null(cosig := get_database(op, 'COSIG)) => false
 ;         cosig := rest cosig
 ;         #cosig ~= #argl => false
 ;         res := true
@@ -850,7 +850,7 @@
      (COND
       ((AND (CONSP |form|)
             (PROGN (SETQ |op| (CAR |form|)) (SETQ |argl| (CDR |form|)) #1='T))
-       (COND ((NULL (SETQ |cosig| (GETDATABASE |op| 'COSIG))) NIL)
+       (COND ((NULL (SETQ |cosig| (|get_database| |op| 'COSIG))) NIL)
              (#1#
               (PROGN
                (SETQ |cosig| (CDR |cosig|))
@@ -972,15 +972,15 @@
 (DEFUN |bcStarConform| (|form|)
   (PROG () (RETURN (PROGN (|bcStar| (|opOf| |form|)) (|bcConform| |form|)))))
 
-; asharpConstructorName? name ==
-;   u:= GETDATABASE(name,'SOURCEFILE)
-;   u and PATHNAME_-TYPE u = '"as"
+; asharpConstructorName?(name) ==
+;     u:= get_database(name, 'SOURCEFILE)
+;     u and PATHNAME_-TYPE u = '"as"
 
 (DEFUN |asharpConstructorName?| (|name|)
   (PROG (|u|)
     (RETURN
      (PROGN
-      (SETQ |u| (GETDATABASE |name| 'SOURCEFILE))
+      (SETQ |u| (|get_database| |name| 'SOURCEFILE))
       (AND |u| (EQUAL (PATHNAME-TYPE |u|) "as"))))))
 
 ; asharpConstructors() ==
@@ -1413,16 +1413,16 @@
       NIL (|htpPropertyList| |htPage|) NIL))))
 
 ; dbInfovec name ==
-;   'category = GETDATABASE(name,'CONSTRUCTORKIND) => nil
-;   GETDATABASE(name, 'ASHARP?) => nil
+;   'category = get_database(name, 'CONSTRUCTORKIND) => nil
+;   get_database(name, 'ASHARP?) => nil
 ;   loadLibIfNotLoaded(name)
 ;   u := GET(name, 'infovec) => u
 
 (DEFUN |dbInfovec| (|name|)
   (PROG (|u|)
     (RETURN
-     (COND ((EQ '|category| (GETDATABASE |name| 'CONSTRUCTORKIND)) NIL)
-           ((GETDATABASE |name| 'ASHARP?) NIL)
+     (COND ((EQ '|category| (|get_database| |name| 'CONSTRUCTORKIND)) NIL)
+           ((|get_database| |name| 'ASHARP?) NIL)
            ('T
             (PROGN
              (|loadLibIfNotLoaded| |name|)

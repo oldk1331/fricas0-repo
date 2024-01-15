@@ -1418,7 +1418,7 @@
       |ans|))))
 
 ; getSystemModemaps(op,nargs) ==
-;   mml:= GETDATABASE(op,'OPERATION) =>
+;   mml:= get_database(op, 'OPERATION) =>
 ;     mms := NIL
 ;     for (x := [[.,:sig],.]) in mml repeat
 ;       (NUMBERP nargs) and (nargs ~= #QCDR sig) => 'iterate
@@ -1432,7 +1432,7 @@
   (PROG (|mml| |mms| |ISTMP#1| |sig| |ISTMP#2|)
     (RETURN
      (COND
-      ((SETQ |mml| (GETDATABASE |op| 'OPERATION))
+      ((SETQ |mml| (|get_database| |op| 'OPERATION))
        (PROGN
         (SETQ |mms| NIL)
         ((LAMBDA (|bfVar#51| |x|)
@@ -2042,7 +2042,7 @@
          (ELT |$localExposureData| 2) NIL)))))))
 
 ; getOperationAlistFromLisplib x ==
-;     u := GETDATABASE(x, 'OPERATIONALIST)
+;     u := get_database(x, 'OPERATIONALIST)
 ;     --  u := removeZeroOneDestructively u
 ;     null u => u          -- this can happen for Object
 ;     CAAR u = '_$unique => rest u
@@ -2063,7 +2063,7 @@
   (PROG (|u| |f| |op| |sigList| |LETTMP#1| |sig| |r| |s| |t|)
     (RETURN
      (PROGN
-      (SETQ |u| (GETDATABASE |x| 'OPERATIONALIST))
+      (SETQ |u| (|get_database| |x| 'OPERATIONALIST))
       (COND ((NULL |u|) |u|) ((EQ (CAAR |u|) '|$unique|) (CDR |u|))
             (#1='T
              (PROGN

@@ -106,7 +106,7 @@
 ;   form is ['Expression, ['Kernel, . ]] => NIL
 ;   form is [op,:argl] =>
 ;     null constructor? op => nil
-;     cosig := GETDATABASE(op, 'COSIG)
+;     cosig := get_database(op, 'COSIG)
 ;     cosig and null rest cosig => -- niladic constructor
 ;         null argl => true
 ;         false
@@ -119,7 +119,7 @@
 ;     and/[isValid for x in argl for c in cl] where isValid ==
 ;       categoryForm?(c) =>
 ;         evalCategory(x, MSUBSTQ(x, '%, c)) and isValidType x
-;       not (GETDATABASE(opOf x, 'CONSTRUCTORKIND) = 'domain)
+;       not(get_database(opOf(x), 'CONSTRUCTORKIND) = 'domain)
 
 (DEFUN |isValidType;| (|form|)
   (PROG (|selectors| |ISTMP#1| |type| |args| |mapargs| |badDoubles| T1
@@ -289,7 +289,7 @@
                (COND ((NULL (|constructor?| |op|)) NIL)
                      (#1#
                       (PROGN
-                       (SETQ |cosig| (GETDATABASE |op| 'COSIG))
+                       (SETQ |cosig| (|get_database| |op| 'COSIG))
                        (COND
                         ((AND |cosig| (NULL (CDR |cosig|)))
                          (COND ((NULL |argl|) T) (#1# NIL)))
@@ -332,7 +332,8 @@
                                                   (#1#
                                                    (NULL
                                                     (EQ
-                                                     (GETDATABASE (|opOf| |x|)
+                                                     (|get_database|
+                                                      (|opOf| |x|)
                                                       'CONSTRUCTORKIND)
                                                      '|domain|)))))
                                          (COND

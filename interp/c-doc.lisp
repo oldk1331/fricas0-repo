@@ -1022,7 +1022,7 @@
 ; checkNumOfArgs conform ==
 ;   conname := opOf conform
 ;   constructor? conname or (conname := abbreviation? conname) =>
-;     #GETDATABASE(conname,'CONSTRUCTORARGS)
+;         #get_database(conname, 'CONSTRUCTORARGS)
 ;   nil  --signals error
 
 (DEFUN |checkNumOfArgs| (|conform|)
@@ -1033,7 +1033,7 @@
       (COND
        ((OR (|constructor?| |conname|)
             (SETQ |conname| (|abbreviation?| |conname|)))
-        (LENGTH (GETDATABASE |conname| 'CONSTRUCTORARGS)))
+        (LENGTH (|get_database| |conname| 'CONSTRUCTORARGS)))
        ('T NIL))))))
 
 ; checkIsValidType form == main where
@@ -1043,7 +1043,7 @@
 ;     [op,:args] := form
 ;     conname := (constructor? op => op; abbreviation? op)
 ;     null conname => nil
-;     fn(form,GETDATABASE(conname,'COSIG))
+;     fn(form, get_database(conname, 'COSIG))
 ;   fn(form,coSig) ==
 ;     #form ~= #coSig => form
 ;     or/[null checkIsValidType x for x in rest form for flag in rest coSig | flag]
@@ -1064,7 +1064,7 @@
              (COND ((NULL |conname|) NIL)
                    (#1#
                     (|checkIsValidType,fn| |form|
-                     (GETDATABASE |conname| 'COSIG))))))))))
+                     (|get_database| |conname| 'COSIG))))))))))
 (DEFUN |checkIsValidType,fn| (|form| |coSig|)
   (PROG ()
     (RETURN
@@ -3381,7 +3381,7 @@
       (COND (|$exposeFlag| (|sayBrightly1| |msg| |$outStream|)))))))
 
 ; checkDocMessage u ==
-;   sourcefile := GETDATABASE($constructorName,'SOURCEFILE)
+;   sourcefile := get_database($constructorName, 'SOURCEFILE)
 ;   person := '"---"
 ;   middle :=
 ;     BOUNDP '$x => ['"(",$x,'"): "]
@@ -3392,7 +3392,7 @@
   (PROG (|sourcefile| |person| |middle|)
     (RETURN
      (PROGN
-      (SETQ |sourcefile| (GETDATABASE |$constructorName| 'SOURCEFILE))
+      (SETQ |sourcefile| (|get_database| |$constructorName| 'SOURCEFILE))
       (SETQ |person| "---")
       (SETQ |middle|
               (COND ((BOUNDP '|$x|) (LIST "(" |$x| "): ")) ('T (LIST ": "))))

@@ -2533,7 +2533,7 @@
 ;     STRCONC('"Value of ", PNAME op, '": ")
 ;   labmode := prefix2String objMode(u)
 ;   if ATOM labmode then labmode := [labmode]
-;   GETDATABASE(expr,'CONSTRUCTORKIND) = 'domain =>
+;   get_database(expr, 'CONSTRUCTORKIND) = 'domain =>
 ;     sayMSG concat('"   ",label,labmode,rhs,form2String expr)
 ;   mathprint ['CONCAT,label,:labmode,rhs,
 ;     outputFormat(expr,objMode(u))]
@@ -2568,7 +2568,7 @@
            (SETQ |labmode| (|prefix2String| (|objMode| |u|)))
            (COND ((ATOM |labmode|) (SETQ |labmode| (LIST |labmode|))))
            (COND
-            ((EQ (GETDATABASE |expr| 'CONSTRUCTORKIND) '|domain|)
+            ((EQ (|get_database| |expr| 'CONSTRUCTORKIND) '|domain|)
              (|sayMSG|
               (|concat| "   " |label| |labmode| |rhs| (|form2String| |expr|))))
             (#1#
@@ -6061,12 +6061,12 @@
 ;   isRecordOrUnion := unitForm is [a,:.] and a in '(Record Union)
 ;   unit:= evalDomain unitForm
 ;   [top, :argl] := unitForm
-;   kind:= GETDATABASE(top,'CONSTRUCTORKIND)
+;   kind := get_database(top, 'CONSTRUCTORKIND)
 ;
 ;   sayBrightly concat('%b,formatOpType unitForm,
 ;     '%d,'"is a",'%b,kind,'%d, '"constructor.")
 ;   if not isRecordOrUnion then
-;     abb := GETDATABASE(top,'ABBREVIATION)
+;     abb := get_database(top, 'ABBREVIATION)
 ;     sayBrightly ['" Abbreviation for",:bright top,'"is",:bright abb]
 ;     verb :=
 ;       isExposedConstructor top => '"is"
@@ -6095,7 +6095,7 @@
 ;         sigList := EQSUBSTLIST(argl,$FormalMapVariableList, sigList)
 ;         ops := [formatOperationWithPred(x) for x in sigList]
 ;       else
-;         $predicateList: local := GETDATABASE(top, 'PREDICATES)
+;         $predicateList : local := get_database(top, 'PREDICATES)
 ;         -- x.1 is the type predicate of operation x
 ;         sigList := [x for x in sigList | evalDomainOpPred(unit, x.1)]
 ;         -- first(first(x)) is the name of operation x
@@ -6130,12 +6130,13 @@
       (SETQ |unit| (|evalDomain| |unitForm|))
       (SETQ |top| (CAR |unitForm|))
       (SETQ |argl| (CDR |unitForm|))
-      (SETQ |kind| (GETDATABASE |top| 'CONSTRUCTORKIND))
+      (SETQ |kind| (|get_database| |top| 'CONSTRUCTORKIND))
       (|sayBrightly|
        (|concat| '|%b| (|formatOpType| |unitForm|) '|%d| "is a" '|%b| |kind|
         '|%d| "constructor."))
       (COND
-       ((NULL |isRecordOrUnion|) (SETQ |abb| (GETDATABASE |top| 'ABBREVIATION))
+       ((NULL |isRecordOrUnion|)
+        (SETQ |abb| (|get_database| |top| 'ABBREVIATION))
         (|sayBrightly|
          (CONS " Abbreviation for"
                (APPEND (|bright| |top|) (CONS "is" (|bright| |abb|)))))
@@ -6238,7 +6239,8 @@
                                    (SETQ |bfVar#118| (CDR |bfVar#118|))))
                                 NIL |sigList| NIL)))
                       (#1#
-                       (SETQ |$predicateList| (GETDATABASE |top| 'PREDICATES))
+                       (SETQ |$predicateList|
+                               (|get_database| |top| 'PREDICATES))
                        (SETQ |sigList|
                                ((LAMBDA (|bfVar#121| |bfVar#120| |x|)
                                   (LOOP
@@ -6310,11 +6312,11 @@
 ;   argml :=
 ;     (s := getConstructorSignature op) => IFCDR s
 ;     NIL
-;   typ:= GETDATABASE(op,'CONSTRUCTORKIND)
+;   typ := get_database(op, 'CONSTRUCTORKIND)
 ;   nArgs:= #argml
 ;   nArgs = 0 and typ = 'domain =>
 ;       reportOpsFromUnitDirectly0 isType mkAtree evaluateType [op]
-;   argList := IFCDR GETDATABASE(op, 'CONSTRUCTORFORM)
+;   argList := IFCDR(get_database(op, 'CONSTRUCTORFORM))
 ;   functorForm:= [op,:argList]
 ;   argml:= EQSUBSTLIST(argList,$FormalMapVariableList,argml)
 ;   functorFormWithDecl:= [op,:[[":",a,m] for a in argList for m in argml]]
@@ -6348,7 +6350,7 @@
         (SETQ |argml|
                 (COND ((SETQ |s| (|getConstructorSignature| |op|)) (IFCDR |s|))
                       (#1# NIL)))
-        (SETQ |typ| (GETDATABASE |op| 'CONSTRUCTORKIND))
+        (SETQ |typ| (|get_database| |op| 'CONSTRUCTORKIND))
         (SETQ |nArgs| (LENGTH |argml|))
         (COND
          ((AND (EQL |nArgs| 0) (EQ |typ| '|domain|))
@@ -6356,7 +6358,7 @@
            (|isType| (|mkAtree| (|evaluateType| (LIST |op|))))))
          (#1#
           (PROGN
-           (SETQ |argList| (IFCDR (GETDATABASE |op| 'CONSTRUCTORFORM)))
+           (SETQ |argList| (IFCDR (|get_database| |op| 'CONSTRUCTORFORM)))
            (SETQ |functorForm| (CONS |op| |argList|))
            (SETQ |argml|
                    (EQSUBSTLIST |argList| |$FormalMapVariableList| |argml|))
@@ -6420,7 +6422,7 @@
 ;   [name,:argl] := form
 ;   centerAndHighlight('"Operations",$LINELENGTH,specialChar 'hbar)
 ;   sayBrightly '""
-;   opList:= GETDATABASE(name,'OPERATIONALIST)
+;   opList := get_database(name, 'OPERATIONALIST)
 ;   null opList => nil
 ;   opl:=REMDUP MSORT EQSUBSTLIST(argl,$FormalMapVariableList,opList)
 ;   ops:= nil
@@ -6437,7 +6439,7 @@
       (SETQ |argl| (CDR |form|))
       (|centerAndHighlight| "Operations" $LINELENGTH (|specialChar| '|hbar|))
       (|sayBrightly| "")
-      (SETQ |opList| (GETDATABASE |name| 'OPERATIONALIST))
+      (SETQ |opList| (|get_database| |name| 'OPERATIONALIST))
       (COND ((NULL |opList|) NIL)
             (#1='T
              (PROGN
@@ -7387,9 +7389,9 @@
 
 ; whatConstructors constrType ==
 ;   -- here constrType should be one of 'category, 'domain, 'package
-;   MSORT [CONS(GETDATABASE(con,'ABBREVIATION), STRING(con))
+;   MSORT [CONS(get_database(con, 'ABBREVIATION), STRING(con))
 ;     for con in allConstructors()
-;       | GETDATABASE(con,'CONSTRUCTORKIND) = constrType]
+;             | get_database(con, 'CONSTRUCTORKIND) = constrType]
 
 (DEFUN |whatConstructors| (|constrType|)
   (PROG ()
@@ -7401,10 +7403,10 @@
            ((OR (ATOM |bfVar#160|) (PROGN (SETQ |con| (CAR |bfVar#160|)) NIL))
             (RETURN (NREVERSE |bfVar#161|)))
            ('T
-            (AND (EQUAL (GETDATABASE |con| 'CONSTRUCTORKIND) |constrType|)
+            (AND (EQUAL (|get_database| |con| 'CONSTRUCTORKIND) |constrType|)
                  (SETQ |bfVar#161|
                          (CONS
-                          (CONS (GETDATABASE |con| 'ABBREVIATION)
+                          (CONS (|get_database| |con| 'ABBREVIATION)
                                 (STRING |con|))
                           |bfVar#161|)))))
           (SETQ |bfVar#160| (CDR |bfVar#160|))))

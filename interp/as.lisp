@@ -578,7 +578,7 @@
 ;        DOCUMENTATION) repeat fn(x,y)
 ;   fn(x,y) ==
 ;     sayBrightly ['"----------------- ",y,'" --------------------"]
-;     pp GETDATABASE(x,y)
+;     pp(get_database(x, y))
 
 (DEFUN |displayDatabase| (|x|)
   (PROG ()
@@ -599,7 +599,7 @@
     (RETURN
      (PROGN
       (|sayBrightly| (LIST "----------------- " |y| " --------------------"))
-      (|pp| (GETDATABASE |x| |y|))))))
+      (|pp| (|get_database| |x| |y|))))))
 
 ; zeroOneConversion opAlist == opAlist
 
@@ -789,13 +789,13 @@
       (NREVERSE |acc|)))))
 
 ; asIsCategoryForm m ==
-;   m = 'BasicType or GETDATABASE(opOf m,'CONSTRUCTORKIND) = 'category
+;     m = 'BasicType or get_database(opOf(m), 'CONSTRUCTORKIND) = 'category
 
 (DEFUN |asIsCategoryForm| (|m|)
   (PROG ()
     (RETURN
      (OR (EQ |m| '|BasicType|)
-         (EQ (GETDATABASE (|opOf| |m|) 'CONSTRUCTORKIND) '|category|)))))
+         (EQ (|get_database| (|opOf| |m|) 'CONSTRUCTORKIND) '|category|)))))
 
 ; asyDocumentation con ==
 ;   docHash := HGET($docHash,con)
@@ -1135,7 +1135,7 @@
 ;   atom x =>
 ;     x = '_% => '_%
 ;     MEMQ(x, $niladics)       => [x]
-;     GETDATABASE(x ,'NILADIC) => [x]
+;     get_database(x, 'NILADIC) => [x]
 ;     x
 ;   asyAncestorList x
 
@@ -1155,7 +1155,7 @@
        (|asyAncestors| |y|))
       ((ATOM |x|)
        (COND ((EQ |x| '%) '%) ((MEMQ |x| |$niladics|) (LIST |x|))
-             ((GETDATABASE |x| 'NILADIC) (LIST |x|)) (#1# |x|)))
+             ((|get_database| |x| 'NILADIC) (LIST |x|)) (#1# |x|)))
       (#1# (|asyAncestorList| |x|))))))
 
 ; asyAncestorList x == [asyAncestors y for y in x]
@@ -1277,7 +1277,7 @@
 ;       asyLooksLikeCatForm? form => 'category
 ;       form is ['Apply, '_-_>,.,u] =>
 ;         if u is ['Apply, construc,:.] then u:= construc
-;         GETDATABASE(opOf u,'CONSTRUCTORKIND) = 'domain  => 'function
+;         get_database(opOf(u), 'CONSTRUCTORKIND) = 'domain  => 'function
 ;         asyLooksLikeCatForm? u => 'category
 ;         'domain
 ;       'domain
@@ -1375,7 +1375,8 @@
                                   (SETQ |u| |construc|)))
                                 (COND
                                  ((EQ
-                                   (GETDATABASE (|opOf| |u|) 'CONSTRUCTORKIND)
+                                   (|get_database| (|opOf| |u|)
+                                    'CONSTRUCTORKIND)
                                    '|domain|)
                                   '|function|)
                                  ((|asyLooksLikeCatForm?| |u|) '|category|)

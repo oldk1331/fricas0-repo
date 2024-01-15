@@ -390,14 +390,14 @@
 ;   x=0 => '(Zero)
 ;   x=1 => '(One)
 ;   EQ(x,'T) => 'T_$ -- rename T in spad code to T$
-;   IDENTP x and GETDATABASE(x,'NILADIC) => LIST x
+;   IDENTP x and get_database(x, 'NILADIC) => LIST x
 ;   x
 
 (DEFUN |postAtom| (|x|)
   (PROG ()
     (RETURN
      (COND ((EQL |x| 0) '(|Zero|)) ((EQL |x| 1) '(|One|)) ((EQ |x| 'T) 'T$)
-           ((AND (IDENTP |x|) (GETDATABASE |x| 'NILADIC)) (LIST |x|))
+           ((AND (IDENTP |x|) (|get_database| |x| 'NILADIC)) (LIST |x|))
            ('T |x|)))))
 
 ; postBlockItemList l == [postBlockItem x for x in l]

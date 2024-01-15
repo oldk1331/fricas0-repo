@@ -888,7 +888,7 @@
 ;     x := unabbrev x
 ;     if PAIRP x then x := QCAR x
 ;     -- if the constructor is known, we know what type it is
-;     null GETDATABASE(x,'CONSTRUCTORKIND) =>
+;     null(get_database(x, 'CONSTRUCTORKIND)) =>
 ;       sayKeyedMsg("S2IZ0049J",[x])
 ;     member(x,$localExposureData.1) =>
 ;       sayKeyedMsg("S2IZ0049K",[x,$interpreterFrameName])
@@ -919,7 +919,7 @@
               (SETQ |x| (|unabbrev| |x|))
               (COND ((CONSP |x|) (SETQ |x| (QCAR |x|))))
               (COND
-               ((NULL (GETDATABASE |x| 'CONSTRUCTORKIND))
+               ((NULL (|get_database| |x| 'CONSTRUCTORKIND))
                 (|sayKeyedMsg| 'S2IZ0049J (LIST |x|)))
                ((|member| |x| (ELT |$localExposureData| 1))
                 (|sayKeyedMsg| 'S2IZ0049K (LIST |x| |$interpreterFrameName|)))
@@ -1054,7 +1054,7 @@
 ;     x := unabbrev x
 ;     if PAIRP x then x := QCAR x
 ;     -- if the constructor is known, we know what type it is
-;     null GETDATABASE(x,'CONSTRUCTORKIND) =>
+;     null(get_database(x, 'CONSTRUCTORKIND)) =>
 ;       sayKeyedMsg("S2IZ0049J",[x])
 ;     member(x,$localExposureData.2) =>
 ;       sayKeyedMsg("S2IZ0049O",[x,$interpreterFrameName])
@@ -1088,7 +1088,7 @@
               (SETQ |x| (|unabbrev| |x|))
               (COND ((CONSP |x|) (SETQ |x| (QCAR |x|))))
               (COND
-               ((NULL (GETDATABASE |x| 'CONSTRUCTORKIND))
+               ((NULL (|get_database| |x| 'CONSTRUCTORKIND))
                 (|sayKeyedMsg| 'S2IZ0049J (LIST |x|)))
                ((|member| |x| (ELT |$localExposureData| 2))
                 (|sayKeyedMsg| 'S2IZ0049O (LIST |x| |$interpreterFrameName|)))

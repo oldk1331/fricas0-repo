@@ -108,7 +108,7 @@
 ;   if nargs > 0 then kPageArgs(conform,signature)
 ;   htSayStandard '"\indentrel{-2}"
 ;   if name.(#name-1) = char "&" then name := SUBSEQ(name, 0, #name-1)
-;   sourceFileName := GETDATABASE(INTERN name,'SOURCEFILE)
+;   sourceFileName := get_database(INTERN(name), 'SOURCEFILE)
 ;   filename := extractFileNameFromPath sourceFileName
 ;   if filename ~= '"" then
 ;     htSayStandard '"\newline{}"
@@ -138,7 +138,7 @@
       (COND
        ((EQUAL (ELT |name| (- (LENGTH |name|) 1)) (|char| '&))
         (SETQ |name| (SUBSEQ |name| 0 (- (LENGTH |name|) 1)))))
-      (SETQ |sourceFileName| (GETDATABASE (INTERN |name|) 'SOURCEFILE))
+      (SETQ |sourceFileName| (|get_database| (INTERN |name|) 'SOURCEFILE))
       (SETQ |filename| (|extractFileNameFromPath| |sourceFileName|))
       (COND
        ((NOT (EQUAL |filename| "")) (|htSayStandard| "\\newline{}")
@@ -765,8 +765,8 @@
 ;   infovec := dbInfovec name or return nil  --exit for categories
 ;   u := infovec.3
 ;   $predvec:=
-;     $domain => $domain . 3
-;     GETDATABASE(name,'PREDICATES)
+;         $domain => $domain.3
+;         get_database(name, 'PREDICATES)
 ;   catpredvec := first u
 ;   catinfo    := CADR u
 ;   catvec     := CADDR u
@@ -798,7 +798,7 @@
       (SETQ |u| (ELT |infovec| 3))
       (SETQ |$predvec|
               (COND (|$domain| (ELT |$domain| 3))
-                    (#1='T (GETDATABASE |name| 'PREDICATES))))
+                    (#1='T (|get_database| |name| 'PREDICATES))))
       (SETQ |catpredvec| (CAR |u|))
       (SETQ |catinfo| (CADR |u|))
       (SETQ |catvec| (CADDR |u|))
@@ -1378,7 +1378,7 @@
 ;   htpSetProperty(htPage,'inputAreaList,inputAreaList)
 ;   conname := INTERN name
 ;   args := [kArgumentCheck(domain?,x) or nil for x in inputAreaList
-;               for domain? in rest GETDATABASE(conname,'COSIG)]
+;               for domain? in rest(get_database(conname, 'COSIG))]
 ;   or/[null x for x in args] =>
 ;     (n := +/[1 for x in args | x]) > 0 =>
 ;       ['error,nil,'"\centerline{You gave values for only {\em ",n,'" } of the {\em ",#args,'"}}",'"\centerline{parameters of {\sf ",name,'"}}\vspace{1}\centerline{Please enter either {\em all} or {\em none} of the type parameters}"]
@@ -1431,7 +1431,7 @@
                                   |bfVar#41|))))
                   (SETQ |bfVar#39| (CDR |bfVar#39|))
                   (SETQ |bfVar#40| (CDR |bfVar#40|))))
-               NIL |inputAreaList| NIL (CDR (GETDATABASE |conname| 'COSIG))
+               NIL |inputAreaList| NIL (CDR (|get_database| |conname| 'COSIG))
                NIL))
       (COND
        (((LAMBDA (|bfVar#43| |bfVar#42| |x|)
@@ -1549,7 +1549,7 @@
 ; --like mkEvalable except that it does NOT quote domains
 ; --does not do "loadIfNecessary"
 ;   [op,:.] := form
-;   kind := GETDATABASE(op,'CONSTRUCTORKIND)
+;   kind := get_database(op, 'CONSTRUCTORKIND)
 ;   kind = 'category => form
 ;   mkEvalable form
 
@@ -1558,7 +1558,7 @@
     (RETURN
      (PROGN
       (SETQ |op| (CAR |form|))
-      (SETQ |kind| (GETDATABASE |op| 'CONSTRUCTORKIND))
+      (SETQ |kind| (|get_database| |op| 'CONSTRUCTORKIND))
       (COND ((EQ |kind| '|category|) |form|) ('T (|mkEvalable| |form|)))))))
 
 ; topLevelInterpEval x ==
@@ -1972,7 +1972,7 @@
 ; originsInOrder conform ==  --domain = nil or set to live domain
 ; --from dcCats
 ;   [con,:argl] := conform
-;   GETDATABASE(con,'CONSTRUCTORKIND) = 'category =>
+;   get_database(con, 'CONSTRUCTORKIND) = 'category =>
 ;       ASSOCLEFT ancestorsOf(conform,nil)
 ;   acc := ASSOCLEFT parentsOf con
 ;   for x in acc repeat
@@ -1986,7 +1986,7 @@
       (SETQ |con| (CAR |conform|))
       (SETQ |argl| (CDR |conform|))
       (COND
-       ((EQ (GETDATABASE |con| 'CONSTRUCTORKIND) '|category|)
+       ((EQ (|get_database| |con| 'CONSTRUCTORKIND) '|category|)
         (ASSOCLEFT (|ancestorsOf| |conform| NIL)))
        (#1='T
         (PROGN
@@ -2014,7 +2014,7 @@
 ;   conname := opOf conform
 ;   storedArgs := rest getConstructorForm conname
 ;   for [op, :alist] in SUBLISLIS(["%", :rest(conform)],
-;     ["%", :storedArgs], GETDATABASE(opOf(conform), 'DOCUMENTATION))
+;     ["%", :storedArgs], get_database(opOf(conform), 'DOCUMENTATION))
 ;       repeat
 ;        op1 :=
 ;          op = '(Zero) => 0
@@ -2065,7 +2065,7 @@
                    |alist| NIL)))))
           (SETQ |bfVar#64| (CDR |bfVar#64|))))
        (SUBLISLIS (CONS '% (CDR |conform|)) (CONS '% |storedArgs|)
-        (GETDATABASE (|opOf| |conform|) 'DOCUMENTATION))
+        (|get_database| (|opOf| |conform|) 'DOCUMENTATION))
        NIL)))))
 
 ; dbGetDocTable(op, $sig, docTable, which, aux) == main where
@@ -2378,7 +2378,7 @@
 ;     key = 'files =>
 ;       flist :=
 ;         [y for con in conlist |
-;           y := (fn := GETDATABASE(con,'SOURCEFILE))]
+;           y := (fn := get_database(con, 'SOURCEFILE))]
 ;       bcUnixTable(listSort(function GLESSEQP,REMDUP flist))
 ;     key = 'documentation   => dbShowConsDoc(page,conlist)
 ;     if $exposedOnlyIfTrue then
@@ -2492,7 +2492,7 @@
                                 (AND
                                  (SETQ |y|
                                          (SETQ |fn|
-                                                 (GETDATABASE |con|
+                                                 (|get_database| |con|
                                                   'SOURCEFILE)))
                                  (SETQ |bfVar#85| (CONS |y| |bfVar#85|)))))
                               (SETQ |bfVar#84| (CDR |bfVar#84|))))
@@ -2610,7 +2610,7 @@
 ;   doc := [getConstructorDocumentation conname]
 ;   signature := getConstructorSignature conname
 ;   sig :=
-;     GETDATABASE(conname,'CONSTRUCTORKIND) = 'category =>
+;     get_database(conname, 'CONSTRUCTORKIND) = 'category =>
 ;       SUBLISLIS(conargs,$TriangleVariableList,signature)
 ;     sublisFormal(conargs,signature)
 ;   displayDomainOp(htPage,'"constructor",conform,conname,sig,true,doc,indexOrNil,'dbSelectCon,null exposeFlag,nil)
@@ -2637,14 +2637,14 @@
          (SETQ |signature| (|getConstructorSignature| |conname|))
          (SETQ |sig|
                  (COND
-                  ((EQ (GETDATABASE |conname| 'CONSTRUCTORKIND) '|category|)
+                  ((EQ (|get_database| |conname| 'CONSTRUCTORKIND) '|category|)
                    (SUBLISLIS |conargs| |$TriangleVariableList| |signature|))
                   (#1# (|sublisFormal| |conargs| |signature|))))
          (|displayDomainOp| |htPage| "constructor" |conform| |conname| |sig| T
           |doc| |indexOrNil| '|dbSelectCon| (NULL |exposeFlag|) NIL))))))))
 
 ; getConstructorDocumentation conname ==
-;   LASSOC('constructor,GETDATABASE(conname,'DOCUMENTATION))
+;   LASSOC('constructor, get_database(conname, 'DOCUMENTATION))
 ;     is [[nil,line,:.],:.] and line or '""
 
 (DEFUN |getConstructorDocumentation| (|conname|)
@@ -2654,7 +2654,8 @@
       (AND
        (PROGN
         (SETQ |ISTMP#1|
-                (LASSOC '|constructor| (GETDATABASE |conname| 'DOCUMENTATION)))
+                (LASSOC '|constructor|
+                 (|get_database| |conname| 'DOCUMENTATION)))
         (AND (CONSP |ISTMP#1|)
              (PROGN
               (SETQ |ISTMP#2| (CAR |ISTMP#1|))

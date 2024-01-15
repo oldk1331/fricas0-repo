@@ -151,10 +151,10 @@
 ;     UPPER_-CASE_-P c => someUpperCaseChar := true
 ;   someLowerCaseChar or not someUpperCaseChar => false
 ;   pattern := DOWNCASE s
-;   ['Abbreviations ,:[GETDATABASE(x,'CONSTRUCTORFORM)
+;   ['Abbreviations, :[get_database(x, 'CONSTRUCTORFORM)
 ;     for x in allConstructors() | test]] where test ==
 ;          not $includeUnexposed? and not isExposedConstructor x => false
-;          a := GETDATABASE(x,'ABBREVIATION)
+;          a := get_database(x, 'ABBREVIATION)
 ;          match?(pattern,PNAME a) and not HGET($defaultPackageNamesHT,x)
 
 (DEFUN |grepForAbbrev| (|s| |key|)
@@ -197,13 +197,14 @@
                                NIL)
                               (#1#
                                (PROGN
-                                (SETQ |a| (GETDATABASE |x| 'ABBREVIATION))
+                                (SETQ |a| (|get_database| |x| 'ABBREVIATION))
                                 (AND (|match?| |pattern| (PNAME |a|))
                                      (NULL
                                       (HGET |$defaultPackageNamesHT| |x|))))))
                              (SETQ |bfVar#7|
-                                     (CONS (GETDATABASE |x| 'CONSTRUCTORFORM)
-                                           |bfVar#7|)))))
+                                     (CONS
+                                      (|get_database| |x| 'CONSTRUCTORFORM)
+                                      |bfVar#7|)))))
                           (SETQ |bfVar#6| (CDR |bfVar#6|))))
                        NIL (|allConstructors|) NIL)))))))))))
 
@@ -1002,7 +1003,8 @@
 ; oPageFrom(opname,conname) == --called by \spadfunFrom{opname}{conname}
 ;   htPage := htInitPage(nil,nil) --create empty page and fill in needed properties
 ;   htpSetProperty(htPage,'conform,conform := getConstructorForm conname)
-;   htpSetProperty(htPage,'kind,STRINGIMAGE GETDATABASE(conname,'CONSTRUCTORKIND))
+;   htpSetProperty(htPage, 'kind,
+;                  STRINGIMAGE(get_database(conname, 'CONSTRUCTORKIND)))
 ;   itemlist := assoc(opname,koOps(conform,nil)) --all operations name "opname"
 ;   null itemlist => systemError [conform,'" has no operation named ",opname]
 ;   opAlist := [itemlist]
@@ -1016,7 +1018,7 @@
       (|htpSetProperty| |htPage| '|conform|
        (SETQ |conform| (|getConstructorForm| |conname|)))
       (|htpSetProperty| |htPage| '|kind|
-       (STRINGIMAGE (GETDATABASE |conname| 'CONSTRUCTORKIND)))
+       (STRINGIMAGE (|get_database| |conname| 'CONSTRUCTORKIND)))
       (SETQ |itemlist| (|assoc| |opname| (|koOps| |conform| NIL)))
       (COND
        ((NULL |itemlist|)

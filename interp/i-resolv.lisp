@@ -1037,7 +1037,7 @@
 ;     (and/[member(x,a) for x in b] and and/[member(x,b) for x in a]) and a
 ;   [( atom x and x ) or ((not cs and x and not interpOp? x and x)
 ;     or resolveTTRed3 x) or return NIL
-;       for x in t for cs in GETDATABASE(first t, 'COSIG)]
+;             for x in t for cs in get_database(first(t), 'COSIG)]
 
 (DEFUN |resolveTTRed3| (|t|)
   (PROG (|ISTMP#1| |a| |ISTMP#2| |b| |t1| |t2|)
@@ -1180,7 +1180,7 @@
                            |bfVar#21|))))
                 (SETQ |bfVar#19| (CDR |bfVar#19|))
                 (SETQ |bfVar#20| (CDR |bfVar#20|))))
-             NIL |t| NIL (GETDATABASE (CAR |t|) 'COSIG) NIL))))))
+             NIL |t| NIL (|get_database| (CAR |t|) 'COSIG) NIL))))))
 
 ; interpOp?(op) ==
 ;   PAIRP(op) and
@@ -1342,7 +1342,7 @@
 ; getConditionalCategoryOfType(t,conditions,match) ==
 ;   if PAIRP t then t := first t
 ;   t in '(Union Mapping Record) => NIL
-;   conCat := GETDATABASE(t,'CONSTRUCTORCATEGORY)
+;   conCat := get_database(t, 'CONSTRUCTORCATEGORY)
 ;   REMDUP rest getConditionalCategoryOfType1(conCat, conditions, match, [[]])
 
 (DEFUN |getConditionalCategoryOfType| (|t| |conditions| |match|)
@@ -1353,7 +1353,7 @@
       (COND ((|member| |t| '(|Union| |Mapping| |Record|)) NIL)
             ('T
              (PROGN
-              (SETQ |conCat| (GETDATABASE |t| 'CONSTRUCTORCATEGORY))
+              (SETQ |conCat| (|get_database| |t| 'CONSTRUCTORCATEGORY))
               (REMDUP
                (CDR
                 (|getConditionalCategoryOfType1| |conCat| |conditions| |match|
@@ -1370,10 +1370,11 @@
 ;       RPLACD(conditions, CONS(cat, rest conditions))
 ;       conditions
 ;     conditions
-;   cat is [catName,:.] and (GETDATABASE(catName,'CONSTRUCTORKIND) = 'category) =>
+;   cat is [catName, :.] and
+;             (get_database(catName, 'CONSTRUCTORKIND) = 'category) =>
 ;     cat in rest seen => conditions
 ;     RPLACD(seen, [cat, :rest seen])
-;     subCat := GETDATABASE(catName,'CONSTRUCTORCATEGORY)
+;     subCat := get_database(catName, 'CONSTRUCTORCATEGORY)
 ;     -- substitute vars of cat into category
 ;     for v in rest cat for vv in $TriangleVariableList repeat
 ;       subCat := SUBST(v,vv,subCat)
@@ -1413,12 +1414,12 @@
           |conditions|))
         (#1# |conditions|)))
       ((AND (CONSP |cat|) (PROGN (SETQ |catName| (CAR |cat|)) #1#)
-            (EQ (GETDATABASE |catName| 'CONSTRUCTORKIND) '|category|))
+            (EQ (|get_database| |catName| 'CONSTRUCTORKIND) '|category|))
        (COND ((|member| |cat| (CDR |seen|)) |conditions|)
              (#1#
               (PROGN
                (RPLACD |seen| (CONS |cat| (CDR |seen|)))
-               (SETQ |subCat| (GETDATABASE |catName| 'CONSTRUCTORCATEGORY))
+               (SETQ |subCat| (|get_database| |catName| 'CONSTRUCTORCATEGORY))
                ((LAMBDA (|bfVar#23| |v| |bfVar#24| |vv|)
                   (LOOP
                    (COND
@@ -2456,7 +2457,7 @@
   (PROG () (RETURN (NREVERSE (RPLACA (REVERSE A) |t|)))))
 
 ; nontrivialCosig(x) ==
-;    cs := GETDATABASE(x, "COSIG")
+;    cs := get_database(x, "COSIG")
 ;    sig := getConstructorSignature x
 ;    not("and"/[c or freeOfSharpVars s for c in rest cs for s in rest sig])
 
@@ -2464,7 +2465,7 @@
   (PROG (|cs| |sig|)
     (RETURN
      (PROGN
-      (SETQ |cs| (GETDATABASE |x| 'COSIG))
+      (SETQ |cs| (|get_database| |x| 'COSIG))
       (SETQ |sig| (|getConstructorSignature| |x|))
       (NULL
        ((LAMBDA (|bfVar#55| |bfVar#53| |c| |bfVar#54| |s|)
@@ -2484,10 +2485,10 @@
 ; destructT(functor)==
 ;   -- provides a list of booleans, which indicate whether the arguments
 ;   -- to the functor are category forms or not
-;   GETDATABASE(opOf functor,'COSIG)
+;     get_database(opOf(functor), 'COSIG)
 
 (DEFUN |destructT| (|functor|)
-  (PROG () (RETURN (GETDATABASE (|opOf| |functor|) 'COSIG))))
+  (PROG () (RETURN (|get_database| (|opOf| |functor|) 'COSIG))))
 
 ; constructTowerT(t,TL) ==
 ;   -- t is a type, TL a list of constructors and argument lists

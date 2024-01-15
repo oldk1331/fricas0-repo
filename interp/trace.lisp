@@ -1454,7 +1454,8 @@
       NIL |options| NIL))))
 
 ; domainToGenvar x ==
-;   (y:= unabbrevAndLoad x) and GETDATABASE(opOf y,'CONSTRUCTORKIND) = 'domain =>
+;   (y := unabbrevAndLoad(x)) and
+;             get_database(opOf(y), 'CONSTRUCTORKIND) = 'domain =>
 ;     g:= genDomainTraceName y
 ;     SET(g,evalDomain y)
 ;     g
@@ -1464,7 +1465,7 @@
     (RETURN
      (COND
       ((AND (SETQ |y| (|unabbrevAndLoad| |x|))
-            (EQ (GETDATABASE (|opOf| |y|) 'CONSTRUCTORKIND) '|domain|))
+            (EQ (|get_database| (|opOf| |y|) 'CONSTRUCTORKIND) '|domain|))
        (IDENTITY
         (PROGN
          (SETQ |g| (|genDomainTraceName| |y|))

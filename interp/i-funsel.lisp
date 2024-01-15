@@ -3019,7 +3019,7 @@
 ;     type := getDomainFromMm mm
 ;     null type => bad := cons(mm,bad)
 ;     if PAIRP type then type := first type
-;     GETDATABASE(type,'CONSTRUCTORKIND) = 'category => bad := cons(mm,bad)
+;     get_database(type, 'CONSTRUCTORKIND) = 'category => bad := cons(mm, bad)
 ;     name := object2String type
 ;     found := nil
 ;     for n in names while not found repeat
@@ -3051,7 +3051,8 @@
                       (PROGN
                        (COND ((CONSP |type|) (SETQ |type| (CAR |type|))))
                        (COND
-                        ((EQ (GETDATABASE |type| 'CONSTRUCTORKIND) '|category|)
+                        ((EQ (|get_database| |type| 'CONSTRUCTORKIND)
+                             '|category|)
                          (SETQ |bad| (CONS |mm| |bad|)))
                         (#1#
                          (PROGN
@@ -3978,7 +3979,7 @@
 ;   -- if needed.
 ;   t1 isnt [con1, :args1] or t2 isnt [con2, :args2] => t2
 ;   con1 ~= con2 => t2
-;   coSig := rest GETDATABASE(first t1, 'COSIG)
+;   coSig := rest(get_database(first(t1), 'COSIG))
 ;   and/coSig => t2
 ;   csub1 := constructSubst t1
 ;   csub2 := constructSubst t2
@@ -4008,7 +4009,7 @@
       ((NOT (EQUAL |con1| |con2|)) |t2|)
       (#1#
        (PROGN
-        (SETQ |coSig| (CDR (GETDATABASE (CAR |t1|) 'COSIG)))
+        (SETQ |coSig| (CDR (|get_database| (CAR |t1|) 'COSIG)))
         (COND
          (((LAMBDA (|bfVar#107| |bfVar#109| |bfVar#108|)
              (LOOP
@@ -5724,7 +5725,7 @@
 ;   -- calls this and should possibly fail in some cases.
 ;   cat := subCopy(cat, SL)
 ;   c := first cat
-;   d := GETDATABASE(c, 'DEFAULTDOMAIN)
+;   d := get_database(c, 'DEFAULTDOMAIN)
 ;   d => [d, :rest cat]
 ;   cat is [c] =>
 ;     c = 'Field => $RationalNumber
@@ -5754,7 +5755,7 @@
      (PROGN
       (SETQ |cat| (|subCopy| |cat| SL))
       (SETQ |c| (CAR |cat|))
-      (SETQ |d| (GETDATABASE |c| 'DEFAULTDOMAIN))
+      (SETQ |d| (|get_database| |c| 'DEFAULTDOMAIN))
       (COND (|d| (CONS |d| (CDR |cat|)))
             ((AND (CONSP |cat|) (EQ (CDR |cat|) NIL)
                   (PROGN (SETQ |c| (CAR |cat|)) #1='T))

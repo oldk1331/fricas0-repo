@@ -994,7 +994,7 @@
 ;     rhs is ['Vector,:l] => ['VectorCategory,:l]
 ;
 ;     rhs is [op, :argl] =>
-;         modemap := GETDATABASE(op, 'CONSTRUCTORMODEMAP)
+;         modemap := get_database(op, 'CONSTRUCTORMODEMAP)
 ;         modemap is [[form, sig, :.], [=true,.]] =>
 ;             pairlis:= [[v,:a] for a in argl for v in $FormalMapVariableList]
 ;             -- substitute
@@ -1049,7 +1049,7 @@
        ((AND (CONSP |rhs|)
              (PROGN (SETQ |op| (CAR |rhs|)) (SETQ |argl| (CDR |rhs|)) #1#))
         (PROGN
-         (SETQ |modemap| (GETDATABASE |op| 'CONSTRUCTORMODEMAP))
+         (SETQ |modemap| (|get_database| |op| 'CONSTRUCTORMODEMAP))
          (COND
           ((AND (CONSP |modemap|)
                 (PROGN
