@@ -1,4 +1,4 @@
-345976              (|GenericNonAssociativeAlgebra|)
+346034              (|GenericNonAssociativeAlgebra|)
 (|Expression|)
 (|AlgebraicIntegrate| |AlgebraicIntegrate2|)
 (|ElementaryIntegration| |ParametricIntegration|)
@@ -5114,6 +5114,7 @@
                                      |RealZeroPackage| |RectangularMatrix|
                                      |ReduceLODE| |RepresentationPackage1|
                                      |RepresentationPackage2|
+                                     |RootSimplification|
                                      |SequentialDifferentialPolynomial|
                                      |SetOfMIntegersInOneToN|
                                      |SimpleAlgebraicExtension|
@@ -5330,16 +5331,16 @@
 (|LiePolynomial| |XPBWPolynomial| |XPolynomial|)
 (|Scene| |XmlElement|)
 (|ExportXml| |Scene|)
-(("XmlElement" 0 345954) ("XmlAttribute" 0 345931)
- ("XRecursivePolynomial" 0 345882) ("XPolynomialRing" 0 345855)
- ("XPBWPolynomial" 0 345835) ("XHashTable" 0 345814)
- ("XDistributedPolynomial" 0 345602)
- ("WildFunctionFieldIntegralBasis" 0 345562) ("WeightedPolynomials" 0 345530)
- ("WeightedGraph" 0 345512) ("Void" 0 334952) ("ViewportPackage" 0 334863)
- ("ViewDefaultsPackage" 0 334595) ("VectorPolynomialOperationsP" 0 334561)
- ("VectorModularReconstructor" 0 334510)
- ("VectorIntegerReconstructor" 0 334438) ("VectorHermitePadeSolver" 0 334388)
- ("VectorFunctions2" 0 333955) ("VectorCategory&" 0 NIL) ("Vector" 0 321405)
+(("XmlElement" 0 346012) ("XmlAttribute" 0 345989)
+ ("XRecursivePolynomial" 0 345940) ("XPolynomialRing" 0 345913)
+ ("XPBWPolynomial" 0 345893) ("XHashTable" 0 345872)
+ ("XDistributedPolynomial" 0 345660)
+ ("WildFunctionFieldIntegralBasis" 0 345620) ("WeightedPolynomials" 0 345588)
+ ("WeightedGraph" 0 345570) ("Void" 0 335010) ("ViewportPackage" 0 334921)
+ ("ViewDefaultsPackage" 0 334653) ("VectorPolynomialOperationsP" 0 334619)
+ ("VectorModularReconstructor" 0 334568)
+ ("VectorIntegerReconstructor" 0 334496) ("VectorHermitePadeSolver" 0 334446)
+ ("VectorFunctions2" 0 334013) ("VectorCategory&" 0 NIL) ("Vector" 0 321405)
  ("Variable" 0 320797) ("UserDefinedPartialOrdering" 0 320735)
  ("UniversalSegmentFunctions2" 0 320700) ("UniversalSegment" 0 319242)
  ("UnivariateTaylorSeriesODESolver" 0 319175)
