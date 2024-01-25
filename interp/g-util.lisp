@@ -372,36 +372,6 @@
                          (#1# (SETQ |i| (+ |i| 1)))))))))
              |ok|))))))
 
-; dropLeadingBlanks str ==
-;   str := object2String str
-;   l := QCSIZE str
-;   nb := NIL
-;   i := 0
-;   while (i < l) and not nb repeat
-;     if SCHAR(str,i) ~= SCHAR('" ",0) then nb := i
-;     else i := i + 1
-;   nb = 0 => str
-;   nb => SUBSTRING(str,nb,NIL)
-;   '""
-
-(DEFUN |dropLeadingBlanks| (|str|)
-  (PROG (|l| |nb| |i|)
-    (RETURN
-     (PROGN
-      (SETQ |str| (|object2String| |str|))
-      (SETQ |l| (QCSIZE |str|))
-      (SETQ |nb| NIL)
-      (SETQ |i| 0)
-      ((LAMBDA ()
-         (LOOP
-          (COND ((NOT (AND (< |i| |l|) (NULL |nb|))) (RETURN NIL))
-                (#1='T
-                 (COND
-                  ((NOT (EQUAL (SCHAR |str| |i|) (SCHAR " " 0)))
-                   (SETQ |nb| |i|))
-                  (#1# (SETQ |i| (+ |i| 1)))))))))
-      (COND ((EQL |nb| 0) |str|) (|nb| (SUBSTRING |str| |nb| NIL)) (#1# ""))))))
-
 ; concat(:l) == concatList l
 
 (DEFUN |concat| (&REST |l|) (PROG () (RETURN (|concatList| |l|))))

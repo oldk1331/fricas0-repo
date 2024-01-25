@@ -6520,50 +6520,21 @@
       (|terminateSystemCommand|)))))
 
 ; processSynonymLine line ==
+;   line := STRING_-LEFT_-TRIM('" ", line)
 ;   key := STRING2ID_N (line, 1)
-;   value := removeKeyFromLine line where
-;     removeKeyFromLine line ==
-;       line := dropLeadingBlanks line
-;       mx := MAXINDEX line
-;       for i in 0..mx repeat
-;         line.i = " " =>
-;           return (for j in (i+1)..mx repeat
-;             line.j ~= " " => return (SUBSTRING (line, j, nil)))
+;   value := SUBSTRING(line, # STRINGIMAGE key, nil)
+;   value := STRING_-LEFT_-TRIM('" ", value)
 ;   [key, :value]
 
 (DEFUN |processSynonymLine| (|line|)
   (PROG (|key| |value|)
     (RETURN
      (PROGN
+      (SETQ |line| (STRING-LEFT-TRIM " " |line|))
       (SETQ |key| (STRING2ID_N |line| 1))
-      (SETQ |value| (|processSynonymLine,removeKeyFromLine| |line|))
+      (SETQ |value| (SUBSTRING |line| (LENGTH (STRINGIMAGE |key|)) NIL))
+      (SETQ |value| (STRING-LEFT-TRIM " " |value|))
       (CONS |key| |value|)))))
-(DEFUN |processSynonymLine,removeKeyFromLine| (|line|)
-  (PROG (|mx|)
-    (RETURN
-     (PROGN
-      (SETQ |line| (|dropLeadingBlanks| |line|))
-      (SETQ |mx| (MAXINDEX |line|))
-      ((LAMBDA (|i|)
-         (LOOP
-          (COND ((> |i| |mx|) (RETURN NIL))
-                (#1='T
-                 (COND
-                  ((EQ (ELT |line| |i|) '| |)
-                   (IDENTITY
-                    (RETURN
-                     ((LAMBDA (|j|)
-                        (LOOP
-                         (COND ((> |j| |mx|) (RETURN NIL))
-                               (#1#
-                                (COND
-                                 ((NOT (EQ (ELT |line| |j|) '| |))
-                                  (IDENTITY
-                                   (RETURN (SUBSTRING |line| |j| NIL)))))))
-                         (SETQ |j| (+ |j| 1))))
-                      (+ |i| 1))))))))
-          (SETQ |i| (+ |i| 1))))
-       0)))))
 
 ; $undoFlag := true     --Default setting for undo is "on"
 
