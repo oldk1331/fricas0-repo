@@ -39,7 +39,7 @@
 ;   interpOpen(display_messages)
 ;   createInitializers()
 ;   if $displayStartMsgs then sayKeyedMsg("S2IZ0053",['"interpreter"])
-;   initializeTimedNames($interpreterTimedNames,$interpreterTimedClasses)
+;   initializeTimedNames()
 ;   $InteractiveFrame := makeInitialModemapFrame()
 ;   initializeSystemCommands()
 ;   initializeInterpreterFrameRing()
@@ -76,8 +76,7 @@
       (|createInitializers|)
       (COND
        (|$displayStartMsgs| (|sayKeyedMsg| 'S2IZ0053 (LIST "interpreter"))))
-      (|initializeTimedNames| |$interpreterTimedNames|
-       |$interpreterTimedClasses|)
+      (|initializeTimedNames|)
       (SETQ |$InteractiveFrame| (|makeInitialModemapFrame|))
       (|initializeSystemCommands|)
       (|initializeInterpreterFrameRing|)
@@ -182,7 +181,7 @@
 
 ; processInteractive(form, posnForm) ==
 ;     $timedNameStack : local := NIL
-;     initializeTimedNames($interpreterTimedNames,$interpreterTimedClasses);
+;     initializeTimedStack()
 ;     finally(
 ;         object := processInteractive0(form, posnForm),
 ;           while $timedNameStack repeat stopTimingProcess peekTimedName())
@@ -194,8 +193,7 @@
     (RETURN
      (PROGN
       (SETQ |$timedNameStack| NIL)
-      (|initializeTimedNames| |$interpreterTimedNames|
-       |$interpreterTimedClasses|)
+      (|initializeTimedStack|)
       (|finally| (SETQ |object| (|processInteractive0| |form| |posnForm|))
        ((LAMBDA ()
           (LOOP
