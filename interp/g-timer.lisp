@@ -206,18 +206,6 @@
        (|keyedSystemError| 'S2GL0015 (LIST |name| (|peekTimedName|))))
       ('T (PROGN (|updateTimedName| (|peekTimedName|)) (|popTimedName|)))))))
 
-; DEFPARAMETER($oldElapsedSpace, 0)
-
-(DEFPARAMETER |$oldElapsedSpace| 0)
-
-; DEFPARAMETER($oldElapsedGCTime, 0.0)
-
-(DEFPARAMETER |$oldElapsedGCTime| 0.0)
-
-; DEFPARAMETER($oldElapsedTime, 0.0)
-
-(DEFPARAMETER |$oldElapsedTime| 0.0)
-
 ; DEFPARAMETER($timePrintDigits, 2)
 
 (DEFPARAMETER |$timePrintDigits| 2)
@@ -271,18 +259,14 @@
 (DEFVAR |$statsInfo|)
 
 ; initializeTimedNames() ==
-;   len := # $interpreterTimedNames
-;   $statsInfo := VECTOR(GETZEROVEC len, GETZEROVEC len)
 ;   for [name, :.] in $interpreterTimedNames for i in 0.. repeat
 ;     PUT(name, 'index, i)
 ;   initializeTimedStack()
 
 (DEFUN |initializeTimedNames| ()
-  (PROG (|name| |len|)
+  (PROG (|name|)
     (RETURN
      (PROGN
-      (SETQ |len| (LENGTH |$interpreterTimedNames|))
-      (SETQ |$statsInfo| (VECTOR (GETZEROVEC |len|) (GETZEROVEC |len|)))
       ((LAMBDA (|bfVar#6| |bfVar#5| |i|)
          (LOOP
           (COND
@@ -298,44 +282,64 @@
 
 ; initializeTimedStack() ==
 ;   $timedNameStack := '(other)
-;   computeElapsedTime()
-;   computeElapsedSpace()
+;   len := # $interpreterTimedNames
+;   $statsInfo := VECTOR(GETZEROVEC len, GETZEROVEC len, get_run_time(), _
+;                        elapsedGcTime(), HEAPELAPSED())
 ;   NIL
 
 (DEFUN |initializeTimedStack| ()
-  (PROG ()
+  (PROG (|len|)
     (RETURN
      (PROGN
       (SETQ |$timedNameStack| '(|other|))
-      (|computeElapsedTime|)
-      (|computeElapsedSpace|)
+      (SETQ |len| (LENGTH |$interpreterTimedNames|))
+      (SETQ |$statsInfo|
+              (VECTOR (GETZEROVEC |len|) (GETZEROVEC |len|) (|get_run_time|)
+                      (|elapsedGcTime|) (HEAPELAPSED)))
       NIL))))
 
 ; updateTimedName name ==
+;   oldTime := $statsInfo.2
+;   oldGCTime := $statsInfo.3
+;   oldSpace := $statsInfo.4
+;   newTime := $statsInfo.2 := get_run_time()
+;   newGCTime := $statsInfo.3 := elapsedGcTime()
+;   newSpace := $statsInfo.4 := HEAPELAPSED()
+;
 ;   i := GET(name, 'index)
 ;   timeVec := $statsInfo.0
 ;   spaceVec := $statsInfo.1
-;   [time, gcTime] := computeElapsedTime()
-;   timeVec.i := timeVec.i + time
+;   gcDelta := newGCTime - oldGCTime
+;   timeVec.i := timeVec.i + (newTime - oldTime - gcDelta)*$inverseTimerTicksPerSecond
 ;   i2 := GET('gc, 'index)
-;   timeVec.i2 := timeVec.i2 + gcTime
-;   spaceVec.i := spaceVec.i + computeElapsedSpace()
+;   timeVec.i2 := timeVec.i2 + gcDelta * $inverseTimerTicksPerSecond
+;   spaceVec.i := spaceVec.i + newSpace - oldSpace
 
 (DEFUN |updateTimedName| (|name|)
-  (PROG (|i| |timeVec| |spaceVec| |LETTMP#1| |time| |gcTime| |i2|)
+  (PROG (|oldTime| |oldGCTime| |oldSpace| |newTime| |newGCTime| |newSpace| |i|
+         |timeVec| |spaceVec| |gcDelta| |i2|)
     (RETURN
      (PROGN
+      (SETQ |oldTime| (ELT |$statsInfo| 2))
+      (SETQ |oldGCTime| (ELT |$statsInfo| 3))
+      (SETQ |oldSpace| (ELT |$statsInfo| 4))
+      (SETQ |newTime| (SETF (ELT |$statsInfo| 2) (|get_run_time|)))
+      (SETQ |newGCTime| (SETF (ELT |$statsInfo| 3) (|elapsedGcTime|)))
+      (SETQ |newSpace| (SETF (ELT |$statsInfo| 4) (HEAPELAPSED)))
       (SETQ |i| (GET |name| '|index|))
       (SETQ |timeVec| (ELT |$statsInfo| 0))
       (SETQ |spaceVec| (ELT |$statsInfo| 1))
-      (SETQ |LETTMP#1| (|computeElapsedTime|))
-      (SETQ |time| (CAR |LETTMP#1|))
-      (SETQ |gcTime| (CADR |LETTMP#1|))
-      (SETF (ELT |timeVec| |i|) (+ (ELT |timeVec| |i|) |time|))
+      (SETQ |gcDelta| (- |newGCTime| |oldGCTime|))
+      (SETF (ELT |timeVec| |i|)
+              (+ (ELT |timeVec| |i|)
+                 (* (- (- |newTime| |oldTime|) |gcDelta|)
+                    |$inverseTimerTicksPerSecond|)))
       (SETQ |i2| (GET '|gc| '|index|))
-      (SETF (ELT |timeVec| |i2|) (+ (ELT |timeVec| |i2|) |gcTime|))
+      (SETF (ELT |timeVec| |i2|)
+              (+ (ELT |timeVec| |i2|)
+                 (* |gcDelta| |$inverseTimerTicksPerSecond|)))
       (SETF (ELT |spaceVec| |i|)
-              (+ (ELT |spaceVec| |i|) (|computeElapsedSpace|)))))))
+              (- (+ (ELT |spaceVec| |i|) |newSpace|) |oldSpace|))))))
 
 ; makeLongTimeString(listofnames,listofclasses) ==
 ;   makeLongStatStringByProperty(listofnames, listofclasses,  _
@@ -362,45 +366,6 @@
 ; DEFPARAMETER($inverseTimerTicksPerSecond, 1.0/$timerTicksPerSecond)
 
 (DEFPARAMETER |$inverseTimerTicksPerSecond| (/ 1.0 |$timerTicksPerSecond|))
-
-; computeElapsedTime() ==
-;   currentTime:= get_run_time()
-;   currentGCTime:= elapsedGcTime()
-;   gcDelta := currentGCTime - $oldElapsedGCTime
-;   elapsedSeconds:= $inverseTimerTicksPerSecond *
-;      (currentTime-$oldElapsedTime-gcDelta)
-;   $oldElapsedTime := currentTime
-;   $oldElapsedGCTime := currentGCTime
-;   [elapsedSeconds, $inverseTimerTicksPerSecond * gcDelta]
-
-(DEFUN |computeElapsedTime| ()
-  (PROG (|elapsedSeconds| |gcDelta| |currentGCTime| |currentTime|)
-    (RETURN
-     (PROGN
-      (SETQ |currentTime| (|get_run_time|))
-      (SETQ |currentGCTime| (|elapsedGcTime|))
-      (SETQ |gcDelta| (- |currentGCTime| |$oldElapsedGCTime|))
-      (SETQ |elapsedSeconds|
-              (* |$inverseTimerTicksPerSecond|
-                 (- (- |currentTime| |$oldElapsedTime|) |gcDelta|)))
-      (SETQ |$oldElapsedTime| |currentTime|)
-      (SETQ |$oldElapsedGCTime| |currentGCTime|)
-      (LIST |elapsedSeconds| (* |$inverseTimerTicksPerSecond| |gcDelta|))))))
-
-; computeElapsedSpace() ==
-;   currentElapsedSpace := HEAPELAPSED()
-;   elapsedBytes := currentElapsedSpace - $oldElapsedSpace
-;   $oldElapsedSpace := currentElapsedSpace
-;   elapsedBytes
-
-(DEFUN |computeElapsedSpace| ()
-  (PROG (|elapsedBytes| |currentElapsedSpace|)
-    (RETURN
-     (PROGN
-      (SETQ |currentElapsedSpace| (HEAPELAPSED))
-      (SETQ |elapsedBytes| (- |currentElapsedSpace| |$oldElapsedSpace|))
-      (SETQ |$oldElapsedSpace| |currentElapsedSpace|)
-      |elapsedBytes|))))
 
 ; timedAlgebraEvaluation(code) ==
 ;   startTimingProcess 'algebra

@@ -181,6 +181,7 @@
 
 ; processInteractive(form, posnForm) ==
 ;     $timedNameStack : local := NIL
+;     $statsInfo : local := NIL
 ;     initializeTimedStack()
 ;     finally(
 ;         object := processInteractive0(form, posnForm),
@@ -188,11 +189,12 @@
 ;     object
 
 (DEFUN |processInteractive| (|form| |posnForm|)
-  (PROG (|$timedNameStack| |object|)
-    (DECLARE (SPECIAL |$timedNameStack|))
+  (PROG (|$statsInfo| |$timedNameStack| |object|)
+    (DECLARE (SPECIAL |$statsInfo| |$timedNameStack|))
     (RETURN
      (PROGN
       (SETQ |$timedNameStack| NIL)
+      (SETQ |$statsInfo| NIL)
       (|initializeTimedStack|)
       (|finally| (SETQ |object| (|processInteractive0| |form| |posnForm|))
        ((LAMBDA ()
