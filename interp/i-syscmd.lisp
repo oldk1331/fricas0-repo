@@ -60,29 +60,6 @@
   '(|abbreviations| |all| |macros| |modes| |names| |operations| |properties|
     |types| |values|))
 
-; initializeSystemCommands() ==
-;   l := $systemCommands
-;   $SYSCOMMANDS := NIL
-;   while l repeat
-;     $SYSCOMMANDS := CONS(CAAR l, $SYSCOMMANDS)
-;     l := rest l
-;   $SYSCOMMANDS := NREVERSE $SYSCOMMANDS
-
-(DEFUN |initializeSystemCommands| ()
-  (PROG (|l|)
-    (RETURN
-     (PROGN
-      (SETQ |l| |$systemCommands|)
-      (SETQ $SYSCOMMANDS NIL)
-      ((LAMBDA ()
-         (LOOP
-          (COND ((NOT |l|) (RETURN NIL))
-                ('T
-                 (PROGN
-                  (SETQ $SYSCOMMANDS (CONS (CAAR |l|) $SYSCOMMANDS))
-                  (SETQ |l| (CDR |l|))))))))
-      (SETQ $SYSCOMMANDS (NREVERSE $SYSCOMMANDS))))))
-
 ; systemCommand [[op,:argl],:options] ==
 ;   $options: local:= options
 ;   $e:local := $CategoryFrame
@@ -8093,13 +8070,13 @@
 ;   blockStart := 0
 ;   parenCount := 0
 ;   for i in 0..#str-1 repeat
-;     STRING str.i = '"_"" =>
+;     str.i = char '"_"" =>
 ;       inString := not inString
-;     if STRING str.i = '"(" and not inString
+;     if str.i = char '"(" and not inString
 ;     then parenCount := parenCount + 1
-;     if STRING str.i = '")" and not inString
+;     if str.i = char '")" and not inString
 ;     then parenCount := parenCount - 1
-;     STRING str.i = '")" and not inString and parenCount = -1 =>
+;     str.i = char '")" and not inString and parenCount = -1 =>
 ;       block := stripSpaces SUBSEQ(str, blockStart, i)
 ;       blockList := [block, :blockList]
 ;       blockStart := i+1
@@ -8119,20 +8096,20 @@
           (COND ((> |i| |bfVar#180|) (RETURN NIL))
                 (#1='T
                  (COND
-                  ((EQUAL (STRING (ELT |str| |i|)) "\"")
+                  ((EQUAL (ELT |str| |i|) (|char| "\""))
                    (SETQ |inString| (NULL |inString|)))
                   (#1#
                    (PROGN
                     (COND
-                     ((AND (EQUAL (STRING (ELT |str| |i|)) "(")
+                     ((AND (EQUAL (ELT |str| |i|) (|char| "("))
                            (NULL |inString|))
                       (SETQ |parenCount| (+ |parenCount| 1))))
                     (COND
-                     ((AND (EQUAL (STRING (ELT |str| |i|)) ")")
+                     ((AND (EQUAL (ELT |str| |i|) (|char| ")"))
                            (NULL |inString|))
                       (SETQ |parenCount| (- |parenCount| 1))))
                     (COND
-                     ((AND (EQUAL (STRING (ELT |str| |i|)) ")")
+                     ((AND (EQUAL (ELT |str| |i|) (|char| ")"))
                            (NULL |inString|) (EQUAL |parenCount| (- 1)))
                       (PROGN
                        (SETQ |block|
@@ -8354,10 +8331,9 @@
 (DEFUN |ltrace| (|l|) (PROG () (RETURN (|trace| |l|))))
 
 ; stripSpaces str ==
-;   STRING_-TRIM([char '" "], str)
+;   STRING_-TRIM('" ", str)
 
-(DEFUN |stripSpaces| (|str|)
-  (PROG () (RETURN (STRING-TRIM (LIST (|char| " ")) |str|))))
+(DEFUN |stripSpaces| (|str|) (PROG () (RETURN (STRING-TRIM " " |str|))))
 
 ; npProcessSynonym(str) ==
 ;   if str = '"" then printSynonyms(NIL)

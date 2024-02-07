@@ -41,7 +41,6 @@
 ;   if $displayStartMsgs then sayKeyedMsg("S2IZ0053",['"interpreter"])
 ;   initializeTimedNames()
 ;   $InteractiveFrame := makeInitialModemapFrame()
-;   initializeSystemCommands()
 ;   initializeInterpreterFrameRing()
 ;   setOutputAlgebra "%initialize%"
 ;   loadExposureGroupData()
@@ -78,7 +77,6 @@
        (|$displayStartMsgs| (|sayKeyedMsg| 'S2IZ0053 (LIST "interpreter"))))
       (|initializeTimedNames|)
       (SETQ |$InteractiveFrame| (|makeInitialModemapFrame|))
-      (|initializeSystemCommands|)
       (|initializeInterpreterFrameRing|)
       (|setOutputAlgebra| '|%initialize%|)
       (|loadExposureGroupData|)
