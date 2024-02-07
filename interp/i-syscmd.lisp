@@ -358,35 +358,6 @@
        |u| NIL)
       (|terminateSystemCommand|)))))
 
-; getSystemCommandLine() ==
-;   p := STRPOS('")",$currentLine,0,NIL)
-;   line := if p then SUBSTRING($currentLine,p,NIL) else $currentLine
-;   maxIndex:= MAXINDEX line
-;   for i in 0..maxIndex while (line.i~=" ") repeat index:= i
-;   if index=maxIndex then line := '""
-;   else line := SUBSTRING(line,index+2,nil)
-;   line
-
-(DEFUN |getSystemCommandLine| ()
-  (PROG (|index| |maxIndex| |line| |p|)
-    (RETURN
-     (PROGN
-      (SETQ |p| (STRPOS ")" |$currentLine| 0 NIL))
-      (SETQ |line|
-              (COND (|p| (SUBSTRING |$currentLine| |p| NIL))
-                    (#1='T |$currentLine|)))
-      (SETQ |maxIndex| (MAXINDEX |line|))
-      ((LAMBDA (|i|)
-         (LOOP
-          (COND
-           ((OR (> |i| |maxIndex|) (EQ (ELT |line| |i|) '| |)) (RETURN NIL))
-           (#1# (SETQ |index| |i|)))
-          (SETQ |i| (+ |i| 1))))
-       0)
-      (COND ((EQUAL |index| |maxIndex|) (SETQ |line| ""))
-            (#1# (SETQ |line| (SUBSTRING |line| (+ |index| 2) NIL))))
-      |line|))))
-
 ; abbreviations l ==
 ;   ioHook("startSysCmd", "abbrev")
 ;   abbreviationsSpad2Cmd l
@@ -6441,33 +6412,6 @@
                (ERROR (FORMAT NIL "file ~a already exists" |filename|)))
               (#1#
                (PROGN (DRIBBLE |filename|) (TERPRI) (|clear_highlight|))))))))))
-
-; synonym(:l) == synonymSpad2Cmd()  -- always passed a null list
-
-(DEFUN |synonym| (&REST |l|) (PROG () (RETURN (|synonymSpad2Cmd|))))
-
-; synonymSpad2Cmd() ==
-;   line := getSystemCommandLine()
-;   if line = '"" then printSynonyms(NIL)
-;   else
-;     pair := processSynonymLine line
-;     if $CommandSynonymAlist then
-;       PUTALIST($CommandSynonymAlist, first pair, rest pair)
-;     else $CommandSynonymAlist := [pair]
-;   terminateSystemCommand()
-
-(DEFUN |synonymSpad2Cmd| ()
-  (PROG (|pair| |line|)
-    (RETURN
-     (PROGN
-      (SETQ |line| (|getSystemCommandLine|))
-      (COND ((EQUAL |line| "") (|printSynonyms| NIL))
-            (#1='T (SETQ |pair| (|processSynonymLine| |line|))
-             (COND
-              (|$CommandSynonymAlist|
-               (PUTALIST |$CommandSynonymAlist| (CAR |pair|) (CDR |pair|)))
-              (#1# (SETQ |$CommandSynonymAlist| (LIST |pair|))))))
-      (|terminateSystemCommand|)))))
 
 ; processSynonymLine line ==
 ;   line := STRING_-LEFT_-TRIM('" ", line)
