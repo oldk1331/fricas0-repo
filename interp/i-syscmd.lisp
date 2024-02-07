@@ -1314,8 +1314,7 @@
 ;         throwKeyedMsg("S2IL0027",[namestring dir, path])
 ;
 ;     if isDir ~= 1 then
-;         cmd  := STRCONC('"mkdir ", namestring dir)
-;         rc   := OBEY cmd
+;         rc := makedir namestring dir
 ;         rc ~= 0 => throwKeyedMsg("S2IL0027", [namestring dir, path])
 ;
 ;     curDir := GET_-CURRENT_-DIRECTORY()
@@ -1350,7 +1349,7 @@
 ;     spadPrompt()
 
 (DEFUN |compileAsharpArchiveCmd| (|args|)
-  (PROG (|path| |dir| |isDir| |cmd| |rc| |curDir| |asos|)
+  (PROG (|path| |dir| |isDir| |rc| |curDir| |cmd| |asos|)
     (RETURN
      (PROGN
       (SETQ |path| (CAR |args|))
@@ -1368,8 +1367,7 @@
            (PROGN
             (COND
              ((NOT (EQL |isDir| 1))
-              (SETQ |cmd| (STRCONC "mkdir " (|namestring| |dir|)))
-              (SETQ |rc| (OBEY |cmd|))
+              (SETQ |rc| (|makedir| (|namestring| |dir|)))
               (COND
                ((NOT (EQL |rc| 0))
                 (|throwKeyedMsg| 'S2IL0027
@@ -2568,7 +2566,7 @@
 ; editSpad2Cmd l ==
 ;   l:=
 ;     null l => $edit_file
-;     first l
+;     PNAME first l
 ;   oldDir := pathnameDirectory l
 ;   fileTypes :=
 ;     pathnameType l => [pathnameType l]
@@ -2587,7 +2585,7 @@
   (PROG (|oldDir| |fileTypes| |ll| |rc|)
     (RETURN
      (PROGN
-      (SETQ |l| (COND ((NULL |l|) |$edit_file|) (#1='T (CAR |l|))))
+      (SETQ |l| (COND ((NULL |l|) |$edit_file|) (#1='T (PNAME (CAR |l|)))))
       (SETQ |oldDir| (|pathnameDirectory| |l|))
       (SETQ |fileTypes|
               (COND ((|pathnameType| |l|) (LIST (|pathnameType| |l|)))
@@ -2663,20 +2661,14 @@
 ;   null(helpFile := make_input_filename([narg, 'HELPSPAD])) => nil
 ;
 ;   $useFullScreenHelp =>
-;     OBEY STRCONC('"$FRICAS/lib/SPADEDIT ",namestring helpFile)
+;     editFile helpFile
 ;     true
 ;
-;   filestream := MAKE_INSTREAM(helpFile)
-;   repeat
-;     line := read_line(filestream)
-;     NULL line =>
-;       SHUT filestream
-;       return true
-;     SAY line
+;   print_text_file helpFile
 ;   true
 
 (DEFUN |newHelpSpad2Cmd| (|args|)
-  (PROG (|sarg| |arg| |narg| |helpFile| |filestream| |line|)
+  (PROG (|sarg| |arg| |narg| |helpFile|)
     (RETURN
      (PROGN
       (COND ((NULL |args|) (SETQ |args| (LIST '?))))
@@ -2695,25 +2687,8 @@
                  (SETQ |helpFile|
                          (|make_input_filename| (LIST |narg| 'HELPSPAD))))
                 NIL)
-               (|$useFullScreenHelp|
-                (PROGN
-                 (OBEY
-                  (STRCONC "$FRICAS/lib/SPADEDIT " (|namestring| |helpFile|)))
-                 T))
-               (#1#
-                (PROGN
-                 (SETQ |filestream| (MAKE_INSTREAM |helpFile|))
-                 ((LAMBDA ()
-                    (LOOP
-                     (COND (NIL (RETURN NIL))
-                           (#1#
-                            (PROGN
-                             (SETQ |line| (|read_line| |filestream|))
-                             (COND
-                              ((NULL |line|)
-                               (PROGN (SHUT |filestream|) (RETURN T)))
-                              (#1# (SAY |line|)))))))))
-                 T))))))))))
+               (|$useFullScreenHelp| (PROGN (|editFile| |helpFile|) T))
+               (#1# (PROGN (|print_text_file| |helpFile|) T))))))))))
 
 ; $frameRecord  := nil  --Initial setting for frame record
 
