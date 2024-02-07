@@ -13,7 +13,7 @@
 (SDEFUN |IFARRAY;empty;%;3| ((% (%))) (VECTOR 0 0 (MAKE-ARRAY 0))) 
 
 (SDEFUN |IFARRAY;#;%Nni;4| ((|r| (%)) (% (|NonNegativeInteger|)))
-        (SPROG ((#1=#:G29 NIL))
+        (SPROG ((#1=#:G28 NIL))
                (PROG1 (LETT #1# (QVELT |r| 1))
                  (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
                                    '(|Integer|) #1#)))) 
@@ -36,7 +36,7 @@
 
 (SDEFUN |IFARRAY;flexibleArray;L%;10| ((|l| (|List| S)) (% (%)))
         (SPROG
-         ((#1=#:G44 NIL) (|i| NIL) (#2=#:G45 NIL) (|y| NIL) (|a| (%)) (|x| (S))
+         ((#1=#:G43 NIL) (|i| NIL) (#2=#:G44 NIL) (|y| NIL) (|a| (%)) (|x| (S))
           (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (LENGTH |l|))
               (EXIT
@@ -86,8 +86,8 @@
 
 (SDEFUN |IFARRAY;growWith| ((|r| (%)) (|n| (|Integer|)) (|x| (S)) (% (%)))
         (SPROG
-         ((#1=#:G63 NIL) (|k| NIL) (|a| (|PrimitiveArray| S))
-          (|y| (|PrimitiveArray| S)) (#2=#:G57 NIL))
+         ((#1=#:G62 NIL) (|k| NIL) (|a| (|PrimitiveArray| S))
+          (|y| (|PrimitiveArray| S)) (#2=#:G56 NIL))
          (SEQ
           (LETT |y|
                 (MAKEARR1
@@ -104,8 +104,8 @@
 
 (SDEFUN |IFARRAY;shrink| ((|r| (%)) (|i| (|Integer|)) (% (%)))
         (SPROG
-         ((#1=#:G74 NIL) (|k| NIL) (|y| (|PrimitiveArray| S))
-          (|a| (|PrimitiveArray| S)) (#2=#:G65 NIL) (|n| (|Integer|)))
+         ((#1=#:G71 NIL) (|k| NIL) (|y| (|PrimitiveArray| S))
+          (|a| (|PrimitiveArray| S)) (#2=#:G63 NIL) (|n| (|Integer|)))
          (SEQ (QSETVELT |r| 1 (- (QVELT |r| 1) |i|))
               (EXIT
                (COND
@@ -113,35 +113,25 @@
                  (|error| "internal bug in flexible array"))
                 ((OR (> (+ (* 2 |n|) 2) (QVELT |r| 0)) (NULL (QREFELT % 9)))
                  |r|)
+                ((EQL |n| 0) (SPADCALL (QREFELT % 14)))
                 ('T
-                 (SEQ
-                  (COND
-                   ((< |n| (QVELT |r| 1))
-                    (|error|
-                     "cannot shrink flexible array to indicated size")))
-                  (EXIT
-                   (COND ((EQL |n| 0) (SPADCALL (QREFELT % 14)))
-                         ('T
-                          (SEQ (QSETVELT |r| 0 |n|)
-                               (LETT |y|
-                                     (|IFARRAY;newa|
-                                      (PROG1 (LETT #2# |n|)
-                                        (|check_subtype2| (>= #2# 0)
-                                                          '(|NonNegativeInteger|)
-                                                          '(|Integer|) #2#))
-                                      (LETT |a| (QVELT |r| 2)) %))
-                               (SEQ (LETT |k| 0) (LETT #1# (- |n| 1)) G190
-                                    (COND ((|greater_SI| |k| #1#) (GO G191)))
-                                    (SEQ
-                                     (EXIT
-                                      (QSETAREF1 |y| |k| (QAREF1 |a| |k|))))
-                                    (LETT |k| (|inc_SI| |k|)) (GO G190) G191
-                                    (EXIT NIL))
-                               (QSETVELT |r| 2 |y|) (EXIT |r|)))))))))))) 
+                 (SEQ (QSETVELT |r| 0 |n|)
+                      (LETT |y|
+                            (|IFARRAY;newa|
+                             (PROG1 (LETT #2# |n|)
+                               (|check_subtype2| (>= #2# 0)
+                                                 '(|NonNegativeInteger|)
+                                                 '(|Integer|) #2#))
+                             (LETT |a| (QVELT |r| 2)) %))
+                      (SEQ (LETT |k| 0) (LETT #1# (- |n| 1)) G190
+                           (COND ((|greater_SI| |k| #1#) (GO G191)))
+                           (SEQ (EXIT (QSETAREF1 |y| |k| (QAREF1 |a| |k|))))
+                           (LETT |k| (|inc_SI| |k|)) (GO G190) G191 (EXIT NIL))
+                      (QSETVELT |r| 2 |y|) (EXIT |r|)))))))) 
 
 (SDEFUN |IFARRAY;copy;2%;16| ((|r| (%)) (% (%)))
         (SPROG
-         ((#1=#:G80 NIL) (|k| NIL) (|v| (|PrimitiveArray| S))
+         ((#1=#:G77 NIL) (|k| NIL) (|v| (|PrimitiveArray| S))
           (|a| (|PrimitiveArray| S)) (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (SPADCALL |r| (QREFELT % 15))) (LETT |a| (QVELT |r| 2))
               (LETT |v| (|IFARRAY;newa| |n| (LETT |a| (QVELT |r| 2)) %))
@@ -185,7 +175,7 @@
 
 (SDEFUN |IFARRAY;remove!;M2%;22|
         ((|g| (|Mapping| (|Boolean|) S)) (|a| (%)) (% (%)))
-        (SPROG ((|k| (|Integer|)) (#1=#:G105 NIL) (|i| NIL))
+        (SPROG ((|k| (|Integer|)) (#1=#:G102 NIL) (|i| NIL))
                (SEQ (LETT |k| 0)
                     (SEQ (LETT |i| 0)
                          (LETT #1#
@@ -207,7 +197,7 @@
                       (- (SPADCALL |a| (QREFELT % 15)) |k|) %))))) 
 
 (SDEFUN |IFARRAY;delete!;%I%;23| ((|r| (%)) (|i1| (|Integer|)) (% (%)))
-        (SPROG ((#1=#:G112 NIL) (|k| NIL) (|i| (|Integer|)))
+        (SPROG ((#1=#:G109 NIL) (|k| NIL) (|i| (|Integer|)))
                (SEQ (LETT |i| (- |i1| (QREFELT % 7)))
                     (COND
                      ((OR (< |i| 0) (> |i| (QVELT |r| 1)))
@@ -224,7 +214,7 @@
 (SDEFUN |IFARRAY;delete!;%Us%;24|
         ((|r| (%)) (|i| (|UniversalSegment| (|Integer|))) (% (%)))
         (SPROG
-         ((|j| NIL) (#1=#:G119 NIL) (|k| NIL) (|h| #2=(|Integer|)) (|m| #2#)
+         ((|j| NIL) (#1=#:G116 NIL) (|k| NIL) (|h| #2=(|Integer|)) (|m| #2#)
           (|l| #2#))
          (SEQ (LETT |l| (- (SPADCALL |i| (QREFELT % 41)) (QREFELT % 7)))
               (LETT |m| (- (SPADCALL |r| (QREFELT % 19)) (QREFELT % 7)))
@@ -247,7 +237,7 @@
 
 (SDEFUN |IFARRAY;insert!;S%I%;25|
         ((|x| (S)) (|r| (%)) (|i1| (|Integer|)) (% (%)))
-        (SPROG ((#1=#:G125 NIL) (|k| NIL) (|n| (|Integer|)) (|i| (|Integer|)))
+        (SPROG ((#1=#:G122 NIL) (|k| NIL) (|n| (|Integer|)) (|i| (|Integer|)))
                (SEQ (LETT |i| (- |i1| (QREFELT % 7))) (LETT |n| (QVELT |r| 1))
                     (COND
                      ((OR (< |i| 0) (> |i| |n|))
@@ -265,7 +255,7 @@
 (SDEFUN |IFARRAY;insert!;2%I%;26|
         ((|a| (%)) (|b| (%)) (|i1| (|Integer|)) (% (%)))
         (SPROG
-         ((|k| NIL) (#1=#:G134 NIL) (|n| #2=(|NonNegativeInteger|)) (|m| #2#)
+         ((|k| NIL) (#1=#:G131 NIL) (|n| #2=(|NonNegativeInteger|)) (|m| #2#)
           (|i| (|Integer|)))
          (SEQ (LETT |i| (- |i1| (QREFELT % 7)))
               (COND
@@ -295,7 +285,7 @@
 (SDEFUN |IFARRAY;merge!;M3%;27|
         ((|g| (|Mapping| (|Boolean|) S S)) (|a| (%)) (|b| (%)) (% (%)))
         (SPROG
-         ((|k| NIL) (#1=#:G148 NIL) (|j| #2=(|Integer|)) (|i| #2#)
+         ((|k| NIL) (#1=#:G145 NIL) (|j| #2=(|Integer|)) (|i| #2#)
           (|n| #3=(|NonNegativeInteger|)) (|m| #3#))
          (SEQ (LETT |m| (SPADCALL |a| (QREFELT % 15)))
               (LETT |n| (SPADCALL |b| (QREFELT % 15)))
@@ -338,7 +328,7 @@
 
 (SDEFUN |IFARRAY;select!;M2%;28|
         ((|g| (|Mapping| (|Boolean|) S)) (|a| (%)) (% (%)))
-        (SPROG ((|k| (|Integer|)) (#1=#:G156 NIL) (|i| NIL))
+        (SPROG ((|k| (|Integer|)) (#1=#:G153 NIL) (|i| NIL))
                (SEQ (LETT |k| 0)
                     (SEQ (LETT |i| 0)
                          (LETT #1#
@@ -359,7 +349,7 @@
 
 (SDEFUN |IFARRAY;removeDuplicates!;2%;29| ((|a| (%)) (% (%)))
         (SPROG
-         ((|i| (|Integer|)) (|nlim| #1=(|Integer|)) (|j| #1#) (#2=#:G167 NIL)
+         ((|i| (|Integer|)) (|nlim| #1=(|Integer|)) (|j| #1#) (#2=#:G164 NIL)
           (|k| NIL) (|nlim0| #1#) (|ct| (|NonNegativeInteger|)))
          (SEQ (LETT |ct| (SPADCALL |a| (QREFELT % 15)))
               (EXIT
@@ -433,9 +423,9 @@
 
 (DECLAIM (NOTINLINE |IndexedFlexibleArray;|)) 
 
-(DEFUN |IndexedFlexibleArray| (&REST #1=#:G184)
+(DEFUN |IndexedFlexibleArray| (&REST #1=#:G181)
   (SPROG NIL
-         (PROG (#2=#:G185)
+         (PROG (#2=#:G182)
            (RETURN
             (COND
              ((LETT #2#
@@ -454,7 +444,7 @@
 
 (DEFUN |IndexedFlexibleArray;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G181 NIL) (#2=#:G182 NIL) (#3=#:G183 NIL) (% NIL)
+   ((|pv$| NIL) (#1=#:G178 NIL) (#2=#:G179 NIL) (#3=#:G180 NIL) (% NIL)
     (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
