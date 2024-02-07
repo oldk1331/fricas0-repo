@@ -35,7 +35,6 @@
 ;       $displayStartMsgs := display_messages
 ;   initHist()
 ;   initNewWorld()
-;   compressOpen(display_messages)
 ;   interpOpen(display_messages)
 ;   createInitializers()
 ;   if $displayStartMsgs then sayKeyedMsg("S2IZ0053",['"interpreter"])
@@ -70,7 +69,6 @@
         (SETQ |$displayStartMsgs| |display_messages|)))
       (|initHist|)
       (|initNewWorld|)
-      (|compressOpen| |display_messages|)
       (|interpOpen| |display_messages|)
       (|createInitializers|)
       (COND
@@ -104,7 +102,6 @@
 ;
 ;   if $displayStartMsgs then spadStartUpMsgs()
 ;   $currentLine := nil
-;   compressOpen(true) -- set up the compression tables
 ;   interpOpen(true) -- open up the interpreter database
 ;   operationOpen(true) -- all of the operations known to the system
 ;   categoryOpen(true) -- answer hasCategory question
@@ -124,7 +121,6 @@
       (|buildHtMacroTable|)
       (COND (|$displayStartMsgs| (|spadStartUpMsgs|)))
       (SETQ |$currentLine| NIL)
-      (|compressOpen| T)
       (|interpOpen| T)
       (|operationOpen| T)
       (|categoryOpen| T)
