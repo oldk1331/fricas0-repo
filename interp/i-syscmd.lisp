@@ -1153,7 +1153,7 @@
 ;     command :=
 ;        STRCONC(getEnv('"ALDOR_COMPILER"),_
 ;                      '" ", asharpArgs, '" ", path)
-;     rc := OBEY command
+;     rc := run_shell_command command
 ;
 ;     if (rc = 0) and doCompileLisp then
 ;         lsp := fnameMake('".", pathnameName(path), '"lsp")
@@ -1270,7 +1270,7 @@
          (SETQ |command|
                  (STRCONC (|getEnv| "ALDOR_COMPILER") " " |asharpArgs| " "
                   |path|))
-         (SETQ |rc| (OBEY |command|))
+         (SETQ |rc| (|run_shell_command| |command|))
          (COND
           ((AND (EQL |rc| 0) |doCompileLisp|)
            (SETQ |lsp| (|fnameMake| "." (|pathnameName| |path|) "lsp"))
@@ -1323,8 +1323,7 @@
 ;
 ;     cd [ namestring dir ]
 ;
-;     cmd := STRCONC( '"ar x ", path)
-;     rc := OBEY cmd
+;     rc := run_command('"ar", ['"x", path])
 ;     rc ~= 0 =>
 ;         cd [ namestring curDir ]
 ;         throwKeyedMsg("S2IL0028",[namestring dir, path])
@@ -1349,7 +1348,7 @@
 ;     spadPrompt()
 
 (DEFUN |compileAsharpArchiveCmd| (|args|)
-  (PROG (|path| |dir| |isDir| |rc| |curDir| |cmd| |asos|)
+  (PROG (|path| |dir| |isDir| |rc| |curDir| |asos|)
     (RETURN
      (PROGN
       (SETQ |path| (CAR |args|))
@@ -1374,8 +1373,7 @@
                  (LIST (|namestring| |dir|) |path|))))))
             (SETQ |curDir| (GET-CURRENT-DIRECTORY))
             (|cd| (LIST (|namestring| |dir|)))
-            (SETQ |cmd| (STRCONC "ar x " |path|))
-            (SETQ |rc| (OBEY |cmd|))
+            (SETQ |rc| (|run_command| "ar" (LIST "x" |path|)))
             (COND
              ((NOT (EQL |rc| 0))
               (PROGN
@@ -7968,7 +7966,7 @@
 ;   null SEARCH(sysPart, STRING unab) =>
 ;     sayKeyedMsg("S2IZ0080", [sysPart])
 ;   command := SUBSEQ(str, spaceIndex+1)
-;   OBEY command
+;   run_shell_command command
 
 (DEFUN |npsystem| (|unab| |str|)
   (PROG (|spaceIndex| |sysPart| |command|)
@@ -7985,7 +7983,7 @@
                (#1#
                 (PROGN
                  (SETQ |command| (SUBSEQ |str| (+ |spaceIndex| 1)))
-                 (OBEY |command|)))))))))))
+                 (|run_shell_command| |command|)))))))))))
 
 ; npsynonym(unab, str) ==
 ;   npProcessSynonym(str)

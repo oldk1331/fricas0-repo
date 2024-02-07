@@ -2906,7 +2906,7 @@
 ;         MEMQ('iv,options)=> '"-vi"
 ;         '"-i"
 ;       command := STRCONC('"grep ", casepart, '" '", pattern, '"' ", source)
-;       OBEY STRCONC(command, '" > ",target)
+;       run_shell_command STRCONC(command, '" > ",target)
 ;       dbReadLines target
 ;       -- deleteFile target
 ;   dbUnpatchLines lines
@@ -2927,7 +2927,7 @@
                       (SETQ |command|
                               (STRCONC "grep " |casepart| " '" |pattern| "' "
                                |source|))
-                      (OBEY (STRCONC |command| " > " |target|))
+                      (|run_shell_command| (STRCONC |command| " > " |target|))
                       (|dbReadLines| |target|)))))
       (|dbUnpatchLines| |lines|)))))
 
