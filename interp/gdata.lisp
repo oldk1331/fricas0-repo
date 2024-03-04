@@ -38,7 +38,7 @@
 ;                 installConstructor(cname)
 ;                 -- following can break category database build
 ;                 if kind = 'category then
-;                     SETF(database_-ancestors(dbstruct),
+;                     set_dbstruct_ancestors(dbstruct,
 ;                          fetch_data_from_alist(alist, '"ancestors"))
 ;                 if kind = 'domain then
 ;                     for pair in fetch_data_from_alist(alist, '"ancestors")
@@ -111,8 +111,8 @@
                    (|installConstructor| |cname|)
                    (COND
                     ((EQ |kind| '|category|)
-                     (SETF (|database-ancestors| |dbstruct|)
-                             (|fetch_data_from_alist| |alist| "ancestors"))))
+                     (|set_dbstruct_ancestors| |dbstruct|
+                      (|fetch_data_from_alist| |alist| "ancestors"))))
                    (COND
                     ((EQ |kind| '|domain|)
                      ((LAMBDA (|bfVar#2| |pair|)
@@ -162,7 +162,7 @@
 ;     ADDOPERATIONS(key, oldmaps)
 ;     if not(make_database?) then
 ;         if kind = 'category then
-;             SETF(database_-ancestors(dbstruct),
+;             set_dbstruct_ancestors(dbstruct,
 ;                  SUBLISLIS($FormalMapVariableList, rest(constructorform),
 ;                            fetch_data_from_file(ds, '"ancestors")))
 ;         updateDatabase(key) -- makes many hashtables???
@@ -203,9 +203,9 @@
        ((NULL |make_database?|)
         (COND
          ((EQ |kind| '|category|)
-          (SETF (|database-ancestors| |dbstruct|)
-                  (SUBLISLIS |$FormalMapVariableList| (CDR |constructorform|)
-                   (|fetch_data_from_file| |ds| "ancestors")))))
+          (|set_dbstruct_ancestors| |dbstruct|
+           (SUBLISLIS |$FormalMapVariableList| (CDR |constructorform|)
+            (|fetch_data_from_file| |ds| "ancestors")))))
         (|updateDatabase| |key|) (|installConstructor| |key|)
         (|updateCategoryTable| |key| |kind|)
         (COND
