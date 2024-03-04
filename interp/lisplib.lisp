@@ -434,7 +434,7 @@
 ;   FRESH_-LINE(get_algebra_stream())
 ;   sayMSG fillerSpaces(72,'"-")
 ;   unloadOneConstructor(op,libName)
-;   LOCALDATABASE(LIST(get_database(op, 'ABBREVIATION)), NIL)
+;   LOCALDATABASE(LIST(get_database(op, 'ABBREVIATION)), [], false)
 ;   $newConlist := [op, :$newConlist]  ---------->  bound in function "compiler"
 ;   if $lisplibKind = 'category
 ;     then updateCategoryFrameForCategory op
@@ -497,7 +497,7 @@
       (FRESH-LINE (|get_algebra_stream|))
       (|sayMSG| (|fillerSpaces| 72 "-"))
       (|unloadOneConstructor| |op| |libName|)
-      (LOCALDATABASE (LIST (|get_database| |op| 'ABBREVIATION)) NIL)
+      (LOCALDATABASE (LIST (|get_database| |op| 'ABBREVIATION)) NIL NIL)
       (SETQ |$newConlist| (CONS |op| |$newConlist|))
       (COND
        ((EQ |$lisplibKind| '|category|)
