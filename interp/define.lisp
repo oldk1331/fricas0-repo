@@ -2080,7 +2080,7 @@
 ;       :bright $op,'": ",:formattedSig]
 ;
 ;     T := CATCH('compCapsuleBody, compOrCroak(body,rettype,e))
-;            or ["",rettype,e]
+;            or [$ClearBodyToken, rettype, e]
 ; --+
 ;     NRTassignCapsuleFunctionSlot($op, signature', $domainShell, e)
 ;     if $newCompCompare=true then
@@ -2194,7 +2194,7 @@
       (SETQ T$
               (OR
                (CATCH '|compCapsuleBody| (|compOrCroak| |body| |rettype| |e|))
-               (LIST '|| |rettype| |e|)))
+               (LIST |$ClearBodyToken| |rettype| |e|)))
       (|NRTassignCapsuleFunctionSlot| |$op| |signature'| |$domainShell| |e|)
       (COND
        ((EQUAL |$newCompCompare| T) (SAY "The old compiler generates:")
@@ -2706,7 +2706,8 @@
 ; spadCompileOrSetq (form is [nam,[lam,vl,body]]) ==
 ;         --bizarre hack to take account of the existence of "known" functions
 ;         --good for performance (LISPLLIB size, BPI size, NILSEC)
-;   CONTAINED("",body) => sayBrightly ['"  ",:bright nam,'" not compiled"]
+;   CONTAINED($ClearBodyToken, body) =>
+;       sayBrightly ['"  ", :bright nam, '" not compiled"]
 ;   if vl is [:vl',E] and body is [nam',: =vl'] then
 ;       output_lisp_form(['PUT,MKQ nam,MKQ 'SPADreplace,MKQ nam'])
 ;       sayBrightly ['"     ",:bright nam,'"is replaced by",:bright nam']
@@ -2727,7 +2728,7 @@
       (SETQ |vl| (CADADR . #1#))
       (SETQ |body| (CAR (CDDADR . #1#)))
       (COND
-       ((CONTAINED '|| |body|)
+       ((CONTAINED |$ClearBodyToken| |body|)
         (|sayBrightly|
          (CONS "  " (APPEND (|bright| |nam|) (CONS " not compiled" NIL)))))
        (#2='T
