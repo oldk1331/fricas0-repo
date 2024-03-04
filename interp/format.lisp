@@ -1451,6 +1451,9 @@
 ;     x is ["QUOTE", y] =>
 ;         m = $Symbol and SYMBOLP(y) => y
 ;         form2String1 x
+;     -- catch things like # D
+;     (m = ["NonNegativeInteger"] or m = ["Integer"]) and not INTEGERP(x) =>
+;         form2String1 x
 ;     isValidType(m) and PAIRP(m) and
 ;       (get_database(first(m), 'CONSTRUCTORKIND) = 'domain) =>
 ;         (x' := coerceInteractive(objNewWrap(x,m),$OutputForm)) =>
@@ -1488,6 +1491,11 @@
                   (PROGN (SETQ |y| (CAR |ISTMP#1|)) #1='T))))
        (COND ((AND (EQUAL |m| |$Symbol|) (SYMBOLP |y|)) |y|)
              (#1# (|form2String1| |x|))))
+      ((AND
+        (OR (EQUAL |m| (LIST '|NonNegativeInteger|))
+            (EQUAL |m| (LIST '|Integer|)))
+        (NULL (INTEGERP |x|)))
+       (|form2String1| |x|))
       ((AND (|isValidType| |m|) (CONSP |m|)
             (EQ (|get_database| (CAR |m|) 'CONSTRUCTORKIND) '|domain|))
        (COND
