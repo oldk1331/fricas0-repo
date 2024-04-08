@@ -3574,7 +3574,7 @@
 ;   null fn =>
 ;     throwKeyedMsg("S2IH0038", nil)          -- missing file name
 ;   maxn := 72
-;   breakChars := [" ","+"]
+;   breakChars := [char '" ", char '"+"]
 ;   for i in initial..$IOindex - 1 repeat
 ;     vecl := first readHiFi i
 ;     if STRINGP vecl then vecl := [vecl]
@@ -3612,7 +3612,7 @@
            (#1='T
             (PROGN
              (SETQ |maxn| 72)
-             (SETQ |breakChars| (LIST '| | '+))
+             (SETQ |breakChars| (LIST (|char| " ") (|char| "+")))
              ((LAMBDA (|bfVar#76| |i|)
                 (LOOP
                  (COND ((> |i| |bfVar#76|) (RETURN NIL))
