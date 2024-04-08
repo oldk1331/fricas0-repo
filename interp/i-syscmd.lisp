@@ -3393,7 +3393,7 @@
 ;     opt = 'show    => showHistory optargs
 ;     opt = 'change  => changeHistListLen first optargs
 ;     opt = 'restore => restoreHistory optargs
-;     opt = 'write   => writeInputLines(optargs,1)
+;     opt = 'write   => writeInputLines(first optargs, 1)
 ;   'done
 
 (DEFUN |historySpad2Cmd| ()
@@ -3474,7 +3474,8 @@
                   ((EQ |opt| '|show|) (|showHistory| |optargs|))
                   ((EQ |opt| '|change|) (|changeHistListLen| (CAR |optargs|)))
                   ((EQ |opt| '|restore|) (|restoreHistory| |optargs|))
-                  ((EQ |opt| '|write|) (|writeInputLines| |optargs| 1))))))
+                  ((EQ |opt| '|write|)
+                   (|writeInputLines| (CAR |optargs|) 1))))))
           (SETQ |bfVar#73| (CDR |bfVar#73|))))
        |opts| NIL)
       '|done|))))
