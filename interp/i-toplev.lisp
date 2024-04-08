@@ -133,11 +133,11 @@
 ;   file := getEnv('"FRICAS_INITFILE")
 ;   file = '"" => nil
 ;   efile :=
-;     make_input_filename(file) => file
+;     fn := make_input_filename(file) => fn
 ;     file := ['_.fricas, 'input]
-;     make_input_filename(file) => file
+;     fn := make_input_filename(file) => fn
 ;     file := ['_.axiom, 'input]
-;     make_input_filename(file) => file
+;     fn := make_input_filename(file) => fn
 ;     NIL
 ;   efile =>
 ;     $edit_file := efile
@@ -145,7 +145,7 @@
 ;   NIL
 
 (DEFUN |readSpadProfileIfThere| ()
-  (PROG (|efile| |file|)
+  (PROG (|efile| |fn| |file|)
     (RETURN
      (PROGN
       (SETQ |file| (|getEnv| "FRICAS_INITFILE"))
@@ -153,17 +153,20 @@
             (#1='T
              (PROGN
               (SETQ |efile|
-                      (COND ((|make_input_filename| |file|) |file|)
+                      (COND ((SETQ |fn| (|make_input_filename| |file|)) |fn|)
                             (#1#
                              (PROGN
                               (SETQ |file| (LIST '|.fricas| '|input|))
-                              (COND ((|make_input_filename| |file|) |file|)
-                                    (#1#
-                                     (PROGN
-                                      (SETQ |file| (LIST '|.axiom| '|input|))
-                                      (COND
-                                       ((|make_input_filename| |file|) |file|)
-                                       (#1# NIL)))))))))
+                              (COND
+                               ((SETQ |fn| (|make_input_filename| |file|))
+                                |fn|)
+                               (#1#
+                                (PROGN
+                                 (SETQ |file| (LIST '|.axiom| '|input|))
+                                 (COND
+                                  ((SETQ |fn| (|make_input_filename| |file|))
+                                   |fn|)
+                                  (#1# NIL)))))))))
               (COND
                (|efile|
                 (PROGN (SETQ |$edit_file| |efile|) (|read_or_compile| T NIL)))
