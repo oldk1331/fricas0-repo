@@ -524,17 +524,28 @@
 ;   --type analyzes and evaluates expression x, returns object
 ;   $env:local := [[NIL]]
 ;   $genValue:local := true       --evaluate all generated code
+;   $compilingMap : local := false
+;   $definingMap : local := false
+;   $minivector : local := NIL
+;   $insideCompileBodyIfTrue : local := false
 ;   -- counter used to limit recursion depth during resolve
 ;   $resolve_level : local := 0
 ;   interpret1(x,nil,posnForm)
 
 (DEFUN |interpret| (|x| |posnForm|)
-  (PROG (|$resolve_level| |$genValue| |$env|)
-    (DECLARE (SPECIAL |$resolve_level| |$genValue| |$env|))
+  (PROG (|$resolve_level| |$insideCompileBodyIfTrue| |$minivector|
+         |$definingMap| |$compilingMap| |$genValue| |$env|)
+    (DECLARE
+     (SPECIAL |$resolve_level| |$insideCompileBodyIfTrue| |$minivector|
+      |$definingMap| |$compilingMap| |$genValue| |$env|))
     (RETURN
      (PROGN
       (SETQ |$env| (LIST (LIST NIL)))
       (SETQ |$genValue| T)
+      (SETQ |$compilingMap| NIL)
+      (SETQ |$definingMap| NIL)
+      (SETQ |$minivector| NIL)
+      (SETQ |$insideCompileBodyIfTrue| NIL)
       (SETQ |$resolve_level| 0)
       (|interpret1| |x| NIL |posnForm|)))))
 

@@ -22,7 +22,7 @@
 (PUT '|LIST;elt;%firstS;6| '|SPADreplace|
      '(XLAM (|x| "first") (|SPADfirst| |x|))) 
 
-(SDEFUN |LIST;elt;%firstS;6| ((|x| (%)) (T2 ("first")) (% (S)))
+(SDEFUN |LIST;elt;%firstS;6| ((|x| (%)) (T1 ("first")) (% (S)))
         (|SPADfirst| |x|)) 
 
 (PUT '|LIST;empty;%;7| '|SPADreplace| '(XLAM NIL NIL)) 
@@ -39,7 +39,7 @@
 
 (PUT '|LIST;elt;%rest%;10| '|SPADreplace| '(XLAM (|x| "rest") (CDR |x|))) 
 
-(SDEFUN |LIST;elt;%rest%;10| ((|x| (%)) (T11 ("rest")) (% (%))) (CDR |x|)) 
+(SDEFUN |LIST;elt;%rest%;10| ((|x| (%)) (T2 ("rest")) (% (%))) (CDR |x|)) 
 
 (PUT '|LIST;qsetfirst!;%2S;11| '|SPADreplace| '|qset_first|) 
 
@@ -51,7 +51,7 @@
               ('T (|qset_first| |x| |s|)))) 
 
 (SDEFUN |LIST;setelt!;%first2S;13|
-        ((|x| (%)) (T12 ("first")) (|s| (S)) (% (S)))
+        ((|x| (%)) (T11 ("first")) (|s| (S)) (% (S)))
         (COND ((NULL |x|) (|error| "Cannot update an empty list"))
               ('T (|qset_first| |x| |s|)))) 
 
@@ -64,7 +64,7 @@
         (COND ((NULL |x|) (|error| "Cannot update an empty list"))
               ('T (|qset_rest| |x| |y|)))) 
 
-(SDEFUN |LIST;setelt!;%rest2%;16| ((|x| (%)) (T13 ("rest")) (|y| (%)) (% (%)))
+(SDEFUN |LIST;setelt!;%rest2%;16| ((|x| (%)) (T12 ("rest")) (|y| (%)) (% (%)))
         (COND ((NULL |x|) (|error| "Cannot update an empty list"))
               ('T (|qset_rest| |x| |y|)))) 
 
