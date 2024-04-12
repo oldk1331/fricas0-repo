@@ -4125,6 +4125,7 @@
 ;       (if not member(t,getDomainsInScope e) then e:= addDomain(t,e); t)
 ;     isDomainForm(t, e) or isCategoryForm(t) => t
 ;     t is ["Mapping",m',:r] => t
+;     STRINGP(t) => t
 ;     unknownTypeError t
 ;     t
 ;   f is ["LISTOF",:l] =>
@@ -4173,7 +4174,7 @@
                             (SETQ |r| (CDR |ISTMP#1|))
                             #2='T))))
                 |t|)
-               (#2# (PROGN (|unknownTypeError| |t|) |t|))))
+               ((STRINGP |t|) |t|) (#2# (PROGN (|unknownTypeError| |t|) |t|))))
       (COND
        ((AND (CONSP |f|) (EQ (CAR |f|) 'LISTOF)
              (PROGN (SETQ |l| (CDR |f|)) #2#))
