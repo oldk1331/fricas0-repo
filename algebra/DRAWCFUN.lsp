@@ -1436,5 +1436,3 @@
                                               155 22 22 39 162 3 0 131 155 22
                                               22 163)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|TopLevelDrawFunctionsForCompiledFunctions| 'NILADIC T) 

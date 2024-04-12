@@ -271,5 +271,3 @@
                                          2 13 30 30 0 1 2 13 0 6 0 1 2 13 0 0 6
                                          1 2 13 0 0 0 1 1 19 9 0 1)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|U8Matrix| 'NILADIC T) 

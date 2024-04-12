@@ -1276,5 +1276,3 @@
                                               4 0 6 7 7 8 8 10 3 0 6 7 7 8
                                               9)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|U32VectorPolynomialOperations| 'NILADIC T) 

@@ -349,5 +349,3 @@
                                               65 1 0 8 8 66 1 0 8 8 68 0 0 8
                                               67)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|ViewDefaultsPackage| 'NILADIC T) 

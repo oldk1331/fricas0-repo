@@ -1621,5 +1621,3 @@
                                               0 51 0 24 154 2 0 51 0 24 99 2 0
                                               80 0 0 1)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|ThreeDimensionalViewport| 'NILADIC T) 

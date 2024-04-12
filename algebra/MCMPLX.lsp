@@ -405,5 +405,3 @@
                                     1 2 0 0 9 0 1 2 0 0 0 9 1 2 0 0 52 0 1 2 0
                                     0 14 0 1 2 0 0 0 0 1 2 0 0 65 0 1)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|MachineComplex| 'NILADIC T) 

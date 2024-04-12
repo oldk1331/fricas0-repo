@@ -182,5 +182,3 @@
                                     0 0 0 0 1 1 0 0 0 19 2 0 0 0 0 1 2 0 0 35 0
                                     1 2 0 0 5 0 1 2 0 0 0 0 1 2 0 0 13 0 1)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|RomanNumeral| 'NILADIC T) 

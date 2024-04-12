@@ -125,5 +125,3 @@
                                          1 2 0 7 0 0 9 2 0 7 0 0 1 2 0 7 0 0
                                          10)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|ExtAlgBasis| 'NILADIC T) 

@@ -199,5 +199,3 @@
                                               21 39 1 0 0 35 38 1 0 0 21 24 1 0
                                               0 29 33 2 0 21 0 0 58)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|GuessOption| 'NILADIC T) 

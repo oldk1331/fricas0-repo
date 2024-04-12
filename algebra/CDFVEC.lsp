@@ -330,5 +330,3 @@
                                     1 2 16 0 0 0 1 2 14 0 0 0 1 2 16 0 7 0 1 2
                                     17 0 0 6 1 2 17 0 6 0 1 1 22 10 0 11)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|ComplexDoubleFloatVector| 'NILADIC T) 

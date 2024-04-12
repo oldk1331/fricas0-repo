@@ -533,5 +533,3 @@
                              (LIST) NIL NIL)))
                         (|makeByteWordVec2| 9 '(1 7 6 0 8 1 7 0 6 9)))))
            '|lookupIncomplete|)) 
-
-(MAKEPROP '|GuessAlgebraicNumber| 'NILADIC T) 

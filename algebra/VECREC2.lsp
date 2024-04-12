@@ -645,5 +645,3 @@
                                               9 23 3 0 16 17 9 0 19 1 0 0 9 11
                                               3 0 16 17 9 0 18)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|VectorIntegerReconstructor| 'NILADIC T) 

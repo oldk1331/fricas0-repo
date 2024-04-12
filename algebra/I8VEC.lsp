@@ -247,5 +247,3 @@
                                     0 1 2 18 21 0 0 1 2 23 21 0 0 1 2 18 21 0 0
                                     1 2 18 21 0 0 1 1 14 6 0 7)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|I8Vector| 'NILADIC T) 

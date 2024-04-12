@@ -887,5 +887,3 @@
                                               6 11 12 13 13 41 4 0 8 9 10 6 11
                                               15 4 0 8 16 10 6 11 18)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|NaiveBeckermannLabahnModular| 'NILADIC T) 

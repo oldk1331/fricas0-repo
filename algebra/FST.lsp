@@ -169,5 +169,3 @@
                                                    0 23 25 1 0 11 0 33 2 0 11 0
                                                    0 12)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|FortranScalarType| 'NILADIC T) 

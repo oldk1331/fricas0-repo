@@ -239,5 +239,3 @@
                                          23 0 0 1 2 0 23 0 0 25 2 0 23 0 0 1 2
                                          0 23 0 0 1)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|ProductFacet| 'NILADIC T) 

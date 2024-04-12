@@ -152,5 +152,3 @@
                                               0 0 14 2 0 0 0 0 13 2 0 0 7 0 8 2
                                               0 0 21 0 22)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|Color| 'NILADIC T) 

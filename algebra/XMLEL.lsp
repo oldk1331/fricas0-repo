@@ -217,5 +217,3 @@
                                               25 26 1 0 22 0 23 1 0 18 0
                                               19)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|XmlElement| 'NILADIC T) 

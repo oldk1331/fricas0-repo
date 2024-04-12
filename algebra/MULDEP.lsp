@@ -195,5 +195,3 @@
                                               23 1 24 0 17 25 1 7 0 26 27 0 24
                                               0 28 2 0 6 11 24 29)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|MultiplicativeDependence| 'NILADIC T) 

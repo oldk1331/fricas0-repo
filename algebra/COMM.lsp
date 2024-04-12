@@ -90,5 +90,3 @@
                                               0 0 10 13 1 0 20 0 1 1 0 15 0 17
                                               2 0 8 0 0 9)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|Commutator| 'NILADIC T) 

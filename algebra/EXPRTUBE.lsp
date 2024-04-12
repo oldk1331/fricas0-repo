@@ -349,5 +349,3 @@
                                               45 7 0 39 7 7 7 10 22 36 29 46 1
                                               0 10 36 44)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|ExpressionTubePlot| 'NILADIC T) 

@@ -43,5 +43,3 @@
                            (|Hashable|) (|BasicType|) (|CoercibleTo| 15))
                         (|makeByteWordVec2| -999999 'NIL))))
            '|lookupIncomplete|)) 
-
-(MAKEPROP '|SExpression| 'NILADIC T) 

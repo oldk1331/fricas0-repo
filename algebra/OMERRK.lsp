@@ -93,5 +93,3 @@
                                               7 0 9 1 0 7 0 11 1 0 7 0 8 2 0 7
                                               0 0 17)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|OpenMathErrorKind| 'NILADIC T) 

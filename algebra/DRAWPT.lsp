@@ -243,5 +243,3 @@
                                               15 15 9 21 3 0 20 15 15 15
                                               22)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|TopLevelDrawFunctionsForPoints| 'NILADIC T) 

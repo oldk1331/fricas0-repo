@@ -54,5 +54,3 @@
                                             '(2 0 8 0 0 1 1 0 10 0 1 1 0 6 0 7
                                               2 0 8 0 0 9)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|Exit| 'NILADIC T) 

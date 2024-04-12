@@ -80,5 +80,3 @@
                                               1 0 10 0 12 0 0 0 15 0 0 0 13 0 0
                                               0 16 0 0 0 14 2 0 7 0 0 8)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|OpenMathEncoding| 'NILADIC T) 

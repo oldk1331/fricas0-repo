@@ -1350,5 +1350,3 @@
                                                    52 52 52 108 1 0 52 19
                                                    87)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|FormatLaTeX| 'NILADIC T) 

@@ -3110,5 +3110,3 @@
                                               135 2 0 118 11 41 119 1 0 118 11
                                               136)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|RootSimplification| 'NILADIC T) 

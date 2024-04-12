@@ -210,5 +210,3 @@
                                               16 10 24 3 0 9 9 16 10 26 1 0 9 9
                                               14 1 0 9 10 11)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|DisplayPackage| 'NILADIC T) 

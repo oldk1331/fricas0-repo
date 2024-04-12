@@ -132,5 +132,3 @@
                                               1 0 13 9 14 0 0 13 26 0 0 6
                                               27)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|FortranOutputStackPackage| 'NILADIC T) 

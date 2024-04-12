@@ -117,5 +117,3 @@
                                     2 1 0 5 0 1 2 0 0 0 0 1 2 0 0 17 0 1 2 0 0
                                     15 0 1)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|NonNegativeInteger| 'NILADIC T) 

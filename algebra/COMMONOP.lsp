@@ -616,5 +616,3 @@
                                               208 2 9 0 0 7 209 0 210 0 211 1 0
                                               9 7 162)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|CommonOperators| 'NILADIC T) 

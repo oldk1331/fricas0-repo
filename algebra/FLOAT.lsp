@@ -2649,5 +2649,3 @@
                                     129 0 1 2 0 0 13 0 62 2 0 0 0 0 54 2 0 0 36
                                     0 59)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|Float| 'NILADIC T) 

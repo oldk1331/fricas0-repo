@@ -392,5 +392,3 @@
                                               23 1 0 6 10 26 3 0 6 10 10 10 25
                                               1 0 6 6 28 1 0 8 8 27)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|PartitionsAndPermutations| 'NILADIC T) 

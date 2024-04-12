@@ -3044,5 +3044,3 @@
                                               0 0 0 76 1 0 0 77 79 1 0 0 77 78
                                               1 0 39 0 65 2 0 30 0 0 36)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|GroupPresentation| 'NILADIC T) 

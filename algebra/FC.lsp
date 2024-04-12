@@ -2489,5 +2489,3 @@
                                               25 122 2 0 0 7 98 162 2 0 12 0 0
                                               1)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|FortranCode| 'NILADIC T) 

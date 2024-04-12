@@ -94,5 +94,3 @@
                                               2 0 6 7 7 12 1 0 6 7 10 0 0 6 13
                                               0 0 16 17)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|UserDefinedVariableOrdering| 'NILADIC T) 

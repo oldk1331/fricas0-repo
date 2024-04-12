@@ -238,5 +238,3 @@
                                               6 6 9 2 0 10 10 10 13 2 0 6 6 6
                                               12)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|DoubleFloatSpecialFunctions| 'NILADIC T) 

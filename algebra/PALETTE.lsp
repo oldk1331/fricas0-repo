@@ -99,5 +99,3 @@
                                               0 0 7 8 1 0 0 7 16 1 0 18 0 25 1
                                               0 0 7 10 2 0 26 0 0 1)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|Palette| 'NILADIC T) 

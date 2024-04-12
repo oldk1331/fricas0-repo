@@ -1458,5 +1458,3 @@
                                               32 29 34 1 0 29 26 31 1 0 29 26
                                               30 1 0 26 0 1 2 0 45 0 0 1)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|TexmacsFormat| 'NILADIC T) 

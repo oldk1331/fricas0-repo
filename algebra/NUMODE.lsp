@@ -705,5 +705,3 @@
                                               27 17 8 6 6 40 51 9 0 27 17 8 6 6
                                               40 17 17 17 17 52)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|NumericalOrdinaryDifferentialEquations| 'NILADIC T) 

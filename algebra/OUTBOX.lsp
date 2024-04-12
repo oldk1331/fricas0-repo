@@ -487,5 +487,3 @@
                                                    8 1 0 11 0 13 1 0 6 0 7 1 0
                                                    0 9 10)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|OutputBox| 'NILADIC T) 

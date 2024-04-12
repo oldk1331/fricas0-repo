@@ -71,5 +71,3 @@
                              (LIST) NIL NIL)))
                         (|makeByteWordVec2| -999999 'NIL))))
            '|lookupIncomplete|)) 
-
-(MAKEPROP '|ModularFactorization| 'NILADIC T) 

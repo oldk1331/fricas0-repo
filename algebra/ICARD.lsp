@@ -202,5 +202,3 @@
                                          19 0 30 2 0 6 0 0 1 2 0 6 0 0 1 2 0 6
                                          0 0 8 2 0 6 0 0 1 2 0 6 0 0 7)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|IndexCard| 'NILADIC T) 

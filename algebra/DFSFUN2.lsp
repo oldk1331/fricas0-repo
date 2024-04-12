@@ -1664,5 +1664,3 @@
                                               70 1 0 14 14 74 2 0 14 14 14 29 2
                                               0 10 10 10 42)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|DoubleFloatSpecialFunctions2| 'NILADIC T) 

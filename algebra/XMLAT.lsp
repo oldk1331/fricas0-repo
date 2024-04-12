@@ -115,5 +115,3 @@
                                               0 7 7 8 2 0 19 0 17 20 1 0 7 0
                                               16)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|XmlAttribute| 'NILADIC T) 

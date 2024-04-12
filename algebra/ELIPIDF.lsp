@@ -1477,5 +1477,3 @@
                                               35 46 2 0 33 33 33 67 1 0 33 33
                                               68)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|DoubleFloatEllipticIntegrals| 'NILADIC T) 

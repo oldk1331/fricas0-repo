@@ -122,5 +122,3 @@
                                     0 0 0 0 1 2 0 0 22 0 1 2 0 0 23 0 1 2 0 0
                                     20 0 1)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|OrderedExpression| 'NILADIC T) 

@@ -106,5 +106,3 @@
                                               34 23 35 2 0 22 17 23 26 2 0 22
                                               20 23 27 3 0 33 30 34 23 36)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|RealSolvePackage| 'NILADIC T) 

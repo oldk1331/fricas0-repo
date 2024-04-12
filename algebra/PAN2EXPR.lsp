@@ -77,5 +77,3 @@
                                               7 0 0 0 20 1 0 7 17 21 1 0 7 13
                                               16)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|PolynomialAN2Expression| 'NILADIC T) 

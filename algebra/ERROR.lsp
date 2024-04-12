@@ -102,5 +102,3 @@
                                               12 2 0 11 9 13 16 2 0 11 9 9
                                               15)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|ErrorFunctions| 'NILADIC T) 

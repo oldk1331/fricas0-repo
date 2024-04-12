@@ -206,5 +206,3 @@
                                     1 1 5 28 0 1 1 0 0 0 1 2 14 26 30 0 1 2 14
                                     26 32 0 1 2 18 26 0 0 1 1 14 25 0 1)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|Library| 'NILADIC T) 

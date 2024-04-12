@@ -917,5 +917,3 @@
                                               0 14 46 47 1 0 14 17 45 1 0 14 41
                                               42)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|PermutationGroupExamples| 'NILADIC T) 

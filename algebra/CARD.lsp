@@ -215,5 +215,3 @@
                                          26 2 0 30 0 0 31 2 0 0 0 0 28 2 0 0 0
                                          0 32 2 0 0 41 0 1 2 0 0 10 0 33)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|CardinalNumber| 'NILADIC T) 

@@ -112,5 +112,3 @@
                                               0 0 8 10 1 0 8 8 12 0 0 8 9 1 0 8
                                               8 11 0 0 8 15 1 0 8 8 24)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|GraphicsDefaults| 'NILADIC T) 

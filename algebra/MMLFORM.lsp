@@ -1166,5 +1166,3 @@
                                               24 21 27 1 0 24 21 25 1 0 21 0 1
                                               2 0 41 0 0 1)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|MathMLFormat| 'NILADIC T) 

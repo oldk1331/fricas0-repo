@@ -108,5 +108,3 @@
                                               0 0 8 13 1 0 8 0 9 1 0 10 0 12 2
                                               0 6 0 0 7)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|FileName| 'NILADIC T) 

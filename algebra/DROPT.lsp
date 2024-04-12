@@ -306,5 +306,3 @@
                                               0 45 48 1 0 0 17 21 1 0 0 17 22 2
                                               0 17 0 0 82)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|DrawOption| 'NILADIC T) 

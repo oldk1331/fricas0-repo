@@ -786,5 +786,3 @@
                                               47 12 12 56 1 0 33 34 67 1 0 33
                                               21 66)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|TwoDimensionalPlotClipping| 'NILADIC T) 

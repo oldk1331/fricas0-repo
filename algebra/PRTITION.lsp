@@ -258,5 +258,3 @@
                                          2 0 0 0 0 20 2 0 0 22 0 24 2 0 0 47 0
                                          1)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|Partition| 'NILADIC T) 

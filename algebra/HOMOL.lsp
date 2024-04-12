@@ -373,5 +373,3 @@
                                               1 0 11 0 55 1 0 11 0 58 2 0 7 0 0
                                               57)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|Homology| 'NILADIC T) 

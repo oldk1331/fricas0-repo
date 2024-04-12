@@ -497,5 +497,3 @@
                                                    31 0 32 1 0 26 0 27 2 0 13 0
                                                    11 53 1 0 7 0 23)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|FakePolynomial| 'NILADIC T) 

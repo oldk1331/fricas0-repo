@@ -274,5 +274,3 @@
                                     0 0 6 0 1 2 0 0 0 6 1 2 0 0 17 0 1 2 0 0 0
                                     0 1 2 0 0 50 0 1)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|BinaryExpansion| 'NILADIC T) 

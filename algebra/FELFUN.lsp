@@ -3305,5 +3305,3 @@
                                               110 1 0 9 9 119 1 0 6 6 118 2 0 9
                                               9 9 121 2 0 6 6 6 120)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|FloatEllipticFunctions| 'NILADIC T) 

@@ -293,5 +293,3 @@
                                               37 6 45 4 0 35 18 19 19 6 50 5 0
                                               35 18 19 19 6 11 49)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|GnuDraw| 'NILADIC T) 

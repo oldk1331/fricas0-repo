@@ -840,5 +840,3 @@
                                               35 102 1 0 0 40 110 1 0 111 0 116
                                               2 0 53 0 8 108 2 0 50 0 0 1)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|GraphImage| 'NILADIC T) 

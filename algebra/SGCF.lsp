@@ -927,5 +927,3 @@
                                               10 10 27 46 3 0 27 10 10 10
                                               56)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|SymmetricGroupCombinatoricFunctions| 'NILADIC T) 

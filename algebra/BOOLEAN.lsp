@@ -158,5 +158,3 @@
                                          6 0 0 1 2 0 6 0 0 1 2 0 6 0 0 19 2 0 6
                                          0 0 1 2 0 6 0 0 21 2 0 0 0 0 13)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|Boolean| 'NILADIC T) 

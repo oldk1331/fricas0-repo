@@ -91,5 +91,3 @@
                                          10 0 12 2 0 7 0 0 1 2 0 7 0 0 1 2 0 7
                                          0 0 13 2 0 7 0 0 1 2 0 7 0 0 8)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|SingletonAsOrderedSet| 'NILADIC T) 

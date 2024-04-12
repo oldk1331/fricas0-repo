@@ -1676,5 +1676,3 @@
                                               25 22 26 1 0 22 0 1 2 0 36 0 0
                                               1)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|HTMLFormat| 'NILADIC T) 

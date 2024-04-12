@@ -396,5 +396,3 @@
                                     15 2 0 17 0 0 1 2 0 17 0 0 1 2 0 17 0 0 19
                                     2 0 17 0 0 1 2 0 17 0 0 1 1 9 35 0 45)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|CharacterClass| 'NILADIC T) 

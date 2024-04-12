@@ -2009,5 +2009,3 @@
                                               14 62 1 0 6 6 46 2 0 14 14 14 66
                                               2 0 6 6 6 65)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|FloatSpecialFunctions| 'NILADIC T) 

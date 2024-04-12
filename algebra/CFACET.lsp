@@ -523,5 +523,3 @@
                                          0 0 52 2 0 15 0 0 51 2 0 15 0 0
                                          50)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|CubicalFacet| 'NILADIC T) 

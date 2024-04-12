@@ -1324,5 +1324,3 @@
                                               0 92 1 0 22 22 38 1 0 79 0 90 0 0
                                               22 35)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|Plot3D| 'NILADIC T) 

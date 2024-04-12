@@ -365,5 +365,3 @@
                                          0 14 0 0 1 2 0 14 0 0 73 2 0 14 0 0 1
                                          2 0 14 0 0 79)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|BasicOperator| 'NILADIC T) 

@@ -1583,5 +1583,3 @@
                                               67 1 0 12 12 72 1 0 6 6 73 1 0 6
                                               6 75 1 0 12 12 74)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|FloatLiouvilianFunctions| 'NILADIC T) 

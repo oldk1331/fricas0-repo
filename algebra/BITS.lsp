@@ -150,5 +150,3 @@
                                     0 0 1 2 0 7 0 0 1 2 0 7 0 0 1 2 0 0 0 0 1 1
                                     8 6 0 1)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|Bits| 'NILADIC T) 

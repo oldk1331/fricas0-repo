@@ -232,5 +232,3 @@
                                                    1 0 16 22 39 2 0 16 14 22 38
                                                    3 0 16 14 22 0 37)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|TheSymbolTable| 'NILADIC T) 

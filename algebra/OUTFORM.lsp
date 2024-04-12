@@ -664,5 +664,3 @@
                                               0 0 97 2 0 0 0 0 96 2 0 0 0 0
                                               99)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|OutputForm| 'NILADIC T) 

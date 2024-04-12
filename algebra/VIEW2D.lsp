@@ -991,5 +991,3 @@
                                               1 0 22 0 78 3 0 22 0 24 7 70 3 0
                                               22 0 24 12 69 2 0 35 0 0 1)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|TwoDimensionalViewport| 'NILADIC T) 

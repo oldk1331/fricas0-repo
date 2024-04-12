@@ -316,5 +316,3 @@
                                               32 40 40 40 41 22 16 1 5 0 32 10
                                               37 22 22 16 39)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|MeshCreationRoutinesForThreeDimensions| 'NILADIC T) 

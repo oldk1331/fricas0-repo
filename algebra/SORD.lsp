@@ -361,5 +361,3 @@
                                     1 2 0 0 0 0 33 2 1 0 68 0 1 2 0 0 0 0 35 2
                                     0 0 11 0 1 2 0 0 70 0 1)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|SmallOrdinal| 'NILADIC T) 

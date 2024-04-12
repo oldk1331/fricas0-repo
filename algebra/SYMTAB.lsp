@@ -547,5 +547,3 @@
                                                    25 1 0 7 0 9 1 0 10 0
                                                    11)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|SymbolTable| 'NILADIC T) 

@@ -2035,5 +2035,3 @@
                                                    0 8 39 36 111 2 0 50 50 50 1
                                                    1 0 50 39 99)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|Format2D| 'NILADIC T) 

@@ -171,5 +171,3 @@
                                               31 1 0 17 0 34 1 0 0 7 8 2 0 14 0
                                               0 1)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|ChainComplex| 'NILADIC T) 

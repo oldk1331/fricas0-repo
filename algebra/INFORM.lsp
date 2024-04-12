@@ -474,5 +474,3 @@
                                          2 0 27 0 0 62 2 0 0 0 0 67 2 0 0 0 0
                                          63 2 0 0 0 0 64)))))
            '|lookupIncomplete|)) 
-
-(MAKEPROP '|InputForm| 'NILADIC T) 

@@ -1532,5 +1532,3 @@
                                               0 1 2 0 12 0 0 13 2 0 0 0 0
                                               14)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|ILogic| 'NILADIC T) 

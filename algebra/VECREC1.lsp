@@ -851,5 +851,3 @@
                                               7 7 31 2 0 0 7 7 8 3 0 12 15 7 0
                                               23 2 0 12 13 0 14)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|VectorModularReconstructor| 'NILADIC T) 

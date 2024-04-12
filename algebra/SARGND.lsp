@@ -255,5 +255,3 @@
                                               2 0 16 0 0 45 2 0 0 0 0 26 2 0 0
                                               0 0 25 2 0 0 7 0 24)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|SArgand| 'NILADIC T) 

@@ -1959,5 +1959,3 @@
                                               44 4 0 121 30 30 9 43 122 3 0 114
                                               6 30 43 115)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|MrvLimitPackage| 'NILADIC T) 

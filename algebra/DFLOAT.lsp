@@ -1002,5 +1002,3 @@
                                     0 0 116 0 1 2 0 0 19 0 47 2 0 0 0 0 46 2 0
                                     0 17 0 24)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|DoubleFloat| 'NILADIC T) 

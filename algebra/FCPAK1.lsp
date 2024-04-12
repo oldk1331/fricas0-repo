@@ -232,5 +232,3 @@
                                               8 8 21 3 0 17 12 13 13 23 2 0 17
                                               12 8 28)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|FortranCodePackage1| 'NILADIC T) 

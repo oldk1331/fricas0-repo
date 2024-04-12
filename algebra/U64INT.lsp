@@ -75,5 +75,3 @@
                                     1 2 0 0 0 0 1 2 0 0 0 0 1 2 0 0 7 0 1 2 0 0
                                     5 0 1 2 0 0 0 0 1 2 0 0 10 0 1)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|U64Int| 'NILADIC T) 

@@ -811,5 +811,3 @@
                                          2 0 9 0 0 1 2 0 9 0 0 51 2 0 9 0 0 83
                                          2 0 9 0 0 82)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|OrientedFacet| 'NILADIC T) 

@@ -99,5 +99,3 @@
                                               19 1 0 7 0 8 2 0 7 0 7 10 2 0 7 0
                                               0 1)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|SubSpaceComponentProperty| 'NILADIC T) 

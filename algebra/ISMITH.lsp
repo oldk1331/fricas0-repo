@@ -410,5 +410,3 @@
                                               2 6 0 0 0 40 1 0 6 6 16 2 0 6 6
                                               12 13 2 0 18 6 19 20)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|IntegerSmithNormalForm| 'NILADIC T) 

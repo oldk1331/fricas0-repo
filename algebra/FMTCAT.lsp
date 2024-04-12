@@ -340,5 +340,3 @@
                                                T))
                                             NIL NIL NIL))))
            (SETELT #1# 0 '(|FormatterCategory|))))) 
-
-(MAKEPROP '|FormatterCategory| 'NILADIC T) 

@@ -742,5 +742,3 @@
                                          0 0 1 2 0 0 0 0 25 0 0 0 1 2 0 16 0 0
                                          40 2 0 0 0 0 23)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|LatticeJoinOfMeets| 'NILADIC T) 

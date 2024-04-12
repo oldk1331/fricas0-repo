@@ -211,5 +211,3 @@
                                                    0 0 25 25 34 2 0 0 25 25
                                                    32)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|Switch| 'NILADIC T) 

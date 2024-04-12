@@ -68,5 +68,3 @@
                                             '(1 0 7 0 8 2 0 0 0 7 9 0 0 0
                                               6)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|HashState| 'NILADIC T) 

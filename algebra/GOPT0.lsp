@@ -368,5 +368,3 @@
                                               0 26 15 29 1 0 41 15 45 2 0 26 0
                                               0 1)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|GuessOptionFunctions0| 'NILADIC T) 

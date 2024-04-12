@@ -153,5 +153,3 @@
                                               0 0 0 0 18 2 0 12 0 0 24 2 0 0 0
                                               0 17)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|BitStreamFrame| 'NILADIC T) 

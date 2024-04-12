@@ -576,5 +576,3 @@
                                               41 2 0 15 19 26 39 2 0 23 19 42
                                               43 1 0 23 19 44 1 0 36 19 37)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|IrrRepSymNatPackage| 'NILADIC T) 

@@ -237,5 +237,3 @@
                                     1 2 0 0 11 0 1 2 0 0 10 0 1 2 0 0 0 0 1 2 0
                                     0 79 0 1)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|PiDomain| 'NILADIC T) 

@@ -265,5 +265,3 @@
                                               2 0 7 7 7 20 2 0 7 7 7 19 2 0 7 9
                                               7 18)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|TubePlotTools| 'NILADIC T) 

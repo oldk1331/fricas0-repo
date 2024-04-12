@@ -1572,5 +1572,3 @@
                                                    67 2 0 9 18 42 104 2 0 54 54
                                                    54 120 1 0 54 18 90)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|FormatMathJax| 'NILADIC T) 

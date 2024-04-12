@@ -550,5 +550,3 @@
                                               14 15 4 0 25 24 17 10 14 26 4 0 6
                                               6 17 10 14 18)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|PolynomialEvaluationUtilities| 'NILADIC T) 

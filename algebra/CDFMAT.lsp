@@ -317,5 +317,3 @@
                                          1 2 13 0 14 0 1 2 13 0 0 14 1 2 13 0 0
                                          0 1 1 19 9 0 1)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|ComplexDoubleFloatMatrix| 'NILADIC T) 

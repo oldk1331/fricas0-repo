@@ -161,5 +161,3 @@
                                     23 2 0 21 0 6 22 1 4 19 0 20 3 0 11 12 0 17
                                     18)))))
            '|lookupIncomplete|)) 
-
-(MAKEPROP '|String| 'NILADIC T) 

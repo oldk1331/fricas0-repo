@@ -1404,5 +1404,3 @@
                                                    2 0 55 55 55 1 1 0 55 15
                                                    77)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|Format1D| 'NILADIC T) 
