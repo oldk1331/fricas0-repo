@@ -1,15 +1,4 @@
 
-(SETQ |$CategoryFrame|
-        (|put| #1='|NonNegativeRational| '|SuperDomain|
-               #2='(|Fraction| (|Integer|))
-               (|put| #2# #3='|SubDomain|
-                      (CONS
-                       '(|NonNegativeRational| SPADCALL |#1|
-                                               (|spadConstant| % 7)
-                                               (QREFELT % 9))
-                       (DELASC #1# (|get| #2# #3# |$CategoryFrame|)))
-                      |$CategoryFrame|))) 
-
 (SDEFUN |NNRAT;sup;3%;1| ((|x| (%)) (|y| (%)) (% (%)))
         (SPADCALL |x| |y| (QREFELT % 10))) 
 

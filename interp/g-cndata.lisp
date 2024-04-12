@@ -138,7 +138,6 @@
 ;   clearClams()
 ;   clearConstructorCache(c)
 ;   installConstructor(c)
-;   setAutoLoadProperty(c)
 
 (DEFUN |mkUserConstructorAbbreviation| (|c| |a| |type|)
   (PROG ()
@@ -148,8 +147,7 @@
       (|constructorAbbreviationErrorCheck| |c| |a| |type|)
       (|clearClams|)
       (|clearConstructorCache| |c|)
-      (|installConstructor| |c|)
-      (|setAutoLoadProperty| |c|)))))
+      (|installConstructor| |c|)))))
 
 ; abbQuery(x) ==
 ;     abb := get_database(x, 'ABBREVIATION) =>

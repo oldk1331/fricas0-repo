@@ -35,7 +35,7 @@
 ;       $displayStartMsgs := display_messages
 ;   initHist()
 ;   initNewWorld()
-;   interpOpen(display_messages)
+;   open_interp_db(display_messages)
 ;   createInitializers()
 ;   if $displayStartMsgs then sayKeyedMsg("S2IZ0053",['"interpreter"])
 ;   initializeTimedNames()
@@ -69,7 +69,7 @@
         (SETQ |$displayStartMsgs| |display_messages|)))
       (|initHist|)
       (|initNewWorld|)
-      (|interpOpen| |display_messages|)
+      (|open_interp_db| |display_messages|)
       (|createInitializers|)
       (COND
        (|$displayStartMsgs| (|sayKeyedMsg| 'S2IZ0053 (LIST "interpreter"))))
@@ -102,10 +102,11 @@
 ;
 ;   if $displayStartMsgs then spadStartUpMsgs()
 ;   $currentLine := nil
-;   interpOpen(true) -- open up the interpreter database
-;   operationOpen(true) -- all of the operations known to the system
-;   categoryOpen(true) -- answer hasCategory question
-;   browseOpen(true)
+;   -- open databases
+;   open_interp_db(true)
+;   open_operation_db(true)
+;   open_category_db(true)
+;   open_browse_db(true)
 ;   makeConstructorsAutoLoad()
 ;   createInitializers2()
 
@@ -121,10 +122,10 @@
       (|buildHtMacroTable|)
       (COND (|$displayStartMsgs| (|spadStartUpMsgs|)))
       (SETQ |$currentLine| NIL)
-      (|interpOpen| T)
-      (|operationOpen| T)
-      (|categoryOpen| T)
-      (|browseOpen| T)
+      (|open_interp_db| T)
+      (|open_operation_db| T)
+      (|open_category_db| T)
+      (|open_browse_db| T)
       (|makeConstructorsAutoLoad|)
       (|createInitializers2|)))))
 

@@ -3048,17 +3048,11 @@
 ;       stackSemanticError(['"predicate: ",predicate,
 ;         '" cannot be interpreted with #1: ",domainForm],nil)
 ;   prefixPredicate:= lispize u.expr
-;   $lisplibSuperDomain:=
-;     [domainForm,predicate]
-;   evalAndRwriteLispForm('evalOnLoad2,
-;     ['SETQ,'$CategoryFrame,['put,op':= ['QUOTE,$op],'
-;      (QUOTE SuperDomain),dF':= ['QUOTE,domainForm],['put,dF','(QUOTE SubDomain),[
-;        'CONS,['QUOTE,[$op,:prefixPredicate]],['DELASC,op',['get,dF','
-;          (QUOTE SubDomain),'$CategoryFrame]]],'$CategoryFrame]]])
+;   $lisplibSuperDomain := [domainForm, predicate]
 ;   [domainForm,m,e]
 
 (DEFUN |compSubDomain1| (|domainForm| |predicate| |m| |e|)
-  (PROG (|LETTMP#1| |u| |prefixPredicate| |op'| |dF'|)
+  (PROG (|LETTMP#1| |u| |prefixPredicate|)
     (RETURN
      (PROGN
       (SETQ |LETTMP#1|
@@ -3073,17 +3067,6 @@
                    NIL)))
       (SETQ |prefixPredicate| (|lispize| (CAR |u|)))
       (SETQ |$lisplibSuperDomain| (LIST |domainForm| |predicate|))
-      (|evalAndRwriteLispForm| '|evalOnLoad2|
-       (LIST 'SETQ '|$CategoryFrame|
-             (LIST '|put| (SETQ |op'| (LIST 'QUOTE |$op|)) ''|SuperDomain|
-                   (SETQ |dF'| (LIST 'QUOTE |domainForm|))
-                   (LIST '|put| |dF'| ''|SubDomain|
-                         (LIST 'CONS
-                               (LIST 'QUOTE (CONS |$op| |prefixPredicate|))
-                               (LIST 'DELASC |op'|
-                                     (LIST '|get| |dF'| ''|SubDomain|
-                                           '|$CategoryFrame|)))
-                         '|$CategoryFrame|))))
       (LIST |domainForm| |m| |e|)))))
 
 ; compCapsuleInner(itemList,m,e) ==

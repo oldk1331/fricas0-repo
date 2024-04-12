@@ -1308,8 +1308,7 @@
 ;   u := GET(name, 'infovec) => u
 ;   GET(name, 'LOADED) => nil
 ;   fullLibName := get_database(name, 'OBJECT) or return nil
-;   startTimingProcess 'load
-;   loadLibNoUpdate(name, name, fullLibName)
+;   loadLibNoUpdate(name, fullLibName)
 ;   GET(name, 'infovec)
 
 (DEFUN |getInfovec| (|name|)
@@ -1320,8 +1319,7 @@
             (PROGN
              (SETQ |fullLibName|
                      (OR (|get_database| |name| 'OBJECT) (RETURN NIL)))
-             (|startTimingProcess| '|load|)
-             (|loadLibNoUpdate| |name| |name| |fullLibName|)
+             (|loadLibNoUpdate| |name| |fullLibName|)
              (GET |name| '|infovec|)))))))
 
 ; getOpSegment(index, vec) ==

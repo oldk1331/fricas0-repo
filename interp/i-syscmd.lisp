@@ -1512,7 +1512,7 @@
 ;     if doLibrary then
 ;         -- do we need to worry about where the compilation output went?
 ;         if not beQuiet then sayKeyedMsg("S2IZ0090", [ pathnameName path ])
-;         LOCALDATABASE([pathnameName(libname)], [], false)
+;         merge_info_from_objects([pathnameName(libname)], [], false)
 ;     else if not beQuiet then
 ;         sayKeyedMsg("S2IZ0084", nil)
 ;     terminateSystemCommand()
@@ -1568,20 +1568,23 @@
            (COND
             ((NULL |beQuiet|)
              (|sayKeyedMsg| 'S2IZ0090 (LIST (|pathnameName| |path|)))))
-           (LOCALDATABASE (LIST (|pathnameName| |libname|)) NIL NIL))
+           (|merge_info_from_objects| (LIST (|pathnameName| |libname|)) NIL
+            NIL))
           ((NULL |beQuiet|) (|sayKeyedMsg| 'S2IZ0084 NIL)))
          (|terminateSystemCommand|)
          (|spadPrompt|))))))))
 
 ; withAsharpCmd args ==
 ;     $options: local := nil
-;     LOCALDATABASE(args, $options, false)
+;     merge_info_from_objects(args, $options, false)
 
 (DEFUN |withAsharpCmd| (|args|)
   (PROG (|$options|)
     (DECLARE (SPECIAL |$options|))
     (RETURN
-     (PROGN (SETQ |$options| NIL) (LOCALDATABASE |args| |$options| NIL)))))
+     (PROGN
+      (SETQ |$options| NIL)
+      (|merge_info_from_objects| |args| |$options| NIL)))))
 
 ; print_text_stream stream ==
 ;     if stream then
@@ -5436,7 +5439,7 @@
 ; library(args) ==
 ;    $newConlist : local := []
 ;    original_directory := GET_-CURRENT_-DIRECTORY()
-;    LOCALDATABASE(args, $options, false)
+;    merge_info_from_objects(args, $options, false)
 ;    extendLocalLibdb($newConlist)
 ;    CHDIR(original_directory)
 ;    terminateSystemCommand()
@@ -5448,7 +5451,7 @@
      (PROGN
       (SETQ |$newConlist| NIL)
       (SETQ |original_directory| (GET-CURRENT-DIRECTORY))
-      (LOCALDATABASE |args| |$options| NIL)
+      (|merge_info_from_objects| |args| |$options| NIL)
       (|extendLocalLibdb| |$newConlist|)
       (CHDIR |original_directory|)
       (|terminateSystemCommand|)))))

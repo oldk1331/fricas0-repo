@@ -1,11 +1,4 @@
 
-(SETQ |$CategoryFrame|
-        (|put| #1='|NonNegativeInteger| '|SuperDomain| #2='(|Integer|)
-               (|put| #2# #3='|SubDomain|
-                      (CONS '(|NonNegativeInteger| >= |#1| 0)
-                            (DELASC #1# (|get| #2# #3# |$CategoryFrame|)))
-                      |$CategoryFrame|))) 
-
 (PUT '|NNI;sup;3%;1| '|SPADreplace| 'MAX) 
 
 (SDEFUN |NNI;sup;3%;1| ((|x| (%)) (|y| (%)) (% (%))) (MAX |x| |y|)) 

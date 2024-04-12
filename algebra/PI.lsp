@@ -1,11 +1,4 @@
 
-(SETQ |$CategoryFrame|
-        (|put| #1='|PositiveInteger| '|SuperDomain| #2='(|NonNegativeInteger|)
-               (|put| #2# #3='|SubDomain|
-                      (CONS '(|PositiveInteger| > |#1| 0)
-                            (DELASC #1# (|get| #2# #3# |$CategoryFrame|)))
-                      |$CategoryFrame|))) 
-
 (PUT '|PI;qcoerce;I%;1| '|SPADreplace| '(XLAM (|n|) |n|)) 
 
 (SDEFUN |PI;qcoerce;I%;1| ((|n| (|Integer|)) (% (%))) |n|) 

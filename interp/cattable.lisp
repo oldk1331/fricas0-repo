@@ -11,10 +11,6 @@
 
 (DEFVAR |$ancestors_hash| NIL)
 
-; compressHashTable(ht) == ht
-
-(DEFUN |compressHashTable| (|ht|) (PROG () (RETURN |ht|)))
-
 ; hasCat(domainOrCatName,catName) ==
 ;     catName='Type  -- every domain is a Type
 ;         or get_database([domainOrCatName, :catName], 'HASCATEGORY)
@@ -104,9 +100,7 @@
 ;     for [a,:b] in encodeCategoryAlist(id,entry) repeat
 ;       HPUT($has_category_hash, [id, :a], b)
 ;   simpTempCategoryTable()
-;   compressHashTable $ancestors_hash
 ;   simpCategoryTable()
-;   compressHashTable $has_category_hash
 
 (DEFUN |genCategoryTable| ()
   (PROG (|b| |a| |entry| |id| |specialDs| |domainTable| |catl| |domainList|)
@@ -193,9 +187,7 @@
           (SETQ |bfVar#12| (CDR |bfVar#12|))))
        |domainTable| NIL)
       (|simpTempCategoryTable|)
-      (|compressHashTable| |$ancestors_hash|)
-      (|simpCategoryTable|)
-      (|compressHashTable| |$has_category_hash|)))))
+      (|simpCategoryTable|)))))
 
 ; simpTempCategoryTable() ==
 ;   for id in HKEYS $ancestors_hash repeat
@@ -1395,6 +1387,7 @@
 ;       constructor? opOf attr =>
 ;         $conslist := [[attr,:pred],:$conslist]
 ;         nil
+;       -- FIXME: Just signal user error
 ;       BREAK()
 ;     item is ['TYPE,op,type] =>
 ;         BREAK()
@@ -1575,8 +1568,6 @@
 ;   [cname,:domainEntry]:= addDomainToTable(cname,category)
 ;   for [a,:b] in encodeCategoryAlist(cname,domainEntry) repeat
 ;     HPUT($has_category_hash, [cname, :a], b)
-;   $doNotCompressHashTableIfTrue = true => $has_category_hash
-;   compressHashTable $has_category_hash
 
 (DEFUN |updateCategoryTableForDomain| (|cname| |category|)
   (PROG (|LETTMP#1| |domainEntry| |a| |b|)
@@ -1600,9 +1591,7 @@
                   #1#)
                  (HPUT |$has_category_hash| (CONS |cname| |a|) |b|))))
           (SETQ |bfVar#69| (CDR |bfVar#69|))))
-       (|encodeCategoryAlist| |cname| |domainEntry|) NIL)
-      (COND ((EQUAL |$doNotCompressHashTableIfTrue| T) |$has_category_hash|)
-            (#1# (|compressHashTable| |$has_category_hash|)))))))
+       (|encodeCategoryAlist| |cname| |domainEntry|) NIL)))))
 
 ; clearCategoryTable($cname) ==
 ;   MAPHASH('clearCategoryTable1, $has_category_hash)

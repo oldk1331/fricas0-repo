@@ -1672,8 +1672,6 @@
              |x|))))
 
 ; updateDatabase(cname) ==
-;  -- for now in NRUNTIME do database update only if forced
-;   not $forceDatabaseUpdate => nil
 ;   clearClams()
 ;   clearAllSlams []
 ;   if constructor? cname then
@@ -1683,14 +1681,12 @@
 (DEFUN |updateDatabase| (|cname|)
   (PROG ()
     (RETURN
-     (COND ((NULL |$forceDatabaseUpdate|) NIL)
-           ('T
-            (PROGN
-             (|clearClams|)
-             (|clearAllSlams| NIL)
-             (COND
-              ((|constructor?| |cname|)
-               (COND ((GET |cname| 'LOADED) (|clearConstructorCaches|)))))))))))
+     (PROGN
+      (|clearClams|)
+      (|clearAllSlams| NIL)
+      (COND
+       ((|constructor?| |cname|)
+        (COND ((GET |cname| 'LOADED) (|clearConstructorCaches|)))))))))
 
 ; REMOVER(lst,item) ==
 ;   --destructively removes item from lst
