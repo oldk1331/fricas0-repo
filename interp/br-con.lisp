@@ -2602,10 +2602,13 @@
 ; dbShowConsDoc1(htPage,conform,indexOrNil) ==
 ;   [conname,:conargs] := conform
 ;   MEMQ(conname,$Primitives) =>
-;     conname := htpProperty(htPage,'conname)
-;     [["constructor",["NIL",doc]],:.] := GETL(conname,'documentation)
-;     sig := '((CATEGORY domain) (SetCategory) (SetCategory))
-;     displayDomainOp(htPage,'"constructor",conform,conname,sig,true,doc,indexOrNil,'dbSelectCon,nil,nil)
+;       [["constructor", ["NIL", doc]], :.] := GET(conname, 'documentation)
+;       sig :=
+;          conname = 'Enumeration =>
+;              '((CATEGORY domain) (Symbol) (Symbol))
+;          '((CATEGORY domain) (SetCategory) (SetCategory))
+;       displayDomainOp(htPage, '"constructor", conform, conname, sig, true,
+;                       doc, indexOrNil, 'dbSelectCon, nil, nil)
 ;   exposeFlag := isExposedConstructor conname
 ;   doc := [getConstructorDocumentation conname]
 ;   signature := getConstructorSignature conname
@@ -2624,13 +2627,17 @@
       (COND
        ((MEMQ |conname| |$Primitives|)
         (PROGN
-         (SETQ |conname| (|htpProperty| |htPage| '|conname|))
-         (SETQ |LETTMP#1| (GETL |conname| '|documentation|))
+         (SETQ |LETTMP#1| (GET |conname| '|documentation|))
          (SETQ |doc| (CAR (CDADAR |LETTMP#1|)))
-         (SETQ |sig| '((CATEGORY |domain|) (|SetCategory|) (|SetCategory|)))
+         (SETQ |sig|
+                 (COND
+                  ((EQ |conname| '|Enumeration|)
+                   '((CATEGORY |domain|) (|Symbol|) (|Symbol|)))
+                  (#1='T
+                   '((CATEGORY |domain|) (|SetCategory|) (|SetCategory|)))))
          (|displayDomainOp| |htPage| "constructor" |conform| |conname| |sig| T
           |doc| |indexOrNil| '|dbSelectCon| NIL NIL)))
-       (#1='T
+       (#1#
         (PROGN
          (SETQ |exposeFlag| (|isExposedConstructor| |conname|))
          (SETQ |doc| (LIST (|getConstructorDocumentation| |conname|)))
@@ -2886,29 +2893,6 @@
 
 (DEFUN |isAsharpFileName?| (|con|) (PROG () (RETURN NIL)))
 
-; dbSpecialDescription(conname) ==
-;   conform := getConstructorForm conname
-;   heading := ['"Description of Domain {\sf ",form2HtString conform,'"}"]
-;   page := htInitPage(heading,nil)
-;   htpSetProperty(page,'conname,conname)
-;   $conformsAreDomains := nil
-;   dbShowConsDoc1(page,conform,nil)
-;   htShowPage()
-
-(DEFUN |dbSpecialDescription| (|conname|)
-  (PROG (|conform| |heading| |page|)
-    (RETURN
-     (PROGN
-      (SETQ |conform| (|getConstructorForm| |conname|))
-      (SETQ |heading|
-              (LIST "Description of Domain {\\sf " (|form2HtString| |conform|)
-                    "}"))
-      (SETQ |page| (|htInitPage| |heading| NIL))
-      (|htpSetProperty| |page| '|conname| |conname|)
-      (SETQ |$conformsAreDomains| NIL)
-      (|dbShowConsDoc1| |page| |conform| NIL)
-      (|htShowPage|)))))
-
 ; dbSpecialOperations(conname) ==
 ;   page := htInitPage(nil,nil)
 ;   conform := getConstructorForm conname
@@ -2938,27 +2922,6 @@
       (|htpSetProperty| |page| '|noUsage| T)
       (|htpSetProperty| |page| '|condition?| '|no|)
       (|dbShowOp1| |page| |opAlist| "operation" '|names|)))))
-
-; dbSpecialExports(conname) ==
-;   conform := getConstructorForm conname
-;   page := htInitPage(['"Exports of {\sf ",form2HtString conform,'"}"],nil)
-;   opAlist := dbSpecialExpandIfNecessary(conform,rest GETL(conname,'documentation))
-;   kePageDisplay(page, opAlist)
-;   htShowPage()
-
-(DEFUN |dbSpecialExports| (|conname|)
-  (PROG (|conform| |page| |opAlist|)
-    (RETURN
-     (PROGN
-      (SETQ |conform| (|getConstructorForm| |conname|))
-      (SETQ |page|
-              (|htInitPage|
-               (LIST "Exports of {\\sf " (|form2HtString| |conform|) "}") NIL))
-      (SETQ |opAlist|
-              (|dbSpecialExpandIfNecessary| |conform|
-               (CDR (GETL |conname| '|documentation|))))
-      (|kePageDisplay| |page| |opAlist|)
-      (|htShowPage|)))))
 
 ; dbSpecialExpandIfNecessary(conform,opAlist) ==
 ;   opAlist is [[op,[sig,:r],:.],:.] and rest r => opAlist
@@ -3020,43 +2983,55 @@
          |opAlist| NIL)
         |opAlist|))))))
 
-; init_special_db_data() ==
-;   X := '"{\sf Record(a:A,b:B)} is used to create the class of pairs of objects made up of a value of type {\em A} selected by the symbol {\em a} and a value of type {\em B} selected by the symbol {\em b}. "
-;
-;   Y := '"In general, the {\sf Record} constructor can take any number of arguments and thus can be used to create aggregates of heterogeneous components of arbitrary size selectable by name. "
-;
-;   Z := '"{\sf Record} is a primitive domain of \Language{} which cannot be defined in the \Language{} language."
-;
-;   MESSAGE := STRCONC(X,Y,Z)
-;
-;   PUT('Record,'documentation,SUBST(MESSAGE,'MESSAGE,'(
-;   (constructor (NIL MESSAGE))
-;  (_=  (((Boolean) _% _%)
+; PUT('Record,'documentation,'(
+;   (constructor (NIL NIL))
+;   (_=  (((Boolean) _% _%)
 ;    "\spad{r = s} tests for equality of two records \spad{r} and \spad{s}"))
-;  (coerce (((OutputForm) _%)
+;   (coerce (((OutputForm) _%)
 ;    "\spad{coerce(r)} returns an representation of \spad{r} as an output form")
 ;          ((_% (List (Any)))
 ;    "\spad{coerce(u)}, where \spad{u} is the list \spad{[x,y]} for \spad{x} of type \spad{A} and \spad{y} of type \spad{B}, returns the record \spad{[a:x,b:y]}"))
-;  (construct ((_% A B)
+;   (construct ((_% A B)
 ;    "\spad{construct(x, y)} returns the record \spad{[a:x,b:y]}"))
-;  (elt ((A % "a")
+;   (elt ((A % "a")
 ;    "\spad{r . a} returns the value stored in record \spad{r} under selector \spad{a}.")
 ;       ((B % "b")
 ;    "\spad{r . b} returns the value stored in record \spad{r} under selector \spad{b}."))
-;  (setelt_! ((A % "a" A)
+;   (setelt_! ((A % "a" A)
 ;    "\spad{r . a := x} destructively replaces the value stored in record \spad{r} under selector \spad{a} by the value of \spad{x}. Error: if \spad{r} has not been previously assigned a value.")
 ;          ((B % "b" B)
 ;    "\spad{r . b := y} destructively replaces the value stored in record \spad{r} under selector \spad{b} by the value of \spad{y}. Error: if \spad{r} has not been previously assigned a value."))
-;    )))
-;
-;   X := '"{\sf Union(A,B)} denotes the class of objects which are which are either members of domain {\em A} or of domain {\em B}. The {\sf Union} constructor can take any number of arguments. "
-;
-;   Y := '"For an alternate form of {\sf Union} with _"tags_", see \downlink{Union(a:A,b:B)}{DomainUnion}. {\sf Union} is a primitive domain of \Language{} which cannot be defined in the \Language{} language."
-;
-;   MESSAGE := STRCONC(X,Y)
-;
-;   PUT('UntaggedUnion,'documentation,SUBST(MESSAGE,'MESSAGE,'(
-;   (constructor (NIL MESSAGE))
+;    ))
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG ()
+    (RETURN
+     (PUT '|Record| '|documentation|
+      '((|constructor| (NIL NIL))
+        (=
+         (((|Boolean|) % %)
+          "\\spad{r = s} tests for equality of two records \\spad{r} and \\spad{s}"))
+        (|coerce|
+         (((|OutputForm|) %)
+          "\\spad{coerce(r)} returns an representation of \\spad{r} as an output form")
+         ((% (|List| (|Any|)))
+          "\\spad{coerce(u)}, where \\spad{u} is the list \\spad{[x,y]} for \\spad{x} of type \\spad{A} and \\spad{y} of type \\spad{B}, returns the record \\spad{[a:x,b:y]}"))
+        (|construct|
+         ((% A B)
+          "\\spad{construct(x, y)} returns the record \\spad{[a:x,b:y]}"))
+        (|elt|
+         ((A % "a")
+          "\\spad{r . a} returns the value stored in record \\spad{r} under selector \\spad{a}.")
+         ((B % "b")
+          "\\spad{r . b} returns the value stored in record \\spad{r} under selector \\spad{b}."))
+        (|setelt!|
+         ((A % "a" A)
+          "\\spad{r . a := x} destructively replaces the value stored in record \\spad{r} under selector \\spad{a} by the value of \\spad{x}. Error: if \\spad{r} has not been previously assigned a value.")
+         ((B % "b" B)
+          "\\spad{r . b := y} destructively replaces the value stored in record \\spad{r} under selector \\spad{b} by the value of \\spad{y}. Error: if \\spad{r} has not been previously assigned a value.")))))))
+
+; PUT('UntaggedUnion, 'documentation, '(
+;   (constructor (NIL NIL))
 ;   (_=  (((Boolean) % %)
 ;     "\spad{u = v} tests if two objects of the union are equal, that is, u and v are hold objects of same branch which are equal."))
 ;   (case (((Boolean) % "A")
@@ -3071,22 +3046,33 @@
 ;     "\spad{coerce(x)}, where \spad{x} has type \spad{A}, returns \spad{x} as a union type.")
 ;           ((% B)
 ;     "\spad{coerce(y)}, where \spad{y} has type \spad{B}, returns \spad{y} as a union type."))
-;   )))
-;
-;   X := '"{\sf Union(a:A,b:B)} denotes the class of objects which are either members of domain {\em A} or of domain {\em B}. "
-;
-;   Y := '"The symbols {\em a} and {\em b} are called _"tags_" and are used to identify the two _"branches_" of the union. "
-;
-;   Z := '"The {\sf Union} constructor can take any number of arguments and has an alternate form without {\em tags} (see \downlink{Union(A,B)}{UntaggedUnion}). "
-;
-;   W := '"This tagged {\sf Union} type is necessary, for example, to disambiguate two branches of a union where {\em A} and {\em B} denote the same type. "
-;
-;   A := '"{\sf Union} is a primitive domain of \Language{} which cannot be defined in the \Language{} language."
-;
-;   MESSAGE := STRCONC(X,Y,Z,W,A)
-;
-;   PUT('Union,'documentation,SUBST(MESSAGE,'MESSAGE,'(
-;   (constructor (NIL MESSAGE))
+;   ))
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG ()
+    (RETURN
+     (PUT '|UntaggedUnion| '|documentation|
+      '((|constructor| (NIL NIL))
+        (=
+         (((|Boolean|) % %)
+          "\\spad{u = v} tests if two objects of the union are equal, that is, u and v are hold objects of same branch which are equal."))
+        (CASE
+            (((|Boolean|) % "A")
+             "\\spad{u case A} tests if \\spad{u} is of the type \\spad{A} branch of the union.")
+          (((|Boolean|) % "B")
+           "\\spad{u case B} tests if \\spad{u} is of the \\spad{B} branch of the union."))
+        (|coerce|
+         ((A %)
+          "\\spad{coerce(u)} returns \\spad{x} of type \\spad{A} if \\spad{x} is of the \\spad{A} branch of the union. Error: if \\spad{u} is of the \\spad{B} branch of the union.")
+         ((B %)
+          "\\spad{coerce(u)} returns \\spad{x} of type \\spad{B} if \\spad{x} is of the \\spad{B} branch of the union. Error: if \\spad{u} is of the \\spad{A} branch of the union.")
+         ((% A)
+          "\\spad{coerce(x)}, where \\spad{x} has type \\spad{A}, returns \\spad{x} as a union type.")
+         ((% B)
+          "\\spad{coerce(y)}, where \\spad{y} has type \\spad{B}, returns \\spad{y} as a union type.")))))))
+
+; PUT('Union, 'documentation, '(
+;   (constructor (NIL NIL))
 ;   (_=  (((Boolean) % %)
 ;     "\spad{u = v} tests if two objects of the union are equal, that is, \spad{u} and \spad{v} are objects of same branch which are equal."))
 ;   (case (((Boolean) % "A")
@@ -3101,30 +3087,48 @@
 ;     "\spad{coerce(x)}, where \spad{x} has type \spad{A}, returns \spad{x} as a union type.")
 ;           ((% B)
 ;     "\spad{coerce(y)}, where \spad{y} has type \spad{B}, returns \spad{y} as a union type."))
-;   )))
-;
-;   X := '"{\sf Mapping(T,S,...)} denotes the class of objects which are mappings from a source domain ({\em S,...}) into a target domain {\em T}. The {\sf Mapping} constructor can take any number of arguments."
-;
-;   Y := '" All but the first argument is regarded as part of a source tuple for the mapping. For example, {\sf Mapping(T,A,B)} denotes the class of mappings from {\em (A,B)} into {\em T}. "
-;
-;   Z := '"{\sf Mapping} is a primitive domain of \Language{} which cannot be defined in the \Language{} language."
-;
-;   MESSAGE := STRCONC(X,Y,Z)
-;
-;   PUT('Mapping,'documentation, SUBST(MESSAGE,'MESSAGE,'(
-;   (constructor (NIL MESSAGE))
+;   ))
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG ()
+    (RETURN
+     (PUT '|Union| '|documentation|
+      '((|constructor| (NIL NIL))
+        (=
+         (((|Boolean|) % %)
+          "\\spad{u = v} tests if two objects of the union are equal, that is, \\spad{u} and \\spad{v} are objects of same branch which are equal."))
+        (CASE
+            (((|Boolean|) % "A")
+             "\\spad{u case a} tests if \\spad{u} is of branch \\spad{a} of the union.")
+          (((|Boolean|) % "B")
+           "\\spad{u case b} tests if \\spad{u} is of branch \\spad{b} of the union."))
+        (|coerce|
+         ((A %)
+          "\\spad{coerce(u)} returns \\spad{x} of type \\spad{A} if \\spad{x} is of branch \\spad{a} of the union. Error: if \\spad{u} is of branch \\spad{b} of the union.")
+         ((B %)
+          "\\spad{coerce(u)} returns \\spad{x} of type \\spad{B} if \\spad{x} is of branch \\spad{b} branch of the union. Error: if \\spad{u} is of the \\spad{a} branch of the union.")
+         ((% A)
+          "\\spad{coerce(x)}, where \\spad{x} has type \\spad{A}, returns \\spad{x} as a union type.")
+         ((% B)
+          "\\spad{coerce(y)}, where \\spad{y} has type \\spad{B}, returns \\spad{y} as a union type.")))))))
+
+; PUT('Mapping, 'documentation, '(
+;   (constructor (NIL NIL))
 ;   (_=  (((Boolean) % %)
 ;     "\spad{u = v} tests if mapping objects are equal."))
-;    )))
-;
-;   X := '"{\em Enumeration(a1, a2 ,..., aN)} creates an object which is exactly one of the N symbols {\em a1}, {\em a2}, ..., or {\em aN}, N > 0. "
-;
-;   Y := '" The {\em Enumeration} can constructor can take any number of symbols as arguments."
-;
-;   MESSAGE := STRCONC(X, Y)
-;
-;   PUT('Enumeration, 'documentation, SUBST(MESSAGE, 'MESSAGE, '(
-;         (constructor (NIL MESSAGE))
+;    ))
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG ()
+    (RETURN
+     (PUT '|Mapping| '|documentation|
+      '((|constructor| (NIL NIL))
+        (=
+         (((|Boolean|) % %)
+          "\\spad{u = v} tests if mapping objects are equal.")))))))
+
+; PUT('Enumeration, 'documentation, '(
+;         (constructor (NIL NIL))
 ;   (_= (((Boolean) _% _%)
 ;     "\spad{e = f} tests for equality of two enumerations \spad{e} and \spad{f}"))
 ;   (_^_= (((Boolean) _% _%)
@@ -3133,130 +3137,21 @@
 ;      "\spad{coerce(e)} returns a representation of enumeration \spad{r} as an output form")
 ;           ((_% (Symbol))
 ;      "\spad{coerce(s)} converts a symbol \spad{s} into an enumeration which has \spad{s} as a member symbol"))
-;   )))
+;   ))
 
-(DEFUN |init_special_db_data| ()
-  (PROG (A W MESSAGE Z Y X)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG ()
     (RETURN
-     (PROGN
-      (SETQ X
-              "{\\sf Record(a:A,b:B)} is used to create the class of pairs of objects made up of a value of type {\\em A} selected by the symbol {\\em a} and a value of type {\\em B} selected by the symbol {\\em b}. ")
-      (SETQ Y
-              "In general, the {\\sf Record} constructor can take any number of arguments and thus can be used to create aggregates of heterogeneous components of arbitrary size selectable by name. ")
-      (SETQ Z
-              "{\\sf Record} is a primitive domain of \\Language{} which cannot be defined in the \\Language{} language.")
-      (SETQ MESSAGE (STRCONC X Y Z))
-      (PUT
-       ((TUPLE '|Record| '|documentation|
-         (SUBST MESSAGE 'MESSAGE
-                '((|constructor| (NIL MESSAGE))
-                  (=
-                   (((|Boolean|) % %)
-                    "\\spad{r = s} tests for equality of two records \\spad{r} and \\spad{s}"))
-                  (|coerce|
-                   (((|OutputForm|) %)
-                    "\\spad{coerce(r)} returns an representation of \\spad{r} as an output form")
-                   ((% (|List| (|Any|)))
-                    "\\spad{coerce(u)}, where \\spad{u} is the list \\spad{[x,y]} for \\spad{x} of type \\spad{A} and \\spad{y} of type \\spad{B}, returns the record \\spad{[a:x,b:y]}"))
-                  (|construct|
-                   ((% A B)
-                    "\\spad{construct(x, y)} returns the record \\spad{[a:x,b:y]}"))
-                  (|elt|
-                   ((A % "a")
-                    "\\spad{r . a} returns the value stored in record \\spad{r} under selector \\spad{a}.")
-                   ((B % "b")
-                    "\\spad{r . b} returns the value stored in record \\spad{r} under selector \\spad{b}."))
-                  (|setelt!|
-                   ((A % "a" A)
-                    "\\spad{r . a := x} destructively replaces the value stored in record \\spad{r} under selector \\spad{a} by the value of \\spad{x}. Error: if \\spad{r} has not been previously assigned a value.")
-                   ((B % "b" B)
-                    "\\spad{r . b := y} destructively replaces the value stored in record \\spad{r} under selector \\spad{b} by the value of \\spad{y}. Error: if \\spad{r} has not been previously assigned a value.")))))
-        (PROGN
-         (SETQ X
-                 "{\\sf Union(A,B)} denotes the class of objects which are which are either members of domain {\\em A} or of domain {\\em B}. The {\\sf Union} constructor can take any number of arguments. ")
-         (SETQ Y
-                 "For an alternate form of {\\sf Union} with \"tags\", see \\downlink{Union(a:A,b:B)}{DomainUnion}. {\\sf Union} is a primitive domain of \\Language{} which cannot be defined in the \\Language{} language.")
-         (SETQ MESSAGE (STRCONC X Y))
-         (PUT '|UntaggedUnion| '|documentation|
-          (SUBST MESSAGE 'MESSAGE
-                 '((|constructor| (NIL MESSAGE))
-                   (=
-                    (((|Boolean|) % %)
-                     "\\spad{u = v} tests if two objects of the union are equal, that is, u and v are hold objects of same branch which are equal."))
-                   (CASE
-                       (((|Boolean|) % "A")
-                        "\\spad{u case A} tests if \\spad{u} is of the type \\spad{A} branch of the union.")
-                     (((|Boolean|) % "B")
-                      "\\spad{u case B} tests if \\spad{u} is of the \\spad{B} branch of the union."))
-                   (|coerce|
-                    ((A %)
-                     "\\spad{coerce(u)} returns \\spad{x} of type \\spad{A} if \\spad{x} is of the \\spad{A} branch of the union. Error: if \\spad{u} is of the \\spad{B} branch of the union.")
-                    ((B %)
-                     "\\spad{coerce(u)} returns \\spad{x} of type \\spad{B} if \\spad{x} is of the \\spad{B} branch of the union. Error: if \\spad{u} is of the \\spad{A} branch of the union.")
-                    ((% A)
-                     "\\spad{coerce(x)}, where \\spad{x} has type \\spad{A}, returns \\spad{x} as a union type.")
-                    ((% B)
-                     "\\spad{coerce(y)}, where \\spad{y} has type \\spad{B}, returns \\spad{y} as a union type.")))))
-         (SETQ X
-                 "{\\sf Union(a:A,b:B)} denotes the class of objects which are either members of domain {\\em A} or of domain {\\em B}. ")
-         (SETQ Y
-                 "The symbols {\\em a} and {\\em b} are called \"tags\" and are used to identify the two \"branches\" of the union. ")
-         (SETQ Z
-                 "The {\\sf Union} constructor can take any number of arguments and has an alternate form without {\\em tags} (see \\downlink{Union(A,B)}{UntaggedUnion}). ")
-         (SETQ W
-                 "This tagged {\\sf Union} type is necessary, for example, to disambiguate two branches of a union where {\\em A} and {\\em B} denote the same type. ")
-         (SETQ A
-                 "{\\sf Union} is a primitive domain of \\Language{} which cannot be defined in the \\Language{} language.")
-         (SETQ MESSAGE (STRCONC X Y Z W A))
-         (PUT '|Union| '|documentation|
-          (SUBST MESSAGE 'MESSAGE
-                 '((|constructor| (NIL MESSAGE))
-                   (=
-                    (((|Boolean|) % %)
-                     "\\spad{u = v} tests if two objects of the union are equal, that is, \\spad{u} and \\spad{v} are objects of same branch which are equal."))
-                   (CASE
-                       (((|Boolean|) % "A")
-                        "\\spad{u case a} tests if \\spad{u} is of branch \\spad{a} of the union.")
-                     (((|Boolean|) % "B")
-                      "\\spad{u case b} tests if \\spad{u} is of branch \\spad{b} of the union."))
-                   (|coerce|
-                    ((A %)
-                     "\\spad{coerce(u)} returns \\spad{x} of type \\spad{A} if \\spad{x} is of branch \\spad{a} of the union. Error: if \\spad{u} is of branch \\spad{b} of the union.")
-                    ((B %)
-                     "\\spad{coerce(u)} returns \\spad{x} of type \\spad{B} if \\spad{x} is of branch \\spad{b} branch of the union. Error: if \\spad{u} is of the \\spad{a} branch of the union.")
-                    ((% A)
-                     "\\spad{coerce(x)}, where \\spad{x} has type \\spad{A}, returns \\spad{x} as a union type.")
-                    ((% B)
-                     "\\spad{coerce(y)}, where \\spad{y} has type \\spad{B}, returns \\spad{y} as a union type.")))))
-         (SETQ X
-                 "{\\sf Mapping(T,S,...)} denotes the class of objects which are mappings from a source domain ({\\em S,...}) into a target domain {\\em T}. The {\\sf Mapping} constructor can take any number of arguments.")
-         (SETQ Y
-                 " All but the first argument is regarded as part of a source tuple for the mapping. For example, {\\sf Mapping(T,A,B)} denotes the class of mappings from {\\em (A,B)} into {\\em T}. ")
-         (SETQ Z
-                 "{\\sf Mapping} is a primitive domain of \\Language{} which cannot be defined in the \\Language{} language.")
-         (SETQ MESSAGE (STRCONC X Y Z))
-         (PUT '|Mapping| '|documentation|
-          (SUBST MESSAGE 'MESSAGE
-                 '((|constructor| (NIL MESSAGE))
-                   (=
-                    (((|Boolean|) % %)
-                     "\\spad{u = v} tests if mapping objects are equal.")))))
-         (SETQ X
-                 "{\\em Enumeration(a1, a2 ,..., aN)} creates an object which is exactly one of the N symbols {\\em a1}, {\\em a2}, ..., or {\\em aN}, N > 0. ")
-         (SETQ Y
-                 " The {\\em Enumeration} can constructor can take any number of symbols as arguments.")
-         (SETQ MESSAGE (STRCONC X Y))
-         (PUT '|Enumeration| '|documentation|
-          (SUBST MESSAGE 'MESSAGE
-                 '((|constructor| (NIL MESSAGE))
-                   (=
-                    (((|Boolean|) % %)
-                     "\\spad{e = f} tests for equality of two enumerations \\spad{e} and \\spad{f}"))
-                   (^=
-                    (((|Boolean|) % %)
-                     "\\spad{e ~= f} tests that two enumerations \\spad{e} and \\spad{f} are nont equal"))
-                   (|coerce|
-                    (((|OutputForm|) %)
-                     "\\spad{coerce(e)} returns a representation of enumeration \\spad{r} as an output form")
-                    ((% (|Symbol|))
-                     "\\spad{coerce(s)} converts a symbol \\spad{s} into an enumeration which has \\spad{s} as a member symbol"))))))))))))
+     (PUT '|Enumeration| '|documentation|
+      '((|constructor| (NIL NIL))
+        (=
+         (((|Boolean|) % %)
+          "\\spad{e = f} tests for equality of two enumerations \\spad{e} and \\spad{f}"))
+        (^=
+         (((|Boolean|) % %)
+          "\\spad{e ~= f} tests that two enumerations \\spad{e} and \\spad{f} are nont equal"))
+        (|coerce|
+         (((|OutputForm|) %)
+          "\\spad{coerce(e)} returns a representation of enumeration \\spad{r} as an output form")
+         ((% (|Symbol|))
+          "\\spad{coerce(s)} converts a symbol \\spad{s} into an enumeration which has \\spad{s} as a member symbol")))))))
