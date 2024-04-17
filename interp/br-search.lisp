@@ -314,10 +314,14 @@
 ;   if $browseMixedCase = true then s := DOWNCASE s
 ;   or/[isFilterDelimiter? s.i or s.i = $charUnderscore for i in 0..MAXINDEX s]
 ;     => (parse := pmParseFromString s) and checkPmParse parse or
-;         ['error,'"Illegal search string",'"\vspace{3}\center{{\em Your search string} ",escapeSpecialChars s,'" {\em has incorrect syntax}}"]
+;         ['error, '"Illegal search string",
+;                  '"\vspace{3}\centerline{{\em Your search string} ",
+;                  escapeSpecialChars s,
+;                  '" {\em has incorrect syntax}}"]
 ;   or/[s . i = char '_* and s.(i + 1) = char '_*
 ;       and (i=0 or s . (i - 1) ~= char $charUnderscore) for i in 0..(MAXINDEX s - 1)]
-;        => ['error,'"Illegal search string",'"\vspace{3}\center{Consecutive {\em *}'s are not allowed in search patterns}"]
+;        => ['error, '"Illegal search string",
+;            '"\vspace{3}\centerline{Consecutive {\em *}'s are not allowed in search patterns}"]
 ;   s
 
 (DEFUN |pmTransFilter| (|s|)
@@ -341,7 +345,7 @@
          (AND (SETQ |parse| (|pmParseFromString| |s|))
               (|checkPmParse| |parse|))
          (LIST '|error| "Illegal search string"
-               "\\vspace{3}\\center{{\\em Your search string} "
+               "\\vspace{3}\\centerline{{\\em Your search string} "
                (|escapeSpecialChars| |s|) " {\\em has incorrect syntax}}")))
        (((LAMBDA (|bfVar#13| |bfVar#12| |i|)
            (LOOP
@@ -359,7 +363,7 @@
             (SETQ |i| (+ |i| 1))))
          NIL (- (MAXINDEX |s|) 1) 0)
         (LIST '|error| "Illegal search string"
-              "\\vspace{3}\\center{Consecutive {\\em *}'s are not allowed in search patterns}"))
+              "\\vspace{3}\\centerline{Consecutive {\\em *}'s are not allowed in search patterns}"))
        (#1# |s|))))))
 
 ; checkPmParse parse ==
