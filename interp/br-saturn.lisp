@@ -115,6 +115,24 @@
       (|issueHTStandard| |line|)
       (|endHTPage|)))))
 
+; DEFCONSTANT($SendLine, 98)
+
+(DEFCONSTANT |$SendLine| 98)
+
+; DEFCONSTANT($EndOfPage, 99)
+
+(DEFCONSTANT |$EndOfPage| 99)
+
+; DEFCONSTANT($SpadError, 90)
+
+(DEFCONSTANT |$SpadError| 90)
+
+; sendHTErrorSignal() ==
+;     sockSendInt($MenuServer, $SpadError)
+
+(DEFUN |sendHTErrorSignal| ()
+  (PROG () (RETURN (|sockSendInt| |$MenuServer| |$SpadError|))))
+
 ; issueHTStandard line == --called by htMakePageNoScroll and htMakeErrorPage
 ;     sockSendInt($MenuServer, $SendLine)
 ;     sockSendString($MenuServer, line)
@@ -132,7 +150,7 @@
 ;   $curPage := htPage
 ;   htMakePage htpPageDescription htPage
 ;   line := concatenateStringList(nreverse $htLineList)
-;   issueHT line
+;   issueHTStandard(line)
 ;   endHTPage()
 
 (DEFUN |htMakeErrorPage| (|htPage|)
@@ -144,7 +162,7 @@
       (SETQ |$curPage| |htPage|)
       (|htMakePage| (|htpPageDescription| |htPage|))
       (SETQ |line| (|concatenateStringList| (NREVERSE |$htLineList|)))
-      (|issueHT| |line|)
+      (|issueHTStandard| |line|)
       (|endHTPage|)))))
 
 ; htMakePage itemList ==
