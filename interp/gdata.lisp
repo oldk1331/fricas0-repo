@@ -1601,7 +1601,7 @@
 ;             set_asharp_autoload_function(object, asharp_name)
 ;         if (null(only) => key ~= '%%; MEMBER(key, only)) then
 ;             $all_operations := []       -- force this to recompute
-;             oldmaps := get_database(key, 'modemaps)
+;             oldmaps := get_database(key, 'MODEMAPS)
 ;             dbstruct := make_dbstruct()
 ;             PUT(key, 'DATABASE, dbstruct)
 ;             $all_constructors := ADJOIN(key, $all_constructors)
@@ -1671,7 +1671,7 @@
                 ((COND ((NULL |only|) (NOT (EQ |key| '%%)))
                        (#1# (MEMBER |key| |only|)))
                  (SETQ |$all_operations| NIL)
-                 (SETQ |oldmaps| (|get_database| |key| '|modemaps|))
+                 (SETQ |oldmaps| (|get_database| |key| 'MODEMAPS))
                  (SETQ |dbstruct| (|make_dbstruct|))
                  (PUT |key| 'DATABASE |dbstruct|)
                  (SETQ |$all_constructors| (ADJOIN |key| |$all_constructors|))
