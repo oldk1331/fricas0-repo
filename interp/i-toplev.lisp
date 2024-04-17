@@ -524,6 +524,20 @@
       (COND ((EQ |c| '|tryAgain|) (|interpretTopLevel| |x| |posnForm|))
             (#1# |c|))))))
 
+; interpret_in_new_env(x) ==
+;     $e : local := [[[]]]
+;     $localExposureData : local := COPY_-SEQ($localExposureDataDefault)
+;     interpret(x, nil)
+
+(DEFUN |interpret_in_new_env| (|x|)
+  (PROG (|$localExposureData| |$e|)
+    (DECLARE (SPECIAL |$localExposureData| |$e|))
+    (RETURN
+     (PROGN
+      (SETQ |$e| (LIST (LIST NIL)))
+      (SETQ |$localExposureData| (COPY-SEQ |$localExposureDataDefault|))
+      (|interpret| |x| NIL)))))
+
 ; interpret(x, posnForm) ==
 ;   --type analyzes and evaluates expression x, returns object
 ;   $env:local := [[NIL]]

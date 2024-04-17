@@ -1,10 +1,9 @@
 
 (SDEFUN |RSIMP;str_to_expr| ((|s| (|String|)) (% (|Expression| (|Integer|))))
-        (SPROG ((|av| (|Any|)))
-               (SEQ
-                (LETT |av|
-                      (SPADCALL (SPADCALL |s| (QREFELT % 8)) (QREFELT % 10)))
-                (EXIT (SPADCALL |av| (QREFELT % 13)))))) 
+        (SPROG ((|av| (|Any|)) (|af| (|InputForm|)))
+               (SEQ (LETT |af| (SPADCALL |s| (QREFELT % 8)))
+                    (LETT |av| (SPADCALL |af| (QREFELT % 10)))
+                    (EXIT (SPADCALL |av| (QREFELT % 13)))))) 
 
 (SDEFUN |RSIMP;rsimp1_gen_2|
         ((|av| (|Expression| (|Integer|))) (|bv| (|Expression| (|Integer|)))
@@ -3032,11 +3031,11 @@
 (MAKEPROP '|RootSimplification| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|String|) (|InputForm|) (0 . |parse|)
-              (|Any|) (5 . |interpret|) (|Expression| 41) (|AnyFunctions1| 11)
-              (10 . |retract|) (|Symbol|) (15 . |coerce|) '|a| '|b| '|c|
-              (|Kernel| 11) (20 . |kernel|) '|kc| '|r| (|PositiveInteger|)
-              (25 . ^) (31 . *) (37 . *) (43 . -) (49 . +) '|p2c|
-              (|Fraction| 108) (|Kernel| %) (55 . |univariate|)
+              (|Any|) (5 . |interpret_in_new_env|) (|Expression| 41)
+              (|AnyFunctions1| 11) (10 . |retract|) (|Symbol|) (15 . |coerce|)
+              '|a| '|b| '|c| (|Kernel| 11) (20 . |kernel|) '|kc| '|r|
+              (|PositiveInteger|) (25 . ^) (31 . *) (37 . *) (43 . -) (49 . +)
+              '|p2c| (|Fraction| 108) (|Kernel| %) (55 . |univariate|)
               (|SparseUnivariatePolynomial| 11) (|Fraction| 33) (61 . |numer|)
               '|p2cu| (66 . -) (71 . /) '|p2s| (77 . |One|) (|Integer|)
               (81 . *) '|p3c| '|p3cu| '|p3s| '|p5c| '|p5cu| '|p5s| '|p7c|
