@@ -1612,7 +1612,7 @@
 ;                           abbrev, CONS(object, asharp_name))
 ;             PUT(abbrev, 'ABBREVIATIONFOR, key)
 ;             add_operations(key, oldmaps)
-;             cname := opOf(database_-constructorform(dbstruct))
+;             cname := opOf(dbstruct.$constructorform_ind)
 ;             if expose then setExposeAddConstr2([cname], noquiet)
 ;             if not(make_database?) then
 ;                 installConstructor(cname)
@@ -1629,10 +1629,10 @@
 ;                 if $InteractiveMode then $CategoryFrame := $EmptyEnvironment
 ;             if kind = 'category then
 ;                 set_asharp_autoload_category(object, cname, asharp_name,
-;                                          database_-cosig(dbstruct))
+;                                              dbstruct.$cosig_ind)
 ;             else
 ;                 set_asharp_autoload_functor(object, cname, asharp_name,
-;                                             database_-cosig(dbstruct))
+;                                             dbstruct.$cosig_ind)
 ;             if noquiet then
 ;                 sayKeyedMsg('S2IU0001i, [cname, object])
 
@@ -1686,7 +1686,7 @@
                  (PUT |abbrev| 'ABBREVIATIONFOR |key|)
                  (|add_operations| |key| |oldmaps|)
                  (SETQ |cname|
-                         (|opOf| (|database-constructorform| |dbstruct|)))
+                         (|opOf| (ELT |dbstruct| |$constructorform_ind|)))
                  (COND
                   (|expose| (|setExposeAddConstr2| (LIST |cname|) |noquiet|)))
                  (COND
@@ -1715,10 +1715,10 @@
                  (COND
                   ((EQ |kind| '|category|)
                    (|set_asharp_autoload_category| |object| |cname|
-                    |asharp_name| (|database-cosig| |dbstruct|)))
+                    |asharp_name| (ELT |dbstruct| |$cosig_ind|)))
                   (#1#
                    (|set_asharp_autoload_functor| |object| |cname|
-                    |asharp_name| (|database-cosig| |dbstruct|))))
+                    |asharp_name| (ELT |dbstruct| |$cosig_ind|))))
                  (COND
                   (|noquiet|
                    (|sayKeyedMsg| '|S2IU0001i|
