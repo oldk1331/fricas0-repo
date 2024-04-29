@@ -2728,7 +2728,7 @@
        ('T |a|))))))
 
 ; replaceGrepStar s ==
-;   s = "" => s
+;   s = '"" => s
 ;   final := MAXINDEX s
 ;   i := charPosition(char '_*,s,0)
 ;   i > final => s
@@ -2737,7 +2737,7 @@
 (DEFUN |replaceGrepStar| (|s|)
   (PROG (|final| |i|)
     (RETURN
-     (COND ((EQ |s| '||) |s|)
+     (COND ((EQUAL |s| "") |s|)
            (#1='T
             (PROGN
              (SETQ |final| (MAXINDEX |s|))
@@ -2881,11 +2881,11 @@
              (COND ((MEMQ |key| '(|.| |a| |c| |d| |k| |o| |p| |x|)) '|libdb|)
                    (#1# '|comdb|))))))))
 
-; mkGrepTextfile s == STRCONC($spadroot,"/algebra/", STRINGIMAGE s, '".text")
+; mkGrepTextfile s == STRCONC($spadroot, '"/algebra/", STRINGIMAGE s, '".text")
 
 (DEFUN |mkGrepTextfile| (|s|)
   (PROG ()
-    (RETURN (STRCONC |$spadroot| '|/algebra/| (STRINGIMAGE |s|) ".text"))))
+    (RETURN (STRCONC |$spadroot| "/algebra/" (STRINGIMAGE |s|) ".text"))))
 
 ; mkGrepFile s ==  --called to generate a path name for a temporary grep file
 ;   prefix := '"/tmp/"
