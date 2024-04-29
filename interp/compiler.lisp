@@ -1233,6 +1233,10 @@
         (LIST (LIST 'THROW |tag| '|$NoValue|) |m| |e|)))
       (#1# (|userError| "iterate used outside a loop"))))))
 
+; $allow_undef := nil
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$allow_undef| NIL))
+
 ; compSymbol(s,m,e) ==
 ;   s="$NoValue" => ["$NoValue",$NoValueMode,e]
 ;   isFluid s => [s,getmode(s,e) or return nil,e]
@@ -1248,10 +1252,14 @@
 ;     [s,v.mode,e] --s has been SETQd
 ;   m':= getmode(s,e) =>
 ;     if not member(s,$formalArgList) and not MEMQ(s,$FormalMapVariableList) and
-;       not isFunction(s,e) and null ($compForModeIfTrue=true) then errorRef s
+;       not isFunction(s,e) and null ($compForModeIfTrue=true) then
+;           $allow_undef => nil
+;           errorRef s
 ;     [s,m',e] --s is a declared argument
 ;   MEMQ(s,$FormalMapVariableList) => stackMessage ['"no mode found for",s]
-;   not isFunction(s,e) => errorRef s
+;   not isFunction(s,e) =>
+;       $allow_undef => nil
+;       errorRef s
 
 (DEFUN |compSymbol| (|s| |m| |e|)
   (PROG (|v| |m'|)
@@ -1267,7 +1275,7 @@
             (COND
              ((MEMQ |s| |$functorLocalParameters|)
               (PROGN (|NRTgetLocalIndex| |s| |e|) (LIST |s| (CADR |v|) |e|)))
-             ('T (LIST |s| (CADR |v|) |e|))))
+             (#1='T (LIST |s| (CADR |v|) |e|))))
            ((SETQ |m'| (|getmode| |s| |e|))
             (PROGN
              (COND
@@ -1275,11 +1283,12 @@
                     (NULL (MEMQ |s| |$FormalMapVariableList|))
                     (NULL (|isFunction| |s| |e|))
                     (NULL (EQUAL |$compForModeIfTrue| T)))
-               (|errorRef| |s|)))
+               (COND (|$allow_undef| NIL) (#1# (|errorRef| |s|)))))
              (LIST |s| |m'| |e|)))
            ((MEMQ |s| |$FormalMapVariableList|)
             (|stackMessage| (LIST "no mode found for" |s|)))
-           ((NULL (|isFunction| |s| |e|)) (|errorRef| |s|))))))
+           ((NULL (|isFunction| |s| |e|))
+            (COND (|$allow_undef| NIL) (#1# (|errorRef| |s|))))))))
 
 ; convertOrCroak(T,m) ==
 ;   u:= convert(T,m) => u
@@ -1646,13 +1655,23 @@
            T$)
           (#1# (|compToApply| |op| |argl| |m| |e|))))))))))
 
+; comp_uniquely_no_warn(x, m, e) ==
+;     $allow_undef : local := true
+;     compUniquely(x, $EmptyMode, e)
+
+(DEFUN |comp_uniquely_no_warn| (|x| |m| |e|)
+  (PROG (|$allow_undef|)
+    (DECLARE (SPECIAL |$allow_undef|))
+    (RETURN
+     (PROGN (SETQ |$allow_undef| T) (|compUniquely| |x| |$EmptyMode| |e|)))))
+
 ; compForm2(form is [op,:argl],m,e,modemapList) ==
 ;   sargl:= TAKE(# argl, $TriangleVariableList)
 ;   aList:= [[sa,:a] for a in argl for sa in sargl]
 ;   modemapList:= SUBLIS(aList,modemapList)
 ;   Tl:=
-;     [[.,.,e]:= T
-;       for x in argl while (isSimple x and (T:= compUniquely(x,$EmptyMode,e)))]
+;     [[., ., e] := T for x in argl while
+;            (isSimple(x) and (T := comp_uniquely_no_warn(x, $EmptyMode, e)))]
 ;   or/[x for x in Tl] =>
 ;     partialModeList:= [(x => x.mode; nil) for x in Tl]
 ;     compFormPartiallyBottomUp(form,m,e,modemapList,partialModeList) or
@@ -1689,7 +1708,8 @@
                         (NOT
                          (AND (|isSimple| |x|)
                               (SETQ T$
-                                      (|compUniquely| |x| |$EmptyMode| |e|)))))
+                                      (|comp_uniquely_no_warn| |x| |$EmptyMode|
+                                       |e|)))))
                     (RETURN (NREVERSE |bfVar#38|)))
                    (#1#
                     (SETQ |bfVar#38|
