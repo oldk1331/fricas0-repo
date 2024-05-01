@@ -1392,13 +1392,23 @@
                     (LIST "cannot compile" '|%b| |form| '|%d|)))))
       T$))))
 
+; comp_no_warn(x, m, e) ==
+;     $allow_undef : local := true
+;     comp(x, $EmptyMode, e)
+
+(DEFUN |comp_no_warn| (|x| |m| |e|)
+  (PROG (|$allow_undef|)
+    (DECLARE (SPECIAL |$allow_undef|))
+    (RETURN (PROGN (SETQ |$allow_undef| T) (|comp| |x| |$EmptyMode| |e|)))))
+
 ; compArgumentsAndTryAgain(form is [.,:argl],m,e) ==
 ;   not($tryRecompileArguments) or null(argl) => nil
 ;   -- used in case: f(g(x)) where f is in domain introduced by
 ;   -- comping g, e.g. for (ELT (ELT x a) b), environment can have no
 ;   -- modemap with selector b
 ;   form is ["Sel", a, .] => nil
-;   u:= for x in argl repeat [.,.,e]:= comp(x,$EmptyMode,e) or return "failed"
+;   u := for x in argl repeat
+;       [., ., e] := comp_no_warn(x, $EmptyMode, e) or return "failed"
 ;   u="failed" => nil
 ;   compForm1(form,m,e)
 
@@ -1429,7 +1439,7 @@
                            (#1#
                             (PROGN
                              (SETQ |LETTMP#1|
-                                     (OR (|comp| |x| |$EmptyMode| |e|)
+                                     (OR (|comp_no_warn| |x| |$EmptyMode| |e|)
                                          (RETURN '|failed|)))
                              (SETQ |e| (CADDR |LETTMP#1|))
                              |LETTMP#1|)))
