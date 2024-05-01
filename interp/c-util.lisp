@@ -249,14 +249,13 @@
        ('T (CONS (CONS |prop| |val|) |proplist|)))))))
 
 ; warnLiteral x ==
-;   stackSemanticError(['%b,x,'%d,
-;     '"is BOTH a variable and a literal"],nil)
+;     stackWarning(['%b,x,'%d, '"is BOTH a variable and a literal"])
 
 (DEFUN |warnLiteral| (|x|)
   (PROG ()
     (RETURN
-     (|stackSemanticError|
-      (LIST '|%b| |x| '|%d| "is BOTH a variable and a literal") NIL))))
+     (|stackWarning|
+      (LIST '|%b| |x| '|%d| "is BOTH a variable and a literal")))))
 
 ; intersectionEnvironment(e,e') ==
 ;   ce:= makeCommonEnvironment(e,e')
@@ -410,7 +409,7 @@
 ;       pair:= assoc("mode",p) =>
 ;         pair':= assoc("mode",p') =>
 ;           m'' := unifiable(rest pair, rest pair', ce) => LIST ["mode", :m'']
-;           stackSemanticError(['%b,$var,'%d,'"has two modes: "],nil)
+;           stackWarning(['%b,$var,'%d,'"has two modes: "])
 ;        --stackWarning ("mode for",'%b,$var,'%d,"introduced conditionally")
 ;         LIST ["conditionalmode",:rest pair]
 ;         --LIST pair
@@ -530,8 +529,7 @@
                     |ce|))
            (LIST (CONS '|mode| |m''|)))
           (#1='T
-           (|stackSemanticError| (LIST '|%b| |$var| '|%d| "has two modes: ")
-            NIL))))
+           (|stackWarning| (LIST '|%b| |$var| '|%d| "has two modes: ")))))
         (#1# (LIST (CONS '|conditionalmode| (CDR |pair|))))))
       ((SETQ |pair'| (|assoc| '|mode| |p'|))
        (LIST (CONS '|conditionalmode| (CDR |pair'|))))))))
