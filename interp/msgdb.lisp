@@ -3,6 +3,18 @@
 
 (IN-PACKAGE "BOOT")
 
+; $testingSystem := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$testingSystem| NIL))
+
+; $sayBrightlyStream := nil
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$sayBrightlyStream| NIL))
+
+; $highlightAllowed := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$highlightAllowed| NIL))
+
 ; DEFPARAMETER($testingErrorPrefix, '"Daly Bug")
 
 (DEFPARAMETER |$testingErrorPrefix| "Daly Bug")

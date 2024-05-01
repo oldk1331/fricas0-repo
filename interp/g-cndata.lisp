@@ -41,28 +41,6 @@
       (HPUT |$lowerCaseConTb| (DOWNCASE |x|) |item|)
       (HPUT |$lowerCaseConTb| |y| |item|)))))
 
-; getCDTEntry(info,isName) ==
-;   not IDENTP info => NIL
-;   (entry := HGET($lowerCaseConTb,info)) =>
-;     [name,abb,:.] := entry
-;     isName and EQ(name,info) => entry
-;     not isName and EQ(abb,info) => entry
-;     NIL
-;   entry
-
-(DEFUN |getCDTEntry| (|info| |isName|)
-  (PROG (|entry| |name| |abb|)
-    (RETURN
-     (COND ((NULL (IDENTP |info|)) NIL)
-           ((SETQ |entry| (HGET |$lowerCaseConTb| |info|))
-            (PROGN
-             (SETQ |name| (CAR |entry|))
-             (SETQ |abb| (CADR |entry|))
-             (COND ((AND |isName| (EQ |name| |info|)) |entry|)
-                   ((AND (NULL |isName|) (EQ |abb| |info|)) |entry|)
-                   (#1='T NIL))))
-           (#1# |entry|)))))
-
 ; abbreviation? abb ==
 ;   -- if it is an abbreviation, return the corresponding name
 ;   get_database(abb, 'CONSTRUCTOR)
@@ -164,24 +142,20 @@
       ('T (|sayKeyedMsg| 'S2IZ0003 (LIST |x|)))))))
 
 ; installConstructor(cname) ==
-;   (entry := getCDTEntry(cname,true)) => entry
 ;   item := [cname, get_database(cname, 'ABBREVIATION), nil]
 ;   if BOUNDP '$lowerCaseConTb and $lowerCaseConTb then
 ;     HPUT($lowerCaseConTb,cname,item)
 ;     HPUT($lowerCaseConTb,DOWNCASE cname,item)
 
 (DEFUN |installConstructor| (|cname|)
-  (PROG (|entry| |item|)
+  (PROG (|item|)
     (RETURN
-     (COND ((SETQ |entry| (|getCDTEntry| |cname| T)) |entry|)
-           ('T
-            (PROGN
-             (SETQ |item|
-                     (LIST |cname| (|get_database| |cname| 'ABBREVIATION) NIL))
-             (COND
-              ((AND (BOUNDP '|$lowerCaseConTb|) |$lowerCaseConTb|)
-               (HPUT |$lowerCaseConTb| |cname| |item|)
-               (HPUT |$lowerCaseConTb| (DOWNCASE |cname|) |item|)))))))))
+     (PROGN
+      (SETQ |item| (LIST |cname| (|get_database| |cname| 'ABBREVIATION) NIL))
+      (COND
+       ((AND (BOUNDP '|$lowerCaseConTb|) |$lowerCaseConTb|)
+        (HPUT |$lowerCaseConTb| |cname| |item|)
+        (HPUT |$lowerCaseConTb| (DOWNCASE |cname|) |item|)))))))
 
 ; constructorAbbreviationErrorCheck(c,a,typ) ==
 ;   siz := SIZE (s := PNAME a)

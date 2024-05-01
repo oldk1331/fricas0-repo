@@ -3,6 +3,14 @@
 
 (IN-PACKAGE "BOOT")
 
+; $postStack := []
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$postStack| NIL))
+
+; $topOp := nil
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$topOp| NIL))
+
 ; postTransform y ==
 ;   $insidePostCategoryIfTrue : local := nil
 ;   x:= y

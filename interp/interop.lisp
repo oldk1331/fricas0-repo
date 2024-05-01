@@ -3,6 +3,10 @@
 
 (IN-PACKAGE "BOOT")
 
+; $returnNowhereFromGoGet := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$returnNowhereFromGoGet| NIL))
+
 ; hashCode? x == INTEGERP x
 
 (DEFUN |hashCode?| (|x|) (PROG () (RETURN (INTEGERP |x|))))

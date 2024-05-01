@@ -7,6 +7,30 @@
 
 (DEFPARAMETER |$newCompCompare| NIL)
 
+; $insideCategoryPackageIfTrue := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$insideCategoryPackageIfTrue| NIL))
+
+; $insideCapsuleFunctionIfTrue := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$insideCapsuleFunctionIfTrue| NIL))
+
+; $insideCategoryIfTrue := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$insideCategoryIfTrue| NIL))
+
+; $insideWhereIfTrue := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$insideWhereIfTrue| NIL))
+
+; $functorLocalParameters := []
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$functorLocalParameters| NIL))
+
+; $functorForm := nil
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$functorForm| NIL))
+
 ; compDefine(form,m,e) ==
 ;   result:= compDefine1(form,m,e)
 ;   result
@@ -3945,7 +3969,7 @@
 ;     compCategoryItem(c, predl', acc)
 ;   pred:= (predl => MKPF(predl,"AND"); true)
 ;
-;   --2. if attribute, push it and return
+;   --2. if conditional category, push it and return
 ;   x is ["ATTRIBUTE", 'nil] => BREAK()
 ;   x is ["ATTRIBUTE", y] =>
 ;        -- should generate something else for conditional categories

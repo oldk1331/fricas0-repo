@@ -3,6 +3,26 @@
 
 (IN-PACKAGE "BOOT")
 
+; $newConlist := []
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$newConlist| NIL))
+
+; $edit_file := nil
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$edit_file| NIL))
+
+; $currentLine := '""
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$currentLine| ""))
+
+; $HiFiAccess := true
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$HiFiAccess| T))
+
+; $reportUndo := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$reportUndo| NIL))
+
 ; DEFPARAMETER($compileRecurrence, true)
 
 (DEFPARAMETER |$compileRecurrence| T)
@@ -489,11 +509,11 @@
 ; cd(args) ==
 ;     dname :=
 ;         null(args) =>
-;             TRIM_-DIRECTORY_-NAME(NAMESTRING(USER_-HOMEDIR_-PATHNAME()))
+;             trim_directory_name(NAMESTRING(USER_-HOMEDIR_-PATHNAME()))
 ;         first(args)
 ;     if SYMBOLP(dname) then dname := SYMBOL_-NAME(dname)
 ;     CHDIR(dname)
-;     sayKeyedMsg("S2IZ0070", [GET_-CURRENT_-DIRECTORY()])
+;     sayKeyedMsg("S2IZ0070", [get_current_directory()])
 
 (DEFUN |cd| (|args|)
   (PROG (|dname|)
@@ -502,11 +522,11 @@
       (SETQ |dname|
               (COND
                ((NULL |args|)
-                (TRIM-DIRECTORY-NAME (NAMESTRING (USER-HOMEDIR-PATHNAME))))
+                (|trim_directory_name| (NAMESTRING (USER-HOMEDIR-PATHNAME))))
                ('T (CAR |args|))))
       (COND ((SYMBOLP |dname|) (SETQ |dname| (SYMBOL-NAME |dname|))))
       (CHDIR |dname|)
-      (|sayKeyedMsg| 'S2IZ0070 (LIST (GET-CURRENT-DIRECTORY)))))))
+      (|sayKeyedMsg| 'S2IZ0070 (LIST (|get_current_directory|)))))))
 
 ; clear l == clearSpad2Cmd l
 
@@ -1267,7 +1287,7 @@
 ;     -- the name is fully qualified.
 ;
 ;     path := first(args)
-;     FILE_-KIND(path) ~= 1 =>
+;     file_kind(path) ~= 1 =>
 ;           throwKeyedMsg("S2IL0003", [path])
 ;
 ;     -- here is the plan:
@@ -1280,7 +1300,7 @@
 ;     -- First try to make the directory in the current directory
 ;
 ;     dir  := fnameMake('".", pathnameName path, '"axldir")
-;     isDir := FILE_-KIND namestring dir
+;     isDir := file_kind(namestring(dir))
 ;     isDir = 0 =>
 ;         throwKeyedMsg("S2IL0027",[namestring dir, path])
 ;
@@ -1288,7 +1308,7 @@
 ;         rc := makedir namestring dir
 ;         rc ~= 0 => throwKeyedMsg("S2IL0027", [namestring dir, path])
 ;
-;     curDir := GET_-CURRENT_-DIRECTORY()
+;     curDir := get_current_directory()
 ;
 ;     -- cd to that directory and try to unarchive the .al file
 ;
@@ -1324,12 +1344,12 @@
      (PROGN
       (SETQ |path| (CAR |args|))
       (COND
-       ((NOT (EQL (FILE-KIND |path|) 1))
+       ((NOT (EQL (|file_kind| |path|) 1))
         (|throwKeyedMsg| 'S2IL0003 (LIST |path|)))
        (#1='T
         (PROGN
          (SETQ |dir| (|fnameMake| "." (|pathnameName| |path|) "axldir"))
-         (SETQ |isDir| (FILE-KIND (|namestring| |dir|)))
+         (SETQ |isDir| (|file_kind| (|namestring| |dir|)))
          (COND
           ((EQL |isDir| 0)
            (|throwKeyedMsg| 'S2IL0027 (LIST (|namestring| |dir|) |path|)))
@@ -1342,7 +1362,7 @@
                ((NOT (EQL |rc| 0))
                 (|throwKeyedMsg| 'S2IL0027
                  (LIST (|namestring| |dir|) |path|))))))
-            (SETQ |curDir| (GET-CURRENT-DIRECTORY))
+            (SETQ |curDir| (|get_current_directory|))
             (|cd| (LIST (|namestring| |dir|)))
             (SETQ |rc| (|run_command| "ar" (LIST "x" |path|)))
             (COND
@@ -5438,7 +5458,7 @@
 
 ; library(args) ==
 ;    $newConlist : local := []
-;    original_directory := GET_-CURRENT_-DIRECTORY()
+;    original_directory := get_current_directory()
 ;    merge_info_from_objects(args, $options, false)
 ;    extendLocalLibdb($newConlist)
 ;    CHDIR(original_directory)
@@ -5450,7 +5470,7 @@
     (RETURN
      (PROGN
       (SETQ |$newConlist| NIL)
-      (SETQ |original_directory| (GET-CURRENT-DIRECTORY))
+      (SETQ |original_directory| (|get_current_directory|))
       (|merge_info_from_objects| |args| |$options| NIL)
       (|extendLocalLibdb| |$newConlist|)
       (CHDIR |original_directory|)
@@ -5691,7 +5711,7 @@
 ; do_read(ll, quiet, pile_mode) ==
 ;     $nopiles : local := pile_mode
 ;     $edit_file := ll
-;     read_or_compile(quiet, false)
+;     read_or_compile(quiet, ll)
 ;     terminateSystemCommand()
 ;     spadPrompt()
 
@@ -5702,7 +5722,7 @@
      (PROGN
       (SETQ |$nopiles| |pile_mode|)
       (SETQ |$edit_file| |ll|)
-      (|read_or_compile| |quiet| NIL)
+      (|read_or_compile| |quiet| |ll|)
       (|terminateSystemCommand|)
       (|spadPrompt|)))))
 
@@ -5710,9 +5730,8 @@
 
 (DEFUN |basename| (|x|) (PROG () (RETURN (NAMESTRING (PATHNAME-NAME |x|)))))
 
-; read_or_compile(quiet, lib) ==
-;     $LISPLIB : local := lib
-;     input_file := make_input_filename($edit_file)
+; read_or_compile(quiet, i_name) ==
+;     input_file := make_input_filename(i_name)
 ;     type := PATHNAME_-TYPE(input_file)
 ;     type = '"boot" =>
 ;         lfile := CONCAT(basename(input_file), '".clisp")
@@ -5720,18 +5739,15 @@
 ;         LOAD(COMPILE_-FILE(lfile))
 ;     type = '"lisp" =>
 ;         ffile := CONCAT(basename(input_file), ".", $lisp_bin_filetype)
-;         LOAD(FRICAS_COMPILE_FASL(input_file, ffile))
+;         LOAD(fricas_compile_fasl(input_file, ffile))
 ;     type = '"bbin" => LOAD(input_file)
 ;     type = '"input" => ncINTERPFILE(input_file, not(quiet))
-;     spadCompile(input_file)
 
-(DEFUN |read_or_compile| (|quiet| |lib|)
-  (PROG ($LISPLIB |ffile| |lfile| |type| |input_file|)
-    (DECLARE (SPECIAL $LISPLIB))
+(DEFUN |read_or_compile| (|quiet| |i_name|)
+  (PROG (|input_file| |type| |lfile| |ffile|)
     (RETURN
      (PROGN
-      (SETQ $LISPLIB |lib|)
-      (SETQ |input_file| (|make_input_filename| |$edit_file|))
+      (SETQ |input_file| (|make_input_filename| |i_name|))
       (SETQ |type| (PATHNAME-TYPE |input_file|))
       (COND
        ((EQUAL |type| "boot")
@@ -5743,10 +5759,10 @@
         (PROGN
          (SETQ |ffile|
                  (CONCAT (|basename| |input_file|) '|.| |$lisp_bin_filetype|))
-         (LOAD (FRICAS_COMPILE_FASL |input_file| |ffile|))))
+         (LOAD (|fricas_compile_fasl| |input_file| |ffile|))))
        ((EQUAL |type| "bbin") (LOAD |input_file|))
-       ((EQUAL |type| "input") (|ncINTERPFILE| |input_file| (NULL |quiet|)))
-       ('T (|spadCompile| |input_file|)))))))
+       ((EQUAL |type| "input")
+        (|ncINTERPFILE| |input_file| (NULL |quiet|))))))))
 
 ; show l ==
 ;   ioHook("startSysCmd", "show")

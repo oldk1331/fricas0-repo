@@ -16,6 +16,10 @@
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (PROG () (RETURN (DEFCONST |$failure| (GENSYM)))))
 
+; DEFCONSTANT($immediateDataSymbol, "--immediateData--")
+
+(DEFCONSTANT |$immediateDataSymbol| '|--immediateData--|)
+
 ; mkAtreeNode x ==
 ;   -- maker of attrib tree node
 ;   v := MAKE_VEC(5)

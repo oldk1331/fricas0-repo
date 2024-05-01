@@ -3,6 +3,10 @@
 
 (IN-PACKAGE "BOOT")
 
+; $domPvar := nil
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$domPvar| NIL))
+
 ; sayFunctionSelection(op,args,target,dc,func) ==
 ;   $abbreviateTypes : local := true
 ;   startTimingProcess 'debug

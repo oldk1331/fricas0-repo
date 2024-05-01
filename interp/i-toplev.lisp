@@ -3,6 +3,10 @@
 
 (IN-PACKAGE "BOOT")
 
+; $interpOnly := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$interpOnly| NIL))
+
 ; DEFPARAMETER($QuietCommand, NIL)
 
 (DEFPARAMETER |$QuietCommand| NIL)
@@ -24,6 +28,127 @@
 ;   $QuietCommand_tmp := nil
 
 (DEFUN |intUnsetQuiet| () (PROG () (RETURN (SETQ |$QuietCommand_tmp| NIL))))
+
+; $relative_directory_list := '("share/msgs/" "share/spadhelp/")
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (SETQ |$relative_directory_list| '("share/msgs/" "share/spadhelp/")))
+
+; $relative_library_directory_list := '("algebra/")
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (SETQ |$relative_library_directory_list| '("algebra/")))
+
+; $directory_list := []
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$directory_list| NIL))
+
+; $library_directory_list := []
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$library_directory_list| NIL))
+
+; $spadroot := '""
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$spadroot| ""))
+
+; make_absolute_filename(name) == STRCONC($spadroot, '"/", name)
+
+(DEFUN |make_absolute_filename| (|name|)
+  (PROG () (RETURN (STRCONC |$spadroot| "/" |name|))))
+
+; reroot(dir) ==
+;     $spadroot := dir
+;     $directory_list := MAPCAR(function make_absolute_filename,
+;                               $relative_directory_list)
+;     $library_directory_list := MAPCAR(function make_absolute_filename,
+;                                       $relative_library_directory_list)
+;     $defaultMsgDatabaseName :=
+;         make_absolute_filename('"share/msgs/s2-us.msgs")
+
+(DEFUN |reroot| (|dir|)
+  (PROG ()
+    (RETURN
+     (PROGN
+      (SETQ |$spadroot| |dir|)
+      (SETQ |$directory_list|
+              (MAPCAR #'|make_absolute_filename| |$relative_directory_list|))
+      (SETQ |$library_directory_list|
+              (MAPCAR #'|make_absolute_filename|
+                      |$relative_library_directory_list|))
+      (SETQ |$defaultMsgDatabaseName|
+              (|make_absolute_filename| "share/msgs/s2-us.msgs"))))))
+
+; initroot() ==
+;     spadroot := getEnv('"FRICAS")
+;     if not(spadroot) then
+;         bin_parent_dir := STRCONC(DIRECTORY_-NAMESTRING(first(getCLArgs())),
+;                                   '"/../")
+;         if fricas_probe_file(STRCONC(binparent_dir, '"algebra/interp.daase"))
+;         then spadroot := bin_parent_dir
+;         else ERROR("Environment variable FRICAS is not set!")
+;     spadroot := fricas_probe_file(spadroot)
+;     if spadroot then
+;         reroot(trim_directory_name(NAMESTRING(spadroot)))
+;     else
+;         ERROR('"Environment variable FRICAS is not valid!")
+
+(DEFUN |initroot| ()
+  (PROG (|bin_parent_dir| |spadroot|)
+    (RETURN
+     (PROGN
+      (SETQ |spadroot| (|getEnv| "FRICAS"))
+      (COND
+       ((NULL |spadroot|)
+        (SETQ |bin_parent_dir|
+                (STRCONC (DIRECTORY-NAMESTRING (CAR (|getCLArgs|))) "/../"))
+        (COND
+         ((|fricas_probe_file|
+           (STRCONC |binparent_dir| "algebra/interp.daase"))
+          (SETQ |spadroot| |bin_parent_dir|))
+         (#1='T (ERROR '|Environment variable FRICAS is not set!|)))))
+      (SETQ |spadroot| (|fricas_probe_file| |spadroot|))
+      (COND
+       (|spadroot| (|reroot| (|trim_directory_name| (NAMESTRING |spadroot|))))
+       (#1# (ERROR "Environment variable FRICAS is not valid!")))))))
+
+; $trace_stream := nil
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$trace_stream| NIL))
+
+; CUROUTSTREAM := nil
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ CUROUTSTREAM NIL))
+
+; fricas_restart() ==
+;     -- Need to reinitialize various streams because
+;     -- CLISP closes them when dumping executable
+;     CUROUTSTREAM := $trace_stream := get_lisp_std_out()
+;     $algebraOutputStream := mkOutputConsoleStream()
+;     $fortranOutputStream := mkOutputConsoleStream()
+;     $mathmlOutputStream := mkOutputConsoleStream()
+;     $texmacsOutputStream := mkOutputConsoleStream()
+;     $htmlOutputStream := mkOutputConsoleStream()
+;     $openMathOutputStream := mkOutputConsoleStream()
+;     $texOutputStream := mkOutputConsoleStream()
+;     $formattedOutputStream := mkOutputConsoleStream()
+;     fricas_init()
+;     fricas_restart2()
+
+(DEFUN |fricas_restart| ()
+  (PROG (CUROUTSTREAM)
+    (RETURN
+     (PROGN
+      (SETQ CUROUTSTREAM (SETQ |$trace_stream| (|get_lisp_std_out|)))
+      (SETQ |$algebraOutputStream| (|mkOutputConsoleStream|))
+      (SETQ |$fortranOutputStream| (|mkOutputConsoleStream|))
+      (SETQ |$mathmlOutputStream| (|mkOutputConsoleStream|))
+      (SETQ |$texmacsOutputStream| (|mkOutputConsoleStream|))
+      (SETQ |$htmlOutputStream| (|mkOutputConsoleStream|))
+      (SETQ |$openMathOutputStream| (|mkOutputConsoleStream|))
+      (SETQ |$texOutputStream| (|mkOutputConsoleStream|))
+      (SETQ |$formattedOutputStream| (|mkOutputConsoleStream|))
+      (|fricas_init|)
+      (|fricas_restart2|)))))
 
 ; interpsysInitialization(display_messages) ==
 ;   -- The function  start  begins the interpreter process, reading in
@@ -142,7 +267,7 @@
 ;     NIL
 ;   efile =>
 ;     $edit_file := efile
-;     read_or_compile(true, false)
+;     read_or_compile(true, efile)
 ;   NIL
 
 (DEFUN |readSpadProfileIfThere| ()
@@ -170,7 +295,9 @@
                                   (#1# NIL)))))))))
               (COND
                (|efile|
-                (PROGN (SETQ |$edit_file| |efile|) (|read_or_compile| T NIL)))
+                (PROGN
+                 (SETQ |$edit_file| |efile|)
+                 (|read_or_compile| T |efile|)))
                (#1# NIL)))))))))
 
 ; DEFPARAMETER($inRetract, nil)

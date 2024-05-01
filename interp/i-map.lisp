@@ -3,6 +3,10 @@
 
 (IN-PACKAGE "BOOT")
 
+; $insideCompileBodyIfTrue := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$insideCompileBodyIfTrue| NIL))
+
 ; DEFPARAMETER($mapTarget, nil)
 
 (DEFPARAMETER |$mapTarget| NIL)

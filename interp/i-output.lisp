@@ -372,6 +372,22 @@
 
 (DEFVAR |$formattedFormat| NIL)
 
+; $LINELENGTH := 77
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ $LINELENGTH 77))
+
+; $MARGIN := 3
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ $MARGIN 3))
+
+; DEFCONST(BLANK, '" ")
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (PROG () (RETURN (DEFCONST BLANK " "))))
+
+; DEFCONST(UNDERBAR, '"__")
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (PROG () (RETURN (DEFCONST UNDERBAR "_"))))
+
 ; makeCharacter n == INTERN(NUM2USTR(n))
 
 (DEFUN |makeCharacter| (|n|) (PROG () (RETURN (INTERN (NUM2USTR |n|)))))
@@ -5527,14 +5543,17 @@
 ;             [LIST('CONCAT, '" ", y) for y in rest u] )
 ;   repeat
 ;     s := 0
+;     prev_x := nil
+;     last_x := nil
 ;     for x in tails u repeat
-;              lastx := x
+;              prev_x := last_x
+;              last_x := x
 ;              ((s := s + WIDTH first x + 1) >= linelength) => return(s)
 ;              null rest x => return(s := -1)
 ;     nil or
 ;        EQ(s, -1) => (nextu := nil)
-;        EQ(lastx, u) => ((nextu := rest u); RPLACD(u, nil) )
-;        true => ((nextu := lastx); RPLACD(PREDECESSOR(lastx, u), nil))
+;        EQ(last_x, u) => ((nextu := rest u); RPLACD(u, nil) )
+;        true => ((nextu := last_x); RPLACD(prev_x, nil))
 ;     for x in tails u repeat
 ;            RPLACA(x, LIST('CONCAT, first x, tchr))
 ;     if null nextu then RPLACA(CDDR last u, close)
@@ -5544,7 +5563,7 @@
 ;     null u => return(nil)
 
 (DEFUN |bracketagglist| (|u| |start| |linelength| |tchr| |open| |close|)
-  (PROG (|s| |lastx| |nextu|)
+  (PROG (|s| |prev_x| |last_x| |nextu|)
     (RETURN
      (PROGN
       (SETQ |u|
@@ -5566,12 +5585,15 @@
                 (#1#
                  (PROGN
                   (SETQ |s| 0)
+                  (SETQ |prev_x| NIL)
+                  (SETQ |last_x| NIL)
                   ((LAMBDA (|x|)
                      (LOOP
                       (COND ((ATOM |x|) (RETURN NIL))
                             (#1#
                              (PROGN
-                              (SETQ |lastx| |x|)
+                              (SETQ |prev_x| |last_x|)
+                              (SETQ |last_x| |x|)
                               (COND
                                ((NOT
                                  (< (SETQ |s| (+ (+ |s| (WIDTH (CAR |x|))) 1))
@@ -5582,12 +5604,12 @@
                    |u|)
                   (OR NIL
                       (COND ((EQ |s| (- 1)) (SETQ |nextu| NIL))
-                            ((EQ |lastx| |u|)
+                            ((EQ |last_x| |u|)
                              (PROGN (SETQ |nextu| (CDR |u|)) (RPLACD |u| NIL)))
                             (T
                              (PROGN
-                              (SETQ |nextu| |lastx|)
-                              (RPLACD (PREDECESSOR |lastx| |u|) NIL)))))
+                              (SETQ |nextu| |last_x|)
+                              (RPLACD |prev_x| NIL)))))
                   ((LAMBDA (|x|)
                      (LOOP
                       (COND ((ATOM |x|) (RETURN NIL))

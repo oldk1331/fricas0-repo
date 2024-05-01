@@ -3,6 +3,30 @@
 
 (IN-PACKAGE "BOOT")
 
+; $fromSpadTrace := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$fromSpadTrace| NIL))
+
+; $mapSubNameAlist := []
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$mapSubNameAlist| NIL))
+
+; $mathTrace := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$mathTrace| NIL))
+
+; $mathTraceList := []
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$mathTraceList| NIL))
+
+; $tracedSpadModemap := nil
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$tracedSpadModemap| NIL))
+
+; $traceletFunctions := []
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$traceletFunctions| NIL))
+
 ; DEFPARAMETER($traceNoisely, NIL)  -- give trace and untrace messages
 
 (DEFPARAMETER |$traceNoisely| NIL)

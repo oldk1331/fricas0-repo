@@ -3,6 +3,30 @@
 
 (IN-PACKAGE "BOOT")
 
+; $bootStrapMode := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$bootStrapMode| NIL))
+
+; $compUniquelyIfTrue := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$compUniquelyIfTrue| NIL))
+
+; $exitMode := $EmptyMode
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$exitMode| |$EmptyMode|))
+
+; $exitModeStack := []
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$exitModeStack| NIL))
+
+; $leaveLevelStack := []
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$leaveLevelStack| NIL))
+
+; $returnMode := $EmptyMode
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$returnMode| |$EmptyMode|))
+
 ; init_compiler_properties() ==
 ;     for sv in [ _
 ;       ["|", "compSuchthat"], ["@", "compAtSign"], _
@@ -5164,15 +5188,12 @@
 ;     -- should be unhooked
 ;
 ;     $scanIfTrue              : local := nil
-;     $f                       : local := nil  -- compiler
-;     $m                       : local := nil  --   variables
 ;
 ;     -- following are for )quick option for code generation
 ;     $QuickLet   : local := true
 ;     $QuickCode  : local := true
 ;
-;     fun         := ['rq, 'lib]
-;     constructor := nil
+;     lib := true
 ;
 ;     for opt in $options repeat
 ;         [optname,:optargs] := opt
@@ -5181,41 +5202,27 @@
 ;         fullopt = 'new         => error '"Internal error: compileSpad2Cmd got )new"
 ;         fullopt = 'old         => NIL     -- no opt
 ;
-;         fullopt = 'library     => fun.1 := 'lib
-;         fullopt = 'nolibrary   => fun.1 := 'nolib
+;         fullopt = 'library     => lib := true
+;         fullopt = 'nolibrary   => lib := false
 ;
 ;         -- Ignore quiet/nonquiet if "constructor" is given.
-;         fullopt = 'quiet       => if fun.0 ~= 'c then fun.0 := 'rq
-;         fullopt = 'noquiet     => if fun.0 ~= 'c then fun.0 := 'rf
+;         fullopt = 'quiet       => "ignored now"
+;         fullopt = 'noquiet     => "ignored now"
 ;         fullopt = 'nobreak     => $scanIfTrue := true
 ;         fullopt = 'break       => $scanIfTrue := nil
 ;         fullopt = 'vartrace      =>
 ;           $QuickLet  := false
-;         fullopt = 'lisp        =>
-;           throwKeyedMsg("S2IZ0036",['")lisp"])
-;         fullopt = 'functions   =>
-;             null optargs =>
-;               throwKeyedMsg("S2IZ0037",['")functions"])
-;             throwKeyedMsg('")functions unsupported", [])
-;         fullopt = 'constructor =>
-;             null optargs =>
-;               throwKeyedMsg("S2IZ0037",['")constructor"])
-;             fun.0       := 'c
-;             constructor := [unabbrev o for o in optargs]
 ;         throwKeyedMsg("S2IZ0036",[STRCONC('")",object2String optname)])
 ;
-;     $InteractiveMode : local := nil
-;     compilerDoit(constructor, fun)
+;     compilerDoit(lib, path)
 ;     extendLocalLibdb $newConlist
 ;     terminateSystemCommand()
 ;     spadPrompt()
 
 (DEFUN |compileSpad2Cmd| (|args|)
-  (PROG (|$InteractiveMode| |$QuickCode| |$QuickLet| |$m| |$f| |$scanIfTrue|
-         |fullopt| |optargs| |optname| |constructor| |fun| |optList| |path|)
-    (DECLARE
-     (SPECIAL |$InteractiveMode| |$QuickCode| |$QuickLet| |$m| |$f|
-      |$scanIfTrue|))
+  (PROG (|$QuickCode| |$QuickLet| |$scanIfTrue| |fullopt| |optargs| |optname|
+         |lib| |optList| |path|)
+    (DECLARE (SPECIAL |$QuickCode| |$QuickLet| |$scanIfTrue|))
     (RETURN
      (PROGN
       (SETQ |path| (CAR |args|))
@@ -5231,12 +5238,9 @@
                  '(|break| |constructor| |functions| |library| |lisp| |new|
                    |old| |nobreak| |nolibrary| |noquiet| |vartrace| |quiet|))
          (SETQ |$scanIfTrue| NIL)
-         (SETQ |$f| NIL)
-         (SETQ |$m| NIL)
          (SETQ |$QuickLet| T)
          (SETQ |$QuickCode| T)
-         (SETQ |fun| (LIST '|rq| '|lib|))
-         (SETQ |constructor| NIL)
+         (SETQ |lib| T)
          ((LAMBDA (|bfVar#171| |opt|)
             (LOOP
              (COND
@@ -5252,109 +5256,33 @@
                  ((EQ |fullopt| '|new|)
                   (|error| "Internal error: compileSpad2Cmd got )new"))
                  ((EQ |fullopt| '|old|) NIL)
-                 ((EQ |fullopt| '|library|) (SETF (ELT |fun| 1) '|lib|))
-                 ((EQ |fullopt| '|nolibrary|) (SETF (ELT |fun| 1) '|nolib|))
-                 ((EQ |fullopt| '|quiet|)
-                  (COND
-                   ((NOT (EQ (ELT |fun| 0) '|c|)) (SETF (ELT |fun| 0) '|rq|))))
-                 ((EQ |fullopt| '|noquiet|)
-                  (COND
-                   ((NOT (EQ (ELT |fun| 0) '|c|)) (SETF (ELT |fun| 0) '|rf|))))
+                 ((EQ |fullopt| '|library|) (SETQ |lib| T))
+                 ((EQ |fullopt| '|nolibrary|) (SETQ |lib| NIL))
+                 ((EQ |fullopt| '|quiet|) '|ignored now|)
+                 ((EQ |fullopt| '|noquiet|) '|ignored now|)
                  ((EQ |fullopt| '|nobreak|) (SETQ |$scanIfTrue| T))
                  ((EQ |fullopt| '|break|) (SETQ |$scanIfTrue| NIL))
                  ((EQ |fullopt| '|vartrace|) (SETQ |$QuickLet| NIL))
-                 ((EQ |fullopt| '|lisp|)
-                  (|throwKeyedMsg| 'S2IZ0036 (LIST ")lisp")))
-                 ((EQ |fullopt| '|functions|)
-                  (COND
-                   ((NULL |optargs|)
-                    (|throwKeyedMsg| 'S2IZ0037 (LIST ")functions")))
-                   (#1# (|throwKeyedMsg| ")functions unsupported" NIL))))
-                 ((EQ |fullopt| '|constructor|)
-                  (COND
-                   ((NULL |optargs|)
-                    (|throwKeyedMsg| 'S2IZ0037 (LIST ")constructor")))
-                   (#1#
-                    (PROGN
-                     (SETF (ELT |fun| 0) '|c|)
-                     (SETQ |constructor|
-                             ((LAMBDA (|bfVar#173| |bfVar#172| |o|)
-                                (LOOP
-                                 (COND
-                                  ((OR (ATOM |bfVar#172|)
-                                       (PROGN
-                                        (SETQ |o| (CAR |bfVar#172|))
-                                        NIL))
-                                   (RETURN (NREVERSE |bfVar#173|)))
-                                  (#1#
-                                   (SETQ |bfVar#173|
-                                           (CONS (|unabbrev| |o|)
-                                                 |bfVar#173|))))
-                                 (SETQ |bfVar#172| (CDR |bfVar#172|))))
-                              NIL |optargs| NIL))))))
                  (#1#
                   (|throwKeyedMsg| 'S2IZ0036
                    (LIST (STRCONC ")" (|object2String| |optname|)))))))))
              (SETQ |bfVar#171| (CDR |bfVar#171|))))
           |$options| NIL)
-         (SETQ |$InteractiveMode| NIL)
-         (|compilerDoit| |constructor| |fun|)
+         (|compilerDoit| |lib| |path|)
          (|extendLocalLibdb| |$newConlist|)
          (|terminateSystemCommand|)
          (|spadPrompt|))))))))
 
-; compilerDoit(constructor, fun) ==
-;     $byConstructors : local := []
-;     $constructorsSeen : local := []
-;     fun = ['rf, 'lib]   => read_or_compile(true, true)    -- Ignore "noquiet".
-;     fun = ['rf, 'nolib] => read_or_compile(false, false)
-;     fun = ['rq, 'lib]   => read_or_compile(true, true)
-;     fun = ['rq, 'nolib] => read_or_compile(true, false)
-;     fun = ['c,  'lib]   =>
-;       $byConstructors := [opOf x for x in constructor]
-;       read_or_compile(true, true)
-;       for ii in $byConstructors repeat
-;         null member(ii,$constructorsSeen) =>
-;           sayBrightly ['">>> Warning ",'%b,ii,'%d,'" was not found"]
+; compilerDoit(lib, path) ==
+;     $InteractiveMode : local := nil
+;     $LISPLIB : local := lib
+;     spadCompile(path)
 
-(DEFUN |compilerDoit| (|constructor| |fun|)
-  (PROG (|$constructorsSeen| |$byConstructors|)
-    (DECLARE (SPECIAL |$constructorsSeen| |$byConstructors|))
+(DEFUN |compilerDoit| (|lib| |path|)
+  (PROG ($LISPLIB |$InteractiveMode|)
+    (DECLARE (SPECIAL $LISPLIB |$InteractiveMode|))
     (RETURN
      (PROGN
-      (SETQ |$byConstructors| NIL)
-      (SETQ |$constructorsSeen| NIL)
-      (COND ((EQUAL |fun| (LIST '|rf| '|lib|)) (|read_or_compile| T T))
-            ((EQUAL |fun| (LIST '|rf| '|nolib|)) (|read_or_compile| NIL NIL))
-            ((EQUAL |fun| (LIST '|rq| '|lib|)) (|read_or_compile| T T))
-            ((EQUAL |fun| (LIST '|rq| '|nolib|)) (|read_or_compile| T NIL))
-            ((EQUAL |fun| (LIST '|c| '|lib|))
-             (PROGN
-              (SETQ |$byConstructors|
-                      ((LAMBDA (|bfVar#175| |bfVar#174| |x|)
-                         (LOOP
-                          (COND
-                           ((OR (ATOM |bfVar#174|)
-                                (PROGN (SETQ |x| (CAR |bfVar#174|)) NIL))
-                            (RETURN (NREVERSE |bfVar#175|)))
-                           (#1='T
-                            (SETQ |bfVar#175|
-                                    (CONS (|opOf| |x|) |bfVar#175|))))
-                          (SETQ |bfVar#174| (CDR |bfVar#174|))))
-                       NIL |constructor| NIL))
-              (|read_or_compile| T T)
-              ((LAMBDA (|bfVar#176| |ii|)
-                 (LOOP
-                  (COND
-                   ((OR (ATOM |bfVar#176|)
-                        (PROGN (SETQ |ii| (CAR |bfVar#176|)) NIL))
-                    (RETURN NIL))
-                   (#1#
-                    (COND
-                     ((NULL (|member| |ii| |$constructorsSeen|))
-                      (IDENTITY
-                       (|sayBrightly|
-                        (LIST ">>> Warning " '|%b| |ii| '|%d|
-                              " was not found")))))))
-                  (SETQ |bfVar#176| (CDR |bfVar#176|))))
-               |$byConstructors| NIL))))))))
+      (SETQ |$InteractiveMode| NIL)
+      (SETQ $LISPLIB |lib|)
+      (|spadCompile| |path|)))))

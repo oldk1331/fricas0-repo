@@ -1082,7 +1082,7 @@
 ;   catname := INTERN SUBSTRING(s := PNAME con,0,MAXINDEX s)
 ;   for [catAncestor,:.] in childrenOf([catname]) repeat
 ;     pakname := INTERN STRCONC(PNAME catAncestor,'"&")
-;     if getCDTEntry(pakname,true) then acc := [pakname,:acc]
+;     if get_database(pakname, 'ABBREVIATION) then acc := [pakname,:acc]
 ;     acc := union([CAAR x for x in domainsOf([catAncestor],nil)],acc)
 ;   listSort(function GLESSEQP,acc)
 
@@ -1104,7 +1104,7 @@
                  (PROGN
                   (SETQ |pakname| (INTERN (STRCONC (PNAME |catAncestor|) "&")))
                   (COND
-                   ((|getCDTEntry| |pakname| T)
+                   ((|get_database| |pakname| 'ABBREVIATION)
                     (SETQ |acc| (CONS |pakname| |acc|))))
                   (SETQ |acc|
                           (|union|
@@ -2302,6 +2302,14 @@
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (SETQ |$defaultPackageNamesHT| (|buildDefaultPackageNamesHT|)))
+
+; $createLocalLibDb := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$createLocalLibDb| NIL))
+
+; $newConstructorList := []
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$newConstructorList| NIL))
 
 ; extendLocalLibdb conlist ==   --  called by astran
 ;   not $createLocalLibDb => nil

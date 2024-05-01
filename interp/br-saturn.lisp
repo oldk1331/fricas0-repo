@@ -16,15 +16,6 @@
 
 (DEFUN |htSay| (|x|) (PROG () (RETURN (|bcHt| |x|))))
 
-; htSayCold x ==
-;   htSay '"\lispLink{}{"
-;   htSay x
-;   htSay '"}"
-
-(DEFUN |htSayCold| (|x|)
-  (PROG ()
-    (RETURN (PROGN (|htSay| "\\lispLink{}{") (|htSay| |x|) (|htSay| "}")))))
-
 ; htSayStandard(x) ==  --do AT MOST for $standard
 ;     bcHt(x)
 
@@ -198,7 +189,6 @@
 ;     itemType = 'inputStrings      => htInputStrings items
 ;     itemType = 'domainConditions  => htProcessDomainConditions items
 ;     itemType = 'bcStrings         => htProcessBcStrings items
-;     itemType = 'toggleButtons     => htProcessToggleButtons items
 ;     itemType = 'bcButtons         => htProcessBcButtons items
 ;     itemType = 'doneButton        => htProcessDoneButton items
 ;     itemType = 'doitButton        => htProcessDoitButton items
@@ -235,8 +225,6 @@
                   ((EQ |itemType| '|domainConditions|)
                    (|htProcessDomainConditions| |items|))
                   ((EQ |itemType| '|bcStrings|) (|htProcessBcStrings| |items|))
-                  ((EQ |itemType| '|toggleButtons|)
-                   (|htProcessToggleButtons| |items|))
                   ((EQ |itemType| '|bcButtons|) (|htProcessBcButtons| |items|))
                   ((EQ |itemType| '|doneButton|)
                    (|htProcessDoneButton| |items|))
@@ -2283,12 +2271,3 @@
                   (SUBSTRING |s| 1 (- |k| 1))))
                 ('T (|dbName| |line|)))))
       (MEMQ |con| |conlist|)))))
-
-; purgeLocalLibdb() ==   --called by the user through a clear command?
-;   $newConstructorList := nil
-;   deleteFile '"libdb.text"
-
-(DEFUN |purgeLocalLibdb| ()
-  (PROG ()
-    (RETURN
-     (PROGN (SETQ |$newConstructorList| NIL) (|deleteFile| "libdb.text")))))

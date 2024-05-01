@@ -3,6 +3,18 @@
 
 (IN-PACKAGE "BOOT")
 
+; $useCoerceOrCroak := true
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$useCoerceOrCroak| T))
+
+; $insideCanCoerceFrom := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$insideCanCoerceFrom| NIL))
+
+; $useConvertForCoercions := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$useConvertForCoercions| NIL))
+
 ; algCoerceInteractive(p,source,target) ==
 ;   -- now called in some groebner code
 ;   $useConvertForCoercions : local := true

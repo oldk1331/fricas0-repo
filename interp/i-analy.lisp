@@ -1448,6 +1448,8 @@
 ;   (opName ~= "elt") and (opName ~= "apply") and
 ;     isEltable(op, argl, #argl) and (u := bottomUpElt t) => u
 ;
+;   $noEvalTypeMsg => spadThrow()
+;
 ;   amsl := printableArgModeSetList()
 ;   opName1 :=
 ;     opName0 = $immediateDataSymbol =>
@@ -1590,6 +1592,7 @@
                      (|isEltable| |op| |argl| (LENGTH |argl|))
                      (SETQ |u| (|bottomUpElt| |t|)))
                 |u|)
+               (|$noEvalTypeMsg| (|spadThrow|))
                (#1#
                 (PROGN
                  (SETQ |amsl| (|printableArgModeSetList|))

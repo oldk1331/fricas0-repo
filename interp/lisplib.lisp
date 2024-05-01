@@ -3,9 +3,41 @@
 
 (IN-PACKAGE "BOOT")
 
+; $printLoadMsgs := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$printLoadMsgs| NIL))
+
 ; $spadLibFT := 'NRLIB
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$spadLibFT| 'NRLIB))
+
+; $LISPLIB := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ $LISPLIB NIL))
+
+; $libFile := nil
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$libFile| NIL))
+
+; $lisplibForm := nil
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$lisplibForm| NIL))
+
+; $lisplibKind := nil
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$lisplibKind| NIL))
+
+; $lisplibModemapAlist := []
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$lisplibModemapAlist| NIL))
+
+; $lisplibModemap := nil
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$lisplibModemap| NIL))
+
+; $lisplibOperationAlist := []
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$lisplibOperationAlist| NIL))
 
 ; readLib(fn) == rMkIstream(make_filename(fn))
 

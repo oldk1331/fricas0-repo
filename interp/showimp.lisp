@@ -3,10 +3,6 @@
 
 (IN-PACKAGE "BOOT")
 
-; $returnNowhereFromGoGet := false
-
-(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$returnNowhereFromGoGet| NIL))
-
 ; showSummary dom ==
 ;   showPredicates dom
 ;   showAttributes dom

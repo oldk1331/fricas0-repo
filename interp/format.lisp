@@ -3,6 +3,14 @@
 
 (IN-PACKAGE "BOOT")
 
+; $abbreviateJoin := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$abbreviateJoin| NIL))
+
+; $whereList := nil
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$whereList| NIL))
+
 ; sayModemap m ==
 ;   -- sayMSG formatModemap displayTranModemap m
 ;   sayMSG formatModemap old2NewModemaps displayTranModemap m
@@ -848,6 +856,10 @@
 ;   form2StringLocal form
 
 (DEFUN |prefix2String0| (|form|) (PROG () (RETURN (|form2StringLocal| |form|))))
+
+; $permitWhere := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$permitWhere| NIL))
 
 ; form2StringWithWhere u ==
 ;   $permitWhere : local := true

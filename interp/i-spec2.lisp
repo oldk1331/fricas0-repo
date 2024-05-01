@@ -512,7 +512,7 @@
 
 ; uphas t ==
 ;   t isnt [op,type,prop] => nil
-;   -- handler for category and attribute queries
+;   -- handler for category queries
 ;   type :=
 ;     isLocalVar(type) => ['unabbrev, type]
 ;     MKQ unabbrev type

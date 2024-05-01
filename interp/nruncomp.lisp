@@ -3,6 +3,10 @@
 
 (IN-PACKAGE "BOOT")
 
+; $bootstrapDomains := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$bootstrapDomains| NIL))
+
 ; NRTaddDeltaCode(kvec) ==
 ; --NOTES: This function is called from buildFunctor to initially
 ; --  fill slots in $template. The $template so created is stored in the
@@ -115,6 +119,10 @@
                     (SETQ |bfVar#3| (CDR |bfVar#3|))))
                  NIL |formalSig| NIL))
         (CONS |newSig| (CONS |dcCode| (CONS |op| |kindFlag|)))))))))
+
+; $devaluateList := []
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$devaluateList| NIL))
 
 ; NRTreplaceAllLocalReferences(form) ==
 ;   $devaluateList :local := []

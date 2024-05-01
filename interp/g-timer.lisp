@@ -3,6 +3,11 @@
 
 (IN-PACKAGE "BOOT")
 
+; $timerTicksPerSecond := INTERNAL_-TIME_-UNITS_-PER_-SECOND
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (SETQ |$timerTicksPerSecond| INTERNAL-TIME-UNITS-PER-SECOND))
+
 ; makeLongStatStringByProperty _
 ;  (listofnames, listofclasses, property, units, flag) ==
 ;   total := 0
