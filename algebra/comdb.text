@@ -783,7 +783,7 @@
 73173`\spad{s * x} returns the product of \spad{x} by \spad{s} on the left.
 73212`\spad{x * s} returns the product of \spad{x} by \spad{s} on the right.
 73881`\spad{s ^ n} returns the product of \spad{s} by itself \spad{n} times.
-74429`\spad{smp*ts} multiplies a TaylorSeries by a monomial \spad{SMP}.
+74429`\spad{smp*ts} multiplies a TaylorSeries \spad{ts} by a monomial \spad{smp}.
 74501`\spad{s ^ n} returns the product of \spad{s} by itself \spad{n} times.
 75498`\spad{s*r} returns the product \spad{r*s} used by \spadtype{XRecursivePolynomial}
 78339`\spad{a * r} returns the power series scalar multiplication of \spad{a} by \spad{r:} \spad{[a0,{} a1,{} ...] * r = [a0 * r,{} a1 * r,{} ...]}
