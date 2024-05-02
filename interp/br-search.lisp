@@ -2742,6 +2742,7 @@
       |line|))))
 
 ; grepSource key ==
+;   STRINGP(key) => key
 ;   key = 'libdb   => STRCONC($spadroot,'"/algebra/libdb.text")
 ;   key = 'gloss   => STRCONC($spadroot,'"/algebra/glosskey.text")
 ;   key = $localLibdb => $localLibdb
@@ -2752,7 +2753,8 @@
 (DEFUN |grepSource| (|key|)
   (PROG ()
     (RETURN
-     (COND ((EQ |key| '|libdb|) (STRCONC |$spadroot| "/algebra/libdb.text"))
+     (COND ((STRINGP |key|) |key|)
+           ((EQ |key| '|libdb|) (STRCONC |$spadroot| "/algebra/libdb.text"))
            ((EQ |key| '|gloss|) (STRCONC |$spadroot| "/algebra/glosskey.text"))
            ((EQUAL |key| |$localLibdb|) |$localLibdb|)
            (#1='T
