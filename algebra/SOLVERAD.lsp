@@ -120,8 +120,8 @@
                      (COND
                       ((OR (ATOM #1#) (PROGN (LETT |res1| (CAR #1#)) NIL))
                        (GO G191)))
-                     (SEQ (EXIT (CONS |res1| |res|))) (LETT #1# (CDR #1#))
-                     (GO G190) G191 (EXIT NIL))
+                     (SEQ (EXIT (LETT |res| (CONS |res1| |res|))))
+                     (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                 (EXIT |res|)))) 
 
 (SDEFUN |SOLVERAD;findZeros|
@@ -289,7 +289,7 @@
                          (|SOLVERAD;find_gen_zeros| |pres| |rlv| |gen_res| %)))
                   ('T
                    (LETT |ngen_res|
-                         (|SOLVERAD;find_ngen_zeros| |pres| |rlv| |gen_res|
+                         (|SOLVERAD;find_ngen_zeros| |pres| |rlv| |ngen_res|
                           %))))))
                (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
           (EXIT
