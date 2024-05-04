@@ -1395,20 +1395,25 @@
 ; kisValidType typeForm ==
 ;   $ProcessInteractiveValue: fluid := true
 ;   $noEvalTypeMsg: fluid := true
+;   $printTimeIfTrue : local := false
+;   $printStorageIfTrue : local := false
 ;   $BreakMode : local := 'throw_reader
 ;   CATCH('SPAD_READER, processInteractive(typeForm, nil))
 ;     is [[h,:.],:t] and member(h,'(Type Category)) => t
 ;   false
 
 (DEFUN |kisValidType| (|typeForm|)
-  (PROG (|$BreakMode| |$noEvalTypeMsg| |$ProcessInteractiveValue| |t| |h|
-         |ISTMP#2| |ISTMP#1|)
+  (PROG (|$BreakMode| |$printStorageIfTrue| |$printTimeIfTrue| |$noEvalTypeMsg|
+         |$ProcessInteractiveValue| |t| |h| |ISTMP#2| |ISTMP#1|)
     (DECLARE
-     (SPECIAL |$BreakMode| |$noEvalTypeMsg| |$ProcessInteractiveValue|))
+     (SPECIAL |$BreakMode| |$printStorageIfTrue| |$printTimeIfTrue|
+      |$noEvalTypeMsg| |$ProcessInteractiveValue|))
     (RETURN
      (PROGN
       (SETQ |$ProcessInteractiveValue| T)
       (SETQ |$noEvalTypeMsg| T)
+      (SETQ |$printTimeIfTrue| NIL)
+      (SETQ |$printStorageIfTrue| NIL)
       (SETQ |$BreakMode| '|throw_reader|)
       (COND
        ((AND
