@@ -526,10 +526,10 @@
 
 (DEFUN NMSORT (LIST) (PROG () (RETURN (|listSort| #'GLESSEQP LIST))))
 
-; orderList l == listSort(function _?ORDER, COPY_-LIST l)
+; orderList l == listSort(function lt_sexp, COPY_-LIST l)
 
 (DEFUN |orderList| (|l|)
-  (PROG () (RETURN (|listSort| #'?ORDER (COPY-LIST |l|)))))
+  (PROG () (RETURN (|listSort| #'|lt_sexp| (COPY-LIST |l|)))))
 
 ; mergeInPlace(f,g,p,q) ==
 ;    -- merge the two sorted lists p and q

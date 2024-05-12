@@ -13,7 +13,7 @@
 
 (SDEFUN |ARRAY1;oneDimensionalArray;L%;3| ((|u| (|List| S)) (% (%)))
         (SPROG
-         ((#1=#:G2148 NIL) (|i| NIL) (#2=#:G2149 NIL) (|x| NIL) (|a| (%))
+         ((#1=#:G2152 NIL) (|i| NIL) (#2=#:G2153 NIL) (|x| NIL) (|a| (%))
           (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (LENGTH |u|))
               (EXIT
@@ -41,9 +41,9 @@
 
 (DECLAIM (NOTINLINE |OneDimensionalArray;|)) 
 
-(DEFUN |OneDimensionalArray| (#1=#:G2161)
+(DEFUN |OneDimensionalArray| (#1=#:G2165)
   (SPROG NIL
-         (PROG (#2=#:G2162)
+         (PROG (#2=#:G2166)
            (RETURN
             (COND
              ((LETT #2#
@@ -60,7 +60,7 @@
 
 (DEFUN |OneDimensionalArray;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G2158 NIL) (#2=#:G2159 NIL) (#3=#:G2160 NIL) (% NIL)
+   ((|pv$| NIL) (#1=#:G2162 NIL) (#2=#:G2163 NIL) (#3=#:G2164 NIL) (% NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
@@ -167,35 +167,35 @@
               (|local| |#1|) (|Integer|) |ARRAY1;qelt;%IS;1|
               |ARRAY1;qsetelt!;%I2S;2| (0 . |setelt!|) (|List| 6)
               |ARRAY1;oneDimensionalArray;L%;3| (|NonNegativeInteger|)
-              |ARRAY1;oneDimensionalArray;NniS%;4| (|Mapping| 17 6 6)
-              (|Mapping| 6 6 6) (|Boolean|) (|SingleInteger|) (|HashState|)
-              (|List| 21) (|Equation| 6) (|OutputForm|) (|String|)
-              (|Mapping| 17 6) (|UniversalSegment| 7) (|Void|) (|Mapping| 6 6)
-              (|InputForm|) (|List| %) (|Union| 6 '"failed") (|List| 7))
+              |ARRAY1;oneDimensionalArray;NniS%;4| (|Boolean|) (|Mapping| 6 6)
+              (|List| 7) (|Union| 6 '"failed") (|Mapping| 15 6)
+              (|UniversalSegment| 7) (|List| %) (|Mapping| 6 6 6)
+              (|Mapping| 15 6 6) (|HashState|) (|SingleInteger|) (|Equation| 6)
+              (|List| 26) (|OutputForm|) (|String|) (|Void|) (|InputForm|))
            '#(|setelt!| 7 |qsetelt!| 14 |qelt| 21 |oneDimensionalArray| 27)
            'NIL
            (CONS
             (|makeByteWordVec2| 13
-                                '(0 0 0 0 0 1 0 7 0 0 9 10 2 0 0 0 0 0 9 13 1
-                                  11 3))
+                                '(0 0 0 1 0 0 7 0 2 10 9 0 0 3 11 1 13 9 0 0 0
+                                  0 0))
             (CONS
              '#(|OneDimensionalArrayAggregate&| NIL |LinearAggregate&|
-                |IndexedAggregate&| |Collection&| |OrderedSet&|
-                |HomogeneousAggregate&| NIL |Aggregate&| |EltableAggregate&|
-                |Evalable&| |SetCategory&| |Hashable&| NIL NIL NIL NIL NIL
-                |InnerEvalable&| NIL |PartialOrder&| |BasicType&| NIL)
+                |OrderedSet&| |Collection&| |IndexedAggregate&| NIL
+                |HomogeneousAggregate&| |Hashable&| |SetCategory&| |Evalable&|
+                |EltableAggregate&| |Aggregate&| NIL |BasicType&|
+                |PartialOrder&| NIL |InnerEvalable&| NIL NIL NIL NIL NIL)
              (CONS
               '#((|OneDimensionalArrayAggregate| 6) (|FiniteLinearAggregate| 6)
-                 (|LinearAggregate| 6) (|IndexedAggregate| 7 6)
-                 (|Collection| 6) (|OrderedSet|) (|HomogeneousAggregate| 6)
-                 (|Comparable|) (|Aggregate|) (|EltableAggregate| 7 6)
-                 (|Evalable| 6) (|SetCategory|) (|Hashable|)
-                 (|shallowlyMutable|) (|finiteAggregate|) (|Eltable| 25 $$)
-                 (|Type|) (|Eltable| 7 6) (|InnerEvalable| 6 6)
-                 (|CoercibleTo| 22) (|PartialOrder|) (|BasicType|)
-                 (|ConvertibleTo| 28))
+                 (|LinearAggregate| 6) (|OrderedSet|) (|Collection| 6)
+                 (|IndexedAggregate| 7 6) (|Comparable|)
+                 (|HomogeneousAggregate| 6) (|Hashable|) (|SetCategory|)
+                 (|Evalable| 6) (|EltableAggregate| 7 6) (|Aggregate|)
+                 (|ConvertibleTo| 31) (|BasicType|) (|PartialOrder|)
+                 (|CoercibleTo| 28) (|InnerEvalable| 6 6) (|Eltable| 7 6)
+                 (|Type|) (|Eltable| 20 $$) (|finiteAggregate|)
+                 (|shallowlyMutable|))
               (|makeByteWordVec2| 14
                                   '(3 0 6 0 7 6 10 3 14 6 0 7 6 10 3 14 6 0 7 6
-                                    9 2 0 6 0 7 8 1 0 0 11 12 2 0 0 13 6
-                                    14)))))
+                                    9 2 0 6 0 7 8 2 0 0 13 6 14 1 0 0 11
+                                    12)))))
            '|lookupIncomplete|)) 

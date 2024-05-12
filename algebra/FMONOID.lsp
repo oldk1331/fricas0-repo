@@ -745,7 +745,7 @@
               (155 . |sort!|) (160 . |varList|) |FMONOID;first;%S;23|
               |FMONOID;rest;2%;24| |FMONOID;mirror;2%;25| (165 . >) (171 . <)
               (177 . |lexico|) (183 . <) (189 . |smaller?|) (195 . |smaller?|)
-              (|Union| 6 '"failed") (|PositiveInteger|) (|String|))
+              (|String|) (|PositiveInteger|) (|Union| 6 '"failed"))
            '#(~= 201 |varList| 207 |smaller?| 212 |size| 218 |sample| 223
               |rquo| 227 |rightRecip| 239 |rightPower| 244 |retractIfCan| 256
               |retract| 261 |rest| 266 |recip| 271 |overlap| 276 |one?| 282
@@ -755,17 +755,17 @@
               |first| 385 |factors| 390 |divide| 395 |coerce| 401 ^ 411 |One|
               429 >= 433 > 439 = 445 <= 451 < 457 * 463)
            'NIL
-           (CONS (|makeByteWordVec2| 3 '(1 0 1 0 0 1 0 3 0 0 0 0 0 1))
+           (CONS (|makeByteWordVec2| 3 '(1 1 0 1 0 0 3 0 0 0 1 0 0 0))
                  (CONS
-                  '#(NIL NIL NIL NIL |MagmaWithUnit&| |OrderedSet&| |Magma&|
-                     NIL |RetractableTo&| |SetCategory&| NIL |BasicType&| NIL
-                     |PartialOrder&|)
+                  '#(NIL NIL NIL |OrderedSet&| |MagmaWithUnit&| NIL NIL
+                     |Magma&| |SetCategory&| |RetractableTo&| |PartialOrder&|
+                     NIL |BasicType&| NIL)
                   (CONS
-                   '#((|OrderedMonoid|) (|Monoid|) (|OrderedSemiGroup|)
-                      (|SemiGroup|) (|MagmaWithUnit|) (|OrderedSet|) (|Magma|)
-                      (|Comparable|) (|RetractableTo| 6) (|SetCategory|)
-                      (|CoercibleFrom| 6) (|BasicType|) (|CoercibleTo| 15)
-                      (|PartialOrder|))
+                   '#((|OrderedMonoid|) (|OrderedSemiGroup|) (|Monoid|)
+                      (|OrderedSet|) (|MagmaWithUnit|) (|SemiGroup|)
+                      (|Comparable|) (|Magma|) (|SetCategory|)
+                      (|RetractableTo| 6) (|PartialOrder|) (|CoercibleTo| 15)
+                      (|BasicType|) (|CoercibleFrom| 6))
                    (|makeByteWordVec2| 83
                                        '(0 8 0 9 1 8 11 0 12 2 15 0 0 0 16 2 15
                                          0 0 0 17 4 8 15 0 18 18 19 20 1 8 0 0
@@ -781,19 +781,19 @@
                                          0 76 2 0 13 0 0 77 2 0 13 0 0 78 2 6
                                          13 0 0 79 2 0 13 0 0 80 2 0 13 0 0 1 1
                                          4 68 0 71 2 2 13 0 0 80 1 0 38 0 58 0
-                                         0 0 1 2 0 48 0 6 62 2 0 48 0 0 60 1 0
-                                         48 0 1 2 0 0 0 38 1 2 0 0 0 82 1 1 0
-                                         81 0 1 1 0 6 0 1 1 0 0 0 73 1 0 48 0 1
+                                         0 0 1 2 0 48 0 0 60 2 0 48 0 6 62 1 0
+                                         48 0 1 2 0 0 0 82 1 2 0 0 0 38 1 1 0
+                                         83 0 1 1 0 6 0 1 1 0 0 0 73 1 0 48 0 1
                                          2 0 51 0 0 52 1 0 13 0 14 2 0 6 0 19 1
                                          2 0 38 0 19 1 1 0 0 0 74 2 1 0 0 0 1 2
                                          1 0 0 0 1 2 0 0 35 0 37 2 0 0 32 0 34
-                                         2 0 48 0 6 61 2 0 48 0 0 49 2 1 13 0 0
-                                         77 1 0 38 0 67 1 0 48 0 1 2 0 0 0 38 1
-                                         2 0 0 0 82 1 1 0 83 0 1 2 0 0 0 0 25 2
+                                         2 0 48 0 0 49 2 0 48 0 6 61 2 1 13 0 0
+                                         77 1 0 38 0 67 1 0 48 0 1 2 0 0 0 82 1
+                                         2 0 0 0 38 1 1 0 81 0 1 2 0 0 0 0 25 2
                                          0 0 0 0 23 1 0 6 0 72 1 0 11 0 31 2 0
-                                         54 0 0 55 1 0 0 6 1 1 0 15 0 21 2 0 0
-                                         6 38 40 2 0 0 0 38 1 2 0 0 0 82 1 0 0
+                                         54 0 0 55 1 0 15 0 21 1 0 0 6 1 2 0 0
+                                         0 82 1 2 0 0 0 38 1 2 0 0 6 38 40 0 0
                                          0 7 2 1 13 0 0 1 2 1 13 0 0 1 2 0 13 0
                                          0 41 2 1 13 0 0 1 2 1 13 0 0 78 2 0 0
-                                         6 0 29 2 0 0 0 6 27 2 0 0 0 0 47)))))
+                                         0 0 47 2 0 0 0 6 27 2 0 0 6 0 29)))))
            '|lookupComplete|)) 

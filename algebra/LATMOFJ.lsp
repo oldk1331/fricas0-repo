@@ -639,14 +639,14 @@
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
-                  '#(NIL NIL NIL NIL NIL NIL NIL NIL |SetCategory&|
-                     |BasicType&| NIL)
+                  '#(NIL NIL NIL NIL NIL NIL NIL NIL |SetCategory&| NIL
+                     |BasicType&|)
                   (CONS
-                   '#((|BoundedDistributiveLattice|) (|BoundedLattice|)
-                      (|DistributiveLattice|) (|BoundedMeetSemilattice|)
-                      (|Lattice|) (|BoundedJoinSemilattice|)
-                      (|MeetSemilattice|) (|JoinSemilattice|) (|SetCategory|)
-                      (|BasicType|) (|CoercibleTo| 44))
+                   '#((|BoundedDistributiveLattice|) (|DistributiveLattice|)
+                      (|BoundedLattice|) (|BoundedJoinSemilattice|) (|Lattice|)
+                      (|BoundedMeetSemilattice|) (|JoinSemilattice|)
+                      (|MeetSemilattice|) (|SetCategory|) (|CoercibleTo| 44)
+                      (|BasicType|))
                    (|makeByteWordVec2| 49
                                        '(2 18 0 0 0 19 2 22 0 0 0 23 2 18 0 0
                                          22 24 2 13 16 0 0 29 2 22 0 0 13 30 2

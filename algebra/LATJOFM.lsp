@@ -718,14 +718,14 @@
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
-                  '#(NIL NIL NIL NIL NIL NIL NIL NIL |SetCategory&|
-                     |BasicType&| NIL)
+                  '#(NIL NIL NIL NIL NIL NIL NIL NIL |SetCategory&| NIL
+                     |BasicType&|)
                   (CONS
-                   '#((|BoundedDistributiveLattice|) (|BoundedLattice|)
-                      (|DistributiveLattice|) (|BoundedMeetSemilattice|)
-                      (|Lattice|) (|BoundedJoinSemilattice|)
-                      (|MeetSemilattice|) (|JoinSemilattice|) (|SetCategory|)
-                      (|BasicType|) (|CoercibleTo| 44))
+                   '#((|BoundedDistributiveLattice|) (|DistributiveLattice|)
+                      (|BoundedLattice|) (|BoundedJoinSemilattice|) (|Lattice|)
+                      (|BoundedMeetSemilattice|) (|JoinSemilattice|)
+                      (|MeetSemilattice|) (|SetCategory|) (|CoercibleTo| 44)
+                      (|BasicType|))
                    (|makeByteWordVec2| 56
                                        '(2 18 0 0 0 19 2 20 0 0 18 21 2 20 0 0
                                          0 24 2 14 16 0 0 29 2 18 0 0 14 30 2
@@ -737,8 +737,8 @@
                                          1 0 0 0 22 1 0 35 0 36 1 0 0 26 27 0 0
                                          0 7 0 0 0 8 1 0 0 14 15 1 0 10 0 1 1 0
                                          0 26 28 1 0 26 0 39 1 0 26 0 33 0 0 0
-                                         9 1 0 16 0 17 1 0 26 26 34 1 0 0 50 56
-                                         1 0 50 0 55 1 0 44 0 49 1 0 16 0 37 0
+                                         9 1 0 16 0 17 1 0 26 26 34 1 0 44 0 49
+                                         1 0 50 0 55 1 0 0 50 56 1 0 16 0 37 0
                                          0 0 1 2 0 0 0 0 25 0 0 0 1 2 0 16 0 0
                                          40 2 0 0 0 0 23)))))
            '|lookupComplete|)) 

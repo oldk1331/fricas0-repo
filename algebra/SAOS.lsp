@@ -77,12 +77,12 @@
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
                  (CONS
-                  '#(|OrderedSet&| NIL |SetCategory&| |Hashable&| |BasicType&|
-                     |PartialOrder&| NIL)
+                  '#(|OrderedSet&| NIL |Hashable&| |SetCategory&| NIL
+                     |PartialOrder&| |BasicType&|)
                   (CONS
-                   '#((|OrderedSet|) (|Comparable|) (|SetCategory|)
-                      (|Hashable|) (|BasicType|) (|PartialOrder|)
-                      (|CoercibleTo| 10))
+                   '#((|OrderedSet|) (|Comparable|) (|Hashable|)
+                      (|SetCategory|) (|CoercibleTo| 10) (|PartialOrder|)
+                      (|BasicType|))
                    (|makeByteWordVec2| 22
                                        '(1 10 0 9 11 1 16 0 9 17 2 20 19 19 0
                                          21 2 0 7 0 0 1 2 0 7 0 0 1 2 0 0 0 0

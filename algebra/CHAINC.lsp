@@ -157,9 +157,9 @@
               |homology| 91 |coerce| 96 |chainComplex| 101 = 106)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
-                 (CONS '#(|SetCategory&| |BasicType&| NIL)
+                 (CONS '#(|SetCategory&| NIL |BasicType&|)
                        (CONS
-                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 17))
+                        '#((|SetCategory|) (|CoercibleTo| 17) (|BasicType|))
                         (|makeByteWordVec2| 34
                                             '(1 11 10 0 12 1 11 10 0 13 2 10 14
                                               0 0 15 1 17 0 16 18 1 10 17 0 19

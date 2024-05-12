@@ -352,9 +352,9 @@
               |homology| 182 |dispGenerators| 189 |coerce| 194 = 199)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
-                 (CONS '#(|SetCategory&| |BasicType&| NIL)
+                 (CONS '#(|SetCategory&| NIL |BasicType&|)
                        (CONS
-                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 11))
+                        '#((|SetCategory|) (|CoercibleTo| 11) (|BasicType|))
                         (|makeByteWordVec2| 58
                                             '(2 8 7 0 0 9 1 11 0 10 12 1 8 11 0
                                               13 2 11 0 0 0 14 1 11 15 0 16 2

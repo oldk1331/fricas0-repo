@@ -441,8 +441,8 @@
               (123 . |last|) (128 . |convert|) |INFORM;binary;%L%;21|
               (133 . |new|) (139 . |cons|) |INFORM;function;%LS%;23| (145 . =)
               |INFORM;+;3%;24| |INFORM;*;3%;25| |INFORM;^;%I%;26|
-              |INFORM;^;%Nni%;27| |INFORM;/;3%;28| (|List| 8) (|HashState|)
-              (|SingleInteger|) (|OutputForm|))
+              |INFORM;^;%Nni%;27| |INFORM;/;3%;28| (|OutputForm|)
+              (|SingleInteger|) (|HashState|) (|List| 8))
            '#(|unparse| 151 |symbol?| 156 |symbol| 161 |string?| 166 |string|
               171 |parse| 176 |lambda| 181 |interpret_in_new_env| 187
               |interpret| 192 |function| 197 |flatten| 204 |destruct| 209
@@ -452,11 +452,11 @@
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
                  (CONS
-                  '#(NIL |SetCategory&| |Hashable&| NIL NIL |BasicType&| NIL)
+                  '#(NIL |Hashable&| |SetCategory&| NIL |BasicType&| NIL NIL)
                   (CONS
-                   '#((|SExpressionCategory| 43 15 8 27) (|SetCategory|)
-                      (|Hashable|) (|ConvertibleTo| $$) (|ConvertibleTo| 5)
-                      (|BasicType|) (|CoercibleTo| 74))
+                   '#((|SExpressionCategory| 43 15 8 27) (|Hashable|)
+                      (|SetCategory|) (|CoercibleTo| 71) (|BasicType|)
+                      (|ConvertibleTo| 5) (|ConvertibleTo| $$))
                    (|makeByteWordVec2| 70
                                        '(1 0 0 8 9 1 15 14 0 16 1 5 0 18 19 2
                                          23 0 5 22 24 1 6 0 27 28 1 0 30 0 31 1
@@ -472,11 +472,11 @@
                                          0 47 1 0 0 43 52 2 0 0 0 20 21 1 0 23
                                          0 25 1 0 23 0 26 3 0 0 0 20 15 64 1 0
                                          0 0 42 1 0 18 0 32 1 0 15 18 53 1 0 0
-                                         5 13 1 0 0 0 7 1 0 5 0 12 1 0 0 27 29
-                                         1 0 0 15 17 1 0 0 8 9 1 0 0 18 60 2 0
+                                         18 60 1 0 0 8 9 1 0 0 15 17 1 0 0 27
+                                         29 1 0 5 0 12 1 0 0 0 7 1 0 0 5 13 2 0
                                          15 15 18 56 1 0 0 0 55 1 0 0 0 54 2 0
-                                         0 0 18 61 1 0 30 0 31 2 0 0 0 57 69 2
-                                         0 0 0 8 68 0 0 0 10 0 0 0 11 2 0 30 0
-                                         0 65 2 0 0 0 0 70 2 0 0 0 0 66 2 0 0 0
-                                         0 67)))))
+                                         0 0 18 61 1 0 30 0 31 2 0 0 0 8 68 2 0
+                                         0 0 57 69 0 0 0 10 0 0 0 11 2 0 30 0 0
+                                         65 2 0 0 0 0 70 2 0 0 0 0 66 2 0 0 0 0
+                                         67)))))
            '|lookupIncomplete|)) 

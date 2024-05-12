@@ -782,7 +782,7 @@
 ; resolveTTCC(t1,t2) ==
 ;   -- tries to use canCoerceFrom information to see if types can be
 ;   -- coerced to one another
-;   gt21 := GGREATERP(t2,t1)
+;   gt21 := lt_sexp(t1, t2)
 ;   (c12 := canCoerceFrom(t1,t2)) and gt21 => t2
 ;   c21 := canCoerceFrom(t2,t1)
 ;   null (c12 or c21) => NIL
@@ -795,7 +795,7 @@
   (PROG (|gt21| |c12| |c21|)
     (RETURN
      (PROGN
-      (SETQ |gt21| (GGREATERP |t2| |t1|))
+      (SETQ |gt21| (|lt_sexp| |t1| |t2|))
       (COND ((AND (SETQ |c12| (|canCoerceFrom| |t1| |t2|)) |gt21|) |t2|)
             (#1='T
              (PROGN

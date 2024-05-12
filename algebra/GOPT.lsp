@@ -180,9 +180,9 @@
               184)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
-                 (CONS '#(|SetCategory&| |BasicType&| NIL)
+                 (CONS '#(|SetCategory&| NIL |BasicType&|)
                        (CONS
-                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 52))
+                        '#((|SetCategory|) (|CoercibleTo| 52) (|BasicType|))
                         (|makeByteWordVec2| 62
                                             '(1 9 7 8 10 1 18 7 17 19 1 22 7 21
                                               23 1 25 7 14 26 1 30 7 29 31 1 36

@@ -121,9 +121,9 @@
               (46 . |bracket|) |LOOP;coerce;%Of;5| (|String|))
            '#(~= 51 |loop| 57 |latex| 62 |entries| 67 |coerce| 72 = 77) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
-                 (CONS '#(|SetCategory&| |BasicType&| NIL)
+                 (CONS '#(|SetCategory&| NIL |BasicType&|)
                        (CONS
-                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 18))
+                        '#((|SetCategory|) (|CoercibleTo| 18) (|BasicType|))
                         (|makeByteWordVec2| 27
                                             '(2 7 0 0 0 8 1 6 0 7 9 1 6 7 0 11
                                               1 6 13 0 14 2 13 15 0 0 16 0 18 0

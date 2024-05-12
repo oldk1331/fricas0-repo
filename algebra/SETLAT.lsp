@@ -141,16 +141,16 @@
               |\\/| 72 = 78 |/\\| 84)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0))
-                 (CONS '#(NIL NIL NIL |SetCategory&| |BasicType&| NIL)
+                 (CONS '#(NIL NIL NIL |SetCategory&| NIL |BasicType&|)
                        (CONS
-                        '#((|Lattice|) (|MeetSemilattice|) (|JoinSemilattice|)
-                           (|SetCategory|) (|BasicType|) (|CoercibleTo| 22))
+                        '#((|Lattice|) (|JoinSemilattice|) (|MeetSemilattice|)
+                           (|SetCategory|) (|CoercibleTo| 22) (|BasicType|))
                         (|makeByteWordVec2| 29
                                             '(2 9 0 0 0 11 2 9 0 0 0 13 2 6 15
                                               0 0 16 2 9 0 0 6 17 1 6 22 0 23 2
                                               24 0 0 22 25 1 22 0 26 27 2 0 15
-                                              0 0 21 1 0 0 9 10 1 0 29 0 1 1 0
-                                              0 0 18 2 0 0 0 9 19 1 0 22 0 28 2
+                                              0 0 21 1 0 0 9 10 1 0 29 0 1 2 0
+                                              0 0 9 19 1 0 0 0 18 1 0 22 0 28 2
                                               0 0 0 0 14 2 0 15 0 0 20 2 0 0 0
                                               0 12)))))
            '|lookupComplete|)) 

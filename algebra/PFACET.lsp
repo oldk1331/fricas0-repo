@@ -220,22 +220,22 @@
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
                  (CONS
-                  '#(|FacetCategory&| |OrderedSet&| NIL |SetCategory&|
-                     |PartialOrder&| |BasicType&| NIL)
+                  '#(|FacetCategory&| |OrderedSet&| NIL |SetCategory&| NIL
+                     |BasicType&| |PartialOrder&|)
                   (CONS
                    '#((|FacetCategory|) (|OrderedSet|) (|Comparable|)
-                      (|SetCategory|) (|PartialOrder|) (|BasicType|)
-                      (|CoercibleTo| 27))
+                      (|SetCategory|) (|CoercibleTo| 27) (|BasicType|)
+                      (|PartialOrder|))
                    (|makeByteWordVec2| 37
                                        '(1 11 9 0 12 2 9 0 0 8 21 2 7 23 0 0 24
                                          1 27 0 26 28 1 7 27 0 29 2 27 0 0 0 30
                                          1 15 27 0 31 1 27 0 32 33 2 34 0 0 27
                                          35 1 27 0 32 36 2 0 23 0 0 1 2 0 23 0
-                                         0 1 2 0 0 0 7 20 2 0 0 7 9 10 2 0 0 7
-                                         11 13 1 0 15 0 18 2 0 0 0 0 1 2 0 0 0
-                                         0 1 1 0 26 0 1 1 0 7 0 19 1 0 15 0 17
-                                         1 0 15 0 16 1 0 9 0 14 1 0 23 0 1 1 0
-                                         27 0 37 2 0 0 0 8 22 2 0 23 0 0 1 2 0
-                                         23 0 0 1 2 0 23 0 0 25 2 0 23 0 0 1 2
-                                         0 23 0 0 1)))))
+                                         0 1 2 0 0 0 7 20 2 0 0 7 11 13 2 0 0 7
+                                         9 10 1 0 15 0 18 2 0 0 0 0 1 2 0 0 0 0
+                                         1 1 0 26 0 1 1 0 7 0 19 1 0 15 0 17 1
+                                         0 15 0 16 1 0 9 0 14 1 0 23 0 1 1 0 27
+                                         0 37 2 0 0 0 8 22 2 0 23 0 0 1 2 0 23
+                                         0 0 1 2 0 23 0 0 25 2 0 23 0 0 1 2 0
+                                         23 0 0 1)))))
            '|lookupComplete|)) 

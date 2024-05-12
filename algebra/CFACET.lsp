@@ -497,12 +497,12 @@
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
                  (CONS
-                  '#(|FacetCategory&| |OrderedSet&| NIL |SetCategory&|
-                     |PartialOrder&| |BasicType&| NIL)
+                  '#(|FacetCategory&| |OrderedSet&| NIL |SetCategory&| NIL
+                     |BasicType&| |PartialOrder&|)
                   (CONS
                    '#((|FacetCategory|) (|OrderedSet|) (|Comparable|)
-                      (|SetCategory|) (|PartialOrder|) (|BasicType|)
-                      (|CoercibleTo| 54))
+                      (|SetCategory|) (|CoercibleTo| 54) (|BasicType|)
+                      (|PartialOrder|))
                    (|makeByteWordVec2| 60
                                        '(1 8 7 0 9 1 8 7 0 10 2 8 0 7 7 11 2 12
                                          0 0 8 13 2 7 15 0 0 16 1 17 7 0 18 1
@@ -516,10 +516,10 @@
                                          0 0 0 7 28 2 0 15 0 0 49 2 0 0 0 0 33
                                          2 0 7 0 30 31 1 0 25 0 26 2 0 0 0 0 1
                                          2 0 0 0 0 1 1 0 53 0 1 1 0 7 0 27 1 0
-                                         12 0 24 1 0 15 0 40 2 0 0 7 21 23 2 0
-                                         0 7 19 20 2 0 0 7 12 14 1 0 54 0 60 1
-                                         0 30 0 39 3 0 30 0 25 25 47 2 0 30 0
-                                         25 46 2 0 15 0 0 1 2 0 15 0 0 1 2 0 15
+                                         12 0 24 1 0 15 0 40 2 0 0 7 12 14 2 0
+                                         0 7 19 20 2 0 0 7 21 23 1 0 54 0 60 1
+                                         0 30 0 39 2 0 30 0 25 46 3 0 30 0 25
+                                         25 47 2 0 15 0 0 1 2 0 15 0 0 1 2 0 15
                                          0 0 52 2 0 15 0 0 51 2 0 15 0 0
                                          50)))))
            '|lookupComplete|)) 
