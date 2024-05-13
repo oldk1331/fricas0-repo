@@ -83,7 +83,7 @@
 ;     if not(spadroot) then
 ;         bin_parent_dir := STRCONC(DIRECTORY_-NAMESTRING(first(getCLArgs())),
 ;                                   '"/../")
-;         if fricas_probe_file(STRCONC(binparent_dir, '"algebra/interp.daase"))
+;         if fricas_probe_file(STRCONC(bin_parent_dir, '"algebra/interp.daase"))
 ;         then spadroot := bin_parent_dir
 ;         else ERROR("Environment variable FRICAS is not set!")
 ;     spadroot := fricas_probe_file(spadroot)
@@ -103,7 +103,7 @@
                 (STRCONC (DIRECTORY-NAMESTRING (CAR (|getCLArgs|))) "/../"))
         (COND
          ((|fricas_probe_file|
-           (STRCONC |binparent_dir| "algebra/interp.daase"))
+           (STRCONC |bin_parent_dir| "algebra/interp.daase"))
           (SETQ |spadroot| |bin_parent_dir|))
          (#1='T (ERROR '|Environment variable FRICAS is not set!|)))))
       (SETQ |spadroot| (|fricas_probe_file| |spadroot|))
