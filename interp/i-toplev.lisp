@@ -85,7 +85,7 @@
 ;                                   '"/../")
 ;         if fricas_probe_file(STRCONC(bin_parent_dir, '"algebra/interp.daase"))
 ;         then spadroot := bin_parent_dir
-;         else ERROR("Environment variable FRICAS is not set!")
+;         else ERROR('"Environment variable FRICAS is not set!")
 ;     spadroot := fricas_probe_file(spadroot)
 ;     if spadroot then
 ;         reroot(trim_directory_name(NAMESTRING(spadroot)))
@@ -105,7 +105,7 @@
          ((|fricas_probe_file|
            (STRCONC |bin_parent_dir| "algebra/interp.daase"))
           (SETQ |spadroot| |bin_parent_dir|))
-         (#1='T (ERROR '|Environment variable FRICAS is not set!|)))))
+         (#1='T (ERROR "Environment variable FRICAS is not set!")))))
       (SETQ |spadroot| (|fricas_probe_file| |spadroot|))
       (COND
        (|spadroot| (|reroot| (|trim_directory_name| (NAMESTRING |spadroot|))))
