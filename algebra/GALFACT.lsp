@@ -234,7 +234,7 @@
               (|PrimitiveArray| (|PrimeField| |pp|))))))
           (|pF|
            (|Join| (|FiniteFieldCategory|) (|FiniteAlgebraicExtensionField| %)
-                   (|ConvertibleTo| (|Integer|))
+                   (|ConvertibleTo| (|Integer|)) (|Canonical|)
                    (CATEGORY |domain| (SIGNATURE |sqrt| (% %)))))
           (|pp| (|PositiveInteger|)) (#2=#:G112 NIL))
          (SEQ
@@ -385,7 +385,7 @@
               (|PrimitiveArray| (|PrimeField| |pp|))))))
           (|pF|
            (|Join| (|FiniteFieldCategory|) (|FiniteAlgebraicExtensionField| %)
-                   (|ConvertibleTo| (|Integer|))
+                   (|ConvertibleTo| (|Integer|)) (|Canonical|)
                    (CATEGORY |domain| (SIGNATURE |sqrt| (% %)))))
           (|pp| (|PositiveInteger|)) (#3=#:G140 NIL)
           (|sfl| (|List| (|Mapping| (|List| (|U32Vector|))))) (#4=#:G135 NIL)

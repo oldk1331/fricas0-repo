@@ -136,8 +136,10 @@
           (|ups|
            (|Join| (|UnivariatePolynomialCategory| |sae|)
                    (CATEGORY |domain|
-                    (SIGNATURE |outputForm|
-                     ((|OutputForm|) % (|OutputForm|))))))
+                    (SIGNATURE |outputForm| ((|OutputForm|) % (|OutputForm|)))
+                    (IF (|has| |sae| (|Canonical|))
+                        (ATTRIBUTE (|Canonical|))
+                        |noBranch|))))
           (|sae|
            (|Join|
             (|MonogenicAlgebra| #7=(|AlgebraicNumber|)

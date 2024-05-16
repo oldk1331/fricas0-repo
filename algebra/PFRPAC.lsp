@@ -90,8 +90,11 @@
                         |noBranch|))))
           (|up|
            (|Join|
-            (|UnivariatePolynomialCategory| (|Fraction| (|Polynomial| R)))
-            (CATEGORY |domain| (SIGNATURE |coerce| (% (|Variable| |v|)))))))
+            (|UnivariatePolynomialCategory| #9=(|Fraction| (|Polynomial| R)))
+            (CATEGORY |domain| (SIGNATURE |coerce| (% (|Variable| |v|)))
+             (IF (|has| #9# (|Canonical|))
+                 (ATTRIBUTE (|Canonical|))
+                 |noBranch|)))))
          (SEQ
           (LETT |up|
                 (|UnivariatePolynomial| |v|

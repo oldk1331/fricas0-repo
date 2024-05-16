@@ -75,14 +75,14 @@
               |hash| 51 |create| 56 |convert| 60 |coerce| 65 >= 70 > 76 = 82 <=
               88 < 94)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0))
                  (CONS
                   '#(|OrderedSet&| NIL |Hashable&| |SetCategory&| NIL
-                     |PartialOrder&| |BasicType&|)
+                     |PartialOrder&| |BasicType&| NIL)
                   (CONS
                    '#((|OrderedSet|) (|Comparable|) (|Hashable|)
                       (|SetCategory|) (|CoercibleTo| 10) (|PartialOrder|)
-                      (|BasicType|))
+                      (|BasicType|) (|Canonical|))
                    (|makeByteWordVec2| 22
                                        '(1 10 0 9 11 1 16 0 9 17 2 20 19 19 0
                                          21 2 0 7 0 0 1 2 0 7 0 0 1 2 0 0 0 0

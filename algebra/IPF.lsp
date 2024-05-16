@@ -464,7 +464,7 @@
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|FiniteAlgebraicExtensionField&| |ExtensionField&|
                 |FiniteFieldCategory&| |FieldOfPrimeCharacteristic&| |Field&|
@@ -479,7 +479,7 @@
                 |NonAssociativeSemiRng&| |MagmaWithUnit&| NIL |Finite&|
                 |AbelianSemiGroup&| |Magma&| NIL NIL |SetCategory&| NIL
                 |Hashable&| |RetractableTo&| NIL |BasicType&| NIL NIL NIL NIL
-                NIL NIL NIL NIL)
+                NIL NIL NIL NIL NIL)
              (CONS
               '#((|FiniteAlgebraicExtensionField| $$) (|ExtensionField| $$)
                  (|FiniteFieldCategory|) (|FieldOfPrimeCharacteristic|)
@@ -505,7 +505,7 @@
                  (|unitsKnown|) (|TwoSidedRecip|) (|noZeroDivisors|)
                  (|canonicalUnitNormal|) (|canonicalsClosed|)
                  (|ConvertibleTo| 111) (|CoercibleFrom| $$)
-                 (|ConvertibleTo| 22))
+                 (|ConvertibleTo| 22) (|Canonical|))
               (|makeByteWordVec2| 95
                                   '(0 12 0 13 0 0 0 16 2 0 17 0 0 18 1 0 19 0
                                     20 1 22 21 0 23 1 26 25 0 27 0 0 0 28 1 0
