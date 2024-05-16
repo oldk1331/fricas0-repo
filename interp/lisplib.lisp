@@ -87,7 +87,7 @@
 ; loadLib cname ==
 ;   startTimingProcess 'load
 ;   fullLibName := get_database(cname, 'OBJECT) or return nil
-;   systemdir? := isSystemDirectory(pathnameDirectory fullLibName)
+;   systemdir? := isSystemDirectory(fullLibName)
 ;   update? := not systemdir?
 ;   loadLibNoUpdate1(cname, fullLibName)
 ;   kind := get_database(cname, 'CONSTRUCTORKIND)
@@ -101,8 +101,7 @@
      (PROGN
       (|startTimingProcess| '|load|)
       (SETQ |fullLibName| (OR (|get_database| |cname| 'OBJECT) (RETURN NIL)))
-      (SETQ |systemdir?|
-              (|isSystemDirectory| (|pathnameDirectory| |fullLibName|)))
+      (SETQ |systemdir?| (|isSystemDirectory| |fullLibName|))
       (SETQ |update?| (NULL |systemdir?|))
       (|loadLibNoUpdate1| |cname| |fullLibName|)
       (SETQ |kind| (|get_database| |cname| 'CONSTRUCTORKIND))
