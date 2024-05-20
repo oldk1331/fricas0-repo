@@ -594,7 +594,7 @@
                 ((NULL
                   (SPADCALL |s|
                             (SPADCALL (SPADCALL |upxs| (QREFELT % 98))
-                                      (QREFELT % 137))
+                                      (QREFELT % 144))
                             (QREFELT % 138)))
                  (SPADCALL
                   (CONS #'|UPXSCONS;integrate;%S%;57!0| (VECTOR % |s|)) |upxs|
@@ -618,7 +618,7 @@
          (SEQ (LETT |num| (SPADCALL |q| (QREFELT % 37)))
               (LETT |den| (SPADCALL |q| (QREFELT % 36)))
               (EXIT
-               (COND ((EQL |den| 1) (SPADCALL |upxs| |num| (QREFELT % 144)))
+               (COND ((EQL |den| 1) (SPADCALL |upxs| |num| (QREFELT % 145)))
                      ('T
                       (SEQ (LETT |r| (SPADCALL |upxs| (QREFELT % 12)))
                            (LETT |uls| (SPADCALL |upxs| (QREFELT % 11)))
@@ -673,13 +673,13 @@
               (LETT |deg| (SPADCALL |lr| 1 (QREFELT % 85)))
               (EXIT
                (COND
-                ((SPADCALL |deg| 0 (QREFELT % 146))
+                ((SPADCALL |deg| 0 (QREFELT % 147))
                  (SPADCALL |rp| (SPADCALL |lr| |fn|) (QREFELT % 10)))
                 (#2='T
                  (SEQ (LETT |c0| (SPADCALL |lr| 0 (QREFELT % 83)))
                       (EXIT
                        (COND
-                        ((SPADCALL (SPADCALL |c0| |c0| (QREFELT % 147)) |cc|
+                        ((SPADCALL (SPADCALL |c0| |c0| (QREFELT % 148)) |cc|
                                    (QREFELT % 103))
                          (SEQ
                           (LETT |deg1|
@@ -692,7 +692,7 @@
                            (COND
                             ((ODDP |deg1|)
                              (SPADCALL
-                              (SPADCALL |rp| (SPADCALL 2 (QREFELT % 148))
+                              (SPADCALL |rp| (SPADCALL 2 (QREFELT % 149))
                                         (QREFELT % 64))
                               (SPADCALL (SPADCALL |lr| 2 (QREFELT % 39)) |fn|)
                               (QREFELT % 10)))
@@ -704,84 +704,84 @@
                                    (QREFELT % 10)))))))))))) 
 
 (SDEFUN |UPXSCONS;exp;2%;61| ((|upxs| (%)) (% (%)))
-        (|UPXSCONS;applyUnary| (ELT % 149) |upxs| %)) 
+        (|UPXSCONS;applyUnary| (ELT % 150) |upxs| %)) 
 
 (SDEFUN |UPXSCONS;log;2%;62| ((|upxs| (%)) (% (%)))
-        (|UPXSCONS;applyUnary| (ELT % 151) |upxs| %)) 
+        (|UPXSCONS;applyUnary| (ELT % 152) |upxs| %)) 
 
 (SDEFUN |UPXSCONS;sin;2%;63| ((|upxs| (%)) (% (%)))
-        (|UPXSCONS;applyUnary| (ELT % 153) |upxs| %)) 
+        (|UPXSCONS;applyUnary| (ELT % 154) |upxs| %)) 
 
 (SDEFUN |UPXSCONS;cos;2%;64| ((|upxs| (%)) (% (%)))
-        (|UPXSCONS;applyUnary| (ELT % 155) |upxs| %)) 
+        (|UPXSCONS;applyUnary| (ELT % 156) |upxs| %)) 
 
 (SDEFUN |UPXSCONS;tan;2%;65| ((|upxs| (%)) (% (%)))
-        (|UPXSCONS;applyUnary| (ELT % 157) |upxs| %)) 
+        (|UPXSCONS;applyUnary| (ELT % 158) |upxs| %)) 
 
 (SDEFUN |UPXSCONS;cot;2%;66| ((|upxs| (%)) (% (%)))
-        (|UPXSCONS;applyUnary| (ELT % 159) |upxs| %)) 
+        (|UPXSCONS;applyUnary| (ELT % 160) |upxs| %)) 
 
 (SDEFUN |UPXSCONS;sec;2%;67| ((|upxs| (%)) (% (%)))
-        (|UPXSCONS;applyUnary| (ELT % 161) |upxs| %)) 
+        (|UPXSCONS;applyUnary| (ELT % 162) |upxs| %)) 
 
 (SDEFUN |UPXSCONS;csc;2%;68| ((|upxs| (%)) (% (%)))
-        (|UPXSCONS;applyUnary| (ELT % 163) |upxs| %)) 
+        (|UPXSCONS;applyUnary| (ELT % 164) |upxs| %)) 
 
 (SDEFUN |UPXSCONS;asin;2%;69| ((|upxs| (%)) (% (%)))
-        (|UPXSCONS;app_with_sqrt| (ELT % 165) |upxs| (|spadConstant| % 18) %)) 
+        (|UPXSCONS;app_with_sqrt| (ELT % 166) |upxs| (|spadConstant| % 18) %)) 
 
 (SDEFUN |UPXSCONS;acos;2%;70| ((|upxs| (%)) (% (%)))
-        (|UPXSCONS;app_with_sqrt| (ELT % 167) |upxs| (|spadConstant| % 18) %)) 
+        (|UPXSCONS;app_with_sqrt| (ELT % 168) |upxs| (|spadConstant| % 18) %)) 
 
 (SDEFUN |UPXSCONS;atan;2%;71| ((|upxs| (%)) (% (%)))
-        (|UPXSCONS;applyUnary| (ELT % 169) |upxs| %)) 
+        (|UPXSCONS;applyUnary| (ELT % 170) |upxs| %)) 
 
 (SDEFUN |UPXSCONS;acot;2%;72| ((|upxs| (%)) (% (%)))
-        (|UPXSCONS;applyUnary| (ELT % 171) |upxs| %)) 
+        (|UPXSCONS;applyUnary| (ELT % 172) |upxs| %)) 
 
 (SDEFUN |UPXSCONS;asec;2%;73| ((|upxs| (%)) (% (%)))
-        (|UPXSCONS;app_with_sqrt| (ELT % 173) |upxs| (|spadConstant| % 18) %)) 
+        (|UPXSCONS;app_with_sqrt| (ELT % 174) |upxs| (|spadConstant| % 18) %)) 
 
 (SDEFUN |UPXSCONS;acsc;2%;74| ((|upxs| (%)) (% (%)))
-        (|UPXSCONS;app_with_sqrt| (ELT % 175) |upxs| (|spadConstant| % 18) %)) 
+        (|UPXSCONS;app_with_sqrt| (ELT % 176) |upxs| (|spadConstant| % 18) %)) 
 
 (SDEFUN |UPXSCONS;sinh;2%;75| ((|upxs| (%)) (% (%)))
-        (|UPXSCONS;applyUnary| (ELT % 177) |upxs| %)) 
+        (|UPXSCONS;applyUnary| (ELT % 178) |upxs| %)) 
 
 (SDEFUN |UPXSCONS;cosh;2%;76| ((|upxs| (%)) (% (%)))
-        (|UPXSCONS;applyUnary| (ELT % 179) |upxs| %)) 
+        (|UPXSCONS;applyUnary| (ELT % 180) |upxs| %)) 
 
 (SDEFUN |UPXSCONS;tanh;2%;77| ((|upxs| (%)) (% (%)))
-        (|UPXSCONS;applyUnary| (ELT % 181) |upxs| %)) 
+        (|UPXSCONS;applyUnary| (ELT % 182) |upxs| %)) 
 
 (SDEFUN |UPXSCONS;coth;2%;78| ((|upxs| (%)) (% (%)))
-        (|UPXSCONS;applyUnary| (ELT % 183) |upxs| %)) 
+        (|UPXSCONS;applyUnary| (ELT % 184) |upxs| %)) 
 
 (SDEFUN |UPXSCONS;sech;2%;79| ((|upxs| (%)) (% (%)))
-        (|UPXSCONS;applyUnary| (ELT % 185) |upxs| %)) 
+        (|UPXSCONS;applyUnary| (ELT % 186) |upxs| %)) 
 
 (SDEFUN |UPXSCONS;csch;2%;80| ((|upxs| (%)) (% (%)))
-        (|UPXSCONS;applyUnary| (ELT % 187) |upxs| %)) 
+        (|UPXSCONS;applyUnary| (ELT % 188) |upxs| %)) 
 
 (SDEFUN |UPXSCONS;asinh;2%;81| ((|upxs| (%)) (% (%)))
-        (|UPXSCONS;app_with_sqrt| (ELT % 189) |upxs|
-         (SPADCALL (|spadConstant| % 18) (QREFELT % 190)) %)) 
+        (|UPXSCONS;app_with_sqrt| (ELT % 190) |upxs|
+         (SPADCALL (|spadConstant| % 18) (QREFELT % 191)) %)) 
 
 (SDEFUN |UPXSCONS;acosh;2%;82| ((|upxs| (%)) (% (%)))
-        (|UPXSCONS;app_with_sqrt| (ELT % 192) |upxs| (|spadConstant| % 18) %)) 
+        (|UPXSCONS;app_with_sqrt| (ELT % 193) |upxs| (|spadConstant| % 18) %)) 
 
 (SDEFUN |UPXSCONS;atanh;2%;83| ((|upxs| (%)) (% (%)))
-        (|UPXSCONS;applyUnary| (ELT % 194) |upxs| %)) 
+        (|UPXSCONS;applyUnary| (ELT % 195) |upxs| %)) 
 
 (SDEFUN |UPXSCONS;acoth;2%;84| ((|upxs| (%)) (% (%)))
-        (|UPXSCONS;applyUnary| (ELT % 196) |upxs| %)) 
+        (|UPXSCONS;applyUnary| (ELT % 197) |upxs| %)) 
 
 (SDEFUN |UPXSCONS;asech;2%;85| ((|upxs| (%)) (% (%)))
-        (|UPXSCONS;app_with_sqrt| (ELT % 198) |upxs| (|spadConstant| % 18) %)) 
+        (|UPXSCONS;app_with_sqrt| (ELT % 199) |upxs| (|spadConstant| % 18) %)) 
 
 (SDEFUN |UPXSCONS;acsch;2%;86| ((|upxs| (%)) (% (%)))
-        (|UPXSCONS;app_with_sqrt| (ELT % 200) |upxs|
-         (SPADCALL (|spadConstant| % 18) (QREFELT % 190)) %)) 
+        (|UPXSCONS;app_with_sqrt| (ELT % 201) |upxs|
+         (SPADCALL (|spadConstant| % 18) (QREFELT % 191)) %)) 
 
 (DECLAIM (NOTINLINE |UnivariatePuiseuxSeriesConstructor;|)) 
 
@@ -815,7 +815,7 @@
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))
     (LETT |dv$| (LIST '|UnivariatePuiseuxSeriesConstructor| DV$1 DV$2))
-    (LETT % (GETREFV 217))
+    (LETT % (GETREFV 218))
     (QSETREFV % 0 |dv$|)
     (QSETREFV % 3
               (LETT |pv$|
@@ -1142,34 +1142,34 @@
                               %)))))))))
        (COND
         ((|testBitVector| |pv$| 7)
-         (QSETREFV % 145 (CONS (|dispatchFunction| |UPXSCONS;^;%F%;58|) %))))
+         (QSETREFV % 146 (CONS (|dispatchFunction| |UPXSCONS;^;%F%;58|) %))))
        NIL
-       (QSETREFV % 150 (CONS (|dispatchFunction| |UPXSCONS;exp;2%;61|) %))
-       (QSETREFV % 152 (CONS (|dispatchFunction| |UPXSCONS;log;2%;62|) %))
-       (QSETREFV % 154 (CONS (|dispatchFunction| |UPXSCONS;sin;2%;63|) %))
-       (QSETREFV % 156 (CONS (|dispatchFunction| |UPXSCONS;cos;2%;64|) %))
-       (QSETREFV % 158 (CONS (|dispatchFunction| |UPXSCONS;tan;2%;65|) %))
-       (QSETREFV % 160 (CONS (|dispatchFunction| |UPXSCONS;cot;2%;66|) %))
-       (QSETREFV % 162 (CONS (|dispatchFunction| |UPXSCONS;sec;2%;67|) %))
-       (QSETREFV % 164 (CONS (|dispatchFunction| |UPXSCONS;csc;2%;68|) %))
-       (QSETREFV % 166 (CONS (|dispatchFunction| |UPXSCONS;asin;2%;69|) %))
-       (QSETREFV % 168 (CONS (|dispatchFunction| |UPXSCONS;acos;2%;70|) %))
-       (QSETREFV % 170 (CONS (|dispatchFunction| |UPXSCONS;atan;2%;71|) %))
-       (QSETREFV % 172 (CONS (|dispatchFunction| |UPXSCONS;acot;2%;72|) %))
-       (QSETREFV % 174 (CONS (|dispatchFunction| |UPXSCONS;asec;2%;73|) %))
-       (QSETREFV % 176 (CONS (|dispatchFunction| |UPXSCONS;acsc;2%;74|) %))
-       (QSETREFV % 178 (CONS (|dispatchFunction| |UPXSCONS;sinh;2%;75|) %))
-       (QSETREFV % 180 (CONS (|dispatchFunction| |UPXSCONS;cosh;2%;76|) %))
-       (QSETREFV % 182 (CONS (|dispatchFunction| |UPXSCONS;tanh;2%;77|) %))
-       (QSETREFV % 184 (CONS (|dispatchFunction| |UPXSCONS;coth;2%;78|) %))
-       (QSETREFV % 186 (CONS (|dispatchFunction| |UPXSCONS;sech;2%;79|) %))
-       (QSETREFV % 188 (CONS (|dispatchFunction| |UPXSCONS;csch;2%;80|) %))
-       (QSETREFV % 191 (CONS (|dispatchFunction| |UPXSCONS;asinh;2%;81|) %))
-       (QSETREFV % 193 (CONS (|dispatchFunction| |UPXSCONS;acosh;2%;82|) %))
-       (QSETREFV % 195 (CONS (|dispatchFunction| |UPXSCONS;atanh;2%;83|) %))
-       (QSETREFV % 197 (CONS (|dispatchFunction| |UPXSCONS;acoth;2%;84|) %))
-       (QSETREFV % 199 (CONS (|dispatchFunction| |UPXSCONS;asech;2%;85|) %))
-       (QSETREFV % 201 (CONS (|dispatchFunction| |UPXSCONS;acsch;2%;86|) %)))))
+       (QSETREFV % 151 (CONS (|dispatchFunction| |UPXSCONS;exp;2%;61|) %))
+       (QSETREFV % 153 (CONS (|dispatchFunction| |UPXSCONS;log;2%;62|) %))
+       (QSETREFV % 155 (CONS (|dispatchFunction| |UPXSCONS;sin;2%;63|) %))
+       (QSETREFV % 157 (CONS (|dispatchFunction| |UPXSCONS;cos;2%;64|) %))
+       (QSETREFV % 159 (CONS (|dispatchFunction| |UPXSCONS;tan;2%;65|) %))
+       (QSETREFV % 161 (CONS (|dispatchFunction| |UPXSCONS;cot;2%;66|) %))
+       (QSETREFV % 163 (CONS (|dispatchFunction| |UPXSCONS;sec;2%;67|) %))
+       (QSETREFV % 165 (CONS (|dispatchFunction| |UPXSCONS;csc;2%;68|) %))
+       (QSETREFV % 167 (CONS (|dispatchFunction| |UPXSCONS;asin;2%;69|) %))
+       (QSETREFV % 169 (CONS (|dispatchFunction| |UPXSCONS;acos;2%;70|) %))
+       (QSETREFV % 171 (CONS (|dispatchFunction| |UPXSCONS;atan;2%;71|) %))
+       (QSETREFV % 173 (CONS (|dispatchFunction| |UPXSCONS;acot;2%;72|) %))
+       (QSETREFV % 175 (CONS (|dispatchFunction| |UPXSCONS;asec;2%;73|) %))
+       (QSETREFV % 177 (CONS (|dispatchFunction| |UPXSCONS;acsc;2%;74|) %))
+       (QSETREFV % 179 (CONS (|dispatchFunction| |UPXSCONS;sinh;2%;75|) %))
+       (QSETREFV % 181 (CONS (|dispatchFunction| |UPXSCONS;cosh;2%;76|) %))
+       (QSETREFV % 183 (CONS (|dispatchFunction| |UPXSCONS;tanh;2%;77|) %))
+       (QSETREFV % 185 (CONS (|dispatchFunction| |UPXSCONS;coth;2%;78|) %))
+       (QSETREFV % 187 (CONS (|dispatchFunction| |UPXSCONS;sech;2%;79|) %))
+       (QSETREFV % 189 (CONS (|dispatchFunction| |UPXSCONS;csch;2%;80|) %))
+       (QSETREFV % 192 (CONS (|dispatchFunction| |UPXSCONS;asinh;2%;81|) %))
+       (QSETREFV % 194 (CONS (|dispatchFunction| |UPXSCONS;acosh;2%;82|) %))
+       (QSETREFV % 196 (CONS (|dispatchFunction| |UPXSCONS;atanh;2%;83|) %))
+       (QSETREFV % 198 (CONS (|dispatchFunction| |UPXSCONS;acoth;2%;84|) %))
+       (QSETREFV % 200 (CONS (|dispatchFunction| |UPXSCONS;asech;2%;85|) %))
+       (QSETREFV % 202 (CONS (|dispatchFunction| |UPXSCONS;acsch;2%;86|) %)))))
     %))) 
 
 (MAKEPROP '|UnivariatePuiseuxSeriesConstructor| '|infovec|
@@ -1225,57 +1225,57 @@
               (377 . |integrate|) (|List| 94) (382 . |variables|)
               (387 . |entry?|) (393 . |integrate|) (399 . |integrate|)
               (|Union| 6 (|List| 6)) (|FunctionSpaceIntegration| 13 6)
-              (405 . |integrate|) (411 . ^) (417 . ^) (423 . ~=) (429 . *)
-              (435 . |coerce|) (440 . |exp|) (445 . |exp|) (450 . |log|)
-              (455 . |log|) (460 . |sin|) (465 . |sin|) (470 . |cos|)
-              (475 . |cos|) (480 . |tan|) (485 . |tan|) (490 . |cot|)
-              (495 . |cot|) (500 . |sec|) (505 . |sec|) (510 . |csc|)
-              (515 . |csc|) (520 . |asin|) (525 . |asin|) (530 . |acos|)
-              (535 . |acos|) (540 . |atan|) (545 . |atan|) (550 . |acot|)
-              (555 . |acot|) (560 . |asec|) (565 . |asec|) (570 . |acsc|)
-              (575 . |acsc|) (580 . |sinh|) (585 . |sinh|) (590 . |cosh|)
-              (595 . |cosh|) (600 . |tanh|) (605 . |tanh|) (610 . |coth|)
-              (615 . |coth|) (620 . |sech|) (625 . |sech|) (630 . |csch|)
-              (635 . |csch|) (640 . |asinh|) (645 . -) (650 . |asinh|)
-              (655 . |acosh|) (660 . |acosh|) (665 . |atanh|) (670 . |atanh|)
-              (675 . |acoth|) (680 . |acoth|) (685 . |asech|) (690 . |asech|)
-              (695 . |acsch|) (700 . |acsch|) (|OutputForm|) (|String|)
-              (|List| 46) (|List| 60)
+              (405 . |integrate|) (411 . |variables|) (416 . ^) (422 . ^)
+              (428 . ~=) (434 . *) (440 . |coerce|) (445 . |exp|) (450 . |exp|)
+              (455 . |log|) (460 . |log|) (465 . |sin|) (470 . |sin|)
+              (475 . |cos|) (480 . |cos|) (485 . |tan|) (490 . |tan|)
+              (495 . |cot|) (500 . |cot|) (505 . |sec|) (510 . |sec|)
+              (515 . |csc|) (520 . |csc|) (525 . |asin|) (530 . |asin|)
+              (535 . |acos|) (540 . |acos|) (545 . |atan|) (550 . |atan|)
+              (555 . |acot|) (560 . |acot|) (565 . |asec|) (570 . |asec|)
+              (575 . |acsc|) (580 . |acsc|) (585 . |sinh|) (590 . |sinh|)
+              (595 . |cosh|) (600 . |cosh|) (605 . |tanh|) (610 . |tanh|)
+              (615 . |coth|) (620 . |coth|) (625 . |sech|) (630 . |sech|)
+              (635 . |csch|) (640 . |csch|) (645 . |asinh|) (650 . -)
+              (655 . |asinh|) (660 . |acosh|) (665 . |acosh|) (670 . |atanh|)
+              (675 . |atanh|) (680 . |acoth|) (685 . |acoth|) (690 . |asech|)
+              (695 . |asech|) (700 . |acsch|) (705 . |acsch|) (|OutputForm|)
+              (|String|) (|List| 46) (|List| 60)
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
-              (|Factored| %) (|Union| 209 '#1="failed") (|List| %)
+              (|Factored| %) (|Union| 210 '#1="failed") (|List| %)
               (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
-              (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 211 '#1#)
+              (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 212 '#1#)
               (|Record| (|:| |quotient| %) (|:| |remainder| %))
               (|SparseUnivariatePolynomial| %)
-              (|Record| (|:| |coef| 209) (|:| |generator| %))
+              (|Record| (|:| |coef| 210) (|:| |generator| %))
               (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %)))
-           '#(~= 705 |zero?| 711 |variable| 716 |unitNormal| 721
-              |unitCanonical| 726 |unit?| 731 |truncate| 736 |terms| 749 |tanh|
-              754 |tan| 759 |subtractIfCan| 764 |squareFreePart| 770
-              |squareFree| 775 |sqrt| 780 |sizeLess?| 785 |sinh| 791 |sin| 796
-              |series| 801 |sech| 807 |sec| 812 |sample| 817 |rightRecip| 821
-              |rightPower| 826 |retractIfCan| 838 |retract| 843 |rem| 848
-              |reductum| 854 |recip| 859 |rationalPower| 864 |quo| 869
-              |puiseux| 875 |principalIdeal| 881 |prime?| 886 |pole?| 891
-              |plenaryPower| 896 |pi| 902 |order| 906 |opposite?| 917 |one?|
-              923 |nthRoot| 928 |multiplyExponents| 934 |multiEuclidean| 946
-              |monomial?| 952 |monomial| 957 |map| 963 |log| 969 |leftRecip|
-              974 |leftPower| 979 |leadingTerm| 991 |leadingSupport| 996
-              |leadingMonomial| 1001 |leadingCoefficient| 1006 |lcmCoef| 1011
-              |lcm| 1017 |laurentRep| 1028 |laurentIfCan| 1033 |laurent| 1038
-              |latex| 1043 |inv| 1048 |integrate| 1053 |gcdPolynomial| 1064
-              |gcd| 1070 |factor| 1081 |extendedEuclidean| 1086 |extend| 1099
-              |exquo| 1105 |expressIdealMember| 1111 |exp| 1117 |eval| 1122
-              |euclideanSize| 1128 |elt| 1133 |divide| 1145 |differentiate|
-              1151 |degree| 1188 |csch| 1193 |csc| 1198 |coth| 1203 |cot| 1208
-              |cosh| 1213 |cos| 1218 |constructOrdered| 1223 |construct| 1228
-              |complete| 1233 |commutator| 1238 |coerce| 1244 |coefficient|
-              1274 |charthRoot| 1280 |characteristic| 1285 |center| 1289
-              |atanh| 1294 |atan| 1299 |associator| 1304 |associates?| 1311
-              |asinh| 1317 |asin| 1322 |asech| 1327 |asec| 1332 |approximate|
-              1337 |antiCommutator| 1343 |annihilate?| 1349 |acsch| 1355 |acsc|
-              1360 |acoth| 1365 |acot| 1370 |acosh| 1375 |acos| 1380 ^ 1385
-              |Zero| 1415 |One| 1419 D 1423 = 1460 / 1466 - 1478 + 1489 * 1495)
+           '#(~= 710 |zero?| 716 |variable| 721 |unitNormal| 726
+              |unitCanonical| 731 |unit?| 736 |truncate| 741 |terms| 754 |tanh|
+              759 |tan| 764 |subtractIfCan| 769 |squareFreePart| 775
+              |squareFree| 780 |sqrt| 785 |sizeLess?| 790 |sinh| 796 |sin| 801
+              |series| 806 |sech| 812 |sec| 817 |sample| 822 |rightRecip| 826
+              |rightPower| 831 |retractIfCan| 843 |retract| 848 |rem| 853
+              |reductum| 859 |recip| 864 |rationalPower| 869 |quo| 874
+              |puiseux| 880 |principalIdeal| 886 |prime?| 891 |pole?| 896
+              |plenaryPower| 901 |pi| 907 |order| 911 |opposite?| 922 |one?|
+              928 |nthRoot| 933 |multiplyExponents| 939 |multiEuclidean| 951
+              |monomial?| 957 |monomial| 962 |map| 968 |log| 974 |leftRecip|
+              979 |leftPower| 984 |leadingTerm| 996 |leadingSupport| 1001
+              |leadingMonomial| 1006 |leadingCoefficient| 1011 |lcmCoef| 1016
+              |lcm| 1022 |laurentRep| 1033 |laurentIfCan| 1038 |laurent| 1043
+              |latex| 1048 |inv| 1053 |integrate| 1058 |gcdPolynomial| 1069
+              |gcd| 1075 |factor| 1086 |extendedEuclidean| 1091 |extend| 1104
+              |exquo| 1110 |expressIdealMember| 1116 |exp| 1122 |eval| 1127
+              |euclideanSize| 1133 |elt| 1138 |divide| 1150 |differentiate|
+              1156 |degree| 1193 |csch| 1198 |csc| 1203 |coth| 1208 |cot| 1213
+              |cosh| 1218 |cos| 1223 |constructOrdered| 1228 |construct| 1233
+              |complete| 1238 |commutator| 1243 |coerce| 1249 |coefficient|
+              1279 |charthRoot| 1285 |characteristic| 1290 |center| 1294
+              |atanh| 1299 |atan| 1304 |associator| 1309 |associates?| 1316
+              |asinh| 1322 |asin| 1327 |asech| 1332 |asec| 1337 |approximate|
+              1342 |antiCommutator| 1348 |annihilate?| 1354 |acsch| 1360 |acsc|
+              1365 |acoth| 1370 |acot| 1375 |acosh| 1380 |acos| 1385 ^ 1390
+              |Zero| 1420 |One| 1424 D 1428 = 1465 / 1471 - 1483 + 1494 * 1500)
            'NIL
            (CONS
             (|makeByteWordVec2| 27
@@ -1334,9 +1334,9 @@
                  (|HyperbolicFunctionCategory|)
                  (|ArcTrigonometricFunctionCategory|)
                  (|TrigonometricFunctionCategory|) (|Eltable| $$ $$)
-                 (|CoercibleTo| 202) (|BasicType|)
+                 (|CoercibleTo| 203) (|BasicType|)
                  (|VariablesCommuteWithCoefficients|) (|CoercibleFrom| 7))
-              (|makeByteWordVec2| 216
+              (|makeByteWordVec2| 217
                                   '(1 7 13 0 14 2 9 0 0 13 15 0 6 0 18 0 9 0 19
                                     0 7 0 20 0 7 0 22 0 6 0 23 0 9 0 24 2 9 25
                                     0 0 26 2 9 25 0 0 28 1 9 0 0 29 2 7 0 6 13
@@ -1359,66 +1359,67 @@
                                     0 0 9 128 1 9 25 0 129 1 9 0 0 130 1 0 0 0
                                     131 2 9 0 0 0 132 2 7 0 133 0 134 1 0 0 0
                                     135 1 6 136 0 137 2 136 25 94 0 138 2 6 0 0
-                                    94 139 2 0 0 0 94 140 2 142 141 6 94 143 2
-                                    0 0 0 13 144 2 0 0 0 9 145 2 13 25 0 0 146
-                                    2 6 0 0 0 147 1 9 0 13 148 1 7 0 0 149 1 0
-                                    0 0 150 1 7 0 0 151 1 0 0 0 152 1 7 0 0 153
-                                    1 0 0 0 154 1 7 0 0 155 1 0 0 0 156 1 7 0 0
-                                    157 1 0 0 0 158 1 7 0 0 159 1 0 0 0 160 1 7
-                                    0 0 161 1 0 0 0 162 1 7 0 0 163 1 0 0 0 164
-                                    1 7 0 0 165 1 0 0 0 166 1 7 0 0 167 1 0 0 0
-                                    168 1 7 0 0 169 1 0 0 0 170 1 7 0 0 171 1 0
-                                    0 0 172 1 7 0 0 173 1 0 0 0 174 1 7 0 0 175
-                                    1 0 0 0 176 1 7 0 0 177 1 0 0 0 178 1 7 0 0
-                                    179 1 0 0 0 180 1 7 0 0 181 1 0 0 0 182 1 7
-                                    0 0 183 1 0 0 0 184 1 7 0 0 185 1 0 0 0 186
-                                    1 7 0 0 187 1 0 0 0 188 1 7 0 0 189 1 6 0 0
-                                    190 1 0 0 0 191 1 7 0 0 192 1 0 0 0 193 1 7
-                                    0 0 194 1 0 0 0 195 1 7 0 0 196 1 0 0 0 197
-                                    1 7 0 0 198 1 0 0 0 199 1 7 0 0 200 1 0 0 0
-                                    201 2 0 25 0 0 1 1 34 25 0 1 1 0 94 0 96 1
-                                    29 206 0 1 1 29 0 0 1 1 29 25 0 1 3 0 0 0 9
-                                    9 108 2 0 0 0 9 106 1 0 47 0 51 1 6 0 0 182
-                                    1 6 0 0 158 2 35 77 0 0 1 1 7 0 0 1 1 7 207
-                                    0 1 1 6 0 0 1 2 7 25 0 0 1 1 6 0 0 178 1 6
-                                    0 0 154 2 0 0 60 47 61 1 6 0 0 186 1 6 0 0
-                                    162 0 34 0 1 1 32 77 0 1 2 0 0 0 38 1 2 32
-                                    0 0 60 1 1 0 40 0 1 1 0 7 0 1 2 7 0 0 0 1 1
-                                    8 0 0 1 1 32 77 0 79 1 0 9 0 12 2 7 0 0 0 1
-                                    2 0 0 9 7 10 1 7 215 209 1 1 7 25 0 1 1 0
-                                    25 0 68 2 30 0 0 38 1 0 6 0 1 2 0 9 0 9 104
-                                    1 0 9 0 102 2 34 25 0 0 1 1 32 25 0 1 2 6 0
-                                    0 13 1 2 0 0 0 38 120 2 0 0 0 9 118 2 7 208
-                                    209 0 1 1 0 25 0 1 2 0 0 6 9 31 2 0 0 113 0
-                                    115 1 6 0 0 152 1 32 77 0 1 2 0 0 0 38 1 2
-                                    32 0 0 60 1 1 8 46 0 1 1 8 9 0 1 1 0 0 0 1
-                                    1 0 6 0 1 2 7 216 0 0 1 2 7 0 0 0 1 1 7 0
-                                    209 1 1 0 7 0 11 1 0 40 0 41 1 0 7 0 42 1 0
-                                    203 0 1 1 7 0 0 93 2 13 0 0 94 140 1 6 0 0
-                                    135 2 7 214 214 214 1 2 7 0 0 0 1 1 7 0 209
-                                    1 1 7 207 0 1 2 7 210 0 0 1 3 7 212 0 0 0 1
-                                    2 0 0 0 9 112 2 29 77 0 0 1 2 7 208 209 0 1
-                                    1 6 0 0 150 2 11 88 0 6 90 1 7 60 0 1 2 0 6
-                                    0 9 100 2 5 0 0 0 86 2 7 213 0 0 1 3 4 0 0
-                                    136 205 1 2 4 0 0 136 1 3 4 0 0 94 60 1 2 4
-                                    0 0 94 127 2 3 0 0 60 1 1 3 0 0 124 1 0 9 0
-                                    16 1 6 0 0 188 1 6 0 0 164 1 6 0 0 184 1 6
-                                    0 0 160 1 6 0 0 180 1 6 0 0 156 1 8 0 204 1
-                                    1 0 0 204 1 1 0 0 0 110 2 33 0 0 0 1 1 0
-                                    202 0 1 1 0 0 7 32 1 28 0 6 27 1 31 0 0 1 1
-                                    33 0 13 35 1 6 0 9 128 2 0 6 0 9 99 1 1 77
-                                    0 1 0 33 60 117 1 0 6 0 98 1 6 0 0 195 1 6
-                                    0 0 170 3 33 0 0 0 0 1 2 29 25 0 0 1 1 6 0
-                                    0 191 1 6 0 0 166 1 6 0 0 199 1 6 0 0 174 2
-                                    12 6 0 9 1 2 0 0 0 0 1 2 33 25 0 0 1 1 6 0
-                                    0 201 1 6 0 0 176 1 6 0 0 197 1 6 0 0 172 1
-                                    6 0 0 193 1 6 0 0 168 2 0 0 0 38 1 2 32 0 0
-                                    60 76 2 6 0 0 0 1 2 6 0 0 9 145 2 7 0 0 13
-                                    144 0 34 0 21 0 32 0 17 3 4 0 0 94 60 1 3 4
-                                    0 0 136 205 1 2 4 0 0 94 1 2 4 0 0 136 1 2
-                                    3 0 0 60 1 1 3 0 0 1 2 0 25 0 0 66 2 7 0 0
-                                    6 1 2 7 0 0 0 92 2 36 0 0 0 72 1 36 0 0 131
-                                    2 0 0 0 0 70 2 0 0 38 0 1 2 0 0 0 0 74 2 0
-                                    0 0 6 1 2 0 0 6 0 126 2 36 0 13 0 1 2 34 0
-                                    60 0 1 2 6 0 9 0 1 2 6 0 0 9 1)))))
+                                    94 139 2 0 0 0 94 140 2 142 141 6 94 143 1
+                                    6 136 0 144 2 0 0 0 13 145 2 0 0 0 9 146 2
+                                    13 25 0 0 147 2 6 0 0 0 148 1 9 0 13 149 1
+                                    7 0 0 150 1 0 0 0 151 1 7 0 0 152 1 0 0 0
+                                    153 1 7 0 0 154 1 0 0 0 155 1 7 0 0 156 1 0
+                                    0 0 157 1 7 0 0 158 1 0 0 0 159 1 7 0 0 160
+                                    1 0 0 0 161 1 7 0 0 162 1 0 0 0 163 1 7 0 0
+                                    164 1 0 0 0 165 1 7 0 0 166 1 0 0 0 167 1 7
+                                    0 0 168 1 0 0 0 169 1 7 0 0 170 1 0 0 0 171
+                                    1 7 0 0 172 1 0 0 0 173 1 7 0 0 174 1 0 0 0
+                                    175 1 7 0 0 176 1 0 0 0 177 1 7 0 0 178 1 0
+                                    0 0 179 1 7 0 0 180 1 0 0 0 181 1 7 0 0 182
+                                    1 0 0 0 183 1 7 0 0 184 1 0 0 0 185 1 7 0 0
+                                    186 1 0 0 0 187 1 7 0 0 188 1 0 0 0 189 1 7
+                                    0 0 190 1 6 0 0 191 1 0 0 0 192 1 7 0 0 193
+                                    1 0 0 0 194 1 7 0 0 195 1 0 0 0 196 1 7 0 0
+                                    197 1 0 0 0 198 1 7 0 0 199 1 0 0 0 200 1 7
+                                    0 0 201 1 0 0 0 202 2 0 25 0 0 1 1 34 25 0
+                                    1 1 0 94 0 96 1 29 207 0 1 1 29 0 0 1 1 29
+                                    25 0 1 3 0 0 0 9 9 108 2 0 0 0 9 106 1 0 47
+                                    0 51 1 6 0 0 183 1 6 0 0 159 2 35 77 0 0 1
+                                    1 7 0 0 1 1 7 208 0 1 1 6 0 0 1 2 7 25 0 0
+                                    1 1 6 0 0 179 1 6 0 0 155 2 0 0 60 47 61 1
+                                    6 0 0 187 1 6 0 0 163 0 34 0 1 1 32 77 0 1
+                                    2 0 0 0 38 1 2 32 0 0 60 1 1 0 40 0 1 1 0 7
+                                    0 1 2 7 0 0 0 1 1 8 0 0 1 1 32 77 0 79 1 0
+                                    9 0 12 2 7 0 0 0 1 2 0 0 9 7 10 1 7 216 210
+                                    1 1 7 25 0 1 1 0 25 0 68 2 30 0 0 38 1 0 6
+                                    0 1 2 0 9 0 9 104 1 0 9 0 102 2 34 25 0 0 1
+                                    1 32 25 0 1 2 6 0 0 13 1 2 0 0 0 38 120 2 0
+                                    0 0 9 118 2 7 209 210 0 1 1 0 25 0 1 2 0 0
+                                    6 9 31 2 0 0 113 0 115 1 6 0 0 153 1 32 77
+                                    0 1 2 0 0 0 38 1 2 32 0 0 60 1 1 8 46 0 1 1
+                                    8 9 0 1 1 0 0 0 1 1 0 6 0 1 2 7 217 0 0 1 2
+                                    7 0 0 0 1 1 7 0 210 1 1 0 7 0 11 1 0 40 0
+                                    41 1 0 7 0 42 1 0 204 0 1 1 7 0 0 93 2 13 0
+                                    0 94 140 1 6 0 0 135 2 7 215 215 215 1 2 7
+                                    0 0 0 1 1 7 0 210 1 1 7 208 0 1 2 7 211 0 0
+                                    1 3 7 213 0 0 0 1 2 0 0 0 9 112 2 29 77 0 0
+                                    1 2 7 209 210 0 1 1 6 0 0 151 2 11 88 0 6
+                                    90 1 7 60 0 1 2 0 6 0 9 100 2 5 0 0 0 86 2
+                                    7 214 0 0 1 3 4 0 0 136 206 1 2 4 0 0 136 1
+                                    3 4 0 0 94 60 1 2 4 0 0 94 127 2 3 0 0 60 1
+                                    1 3 0 0 124 1 0 9 0 16 1 6 0 0 189 1 6 0 0
+                                    165 1 6 0 0 185 1 6 0 0 161 1 6 0 0 181 1 6
+                                    0 0 157 1 8 0 205 1 1 0 0 205 1 1 0 0 0 110
+                                    2 33 0 0 0 1 1 0 203 0 1 1 0 0 7 32 1 28 0
+                                    6 27 1 31 0 0 1 1 33 0 13 35 1 6 0 9 128 2
+                                    0 6 0 9 99 1 1 77 0 1 0 33 60 117 1 0 6 0
+                                    98 1 6 0 0 196 1 6 0 0 171 3 33 0 0 0 0 1 2
+                                    29 25 0 0 1 1 6 0 0 192 1 6 0 0 167 1 6 0 0
+                                    200 1 6 0 0 175 2 12 6 0 9 1 2 0 0 0 0 1 2
+                                    33 25 0 0 1 1 6 0 0 202 1 6 0 0 177 1 6 0 0
+                                    198 1 6 0 0 173 1 6 0 0 194 1 6 0 0 169 2 0
+                                    0 0 38 1 2 32 0 0 60 76 2 6 0 0 0 1 2 6 0 0
+                                    9 146 2 7 0 0 13 145 0 34 0 21 0 32 0 17 3
+                                    4 0 0 94 60 1 3 4 0 0 136 206 1 2 4 0 0 94
+                                    1 2 4 0 0 136 1 2 3 0 0 60 1 1 3 0 0 1 2 0
+                                    25 0 0 66 2 7 0 0 6 1 2 7 0 0 0 92 2 36 0 0
+                                    0 72 1 36 0 0 131 2 0 0 0 0 70 2 0 0 38 0 1
+                                    2 0 0 0 0 74 2 0 0 0 6 1 2 0 0 6 0 126 2 36
+                                    0 13 0 1 2 34 0 60 0 1 2 6 0 9 0 1 2 6 0 0
+                                    9 1)))))
            '|lookupComplete|)) 
