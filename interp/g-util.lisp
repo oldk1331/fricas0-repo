@@ -501,30 +501,32 @@
 ;    NOT functionp key => error '"listSort: last arg must be a function"
 ;    mergeSort(pred,key,list,LENGTH list)
 
-(DEFUN |listSort| (|pred| LIST &REST |optional|)
+(DEFUN |listSort| (|pred| |list| &REST |optional|)
   (PROG (|key|)
     (RETURN
      (COND
       ((NULL (|functionp| |pred|))
        (|error| "listSort: first arg must be a function"))
-      ((NULL (LISTP LIST))
+      ((NULL (LISTP |list|))
        (|error| "listSort: second argument must be a list"))
-      ((NULL |optional|) (|mergeSort| |pred| #'|Identity| LIST (LENGTH LIST)))
+      ((NULL |optional|)
+       (|mergeSort| |pred| #'|Identity| |list| (LENGTH |list|)))
       (#1='T
        (PROGN
         (SETQ |key| (CAR |optional|))
         (COND
          ((NULL (|functionp| |key|))
           (|error| "listSort: last arg must be a function"))
-         (#1# (|mergeSort| |pred| |key| LIST (LENGTH LIST))))))))))
+         (#1# (|mergeSort| |pred| |key| |list| (LENGTH |list|))))))))))
 
 ; MSORT list == listSort(function GLESSEQP, COPY_-LIST list)
 
-(DEFUN MSORT (LIST) (PROG () (RETURN (|listSort| #'GLESSEQP (COPY-LIST LIST)))))
+(DEFUN MSORT (|list|)
+  (PROG () (RETURN (|listSort| #'GLESSEQP (COPY-LIST |list|)))))
 
 ; NMSORT list == listSort(function GLESSEQP, list)
 
-(DEFUN NMSORT (LIST) (PROG () (RETURN (|listSort| #'GLESSEQP LIST))))
+(DEFUN NMSORT (|list|) (PROG () (RETURN (|listSort| #'GLESSEQP |list|))))
 
 ; orderList l == listSort(function lt_sexp, COPY_-LIST l)
 

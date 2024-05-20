@@ -1967,7 +1967,7 @@
 ;     b:= 'T
 ;     p:= CONS(m := mmCost(sig, cond, tar, args1, args2), mm)
 ;     mS:=
-;       null mS => list p
+;       null mS => [p]
 ;       m < CAAR mS => CONS(p,mS)
 ;       S:= mS
 ;       until b repeat
@@ -2988,7 +2988,7 @@
 ; constructSubst(d) ==
 ;   -- constructs a substitution which substitutes d for $
 ;   -- and the arguments of d for #1, #2 ..
-;   SL := list(CONS('%, d))
+;   SL := [CONS('%, d)]
 ;   for x in rest d for v in $FormalMapVariableList repeat
 ;     SL:= CONS(CONS(v,x),SL)
 ;   SL

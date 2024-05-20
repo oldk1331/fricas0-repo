@@ -2286,7 +2286,7 @@
 
 ; upQUOTE t ==
 ;   t isnt [op,expr] => NIL
-;   ms:= list
+;   ms:= LIST
 ;     m:= getBasicMode expr => m
 ;     IDENTP expr =>
 ; --    $useSymbolNotVariable => $Symbol

@@ -3531,15 +3531,15 @@
 ;   rplac(rest l, nil)
 ;   [list, :splitConcat(x, maxWidth, nil, addBlankIfTrue)]
 
-(DEFUN |splitConcat| (LIST |maxWidth| |firstTimeIfTrue| |addBlankIfTrue|)
+(DEFUN |splitConcat| (|list| |maxWidth| |firstTimeIfTrue| |addBlankIfTrue|)
   (PROG (|totalWidth| |oneOrZero| |l| |maxW| |width| |x|)
     (RETURN
-     (COND ((NULL LIST) NIL)
+     (COND ((NULL |list|) NIL)
            (#1='T
             (PROGN
              (SETQ |totalWidth| 0)
              (SETQ |oneOrZero| (COND (|addBlankIfTrue| 1) (#1# 0)))
-             (SETQ |l| LIST)
+             (SETQ |l| |list|)
              (SETQ |maxW|
                      (COND (|firstTimeIfTrue| |maxWidth|)
                            (#1# (- |maxWidth| 2))))
@@ -3572,7 +3572,7 @@
                  |l|)
                 (SETQ |x| (CDR |l|))
                 (|rplac| (CDR |l|) NIL)
-                (CONS LIST
+                (CONS |list|
                       (|splitConcat| |x| |maxWidth| NIL
                        |addBlankIfTrue|)))))))))))
 
