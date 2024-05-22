@@ -235,7 +235,7 @@
 (DEFUN |unabbrevAndLoad| (|u|) (PROG () (RETURN (|unabbrev1| |u| T))))
 
 ; isNameOfType x ==
-;   (val := get(x,'value,$InteractiveFrame)) and
+;   (val := getI(x, 'value)) and
 ;     (domain := objMode val) and
 ;       domain in '((Mode) (Type) (Category)) => true
 ;   y := opOf unabbrev x
@@ -245,7 +245,7 @@
   (PROG (|val| |domain| |y|)
     (RETURN
      (COND
-      ((AND (SETQ |val| (|get| |x| '|value| |$InteractiveFrame|))
+      ((AND (SETQ |val| (|getI| |x| '|value|))
             (SETQ |domain| (|objMode| |val|))
             (|member| |domain| '((|Mode|) (|Type|) (|Category|))))
        T)

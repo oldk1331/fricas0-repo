@@ -730,7 +730,7 @@
 ;     p1 := assoc(x,CAAR $InteractiveFrame) =>
 ;       option='properties =>
 ;         if isMap x then
-;           (lm := get(x,'localModemap,$InteractiveFrame)) =>
+;           (lm := getI(x, 'localModemap)) =>
 ;             PAIRP lm => untraceMapSubNames [CADAR lm]
 ;           NIL
 ;         for p2 in rest p1 repeat
@@ -794,9 +794,7 @@
                           (COND
                            ((|isMap| |x|)
                             (COND
-                             ((SETQ |lm|
-                                      (|get| |x| '|localModemap|
-                                       |$InteractiveFrame|))
+                             ((SETQ |lm| (|getI| |x| '|localModemap|))
                               (COND
                                ((CONSP |lm|)
                                 (IDENTITY
@@ -3833,7 +3831,7 @@
 ; putHist(x,prop,val,e) ==
 ;   -- records new value to $HistRecord and old value to $HistList
 ;   -- then put is called with e
-;   if not (x='%) then recordOldValue(x,prop,get(x,prop,e))
+;   if not(x = '%) then recordOldValue(x, prop, get0(x, prop, e))
 ;   if $HiFiAccess then recordNewValue(x,prop,val)
 ;   putIntSymTab(x,prop,val,e)
 
@@ -3843,7 +3841,7 @@
      (PROGN
       (COND
        ((NULL (EQ |x| '%))
-        (|recordOldValue| |x| |prop| (|get| |x| |prop| |e|))))
+        (|recordOldValue| |x| |prop| (|get0| |x| |prop| |e|))))
       (COND (|$HiFiAccess| (|recordNewValue| |x| |prop| |val|)))
       (|putIntSymTab| |x| |prop| |val| |e|)))))
 
@@ -4236,7 +4234,7 @@
 ;     updateInCoreHist()
 ;   $e := $InteractiveFrame
 ;   for [a,:.] in CAAR $InteractiveFrame repeat
-;     get(a,'localModemap,$InteractiveFrame) =>
+;     getI(a, 'localModemap) =>
 ;       rempropI(a,'localModemap)
 ;       rempropI(a,'localVars)
 ;       rempropI(a,'mapBody)
@@ -4306,7 +4304,7 @@
            (#1#
             (AND (CONSP |bfVar#91|) (PROGN (SETQ |a| (CAR |bfVar#91|)) #1#)
                  (COND
-                  ((|get| |a| '|localModemap| |$InteractiveFrame|)
+                  ((|getI| |a| '|localModemap|)
                    (IDENTITY
                     (PROGN
                      (|rempropI| |a| '|localModemap|)
@@ -4579,9 +4577,9 @@
 
 ; writeHistModesAndValues() ==
 ;   for [a,:.] in CAAR $InteractiveFrame repeat
-;     x := get(a,'value,$InteractiveFrame) =>
+;     x := getI(a, 'value) =>
 ;       putHist(a,'value,x,$InteractiveFrame)
-;     x := get(a,'mode,$InteractiveFrame) =>
+;     x := getI(a, 'mode) =>
 ;       putHist(a,'mode,x,$InteractiveFrame)
 ;   NIL
 
@@ -4598,9 +4596,9 @@
            (#1='T
             (AND (CONSP |bfVar#94|) (PROGN (SETQ |a| (CAR |bfVar#94|)) #1#)
                  (COND
-                  ((SETQ |x| (|get| |a| '|value| |$InteractiveFrame|))
+                  ((SETQ |x| (|getI| |a| '|value|))
                    (|putHist| |a| '|value| |x| |$InteractiveFrame|))
-                  ((SETQ |x| (|get| |a| '|mode| |$InteractiveFrame|))
+                  ((SETQ |x| (|getI| |a| '|mode|))
                    (|putHist| |a| '|mode| |x| |$InteractiveFrame|))))))
           (SETQ |bfVar#95| (CDR |bfVar#95|))))
        (CAAR |$InteractiveFrame|) NIL)

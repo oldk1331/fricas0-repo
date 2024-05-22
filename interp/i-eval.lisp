@@ -1110,7 +1110,7 @@
 ; getMappingArgValue(a,t,m is ['Mapping,:ml]) ==
 ;   (una := getUnname a) in $localVars =>
 ;     $genValue =>
-;       name := get(una,'name,$env)
+;       name := get0(una, 'name, $env)
 ;       a.0 := name
 ;       mmS := selectLocalMms(a,name,rest ml, nil)
 ;       or/[mm for mm in mmS |
@@ -1134,7 +1134,7 @@
         (COND
          (|$genValue|
           (PROGN
-           (SETQ |name| (|get| |una| '|name| |$env|))
+           (SETQ |name| (|get0| |una| '|name| |$env|))
            (SETF (ELT |a| 0) |name|)
            (SETQ |mmS| (|selectLocalMms| |a| |name| (CDR |ml|) NIL))
            (COND
@@ -1216,7 +1216,7 @@
 ;   n := getUnnameIfCan arg
 ;   if num := isSharpVarWithNum n then
 ;     not $compilingMap => n := 'unknownVar
-;     alias := get($mapName,'alias,$e)
+;     alias := get0($mapName, 'alias, $e)
 ;     n := alias.(num - 1)
 ;   keyedMsgCompFailure("S2IE0010",[n])
 
@@ -1236,7 +1236,7 @@
                 (COND ((NULL |$compilingMap|) (SETQ |n| '|unknownVar|))
                       (#1#
                        (PROGN
-                        (SETQ |alias| (|get| |$mapName| '|alias| |$e|))
+                        (SETQ |alias| (|get0| |$mapName| '|alias| |$e|))
                         (SETQ |n| (ELT |alias| (- |num| 1))))))))
               (|keyedMsgCompFailure| 'S2IE0010 (LIST |n|)))))))))
 

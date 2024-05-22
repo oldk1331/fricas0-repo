@@ -375,8 +375,8 @@
 ;     ofCategory(t2, '(IntegerNumberSystem)) => resolveTT(['Polynomial, t2], t2)
 ;     resolveTT(['Polynomial,'(Integer)],t2)
 ;   t1 is ['FunctionCalled,f] and t2 is ['FunctionCalled,g] =>
-;     null (mf := get(f,'mode,$e)) => NIL
-;     null (mg := get(g,'mode,$e)) => NIL
+;     null (mf := get0(f, 'mode, $e)) => NIL
+;     null (mg := get0(g, 'mode, $e)) => NIL
 ;     mf ~= mg => NIL
 ;     mf
 ;   t1 is ['UnivariatePolynomial,x,S] =>
@@ -621,8 +621,8 @@
              (SETQ |ISTMP#1| (CDR |t2|))
              (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
                   (PROGN (SETQ |g| (CAR |ISTMP#1|)) #1#))))
-       (COND ((NULL (SETQ |mf| (|get| |f| '|mode| |$e|))) NIL)
-             ((NULL (SETQ |mg| (|get| |g| '|mode| |$e|))) NIL)
+       (COND ((NULL (SETQ |mf| (|get0| |f| '|mode| |$e|))) NIL)
+             ((NULL (SETQ |mg| (|get0| |g| '|mode| |$e|))) NIL)
              ((NOT (EQUAL |mf| |mg|)) NIL) (#1# |mf|)))
       ((AND (CONSP |t1|) (EQ (CAR |t1|) '|UnivariatePolynomial|)
             (PROGN

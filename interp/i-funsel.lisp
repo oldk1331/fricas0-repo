@@ -396,7 +396,7 @@
 ;       x is ['Record,:l] =>
 ;         a' := append(reverse [CADDR s for s in l],a')
 ;       x is ['FunctionCalled,name] =>
-;         (xm := get(name,'mode,$e)) and not isPartialMode xm =>
+;         (xm := get0(name, 'mode, $e)) and not(isPartialMode(xm)) =>
 ;           a' := cons(xm,a')
 ;     a := append(a,REMDUP a')
 ;     a := [x for x in a | PAIRP(x)]
@@ -619,7 +619,7 @@
                                           (SETQ |name| (CAR |ISTMP#1|))
                                           #1#))))
                               (COND
-                               ((AND (SETQ |xm| (|get| |name| '|mode| |$e|))
+                               ((AND (SETQ |xm| (|get0| |name| '|mode| |$e|))
                                      (NULL (|isPartialMode| |xm|)))
                                 (IDENTITY (SETQ |a'| (CONS |xm| |a'|)))))))))
                      (SETQ |bfVar#10| (CDR |bfVar#10|))))
@@ -1452,7 +1452,7 @@
 ;   [f(a,opname) for a in l] where
 ;     f(x,op) ==
 ;       x is ['FunctionCalled,g] and op ~= 'name =>
-;         m := get(g,'mode,$e) =>
+;         m := get0(g, 'mode, $e) =>
 ;           m is ['Mapping,:.] => m
 ;           x
 ;         x
@@ -1484,7 +1484,7 @@
                   (PROGN (SETQ |g| (CAR |ISTMP#1|)) #1='T)))
             (NOT (EQ |op| '|name|)))
        (COND
-        ((SETQ |m| (|get| |g| '|mode| |$e|))
+        ((SETQ |m| (|get0| |g| '|mode| |$e|))
          (COND ((AND (CONSP |m|) (EQ (CAR |m|) '|Mapping|)) |m|) (#1# |x|)))
         (#1# |x|)))
       (#1# |x|)))))
@@ -1748,14 +1748,14 @@
 ; getLocalMms(name,types,tar) ==
 ;   -- looks for exact or subsumed local modemap in $e
 ;   mmS := NIL
-;   for  (mm:=[dcSig,:.]) in get(name,'localModemap,$e) repeat
+;   for  (mm := [dcSig, : .]) in get0(name, 'localModemap, $e) repeat
 ;     -- check format and destructure
 ;     dcSig isnt [dc,result,:args] => NIL
 ;     -- make number of args is correct
 ;     #types ~= #args => NIL
 ;     -- check for equal or subsumed arguments
 ;     subsume := (not $useIntegerSubdomain) or (tar = result) or
-;       get(name,'recursive,$e)
+;       get0(name, 'recursive, $e)
 ;     acceptableArgs :=
 ;       and/[f(b,a,subsume) for a in args for b in types] where
 ;         f(x,y,subsume) ==
@@ -1800,7 +1800,7 @@
                     (SETQ |subsume|
                             (OR (NULL |$useIntegerSubdomain|)
                                 (EQUAL |tar| |result|)
-                                (|get| |name| '|recursive| |$e|)))
+                                (|get0| |name| '|recursive| |$e|)))
                     (SETQ |acceptableArgs|
                             ((LAMBDA (|bfVar#31| |bfVar#29| |a| |bfVar#30| |b|)
                                (LOOP
@@ -1826,7 +1826,7 @@
                        (#1# NIL)))
                      (#1# (SETQ |mmS| (CONS |mm| |mmS|))))))))))
           (SETQ |bfVar#28| (CDR |bfVar#28|))))
-       (|get| |name| '|localModemap| |$e|) NIL)
+       (|get0| |name| '|localModemap| |$e|) NIL)
       (NREVERSE |mmS|)))))
 (DEFUN |getLocalMms,f| (|x| |y| |subsume|)
   (PROG ()
