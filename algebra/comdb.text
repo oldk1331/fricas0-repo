@@ -6450,7 +6450,7 @@
 721888`\spad{quadraticNonResidue()} computes the smallest non negative integer,{} which represents a quadratic non residue.
 721948`\spad{quadraticNorm(f)} returns the \spad{l2} norm of the polynomial \spad{f}.
 722027`\spad{quartic(u)} \undocumented
-722099`\spad{quartic2(p)} should be local but conditional
+722099`\spad{quartic2(p,{} a0)} should be local but conditional
 722253`\spad{quartic(f,{} g,{} h,{} i,{} j)} \undocumented
 722332`\spad{quasiAlgebraicSet(pl,{} q)} returns the quasi-algebraic set with defining equations \spad{p} = 0 for \spad{p} belonging to the list \spad{pl},{} and defining inequation \spad{q} \spad{~=} 0.
 722523`\spad{quasiComponent(ts)} returns \spad{[lp,{} lq]} where \spad{lp} is the list of the members of \spad{ts} and \spad{lq}is \spad{initials(ts)}.

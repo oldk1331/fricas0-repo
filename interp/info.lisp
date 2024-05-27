@@ -427,9 +427,7 @@
      (PROGN (SETQ |$infoHash| (MAKE_HASHTABLE 'EQUAL)) (|knownInfo| |pred|)))))
 
 ; knownInfo pred ==
-;                --true %if the information is already known
 ;   pred=true => true
-;   --pred = "true" => true
 ;   member(pred, get("$Information", "special", $info_e)) => true
 ;   not($infoHash) => hashed_known_info(pred)
 ;   ress := HGET($infoHash, pred) =>
@@ -687,7 +685,7 @@
 ;   Info := [u, :get("$Information", "special", e)]
 ;   e := put("$Information", "special", Info, e)
 ;   u is ["COND",:l] =>
-;       --there is nowhere %else that this sort of thing exists
+;       -- there is nowhere else that this sort of thing exists
 ;     for [ante,:conseq] in l repeat
 ;       if member(hasToInfo ante,Info) then for v in conseq repeat
 ;         e := actOnInfo(v, e)
