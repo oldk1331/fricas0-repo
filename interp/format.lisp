@@ -21,6 +21,19 @@
      (|sayMSG|
       (|formatModemap| (|old2NewModemaps| (|displayTranModemap| |m|)))))))
 
+; sayNewModemap(m) ==
+;     msg := formatModemap(displayTranModemap(m))
+;     msg := cleanUpSegmentedMsg(reverse(msg))
+;     sayMSG(flowSegmentedMsg(msg, $LINELENGTH, 3))
+
+(DEFUN |sayNewModemap| (|m|)
+  (PROG (|msg|)
+    (RETURN
+     (PROGN
+      (SETQ |msg| (|formatModemap| (|displayTranModemap| |m|)))
+      (SETQ |msg| (|cleanUpSegmentedMsg| (REVERSE |msg|)))
+      (|sayMSG| (|flowSegmentedMsg| |msg| $LINELENGTH 3))))))
+
 ; sayModemapWithNumber(m,n) ==
 ;   msg := reverse cleanUpSegmentedMsg reverse ["%i","%i",'" ",
 ;     STRCONC(lbrkSch(),object2String n,rbrkSch()),

@@ -3504,21 +3504,26 @@
 ;   --if $Coerce is NIL, tar has to be the same as the computed target type
 ;   mS:= NIL
 ;   for st in evalMmStack mmC repeat
-;     SL:= evalMmCond(op,sig,st)
-;     not EQ(SL,'failed) =>
-;       SL := fixUpTypeArgs SL
-;       sig:= [subCopy(deepSubCopy(x,SL),$Subst) for x in sig]
-;       not containsVars sig =>
-;         isFreeFunctionFromMmCond mmC and (m := evalMmFreeFunction(op,tar,sig,mmC)) =>
-;            mS:= nconc(m,mS)
-;         "or"/[not isValidType(arg) for arg in sig] => nil
-;         [dc,t,:args]:= sig
-;         $Coerce or null tar or tar=t =>
-;           mS:= nconc(findFunctionInDomain(op,dc,t,args,args,NIL,'T),mS)
+;       SL := evalMmCond(op, sig, st)
+;       not EQ(SL, 'failed) =>
+;           SL := fixUpTypeArgs SL
+;           nsig := [subCopy(deepSubCopy(x, SL), $Subst) for x in sig]
+;           not(containsVars(nsig)) =>
+;               isFreeFunctionFromMmCond(mmC) and
+;                 (m := evalMmFreeFunction(op, tar, nsig, mmC)) =>
+;                   mS:= nconc(m,mS)
+;               "or"/[not isValidType(arg) for arg in nsig] => nil
+;               [dc, t, :args] := nsig
+;               $Coerce or null(tar) or tar = t =>
+;                   mS := nconc(findFunctionInDomain(op, dc, t, args,
+;                                                    args, false, 'T), mS)
+;   if $reportBottomUpFlag and mS then
+;       sayMSG(['"found good modemap for: ",op])
+;       sayNewModemap([sig, mmC])
 ;   mS
 
 (DEFUN |evalMm| (|op| |tar| |sig| |mmC|)
-  (PROG (|mS| SL |m| |dc| |t| |args|)
+  (PROG (|mS| SL |nsig| |m| |dc| |t| |args|)
     (RETURN
      (PROGN
       (SETQ |mS| NIL)
@@ -3534,7 +3539,7 @@
               ((NULL (EQ SL '|failed|))
                (PROGN
                 (SETQ SL (|fixUpTypeArgs| SL))
-                (SETQ |sig|
+                (SETQ |nsig|
                         ((LAMBDA (|bfVar#88| |bfVar#87| |x|)
                            (LOOP
                             (COND
@@ -3550,11 +3555,11 @@
                             (SETQ |bfVar#87| (CDR |bfVar#87|))))
                          NIL |sig| NIL))
                 (COND
-                 ((NULL (|containsVars| |sig|))
+                 ((NULL (|containsVars| |nsig|))
                   (COND
                    ((AND (|isFreeFunctionFromMmCond| |mmC|)
                          (SETQ |m|
-                                 (|evalMmFreeFunction| |op| |tar| |sig|
+                                 (|evalMmFreeFunction| |op| |tar| |nsig|
                                   |mmC|)))
                     (SETQ |mS| (NCONC |m| |mS|)))
                    (((LAMBDA (|bfVar#90| |bfVar#89| |arg|)
@@ -3568,12 +3573,12 @@
                            (SETQ |bfVar#90| (NULL (|isValidType| |arg|)))
                            (COND (|bfVar#90| (RETURN |bfVar#90|))))))
                         (SETQ |bfVar#89| (CDR |bfVar#89|))))
-                     NIL |sig| NIL)
+                     NIL |nsig| NIL)
                     NIL)
                    (#1#
                     (PROGN
-                     (SETQ |dc| (CAR |sig|))
-                     (SETQ |t| (CADR . #2=(|sig|)))
+                     (SETQ |dc| (CAR |nsig|))
+                     (SETQ |t| (CADR . #2=(|nsig|)))
                      (SETQ |args| (CDDR . #2#))
                      (COND
                       ((OR |$Coerce| (NULL |tar|) (EQUAL |tar| |t|))
@@ -3584,6 +3589,10 @@
                                 |mS|)))))))))))))))
           (SETQ |bfVar#86| (CDR |bfVar#86|))))
        (|evalMmStack| |mmC|) NIL)
+      (COND
+       ((AND |$reportBottomUpFlag| |mS|)
+        (|sayMSG| (LIST "found good modemap for: " |op|))
+        (|sayNewModemap| (LIST |sig| |mmC|))))
       |mS|))))
 
 ; evalMmFreeFunction(op,tar,sig,mmC) ==
