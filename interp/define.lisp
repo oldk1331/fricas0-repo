@@ -19,6 +19,10 @@
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$insideCategoryIfTrue| NIL))
 
+; $insideFunctorIfTrue := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$insideFunctorIfTrue| NIL))
+
 ; $insideWhereIfTrue := false
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$insideWhereIfTrue| NIL))
