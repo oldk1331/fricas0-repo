@@ -1519,13 +1519,13 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 13
-                                '(0 0 0 0 0 0 0 0 0 0 0 0 0 4 3 2 0 0 0 0 0 2 0
-                                  0 0 0 5 2 0 0 0 5 2 0 0 0 5 2 0 0 0 0 0 6 0 0
-                                  0 0 0 0 0 0 0 0 11 10 0 0 0 0 0 12 5 1 13 0 0
-                                  0 0 0 0 0 0 0 0 12 9 8 7 5 1 13 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+                                '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 3 2 0 0 0 0 0 2
+                                  0 0 0 0 5 2 0 0 0 5 2 0 0 0 5 2 0 0 0 0 0 6 0
+                                  0 0 0 0 0 0 0 0 0 0 11 10 0 0 0 0 0 12 5 1 13
+                                  0 0 0 0 0 0 0 0 0 0 12 9 8 7 5 1 13 0 0 0 0 0
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
-             '#(|AlgebraicallyClosedFunctionSpace&| |FunctionSpace&|
+             '#(|AlgebraicallyClosedFunctionSpace&| NIL |FunctionSpace2&|
                 |AlgebraicallyClosedField&| |Field&| |EuclideanDomain&|
                 |UniqueFactorizationDomain&| NIL |JetBundleFunctionCategory&|
                 |GcdDomain&| NIL NIL NIL |DivisionRing&| NIL NIL |Algebra&|
@@ -1535,8 +1535,8 @@
                 |FullyLinearlyExplicitOver&| |Module&| NIL |Module&| |Module&|
                 NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL NIL
                 |NonAssociativeRng&| NIL NIL NIL |Group&| |AbelianGroup&| NIL
-                NIL NIL |AbelianMonoid&| |NonAssociativeSemiRng&|
-                |MagmaWithUnit&| NIL |ExpressionSpace&| NIL NIL NIL
+                NIL NIL NIL |AbelianMonoid&| |NonAssociativeSemiRng&|
+                |MagmaWithUnit&| NIL |ExpressionSpace2&| NIL NIL NIL
                 |AbelianSemiGroup&| |Magma&| NIL |FullyRetractableTo&| NIL
                 |RetractableTo&| |RetractableTo&| |RetractableTo&|
                 |RetractableTo&| |SetCategory&| NIL |RetractableTo&|
@@ -1550,11 +1550,11 @@
                 NIL NIL NIL)
              (CONS
               '#((|AlgebraicallyClosedFunctionSpace| 24) (|FunctionSpace| 24)
-                 (|AlgebraicallyClosedField|) (|Field|) (|EuclideanDomain|)
-                 (|UniqueFactorizationDomain|) (|PrincipalIdealDomain|)
-                 (|JetBundleFunctionCategory| 6) (|GcdDomain|)
-                 (|IntegralDomain|) (|LeftOreRing|) (|CommutativeRing|)
-                 (|DivisionRing|) (|CharacteristicZero|)
+                 (|FunctionSpace2| 24 34) (|AlgebraicallyClosedField|)
+                 (|Field|) (|EuclideanDomain|) (|UniqueFactorizationDomain|)
+                 (|PrincipalIdealDomain|) (|JetBundleFunctionCategory| 6)
+                 (|GcdDomain|) (|IntegralDomain|) (|LeftOreRing|)
+                 (|CommutativeRing|) (|DivisionRing|) (|CharacteristicZero|)
                  (|CharacteristicNonZero|) (|Algebra| 24) (|Algebra| $$)
                  (|EntireRing|) (|Algebra| 225) (|PartialDifferentialRing| 144)
                  (|Ring|) (|NonAssociativeAlgebra| 24) (|SemiRing|) (|Rng|)
@@ -1566,17 +1566,18 @@
                  (|RightModule| $$) (|NonAssociativeRng|) (|LeftModule| $$)
                  (|LeftModule| 225) (|RightModule| 225) (|Group|)
                  (|AbelianGroup|) (|CancellationAbelianMonoid|)
-                 (|NonAssociativeSemiRing|) (|Monoid|) (|AbelianMonoid|)
-                 (|NonAssociativeSemiRng|) (|MagmaWithUnit|) (|SemiGroup|)
-                 (|ExpressionSpace|) (|FullyPatternMatchable| 24)
-                 (|PatternMatchable| 24) (|PatternMatchable| (|Float|))
-                 (|AbelianSemiGroup|) (|Magma|) (|Comparable|)
-                 (|FullyRetractableTo| 24) (|LiouvillianFunctionCategory|)
-                 (|RetractableTo| 246) (|RetractableTo| 249)
-                 (|RetractableTo| 239) (|RetractableTo| 225) (|SetCategory|)
-                 (|CommutativeStar|) (|RetractableTo| 6) (|RetractableTo| 34)
-                 (|Evalable| $$) (|RetractableTo| 144) (|Patternable| 24)
-                 (|RetractableTo| 24) (|TranscendentalFunctionCategory|)
+                 (|NonAssociativeSemiRing|) (|Monoid|) (|ExpressionSpace|)
+                 (|AbelianMonoid|) (|NonAssociativeSemiRng|) (|MagmaWithUnit|)
+                 (|SemiGroup|) (|ExpressionSpace2| 34)
+                 (|FullyPatternMatchable| 24) (|PatternMatchable| 24)
+                 (|PatternMatchable| (|Float|)) (|AbelianSemiGroup|) (|Magma|)
+                 (|Comparable|) (|FullyRetractableTo| 24)
+                 (|LiouvillianFunctionCategory|) (|RetractableTo| 246)
+                 (|RetractableTo| 249) (|RetractableTo| 239)
+                 (|RetractableTo| 225) (|SetCategory|) (|CommutativeStar|)
+                 (|RetractableTo| 6) (|RetractableTo| 34) (|Evalable| $$)
+                 (|RetractableTo| 144) (|Patternable| 24) (|RetractableTo| 24)
+                 (|TranscendentalFunctionCategory|)
                  (|CombinatorialOpsCategory|) (|CoercibleFrom| 246)
                  (|ConvertibleTo| 238) (|ConvertibleTo| 237)
                  (|ConvertibleTo| 236) (|CoercibleFrom| 249)

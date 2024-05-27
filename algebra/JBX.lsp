@@ -229,13 +229,13 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 13
-                                '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 3 2 0 0 0 0 0 2
-                                  0 0 0 0 5 2 0 0 0 5 2 0 0 0 5 2 0 0 0 0 0 6 0
-                                  0 0 0 0 0 0 0 0 0 11 10 0 0 0 0 0 12 5 1 13 0
-                                  0 0 0 0 0 0 0 0 0 12 9 8 7 5 1 13 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+                                '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 3 2 0 0 0 0 0
+                                  2 0 0 0 0 5 2 0 0 0 5 2 0 0 0 5 2 0 0 0 0 0 6
+                                  0 0 0 0 0 0 0 0 0 0 0 11 10 0 0 0 0 0 12 5 1
+                                  13 0 0 0 0 0 0 0 0 0 0 12 9 8 7 5 1 13 0 0 0
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
-             '#(|AlgebraicallyClosedFunctionSpace&| |FunctionSpace&|
+             '#(|AlgebraicallyClosedFunctionSpace&| NIL |FunctionSpace2&|
                 |AlgebraicallyClosedField&| |Field&|
                 |JetBundleBaseFunctionCategory&| |EuclideanDomain&|
                 |JetBundleFunctionCategory&| |UniqueFactorizationDomain&| NIL
@@ -246,8 +246,8 @@
                 |FullyLinearlyExplicitOver&| |Module&| NIL |Module&| |Module&|
                 NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL NIL
                 |NonAssociativeRng&| NIL NIL NIL |Group&| |AbelianGroup&| NIL
-                NIL NIL |AbelianMonoid&| |NonAssociativeSemiRng&|
-                |MagmaWithUnit&| NIL |ExpressionSpace&| NIL NIL NIL
+                NIL NIL NIL |AbelianMonoid&| |NonAssociativeSemiRng&|
+                |MagmaWithUnit&| NIL |ExpressionSpace2&| NIL NIL NIL
                 |AbelianSemiGroup&| |Magma&| NIL |FullyRetractableTo&| NIL
                 |RetractableTo&| |RetractableTo&| |RetractableTo&|
                 |RetractableTo&| |SetCategory&| NIL |RetractableTo&|
@@ -261,6 +261,7 @@
                 NIL NIL NIL)
              (CONS
               '#((|AlgebraicallyClosedFunctionSpace| 26) (|FunctionSpace| 26)
+                 (|FunctionSpace2| 26 (|Kernel| $$))
                  (|AlgebraicallyClosedField|) (|Field|)
                  (|JetBundleBaseFunctionCategory| 6) (|EuclideanDomain|)
                  (|JetBundleFunctionCategory| 6) (|UniqueFactorizationDomain|)
@@ -278,17 +279,18 @@
                  (|RightModule| $$) (|NonAssociativeRng|) (|LeftModule| $$)
                  (|LeftModule| 56) (|RightModule| 56) (|Group|)
                  (|AbelianGroup|) (|CancellationAbelianMonoid|)
-                 (|NonAssociativeSemiRing|) (|Monoid|) (|AbelianMonoid|)
-                 (|NonAssociativeSemiRng|) (|MagmaWithUnit|) (|SemiGroup|)
-                 (|ExpressionSpace|) (|FullyPatternMatchable| 26)
-                 (|PatternMatchable| 26) (|PatternMatchable| (|Float|))
-                 (|AbelianSemiGroup|) (|Magma|) (|Comparable|)
-                 (|FullyRetractableTo| 26) (|LiouvillianFunctionCategory|)
-                 (|RetractableTo| 80) (|RetractableTo| 83) (|RetractableTo| 72)
-                 (|RetractableTo| 56) (|SetCategory|) (|CommutativeStar|)
-                 (|RetractableTo| 6) (|RetractableTo| (|Kernel| $$))
-                 (|Evalable| $$) (|RetractableTo| 8) (|Patternable| 26)
-                 (|RetractableTo| 26) (|TranscendentalFunctionCategory|)
+                 (|NonAssociativeSemiRing|) (|Monoid|) (|ExpressionSpace|)
+                 (|AbelianMonoid|) (|NonAssociativeSemiRng|) (|MagmaWithUnit|)
+                 (|SemiGroup|) (|ExpressionSpace2| (|Kernel| $$))
+                 (|FullyPatternMatchable| 26) (|PatternMatchable| 26)
+                 (|PatternMatchable| (|Float|)) (|AbelianSemiGroup|) (|Magma|)
+                 (|Comparable|) (|FullyRetractableTo| 26)
+                 (|LiouvillianFunctionCategory|) (|RetractableTo| 80)
+                 (|RetractableTo| 83) (|RetractableTo| 72) (|RetractableTo| 56)
+                 (|SetCategory|) (|CommutativeStar|) (|RetractableTo| 6)
+                 (|RetractableTo| (|Kernel| $$)) (|Evalable| $$)
+                 (|RetractableTo| 8) (|Patternable| 26) (|RetractableTo| 26)
+                 (|TranscendentalFunctionCategory|)
                  (|CombinatorialOpsCategory|) (|CoercibleFrom| 80)
                  (|ConvertibleTo| 71) (|ConvertibleTo| 70) (|ConvertibleTo| 69)
                  (|CoercibleFrom| 83) (|CoercibleFrom| 72) (|CoercibleFrom| 56)

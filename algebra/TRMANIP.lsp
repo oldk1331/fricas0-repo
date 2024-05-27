@@ -1274,9 +1274,9 @@
 
 (DECLAIM (NOTINLINE |TranscendentalManipulations;|)) 
 
-(DEFUN |TranscendentalManipulations| (&REST #1=#:G351)
+(DEFUN |TranscendentalManipulations| (&REST #1=#:G347)
   (SPROG NIL
-         (PROG (#2=#:G352)
+         (PROG (#2=#:G348)
            (RETURN
             (COND
              ((LETT #2#
