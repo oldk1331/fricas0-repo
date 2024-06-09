@@ -65,7 +65,7 @@
           (|p| (|SparseUnivariatePolynomial| F)))
          (SEQ
           (LETT |p|
-                (SPADCALL (SPADCALL (|spadConstant| % 12) 2 (QREFELT % 21))
+                (SPADCALL (SPADCALL (|spadConstant| % 12) 3 (QREFELT % 21))
                           (SPADCALL |a| (QREFELT % 22)) (QREFELT % 23)))
           (LETT |fr| (SPADCALL |p| (QREFELT % 28)))
           (LETT |fl| (SPADCALL |fr| (QREFELT % 33)))
