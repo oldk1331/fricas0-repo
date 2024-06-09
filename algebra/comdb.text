@@ -2709,7 +2709,7 @@
 301602`\spad{dilate(a,{} x)} returns the sequence \$a^n \spad{x_n}\$ (starting at \$\spad{n=1}\$)
 301652`\spad{dilog(f)} denotes the dilogarithm
 301704`\spad{dilog(x)} returns the dilogarithm of \spad{x},{} \spadignore{i.e.} the integral of \spad{log(x) / (1 - x) dx}.
-301759`\spad{dilog(z)} is the dilogaritm
+301759`\spad{dilog(z)} is the dilogarithm
 301834`\spad{dim(c)} sets the shade of a hue,{} \spad{c},{} above dark,{} but below bright.
 301871`\spad{dimension()} is the rank of this Lie algebra
 301946`\spad{dimension(c)} returns dimension of \spad{c}
