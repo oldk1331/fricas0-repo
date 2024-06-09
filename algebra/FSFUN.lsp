@@ -11,8 +11,9 @@
               (LETT |z2inv| (SPADCALL |zinv| |zinv| (QREFELT % 9)))
               (LETT |s|
                     (SPADCALL |zk|
-                              (SPADCALL (SPADCALL 1 12 (QREFELT % 12))
-                                        (QREFELT % 13))
+                              (SPADCALL (|spadConstant| % 7)
+                                        (SPADCALL 12 (QREFELT % 11))
+                                        (QREFELT % 8))
                               (QREFELT % 9)))
               (SEQ (LETT |k| 1) (LETT #3# |n|) G190
                    (COND ((|greater_SI| |k| #3#) (GO G191)))
@@ -46,16 +47,19 @@
          (SPADCALL
           (SPADCALL
            (SPADCALL |z|
-                     (SPADCALL (SPADCALL 1 2 (QREFELT % 12)) (QREFELT % 13))
-                     (QREFELT % 25))
-           (SPADCALL |z| (QREFELT % 26)) (QREFELT % 9))
-          |z| (QREFELT % 25))
-         (SPADCALL (SPADCALL (SPADCALL 1 2 (QREFELT % 12)) (QREFELT % 13))
-                   (SPADCALL
-                    (SPADCALL (SPADCALL 2 (QREFELT % 16))
-                              (SPADCALL (QREFELT % 27)) (QREFELT % 28))
-                    (QREFELT % 26))
-                   (QREFELT % 9))
+                     (SPADCALL (|spadConstant| % 7) (SPADCALL 2 (QREFELT % 11))
+                               (QREFELT % 8))
+                     (QREFELT % 24))
+           (SPADCALL |z| (QREFELT % 25)) (QREFELT % 9))
+          |z| (QREFELT % 24))
+         (SPADCALL
+          (SPADCALL (|spadConstant| % 15) (SPADCALL 2 (QREFELT % 16))
+                    (QREFELT % 17))
+          (SPADCALL
+           (SPADCALL (SPADCALL 2 (QREFELT % 16)) (SPADCALL (QREFELT % 26))
+                     (QREFELT % 27))
+           (QREFELT % 25))
+          (QREFELT % 27))
          (QREFELT % 23))) 
 
 (SDEFUN |FSFUN;logGamma_asymptotic|
@@ -77,10 +81,10 @@
                 (SPADCALL
                  (SPADCALL
                   (SPADCALL |z|
-                            (SPADCALL (SPADCALL |l| (QREFELT % 29))
+                            (SPADCALL (SPADCALL |l| (QREFELT % 28))
                                       (QREFELT % 22))
                             (QREFELT % 9))
-                  (QREFELT % 30))
+                  (QREFELT % 29))
                  |z| (QREFELT % 8)))
           (LETT |s| |tk|)
           (SEQ (LETT |k| 1) (LETT #2# |n|) G190
@@ -90,7 +94,7 @@
                       (SPADCALL
                        (SPADCALL |tk| (SPADCALL |l| (QREFELT % 22))
                                  (QREFELT % 9))
-                       (SPADCALL |z| (SPADCALL |k| (QREFELT % 31))
+                       (SPADCALL |z| (SPADCALL |k| (QREFELT % 11))
                                  (QREFELT % 23))
                        (QREFELT % 8)))
                 (EXIT (LETT |s| (SPADCALL |s| |tk| (QREFELT % 23)))))
@@ -98,7 +102,7 @@
           (EXIT
            (SPADCALL |s|
                      (SPADCALL
-                      (SPADCALL (SPADCALL |l| (QREFELT % 32)) (QREFELT % 33))
+                      (SPADCALL (SPADCALL |l| (QREFELT % 30)) (QREFELT % 31))
                       (QREFELT % 22))
                      (QREFELT % 9)))))) 
 
@@ -115,65 +119,65 @@
           (|re_z| #6#) (|l| (|PositiveInteger|)) (|l0| (|PositiveInteger|)))
          (SEQ
           (COND
-           ((EQL (SPADCALL (QREFELT % 35)) 2)
-            (SEQ (LETT |l0| (SPADCALL (QREFELT % 36)))
+           ((EQL (SPADCALL (QREFELT % 33)) 2)
+            (SEQ (LETT |l0| (SPADCALL (QREFELT % 34)))
                  (LETT |l| (MAX (+ |l0| 5) 20))
-                 (LETT |re_z| (SPADCALL |z| (QREFELT % 37)))
+                 (LETT |re_z| (SPADCALL |z| (QREFELT % 35)))
                  (EXIT
                   (COND
                    ((SPADCALL |re_z|
-                              (SPADCALL (|spadConstant| % 15) 2 (QREFELT % 38))
-                              (QREFELT % 40))
-                    (SEQ (SPADCALL (+ |l| 5) (QREFELT % 41))
-                         (LETT |re_zint| (SPADCALL |re_z| (QREFELT % 42)))
+                              (SPADCALL (|spadConstant| % 15) 2 (QREFELT % 36))
+                              (QREFELT % 38))
+                    (SEQ (SPADCALL (+ |l| 5) (QREFELT % 39))
+                         (LETT |re_zint| (SPADCALL |re_z| (QREFELT % 40)))
                          (LETT |z1|
                                (SPADCALL |z|
                                          (SPADCALL |re_zint| (QREFELT % 22))
-                                         (QREFELT % 25)))
+                                         (QREFELT % 24)))
                          (LETT |sign|
                                (COND
-                                ((ODDP (SPADCALL |re_zint| (QREFELT % 43)))
+                                ((ODDP (SPADCALL |re_zint| (QREFELT % 41)))
                                  (SPADCALL (|spadConstant| % 15)
-                                           (QREFELT % 32)))
+                                           (QREFELT % 30)))
                                 (#7='T (|spadConstant| % 15))))
                          (EXIT
                           (COND
-                           ((SPADCALL |z1| (|spadConstant| % 44)
-                                      (QREFELT % 45))
-                            (SEQ (SPADCALL |l0| (QREFELT % 41))
+                           ((SPADCALL |z1| (|spadConstant| % 42)
+                                      (QREFELT % 43))
+                            (SEQ (SPADCALL |l0| (QREFELT % 39))
                                  (EXIT (|error| "Pole of Gamma"))))
                            (#7#
-                            (SEQ (LETT |c_pi| (SPADCALL (QREFELT % 27)))
+                            (SEQ (LETT |c_pi| (SPADCALL (QREFELT % 26)))
                                  (LETT |one| (|spadConstant| % 7))
                                  (LETT |result|
                                        (SPADCALL
-                                        (SPADCALL |sign| |c_pi| (QREFELT % 28))
+                                        (SPADCALL |sign| |c_pi| (QREFELT % 27))
                                         (SPADCALL
                                          (SPADCALL
-                                          (SPADCALL |one| |z| (QREFELT % 25))
-                                          (QREFELT % 46))
+                                          (SPADCALL |one| |z| (QREFELT % 24))
+                                          (QREFELT % 44))
                                          (SPADCALL
                                           (SPADCALL |c_pi| |z1| (QREFELT % 9))
-                                          (QREFELT % 47))
+                                          (QREFELT % 45))
                                          (QREFELT % 9))
                                         (QREFELT % 8)))
-                                 (SPADCALL |l0| (QREFELT % 41))
+                                 (SPADCALL |l0| (QREFELT % 39))
                                  (EXIT |result|)))))))
                    (#7#
                     (SEQ
                      (LETT |abs_z|
-                           (SPADCALL (SPADCALL |z| (QREFELT % 48))
-                                     (QREFELT % 37)))
+                           (SPADCALL (SPADCALL |z| (QREFELT % 46))
+                                     (QREFELT % 35)))
                      (EXIT
                       (COND
                        ((SPADCALL (SPADCALL |l| (QREFELT % 16))
-                                  (SPADCALL 6 |abs_z| (QREFELT % 49))
-                                  (QREFELT % 50))
+                                  (SPADCALL 6 |abs_z| (QREFELT % 47))
+                                  (QREFELT % 48))
                         (SEQ
                          (LETT |oz|
                                (PROG1
                                    (LETT #5#
-                                         (MAX (SPADCALL |abs_z| (QREFELT % 51))
+                                         (MAX (SPADCALL |abs_z| (QREFELT % 49))
                                               5))
                                  (|check_subtype2| (> #5# 0)
                                                    '(|PositiveInteger|)
@@ -183,41 +187,41 @@
                                  (|check_subtype2| (> #4# 0)
                                                    '(|PositiveInteger|)
                                                    '(|Integer|) #4#)))
-                         (SPADCALL (+ (+ |oz| |lz|) 30) (QREFELT % 41))
+                         (SPADCALL (+ (+ |oz| |lz|) 30) (QREFELT % 39))
                          (LETT |loss|
                                (SPADCALL
                                 (SPADCALL
                                  (|FSFUN;logGamma_a1|
-                                  (SPADCALL (SPADCALL |z| (QREFELT % 37))
+                                  (SPADCALL (SPADCALL |z| (QREFELT % 35))
                                             (QREFELT % 22))
                                   %)
-                                 (QREFELT % 37))
+                                 (QREFELT % 35))
                                 (SPADCALL (|FSFUN;logGamma_a1| |z| %)
-                                          (QREFELT % 37))
-                                (QREFELT % 52)))
+                                          (QREFELT % 35))
+                                (QREFELT % 50)))
                          (LETT |len|
                                (SPADCALL
                                 (SPADCALL
-                                 (SPADCALL 2 (SPADCALL |z| (QREFELT % 37))
-                                           (QREFELT % 49))
+                                 (SPADCALL 2 (SPADCALL |z| (QREFELT % 35))
+                                           (QREFELT % 47))
                                  (SPADCALL 2
                                            (SPADCALL |loss|
                                                      (SPADCALL
-                                                      (SPADCALL (QREFELT % 53))
+                                                      (SPADCALL (QREFELT % 51))
                                                       (SPADCALL |l|
                                                                 (QREFELT % 16))
                                                       (QREFELT % 21))
-                                                     (QREFELT % 54))
-                                           (QREFELT % 49))
-                                 (QREFELT % 54))
-                                (SPADCALL 3 (QREFELT % 16)) (QREFELT % 54)))
+                                                     (QREFELT % 52))
+                                           (QREFELT % 47))
+                                 (QREFELT % 52))
+                                (SPADCALL 3 (QREFELT % 16)) (QREFELT % 52)))
                          (LETT |l1a|
                                (+
-                                (+ (+ |l| (SPADCALL |len| (QREFELT % 51)))
+                                (+ (+ |l| (SPADCALL |len| (QREFELT % 49)))
                                    (SPADCALL
-                                    (SPADCALL |loss| (SPADCALL (QREFELT % 53))
+                                    (SPADCALL |loss| (SPADCALL (QREFELT % 51))
                                               (QREFELT % 17))
-                                    (QREFELT % 55)))
+                                    (QREFELT % 53)))
                                 12))
                          (LETT |l1|
                                (PROG1
@@ -229,20 +233,20 @@
                                                  (SPADCALL |abs_z|
                                                            (SPADCALL |len|
                                                                      (QREFELT %
-                                                                              29))
+                                                                              28))
                                                            (QREFELT % 21))
-                                                 (SPADCALL (QREFELT % 53))
+                                                 (SPADCALL (QREFELT % 51))
                                                  (QREFELT % 17))
-                                                (QREFELT % 55))
+                                                (QREFELT % 53))
                                                10)))
                                  (|check_subtype2| (> #3# 0)
                                                    '(|PositiveInteger|)
                                                    '(|Integer|) #3#)))
-                         (SPADCALL |l1| (QREFELT % 41))
+                         (SPADCALL |l1| (QREFELT % 39))
                          (LETT |result|
                                (|FSFUN;gamma_series| |z| |len|
-                                (+ (* 3 (SPADCALL |len| (QREFELT % 55))) 6) %))
-                         (SPADCALL |l0| (QREFELT % 41)) (EXIT |result|)))
+                                (+ (* 3 (SPADCALL |len| (QREFELT % 53))) 6) %))
+                         (SPADCALL |l0| (QREFELT % 39)) (EXIT |result|)))
                        (#7#
                         (SEQ
                          (LETT |llog|
@@ -253,9 +257,9 @@
                                            (SPADCALL
                                             (SPADCALL
                                              (|FSFUN;logGamma_a1| |z| %)
-                                             (QREFELT % 48))
-                                            (QREFELT % 37))
-                                           (QREFELT % 51))
+                                             (QREFELT % 46))
+                                            (QREFELT % 35))
+                                           (QREFELT % 49))
                                           5))
                                  (|check_subtype2| (> #2# 0)
                                                    '(|PositiveInteger|)
@@ -268,13 +272,13 @@
                                                        '(|PositiveInteger|)
                                                        '(|Integer|) #1#)))
                                 12))
-                         (SPADCALL |l1| (QREFELT % 41))
+                         (SPADCALL |l1| (QREFELT % 39))
                          (LETT |result|
                                (SPADCALL
                                 (|FSFUN;logGamma_asymptotic| |z|
                                  (+ (QUOTIENT2 |l| 6) 1) %)
-                                (QREFELT % 30)))
-                         (SPADCALL |l0| (QREFELT % 41))
+                                (QREFELT % 29)))
+                         (SPADCALL |l0| (QREFELT % 39))
                          (EXIT |result|)))))))))))
            (#7# (|error| "Gamma can only handle base 2 Float-s")))))) 
 
@@ -282,27 +286,27 @@
         ((|z| (|Complex| (|Float|))) (|lg2| (|Complex| (|Float|)))
          (% (|Complex| (|Float|))))
         (SPROG ((|k| (|Float|)) (|lg2i| (|Float|)))
-               (SEQ (LETT |lg2i| (SPADCALL |lg2| (QREFELT % 56)))
+               (SEQ (LETT |lg2i| (SPADCALL |lg2| (QREFELT % 54)))
                     (LETT |k|
                           (SPADCALL
                            (SPADCALL
                             (SPADCALL
                              (SPADCALL (|FSFUN;logGamma_a1| |z| %)
-                                       (QREFELT % 56))
-                             |lg2i| (QREFELT % 52))
-                            (SPADCALL 2 (SPADCALL (QREFELT % 57))
-                                      (QREFELT % 49))
+                                       (QREFELT % 54))
+                             |lg2i| (QREFELT % 50))
+                            (SPADCALL 2 (SPADCALL (QREFELT % 55))
+                                      (QREFELT % 47))
                             (QREFELT % 17))
-                           (QREFELT % 42)))
+                           (QREFELT % 40)))
                     (EXIT
                      (SPADCALL |lg2|
-                               (SPADCALL (SPADCALL (QREFELT % 58))
+                               (SPADCALL (SPADCALL (QREFELT % 56))
                                          (SPADCALL
                                           (SPADCALL |k|
                                                     (SPADCALL 2 (QREFELT % 16))
                                                     (QREFELT % 21))
-                                          (SPADCALL (QREFELT % 27))
-                                          (QREFELT % 28))
+                                          (SPADCALL (QREFELT % 26))
+                                          (QREFELT % 27))
                                          (QREFELT % 9))
                                (QREFELT % 23)))))) 
 
@@ -316,100 +320,100 @@
           (|l0| (|PositiveInteger|)))
          (SEQ
           (COND
-           ((EQL (SPADCALL (QREFELT % 35)) 2)
-            (SEQ (LETT |l0| (SPADCALL (QREFELT % 36)))
+           ((EQL (SPADCALL (QREFELT % 33)) 2)
+            (SEQ (LETT |l0| (SPADCALL (QREFELT % 34)))
                  (LETT |l| (MAX (+ |l0| 5) 20))
-                 (LETT |re_z| (SPADCALL |z| (QREFELT % 37)))
+                 (LETT |re_z| (SPADCALL |z| (QREFELT % 35)))
                  (LETT |one| (|spadConstant| % 7))
                  (EXIT
                   (COND
                    ((SPADCALL |re_z|
-                              (SPADCALL (|spadConstant| % 15) 2 (QREFELT % 38))
-                              (QREFELT % 40))
-                    (SEQ (SPADCALL (+ |l| 5) (QREFELT % 41))
-                         (LETT |re_zint| (SPADCALL |re_z| (QREFELT % 42)))
+                              (SPADCALL (|spadConstant| % 15) 2 (QREFELT % 36))
+                              (QREFELT % 38))
+                    (SEQ (SPADCALL (+ |l| 5) (QREFELT % 39))
+                         (LETT |re_zint| (SPADCALL |re_z| (QREFELT % 40)))
                          (LETT |z1|
                                (SPADCALL |z|
                                          (SPADCALL |re_zint| (QREFELT % 22))
-                                         (QREFELT % 25)))
+                                         (QREFELT % 24)))
                          (LETT |lsign|
                                (COND
-                                ((ODDP (SPADCALL |re_zint| (QREFELT % 43)))
+                                ((ODDP (SPADCALL |re_zint| (QREFELT % 41)))
                                  (|spadConstant| % 15))
-                                (#4='T (|spadConstant| % 59))))
+                                (#4='T (|spadConstant| % 57))))
                          (EXIT
                           (COND
-                           ((SPADCALL |z1| (|spadConstant| % 44)
-                                      (QREFELT % 45))
-                            (SEQ (SPADCALL |l0| (QREFELT % 41))
+                           ((SPADCALL |z1| (|spadConstant| % 42)
+                                      (QREFELT % 43))
+                            (SEQ (SPADCALL |l0| (QREFELT % 39))
                                  (EXIT (|error| "Pole of Gamma"))))
                            (#4#
-                            (SEQ (SPADCALL (+ |l| 5) (QREFELT % 41))
-                                 (LETT |c_pi| (SPADCALL (QREFELT % 27)))
+                            (SEQ (SPADCALL (+ |l| 5) (QREFELT % 39))
+                                 (LETT |c_pi| (SPADCALL (QREFELT % 26)))
                                  (LETT |result|
                                        (SPADCALL
                                         (SPADCALL
                                          (SPADCALL
-                                          (SPADCALL |c_pi| (QREFELT % 26))
+                                          (SPADCALL |c_pi| (QREFELT % 25))
                                           (SPADCALL
-                                           (SPADCALL (|spadConstant| % 59)
-                                                     |lsign| (QREFELT % 60))
+                                           (SPADCALL (|spadConstant| % 57)
+                                                     |lsign| (QREFELT % 58))
                                            |c_pi| (QREFELT % 9))
                                           (QREFELT % 23))
                                          (SPADCALL
-                                          (SPADCALL |one| |z| (QREFELT % 25))
-                                          (QREFELT % 61))
-                                         (QREFELT % 25))
+                                          (SPADCALL |one| |z| (QREFELT % 24))
+                                          (QREFELT % 59))
+                                         (QREFELT % 24))
                                         (SPADCALL
                                          (SPADCALL
                                           (SPADCALL |c_pi| |z1| (QREFELT % 9))
-                                          (QREFELT % 47))
-                                         (QREFELT % 26))
-                                        (QREFELT % 25)))
+                                          (QREFELT % 45))
+                                         (QREFELT % 25))
+                                        (QREFELT % 24)))
                                  (LETT |result|
                                        (|FSFUN;logGamma_lift| |z| |result| %))
-                                 (SPADCALL |l0| (QREFELT % 41))
+                                 (SPADCALL |l0| (QREFELT % 39))
                                  (EXIT |result|)))))))
                    (#4#
                     (SEQ
                      (LETT |abs_z|
-                           (SPADCALL (SPADCALL |z| (QREFELT % 48))
-                                     (QREFELT % 37)))
+                           (SPADCALL (SPADCALL |z| (QREFELT % 46))
+                                     (QREFELT % 35)))
                      (EXIT
                       (COND
                        ((SPADCALL (SPADCALL |l| (QREFELT % 16))
-                                  (SPADCALL 6 |abs_z| (QREFELT % 49))
-                                  (QREFELT % 50))
+                                  (SPADCALL 6 |abs_z| (QREFELT % 47))
+                                  (QREFELT % 48))
                         (SEQ (LETT |l| (+ |l| 5))
                              (COND
                               ((OR
                                 (SPADCALL
                                  (SPADCALL
-                                  (SPADCALL (SPADCALL |z| |one| (QREFELT % 25))
-                                            (QREFELT % 48))
-                                  (QREFELT % 37))
+                                  (SPADCALL (SPADCALL |z| |one| (QREFELT % 24))
+                                            (QREFELT % 46))
+                                  (QREFELT % 35))
                                  (SPADCALL (|spadConstant| % 15) 4
-                                           (QREFELT % 38))
-                                 (QREFELT % 40))
+                                           (QREFELT % 36))
+                                 (QREFELT % 38))
                                 (SPADCALL
                                  (SPADCALL
                                   (SPADCALL
                                    (SPADCALL
-                                    (SPADCALL |z| |one| (QREFELT % 25)) |one|
-                                    (QREFELT % 25))
-                                   (QREFELT % 48))
-                                  (QREFELT % 37))
+                                    (SPADCALL |z| |one| (QREFELT % 24)) |one|
+                                    (QREFELT % 24))
+                                   (QREFELT % 46))
+                                  (QREFELT % 35))
                                  (SPADCALL (|spadConstant| % 15) 4
-                                           (QREFELT % 38))
-                                 (QREFELT % 40)))
+                                           (QREFELT % 36))
+                                 (QREFELT % 38)))
                                (LETT |l| (* 2 |l|))))
-                             (SPADCALL |l| (QREFELT % 41))
+                             (SPADCALL |l| (QREFELT % 39))
                              (LETT |result|
                                    (|FSFUN;logGamma_lift| |z|
-                                    (SPADCALL (SPADCALL |z| (QREFELT % 46))
-                                              (QREFELT % 26))
+                                    (SPADCALL (SPADCALL |z| (QREFELT % 44))
+                                              (QREFELT % 25))
                                     %))
-                             (SPADCALL |l0| (QREFELT % 41)) (EXIT |result|)))
+                             (SPADCALL |l0| (QREFELT % 39)) (EXIT |result|)))
                        (#4#
                         (SEQ
                          (LETT |l1|
@@ -420,25 +424,25 @@
                                                        '(|PositiveInteger|)
                                                        '(|Integer|) #2#)))
                                 12))
-                         (SPADCALL |l1| (QREFELT % 41))
+                         (SPADCALL |l1| (QREFELT % 39))
                          (LETT |result|
                                (|FSFUN;logGamma_asymptotic| |z|
                                 (+ (QUOTIENT2 |l| 6) 1) %))
-                         (SPADCALL |l0| (QREFELT % 41))
+                         (SPADCALL |l0| (QREFELT % 39))
                          (EXIT |result|)))))))))))
            (#4# (|error| "Gamma can only handle base 2 Float-s")))))) 
 
 (SDEFUN |FSFUN;Gamma;2F;8| ((|x| (|Float|)) (% (|Float|)))
-        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT % 22)) (QREFELT % 46))
-                  (QREFELT % 37))) 
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT % 22)) (QREFELT % 44))
+                  (QREFELT % 35))) 
 
 (SDEFUN |FSFUN;logGamma;2F;9| ((|x| (|Float|)) (% (|Float|)))
         (COND
-         ((SPADCALL |x| (|spadConstant| % 59) (QREFELT % 63))
+         ((SPADCALL |x| (|spadConstant| % 57) (QREFELT % 61))
           (|error| "Argument to logGamma <= 0"))
          ('T
-          (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT % 22)) (QREFELT % 61))
-                    (QREFELT % 37))))) 
+          (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT % 22)) (QREFELT % 59))
+                    (QREFELT % 35))))) 
 
 (SDEFUN |FSFUN;Beta;3C;10|
         ((|x| (|Complex| (|Float|))) (|y| (|Complex| (|Float|)))
@@ -448,31 +452,31 @@
           (|l0| (|PositiveInteger|)))
          (SEQ
           (COND
-           ((EQL (SPADCALL (QREFELT % 35)) 2)
-            (SEQ (LETT |l0| (SPADCALL (QREFELT % 36)))
+           ((EQL (SPADCALL (QREFELT % 33)) 2)
+            (SEQ (LETT |l0| (SPADCALL (QREFELT % 34)))
                  (LETT |l1| (MAX 30 (+ |l0| 10)))
-                 (SPADCALL |l1| (QREFELT % 41))
+                 (SPADCALL |l1| (QREFELT % 39))
                  (LETT |res|
                        (SPADCALL
-                        (SPADCALL (SPADCALL |x| (QREFELT % 46))
-                                  (SPADCALL |y| (QREFELT % 46)) (QREFELT % 9))
+                        (SPADCALL (SPADCALL |x| (QREFELT % 44))
+                                  (SPADCALL |y| (QREFELT % 44)) (QREFELT % 9))
                         (SPADCALL (SPADCALL |x| |y| (QREFELT % 23))
-                                  (QREFELT % 46))
+                                  (QREFELT % 44))
                         (QREFELT % 8)))
-                 (SPADCALL |l0| (QREFELT % 41)) (EXIT |res|)))
+                 (SPADCALL |l0| (QREFELT % 39)) (EXIT |res|)))
            ('T (|error| "Beta can only handle base 2 Float-s")))))) 
 
 (SDEFUN |FSFUN;Beta;3F;11| ((|x| (|Float|)) (|y| (|Float|)) (% (|Float|)))
         (SPADCALL
          (SPADCALL (SPADCALL |x| (QREFELT % 22)) (SPADCALL |y| (QREFELT % 22))
-                   (QREFELT % 65))
-         (QREFELT % 37))) 
+                   (QREFELT % 63))
+         (QREFELT % 35))) 
 
 (SDEFUN |FSFUN;rabs;2F;12| ((|r| (|Float|)) (% (|Float|)))
-        (SPADCALL |r| (QREFELT % 67))) 
+        (SPADCALL |r| (QREFELT % 65))) 
 
 (SDEFUN |FSFUN;rabs;CF;13| ((|r| (|Complex| (|Float|))) (% (|Float|)))
-        (SPADCALL (SPADCALL |r| (QREFELT % 48)) (QREFELT % 37))) 
+        (SPADCALL (SPADCALL |r| (QREFELT % 46)) (QREFELT % 35))) 
 
 (PUT '|FSFUN;rabs;2Df;14| '|SPADreplace| '|abs_DF|) 
 
@@ -481,7 +485,7 @@
 
 (SDEFUN |FSFUN;rabs;CDf;15|
         ((|r| (|Complex| (|DoubleFloat|))) (% (|DoubleFloat|)))
-        (SPADCALL (SPADCALL |r| (QREFELT % 73)) (QREFELT % 74))) 
+        (SPADCALL (SPADCALL |r| (QREFELT % 71)) (QREFELT % 72))) 
 
 (SDEFUN |FSFUN;digamma_euler_maclaurin|
         ((|a| (|Complex| (|Float|))) (|n| (|Integer|)) (|m| (|Integer|))
@@ -492,20 +496,20 @@
           (|k| NIL) (|n2_inv| #2=(|Complex| (|Float|))) (|ns| #2#)
           (|na| (|Complex| (|Float|))) (|n1| (|Integer|)) (|ck| #2#)
           (#3=#:G96 NIL))
-         (SEQ (LETT |res| (|spadConstant| % 44))
+         (SEQ (LETT |res| (|spadConstant| % 42))
               (SEQ (LETT |k| 0) (LETT #3# |n|) G190
                    (COND ((|greater_SI| |k| #3#) (GO G191)))
                    (SEQ
                     (LETT |ck|
                           (SPADCALL (|spadConstant| % 7)
-                                    (SPADCALL (SPADCALL |k| (QREFELT % 31)) |a|
+                                    (SPADCALL (SPADCALL |k| (QREFELT % 11)) |a|
                                               (QREFELT % 23))
                                     (QREFELT % 8)))
                     (EXIT (LETT |res| (SPADCALL |res| |ck| (QREFELT % 23)))))
                    (LETT |k| (|inc_SI| |k|)) (GO G190) G191 (EXIT NIL))
               (LETT |n1| (+ |n| 1))
               (LETT |na|
-                    (SPADCALL (SPADCALL |n1| (QREFELT % 31)) |a|
+                    (SPADCALL (SPADCALL |n1| (QREFELT % 11)) |a|
                               (QREFELT % 23)))
               (LETT |ns| (SPADCALL (|spadConstant| % 7) |na| (QREFELT % 8)))
               (LETT |ns1| (|spadConstant| % 7))
@@ -514,10 +518,10 @@
                      (SPADCALL |res|
                                (SPADCALL
                                 (SPADCALL (|spadConstant| % 15) 2
-                                          (QREFELT % 38))
-                                |ns| (QREFELT % 28))
+                                          (QREFELT % 36))
+                                |ns| (QREFELT % 27))
                                (QREFELT % 23))
-                     (SPADCALL |na| (QREFELT % 26)) (QREFELT % 25)))
+                     (SPADCALL |na| (QREFELT % 25)) (QREFELT % 24)))
               (LETT |n2_inv|
                     (SPADCALL (|spadConstant| % 7)
                               (SPADCALL |na| |na| (QREFELT % 9))
@@ -534,10 +538,10 @@
                                (SPADCALL |res|
                                          (SPADCALL
                                           (SPADCALL |bk| |kfac| (QREFELT % 17))
-                                          |ns1| (QREFELT % 28))
+                                          |ns1| (QREFELT % 27))
                                          (QREFELT % 23)))))
                    (LETT |k| (|inc_SI| |k|)) (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL |res| (QREFELT % 76)))))) 
+              (EXIT (SPADCALL |res| (QREFELT % 74)))))) 
 
 (SDEFUN |FSFUN;digamma_aux|
         ((|a| (|Complex| (|Float|))) (|l| (|Integer|))
@@ -545,12 +549,12 @@
         (SPROG ((|abs_a| (|Float|)))
                (SEQ
                 (LETT |abs_a|
-                      (SPADCALL (SPADCALL |a| (QREFELT % 77)) (QREFELT % 78)))
+                      (SPADCALL (SPADCALL |a| (QREFELT % 75)) (QREFELT % 76)))
                 (EXIT
                  (COND
                   ((SPADCALL (SPADCALL |l| (QREFELT % 16))
-                             (SPADCALL 6 |abs_a| (QREFELT % 49))
-                             (QREFELT % 50))
+                             (SPADCALL 6 |abs_a| (QREFELT % 47))
+                             (QREFELT % 48))
                    (|FSFUN;digamma_euler_maclaurin| |a| (+ (QUOTIENT2 |l| 6) 1)
                     (+ (QUOTIENT2 |l| 6) 1) %))
                   ('T
@@ -564,66 +568,71 @@
           (|a1| (|Complex| (|Float|))) (|re_aint| (|Float|))
           (|l| (|PositiveInteger|)) (|re_a| (|Float|))
           (|l0| (|PositiveInteger|)))
-         (SEQ (LETT |l0| (SPADCALL (QREFELT % 36)))
-              (LETT |l| (MAX (+ |l0| 10) 61))
-              (EXIT
-               (|finally|
-                (SEQ (LETT |re_a| (SPADCALL |a| (QREFELT % 37)))
-                     (EXIT
-                      (COND
-                       ((SPADCALL |re_a|
-                                  (SPADCALL (|spadConstant| % 15) 2
-                                            (QREFELT % 38))
-                                  (QREFELT % 40))
-                        (SEQ (LETT |l| (+ |l| 5))
-                             (SPADCALL
-                              (+ (+ |l| (* 3 (INTEGER-LENGTH |l|))) 10)
-                              (QREFELT % 41))
-                             (LETT |re_aint| (SPADCALL |re_a| (QREFELT % 42)))
-                             (LETT |a1|
-                                   (SPADCALL |a|
-                                             (SPADCALL |re_aint|
-                                                       (|spadConstant| % 59)
-                                                       (QREFELT % 60))
-                                             (QREFELT % 25)))
-                             (EXIT
-                              (COND
-                               ((SPADCALL |a1| (|spadConstant| % 44)
-                                          (QREFELT % 45))
-                                (|error| "Pole of Gamma"))
-                               (#1='T
-                                (SEQ (LETT |r_pi| (SPADCALL (QREFELT % 57)))
-                                     (LETT |ap|
-                                           (SPADCALL |r_pi| |a1|
-                                                     (QREFELT % 28)))
-                                     (EXIT
-                                      (SPADCALL
-                                       (SPADCALL
-                                        (SPADCALL
-                                         (SPADCALL |r_pi|
-                                                   (SPADCALL |ap|
-                                                             (QREFELT % 79))
-                                                   (QREFELT % 28))
-                                         (SPADCALL |ap| (QREFELT % 47))
-                                         (QREFELT % 8))
-                                        (QREFELT % 76))
-                                       (|FSFUN;digamma_aux|
-                                        (SPADCALL (|spadConstant| % 7) |a|
-                                                  (QREFELT % 25))
-                                        |l| %)
-                                       (QREFELT % 23)))))))))
-                       (#1#
-                        (SEQ
-                         (SPADCALL (+ (+ |l| (* 3 (INTEGER-LENGTH |l|))) 10)
-                                   (QREFELT % 41))
-                         (EXIT (|FSFUN;digamma_aux| |a| |l| %)))))))
-                (SPADCALL |l0| (QREFELT % 41))))))) 
+         (SEQ
+          (COND
+           ((EQL (SPADCALL (QREFELT % 33)) 2)
+            (SEQ (LETT |l0| (SPADCALL (QREFELT % 34)))
+                 (LETT |l| (MAX (+ |l0| 10) 61))
+                 (EXIT
+                  (|finally|
+                   (SEQ (LETT |re_a| (SPADCALL |a| (QREFELT % 35)))
+                        (EXIT
+                         (COND
+                          ((SPADCALL |re_a|
+                                     (SPADCALL (|spadConstant| % 15) 2
+                                               (QREFELT % 36))
+                                     (QREFELT % 38))
+                           (SEQ (LETT |l| (+ |l| 5))
+                                (SPADCALL
+                                 (+ (+ |l| (* 3 (INTEGER-LENGTH |l|))) 10)
+                                 (QREFELT % 39))
+                                (LETT |re_aint|
+                                      (SPADCALL |re_a| (QREFELT % 40)))
+                                (LETT |a1|
+                                      (SPADCALL |a|
+                                                (SPADCALL |re_aint|
+                                                          (|spadConstant| % 57)
+                                                          (QREFELT % 58))
+                                                (QREFELT % 24)))
+                                (EXIT
+                                 (COND
+                                  ((SPADCALL |a1| (|spadConstant| % 42)
+                                             (QREFELT % 43))
+                                   (|error| "Pole of Gamma"))
+                                  (#1='T
+                                   (SEQ (LETT |r_pi| (SPADCALL (QREFELT % 55)))
+                                        (LETT |ap|
+                                              (SPADCALL |r_pi| |a1|
+                                                        (QREFELT % 27)))
+                                        (EXIT
+                                         (SPADCALL
+                                          (SPADCALL
+                                           (SPADCALL
+                                            (SPADCALL |r_pi|
+                                                      (SPADCALL |ap|
+                                                                (QREFELT % 77))
+                                                      (QREFELT % 27))
+                                            (SPADCALL |ap| (QREFELT % 45))
+                                            (QREFELT % 8))
+                                           (QREFELT % 74))
+                                          (|FSFUN;digamma_aux|
+                                           (SPADCALL (|spadConstant| % 7) |a|
+                                                     (QREFELT % 24))
+                                           |l| %)
+                                          (QREFELT % 23)))))))))
+                          (#1#
+                           (SEQ
+                            (SPADCALL (+ (+ |l| (* 3 (INTEGER-LENGTH |l|))) 10)
+                                      (QREFELT % 39))
+                            (EXIT (|FSFUN;digamma_aux| |a| |l| %)))))))
+                   (SPADCALL |l0| (QREFELT % 39))))))
+           (#1# (|error| "digamma can only handle base 2 Float-s")))))) 
 
 (SDEFUN |FSFUN;digamma;2F;19| ((|z| (|Float|)) (% (|Float|)))
         (SPADCALL
-         (SPADCALL (SPADCALL |z| (|spadConstant| % 59) (QREFELT % 60))
-                   (QREFELT % 80))
-         (QREFELT % 37))) 
+         (SPADCALL (SPADCALL |z| (|spadConstant| % 57) (QREFELT % 58))
+                   (QREFELT % 78))
+         (QREFELT % 35))) 
 
 (SDEFUN |FSFUN;li2_series|
         ((|z| (|Complex| (|Float|))) (|prec| (|Integer|))
@@ -632,8 +641,8 @@
          ((|res| (|Complex| (|Float|))) (|ck| (|Float|)) (|k2| (|Integer|))
           (|k| (|Integer|)) (#1=#:G113 NIL) (|i| NIL) (|n| (|Integer|))
           (|oz| (|Integer|)) (|nz| (|Float|)))
-         (SEQ (LETT |nz| (SPADCALL |z| (QREFELT % 77)))
-              (LETT |oz| (SPADCALL |nz| (QREFELT % 51)))
+         (SEQ (LETT |nz| (SPADCALL |z| (QREFELT % 75)))
+              (LETT |oz| (SPADCALL |nz| (QREFELT % 49)))
               (LETT |n|
                     (COND
                      ((< |oz| -200)
@@ -647,13 +656,13 @@
                           (|minus_DF|
                            (|div_DF|
                             (SPADCALL (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT)
-                                      (QREFELT % 82))
-                            (SPADCALL (SPADCALL |nz| (QREFELT % 83))
-                                      (QREFELT % 82)))))
-                         (QREFELT % 84))
-                        (QREFELT % 85))
+                                      (QREFELT % 80))
+                            (SPADCALL (SPADCALL |nz| (QREFELT % 81))
+                                      (QREFELT % 80)))))
+                         (QREFELT % 82))
+                        (QREFELT % 83))
                        1))))
-              (LETT |res| (|spadConstant| % 44))
+              (LETT |res| (|spadConstant| % 42))
               (SEQ (LETT |i| 1) (LETT #1# |n|) G190
                    (COND ((|greater_SI| |i| #1#) (GO G191)))
                    (SEQ (LETT |k| (- (+ |n| 2) |i|)) (LETT |k2| (* |k| |k|))
@@ -667,8 +676,8 @@
                                          (SPADCALL |res|
                                                    (SPADCALL |ck|
                                                              (|spadConstant| %
-                                                                             59)
-                                                             (QREFELT % 60))
+                                                                             57)
+                                                             (QREFELT % 58))
                                                    (QREFELT % 23))
                                          (QREFELT % 9)))))
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
@@ -686,100 +695,100 @@
           (|z1| (|Complex| (|Float|))) (|nz| #2#) (|dd| #2#)
           (|w| (|Complex| (|Float|))) (|siz| (|Float|)) (|iz| (|Float|))
           (|rz| (|Float|)))
-         (SEQ (LETT |rz| (SPADCALL |z| (QREFELT % 37)))
-              (LETT |iz| (SPADCALL |z| (QREFELT % 56)))
+         (SEQ (LETT |rz| (SPADCALL |z| (QREFELT % 35)))
+              (LETT |iz| (SPADCALL |z| (QREFELT % 54)))
               (LETT |siz|
                     (COND
-                     ((SPADCALL |iz| (|spadConstant| % 59) (QREFELT % 50))
+                     ((SPADCALL |iz| (|spadConstant| % 57) (QREFELT % 48))
                       (|spadConstant| % 15))
-                     (#3='T (SPADCALL (|spadConstant| % 15) (QREFELT % 32)))))
+                     (#3='T (SPADCALL (|spadConstant| % 15) (QREFELT % 30)))))
               (LETT |w|
-                    (SPADCALL (SPADCALL (|spadConstant| % 15) 2 (QREFELT % 38))
+                    (SPADCALL (SPADCALL (|spadConstant| % 15) 2 (QREFELT % 36))
                               (SPADCALL
                                (SPADCALL |siz|
                                          (SPADCALL (|spadConstant| % 15) 2
-                                                   (QREFELT % 38))
+                                                   (QREFELT % 36))
                                          (QREFELT % 21))
                                (SPADCALL (SPADCALL 3 (QREFELT % 16))
-                                         (QREFELT % 78))
+                                         (QREFELT % 76))
                                (QREFELT % 21))
-                              (QREFELT % 60)))
+                              (QREFELT % 58)))
               (LETT |dd|
-                    (SPADCALL (SPADCALL |z| |w| (QREFELT % 25))
-                              (QREFELT % 77)))
+                    (SPADCALL (SPADCALL |z| |w| (QREFELT % 24))
+                              (QREFELT % 75)))
               (EXIT
                (COND
                 ((SPADCALL |dd|
-                           (SPADCALL (|spadConstant| % 15) 8 (QREFELT % 38))
-                           (QREFELT % 40))
+                           (SPADCALL (|spadConstant| % 15) 8 (QREFELT % 36))
+                           (QREFELT % 38))
                  (SPADCALL
-                  (SPADCALL (SPADCALL (|spadConstant| % 15) 2 (QREFELT % 38))
+                  (SPADCALL (SPADCALL (|spadConstant| % 15) 2 (QREFELT % 36))
                             (|FSFUN;li2_aux| (SPADCALL |z| |z| (QREFELT % 9))
                              (+ |prec| 2) %)
-                            (QREFELT % 28))
-                  (|FSFUN;li2_aux| (SPADCALL |z| (QREFELT % 76)) (+ |prec| 2)
+                            (QREFELT % 27))
+                  (|FSFUN;li2_aux| (SPADCALL |z| (QREFELT % 74)) (+ |prec| 2)
                    %)
-                  (QREFELT % 25)))
+                  (QREFELT % 24)))
                 (#3#
-                 (SEQ (LETT |nz| (SPADCALL |z| (QREFELT % 77)))
+                 (SEQ (LETT |nz| (SPADCALL |z| (QREFELT % 75)))
                       (LETT |z1|
-                            (SPADCALL (|spadConstant| % 7) |z| (QREFELT % 25)))
-                      (LETT |rpi| (SPADCALL (QREFELT % 57)))
+                            (SPADCALL (|spadConstant| % 7) |z| (QREFELT % 24)))
+                      (LETT |rpi| (SPADCALL (QREFELT % 55)))
                       (LETT |pi_fac|
                             (SPADCALL
                              (SPADCALL
-                              (SPADCALL (|spadConstant| % 15) 6 (QREFELT % 38))
+                              (SPADCALL (|spadConstant| % 15) 6 (QREFELT % 36))
                               |rpi| (QREFELT % 21))
                              |rpi| (QREFELT % 21)))
                       (EXIT
                        (COND
                         ((SPADCALL |rz|
                                    (SPADCALL (|spadConstant| % 15) 2
-                                             (QREFELT % 38))
-                                   (QREFELT % 50))
-                         (SEQ (LETT |nz1| (SPADCALL |z1| (QREFELT % 77)))
+                                             (QREFELT % 36))
+                                   (QREFELT % 48))
+                         (SEQ (LETT |nz1| (SPADCALL |z1| (QREFELT % 75)))
                               (EXIT
                                (COND
                                 ((SPADCALL |nz1| (|spadConstant| % 15)
-                                           (QREFELT % 86))
+                                           (QREFELT % 84))
                                  (SEQ
                                   (LETT |lmz|
-                                        (SPADCALL (SPADCALL |z| (QREFELT % 76))
-                                                  (QREFELT % 26)))
+                                        (SPADCALL (SPADCALL |z| (QREFELT % 74))
+                                                  (QREFELT % 25)))
                                   (EXIT
                                    (SPADCALL
                                     (SPADCALL
                                      (SPADCALL
                                       (SPADCALL |pi_fac| (QREFELT % 22))
-                                      (QREFELT % 76))
+                                      (QREFELT % 74))
                                      (SPADCALL
                                       (SPADCALL
                                        (SPADCALL (|spadConstant| % 15) 2
-                                                 (QREFELT % 38))
-                                       |lmz| (QREFELT % 28))
+                                                 (QREFELT % 36))
+                                       |lmz| (QREFELT % 27))
                                       |lmz| (QREFELT % 9))
-                                     (QREFELT % 25))
+                                     (QREFELT % 24))
                                     (|FSFUN;li2_series|
                                      (SPADCALL (|spadConstant| % 7) |z|
                                                (QREFELT % 8))
                                      |prec| %)
-                                    (QREFELT % 25)))))
+                                    (QREFELT % 24)))))
                                 (#3#
-                                 (SEQ (LETT |lz| (SPADCALL |z| (QREFELT % 26)))
+                                 (SEQ (LETT |lz| (SPADCALL |z| (QREFELT % 25)))
                                       (EXIT
                                        (COND
-                                        ((SPADCALL |z1| (|spadConstant| % 44)
-                                                   (QREFELT % 45))
+                                        ((SPADCALL |z1| (|spadConstant| % 42)
+                                                   (QREFELT % 43))
                                          (SPADCALL |pi_fac| (QREFELT % 22)))
                                         (#3#
                                          (SEQ
                                           (LETT |lz1|
-                                                (SPADCALL |z1| (QREFELT % 26)))
+                                                (SPADCALL |z1| (QREFELT % 25)))
                                           (EXIT
                                            (COND
                                             ((SPADCALL |nz|
                                                        (|spadConstant| % 15)
-                                                       (QREFELT % 86))
+                                                       (QREFELT % 84))
                                              (SPADCALL
                                               (SPADCALL
                                                (SPADCALL |pi_fac|
@@ -790,16 +799,16 @@
                                                            (SPADCALL
                                                             (|spadConstant| %
                                                                             15)
-                                                            2 (QREFELT % 38))
-                                                           |lz| (QREFELT % 28))
-                                                          |lz1| (QREFELT % 25))
+                                                            2 (QREFELT % 36))
+                                                           |lz| (QREFELT % 27))
+                                                          |lz1| (QREFELT % 24))
                                                          (QREFELT % 9))
                                                (QREFELT % 23))
                                               (|FSFUN;li2_series|
                                                (SPADCALL
                                                 (SPADCALL |z1| |z|
                                                           (QREFELT % 8))
-                                                (QREFELT % 76))
+                                                (QREFELT % 74))
                                                |prec| %)
                                               (QREFELT % 23)))
                                             (#3#
@@ -809,23 +818,23 @@
                                                          (QREFELT % 22))
                                                (SPADCALL |lz| |lz1|
                                                          (QREFELT % 9))
-                                               (QREFELT % 25))
+                                               (QREFELT % 24))
                                               (|FSFUN;li2_series| |z1| |prec|
                                                %)
-                                              (QREFELT % 25)))))))))))))))
-                        ((SPADCALL |nz| (|spadConstant| % 15) (QREFELT % 86))
+                                              (QREFELT % 24)))))))))))))))
+                        ((SPADCALL |nz| (|spadConstant| % 15) (QREFELT % 84))
                          (SPADCALL
                           (SPADCALL
                            (SPADCALL (SPADCALL |pi_fac| (QREFELT % 22))
-                                     (QREFELT % 76))
+                                     (QREFELT % 74))
                            (SPADCALL
                             (SPADCALL
-                             (SPADCALL (|spadConstant| % 15) 2 (QREFELT % 38))
-                             (SPADCALL |z1| (QREFELT % 26)) (QREFELT % 28))
+                             (SPADCALL (|spadConstant| % 15) 2 (QREFELT % 36))
+                             (SPADCALL |z1| (QREFELT % 25)) (QREFELT % 27))
                             (SPADCALL
                              (SPADCALL |z1| (SPADCALL |z| |z| (QREFELT % 9))
                                        (QREFELT % 8))
-                             (QREFELT % 26))
+                             (QREFELT % 25))
                             (QREFELT % 9))
                            (QREFELT % 23))
                           (|FSFUN;li2_series|
@@ -833,42 +842,46 @@
                            |prec| %)
                           (QREFELT % 23)))
                         (#3#
-                         (SEQ (LETT |nz1| (SPADCALL |z1| (QREFELT % 77)))
+                         (SEQ (LETT |nz1| (SPADCALL |z1| (QREFELT % 75)))
                               (EXIT
                                (COND
                                 ((SPADCALL |nz1| (|spadConstant| % 15)
-                                           (QREFELT % 86))
+                                           (QREFELT % 84))
                                  (SEQ
-                                  (LETT |lz1| (SPADCALL |z1| (QREFELT % 26)))
+                                  (LETT |lz1| (SPADCALL |z1| (QREFELT % 25)))
                                   (EXIT
                                    (SPADCALL
                                     (SPADCALL
                                      (SPADCALL
                                       (SPADCALL
                                        (SPADCALL (|spadConstant| % 15) 2
-                                                 (QREFELT % 38))
-                                       |lz1| (QREFELT % 28))
+                                                 (QREFELT % 36))
+                                       |lz1| (QREFELT % 27))
                                       |lz1| (QREFELT % 9))
-                                     (QREFELT % 76))
+                                     (QREFELT % 74))
                                     (|FSFUN;li2_series|
                                      (SPADCALL
                                       (SPADCALL |z| |z1| (QREFELT % 8))
-                                      (QREFELT % 76))
+                                      (QREFELT % 74))
                                      |prec| %)
-                                    (QREFELT % 25)))))
+                                    (QREFELT % 24)))))
                                 (#3#
                                  (|FSFUN;li2_series| |z| |prec| %))))))))))))))) 
 
 (SDEFUN |FSFUN;li2;2C;22|
         ((|z| (|Complex| (|Float|))) (% (|Complex| (|Float|))))
         (SPROG ((|prec| (|PositiveInteger|)) (|obits| (|PositiveInteger|)))
-               (SEQ (LETT |obits| (SPADCALL (QREFELT % 36)))
-                    (LETT |prec| (+ |obits| 5))
-                    (EXIT
-                     (|finally|
-                      (SEQ (SPADCALL (+ |obits| 20) (QREFELT % 41))
-                           (EXIT (|FSFUN;li2_aux| |z| |prec| %)))
-                      (SPADCALL |obits| (QREFELT % 41))))))) 
+               (SEQ
+                (COND
+                 ((EQL (SPADCALL (QREFELT % 33)) 2)
+                  (SEQ (LETT |obits| (SPADCALL (QREFELT % 34)))
+                       (LETT |prec| (+ |obits| 5))
+                       (EXIT
+                        (|finally|
+                         (SEQ (SPADCALL (+ |obits| 20) (QREFELT % 39))
+                              (EXIT (|FSFUN;li2_aux| |z| |prec| %)))
+                         (SPADCALL |obits| (QREFELT % 39))))))
+                 ('T (|error| "li2 can only handle base 2 Float-s")))))) 
 
 (SDEFUN |FSFUN;dilog_aux|
         ((|z| (|Complex| (|Float|))) (|prec| (|Integer|))
@@ -876,54 +889,58 @@
         (SPROG
          ((|res| (|Complex| (|Float|))) (|lz1| #1=(|Complex| (|Float|)))
           (|lz| #1#) (|pi_fac| (|Float|)) (|rpi| (|Float|)) (|nz| (|Float|)))
-         (SEQ (LETT |nz| (SPADCALL |z| (QREFELT % 77)))
+         (SEQ (LETT |nz| (SPADCALL |z| (QREFELT % 75)))
               (EXIT
                (COND
                 ((SPADCALL |nz|
-                           (SPADCALL (|spadConstant| % 15) 4 (QREFELT % 38))
-                           (QREFELT % 40))
-                 (SEQ (LETT |rpi| (SPADCALL (QREFELT % 57)))
+                           (SPADCALL (|spadConstant| % 15) 4 (QREFELT % 36))
+                           (QREFELT % 38))
+                 (SEQ (LETT |rpi| (SPADCALL (QREFELT % 55)))
                       (LETT |pi_fac|
                             (SPADCALL
                              (SPADCALL
-                              (SPADCALL (|spadConstant| % 15) 6 (QREFELT % 38))
+                              (SPADCALL (|spadConstant| % 15) 6 (QREFELT % 36))
                               |rpi| (QREFELT % 21))
                              |rpi| (QREFELT % 21)))
                       (EXIT
                        (COND
-                        ((SPADCALL |z| (|spadConstant| % 44) (QREFELT % 45))
+                        ((SPADCALL |z| (|spadConstant| % 42) (QREFELT % 43))
                          (SPADCALL |pi_fac| (QREFELT % 22)))
                         (#2='T
-                         (SEQ (LETT |lz| (SPADCALL |z| (QREFELT % 26)))
+                         (SEQ (LETT |lz| (SPADCALL |z| (QREFELT % 25)))
                               (LETT |lz1|
                                     (SPADCALL
                                      (SPADCALL (|spadConstant| % 7) |z|
-                                               (QREFELT % 25))
-                                     (QREFELT % 26)))
+                                               (QREFELT % 24))
+                                     (QREFELT % 25)))
                               (EXIT
                                (LETT |res|
                                      (SPADCALL
                                       (SPADCALL
                                        (SPADCALL |pi_fac| (QREFELT % 22))
                                        (SPADCALL |lz| |lz1| (QREFELT % 9))
-                                       (QREFELT % 25))
+                                       (QREFELT % 24))
                                       (|FSFUN;li2_series| |z| |prec| %)
-                                      (QREFELT % 25))))))))))
+                                      (QREFELT % 24))))))))))
                 (#2#
                  (|FSFUN;li2_aux|
-                  (SPADCALL (|spadConstant| % 7) |z| (QREFELT % 25)) |prec|
+                  (SPADCALL (|spadConstant| % 7) |z| (QREFELT % 24)) |prec|
                   %))))))) 
 
 (SDEFUN |FSFUN;dilog;2C;24|
         ((|z| (|Complex| (|Float|))) (% (|Complex| (|Float|))))
         (SPROG ((|prec| (|PositiveInteger|)) (|obits| (|PositiveInteger|)))
-               (SEQ (LETT |obits| (SPADCALL (QREFELT % 36)))
-                    (LETT |prec| (+ |obits| 5))
-                    (EXIT
-                     (|finally|
-                      (SEQ (SPADCALL (+ |obits| 20) (QREFELT % 41))
-                           (EXIT (|FSFUN;dilog_aux| |z| |prec| %)))
-                      (SPADCALL |obits| (QREFELT % 41))))))) 
+               (SEQ
+                (COND
+                 ((EQL (SPADCALL (QREFELT % 33)) 2)
+                  (SEQ (LETT |obits| (SPADCALL (QREFELT % 34)))
+                       (LETT |prec| (+ |obits| 5))
+                       (EXIT
+                        (|finally|
+                         (SEQ (SPADCALL (+ |obits| 20) (QREFELT % 39))
+                              (EXIT (|FSFUN;dilog_aux| |z| |prec| %)))
+                         (SPADCALL |obits| (QREFELT % 39))))))
+                 ('T (|error| "dilog can only handle base 2 Float-s")))))) 
 
 (SDEFUN |FSFUN;lambert_via_newton1;4F;25|
         ((|x| (|Float|)) (|w| (|Float|)) (|eps| (|Float|)) (% (|Float|)))
@@ -934,22 +951,22 @@
            (SEQ (LETT |odw| (|spadConstant| % 15))
                 (EXIT
                  (SEQ G190 NIL
-                      (SEQ (LETT |ew| (SPADCALL |w| (QREFELT % 33)))
+                      (SEQ (LETT |ew| (SPADCALL |w| (QREFELT % 31)))
                            (LETT |dw|
                                  (SPADCALL
                                   (SPADCALL |w|
                                             (SPADCALL |x| |ew| (QREFELT % 17))
-                                            (QREFELT % 52))
+                                            (QREFELT % 50))
                                   (SPADCALL |w| (|spadConstant| % 15)
-                                            (QREFELT % 54))
+                                            (QREFELT % 52))
                                   (QREFELT % 17)))
-                           (LETT |w| (SPADCALL |w| |dw| (QREFELT % 52)))
+                           (LETT |w| (SPADCALL |w| |dw| (QREFELT % 50)))
                            (EXIT
                             (COND
-                             ((SPADCALL |odw| |eps| (QREFELT % 40))
+                             ((SPADCALL |odw| |eps| (QREFELT % 38))
                               (PROGN (LETT #1# |w|) (GO #2=#:G137)))
                              ('T
-                              (LETT |odw| (SPADCALL |dw| (QREFELT % 68)))))))
+                              (LETT |odw| (SPADCALL |dw| (QREFELT % 66)))))))
                       NIL (GO G190) G191 (EXIT NIL)))))
           #2# (EXIT #1#)))) 
 
@@ -962,23 +979,23 @@
            (SEQ (LETT |odw| (|spadConstant| % 15))
                 (EXIT
                  (SEQ G190 NIL
-                      (SEQ (LETT |lw| (SPADCALL |w| (QREFELT % 29)))
+                      (SEQ (LETT |lw| (SPADCALL |w| (QREFELT % 28)))
                            (LETT |dw|
                                  (SPADCALL
-                                  (SPADCALL (SPADCALL |w| |lw| (QREFELT % 54))
-                                            |lz| (QREFELT % 52))
+                                  (SPADCALL (SPADCALL |w| |lw| (QREFELT % 52))
+                                            |lz| (QREFELT % 50))
                                   (SPADCALL (|spadConstant| % 15)
                                             (SPADCALL (|spadConstant| % 15) |w|
                                                       (QREFELT % 17))
-                                            (QREFELT % 54))
+                                            (QREFELT % 52))
                                   (QREFELT % 17)))
-                           (LETT |w| (SPADCALL |w| |dw| (QREFELT % 52)))
+                           (LETT |w| (SPADCALL |w| |dw| (QREFELT % 50)))
                            (EXIT
                             (COND
-                             ((SPADCALL |odw| |eps| (QREFELT % 40))
+                             ((SPADCALL |odw| |eps| (QREFELT % 38))
                               (PROGN (LETT #1# |w|) (GO #2=#:G143)))
                              ('T
-                              (LETT |odw| (SPADCALL |dw| (QREFELT % 68)))))))
+                              (LETT |odw| (SPADCALL |dw| (QREFELT % 66)))))))
                       NIL (GO G190) G191 (EXIT NIL)))))
           #2# (EXIT #1#)))) 
 
@@ -989,44 +1006,44 @@
                 (LETT |res|
                       (SPADCALL |h|
                                 (SPADCALL
-                                 (SPADCALL (SPADCALL 1 3 (QREFELT % 12))
+                                 (SPADCALL (SPADCALL 1 3 (QREFELT % 89))
                                            (QREFELT % 20))
                                  |h2| (QREFELT % 21))
-                                (QREFELT % 52)))
+                                (QREFELT % 50)))
                 (LETT |h3| (SPADCALL |h| |h2| (QREFELT % 21)))
                 (LETT |res|
                       (SPADCALL |res|
                                 (SPADCALL
-                                 (SPADCALL (SPADCALL 11 72 (QREFELT % 12))
+                                 (SPADCALL (SPADCALL 11 72 (QREFELT % 89))
                                            (QREFELT % 20))
                                  |h3| (QREFELT % 21))
-                                (QREFELT % 54)))
+                                (QREFELT % 52)))
                 (LETT |h4| (SPADCALL |h2| |h2| (QREFELT % 21)))
                 (LETT |res|
                       (SPADCALL |res|
                                 (SPADCALL
-                                 (SPADCALL (SPADCALL 43 540 (QREFELT % 12))
+                                 (SPADCALL (SPADCALL 43 540 (QREFELT % 89))
                                            (QREFELT % 20))
                                  |h4| (QREFELT % 21))
-                                (QREFELT % 52)))
+                                (QREFELT % 50)))
                 (LETT |res|
                       (SPADCALL |res|
                                 (SPADCALL
                                  (SPADCALL
-                                  (SPADCALL (SPADCALL 769 17280 (QREFELT % 12))
+                                  (SPADCALL (SPADCALL 769 17280 (QREFELT % 89))
                                             (QREFELT % 20))
                                   |h3| (QREFELT % 21))
                                  |h2| (QREFELT % 21))
-                                (QREFELT % 54)))
+                                (QREFELT % 52)))
                 (EXIT
                  (SPADCALL |res|
                            (SPADCALL
                             (SPADCALL
-                             (SPADCALL (SPADCALL 221 8505 (QREFELT % 12))
+                             (SPADCALL (SPADCALL 221 8505 (QREFELT % 89))
                                        (QREFELT % 20))
                              |h4| (QREFELT % 21))
                             |h2| (QREFELT % 21))
-                           (QREFELT % 52)))))) 
+                           (QREFELT % 50)))))) 
 
 (SDEFUN |FSFUN;lambert_via_newton1;2CFC;28|
         ((|x| (|Complex| (|Float|))) (|w| (|Complex| (|Float|)))
@@ -1039,22 +1056,22 @@
            (SEQ (LETT |odw| (|spadConstant| % 15))
                 (EXIT
                  (SEQ G190 NIL
-                      (SEQ (LETT |ew| (SPADCALL |w| (QREFELT % 30)))
+                      (SEQ (LETT |ew| (SPADCALL |w| (QREFELT % 29)))
                            (LETT |dw|
                                  (SPADCALL
                                   (SPADCALL |w|
                                             (SPADCALL |x| |ew| (QREFELT % 8))
-                                            (QREFELT % 25))
+                                            (QREFELT % 24))
                                   (SPADCALL |w| (|spadConstant| % 7)
                                             (QREFELT % 23))
                                   (QREFELT % 8)))
-                           (LETT |w| (SPADCALL |w| |dw| (QREFELT % 25)))
+                           (LETT |w| (SPADCALL |w| |dw| (QREFELT % 24)))
                            (EXIT
                             (COND
-                             ((SPADCALL |odw| |eps| (QREFELT % 40))
+                             ((SPADCALL |odw| |eps| (QREFELT % 38))
                               (PROGN (LETT #1# |w|) (GO #2=#:G151)))
                              ('T
-                              (LETT |odw| (SPADCALL |dw| (QREFELT % 69)))))))
+                              (LETT |odw| (SPADCALL |dw| (QREFELT % 67)))))))
                       NIL (GO G190) G191 (EXIT NIL)))))
           #2# (EXIT #1#)))) 
 
@@ -1069,23 +1086,23 @@
            (SEQ (LETT |odw| (|spadConstant| % 15))
                 (EXIT
                  (SEQ G190 NIL
-                      (SEQ (LETT |lw| (SPADCALL |w| (QREFELT % 26)))
+                      (SEQ (LETT |lw| (SPADCALL |w| (QREFELT % 25)))
                            (LETT |dw|
                                  (SPADCALL
                                   (SPADCALL (SPADCALL |w| |lw| (QREFELT % 23))
-                                            |lz| (QREFELT % 25))
+                                            |lz| (QREFELT % 24))
                                   (SPADCALL (|spadConstant| % 7)
                                             (SPADCALL (|spadConstant| % 7) |w|
                                                       (QREFELT % 8))
                                             (QREFELT % 23))
                                   (QREFELT % 8)))
-                           (LETT |w| (SPADCALL |w| |dw| (QREFELT % 25)))
+                           (LETT |w| (SPADCALL |w| |dw| (QREFELT % 24)))
                            (EXIT
                             (COND
-                             ((SPADCALL |odw| |eps| (QREFELT % 40))
+                             ((SPADCALL |odw| |eps| (QREFELT % 38))
                               (PROGN (LETT #1# |w|) (GO #2=#:G157)))
                              ('T
-                              (LETT |odw| (SPADCALL |dw| (QREFELT % 69)))))))
+                              (LETT |odw| (SPADCALL |dw| (QREFELT % 67)))))))
                       NIL (GO G190) G191 (EXIT NIL)))))
           #2# (EXIT #1#)))) 
 
@@ -1099,32 +1116,32 @@
           (LETT |res|
                 (SPADCALL |h|
                           (SPADCALL
-                           (SPADCALL (SPADCALL 1 3 (QREFELT % 12))
-                                     (QREFELT % 13))
+                           (SPADCALL (SPADCALL 1 3 (QREFELT % 89))
+                                     (QREFELT % 93))
                            |h2| (QREFELT % 9))
-                          (QREFELT % 25)))
+                          (QREFELT % 24)))
           (LETT |h3| (SPADCALL |h| |h2| (QREFELT % 9)))
           (LETT |res|
                 (SPADCALL |res|
                           (SPADCALL
-                           (SPADCALL (SPADCALL 11 72 (QREFELT % 12))
-                                     (QREFELT % 13))
+                           (SPADCALL (SPADCALL 11 72 (QREFELT % 89))
+                                     (QREFELT % 93))
                            |h3| (QREFELT % 9))
                           (QREFELT % 23)))
           (LETT |h4| (SPADCALL |h2| |h2| (QREFELT % 9)))
           (LETT |res|
                 (SPADCALL |res|
                           (SPADCALL
-                           (SPADCALL (SPADCALL 43 540 (QREFELT % 12))
-                                     (QREFELT % 13))
+                           (SPADCALL (SPADCALL 43 540 (QREFELT % 89))
+                                     (QREFELT % 93))
                            |h4| (QREFELT % 9))
-                          (QREFELT % 25)))
+                          (QREFELT % 24)))
           (LETT |res|
                 (SPADCALL |res|
                           (SPADCALL
                            (SPADCALL
-                            (SPADCALL (SPADCALL 769 17280 (QREFELT % 12))
-                                      (QREFELT % 13))
+                            (SPADCALL (SPADCALL 769 17280 (QREFELT % 89))
+                                      (QREFELT % 93))
                             |h3| (QREFELT % 9))
                            |h2| (QREFELT % 9))
                           (QREFELT % 23)))
@@ -1132,11 +1149,11 @@
            (SPADCALL |res|
                      (SPADCALL
                       (SPADCALL
-                       (SPADCALL (SPADCALL 221 8505 (QREFELT % 12))
-                                 (QREFELT % 13))
+                       (SPADCALL (SPADCALL 221 8505 (QREFELT % 89))
+                                 (QREFELT % 93))
                        |h4| (QREFELT % 9))
                       |h2| (QREFELT % 9))
-                     (QREFELT % 25)))))) 
+                     (QREFELT % 24)))))) 
 
 (SDEFUN |FSFUN;lambert_via_newton1;4Df;31|
         ((|x| (|DoubleFloat|)) (|w| (|DoubleFloat|)) (|eps| (|DoubleFloat|))
@@ -1159,7 +1176,7 @@
                              ((|less_DF| |odw| |eps|)
                               (PROGN (LETT #1# |w|) (GO #2=#:G165)))
                              ('T
-                              (LETT |odw| (SPADCALL |dw| (QREFELT % 71)))))))
+                              (LETT |odw| (SPADCALL |dw| (QREFELT % 69)))))))
                       NIL (GO G190) G191 (EXIT NIL)))))
           #2# (EXIT #1#)))) 
 
@@ -1174,7 +1191,7 @@
            (SEQ (LETT |odw| 1.0)
                 (EXIT
                  (SEQ G190 NIL
-                      (SEQ (LETT |lw| (SPADCALL |w| (QREFELT % 82)))
+                      (SEQ (LETT |lw| (SPADCALL |w| (QREFELT % 80)))
                            (LETT |dw|
                                  (|div_DF| (|sub_DF| (|add_DF| |w| |lw|) |lz|)
                                            (|add_DF| 1.0 (|div_DF| 1.0 |w|))))
@@ -1184,7 +1201,7 @@
                              ((|less_DF| |odw| |eps|)
                               (PROGN (LETT #1# |w|) (GO #2=#:G171)))
                              ('T
-                              (LETT |odw| (SPADCALL |dw| (QREFELT % 71)))))))
+                              (LETT |odw| (SPADCALL |dw| (QREFELT % 69)))))))
                       NIL (GO G190) G191 (EXIT NIL)))))
           #2# (EXIT #1#)))) 
 
@@ -1195,28 +1212,28 @@
                 (LETT |res|
                       (|sub_DF| |h|
                                 (|mul_DF|
-                                 (SPADCALL (SPADCALL 1 3 (QREFELT % 12))
+                                 (SPADCALL (SPADCALL 1 3 (QREFELT % 89))
                                            (QREFELT % 97))
                                  |h2|)))
                 (LETT |h3| (|mul_DF| |h| |h2|))
                 (LETT |res|
                       (|add_DF| |res|
                                 (|mul_DF|
-                                 (SPADCALL (SPADCALL 11 72 (QREFELT % 12))
+                                 (SPADCALL (SPADCALL 11 72 (QREFELT % 89))
                                            (QREFELT % 97))
                                  |h3|)))
                 (LETT |h4| (|mul_DF| |h2| |h2|))
                 (LETT |res|
                       (|sub_DF| |res|
                                 (|mul_DF|
-                                 (SPADCALL (SPADCALL 43 540 (QREFELT % 12))
+                                 (SPADCALL (SPADCALL 43 540 (QREFELT % 89))
                                            (QREFELT % 97))
                                  |h4|)))
                 (LETT |res|
                       (|add_DF| |res|
                                 (|mul_DF|
                                  (|mul_DF|
-                                  (SPADCALL (SPADCALL 769 17280 (QREFELT % 12))
+                                  (SPADCALL (SPADCALL 769 17280 (QREFELT % 89))
                                             (QREFELT % 97))
                                   |h3|)
                                  |h2|)))
@@ -1224,7 +1241,7 @@
                  (|sub_DF| |res|
                            (|mul_DF|
                             (|mul_DF|
-                             (SPADCALL (SPADCALL 221 8505 (QREFELT % 12))
+                             (SPADCALL (SPADCALL 221 8505 (QREFELT % 89))
                                        (QREFELT % 97))
                              |h4|)
                             |h2|)))))) 
@@ -1256,7 +1273,7 @@
                              ((|less_DF| |odw| |eps|)
                               (PROGN (LETT #1# |w|) (GO #2=#:G179)))
                              ('T
-                              (LETT |odw| (SPADCALL |dw| (QREFELT % 75)))))))
+                              (LETT |odw| (SPADCALL |dw| (QREFELT % 73)))))))
                       NIL (GO G190) G191 (EXIT NIL)))))
           #2# (EXIT #1#)))) 
 
@@ -1288,7 +1305,7 @@
                              ((|less_DF| |odw| |eps|)
                               (PROGN (LETT #1# |w|) (GO #2=#:G185)))
                              ('T
-                              (LETT |odw| (SPADCALL |dw| (QREFELT % 75)))))))
+                              (LETT |odw| (SPADCALL |dw| (QREFELT % 73)))))))
                       NIL (GO G190) G191 (EXIT NIL)))))
           #2# (EXIT #1#)))) 
 
@@ -1302,7 +1319,7 @@
           (LETT |res|
                 (SPADCALL |h|
                           (SPADCALL
-                           (SPADCALL (SPADCALL 1 3 (QREFELT % 12))
+                           (SPADCALL (SPADCALL 1 3 (QREFELT % 89))
                                      (QREFELT % 107))
                            |h2| (QREFELT % 108))
                           (QREFELT % 101)))
@@ -1310,7 +1327,7 @@
           (LETT |res|
                 (SPADCALL |res|
                           (SPADCALL
-                           (SPADCALL (SPADCALL 11 72 (QREFELT % 12))
+                           (SPADCALL (SPADCALL 11 72 (QREFELT % 89))
                                      (QREFELT % 107))
                            |h3| (QREFELT % 108))
                           (QREFELT % 103)))
@@ -1318,7 +1335,7 @@
           (LETT |res|
                 (SPADCALL |res|
                           (SPADCALL
-                           (SPADCALL (SPADCALL 43 540 (QREFELT % 12))
+                           (SPADCALL (SPADCALL 43 540 (QREFELT % 89))
                                      (QREFELT % 107))
                            |h4| (QREFELT % 108))
                           (QREFELT % 101)))
@@ -1326,7 +1343,7 @@
                 (SPADCALL |res|
                           (SPADCALL
                            (SPADCALL
-                            (SPADCALL (SPADCALL 769 17280 (QREFELT % 12))
+                            (SPADCALL (SPADCALL 769 17280 (QREFELT % 89))
                                       (QREFELT % 107))
                             |h3| (QREFELT % 108))
                            |h2| (QREFELT % 108))
@@ -1335,7 +1352,7 @@
            (SPADCALL |res|
                      (SPADCALL
                       (SPADCALL
-                       (SPADCALL (SPADCALL 221 8505 (QREFELT % 12))
+                       (SPADCALL (SPADCALL 221 8505 (QREFELT % 89))
                                  (QREFELT % 107))
                        |h4| (QREFELT % 108))
                       |h2| (QREFELT % 108))
@@ -1361,7 +1378,7 @@
                                   ((SPADCALL |x| 0.0 (QREFELT % 112))
                                    (EXIT
                                     (SEQ
-                                     (LETT |lx| (SPADCALL |x| (QREFELT % 82)))
+                                     (LETT |lx| (SPADCALL |x| (QREFELT % 80)))
                                      (EXIT
                                       (SPADCALL |lx| |lx| |eps|
                                                 (QREFELT % 96)))))))))
@@ -1373,12 +1390,12 @@
                                                  (QREFELT % 112))
                                        (SEQ
                                         (LETT |y|
-                                              (SPADCALL |x| (QREFELT % 82)))
+                                              (SPADCALL |x| (QREFELT % 80)))
                                         (EXIT
                                          (|sub_DF| |y|
                                                    (SPADCALL |y|
                                                              (QREFELT %
-                                                                      82))))))
+                                                                      80))))))
                                       (#2# (|mul_DF| (|div_DF_I| 1.0 2) |x|))))
                                (EXIT
                                 (COND
@@ -1386,7 +1403,7 @@
                                              (SPADCALL
                                               (SPADCALL
                                                (SPADCALL 190436 517656
-                                                         (QREFELT % 12))
+                                                         (QREFELT % 89))
                                                (QREFELT % 113))
                                               (QREFELT % 97)))
                                   (|error| "x < -exp(-1)"))
@@ -1394,7 +1411,7 @@
                                              (SPADCALL
                                               (SPADCALL
                                                (SPADCALL 231087 628160
-                                                         (QREFELT % 12))
+                                                         (QREFELT % 89))
                                                (QREFELT % 113))
                                               (QREFELT % 97)))
                                   (SEQ (LETT |e1| (|exp_DF| (|minus_DF| 1.0)))
@@ -1438,7 +1455,7 @@
          (SEQ
           (COND ((SPADCALL |x| (|spadConstant| % 117) (QREFELT % 118)) |x|)
                 (#2='T
-                 (SEQ (LETT |rx| (SPADCALL |x| (QREFELT % 74)))
+                 (SEQ (LETT |rx| (SPADCALL |x| (QREFELT % 72)))
                       (LETT |ix| (SPADCALL |x| (QREFELT % 119)))
                       (LETT |ax| (|add_DF| (|abs_DF| |rx|) (|abs_DF| |ix|)))
                       (LETT |eps| (SPADCALL 1 -35 (QREFELT % 110)))
@@ -1449,7 +1466,7 @@
                               (SEQ
                                (LETT |lz|
                                      (SPADCALL
-                                      (SPADCALL (SPADCALL |ax| (QREFELT % 82))
+                                      (SPADCALL (SPADCALL |ax| (QREFELT % 80))
                                                 0.0 (QREFELT % 120))
                                       (SPADCALL
                                        (SPADCALL (|div_DF| |rx| |ax|)
@@ -1465,21 +1482,21 @@
                                 ((|less_DF| (|abs_DF| |ix|)
                                             (SPADCALL
                                              (SPADCALL 1 4194304
-                                                       (QREFELT % 12))
+                                                       (QREFELT % 89))
                                              (QREFELT % 97)))
                                  (COND
                                   ((|less_DF| |rx|
                                               (SPADCALL
                                                (SPADCALL
                                                 (SPADCALL 231087 628160
-                                                          (QREFELT % 12))
+                                                          (QREFELT % 89))
                                                 (QREFELT % 113))
                                                (QREFELT % 97)))
                                    (COND
                                     ((|less_DF|
                                       (SPADCALL
                                        (SPADCALL
-                                        (SPADCALL 56258 152925 (QREFELT % 12))
+                                        (SPADCALL 56258 152925 (QREFELT % 89))
                                         (QREFELT % 113))
                                        (QREFELT % 97))
                                       |rx|)
@@ -1534,123 +1551,131 @@
           (|cbit2| (|NonNegativeInteger|)) (|lx| #1#) (|ox| (|Integer|))
           (|ax| (|Float|)) (|cbit| (|PositiveInteger|)))
          (SEQ
-          (COND ((SPADCALL |x| (|spadConstant| % 59) (QREFELT % 124)) |x|)
-                (#2='T
-                 (SEQ (LETT |cbit| (SPADCALL (QREFELT % 36)))
-                      (LETT |eps|
-                            (SPADCALL 1 (- (QUOTIENT2 (* 2 |cbit|) 3))
-                                      (QREFELT % 125)))
-                      (LETT |ax| (SPADCALL |x| (QREFELT % 67)))
-                      (LETT |ox| (SPADCALL |ax| (QREFELT % 51)))
-                      (EXIT
-                       (COND ((< |ox| (- (- |cbit|) 10)) |x|)
-                             (#2#
-                              (SEQ
-                               (COND
-                                ((> |ox| 200)
+          (COND
+           ((EQL (SPADCALL (QREFELT % 33)) 2)
+            (COND ((SPADCALL |x| (|spadConstant| % 57) (QREFELT % 124)) |x|)
+                  (#2='T
+                   (SEQ (LETT |cbit| (SPADCALL (QREFELT % 34)))
+                        (LETT |eps|
+                              (SPADCALL 1 (- (QUOTIENT2 (* 2 |cbit|) 3))
+                                        (QREFELT % 125)))
+                        (LETT |ax| (SPADCALL |x| (QREFELT % 65)))
+                        (LETT |ox| (SPADCALL |ax| (QREFELT % 49)))
+                        (EXIT
+                         (COND ((< |ox| (- (- |cbit|) 10)) |x|)
+                               (#2#
+                                (SEQ
                                  (COND
-                                  ((SPADCALL |x| (|spadConstant| % 59)
-                                             (QREFELT % 50))
-                                   (EXIT
-                                    (SEQ
-                                     (LETT |lx| (SPADCALL |x| (QREFELT % 29)))
-                                     (EXIT
-                                      (SPADCALL |lx| |lx| |eps|
-                                                (QREFELT % 90)))))))))
-                               (EXIT
-                                (COND
-                                 ((SPADCALL |x|
-                                            (SPADCALL
-                                             (SPADCALL
-                                              (SPADCALL 190436 517656
-                                                        (QREFELT % 12))
-                                              (QREFELT % 113))
-                                             (QREFELT % 20))
-                                            (QREFELT % 40))
-                                  (|error| "x < -exp(-1)"))
-                                 ((SPADCALL |x|
-                                            (SPADCALL
-                                             (SPADCALL
-                                              (SPADCALL 190434 517656
-                                                        (QREFELT % 12))
-                                              (QREFELT % 113))
-                                             (QREFELT % 20))
-                                            (QREFELT % 40))
-                                  (SEQ (LETT |cbit2| (QUOTIENT2 |cbit| 2))
-                                       (SPADCALL (+ |cbit| |cbit2|)
-                                                 (QREFELT % 41))
-                                       (LETT |e1|
-                                             (SPADCALL
-                                              (SPADCALL (|spadConstant| % 15)
-                                                        (QREFELT % 32))
-                                              (QREFELT % 33)))
-                                       (LETT |h2|
-                                             (SPADCALL |x| |e1|
-                                                       (QREFELT % 54)))
-                                       (LETT |h|
-                                             (SPADCALL |h2| (QREFELT % 78)))
-                                       (SPADCALL |cbit| (QREFELT % 41))
-                                       (EXIT
-                                        (COND
-                                         ((SPADCALL |h2| (|spadConstant| % 59)
-                                                    (QREFELT % 40))
-                                          (|error| "x < -exp(-1)"))
-                                         (#2#
-                                          (SEQ
-                                           (LETT |w1|
-                                                 (SPADCALL |h| |h2|
-                                                           (QREFELT % 91)))
-                                           (EXIT
-                                            (COND
-                                             ((< (SPADCALL |w1| (QREFELT % 51))
-                                                 (- |cbit2|))
-                                              (SPADCALL |w1|
-                                                        (|spadConstant| % 15)
-                                                        (QREFELT % 52)))
-                                             (#2#
-                                              (SPADCALL |x|
-                                                        (SPADCALL |w1|
-                                                                  (|spadConstant|
-                                                                   % 15)
-                                                                  (QREFELT %
-                                                                           52))
-                                                        |eps|
-                                                        (QREFELT %
-                                                                 89)))))))))))
-                                 (#2#
-                                  (SEQ
-                                   (LETT |w|
-                                         (COND
-                                          ((SPADCALL |x|
-                                                     (SPADCALL 2
-                                                               (QREFELT % 16))
-                                                     (QREFELT % 50))
-                                           (SEQ
-                                            (LETT |y|
-                                                  (SPADCALL |x|
-                                                            (QREFELT % 29)))
-                                            (EXIT
-                                             (SPADCALL |y|
-                                                       (SPADCALL |y|
-                                                                 (QREFELT %
-                                                                          29))
-                                                       (QREFELT % 52)))))
-                                          (#2#
-                                           (SPADCALL
-                                            (SPADCALL 5 -1 10 (QREFELT % 126))
-                                            |x| (QREFELT % 21)))))
+                                  ((> |ox| 200)
                                    (COND
-                                    ((SPADCALL (SPADCALL |x| (QREFELT % 67))
+                                    ((SPADCALL |x| (|spadConstant| % 57)
+                                               (QREFELT % 48))
+                                     (EXIT
+                                      (SEQ
+                                       (LETT |lx|
+                                             (SPADCALL |x| (QREFELT % 28)))
+                                       (EXIT
+                                        (SPADCALL |lx| |lx| |eps|
+                                                  (QREFELT % 88)))))))))
+                                 (EXIT
+                                  (COND
+                                   ((SPADCALL |x|
+                                              (SPADCALL
                                                (SPADCALL
-                                                (SPADCALL 1 2 (QREFELT % 12))
-                                                (QREFELT % 20))
-                                               (QREFELT % 40))
-                                     (LETT |eps|
-                                           (SPADCALL |ax| |eps|
-                                                     (QREFELT % 21)))))
-                                   (EXIT
-                                    (SPADCALL |x| |w| |eps|
-                                              (QREFELT % 89))))))))))))))))) 
+                                                (SPADCALL 190436 517656
+                                                          (QREFELT % 89))
+                                                (QREFELT % 113))
+                                               (QREFELT % 20))
+                                              (QREFELT % 38))
+                                    (|error| "x < -exp(-1)"))
+                                   ((SPADCALL |x|
+                                              (SPADCALL
+                                               (SPADCALL
+                                                (SPADCALL 190434 517656
+                                                          (QREFELT % 89))
+                                                (QREFELT % 113))
+                                               (QREFELT % 20))
+                                              (QREFELT % 38))
+                                    (SEQ (LETT |cbit2| (QUOTIENT2 |cbit| 2))
+                                         (SPADCALL (+ |cbit| |cbit2|)
+                                                   (QREFELT % 39))
+                                         (LETT |e1|
+                                               (SPADCALL
+                                                (SPADCALL (|spadConstant| % 15)
+                                                          (QREFELT % 30))
+                                                (QREFELT % 31)))
+                                         (LETT |h2|
+                                               (SPADCALL |x| |e1|
+                                                         (QREFELT % 52)))
+                                         (LETT |h|
+                                               (SPADCALL |h2| (QREFELT % 76)))
+                                         (SPADCALL |cbit| (QREFELT % 39))
+                                         (EXIT
+                                          (COND
+                                           ((SPADCALL |h2|
+                                                      (|spadConstant| % 57)
+                                                      (QREFELT % 38))
+                                            (|error| "x < -exp(-1)"))
+                                           (#2#
+                                            (SEQ
+                                             (LETT |w1|
+                                                   (SPADCALL |h| |h2|
+                                                             (QREFELT % 90)))
+                                             (EXIT
+                                              (COND
+                                               ((<
+                                                 (SPADCALL |w1| (QREFELT % 49))
+                                                 (- |cbit2|))
+                                                (SPADCALL |w1|
+                                                          (|spadConstant| % 15)
+                                                          (QREFELT % 50)))
+                                               (#2#
+                                                (SPADCALL |x|
+                                                          (SPADCALL |w1|
+                                                                    (|spadConstant|
+                                                                     % 15)
+                                                                    (QREFELT %
+                                                                             50))
+                                                          |eps|
+                                                          (QREFELT %
+                                                                   87)))))))))))
+                                   (#2#
+                                    (SEQ
+                                     (LETT |w|
+                                           (COND
+                                            ((SPADCALL |x|
+                                                       (SPADCALL 2
+                                                                 (QREFELT %
+                                                                          16))
+                                                       (QREFELT % 48))
+                                             (SEQ
+                                              (LETT |y|
+                                                    (SPADCALL |x|
+                                                              (QREFELT % 28)))
+                                              (EXIT
+                                               (SPADCALL |y|
+                                                         (SPADCALL |y|
+                                                                   (QREFELT %
+                                                                            28))
+                                                         (QREFELT % 50)))))
+                                            (#2#
+                                             (SPADCALL
+                                              (SPADCALL 5 -1 10
+                                                        (QREFELT % 126))
+                                              |x| (QREFELT % 21)))))
+                                     (COND
+                                      ((SPADCALL (SPADCALL |x| (QREFELT % 65))
+                                                 (SPADCALL
+                                                  (SPADCALL 1 2 (QREFELT % 89))
+                                                  (QREFELT % 20))
+                                                 (QREFELT % 38))
+                                       (LETT |eps|
+                                             (SPADCALL |ax| |eps|
+                                                       (QREFELT % 21)))))
+                                     (EXIT
+                                      (SPADCALL |x| |w| |eps|
+                                                (QREFELT % 87)))))))))))))))
+           (#2# (|error| "lambertW can only handle base 2 Float-s")))))) 
 
 (SDEFUN |FSFUN;lambertW;2C;40|
         ((|z| (|Complex| (|Float|))) (% (|Complex| (|Float|))))
@@ -1663,108 +1688,114 @@
           (|lz| (|Complex| (|Float|))) (|oz| (|Integer|)) (|abs_z| (|Float|))
           (|cbit| (|PositiveInteger|)))
          (SEQ
-          (COND ((SPADCALL |z| (|spadConstant| % 44) (QREFELT % 45)) |z|)
-                (#1='T
-                 (SEQ (LETT |cbit| (SPADCALL (QREFELT % 36)))
-                      (LETT |eps|
-                            (SPADCALL 1 (- (QUOTIENT2 (* 2 |cbit|) 3))
-                                      (QREFELT % 125)))
-                      (LETT |abs_z| (SPADCALL |z| (QREFELT % 69)))
-                      (LETT |oz| (SPADCALL |abs_z| (QREFELT % 51)))
-                      (EXIT
-                       (COND ((< |oz| (- (- |cbit|) 10)) |z|)
-                             ((> |oz| 200)
-                              (SEQ (LETT |lz| (SPADCALL |z| (QREFELT % 26)))
-                                   (EXIT
-                                    (SPADCALL |lz| |lz| |eps|
-                                              (QREFELT % 93)))))
-                             (#1#
-                              (SEQ
-                               (LETT |rzd|
-                                     (SPADCALL (SPADCALL |z| (QREFELT % 37))
-                                               (QREFELT % 128)))
-                               (COND
-                                ((OR
-                                  (SPADCALL (SPADCALL |z| (QREFELT % 56))
-                                            (SPADCALL (|spadConstant| % 15)
-                                                      1000000 (QREFELT % 38))
-                                            (QREFELT % 50))
-                                  (OR
-                                   (|less_DF| |rzd|
-                                              (SPADCALL
+          (COND
+           ((EQL (SPADCALL (QREFELT % 33)) 2)
+            (COND ((SPADCALL |z| (|spadConstant| % 42) (QREFELT % 43)) |z|)
+                  (#1='T
+                   (SEQ (LETT |cbit| (SPADCALL (QREFELT % 34)))
+                        (LETT |eps|
+                              (SPADCALL 1 (- (QUOTIENT2 (* 2 |cbit|) 3))
+                                        (QREFELT % 125)))
+                        (LETT |abs_z| (SPADCALL |z| (QREFELT % 67)))
+                        (LETT |oz| (SPADCALL |abs_z| (QREFELT % 49)))
+                        (EXIT
+                         (COND ((< |oz| (- (- |cbit|) 10)) |z|)
+                               ((> |oz| 200)
+                                (SEQ (LETT |lz| (SPADCALL |z| (QREFELT % 25)))
+                                     (EXIT
+                                      (SPADCALL |lz| |lz| |eps|
+                                                (QREFELT % 92)))))
+                               (#1#
+                                (SEQ
+                                 (LETT |rzd|
+                                       (SPADCALL (SPADCALL |z| (QREFELT % 35))
+                                                 (QREFELT % 128)))
+                                 (COND
+                                  ((OR
+                                    (SPADCALL (SPADCALL |z| (QREFELT % 54))
+                                              (SPADCALL (|spadConstant| % 15)
+                                                        1000000 (QREFELT % 36))
+                                              (QREFELT % 48))
+                                    (OR
+                                     (|less_DF| |rzd|
+                                                (SPADCALL
+                                                 (SPADCALL
+                                                  (SPADCALL 190436 517656
+                                                            (QREFELT % 89))
+                                                  (QREFELT % 113))
+                                                 (QREFELT % 97)))
+                                     (SPADCALL |rzd|
                                                (SPADCALL
-                                                (SPADCALL 190436 517656
-                                                          (QREFELT % 12))
-                                                (QREFELT % 113))
-                                               (QREFELT % 97)))
-                                   (SPADCALL |rzd|
-                                             (SPADCALL
-                                              (SPADCALL
-                                               (SPADCALL 190434 517656
-                                                         (QREFELT % 12))
-                                               (QREFELT % 113))
-                                              (QREFELT % 97))
-                                             (QREFELT % 112))))
-                                 (EXIT
-                                  (SEQ
-                                   (LETT |izd|
-                                         (SPADCALL
-                                          (SPADCALL |z| (QREFELT % 56))
-                                          (QREFELT % 128)))
-                                   (LETT |wd|
-                                         (SPADCALL
-                                          (SPADCALL |rzd| |izd|
-                                                    (QREFELT % 120))
-                                          (QREFELT % 123)))
-                                   (LETT |w|
-                                         (SPADCALL
-                                          (SPADCALL
-                                           (SPADCALL |wd| (QREFELT % 74))
-                                           (QREFELT % 129))
-                                          (SPADCALL
-                                           (SPADCALL |wd| (QREFELT % 119))
-                                           (QREFELT % 129))
-                                          (QREFELT % 60)))
-                                   (COND
-                                    ((SPADCALL |abs_z|
-                                               (SPADCALL (|spadConstant| % 15)
-                                                         2 (QREFELT % 38))
-                                               (QREFELT % 40))
-                                     (LETT |eps|
-                                           (SPADCALL |abs_z| |eps|
-                                                     (QREFELT % 21)))))
+                                                (SPADCALL
+                                                 (SPADCALL 190434 517656
+                                                           (QREFELT % 89))
+                                                 (QREFELT % 113))
+                                                (QREFELT % 97))
+                                               (QREFELT % 112))))
                                    (EXIT
-                                    (SPADCALL |z| |w| |eps|
-                                              (QREFELT % 92)))))))
-                               (LETT |cbit2| (QUOTIENT2 |cbit| 2))
-                               (SPADCALL (+ |cbit| |cbit2|) (QREFELT % 41))
-                               (LETT |e1|
-                                     (SPADCALL
-                                      (SPADCALL (|spadConstant| % 15)
-                                                (QREFELT % 32))
-                                      (QREFELT % 33)))
-                               (LETT |h2|
-                                     (SPADCALL |z|
-                                               (SPADCALL |e1|
-                                                         (|spadConstant| % 59)
-                                                         (QREFELT % 60))
-                                               (QREFELT % 23)))
-                               (LETT |h| (SPADCALL |h2| (QREFELT % 130)))
-                               (SPADCALL |cbit| (QREFELT % 41))
-                               (LETT |w1| (SPADCALL |h| |h2| (QREFELT % 94)))
-                               (EXIT
-                                (COND
-                                 ((<
-                                   (SPADCALL (SPADCALL |h2| (QREFELT % 69))
-                                             (QREFELT % 51))
-                                   (- |cbit2|))
-                                  (SPADCALL |w1| (|spadConstant| % 7)
-                                            (QREFELT % 25)))
-                                 (#1#
-                                  (SPADCALL |z|
-                                            (SPADCALL |w1| (|spadConstant| % 7)
-                                                      (QREFELT % 25))
-                                            |eps| (QREFELT % 92))))))))))))))) 
+                                    (SEQ
+                                     (LETT |izd|
+                                           (SPADCALL
+                                            (SPADCALL |z| (QREFELT % 54))
+                                            (QREFELT % 128)))
+                                     (LETT |wd|
+                                           (SPADCALL
+                                            (SPADCALL |rzd| |izd|
+                                                      (QREFELT % 120))
+                                            (QREFELT % 123)))
+                                     (LETT |w|
+                                           (SPADCALL
+                                            (SPADCALL
+                                             (SPADCALL |wd| (QREFELT % 72))
+                                             (QREFELT % 129))
+                                            (SPADCALL
+                                             (SPADCALL |wd| (QREFELT % 119))
+                                             (QREFELT % 129))
+                                            (QREFELT % 58)))
+                                     (COND
+                                      ((SPADCALL |abs_z|
+                                                 (SPADCALL
+                                                  (|spadConstant| % 15) 2
+                                                  (QREFELT % 36))
+                                                 (QREFELT % 38))
+                                       (LETT |eps|
+                                             (SPADCALL |abs_z| |eps|
+                                                       (QREFELT % 21)))))
+                                     (EXIT
+                                      (SPADCALL |z| |w| |eps|
+                                                (QREFELT % 91)))))))
+                                 (LETT |cbit2| (QUOTIENT2 |cbit| 2))
+                                 (SPADCALL (+ |cbit| |cbit2|) (QREFELT % 39))
+                                 (LETT |e1|
+                                       (SPADCALL
+                                        (SPADCALL (|spadConstant| % 15)
+                                                  (QREFELT % 30))
+                                        (QREFELT % 31)))
+                                 (LETT |h2|
+                                       (SPADCALL |z|
+                                                 (SPADCALL |e1|
+                                                           (|spadConstant| %
+                                                                           57)
+                                                           (QREFELT % 58))
+                                                 (QREFELT % 23)))
+                                 (LETT |h| (SPADCALL |h2| (QREFELT % 130)))
+                                 (SPADCALL |cbit| (QREFELT % 39))
+                                 (LETT |w1| (SPADCALL |h| |h2| (QREFELT % 94)))
+                                 (EXIT
+                                  (COND
+                                   ((<
+                                     (SPADCALL (SPADCALL |h2| (QREFELT % 67))
+                                               (QREFELT % 49))
+                                     (- |cbit2|))
+                                    (SPADCALL |w1| (|spadConstant| % 7)
+                                              (QREFELT % 24)))
+                                   (#1#
+                                    (SPADCALL |z|
+                                              (SPADCALL |w1|
+                                                        (|spadConstant| % 7)
+                                                        (QREFELT % 24))
+                                              |eps| (QREFELT % 91)))))))))))))
+           (#1# (|error| "lambertW can only handle base 2 Float-s")))))) 
 
 (DECLAIM (NOTINLINE |FloatSpecialFunctions;|)) 
 
@@ -1803,32 +1834,31 @@
 (MAKEPROP '|FloatSpecialFunctions| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|Complex| 14) (0 . |One|) (4 . /)
-              (10 . *) (|Integer|) (|Fraction| 10) (16 . /) (22 . |coerce|)
-              (|Float|) (27 . |One|) (31 . |coerce|) (36 . /)
-              (|IntegerNumberTheoryFunctions|) (42 . |bernoulli|)
-              (47 . |coerce|) (52 . *) (58 . |coerce|) (63 . +) (69 . |One|)
-              (73 . -) (79 . |log|) (84 . |pi|) (88 . *) (94 . |log|)
-              (99 . |exp|) (104 . |coerce|) (109 . -) (114 . |exp|)
-              (|PositiveInteger|) (119 . |base|) (123 . |bits|) (127 . |real|)
-              (132 . /) (|Boolean|) (138 . <) (144 . |bits|) (149 . |round|)
-              (154 . |retract|) (159 . |Zero|) (163 . =) |FSFUN;Gamma;2C;5|
-              (169 . |sin|) (174 . |abs|) (179 . *) (185 . >) (191 . |order|)
-              (196 . -) (202 . |log2|) (206 . +) (212 . |wholePart|)
-              (217 . |imag|) (222 . |pi|) (226 . |imaginary|) (230 . |Zero|)
-              (234 . |complex|) |FSFUN;logGamma;2C;7| |FSFUN;Gamma;2F;8|
-              (240 . <=) |FSFUN;logGamma;2F;9| |FSFUN;Beta;3C;10|
-              |FSFUN;Beta;3F;11| (246 . |abs|) |FSFUN;rabs;2F;12|
-              |FSFUN;rabs;CF;13| (|DoubleFloat|) |FSFUN;rabs;2Df;14|
-              (|Complex| 70) (251 . |abs|) (256 . |real|) |FSFUN;rabs;CDf;15|
-              (261 . -) (266 . |norm|) (271 . |sqrt|) (276 . |cos|)
-              |FSFUN;digamma;2C;18| |FSFUN;digamma;2F;19| (281 . |log|)
-              (286 . |convert|) (291 . |round|) (296 . |retract|) (301 . >=)
-              |FSFUN;li2;2C;22| |FSFUN;dilog;2C;24|
-              |FSFUN;lambert_via_newton1;4F;25|
-              |FSFUN;lambert_via_newton2;4F;26|
+              (10 . *) (|Integer|) (16 . |coerce|) (|Fraction| 10) (21 . |One|)
+              (|Float|) (25 . |One|) (29 . |coerce|) (34 . /)
+              (|IntegerNumberTheoryFunctions|) (40 . |bernoulli|)
+              (45 . |coerce|) (50 . *) (56 . |coerce|) (61 . +) (67 . -)
+              (73 . |log|) (78 . |pi|) (82 . *) (88 . |log|) (93 . |exp|)
+              (98 . -) (103 . |exp|) (|PositiveInteger|) (108 . |base|)
+              (112 . |bits|) (116 . |real|) (121 . /) (|Boolean|) (127 . <)
+              (133 . |bits|) (138 . |round|) (143 . |retract|) (148 . |Zero|)
+              (152 . =) |FSFUN;Gamma;2C;5| (158 . |sin|) (163 . |abs|)
+              (168 . *) (174 . >) (180 . |order|) (185 . -) (191 . |log2|)
+              (195 . +) (201 . |wholePart|) (206 . |imag|) (211 . |pi|)
+              (215 . |imaginary|) (219 . |Zero|) (223 . |complex|)
+              |FSFUN;logGamma;2C;7| |FSFUN;Gamma;2F;8| (229 . <=)
+              |FSFUN;logGamma;2F;9| |FSFUN;Beta;3C;10| |FSFUN;Beta;3F;11|
+              (235 . |abs|) |FSFUN;rabs;2F;12| |FSFUN;rabs;CF;13|
+              (|DoubleFloat|) |FSFUN;rabs;2Df;14| (|Complex| 68) (240 . |abs|)
+              (245 . |real|) |FSFUN;rabs;CDf;15| (250 . -) (255 . |norm|)
+              (260 . |sqrt|) (265 . |cos|) |FSFUN;digamma;2C;18|
+              |FSFUN;digamma;2F;19| (270 . |log|) (275 . |convert|)
+              (280 . |round|) (285 . |retract|) (290 . >=) |FSFUN;li2;2C;22|
+              |FSFUN;dilog;2C;24| |FSFUN;lambert_via_newton1;4F;25|
+              |FSFUN;lambert_via_newton2;4F;26| (296 . /)
               |FSFUN;lambert_inverse_series;3F;27|
               |FSFUN;lambert_via_newton1;2CFC;28|
-              |FSFUN;lambert_via_newton2;2CFC;29|
+              |FSFUN;lambert_via_newton2;2CFC;29| (302 . |coerce|)
               |FSFUN;lambert_inverse_series;3C;30|
               |FSFUN;lambert_via_newton1;4Df;31|
               |FSFUN;lambert_via_newton2;4Df;32| (307 . |coerce|)
@@ -1960,52 +1990,52 @@
                                      T))
                              (LIST) NIL NIL)))
                         (|makeByteWordVec2| 131
-                                            '(0 6 0 7 2 6 0 0 0 8 2 6 0 0 0 9 2
-                                              11 0 10 10 12 1 6 0 11 13 0 14 0
-                                              15 1 14 0 10 16 2 14 0 0 0 17 1
-                                              18 11 10 19 1 14 0 11 20 2 14 0 0
-                                              0 21 1 6 0 14 22 2 6 0 0 0 23 0
-                                              11 0 24 2 6 0 0 0 25 1 6 0 0 26 0
-                                              6 0 27 2 6 0 14 0 28 1 14 0 0 29
-                                              1 6 0 0 30 1 6 0 10 31 1 14 0 0
-                                              32 1 14 0 0 33 0 14 34 35 0 14 34
-                                              36 1 6 14 0 37 2 14 0 0 10 38 2
-                                              14 39 0 0 40 1 14 34 34 41 1 14 0
-                                              0 42 1 14 10 0 43 0 6 0 44 2 6 39
-                                              0 0 45 1 6 0 0 47 1 6 0 0 48 2 14
-                                              0 34 0 49 2 14 39 0 0 50 1 14 10
-                                              0 51 2 14 0 0 0 52 0 14 0 53 2 14
-                                              0 0 0 54 1 14 10 0 55 1 6 14 0 56
-                                              0 14 0 57 0 6 0 58 0 14 0 59 2 6
-                                              0 14 14 60 2 14 39 0 0 63 1 14 0
-                                              0 67 1 72 0 0 73 1 72 70 0 74 1 6
-                                              0 0 76 1 6 14 0 77 1 14 0 0 78 1
-                                              6 0 0 79 1 70 0 0 82 1 14 70 0 83
-                                              1 70 0 0 84 1 70 10 0 85 2 14 39
-                                              0 0 86 1 70 0 11 97 1 72 0 0 99 2
-                                              72 0 0 0 100 2 72 0 0 0 101 0 72
-                                              0 102 2 72 0 0 0 103 1 72 0 0 105
-                                              1 72 0 11 107 2 72 0 0 0 108 2 70
-                                              0 10 10 110 1 70 10 0 111 2 70 39
-                                              0 0 112 1 11 0 0 113 2 70 0 34 0
-                                              114 1 70 0 0 115 0 72 0 117 2 72
-                                              39 0 0 118 1 72 70 0 119 2 72 0
-                                              70 70 120 2 72 0 70 0 121 1 72 0
-                                              0 122 2 14 39 0 0 124 2 14 0 10
-                                              10 125 3 14 0 10 10 34 126 1 14
-                                              70 0 128 1 14 0 70 129 1 6 0 0
-                                              130 1 0 70 70 71 1 0 70 72 75 1 0
-                                              14 6 69 1 0 14 14 68 1 0 6 6 61 1
-                                              0 14 14 64 1 0 6 6 87 3 0 6 6 6
-                                              14 93 3 0 72 72 72 70 106 3 0 14
-                                              14 14 14 90 3 0 70 70 70 70 96 3
-                                              0 6 6 6 14 92 3 0 72 72 72 70 104
-                                              3 0 14 14 14 14 89 3 0 70 70 70
-                                              70 95 2 0 6 6 6 94 2 0 72 72 72
-                                              109 2 0 14 14 14 91 2 0 70 70 70
-                                              98 1 0 72 72 123 1 0 70 70 116 1
-                                              0 6 6 131 1 0 14 14 127 1 0 6 6
-                                              88 1 0 6 6 80 1 0 14 14 81 1 0 6
-                                              6 46 1 0 14 14 62 2 0 6 6 6 65 2
-                                              0 14 14 14 66)))))
+                                            '(0 6 0 7 2 6 0 0 0 8 2 6 0 0 0 9 1
+                                              6 0 10 11 0 12 0 13 0 14 0 15 1
+                                              14 0 10 16 2 14 0 0 0 17 1 18 12
+                                              10 19 1 14 0 12 20 2 14 0 0 0 21
+                                              1 6 0 14 22 2 6 0 0 0 23 2 6 0 0
+                                              0 24 1 6 0 0 25 0 6 0 26 2 6 0 14
+                                              0 27 1 14 0 0 28 1 6 0 0 29 1 14
+                                              0 0 30 1 14 0 0 31 0 14 32 33 0
+                                              14 32 34 1 6 14 0 35 2 14 0 0 10
+                                              36 2 14 37 0 0 38 1 14 32 32 39 1
+                                              14 0 0 40 1 14 10 0 41 0 6 0 42 2
+                                              6 37 0 0 43 1 6 0 0 45 1 6 0 0 46
+                                              2 14 0 32 0 47 2 14 37 0 0 48 1
+                                              14 10 0 49 2 14 0 0 0 50 0 14 0
+                                              51 2 14 0 0 0 52 1 14 10 0 53 1 6
+                                              14 0 54 0 14 0 55 0 6 0 56 0 14 0
+                                              57 2 6 0 14 14 58 2 14 37 0 0 61
+                                              1 14 0 0 65 1 70 0 0 71 1 70 68 0
+                                              72 1 6 0 0 74 1 6 14 0 75 1 14 0
+                                              0 76 1 6 0 0 77 1 68 0 0 80 1 14
+                                              68 0 81 1 68 0 0 82 1 68 10 0 83
+                                              2 14 37 0 0 84 2 12 0 10 10 89 1
+                                              6 0 12 93 1 68 0 12 97 1 70 0 0
+                                              99 2 70 0 0 0 100 2 70 0 0 0 101
+                                              0 70 0 102 2 70 0 0 0 103 1 70 0
+                                              0 105 1 70 0 12 107 2 70 0 0 0
+                                              108 2 68 0 10 10 110 1 68 10 0
+                                              111 2 68 37 0 0 112 1 12 0 0 113
+                                              2 68 0 32 0 114 1 68 0 0 115 0 70
+                                              0 117 2 70 37 0 0 118 1 70 68 0
+                                              119 2 70 0 68 68 120 2 70 0 68 0
+                                              121 1 70 0 0 122 2 14 37 0 0 124
+                                              2 14 0 10 10 125 3 14 0 10 10 32
+                                              126 1 14 68 0 128 1 14 0 68 129 1
+                                              6 0 0 130 1 0 68 68 69 1 0 68 70
+                                              73 1 0 14 6 67 1 0 14 14 66 1 0 6
+                                              6 59 1 0 14 14 62 1 0 6 6 85 3 0
+                                              6 6 6 14 92 3 0 70 70 70 68 106 3
+                                              0 14 14 14 14 88 3 0 68 68 68 68
+                                              96 3 0 6 6 6 14 91 3 0 70 70 70
+                                              68 104 3 0 14 14 14 14 87 3 0 68
+                                              68 68 68 95 2 0 6 6 6 94 2 0 70
+                                              70 70 109 2 0 14 14 14 90 2 0 68
+                                              68 68 98 1 0 70 70 123 1 0 68 68
+                                              116 1 0 6 6 131 1 0 14 14 127 1 0
+                                              6 6 86 1 0 6 6 78 1 0 14 14 79 1
+                                              0 6 6 44 1 0 14 14 60 2 0 6 6 6
+                                              63 2 0 14 14 14 64)))))
            '|lookupComplete|)) 
