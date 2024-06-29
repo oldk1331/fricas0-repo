@@ -916,7 +916,7 @@
          (%
           (|OperatorHandlers|
            (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))))
-        (SPROG ((#1=#:G561 NIL))
+        (SPROG ((#1=#:G563 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -973,7 +973,7 @@
                                       (QREFELT % 117))
                             (QREFELT % 115))
                   (SPADCALL |oh| 1 "sec"
-                            (SPADCALL "\\sin" 900
+                            (SPADCALL "\\sec" 900
                                       (SPADCALL #2# #3#
                                                 (SPADCALL
                                                  (SPADCALL (QREFELT % 49))
@@ -1089,6 +1089,15 @@
                                                 (QREFELT % 68))
                                       (QREFELT % 117))
                             (QREFELT % 115))
+                  (SPADCALL |oh| 1 "Gamma"
+                            (SPADCALL "\\Gamma" 900
+                                      (SPADCALL #2# #3#
+                                                (SPADCALL
+                                                 (SPADCALL (QREFELT % 49))
+                                                 (QREFELT % 110))
+                                                (QREFELT % 68))
+                                      (QREFELT % 117))
+                            (QREFELT % 115))
                   (SPADCALL |oh| 1 "-"
                             (SPADCALL "-" 710 (SPADCALL 715 (QREFELT % 110))
                                       (QREFELT % 117))
@@ -1135,12 +1144,6 @@
                             (QREFELT % 115))
                   (SPADCALL |oh| 1 "PAREN"
                             (SPADCALL "\\left(" "\\right)"
-                                      (SPADCALL (SPADCALL (QREFELT % 49))
-                                                (QREFELT % 110))
-                                      (QREFELT % 68))
-                            (QREFELT % 115))
-                  (SPADCALL |oh| 1 "Gamma"
-                            (SPADCALL "\\Gamma\\left(" "\\right)"
                                       (SPADCALL (SPADCALL (QREFELT % 49))
                                                 (QREFELT % 110))
                                       (QREFELT % 68))
@@ -1412,7 +1415,7 @@
                   (SPADCALL |oh| -1 "MATRIX" (SPADCALL "[" "]" (QREFELT % 112))
                             (QREFELT % 115))
                   (SPADCALL |oh| -1 "theMap" (ELT % 65) (QREFELT % 115))
-                  (EXIT (PROGN (LETT #1# |oh|) (GO #6=#:G560)))))
+                  (EXIT (PROGN (LETT #1# |oh|) (GO #6=#:G562)))))
                 #6# (EXIT #1#)))) 
 
 (SDEFUN |FMTMJAX;operatorHandlers;Oh;39|
@@ -1425,7 +1428,7 @@
 
 (DEFUN |FormatMathJax| ()
   (SPROG NIL
-         (PROG (#1=#:G564)
+         (PROG (#1=#:G566)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|FormatMathJax|))

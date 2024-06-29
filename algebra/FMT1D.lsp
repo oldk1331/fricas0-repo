@@ -813,7 +813,7 @@
                                       (QREFELT % 103))
                             (QREFELT % 101))
                   (SPADCALL |oh| 1 "sec"
-                            (SPADCALL "sin" (SPADCALL (QREFELT % 91))
+                            (SPADCALL "sec" (SPADCALL (QREFELT % 91))
                                       (SPADCALL #2# #3#
                                                 (SPADCALL
                                                  (SPADCALL (QREFELT % 48))
@@ -929,6 +929,15 @@
                                                 (QREFELT % 94))
                                       (QREFELT % 103))
                             (QREFELT % 101))
+                  (SPADCALL |oh| 1 "Gamma"
+                            (SPADCALL "Gamma" (SPADCALL (QREFELT % 91))
+                                      (SPADCALL #2# #3#
+                                                (SPADCALL
+                                                 (SPADCALL (QREFELT % 48))
+                                                 (QREFELT % 92))
+                                                (QREFELT % 94))
+                                      (QREFELT % 103))
+                            (QREFELT % 101))
                   (SPADCALL |oh| 1 "-"
                             (SPADCALL "-" 710 (SPADCALL 715 (QREFELT % 92))
                                       (QREFELT % 103))
@@ -987,15 +996,6 @@
                                       (SPADCALL (SPADCALL (QREFELT % 48))
                                                 (QREFELT % 92))
                                       (QREFELT % 94))
-                            (QREFELT % 101))
-                  (SPADCALL |oh| 1 "Gamma"
-                            (SPADCALL "Gamma" (SPADCALL (QREFELT % 91))
-                                      (SPADCALL #2# #3#
-                                                (SPADCALL
-                                                 (SPADCALL (QREFELT % 48))
-                                                 (QREFELT % 92))
-                                                (QREFELT % 94))
-                                      (QREFELT % 103))
                             (QREFELT % 101))
                   (SPADCALL |oh| 1 "ROOT"
                             (SPADCALL "sqrt" (SPADCALL (QREFELT % 91))
