@@ -691,6 +691,19 @@
 (DEFUN |mathprint| (|x|)
   (PROG () (RETURN (PROGN (SETQ |x| (|outputTran2| |x|)) (|maprin| |x|)))))
 
+; mathprint2 x ==
+;   ioHook("startAlgebraOutput")
+;   mathprint x
+;   ioHook("endOfAlgebraOutput")
+
+(DEFUN |mathprint2| (|x|)
+  (PROG ()
+    (RETURN
+     (PROGN
+      (|ioHook| '|startAlgebraOutput|)
+      (|mathprint| |x|)
+      (|ioHook| '|endOfAlgebraOutput|)))))
+
 ; sayMath u ==
 ;   for x in u repeat acc:= concat(acc,linearFormatName x)
 ;   sayALGEBRA acc

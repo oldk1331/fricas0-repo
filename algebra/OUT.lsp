@@ -1,6 +1,6 @@
 
 (SDEFUN |OUT;output;OfV;1| ((|e| (|OutputForm|)) (% (|Void|)))
-        (SEQ (|mathprint| |e|) (EXIT (SPADCALL (QREFELT % 7))))) 
+        (SEQ (|mathprint2| |e|) (EXIT (SPADCALL (QREFELT % 7))))) 
 
 (SDEFUN |OUT;output;SV;2| ((|s| (|String|)) (% (|Void|)))
         (SPADCALL |s| (QREFELT % 9))) 
