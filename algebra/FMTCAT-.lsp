@@ -158,7 +158,7 @@
 
 (SDEFUN |FMTCAT-;formatFunction;ObLOb;10|
         ((|b| (|OutputBox|)) (|lb| (|List| (|OutputBox|))) (% (|OutputBox|)))
-        (SPROG ((|bx| (|OutputBox|)) (#1=#:G95 NIL))
+        (SPROG ((|bx| (|OutputBox|)) (#1=#:G95 NIL) (|x| NIL))
                (SEQ
                 (COND
                  ((NULL |lb|)
@@ -169,16 +169,16 @@
                    (QREFELT % 47)))
                  ('T
                   (SEQ (LETT |bx| (|SPADfirst| |lb|))
-                       (SEQ (LETT #1# (CDR |lb|)) G190
+                       (SEQ (LETT |x| NIL) (LETT #1# (CDR |lb|)) G190
                             (COND
-                             ((OR (ATOM #1#) (PROGN (LETT |b| (CAR #1#)) NIL))
+                             ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
                               (GO G191)))
                             (SEQ
                              (EXIT
                               (LETT |bx|
                                     (SPADCALL
                                      (LIST |bx| (SPADCALL ", " (QREFELT % 38))
-                                           |b|)
+                                           |x|)
                                      (QREFELT % 47)))))
                             (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                        (EXIT
