@@ -648,10 +648,10 @@
 (SDEFUN |GRIMAGE;appendPoint;%PV;24|
         ((|graf| (%)) (|aPoint| (|Point| (|DoubleFloat|))) (% (|Void|)))
         (SPROG ((|num| (|Integer|)))
-               (SEQ (LETT |num| (- (LENGTH (QVELT |graf| 3)) 1))
+               (SEQ (LETT |num| (LENGTH (QVELT |graf| 3)))
                     (EXIT
                      (COND
-                      ((< |num| 0) (|error| "No point lists to append to!"))
+                      ((<= |num| 0) (|error| "No point lists to append to!"))
                       ('T
                        (SPADCALL (QVELT |graf| 3) |num|
                                  (SPADCALL
