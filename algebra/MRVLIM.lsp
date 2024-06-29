@@ -992,13 +992,13 @@
         (SPROG
          ((|lxx| (|List| (|Kernel| (|Expression| (|Integer|)))))
           (|x00| (|Expression| (|Integer|)))
-          (|lcc| (|List| (|Expression| (|Integer|)))) (#1=#:G241 NIL)
-          (|ci| NIL) (#2=#:G240 NIL) (|ss| (|Integer|))
+          (|lcc| (|List| (|Expression| (|Integer|)))) (#1=#:G243 NIL)
+          (|ci| NIL) (#2=#:G242 NIL) (|ss| (|Integer|))
           (|lipp| (|OrderedCompletion| (|Expression| (|Integer|))))
           (|lip|
            (|Union| (|OrderedCompletion| (|Expression| (|Integer|))) "failed"))
-          (|e0| (|Expression| (|Integer|))) (#3=#:G239 NIL) (|ei| NIL)
-          (#4=#:G238 NIL) (|x0| (|Kernel| (|Expression| (|Integer|)))))
+          (|e0| (|Expression| (|Integer|))) (#3=#:G241 NIL) (|ei| NIL)
+          (#4=#:G240 NIL) (|x0| (|Kernel| (|Expression| (|Integer|)))))
          (SEQ (LETT |x0| (|SPADfirst| |lx|))
               (EXIT
                (COND
@@ -1429,7 +1429,7 @@
                           #1#)))
                    #2="failed")))
         (SPROG
-         ((#3=#:G338 NIL)
+         ((#3=#:G340 NIL)
           (|res2|
            (|Union| (|OrderedCompletion| (|Expression| (|Integer|))) #1#))
           (|res1|
@@ -1487,7 +1487,7 @@
                                          ((QEQCAR |res2| 1)
                                           (|error| "impossible"))
                                          (#5# (CONS 0 (QCDR |res2|)))))))))))
-                       (GO #6=#:G336))))))))
+                       (GO #6=#:G338))))))))
             (EXIT (|MRVLIM;mrv_limit2| |e| |v| |a| %))))
           #6# (EXIT #3#)))) 
 
@@ -1565,7 +1565,7 @@
 
 (DEFUN |MrvLimitPackage| ()
   (SPROG NIL
-         (PROG (#1=#:G351)
+         (PROG (#1=#:G353)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|MrvLimitPackage|))

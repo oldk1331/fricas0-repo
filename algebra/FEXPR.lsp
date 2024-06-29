@@ -549,13 +549,13 @@
            (CONS
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|Algebra&| |PartialDifferentialRing&| NIL |Rng&| NIL
                 |NonAssociativeAlgebra&| NIL |Module&| NIL
                 |NonAssociativeRing&| NIL |NonAssociativeRng&| NIL NIL NIL NIL
-                |AbelianGroup&| NIL NIL NIL NIL |NonAssociativeSemiRng&|
-                |AbelianMonoid&| |MagmaWithUnit&| NIL |ExpressionSpace2&|
+                |AbelianGroup&| NIL NIL NIL |NonAssociativeSemiRng&|
+                |AbelianMonoid&| |MagmaWithUnit&| NIL |ExpressionSpace&|
                 |AbelianSemiGroup&| |Magma&| NIL |RetractableTo&| |Evalable&|
                 |SetCategory&| |RetractableTo&| NIL NIL |InnerEvalable&|
                 |InnerEvalable&| |BasicType&| NIL NIL)
@@ -566,13 +566,12 @@
                  (|BiModule| 8 8) (|NonAssociativeRng|) (|LeftModule| $$)
                  (|RightModule| $$) (|LeftModule| 8) (|RightModule| 8)
                  (|AbelianGroup|) (|CancellationAbelianMonoid|)
-                 (|NonAssociativeSemiRing|) (|Monoid|) (|ExpressionSpace|)
+                 (|NonAssociativeSemiRing|) (|Monoid|)
                  (|NonAssociativeSemiRng|) (|AbelianMonoid|) (|MagmaWithUnit|)
-                 (|SemiGroup|) (|ExpressionSpace2| (|Kernel| $$))
-                 (|AbelianSemiGroup|) (|Magma|) (|Comparable|)
-                 (|RetractableTo| (|Kernel| $$)) (|Evalable| $$)
-                 (|SetCategory|) (|RetractableTo| 8) (|CoercibleTo| 32)
-                 (|CoercibleFrom| (|Kernel| $$))
+                 (|SemiGroup|) (|ExpressionSpace|) (|AbelianSemiGroup|)
+                 (|Magma|) (|Comparable|) (|RetractableTo| (|Kernel| $$))
+                 (|Evalable| $$) (|SetCategory|) (|RetractableTo| 8)
+                 (|CoercibleTo| 32) (|CoercibleFrom| (|Kernel| $$))
                  (|InnerEvalable| (|Kernel| $$) $$) (|InnerEvalable| $$ $$)
                  (|BasicType|) (|unitsKnown|) (|CoercibleFrom| 8))
               (|makeByteWordVec2| 98

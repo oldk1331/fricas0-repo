@@ -4541,7 +4541,6 @@
 ;          PrimitiveFunctionCategory SpecialFunctionCategory Evalable
 ;           CombinatorialOpsCategory TranscendentalFunctionCategory
 ;            AlgebraicallyClosedFunctionSpace ExpressionSpace
-;                ExpressionSpace2
 ;              LiouvillianFunctionCategory FunctionSpace))
 ;   alg := member(QCAR cat, '(RadicalCategory AlgebraicallyClosedField))
 ;   fefull := fe or alg or EQCAR(cat, 'CombinatorialFunctionCategory)
@@ -4593,8 +4592,7 @@
                  |Evalable| |CombinatorialOpsCategory|
                  |TranscendentalFunctionCategory|
                  |AlgebraicallyClosedFunctionSpace| |ExpressionSpace|
-                 |ExpressionSpace2| |LiouvillianFunctionCategory|
-                 |FunctionSpace|)))
+                 |LiouvillianFunctionCategory| |FunctionSpace|)))
       (SETQ |alg|
               (|member| (QCAR |cat|)
                '(|RadicalCategory| |AlgebraicallyClosedField|)))
