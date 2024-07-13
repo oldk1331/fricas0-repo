@@ -329,12 +329,11 @@
          ((|pp| (|SparseMultivariatePolynomial| R (|Kernel| F))) (#1=#:G96 NIL)
           (|cp| (R)))
          (SEQ (LETT |cp| (SPADCALL |p| (QREFELT % 87)))
-              (SPADCALL |cp| (QREFELT % 88))
               (LETT |pp|
                     (PROG2
                         (LETT #1#
-                              (SPADCALL |p| (SPADCALL |cp| (QREFELT % 89))
-                                        (QREFELT % 90)))
+                              (SPADCALL |p| (SPADCALL |cp| (QREFELT % 88))
+                                        (QREFELT % 89)))
                         (QCDR #1#)
                       (|check_union2| (QEQCAR #1# 0)
                                       (|SparseMultivariatePolynomial|
@@ -346,10 +345,10 @@
                                       #1#)))
               (EXIT
                (SPADCALL
-                (|ALGMANIP;fp_root| (SPADCALL |pp| (QREFELT % 91)) |op| |n| %)
+                (|ALGMANIP;fp_root| (SPADCALL |pp| (QREFELT % 90)) |op| |n| %)
                 (|ALGMANIP;fp_root|
-                 (SPADCALL (ELT % 89) (SPADCALL |cp| (QREFELT % 93))
-                           (QREFELT % 97))
+                 (SPADCALL (ELT % 88) (SPADCALL |cp| (QREFELT % 92))
+                           (QREFELT % 96))
                  |op| |n| %)
                 (QREFELT % 86)))))) 
 
@@ -361,7 +360,7 @@
               (LETT |nf|
                     (SPADCALL (SPADCALL |k| (QREFELT % 48)) (QREFELT % 49)))
               (LETT |n|
-                    (PROG1 (LETT #1# (SPADCALL |nf| (QREFELT % 98)))
+                    (PROG1 (LETT #1# (SPADCALL |nf| (QREFELT % 97)))
                       (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
                                         '(|Integer|) #1#)))
               (LETT |op| (SPADCALL |k| (QREFELT % 25)))
@@ -398,12 +397,12 @@
         ((|op| (|BasicOperator|)) (|x| (F)) (|n| (|NonNegativeInteger|))
          (% (F)))
         (SPROG ((|r| (|Union| R "failed")))
-               (SEQ (LETT |r| (SPADCALL |x| (QREFELT % 101)))
+               (SEQ (LETT |r| (SPADCALL |x| (QREFELT % 100)))
                     (EXIT
                      (COND
                       ((QEQCAR |r| 0)
-                       (SPADCALL (SPADCALL (QCDR |r|) |n| (QREFELT % 102))
-                                 (QREFELT % 88)))
+                       (SPADCALL (SPADCALL (QCDR |r|) |n| (QREFELT % 101))
+                                 (QREFELT % 102)))
                       ('T (|ALGMANIP;inroot| |op| |x| |n| %))))))) 
 
 (SDEFUN |ALGMANIP;rootKerSimp;BoFNniF;16|
@@ -434,7 +433,7 @@
                              (LETT |arg| (SPADCALL |k| (QREFELT % 48)))))
                       (LETT |n|
                             (SPADCALL (SPADCALL |arg| (QREFELT % 49))
-                                      (QREFELT % 98)))
+                                      (QREFELT % 97)))
                       (LETT |expo| NIL) (LETT |others| (LETT |same| NIL))
                       (SEQ (LETT |kk| NIL) (LETT #2# (CDR |l|)) G190
                            (COND
@@ -455,7 +454,7 @@
                                            (CONS
                                             (SPADCALL
                                              (SPADCALL |arg| (QREFELT % 49))
-                                             (QREFELT % 98))
+                                             (QREFELT % 97))
                                             |expo|)))))
                               ('T (LETT |others| (CONS |kk| |others|))))))
                            (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
@@ -598,7 +597,7 @@
                 (PROG1
                     (LETT #2#
                           (SPADCALL (SPADCALL |arg| (QREFELT % 49))
-                                    (QREFELT % 98)))
+                                    (QREFELT % 97)))
                   (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
                                     '(|Integer|) #2#)))
           (LETT |ans| (|spadConstant| % 114))
@@ -616,7 +615,7 @@
                             (PROG1
                                 (LETT #1#
                                       (SPADCALL (SPADCALL |arg| (QREFELT % 49))
-                                                (QREFELT % 98)))
+                                                (QREFELT % 97)))
                               (|check_subtype2| (>= #1# 0)
                                                 '(|NonNegativeInteger|)
                                                 '(|Integer|) #1#))))
@@ -734,7 +733,7 @@
                                                  (SPADCALL (QCAR |pr|)
                                                            (QREFELT % 48))
                                                  (QREFELT % 49))
-                                                (QREFELT % 98)))
+                                                (QREFELT % 97)))
                                             (QREFELT % 134)))
                             (LETT |qr|
                                   (DIVIDE2 (SPADCALL |q| (QREFELT % 135))
@@ -777,7 +776,7 @@
                           (PROG1
                               (LETT #1#
                                     (SPADCALL (SPADCALL |arg| (QREFELT % 49))
-                                              (QREFELT % 98)))
+                                              (QREFELT % 97)))
                             (|check_subtype2| (>= #1# 0)
                                               '(|NonNegativeInteger|)
                                               '(|Integer|) #1#))
@@ -900,7 +899,7 @@
                                                               |#1|
                                                               (|Kernel|
                                                                |#2|))))
-                          (QSETREFV % 99
+                          (QSETREFV % 98
                                     (CONS
                                      (|dispatchFunction|
                                       |ALGMANIP;rootFactor;2F;14|)
@@ -961,11 +960,11 @@
               (|Record| (|:| |flag| 78) (|:| |factor| 32) (|:| |exponent| 83))
               (|List| 79) (218 . |factorList|) (|Union| % '"failed")
               (|NonNegativeInteger|) (223 . |exquo|) (229 . ^) (235 . *)
-              (241 . |content|) (246 . |coerce|) (251 . |coerce|)
-              (256 . |exquo|) (262 . |factor|) (|Factored| %) (267 . |factor|)
-              (|Mapping| 32 6) (|Factored| 6) (|FactoredFunctions2| 6 32)
-              (272 . |map|) (278 . |retract|) (283 . |rootFactor|)
-              (|Union| 6 '#1="failed") (288 . |retractIfCan|) (293 . |nthRoot|)
+              (241 . |content|) (246 . |coerce|) (251 . |exquo|)
+              (257 . |factor|) (|Factored| %) (262 . |factor|) (|Mapping| 32 6)
+              (|Factored| 6) (|FactoredFunctions2| 6 32) (267 . |map|)
+              (273 . |retract|) (278 . |rootFactor|) (|Union| 6 '#1="failed")
+              (283 . |retractIfCan|) (288 . |nthRoot|) (294 . |coerce|)
               (299 . |rootKerSimp|) (306 . =) (312 . |lcm|) (317 . |height|)
               (322 . |kernel|) (329 . |coerce|) (334 . ^) (340 . |rootPower|)
               (345 . |rootProduct|) (350 . |map|) (356 . |elt|) (362 . |Zero|)
@@ -1047,10 +1046,10 @@
                                               34 74 1 7 0 75 76 2 7 0 24 45 77
                                               1 69 80 0 81 2 83 82 0 0 84 2 32
                                               0 0 83 85 2 7 0 0 0 86 1 32 6 0
-                                              87 1 7 0 6 88 1 32 0 6 89 2 32 82
-                                              0 0 90 1 67 69 32 91 1 6 92 0 93
-                                              2 96 69 94 95 97 1 7 75 0 98 1 0
-                                              7 7 99 1 7 100 0 101 2 6 0 0 75
+                                              87 1 32 0 6 88 2 32 82 0 0 89 1
+                                              67 69 32 90 1 6 91 0 92 2 95 69
+                                              93 94 96 1 7 75 0 97 1 0 7 7 98 1
+                                              7 99 0 100 2 6 0 0 75 101 1 7 0 6
                                               102 3 0 7 24 7 83 103 2 7 26 0 0
                                               104 1 75 0 45 105 1 11 83 0 106 3
                                               11 0 24 19 83 107 1 7 0 22 108 2
@@ -1067,7 +1066,7 @@
                                               0 136 2 7 0 0 75 137 2 139 138 7
                                               83 140 1 0 7 7 141 1 0 7 7 47 1 1
                                               7 7 141 1 1 7 7 111 1 1 7 7 110 3
-                                              1 7 24 7 83 103 1 2 7 7 99 1 0 42
+                                              1 7 24 7 83 103 1 2 7 7 98 1 0 42
                                               7 44 2 0 7 7 19 20 2 0 7 7 17 18
                                               2 0 7 7 7 21 1 0 7 7 16)))))
            '|lookupComplete|)) 

@@ -4885,24 +4885,18 @@
 ;   cond is ['AND,:args] =>
 ;     for x in args while not (S='failed) repeat S:=
 ;       x is ['has,a,b] => hasCate(a,b, SL)
-;       -- next line is for an obscure bug in the table
-;       x is [['has,a,b]] => hasCate(a,b, SL)
-;       --'failed
 ;       hasCaty1(x, SL)
 ;     S
 ;   cond is ['OR,:args] =>
 ;     for x in args until not (S='failed) repeat S:=
 ;       x is ['has,a,b] => hasCate(a,b,copy SL)
-;       -- next line is for an obscure bug in the table
-;       x is [['has,a,b]] => hasCate(a,b,copy SL)
-;       --'failed
 ;       hasCaty1(x, copy SL)
 ;     S
 ;   keyedSystemError("S2GE0016",
 ;     ['"hasCaty1",'"unexpected condition from category table"])
 
 (DEFUN |hasCaty1| (|cond| SL)
-  (PROG (|$domPvar| S |ISTMP#3| |args| |b| |ISTMP#2| |a| |ISTMP#1|)
+  (PROG (|$domPvar| S |args| |b| |ISTMP#2| |a| |ISTMP#1|)
     (DECLARE (SPECIAL |$domPvar|))
     (RETURN
      (PROGN
@@ -4944,25 +4938,6 @@
                                                 (SETQ |b| (CAR |ISTMP#2|))
                                                 #1#))))))
                               (|hasCate| |a| |b| SL))
-                             ((AND (CONSP |x|) (EQ (CDR |x|) NIL)
-                                   (PROGN
-                                    (SETQ |ISTMP#1| (CAR |x|))
-                                    (AND (CONSP |ISTMP#1|)
-                                         (EQ (CAR |ISTMP#1|) '|has|)
-                                         (PROGN
-                                          (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                                          (AND (CONSP |ISTMP#2|)
-                                               (PROGN
-                                                (SETQ |a| (CAR |ISTMP#2|))
-                                                (SETQ |ISTMP#3|
-                                                        (CDR |ISTMP#2|))
-                                                (AND (CONSP |ISTMP#3|)
-                                                     (EQ (CDR |ISTMP#3|) NIL)
-                                                     (PROGN
-                                                      (SETQ |b|
-                                                              (CAR |ISTMP#3|))
-                                                      #1#))))))))
-                              (|hasCate| |a| |b| SL))
                              (#1# (|hasCaty1| |x| SL))))))
                   (SETQ |bfVar#139| (CDR |bfVar#139|))))
                |args| NIL)
@@ -4991,25 +4966,6 @@
                                                (PROGN
                                                 (SETQ |b| (CAR |ISTMP#2|))
                                                 #1#))))))
-                              (|hasCate| |a| |b| (COPY SL)))
-                             ((AND (CONSP |x|) (EQ (CDR |x|) NIL)
-                                   (PROGN
-                                    (SETQ |ISTMP#1| (CAR |x|))
-                                    (AND (CONSP |ISTMP#1|)
-                                         (EQ (CAR |ISTMP#1|) '|has|)
-                                         (PROGN
-                                          (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                                          (AND (CONSP |ISTMP#2|)
-                                               (PROGN
-                                                (SETQ |a| (CAR |ISTMP#2|))
-                                                (SETQ |ISTMP#3|
-                                                        (CDR |ISTMP#2|))
-                                                (AND (CONSP |ISTMP#3|)
-                                                     (EQ (CDR |ISTMP#3|) NIL)
-                                                     (PROGN
-                                                      (SETQ |b|
-                                                              (CAR |ISTMP#3|))
-                                                      #1#))))))))
                               (|hasCate| |a| |b| (COPY SL)))
                              (#1# (|hasCaty1| |x| (COPY SL)))))))
                   (SETQ |bfVar#140| (CDR |bfVar#140|))
