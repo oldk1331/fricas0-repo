@@ -130,7 +130,7 @@
         ((|f| (F)) (|x| (|Symbol|)) (|t| (F)) (|cc| (F))
          (% (|Union| F "failed")))
         (SPROG
-         ((#1=#:G79 NIL) (|mmi| (|Integer|)) (|mm| (F)) (#2=#:G83 NIL)
+         ((#1=#:G88 NIL) (|mmi| (|Integer|)) (|mm| (F)) (#2=#:G92 NIL)
           (|sgz| #3=(|Union| (|Integer|) "failed")) (|z| (F)) (|sgs| #3#)
           (|ms| (F)) (|mw| (F)) (|l| (|List| F)))
          (SEQ
@@ -152,7 +152,7 @@
                             ((QEQCAR |sgs| 1)
                              (PROGN
                               (LETT #2# (CONS 1 #5#))
-                              (GO #6=#:G80))))))))
+                              (GO #6=#:G89))))))))
                    (SEQ
                     (LETT |sgz|
                           (SPADCALL
@@ -368,9 +368,9 @@
 
 (DECLAIM (NOTINLINE |PatternMatchIntegration;|)) 
 
-(DEFUN |PatternMatchIntegration| (&REST #1=#:G108)
+(DEFUN |PatternMatchIntegration| (&REST #1=#:G117)
   (SPROG NIL
-         (PROG (#2=#:G109)
+         (PROG (#2=#:G118)
            (RETURN
             (COND
              ((LETT #2#

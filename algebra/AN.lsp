@@ -296,7 +296,7 @@
               (|Mapping| 32 $$) (|SparseUnivariatePolynomialFunctions2| $$ 32)
               (213 . |map|) (|CommuteUnivariatePolynomialCategory| $$ 32 88)
               (219 . |swap|) (224 . |resultant|) (230 . /) |AN;norm;SupKSup;14|
-              (|BasicOperator|) (|ExpressionSpace&| $$) (236 . |belong?|)
+              (|BasicOperator|) (|ExpressionSpace2&| $$ 47) (236 . |belong?|)
               (|Symbol|) (241 . |has?|) |AN;belong?;BoB;16| (|InputForm|)
               (247 . |convert|) (|InputFormFunctions1| $$)
               (252 . |coerceToType|) |AN;convert;%If;17| (|Float|)
@@ -352,7 +352,7 @@
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0))
+                                  0 0 0))
             (CONS
              '#(|AlgebraicallyClosedField&| |Field&| |EuclideanDomain&|
                 |PolynomialFactorizationExplicit&| NIL
@@ -361,9 +361,9 @@
                 |DifferentialRing&| NIL |Rng&| NIL |NonAssociativeAlgebra&|
                 |NonAssociativeAlgebra&| NIL |Module&| |Module&|
                 |NonAssociativeRing&| NIL NIL NIL NIL |NonAssociativeRng&| NIL
-                NIL NIL NIL NIL |AbelianGroup&| NIL NIL NIL
+                NIL NIL NIL NIL |AbelianGroup&| NIL NIL NIL NIL
                 |NonAssociativeSemiRng&| |AbelianMonoid&| |MagmaWithUnit&| NIL
-                |ExpressionSpace&| |AbelianSemiGroup&| |Magma&| NIL
+                |ExpressionSpace2&| |AbelianSemiGroup&| |Magma&| NIL
                 |RetractableTo&| |Evalable&| |SetCategory&| NIL
                 |RetractableTo&| |RetractableTo&| NIL NIL NIL |InnerEvalable&|
                 |InnerEvalable&| |BasicType&| NIL NIL NIL NIL NIL
@@ -383,18 +383,19 @@
                  (|RightModule| $$) (|LeftModule| $$) (|LeftModule| 12)
                  (|RightModule| 11) (|RightModule| 12) (|AbelianGroup|)
                  (|CancellationAbelianMonoid|) (|NonAssociativeSemiRing|)
-                 (|Monoid|) (|NonAssociativeSemiRng|) (|AbelianMonoid|)
-                 (|MagmaWithUnit|) (|SemiGroup|) (|ExpressionSpace|)
-                 (|AbelianSemiGroup|) (|Magma|) (|Comparable|)
-                 (|RetractableTo| 47) (|Evalable| $$) (|SetCategory|)
-                 (|CommutativeStar|) (|RetractableTo| 11) (|RetractableTo| 12)
-                 (|RealConstant|) (|CoercibleTo| 132) (|CoercibleFrom| 47)
-                 (|InnerEvalable| 47 $$) (|InnerEvalable| $$ $$) (|BasicType|)
-                 (|unitsKnown|) (|TwoSidedRecip|) (|noZeroDivisors|)
-                 (|canonicalUnitNormal|) (|canonicalsClosed|)
-                 (|RadicalCategory|) (|CoercibleFrom| 11) (|CoercibleFrom| 12)
-                 (|ConvertibleTo| 116) (|ConvertibleTo| 108)
-                 (|ConvertibleTo| 124) (|ConvertibleTo| 103))
+                 (|Monoid|) (|ExpressionSpace|) (|NonAssociativeSemiRng|)
+                 (|AbelianMonoid|) (|MagmaWithUnit|) (|SemiGroup|)
+                 (|ExpressionSpace2| 47) (|AbelianSemiGroup|) (|Magma|)
+                 (|Comparable|) (|RetractableTo| 47) (|Evalable| $$)
+                 (|SetCategory|) (|CommutativeStar|) (|RetractableTo| 11)
+                 (|RetractableTo| 12) (|RealConstant|) (|CoercibleTo| 132)
+                 (|CoercibleFrom| 47) (|InnerEvalable| 47 $$)
+                 (|InnerEvalable| $$ $$) (|BasicType|) (|unitsKnown|)
+                 (|TwoSidedRecip|) (|noZeroDivisors|) (|canonicalUnitNormal|)
+                 (|canonicalsClosed|) (|RadicalCategory|) (|CoercibleFrom| 11)
+                 (|CoercibleFrom| 12) (|ConvertibleTo| 116)
+                 (|ConvertibleTo| 108) (|ConvertibleTo| 124)
+                 (|ConvertibleTo| 103))
               (|makeByteWordVec2| 161
                                   '(1 6 8 9 10 1 12 0 11 13 2 16 14 15 8 17 2 6
                                     19 9 20 21 2 24 22 15 23 25 1 28 5 5 29 0 0
