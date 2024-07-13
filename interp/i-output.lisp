@@ -1170,25 +1170,23 @@
          (#1# (|outputMapTran0| |op| (CAR |l|) |alias|)))))))))
 
 ; outputMapTran0(op, argDef, alias) ==
-;   arg := first argDef
-;   def := rest  argDef
-;   [arg',:def'] := simplifyMapPattern(argDef,alias)
-;   arg' := outputTran arg'
-;   if null arg' then arg' := '"()"
-;   ['CONCATB, op, outputTran arg', "==", outputTran def']
+;   [arg, :def] := simplifyMapPattern(argDef,alias)
+;   arg := outputTran(arg)
+;   if null(arg) then arg := '"()"
+;   else if SYMBOLP(arg) then arg := ['PAREN, arg]
+;   ['CONCATB, ['CONCAT, op, arg], "==", outputTran(def)]
 
 (DEFUN |outputMapTran0| (|op| |argDef| |alias|)
-  (PROG (|arg| |def| |LETTMP#1| |arg'| |def'|)
+  (PROG (|LETTMP#1| |arg| |def|)
     (RETURN
      (PROGN
-      (SETQ |arg| (CAR |argDef|))
-      (SETQ |def| (CDR |argDef|))
       (SETQ |LETTMP#1| (|simplifyMapPattern| |argDef| |alias|))
-      (SETQ |arg'| (CAR |LETTMP#1|))
-      (SETQ |def'| (CDR |LETTMP#1|))
-      (SETQ |arg'| (|outputTran| |arg'|))
-      (COND ((NULL |arg'|) (SETQ |arg'| "()")))
-      (LIST 'CONCATB |op| (|outputTran| |arg'|) '== (|outputTran| |def'|))))))
+      (SETQ |arg| (CAR |LETTMP#1|))
+      (SETQ |def| (CDR |LETTMP#1|))
+      (SETQ |arg| (|outputTran| |arg|))
+      (COND ((NULL |arg|) (SETQ |arg| "()"))
+            ((SYMBOLP |arg|) (SETQ |arg| (LIST 'PAREN |arg|))))
+      (LIST 'CONCATB (LIST 'CONCAT |op| |arg|) '== (|outputTran| |def|))))))
 
 ; outputTranReduce ['REDUCE,op,.,body] ==
 ;   ['CONCAT,op,"/",outputTran body]
