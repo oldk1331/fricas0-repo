@@ -5925,12 +5925,13 @@
 
 ; reportOpsFromUnitDirectly1 D ==
 ;   showFile := '"SHOW.LISTING"
-;   erase_lib(showFile)
+;   maybe_delete_file(showFile)
 ;   $sayBrightlyStream : fluid := MAKE_OUTSTREAM(showFile)
 ;   sayShowWarning()
 ;   reportOpsFromUnitDirectly D
 ;   SHUT $sayBrightlyStream
 ;   editFile showFile
+;   deleteFile(showFile)
 
 (DEFUN |reportOpsFromUnitDirectly1| (D)
   (PROG (|$sayBrightlyStream| |showFile|)
@@ -5938,12 +5939,13 @@
     (RETURN
      (PROGN
       (SETQ |showFile| "SHOW.LISTING")
-      (|erase_lib| |showFile|)
+      (|maybe_delete_file| |showFile|)
       (SETQ |$sayBrightlyStream| (MAKE_OUTSTREAM |showFile|))
       (|sayShowWarning|)
       (|reportOpsFromUnitDirectly| D)
       (SHUT |$sayBrightlyStream|)
-      (|editFile| |showFile|)))))
+      (|editFile| |showFile|)
+      (|deleteFile| |showFile|)))))
 
 ; sayShowWarning() ==
 ;   sayBrightly
@@ -5976,26 +5978,30 @@
            ('T (|reportOpsFromLisplib| |unitForm| |u|))))))
 
 ; reportOpsFromLisplib1(unitForm,u)  ==
+;   $useEditorForShowOutput : local := false
 ;   showFile := '"SHOW.LISTING"
-;   erase_lib(showFile)
+;   maybe_delete_file(showFile)
 ;   $sayBrightlyStream : fluid := MAKE_OUTSTREAM(showFile)
 ;   sayShowWarning()
 ;   reportOpsFromLisplib(unitForm,u)
 ;   SHUT $sayBrightlyStream
 ;   editFile showFile
+;   deleteFile(showFile)
 
 (DEFUN |reportOpsFromLisplib1| (|unitForm| |u|)
-  (PROG (|$sayBrightlyStream| |showFile|)
-    (DECLARE (SPECIAL |$sayBrightlyStream|))
+  (PROG (|$sayBrightlyStream| |$useEditorForShowOutput| |showFile|)
+    (DECLARE (SPECIAL |$sayBrightlyStream| |$useEditorForShowOutput|))
     (RETURN
      (PROGN
+      (SETQ |$useEditorForShowOutput| NIL)
       (SETQ |showFile| "SHOW.LISTING")
-      (|erase_lib| |showFile|)
+      (|maybe_delete_file| |showFile|)
       (SETQ |$sayBrightlyStream| (MAKE_OUTSTREAM |showFile|))
       (|sayShowWarning|)
       (|reportOpsFromLisplib| |unitForm| |u|)
       (SHUT |$sayBrightlyStream|)
-      (|editFile| |showFile|)))))
+      (|editFile| |showFile|)
+      (|deleteFile| |showFile|)))))
 
 ; reportOpsFromUnitDirectly unitForm ==
 ;   isRecordOrUnion := unitForm is [a,:.] and a in '(Record Union)
