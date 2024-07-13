@@ -110,6 +110,7 @@
 
 ; loadLibNoUpdate1(cname, fullLibName) ==
 ;   if $printLoadMsgs then
+;     kind := get_database(cname, 'CONSTRUCTORKIND)
 ;     sayKeyedMsg("S2IL0002", [fullLibName, kind, cname])
 ;   load_quietly(fullLibName)
 ;   clearConstructorCache cname
@@ -117,11 +118,12 @@
 ;   MAKEPROP(cname,'LOADED,fullLibName)
 
 (DEFUN |loadLibNoUpdate1| (|cname| |fullLibName|)
-  (PROG ()
+  (PROG (|kind|)
     (RETURN
      (PROGN
       (COND
        (|$printLoadMsgs|
+        (SETQ |kind| (|get_database| |cname| 'CONSTRUCTORKIND))
         (|sayKeyedMsg| 'S2IL0002 (LIST |fullLibName| |kind| |cname|))))
       (|load_quietly| |fullLibName|)
       (|clearConstructorCache| |cname|)
