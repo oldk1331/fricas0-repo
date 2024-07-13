@@ -1565,7 +1565,7 @@
 158641`\spad{charClass(l)} creates a character class which contains exactly the characters given in the list \spad{l}.
 158701`\spad{charClass(s)} creates a character class which contains exactly the characters given in the string \spad{s}.
 158752`\spad{charlierC(n,{} a,{} z)} is the Charlier polynomial.
-158818`\spad{charlierC(n,{} a,{} z)} is the Charlier polynomial
+158818`\spad{charlierC(n,{} a,{} z)} is the Charlier polynomial.
 158877`\spad{char_pol(m)} computes characteristic polynomial of \spad{m}.
 158972`\spad{charpol(m)} computes the characteristic polynomial of a matrix \spad{m} with entries in \spad{K}.
 159071`\spad{char_pol_via_den_interpolation(m)} computes characteristic polynomial of \spad{m}.
@@ -3929,7 +3929,7 @@
 460505`\spad{hermite(n)} returns the \spad{n}th Hermite polynomial \spad{H[n](x)}. Note: Hermite polynomials,{} denoted \spad{H[n](x)},{} are computed from the two term recurrence. The generating function is: \spad{exp(2*t*x-t^2) = sum(H[n](x)*t^n/n!,{} n=0..infinity)}.
 460606`\spad{hermite(m)} returns the Hermite normal form of the matrix \spad{m}.
 460664`\spad{hermiteH(n,{} z)} is the Hermite polynomial.
-460727`\spad{hermiteH(n,{} z)} is the Hermite polynomial
+460727`\spad{hermiteH(n,{} z)} is the Hermite polynomial.
 460783`\spad{hermiteH(n,{} x)} is the \spad{n}-th Hermite polynomial,{} \spad{H[n](x)}. These are defined by \spad{exp(2*t*x-t^2) = sum(H[n](x)*t^n/n!,{} n = 0..)}.
 460865`\spad{HermiteIntegrate(f,{} D)} returns \spad{[g,{} h,{} s,{} p]} such that \spad{f = Dg + h + s + p},{} \spad{h} has a squarefree denominator normal \spad{w}.\spad{r}.\spad{t}. \spad{D},{} and all the squarefree factors of the denominator of \spad{s} are special \spad{w}.\spad{r}.\spad{t}. \spad{D}. Furthermore,{} \spad{h} and \spad{s} have no polynomial parts. \spad{D} is the derivation to use on \spadtype{UP}.
 461043`\spad{HermiteIntegrate(f,{} ')} returns \spad{[g,{} h]} such that \spad{f = g' + h} and \spad{h} has a only simple finite normal poles.
@@ -4440,7 +4440,7 @@
 511517`\spad{jacobiMatrix(De)} returns a list of Jacobi matrices sorted by the order of the equations.
 511703`\spad{jacobiMatrix(sys,{} jvars)} constructs the Jacobi matrix of the family \spad{sys} of functions. \spad{jvars} contains for each function the effectively occurring jet variables. The columns of the matrix are ordered.
 511919`\spad{jacobiP(n,{} a,{} b,{} z)} is the Jacobi polynomial.
-511985`\spad{jacobiP(n,{} a,{} b,{} z)} is the Jacobi polynomial
+511985`\spad{jacobiP(n,{} a,{} b,{} z)} is the Jacobi polynomial.
 512044`\spad{jacobiParameters(x)} returns the pair of streams of Jacobi parameters of the distribution \spad{x}.
 512202`\spad{jacobiParameters(x)} returns the pair of streams of Jacobi parameters of the distribution \spad{x}.
 512308`\spad{jacobiPathArray([b0,{} b1,{} ...],{} [c1,{} c2,{} ...])} computes Flajolet\spad{'s} Motzkin path array from the sequences [1,{} 1,{} ...],{} \spad{bi},{} \spad{ci}.
@@ -4527,7 +4527,7 @@
 519872`\spad{laguerre(n)} returns the \spad{n}th Laguerre polynomial \spad{L[n](x)}. Note: Laguerre polynomials,{} denoted \spad{L[n](x)},{} are computed from the two term recurrence. The generating function is: \spad{exp(x*t/(t-1))/(1-t) = sum(L[n](x)*t^n/n!,{} n=0..infinity)}.
 519974`\spad{laguerreL(n,{} x)} is the \spad{n}-th Laguerre polynomial,{} \spad{L[n](x)}. These are defined by \spad{exp(-t*x/(1-t))/(1-t) = sum(L[n](x)*t^n/n!,{} n = 0..)}.
 520057`\spad{laguerreL(n,{} a,{} z)} is the Laguerre polynomial.
-520123`\spad{laguerreL(n,{} a,{} z)} is the Laguerre polynomial
+520123`\spad{laguerreL(n,{} a,{} z)} is the Laguerre polynomial.
 520182`\spad{laguerreL(m,{} n,{} x)} is the associated Laguerre polynomial,{} \spad{L<m>[n](x)}. This is the \spad{m}-th derivative of \spad{L[n](x)}.
 520284`\spad{Lambda()} returns symbol for capital greek letter lambda.
 520336`\spad{lambda()} returns symbol for small greek letter lambda.
@@ -5214,7 +5214,7 @@
 594465`\spad{meijerG(la,{} lb,{} lc,{} ld,{} z)} is the meijerG function.
 594586`\spad{meijerG(la,{} lb,{} lc,{} ld,{} z)} is the meijerG function.
 594700`\spad{meixnerM(n,{} b,{} c,{} z)} is the Meixner polynomial.
-594767`\spad{meixnerM(n,{} b,{} c,{} z)} is the Meixner polynomial
+594767`\spad{meixnerM(n,{} b,{} c,{} z)} is the Meixner polynomial.
 594827`\spad{meixnerP(n,{} phi,{} lambda,{} z)} is the Meixner-Pollaczek polynomial.
 594894`\spad{meixnerP(n,{} phi,{} lambda,{} z)} is the Meixner–Pollaczek polynomial.
 594954`\spad{member?(p,{} s)} returns \spad{true} is \spad{p} is in \spad{s},{} \spad{false} otherwise.
