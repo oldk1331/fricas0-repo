@@ -1123,8 +1123,8 @@
 (SDEFUN |POSET-;coverMatrix;AIa;65|
         ((|s| (A)) (% (|IncidenceAlgebra| (|Integer|) S)))
         (SPROG
-         ((|tabx| (|List| (|Integer|))) (#1=#:G381 NIL) (|j| NIL)
-          (#2=#:G380 NIL) (|i| NIL) (|ni| (|Integer|))
+         ((|tabx| (|List| (|Integer|))) (#1=#:G387 NIL) (|j| NIL)
+          (#2=#:G386 NIL) (|i| NIL) (|ni| (|Integer|))
           (|res| (|Matrix| (|Integer|))) (|n| (|NonNegativeInteger|))
           (|zf| (|Matrix| (|Integer|)))
           (|z| (|IncidenceAlgebra| (|Integer|) S)))
@@ -1174,14 +1174,14 @@
 (SDEFUN |POSET-;hash| ((|s| (A)) (% (|SingleInteger|))) 0) 
 
 (SDEFUN |POSET-;=;2AB;67| ((|x| (A)) (|y| (A)) (% (|Boolean|)))
-        (SPROG ((#1=#:G387 NIL))
+        (SPROG ((#1=#:G393 NIL))
                (SEQ
                 (EXIT
                  (SEQ
                   (COND
                    ((SPADCALL (SPADCALL |x| (QREFELT % 9))
                               (SPADCALL |y| (QREFELT % 9)) (QREFELT % 141))
-                    (PROGN (LETT #1# NIL) (GO #2=#:G386))))
+                    (PROGN (LETT #1# NIL) (GO #2=#:G392))))
                   (COND
                    ((SPADCALL (SPADCALL |x| (QREFELT % 12))
                               (SPADCALL |y| (QREFELT % 12)) (QREFELT % 142))
@@ -1194,9 +1194,9 @@
 
 (SDEFUN |POSET-;coerce;AOf;69| ((|s| (A)) (% (|OutputForm|)))
         (SPROG
-         ((#1=#:G401 NIL) (|mat| (|List| (|List| (|OutputForm|))))
-          (|row| (|List| (|OutputForm|))) (|c| (|Symbol|)) (#2=#:G403 NIL)
-          (|b| NIL) (#3=#:G402 NIL) (|a| NIL) (|dim| (|NonNegativeInteger|)))
+         ((#1=#:G407 NIL) (|mat| (|List| (|List| (|OutputForm|))))
+          (|row| (|List| (|OutputForm|))) (|c| (|Symbol|)) (#2=#:G409 NIL)
+          (|b| NIL) (#3=#:G408 NIL) (|a| NIL) (|dim| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
            (SEQ (LETT |dim| (LENGTH (SPADCALL |s| (QREFELT % 9))))
@@ -1205,7 +1205,7 @@
                   (PROGN
                    (LETT #1#
                          (SPADCALL (SPADCALL (QREFELT % 147)) (QREFELT % 148)))
-                   (GO #4=#:G400))))
+                   (GO #4=#:G406))))
                 (LETT |mat| NIL)
                 (SEQ (LETT |a| NIL) (LETT #3# (SPADCALL |s| (QREFELT % 12)))
                      G190

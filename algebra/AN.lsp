@@ -227,7 +227,7 @@
 
 (DEFUN |AlgebraicNumber| ()
   (SPROG NIL
-         (PROG (#1=#:G95)
+         (PROG (#1=#:G98)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|AlgebraicNumber|))

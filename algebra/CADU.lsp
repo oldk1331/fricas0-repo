@@ -21,7 +21,7 @@
                       ((NULL |lpols|) (LIST (SPADCALL |p| (QREFELT % 12))))
                       (#2='T
                        (SEQ (LETT |p1| (|SPADfirst| |lpols|))
-                            (LETT |g| (SPADCALL |p| |p1| (QREFELT % 18)))
+                            (LETT |g| (SPADCALL |p| |p1| (QREFELT % 17)))
                             (EXIT
                              (COND
                               ((EQL (SPADCALL |g| (QREFELT % 16)) 0)
@@ -33,7 +33,7 @@
                                       (PROG2
                                           (LETT #1#
                                                 (SPADCALL |p| |g|
-                                                          (QREFELT % 20)))
+                                                          (QREFELT % 19)))
                                           (QCDR #1#)
                                         (|check_union2| (QEQCAR #1# 0)
                                                         (QREFELT % 7)
@@ -44,7 +44,7 @@
                                       (PROG2
                                           (LETT #1#
                                                 (SPADCALL |p1| |g|
-                                                          (QREFELT % 20)))
+                                                          (QREFELT % 19)))
                                           (QCDR #1#)
                                         (|check_union2| (QEQCAR #1# 0)
                                                         (QREFELT % 7)
@@ -103,7 +103,7 @@
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$|
                 (LIST '|CylindricalAlgebraicDecompositionUtilities| DV$1 DV$2))
-          (LETT % (GETREFV 22))
+          (LETT % (GETREFV 20))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache|
@@ -120,9 +120,9 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (|Boolean|)
               (|List| 7) (0 . =) (6 . |squareFreePart|) (11 . |unitCanonical|)
               |CADU;squareFreeBasis;2L;1| |CADU;gcdBasis;2L;3|
-              (|NonNegativeInteger|) (16 . |degree|) (21 . |Zero|) (25 . |gcd|)
-              (|Union| % '"failed") (31 . |exquo|) (37 . |One|))
-           '#(|squareFreeBasis| 41 |gcdBasis| 46) 'NIL
+              (|NonNegativeInteger|) (16 . |degree|) (21 . |gcd|)
+              (|Union| % '"failed") (27 . |exquo|))
+           '#(|squareFreeBasis| 33 |gcdBasis| 38) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -134,9 +134,9 @@
                                 T)
                               '((|gcdBasis| ((|List| |#2|) (|List| |#2|))) T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 21
+                        (|makeByteWordVec2| 19
                                             '(2 9 8 0 0 10 1 7 0 0 11 1 7 0 0
-                                              12 1 7 15 0 16 0 6 0 17 2 7 0 0 0
-                                              18 2 7 19 0 0 20 0 6 0 21 1 0 9 9
-                                              13 1 0 9 9 14)))))
+                                              12 1 7 15 0 16 2 7 0 0 0 17 2 7
+                                              18 0 0 19 1 0 9 9 13 1 0 9 9
+                                              14)))))
            '|lookupComplete|)) 
