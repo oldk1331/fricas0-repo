@@ -127,7 +127,7 @@
                 (EXIT
                  (COND
                   ((> (INTEGER-LENGTH |prec|) 500)
-                   (|error| "reqested too high precision"))
+                   (|error| "requested too high precision"))
                   (#4='T
                    (SEQ
                     (COND
@@ -341,7 +341,7 @@
                 (EXIT
                  (COND
                   ((> (INTEGER-LENGTH |prec|) 500)
-                   (|error| "reqested too high precision"))
+                   (|error| "requested too high precision"))
                   (#4='T
                    (SEQ
                     (COND
@@ -616,7 +616,7 @@
                 (EXIT
                  (COND
                   ((> (INTEGER-LENGTH |prec|) 500)
-                   (|error| "reqested too high precision"))
+                   (|error| "requested too high precision"))
                   (#4='T
                    (SEQ
                     (COND
@@ -854,7 +854,7 @@
                 (EXIT
                  (COND
                   ((> (INTEGER-LENGTH |prec|) 500)
-                   (|error| "reqested too high precision"))
+                   (|error| "requested too high precision"))
                   (#4='T
                    (SEQ
                     (COND
@@ -1087,7 +1087,7 @@
                 (EXIT
                  (COND
                   ((> (INTEGER-LENGTH |prec|) 500)
-                   (|error| "reqested too high precision"))
+                   (|error| "requested too high precision"))
                   (#4='T
                    (SEQ
                     (COND
@@ -1323,7 +1323,7 @@
                 (EXIT
                  (COND
                   ((> (INTEGER-LENGTH |prec|) 500)
-                   (|error| "reqested too high precision"))
+                   (|error| "requested too high precision"))
                   (#4='T
                    (SEQ
                     (COND

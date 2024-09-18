@@ -1,7 +1,7 @@
 0`
 0`The class of abelian groups,{} \spadignore{i.e.} additive monoids where each element has an additive inverse. \blankline
 42`The class of multiplicative monoids,{} \spadignore{i.e.} semigroups with an additive identity element. \blankline
-87`Abelian monoid ring elements (not necessarily of finite support) of this ring are of the form formal SUM (r_i * e_i) where the r_i are coefficents and the e_i,{} elements of the ordered abelian monoid,{} are thought of as exponents or monomials. The monomials commute with each other,{} but in general do not commute with the coefficients (which themselves may or may not be commutative). See \spadtype{FiniteAbelianMonoidRing} for the case of finite support. A useful common model for polynomials and power series. Conceptually at least,{} only the non-zero terms are ever operated on.
+87`Abelian monoid ring elements (not necessarily of finite support) of this ring are of the form formal SUM (r_i * e_i) where the r_i are coefficients and the e_i,{} elements of the ordered abelian monoid,{} are thought of as exponents or monomials. The monomials commute with each other,{} but in general do not commute with the coefficients (which themselves may or may not be commutative). See \spadtype{FiniteAbelianMonoidRing} for the case of finite support. A useful common model for polynomials and power series. Conceptually at least,{} only the non-zero terms are ever operated on.
 175`This category represents products with coordinatewise additive operations.
 235`the class of all additive (commutative) semigroups,{} \spadignore{i.e.} a set with a commutative and associative operation \spadop{+}. \blankline
 282`The class of all euclidean domains such that \spad{euclideanSize(a*b)=euclideanSize(a)+euclideanSize(b)}.
@@ -533,7 +533,7 @@
 46327`A PatternMatchListResult is an object internally returned by the pattern matcher when matching on lists. It is either a failed match,{} or a pair of PatternMatchResult,{} one for atoms (elements of the list),{} and one for lists.
 46448`A PatternMatchResult is an object internally returned by the pattern matcher; It is either a failed match,{} or a list of matches of the form (var,{} expr) meaning that the variable var matches the expression expr.
 46543`\indented{1}{A PendantTree(\spad{S}) is either a leaf? and is an \spad{S} or has} a left and a right are both PendantTree(\spad{S}).
-46633`Permutation(\spad{S}) implements the group of all bijections \indented{2}{on a set \spad{S},{} which move only a finite number of points.} \indented{2}{A permutation is considered as a map from \spad{S} into \spad{S}. In particular} \indented{2}{multiplication is defined as composition of maps:} \indented{2}{{\em pi1 * pi2 = pi1 o pi2}.} \indented{2}{The internal representation of permuatations are two lists} \indented{2}{of equal length representing preimages and images.}
+46633`Permutation(\spad{S}) implements the group of all bijections \indented{2}{on a set \spad{S},{} which move only a finite number of points.} \indented{2}{A permutation is considered as a map from \spad{S} into \spad{S}. In particular} \indented{2}{multiplication is defined as composition of maps:} \indented{2}{{\em pi1 * pi2 = pi1 o pi2}.} \indented{2}{The internal representation of permutations are two lists} \indented{2}{of equal length representing preimages and images.}
 46714`PermutationGroup implements permutation groups acting on a set \spad{S},{} \spadignore{i.e.} all subgroups of the symmetric group of \spad{S},{} represented as a list of permutations (generators). Note that therefore the objects are not members of the \Language category \spadtype{Group}. Using the idea of base and strong generators by Sims,{} basic routines and algorithms are implemented so that the word problem for permutation groups can be solved.
 46792`\indented{1}{Symbolic fractions in \%\spad{pi} with integer coefficients;} \indented{1}{The point for using PiDomain as the default domain for those fractions} \indented{1}{is that PiDomain is coercible to the float types,{} and not Expression.} Date Created: 21 Feb 1990
 46841`\indented{1}{Plot a NON-SINGULAR plane algebraic curve \spad{p}(\spad{x},{} \spad{y}) = 0.} Author: Clifton \spad{J}. Williamson Date Created: Fall 1988 Keywords: algebraic curve,{} non-singular,{} plot Examples: References:
@@ -875,7 +875,7 @@
 84166`\spad{x*r} returns the right multiplication of the module element \spad{x} by the ring element \spad{r}.
 84206`\spad{r * y} multiplies the element \spad{r} times each component of the vector \spad{y}.
 84265`\spad{y * r} multiplies each component of the vector \spad{y} by the element \spad{r}.
-84324`\spad{x * r} returns the product of \spad{x} by \spad{r}. Usefull if \spad{R} is a non-commutative Ring.
+84324`\spad{x * r} returns the product of \spad{x} by \spad{r}. Useful if \spad{R} is a non-commutative Ring.
 84368`\spad{r * x} is the product of the row vector \spad{r} and the matrix \spad{x}. Error: if the dimensions are incompatible.
 84437`\spad{r * x} is the product of the row vector \spad{r} and the matrix \spad{x}. Error: if the dimensions are incompatible.
 84503`\spad{(l..h)\spad{-i}} returns segment \spad{l-i .. h-i}.
@@ -1462,8 +1462,8 @@
 148288`\spad{bracket(lf)} creates the form separating the elements of \spad{lf} by commas and encloses the result in square brackets.
 148334`\spad{bracket(lb,{} rb,{} hh)} returns a handler \spad{h} such that \spad{h(prec,{} args)} formats its first argument according to \spad{hh} and then put left and right brackets given by \spad{lb} and \spad{rb} around the resulting box.
 148467`\spad{bracket(lb,{} rb,{} hh)} returns a handler \spad{h} such that \spad{h(prec,{} args)} formats its first argument according to \spad{hh} and then put left and right brackets given by \spad{lb} and \spad{rb} around the resulting box.
-148604`\spad{branchIfCan(leq,{} ts,{} lineq,{} b1,{} b2,{} b3,{} b4,{} b5)} is an internal subroutine,{} exported only for developement.
-148783`\spad{branchIfCan(leq,{} ts,{} lineq,{} b1,{} b2,{} b3,{} b4,{} b5)} is an internal subroutine,{} exported only for developement.
+148604`\spad{branchIfCan(leq,{} ts,{} lineq,{} b1,{} b2,{} b3,{} b4,{} b5)} is an internal subroutine,{} exported only for development.
+148783`\spad{branchIfCan(leq,{} ts,{} lineq,{} b1,{} b2,{} b3,{} b4,{} b5)} is an internal subroutine,{} exported only for development.
 148972`\spad{branchPoint?(a)} tests whether \spad{x = a} is a branch point.
 149045`\spad{branchPoint?(p)} tests whether \spad{p(x) = 0} is a branch point.
 149119`\spad{branchPointAtInfinity?()} tests if there is a branch point at infinity.
@@ -1660,7 +1660,7 @@
 168520`as Cartesian product but returns \%.
 168587`as Cartesian product but returns \%.
 168654`\spad{closedCurve?(s)} returns \spad{true} if the \spadtype{ThreeSpace} \spad{s} contains a single closed curve component,{} \spadignore{i.e.} the first element of the curve is also the last element,{} or \spad{false} otherwise.
-168716`\spad{closedCurve(lp)} sets a list of points defined by the first element of \spad{lp} through the last element of \spad{lp} and back to the first elelment again and returns a \spadtype{ThreeSpace} whose component is the closed curve defined by \spad{lp}.
+168716`\spad{closedCurve(lp)} sets a list of points defined by the first element of \spad{lp} through the last element of \spad{lp} and back to the first element again and returns a \spadtype{ThreeSpace} whose component is the closed curve defined by \spad{lp}.
 168784`\spad{closedCurve(s)} checks to see if the \spadtype{ThreeSpace},{} \spad{s},{} is composed of a single closed curve component defined by a list of points in which the first point is also the last point,{} all of which are from the domain \spad{PointDomain(m,{} R)} and if so,{} returns the list of points. An error is signaled otherwise.
 168852`\spad{closedCurve(s,{} [[lr0],{} [lr1],{} ...,{} [lrn],{} [lr0]])} adds a closed curve component defined by a list of points \spad{lr0} through \spad{lrn},{} which are lists of elements from the domain \spad{PointDomain(m,{} R)},{} where \spad{R} is the \spadtype{Ring} over which the point elements are defined and \spad{m} is the dimension of the points,{} in which the last element of the list of points contains a copy of the first element list,{} \spad{lr0}. The closed curve is added to the \spadtype{ThreeSpace},{} \spad{s}.
 168921`\spad{closedCurve(s,{} [p0,{} p1,{} ...,{} pn,{} p0])} adds a closed curve component which is a list of points defined by the first element \spad{p0} through the last element \spad{pn} and back to the first element \spad{p0} again,{} to the \spadtype{ThreeSpace} \spad{s}.
@@ -1872,7 +1872,7 @@
 193534`\spad{coerce(i)} returns the element corresponding to \spad{i}
 193579`\spad{coerce([t_1,{} ...,{} t_dim])} allows tensors to be constructed using lists.
 193642`\spad{coerce(polyList)} converts the list of polynomials \spad{polyList} to an ideal.
-193718`\spad{coerce(lls)} coerces a list of cycles {\em lls} to a permutation,{} each cycle being a list with no repetitions,{} is coerced to the permutation,{} which maps {\em ls.i} to {\em ls.i+1},{} indices modulo the length of the list,{} then these permutations are mutiplied. Error: if repetitions occur in one cycle.
+193718`\spad{coerce(lls)} coerces a list of cycles {\em lls} to a permutation,{} each cycle being a list with no repetitions,{} is coerced to the permutation,{} which maps {\em ls.i} to {\em ls.i+1},{} indices modulo the length of the list,{} then these permutations are multiplied. Error: if repetitions occur in one cycle.
 193773`\spad{coerce(gp)} returns the generators of the group {\em gp}.
 193840`\spad{coerce(ls)} coerces a list of permutations {\em ls} to the group generated by this list.
 193907`\spad{coerce([r_1,{} ...,{} r_dim])} allows tensors to be constructed using lists.
@@ -2087,7 +2087,7 @@
 213145`\spad{computeInt(x,{} g,{} a,{} b,{} eval?)} returns the integral of \spad{f} for \spad{x} between a and \spad{b},{} assuming that \spad{g} is an indefinite integral of \spad{f} and \spad{f} has no pole between a and \spad{b}. If \spad{eval?} is \spad{true},{} then \spad{g} can be evaluated safely at \spad{a} and \spad{b},{} provided that they are finite values. Otherwise,{} limits must be computed.
 213641`\spad{concat(u)},{} where \spad{u} is a list of aggregates \spad{[a,{} b,{} ...,{} c]},{} returns a single aggregate consisting of the elements of \spad{a} followed by those of \spad{b} followed ... by the elements of \spad{c}. Note: \spad{concat([a,{} b,{} ...,{} c]) = concat(a,{} concat([b,{} ...,{} c]))}.
 213694`\spad{concat!(lu)},{} where \spad{lu} is a list of aggregates \spad{[a,{} b,{} ...,{} c]},{} returns a single aggregate consisting of the elements of \spad{a} followed by those of \spad{b} followed ... by the elements of \spad{c}. This function may destructively modify the aggregates in \spad{lu}.
-213779`\spad{concat(u)} returns the left-to-right concatentation of the streams in \spad{u}. Note: \spad{concat(u) = reduce(concat,{} u)}.
+213779`\spad{concat(u)} returns the left-to-right concatenation of the streams in \spad{u}. Note: \spad{concat(u) = reduce(concat,{} u)}.
 214918`\spad{concat!(u,{} v)} destructively concatenates doubly-linked aggregate \spad{v} to the end of doubly-linked aggregate \spad{u}.
 214997`\spad{concat!(u,{} v)} destructively appends \spad{v} to the end of \spad{u}. \spad{v} is unchanged
 215057`\spad{concat(u,{} v)} returns an aggregate consisting of the elements of \spad{u} followed by the elements of \spad{v}. Note: if \spad{w = concat(u,{} v)} then \spad{w.i = u.i for i in indices u} and \spad{w.(j + maxIndex u) = v.j for j in indices v}.
@@ -2174,7 +2174,7 @@
 221992`\spad{construct(v,{} t,{} ls)} creates a splitting tree with value (\spadignore{i.e.} root vertex) given by \spad{[v,{} t]\$S} and with children list given by \spad{[[s]\$\% for s in ls]}.
 222069`\spad{construct(v1,{} t,{} v2,{} lt)} creates a splitting tree with value (\spadignore{i.e.} root vertex) given by \spad{[v,{} t]\$S} and with children list given by \spad{[[[v,{} t]\$S]\$\% for s in ls]}.
 222131`\spad{construct(mom,{} ccum,{} fcum,{} bcum)} constructs a distribution with moments \spad{mom},{} classical cumulants \spad{ccum},{} free cumulants \spad{fcum} and boolean cumulants \spad{bcum}. The user must make sure that these are consistent,{} otherwise the results are unpredictable!
-222224`\spad{constructOrdered(l)} takes a list of terms and creates the object with these components. The list is assumed to be sorted (in reverse order) with respect to the ordering of \spad{S}. If \spad{R} is a monoid,{} then the list is assumend to contain no zero elements. Caution: No checking is performed,{} so this should only be used in cases where those conditions are assured. If in doubt use \spad{construct}.
+222224`\spad{constructOrdered(l)} takes a list of terms and creates the object with these components. The list is assumed to be sorted (in reverse order) with respect to the ordering of \spad{S}. If \spad{R} is a monoid,{} then the list is assumed to contain no zero elements. Caution: No checking is performed,{} so this should only be used in cases where those conditions are assured. If in doubt use \spad{construct}.
 222327`\spad{contains?(i,{} f)} returns \spad{true} if \spad{f} is contained within the interval \spad{i},{} \spad{false} otherwise.
 222386`\spad{containsPoint?(n,{} p)} returns \spad{true} if the point is inside \indented{2}{the boundary.} \spad{n} is the boundary \spad{p} is the point
 222445`\spad{content([f1,{} ..,{} fk])} = content of a list of univariate polynonials
@@ -2464,7 +2464,7 @@
 255488`\spad{cycleOpen(objs,{} arrowName)} constructs a graph with vertices (from \spad{objs}) connected in a cycle but with one gap. The last vertex in the sequence loops back to itself so all vertices have one outgoing arrow. arrowName is a prefix for all arrow names,{} this will be followed by a number starting at 1 and incremented for each arrow
 255547`\spad{cyclePartition(p)} returns the cycle structure of a permutation \spad{p} including cycles of length 1 only if \spad{S} is finite.
 255606`\spad{cycleRagits(rx)} returns the cyclic part of the ragits of the fractional part of a radix expansion. For example,{} if \spad{x = 3/28 = 0.10 714285 714285 ...},{} then \spad{cycleRagits(x) = [7,{} 1,{} 4,{} 2,{} 8,{} 5]}.
-255670`\spad{cycles(lls)} coerces a list list of cycles {\em lls} to a permutation,{} each cycle being a list with not repetitions,{} is coerced to the permutation,{} which maps {\em ls.i} to {\em ls.i+1},{} indices modulo the length of the list,{} then these permutations are mutiplied. Error: if repetitions occur in one cycle.
+255670`\spad{cycles(lls)} coerces a list list of cycles {\em lls} to a permutation,{} each cycle being a list with not repetitions,{} is coerced to the permutation,{} which maps {\em ls.i} to {\em ls.i+1},{} indices modulo the length of the list,{} then these permutations are multiplied. Error: if repetitions occur in one cycle.
 255791`\spad{cycleSplit!(u)} splits the aggregate by dropping off the cycle. The value returned is the cycle entry,{} or empty() if none exists. For example,{} if \spad{w = concat(u,{} v)} is the cyclic list where \spad{v} is the head of the cycle,{} \spad{cycleSplit!(w)} will drop \spad{v} off \spad{w} thus destructively changing \spad{w} to \spad{u},{} and returning \spad{v}.
 255982`\spad{cycleTail(u)} returns the last node in the cycle,{} or empty() if none exists.
 256217`\spad{cyclic?(u)} tests if \spad{u} has a cycle.
@@ -2830,7 +2830,7 @@
 314116`\spad{dmp2rfi(m)} converts \spad{m} to target domain
 314226`\spad{dmpToHdmp(p)} converts \spad{p} from a \spadtype{DMP} to a \spadtype{HDMP}.
 314359`\spad{dmpToP(p)} converts \spad{p} from a \spadtype{DMP} to a \spadtype{POLY}.
-314452`\spad{doFactor(p,{} n,{} ext?)} returns the factorisation of polynomial \spad{p},{} \spad{p} is assumed to be primitive and squarefree,{} \spad{n} is degree in auxilary variable,{} ext? if \spad{false} inhibits use of extension field.
+314452`\spad{doFactor(p,{} n,{} ext?)} returns the factorisation of polynomial \spad{p},{} \spad{p} is assumed to be primitive and squarefree,{} \spad{n} is degree in auxiliary variable,{} ext? if \spad{false} inhibits use of extension field.
 314636`\spad{do_liou(op,{} lf)} should be local but conditional.
 314743`\spad{dom(a)} returns a \spadgloss{LISP} form of the type of the original object that was converted to \spadtype{Any}.
 314782`\spad{domainOf(a)} returns a printable form of the type of the original object that was converted to \spadtype{Any}.
@@ -2890,8 +2890,8 @@
 322090`\spad{drawComplex(f,{} rRange,{} iRange,{} arrows?)} draws a complex function as a height field. It uses the complex norm as the height and the complex argument as the color. It will optionally draw arrows on the surface indicating the direction of the complex value.\newline Sample call: \indented{2}{\spad{f z == exp(1/z)}} \indented{2}{\spad{drawComplex(f,{} 0.3..3,{} 0..2*\%\spad{pi},{} false)}} Parameter descriptions: \indented{2}{\spad{f:}\space{2}the function to draw} \indented{2}{\spad{rRange} : the range of the real values} \indented{2}{\spad{iRange} : the range of imaginary values} \indented{2}{arrows? : a flag indicating whether to draw the phase arrows for \spad{f}} Call the functions \spadfunFrom{setRealSteps}{DrawComplex} and \spadfunFrom{setImagSteps}{DrawComplex} to change the number of steps used in each direction.
 322251`\spad{drawComplexVectorField(f,{} rRange,{} iRange)} draws a complex vector field using arrows on the \spad{x
 322251`--y} plane. These vector fields should be viewed from the top by pressing the "XY" translate button on the 3-\spad{d} viewport control panel.\newline Sample call: \indented{3}{\spad{f z == sin z}} \indented{3}{\spad{drawComplexVectorField(f,{} -2..2,{} -2..2)}} Parameter descriptions: \indented{2}{\spad{f} : the function to draw} \indented{2}{\spad{rRange} : the range of the real values} \indented{2}{iRange : the range of the imaginary values} Call the functions \spadfunFrom{setRealSteps}{DrawComplex} and \spadfunFrom{setImagSteps}{DrawComplex} to change the number of steps used in each direction.
-322415`\spad{drawCurves([[p0],{} [p1],{} ...,{} [pn]],{} [options])} creates a \spadtype{TwoDimensionalViewport} from the list of lists of points,{} \spad{p0} throught \spad{pn},{} using the options specified in the list \spad{options}.
-322530`\spad{drawCurves([[p0],{} [p1],{} ...,{} [pn]],{} ptColor,{} lineColor,{} ptSize,{} [options])} creates a \spadtype{TwoDimensionalViewport} from the list of lists of points,{} \spad{p0} throught \spad{pn},{} using the options specified in the list \spad{options}. The point color is specified by \spad{ptColor},{} the line color is specified by \spad{lineColor},{} and the point size is specified by \spad{ptSize}.
+322415`\spad{drawCurves([[p0],{} [p1],{} ...,{} [pn]],{} [options])} creates a \spadtype{TwoDimensionalViewport} from the list of lists of points,{} \spad{p0} through \spad{pn},{} using the options specified in the list \spad{options}.
+322530`\spad{drawCurves([[p0],{} [p1],{} ...,{} [pn]],{} ptColor,{} lineColor,{} ptSize,{} [options])} creates a \spadtype{TwoDimensionalViewport} from the list of lists of points,{} \spad{p0} through \spad{pn},{} using the options specified in the list \spad{options}. The point color is specified by \spad{ptColor},{} the line color is specified by \spad{lineColor},{} and the point size is specified by \spad{ptSize}.
 322677`\spad{drawStyle(v,{} s)} displays the surface for the given three-dimensional viewport \spad{v} which is of domain \spadtype{ThreeDimensionalViewport} in the style of drawing indicated by \spad{s}. If \spad{s} is not a valid drawing style the style is wireframe by default. Possible styles are \spad{"shade"},{} \spad{"solid"} or \spad{"opaque"},{} \spad{"smooth"},{} and \spad{"wireMesh"}.
 322743`\spad{drawToScale()} determines whether or not plots are to be drawn to scale.
 322798`\spad{drawToScale(true)} causes plots to be drawn to scale. \spad{drawToScale(false)} causes plots to be drawn so that they fill up the viewport window. The default setting is \spad{false}.
@@ -3012,7 +3012,7 @@
 337509`\spad{elt(t,{} i)} gives a component of a rank 1 tensor.
 337571`\spad{elt(u,{} "last")} (also written: \spad{u.last}) is equivalent to last(\spad{u}).
 337630`\spad{elt(a,{} "left")} (also written: \spad{a.left}) is equivalent to \spad{left(a)}.
-337690`\spad{elt(s,{} [i1,{} ...,{} im])} recursively selects subexpession,{} that is elt(\spad{s},{} []) is just \spad{s} and elt(\spad{s},{} [\spad{i1},{} ...,{} im]) is the same as elt(elt(\spad{s},{} \spad{i1}),{} [\spad{i2},{} ...,{} im]).
+337690`\spad{elt(s,{} [i1,{} ...,{} im])} recursively selects subexpression,{} that is elt(\spad{s},{} []) is just \spad{s} and elt(\spad{s},{} [\spad{i1},{} ...,{} im]) is the same as elt(elt(\spad{s},{} \spad{i1}),{} [\spad{i2},{} ...,{} im]).
 337766`\spad{elt(t,{} [i1,{} ...,{} iN])} gives a component of a rank \spad{N} tensor.
 337834`\spad{elt(s,{} [a1,{} ...,{} an])} or \spad{s}([\spad{a1},{} ...,{} an]) returns \spad{s} subscripted by \spad{[a1,{} ...,{} an]}.
 337883`\spad{elt(gp,{} i)} returns the \spad{i}-th generator of the group {\em gp}.
@@ -3344,7 +3344,7 @@
 378246`\spad{factor(p)} tries to factor \spad{p} into linear factors with error at most {\em globalEps},{} the internal error bound,{} which can be set by {\em setErrorBound}. An overall error bound {\em eps0} is determined and iterated tree-like calls to {\em pleskenSplit} are used to get the factorization.
 378318`\spad{factor(p)} returns the factorization of \spad{p} over the integers.
 378384`\spad{factor(p)} factorizes \spad{p} into prime factors.
-378461`\spad{factor(p)} returns a factorization of \spad{p} into irreducible factors. Note: in general thare are finitely many nonequivalent factorizations into irreducible factors,{} this routine returns only one.
+378461`\spad{factor(p)} returns a factorization of \spad{p} into irreducible factors. Note: in general there are finitely many nonequivalent factorizations into irreducible factors,{} this routine returns only one.
 378611`\spad{factor(\spad{zi})} produces the complete factorization of the complex integer \spad{zi}.
 378708`\spad{factor(x)} returns the factorization of \spad{x} into irreducibles.
 378772`\spad{factor(p)} factors the multivariate polynomial \spad{p} over its coefficient domain
@@ -3783,8 +3783,8 @@
 425163`\spad{graeffe p} determines \spad{q} such that \spad{q(-z^2) = p(z)*p(-z)}. Note that the roots of \spad{q} are the squares of the roots of \spad{p}.
 425226`\spad{gramschmidt(lv)} converts the list of column vectors \spad{lv} into a set of orthogonal column vectors of euclidean length 1 using the Gram-Schmidt algorithm.
 425343`\spad{graphCurves([[p0],{} [p1],{} ...,{} [pn]])} creates a \spadtype{GraphImage} from the list of lists of points indicated by \spad{p0} through \spad{pn}.
-425430`\spad{graphCurves([[p0],{} [p1],{} ...,{} [pn]],{} [options])} creates a \spadtype{GraphImage} from the list of lists of points,{} \spad{p0} throught \spad{pn},{} using the options specified in the list \spad{options}.
-425534`\spad{graphCurves([[p0],{} [p1],{} ...,{} [pn]],{} ptColor,{} lineColor,{} ptSize,{} [options])} creates a \spadtype{GraphImage} from the list of lists of points,{} \spad{p0} throught \spad{pn},{} using the options specified in the list \spad{options}. The graph point color is specified by \spad{ptColor},{} the graph line color is specified by \spad{lineColor},{} and the size of the points is specified by \spad{ptSize}.
+425430`\spad{graphCurves([[p0],{} [p1],{} ...,{} [pn]],{} [options])} creates a \spadtype{GraphImage} from the list of lists of points,{} \spad{p0} through \spad{pn},{} using the options specified in the list \spad{options}.
+425534`\spad{graphCurves([[p0],{} [p1],{} ...,{} [pn]],{} ptColor,{} lineColor,{} ptSize,{} [options])} creates a \spadtype{GraphImage} from the list of lists of points,{} \spad{p0} through \spad{pn},{} using the options specified in the list \spad{options}. The graph point color is specified by \spad{ptColor},{} the graph line color is specified by \spad{lineColor},{} and the size of the points is specified by \spad{ptSize}.
 425670`\spad{graphImage()} returns an empty graph with 0 point lists of the domain \spadtype{GraphImage}. A graph image contains the graph data component of a two dimensional viewport.
 425712`\spad{graphs(v)} returns a vector,{} or list,{} which is a union of all the graphs,{} of the domain \spadtype{GraphImage},{} which are allocated for the two-dimensional viewport,{} \spad{v},{} of domain \spadtype{TwoDimensionalViewport}. Those graphs which have no data are labeled "undefined",{} otherwise their contents are shown.
 425799`\spad{graphs n} is the cycle index of the group induced on \indented{1}{the edges of a graph by applying the symmetric function to the} \indented{1}{\spad{n} nodes.}
@@ -4138,8 +4138,8 @@
 478810`\spad{infLex?(n1,{} n2,{} o1,{} o2)} returns \spad{true} iff \spad{o1(value(n1),{} value(n2))} or \spad{value(n1) = value(n2)} and \spad{o2(condition(n1),{} condition(n2))}.
 479038`\spad{infRittWu?(a,{} b)} returns \spad{true} if \spad{a} is less than \spad{b} \spad{w}.\spad{r}.\spad{t}. the Ritt and Wu Wen Tsun ordering using the refinement of Lazard.
 479113`\spad{infRittWu?(ts1,{} ts2)} returns \spad{true} iff \spad{ts2} has higher rank than \spad{ts1} in Wu Wen Tsun sense.
-479184`\spad{infRittWu?(lp1,{} lp2)} is an internal subroutine,{} exported only for developement.
-479270`\spad{infRittWu?(lp1,{} lp2)} is an internal subroutine,{} exported only for developement.
+479184`\spad{infRittWu?(lp1,{} lp2)} is an internal subroutine,{} exported only for development.
+479270`\spad{infRittWu?(lp1,{} lp2)} is an internal subroutine,{} exported only for development.
 479366`\spad{infsum(x)} computes sum of all elements of \spad{x}. Degrees of elements of \spad{x} must be nondecreasing and tend to infinity.
 479455`\spad{inGroundField?(a)} tests whether an element \spad{a} is already in the ground field \spad{F}.
 479515`\spad{inHallBasis?(numberOfGens,{} leftCandidate,{} rightCandidate,{} left)} tests to see if a new element should be added to the \spad{P}. Hall basis being constructed. The list \spad{[leftCandidate,{} wt,{} rightCandidate]} is included in the basis if in the unique factorization of \spad{rightCandidate},{} we have left factor leftOfRight,{} and leftOfRight \spad{<=} \spad{leftCandidate}
@@ -4148,8 +4148,8 @@
 479965`\spad{init(p)} returns an error if \spad{p} belongs to \spad{R},{} otherwise returns its leading coefficient,{} where \spad{p} is viewed as a univariate polynomial in its main variable.
 480061`\spad{initial constructs} a graph without vertices or edges
 480171`\spad{initial(p)} returns the leading coefficient when the differential polynomial \spad{p} is written as a univariate polynomial in its leader.
-480240`\spad{initializeGroupForWordProblem(gp)} initializes the group {\em gp} for the word problem. Notes: it calls the other function of this name with parameters 0 and 1: {\em initializeGroupForWordProblem(gp,{} 0,{} 1)}. Notes: (1) be careful: invoking this routine will destroy the possibly information about your group (but will recompute it again) (2) users need not call this function normally for the soultion of the word problem.
-480314`\spad{initializeGroupForWordProblem(gp,{} m,{} n)} initializes the group {\em gp} for the word problem. Notes: (1) with a small integer you get shorter words,{} but the routine takes longer than the standard routine for longer words. (2) be careful: invoking this routine will destroy the possibly stored information about your group (but will recompute it again). (3) users need not call this function normally for the soultion of the word problem.
+480240`\spad{initializeGroupForWordProblem(gp)} initializes the group {\em gp} for the word problem. Notes: it calls the other function of this name with parameters 0 and 1: {\em initializeGroupForWordProblem(gp,{} 0,{} 1)}. Notes: (1) be careful: invoking this routine will destroy the possibly information about your group (but will recompute it again) (2) users need not call this function normally for the solution of the word problem.
+480314`\spad{initializeGroupForWordProblem(gp,{} m,{} n)} initializes the group {\em gp} for the word problem. Notes: (1) with a small integer you get shorter words,{} but the routine takes longer than the standard routine for longer words. (2) be careful: invoking this routine will destroy the possibly stored information about your group (but will recompute it again). (3) users need not call this function normally for the solution of the word problem.
 480544`\spad{initiallyReduce(a,{} b)} returns a polynomial \spad{r} such that \spad{initiallyReduced?(r,{} b)} holds and there exists an integer \spad{e} such that \spad{init(b)^e a - r} is zero modulo \spad{b}.
 480618`\spad{initiallyReduce(p,{} ts)} returns a polynomial \spad{r} such that \spad{initiallyReduced?(r,{} ts)} holds and there exists some product \spad{h} of \spad{initials(ts)} such that \spad{h*p - r} lies in the ideal generated by \spad{ts}.
 480762`\spad{initiallyReduced?(ts)} returns \spad{true} iff for every element \spad{p} of \spad{ts} \spad{p} and all its iterated initials are reduced \spad{w}.\spad{r}.\spad{t}. to the other elements of \spad{ts} with the same main variable.
@@ -4231,7 +4231,7 @@
 488406`\spad{integralBasisAtInfinity()} returns the local integral basis at infinity.
 488491`\spad{integralCoordinates(f)} returns \spad{[[A1,{} ...,{} An],{} D]} such that \spad{f = (A1 w1 +...+ An wn) / D} where \spad{(w1,{} ...,{} wn)} is the integral basis returned by \spad{integralBasis()}.
 488593`\spad{integralDerivationMatrix(d)} extends the derivation \spad{d} from UP to \$ and returns (\spad{M},{} \spad{Q}) such that the i^th row of \spad{M} divided by \spad{Q} form the coordinates of \spad{d(\spad{wi})} with respect to \spad{(w1,{} ...,{} wn)} where \spad{(w1,{} ...,{} wn)} is the integral basis returned by integralBasis().
-488707`\spad{integralLastSubResultant(p1,{} p2,{} ts)} is an internal subroutine,{} exported only for developement.
+488707`\spad{integralLastSubResultant(p1,{} p2,{} ts)} is an internal subroutine,{} exported only for development.
 488828`\spad{integralMatrix()} returns \spad{M} such that \spad{(w1,{} ...,{} wn) = M (1,{} y,{} ...,{} y^(n-1))},{} where \spad{(w1,{} ...,{} wn)} is the integral basis of \spadfunFrom{integralBasis}{FunctionFieldCategory}.
 488915`\spad{integralMatrixAtInfinity()} returns \spad{M} such that \spad{(v1,{} ...,{} vn) = M (1,{} y,{} ...,{} y^(n-1))} where \spad{(v1,{} ...,{} vn)} is the local integral basis at infinity returned by \spad{infIntBasis()}.
 489012`\spad{integralRepresents([A1,{} ...,{} An],{} D)} returns \spad{(A1 w1+...+An wn)/D} where \spad{(w1,{} ...,{} wn)} is the integral basis of \spad{integralBasis()}.
@@ -4271,22 +4271,22 @@
 494075`\spad{internal?(x)} \undocumented
 494126`\spad{internalAugment(lp,{} ts)} returns \spad{ts} if \spad{lp} is empty otherwise returns \spad{internalAugment(rest lp,{} internalAugment(first lp,{} ts))}
 494209`\spad{internalAugment(p,{} ts)} assumes that \spad{augment(p,{} ts)} returns a singleton and returns it.
-494286`\spad{internalAugment(p,{} ts,{} b1,{} b2,{} b3,{} b4,{} b5)} is an internal subroutine,{} exported only for developement.
-494401`\spad{internalAugment(p,{} ts,{} b1,{} b2,{} b3,{} b4,{} b5)} is an internal subroutine,{} exported only for developement.
-495488`\spad{internalInfRittWu?(lp1,{} lp2)} is an internal subroutine,{} exported only for developement.
-495582`\spad{internalInfRittWu?(lp1,{} lp2)} is an internal subroutine,{} exported only for developement.
+494286`\spad{internalAugment(p,{} ts,{} b1,{} b2,{} b3,{} b4,{} b5)} is an internal subroutine,{} exported only for development.
+494401`\spad{internalAugment(p,{} ts,{} b1,{} b2,{} b3,{} b4,{} b5)} is an internal subroutine,{} exported only for development.
+495488`\spad{internalInfRittWu?(lp1,{} lp2)} is an internal subroutine,{} exported only for development.
+495582`\spad{internalInfRittWu?(lp1,{} lp2)} is an internal subroutine,{} exported only for development.
 495686`\spad{internalIntegrate0 should} be a local function,{} but is conditional.
 495789`\spad{internalIntegrate(f,{} x)} returns the integral of \spad{f(x)dx} where \spad{x} is viewed as a complex variable.
 495897`\spad{internalIntegrate(f,{} x)} returns \spad{g} such that \spad{dg/dx = f}.
 496037`\spad{internalIntegrate(f,{} x)} returns the integral of \spad{f(x)dx} where \spad{x} is viewed as a complex variable.
-496139`\spad{internalLastSubResultant(lpwt,{} v,{} flag)} is an internal subroutine,{} exported only for developement.
-496298`\spad{internalLastSubResultant(p1,{} p2,{} ts,{} inv?,{} break?)} is an internal subroutine,{} exported only for developement.
+496139`\spad{internalLastSubResultant(lpwt,{} v,{} flag)} is an internal subroutine,{} exported only for development.
+496298`\spad{internalLastSubResultant(p1,{} p2,{} ts,{} inv?,{} break?)} is an internal subroutine,{} exported only for development.
 496435`\spad{internalSubPolSet?(lp1,{} lp2)} returns \spad{true} iff \spad{lp1} is a sub-set of \spad{lp2} assuming that these lists are sorted increasingly \spad{w}.\spad{r}.\spad{t}. \spadopFrom{infRittWu?}{RecursivePolynomialCategory}.
 496529`\spad{internalSubPolSet?(lp1,{} lp2)} returns \spad{true} iff \spad{lp1} is a sub-set of \spad{lp2} assuming that these lists are sorted increasingly \spad{w}.\spad{r}.\spad{t}. \spadopFrom{infRittWu?}{RecursivePolynomialCategory}.
 496633`\spad{internalSubQuasiComponent?(ts,{} us)} returns a boolean \spad{b} value if the fact that the regular zero set of \spad{us} contains that of \spad{ts} can be decided (and in that case \spad{b} gives this inclusion) otherwise returns \spad{"failed"}.
 496741`\spad{internalSubQuasiComponent?(ts,{} us)} returns a boolean \spad{b} value if the fact the regular zero set of \spad{us} contains that of \spad{ts} can be decided (and in that case \spad{b} gives this inclusion) otherwise returns \spad{"failed"}.
-496859`\spad{internalZeroSetSplit(lp,{} b1,{} b2,{} b3)} is an internal subroutine,{} exported only for developement.
-496967`\spad{internalZeroSetSplit(lp,{} b1,{} b2,{} b3)} is an internal subroutine,{} exported only for developement.
+496859`\spad{internalZeroSetSplit(lp,{} b1,{} b2,{} b3)} is an internal subroutine,{} exported only for development.
+496967`\spad{internalZeroSetSplit(lp,{} b1,{} b2,{} b3)} is an internal subroutine,{} exported only for development.
 497085`\spad{interpolate(lf,{} lg)} \undocumented
 497190`\spad{interpolate(xlist,{} ylist,{} deg)} returns the rational function with numerator degree at most \spad{deg} and denominator degree at most \spad{\#xlist-deg-1} that interpolates the given points using fraction free arithmetic. Note that rational interpolation does not guarantee that all given points are interpolated correctly: unattainable points may make this impossible.
 497324`\spad{interpolate(xlist,{} ylist,{} deg)} returns the rational function with numerator degree \spad{deg} that interpolates the given points using fraction free arithmetic.
@@ -4553,7 +4553,7 @@
 522552`\spad{lambertW(x)} is the Lambert \spad{W} function at \spad{x}.
 522613`\spad{lambertW(x)} is the Lambert \spad{W} function.
 522703`\spad{lambertW(x)} is the Lambert \spad{W} function.
-522781`\spad{lambertW(z)} = \spad{w} is the principial branch of the solution to the equation \spad{we^w = z}.
+522781`\spad{lambertW(z)} = \spad{w} is the principal branch of the solution to the equation \spad{we^w = z}.
 522835`\spad{lambertW(x)} is the Lambert \spad{W} function.
 522907`\spad{lambertW(x)} is the Lambert \spad{W} function.
 522967`\spad{lambintegrate(f,{} dx,{} D1,{} D2,{} extint,{} int)} integrates \spad{f} in extension by LambertW function. \spad{dx} is derivative of the argument of LambertW,{} \spad{D1} is dervative on \spad{F},{} \spad{D2} is derivative on UP,{} \spad{extint} is extended integration function on \spad{F},{} int is integration function on \spad{F}.
@@ -4958,8 +4958,8 @@
 567438`\spad{makeFR(flist)} turns the final factorization of henselFact into a \spadtype{Factored} object.
 567575`\spad{makeFR(unit,{} listOfFactors)} creates a factored object (for use by factoring code).
 567707`\spad{makeGraphImage(llp)} returns a graph of the domain \spadtype{GraphImage} which is composed of the points and lines from the list of lists of points,{} \spad{llp},{} with default point size and default point and line colours.
-567783`\spad{makeGraphImage(llp,{} lpal1,{} lpal2,{} lp)} returns a graph of the domain \spadtype{GraphImage} which is composed of the points and lines from the list of lists of points,{} \spad{llp},{} whose point colors are indicated by the list of palette colors,{} \spad{lpal1},{} and whose lines are colored according to the list of palette colors,{} \spad{lpal2}. The paramater \spad{lp} is a list of integers which denote the size of the data points.
-567909`\spad{makeGraphImage(llp,{} lpal1,{} lpal2,{} lp,{} lopt)} returns a graph of the domain \spadtype{GraphImage} which is composed of the points and lines from the list of lists of points,{} \spad{llp},{} whose point colors are indicated by the list of palette colors,{} \spad{lpal1},{} and whose lines are colored according to the list of palette colors,{} \spad{lpal2}. The paramater \spad{lp} is a list of integers which denote the size of the data points,{} and \spad{lopt} is the list of draw command options.
+567783`\spad{makeGraphImage(llp,{} lpal1,{} lpal2,{} lp)} returns a graph of the domain \spadtype{GraphImage} which is composed of the points and lines from the list of lists of points,{} \spad{llp},{} whose point colors are indicated by the list of palette colors,{} \spad{lpal1},{} and whose lines are colored according to the list of palette colors,{} \spad{lpal2}. The parameter \spad{lp} is a list of integers which denote the size of the data points.
+567909`\spad{makeGraphImage(llp,{} lpal1,{} lpal2,{} lp,{} lopt)} returns a graph of the domain \spadtype{GraphImage} which is composed of the points and lines from the list of lists of points,{} \spad{llp},{} whose point colors are indicated by the list of palette colors,{} \spad{lpal1},{} and whose lines are colored according to the list of palette colors,{} \spad{lpal2}. The parameter \spad{lp} is a list of integers which denote the size of the data points,{} and \spad{lopt} is the list of draw command options.
 568052`\spad{make_imaginary_part_function(expr,{} x)} returns a Lisp function \spad{f}: \spadtype{DoubleFloat} \spad{->} \spadtype{DoubleFloat} defined by \spad{f(x) == imag(expr)}. Function \spad{f} is compiled and directly applicable to objects of type \spadtype{DoubleFloat}.
 568163`\spad{makeMulti(l)} returns the element whose list of monomials is \spad{l}.
 568240`\spad{makeObject(sp,{} curve(f,{} g,{} h),{} a..b)} returns the space \spad{sp} of the domain \spadtype{ThreeSpace} with the addition of the graph of the parametric curve \spad{x = f(t),{} y = g(t),{} z = h(t)} as \spad{t} ranges from \spad{min(a,{} b)} to \spad{max(a,{} b)}.
@@ -6176,7 +6176,7 @@
 690726`\spad{polygon([p0,{} p1,{} ...,{} pn])} creates a polygon defined by a list of points,{} \spad{p0} through \spad{pn},{} and returns a \spadtype{ThreeSpace} whose component is the polygon.
 690790`\spad{polygon(s)} checks to see if the \spadtype{ThreeSpace},{} \spad{s},{} is composed of a single polygon component defined by a list of points,{} and if so,{} returns the list of points; An error is signaled otherwise.
 690854`\spad{polygon(s,{} [[r0],{} [r1],{} ...,{} [rn]])} adds a polygon component defined by a list of points \spad{r0} through \spad{rn},{} which are lists of elements from the domain \spad{PointDomain(m,{} R)} to the \spadtype{ThreeSpace} \spad{s},{} where \spad{m} is the dimension of the points and \spad{R} is the \spadtype{Ring} over which the points are defined.
-690919`\spad{polygon(s,{} [p0,{} p1,{} ...,{} pn])} adds a polygon component defined by a list of points,{} \spad{p0} throught \spad{pn},{} to the \spadtype{ThreeSpace} \spad{s}.
+690919`\spad{polygon(s,{} [p0,{} p1,{} ...,{} pn])} adds a polygon component defined by a list of points,{} \spad{p0} through \spad{pn},{} to the \spadtype{ThreeSpace} \spad{s}.
 690985`\spad{poly_int(f,{} k,{} x)} generates polylogarithms.
 691261`\spad{polylog(s,{} x)} is the polylogarithm of order \spad{s} at \spad{x}.
 691323`\spad{polylog(s,{} x)} is the polylogarithm of order \spad{s} at \spad{x}.
@@ -6256,12 +6256,12 @@
 699556`\spad{pre_lr(m,{} \spad{pi},{} pj)} is like pre_gauss,{} but records positions of pivots in \spad{pi} and \spad{pj} and returns transformation matrix. \spad{m},{} \spad{pi},{} \spad{pj} are modified in place
 699729`\spad{prem(a,{} b)} computes the pseudo-remainder of \spad{a} by \spad{b},{} both viewed as univariate polynomials in the main variable of \spad{b}.
 699855`\spad{prem(a,{} b,{} v)} computes the pseudo-remainder of \spad{a} by \spad{b},{} both viewed as univariate polynomials in \spad{v}.
-699920`\spad{prepareDecompose(lp,{} lts,{} b1,{} b2)} is an internal subroutine,{} exported only for developement.
-700068`\spad{prepareDecompose(lp,{} lts,{} b1,{} b2)} is an internal subroutine,{} exported only for developement.
-700226`\spad{prepareSubResAlgo(p1,{} p2,{} ts)} is an internal subroutine,{} exported only for developement.
-700346`\spad{pre_process(lp,{} b1,{} b2)} is an internal subroutine,{} exported only for developement.
-700464`\spad{pre_process(lp,{} b1,{} b2)} is an internal subroutine,{} exported only for developement.
-700592`\spad{pre_smith(m)} first performs pre_gauss(\spad{m}) and then drops all rows and colums of \spad{m} contaning pivots.
+699920`\spad{prepareDecompose(lp,{} lts,{} b1,{} b2)} is an internal subroutine,{} exported only for development.
+700068`\spad{prepareDecompose(lp,{} lts,{} b1,{} b2)} is an internal subroutine,{} exported only for development.
+700226`\spad{prepareSubResAlgo(p1,{} p2,{} ts)} is an internal subroutine,{} exported only for development.
+700346`\spad{pre_process(lp,{} b1,{} b2)} is an internal subroutine,{} exported only for development.
+700464`\spad{pre_process(lp,{} b1,{} b2)} is an internal subroutine,{} exported only for development.
+700592`\spad{pre_smith(m)} first performs pre_gauss(\spad{m}) and then drops all rows and columns of \spad{m} containing pivots.
 700675`\spad{presub(f,{} n)} creates a form for \spad{f} presubscripted by \spad{n}.
 700716`\spad{presuper(f,{} n)} creates a form for \spad{f} presuperscripted by \spad{n}.
 700759`\spad{pretendOfType(f)} returns the input form corresponding to \spad{f pretend R}
@@ -6618,8 +6618,8 @@
 739074`\spad{rationalPower(f(x))} returns \spad{r} where the Puiseux series \spad{f(x) = g(x^r)}.
 739179`\spad{rational_reconstruction(r)} reconstructs vector of rational functions based on information stored in reconstructor.
 739336`\spad{rational_reconstruction(r)} reconstructs vector of rational functions based on information stored in reconstructor.
-739497`\spad{rational_reconstruction(x,{} y,{} i,{} j)} finds rational number \spad{r/s} such that \spad{r/s = x} modulo \spad{y},{} \spad{|r| <= i} and \spad{q <= j}. Returs "failed" when such \spad{r/s} does not exist.
-739646`\spad{rational_reconstruction(x,{} y,{} i,{} j)} finds rational function \spad{r/s} such that \spad{r/s = y} modulo \spad{x},{} \spad{degre(r) <= i},{} \spad{degree(s) \leq j}. Returs "failed" when such \spad{r/s} does not exist.
+739497`\spad{rational_reconstruction(x,{} y,{} i,{} j)} finds rational number \spad{r/s} such that \spad{r/s = x} modulo \spad{y},{} \spad{|r| <= i} and \spad{q <= j}. Returns "failed" when such \spad{r/s} does not exist.
+739646`\spad{rational_reconstruction(x,{} y,{} i,{} j)} finds rational function \spad{r/s} such that \spad{r/s = y} modulo \spad{x},{} \spad{degre(r) <= i},{} \spad{degree(s) \leq j}. Returns "failed" when such \spad{r/s} does not exist.
 739807`\spad{ratpart(ir)} returns the rational part of an integration result
 739858`\spad{ratPoly(f)} returns a polynomial \spad{p} such that \spad{p} has no algebraic coefficients,{} and \spad{p(f) = 0}.
 739944`\spad{ravel(t)} produces a list of components from a tensor such that \indented{2}{\spad{unravel(ravel(t)) = t}.}
@@ -6830,7 +6830,7 @@
 765315`\spad{removeRedundantFactorsInContents(lp,{} lf)} returns \spad{newlp} where \spad{newlp} is obtained from \spad{lp} by removing in the content of every polynomial of \spad{lp} any non trivial factor of any polynomial \spad{f} in \spad{lf}. Moreover,{} squares over \spad{R} are first removed in the content of every polynomial of \spad{lp}.
 765445`\spad{removeRedundantFactorsInPols(lp,{} lf)} returns \spad{newlp} where \spad{newlp} is obtained from \spad{lp} by removing in every polynomial \spad{p} of \spad{lp} any non trivial factor of any polynomial \spad{f} in \spad{lf}. Moreover,{} squares over \spad{R} are first removed in every polynomial \spad{lp}.
 765571`\spad{removeRepeats!(u)} destructively replaces runs of consecutive equal elements of \spad{u} by single elements.
-765683`\spad{removeRoughlyRedundantFactorsInContents(lp,{} lf)} returns \spad{newlp}where \spad{newlp} is obtained from \spad{lp} by removing in the content of every polynomial of \spad{lp} any occurence of a polynomial \spad{f} in \spad{lf}. Moreover,{} squares over \spad{R} are first removed in the content of every polynomial of \spad{lp}.
+765683`\spad{removeRoughlyRedundantFactorsInContents(lp,{} lf)} returns \spad{newlp}where \spad{newlp} is obtained from \spad{lp} by removing in the content of every polynomial of \spad{lp} any occurrence of a polynomial \spad{f} in \spad{lf}. Moreover,{} squares over \spad{R} are first removed in the content of every polynomial of \spad{lp}.
 765820`\spad{removeRoughlyRedundantFactorsInPol(p,{} lf)} returns the same as removeRoughlyRedundantFactorsInPols([\spad{p}],{} \spad{lf},{} \spad{true})
 765924`\spad{removeRoughlyRedundantFactorsInPols(lp,{} lf)} returns \spad{newlp}where \spad{newlp} is obtained from \spad{lp} by removing in every polynomial \spad{p} of \spad{lp} any occurrence of a polynomial \spad{f} in \spad{lf}. This may involve a lot of exact-quotients computations.
 766041`\spad{removeRoughlyRedundantFactorsInPols(lp,{} lf,{} opt)} returns the same as \spad{removeRoughlyRedundantFactorsInPols(lp,{} lf)} if \spad{opt} is \spad{false} and if the previous operation does not return any non null and constant polynomial,{} else return \spad{[1]}.
@@ -6839,8 +6839,8 @@
 766407`\spad{removeSinhSq(f)} converts every \spad{sinh(u)^2} appearing in \spad{f} into \spad{1 - cosh(u)^2},{} and also reduces higher powers of \spad{sinh(u)} with that formula.
 766475`\spad{removeSinSq(f)} converts every \spad{sin(u)^2} appearing in \spad{f} into \spad{1 - cos(u)^2},{} and also reduces higher powers of \spad{sin(u)} with that formula.
 766542`\spad{removeSquaresIfCan(lp)} returns \spad{removeDuplicates [squareFreePart(p)\$P for p in lp]} if \spad{R} is \spad{gcd}-domain else returns \spad{lp}.
-766634`\spad{removeSuperfluousCases(llpwt)} is an internal subroutine,{} exported only for developement.
-766779`\spad{removeSuperfluousCases(llpwt)} is an internal subroutine,{} exported only for developement.
+766634`\spad{removeSuperfluousCases(llpwt)} is an internal subroutine,{} exported only for development.
+766779`\spad{removeSuperfluousCases(llpwt)} is an internal subroutine,{} exported only for development.
 766934`\spad{removeSuperfluousQuasiComponents(lts)} removes from \spad{lts} any \spad{ts} such that \spad{subQuasiComponent?(ts,{} us)} holds for another \spad{us} in \spad{lts}.
 767037`\spad{removeSuperfluousQuasiComponents(lts)} removes from \spad{lts} any \spad{ts} such that \spad{subQuasiComponent?(ts,{} us)} holds for another \spad{us} in \spad{lts}.
 767213`\spad{removeZero(p,{} ts)} returns \spad{0} if \spad{p} reduces to \spad{0} by pseudo-division \spad{w}.\spad{r}.\spad{t} \spad{ts} otherwise returns a polynomial \spad{q} computed from \spad{p} by removing any coefficient in \spad{p} reducing to \spad{0}.
@@ -7649,11 +7649,11 @@
 872266`\spad{solve(A,{} LB)} finds a particular soln of the systems \spad{AX = B} and a basis of the associated homogeneous systems \spad{AX = 0} where \spad{B} varies in the list of column vectors \spad{LB}.
 872402`\spad{solve(m,{} lv,{} solve)} is a parametric version of solve(\spad{m},{} \spad{v},{} solve)
 872652`\spad{solve(m,{} v,{} solve)} returns \spad{[v_p,{} bm]} such that the solutions in \spad{F} of the system \spad{D x = m x + v} are \spad{v_p + c_1 v_1 + ... + c_m v_m} where the \spad{c_i's} are constants,{} and the \spad{v_i's} are columns of \spad{bm} and form a basis for the solutions of \spad{D x = m x}. Argument \spad{solve} is a function for solving a single linear ordinary differential equation in \spad{F}.
-872838`\spad{solve(eq,{} y,{} x)} returns either a solution of the ordinary differential equation \spad{eq} or "failed" if no non-trivial solution can be found; If the equation is linear ordinary,{} a solution is of the form \spad{[h,{} [b1,{} ...,{} bm]]} where \spad{h} is a particular solution and \spad{[b1,{} ...bm]} are linearly independent solutions of the associated homogenuous equation \spad{f(x,{} y) = 0}; A full basis for the solutions of the homogenuous equation is not always returned,{} only the solutions which were found; If the equation is of the form {dy/dx = \spad{f}(\spad{x},{} \spad{y})},{} a solution is of the form \spad{h(x,{} y)} where \spad{h(x,{} y) = c} is a first integral of the equation for any constant \spad{c}; error if the equation is not one of those 2 forms.
-872981`\spad{solve(eq,{} y,{} x)} returns either a solution of the ordinary differential equation \spad{eq} or "failed" if no non-trivial solution can be found; If the equation is linear ordinary,{} a solution is of the form \spad{[h,{} [b1,{} ...,{} bm]]} where \spad{h} is a particular solution and and \spad{[b1,{} ...bm]} are linearly independent solutions of the associated homogenuous equation \spad{f(x,{} y) = 0}; A full basis for the solutions of the homogenuous equation is not always returned,{} only the solutions which were found; If the equation is of the form {dy/dx = \spad{f}(\spad{x},{} \spad{y})},{} a solution is of the form \spad{h(x,{} y)} where \spad{h(x,{} y) = c} is a first integral of the equation for any constant \spad{c}.
-873114`\spad{solve(op,{} g,{} x)} returns either a solution of the ordinary differential equation \spad{op y = g} or "failed" if no non-trivial solution can be found; When found,{} the solution is returned in the form \spad{[h,{} [b1,{} ...,{} bm]]} where \spad{h} is a particular solution and and \spad{[b1,{} ...bm]} are linearly independent solutions of the associated homogenuous equation \spad{op y = 0}. A full basis for the solutions of the homogenuous equation is not always returned,{} only the solutions which were found; \spad{x} is the dependent variable.
-873236`\spad{solve([eq_1,{}...,{}eq_n],{} [y_1,{}...,{}y_n],{} x)} returns either "failed" or,{} if the equations form a fist order linear system,{} a solution of the form \spad{[y_p,{} [b_1,{} ...,{} b_n]]} where \spad{h_p} is a particular solution and \spad{[b_1,{} ...b_m]} are linearly independent solutions of the associated homogenuous system. error if the equations do not form a first order linear system
-873405`\spad{solve([eq_1,{}...,{}eq_n],{} [y_1,{}...,{}y_n],{} x)} returns either "failed" or,{} if the equations form a fist order linear system,{} a solution of the form \spad{[y_p,{} [b_1,{} ...,{} b_n]]} where \spad{h_p} is a particular solution and \spad{[b_1,{} ...b_m]} are linearly independent solutions of the associated homogenuous system. error if the equations do not form a first order linear system
+872838`\spad{solve(eq,{} y,{} x)} returns either a solution of the ordinary differential equation \spad{eq} or "failed" if no non-trivial solution can be found; If the equation is linear ordinary,{} a solution is of the form \spad{[h,{} [b1,{} ...,{} bm]]} where \spad{h} is a particular solution and \spad{[b1,{} ...bm]} are linearly independent solutions of the associated homogeneous equation \spad{f(x,{} y) = 0}; A full basis for the solutions of the homogeneous equation is not always returned,{} only the solutions which were found; If the equation is of the form {dy/dx = \spad{f}(\spad{x},{} \spad{y})},{} a solution is of the form \spad{h(x,{} y)} where \spad{h(x,{} y) = c} is a first integral of the equation for any constant \spad{c}; error if the equation is not one of those 2 forms.
+872981`\spad{solve(eq,{} y,{} x)} returns either a solution of the ordinary differential equation \spad{eq} or "failed" if no non-trivial solution can be found; If the equation is linear ordinary,{} a solution is of the form \spad{[h,{} [b1,{} ...,{} bm]]} where \spad{h} is a particular solution and and \spad{[b1,{} ...bm]} are linearly independent solutions of the associated homogeneous equation \spad{f(x,{} y) = 0}; A full basis for the solutions of the homogeneous equation is not always returned,{} only the solutions which were found; If the equation is of the form {dy/dx = \spad{f}(\spad{x},{} \spad{y})},{} a solution is of the form \spad{h(x,{} y)} where \spad{h(x,{} y) = c} is a first integral of the equation for any constant \spad{c}.
+873114`\spad{solve(op,{} g,{} x)} returns either a solution of the ordinary differential equation \spad{op y = g} or "failed" if no non-trivial solution can be found; When found,{} the solution is returned in the form \spad{[h,{} [b1,{} ...,{} bm]]} where \spad{h} is a particular solution and and \spad{[b1,{} ...bm]} are linearly independent solutions of the associated homogeneous equation \spad{op y = 0}. A full basis for the solutions of the homogeneous equation is not always returned,{} only the solutions which were found; \spad{x} is the dependent variable.
+873236`\spad{solve([eq_1,{}...,{}eq_n],{} [y_1,{}...,{}y_n],{} x)} returns either "failed" or,{} if the equations form a fist order linear system,{} a solution of the form \spad{[y_p,{} [b_1,{} ...,{} b_n]]} where \spad{h_p} is a particular solution and \spad{[b_1,{} ...b_m]} are linearly independent solutions of the associated homogeneous system. error if the equations do not form a first order linear system
+873405`\spad{solve([eq_1,{}...,{}eq_n],{} [y_1,{}...,{}y_n],{} x)} returns either "failed" or,{} if the equations form a fist order linear system,{} a solution of the form \spad{[y_p,{} [b_1,{} ...,{} b_n]]} where \spad{h_p} is a particular solution and \spad{[b_1,{} ...b_m]} are linearly independent solutions of the associated homogeneous system. error if the equations do not form a first order linear system
 873564`\spad{solve(m,{} v,{} x)} returns \spad{[v_p,{} [v_1,{} ...,{} v_m]]} such that the solutions of the system \spad{D y = m y + v} are \spad{v_p + c_1 v_1 + ... + c_m v_m} where the \spad{c_i's} are constants,{} and the \spad{v_i's} form a basis for the solutions of \spad{D y = m y}. \spad{x} is the dependent variable.
 873715`\spad{solve(M(x,{} y),{} N(x,{} y),{} y,{} x)} returns \spad{F(x,{} y)} such that \spad{F(x,{} y) = c} for a constant \spad{c} is a first integral of the equation \spad{M(x,{} y) dx + N(x,{} y) dy = 0},{} or "failed" if no first-integral can be found.
 873816`\spad{solve(m,{} c,{} lv,{} solf)} returns "failed" of [[\spad{vp1},{} ...,{} vp_m],{} [\spad{b1},{} ...,{} \spad{bl}]] such that \spad{bi}-\spad{s} are basis of solutions of homogeneous system \spad{m} \spad{bi} = 0. Each vpi = [\spad{r},{} [\spad{c1},{} ...,{} \spad{cn}]] is a particular solution of a parametric matrix equation \spad{m} \spad{r} = \sum \spad{ci} \spad{vi} where \spad{lv} = [\spad{v1},{} ...,{} \spad{vn}]. solf is scalar solver,{} \spad{c} is a parameter to \spad{apply} (needed for action of LO on \spad{F}). "failed" means that system is underdetermined.
@@ -7777,10 +7777,10 @@
 890071`construct bit stream
 890127`construct bit stream by parsing string containing 0,{} 1 and *
 890176`\spad{startStats!(x)} initializes the statistics process and sets the comments to display when statistics are printed
-890257`\spad{startTableGcd!(s1,{} s2,{} s3)} is an internal subroutine,{} exported only for developement.
-890347`\spad{startTableGcd!(s1,{} s2,{} s3)} is an internal subroutine,{} exported only for developement.
-890447`\spad{startTableGcd!(s1,{} s2,{} s3)} is an internal subroutine,{} exported only for developement.
-890655`\spad{startTableInvSet!(s1,{} s2,{} s3)} is an internal subroutine,{} exported only for developement.
+890257`\spad{startTableGcd!(s1,{} s2,{} s3)} is an internal subroutine,{} exported only for development.
+890347`\spad{startTableGcd!(s1,{} s2,{} s3)} is an internal subroutine,{} exported only for development.
+890447`\spad{startTableGcd!(s1,{} s2,{} s3)} is an internal subroutine,{} exported only for development.
+890655`\spad{startTableInvSet!(s1,{} s2,{} s3)} is an internal subroutine,{} exported only for development.
 890869`\spad{statement2Fortran(of)}
 890946`\spad{statistics()} prints a statistic on the use of the lazy evaluation mechanism. It displays the number of lazy differentiations performed and how many of them had to be executed explicitly later on.
 891003`\spad{statistics()} prints out a summary of the outcome of the testcases so far. Use \spad{clear completely} to reset the statistics.
@@ -7795,10 +7795,10 @@
 891804`\spad{stop()} creates a representation of a STOP statement.
 891842`\spad{stopMusserTrials()} returns the bound on the number of factors for which \spadfun{modularFactor} stops to look for an other prime. You will have to remember that the step of recombining the extraneous factors may take up to \spad{2^stopMusserTrials()} trials.
 891920`\spad{stopMusserTrials(n)} sets to \spad{n} the bound on the number of factors for which \spadfun{modularFactor} stops to look for an other prime. You will have to remember that the step of recombining the extraneous factors may take up to \spad{2^n} trials. Returns the previous value.
-892013`\spad{stopTableGcd!()} is an internal subroutine,{} exported only for developement.
-892082`\spad{stopTableGcd!()} is an internal subroutine,{} exported only for developement.
-892161`\spad{stopTableGcd!()} is an internal subroutine,{} exported only for developement.
-892327`\spad{stopTableInvSet!()} is an internal subroutine,{} exported only for developement.
+892013`\spad{stopTableGcd!()} is an internal subroutine,{} exported only for development.
+892082`\spad{stopTableGcd!()} is an internal subroutine,{} exported only for development.
+892161`\spad{stopTableGcd!()} is an internal subroutine,{} exported only for development.
+892327`\spad{stopTableInvSet!()} is an internal subroutine,{} exported only for development.
 894095`\spad{STransform(x)} returns the Taylor expansion of the \spad{S}-transform \spad{S(z)} of the distribution \spad{x} if the mean is nonzero.
 894182`\spad{stransform(cpx)} construct transform as function of complex variable can only be used when \spad{PT} is SArgand so this can be converted to \spad{PT} \spad{->} \spad{PT}
 894273`\spad{stransform(m)} construct transform using a multivector
@@ -7843,8 +7843,8 @@
 897784`\spad{style(l,{} s)} takes the list of draw options,{} \spad{l},{} and checks the list to see if it contains the option \spad{style}. If the option does not exist the value,{} \spad{s} is returned.
 897860`\spad{sub1!(pol,{} md)} subtracts 1 from the polynomial \spad{pol}.
 897939`\spad{sub(f,{} n)} creates a form for \spad{f} subscripted by \spad{n}.
-897978`\spad{subCase?(lpwt1,{} lpwt2)} is an internal subroutine,{} exported only for developement.
-898105`\spad{subCase?(lpwt1,{} lpwt2)} is an internal subroutine,{} exported only for developement.
+897978`\spad{subCase?(lpwt1,{} lpwt2)} is an internal subroutine,{} exported only for development.
+898105`\spad{subCase?(lpwt1,{} lpwt2)} is an internal subroutine,{} exported only for development.
 898330`\spad{subdiagramSvg(sc,{} n,{} dispArrowName,{} deep)} creates a branch of an \spad{SVG} diagram diagram under an already existing scene node \spad{sc}. \spad{n:} \% is the graph that will be written dispArrowName: Boolean is \spad{true} to include the name of each arrow
 898421`\spad{subdivide(me)} for each face calculate a new point in the centre of the face,{} then build a new set of faces which include the new point.
 898466`\spad{subMatrix} returns several elements out of a matrix. The elements are stacked into a submatrix.
@@ -7863,7 +7863,7 @@
 899846`\spad{subQuasiComponent?(ts,{} lus)} returns \spad{true} iff \spad{subQuasiComponent?(ts,{} us)} holds for one \spad{us} in \spad{lus}.
 899937`\spad{subQuasiComponent?(ts,{} lus)} returns \spad{true} iff \spad{subQuasiComponent?(ts,{} us)} holds for one \spad{us} in \spad{lus}.
 900038`\spad{subQuasiComponent?(ts,{} us)} returns \spad{true} iff \spadopFrom{internalSubQuasiComponent?}{QuasiComponentPackage} returns \spad{true}.
-900123`\spad{subQuasiComponent?(ts,{} us)} returns \spad{true} iff \spadopFrom{internalSubQuasiComponent?(\spad{ts},{} us)}{QuasiComponentPackage} returs \spad{true}.
+900123`\spad{subQuasiComponent?(ts,{} us)} returns \spad{true} iff \spadopFrom{internalSubQuasiComponent?(\spad{ts},{} us)}{QuasiComponentPackage} returns \spad{true}.
 900218`\spad{subResultantChain(a,{} b)},{} where \spad{a} and \spad{b} are not constant polynomials with the same main variable,{} returns the subresultant chain of \spad{a} and \spad{b}.
 900322`\spad{subResultantGcd(P,{} Q)} returns the \spad{gcd} of two primitive polynomials \spad{P} and \spad{Q}.
 900403`\spad{subResultantGcd(a,{} b)} computes a \spad{gcd} of \spad{a} and \spad{b} where \spad{a} and \spad{b} are assumed to have the same main variable \spad{v} and are viewed as univariate polynomials in \spad{v} with coefficients in the fraction field of the polynomial ring generated by their other variables over \spad{R}.
@@ -8064,8 +8064,8 @@
 925413`\spad{testcase s} starts a new testcase with \spad{s} as title. It also calls \spad{clear all}. A testcase is composed of several tests.
 925466`\spad{testcaseNoClear s},{} starts a new testcase with \spad{s} as title,{} without calling \spad{clear all}. A testcase is composed of several tests.
 925526`test function.
-925799`\spad{testComplexEquals(ex1,{} ex2)} states that \spad{ex1} and \spad{ex2} should be approximately equal as complex numbers,{} taking into acount \spadfun{testAbsolutePrecision} and \spadfun{testRelativePrecision}.
-925863`\spad{testComplexEqualsAux(inp ex1,{} ex2)} states that \spad{ex1} and \spad{ex2} should be approximately equal as complex numbers,{} taking into acount \spadfun{testAbsolutePrecision} and \spadfun{testRelativePrecision}.
+925799`\spad{testComplexEquals(ex1,{} ex2)} states that \spad{ex1} and \spad{ex2} should be approximately equal as complex numbers,{} taking into account \spadfun{testAbsolutePrecision} and \spadfun{testRelativePrecision}.
+925863`\spad{testComplexEqualsAux(inp ex1,{} ex2)} states that \spad{ex1} and \spad{ex2} should be approximately equal as complex numbers,{} taking into account \spadfun{testAbsolutePrecision} and \spadfun{testRelativePrecision}.
 925974`test function.
 926401`test function.
 926704`\spad{testDim(lp,{} lv)} tests if the polynomial system \spad{lp} in variables \spad{lv} is zero dimensional.
@@ -8091,8 +8091,8 @@
 934755`\spad{testNotEqualsAux(inp,{} ex1,{} ex2)} states that \spad{ex1} and \spad{ex2} should be different.
 934821`test function.
 935184`test function.
-935472`\spad{testRealEquals(ex1,{} ex2)} states that \spad{ex1} and \spad{ex2} should be approximately equal as real numbers,{} taking into acount \spadfun{testAbsolutePrecision} and \spadfun{testRelativePrecision}.
-935533`\spad{testRealEqualsAux(inp,{} ex1,{} ex2)} states that \spad{ex1} and \spad{ex2} should be approximately equal as real numbers,{} taking into acount \spadfun{testAbsolutePrecision} and \spadfun{testRelativePrecision}.
+935472`\spad{testRealEquals(ex1,{} ex2)} states that \spad{ex1} and \spad{ex2} should be approximately equal as real numbers,{} taking into account \spadfun{testAbsolutePrecision} and \spadfun{testRelativePrecision}.
+935533`\spad{testRealEqualsAux(inp,{} ex1,{} ex2)} states that \spad{ex1} and \spad{ex2} should be approximately equal as real numbers,{} taking into account \spadfun{testAbsolutePrecision} and \spadfun{testRelativePrecision}.
 935623`\spad{testRelativePrecision(eps)} returns the current absolute precision used for floating point comparison,{} and then sets it to \spad{eps}. The default value is 1.0e-15.
 935705`test function.
 936142`test function.
@@ -8436,7 +8436,7 @@
 971142`\spad{vector(f)} returns \spad{v} from the ALS of \spad{f}.
 971234`\spad{vector(l)} converts the list \spad{l} to a vector.
 971279`\spad{vector_add_mul(v1,{} v2,{} m,{} n,{} c,{} p)} sets \spad{v1}(\spad{m}),{} ...,{} \spad{v1}(\spad{n}) to corresponding extries in \spad{v1} + \spad{c*v2} modulo \spad{p}.
-971399`\spad{vector_combination(v1,{} c1,{} v2,{} c2,{} n,{} delta,{} p)} replaces first \spad{n} + 1 entires of \spad{v1} by corresponding entries of \spad{c1*v1+c2*x^delta*v2} mod \spad{p}.
+971399`\spad{vector_combination(v1,{} c1,{} v2,{} c2,{} n,{} delta,{} p)} replaces first \spad{n} + 1 entries of \spad{v1} by corresponding entries of \spad{c1*v1+c2*x^delta*v2} mod \spad{p}.
 971531`\spad{Vectorise(x)} returns vector of coefficients of lift(\spad{x}).
 971675`\spad{vectorise(p,{} n)} returns \spad{[a0,{} ...,{} a(n-1)]} where \spad{p = a0 + a1*x + ... + a(n-1)*x^(n-1)} + higher order terms. The degree of polynomial \spad{p} can be different from \spad{n-1}.
 971841`\spad{vertConcat(l)} vertically concatenates all members of \spad{l} Error: if the arrays do not have the same number of columns.
@@ -8460,15 +8460,15 @@
 974159`\spad{viewpoint(v,{} th,{} phi,{} s,{} dx,{} dy)} sets the longitudinal view angle to \spad{th} degrees,{} the latitudinal view angle to \spad{phi} degrees,{} the scale factor to \spad{s},{} the horizontal viewport offset to \spad{dx},{} and the vertical viewport offset to \spad{dy} for the viewport \spad{v},{} which is of the domain \spadtype{ThreeDimensionalViewport}. The new viewpoint position is not displayed until the function \spadfun{makeViewport3D} is executed again for \spad{v}.
 974253`\spad{viewport2D()} returns an undefined two-dimensional viewport of the domain \spadtype{TwoDimensionalViewport} whose contents are empty.
 974308`\spad{viewport3D()} returns an undefined three-dimensional viewport of the domain \spadtype{ThreeDimensionalViewport} whose contents are empty.
-974365`\spad{viewPosDefault()} returns the default \spad{X} and \spad{Y} position of a viewport window unless overriden explicityly,{} newly created viewports will have this \spad{X} and \spad{Y} coordinate.
-974444`\spad{viewPosDefault([x,{} y])} sets the default \spad{X} and \spad{Y} position of a viewport window unless overriden explicityly,{} newly created viewports will have th \spad{X} and \spad{Y} coordinates \spad{x},{} \spad{y}.
+974365`\spad{viewPosDefault()} returns the default \spad{X} and \spad{Y} position of a viewport window unless overridden explicitly,{} newly created viewports will have this \spad{X} and \spad{Y} coordinate.
+974444`\spad{viewPosDefault([x,{} y])} sets the default \spad{X} and \spad{Y} position of a viewport window unless overridden explicitly,{} newly created viewports will have th \spad{X} and \spad{Y} coordinates \spad{x},{} \spad{y}.
 974547`\spad{viewSizeDefault()} returns the default viewport width and height.
 974624`\spad{viewSizeDefault([w,{} h])} sets the default viewport width to \spad{w} and height to \spad{h}.
 974722`\spad{viewThetaDefault()} returns the current default longitudinal view angle in radians.
 974789`\spad{viewThetaDefault(t)} sets the current default longitudinal view angle in radians to the value \spad{t} and returns \spad{t}.
 974861`\spad{viewWriteAvailable()} returns a list of available methods for writing,{} such as BITMAP,{} POSTSCRIPT,{} etc.
 974932`\spad{viewWriteDefault()} returns the list of things to write in a viewport data file; a viewAlone file is always generated.
-975001`\spad{viewWriteDefault(l)} sets the default list of things to write in a viewport data file to the strings in \spad{l}; a viewAlone file is always genereated.
+975001`\spad{viewWriteDefault(l)} sets the default list of things to write in a viewport data file to the strings in \spad{l}; a viewAlone file is always generated.
 975082`\spad{viewZoomDefault()} returns the current default graph scaling value.
 975148`\spad{viewZoomDefault(s)} sets the current default graph scaling value to \spad{s} and returns \spad{s}.
 975219`\spad{virtualDegree }\undocumented
@@ -8636,8 +8636,8 @@
 991049`\spad{zeroSetSplit(lp,{} clos?,{} info?)} returns a list \spad{lts} of regular chains such that the union of the closures of their regular zero sets equals the affine variety associated with \spad{lp}. Moreover,{} if \spad{clos?} is \spad{false} then the union of the regular zero set of the \spad{ts} (for \spad{ts} in \spad{lts}) equals this variety. If \spad{info?} is \spad{true} then some information is displayed during the computations. See \spadopFrom{zeroSetSplit}{RegularTriangularSet}.
 991188`\spad{zeroSetSplit(lp,{} clos?,{} info?)} has the same specifications as \spadopFrom{zeroSetSplit}{RegularTriangularSetCategory}. Moreover,{} if \spad{clos?} then solves in the sense of the Zariski closure else solves in the sense of the regular zeros. If \spad{info?} then do print messages during the computations.
 991281`\spad{zeroSetSplit(lp,{} clos?,{} info?)} has the same specifications as \spadopFrom{zeroSetSplit}{RegularTriangularSetCategory} from \spadtype{RegularTriangularSetCategory} Moreover,{} if \spad{clos?} then solves in the sense of the Zariski closure else solves in the sense of the regular zeros. If \spad{info?} then do print messages during the computations.
-991384`\spad{zeroSetSplit(lp,{} b1,{} b2.b3,{} b4)} is an internal subroutine,{} exported only for developement.
-991493`\spad{zeroSetSplit(lp,{} b1,{} b2.b3,{} b4)} is an internal subroutine,{} exported only for developement.
+991384`\spad{zeroSetSplit(lp,{} b1,{} b2.b3,{} b4)} is an internal subroutine,{} exported only for development.
+991493`\spad{zeroSetSplit(lp,{} b1,{} b2.b3,{} b4)} is an internal subroutine,{} exported only for development.
 991612`\spad{zeroSetSplitIntoTriangularSystems(lp)} returns a list of triangular systems \spad{[[ts1,{} qs1],{} ...,{} [tsn,{} qsn]]} such that the zero set of \spad{lp} is the union of the closures of the \spad{W_i} where \spad{W_i} consists of the zeros of \spad{ts} which do not cancel any polynomial in \spad{qsi}.
 992143`\spad{zerosOf(p)} returns \spad{[y1,{} ...,{} yn]} such that \spad{p(\spad{yi}) = 0}. The \spad{yi}\spad{'s} are expressed in radicals if possible. Note: the returned values \spad{y1},{} ...,{} \spad{yn} contain new symbols which are bound in the interpreter to the respective values. Error: if \spad{p} has more than one variable.
 992215`\spad{zerosOf(p)} returns \spad{[y1,{} ...,{} yn]} such that \spad{p(\spad{yi}) = 0}. The \spad{yi}\spad{'s} are expressed in radicals if possible. Otherwise they are implicit algebraic quantities containing new symbols. The new symbols are bound in the interpreter to the respective values. Error: if \spad{p} has more than one variable \spad{y}.
@@ -8774,7 +8774,7 @@
 1006267`This package implements arbitrary precision numerical elliptic functions. The method is based on descending Landen transform.
 1006319`\indented{3}{This is a package for the approximation of complex solutions for} systems of equations of rational functions with complex rational coefficients. The results are expressed as either complex rational numbers or complex floats depending on the type of the precision parameter which can be either a rational number or a floating point number.
 1006392`\indented{3}{This is a package for the approximation of real solutions for} systems of polynomial equations over the rational numbers. The results are expressed as either rational numbers or floats depending on the type of the precision parameter which can be either a rational number or a floating point number.
-1006468`This package implemnts numerical evaluation \indented{1}{for selected liouvilian functions.}
+1006468`This package implements numerical evaluation \indented{1}{for selected liouvilian functions.}
 1006524`This package implements numerical evaluation of \indented{1}{several special functions.}
 1006574`\spadtype{FortranCodePackage1} provides some utilities for producing useful objects in FortranCode domain. The Package may be used with the FortranCode domain and its \spad{printCode} or possibly via an outputAsFortran. (The package provides items of use in connection with ASPs in the AXIOM-NAG link and,{} where appropriate,{} naming accords with that in IRENA.) The easy-to-use functions use Fortran loop variables \spad{I1},{} \spad{I2},{} and it is users' responsibility to check that this is sensible. The advanced functions use SegmentBinding to allow users control over Fortran loop variable names.
 1006663`Code to manipulate Fortran Output Stack
@@ -8998,7 +8998,7 @@
 1031990`A package for weighted Motzkin paths over a ring.
 1032044`Tools for patterns.
 1032116`Lifts maps to patterns.
-1032195`This package provides the top-level pattern macthing functions.
+1032195`This package provides the top-level pattern matching functions.
 1032337`Attaching assertions to symbols for pattern matching. Date Created: 21 Mar 1989
 1032388`This package provides pattern matching functions on function spaces.
 1032517`This package provides pattern matching functions on integers.
@@ -9113,7 +9113,7 @@
 1044282`This package implements series expansions for a few \indented{1}{special functions.}
 1044410`SpecialOutputPackage allows FORTRAN,{} Tex and \indented{2}{MathML Formatter output from programs.}
 1044461`A internal package for removing redundant quasi-components and redundant branches when decomposing a variety by means of quasi-components of regular triangular sets. \newline
-1044663`A package providing a new algorithm for solving polynomial systems by means of regular chains. Two ways of solving are provided: in the sense of Zariski closure (like in Kalkbrener\spad{'s} algorithm) or in the sense of the regular zeros (like in Wu,{} Wang or Lazard- Moreno methods). This algorithm is valid for nay type of regular set. It does not care about the way a polynomial is added in an regular set,{} or how two quasi-components are compared (by an inclusion-test),{} or how the invertibility test is made in the tower of simple extensions associated with a regular set. These operations are realized respectively by the domain \spad{TS} and the packages \spad{QCMPPK(R,{} E,{} V,{} P,{} TS)} and \spad{RSETGCD(R,{} E,{} V,{} P,{} TS)}. The same way it does not care about the way univariate polynomial gcds (with coefficients in the tower of simple extensions associated with a regular set) are computed. The only requirement is that these gcds need to have invertible initials (normalized or not). WARNING. There is no need for a user to call diectly any operation of this package since they can be accessed by the domain \spadtype{TS}. Thus,{} the operations of this package are not documented.\newline
+1044663`A package providing a new algorithm for solving polynomial systems by means of regular chains. Two ways of solving are provided: in the sense of Zariski closure (like in Kalkbrener\spad{'s} algorithm) or in the sense of the regular zeros (like in Wu,{} Wang or Lazard- Moreno methods). This algorithm is valid for nay type of regular set. It does not care about the way a polynomial is added in an regular set,{} or how two quasi-components are compared (by an inclusion-test),{} or how the invertibility test is made in the tower of simple extensions associated with a regular set. These operations are realized respectively by the domain \spad{TS} and the packages \spad{QCMPPK(R,{} E,{} V,{} P,{} TS)} and \spad{RSETGCD(R,{} E,{} V,{} P,{} TS)}. The same way it does not care about the way univariate polynomial gcds (with coefficients in the tower of simple extensions associated with a regular set) are computed. The only requirement is that these gcds need to have invertible initials (normalized or not). WARNING. There is no need for a user to call directly any operation of this package since they can be accessed by the domain \spadtype{TS}. Thus,{} the operations of this package are not documented.\newline
 1044884`A internal package for computing gcds and resultants of univariate polynomials with coefficients in a tower of simple extensions of a field. There is no need to use directly this package since its main operations are available from \spad{TS}. \newline
 1045094`This package provides standard arithmetic operations on matrices. The functions in this package store the results of computations in existing matrices,{} rather than creating new matrices. This package works only for matrices of type Matrix and uses the internal representation of this type.
 1045164`A package to compute Taylor and Puiseux series of \spad{S}-transforms.
@@ -9187,7 +9187,7 @@
 1052682`A package for computing symbolically the complex and real roots of zero-dimensional algebraic systems over the integer or rational numbers. Complex roots are given by means of univariate representations of irreducible regular chains. Real roots are given by means of tuples of coordinates lying in the \spadtype{RealClosure} of the coefficient ring. This constructor takes three arguments. The first one \spad{R} is the coefficient ring. The second one \spad{ls} is the list of variables involved in the systems to solve. The third one must be \spad{concat(ls,{} s)} where \spad{s} is an additional symbol used for the univariate representations. WARNING: The third argument is not checked. All operations are based on triangular decompositions. The default is to compute these decompositions directly from the input system by using the \spadtype{RegularChain} domain constructor. The lexTriangular algorithm can also be used for computing these decompositions (see the \spadtype{LexTriangularPackage} package constructor). For that purpose,{} the operations \spadopFrom{univariateSolve}{ZeroDimensionalSolvePackage},{} \spadopFrom{realSolve}{ZeroDimensionalSolvePackage} and \spadopFrom{positiveSolve}{ZeroDimensionalSolvePackage} admit an optional argument. \newline Author: Marc Moreno Maza.
 1052804`The class of abelian groups,{} \spadignore{i.e.} additive monoids where each element has an additive inverse. \blankline
 1052864`The class of multiplicative monoids,{} \spadignore{i.e.} semigroups with an additive identity element. \blankline
-1052926`Abelian monoid ring elements (not necessarily of finite support) of this ring are of the form formal SUM (r_i * e_i) where the r_i are coefficents and the e_i,{} elements of the ordered abelian monoid,{} are thought of as exponents or monomials. The monomials commute with each other,{} but in general do not commute with the coefficients (which themselves may or may not be commutative). See \spadtype{FiniteAbelianMonoidRing} for the case of finite support. A useful common model for polynomials and power series. Conceptually at least,{} only the non-zero terms are ever operated on.
+1052926`Abelian monoid ring elements (not necessarily of finite support) of this ring are of the form formal SUM (r_i * e_i) where the r_i are coefficients and the e_i,{} elements of the ordered abelian monoid,{} are thought of as exponents or monomials. The monomials commute with each other,{} but in general do not commute with the coefficients (which themselves may or may not be commutative). See \spadtype{FiniteAbelianMonoidRing} for the case of finite support. A useful common model for polynomials and power series. Conceptually at least,{} only the non-zero terms are ever operated on.
 1053044`the class of all additive (commutative) semigroups,{} \spadignore{i.e.} a set with a commutative and associative operation \spadop{+}. \blankline
 1053111`The notion of aggregate serves to model any data structure aggregate,{} designating any collection of objects,{} with heterogeneous or homogeneous members,{} with a finite or infinite number of members,{} explicitly or implicitly represented. An aggregate can in principle represent everything from a string of characters to abstract sets such as "the set of \spad{x} satisfying relation {\em r(x)}". An attribute \spadtype{finiteAggregate} is used to assert that a domain has a finite number of elements.
 1053161`The category of associative algebras (modules which are themselves rings). \blankline
