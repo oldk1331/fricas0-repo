@@ -54,7 +54,7 @@
 ;       htSayList(['"{\em ", name, "}\tab{22}", message])
 ;       htSay('"\tab{80}")
 ;       key = 'FUNCTION =>
-;          null options => htMakePage [['bcLinks,['"reset",'"",func,nil]]]
+;          null options => htMakePage [['bcLinks,['"reset",'"",func]]]
 ;          [msg,class,var,valuesOrFunction,:.] := first options  --skip first message
 ;          functionTail(name,class,var,valuesOrFunction)
 ;          for option in rest options repeat
@@ -185,8 +185,7 @@
                             ((NULL |options|)
                              (|htMakePage|
                               (LIST
-                               (LIST '|bcLinks|
-                                     (LIST "reset" "" |func| NIL)))))
+                               (LIST '|bcLinks| (LIST "reset" "" |func|)))))
                             (#1#
                              (PROGN
                               (SETQ |LETTMP#1| (CAR |options|))
