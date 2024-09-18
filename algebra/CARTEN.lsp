@@ -1039,7 +1039,7 @@
                ((OR
                  (OR (OR (OR (< |i| 1) (> |i| |rx|)) (< |j| 1)) (> |j| |rx|))
                  (EQL |i| |j|))
-                (EXIT (|error| "Improper indicies for transposition"))))
+                (EXIT (|error| "Improper indices for transposition"))))
               (COND
                ((> |i| |j|)
                 (PROGN

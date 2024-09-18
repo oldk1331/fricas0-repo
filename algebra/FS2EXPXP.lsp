@@ -780,7 +780,7 @@
           (EXIT
            (COND
             ((SPADCALL |deg| (|spadConstant| % 114) (QREFELT % 119))
-             (|error| "exp of function with sigularity"))
+             (|error| "exp of function with singularity"))
             ((SPADCALL |deg| (|spadConstant| % 114) (QREFELT % 120))
              (CONS 0 (SPADCALL |ups| (QREFELT % 121))))
             (#1='T

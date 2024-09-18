@@ -67,7 +67,7 @@
 ; makeAxExportForm(filename, constructors) ==
 ;   $defaultFlag : local := false
 ;   $literals := []
-;   -- Note that Tuple, Exit, Type are language defined idenifiers
+;   -- Note that Tuple, Exit, Type are language defined identifiers
 ;   -- in Aldor.
 ;   axForms :=
 ;      [modemapToAx(modemap) for cname in constructors |
