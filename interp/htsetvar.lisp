@@ -1117,14 +1117,14 @@
       (|htProcessDoitButton| (LIST "Press to Remove Page" "" '|htDoNothing|))
       (|htShowPage|)))))
 
-; htAllOrNum(page, val) ==
+; htAllOrNum(val) ==
 ;     str :=
 ;         val = 'all => '"{\em all"
 ;         val = 0 => '"{\em no"
 ;         STRCONC('"the last {\em ",stringize val)
 ;     bcHt(str)
 
-(DEFUN |htAllOrNum| (|page| |val|)
+(DEFUN |htAllOrNum| (|val|)
   (PROG (|str|)
     (RETURN
      (PROGN
