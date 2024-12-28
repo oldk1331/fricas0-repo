@@ -102,7 +102,7 @@
 
 (SDEFUN |DERHAM;coerce;%Of;8| ((|a| (%)) (% (|OutputForm|)))
         (SPROG
-         ((#1=#:G39 NIL) (|t| NIL) (#2=#:G38 NIL)
+         ((#1=#:G38 NIL) (|t| NIL) (#2=#:G37 NIL)
           (|ta|
            (|List|
             (|Record| (|:| |k| (|ExtAlgBasis|))
@@ -140,9 +140,9 @@
 
 (DECLAIM (NOTINLINE |DeRhamComplex;|)) 
 
-(DEFUN |DeRhamComplex| (&REST #1=#:G49)
+(DEFUN |DeRhamComplex| (&REST #1=#:G48)
   (SPROG NIL
-         (PROG (#2=#:G50)
+         (PROG (#2=#:G49)
            (RETURN
             (COND
              ((LETT #2#
@@ -160,7 +160,7 @@
 
 (DEFUN |DeRhamComplex;| (|#1| |#2|)
   (SPROG
-   ((#1=#:G48 NIL) (|liv| NIL) (#2=#:G47 NIL) (|pv$| NIL) (% NIL) (|dv$| NIL)
+   ((#1=#:G47 NIL) (|liv| NIL) (#2=#:G46 NIL) (|pv$| NIL) (% NIL) (|dv$| NIL)
     (DV$2 NIL) (DV$1 NIL))
    (SEQ
     (PROGN
