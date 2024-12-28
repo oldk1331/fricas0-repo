@@ -703,7 +703,7 @@
 ;     parForm:= SUBLIS(pairlis,form)
 ;     --Equivalent to the following two lines, we hope
 ;     if null sargl then
-;         lisplibWrite('NILADIC, true, $libFile)
+;         lisplibWrite('"NILADIC", true, $libFile)
 ;
 ; --   6. put modemaps into InteractiveModemapFrame
 ;     $lisplibCategory:= formalBody
@@ -856,7 +856,7 @@
                NIL |argl| NIL |$FormalMapVariableList| NIL))
       (SETQ |parSignature| (SUBLIS |pairlis| |signature'|))
       (SETQ |parForm| (SUBLIS |pairlis| |form|))
-      (COND ((NULL |sargl|) (|lisplibWrite| 'NILADIC T |$libFile|)))
+      (COND ((NULL |sargl|) (|lisplibWrite| "NILADIC" T |$libFile|)))
       (SETQ |$lisplibCategory| |formalBody|)
       (COND
        ($LISPLIB (SETQ |$lisplibForm| |form|) (SETQ |$lisplibKind| '|category|)
@@ -1046,7 +1046,7 @@
 ;       $lisplibOperationAlist:= operationAlist
 ;       $lisplibMissingFunctions:= $CheckVectorList
 ;     if null argl then
-;         lisplibWrite('NILADIC, true, $libFile)
+;         lisplibWrite('"NILADIC", true, $libFile)
 ;     [fun, ['Mapping, :signature'], originale]
 
 (DEFUN |compDefineFunctor1| (|df| |m| |e| |$prefix| |$formalArgList|)
@@ -1245,7 +1245,7 @@
                  (|getInfovecCode| |NRTslot1Info| |e|)))))
         (SETQ |$lisplibOperationAlist| |operationAlist|)
         (SETQ |$lisplibMissingFunctions| |$CheckVectorList|)))
-      (COND ((NULL |argl|) (|lisplibWrite| 'NILADIC T |$libFile|)))
+      (COND ((NULL |argl|) (|lisplibWrite| "NILADIC" T |$libFile|)))
       (LIST |fun| (CONS '|Mapping| |signature'|) |originale|)))))
 
 ; compFunctorBody(body, m, e, base_shell) ==

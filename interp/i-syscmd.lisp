@@ -2550,6 +2550,21 @@
                                           NIL))))))
               NIL))))))))))))
 
+; editFile(file) ==
+;     (sym := FIND_SYMBOL("WIN32", "KEYWORD")) and
+;             MEMQ(sym, _*FEATURES_*) =>
+;         run_program('"notepad", [file])
+;     run_program(CONCAT($spadroot, '"/lib/SPADEDIT"), [file])
+
+(DEFUN |editFile| (|file|)
+  (PROG (|sym|)
+    (RETURN
+     (COND
+      ((AND (SETQ |sym| (FIND_SYMBOL 'WIN32 'KEYWORD)) (MEMQ |sym| *FEATURES*))
+       (|run_program| "notepad" (LIST |file|)))
+      ('T
+       (|run_program| (CONCAT |$spadroot| "/lib/SPADEDIT") (LIST |file|)))))))
+
 ; edit l == editSpad2Cmd l
 
 (DEFUN |edit| (|l|) (PROG () (RETURN (|editSpad2Cmd| |l|))))
@@ -5631,7 +5646,7 @@
 ;     fullopt = 'ifthere => ifthere  := true
 ;     fullopt = 'quiet   => quiet := true
 ;
-;   if null(l) and (ef := $edit_file) and pathnameTypeId(ef) ~= 'SPAD then
+;   if null(l) and (ef := $edit_file) and pathnameType(ef) ~= '"spad" then
 ;       l := ef
 ;   else
 ;       l := first(l)
@@ -5681,7 +5696,7 @@
        |$options| NIL)
       (COND
        ((AND (NULL |l|) (SETQ |ef| |$edit_file|)
-             (NOT (EQ (|pathnameTypeId| |ef|) 'SPAD)))
+             (NOT (EQUAL (|pathnameType| |ef|) "spad")))
         (SETQ |l| |ef|))
        (#1# (SETQ |l| (CAR |l|))))
       (COND ((SYMBOLP |l|) (SETQ |l| (SYMBOL-NAME |l|))))
