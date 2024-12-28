@@ -8014,7 +8014,7 @@
 921696`\spad{tab1(lp)} creates a tableau from a list of pairs \spad{lp}
 921772`\spad{tab(ls)} creates a tableau from \spad{ls} by first creating a list of pairs using \spadfunFrom{slex}{TableauBumpers},{} then creating a tableau using \spadfunFrom{\spad{tab1}}{TableauBumpers}.
 921888`\spad{table()}\$\spad{T} creates an empty table of type \spad{T}.
-921941`\spad{table(h)} creates an empty hash table that uses \spad{h} instead of hash\$Key. Note that \spad{h} should be a mathematical function in the sense that from \spad{k1=k2} follows \spad{h}(\spad{k1})\spad{=h}(\spad{k2}). If that is not the case,{} \spad{k1} and \spad{k2} will internally be considered as being different keys.
+921941`\spad{table(h)} creates an empty hash table that uses \spad{h} instead of hash\$Key. Note that \spad{h} should be a mathematical function in the sense that from \spad{k1=k2} follows \spad{h}(\spad{k1})\spad{=h}(\spad{k2}). If that is not the case,{} \spad{k1} and \spad{k2} will internally be considered as being different keys. For XHashTable to work correctly,{} the function \spad{h} must only yield non-negative values.
 922093`\spad{table(lv)} computes the commutator table for a given list of vector fields.
 922169`\spad{table([x,{} y,{} ...,{} z])} creates a table consisting of entries \spad{x,{} y,{} ...,{} z}.
 922255`\spad{tableau(ll)} converts a list of lists \spad{ll} to a tableau.
@@ -8397,7 +8397,7 @@
 970266`\spad{true} if this is a valid chain complex,{} that is: 1. maps compose 2. product of adjacent maps is zero
 970316`\spad{true} if this is a valid chain complex,{} that is: 1. maps compose 2. product of adjacent coboundary maps is zero
 970372`\spad{validExponential([k1,{} ...,{} kn],{} f,{} x)} returns \spad{g} if \spad{exp(f)=g} and \spad{g} involves only \spad{k1...kn},{} and "failed" otherwise.
-970590`\spad{value(x)} returns a SingleInteger value corresponding to \spad{x}.
+970590`\spad{value(x)} returns a non-negative SingleInteger value corresponding to \spad{x}.
 970640`returns: \indented{2}{"T"::Symbol = \spad{T}} \indented{2}{"F"::Symbol = \spad{_|_}} \indented{2}{"E"::Symbol = error} \indented{2}{"P"::Symbol = proposition} \indented{2}{"C"::Symbol = compound} Constructs lambda term and bind any variables with the name provided
 970680`returns: \indented{2}{"T"::Symbol = \spad{T}} \indented{2}{"F"::Symbol = \spad{_|_}} \indented{2}{"E"::Symbol = error} \indented{2}{"P"::Symbol = proposition} \indented{2}{"C"::Symbol = compound} Constructs lambda term and bind any variables with the name provided
 970732`returns: \indented{2}{"T"::Symbol = \spad{T}} \indented{2}{"F"::Symbol = \spad{_|_}} \indented{2}{"E"::Symbol = error} \indented{2}{"P"::Symbol = proposition} \indented{2}{"C"::Symbol = compound} Constructs lambda term and bind any variables with the name provided
