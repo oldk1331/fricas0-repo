@@ -83,7 +83,7 @@
   (PROG () (RETURN (PROGN (|sayBrightly| |msg|) (|read_line| *TERMINAL-IO*)))))
 
 ; errorSupervisor(errorType,errorMsg) ==
-;   $BreakMode = 'trapSpadErrors => THROW('trapSpadErrors, $numericFailure)
+;   $BreakMode = 'trapSpadErrors => THROW('trapSpadErrors, $spad_failure)
 ;   errorSupervisor1(errorType,errorMsg,$BreakMode)
 
 (DEFUN |errorSupervisor| (|errorType| |errorMsg|)
@@ -91,7 +91,7 @@
     (RETURN
      (COND
       ((EQ |$BreakMode| '|trapSpadErrors|)
-       (THROW '|trapSpadErrors| |$numericFailure|))
+       (THROW '|trapSpadErrors| |$spad_failure|))
       ('T (|errorSupervisor1| |errorType| |errorMsg| |$BreakMode|))))))
 
 ; errorSupervisor1(errorType,errorMsg,$BreakMode) ==
@@ -161,7 +161,7 @@
 ;   -- The next line is to try to deal with some reported cases of unwanted
 ;   -- backtraces appearing, MCD.
 ;   ENABLE_BACKTRACE(nil)
-;   $BreakMode = 'trapSpadErrors => THROW('trapSpadErrors, $numericFailure)
+;   $BreakMode = 'trapSpadErrors => THROW('trapSpadErrors, $spad_failure)
 ;   $BreakMode = 'break =>
 ;     sayBrightly '" "
 ;     BREAK()
@@ -208,7 +208,7 @@
       (ENABLE_BACKTRACE NIL)
       (COND
        ((EQ |$BreakMode| '|trapSpadErrors|)
-        (THROW '|trapSpadErrors| |$numericFailure|))
+        (THROW '|trapSpadErrors| |$spad_failure|))
        ((EQ |$BreakMode| '|break|) (PROGN (|sayBrightly| " ") (BREAK)))
        ((EQ |$BreakMode| '|query|)
         (PROGN
