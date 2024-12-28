@@ -352,7 +352,7 @@
 
 ; getDependentsOfConstructor(con) ==
 ;   stream := readLib('"DEPENDENTS.DAASE")
-;   val := rkaf_read_list(stream, con)
+;   val := kaf_read_list(stream, con)
 ;   kaf_close(stream)
 ;   val
 
@@ -361,7 +361,7 @@
     (RETURN
      (PROGN
       (SETQ |stream| (|readLib| "DEPENDENTS.DAASE"))
-      (SETQ |val| (|rkaf_read_list| |stream| |con|))
+      (SETQ |val| (|kaf_read_list| |stream| |con|))
       (|kaf_close| |stream|)
       |val|))))
 
