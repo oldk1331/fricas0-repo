@@ -1731,7 +1731,7 @@
 ;     FILE_-POSITION(in_f, READ(in_f))
 ;     alist := READ(in_f)
 ;     -- (setq pos (third (assoc "constructorForm" alist :test #'string=)))
-;     pos := first(rest(fetch_data_from_alist(alist, '"constructorForm")))
+;     pos := first(fetch_data_from_alist(alist, '"constructorForm"))
 ;     FILE_-POSITION(in_f, pos)
 ;     constructorform := READ(in_f)
 ;     key := first(constructorform)
@@ -1770,8 +1770,7 @@
      (PROGN
       (FILE-POSITION |in_f| (READ |in_f|))
       (SETQ |alist| (READ |in_f|))
-      (SETQ |pos|
-              (CAR (CDR (|fetch_data_from_alist| |alist| "constructorForm"))))
+      (SETQ |pos| (CAR (|fetch_data_from_alist| |alist| "constructorForm")))
       (FILE-POSITION |in_f| |pos|)
       (SETQ |constructorform| (READ |in_f|))
       (SETQ |key| (CAR |constructorform|))

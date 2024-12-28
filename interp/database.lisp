@@ -274,8 +274,8 @@
 ;   erase_lib('"USERS.DAASE")
 ;   stream:= writeLib('"USERS.DAASE")
 ;   for k in MSORT HKEYS $usersTb repeat
-;     rwrite(k, HGET($usersTb, k), stream)
-;   RSHUT stream
+;       kaf_write0(stream, k, HGET($usersTb, k))
+;   kaf_close(stream)
 
 (DEFUN |saveUsersHashTable| ()
   (PROG (|stream|)
@@ -288,17 +288,17 @@
           (COND
            ((OR (ATOM |bfVar#20|) (PROGN (SETQ |k| (CAR |bfVar#20|)) NIL))
             (RETURN NIL))
-           ('T (|rwrite| |k| (HGET |$usersTb| |k|) |stream|)))
+           ('T (|kaf_write0| |stream| |k| (HGET |$usersTb| |k|))))
           (SETQ |bfVar#20| (CDR |bfVar#20|))))
        (MSORT (HKEYS |$usersTb|)) NIL)
-      (RSHUT |stream|)))))
+      (|kaf_close| |stream|)))))
 
 ; saveDependentsHashTable() ==
 ;   erase_lib('"DEPENDENTS.DAASE")
 ;   stream:= writeLib('"DEPENDENTS.DAASE")
 ;   for k in MSORT HKEYS $depTb repeat
-;     rwrite(k, HGET($depTb, k), stream)
-;   RSHUT stream
+;       kaf_write0(stream, k, HGET($depTb, k))
+;   kaf_close(stream)
 
 (DEFUN |saveDependentsHashTable| ()
   (PROG (|stream|)
@@ -311,10 +311,10 @@
           (COND
            ((OR (ATOM |bfVar#21|) (PROGN (SETQ |k| (CAR |bfVar#21|)) NIL))
             (RETURN NIL))
-           ('T (|rwrite| |k| (HGET |$depTb| |k|) |stream|)))
+           ('T (|kaf_write0| |stream| |k| (HGET |$depTb| |k|))))
           (SETQ |bfVar#21| (CDR |bfVar#21|))))
        (MSORT (HKEYS |$depTb|)) NIL)
-      (RSHUT |stream|)))))
+      (|kaf_close| |stream|)))))
 
 ; save_browser_data() ==
 ;     buildLibdb([])
@@ -337,8 +337,8 @@
 
 ; getUsersOfConstructor(con) ==
 ;   stream := readLib('"USERS.DAASE")
-;   val := rread_list(con, stream)
-;   RSHUT stream
+;   val := kaf_read_list(stream, con)
+;   kaf_close(stream)
 ;   val
 
 (DEFUN |getUsersOfConstructor| (|con|)
@@ -346,14 +346,14 @@
     (RETURN
      (PROGN
       (SETQ |stream| (|readLib| "USERS.DAASE"))
-      (SETQ |val| (|rread_list| |con| |stream|))
-      (RSHUT |stream|)
+      (SETQ |val| (|kaf_read_list| |stream| |con|))
+      (|kaf_close| |stream|)
       |val|))))
 
 ; getDependentsOfConstructor(con) ==
 ;   stream := readLib('"DEPENDENTS.DAASE")
-;   val := rread_list(con, stream)
-;   RSHUT stream
+;   val := rkaf_read_list(stream, con)
+;   kaf_close(stream)
 ;   val
 
 (DEFUN |getDependentsOfConstructor| (|con|)
@@ -361,8 +361,8 @@
     (RETURN
      (PROGN
       (SETQ |stream| (|readLib| "DEPENDENTS.DAASE"))
-      (SETQ |val| (|rread_list| |con| |stream|))
-      (RSHUT |stream|)
+      (SETQ |val| (|rkaf_read_list| |stream| |con|))
+      (|kaf_close| |stream|)
       |val|))))
 
 ; orderPredicateItems(pred1,sig,skip) ==
