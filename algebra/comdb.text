@@ -9135,7 +9135,7 @@
 1049145`Functions defined on streams with entries in one set.
 1049199`Functions defined on streams with entries in two sets.
 1049262`Functions defined on streams with entries in three sets.
-1049334`StreamTaylorSeriesOperations implements Taylor series arithmetic,{} where a Taylor series is represented by a stream of its coefficients.
+1049334`StreamTaylorSeriesOperations implements Taylor series arithmetic,{} where a Taylor series is represented by a stream of its coefficients,{} see corresponding operations in the category Ring.
 1049443`StreamTranscendentalFunctions implements transcendental functions on Taylor series,{} where a Taylor series is represented by a stream of its coefficients.
 1049532`StreamTranscendentalFunctionsNonCommutative implements transcendental functions on Taylor series over a non-commutative ring,{} where a Taylor series is represented by a stream of its coefficients.
 1049637`StructuralConstantsPackage provides functions creating structural constants from a multiplication tables or a basis of a matrix algebra and other useful functions in this context.
