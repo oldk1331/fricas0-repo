@@ -661,7 +661,7 @@
                                     (CONS #'|DFINTTLS;findRealZero!1|
                                           (VECTOR % |ep|))
                                     |l| (QREFELT % 119)))))))))))
-                (#20# (|error| "findRealZero: should not happpen"))))))) 
+                (#20# (|error| "findRealZero: should not happen"))))))) 
 
 (SDEFUN |DFINTTLS;findRealZero!1| ((|s| NIL) ($$ NIL))
         (PROG (|ep| %)

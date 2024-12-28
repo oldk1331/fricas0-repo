@@ -184,20 +184,20 @@
 
 (SDEFUN |GROUPP;outputRel| ((|r| (|List| (|Integer|))) (% (|OutputForm|)))
         (SPROG
-         ((|seperator| #1=(|OutputForm|)) (|eleout| #1#)
+         ((|separator| #1=(|OutputForm|)) (|eleout| #1#)
           (|newterm| (|OutputForm|)) (#2=#:G110 NIL) (|ele| NIL))
          (SEQ (LETT |eleout| (SPADCALL "" (QREFELT % 43)))
-              (LETT |seperator| (SPADCALL " " (QREFELT % 43)))
+              (LETT |separator| (SPADCALL " " (QREFELT % 43)))
               (SEQ (LETT |ele| NIL) (LETT #2# |r|) G190
                    (COND
                     ((OR (ATOM #2#) (PROGN (LETT |ele| (CAR #2#)) NIL))
                      (GO G191)))
                    (SEQ (LETT |newterm| (|GROUPP;outputGen| |ele| %))
                         (LETT |eleout|
-                              (SPADCALL (LIST |eleout| |seperator| |newterm|)
+                              (SPADCALL (LIST |eleout| |separator| |newterm|)
                                         (QREFELT % 44)))
                         (EXIT
-                         (LETT |seperator| (SPADCALL "*" (QREFELT % 43)))))
+                         (LETT |separator| (SPADCALL "*" (QREFELT % 43)))))
                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (EXIT |eleout|)))) 
 

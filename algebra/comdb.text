@@ -143,7 +143,7 @@
 8731`Magma is the class of all multiplicative magmas,{} \spadignore{i.e.} sets with a binary operation.
 8768`\indented{1}{MagmaWithUnit is the class of multiplicative monads with unit,{}} \indented{1}{\spadignore{i.e.} sets with a binary operation and a unit element.} Axioms \indented{3}{leftIdentity("*":(\%,{}\%)\spad{->}\%,{}1)\space{3}\tab{30} 1*x=x} \indented{3}{rightIdentity("*":(\%,{}\%)\spad{->}\%,{}1)\space{2}\tab{30} x*1=x} Common Additional Axioms \indented{3}{unitsKnown
 8768`---if "recip" says "failed",{} that PROVES input wasn\spad{'t} a unit}
-8815`\spadtype{MatrixCategory} is a general matrix category which allows different representations and indexing schemes. Rows and columns may be extracted with rows returned as objects of type Row and colums returned as objects of type Col. A domain belonging to this category will be shallowly mutable. The index of the 'first' row may be obtained by calling the function \spadfun{minRowIndex}. The index of the 'first' column may be obtained by calling the function \spadfun{minColIndex}. The index of the first element of a Row is the same as the index of the first column in a matrix and vice versa.
+8815`\spadtype{MatrixCategory} is a general matrix category which allows different representations and indexing schemes. Rows and columns may be extracted with rows returned as objects of type Row and columns returned as objects of type Col. A domain belonging to this category will be shallowly mutable. The index of the 'first' row may be obtained by calling the function \spadfun{minRowIndex}. The index of the 'first' column may be obtained by calling the function \spadfun{minColIndex}. The index of the first element of a Row is the same as the index of the first column in a matrix and vice versa.
 8938`The category for general multi-variate possibly skew polynomials over a ring \spad{R},{} in variables from VarSet,{} with exponents from the \spadtype{OrderedAbelianMonoidSup}.
 9063`meet semilattice \indented{2}{Implementations in set,{} logic and orders} \indented{2}{for more documentation see:} \indented{2}{http://www.euclideanspace.com/prog/scratchpad/mycode/discrete/logic/index.\spad{htm}}
 9112`This category specifies operations needed by \indented{1}{ModularAlgebraicGcd package.\space{2}Since we have multiple} \indented{1}{implementations we specify interface here and put} \indented{1}{implementations in separate packages.\space{2}Most operations} \indented{1}{are done using special purpose abstract representation.} \indented{1}{Appropriate types are passed as parameters: \spad{MPT} is type} \indented{1}{of modular polynomials in one variable with coefficients} \indented{1}{in some algebraic extension.\space{2}\spad{MD} is type of modulus.} \indented{1}{Final results are converted to packed representation,{}} \indented{1}{with coefficients (from prime field) stored in one} \indented{1}{array and exponents (in main variable and in auxiliary} \indented{1}{variables representing generators of algebrac extension)} \indented{1}{stored in parallel array.}
@@ -231,7 +231,7 @@
 14733`PointCategory is the category of points and vectors in space. Points may be used to represent shapes in a scenegraph such as: the vertices of a cube or points along a line. Shapes such as these may be defined explicitly or may be plotted. We implement SetCategory to allow us to curry transforms from one point to another.
 14780`The category of square-free and normalized triangular sets. Thus,{} up to the primitivity axiom of [1],{} these sets are Lazard triangular sets.\newline
 14949`The category of square-free regular triangular sets. A regular triangular set \spad{ts} is square-free if the \spad{gcd} of any polynomial \spad{p} in \spad{ts} and \spad{differentiate(p,{} mvar(p))} \spad{w}.\spad{r}.\spad{t}. \spadopFrom{collectUnder}{TriangularSetCategory}(\spad{ts},{} \spadopFrom{mvar}{RecursivePolynomialCategory}(\spad{p})) has degree zero \spad{w}.\spad{r}.\spad{t}. \spad{mvar(p)}. Thus any square-free regular set defines a tower of square-free simple extensions.\newline
-15115`\spadtype{SquareMatrixCategory} is a general square matrix category which allows different representations and indexing schemes. Rows and columns may be extracted with rows returned as objects of type Row and colums returned as objects of type Col.
+15115`\spadtype{SquareMatrixCategory} is a general square matrix category which allows different representations and indexing schemes. Rows and columns may be extracted with rows returned as objects of type Row and columns returned as objects of type Col.
 15288`A stack is a bag where the last item inserted is the first item extracted.
 15341`A class of objects which can be 'stepped through'. Repeated applications of \spadfun{nextItem} is guaranteed never to return duplicate items and only return "failed" after exhausting all elements of the domain. This assumes that the sequence starts with \spad{init()}. For infinite domains,{} repeated application of \spadfun{nextItem} is not required to reach all possible domain elements starting from any initial element. \blankline Conditional attributes: \indented{2}{infinite\tab{15}repeated \spad{nextItem}\spad{'s} are never "failed".}
 15383`A stream aggregate is a linear aggregate which possibly has an infinite number of elements. A basic domain constructor which builds stream aggregates is \spadtype{Stream}. From streams,{} a number of infinite structures such as power series can be built.
@@ -335,7 +335,7 @@
 24810`UnivariatePuiseuxSeriesWithExponentialSingularity is a domain used to represent essential singularities of functions. Objects in this domain are quotients of sums,{} where each term in the sum is a univariate Puiseux series times the exponential of a univariate Puiseux series.
 25045`ExponentialOfUnivariatePuiseuxSeries is a domain used to represent essential singularities of functions. An object in this domain is a function of the form \spad{exp(f(x))},{} where \spad{f(x)} is a Puiseux series with no terms of non-negative degree. Objects are ordered according to order of singularity,{} with functions which tend more rapidly to zero or infinity considered to be larger. Thus,{} if \spad{order(f(x)) < order(g(x))},{} \spadignore{i.e.} the first non-zero term of \spad{f(x)} has lower degree than the first non-zero term of \spad{g(x)},{} then \spad{exp(f(x)) > exp(g(x))}. If \spad{order(f(x)) = order(g(x))},{} then the ordering is essentially random. This domain is used in computing limits involving functions with essential singularities.
 25200`Expressions involving symbolic functions.
-25272`A domain used in the construction of the exterior algebra on a set \spad{X} over a ring \spad{R}. This domain represents the set of all ordered subsets of the set \spad{X},{} assumed to be in correspondance with {1,{} 2,{} 3,{} ...}. The ordered subsets are themselves ordered lexicographically and are in bijective correspondance with an ordered basis of the exterior algebra. In this domain we are dealing strictly with the exponents of basis elements which can only be 0 or 1. \blankline The multiplicative identity element of the exterior algebra corresponds to the empty subset of \spad{X}. A coerce from List Integer to an ordered basis element is provided to allow the convenient input of expressions. Another exported function forgets the ordered structure and simply returns the list corresponding to an ordered subset.
+25272`A domain used in the construction of the exterior algebra on a set \spad{X} over a ring \spad{R}. This domain represents the set of all ordered subsets of the set \spad{X},{} assumed to be in correspondence with {1,{} 2,{} 3,{} ...}. The ordered subsets are themselves ordered lexicographically and are in bijective correspondence with an ordered basis of the exterior algebra. In this domain we are dealing strictly with the exponents of basis elements which can only be 0 or 1. \blankline The multiplicative identity element of the exterior algebra corresponds to the empty subset of \spad{X}. A coerce from List Integer to an ordered basis element is provided to allow the convenient input of expressions. Another exported function forgets the ordered structure and simply returns the list corresponding to an ordered subset.
 25325`\spadtype{Factored} creates a domain whose objects are kept in factored form as long as possible. Thus certain operations like multiplication and \spad{gcd} are relatively easy to do. Others,{} like addition require somewhat more work,{} and unless the argument domain provides a factor function,{} the result may not be completely factored. Each object consists of a unit and a list of factors,{} where a factor has a member of \spad{R} (the "base"),{} and exponent and a flag indicating what is known about the base. A flag may be one of "nil",{} "sqfr",{} "irred" or "prime",{} which respectively mean that nothing is known about the base,{} it is square-free,{} it is irreducible,{} or it is prime. The current restriction to integral domains allows simplification to be performed without worrying about multiplication order.
 25395`FakePolynomial is a domain of univariate polynomials \indented{1}{with coefficients being fractions of multivariate integer} \indented{1}{polynomials.\space{2}Coefficients are kept in unsimplified form.} \indented{1}{This domain exists to avoid cost of recursive \spad{GCD} calls} \indented{1}{during polynomial evaluation.}
 25468`This domain provides a basic model of files to save arbitrary values. The operations provide sequential access to the contents.
@@ -1570,7 +1570,7 @@
 159275`\spad{charpol(m)} computes the characteristic polynomial of a matrix \spad{m} with entries in \spad{K}.
 159374`\spad{char_pol_via_den_interpolation(m)} computes characteristic polynomial of \spad{m}.
 159527`\spad{char_pol_via_interpolation(m)} computes characteristic polynomial of \spad{m}.
-160056`\spad{charthRoot(a)} takes the characteristic'th root of {\em a}. Note: such a root is alway defined in finite fields.
+160056`\spad{charthRoot(a)} takes the characteristic'th root of {\em a}. Note: such a root is always defined in finite fields.
 160108`\spad{charthRoot(x)} returns the \spad{p}th root of \spad{x} where \spad{p} is the characteristic of the ring.
 160178`\spad{charthRoot(r)} returns the \spad{p}\spad{-}th root of \spad{r},{} or "failed" if none exists in the domain.
 160286`\spad{chebyshevT(n)} returns the \spad{n}th Chebyshev polynomial \spad{T[n](x)}. Note: Chebyshev polynomials of the first kind,{} denoted \spad{T[n](x)},{} computed from the two term recurrence. The generating function \spad{(1-t*x)/(1-2*t*x+t^2) = sum(T[n](x)*t^n,{} n=0..infinity)}.
@@ -2101,7 +2101,7 @@
 215540`\spad{cond(s,{} e)} creates a representation of the FORTRAN expression IF (\spad{s}) THEN \spad{e}.
 215585`\spad{cond(s,{} e,{} f)} creates a representation of the FORTRAN expression IF (\spad{s}) THEN \spad{e} ELSE \spad{f}.
 215632`\spad{condition(n)} returns the condition of the node \spad{n}.
-215858`\spad{conditionP(m)} returns a vector of elements,{} not all zero,{} whose \spad{p}\spad{-}th powers (\spad{p} is the characteristic of the domain) are a solution of the homogenous linear system represented by \spad{m},{} or "failed" is there is no such vector.
+215858`\spad{conditionP(m)} returns a vector of elements,{} not all zero,{} whose \spad{p}\spad{-}th powers (\spad{p} is the characteristic of the domain) are a solution of the homogeneous linear system represented by \spad{m},{} or "failed" is there is no such vector.
 215982`\spad{conditions(a)} returns the list of the conditions of the leaves of a
 216039`\spad{conditionsForIdempotents()} determines a complete list of polynomial equations for the coefficients of idempotents with respect to the fixed \spad{R}-module basis
 216166`\spad{conditionsForIdempotents()} determines a complete list of polynomial equations for the coefficients of idempotents with respect to the fixed \spad{R}-module basis.
@@ -2505,7 +2505,7 @@
 260370`\spad{danilewski(m)} converts \spad{m} to block form where each block represents transposition of multiplication by a polynomial.
 260487`\spad{dark(c)} sets the shade of the indicated hue of \spad{c} to it\spad{'s} lowest value.
 260525`\spad{datalist(l)} creates a datalist from \spad{l}
-260573`\spad{ddfact(pv,{} md)} computes distint degree factorization of \spad{pv}. \spad{pv} is assumed square-free and monic,{} \spad{md} is info representing finite field.
+260573`\spad{ddfact(pv,{} md)} computes distinct degree factorization of \spad{pv}. \spad{pv} is assumed square-free and monic,{} \spad{md} is info representing finite field.
 261081`\spad{debug(true)} turns debug mode on \spad{debug(false)} turns debug mode off
 261125`\spad{debug returns} whether we want additional output on the progress,{} default being \spad{false}
 261196`\spad{debug(d)} specifies whether we want additional output on the progress. This option is expressed in the form \spad{debug == d}.
@@ -2514,7 +2514,7 @@
 261334`\spad{decimal(r)} converts a rational number to a decimal expansion.
 261396`\spad{declare(t)} returns a name \spad{f} such that \spad{f} has been declared to the interpreter to be of type \spad{t},{} but has not been assigned a value yet. Note: \spad{t} should be created as \spad{devaluate(T)\$Lisp} where \spad{T} is the actual type of \spad{f} (this hack is required for the case where \spad{T} is a mapping type).
 261446`\spad{declare!(u,{} t)} declares the parameter \spad{u} to have type \spad{t} in the current level of the symbol table.
-261518`\spad{declare!(l,{} t,{} tab)} creates new entrys in tab,{} declaring each of \spad{l} to be of type \spad{t}
+261518`\spad{declare!(l,{} t,{} tab)} creates new entries in tab,{} declaring each of \spad{l} to be of type \spad{t}
 261595`\spad{declare!(u,{} t,{} tab)} creates a new entry in tab,{} declaring \spad{u} to be of type \spad{t}
 261666`\spad{declare!(u,{} t,{} asp)} declares the parameter \spad{u} to have type \spad{t} in asp.
 261745`\spad{declare!(u,{} t,{} asp,{} tab)} declares the parameters \spad{u} of subprogram \spad{asp} to have type \spad{t} in symbol table tab.
@@ -2633,7 +2633,7 @@
 274252`\spad{diagonal?(p,{} l)} is the matrix \spad{l} diagonal?
 274342`\spad{diagonal(p,{} l)} returns the entries along the diagonal in a list.
 274563`\spad{diagonalMatrix} returns the main diagonal out of a matrix. The diagonal is put into a matrix of same shape as the original one.
-274651`\spad{diagonalMatrix([m1,{} ...,{} mk])} creates a block diagonal matrix \spad{M} with block matrices {\em m1},{} ...,{} {\em mk} down the diagonal,{} with 0 block matrices elsewhere. More precisly: if \spad{\spad{ri} := nrows \spad{mi}},{} \spad{\spad{ci} := ncols \spad{mi}},{} then \spad{m} is an (\spad{r1+}..\spad{+rk}) by (\spad{c1+}..\spad{+ck}) - matrix with entries \spad{m.i.j = ml.(i-r1-..-r(l-1)).(j-n1-..-n(l-1))},{} if \spad{(r1+..+r(l-1)) < i <= r1+..+rl} and \spad{(c1+..+c(l-1)) < i <= c1+..+cl},{} \spad{m.i.j} = 0 otherwise.
+274651`\spad{diagonalMatrix([m1,{} ...,{} mk])} creates a block diagonal matrix \spad{M} with block matrices {\em m1},{} ...,{} {\em mk} down the diagonal,{} with 0 block matrices elsewhere. More precisely: if \spad{\spad{ri} := nrows \spad{mi}},{} \spad{\spad{ci} := ncols \spad{mi}},{} then \spad{m} is an (\spad{r1+}..\spad{+rk}) by (\spad{c1+}..\spad{+ck}) - matrix with entries \spad{m.i.j = ml.(i-r1-..-r(l-1)).(j-n1-..-n(l-1))},{} if \spad{(r1+..+r(l-1)) < i <= r1+..+rl} and \spad{(c1+..+c(l-1)) < i <= c1+..+cl},{} \spad{m.i.j} = 0 otherwise.
 274719`\spad{diagonalMatrix(l)} returns a diagonal matrix with the elements of \spad{l} on the diagonal.
 274787`\spad{diagonalMatrix(l)} returns a diagonal matrix with the elements of \spad{l} on the diagonal.
 274866`\spad{diagonalMatrix(v)} returns a diagonal matrix where the elements of \spad{v} appear on the diagonal.
@@ -2913,7 +2913,7 @@
 324349`\spad{eigenMatrix(m)} returns the matrix \spad{b} such that \spad{b*m*(inverse b)} is diagonal,{} or "failed" if no such \spad{b} exists.
 324480`\spad{eigenvalues(m)} returns the eigenvalues of the matrix \spad{m}.
 324623`\spad{eigenvalues(m)} returns the eigenvalues of the matrix \spad{m}.
-324806`\spad{eigenvalues(m,{} fac)} returns the eigenvalues of the matrix \spad{m}. Eigenvalues in base field are given explicitly,{} other are represented by mininal polynomial. fac is a factorizer for polynomials over \spad{F}.
+324806`\spad{eigenvalues(m,{} fac)} returns the eigenvalues of the matrix \spad{m}. Eigenvalues in base field are given explicitly,{} other are represented by minimal polynomial. fac is a factorizer for polynomials over \spad{F}.
 324984`\spad{eigenvector(eigval,{} m)} returns the eigenvectors belonging to the eigenvalue \spad{eigval} for the matrix \spad{m}.
 325127`\spad{eigenvector(eigval,{} m)} returns the eigenvectors belonging to the eigenvalue \spad{eigval} for the matrix \spad{m}.
 325304`\spad{eigenvectors(m)} returns the eigenvalues and eigenvectors for the matrix \spad{m}. The eigenvalues in base field and corresponding eigenvectors are explicitly computed,{} while the non rational ones are given via their minimal polynomial and the corresponding eigenvectors are expressed in terms of a "generic" root of such a polynomial.
@@ -3258,7 +3258,7 @@
 367553`\spad{expressIdealMember([f1,{} ...,{} fn],{} h)} returns a representation of \spad{h} as a linear combination of the \spad{fi} or "failed" if \spad{h} is not in the ideal generated by the \spad{fi}.
 367644`\spad{expression2Fortran1(nf,{} of,{} int_to_floats?)}
 367741`\spad{expression2Fortran(of)}
-367818`\spad{exprex(o)} coverts \spadtype{OutputForm} to \spadtype{String}
+367818`\spad{exprex(o)} converts \spadtype{OutputForm} to \spadtype{String}
 368029`\spad{exprToGenUPS(fcn,{} posCheck?,{} atanFlag)} converts the expression \spad{fcn} to a generalized power series. If \spad{posCheck?} is \spad{true},{} log\spad{'s} of negative numbers are not allowed nor are \spad{n}th roots of negative numbers with \spad{n} even. If \spad{posCheck?} is \spad{false},{} these are allowed. \spad{atanFlag} determines how the case \spad{atan(f(x))},{} where \spad{f(x)} has a pole,{} will be treated. The possible values of \spad{atanFlag} are \spad{"complex"},{} \spad{"real: two sides"},{} \spad{"real: left side"},{} \spad{"real: right side"},{} and \spad{"just do it"}. If \spad{atanFlag} is \spad{"complex"},{} then no series expansion will be computed because,{} viewed as a function of a complex variable,{} \spad{atan(f(x))} has an essential singularity. Otherwise,{} the sign of the leading coefficient of the series expansion of \spad{f(x)} determines the constant coefficient in the series expansion of \spad{atan(f(x))}. If this sign cannot be determined,{} a series expansion is computed only when \spad{atanFlag} is \spad{"just do it"}. When the leading term in the series expansion of \spad{f(x)} is of odd degree (or is a rational degree with odd numerator),{} then the constant coefficient in the series expansion of \spad{atan(f(x))} for values to the left differs from that for values to the right. If \spad{atanFlag} is \spad{"real: two sides"},{} no series expansion will be computed. If \spad{atanFlag} is \spad{"real: left side"} the constant coefficient for values to the left will be used and if \spad{atanFlag} \spad{"real: right side"} the constant coefficient for values to the right will be used. If there is a problem in converting the function to a power series,{} we return a record containing the name of the function that caused the problem and a brief description of the problem. When expanding the expression into a series it is assumed that the series is centered at 0. For a series centered at a,{} the user should perform the substitution \spad{x -> x + a} before calling this function.
 368295`\spad{exprToGenUPS(fcn,{} posCheck?,{} atanFlag)} converts the expression \spad{fcn} to a generalized power series. If \spad{posCheck?} is \spad{true},{} log\spad{'s} of negative numbers are not allowed nor are \spad{n}th roots of negative numbers with \spad{n} even. If \spad{posCheck?} is \spad{false},{} these are allowed. \spad{atanFlag} determines how the case \spad{atan(f(x))},{} where \spad{f(x)} has a pole,{} will be treated. The possible values of \spad{atanFlag} are \spad{"complex"},{} \spad{"real: two sides"},{} \spad{"real: left side"},{} \spad{"real: right side"},{} and \spad{"just do it"}. If \spad{atanFlag} is \spad{"complex"},{} then no series expansion will be computed because,{} viewed as a function of a complex variable,{} \spad{atan(f(x))} has an essential singularity. Otherwise,{} the sign of the leading coefficient of the series expansion of \spad{f(x)} determines the constant coefficient in the series expansion of \spad{atan(f(x))}. If this sign cannot be determined,{} a series expansion is computed only when \spad{atanFlag} is \spad{"just do it"}. When the leading term in the series expansion of \spad{f(x)} is of odd degree (or is a rational degree with odd numerator),{} then the constant coefficient in the series expansion of \spad{atan(f(x))} for values to the left differs from that for values to the right. If \spad{atanFlag} is \spad{"real: two sides"},{} no series expansion will be computed. If \spad{atanFlag} is \spad{"real: left side"} the constant coefficient for values to the left will be used and if \spad{atanFlag} \spad{"real: right side"} the constant coefficient for values to the right will be used. If there is a problem in converting the function to a power series,{} we return a record containing the name of the function that caused the problem and a brief description of the problem. When expanding the expression into a series it is assumed that the series is centered at 0. For a series centered at a,{} the user should perform the substitution \spad{x -> x + a} before calling this function.
 368550`\spad{exprToPS(fcn,{} posCheck?,{} atanFlag,{} log_flag,{} log_val)} is like exprToUPS,{} but if \spad{log_flag} is \spad{true} it replaces logarithms of expansion variable by \spad{log_val}
@@ -3654,7 +3654,7 @@
 412218`\spad{generalizedEigenvector(eigen,{} m)} returns the generalized eigenvectors of the matrix relative to the eigenvalue \spad{eigen},{} as returned by the function eigenvectors.
 412465`\spad{generalizedEigenvector(eigen,{} m)} returns the generalized eigenvectors of the matrix relative to the eigenvalue \spad{eigen},{} as returned by the function eigenvectors.
 412740`\spad{generalizedEigenvector(alpha,{} m,{} k,{} g)} returns the generalized eigenvectors of the matrix relative to the eigenvalue \spad{alpha}. The integers \spad{k} and \spad{g} are respectively the algebraic and the geometric multiplicity of the eigenvalue \spad{alpha}.
-412932`\spad{generalizedEigenvector(alpha,{} m,{} k,{} g)} returns the generalized eigenvectors of the matrix relative to the eigenvalue \spad{alpha}. The integers \spad{k} and \spad{g} are respectively the algebraic and the geometric multiplicity of tye eigenvalue \spad{alpha}.
+412932`\spad{generalizedEigenvector(alpha,{} m,{} k,{} g)} returns the generalized eigenvectors of the matrix relative to the eigenvalue \spad{alpha}. The integers \spad{k} and \spad{g} are respectively the algebraic and the geometric multiplicity of the eigenvalue \spad{alpha}.
 413158`\spad{generalizedEigenvectors(m)} returns the generalized eigenvectors of the matrix \spad{m}.
 413382`\spad{generalizedEigenvectors(m)} returns the generalized returns the generalized eigenvectors of the matrix \spad{m}.
 413640`\spad{generalizedEigenvectors(m,{} fac)} returns the generalized eigenvectors of the matrix \spad{m}. fac is a factorizer for polynomials over \spad{F}.
@@ -3711,7 +3711,7 @@
 420305`\spad{getCentre(n)} returns centre coordinate of the boundary. \spad{n:} \% is the boundary
 420351`\spad{get_char(md)} returns characteristic of the field described by info \spad{md}.
 420434`returns child nodes if this is a compound term otherwise returns []
-420480`returns 2 child nodes if this is a compound term returns 1 child node if this is a lamda term otherwise returns []
+420480`returns 2 child nodes if this is a compound term returns 1 child node if this is a lambda term otherwise returns []
 420530`returns child nodes if this is a compound term otherwise returns []
 420588`returns child nodes if this is a compound term otherwise returns []
 420646`returns child nodes if this is a compound term otherwise returns []
@@ -4295,7 +4295,7 @@
 498983`\spad{interpolate(u,{} lf,{} lg)} \undocumented
 499242`\spad{interpret(f)} passes \spad{f} to the interpreter.
 499285`\spad{interpret(f)} passes \spad{f} to the interpreter,{} and transforms the result into an object of type \spad{R}.
-499347`\spad{interpret_in_new_env(f)} evaluates \spad{f} in the interpreter using fresh environment which is discared after evaluation
+499347`\spad{interpret_in_new_env(f)} evaluates \spad{f} in the interpreter using fresh environment which is discarded after evaluation
 499401`\spad{interpretString(s)} treats a string as a piece of FriCAS input,{} by parsing and interpreting it.
 499463`\spad{interReduce(lp)} returns \spad{lq} such that \spad{lp} and \spad{lq} generate the same ideal and no polynomial in \spad{lq} is reducible by the others in the sense of Groebner bases. Since no assumptions are required the result may depend on the ordering the reductions are performed.
 499547`\spad{intersect(LI)} computes the intersection of the list of ideals \spad{LI}.
@@ -4796,7 +4796,7 @@
 552194`\spad{linearAssociatedExp(a,{} f)} is linear over {\em F},{} \spadignore{i.e.} for elements {\em a} from {\em \$},{} {\em c,{} d} form {\em F} and {\em f,{} g} univariate polynomials over {\em F} we have \spadfun{linearAssociatedExp}(a,{} cf+dg) equals {\em c} times \spadfun{linearAssociatedExp}(a,{} \spad{f}) plus {\em d} times \spadfun{linearAssociatedExp}(a,{} \spad{g}). Therefore \spadfun{linearAssociatedExp} is defined completely by its action on monomials from {\em F[X]}: \spadfun{linearAssociatedExp}(a,{} monomial(1,{} \spad{k})\spad{\$}SUP(\spad{F})) is defined to be \spadfun{Frobenius}(a,{} \spad{k}) which is {\em a^(q^k)},{} where {\em q=size()\$F}.
 552411`\spad{linearAssociatedLog(a)} returns a polynomial {\em g},{} such that \spadfun{linearAssociatedExp}(normalElement(),{} \spad{g}) equals {\em a}.
 552644`\spad{linearAssociatedLog(b,{} a)} returns a polynomial {\em g},{} such that the \spadfun{linearAssociatedExp}(\spad{b},{} \spad{g}) equals {\em a}. If there is no such polynomial {\em g},{} then \spadfun{linearAssociatedLog} fails.
-552879`\spad{linearAssociatedOrder(a)} retruns the monic polynomial {\em g} of least degree,{} such that \spadfun{linearAssociatedExp}(a,{} \spad{g}) is 0.
+552879`\spad{linearAssociatedOrder(a)} returns the monic polynomial {\em g} of least degree,{} such that \spadfun{linearAssociatedExp}(a,{} \spad{g}) is 0.
 552996`\spad{linearDependence([v1,{} ...,{} vn])} returns \spad{[c1,{} ...,{} cn]} if \spad{c1*v1 + ... + cn*vn = 0} and not all the \spad{ci}\spad{'s} are 0,{} "failed" if the \spad{vi}\spad{'s} are linearly independent over \spad{S}.
 553088`\spad{linearlyDependenceOverConstants([v1,{} ...,{} vn],{} ld)} returns \spad{[c1,{} ...,{} cn]} if \spad{c1*v1 + ... + cn*vn = 0} and not all the \spad{ci}\spad{'s} are 0,{} "failed" if the \spad{vi}\spad{'s} are linearly independent over constants.
 553214`\spad{linearlyDependenceOverZ([v1,{} ...,{} vn])} returns \spad{[c1,{} ...,{} cn]} if \spad{c1*v1 + ... + cn*vn = 0} and not all the \spad{ci}\spad{'s} are 0,{} "failed" if the \spad{vi}\spad{'s} are linearly independent over the integers.
@@ -5284,7 +5284,7 @@
 604989`\spad{minimalRepresentation(p)} returns a minimal representation using the generalized Ho algorithm [Fornasini,{} 1978] \spad{p} = sum_w alpha*mu(\spad{w})*beta*w [Theorem 3.3,{} Salomaa
 604989`--Soittola 1978]
 605169`\spad{minimize(I)} returns a reduced set of generators for \spad{I}.
-605225`\spad{minimize(f)} minimizes the unterlying ALS by applying left and right block minimization steps. Minimality is only guaranteed if the remaining blocks are refined.
+605225`\spad{minimize(f)} minimizes the underlying ALS by applying left and right block minimization steps. Minimality is only guaranteed if the remaining blocks are refined.
 605364`\spad{minimumDegree(p)} gives the least exponent of a non-zero term of polynomial \spad{p}. Error: if applied to 0.
 605648`\spad{minimumDegree(p,{} lv)} gives the list of minimum degrees of the polynomial \spad{p} with respect to each of the variables in the list \spad{lv}
 605750`\spad{minimumDegree(p,{} v)} gives the minimum degree of polynomial \spad{p} with respect to \spad{v},{} \spadignore{i.e.} viewed a univariate polynomial in \spad{v}
@@ -5643,7 +5643,7 @@
 643118`\spad{normalizeRHS!(f)} eliminates non-zero entries in the right hand side of ALS with respect of the non-zero entry with the highest index.
 643180`\spad{normDeriv2 should} be local
 643309`\spad{normFactors(x)} \undocumented
-643393`\spad{normInvertible?(p,{} ts)} is an internal subroutine,{} exported only for developement.
+643393`\spad{normInvertible?(p,{} ts)} is an internal subroutine,{} exported only for development.
 643499`\spad{Not(n)} returns the bit-by-bit logical {\em Not} of \spad{n}.
 643540`\spad{not f} creates the equivalent prefix form.
 643576`\spad{NOT(x)} returns the \spadtype{Switch} expression representing \spad{\~~x}.
@@ -5940,7 +5940,7 @@
 667580`\spad{output(x)} displays the output form \spad{x} on the ``algebra output\spad{''} stream,{} as defined by \spadsys{)set output algebra}.
 667634`\spad{output(s)} displays the string \spad{s} on the ``algebra output\spad{''} stream,{} as defined by \spadsys{)set output algebra}.
 667684`\spad{output(s,{} x)} displays the string \spad{s} followed by the form \spad{x} on the ``algebra output\spad{''} stream,{} as defined by \spadsys{)set output algebra}.
-667745`\spad{outputArgs(s1,{} s2,{} p,{} ts)} is an internal subroutine,{} exported only for developement.
+667745`\spad{outputArgs(s1,{} s2,{} p,{} ts)} is an internal subroutine,{} exported only for development.
 667830`\spad{outputAsFortran(u)} translates \spad{u} into a legal FORTRAN subprogram.
 667893`\spad{outputAsFortran(l)} sends (for each expression in the list \spad{l}) output in FORTRAN format to the destination defined by \spadsys{)set output fortran}.
 667969`\spad{outputAsFortran(o)} sends output \spad{o} in FORTRAN format.
@@ -6502,10 +6502,10 @@
 728602`\spad{quotientByP(x)} returns \spad{b},{} where \spad{x = a + b p}.
 728660`\spad{quppertriangular?(p,{} k_min,{} k_max,{} l)} is the matrix \spad{l} upper triangular with respect to the specified block? (no range check)
 728797`\spad{qzero?(p,{} i,{} j)} checks if all the entries (\spad{i},{}\spad{j}) of the linear pencil \spad{p} are zero. (no index check)
-728904`\spad{qzero?(f,{} i_min,{} i_max,{} j_min,{} j_max)} is the spezified block zero (in the system matrix)?
+728904`\spad{qzero?(f,{} i_min,{} i_max,{} j_min,{} j_max)} is the specified block zero (in the system matrix)?
 729042`\spad{qzero?(p,{} i_min,{} i_max,{} j_min,{} j_max)} checks if the specified block of the linear pencil \spad{p} is zero for all matrices. (no index check)
-729187`\spad{qzero?(f,{} i_min,{} i_max,{} j_min,{} j_max,{} m)} is the spezified block zero in the (system) matrix corresponding to the monomial \spad{m?}
-729341`\spad{qzero?(f,{} i_min,{} i_max,{} j_min,{} j_max,{} l)} is the spezified block zero in matrix \spad{l?}
+729187`\spad{qzero?(f,{} i_min,{} i_max,{} j_min,{} j_max,{} m)} is the specified block zero in the (system) matrix corresponding to the monomial \spad{m?}
+729341`\spad{qzero?(f,{} i_min,{} i_max,{} j_min,{} j_max,{} l)} is the specified block zero in matrix \spad{l?}
 729498`\spad{qzero?(p,{} i_min,{} i_max,{} j_min,{} j_max,{} l)} checks if the specified block of matrix \spad{l} of the linear pencil \spad{p} is zero (no index check)
 729662`\spad{R1_to_R2_coercion should} be local but conditional
 729734`\spad{r2m(ind)} transforms a repeated index into a multi-index.
@@ -7245,7 +7245,7 @@
 820340`\spad{scan(f,{} a,{} r)} successively applies \spad{reduce(f,{} x,{} r)} to more and more leading sub-arrays \spad{x} of primitive array \spad{a}. More precisely,{} if \spad{a} is \spad{[a1,{} a2,{} ...]},{} then \spad{scan(f,{} a,{} r)} returns \spad{[reduce(f,{} [a1],{} r),{} reduce(f,{} [a1,{} a2],{} r),{} ...]}.
 820440`\spad{scan(func,{} vec,{} ident)} creates a new vector whose elements are the result of applying reduce to the binary function \spad{func},{} increasing initial subsequences of the vector \spad{vec},{} and the element ident.
 820516`\spad{scan(b,{} h,{} [x0,{} x1,{} x2,{} ...])} returns \spad{[y0,{} y1,{} y2,{} ...]},{} where \spad{y0 = h(x0,{} b)},{} \spad{y1 = h(x1,{} y0)},{} \spad{...} \spad{yn = h(xn,{} y(n-1))}.
-820592`\spad{scan(f,{} a,{} r)} successively applies \spad{reduce(f,{} x,{} r)} to more and more leading sub-aggregates \spad{x} of aggregrate \spad{a}. More precisely,{} if \spad{a} is \spad{[a1,{} a2,{} ...]},{} then \spad{scan(f,{} a,{} r)} returns \spad{[reduce(f,{} [a1],{} r),{} reduce(f,{} [a1,{} a2],{} r),{} ...]}.
+820592`\spad{scan(f,{} a,{} r)} successively applies \spad{reduce(f,{} x,{} r)} to more and more leading sub-aggregates \spad{x} of aggregate \spad{a}. More precisely,{} if \spad{a} is \spad{[a1,{} a2,{} ...]},{} then \spad{scan(f,{} a,{} r)} returns \spad{[reduce(f,{} [a1],{} r),{} reduce(f,{} [a1,{} a2],{} r),{} ...]}.
 820671`\spad{scan(f,{} a,{} r)} successively applies \spad{reduce(f,{} x,{} r)} to more and more leading sub-aggregates \spad{x} of aggregate \spad{a}. More precisely,{} if \spad{a} is \spad{[a1,{} a2,{} ...]},{} then \spad{scan(f,{} a,{} r)} returns \spad {[reduce(f,{} [a1],{} r),{} reduce(f,{} [a1,{} a2],{} r),{} ...]}.
 820747`\spad{ScanArabic(s)} forms an integer from an Arabic numeral string \spad{s}.
 820813`\spad{ScanFloatIgnoreSpaces(s)} forms a floating point number from the string \spad{s} ignoring any spaces. Error is generated if the string is not recognised as a floating point number.
@@ -8754,7 +8754,7 @@
 1005824`This package provides operations for mapping the sides of equations.
 1005885`ErrorFunctions implements error functions callable from the system interpreter. Typically,{} these functions would be called in user functions. The simple forms of the functions take one argument which is either a string (an error message) or a list of strings which all together make up a message. The list can contain formatting codes (see below). The more sophisticated versions takes two arguments where the first argument is the name of the function from which the error was invoked and the second argument is either a string or a list of strings,{} as above. When you use the one argument version in an interpreter function,{} the system will automatically insert the name of the function as the new first argument. Thus in the user interpreter function \indented{2}{\spad{f x == if x < 0 then error "negative argument" else x}} the call to error will actually be of the form \indented{2}{\spad{error("f",{}"negative argument")}} because the interpreter will have created a new first argument. \blankline Formatting codes: error messages may contain the following formatting codes (they should either start or end a string or else have blanks around them): \indented{3}{\spad{\%l}\space{6}start a new line} \indented{3}{\spad{\%b}\space{6}start printing in a bold font (where available)} \indented{3}{\spad{\%d}\space{6}stop\space{2}printing in a bold font (where available)} \indented{3}{\spad{ \%ceon}\space{2}start centering message lines} \indented{3}{\spad{\%ceoff}\space{2}stop\space{2}centering message lines} \indented{3}{\spad{\%rjon}\space{3}start displaying lines "ragged left"} \indented{3}{\spad{\%rjoff}\space{2}stop\space{2}displaying lines "ragged left"} \indented{3}{\spad{\%i}\space{6}indent\space{3}following lines 3 additional spaces} \indented{3}{\spad{\%u}\space{6}unindent following lines 3 additional spaces} \indented{3}{\spad{\%xN}\space{5}insert \spad{N} blanks (eg,{} \spad{\%x10} inserts 10 blanks)} \blankline
 1005928`\spadtype{EuclideanGroebnerBasisPackage} computes groebner bases for polynomial ideals over euclidean domains. The basic computation provides a distinguished set of generators for these ideals. This basis allows an easy test for membership: the operation \spadfun{euclideanNormalForm} returns zero on ideal members. The string "info" and "redcrit" can be given as additional args to provide incremental information during the computation. If "info" is given,{} \indented{1}{a computational summary is given for each \spad{s}-polynomial. If "redcrit"} is given,{} the reduced critical pairs are printed. The term ordering is determined by the polynomial type used. Suggested types include \spadtype{DistributedMultivariatePolynomial},{} \spadtype{HomogeneousDistributedMultivariatePolynomial},{} \spadtype{GeneralDistributedMultivariatePolynomial}.
-1006121`This package is to be used in conjuction with \indented{12}{the CycleIndicators package. It provides an evaluation} \indented{12}{function for SymmetricPolynomials.}
+1006121`This package is to be used in conjunction with \indented{12}{the CycleIndicators package. It provides an evaluation} \indented{12}{function for SymmetricPolynomials.}
 1006204`This package provides support for exporting SubSpace and ThreeSpace structures to files.
 1006241`This package provides support for \spad{XML} files
 1006277`This package implements \spad{factorPolynomial} \indented{1}{for Expression.}
@@ -8968,7 +8968,7 @@
 1030917`\spadtype{NoneFunctions1} implements functions on \spadtype{None}. It includes a particularly dangerous coercion from any other type to \spadtype{None}.
 1030967`NonLinearFirstOrderODESolver provides a function for finding closed form first integrals of nonlinear ordinary differential equations of order 1.
 1031099`NonLinearSolvePackage is an interface to \spadtype{SystemSolvePackage} that attempts to retract the coefficients of the equations before solving. The solutions are given in the algebraic closure of \spad{R} whenever possible.
-1031168`A package for computing normalized assocites of univariate polynomials with coefficients in a tower of simple extensions of a field.
+1031168`A package for computing normalized associates of univariate polynomials with coefficients in a tower of simple extensions of a field.
 1031358`This package implements the norm of a polynomial with coefficients in a monogenic algebra (using resultants)
 1031537`This package \undocumented
 1031762`Package for the determination of the coefficients in the lifting process. Used by \spadtype{MultivariateLifting}. This package will work for every integral domain \spad{R}. The same method is described in [1] section 2.3.4.
@@ -9052,7 +9052,7 @@
 1040024`This package factors the formulas out of the general solve code,{} allowing their recursive use over different domains. Care is taken to introduce few radicals so that radical extension domains can more easily simplify the results.
 1040181`This package computes square-free decomposition of multivariate polynomials over a coefficient ring which is an arbitrary \spad{gcd} domain. The requirement on the coefficient domain guarantees that the \spadfun{content} can be removed so that factors will be primitive as well as square-free. Over an infinite ring of finite characteristic,{} it may not be possible to guarantee that the factors are square-free.
 1040335`This package is primarily to help the interpreter do coercions. It allows you to view a polynomial as a univariate polynomial in one of its variables with coefficients which are again a polynomial in all the other variables.
-1040416`Provides functions to construct various small posets including powerset. Perhaps it should be called a 'powerlist' but since we do not expect duplicates or reqire specific ordering it is essentially the same.
+1040416`Provides functions to construct various small posets including powerset. Perhaps it should be called a 'powerlist' but since we do not expect duplicates or require specific ordering it is essentially the same.
 1040472`PowerSeriesLimitPackage implements limits of expressions in one or more variables as one of the variables approaches a limiting value. Included are two-sided limits,{} left- and right- hand limits,{} and limits at plus or minus infinity.
 1040591`\spadtype{PrecomputedAssociatedEquations} stores some generic precomputations which speed up the computations of the associated equations needed for factoring operators.
 1040722`This is unfinished package for computing primitive \indented{1}{\spad{gcd} over algebraic extensions.\space{2}Algebraic extension is defined} \indented{1}{by list of polynomial forming triangular system.} \indented{1}{Currently implemented is only trial division.}
@@ -9112,7 +9112,7 @@
 1046551`RetractSolvePackage is an interface to \spadtype{SystemSolvePackage} that attempts to retract the coefficients of the equations before solving.
 1046648`This package implements \spad{alg_split_roots} \indented{1}{allowing its reuse.}
 1046741`This package performs root simplifications developing further methods from references below.
-1046788`This package implments 'complex_roots'.
+1046788`This package implements 'complex_roots'.
 1046948`This package provides operations for mapping functions onto \spadtype{SegmentBinding}\spad{s}.
 1047020`This package provides operations for mapping functions onto segments.
 1047081`A domain for mappings between sequences.
@@ -9278,7 +9278,7 @@
 1063291`Magma is the class of all multiplicative magmas,{} \spadignore{i.e.} sets with a binary operation.
 1063335`\indented{1}{MagmaWithUnit is the class of multiplicative monads with unit,{}} \indented{1}{\spadignore{i.e.} sets with a binary operation and a unit element.} Axioms \indented{3}{leftIdentity("*":(\%,{}\%)\spad{->}\%,{}1)\space{3}\tab{30} 1*x=x} \indented{3}{rightIdentity("*":(\%,{}\%)\spad{->}\%,{}1)\space{2}\tab{30} x*1=x} Common Additional Axioms \indented{3}{unitsKnown
 1063335`---if "recip" says "failed",{} that PROVES input wasn\spad{'t} a unit}
-1063397`\spadtype{MatrixCategory} is a general matrix category which allows different representations and indexing schemes. Rows and columns may be extracted with rows returned as objects of type Row and colums returned as objects of type Col. A domain belonging to this category will be shallowly mutable. The index of the 'first' row may be obtained by calling the function \spadfun{minRowIndex}. The index of the 'first' column may be obtained by calling the function \spadfun{minColIndex}. The index of the first element of a Row is the same as the index of the first column in a matrix and vice versa.
+1063397`\spadtype{MatrixCategory} is a general matrix category which allows different representations and indexing schemes. Rows and columns may be extracted with rows returned as objects of type Row and columns returned as objects of type Col. A domain belonging to this category will be shallowly mutable. The index of the 'first' row may be obtained by calling the function \spadfun{minRowIndex}. The index of the 'first' column may be obtained by calling the function \spadfun{minColIndex}. The index of the first element of a Row is the same as the index of the first column in a matrix and vice versa.
 1063555`The category for general multi-variate possibly skew polynomials over a ring \spad{R},{} in variables from VarSet,{} with exponents from the \spadtype{OrderedAbelianMonoidSup}.
 1063732`The category of modules over a commutative ring. \blankline
 1063802`A \spadtype{MonogenicAlgebra} is an algebra of finite rank which can be generated by a single element.
@@ -9315,7 +9315,7 @@
 1067024`A set category lists a collection of set-theoretic operations useful for both finite sets and multisets. Note however that finite sets are distinct from multisets. Although the operations defined for set categories are common to both,{} the relationship between the two cannot be described by inclusion or inheritance.
 1067102`\spadtype{SetCategory} is the basic category for describing a collection of elements with \spadop{=} (equality) and \spadfun{coerce} to output form. \blankline Conditional Attributes: \indented{3}{canonical\tab{15}data structure equality is the same as \spadop{=}}
 1067159`PointCategory is the category of points and vectors in space. Points may be used to represent shapes in a scenegraph such as: the vertices of a cube or points along a line. Shapes such as these may be defined explicitly or may be plotted. We implement SetCategory to allow us to curry transforms from one point to another.
-1067222`\spadtype{SquareMatrixCategory} is a general square matrix category which allows different representations and indexing schemes. Rows and columns may be extracted with rows returned as objects of type Row and colums returned as objects of type Col.
+1067222`\spadtype{SquareMatrixCategory} is a general square matrix category which allows different representations and indexing schemes. Rows and columns may be extracted with rows returned as objects of type Row and columns returned as objects of type Col.
 1067441`A stream aggregate is a linear aggregate which possibly has an infinite number of elements. A basic domain constructor which builds stream aggregates is \spadtype{Stream}. From streams,{} a number of infinite structures such as power series can be built.
 1067517`A string aggregate is a category for strings,{} that is,{} one dimensional arrays of characters.
 1067581`A table aggregate is a model of a table,{} \spadignore{i.e.} a discrete many-to-one mapping from keys to entries.
