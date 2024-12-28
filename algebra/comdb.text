@@ -3867,7 +3867,7 @@
 455554`\spad{guessRec(l,{} options)} tries to find an ordinary difference equation whose first values are given by \spad{l},{} using the given options.
 456156`\spad{hahn_p(n,{} a,{} b,{} bar_a,{} bar_b,{} z)} is the continuous Hahn polynomial.
 456223`\spad{hahn_p(n,{} a,{} b,{} bar_a,{} bar_b,{} z)} is the continuous Hahn polynomial.
-456283`\spad{hahnQ(n,{} a,{} b,{} N,{} z)} \spad{s} the Hahn polynomial.
+456283`\spad{hahnQ(n,{} a,{} b,{} N,{} z)} is the Hahn polynomial.
 456349`\spad{hahnQ(n,{} a,{} b,{} N,{} z)} \spad{s} the Hahn polynomial.
 456408`\spad{hahnR(n,{} c,{} d,{} N,{} z)} is the dual Hahn polynomial.
 456474`\spad{hahnR(n,{} c,{} d,{} N,{} z)} is the dual Hahn polynomial.
