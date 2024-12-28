@@ -6647,7 +6647,7 @@
 743557`\spad{rdregime(s)} reads in a list from a file with name \spad{s}
 743802`\spad{read sequentially} reads one item from the file.
 743842`\spad{read!(f)} extracts a value from file \spad{f}. The state of \spad{f} is modified so a subsequent call to \spadfun{read!} will return the next element.
-743891`\spad{read(f,{} key)} reads item with the key \pad{key} from \spad{f}.
+743891`\spad{read(f,{} key)} reads item with the key \spad{key} from \spad{f}.
 743949`\spad{readable?(f)} tests if the named file exist and can it be opened for reading.
 744004`\spad{readIfCan read} one item from the file. otherwise returns \spad{"failed"}
 744065`\spad{readIfCan!(f)} returns a value from the file \spad{f},{} if possible. If \spad{f} is not open for reading,{} or if \spad{f} is at the end of file then \spad{"failed"} is the result.
