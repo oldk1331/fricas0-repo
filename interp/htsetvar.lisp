@@ -896,30 +896,11 @@
 (DEFUN |htSetExpose| (|htPage|)
   (PROG () (RETURN (|htSetNotAvailable| |htPage| ")set expose"))))
 
-; htSetKernelProtect htPage ==
-;  htSetNotAvailable(htPage,'")set kernel protect")
-
-(DEFUN |htSetKernelProtect| (|htPage|)
-  (PROG () (RETURN (|htSetNotAvailable| |htPage| ")set kernel protect"))))
-
-; htSetKernelWarn htPage ==
-;  htSetNotAvailable(htPage,'")set kernel warn")
-
-(DEFUN |htSetKernelWarn| (|htPage|)
-  (PROG () (RETURN (|htSetNotAvailable| |htPage| ")set kernel warn"))))
-
 ; htSetOutputCharacters htPage ==
 ;   htSetNotAvailable(htPage,'")set output characters")
 
 (DEFUN |htSetOutputCharacters| (|htPage|)
   (PROG () (RETURN (|htSetNotAvailable| |htPage| ")set output characters"))))
-
-; htSetLinkerArgs htPage ==
-;   htSetNotAvailable(htPage,'")set fortran calling linker")
-
-(DEFUN |htSetLinkerArgs| (|htPage|)
-  (PROG ()
-    (RETURN (|htSetNotAvailable| |htPage| ")set fortran calling linker"))))
 
 ; htSetCache(htPage,:options) ==
 ;   $path := '(functions cache)
@@ -1136,17 +1117,21 @@
       (|htProcessDoitButton| (LIST "Press to Remove Page" "" '|htDoNothing|))
       (|htShowPage|)))))
 
-; htAllOrNum val == bcHt
-;   val = 'all => '"{\em all"
-;   val = 0 => '"{\em no"
-;   STRCONC('"the last {\em ",stringize val)
+; htAllOrNum(page, val) ==
+;     str :=
+;         val = 'all => '"{\em all"
+;         val = 0 => '"{\em no"
+;         STRCONC('"the last {\em ",stringize val)
+;     bcHt(str)
 
-(DEFUN |htAllOrNum| (|val|)
-  (PROG ()
+(DEFUN |htAllOrNum| (|page| |val|)
+  (PROG (|str|)
     (RETURN
-     (|bcHt|
-      (COND ((EQ |val| '|all|) "{\\em all") ((EQL |val| 0) "{\\em no")
-            ('T (STRCONC "the last {\\em " (|stringize| |val|))))))))
+     (PROGN
+      (SETQ |str|
+              (COND ((EQ |val| '|all|) "{\\em all") ((EQL |val| 0) "{\\em no")
+                    ('T (STRCONC "the last {\\em " (|stringize| |val|)))))
+      (|bcHt| |str|)))))
 
 ; htCacheOne names ==
 ;   page := htInitPage(mkSetTitle(),nil)

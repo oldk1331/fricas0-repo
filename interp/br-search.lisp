@@ -943,7 +943,7 @@
 ;   itemlist := assoc(opname,koOps(conform,nil)) --all operations name "opname"
 ;   null itemlist => systemError [conform,'" has no operation named ",opname]
 ;   opAlist := [itemlist]
-;   dbShowOperationsFromConform(htPage,'"operation",opAlist)
+;   dbShowOperationsFromConform(htPage, opAlist)
 
 (DEFUN |oPageFrom| (|opname| |conname|)
   (PROG (|htPage| |conform| |itemlist| |opAlist|)
@@ -961,7 +961,7 @@
        ('T
         (PROGN
          (SETQ |opAlist| (LIST |itemlist|))
-         (|dbShowOperationsFromConform| |htPage| "operation" |opAlist|))))))))
+         (|dbShowOperationsFromConform| |htPage| |opAlist|))))))))
 
 ; spadType(x) ==  --called by \spadtype{x} from HyperDoc
 ;   s := PNAME x
@@ -2218,7 +2218,7 @@
 ;     lines := dbScreenForDefaultFunctions lines
 ;   count := #lines
 ;   count = 0 => emptySearchPage(kind, filter, false)
-;   kind = '"operation" => dbShowOperationLines(kind, lines)
+;   kind = '"operation" => dbShowOperationLines(lines)
 ;   dbShowConstructorLines lines
 
 (DEFUN |dbSearch| (|lines| |kind| |filter|)
@@ -2239,7 +2239,7 @@
              (SETQ |count| (LENGTH |lines|))
              (COND ((EQL |count| 0) (|emptySearchPage| |kind| |filter| NIL))
                    ((EQUAL |kind| "operation")
-                    (|dbShowOperationLines| |kind| |lines|))
+                    (|dbShowOperationLines| |lines|))
                    (#1# (|dbShowConstructorLines| |lines|)))))))))
 
 ; dbSearchAbbrev([.,:conlist],kind,filter) ==

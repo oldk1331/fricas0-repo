@@ -684,7 +684,7 @@
              (|substitute| |x| |y| |candidates|))
             (#1# |candidates|))))))
 
-; whoUsesOperation(htPage,which,key) ==  --see dbPresentOps
+; whoUsesOperation(htPage, key) ==  --see dbPresentOps
 ;   key = 'filter => koaPageFilterByName(htPage,'whoUsesOperation)
 ;   opAlist := htpProperty(htPage,'opAlist)
 ;   conform := htpProperty(htPage,'conform)
@@ -726,10 +726,10 @@
 ;       bcConform ['Mapping,:sublisFormal(conargs,sig)]
 ;       htSay('"}\newline")
 ;   htSayStandard '"\endscroll "
-;   dbPresentOps(page,which,'usage)
+;   dbPresentOps(page, 'usage)
 ;   htShowPageNoScroll()
 
-(DEFUN |whoUsesOperation| (|htPage| |which| |key|)
+(DEFUN |whoUsesOperation| (|htPage| |key|)
   (PROG (|opAlist| |conform| |conargs| |opl| |op| |alist| |sig| |u| |prefix|
          |ISTMP#1| |op1| |ISTMP#2| |suffix| |page| |nopAlist| |name|
          |opsigList| |sofar| |usedList| |pair| |namelist| |ops| |noOneUses|)
@@ -886,7 +886,7 @@
               (SETQ |bfVar#28| (CDR |bfVar#28|))))
            |noOneUses| NIL)))
         (|htSayStandard| "\\endscroll ")
-        (|dbPresentOps| |page| |which| '|usage|)
+        (|dbPresentOps| |page| '|usage|)
         (|htShowPageNoScroll|)))))))
 
 ; whoUses(opSigList,conform) ==
@@ -1419,9 +1419,8 @@
 
 ; koaPageFilterByCategory(htPage,calledFrom) ==
 ;   opAlist := htpProperty(htPage,'opAlist)
-;   which   := htpProperty(htPage,'which)
 ;   page := htInitPageNoScroll(htCopyProplist htPage,
-;              dbHeading(opAlist,which,htpProperty(htPage,'heading)))
+;              dbHeading(opAlist, '"operation" ,htpProperty(htPage,'heading)))
 ;   htSay('"Select a category ancestor below or ")
 ;   htMakePage [['bcLispLinks,['"filter",'"on:",calledFrom,'filter]]]
 ;   htMakePage [['bcStrings, [13,'"",'filter,'EM]]]
@@ -1434,14 +1433,13 @@
 ;   htShowPage()
 
 (DEFUN |koaPageFilterByCategory| (|htPage| |calledFrom|)
-  (PROG (|opAlist| |which| |page| |conform| |domname| |ancestors|)
+  (PROG (|opAlist| |page| |conform| |domname| |ancestors|)
     (RETURN
      (PROGN
       (SETQ |opAlist| (|htpProperty| |htPage| '|opAlist|))
-      (SETQ |which| (|htpProperty| |htPage| '|which|))
       (SETQ |page|
               (|htInitPageNoScroll| (|htCopyProplist| |htPage|)
-               (|dbHeading| |opAlist| |which|
+               (|dbHeading| |opAlist| "operation"
                 (|htpProperty| |htPage| '|heading|))))
       (|htSay| "Select a category ancestor below or ")
       (|htMakePage|
@@ -1491,7 +1489,6 @@
 ;   ancestor := (htpProperty(htPage, 'ancestors)) . i
 ;   ancestorList := [ancestor,:ASSOCLEFT ancestorsOf(ancestor,nil)]
 ;   newOpAlist := nil
-;   which    := htpProperty(htPage,'which)
 ;   opAlist  := htpProperty(htPage,'opAlist)
 ;   domname  := htpProperty(htPage,'domname)
 ;   conform  := htpProperty(htPage,'conform)
@@ -1501,7 +1498,7 @@
 ;     nalist := [[origin,:item] for item in alist | split]
 ;       where split ==
 ;         [sig,pred,:aux] := item
-;         u := dbGetDocTable(op,sig,docTable,which,aux)
+;         u := dbGetDocTable(op, sig, docTable, aux)
 ;         origin := IFCAR u
 ;         true
 ;     for [origin,:item] in nalist | origin repeat
@@ -1512,19 +1509,18 @@
 ;   for [op,:alist] in newOpAlist repeat
 ;     falist := [[op,:NREVERSE alist],:falist]
 ;   htpSetProperty(htPage,'fromcat,['" from category {\sf ",form2HtString ancestor,'"}"])
-;   dbShowOperationsFromConform(htPage,which,falist)
+;   dbShowOperationsFromConform(htPage, falist)
 
 (DEFUN |koaPageFilterByCategory1| (|htPage| |i|)
-  (PROG (|ancestor| |ancestorList| |newOpAlist| |which| |opAlist| |domname|
-         |conform| |heading| |docTable| |op| |alist| |sig| |pred| |aux| |u|
-         |origin| |nalist| |item| |newEntry| |falist|)
+  (PROG (|ancestor| |ancestorList| |newOpAlist| |opAlist| |domname| |conform|
+         |heading| |docTable| |op| |alist| |sig| |pred| |aux| |u| |origin|
+         |nalist| |item| |newEntry| |falist|)
     (RETURN
      (PROGN
       (SETQ |ancestor| (ELT (|htpProperty| |htPage| '|ancestors|) |i|))
       (SETQ |ancestorList|
               (CONS |ancestor| (ASSOCLEFT (|ancestorsOf| |ancestor| NIL))))
       (SETQ |newOpAlist| NIL)
-      (SETQ |which| (|htpProperty| |htPage| '|which|))
       (SETQ |opAlist| (|htpProperty| |htPage| '|opAlist|))
       (SETQ |domname| (|htpProperty| |htPage| '|domname|))
       (SETQ |conform| (|htpProperty| |htPage| '|conform|))
@@ -1558,7 +1554,7 @@
                                   (SETQ |aux| (CDDR |item|))
                                   (SETQ |u|
                                           (|dbGetDocTable| |op| |sig|
-                                           |docTable| |which| |aux|))
+                                           |docTable| |aux|))
                                   (SETQ |origin| (IFCAR |u|))
                                   T)
                                  (SETQ |bfVar#59|
@@ -1612,24 +1608,22 @@
        |newOpAlist| NIL)
       (|htpSetProperty| |htPage| '|fromcat|
        (LIST " from category {\\sf " (|form2HtString| |ancestor|) "}"))
-      (|dbShowOperationsFromConform| |htPage| |which| |falist|)))))
+      (|dbShowOperationsFromConform| |htPage| |falist|)))))
 
 ; opPageFast opAlist == --called by oSearch
 ;   htPage := htInitPage(nil,nil)
 ;   htpSetProperty(htPage,'opAlist,opAlist)
 ;   htpSetProperty(htPage,'expandOperations,'lists)
-;   which := '"operation"
-;   dbShowOp1(htPage,opAlist,which,'names)
+;   dbShowOp1(htPage, opAlist, 'names)
 
 (DEFUN |opPageFast| (|opAlist|)
-  (PROG (|htPage| |which|)
+  (PROG (|htPage|)
     (RETURN
      (PROGN
       (SETQ |htPage| (|htInitPage| NIL NIL))
       (|htpSetProperty| |htPage| '|opAlist| |opAlist|)
       (|htpSetProperty| |htPage| '|expandOperations| '|lists|)
-      (SETQ |which| "operation")
-      (|dbShowOp1| |htPage| |opAlist| |which| '|names|)))))
+      (|dbShowOp1| |htPage| |opAlist| '|names|)))))
 
 ; opPageFastPath opstring ==
 ; --return nil

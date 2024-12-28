@@ -301,7 +301,7 @@
        |r| NIL)
       |alist|))))
 
-; kePage(htPage,junk) ==
+; kePage(htPage) ==
 ;   [kind,name,nargs,xflag,sig,args,abbrev,comments] := htpProperty(htPage,'parts)
 ;   constring       := STRCONC(name,args)
 ;   domname         := kDomainName(htPage,kind,name,nargs)
@@ -333,7 +333,7 @@
 ;   htSayStandard '" \endmenu "
 ;   htShowPage()
 
-(DEFUN |kePage| (|htPage| |junk|)
+(DEFUN |kePage| (|htPage|)
   (PROG (|$conformsAreDomains| |page| |prefix| |oplist| |conlist| |data|
          |heading| |conname| |conform| |domname| |constring| |comments|
          |abbrev| |args| |sig| |xflag| |nargs| |name| |kind| |LETTMP#1|)
@@ -456,7 +456,7 @@
 ;   htpSetProperty(htPage, 'opAlist, opAlist)
 ;   htpSetProperty(htPage, 'expandOperations, 'lists)  --mark as unexpanded
 ;   which := '"operation"
-;   htMakePage [['bcLinks,[menuButton(),'"",'dbShowOps,which,'names]]]
+;   htMakePage [['bcLinks, [menuButton(), '"", 'dbShowOps, 'names]]]
 ;   htSayStandard '"\tab{2}"
 ;   if count ~= total then
 ;     if count = 1
@@ -466,8 +466,8 @@
 ;     then htSayList([STRINGIMAGE total, '" ", pluralize which,
 ;                    '" are explicitly exported:"])
 ;     else htSayList(['"1 ", which, '" is explicitly exported:"])
-;   data := dbGatherData(htPage, opAlist, '"operation", 'names)
-;   dbShowOpItems(which,data,false)
+;   data := dbGatherData(htPage, opAlist, 'names)
+;   dbShowOpItems(data, false)
 
 (DEFUN |kePageDisplay| (|htPage| |opAlist|)
   (PROG (|count| |total| |which| |data|)
@@ -494,7 +494,7 @@
               (|htMakePage|
                (LIST
                 (LIST '|bcLinks|
-                      (LIST (|menuButton|) "" '|dbShowOps| |which| '|names|))))
+                      (LIST (|menuButton|) "" '|dbShowOps| '|names|))))
               (|htSayStandard| "\\tab{2}")
               (COND
                ((NOT (EQUAL |count| |total|))
@@ -509,11 +509,10 @@
                        " are explicitly exported:")))
                (#1#
                 (|htSayList| (LIST "1 " |which| " is explicitly exported:"))))
-              (SETQ |data|
-                      (|dbGatherData| |htPage| |opAlist| "operation" '|names|))
-              (|dbShowOpItems| |which| |data| NIL))))))))
+              (SETQ |data| (|dbGatherData| |htPage| |opAlist| '|names|))
+              (|dbShowOpItems| |data| NIL))))))))
 
-; ksPage(htPage,junk) ==
+; ksPage(htPage) ==
 ;   [kind,name,nargs,xpart,sig,args,abbrev,comments] := htpProperty(htPage,'parts)
 ;   domname         := kDomainName(htPage,kind,name,nargs)
 ;   domname is ['error,:.] => errorPage(htPage,domname)
@@ -534,7 +533,7 @@
 ;   htpSetProperty(htPage,'thing,'"constructor")
 ;   dbShowCons(htPage,'names)
 
-(DEFUN |ksPage| (|htPage| |junk|)
+(DEFUN |ksPage| (|htPage|)
   (PROG (|LETTMP#1| |kind| |name| |nargs| |xpart| |sig| |args| |abbrev|
          |comments| |domname| |heading| |domain| |conform| |page| |u|)
     (RETURN
@@ -666,7 +665,7 @@
                NIL (MAXINDEX |catvec|) 0))
       (APPEND (|dbAddChain| |conform|) |catforms|)))))
 
-; kcpPage(htPage,junk) ==
+; kcpPage(htPage) ==
 ;   [kind,name,nargs,xpart,sig,args,abbrev,comments] := htpProperty(htPage,'parts)
 ;   domname         := kDomainName(htPage,kind,name,nargs)
 ;   domname is ['error,:.] => errorPage(htPage,domname)
@@ -688,7 +687,7 @@
 ;     'names
 ;   dbShowCons(htPage,choice)
 
-(DEFUN |kcpPage| (|htPage| |junk|)
+(DEFUN |kcpPage| (|htPage|)
   (PROG (|LETTMP#1| |kind| |name| |nargs| |xpart| |sig| |args| |abbrev|
          |comments| |domname| |heading| |conform| |conname| |page| |parents|
          |choice|)
@@ -761,26 +760,29 @@
           (SETQ |bfVar#23| (CDR |bfVar#23|))))
        NIL |alist| NIL)))))
 
-; kcaPage(htPage,junk) ==
-;   kcaPage1(htPage,'"category",'" an ",'"ancestor",function ancestorsOf, false)
+; kcaPage(htPage) ==
+;     kcaPage1(htPage, '"category", '" an ", '"ancestor",
+;              function ancestorsOf, false)
 
-(DEFUN |kcaPage| (|htPage| |junk|)
+(DEFUN |kcaPage| (|htPage|)
   (PROG ()
     (RETURN
      (|kcaPage1| |htPage| "category" " an " "ancestor" #'|ancestorsOf| NIL))))
 
-; kcdPage(htPage,junk) ==
-;   kcaPage1(htPage,'"category",'" a ",'"descendant",function descendantsOf,true)
+; kcdPage(htPage) ==
+;     kcaPage1(htPage, '"category", '" a ", '"descendant",
+;              function descendantsOf, true)
 
-(DEFUN |kcdPage| (|htPage| |junk|)
+(DEFUN |kcdPage| (|htPage|)
   (PROG ()
     (RETURN
      (|kcaPage1| |htPage| "category" " a " "descendant" #'|descendantsOf| T))))
 
-; kcdoPage(htPage,junk)==
-;   kcaPage1(htPage,'"domain",'" a ",'"descendant",function domainsOf, false)
+; kcdoPage(htPage)==
+;     kcaPage1(htPage, '"domain", '" a ", '"descendant",
+;              function domainsOf, false)
 
-(DEFUN |kcdoPage| (|htPage| |junk|)
+(DEFUN |kcdoPage| (|htPage|)
   (PROG ()
     (RETURN
      (|kcaPage1| |htPage| "domain" " a " "descendant" #'|domainsOf| NIL))))
@@ -851,7 +853,7 @@
          (SETQ |choice| '|names|)
          (|dbShowCons| |htPage| |choice|))))))))
 
-; kccPage(htPage,junk) ==
+; kccPage(htPage) ==
 ;   [kind,name,nargs,xpart,sig,args,abbrev,comments] := htpProperty(htPage,'parts)
 ;   domname         := kDomainName(htPage,kind,name,nargs)
 ;   domname is ['error,:.] => errorPage(htPage,domname)
@@ -870,7 +872,7 @@
 ;   htpSetProperty(htPage,'thing,'"child")
 ;   dbShowCons(htPage,'names)
 
-(DEFUN |kccPage| (|htPage| |junk|)
+(DEFUN |kccPage| (|htPage|)
   (PROG (|LETTMP#1| |kind| |name| |nargs| |xpart| |sig| |args| |abbrev|
          |comments| |domname| |heading| |conform| |conname| |page| |children|)
     (RETURN
@@ -963,7 +965,7 @@
           (SETQ |bfVar#26| (CDR |bfVar#26|))))
        NIL |alist| NIL)))))
 
-; kcdePage(htPage,junk) ==
+; kcdePage(htPage) ==
 ;   [kind,name,nargs,xflag,sig,args,abbrev,comments] := htpProperty(htPage,'parts)
 ;   conname         := INTERN name
 ;   constring       := STRCONC(name,args)
@@ -979,7 +981,7 @@
 ;   htpSetProperty(htPage,'thing,'"dependent")
 ;   dbShowCons(htPage,'names)
 
-(DEFUN |kcdePage| (|htPage| |junk|)
+(DEFUN |kcdePage| (|htPage|)
   (PROG (|LETTMP#1| |kind| |name| |nargs| |xflag| |sig| |args| |abbrev|
          |comments| |conname| |constring| |conform| |pakname| |domList|
          |cAlist|)
@@ -1024,7 +1026,7 @@
       (|htpSetProperty| |htPage| '|thing| "dependent")
       (|dbShowCons| |htPage| '|names|)))))
 
-; kcuPage(htPage,junk) ==
+; kcuPage(htPage) ==
 ;   [kind,name,nargs,xflag,sig,args,abbrev,comments] := htpProperty(htPage,'parts)
 ;   conname         := INTERN name
 ;   constring       := STRCONC(name,args)
@@ -1040,7 +1042,7 @@
 ;   htpSetProperty(htPage,'thing,'"user")
 ;   dbShowCons(htPage,'names)
 
-(DEFUN |kcuPage| (|htPage| |junk|)
+(DEFUN |kcuPage| (|htPage|)
   (PROG (|LETTMP#1| |kind| |name| |nargs| |xflag| |sig| |args| |abbrev|
          |comments| |conname| |constring| |conform| |pakname| |domList|
          |cAlist|)
@@ -1089,7 +1091,7 @@
       (|htpSetProperty| |htPage| '|thing| "user")
       (|dbShowCons| |htPage| '|names|)))))
 
-; kcnPage(htPage,junk) ==
+; kcnPage(htPage) ==
 ; --if reached by a category, that category has a default package
 ;   [kind,name,nargs,xpart,sig,args,abbrev,comments] := htpProperty(htPage,'parts)
 ;   domname         := kDomainName(htPage,kind,name,nargs)
@@ -1113,7 +1115,7 @@
 ;   htpSetProperty(htPage,'thing,'"benefactor")
 ;   dbShowCons(htPage,'names)
 
-(DEFUN |kcnPage| (|htPage| |junk|)
+(DEFUN |kcnPage| (|htPage|)
   (PROG (|LETTMP#1| |kind| |name| |nargs| |xpart| |sig| |args| |abbrev|
          |comments| |domname| |heading| |conform| |pakname| |domList| |cAlist|)
     (RETURN
@@ -1378,20 +1380,6 @@
       (SETQ |kind| (|get_database| |op| 'CONSTRUCTORKIND))
       (COND ((EQ |kind| '|category|) |form|) ('T (|mkEvalable| |form|)))))))
 
-; topLevelInterpEval x ==
-;   $ProcessInteractiveValue: fluid := true
-;   $noEvalTypeMsg: fluid := true
-;   processInteractive(x,nil)
-
-(DEFUN |topLevelInterpEval| (|x|)
-  (PROG (|$noEvalTypeMsg| |$ProcessInteractiveValue|)
-    (DECLARE (SPECIAL |$noEvalTypeMsg| |$ProcessInteractiveValue|))
-    (RETURN
-     (PROGN
-      (SETQ |$ProcessInteractiveValue| T)
-      (SETQ |$noEvalTypeMsg| T)
-      (|processInteractive| |x| NIL)))))
-
 ; kisValidType typeForm ==
 ;   $ProcessInteractiveValue: fluid := true
 ;   $noEvalTypeMsg: fluid := true
@@ -1576,7 +1564,7 @@
 ;   htpSetProperty(page,'conform,conform)
 ;   htpSetProperty(page,'signature,signature)
 ;   for [a,:b] in bindingsAlist repeat htpSetProperty(page,a,b)
-;   koPage(page,'"operation")
+;   koPage(page)
 
 (DEFUN |conOpPage1| (|conform| |options|)
   (PROG (|bindingsAlist| |conname| |domname| |line| |parts| |kind| |name|
@@ -1637,10 +1625,9 @@
                          (|htpSetProperty| |page| |a| |b|))))
                   (SETQ |bfVar#55| (CDR |bfVar#55|))))
                |bindingsAlist| NIL)
-              (|koPage| |page| "operation"))))))))
+              (|koPage| |page|))))))))
 
-; koPage(htPage,which) ==
-;   which = '"attribute" => BREAK()
+; koPage(htPage) ==
 ;   [kind,name,nargs,xflag,sig,args,abbrev,comments] := htpProperty(htPage,'parts)
 ;   constring       := STRCONC(name,args)
 ;   conname         := INTERN name
@@ -1655,86 +1642,76 @@
 ;     domname => form2HtString(domname,nil,true)
 ;     constring
 ;   heading := [capitalize kind,'" {\sf ",headingString,'"}"]
-;   htpSetProperty(htPage,'which,which)
 ;   htpSetProperty(htPage,'heading,heading)
 ;   conform := htpProperty(htPage,'conform)
 ;   opAlist := koOps(conform, domname)
 ;   if selectedOperation := htpProperty(htPage,'selectedOperation) then
 ;     opAlist := [assoc(selectedOperation,opAlist) or systemError()]
-;   dbShowOperationsFromConform(htPage,which,opAlist)
+;   dbShowOperationsFromConform(htPage, opAlist)
 
-(DEFUN |koPage| (|htPage| |which|)
+(DEFUN |koPage| (|htPage|)
   (PROG (|LETTMP#1| |kind| |name| |nargs| |xflag| |sig| |args| |abbrev|
          |comments| |constring| |conname| |u| |ISTMP#1| |domname|
          |headingString| |heading| |conform| |opAlist| |selectedOperation|)
     (RETURN
-     (COND ((EQUAL |which| "attribute") (BREAK))
-           (#1='T
-            (PROGN
-             (SETQ |LETTMP#1| (|htpProperty| |htPage| '|parts|))
-             (SETQ |kind| (CAR |LETTMP#1|))
-             (SETQ |name| (CADR . #2=(|LETTMP#1|)))
-             (SETQ |nargs| (CADDR . #2#))
-             (SETQ |xflag| (CADDDR . #2#))
-             (SETQ |sig| (CAR #3=(CDDDDR . #2#)))
-             (SETQ |args| (CADR . #4=(#3#)))
-             (SETQ |abbrev| (CADDR . #4#))
-             (SETQ |comments| (CADDDR . #4#))
-             (SETQ |constring| (STRCONC |name| |args|))
-             (SETQ |conname| (INTERN |name|))
-             (SETQ |domname|
-                     (COND
-                      ((AND
-                        (PROGN
-                         (SETQ |ISTMP#1|
-                                 (SETQ |u|
-                                         (|htpProperty| |htPage| '|domname|)))
-                         (AND (CONSP |ISTMP#1|)
-                              (EQUAL (CAR |ISTMP#1|) |conname|)))
-                        (OR
-                         (EQUAL (|htpProperty| |htPage| '|fromConOpPage1|) T)
-                         (|koPageInputAreaUnchanged?| |htPage| |nargs|)))
-                       |u|)
-                      (#1# (|kDomainName| |htPage| |kind| |name| |nargs|))))
-             (COND
-              ((AND (CONSP |domname|) (EQ (CAR |domname|) '|error|))
-               (|errorPage| |htPage| |domname|))
-              (#1#
-               (PROGN
-                (|htpSetProperty| |htPage| '|domname| |domname|)
-                (SETQ |headingString|
-                        (COND (|domname| (|form2HtString| |domname| NIL T))
-                              (#1# |constring|)))
-                (SETQ |heading|
-                        (LIST (|capitalize| |kind|) " {\\sf " |headingString|
-                              "}"))
-                (|htpSetProperty| |htPage| '|which| |which|)
-                (|htpSetProperty| |htPage| '|heading| |heading|)
-                (SETQ |conform| (|htpProperty| |htPage| '|conform|))
-                (SETQ |opAlist| (|koOps| |conform| |domname|))
-                (COND
-                 ((SETQ |selectedOperation|
-                          (|htpProperty| |htPage| '|selectedOperation|))
-                  (SETQ |opAlist|
-                          (LIST
-                           (OR (|assoc| |selectedOperation| |opAlist|)
-                               (|systemError|))))))
-                (|dbShowOperationsFromConform| |htPage| |which|
-                 |opAlist|))))))))))
+     (PROGN
+      (SETQ |LETTMP#1| (|htpProperty| |htPage| '|parts|))
+      (SETQ |kind| (CAR |LETTMP#1|))
+      (SETQ |name| (CADR . #1=(|LETTMP#1|)))
+      (SETQ |nargs| (CADDR . #1#))
+      (SETQ |xflag| (CADDDR . #1#))
+      (SETQ |sig| (CAR #2=(CDDDDR . #1#)))
+      (SETQ |args| (CADR . #3=(#2#)))
+      (SETQ |abbrev| (CADDR . #3#))
+      (SETQ |comments| (CADDDR . #3#))
+      (SETQ |constring| (STRCONC |name| |args|))
+      (SETQ |conname| (INTERN |name|))
+      (SETQ |domname|
+              (COND
+               ((AND
+                 (PROGN
+                  (SETQ |ISTMP#1|
+                          (SETQ |u| (|htpProperty| |htPage| '|domname|)))
+                  (AND (CONSP |ISTMP#1|) (EQUAL (CAR |ISTMP#1|) |conname|)))
+                 (OR (EQUAL (|htpProperty| |htPage| '|fromConOpPage1|) T)
+                     (|koPageInputAreaUnchanged?| |htPage| |nargs|)))
+                |u|)
+               (#4='T (|kDomainName| |htPage| |kind| |name| |nargs|))))
+      (COND
+       ((AND (CONSP |domname|) (EQ (CAR |domname|) '|error|))
+        (|errorPage| |htPage| |domname|))
+       (#4#
+        (PROGN
+         (|htpSetProperty| |htPage| '|domname| |domname|)
+         (SETQ |headingString|
+                 (COND (|domname| (|form2HtString| |domname| NIL T))
+                       (#4# |constring|)))
+         (SETQ |heading|
+                 (LIST (|capitalize| |kind|) " {\\sf " |headingString| "}"))
+         (|htpSetProperty| |htPage| '|heading| |heading|)
+         (SETQ |conform| (|htpProperty| |htPage| '|conform|))
+         (SETQ |opAlist| (|koOps| |conform| |domname|))
+         (COND
+          ((SETQ |selectedOperation|
+                   (|htpProperty| |htPage| '|selectedOperation|))
+           (SETQ |opAlist|
+                   (LIST
+                    (OR (|assoc| |selectedOperation| |opAlist|)
+                        (|systemError|))))))
+         (|dbShowOperationsFromConform| |htPage| |opAlist|))))))))
 
 ; koaPageFilterByName(htPage,functionToCall) ==
 ;   htpLabelInputString(htPage,'filter) = '"" =>
 ;     koaPageFilterByCategory(htPage,functionToCall)
 ;   filter := pmTransFilter(dbGetInputString htPage)
 ; --WARNING: this call should check for ['error,:.] returned
-;   which   := htpProperty(htPage,'which)
 ;   opAlist :=
 ;       [x for x in htpProperty(htPage,'opAlist) | superMatch?(filter,DOWNCASE STRINGIMAGE first x)]
 ;   htpSetProperty(htPage,'opAlist,opAlist)
 ;   FUNCALL(functionToCall,htPage,nil)
 
 (DEFUN |koaPageFilterByName| (|htPage| |functionToCall|)
-  (PROG (|filter| |which| |opAlist|)
+  (PROG (|filter| |opAlist|)
     (RETURN
      (COND
       ((EQUAL (|htpLabelInputString| |htPage| '|filter|) "")
@@ -1742,7 +1719,6 @@
       (#1='T
        (PROGN
         (SETQ |filter| (|pmTransFilter| (|dbGetInputString| |htPage|)))
-        (SETQ |which| (|htpProperty| |htPage| '|which|))
         (SETQ |opAlist|
                 ((LAMBDA (|bfVar#57| |bfVar#56| |x|)
                    (LOOP
@@ -1890,11 +1866,10 @@
         (|get_database| (|opOf| |conform|) 'DOCUMENTATION))
        NIL)))))
 
-; dbGetDocTable(op, $sig, docTable, which, aux) == main where
+; dbGetDocTable(op, $sig, docTable, aux) == main where
 ; --docTable is [[origin,entry1,...,:code] ...] where
 ; --  each entry is [sig,doc] and code is NIL or else a topic code for op
 ;   main ==
-;     which = '"attribute" => BREAK()
 ;     if null FIXP op and DIGITP (s := STRINGIMAGE op).0 then
 ;           BREAK()
 ;           op := string2Integer s
@@ -1922,41 +1897,36 @@
 ;       '("")
 ;     false
 
-(DEFUN |dbGetDocTable| (|op| |$sig| |docTable| |which| |aux|)
+(DEFUN |dbGetDocTable| (|op| |$sig| |docTable| |aux|)
   (DECLARE (SPECIAL |$sig|))
   (PROG (|s| |ISTMP#1| |packageName| |pred| |origin|)
     (RETURN
-     (COND ((EQUAL |which| "attribute") (BREAK))
-           (#1='T
-            (PROGN
-             (COND
-              ((AND (NULL (FIXP |op|))
-                    (DIGITP (ELT (SETQ |s| (STRINGIMAGE |op|)) 0)))
-               (BREAK) (SETQ |op| (|string2Integer| |s|))))
-             (COND
-              ((AND (CONSP |aux|)
-                    (PROGN
-                     (SETQ |ISTMP#1| (CAR |aux|))
-                     (AND (CONSP |ISTMP#1|)
-                          (PROGN (SETQ |packageName| (CAR |ISTMP#1|)) #1#)))
-                    (PROGN (SETQ |pred| (CDR |aux|)) #1#))
-               (PROGN
-                (SETQ |origin|
-                        (COND (|pred| (CONS '|ifp| |aux|)) (#1# (CAR |aux|))))
-                (LIST |origin|)))
-              (#1#
-               ((LAMBDA (|bfVar#66| |bfVar#65| |x|)
-                  (LOOP
-                   (COND
-                    ((OR (ATOM |bfVar#65|)
-                         (PROGN (SETQ |x| (CAR |bfVar#65|)) NIL))
-                     (RETURN |bfVar#66|))
-                    (#1#
-                     (PROGN
-                      (SETQ |bfVar#66| (|dbGetDocTable,gn| |x|))
-                      (COND (|bfVar#66| (RETURN |bfVar#66|))))))
-                   (SETQ |bfVar#65| (CDR |bfVar#65|))))
-                NIL (HGET |docTable| |op|) NIL)))))))))
+     (PROGN
+      (COND
+       ((AND (NULL (FIXP |op|)) (DIGITP (ELT (SETQ |s| (STRINGIMAGE |op|)) 0)))
+        (BREAK) (SETQ |op| (|string2Integer| |s|))))
+      (COND
+       ((AND (CONSP |aux|)
+             (PROGN
+              (SETQ |ISTMP#1| (CAR |aux|))
+              (AND (CONSP |ISTMP#1|)
+                   (PROGN (SETQ |packageName| (CAR |ISTMP#1|)) #1='T)))
+             (PROGN (SETQ |pred| (CDR |aux|)) #1#))
+        (PROGN
+         (SETQ |origin| (COND (|pred| (CONS '|ifp| |aux|)) (#1# (CAR |aux|))))
+         (LIST |origin|)))
+       (#1#
+        ((LAMBDA (|bfVar#66| |bfVar#65| |x|)
+           (LOOP
+            (COND
+             ((OR (ATOM |bfVar#65|) (PROGN (SETQ |x| (CAR |bfVar#65|)) NIL))
+              (RETURN |bfVar#66|))
+             (#1#
+              (PROGN
+               (SETQ |bfVar#66| (|dbGetDocTable,gn| |x|))
+               (COND (|bfVar#66| (RETURN |bfVar#66|))))))
+            (SETQ |bfVar#65| (CDR |bfVar#65|))))
+         NIL (HGET |docTable| |op|) NIL)))))))
 (DEFUN |dbGetDocTable,gn| (|u|)
   (PROG (|code| |p| |comments|)
     (RETURN
@@ -2478,10 +2448,10 @@
        |line|)
       ""))))
 
-; dbSelectCon(htPage,which,index) ==
+; dbSelectCon(htPage, index) ==
 ;   conPage opOf first (htpProperty(htPage, 'cAlist)) . index
 
-(DEFUN |dbSelectCon| (|htPage| |which| |index|)
+(DEFUN |dbSelectCon| (|htPage| |index|)
   (PROG ()
     (RETURN
      (|conPage|
@@ -2666,7 +2636,7 @@
 ;   htpSetProperty(page,'opAlist,opAlist)
 ;   htpSetProperty(page,'noUsage,true)
 ;   htpSetProperty(page,'condition?,'no)
-;   dbShowOp1(page,opAlist,'"operation",'names)
+;   dbShowOp1(page, opAlist, 'names)
 
 (DEFUN |dbSpecialOperations| (|conname|)
   (PROG (|page| |conform| |opAlist| |fromHeading|)
@@ -2684,7 +2654,7 @@
       (|htpSetProperty| |page| '|opAlist| |opAlist|)
       (|htpSetProperty| |page| '|noUsage| T)
       (|htpSetProperty| |page| '|condition?| '|no|)
-      (|dbShowOp1| |page| |opAlist| "operation" '|names|)))))
+      (|dbShowOp1| |page| |opAlist| '|names|)))))
 
 ; dbSpecialExpandIfNecessary(conform,opAlist) ==
 ;   opAlist is [[op,[sig,:r],:.],:.] and rest r => opAlist

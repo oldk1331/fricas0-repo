@@ -95,7 +95,6 @@
 ; $OpViewTable := '(
 ;   (names           "Name"      "Names"           dbShowOpNames)
 ;   (documentation   "Name"      "Names"           dbShowOpDocumentation)
-;   (domains         "Domain"    "Domains"         dbShowOpDomains)
 ;   (signatures      "Signature" "Signatures"      dbShowOpSignatures)
 ;   (parameters      "Form"      "Forms"           dbShowOpParameters)
 ;   (origins         "Origin"    "Origins"         dbShowOpOrigins)
@@ -106,7 +105,6 @@
   (SETQ |$OpViewTable|
           '((|names| "Name" "Names" |dbShowOpNames|)
             (|documentation| "Name" "Names" |dbShowOpDocumentation|)
-            (|domains| "Domain" "Domains" |dbShowOpDomains|)
             (|signatures| "Signature" "Signatures" |dbShowOpSignatures|)
             (|parameters| "Form" "Forms" |dbShowOpParameters|)
             (|origins| "Origin" "Origins" |dbShowOpOrigins|)
