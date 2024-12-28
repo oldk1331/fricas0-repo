@@ -1769,7 +1769,7 @@
 ; computeAncestorsOf(conform,domform) ==
 ;   $done : local := MAKE_HASHTABLE('EQUAL)
 ;   $if :   local := MAKE_HASHTABLE('EQ)
-;   ancestorsRecur(conform,domform,true,true)
+;   ancestorsRecur(conform, domform, true, true)
 ;   acc := nil
 ;   for op in listSort(function GLESSEQP,HKEYS $if) repeat
 ;     for pair in HGET($if,op) repeat acc := [pair,:acc]
@@ -1803,9 +1803,9 @@
        (|listSort| #'GLESSEQP (HKEYS |$if|)) NIL)
       (NREVERSE |acc|)))))
 
-; ancestorsRecur(conform,domform,pred,firstTime?) == --called by ancestorsOf
+; ancestorsRecur(conform, domform, pred, firstTime?) ==
 ;   op      := opOf conform
-;   pred = HGET($done,conform) => nil   --skip if already processed
+;   pred = HGET($done, conform) => nil   --skip if already processed
 ;   parents :=
 ;     firstTime? and ($insideCategoryIfTrue or $insideFunctorIfTrue) =>
 ;       $lisplibParents
@@ -1823,7 +1823,7 @@
 ;     newPred := quickAnd(pred,p)
 ;     ancestorsAdd(simpHasPred newPred,newdomform or newform)
 ;     ancestorsRecur(newform,newdomform,newPred,false)
-;   HPUT($done,conform,pred)                  --mark as already processed
+;   HPUT($done, conform, pred)                  --mark as already processed
 
 (DEFUN |ancestorsRecur| (|conform| |domform| |pred| |firstTime?|)
   (PROG (|op| |parents| |originalConform| |newform| |p| |newdomform| |newPred|)

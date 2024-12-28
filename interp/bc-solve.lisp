@@ -482,7 +482,8 @@
 ;       ("Complex roots expressed as floats" "" cf))
 ;       (text . "\vspace{1}\newline")
 ;       (inputStrings
-;         ("Enter the number of desired {\em digits} of accuracy" "" 5 20 acc PI)))
+;         ("Enter the number of desired {\em digits} of accuracy" ""
+;           5 20 acc PI)))
 ;   htMakeDoneButton('"Continue", 'bcSolveNumerically1)
 ;   htShowPage()
 
@@ -583,7 +584,8 @@
 ;     (text . "The right side vector B is:")
 ;     (lispLinks
 ;       ("Zero:" "the system is homogeneous" bcLinearSolveMatrixHomo homo)
-;       ("Not zero:" "the system is not homogeneous" bcLinearSolveMatrixInhomo nothomo)))
+;       ("Not zero:" "the system is not homogeneous" bcLinearSolveMatrixInhomo
+;         nothomo)))
 ;   htShowPage()
 
 (DEFUN |bcLinearSolveMatrix1| (|htPage|)
@@ -614,11 +616,11 @@
 ;   labelList :=
 ;     [f(i) for i in 1..ncols] where f(i) ==
 ;       spacer := (i > 99 => 0; i > 9 => 1; 2)
-;       prefix := STRCONC('"{\em Coefficient ",STRINGIMAGE i,'":}")
+;       prefix := STRCONC('"{\em Coefficient ", STRINGIMAGE(i), '":}")
 ;       if spacer ~= 0 then
-;         prefix := STRCONC(prefix,'"\space{",STRINGIMAGE spacer,'"}")
-;       name := INTERN STRCONC('"c",STRINGIMAGE i)
-;       [prefix,"",30, 0,name, 'P]
+;           prefix := STRCONC(prefix, '"\space{", STRINGIMAGE(spacer), '"}")
+;       name := INTERN(STRCONC('"c", STRINGIMAGE(i)))
+;       [prefix, '"", 30, 0, name, 'P]
 ;   page := htInitPage('"Linear Solve Basic Command",htpPropertyList htPage)
 ;   htpSetProperty(page,'matrix,htpProperty(htPage,'matrix))
 ;   htpSetProperty(page,'nrows,nrows)
@@ -630,7 +632,8 @@
 ;           '(text . "\vspace{1}\newline Do you want:" ),
 ;              '(lispLinks
 ;                  ("All the solutions?" "" bcLinearSolveMatrixInhomoGen all)
-;                   ("A particular solution?" "" bcLinearSolveMatrixInhomoGen particular))]
+;                   ("A particular solution?" "" bcLinearSolveMatrixInhomoGeni
+;                     particular))]
 ;   htShowPage()
 
 (DEFUN |bcLinearSolveMatrixInhomo| (|htPage| |junk|)
@@ -662,7 +665,7 @@
              '(|text| . "\\vspace{1}\\newline Do you want:")
              '(|lispLinks|
                ("All the solutions?" "" |bcLinearSolveMatrixInhomoGen| |all|)
-               ("A particular solution?" "" |bcLinearSolveMatrixInhomoGen|
+               ("A particular solution?" "" |bcLinearSolveMatrixInhomoGeni|
                 |particular|))))
       (|htShowPage|)))))
 (DEFUN |bcLinearSolveMatrixInhomo,f| (|i|)
@@ -676,7 +679,7 @@
         (SETQ |prefix|
                 (STRCONC |prefix| "\\space{" (STRINGIMAGE |spacer|) "}"))))
       (SETQ |name| (INTERN (STRCONC "c" (STRINGIMAGE |i|))))
-      (LIST |prefix| '|| 30 0 |name| 'P)))))
+      (LIST |prefix| "" 30 0 |name| 'P)))))
 
 ; bcLinearSolveMatrixInhomoGen(htPage,key) ==  bcLinearMatrixGen(htPage,key)
 
