@@ -137,7 +137,8 @@
 ; make_entry(kaf, key, pos) ==
 ;     entry := find_key(LIBSTREAM_-INDEXTABLE(kaf), key)
 ;     NULL(entry) =>
-;         PUSH([key, :pos], LIBSTREAM_-INDEXTABLE(kaf))
+;         kaf_set_indextable(kaf,
+;                            CONS([key, :pos], LIBSTREAM_-INDEXTABLE(kaf)))
 ;     SETF(CDR(entry), pos)
 
 (DEFUN |make_entry| (|kaf| |key| |pos|)
@@ -146,7 +147,9 @@
      (PROGN
       (SETQ |entry| (|find_key| (LIBSTREAM-INDEXTABLE |kaf|) |key|))
       (COND
-       ((NULL |entry|) (PUSH (CONS |key| |pos|) (LIBSTREAM-INDEXTABLE |kaf|)))
+       ((NULL |entry|)
+        (|kaf_set_indextable| |kaf|
+         (CONS (CONS |key| |pos|) (LIBSTREAM-INDEXTABLE |kaf|))))
        ('T (SETF (CDR |entry|) |pos|)))))))
 
 ; kaf_write(kaf, key, val) ==
@@ -187,7 +190,7 @@
 ; kaf_remove(kaf, key) ==
 ;     itable := LIBSTREAM_-INDEXTABLE(kaf)
 ;     itable := assoc_delete_equal(itable, key)
-;     SETF(LIBSTREAM_-INDEXTABLE(kaf), itable)
+;     kaf_set_indextable(kaf, itable)
 
 (DEFUN |kaf_remove| (|kaf| |key|)
   (PROG (|itable|)
@@ -195,7 +198,7 @@
      (PROGN
       (SETQ |itable| (LIBSTREAM-INDEXTABLE |kaf|))
       (SETQ |itable| (|assoc_delete_equal| |itable| |key|))
-      (SETF (LIBSTREAM-INDEXTABLE |kaf|) |itable|)))))
+      (|kaf_set_indextable| |kaf| |itable|)))))
 
 ; rkeys2(kaf) ==
 ;     MAPCAR(function CAR, LIBSTREAM_-INDEXTABLE(kaf))
