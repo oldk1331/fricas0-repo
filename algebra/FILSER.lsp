@@ -494,6 +494,7 @@
                             (LIST (SPADCALL 'SIGNED-BYTE (QREFELT % 8))
                                   (SPADCALL 32 (QREFELT % 10)))
                             %))
+                     (CONS 'FIX (SPADCALL 'FIXNUM (QREFELT % 8)))
                      (CONS 'DF (SPADCALL 'DOUBLE-FLOAT (QREFELT % 8)))))
           %))) 
 
