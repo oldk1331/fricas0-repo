@@ -2166,18 +2166,18 @@
 ;   --key = 'catfilter => dbShowCatFilter(page,key)
 ;     key = 'names => bcNameConTable conlist
 ;     key = 'abbrs =>
-;         bcAbbTable(page, [[con ,get_database(con, 'ABBREVIATION)]
-;                           for con in conlist])
+;         bcAbbTable(page, [[con, get_database(con, 'ABBREVIATION)]
+;                            for con in conlist])
 ;     key = 'files => BREAK()
-;     key = 'documentation   => dbShowConsDoc(page,conlist)
+;     key = 'documentation => dbShowConsDoc(page, conlist)
 ;     if $exposedOnlyIfTrue then
 ;       cAlist := [x for x in cAlist | isExposedConstructor opOf first x]
-;     key = 'conditions =>     dbShowConditions(page,cAlist,kind)
+;     key = 'conditions => dbShowConditions(page, cAlist, kind)
 ;     key = 'parameters => bcConTable REMDUP ASSOCLEFT cAlist
 ;     key = 'kinds => dbShowConsKinds cAlist
 ;   dbConsExposureMessage()
 ;   htSayStandard('"\endscroll ")
-;   dbPresentCons(page,kind,key)
+;   dbPresentCons(page, kind, key)
 ;   htShowPageNoScroll()
 
 (DEFUN |dbShowCons1| (|htPage| |cAlist| |key|)

@@ -984,7 +984,7 @@
       (SETQ |op| (|opOf| |form|))
       (|conPage| |op|)))))
 
-; aokSearch filter ==  genSearch(filter,true)  --"General" from HD (see man0.ht)
+; aokSearch(filter) ==  genSearch(filter, true)
 
 (DEFUN |aokSearch| (|filter|) (PROG () (RETURN (|genSearch| |filter| T))))
 
