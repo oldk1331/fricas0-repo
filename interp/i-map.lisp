@@ -2232,7 +2232,10 @@
 ;
 ;   locals := SETDIFFERENCE(COPY $localVars, parms)
 ;   if locals then
-;     lets := [['LET, l, ''UNINITIALIZED__VARIABLE, op] for l in locals]
+;     -- we should have more sensible $localVars, but ATM just skip
+;     -- non-symbols
+;     lets := [['LET, l, ''UNINITIALIZED__VARIABLE, op] for l in locals
+;                | SYMBOLP(l)]
 ;     body := ['PROGN, :lets, body]
 ;
 ;   reportFunctionCompilation(op,fnName,parms,
@@ -2269,10 +2272,12 @@
                           (PROGN (SETQ |l| (CAR |bfVar#69|)) NIL))
                       (RETURN (NREVERSE |bfVar#70|)))
                      (#1#
-                      (SETQ |bfVar#70|
-                              (CONS
-                               (LIST 'LET |l| ''UNINITIALIZED_VARIABLE |op|)
-                               |bfVar#70|))))
+                      (AND (SYMBOLP |l|)
+                           (SETQ |bfVar#70|
+                                   (CONS
+                                    (LIST 'LET |l| ''UNINITIALIZED_VARIABLE
+                                          |op|)
+                                    |bfVar#70|)))))
                     (SETQ |bfVar#69| (CDR |bfVar#69|))))
                  NIL |locals| NIL))
         (SETQ |body| (CONS 'PROGN (APPEND |lets| (CONS |body| NIL))))))
