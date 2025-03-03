@@ -143,8 +143,8 @@
 ;       sockSendInt($SessionManager, $CreateFrameAnswer)
 ;       sockSendInt($SessionManager, $frameNumber)
 ;       $frameNumber := $frameNumber + 1
-; --  MRX I'm not sure whether I should call ioHook("startPrompt")/ioHook("endOfPrompt") here
-;       sockSendString($SessionManager, MKPROMPT())
+;       princPrompt()
+;       FORCE_-OUTPUT()
 ;     action = $SwitchFrames =>
 ;       $currentFrameNum := sockGetInt($SessionManager)
 ;       currentFrame := LASSOC($currentFrameNum, $frameAlist)
@@ -219,8 +219,8 @@
                                 (|sockSendInt| |$SessionManager|
                                                |$frameNumber|)
                                 (SETQ |$frameNumber| (+ |$frameNumber| 1))
-                                (|sockSendString| |$SessionManager|
-                                                  (MKPROMPT))))
+                                (|princPrompt|)
+                                (FORCE-OUTPUT)))
                               ((EQUAL |action| |$SwitchFrames|)
                                (PROGN
                                 (SETQ |$currentFrameNum|
