@@ -780,7 +780,7 @@
 ;   c is [op,:argl] =>
 ;     op="Join" =>
 ;         nargs := [mkEvalableCategoryForm(x, e) or return nil for x in argl]
-;         nargs => ["Join", :nargs]
+;         nargs => ["JoinInner", ["LIST", :nargs]]
 ;     op is "DomainSubstitutionMacro" =>
 ;         mkEvalableCategoryForm(CADR argl, e)
 ;     op is "mkCategory" => c
@@ -818,7 +818,7 @@
                                  |bfVar#12|))))
                       (SETQ |bfVar#11| (CDR |bfVar#11|))))
                    NIL |argl| NIL))
-          (COND (|nargs| (CONS '|Join| |nargs|)))))
+          (COND (|nargs| (LIST '|JoinInner| (CONS 'LIST |nargs|))))))
         ((EQ |op| '|DomainSubstitutionMacro|)
          (|mkEvalableCategoryForm| (CADR |argl|) |e|))
         ((EQ |op| '|mkCategory|) |c|)
