@@ -365,7 +365,7 @@
 ;     lastPart :=
 ;         indexpart => STRCONC('",", indexpart, '")")
 ;         '")"
-;     bcGen(STRCONC('"differentiate(", mand, '",", varpart, lastPart)
+;     bcGen(STRCONC('"differentiate(", mand, '",", varpart, lastPart))
 
 (DEFUN |bcDifferentiateGen| (|htPage|)
   (PROG (|mand| |varlist| |indexList| |varpart| |indexpart| |lastPart|)
@@ -390,7 +390,7 @@
                       "You must say how many times you want to differentiate with respect to each variable---or leave that entry blank"))))
       (SETQ |lastPart|
               (COND (|indexpart| (STRCONC "," |indexpart| ")")) (#1# ")")))
-      (("pile syntax error"))))))
+      (|bcGen| (STRCONC "differentiate(" |mand| "," |varpart| |lastPart|))))))
 
 ; bcDraw() ==
 ;   htInitPage('"Draw Basic Command", nil)
