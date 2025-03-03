@@ -4207,7 +4207,7 @@
 ;     if not mem then haventvars := cons(s,haventvars)
 ;   null havevars => st
 ;   st := nreverse nconc(haventvars,havevars)
-;   SORT(st, function mmCatComp)
+;   STABLE_-SORT(st, function mmCatComp)
 
 (DEFUN |orderMmCatStack| (|st|)
   (PROG (|vars| |havevars| |haventvars| |cat| |mem|)
@@ -4268,7 +4268,7 @@
                              (SETQ |st|
                                      (NREVERSE
                                       (NCONC |haventvars| |havevars|)))
-                             (SORT |st| #'|mmCatComp|)))))))))))))
+                             (STABLE-SORT |st| #'|mmCatComp|)))))))))))))
 
 ; mmCatComp(c1, c2) ==
 ;   b1 := ASSQ(CADR c1, $Subst)
