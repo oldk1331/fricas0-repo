@@ -180,7 +180,7 @@
 11219`Semigroups with compatible ordering.
 11269`The class of totally ordered sets,{} that is,{} sets such that for each pair of elements \spad{(a,{} b)} exactly one of the following relations holds \spad{a<b or a=b or b<a} and the relation is transitive,{} \spadignore{i.e.} \spad{a<b and b<c => a<c}. This order should be the natural order on given structure.
 11312`This is category specifying required interface \indented{1}{to output formatters.}
-11369`This is the catefory of stream-based representations of \indented{2}{the \spad{p}-adic integers.}
+11369`This is the category of stream-based representations of \indented{2}{the \spad{p}-adic integers.}
 11433`A partial differential ring with differentiations indexed by a parameter type \spad{S}. \blankline
 11503`The class of partially ordered sets,{} that is sets equipped with transitive and reflexive relation \spad{<=}.
 11548`This is the description of any package which provides partial functions on a domain belonging to TranscendentalFunctionCategory.

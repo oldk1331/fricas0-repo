@@ -30968,7 +30968,7 @@ NIL
 (|PAdicIntegerCategory| |p|) 
 ((|constructor|
   (NIL
-   "This is the catefory of stream-based representations of \\indented{2}{the \\spad{p}-adic integers.}"))
+   "This is the category of stream-based representations of \\indented{2}{the \\spad{p}-adic integers.}"))
  (|root|
   ((% (|SparseUnivariatePolynomial| (|Integer|)) (|Integer|))
    "\\spad{root(f,{} a)} returns a root of the polynomial \\spad{f}. Argument \\spad{a} must be a root of \\spad{f} \\spad{(mod p)}."))
