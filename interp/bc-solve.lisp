@@ -632,7 +632,7 @@
 ;           '(text . "\vspace{1}\newline Do you want:" ),
 ;              '(lispLinks
 ;                  ("All the solutions?" "" bcLinearSolveMatrixInhomoGen all)
-;                   ("A particular solution?" "" bcLinearSolveMatrixInhomoGeni
+;                   ("A particular solution?" "" bcLinearSolveMatrixInhomoGen
 ;                     particular))]
 ;   htShowPage()
 
@@ -665,7 +665,7 @@
              '(|text| . "\\vspace{1}\\newline Do you want:")
              '(|lispLinks|
                ("All the solutions?" "" |bcLinearSolveMatrixInhomoGen| |all|)
-               ("A particular solution?" "" |bcLinearSolveMatrixInhomoGeni|
+               ("A particular solution?" "" |bcLinearSolveMatrixInhomoGen|
                 |particular|))))
       (|htShowPage|)))))
 (DEFUN |bcLinearSolveMatrixInhomo,f| (|i|)
