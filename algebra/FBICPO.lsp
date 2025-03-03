@@ -69,12 +69,12 @@
            '#(NIL NIL NIL NIL NIL (|FinitePoset| 6) (|local| |#1|)
               (|Union| 8 '"failed") (|NonNegativeInteger|) (0 . |joinIfCan|)
               (|Boolean|) (7 . =) |FBICPO;join;%3Nni;1| (13 . |meetIfCan|)
-              |FBICPO;meet;%3Nni;2| (|String|) (|OutputForm|)
+              |FBICPO;meet;%3Nni;2| (|OutputForm|) (|String|)
               (|Record| (|:| |value| 6) (|:| |posX| 8) (|:| |posY| 8))
-              (|Record| (|:| |name| 15) (|:| |arrType| 8) (|:| |fromOb| 8)
+              (|Record| (|:| |name| 16) (|:| |arrType| 8) (|:| |fromOb| 8)
                         (|:| |toOb| 8) (|:| |xOffset| 24) (|:| |yOffset| 24)
                         (|:| |map| 19))
-              (|List| 8) (|List| 17) (|List| 18) (|DirectedGraph| %) (|List| 6)
+              (|List| 8) (|List| 17) (|DirectedGraph| %) (|List| 18) (|List| 6)
               (|Integer|) (|Tree| 24) (|List| 25) (|List| (|Loop|))
               (|Matrix| 24) (|Matrix| 8) (|Void|) (|Scene| (|SCartesian| '2))
               (|List| %) (|List| (|List| 10)) (|Mapping| 10 6 6)
@@ -87,7 +87,7 @@
                   (CONS
                    '#((|BiCPO| 6) (|CoDcpo| 6) (|Dcpo| 6) (|Poset| 6)
                       (|Preorder| 6) (|FiniteGraph| 6) (|SetCategory|)
-                      (|CoercibleTo| 16) (|BasicType|))
+                      (|CoercibleTo| 15) (|BasicType|))
                    (|makeByteWordVec2| 14
                                        '(3 0 7 0 8 8 9 2 7 10 0 0 11 3 0 7 0 8
                                          8 13 3 0 7 0 8 8 13 3 0 8 0 8 8 14 3 0

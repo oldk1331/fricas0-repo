@@ -51,15 +51,15 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|FinitePoset| 6) (|local| |#1|)
               (|Union| 8 '"failed") (|NonNegativeInteger|) (0 . |joinIfCan|)
-              (|Boolean|) (7 . =) |FDCPO;join;%3Nni;1| (|String|)
-              (|OutputForm|)
+              (|Boolean|) (7 . =) |FDCPO;join;%3Nni;1| (|OutputForm|)
+              (|String|)
               (|Record| (|:| |value| 6) (|:| |posX| 8) (|:| |posY| 8))
-              (|Record| (|:| |name| 13) (|:| |arrType| 8) (|:| |fromOb| 8)
+              (|Record| (|:| |name| 14) (|:| |arrType| 8) (|:| |fromOb| 8)
                         (|:| |toOb| 8) (|:| |xOffset| 22) (|:| |yOffset| 22)
                         (|:| |map| 17))
-              (|List| 8) (|List| 15) (|List| 16) (|DirectedGraph| %) (|List| 6)
-              (|Integer|) (|List| 24) (|Tree| 22) (|List| (|Loop|))
-              (|Matrix| 8) (|Matrix| 22) (|Void|) (|Scene| (|SCartesian| '2))
+              (|List| 8) (|List| 15) (|DirectedGraph| %) (|List| 16) (|List| 6)
+              (|Integer|) (|Tree| 22) (|List| 23) (|List| (|Loop|))
+              (|Matrix| 22) (|Matrix| 8) (|Void|) (|Scene| (|SCartesian| '2))
               (|List| %) (|List| (|List| 10)) (|Mapping| 10 6 6)
               (|IncidenceAlgebra| 22 6))
            '#(|joinIfCan| 13 |join| 20) 'NIL
@@ -69,7 +69,7 @@
                      |BasicType&|)
                   (CONS
                    '#((|Dcpo| 6) (|Poset| 6) (|Preorder| 6) (|FiniteGraph| 6)
-                      (|SetCategory|) (|CoercibleTo| 14) (|BasicType|))
+                      (|SetCategory|) (|CoercibleTo| 13) (|BasicType|))
                    (|makeByteWordVec2| 12
                                        '(3 0 7 0 8 8 9 2 7 10 0 0 11 3 0 7 0 8
                                          8 9 3 0 8 0 8 8 12)))))
