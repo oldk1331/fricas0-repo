@@ -774,6 +774,7 @@
       (|sayMSG| |msg'|)))))
 
 ; throwKeyedErrorMsg(kind,key,args) ==
+;   $noEvalTypeMsg => spadThrow()
 ;   sayMSG '" "
 ;   if $testingSystem then sayMSG $testingErrorPrefix
 ;   sayKeyedMsg(key,args)
@@ -782,11 +783,13 @@
 (DEFUN |throwKeyedErrorMsg| (|kind| |key| |args|)
   (PROG ()
     (RETURN
-     (PROGN
-      (|sayMSG| " ")
-      (COND (|$testingSystem| (|sayMSG| |$testingErrorPrefix|)))
-      (|sayKeyedMsg| |key| |args|)
-      (|spadThrow|)))))
+     (COND (|$noEvalTypeMsg| (|spadThrow|))
+           ('T
+            (PROGN
+             (|sayMSG| " ")
+             (COND (|$testingSystem| (|sayMSG| |$testingErrorPrefix|)))
+             (|sayKeyedMsg| |key| |args|)
+             (|spadThrow|)))))))
 
 ; throwKeyedMsgSP(key,args,atree) ==
 ;     if atree and (sp := getSrcPos(atree)) then
@@ -804,10 +807,14 @@
       (|throwKeyedMsg| |key| |args|)))))
 
 ; throwKeyedMsg(key,args) ==
+;   $noEvalTypeMsg => spadThrow()
 ;   throwKeyedMsg1(key, args)
 
 (DEFUN |throwKeyedMsg| (|key| |args|)
-  (PROG () (RETURN (|throwKeyedMsg1| |key| |args|))))
+  (PROG ()
+    (RETURN
+     (COND (|$noEvalTypeMsg| (|spadThrow|))
+           ('T (|throwKeyedMsg1| |key| |args|))))))
 
 ; throwKeyedMsg1(key,args) ==
 ;   sayMSG '" "

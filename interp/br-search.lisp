@@ -1994,6 +1994,7 @@
   (PROG () (RETURN (|conSpecialString2?| |filter| NIL))))
 
 ; conSpecialString2?(filter, secondTime) ==
+;   $ncMsgList : local := []
 ;   parse :=
 ;     words := string2Words filter is [s] => ncParseFromString s
 ;     and/[not member(x,'("and" "or" "not")) for x in words] => ncParseFromString filter
@@ -2008,9 +2009,11 @@
 ;   conSpecialString2?(u, true)
 
 (DEFUN |conSpecialString2?| (|filter| |secondTime|)
-  (PROG (|ISTMP#1| |s| |words| |parse| |form| |u|)
+  (PROG (|$ncMsgList| |u| |form| |parse| |words| |s| |ISTMP#1|)
+    (DECLARE (SPECIAL |$ncMsgList|))
     (RETURN
      (PROGN
+      (SETQ |$ncMsgList| NIL)
       (SETQ |parse|
               (COND
                ((SETQ |words|
