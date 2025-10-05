@@ -326,6 +326,7 @@
        |scl| NIL)))))
 
 ; clearConstructorCaches() ==
+;   clearClams()
 ;   clear_sorted_caches()
 ;   clearCategoryCaches()
 ;   CLRHASH $ConstructorCache
@@ -334,6 +335,7 @@
   (PROG ()
     (RETURN
      (PROGN
+      (|clearClams|)
       (|clear_sorted_caches|)
       (|clearCategoryCaches|)
       (CLRHASH |$ConstructorCache|)))))
@@ -353,11 +355,10 @@
               ('T (HREM |$ConstructorCache| |cname|)))))))))
 
 ; clearConstructorAndLisplibCaches() ==
-;   clearClams()
 ;   clearConstructorCaches()
 
 (DEFUN |clearConstructorAndLisplibCaches| ()
-  (PROG () (RETURN (PROGN (|clearClams|) (|clearConstructorCaches|)))))
+  (PROG () (RETURN (|clearConstructorCaches|))))
 
 ; clearCategoryCaches() ==
 ;   for name in allConstructors() repeat
