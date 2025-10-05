@@ -258,11 +258,6 @@
       (AND (|HasCategory| |#1| '(|FiniteFieldCategory|))
            (|HasCategory| % '(|CharacteristicNonZero|))))
      (|augmentPredVector| % 2199023255552))
-    (AND
-     (OR (|HasCategory| |#1| '(|CharacteristicNonZero|))
-         (AND (|HasCategory| |#1| '(|EuclideanDomain|)) #1#
-              (|HasCategory| % '(|CharacteristicNonZero|))))
-     (|augmentPredVector| % 4398046511104))
     (SETF |pv$| (QREFELT % 3))
     (QSETREFV % 7 (|Record| (|:| |real| |#1|) (|:| |imag| |#1|)))
     (COND
@@ -326,7 +321,7 @@
               (|Union| 47 '#3="failed") (|Factored| %) (|List| %)
               (|SparseUnivariatePolynomial| %)
               (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
-              (|Union| 62 '#3#) (|List| 59) (|Factored| 59)
+              (|Factored| 59) (|Union| 63 '#3#) (|List| 59)
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (|Record| (|:| |coef1| %) (|:| |coef2| %))
               (|Union| 65 '#4="failed") (|Union| 58 '#4#)
@@ -342,7 +337,7 @@
               (|Union| 54 '#1#) (|Matrix| 44)
               (|Record| (|:| |mat| 89) (|:| |vec| (|Vector| 44))) (|List| 45)
               (|PatternMatchResult| (|Float|) %) (|PatternMatchResult| 44 %)
-              (|Complex| (|DoubleFloat|)) (|Complex| (|Float|))
+              (|Complex| (|Float|)) (|Complex| (|DoubleFloat|))
               (|Union| 44 '#2#))
            '#(~= 117 |zero?| 123 |unitNormal| 128 |unitCanonical| 133 |unit?|
               138 |traceMatrix| 143 |trace| 152 |tanh| 157 |tan| 162
@@ -450,7 +445,7 @@
                  (|OpenMath|) (|ConvertibleTo| 73) (|ConvertibleTo| 72)
                  (|Eltable| 6 $$) (|InnerEvalable| 6 6) (|InnerEvalable| 87 6)
                  (|multiplicativeValuation|) (|ConvertibleTo| 71)
-                 (|ConvertibleTo| 94) (|ConvertibleTo| 95)
+                 (|ConvertibleTo| 95) (|ConvertibleTo| 94)
                  (|arbitraryPrecision|) (|ElementaryFunctionCategory|)
                  (|ArcHyperbolicFunctionCategory|)
                  (|HyperbolicFunctionCategory|)
@@ -472,8 +467,8 @@
                                     2 0 19 0 0 1 1 0 19 0 26 1 41 64 0 1 1 41 0
                                     0 1 1 41 19 0 1 1 0 46 47 1 0 0 46 1 1 0 6
                                     0 1 1 12 0 0 1 1 12 0 0 1 1 2 81 44 1 2 0
-                                    37 0 0 1 1 34 63 59 1 1 36 0 0 1 1 36 57 0
-                                    1 1 13 0 0 1 2 34 61 62 59 1 2 19 19 0 0 1
+                                    37 0 0 1 1 34 61 59 1 1 36 0 0 1 1 36 57 0
+                                    1 1 13 0 0 1 2 34 62 63 59 1 2 19 19 0 0 1
                                     2 40 19 0 0 1 0 6 45 1 1 12 0 0 1 1 12 0 0
                                     1 1 12 0 0 1 1 12 0 0 1 0 0 0 1 1 0 37 0 1
                                     2 0 0 0 43 1 2 0 0 0 45 1 1 0 50 0 1 1 8 88
@@ -495,7 +490,7 @@
                                     0 1 1 0 11 0 1 1 3 0 0 1 0 2 0 1 1 6 0 43 1
                                     0 0 0 1 1 0 6 0 15 2 7 85 85 0 1 1 7 84 0 1
                                     0 0 0 1 2 36 59 59 59 1 2 36 0 0 0 1 1 36 0
-                                    58 1 0 2 80 1 1 34 63 59 1 1 34 63 59 1 1
+                                    58 1 0 2 80 1 1 34 61 59 1 1 34 61 59 1 1
                                     36 57 0 1 3 40 66 0 0 0 1 2 40 68 0 0 1 2
                                     41 37 0 0 41 2 11 37 0 6 38 2 40 67 58 0 1
                                     1 12 0 0 1 3 23 0 0 74 74 1 2 23 0 0 75 1 3
@@ -513,7 +508,7 @@
                                     72 0 1 1 28 73 0 1 1 15 94 0 1 1 15 95 0 1
                                     1 0 0 0 39 1 42 56 51 1 2 0 0 6 6 30 2 0 0
                                     0 0 1 1 0 42 0 1 1 0 0 44 1 1 0 0 6 29 1 0
-                                    0 0 1 1 39 0 54 1 1 43 37 0 1 1 2 0 0 1 1 0
+                                    0 0 1 1 39 0 54 1 1 42 37 0 1 1 2 0 0 1 1 0
                                     49 0 1 0 0 45 1 0 0 47 1 1 12 0 0 1 1 12 0
                                     0 1 3 0 0 0 0 0 1 2 41 19 0 0 1 1 12 0 0 1
                                     1 12 0 0 1 1 12 0 0 1 1 12 0 0 1 1 12 6 0 1

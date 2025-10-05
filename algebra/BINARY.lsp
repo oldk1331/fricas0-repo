@@ -96,13 +96,6 @@
           (AND (|HasCategory| % '(|CharacteristicNonZero|))
                (|HasCategory| (|Integer|) '(|PolynomialFactorizationExplicit|))
                (|augmentPredVector| % 33554432))
-          (AND
-           (OR
-            (AND (|HasCategory| % '(|CharacteristicNonZero|))
-                 (|HasCategory| (|Integer|)
-                                '(|PolynomialFactorizationExplicit|)))
-            (|HasCategory| (|Integer|) '(|CharacteristicNonZero|)))
-           (|augmentPredVector| % 67108864))
           (SETF |pv$| (QREFELT % 3))
           %))) 
 
@@ -144,7 +137,7 @@
               (|InputForm|) (|Pattern| 49) (|Pattern| 14) (|List| 14)
               (|Equation| 14) (|List| 39) (|Symbol|) (|List| 41) (|List| 16)
               (|PatternMatchResult| 49 %) (|PatternMatchResult| 14 %)
-              (|Union| 47 '#2#) (|List| 20) (|Factored| 20) (|Float|)
+              (|Factored| 20) (|Union| 48 '#2#) (|List| 20) (|Float|)
               (|DoubleFloat|) (|Union| 6 '#1#) (|Union| 41 '#1#))
            '#(~= 5 |zero?| 11 |wholePart| 16 |unitNormal| 21 |unitCanonical| 26
               |unit?| 31 |subtractIfCan| 36 |squareFreePolynomial| 42
@@ -234,8 +227,8 @@
               (|makeByteWordVec2| 52
                                   '(1 0 0 6 7 2 0 10 0 0 1 1 0 10 0 1 1 22 14 0
                                     1 1 0 17 0 1 1 0 0 0 1 1 0 10 0 1 2 0 15 0
-                                    0 1 1 1 48 20 1 1 0 0 0 1 1 0 27 0 1 2 1 46
-                                    47 20 1 2 24 10 0 0 1 2 0 10 0 0 1 1 7 14 0
+                                    0 1 1 1 46 20 1 1 0 0 0 1 1 0 27 0 1 2 1 47
+                                    48 20 1 2 24 10 0 0 1 2 0 10 0 0 1 1 7 14 0
                                     1 0 0 0 1 1 0 15 0 1 2 0 0 0 13 1 2 0 0 0
                                     16 1 1 0 28 0 1 1 10 51 0 1 1 10 28 0 1 1 2
                                     52 0 1 1 0 14 0 1 1 10 6 0 1 1 10 14 0 1 1
@@ -250,7 +243,7 @@
                                     0 1 2 0 0 0 0 1 1 0 0 19 1 1 0 12 0 1 1 0 0
                                     0 1 0 11 0 1 2 0 20 20 20 1 2 0 0 0 0 1 1 0
                                     0 19 1 1 0 6 0 1 1 22 0 0 1 1 23 14 0 1 1 1
-                                    48 20 1 1 1 48 20 1 1 0 27 0 1 3 0 25 0 0 0
+                                    46 20 1 1 1 46 20 1 1 0 27 0 1 3 0 25 0 0 0
                                     1 2 0 26 0 0 1 2 0 15 0 0 1 2 0 21 19 0 1 3
                                     13 0 0 38 38 1 2 13 0 0 39 1 3 13 0 0 14 14
                                     1 2 13 0 0 40 1 3 12 0 0 41 14 1 3 12 0 0
@@ -261,7 +254,7 @@
                                     0 14 0 1 1 5 35 0 1 1 17 36 0 1 1 18 37 0 1
                                     1 6 49 0 1 1 6 50 0 1 1 26 34 31 1 2 0 0 0
                                     0 1 1 0 11 0 1 1 0 0 14 1 1 0 0 0 1 1 0 0 6
-                                    7 1 0 5 0 9 1 0 6 0 1 1 2 0 41 1 1 27 15 0
+                                    7 1 0 5 0 9 1 0 6 0 1 1 2 0 41 1 1 26 15 0
                                     1 0 0 16 1 1 23 14 0 1 1 0 0 6 8 3 0 0 0 0
                                     0 1 2 0 10 0 0 1 2 0 0 0 0 1 2 0 10 0 0 1 1
                                     7 0 0 1 2 0 0 0 13 1 2 0 0 0 16 1 2 0 0 0

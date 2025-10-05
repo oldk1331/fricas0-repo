@@ -511,13 +511,6 @@
           (AND (|HasCategory| % '(|CharacteristicNonZero|))
                (|HasCategory| (|Integer|) '(|PolynomialFactorizationExplicit|))
                (|augmentPredVector| % 33554432))
-          (AND
-           (OR
-            (AND (|HasCategory| % '(|CharacteristicNonZero|))
-                 (|HasCategory| (|Integer|)
-                                '(|PolynomialFactorizationExplicit|)))
-            (|HasCategory| (|Integer|) '(|CharacteristicNonZero|)))
-           (|augmentPredVector| % 67108864))
           (SETF |pv$| (QREFELT % 3))
           (COND ((< |#1| 2) (|error| "Radix base must be at least 2")))
           (QSETREFV % 7
@@ -719,7 +712,7 @@
                                     1 5 101 0 1 1 17 102 0 1 1 18 103 0 1 1 6
                                     114 0 1 1 6 115 0 1 1 26 100 97 1 2 0 0 0 0
                                     1 1 0 65 0 78 1 0 0 23 43 1 0 0 0 1 1 0 0
-                                    16 19 1 0 16 0 17 1 2 0 107 1 1 27 84 0 1 0
+                                    16 19 1 0 16 0 17 1 2 0 107 1 1 26 84 0 1 0
                                     0 8 9 1 23 23 0 51 3 0 0 0 0 0 1 2 0 13 0 0
                                     1 2 0 0 0 0 1 2 0 13 0 0 1 1 7 0 0 1 2 0 0
                                     0 83 1 2 0 0 0 8 1 2 0 0 0 23 1 0 0 0 10 0

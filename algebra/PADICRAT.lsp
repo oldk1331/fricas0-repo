@@ -122,13 +122,6 @@
                (|HasCategory| (|PAdicInteger| |#1|)
                               '(|PolynomialFactorizationExplicit|))
                (|augmentPredVector| % 33554432))
-          (AND
-           (OR
-            (AND (|HasCategory| % '(|CharacteristicNonZero|))
-                 (|HasCategory| (|PAdicInteger| |#1|)
-                                '(|PolynomialFactorizationExplicit|)))
-            (|HasCategory| (|PAdicInteger| |#1|) '(|CharacteristicNonZero|)))
-           (|augmentPredVector| % 67108864))
           (SETF |pv$| (QREFELT % 3))
           %))) 
 
@@ -173,7 +166,7 @@
               (|List| 41) (|Matrix| 11)
               (|Record| (|:| |mat| 43) (|:| |vec| (|Vector| 11))) (|List| 13)
               (|PatternMatchResult| 51 %) (|PatternMatchResult| 11 %)
-              (|Union| 49 '#2#) (|List| 17) (|Factored| 17) (|Float|)
+              (|Factored| 17) (|Union| 50 '#2#) (|List| 17) (|Float|)
               (|DoubleFloat|) (|Union| 25 '#1#) (|Union| 11 '#1#)
               (|Union| 41 '#1#))
            '#() 'NIL

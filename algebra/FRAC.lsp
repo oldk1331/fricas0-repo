@@ -992,11 +992,6 @@
     (AND (|HasCategory| |#1| '(|PolynomialFactorizationExplicit|))
          (|HasCategory| % '(|CharacteristicNonZero|))
          (|augmentPredVector| % 8589934592))
-    (AND
-     (OR (|HasCategory| |#1| '(|CharacteristicNonZero|))
-         (AND (|HasCategory| |#1| '(|PolynomialFactorizationExplicit|))
-              (|HasCategory| % '(|CharacteristicNonZero|))))
-     (|augmentPredVector| % 17179869184))
     (SETF |pv$| (QREFELT % 3))
     (QSETREFV % 7 (|Record| (|:| |num| |#1|) (|:| |den| |#1|)))
     (COND
@@ -1334,7 +1329,7 @@
                                     0 76 1 27 149 0 1 1 16 150 0 1 1 20 151 0 1
                                     1 5 165 0 1 1 5 166 0 1 1 34 111 112 116 2
                                     0 0 0 0 1 1 0 137 0 1 1 0 0 62 1 1 0 0 0 1
-                                    1 0 0 68 1 1 0 0 6 10 1 2 0 157 1 1 35 29 0
+                                    1 0 0 68 1 1 0 0 6 10 1 2 0 157 1 1 34 29 0
                                     102 0 0 82 103 1 23 6 0 37 3 0 0 0 0 0 1 2
                                     0 11 0 0 1 2 0 0 0 0 1 2 0 11 0 0 1 1 6 0 0
                                     1 2 0 0 0 138 1 2 0 0 0 82 126 2 0 0 0 62 1

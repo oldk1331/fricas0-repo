@@ -157,15 +157,9 @@
      (OR
       (AND (|HasCategory| % '(|CharacteristicNonZero|))
            (|HasCategory| (|MachineFloat|) '(|EuclideanDomain|)) #4#)
-      (|HasCategory| (|MachineFloat|) '(|CharacteristicNonZero|)))
-     (|augmentPredVector| % 34359738368))
-    (AND
-     (OR
-      (AND (|HasCategory| % '(|CharacteristicNonZero|))
-           (|HasCategory| (|MachineFloat|) '(|EuclideanDomain|)) #4#)
       (AND (|HasCategory| % '(|CharacteristicNonZero|))
            (|HasCategory| (|MachineFloat|) '(|FiniteFieldCategory|))))
-     (|augmentPredVector| % 68719476736))
+     (|augmentPredVector| % 34359738368))
     (SETF |pv$| (QREFELT % 3))
     %))) 
 
@@ -385,7 +379,7 @@
                                     49 0 1 1 0 44 47 1 2 0 44 47 47 1 2 0 49 0
                                     47 1 1 0 0 43 1 1 0 43 0 1 1 0 49 0 1 1 0 0
                                     49 1 1 14 66 0 1 1 24 67 0 1 1 25 68 0 1 1
-                                    13 89 0 1 1 13 7 0 1 1 0 0 0 1 1 37 52 45 1
+                                    13 7 0 1 1 13 89 0 1 1 0 0 0 1 1 36 52 45 1
                                     2 0 0 9 9 12 2 0 0 0 0 1 1 0 36 0 1 1 0 0
                                     14 1 1 0 0 0 1 1 0 0 9 1 1 0 0 7 13 1 0 0
                                     15 19 1 0 0 21 25 1 0 0 5 28 1 0 7 0 33 1
