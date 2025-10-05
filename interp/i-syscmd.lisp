@@ -2924,7 +2924,7 @@
 ;   updateCurrentInterpreterFrame()
 ;   null rest $interpreterFrameRing => NIL  -- nothing to do
 ;   [:b,l] := $interpreterFrameRing
-;   $interpreterFrameRing := NCONC2([l],b)
+;   $interpreterFrameRing := cons(l, b)
 ;   updateFromCurrentInterpreterFrame()
 
 (DEFUN |previousInterpreterFrame| ()
@@ -2938,14 +2938,14 @@
               (SETQ |LETTMP#1| (REVERSE |$interpreterFrameRing|))
               (SETQ |l| (CAR |LETTMP#1|))
               (SETQ |b| (NREVERSE (CDR |LETTMP#1|)))
-              (SETQ |$interpreterFrameRing| (NCONC2 (LIST |l|) |b|))
+              (SETQ |$interpreterFrameRing| (CONS |l| |b|))
               (|updateFromCurrentInterpreterFrame|))))))))
 
 ; nextInterpreterFrame() ==
 ;   updateCurrentInterpreterFrame()
 ;   null rest $interpreterFrameRing => NIL  -- nothing to do
 ;   $interpreterFrameRing :=
-;     NCONC2(rest $interpreterFrameRing,[first $interpreterFrameRing])
+;     NCONC(rest $interpreterFrameRing, [first $interpreterFrameRing])
 ;   updateFromCurrentInterpreterFrame()
 
 (DEFUN |nextInterpreterFrame| ()
@@ -2957,8 +2957,8 @@
             ('T
              (PROGN
               (SETQ |$interpreterFrameRing|
-                      (NCONC2 (CDR |$interpreterFrameRing|)
-                       (LIST (CAR |$interpreterFrameRing|))))
+                      (NCONC (CDR |$interpreterFrameRing|)
+                             (LIST (CAR |$interpreterFrameRing|))))
               (|updateFromCurrentInterpreterFrame|))))))))
 
 ; createCurrentInterpreterFrame() ==

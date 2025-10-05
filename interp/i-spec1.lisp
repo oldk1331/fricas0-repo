@@ -402,7 +402,7 @@
 ;   $compiledOpNameList := [$mapName]
 ;   minivectorName := makeInternalMapMinivectorName(PNAME $mapName)
 ;   body := SUBST(minivectorName,"$$$",body)
-;   SET(minivectorName,LIST2REFVEC $minivector)
+;   SET(minivectorName, LIST2VEC($minivector))
 ;
 ;   -- The use of the three variables $definingMap, $genValue and $compilingMap
 ;   -- is to cover the following cases:
@@ -445,7 +445,7 @@
       (SETQ |minivectorName|
               (|makeInternalMapMinivectorName| (PNAME |$mapName|)))
       (SETQ |body| (SUBST |minivectorName| '$$$ |body|))
-      (SET |minivectorName| (LIST2REFVEC |$minivector|))
+      (SET |minivectorName| (LIST2VEC |$minivector|))
       (SETQ |$freeVariables| NIL)
       (SETQ |$boundVariables| (CONS |minivectorName| |vars|))
       (SETQ |body1| (|checkForFreeVariables1| |body| 'ALL |$boundVariables|))
@@ -2821,7 +2821,7 @@
 ;       ["ELT","envArg",positionInVec(0,#($freeVariables))]
 ;     v
 ;   LISTP v =>
-;     rest(LASTTAIL v) => -- Must be a better way to check for a genuine list?
+;     rest(LASTNODE(v)) => -- Must be a better way to check for a genuine list?
 ;       v
 ;     [op,:args] := v
 ;     LISTP op =>
@@ -2884,7 +2884,7 @@
                           (|positionInVec| 0 (LENGTH |$freeVariables|)))))
                   (#1='T |v|)))
            ((LISTP |v|)
-            (COND ((CDR (LASTTAIL |v|)) |v|)
+            (COND ((CDR (LASTNODE |v|)) |v|)
                   (#1#
                    (PROGN
                     (SETQ |op| (CAR |v|))
