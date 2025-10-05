@@ -492,11 +492,11 @@
             (CONS
              '#(|IntegerNumberSystem&| |EuclideanDomain&|
                 |PolynomialFactorizationExplicit&| NIL
-                |UniqueFactorizationDomain&| |GcdDomain&| NIL NIL NIL NIL
-                |OrderedRing&| |Algebra&| |EntireRing&| NIL |DifferentialRing&|
-                NIL NIL |Rng&| |NonAssociativeAlgebra&| NIL |Module&|
-                |NonAssociativeRing&| NIL NIL NIL NIL |NonAssociativeRng&| NIL
-                NIL NIL |AbelianGroup&| NIL NIL NIL NIL NIL |AbelianMonoid&|
+                |UniqueFactorizationDomain&| |GcdDomain&| NIL NIL NIL NIL NIL
+                |Algebra&| |EntireRing&| NIL |DifferentialRing&| NIL NIL |Rng&|
+                |NonAssociativeAlgebra&| NIL |Module&| |NonAssociativeRing&|
+                NIL |OrderedAbelianGroup&| NIL NIL |NonAssociativeRng&| NIL NIL
+                NIL |AbelianGroup&| NIL NIL NIL NIL NIL |AbelianMonoid&|
                 |NonAssociativeSemiRng&| |MagmaWithUnit&| NIL |OrderedSet&|
                 |AbelianSemiGroup&| |Magma&| NIL NIL NIL |SetCategory&| NIL
                 |RetractableTo&| NIL |Hashable&| NIL |BasicType&| NIL NIL NIL

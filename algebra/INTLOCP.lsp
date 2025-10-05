@@ -482,13 +482,13 @@
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0))
             (CONS
-             '#(|EuclideanDomain&| NIL |GcdDomain&| NIL NIL |OrderedRing&| NIL
-                |Algebra&| |EntireRing&| NIL NIL NIL |Rng&|
-                |NonAssociativeAlgebra&| NIL |Module&| |NonAssociativeRing&|
-                NIL NIL NIL |NonAssociativeRng&| NIL NIL |AbelianGroup&| NIL
-                NIL NIL NIL NIL |AbelianMonoid&| |NonAssociativeSemiRng&|
-                |MagmaWithUnit&| NIL |OrderedSet&| |AbelianSemiGroup&| |Magma&|
-                NIL |SetCategory&| NIL |RetractableTo&| |RetractableFrom&|
+             '#(|EuclideanDomain&| NIL |GcdDomain&| NIL NIL NIL NIL |Algebra&|
+                |EntireRing&| NIL NIL NIL |Rng&| |NonAssociativeAlgebra&| NIL
+                |Module&| |NonAssociativeRing&| NIL |OrderedAbelianGroup&| NIL
+                |NonAssociativeRng&| NIL NIL |AbelianGroup&| NIL NIL NIL NIL
+                NIL |AbelianMonoid&| |NonAssociativeSemiRng&| |MagmaWithUnit&|
+                NIL |OrderedSet&| |AbelianSemiGroup&| |Magma&| NIL
+                |SetCategory&| NIL |RetractableTo&| |RetractableFrom&|
                 |Hashable&| NIL |BasicType&| NIL NIL NIL |PartialOrder&| NIL
                 NIL NIL)
              (CONS

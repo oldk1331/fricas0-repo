@@ -117,9 +117,9 @@
             (CONS
              '#(|IntegerNumberSystem&| |EuclideanDomain&|
                 |UniqueFactorizationDomain&| NIL |GcdDomain&| NIL NIL NIL NIL
-                NIL |OrderedRing&| |Algebra&| |EntireRing&| NIL
-                |DifferentialRing&| NIL NIL |Rng&| |NonAssociativeAlgebra&| NIL
-                |Module&| |NonAssociativeRing&| NIL NIL NIL
+                NIL NIL |Algebra&| |EntireRing&| NIL |DifferentialRing&| NIL
+                NIL |Rng&| |NonAssociativeAlgebra&| NIL |Module&|
+                |NonAssociativeRing&| NIL |OrderedAbelianGroup&| NIL
                 |NonAssociativeRng&| NIL NIL |AbelianGroup&| NIL NIL NIL NIL
                 NIL |AbelianMonoid&| |NonAssociativeSemiRng&| |MagmaWithUnit&|
                 NIL |OrderedSet&| |AbelianSemiGroup&| |Magma&| NIL NIL NIL

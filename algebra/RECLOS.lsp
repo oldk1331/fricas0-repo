@@ -648,12 +648,12 @@
                                   0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|RealClosedField&| |Field&| |EuclideanDomain&| NIL
-                |UniqueFactorizationDomain&| |GcdDomain&| NIL |OrderedRing&|
-                NIL NIL |DivisionRing&| |Algebra&| |EntireRing&| |Algebra&|
-                |Algebra&| |Algebra&| NIL NIL NIL |Rng&|
+                |UniqueFactorizationDomain&| |GcdDomain&| NIL NIL NIL NIL
+                |DivisionRing&| |Algebra&| |EntireRing&| |Algebra&| |Algebra&|
+                |Algebra&| NIL NIL NIL |Rng&| |NonAssociativeAlgebra&|
                 |NonAssociativeAlgebra&| |NonAssociativeAlgebra&|
-                |NonAssociativeAlgebra&| |NonAssociativeAlgebra&| NIL |Module&|
-                |Module&| |Module&| |Module&| |NonAssociativeRing&| NIL NIL NIL
+                |NonAssociativeAlgebra&| NIL |Module&| |Module&| |Module&|
+                |Module&| |NonAssociativeRing&| |OrderedAbelianGroup&| NIL NIL
                 NIL NIL NIL |NonAssociativeRng&| NIL NIL NIL NIL NIL NIL NIL
                 NIL |AbelianGroup&| NIL NIL NIL NIL NIL |AbelianMonoid&|
                 |NonAssociativeSemiRng&| |MagmaWithUnit&| NIL |OrderedSet&|

@@ -1128,22 +1128,23 @@
                 |EuclideanDomain&| |UnivariatePowerSeriesCategory&|
                 |UniqueFactorizationDomain&| NIL |PowerSeriesCategory&| NIL
                 |GcdDomain&| |AbelianMonoidRing&| NIL |DifferentialExtension&|
-                |OrderedRing&| NIL |DivisionRing&| NIL |DifferentialRing&|
+                NIL NIL |DivisionRing&| NIL |DifferentialRing&|
                 |PartialDifferentialRing&| |Algebra&| NIL NIL |Algebra&|
                 |EntireRing&| |Algebra&| |Algebra&| NIL |Rng&|
                 |NonAssociativeAlgebra&| |NonAssociativeAlgebra&| NIL
                 |NonAssociativeAlgebra&| |NonAssociativeAlgebra&|
                 |FullyLinearlyExplicitOver&| |Module&| |Module&| |Module&|
-                |Module&| NIL NIL NIL NIL NIL NIL |NonAssociativeRing&| NIL NIL
-                NIL NIL NIL |NonAssociativeRng&| NIL NIL NIL NIL NIL NIL NIL
-                NIL NIL NIL |AbelianGroup&| NIL NIL NIL NIL NIL |OrderedSet&|
-                |MagmaWithUnit&| |AbelianMonoid&| NIL |NonAssociativeSemiRng&|
-                NIL NIL |FullyEvalableOver&| NIL NIL |AbelianSemiGroup&|
-                |Magma&| NIL |Evalable&| |RetractableTo&| |RetractableTo&| NIL
-                |RetractableTo&| NIL |TranscendentalFunctionCategory&|
-                |SetCategory&| |RetractableTo&| NIL NIL NIL NIL
-                |InnerEvalable&| |InnerEvalable&| NIL NIL |PartialOrder&| NIL
-                NIL NIL NIL NIL NIL NIL NIL NIL |RadicalCategory&|
+                |Module&| NIL NIL NIL NIL |OrderedAbelianGroup&| NIL
+                |NonAssociativeRing&| NIL NIL NIL NIL NIL |NonAssociativeRng&|
+                NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL
+                NIL NIL NIL |OrderedSet&| |MagmaWithUnit&| |AbelianMonoid&| NIL
+                |NonAssociativeSemiRng&| NIL NIL |FullyEvalableOver&| NIL NIL
+                |AbelianSemiGroup&| |Magma&| NIL |Evalable&| |RetractableTo&|
+                |RetractableTo&| NIL |RetractableTo&| NIL
+                |TranscendentalFunctionCategory&| |SetCategory&|
+                |RetractableTo&| NIL NIL NIL NIL |InnerEvalable&|
+                |InnerEvalable&| NIL NIL |PartialOrder&| NIL NIL NIL NIL NIL
+                NIL NIL NIL NIL |RadicalCategory&|
                 |ElementaryFunctionCategory&| NIL |HyperbolicFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
                 |TrigonometricFunctionCategory&| NIL NIL |BasicType&| NIL NIL)

@@ -82,13 +82,13 @@
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
-             '#(|OrderedRing&| NIL |Algebra&| NIL NIL |Rng&|
-                |NonAssociativeAlgebra&| NIL |Module&| NIL
-                |NonAssociativeRing&| NIL NIL NIL NIL |NonAssociativeRng&| NIL
-                NIL NIL |AbelianGroup&| NIL NIL NIL NIL NIL |AbelianMonoid&|
-                |NonAssociativeSemiRng&| |MagmaWithUnit&| NIL |OrderedSet&|
-                |AbelianSemiGroup&| |Magma&| NIL |SetCategory&|
-                |RetractableFrom&| NIL |PartialOrder&| |BasicType&| NIL NIL)
+             '#(NIL NIL |Algebra&| NIL NIL |Rng&| |NonAssociativeAlgebra&| NIL
+                |Module&| NIL |NonAssociativeRing&| NIL |OrderedAbelianGroup&|
+                NIL NIL |NonAssociativeRng&| NIL NIL NIL |AbelianGroup&| NIL
+                NIL NIL NIL NIL |AbelianMonoid&| |NonAssociativeSemiRng&|
+                |MagmaWithUnit&| NIL |OrderedSet&| |AbelianSemiGroup&| |Magma&|
+                NIL |SetCategory&| |RetractableFrom&| NIL |PartialOrder&|
+                |BasicType&| NIL NIL)
              (CONS
               '#((|OrderedRing|) (|CharacteristicZero|) (|Algebra| 25) (|Ring|)
                  (|SemiRing|) (|Rng|) (|NonAssociativeAlgebra| 25) (|SemiRng|)

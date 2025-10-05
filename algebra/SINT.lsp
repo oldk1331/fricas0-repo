@@ -354,10 +354,10 @@
                                   0 0 0 0 0 0 0))
             (CONS
              '#(|IntegerNumberSystem&| |EuclideanDomain&| NIL
-                |UniqueFactorizationDomain&| |GcdDomain&| NIL NIL NIL NIL
-                |OrderedRing&| |Algebra&| |EntireRing&| NIL |DifferentialRing&|
-                NIL NIL |Rng&| |NonAssociativeAlgebra&| NIL |Module&|
-                |NonAssociativeRing&| NIL NIL NIL |NonAssociativeRng&| NIL NIL
+                |UniqueFactorizationDomain&| |GcdDomain&| NIL NIL NIL NIL NIL
+                |Algebra&| |EntireRing&| NIL |DifferentialRing&| NIL NIL |Rng&|
+                |NonAssociativeAlgebra&| NIL |Module&| |NonAssociativeRing&|
+                NIL |OrderedAbelianGroup&| NIL |NonAssociativeRng&| NIL NIL
                 |Logic&| |AbelianGroup&| NIL NIL NIL NIL NIL NIL NIL NIL
                 |AbelianMonoid&| |NonAssociativeSemiRng&| |MagmaWithUnit&| NIL
                 |OrderedSet&| NIL NIL NIL |AbelianSemiGroup&| |Magma&| NIL NIL

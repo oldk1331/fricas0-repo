@@ -1645,12 +1645,12 @@
             (CONS
              '#(|FloatingPointSystem&| |RealNumberSystem&| |Field&|
                 |EuclideanDomain&| |UniqueFactorizationDomain&| NIL
-                |GcdDomain&| NIL NIL NIL |DivisionRing&| |OrderedRing&|
-                |Algebra&| |EntireRing&| |Algebra&| NIL |DifferentialRing&| NIL
-                NIL |Rng&| |NonAssociativeAlgebra&| |NonAssociativeAlgebra&|
-                NIL |Module&| |Module&| |NonAssociativeRing&| NIL NIL NIL NIL
-                |NonAssociativeRng&| NIL NIL NIL NIL |AbelianGroup&| NIL NIL
-                NIL NIL NIL |AbelianMonoid&| |NonAssociativeSemiRng&|
+                |GcdDomain&| NIL NIL NIL |DivisionRing&| NIL |Algebra&|
+                |EntireRing&| |Algebra&| NIL |DifferentialRing&| NIL NIL |Rng&|
+                |NonAssociativeAlgebra&| |NonAssociativeAlgebra&| NIL |Module&|
+                |Module&| |NonAssociativeRing&| NIL NIL |OrderedAbelianGroup&|
+                NIL |NonAssociativeRng&| NIL NIL NIL NIL |AbelianGroup&| NIL
+                NIL NIL NIL NIL |AbelianMonoid&| |NonAssociativeSemiRng&|
                 |MagmaWithUnit&| NIL |OrderedSet&| |AbelianSemiGroup&| |Magma&|
                 NIL NIL |SetCategory&| NIL NIL |RetractableTo&|
                 |RetractableTo&| |TranscendentalFunctionCategory&| |Hashable&|

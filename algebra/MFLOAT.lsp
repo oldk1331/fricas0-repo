@@ -539,12 +539,12 @@
             (CONS
              '#(|FloatingPointSystem&| |RealNumberSystem&| |Field&|
                 |EuclideanDomain&| |UniqueFactorizationDomain&| NIL
-                |GcdDomain&| NIL NIL NIL NIL |DivisionRing&| |OrderedRing&|
-                |Algebra&| |EntireRing&| |Algebra&| NIL NIL NIL |Rng&|
+                |GcdDomain&| NIL NIL NIL NIL |DivisionRing&| NIL |Algebra&|
+                |EntireRing&| |Algebra&| NIL NIL NIL |Rng&|
                 |NonAssociativeAlgebra&| |NonAssociativeAlgebra&| NIL |Module&|
-                |Module&| |NonAssociativeRing&| NIL NIL NIL NIL
-                |NonAssociativeRng&| NIL NIL NIL NIL |AbelianGroup&| NIL NIL
-                NIL NIL NIL |AbelianMonoid&| |NonAssociativeSemiRng&|
+                |Module&| |NonAssociativeRing&| NIL NIL |OrderedAbelianGroup&|
+                NIL |NonAssociativeRng&| NIL NIL NIL NIL |AbelianGroup&| NIL
+                NIL NIL NIL NIL |AbelianMonoid&| |NonAssociativeSemiRng&|
                 |MagmaWithUnit&| NIL |OrderedSet&| |AbelianSemiGroup&| |Magma&|
                 NIL NIL |SetCategory&| NIL NIL |RetractableTo&|
                 |RetractableTo&| |RetractableTo&| NIL |BasicType&| NIL NIL NIL
