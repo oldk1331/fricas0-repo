@@ -7694,14 +7694,28 @@
       (COND ((|StreamNull| |s|) NIL)
             ('T (|pf2Sex| (|macroExpanded| (CAR (CDR (CAR |s|)))))))))))
 
-; ncParseFromString(s) ==
+; ncParseFromString1(s) ==
 ;    $BreakMode : local := 'throw_reader
 ;    CATCH('SPAD_READER, parseFromString(s))
 
-(DEFUN |ncParseFromString| (|s|)
+(DEFUN |ncParseFromString1| (|s|)
   (PROG (|$BreakMode|)
     (DECLARE (SPECIAL |$BreakMode|))
     (RETURN
      (PROGN
       (SETQ |$BreakMode| '|throw_reader|)
       (CATCH 'SPAD_READER (|parseFromString| |s|))))))
+
+; ncParseFromString0(s, macros) ==
+;     $pfMacros : local := macros
+;     ncParseFromString1(s)
+
+(DEFUN |ncParseFromString0| (|s| |macros|)
+  (PROG (|$pfMacros|)
+    (DECLARE (SPECIAL |$pfMacros|))
+    (RETURN (PROGN (SETQ |$pfMacros| |macros|) (|ncParseFromString1| |s|)))))
+
+; ncParseFromString(s) == ncParseFromString0(s, $pfMacros)
+
+(DEFUN |ncParseFromString| (|s|)
+  (PROG () (RETURN (|ncParseFromString0| |s| |$pfMacros|))))
