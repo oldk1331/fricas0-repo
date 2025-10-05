@@ -1143,8 +1143,8 @@
 ;   domainForm  := htpProperty(htPage,'domname)
 ;   dom     := EVAL domainForm
 ;   [nam, :.] := domainForm
-;   $predicateList: local := get_database(nam, 'PREDICATES)
-;   u := getDomainOpTable2(dom, true, ASSOCLEFT opAlist)
+;   predicate_list := get_database(nam, 'PREDICATES)
+;   u := getDomainOpTable2(dom, true, ASSOCLEFT(opAlist), predicate_list)
 ;   --u has form ((op,sig,:implementor)...)
 ;   --sort into 4 groups: domain exports, unexports, default exports, others
 ;
@@ -1172,18 +1172,19 @@
 ;       isExposedConstructor first key
 
 (DEFUN |dbGatherDataImplementation| (|htPage| |opAlist|)
-  (PROG (|$predicateList| |others| |constants| |nowheres| |defexports|
-         |unexports| |domexports| |key| |ISTMP#1| |u| |nam| |dom| |domainForm|
-         |conform|)
-    (DECLARE (SPECIAL |$predicateList|))
+  (PROG (|conform| |domainForm| |dom| |nam| |predicate_list| |u| |ISTMP#1|
+         |key| |domexports| |unexports| |defexports| |nowheres| |constants|
+         |others|)
     (RETURN
      (PROGN
       (SETQ |conform| (|htpProperty| |htPage| '|conform|))
       (SETQ |domainForm| (|htpProperty| |htPage| '|domname|))
       (SETQ |dom| (EVAL |domainForm|))
       (SETQ |nam| (CAR |domainForm|))
-      (SETQ |$predicateList| (|get_database| |nam| 'PREDICATES))
-      (SETQ |u| (|getDomainOpTable2| |dom| T (ASSOCLEFT |opAlist|)))
+      (SETQ |predicate_list| (|get_database| |nam| 'PREDICATES))
+      (SETQ |u|
+              (|getDomainOpTable2| |dom| T (ASSOCLEFT |opAlist|)
+               |predicate_list|))
       ((LAMBDA (|bfVar#47| |x| |i|)
          (LOOP
           (COND
@@ -2810,7 +2811,7 @@
             (SETQ |bfVar#114| (CDR |bfVar#114|))))
          #2# (|fortexp0| |form|) NIL)))))))
 
-; getDomainOpTable2(dom, fromIfTrue, ops) ==
+; getDomainOpTable2(dom, fromIfTrue, ops, predicates) ==
 ;   $returnNowhereFromGoGet: local := true
 ;   domname := dom.0
 ;   conname := first domname
@@ -2826,7 +2827,7 @@
 ;       false
 ;     fn ==
 ;       sig1 := sublisFormal(rest domname,sig)
-;       predValue := evalDomainOpPred(dom,pred)
+;       predValue := evalDomainOpPred(dom, pred, predicates)
 ;       info :=
 ;         null predValue =>
 ;           1   -- signifies not exported
@@ -2843,7 +2844,7 @@
 ;         'nowhere
 ;       [sig1,:info]
 
-(DEFUN |getDomainOpTable2| (|dom| |fromIfTrue| |ops|)
+(DEFUN |getDomainOpTable2| (|dom| |fromIfTrue| |ops| |predicates|)
   (PROG (|$returnNowhereFromGoGet| |info| |r| |f| |cell| |predValue| |sig1|
          |op1| |key| |ISTMP#3| |pred| |ISTMP#2| |slot| |ISTMP#1| |sig| |u| |op|
          |opAlist| |abb| |conname| |domname|)
@@ -2925,7 +2926,8 @@
                                                              (SETQ |predValue|
                                                                      (|evalDomainOpPred|
                                                                       |dom|
-                                                                      |pred|))
+                                                                      |pred|
+                                                                      |predicates|))
                                                              (SETQ |info|
                                                                      (COND
                                                                       ((NULL
@@ -2995,69 +2997,56 @@
      (COND ((MEMQ |op| |ops|) |op|) ((EQ |op| '|One|) (AND (MEMQ 1 |ops|) 1))
            ((EQ |op| '|Zero|) (AND (MEMQ 0 |ops|) 0)) ('T NIL)))))
 
-; evalDomainOpPred2(dom, pred) ==
-;     $predicateList : local := get_database(first(dom.0), 'PREDICATES)
-;     evalDomainOpPred(dom,pred)
-
-(DEFUN |evalDomainOpPred2| (|dom| |pred|)
-  (PROG (|$predicateList|)
-    (DECLARE (SPECIAL |$predicateList|))
-    (RETURN
-     (PROGN
-      (SETQ |$predicateList| (|get_database| (CAR (ELT |dom| 0)) 'PREDICATES))
-      (|evalDomainOpPred| |dom| |pred|)))))
-
-; evalDomainOpPred(dom,pred) == process(dom,pred) where
-;   process(dom,pred) ==
-;     u := convert(dom,pred)
+; evalDomainOpPred(dom, pred, preds) == process(dom, pred, preds) where
+;   process(dom, pred, preds) ==
+;     u := convert(dom, pred)
 ;     u = 'T => true
-;     evpred(dom,u)
-;   convert(dom,pred) ==
-;     pred is [op,:argl] =>
-;       MEMQ(op,'(AND and)) => ['AND,:[convert(dom,x) for x in argl]]
-;       MEMQ(op,'(OR or))   => ['OR,:[convert(dom,x) for x in argl]]
-;       MEMQ(op,'(NOT not)) => ['NOT,convert(dom,first argl)]
-;       op = 'has =>
-;         [arg,p] := argl
-;         p is ['ATTRIBUTE,a] => BREAK()
-;         ['HasCategory,arg,convertCatArg p]
-;       systemError '"unknown predicate form"
-;     pred = 'T => true
-;     systemError nil
+;     evpred(dom, u, preds)
+;   convert(dom, pred) ==
+;       pred is [op, :argl] =>
+;           op = 'AND => ['AND, :[convert(dom, x) for x in argl]]
+;           op = 'OR => ['OR, :[convert(dom, x) for x in argl]]
+;           op = 'NOT => ['NOT, convert(dom, first(argl))]
+;           op = 'has =>
+;               [arg, p] := argl
+;               ['HasCategory, arg, convertCatArg(p)]
+;           systemError '"unknown predicate form"
+;       pred = 'T => true
+;       systemError([])
 ;   convertCatArg p ==
 ;     SYMBOLP(p) and member(p, $FormalMapVariableList) => ["devaluate", p]
 ;     atom p or #p = 1 => MKQ p
 ;     ['LIST,MKQ first p,:[convertCatArg x for x in rest p]]
-;   evpred(dom,pred) ==
-;     k := POSN1(pred,$predicateList) => testBitVector(dom.3,k + 1)
-;     evpred1(dom,pred)
-;   evpred1(dom,pred) ==
-;     pred is [op,:argl] =>
-;       MEMQ(op,'(AND and)) => "and"/[evpred1(dom,x) for x in argl]
-;       MEMQ(op,'(OR or))   =>  "or"/[evpred1(dom,x) for x in argl]
-;       op = 'NOT => not evpred1(dom,first argl)
-;       k := POSN1(pred,$predicateList) => testBitVector(dom.3,k + 1)
-;       op = 'HasAttribute => BREAK()
-;       nil
-;     pred = 'T => true
-;     systemError '"unknown atomic predicate form"
+;   evpred(dom, pred, preds) ==
+;       k := POSN1(pred, preds) => testBitVector(dom.3, k + 1)
+;       evpred1(dom, pred, preds)
+;   evpred1(dom, pred, preds) ==
+;       pred is [op,:argl] =>
+;           op = 'AND => "and"/[evpred1(dom, x, preds) for x in argl]
+;           op = 'OR  => "or"/[evpred1(dom, x, preds) for x in argl]
+;           op = 'NOT => not evpred1(dom, first(argl), preds)
+;           k := POSN1(pred, preds) => testBitVector(dom.3, k + 1)
+;           nil
+;       pred = 'T => true
+;       systemError '"unknown atomic predicate form"
 
-(DEFUN |evalDomainOpPred| (|dom| |pred|)
-  (PROG () (RETURN (|evalDomainOpPred,process| |dom| |pred|))))
-(DEFUN |evalDomainOpPred,process| (|dom| |pred|)
+(DEFUN |evalDomainOpPred| (|dom| |pred| |preds|)
+  (PROG () (RETURN (|evalDomainOpPred,process| |dom| |pred| |preds|))))
+(DEFUN |evalDomainOpPred,process| (|dom| |pred| |preds|)
   (PROG (|u|)
     (RETURN
      (PROGN
       (SETQ |u| (|evalDomainOpPred,convert| |dom| |pred|))
-      (COND ((EQ |u| 'T) T) ('T (|evalDomainOpPred,evpred| |dom| |u|)))))))
+      (COND ((EQ |u| 'T) T)
+            ('T (|evalDomainOpPred,evpred| |dom| |u| |preds|)))))))
 (DEFUN |evalDomainOpPred,convert| (|dom| |pred|)
-  (PROG (|op| |argl| |arg| |p| |ISTMP#1| |a|)
+  (PROG (|op| |argl| |arg| |p|)
     (RETURN
      (COND
       ((AND (CONSP |pred|)
             (PROGN (SETQ |op| (CAR |pred|)) (SETQ |argl| (CDR |pred|)) #1='T))
        (COND
-        ((MEMQ |op| '(AND |and|))
+        ((EQ |op| 'AND)
          (CONS 'AND
                ((LAMBDA (|bfVar#122| |bfVar#121| |x|)
                   (LOOP
@@ -3071,7 +3060,7 @@
                                    |bfVar#122|))))
                    (SETQ |bfVar#121| (CDR |bfVar#121|))))
                 NIL |argl| NIL)))
-        ((MEMQ |op| '(OR |or|))
+        ((EQ |op| 'OR)
          (CONS 'OR
                ((LAMBDA (|bfVar#124| |bfVar#123| |x|)
                   (LOOP
@@ -3085,22 +3074,13 @@
                                    |bfVar#124|))))
                    (SETQ |bfVar#123| (CDR |bfVar#123|))))
                 NIL |argl| NIL)))
-        ((MEMQ |op| '(NOT |not|))
+        ((EQ |op| 'NOT)
          (LIST 'NOT (|evalDomainOpPred,convert| |dom| (CAR |argl|))))
         ((EQ |op| '|has|)
          (PROGN
           (SETQ |arg| (CAR |argl|))
           (SETQ |p| (CADR |argl|))
-          (COND
-           ((AND (CONSP |p|) (EQ (CAR |p|) 'ATTRIBUTE)
-                 (PROGN
-                  (SETQ |ISTMP#1| (CDR |p|))
-                  (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                       (PROGN (SETQ |a| (CAR |ISTMP#1|)) #1#))))
-            (BREAK))
-           (#1#
-            (LIST '|HasCategory| |arg|
-                  (|evalDomainOpPred,convertCatArg| |p|))))))
+          (LIST '|HasCategory| |arg| (|evalDomainOpPred,convertCatArg| |p|))))
         (#1# (|systemError| "unknown predicate form"))))
       ((EQ |pred| 'T) T) (#1# (|systemError| NIL))))))
 (DEFUN |evalDomainOpPred,convertCatArg| (|p|)
@@ -3125,21 +3105,21 @@
                                        |bfVar#126|))))
                        (SETQ |bfVar#125| (CDR |bfVar#125|))))
                     NIL (CDR |p|) NIL))))))))
-(DEFUN |evalDomainOpPred,evpred| (|dom| |pred|)
+(DEFUN |evalDomainOpPred,evpred| (|dom| |pred| |preds|)
   (PROG (|k|)
     (RETURN
      (COND
-      ((SETQ |k| (POSN1 |pred| |$predicateList|))
+      ((SETQ |k| (POSN1 |pred| |preds|))
        (|testBitVector| (ELT |dom| 3) (+ |k| 1)))
-      ('T (|evalDomainOpPred,evpred1| |dom| |pred|))))))
-(DEFUN |evalDomainOpPred,evpred1| (|dom| |pred|)
+      ('T (|evalDomainOpPred,evpred1| |dom| |pred| |preds|))))))
+(DEFUN |evalDomainOpPred,evpred1| (|dom| |pred| |preds|)
   (PROG (|op| |argl| |k|)
     (RETURN
      (COND
       ((AND (CONSP |pred|)
             (PROGN (SETQ |op| (CAR |pred|)) (SETQ |argl| (CDR |pred|)) #1='T))
        (COND
-        ((MEMQ |op| '(AND |and|))
+        ((EQ |op| 'AND)
          ((LAMBDA (|bfVar#128| |bfVar#127| |x|)
             (LOOP
              (COND
@@ -3147,11 +3127,12 @@
                (RETURN |bfVar#128|))
               (#1#
                (PROGN
-                (SETQ |bfVar#128| (|evalDomainOpPred,evpred1| |dom| |x|))
+                (SETQ |bfVar#128|
+                        (|evalDomainOpPred,evpred1| |dom| |x| |preds|))
                 (COND ((NOT |bfVar#128|) (RETURN NIL))))))
              (SETQ |bfVar#127| (CDR |bfVar#127|))))
           T |argl| NIL))
-        ((MEMQ |op| '(OR |or|))
+        ((EQ |op| 'OR)
          ((LAMBDA (|bfVar#130| |bfVar#129| |x|)
             (LOOP
              (COND
@@ -3159,13 +3140,15 @@
                (RETURN |bfVar#130|))
               (#1#
                (PROGN
-                (SETQ |bfVar#130| (|evalDomainOpPred,evpred1| |dom| |x|))
+                (SETQ |bfVar#130|
+                        (|evalDomainOpPred,evpred1| |dom| |x| |preds|))
                 (COND (|bfVar#130| (RETURN |bfVar#130|))))))
              (SETQ |bfVar#129| (CDR |bfVar#129|))))
           NIL |argl| NIL))
-        ((EQ |op| 'NOT) (NULL (|evalDomainOpPred,evpred1| |dom| (CAR |argl|))))
-        ((SETQ |k| (POSN1 |pred| |$predicateList|))
+        ((EQ |op| 'NOT)
+         (NULL (|evalDomainOpPred,evpred1| |dom| (CAR |argl|) |preds|)))
+        ((SETQ |k| (POSN1 |pred| |preds|))
          (|testBitVector| (ELT |dom| 3) (+ |k| 1)))
-        ((EQ |op| '|HasAttribute|) (BREAK)) (#1# NIL)))
+        (#1# NIL)))
       ((EQ |pred| 'T) T)
       (#1# (|systemError| "unknown atomic predicate form"))))))

@@ -24,7 +24,7 @@
 ; --All searches of the database call this function to get relevant lines
 ; --from libdb.text. Returns either a list of lines (usual case) or else
 ; --an alist of the form ((kind . <list of lines for that kind>) ...)
-;   $localLibdb : local := fnameExists? '"libdb.text" and '"libdb.text"
+;   $localLibdb : local := fricas_probe_file('"libdb.text") and '"libdb.text"
 ;   lines := grepConstruct1(s,key)
 ;   lines is ['error,:.] => lines
 ;   IFCAR options => grepSplit(lines,key = 'w)    --leave now if a constructor
@@ -36,7 +36,8 @@
     (DECLARE (SPECIAL |$localLibdb|))
     (RETURN
      (PROGN
-      (SETQ |$localLibdb| (AND (|fnameExists?| "libdb.text") "libdb.text"))
+      (SETQ |$localLibdb|
+              (AND (|fricas_probe_file| "libdb.text") "libdb.text"))
       (SETQ |lines| (|grepConstruct1| |s| |key|))
       (COND ((AND (CONSP |lines|) (EQ (CAR |lines|) '|error|)) |lines|)
             ((IFCAR |options|) (|grepSplit| |lines| (EQ |key| '|w|)))
@@ -2770,7 +2771,7 @@
 ;       command := STRCONC('"grep ", casepart, '" '", pattern, '"' ", source)
 ;       run_shell_command STRCONC(command, '" > ",target)
 ;       dbReadLines target
-;       -- deleteFile target
+;       -- delete_file(target)
 ;   dbUnpatchLines lines
 
 (DEFUN |grepFile| (|pattern| |key| |option|)

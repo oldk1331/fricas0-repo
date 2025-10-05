@@ -354,12 +354,6 @@
         (COND ((EQ |kind| '|category|) (|clearCategoryCache| |cname|))
               ('T (HREM |$ConstructorCache| |cname|)))))))))
 
-; clearConstructorAndLisplibCaches() ==
-;   clearConstructorCaches()
-
-(DEFUN |clearConstructorAndLisplibCaches| ()
-  (PROG () (RETURN (|clearConstructorCaches|))))
-
 ; clearCategoryCaches() ==
 ;   for name in allConstructors() repeat
 ;     if get_database(name, 'CONSTRUCTORKIND) = 'category then
