@@ -486,8 +486,9 @@
 ;     cat = vmode => true
 ;     vmode is ["Join",:l] and member(cat,l) => true
 ;     [vv, ., .] := get_catlist(vmode, $info_e)
-;     catlist := vv.4
-;     --catlist := SUBST(name, '%, vv.4)
+;     catlist :=
+;         CONTAINED("%", name) => vv.4
+;         SUBST(name, "%", vv.4)
 ;     null vv => stackSemanticError(["can't make category of ",name],nil)
 ;     member(cat,first catlist) => true  --checks princ. ancestors
 ;     (u:= assoc(cat,CADR catlist)) and knownInfo(CADR u) => true
@@ -615,7 +616,9 @@
                     (PROGN
                      (SETQ |LETTMP#1| (|get_catlist| |vmode| |$info_e|))
                      (SETQ |vv| (CAR |LETTMP#1|))
-                     (SETQ |catlist| (ELT |vv| 4))
+                     (SETQ |catlist|
+                             (COND ((CONTAINED '% |name|) (ELT |vv| 4))
+                                   (#1# (SUBST |name| '% (ELT |vv| 4)))))
                      (COND
                       ((NULL |vv|)
                        (|stackSemanticError|
