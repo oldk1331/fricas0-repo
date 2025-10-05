@@ -355,17 +355,14 @@
                       (- |m| 1) 0)
                      |res|)))))))))
 
-; file_basename(n) ==
+; last_dir_separator(n) ==
 ;     k := #n - 1
 ;     while k >=0 and not(is_dir_sepatator?(n.k)) repeat
 ;         k := k - 1
-;     k := k + 1
-;     l := ext_position(n)
-;     l < 0 => SUBSTRING(n, k, #n - k)
-;     SUBSTRING(n, k, l - k)
+;     k
 
-(DEFUN |file_basename| (|n|)
-  (PROG (|k| |l|)
+(DEFUN |last_dir_separator| (|n|)
+  (PROG (|k|)
     (RETURN
      (PROGN
       (SETQ |k| (- (LENGTH |n|) 1))
@@ -376,11 +373,34 @@
              (AND (NOT (MINUSP |k|))
                   (NULL (|is_dir_sepatator?| (ELT |n| |k|)))))
             (RETURN NIL))
-           (#1='T (SETQ |k| (- |k| 1)))))))
-      (SETQ |k| (+ |k| 1))
+           ('T (SETQ |k| (- |k| 1)))))))
+      |k|))))
+
+; drop_directory_part(n) ==
+;     k := last_dir_separator(n) + 1
+;     SUBSTRING(n, k, #n - k)
+
+(DEFUN |drop_directory_part| (|n|)
+  (PROG (|k|)
+    (RETURN
+     (PROGN
+      (SETQ |k| (+ (|last_dir_separator| |n|) 1))
+      (SUBSTRING |n| |k| (- (LENGTH |n|) |k|))))))
+
+; file_basename(n) ==
+;     k := last_dir_separator(n) + 1
+;     l := ext_position(n)
+;     l < 0 => SUBSTRING(n, k, #n - k)
+;     SUBSTRING(n, k, l - k)
+
+(DEFUN |file_basename| (|n|)
+  (PROG (|k| |l|)
+    (RETURN
+     (PROGN
+      (SETQ |k| (+ (|last_dir_separator| |n|) 1))
       (SETQ |l| (|ext_position| |n|))
       (COND ((MINUSP |l|) (SUBSTRING |n| |k| (- (LENGTH |n|) |k|)))
-            (#1# (SUBSTRING |n| |k| (- |l| |k|))))))))
+            ('T (SUBSTRING |n| |k| (- |l| |k|))))))))
 
 ; file_directory(n) ==
 ;     k := #n - 1
