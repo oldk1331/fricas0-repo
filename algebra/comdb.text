@@ -2273,7 +2273,7 @@
 234298`\spad{convert(o,{} step)} changes \spad{o} in standard output format to TeX format and also adds the given step number. This is useful if you want to create equations with given numbers or have the equation numbers correspond to the interpreter step numbers.
 234354`\spad{convert(o,{} step,{} type)} changes \spad{o} in standard output format to TeX format and also adds the given \spad{step} number and type. This is useful if you want to create equations with given numbers or have the equation numbers correspond to the interpreter \spad{step} numbers.
 234421`\spad{convert_mr(f,{} d,{} mr)} performs convertion specified by \spad{mr}.
-234636`\spad{convert_to_decimal(f,{} d)} converts \spad{f} to base \spad{10} rounding to \spad{d}} decimal digits
+234636`\spad{convert_to_decimal(f,{} d)} converts \spad{f} to base \spad{10} rounding to \spad{d} decimal digits
 234788`\spad{coord(p)} specifies a change of coordinates of point \spad{p}. This option is expressed in the form \spad{coord == p}.
 234865`\spad{coord }\undocumented
 235031`\spad{coord(l,{} p)} takes the list of draw options,{} \spad{l},{} and checks the list to see if it contains the option \spad{coord}. If the option does not exist the value,{} \spad{p} is returned.
@@ -5257,7 +5257,7 @@
 600413`\spad{meixnerM(n,{} b,{} c,{} z)} is the Meixner polynomial.
 600480`\spad{meixnerM(n,{} b,{} c,{} z)} is the Meixner polynomial.
 600540`\spad{meixnerP(n,{} phi,{} lambda,{} z)} is the Meixner-Pollaczek polynomial.
-600607`\spad{meixnerP(n,{} phi,{} lambda,{} z)} is the Meixner–Pollaczek polynomial.
+600607`\spad{meixnerP(n,{} phi,{} lambda,{} z)} is the Meixner-Pollaczek polynomial.
 600667`\spad{member?(p,{} s)} returns \spad{true} is \spad{p} is in \spad{s},{} \spad{false} otherwise.
 601030`\spad{member?(v,{} B)} tests if the vector \spad{v} is in the subspace spanned by \spad{B}.
 601095`\spad{member?(pp,{} gp)} answers the question,{} whether the permutation {\em pp} is in the group {\em gp} or not.
