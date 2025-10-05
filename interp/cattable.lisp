@@ -921,6 +921,7 @@
 ;   catlist := formalSubstitute(cform, first getConstructorExports(cform, true))
 ;   extendsList:= nil
 ;   for [cat,:pred] in catlist repeat
+;     pred is ["has", "%", =cat] => "iterate"
 ;     newList := getCategoryExtensionAlist0 cat
 ;     finalList :=
 ;       pred = 'T => newList
@@ -929,8 +930,8 @@
 ;   extendsList
 
 (DEFUN |mkCategoryExtensionAlist| (|cform|)
-  (PROG (|cop| |catlist| |extendsList| |cat| |pred| |newList| |a| |b|
-         |finalList|)
+  (PROG (|cop| |catlist| |extendsList| |cat| |pred| |ISTMP#1| |ISTMP#2|
+         |newList| |a| |b| |finalList|)
     (RETURN
      (COND ((NULL (CONSP |cform|)) NIL)
            (#1='T
@@ -957,47 +958,62 @@
                             (SETQ |cat| (CAR |bfVar#48|))
                             (SETQ |pred| (CDR |bfVar#48|))
                             #1#)
-                           (PROGN
-                            (SETQ |newList|
-                                    (|getCategoryExtensionAlist0| |cat|))
-                            (SETQ |finalList|
-                                    (COND ((EQ |pred| 'T) |newList|)
-                                          (#1#
-                                           ((LAMBDA
-                                                (|bfVar#52| |bfVar#51|
-                                                 |bfVar#50|)
-                                              (LOOP
-                                               (COND
-                                                ((OR (ATOM |bfVar#51|)
-                                                     (PROGN
-                                                      (SETQ |bfVar#50|
-                                                              (CAR |bfVar#51|))
-                                                      NIL))
-                                                 (RETURN
-                                                  (NREVERSE |bfVar#52|)))
-                                                (#1#
-                                                 (AND (CONSP |bfVar#50|)
-                                                      (PROGN
-                                                       (SETQ |a|
-                                                               (CAR
-                                                                |bfVar#50|))
-                                                       (SETQ |b|
-                                                               (CDR
-                                                                |bfVar#50|))
-                                                       #1#)
-                                                      (SETQ |bfVar#52|
-                                                              (CONS
-                                                               (CONS |a|
-                                                                     (|quickAnd|
-                                                                      |b|
-                                                                      |pred|))
-                                                               |bfVar#52|)))))
-                                               (SETQ |bfVar#51|
-                                                       (CDR |bfVar#51|))))
-                                            NIL |newList| NIL))))
-                            (SETQ |extendsList|
-                                    (|catPairUnion| |extendsList|
-                                     |finalList|))))))
+                           (COND
+                            ((AND (CONSP |pred|) (EQ (CAR |pred|) '|has|)
+                                  (PROGN
+                                   (SETQ |ISTMP#1| (CDR |pred|))
+                                   (AND (CONSP |ISTMP#1|)
+                                        (EQ (CAR |ISTMP#1|) '%)
+                                        (PROGN
+                                         (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                                         (AND (CONSP |ISTMP#2|)
+                                              (EQ (CDR |ISTMP#2|) NIL)
+                                              (EQUAL (CAR |ISTMP#2|)
+                                                     |cat|))))))
+                             '|iterate|)
+                            (#1#
+                             (PROGN
+                              (SETQ |newList|
+                                      (|getCategoryExtensionAlist0| |cat|))
+                              (SETQ |finalList|
+                                      (COND ((EQ |pred| 'T) |newList|)
+                                            (#1#
+                                             ((LAMBDA
+                                                  (|bfVar#52| |bfVar#51|
+                                                   |bfVar#50|)
+                                                (LOOP
+                                                 (COND
+                                                  ((OR (ATOM |bfVar#51|)
+                                                       (PROGN
+                                                        (SETQ |bfVar#50|
+                                                                (CAR
+                                                                 |bfVar#51|))
+                                                        NIL))
+                                                   (RETURN
+                                                    (NREVERSE |bfVar#52|)))
+                                                  (#1#
+                                                   (AND (CONSP |bfVar#50|)
+                                                        (PROGN
+                                                         (SETQ |a|
+                                                                 (CAR
+                                                                  |bfVar#50|))
+                                                         (SETQ |b|
+                                                                 (CDR
+                                                                  |bfVar#50|))
+                                                         #1#)
+                                                        (SETQ |bfVar#52|
+                                                                (CONS
+                                                                 (CONS |a|
+                                                                       (|quickAnd|
+                                                                        |b|
+                                                                        |pred|))
+                                                                 |bfVar#52|)))))
+                                                 (SETQ |bfVar#51|
+                                                         (CDR |bfVar#51|))))
+                                              NIL |newList| NIL))))
+                              (SETQ |extendsList|
+                                      (|catPairUnion| |extendsList|
+                                       |finalList|))))))))
                     (SETQ |bfVar#49| (CDR |bfVar#49|))))
                  |catlist| NIL)
                 |extendsList|)))))))))

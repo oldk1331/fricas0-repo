@@ -1741,6 +1741,7 @@
 ;   if conform ~= originalConform then
 ;     parents := SUBLISLIS(IFCDR conform,IFCDR originalConform,parents)
 ;   for [newform,:p] in parents repeat
+;     p is ['has, '%, newform] => "iterate"
 ;     if domform and rest domform then
 ;       newdomform := SUBLISLIS(rest domform,rest conform,newform)
 ;       p          := SUBLISLIS(rest domform,rest conform,p)
@@ -1750,7 +1751,8 @@
 ;   HPUT($done, conform, pred)                  --mark as already processed
 
 (DEFUN |ancestorsRecur| (|conform| |domform| |pred| |firstTime?|)
-  (PROG (|op| |parents| |originalConform| |newform| |p| |newdomform| |newPred|)
+  (PROG (|op| |parents| |originalConform| |newform| |p| |ISTMP#1| |ISTMP#2|
+         |newdomform| |newPred|)
     (RETURN
      (PROGN
       (SETQ |op| (|opOf| |conform|))
@@ -1789,20 +1791,34 @@
                           (SETQ |newform| (CAR |bfVar#74|))
                           (SETQ |p| (CDR |bfVar#74|))
                           #1#)
-                         (PROGN
-                          (COND
-                           ((AND |domform| (CDR |domform|))
-                            (SETQ |newdomform|
-                                    (SUBLISLIS (CDR |domform|) (CDR |conform|)
-                                     |newform|))
-                            (SETQ |p|
-                                    (SUBLISLIS (CDR |domform|) (CDR |conform|)
-                                     |p|))))
-                          (SETQ |newPred| (|quickAnd| |pred| |p|))
-                          (|ancestorsAdd| (|simpHasPred| |newPred|)
-                           (OR |newdomform| |newform|))
-                          (|ancestorsRecur| |newform| |newdomform| |newPred|
-                           NIL)))))
+                         (COND
+                          ((AND (CONSP |p|) (EQ (CAR |p|) '|has|)
+                                (PROGN
+                                 (SETQ |ISTMP#1| (CDR |p|))
+                                 (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '%)
+                                      (PROGN
+                                       (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                                       (AND (CONSP |ISTMP#2|)
+                                            (EQ (CDR |ISTMP#2|) NIL)
+                                            (PROGN
+                                             (SETQ |newform| (CAR |ISTMP#2|))
+                                             #1#))))))
+                           '|iterate|)
+                          (#1#
+                           (PROGN
+                            (COND
+                             ((AND |domform| (CDR |domform|))
+                              (SETQ |newdomform|
+                                      (SUBLISLIS (CDR |domform|)
+                                       (CDR |conform|) |newform|))
+                              (SETQ |p|
+                                      (SUBLISLIS (CDR |domform|)
+                                       (CDR |conform|) |p|))))
+                            (SETQ |newPred| (|quickAnd| |pred| |p|))
+                            (|ancestorsAdd| (|simpHasPred| |newPred|)
+                             (OR |newdomform| |newform|))
+                            (|ancestorsRecur| |newform| |newdomform| |newPred|
+                             NIL)))))))
                   (SETQ |bfVar#75| (CDR |bfVar#75|))))
                |parents| NIL)
               (HPUT |$done| |conform| |pred|))))))))
