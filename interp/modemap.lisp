@@ -473,6 +473,39 @@
                 (|stripUnionTags| |dl|) NIL)))
              (|augModemapsFromDomain1| |name| |functorForm| |e|)))))))
 
+; augModemapsFromDomain1(name, functorForm, e) ==
+;     get_oplist_maker(IFCAR(functorForm)) =>
+;         add_builtin_modemaps(name, functorForm, e)
+;     atom(functorForm) and (catform := getmode(functorForm, e)) =>
+;         augModemapsFromCategory(name, functorForm, catform, e)
+;     mappingForm := getmodeOrMapping(IFCAR(functorForm), e) =>
+;         ["Mapping", categoryForm, :.] := mappingForm
+;         catform := substituteCategoryArguments(rest(functorForm), categoryForm)
+;         augModemapsFromCategory(name, functorForm, catform, e)
+;     stackMessage([functorForm, '" is an unknown mode"])
+;     e
+
+(DEFUN |augModemapsFromDomain1| (|name| |functorForm| |e|)
+  (PROG (|catform| |mappingForm| |categoryForm|)
+    (RETURN
+     (COND
+      ((|get_oplist_maker| (IFCAR |functorForm|))
+       (|add_builtin_modemaps| |name| |functorForm| |e|))
+      ((AND (ATOM |functorForm|)
+            (SETQ |catform| (|getmode| |functorForm| |e|)))
+       (|augModemapsFromCategory| |name| |functorForm| |catform| |e|))
+      ((SETQ |mappingForm| (|getmodeOrMapping| (IFCAR |functorForm|) |e|))
+       (PROGN
+        (SETQ |categoryForm| (CADR |mappingForm|))
+        (SETQ |catform|
+                (|substituteCategoryArguments| (CDR |functorForm|)
+                 |categoryForm|))
+        (|augModemapsFromCategory| |name| |functorForm| |catform| |e|)))
+      ('T
+       (PROGN
+        (|stackMessage| (LIST |functorForm| " is an unknown mode"))
+        |e|))))))
+
 ; substituteCategoryArguments(argl,catform) ==
 ;   argl := substitute("$$", "%", argl)
 ;   arglAssoc := [[INTERNL1("#", STRINGIMAGE i), :a] for i in 1.. for a in argl]

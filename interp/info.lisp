@@ -208,7 +208,7 @@
 ;     b is ["ATTRIBUTE",.] => BREAK()
 ;     b is ["SIGNATURE",:.] => u
 ;     BREAK()
-;   atom u => u
+;   atom u => BREAK()
 ;   u is ["and",:v] => ["and",:[formatPred w for w in v]]
 ;   systemError '"formatPred"
 
@@ -235,7 +235,7 @@
                (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL))))
          (BREAK))
         ((AND (CONSP |b|) (EQ (CAR |b|) 'SIGNATURE)) |u|) (#1# (BREAK))))
-      ((ATOM |u|) |u|)
+      ((ATOM |u|) (BREAK))
       ((AND (CONSP |u|) (EQ (CAR |u|) '|and|) (PROGN (SETQ |v| (CDR |u|)) #1#))
        (CONS '|and|
              ((LAMBDA (|bfVar#10| |bfVar#9| |w|)
@@ -678,18 +678,10 @@
 
 ; actOnInfo(u, e) ==
 ;   null u => e
-;   u is ["PROGN", :l] =>
-;       for v in l repeat
-;           e := actOnInfo(v, e)
-;       e
+;   u is ["PROGN", :l] => BREAK()
 ;   Info := [u, :get("$Information", "special", e)]
 ;   e := put("$Information", "special", Info, e)
-;   u is ["COND",:l] =>
-;       -- there is nowhere else that this sort of thing exists
-;     for [ante,:conseq] in l repeat
-;       if member(hasToInfo ante,Info) then for v in conseq repeat
-;         e := actOnInfo(v, e)
-;     e
+;   u is ["COND",:l] => BREAK()
 ;   u is ["ATTRIBUTE",name,att] => BREAK()
 ;   u is ["SIGNATURE",name,operator,modemap] =>
 ;     implem := ['ELT, name, 0]
@@ -734,24 +726,14 @@
 ;   systemError '"knownInfo"
 
 (DEFUN |actOnInfo| (|u| |e|)
-  (PROG (|l| |Info| |ante| |conseq| |ISTMP#1| |name| |ISTMP#2| |att| |operator|
-         |ISTMP#3| |modemap| |implem| |LETTMP#1| |vval| |vmode| |venv| |key|
-         |cat| |catvec| |ocatvec|)
+  (PROG (|l| |Info| |ISTMP#1| |name| |ISTMP#2| |att| |operator| |ISTMP#3|
+         |modemap| |implem| |LETTMP#1| |vval| |vmode| |venv| |key| |cat|
+         |catvec| |ocatvec|)
     (RETURN
      (COND ((NULL |u|) |e|)
            ((AND (CONSP |u|) (EQ (CAR |u|) 'PROGN)
                  (PROGN (SETQ |l| (CDR |u|)) #1='T))
-            (PROGN
-             ((LAMBDA (|bfVar#27| |v|)
-                (LOOP
-                 (COND
-                  ((OR (ATOM |bfVar#27|)
-                       (PROGN (SETQ |v| (CAR |bfVar#27|)) NIL))
-                   (RETURN NIL))
-                  (#1# (SETQ |e| (|actOnInfo| |v| |e|))))
-                 (SETQ |bfVar#27| (CDR |bfVar#27|))))
-              |l| NIL)
-             |e|))
+            (BREAK))
            (#1#
             (PROGN
              (SETQ |Info| (CONS |u| (|get| '|$Information| '|special| |e|)))
@@ -759,33 +741,7 @@
              (COND
               ((AND (CONSP |u|) (EQ (CAR |u|) 'COND)
                     (PROGN (SETQ |l| (CDR |u|)) #1#))
-               (PROGN
-                ((LAMBDA (|bfVar#29| |bfVar#28|)
-                   (LOOP
-                    (COND
-                     ((OR (ATOM |bfVar#29|)
-                          (PROGN (SETQ |bfVar#28| (CAR |bfVar#29|)) NIL))
-                      (RETURN NIL))
-                     (#1#
-                      (AND (CONSP |bfVar#28|)
-                           (PROGN
-                            (SETQ |ante| (CAR |bfVar#28|))
-                            (SETQ |conseq| (CDR |bfVar#28|))
-                            #1#)
-                           (COND
-                            ((|member| (|hasToInfo| |ante|) |Info|)
-                             ((LAMBDA (|bfVar#30| |v|)
-                                (LOOP
-                                 (COND
-                                  ((OR (ATOM |bfVar#30|)
-                                       (PROGN (SETQ |v| (CAR |bfVar#30|)) NIL))
-                                   (RETURN NIL))
-                                  (#1# (SETQ |e| (|actOnInfo| |v| |e|))))
-                                 (SETQ |bfVar#30| (CDR |bfVar#30|))))
-                              |conseq| NIL))))))
-                    (SETQ |bfVar#29| (CDR |bfVar#29|))))
-                 |l| NIL)
-                |e|))
+               (BREAK))
               ((AND (CONSP |u|) (EQ (CAR |u|) 'ATTRIBUTE)
                     (PROGN
                      (SETQ |ISTMP#1| (CDR |u|))

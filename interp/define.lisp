@@ -903,21 +903,16 @@
        ('T (|compDefineCategory1| |df| |m| |e| |prefix| |fal|)))))))
 
 ; compDefineFunctor(df,m,e,prefix,fal) ==
-;   $domainShell: local -- holds the category of the object being compiled
 ;   $LISPLIB => compDefineLisplib(df,m,e,prefix,fal,'compDefineFunctor1)
 ;   compDefineFunctor1(df,m,e,prefix,fal)
 
 (DEFUN |compDefineFunctor| (|df| |m| |e| |prefix| |fal|)
-  (PROG (|$domainShell|)
-    (DECLARE (SPECIAL |$domainShell|))
+  (PROG ()
     (RETURN
-     (PROGN
-      (SETQ |$domainShell| NIL)
-      (COND
-       ($LISPLIB
-        (|compDefineLisplib| |df| |m| |e| |prefix| |fal|
-         '|compDefineFunctor1|))
-       ('T (|compDefineFunctor1| |df| |m| |e| |prefix| |fal|)))))))
+     (COND
+      ($LISPLIB
+       (|compDefineLisplib| |df| |m| |e| |prefix| |fal| '|compDefineFunctor1|))
+      ('T (|compDefineFunctor1| |df| |m| |e| |prefix| |fal|))))))
 
 ; compDefineFunctor1(df is ['DEF, form, signature, body],
 ;   m, e, $prefix, $formalArgList) ==
@@ -956,7 +951,7 @@
 ;       userError '"cannot produce category object"
 ; --+ copy needed since slot1 is reset; compMake.. can return a cached vector
 ;     base_shell := COPY_-SEQ ds
-;     $domainShell := base_shell
+;     $domainShell : local := base_shell
 ; --+ 7 lines for $NRT follow
 ; -->--these globals used by NRTmakeCategoryAlist, set by NRTsetVector4Part1
 ;     $condAlist: local := nil
@@ -964,7 +959,7 @@
 ; -->>-- next global initialized here, reset by NRTbuildFunctor
 ;     $NRTslot1PredicateList: local := nil
 ;        --this is used below to set $lisplibSlot1 global
-;     $NRTbase: local := 6 -- equals length of $domainShell
+;     $NRTbase: local := 6 -- equals length of domainShell
 ;     $NRTaddForm: local := nil   -- see compAdd; NRTmakeSlot1
 ;     $NRTdeltaLength: local := 0 -- length of $NRTdeltaList
 ;     $NRTdeltaList: local := nil --list of misc. elts used in compiled fncts
@@ -1054,22 +1049,22 @@
   (PROG (|$byteVec| |$byteAddress| |$lookupFunction| |$functor_cosig1|
          |$functionLocations| |$template| |$NRTdeltaListComp| |$NRTdeltaList|
          |$NRTdeltaLength| |$NRTaddForm| |$NRTbase| |$NRTslot1PredicateList|
-         |$uncondAlist| |$condAlist| |$functorForm| |$mutableDomain| |$op|
-         |$genSDVar| |$insideFunctorIfTrue| |$CheckVectorList|
-         |$functorLocalParameters| |$Representation| |$signature|
-         |$functorStats| |$functionStats| |$addForm| |NRTslot1Info| |key|
-         |ISTMP#1| |modemap| |operationAlist| |fun| |lamOrSlam| |body'| T$
-         |rettype| |op'| |dollar| |parForm| |parSignature| |base_shell| |ds|
-         |LETTMP#1| |target| |signature'| |argl| |originale| |body| |signature|
-         |form|)
+         |$uncondAlist| |$condAlist| |$domainShell| |$functorForm|
+         |$mutableDomain| |$op| |$genSDVar| |$insideFunctorIfTrue|
+         |$CheckVectorList| |$functorLocalParameters| |$Representation|
+         |$signature| |$functorStats| |$functionStats| |$addForm|
+         |NRTslot1Info| |key| |ISTMP#1| |modemap| |operationAlist| |fun|
+         |lamOrSlam| |body'| T$ |rettype| |op'| |dollar| |parForm|
+         |parSignature| |base_shell| |ds| |LETTMP#1| |target| |signature'|
+         |argl| |originale| |body| |signature| |form|)
     (DECLARE
      (SPECIAL |$byteVec| |$byteAddress| |$lookupFunction| |$functor_cosig1|
       |$functionLocations| |$template| |$NRTdeltaListComp| |$NRTdeltaList|
       |$NRTdeltaLength| |$NRTaddForm| |$NRTbase| |$NRTslot1PredicateList|
-      |$uncondAlist| |$condAlist| |$functorForm| |$mutableDomain| |$op|
-      |$genSDVar| |$insideFunctorIfTrue| |$CheckVectorList|
-      |$functorLocalParameters| |$Representation| |$signature| |$functorStats|
-      |$functionStats| |$addForm|))
+      |$uncondAlist| |$condAlist| |$domainShell| |$functorForm|
+      |$mutableDomain| |$op| |$genSDVar| |$insideFunctorIfTrue|
+      |$CheckVectorList| |$functorLocalParameters| |$Representation|
+      |$signature| |$functorStats| |$functionStats| |$addForm|))
     (RETURN
      (PROGN
       (SETQ |form| (CADR . #1=(|df|)))
@@ -2913,7 +2908,7 @@
 ;   localParList:= $functorLocalParameters
 ;   code:=
 ;     $insideCategoryIfTrue and not $insideCategoryPackageIfTrue => BREAK()
-;     processFunctor($functorForm, $signature, data, localParList, e)
+;     buildFunctor($functorForm, $signature, data, localParList, $domainShell, e)
 ;   [MKPF([code],"PROGN"),m,e]
 
 (DEFUN |compCapsuleInner| (|itemList| |m| |e|)
@@ -2930,18 +2925,9 @@
                      (NULL |$insideCategoryPackageIfTrue|))
                 (BREAK))
                ('T
-                (|processFunctor| |$functorForm| |$signature| |data|
-                 |localParList| |e|))))
+                (|buildFunctor| |$functorForm| |$signature| |data|
+                 |localParList| |$domainShell| |e|))))
       (LIST (MKPF (LIST |code|) 'PROGN) |m| |e|)))))
-
-; processFunctor(form,signature,data,localParList,e) ==
-;   buildFunctor(form, signature, data, localParList, $domainShell, e)
-
-(DEFUN |processFunctor| (|form| |signature| |data| |localParList| |e|)
-  (PROG ()
-    (RETURN
-     (|buildFunctor| |form| |signature| |data| |localParList| |$domainShell|
-      |e|))))
 
 ; compCapsuleItems(itemlist, $predl, e) ==
 ;   $signatureOfForm: local := nil

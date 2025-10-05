@@ -1460,8 +1460,6 @@
 ; --GLOBAL VARIABLES REFERENCED:
 ; --  $QuickCode: compilation flag
 ;
-;   $definition : local := definition
-;
 ;   changeDirectoryInSlot1(base_shell, e)  --this extends $NRTslot1PredicateList
 ;
 ;   --pp '"=================="
@@ -1554,22 +1552,20 @@
 (DEFUN |buildFunctor| (|definition| |sig| |code| |$locals| |base_shell| |e|)
   (DECLARE (SPECIAL |$locals|))
   (PROG (|$devaluateList| |$extraParms| |$epilogue| |$ConstantAssignments|
-         |$MissingFunctionInfo| |$SetFunctions| |$catvecList| $GENNO
-         |$definition| |ans| |codePart3| |codePart1| |slamCode| |slot3Code|
-         |setVector0Code| |createViewCode| |createDomainCode| |devaluate_code|
-         |b| |a| |codePart2| |addargname| |argStuffCode| |storeOperationCode|
+         |$MissingFunctionInfo| |$SetFunctions| |$catvecList| $GENNO |ans|
+         |codePart3| |codePart1| |slamCode| |slot3Code| |setVector0Code|
+         |createViewCode| |createDomainCode| |devaluate_code| |b| |a|
+         |codePart2| |addargname| |argStuffCode| |storeOperationCode|
          |predBitVectorCode2| |predBitVectorCode1| |LETTMP#1| |domname|
          |catNames| |domainShell| |condCats| |catvecListMaker| |argsig|
          |catsig| |oldtime| |args| |name|)
     (DECLARE
      (SPECIAL |$devaluateList| |$extraParms| |$epilogue| |$ConstantAssignments|
-      |$MissingFunctionInfo| |$SetFunctions| |$catvecList| $GENNO
-      |$definition|))
+      |$MissingFunctionInfo| |$SetFunctions| |$catvecList| $GENNO))
     (RETURN
      (PROGN
       (SETQ |name| (CAR |definition|))
       (SETQ |args| (CDR |definition|))
-      (SETQ |$definition| |definition|)
       (|changeDirectoryInSlot1| |base_shell| |e|)
       (SETQ $GENNO 0)
       (SETQ |$catvecList| NIL)

@@ -722,39 +722,6 @@
        (PROGN (SETQ |sig| (CDAR |mm|)) |sig|))
       ('T NIL)))))
 
-; augModemapsFromDomain1(name,functorForm,e) ==
-;   get_oplist_maker(IFCAR(functorForm)) =>
-;       add_builtin_modemaps(name, functorForm, e)
-;   atom functorForm and (catform:= getmode(functorForm,e)) =>
-;     augModemapsFromCategory(name, functorForm, catform, e)
-;   mappingForm := getmodeOrMapping(IFCAR functorForm, e) =>
-;     ["Mapping", categoryForm, :.] := mappingForm
-;     catform:= substituteCategoryArguments(rest functorForm,categoryForm)
-;     augModemapsFromCategory(name, functorForm, catform, e)
-;   stackMessage [functorForm,'" is an unknown mode"]
-;   e
-
-(DEFUN |augModemapsFromDomain1| (|name| |functorForm| |e|)
-  (PROG (|catform| |mappingForm| |categoryForm|)
-    (RETURN
-     (COND
-      ((|get_oplist_maker| (IFCAR |functorForm|))
-       (|add_builtin_modemaps| |name| |functorForm| |e|))
-      ((AND (ATOM |functorForm|)
-            (SETQ |catform| (|getmode| |functorForm| |e|)))
-       (|augModemapsFromCategory| |name| |functorForm| |catform| |e|))
-      ((SETQ |mappingForm| (|getmodeOrMapping| (IFCAR |functorForm|) |e|))
-       (PROGN
-        (SETQ |categoryForm| (CADR |mappingForm|))
-        (SETQ |catform|
-                (|substituteCategoryArguments| (CDR |functorForm|)
-                 |categoryForm|))
-        (|augModemapsFromCategory| |name| |functorForm| |catform| |e|)))
-      ('T
-       (PROGN
-        (|stackMessage| (LIST |functorForm| " is an unknown mode"))
-        |e|))))))
-
 ; getSlot1FromCategoryForm ([op, :argl]) ==
 ;   u:= eval [op,:MAPCAR('MKQ,TAKE(#argl,$FormalMapVariableList))]
 ;   null VECP u =>
