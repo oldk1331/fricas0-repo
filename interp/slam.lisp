@@ -205,8 +205,8 @@
 ;   lamex:= ['LAMBDA, arg, codeBody]
 ;   mainFunction:= [nam,lamex]
 ;   computeFunction:= [auxfn,['LAMBDA,[:argl, 'envArg],body]]
-;   compileInteractive mainFunction
 ;   compileInteractive computeFunction
+;   compileInteractive mainFunction
 ;   cacheType:= 'hash_-table
 ;   cacheResetCode := ['SETQ, cacheName, ['MAKE_HASHTABLE, ''EQUAL]]
 ;   cacheCountCode:= ['hashCount,cacheName]
@@ -251,8 +251,8 @@
               (LIST |auxfn|
                     (LIST 'LAMBDA (APPEND |argl| (CONS '|envArg| NIL))
                           |body|)))
-      (|compileInteractive| |mainFunction|)
       (|compileInteractive| |computeFunction|)
+      (|compileInteractive| |mainFunction|)
       (SETQ |cacheType| '|hash-table|)
       (SETQ |cacheResetCode|
               (LIST 'SETQ |cacheName| (LIST 'MAKE_HASHTABLE ''EQUAL)))
