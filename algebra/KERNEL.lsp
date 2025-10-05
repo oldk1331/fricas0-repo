@@ -105,11 +105,10 @@
                           ((QEQCAR |f0| 0)
                            (SEQ (LETT |f1| (QCDR |f0|))
                                 (LETT |res|
-                                      (SPADCALL |k|
-                                                (CONS
-                                                 #'|KERNEL;kernelEnterInCache!0|
-                                                 (VECTOR % |f1| |k|))
-                                                (QREFELT % 49)))
+                                      (SPADCALL
+                                       (CONS #'|KERNEL;kernelEnterInCache!0|
+                                             (VECTOR % |f1| |k|))
+                                       (QREFELT % 49)))
                                 (EXIT
                                  (COND
                                   ((QEQCAR |res| 0)
@@ -119,11 +118,10 @@
                           (#3#
                            (SEQ
                             (LETT |res|
-                                  (SPADCALL |k|
-                                            (CONS
-                                             #'|KERNEL;kernelEnterInCache!1|
-                                             (VECTOR % |k|))
-                                            (QREFELT % 49)))
+                                  (SPADCALL
+                                   (CONS #'|KERNEL;kernelEnterInCache!1|
+                                         (VECTOR % |k|))
+                                   (QREFELT % 49)))
                             (EXIT
                              (COND
                               ((QEQCAR |res| 0)
@@ -524,25 +522,25 @@
               (33 . |property|) (39 . |has?|) (|Union| 27 '"failed")
               |KERNEL;symbolIfCan;%U;13| (45 . ~=) (51 . ~=)
               (|Union| $$ '"failed") (|Mapping| 64 $$ $$) (57 . |binarySearch|)
-              (|Mapping| 26 $$) (63 . |linearSearch|) (69 . |enterInCache|)
+              (|Mapping| 26 $$) (63 . |linearSearch|) (68 . |enterInCache|)
               |KERNEL;=;2%B;17| |KERNEL;<;2%B;18| (|Union| 11 '"failed")
-              (75 . |arity|) (|OutputForm|) (80 . |coerce|) (85 . |coerce|)
+              (74 . |arity|) (|OutputForm|) (79 . |coerce|) (84 . |coerce|)
               (|Mapping| 55 (|List| 55)) (|Union| 58 '"failed")
-              (90 . |display|) (|List| %) (95 . |prefix|)
-              |KERNEL;coerce;%Of;20| (|Integer|) (101 . ~=) (107 . <)
-              (113 . ~=) (119 . |smaller?|) (|InputForm|) (125 . |convert|)
-              (130 . |convert|) (|Mapping| 69 (|List| 69))
-              (|Union| 72 '"failed") (135 . |input|) (|Pattern| (|Float|))
-              (140 . |convert|) (145 . |convert|) (150 . |convert|)
-              (|Pattern| 64) (155 . |patternVariable|) (|List| (|Any|))
-              (163 . |setPredicates|) (169 . |convert|) (174 . |elt|)
-              (180 . |convert|) (185 . |patternVariable|)
-              (193 . |setPredicates|) (199 . |convert|) (204 . |elt|)
-              (210 . |convert|) (|String|))
-           '#(~= 215 |symbolIfCan| 221 |smaller?| 226 |setPosition| 232
-              |position| 238 |operator| 243 |name| 248 |min| 253 |max| 259
-              |latex| 265 |kernel| 270 |is?| 282 |height| 294 |convert| 299
-              |coerce| 314 |argument| 319 >= 324 > 330 = 336 <= 342 < 348)
+              (89 . |display|) (|List| %) (94 . |prefix|)
+              |KERNEL;coerce;%Of;20| (|Integer|) (100 . ~=) (106 . <)
+              (112 . ~=) (118 . |smaller?|) (|InputForm|) (124 . |convert|)
+              (129 . |convert|) (|Mapping| 69 (|List| 69))
+              (|Union| 72 '"failed") (134 . |input|) (|Pattern| (|Float|))
+              (139 . |convert|) (144 . |convert|) (149 . |convert|)
+              (|Pattern| 64) (154 . |patternVariable|) (|List| (|Any|))
+              (162 . |setPredicates|) (168 . |convert|) (173 . |elt|)
+              (179 . |convert|) (184 . |patternVariable|)
+              (192 . |setPredicates|) (198 . |convert|) (203 . |elt|)
+              (209 . |convert|) (|String|))
+           '#(~= 214 |symbolIfCan| 220 |smaller?| 225 |setPosition| 231
+              |position| 237 |operator| 242 |name| 247 |min| 252 |max| 258
+              |latex| 264 |kernel| 269 |is?| 281 |height| 293 |convert| 298
+              |coerce| 313 |argument| 318 >= 323 > 329 = 335 <= 341 < 347)
            'NIL
            (CONS (|makeByteWordVec2| 3 '(0 0 0 0 0 0 3 2 1 0 0 0))
                  (CONS
@@ -559,8 +557,8 @@
                                          30 1 7 27 0 32 2 7 0 27 11 34 2 7 0 0
                                          27 35 2 7 38 0 27 39 2 7 26 0 27 40 2
                                          11 26 0 0 43 2 7 26 0 0 44 2 24 45 2
-                                         46 47 2 24 45 2 48 49 2 24 2 2 46 50 1
-                                         7 53 0 54 1 27 55 0 56 1 6 55 0 57 1 7
+                                         46 47 1 24 45 48 49 2 24 2 2 46 50 1 7
+                                         53 0 54 1 27 55 0 56 1 6 55 0 57 1 7
                                          59 0 60 2 55 0 0 61 62 2 64 26 0 0 65
                                          2 7 26 0 0 66 2 6 26 0 0 67 2 6 26 0 0
                                          68 1 27 69 0 70 1 6 69 0 71 1 7 73 0

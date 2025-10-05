@@ -66,9 +66,8 @@
              (QSETAREF1 (QREFELT % 7) (QREFELT % 9) |x|)
              (SETELT % 9 (+ (QREFELT % 9) 1)) (EXIT (SPADCALL (QREFELT % 11))))) 
 
-(SDEFUN |SCACHE;linearSearch;SMU;6|
-        ((|x| (S)) (|equal?| (|Mapping| (|Boolean|) S))
-         (% (|Union| S "failed")))
+(SDEFUN |SCACHE;linearSearch;MU;6|
+        ((|equal?| (|Mapping| (|Boolean|) S)) (% (|Union| S "failed")))
         (SPROG
          ((#1=#:G53 NIL) (|k| (|Integer|)) (|vscan| (|PrimitiveArray| S))
           (|y| (S)))
@@ -99,7 +98,7 @@
 (SDEFUN |SCACHE;enterInCache;SMS;7|
         ((|x| (S)) (|equal?| (|Mapping| (|Boolean|) S)) (% (S)))
         (SPROG ((|res| (|Union| S "failed")))
-               (SEQ (LETT |res| (SPADCALL |x| |equal?| (QREFELT % 18)))
+               (SEQ (LETT |res| (SPADCALL |equal?| (QREFELT % 18)))
                     (EXIT
                      (COND ((QEQCAR |res| 0) (QCDR |res|))
                            ('T
@@ -411,11 +410,11 @@
               '|cache_use| (|Void|) (0 . |void|) (|NonNegativeInteger|)
               (4 . |position|) (9 . |setPosition|) |SCACHE;clearCache;V;4|
               (|Union| 6 '#1="failed") (|Mapping| (|Boolean|) 6)
-              |SCACHE;linearSearch;SMU;6| |SCACHE;enterInCache;SMS;7|
+              |SCACHE;linearSearch;MU;6| |SCACHE;enterInCache;SMS;7|
               (|Mapping| (|Integer|) 6 6) |SCACHE;binarySearch;SMU;8|
               |SCACHE;enterInCache;SMS;9|)
-           '#(|linearSearch| 15 |enterInCache| 21 |clearCache| 33
-              |binarySearch| 37)
+           '#(|linearSearch| 15 |enterInCache| 20 |clearCache| 32
+              |binarySearch| 36)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -427,7 +426,7 @@
                                       (|#1| |#1| (|Mapping| (|Boolean|) |#1|)))
                                      T)
                                    '((|linearSearch|
-                                      ((|Union| |#1| #1#) |#1|
+                                      ((|Union| |#1| #1#)
                                        (|Mapping| (|Boolean|) |#1|)))
                                      T)
                                    '((|enterInCache|
@@ -441,7 +440,7 @@
                              (LIST) NIL NIL)))
                         (|makeByteWordVec2| 22
                                             '(0 10 0 11 1 6 12 0 13 2 6 10 0 12
-                                              14 2 0 16 6 17 18 2 0 6 6 20 22 2
-                                              0 6 6 17 19 0 0 10 15 2 0 16 6 20
+                                              14 1 0 16 17 18 2 0 6 6 20 22 2 0
+                                              6 6 17 19 0 0 10 15 2 0 16 6 20
                                               21)))))
            '|lookupComplete|)) 
