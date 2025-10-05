@@ -4688,7 +4688,7 @@
 538847`\spad{leadingMonomial(x)} \undocumented
 539023`\spad{leadingMonomial(f)} returns the monomial of \spad{f} of lowest order.
 539154`\spad{leadingSupport(z)} returns the index of leading (with respect to the ordering on the indexing set) monomial of \spad{z}. Error: if \spad{z} has no support.
-539235`\spad{leadingTerm(x)} returns the leading (with respect to the ordering on the indexing set) term of \spad{z}. Error: if \spad{z} has no support.
+539235`\spad{leadingTerm(z)} returns the leading (with respect to the ordering on the indexing set) term of \spad{z}. Error: if \spad{z} has no support.
 539497`\spad{leaf?(x)} \undocumented
 539544`\spad{leaf?(u)} tests if \spad{u} is a terminal node.
 539599`\spad{leastAffineMultiple(f)} computes the least affine polynomial which is divisible by the polynomial \spad{f} over the finite field {\em GF},{} \spadignore{i.e.} a polynomial whose exponents are 0 or a power of \spad{q},{} the size of {\em GF}.
