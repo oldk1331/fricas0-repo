@@ -139,13 +139,13 @@
                     (QREFELT % 31))))) 
 
 (SDEFUN |INTRVL;+;3%;17| ((|a| (%)) (|b| (%)) (% (%)))
-        (SPROG ((#1=#:G107 NIL))
+        (SPROG ((#1=#:G108 NIL))
                (SEQ
                 (EXIT
                  (SEQ
                   (COND
                    ((SPADCALL |a| (QREFELT % 37))
-                    (PROGN (LETT #1# |b|) (GO #2=#:G106)))
+                    (PROGN (LETT #1# |b|) (GO #2=#:G107)))
                    ((SPADCALL |b| (QREFELT % 37))
                     (PROGN (LETT #1# |a|) (GO #2#))))
                   (COND
@@ -169,7 +169,7 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |INTRVL;-;3%;18| ((|a| (%)) (|b| (%)) (% (%)))
-        (SPROG ((#1=#:G112 NIL))
+        (SPROG ((#1=#:G113 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -177,7 +177,7 @@
                    ((SPADCALL |a| (QREFELT % 37))
                     (PROGN
                      (LETT #1# (SPADCALL |b| (QREFELT % 42)))
-                     (GO #2=#:G111)))
+                     (GO #2=#:G112)))
                    ((SPADCALL |b| (QREFELT % 37))
                     (PROGN (LETT #1# |a|) (GO #2#))))
                   (EXIT
@@ -190,13 +190,13 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |INTRVL;*;3%;19| ((|a| (%)) (|b| (%)) (% (%)))
-        (SPROG ((|prods| (|List| R)) (#1=#:G119 NIL))
+        (SPROG ((|prods| (|List| R)) (#1=#:G120 NIL))
                (SEQ
                 (EXIT
                  (SEQ
                   (COND
                    ((SPADCALL |a| (QREFELT % 44))
-                    (PROGN (LETT #1# |b|) (GO #2=#:G118)))
+                    (PROGN (LETT #1# |b|) (GO #2=#:G119)))
                    ((SPADCALL |b| (QREFELT % 44))
                     (PROGN (LETT #1# |a|) (GO #2#))))
                   (COND
@@ -318,7 +318,7 @@
                                     (QREFELT % 26)))))))))) 
 
 (SDEFUN |INTRVL;unit?;%B;29| ((|u| (%)) (% (|Boolean|)))
-        (SPADCALL |u| (|spadConstant| % 33) (QREFELT % 32))) 
+        (NULL (SPADCALL |u| (|spadConstant| % 33) (QREFELT % 32)))) 
 
 (SDEFUN |INTRVL;exquo;2%U;30| ((|u| (%)) (|v| (%)) (% (|Union| % "failed")))
         (SPROG ((|vals| (|List| R)))
@@ -1059,9 +1059,9 @@
 
 (DECLAIM (NOTINLINE |Interval;|)) 
 
-(DEFUN |Interval| (#1=#:G275)
+(DEFUN |Interval| (#1=#:G277)
   (SPROG NIL
-         (PROG (#2=#:G276)
+         (PROG (#2=#:G278)
            (RETURN
             (COND
              ((LETT #2#
