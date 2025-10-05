@@ -242,7 +242,7 @@
                   (SPADCALL (SPADCALL |p| (QREFELT % 62)) |ts| (QREFELT % 63))
                   (QREFELT % 59))
                  (|error|
-                  "in normalize$NORMPK: init(#1) reduces to 0 w.r.t. #2"))
+                  "in normalize$NORMPK: init(#1) reduces to 0 with respect to #2"))
                 ('T
                  (SEQ (LETT |lbwt| (SPADCALL |p| |ts| (QREFELT % 15)))
                       (LETT |lpwt| NIL)
