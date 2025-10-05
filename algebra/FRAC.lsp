@@ -1212,9 +1212,9 @@
             (|makeByteWordVec2| 32
                                 '(0 0 1 0 0 0 6 0 0 6 0 0 0 0 14 13 4 3 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 15 6 0 0 0 0 0 15 6 0 0
-                                  0 0 0 0 0 6 0 6 0 0 0 8 0 0 0 0 0 26 17 9 30
-                                  0 0 0 18 11 32 32 5 2 0 0 0 0 24 19 25 16 12
-                                  11 10 32 32 7 5 5 28 2 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 6 6 0 6 6 0 0 0 8 0 0 0 0 0 26 17 9
+                                  30 0 0 0 18 11 32 32 5 2 0 0 0 0 24 19 25 16
+                                  12 11 10 32 32 7 5 5 28 2 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|QuotientFieldCategory&| |Field&|
                 |PolynomialFactorizationExplicit&| |EuclideanDomain&|
@@ -1226,15 +1226,15 @@
                 |NonAssociativeAlgebra&| NIL |Module&| |Module&| |Module&|
                 |FullyLinearlyExplicitOver&| NIL |OrderedAbelianGroup&|
                 |NonAssociativeRing&| NIL NIL NIL NIL NIL NIL NIL
-                |NonAssociativeRng&| NIL NIL NIL NIL NIL NIL |AbelianGroup&|
-                NIL NIL NIL NIL |OrderedSet&| |AbelianMonoid&|
-                |NonAssociativeSemiRng&| |MagmaWithUnit&| NIL NIL NIL NIL NIL
-                NIL |AbelianSemiGroup&| |Magma&| |FullyEvalableOver&|
-                |Hashable&| |Evalable&| |RetractableTo&| |RetractableTo&| NIL
-                |RetractableTo&| |SetCategory&| NIL |RetractableTo&| NIL
-                |OpenMath&| NIL NIL NIL NIL |InnerEvalable&| |InnerEvalable&|
-                NIL NIL |PartialOrder&| NIL NIL NIL NIL NIL |BasicType&| NIL
-                NIL NIL NIL NIL NIL NIL)
+                |NonAssociativeRng&| NIL NIL NIL NIL NIL NIL NIL
+                |AbelianGroup&| NIL NIL NIL NIL NIL |OrderedSet&|
+                |AbelianMonoid&| |NonAssociativeSemiRng&| |MagmaWithUnit&| NIL
+                NIL NIL NIL NIL NIL |AbelianSemiGroup&| |Magma&|
+                |FullyEvalableOver&| |Hashable&| |Evalable&| |RetractableTo&|
+                |RetractableTo&| NIL |RetractableTo&| |SetCategory&| NIL
+                |RetractableTo&| NIL |OpenMath&| NIL NIL NIL NIL
+                |InnerEvalable&| |InnerEvalable&| NIL NIL |PartialOrder&| NIL
+                NIL NIL NIL NIL |BasicType&| NIL NIL NIL NIL NIL NIL NIL)
              (CONS
               '#((|QuotientFieldCategory| 6) (|Field|)
                  (|PolynomialFactorizationExplicit|) (|EuclideanDomain|)
@@ -1255,19 +1255,20 @@
                  (|OrderedCancellationAbelianMonoid|) (|RightModule| $$)
                  (|NonAssociativeRng|) (|LeftModule| $$) (|LeftModule| 68)
                  (|RightModule| 68) (|LeftModule| 6) (|RightModule| 6)
-                 (|OrderedAbelianMonoid|) (|AbelianGroup|)
-                 (|OrderedAbelianSemiGroup|) (|CancellationAbelianMonoid|)
-                 (|NonAssociativeSemiRing|) (|Monoid|) (|OrderedSet|)
-                 (|AbelianMonoid|) (|NonAssociativeSemiRng|) (|MagmaWithUnit|)
-                 (|SemiGroup|) (|FullyPatternMatchable| 6)
-                 (|PatternMatchable| 62) (|PatternMatchable| 165)
-                 (|StepThrough|) (|Comparable|) (|AbelianSemiGroup|) (|Magma|)
-                 (|FullyEvalableOver| 6) (|Hashable|) (|Evalable| 6)
-                 (|RetractableTo| 62) (|RetractableTo| 68) (|RealConstant|)
-                 (|RetractableTo| 157) (|SetCategory|) (|CommutativeStar|)
-                 (|RetractableTo| 6) (|Patternable| 6) (|OpenMath|)
-                 (|Canonical|) (|ConvertibleTo| 151) (|ConvertibleTo| 150)
-                 (|Eltable| 6 $$) (|InnerEvalable| 6 6) (|InnerEvalable| 157 6)
+                 (|OrderedMonoid|) (|OrderedAbelianMonoid|) (|AbelianGroup|)
+                 (|OrderedSemiGroup|) (|OrderedAbelianSemiGroup|)
+                 (|CancellationAbelianMonoid|) (|NonAssociativeSemiRing|)
+                 (|Monoid|) (|OrderedSet|) (|AbelianMonoid|)
+                 (|NonAssociativeSemiRng|) (|MagmaWithUnit|) (|SemiGroup|)
+                 (|FullyPatternMatchable| 6) (|PatternMatchable| 62)
+                 (|PatternMatchable| 165) (|StepThrough|) (|Comparable|)
+                 (|AbelianSemiGroup|) (|Magma|) (|FullyEvalableOver| 6)
+                 (|Hashable|) (|Evalable| 6) (|RetractableTo| 62)
+                 (|RetractableTo| 68) (|RealConstant|) (|RetractableTo| 157)
+                 (|SetCategory|) (|CommutativeStar|) (|RetractableTo| 6)
+                 (|Patternable| 6) (|OpenMath|) (|Canonical|)
+                 (|ConvertibleTo| 151) (|ConvertibleTo| 150) (|Eltable| 6 $$)
+                 (|InnerEvalable| 6 6) (|InnerEvalable| 157 6)
                  (|CoercibleFrom| 62) (|CoercibleFrom| 68) (|PartialOrder|)
                  (|ConvertibleTo| 165) (|ConvertibleTo| 166)
                  (|ConvertibleTo| 149) (|CoercibleFrom| 157)

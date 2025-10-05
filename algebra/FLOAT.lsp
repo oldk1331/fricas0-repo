@@ -1641,7 +1641,7 @@
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|FloatingPointSystem&| |RealNumberSystem&| |Field&|
                 |EuclideanDomain&| |UniqueFactorizationDomain&| NIL
@@ -1650,12 +1650,13 @@
                 |NonAssociativeAlgebra&| |NonAssociativeAlgebra&| NIL |Module&|
                 |Module&| |NonAssociativeRing&| NIL NIL |OrderedAbelianGroup&|
                 NIL |NonAssociativeRng&| NIL NIL NIL NIL |AbelianGroup&| NIL
-                NIL NIL NIL NIL |AbelianMonoid&| |NonAssociativeSemiRng&|
-                |MagmaWithUnit&| NIL |OrderedSet&| |AbelianSemiGroup&| |Magma&|
-                NIL NIL |SetCategory&| NIL NIL |RetractableTo&|
-                |RetractableTo&| |TranscendentalFunctionCategory&| |Hashable&|
-                NIL |BasicType&| NIL NIL NIL NIL NIL |PartialOrder&| NIL NIL
-                NIL NIL |RadicalCategory&| NIL NIL NIL |OpenMath&| NIL NIL
+                NIL NIL NIL NIL NIL NIL |AbelianMonoid&|
+                |NonAssociativeSemiRng&| |MagmaWithUnit&| NIL |OrderedSet&|
+                |AbelianSemiGroup&| |Magma&| NIL NIL |SetCategory&| NIL NIL
+                |RetractableTo&| |RetractableTo&|
+                |TranscendentalFunctionCategory&| |Hashable&| NIL |BasicType&|
+                NIL NIL NIL NIL NIL |PartialOrder&| NIL NIL NIL NIL
+                |RadicalCategory&| NIL NIL NIL |OpenMath&| NIL NIL
                 |TrigonometricFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
                 |HyperbolicFunctionCategory&| NIL |ElementaryFunctionCategory&|
@@ -1674,15 +1675,15 @@
                  (|RightModule| $$) (|NonAssociativeRng|) (|LeftModule| $$)
                  (|LeftModule| 108) (|RightModule| 108)
                  (|OrderedCancellationAbelianMonoid|) (|AbelianGroup|)
-                 (|OrderedAbelianMonoid|) (|CancellationAbelianMonoid|)
-                 (|NonAssociativeSemiRing|) (|Monoid|)
-                 (|OrderedAbelianSemiGroup|) (|AbelianMonoid|)
-                 (|NonAssociativeSemiRng|) (|MagmaWithUnit|) (|SemiGroup|)
-                 (|OrderedSet|) (|AbelianSemiGroup|) (|Magma|) (|Comparable|)
-                 (|PatternMatchable| 151) (|SetCategory|) (|CommutativeStar|)
-                 (|RealConstant|) (|RetractableTo| 13) (|RetractableTo| 108)
-                 (|TranscendentalFunctionCategory|) (|Hashable|)
-                 (|CoercibleTo| 140) (|BasicType|) (|unitsKnown|)
+                 (|OrderedAbelianMonoid|) (|OrderedMonoid|)
+                 (|CancellationAbelianMonoid|) (|NonAssociativeSemiRing|)
+                 (|Monoid|) (|OrderedAbelianSemiGroup|) (|OrderedSemiGroup|)
+                 (|AbelianMonoid|) (|NonAssociativeSemiRng|) (|MagmaWithUnit|)
+                 (|SemiGroup|) (|OrderedSet|) (|AbelianSemiGroup|) (|Magma|)
+                 (|Comparable|) (|PatternMatchable| 151) (|SetCategory|)
+                 (|CommutativeStar|) (|RealConstant|) (|RetractableTo| 13)
+                 (|RetractableTo| 108) (|TranscendentalFunctionCategory|)
+                 (|Hashable|) (|CoercibleTo| 140) (|BasicType|) (|unitsKnown|)
                  (|TwoSidedRecip|) (|noZeroDivisors|) (|canonicalUnitNormal|)
                  (|canonicalsClosed|) (|PartialOrder|) (|ConvertibleTo| 153)
                  (|ConvertibleTo| 151) (|CoercibleFrom| 13)

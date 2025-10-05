@@ -488,7 +488,7 @@
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0))
+                                  0 0 0))
             (CONS
              '#(|IntegerNumberSystem&| |EuclideanDomain&|
                 |PolynomialFactorizationExplicit&| NIL
@@ -496,12 +496,12 @@
                 |Algebra&| |EntireRing&| NIL |DifferentialRing&| NIL NIL |Rng&|
                 |NonAssociativeAlgebra&| NIL |Module&| |NonAssociativeRing&|
                 NIL |OrderedAbelianGroup&| NIL NIL |NonAssociativeRng&| NIL NIL
-                NIL |AbelianGroup&| NIL NIL NIL NIL NIL |AbelianMonoid&|
-                |NonAssociativeSemiRng&| |MagmaWithUnit&| NIL |OrderedSet&|
-                |AbelianSemiGroup&| |Magma&| NIL NIL NIL |SetCategory&| NIL
-                |RetractableTo&| NIL |Hashable&| NIL |BasicType&| NIL NIL NIL
-                |PartialOrder&| NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL
-                |OpenMath&| NIL NIL)
+                NIL |AbelianGroup&| NIL NIL NIL NIL NIL NIL NIL
+                |AbelianMonoid&| |NonAssociativeSemiRng&| |MagmaWithUnit&| NIL
+                |OrderedSet&| |AbelianSemiGroup&| |Magma&| NIL NIL NIL
+                |SetCategory&| NIL |RetractableTo&| NIL |Hashable&| NIL
+                |BasicType&| NIL NIL NIL |PartialOrder&| NIL NIL NIL NIL NIL
+                NIL NIL NIL NIL NIL |OpenMath&| NIL NIL)
              (CONS
               '#((|IntegerNumberSystem|) (|EuclideanDomain|)
                  (|PolynomialFactorizationExplicit|) (|PrincipalIdealDomain|)
@@ -515,21 +515,21 @@
                  (|LinearlyExplicitOver| 11) (|RightModule| $$)
                  (|NonAssociativeRng|) (|LeftModule| $$)
                  (|OrderedCancellationAbelianMonoid|) (|RightModule| 11)
-                 (|AbelianGroup|) (|OrderedAbelianMonoid|)
+                 (|AbelianGroup|) (|OrderedAbelianMonoid|) (|OrderedMonoid|)
                  (|CancellationAbelianMonoid|) (|NonAssociativeSemiRing|)
-                 (|Monoid|) (|OrderedAbelianSemiGroup|) (|AbelianMonoid|)
-                 (|NonAssociativeSemiRng|) (|MagmaWithUnit|) (|SemiGroup|)
-                 (|OrderedSet|) (|AbelianSemiGroup|) (|Magma|) (|Comparable|)
-                 (|PatternMatchable| 11) (|StepThrough|) (|SetCategory|)
-                 (|CommutativeStar|) (|RetractableTo| 11) (|RealConstant|)
-                 (|Hashable|) (|CoercibleTo| 30) (|BasicType|) (|unitsKnown|)
-                 (|TwoSidedRecip|) (|noZeroDivisors|) (|PartialOrder|)
-                 (|ConvertibleTo| 11) (|CoercibleFrom| 11) (|ConvertibleTo| 44)
-                 (|ConvertibleTo| 140) (|CombinatorialFunctionCategory|)
-                 (|ConvertibleTo| 42) (|ConvertibleTo| 39)
-                 (|canonicalUnitNormal|) (|multiplicativeValuation|)
-                 (|ConvertibleTo| 9) (|OpenMath|) (|Canonical|)
-                 (|canonicalsClosed|))
+                 (|Monoid|) (|OrderedAbelianSemiGroup|) (|OrderedSemiGroup|)
+                 (|AbelianMonoid|) (|NonAssociativeSemiRng|) (|MagmaWithUnit|)
+                 (|SemiGroup|) (|OrderedSet|) (|AbelianSemiGroup|) (|Magma|)
+                 (|Comparable|) (|PatternMatchable| 11) (|StepThrough|)
+                 (|SetCategory|) (|CommutativeStar|) (|RetractableTo| 11)
+                 (|RealConstant|) (|Hashable|) (|CoercibleTo| 30) (|BasicType|)
+                 (|unitsKnown|) (|TwoSidedRecip|) (|noZeroDivisors|)
+                 (|PartialOrder|) (|ConvertibleTo| 11) (|CoercibleFrom| 11)
+                 (|ConvertibleTo| 44) (|ConvertibleTo| 140)
+                 (|CombinatorialFunctionCategory|) (|ConvertibleTo| 42)
+                 (|ConvertibleTo| 39) (|canonicalUnitNormal|)
+                 (|multiplicativeValuation|) (|ConvertibleTo| 9) (|OpenMath|)
+                 (|Canonical|) (|canonicalsClosed|))
               (|makeByteWordVec2| 144
                                   '(1 7 6 0 8 3 7 6 0 9 9 10 2 7 6 0 11 12 1 7
                                     6 0 13 1 7 6 0 14 1 7 6 0 15 1 30 0 11 31 1

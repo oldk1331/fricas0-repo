@@ -1979,10 +1979,10 @@
                                 '(0 2 0 2 0 34 2 0 2 2 0 6 2 0 25 2 6 24 2 2 44
                                   43 2 7 32 38 25 24 20 47 47 2 38 42 24 20 2 2
                                   38 24 20 0 13 2 2 6 38 46 0 0 0 13 2 47 2 6
-                                  38 38 0 0 0 0 0 6 53 6 42 42 52 2 28 42 51 0
-                                  0 17 16 2 9 29 0 0 2 11 8 8 5 3 24 38 0 0 2
-                                  15 14 12 11 10 8 8 28 5 5 4 3 46 2 2 25 24 38
-                                  38 38 38 38 38 1 0 0 0 0))
+                                  38 38 0 0 0 0 0 6 6 53 6 6 42 42 52 2 28 42
+                                  51 0 0 17 16 2 9 29 0 0 2 11 8 8 5 3 24 38 0
+                                  0 2 15 14 12 11 10 8 8 28 5 5 4 3 46 2 2 25
+                                  24 38 38 38 38 38 38 1 0 0 0 0))
             (CONS
              '#(|UnivariateLaurentSeriesConstructorCategory&|
                 |QuotientFieldCategory&| |UnivariateLaurentSeriesCategory&|
@@ -1998,15 +1998,15 @@
                 |FullyLinearlyExplicitOver&| |Module&| |Module&| |Module&|
                 |Module&| NIL NIL NIL NIL |OrderedAbelianGroup&| NIL
                 |NonAssociativeRing&| NIL NIL NIL NIL NIL |NonAssociativeRng&|
-                NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL
-                NIL NIL NIL |OrderedSet&| |MagmaWithUnit&| |AbelianMonoid&| NIL
-                |NonAssociativeSemiRng&| NIL NIL |FullyEvalableOver&| NIL NIL
-                |AbelianSemiGroup&| |Magma&| NIL |Evalable&| |RetractableTo&|
-                |RetractableTo&| NIL |RetractableTo&| NIL
-                |TranscendentalFunctionCategory&| |SetCategory&|
-                |RetractableTo&| NIL NIL NIL NIL |InnerEvalable&|
-                |InnerEvalable&| NIL NIL |PartialOrder&| NIL NIL NIL NIL NIL
-                NIL NIL NIL NIL |RadicalCategory&|
+                NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL
+                NIL NIL NIL NIL NIL |OrderedSet&| |MagmaWithUnit&|
+                |AbelianMonoid&| NIL |NonAssociativeSemiRng&| NIL NIL
+                |FullyEvalableOver&| NIL NIL |AbelianSemiGroup&| |Magma&| NIL
+                |Evalable&| |RetractableTo&| |RetractableTo&| NIL
+                |RetractableTo&| NIL |TranscendentalFunctionCategory&|
+                |SetCategory&| |RetractableTo&| NIL NIL NIL NIL
+                |InnerEvalable&| |InnerEvalable&| NIL NIL |PartialOrder&| NIL
+                NIL NIL NIL NIL NIL NIL NIL NIL |RadicalCategory&|
                 |ElementaryFunctionCategory&| NIL |HyperbolicFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
                 |TrigonometricFunctionCategory&| NIL NIL |BasicType&| NIL NIL)
@@ -2039,8 +2039,9 @@
                  (|OrderedCancellationAbelianMonoid|) (|RightModule| 148)
                  (|LeftModule| 148) (|LeftModule| $$) (|RightModule| $$)
                  (|RightModule| 6) (|LeftModule| 6)
-                 (|AbelianProductCategory| 6) (|OrderedAbelianMonoid|)
-                 (|AbelianGroup|) (|OrderedAbelianSemiGroup|) (|Monoid|)
+                 (|AbelianProductCategory| 6) (|OrderedMonoid|)
+                 (|OrderedAbelianMonoid|) (|AbelianGroup|) (|OrderedSemiGroup|)
+                 (|OrderedAbelianSemiGroup|) (|Monoid|)
                  (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
                  (|FullyPatternMatchable| 7) (|OrderedSet|) (|MagmaWithUnit|)
                  (|AbelianMonoid|) (|SemiGroup|) (|NonAssociativeSemiRng|)

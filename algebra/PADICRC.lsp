@@ -666,9 +666,9 @@
             (|makeByteWordVec2| 25
                                 '(0 0 1 0 0 0 7 0 0 7 0 0 0 0 16 15 4 3 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 17 7 0 0 0 0 0 17 7 0 0
-                                  0 0 0 0 0 7 0 7 0 0 0 9 0 0 0 0 0 21 20 11 25
-                                  0 0 0 13 10 10 6 2 0 0 0 0 19 18 14 13 12 10
-                                  10 8 6 6 5 2 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 7 7 0 7 7 0 0 0 9 0 0 0 0 0 21 20
+                                  11 25 0 0 0 13 10 10 6 2 0 0 0 0 19 18 14 13
+                                  12 10 10 8 6 6 5 2 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|QuotientFieldCategory&| |Field&|
                 |PolynomialFactorizationExplicit&| |EuclideanDomain&|
@@ -680,15 +680,15 @@
                 |NonAssociativeAlgebra&| NIL |Module&| |Module&| |Module&|
                 |FullyLinearlyExplicitOver&| NIL |OrderedAbelianGroup&|
                 |NonAssociativeRing&| NIL NIL NIL NIL NIL NIL NIL
-                |NonAssociativeRng&| NIL NIL NIL NIL NIL NIL |AbelianGroup&|
-                NIL NIL NIL NIL |OrderedSet&| |AbelianMonoid&|
-                |NonAssociativeSemiRng&| |MagmaWithUnit&| NIL NIL NIL NIL NIL
-                NIL |AbelianSemiGroup&| |Magma&| |FullyEvalableOver&|
-                |Evalable&| |RetractableTo&| |RetractableTo&| NIL
-                |RetractableTo&| |SetCategory&| NIL |RetractableTo&| NIL NIL
-                NIL NIL |InnerEvalable&| |InnerEvalable&| NIL NIL
-                |PartialOrder&| NIL NIL NIL NIL NIL |BasicType&| NIL NIL NIL
-                NIL NIL NIL NIL)
+                |NonAssociativeRng&| NIL NIL NIL NIL NIL NIL NIL
+                |AbelianGroup&| NIL NIL NIL NIL NIL |OrderedSet&|
+                |AbelianMonoid&| |NonAssociativeSemiRng&| |MagmaWithUnit&| NIL
+                NIL NIL NIL NIL NIL |AbelianSemiGroup&| |Magma&|
+                |FullyEvalableOver&| |Evalable&| |RetractableTo&|
+                |RetractableTo&| NIL |RetractableTo&| |SetCategory&| NIL
+                |RetractableTo&| NIL NIL NIL NIL |InnerEvalable&|
+                |InnerEvalable&| NIL NIL |PartialOrder&| NIL NIL NIL NIL NIL
+                |BasicType&| NIL NIL NIL NIL NIL NIL NIL)
              (CONS
               '#((|QuotientFieldCategory| 7) (|Field|)
                  (|PolynomialFactorizationExplicit|) (|EuclideanDomain|)
@@ -709,18 +709,19 @@
                  (|OrderedCancellationAbelianMonoid|) (|RightModule| $$)
                  (|NonAssociativeRng|) (|LeftModule| $$) (|LeftModule| 20)
                  (|RightModule| 20) (|LeftModule| 7) (|RightModule| 7)
-                 (|OrderedAbelianMonoid|) (|AbelianGroup|)
-                 (|OrderedAbelianSemiGroup|) (|CancellationAbelianMonoid|)
-                 (|NonAssociativeSemiRing|) (|Monoid|) (|OrderedSet|)
-                 (|AbelianMonoid|) (|NonAssociativeSemiRng|) (|MagmaWithUnit|)
-                 (|SemiGroup|) (|FullyPatternMatchable| 7)
-                 (|PatternMatchable| 9) (|PatternMatchable| 125)
-                 (|StepThrough|) (|Comparable|) (|AbelianSemiGroup|) (|Magma|)
-                 (|FullyEvalableOver| 7) (|Evalable| 7) (|RetractableTo| 9)
-                 (|RetractableTo| 20) (|RealConstant|) (|RetractableTo| 82)
-                 (|SetCategory|) (|CommutativeStar|) (|RetractableTo| 7)
-                 (|Patternable| 7) (|ConvertibleTo| 112) (|ConvertibleTo| 111)
-                 (|Eltable| 7 $$) (|InnerEvalable| 7 7) (|InnerEvalable| 82 7)
+                 (|OrderedMonoid|) (|OrderedAbelianMonoid|) (|AbelianGroup|)
+                 (|OrderedSemiGroup|) (|OrderedAbelianSemiGroup|)
+                 (|CancellationAbelianMonoid|) (|NonAssociativeSemiRing|)
+                 (|Monoid|) (|OrderedSet|) (|AbelianMonoid|)
+                 (|NonAssociativeSemiRng|) (|MagmaWithUnit|) (|SemiGroup|)
+                 (|FullyPatternMatchable| 7) (|PatternMatchable| 9)
+                 (|PatternMatchable| 125) (|StepThrough|) (|Comparable|)
+                 (|AbelianSemiGroup|) (|Magma|) (|FullyEvalableOver| 7)
+                 (|Evalable| 7) (|RetractableTo| 9) (|RetractableTo| 20)
+                 (|RealConstant|) (|RetractableTo| 82) (|SetCategory|)
+                 (|CommutativeStar|) (|RetractableTo| 7) (|Patternable| 7)
+                 (|ConvertibleTo| 112) (|ConvertibleTo| 111) (|Eltable| 7 $$)
+                 (|InnerEvalable| 7 7) (|InnerEvalable| 82 7)
                  (|CoercibleFrom| 9) (|CoercibleFrom| 20) (|PartialOrder|)
                  (|ConvertibleTo| 125) (|ConvertibleTo| 126)
                  (|ConvertibleTo| 110) (|CoercibleFrom| 82) (|CoercibleTo| 8)

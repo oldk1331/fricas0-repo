@@ -188,9 +188,9 @@
             (|makeByteWordVec2| 25
                                 '(0 0 1 0 0 0 7 0 0 7 0 0 0 0 16 15 4 3 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 17 7 0 0 0 0 0 17 7 0 0
-                                  0 0 0 0 0 7 0 7 0 0 0 9 0 0 0 0 0 21 20 11 25
-                                  0 0 0 13 10 10 6 2 0 0 0 0 19 18 14 13 12 10
-                                  10 8 6 6 5 2 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 7 7 0 7 7 0 0 0 9 0 0 0 0 0 21 20
+                                  11 25 0 0 0 13 10 10 6 2 0 0 0 0 19 18 14 13
+                                  12 10 10 8 6 6 5 2 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|QuotientFieldCategory&| |Field&|
                 |PolynomialFactorizationExplicit&| |EuclideanDomain&|
@@ -202,15 +202,15 @@
                 |NonAssociativeAlgebra&| NIL |Module&| |Module&| |Module&|
                 |FullyLinearlyExplicitOver&| NIL |OrderedAbelianGroup&|
                 |NonAssociativeRing&| NIL NIL NIL NIL NIL NIL NIL
-                |NonAssociativeRng&| NIL NIL NIL NIL NIL NIL |AbelianGroup&|
-                NIL NIL NIL NIL |OrderedSet&| |AbelianMonoid&|
-                |NonAssociativeSemiRng&| |MagmaWithUnit&| NIL NIL NIL NIL NIL
-                NIL |AbelianSemiGroup&| |Magma&| |FullyEvalableOver&|
-                |Evalable&| |RetractableTo&| |RetractableTo&| NIL
-                |RetractableTo&| |SetCategory&| NIL |RetractableTo&| NIL NIL
-                NIL NIL |InnerEvalable&| |InnerEvalable&| NIL NIL
-                |PartialOrder&| NIL NIL NIL NIL NIL |BasicType&| NIL NIL NIL
-                NIL NIL NIL NIL)
+                |NonAssociativeRng&| NIL NIL NIL NIL NIL NIL NIL
+                |AbelianGroup&| NIL NIL NIL NIL NIL |OrderedSet&|
+                |AbelianMonoid&| |NonAssociativeSemiRng&| |MagmaWithUnit&| NIL
+                NIL NIL NIL NIL NIL |AbelianSemiGroup&| |Magma&|
+                |FullyEvalableOver&| |Evalable&| |RetractableTo&|
+                |RetractableTo&| NIL |RetractableTo&| |SetCategory&| NIL
+                |RetractableTo&| NIL NIL NIL NIL |InnerEvalable&|
+                |InnerEvalable&| NIL NIL |PartialOrder&| NIL NIL NIL NIL NIL
+                |BasicType&| NIL NIL NIL NIL NIL NIL NIL)
              (CONS
               '#((|QuotientFieldCategory| (|BalancedPAdicInteger| 6)) (|Field|)
                  (|PolynomialFactorizationExplicit|) (|EuclideanDomain|)
@@ -238,8 +238,8 @@
                  (|RightModule| $$) (|NonAssociativeRng|) (|LeftModule| $$)
                  (|LeftModule| 25) (|RightModule| 25)
                  (|LeftModule| (|BalancedPAdicInteger| 6))
-                 (|RightModule| (|BalancedPAdicInteger| 6))
-                 (|OrderedAbelianMonoid|) (|AbelianGroup|)
+                 (|RightModule| (|BalancedPAdicInteger| 6)) (|OrderedMonoid|)
+                 (|OrderedAbelianMonoid|) (|AbelianGroup|) (|OrderedSemiGroup|)
                  (|OrderedAbelianSemiGroup|) (|CancellationAbelianMonoid|)
                  (|NonAssociativeSemiRing|) (|Monoid|) (|OrderedSet|)
                  (|AbelianMonoid|) (|NonAssociativeSemiRng|) (|MagmaWithUnit|)
