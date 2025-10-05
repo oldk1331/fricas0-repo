@@ -307,10 +307,12 @@
 ;     pred
 ;   eval (pred := ['has,d,cat]) ==
 ;     x := hasCat(first d, first cat)
+;     if rest(d) then
+;         x := EQSUBSTLIST(rest(d), $FormalMapVariableList, x)
 ;     y := rest cat =>
 ;       npred := or/[p for [args,:p] in x | y = args] => simp npred
 ;       false  --if not there, it is false
-;     x
+;     simp(x)
 
 (DEFUN |simpHasPred2| (|pred| |options|)
   (PROG (|$hasArgs|)
@@ -402,6 +404,9 @@
       (SETQ |cat| (CADDR . #1#))
       (SETQ |x| (|hasCat| (CAR |d|) (CAR |cat|)))
       (COND
+       ((CDR |d|)
+        (SETQ |x| (EQSUBSTLIST (CDR |d|) |$FormalMapVariableList| |x|))))
+      (COND
        ((SETQ |y| (CDR |cat|))
         (COND
          ((SETQ |npred|
@@ -425,7 +430,7 @@
                    NIL |x| NIL))
           (|simpHasPred2,simp| |npred|))
          (#2# NIL)))
-       (#2# |x|))))))
+       (#2# (|simpHasPred2,simp| |x|)))))))
 
 ; simpHasSignature(pred,conform,op,sig) == --eval w/o loading
 ;   IDENTP conform => pred
