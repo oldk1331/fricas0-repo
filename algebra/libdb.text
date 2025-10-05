@@ -9661,6 +9661,7 @@ oset`1`n`(List(S))->A`xFiniteSetAggregate&(A,S)``0
 oset`1`x`(List(S))->%`cSetAggregate(S)``1151001
 osetAdaptive`1`n`(Boolean)->Boolean`dPlot``1151123
 osetAdaptive3D`1`n`(Boolean)->Boolean`dPlot3D``1151236
+osetchildren!`2`n`(A,List(A))->A`xBinaryRecursiveAggregate&(A,S)``0
 osetchildren!`2`n`(A,List(A))->A`xUnaryRecursiveAggregate&(A,S)``0
 osetchildren!`2`x`(%,List(%))->%`cRecursiveAggregate(S)`has(%,shallowlyMutable)`1151355
 osetClipValue`1`x`(DoubleFloat)->DoubleFloat`pDrawComplex``1151490
