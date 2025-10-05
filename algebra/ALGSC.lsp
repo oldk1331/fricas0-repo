@@ -3066,29 +3066,6 @@
 
 (DECLAIM (NOTINLINE |AlgebraGivenByStructuralConstants;|)) 
 
-(DEFUN |AlgebraGivenByStructuralConstants| (&REST #1=#:G441)
-  (SPROG NIL
-         (PROG (#2=#:G442)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T NIL NIL NIL))
-                     (HGET |$ConstructorCache|
-                           '|AlgebraGivenByStructuralConstants|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |AlgebraGivenByStructuralConstants;|)
-                             #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|AlgebraGivenByStructuralConstants|)))))))))) 
-
 (DEFUN |AlgebraGivenByStructuralConstants;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((|pv$| NIL) (#1=#:G440 NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
@@ -3137,6 +3114,29 @@
        (QSETREFV % 63
                  (CONS (|dispatchFunction| |ALGSC;coordinates;%VV;17|) %)))))
     %))) 
+
+(DEFUN |AlgebraGivenByStructuralConstants| (&REST #1=#:G441)
+  (SPROG NIL
+         (PROG (#2=#:G442)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T NIL NIL NIL))
+                     (HGET |$ConstructorCache|
+                           '|AlgebraGivenByStructuralConstants|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |AlgebraGivenByStructuralConstants;|)
+                             #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|AlgebraGivenByStructuralConstants|)))))))))) 
 
 (MAKEPROP '|AlgebraGivenByStructuralConstants| '|infovec|
           (LIST

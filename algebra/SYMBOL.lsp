@@ -523,22 +523,6 @@
 
 (DECLAIM (NOTINLINE |Symbol;|)) 
 
-(DEFUN |Symbol| ()
-  (SPROG NIL
-         (PROG (#1=#:G2058)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|Symbol|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|Symbol|
-                             (LIST (CONS NIL (CONS 1 (|Symbol;|))))))
-                    (LETT #1# T))
-                (COND ((NOT #1#) (HREM |$ConstructorCache| '|Symbol|)))))))))) 
-
 (DEFUN |Symbol;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -561,6 +545,22 @@
           (QSETREFV % 27 (QCSIZE (QREFELT % 26)))
           (QSETREFV % 28 (|STR_to_CHAR| #1#))
           %))) 
+
+(DEFUN |Symbol| ()
+  (SPROG NIL
+         (PROG (#1=#:G2058)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|Symbol|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|Symbol|
+                             (LIST (CONS NIL (CONS 1 (|Symbol;|))))))
+                    (LETT #1# T))
+                (COND ((NOT #1#) (HREM |$ConstructorCache| '|Symbol|)))))))))) 
 
 (MAKEPROP '|Symbol| '|infovec|
           (LIST

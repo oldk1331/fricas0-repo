@@ -52,6 +52,25 @@
 
 (DECLAIM (NOTINLINE |PatternMatchListAggregate;|)) 
 
+(DEFUN |PatternMatchListAggregate;| (|#1| |#2| |#3|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT DV$3 (|devaluate| |#3|))
+          (LETT |dv$| (LIST '|PatternMatchListAggregate| DV$1 DV$2 DV$3))
+          (LETT % (GETREFV 32))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|PatternMatchListAggregate|
+                      (LIST DV$1 DV$2 DV$3) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (QSETREFV % 7 |#2|)
+          (QSETREFV % 8 |#3|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |PatternMatchListAggregate| (&REST #1=#:G19)
   (SPROG NIL
          (PROG (#2=#:G20)
@@ -71,25 +90,6 @@
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
                         '|PatternMatchListAggregate|)))))))))) 
-
-(DEFUN |PatternMatchListAggregate;| (|#1| |#2| |#3|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT DV$2 (|devaluate| |#2|))
-          (LETT DV$3 (|devaluate| |#3|))
-          (LETT |dv$| (LIST '|PatternMatchListAggregate| DV$1 DV$2 DV$3))
-          (LETT % (GETREFV 32))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|PatternMatchListAggregate|
-                      (LIST DV$1 DV$2 DV$3) (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (QSETREFV % 7 |#2|)
-          (QSETREFV % 8 |#3|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|PatternMatchListAggregate| '|infovec|
           (LIST

@@ -678,6 +678,19 @@
 
 (DECLAIM (NOTINLINE |ModularAlgebraicGcdTools3;|)) 
 
+(DEFUN |ModularAlgebraicGcdTools3;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|ModularAlgebraicGcdTools3|))
+          (LETT % (GETREFV 71))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|ModularAlgebraicGcdTools3| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |ModularAlgebraicGcdTools3| ()
   (SPROG NIL
          (PROG (#1=#:G159)
@@ -699,19 +712,6 @@
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
                         '|ModularAlgebraicGcdTools3|)))))))))) 
-
-(DEFUN |ModularAlgebraicGcdTools3;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|ModularAlgebraicGcdTools3|))
-          (LETT % (GETREFV 71))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|ModularAlgebraicGcdTools3| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|ModularAlgebraicGcdTools3| '|infovec|
           (LIST

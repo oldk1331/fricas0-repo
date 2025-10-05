@@ -157,22 +157,6 @@
 
 (DECLAIM (NOTINLINE |Product;|)) 
 
-(DEFUN |Product| (&REST #1=#:G55)
-  (SPROG NIL
-         (PROG (#2=#:G56)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|Product|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |Product;|) #1#) (LETT #2# T))
-                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Product|)))))))))) 
-
 (DEFUN |Product;| (|#1| |#2|)
   (SPROG
    ((|pv$| NIL) (#1=#:G52 NIL) (#2=#:G53 NIL) (#3=#:G54 NIL) (% NIL)
@@ -350,6 +334,22 @@
         (QSETREFV % 83
                   (CONS (|dispatchFunction| |PRODUCT;smaller?;2%B;24|) %))))))
     %))) 
+
+(DEFUN |Product| (&REST #1=#:G55)
+  (SPROG NIL
+         (PROG (#2=#:G56)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|Product|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |Product;|) #1#) (LETT #2# T))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Product|)))))))))) 
 
 (MAKEPROP '|Product| '|infovec|
           (LIST

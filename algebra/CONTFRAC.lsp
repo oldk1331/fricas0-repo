@@ -679,23 +679,6 @@
 
 (DECLAIM (NOTINLINE |ContinuedFraction;|)) 
 
-(DEFUN |ContinuedFraction| (#1=#:G210)
-  (SPROG NIL
-         (PROG (#2=#:G211)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|ContinuedFraction|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|ContinuedFraction;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|ContinuedFraction|)))))))))) 
-
 (DEFUN |ContinuedFraction;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -737,6 +720,23 @@
                          |CONTFRAC;continuedFraction;R2S%;8|)
                         %)))))
           %))) 
+
+(DEFUN |ContinuedFraction| (#1=#:G210)
+  (SPROG NIL
+         (PROG (#2=#:G211)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|ContinuedFraction|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|ContinuedFraction;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|ContinuedFraction|)))))))))) 
 
 (MAKEPROP '|ContinuedFraction| '|infovec|
           (LIST

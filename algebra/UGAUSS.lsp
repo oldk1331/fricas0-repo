@@ -314,6 +314,19 @@
 
 (DECLAIM (NOTINLINE |UnitGaussianElimination;|)) 
 
+(DEFUN |UnitGaussianElimination;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|UnitGaussianElimination|))
+          (LETT % (GETREFV 20))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|UnitGaussianElimination| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |UnitGaussianElimination| ()
   (SPROG NIL
          (PROG (#1=#:G88)
@@ -333,19 +346,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|UnitGaussianElimination|)))))))))) 
-
-(DEFUN |UnitGaussianElimination;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|UnitGaussianElimination|))
-          (LETT % (GETREFV 20))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|UnitGaussianElimination| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|UnitGaussianElimination| '|infovec|
           (LIST

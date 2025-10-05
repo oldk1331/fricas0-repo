@@ -66,21 +66,6 @@
 
 (DECLAIM (NOTINLINE |Tableau;|)) 
 
-(DEFUN |Tableau| (#1=#:G18)
-  (SPROG NIL
-         (PROG (#2=#:G19)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|Tableau|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|Tableau;| #1#) (LETT #2# T))
-                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Tableau|)))))))))) 
-
 (DEFUN |Tableau;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -95,6 +80,21 @@
           (SETF |pv$| (QREFELT % 3))
           (QSETREFV % 7 (|List| (|List| |#1|)))
           %))) 
+
+(DEFUN |Tableau| (#1=#:G18)
+  (SPROG NIL
+         (PROG (#2=#:G19)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Tableau|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Tableau;| #1#) (LETT #2# T))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Tableau|)))))))))) 
 
 (MAKEPROP '|Tableau| '|infovec|
           (LIST

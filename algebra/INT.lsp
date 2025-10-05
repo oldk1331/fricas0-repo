@@ -366,6 +366,20 @@
 
 (DECLAIM (NOTINLINE |Integer;|)) 
 
+(DEFUN |Integer;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|Integer|))
+          (LETT % (GETREFV 145))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|Integer| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (AND (|HasCategory| % '(|CharacteristicNonZero|))
+               (|augmentPredVector| % 1))
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |Integer| ()
   (SPROG NIL
          (PROG (#1=#:G1284)
@@ -381,20 +395,6 @@
                              (LIST (CONS NIL (CONS 1 (|Integer;|))))))
                     (LETT #1# T))
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|Integer|)))))))))) 
-
-(DEFUN |Integer;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|Integer|))
-          (LETT % (GETREFV 145))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|Integer| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (AND (|HasCategory| % '(|CharacteristicNonZero|))
-               (|augmentPredVector| % 1))
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|Integer| '|infovec|
           (LIST

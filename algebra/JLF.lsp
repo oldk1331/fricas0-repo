@@ -1779,25 +1779,6 @@
 
 (DECLAIM (NOTINLINE |JetLazyFunction;|)) 
 
-(DEFUN |JetLazyFunction| (&REST #1=#:G502)
-  (SPROG NIL
-         (PROG (#2=#:G503)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|JetLazyFunction|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |JetLazyFunction;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|JetLazyFunction|)))))))))) 
-
 (DEFUN |JetLazyFunction;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -1842,6 +1823,25 @@
                                       (SPADCALL (QREFELT % 25) (QREFELT % 29)))
                               (QREFELT % 31)))))
           %))) 
+
+(DEFUN |JetLazyFunction| (&REST #1=#:G502)
+  (SPROG NIL
+         (PROG (#2=#:G503)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|JetLazyFunction|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |JetLazyFunction;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|JetLazyFunction|)))))))))) 
 
 (MAKEPROP '|JetLazyFunction| '|infovec|
           (LIST

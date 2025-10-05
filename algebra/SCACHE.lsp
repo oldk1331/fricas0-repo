@@ -370,22 +370,6 @@
 
 (DECLAIM (NOTINLINE |SortedCache;|)) 
 
-(DEFUN |SortedCache| (#1=#:G121)
-  (SPROG NIL
-         (PROG (#2=#:G122)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|SortedCache|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|SortedCache;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|SortedCache|)))))))))) 
-
 (DEFUN |SortedCache;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -403,6 +387,22 @@
           (QSETREFV % 8 0)
           (QSETREFV % 9 0)
           %))) 
+
+(DEFUN |SortedCache| (#1=#:G121)
+  (SPROG NIL
+         (PROG (#2=#:G122)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|SortedCache|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|SortedCache;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|SortedCache|)))))))))) 
 
 (MAKEPROP '|SortedCache| '|infovec|
           (LIST

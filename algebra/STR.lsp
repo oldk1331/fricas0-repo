@@ -1468,22 +1468,6 @@
 
 (DECLAIM (NOTINLINE |STransform;|)) 
 
-(DEFUN |STransform| (#1=#:G139)
-  (SPROG NIL
-         (PROG (#2=#:G140)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|STransform|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|STransform;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|STransform|)))))))))) 
-
 (DEFUN |STransform;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -1505,6 +1489,22 @@
                      (|:| |multiv| (|PrimitiveArray| (|DoubleFloat|)))
                      (|:| |iden| "iden")))
           %))) 
+
+(DEFUN |STransform| (#1=#:G139)
+  (SPROG NIL
+         (PROG (#2=#:G140)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|STransform|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|STransform;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|STransform|)))))))))) 
 
 (MAKEPROP '|STransform| '|infovec|
           (LIST

@@ -67,6 +67,22 @@
 
 (DECLAIM (NOTINLINE |IntegerSolveLinearPolynomialEquation;|)) 
 
+(DEFUN |IntegerSolveLinearPolynomialEquation;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|IntegerSolveLinearPolynomialEquation|))
+          (LETT % (GETREFV 25))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache|
+                      '|IntegerSolveLinearPolynomialEquation| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6 NIL)
+          (QSETREFV % 7 2)
+          (QSETREFV % 8 (MAKE-ARRAY 0))
+          %))) 
+
 (DEFUN |IntegerSolveLinearPolynomialEquation| ()
   (SPROG NIL
          (PROG (#1=#:G19)
@@ -91,22 +107,6 @@
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
                         '|IntegerSolveLinearPolynomialEquation|)))))))))) 
-
-(DEFUN |IntegerSolveLinearPolynomialEquation;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|IntegerSolveLinearPolynomialEquation|))
-          (LETT % (GETREFV 25))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache|
-                      '|IntegerSolveLinearPolynomialEquation| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6 NIL)
-          (QSETREFV % 7 2)
-          (QSETREFV % 8 (MAKE-ARRAY 0))
-          %))) 
 
 (MAKEPROP '|IntegerSolveLinearPolynomialEquation| '|infovec|
           (LIST

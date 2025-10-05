@@ -97,23 +97,6 @@
 
 (DECLAIM (NOTINLINE |SortPackage;|)) 
 
-(DEFUN |SortPackage| (&REST #1=#:G40)
-  (SPROG NIL
-         (PROG (#2=#:G41)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|SortPackage|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |SortPackage;|) #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|SortPackage|)))))))))) 
-
 (DEFUN |SortPackage;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -151,6 +134,23 @@
                       (CONS (|dispatchFunction| |SORTPAK;bubbleSort!;AMA;5|)
                             %))))
           %))) 
+
+(DEFUN |SortPackage| (&REST #1=#:G40)
+  (SPROG NIL
+         (PROG (#2=#:G41)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|SortPackage|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |SortPackage;|) #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|SortPackage|)))))))))) 
 
 (MAKEPROP '|SortPackage| '|infovec|
           (LIST

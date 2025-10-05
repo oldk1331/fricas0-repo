@@ -7,26 +7,6 @@
 
 (DECLAIM (NOTINLINE |UnivariateSkewPolynomial;|)) 
 
-(DEFUN |UnivariateSkewPolynomial| (&REST #1=#:G36)
-  (SPROG NIL
-         (PROG (#2=#:G37)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(NIL T NIL NIL))
-                     (HGET |$ConstructorCache| '|UnivariateSkewPolynomial|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |UnivariateSkewPolynomial;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|UnivariateSkewPolynomial|)))))))))) 
-
 (DEFUN |UnivariateSkewPolynomial;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((|pv$| NIL) (#1=#:G33 NIL) (#2=#:G35 NIL) (#3=#:G34 NIL) (% NIL)
@@ -237,6 +217,26 @@
     (SETF |pv$| (QREFELT % 3))
     (QSETREFV % 10 (|SparseUnivariateSkewPolynomial| |#2| |#3| |#4|))
     %))) 
+
+(DEFUN |UnivariateSkewPolynomial| (&REST #1=#:G36)
+  (SPROG NIL
+         (PROG (#2=#:G37)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(NIL T NIL NIL))
+                     (HGET |$ConstructorCache| '|UnivariateSkewPolynomial|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |UnivariateSkewPolynomial;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|UnivariateSkewPolynomial|)))))))))) 
 
 (MAKEPROP '|UnivariateSkewPolynomial| '|infovec|
           (LIST

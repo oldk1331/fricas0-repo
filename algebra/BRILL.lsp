@@ -190,6 +190,22 @@
 
 (DECLAIM (NOTINLINE |BrillhartTests;|)) 
 
+(DEFUN |BrillhartTests;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|BrillhartTests| DV$1))
+          (LETT % (GETREFV 33))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|BrillhartTests| (LIST DV$1)
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 21 6)
+          %))) 
+
 (DEFUN |BrillhartTests| (#1=#:G51)
   (SPROG NIL
          (PROG (#2=#:G52)
@@ -206,22 +222,6 @@
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|BrillhartTests|)))))))))) 
-
-(DEFUN |BrillhartTests;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|BrillhartTests| DV$1))
-          (LETT % (GETREFV 33))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|BrillhartTests| (LIST DV$1)
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 21 6)
-          %))) 
 
 (MAKEPROP '|BrillhartTests| '|infovec|
           (LIST

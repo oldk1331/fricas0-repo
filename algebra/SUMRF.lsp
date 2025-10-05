@@ -124,6 +124,21 @@
 
 (DECLAIM (NOTINLINE |RationalFunctionSum;|)) 
 
+(DEFUN |RationalFunctionSum;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|RationalFunctionSum| DV$1))
+          (LETT % (GETREFV 63))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|RationalFunctionSum| (LIST DV$1)
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |RationalFunctionSum| (#1=#:G33)
   (SPROG NIL
          (PROG (#2=#:G34)
@@ -140,21 +155,6 @@
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|RationalFunctionSum|)))))))))) 
-
-(DEFUN |RationalFunctionSum;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|RationalFunctionSum| DV$1))
-          (LETT % (GETREFV 63))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|RationalFunctionSum| (LIST DV$1)
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|RationalFunctionSum| '|infovec|
           (LIST

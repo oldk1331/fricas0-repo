@@ -110,27 +110,6 @@
 
 (DECLAIM (NOTINLINE |TabulatedComputationPackage;|)) 
 
-(DEFUN |TabulatedComputationPackage| (&REST #1=#:G29)
-  (SPROG NIL
-         (PROG (#2=#:G30)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|TabulatedComputationPackage|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |TabulatedComputationPackage;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|TabulatedComputationPackage|)))))))))) 
-
 (DEFUN |TabulatedComputationPackage;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -155,6 +134,27 @@
           (QSETREFV % 16 "+")
           (QSETREFV % 17 (|make_full_CVEC| 0))
           %))) 
+
+(DEFUN |TabulatedComputationPackage| (&REST #1=#:G29)
+  (SPROG NIL
+         (PROG (#2=#:G30)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|TabulatedComputationPackage|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |TabulatedComputationPackage;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|TabulatedComputationPackage|)))))))))) 
 
 (MAKEPROP '|TabulatedComputationPackage| '|infovec|
           (LIST

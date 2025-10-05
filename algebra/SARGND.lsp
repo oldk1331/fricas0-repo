@@ -169,6 +169,21 @@
 
 (DECLAIM (NOTINLINE |SArgand;|)) 
 
+(DEFUN |SArgand;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|SArgand|))
+          (LETT % (GETREFV 57))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|SArgand| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6
+                    (|Record| (|:| |r| (|DoubleFloat|))
+                              (|:| |i| (|DoubleFloat|))))
+          %))) 
+
 (DEFUN |SArgand| ()
   (SPROG NIL
          (PROG (#1=#:G60)
@@ -184,21 +199,6 @@
                              (LIST (CONS NIL (CONS 1 (|SArgand;|))))))
                     (LETT #1# T))
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|SArgand|)))))))))) 
-
-(DEFUN |SArgand;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|SArgand|))
-          (LETT % (GETREFV 57))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|SArgand| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6
-                    (|Record| (|:| |r| (|DoubleFloat|))
-                              (|:| |i| (|DoubleFloat|))))
-          %))) 
 
 (MAKEPROP '|SArgand| '|infovec|
           (LIST

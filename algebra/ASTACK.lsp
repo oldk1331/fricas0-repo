@@ -82,22 +82,6 @@
 
 (DECLAIM (NOTINLINE |ArrayStack;|)) 
 
-(DEFUN |ArrayStack| (#1=#:G45)
-  (SPROG NIL
-         (PROG (#2=#:G46)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|ArrayStack|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|ArrayStack;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|ArrayStack|)))))))))) 
-
 (DEFUN |ArrayStack;| (|#1|)
   (SPROG
    ((#1=#:G44 NIL) (|pv$| NIL) (#2=#:G41 NIL) (#3=#:G42 NIL) (#4=#:G43 NIL)
@@ -159,6 +143,22 @@
       (QSETREFV % 50
                 (CONS (|dispatchFunction| |ASTACK;hashUpdate!;Hs%Hs;18|) %))))
     %))) 
+
+(DEFUN |ArrayStack| (#1=#:G45)
+  (SPROG NIL
+         (PROG (#2=#:G46)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|ArrayStack|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|ArrayStack;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|ArrayStack|)))))))))) 
 
 (MAKEPROP '|ArrayStack| '|infovec|
           (LIST

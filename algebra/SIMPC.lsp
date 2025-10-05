@@ -1213,24 +1213,6 @@
 
 (DECLAIM (NOTINLINE |FiniteSimplicialComplex;|)) 
 
-(DEFUN |FiniteSimplicialComplex| (#1=#:G339)
-  (SPROG NIL
-         (PROG (#2=#:G340)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|FiniteSimplicialComplex|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|FiniteSimplicialComplex;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|FiniteSimplicialComplex|)))))))))) 
-
 (DEFUN |FiniteSimplicialComplex;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -1249,6 +1231,24 @@
                               (|:| NUMPOINTS (|NonNegativeInteger|))
                               (|:| SIMP (|List| (|OrientedFacet|)))))
           %))) 
+
+(DEFUN |FiniteSimplicialComplex| (#1=#:G339)
+  (SPROG NIL
+         (PROG (#2=#:G340)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|FiniteSimplicialComplex|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|FiniteSimplicialComplex;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|FiniteSimplicialComplex|)))))))))) 
 
 (MAKEPROP '|FiniteSimplicialComplex| '|infovec|
           (LIST

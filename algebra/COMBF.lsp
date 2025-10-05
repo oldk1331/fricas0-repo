@@ -931,25 +931,6 @@
 
 (DECLAIM (NOTINLINE |CombinatorialFunction;|)) 
 
-(DEFUN |CombinatorialFunction| (&REST #1=#:G308)
-  (SPROG NIL
-         (PROG (#2=#:G309)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|CombinatorialFunction|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |CombinatorialFunction;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|CombinatorialFunction|)))))))))) 
-
 (DEFUN |CombinatorialFunction;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -1070,6 +1051,25 @@
                     (CONS (|function| |COMBF;equaldsumprod|) %)
                     (QREFELT % 139))
           %))) 
+
+(DEFUN |CombinatorialFunction| (&REST #1=#:G308)
+  (SPROG NIL
+         (PROG (#2=#:G309)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|CombinatorialFunction|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |CombinatorialFunction;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|CombinatorialFunction|)))))))))) 
 
 (MAKEPROP '|CombinatorialFunction| '|infovec|
           (LIST

@@ -423,25 +423,6 @@
 
 (DECLAIM (NOTINLINE |IndexedFlexibleArray;|)) 
 
-(DEFUN |IndexedFlexibleArray| (&REST #1=#:G181)
-  (SPROG NIL
-         (PROG (#2=#:G182)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(T NIL))
-                                               (HGET |$ConstructorCache|
-                                                     '|IndexedFlexibleArray|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |IndexedFlexibleArray;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|IndexedFlexibleArray|)))))))))) 
-
 (DEFUN |IndexedFlexibleArray;| (|#1| |#2|)
   (SPROG
    ((|pv$| NIL) (#1=#:G178 NIL) (#2=#:G179 NIL) (#3=#:G180 NIL) (% NIL)
@@ -559,6 +540,25 @@
                  (CONS (|dispatchFunction| |IFARRAY;removeRepeats!;2%;30|)
                        %)))))
     %))) 
+
+(DEFUN |IndexedFlexibleArray| (&REST #1=#:G181)
+  (SPROG NIL
+         (PROG (#2=#:G182)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(T NIL))
+                                               (HGET |$ConstructorCache|
+                                                     '|IndexedFlexibleArray|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |IndexedFlexibleArray;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|IndexedFlexibleArray|)))))))))) 
 
 (MAKEPROP '|IndexedFlexibleArray| '|infovec|
           (LIST

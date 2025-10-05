@@ -790,26 +790,6 @@
 
 (DECLAIM (NOTINLINE |PolynomialSolveByFormulas;|)) 
 
-(DEFUN |PolynomialSolveByFormulas| (&REST #1=#:G88)
-  (SPROG NIL
-         (PROG (#2=#:G89)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|PolynomialSolveByFormulas|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |PolynomialSolveByFormulas;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|PolynomialSolveByFormulas|)))))))))) 
-
 (DEFUN |PolynomialSolveByFormulas;| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -837,6 +817,26 @@
                                (QREFELT % 60))
                      (SPADCALL 2 (QREFELT % 61)) (QREFELT % 54)))
           %))) 
+
+(DEFUN |PolynomialSolveByFormulas| (&REST #1=#:G88)
+  (SPROG NIL
+         (PROG (#2=#:G89)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|PolynomialSolveByFormulas|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |PolynomialSolveByFormulas;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|PolynomialSolveByFormulas|)))))))))) 
 
 (MAKEPROP '|PolynomialSolveByFormulas| '|infovec|
           (LIST

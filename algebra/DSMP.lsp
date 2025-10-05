@@ -21,29 +21,6 @@
 
 (DECLAIM (NOTINLINE |DifferentialSparseMultivariatePolynomial;|)) 
 
-(DEFUN |DifferentialSparseMultivariatePolynomial| (&REST #1=#:G64)
-  (SPROG NIL
-         (PROG (#2=#:G65)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|DifferentialSparseMultivariatePolynomial|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY
-                       (|function| |DifferentialSparseMultivariatePolynomial;|)
-                       #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|DifferentialSparseMultivariatePolynomial|)))))))))) 
-
 (DEFUN |DifferentialSparseMultivariatePolynomial;| (|#1| |#2| |#3|)
   (SPROG
    ((#1=#:G63 NIL) (|pv$| NIL) (#2=#:G56 NIL) (#3=#:G57 NIL) (#4=#:G58 NIL)
@@ -612,6 +589,29 @@
      (|augmentPredVector| % 4398046511104))
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |DifferentialSparseMultivariatePolynomial| (&REST #1=#:G64)
+  (SPROG NIL
+         (PROG (#2=#:G65)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|DifferentialSparseMultivariatePolynomial|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY
+                       (|function| |DifferentialSparseMultivariatePolynomial;|)
+                       #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|DifferentialSparseMultivariatePolynomial|)))))))))) 
 
 (MAKEPROP '|DifferentialSparseMultivariatePolynomial| '|infovec|
           (LIST

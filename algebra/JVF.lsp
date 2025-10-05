@@ -590,25 +590,6 @@
 
 (DECLAIM (NOTINLINE |JetVectorField;|)) 
 
-(DEFUN |JetVectorField| (&REST #1=#:G190)
-  (SPROG NIL
-         (PROG (#2=#:G191)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|JetVectorField|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |JetVectorField;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|JetVectorField|)))))))))) 
-
 (DEFUN |JetVectorField;| (|#1| |#2|)
   (SPROG
    ((|pv$| NIL) (#1=#:G189 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
@@ -640,6 +621,25 @@
     (QSETREFV % 13
               (|Record| (|:| |Coeff| (|List| |#2|)) (|:| |Dir| (|List| |#1|))))
     %))) 
+
+(DEFUN |JetVectorField| (&REST #1=#:G190)
+  (SPROG NIL
+         (PROG (#2=#:G191)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|JetVectorField|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |JetVectorField;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|JetVectorField|)))))))))) 
 
 (MAKEPROP '|JetVectorField| '|infovec|
           (LIST

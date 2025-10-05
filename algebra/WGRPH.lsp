@@ -1894,24 +1894,6 @@
 
 (DECLAIM (NOTINLINE |WeightedGraph;|)) 
 
-(DEFUN |WeightedGraph| (&REST #1=#:G506)
-  (SPROG NIL
-         (PROG (#2=#:G507)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|WeightedGraph|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |WeightedGraph;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|WeightedGraph|)))))))))) 
-
 (DEFUN |WeightedGraph;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -1946,6 +1928,24 @@
                                      (|:| |map|
                                           (|List| (|NonNegativeInteger|))))))))
           %))) 
+
+(DEFUN |WeightedGraph| (&REST #1=#:G506)
+  (SPROG NIL
+         (PROG (#2=#:G507)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|WeightedGraph|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |WeightedGraph;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|WeightedGraph|)))))))))) 
 
 (MAKEPROP '|WeightedGraph| '|infovec|
           (LIST

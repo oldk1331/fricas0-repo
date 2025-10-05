@@ -903,26 +903,6 @@
 
 (DECLAIM (NOTINLINE |ComplexRootFindingPackage;|)) 
 
-(DEFUN |ComplexRootFindingPackage| (&REST #1=#:G177)
-  (SPROG NIL
-         (PROG (#2=#:G178)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|ComplexRootFindingPackage|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |ComplexRootFindingPackage;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|ComplexRootFindingPackage|)))))))))) 
-
 (DEFUN |ComplexRootFindingPackage;| (|#1| |#2|)
   (SPROG ((|a| NIL) (|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (SEQ
@@ -966,6 +946,26 @@
            (QSETREFV % 29
                      (SPADCALL (QREFELT % 28) (QREFELT % 27) (QREFELT % 14)))
            %)))) 
+
+(DEFUN |ComplexRootFindingPackage| (&REST #1=#:G177)
+  (SPROG NIL
+         (PROG (#2=#:G178)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|ComplexRootFindingPackage|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |ComplexRootFindingPackage;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|ComplexRootFindingPackage|)))))))))) 
 
 (MAKEPROP '|ComplexRootFindingPackage| '|infovec|
           (LIST

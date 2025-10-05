@@ -5,6 +5,18 @@
 
 (DECLAIM (NOTINLINE |U64Int;|)) 
 
+(DEFUN |U64Int;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|U64Int|))
+          (LETT % (GETREFV 13))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|U64Int| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |U64Int| ()
   (SPROG NIL
          (PROG (#1=#:G2792)
@@ -20,18 +32,6 @@
                              (LIST (CONS NIL (CONS 1 (|U64Int;|))))))
                     (LETT #1# T))
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|U64Int|)))))))))) 
-
-(DEFUN |U64Int;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|U64Int|))
-          (LETT % (GETREFV 13))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|U64Int| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|U64Int| '|infovec|
           (LIST

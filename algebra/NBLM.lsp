@@ -720,6 +720,19 @@
 
 (DECLAIM (NOTINLINE |NaiveBeckermannLabahnModular;|)) 
 
+(DEFUN |NaiveBeckermannLabahnModular;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|NaiveBeckermannLabahnModular|))
+          (LETT % (GETREFV 55))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|NaiveBeckermannLabahnModular| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |NaiveBeckermannLabahnModular| ()
   (SPROG NIL
          (PROG (#1=#:G210)
@@ -743,19 +756,6 @@
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
                         '|NaiveBeckermannLabahnModular|)))))))))) 
-
-(DEFUN |NaiveBeckermannLabahnModular;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|NaiveBeckermannLabahnModular|))
-          (LETT % (GETREFV 55))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|NaiveBeckermannLabahnModular| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|NaiveBeckermannLabahnModular| '|infovec|
           (LIST

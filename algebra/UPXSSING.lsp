@@ -875,31 +875,6 @@
 
 (DECLAIM (NOTINLINE |UnivariatePuiseuxSeriesWithExponentialSingularity;|)) 
 
-(DEFUN |UnivariatePuiseuxSeriesWithExponentialSingularity| (&REST #1=#:G205)
-  (SPROG NIL
-         (PROG (#2=#:G206)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T T NIL NIL))
-                     (HGET |$ConstructorCache|
-                           '|UnivariatePuiseuxSeriesWithExponentialSingularity|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY
-                       (|function|
-                        |UnivariatePuiseuxSeriesWithExponentialSingularity;|)
-                       #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|UnivariatePuiseuxSeriesWithExponentialSingularity|)))))))))) 
-
 (DEFUN |UnivariatePuiseuxSeriesWithExponentialSingularity;|
        (|#1| |#2| |#3| |#4|)
   (SPROG
@@ -993,6 +968,31 @@
     (AND (|HasCategory| % '(|CommutativeRing|)) (|augmentPredVector| % 8192))
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |UnivariatePuiseuxSeriesWithExponentialSingularity| (&REST #1=#:G205)
+  (SPROG NIL
+         (PROG (#2=#:G206)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T T NIL NIL))
+                     (HGET |$ConstructorCache|
+                           '|UnivariatePuiseuxSeriesWithExponentialSingularity|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY
+                       (|function|
+                        |UnivariatePuiseuxSeriesWithExponentialSingularity;|)
+                       #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|UnivariatePuiseuxSeriesWithExponentialSingularity|)))))))))) 
 
 (MAKEPROP '|UnivariatePuiseuxSeriesWithExponentialSingularity| '|infovec|
           (LIST

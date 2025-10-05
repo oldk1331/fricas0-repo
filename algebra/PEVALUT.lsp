@@ -428,6 +428,19 @@
 
 (DECLAIM (NOTINLINE |PolynomialEvaluationUtilities;|)) 
 
+(DEFUN |PolynomialEvaluationUtilities;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|PolynomialEvaluationUtilities|))
+          (LETT % (GETREFV 38))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|PolynomialEvaluationUtilities| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |PolynomialEvaluationUtilities| ()
   (SPROG NIL
          (PROG (#1=#:G100)
@@ -452,19 +465,6 @@
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
                         '|PolynomialEvaluationUtilities|)))))))))) 
-
-(DEFUN |PolynomialEvaluationUtilities;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|PolynomialEvaluationUtilities|))
-          (LETT % (GETREFV 38))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|PolynomialEvaluationUtilities| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|PolynomialEvaluationUtilities| '|infovec|
           (LIST

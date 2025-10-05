@@ -127,22 +127,6 @@
 
 (DECLAIM (NOTINLINE |FreeGroup;|)) 
 
-(DEFUN |FreeGroup| (#1=#:G77)
-  (SPROG NIL
-         (PROG (#2=#:G78)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|FreeGroup|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|FreeGroup;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|FreeGroup|)))))))))) 
-
 (DEFUN |FreeGroup;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -166,6 +150,22 @@
             (QSETREFV % 45
                       (CONS (|dispatchFunction| |FGROUP;smaller?;2%B;12|) %))))
           %))) 
+
+(DEFUN |FreeGroup| (#1=#:G77)
+  (SPROG NIL
+         (PROG (#2=#:G78)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|FreeGroup|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|FreeGroup;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|FreeGroup|)))))))))) 
 
 (MAKEPROP '|FreeGroup| '|infovec|
           (LIST

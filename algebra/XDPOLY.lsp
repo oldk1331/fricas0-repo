@@ -379,25 +379,6 @@
 
 (DECLAIM (NOTINLINE |XDistributedPolynomial;|)) 
 
-(DEFUN |XDistributedPolynomial| (&REST #1=#:G125)
-  (SPROG NIL
-         (PROG (#2=#:G126)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|XDistributedPolynomial|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |XDistributedPolynomial;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|XDistributedPolynomial|)))))))))) 
-
 (DEFUN |XDistributedPolynomial;| (|#1| |#2|)
   (SPROG
    ((|pv$| NIL) (#1=#:G124 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
@@ -436,6 +417,25 @@
        (QSETREFV % 17 (CONS (|dispatchFunction| |XDPOLY;sh;%Nni%;2|) %))
        (QSETREFV % 18 (CONS (|dispatchFunction| |XDPOLY;sh;3%;3|) %)))))
     %))) 
+
+(DEFUN |XDistributedPolynomial| (&REST #1=#:G125)
+  (SPROG NIL
+         (PROG (#2=#:G126)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|XDistributedPolynomial|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |XDistributedPolynomial;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|XDistributedPolynomial|)))))))))) 
 
 (MAKEPROP '|XDistributedPolynomial| '|infovec|
           (LIST

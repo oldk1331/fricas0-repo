@@ -146,23 +146,6 @@
 
 (DECLAIM (NOTINLINE |KeyedAccessFile;|)) 
 
-(DEFUN |KeyedAccessFile| (#1=#:G117)
-  (SPROG NIL
-         (PROG (#2=#:G118)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|KeyedAccessFile|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|KeyedAccessFile;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|KeyedAccessFile|)))))))))) 
-
 (DEFUN |KeyedAccessFile;| (|#1|)
   (SPROG ((#1=#:G116 NIL) (|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -249,6 +232,23 @@
                               (|:| |fileIOmode| (|String|))
                               (|:| |rpos| (|Integer|))))
           %))) 
+
+(DEFUN |KeyedAccessFile| (#1=#:G117)
+  (SPROG NIL
+         (PROG (#2=#:G118)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|KeyedAccessFile|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|KeyedAccessFile;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|KeyedAccessFile|)))))))))) 
 
 (MAKEPROP '|KeyedAccessFile| '|infovec|
           (LIST

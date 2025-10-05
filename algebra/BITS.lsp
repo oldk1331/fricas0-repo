@@ -5,22 +5,6 @@
 
 (DECLAIM (NOTINLINE |Bits;|)) 
 
-(DEFUN |Bits| ()
-  (SPROG NIL
-         (PROG (#1=#:G8)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|Bits|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|Bits|
-                             (LIST (CONS NIL (CONS 1 (|Bits;|))))))
-                    (LETT #1# T))
-                (COND ((NOT #1#) (HREM |$ConstructorCache| '|Bits|)))))))))) 
-
 (DEFUN |Bits;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL) (#1=#:G6 NIL))
          (PROGN
@@ -67,6 +51,22 @@
                (|augmentPredVector| % 4096))
           (SETF |pv$| (QREFELT % 3))
           %))) 
+
+(DEFUN |Bits| ()
+  (SPROG NIL
+         (PROG (#1=#:G8)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|Bits|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|Bits|
+                             (LIST (CONS NIL (CONS 1 (|Bits;|))))))
+                    (LETT #1# T))
+                (COND ((NOT #1#) (HREM |$ConstructorCache| '|Bits|)))))))))) 
 
 (MAKEPROP '|Bits| '|infovec|
           (LIST

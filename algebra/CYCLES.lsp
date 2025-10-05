@@ -641,24 +641,6 @@
 
 (DECLAIM (NOTINLINE |CycleIndicators;|)) 
 
-(DEFUN |CycleIndicators| ()
-  (SPROG NIL
-         (PROG (#1=#:G133)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|CycleIndicators|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|CycleIndicators|
-                             (LIST (CONS NIL (CONS 1 (|CycleIndicators;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#)
-                  (HREM |$ConstructorCache| '|CycleIndicators|)))))))))) 
-
 (DEFUN |CycleIndicators;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -681,6 +663,24 @@
                         (|dispatchFunction| |CYCLES;skewSFunction;2LSp;25|)
                         %)))))
           %))) 
+
+(DEFUN |CycleIndicators| ()
+  (SPROG NIL
+         (PROG (#1=#:G133)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|CycleIndicators|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|CycleIndicators|
+                             (LIST (CONS NIL (CONS 1 (|CycleIndicators;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|CycleIndicators|)))))))))) 
 
 (MAKEPROP '|CycleIndicators| '|infovec|
           (LIST

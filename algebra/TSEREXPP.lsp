@@ -136,27 +136,6 @@
 
 (DECLAIM (NOTINLINE |TaylorSeriesExpansionPuiseux;|)) 
 
-(DEFUN |TaylorSeriesExpansionPuiseux| (&REST #1=#:G88)
-  (SPROG NIL
-         (PROG (#2=#:G89)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|TaylorSeriesExpansionPuiseux|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |TaylorSeriesExpansionPuiseux;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|TaylorSeriesExpansionPuiseux|)))))))))) 
-
 (DEFUN |TaylorSeriesExpansionPuiseux;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -179,6 +158,27 @@
     (QSETREFV % 9 |#4|)
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |TaylorSeriesExpansionPuiseux| (&REST #1=#:G88)
+  (SPROG NIL
+         (PROG (#2=#:G89)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|TaylorSeriesExpansionPuiseux|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |TaylorSeriesExpansionPuiseux;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|TaylorSeriesExpansionPuiseux|)))))))))) 
 
 (MAKEPROP '|TaylorSeriesExpansionPuiseux| '|infovec|
           (LIST

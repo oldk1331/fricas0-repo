@@ -1564,23 +1564,6 @@
 
 (DECLAIM (NOTINLINE |HTMLFormat;|)) 
 
-(DEFUN |HTMLFormat| ()
-  (SPROG NIL
-         (PROG (#1=#:G336)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|HTMLFormat|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|HTMLFormat|
-                             (LIST (CONS NIL (CONS 1 (|HTMLFormat;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#) (HREM |$ConstructorCache| '|HTMLFormat|)))))))))) 
-
 (DEFUN |HTMLFormat;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -1620,6 +1603,23 @@
                           "&#x003C0;" "&#x02147;" "&#x02148;"))
           (QSETREFV % 21 NIL)
           %))) 
+
+(DEFUN |HTMLFormat| ()
+  (SPROG NIL
+         (PROG (#1=#:G336)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|HTMLFormat|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|HTMLFormat|
+                             (LIST (CONS NIL (CONS 1 (|HTMLFormat;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#) (HREM |$ConstructorCache| '|HTMLFormat|)))))))))) 
 
 (MAKEPROP '|HTMLFormat| '|infovec|
           (LIST

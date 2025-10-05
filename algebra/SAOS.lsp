@@ -31,6 +31,19 @@
 
 (DECLAIM (NOTINLINE |SingletonAsOrderedSet;|)) 
 
+(DEFUN |SingletonAsOrderedSet;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|SingletonAsOrderedSet|))
+          (LETT % (GETREFV 23))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|SingletonAsOrderedSet| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |SingletonAsOrderedSet| ()
   (SPROG NIL
          (PROG (#1=#:G9)
@@ -49,19 +62,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|SingletonAsOrderedSet|)))))))))) 
-
-(DEFUN |SingletonAsOrderedSet;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|SingletonAsOrderedSet|))
-          (LETT % (GETREFV 23))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|SingletonAsOrderedSet| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|SingletonAsOrderedSet| '|infovec|
           (LIST

@@ -503,29 +503,6 @@
 
 (DECLAIM (NOTINLINE |UnivariatePolynomialDecompositionPackage;|)) 
 
-(DEFUN |UnivariatePolynomialDecompositionPackage| (&REST #1=#:G104)
-  (SPROG NIL
-         (PROG (#2=#:G105)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|UnivariatePolynomialDecompositionPackage|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY
-                       (|function| |UnivariatePolynomialDecompositionPackage;|)
-                       #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|UnivariatePolynomialDecompositionPackage|)))))))))) 
-
 (DEFUN |UnivariatePolynomialDecompositionPackage;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -561,6 +538,29 @@
                         (|dispatchFunction| |UPDECOMP;completeDecompose;UPL;8|)
                         %)))))
           %))) 
+
+(DEFUN |UnivariatePolynomialDecompositionPackage| (&REST #1=#:G104)
+  (SPROG NIL
+         (PROG (#2=#:G105)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|UnivariatePolynomialDecompositionPackage|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY
+                       (|function| |UnivariatePolynomialDecompositionPackage;|)
+                       #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|UnivariatePolynomialDecompositionPackage|)))))))))) 
 
 (MAKEPROP '|UnivariatePolynomialDecompositionPackage| '|infovec|
           (LIST

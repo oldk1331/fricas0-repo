@@ -2653,26 +2653,6 @@
 
 (DECLAIM (NOTINLINE |PlaneAlgebraicCurvePlot;|)) 
 
-(DEFUN |PlaneAlgebraicCurvePlot| ()
-  (SPROG NIL
-         (PROG (#1=#:G473)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|PlaneAlgebraicCurvePlot|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|PlaneAlgebraicCurvePlot|
-                             (LIST
-                              (CONS NIL
-                                    (CONS 1 (|PlaneAlgebraicCurvePlot;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#)
-                  (HREM |$ConstructorCache| '|PlaneAlgebraicCurvePlot|)))))))))) 
-
 (DEFUN |PlaneAlgebraicCurvePlot;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -2716,6 +2696,26 @@
           (QSETREFV % 19 "bottom")
           (QSETREFV % 20 "top")
           %))) 
+
+(DEFUN |PlaneAlgebraicCurvePlot| ()
+  (SPROG NIL
+         (PROG (#1=#:G473)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|PlaneAlgebraicCurvePlot|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|PlaneAlgebraicCurvePlot|
+                             (LIST
+                              (CONS NIL
+                                    (CONS 1 (|PlaneAlgebraicCurvePlot;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|PlaneAlgebraicCurvePlot|)))))))))) 
 
 (MAKEPROP '|PlaneAlgebraicCurvePlot| '|infovec|
           (LIST

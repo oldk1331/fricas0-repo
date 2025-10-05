@@ -164,29 +164,6 @@
 
 (DECLAIM (NOTINLINE |SparseMultivariateSkewPolynomial;|)) 
 
-(DEFUN |SparseMultivariateSkewPolynomial| (&REST #1=#:G87)
-  (SPROG NIL
-         (PROG (#2=#:G88)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T T NIL NIL))
-                     (HGET |$ConstructorCache|
-                           '|SparseMultivariateSkewPolynomial|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |SparseMultivariateSkewPolynomial;|)
-                             #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|SparseMultivariateSkewPolynomial|)))))))))) 
-
 (DEFUN |SparseMultivariateSkewPolynomial;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((|pv$| NIL) (#1=#:G83 NIL) (#2=#:G84 NIL) (#3=#:G85 NIL) (#4=#:G86 NIL)
@@ -434,6 +411,29 @@
      ((|testBitVector| |pv$| 16)
       (QSETREFV % 55 (CONS (|dispatchFunction| |SKSMP;exquo;2%U;7|) %))))
     %))) 
+
+(DEFUN |SparseMultivariateSkewPolynomial| (&REST #1=#:G87)
+  (SPROG NIL
+         (PROG (#2=#:G88)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T T NIL NIL))
+                     (HGET |$ConstructorCache|
+                           '|SparseMultivariateSkewPolynomial|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |SparseMultivariateSkewPolynomial;|)
+                             #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|SparseMultivariateSkewPolynomial|)))))))))) 
 
 (DEFUN |SparseMultivariateSkewPolynomial!1| (|x| %) (|spadConstant| % 25)) 
 

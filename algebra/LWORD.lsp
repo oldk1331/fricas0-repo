@@ -317,6 +317,21 @@
 
 (DECLAIM (NOTINLINE |LyndonWord;|)) 
 
+(DEFUN |LyndonWord;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|LyndonWord| DV$1))
+          (LETT % (GETREFV 61))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|LyndonWord| (LIST DV$1) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 7 (|FreeMagma| |#1|))
+          %))) 
+
 (DEFUN |LyndonWord| (#1=#:G95)
   (SPROG NIL
          (PROG (#2=#:G96)
@@ -332,21 +347,6 @@
               (UNWIND-PROTECT (PROG1 (|LyndonWord;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|LyndonWord|)))))))))) 
-
-(DEFUN |LyndonWord;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|LyndonWord| DV$1))
-          (LETT % (GETREFV 61))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|LyndonWord| (LIST DV$1) (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 7 (|FreeMagma| |#1|))
-          %))) 
 
 (MAKEPROP '|LyndonWord| '|infovec|
           (LIST

@@ -349,28 +349,6 @@
 
 (DECLAIM (NOTINLINE |PolynomialCategoryQuotientFunctions;|)) 
 
-(DEFUN |PolynomialCategoryQuotientFunctions| (&REST #1=#:G107)
-  (SPROG NIL
-         (PROG (#2=#:G108)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|PolynomialCategoryQuotientFunctions|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY
-                       (|function| |PolynomialCategoryQuotientFunctions;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|PolynomialCategoryQuotientFunctions|)))))))))) 
-
 (DEFUN |PolynomialCategoryQuotientFunctions;| (|#1| |#2| |#3| |#4| |#5|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -398,6 +376,28 @@
     (SETF |pv$| (QREFELT % 3))
     (QSETREFV % 19 (SPADCALL (QREFELT % 18)))
     %))) 
+
+(DEFUN |PolynomialCategoryQuotientFunctions| (&REST #1=#:G107)
+  (SPROG NIL
+         (PROG (#2=#:G108)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|PolynomialCategoryQuotientFunctions|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY
+                       (|function| |PolynomialCategoryQuotientFunctions;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|PolynomialCategoryQuotientFunctions|)))))))))) 
 
 (MAKEPROP '|PolynomialCategoryQuotientFunctions| '|infovec|
           (LIST

@@ -196,27 +196,6 @@
 
 (DECLAIM (NOTINLINE |JetCoordinateTransformation;|)) 
 
-(DEFUN |JetCoordinateTransformation| (&REST #1=#:G54)
-  (SPROG NIL
-         (PROG (#2=#:G55)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T T NIL NIL))
-                     (HGET |$ConstructorCache| '|JetCoordinateTransformation|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |JetCoordinateTransformation;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|JetCoordinateTransformation|)))))))))) 
-
 (DEFUN |JetCoordinateTransformation;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -243,6 +222,27 @@
     (QSETREFV % 23 (SPADCALL (QREFELT % 22)))
     (QSETREFV % 41 (SPADCALL (|JCT;jacobi| |#3| %) (QREFELT % 40)))
     %))) 
+
+(DEFUN |JetCoordinateTransformation| (&REST #1=#:G54)
+  (SPROG NIL
+         (PROG (#2=#:G55)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T T NIL NIL))
+                     (HGET |$ConstructorCache| '|JetCoordinateTransformation|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |JetCoordinateTransformation;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|JetCoordinateTransformation|)))))))))) 
 
 (MAKEPROP '|JetCoordinateTransformation| '|infovec|
           (LIST

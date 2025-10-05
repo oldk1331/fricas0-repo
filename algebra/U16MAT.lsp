@@ -66,23 +66,6 @@
 
 (DECLAIM (NOTINLINE |U16Matrix;|)) 
 
-(DEFUN |U16Matrix| ()
-  (SPROG NIL
-         (PROG (#1=#:G2330)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|U16Matrix|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|U16Matrix|
-                             (LIST (CONS NIL (CONS 1 (|U16Matrix;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#) (HREM |$ConstructorCache| '|U16Matrix|)))))))))) 
-
 (DEFUN |U16Matrix;| ()
   (SPROG
    ((|dv$| NIL) (% NIL) (#1=#:G2327 NIL) (#2=#:G2328 NIL) (#3=#:G2326 NIL)
@@ -172,6 +155,23 @@
      (|augmentPredVector| % 2097152))
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |U16Matrix| ()
+  (SPROG NIL
+         (PROG (#1=#:G2330)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|U16Matrix|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|U16Matrix|
+                             (LIST (CONS NIL (CONS 1 (|U16Matrix;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#) (HREM |$ConstructorCache| '|U16Matrix|)))))))))) 
 
 (MAKEPROP '|U16Matrix| '|infovec|
           (LIST

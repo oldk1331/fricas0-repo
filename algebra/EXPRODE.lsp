@@ -678,26 +678,6 @@
 
 (DECLAIM (NOTINLINE |ExpressionSpaceODESolver;|)) 
 
-(DEFUN |ExpressionSpaceODESolver| (&REST #1=#:G119)
-  (SPROG NIL
-         (PROG (#2=#:G120)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|ExpressionSpaceODESolver|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |ExpressionSpaceODESolver;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|ExpressionSpaceODESolver|)))))))))) 
-
 (DEFUN |ExpressionSpaceODESolver;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -718,6 +698,26 @@
           (QSETREFV % 13 (SPADCALL '|integer| (QREFELT % 10)))
           (QSETREFV % 14 (|HasCategory| |#1| '(|IntegerNumberSystem|)))
           %))) 
+
+(DEFUN |ExpressionSpaceODESolver| (&REST #1=#:G119)
+  (SPROG NIL
+         (PROG (#2=#:G120)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|ExpressionSpaceODESolver|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |ExpressionSpaceODESolver;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|ExpressionSpaceODESolver|)))))))))) 
 
 (MAKEPROP '|ExpressionSpaceODESolver| '|infovec|
           (LIST

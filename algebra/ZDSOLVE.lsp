@@ -1303,27 +1303,6 @@
 
 (DECLAIM (NOTINLINE |ZeroDimensionalSolvePackage;|)) 
 
-(DEFUN |ZeroDimensionalSolvePackage| (&REST #1=#:G288)
-  (SPROG NIL
-         (PROG (#2=#:G289)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T NIL NIL))
-                     (HGET |$ConstructorCache| '|ZeroDimensionalSolvePackage|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |ZeroDimensionalSolvePackage;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|ZeroDimensionalSolvePackage|)))))))))) 
-
 (DEFUN |ZeroDimensionalSolvePackage;| (|#1| |#2| |#3|)
   (SPROG
    ((#1=#:G29 NIL) (|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL)
@@ -1352,6 +1331,27 @@
                                 #1#)))
     (QSETREFV % 19 (SPADCALL (QREFELT % 16) (QREFELT % 18)))
     %))) 
+
+(DEFUN |ZeroDimensionalSolvePackage| (&REST #1=#:G288)
+  (SPROG NIL
+         (PROG (#2=#:G289)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T NIL NIL))
+                     (HGET |$ConstructorCache| '|ZeroDimensionalSolvePackage|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |ZeroDimensionalSolvePackage;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|ZeroDimensionalSolvePackage|)))))))))) 
 
 (MAKEPROP '|ZeroDimensionalSolvePackage| '|infovec|
           (LIST

@@ -86,25 +86,6 @@
 
 (DECLAIM (NOTINLINE |JetBundlePolynomial;|)) 
 
-(DEFUN |JetBundlePolynomial| (&REST #1=#:G74)
-  (SPROG NIL
-         (PROG (#2=#:G75)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|JetBundlePolynomial|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |JetBundlePolynomial;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|JetBundlePolynomial|)))))))))) 
-
 (DEFUN |JetBundlePolynomial;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (#1=#:G73 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -576,6 +557,25 @@
            ((|testBitVector| |pv$| 23)
             (QSETREFV % 42 (CONS (|dispatchFunction| |JBP;groebner;2L;7|) %))))
           %))) 
+
+(DEFUN |JetBundlePolynomial| (&REST #1=#:G74)
+  (SPROG NIL
+         (PROG (#2=#:G75)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|JetBundlePolynomial|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |JetBundlePolynomial;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|JetBundlePolynomial|)))))))))) 
 
 (MAKEPROP '|JetBundlePolynomial| '|infovec|
           (LIST

@@ -160,25 +160,6 @@
 
 (DECLAIM (NOTINLINE |LazardSetSolvingPackage;|)) 
 
-(DEFUN |LazardSetSolvingPackage| (&REST #1=#:G58)
-  (SPROG NIL
-         (PROG (#2=#:G59)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|LazardSetSolvingPackage|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |LazardSetSolvingPackage;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|LazardSetSolvingPackage|)))))))))) 
-
 (DEFUN |LazardSetSolvingPackage;| (|#1| |#2| |#3| |#4| |#5| |#6|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$6 NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL)
@@ -206,6 +187,25 @@
     (QSETREFV % 11 |#6|)
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |LazardSetSolvingPackage| (&REST #1=#:G58)
+  (SPROG NIL
+         (PROG (#2=#:G59)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|LazardSetSolvingPackage|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |LazardSetSolvingPackage;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|LazardSetSolvingPackage|)))))))))) 
 
 (MAKEPROP '|LazardSetSolvingPackage| '|infovec|
           (LIST

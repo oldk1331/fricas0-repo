@@ -303,25 +303,6 @@
 
 (DECLAIM (NOTINLINE |IndexedJetBundle;|)) 
 
-(DEFUN |IndexedJetBundle| (&REST #1=#:G74)
-  (SPROG NIL
-         (PROG (#2=#:G75)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(NIL NIL NIL NIL NIL))
-                     (HGET |$ConstructorCache| '|IndexedJetBundle|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |IndexedJetBundle;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|IndexedJetBundle|)))))))))) 
-
 (DEFUN |IndexedJetBundle;| (|#1| |#2| |#3| |#4| |#5|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -348,6 +329,25 @@
     (QSETREFV % 11 (|List| (|NonNegativeInteger|)))
     (QSETREFV % 12 '|Repeated|)
     %))) 
+
+(DEFUN |IndexedJetBundle| (&REST #1=#:G74)
+  (SPROG NIL
+         (PROG (#2=#:G75)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(NIL NIL NIL NIL NIL))
+                     (HGET |$ConstructorCache| '|IndexedJetBundle|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |IndexedJetBundle;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|IndexedJetBundle|)))))))))) 
 
 (MAKEPROP '|IndexedJetBundle| '|infovec|
           (LIST

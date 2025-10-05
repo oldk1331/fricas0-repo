@@ -2235,23 +2235,6 @@
 
 (DECLAIM (NOTINLINE |FortranCode;|)) 
 
-(DEFUN |FortranCode| ()
-  (SPROG NIL
-         (PROG (#1=#:G2198)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|FortranCode|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|FortranCode|
-                             (LIST (CONS NIL (CONS 1 (|FortranCode;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#) (HREM |$ConstructorCache| '|FortranCode|)))))))))) 
-
 (DEFUN |FortranCode;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -2333,6 +2316,23 @@
                                         (|List| (|OutputForm|)))))))
           (QSETREFV % 34 25000)
           %))) 
+
+(DEFUN |FortranCode| ()
+  (SPROG NIL
+         (PROG (#1=#:G2198)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|FortranCode|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|FortranCode|
+                             (LIST (CONS NIL (CONS 1 (|FortranCode;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#) (HREM |$ConstructorCache| '|FortranCode|)))))))))) 
 
 (MAKEPROP '|FortranCode| '|infovec|
           (LIST

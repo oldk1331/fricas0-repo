@@ -175,28 +175,6 @@
 
 (DECLAIM (NOTINLINE |RealPolynomialUtilitiesPackage;|)) 
 
-(DEFUN |RealPolynomialUtilitiesPackage| (&REST #1=#:G51)
-  (SPROG NIL
-         (PROG (#2=#:G52)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|RealPolynomialUtilitiesPackage|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |RealPolynomialUtilitiesPackage;|)
-                             #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|RealPolynomialUtilitiesPackage|)))))))))) 
-
 (DEFUN |RealPolynomialUtilitiesPackage;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -234,6 +212,28 @@
                         (|dispatchFunction| |POLUTIL;lazyVariations;L2INni;5|)
                         %)))))
           %))) 
+
+(DEFUN |RealPolynomialUtilitiesPackage| (&REST #1=#:G51)
+  (SPROG NIL
+         (PROG (#2=#:G52)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|RealPolynomialUtilitiesPackage|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |RealPolynomialUtilitiesPackage;|)
+                             #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|RealPolynomialUtilitiesPackage|)))))))))) 
 
 (MAKEPROP '|RealPolynomialUtilitiesPackage| '|infovec|
           (LIST

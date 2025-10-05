@@ -149,6 +149,23 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldPolynomialPackage2;|)) 
 
+(DEFUN |FiniteFieldPolynomialPackage2;| (|#1| |#2|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|FiniteFieldPolynomialPackage2| DV$1 DV$2))
+          (LETT % (GETREFV 49))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|FiniteFieldPolynomialPackage2|
+                      (LIST DV$1 DV$2) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (QSETREFV % 7 |#2|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |FiniteFieldPolynomialPackage2| (&REST #1=#:G30)
   (SPROG NIL
          (PROG (#2=#:G31)
@@ -169,23 +186,6 @@
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
                         '|FiniteFieldPolynomialPackage2|)))))))))) 
-
-(DEFUN |FiniteFieldPolynomialPackage2;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT DV$2 (|devaluate| |#2|))
-          (LETT |dv$| (LIST '|FiniteFieldPolynomialPackage2| DV$1 DV$2))
-          (LETT % (GETREFV 49))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|FiniteFieldPolynomialPackage2|
-                      (LIST DV$1 DV$2) (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (QSETREFV % 7 |#2|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|FiniteFieldPolynomialPackage2| '|infovec|
           (LIST

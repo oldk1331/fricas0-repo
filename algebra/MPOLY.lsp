@@ -1,25 +1,6 @@
 
 (DECLAIM (NOTINLINE |MultivariatePolynomial;|)) 
 
-(DEFUN |MultivariatePolynomial| (&REST #1=#:G48)
-  (SPROG NIL
-         (PROG (#2=#:G49)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(NIL T))
-                                               (HGET |$ConstructorCache|
-                                                     '|MultivariatePolynomial|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |MultivariatePolynomial;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|MultivariatePolynomial|)))))))))) 
-
 (DEFUN |MultivariatePolynomial;| (|#1| |#2|)
   (SPROG
    ((#1=#:G47 NIL) (|pv$| NIL) (#2=#:G38 NIL) (#3=#:G40 NIL) (#4=#:G39 NIL)
@@ -570,6 +551,25 @@
      (|augmentPredVector| % 36028797018963968))
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |MultivariatePolynomial| (&REST #1=#:G48)
+  (SPROG NIL
+         (PROG (#2=#:G49)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(NIL T))
+                                               (HGET |$ConstructorCache|
+                                                     '|MultivariatePolynomial|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |MultivariatePolynomial;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|MultivariatePolynomial|)))))))))) 
 
 (MAKEPROP '|MultivariatePolynomial| '|infovec|
           (LIST

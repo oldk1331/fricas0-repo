@@ -369,26 +369,6 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldHomomorphisms;|)) 
 
-(DEFUN |FiniteFieldHomomorphisms| (&REST #1=#:G86)
-  (SPROG NIL
-         (PROG (#2=#:G87)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|FiniteFieldHomomorphisms|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |FiniteFieldHomomorphisms;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|FiniteFieldHomomorphisms|)))))))))) 
-
 (DEFUN |FiniteFieldHomomorphisms;| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -426,6 +406,26 @@
           (QSETREFV % 30 (SPADCALL (QREFELT % 29)))
           (QSETREFV % 32 (SPADCALL (QREFELT % 31)))
           %))) 
+
+(DEFUN |FiniteFieldHomomorphisms| (&REST #1=#:G86)
+  (SPROG NIL
+         (PROG (#2=#:G87)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|FiniteFieldHomomorphisms|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |FiniteFieldHomomorphisms;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|FiniteFieldHomomorphisms|)))))))))) 
 
 (MAKEPROP '|FiniteFieldHomomorphisms| '|infovec|
           (LIST

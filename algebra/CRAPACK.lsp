@@ -226,6 +226,21 @@
 
 (DECLAIM (NOTINLINE |CRApackage;|)) 
 
+(DEFUN |CRApackage;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|CRApackage| DV$1))
+          (LETT % (GETREFV 42))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|CRApackage| (LIST DV$1) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 7 (|BalancedBinaryTree| |#1|))
+          %))) 
+
 (DEFUN |CRApackage| (#1=#:G62)
   (SPROG NIL
          (PROG (#2=#:G63)
@@ -241,21 +256,6 @@
               (UNWIND-PROTECT (PROG1 (|CRApackage;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|CRApackage|)))))))))) 
-
-(DEFUN |CRApackage;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|CRApackage| DV$1))
-          (LETT % (GETREFV 42))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|CRApackage| (LIST DV$1) (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 7 (|BalancedBinaryTree| |#1|))
-          %))) 
 
 (MAKEPROP '|CRApackage| '|infovec|
           (LIST

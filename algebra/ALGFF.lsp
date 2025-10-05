@@ -469,25 +469,6 @@
 
 (DECLAIM (NOTINLINE |AlgebraicFunctionField;|)) 
 
-(DEFUN |AlgebraicFunctionField| (&REST #1=#:G172)
-  (SPROG NIL
-         (PROG (#2=#:G173)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T T T NIL))
-                     (HGET |$ConstructorCache| '|AlgebraicFunctionField|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |AlgebraicFunctionField;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|AlgebraicFunctionField|)))))))))) 
-
 (DEFUN |AlgebraicFunctionField;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((#1=#:G4 NIL) (|pv$| NIL) (#2=#:G170 NIL) (#3=#:G171 NIL) (% NIL)
@@ -583,6 +564,25 @@
     (QSETREFV % 26 (SPADCALL (QREFELT % 23) (QREFELT % 24)))
     (QSETREFV % 27 (SPADCALL (QREFELT % 23) (QREFELT % 24)))
     %))) 
+
+(DEFUN |AlgebraicFunctionField| (&REST #1=#:G172)
+  (SPROG NIL
+         (PROG (#2=#:G173)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T T T NIL))
+                     (HGET |$ConstructorCache| '|AlgebraicFunctionField|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |AlgebraicFunctionField;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|AlgebraicFunctionField|)))))))))) 
 
 (MAKEPROP '|AlgebraicFunctionField| '|infovec|
           (LIST

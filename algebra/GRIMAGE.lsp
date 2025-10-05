@@ -716,23 +716,6 @@
 
 (DECLAIM (NOTINLINE |GraphImage;|)) 
 
-(DEFUN |GraphImage| ()
-  (SPROG NIL
-         (PROG (#1=#:G174)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|GraphImage|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|GraphImage|
-                             (LIST (CONS NIL (CONS 1 (|GraphImage;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#) (HREM |$ConstructorCache| '|GraphImage|)))))))))) 
-
 (DEFUN |GraphImage;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -755,6 +738,23 @@
                               (|:| |pointSizes| (|List| (|PositiveInteger|)))
                               (|:| |optionsField| (|List| (|DrawOption|)))))
           %))) 
+
+(DEFUN |GraphImage| ()
+  (SPROG NIL
+         (PROG (#1=#:G174)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|GraphImage|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|GraphImage|
+                             (LIST (CONS NIL (CONS 1 (|GraphImage;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#) (HREM |$ConstructorCache| '|GraphImage|)))))))))) 
 
 (MAKEPROP '|GraphImage| '|infovec|
           (LIST

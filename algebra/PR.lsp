@@ -836,25 +836,6 @@
 
 (DECLAIM (NOTINLINE |PolynomialRing;|)) 
 
-(DEFUN |PolynomialRing| (&REST #1=#:G343)
-  (SPROG NIL
-         (PROG (#2=#:G344)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|PolynomialRing|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |PolynomialRing;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|PolynomialRing|)))))))))) 
-
 (DEFUN |PolynomialRing;| (|#1| |#2|)
   (SPROG
    ((|pv$| NIL) (#1=#:G340 NIL) (#2=#:G341 NIL) (#3=#:G342 NIL) (% NIL)
@@ -1073,6 +1054,25 @@
            (QSETREFV % 75
                      (CONS (|dispatchFunction| |PR;exquo;2%U;33|) %)))))))))
     %))) 
+
+(DEFUN |PolynomialRing| (&REST #1=#:G343)
+  (SPROG NIL
+         (PROG (#2=#:G344)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|PolynomialRing|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |PolynomialRing;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|PolynomialRing|)))))))))) 
 
 (MAKEPROP '|PolynomialRing| '|infovec|
           (LIST

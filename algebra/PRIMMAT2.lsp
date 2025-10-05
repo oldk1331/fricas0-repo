@@ -63,25 +63,6 @@
 
 (DECLAIM (NOTINLINE |PrimitiveTwoDimensionalArray;|)) 
 
-(DEFUN |PrimitiveTwoDimensionalArray| (#1=#:G2570)
-  (SPROG NIL
-         (PROG (#2=#:G2571)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|PrimitiveTwoDimensionalArray|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|PrimitiveTwoDimensionalArray;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|PrimitiveTwoDimensionalArray|)))))))))) 
-
 (DEFUN |PrimitiveTwoDimensionalArray;| (|#1|)
   (SPROG
    ((|pv$| NIL) (#1=#:G2567 NIL) (#2=#:G2568 NIL) (% NIL) (|dv$| NIL)
@@ -206,6 +187,25 @@
      (|augmentPredVector| % 4194304))
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |PrimitiveTwoDimensionalArray| (#1=#:G2570)
+  (SPROG NIL
+         (PROG (#2=#:G2571)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|PrimitiveTwoDimensionalArray|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|PrimitiveTwoDimensionalArray;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|PrimitiveTwoDimensionalArray|)))))))))) 
 
 (MAKEPROP '|PrimitiveTwoDimensionalArray| '|infovec|
           (LIST

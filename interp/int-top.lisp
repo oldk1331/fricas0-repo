@@ -264,7 +264,7 @@
 ;         b = [] and #a=0 =>
 ;              princPrompt()
 ;         $DALYMODE and intloopPrefix?('"(",a) =>
-;             intnplisp(a)
+;             nplisp(a)
 ;             princPrompt()
 ;         pfx := stripSpaces intloopPrefix?('")fi",a)
 ;         pfx and ((pfx = '")fi") or (pfx = '")fin")) => return []
@@ -292,7 +292,7 @@
                  (COND ((NULL (STRINGP |a|)) (|leaveScratchpad|))
                        ((AND (NULL |b|) (EQL (LENGTH |a|) 0)) (|princPrompt|))
                        ((AND $DALYMODE (|intloopPrefix?| "(" |a|))
-                        (PROGN (|intnplisp| |a|) (|princPrompt|)))
+                        (PROGN (|nplisp| |a|) (|princPrompt|)))
                        (#1#
                         (PROGN
                          (SETQ |pfx|

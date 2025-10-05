@@ -651,6 +651,20 @@
 
 (DECLAIM (NOTINLINE |GcdBasis;|)) 
 
+(DEFUN |GcdBasis;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|GcdBasis| DV$1))
+          (LETT % (GETREFV 57))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|GcdBasis| (LIST DV$1) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |GcdBasis| (#1=#:G89)
   (SPROG NIL
          (PROG (#2=#:G90)
@@ -665,20 +679,6 @@
              ('T
               (UNWIND-PROTECT (PROG1 (|GcdBasis;| #1#) (LETT #2# T))
                 (COND ((NOT #2#) (HREM |$ConstructorCache| '|GcdBasis|)))))))))) 
-
-(DEFUN |GcdBasis;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|GcdBasis| DV$1))
-          (LETT % (GETREFV 57))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|GcdBasis| (LIST DV$1) (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|GcdBasis| '|infovec|
           (LIST

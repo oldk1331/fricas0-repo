@@ -1102,28 +1102,6 @@
 
 (DECLAIM (NOTINLINE |PolynomialFactorizationByRecursion;|)) 
 
-(DEFUN |PolynomialFactorizationByRecursion| (&REST #1=#:G243)
-  (SPROG NIL
-         (PROG (#2=#:G244)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|PolynomialFactorizationByRecursion|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |PolynomialFactorizationByRecursion;|)
-                             #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|PolynomialFactorizationByRecursion|)))))))))) 
-
 (DEFUN |PolynomialFactorizationByRecursion;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -1160,6 +1138,28 @@
                 (CONS (|dispatchFunction| |PFBR;bivariateSLPEBR;LSupVarSetU;6|)
                       %))))
     %))) 
+
+(DEFUN |PolynomialFactorizationByRecursion| (&REST #1=#:G243)
+  (SPROG NIL
+         (PROG (#2=#:G244)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|PolynomialFactorizationByRecursion|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |PolynomialFactorizationByRecursion;|)
+                             #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|PolynomialFactorizationByRecursion|)))))))))) 
 
 (MAKEPROP '|PolynomialFactorizationByRecursion| '|infovec|
           (LIST

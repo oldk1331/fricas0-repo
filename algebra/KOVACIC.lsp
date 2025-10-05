@@ -133,22 +133,6 @@
 
 (DECLAIM (NOTINLINE |Kovacic;|)) 
 
-(DEFUN |Kovacic| (&REST #1=#:G40)
-  (SPROG NIL
-         (PROG (#2=#:G41)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|Kovacic|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |Kovacic;|) #1#) (LETT #2# T))
-                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Kovacic|)))))))))) 
-
 (DEFUN |Kovacic;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -165,6 +149,22 @@
           (QSETREFV % 7 |#2|)
           (SETF |pv$| (QREFELT % 3))
           %))) 
+
+(DEFUN |Kovacic| (&REST #1=#:G40)
+  (SPROG NIL
+         (PROG (#2=#:G41)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|Kovacic|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |Kovacic;|) #1#) (LETT #2# T))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Kovacic|)))))))))) 
 
 (MAKEPROP '|Kovacic| '|infovec|
           (LIST

@@ -1318,21 +1318,6 @@
 
 (DECLAIM (NOTINLINE |Stream;|)) 
 
-(DEFUN |Stream| (#1=#:G665)
-  (SPROG NIL
-         (PROG (#2=#:G666)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|Stream|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|Stream;| #1#) (LETT #2# T))
-                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Stream|)))))))))) 
-
 (DEFUN |Stream;| (|#1|)
   (SPROG
    ((#1=#:G661 NIL) (#2=#:G662 NIL) (#3=#:G664 NIL) (#4=#:G663 NIL) (|pv$| NIL)
@@ -1419,6 +1404,21 @@
       (QSETREFV % 115
                 (CONS (|dispatchFunction| |STREAM;repeating?;L%B;56|) %))))
     %))) 
+
+(DEFUN |Stream| (#1=#:G665)
+  (SPROG NIL
+         (PROG (#2=#:G666)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Stream|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Stream;| #1#) (LETT #2# T))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Stream|)))))))))) 
 
 (MAKEPROP '|Stream| '|infovec|
           (LIST

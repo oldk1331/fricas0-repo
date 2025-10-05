@@ -384,6 +384,21 @@
 
 (DECLAIM (NOTINLINE |PseudoLinearNormalForm;|)) 
 
+(DEFUN |PseudoLinearNormalForm;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|PseudoLinearNormalForm| DV$1))
+          (LETT % (GETREFV 43))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|PseudoLinearNormalForm| (LIST DV$1)
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |PseudoLinearNormalForm| (#1=#:G124)
   (SPROG NIL
          (PROG (#2=#:G125)
@@ -401,21 +416,6 @@
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|PseudoLinearNormalForm|)))))))))) 
-
-(DEFUN |PseudoLinearNormalForm;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|PseudoLinearNormalForm| DV$1))
-          (LETT % (GETREFV 43))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|PseudoLinearNormalForm| (LIST DV$1)
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|PseudoLinearNormalForm| '|infovec|
           (LIST

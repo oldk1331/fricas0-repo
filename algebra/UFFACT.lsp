@@ -372,28 +372,6 @@
 
 (DECLAIM (NOTINLINE |UnivariateFiniteFieldFactorize;|)) 
 
-(DEFUN |UnivariateFiniteFieldFactorize| (&REST #1=#:G103)
-  (SPROG NIL
-         (PROG (#2=#:G104)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|UnivariateFiniteFieldFactorize|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |UnivariateFiniteFieldFactorize;|)
-                             #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|UnivariateFiniteFieldFactorize|)))))))))) 
-
 (DEFUN |UnivariateFiniteFieldFactorize;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -460,6 +438,28 @@
                         (|dispatchFunction| |UFFACT;su_irreducible?;SupB;16|)
                         %)))))
           %))) 
+
+(DEFUN |UnivariateFiniteFieldFactorize| (&REST #1=#:G103)
+  (SPROG NIL
+         (PROG (#2=#:G104)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|UnivariateFiniteFieldFactorize|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |UnivariateFiniteFieldFactorize;|)
+                             #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|UnivariateFiniteFieldFactorize|)))))))))) 
 
 (MAKEPROP '|UnivariateFiniteFieldFactorize| '|infovec|
           (LIST

@@ -42,6 +42,20 @@
 
 (DECLAIM (NOTINLINE |Commutator;|)) 
 
+(DEFUN |Commutator;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|Commutator|))
+          (LETT % (GETREFV 21))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|Commutator| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6 (|Record| (|:| |left| %) (|:| |right| %)))
+          (QSETREFV % 7 (|Union| (|OrdSetInts|) (QREFELT % 6)))
+          %))) 
+
 (DEFUN |Commutator| ()
   (SPROG NIL
          (PROG (#1=#:G17)
@@ -58,20 +72,6 @@
                     (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|Commutator|)))))))))) 
-
-(DEFUN |Commutator;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|Commutator|))
-          (LETT % (GETREFV 21))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|Commutator| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6 (|Record| (|:| |left| %) (|:| |right| %)))
-          (QSETREFV % 7 (|Union| (|OrdSetInts|) (QREFELT % 6)))
-          %))) 
 
 (MAKEPROP '|Commutator| '|infovec|
           (LIST

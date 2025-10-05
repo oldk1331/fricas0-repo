@@ -336,6 +336,25 @@
 
 (DECLAIM (NOTINLINE |GaussianFactorizationPackage;|)) 
 
+(DEFUN |GaussianFactorizationPackage;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|GaussianFactorizationPackage|))
+          (LETT % (GETREFV 63))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|GaussianFactorizationPackage| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 13
+                    (|ModularRing| (|Integer|) (|Integer|)
+                                   (CONS (|function| |GAUSSFAC;reduction|) %)
+                                   (CONS (|function| |GAUSSFAC;merge|) %)
+                                   (CONS (|function| |GAUSSFAC;exactquo|) %)))
+          (QSETREFV % 17 (SPADCALL 1 1 (QREFELT % 16)))
+          %))) 
+
 (DEFUN |GaussianFactorizationPackage| ()
   (SPROG NIL
          (PROG (#1=#:G98)
@@ -359,25 +378,6 @@
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
                         '|GaussianFactorizationPackage|)))))))))) 
-
-(DEFUN |GaussianFactorizationPackage;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|GaussianFactorizationPackage|))
-          (LETT % (GETREFV 63))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|GaussianFactorizationPackage| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 13
-                    (|ModularRing| (|Integer|) (|Integer|)
-                                   (CONS (|function| |GAUSSFAC;reduction|) %)
-                                   (CONS (|function| |GAUSSFAC;merge|) %)
-                                   (CONS (|function| |GAUSSFAC;exactquo|) %)))
-          (QSETREFV % 17 (SPADCALL 1 1 (QREFELT % 16)))
-          %))) 
 
 (MAKEPROP '|GaussianFactorizationPackage| '|infovec|
           (LIST

@@ -7,6 +7,21 @@
 
 (DECLAIM (NOTINLINE |TimeoutPackage;|)) 
 
+(DEFUN |TimeoutPackage;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|TimeoutPackage| DV$1))
+          (LETT % (GETREFV 11))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|TimeoutPackage| (LIST DV$1)
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |TimeoutPackage| (#1=#:G8)
   (SPROG NIL
          (PROG (#2=#:G9)
@@ -23,21 +38,6 @@
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|TimeoutPackage|)))))))))) 
-
-(DEFUN |TimeoutPackage;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|TimeoutPackage| DV$1))
-          (LETT % (GETREFV 11))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|TimeoutPackage| (LIST DV$1)
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|TimeoutPackage| '|infovec|
           (LIST

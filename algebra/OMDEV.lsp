@@ -210,6 +210,18 @@
 
 (DECLAIM (NOTINLINE |OpenMathDevice;|)) 
 
+(DEFUN |OpenMathDevice;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|OpenMathDevice|))
+          (LETT % (GETREFV 56))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|OpenMathDevice| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |OpenMathDevice| ()
   (SPROG NIL
          (PROG (#1=#:G46)
@@ -227,18 +239,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|OpenMathDevice|)))))))))) 
-
-(DEFUN |OpenMathDevice;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|OpenMathDevice|))
-          (LETT % (GETREFV 56))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|OpenMathDevice| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|OpenMathDevice| '|infovec|
           (LIST

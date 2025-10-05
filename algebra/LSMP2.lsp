@@ -58,25 +58,6 @@
 
 (DECLAIM (NOTINLINE |LinearSystemMatrixPackage2;|)) 
 
-(DEFUN |LinearSystemMatrixPackage2| (#1=#:G29)
-  (SPROG NIL
-         (PROG (#2=#:G30)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|LinearSystemMatrixPackage2|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|LinearSystemMatrixPackage2;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|LinearSystemMatrixPackage2|)))))))))) 
-
 (DEFUN |LinearSystemMatrixPackage2;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -102,6 +83,25 @@
                        (CONS (|dispatchFunction| |LSMP2;solveUniquely;MVU;2|)
                              %)))))
           %))) 
+
+(DEFUN |LinearSystemMatrixPackage2| (#1=#:G29)
+  (SPROG NIL
+         (PROG (#2=#:G30)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|LinearSystemMatrixPackage2|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|LinearSystemMatrixPackage2;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|LinearSystemMatrixPackage2|)))))))))) 
 
 (MAKEPROP '|LinearSystemMatrixPackage2| '|infovec|
           (LIST

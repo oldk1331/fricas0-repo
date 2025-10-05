@@ -161,24 +161,6 @@
 
 (DECLAIM (NOTINLINE |ListMonoidOps;|)) 
 
-(DEFUN |ListMonoidOps| (&REST #1=#:G85)
-  (SPROG NIL
-         (PROG (#2=#:G86)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(T T NIL))
-                                               (HGET |$ConstructorCache|
-                                                     '|ListMonoidOps|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |ListMonoidOps;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|ListMonoidOps|)))))))))) 
-
 (DEFUN |ListMonoidOps;| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -198,6 +180,24 @@
           (SETF |pv$| (QREFELT % 3))
           (QSETREFV % 9 (|List| (|Record| (|:| |gen| |#1|) (|:| |exp| |#2|))))
           %))) 
+
+(DEFUN |ListMonoidOps| (&REST #1=#:G85)
+  (SPROG NIL
+         (PROG (#2=#:G86)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(T T NIL))
+                                               (HGET |$ConstructorCache|
+                                                     '|ListMonoidOps|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |ListMonoidOps;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|ListMonoidOps|)))))))))) 
 
 (MAKEPROP '|ListMonoidOps| '|infovec|
           (LIST

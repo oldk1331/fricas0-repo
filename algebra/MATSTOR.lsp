@@ -385,6 +385,21 @@
 
 (DECLAIM (NOTINLINE |StorageEfficientMatrixOperations;|)) 
 
+(DEFUN |StorageEfficientMatrixOperations;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|StorageEfficientMatrixOperations| DV$1))
+          (LETT % (GETREFV 27))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|StorageEfficientMatrixOperations|
+                      (LIST DV$1) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |StorageEfficientMatrixOperations| (#1=#:G138)
   (SPROG NIL
          (PROG (#2=#:G139)
@@ -404,21 +419,6 @@
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
                         '|StorageEfficientMatrixOperations|)))))))))) 
-
-(DEFUN |StorageEfficientMatrixOperations;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|StorageEfficientMatrixOperations| DV$1))
-          (LETT % (GETREFV 27))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|StorageEfficientMatrixOperations|
-                      (LIST DV$1) (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|StorageEfficientMatrixOperations| '|infovec|
           (LIST

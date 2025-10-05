@@ -44,6 +44,20 @@
 
 (DECLAIM (NOTINLINE |ErrorFunctions;|)) 
 
+(DEFUN |ErrorFunctions;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|ErrorFunctions|))
+          (LETT % (GETREFV 17))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|ErrorFunctions| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6 "Error signalled from user code: %l ")
+          (QSETREFV % 7 "Error signalled from user code in function %b ")
+          %))) 
+
 (DEFUN |ErrorFunctions| ()
   (SPROG NIL
          (PROG (#1=#:G15)
@@ -61,20 +75,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|ErrorFunctions|)))))))))) 
-
-(DEFUN |ErrorFunctions;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|ErrorFunctions|))
-          (LETT % (GETREFV 17))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|ErrorFunctions| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6 "Error signalled from user code: %l ")
-          (QSETREFV % 7 "Error signalled from user code in function %b ")
-          %))) 
 
 (MAKEPROP '|ErrorFunctions| '|infovec|
           (LIST

@@ -326,22 +326,6 @@
 
 (DECLAIM (NOTINLINE |EigenPackage;|)) 
 
-(DEFUN |EigenPackage| (#1=#:G89)
-  (SPROG NIL
-         (PROG (#2=#:G90)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|EigenPackage|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|EigenPackage;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|EigenPackage|)))))))))) 
-
 (DEFUN |EigenPackage;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -374,6 +358,22 @@
                         (|dispatchFunction| |EP;generalizedEigenvectors;ML;13|)
                         %)))))
           %))) 
+
+(DEFUN |EigenPackage| (#1=#:G89)
+  (SPROG NIL
+         (PROG (#2=#:G90)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|EigenPackage|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|EigenPackage;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|EigenPackage|)))))))))) 
 
 (MAKEPROP '|EigenPackage| '|infovec|
           (LIST

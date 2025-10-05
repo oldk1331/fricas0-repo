@@ -3214,21 +3214,6 @@
 
 (DECLAIM (NOTINLINE |Pattern;|)) 
 
-(DEFUN |Pattern| (#1=#:G325)
-  (SPROG NIL
-         (PROG (#2=#:G326)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|Pattern|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|Pattern;| #1#) (LETT #2# T))
-                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Pattern|)))))))))) 
-
 (DEFUN |Pattern;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -3292,6 +3277,21 @@
                             (LIST (|dispatchFunction| |PATTERN;Zero;%;41|) %
                                   87)))))
           %))) 
+
+(DEFUN |Pattern| (#1=#:G325)
+  (SPROG NIL
+         (PROG (#2=#:G326)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Pattern|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Pattern;| #1#) (LETT #2# T))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Pattern|)))))))))) 
 
 (MAKEPROP '|Pattern| '|infovec|
           (LIST

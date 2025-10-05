@@ -215,6 +215,19 @@
 
 (DECLAIM (NOTINLINE |CubicalComplexFactory;|)) 
 
+(DEFUN |CubicalComplexFactory;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|CubicalComplexFactory|))
+          (LETT % (GETREFV 17))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|CubicalComplexFactory| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |CubicalComplexFactory| ()
   (SPROG NIL
          (PROG (#1=#:G17)
@@ -233,19 +246,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|CubicalComplexFactory|)))))))))) 
-
-(DEFUN |CubicalComplexFactory;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|CubicalComplexFactory|))
-          (LETT % (GETREFV 17))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|CubicalComplexFactory| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|CubicalComplexFactory| '|infovec|
           (LIST

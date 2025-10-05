@@ -387,6 +387,19 @@
 
 (DECLAIM (NOTINLINE |InputForm;|)) 
 
+(DEFUN |InputForm;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|InputForm|))
+          (LETT % (GETREFV 75))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|InputForm| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6 (|SExpression|))
+          %))) 
+
 (DEFUN |InputForm| ()
   (SPROG NIL
          (PROG (#1=#:G94)
@@ -403,19 +416,6 @@
                     (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|InputForm|)))))))))) 
-
-(DEFUN |InputForm;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|InputForm|))
-          (LETT % (GETREFV 75))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|InputForm| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6 (|SExpression|))
-          %))) 
 
 (MAKEPROP '|InputForm| '|infovec|
           (LIST

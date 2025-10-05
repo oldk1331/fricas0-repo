@@ -35,6 +35,23 @@
 
 (DECLAIM (NOTINLINE |OpenMathErrorKind;|)) 
 
+(DEFUN |OpenMathErrorKind;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|OpenMathErrorKind|))
+          (LETT % (GETREFV 21))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|OpenMathErrorKind| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6
+                    (|Union| (|:| |parseError| "OMParseError")
+                             (|:| |unknownCD| "OMUnknownCD")
+                             (|:| |unknownSymbol| "OMUnknownSymbol")
+                             (|:| |readError| "OMReadError")))
+          %))) 
+
 (DEFUN |OpenMathErrorKind| ()
   (SPROG NIL
          (PROG (#1=#:G24)
@@ -53,23 +70,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|OpenMathErrorKind|)))))))))) 
-
-(DEFUN |OpenMathErrorKind;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|OpenMathErrorKind|))
-          (LETT % (GETREFV 21))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|OpenMathErrorKind| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6
-                    (|Union| (|:| |parseError| "OMParseError")
-                             (|:| |unknownCD| "OMUnknownCD")
-                             (|:| |unknownSymbol| "OMUnknownSymbol")
-                             (|:| |readError| "OMReadError")))
-          %))) 
 
 (MAKEPROP '|OpenMathErrorKind| '|infovec|
           (LIST

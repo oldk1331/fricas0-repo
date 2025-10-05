@@ -176,25 +176,6 @@
 
 (DECLAIM (NOTINLINE |AssociationList;|)) 
 
-(DEFUN |AssociationList| (&REST #1=#:G154)
-  (SPROG NIL
-         (PROG (#2=#:G155)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|AssociationList|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |AssociationList;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|AssociationList|)))))))))) 
-
 (DEFUN |AssociationList;| (|#1| |#2|)
   (SPROG
    ((#1=#:G151 NIL) (#2=#:G153 NIL) (#3=#:G152 NIL) (|pv$| NIL) (#4=#:G146 NIL)
@@ -352,6 +333,25 @@
               (|Reference|
                (|List| (|Record| (|:| |key| |#1|) (|:| |entry| |#2|)))))
     %))) 
+
+(DEFUN |AssociationList| (&REST #1=#:G154)
+  (SPROG NIL
+         (PROG (#2=#:G155)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|AssociationList|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |AssociationList;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|AssociationList|)))))))))) 
 
 (MAKEPROP '|AssociationList| '|infovec|
           (LIST

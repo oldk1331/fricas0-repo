@@ -310,27 +310,6 @@
 
 (DECLAIM (NOTINLINE |FunctionSpacePrimitiveElement;|)) 
 
-(DEFUN |FunctionSpacePrimitiveElement| (&REST #1=#:G62)
-  (SPROG NIL
-         (PROG (#2=#:G63)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|FunctionSpacePrimitiveElement|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |FunctionSpacePrimitiveElement;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|FunctionSpacePrimitiveElement|)))))))))) 
-
 (DEFUN |FunctionSpacePrimitiveElement;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -359,6 +338,27 @@
                         (|dispatchFunction| |FSPRMELT;primitiveElement;2FR;5|)
                         %)))))
           %))) 
+
+(DEFUN |FunctionSpacePrimitiveElement| (&REST #1=#:G62)
+  (SPROG NIL
+         (PROG (#2=#:G63)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|FunctionSpacePrimitiveElement|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |FunctionSpacePrimitiveElement;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|FunctionSpacePrimitiveElement|)))))))))) 
 
 (MAKEPROP '|FunctionSpacePrimitiveElement| '|infovec|
           (LIST

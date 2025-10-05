@@ -649,6 +649,24 @@
 
 (DECLAIM (NOTINLINE |SystemODESolver;|)) 
 
+(DEFUN |SystemODESolver;| (|#1| |#2|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|SystemODESolver| DV$1 DV$2))
+          (LETT % (GETREFV 92))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|SystemODESolver| (LIST DV$1 DV$2)
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (QSETREFV % 7 |#2|)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 9 (SPADCALL (QREFELT % 8)))
+          %))) 
+
 (DEFUN |SystemODESolver| (&REST #1=#:G194)
   (SPROG NIL
          (PROG (#2=#:G195)
@@ -667,24 +685,6 @@
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|SystemODESolver|)))))))))) 
-
-(DEFUN |SystemODESolver;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT DV$2 (|devaluate| |#2|))
-          (LETT |dv$| (LIST '|SystemODESolver| DV$1 DV$2))
-          (LETT % (GETREFV 92))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|SystemODESolver| (LIST DV$1 DV$2)
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (QSETREFV % 7 |#2|)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 9 (SPADCALL (QREFELT % 8)))
-          %))) 
 
 (MAKEPROP '|SystemODESolver| '|infovec|
           (LIST

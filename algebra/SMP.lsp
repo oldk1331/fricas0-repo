@@ -1851,27 +1851,6 @@
 
 (DECLAIM (NOTINLINE |SparseMultivariatePolynomial;|)) 
 
-(DEFUN |SparseMultivariatePolynomial| (&REST #1=#:G631)
-  (SPROG NIL
-         (PROG (#2=#:G632)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|SparseMultivariatePolynomial|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |SparseMultivariatePolynomial;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|SparseMultivariatePolynomial|)))))))))) 
-
 (DEFUN |SparseMultivariatePolynomial;| (|#1| |#2|)
   (SPROG
    ((#1=#:G630 NIL) (|pv$| NIL) (#2=#:G621 NIL) (#3=#:G623 NIL) (#4=#:G622 NIL)
@@ -2532,6 +2511,27 @@
                 (CONS (|dispatchFunction| |SMP;differentiate;%VarSet%;86|)
                       %))))
     %))) 
+
+(DEFUN |SparseMultivariatePolynomial| (&REST #1=#:G631)
+  (SPROG NIL
+         (PROG (#2=#:G632)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|SparseMultivariatePolynomial|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |SparseMultivariatePolynomial;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|SparseMultivariatePolynomial|)))))))))) 
 
 (MAKEPROP '|SparseMultivariatePolynomial| '|infovec|
           (LIST

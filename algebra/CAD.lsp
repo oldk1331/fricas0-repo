@@ -393,6 +393,22 @@
 
 (DECLAIM (NOTINLINE |CylindricalAlgebraicDecompositionPackage;|)) 
 
+(DEFUN |CylindricalAlgebraicDecompositionPackage;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|CylindricalAlgebraicDecompositionPackage| DV$1))
+          (LETT % (GETREFV 69))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache|
+                      '|CylindricalAlgebraicDecompositionPackage| (LIST DV$1)
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |CylindricalAlgebraicDecompositionPackage| (#1=#:G103)
   (SPROG NIL
          (PROG (#2=#:G104)
@@ -412,22 +428,6 @@
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
                         '|CylindricalAlgebraicDecompositionPackage|)))))))))) 
-
-(DEFUN |CylindricalAlgebraicDecompositionPackage;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|CylindricalAlgebraicDecompositionPackage| DV$1))
-          (LETT % (GETREFV 69))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache|
-                      '|CylindricalAlgebraicDecompositionPackage| (LIST DV$1)
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|CylindricalAlgebraicDecompositionPackage| '|infovec|
           (LIST

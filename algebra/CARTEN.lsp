@@ -1152,25 +1152,6 @@
 
 (DECLAIM (NOTINLINE |CartesianTensor;|)) 
 
-(DEFUN |CartesianTensor| (&REST #1=#:G334)
-  (SPROG NIL
-         (PROG (#2=#:G335)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(NIL NIL T))
-                     (HGET |$ConstructorCache| '|CartesianTensor|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |CartesianTensor;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|CartesianTensor|)))))))))) 
-
 (DEFUN |CartesianTensor;| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -1193,6 +1174,25 @@
           (QSETREFV % 11 (EXPT |#2| 3))
           (QSETREFV % 12 (EXPT |#2| 4))
           %))) 
+
+(DEFUN |CartesianTensor| (&REST #1=#:G334)
+  (SPROG NIL
+         (PROG (#2=#:G335)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(NIL NIL T))
+                     (HGET |$ConstructorCache| '|CartesianTensor|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |CartesianTensor;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|CartesianTensor|)))))))))) 
 
 (MAKEPROP '|CartesianTensor| '|infovec|
           (LIST

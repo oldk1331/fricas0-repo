@@ -267,25 +267,6 @@
 
 (DECLAIM (NOTINLINE |SetOfMIntegersInOneToN;|)) 
 
-(DEFUN |SetOfMIntegersInOneToN| (&REST #1=#:G114)
-  (SPROG NIL
-         (PROG (#2=#:G115)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(NIL NIL))
-                                               (HGET |$ConstructorCache|
-                                                     '|SetOfMIntegersInOneToN|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |SetOfMIntegersInOneToN;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|SetOfMIntegersInOneToN|)))))))))) 
-
 (DEFUN |SetOfMIntegersInOneToN;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -307,6 +288,25 @@
           (QSETREFV % 11 (SPADCALL (QREFELT % 10)))
           (QSETREFV % 12 0)
           %))) 
+
+(DEFUN |SetOfMIntegersInOneToN| (&REST #1=#:G114)
+  (SPROG NIL
+         (PROG (#2=#:G115)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(NIL NIL))
+                                               (HGET |$ConstructorCache|
+                                                     '|SetOfMIntegersInOneToN|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |SetOfMIntegersInOneToN;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|SetOfMIntegersInOneToN|)))))))))) 
 
 (MAKEPROP '|SetOfMIntegersInOneToN| '|infovec|
           (LIST

@@ -324,24 +324,6 @@
 
 (DECLAIM (NOTINLINE |NonLinearSolvePackage;|)) 
 
-(DEFUN |NonLinearSolvePackage| (#1=#:G81)
-  (SPROG NIL
-         (PROG (#2=#:G82)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|NonLinearSolvePackage|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|NonLinearSolvePackage;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|NonLinearSolvePackage|)))))))))) 
-
 (DEFUN |NonLinearSolvePackage;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -392,6 +374,24 @@
                       (CONS (|dispatchFunction| |NLINSOL;solveInField;LLL;13|)
                             %))))
           %))) 
+
+(DEFUN |NonLinearSolvePackage| (#1=#:G81)
+  (SPROG NIL
+         (PROG (#2=#:G82)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|NonLinearSolvePackage|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|NonLinearSolvePackage;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|NonLinearSolvePackage|)))))))))) 
 
 (MAKEPROP '|NonLinearSolvePackage| '|infovec|
           (LIST

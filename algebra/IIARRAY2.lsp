@@ -90,29 +90,6 @@
 
 (DECLAIM (NOTINLINE |InnerIndexedTwoDimensionalArray;|)) 
 
-(DEFUN |InnerIndexedTwoDimensionalArray| (&REST #1=#:G2212)
-  (SPROG NIL
-         (PROG (#2=#:G2213)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T NIL NIL T T))
-                     (HGET |$ConstructorCache|
-                           '|InnerIndexedTwoDimensionalArray|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |InnerIndexedTwoDimensionalArray;|)
-                             #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|InnerIndexedTwoDimensionalArray|)))))))))) 
-
 (DEFUN |InnerIndexedTwoDimensionalArray;| (|#1| |#2| |#3| |#4| |#5|)
   (SPROG
    ((|pv$| NIL) (#1=#:G2209 NIL) (#2=#:G2210 NIL) (% NIL) (|dv$| NIL)
@@ -202,6 +179,29 @@
                 (CONS (|dispatchFunction| |IIARRAY2;hashUpdate!;Hs%Hs;14|)
                       %))))
     %))) 
+
+(DEFUN |InnerIndexedTwoDimensionalArray| (&REST #1=#:G2212)
+  (SPROG NIL
+         (PROG (#2=#:G2213)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T NIL NIL T T))
+                     (HGET |$ConstructorCache|
+                           '|InnerIndexedTwoDimensionalArray|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |InnerIndexedTwoDimensionalArray;|)
+                             #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|InnerIndexedTwoDimensionalArray|)))))))))) 
 
 (MAKEPROP '|InnerIndexedTwoDimensionalArray| '|infovec|
           (LIST

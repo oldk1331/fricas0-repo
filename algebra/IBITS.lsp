@@ -102,22 +102,6 @@
 
 (DECLAIM (NOTINLINE |IndexedBits;|)) 
 
-(DEFUN |IndexedBits| (#1=#:G51)
-  (SPROG NIL
-         (PROG (#2=#:G52)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|IndexedBits|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|IndexedBits;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|IndexedBits|)))))))))) 
-
 (DEFUN |IndexedBits;| (|#1|)
   (SPROG ((#1=#:G50 NIL) (|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -167,6 +151,22 @@
                (|augmentPredVector| % 4096))
           (SETF |pv$| (QREFELT % 3))
           %))) 
+
+(DEFUN |IndexedBits| (#1=#:G51)
+  (SPROG NIL
+         (PROG (#2=#:G52)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|IndexedBits|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|IndexedBits;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|IndexedBits|)))))))))) 
 
 (MAKEPROP '|IndexedBits| '|infovec|
           (LIST

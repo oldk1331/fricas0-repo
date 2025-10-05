@@ -3421,26 +3421,6 @@
 
 (DECLAIM (NOTINLINE |InnerSparseUnivariatePowerSeries;|)) 
 
-(DEFUN |InnerSparseUnivariatePowerSeries| (#1=#:G1084)
-  (SPROG NIL
-         (PROG (#2=#:G1085)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|InnerSparseUnivariatePowerSeries|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|InnerSparseUnivariatePowerSeries;| #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|InnerSparseUnivariatePowerSeries|)))))))))) 
-
 (DEFUN |InnerSparseUnivariatePowerSeries;| (|#1|)
   (SPROG
    ((|pv$| NIL) (#1=#:G1078 NIL) (#2=#:G1079 NIL) (#3=#:G1080 NIL)
@@ -3750,6 +3730,26 @@
        (QSETREFV % 185 (CONS (|dispatchFunction| |ISUPS;cAsech;2%;94|) %))
        (QSETREFV % 187 (CONS (|dispatchFunction| |ISUPS;cAcsch;2%;95|) %)))))
     %))) 
+
+(DEFUN |InnerSparseUnivariatePowerSeries| (#1=#:G1084)
+  (SPROG NIL
+         (PROG (#2=#:G1085)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|InnerSparseUnivariatePowerSeries|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|InnerSparseUnivariatePowerSeries;| #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|InnerSparseUnivariatePowerSeries|)))))))))) 
 
 (MAKEPROP '|InnerSparseUnivariatePowerSeries| '|infovec|
           (LIST

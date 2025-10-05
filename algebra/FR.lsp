@@ -1644,21 +1644,6 @@
 
 (DECLAIM (NOTINLINE |Factored;|)) 
 
-(DEFUN |Factored| (#1=#:G639)
-  (SPROG NIL
-         (PROG (#2=#:G640)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|Factored|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|Factored;| #1#) (LETT #2# T))
-                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Factored|)))))))))) 
-
 (DEFUN |Factored;| (|#1|)
   (SPROG ((|pv$| NIL) (#1=#:G638 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -1791,6 +1776,21 @@
            ((|testBitVector| |pv$| 12)
             (QSETREFV % 157 (CONS (|dispatchFunction| |FR;prime?;%B;61|) %))))
           %))) 
+
+(DEFUN |Factored| (#1=#:G639)
+  (SPROG NIL
+         (PROG (#2=#:G640)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Factored|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Factored;| #1#) (LETT #2# T))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Factored|)))))))))) 
 
 (MAKEPROP '|Factored| '|infovec|
           (LIST

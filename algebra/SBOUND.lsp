@@ -1623,22 +1623,6 @@
 
 (DECLAIM (NOTINLINE |SBoundary;|)) 
 
-(DEFUN |SBoundary| (#1=#:G143)
-  (SPROG NIL
-         (PROG (#2=#:G144)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|SBoundary|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|SBoundary;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|SBoundary|)))))))))) 
-
 (DEFUN |SBoundary;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -1661,6 +1645,22 @@
                                   (|Record| (|:| |ty| (|Symbol|))
                                             (|:| |parts| (|List| %))))))
           %))) 
+
+(DEFUN |SBoundary| (#1=#:G143)
+  (SPROG NIL
+         (PROG (#2=#:G144)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|SBoundary|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|SBoundary;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|SBoundary|)))))))))) 
 
 (MAKEPROP '|SBoundary| '|infovec|
           (LIST

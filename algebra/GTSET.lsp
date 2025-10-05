@@ -129,25 +129,6 @@
 
 (DECLAIM (NOTINLINE |GeneralTriangularSet;|)) 
 
-(DEFUN |GeneralTriangularSet| (&REST #1=#:G90)
-  (SPROG NIL
-         (PROG (#2=#:G91)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|GeneralTriangularSet|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |GeneralTriangularSet;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|GeneralTriangularSet|)))))))))) 
-
 (DEFUN |GeneralTriangularSet;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((#1=#:G89 NIL) (|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
@@ -192,6 +173,25 @@
     (AND (|HasCategory| |#4| '(|OrderedSet|)) #1# (|augmentPredVector| % 512))
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |GeneralTriangularSet| (&REST #1=#:G90)
+  (SPROG NIL
+         (PROG (#2=#:G91)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|GeneralTriangularSet|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |GeneralTriangularSet;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|GeneralTriangularSet|)))))))))) 
 
 (MAKEPROP '|GeneralTriangularSet| '|infovec|
           (LIST

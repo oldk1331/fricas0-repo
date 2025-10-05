@@ -61,6 +61,18 @@
 
 (DECLAIM (NOTINLINE |BasicFile;|)) 
 
+(DEFUN |BasicFile;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|BasicFile|))
+          (LETT % (GETREFV 27))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|BasicFile| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |BasicFile| ()
   (SPROG NIL
          (PROG (#1=#:G27)
@@ -77,18 +89,6 @@
                     (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|BasicFile|)))))))))) 
-
-(DEFUN |BasicFile;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|BasicFile|))
-          (LETT % (GETREFV 27))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|BasicFile| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|BasicFile| '|infovec|
           (LIST

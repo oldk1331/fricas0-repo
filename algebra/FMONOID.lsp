@@ -647,22 +647,6 @@
 
 (DECLAIM (NOTINLINE |FreeMonoid;|)) 
 
-(DEFUN |FreeMonoid| (#1=#:G231)
-  (SPROG NIL
-         (PROG (#2=#:G232)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|FreeMonoid|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|FreeMonoid;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|FreeMonoid|)))))))))) 
-
 (DEFUN |FreeMonoid;| (|#1|)
   (SPROG ((|pv$| NIL) (#1=#:G230 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -715,6 +699,22 @@
                         (CONS (|dispatchFunction| |FMONOID;smaller?;2%B;28|)
                               %))))))
           %))) 
+
+(DEFUN |FreeMonoid| (#1=#:G231)
+  (SPROG NIL
+         (PROG (#2=#:G232)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|FreeMonoid|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|FreeMonoid;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|FreeMonoid|)))))))))) 
 
 (MAKEPROP '|FreeMonoid| '|infovec|
           (LIST

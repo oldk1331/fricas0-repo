@@ -313,23 +313,6 @@
 
 (DECLAIM (NOTINLINE |ListMultiDictionary;|)) 
 
-(DEFUN |ListMultiDictionary| (#1=#:G135)
-  (SPROG NIL
-         (PROG (#2=#:G136)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|ListMultiDictionary|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|ListMultiDictionary;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|ListMultiDictionary|)))))))))) 
-
 (DEFUN |ListMultiDictionary;| (|#1|)
   (SPROG
    ((#1=#:G134 NIL) (#2=#:G133 NIL) (|pv$| NIL) (#3=#:G130 NIL) (#4=#:G131 NIL)
@@ -402,6 +385,23 @@
        (QSETREFV % 59 (CONS (|dispatchFunction| |LMDICT;=;2%B;26|) %))
        (QSETREFV % 27 (CONS (|dispatchFunction| |LMDICT;insert!;S2%;27|) %)))))
     %))) 
+
+(DEFUN |ListMultiDictionary| (#1=#:G135)
+  (SPROG NIL
+         (PROG (#2=#:G136)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|ListMultiDictionary|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|ListMultiDictionary;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|ListMultiDictionary|)))))))))) 
 
 (MAKEPROP '|ListMultiDictionary| '|infovec|
           (LIST

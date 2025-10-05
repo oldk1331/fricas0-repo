@@ -933,26 +933,6 @@
 
 (DECLAIM (NOTINLINE |FunctionSpaceIntegration;|)) 
 
-(DEFUN |FunctionSpaceIntegration| (&REST #1=#:G232)
-  (SPROG NIL
-         (PROG (#2=#:G233)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|FunctionSpaceIntegration|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |FunctionSpaceIntegration;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|FunctionSpaceIntegration|)))))))))) 
-
 (DEFUN |FunctionSpaceIntegration;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -974,6 +954,26 @@
           (QSETREFV % 11 '|%alg|)
           (QSETREFV % 16 (SPADCALL '|%temptan| 1 (QREFELT % 15)))
           %))) 
+
+(DEFUN |FunctionSpaceIntegration| (&REST #1=#:G232)
+  (SPROG NIL
+         (PROG (#2=#:G233)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|FunctionSpaceIntegration|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |FunctionSpaceIntegration;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|FunctionSpaceIntegration|)))))))))) 
 
 (MAKEPROP '|FunctionSpaceIntegration| '|infovec|
           (LIST

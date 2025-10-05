@@ -538,24 +538,6 @@
 
 (DECLAIM (NOTINLINE |RepresentationPackage1;|)) 
 
-(DEFUN |RepresentationPackage1| (#1=#:G134)
-  (SPROG NIL
-         (PROG (#2=#:G135)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|RepresentationPackage1|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|RepresentationPackage1;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|RepresentationPackage1|)))))))))) 
-
 (DEFUN |RepresentationPackage1;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -586,6 +568,24 @@
                         (|dispatchFunction| |REP1;antisymmetricTensors;LPiL;4|)
                         %)))))
           %))) 
+
+(DEFUN |RepresentationPackage1| (#1=#:G134)
+  (SPROG NIL
+         (PROG (#2=#:G135)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|RepresentationPackage1|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|RepresentationPackage1;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|RepresentationPackage1|)))))))))) 
 
 (MAKEPROP '|RepresentationPackage1| '|infovec|
           (LIST

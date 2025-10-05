@@ -759,25 +759,6 @@
 
 (DECLAIM (NOTINLINE |AlgebraicIntegrate2;|)) 
 
-(DEFUN |AlgebraicIntegrate2| (&REST #1=#:G217)
-  (SPROG NIL
-         (PROG (#2=#:G218)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|AlgebraicIntegrate2|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |AlgebraicIntegrate2;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|AlgebraicIntegrate2|)))))))))) 
-
 (DEFUN |AlgebraicIntegrate2;| (|#1| |#2| |#3| |#4| |#5|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -802,6 +783,25 @@
     (QSETREFV % 10 |#5|)
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |AlgebraicIntegrate2| (&REST #1=#:G217)
+  (SPROG NIL
+         (PROG (#2=#:G218)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|AlgebraicIntegrate2|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |AlgebraicIntegrate2;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|AlgebraicIntegrate2|)))))))))) 
 
 (MAKEPROP '|AlgebraicIntegrate2| '|infovec|
           (LIST

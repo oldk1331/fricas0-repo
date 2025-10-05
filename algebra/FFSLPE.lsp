@@ -90,29 +90,6 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldSolveLinearPolynomialEquation;|)) 
 
-(DEFUN |FiniteFieldSolveLinearPolynomialEquation| (&REST #1=#:G28)
-  (SPROG NIL
-         (PROG (#2=#:G29)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|FiniteFieldSolveLinearPolynomialEquation|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY
-                       (|function| |FiniteFieldSolveLinearPolynomialEquation;|)
-                       #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|FiniteFieldSolveLinearPolynomialEquation|)))))))))) 
-
 (DEFUN |FiniteFieldSolveLinearPolynomialEquation;| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -137,6 +114,29 @@
           (QSETREFV % 14 (SPADCALL (|spadConstant| % 10) 1 (QREFELT % 13)))
           (QSETREFV % 15 #())
           %))) 
+
+(DEFUN |FiniteFieldSolveLinearPolynomialEquation| (&REST #1=#:G28)
+  (SPROG NIL
+         (PROG (#2=#:G29)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|FiniteFieldSolveLinearPolynomialEquation|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY
+                       (|function| |FiniteFieldSolveLinearPolynomialEquation;|)
+                       #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|FiniteFieldSolveLinearPolynomialEquation|)))))))))) 
 
 (MAKEPROP '|FiniteFieldSolveLinearPolynomialEquation| '|infovec|
           (LIST

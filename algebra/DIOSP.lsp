@@ -361,6 +361,19 @@
 
 (DECLAIM (NOTINLINE |DiophantineSolutionPackage;|)) 
 
+(DEFUN |DiophantineSolutionPackage;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|DiophantineSolutionPackage|))
+          (LETT % (GETREFV 45))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|DiophantineSolutionPackage| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |DiophantineSolutionPackage| ()
   (SPROG NIL
          (PROG (#1=#:G100)
@@ -383,19 +396,6 @@
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
                         '|DiophantineSolutionPackage|)))))))))) 
-
-(DEFUN |DiophantineSolutionPackage;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|DiophantineSolutionPackage|))
-          (LETT % (GETREFV 45))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|DiophantineSolutionPackage| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|DiophantineSolutionPackage| '|infovec|
           (LIST

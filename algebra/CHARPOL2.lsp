@@ -260,6 +260,21 @@
 
 (DECLAIM (NOTINLINE |CharacteristicPolynomial2;|)) 
 
+(DEFUN |CharacteristicPolynomial2;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|CharacteristicPolynomial2| DV$1))
+          (LETT % (GETREFV 35))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|CharacteristicPolynomial2|
+                      (LIST DV$1) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |CharacteristicPolynomial2| (#1=#:G60)
   (SPROG NIL
          (PROG (#2=#:G61)
@@ -278,21 +293,6 @@
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
                         '|CharacteristicPolynomial2|)))))))))) 
-
-(DEFUN |CharacteristicPolynomial2;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|CharacteristicPolynomial2| DV$1))
-          (LETT % (GETREFV 35))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|CharacteristicPolynomial2|
-                      (LIST DV$1) (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|CharacteristicPolynomial2| '|infovec|
           (LIST

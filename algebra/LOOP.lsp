@@ -82,6 +82,19 @@
 
 (DECLAIM (NOTINLINE |Loop;|)) 
 
+(DEFUN |Loop;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|Loop|))
+          (LETT % (GETREFV 28))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|Loop| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6 (|PrimitiveArray| (|NonNegativeInteger|)))
+          %))) 
+
 (DEFUN |Loop| ()
   (SPROG NIL
          (PROG (#1=#:G35)
@@ -97,19 +110,6 @@
                              (LIST (CONS NIL (CONS 1 (|Loop;|))))))
                     (LETT #1# T))
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|Loop|)))))))))) 
-
-(DEFUN |Loop;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|Loop|))
-          (LETT % (GETREFV 28))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|Loop| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6 (|PrimitiveArray| (|NonNegativeInteger|)))
-          %))) 
 
 (MAKEPROP '|Loop| '|infovec|
           (LIST

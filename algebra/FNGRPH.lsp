@@ -866,22 +866,6 @@
 
 (DECLAIM (NOTINLINE |FunctionGraph;|)) 
 
-(DEFUN |FunctionGraph| (#1=#:G255)
-  (SPROG NIL
-         (PROG (#2=#:G256)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|FunctionGraph|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|FunctionGraph;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|FunctionGraph|)))))))))) 
-
 (DEFUN |FunctionGraph;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -906,6 +890,22 @@
                                      (|:| |map|
                                           (|List| (|NonNegativeInteger|))))))))
           %))) 
+
+(DEFUN |FunctionGraph| (#1=#:G255)
+  (SPROG NIL
+         (PROG (#2=#:G256)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|FunctionGraph|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|FunctionGraph;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|FunctionGraph|)))))))))) 
 
 (MAKEPROP '|FunctionGraph| '|infovec|
           (LIST

@@ -3113,25 +3113,6 @@
 
 (DECLAIM (NOTINLINE |LinearMultivariateMatrixPencil;|)) 
 
-(DEFUN |LinearMultivariateMatrixPencil| (#1=#:G1184)
-  (SPROG NIL
-         (PROG (#2=#:G1185)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|LinearMultivariateMatrixPencil|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|LinearMultivariateMatrixPencil;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|LinearMultivariateMatrixPencil|)))))))))) 
-
 (DEFUN |LinearMultivariateMatrixPencil;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -3217,6 +3198,25 @@
                         (|dispatchFunction| |LINPEN;eliminationSolve;LL;79|)
                         %)))))
           %))) 
+
+(DEFUN |LinearMultivariateMatrixPencil| (#1=#:G1184)
+  (SPROG NIL
+         (PROG (#2=#:G1185)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|LinearMultivariateMatrixPencil|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|LinearMultivariateMatrixPencil;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|LinearMultivariateMatrixPencil|)))))))))) 
 
 (MAKEPROP '|LinearMultivariateMatrixPencil| '|infovec|
           (LIST

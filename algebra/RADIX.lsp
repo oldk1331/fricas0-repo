@@ -420,23 +420,6 @@
 
 (DECLAIM (NOTINLINE |RadixExpansion;|)) 
 
-(DEFUN |RadixExpansion| (#1=#:G199)
-  (SPROG NIL
-         (PROG (#2=#:G200)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|RadixExpansion|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|RadixExpansion;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|RadixExpansion|)))))))))) 
-
 (DEFUN |RadixExpansion;| (|#1|)
   (SPROG ((|pv$| NIL) (#1=#:G198 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -544,6 +527,23 @@
                               (|:| |cyc| (|List| (|Integer|)))))
           (QSETREFV % 64 "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
           %))) 
+
+(DEFUN |RadixExpansion| (#1=#:G199)
+  (SPROG NIL
+         (PROG (#2=#:G200)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|RadixExpansion|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|RadixExpansion;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|RadixExpansion|)))))))))) 
 
 (MAKEPROP '|RadixExpansion| '|infovec|
           (LIST

@@ -425,25 +425,6 @@
 
 (DECLAIM (NOTINLINE |PrimitiveRatDE;|)) 
 
-(DEFUN |PrimitiveRatDE| (&REST #1=#:G112)
-  (SPROG NIL
-         (PROG (#2=#:G113)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|PrimitiveRatDE|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |PrimitiveRatDE;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|PrimitiveRatDE|)))))))))) 
-
 (DEFUN |PrimitiveRatDE;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -467,6 +448,25 @@
     (SETF |pv$| (QREFELT % 3))
     (QSETREFV % 11 (SPADCALL (QREFELT % 10)))
     %))) 
+
+(DEFUN |PrimitiveRatDE| (&REST #1=#:G112)
+  (SPROG NIL
+         (PROG (#2=#:G113)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|PrimitiveRatDE|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |PrimitiveRatDE;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|PrimitiveRatDE|)))))))))) 
 
 (MAKEPROP '|PrimitiveRatDE| '|infovec|
           (LIST

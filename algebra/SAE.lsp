@@ -406,26 +406,6 @@
 
 (DECLAIM (NOTINLINE |SimpleAlgebraicExtension;|)) 
 
-(DEFUN |SimpleAlgebraicExtension| (&REST #1=#:G153)
-  (SPROG NIL
-         (PROG (#2=#:G154)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(T T NIL))
-                                               (HGET |$ConstructorCache|
-                                                     '|SimpleAlgebraicExtension|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |SimpleAlgebraicExtension;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|SimpleAlgebraicExtension|)))))))))) 
-
 (DEFUN |SimpleAlgebraicExtension;| (|#1| |#2| |#3|)
   (SPROG
    ((#1=#:G152 NIL) (|i| NIL) (#2=#:G151 NIL) (#3=#:G8 NIL) (#4=#:G5 NIL)
@@ -583,6 +563,26 @@
         (QSETREFV % 132 (CONS (|dispatchFunction| |SAE;index;Pi%;35|) %))
         (QSETREFV % 137 (CONS (|dispatchFunction| |SAE;lookup;%Pi;36|) %)))))
      %)))) 
+
+(DEFUN |SimpleAlgebraicExtension| (&REST #1=#:G153)
+  (SPROG NIL
+         (PROG (#2=#:G154)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(T T NIL))
+                                               (HGET |$ConstructorCache|
+                                                     '|SimpleAlgebraicExtension|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |SimpleAlgebraicExtension;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|SimpleAlgebraicExtension|)))))))))) 
 
 (MAKEPROP '|SimpleAlgebraicExtension| '|infovec|
           (LIST

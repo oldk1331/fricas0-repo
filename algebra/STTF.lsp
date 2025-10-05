@@ -1284,25 +1284,6 @@
 
 (DECLAIM (NOTINLINE |StreamTranscendentalFunctions;|)) 
 
-(DEFUN |StreamTranscendentalFunctions| (#1=#:G315)
-  (SPROG NIL
-         (PROG (#2=#:G316)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|StreamTranscendentalFunctions|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|StreamTranscendentalFunctions;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|StreamTranscendentalFunctions|)))))))))) 
-
 (DEFUN |StreamTranscendentalFunctions;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -1330,6 +1311,25 @@
                     "series expansion has terms of fractional degree or logarithmic term")
           (QSETREFV % 15 "leading coefficient not invertible")
           %))) 
+
+(DEFUN |StreamTranscendentalFunctions| (#1=#:G315)
+  (SPROG NIL
+         (PROG (#2=#:G316)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|StreamTranscendentalFunctions|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|StreamTranscendentalFunctions;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|StreamTranscendentalFunctions|)))))))))) 
 
 (MAKEPROP '|StreamTranscendentalFunctions| '|infovec|
           (LIST

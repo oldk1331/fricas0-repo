@@ -1253,30 +1253,6 @@
 
 (DECLAIM (NOTINLINE |DoubleFloatEllipticIntegrals;|)) 
 
-(DEFUN |DoubleFloatEllipticIntegrals| ()
-  (SPROG NIL
-         (PROG (#1=#:G80)
-           (RETURN
-            (COND
-             ((LETT #1#
-                    (HGET |$ConstructorCache| '|DoubleFloatEllipticIntegrals|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache|
-                             '|DoubleFloatEllipticIntegrals|
-                             (LIST
-                              (CONS NIL
-                                    (CONS 1
-                                          (|DoubleFloatEllipticIntegrals;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#)
-                  (HREM |$ConstructorCache|
-                        '|DoubleFloatEllipticIntegrals|)))))))))) 
-
 (DEFUN |DoubleFloatEllipticIntegrals;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -1347,6 +1323,30 @@
                     (|div_DF| (FLOAT 9 MOST-POSITIVE-DOUBLE-FLOAT)
                               (FLOAT 52 MOST-POSITIVE-DOUBLE-FLOAT)))
           %))) 
+
+(DEFUN |DoubleFloatEllipticIntegrals| ()
+  (SPROG NIL
+         (PROG (#1=#:G80)
+           (RETURN
+            (COND
+             ((LETT #1#
+                    (HGET |$ConstructorCache| '|DoubleFloatEllipticIntegrals|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache|
+                             '|DoubleFloatEllipticIntegrals|
+                             (LIST
+                              (CONS NIL
+                                    (CONS 1
+                                          (|DoubleFloatEllipticIntegrals;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache|
+                        '|DoubleFloatEllipticIntegrals|)))))))))) 
 
 (MAKEPROP '|DoubleFloatEllipticIntegrals| '|infovec|
           (LIST

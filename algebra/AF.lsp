@@ -754,25 +754,6 @@
 
 (DECLAIM (NOTINLINE |AlgebraicFunction;|)) 
 
-(DEFUN |AlgebraicFunction| (&REST #1=#:G257)
-  (SPROG NIL
-         (PROG (#2=#:G258)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|AlgebraicFunction|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |AlgebraicFunction;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|AlgebraicFunction|)))))))))) 
-
 (DEFUN |AlgebraicFunction;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -874,6 +855,25 @@
                        (CONS (|dispatchFunction| |AF;minPoly;KSup;32|) %)))))
           (SPADCALL (QREFELT % 14) '|%specialDisp| (ELT % 115) (QREFELT % 89))
           %))) 
+
+(DEFUN |AlgebraicFunction| (&REST #1=#:G257)
+  (SPROG NIL
+         (PROG (#2=#:G258)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|AlgebraicFunction|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |AlgebraicFunction;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|AlgebraicFunction|)))))))))) 
 
 (MAKEPROP '|AlgebraicFunction| '|infovec|
           (LIST

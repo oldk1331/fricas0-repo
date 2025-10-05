@@ -762,25 +762,6 @@
 
 (DECLAIM (NOTINLINE |InnerPAdicInteger;|)) 
 
-(DEFUN |InnerPAdicInteger| (&REST #1=#:G277)
-  (SPROG NIL
-         (PROG (#2=#:G278)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(NIL NIL))
-                                               (HGET |$ConstructorCache|
-                                                     '|InnerPAdicInteger|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |InnerPAdicInteger;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|InnerPAdicInteger|)))))))))) 
-
 (DEFUN |InnerPAdicInteger;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -799,6 +780,25 @@
           (QSETREFV % 11 (SPADCALL |#1| (QREFELT % 10)))
           (QSETREFV % 12 (|Stream| (|Integer|)))
           %))) 
+
+(DEFUN |InnerPAdicInteger| (&REST #1=#:G277)
+  (SPROG NIL
+         (PROG (#2=#:G278)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(NIL NIL))
+                                               (HGET |$ConstructorCache|
+                                                     '|InnerPAdicInteger|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |InnerPAdicInteger;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|InnerPAdicInteger|)))))))))) 
 
 (MAKEPROP '|InnerPAdicInteger| '|infovec|
           (LIST

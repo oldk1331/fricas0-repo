@@ -3062,6 +3062,19 @@
 
 (DECLAIM (NOTINLINE |FloatEllipticFunctions;|)) 
 
+(DEFUN |FloatEllipticFunctions;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|FloatEllipticFunctions|))
+          (LETT % (GETREFV 134))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|FloatEllipticFunctions| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |FloatEllipticFunctions| ()
   (SPROG NIL
          (PROG (#1=#:G394)
@@ -3081,19 +3094,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|FloatEllipticFunctions|)))))))))) 
-
-(DEFUN |FloatEllipticFunctions;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|FloatEllipticFunctions|))
-          (LETT % (GETREFV 134))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|FloatEllipticFunctions| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|FloatEllipticFunctions| '|infovec|
           (LIST

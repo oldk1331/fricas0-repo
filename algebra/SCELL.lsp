@@ -276,23 +276,6 @@
 
 (DECLAIM (NOTINLINE |SimpleCell;|)) 
 
-(DEFUN |SimpleCell| (&REST #1=#:G52)
-  (SPROG NIL
-         (PROG (#2=#:G53)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|SimpleCell|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |SimpleCell;|) #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|SimpleCell|)))))))))) 
-
 (DEFUN |SimpleCell;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -313,6 +296,23 @@
                               (|:| |hasDim| (|Boolean|))
                               (|:| |varOf| (|Symbol|))))
           %))) 
+
+(DEFUN |SimpleCell| (&REST #1=#:G52)
+  (SPROG NIL
+         (PROG (#2=#:G53)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|SimpleCell|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |SimpleCell;|) #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|SimpleCell|)))))))))) 
 
 (MAKEPROP '|SimpleCell| '|infovec|
           (LIST

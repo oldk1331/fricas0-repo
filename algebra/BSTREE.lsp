@@ -70,23 +70,6 @@
 
 (DECLAIM (NOTINLINE |BinarySearchTree;|)) 
 
-(DEFUN |BinarySearchTree| (#1=#:G31)
-  (SPROG NIL
-         (PROG (#2=#:G32)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|BinarySearchTree|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|BinarySearchTree;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|BinarySearchTree|)))))))))) 
-
 (DEFUN |BinarySearchTree;| (|#1|)
   (SPROG
    ((|pv$| NIL) (#1=#:G28 NIL) (#2=#:G29 NIL) (#3=#:G30 NIL) (% NIL)
@@ -144,6 +127,23 @@
     (SETF |pv$| (QREFELT % 3))
     (QSETREFV % 7 (|BinaryTree| |#1|))
     %))) 
+
+(DEFUN |BinarySearchTree| (#1=#:G31)
+  (SPROG NIL
+         (PROG (#2=#:G32)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|BinarySearchTree|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|BinarySearchTree;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|BinarySearchTree|)))))))))) 
 
 (MAKEPROP '|BinarySearchTree| '|infovec|
           (LIST

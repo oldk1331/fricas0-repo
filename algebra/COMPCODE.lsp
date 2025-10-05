@@ -251,6 +251,18 @@
 
 (DECLAIM (NOTINLINE |compCode;|)) 
 
+(DEFUN |compCode;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|compCode|))
+          (LETT % (GETREFV 46))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|compCode| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |compCode| ()
   (SPROG NIL
          (PROG (#1=#:G58)
@@ -266,18 +278,6 @@
                              (LIST (CONS NIL (CONS 1 (|compCode;|))))))
                     (LETT #1# T))
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|compCode|)))))))))) 
-
-(DEFUN |compCode;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|compCode|))
-          (LETT % (GETREFV 46))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|compCode| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|compCode| '|infovec|
           (LIST

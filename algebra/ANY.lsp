@@ -83,6 +83,21 @@
 
 (DECLAIM (NOTINLINE |Any;|)) 
 
+(DEFUN |Any;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|Any|))
+          (LETT % (GETREFV 31))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|Any| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6
+                    (|Record| (|:| |dm| (|SExpression|)) (|:| |ob| (|None|))))
+          (QSETREFV % 7 NIL)
+          %))) 
+
 (DEFUN |Any| ()
   (SPROG NIL
          (PROG (#1=#:G24)
@@ -98,21 +113,6 @@
                              (LIST (CONS NIL (CONS 1 (|Any;|))))))
                     (LETT #1# T))
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|Any|)))))))))) 
-
-(DEFUN |Any;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|Any|))
-          (LETT % (GETREFV 31))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|Any| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6
-                    (|Record| (|:| |dm| (|SExpression|)) (|:| |ob| (|None|))))
-          (QSETREFV % 7 NIL)
-          %))) 
 
 (MAKEPROP '|Any| '|infovec|
           (LIST

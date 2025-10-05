@@ -1206,6 +1206,21 @@
 
 (DECLAIM (NOTINLINE |Format1D;|)) 
 
+(DEFUN |Format1D;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|Format1D|))
+          (LETT % (GETREFV 111))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|Format1D| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 109
+                    (|FMT1D;setOperatorHandlers!| (SPADCALL (QREFELT % 108))
+                     %))
+          %))) 
+
 (DEFUN |Format1D| ()
   (SPROG NIL
          (PROG (#1=#:G518)
@@ -1221,21 +1236,6 @@
                              (LIST (CONS NIL (CONS 1 (|Format1D;|))))))
                     (LETT #1# T))
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|Format1D|)))))))))) 
-
-(DEFUN |Format1D;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|Format1D|))
-          (LETT % (GETREFV 111))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|Format1D| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 109
-                    (|FMT1D;setOperatorHandlers!| (SPADCALL (QREFELT % 108))
-                     %))
-          %))) 
 
 (MAKEPROP '|Format1D| '|infovec|
           (LIST

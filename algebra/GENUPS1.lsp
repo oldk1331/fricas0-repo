@@ -416,6 +416,21 @@
 
 (DECLAIM (NOTINLINE |GenerateUnivariatePowerSeries1;|)) 
 
+(DEFUN |GenerateUnivariatePowerSeries1;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|GenerateUnivariatePowerSeries1| DV$1))
+          (LETT % (GETREFV 50))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|GenerateUnivariatePowerSeries1|
+                      (LIST DV$1) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |GenerateUnivariatePowerSeries1| (#1=#:G44)
   (SPROG NIL
          (PROG (#2=#:G45)
@@ -434,21 +449,6 @@
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
                         '|GenerateUnivariatePowerSeries1|)))))))))) 
-
-(DEFUN |GenerateUnivariatePowerSeries1;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|GenerateUnivariatePowerSeries1| DV$1))
-          (LETT % (GETREFV 50))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|GenerateUnivariatePowerSeries1|
-                      (LIST DV$1) (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|GenerateUnivariatePowerSeries1| '|infovec|
           (LIST

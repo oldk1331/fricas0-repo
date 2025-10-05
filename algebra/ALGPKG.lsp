@@ -1428,25 +1428,6 @@
 
 (DECLAIM (NOTINLINE |AlgebraPackage;|)) 
 
-(DEFUN |AlgebraPackage| (&REST #1=#:G320)
-  (SPROG NIL
-         (PROG (#2=#:G321)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|AlgebraPackage|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |AlgebraPackage;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|AlgebraPackage|)))))))))) 
-
 (DEFUN |AlgebraPackage;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -1476,6 +1457,25 @@
             (QSETREFV % 82
                       (CONS (|dispatchFunction| |ALGPKG;basis;2V;19|) %))))
           %))) 
+
+(DEFUN |AlgebraPackage| (&REST #1=#:G320)
+  (SPROG NIL
+         (PROG (#2=#:G321)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|AlgebraPackage|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |AlgebraPackage;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|AlgebraPackage|)))))))))) 
 
 (MAKEPROP '|AlgebraPackage| '|infovec|
           (LIST

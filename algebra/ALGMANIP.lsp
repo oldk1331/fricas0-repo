@@ -799,25 +799,6 @@
 
 (DECLAIM (NOTINLINE |AlgebraicManipulations;|)) 
 
-(DEFUN |AlgebraicManipulations| (&REST #1=#:G221)
-  (SPROG NIL
-         (PROG (#2=#:G222)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|AlgebraicManipulations|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |AlgebraicManipulations;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|AlgebraicManipulations|)))))))))) 
-
 (DEFUN |AlgebraicManipulations;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -924,6 +905,25 @@
                               (|dispatchFunction| |ALGMANIP;rootSimp;2F;24|)
                               %)))))))))))
           %))) 
+
+(DEFUN |AlgebraicManipulations| (&REST #1=#:G221)
+  (SPROG NIL
+         (PROG (#2=#:G222)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|AlgebraicManipulations|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |AlgebraicManipulations;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|AlgebraicManipulations|)))))))))) 
 
 (MAKEPROP '|AlgebraicManipulations| '|infovec|
           (LIST

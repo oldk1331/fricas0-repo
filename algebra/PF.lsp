@@ -1,22 +1,6 @@
 
 (DECLAIM (NOTINLINE |PrimeField;|)) 
 
-(DEFUN |PrimeField| (#1=#:G35)
-  (SPROG NIL
-         (PROG (#2=#:G36)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|PrimeField|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|PrimeField;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|PrimeField|)))))))))) 
-
 (DEFUN |PrimeField;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -37,6 +21,22 @@
           (COND ((QREFELT % 11))
                 ('T (|error| "Argument to prime field must be a prime")))
           %))) 
+
+(DEFUN |PrimeField| (#1=#:G35)
+  (SPROG NIL
+         (PROG (#2=#:G36)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|PrimeField|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|PrimeField;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|PrimeField|)))))))))) 
 
 (MAKEPROP '|PrimeField| '|infovec|
           (LIST

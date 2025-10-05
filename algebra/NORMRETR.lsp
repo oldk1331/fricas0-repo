@@ -107,25 +107,6 @@
 
 (DECLAIM (NOTINLINE |NormRetractPackage;|)) 
 
-(DEFUN |NormRetractPackage| (&REST #1=#:G33)
-  (SPROG NIL
-         (PROG (#2=#:G34)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T T T T NIL))
-                     (HGET |$ConstructorCache| '|NormRetractPackage|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |NormRetractPackage;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|NormRetractPackage|)))))))))) 
-
 (DEFUN |NormRetractPackage;| (|#1| |#2| |#3| |#4| |#5|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -150,6 +131,25 @@
     (QSETREFV % 10 |#5|)
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |NormRetractPackage| (&REST #1=#:G33)
+  (SPROG NIL
+         (PROG (#2=#:G34)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T T T T NIL))
+                     (HGET |$ConstructorCache| '|NormRetractPackage|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |NormRetractPackage;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|NormRetractPackage|)))))))))) 
 
 (MAKEPROP '|NormRetractPackage| '|infovec|
           (LIST

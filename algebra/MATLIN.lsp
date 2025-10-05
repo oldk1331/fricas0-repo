@@ -987,27 +987,6 @@
 
 (DECLAIM (NOTINLINE |MatrixLinearAlgebraFunctions;|)) 
 
-(DEFUN |MatrixLinearAlgebraFunctions| (&REST #1=#:G248)
-  (SPROG NIL
-         (PROG (#2=#:G249)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|MatrixLinearAlgebraFunctions|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |MatrixLinearAlgebraFunctions;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|MatrixLinearAlgebraFunctions|)))))))))) 
-
 (DEFUN |MatrixLinearAlgebraFunctions;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -1086,6 +1065,27 @@
       (QSETREFV % 72
                 (CONS (|dispatchFunction| |MATLIN;determinant;MR;26|) %))))
     %))) 
+
+(DEFUN |MatrixLinearAlgebraFunctions| (&REST #1=#:G248)
+  (SPROG NIL
+         (PROG (#2=#:G249)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|MatrixLinearAlgebraFunctions|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |MatrixLinearAlgebraFunctions;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|MatrixLinearAlgebraFunctions|)))))))))) 
 
 (MAKEPROP '|MatrixLinearAlgebraFunctions| '|infovec|
           (LIST

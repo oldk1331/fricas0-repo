@@ -333,6 +333,21 @@
 
 (DECLAIM (NOTINLINE |PrimitiveElement;|)) 
 
+(DEFUN |PrimitiveElement;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|PrimitiveElement| DV$1))
+          (LETT % (GETREFV 62))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|PrimitiveElement| (LIST DV$1)
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |PrimitiveElement| (#1=#:G102)
   (SPROG NIL
          (PROG (#2=#:G103)
@@ -349,21 +364,6 @@
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|PrimitiveElement|)))))))))) 
-
-(DEFUN |PrimitiveElement;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|PrimitiveElement| DV$1))
-          (LETT % (GETREFV 62))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|PrimitiveElement| (LIST DV$1)
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|PrimitiveElement| '|infovec|
           (LIST

@@ -154,25 +154,6 @@
 
 (DECLAIM (NOTINLINE |InnerAlgFactor;|)) 
 
-(DEFUN |InnerAlgFactor| (&REST #1=#:G50)
-  (SPROG NIL
-         (PROG (#2=#:G51)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|InnerAlgFactor|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |InnerAlgFactor;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|InnerAlgFactor|)))))))))) 
-
 (DEFUN |InnerAlgFactor;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -197,6 +178,25 @@
     (QSETREFV % 44 (SPADCALL (QREFELT % 43)))
     (QSETREFV % 50 (SPADCALL (ELT % 45) (QREFELT % 44) (QREFELT % 49)))
     %))) 
+
+(DEFUN |InnerAlgFactor| (&REST #1=#:G50)
+  (SPROG NIL
+         (PROG (#2=#:G51)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|InnerAlgFactor|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |InnerAlgFactor;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|InnerAlgFactor|)))))))))) 
 
 (MAKEPROP '|InnerAlgFactor| '|infovec|
           (LIST

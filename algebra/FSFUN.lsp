@@ -2143,6 +2143,19 @@
 
 (DECLAIM (NOTINLINE |FloatSpecialFunctions;|)) 
 
+(DEFUN |FloatSpecialFunctions;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|FloatSpecialFunctions|))
+          (LETT % (GETREFV 138))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|FloatSpecialFunctions| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |FloatSpecialFunctions| ()
   (SPROG NIL
          (PROG (#1=#:G267)
@@ -2161,19 +2174,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|FloatSpecialFunctions|)))))))))) 
-
-(DEFUN |FloatSpecialFunctions;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|FloatSpecialFunctions|))
-          (LETT % (GETREFV 138))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|FloatSpecialFunctions| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|FloatSpecialFunctions| '|infovec|
           (LIST

@@ -10,6 +10,20 @@
 
 (DECLAIM (NOTINLINE |RuleCalled;|)) 
 
+(DEFUN |RuleCalled;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 |#1|)
+          (LETT |dv$| (LIST '|RuleCalled| DV$1))
+          (LETT % (GETREFV 15))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|RuleCalled| (LIST DV$1) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |RuleCalled| (#1=#:G3)
   (SPROG NIL
          (PROG (#2=#:G4)
@@ -25,20 +39,6 @@
               (UNWIND-PROTECT (PROG1 (|RuleCalled;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|RuleCalled|)))))))))) 
-
-(DEFUN |RuleCalled;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 |#1|)
-          (LETT |dv$| (LIST '|RuleCalled| DV$1))
-          (LETT % (GETREFV 15))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|RuleCalled| (LIST DV$1) (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|RuleCalled| '|infovec|
           (LIST

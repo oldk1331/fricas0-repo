@@ -225,24 +225,6 @@
 
 (DECLAIM (NOTINLINE |AlgebraicNumber;|)) 
 
-(DEFUN |AlgebraicNumber| ()
-  (SPROG NIL
-         (PROG (#1=#:G98)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|AlgebraicNumber|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|AlgebraicNumber|
-                             (LIST (CONS NIL (CONS 1 (|AlgebraicNumber;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#)
-                  (HREM |$ConstructorCache| '|AlgebraicNumber|)))))))))) 
-
 (DEFUN |AlgebraicNumber;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -261,6 +243,24 @@
           (QSETREFV % 6 (|Expression| (|Integer|)))
           (QSETREFV % 7 '|%alg|)
           %))) 
+
+(DEFUN |AlgebraicNumber| ()
+  (SPROG NIL
+         (PROG (#1=#:G98)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|AlgebraicNumber|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|AlgebraicNumber|
+                             (LIST (CONS NIL (CONS 1 (|AlgebraicNumber;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|AlgebraicNumber|)))))))))) 
 
 (MAKEPROP '|AlgebraicNumber| '|infovec|
           (LIST

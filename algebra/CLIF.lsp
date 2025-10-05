@@ -1570,25 +1570,6 @@
 
 (DECLAIM (NOTINLINE |CliffordAlgebra;|)) 
 
-(DEFUN |CliffordAlgebra| (&REST #1=#:G420)
-  (SPROG NIL
-         (PROG (#2=#:G421)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(NIL T NIL))
-                     (HGET |$ConstructorCache| '|CliffordAlgebra|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |CliffordAlgebra;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|CliffordAlgebra|)))))))))) 
-
 (DEFUN |CliffordAlgebra;| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -1614,6 +1595,25 @@
           (QSETREFV % 20 (|PrimitiveArray| |#2|))
           (QSETREFV % 117 (|CLIF;powerSets| |#1| %))
           %))) 
+
+(DEFUN |CliffordAlgebra| (&REST #1=#:G420)
+  (SPROG NIL
+         (PROG (#2=#:G421)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(NIL T NIL))
+                     (HGET |$ConstructorCache| '|CliffordAlgebra|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |CliffordAlgebra;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|CliffordAlgebra|)))))))))) 
 
 (MAKEPROP '|CliffordAlgebra| '|infovec|
           (LIST

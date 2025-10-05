@@ -74,22 +74,6 @@
 
 (DECLAIM (NOTINLINE |PolToPol;|)) 
 
-(DEFUN |PolToPol| (&REST #1=#:G15)
-  (SPROG NIL
-         (PROG (#2=#:G16)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(NIL T))
-                                               (HGET |$ConstructorCache|
-                                                     '|PolToPol|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |PolToPol;|) #1#) (LETT #2# T))
-                (COND ((NOT #2#) (HREM |$ConstructorCache| '|PolToPol|)))))))))) 
-
 (DEFUN |PolToPol;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -106,6 +90,22 @@
           (QSETREFV % 7 |#2|)
           (SETF |pv$| (QREFELT % 3))
           %))) 
+
+(DEFUN |PolToPol| (&REST #1=#:G15)
+  (SPROG NIL
+         (PROG (#2=#:G16)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(NIL T))
+                                               (HGET |$ConstructorCache|
+                                                     '|PolToPol|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |PolToPol;|) #1#) (LETT #2# T))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|PolToPol|)))))))))) 
 
 (MAKEPROP '|PolToPol| '|infovec|
           (LIST

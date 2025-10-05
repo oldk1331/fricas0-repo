@@ -299,23 +299,6 @@
 
 (DECLAIM (NOTINLINE |RootFSSplit;|)) 
 
-(DEFUN |RootFSSplit| (&REST #1=#:G59)
-  (SPROG NIL
-         (PROG (#2=#:G60)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|RootFSSplit|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |RootFSSplit;|) #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|RootFSSplit|)))))))))) 
-
 (DEFUN |RootFSSplit;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -332,6 +315,23 @@
           (QSETREFV % 7 |#2|)
           (SETF |pv$| (QREFELT % 3))
           %))) 
+
+(DEFUN |RootFSSplit| (&REST #1=#:G59)
+  (SPROG NIL
+         (PROG (#2=#:G60)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|RootFSSplit|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |RootFSSplit;|) #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|RootFSSplit|)))))))))) 
 
 (MAKEPROP '|RootFSSplit| '|infovec|
           (LIST

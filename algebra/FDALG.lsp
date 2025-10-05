@@ -5361,25 +5361,6 @@
 
 (DECLAIM (NOTINLINE |FreeDivisionAlgebra;|)) 
 
-(DEFUN |FreeDivisionAlgebra| (&REST #1=#:G1508)
-  (SPROG NIL
-         (PROG (#2=#:G1509)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|FreeDivisionAlgebra|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |FreeDivisionAlgebra;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|FreeDivisionAlgebra|)))))))))) 
-
 (DEFUN |FreeDivisionAlgebra;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -5406,6 +5387,25 @@
                               (|:| |flg_debug| (|Boolean|))
                               (|:| |flg_output| (|Boolean|))))
           %))) 
+
+(DEFUN |FreeDivisionAlgebra| (&REST #1=#:G1508)
+  (SPROG NIL
+         (PROG (#2=#:G1509)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|FreeDivisionAlgebra|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |FreeDivisionAlgebra;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|FreeDivisionAlgebra|)))))))))) 
 
 (MAKEPROP '|FreeDivisionAlgebra| '|infovec|
           (LIST

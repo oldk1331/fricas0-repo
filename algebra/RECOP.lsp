@@ -1406,25 +1406,6 @@
 
 (DECLAIM (NOTINLINE |RecurrenceOperator;|)) 
 
-(DEFUN |RecurrenceOperator| (&REST #1=#:G280)
-  (SPROG NIL
-         (PROG (#2=#:G281)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|RecurrenceOperator|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |RecurrenceOperator;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|RecurrenceOperator|)))))))))) 
-
 (DEFUN |RecurrenceOperator;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -1463,6 +1444,25 @@
           (SPADCALL (QREFELT % 12) '|%specialDiff|
                     (CONS (|function| |RECOP;diffADE|) %) (QREFELT % 15))
           %))) 
+
+(DEFUN |RecurrenceOperator| (&REST #1=#:G280)
+  (SPROG NIL
+         (PROG (#2=#:G281)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|RecurrenceOperator|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |RecurrenceOperator;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|RecurrenceOperator|)))))))))) 
 
 (MAKEPROP '|RecurrenceOperator| '|infovec|
           (LIST

@@ -34,23 +34,6 @@
 
 (DECLAIM (NOTINLINE |FourierComponent;|)) 
 
-(DEFUN |FourierComponent| (#1=#:G21)
-  (SPROG NIL
-         (PROG (#2=#:G22)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|FourierComponent|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|FourierComponent;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|FourierComponent|)))))))))) 
-
 (DEFUN |FourierComponent;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -67,6 +50,23 @@
           (QSETREFV % 7
                     (|Record| (|:| |SinIfTrue| (|Boolean|)) (|:| |arg| |#1|)))
           %))) 
+
+(DEFUN |FourierComponent| (#1=#:G21)
+  (SPROG NIL
+         (PROG (#2=#:G22)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|FourierComponent|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|FourierComponent;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|FourierComponent|)))))))))) 
 
 (MAKEPROP '|FourierComponent| '|infovec|
           (LIST

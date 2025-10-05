@@ -46,26 +46,6 @@
 
 (DECLAIM (NOTINLINE |HomogeneousDirectProduct;|)) 
 
-(DEFUN |HomogeneousDirectProduct| (&REST #1=#:G41)
-  (SPROG NIL
-         (PROG (#2=#:G42)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(NIL T))
-                                               (HGET |$ConstructorCache|
-                                                     '|HomogeneousDirectProduct|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |HomogeneousDirectProduct;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|HomogeneousDirectProduct|)))))))))) 
-
 (DEFUN |HomogeneousDirectProduct;| (|#1| |#2|)
   (SPROG
    ((|pv$| NIL) (#1=#:G31 NIL) (#2=#:G32 NIL) (#3=#:G33 NIL) (#4=#:G34 NIL)
@@ -575,6 +555,26 @@
     (SETF |pv$| (QREFELT % 3))
     (QSETREFV % 8 (|Vector| |#2|))
     %))) 
+
+(DEFUN |HomogeneousDirectProduct| (&REST #1=#:G41)
+  (SPROG NIL
+         (PROG (#2=#:G42)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(NIL T))
+                                               (HGET |$ConstructorCache|
+                                                     '|HomogeneousDirectProduct|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |HomogeneousDirectProduct;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|HomogeneousDirectProduct|)))))))))) 
 
 (MAKEPROP '|HomogeneousDirectProduct| '|infovec|
           (LIST

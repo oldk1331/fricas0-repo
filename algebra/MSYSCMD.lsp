@@ -6,6 +6,18 @@
 
 (DECLAIM (NOTINLINE |MoreSystemCommands;|)) 
 
+(DEFUN |MoreSystemCommands;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|MoreSystemCommands|))
+          (LETT % (GETREFV 9))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|MoreSystemCommands| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |MoreSystemCommands| ()
   (SPROG NIL
          (PROG (#1=#:G2)
@@ -24,18 +36,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|MoreSystemCommands|)))))))))) 
-
-(DEFUN |MoreSystemCommands;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|MoreSystemCommands|))
-          (LETT % (GETREFV 9))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|MoreSystemCommands| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|MoreSystemCommands| '|infovec|
           (LIST

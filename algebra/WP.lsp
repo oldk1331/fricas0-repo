@@ -208,25 +208,6 @@
 
 (DECLAIM (NOTINLINE |WeightedPolynomials;|)) 
 
-(DEFUN |WeightedPolynomials| (&REST #1=#:G79)
-  (SPROG NIL
-         (PROG (#2=#:G80)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T T T T NIL NIL NIL))
-                     (HGET |$ConstructorCache| '|WeightedPolynomials|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |WeightedPolynomials;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|WeightedPolynomials|)))))))))) 
-
 (DEFUN |WeightedPolynomials;| (|#1| |#2| |#3| |#4| |#5| |#6| |#7|)
   (SPROG
    ((#1=#:G77 NIL) (|v| NIL) (#2=#:G78 NIL) (|n| NIL) (#3=#:G76 NIL)
@@ -283,6 +264,25 @@
                      (LETT #1# (PROG1 (CDR #1#) (LETT #2# (CDR #2#))))
                      (GO G190) G191 (EXIT (NREVERSE #3#)))))
      %)))) 
+
+(DEFUN |WeightedPolynomials| (&REST #1=#:G79)
+  (SPROG NIL
+         (PROG (#2=#:G80)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T T T T NIL NIL NIL))
+                     (HGET |$ConstructorCache| '|WeightedPolynomials|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |WeightedPolynomials;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|WeightedPolynomials|)))))))))) 
 
 (MAKEPROP '|WeightedPolynomials| '|infovec|
           (LIST

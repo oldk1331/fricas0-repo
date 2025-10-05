@@ -25,24 +25,6 @@
 
 (DECLAIM (NOTINLINE |MachineComplex;|)) 
 
-(DEFUN |MachineComplex| ()
-  (SPROG NIL
-         (PROG (#1=#:G55)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|MachineComplex|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|MachineComplex|
-                             (LIST (CONS NIL (CONS 1 (|MachineComplex;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#)
-                  (HREM |$ConstructorCache| '|MachineComplex|)))))))))) 
-
 (DEFUN |MachineComplex;| ()
   (SPROG
    ((|dv$| NIL) (% NIL) (#1=#:G53 NIL) (#2=#:G52 NIL) (#3=#:G51 NIL)
@@ -186,6 +168,24 @@
      (|augmentPredVector| % 68719476736))
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |MachineComplex| ()
+  (SPROG NIL
+         (PROG (#1=#:G55)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|MachineComplex|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|MachineComplex|
+                             (LIST (CONS NIL (CONS 1 (|MachineComplex;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|MachineComplex|)))))))))) 
 
 (MAKEPROP '|MachineComplex| '|infovec|
           (LIST

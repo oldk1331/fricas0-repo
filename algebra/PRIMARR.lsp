@@ -60,23 +60,6 @@
 
 (DECLAIM (NOTINLINE |PrimitiveArray;|)) 
 
-(DEFUN |PrimitiveArray| (#1=#:G1759)
-  (SPROG NIL
-         (PROG (#2=#:G1760)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|PrimitiveArray|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|PrimitiveArray;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|PrimitiveArray|)))))))))) 
-
 (DEFUN |PrimitiveArray;| (|#1|)
   (SPROG
    ((|pv$| NIL) (#1=#:G1756 NIL) (#2=#:G1757 NIL) (#3=#:G1758 NIL) (% NIL)
@@ -182,6 +165,23 @@
       (QSETREFV % 20
                 (CONS (|dispatchFunction| |PRIMARR;hashUpdate!;Hs%Hs;10|) %))))
     %))) 
+
+(DEFUN |PrimitiveArray| (#1=#:G1759)
+  (SPROG NIL
+         (PROG (#2=#:G1760)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|PrimitiveArray|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|PrimitiveArray;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|PrimitiveArray|)))))))))) 
 
 (MAKEPROP '|PrimitiveArray| '|infovec|
           (LIST

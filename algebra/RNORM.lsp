@@ -331,26 +331,6 @@
 
 (DECLAIM (NOTINLINE |RealNormalizationUtilities;|)) 
 
-(DEFUN |RealNormalizationUtilities| (&REST #1=#:G83)
-  (SPROG NIL
-         (PROG (#2=#:G84)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|RealNormalizationUtilities|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |RealNormalizationUtilities;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|RealNormalizationUtilities|)))))))))) 
-
 (DEFUN |RealNormalizationUtilities;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -379,6 +359,26 @@
             (QSETREFV % 66
                       (CONS (|dispatchFunction| |RNORM;try_real;FSF;6|) %))))
           %))) 
+
+(DEFUN |RealNormalizationUtilities| (&REST #1=#:G83)
+  (SPROG NIL
+         (PROG (#2=#:G84)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|RealNormalizationUtilities|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |RealNormalizationUtilities;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|RealNormalizationUtilities|)))))))))) 
 
 (MAKEPROP '|RealNormalizationUtilities| '|infovec|
           (LIST

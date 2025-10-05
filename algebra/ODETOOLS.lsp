@@ -89,22 +89,6 @@
 
 (DECLAIM (NOTINLINE |ODETools;|)) 
 
-(DEFUN |ODETools| (&REST #1=#:G32)
-  (SPROG NIL
-         (PROG (#2=#:G33)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|ODETools|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |ODETools;|) #1#) (LETT #2# T))
-                (COND ((NOT #2#) (HREM |$ConstructorCache| '|ODETools|)))))))))) 
-
 (DEFUN |ODETools;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -122,6 +106,22 @@
           (SETF |pv$| (QREFELT % 3))
           (QSETREFV % 9 (SPADCALL (QREFELT % 8)))
           %))) 
+
+(DEFUN |ODETools| (&REST #1=#:G32)
+  (SPROG NIL
+         (PROG (#2=#:G33)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|ODETools|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |ODETools;|) #1#) (LETT #2# T))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|ODETools|)))))))))) 
 
 (MAKEPROP '|ODETools| '|infovec|
           (LIST

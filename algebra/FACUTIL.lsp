@@ -163,25 +163,6 @@
 
 (DECLAIM (NOTINLINE |FactoringUtilities;|)) 
 
-(DEFUN |FactoringUtilities| (&REST #1=#:G36)
-  (SPROG NIL
-         (PROG (#2=#:G37)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|FactoringUtilities|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |FactoringUtilities;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|FactoringUtilities|)))))))))) 
-
 (DEFUN |FactoringUtilities;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -208,6 +189,25 @@
       (QSETREFV % 46 (CONS (|dispatchFunction| |FACUTIL;ran;IR;6|) %)))
      ('T (QSETREFV % 46 (CONS (|dispatchFunction| |FACUTIL;ran;IR;7|) %))))
     %))) 
+
+(DEFUN |FactoringUtilities| (&REST #1=#:G36)
+  (SPROG NIL
+         (PROG (#2=#:G37)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|FactoringUtilities|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |FactoringUtilities;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|FactoringUtilities|)))))))))) 
 
 (MAKEPROP '|FactoringUtilities| '|infovec|
           (LIST

@@ -125,6 +125,23 @@
 
 (DECLAIM (NOTINLINE |CardinalNumber;|)) 
 
+(DEFUN |CardinalNumber;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|CardinalNumber|))
+          (LETT % (GETREFV 43))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|CardinalNumber| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6
+                    (|Record| (|:| |order| (|Integer|))
+                              (|:| |ival| (|Integer|))))
+          (QSETREFV % 7 NIL)
+          (QSETREFV % 16 (SPADCALL '|Aleph| (QREFELT % 15)))
+          %))) 
+
 (DEFUN |CardinalNumber| ()
   (SPROG NIL
          (PROG (#1=#:G77)
@@ -142,23 +159,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|CardinalNumber|)))))))))) 
-
-(DEFUN |CardinalNumber;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|CardinalNumber|))
-          (LETT % (GETREFV 43))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|CardinalNumber| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6
-                    (|Record| (|:| |order| (|Integer|))
-                              (|:| |ival| (|Integer|))))
-          (QSETREFV % 7 NIL)
-          (QSETREFV % 16 (SPADCALL '|Aleph| (QREFELT % 15)))
-          %))) 
 
 (MAKEPROP '|CardinalNumber| '|infovec|
           (LIST

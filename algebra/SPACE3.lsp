@@ -853,22 +853,6 @@
 
 (DECLAIM (NOTINLINE |ThreeSpace;|)) 
 
-(DEFUN |ThreeSpace| (#1=#:G272)
-  (SPROG NIL
-         (PROG (#2=#:G273)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|ThreeSpace|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|ThreeSpace;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|ThreeSpace|)))))))))) 
-
 (DEFUN |ThreeSpace;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -907,6 +891,22 @@
                                     (|:| |constructs| (|NonNegativeInteger|))))
                               (|:| |converted| (|Boolean|))))
           %))) 
+
+(DEFUN |ThreeSpace| (#1=#:G272)
+  (SPROG NIL
+         (PROG (#2=#:G273)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|ThreeSpace|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|ThreeSpace;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|ThreeSpace|)))))))))) 
 
 (MAKEPROP '|ThreeSpace| '|infovec|
           (LIST

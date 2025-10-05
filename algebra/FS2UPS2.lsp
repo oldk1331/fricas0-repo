@@ -5432,30 +5432,6 @@
 
 (DECLAIM (NOTINLINE |FunctionSpaceToUnivariatePowerSeries2;|)) 
 
-(DEFUN |FunctionSpaceToUnivariatePowerSeries2| (&REST #1=#:G1779)
-  (SPROG NIL
-         (PROG (#2=#:G1780)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T T T T T T T NIL NIL))
-                     (HGET |$ConstructorCache|
-                           '|FunctionSpaceToUnivariatePowerSeries2|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY
-                       (|function| |FunctionSpaceToUnivariatePowerSeries2;|)
-                       #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|FunctionSpaceToUnivariatePowerSeries2|)))))))))) 
-
 (DEFUN |FunctionSpaceToUnivariatePowerSeries2;|
        (|#1| |#2| |#3| |#4| |#5| |#6| |#7| |#8| |#9|)
   (SPROG
@@ -5573,6 +5549,30 @@
     (QSETREFV % 272 (LIST #1="sin" #2="cos" #3="atan" #4="acot" "exp" "asinh"))
     (QSETREFV % 273 (LIST #1# #2# #3# #4#))
     %))) 
+
+(DEFUN |FunctionSpaceToUnivariatePowerSeries2| (&REST #1=#:G1779)
+  (SPROG NIL
+         (PROG (#2=#:G1780)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T T T T T T T NIL NIL))
+                     (HGET |$ConstructorCache|
+                           '|FunctionSpaceToUnivariatePowerSeries2|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY
+                       (|function| |FunctionSpaceToUnivariatePowerSeries2;|)
+                       #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|FunctionSpaceToUnivariatePowerSeries2|)))))))))) 
 
 (MAKEPROP '|FunctionSpaceToUnivariatePowerSeries2| '|infovec|
           (LIST

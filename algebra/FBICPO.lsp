@@ -33,6 +33,21 @@
 
 (DECLAIM (NOTINLINE |FiniteBiCPO;|)) 
 
+(DEFUN |FiniteBiCPO;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|FiniteBiCPO| DV$1))
+          (LETT % (GETREFV 36))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|FiniteBiCPO| (LIST DV$1)
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |FiniteBiCPO| (#1=#:G15)
   (SPROG NIL
          (PROG (#2=#:G16)
@@ -48,21 +63,6 @@
               (UNWIND-PROTECT (PROG1 (|FiniteBiCPO;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|FiniteBiCPO|)))))))))) 
-
-(DEFUN |FiniteBiCPO;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|FiniteBiCPO| DV$1))
-          (LETT % (GETREFV 36))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|FiniteBiCPO| (LIST DV$1)
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|FiniteBiCPO| '|infovec|
           (LIST

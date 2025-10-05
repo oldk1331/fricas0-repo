@@ -1,30 +1,6 @@
 
 (DECLAIM (NOTINLINE |HomogeneousDistributedMultivariatePolynomial;|)) 
 
-(DEFUN |HomogeneousDistributedMultivariatePolynomial| (&REST #1=#:G48)
-  (SPROG NIL
-         (PROG (#2=#:G49)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(NIL T))
-                                               (HGET |$ConstructorCache|
-                                                     '|HomogeneousDistributedMultivariatePolynomial|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY
-                       (|function|
-                        |HomogeneousDistributedMultivariatePolynomial;|)
-                       #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|HomogeneousDistributedMultivariatePolynomial|)))))))))) 
-
 (DEFUN |HomogeneousDistributedMultivariatePolynomial;| (|#1| |#2|)
   (SPROG
    ((#1=#:G47 NIL) (|pv$| NIL) (#2=#:G38 NIL) (#3=#:G40 NIL) (#4=#:G39 NIL)
@@ -577,6 +553,30 @@
      (|augmentPredVector| % 36028797018963968))
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |HomogeneousDistributedMultivariatePolynomial| (&REST #1=#:G48)
+  (SPROG NIL
+         (PROG (#2=#:G49)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(NIL T))
+                                               (HGET |$ConstructorCache|
+                                                     '|HomogeneousDistributedMultivariatePolynomial|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY
+                       (|function|
+                        |HomogeneousDistributedMultivariatePolynomial;|)
+                       #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|HomogeneousDistributedMultivariatePolynomial|)))))))))) 
 
 (MAKEPROP '|HomogeneousDistributedMultivariatePolynomial| '|infovec|
           (LIST

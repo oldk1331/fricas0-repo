@@ -48,6 +48,22 @@
 
 (DECLAIM (NOTINLINE |InfiniteCyclicGroup;|)) 
 
+(DEFUN |InfiniteCyclicGroup;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 |#1|)
+          (LETT |dv$| (LIST '|InfiniteCyclicGroup| DV$1))
+          (LETT % (GETREFV 38))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|InfiniteCyclicGroup| (LIST DV$1)
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 7 (|Integer|))
+          %))) 
+
 (DEFUN |InfiniteCyclicGroup| (#1=#:G21)
   (SPROG NIL
          (PROG (#2=#:G22)
@@ -64,22 +80,6 @@
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|InfiniteCyclicGroup|)))))))))) 
-
-(DEFUN |InfiniteCyclicGroup;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 |#1|)
-          (LETT |dv$| (LIST '|InfiniteCyclicGroup| DV$1))
-          (LETT % (GETREFV 38))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|InfiniteCyclicGroup| (LIST DV$1)
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 7 (|Integer|))
-          %))) 
 
 (MAKEPROP '|InfiniteCyclicGroup| '|infovec|
           (LIST

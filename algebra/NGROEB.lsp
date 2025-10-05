@@ -475,25 +475,6 @@
 
 (DECLAIM (NOTINLINE |NGroebnerPackage;|)) 
 
-(DEFUN |NGroebnerPackage| (&REST #1=#:G127)
-  (SPROG NIL
-         (PROG (#2=#:G128)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|NGroebnerPackage|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |NGroebnerPackage;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|NGroebnerPackage|)))))))))) 
-
 (DEFUN |NGroebnerPackage;| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -536,6 +517,25 @@
             (QSETREFV % 27
                       (CONS (|dispatchFunction| |NGROEB;hMonic;2Dpol;13|) %))))
           %))) 
+
+(DEFUN |NGroebnerPackage| (&REST #1=#:G127)
+  (SPROG NIL
+         (PROG (#2=#:G128)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|NGroebnerPackage|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |NGroebnerPackage;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|NGroebnerPackage|)))))))))) 
 
 (MAKEPROP '|NGroebnerPackage| '|infovec|
           (LIST

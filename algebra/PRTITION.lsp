@@ -176,6 +176,19 @@
 
 (DECLAIM (NOTINLINE |Partition;|)) 
 
+(DEFUN |Partition;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|Partition|))
+          (LETT % (GETREFV 48))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|Partition| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6 (|List| (|Integer|)))
+          %))) 
+
 (DEFUN |Partition| ()
   (SPROG NIL
          (PROG (#1=#:G81)
@@ -192,19 +205,6 @@
                     (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|Partition|)))))))))) 
-
-(DEFUN |Partition;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|Partition|))
-          (LETT % (GETREFV 48))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|Partition| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6 (|List| (|Integer|)))
-          %))) 
 
 (MAKEPROP '|Partition| '|infovec|
           (LIST

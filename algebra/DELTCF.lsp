@@ -50,6 +50,21 @@
 
 (DECLAIM (NOTINLINE |DeltaComplexFactory;|)) 
 
+(DEFUN |DeltaComplexFactory;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|DeltaComplexFactory| DV$1))
+          (LETT % (GETREFV 18))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|DeltaComplexFactory| (LIST DV$1)
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |DeltaComplexFactory| (#1=#:G15)
   (SPROG NIL
          (PROG (#2=#:G16)
@@ -66,21 +81,6 @@
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|DeltaComplexFactory|)))))))))) 
-
-(DEFUN |DeltaComplexFactory;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|DeltaComplexFactory| DV$1))
-          (LETT % (GETREFV 18))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|DeltaComplexFactory| (LIST DV$1)
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|DeltaComplexFactory| '|infovec|
           (LIST

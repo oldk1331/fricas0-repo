@@ -34,6 +34,18 @@
 
 (DECLAIM (NOTINLINE |GrayCode;|)) 
 
+(DEFUN |GrayCode;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|GrayCode|))
+          (LETT % (GETREFV 16))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|GrayCode| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |GrayCode| ()
   (SPROG NIL
          (PROG (#1=#:G10)
@@ -49,18 +61,6 @@
                              (LIST (CONS NIL (CONS 1 (|GrayCode;|))))))
                     (LETT #1# T))
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|GrayCode|)))))))))) 
-
-(DEFUN |GrayCode;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|GrayCode|))
-          (LETT % (GETREFV 16))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|GrayCode| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|GrayCode| '|infovec|
           (LIST

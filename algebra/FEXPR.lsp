@@ -408,25 +408,6 @@
 
 (DECLAIM (NOTINLINE |FortranExpression;|)) 
 
-(DEFUN |FortranExpression| (&REST #1=#:G194)
-  (SPROG NIL
-         (PROG (#2=#:G195)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(NIL NIL T))
-                     (HGET |$ConstructorCache| '|FortranExpression|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |FortranExpression;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|FortranExpression|)))))))))) 
-
 (DEFUN |FortranExpression;| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -494,6 +475,25 @@
              (QSETREFV % 67
                        (CONS (|dispatchFunction| |FEXPR;retract;E%;21|) %)))))
           %))) 
+
+(DEFUN |FortranExpression| (&REST #1=#:G194)
+  (SPROG NIL
+         (PROG (#2=#:G195)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(NIL NIL T))
+                     (HGET |$ConstructorCache| '|FortranExpression|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |FortranExpression;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|FortranExpression|)))))))))) 
 
 (MAKEPROP '|FortranExpression| '|infovec|
           (LIST

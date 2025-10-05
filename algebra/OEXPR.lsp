@@ -27,6 +27,19 @@
 
 (DECLAIM (NOTINLINE |OrderedExpression;|)) 
 
+(DEFUN |OrderedExpression;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|OrderedExpression|))
+          (LETT % (GETREFV 26))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|OrderedExpression| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6 (|Expression| (|Integer|)))
+          %))) 
+
 (DEFUN |OrderedExpression| ()
   (SPROG NIL
          (PROG (#1=#:G16)
@@ -45,19 +58,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|OrderedExpression|)))))))))) 
-
-(DEFUN |OrderedExpression;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|OrderedExpression|))
-          (LETT % (GETREFV 26))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|OrderedExpression| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6 (|Expression| (|Integer|)))
-          %))) 
 
 (MAKEPROP '|OrderedExpression| '|infovec|
           (LIST

@@ -89,21 +89,6 @@
 
 (DECLAIM (NOTINLINE |Complex;|)) 
 
-(DEFUN |Complex| (#1=#:G2708)
-  (SPROG NIL
-         (PROG (#2=#:G2709)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|Complex|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|Complex;| #1#) (LETT #2# T))
-                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Complex|)))))))))) 
-
 (DEFUN |Complex;| (|#1|)
   (SPROG
    ((|pv$| NIL) (#1=#:G2704 NIL) (#2=#:G2705 NIL) (#3=#:G2706 NIL)
@@ -300,6 +285,21 @@
      ((|testBitVector| |pv$| 11)
       (QSETREFV % 41 (CONS (|dispatchFunction| |COMPLEX;exquo;2%U;17|) %))))
     %))) 
+
+(DEFUN |Complex| (#1=#:G2708)
+  (SPROG NIL
+         (PROG (#2=#:G2709)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Complex|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Complex;| #1#) (LETT #2# T))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Complex|)))))))))) 
 
 (MAKEPROP '|Complex| '|infovec|
           (LIST

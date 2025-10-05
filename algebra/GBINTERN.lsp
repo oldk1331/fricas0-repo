@@ -950,25 +950,6 @@
 
 (DECLAIM (NOTINLINE |GroebnerInternalPackage;|)) 
 
-(DEFUN |GroebnerInternalPackage| (&REST #1=#:G228)
-  (SPROG NIL
-         (PROG (#2=#:G229)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|GroebnerInternalPackage|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |GroebnerInternalPackage;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|GroebnerInternalPackage|)))))))))) 
-
 (DEFUN |GroebnerInternalPackage;| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -1001,6 +982,25 @@
                        (|dispatchFunction| |GBINTERN;virtualDegree;DpolNni;2|)
                        %))))
           %))) 
+
+(DEFUN |GroebnerInternalPackage| (&REST #1=#:G228)
+  (SPROG NIL
+         (PROG (#2=#:G229)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|GroebnerInternalPackage|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |GroebnerInternalPackage;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|GroebnerInternalPackage|)))))))))) 
 
 (MAKEPROP '|GroebnerInternalPackage| '|infovec|
           (LIST

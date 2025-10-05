@@ -403,21 +403,6 @@
 
 (DECLAIM (NOTINLINE |Set;|)) 
 
-(DEFUN |Set| (#1=#:G151)
-  (SPROG NIL
-         (PROG (#2=#:G152)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|Set|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|Set;| #1#) (LETT #2# T))
-                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Set|)))))))))) 
-
 (DEFUN |Set;| (|#1|)
   (SPROG ((#1=#:G150 NIL) (|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -516,6 +501,21 @@
              (QSETREFV % 64 (CONS (|dispatchFunction| |SET;remove!;S2%;28|) %))
              (QSETREFV % 32 (CONS (|dispatchFunction| |SET;map!;M2%;29|) %)))))
           %))) 
+
+(DEFUN |Set| (#1=#:G151)
+  (SPROG NIL
+         (PROG (#2=#:G152)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Set|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Set;| #1#) (LETT #2# T))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Set|)))))))))) 
 
 (MAKEPROP '|Set| '|infovec|
           (LIST

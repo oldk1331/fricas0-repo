@@ -198,25 +198,6 @@
 
 (DECLAIM (NOTINLINE |OrthogonalPolynomialFunctions;|)) 
 
-(DEFUN |OrthogonalPolynomialFunctions| (#1=#:G35)
-  (SPROG NIL
-         (PROG (#2=#:G36)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|OrthogonalPolynomialFunctions|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|OrthogonalPolynomialFunctions;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|OrthogonalPolynomialFunctions|)))))))))) 
-
 (DEFUN |OrthogonalPolynomialFunctions;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -243,6 +224,25 @@
                       (CONS (|dispatchFunction| |ORTHPOL;legendreP;Nni2R;6|)
                             %))))
           %))) 
+
+(DEFUN |OrthogonalPolynomialFunctions| (#1=#:G35)
+  (SPROG NIL
+         (PROG (#2=#:G36)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|OrthogonalPolynomialFunctions|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|OrthogonalPolynomialFunctions;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|OrthogonalPolynomialFunctions|)))))))))) 
 
 (MAKEPROP '|OrthogonalPolynomialFunctions| '|infovec|
           (LIST

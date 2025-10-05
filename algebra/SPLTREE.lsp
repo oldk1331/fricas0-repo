@@ -679,24 +679,6 @@
 
 (DECLAIM (NOTINLINE |SplittingTree;|)) 
 
-(DEFUN |SplittingTree| (&REST #1=#:G252)
-  (SPROG NIL
-         (PROG (#2=#:G253)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|SplittingTree|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |SplittingTree;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|SplittingTree|)))))))))) 
-
 (DEFUN |SplittingTree;| (|#1| |#2|)
   (SPROG
    ((|pv$| NIL) (#1=#:G249 NIL) (#2=#:G250 NIL) (#3=#:G251 NIL) (% NIL)
@@ -761,6 +743,24 @@
     (AND (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 2048))
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |SplittingTree| (&REST #1=#:G252)
+  (SPROG NIL
+         (PROG (#2=#:G253)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|SplittingTree|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |SplittingTree;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|SplittingTree|)))))))))) 
 
 (MAKEPROP '|SplittingTree| '|infovec|
           (LIST

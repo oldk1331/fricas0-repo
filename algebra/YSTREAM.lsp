@@ -37,6 +37,22 @@
 
 (DECLAIM (NOTINLINE |ParadoxicalCombinatorsForStreams;|)) 
 
+(DEFUN |ParadoxicalCombinatorsForStreams;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|ParadoxicalCombinatorsForStreams| DV$1))
+          (LETT % (GETREFV 17))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|ParadoxicalCombinatorsForStreams|
+                      (LIST DV$1) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 7 |$UninitializedStream|)
+          %))) 
+
 (DEFUN |ParadoxicalCombinatorsForStreams| (#1=#:G15)
   (SPROG NIL
          (PROG (#2=#:G16)
@@ -56,22 +72,6 @@
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
                         '|ParadoxicalCombinatorsForStreams|)))))))))) 
-
-(DEFUN |ParadoxicalCombinatorsForStreams;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|ParadoxicalCombinatorsForStreams| DV$1))
-          (LETT % (GETREFV 17))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|ParadoxicalCombinatorsForStreams|
-                      (LIST DV$1) (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 7 |$UninitializedStream|)
-          %))) 
 
 (MAKEPROP '|ParadoxicalCombinatorsForStreams| '|infovec|
           (LIST

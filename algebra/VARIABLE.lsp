@@ -12,6 +12,20 @@
 
 (DECLAIM (NOTINLINE |Variable;|)) 
 
+(DEFUN |Variable;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 |#1|)
+          (LETT |dv$| (LIST '|Variable| DV$1))
+          (LETT % (GETREFV 16))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|Variable| (LIST DV$1) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |Variable| (#1=#:G4)
   (SPROG NIL
          (PROG (#2=#:G5)
@@ -26,20 +40,6 @@
              ('T
               (UNWIND-PROTECT (PROG1 (|Variable;| #1#) (LETT #2# T))
                 (COND ((NOT #2#) (HREM |$ConstructorCache| '|Variable|)))))))))) 
-
-(DEFUN |Variable;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 |#1|)
-          (LETT |dv$| (LIST '|Variable| DV$1))
-          (LETT % (GETREFV 16))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|Variable| (LIST DV$1) (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|Variable| '|infovec|
           (LIST

@@ -845,26 +845,6 @@
 
 (DECLAIM (NOTINLINE |TwoDimensionalViewport;|)) 
 
-(DEFUN |TwoDimensionalViewport| ()
-  (SPROG NIL
-         (PROG (#1=#:G247)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|TwoDimensionalViewport|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|TwoDimensionalViewport|
-                             (LIST
-                              (CONS NIL
-                                    (CONS 1 (|TwoDimensionalViewport;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#)
-                  (HREM |$ConstructorCache| '|TwoDimensionalViewport|)))))))))) 
-
 (DEFUN |TwoDimensionalViewport;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -910,6 +890,26 @@
                             (SPADCALL (QREFELT % 9)) 0
                             (SPADCALL (QREFELT % 10)) 1))
           %))) 
+
+(DEFUN |TwoDimensionalViewport| ()
+  (SPROG NIL
+         (PROG (#1=#:G247)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|TwoDimensionalViewport|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|TwoDimensionalViewport|
+                             (LIST
+                              (CONS NIL
+                                    (CONS 1 (|TwoDimensionalViewport;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|TwoDimensionalViewport|)))))))))) 
 
 (MAKEPROP '|TwoDimensionalViewport| '|infovec|
           (LIST

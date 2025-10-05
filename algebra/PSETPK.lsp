@@ -1487,27 +1487,6 @@
 
 (DECLAIM (NOTINLINE |PolynomialSetUtilitiesPackage;|)) 
 
-(DEFUN |PolynomialSetUtilitiesPackage| (&REST #1=#:G517)
-  (SPROG NIL
-         (PROG (#2=#:G518)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|PolynomialSetUtilitiesPackage|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |PolynomialSetUtilitiesPackage;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|PolynomialSetUtilitiesPackage|)))))))))) 
-
 (DEFUN |PolynomialSetUtilitiesPackage;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -1622,6 +1601,27 @@
                    |PSETPK;unprotectedRemoveRedundantFactors;2PL;42|)
                   %)))))
     %))) 
+
+(DEFUN |PolynomialSetUtilitiesPackage| (&REST #1=#:G517)
+  (SPROG NIL
+         (PROG (#2=#:G518)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|PolynomialSetUtilitiesPackage|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |PolynomialSetUtilitiesPackage;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|PolynomialSetUtilitiesPackage|)))))))))) 
 
 (MAKEPROP '|PolynomialSetUtilitiesPackage| '|infovec|
           (LIST

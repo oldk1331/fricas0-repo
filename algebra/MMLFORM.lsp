@@ -1057,23 +1057,6 @@
 
 (DECLAIM (NOTINLINE |MathMLFormat;|)) 
 
-(DEFUN |MathMLFormat| ()
-  (SPROG NIL
-         (PROG (#1=#:G241)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|MathMLFormat|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|MathMLFormat|
-                             (LIST (CONS NIL (CONS 1 (|MathMLFormat;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#) (HREM |$ConstructorCache| '|MathMLFormat|)))))))))) 
-
 (DEFUN |MathMLFormat;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -1115,6 +1098,23 @@
                           "<mo>$</mo>" "<mo>&#x221E;</mo>"
                           "<mo>&#x0413;</mo>"))
           %))) 
+
+(DEFUN |MathMLFormat| ()
+  (SPROG NIL
+         (PROG (#1=#:G241)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|MathMLFormat|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|MathMLFormat|
+                             (LIST (CONS NIL (CONS 1 (|MathMLFormat;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#) (HREM |$ConstructorCache| '|MathMLFormat|)))))))))) 
 
 (MAKEPROP '|MathMLFormat| '|infovec|
           (LIST

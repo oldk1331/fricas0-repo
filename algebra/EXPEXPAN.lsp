@@ -400,25 +400,6 @@
 
 (DECLAIM (NOTINLINE |ExponentialExpansion;|)) 
 
-(DEFUN |ExponentialExpansion| (&REST #1=#:G117)
-  (SPROG NIL
-         (PROG (#2=#:G118)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T T NIL NIL))
-                     (HGET |$ConstructorCache| '|ExponentialExpansion|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |ExponentialExpansion;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|ExponentialExpansion|)))))))))) 
-
 (DEFUN |ExponentialExpansion;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((|pv$| NIL) (#1=#:G116 NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
@@ -606,6 +587,25 @@
                                                                     |#4|)))
     (QSETREFV % 15 (SPADCALL 1000 1 (QREFELT % 14)))
     %))) 
+
+(DEFUN |ExponentialExpansion| (&REST #1=#:G117)
+  (SPROG NIL
+         (PROG (#2=#:G118)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T T NIL NIL))
+                     (HGET |$ConstructorCache| '|ExponentialExpansion|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |ExponentialExpansion;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|ExponentialExpansion|)))))))))) 
 
 (MAKEPROP '|ExponentialExpansion| '|infovec|
           (LIST

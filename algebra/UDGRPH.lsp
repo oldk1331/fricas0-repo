@@ -1780,23 +1780,6 @@
 
 (DECLAIM (NOTINLINE |UndirectedGraph;|)) 
 
-(DEFUN |UndirectedGraph| (#1=#:G416)
-  (SPROG NIL
-         (PROG (#2=#:G417)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|UndirectedGraph|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|UndirectedGraph;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|UndirectedGraph|)))))))))) 
-
 (DEFUN |UndirectedGraph;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -1828,6 +1811,23 @@
                                      (|:| |map|
                                           (|List| (|NonNegativeInteger|))))))))
           %))) 
+
+(DEFUN |UndirectedGraph| (#1=#:G416)
+  (SPROG NIL
+         (PROG (#2=#:G417)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|UndirectedGraph|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|UndirectedGraph;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|UndirectedGraph|)))))))))) 
 
 (MAKEPROP '|UndirectedGraph| '|infovec|
           (LIST

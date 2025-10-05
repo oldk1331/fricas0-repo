@@ -63,26 +63,6 @@
 
 (DECLAIM (NOTINLINE |FractionalIdealFunctions2;|)) 
 
-(DEFUN |FractionalIdealFunctions2| (&REST #1=#:G16)
-  (SPROG NIL
-         (PROG (#2=#:G17)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|FractionalIdealFunctions2|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |FractionalIdealFunctions2;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|FractionalIdealFunctions2|)))))))))) 
-
 (DEFUN |FractionalIdealFunctions2;| (|#1| |#2| |#3| |#4| |#5| |#6| |#7| |#8|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$8 NIL) (DV$7 NIL) (DV$6 NIL) (DV$5 NIL)
@@ -115,6 +95,26 @@
     (QSETREFV % 13 |#8|)
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |FractionalIdealFunctions2| (&REST #1=#:G16)
+  (SPROG NIL
+         (PROG (#2=#:G17)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|FractionalIdealFunctions2|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |FractionalIdealFunctions2;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|FractionalIdealFunctions2|)))))))))) 
 
 (MAKEPROP '|FractionalIdealFunctions2| '|infovec|
           (LIST

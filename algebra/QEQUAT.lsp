@@ -18,6 +18,20 @@
 
 (DECLAIM (NOTINLINE |QueryEquation;|)) 
 
+(DEFUN |QueryEquation;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|QueryEquation|))
+          (LETT % (GETREFV 17))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|QueryEquation| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6
+                    (|Record| (|:| |var| (|Symbol|)) (|:| |val| (|String|))))
+          %))) 
+
 (DEFUN |QueryEquation| ()
   (SPROG NIL
          (PROG (#1=#:G7)
@@ -34,20 +48,6 @@
                     (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|QueryEquation|)))))))))) 
-
-(DEFUN |QueryEquation;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|QueryEquation|))
-          (LETT % (GETREFV 17))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|QueryEquation| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6
-                    (|Record| (|:| |var| (|Symbol|)) (|:| |val| (|String|))))
-          %))) 
 
 (MAKEPROP '|QueryEquation| '|infovec|
           (LIST

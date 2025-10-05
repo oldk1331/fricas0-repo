@@ -1806,24 +1806,6 @@
 
 (DECLAIM (NOTINLINE |InnerMultFact;|)) 
 
-(DEFUN |InnerMultFact| (&REST #1=#:G492)
-  (SPROG NIL
-         (PROG (#2=#:G493)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|InnerMultFact|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |InnerMultFact;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|InnerMultFact|)))))))))) 
-
 (DEFUN |InnerMultFact;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -1847,6 +1829,24 @@
     (SETF |pv$| (QREFELT % 3))
     (QSETREFV % 10 8388619)
     %))) 
+
+(DEFUN |InnerMultFact| (&REST #1=#:G492)
+  (SPROG NIL
+         (PROG (#2=#:G493)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|InnerMultFact|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |InnerMultFact;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|InnerMultFact|)))))))))) 
 
 (MAKEPROP '|InnerMultFact| '|infovec|
           (LIST

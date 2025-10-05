@@ -53,22 +53,6 @@
 
 (DECLAIM (NOTINLINE |FinitePoset;|)) 
 
-(DEFUN |FinitePoset| (#1=#:G23)
-  (SPROG NIL
-         (PROG (#2=#:G24)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|FinitePoset|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|FinitePoset;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|FinitePoset|)))))))))) 
-
 (DEFUN |FinitePoset;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -86,6 +70,22 @@
                     (|Record| (|:| |set1| (|List| |#1|))
                               (|:| |struct1| (|List| (|List| (|Boolean|))))))
           %))) 
+
+(DEFUN |FinitePoset| (#1=#:G23)
+  (SPROG NIL
+         (PROG (#2=#:G24)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|FinitePoset|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|FinitePoset;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|FinitePoset|)))))))))) 
 
 (MAKEPROP '|FinitePoset| '|infovec|
           (LIST

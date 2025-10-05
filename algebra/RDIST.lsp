@@ -94,6 +94,21 @@
 
 (DECLAIM (NOTINLINE |RandomDistributions;|)) 
 
+(DEFUN |RandomDistributions;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|RandomDistributions| DV$1))
+          (LETT % (GETREFV 46))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|RandomDistributions| (LIST DV$1)
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |RandomDistributions| (#1=#:G34)
   (SPROG NIL
          (PROG (#2=#:G35)
@@ -110,21 +125,6 @@
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|RandomDistributions|)))))))))) 
-
-(DEFUN |RandomDistributions;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|RandomDistributions| DV$1))
-          (LETT % (GETREFV 46))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|RandomDistributions| (LIST DV$1)
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|RandomDistributions| '|infovec|
           (LIST

@@ -76,23 +76,6 @@
 
 (DECLAIM (NOTINLINE |DistributionPackage;|)) 
 
-(DEFUN |DistributionPackage| (#1=#:G15)
-  (SPROG NIL
-         (PROG (#2=#:G16)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|DistributionPackage|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|DistributionPackage;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|DistributionPackage|)))))))))) 
-
 (DEFUN |DistributionPackage;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -121,6 +104,23 @@
                         (|dispatchFunction| |DISTEX;arcsineDistribution;RD;6|)
                         %)))))
           %))) 
+
+(DEFUN |DistributionPackage| (#1=#:G15)
+  (SPROG NIL
+         (PROG (#2=#:G16)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|DistributionPackage|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|DistributionPackage;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|DistributionPackage|)))))))))) 
 
 (MAKEPROP '|DistributionPackage| '|infovec|
           (LIST

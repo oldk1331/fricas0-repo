@@ -7,6 +7,21 @@
 
 (DECLAIM (NOTINLINE |GuessFiniteFunctions;|)) 
 
+(DEFUN |GuessFiniteFunctions;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|GuessFiniteFunctions| DV$1))
+          (LETT % (GETREFV 16))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|GuessFiniteFunctions| (LIST DV$1)
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |GuessFiniteFunctions| (#1=#:G2)
   (SPROG NIL
          (PROG (#2=#:G3)
@@ -24,21 +39,6 @@
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|GuessFiniteFunctions|)))))))))) 
-
-(DEFUN |GuessFiniteFunctions;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|GuessFiniteFunctions| DV$1))
-          (LETT % (GETREFV 16))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|GuessFiniteFunctions| (LIST DV$1)
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|GuessFiniteFunctions| '|infovec|
           (LIST

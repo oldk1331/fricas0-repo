@@ -792,22 +792,6 @@
 
 (DECLAIM (NOTINLINE |NPCoef;|)) 
 
-(DEFUN |NPCoef| (&REST #1=#:G212)
-  (SPROG NIL
-         (PROG (#2=#:G213)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|NPCoef|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |NPCoef;|) #1#) (LETT #2# T))
-                (COND ((NOT #2#) (HREM |$ConstructorCache| '|NPCoef|)))))))))) 
-
 (DEFUN |NPCoef;| (|#1| |#2| |#3| |#4| |#5|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -832,6 +816,22 @@
     (QSETREFV % 10 |#5|)
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |NPCoef| (&REST #1=#:G212)
+  (SPROG NIL
+         (PROG (#2=#:G213)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|NPCoef|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |NPCoef;|) #1#) (LETT #2# T))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|NPCoef|)))))))))) 
 
 (MAKEPROP '|NPCoef| '|infovec|
           (LIST

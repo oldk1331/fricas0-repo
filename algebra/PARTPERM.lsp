@@ -263,6 +263,19 @@
 
 (DECLAIM (NOTINLINE |PartitionsAndPermutations;|)) 
 
+(DEFUN |PartitionsAndPermutations;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|PartitionsAndPermutations|))
+          (LETT % (GETREFV 45))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|PartitionsAndPermutations| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |PartitionsAndPermutations| ()
   (SPROG NIL
          (PROG (#1=#:G92)
@@ -284,19 +297,6 @@
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
                         '|PartitionsAndPermutations|)))))))))) 
-
-(DEFUN |PartitionsAndPermutations;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|PartitionsAndPermutations|))
-          (LETT % (GETREFV 45))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|PartitionsAndPermutations| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|PartitionsAndPermutations| '|infovec|
           (LIST

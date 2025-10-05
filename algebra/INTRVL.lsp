@@ -1059,21 +1059,6 @@
 
 (DECLAIM (NOTINLINE |Interval;|)) 
 
-(DEFUN |Interval| (#1=#:G277)
-  (SPROG NIL
-         (PROG (#2=#:G278)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|Interval|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|Interval;| #1#) (LETT #2# T))
-                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Interval|)))))))))) 
-
 (DEFUN |Interval;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -1088,6 +1073,21 @@
           (SETF |pv$| (QREFELT % 3))
           (QSETREFV % 7 (|Record| (|:| |Inf| |#1|) (|:| |Sup| |#1|)))
           %))) 
+
+(DEFUN |Interval| (#1=#:G277)
+  (SPROG NIL
+         (PROG (#2=#:G278)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Interval|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Interval;| #1#) (LETT #2# T))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Interval|)))))))))) 
 
 (MAKEPROP '|Interval| '|infovec|
           (LIST

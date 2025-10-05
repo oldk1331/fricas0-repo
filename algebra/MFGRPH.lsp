@@ -1535,23 +1535,6 @@
 
 (DECLAIM (NOTINLINE |MultifunctionGraph;|)) 
 
-(DEFUN |MultifunctionGraph| (#1=#:G588)
-  (SPROG NIL
-         (PROG (#2=#:G589)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|MultifunctionGraph|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|MultifunctionGraph;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|MultifunctionGraph|)))))))))) 
-
 (DEFUN |MultifunctionGraph;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -1579,6 +1562,23 @@
                                            (|List|
                                             (|NonNegativeInteger|)))))))))
           %))) 
+
+(DEFUN |MultifunctionGraph| (#1=#:G588)
+  (SPROG NIL
+         (PROG (#2=#:G589)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|MultifunctionGraph|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|MultifunctionGraph;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|MultifunctionGraph|)))))))))) 
 
 (MAKEPROP '|MultifunctionGraph| '|infovec|
           (LIST

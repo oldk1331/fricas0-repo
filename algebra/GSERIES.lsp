@@ -124,27 +124,6 @@
 
 (DECLAIM (NOTINLINE |GeneralUnivariatePowerSeries;|)) 
 
-(DEFUN |GeneralUnivariatePowerSeries| (&REST #1=#:G62)
-  (SPROG NIL
-         (PROG (#2=#:G63)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T NIL NIL))
-                     (HGET |$ConstructorCache| '|GeneralUnivariatePowerSeries|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |GeneralUnivariatePowerSeries;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|GeneralUnivariatePowerSeries|)))))))))) 
-
 (DEFUN |GeneralUnivariatePowerSeries;| (|#1| |#2| |#3|)
   (SPROG
    ((|pv$| NIL) (#1=#:G55 NIL) (#2=#:G56 NIL) (#3=#:G57 NIL) (#4=#:G58 NIL)
@@ -460,6 +439,27 @@
                         (CONS (|dispatchFunction| |GSERIES;integrate;%S%;10|)
                               %))))))))))))
     %))) 
+
+(DEFUN |GeneralUnivariatePowerSeries| (&REST #1=#:G62)
+  (SPROG NIL
+         (PROG (#2=#:G63)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T NIL NIL))
+                     (HGET |$ConstructorCache| '|GeneralUnivariatePowerSeries|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |GeneralUnivariatePowerSeries;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|GeneralUnivariatePowerSeries|)))))))))) 
 
 (MAKEPROP '|GeneralUnivariatePowerSeries| '|infovec|
           (LIST

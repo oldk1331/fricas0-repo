@@ -407,6 +407,28 @@
 
 (DECLAIM (NOTINLINE |PolynomialNumberTheoryFunctions;|)) 
 
+(DEFUN |PolynomialNumberTheoryFunctions;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|PolynomialNumberTheoryFunctions|))
+          (LETT % (GETREFV 65))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|PolynomialNumberTheoryFunctions|
+                      NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 11 (SPADCALL 1 1 (QREFELT % 10)))
+          (QSETREFV % 16 (SPADCALL (|spadConstant| % 13) 1 (QREFELT % 15)))
+          (QSETREFV % 19 (CONS 0 (|spadConstant| % 18)))
+          (QSETREFV % 20 (CONS 0 (|spadConstant| % 18)))
+          (QSETREFV % 21 (VECTOR 0 (|spadConstant| % 7) (QREFELT % 11)))
+          (QSETREFV % 22 (VECTOR 0 (|spadConstant| % 7) (QREFELT % 11)))
+          (QSETREFV % 23 (VECTOR 0 (|spadConstant| % 18) (QREFELT % 16)))
+          (QSETREFV % 24 (VECTOR 0 (|spadConstant| % 7) (QREFELT % 11)))
+          (QSETREFV % 25 (VECTOR 0 (|spadConstant| % 7) (|spadConstant| % 17)))
+          %))) 
+
 (DEFUN |PolynomialNumberTheoryFunctions| ()
   (SPROG NIL
          (PROG (#1=#:G90)
@@ -431,28 +453,6 @@
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
                         '|PolynomialNumberTheoryFunctions|)))))))))) 
-
-(DEFUN |PolynomialNumberTheoryFunctions;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|PolynomialNumberTheoryFunctions|))
-          (LETT % (GETREFV 65))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|PolynomialNumberTheoryFunctions|
-                      NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 11 (SPADCALL 1 1 (QREFELT % 10)))
-          (QSETREFV % 16 (SPADCALL (|spadConstant| % 13) 1 (QREFELT % 15)))
-          (QSETREFV % 19 (CONS 0 (|spadConstant| % 18)))
-          (QSETREFV % 20 (CONS 0 (|spadConstant| % 18)))
-          (QSETREFV % 21 (VECTOR 0 (|spadConstant| % 7) (QREFELT % 11)))
-          (QSETREFV % 22 (VECTOR 0 (|spadConstant| % 7) (QREFELT % 11)))
-          (QSETREFV % 23 (VECTOR 0 (|spadConstant| % 18) (QREFELT % 16)))
-          (QSETREFV % 24 (VECTOR 0 (|spadConstant| % 7) (QREFELT % 11)))
-          (QSETREFV % 25 (VECTOR 0 (|spadConstant| % 7) (|spadConstant| % 17)))
-          %))) 
 
 (MAKEPROP '|PolynomialNumberTheoryFunctions| '|infovec|
           (LIST

@@ -524,24 +524,6 @@
 
 (DECLAIM (NOTINLINE |LiePolynomial;|)) 
 
-(DEFUN |LiePolynomial| (&REST #1=#:G151)
-  (SPROG NIL
-         (PROG (#2=#:G152)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|LiePolynomial|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |LiePolynomial;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|LiePolynomial|)))))))))) 
-
 (DEFUN |LiePolynomial;| (|#1| |#2|)
   (SPROG
    ((|pv$| NIL) (#1=#:G149 NIL) (#2=#:G150 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL)
@@ -588,6 +570,24 @@
     (QSETREFV % 8
               (|List| (|Record| (|:| |k| (|LyndonWord| |#1|)) (|:| |c| |#2|))))
     %))) 
+
+(DEFUN |LiePolynomial| (&REST #1=#:G151)
+  (SPROG NIL
+         (PROG (#2=#:G152)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|LiePolynomial|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |LiePolynomial;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|LiePolynomial|)))))))))) 
 
 (MAKEPROP '|LiePolynomial| '|infovec|
           (LIST

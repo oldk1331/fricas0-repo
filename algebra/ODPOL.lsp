@@ -1,25 +1,6 @@
 
 (DECLAIM (NOTINLINE |OrderlyDifferentialPolynomial;|)) 
 
-(DEFUN |OrderlyDifferentialPolynomial| (#1=#:G55)
-  (SPROG NIL
-         (PROG (#2=#:G56)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|OrderlyDifferentialPolynomial|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|OrderlyDifferentialPolynomial;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|OrderlyDifferentialPolynomial|)))))))))) 
-
 (DEFUN |OrderlyDifferentialPolynomial;| (|#1|)
   (SPROG
    ((#1=#:G54 NIL) (|pv$| NIL) (#2=#:G47 NIL) (#3=#:G48 NIL) (#4=#:G49 NIL)
@@ -626,6 +607,25 @@
      (|augmentPredVector| % 4398046511104))
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |OrderlyDifferentialPolynomial| (#1=#:G55)
+  (SPROG NIL
+         (PROG (#2=#:G56)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|OrderlyDifferentialPolynomial|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|OrderlyDifferentialPolynomial;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|OrderlyDifferentialPolynomial|)))))))))) 
 
 (MAKEPROP '|OrderlyDifferentialPolynomial| '|infovec|
           (LIST

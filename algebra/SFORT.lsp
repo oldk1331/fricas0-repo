@@ -59,25 +59,6 @@
 
 (DECLAIM (NOTINLINE |SimpleFortranProgram;|)) 
 
-(DEFUN |SimpleFortranProgram| (&REST #1=#:G19)
-  (SPROG NIL
-         (PROG (#2=#:G20)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|SimpleFortranProgram|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |SimpleFortranProgram;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|SimpleFortranProgram|)))))))))) 
-
 (DEFUN |SimpleFortranProgram;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -98,6 +79,25 @@
                               (|:| |type| (|FortranScalarType|))
                               (|:| |body| |#2|)))
           %))) 
+
+(DEFUN |SimpleFortranProgram| (&REST #1=#:G19)
+  (SPROG NIL
+         (PROG (#2=#:G20)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|SimpleFortranProgram|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |SimpleFortranProgram;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|SimpleFortranProgram|)))))))))) 
 
 (MAKEPROP '|SimpleFortranProgram| '|infovec|
           (LIST

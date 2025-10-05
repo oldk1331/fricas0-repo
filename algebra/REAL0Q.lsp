@@ -92,6 +92,21 @@
 
 (DECLAIM (NOTINLINE |RealZeroPackageQ;|)) 
 
+(DEFUN |RealZeroPackageQ;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|RealZeroPackageQ| DV$1))
+          (LETT % (GETREFV 36))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|RealZeroPackageQ| (LIST DV$1)
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |RealZeroPackageQ| (#1=#:G22)
   (SPROG NIL
          (PROG (#2=#:G23)
@@ -108,21 +123,6 @@
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|RealZeroPackageQ|)))))))))) 
-
-(DEFUN |RealZeroPackageQ;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|RealZeroPackageQ| DV$1))
-          (LETT % (GETREFV 36))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|RealZeroPackageQ| (LIST DV$1)
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|RealZeroPackageQ| '|infovec|
           (LIST

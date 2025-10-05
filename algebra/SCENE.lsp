@@ -11355,21 +11355,6 @@
 
 (DECLAIM (NOTINLINE |Scene;|)) 
 
-(DEFUN |Scene| (#1=#:G1438)
-  (SPROG NIL
-         (PROG (#2=#:G1439)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|Scene|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|Scene;| #1#) (LETT #2# T))
-                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Scene|)))))))))) 
-
 (DEFUN |Scene;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -11433,6 +11418,21 @@
                                     (|:| |np| (|SceneNamedPoints| |#1|))
                                     (|:| |empty| "empty")))))
           %))) 
+
+(DEFUN |Scene| (#1=#:G1438)
+  (SPROG NIL
+         (PROG (#2=#:G1439)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Scene|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Scene;| #1#) (LETT #2# T))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Scene|)))))))))) 
 
 (MAKEPROP '|Scene| '|infovec|
           (LIST

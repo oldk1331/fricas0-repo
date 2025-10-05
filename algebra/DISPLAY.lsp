@@ -128,6 +128,21 @@
 
 (DECLAIM (NOTINLINE |DisplayPackage;|)) 
 
+(DEFUN |DisplayPackage;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|DisplayPackage|))
+          (LETT % (GETREFV 31))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|DisplayPackage| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6 "%b")
+          (QSETREFV % 7 "%d")
+          (QSETREFV % 8 "%l")
+          %))) 
+
 (DEFUN |DisplayPackage| ()
   (SPROG NIL
          (PROG (#1=#:G26)
@@ -145,21 +160,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|DisplayPackage|)))))))))) 
-
-(DEFUN |DisplayPackage;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|DisplayPackage|))
-          (LETT % (GETREFV 31))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|DisplayPackage| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6 "%b")
-          (QSETREFV % 7 "%d")
-          (QSETREFV % 8 "%l")
-          %))) 
 
 (MAKEPROP '|DisplayPackage| '|infovec|
           (LIST

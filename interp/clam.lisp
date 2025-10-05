@@ -60,14 +60,14 @@
 ;   mainFunction:= [op,lamex]
 ;   computeFunction:= [auxfn,['LAMBDA,argl,:body]]
 ;
-;   -- compile generated function stub
-;   compileInteractive mainFunction
-;
 ;   -- compile main body: this has already been compTran'ed
 ;   if $reportCompilation then
 ;     sayBrightlyI bright '"Generated LISP code for function:"
 ;     pp computeFunction
-;   compileQuietly computeFunction
+;   compile_quietly(computeFunction)
+;
+;   -- compile generated function stub
+;   comp_quietly(mainFunction)
 ;   op
 
 (DEFUN |compHash| (|op| |argl| |body| |cacheName| |eqEtc|)
@@ -164,12 +164,12 @@
       (SETQ |mainFunction| (LIST |op| |lamex|))
       (SETQ |computeFunction|
               (LIST |auxfn| (CONS 'LAMBDA (CONS |argl| |body|))))
-      (|compileInteractive| |mainFunction|)
       (COND
        (|$reportCompilation|
         (|sayBrightlyI| (|bright| "Generated LISP code for function:"))
         (|pp| |computeFunction|)))
-      (|compileQuietly| |computeFunction|)
+      (|compile_quietly| |computeFunction|)
+      (|comp_quietly| |mainFunction|)
       |op|))))
 
 ; devaluate_sig(tl, cl) == [(c => devaluate(t); t) for t in tl for c in cl]

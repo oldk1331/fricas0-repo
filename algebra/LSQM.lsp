@@ -138,25 +138,6 @@
 
 (DECLAIM (NOTINLINE |LieSquareMatrix;|)) 
 
-(DEFUN |LieSquareMatrix| (&REST #1=#:G49)
-  (SPROG NIL
-         (PROG (#2=#:G50)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(NIL T))
-                                               (HGET |$ConstructorCache|
-                                                     '|LieSquareMatrix|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |LieSquareMatrix;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|LieSquareMatrix|)))))))))) 
-
 (DEFUN |LieSquareMatrix;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -186,6 +167,25 @@
                     (|AssociatedLieAlgebra| |#2| (|SquareMatrix| |#1| |#2|)))
           (QSETREFV % 9 (* |#1| |#1|))
           %))) 
+
+(DEFUN |LieSquareMatrix| (&REST #1=#:G49)
+  (SPROG NIL
+         (PROG (#2=#:G50)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(NIL T))
+                                               (HGET |$ConstructorCache|
+                                                     '|LieSquareMatrix|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |LieSquareMatrix;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|LieSquareMatrix|)))))))))) 
 
 (MAKEPROP '|LieSquareMatrix| '|infovec|
           (LIST

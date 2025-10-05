@@ -45,27 +45,6 @@
 
 (DECLAIM (NOTINLINE |PartialDifferentialOperator;|)) 
 
-(DEFUN |PartialDifferentialOperator| (&REST #1=#:G45)
-  (SPROG NIL
-         (PROG (#2=#:G46)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|PartialDifferentialOperator|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |PartialDifferentialOperator;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|PartialDifferentialOperator|)))))))))) 
-
 (DEFUN |PartialDifferentialOperator;| (|#1| |#2|)
   (SPROG
    ((|pv$| NIL) (#1=#:G40 NIL) (#2=#:G41 NIL) (#3=#:G43 NIL) (#4=#:G42 NIL)
@@ -279,6 +258,27 @@
     (SETF |pv$| (QREFELT % 3))
     (QSETREFV % 13 (|SparseUnivariatePolynomial| %))
     %))) 
+
+(DEFUN |PartialDifferentialOperator| (&REST #1=#:G45)
+  (SPROG NIL
+         (PROG (#2=#:G46)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|PartialDifferentialOperator|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |PartialDifferentialOperator;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|PartialDifferentialOperator|)))))))))) 
 
 (MAKEPROP '|PartialDifferentialOperator| '|infovec|
           (LIST

@@ -699,6 +699,21 @@
 
 (DECLAIM (NOTINLINE |OrientedFacet;|)) 
 
+(DEFUN |OrientedFacet;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|OrientedFacet|))
+          (LETT % (GETREFV 93))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|OrientedFacet| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6
+                    (|Record| (|:| |mul| (|Integer|))
+                              (|:| |fac| (|List| (|NonNegativeInteger|)))))
+          %))) 
+
 (DEFUN |OrientedFacet| ()
   (SPROG NIL
          (PROG (#1=#:G246)
@@ -715,21 +730,6 @@
                     (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|OrientedFacet|)))))))))) 
-
-(DEFUN |OrientedFacet;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|OrientedFacet|))
-          (LETT % (GETREFV 93))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|OrientedFacet| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6
-                    (|Record| (|:| |mul| (|Integer|))
-                              (|:| |fac| (|List| (|NonNegativeInteger|)))))
-          %))) 
 
 (MAKEPROP '|OrientedFacet| '|infovec|
           (LIST

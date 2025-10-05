@@ -40,6 +40,22 @@
 
 (DECLAIM (NOTINLINE |SubSpaceComponentProperty;|)) 
 
+(DEFUN |SubSpaceComponentProperty;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|SubSpaceComponentProperty|))
+          (LETT % (GETREFV 20))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|SubSpaceComponentProperty| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6
+                    (|Record| (|:| |closed| (|Boolean|))
+                              (|:| |solid| (|Boolean|))))
+          %))) 
+
 (DEFUN |SubSpaceComponentProperty| ()
   (SPROG NIL
          (PROG (#1=#:G15)
@@ -61,22 +77,6 @@
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
                         '|SubSpaceComponentProperty|)))))))))) 
-
-(DEFUN |SubSpaceComponentProperty;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|SubSpaceComponentProperty|))
-          (LETT % (GETREFV 20))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|SubSpaceComponentProperty| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6
-                    (|Record| (|:| |closed| (|Boolean|))
-                              (|:| |solid| (|Boolean|))))
-          %))) 
 
 (MAKEPROP '|SubSpaceComponentProperty| '|infovec|
           (LIST

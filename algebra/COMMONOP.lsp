@@ -289,24 +289,6 @@
 
 (DECLAIM (NOTINLINE |CommonOperators;|)) 
 
-(DEFUN |CommonOperators| ()
-  (SPROG NIL
-         (PROG (#1=#:G97)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|CommonOperators|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|CommonOperators|
-                             (LIST (CONS NIL (CONS 1 (|CommonOperators;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#)
-                  (HREM |$ConstructorCache| '|CommonOperators|)))))))))) 
-
 (DEFUN |CommonOperators;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -546,6 +528,24 @@
           (QSETREFV % 166
                     (LIST (QREFELT % 129) (QREFELT % 135) (QREFELT % 137)))
           %))) 
+
+(DEFUN |CommonOperators| ()
+  (SPROG NIL
+         (PROG (#1=#:G97)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|CommonOperators|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|CommonOperators|
+                             (LIST (CONS NIL (CONS 1 (|CommonOperators;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|CommonOperators|)))))))))) 
 
 (MAKEPROP '|CommonOperators| '|infovec|
           (LIST

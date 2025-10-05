@@ -116,6 +116,21 @@
 
 (DECLAIM (NOTINLINE |GuessOption;|)) 
 
+(DEFUN |GuessOption;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|GuessOption|))
+          (LETT % (GETREFV 63))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|GuessOption| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6
+                    (|Record| (|:| |keyword| (|Symbol|))
+                              (|:| |value| (|Any|))))
+          %))) 
+
 (DEFUN |GuessOption| ()
   (SPROG NIL
          (PROG (#1=#:G92)
@@ -132,21 +147,6 @@
                     (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|GuessOption|)))))))))) 
-
-(DEFUN |GuessOption;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|GuessOption|))
-          (LETT % (GETREFV 63))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|GuessOption| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6
-                    (|Record| (|:| |keyword| (|Symbol|))
-                              (|:| |value| (|Any|))))
-          %))) 
 
 (MAKEPROP '|GuessOption| '|infovec|
           (LIST

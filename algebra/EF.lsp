@@ -1879,25 +1879,6 @@
 
 (DECLAIM (NOTINLINE |ElementaryFunction;|)) 
 
-(DEFUN |ElementaryFunction| (&REST #1=#:G716)
-  (SPROG NIL
-         (PROG (#2=#:G717)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|ElementaryFunction|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |ElementaryFunction;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|ElementaryFunction|)))))))))) 
-
 (DEFUN |ElementaryFunction;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -2171,6 +2152,25 @@
           (SPADCALL (QREFELT % 39) (CONS #'|ElementaryFunction!20| %)
                     (QREFELT % 203))
           %))) 
+
+(DEFUN |ElementaryFunction| (&REST #1=#:G716)
+  (SPROG NIL
+         (PROG (#2=#:G717)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|ElementaryFunction|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |ElementaryFunction;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|ElementaryFunction|)))))))))) 
 
 (DEFUN |ElementaryFunction!20| (|x| %)
   (SPADCALL

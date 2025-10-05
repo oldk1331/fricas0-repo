@@ -1148,7 +1148,7 @@
 ;         lsp := fnameMake('".", pathnameName(path), '"lsp")
 ;         if fnameReadable?(lsp) then
 ;             if not beQuiet then sayKeyedMsg("S2IZ0089", [NAMESTRING(lsp)])
-;             compileFileQuietly(lsp)
+;             compile_file_quietly(lsp)
 ;         else
 ;             sayKeyedMsg("S2IL0003", [NAMESTRING(lsp)])
 ;
@@ -1268,7 +1268,7 @@
              (COND
               ((NULL |beQuiet|)
                (|sayKeyedMsg| 'S2IZ0089 (LIST (NAMESTRING |lsp|)))))
-             (|compileFileQuietly| |lsp|))
+             (|compile_file_quietly| |lsp|))
             (#1# (|sayKeyedMsg| 'S2IL0003 (LIST (NAMESTRING |lsp|)))))))
          (COND
           ((AND (EQL |rc| 0) |doLibrary|)
@@ -1424,7 +1424,7 @@
 ;     lsp := fnameMake(pathnameDirectory path, pathnameName path, pathnameType path)
 ;     if fnameReadable?(lsp) then
 ;         if not beQuiet then sayKeyedMsg("S2IZ0089", [namestring lsp])
-;         compileFileQuietly(lsp)
+;         compile_file_quietly(lsp)
 ;     else
 ;         sayKeyedMsg("S2IL0003", [namestring lsp])
 ;
@@ -1477,7 +1477,7 @@
            (COND
             ((NULL |beQuiet|)
              (|sayKeyedMsg| 'S2IZ0089 (LIST (|namestring| |lsp|)))))
-           (|compileFileQuietly| |lsp|))
+           (|compile_file_quietly| |lsp|))
           (#1# (|sayKeyedMsg| 'S2IL0003 (LIST (|namestring| |lsp|)))))
          (COND
           (|doLibrary|
@@ -5189,8 +5189,6 @@
 ;   $genValue:local := true       --evaluate all generated code
 ;   $resolve_level : local := 15
 ;   null u => nil
-;   u = $quadSymbol =>
-;      sayBrightly ['"   mode denotes", :bright '"any", '"type"]
 ;   u = "%" =>
 ;     sayKeyedMsg("S2IZ0063",NIL)
 ;     sayKeyedMsg("S2IZ0064",NIL)
@@ -5221,10 +5219,6 @@
       (SETQ |$genValue| T)
       (SETQ |$resolve_level| 15)
       (COND ((NULL |u|) NIL)
-            ((EQUAL |u| |$quadSymbol|)
-             (|sayBrightly|
-              (CONS "   mode denotes"
-                    (APPEND (|bright| "any") (CONS "type" NIL)))))
             ((EQ |u| '%)
              (PROGN
               (|sayKeyedMsg| 'S2IZ0063 NIL)
@@ -7216,19 +7210,19 @@
 (DEFUN |string2BootTree| (|str|) (PROG () (RETURN (STTOSEX |str|))))
 
 ; npboot str ==
-;   sex := string2BootTree str
-;   FORMAT(true, '"~&~S~%", sex)
-;   $ans := EVAL sex
-;   FORMAT(true, '"~&Value = ~S~%", $ans)
+;     sex := string2BootTree(str)
+;     FORMAT(true, '"~&~S~%", sex)
+;     ans := EVAL(sex)
+;     FORMAT(true, '"~&Value = ~S~%", ans)
 
 (DEFUN |npboot| (|str|)
-  (PROG (|sex|)
+  (PROG (|sex| |ans|)
     (RETURN
      (PROGN
       (SETQ |sex| (|string2BootTree| |str|))
       (FORMAT T "~&~S~%" |sex|)
-      (SETQ |$ans| (EVAL |sex|))
-      (FORMAT T "~&Value = ~S~%" |$ans|)))))
+      (SETQ |ans| (EVAL |sex|))
+      (FORMAT T "~&Value = ~S~%" |ans|)))))
 
 ; stripLisp str ==
 ;   found := false
@@ -7263,23 +7257,15 @@
       (SUBSEQ |str| |strIndex|)))))
 
 ; nplisp str ==
-;   $ans := EVAL READ_-FROM_-STRING str
-;   FORMAT(true, '"~&Value = ~S~%", $ans)
+;     ans := EVAL(READ_-FROM_-STRING(str))
+;     FORMAT(true, '"~&Value = ~S~%", ans)
 
 (DEFUN |nplisp| (|str|)
-  (PROG ()
+  (PROG (|ans|)
     (RETURN
      (PROGN
-      (SETQ |$ans| (EVAL (READ-FROM-STRING |str|)))
-      (FORMAT T "~&Value = ~S~%" |$ans|)))))
-
-; intnplisp s ==
-;   $currentLine := s
-;   nplisp $currentLine
-
-(DEFUN |intnplisp| (|s|)
-  (PROG ()
-    (RETURN (PROGN (SETQ |$currentLine| |s|) (|nplisp| |$currentLine|)))))
+      (SETQ |ans| (EVAL (READ-FROM-STRING |str|)))
+      (FORMAT T "~&Value = ~S~%" |ans|)))))
 
 ; npsystem(unab, str) ==
 ;   spaceIndex := SEARCH('" ", str)

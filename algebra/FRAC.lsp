@@ -871,21 +871,6 @@
 
 (DECLAIM (NOTINLINE |Fraction;|)) 
 
-(DEFUN |Fraction| (#1=#:G857)
-  (SPROG NIL
-         (PROG (#2=#:G858)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|Fraction|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|Fraction;| #1#) (LETT #2# T))
-                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Fraction|)))))))))) 
-
 (DEFUN |Fraction;| (|#1|)
   (SPROG
    ((|pv$| NIL) (#1=#:G852 NIL) (#2=#:G853 NIL) (#3=#:G854 NIL) (#4=#:G856 NIL)
@@ -1119,6 +1104,21 @@
                    |FRAC;factorSquareFreePolynomial;SupF;41|)
                   %)))))
     %))) 
+
+(DEFUN |Fraction| (#1=#:G857)
+  (SPROG NIL
+         (PROG (#2=#:G858)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Fraction|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Fraction;| #1#) (LETT #2# T))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Fraction|)))))))))) 
 
 (MAKEPROP '|Fraction| '|infovec|
           (LIST

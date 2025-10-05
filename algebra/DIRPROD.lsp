@@ -341,24 +341,6 @@
 
 (DECLAIM (NOTINLINE |DirectProduct;|)) 
 
-(DEFUN |DirectProduct| (&REST #1=#:G161)
-  (SPROG NIL
-         (PROG (#2=#:G162)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(NIL T))
-                                               (HGET |$ConstructorCache|
-                                                     '|DirectProduct|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |DirectProduct;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|DirectProduct|)))))))))) 
-
 (DEFUN |DirectProduct;| (|#1| |#2|)
   (SPROG
    ((|pv$| NIL) (#1=#:G151 NIL) (#2=#:G152 NIL) (#3=#:G153 NIL) (#4=#:G154 NIL)
@@ -933,6 +915,24 @@
      ((|testBitVector| |pv$| 1)
       (QSETREFV % 59 (CONS (|dispatchFunction| |DIRPROD;sup;3%;25|) %))))
     %))) 
+
+(DEFUN |DirectProduct| (&REST #1=#:G161)
+  (SPROG NIL
+         (PROG (#2=#:G162)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(NIL T))
+                                               (HGET |$ConstructorCache|
+                                                     '|DirectProduct|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |DirectProduct;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|DirectProduct|)))))))))) 
 
 (MAKEPROP '|DirectProduct| '|infovec|
           (LIST

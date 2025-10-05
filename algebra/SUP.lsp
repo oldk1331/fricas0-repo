@@ -652,25 +652,6 @@
 
 (DECLAIM (NOTINLINE |SparseUnivariatePolynomial;|)) 
 
-(DEFUN |SparseUnivariatePolynomial| (#1=#:G283)
-  (SPROG NIL
-         (PROG (#2=#:G284)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|SparseUnivariatePolynomial|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|SparseUnivariatePolynomial;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|SparseUnivariatePolynomial|)))))))))) 
-
 (DEFUN |SparseUnivariatePolynomial;| (|#1|)
   (SPROG
    ((#1=#:G282 NIL) (|pv$| NIL) (#2=#:G273 NIL) (#3=#:G275 NIL) (#4=#:G274 NIL)
@@ -1407,6 +1388,25 @@
        (QSETREFV % 131 (CONS (|dispatchFunction| |SUP;divide;2%R;35|) %))
        (QSETREFV % 133 (CONS (|dispatchFunction| |SUP;/;%R%;36|) %)))))
     %))) 
+
+(DEFUN |SparseUnivariatePolynomial| (#1=#:G283)
+  (SPROG NIL
+         (PROG (#2=#:G284)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|SparseUnivariatePolynomial|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|SparseUnivariatePolynomial;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|SparseUnivariatePolynomial|)))))))))) 
 
 (MAKEPROP '|SparseUnivariatePolynomial| '|infovec|
           (LIST

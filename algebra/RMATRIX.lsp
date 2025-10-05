@@ -124,25 +124,6 @@
 
 (DECLAIM (NOTINLINE |RectangularMatrix;|)) 
 
-(DEFUN |RectangularMatrix| (&REST #1=#:G54)
-  (SPROG NIL
-         (PROG (#2=#:G55)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(NIL NIL T))
-                     (HGET |$ConstructorCache| '|RectangularMatrix|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |RectangularMatrix;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|RectangularMatrix|)))))))))) 
-
 (DEFUN |RectangularMatrix;| (|#1| |#2| |#3|)
   (SPROG
    ((#1=#:G53 NIL) (|pv$| NIL) (#2=#:G50 NIL) (#3=#:G51 NIL) (% NIL)
@@ -256,6 +237,25 @@
      ((|testBitVector| |pv$| 13)
       (QSETREFV % 53 (CONS (|dispatchFunction| |RMATRIX;convert;%If;13|) %))))
     %))) 
+
+(DEFUN |RectangularMatrix| (&REST #1=#:G54)
+  (SPROG NIL
+         (PROG (#2=#:G55)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(NIL NIL T))
+                     (HGET |$ConstructorCache| '|RectangularMatrix|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |RectangularMatrix;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|RectangularMatrix|)))))))))) 
 
 (MAKEPROP '|RectangularMatrix| '|infovec|
           (LIST

@@ -867,27 +867,6 @@
 
 (DECLAIM (NOTINLINE |ElementaryFunctionLODESolver;|)) 
 
-(DEFUN |ElementaryFunctionLODESolver| (&REST #1=#:G252)
-  (SPROG NIL
-         (PROG (#2=#:G253)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|ElementaryFunctionLODESolver|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |ElementaryFunctionLODESolver;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|ElementaryFunctionLODESolver|)))))))))) 
-
 (DEFUN |ElementaryFunctionLODESolver;| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -908,6 +887,27 @@
           (QSETREFV % 9 '|%alg|)
           (QSETREFV % 11 (SPADCALL (QREFELT % 10)))
           %))) 
+
+(DEFUN |ElementaryFunctionLODESolver| (&REST #1=#:G252)
+  (SPROG NIL
+         (PROG (#2=#:G253)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|ElementaryFunctionLODESolver|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |ElementaryFunctionLODESolver;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|ElementaryFunctionLODESolver|)))))))))) 
 
 (MAKEPROP '|ElementaryFunctionLODESolver| '|infovec|
           (LIST

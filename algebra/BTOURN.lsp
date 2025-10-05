@@ -34,23 +34,6 @@
 
 (DECLAIM (NOTINLINE |BinaryTournament;|)) 
 
-(DEFUN |BinaryTournament| (#1=#:G20)
-  (SPROG NIL
-         (PROG (#2=#:G21)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|BinaryTournament|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|BinaryTournament;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|BinaryTournament|)))))))))) 
-
 (DEFUN |BinaryTournament;| (|#1|)
   (SPROG
    ((|pv$| NIL) (#1=#:G17 NIL) (#2=#:G18 NIL) (#3=#:G19 NIL) (% NIL)
@@ -108,6 +91,23 @@
     (SETF |pv$| (QREFELT % 3))
     (QSETREFV % 7 (|BinaryTree| |#1|))
     %))) 
+
+(DEFUN |BinaryTournament| (#1=#:G20)
+  (SPROG NIL
+         (PROG (#2=#:G21)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|BinaryTournament|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|BinaryTournament;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|BinaryTournament|)))))))))) 
 
 (MAKEPROP '|BinaryTournament| '|infovec|
           (LIST

@@ -33,23 +33,6 @@
 
 (DECLAIM (NOTINLINE |HashTable;|)) 
 
-(DEFUN |HashTable| (&REST #1=#:G76)
-  (SPROG NIL
-         (PROG (#2=#:G77)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(T T NIL))
-                                               (HGET |$ConstructorCache|
-                                                     '|HashTable|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |HashTable;|) #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|HashTable|)))))))))) 
-
 (DEFUN |HashTable;| (|#1| |#2| |#3|)
   (SPROG
    ((#1=#:G75 NIL) (#2=#:G74 NIL) (|pv$| NIL) (#3=#:G72 NIL) (#4=#:G73 NIL)
@@ -168,6 +151,23 @@
     (SETF |pv$| (QREFELT % 3))
     (QSETREFV % 9 (GENSYM))
     %))) 
+
+(DEFUN |HashTable| (&REST #1=#:G76)
+  (SPROG NIL
+         (PROG (#2=#:G77)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(T T NIL))
+                                               (HGET |$ConstructorCache|
+                                                     '|HashTable|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |HashTable;|) #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|HashTable|)))))))))) 
 
 (MAKEPROP '|HashTable| '|infovec|
           (LIST

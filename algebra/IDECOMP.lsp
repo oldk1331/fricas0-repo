@@ -2100,25 +2100,6 @@
 
 (DECLAIM (NOTINLINE |IdealDecompositionPackage;|)) 
 
-(DEFUN |IdealDecompositionPackage| (#1=#:G324)
-  (SPROG NIL
-         (PROG (#2=#:G325)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|IdealDecompositionPackage|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|IdealDecompositionPackage;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|IdealDecompositionPackage|)))))))))) 
-
 (DEFUN |IdealDecompositionPackage;| (|#1|)
   (SPROG
    ((#1=#:G56 NIL) (#2=#:G53 NIL) (#3=#:G323 NIL) (|xx| NIL) (#4=#:G322 NIL)
@@ -2166,6 +2147,25 @@
                  (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
                                    '(|Integer|) #1#)))
      %)))) 
+
+(DEFUN |IdealDecompositionPackage| (#1=#:G324)
+  (SPROG NIL
+         (PROG (#2=#:G325)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|IdealDecompositionPackage|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|IdealDecompositionPackage;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|IdealDecompositionPackage|)))))))))) 
 
 (MAKEPROP '|IdealDecompositionPackage| '|infovec|
           (LIST

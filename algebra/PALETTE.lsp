@@ -44,6 +44,21 @@
 
 (DECLAIM (NOTINLINE |Palette;|)) 
 
+(DEFUN |Palette;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|Palette|))
+          (LETT % (GETREFV 27))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|Palette| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6
+                    (|Record| (|:| |shadeField| (|Integer|))
+                              (|:| |hueField| (|Color|))))
+          %))) 
+
 (DEFUN |Palette| ()
   (SPROG NIL
          (PROG (#1=#:G13)
@@ -59,21 +74,6 @@
                              (LIST (CONS NIL (CONS 1 (|Palette;|))))))
                     (LETT #1# T))
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|Palette|)))))))))) 
-
-(DEFUN |Palette;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|Palette|))
-          (LETT % (GETREFV 27))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|Palette| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6
-                    (|Record| (|:| |shadeField| (|Integer|))
-                              (|:| |hueField| (|Color|))))
-          %))) 
 
 (MAKEPROP '|Palette| '|infovec|
           (LIST

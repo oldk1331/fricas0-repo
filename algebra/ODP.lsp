@@ -4,25 +4,6 @@
 
 (DECLAIM (NOTINLINE |OrderedDirectProduct;|)) 
 
-(DEFUN |OrderedDirectProduct| (&REST #1=#:G28)
-  (SPROG NIL
-         (PROG (#2=#:G29)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(NIL T NIL))
-                     (HGET |$ConstructorCache| '|OrderedDirectProduct|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |OrderedDirectProduct;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|OrderedDirectProduct|)))))))))) 
-
 (DEFUN |OrderedDirectProduct;| (|#1| |#2| |#3|)
   (SPROG
    ((|pv$| NIL) (#1=#:G18 NIL) (#2=#:G19 NIL) (#3=#:G20 NIL) (#4=#:G21 NIL)
@@ -534,6 +515,25 @@
     (SETF |pv$| (QREFELT % 3))
     (QSETREFV % 9 (|Vector| |#2|))
     %))) 
+
+(DEFUN |OrderedDirectProduct| (&REST #1=#:G28)
+  (SPROG NIL
+         (PROG (#2=#:G29)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(NIL T NIL))
+                     (HGET |$ConstructorCache| '|OrderedDirectProduct|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |OrderedDirectProduct;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|OrderedDirectProduct|)))))))))) 
 
 (MAKEPROP '|OrderedDirectProduct| '|infovec|
           (LIST

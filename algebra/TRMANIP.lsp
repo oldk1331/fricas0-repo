@@ -1274,27 +1274,6 @@
 
 (DECLAIM (NOTINLINE |TranscendentalManipulations;|)) 
 
-(DEFUN |TranscendentalManipulations| (&REST #1=#:G347)
-  (SPROG NIL
-         (PROG (#2=#:G348)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|TranscendentalManipulations|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |TranscendentalManipulations;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|TranscendentalManipulations|)))))))))) 
-
 (DEFUN |TranscendentalManipulations;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -1430,6 +1409,27 @@
             (QSETREFV % 77
                       (CONS (|dispatchFunction| |TRMANIP;simplify;2F;6|) %))))
           %))) 
+
+(DEFUN |TranscendentalManipulations| (&REST #1=#:G347)
+  (SPROG NIL
+         (PROG (#2=#:G348)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|TranscendentalManipulations|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |TranscendentalManipulations;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|TranscendentalManipulations|)))))))))) 
 
 (MAKEPROP '|TranscendentalManipulations| '|infovec|
           (LIST

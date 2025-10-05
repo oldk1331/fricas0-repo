@@ -1068,22 +1068,6 @@
 
 (DECLAIM (NOTINLINE |DeltaComplex;|)) 
 
-(DEFUN |DeltaComplex| (#1=#:G231)
-  (SPROG NIL
-         (PROG (#2=#:G232)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|DeltaComplex|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|DeltaComplex;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|DeltaComplex|)))))))))) 
-
 (DEFUN |DeltaComplex;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -1102,6 +1086,22 @@
                               (|:| MAPS
                                    (|List| (|List| (|List| (|Integer|)))))))
           %))) 
+
+(DEFUN |DeltaComplex| (#1=#:G231)
+  (SPROG NIL
+         (PROG (#2=#:G232)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|DeltaComplex|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|DeltaComplex;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|DeltaComplex|)))))))))) 
 
 (MAKEPROP '|DeltaComplex| '|infovec|
           (LIST

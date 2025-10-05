@@ -292,22 +292,6 @@
 
 (DECLAIM (NOTINLINE |Homology;|)) 
 
-(DEFUN |Homology| ()
-  (SPROG NIL
-         (PROG (#1=#:G87)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|Homology|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|Homology|
-                             (LIST (CONS NIL (CONS 1 (|Homology;|))))))
-                    (LETT #1# T))
-                (COND ((NOT #1#) (HREM |$ConstructorCache| '|Homology|)))))))))) 
-
 (DEFUN |Homology;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -326,6 +310,22 @@
                                      (|:| |ord| (|Integer|)))))
                      (|:| |freePart| (|List| (|Vector| (|Integer|))))))
           %))) 
+
+(DEFUN |Homology| ()
+  (SPROG NIL
+         (PROG (#1=#:G87)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|Homology|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|Homology|
+                             (LIST (CONS NIL (CONS 1 (|Homology;|))))))
+                    (LETT #1# T))
+                (COND ((NOT #1#) (HREM |$ConstructorCache| '|Homology|)))))))))) 
 
 (MAKEPROP '|Homology| '|infovec|
           (LIST

@@ -378,28 +378,6 @@
 
 (DECLAIM (NOTINLINE |SparseUnivariateLaurentSeries;|)) 
 
-(DEFUN |SparseUnivariateLaurentSeries| (&REST #1=#:G177)
-  (SPROG NIL
-         (PROG (#2=#:G178)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T NIL NIL))
-                     (HGET |$ConstructorCache|
-                           '|SparseUnivariateLaurentSeries|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |SparseUnivariateLaurentSeries;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|SparseUnivariateLaurentSeries|)))))))))) 
-
 (DEFUN |SparseUnivariateLaurentSeries;| (|#1| |#2| |#3|)
   (SPROG
    ((#1=#:G176 NIL) (|pv$| NIL) (#2=#:G165 NIL) (#3=#:G166 NIL) (#4=#:G168 NIL)
@@ -1004,6 +982,28 @@
          (QSETREFV % 128 (CONS (|dispatchFunction| |SULS;^;%F%;55|) %)))
         ('T (QSETREFV % 128 (CONS (|dispatchFunction| |SULS;^;%F%;56|) %)))))))
     %))) 
+
+(DEFUN |SparseUnivariateLaurentSeries| (&REST #1=#:G177)
+  (SPROG NIL
+         (PROG (#2=#:G178)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T NIL NIL))
+                     (HGET |$ConstructorCache|
+                           '|SparseUnivariateLaurentSeries|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |SparseUnivariateLaurentSeries;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|SparseUnivariateLaurentSeries|)))))))))) 
 
 (MAKEPROP '|SparseUnivariateLaurentSeries| '|infovec|
           (LIST

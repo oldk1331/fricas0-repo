@@ -868,25 +868,6 @@
 
 (DECLAIM (NOTINLINE |LaplaceTransform;|)) 
 
-(DEFUN |LaplaceTransform| (&REST #1=#:G253)
-  (SPROG NIL
-         (PROG (#2=#:G254)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|LaplaceTransform|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |LaplaceTransform;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|LaplaceTransform|)))))))))) 
-
 (DEFUN |LaplaceTransform;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -907,6 +888,25 @@
           (SPADCALL (QREFELT % 13) '|%specialDiff|
                     (CONS (|function| |LAPLACE;dvlap|) %) (QREFELT % 140))
           %))) 
+
+(DEFUN |LaplaceTransform| (&REST #1=#:G253)
+  (SPROG NIL
+         (PROG (#2=#:G254)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|LaplaceTransform|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |LaplaceTransform;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|LaplaceTransform|)))))))))) 
 
 (MAKEPROP '|LaplaceTransform| '|infovec|
           (LIST

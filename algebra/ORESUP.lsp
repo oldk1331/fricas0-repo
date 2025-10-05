@@ -38,29 +38,6 @@
 
 (DECLAIM (NOTINLINE |SparseUnivariateSkewPolynomial;|)) 
 
-(DEFUN |SparseUnivariateSkewPolynomial| (&REST #1=#:G48)
-  (SPROG NIL
-         (PROG (#2=#:G49)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T NIL NIL))
-                     (HGET |$ConstructorCache|
-                           '|SparseUnivariateSkewPolynomial|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |SparseUnivariateSkewPolynomial;|)
-                             #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|SparseUnivariateSkewPolynomial|)))))))))) 
-
 (DEFUN |SparseUnivariateSkewPolynomial;| (|#1| |#2| |#3|)
   (SPROG
    ((|pv$| NIL) (#1=#:G45 NIL) (#2=#:G47 NIL) (#3=#:G46 NIL) (% NIL)
@@ -282,6 +259,29 @@
        (QSETREFV % 35
                  (CONS (|dispatchFunction| |ORESUP;rightDivide;2%R;9|) %)))))
     %))) 
+
+(DEFUN |SparseUnivariateSkewPolynomial| (&REST #1=#:G48)
+  (SPROG NIL
+         (PROG (#2=#:G49)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T NIL NIL))
+                     (HGET |$ConstructorCache|
+                           '|SparseUnivariateSkewPolynomial|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |SparseUnivariateSkewPolynomial;|)
+                             #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|SparseUnivariateSkewPolynomial|)))))))))) 
 
 (MAKEPROP '|SparseUnivariateSkewPolynomial| '|infovec|
           (LIST

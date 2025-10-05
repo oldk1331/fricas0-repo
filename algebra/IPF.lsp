@@ -341,23 +341,6 @@
 
 (DECLAIM (NOTINLINE |InnerPrimeField;|)) 
 
-(DEFUN |InnerPrimeField| (#1=#:G149)
-  (SPROG NIL
-         (PROG (#2=#:G150)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|InnerPrimeField|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|InnerPrimeField;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|InnerPrimeField|)))))))))) 
-
 (DEFUN |InnerPrimeField;| (|#1|)
   (SPROG ((|r| NIL) (|cGS| NIL) (|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (SEQ
@@ -399,6 +382,23 @@
             ('T
              (QSETREFV % 64 (CONS (|dispatchFunction| |IPF;recip;%U;9|) %))))
            %)))) 
+
+(DEFUN |InnerPrimeField| (#1=#:G149)
+  (SPROG NIL
+         (PROG (#2=#:G150)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|InnerPrimeField|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|InnerPrimeField;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|InnerPrimeField|)))))))))) 
 
 (MAKEPROP '|InnerPrimeField| '|infovec|
           (LIST

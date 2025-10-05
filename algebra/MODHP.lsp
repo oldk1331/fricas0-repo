@@ -1955,6 +1955,18 @@
 
 (DECLAIM (NOTINLINE |ModularHermitePade;|)) 
 
+(DEFUN |ModularHermitePade;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|ModularHermitePade|))
+          (LETT % (GETREFV 173))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|ModularHermitePade| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |ModularHermitePade| ()
   (SPROG NIL
          (PROG (#1=#:G460)
@@ -1973,18 +1985,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|ModularHermitePade|)))))))))) 
-
-(DEFUN |ModularHermitePade;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|ModularHermitePade|))
-          (LETT % (GETREFV 173))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|ModularHermitePade| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|ModularHermitePade| '|infovec|
           (LIST

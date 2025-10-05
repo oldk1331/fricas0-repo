@@ -436,6 +436,21 @@
 
 (DECLAIM (NOTINLINE |CubicalFacet;|)) 
 
+(DEFUN |CubicalFacet;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|CubicalFacet|))
+          (LETT % (GETREFV 61))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|CubicalFacet| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6
+                    (|Record| (|:| |mul| (|Integer|))
+                              (|:| |fac| (|List| (|Segment| (|Integer|))))))
+          %))) 
+
 (DEFUN |CubicalFacet| ()
   (SPROG NIL
          (PROG (#1=#:G154)
@@ -452,21 +467,6 @@
                     (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|CubicalFacet|)))))))))) 
-
-(DEFUN |CubicalFacet;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|CubicalFacet|))
-          (LETT % (GETREFV 61))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|CubicalFacet| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6
-                    (|Record| (|:| |mul| (|Integer|))
-                              (|:| |fac| (|List| (|Segment| (|Integer|))))))
-          %))) 
 
 (MAKEPROP '|CubicalFacet| '|infovec|
           (LIST

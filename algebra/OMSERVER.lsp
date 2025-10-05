@@ -52,6 +52,19 @@
 
 (DECLAIM (NOTINLINE |OpenMathServerPackage;|)) 
 
+(DEFUN |OpenMathServerPackage;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|OpenMathServerPackage|))
+          (LETT % (GETREFV 48))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|OpenMathServerPackage| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |OpenMathServerPackage| ()
   (SPROG NIL
          (PROG (#1=#:G20)
@@ -70,19 +83,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|OpenMathServerPackage|)))))))))) 
-
-(DEFUN |OpenMathServerPackage;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|OpenMathServerPackage|))
-          (LETT % (GETREFV 48))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|OpenMathServerPackage| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|OpenMathServerPackage| '|infovec|
           (LIST

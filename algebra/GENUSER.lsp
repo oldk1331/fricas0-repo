@@ -964,29 +964,6 @@
 
 (DECLAIM (NOTINLINE |GeneralizedUnivariatePowerSeries;|)) 
 
-(DEFUN |GeneralizedUnivariatePowerSeries| (&REST #1=#:G553)
-  (SPROG NIL
-         (PROG (#2=#:G554)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T T NIL NIL))
-                     (HGET |$ConstructorCache|
-                           '|GeneralizedUnivariatePowerSeries|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |GeneralizedUnivariatePowerSeries;|)
-                             #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|GeneralizedUnivariatePowerSeries|)))))))))) 
-
 (DEFUN |GeneralizedUnivariatePowerSeries;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((|pv$| NIL) (#1=#:G544 NIL) (#2=#:G545 NIL) (#3=#:G546 NIL) (#4=#:G547 NIL)
@@ -1343,6 +1320,29 @@
      ((|HasCategory| |#1| '(|TranscendentalFunctionCategory|))
       (QSETREFV % 167 (CONS (|dispatchFunction| |GENUSER;pi;%;67|) %))))
     %))) 
+
+(DEFUN |GeneralizedUnivariatePowerSeries| (&REST #1=#:G553)
+  (SPROG NIL
+         (PROG (#2=#:G554)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T T NIL NIL))
+                     (HGET |$ConstructorCache|
+                           '|GeneralizedUnivariatePowerSeries|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |GeneralizedUnivariatePowerSeries;|)
+                             #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|GeneralizedUnivariatePowerSeries|)))))))))) 
 
 (MAKEPROP '|GeneralizedUnivariatePowerSeries| '|infovec|
           (LIST

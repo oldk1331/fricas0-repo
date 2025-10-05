@@ -82,6 +82,18 @@
 
 (DECLAIM (NOTINLINE |ViewportPackage;|)) 
 
+(DEFUN |ViewportPackage;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|ViewportPackage|))
+          (LETT % (GETREFV 31))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|ViewportPackage| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |ViewportPackage| ()
   (SPROG NIL
          (PROG (#1=#:G21)
@@ -99,18 +111,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|ViewportPackage|)))))))))) 
-
-(DEFUN |ViewportPackage;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|ViewportPackage|))
-          (LETT % (GETREFV 31))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|ViewportPackage| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|ViewportPackage| '|infovec|
           (LIST

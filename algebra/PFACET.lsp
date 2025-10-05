@@ -163,23 +163,6 @@
 
 (DECLAIM (NOTINLINE |ProductFacet;|)) 
 
-(DEFUN |ProductFacet| ()
-  (SPROG NIL
-         (PROG (#1=#:G69)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|ProductFacet|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|ProductFacet|
-                             (LIST (CONS NIL (CONS 1 (|ProductFacet;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#) (HREM |$ConstructorCache| '|ProductFacet|)))))))))) 
-
 (DEFUN |ProductFacet;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -198,6 +181,23 @@
                                      (|:| |left| (|NonNegativeInteger|))
                                      (|:| |right| (|NonNegativeInteger|)))))))
           %))) 
+
+(DEFUN |ProductFacet| ()
+  (SPROG NIL
+         (PROG (#1=#:G69)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|ProductFacet|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|ProductFacet|
+                             (LIST (CONS NIL (CONS 1 (|ProductFacet;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#) (HREM |$ConstructorCache| '|ProductFacet|)))))))))) 
 
 (MAKEPROP '|ProductFacet| '|infovec|
           (LIST

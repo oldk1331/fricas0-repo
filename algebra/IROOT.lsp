@@ -241,22 +241,6 @@
 
 (DECLAIM (NOTINLINE |IntegerRoots;|)) 
 
-(DEFUN |IntegerRoots| (#1=#:G62)
-  (SPROG NIL
-         (PROG (#2=#:G63)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|IntegerRoots|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|IntegerRoots;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|IntegerRoots|)))))))))) 
-
 (DEFUN |IntegerRoots;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -288,6 +272,22 @@
                           (SPADCALL 121 (QREFELT % 10))))
           (QSETREFV % 12 (SPADCALL 2 (QREFELT % 10)))
           %))) 
+
+(DEFUN |IntegerRoots| (#1=#:G62)
+  (SPROG NIL
+         (PROG (#2=#:G63)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|IntegerRoots|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|IntegerRoots;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|IntegerRoots|)))))))))) 
 
 (MAKEPROP '|IntegerRoots| '|infovec|
           (LIST

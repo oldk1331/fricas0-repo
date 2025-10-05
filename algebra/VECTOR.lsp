@@ -22,21 +22,6 @@
 
 (DECLAIM (NOTINLINE |Vector;|)) 
 
-(DEFUN |Vector| (#1=#:G2074)
-  (SPROG NIL
-         (PROG (#2=#:G2075)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|Vector|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|Vector;| #1#) (LETT #2# T))
-                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Vector|)))))))))) 
-
 (DEFUN |Vector;| (|#1|)
   (SPROG
    ((|pv$| NIL) (#1=#:G2071 NIL) (#2=#:G2072 NIL) (#3=#:G2073 NIL) (% NIL)
@@ -160,6 +145,21 @@
      ((|testBitVector| |pv$| 3)
       (QSETREFV % 20 (CONS (|dispatchFunction| |VECTOR;convert;%If;4|) %))))
     %))) 
+
+(DEFUN |Vector| (#1=#:G2074)
+  (SPROG NIL
+         (PROG (#2=#:G2075)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Vector|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Vector;| #1#) (LETT #2# T))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Vector|)))))))))) 
 
 (MAKEPROP '|Vector| '|infovec|
           (LIST

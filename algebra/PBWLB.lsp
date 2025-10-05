@@ -139,6 +139,22 @@
 
 (DECLAIM (NOTINLINE |PoincareBirkhoffWittLyndonBasis;|)) 
 
+(DEFUN |PoincareBirkhoffWittLyndonBasis;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|PoincareBirkhoffWittLyndonBasis| DV$1))
+          (LETT % (GETREFV 51))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|PoincareBirkhoffWittLyndonBasis|
+                      (LIST DV$1) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 7 (|List| (|LyndonWord| |#1|)))
+          %))) 
+
 (DEFUN |PoincareBirkhoffWittLyndonBasis| (#1=#:G57)
   (SPROG NIL
          (PROG (#2=#:G58)
@@ -157,22 +173,6 @@
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
                         '|PoincareBirkhoffWittLyndonBasis|)))))))))) 
-
-(DEFUN |PoincareBirkhoffWittLyndonBasis;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|PoincareBirkhoffWittLyndonBasis| DV$1))
-          (LETT % (GETREFV 51))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|PoincareBirkhoffWittLyndonBasis|
-                      (LIST DV$1) (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 7 (|List| (|LyndonWord| |#1|)))
-          %))) 
 
 (MAKEPROP '|PoincareBirkhoffWittLyndonBasis| '|infovec|
           (LIST

@@ -1373,6 +1373,21 @@
 
 (DECLAIM (NOTINLINE |FormatMathJax;|)) 
 
+(DEFUN |FormatMathJax;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|FormatMathJax|))
+          (LETT % (GETREFV 126))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|FormatMathJax| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 124
+                    (|FMTMJAX;setOperatorHandlers!| (SPADCALL (QREFELT % 123))
+                     %))
+          %))) 
+
 (DEFUN |FormatMathJax| ()
   (SPROG NIL
          (PROG (#1=#:G530)
@@ -1389,21 +1404,6 @@
                     (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|FormatMathJax|)))))))))) 
-
-(DEFUN |FormatMathJax;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|FormatMathJax|))
-          (LETT % (GETREFV 126))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|FormatMathJax| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 124
-                    (|FMTMJAX;setOperatorHandlers!| (SPADCALL (QREFELT % 123))
-                     %))
-          %))) 
 
 (MAKEPROP '|FormatMathJax| '|infovec|
           (LIST

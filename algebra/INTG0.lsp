@@ -899,25 +899,6 @@
 
 (DECLAIM (NOTINLINE |GenusZeroIntegration;|)) 
 
-(DEFUN |GenusZeroIntegration| (&REST #1=#:G206)
-  (SPROG NIL
-         (PROG (#2=#:G207)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|GenusZeroIntegration|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |GenusZeroIntegration;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|GenusZeroIntegration|)))))))))) 
-
 (DEFUN |GenusZeroIntegration;| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -954,6 +935,25 @@
                        (CONS (|dispatchFunction| |INTG0;palgLODE0;LF3KFFFR;21|)
                              %)))))
           %))) 
+
+(DEFUN |GenusZeroIntegration| (&REST #1=#:G206)
+  (SPROG NIL
+         (PROG (#2=#:G207)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|GenusZeroIntegration|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |GenusZeroIntegration;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|GenusZeroIntegration|)))))))))) 
 
 (MAKEPROP '|GenusZeroIntegration| '|infovec|
           (LIST

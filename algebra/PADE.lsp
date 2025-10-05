@@ -350,25 +350,6 @@
 
 (DECLAIM (NOTINLINE |PadeApproximants;|)) 
 
-(DEFUN |PadeApproximants| (&REST #1=#:G83)
-  (SPROG NIL
-         (PROG (#2=#:G84)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|PadeApproximants|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |PadeApproximants;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|PadeApproximants|)))))))))) 
-
 (DEFUN |PadeApproximants;| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -387,6 +368,25 @@
           (QSETREFV % 8 |#3|)
           (SETF |pv$| (QREFELT % 3))
           %))) 
+
+(DEFUN |PadeApproximants| (&REST #1=#:G83)
+  (SPROG NIL
+         (PROG (#2=#:G84)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|PadeApproximants|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |PadeApproximants;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|PadeApproximants|)))))))))) 
 
 (MAKEPROP '|PadeApproximants| '|infovec|
           (LIST

@@ -453,6 +453,18 @@
 
 (DECLAIM (NOTINLINE |PrimGCD;|)) 
 
+(DEFUN |PrimGCD;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|PrimGCD|))
+          (LETT % (GETREFV 31))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|PrimGCD| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |PrimGCD| ()
   (SPROG NIL
          (PROG (#1=#:G102)
@@ -468,18 +480,6 @@
                              (LIST (CONS NIL (CONS 1 (|PrimGCD;|))))))
                     (LETT #1# T))
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|PrimGCD|)))))))))) 
-
-(DEFUN |PrimGCD;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|PrimGCD|))
-          (LETT % (GETREFV 31))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|PrimGCD| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|PrimGCD| '|infovec|
           (LIST

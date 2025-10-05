@@ -33,6 +33,23 @@
 
 (DECLAIM (NOTINLINE |FunctionSpaceAssertions;|)) 
 
+(DEFUN |FunctionSpaceAssertions;| (|#1| |#2|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|FunctionSpaceAssertions| DV$1 DV$2))
+          (LETT % (GETREFV 26))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|FunctionSpaceAssertions|
+                      (LIST DV$1 DV$2) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (QSETREFV % 7 |#2|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |FunctionSpaceAssertions| (&REST #1=#:G22)
   (SPROG NIL
          (PROG (#2=#:G23)
@@ -51,23 +68,6 @@
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|FunctionSpaceAssertions|)))))))))) 
-
-(DEFUN |FunctionSpaceAssertions;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT DV$2 (|devaluate| |#2|))
-          (LETT |dv$| (LIST '|FunctionSpaceAssertions| DV$1 DV$2))
-          (LETT % (GETREFV 26))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|FunctionSpaceAssertions|
-                      (LIST DV$1 DV$2) (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (QSETREFV % 7 |#2|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|FunctionSpaceAssertions| '|infovec|
           (LIST

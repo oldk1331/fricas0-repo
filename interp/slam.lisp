@@ -712,7 +712,7 @@
 ;   optfn :=
 ;      $InteractiveMode => timedOptimization fn
 ;      fn
-;   result := compQuietly optfn
+;   result := comp_quietly(optfn)
 ;   if $InteractiveMode then stopTimingProcess 'compilation
 ;   result
 
@@ -727,7 +727,7 @@
         (|pp| |fn|)))
       (SETQ |optfn|
               (COND (|$InteractiveMode| (|timedOptimization| |fn|)) ('T |fn|)))
-      (SETQ |result| (|compQuietly| |optfn|))
+      (SETQ |result| (|comp_quietly| |optfn|))
       (COND (|$InteractiveMode| (|stopTimingProcess| '|compilation|)))
       |result|))))
 

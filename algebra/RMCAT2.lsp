@@ -58,29 +58,6 @@
 
 (DECLAIM (NOTINLINE |RectangularMatrixCategoryFunctions2;|)) 
 
-(DEFUN |RectangularMatrixCategoryFunctions2| (&REST #1=#:G20)
-  (SPROG NIL
-         (PROG (#2=#:G21)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(NIL NIL T T T T T T T T))
-                     (HGET |$ConstructorCache|
-                           '|RectangularMatrixCategoryFunctions2|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY
-                       (|function| |RectangularMatrixCategoryFunctions2;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|RectangularMatrixCategoryFunctions2|)))))))))) 
-
 (DEFUN |RectangularMatrixCategoryFunctions2;|
        (|#1| |#2| |#3| |#4| |#5| |#6| |#7| |#8| |#9| |#10|)
   (SPROG
@@ -120,6 +97,29 @@
     (QSETREFV % 15 |#10|)
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |RectangularMatrixCategoryFunctions2| (&REST #1=#:G20)
+  (SPROG NIL
+         (PROG (#2=#:G21)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(NIL NIL T T T T T T T T))
+                     (HGET |$ConstructorCache|
+                           '|RectangularMatrixCategoryFunctions2|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY
+                       (|function| |RectangularMatrixCategoryFunctions2;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|RectangularMatrixCategoryFunctions2|)))))))))) 
 
 (MAKEPROP '|RectangularMatrixCategoryFunctions2| '|infovec|
           (LIST

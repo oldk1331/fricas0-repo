@@ -1054,24 +1054,6 @@
 
 (DECLAIM (NOTINLINE |RootUtilities;|)) 
 
-(DEFUN |RootUtilities| (&REST #1=#:G180)
-  (SPROG NIL
-         (PROG (#2=#:G181)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|RootUtilities|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |RootUtilities;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|RootUtilities|)))))))))) 
-
 (DEFUN |RootUtilities;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -1111,6 +1093,24 @@
                        (CONS (|dispatchFunction| |ROOTUT;my_root3;2F;11|)
                              %)))))
           %))) 
+
+(DEFUN |RootUtilities| (&REST #1=#:G180)
+  (SPROG NIL
+         (PROG (#2=#:G181)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|RootUtilities|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |RootUtilities;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|RootUtilities|)))))))))) 
 
 (MAKEPROP '|RootUtilities| '|infovec|
           (LIST

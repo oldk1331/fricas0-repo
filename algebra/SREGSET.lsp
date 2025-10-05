@@ -835,28 +835,6 @@
 
 (DECLAIM (NOTINLINE |SquareFreeRegularTriangularSet;|)) 
 
-(DEFUN |SquareFreeRegularTriangularSet| (&REST #1=#:G302)
-  (SPROG NIL
-         (PROG (#2=#:G303)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|SquareFreeRegularTriangularSet|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |SquareFreeRegularTriangularSet;|)
-                             #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|SquareFreeRegularTriangularSet|)))))))))) 
-
 (DEFUN |SquareFreeRegularTriangularSet;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((#1=#:G301 NIL) (|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
@@ -901,6 +879,28 @@
     (AND (|HasCategory| |#4| '(|OrderedSet|)) #1# (|augmentPredVector| % 512))
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |SquareFreeRegularTriangularSet| (&REST #1=#:G302)
+  (SPROG NIL
+         (PROG (#2=#:G303)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|SquareFreeRegularTriangularSet|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |SquareFreeRegularTriangularSet;|)
+                             #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|SquareFreeRegularTriangularSet|)))))))))) 
 
 (MAKEPROP '|SquareFreeRegularTriangularSet| '|infovec|
           (LIST

@@ -823,6 +823,23 @@
 
 (DECLAIM (NOTINLINE |ElementaryFunctionODESolver;|)) 
 
+(DEFUN |ElementaryFunctionODESolver;| (|#1| |#2|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|ElementaryFunctionODESolver| DV$1 DV$2))
+          (LETT % (GETREFV 97))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|ElementaryFunctionODESolver|
+                      (LIST DV$1 DV$2) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (QSETREFV % 7 |#2|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |ElementaryFunctionODESolver| (&REST #1=#:G244)
   (SPROG NIL
          (PROG (#2=#:G245)
@@ -843,23 +860,6 @@
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
                         '|ElementaryFunctionODESolver|)))))))))) 
-
-(DEFUN |ElementaryFunctionODESolver;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT DV$2 (|devaluate| |#2|))
-          (LETT |dv$| (LIST '|ElementaryFunctionODESolver| DV$1 DV$2))
-          (LETT % (GETREFV 97))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|ElementaryFunctionODESolver|
-                      (LIST DV$1 DV$2) (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (QSETREFV % 7 |#2|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|ElementaryFunctionODESolver| '|infovec|
           (LIST

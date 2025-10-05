@@ -1137,25 +1137,6 @@
 
 (DECLAIM (NOTINLINE |XRecursivePolynomial;|)) 
 
-(DEFUN |XRecursivePolynomial| (&REST #1=#:G352)
-  (SPROG NIL
-         (PROG (#2=#:G353)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|XRecursivePolynomial|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |XRecursivePolynomial;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|XRecursivePolynomial|)))))))))) 
-
 (DEFUN |XRecursivePolynomial;| (|#1| |#2|)
   (SPROG
    ((|pv$| NIL) (#1=#:G351 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
@@ -1200,6 +1181,25 @@
        (QSETREFV % 69 (CONS (|dispatchFunction| |XRPOLY;sh;%Nni%;15|) %))
        (QSETREFV % 71 (CONS (|dispatchFunction| |XRPOLY;sh;3%;16|) %)))))
     %))) 
+
+(DEFUN |XRecursivePolynomial| (&REST #1=#:G352)
+  (SPROG NIL
+         (PROG (#2=#:G353)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|XRecursivePolynomial|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |XRecursivePolynomial;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|XRecursivePolynomial|)))))))))) 
 
 (MAKEPROP '|XRecursivePolynomial| '|infovec|
           (LIST

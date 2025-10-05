@@ -479,26 +479,6 @@
 
 (DECLAIM (NOTINLINE |HyperellipticFiniteDivisor;|)) 
 
-(DEFUN |HyperellipticFiniteDivisor| (&REST #1=#:G120)
-  (SPROG NIL
-         (PROG (#2=#:G121)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|HyperellipticFiniteDivisor|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |HyperellipticFiniteDivisor;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|HyperellipticFiniteDivisor|)))))))))) 
-
 (DEFUN |HyperellipticFiniteDivisor;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((#1=#:G26 NIL) (#2=#:G20 NIL) (|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL)
@@ -546,6 +526,26 @@
     (QSETREFV % 26 (SPADCALL '|div| (QREFELT % 25)))
     (QSETREFV % 28 (SPADCALL 0 (QREFELT % 27)))
     %))) 
+
+(DEFUN |HyperellipticFiniteDivisor| (&REST #1=#:G120)
+  (SPROG NIL
+         (PROG (#2=#:G121)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|HyperellipticFiniteDivisor|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |HyperellipticFiniteDivisor;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|HyperellipticFiniteDivisor|)))))))))) 
 
 (MAKEPROP '|HyperellipticFiniteDivisor| '|infovec|
           (LIST

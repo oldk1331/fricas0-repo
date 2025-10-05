@@ -538,25 +538,6 @@
 
 (DECLAIM (NOTINLINE |UnivariateTaylorSeries;|)) 
 
-(DEFUN |UnivariateTaylorSeries| (&REST #1=#:G164)
-  (SPROG NIL
-         (PROG (#2=#:G165)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T NIL NIL))
-                     (HGET |$ConstructorCache| '|UnivariateTaylorSeries|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |UnivariateTaylorSeries;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|UnivariateTaylorSeries|)))))))))) 
-
 (DEFUN |UnivariateTaylorSeries;| (|#1| |#2| |#3|)
   (SPROG
    ((|pv$| NIL) (#1=#:G158 NIL) (#2=#:G159 NIL) (#3=#:G160 NIL) (#4=#:G163 NIL)
@@ -876,6 +857,25 @@
                         (CONS (|dispatchFunction| |UTS;integrate;%S%;53|)
                               %))))))))))))
     %))) 
+
+(DEFUN |UnivariateTaylorSeries| (&REST #1=#:G164)
+  (SPROG NIL
+         (PROG (#2=#:G165)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T NIL NIL))
+                     (HGET |$ConstructorCache| '|UnivariateTaylorSeries|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |UnivariateTaylorSeries;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|UnivariateTaylorSeries|)))))))))) 
 
 (MAKEPROP '|UnivariateTaylorSeries| '|infovec|
           (LIST

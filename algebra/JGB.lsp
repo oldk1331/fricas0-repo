@@ -99,23 +99,6 @@
 
 (DECLAIM (NOTINLINE |JetGroebner;|)) 
 
-(DEFUN |JetGroebner| (&REST #1=#:G36)
-  (SPROG NIL
-         (PROG (#2=#:G37)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T T NIL T T))
-                     (HGET |$ConstructorCache| '|JetGroebner|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |JetGroebner;|) #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|JetGroebner|)))))))))) 
-
 (DEFUN |JetGroebner;| (|#1| |#2| |#3| |#4| |#5|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -140,6 +123,23 @@
     (QSETREFV % 10 |#5|)
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |JetGroebner| (&REST #1=#:G36)
+  (SPROG NIL
+         (PROG (#2=#:G37)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T T NIL T T))
+                     (HGET |$ConstructorCache| '|JetGroebner|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |JetGroebner;|) #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|JetGroebner|)))))))))) 
 
 (MAKEPROP '|JetGroebner| '|infovec|
           (LIST

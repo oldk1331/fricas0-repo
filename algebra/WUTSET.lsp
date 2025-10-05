@@ -515,25 +515,6 @@
 
 (DECLAIM (NOTINLINE |WuWenTsunTriangularSet;|)) 
 
-(DEFUN |WuWenTsunTriangularSet| (&REST #1=#:G184)
-  (SPROG NIL
-         (PROG (#2=#:G185)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|WuWenTsunTriangularSet|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |WuWenTsunTriangularSet;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|WuWenTsunTriangularSet|)))))))))) 
-
 (DEFUN |WuWenTsunTriangularSet;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((#1=#:G183 NIL) (|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
@@ -586,6 +567,25 @@
       (QSETREFV % 87
                 (CONS (|dispatchFunction| |WUTSET;zeroSetSplit;LL;14|) %))))
     %))) 
+
+(DEFUN |WuWenTsunTriangularSet| (&REST #1=#:G184)
+  (SPROG NIL
+         (PROG (#2=#:G185)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|WuWenTsunTriangularSet|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |WuWenTsunTriangularSet;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|WuWenTsunTriangularSet|)))))))))) 
 
 (MAKEPROP '|WuWenTsunTriangularSet| '|infovec|
           (LIST

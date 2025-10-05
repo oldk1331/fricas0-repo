@@ -963,7 +963,7 @@
 
 ; form2String1 u ==
 ;   ATOM u =>
-;     u=$EmptyMode or u=$quadSymbol => formWrapId specialChar 'quad
+;     u=$EmptyMode => formWrapId specialChar 'quad
 ;     IDENTP u =>
 ;       constructor? u => app2StringWrap(formWrapId u, [u])
 ;       u
@@ -1033,17 +1033,15 @@
     (RETURN
      (COND
       ((ATOM |u|)
-       (COND
-        ((OR (EQUAL |u| |$EmptyMode|) (EQUAL |u| |$quadSymbol|))
-         (|formWrapId| (|specialChar| '|quad|)))
-        ((IDENTP |u|)
-         (COND
-          ((|constructor?| |u|)
-           (|app2StringWrap| (|formWrapId| |u|) (LIST |u|)))
-          (#1='T |u|)))
-        ((SUBRP |u|) (|formWrapId| (BPINAME |u|)))
-        ((STRINGP |u|) (|formWrapId| |u|))
-        (#1# (WRITE-TO-STRING (|formWrapId| |u|)))))
+       (COND ((EQUAL |u| |$EmptyMode|) (|formWrapId| (|specialChar| '|quad|)))
+             ((IDENTP |u|)
+              (COND
+               ((|constructor?| |u|)
+                (|app2StringWrap| (|formWrapId| |u|) (LIST |u|)))
+               (#1='T |u|)))
+             ((SUBRP |u|) (|formWrapId| (BPINAME |u|)))
+             ((STRINGP |u|) (|formWrapId| |u|))
+             (#1# (WRITE-TO-STRING (|formWrapId| |u|)))))
       (#1#
        (PROGN
         (SETQ |u1| |u|)
@@ -1470,7 +1468,7 @@
 
 ; formArguments2String(argl,ml) == [fn(x,m) for x in argl for m in ml] where
 ;   fn(x,m) ==
-;     x=$EmptyMode or x=$quadSymbol => specialChar 'quad
+;     x = $EmptyMode => specialChar 'quad
 ;     STRINGP(x) or IDENTP(x) => x
 ;     x is [ ='_:,:.] => form2String1 x
 ;     x is ["QUOTE", y] =>
@@ -1504,30 +1502,30 @@
 (DEFUN |formArguments2String,fn| (|x| |m|)
   (PROG (|ISTMP#1| |y| |x'|)
     (RETURN
-     (COND
-      ((OR (EQUAL |x| |$EmptyMode|) (EQUAL |x| |$quadSymbol|))
-       (|specialChar| '|quad|))
-      ((OR (STRINGP |x|) (IDENTP |x|)) |x|)
-      ((AND (CONSP |x|) (EQUAL (CAR |x|) '|:|)) (|form2String1| |x|))
-      ((AND (CONSP |x|) (EQ (CAR |x|) 'QUOTE)
-            (PROGN
-             (SETQ |ISTMP#1| (CDR |x|))
-             (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                  (PROGN (SETQ |y| (CAR |ISTMP#1|)) #1='T))))
-       (COND ((AND (EQUAL |m| |$Symbol|) (SYMBOLP |y|)) |y|)
+     (COND ((EQUAL |x| |$EmptyMode|) (|specialChar| '|quad|))
+           ((OR (STRINGP |x|) (IDENTP |x|)) |x|)
+           ((AND (CONSP |x|) (EQUAL (CAR |x|) '|:|)) (|form2String1| |x|))
+           ((AND (CONSP |x|) (EQ (CAR |x|) 'QUOTE)
+                 (PROGN
+                  (SETQ |ISTMP#1| (CDR |x|))
+                  (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
+                       (PROGN (SETQ |y| (CAR |ISTMP#1|)) #1='T))))
+            (COND ((AND (EQUAL |m| |$Symbol|) (SYMBOLP |y|)) |y|)
+                  (#1# (|form2String1| |x|))))
+           ((AND
+             (OR (EQUAL |m| (LIST '|NonNegativeInteger|))
+                 (EQUAL |m| (LIST '|Integer|)))
+             (NULL (INTEGERP |x|)))
+            (|form2String1| |x|))
+           ((AND (|isValidType| |m|) (CONSP |m|)
+                 (EQ (|get_database| (CAR |m|) 'CONSTRUCTORKIND) '|domain|))
+            (COND
+             ((SETQ |x'|
+                      (|coerceInteractive| (|objNewWrap| |x| |m|)
+                       |$OutputForm|))
+              (|form2String1| (|objValUnwrap| |x'|)))
              (#1# (|form2String1| |x|))))
-      ((AND
-        (OR (EQUAL |m| (LIST '|NonNegativeInteger|))
-            (EQUAL |m| (LIST '|Integer|)))
-        (NULL (INTEGERP |x|)))
-       (|form2String1| |x|))
-      ((AND (|isValidType| |m|) (CONSP |m|)
-            (EQ (|get_database| (CAR |m|) 'CONSTRUCTORKIND) '|domain|))
-       (COND
-        ((SETQ |x'| (|coerceInteractive| (|objNewWrap| |x| |m|) |$OutputForm|))
-         (|form2String1| (|objValUnwrap| |x'|)))
-        (#1# (|form2String1| |x|))))
-      (#1# (|form2String1| |x|))))))
+           (#1# (|form2String1| |x|))))))
 
 ; formDecl2String(left,right) ==
 ;   $declVar: local := left

@@ -220,23 +220,6 @@
 
 (DECLAIM (NOTINLINE |TensorPower;|)) 
 
-(DEFUN |TensorPower| (&REST #1=#:G75)
-  (SPROG NIL
-         (PROG (#2=#:G76)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(NIL T T T))
-                     (HGET |$ConstructorCache| '|TensorPower|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |TensorPower;|) #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|TensorPower|)))))))))) 
-
 (DEFUN |TensorPower;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((|pv$| NIL) (#1=#:G73 NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
@@ -311,6 +294,23 @@
      ((|testBitVector| |pv$| 1)
       (QSETREFV % 51 (CONS (|dispatchFunction| |TENSPOW;*;3%;5|) %))))
     %))) 
+
+(DEFUN |TensorPower| (&REST #1=#:G75)
+  (SPROG NIL
+         (PROG (#2=#:G76)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(NIL T T T))
+                     (HGET |$ConstructorCache| '|TensorPower|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |TensorPower;|) #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|TensorPower|)))))))))) 
 
 (MAKEPROP '|TensorPower| '|infovec|
           (LIST

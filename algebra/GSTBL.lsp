@@ -22,25 +22,6 @@
 
 (DECLAIM (NOTINLINE |GeneralSparseTable;|)) 
 
-(DEFUN |GeneralSparseTable| (&REST #1=#:G68)
-  (SPROG NIL
-         (PROG (#2=#:G69)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T T T NIL))
-                     (HGET |$ConstructorCache| '|GeneralSparseTable|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |GeneralSparseTable;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|GeneralSparseTable|)))))))))) 
-
 (DEFUN |GeneralSparseTable;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((#1=#:G67 NIL) (#2=#:G66 NIL) (|pv$| NIL) (#3=#:G64 NIL) (#4=#:G65 NIL)
@@ -155,6 +136,25 @@
     (SETF |pv$| (QREFELT % 3))
     (QSETREFV % 10 |#3|)
     %))) 
+
+(DEFUN |GeneralSparseTable| (&REST #1=#:G68)
+  (SPROG NIL
+         (PROG (#2=#:G69)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T T T NIL))
+                     (HGET |$ConstructorCache| '|GeneralSparseTable|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |GeneralSparseTable;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|GeneralSparseTable|)))))))))) 
 
 (MAKEPROP '|GeneralSparseTable| '|infovec|
           (LIST

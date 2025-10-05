@@ -190,6 +190,21 @@
 
 (DECLAIM (NOTINLINE |StreamExponentialSeriesOperations;|)) 
 
+(DEFUN |StreamExponentialSeriesOperations;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|StreamExponentialSeriesOperations| DV$1))
+          (LETT % (GETREFV 52))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|StreamExponentialSeriesOperations|
+                      (LIST DV$1) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |StreamExponentialSeriesOperations| (#1=#:G68)
   (SPROG NIL
          (PROG (#2=#:G69)
@@ -209,21 +224,6 @@
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
                         '|StreamExponentialSeriesOperations|)))))))))) 
-
-(DEFUN |StreamExponentialSeriesOperations;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|StreamExponentialSeriesOperations| DV$1))
-          (LETT % (GETREFV 52))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|StreamExponentialSeriesOperations|
-                      (LIST DV$1) (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|StreamExponentialSeriesOperations| '|infovec|
           (LIST

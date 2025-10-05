@@ -418,26 +418,6 @@
 
 (DECLAIM (NOTINLINE |ExpressionFactorPolynomial;|)) 
 
-(DEFUN |ExpressionFactorPolynomial| (&REST #1=#:G57)
-  (SPROG NIL
-         (PROG (#2=#:G58)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|ExpressionFactorPolynomial|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |ExpressionFactorPolynomial;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|ExpressionFactorPolynomial|)))))))))) 
-
 (DEFUN |ExpressionFactorPolynomial;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -478,6 +458,26 @@
           (QSETREFV % 22 (SPADCALL (QREFELT % 21)))
           (QSETREFV % 25 (SPADCALL (QREFELT % 22) (QREFELT % 24)))
           %))) 
+
+(DEFUN |ExpressionFactorPolynomial| (&REST #1=#:G57)
+  (SPROG NIL
+         (PROG (#2=#:G58)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|ExpressionFactorPolynomial|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |ExpressionFactorPolynomial;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|ExpressionFactorPolynomial|)))))))))) 
 
 (MAKEPROP '|ExpressionFactorPolynomial| '|infovec|
           (LIST

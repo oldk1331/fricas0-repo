@@ -112,6 +112,19 @@
 
 (DECLAIM (NOTINLINE |ChainComplex;|)) 
 
+(DEFUN |ChainComplex;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|ChainComplex|))
+          (LETT % (GETREFV 36))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|ChainComplex| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6 (|List| (|Matrix| (|Integer|))))
+          %))) 
+
 (DEFUN |ChainComplex| ()
   (SPROG NIL
          (PROG (#1=#:G29)
@@ -128,19 +141,6 @@
                     (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|ChainComplex|)))))))))) 
-
-(DEFUN |ChainComplex;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|ChainComplex|))
-          (LETT % (GETREFV 36))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|ChainComplex| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6 (|List| (|Matrix| (|Integer|))))
-          %))) 
 
 (MAKEPROP '|ChainComplex| '|infovec|
           (LIST

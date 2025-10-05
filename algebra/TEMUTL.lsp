@@ -17,6 +17,18 @@
 
 (DECLAIM (NOTINLINE |TemplateUtilities;|)) 
 
+(DEFUN |TemplateUtilities;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|TemplateUtilities|))
+          (LETT % (GETREFV 22))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|TemplateUtilities| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |TemplateUtilities| ()
   (SPROG NIL
          (PROG (#1=#:G5)
@@ -35,18 +47,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|TemplateUtilities|)))))))))) 
-
-(DEFUN |TemplateUtilities;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|TemplateUtilities|))
-          (LETT % (GETREFV 22))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|TemplateUtilities| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|TemplateUtilities| '|infovec|
           (LIST

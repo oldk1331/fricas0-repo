@@ -41,23 +41,6 @@
 
 (DECLAIM (NOTINLINE |OneDimensionalArray;|)) 
 
-(DEFUN |OneDimensionalArray| (#1=#:G2164)
-  (SPROG NIL
-         (PROG (#2=#:G2165)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|OneDimensionalArray|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|OneDimensionalArray;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|OneDimensionalArray|)))))))))) 
-
 (DEFUN |OneDimensionalArray;| (|#1|)
   (SPROG
    ((|pv$| NIL) (#1=#:G2161 NIL) (#2=#:G2162 NIL) (#3=#:G2163 NIL) (% NIL)
@@ -160,6 +143,23 @@
      (|augmentPredVector| % 8388608))
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |OneDimensionalArray| (#1=#:G2164)
+  (SPROG NIL
+         (PROG (#2=#:G2165)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|OneDimensionalArray|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|OneDimensionalArray;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|OneDimensionalArray|)))))))))) 
 
 (MAKEPROP '|OneDimensionalArray| '|infovec|
           (LIST

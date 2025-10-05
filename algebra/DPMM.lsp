@@ -55,26 +55,6 @@
 
 (DECLAIM (NOTINLINE |DirectProductMatrixModule;|)) 
 
-(DEFUN |DirectProductMatrixModule| (&REST #1=#:G43)
-  (SPROG NIL
-         (PROG (#2=#:G44)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(NIL T T T))
-                     (HGET |$ConstructorCache| '|DirectProductMatrixModule|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |DirectProductMatrixModule;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|DirectProductMatrixModule|)))))))))) 
-
 (DEFUN |DirectProductMatrixModule;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((|pv$| NIL) (#1=#:G33 NIL) (#2=#:G34 NIL) (#3=#:G35 NIL) (#4=#:G37 NIL)
@@ -536,6 +516,26 @@
     (SETF |pv$| (QREFELT % 3))
     (QSETREFV % 10 (|Vector| |#4|))
     %))) 
+
+(DEFUN |DirectProductMatrixModule| (&REST #1=#:G43)
+  (SPROG NIL
+         (PROG (#2=#:G44)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(NIL T T T))
+                     (HGET |$ConstructorCache| '|DirectProductMatrixModule|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |DirectProductMatrixModule;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|DirectProductMatrixModule|)))))))))) 
 
 (MAKEPROP '|DirectProductMatrixModule| '|infovec|
           (LIST

@@ -229,6 +229,21 @@
 
 (DECLAIM (NOTINLINE |PolyGroebner;|)) 
 
+(DEFUN |PolyGroebner;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|PolyGroebner| DV$1))
+          (LETT % (GETREFV 11))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|PolyGroebner| (LIST DV$1)
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |PolyGroebner| (#1=#:G20)
   (SPROG NIL
          (PROG (#2=#:G21)
@@ -244,21 +259,6 @@
               (UNWIND-PROTECT (PROG1 (|PolyGroebner;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|PolyGroebner|)))))))))) 
-
-(DEFUN |PolyGroebner;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|PolyGroebner| DV$1))
-          (LETT % (GETREFV 11))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|PolyGroebner| (LIST DV$1)
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|PolyGroebner| '|infovec|
           (LIST

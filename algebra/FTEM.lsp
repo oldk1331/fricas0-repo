@@ -95,6 +95,19 @@
 
 (DECLAIM (NOTINLINE |FortranTemplate;|)) 
 
+(DEFUN |FortranTemplate;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|FortranTemplate|))
+          (LETT % (GETREFV 38))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|FortranTemplate| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6 (|TextFile|))
+          %))) 
+
 (DEFUN |FortranTemplate| ()
   (SPROG NIL
          (PROG (#1=#:G26)
@@ -112,19 +125,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|FortranTemplate|)))))))))) 
-
-(DEFUN |FortranTemplate;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|FortranTemplate|))
-          (LETT % (GETREFV 38))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|FortranTemplate| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6 (|TextFile|))
-          %))) 
 
 (MAKEPROP '|FortranTemplate| '|infovec|
           (LIST

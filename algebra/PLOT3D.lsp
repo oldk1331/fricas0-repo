@@ -1202,22 +1202,6 @@
 
 (DECLAIM (NOTINLINE |Plot3D;|)) 
 
-(DEFUN |Plot3D| ()
-  (SPROG NIL
-         (PROG (#1=#:G279)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|Plot3D|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|Plot3D|
-                             (LIST (CONS NIL (CONS 1 (|Plot3D;|))))))
-                    (LETT #1# T))
-                (COND ((NOT #1#) (HREM |$ConstructorCache| '|Plot3D|)))))))))) 
-
 (DEFUN |Plot3D;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -1255,6 +1239,22 @@
                                (QREFELT % 13))))
           (QSETREFV % 15 NIL)
           %))) 
+
+(DEFUN |Plot3D| ()
+  (SPROG NIL
+         (PROG (#1=#:G279)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|Plot3D|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|Plot3D|
+                             (LIST (CONS NIL (CONS 1 (|Plot3D;|))))))
+                    (LETT #1# T))
+                (COND ((NOT #1#) (HREM |$ConstructorCache| '|Plot3D|)))))))))) 
 
 (MAKEPROP '|Plot3D| '|infovec|
           (LIST

@@ -686,6 +686,23 @@
 
 (DECLAIM (NOTINLINE |XDistributedPolynomialFunctions;|)) 
 
+(DEFUN |XDistributedPolynomialFunctions;| (|#1| |#2|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|XDistributedPolynomialFunctions| DV$1 DV$2))
+          (LETT % (GETREFV 78))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|XDistributedPolynomialFunctions|
+                      (LIST DV$1 DV$2) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (QSETREFV % 7 |#2|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |XDistributedPolynomialFunctions| (&REST #1=#:G191)
   (SPROG NIL
          (PROG (#2=#:G192)
@@ -707,23 +724,6 @@
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
                         '|XDistributedPolynomialFunctions|)))))))))) 
-
-(DEFUN |XDistributedPolynomialFunctions;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT DV$2 (|devaluate| |#2|))
-          (LETT |dv$| (LIST '|XDistributedPolynomialFunctions| DV$1 DV$2))
-          (LETT % (GETREFV 78))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|XDistributedPolynomialFunctions|
-                      (LIST DV$1 DV$2) (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (QSETREFV % 7 |#2|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|XDistributedPolynomialFunctions| '|infovec|
           (LIST

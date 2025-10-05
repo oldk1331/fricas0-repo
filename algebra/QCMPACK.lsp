@@ -892,25 +892,6 @@
 
 (DECLAIM (NOTINLINE |QuasiComponentPackage;|)) 
 
-(DEFUN |QuasiComponentPackage| (&REST #1=#:G332)
-  (SPROG NIL
-         (PROG (#2=#:G333)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|QuasiComponentPackage|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |QuasiComponentPackage;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|QuasiComponentPackage|)))))))))) 
-
 (DEFUN |QuasiComponentPackage;| (|#1| |#2| |#3| |#4| |#5|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -935,6 +916,25 @@
     (QSETREFV % 10 |#5|)
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |QuasiComponentPackage| (&REST #1=#:G332)
+  (SPROG NIL
+         (PROG (#2=#:G333)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|QuasiComponentPackage|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |QuasiComponentPackage;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|QuasiComponentPackage|)))))))))) 
 
 (MAKEPROP '|QuasiComponentPackage| '|infovec|
           (LIST

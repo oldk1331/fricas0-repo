@@ -482,25 +482,6 @@
 
 (DECLAIM (NOTINLINE |IrrRepSymNatPackage;|)) 
 
-(DEFUN |IrrRepSymNatPackage| ()
-  (SPROG NIL
-         (PROG (#1=#:G238)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|IrrRepSymNatPackage|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|IrrRepSymNatPackage|
-                             (LIST
-                              (CONS NIL (CONS 1 (|IrrRepSymNatPackage;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#)
-                  (HREM |$ConstructorCache| '|IrrRepSymNatPackage|)))))))))) 
-
 (DEFUN |IrrRepSymNatPackage;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -521,6 +502,25 @@
           (QSETREFV % 12 0)
           (QSETREFV % 13 (MAKE_MATRIX1 1 1 0))
           %))) 
+
+(DEFUN |IrrRepSymNatPackage| ()
+  (SPROG NIL
+         (PROG (#1=#:G238)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|IrrRepSymNatPackage|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|IrrRepSymNatPackage|
+                             (LIST
+                              (CONS NIL (CONS 1 (|IrrRepSymNatPackage;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|IrrRepSymNatPackage|)))))))))) 
 
 (MAKEPROP '|IrrRepSymNatPackage| '|infovec|
           (LIST

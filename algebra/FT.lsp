@@ -138,23 +138,6 @@
 
 (DECLAIM (NOTINLINE |FortranType;|)) 
 
-(DEFUN |FortranType| ()
-  (SPROG NIL
-         (PROG (#1=#:G54)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|FortranType|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|FortranType|
-                             (LIST (CONS NIL (CONS 1 (|FortranType;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#) (HREM |$ConstructorCache| '|FortranType|)))))))))) 
-
 (DEFUN |FortranType;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -173,6 +156,23 @@
                      (|:| |dimensions| (|List| (|Polynomial| (|Integer|))))
                      (|:| |external| (|Boolean|))))
           %))) 
+
+(DEFUN |FortranType| ()
+  (SPROG NIL
+         (PROG (#1=#:G54)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|FortranType|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|FortranType|
+                             (LIST (CONS NIL (CONS 1 (|FortranType;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#) (HREM |$ConstructorCache| '|FortranType|)))))))))) 
 
 (MAKEPROP '|FortranType| '|infovec|
           (LIST

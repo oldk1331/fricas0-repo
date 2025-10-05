@@ -177,23 +177,6 @@
 
 (DECLAIM (NOTINLINE |SquareMatrix;|)) 
 
-(DEFUN |SquareMatrix| (&REST #1=#:G95)
-  (SPROG NIL
-         (PROG (#2=#:G96)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(NIL T))
-                                               (HGET |$ConstructorCache|
-                                                     '|SquareMatrix|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |SquareMatrix;|) #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|SquareMatrix|)))))))))) 
-
 (DEFUN |SquareMatrix;| (|#1| |#2|)
   (SPROG
    ((|pv$| NIL) (#1=#:G90 NIL) (#2=#:G92 NIL) (#3=#:G91 NIL) (#4=#:G94 NIL)
@@ -450,6 +433,23 @@
      ((|testBitVector| |pv$| 26)
       (QSETREFV % 78 (CONS (|dispatchFunction| |SQMATRIX;convert;%If;26|) %))))
     %))) 
+
+(DEFUN |SquareMatrix| (&REST #1=#:G95)
+  (SPROG NIL
+         (PROG (#2=#:G96)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(NIL T))
+                                               (HGET |$ConstructorCache|
+                                                     '|SquareMatrix|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |SquareMatrix;|) #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|SquareMatrix|)))))))))) 
 
 (MAKEPROP '|SquareMatrix| '|infovec|
           (LIST

@@ -129,6 +129,19 @@
 
 (DECLAIM (NOTINLINE |MultiplicativeDependence;|)) 
 
+(DEFUN |MultiplicativeDependence;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|MultiplicativeDependence|))
+          (LETT % (GETREFV 30))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|MultiplicativeDependence| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |MultiplicativeDependence| ()
   (SPROG NIL
          (PROG (#1=#:G30)
@@ -149,19 +162,6 @@
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
                         '|MultiplicativeDependence|)))))))))) 
-
-(DEFUN |MultiplicativeDependence;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|MultiplicativeDependence|))
-          (LETT % (GETREFV 30))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|MultiplicativeDependence| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|MultiplicativeDependence| '|infovec|
           (LIST

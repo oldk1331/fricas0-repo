@@ -650,6 +650,24 @@
 
 (DECLAIM (NOTINLINE |LatticeJoinOfMeets;|)) 
 
+(DEFUN |LatticeJoinOfMeets;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|LatticeJoinOfMeets|))
+          (LETT % (GETREFV 57))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|LatticeJoinOfMeets| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6
+                    (|List|
+                     (|List|
+                      (|Union| (|:| |const| (|Record| (|:| |val| (|Symbol|))))
+                               (|:| |var|
+                                    (|Record| (|:| |str| (|String|))))))))
+          %))) 
+
 (DEFUN |LatticeJoinOfMeets| ()
   (SPROG NIL
          (PROG (#1=#:G261)
@@ -668,24 +686,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|LatticeJoinOfMeets|)))))))))) 
-
-(DEFUN |LatticeJoinOfMeets;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|LatticeJoinOfMeets|))
-          (LETT % (GETREFV 57))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|LatticeJoinOfMeets| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6
-                    (|List|
-                     (|List|
-                      (|Union| (|:| |const| (|Record| (|:| |val| (|Symbol|))))
-                               (|:| |var|
-                                    (|Record| (|:| |str| (|String|))))))))
-          %))) 
 
 (MAKEPROP '|LatticeJoinOfMeets| '|infovec|
           (LIST

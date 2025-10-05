@@ -417,23 +417,6 @@
 
 (DECLAIM (NOTINLINE |XHashTable;|)) 
 
-(DEFUN |XHashTable| (&REST #1=#:G248)
-  (SPROG NIL
-         (PROG (#2=#:G249)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|XHashTable|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |XHashTable;|) #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|XHashTable|)))))))))) 
-
 (DEFUN |XHashTable;| (|#1| |#2|)
   (SPROG
    ((#1=#:G247 NIL) (#2=#:G246 NIL) (|pv$| NIL) (#3=#:G244 NIL) (#4=#:G245 NIL)
@@ -562,6 +545,23 @@
      ((|testBitVector| |pv$| 6)
       (QSETREFV % 46 (CONS (|dispatchFunction| |XHASHTBL;=;2%B;22|) %))))
     %))) 
+
+(DEFUN |XHashTable| (&REST #1=#:G248)
+  (SPROG NIL
+         (PROG (#2=#:G249)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|XHashTable|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |XHashTable;|) #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|XHashTable|)))))))))) 
 
 (MAKEPROP '|XHashTable| '|infovec|
           (LIST

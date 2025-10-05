@@ -1,22 +1,6 @@
 
 (DECLAIM (NOTINLINE |Quaternion;|)) 
 
-(DEFUN |Quaternion| (#1=#:G17)
-  (SPROG NIL
-         (PROG (#2=#:G18)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|Quaternion|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|Quaternion;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|Quaternion|)))))))))) 
-
 (DEFUN |Quaternion;| (|#1|)
   (SPROG ((|pv$| NIL) (#1=#:G16 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -91,6 +75,22 @@
           (QSETREFV % 6 |#1|)
           (SETF |pv$| (QREFELT % 3))
           %))) 
+
+(DEFUN |Quaternion| (#1=#:G17)
+  (SPROG NIL
+         (PROG (#2=#:G18)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Quaternion|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Quaternion;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|Quaternion|)))))))))) 
 
 (MAKEPROP '|Quaternion| '|infovec|
           (LIST

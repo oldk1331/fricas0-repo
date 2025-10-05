@@ -200,22 +200,6 @@
 
 (DECLAIM (NOTINLINE |IntegerMod;|)) 
 
-(DEFUN |IntegerMod| (#1=#:G71)
-  (SPROG NIL
-         (PROG (#2=#:G72)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|IntegerMod|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|IntegerMod;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|IntegerMod|)))))))))) 
-
 (DEFUN |IntegerMod;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -300,6 +284,22 @@
              (QSETREFV % 48
                        (CONS (|dispatchFunction| |ZMOD;smaller?;2%B;42|) %)))))
           %))) 
+
+(DEFUN |IntegerMod| (#1=#:G71)
+  (SPROG NIL
+         (PROG (#2=#:G72)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|IntegerMod|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|IntegerMod;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|IntegerMod|)))))))))) 
 
 (MAKEPROP '|IntegerMod| '|infovec|
           (LIST

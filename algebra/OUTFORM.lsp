@@ -507,6 +507,19 @@
 
 (DECLAIM (NOTINLINE |OutputForm;|)) 
 
+(DEFUN |OutputForm;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|OutputForm|))
+          (LETT % (GETREFV 148))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|OutputForm| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 8 (|SExpression|))
+          %))) 
+
 (DEFUN |OutputForm| ()
   (SPROG NIL
          (PROG (#1=#:G1724)
@@ -523,19 +536,6 @@
                     (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|OutputForm|)))))))))) 
-
-(DEFUN |OutputForm;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|OutputForm|))
-          (LETT % (GETREFV 148))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|OutputForm| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 8 (|SExpression|))
-          %))) 
 
 (MAKEPROP '|OutputForm| '|infovec|
           (LIST

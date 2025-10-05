@@ -317,26 +317,6 @@
 
 (DECLAIM (NOTINLINE |TrigonometricManipulations;|)) 
 
-(DEFUN |TrigonometricManipulations| (&REST #1=#:G88)
-  (SPROG NIL
-         (PROG (#2=#:G89)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|TrigonometricManipulations|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |TrigonometricManipulations;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|TrigonometricManipulations|)))))))))) 
-
 (DEFUN |TrigonometricManipulations;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -360,6 +340,26 @@
                     (SPADCALL (SPADCALL (QREFELT % 13)) (QREFELT % 12)
                               (QREFELT % 14)))
           %))) 
+
+(DEFUN |TrigonometricManipulations| (&REST #1=#:G88)
+  (SPROG NIL
+         (PROG (#2=#:G89)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|TrigonometricManipulations|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |TrigonometricManipulations;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|TrigonometricManipulations|)))))))))) 
 
 (MAKEPROP '|TrigonometricManipulations| '|infovec|
           (LIST

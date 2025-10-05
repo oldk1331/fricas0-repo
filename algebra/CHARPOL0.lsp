@@ -13,25 +13,6 @@
 
 (DECLAIM (NOTINLINE |CharacteristicPolynomial;|)) 
 
-(DEFUN |CharacteristicPolynomial| (#1=#:G3)
-  (SPROG NIL
-         (PROG (#2=#:G4)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|CharacteristicPolynomial|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|CharacteristicPolynomial;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|CharacteristicPolynomial|)))))))))) 
-
 (DEFUN |CharacteristicPolynomial;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -59,6 +40,25 @@
                         |CHARPOL0;characteristicPolynomial;MSup;2|)
                        %))))
           %))) 
+
+(DEFUN |CharacteristicPolynomial| (#1=#:G3)
+  (SPROG NIL
+         (PROG (#2=#:G4)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|CharacteristicPolynomial|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|CharacteristicPolynomial;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|CharacteristicPolynomial|)))))))))) 
 
 (MAKEPROP '|CharacteristicPolynomial| '|infovec|
           (LIST

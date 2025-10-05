@@ -1,22 +1,6 @@
 
 (DECLAIM (NOTINLINE |XPolynomial;|)) 
 
-(DEFUN |XPolynomial| (#1=#:G16)
-  (SPROG NIL
-         (PROG (#2=#:G17)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|XPolynomial|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|XPolynomial;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|XPolynomial|)))))))))) 
-
 (DEFUN |XPolynomial;| (|#1|)
   (SPROG ((|pv$| NIL) (#1=#:G15 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -46,6 +30,22 @@
           (QSETREFV % 6 |#1|)
           (SETF |pv$| (QREFELT % 3))
           %))) 
+
+(DEFUN |XPolynomial| (#1=#:G16)
+  (SPROG NIL
+         (PROG (#2=#:G17)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|XPolynomial|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|XPolynomial;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|XPolynomial|)))))))))) 
 
 (MAKEPROP '|XPolynomial| '|infovec|
           (LIST

@@ -715,25 +715,6 @@
 
 (DECLAIM (NOTINLINE |XPBWPolynomial;|)) 
 
-(DEFUN |XPBWPolynomial| (&REST #1=#:G186)
-  (SPROG NIL
-         (PROG (#2=#:G187)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|XPBWPolynomial|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |XPBWPolynomial;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|XPBWPolynomial|)))))))))) 
-
 (DEFUN |XPBWPolynomial;| (|#1| |#2|)
   (SPROG
    ((|pv$| NIL) (#1=#:G185 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
@@ -779,6 +760,25 @@
        (QSETREFV % 93 (CONS (|dispatchFunction| |XPBWPOLY;exp;%Nni%;27|) %))
        (QSETREFV % 96 (CONS (|dispatchFunction| |XPBWPOLY;log;%Nni%;28|) %)))))
     %))) 
+
+(DEFUN |XPBWPolynomial| (&REST #1=#:G186)
+  (SPROG NIL
+         (PROG (#2=#:G187)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|XPBWPolynomial|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |XPBWPolynomial;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|XPBWPolynomial|)))))))))) 
 
 (MAKEPROP '|XPBWPolynomial| '|infovec|
           (LIST

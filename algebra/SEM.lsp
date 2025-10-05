@@ -1707,25 +1707,6 @@
 
 (DECLAIM (NOTINLINE |SparseEchelonMatrix;|)) 
 
-(DEFUN |SparseEchelonMatrix| (&REST #1=#:G553)
-  (SPROG NIL
-         (PROG (#2=#:G554)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|SparseEchelonMatrix|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |SparseEchelonMatrix;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|SparseEchelonMatrix|)))))))))) 
-
 (DEFUN |SparseEchelonMatrix;| (|#1| |#2|)
   (SPROG
    ((|i| NIL) (#1=#:G552 NIL) (|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL)
@@ -1783,6 +1764,25 @@
       ((|testBitVector| |pv$| 2)
        (PROGN (QSETREFV % 121 (CONS (|dispatchFunction| |SEM;*;M2%;35|) %)))))
      %)))) 
+
+(DEFUN |SparseEchelonMatrix| (&REST #1=#:G553)
+  (SPROG NIL
+         (PROG (#2=#:G554)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|SparseEchelonMatrix|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |SparseEchelonMatrix;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|SparseEchelonMatrix|)))))))))) 
 
 (MAKEPROP '|SparseEchelonMatrix| '|infovec|
           (LIST

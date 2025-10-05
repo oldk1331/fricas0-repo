@@ -93,6 +93,21 @@
 
 (DECLAIM (NOTINLINE |Color;|)) 
 
+(DEFUN |Color;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|Color|))
+          (LETT % (GETREFV 33))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|Color| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6
+                    (|Record| (|:| |hue| (|Integer|))
+                              (|:| |weight| (|DoubleFloat|))))
+          %))) 
+
 (DEFUN |Color| ()
   (SPROG NIL
          (PROG (#1=#:G30)
@@ -108,21 +123,6 @@
                              (LIST (CONS NIL (CONS 1 (|Color;|))))))
                     (LETT #1# T))
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|Color|)))))))))) 
-
-(DEFUN |Color;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|Color|))
-          (LETT % (GETREFV 33))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|Color| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6
-                    (|Record| (|:| |hue| (|Integer|))
-                              (|:| |weight| (|DoubleFloat|))))
-          %))) 
 
 (MAKEPROP '|Color| '|infovec|
           (LIST

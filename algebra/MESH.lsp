@@ -175,6 +175,19 @@
 
 (DECLAIM (NOTINLINE |MeshCreationRoutinesForThreeDimensions;|)) 
 
+(DEFUN |MeshCreationRoutinesForThreeDimensions;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|MeshCreationRoutinesForThreeDimensions|))
+          (LETT % (GETREFV 42))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache|
+                      '|MeshCreationRoutinesForThreeDimensions| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |MeshCreationRoutinesForThreeDimensions| ()
   (SPROG NIL
          (PROG (#1=#:G77)
@@ -199,19 +212,6 @@
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
                         '|MeshCreationRoutinesForThreeDimensions|)))))))))) 
-
-(DEFUN |MeshCreationRoutinesForThreeDimensions;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|MeshCreationRoutinesForThreeDimensions|))
-          (LETT % (GETREFV 42))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache|
-                      '|MeshCreationRoutinesForThreeDimensions| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|MeshCreationRoutinesForThreeDimensions| '|infovec|
           (LIST

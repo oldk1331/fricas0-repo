@@ -1067,25 +1067,6 @@
 
 (DECLAIM (NOTINLINE |JetBundleLinearFunction;|)) 
 
-(DEFUN |JetBundleLinearFunction| (&REST #1=#:G402)
-  (SPROG NIL
-         (PROG (#2=#:G403)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|JetBundleLinearFunction|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |JetBundleLinearFunction;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|JetBundleLinearFunction|)))))))))) 
-
 (DEFUN |JetBundleLinearFunction;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -1132,6 +1113,25 @@
              (QSETREFV % 70
                        (CONS (|dispatchFunction| |JBLF;retract;Jbe%;13|) %)))))
           %))) 
+
+(DEFUN |JetBundleLinearFunction| (&REST #1=#:G402)
+  (SPROG NIL
+         (PROG (#2=#:G403)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|JetBundleLinearFunction|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |JetBundleLinearFunction;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|JetBundleLinearFunction|)))))))))) 
 
 (MAKEPROP '|JetBundleLinearFunction| '|infovec|
           (LIST

@@ -1646,30 +1646,6 @@
 
 (DECLAIM (NOTINLINE |DoubleFloatSpecialFunctions2;|)) 
 
-(DEFUN |DoubleFloatSpecialFunctions2| ()
-  (SPROG NIL
-         (PROG (#1=#:G272)
-           (RETURN
-            (COND
-             ((LETT #1#
-                    (HGET |$ConstructorCache| '|DoubleFloatSpecialFunctions2|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache|
-                             '|DoubleFloatSpecialFunctions2|
-                             (LIST
-                              (CONS NIL
-                                    (CONS 1
-                                          (|DoubleFloatSpecialFunctions2;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#)
-                  (HREM |$ConstructorCache|
-                        '|DoubleFloatSpecialFunctions2|)))))))))) 
-
 (DEFUN |DoubleFloatSpecialFunctions2;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -1766,6 +1742,30 @@
           (QSETREFV % 99 (|mk_DF| 3074633137230003675754 -22))
           (QSETREFV % 100 (|mk_DF| 5773502691896257645091 -22))
           %))) 
+
+(DEFUN |DoubleFloatSpecialFunctions2| ()
+  (SPROG NIL
+         (PROG (#1=#:G272)
+           (RETURN
+            (COND
+             ((LETT #1#
+                    (HGET |$ConstructorCache| '|DoubleFloatSpecialFunctions2|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache|
+                             '|DoubleFloatSpecialFunctions2|
+                             (LIST
+                              (CONS NIL
+                                    (CONS 1
+                                          (|DoubleFloatSpecialFunctions2;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache|
+                        '|DoubleFloatSpecialFunctions2|)))))))))) 
 
 (MAKEPROP '|DoubleFloatSpecialFunctions2| '|infovec|
           (LIST

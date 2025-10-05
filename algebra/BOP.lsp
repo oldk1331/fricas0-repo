@@ -264,23 +264,6 @@
 
 (DECLAIM (NOTINLINE |BasicOperator;|)) 
 
-(DEFUN |BasicOperator| ()
-  (SPROG NIL
-         (PROG (#1=#:G124)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|BasicOperator|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|BasicOperator|
-                             (LIST (CONS NIL (CONS 1 (|BasicOperator;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#) (HREM |$ConstructorCache| '|BasicOperator|)))))))))) 
-
 (DEFUN |BasicOperator;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -302,6 +285,23 @@
           (QSETREFV % 10 '|%display|)
           (QSETREFV % 11 '|%input|)
           %))) 
+
+(DEFUN |BasicOperator| ()
+  (SPROG NIL
+         (PROG (#1=#:G124)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|BasicOperator|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|BasicOperator|
+                             (LIST (CONS NIL (CONS 1 (|BasicOperator;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#) (HREM |$ConstructorCache| '|BasicOperator|)))))))))) 
 
 (MAKEPROP '|BasicOperator| '|infovec|
           (LIST

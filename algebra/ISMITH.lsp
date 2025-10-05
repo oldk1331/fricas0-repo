@@ -320,6 +320,19 @@
 
 (DECLAIM (NOTINLINE |IntegerSmithNormalForm;|)) 
 
+(DEFUN |IntegerSmithNormalForm;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|IntegerSmithNormalForm|))
+          (LETT % (GETREFV 41))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|IntegerSmithNormalForm| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |IntegerSmithNormalForm| ()
   (SPROG NIL
          (PROG (#1=#:G69)
@@ -339,19 +352,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|IntegerSmithNormalForm|)))))))))) 
-
-(DEFUN |IntegerSmithNormalForm;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|IntegerSmithNormalForm|))
-          (LETT % (GETREFV 41))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|IntegerSmithNormalForm| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|IntegerSmithNormalForm| '|infovec|
           (LIST

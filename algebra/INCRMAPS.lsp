@@ -16,6 +16,21 @@
 
 (DECLAIM (NOTINLINE |IncrementingMaps;|)) 
 
+(DEFUN |IncrementingMaps;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|IncrementingMaps| DV$1))
+          (LETT % (GETREFV 12))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|IncrementingMaps| (LIST DV$1)
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |IncrementingMaps| (#1=#:G5)
   (SPROG NIL
          (PROG (#2=#:G6)
@@ -32,21 +47,6 @@
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|IncrementingMaps|)))))))))) 
-
-(DEFUN |IncrementingMaps;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|IncrementingMaps| DV$1))
-          (LETT % (GETREFV 12))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|IncrementingMaps| (LIST DV$1)
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|IncrementingMaps| '|infovec|
           (LIST

@@ -54,21 +54,6 @@
 
 (DECLAIM (NOTINLINE |Point;|)) 
 
-(DEFUN |Point| (#1=#:G25)
-  (SPROG NIL
-         (PROG (#2=#:G26)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|Point|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|Point;| #1#) (LETT #2# T))
-                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Point|)))))))))) 
-
 (DEFUN |Point;| (|#1|)
   (SPROG
    ((|pv$| NIL) (#1=#:G22 NIL) (#2=#:G23 NIL) (#3=#:G24 NIL) (% NIL)
@@ -189,6 +174,21 @@
      (|augmentPredVector| % 1073741824))
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |Point| (#1=#:G25)
+  (SPROG NIL
+         (PROG (#2=#:G26)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Point|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Point;| #1#) (LETT #2# T))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Point|)))))))))) 
 
 (MAKEPROP '|Point| '|infovec|
           (LIST

@@ -325,6 +325,21 @@
 
 (DECLAIM (NOTINLINE |SCartesian;|)) 
 
+(DEFUN |SCartesian;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 |#1|)
+          (LETT |dv$| (LIST '|SCartesian| DV$1))
+          (LETT % (GETREFV 56))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|SCartesian| (LIST DV$1) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 7 (|PrimitiveArray| (|DoubleFloat|)))
+          %))) 
+
 (DEFUN |SCartesian| (#1=#:G117)
   (SPROG NIL
          (PROG (#2=#:G118)
@@ -340,21 +355,6 @@
               (UNWIND-PROTECT (PROG1 (|SCartesian;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|SCartesian|)))))))))) 
-
-(DEFUN |SCartesian;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 |#1|)
-          (LETT |dv$| (LIST '|SCartesian| DV$1))
-          (LETT % (GETREFV 56))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|SCartesian| (LIST DV$1) (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 7 (|PrimitiveArray| (|DoubleFloat|)))
-          %))) 
 
 (MAKEPROP '|SCartesian| '|infovec|
           (LIST

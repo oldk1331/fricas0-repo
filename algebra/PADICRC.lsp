@@ -462,26 +462,6 @@
 
 (DECLAIM (NOTINLINE |PAdicRationalConstructor;|)) 
 
-(DEFUN |PAdicRationalConstructor| (&REST #1=#:G394)
-  (SPROG NIL
-         (PROG (#2=#:G395)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(NIL T))
-                                               (HGET |$ConstructorCache|
-                                                     '|PAdicRationalConstructor|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |PAdicRationalConstructor;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|PAdicRationalConstructor|)))))))))) 
-
 (DEFUN |PAdicRationalConstructor;| (|#1| |#2|)
   (SPROG
    ((|pv$| NIL) (#1=#:G393 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
@@ -584,6 +564,26 @@
     (QSETREFV % 11 (SPADCALL |#1| (QREFELT % 10)))
     (QSETREFV % 12 (|Record| (|:| |expon| (|Integer|)) (|:| |pint| |#2|)))
     %))) 
+
+(DEFUN |PAdicRationalConstructor| (&REST #1=#:G394)
+  (SPROG NIL
+         (PROG (#2=#:G395)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(NIL T))
+                                               (HGET |$ConstructorCache|
+                                                     '|PAdicRationalConstructor|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |PAdicRationalConstructor;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|PAdicRationalConstructor|)))))))))) 
 
 (MAKEPROP '|PAdicRationalConstructor| '|infovec|
           (LIST

@@ -18,6 +18,25 @@
 
 (DECLAIM (NOTINLINE |ApplyUnivariateSkewPolynomial;|)) 
 
+(DEFUN |ApplyUnivariateSkewPolynomial;| (|#1| |#2| |#3|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT DV$3 (|devaluate| |#3|))
+          (LETT |dv$| (LIST '|ApplyUnivariateSkewPolynomial| DV$1 DV$2 DV$3))
+          (LETT % (GETREFV 17))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|ApplyUnivariateSkewPolynomial|
+                      (LIST DV$1 DV$2 DV$3) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (QSETREFV % 7 |#2|)
+          (QSETREFV % 8 |#3|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |ApplyUnivariateSkewPolynomial| (&REST #1=#:G7)
   (SPROG NIL
          (PROG (#2=#:G8)
@@ -38,25 +57,6 @@
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
                         '|ApplyUnivariateSkewPolynomial|)))))))))) 
-
-(DEFUN |ApplyUnivariateSkewPolynomial;| (|#1| |#2| |#3|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT DV$2 (|devaluate| |#2|))
-          (LETT DV$3 (|devaluate| |#3|))
-          (LETT |dv$| (LIST '|ApplyUnivariateSkewPolynomial| DV$1 DV$2 DV$3))
-          (LETT % (GETREFV 17))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|ApplyUnivariateSkewPolynomial|
-                      (LIST DV$1 DV$2 DV$3) (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (QSETREFV % 7 |#2|)
-          (QSETREFV % 8 |#3|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|ApplyUnivariateSkewPolynomial| '|infovec|
           (LIST

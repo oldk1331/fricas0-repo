@@ -265,25 +265,6 @@
 
 (DECLAIM (NOTINLINE |MakeFloatCompiledFunction;|)) 
 
-(DEFUN |MakeFloatCompiledFunction| (#1=#:G77)
-  (SPROG NIL
-         (PROG (#2=#:G78)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|MakeFloatCompiledFunction|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|MakeFloatCompiledFunction;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|MakeFloatCompiledFunction|)))))))))) 
-
 (DEFUN |MakeFloatCompiledFunction;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -310,6 +291,25 @@
                             (QREFELT % 11)))
                      (QREFELT % 11)))
           %))) 
+
+(DEFUN |MakeFloatCompiledFunction| (#1=#:G77)
+  (SPROG NIL
+         (PROG (#2=#:G78)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|MakeFloatCompiledFunction|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|MakeFloatCompiledFunction;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|MakeFloatCompiledFunction|)))))))))) 
 
 (MAKEPROP '|MakeFloatCompiledFunction| '|infovec|
           (LIST

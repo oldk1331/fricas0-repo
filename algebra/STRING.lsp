@@ -36,22 +36,6 @@
 
 (DECLAIM (NOTINLINE |String;|)) 
 
-(DEFUN |String| ()
-  (SPROG NIL
-         (PROG (#1=#:G1888)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|String|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|String|
-                             (LIST (CONS NIL (CONS 1 (|String;|))))))
-                    (LETT #1# T))
-                (COND ((NOT #1#) (HREM |$ConstructorCache| '|String|)))))))))) 
-
 (DEFUN |String;| ()
   (SPROG ((|dv$| NIL) (% NIL) (#1=#:G1886 NIL) (|pv$| NIL))
          (PROGN
@@ -115,6 +99,22 @@
                (|augmentPredVector| % 32768))
           (SETF |pv$| (QREFELT % 3))
           %))) 
+
+(DEFUN |String| ()
+  (SPROG NIL
+         (PROG (#1=#:G1888)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|String|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|String|
+                             (LIST (CONS NIL (CONS 1 (|String;|))))))
+                    (LETT #1# T))
+                (COND ((NOT #1#) (HREM |$ConstructorCache| '|String|)))))))))) 
 
 (MAKEPROP '|String| '|infovec|
           (LIST

@@ -509,23 +509,6 @@
 
 (DECLAIM (NOTINLINE |InnerEigenPackage;|)) 
 
-(DEFUN |InnerEigenPackage| (#1=#:G134)
-  (SPROG NIL
-         (PROG (#2=#:G135)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|InnerEigenPackage|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|InnerEigenPackage;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|InnerEigenPackage|)))))))))) 
-
 (DEFUN |InnerEigenPackage;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -569,6 +552,23 @@
                         |IEP;characteristicPolynomial;MSup;9|)
                        %))))
           %))) 
+
+(DEFUN |InnerEigenPackage| (#1=#:G134)
+  (SPROG NIL
+         (PROG (#2=#:G135)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|InnerEigenPackage|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|InnerEigenPackage;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|InnerEigenPackage|)))))))))) 
 
 (MAKEPROP '|InnerEigenPackage| '|infovec|
           (LIST

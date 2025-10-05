@@ -120,26 +120,6 @@
 
 (DECLAIM (NOTINLINE |PolynomialCategoryLifting;|)) 
 
-(DEFUN |PolynomialCategoryLifting| (&REST #1=#:G33)
-  (SPROG NIL
-         (PROG (#2=#:G34)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|PolynomialCategoryLifting|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |PolynomialCategoryLifting;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|PolynomialCategoryLifting|)))))))))) 
-
 (DEFUN |PolynomialCategoryLifting;| (|#1| |#2| |#3| |#4| |#5|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -168,6 +148,26 @@
       (QSETREFV % 24 (CONS (|dispatchFunction| |POLYLIFT;map;MMPS;1|) %)))
      ('T (QSETREFV % 24 (CONS (|dispatchFunction| |POLYLIFT;map;MMPS;2|) %))))
     %))) 
+
+(DEFUN |PolynomialCategoryLifting| (&REST #1=#:G33)
+  (SPROG NIL
+         (PROG (#2=#:G34)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|PolynomialCategoryLifting|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |PolynomialCategoryLifting;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|PolynomialCategoryLifting|)))))))))) 
 
 (MAKEPROP '|PolynomialCategoryLifting| '|infovec|
           (LIST

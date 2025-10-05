@@ -251,6 +251,20 @@
 
 (DECLAIM (NOTINLINE |SmallOrdinal;|)) 
 
+(DEFUN |SmallOrdinal;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|SmallOrdinal|))
+          (LETT % (GETREFV 71))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|SmallOrdinal| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (AND (|HasCategory| % '(|AbelianGroup|)) (|augmentPredVector| % 1))
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6 (|PolynomialRing| (|NonNegativeInteger|) %))
+          %))) 
+
 (DEFUN |SmallOrdinal| ()
   (SPROG NIL
          (PROG (#1=#:G71)
@@ -267,20 +281,6 @@
                     (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|SmallOrdinal|)))))))))) 
-
-(DEFUN |SmallOrdinal;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|SmallOrdinal|))
-          (LETT % (GETREFV 71))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|SmallOrdinal| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (AND (|HasCategory| % '(|AbelianGroup|)) (|augmentPredVector| % 1))
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6 (|PolynomialRing| (|NonNegativeInteger|) %))
-          %))) 
 
 (MAKEPROP '|SmallOrdinal| '|infovec|
           (LIST

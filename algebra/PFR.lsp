@@ -774,23 +774,6 @@
 
 (DECLAIM (NOTINLINE |PartialFraction;|)) 
 
-(DEFUN |PartialFraction| (#1=#:G258)
-  (SPROG NIL
-         (PROG (#2=#:G259)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|PartialFraction|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|PartialFraction;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|PartialFraction|)))))))))) 
-
 (DEFUN |PartialFraction;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -833,6 +816,23 @@
                       (CONS (|dispatchFunction| |PFR;partialFraction;F%;33|)
                             %))))
           %))) 
+
+(DEFUN |PartialFraction| (#1=#:G258)
+  (SPROG NIL
+         (PROG (#2=#:G259)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|PartialFraction|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|PartialFraction;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|PartialFraction|)))))))))) 
 
 (MAKEPROP '|PartialFraction| '|infovec|
           (LIST

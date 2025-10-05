@@ -405,22 +405,6 @@
 
 (DECLAIM (NOTINLINE |DirichletRing;|)) 
 
-(DEFUN |DirichletRing| (#1=#:G198)
-  (SPROG NIL
-         (PROG (#2=#:G199)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|DirichletRing|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|DirichletRing;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|DirichletRing|)))))))))) 
-
 (DEFUN |DirichletRing;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -444,6 +428,22 @@
                      (|:| |function| (|Mapping| |#1| (|PositiveInteger|)))))
           (QSETREFV % 19 (SPADCALL 1 (QREFELT % 18)))
           %))) 
+
+(DEFUN |DirichletRing| (#1=#:G198)
+  (SPROG NIL
+         (PROG (#2=#:G199)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|DirichletRing|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|DirichletRing;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|DirichletRing|)))))))))) 
 
 (MAKEPROP '|DirichletRing| '|infovec|
           (LIST

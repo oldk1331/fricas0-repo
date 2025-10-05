@@ -337,25 +337,6 @@
 
 (DECLAIM (NOTINLINE |PolynomialSquareFree;|)) 
 
-(DEFUN |PolynomialSquareFree| (&REST #1=#:G86)
-  (SPROG NIL
-         (PROG (#2=#:G87)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|PolynomialSquareFree|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |PolynomialSquareFree;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|PolynomialSquareFree|)))))))))) 
-
 (DEFUN |PolynomialSquareFree;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -379,6 +360,25 @@
     (SETF |pv$| (QREFELT % 3))
     (QSETREFV % 12 (SPADCALL (QREFELT % 11)))
     %))) 
+
+(DEFUN |PolynomialSquareFree| (&REST #1=#:G86)
+  (SPROG NIL
+         (PROG (#2=#:G87)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|PolynomialSquareFree|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |PolynomialSquareFree;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|PolynomialSquareFree|)))))))))) 
 
 (MAKEPROP '|PolynomialSquareFree| '|infovec|
           (LIST

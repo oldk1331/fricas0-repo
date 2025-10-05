@@ -34,6 +34,18 @@
 
 (DECLAIM (NOTINLINE |OpenMathConnection;|)) 
 
+(DEFUN |OpenMathConnection;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|OpenMathConnection|))
+          (LETT % (GETREFV 17))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|OpenMathConnection| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |OpenMathConnection| ()
   (SPROG NIL
          (PROG (#1=#:G7)
@@ -52,18 +64,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|OpenMathConnection|)))))))))) 
-
-(DEFUN |OpenMathConnection;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|OpenMathConnection|))
-          (LETT % (GETREFV 17))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|OpenMathConnection| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|OpenMathConnection| '|infovec|
           (LIST

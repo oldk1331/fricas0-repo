@@ -199,6 +199,21 @@
 
 (DECLAIM (NOTINLINE |DrawOption;|)) 
 
+(DEFUN |DrawOption;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|DrawOption|))
+          (LETT % (GETREFV 87))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|DrawOption| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6
+                    (|Record| (|:| |keyword| (|Symbol|))
+                              (|:| |value| (|Any|))))
+          %))) 
+
 (DEFUN |DrawOption| ()
   (SPROG NIL
          (PROG (#1=#:G72)
@@ -215,21 +230,6 @@
                     (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|DrawOption|)))))))))) 
-
-(DEFUN |DrawOption;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|DrawOption|))
-          (LETT % (GETREFV 87))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|DrawOption| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6
-                    (|Record| (|:| |keyword| (|Symbol|))
-                              (|:| |value| (|Any|))))
-          %))) 
 
 (MAKEPROP '|DrawOption| '|infovec|
           (LIST

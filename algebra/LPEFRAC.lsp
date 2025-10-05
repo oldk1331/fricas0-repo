@@ -96,6 +96,22 @@
 
 (DECLAIM (NOTINLINE |LinearPolynomialEquationByFractions;|)) 
 
+(DEFUN |LinearPolynomialEquationByFractions;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|LinearPolynomialEquationByFractions| DV$1))
+          (LETT % (GETREFV 34))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache|
+                      '|LinearPolynomialEquationByFractions| (LIST DV$1)
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |LinearPolynomialEquationByFractions| (#1=#:G30)
   (SPROG NIL
          (PROG (#2=#:G31)
@@ -115,22 +131,6 @@
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
                         '|LinearPolynomialEquationByFractions|)))))))))) 
-
-(DEFUN |LinearPolynomialEquationByFractions;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|LinearPolynomialEquationByFractions| DV$1))
-          (LETT % (GETREFV 34))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache|
-                      '|LinearPolynomialEquationByFractions| (LIST DV$1)
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|LinearPolynomialEquationByFractions| '|infovec|
           (LIST

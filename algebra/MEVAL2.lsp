@@ -251,6 +251,19 @@
 
 (DECLAIM (NOTINLINE |ModularEvaluation2;|)) 
 
+(DEFUN |ModularEvaluation2;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|ModularEvaluation2|))
+          (LETT % (GETREFV 74))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|ModularEvaluation2| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 42 (SPADCALL (QREFELT % 41)))
+          %))) 
+
 (DEFUN |ModularEvaluation2| ()
   (SPROG NIL
          (PROG (#1=#:G77)
@@ -269,19 +282,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|ModularEvaluation2|)))))))))) 
-
-(DEFUN |ModularEvaluation2;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|ModularEvaluation2|))
-          (LETT % (GETREFV 74))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|ModularEvaluation2| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 42 (SPADCALL (QREFELT % 41)))
-          %))) 
 
 (MAKEPROP '|ModularEvaluation2| '|infovec|
           (LIST

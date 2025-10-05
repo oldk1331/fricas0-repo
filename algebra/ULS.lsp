@@ -19,25 +19,6 @@
 
 (DECLAIM (NOTINLINE |UnivariateLaurentSeries;|)) 
 
-(DEFUN |UnivariateLaurentSeries| (&REST #1=#:G64)
-  (SPROG NIL
-         (PROG (#2=#:G65)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T NIL NIL))
-                     (HGET |$ConstructorCache| '|UnivariateLaurentSeries|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |UnivariateLaurentSeries;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|UnivariateLaurentSeries|)))))))))) 
-
 (DEFUN |UnivariateLaurentSeries;| (|#1| |#2| |#3|)
   (SPROG
    ((#1=#:G63 NIL) (|pv$| NIL) (#2=#:G52 NIL) (#3=#:G53 NIL) (#4=#:G55 NIL)
@@ -628,6 +609,25 @@
      ((|testBitVector| |pv$| 37)
       (QSETREFV % 26 (CONS (|dispatchFunction| |ULS;integrate;%V%;5|) %))))
     %))) 
+
+(DEFUN |UnivariateLaurentSeries| (&REST #1=#:G64)
+  (SPROG NIL
+         (PROG (#2=#:G65)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T NIL NIL))
+                     (HGET |$ConstructorCache| '|UnivariateLaurentSeries|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |UnivariateLaurentSeries;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|UnivariateLaurentSeries|)))))))))) 
 
 (MAKEPROP '|UnivariateLaurentSeries| '|infovec|
           (LIST

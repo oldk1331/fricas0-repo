@@ -204,6 +204,21 @@
 
 (DECLAIM (NOTINLINE |LUDecomposition;|)) 
 
+(DEFUN |LUDecomposition;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|LUDecomposition| DV$1))
+          (LETT % (GETREFV 30))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|LUDecomposition| (LIST DV$1)
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |LUDecomposition| (#1=#:G63)
   (SPROG NIL
          (PROG (#2=#:G64)
@@ -220,21 +235,6 @@
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|LUDecomposition|)))))))))) 
-
-(DEFUN |LUDecomposition;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|LUDecomposition| DV$1))
-          (LETT % (GETREFV 30))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|LUDecomposition| (LIST DV$1)
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|LUDecomposition| '|infovec|
           (LIST

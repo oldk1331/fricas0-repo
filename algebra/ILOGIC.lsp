@@ -1444,22 +1444,6 @@
 
 (DECLAIM (NOTINLINE |ILogic;|)) 
 
-(DEFUN |ILogic| ()
-  (SPROG NIL
-         (PROG (#1=#:G375)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|ILogic|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|ILogic|
-                             (LIST (CONS NIL (CONS 1 (|ILogic;|))))))
-                    (LETT #1# T))
-                (COND ((NOT #1#) (HREM |$ConstructorCache| '|ILogic|)))))))))) 
-
 (DEFUN |ILogic;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -1480,6 +1464,22 @@
                                   (|Record| (|:| |typ| (|Symbol|))
                                             (|:| |c1| %)))))
           %))) 
+
+(DEFUN |ILogic| ()
+  (SPROG NIL
+         (PROG (#1=#:G375)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|ILogic|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|ILogic|
+                             (LIST (CONS NIL (CONS 1 (|ILogic;|))))))
+                    (LETT #1# T))
+                (COND ((NOT #1#) (HREM |$ConstructorCache| '|ILogic|)))))))))) 
 
 (MAKEPROP '|ILogic| '|infovec|
           (LIST

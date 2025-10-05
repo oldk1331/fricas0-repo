@@ -1254,25 +1254,6 @@
 
 (DECLAIM (NOTINLINE |PolynomialGcdPackage;|)) 
 
-(DEFUN |PolynomialGcdPackage| (&REST #1=#:G291)
-  (SPROG NIL
-         (PROG (#2=#:G292)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|PolynomialGcdPackage|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |PolynomialGcdPackage;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|PolynomialGcdPackage|)))))))))) 
-
 (DEFUN |PolynomialGcdPackage;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -1296,6 +1277,25 @@
     (SETF |pv$| (QREFELT % 3))
     (QSETREFV % 10 8388619)
     %))) 
+
+(DEFUN |PolynomialGcdPackage| (&REST #1=#:G291)
+  (SPROG NIL
+         (PROG (#2=#:G292)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|PolynomialGcdPackage|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |PolynomialGcdPackage;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|PolynomialGcdPackage|)))))))))) 
 
 (MAKEPROP '|PolynomialGcdPackage| '|infovec|
           (LIST

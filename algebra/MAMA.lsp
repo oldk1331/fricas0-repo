@@ -204,25 +204,6 @@
 
 (DECLAIM (NOTINLINE |MatrixManipulation;|)) 
 
-(DEFUN |MatrixManipulation| (&REST #1=#:G52)
-  (SPROG NIL
-         (PROG (#2=#:G53)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|MatrixManipulation|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |MatrixManipulation;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|MatrixManipulation|)))))))))) 
-
 (DEFUN |MatrixManipulation;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -260,6 +241,25 @@
        (QSETREFV % 39
                  (CONS (|dispatchFunction| |MAMA;bandMatrix;MSM;12|) %)))))
     %))) 
+
+(DEFUN |MatrixManipulation| (&REST #1=#:G52)
+  (SPROG NIL
+         (PROG (#2=#:G53)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|MatrixManipulation|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |MatrixManipulation;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|MatrixManipulation|)))))))))) 
 
 (MAKEPROP '|MatrixManipulation| '|infovec|
           (LIST

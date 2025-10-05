@@ -368,6 +368,21 @@
 
 (DECLAIM (NOTINLINE |FloatingComplexPackage;|)) 
 
+(DEFUN |FloatingComplexPackage;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|FloatingComplexPackage| DV$1))
+          (LETT % (GETREFV 50))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|FloatingComplexPackage| (LIST DV$1)
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |FloatingComplexPackage| (#1=#:G85)
   (SPROG NIL
          (PROG (#2=#:G86)
@@ -385,21 +400,6 @@
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|FloatingComplexPackage|)))))))))) 
-
-(DEFUN |FloatingComplexPackage;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|FloatingComplexPackage| DV$1))
-          (LETT % (GETREFV 50))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|FloatingComplexPackage| (LIST DV$1)
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|FloatingComplexPackage| '|infovec|
           (LIST

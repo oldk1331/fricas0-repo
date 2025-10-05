@@ -289,25 +289,6 @@
 
 (DECLAIM (NOTINLINE |UnivariatePuiseuxSeries;|)) 
 
-(DEFUN |UnivariatePuiseuxSeries| (&REST #1=#:G109)
-  (SPROG NIL
-         (PROG (#2=#:G110)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T NIL NIL))
-                     (HGET |$ConstructorCache| '|UnivariatePuiseuxSeries|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |UnivariatePuiseuxSeries;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|UnivariatePuiseuxSeries|)))))))))) 
-
 (DEFUN |UnivariatePuiseuxSeries;| (|#1| |#2| |#3|)
   (SPROG
    ((|pv$| NIL) (#1=#:G102 NIL) (#2=#:G103 NIL) (#3=#:G104 NIL) (#4=#:G105 NIL)
@@ -605,6 +586,25 @@
                    (CONS (|dispatchFunction| |UPXS;approximate;%FCoef;12|)
                          %)))))))
     %))) 
+
+(DEFUN |UnivariatePuiseuxSeries| (&REST #1=#:G109)
+  (SPROG NIL
+         (PROG (#2=#:G110)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T NIL NIL))
+                     (HGET |$ConstructorCache| '|UnivariatePuiseuxSeries|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |UnivariatePuiseuxSeries;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|UnivariatePuiseuxSeries|)))))))))) 
 
 (MAKEPROP '|UnivariatePuiseuxSeries| '|infovec|
           (LIST

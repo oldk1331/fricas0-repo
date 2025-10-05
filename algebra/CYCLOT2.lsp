@@ -1196,6 +1196,19 @@
 
 (DECLAIM (NOTINLINE |CyclotomicUtilities;|)) 
 
+(DEFUN |CyclotomicUtilities;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|CyclotomicUtilities|))
+          (LETT % (GETREFV 50))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|CyclotomicUtilities| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |CyclotomicUtilities| ()
   (SPROG NIL
          (PROG (#1=#:G318)
@@ -1214,19 +1227,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|CyclotomicUtilities|)))))))))) 
-
-(DEFUN |CyclotomicUtilities;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|CyclotomicUtilities|))
-          (LETT % (GETREFV 50))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|CyclotomicUtilities| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|CyclotomicUtilities| '|infovec|
           (LIST

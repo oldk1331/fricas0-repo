@@ -56,6 +56,21 @@
 
 (DECLAIM (NOTINLINE |XmlAttribute;|)) 
 
+(DEFUN |XmlAttribute;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|XmlAttribute|))
+          (LETT % (GETREFV 21))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|XmlAttribute| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6
+                    (|Record| (|:| |n| (|String|))
+                              (|:| |v| (|List| (|String|)))))
+          %))) 
+
 (DEFUN |XmlAttribute| ()
   (SPROG NIL
          (PROG (#1=#:G17)
@@ -72,21 +87,6 @@
                     (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|XmlAttribute|)))))))))) 
-
-(DEFUN |XmlAttribute;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|XmlAttribute|))
-          (LETT % (GETREFV 21))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|XmlAttribute| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6
-                    (|Record| (|:| |n| (|String|))
-                              (|:| |v| (|List| (|String|)))))
-          %))) 
 
 (MAKEPROP '|XmlAttribute| '|infovec|
           (LIST

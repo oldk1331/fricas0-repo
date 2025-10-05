@@ -863,23 +863,6 @@
 
 (DECLAIM (NOTINLINE |UnittestCount;|)) 
 
-(DEFUN |UnittestCount| ()
-  (SPROG NIL
-         (PROG (#1=#:G157)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|UnittestCount|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|UnittestCount|
-                             (LIST (CONS NIL (CONS 1 (|UnittestCount;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#) (HREM |$ConstructorCache| '|UnittestCount|)))))))))) 
-
 (DEFUN |UnittestCount;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -896,6 +879,23 @@
           (QSETREFV % 14 #1="")
           (QSETREFV % 15 #1#)
           %))) 
+
+(DEFUN |UnittestCount| ()
+  (SPROG NIL
+         (PROG (#1=#:G157)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|UnittestCount|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|UnittestCount|
+                             (LIST (CONS NIL (CONS 1 (|UnittestCount;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#) (HREM |$ConstructorCache| '|UnittestCount|)))))))))) 
 
 (MAKEPROP '|UnittestCount| '|infovec|
           (LIST

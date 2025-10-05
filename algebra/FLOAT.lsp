@@ -1488,22 +1488,6 @@
 
 (DECLAIM (NOTINLINE |Float;|)) 
 
-(DEFUN |Float| ()
-  (SPROG NIL
-         (PROG (#1=#:G461)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|Float|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|Float|
-                             (LIST (CONS NIL (CONS 1 (|Float;|))))))
-                    (LETT #1# T))
-                (COND ((NOT #1#) (HREM |$ConstructorCache| '|Float|)))))))))) 
-
 (DEFUN |Float;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -1529,6 +1513,22 @@
           (QSETREFV % 118 -1)
           (QSETREFV % 129 (LIST "fixed" #1# "floating"))
           %))) 
+
+(DEFUN |Float| ()
+  (SPROG NIL
+         (PROG (#1=#:G461)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|Float|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|Float|
+                             (LIST (CONS NIL (CONS 1 (|Float;|))))))
+                    (LETT #1# T))
+                (COND ((NOT #1#) (HREM |$ConstructorCache| '|Float|)))))))))) 
 
 (MAKEPROP '|Float| '|infovec|
           (LIST

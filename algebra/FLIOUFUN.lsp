@@ -1439,6 +1439,20 @@
 
 (DECLAIM (NOTINLINE |FloatLiouvilianFunctions;|)) 
 
+(DEFUN |FloatLiouvilianFunctions;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|FloatLiouvilianFunctions|))
+          (LETT % (GETREFV 80))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|FloatLiouvilianFunctions| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 8 (CONS -1 (|spadConstant| % 7)))
+          %))) 
+
 (DEFUN |FloatLiouvilianFunctions| ()
   (SPROG NIL
          (PROG (#1=#:G172)
@@ -1459,20 +1473,6 @@
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
                         '|FloatLiouvilianFunctions|)))))))))) 
-
-(DEFUN |FloatLiouvilianFunctions;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|FloatLiouvilianFunctions|))
-          (LETT % (GETREFV 80))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|FloatLiouvilianFunctions| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 8 (CONS -1 (|spadConstant| % 7)))
-          %))) 
 
 (MAKEPROP '|FloatLiouvilianFunctions| '|infovec|
           (LIST

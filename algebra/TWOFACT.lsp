@@ -1050,6 +1050,21 @@
 
 (DECLAIM (NOTINLINE |TwoFactorize;|)) 
 
+(DEFUN |TwoFactorize;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|TwoFactorize| DV$1))
+          (LETT % (GETREFV 96))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|TwoFactorize| (LIST DV$1)
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |TwoFactorize| (#1=#:G173)
   (SPROG NIL
          (PROG (#2=#:G174)
@@ -1065,21 +1080,6 @@
               (UNWIND-PROTECT (PROG1 (|TwoFactorize;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|TwoFactorize|)))))))))) 
-
-(DEFUN |TwoFactorize;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|TwoFactorize| DV$1))
-          (LETT % (GETREFV 96))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|TwoFactorize| (LIST DV$1)
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|TwoFactorize| '|infovec|
           (LIST

@@ -199,6 +199,21 @@
 
 (DECLAIM (NOTINLINE |RandomFloatDistributions;|)) 
 
+(DEFUN |RandomFloatDistributions;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|RandomFloatDistributions|))
+          (LETT % (GETREFV 43))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|RandomFloatDistributions| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 12
+                    (SPADCALL (- (SPADCALL (QREFELT % 8)) 1) (QREFELT % 11)))
+          %))) 
+
 (DEFUN |RandomFloatDistributions| ()
   (SPROG NIL
          (PROG (#1=#:G42)
@@ -219,21 +234,6 @@
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
                         '|RandomFloatDistributions|)))))))))) 
-
-(DEFUN |RandomFloatDistributions;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|RandomFloatDistributions|))
-          (LETT % (GETREFV 43))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|RandomFloatDistributions| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 12
-                    (SPADCALL (- (SPADCALL (QREFELT % 8)) 1) (QREFELT % 11)))
-          %))) 
 
 (MAKEPROP '|RandomFloatDistributions| '|infovec|
           (LIST

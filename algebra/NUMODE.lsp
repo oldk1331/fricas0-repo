@@ -573,6 +573,19 @@
 
 (DECLAIM (NOTINLINE |NumericalOrdinaryDifferentialEquations;|)) 
 
+(DEFUN |NumericalOrdinaryDifferentialEquations;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|NumericalOrdinaryDifferentialEquations|))
+          (LETT % (GETREFV 53))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache|
+                      '|NumericalOrdinaryDifferentialEquations| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |NumericalOrdinaryDifferentialEquations| ()
   (SPROG NIL
          (PROG (#1=#:G153)
@@ -597,19 +610,6 @@
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
                         '|NumericalOrdinaryDifferentialEquations|)))))))))) 
-
-(DEFUN |NumericalOrdinaryDifferentialEquations;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|NumericalOrdinaryDifferentialEquations|))
-          (LETT % (GETREFV 53))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache|
-                      '|NumericalOrdinaryDifferentialEquations| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|NumericalOrdinaryDifferentialEquations| '|infovec|
           (LIST

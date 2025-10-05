@@ -1380,27 +1380,6 @@
 
 (DECLAIM (NOTINLINE |ThreeDimensionalViewport;|)) 
 
-(DEFUN |ThreeDimensionalViewport| ()
-  (SPROG NIL
-         (PROG (#1=#:G336)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|ThreeDimensionalViewport|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|ThreeDimensionalViewport|
-                             (LIST
-                              (CONS NIL
-                                    (CONS 1 (|ThreeDimensionalViewport;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#)
-                  (HREM |$ConstructorCache|
-                        '|ThreeDimensionalViewport|)))))))))) 
-
 (DEFUN |ThreeDimensionalViewport;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -1493,6 +1472,27 @@
           (QSETREFV % 22 0.0)
           (QSETREFV % 23 0.0)
           %))) 
+
+(DEFUN |ThreeDimensionalViewport| ()
+  (SPROG NIL
+         (PROG (#1=#:G336)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|ThreeDimensionalViewport|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|ThreeDimensionalViewport|
+                             (LIST
+                              (CONS NIL
+                                    (CONS 1 (|ThreeDimensionalViewport;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache|
+                        '|ThreeDimensionalViewport|)))))))))) 
 
 (MAKEPROP '|ThreeDimensionalViewport| '|infovec|
           (LIST

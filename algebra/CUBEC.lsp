@@ -446,24 +446,6 @@
 
 (DECLAIM (NOTINLINE |FiniteCubicalComplex;|)) 
 
-(DEFUN |FiniteCubicalComplex| (#1=#:G152)
-  (SPROG NIL
-         (PROG (#2=#:G153)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|FiniteCubicalComplex|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|FiniteCubicalComplex;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|FiniteCubicalComplex|)))))))))) 
-
 (DEFUN |FiniteCubicalComplex;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -481,6 +463,24 @@
                     (|Record| (|:| VERTSET (|List| |#1|))
                               (|:| CUBE (|List| (|CubicalFacet|)))))
           %))) 
+
+(DEFUN |FiniteCubicalComplex| (#1=#:G152)
+  (SPROG NIL
+         (PROG (#2=#:G153)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|FiniteCubicalComplex|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|FiniteCubicalComplex;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|FiniteCubicalComplex|)))))))))) 
 
 (MAKEPROP '|FiniteCubicalComplex| '|infovec|
           (LIST

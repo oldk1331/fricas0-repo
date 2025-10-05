@@ -670,6 +670,19 @@
 
 (DECLAIM (NOTINLINE |FloatingPointConvertion;|)) 
 
+(DEFUN |FloatingPointConvertion;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|FloatingPointConvertion|))
+          (LETT % (GETREFV 35))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|FloatingPointConvertion| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |FloatingPointConvertion| ()
   (SPROG NIL
          (PROG (#1=#:G157)
@@ -689,19 +702,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|FloatingPointConvertion|)))))))))) 
-
-(DEFUN |FloatingPointConvertion;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|FloatingPointConvertion|))
-          (LETT % (GETREFV 35))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|FloatingPointConvertion| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|FloatingPointConvertion| '|infovec|
           (LIST

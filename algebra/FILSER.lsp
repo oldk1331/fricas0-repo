@@ -433,25 +433,6 @@
 
 (DECLAIM (NOTINLINE |FileSerialization;|)) 
 
-(DEFUN |FileSerialization| ()
-  (SPROG NIL
-         (PROG (#1=#:G160)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|FileSerialization|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|FileSerialization|
-                             (LIST
-                              (CONS NIL (CONS 1 (|FileSerialization;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#)
-                  (HREM |$ConstructorCache| '|FileSerialization|)))))))))) 
-
 (DEFUN |FileSerialization;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -497,6 +478,25 @@
                      (CONS 'FIX (SPADCALL 'FIXNUM (QREFELT % 8)))
                      (CONS 'DF (SPADCALL 'DOUBLE-FLOAT (QREFELT % 8)))))
           %))) 
+
+(DEFUN |FileSerialization| ()
+  (SPROG NIL
+         (PROG (#1=#:G160)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|FileSerialization|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|FileSerialization|
+                             (LIST
+                              (CONS NIL (CONS 1 (|FileSerialization;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|FileSerialization|)))))))))) 
 
 (MAKEPROP '|FileSerialization| '|infovec|
           (LIST

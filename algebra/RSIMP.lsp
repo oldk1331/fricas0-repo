@@ -2031,25 +2031,6 @@
 
 (DECLAIM (NOTINLINE |RootSimplification;|)) 
 
-(DEFUN |RootSimplification| ()
-  (SPROG NIL
-         (PROG (#1=#:G243)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|RootSimplification|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|RootSimplification|
-                             (LIST
-                              (CONS NIL (CONS 1 (|RootSimplification;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#)
-                  (HREM |$ConstructorCache| '|RootSimplification|)))))))))) 
-
 (DEFUN |RootSimplification;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -3056,6 +3037,25 @@
           (QSETREFV % 98
                     (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
           %))) 
+
+(DEFUN |RootSimplification| ()
+  (SPROG NIL
+         (PROG (#1=#:G243)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|RootSimplification|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|RootSimplification|
+                             (LIST
+                              (CONS NIL (CONS 1 (|RootSimplification;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|RootSimplification|)))))))))) 
 
 (MAKEPROP '|RootSimplification| '|infovec|
           (LIST

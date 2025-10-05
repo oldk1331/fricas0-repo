@@ -1270,22 +1270,6 @@
 
 (DECLAIM (NOTINLINE |Plot;|)) 
 
-(DEFUN |Plot| ()
-  (SPROG NIL
-         (PROG (#1=#:G311)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|Plot|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|Plot|
-                             (LIST (CONS NIL (CONS 1 (|Plot;|))))))
-                    (LETT #1# T))
-                (COND ((NOT #1#) (HREM |$ConstructorCache| '|Plot|)))))))))) 
-
 (DEFUN |Plot;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -1326,6 +1310,22 @@
                                (QREFELT % 13))))
           (QSETREFV % 15 NIL)
           %))) 
+
+(DEFUN |Plot| ()
+  (SPROG NIL
+         (PROG (#1=#:G311)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|Plot|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|Plot|
+                             (LIST (CONS NIL (CONS 1 (|Plot;|))))))
+                    (LETT #1# T))
+                (COND ((NOT #1#) (HREM |$ConstructorCache| '|Plot|)))))))))) 
 
 (MAKEPROP '|Plot| '|infovec|
           (LIST

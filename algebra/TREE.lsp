@@ -485,21 +485,6 @@
 
 (DECLAIM (NOTINLINE |Tree;|)) 
 
-(DEFUN |Tree| (#1=#:G162)
-  (SPROG NIL
-         (PROG (#2=#:G163)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|Tree|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|Tree;| #1#) (LETT #2# T))
-                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Tree|)))))))))) 
-
 (DEFUN |Tree;| (|#1|)
   (SPROG
    ((|pv$| NIL) (#1=#:G159 NIL) (#2=#:G160 NIL) (#3=#:G161 NIL) (% NIL)
@@ -565,6 +550,21 @@
       (QSETREFV % 46
                 (CONS (|dispatchFunction| |TREE;hashUpdate!;Hs%Hs;22|) %))))
     %))) 
+
+(DEFUN |Tree| (#1=#:G162)
+  (SPROG NIL
+         (PROG (#2=#:G163)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Tree|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Tree;| #1#) (LETT #2# T))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Tree|)))))))))) 
 
 (MAKEPROP '|Tree| '|infovec|
           (LIST

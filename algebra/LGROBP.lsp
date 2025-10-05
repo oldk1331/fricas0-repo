@@ -1023,25 +1023,6 @@
 
 (DECLAIM (NOTINLINE |LinGroebnerPackage;|)) 
 
-(DEFUN |LinGroebnerPackage| (&REST #1=#:G202)
-  (SPROG NIL
-         (PROG (#2=#:G203)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(NIL T))
-                                               (HGET |$ConstructorCache|
-                                                     '|LinGroebnerPackage|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |LinGroebnerPackage;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|LinGroebnerPackage|)))))))))) 
-
 (DEFUN |LinGroebnerPackage;| (|#1| |#2|)
   (SPROG
    ((#1=#:G8 NIL) (#2=#:G201 NIL) (|yx| NIL) (#3=#:G200 NIL) (|pv$| NIL)
@@ -1087,6 +1068,25 @@
                      (LETT #2# (CDR #2#)) (GO G190) G191
                      (EXIT (NREVERSE #3#)))))
      %)))) 
+
+(DEFUN |LinGroebnerPackage| (&REST #1=#:G202)
+  (SPROG NIL
+         (PROG (#2=#:G203)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(NIL T))
+                                               (HGET |$ConstructorCache|
+                                                     '|LinGroebnerPackage|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |LinGroebnerPackage;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|LinGroebnerPackage|)))))))))) 
 
 (MAKEPROP '|LinGroebnerPackage| '|infovec|
           (LIST

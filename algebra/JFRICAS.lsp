@@ -118,6 +118,18 @@
 
 (DECLAIM (NOTINLINE |JFriCASSupport;|)) 
 
+(DEFUN |JFriCASSupport;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|JFriCASSupport|))
+          (LETT % (GETREFV 26))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|JFriCASSupport| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |JFriCASSupport| ()
   (SPROG NIL
          (PROG (#1=#:G21)
@@ -135,18 +147,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|JFriCASSupport|)))))))))) 
-
-(DEFUN |JFriCASSupport;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|JFriCASSupport|))
-          (LETT % (GETREFV 26))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|JFriCASSupport| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|JFriCASSupport| '|infovec|
           (LIST

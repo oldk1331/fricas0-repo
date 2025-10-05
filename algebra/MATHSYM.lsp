@@ -131,6 +131,20 @@
 
 (DECLAIM (NOTINLINE |MathematicalSymbols;|)) 
 
+(DEFUN |MathematicalSymbols;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|MathematicalSymbols|))
+          (LETT % (GETREFV 62))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|MathematicalSymbols| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6 0)
+          %))) 
+
 (DEFUN |MathematicalSymbols| ()
   (SPROG NIL
          (PROG (#1=#:G62)
@@ -149,20 +163,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|MathematicalSymbols|)))))))))) 
-
-(DEFUN |MathematicalSymbols;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|MathematicalSymbols|))
-          (LETT % (GETREFV 62))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|MathematicalSymbols| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6 0)
-          %))) 
 
 (MAKEPROP '|MathematicalSymbols| '|infovec|
           (LIST

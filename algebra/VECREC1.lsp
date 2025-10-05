@@ -677,29 +677,6 @@
 
 (DECLAIM (NOTINLINE |VectorModularReconstructor;|)) 
 
-(DEFUN |VectorModularReconstructor| ()
-  (SPROG NIL
-         (PROG (#1=#:G191)
-           (RETURN
-            (COND
-             ((LETT #1#
-                    (HGET |$ConstructorCache| '|VectorModularReconstructor|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|VectorModularReconstructor|
-                             (LIST
-                              (CONS NIL
-                                    (CONS 1
-                                          (|VectorModularReconstructor;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#)
-                  (HREM |$ConstructorCache|
-                        '|VectorModularReconstructor|)))))))))) 
-
 (DEFUN |VectorModularReconstructor;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -724,6 +701,29 @@
                               (|:| |numers| (|PrimitiveArray| (|U32Vector|)))
                               (|:| |denoms| (|PrimitiveArray| (|U32Vector|)))))
           %))) 
+
+(DEFUN |VectorModularReconstructor| ()
+  (SPROG NIL
+         (PROG (#1=#:G191)
+           (RETURN
+            (COND
+             ((LETT #1#
+                    (HGET |$ConstructorCache| '|VectorModularReconstructor|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|VectorModularReconstructor|
+                             (LIST
+                              (CONS NIL
+                                    (CONS 1
+                                          (|VectorModularReconstructor;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache|
+                        '|VectorModularReconstructor|)))))))))) 
 
 (MAKEPROP '|VectorModularReconstructor| '|infovec|
           (LIST

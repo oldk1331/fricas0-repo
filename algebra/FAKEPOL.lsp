@@ -411,24 +411,6 @@
 
 (DECLAIM (NOTINLINE |FakePolynomial;|)) 
 
-(DEFUN |FakePolynomial| ()
-  (SPROG NIL
-         (PROG (#1=#:G120)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|FakePolynomial|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|FakePolynomial|
-                             (LIST (CONS NIL (CONS 1 (|FakePolynomial;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#)
-                  (HREM |$ConstructorCache| '|FakePolynomial|)))))))))) 
-
 (DEFUN |FakePolynomial;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -453,6 +435,24 @@
                                                 (|Polynomial|
                                                  (|Integer|))))))))))
           %))) 
+
+(DEFUN |FakePolynomial| ()
+  (SPROG NIL
+         (PROG (#1=#:G120)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|FakePolynomial|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|FakePolynomial|
+                             (LIST (CONS NIL (CONS 1 (|FakePolynomial;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|FakePolynomial|)))))))))) 
 
 (MAKEPROP '|FakePolynomial| '|infovec|
           (LIST

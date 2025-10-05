@@ -3969,26 +3969,6 @@
 
 (DECLAIM (NOTINLINE |FunctionalSpecialFunction;|)) 
 
-(DEFUN |FunctionalSpecialFunction| (&REST #1=#:G1351)
-  (SPROG NIL
-         (PROG (#2=#:G1352)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|FunctionalSpecialFunction|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |FunctionalSpecialFunction;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|FunctionalSpecialFunction|)))))))))) 
-
 (DEFUN |FunctionalSpecialFunction;| (|#1| |#2|)
   (SPROG
    ((#1=#:G165 NIL) (|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
@@ -4603,6 +4583,26 @@
     (SPADCALL (QREFELT % 36) '|%specialDiff|
               (CONS (|function| |FSPECF;dPolylog|) %) (QREFELT % 141))
     %))) 
+
+(DEFUN |FunctionalSpecialFunction| (&REST #1=#:G1351)
+  (SPROG NIL
+         (PROG (#2=#:G1352)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|FunctionalSpecialFunction|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |FunctionalSpecialFunction;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|FunctionalSpecialFunction|)))))))))) 
 
 (DEFUN |FunctionalSpecialFunction!5| (|x| %)
   (SPADCALL |x| (SPADCALL |x| (QREFELT % 83)) (QREFELT % 122))) 

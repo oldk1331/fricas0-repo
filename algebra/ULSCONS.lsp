@@ -1263,28 +1263,6 @@
 
 (DECLAIM (NOTINLINE |UnivariateLaurentSeriesConstructor;|)) 
 
-(DEFUN |UnivariateLaurentSeriesConstructor| (&REST #1=#:G464)
-  (SPROG NIL
-         (PROG (#2=#:G465)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|UnivariateLaurentSeriesConstructor|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |UnivariateLaurentSeriesConstructor;|)
-                             #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|UnivariateLaurentSeriesConstructor|)))))))))) 
-
 (DEFUN |UnivariateLaurentSeriesConstructor;| (|#1| |#2|)
   (SPROG
    ((#1=#:G463 NIL) (|pv$| NIL) (#2=#:G452 NIL) (#3=#:G453 NIL) (#4=#:G455 NIL)
@@ -1840,6 +1818,28 @@
                         (CONS (|dispatchFunction| |ULSCONS;integrate;%S%;94|)
                               %))))))))))))
     %))) 
+
+(DEFUN |UnivariateLaurentSeriesConstructor| (&REST #1=#:G464)
+  (SPROG NIL
+         (PROG (#2=#:G465)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|UnivariateLaurentSeriesConstructor|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |UnivariateLaurentSeriesConstructor;|)
+                             #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|UnivariateLaurentSeriesConstructor|)))))))))) 
 
 (MAKEPROP '|UnivariateLaurentSeriesConstructor| '|infovec|
           (LIST

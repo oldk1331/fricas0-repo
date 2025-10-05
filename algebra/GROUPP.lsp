@@ -2920,6 +2920,22 @@
 
 (DECLAIM (NOTINLINE |GroupPresentation;|)) 
 
+(DEFUN |GroupPresentation;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|GroupPresentation|))
+          (LETT % (GETREFV 123))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|GroupPresentation| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6
+                    (|Record|
+                     (|:| |gens| (|PrimitiveArray| (|NonNegativeInteger|)))
+                     (|:| |rels| (|List| (|List| (|Integer|))))))
+          %))) 
+
 (DEFUN |GroupPresentation| ()
   (SPROG NIL
          (PROG (#1=#:G572)
@@ -2938,22 +2954,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|GroupPresentation|)))))))))) 
-
-(DEFUN |GroupPresentation;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|GroupPresentation|))
-          (LETT % (GETREFV 123))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|GroupPresentation| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6
-                    (|Record|
-                     (|:| |gens| (|PrimitiveArray| (|NonNegativeInteger|)))
-                     (|:| |rels| (|List| (|List| (|Integer|))))))
-          %))) 
 
 (MAKEPROP '|GroupPresentation| '|infovec|
           (LIST

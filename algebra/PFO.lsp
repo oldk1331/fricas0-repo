@@ -1895,25 +1895,6 @@
 
 (DECLAIM (NOTINLINE |PointsOfFiniteOrder;|)) 
 
-(DEFUN |PointsOfFiniteOrder| (&REST #1=#:G770)
-  (SPROG NIL
-         (PROG (#2=#:G771)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|PointsOfFiniteOrder|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |PointsOfFiniteOrder;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|PointsOfFiniteOrder|)))))))))) 
-
 (DEFUN |PointsOfFiniteOrder;| (|#1| |#2| |#3| |#4| |#5|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -1974,6 +1955,25 @@
                   (CONS (|dispatchFunction| |PFO;simplifyCoeffs;RLNni;40|)
                         %))))))
     %))) 
+
+(DEFUN |PointsOfFiniteOrder| (&REST #1=#:G770)
+  (SPROG NIL
+         (PROG (#2=#:G771)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|PointsOfFiniteOrder|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |PointsOfFiniteOrder;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|PointsOfFiniteOrder|)))))))))) 
 
 (MAKEPROP '|PointsOfFiniteOrder| '|infovec|
           (LIST

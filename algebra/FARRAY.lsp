@@ -1,22 +1,6 @@
 
 (DECLAIM (NOTINLINE |FlexibleArray;|)) 
 
-(DEFUN |FlexibleArray| (#1=#:G10)
-  (SPROG NIL
-         (PROG (#2=#:G11)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|FlexibleArray|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|FlexibleArray;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|FlexibleArray|)))))))))) 
-
 (DEFUN |FlexibleArray;| (|#1|)
   (SPROG
    ((|pv$| NIL) (#1=#:G7 NIL) (#2=#:G8 NIL) (#3=#:G9 NIL) (% NIL) (|dv$| NIL)
@@ -118,6 +102,22 @@
      (|augmentPredVector| % 8388608))
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |FlexibleArray| (#1=#:G10)
+  (SPROG NIL
+         (PROG (#2=#:G11)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|FlexibleArray|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|FlexibleArray;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|FlexibleArray|)))))))))) 
 
 (MAKEPROP '|FlexibleArray| '|infovec|
           (LIST

@@ -2375,26 +2375,6 @@
 
 (DECLAIM (NOTINLINE |ModularHermitePadeSolver;|)) 
 
-(DEFUN |ModularHermitePadeSolver| (&REST #1=#:G1049)
-  (SPROG NIL
-         (PROG (#2=#:G1050)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|ModularHermitePadeSolver|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |ModularHermitePadeSolver;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|ModularHermitePadeSolver|)))))))))) 
-
 (DEFUN |ModularHermitePadeSolver;| (|#1| |#2|)
   (SPROG
    ((#1=#:G967 NIL) (#2=#:G965 NIL) (#3=#:G924 NIL) (#4=#:G922 NIL)
@@ -3497,6 +3477,26 @@
                    |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;132|)
                   %)))))
     %))) 
+
+(DEFUN |ModularHermitePadeSolver| (&REST #1=#:G1049)
+  (SPROG NIL
+         (PROG (#2=#:G1050)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|ModularHermitePadeSolver|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |ModularHermitePadeSolver;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|ModularHermitePadeSolver|)))))))))) 
 
 (MAKEPROP '|ModularHermitePadeSolver| '|infovec|
           (LIST

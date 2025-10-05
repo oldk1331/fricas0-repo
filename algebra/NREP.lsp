@@ -28,6 +28,21 @@
 
 (DECLAIM (NOTINLINE |NumericRealEigenPackage;|)) 
 
+(DEFUN |NumericRealEigenPackage;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|NumericRealEigenPackage| DV$1))
+          (LETT % (GETREFV 29))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|NumericRealEigenPackage|
+                      (LIST DV$1) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |NumericRealEigenPackage| (#1=#:G7)
   (SPROG NIL
          (PROG (#2=#:G8)
@@ -45,21 +60,6 @@
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|NumericRealEigenPackage|)))))))))) 
-
-(DEFUN |NumericRealEigenPackage;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|NumericRealEigenPackage| DV$1))
-          (LETT % (GETREFV 29))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|NumericRealEigenPackage|
-                      (LIST DV$1) (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|NumericRealEigenPackage| '|infovec|
           (LIST

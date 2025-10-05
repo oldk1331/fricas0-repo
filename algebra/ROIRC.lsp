@@ -1204,6 +1204,28 @@
 
 (DECLAIM (NOTINLINE |RightOpenIntervalRootCharacterization;|)) 
 
+(DEFUN |RightOpenIntervalRootCharacterization;| (|#1| |#2|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$|
+                (LIST '|RightOpenIntervalRootCharacterization| DV$1 DV$2))
+          (LETT % (GETREFV 95))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache|
+                      '|RightOpenIntervalRootCharacterization| (LIST DV$1 DV$2)
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (QSETREFV % 7 |#2|)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 8
+                    (|Record| (|:| |low| |#1|) (|:| |high| |#1|)
+                              (|:| |defPol| |#2|)))
+          %))) 
+
 (DEFUN |RightOpenIntervalRootCharacterization| (&REST #1=#:G273)
   (SPROG NIL
          (PROG (#2=#:G274)
@@ -1226,28 +1248,6 @@
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
                         '|RightOpenIntervalRootCharacterization|)))))))))) 
-
-(DEFUN |RightOpenIntervalRootCharacterization;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT DV$2 (|devaluate| |#2|))
-          (LETT |dv$|
-                (LIST '|RightOpenIntervalRootCharacterization| DV$1 DV$2))
-          (LETT % (GETREFV 95))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache|
-                      '|RightOpenIntervalRootCharacterization| (LIST DV$1 DV$2)
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (QSETREFV % 7 |#2|)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 8
-                    (|Record| (|:| |low| |#1|) (|:| |high| |#1|)
-                              (|:| |defPol| |#2|)))
-          %))) 
 
 (MAKEPROP '|RightOpenIntervalRootCharacterization| '|infovec|
           (LIST

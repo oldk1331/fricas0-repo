@@ -221,23 +221,6 @@
 
 (DECLAIM (NOTINLINE |RewriteRule;|)) 
 
-(DEFUN |RewriteRule| (&REST #1=#:G84)
-  (SPROG NIL
-         (PROG (#2=#:G85)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|RewriteRule|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |RewriteRule;|) #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|RewriteRule|)))))))))) 
-
 (DEFUN |RewriteRule;| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -260,6 +243,23 @@
                               (|:| |rgt| |#3|)
                               (|:| |qot| (|List| (|Symbol|)))))
           %))) 
+
+(DEFUN |RewriteRule| (&REST #1=#:G84)
+  (SPROG NIL
+         (PROG (#2=#:G85)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|RewriteRule|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |RewriteRule;|) #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|RewriteRule|)))))))))) 
 
 (MAKEPROP '|RewriteRule| '|infovec|
           (LIST

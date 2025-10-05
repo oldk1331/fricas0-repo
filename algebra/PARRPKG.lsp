@@ -123,6 +123,21 @@
 
 (DECLAIM (NOTINLINE |PathArrayPackage;|)) 
 
+(DEFUN |PathArrayPackage;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|PathArrayPackage| DV$1))
+          (LETT % (GETREFV 26))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|PathArrayPackage| (LIST DV$1)
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |PathArrayPackage| (#1=#:G22)
   (SPROG NIL
          (PROG (#2=#:G23)
@@ -139,21 +154,6 @@
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|PathArrayPackage|)))))))))) 
-
-(DEFUN |PathArrayPackage;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|PathArrayPackage| DV$1))
-          (LETT % (GETREFV 26))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|PathArrayPackage| (LIST DV$1)
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|PathArrayPackage| '|infovec|
           (LIST

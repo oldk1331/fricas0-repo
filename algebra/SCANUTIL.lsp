@@ -147,6 +147,18 @@
 
 (DECLAIM (NOTINLINE |ScanningUtilities;|)) 
 
+(DEFUN |ScanningUtilities;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|ScanningUtilities|))
+          (LETT % (GETREFV 11))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|ScanningUtilities| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |ScanningUtilities| ()
   (SPROG NIL
          (PROG (#1=#:G43)
@@ -165,18 +177,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|ScanningUtilities|)))))))))) 
-
-(DEFUN |ScanningUtilities;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|ScanningUtilities|))
-          (LETT % (GETREFV 11))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|ScanningUtilities| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|ScanningUtilities| '|infovec|
           (LIST

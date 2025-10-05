@@ -2005,25 +2005,6 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldPolynomialPackage;|)) 
 
-(DEFUN |FiniteFieldPolynomialPackage| (#1=#:G560)
-  (SPROG NIL
-         (PROG (#2=#:G561)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|FiniteFieldPolynomialPackage|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|FiniteFieldPolynomialPackage;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|FiniteFieldPolynomialPackage|)))))))))) 
-
 (DEFUN |FiniteFieldPolynomialPackage;| (|#1|)
   (SPROG
    ((#1=#:G43 NIL) (#2=#:G42 NIL) (|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
@@ -2053,6 +2034,25 @@
                     ('T (QEQCAR (SPADCALL (QREFELT % 21)) 0))))
     (QSETREFV % 23 (|ModMonic| |#1| (|SparseUnivariatePolynomial| |#1|)))
     %))) 
+
+(DEFUN |FiniteFieldPolynomialPackage| (#1=#:G560)
+  (SPROG NIL
+         (PROG (#2=#:G561)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|FiniteFieldPolynomialPackage|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|FiniteFieldPolynomialPackage;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|FiniteFieldPolynomialPackage|)))))))))) 
 
 (MAKEPROP '|FiniteFieldPolynomialPackage| '|infovec|
           (LIST

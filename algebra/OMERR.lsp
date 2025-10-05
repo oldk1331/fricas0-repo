@@ -58,6 +58,21 @@
 
 (DECLAIM (NOTINLINE |OpenMathError;|)) 
 
+(DEFUN |OpenMathError;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|OpenMathError|))
+          (LETT % (GETREFV 27))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|OpenMathError| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6
+                    (|Record| (|:| |err| (|OpenMathErrorKind|))
+                              (|:| |info| (|List| (|Symbol|)))))
+          %))) 
+
 (DEFUN |OpenMathError| ()
   (SPROG NIL
          (PROG (#1=#:G16)
@@ -74,21 +89,6 @@
                     (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|OpenMathError|)))))))))) 
-
-(DEFUN |OpenMathError;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|OpenMathError|))
-          (LETT % (GETREFV 27))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|OpenMathError| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6
-                    (|Record| (|:| |err| (|OpenMathErrorKind|))
-                              (|:| |info| (|List| (|Symbol|)))))
-          %))) 
 
 (MAKEPROP '|OpenMathError| '|infovec|
           (LIST

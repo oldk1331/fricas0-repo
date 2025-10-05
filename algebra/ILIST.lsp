@@ -6,23 +6,6 @@
 
 (DECLAIM (NOTINLINE |IndexedList;|)) 
 
-(DEFUN |IndexedList| (&REST #1=#:G16)
-  (SPROG NIL
-         (PROG (#2=#:G17)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(T NIL))
-                                               (HGET |$ConstructorCache|
-                                                     '|IndexedList|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |IndexedList;|) #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|IndexedList|)))))))))) 
-
 (DEFUN |IndexedList;| (|#1| |#2|)
   (SPROG
    ((#1=#:G12 NIL) (#2=#:G13 NIL) (#3=#:G15 NIL) (#4=#:G14 NIL) (|pv$| NIL)
@@ -110,6 +93,23 @@
     (AND #4# #1# (|augmentPredVector| % 8388608))
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |IndexedList| (&REST #1=#:G16)
+  (SPROG NIL
+         (PROG (#2=#:G17)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(T NIL))
+                                               (HGET |$ConstructorCache|
+                                                     '|IndexedList|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |IndexedList;|) #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|IndexedList|)))))))))) 
 
 (MAKEPROP '|IndexedList| '|infovec|
           (LIST

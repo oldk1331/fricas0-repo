@@ -589,25 +589,6 @@
 
 (DECLAIM (NOTINLINE |RadicalFunctionField;|)) 
 
-(DEFUN |RadicalFunctionField| (&REST #1=#:G231)
-  (SPROG NIL
-         (PROG (#2=#:G232)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T T T NIL NIL))
-                     (HGET |$ConstructorCache| '|RadicalFunctionField|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |RadicalFunctionField;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|RadicalFunctionField|)))))))))) 
-
 (DEFUN |RadicalFunctionField;| (|#1| |#2| |#3| |#4| |#5|)
   (SPROG
    ((#1=#:G10 NIL) (|pv$| NIL) (#2=#:G229 NIL) (#3=#:G230 NIL) (% NIL)
@@ -708,6 +689,25 @@
     (QSETREFV % 27 (MAKEARR1 |#5| (|spadConstant| % 18)))
     (QSETREFV % 31 (SPADCALL (QREFELT % 24) (QREFELT % 30)))
     %))) 
+
+(DEFUN |RadicalFunctionField| (&REST #1=#:G231)
+  (SPROG NIL
+         (PROG (#2=#:G232)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T T T NIL NIL))
+                     (HGET |$ConstructorCache| '|RadicalFunctionField|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |RadicalFunctionField;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|RadicalFunctionField|)))))))))) 
 
 (MAKEPROP '|RadicalFunctionField| '|infovec|
           (LIST

@@ -547,25 +547,6 @@
 
 (DECLAIM (NOTINLINE |IntegerCombinatoricFunctions;|)) 
 
-(DEFUN |IntegerCombinatoricFunctions| (#1=#:G110)
-  (SPROG NIL
-         (PROG (#2=#:G111)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|IntegerCombinatoricFunctions|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|IntegerCombinatoricFunctions;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|IntegerCombinatoricFunctions|)))))))))) 
-
 (DEFUN |IntegerCombinatoricFunctions;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -586,6 +567,25 @@
           (QSETREFV % 13 (CONS (|spadConstant| % 7) (|spadConstant| % 12)))
           (QSETREFV % 18 (SPADCALL 1 (|spadConstant| % 8) (QREFELT % 17)))
           %))) 
+
+(DEFUN |IntegerCombinatoricFunctions| (#1=#:G110)
+  (SPROG NIL
+         (PROG (#2=#:G111)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|IntegerCombinatoricFunctions|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|IntegerCombinatoricFunctions;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|IntegerCombinatoricFunctions|)))))))))) 
 
 (MAKEPROP '|IntegerCombinatoricFunctions| '|infovec|
           (LIST

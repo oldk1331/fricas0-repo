@@ -1775,25 +1775,6 @@
 
 (DECLAIM (NOTINLINE |XPolynomialFactor;|)) 
 
-(DEFUN |XPolynomialFactor| (&REST #1=#:G358)
-  (SPROG NIL
-         (PROG (#2=#:G359)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|XPolynomialFactor|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |XPolynomialFactor;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|XPolynomialFactor|)))))))))) 
-
 (DEFUN |XPolynomialFactor;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -1822,6 +1803,25 @@
                        (CONS (|dispatchFunction| |XPFACT;factor;XdpL;26|)
                              %)))))
           %))) 
+
+(DEFUN |XPolynomialFactor| (&REST #1=#:G358)
+  (SPROG NIL
+         (PROG (#2=#:G359)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|XPolynomialFactor|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |XPolynomialFactor;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|XPolynomialFactor|)))))))))) 
 
 (MAKEPROP '|XPolynomialFactor| '|infovec|
           (LIST

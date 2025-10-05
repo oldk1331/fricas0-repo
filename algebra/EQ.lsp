@@ -329,21 +329,6 @@
 
 (DECLAIM (NOTINLINE |Equation;|)) 
 
-(DEFUN |Equation| (#1=#:G106)
-  (SPROG NIL
-         (PROG (#2=#:G107)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|Equation|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|Equation;| #1#) (LETT #2# T))
-                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Equation|)))))))))) 
-
 (DEFUN |Equation;| (|#1|)
   (SPROG
    ((|pv$| NIL) (#1=#:G102 NIL) (#2=#:G103 NIL) (#3=#:G104 NIL) (#4=#:G105 NIL)
@@ -540,6 +525,21 @@
      ((|testBitVector| |pv$| 1)
       (QSETREFV % 96 (CONS (|dispatchFunction| |EQ;convert;%If;43|) %))))
     %))) 
+
+(DEFUN |Equation| (#1=#:G106)
+  (SPROG NIL
+         (PROG (#2=#:G107)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Equation|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Equation;| #1#) (LETT #2# T))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Equation|)))))))))) 
 
 (MAKEPROP '|Equation| '|infovec|
           (LIST

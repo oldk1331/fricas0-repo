@@ -471,21 +471,6 @@
 
 (DECLAIM (NOTINLINE |List;|)) 
 
-(DEFUN |List| (#1=#:G1541)
-  (SPROG NIL
-         (PROG (#2=#:G1542)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|List|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|List;| #1#) (LETT #2# T))
-                (COND ((NOT #2#) (HREM |$ConstructorCache| '|List|)))))))))) 
-
 (DEFUN |List;| (|#1|)
   (SPROG
    ((#1=#:G1538 NIL) (#2=#:G1540 NIL) (#3=#:G1539 NIL) (|pv$| NIL)
@@ -605,6 +590,21 @@
      ((|testBitVector| |pv$| 2)
       (QSETREFV % 94 (CONS (|dispatchFunction| |LIST;convert;%If;45|) %))))
     %))) 
+
+(DEFUN |List| (#1=#:G1541)
+  (SPROG NIL
+         (PROG (#2=#:G1542)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|List|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|List;| #1#) (LETT #2# T))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|List|)))))))))) 
 
 (MAKEPROP '|List| '|infovec|
           (LIST

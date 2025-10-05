@@ -47,6 +47,21 @@
 
 (DECLAIM (NOTINLINE |CoerceVectorMatrixPackage;|)) 
 
+(DEFUN |CoerceVectorMatrixPackage;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|CoerceVectorMatrixPackage| DV$1))
+          (LETT % (GETREFV 31))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|CoerceVectorMatrixPackage|
+                      (LIST DV$1) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |CoerceVectorMatrixPackage| (#1=#:G16)
   (SPROG NIL
          (PROG (#2=#:G17)
@@ -65,21 +80,6 @@
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
                         '|CoerceVectorMatrixPackage|)))))))))) 
-
-(DEFUN |CoerceVectorMatrixPackage;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|CoerceVectorMatrixPackage| DV$1))
-          (LETT % (GETREFV 31))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|CoerceVectorMatrixPackage|
-                      (LIST DV$1) (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|CoerceVectorMatrixPackage| '|infovec|
           (LIST

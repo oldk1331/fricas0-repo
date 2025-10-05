@@ -729,28 +729,6 @@
 
 (DECLAIM (NOTINLINE |SparseMultivariateTaylorSeries;|)) 
 
-(DEFUN |SparseMultivariateTaylorSeries| (&REST #1=#:G287)
-  (SPROG NIL
-         (PROG (#2=#:G288)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|SparseMultivariateTaylorSeries|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |SparseMultivariateTaylorSeries;|)
-                             #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|SparseMultivariateTaylorSeries|)))))))))) 
-
 (DEFUN |SparseMultivariateTaylorSeries;| (|#1| |#2| |#3|)
   (SPROG
    ((#1=#:G286 NIL) (|pv$| NIL) (#2=#:G285 NIL) (% NIL) (|dv$| NIL) (DV$3 NIL)
@@ -851,6 +829,28 @@
       (PROGN
        (QSETREFV % 206 (CONS (|dispatchFunction| |SMTS;/;%Coef%;68|) %)))))
     %))) 
+
+(DEFUN |SparseMultivariateTaylorSeries| (&REST #1=#:G287)
+  (SPROG NIL
+         (PROG (#2=#:G288)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|SparseMultivariateTaylorSeries|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |SparseMultivariateTaylorSeries;|)
+                             #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|SparseMultivariateTaylorSeries|)))))))))) 
 
 (MAKEPROP '|SparseMultivariateTaylorSeries| '|infovec|
           (LIST

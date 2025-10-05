@@ -206,26 +206,6 @@
 
 (DECLAIM (NOTINLINE |TriangularMatrixOperations;|)) 
 
-(DEFUN |TriangularMatrixOperations| (&REST #1=#:G50)
-  (SPROG NIL
-         (PROG (#2=#:G51)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|TriangularMatrixOperations|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |TriangularMatrixOperations;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|TriangularMatrixOperations|)))))))))) 
-
 (DEFUN |TriangularMatrixOperations;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -248,6 +228,26 @@
     (QSETREFV % 9 |#4|)
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |TriangularMatrixOperations| (&REST #1=#:G50)
+  (SPROG NIL
+         (PROG (#2=#:G51)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|TriangularMatrixOperations|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |TriangularMatrixOperations;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|TriangularMatrixOperations|)))))))))) 
 
 (MAKEPROP '|TriangularMatrixOperations| '|infovec|
           (LIST

@@ -148,24 +148,6 @@
 
 (DECLAIM (NOTINLINE |TensorProduct;|)) 
 
-(DEFUN |TensorProduct| (&REST #1=#:G52)
-  (SPROG NIL
-         (PROG (#2=#:G53)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|TensorProduct|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |TensorProduct;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|TensorProduct|)))))))))) 
-
 (DEFUN |TensorProduct;| (|#1| |#2| |#3| |#4| |#5|)
   (SPROG
    ((|pv$| NIL) (#1=#:G49 NIL) (% NIL) (|dv$| NIL) (DV$5 NIL) (DV$4 NIL)
@@ -397,6 +379,24 @@
                   (CONS #'|makeSpadConstant|
                         (LIST (|dispatchFunction| |TENSOR;One;%;4|) % 41)))))))
     %))) 
+
+(DEFUN |TensorProduct| (&REST #1=#:G52)
+  (SPROG NIL
+         (PROG (#2=#:G53)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|TensorProduct|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |TensorProduct;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|TensorProduct|)))))))))) 
 
 (MAKEPROP '|TensorProduct| '|infovec|
           (LIST

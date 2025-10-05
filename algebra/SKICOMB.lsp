@@ -493,23 +493,6 @@
 
 (DECLAIM (NOTINLINE |SKICombinators;|)) 
 
-(DEFUN |SKICombinators| (#1=#:G184)
-  (SPROG NIL
-         (PROG (#2=#:G185)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|SKICombinators|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|SKICombinators;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|SKICombinators|)))))))))) 
-
 (DEFUN |SKICombinators;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -528,6 +511,23 @@
                              (|:| |nd| (|Record| (|:| |c1| %) (|:| |c2| %)))
                              (|:| |vr| |#1|)))
           %))) 
+
+(DEFUN |SKICombinators| (#1=#:G184)
+  (SPROG NIL
+         (PROG (#2=#:G185)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|SKICombinators|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|SKICombinators;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|SKICombinators|)))))))))) 
 
 (MAKEPROP '|SKICombinators| '|infovec|
           (LIST

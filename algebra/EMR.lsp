@@ -211,25 +211,6 @@
 
 (DECLAIM (NOTINLINE |EuclideanModularRing;|)) 
 
-(DEFUN |EuclideanModularRing| (&REST #1=#:G103)
-  (SPROG NIL
-         (PROG (#2=#:G104)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T T T NIL NIL NIL))
-                     (HGET |$ConstructorCache| '|EuclideanModularRing|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |EuclideanModularRing;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|EuclideanModularRing|)))))))))) 
-
 (DEFUN |EuclideanModularRing;| (|#1| |#2| |#3| |#4| |#5| |#6|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$6 NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL)
@@ -265,6 +246,25 @@
       (QSETREFV % 35 (CONS (|dispatchFunction| |EMR;rem;3%;2|) %)))
      ('T (QSETREFV % 35 (CONS (|dispatchFunction| |EMR;rem;3%;3|) %))))
     %))) 
+
+(DEFUN |EuclideanModularRing| (&REST #1=#:G103)
+  (SPROG NIL
+         (PROG (#2=#:G104)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T T T NIL NIL NIL))
+                     (HGET |$ConstructorCache| '|EuclideanModularRing|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |EuclideanModularRing;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|EuclideanModularRing|)))))))))) 
 
 (MAKEPROP '|EuclideanModularRing| '|infovec|
           (LIST

@@ -25,6 +25,21 @@
 
 (DECLAIM (NOTINLINE |PatternMatchSymbol;|)) 
 
+(DEFUN |PatternMatchSymbol;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|PatternMatchSymbol| DV$1))
+          (LETT % (GETREFV 18))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|PatternMatchSymbol| (LIST DV$1)
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |PatternMatchSymbol| (#1=#:G13)
   (SPROG NIL
          (PROG (#2=#:G14)
@@ -41,21 +56,6 @@
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|PatternMatchSymbol|)))))))))) 
-
-(DEFUN |PatternMatchSymbol;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|PatternMatchSymbol| DV$1))
-          (LETT % (GETREFV 18))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|PatternMatchSymbol| (LIST DV$1)
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|PatternMatchSymbol| '|infovec|
           (LIST

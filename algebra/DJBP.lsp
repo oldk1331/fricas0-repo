@@ -698,29 +698,6 @@
 
 (DECLAIM (NOTINLINE |DistributedJetBundlePolynomial;|)) 
 
-(DEFUN |DistributedJetBundlePolynomial| (&REST #1=#:G272)
-  (SPROG NIL
-         (PROG (#2=#:G273)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T T NIL T))
-                     (HGET |$ConstructorCache|
-                           '|DistributedJetBundlePolynomial|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |DistributedJetBundlePolynomial;|)
-                             #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|DistributedJetBundlePolynomial|)))))))))) 
-
 (DEFUN |DistributedJetBundlePolynomial;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((#1=#:G271 NIL) (|jv| NIL) (#2=#:G270 NIL) (#3=#:G269 NIL) (|pv$| NIL)
@@ -1307,6 +1284,29 @@
          ('T (QSETREFV % 146 (CONS (|dispatchFunction| |DJBP;gcd;3%;35|) %))))
         (QSETREFV % 156 (CONS (|dispatchFunction| |DJBP;groebner;2L;36|) %)))))
      %)))) 
+
+(DEFUN |DistributedJetBundlePolynomial| (&REST #1=#:G272)
+  (SPROG NIL
+         (PROG (#2=#:G273)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T T NIL T))
+                     (HGET |$ConstructorCache|
+                           '|DistributedJetBundlePolynomial|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |DistributedJetBundlePolynomial;|)
+                             #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|DistributedJetBundlePolynomial|)))))))))) 
 
 (MAKEPROP '|DistributedJetBundlePolynomial| '|infovec|
           (LIST

@@ -145,6 +145,19 @@
 
 (DECLAIM (NOTINLINE |VectorHermitePadeSolver;|)) 
 
+(DEFUN |VectorHermitePadeSolver;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|VectorHermitePadeSolver|))
+          (LETT % (GETREFV 40))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|VectorHermitePadeSolver| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |VectorHermitePadeSolver| ()
   (SPROG NIL
          (PROG (#1=#:G44)
@@ -164,19 +177,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|VectorHermitePadeSolver|)))))))))) 
-
-(DEFUN |VectorHermitePadeSolver;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|VectorHermitePadeSolver|))
-          (LETT % (GETREFV 40))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|VectorHermitePadeSolver| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|VectorHermitePadeSolver| '|infovec|
           (LIST

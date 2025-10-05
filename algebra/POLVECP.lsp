@@ -70,6 +70,21 @@
 
 (DECLAIM (NOTINLINE |VectorPolynomialOperationsP;|)) 
 
+(DEFUN |VectorPolynomialOperationsP;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 |#1|)
+          (LETT |dv$| (LIST '|VectorPolynomialOperationsP| DV$1))
+          (LETT % (GETREFV 27))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|VectorPolynomialOperationsP|
+                      (LIST DV$1) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |VectorPolynomialOperationsP| (#1=#:G22)
   (SPROG NIL
          (PROG (#2=#:G23)
@@ -88,21 +103,6 @@
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
                         '|VectorPolynomialOperationsP|)))))))))) 
-
-(DEFUN |VectorPolynomialOperationsP;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 |#1|)
-          (LETT |dv$| (LIST '|VectorPolynomialOperationsP| DV$1))
-          (LETT % (GETREFV 27))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|VectorPolynomialOperationsP|
-                      (LIST DV$1) (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|VectorPolynomialOperationsP| '|infovec|
           (LIST

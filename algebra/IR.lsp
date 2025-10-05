@@ -532,23 +532,6 @@
 
 (DECLAIM (NOTINLINE |IntegrationResult;|)) 
 
-(DEFUN |IntegrationResult| (#1=#:G179)
-  (SPROG NIL
-         (PROG (#2=#:G180)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|IntegrationResult|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|IntegrationResult;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|IntegrationResult|)))))))))) 
-
 (DEFUN |IntegrationResult;| (|#1|)
   (SPROG ((|pv$| NIL) (#1=#:G178 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -622,6 +605,23 @@
                       (CONS (|dispatchFunction| |IR;differentiate;%SF;23|)
                             %))))
           %))) 
+
+(DEFUN |IntegrationResult| (#1=#:G179)
+  (SPROG NIL
+         (PROG (#2=#:G180)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|IntegrationResult|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|IntegrationResult;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|IntegrationResult|)))))))))) 
 
 (MAKEPROP '|IntegrationResult| '|infovec|
           (LIST

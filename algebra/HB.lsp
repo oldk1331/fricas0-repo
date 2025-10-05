@@ -142,6 +142,18 @@
 
 (DECLAIM (NOTINLINE |HallBasis;|)) 
 
+(DEFUN |HallBasis;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|HallBasis|))
+          (LETT % (GETREFV 20))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|HallBasis| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |HallBasis| ()
   (SPROG NIL
          (PROG (#1=#:G56)
@@ -158,18 +170,6 @@
                     (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|HallBasis|)))))))))) 
-
-(DEFUN |HallBasis;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|HallBasis|))
-          (LETT % (GETREFV 20))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|HallBasis| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|HallBasis| '|infovec|
           (LIST

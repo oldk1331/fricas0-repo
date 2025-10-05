@@ -894,23 +894,6 @@
 
 (DECLAIM (NOTINLINE |MonoidRing;|)) 
 
-(DEFUN |MonoidRing| (&REST #1=#:G390)
-  (SPROG NIL
-         (PROG (#2=#:G391)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|MonoidRing|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |MonoidRing;|) #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|MonoidRing|)))))))))) 
-
 (DEFUN |MonoidRing;| (|#1| |#2|)
   (SPROG
    ((|pv$| NIL) (#1=#:G388 NIL) (#2=#:G389 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL)
@@ -1019,6 +1002,23 @@
        (QSETREFV % 29 (CONS (|dispatchFunction| |MRING;+;3%;54|) %))
        (QSETREFV % 104 (CONS (|dispatchFunction| |MRING;*;3%;55|) %)))))
     %))) 
+
+(DEFUN |MonoidRing| (&REST #1=#:G390)
+  (SPROG NIL
+         (PROG (#2=#:G391)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|MonoidRing|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |MonoidRing;|) #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|MonoidRing|)))))))))) 
 
 (MAKEPROP '|MonoidRing| '|infovec|
           (LIST

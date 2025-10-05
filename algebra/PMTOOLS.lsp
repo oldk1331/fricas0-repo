@@ -512,25 +512,6 @@
 
 (DECLAIM (NOTINLINE |PatternMatchTools;|)) 
 
-(DEFUN |PatternMatchTools| (&REST #1=#:G225)
-  (SPROG NIL
-         (PROG (#2=#:G226)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|PatternMatchTools|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |PatternMatchTools;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|PatternMatchTools|)))))))))) 
-
 (DEFUN |PatternMatchTools;| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -552,6 +533,25 @@
                     (SPADCALL (SPADCALL (|spadConstant| % 9) (QREFELT % 10))
                               (QREFELT % 12)))
           %))) 
+
+(DEFUN |PatternMatchTools| (&REST #1=#:G225)
+  (SPROG NIL
+         (PROG (#2=#:G226)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|PatternMatchTools|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |PatternMatchTools;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|PatternMatchTools|)))))))))) 
 
 (MAKEPROP '|PatternMatchTools| '|infovec|
           (LIST

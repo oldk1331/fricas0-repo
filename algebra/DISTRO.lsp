@@ -494,22 +494,6 @@
 
 (DECLAIM (NOTINLINE |Distribution;|)) 
 
-(DEFUN |Distribution| (#1=#:G123)
-  (SPROG NIL
-         (PROG (#2=#:G124)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|Distribution|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|Distribution;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|Distribution|)))))))))) 
-
 (DEFUN |Distribution;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -598,6 +582,22 @@
                          |DISTRO;orthogonalPolynomials;%S;39|)
                         %)))))
           %))) 
+
+(DEFUN |Distribution| (#1=#:G123)
+  (SPROG NIL
+         (PROG (#2=#:G124)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Distribution|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Distribution;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|Distribution|)))))))))) 
 
 (MAKEPROP '|Distribution| '|infovec|
           (LIST

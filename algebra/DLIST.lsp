@@ -25,21 +25,6 @@
 
 (DECLAIM (NOTINLINE |DataList;|)) 
 
-(DEFUN |DataList| (#1=#:G21)
-  (SPROG NIL
-         (PROG (#2=#:G22)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|DataList|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|DataList;| #1#) (LETT #2# T))
-                (COND ((NOT #2#) (HREM |$ConstructorCache| '|DataList|)))))))))) 
-
 (DEFUN |DataList;| (|#1|)
   (SPROG
    ((#1=#:G17 NIL) (#2=#:G18 NIL) (#3=#:G20 NIL) (#4=#:G19 NIL) (|pv$| NIL)
@@ -125,6 +110,21 @@
     (AND #4# #1# (|augmentPredVector| % 8388608))
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |DataList| (#1=#:G21)
+  (SPROG NIL
+         (PROG (#2=#:G22)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|DataList|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|DataList;| #1#) (LETT #2# T))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|DataList|)))))))))) 
 
 (MAKEPROP '|DataList| '|infovec|
           (LIST

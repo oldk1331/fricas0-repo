@@ -279,25 +279,6 @@
 
 (DECLAIM (NOTINLINE |NormalizationPackage;|)) 
 
-(DEFUN |NormalizationPackage| (&REST #1=#:G85)
-  (SPROG NIL
-         (PROG (#2=#:G86)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|NormalizationPackage|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |NormalizationPackage;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|NormalizationPackage|)))))))))) 
-
 (DEFUN |NormalizationPackage;| (|#1| |#2| |#3| |#4| |#5|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -346,6 +327,25 @@
       (QSETREFV % 34
                 (CONS (|dispatchFunction| |NORMPK;outputArgs;2SPTSV;5|) %))))
     %))) 
+
+(DEFUN |NormalizationPackage| (&REST #1=#:G85)
+  (SPROG NIL
+         (PROG (#2=#:G86)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|NormalizationPackage|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |NormalizationPackage;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|NormalizationPackage|)))))))))) 
 
 (MAKEPROP '|NormalizationPackage| '|infovec|
           (LIST

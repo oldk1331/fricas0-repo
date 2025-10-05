@@ -1996,26 +1996,6 @@
 
 (DECLAIM (NOTINLINE |PureAlgebraicIntegration;|)) 
 
-(DEFUN |PureAlgebraicIntegration| (&REST #1=#:G390)
-  (SPROG NIL
-         (PROG (#2=#:G391)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|PureAlgebraicIntegration|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |PureAlgebraicIntegration;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|PureAlgebraicIntegration|)))))))))) 
-
 (DEFUN |PureAlgebraicIntegration;| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -2051,6 +2031,26 @@
                       (CONS (|dispatchFunction| |INTPAF;palgLODE;LF2KSR;26|)
                             %))))
           %))) 
+
+(DEFUN |PureAlgebraicIntegration| (&REST #1=#:G390)
+  (SPROG NIL
+         (PROG (#2=#:G391)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|PureAlgebraicIntegration|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |PureAlgebraicIntegration;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|PureAlgebraicIntegration|)))))))))) 
 
 (MAKEPROP '|PureAlgebraicIntegration| '|infovec|
           (LIST

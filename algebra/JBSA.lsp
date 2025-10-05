@@ -52,25 +52,6 @@
 
 (DECLAIM (NOTINLINE |JetBundleSymAna;|)) 
 
-(DEFUN |JetBundleSymAna| (&REST #1=#:G55)
-  (SPROG NIL
-         (PROG (#2=#:G56)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T NIL NIL))
-                     (HGET |$ConstructorCache| '|JetBundleSymAna|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |JetBundleSymAna;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|JetBundleSymAna|)))))))))) 
-
 (DEFUN |JetBundleSymAna;| (|#1| |#2| |#3|)
   (SPROG
    ((#1=#:G54 NIL) (|i| NIL) (#2=#:G53 NIL) (#3=#:G52 NIL) (#4=#:G51 NIL)
@@ -198,6 +179,25 @@
       ('T (SETELT % 22 (SPADCALL (QREFELT % 22) (QCDR |#3|) (QREFELT % 31)))))
      (QSETREFV % 32 (|JetBundle| (QREFELT % 21) (QREFELT % 22)))
      %)))) 
+
+(DEFUN |JetBundleSymAna| (&REST #1=#:G55)
+  (SPROG NIL
+         (PROG (#2=#:G56)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T NIL NIL))
+                     (HGET |$ConstructorCache| '|JetBundleSymAna|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |JetBundleSymAna;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|JetBundleSymAna|)))))))))) 
 
 (MAKEPROP '|JetBundleSymAna| '|infovec|
           (LIST

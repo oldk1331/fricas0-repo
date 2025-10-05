@@ -101,23 +101,6 @@
 
 (DECLAIM (NOTINLINE |SymmetricPolynomial;|)) 
 
-(DEFUN |SymmetricPolynomial| (#1=#:G53)
-  (SPROG NIL
-         (PROG (#2=#:G54)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|SymmetricPolynomial|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|SymmetricPolynomial;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|SymmetricPolynomial|)))))))))) 
-
 (DEFUN |SymmetricPolynomial;| (|#1|)
   (SPROG
    ((|pv$| NIL) (#1=#:G50 NIL) (#2=#:G51 NIL) (#3=#:G52 NIL) (% NIL)
@@ -282,6 +265,23 @@
       (QSETREFV % 20 (CONS (|dispatchFunction| |SYMPOLY;*;3%;1|) %)))
      ('T (QSETREFV % 20 (CONS (|dispatchFunction| |SYMPOLY;*;3%;2|) %))))
     %))) 
+
+(DEFUN |SymmetricPolynomial| (#1=#:G53)
+  (SPROG NIL
+         (PROG (#2=#:G54)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|SymmetricPolynomial|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|SymmetricPolynomial;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|SymmetricPolynomial|)))))))))) 
 
 (MAKEPROP '|SymmetricPolynomial| '|infovec|
           (LIST

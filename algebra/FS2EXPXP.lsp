@@ -1729,29 +1729,6 @@
 
 (DECLAIM (NOTINLINE |FunctionSpaceToExponentialExpansion;|)) 
 
-(DEFUN |FunctionSpaceToExponentialExpansion| (&REST #1=#:G420)
-  (SPROG NIL
-         (PROG (#2=#:G421)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T T NIL NIL))
-                     (HGET |$ConstructorCache|
-                           '|FunctionSpaceToExponentialExpansion|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY
-                       (|function| |FunctionSpaceToExponentialExpansion;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|FunctionSpaceToExponentialExpansion|)))))))))) 
-
 (DEFUN |FunctionSpaceToExponentialExpansion;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -1787,6 +1764,29 @@
       (QSETREFV % 157
                 (CONS (|dispatchFunction| |FS2EXPXP;localAbs;2FE;33|) %))))
     %))) 
+
+(DEFUN |FunctionSpaceToExponentialExpansion| (&REST #1=#:G420)
+  (SPROG NIL
+         (PROG (#2=#:G421)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T T NIL NIL))
+                     (HGET |$ConstructorCache|
+                           '|FunctionSpaceToExponentialExpansion|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY
+                       (|function| |FunctionSpaceToExponentialExpansion;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|FunctionSpaceToExponentialExpansion|)))))))))) 
 
 (MAKEPROP '|FunctionSpaceToExponentialExpansion| '|infovec|
           (LIST

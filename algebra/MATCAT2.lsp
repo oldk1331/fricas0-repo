@@ -108,26 +108,6 @@
 
 (DECLAIM (NOTINLINE |MatrixCategoryFunctions2;|)) 
 
-(DEFUN |MatrixCategoryFunctions2| (&REST #1=#:G45)
-  (SPROG NIL
-         (PROG (#2=#:G46)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|MatrixCategoryFunctions2|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |MatrixCategoryFunctions2;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|MatrixCategoryFunctions2|)))))))))) 
-
 (DEFUN |MatrixCategoryFunctions2;| (|#1| |#2| |#3| |#4| |#5| |#6| |#7| |#8|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$8 NIL) (DV$7 NIL) (DV$6 NIL) (DV$5 NIL)
@@ -160,6 +140,26 @@
     (QSETREFV % 13 |#8|)
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |MatrixCategoryFunctions2| (&REST #1=#:G45)
+  (SPROG NIL
+         (PROG (#2=#:G46)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|MatrixCategoryFunctions2|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |MatrixCategoryFunctions2;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|MatrixCategoryFunctions2|)))))))))) 
 
 (MAKEPROP '|MatrixCategoryFunctions2| '|infovec|
           (LIST

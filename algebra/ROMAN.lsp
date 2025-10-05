@@ -33,6 +33,18 @@
 
 (DECLAIM (NOTINLINE |RomanNumeral;|)) 
 
+(DEFUN |RomanNumeral;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|RomanNumeral|))
+          (LETT % (GETREFV 47))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|RomanNumeral| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |RomanNumeral| ()
   (SPROG NIL
          (PROG (#1=#:G40)
@@ -49,18 +61,6 @@
                     (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|RomanNumeral|)))))))))) 
-
-(DEFUN |RomanNumeral;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|RomanNumeral|))
-          (LETT % (GETREFV 47))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|RomanNumeral| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|RomanNumeral| '|infovec|
           (LIST

@@ -42,21 +42,6 @@
 
 (DECLAIM (NOTINLINE |Tuple;|)) 
 
-(DEFUN |Tuple| (#1=#:G18)
-  (SPROG NIL
-         (PROG (#2=#:G19)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|Tuple|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|Tuple;| #1#) (LETT #2# T))
-                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Tuple|)))))))))) 
-
 (DEFUN |Tuple;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -88,6 +73,21 @@
             (QSETREFV % 23
                       (CONS (|dispatchFunction| |TUPLE;coerce;%Of;6|) %))))
           %))) 
+
+(DEFUN |Tuple| (#1=#:G18)
+  (SPROG NIL
+         (PROG (#2=#:G19)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Tuple|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Tuple;| #1#) (LETT #2# T))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Tuple|)))))))))) 
 
 (MAKEPROP '|Tuple| '|infovec|
           (LIST

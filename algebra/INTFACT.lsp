@@ -535,6 +535,21 @@
 
 (DECLAIM (NOTINLINE |IntegerFactorizationPackage;|)) 
 
+(DEFUN |IntegerFactorizationPackage;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|IntegerFactorizationPackage| DV$1))
+          (LETT % (GETREFV 67))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|IntegerFactorizationPackage|
+                      (LIST DV$1) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |IntegerFactorizationPackage| (#1=#:G130)
   (SPROG NIL
          (PROG (#2=#:G131)
@@ -553,21 +568,6 @@
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
                         '|IntegerFactorizationPackage|)))))))))) 
-
-(DEFUN |IntegerFactorizationPackage;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|IntegerFactorizationPackage| DV$1))
-          (LETT % (GETREFV 67))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|IntegerFactorizationPackage|
-                      (LIST DV$1) (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|IntegerFactorizationPackage| '|infovec|
           (LIST

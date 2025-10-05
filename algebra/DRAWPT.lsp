@@ -144,6 +144,19 @@
 
 (DECLAIM (NOTINLINE |TopLevelDrawFunctionsForPoints;|)) 
 
+(DEFUN |TopLevelDrawFunctionsForPoints;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|TopLevelDrawFunctionsForPoints|))
+          (LETT % (GETREFV 31))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|TopLevelDrawFunctionsForPoints| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |TopLevelDrawFunctionsForPoints| ()
   (SPROG NIL
          (PROG (#1=#:G27)
@@ -168,19 +181,6 @@
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
                         '|TopLevelDrawFunctionsForPoints|)))))))))) 
-
-(DEFUN |TopLevelDrawFunctionsForPoints;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|TopLevelDrawFunctionsForPoints|))
-          (LETT % (GETREFV 31))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|TopLevelDrawFunctionsForPoints| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|TopLevelDrawFunctionsForPoints| '|infovec|
           (LIST

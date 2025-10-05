@@ -91,6 +91,21 @@
 
 (DECLAIM (NOTINLINE |PiDomain;|)) 
 
+(DEFUN |PiDomain;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|PiDomain|))
+          (LETT % (GETREFV 81))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|PiDomain| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6
+                    (|Fraction| (|SparseUnivariatePolynomial| (|Integer|))))
+          (QSETREFV % 7 '|%pi|)
+          %))) 
+
 (DEFUN |PiDomain| ()
   (SPROG NIL
          (PROG (#1=#:G47)
@@ -106,21 +121,6 @@
                              (LIST (CONS NIL (CONS 1 (|PiDomain;|))))))
                     (LETT #1# T))
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|PiDomain|)))))))))) 
-
-(DEFUN |PiDomain;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|PiDomain|))
-          (LETT % (GETREFV 81))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|PiDomain| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6
-                    (|Fraction| (|SparseUnivariatePolynomial| (|Integer|))))
-          (QSETREFV % 7 '|%pi|)
-          %))) 
 
 (MAKEPROP '|PiDomain| '|infovec|
           (LIST

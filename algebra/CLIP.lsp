@@ -635,6 +635,19 @@
 
 (DECLAIM (NOTINLINE |TwoDimensionalPlotClipping;|)) 
 
+(DEFUN |TwoDimensionalPlotClipping;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|TwoDimensionalPlotClipping|))
+          (LETT % (GETREFV 68))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|TwoDimensionalPlotClipping| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |TwoDimensionalPlotClipping| ()
   (SPROG NIL
          (PROG (#1=#:G172)
@@ -657,19 +670,6 @@
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
                         '|TwoDimensionalPlotClipping|)))))))))) 
-
-(DEFUN |TwoDimensionalPlotClipping;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|TwoDimensionalPlotClipping|))
-          (LETT % (GETREFV 68))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|TwoDimensionalPlotClipping| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|TwoDimensionalPlotClipping| '|infovec|
           (LIST

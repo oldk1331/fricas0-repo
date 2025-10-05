@@ -290,23 +290,6 @@
 
 (DECLAIM (NOTINLINE |FreeModule;|)) 
 
-(DEFUN |FreeModule| (&REST #1=#:G129)
-  (SPROG NIL
-         (PROG (#2=#:G130)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|FreeModule|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |FreeModule;|) #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|FreeModule|)))))))))) 
-
 (DEFUN |FreeModule;| (|#1| |#2|)
   (SPROG
    ((|pv$| NIL) (#1=#:G128 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
@@ -442,6 +425,23 @@
        (QSETREFV % 54
                  (CONS (|dispatchFunction| |FM;linearExtend;M%R;20|) %)))))
     %))) 
+
+(DEFUN |FreeModule| (&REST #1=#:G129)
+  (SPROG NIL
+         (PROG (#2=#:G130)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|FreeModule|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |FreeModule;|) #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|FreeModule|)))))))))) 
 
 (MAKEPROP '|FreeModule| '|infovec|
           (LIST

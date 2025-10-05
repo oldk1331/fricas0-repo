@@ -349,24 +349,6 @@
 
 (DECLAIM (NOTINLINE |ExpressionToOpenMath;|)) 
 
-(DEFUN |ExpressionToOpenMath| (#1=#:G103)
-  (SPROG NIL
-         (PROG (#2=#:G104)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|ExpressionToOpenMath|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|ExpressionToOpenMath;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|ExpressionToOpenMath|)))))))))) 
-
 (DEFUN |ExpressionToOpenMath;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -415,6 +397,24 @@
                            (CONS '|abs| (CONS "arith1" "abs")))
                      (QREFELT % 11)))
           %))) 
+
+(DEFUN |ExpressionToOpenMath| (#1=#:G103)
+  (SPROG NIL
+         (PROG (#2=#:G104)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|ExpressionToOpenMath|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|ExpressionToOpenMath;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|ExpressionToOpenMath|)))))))))) 
 
 (MAKEPROP '|ExpressionToOpenMath| '|infovec|
           (LIST

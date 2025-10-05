@@ -399,7 +399,6 @@
 ;     makeCharacter 9496,     -- lower right corner  (+)
 ;     makeCharacter 9474,     -- vertical bar
 ;     makeCharacter 9472,     -- horizontal bar      (-)
-;     -- $quadSymbol,      -- APL quad            (?)
 ;     '_?,  -- APL quad
 ;     '_[,      -- left bracket
 ;     '_],      -- right bracket

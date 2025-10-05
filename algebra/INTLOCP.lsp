@@ -382,24 +382,6 @@
 
 (DECLAIM (NOTINLINE |IntegerLocalizedAtPrime;|)) 
 
-(DEFUN |IntegerLocalizedAtPrime| (#1=#:G169)
-  (SPROG NIL
-         (PROG (#2=#:G170)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|IntegerLocalizedAtPrime|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|IntegerLocalizedAtPrime;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|IntegerLocalizedAtPrime|)))))))))) 
-
 (DEFUN |IntegerLocalizedAtPrime;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -419,6 +401,24 @@
                  (|error|
                   "Argument of IntegerLocalizedAtPrime must be a prime")))
           %))) 
+
+(DEFUN |IntegerLocalizedAtPrime| (#1=#:G169)
+  (SPROG NIL
+         (PROG (#2=#:G170)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|IntegerLocalizedAtPrime|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|IntegerLocalizedAtPrime;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|IntegerLocalizedAtPrime|)))))))))) 
 
 (MAKEPROP '|IntegerLocalizedAtPrime| '|infovec|
           (LIST

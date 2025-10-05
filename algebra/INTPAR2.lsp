@@ -2229,25 +2229,6 @@
 
 (DECLAIM (NOTINLINE |ParametricIntegration;|)) 
 
-(DEFUN |ParametricIntegration| (&REST #1=#:G558)
-  (SPROG NIL
-         (PROG (#2=#:G559)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|ParametricIntegration|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |ParametricIntegration;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|ParametricIntegration|)))))))))) 
-
 (DEFUN |ParametricIntegration;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -2278,6 +2259,25 @@
                        (|dispatchFunction| |INTPAR2;polylog_int;FSKNniLFU;15|)
                        %))))
           %))) 
+
+(DEFUN |ParametricIntegration| (&REST #1=#:G558)
+  (SPROG NIL
+         (PROG (#2=#:G559)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|ParametricIntegration|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |ParametricIntegration;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|ParametricIntegration|)))))))))) 
 
 (MAKEPROP '|ParametricIntegration| '|infovec|
           (LIST

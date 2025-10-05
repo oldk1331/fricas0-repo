@@ -91,6 +91,21 @@
 
 (DECLAIM (NOTINLINE |DiscreteLogarithmPackage;|)) 
 
+(DEFUN |DiscreteLogarithmPackage;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|DiscreteLogarithmPackage| DV$1))
+          (LETT % (GETREFV 27))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|DiscreteLogarithmPackage|
+                      (LIST DV$1) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |DiscreteLogarithmPackage| (#1=#:G26)
   (SPROG NIL
          (PROG (#2=#:G27)
@@ -109,21 +124,6 @@
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
                         '|DiscreteLogarithmPackage|)))))))))) 
-
-(DEFUN |DiscreteLogarithmPackage;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|DiscreteLogarithmPackage| DV$1))
-          (LETT % (GETREFV 27))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|DiscreteLogarithmPackage|
-                      (LIST DV$1) (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|DiscreteLogarithmPackage| '|infovec|
           (LIST

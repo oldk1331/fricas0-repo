@@ -573,6 +573,22 @@
 
 (DECLAIM (NOTINLINE |IntegerNumberTheoryFunctions;|)) 
 
+(DEFUN |IntegerNumberTheoryFunctions;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|IntegerNumberTheoryFunctions|))
+          (LETT % (GETREFV 68))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|IntegerNumberTheoryFunctions| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 10 (SPADCALL 1 1 (QREFELT % 9)))
+          (QSETREFV % 15 (SPADCALL 1 (|spadConstant| % 12) (QREFELT % 14)))
+          (QSETREFV % 16 (CONS 1 (|spadConstant| % 12)))
+          %))) 
+
 (DEFUN |IntegerNumberTheoryFunctions| ()
   (SPROG NIL
          (PROG (#1=#:G163)
@@ -596,22 +612,6 @@
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
                         '|IntegerNumberTheoryFunctions|)))))))))) 
-
-(DEFUN |IntegerNumberTheoryFunctions;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|IntegerNumberTheoryFunctions|))
-          (LETT % (GETREFV 68))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|IntegerNumberTheoryFunctions| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 10 (SPADCALL 1 1 (QREFELT % 9)))
-          (QSETREFV % 15 (SPADCALL 1 (|spadConstant| % 12) (QREFELT % 14)))
-          (QSETREFV % 16 (CONS 1 (|spadConstant| % 12)))
-          %))) 
 
 (MAKEPROP '|IntegerNumberTheoryFunctions| '|infovec|
           (LIST

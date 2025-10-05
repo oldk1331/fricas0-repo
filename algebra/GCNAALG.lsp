@@ -394,27 +394,6 @@
 
 (DECLAIM (NOTINLINE |GenericNonAssociativeAlgebra;|)) 
 
-(DEFUN |GenericNonAssociativeAlgebra| (&REST #1=#:G128)
-  (SPROG NIL
-         (PROG (#2=#:G129)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T NIL NIL NIL))
-                     (HGET |$ConstructorCache| '|GenericNonAssociativeAlgebra|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |GenericNonAssociativeAlgebra;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|GenericNonAssociativeAlgebra|)))))))))) 
-
 (DEFUN |GenericNonAssociativeAlgebra;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((|v| NIL) (#1=#:G125 NIL) (#2=#:G127 NIL) (|i| NIL) (#3=#:G126 NIL)
@@ -556,6 +535,27 @@
                   (CONS (|dispatchFunction| |GCNAALG;genericRightNorm;%F;15|)
                         %)))))
      %)))) 
+
+(DEFUN |GenericNonAssociativeAlgebra| (&REST #1=#:G128)
+  (SPROG NIL
+         (PROG (#2=#:G129)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T NIL NIL NIL))
+                     (HGET |$ConstructorCache| '|GenericNonAssociativeAlgebra|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |GenericNonAssociativeAlgebra;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|GenericNonAssociativeAlgebra|)))))))))) 
 
 (MAKEPROP '|GenericNonAssociativeAlgebra| '|infovec|
           (LIST

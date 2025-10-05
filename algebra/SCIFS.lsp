@@ -617,21 +617,6 @@
 
 (DECLAIM (NOTINLINE |SceneIFS;|)) 
 
-(DEFUN |SceneIFS| (#1=#:G146)
-  (SPROG NIL
-         (PROG (#2=#:G147)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|SceneIFS|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|SceneIFS;| #1#) (LETT #2# T))
-                (COND ((NOT #2#) (HREM |$ConstructorCache| '|SceneIFS|)))))))))) 
-
 (DEFUN |SceneIFS;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -654,6 +639,21 @@
           (QSETREFV % 34 (SPADCALL 1 1 0 (QREFELT % 21)))
           (QSETREFV % 35 (QREFELT % 34))
           %))) 
+
+(DEFUN |SceneIFS| (#1=#:G146)
+  (SPROG NIL
+         (PROG (#2=#:G147)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|SceneIFS|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|SceneIFS;| #1#) (LETT #2# T))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|SceneIFS|)))))))))) 
 
 (MAKEPROP '|SceneIFS| '|infovec|
           (LIST

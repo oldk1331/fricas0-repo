@@ -80,6 +80,19 @@
 
 (DECLAIM (NOTINLINE |FloatingPointOperations;|)) 
 
+(DEFUN |FloatingPointOperations;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|FloatingPointOperations|))
+          (LETT % (GETREFV 10))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|FloatingPointOperations| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |FloatingPointOperations| ()
   (SPROG NIL
          (PROG (#1=#:G12)
@@ -99,19 +112,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|FloatingPointOperations|)))))))))) 
-
-(DEFUN |FloatingPointOperations;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|FloatingPointOperations|))
-          (LETT % (GETREFV 10))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|FloatingPointOperations| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|FloatingPointOperations| '|infovec|
           (LIST

@@ -628,6 +628,19 @@
 
 (DECLAIM (NOTINLINE |ModularFactorizationTools1;|)) 
 
+(DEFUN |ModularFactorizationTools1;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|ModularFactorizationTools1|))
+          (LETT % (GETREFV 52))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|ModularFactorizationTools1| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |ModularFactorizationTools1| ()
   (SPROG NIL
          (PROG (#1=#:G192)
@@ -650,19 +663,6 @@
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
                         '|ModularFactorizationTools1|)))))))))) 
-
-(DEFUN |ModularFactorizationTools1;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|ModularFactorizationTools1|))
-          (LETT % (GETREFV 52))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|ModularFactorizationTools1| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|ModularFactorizationTools1| '|infovec|
           (LIST

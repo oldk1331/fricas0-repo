@@ -1563,24 +1563,6 @@
 
 (DECLAIM (NOTINLINE |MrvLimitPackage;|)) 
 
-(DEFUN |MrvLimitPackage| ()
-  (SPROG NIL
-         (PROG (#1=#:G351)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|MrvLimitPackage|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|MrvLimitPackage|
-                             (LIST (CONS NIL (CONS 1 (|MrvLimitPackage;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#)
-                  (HREM |$ConstructorCache| '|MrvLimitPackage|)))))))))) 
-
 (DEFUN |MrvLimitPackage;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -1633,6 +1615,24 @@
                                                              (ELT % 69)
                                                              (QREFELT % 11)))
           %))) 
+
+(DEFUN |MrvLimitPackage| ()
+  (SPROG NIL
+         (PROG (#1=#:G351)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|MrvLimitPackage|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|MrvLimitPackage|
+                             (LIST (CONS NIL (CONS 1 (|MrvLimitPackage;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|MrvLimitPackage|)))))))))) 
 
 (MAKEPROP '|MrvLimitPackage| '|infovec|
           (LIST

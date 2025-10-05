@@ -1936,25 +1936,6 @@
 
 (DECLAIM (NOTINLINE |JetDifferentialEquation;|)) 
 
-(DEFUN |JetDifferentialEquation| (&REST #1=#:G529)
-  (SPROG NIL
-         (PROG (#2=#:G530)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|JetDifferentialEquation|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |JetDifferentialEquation;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|JetDifferentialEquation|)))))))))) 
-
 (DEFUN |JetDifferentialEquation;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -1985,6 +1966,25 @@
                     (|Record| (|:| |Sys| (|List| (QREFELT % 29)))
                               (|:| |Order| (|List| (|NonNegativeInteger|)))))
           %))) 
+
+(DEFUN |JetDifferentialEquation| (&REST #1=#:G529)
+  (SPROG NIL
+         (PROG (#2=#:G530)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|JetDifferentialEquation|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |JetDifferentialEquation;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|JetDifferentialEquation|)))))))))) 
 
 (MAKEPROP '|JetDifferentialEquation| '|infovec|
           (LIST

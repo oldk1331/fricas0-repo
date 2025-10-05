@@ -397,24 +397,6 @@
 
 (DECLAIM (NOTINLINE |ThreeDimensionalMatrix;|)) 
 
-(DEFUN |ThreeDimensionalMatrix| (#1=#:G93)
-  (SPROG NIL
-         (PROG (#2=#:G94)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|ThreeDimensionalMatrix|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|ThreeDimensionalMatrix;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|ThreeDimensionalMatrix|)))))))))) 
-
 (DEFUN |ThreeDimensionalMatrix;| (|#1|)
   (SPROG
    ((|pv$| NIL) (#1=#:G91 NIL) (#2=#:G92 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
@@ -489,6 +471,24 @@
                  (CONS (|dispatchFunction| |M3D;identityMatrix;Nni%;8|) %))
        (QSETREFV % 33 (CONS (|dispatchFunction| |M3D;plus;3%;9|) %)))))
     %))) 
+
+(DEFUN |ThreeDimensionalMatrix| (#1=#:G93)
+  (SPROG NIL
+         (PROG (#2=#:G94)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|ThreeDimensionalMatrix|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|ThreeDimensionalMatrix;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|ThreeDimensionalMatrix|)))))))))) 
 
 (MAKEPROP '|ThreeDimensionalMatrix| '|infovec|
           (LIST

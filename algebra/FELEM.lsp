@@ -714,27 +714,6 @@
 
 (DECLAIM (NOTINLINE |FloatElementaryFunctions;|)) 
 
-(DEFUN |FloatElementaryFunctions| ()
-  (SPROG NIL
-         (PROG (#1=#:G105)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|FloatElementaryFunctions|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|FloatElementaryFunctions|
-                             (LIST
-                              (CONS NIL
-                                    (CONS 1 (|FloatElementaryFunctions;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#)
-                  (HREM |$ConstructorCache|
-                        '|FloatElementaryFunctions|)))))))))) 
-
 (DEFUN |FloatElementaryFunctions;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -756,6 +735,27 @@
                     (CONS (CONS 195882276370220766701334620675861842472 -126)
                           125))
           %))) 
+
+(DEFUN |FloatElementaryFunctions| ()
+  (SPROG NIL
+         (PROG (#1=#:G105)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|FloatElementaryFunctions|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|FloatElementaryFunctions|
+                             (LIST
+                              (CONS NIL
+                                    (CONS 1 (|FloatElementaryFunctions;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache|
+                        '|FloatElementaryFunctions|)))))))))) 
 
 (MAKEPROP '|FloatElementaryFunctions| '|infovec|
           (LIST

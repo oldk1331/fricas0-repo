@@ -1075,6 +1075,19 @@
 
 (DECLAIM (NOTINLINE |U32VectorPolynomialOperations;|)) 
 
+(DEFUN |U32VectorPolynomialOperations;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|U32VectorPolynomialOperations|))
+          (LETT % (GETREFV 56))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|U32VectorPolynomialOperations| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |U32VectorPolynomialOperations| ()
   (SPROG NIL
          (PROG (#1=#:G240)
@@ -1099,19 +1112,6 @@
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
                         '|U32VectorPolynomialOperations|)))))))))) 
-
-(DEFUN |U32VectorPolynomialOperations;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|U32VectorPolynomialOperations|))
-          (LETT % (GETREFV 56))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|U32VectorPolynomialOperations| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|U32VectorPolynomialOperations| '|infovec|
           (LIST

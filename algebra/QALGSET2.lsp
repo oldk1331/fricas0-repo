@@ -202,23 +202,6 @@
 
 (DECLAIM (NOTINLINE |QuasiAlgebraicSet2;|)) 
 
-(DEFUN |QuasiAlgebraicSet2| (#1=#:G37)
-  (SPROG NIL
-         (PROG (#2=#:G38)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|QuasiAlgebraicSet2|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|QuasiAlgebraicSet2;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|QuasiAlgebraicSet2|)))))))))) 
-
 (DEFUN |QuasiAlgebraicSet2;| (|#1|)
   (SPROG ((#1=#:G5 NIL) (|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -244,6 +227,23 @@
                                        "failed")
                                       #1#)))
           %))) 
+
+(DEFUN |QuasiAlgebraicSet2| (#1=#:G37)
+  (SPROG NIL
+         (PROG (#2=#:G38)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|QuasiAlgebraicSet2|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|QuasiAlgebraicSet2;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|QuasiAlgebraicSet2|)))))))))) 
 
 (MAKEPROP '|QuasiAlgebraicSet2| '|infovec|
           (LIST

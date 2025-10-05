@@ -683,21 +683,6 @@
 
 (DECLAIM (NOTINLINE |HeuGcd;|)) 
 
-(DEFUN |HeuGcd| (#1=#:G227)
-  (SPROG NIL
-         (PROG (#2=#:G228)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|HeuGcd|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|HeuGcd;| #1#) (LETT #2# T))
-                (COND ((NOT #2#) (HREM |$ConstructorCache| '|HeuGcd|)))))))))) 
-
 (DEFUN |HeuGcd;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -716,6 +701,21 @@
                                        (CONS (|function| |HEUGCD;myNextPrime|)
                                              %)))
           %))) 
+
+(DEFUN |HeuGcd| (#1=#:G227)
+  (SPROG NIL
+         (PROG (#2=#:G228)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|HeuGcd|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|HeuGcd;| #1#) (LETT #2# T))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|HeuGcd|)))))))))) 
 
 (MAKEPROP '|HeuGcd| '|infovec|
           (LIST

@@ -747,6 +747,19 @@
 
 (DECLAIM (NOTINLINE |PermutationGroupExamples;|)) 
 
+(DEFUN |PermutationGroupExamples;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|PermutationGroupExamples|))
+          (LETT % (GETREFV 54))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|PermutationGroupExamples| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |PermutationGroupExamples| ()
   (SPROG NIL
          (PROG (#1=#:G99)
@@ -767,19 +780,6 @@
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
                         '|PermutationGroupExamples|)))))))))) 
-
-(DEFUN |PermutationGroupExamples;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|PermutationGroupExamples|))
-          (LETT % (GETREFV 54))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|PermutationGroupExamples| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|PermutationGroupExamples| '|infovec|
           (LIST

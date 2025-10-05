@@ -571,21 +571,6 @@
 
 (DECLAIM (NOTINLINE |Multiset;|)) 
 
-(DEFUN |Multiset| (#1=#:G210)
-  (SPROG NIL
-         (PROG (#2=#:G211)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|Multiset|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|Multiset;| #1#) (LETT #2# T))
-                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Multiset|)))))))))) 
-
 (DEFUN |Multiset;| (|#1|)
   (SPROG ((#1=#:G209 NIL) (|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -631,6 +616,21 @@
             (QSETREFV % 31
                       (CONS (|dispatchFunction| |MSET;convert;%If;11|) %))))
           %))) 
+
+(DEFUN |Multiset| (#1=#:G210)
+  (SPROG NIL
+         (PROG (#2=#:G211)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Multiset|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Multiset;| #1#) (LETT #2# T))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Multiset|)))))))))) 
 
 (MAKEPROP '|Multiset| '|infovec|
           (LIST

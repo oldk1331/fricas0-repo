@@ -567,22 +567,6 @@
 
 (DECLAIM (NOTINLINE |MomentPackage;|)) 
 
-(DEFUN |MomentPackage| (#1=#:G111)
-  (SPROG NIL
-         (PROG (#2=#:G112)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|MomentPackage|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|MomentPackage;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|MomentPackage|)))))))))) 
-
 (DEFUN |MomentPackage;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -643,6 +627,22 @@
                          |MOMPKG;monotoneCumulant2momentPoly;SS;18|)
                         %)))))
           %))) 
+
+(DEFUN |MomentPackage| (#1=#:G111)
+  (SPROG NIL
+         (PROG (#2=#:G112)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|MomentPackage|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|MomentPackage;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|MomentPackage|)))))))))) 
 
 (MAKEPROP '|MomentPackage| '|infovec|
           (LIST

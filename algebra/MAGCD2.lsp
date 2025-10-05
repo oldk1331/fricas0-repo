@@ -1269,25 +1269,6 @@
 
 (DECLAIM (NOTINLINE |ModularAlgebraicGcd2;|)) 
 
-(DEFUN |ModularAlgebraicGcd2| (&REST #1=#:G205)
-  (SPROG NIL
-         (PROG (#2=#:G206)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|ModularAlgebraicGcd2|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |ModularAlgebraicGcd2;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|ModularAlgebraicGcd2|)))))))))) 
-
 (DEFUN |ModularAlgebraicGcd2;| (|#1| |#2| |#3| |#4| |#5| |#6|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$6 NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL)
@@ -1330,6 +1311,25 @@
     (QSETREFV % 55 (LENGTH (QREFELT % 53)))
     (QSETREFV % 56 (LENGTH (QREFELT % 54)))
     %))) 
+
+(DEFUN |ModularAlgebraicGcd2| (&REST #1=#:G205)
+  (SPROG NIL
+         (PROG (#2=#:G206)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|ModularAlgebraicGcd2|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |ModularAlgebraicGcd2;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|ModularAlgebraicGcd2|)))))))))) 
 
 (MAKEPROP '|ModularAlgebraicGcd2| '|infovec|
           (LIST

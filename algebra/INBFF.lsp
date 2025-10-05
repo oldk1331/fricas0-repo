@@ -594,25 +594,6 @@
 
 (DECLAIM (NOTINLINE |InnerNormalBasisFieldFunctions;|)) 
 
-(DEFUN |InnerNormalBasisFieldFunctions| (#1=#:G160)
-  (SPROG NIL
-         (PROG (#2=#:G161)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|InnerNormalBasisFieldFunctions|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|InnerNormalBasisFieldFunctions;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|InnerNormalBasisFieldFunctions|)))))))))) 
-
 (DEFUN |InnerNormalBasisFieldFunctions;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -635,6 +616,25 @@
                           (LIST 18 216 0) (LIST 32 480 0) NIL (LIST 72 0)
                           (LIST 98 0) (LIST 128 0) NIL (LIST 200 0)))
           %))) 
+
+(DEFUN |InnerNormalBasisFieldFunctions| (#1=#:G160)
+  (SPROG NIL
+         (PROG (#2=#:G161)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|InnerNormalBasisFieldFunctions|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|InnerNormalBasisFieldFunctions;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|InnerNormalBasisFieldFunctions|)))))))))) 
 
 (MAKEPROP '|InnerNormalBasisFieldFunctions| '|infovec|
           (LIST

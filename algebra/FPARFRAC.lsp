@@ -474,27 +474,6 @@
 
 (DECLAIM (NOTINLINE |FullPartialFractionExpansion;|)) 
 
-(DEFUN |FullPartialFractionExpansion| (&REST #1=#:G99)
-  (SPROG NIL
-         (PROG (#2=#:G100)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|FullPartialFractionExpansion|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |FullPartialFractionExpansion;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|FullPartialFractionExpansion|)))))))))) 
-
 (DEFUN |FullPartialFractionExpansion;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -524,6 +503,27 @@
           (QSETREFV % 26 (SPADCALL (QREFELT % 24) (QREFELT % 25)))
           (QSETREFV % 28 (SPADCALL 0 (QREFELT % 27)))
           %))) 
+
+(DEFUN |FullPartialFractionExpansion| (&REST #1=#:G99)
+  (SPROG NIL
+         (PROG (#2=#:G100)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|FullPartialFractionExpansion|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |FullPartialFractionExpansion;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|FullPartialFractionExpansion|)))))))))) 
 
 (MAKEPROP '|FullPartialFractionExpansion| '|infovec|
           (LIST

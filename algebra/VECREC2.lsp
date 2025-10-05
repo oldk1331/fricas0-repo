@@ -528,29 +528,6 @@
 
 (DECLAIM (NOTINLINE |VectorIntegerReconstructor;|)) 
 
-(DEFUN |VectorIntegerReconstructor| ()
-  (SPROG NIL
-         (PROG (#1=#:G153)
-           (RETURN
-            (COND
-             ((LETT #1#
-                    (HGET |$ConstructorCache| '|VectorIntegerReconstructor|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|VectorIntegerReconstructor|
-                             (LIST
-                              (CONS NIL
-                                    (CONS 1
-                                          (|VectorIntegerReconstructor;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#)
-                  (HREM |$ConstructorCache|
-                        '|VectorIntegerReconstructor|)))))))))) 
-
 (DEFUN |VectorIntegerReconstructor;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -574,6 +551,29 @@
                               (|:| |numers| (|PrimitiveArray| (|Integer|)))
                               (|:| |denoms| (|PrimitiveArray| (|Integer|)))))
           %))) 
+
+(DEFUN |VectorIntegerReconstructor| ()
+  (SPROG NIL
+         (PROG (#1=#:G153)
+           (RETURN
+            (COND
+             ((LETT #1#
+                    (HGET |$ConstructorCache| '|VectorIntegerReconstructor|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|VectorIntegerReconstructor|
+                             (LIST
+                              (CONS NIL
+                                    (CONS 1
+                                          (|VectorIntegerReconstructor;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache|
+                        '|VectorIntegerReconstructor|)))))))))) 
 
 (MAKEPROP '|VectorIntegerReconstructor| '|infovec|
           (LIST

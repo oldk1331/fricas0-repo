@@ -1348,23 +1348,6 @@
 
 (DECLAIM (NOTINLINE |TexmacsFormat;|)) 
 
-(DEFUN |TexmacsFormat| ()
-  (SPROG NIL
-         (PROG (#1=#:G239)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|TexmacsFormat|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|TexmacsFormat|
-                             (LIST (CONS NIL (CONS 1 (|TexmacsFormat;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#) (HREM |$ConstructorCache| '|TexmacsFormat|)))))))))) 
-
 (DEFUN |TexmacsFormat;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -1405,6 +1388,23 @@
                           "\"arcsin\"" "\"arctan\"" "\"erf\"" "\"<cdots>\""
                           "\"$\"" "\"<infty>\"" "\"<Gamma>\""))
           %))) 
+
+(DEFUN |TexmacsFormat| ()
+  (SPROG NIL
+         (PROG (#1=#:G239)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|TexmacsFormat|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|TexmacsFormat|
+                             (LIST (CONS NIL (CONS 1 (|TexmacsFormat;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#) (HREM |$ConstructorCache| '|TexmacsFormat|)))))))))) 
 
 (MAKEPROP '|TexmacsFormat| '|infovec|
           (LIST

@@ -323,22 +323,6 @@
 
 (DECLAIM (NOTINLINE |SConformal;|)) 
 
-(DEFUN |SConformal| (#1=#:G98)
-  (SPROG NIL
-         (PROG (#2=#:G99)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|SConformal|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|SConformal;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|SConformal|)))))))))) 
-
 (DEFUN |SConformal;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -354,6 +338,22 @@
           (QSETREFV % 7 (EXPT 2 (+ |#1| 2)))
           (QSETREFV % 8 (|PrimitiveArray| (|DoubleFloat|)))
           %))) 
+
+(DEFUN |SConformal| (#1=#:G98)
+  (SPROG NIL
+         (PROG (#2=#:G99)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|SConformal|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|SConformal;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|SConformal|)))))))))) 
 
 (MAKEPROP '|SConformal| '|infovec|
           (LIST

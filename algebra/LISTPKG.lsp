@@ -228,22 +228,6 @@
 
 (DECLAIM (NOTINLINE |ListPackage;|)) 
 
-(DEFUN |ListPackage| (#1=#:G98)
-  (SPROG NIL
-         (PROG (#2=#:G99)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|ListPackage|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|ListPackage;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|ListPackage|)))))))))) 
-
 (DEFUN |ListPackage;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -267,6 +251,22 @@
             (QSETREFV % 30
                       (CONS (|dispatchFunction| |LISTPKG;minShift;2L;6|) %))))
           %))) 
+
+(DEFUN |ListPackage| (#1=#:G98)
+  (SPROG NIL
+         (PROG (#2=#:G99)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|ListPackage|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|ListPackage;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|ListPackage|)))))))))) 
 
 (MAKEPROP '|ListPackage| '|infovec|
           (LIST

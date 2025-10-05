@@ -328,25 +328,6 @@
 
 (DECLAIM (NOTINLINE |XPolynomialRing;|)) 
 
-(DEFUN |XPolynomialRing| (&REST #1=#:G137)
-  (SPROG NIL
-         (PROG (#2=#:G138)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|XPolynomialRing|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |XPolynomialRing;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|XPolynomialRing|)))))))))) 
-
 (DEFUN |XPolynomialRing;| (|#1| |#2|)
   (SPROG
    ((|pv$| NIL) (#1=#:G136 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
@@ -388,6 +369,25 @@
      ((|testBitVector| |pv$| 6)
       (QSETREFV % 61 (CONS (|dispatchFunction| |XPR;/;%R%;22|) %))))
     %))) 
+
+(DEFUN |XPolynomialRing| (&REST #1=#:G137)
+  (SPROG NIL
+         (PROG (#2=#:G138)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|XPolynomialRing|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |XPolynomialRing;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|XPolynomialRing|)))))))))) 
 
 (MAKEPROP '|XPolynomialRing| '|infovec|
           (LIST

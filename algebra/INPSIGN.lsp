@@ -57,6 +57,23 @@
 
 (DECLAIM (NOTINLINE |InnerPolySign;|)) 
 
+(DEFUN |InnerPolySign;| (|#1| |#2|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|InnerPolySign| DV$1 DV$2))
+          (LETT % (GETREFV 26))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|InnerPolySign| (LIST DV$1 DV$2)
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (QSETREFV % 7 |#2|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |InnerPolySign| (&REST #1=#:G30)
   (SPROG NIL
          (PROG (#2=#:G31)
@@ -74,23 +91,6 @@
                     (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|InnerPolySign|)))))))))) 
-
-(DEFUN |InnerPolySign;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT DV$2 (|devaluate| |#2|))
-          (LETT |dv$| (LIST '|InnerPolySign| DV$1 DV$2))
-          (LETT % (GETREFV 26))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|InnerPolySign| (LIST DV$1 DV$2)
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (QSETREFV % 7 |#2|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|InnerPolySign| '|infovec|
           (LIST

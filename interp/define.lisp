@@ -2605,7 +2605,7 @@
 ;   auxfn := INTERNL1(fn, '";")
 ;   output_lisp_form(["DECLAIM", ["NOTINLINE", auxfn]])
 ;   if key = 'category_functor
-;       then u := compAndDefine form
+;       then u := comp_and_define(form)
 ;       else u := COMP form
 ;   clearConstructorCache fn      --clear cache for constructor
 ;   first u
@@ -2621,7 +2621,7 @@
       (SETQ |auxfn| (INTERNL1 |fn| ";"))
       (|output_lisp_form| (LIST 'DECLAIM (LIST 'NOTINLINE |auxfn|)))
       (COND
-       ((EQ |key| '|category_functor|) (SETQ |u| (|compAndDefine| |form|)))
+       ((EQ |key| '|category_functor|) (SETQ |u| (|comp_and_define| |form|)))
        ('T (SETQ |u| (COMP |form|))))
       (|clearConstructorCache| |fn|)
       (CAR |u|)))))

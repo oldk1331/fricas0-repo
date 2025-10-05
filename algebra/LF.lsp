@@ -342,25 +342,6 @@
 
 (DECLAIM (NOTINLINE |LiouvillianFunction;|)) 
 
-(DEFUN |LiouvillianFunction| (&REST #1=#:G168)
-  (SPROG NIL
-         (PROG (#2=#:G169)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|LiouvillianFunction|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |LiouvillianFunction;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|LiouvillianFunction|)))))))))) 
-
 (DEFUN |LiouvillianFunction;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -458,6 +439,25 @@
              (SPADCALL (QREFELT % 18) '|%specialInput|
                        (CONS (|function| |LF;indint|) %) (QREFELT % 125)))))
           %))) 
+
+(DEFUN |LiouvillianFunction| (&REST #1=#:G168)
+  (SPROG NIL
+         (PROG (#2=#:G169)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|LiouvillianFunction|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |LiouvillianFunction;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|LiouvillianFunction|)))))))))) 
 
 (DEFUN |LiouvillianFunction!10| (|z1| %)
   (SPADCALL

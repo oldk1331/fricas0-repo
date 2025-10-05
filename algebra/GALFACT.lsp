@@ -2281,24 +2281,6 @@
 
 (DECLAIM (NOTINLINE |GaloisGroupFactorizer;|)) 
 
-(DEFUN |GaloisGroupFactorizer| (#1=#:G533)
-  (SPROG NIL
-         (PROG (#2=#:G534)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|GaloisGroupFactorizer|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|GaloisGroupFactorizer;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|GaloisGroupFactorizer|)))))))))) 
-
 (DEFUN |GaloisGroupFactorizer;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -2318,6 +2300,24 @@
           (QSETREFV % 10 'T)
           (QSETREFV % 11 'T)
           %))) 
+
+(DEFUN |GaloisGroupFactorizer| (#1=#:G533)
+  (SPROG NIL
+         (PROG (#2=#:G534)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|GaloisGroupFactorizer|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|GaloisGroupFactorizer;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|GaloisGroupFactorizer|)))))))))) 
 
 (MAKEPROP '|GaloisGroupFactorizer| '|infovec|
           (LIST

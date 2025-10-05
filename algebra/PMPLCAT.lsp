@@ -269,28 +269,6 @@
 
 (DECLAIM (NOTINLINE |PatternMatchPolynomialCategory;|)) 
 
-(DEFUN |PatternMatchPolynomialCategory| (&REST #1=#:G83)
-  (SPROG NIL
-         (PROG (#2=#:G84)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|PatternMatchPolynomialCategory|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |PatternMatchPolynomialCategory;|)
-                             #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|PatternMatchPolynomialCategory|)))))))))) 
-
 (DEFUN |PatternMatchPolynomialCategory;| (|#1| |#2| |#3| |#4| |#5|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -329,6 +307,28 @@
                 (CONS (|dispatchFunction| |PMPLCAT;patternMatch;PP2Pmr;1|)
                       %))))
     %))) 
+
+(DEFUN |PatternMatchPolynomialCategory| (&REST #1=#:G83)
+  (SPROG NIL
+         (PROG (#2=#:G84)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|PatternMatchPolynomialCategory|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |PatternMatchPolynomialCategory;|)
+                             #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|PatternMatchPolynomialCategory|)))))))))) 
 
 (MAKEPROP '|PatternMatchPolynomialCategory| '|infovec|
           (LIST

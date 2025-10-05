@@ -141,6 +141,23 @@
 
 (DECLAIM (NOTINLINE |GaloisGroupPolynomialUtilities;|)) 
 
+(DEFUN |GaloisGroupPolynomialUtilities;| (|#1| |#2|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|GaloisGroupPolynomialUtilities| DV$1 DV$2))
+          (LETT % (GETREFV 45))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|GaloisGroupPolynomialUtilities|
+                      (LIST DV$1 DV$2) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (QSETREFV % 7 |#2|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |GaloisGroupPolynomialUtilities| (&REST #1=#:G48)
   (SPROG NIL
          (PROG (#2=#:G49)
@@ -162,23 +179,6 @@
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
                         '|GaloisGroupPolynomialUtilities|)))))))))) 
-
-(DEFUN |GaloisGroupPolynomialUtilities;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT DV$2 (|devaluate| |#2|))
-          (LETT |dv$| (LIST '|GaloisGroupPolynomialUtilities| DV$1 DV$2))
-          (LETT % (GETREFV 45))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|GaloisGroupPolynomialUtilities|
-                      (LIST DV$1 DV$2) (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (QSETREFV % 7 |#2|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|GaloisGroupPolynomialUtilities| '|infovec|
           (LIST

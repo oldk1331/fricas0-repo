@@ -889,6 +889,21 @@
 
 (DECLAIM (NOTINLINE |NumericalQuadrature;|)) 
 
+(DEFUN |NumericalQuadrature;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|NumericalQuadrature| DV$1))
+          (LETT % (GETREFV 52))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|NumericalQuadrature| (LIST DV$1)
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |NumericalQuadrature| (#1=#:G136)
   (SPROG NIL
          (PROG (#2=#:G137)
@@ -905,21 +920,6 @@
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|NumericalQuadrature|)))))))))) 
-
-(DEFUN |NumericalQuadrature;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|NumericalQuadrature| DV$1))
-          (LETT % (GETREFV 52))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|NumericalQuadrature| (LIST DV$1)
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|NumericalQuadrature| '|infovec|
           (LIST

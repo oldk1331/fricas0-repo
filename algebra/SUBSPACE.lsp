@@ -535,22 +535,6 @@
 
 (DECLAIM (NOTINLINE |SubSpace;|)) 
 
-(DEFUN |SubSpace| (&REST #1=#:G197)
-  (SPROG NIL
-         (PROG (#2=#:G198)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(NIL T))
-                                               (HGET |$ConstructorCache|
-                                                     '|SubSpace|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |SubSpace;|) #1#) (LETT #2# T))
-                (COND ((NOT #2#) (HREM |$ConstructorCache| '|SubSpace|)))))))))) 
-
 (DEFUN |SubSpace;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -580,6 +564,22 @@
                               (|:| |parentField| (|List| %))))
           (QSETREFV % 9 "Non-null list: Please inform Stephen Watt")
           %))) 
+
+(DEFUN |SubSpace| (&REST #1=#:G197)
+  (SPROG NIL
+         (PROG (#2=#:G198)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(NIL T))
+                                               (HGET |$ConstructorCache|
+                                                     '|SubSpace|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |SubSpace;|) #1#) (LETT #2# T))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|SubSpace|)))))))))) 
 
 (MAKEPROP '|SubSpace| '|infovec|
           (LIST

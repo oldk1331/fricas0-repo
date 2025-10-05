@@ -791,27 +791,6 @@
 
 (DECLAIM (NOTINLINE |SparseUnivariateTaylorSeries;|)) 
 
-(DEFUN |SparseUnivariateTaylorSeries| (&REST #1=#:G249)
-  (SPROG NIL
-         (PROG (#2=#:G250)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T NIL NIL))
-                     (HGET |$ConstructorCache| '|SparseUnivariateTaylorSeries|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |SparseUnivariateTaylorSeries;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|SparseUnivariateTaylorSeries|)))))))))) 
-
 (DEFUN |SparseUnivariateTaylorSeries;| (|#1| |#2| |#3|)
   (SPROG
    ((|pv$| NIL) (#1=#:G243 NIL) (#2=#:G244 NIL) (#3=#:G245 NIL) (#4=#:G248 NIL)
@@ -1156,6 +1135,27 @@
        ((|testBitVector| |pv$| 1)
         (QSETREFV % 186 (CONS (|dispatchFunction| |SUTS;^;%Coef%;89|) %))))))
     %))) 
+
+(DEFUN |SparseUnivariateTaylorSeries| (&REST #1=#:G249)
+  (SPROG NIL
+         (PROG (#2=#:G250)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T NIL NIL))
+                     (HGET |$ConstructorCache| '|SparseUnivariateTaylorSeries|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |SparseUnivariateTaylorSeries;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|SparseUnivariateTaylorSeries|)))))))))) 
 
 (MAKEPROP '|SparseUnivariateTaylorSeries| '|infovec|
           (LIST

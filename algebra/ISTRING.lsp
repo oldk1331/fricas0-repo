@@ -528,22 +528,6 @@
 
 (DECLAIM (NOTINLINE |IndexedString;|)) 
 
-(DEFUN |IndexedString| (#1=#:G1116)
-  (SPROG NIL
-         (PROG (#2=#:G1117)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|IndexedString|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|IndexedString;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|IndexedString|)))))))))) 
-
 (DEFUN |IndexedString;| (|#1|)
   (SPROG
    ((|pv$| NIL) (#1=#:G1113 NIL) (#2=#:G1114 NIL) (#3=#:G1115 NIL) (% NIL)
@@ -653,6 +637,22 @@
      (|augmentPredVector| % 8388608))
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |IndexedString| (#1=#:G1116)
+  (SPROG NIL
+         (PROG (#2=#:G1117)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|IndexedString|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|IndexedString;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|IndexedString|)))))))))) 
 
 (MAKEPROP '|IndexedString| '|infovec|
           (LIST

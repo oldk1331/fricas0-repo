@@ -999,25 +999,6 @@
 
 (DECLAIM (NOTINLINE |MultivariateLifting;|)) 
 
-(DEFUN |MultivariateLifting| (&REST #1=#:G243)
-  (SPROG NIL
-         (PROG (#2=#:G244)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|MultivariateLifting|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |MultivariateLifting;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|MultivariateLifting|)))))))))) 
-
 (DEFUN |MultivariateLifting;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -1050,6 +1031,25 @@
        (QSETREFV % 80
                  (CONS (|dispatchFunction| |MLIFT;lifting;SupLLLLLRU;6|) %)))))
     %))) 
+
+(DEFUN |MultivariateLifting| (&REST #1=#:G243)
+  (SPROG NIL
+         (PROG (#2=#:G244)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|MultivariateLifting|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |MultivariateLifting;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|MultivariateLifting|)))))))))) 
 
 (MAKEPROP '|MultivariateLifting| '|infovec|
           (LIST

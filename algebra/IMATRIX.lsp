@@ -50,24 +50,6 @@
 
 (DECLAIM (NOTINLINE |IndexedMatrix;|)) 
 
-(DEFUN |IndexedMatrix| (&REST #1=#:G39)
-  (SPROG NIL
-         (PROG (#2=#:G40)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T NIL NIL))
-                     (HGET |$ConstructorCache| '|IndexedMatrix|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |IndexedMatrix;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|IndexedMatrix|)))))))))) 
-
 (DEFUN |IndexedMatrix;| (|#1| |#2| |#3|)
   (SPROG
    ((|pv$| NIL) (#1=#:G36 NIL) (#2=#:G37 NIL) (% NIL) (|dv$| NIL) (DV$3 NIL)
@@ -177,6 +159,24 @@
      ((|testBitVector| |pv$| 18)
       (QSETREFV % 32 (CONS (|dispatchFunction| |IMATRIX;inverse;%U;8|) %))))
     %))) 
+
+(DEFUN |IndexedMatrix| (&REST #1=#:G39)
+  (SPROG NIL
+         (PROG (#2=#:G40)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T NIL NIL))
+                     (HGET |$ConstructorCache| '|IndexedMatrix|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |IndexedMatrix;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|IndexedMatrix|)))))))))) 
 
 (MAKEPROP '|IndexedMatrix| '|infovec|
           (LIST

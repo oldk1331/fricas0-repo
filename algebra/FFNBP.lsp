@@ -484,30 +484,6 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldNormalBasisExtensionByPolynomial;|)) 
 
-(DEFUN |FiniteFieldNormalBasisExtensionByPolynomial| (&REST #1=#:G205)
-  (SPROG NIL
-         (PROG (#2=#:G206)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(T NIL))
-                                               (HGET |$ConstructorCache|
-                                                     '|FiniteFieldNormalBasisExtensionByPolynomial|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY
-                       (|function|
-                        |FiniteFieldNormalBasisExtensionByPolynomial;|)
-                       #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|FiniteFieldNormalBasisExtensionByPolynomial|)))))))))) 
-
 (DEFUN |FiniteFieldNormalBasisExtensionByPolynomial;| (|#1| |#2|)
   (SPROG
    ((#1=#:G19 NIL) (#2=#:G204 NIL) (|i| NIL) (#3=#:G203 NIL) (|qs| NIL)
@@ -608,6 +584,30 @@
      (QSETREFV % 48 1)
      (QSETREFV % 51 (SPADCALL (QREFELT % 50)))
      %)))) 
+
+(DEFUN |FiniteFieldNormalBasisExtensionByPolynomial| (&REST #1=#:G205)
+  (SPROG NIL
+         (PROG (#2=#:G206)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(T NIL))
+                                               (HGET |$ConstructorCache|
+                                                     '|FiniteFieldNormalBasisExtensionByPolynomial|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY
+                       (|function|
+                        |FiniteFieldNormalBasisExtensionByPolynomial;|)
+                       #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|FiniteFieldNormalBasisExtensionByPolynomial|)))))))))) 
 
 (MAKEPROP '|FiniteFieldNormalBasisExtensionByPolynomial| '|infovec|
           (LIST

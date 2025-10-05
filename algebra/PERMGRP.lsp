@@ -2396,23 +2396,6 @@
 
 (DECLAIM (NOTINLINE |PermutationGroup;|)) 
 
-(DEFUN |PermutationGroup| (#1=#:G609)
-  (SPROG NIL
-         (PROG (#2=#:G610)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|PermutationGroup|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|PermutationGroup;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|PermutationGroup|)))))))))) 
-
 (DEFUN |PermutationGroup;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -2469,6 +2452,23 @@
                        (|dispatchFunction| |PERMGRP;perm_to_vec;LPNniV;15|)
                        %))))
           %))) 
+
+(DEFUN |PermutationGroup| (#1=#:G609)
+  (SPROG NIL
+         (PROG (#2=#:G610)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|PermutationGroup|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|PermutationGroup;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|PermutationGroup|)))))))))) 
 
 (MAKEPROP '|PermutationGroup| '|infovec|
           (LIST

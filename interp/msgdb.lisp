@@ -1893,7 +1893,7 @@
 ; sayDisplayWidth x ==
 ;   PAIRP x =>
 ;     +/[fn y for y in x] where fn y ==
-;       y in '(%b %d "%b" "%d") or y=$quadSymbol => 1
+;       y in '(%b %d "%b" "%d") => 1
 ;       k := blankIndicator y => k
 ;       sayDisplayWidth y
 ;   x = "%%" or x = '"%%" => 1
@@ -1918,9 +1918,9 @@
 (DEFUN |sayDisplayWidth,fn| (|y|)
   (PROG (|k|)
     (RETURN
-     (COND
-      ((OR (|member| |y| '(|%b| |%d| "%b" "%d")) (EQUAL |y| |$quadSymbol|)) 1)
-      ((SETQ |k| (|blankIndicator| |y|)) |k|) ('T (|sayDisplayWidth| |y|))))))
+     (COND ((|member| |y| '(|%b| |%d| "%b" "%d")) 1)
+           ((SETQ |k| (|blankIndicator| |y|)) |k|)
+           ('T (|sayDisplayWidth| |y|))))))
 
 ; sayWidth x ==
 ;   atom x => # atom2String x

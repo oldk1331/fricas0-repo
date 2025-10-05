@@ -95,6 +95,19 @@
 
 (DECLAIM (NOTINLINE |BitStreamFrame;|)) 
 
+(DEFUN |BitStreamFrame;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|BitStreamFrame|))
+          (LETT % (GETREFV 33))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|BitStreamFrame| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6 (|List| (|List| (|Boolean|))))
+          %))) 
+
 (DEFUN |BitStreamFrame| ()
   (SPROG NIL
          (PROG (#1=#:G37)
@@ -112,19 +125,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|BitStreamFrame|)))))))))) 
-
-(DEFUN |BitStreamFrame;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|BitStreamFrame|))
-          (LETT % (GETREFV 33))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|BitStreamFrame| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6 (|List| (|List| (|Boolean|))))
-          %))) 
 
 (MAKEPROP '|BitStreamFrame| '|infovec|
           (LIST

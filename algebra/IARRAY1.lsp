@@ -161,26 +161,6 @@
 
 (DECLAIM (NOTINLINE |IndexedOneDimensionalArray;|)) 
 
-(DEFUN |IndexedOneDimensionalArray| (&REST #1=#:G947)
-  (SPROG NIL
-         (PROG (#2=#:G948)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(T NIL))
-                                               (HGET |$ConstructorCache|
-                                                     '|IndexedOneDimensionalArray|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |IndexedOneDimensionalArray;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|IndexedOneDimensionalArray|)))))))))) 
-
 (DEFUN |IndexedOneDimensionalArray;| (|#1| |#2|)
   (SPROG
    ((|pv$| NIL) (#1=#:G944 NIL) (#2=#:G945 NIL) (#3=#:G946 NIL) (% NIL)
@@ -313,6 +293,26 @@
        (QSETREFV % 28
                  (CONS (|dispatchFunction| |IARRAY1;setelt!;%I2S;22|) %)))))
     %))) 
+
+(DEFUN |IndexedOneDimensionalArray| (&REST #1=#:G947)
+  (SPROG NIL
+         (PROG (#2=#:G948)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(T NIL))
+                                               (HGET |$ConstructorCache|
+                                                     '|IndexedOneDimensionalArray|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |IndexedOneDimensionalArray;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|IndexedOneDimensionalArray|)))))))))) 
 
 (MAKEPROP '|IndexedOneDimensionalArray| '|infovec|
           (LIST

@@ -1,22 +1,6 @@
 
 (DECLAIM (NOTINLINE |Table;|)) 
 
-(DEFUN |Table| (&REST #1=#:G61)
-  (SPROG NIL
-         (PROG (#2=#:G62)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|Table|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |Table;|) #1#) (LETT #2# T))
-                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Table|)))))))))) 
-
 (DEFUN |Table;| (|#1| |#2|)
   (SPROG
    ((#1=#:G60 NIL) (#2=#:G59 NIL) (|pv$| NIL) (#3=#:G57 NIL) (#4=#:G58 NIL)
@@ -131,6 +115,22 @@
          (|augmentPredVector| % 1048576))
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |Table| (&REST #1=#:G61)
+  (SPROG NIL
+         (PROG (#2=#:G62)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|Table|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |Table;|) #1#) (LETT #2# T))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Table|)))))))))) 
 
 (MAKEPROP '|Table| '|infovec|
           (LIST

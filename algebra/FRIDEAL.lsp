@@ -646,25 +646,6 @@
 
 (DECLAIM (NOTINLINE |FractionalIdeal;|)) 
 
-(DEFUN |FractionalIdeal| (&REST #1=#:G328)
-  (SPROG NIL
-         (PROG (#2=#:G329)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|FractionalIdeal|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |FractionalIdeal;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|FractionalIdeal|)))))))))) 
-
 (DEFUN |FractionalIdeal;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -695,6 +676,25 @@
       (QSETREFV % 68
                 (CONS (|dispatchFunction| |FRIDEAL;randomLC;NniVA;25|) %))))
     %))) 
+
+(DEFUN |FractionalIdeal| (&REST #1=#:G328)
+  (SPROG NIL
+         (PROG (#2=#:G329)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|FractionalIdeal|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |FractionalIdeal;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|FractionalIdeal|)))))))))) 
 
 (MAKEPROP '|FractionalIdeal| '|infovec|
           (LIST

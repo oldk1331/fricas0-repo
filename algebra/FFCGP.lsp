@@ -398,30 +398,6 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldCyclicGroupExtensionByPolynomial;|)) 
 
-(DEFUN |FiniteFieldCyclicGroupExtensionByPolynomial| (&REST #1=#:G179)
-  (SPROG NIL
-         (PROG (#2=#:G180)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(T NIL))
-                                               (HGET |$ConstructorCache|
-                                                     '|FiniteFieldCyclicGroupExtensionByPolynomial|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY
-                       (|function|
-                        |FiniteFieldCyclicGroupExtensionByPolynomial;|)
-                       #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|FiniteFieldCyclicGroupExtensionByPolynomial|)))))))))) 
-
 (DEFUN |FiniteFieldCyclicGroupExtensionByPolynomial;| (|#1| |#2|)
   (SPROG
    ((|pv$| NIL) (#1=#:G178 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
@@ -474,6 +450,30 @@
     (QSETREFV % 33 'T)
     (QSETREFV % 34 0)
     %))) 
+
+(DEFUN |FiniteFieldCyclicGroupExtensionByPolynomial| (&REST #1=#:G179)
+  (SPROG NIL
+         (PROG (#2=#:G180)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(T NIL))
+                                               (HGET |$ConstructorCache|
+                                                     '|FiniteFieldCyclicGroupExtensionByPolynomial|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY
+                       (|function|
+                        |FiniteFieldCyclicGroupExtensionByPolynomial;|)
+                       #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|FiniteFieldCyclicGroupExtensionByPolynomial|)))))))))) 
 
 (MAKEPROP '|FiniteFieldCyclicGroupExtensionByPolynomial| '|infovec|
           (LIST

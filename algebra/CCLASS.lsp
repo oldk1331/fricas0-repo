@@ -220,24 +220,6 @@
 
 (DECLAIM (NOTINLINE |CharacterClass;|)) 
 
-(DEFUN |CharacterClass| ()
-  (SPROG NIL
-         (PROG (#1=#:G83)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|CharacterClass|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|CharacterClass|
-                             (LIST (CONS NIL (CONS 1 (|CharacterClass;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#)
-                  (HREM |$ConstructorCache| '|CharacterClass|)))))))))) 
-
 (DEFUN |CharacterClass;| ()
   (SPROG ((|dv$| NIL) (% NIL) (#1=#:G80 NIL) (|pv$| NIL) (#2=#:G81 NIL))
          (PROGN
@@ -297,6 +279,24 @@
           (QSETREFV % 7 256)
           (QSETREFV % 54 (SPADCALL (QREFELT % 7) NIL (QREFELT % 36)))
           %))) 
+
+(DEFUN |CharacterClass| ()
+  (SPROG NIL
+         (PROG (#1=#:G83)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|CharacterClass|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|CharacterClass|
+                             (LIST (CONS NIL (CONS 1 (|CharacterClass;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|CharacterClass|)))))))))) 
 
 (MAKEPROP '|CharacterClass| '|infovec|
           (LIST

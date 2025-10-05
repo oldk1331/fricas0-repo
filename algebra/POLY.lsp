@@ -29,22 +29,6 @@
 
 (DECLAIM (NOTINLINE |Polynomial;|)) 
 
-(DEFUN |Polynomial| (#1=#:G52)
-  (SPROG NIL
-         (PROG (#2=#:G53)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|Polynomial|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT (PROG1 (|Polynomial;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|Polynomial|)))))))))) 
-
 (DEFUN |Polynomial;| (|#1|)
   (SPROG
    ((#1=#:G51 NIL) (|pv$| NIL) (#2=#:G42 NIL) (#3=#:G44 NIL) (#4=#:G43 NIL)
@@ -592,6 +576,22 @@
      ((|testBitVector| |pv$| 1)
       (QSETREFV % 29 (CONS (|dispatchFunction| |POLY;integrate;%S%;2|) %))))
     %))) 
+
+(DEFUN |Polynomial| (#1=#:G52)
+  (SPROG NIL
+         (PROG (#2=#:G53)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Polynomial|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Polynomial;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|Polynomial|)))))))))) 
 
 (MAKEPROP '|Polynomial| '|infovec|
           (LIST

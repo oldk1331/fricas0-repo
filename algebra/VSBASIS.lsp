@@ -415,6 +415,22 @@
 
 (DECLAIM (NOTINLINE |VectorSpaceBasis;|)) 
 
+(DEFUN |VectorSpaceBasis;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|VectorSpaceBasis| DV$1))
+          (LETT % (GETREFV 75))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|VectorSpaceBasis| (LIST DV$1)
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 7 (|List| (|Vector| |#1|)))
+          %))) 
+
 (DEFUN |VectorSpaceBasis| (#1=#:G129)
   (SPROG NIL
          (PROG (#2=#:G130)
@@ -431,22 +447,6 @@
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|VectorSpaceBasis|)))))))))) 
-
-(DEFUN |VectorSpaceBasis;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|VectorSpaceBasis| DV$1))
-          (LETT % (GETREFV 75))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|VectorSpaceBasis| (LIST DV$1)
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 7 (|List| (|Vector| |#1|)))
-          %))) 
 
 (MAKEPROP '|VectorSpaceBasis| '|infovec|
           (LIST

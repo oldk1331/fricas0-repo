@@ -647,25 +647,6 @@
 
 (DECLAIM (NOTINLINE |SymmetryAnalysis;|)) 
 
-(DEFUN |SymmetryAnalysis| (&REST #1=#:G241)
-  (SPROG NIL
-         (PROG (#2=#:G242)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T NIL NIL))
-                     (HGET |$ConstructorCache| '|SymmetryAnalysis|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |SymmetryAnalysis;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|SymmetryAnalysis|)))))))))) 
-
 (DEFUN |SymmetryAnalysis;| (|#1| |#2| |#3|)
   (SPROG
    ((#1=#:G240 NIL) (|jv| NIL) (#2=#:G239 NIL) (#3=#:G238 NIL) (|i| NIL)
@@ -805,6 +786,25 @@
                      (LETT #1# (CDR #1#)) (GO G190) G191
                      (EXIT (NREVERSE #2#)))))
      %)))) 
+
+(DEFUN |SymmetryAnalysis| (&REST #1=#:G241)
+  (SPROG NIL
+         (PROG (#2=#:G242)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T NIL NIL))
+                     (HGET |$ConstructorCache| '|SymmetryAnalysis|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |SymmetryAnalysis;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|SymmetryAnalysis|)))))))))) 
 
 (MAKEPROP '|SymmetryAnalysis| '|infovec|
           (LIST

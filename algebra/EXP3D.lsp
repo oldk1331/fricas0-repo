@@ -184,6 +184,18 @@
 
 (DECLAIM (NOTINLINE |Export3D;|)) 
 
+(DEFUN |Export3D;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|Export3D|))
+          (LETT % (GETREFV 42))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|Export3D| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |Export3D| ()
   (SPROG NIL
          (PROG (#1=#:G46)
@@ -199,18 +211,6 @@
                              (LIST (CONS NIL (CONS 1 (|Export3D;|))))))
                     (LETT #1# T))
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|Export3D|)))))))))) 
-
-(DEFUN |Export3D;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|Export3D|))
-          (LETT % (GETREFV 42))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|Export3D| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|Export3D| '|infovec|
           (LIST

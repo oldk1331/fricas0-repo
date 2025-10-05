@@ -1531,25 +1531,6 @@
 
 (DECLAIM (NOTINLINE |StreamTaylorSeriesOperations;|)) 
 
-(DEFUN |StreamTaylorSeriesOperations| (#1=#:G503)
-  (SPROG NIL
-         (PROG (#2=#:G504)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|StreamTaylorSeriesOperations|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|StreamTaylorSeriesOperations;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|StreamTaylorSeriesOperations|)))))))))) 
-
 (DEFUN |StreamTaylorSeriesOperations;| (|#1|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
@@ -1612,6 +1593,25 @@
                        (CONS (|dispatchFunction| |STTAYLOR;power;A2S;62|)
                              %)))))
           %))) 
+
+(DEFUN |StreamTaylorSeriesOperations| (#1=#:G503)
+  (SPROG NIL
+         (PROG (#2=#:G504)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|StreamTaylorSeriesOperations|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|StreamTaylorSeriesOperations;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|StreamTaylorSeriesOperations|)))))))))) 
 
 (MAKEPROP '|StreamTaylorSeriesOperations| '|infovec|
           (LIST

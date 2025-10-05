@@ -197,6 +197,22 @@
 
 (DECLAIM (NOTINLINE |CoChainComplex;|)) 
 
+(DEFUN |CoChainComplex;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|CoChainComplex| DV$1))
+          (LETT % (GETREFV 56))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|CoChainComplex| (LIST DV$1)
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 7 (|List| (|Matrix| (|Integer|))))
+          %))) 
+
 (DEFUN |CoChainComplex| (#1=#:G49)
   (SPROG NIL
          (PROG (#2=#:G50)
@@ -213,22 +229,6 @@
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|CoChainComplex|)))))))))) 
-
-(DEFUN |CoChainComplex;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|CoChainComplex| DV$1))
-          (LETT % (GETREFV 56))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|CoChainComplex| (LIST DV$1)
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 7 (|List| (|Matrix| (|Integer|))))
-          %))) 
 
 (MAKEPROP '|CoChainComplex| '|infovec|
           (LIST

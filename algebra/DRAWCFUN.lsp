@@ -1091,6 +1091,25 @@
 
 (DECLAIM (NOTINLINE |TopLevelDrawFunctionsForCompiledFunctions;|)) 
 
+(DEFUN |TopLevelDrawFunctionsForCompiledFunctions;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|TopLevelDrawFunctionsForCompiledFunctions|))
+          (LETT % (GETREFV 167))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache|
+                      '|TopLevelDrawFunctionsForCompiledFunctions| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6
+                    "draw: when specifying function, left hand side must be a variable")
+          (QSETREFV % 7 "draw: range is in interval with only one point")
+          (QSETREFV % 8
+                    "draw: independent variable appears on lhs of function definition")
+          %))) 
+
 (DEFUN |TopLevelDrawFunctionsForCompiledFunctions| ()
   (SPROG NIL
          (PROG (#1=#:G300)
@@ -1115,25 +1134,6 @@
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
                         '|TopLevelDrawFunctionsForCompiledFunctions|)))))))))) 
-
-(DEFUN |TopLevelDrawFunctionsForCompiledFunctions;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|TopLevelDrawFunctionsForCompiledFunctions|))
-          (LETT % (GETREFV 167))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache|
-                      '|TopLevelDrawFunctionsForCompiledFunctions| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6
-                    "draw: when specifying function, left hand side must be a variable")
-          (QSETREFV % 7 "draw: range is in interval with only one point")
-          (QSETREFV % 8
-                    "draw: independent variable appears on lhs of function definition")
-          %))) 
 
 (MAKEPROP '|TopLevelDrawFunctionsForCompiledFunctions| '|infovec|
           (LIST

@@ -197,6 +197,18 @@
 
 (DECLAIM (NOTINLINE |GnuDraw;|)) 
 
+(DEFUN |GnuDraw;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|GnuDraw|))
+          (LETT % (GETREFV 51))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|GnuDraw| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |GnuDraw| ()
   (SPROG NIL
          (PROG (#1=#:G36)
@@ -212,18 +224,6 @@
                              (LIST (CONS NIL (CONS 1 (|GnuDraw;|))))))
                     (LETT #1# T))
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|GnuDraw|)))))))))) 
-
-(DEFUN |GnuDraw;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|GnuDraw|))
-          (LETT % (GETREFV 51))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|GnuDraw| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|GnuDraw| '|infovec|
           (LIST

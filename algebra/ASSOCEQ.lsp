@@ -492,25 +492,6 @@
 
 (DECLAIM (NOTINLINE |AssociatedEquations;|)) 
 
-(DEFUN |AssociatedEquations| (&REST #1=#:G100)
-  (SPROG NIL
-         (PROG (#2=#:G101)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|AssociatedEquations|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |AssociatedEquations;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|AssociatedEquations|)))))))))) 
-
 (DEFUN |AssociatedEquations;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
@@ -541,6 +522,25 @@
                          |ASSOCEQ;associatedEquations;LPiR;5|)
                         %)))))
           %))) 
+
+(DEFUN |AssociatedEquations| (&REST #1=#:G100)
+  (SPROG NIL
+         (PROG (#2=#:G101)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|AssociatedEquations|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |AssociatedEquations;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|AssociatedEquations|)))))))))) 
 
 (MAKEPROP '|AssociatedEquations| '|infovec|
           (LIST

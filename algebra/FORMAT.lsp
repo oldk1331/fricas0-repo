@@ -132,6 +132,21 @@
 
 (DECLAIM (NOTINLINE |Formatter;|)) 
 
+(DEFUN |Formatter;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|Formatter| DV$1))
+          (LETT % (GETREFV 41))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|Formatter| (LIST DV$1) (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 25 (CONS (ELT % 23) (ELT % 24)))
+          %))) 
+
 (DEFUN |Formatter| (#1=#:G44)
   (SPROG NIL
          (PROG (#2=#:G45)
@@ -147,21 +162,6 @@
               (UNWIND-PROTECT (PROG1 (|Formatter;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|Formatter|)))))))))) 
-
-(DEFUN |Formatter;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|Formatter| DV$1))
-          (LETT % (GETREFV 41))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|Formatter| (LIST DV$1) (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 25 (CONS (ELT % 23) (ELT % 24)))
-          %))) 
 
 (MAKEPROP '|Formatter| '|infovec|
           (LIST

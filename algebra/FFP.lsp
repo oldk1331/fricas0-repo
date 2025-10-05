@@ -307,28 +307,6 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldExtensionByPolynomial;|)) 
 
-(DEFUN |FiniteFieldExtensionByPolynomial| (&REST #1=#:G149)
-  (SPROG NIL
-         (PROG (#2=#:G150)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(T NIL))
-                                               (HGET |$ConstructorCache|
-                                                     '|FiniteFieldExtensionByPolynomial|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY (|function| |FiniteFieldExtensionByPolynomial;|)
-                             #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|FiniteFieldExtensionByPolynomial|)))))))))) 
-
 (DEFUN |FiniteFieldExtensionByPolynomial;| (|#1| |#2|)
   (SPROG
    ((|pv$| NIL) (#1=#:G148 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
@@ -374,6 +352,28 @@
     (QSETREFV % 24 'T)
     (QSETREFV % 27 (SPADCALL (QREFELT % 26)))
     %))) 
+
+(DEFUN |FiniteFieldExtensionByPolynomial| (&REST #1=#:G149)
+  (SPROG NIL
+         (PROG (#2=#:G150)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(T NIL))
+                                               (HGET |$ConstructorCache|
+                                                     '|FiniteFieldExtensionByPolynomial|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |FiniteFieldExtensionByPolynomial;|)
+                             #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|FiniteFieldExtensionByPolynomial|)))))))))) 
 
 (MAKEPROP '|FiniteFieldExtensionByPolynomial| '|infovec|
           (LIST

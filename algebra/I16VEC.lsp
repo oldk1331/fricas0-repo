@@ -51,23 +51,6 @@
 
 (DECLAIM (NOTINLINE |I16Vector;|)) 
 
-(DEFUN |I16Vector| ()
-  (SPROG NIL
-         (PROG (#1=#:G2461)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|I16Vector|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|I16Vector|
-                             (LIST (CONS NIL (CONS 1 (|I16Vector;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#) (HREM |$ConstructorCache| '|I16Vector|)))))))))) 
-
 (DEFUN |I16Vector;| ()
   (SPROG
    ((|dv$| NIL) (% NIL) (#1=#:G2459 NIL) (#2=#:G2458 NIL) (#3=#:G2457 NIL)
@@ -173,6 +156,23 @@
      (|augmentPredVector| % 4194304))
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |I16Vector| ()
+  (SPROG NIL
+         (PROG (#1=#:G2461)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|I16Vector|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|I16Vector|
+                             (LIST (CONS NIL (CONS 1 (|I16Vector;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#) (HREM |$ConstructorCache| '|I16Vector|)))))))))) 
 
 (MAKEPROP '|I16Vector| '|infovec|
           (LIST

@@ -146,25 +146,6 @@
 
 (DECLAIM (NOTINLINE |ViewDefaultsPackage;|)) 
 
-(DEFUN |ViewDefaultsPackage| ()
-  (SPROG NIL
-         (PROG (#1=#:G39)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|ViewDefaultsPackage|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|ViewDefaultsPackage|
-                             (LIST
-                              (CONS NIL (CONS 1 (|ViewDefaultsPackage;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#)
-                  (HREM |$ConstructorCache| '|ViewDefaultsPackage|)))))))))) 
-
 (DEFUN |ViewDefaultsPackage;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -203,6 +184,25 @@
           (QSETREFV % 41 (SPADCALL (|mk_DF| 5 -1) (QREFELT % 40)))
           (QSETREFV % 45 (SPADCALL NIL (QREFELT % 44)))
           %))) 
+
+(DEFUN |ViewDefaultsPackage| ()
+  (SPROG NIL
+         (PROG (#1=#:G39)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|ViewDefaultsPackage|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|ViewDefaultsPackage|
+                             (LIST
+                              (CONS NIL (CONS 1 (|ViewDefaultsPackage;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|ViewDefaultsPackage|)))))))))) 
 
 (MAKEPROP '|ViewDefaultsPackage| '|infovec|
           (LIST

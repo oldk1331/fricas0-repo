@@ -363,6 +363,18 @@
 
 (DECLAIM (NOTINLINE |LLLReduction;|)) 
 
+(DEFUN |LLLReduction;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|LLLReduction|))
+          (LETT % (GETREFV 46))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|LLLReduction| NIL (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |LLLReduction| ()
   (SPROG NIL
          (PROG (#1=#:G85)
@@ -379,18 +391,6 @@
                     (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|LLLReduction|)))))))))) 
-
-(DEFUN |LLLReduction;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|LLLReduction|))
-          (LETT % (GETREFV 46))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|LLLReduction| NIL (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|LLLReduction| '|infovec|
           (LIST

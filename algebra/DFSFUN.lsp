@@ -110,6 +110,21 @@
 
 (DECLAIM (NOTINLINE |DoubleFloatSpecialFunctions;|)) 
 
+(DEFUN |DoubleFloatSpecialFunctions;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|DoubleFloatSpecialFunctions|))
+          (LETT % (GETREFV 34))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|DoubleFloatSpecialFunctions| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 12
+                    (|expt_DF_I| (FLOAT 10 MOST-POSITIVE-DOUBLE-FLOAT) -7))
+          %))) 
+
 (DEFUN |DoubleFloatSpecialFunctions| ()
   (SPROG NIL
          (PROG (#1=#:G21)
@@ -132,21 +147,6 @@
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
                         '|DoubleFloatSpecialFunctions|)))))))))) 
-
-(DEFUN |DoubleFloatSpecialFunctions;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|DoubleFloatSpecialFunctions|))
-          (LETT % (GETREFV 34))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|DoubleFloatSpecialFunctions| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 12
-                    (|expt_DF_I| (FLOAT 10 MOST-POSITIVE-DOUBLE-FLOAT) -7))
-          %))) 
 
 (MAKEPROP '|DoubleFloatSpecialFunctions| '|infovec|
           (LIST

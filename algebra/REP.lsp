@@ -444,6 +444,20 @@
 
 (DECLAIM (NOTINLINE |RadicalEigenPackage;|)) 
 
+(DEFUN |RadicalEigenPackage;| ()
+  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|RadicalEigenPackage|))
+          (LETT % (GETREFV 67))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|RadicalEigenPackage| NIL
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (SETF |pv$| (QREFELT % 3))
+          (QSETREFV % 6 (|RadicalSolvePackage| (|Integer|)))
+          %))) 
+
 (DEFUN |RadicalEigenPackage| ()
   (SPROG NIL
          (PROG (#1=#:G103)
@@ -462,20 +476,6 @@
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|RadicalEigenPackage|)))))))))) 
-
-(DEFUN |RadicalEigenPackage;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
-         (PROGN
-          (LETT |dv$| '(|RadicalEigenPackage|))
-          (LETT % (GETREFV 67))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|RadicalEigenPackage| NIL
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (SETF |pv$| (QREFELT % 3))
-          (QSETREFV % 6 (|RadicalSolvePackage| (|Integer|)))
-          %))) 
 
 (MAKEPROP '|RadicalEigenPackage| '|infovec|
           (LIST

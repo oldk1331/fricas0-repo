@@ -889,6 +889,21 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldFunctions;|)) 
 
+(DEFUN |FiniteFieldFunctions;| (|#1|)
+  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|FiniteFieldFunctions| DV$1))
+          (LETT % (GETREFV 77))
+          (QSETREFV % 0 |dv$|)
+          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (|haddProp| |$ConstructorCache| '|FiniteFieldFunctions| (LIST DV$1)
+                      (CONS 1 %))
+          (|stuffDomainSlots| %)
+          (QSETREFV % 6 |#1|)
+          (SETF |pv$| (QREFELT % 3))
+          %))) 
+
 (DEFUN |FiniteFieldFunctions| (#1=#:G153)
   (SPROG NIL
          (PROG (#2=#:G154)
@@ -906,21 +921,6 @@
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|FiniteFieldFunctions|)))))))))) 
-
-(DEFUN |FiniteFieldFunctions;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT |dv$| (LIST '|FiniteFieldFunctions| DV$1))
-          (LETT % (GETREFV 77))
-          (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
-          (|haddProp| |$ConstructorCache| '|FiniteFieldFunctions| (LIST DV$1)
-                      (CONS 1 %))
-          (|stuffDomainSlots| %)
-          (QSETREFV % 6 |#1|)
-          (SETF |pv$| (QREFELT % 3))
-          %))) 
 
 (MAKEPROP '|FiniteFieldFunctions| '|infovec|
           (LIST

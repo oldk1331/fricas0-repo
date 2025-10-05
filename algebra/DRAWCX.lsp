@@ -272,23 +272,6 @@
 
 (DECLAIM (NOTINLINE |DrawComplex;|)) 
 
-(DEFUN |DrawComplex| ()
-  (SPROG NIL
-         (PROG (#1=#:G57)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|DrawComplex|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|DrawComplex|
-                             (LIST (CONS NIL (CONS 1 (|DrawComplex;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#) (HREM |$ConstructorCache| '|DrawComplex|)))))))))) 
-
 (DEFUN |DrawComplex;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -309,6 +292,23 @@
           (QSETREFV % 9 11)
           (QSETREFV % 10 (FLOAT 10 MOST-POSITIVE-DOUBLE-FLOAT))
           %))) 
+
+(DEFUN |DrawComplex| ()
+  (SPROG NIL
+         (PROG (#1=#:G57)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|DrawComplex|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|DrawComplex|
+                             (LIST (CONS NIL (CONS 1 (|DrawComplex;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#) (HREM |$ConstructorCache| '|DrawComplex|)))))))))) 
 
 (MAKEPROP '|DrawComplex| '|infovec|
           (LIST

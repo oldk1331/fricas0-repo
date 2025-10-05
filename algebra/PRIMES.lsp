@@ -379,24 +379,6 @@
 
 (DECLAIM (NOTINLINE |IntegerPrimesPackage;|)) 
 
-(DEFUN |IntegerPrimesPackage| (#1=#:G110)
-  (SPROG NIL
-         (PROG (#2=#:G111)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                               (HGET |$ConstructorCache|
-                                                     '|IntegerPrimesPackage|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|IntegerPrimesPackage;| #1#) (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|IntegerPrimesPackage|)))))))))) 
-
 (DEFUN |IntegerPrimesPackage;| (|#1|)
   (SPROG
    ((#1=#:G30 NIL) (#2=#:G29 NIL) (#3=#:G31 NIL) (#4=#:G109 NIL) (#5=#:G0 NIL)
@@ -498,6 +480,24 @@
      (QSETREFV % 28 (SPADCALL (QREFELT % 27)))
      (QSETREFV % 32 (SPADCALL 1 0 (QREFELT % 31)))
      %)))) 
+
+(DEFUN |IntegerPrimesPackage| (#1=#:G110)
+  (SPROG NIL
+         (PROG (#2=#:G111)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|IntegerPrimesPackage|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|IntegerPrimesPackage;| #1#) (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|IntegerPrimesPackage|)))))))))) 
 
 (MAKEPROP '|IntegerPrimesPackage| '|infovec|
           (LIST

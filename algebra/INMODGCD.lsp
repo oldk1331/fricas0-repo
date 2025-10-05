@@ -430,25 +430,6 @@
 
 (DECLAIM (NOTINLINE |InnerModularGcd;|)) 
 
-(DEFUN |InnerModularGcd| (&REST #1=#:G120)
-  (SPROG NIL
-         (PROG (#2=#:G121)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction|
-                     (|devaluate_sig| #1# '(T T NIL NIL))
-                     (HGET |$ConstructorCache| '|InnerModularGcd|)
-                     '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |InnerModularGcd;|) #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache| '|InnerModularGcd|)))))))))) 
-
 (DEFUN |InnerModularGcd;| (|#1| |#2| |#3| |#4|)
   (SPROG
    ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
@@ -484,6 +465,25 @@
                                             %)))
     (QSETREFV % 20 (|HasCategory| |#1| '(|CharacteristicZero|)))
     %))) 
+
+(DEFUN |InnerModularGcd| (&REST #1=#:G120)
+  (SPROG NIL
+         (PROG (#2=#:G121)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T T NIL NIL))
+                     (HGET |$ConstructorCache| '|InnerModularGcd|)
+                     '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |InnerModularGcd;|) #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|InnerModularGcd|)))))))))) 
 
 (MAKEPROP '|InnerModularGcd| '|infovec|
           (LIST

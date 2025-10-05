@@ -325,23 +325,6 @@
 
 (DECLAIM (NOTINLINE |NumberFormats;|)) 
 
-(DEFUN |NumberFormats| ()
-  (SPROG NIL
-         (PROG (#1=#:G83)
-           (RETURN
-            (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|NumberFormats|))
-              (|CDRwithIncrement| (CDAR #1#)))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|NumberFormats|
-                             (LIST (CONS NIL (CONS 1 (|NumberFormats;|))))))
-                    (LETT #1# T))
-                (COND
-                 ((NOT #1#) (HREM |$ConstructorCache| '|NumberFormats|)))))))))) 
-
 (DEFUN |NumberFormats;| ()
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
@@ -387,6 +370,23 @@
           (QSETREFV % 42 (|STR_to_CHAR| ")"))
           (QSETREFV % 43 (|STR_to_CHAR| #2#))
           %))) 
+
+(DEFUN |NumberFormats| ()
+  (SPROG NIL
+         (PROG (#1=#:G83)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|NumberFormats|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|NumberFormats|
+                             (LIST (CONS NIL (CONS 1 (|NumberFormats;|))))))
+                    (LETT #1# T))
+                (COND
+                 ((NOT #1#) (HREM |$ConstructorCache| '|NumberFormats|)))))))))) 
 
 (MAKEPROP '|NumberFormats| '|infovec|
           (LIST

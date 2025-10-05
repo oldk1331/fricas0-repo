@@ -378,30 +378,6 @@
 
 (DECLAIM (NOTINLINE |InternalRationalUnivariateRepresentationPackage;|)) 
 
-(DEFUN |InternalRationalUnivariateRepresentationPackage| (&REST #1=#:G121)
-  (SPROG NIL
-         (PROG (#2=#:G122)
-           (RETURN
-            (COND
-             ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|InternalRationalUnivariateRepresentationPackage|)
-                                               '|domainEqualList|))
-              (|CDRwithIncrement| #2#))
-             ('T
-              (UNWIND-PROTECT
-                  (PROG1
-                      (APPLY
-                       (|function|
-                        |InternalRationalUnivariateRepresentationPackage;|)
-                       #1#)
-                    (LETT #2# T))
-                (COND
-                 ((NOT #2#)
-                  (HREM |$ConstructorCache|
-                        '|InternalRationalUnivariateRepresentationPackage|)))))))))) 
-
 (DEFUN |InternalRationalUnivariateRepresentationPackage;|
        (|#1| |#2| |#3| |#4| |#5|)
   (SPROG
@@ -430,6 +406,30 @@
     (QSETREFV % 10 |#5|)
     (SETF |pv$| (QREFELT % 3))
     %))) 
+
+(DEFUN |InternalRationalUnivariateRepresentationPackage| (&REST #1=#:G121)
+  (SPROG NIL
+         (PROG (#2=#:G122)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|InternalRationalUnivariateRepresentationPackage|)
+                                               '|domainEqualList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY
+                       (|function|
+                        |InternalRationalUnivariateRepresentationPackage;|)
+                       #1#)
+                    (LETT #2# T))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|InternalRationalUnivariateRepresentationPackage|)))))))))) 
 
 (MAKEPROP '|InternalRationalUnivariateRepresentationPackage| '|infovec|
           (LIST
