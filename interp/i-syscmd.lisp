@@ -4620,32 +4620,19 @@
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$SPADRREAD_fun| (LIST 0 NIL)))
 
 ; SPADRREAD(stream, key) ==
-;     cnt := first($SPADRREAD_fun)
-;     fun :=
-;         cnt < 2 =>
-;             fun1 := getFunctionFromDomain1("read", '(BasicKeyedAccessFile),
-;                 '(None), '((BasicKeyedAccessFile) (String)))
-;             $SPADRREAD_fun := [cnt + 1, fun1]
-;             fun1
-;         first(rest($SPADRREAD_fun))
+;     fun := SpadFun($SPADRREAD_fun,
+;              getFunctionFromDomain1("read", '(BasicKeyedAccessFile),
+;                 '(None), '((BasicKeyedAccessFile) (String))))
 ;     SPADCALL(stream, key, fun)
 
 (DEFUN SPADRREAD (|stream| |key|)
-  (PROG (|cnt| |fun1| |fun|)
+  (PROG (|fun|)
     (RETURN
      (PROGN
-      (SETQ |cnt| (CAR |$SPADRREAD_fun|))
       (SETQ |fun|
-              (COND
-               ((< |cnt| 2)
-                (PROGN
-                 (SETQ |fun1|
-                         (|getFunctionFromDomain1| '|read|
-                          '(|BasicKeyedAccessFile|) '(|None|)
-                          '((|BasicKeyedAccessFile|) (|String|))))
-                 (SETQ |$SPADRREAD_fun| (LIST (+ |cnt| 1) |fun1|))
-                 |fun1|))
-               ('T (CAR (CDR |$SPADRREAD_fun|)))))
+              (|SpadFun| |$SPADRREAD_fun|
+               (|getFunctionFromDomain1| '|read| '(|BasicKeyedAccessFile|)
+                '(|None|) '((|BasicKeyedAccessFile|) (|String|)))))
       (SPADCALL |stream| |key| |fun|)))))
 
 ; $SPADRWRITE_fun := [0, nil]
@@ -4653,32 +4640,19 @@
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$SPADRWRITE_fun| (LIST 0 NIL)))
 
 ; SPADRWRITE(stream, key, val) ==
-;     cnt := first($SPADRWRITE_fun)
-;     fun :=
-;         cnt < 2 =>
-;             fun1 := getFunctionFromDomain1("write!", '(BasicKeyedAccessFile),
-;                 $Void, '((BasicKeyedAccessFile) (String) (None)))
-;             $SPADRWRITE_fun := [cnt + 1, fun1]
-;             fun1
-;         first(rest($SPADRWRITE_fun))
+;     fun := SpadFun($SPADRWRITE_fun,
+;              getFunctionFromDomain1("write!", '(BasicKeyedAccessFile),
+;                 $Void, '((BasicKeyedAccessFile) (String) (None))))
 ;     SPADCALL(stream, key, val, fun)
 
 (DEFUN SPADRWRITE (|stream| |key| |val|)
-  (PROG (|cnt| |fun1| |fun|)
+  (PROG (|fun|)
     (RETURN
      (PROGN
-      (SETQ |cnt| (CAR |$SPADRWRITE_fun|))
       (SETQ |fun|
-              (COND
-               ((< |cnt| 2)
-                (PROGN
-                 (SETQ |fun1|
-                         (|getFunctionFromDomain1| '|write!|
-                          '(|BasicKeyedAccessFile|) |$Void|
-                          '((|BasicKeyedAccessFile|) (|String|) (|None|))))
-                 (SETQ |$SPADRWRITE_fun| (LIST (+ |cnt| 1) |fun1|))
-                 |fun1|))
-               ('T (CAR (CDR |$SPADRWRITE_fun|)))))
+              (|SpadFun| |$SPADRWRITE_fun|
+               (|getFunctionFromDomain1| '|write!| '(|BasicKeyedAccessFile|)
+                |$Void| '((|BasicKeyedAccessFile|) (|String|) (|None|)))))
       (SPADCALL |stream| |key| |val| |fun|)))))
 
 ; SPADRWRITE0(stream, key, val) ==
