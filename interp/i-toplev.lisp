@@ -267,7 +267,7 @@
 ;     NIL
 ;   efile =>
 ;     $edit_file := efile
-;     read_or_compile(true, efile)
+;     CATCH('top_level, read_or_compile(true, efile))
 ;   NIL
 
 (DEFUN |readSpadProfileIfThere| ()
@@ -297,7 +297,7 @@
                (|efile|
                 (PROGN
                  (SETQ |$edit_file| |efile|)
-                 (|read_or_compile| T |efile|)))
+                 (CATCH '|top_level| (|read_or_compile| T |efile|))))
                (#1# NIL)))))))))
 
 ; DEFPARAMETER($inRetract, nil)
