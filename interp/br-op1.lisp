@@ -3030,6 +3030,7 @@
 ;     pred = 'T => true
 ;     systemError nil
 ;   convertCatArg p ==
+;     SYMBOLP(p) and member(p, $FormalMapVariableList) => ["devaluate", p]
 ;     atom p or #p = 1 => MKQ p
 ;     ['LIST,MKQ first p,:[convertCatArg x for x in rest p]]
 ;   evpred(dom,pred) ==
@@ -3110,23 +3111,25 @@
 (DEFUN |evalDomainOpPred,convertCatArg| (|p|)
   (PROG ()
     (RETURN
-     (COND ((OR (ATOM |p|) (EQL (LENGTH |p|) 1)) (MKQ |p|))
-           (#1='T
-            (CONS 'LIST
-                  (CONS (MKQ (CAR |p|))
-                        ((LAMBDA (|bfVar#126| |bfVar#125| |x|)
-                           (LOOP
-                            (COND
-                             ((OR (ATOM |bfVar#125|)
-                                  (PROGN (SETQ |x| (CAR |bfVar#125|)) NIL))
-                              (RETURN (NREVERSE |bfVar#126|)))
-                             (#1#
-                              (SETQ |bfVar#126|
-                                      (CONS
-                                       (|evalDomainOpPred,convertCatArg| |x|)
+     (COND
+      ((AND (SYMBOLP |p|) (|member| |p| |$FormalMapVariableList|))
+       (LIST '|devaluate| |p|))
+      ((OR (ATOM |p|) (EQL (LENGTH |p|) 1)) (MKQ |p|))
+      (#1='T
+       (CONS 'LIST
+             (CONS (MKQ (CAR |p|))
+                   ((LAMBDA (|bfVar#126| |bfVar#125| |x|)
+                      (LOOP
+                       (COND
+                        ((OR (ATOM |bfVar#125|)
+                             (PROGN (SETQ |x| (CAR |bfVar#125|)) NIL))
+                         (RETURN (NREVERSE |bfVar#126|)))
+                        (#1#
+                         (SETQ |bfVar#126|
+                                 (CONS (|evalDomainOpPred,convertCatArg| |x|)
                                        |bfVar#126|))))
-                            (SETQ |bfVar#125| (CDR |bfVar#125|))))
-                         NIL (CDR |p|) NIL))))))))
+                       (SETQ |bfVar#125| (CDR |bfVar#125|))))
+                    NIL (CDR |p|) NIL))))))))
 (DEFUN |evalDomainOpPred,evpred| (|dom| |pred|)
   (PROG (|k|)
     (RETURN
