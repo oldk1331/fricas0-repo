@@ -2634,18 +2634,12 @@
     (QSETREFV % 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
-                                       (LIST
-                                        (|HasCategory| |#2|
-                                                       '(|CommutativeRing|))
-                                        (|HasCategory| |#2|
-                                                       '(|EuclideanDomain|))
-                                        (|HasCategory| |#2| '(|Field|))
-                                        (|HasCategory| |#2|
-                                                       '(|IntegralDomain|))
-                                        (|HasCategory| |#2| '(|Monoid|))
-                                        (|HasCategory| |#2| '(|SemiRng|))
-                                        (|HasCategory| |#2|
-                                                       '(|AbelianGroup|))))))
+                                       (LIST (|HasCategory| |#2| '(|Field|))
+                                             (|HasCategory| |#2|
+                                                            '(|CommutativeRing|))
+                                             (|HasCategory| |#2| '(|Monoid|))
+                                             (|HasCategory| |#2|
+                                                            '(|SemiRng|))))))
     (|stuffDomainSlots| %)
     (QSETREFV % 6 |#1|)
     (QSETREFV % 7 |#2|)
@@ -2653,7 +2647,7 @@
     (QSETREFV % 9 |#4|)
     (SETF |pv$| (QREFELT % 3))
     (COND
-     ((|testBitVector| |pv$| 7)
+     ((|HasCategory| |#2| '(|AbelianGroup|))
       (QSETREFV % 28
                 (CONS (|dispatchFunction| |MATCAT-;antisymmetric?;SB;4|) %))))
     (QSETREFV % 39
@@ -2670,7 +2664,7 @@
        (QSETREFV % 44
                  (CONS (|dispatchFunction| |MATCAT-;diagonalMatrix;LS;11|) %))
        (COND
-        ((|testBitVector| |pv$| 6)
+        ((|testBitVector| |pv$| 4)
          (PROGN
           (QSETREFV % 56
                     (CONS
@@ -2702,7 +2696,7 @@
                    (CONS (|dispatchFunction| |MATCAT-;diagonalMatrix;LS;20|)
                          %))
          (COND
-          ((|testBitVector| |pv$| 6)
+          ((|testBitVector| |pv$| 4)
            (PROGN
             (QSETREFV % 56
                       (CONS
@@ -2734,7 +2728,7 @@
                    (CONS (|dispatchFunction| |MATCAT-;diagonalMatrix;LS;29|)
                          %))
          (COND
-          ((|testBitVector| |pv$| 6)
+          ((|testBitVector| |pv$| 4)
            (PROGN
             (QSETREFV % 56
                       (CONS
@@ -2764,7 +2758,7 @@
        (QSETREFV % 44
                  (CONS (|dispatchFunction| |MATCAT-;diagonalMatrix;LS;38|) %))
        (COND
-        ((|testBitVector| |pv$| 6)
+        ((|testBitVector| |pv$| 4)
          (PROGN
           (QSETREFV % 56
                     (CONS
@@ -2785,13 +2779,13 @@
                  (CONS (|dispatchFunction| |MATCAT-;diagonalMatrix;LS;44|)
                        %)))))
     (COND
-     ((|testBitVector| |pv$| 7)
+     ((|HasCategory| |#2| '(|AbelianGroup|))
       (PROGN
        (QSETREFV % 79 (CONS (|dispatchFunction| |MATCAT-;-;3S;48|) %))
        (QSETREFV % 82 (CONS (|dispatchFunction| |MATCAT-;-;2S;49|) %))
        (QSETREFV % 84 (CONS (|dispatchFunction| |MATCAT-;*;I2S;50|) %)))))
     (COND
-     ((|testBitVector| |pv$| 6)
+     ((|testBitVector| |pv$| 4)
       (PROGN
        (QSETREFV % 85 (CONS (|dispatchFunction| |MATCAT-;*;R2S;51|) %))
        (QSETREFV % 86 (CONS (|dispatchFunction| |MATCAT-;*;SRS;52|) %))
@@ -2800,7 +2794,7 @@
                  (CONS (|dispatchFunction| |MATCAT-;positivePower;SIS;54|)
                        %)))))
     (COND
-     ((|testBitVector| |pv$| 5)
+     ((|testBitVector| |pv$| 3)
       (QSETREFV % 92 (CONS (|dispatchFunction| |MATCAT-;^;SNniS;55|) %))))
     (COND
      ((|HasCategory| |#4| '(|shallowlyMutable|))
@@ -2809,19 +2803,19 @@
      ((|HasCategory| |#3| '(|shallowlyMutable|))
       (QSETREFV % 100 (CONS (|dispatchFunction| |MATCAT-;*;RowSRow;57|) %))))
     (COND
-     ((|testBitVector| |pv$| 2)
+     ((|HasCategory| |#2| '(|EuclideanDomain|))
       (QSETREFV % 105
                 (CONS (|dispatchFunction| |MATCAT-;columnSpace;SL;58|) %))))
     (COND
-     ((|testBitVector| |pv$| 1)
+     ((|testBitVector| |pv$| 2)
       (PROGN
        (QSETREFV % 118
                  (CONS (|dispatchFunction| |MATCAT-;Pfaffian;SR;61|) %)))))
     (COND
-     ((|testBitVector| |pv$| 4)
+     ((|HasCategory| |#2| '(|IntegralDomain|))
       (QSETREFV % 121 (CONS (|dispatchFunction| |MATCAT-;exquo;SRU;62|) %))))
     (COND
-     ((|testBitVector| |pv$| 3)
+     ((|testBitVector| |pv$| 1)
       (PROGN
        (QSETREFV % 123 (CONS (|dispatchFunction| |MATCAT-;/;SRS;63|) %))
        (QSETREFV % 125 (CONS (|dispatchFunction| |MATCAT-;^;SIS;64|) %)))))
@@ -2887,20 +2881,10 @@
                                 T)
                               '((^ (|#1| |#1| (|Integer|))) T)
                               '((|Pfaffian| (|#2| |#1|)) T)
-                              '((|columnSpace| ((|List| |#4|) |#1|)) T)
-                              '((/ (|#1| |#1| |#2|)) T)
-                              '((|exquo| ((|Union| |#1| "failed") |#1| |#2|))
-                                T)
                               '((^ (|#1| |#1| (|NonNegativeInteger|))) T)
                               '((|positivePower| (|#1| |#1| (|Integer|))) T)
                               '((* (|#3| |#3| |#1|)) T)
                               '((* (|#4| |#1| |#4|)) T)
-                              '((* (|#1| |#1| |#2|)) T)
-                              '((* (|#1| |#2| |#1|)) T)
-                              '((* (|#1| |#1| |#1|)) T)
-                              '((* (|#1| (|Integer|) |#1|)) T)
-                              '((- (|#1| |#1|)) T) '((- (|#1| |#1| |#1|)) T)
-                              '((+ (|#1| |#1| |#1|)) T)
                               '((|transpose| (|#1| |#3|)) T)
                               '((|coerce| (|#1| |#4|)) T)
                               '((|kroneckerSum| (|#1| (|List| |#1|))) T)
@@ -2922,9 +2906,19 @@
                                  (|#1| (|NonNegativeInteger|)
                                   (|NonNegativeInteger|)))
                                 T)
-                              '((|zero?| ((|Boolean|) |#1|)) T)
+                              '((|columnSpace| ((|List| |#4|) |#1|)) T)
+                              '((/ (|#1| |#1| |#2|)) T)
+                              '((|exquo| ((|Union| |#1| "failed") |#1| |#2|))
+                                T)
+                              '((* (|#1| |#1| |#2|)) T)
+                              '((* (|#1| |#2| |#1|)) T)
+                              '((* (|#1| |#1| |#1|)) T)
+                              '((* (|#1| (|Integer|) |#1|)) T)
+                              '((- (|#1| |#1|)) T) '((- (|#1| |#1| |#1|)) T)
+                              '((+ (|#1| |#1| |#1|)) T)
                               '((|antisymmetric?| ((|Boolean|) |#1|)) T)
                               '((|symmetric?| ((|Boolean|) |#1|)) T)
+                              '((|zero?| ((|Boolean|) |#1|)) T)
                               '((|diagonal?| ((|Boolean|) |#1|)) T)
                               '((|square?| ((|Boolean|) |#1|)) T)
                               '((|coerce| ((|OutputForm|) |#1|)) T)
@@ -2971,17 +2965,17 @@
                                               0 0 7 123 1 6 119 0 124 2 0 0 0
                                               16 125 1 0 13 0 40 2 0 0 10 10 31
                                               1 0 0 8 76 1 0 13 0 26 1 0 13 0
-                                              14 2 0 0 10 7 42 2 0 0 0 16 90 1
-                                              0 0 34 35 3 0 0 10 10 36 37 7 0
-                                              51 0 16 52 53 10 10 54 56 2 0 0 0
-                                              0 65 1 0 0 53 63 2 0 0 0 0 60 1 0
-                                              0 53 58 2 0 119 0 7 121 1 0 0 43
-                                              44 1 0 0 53 66 1 0 13 0 24 1 0
+                                              14 2 0 0 10 7 42 2 0 0 0 16 90 3
+                                              0 0 10 10 36 37 1 0 0 34 35 7 0
+                                              51 0 16 52 53 10 10 54 56 1 0 0
+                                              53 63 2 0 0 0 0 65 1 0 0 53 58 2
+                                              0 0 0 0 60 2 0 119 0 7 121 1 0 0
+                                              53 66 1 0 0 43 44 1 0 13 0 24 1 0
                                               104 0 105 1 0 0 9 71 1 0 13 0 28
                                               2 0 0 0 10 92 2 0 0 0 16 125 1 0
                                               7 0 118 2 0 0 0 7 123 2 0 0 0 0
                                               79 1 0 0 0 82 2 0 0 0 0 77 2 0 0
-                                              16 0 84 2 0 0 7 0 85 2 0 0 0 0 87
-                                              2 0 9 0 9 96 2 0 0 0 7 86 2 0 8 8
+                                              16 0 84 2 0 0 0 0 87 2 0 0 0 7 86
+                                              2 0 0 7 0 85 2 0 9 0 9 96 2 0 8 8
                                               0 100)))))
            '|lookupComplete|)) 
