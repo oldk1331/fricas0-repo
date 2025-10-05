@@ -1073,7 +1073,6 @@
 
 ; lazyMatchArg2(s,a,dollar,domain,typeFlag) ==
 ;   if s = '% then
-; --  a = 0 => return true  --needed only if extra call in newGoGet to basicLookup
 ;     s := devaluate dollar -- calls from HasCategory can have $s
 ;   INTEGERP a =>
 ;     not typeFlag => s = domain.a
@@ -1611,8 +1610,6 @@
                (|lazyMatchAssocV| |catform| |auxvec| |catvec| |domain|)))))))))
 
 ; lazyMatchAssocV(x,auxvec,catvec,domain) ==      --new style slot4
-;   -- Does not work (triggers type error due to initialization by NIL)
-;   -- n : FIXNUM := MAXINDEX catvec
 ;   n := MAXINDEX catvec
 ;   -- following call to hashType was missing 2nd arg. 0 added on 3/31/94 by RSS
 ;   hashCode? x =>
@@ -1623,7 +1620,6 @@
 ;         x = hashType(newExpandLocalType(QVELT(catvec,i),domain,domain), percentHash)]
 ;   xop := first x
 ;   or/[ELT(auxvec,i) for i in 0..n |
-;     --xop = first (lazyt := QVELT(catvec,i)) and lazyMatch(x,lazyt,domain,domain)]
 ;     xop = first (lazyt := getCatForm(catvec, i, domain)) and
 ;              lazyMatch(x, lazyt, domain, domain)]
 
@@ -1758,8 +1754,6 @@
 ;   if $monitorNewWorld then
 ;     sayLooking1(concat(form2String devaluate thisDomain,
 ;       '" activating lazy slot ",slot,'": "),slotDomain)
-; -- name := first form
-; --getInfovec name
 ;   SETELT(thisDomain,slot,slotDomain)
 
 (DEFUN |lazyDomainSet| (|form| |thisDomain| |slot|)
@@ -1955,8 +1949,6 @@
 ;   not constructor? first dc =>
 ;       throwKeyedMsg("S2IF0003", [first dc])
 ;   p:= findFunctionInDomain(op, dc, target, args, args, NIL, NIL) =>
-; --+
-;     --sig := [NIL,:args]
 ;     domain := evalDomain dc
 ;     for mm in nreverse p until b repeat
 ;       [[.,:osig],nsig,:.] := mm

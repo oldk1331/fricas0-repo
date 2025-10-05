@@ -2429,7 +2429,6 @@
 ; putWidth u ==
 ;   atom u or u is [[.,:n],:.] and NUMBERP n => u
 ;   op:= keyp u
-; --NUMBERP op => nil
 ;   leftPrec:= getBindingPowerOf("left",u)
 ;   rightPrec:= getBindingPowerOf("right",u)
 ;   [firstEl,:l] := u

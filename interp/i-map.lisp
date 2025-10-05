@@ -161,8 +161,6 @@
 ;       someDecs := true
 ;       d' := evaluateType unabbrev d
 ;       isPartialMode d' => throwKeyedMsg("S2IM0004",NIL)
-; --      tree := mkAtree d'
-; --      null (d' := isType tree) => throwKeyedMsg("S2IM0005",[d])
 ;       mapmode := [d',:mapmode]
 ;     else allDecs := false
 ;   if allDecs then
@@ -1260,8 +1258,6 @@
 ;   op in '(_: _:_: _@) =>
 ;     args is [obj,dom] =>
 ;       dom' := prefix2String dom
-;       --if ATOM dom' then dom' := [dom']
-;       --[op,obj,APPLY('CONCAT,dom')]
 ;       dom'' :=
 ;           ATOM dom' => dom'
 ;           NULL rest dom' => first dom'
@@ -1999,8 +1995,6 @@
 ;   savedTimerStack := COPY $timedNameStack
 ;   catchName := mapCatchName $mapName
 ;   c := CATCH(catchName, interpret1(body,tar,nil))
-; --  $interpMapTag and $interpMapTag ~= mapCatchName $mapName =>
-; --    THROW($interpMapTag,c)
 ;   while savedTimerStack ~= $timedNameStack repeat
 ;     stopTimingProcess peekTimedName()
 ;   c  -- better be a triple

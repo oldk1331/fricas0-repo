@@ -6221,8 +6221,6 @@
 ; --      (a) if the prop exists in env, RPLAC in the change value
 ; --      (b) otherwise, CONS it onto the front of prop-values for that name
 ; --  (2) add change to the front of env
-; --  pp '"----Undoing 1 step--------"
-; --  pp changes
 ;   for (change := [name,:changeList]) in changes repeat
 ;     if LASSOC('localModemap,changeList) then
 ;       changeList := undoLocalModemapHack changeList

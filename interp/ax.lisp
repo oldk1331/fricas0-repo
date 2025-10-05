@@ -171,11 +171,6 @@
 ;             ['Add, ['PretendTo, ['Add, [], []], resultType], []]]]
 ;      conscat := INTERN(STRCONC(SYMBOL_-NAME(constructor), "ExtendCategory"),"BOOT")
 ;      rtype := ['Apply, conscat, :args]
-; --     if resultType is ['With,a,b] then
-; --        if not(b is ['Sequence,:withseq]) then withseq := [b]
-; --        cosigs := rest(get_database(constructor, 'COSIG))
-; --        exportargs := [['Export, [], arg, []] for arg in args for p in cosigs | p]
-; --        resultType := ['With,a,['Sequence,:APPEND(exportargs, withseq)]]
 ;      consdef := ['Define,
 ;         ['Declare, conscat, ['Apply, "->", optcomma argdecls, 'Category]],
 ;           ['Lambda, argdecls, 'Category, ['Label, conscat, resultType]]]
@@ -187,11 +182,6 @@
 ;                 ['Add, ['PretendTo, ['Add, [], []], rtype], []]]]]]]
 ;   NULL args =>
 ;      ['Export, ['Declare, constructor, resultType],[],[]]
-; --  if resultType is ['With,a,b] then
-; --     if not(b is ['Sequence,:withseq]) then withseq := [b]
-; --     cosigs := rest(get_database(constructor, 'COSIG))
-; --     exportargs := [['Export, [], arg, []] for arg in args for p in cosigs | p]
-; --     resultType := ['With,a,['Sequence,:APPEND(exportargs, withseq)]]
 ;   ['Export, ['Declare, constructor, ['Apply, "->", optcomma argdecls, resultType]],[],[]]
 
 (DEFUN |modemapToAx| (|modemap|)

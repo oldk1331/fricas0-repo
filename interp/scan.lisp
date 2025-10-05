@@ -729,7 +729,6 @@
 (DEFUN |lfspaces| (|x|) (PROG () (RETURN (LIST '|spaces| |x|))))
 
 ; constoken1(ln, lp, b, n, nb) ==
-; --  [b.0,b.1,cons(lp,n)]
 ;        a:=cons(b.0,b.1)
 ;        if nb then ncPutQ(a, "nonblank", true)
 ;        ncPutQ(a,"posn",cons(lp,n))

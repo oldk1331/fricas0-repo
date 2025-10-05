@@ -413,16 +413,13 @@
 
 ; compDefineCategory1(df is ['DEF, form, sig, body], m, e, prefix, fal) ==
 ;   categoryCapsule :=
-; --+
 ;     body is ['add,cat,capsule] =>
 ;       body := cat
 ;       capsule
 ;     nil
 ;   [d, m, e] := compDefineCategory2(form, sig, body, m, e, prefix, fal)
-; --+ next two lines
 ;   if categoryCapsule and not $bootStrapMode then [.,.,e] :=
 ;     $insideCategoryPackageIfTrue: local := true  --see NRTmakeSlot1
-; -->
 ;     $categoryPredicateList: local :=
 ;         makeCategoryPredicates(form,$lisplibCategory)
 ;     compDefine1(mkCategoryPackage(form, categoryCapsule, e),
@@ -979,7 +976,6 @@
 ; --  domain D in argl,check its signature: if domain, its type is Join(A1,..,An);
 ; --  in this case, D is replaced by D1,..,Dn (gensyms) which are set
 ; --  to the A1,..,An view of D
-; --+
 ;     $functorLocalParameters := argl
 ;     dollar :=
 ;         $insideCategoryPackageIfTrue => first(argl)
@@ -998,7 +994,7 @@
 ;         'domain_functor
 ;     fun := do_compile(SUBLIS($pairlis, [op', [lamOrSlam, argl, body']]), e)
 ;     --The above statement stops substitutions getting in one another's way
-; --+
+;
 ;     operationAlist := SUBLIS($pairlis,$lisplibOperationAlist)
 ;     if $LISPLIB then
 ;       augmentLisplibModemapsFromFunctor(parForm,operationAlist,parSignature)
@@ -1014,8 +1010,6 @@
 ;     $insideFunctorIfTrue:= false
 ;     if $LISPLIB then
 ;       $lisplibKind:=
-; ------->This next line prohibits changing the KIND once given
-; --------kk := get_database($op, 'CONSTRUCTORKIND) => kk
 ;         target is ["CATEGORY",key,:.] and key~="domain" => 'package
 ;         'domain
 ;       $lisplibForm:= form
@@ -1865,9 +1859,6 @@
 ;       getSignature($op,rest signature',e) or return nil
 ;
 ;     --replace ##1,.. in signature by arguments
-; --    pp signature'
-; --  pp '"------after----"
-; --  pp signature'
 ;     e:= giveFormalParametersValues(argl,e)
 ;
 ;     $signatureOfForm:= signature' --this global is bound in compCapsuleItems
@@ -1894,7 +1885,7 @@
 ;
 ;     T := CATCH('compCapsuleBody, compOrCroak(body,rettype,e))
 ;            or [$ClearBodyToken, rettype, e]
-; --+
+;
 ;     NRTassignCapsuleFunctionSlot($op, signature', $domainShell, e)
 ;     if $newCompCompare=true then
 ;          SAY '"The old compiler generates:"
@@ -2351,7 +2342,6 @@
 
 ; putInLocalDomainReferences (def := [opName,[lam,varl,body]]) ==
 ;   $elt: local := ($QuickCode => 'QREFELT; 'ELT)
-; --+
 ;   NRTputInTail CDDADR def
 ;   def
 
@@ -2723,14 +2713,12 @@
 ;      m, e]
 ;   $addFormLhs: local:= addForm
 ;   if addForm is ["SubDomain", domainForm, predicate] then
-; --+
 ;     $NRTaddForm := domainForm
 ;     NRTgetLocalIndex(domainForm, e)
 ;     --need to generate slot for add form since all $ go-get
 ;     --  slots will need to access it
 ;     [$addForm, m1, e] := compSubDomain1(domainForm, predicate, m, e)
 ;   else
-; --+
 ;     $NRTaddForm := addForm
 ;     [$addForm, m1, e]:=
 ;         addForm is ["@Tuple", :.] => BREAK()
@@ -2840,7 +2828,6 @@
 ;   $addForm: local := nil
 ;   $NRTaddForm := domainForm
 ;   [$addForm,.,e]:= compSubDomain1(domainForm,predicate,m,e)
-; --+
 ;   compCapsule(['CAPSULE],m,e)
 
 (DEFUN |compSubDomain| (|bfVar#110| |m| |e|)
@@ -2984,9 +2971,6 @@
 ;         -- assignment to Rep may be conditional ...
 ;         $Representation := (get("Rep", 'value, e)).(0)
 ;            --$Representation bound by compDefineFunctor, used in compNoStacking
-; --+
-; --+
-; --+
 ;     code is ['LET, :.] =>
 ;       RPLACA(item,($QuickCode => 'QSETREFV;'SETELT))
 ;       rhsCode:=
@@ -3017,7 +3001,6 @@
 ;         --Note that DescendCode, in CodeDefine, is looking for this
 ;     RPLACD(CADR item,[$signatureOfForm])
 ;       --This is how the signature is updated for buildFunctor to recognise
-; --+
 ;     functionPart:= ['dispatchFunction,t.expr]
 ;     RPLACA(CDDR item,functionPart)
 ;     RPLACD(CDDR item,nil)

@@ -640,11 +640,9 @@
 ;     u := checkSplit2Words u
 ;     u := checkAddMacros u
 ;     u := checkTexht u
-; --  checkBalance u
 ;     checkArguments u
 ;     if $checkErrorFlag then u := checkFixCommonProblem u
 ;     checkRecordHash u
-; --  u := checkTranVerbatim u
 ;     checkDecorateForHt u
 
 (DEFUN |checkRewrite| (|name| |lines|)

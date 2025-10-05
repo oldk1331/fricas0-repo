@@ -6,7 +6,6 @@
 ; reportFunctionCompilation(op,nam,argl,body,isRecursive) ==
 ;   -- for an alternate definition of this function which does not allow
 ;   -- dynamic caching, see SLAMOLD BOOT
-; --+
 ;   $compiledOpNameList := [nam]
 ;   minivectorName := makeInternalMapMinivectorName(nam)
 ;   body := substitute(minivectorName, "$$$", body)

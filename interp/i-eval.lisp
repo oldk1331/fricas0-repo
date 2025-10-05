@@ -709,7 +709,6 @@
 ;         _% : fluid := domain
 ;         ['SPADCALL, :form, fun0]
 ;   not form => nil
-; --  not form => throwKeyedMsg("S2IE0008",[opName])
 ;   form='interpOnly => rewriteMap(op,opName,argl)
 ;   targetType := CADR sig
 ;   if CONTAINED('_#,targetType) then targetType := NRTtypeHack targetType
@@ -1245,7 +1244,6 @@
 ;       $genValue => wrap timedEVALFUN form
 ;       form
 ;     objNew(u,tm)
-; --+
 ;   if $NRTmonitorIfTrue = true then
 ;     sayBrightlyNT ['"Value of ",op.0,'" ===> "]
 ;     pp unwrap u

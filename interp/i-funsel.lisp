@@ -2196,7 +2196,6 @@
 ;   else mm := first mmList
 ;   [sig,slot,:.] := mm
 ;   fun :=
-; --+
 ;       $genValue =>
 ;          compiledLookupCheck(opName,sig,evalDomain dom)
 ;       NRTcompileEvalForm(opName, sig, evalDomain dom)
@@ -2640,7 +2639,6 @@
 ;   dcName := first dc
 ;   not MEMQ(dcName,'(Record Union Enumeration)) => NIL
 ;   fun:= NIL
-;  --  cat := constructorCategory dc
 ;   makeFunc := get_oplist_maker(dcName) or
 ;       systemErrorHere '"findFunctionInCategory"
 ;   [funlist, .] := FUNCALL(makeFunc, "%", dc, $CategoryFrame)
@@ -2955,8 +2953,6 @@
 ;       if b='"failed" then return matchMmSigTar(t1, a)
 ;     $Coerce and
 ;       isPartialMode t1 => resolveTM(t2,t1)
-; -- I think this should be true  -SCM
-; --    true
 ;       canCoerceFrom(t2,t1)
 
 (DEFUN |matchMmSigTar| (|t1| |t2|)
@@ -3282,7 +3278,6 @@
 ;
 ;   if $reportBottomUpFlag then
 ;     sayMSG ['%l,:bright '"Remaining General Modemaps"]
-;   --  for mm in havenots for i in 1.. repeat sayModemapWithNumber(mm,i)
 ;
 ;   if havenots then
 ;     [havesNExact,havesNInexact] := exact?(havenots,tar,args1)
@@ -4427,7 +4422,6 @@
 ;     (p := ASSQ(dom, SL)) and ((NSL := hasCate(rest p, cat, SL)) ~= 'failed) =>
 ;        NSL
 ;     (p:= ASSQ(dom,$Subst)) or (p := ASSQ(dom, SL)) =>
-; --      S := hasCate(rest p, cat, augmentSub(first p, rest p, copy SL))
 ;       S := hasCate1(rest p, cat, SL, dom)
 ;       not (S='failed) => S
 ;       hasCateSpecial(dom, rest p, cat, SL)
@@ -4563,7 +4557,6 @@
 ;         augmentSub(v, d, SL)
 ;       alg =>
 ;         d := '(AlgebraicNumber)
-;         --d := defaultTargetFE $Integer
 ;         augmentSub(v, d, SL)
 ;       'failed
 ;     underDomainOf dom = $ComplexInteger =>
@@ -5437,7 +5430,6 @@
 ;             if (s3 ~= s1) and isPatternVar(s) then SL := augmentSub(s,s3,SL)
 ;             SL
 ;           'failed
-; --        isSubDomain(s,s0) => augmentSub(v,s0,SL)
 ;         'failed
 ;       'failed
 ;     augmentSub(v,s,S)
