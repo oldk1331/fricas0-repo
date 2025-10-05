@@ -56,8 +56,8 @@
 ;   -- starts the interpreter, read in profiles, etc.
 ;   $PrintCompilerMessageIfTrue: local
 ;   setOutputAlgebra "%initialize%"
-;   readSpadProfileIfThere()
-;   evalInlineCode()
+;   CATCH('top_level, (readSpadProfileIfThere();
+;                      evalInlineCode()))
 ;   runspad()
 ;   'EndOfSpad
 
@@ -68,8 +68,8 @@
      (PROGN
       (SETQ |$PrintCompilerMessageIfTrue| NIL)
       (|setOutputAlgebra| '|%initialize%|)
-      (|readSpadProfileIfThere|)
-      (|evalInlineCode|)
+      (CATCH '|top_level|
+        (PROGN (|readSpadProfileIfThere|) (|evalInlineCode|)))
       (|runspad|)
       '|EndOfSpad|))))
 

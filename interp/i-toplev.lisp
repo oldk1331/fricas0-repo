@@ -29,15 +29,15 @@
 
 (DEFUN |intUnsetQuiet| () (PROG () (RETURN (SETQ |$QuietCommand_tmp| NIL))))
 
-; $relative_directory_list := '("share/msgs/" "share/spadhelp/")
+; $relative_directory_list := '("share/msgs" "share/spadhelp")
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
-  (SETQ |$relative_directory_list| '("share/msgs/" "share/spadhelp/")))
+  (SETQ |$relative_directory_list| '("share/msgs" "share/spadhelp")))
 
-; $relative_library_directory_list := '("algebra/")
+; $relative_library_directory_list := '("algebra")
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
-  (SETQ |$relative_library_directory_list| '("algebra/")))
+  (SETQ |$relative_library_directory_list| '("algebra")))
 
 ; $directory_list := []
 
@@ -267,7 +267,7 @@
 ;     NIL
 ;   efile =>
 ;     $edit_file := efile
-;     CATCH('top_level, read_or_compile(true, efile))
+;     read_or_compile(true, efile)
 ;   NIL
 
 (DEFUN |readSpadProfileIfThere| ()
@@ -297,7 +297,7 @@
                (|efile|
                 (PROGN
                  (SETQ |$edit_file| |efile|)
-                 (CATCH '|top_level| (|read_or_compile| T |efile|))))
+                 (|read_or_compile| T |efile|)))
                (#1# NIL)))))))))
 
 ; DEFPARAMETER($inRetract, nil)

@@ -221,6 +221,26 @@
       (|kaf_close| |kaf|)
       |res|))))
 
+; get_directory_list(ft) ==
+;     cd := get_current_directory()
+;     member(ft, ['"NRLIB", '"DAASE"]) =>
+;         $UserLevel = 'development => cons(cd, $library_directory_list)
+;         $library_directory_list
+;     [cd, get_home_dir(), :$directory_list]
+
+(DEFUN |get_directory_list| (|ft|)
+  (PROG (|cd|)
+    (RETURN
+     (PROGN
+      (SETQ |cd| (|get_current_directory|))
+      (COND
+       ((|member| |ft| (LIST "NRLIB" "DAASE"))
+        (COND
+         ((EQ |$UserLevel| '|development|)
+          (CONS |cd| |$library_directory_list|))
+         (#1='T |$library_directory_list|)))
+       (#1# (CONS |cd| (CONS (|get_home_dir|) |$directory_list|))))))))
+
 ; object2String2(x) ==
 ;     STRINGP(x) => x
 ;     IDENTP(x)  => x
