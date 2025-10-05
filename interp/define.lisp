@@ -1511,9 +1511,9 @@
 ; genDomainOps(viewName, cat) ==
 ;   oplist := getOperationAlist(viewName, viewName, cat)
 ;   oplist:= substNames(viewName, viewName, oplist)
-;   for [opsig,cond,:.] in oplist repeat
+;   for [opsig, cond, :.] in oplist repeat
 ;     [op, sig] := opsig
-;     $tmp_e:= addModemap(op, viewName, sig, cond, ['ELT, viewName, 0], $tmp_e)
+;     $tmp_e := addModemap(op, viewName, sig, cond, ['ELT, viewName, 0], $tmp_e)
 
 (DEFUN |genDomainOps| (|viewName| |cat|)
   (PROG (|oplist| |opsig| |ISTMP#1| |cond| |op| |sig|)
@@ -2887,7 +2887,7 @@
       (SETQ |$lisplibSuperDomain| (LIST |domainForm| |predicate|))
       (LIST |domainForm| |m| |e|)))))
 
-; compCapsuleInner(itemList,m,e) ==
+; compCapsuleInner(itemList, m, e) ==
 ;   e:= addInformation(m,e)
 ;            --puts a new 'special' property of $Information
 ;   data:= ["PROGN",:itemList]
