@@ -2028,6 +2028,9 @@
 ;                npEqPeek("==") =>
 ;                   npRestore a
 ;                   npDef()
+;                npEqPeek("==>") =>
+;                   npRestore a
+;                   npMDEF()
 ;                npRestore a
 ;                npMacro() or npDefn()
 ;           npTrap()
@@ -2041,6 +2044,7 @@
           (COND
            ((|npStatement|)
             (COND ((|npEqPeek| '==) (PROGN (|npRestore| |a|) (|npDef|)))
+                  ((|npEqPeek| '==>) (PROGN (|npRestore| |a|) (|npMDEF|)))
                   (#1='T
                    (PROGN (|npRestore| |a|) (OR (|npMacro|) (|npDefn|))))))
            (#1# (|npTrap|))))))))
