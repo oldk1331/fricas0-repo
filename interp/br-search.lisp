@@ -2715,32 +2715,6 @@
       (CLOSE |instream|)
       |lines|))))
 
-; dbGetCommentOrigin line ==
-; --Given a comment line in comdb, returns line in libdb pointing to it
-; --Comment lines have format  [dcpxoa]xxxxxx`ccccc... where
-; --x's give pointer into libdb, c's are comments
-;   firstPart := dbPart(line,1,-1)
-;   key := INTERN SUBSTRING(firstPart,0,1)    --extract this and throw away
-;   address := SUBSTRING(firstPart, 1, nil)   --address in libdb
-;   instream := OPEN grepSource key           --this always returns libdb now
-;   FILE_-POSITION(instream,PARSE_-INTEGER address)
-;   line := read_line instream
-;   CLOSE instream
-;   line
-
-(DEFUN |dbGetCommentOrigin| (|line|)
-  (PROG (|firstPart| |key| |address| |instream|)
-    (RETURN
-     (PROGN
-      (SETQ |firstPart| (|dbPart| |line| 1 (- 1)))
-      (SETQ |key| (INTERN (SUBSTRING |firstPart| 0 1)))
-      (SETQ |address| (SUBSTRING |firstPart| 1 NIL))
-      (SETQ |instream| (OPEN (|grepSource| |key|)))
-      (FILE-POSITION |instream| (PARSE-INTEGER |address|))
-      (SETQ |line| (|read_line| |instream|))
-      (CLOSE |instream|)
-      |line|))))
-
 ; grepSource key ==
 ;   STRINGP(key) => key
 ;   key = 'libdb   => STRCONC($spadroot,'"/algebra/libdb.text")
