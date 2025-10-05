@@ -717,9 +717,6 @@
 ;     n = 3 =>
 ;       if op = 'SEGMENT then op := '".."
 ;       op = "in" => [quad, '" ", op, '" ", quad]
-; -- stop exquo from being displayed as infix (since it is not accepted
-; -- as such by the interpreter)
-;       op = 'exquo => op
 ;       [quad,op,quad]
 ;     n = 2 =>
 ;       not GETL(op,"Nud") => [quad,op]
@@ -746,7 +743,6 @@
                         (COND ((EQ |op| 'SEGMENT) (SETQ |op| "..")))
                         (COND
                          ((EQ |op| '|in|) (LIST |quad| " " |op| " " |quad|))
-                         ((EQ |op| '|exquo|) |op|)
                          (#1# (LIST |quad| |op| |quad|)))))
                       ((EQL |n| 2)
                        (COND ((NULL (GETL |op| '|Nud|)) (LIST |quad| |op|))
