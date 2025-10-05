@@ -407,14 +407,15 @@
      (AND (|npListAndRecover| #'|npPPf|) (|npPush| (|pfAppend| (|npPop1|)))))))
 
 ; npPP(f) ==
-;   $npPParg := f
+;   $npPParg : local := f
 ;   npParened function npPPf
 ;     or npPileBracketed function npPPg and
 ;       npPush pfEnSequence npPop1()
 ;         or FUNCALL f
 
 (DEFUN |npPP| (|f|)
-  (PROG ()
+  (PROG (|$npPParg|)
+    (DECLARE (SPECIAL |$npPParg|))
     (RETURN
      (PROGN
       (SETQ |$npPParg| |f|)
