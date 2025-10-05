@@ -2683,7 +2683,7 @@
 ;     ['$bootStrapMode, _
 ;         ['VECTOR,mkDomainConstructor functorForm,nil,nil,nil,nil,nil]],
 ;     [''T, ['systemError, ['LIST, ''%b, MKQ first functorForm, ''%d, '"from", _
-;       ''%b,MKQ namestring sourceFile,''%d,'"needs to be compiled"]]]]
+;       ''%b, MKQ(sourceFile), ''%d, '"needs to be compiled"]]]]
 
 (DEFUN |bootStrapError| (|functorForm| |sourceFile|)
   (PROG ()
@@ -2695,8 +2695,8 @@
            (LIST ''T
                  (LIST '|systemError|
                        (LIST 'LIST ''|%b| (MKQ (CAR |functorForm|)) ''|%d|
-                             "from" ''|%b| (MKQ (|namestring| |sourceFile|))
-                             ''|%d| "needs to be compiled")))))))
+                             "from" ''|%b| (MKQ |sourceFile|) ''|%d|
+                             "needs to be compiled")))))))
 
 ; compAdd(['add,$addForm,capsule],m,e) ==
 ;   addForm := $addForm
@@ -2707,7 +2707,7 @@
 ;        ['$bootStrapMode, _
 ;            code],_
 ;        [''T, ['systemError, ['LIST, ''%b, MKQ first $functorForm, ''%d,
-;          '"from", ''%b, MKQ namestring($edit_file), ''%d, _
+;          '"from", ''%b, MKQ($edit_file), ''%d, _
 ;          '"needs to be compiled"]]]],
 ;      m, e]
 ;   $addFormLhs: local:= addForm
@@ -2750,9 +2750,8 @@
                 (LIST ''T
                       (LIST '|systemError|
                             (LIST 'LIST ''|%b| (MKQ (CAR |$functorForm|))
-                                  ''|%d| "from" ''|%b|
-                                  (MKQ (|namestring| |$edit_file|)) ''|%d|
-                                  "needs to be compiled"))))
+                                  ''|%d| "from" ''|%b| (MKQ |$edit_file|)
+                                  ''|%d| "needs to be compiled"))))
           |m| |e|)))
        (#2#
         (PROGN

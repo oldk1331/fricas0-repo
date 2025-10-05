@@ -5167,7 +5167,7 @@
 ;     -- and is a file with file extension .spad.
 ;
 ;     path := first(args)
-;     pathnameType path ~= '"spad" => throwKeyedMsg("S2IZ0082", nil)
+;     not(has_extention?(path, '"spad")) => throwKeyedMsg("S2IZ0082", nil)
 ;     not(PROBE_-FILE(path)) => throwKeyedMsg("S2IL0003", [path])
 ;
 ;     $edit_file := path
@@ -5231,7 +5231,7 @@
      (PROGN
       (SETQ |path| (CAR |args|))
       (COND
-       ((NOT (EQUAL (|pathnameType| |path|) "spad"))
+       ((NULL (|has_extention?| |path| "spad"))
         (|throwKeyedMsg| 'S2IZ0082 NIL))
        ((NULL (PROBE-FILE |path|)) (|throwKeyedMsg| 'S2IL0003 (LIST |path|)))
        (#1='T

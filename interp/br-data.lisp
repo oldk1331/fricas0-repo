@@ -60,7 +60,7 @@
 ;   -- FIXME: This is confusing: result is in olibdb.text,
 ;   -- but this is expected by save_browser_data
 ;   run_shell_command '"sort temp.text -o olibdb.text"
-;   deleteFile '"temp.text"
+;   delete_file('"temp.text")
 
 (DEFUN |buildLibdb| (|domainList|)
   (PROG (|$kind| |$doc| |$exposed?| |$conform| |$conname| |$outStream|
@@ -126,7 +126,7 @@
             (#1#
              (PROGN
               (|run_shell_command| "sort temp.text -o olibdb.text")
-              (|deleteFile| "temp.text"))))))))
+              (|delete_file| "temp.text"))))))))
 
 ; buildLibdbConEntry conname ==
 ;     NULL(get_database(conname, 'CONSTRUCTORMODEMAP)) => nil
@@ -555,7 +555,7 @@
 ;   abb      := constructor? conname
 ;   ucname   := UPCASE STRINGIMAGE abb
 ;   pathname :=STRCONC($spadroot, '"/share/hypertex/pages/", ucname, '".ht")
-;   isExistingFile pathname => INTERN STRCONC(sname,'"XmpPage")
+;   fricas_probe_file(pathname) => INTERN STRCONC(sname,'"XmpPage")
 ;   nil
 
 (DEFUN |dbHasExamplePage| (|conname|)
@@ -568,7 +568,7 @@
       (SETQ |pathname|
               (STRCONC |$spadroot| "/share/hypertex/pages/" |ucname| ".ht"))
       (COND
-       ((|isExistingFile| |pathname|) (INTERN (STRCONC |sname| "XmpPage")))
+       ((|fricas_probe_file| |pathname|) (INTERN (STRCONC |sname| "XmpPage")))
        ('T NIL))))))
 
 ; dbReadComments(n) ==
@@ -624,7 +624,7 @@
 ;   SHUT instream
 ;   SHUT outstream
 ;   SHUT comstream
-;   deleteFile '"olibdb.text"
+;   delete_file('"olibdb.text")
 
 (DEFUN |dbSplitLibdb| ()
   (PROG (|comments| |prefix| |LETTMP#1| |comP| |outP| |line| |comstream|
@@ -665,7 +665,7 @@
       (SHUT |instream|)
       (SHUT |outstream|)
       (SHUT |comstream|)
-      (|deleteFile| "olibdb.text")))))
+      (|delete_file| "olibdb.text")))))
 
 ; dbSplit(line,n,k) ==
 ;   k := charPosition($tick,line,k + 1)
