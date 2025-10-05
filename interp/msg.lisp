@@ -49,10 +49,6 @@
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$imPrGuys| (LIST '|imPr|)))
 
-; $repGuys     := ['noRep, 'rep]
-
-(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$repGuys| (LIST '|noRep| '|rep|)))
-
 ; $ncMsgList := nil
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$ncMsgList| NIL))
@@ -410,7 +406,6 @@
 
 ; processMsgList (erMsgList,lineList) ==
 ;     $outputList :local := []--grows in queueUp errors
-;     $noRepList :local := []--grows in queueUp errors
 ;     erMsgList  := erMsgSort erMsgList
 ;     for line in lineList repeat
 ;         msgLine := makeMsgFromLine line
@@ -422,12 +417,11 @@
 ;     listOutputter reverse $outputList
 
 (DEFUN |processMsgList| (|erMsgList| |lineList|)
-  (PROG (|$noRepList| |$outputList| |globalNumOfLine| |msgLine|)
-    (DECLARE (SPECIAL |$noRepList| |$outputList|))
+  (PROG (|$outputList| |globalNumOfLine| |msgLine|)
+    (DECLARE (SPECIAL |$outputList|))
     (RETURN
      (PROGN
       (SETQ |$outputList| NIL)
-      (SETQ |$noRepList| NIL)
       (SETQ |erMsgList| (|erMsgSort| |erMsgList|))
       ((LAMBDA (|bfVar#6| |line|)
          (LOOP
@@ -579,44 +573,10 @@
         (SETQ |$outputList| (NCONC |notThisPosMsgs| |$outputList|))))
       |msgList|))))
 
-; redundant(msg,thisPosMsgs) ==
-;     found := NIL
-;     if msgNoRep? msg then
-;         for item in $noRepList repeat
-;             sameMsg?(msg,item) => return (found := true)
-;         $noRepList := [msg,$noRepList]
-;     found or MEMBER(msg,thisPosMsgs)
+; redundant(msg, thisPosMsgs) == MEMBER(msg, thisPosMsgs)
 
 (DEFUN |redundant| (|msg| |thisPosMsgs|)
-  (PROG (|found|)
-    (RETURN
-     (PROGN
-      (SETQ |found| NIL)
-      (COND
-       ((|msgNoRep?| |msg|)
-        ((LAMBDA (|bfVar#10| |item|)
-           (LOOP
-            (COND
-             ((OR (ATOM |bfVar#10|) (PROGN (SETQ |item| (CAR |bfVar#10|)) NIL))
-              (RETURN NIL))
-             ('T
-              (COND
-               ((|sameMsg?| |msg| |item|)
-                (IDENTITY (RETURN (SETQ |found| T)))))))
-            (SETQ |bfVar#10| (CDR |bfVar#10|))))
-         |$noRepList| NIL)
-        (SETQ |$noRepList| (LIST |msg| |$noRepList|))))
-      (OR |found| (MEMBER |msg| |thisPosMsgs|))))))
-
-; sameMsg? (msg1,msg2) ==
-;     (getMsgKey   msg1 = getMsgKey  msg2) and _
-;     (getMsgArgL  msg1 = getMsgArgL msg2)
-
-(DEFUN |sameMsg?| (|msg1| |msg2|)
-  (PROG ()
-    (RETURN
-     (AND (EQUAL (|getMsgKey| |msg1|) (|getMsgKey| |msg2|))
-          (EQUAL (|getMsgArgL| |msg1|) (|getMsgArgL| |msg2|))))))
+  (PROG () (RETURN (MEMBER |msg| |thisPosMsgs|))))
 
 ; thisPosIsLess(pos,num) ==
 ;     poNopos? pos => NIL
@@ -645,13 +605,13 @@
 (DEFUN |listOutputter| (|outputList|)
   (PROG ()
     (RETURN
-     ((LAMBDA (|bfVar#11| |msg|)
+     ((LAMBDA (|bfVar#10| |msg|)
         (LOOP
          (COND
-          ((OR (ATOM |bfVar#11|) (PROGN (SETQ |msg| (CAR |bfVar#11|)) NIL))
+          ((OR (ATOM |bfVar#10|) (PROGN (SETQ |msg| (CAR |bfVar#10|)) NIL))
            (RETURN NIL))
           ('T (|msgOutputter| |msg|)))
-         (SETQ |bfVar#11| (CDR |bfVar#11|))))
+         (SETQ |bfVar#10| (CDR |bfVar#10|))))
       |outputList| NIL))))
 
 ; msgOutputter msg  ==
@@ -996,12 +956,6 @@
 (DEFUN |msgImPr?| (|msg|)
   (PROG () (RETURN (EQ (|getMsgCatAttr| |msg| '|$imPrGuys|) '|imPr|))))
 
-; msgNoRep? msg ==
-;     (getMsgCatAttr (msg,'$repGuys) = 'noRep)
-
-(DEFUN |msgNoRep?| (|msg|)
-  (PROG () (RETURN (EQ (|getMsgCatAttr| |msg| '|$repGuys|) '|noRep|))))
-
 ; msgLeader? msg ==
 ;     getMsgTag msg = 'leader
 
@@ -1055,17 +1009,17 @@
      (PROGN
       (SETQ |st| (|filler_spaces| (- |$preLength| 3)))
       (SETQ |oldPos| (- 1))
-      ((LAMBDA (|bfVar#13| |bfVar#12|)
+      ((LAMBDA (|bfVar#12| |bfVar#11|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#13|)
-                (PROGN (SETQ |bfVar#12| (CAR |bfVar#13|)) NIL))
+           ((OR (ATOM |bfVar#12|)
+                (PROGN (SETQ |bfVar#11| (CAR |bfVar#12|)) NIL))
             (RETURN NIL))
            (#1='T
-            (AND (CONSP |bfVar#12|)
+            (AND (CONSP |bfVar#11|)
                  (PROGN
-                  (SETQ |posNum| (CAR |bfVar#12|))
-                  (SETQ |posLetter| (CDR |bfVar#12|))
+                  (SETQ |posNum| (CAR |bfVar#11|))
+                  (SETQ |posLetter| (CDR |bfVar#11|))
                   #1#)
                  (PROGN
                   (SETQ |st|
@@ -1073,7 +1027,7 @@
                            (|filler_chars| (- (- |posNum| |oldPos|) 1) ".")
                            |posLetter|))
                   (SETQ |oldPos| |posNum|)))))
-          (SETQ |bfVar#13| (CDR |bfVar#13|))))
+          (SETQ |bfVar#12| (CDR |bfVar#12|))))
        (REVERSE |chPosList|) NIL)
       (LIST '|leader| |$nopos| '|nokey| NIL NIL (LIST |st|))))))
 

@@ -1459,7 +1459,6 @@
 ;   u is [op,:v] and MEMQ(op,'(Join PROGN))
 ;     or u is ['CATEGORY,a,:v] => "append"/[folks x for x in v]
 ;   u is ['SIGNATURE,:.] => nil
-;   u is ['TYPE,:.] => nil
 ;   u is ['ATTRIBUTE,a] =>
 ;     PAIRP a and constructor? opOf a => folks a
 ;     nil
@@ -1496,7 +1495,6 @@
                 (SETQ |bfVar#60| (CDR |bfVar#60|))))
              NIL |v| NIL))
            ((AND (CONSP |u|) (EQ (CAR |u|) 'SIGNATURE)) NIL)
-           ((AND (CONSP |u|) (EQ (CAR |u|) 'TYPE)) NIL)
            ((AND (CONSP |u|) (EQ (CAR |u|) 'ATTRIBUTE)
                  (PROGN
                   (SETQ |ISTMP#1| (CDR |u|))

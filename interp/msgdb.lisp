@@ -1227,10 +1227,6 @@
              (|sayMSG| |bar|)
              (|sayMSG| " ")))))))
 
-; HELP() == sayKeyedMsg("S2GL0019",NIL)
-
-(DEFUN HELP () (PROG () (RETURN (|sayKeyedMsg| 'S2GL0019 NIL))))
-
 ; brightPrint(x, str) ==
 ;   marg := 0
 ;   for y in x repeat
