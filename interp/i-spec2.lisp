@@ -2224,13 +2224,13 @@
              (|putIntSymTab| |symbol| '|value| |obj| |$e|)
              T))))))
 
-; getInterpMacroNames() ==
+; get_builtin_macro_names() ==
 ;   names := [n for [n,:.] in $InterpreterMacroAlist]
 ;   if (e := CAAR $InteractiveFrame) and (m := assoc("--macros--",e)) then
 ;     names := append(names, [n for [n, :.] in rest m])
 ;   MSORT names
 
-(DEFUN |getInterpMacroNames| ()
+(DEFUN |get_builtin_macro_names| ()
   (PROG (|m| |e| |names| |n|)
     (RETURN
      (PROGN

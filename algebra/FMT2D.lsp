@@ -93,7 +93,7 @@
               (LETT |bar|
                     (SPADCALL
                      (SPADCALL
-                      (LIST "+-" (|make_full_CVEC2| |w| (|STR_to_CHAR| "-"))
+                      (LIST "+-" (|make_string_code| |w| (|STR_to_CHAR| "-"))
                             "-+")
                       (QREFELT % 29))
                      (QREFELT % 16)))
@@ -1013,7 +1013,7 @@
                    (SPADCALL |b1| (QREFELT % 23))))
           (LETT |bspace|
                 (SPADCALL
-                 (|make_full_CVEC2|
+                 (|make_string_code|
                   (MAX (SPADCALL |b1| (QREFELT % 28))
                        (SPADCALL |b2| (QREFELT % 28)))
                   (|STR_to_CHAR| " "))

@@ -354,7 +354,7 @@
 
 ; compDefineLisplib(df:=["DEF",[op,:.],:.],m,e,prefix,fal,fn) ==
 ;   --fn= compDefineCategory OR compDefineFunctor
-;   sayMSG fillerSpaces(72,'"-")
+;   sayMSG(filler_chars(72, '"-"))
 ;   $LISPLIB: local := 'T
 ;   $op: local := op
 ;   $lisplibPredicates: local := NIL -- set by makePredicateBitVector
@@ -387,7 +387,7 @@
 ;   lisplibDoRename(libName)
 ;   compile_lib(make_full_namestring(make_filename0(libName, $spadLibFT)))
 ;   FRESH_-LINE(get_algebra_stream())
-;   sayMSG fillerSpaces(72,'"-")
+;   sayMSG(filler_chars(72, '"-"))
 ;   merge_info_from_objects([get_database(op, 'ABBREVIATION)], [], false)
 ;   $newConlist := [op, :$newConlist]  ---------->  bound in function "compiler"
 ;   if $lisplibKind = 'category
@@ -409,7 +409,7 @@
     (RETURN
      (PROGN
       (SETQ |op| (CAADR |df|))
-      (|sayMSG| (|fillerSpaces| 72 "-"))
+      (|sayMSG| (|filler_chars| 72 "-"))
       (SETQ $LISPLIB 'T)
       (SETQ |$op| |op|)
       (SETQ |$lisplibPredicates| NIL)
@@ -447,7 +447,7 @@
       (|compile_lib|
        (|make_full_namestring| (|make_filename0| |libName| |$spadLibFT|)))
       (FRESH-LINE (|get_algebra_stream|))
-      (|sayMSG| (|fillerSpaces| 72 "-"))
+      (|sayMSG| (|filler_chars| 72 "-"))
       (|merge_info_from_objects| (LIST (|get_database| |op| 'ABBREVIATION)) NIL
        NIL)
       (SETQ |$newConlist| (CONS |op| |$newConlist|))

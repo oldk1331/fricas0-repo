@@ -1358,7 +1358,7 @@
 ; rightJustifyString(x,maxWidth) ==
 ;   size:= entryWidth x
 ;   size > maxWidth => keyedSystemError("S2GE0014",[x])
-;   [fillerSpaces(maxWidth-size,'" "),x]
+;   [filler_spaces(maxWidth - size), x]
 
 (DEFUN |rightJustifyString| (|x| |maxWidth|)
   (PROG (SIZE)
@@ -1366,7 +1366,7 @@
      (PROGN
       (SETQ SIZE (|entryWidth| |x|))
       (COND ((< |maxWidth| SIZE) (|keyedSystemError| 'S2GE0014 (LIST |x|)))
-            ('T (LIST (|fillerSpaces| (- |maxWidth| SIZE) " ") |x|)))))))
+            ('T (LIST (|filler_spaces| (- |maxWidth| SIZE)) |x|)))))))
 
 ; domainEqualList(argl1, argl2) == EQUAL(argl1, argl2)
 

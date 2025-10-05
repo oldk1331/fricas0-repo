@@ -230,3 +230,18 @@
   (PROG ()
     (RETURN
      (COND ((STRINGP |x|) |x|) ((IDENTP |x|) |x|) ('T (WRITE-TO-STRING |x|))))))
+
+; filler_chars(n, char_str) ==
+;     not(STRINGP(char_str)) => BREAK()
+;     n <= 0 => '""
+;     make_string0(n, char_str.0)
+
+(DEFUN |filler_chars| (|n| |char_str|)
+  (PROG ()
+    (RETURN
+     (COND ((NULL (STRINGP |char_str|)) (BREAK)) ((NOT (< 0 |n|)) "")
+           ('T (|make_string0| |n| (ELT |char_str| 0)))))))
+
+; filler_spaces(n) == filler_chars(n, '" ")
+
+(DEFUN |filler_spaces| (|n|) (PROG () (RETURN (|filler_chars| |n| " "))))

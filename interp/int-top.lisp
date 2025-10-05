@@ -511,12 +511,12 @@
 
 (DEFUN |getParserMacros| () (PROG () (RETURN |$pfMacros|)))
 
-; displayParserMacro m ==
-;    m := ASSQ(m, $pfMacros)
-;    NULL m => nil
-;    pfPrintSrcLines(CADDR(m))
+; display_user_macro(m) ==
+;     m := ASSQ(m, $pfMacros)
+;     NULL m => nil
+;     pfPrintSrcLines(CADDR(m))
 
-(DEFUN |displayParserMacro| (|m|)
+(DEFUN |display_user_macro| (|m|)
   (PROG ()
     (RETURN
      (PROGN

@@ -715,16 +715,17 @@
 ;     option
 ;
 ;   null vl => sayKeyedMsg("S2IZ0055",NIL)
-;   pmacs := getParserMacroNames()
-;   imacs := getInterpMacroNames()
+;   umacs := get_user_macro_names()
+;   bmacs := get_builtin_macro_names()
 ;   if vl='(all) then
 ;     vl := ASSOCLEFT CAAR $InteractiveFrame
-;     vl := REMDUP(append(vl, pmacs))
+;     vl := REMDUP(append(vl, umacs))
 ;   $e : local := $InteractiveFrame
 ;   for x in vl repeat
 ;     clearDependencies(x)
-;     if option='properties and x in pmacs then clearParserMacro(x)
-;     if option='properties and x in imacs and not (x in pmacs) then
+;     if option='properties and x in umacs then
+;         clear_user_macro(x)
+;     else if option='properties and x in bmacs then
 ;         sayMessage ['"   You cannot clear the definition of the system-defined macro ",
 ;             fixObjectForPrinting x,"."]
 ;     p1 := assoc(x,CAAR $InteractiveFrame) =>
@@ -745,7 +746,7 @@
 ;   nil
 
 (DEFUN |clearCmdParts| (|l|)
-  (PROG (|$e| |p2| |prop| |lm| |p1| |imacs| |pmacs| |option| |vl| |opt|)
+  (PROG (|$e| |p2| |prop| |lm| |p1| |bmacs| |umacs| |option| |vl| |opt|)
     (DECLARE (SPECIAL |$e|))
     (RETURN
      (PROGN
@@ -760,12 +761,12 @@
       (COND ((NULL |vl|) (|sayKeyedMsg| 'S2IZ0055 NIL))
             (#1#
              (PROGN
-              (SETQ |pmacs| (|getParserMacroNames|))
-              (SETQ |imacs| (|getInterpMacroNames|))
+              (SETQ |umacs| (|get_user_macro_names|))
+              (SETQ |bmacs| (|get_builtin_macro_names|))
               (COND
                ((EQUAL |vl| '(|all|))
                 (SETQ |vl| (ASSOCLEFT (CAAR |$InteractiveFrame|)))
-                (SETQ |vl| (REMDUP (APPEND |vl| |pmacs|)))))
+                (SETQ |vl| (REMDUP (APPEND |vl| |umacs|)))))
               (SETQ |$e| |$InteractiveFrame|)
               ((LAMBDA (|bfVar#19| |x|)
                  (LOOP
@@ -777,11 +778,9 @@
                     (PROGN
                      (|clearDependencies| |x|)
                      (COND
-                      ((AND (EQ |option| '|properties|) (|member| |x| |pmacs|))
-                       (|clearParserMacro| |x|)))
-                     (COND
-                      ((AND (EQ |option| '|properties|) (|member| |x| |imacs|)
-                            (NULL (|member| |x| |pmacs|)))
+                      ((AND (EQ |option| '|properties|) (|member| |x| |umacs|))
+                       (|clear_user_macro| |x|))
+                      ((AND (EQ |option| '|properties|) (|member| |x| |bmacs|))
                        (|sayMessage|
                         (LIST
                          "   You cannot clear the definition of the system-defined macro "
@@ -1771,10 +1770,10 @@
          (|sayMessage| |msg|))))))))
 
 ; displayMacros names ==
-;   imacs := getInterpMacroNames()
-;   pmacs := getParserMacroNames()
+;   umacs := get_user_macro_names()
+;   bmacs := get_builtin_macro_names()
 ;   macros :=
-;      null names => APPEND (imacs, pmacs)
+;      null names => APPEND (bmacs, umacs)
 ;      names
 ;   macros := REMDUP macros
 ;
@@ -1784,35 +1783,34 @@
 ;
 ;   first := true
 ;   for macro in macros repeat
-;     macro in pmacs =>
+;     macro in umacs =>
 ;         if first then
 ;             sayBrightly ['%l,'"User-defined macros:"]
 ;             first := NIL
-;         displayParserMacro macro
-;     macro in imacs => 'iterate
+;         display_user_macro(macro)
+;     macro in bmacs => 'iterate
 ;     sayBrightly (['"   ",'%b, macro, '%d, '" is not a known FriCAS macro."])
 ;
 ;   -- now system ones
 ;
 ;   first := true
 ;   for macro in macros repeat
-;     macro in imacs =>
-;         macro in pmacs => 'iterate
-;         if first then
-;             sayBrightly ['%l,'"System-defined macros:"]
-;             first := NIL
-;         displayMacro macro
-;     macro in pmacs => 'iterate
+;       if macro in bmacs then
+;           macro in umacs => 'iterate
+;           if first then
+;               sayBrightly ['%l,'"System-defined macros:"]
+;               first := false
+;           displayMacro(macro)
 ;   NIL
 
 (DEFUN |displayMacros| (|names|)
-  (PROG (|imacs| |pmacs| |macros| CAR)
+  (PROG (|umacs| |bmacs| |macros| CAR)
     (RETURN
      (PROGN
-      (SETQ |imacs| (|getInterpMacroNames|))
-      (SETQ |pmacs| (|getParserMacroNames|))
+      (SETQ |umacs| (|get_user_macro_names|))
+      (SETQ |bmacs| (|get_builtin_macro_names|))
       (SETQ |macros|
-              (COND ((NULL |names|) (APPEND |imacs| |pmacs|)) (#1='T |names|)))
+              (COND ((NULL |names|) (APPEND |bmacs| |umacs|)) (#1='T |names|)))
       (SETQ |macros| (REMDUP |macros|))
       (COND ((NULL |macros|) (|sayBrightly| "   There are no FriCAS macros."))
             (#1#
@@ -1826,14 +1824,14 @@
                     (RETURN NIL))
                    (#1#
                     (COND
-                     ((|member| |macro| |pmacs|)
+                     ((|member| |macro| |umacs|)
                       (PROGN
                        (COND
                         (CAR
                          (|sayBrightly| (LIST '|%l| "User-defined macros:"))
                          (SETQ CAR NIL)))
-                       (|displayParserMacro| |macro|)))
-                     ((|member| |macro| |imacs|) '|iterate|)
+                       (|display_user_macro| |macro|)))
+                     ((|member| |macro| |bmacs|) '|iterate|)
                      (#1#
                       (|sayBrightly|
                        (LIST "   " '|%b| |macro| '|%d|
@@ -1849,8 +1847,8 @@
                     (RETURN NIL))
                    (#1#
                     (COND
-                     ((|member| |macro| |imacs|)
-                      (COND ((|member| |macro| |pmacs|) '|iterate|)
+                     ((|member| |macro| |bmacs|)
+                      (COND ((|member| |macro| |umacs|) '|iterate|)
                             (#1#
                              (PROGN
                               (COND
@@ -1858,16 +1856,15 @@
                                 (|sayBrightly|
                                  (LIST '|%l| "System-defined macros:"))
                                 (SETQ CAR NIL)))
-                              (|displayMacro| |macro|)))))
-                     ((|member| |macro| |pmacs|) '|iterate|))))
+                              (|displayMacro| |macro|))))))))
                   (SETQ |bfVar#35| (CDR |bfVar#35|))))
                |macros| NIL)
               NIL)))))))
 
-; getParserMacroNames() ==
+; get_user_macro_names() ==
 ;   REMDUP [first mac for mac in getParserMacros()]
 
-(DEFUN |getParserMacroNames| ()
+(DEFUN |get_user_macro_names| ()
   (PROG ()
     (RETURN
      (REMDUP
@@ -1880,16 +1877,16 @@
           (SETQ |bfVar#36| (CDR |bfVar#36|))))
        NIL (|getParserMacros|) NIL)))))
 
-; clearParserMacro(macro) ==
-;   -- first see if it is one
-;   not IFCDR assoc(macro, ($pfMacros)) => NIL
-;   $pfMacros := REMALIST($pfMacros, macro)
+; clear_user_macro(n) ==
+;     -- first see if it is one
+;     not IFCDR assoc(n, ($pfMacros)) => NIL
+;     $pfMacros := REMALIST($pfMacros, n)
 
-(DEFUN |clearParserMacro| (|macro|)
+(DEFUN |clear_user_macro| (|n|)
   (PROG ()
     (RETURN
-     (COND ((NULL (IFCDR (|assoc| |macro| |$pfMacros|))) NIL)
-           ('T (SETQ |$pfMacros| (REMALIST |$pfMacros| |macro|)))))))
+     (COND ((NULL (IFCDR (|assoc| |n| |$pfMacros|))) NIL)
+           ('T (SETQ |$pfMacros| (REMALIST |$pfMacros| |n|)))))))
 
 ; displayMacro name ==
 ;   m := isInterpMacro name
@@ -1926,26 +1923,26 @@
           (|outputMapTran| |op| (LIST 'SPADMAP (CONS |args| |body|)))))))))))
 
 ; displayWorkspaceNames() ==
-;   imacs := getInterpMacroNames()
-;   pmacs := getParserMacroNames()
+;   umacs := get_user_macro_names()
+;   bmacs := get_builtin_macro_names()
 ;   sayMessage '"Names of User-Defined Objects in the Workspace:"
-;   names := MSORT append(getWorkspaceNames(),pmacs)
+;   names := MSORT append(getWorkspaceNames(), umacs)
 ;   if null names
 ;     then sayBrightly '"   * None *"
 ;     else sayAsManyPerLineAsPossible [object2String x for x in names]
-;   imacs := SETDIFFERENCE(imacs,pmacs)
-;   if imacs then
+;   bmacs := SETDIFFERENCE(bmacs, umacs)
+;   if bmacs then
 ;     sayMessage '"Names of System-Defined Objects in the Workspace:"
-;     sayAsManyPerLineAsPossible [object2String x for x in imacs]
+;     sayAsManyPerLineAsPossible [object2String x for x in bmacs]
 
 (DEFUN |displayWorkspaceNames| ()
-  (PROG (|names| |pmacs| |imacs|)
+  (PROG (|names| |bmacs| |umacs|)
     (RETURN
      (PROGN
-      (SETQ |imacs| (|getInterpMacroNames|))
-      (SETQ |pmacs| (|getParserMacroNames|))
+      (SETQ |umacs| (|get_user_macro_names|))
+      (SETQ |bmacs| (|get_builtin_macro_names|))
       (|sayMessage| "Names of User-Defined Objects in the Workspace:")
-      (SETQ |names| (MSORT (APPEND (|getWorkspaceNames|) |pmacs|)))
+      (SETQ |names| (MSORT (APPEND (|getWorkspaceNames|) |umacs|)))
       (COND ((NULL |names|) (|sayBrightly| "   * None *"))
             (#1='T
              (|sayAsManyPerLineAsPossible|
@@ -1959,9 +1956,9 @@
                     (SETQ |bfVar#39| (CONS (|object2String| |x|) |bfVar#39|))))
                   (SETQ |bfVar#38| (CDR |bfVar#38|))))
                NIL |names| NIL))))
-      (SETQ |imacs| (SETDIFFERENCE |imacs| |pmacs|))
+      (SETQ |bmacs| (SETDIFFERENCE |bmacs| |umacs|))
       (COND
-       (|imacs|
+       (|bmacs|
         (|sayMessage| "Names of System-Defined Objects in the Workspace:")
         (|sayAsManyPerLineAsPossible|
          ((LAMBDA (|bfVar#41| |bfVar#40| |x|)
@@ -1971,7 +1968,7 @@
                (RETURN (NREVERSE |bfVar#41|)))
               (#1# (SETQ |bfVar#41| (CONS (|object2String| |x|) |bfVar#41|))))
              (SETQ |bfVar#40| (CDR |bfVar#40|))))
-          NIL |imacs| NIL))))))))
+          NIL |bmacs| NIL))))))))
 
 ; getWorkspaceNames() ==
 ;   NMSORT [n for [n,:.] in CAAR $InteractiveFrame |
@@ -2096,9 +2093,9 @@
 ;   $dependentAlist : local := nil
 ;   $dependeeAlist  : local := nil
 ;   [opt,:vl]:= (l or ['properties])
-;   imacs := getInterpMacroNames()
-;   pmacs := getParserMacroNames()
-;   macros := REMDUP append(imacs, pmacs)
+;   umacs := get_user_macro_names()
+;   bmacs := get_builtin_macro_names()
+;   macros := REMDUP append(bmacs, umacs)
 ;   if vl is ['all] or null vl then
 ;     vl := MSORT append(getWorkspaceNames(),macros)
 ;   if $frameMessages then sayKeyedMsg("S2IZ0065",[$interpreterFrameName])
@@ -2120,10 +2117,10 @@
 ;       v1 := fixObjectForPrinting(v)
 ;       sayMSG ['"Properties of",:bright prefix2String v1,'":"]
 ;       null pl =>
-;         v in pmacs =>
+;         v in umacs =>
 ;             sayMSG '"   This is a user-defined macro."
-;             displayParserMacro v
-;         isInterpMacro v =>
+;             display_user_macro(v)
+;         v in bmacs =>
 ;             sayMSG '"   This is a system-defined macro."
 ;             displayMacro v
 ;         sayMSG '"   none"
@@ -2154,7 +2151,7 @@
 
 (DEFUN |displayProperties| (|option| |l|)
   (PROG (|$dependeeAlist| |$dependentAlist| |val| |prop| |propsSeen| |v1|
-         |ISTMP#1| |pl| |macros| |pmacs| |imacs| |vl| |opt| |LETTMP#1|)
+         |ISTMP#1| |pl| |macros| |bmacs| |umacs| |vl| |opt| |LETTMP#1|)
     (DECLARE (SPECIAL |$dependeeAlist| |$dependentAlist|))
     (RETURN
      (PROGN
@@ -2163,9 +2160,9 @@
       (SETQ |LETTMP#1| (OR |l| (LIST '|properties|)))
       (SETQ |opt| (CAR |LETTMP#1|))
       (SETQ |vl| (CDR |LETTMP#1|))
-      (SETQ |imacs| (|getInterpMacroNames|))
-      (SETQ |pmacs| (|getParserMacroNames|))
-      (SETQ |macros| (REMDUP (APPEND |imacs| |pmacs|)))
+      (SETQ |umacs| (|get_user_macro_names|))
+      (SETQ |bmacs| (|get_builtin_macro_names|))
+      (SETQ |macros| (REMDUP (APPEND |bmacs| |umacs|)))
       (COND
        ((OR (AND (CONSP |vl|) (EQ (CDR |vl|) NIL) (EQ (CAR |vl|) '|all|))
             (NULL |vl|))
@@ -2221,12 +2218,12 @@
                                  (COND
                                   ((NULL |pl|)
                                    (COND
-                                    ((|member| |v| |pmacs|)
+                                    ((|member| |v| |umacs|)
                                      (PROGN
                                       (|sayMSG|
                                        "   This is a user-defined macro.")
-                                      (|displayParserMacro| |v|)))
-                                    ((|isInterpMacro| |v|)
+                                      (|display_user_macro| |v|)))
+                                    ((|member| |v| |bmacs|)
                                      (PROGN
                                       (|sayMSG|
                                        "   This is a system-defined macro.")
@@ -2612,6 +2609,10 @@
       (SETQ |$edit_file| |l|)
       (SETQ |rc| (|editFile| |l|))
       |rc|))))
+
+; fin() == THROW('SPAD_READER, nil)
+
+(DEFUN |fin| () (PROG () (RETURN (THROW 'SPAD_READER NIL))))
 
 ; help l == helpSpad2Cmd l
 
@@ -4844,14 +4845,14 @@
 ; reportCount () ==
 ;   centerAndHighlight('" Current Count Settings ",$LINELENGTH,specialChar 'hbar)
 ;   SAY '" "
-;   sayBrightly [:bright '" cache",fillerSpaces(30,'"."),'" ",$cacheCount]
+;   sayBrightly [:bright('" cache"), filler_chars(30, '"."), '" ", $cacheCount]
 ;   if $cacheAlist then
 ;     for [a,:b] in $cacheAlist repeat
 ;       aPart:= linearFormatName a
 ;       n:= sayBrightlyLength aPart
-;       sayBrightly concat('"     ",aPart,'" ",fillerSpaces(32-n,'"."),'" ",b)
+;       sayBrightly concat('"     ",aPart,'" ",filler_chars(32 - n, '"."),'" ",b)
 ;   SAY '" "
-;   sayBrightly [:bright '" stream",fillerSpaces(29,'"."),'" ",$streamCount]
+;   sayBrightly [:bright '" stream",filler_chars(29, '"."), '" ", $streamCount]
 
 (DEFUN |reportCount| ()
   (PROG (|n| |aPart| |b| |a|)
@@ -4862,7 +4863,7 @@
       (SAY " ")
       (|sayBrightly|
        (APPEND (|bright| " cache")
-               (CONS (|fillerSpaces| 30 ".")
+               (CONS (|filler_chars| 30 ".")
                      (CONS " " (CONS |$cacheCount| NIL)))))
       (COND
        (|$cacheAlist|
@@ -4883,13 +4884,13 @@
                     (SETQ |n| (|sayBrightlyLength| |aPart|))
                     (|sayBrightly|
                      (|concat| "     " |aPart| " "
-                      (|fillerSpaces| (- 32 |n|) ".") " " |b|))))))
+                      (|filler_chars| (- 32 |n|) ".") " " |b|))))))
             (SETQ |bfVar#99| (CDR |bfVar#99|))))
          |$cacheAlist| NIL)))
       (SAY " ")
       (|sayBrightly|
        (APPEND (|bright| " stream")
-               (CONS (|fillerSpaces| 29 ".")
+               (CONS (|filler_chars| 29 ".")
                      (CONS " " (CONS |$streamCount| NIL)))))))))
 
 ; nopiles l == nopilesSpad2Cmd l
@@ -6750,7 +6751,7 @@
 ;     if syn = '"%i" then syn := '"%i "
 ;     wid := MAX(30 - (entryWidth syn),1)
 ;     sayBrightly concat('%b,prefix,syn,'%d,
-;       fillerSpaces(wid,'"."),'" ",prefix,comm)
+;       filler_chars(wid, '"."), '" ", prefix, comm)
 ;   sayBrightly '""
 
 (DEFUN |printLabelledList| (|ls| |label1| |label2| |prefix| |patterns|)
@@ -6813,7 +6814,7 @@
                     (SETQ |wid| (MAX (- 30 (|entryWidth| |syn|)) 1))
                     (|sayBrightly|
                      (|concat| '|%b| |prefix| |syn| '|%d|
-                      (|fillerSpaces| |wid| ".") " " |prefix| |comm|))))))
+                      (|filler_chars| |wid| ".") " " |prefix| |comm|))))))
             (SETQ |bfVar#158| (CDR |bfVar#158|))))
          |ls| NIL)
         (|sayBrightly| "")))))))

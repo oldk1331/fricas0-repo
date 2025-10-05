@@ -2511,7 +2511,7 @@
 ;   x := NIL
 ;   for mm in mms repeat
 ;     [sig,:.] := mm
-;     [res, :args] := MSUBSTQ(dc, "%", sig)
+;     [res, :args] := SUBST(dc, "%", sig)
 ;     args ~= args1 => nil
 ;     x := CONS(mm,x)
 ;   if x then x
@@ -2533,7 +2533,7 @@
                   (#1#
                    (PROGN
                     (SETQ |sig| (CAR |mm|))
-                    (SETQ |LETTMP#1| (MSUBSTQ |dc| '% |sig|))
+                    (SETQ |LETTMP#1| (SUBST |dc| '% |sig|))
                     (SETQ |res| (CAR |LETTMP#1|))
                     (SETQ |args| (CDR |LETTMP#1|))
                     (COND ((NOT (EQUAL |args| |args1|)) NIL)

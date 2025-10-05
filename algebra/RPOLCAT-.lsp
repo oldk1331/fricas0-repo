@@ -1995,7 +1995,7 @@
                  (LETT |tpol| (SPADCALL |pol| (QREFELT % 19)))
                  (COND
                   ((SPADCALL |ipol| (|spadConstant| % 16) (QREFELT % 18))
-                   (LETT |sipol| (|make_full_CVEC| 0)))
+                   (LETT |sipol| (|filler_spaces| 0)))
                   ((SPADCALL (SPADCALL |ipol| (QREFELT % 240))
                              (|spadConstant| % 16) (QREFELT % 18))
                    (LETT |sipol| "-"))
@@ -2012,11 +2012,11 @@
                  (LETT |svpol|
                        (SPADCALL (SPADCALL |vpol| (QREFELT % 160))
                                  (QREFELT % 245)))
-                 (COND ((EQL |dpol| 1) (LETT |sdpol| (|make_full_CVEC| 0)))
+                 (COND ((EQL |dpol| 1) (LETT |sdpol| (|filler_spaces| 0)))
                        (#2# (LETT |sdpol| (STRCONC "^" (STRINGIMAGE |dpol|)))))
                  (COND
                   ((SPADCALL |tpol| (QREFELT % 20))
-                   (LETT |stpol| (|make_full_CVEC| 0)))
+                   (LETT |stpol| (|filler_spaces| 0)))
                   ((SPADCALL |tpol| (QREFELT % 11))
                    (SEQ
                     (LETT |n|

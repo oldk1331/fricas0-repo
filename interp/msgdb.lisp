@@ -938,8 +938,8 @@
 ;   potentialMarg := 0
 ;   actualMarg    := 0
 ;
-;   off := (offset <= 0 => '""; fillerSpaces(offset,'" "))
-;   off1:= (offset <= 1 => '""; fillerSpaces(offset-1,'" "))
+;   off := (offset <= 0 => '""; filler_spaces(offset))
+;   off1:= (offset <= 1 => '""; filler_spaces(offset - 1))
 ;   firstLine := true
 ;
 ;   PAIRP msg =>
@@ -1006,10 +1006,10 @@
         (SETQ |actualMarg| 0)
         (SETQ |off|
                 (COND ((NOT (< 0 |offset|)) "")
-                      (#1# (|fillerSpaces| |offset| " "))))
+                      (#1# (|filler_spaces| |offset|))))
         (SETQ |off1|
                 (COND ((NOT (< 1 |offset|)) "")
-                      (#1# (|fillerSpaces| (- |offset| 1) " "))))
+                      (#1# (|filler_spaces| (- |offset| 1)))))
         (SETQ |firstLine| T)
         (COND
          ((CONSP |msg|)
@@ -1202,7 +1202,7 @@
 ; spadStartUpMsgs() ==
 ;   -- messages displayed when the system starts up
 ;   $LINELENGTH < 60 => NIL
-;   bar := fillerSpaces($LINELENGTH,specialChar 'hbar)
+;   bar := filler_chars($LINELENGTH, hbar_special_char())
 ;   sayKeyedMsg("S2GL0001", [$build_version, $lisp_id_string, $build_date])
 ;   sayMSG bar
 ;   sayKeyedMsg("S2GL0018C",NIL)
@@ -1226,7 +1226,7 @@
      (COND ((< $LINELENGTH 60) NIL)
            ('T
             (PROGN
-             (SETQ |bar| (|fillerSpaces| $LINELENGTH (|specialChar| '|hbar|)))
+             (SETQ |bar| (|filler_chars| $LINELENGTH (|hbar_special_char|)))
              (|sayKeyedMsg| 'S2GL0001
               (LIST |$build_version| |$lisp_id_string| |$build_date|))
              (|sayMSG| |bar|)
@@ -1489,7 +1489,7 @@
 ;     wid := STRINGLENGTH x
 ;     if wid < $LINELENGTH then
 ;       f := DIVIDE($LINELENGTH - wid,2)
-;       x := LIST(fillerSpaces(f.0,'" "),x)
+;       x := LIST(filler_spaces(f.0), x)
 ;     for y in x repeat
 ;         marg := brightPrint0(y, str, marg)
 ;     marg
@@ -1503,7 +1503,7 @@
 ;   wid := sayBrightlyLength y
 ;   if wid < $LINELENGTH then
 ;     f := DIVIDE($LINELENGTH - wid,2)
-;     y := CONS(fillerSpaces(f.0,'" "),y)
+;     y := CONS(filler_spaces(f.0), y)
 ;   for z in y repeat
 ;       marg := brightPrint0(z, str, marg)
 ;   if x then
@@ -1521,7 +1521,7 @@
         (SETQ |wid| (STRINGLENGTH |x|))
         (COND
          ((< |wid| $LINELENGTH) (SETQ |f| (DIVIDE (- $LINELENGTH |wid|) 2))
-          (SETQ |x| (LIST (|fillerSpaces| (ELT |f| 0) " ") |x|))))
+          (SETQ |x| (LIST (|filler_spaces| (ELT |f| 0)) |x|))))
         ((LAMBDA (|bfVar#17| |y|)
            (LOOP
             (COND
@@ -1547,7 +1547,7 @@
         (SETQ |wid| (|sayBrightlyLength| |y|))
         (COND
          ((< |wid| $LINELENGTH) (SETQ |f| (DIVIDE (- $LINELENGTH |wid|) 2))
-          (SETQ |y| (CONS (|fillerSpaces| (ELT |f| 0) " ") |y|))))
+          (SETQ |y| (CONS (|filler_spaces| (ELT |f| 0)) |y|))))
         ((LAMBDA (|bfVar#18| |z|)
            (LOOP
             (COND
@@ -1567,7 +1567,7 @@
 ;     x := object2String x
 ;     wid := STRINGLENGTH x
 ;     wid < $LINELENGTH =>
-;       x := LIST(fillerSpaces($LINELENGTH-wid,'" "),x)
+;       x := LIST(filler_spaces($LINELENGTH - wid), x)
 ;       for y in x repeat
 ;           marg := brightPrint0(y, str, marg)
 ;       marg
@@ -1581,7 +1581,7 @@
 ;   y := NREVERSE y
 ;   wid := sayBrightlyLength y
 ;   if wid < $LINELENGTH then
-;     y := CONS(fillerSpaces($LINELENGTH-wid,'" "),y)
+;     y := CONS(filler_spaces($LINELENGTH - wid), y)
 ;   for z in y repeat
 ;       marg := brightPrint0(z, str, marg)
 ;   if x then
@@ -1600,7 +1600,7 @@
         (COND
          ((< |wid| $LINELENGTH)
           (PROGN
-           (SETQ |x| (LIST (|fillerSpaces| (- $LINELENGTH |wid|) " ") |x|))
+           (SETQ |x| (LIST (|filler_spaces| (- $LINELENGTH |wid|)) |x|))
            ((LAMBDA (|bfVar#19| |y|)
               (LOOP
                (COND
@@ -1627,7 +1627,7 @@
         (SETQ |wid| (|sayBrightlyLength| |y|))
         (COND
          ((< |wid| $LINELENGTH)
-          (SETQ |y| (CONS (|fillerSpaces| (- $LINELENGTH |wid|) " ") |y|))))
+          (SETQ |y| (CONS (|filler_spaces| (- $LINELENGTH |wid|)) |y|))))
         ((LAMBDA (|bfVar#20| |z|)
            (LOOP
             (COND
@@ -1700,7 +1700,7 @@
 ;   str := '""
 ;   for i in 0..(n-1) repeat
 ;     [c,:l] := l
-;     str := STRCONC(str,c,fillerSpaces(w - #c,'" "))
+;     str := STRCONC(str,c,filler_spaces(w - #c))
 ;     REMAINDER(i+1,p) = 0 => (sayMSG str ; str := '"" )
 ;   if str ~= '"" then sayMSG str
 ;   NIL
@@ -1759,7 +1759,7 @@
                      (SETQ |l| (CDR |LETTMP#1|))
                      (SETQ |str|
                              (STRCONC |str| |c|
-                              (|fillerSpaces| (- |w| (LENGTH |c|)) " ")))
+                              (|filler_spaces| (- |w| (LENGTH |c|)))))
                      (COND
                       ((EQL (REMAINDER (+ |i| 1) |p|) 0)
                        (PROGN (|sayMSG| |str|) (SETQ |str| "")))))))
@@ -1869,7 +1869,7 @@
 ;   while l repeat
 ;     sayBrightlyNT first l
 ;     sayBrightlyNT
-;       fillerSpaces((QUOTIENT($LINELENGTH, 2) - sayDisplayWidth first l), '" ")
+;       filler_spaces((QUOTIENT($LINELENGTH, 2) - sayDisplayWidth first l))
 ;     (l:= rest l) =>
 ;       sayBrightlyNT first l
 ;       l:= rest l
@@ -1886,9 +1886,8 @@
                 (PROGN
                  (|sayBrightlyNT| (CAR |l|))
                  (|sayBrightlyNT|
-                  (|fillerSpaces|
-                   (- (QUOTIENT $LINELENGTH 2) (|sayDisplayWidth| (CAR |l|)))
-                   " "))
+                  (|filler_spaces|
+                   (- (QUOTIENT $LINELENGTH 2) (|sayDisplayWidth| (CAR |l|)))))
                  (COND
                   ((SETQ |l| (CDR |l|))
                    (PROGN
@@ -1984,14 +1983,14 @@
       NIL))))
 
 ; ppPair(abb,name) ==
-;     sayBrightlyNT [:bright abb,fillerSpaces(8-entryWidth abb," "),name]
+;     sayBrightlyNT([:bright(abb), filler_spaces(8 - entryWidth(abb)), name])
 
 (DEFUN |ppPair| (|abb| |name|)
   (PROG ()
     (RETURN
      (|sayBrightlyNT|
       (APPEND (|bright| |abb|)
-              (CONS (|fillerSpaces| (- 8 (|entryWidth| |abb|)) '| |)
+              (CONS (|filler_spaces| (- 8 (|entryWidth| |abb|)))
                     (CONS |name| NIL)))))))
 
 ; canFit2ndEntry(name,al) ==

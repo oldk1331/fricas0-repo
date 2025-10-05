@@ -394,7 +394,7 @@
          (SEQ
           (COND
            (|hash?|
-            (SEQ (LETT |e| (|make_full_CVEC| 0))
+            (SEQ (LETT |e| (|filler_spaces| 0))
                  (COND
                   (|info?|
                    (PROGN

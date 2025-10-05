@@ -359,7 +359,7 @@
                                         (EXIT (NREVERSE #5#))))
                                   (QREFELT % 54)))
                   (LETT |emptyLine|
-                        (|make_full_CVEC2| |w| (|STR_to_CHAR| " ")))
+                        (|make_string_code| |w| (|STR_to_CHAR| " ")))
                   (LETT |newLines| NIL)
                   (SEQ (LETT |i| 1) (LETT #3# (+ |h| |d|)) G190
                        (COND ((|greater_SI| |i| #3#) (GO G191)))

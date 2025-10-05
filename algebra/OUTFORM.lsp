@@ -141,7 +141,7 @@
 
 (SDEFUN |OUTFORM;hspace;I%;24| ((|n| (|Integer|)) (% (%)))
         (COND ((EQL |n| 0) (SPADCALL (QREFELT % 14)))
-              ('T (|OUTFORM;sform| (|fillerSpaces| |n| " ") %)))) 
+              ('T (|OUTFORM;sform| (|filler_spaces| |n|) %)))) 
 
 (SDEFUN |OUTFORM;rspace;2I%;25| ((|n| (|Integer|)) (|m| (|Integer|)) (% (%)))
         (COND ((OR (EQL |n| 0) (EQL |m| 0)) (SPADCALL (QREFELT % 14)))
@@ -402,14 +402,14 @@
 (SDEFUN |OUTFORM;dot;%Nni%;79|
         ((|a| (%)) (|nn| (|NonNegativeInteger|)) (% (%)))
         (SPROG ((|s| (|String|)))
-               (SEQ (LETT |s| (|make_full_CVEC2| |nn| (|STR_to_CHAR| ".")))
+               (SEQ (LETT |s| (|make_string_code| |nn| (|STR_to_CHAR| ".")))
                     (EXIT
                      (SPADCALL |a| (|OUTFORM;sform| |s| %) (QREFELT % 78)))))) 
 
 (SDEFUN |OUTFORM;prime;%Nni%;80|
         ((|a| (%)) (|nn| (|NonNegativeInteger|)) (% (%)))
         (SPROG ((|s| (|String|)))
-               (SEQ (LETT |s| (|make_full_CVEC2| |nn| (|STR_to_CHAR| ",")))
+               (SEQ (LETT |s| (|make_string_code| |nn| (|STR_to_CHAR| ",")))
                     (EXIT
                      (|OUTFORM;add_prime| |a| (|OUTFORM;sform| |s| %) %))))) 
 

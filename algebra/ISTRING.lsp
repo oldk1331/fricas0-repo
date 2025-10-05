@@ -1,13 +1,13 @@
 
-(PUT '|ISTRING;new;NniC%;1| '|SPADreplace| '|make_full_CVEC2|) 
+(PUT '|ISTRING;new;NniC%;1| '|SPADreplace| '|make_string_code|) 
 
 (SDEFUN |ISTRING;new;NniC%;1|
         ((|n| (|NonNegativeInteger|)) (|c| (|Character|)) (% (%)))
-        (|make_full_CVEC2| |n| |c|)) 
+        (|make_string_code| |n| |c|)) 
 
-(PUT '|ISTRING;empty;%;2| '|SPADreplace| '(XLAM NIL (|make_full_CVEC| 0))) 
+(PUT '|ISTRING;empty;%;2| '|SPADreplace| '(XLAM NIL (|filler_spaces| 0))) 
 
-(SDEFUN |ISTRING;empty;%;2| ((% (%))) (|make_full_CVEC| 0)) 
+(SDEFUN |ISTRING;empty;%;2| ((% (%))) (|filler_spaces| 0)) 
 
 (SDEFUN |ISTRING;empty?;%B;3| ((|s| (%)) (% (|Boolean|))) (EQL (QCSIZE |s|) 0)) 
 

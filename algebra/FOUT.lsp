@@ -167,7 +167,7 @@
                      ('T
                       (SEQ (LETT |n| (QCSIZE |s|))
                            (LETT |t|
-                                 (|make_full_CVEC2|
+                                 (|make_string_code|
                                   (PROG1
                                       (LETT #3#
                                             (+ |n| (QUOTIENT2 (- |n| 1) |sp|)))
@@ -207,7 +207,7 @@
                      ('T
                       (SEQ (LETT |n| (QCSIZE |s|))
                            (LETT |t|
-                                 (|make_full_CVEC2|
+                                 (|make_string_code|
                                   (PROG1
                                       (LETT #2#
                                             (+ |n| (QUOTIENT2 (- |n| 1) |sp|)))
@@ -254,7 +254,7 @@
                         (SEQ (LETT |s2| "0")
                              (EXIT
                               (STRCONC |s|
-                                       (|make_full_CVEC2|
+                                       (|make_string_code|
                                         (PROG1 (LETT #3# (- |top_digit| |n1|))
                                           (|check_subtype2| (>= #3# 0)
                                                             '(|NonNegativeInteger|)
@@ -265,7 +265,7 @@
                ((< |top_digit| 0)
                 (LETT |s2|
                       (STRCONC
-                       (|make_full_CVEC2|
+                       (|make_string_code|
                         (PROG1 (LETT #2# (- |top_digit|))
                           (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
                                             '(|Integer|) #2#))
@@ -351,7 +351,7 @@
                     (STRCONC "0"
                              (STRCONC "."
                                       (|FOUT;insert_separators_from_left|
-                                       (|make_full_CVEC2|
+                                       (|make_string_code|
                                         (PROG1 (LETT #13# |d|)
                                           (|check_subtype2| (>= #13# 0)
                                                             '(|NonNegativeInteger|)
@@ -456,7 +456,7 @@
                                   ((< |e| |d|)
                                    (LETT |s2|
                                          (STRCONC |s2|
-                                                  (|make_full_CVEC2|
+                                                  (|make_string_code|
                                                    (PROG1
                                                        (LETT #5# (- |d| |e|))
                                                      (|check_subtype2|
@@ -487,7 +487,7 @@
                               (#14#
                                (STRCONC "."
                                         (|FOUT;insert_separators_from_left|
-                                         (|make_full_CVEC2|
+                                         (|make_string_code|
                                           (PROG1 (LETT #2# |d|)
                                             (|check_subtype2| (>= #2# 0)
                                                               '(|NonNegativeInteger|)

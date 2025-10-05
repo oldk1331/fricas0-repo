@@ -62,7 +62,7 @@
           ((QREFELT % 8)
            (SEQ (SETELT % 11 (SPADCALL (QREFELT % 10))) (SETELT % 8 NIL)
                 (SETELT % 12 NIL) (SETELT % 13 NIL)
-                (SETELT % 17 (|make_full_CVEC| 0))
+                (SETELT % 17 (|filler_spaces| 0))
                 (EXIT (SPADCALL (QREFELT % 19)))))
           ('T
            (|error|
@@ -132,7 +132,7 @@
           (QSETREFV % 14 0)
           (QSETREFV % 15 "o")
           (QSETREFV % 16 "+")
-          (QSETREFV % 17 (|make_full_CVEC| 0))
+          (QSETREFV % 17 (|filler_spaces| 0))
           %))) 
 
 (DEFUN |TabulatedComputationPackage| (&REST #1=#:G29)

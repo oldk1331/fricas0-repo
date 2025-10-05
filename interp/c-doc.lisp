@@ -2996,7 +2996,7 @@
 ;   else if namestring = '"One" then namestring := '"1"
 ;   margin > 0 =>
 ;     s := leftTrim u
-;     STRCONC(fillerSpaces(margin, '" "), checkTransformFirsts(opname, s, 0))
+;     STRCONC(filler_spaces(margin), checkTransformFirsts(opname, s, 0))
 ;   m := MAXINDEX u
 ;   m < 2 => u
 ;   u.0 = $charBack => u
@@ -3065,7 +3065,7 @@
        ((< 0 |margin|)
         (PROGN
          (SETQ |s| (|leftTrim| |u|))
-         (STRCONC (|fillerSpaces| |margin| " ")
+         (STRCONC (|filler_spaces| |margin|)
           (|checkTransformFirsts| |opname| |s| 0))))
        (#1='T
         (PROGN

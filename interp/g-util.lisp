@@ -297,15 +297,6 @@
             ((NULL |t|) (PROGN (RPLACD |y| (CONS |h| |t|)) (RPLACA |y| |x|)))
             ('T (|insertWOC,fn| |x| |t|)))))))
 
-; fillerSpaces(n, charPart) ==
-;   n <= 0 => '""
-;   make_full_CVEC2(n, charPart)
-
-(DEFUN |fillerSpaces| (|n| |charPart|)
-  (PROG ()
-    (RETURN
-     (COND ((NOT (< 0 |n|)) "") ('T (|make_full_CVEC2| |n| |charPart|))))))
-
 ; centerString(text,width,fillchar) ==
 ;   wid := entryWidth text
 ;   wid >= width => text
@@ -1444,7 +1435,7 @@
 ;     STRCONC(STRINGIMAGE $interpreterFrameName,
 ;       '" (",STRINGIMAGE $IOindex,'") -> ")
 ;   STRCONC(STRINGIMAGE $interpreterFrameName,
-;    '" [", SUBSTRING(CURRENTTIME(),8,NIL),'"] [",
+;    '" [", CURRENTTIME(), '"] [",
 ;     STRINGIMAGE $IOindex, '"] -> ")
 
 (DEFUN MKPROMPT ()
@@ -1458,9 +1449,8 @@
             (STRCONC (STRINGIMAGE |$interpreterFrameName|) " ("
              (STRINGIMAGE |$IOindex|) ") -> "))
            ('T
-            (STRCONC (STRINGIMAGE |$interpreterFrameName|) " ["
-             (SUBSTRING (CURRENTTIME) 8 NIL) "] [" (STRINGIMAGE |$IOindex|)
-             "] -> "))))))
+            (STRCONC (STRINGIMAGE |$interpreterFrameName|) " [" (CURRENTTIME)
+             "] [" (STRINGIMAGE |$IOindex|) "] -> "))))))
 
 ; isSubDomain(d1,d2) ==
 ;   -- d1 and d2 are different domains

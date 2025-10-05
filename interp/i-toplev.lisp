@@ -580,7 +580,7 @@
 ; justifyMyType(t) ==
 ;   len := #t
 ;   len > $LINELENGTH => t
-;   CONCAT(fillerSpaces($LINELENGTH-len, '" "), t)
+;   CONCAT(filler_spaces($LINELENGTH - len), t)
 
 (DEFUN |justifyMyType| (|t|)
   (PROG (|len|)
@@ -588,7 +588,7 @@
      (PROGN
       (SETQ |len| (LENGTH |t|))
       (COND ((< $LINELENGTH |len|) |t|)
-            ('T (CONCAT (|fillerSpaces| (- $LINELENGTH |len|) " ") |t|)))))))
+            ('T (CONCAT (|filler_spaces| (- $LINELENGTH |len|)) |t|)))))))
 
 ; typeTimePrin x ==
 ;   maprinSpecial(x,0,79)

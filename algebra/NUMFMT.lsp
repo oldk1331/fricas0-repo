@@ -99,7 +99,7 @@
                                                  (LETT |n| (QUOTIENT2 |n| 10))
                                                  (LETT |s|
                                                        (STRCONC
-                                                        (|make_full_CVEC2|
+                                                        (|make_string_code|
                                                          (PROG1 (LETT #4# |d|)
                                                            (|check_subtype2|
                                                             (>= #4# 0)
@@ -144,14 +144,14 @@
                                                                       (LETT
                                                                        |m0|
                                                                        (STRCONC
-                                                                        (|make_full_CVEC2|
+                                                                        (|make_string_code|
                                                                          |i|
                                                                          (QREFELT
                                                                           %
                                                                           41))
                                                                         (STRCONC
                                                                          "I"
-                                                                         (|make_full_CVEC2|
+                                                                         (|make_string_code|
                                                                           |i|
                                                                           (QREFELT
                                                                            %
@@ -242,7 +242,7 @@
                            ((SPADCALL |c| (QREFELT % 42) (QREFELT % 54))
                             (|error|
                              (STRCONC "Improper character in Roman numeral: "
-                                      (|make_full_CVEC2| 1 |c|))))
+                                      (|make_string_code| 1 |c|))))
                            ('T
                             (SEQ (LETT |nprens| 1)
                                  (SEQ G190

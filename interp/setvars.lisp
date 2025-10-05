@@ -456,14 +456,14 @@
 ;   sayBrightly ['"Variable     ",
 ;                '"Description                                ",
 ;                  '"Current Value"]
-;   SAY fillerSpaces($LINELENGTH,specialChar 'hbar)
+;   SAY filler_chars($LINELENGTH, hbar_special_char())
 ;   subtree := nil
 ;   for setData in setTree repeat
 ;     null satisfiesUserLevel setData.setLevel => nil
 ;     setOption := object2String setData.setName
-;     setOption := STRCONC(setOption,fillerSpaces(13-#setOption,'" "),
+;     setOption := STRCONC(setOption, filler_spaces(13 - #setOption),
 ;                          setData.setLabel)
-;     setOption := STRCONC(setOption,fillerSpaces(55-#setOption,'" "))
+;     setOption := STRCONC(setOption, filler_spaces(55 - #setOption))
 ;     st := setData.setType
 ;     st = 'FUNCTION =>
 ;       opt :=
@@ -504,7 +504,7 @@
       (|sayBrightly|
        (LIST "Variable     " "Description                                "
              "Current Value"))
-      (SAY (|fillerSpaces| $LINELENGTH (|specialChar| '|hbar|)))
+      (SAY (|filler_chars| $LINELENGTH (|hbar_special_char|)))
       (SETQ |subtree| NIL)
       ((LAMBDA (|bfVar#5| |setData|)
          (LOOP
@@ -518,11 +518,11 @@
                     (SETQ |setOption| (|object2String| (ELT |setData| 0)))
                     (SETQ |setOption|
                             (STRCONC |setOption|
-                             (|fillerSpaces| (- 13 (LENGTH |setOption|)) " ")
+                             (|filler_spaces| (- 13 (LENGTH |setOption|)))
                              (ELT |setData| 1)))
                     (SETQ |setOption|
                             (STRCONC |setOption|
-                             (|fillerSpaces| (- 55 (LENGTH |setOption|)) " ")))
+                             (|filler_spaces| (- 55 (LENGTH |setOption|)))))
                     (SETQ |st| (ELT |setData| 3))
                     (COND
                      ((EQ |st| 'FUNCTION)

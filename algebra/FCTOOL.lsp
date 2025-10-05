@@ -1488,7 +1488,7 @@
 
 (SDEFUN |FCTOOL;make_spaces| ((|x| (|Integer|)) (% (|String|)))
         (SPROG ((#1=#:G456 NIL))
-               (|make_full_CVEC2|
+               (|make_string_code|
                 (PROG1 (LETT #1# |x|)
                   (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
                                     '(|Integer|) #1#))
