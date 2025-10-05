@@ -87,7 +87,7 @@
           (SETF |pv$| (QREFELT % 3))
           (QSETREFV % 6
                     (|Record| (|:| |fileName| (|FileName|))
-                              (|:| |fileState| (|SExpression|))
+                              (|:| |fileState| (|BasicFile|))
                               (|:| |fileIOmode| (|String|))))
           %))) 
 
