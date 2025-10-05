@@ -310,8 +310,11 @@
 ;     if rest(d) then
 ;         x := EQSUBSTLIST(rest(d), $FormalMapVariableList, x)
 ;     y := rest cat =>
-;       npred := or/[p for [args,:p] in x | y = args] => simp npred
-;       false  --if not there, it is false
+;         npred := or/[p for [args,:p] in x | y = args] =>
+;             if not(d = '%) then
+;                 npred := SUBST(d, '%, npred)
+;             simp npred
+;         false  --if not there, it is false
 ;     simp(x)
 
 (DEFUN |simpHasPred2| (|pred| |options|)
@@ -428,7 +431,9 @@
                               (COND (|bfVar#25| (RETURN |bfVar#25|)))))))
                       (SETQ |bfVar#24| (CDR |bfVar#24|))))
                    NIL |x| NIL))
-          (|simpHasPred2,simp| |npred|))
+          (PROGN
+           (COND ((NULL (EQ |d| '%)) (SETQ |npred| (SUBST |d| '% |npred|))))
+           (|simpHasPred2,simp| |npred|)))
          (#2# NIL)))
        (#2# (|simpHasPred2,simp| |x|)))))))
 
