@@ -1441,6 +1441,8 @@
 ;         NULL(l) => nil
 ;         rest(l) => ["PROGN", :l]
 ;         first(l)
+;     op = "NOT" =>
+;         [op, :l]
 ;     op = "not" =>
 ;         [op, :l]
 ;     BREAK()
@@ -1476,4 +1478,5 @@
        (PROGN
         (SETQ |l| (REMOVE NIL |l|))
         (COND ((NULL |l|) NIL) ((CDR |l|) (CONS 'PROGN |l|)) (#1# (CAR |l|)))))
-      ((EQ |op| '|not|) (CONS |op| |l|)) (#1# (BREAK))))))
+      ((EQ |op| 'NOT) (CONS |op| |l|)) ((EQ |op| '|not|) (CONS |op| |l|))
+      (#1# (BREAK))))))
