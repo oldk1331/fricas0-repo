@@ -2895,7 +2895,6 @@ oconvert`1`n`(S)->Pattern(Integer)`xPolynomialCategory&(S,R,E,VarSet)``0
 oconvert`1`n`(S)->Pattern(Integer)`xRecursivePolynomialCategory&(S,R,E,V)``0
 oconvert`1`n`(S)->Polynomial(R)`xRecursivePolynomialCategory&(S,R,E,V)``0
 oconvert`1`n`(S)->SparseUnivariatePolynomial(R)`xComplexCategory&(S,R)``0
-oconvert`1`n`(S)->String`xRecursivePolynomialCategory&(S,R,E,V)``0
 oconvert`1`n`(S)->UP`xMonogenicAlgebra&(S,R,UP)``0
 oconvert`1`n`(S)->Vector(R)`xComplexCategory&(S,R)``0
 oconvert`1`n`(S)->Vector(R)`xFramedModule&(S,R)``0
