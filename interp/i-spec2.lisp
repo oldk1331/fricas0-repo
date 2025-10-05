@@ -3394,7 +3394,8 @@
          (|putModeSet| |op| (LIST |defMode|)))))))))
 
 ; uptypeOf form ==
-;   form isnt [op, arg] => NIL
+;   form isnt [op, arg] =>
+;       systemError '"typeOf: 1 argument required"
 ;   if VECP arg then transferPropsToNode(getUnname arg,arg)
 ;   if m := isType(arg) then
 ;     m :=
@@ -3417,7 +3418,7 @@
               (SETQ |ISTMP#1| (CDR |form|))
               (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
                    (PROGN (SETQ |arg| (CAR |ISTMP#1|)) #1='T)))))
-       NIL)
+       (|systemError| "typeOf: 1 argument required"))
       (#1#
        (PROGN
         (COND ((VECP |arg|) (|transferPropsToNode| (|getUnname| |arg|) |arg|)))
