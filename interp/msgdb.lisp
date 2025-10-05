@@ -668,17 +668,6 @@
               |msg| NIL)
              |msg1|))))))
 
-; operationLink name ==
-;   FORMAT(nil, '"\lispLink{\verb!(|oSearch| _"~a_")!}{~a}",
-;          name,
-;          escapeSpecialChars STRINGIMAGE name)
-
-(DEFUN |operationLink| (|name|)
-  (PROG ()
-    (RETURN
-     (FORMAT NIL "\\lispLink{\\verb!(|oSearch| \"~a\")!}{~a}" |name|
-             (|escapeSpecialChars| (STRINGIMAGE |name|))))))
-
 ; sayPatternMsg(msg,args) ==
 ;   ioHook("startPatternMsg", msg, args)
 ;   msg := segmentKeyedMsg msg

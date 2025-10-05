@@ -591,7 +591,6 @@
 ;   parts := dbXParts(line,7,1)
 ;   [kind,name,nargs,xflag,sig,args,abbrev,comments] := parts
 ;   form := IFCAR options
-;   isFile := null kind
 ;   kind := kind or '"package"
 ;   RPLACA(parts,kind)
 ;   conform         := mkConform(kind,name,args)
@@ -627,8 +626,8 @@
 
 (DEFUN |kPage| (|line| |options|)
   (PROG (|parts| |kind| |name| |nargs| |xflag| |sig| |args| |abbrev| |comments|
-         |form| |isFile| |conform| |conname| |capitalKind| |signature|
-         |constrings| |emString| |heading| |page|)
+         |form| |conform| |conname| |capitalKind| |signature| |constrings|
+         |emString| |heading| |page|)
     (RETURN
      (PROGN
       (SETQ |parts| (|dbXParts| |line| 7 1))
@@ -641,7 +640,6 @@
       (SETQ |abbrev| (CADDR . #3#))
       (SETQ |comments| (CADDDR . #3#))
       (SETQ |form| (IFCAR |options|))
-      (SETQ |isFile| (NULL |kind|))
       (SETQ |kind| (OR |kind| "package"))
       (RPLACA |parts| |kind|)
       (SETQ |conform| (|mkConform| |kind| |name| |args|))
