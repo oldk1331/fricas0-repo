@@ -1526,12 +1526,14 @@
       (NREVERSE |acc|)))))
 
 ; dbContrivedForm(op,[sig,:.]) ==
-;   dbMakeContrivedForm(op,sig)
+;     dbMakeContrivedForm(op, sig, false)
 
 (DEFUN |dbContrivedForm| (|op| |bfVar#68|)
   (PROG (|sig|)
     (RETURN
-     (PROGN (SETQ |sig| (CAR |bfVar#68|)) (|dbMakeContrivedForm| |op| |sig|)))))
+     (PROGN
+      (SETQ |sig| (CAR |bfVar#68|))
+      (|dbMakeContrivedForm| |op| |sig| NIL)))))
 
 ; dbMakeSignature(op,[sig,:.]) == [op,sig]  --getDomainOpTable format
 
