@@ -1937,23 +1937,3 @@
   (PROG (|pp|)
     (RETURN
      (PROGN (SETQ |pp| (MAPCAR #'CONS |fp| |ap|)) (|sublis_vec| |pp| |cv|)))))
-
-; old2NewModemaps x ==
-;   x is [dcSig,[pred,:.],:.]  =>  [dcSig,pred]
-;   x
-
-(DEFUN |old2NewModemaps| (|x|)
-  (PROG (|dcSig| |ISTMP#1| |ISTMP#2| |pred|)
-    (RETURN
-     (COND
-      ((AND (CONSP |x|)
-            (PROGN
-             (SETQ |dcSig| (CAR |x|))
-             (SETQ |ISTMP#1| (CDR |x|))
-             (AND (CONSP |ISTMP#1|)
-                  (PROGN
-                   (SETQ |ISTMP#2| (CAR |ISTMP#1|))
-                   (AND (CONSP |ISTMP#2|)
-                        (PROGN (SETQ |pred| (CAR |ISTMP#2|)) #1='T))))))
-       (LIST |dcSig| |pred|))
-      (#1# |x|)))))

@@ -1465,56 +1465,6 @@
              (CDR
               (|ncParseFromString| (STRCONC (|char| '|d|) |argString|)))))))))
 
-; conOpPage(htPage,conform) ==
-;   updown := dbCompositeWithMap htPage
-;   updown = '"DOWN" =>
-;     domname := htpProperty(htPage,'domname)
-;     conOpPage1(dbExtractUnderlyingDomain domname,[['updomain,:domname]])
-;   domname := htpProperty(htPage,'updomain)
-;   conOpPage1(domname,nil)
-
-(DEFUN |conOpPage| (|htPage| |conform|)
-  (PROG (|updown| |domname|)
-    (RETURN
-     (PROGN
-      (SETQ |updown| (|dbCompositeWithMap| |htPage|))
-      (COND
-       ((EQUAL |updown| "DOWN")
-        (PROGN
-         (SETQ |domname| (|htpProperty| |htPage| '|domname|))
-         (|conOpPage1| (|dbExtractUnderlyingDomain| |domname|)
-          (LIST (CONS '|updomain| |domname|)))))
-       ('T
-        (PROGN
-         (SETQ |domname| (|htpProperty| |htPage| '|updomain|))
-         (|conOpPage1| |domname| NIL))))))))
-
-; dbCompositeWithMap htPage ==
-;   htpProperty(htPage,'updomain) => '"UP"
-;   domain := htpProperty(htPage,'domname)
-;   null domain => false
-;   opAlist := htpProperty(htPage,'opAlist)
-; --not LASSOC('map,opAlist) => false
-;   dbExtractUnderlyingDomain htpProperty(htPage,'domname) => '"DOWN"
-;   false
-
-(DEFUN |dbCompositeWithMap| (|htPage|)
-  (PROG (|domain| |opAlist|)
-    (RETURN
-     (COND ((|htpProperty| |htPage| '|updomain|) "UP")
-           (#1='T
-            (PROGN
-             (SETQ |domain| (|htpProperty| |htPage| '|domname|))
-             (COND ((NULL |domain|) NIL)
-                   (#1#
-                    (PROGN
-                     (SETQ |opAlist| (|htpProperty| |htPage| '|opAlist|))
-                     (COND
-                      ((|dbExtractUnderlyingDomain|
-                        (|htpProperty| |htPage| '|domname|))
-                       "DOWN")
-                      (#1# NIL)))))))))))
-
 ; dbExtractUnderlyingDomain domain == or/[x for x in IFCDR domain | isValidType x]
 
 (DEFUN |dbExtractUnderlyingDomain| (|domain|)

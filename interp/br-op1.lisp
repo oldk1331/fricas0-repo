@@ -479,14 +479,6 @@
 ; fromHeading htPage ==
 ;   null htPage => '""
 ;   $pn := [htPage.0,'"}{"]
-;   updomain := htpProperty(htPage,'updomain) =>
-;     dnForm  := dbExtractUnderlyingDomain updomain
-;     dnString:= form2StringList dnForm
-;     dnFence := form2Fence  dnForm
-; --  upString:= form2StringList updomain
-;     upFence := form2Fence  updomain
-;     upOp    := PNAME opOf  updomain
-;     ['" {\em from} ",:dbConformGen dnForm,'" {\em under} \ops{",upOp,'"}{",:$pn,:upFence,'"}"]
 ;   domname  := htpProperty(htPage,'domname)
 ;   numberOfUnderlyingDomains :=
 ;         #[x for x in rest(get_database(opOf(domname), 'COSIG)) | x]
@@ -494,51 +486,30 @@
 ;   htpProperty(htPage,'fromHeading)
 
 (DEFUN |fromHeading| (|htPage|)
-  (PROG (|updomain| |dnForm| |dnString| |dnFence| |upFence| |upOp| |domname|
-         |numberOfUnderlyingDomains|)
+  (PROG (|domname| |numberOfUnderlyingDomains|)
     (RETURN
      (COND ((NULL |htPage|) "")
            (#1='T
             (PROGN
              (SETQ |$pn| (LIST (ELT |htPage| 0) "}{"))
+             (SETQ |domname| (|htpProperty| |htPage| '|domname|))
+             (SETQ |numberOfUnderlyingDomains|
+                     (LENGTH
+                      ((LAMBDA (|bfVar#25| |bfVar#24| |x|)
+                         (LOOP
+                          (COND
+                           ((OR (ATOM |bfVar#24|)
+                                (PROGN (SETQ |x| (CAR |bfVar#24|)) NIL))
+                            (RETURN (NREVERSE |bfVar#25|)))
+                           (#1#
+                            (AND |x| (SETQ |bfVar#25| (CONS |x| |bfVar#25|)))))
+                          (SETQ |bfVar#24| (CDR |bfVar#24|))))
+                       NIL (CDR (|get_database| (|opOf| |domname|) 'COSIG))
+                       NIL)))
              (COND
-              ((SETQ |updomain| (|htpProperty| |htPage| '|updomain|))
-               (PROGN
-                (SETQ |dnForm| (|dbExtractUnderlyingDomain| |updomain|))
-                (SETQ |dnString| (|form2StringList| |dnForm|))
-                (SETQ |dnFence| (|form2Fence| |dnForm|))
-                (SETQ |upFence| (|form2Fence| |updomain|))
-                (SETQ |upOp| (PNAME (|opOf| |updomain|)))
-                (CONS " {\\em from} "
-                      (APPEND (|dbConformGen| |dnForm|)
-                              (CONS " {\\em under} \\ops{"
-                                    (CONS |upOp|
-                                          (CONS "}{"
-                                                (APPEND |$pn|
-                                                        (APPEND |upFence|
-                                                                (CONS "}"
-                                                                      NIL))))))))))
-              (#1#
-               (PROGN
-                (SETQ |domname| (|htpProperty| |htPage| '|domname|))
-                (SETQ |numberOfUnderlyingDomains|
-                        (LENGTH
-                         ((LAMBDA (|bfVar#25| |bfVar#24| |x|)
-                            (LOOP
-                             (COND
-                              ((OR (ATOM |bfVar#24|)
-                                   (PROGN (SETQ |x| (CAR |bfVar#24|)) NIL))
-                               (RETURN (NREVERSE |bfVar#25|)))
-                              (#1#
-                               (AND |x|
-                                    (SETQ |bfVar#25| (CONS |x| |bfVar#25|)))))
-                             (SETQ |bfVar#24| (CDR |bfVar#24|))))
-                          NIL (CDR (|get_database| (|opOf| |domname|) 'COSIG))
-                          NIL)))
-                (COND
-                 ((IFCDR |domname|)
-                  (CONS " {\\em from} " (|dbConformGen| |domname|)))
-                 (#1# (|htpProperty| |htPage| '|fromHeading|))))))))))))
+              ((IFCDR |domname|)
+               (CONS " {\\em from} " (|dbConformGen| |domname|)))
+              (#1# (|htpProperty| |htPage| '|fromHeading|)))))))))
 
 ; conform2StringList(form, opFn, argFn) ==
 ;   [op1,:args] := form
