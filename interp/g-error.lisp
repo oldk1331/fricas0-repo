@@ -19,6 +19,15 @@
 
 (DEFVAR |$timedNameStack|)
 
+; error_format(c) ==
+;     $BreakMode : local := 'break
+;     FORMAT(nil, '"~a", c)
+
+(DEFUN |error_format| (|c|)
+  (PROG (|$BreakMode|)
+    (DECLARE (SPECIAL |$BreakMode|))
+    (RETURN (PROGN (SETQ |$BreakMode| '|break|) (FORMAT NIL "~a" |c|)))))
+
 ; spad_system_error_handler (c) ==
 ;     $NeedToSignalSessionManager := true
 ;     MEMQ($BreakMode,
