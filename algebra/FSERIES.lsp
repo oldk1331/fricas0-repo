@@ -66,7 +66,7 @@
                   ((SPADCALL (QCAR |t2|) (QREFELT % 18))
                    (SPADCALL (SPADCALL |sum| |r| (QREFELT % 36))
                              (SPADCALL |diff| |r| (QREFELT % 36))
-                             (QREFELT % 35)))
+                             (QREFELT % 37)))
                   (#1#
                    (SPADCALL (SPADCALL |diff| |r| (QREFELT % 34))
                              (SPADCALL |sum| |r| (QREFELT % 34))
@@ -162,7 +162,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|FourierSeries| DV$1 DV$2))
-          (LETT % (GETREFV 43))
+          (LETT % (GETREFV 44))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3
                     (LETT |pv$|
@@ -196,16 +196,16 @@
               (36 . <) (42 . -) (47 . |sin|) (52 . -) (57 . -)
               |FSERIES;coerce;Fc%;2| (62 . *) (|Integer|) (|Fraction| 28)
               (68 . /) (74 . *) (80 . +) (86 . -) |FSERIES;makeCos;ER%;5|
-              (92 . +) |FSERIES;makeSin;ER%;6| |FSERIES;*;3%;4| (|OutputForm|)
-              (|String|) (|PositiveInteger|) (|Union| % '"failed")
-              (|NonNegativeInteger|))
-           '#(~= 98 |zero?| 104 |subtractIfCan| 109 |sample| 115 |rightRecip|
-              119 |rightPower| 124 |recip| 136 |plenaryPower| 141 |opposite?|
-              147 |one?| 153 |makeSin| 158 |makeCos| 164 |leftRecip| 170
-              |leftPower| 175 |latex| 187 |commutator| 192 |coerce| 198
-              |characteristic| 218 |associator| 222 |antiCommutator| 229
-              |annihilate?| 235 ^ 241 |Zero| 253 |One| 257 = 261 - 267 + 278 *
-              284)
+              (92 . +) |FSERIES;makeSin;ER%;6| (98 . -) |FSERIES;*;3%;4|
+              (|OutputForm|) (|String|) (|PositiveInteger|)
+              (|Union| % '"failed") (|NonNegativeInteger|))
+           '#(~= 104 |zero?| 110 |subtractIfCan| 115 |sample| 121 |rightRecip|
+              125 |rightPower| 130 |recip| 142 |plenaryPower| 147 |opposite?|
+              153 |one?| 159 |makeSin| 164 |makeCos| 170 |leftRecip| 176
+              |leftPower| 181 |latex| 193 |commutator| 198 |coerce| 204
+              |characteristic| 224 |associator| 228 |antiCommutator| 235
+              |annihilate?| 241 ^ 247 |Zero| 259 |One| 263 = 267 - 273 + 284 *
+              290)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -227,24 +227,24 @@
                  (|CancellationAbelianMonoid|) (|NonAssociativeSemiRing|)
                  (|Monoid|) (|AbelianMonoid|) (|NonAssociativeSemiRng|)
                  (|MagmaWithUnit|) (|SemiGroup|) (|AbelianSemiGroup|) (|Magma|)
-                 (|SetCategory|) (|Canonical|) (|CoercibleTo| 38) (|BasicType|)
+                 (|SetCategory|) (|Canonical|) (|CoercibleTo| 39) (|BasicType|)
                  (|unitsKnown|))
-              (|makeByteWordVec2| 42
+              (|makeByteWordVec2| 43
                                   '(0 0 0 10 0 6 0 11 0 7 0 12 1 13 0 7 14 0 6
                                     0 15 1 13 17 0 18 1 13 7 0 19 1 7 17 0 20 2
                                     7 17 0 0 21 1 7 0 0 22 1 13 0 7 23 1 6 0 0
                                     24 1 0 0 0 25 2 6 0 0 0 27 2 29 0 28 28 30
                                     2 6 0 0 29 31 2 7 0 0 0 32 2 7 0 0 0 33 2 0
-                                    0 0 0 35 2 0 17 0 0 1 1 0 17 0 1 2 0 41 0 0
-                                    1 0 0 0 1 1 0 41 0 1 2 0 0 0 40 1 2 0 0 0
-                                    42 1 1 0 41 0 1 2 0 0 0 40 1 2 0 17 0 0 1 1
-                                    0 17 0 1 2 0 0 7 6 36 2 0 0 7 6 34 1 0 41 0
-                                    1 2 0 0 0 40 1 2 0 0 0 42 1 1 0 39 0 1 2 0
-                                    0 0 0 1 1 0 38 0 1 1 0 0 28 1 1 0 0 6 1 1 0
-                                    0 13 26 0 0 42 1 3 0 0 0 0 0 1 2 0 0 0 0 1
-                                    2 0 17 0 0 1 2 0 0 0 40 1 2 0 0 0 42 1 0 0
-                                    0 10 0 0 0 16 2 0 17 0 0 1 2 0 0 0 0 1 1 0
-                                    0 0 25 2 0 0 0 0 35 2 0 0 40 0 1 2 0 0 0 0
-                                    37 2 0 0 28 0 1 2 0 0 42 0 1 2 0 0 6 0 1 2
-                                    0 0 0 6 1)))))
+                                    0 0 0 35 2 0 0 0 0 37 2 0 17 0 0 1 1 0 17 0
+                                    1 2 0 42 0 0 1 0 0 0 1 1 0 42 0 1 2 0 0 0
+                                    41 1 2 0 0 0 43 1 1 0 42 0 1 2 0 0 0 41 1 2
+                                    0 17 0 0 1 1 0 17 0 1 2 0 0 7 6 36 2 0 0 7
+                                    6 34 1 0 42 0 1 2 0 0 0 41 1 2 0 0 0 43 1 1
+                                    0 40 0 1 2 0 0 0 0 1 1 0 39 0 1 1 0 0 28 1
+                                    1 0 0 6 1 1 0 0 13 26 0 0 43 1 3 0 0 0 0 0
+                                    1 2 0 0 0 0 1 2 0 17 0 0 1 2 0 0 0 41 1 2 0
+                                    0 0 43 1 0 0 0 10 0 0 0 16 2 0 17 0 0 1 2 0
+                                    0 0 0 37 1 0 0 0 25 2 0 0 0 0 35 2 0 0 41 0
+                                    1 2 0 0 0 0 38 2 0 0 28 0 1 2 0 0 43 0 1 2
+                                    0 0 6 0 1 2 0 0 0 6 1)))))
            '|lookupComplete|)) 
