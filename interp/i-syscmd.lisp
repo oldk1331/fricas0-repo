@@ -5612,10 +5612,6 @@
 ;
 ;   for [opt] in $options repeat
 ;     opt := selectOptionLC(opt,$showOptions,'optionError)
-;     opt = 'layout =>
-;       dc1 fn
-;     opt = 'views => sayBrightly ['"To get",:bright '"views",
-;       '"you must give parameters of constructor"]
 ;     opt = 'operations => displayOperationsFromLisplib functorForm
 ;     nil
 
@@ -5685,17 +5681,10 @@
                        (SETQ |opt|
                                (|selectOptionLC| |opt| |$showOptions|
                                 '|optionError|))
-                       (COND ((EQ |opt| '|layout|) (|dc1| |fn|))
-                             ((EQ |opt| '|views|)
-                              (|sayBrightly|
-                               (CONS "To get"
-                                     (APPEND (|bright| "views")
-                                             (CONS
-                                              "you must give parameters of constructor"
-                                              NIL)))))
-                             ((EQ |opt| '|operations|)
-                              (|displayOperationsFromLisplib| |functorForm|))
-                             (#1# NIL))))))
+                       (COND
+                        ((EQ |opt| '|operations|)
+                         (|displayOperationsFromLisplib| |functorForm|))
+                        (#1# NIL))))))
                (SETQ |bfVar#118| (CDR |bfVar#118|))))
             |$options| NIL))))))))))
 

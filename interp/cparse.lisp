@@ -444,13 +444,14 @@
      (AND (|npListAndRecover| #'|npPCff|) (|npPush| (|pfAppend| (|npPop1|)))))))
 
 ; npPC(f) ==
-;   $npPCff := f
+;   $npPCff : local := f
 ;   npPileBracketed function npPCg and
 ;     npPush pfEnSequence npPop1()
 ;       or FUNCALL f
 
 (DEFUN |npPC| (|f|)
-  (PROG ()
+  (PROG (|$npPCff|)
+    (DECLARE (SPECIAL |$npPCff|))
     (RETURN
      (PROGN
       (SETQ |$npPCff| |f|)
