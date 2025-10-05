@@ -91,8 +91,8 @@
 
 (DEFUN |Complex;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G2716 NIL) (#2=#:G2717 NIL) (#3=#:G2718 NIL)
-    (#4=#:G2719 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G2715 NIL) (#2=#:G2716 NIL) (#3=#:G2717 NIL)
+    (#4=#:G2718 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|Complex| DV$1))
@@ -286,9 +286,9 @@
       (QSETREFV % 41 (CONS (|dispatchFunction| |COMPLEX;exquo;2%U;17|) %))))
     %))) 
 
-(DEFUN |Complex| (#1=#:G2720)
+(DEFUN |Complex| (#1=#:G2719)
   (SPROG NIL
-         (PROG (#2=#:G2721)
+         (PROG (#2=#:G2720)
            (RETURN
             (COND
              ((LETT #2#

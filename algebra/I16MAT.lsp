@@ -68,7 +68,7 @@
 
 (DEFUN |I16Matrix;| ()
   (SPROG
-   ((|dv$| NIL) (% NIL) (#1=#:G2498 NIL) (#2=#:G2499 NIL) (#3=#:G2497 NIL)
+   ((|dv$| NIL) (% NIL) (#1=#:G2497 NIL) (#2=#:G2498 NIL) (#3=#:G2496 NIL)
     (|pv$| NIL))
    (PROGN
     (LETT |dv$| '(|I16Matrix|))
@@ -160,7 +160,7 @@
 
 (DEFUN |I16Matrix| ()
   (SPROG NIL
-         (PROG (#1=#:G2501)
+         (PROG (#1=#:G2500)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|I16Matrix|))

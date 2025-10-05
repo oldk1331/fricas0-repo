@@ -65,7 +65,7 @@
 
 (DEFUN |PrimitiveTwoDimensionalArray;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G2579 NIL) (#2=#:G2580 NIL) (% NIL) (|dv$| NIL)
+   ((|pv$| NIL) (#1=#:G2578 NIL) (#2=#:G2579 NIL) (% NIL) (|dv$| NIL)
     (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
@@ -188,9 +188,9 @@
     (SETF |pv$| (QREFELT % 3))
     %))) 
 
-(DEFUN |PrimitiveTwoDimensionalArray| (#1=#:G2582)
+(DEFUN |PrimitiveTwoDimensionalArray| (#1=#:G2581)
   (SPROG NIL
-         (PROG (#2=#:G2583)
+         (PROG (#2=#:G2582)
            (RETURN
             (COND
              ((LETT #2#
