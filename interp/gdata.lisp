@@ -121,33 +121,7 @@
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$operation_stream_stamp| NIL))
 
-; handle_daase_file2(stream, name, o_stream, o_stamp, display_messages, fun) ==
-;     stamp := READ(stream)
-;     stamp = o_stamp => [stream, o_stamp]
-;     if display_messages then
-;         FORMAT(true, '"   Re-reading ~a.daase", name)
-;     FILE_-POSITION(stream, first(stamp))
-;     FUNCALL(fun, stream)
-;     FORMAT(true, '"~&")
-;     [stream, stamp]
-
-(DEFUN |handle_daase_file2|
-       (|stream| |name| |o_stream| |o_stamp| |display_messages| |fun|)
-  (PROG (|stamp|)
-    (RETURN
-     (PROGN
-      (SETQ |stamp| (READ |stream|))
-      (COND ((EQUAL |stamp| |o_stamp|) (LIST |stream| |o_stamp|))
-            ('T
-             (PROGN
-              (COND
-               (|display_messages| (FORMAT T "   Re-reading ~a.daase" |name|)))
-              (FILE-POSITION |stream| (CAR |stamp|))
-              (FUNCALL |fun| |stream|)
-              (FORMAT T "~&")
-              (LIST |stream| |stamp|))))))))
-
-; handle_daase_file(name, fun, display_messages, o_stream, o_stamp) ==
+; handle_daase_file(name, fun, display_messages, o_stamp) ==
 ;     f_name := full_database_name(STRCONC(name, '".daase"))
 ;     stream := OPEN(f_name)
 ;     stamp := READ(stream)
@@ -159,8 +133,7 @@
 ;     FORMAT(true, '"~&")
 ;     [stream, stamp]
 
-(DEFUN |handle_daase_file|
-       (|name| |fun| |display_messages| |o_stream| |o_stamp|)
+(DEFUN |handle_daase_file| (|name| |fun| |display_messages| |o_stamp|)
   (PROG (|f_name| |stream| |stamp|)
     (RETURN
      (PROGN
@@ -409,8 +382,7 @@
 
 ; open_interp_db(display_messages) ==
 ;     res := handle_daase_file('"interp", function interp_open2,
-;                              display_messages, $interp_stream,
-;                              $interp_stream_stamp)
+;                              display_messages, $interp_stream_stamp)
 ;     $interp_stream := first(res)
 ;     $interp_stream_stamp := first(rest(res))
 
@@ -420,7 +392,7 @@
      (PROGN
       (SETQ |res|
               (|handle_daase_file| "interp" #'|interp_open2| |display_messages|
-               |$interp_stream| |$interp_stream_stamp|))
+               |$interp_stream_stamp|))
       (SETQ |$interp_stream| (CAR |res|))
       (SETQ |$interp_stream_stamp| (CAR (CDR |res|)))))))
 
@@ -481,8 +453,7 @@
 
 ; open_browse_db(display_messages) ==
 ;     res := handle_daase_file('"browse", function browse_open2,
-;                              display_messages, $browse_stream,
-;                              $browse_stream_stamp)
+;                              display_messages, $browse_stream_stamp)
 ;     $browse_stream := first(res)
 ;     $browse_stream_stamp := first(rest(res))
 
@@ -492,7 +463,7 @@
      (PROGN
       (SETQ |res|
               (|handle_daase_file| "browse" #'|browse_open2| |display_messages|
-               |$browse_stream| |$browse_stream_stamp|))
+               |$browse_stream_stamp|))
       (SETQ |$browse_stream| (CAR |res|))
       (SETQ |$browse_stream_stamp| (CAR (CDR |res|)))))))
 
@@ -520,8 +491,7 @@
 
 ; open_category_db(display_messages) ==
 ;     res := handle_daase_file('"category", function category_open2,
-;                              display_messages, $category_stream,
-;                              $category_stream_stamp)
+;                              display_messages, $category_stream_stamp)
 ;     $category_stream := first(res)
 ;     $category_stream_stamp := first(rest(res))
 
@@ -531,7 +501,7 @@
      (PROGN
       (SETQ |res|
               (|handle_daase_file| "category" #'|category_open2|
-               |display_messages| |$category_stream| |$category_stream_stamp|))
+               |display_messages| |$category_stream_stamp|))
       (SETQ |$category_stream| (CAR |res|))
       (SETQ |$category_stream_stamp| (CAR (CDR |res|)))))))
 
@@ -560,8 +530,7 @@
 
 ; open_operation_db(display_messages) ==
 ;     res := handle_daase_file('"operation", function operation_open2,
-;                              display_messages, $operation_stream,
-;                              $operation_stream_stamp)
+;                              display_messages, $operation_stream_stamp)
 ;     $operation_stream := first(res)
 ;     $operation_stream_stamp := first(rest(res))
 
@@ -571,8 +540,7 @@
      (PROGN
       (SETQ |res|
               (|handle_daase_file| "operation" #'|operation_open2|
-               |display_messages| |$operation_stream|
-               |$operation_stream_stamp|))
+               |display_messages| |$operation_stream_stamp|))
       (SETQ |$operation_stream| (CAR |res|))
       (SETQ |$operation_stream_stamp| (CAR (CDR |res|)))))))
 
