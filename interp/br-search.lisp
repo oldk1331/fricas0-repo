@@ -2357,7 +2357,7 @@
 
 ; detailedSearch(filter) ==
 ;   page := htInitPage('"Detailed Search with Options",nil)
-;   filter   := escapeSpecialChars PNAME filter
+;   filter   := escapeSpecialChars(STRINGIMAGE(filter))
 ;   bcHt '"Select what you want to search for, then click on {\em Search} below"
 ;   bcHt '"\newline{\it Note:} Logical searches using {\em and}, {\em or}, and {\em not} are not permitted here."
 ;   htSayHrule()
@@ -2398,7 +2398,7 @@
     (RETURN
      (PROGN
       (SETQ |page| (|htInitPage| "Detailed Search with Options" NIL))
-      (SETQ |filter| (|escapeSpecialChars| (PNAME |filter|)))
+      (SETQ |filter| (|escapeSpecialChars| (STRINGIMAGE |filter|)))
       (|bcHt|
        "Select what you want to search for, then click on {\\em Search} below")
       (|bcHt|
