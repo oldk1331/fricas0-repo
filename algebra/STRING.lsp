@@ -37,7 +37,7 @@
 (DECLAIM (NOTINLINE |String;|)) 
 
 (DEFUN |String;| ()
-  (SPROG ((|dv$| NIL) (% NIL) (#1=#:G1886 NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) (% NIL) (#1=#:G1898 NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|String|))
           (LETT % (GETREFV 40))
@@ -102,7 +102,7 @@
 
 (DEFUN |String| ()
   (SPROG NIL
-         (PROG (#1=#:G1888)
+         (PROG (#1=#:G1900)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|String|))
@@ -119,7 +119,7 @@
 (MAKEPROP '|String| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|IndexedString| (NRTEVAL 1)) (|Integer|)
-              |STRING;ucodeToString;I%;1| (|List| 37) |STRING;uentries;%L;2|
+              |STRING;ucodeToString;I%;1| (|List| 36) |STRING;uentries;%L;2|
               |STRING;string;I%;3| (|Void|) (|OpenMathDevice|)
               (0 . |OMputObject|) (|String|) (5 . |OMputString|)
               (11 . |OMputEndObject|) (|Boolean|) |STRING;OMwrite;Omd%BV;4|
@@ -128,7 +128,7 @@
               (|NonNegativeInteger|) (|Mapping| 21 21) (|List| 21) (|List| 6)
               (|Union| 21 '"failed") (|Mapping| 17 21) (|UniversalSegment| 6)
               (|Mapping| 21 21 21) (|List| %) (|CharacterClass|) (|OutputForm|)
-              (|Mapping| 17 21 21) (|HashState|) (|SingleInteger|)
+              (|Mapping| 17 21 21) (|SingleInteger|) (|HashState|)
               (|Equation| 21) (|List| 38))
            '#(|uentries| 16 |ucodeToString| 21 |string| 26 |qsetelt!| 31 |qelt|
               38 |convert| 44 |OMwrite| 49)

@@ -49,6 +49,7 @@
                                         T)
                                        ((|rightTrim| (% % (|CharacterClass|)))
                                         T)
-                                       ((|elt| (% % %)) T))
+                                       ((|elt| (% % %)) T)
+                                       ((|join| (% % (|List| %))) T))
                                      NIL NIL NIL))))
            (SETELT #1# 0 '(|StringAggregate|))))) 
