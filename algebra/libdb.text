@@ -11826,7 +11826,7 @@ pStreamTensor`1`n`(Type)->etc`(R)`STNSR`1444119
 pStreamTranscendentalFunctions`1`n`(Algebra(Fraction(Integer)))->etc`(Coef)`STTF`1444175
 pStreamTranscendentalFunctionsNonCommutative`1`n`(Algebra(Fraction(Integer)))->etc`(Coef)`STTFNC`1444339
 pStructuralConstantsPackage`1`x`(IntegralDomain)->etc`(R)`SCPKG`1444545
-pSturmHabichtPackage`2`x`(R:OrderedIntegralDomain,UP:UnivariatePolynomialCategory(R))->etc`(R,UP)`SHP`1444733
+pSturmHabichtPackage`2`x`(R:Join(OrderedRing,etc),UP:UnivariatePolynomialCategory(R))->etc`(R,UP)`SHP`1444733
 pSubResultantPackage`2`n`(R:IntegralDomain,UP:UnivariatePolynomialCategory(R))->etc`(R,UP)`SUBRESP`1444854
 pSymmetricFunctions`1`n`(Ring)->etc`(R)`SYMFUNC`1445126
 pSymmetricGroupCombinatoricFunctions`0`x`()->etc``SGCF`1445194
