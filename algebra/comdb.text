@@ -4921,7 +4921,7 @@
 564393`\spad{lprop(s)} checks to see if the \spadtype{ThreeSpace},{} \spad{s},{} is composed of a list of subspace component properties,{} and if so,{} returns the list; An error is signaled otherwise.
 564472`\spad{lquo(x,{} s)} returns the exact left quotient of \spad{x} by \spad{s}.
 564530`\spad{lquo(x,{} y)} returns the exact left quotient of \spad{x} by \spad{y} \spadignore{i.e.} \spad{q} such that \spad{x = y * q},{} "failed" if \spad{x} is not of the form \spad{y * q}.
-564588`\spad{lquo(x,{} y)} returns the left simplification of \spad{x} by \spad{y}.
+564588`\spad{lquo(x,{} y)} is a bilinear extention of \spad{lquo} from words to \spad{\%}.
 564635`\spad{lquo(x,{} w)} returns the left simplification of \spad{x} by the word \spad{w}.
 564695`\spad{lquo(x,{} v)} returns the left simplification of \spad{x} by the variable \spad{v}.
 564743`\spad{lquo(x,{} y)} returns the left simplification of \spad{x} by \spad{y}.
@@ -7178,7 +7178,7 @@
 815949`\spad{rowSpan(f)} computes the row span for a regular element,{} that is (\spad{u}; uM; \spad{uM^2}; ...) where PAs=Pv with PA = \spad{I}-\spad{M}.
 816050`\spad{rquo(x,{} s)} returns the exact right quotient of \spad{x} by \spad{s}.
 816109`\spad{rquo(x,{} y)} returns the exact right quotient of \spad{x} by \spad{y} \spadignore{i.e.} \spad{q} such that \spad{x = q * y},{} "failed" if \spad{x} is not of the form \spad{q * y}.
-816168`\spad{rquo(x,{} y)} returns the right simplification of \spad{x} by \spad{y}.
+816168`\spad{rquo(x,{} y)} is a bilinear extention of \spad{rquo} from words to \spad{\%}.
 816216`\spad{rquo(x,{} w)} returns the right simplification of \spad{x} by \spad{w}.
 816277`\spad{rquo(x,{} v)} returns the right simplification of \spad{x} by the variable \spad{v}.
 816326`\spad{rquo(x,{} y)} returns the right simplification of \spad{x} by \spad{y}.
