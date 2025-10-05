@@ -11449,7 +11449,7 @@ pGcdBasis`1`n`(GcdDomain)->etc`(R)`GCDBAS`1376697
 pGeneralHenselPackage`2`n`(RP:EuclideanDomain,TP:UnivariatePolynomialCategory(RP))->etc`(RP,TP)`GHENSEL`1376843
 pGeneralizedMultivariateFactorize`5`n`(OV:Join(OrderedSet,etc),E:OrderedAbelianMonoidSup,IntegralDomain,R:IntegralDomain,P:PolynomialCategory(R,E,OV))->etc`(OV,E,S,R,P)`GENMFACT`1376989
 pGeneralPolynomialGcdPackage`4`n`(E:OrderedAbelianMonoidSup,OV:OrderedSet,R:PolynomialFactorizationExplicit,P:PolynomialCategory(R,E,OV))->etc`(E,OV,R,P)`GENPGCD`1377153
-pGenerateEllipticIntegrals`4`n`(F:Field,UP:UnivariatePolynomialCategory(F),UPUP:UnivariatePolynomialCategory(Fraction(UP)),R:Join(Field,etc))->etc`(F,UP,UPUP,R)`INTGEL`1377237
+pGenerateEllipticIntegrals`4`n`(F:Join(Field,etc),UP:UnivariatePolynomialCategory(F),UPUP:UnivariatePolynomialCategory(Fraction(UP)),R:Join(Field,etc))->etc`(F,UP,UPUP,R)`INTGEL`1377237
 pGenerateUnivariatePowerSeries1`1`n`(Ring)->etc`(R)`GENUPS1`1377320
 pGenerateUnivariatePowerSeries2`1`n`(Join(Ring,etc))->etc`(FE)`GENUPS2`1377470
 pGenerateUnivariatePowerSeries`2`x`(R:Join(IntegralDomain,etc),FE:Join(RetractableTo(Symbol),etc))->etc`(R,FE)`GENUPS`1377620
