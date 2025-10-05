@@ -501,7 +501,7 @@
 43422`A post-facto extension for \spadtype{SMP} in order to speed up operations related to pseudo-division and \spad{gcd}. This domain is based on the \spadtype{NSUP} constructor which is itself a post-facto extension of the \spadtype{SUP} constructor.
 43581`A post-facto extension for \spadtype{SUP} in order to speed up operations related to pseudo-division and \spad{gcd} for both \spadtype{SUP} and,{} consequently,{} \spadtype{NSMP}.
 43682`\spadtype{None} implements an universal type,{} that is type which can represent values of any normal type. It is mainly used in technical situations where such a thing is needed (\spadignore{e.g.} the interpreter and some of the internal \spadtype{Expression} code).
-43721`\spadtype{NonNegativeInteger} provides functions for non \indented{2}{negative integers.}
+43721`\spadtype{NonNegativeInteger} is a domain of non negative integers.
 43795`\spadtype{NonNegativeRational} is domain of nonnegative rational numbers.
 43872`Octonion implements octonions (Cayley-Dixon algebra) over a commutative ring,{} an eight-dimensional non-associative algebra,{} doubling the quaternions in the same way as doubling the complex numbers to get the quaternions the main constructor function is {\em octon} which takes 8 arguments: the real part,{} the \spad{i} imaginary part,{} the \spad{j} imaginary part,{} the \spad{k} imaginary part,{} (as with quaternions) and in addition the imaginary parts \spad{E},{} \spad{I},{} \spad{J},{} \spad{K}.
 43950`This is the domain of 1-based one dimensional arrays.
@@ -550,7 +550,7 @@
 47628`This type is the basic representation of sparse recursive multivariate polynomials whose variables are arbitrary symbols. The ordering is alphabetic determined by the Symbol type. The coefficient ring may be non commutative,{} but the variables are assumed to commute.
 47732`This domain represents polynomial ideals with coefficients in any field and supports the basic ideal operations,{} including intersection,{} sum and quotient. An ideal is represented by a list of polynomials (the generators of the ideal) and a boolean that is \spad{true} if the generators are a Groebner basis. The algorithms used are based on Groebner basis computations. The ordering is determined by the datatype of the input polynomials. Users may use refinements of total degree orderings.
 47911`This domain represents generalized polynomials with coefficients (from a not necessarily commutative ring),{} and terms indexed by their exponents (from an arbitrary ordered abelian monoid). This type is used,{} for example,{} by the \spadtype{DistributedMultivariatePolynomial} domain where the exponent domain is a direct product of non negative integers.
-48030`\spadtype{PositiveInteger} provides functions for \indented{2}{positive integers.}
+48030`\spadtype{PositiveInteger} is a domain of positive integers.
 48100`PrimeField(\spad{p}) implements the field with \spad{p} elements if \spad{p} is a prime number. Error: if \spad{p} is not prime.
 48179`This provides a fast array type with no bound checking on elt\spad{'s}. Minimum index is 0 in this type,{} cannot be changed.
 48258`This is a low-level domain which implements matrices (two dimensional arrays) of general values. Indexing is 0 based,{} there is no bound checking (unless provided by lower level).
