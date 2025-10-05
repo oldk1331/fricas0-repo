@@ -31,10 +31,6 @@
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$literals| NIL))
 
-; spad2AxTranslatorAutoloadOnceTrigger any == true
-
-(DEFUN |spad2AxTranslatorAutoloadOnceTrigger| (|any|) (PROG () (RETURN T)))
-
 ; $foreignTag := 'Foreign
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$foreignTag| '|Foreign|))

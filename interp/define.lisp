@@ -1862,8 +1862,7 @@
 ;     e:= giveFormalParametersValues(argl,e)
 ;
 ;     $signatureOfForm:= signature' --this global is bound in compCapsuleItems
-;     $functionLocations := [[[$op, signature']],
-;       :$functionLocations]
+;     $functionLocations := [[[$op, signature']], :$functionLocations]
 ;     e:= addDomain(first signature',e)
 ;
 ;     --4. introduce needed domains into extendedEnv

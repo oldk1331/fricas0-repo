@@ -3,10 +3,6 @@
 
 (IN-PACKAGE "BOOT")
 
-; browserAutoloadOnceTrigger() == nil
-
-(DEFUN |browserAutoloadOnceTrigger| () (PROG () (RETURN NIL)))
-
 ; $includeUnexposed? := true   --default setting
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$includeUnexposed?| T))

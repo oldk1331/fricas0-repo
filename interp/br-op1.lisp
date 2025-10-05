@@ -2810,11 +2810,6 @@
             (SETQ |bfVar#114| (CDR |bfVar#114|))))
          #2# (|fortexp0| |form|) NIL)))))))
 
-; getDomainOpTable(dom, fromIfTrue) == getDomainOpTable2(dom, fromIfTrue, [])
-
-(DEFUN |getDomainOpTable| (|dom| |fromIfTrue|)
-  (PROG () (RETURN (|getDomainOpTable2| |dom| |fromIfTrue| NIL))))
-
 ; getDomainOpTable2(dom, fromIfTrue, ops) ==
 ;   $returnNowhereFromGoGet: local := true
 ;   domname := dom.0

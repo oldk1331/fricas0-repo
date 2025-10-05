@@ -2128,14 +2128,6 @@
             |s| NIL)
            |s|)))))))))
 
-; mkHasArgsPred subargs ==
-; --$hasArgsList gives arguments of original constructor,e.g. LODO(A,M)
-; --M is required to be Join(B,...); in looking for the domains of B
-; --  we can find that if B has special value C, it can
-;   systemError subargs
-
-(DEFUN |mkHasArgsPred| (|subargs|) (PROG () (RETURN (|systemError| |subargs|))))
-
 ; sublisFormal(args,exp,:options) == main where
 ;   main ==  --use only on LIST structures; see also sublisFormalAlist
 ;     $formals: local := IFCAR options or $FormalMapVariableList
