@@ -1279,7 +1279,9 @@
 ;         op1 = 'dir =>
 ;             dir := first(rest(opt))
 ;             if NULL(dir) then
-;                 sayKeyedMsg('S2IU0002, nil)
+;                 say_msg("S2IU0002", _
+;   '"Ignoring )dir because an explicit directory was not given after )dir.",
+;                    nil)
 ;         op1 = 'noexpose =>
 ;             expose := false
 ;         op1 = 'quiet =>
@@ -1352,7 +1354,11 @@
                    ((EQ |op1| '|dir|)
                     (PROGN
                      (SETQ |dir| (CAR (CDR |opt|)))
-                     (COND ((NULL |dir|) (|sayKeyedMsg| 'S2IU0002 NIL)))))
+                     (COND
+                      ((NULL |dir|)
+                       (|say_msg| 'S2IU0002
+                        "Ignoring )dir because an explicit directory was not given after )dir."
+                        NIL)))))
                    ((EQ |op1| '|noexpose|) (SETQ |expose| NIL))
                    ((EQ |op1| '|quiet|) (SETQ |noquiet| NIL))
                    (#1#
@@ -1610,7 +1616,7 @@
 ;                 set_asharp_autoload_functor(object, cname, asharp_name,
 ;                                             dbstruct.$cosig_ind)
 ;             if noquiet then
-;                 sayKeyedMsg('S2IU0001i, [cname, object])
+;                 sayKeyedMsg("S2IU0001", [cname, object])
 
 (DEFUN |merge_info_from_asy|
        (|asy| |object| |only| |make_database?| |expose| |noquiet|)
@@ -1697,8 +1703,7 @@
                     |asharp_name| (ELT |dbstruct| |$cosig_ind|))))
                  (COND
                   (|noquiet|
-                   (|sayKeyedMsg| '|S2IU0001i|
-                    (LIST |cname| |object|)))))))))))
+                   (|sayKeyedMsg| 'S2IU0001 (LIST |cname| |object|)))))))))))
           (SETQ |bfVar#23| (CDR |bfVar#23|))))
        |asy| NIL)))))
 

@@ -591,7 +591,7 @@
 ; printTime() ==
 ;   $collectOutput => nil
 ;   s := makeLongTimeString($interpreterTimedNames, $interpreterTimedClasses)
-;   sayKeyedMsg("S2GL0013", [s])
+;   say_msg("S2GL0013", '"%rjon Time: %1 %rjoff", [s])
 
 (DEFUN |printTime| ()
   (PROG (|s|)
@@ -602,13 +602,13 @@
              (SETQ |s|
                      (|makeLongTimeString| |$interpreterTimedNames|
                       |$interpreterTimedClasses|))
-             (|sayKeyedMsg| 'S2GL0013 (LIST |s|))))))))
+             (|say_msg| 'S2GL0013 "%rjon Time: %1 %rjoff" (LIST |s|))))))))
 
 ; printStorage() ==
 ;   $collectOutput => nil
 ;   storeString :=
 ;     makeLongSpaceString($interpreterTimedNames, $interpreterTimedClasses)
-;   sayKeyedMsg("S2GL0016",[storeString])
+;   say_msg("S2GL0016", '"%rjon Storage: %1 %rjoff", [storeString])
 
 (DEFUN |printStorage| ()
   (PROG (|storeString|)
@@ -619,7 +619,8 @@
              (SETQ |storeString|
                      (|makeLongSpaceString| |$interpreterTimedNames|
                       |$interpreterTimedClasses|))
-             (|sayKeyedMsg| 'S2GL0016 (LIST |storeString|))))))))
+             (|say_msg| 'S2GL0016 "%rjon Storage: %1 %rjoff"
+              (LIST |storeString|))))))))
 
 ; interpretTopLevel(x, posnForm) ==
 ;   --  Top level entry point from processInteractive1.  Sets up catch

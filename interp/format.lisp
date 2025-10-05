@@ -547,12 +547,19 @@
 ;   modemaps := getAllModemapsFromDatabase(op,nil)
 ;   null modemaps =>
 ;     ok := true
-;     sayKeyedMsg("S2IF0010",[op1])
+;     say_msg("S2IF0010", CONCAT(
+;       '"%1b is not a known function.  FriCAS will try to list its functions",
+;         '" which contain %1b in their names.  This is the same output you",
+;           '" would get by issuing %ceon %b )what operations %1 %d %ceoff"),
+;             [op1])
 ;     if SIZE PNAME op1 < 3 then
 ;       x := UPCASE queryUserKeyedMsg("S2IZ0060",[op1])
 ;       null MEMQ(STRING2ID_N(x, 1),'(Y YES)) =>
 ;         ok := nil
-;         sayKeyedMsg("S2IZ0061",[op1])
+;         say_msg("S2IZ0061", CONCAT(
+;           '"Since you did not respond with %b y %d or %b yes %d the list of",
+;             '" operation names containing %1b will not be displayed."),
+;               [op1])
 ;     ok => apropos [op1]
 ;   sayNewLine()
 ;   -- filter modemaps on whether they are exposed
@@ -577,13 +584,24 @@
        ((NULL |modemaps|)
         (PROGN
          (SETQ |ok| T)
-         (|sayKeyedMsg| 'S2IF0010 (LIST |op1|))
+         (|say_msg| 'S2IF0010
+          (CONCAT
+           "%1b is not a known function.  FriCAS will try to list its functions"
+           " which contain %1b in their names.  This is the same output you"
+           " would get by issuing %ceon %b )what operations %1 %d %ceoff")
+          (LIST |op1|))
          (COND
           ((< (SIZE (PNAME |op1|)) 3)
            (SETQ |x| (UPCASE (|queryUserKeyedMsg| 'S2IZ0060 (LIST |op1|))))
            (COND
             ((NULL (MEMQ (STRING2ID_N |x| 1) '(Y YES)))
-             (PROGN (SETQ |ok| NIL) (|sayKeyedMsg| 'S2IZ0061 (LIST |op1|)))))))
+             (PROGN
+              (SETQ |ok| NIL)
+              (|say_msg| 'S2IZ0061
+               (CONCAT
+                "Since you did not respond with %b y %d or %b yes %d the list of"
+                " operation names containing %1b will not be displayed.")
+               (LIST |op1|)))))))
          (COND (|ok| (|apropos| (LIST |op1|))))))
        (#1#
         (PROGN
