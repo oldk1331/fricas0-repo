@@ -256,7 +256,7 @@
 16963`The fundamental Type.
 16998`A unary-recursive aggregate is an aggregate where nodes may have either 0 or 1 children. This aggregate models,{} though not precisely,{} a linked list possibly with a single cycle. A node with one children models a non-empty list,{} with the \spadfun{value} of the list designating the head,{} or \spadfun{first},{} of the list,{} and the child designating the tail,{} or \spadfun{rest},{} of the list. Since these aggregates are recursive aggregates,{} they may be cyclic.
 17060`A constructive unique factorization domain,{} \spadignore{i.e.} where we can constructively factor members into a product of a finite number of irreducible elements.
-17115`The class of all monoids (multiplicative semigroups with a 1) such that the operation \spadfun{recip} can only return "failed" if its argument is not a unit.
+17115`The class of all monoids (multiplicative semigroups with a 1) such that the operation \spadfun{recip} can only return "failed" if its argument is not a unit. Similarly for \spadfun{leftRecip} and \spadfun{rightRecip}.
 17159`\spadtype{UnivariateLaurentSeriesCategory} is the category of Laurent series in one variable.
 17233`This is a category of univariate Laurent series constructed from univariate Taylor series. A Laurent series is represented by a pair \spad{[n,{} f(x)]},{} where \spad{n} is an arbitrary integer and \spad{f(x)} is a Taylor series. This pair represents the Laurent series \spad{x^n * f(x)}.
 17365`The category of univariate polynomials over a ring \spad{R}. No particular model is assumed - implementations can be either sparse or dense.
@@ -8676,7 +8676,7 @@
 1001238`\spad{zeta()} returns the function which is constantly one
 1001284`\spad{Zeta()} returns symbol for capital greek letter zeta.
 1001335`\spad{zeta()} returns symbol for small greek letter zeta.
-1001451`\spad{zetaMatrix(P)} returns the matrix of the zeta function This function is based on code by Franz Lehner. Notes by Martin Baker on the webpage here: \url{http://www.euclideanspace.com/prog/scratchpad/mycode/discrete/logic/moebius/}
+1001451`\spad{zetaMatrix(P)} returns the matrix of the zeta function. This function is based on code by Franz Lehner. Notes by Martin Baker on the webpage here: \url{http://www.euclideanspace.com/prog/scratchpad/mycode/discrete/logic/moebius/}
 1001519`\spad{zoom(x,{} r)} \undocumented
 1001572`\spad{zoom(v,{} s)} sets the graph scaling factor to \spad{s},{} for the viewport \spad{v},{} which is of the domain \spadtype{ThreeDimensionalViewport}.
 1001633`\spad{zoom(x,{} r,{} s)} \undocumented
