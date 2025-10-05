@@ -1732,7 +1732,7 @@
 ;   pred = HGET($done, conform) => nil   --skip if already processed
 ;   parents :=
 ;     firstTime? and ($insideCategoryIfTrue or $insideFunctorIfTrue) =>
-;       $lisplibParents
+;         getParentsFor($op, $FormalMapVariableList, $lisplibCategory)
 ;     parentsOf op
 ;   originalConform :=
 ;     firstTime? and ($insideCategoryIfTrue or $insideFunctorIfTrue) =>
@@ -1762,7 +1762,8 @@
                        ((AND |firstTime?|
                              (OR |$insideCategoryIfTrue|
                                  |$insideFunctorIfTrue|))
-                        |$lisplibParents|)
+                        (|getParentsFor| |$op| |$FormalMapVariableList|
+                         |$lisplibCategory|))
                        (#1# (|parentsOf| |op|))))
               (SETQ |originalConform|
                       (COND

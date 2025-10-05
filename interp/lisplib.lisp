@@ -361,7 +361,6 @@
 ;   $lisplibForm: local := NIL
 ;   $lisplibKind: local := NIL
 ;   $lisplibAbbreviation: local := NIL
-;   $lisplibParents: local := NIL
 ;   $lisplibAncestors: local := NIL
 ;   $lisplibModemap: local := NIL
 ;   $lisplibModemapAlist: local := NIL
@@ -399,15 +398,14 @@
 (DEFUN |compDefineLisplib| (|df| |m| |e| |prefix| |fal| |fn|)
   (PROG (|$compiler_output_stream| |$lisplibCategory| |$libFile|
          |$lisplibSuperDomain| |$lisplibOperationAlist| |$lisplibModemapAlist|
-         |$lisplibModemap| |$lisplibAncestors| |$lisplibParents|
-         |$lisplibAbbreviation| |$lisplibKind| |$lisplibForm|
-         |$lisplibPredicates| |$op| $LISPLIB |res| |libName| |op|)
+         |$lisplibModemap| |$lisplibAncestors| |$lisplibAbbreviation|
+         |$lisplibKind| |$lisplibForm| |$lisplibPredicates| |$op| $LISPLIB
+         |res| |libName| |op|)
     (DECLARE
      (SPECIAL |$compiler_output_stream| |$lisplibCategory| |$libFile|
       |$lisplibSuperDomain| |$lisplibOperationAlist| |$lisplibModemapAlist|
-      |$lisplibModemap| |$lisplibAncestors| |$lisplibParents|
-      |$lisplibAbbreviation| |$lisplibKind| |$lisplibForm| |$lisplibPredicates|
-      |$op| $LISPLIB))
+      |$lisplibModemap| |$lisplibAncestors| |$lisplibAbbreviation|
+      |$lisplibKind| |$lisplibForm| |$lisplibPredicates| |$op| $LISPLIB))
     (RETURN
      (PROGN
       (SETQ |op| (CAADR |df|))
@@ -418,7 +416,6 @@
       (SETQ |$lisplibForm| NIL)
       (SETQ |$lisplibKind| NIL)
       (SETQ |$lisplibAbbreviation| NIL)
-      (SETQ |$lisplibParents| NIL)
       (SETQ |$lisplibAncestors| NIL)
       (SETQ |$lisplibModemap| NIL)
       (SETQ |$lisplibModemapAlist| NIL)
@@ -489,7 +486,6 @@
 ;   lisplibWrite('"superDomain", removeZeroOne($lisplibSuperDomain), libFile)
 ;   lisplibWrite('"predicates", removeZeroOne($lisplibPredicates), libFile)
 ;   lisplibWrite('"abbreviation", $lisplibAbbreviation, libFile)
-;   lisplibWrite('"parents", removeZeroOne($lisplibParents), libFile)
 ;   lisplibWrite('"ancestors", removeZeroOne($lisplibAncestors), libFile)
 ;   lisplibWrite('"documentation", finalizeDocumentation(), libFile)
 
@@ -516,7 +512,6 @@
       (|lisplibWrite| "predicates" (|removeZeroOne| |$lisplibPredicates|)
        |libFile|)
       (|lisplibWrite| "abbreviation" |$lisplibAbbreviation| |libFile|)
-      (|lisplibWrite| "parents" (|removeZeroOne| |$lisplibParents|) |libFile|)
       (|lisplibWrite| "ancestors" (|removeZeroOne| |$lisplibAncestors|)
        |libFile|)
       (|lisplibWrite| "documentation" (|finalizeDocumentation|) |libFile|)))))

@@ -712,8 +712,6 @@
 ;       $lisplibKind:= 'category
 ;       modemap:= [[parForm,:parSignature],[true,op']]
 ;       $lisplibModemap:= modemap
-;       $lisplibParents  :=
-;         getParentsFor($op,$FormalMapVariableList,$lisplibCategory)
 ;       $lisplibAncestors := computeAncestorsOf(sform, nil)
 ;       $lisplibAbbreviation := constructor? $op
 ;       domainShell := eval [op', :MAPCAR('MKQ, sargl)]
@@ -862,9 +860,6 @@
        ($LISPLIB (SETQ |$lisplibForm| |form|) (SETQ |$lisplibKind| '|category|)
         (SETQ |modemap| (LIST (CONS |parForm| |parSignature|) (LIST T |op'|)))
         (SETQ |$lisplibModemap| |modemap|)
-        (SETQ |$lisplibParents|
-                (|getParentsFor| |$op| |$FormalMapVariableList|
-                 |$lisplibCategory|))
         (SETQ |$lisplibAncestors| (|computeAncestorsOf| |sform| NIL))
         (SETQ |$lisplibAbbreviation| (|constructor?| |$op|))
         (SETQ |domainShell| (|eval| (CONS |op'| (MAPCAR 'MKQ |sargl|))))
@@ -1015,9 +1010,6 @@
 ;       modemap:= [[parForm,:parSignature],[true,op']]
 ;       $lisplibModemap:= modemap
 ;       $lisplibCategory := modemap.mmTarget
-;       $lisplibParents  :=
-;         getParentsFor($op,$FormalMapVariableList,$lisplibCategory)
-;       $lisplibAncestors := computeAncestorsOf(form, nil)
 ;       $lisplibAbbreviation := constructor? $op
 ;     $insideFunctorIfTrue:= false
 ;     if $LISPLIB then
@@ -1198,10 +1190,6 @@
         (SETQ |modemap| (LIST (CONS |parForm| |parSignature|) (LIST T |op'|)))
         (SETQ |$lisplibModemap| |modemap|)
         (SETQ |$lisplibCategory| (CADAR |modemap|))
-        (SETQ |$lisplibParents|
-                (|getParentsFor| |$op| |$FormalMapVariableList|
-                 |$lisplibCategory|))
-        (SETQ |$lisplibAncestors| (|computeAncestorsOf| |form| NIL))
         (SETQ |$lisplibAbbreviation| (|constructor?| |$op|))))
       (SETQ |$insideFunctorIfTrue| NIL)
       (COND
