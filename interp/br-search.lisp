@@ -964,19 +964,20 @@
          (SETQ |opAlist| (LIST |itemlist|))
          (|dbShowOperationsFromConform| |htPage| |opAlist|))))))))
 
-; spadType(x) ==  --called by \spadtype{x} from HyperDoc
-;   s := PNAME x
+; spadType(s) ==  --called by \spadtype{x} from HyperDoc
+;   if SYMBOLP(s) then
+;       s := PNAME(s)
 ;   form := ncParseFromString s or
 ;             systemError ['"Argument: ",s,'" to spadType won't parse"]
 ;   if atom form then form := [form]
 ;   op    := opOf form
 ;   conPage(op)
 
-(DEFUN |spadType| (|x|)
-  (PROG (|s| |form| |op|)
+(DEFUN |spadType| (|s|)
+  (PROG (|form| |op|)
     (RETURN
      (PROGN
-      (SETQ |s| (PNAME |x|))
+      (COND ((SYMBOLP |s|) (SETQ |s| (PNAME |s|))))
       (SETQ |form|
               (OR (|ncParseFromString| |s|)
                   (|systemError|
