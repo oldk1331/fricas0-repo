@@ -607,10 +607,10 @@
            (CONS
             (|makeByteWordVec2| 44
                                 '(0 10 0 10 0 16 0 25 14 24 4 17 26 15 3 2 1 27
-                                  27 26 12 15 1 26 4 5 1 0 38 4 5 4 1 0 27 38 5
-                                  1 1 0 0 0 11 12 12 44 12 43 0 0 31 29 9 0 0 0
-                                  12 12 19 26 7 6 0 0 12 12 18 35 33 13 26 8 7
-                                  6 4 0 0 0 0 0 0))
+                                  27 26 12 15 1 0 26 4 5 1 0 0 38 4 4 1 0 0 0
+                                  27 38 1 1 0 0 0 0 0 11 12 12 44 12 43 0 0 31
+                                  29 9 0 0 0 12 12 19 26 7 6 0 0 12 12 18 35 33
+                                  13 26 8 7 6 4 0 0 0 0 0 0))
             (CONS
              '#(|PolynomialCategory&| |PolynomialFactorizationExplicit&|
                 |MaybeSkewPolynomialCategory&| |UniqueFactorizationDomain&|
@@ -618,16 +618,16 @@
                 NIL NIL NIL |PartialDifferentialRing&| |EntireRing&| |Algebra&|
                 |Algebra&| NIL NIL |Algebra&| NIL |Rng&|
                 |NonAssociativeAlgebra&| NIL |NonAssociativeAlgebra&|
-                |NonAssociativeAlgebra&| |Module&| |FullyLinearlyExplicitOver&|
-                |Module&| |Module&| NIL NIL NIL NIL |NonAssociativeRing&| NIL
-                NIL |NonAssociativeRng&| NIL NIL NIL NIL NIL NIL NIL
-                |AbelianGroup&| NIL NIL NIL |MagmaWithUnit&| |AbelianMonoid&|
-                NIL |NonAssociativeSemiRng&| NIL NIL NIL |AbelianSemiGroup&|
-                |Magma&| |FullyRetractableTo&| |RetractableTo&| |Evalable&|
-                |Hashable&| NIL |RetractableTo&| |RetractableTo&|
-                |SetCategory&| |RetractableTo&| NIL |InnerEvalable&| NIL NIL
-                NIL NIL NIL NIL NIL NIL NIL NIL |BasicType&| NIL
-                |InnerEvalable&| |InnerEvalable&| NIL)
+                |NonAssociativeAlgebra&| |FreeModuleCategory&| |Module&|
+                |FullyLinearlyExplicitOver&| |Module&| |Module&| NIL NIL NIL
+                NIL |NonAssociativeRing&| NIL NIL NIL NIL |NonAssociativeRng&|
+                NIL NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL NIL
+                |MagmaWithUnit&| |AbelianMonoid&| NIL |NonAssociativeSemiRng&|
+                NIL NIL NIL |AbelianSemiGroup&| |Magma&| |FullyRetractableTo&|
+                |RetractableTo&| |Evalable&| |Hashable&| NIL |RetractableTo&|
+                |RetractableTo&| |SetCategory&| |RetractableTo&| NIL
+                |InnerEvalable&| NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL
+                |BasicType&| NIL |InnerEvalable&| |InnerEvalable&| NIL)
              (CONS
               '#((|PolynomialCategory| 7
                                        (|HomogeneousDirectProduct| (LENGTH 6)
@@ -652,20 +652,30 @@
                  (|CharacteristicZero|) (|CharacteristicNonZero|)
                  (|Algebra| 45) (|Ring|) (|Rng|) (|NonAssociativeAlgebra| $$)
                  (|SemiRing|) (|NonAssociativeAlgebra| 7)
-                 (|NonAssociativeAlgebra| 45) (|Module| $$)
-                 (|FullyLinearlyExplicitOver| 7) (|Module| 7) (|Module| 45)
+                 (|NonAssociativeAlgebra| 45)
+                 (|FreeModuleCategory| 7
+                                       (|HomogeneousDirectProduct|
+                                        (|call| LENGTH 6) 19))
+                 (|Module| $$) (|FullyLinearlyExplicitOver| 7) (|Module| 7)
+                 (|Module| 45)
+                 (|IndexedDirectProductCategory| 7
+                                                 (|HomogeneousDirectProduct|
+                                                  (|call| LENGTH 6) 19))
                  (|SemiRng|) (|LinearlyExplicitOver| 38)
-                 (|LinearlyExplicitOver| 7) (|BiModule| 7 7)
-                 (|NonAssociativeRing|) (|BiModule| 45 45) (|BiModule| $$ $$)
-                 (|NonAssociativeRng|) (|RightModule| 38) (|LeftModule| 7)
-                 (|RightModule| 45) (|LeftModule| 45) (|LeftModule| $$)
-                 (|RightModule| $$) (|RightModule| 7) (|AbelianGroup|)
-                 (|Monoid|) (|NonAssociativeSemiRing|)
-                 (|CancellationAbelianMonoid|) (|MagmaWithUnit|)
-                 (|AbelianMonoid|) (|SemiGroup|) (|NonAssociativeSemiRng|)
-                 (|PatternMatchable| 38) (|PatternMatchable| (|Float|))
-                 (|Comparable|) (|AbelianSemiGroup|) (|Magma|)
-                 (|FullyRetractableTo| 7)
+                 (|LinearlyExplicitOver| 7) (|NonAssociativeRing|)
+                 (|BiModule| 45 45) (|BiModule| $$ $$) (|BiModule| 7 7)
+                 (|IndexedProductCategory| 7
+                                           (|HomogeneousDirectProduct|
+                                            (|call| LENGTH 6) 19))
+                 (|NonAssociativeRng|) (|RightModule| 38) (|RightModule| 45)
+                 (|LeftModule| 45) (|LeftModule| $$) (|RightModule| $$)
+                 (|RightModule| 7) (|LeftModule| 7)
+                 (|AbelianProductCategory| 7) (|AbelianGroup|) (|Monoid|)
+                 (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
+                 (|MagmaWithUnit|) (|AbelianMonoid|) (|SemiGroup|)
+                 (|NonAssociativeSemiRng|) (|PatternMatchable| 38)
+                 (|PatternMatchable| (|Float|)) (|Comparable|)
+                 (|AbelianSemiGroup|) (|Magma|) (|FullyRetractableTo| 7)
                  (|RetractableTo| (|OrderedVariableList| 6)) (|Evalable| $$)
                  (|Hashable|) (|CommutativeStar|) (|RetractableTo| 38)
                  (|RetractableTo| 45) (|SetCategory|) (|RetractableTo| 7)
