@@ -370,7 +370,7 @@
 28097`\indented{2}{A Finite Simplicial Complex} \indented{2}{for more documentation see:} \indented{2}{http://www.euclideanspace.com/prog/scratchpad/mycode/topology/simplex/} Date Created: Dec 2015 Basic Operations: star,{} link,{} cone,{} product Related packages: Related categories: Related Domains: DeltaComplex is an alternative representation \indented{3}{which is less compact but allows edges,{} triangles,{} etc to be indexed.} Also See: AMS Classifications:
 28181`A FlexibleArray is the notion of an array intended to allow for growth at the end only. Hence the following efficient operations \indented{2}{\spad{concat!(a,{} x)} meaning append item \spad{x} at the end of the array \spad{a}} \indented{2}{\spad{delete!(a,{} n)} meaning delete the last item from the array \spad{a}} Flexible arrays support the other operations inherited from \spadtype{ExtensibleLinearAggregate}. However,{} these are not efficient. Flexible arrays combine the \spad{O(1)} access time property of arrays with growing and shrinking at the end in \spad{O(1)} (average) time. This is done by using an ordinary array which may have zero or more empty slots at the end. When the array becomes full it is copied into a new larger (50\% larger) array. Conversely,{} when the array becomes less than 1/2 full,{} it is copied into a smaller array. Flexible arrays provide for an efficient implementation of many data structures in particular heaps,{} stacks and sets.
 28267`\spadtype{Float} implements arbitrary precision floating point arithmetic. The number of significant digits of each operation can be set to an arbitrary value (the default is 20 decimal digits). The operation \spadfunFrom{float}{FloatingPointSystem}(mantissa,{} exponent,{} \spadfunFrom{base}{FloatingPointSystem}) for integer \spad{mantissa},{} \spad{exponent} specifies the number \spad{mantissa} * \spadfunFrom{base}{FloatingPointSystem} ^ \spad{exponent} The underlying representation for floats is binary not decimal. The implications of this are described below. \blankline The model adopted is that arithmetic operations are rounded to to nearest unit in the last place,{} that is,{} accurate to within 2^(-\spadfunFrom{bits}{FloatingPointSystem}). Also,{} the elementary functions and constants are accurate to one unit in the last place. A float is represented as a record of two integers,{} the mantissa and the exponent. The \spadfunFrom{base}{FloatingPointSystem} of the representation is binary,{} hence a \spad{Record(m: mantissa,{} e: exponent)} represents the number \spad{m * 2 ^ e}. Though it is not assumed that the underlying integers are represented with a binary \spadfunFrom{base}{FloatingPointSystem},{} the code will be most efficient when this is the the case (this is \spad{true} in most implementations of Lisp). The decision to choose the \spadfunFrom{base}{FloatingPointSystem} to be binary has some unfortunate consequences. First,{} decimal numbers like 0.3 cannot be represented exactly. Second,{} there is a further loss of accuracy during conversion to decimal for output. To compensate for this,{} if \spad{d} digits of precision are specified,{} \spad{1 + ceiling(log2(10^d))} bits are used. Two numbers that are displayed identically may therefore be not equal. On the other hand,{} a significant efficiency loss would be incurred if we chose to use a decimal \spadfunFrom{base}{FloatingPointSystem} when the underlying integer base is binary. \blankline Algorithms used: For the elementary functions,{} the general approach is to apply identities so that the taylor series can be used,{} and,{} so that it will converge within \spad{O( sqrt n )} steps. For example,{} using the identity \spad{exp(x) = exp(x/2)^2},{} we can compute \spad{exp(1/3)} to \spad{n} digits of precision as follows. We have \spad{exp(1/3) = exp(2 ^ (-sqrt s) / 3) ^ (2 ^ sqrt s)}. The taylor series will converge in less than sqrt \spad{n} steps and the exponentiation requires sqrt \spad{n} multiplications for a total of \spad{2 sqrt n} multiplications. Assuming integer multiplication costs \spad{O( n^2 )} the overall running time is \spad{O( sqrt(n) n^2 )}. This approach is the best known approach for precisions up to about 10,{} 000 digits at which point the methods of Brent which are \spad{O( log(n) n^2 )} become competitive. Note also that summing the terms of the taylor series for the elementary functions is done using integer operations. This avoids the overhead of floating point operations and results in efficient code at low precisions. This implementation makes no attempt to reuse storage,{} relying on the underlying system to do \spadgloss{garbage collection}. \spad{I} estimate that the efficiency of this package at low precisions could be improved by a factor of 2 if in-place operations were available. \blankline Running times: in the following,{} \spad{n} is the number of bits of precision \indented{5}{\spad{*},{} \spad{/},{} \spad{sqrt},{} \spad{\spad{pi}},{} \spad{exp1},{} \spad{log2},{} \spad{log10}: \spad{ O( n^2 )}} \indented{5}{\spad{exp},{} \spad{log},{} \spad{sin},{} \spad{atan}:\space{2}\spad{ O( sqrt(n) n^2 )}} The other elementary functions are coded in terms of the ones above.
-28325`\indented{1}{\spadtype{Format1D} provides a coercion from \spadtype{OutputForm}} to a one-dimensional format such that the output can be pasted back as input,{}
+28325`\indented{1}{\spadtype{Format1D} provides a coercion from \spadtype{OutputForm}} to a one-dimensional format such that the output can be pasted back as input.
 28374`\indented{1}{\spadtype{Format2D} provides a coercion from} \spadtype{OutputForm} to two-dimensional format.
 28423`\indented{1}{\spadtype{FormatLaTeX} provides a coercion from} \spadtype{OutputForm} to \LaTeX{} format. The particular dialect of \TeX{} used is \LaTeX{},{} but for flexibility reasons \spadtype{FormatLaTeX} outputs everything into a fricasmath environment in which certain additional commands are available. These commands are defined in a .sty file that is distributed with the source code of FriCAS.
 28488`\indented{1}{\spadtype{FormatMathJax} provides a coercion from} \spadtype{OutputForm} to a \LaTeX{} format in a variant that can be understood by MahtJax (https://www.mathjax.org).
@@ -1489,7 +1489,7 @@
 150157`construct the boundary. This is like hollowing out the facet.
 150206`construct the boundary. This is like hollowing out the facet.
 150256`\spad{boundary(n,{} fontScale)} returns the boundary of a given node,{} so if this is called on the root node,{} it will return the boundary of the whole scene. There is a difficulty involving text nodes,{} that is they have a fixed font size. But we want to calculate the boundary in local coordinates,{} to do this conversion we need to know the total boundary size but that is what we are trying to calculate! To get round this contradiction the parameter fontScale is required since fonts are rendered at a fixed size we need a scaling factor so that we can give the boundary in our coordinate system. fontScale should be set to the full width of the diagram (not just the width of this node). If this is not known then choose an approximate value. This only affects text nodes,{} if this node,{} or its subnodes,{} do not contain a text node then its value is not significant.
-150320`\spad{boundOfCauchy(p)} bounds the roots of \spad{p}
+150320`\spad{boundOfCauchy(p)} bounds the roots of \spad{p}.
 150442`\spad{box(f)} encloses \spad{f} in a box.
 150478`\spad{box(hh)} returns a handler \spad{h} such that \spad{h(prec,{} args)} formats the arguments via \spad{hh(prec,{} args)} and then draws a box frame around the resulting box.
 150636`\spad{box(s)} creates a box that contains the string \spad{s}.
@@ -2821,7 +2821,7 @@
 312545`\spad{distanceMatrix(s)} gives matrix of distances between vertices. Element a_{\spad{i},{} \spad{j}} is the distance from \spad{i} to \spad{j}. Distance matrices are related to adjacency matrices,{} with the differences that: a. the latter only provides the information which vertices are connected \indented{3}{but does not tell about costs or distances between the vertices} \spad{b}. adjacency matrix only tells us about directly connected \indented{3}{vertices while distance matrix also considers indirect connections.}
 312610`\spad{distanceSquared(p1,{} p2)} returns the distance between the points \spad{p1} and \spad{p2}. There are 2 metrics associated with any SPointCategory the underlying space and the space that it is embedded in this is the distance in the underlying space.
 312674`the shortest distance between 'a' and \spad{'b'} in terms of weight.
-312787`\spad{distFact(contm,{} unilist,{} plead,{} vl,{} lvar,{} lval)},{} where \spad{contm} is the content of the evaluated polynomial,{} \spad{unilist} is the list of factors of the evaluated polynomial,{} \spad{plead} is the complete factorization of the leading coefficient,{} \spad{vl} is the list of factors of the leading coefficient evaluated,{} \spad{lvar} is the list of variables,{} lval is the list of values,{} returns a record giving the list of leading coefficients to impose on the univariate factors,{}
+312787`\spad{distFact(contm,{} unilist,{} plead,{} vl,{} lvar,{} lval)},{} where \spad{contm} is the content of the evaluated polynomial,{} \spad{unilist} is the list of factors of the evaluated polynomial,{} \spad{plead} is the complete factorization of the leading coefficient,{} \spad{vl} is the list of factors of the leading coefficient evaluated,{} \spad{lvar} is the list of variables,{} lval is the list of values,{} returns a record giving the list of leading coefficients to impose on the univariate factors.
 313072`\spad{distinct_partition(n)} returns the number of partitions of the integer \spad{n} with distinct members. This is the number of ways that \spad{n} can be written as a sum of distinct positive integers. For \spad{n > 0} this is the same as number of ways that \spad{n} can be written as a sum of odd positive integers.
 313144`\spad{distinct_partitions(n)} is the stream of all partitions \indented{1}{of \spad{n} into distinct numbers.}
 313237`\spad{distinct_partitions(p,{} l,{} n)} is the stream of partitions \indented{1}{of \spad{n} into distinct numbers whose number of parts is no greater than \spad{p}} \indented{1}{and whose largest part is no greater than \spad{l}.}
@@ -2956,7 +2956,7 @@
 328473`\spad{eigenvectors(m)} returns the eigenvalues and eigenvectors for the matrix \spad{m}. The eigenvalues in base field and corresponding eigenvectors are explicitly computed,{} while the non rational ones are given via their minimal polynomial and the corresponding eigenvectors are expressed in terms of a "generic" root of such a polynomial.
 328710`\spad{eigenvectors(m)} returns the eigenvalues and eigenvectors for the matrix \spad{m}. The eigenvalues in base field and the corresponding eigenvectors are explicitly computed,{} while the other ones are given via their minimal polynomial and the corresponding eigenvectors are expressed in terms of a "generic" root of such a polynomial.
 328981`\spad{eigenvectors(m,{} fac)} returns the eigenvalues and eigenvectors for the matrix \spad{m}. The eigenvalues in base field and corresponding eigenvectors are explicitly computed,{} while the other eigenvalues are given via their minimal polynomial and the corresponding eigenvectors are expressed in terms of a "generic" root of such a polynomial. fac is a factorizer for polynomials over \spad{F}.
-329253`\spad{ei_int(n,{} f,{} g,{} x)} returns \spad{[h,{} u,{} t,{} s]} such that \spad{u*exp(n*f) = (h*exp(n*f))' + t'} where \spad{t} involves special functions. When \spad{s} is \spad{true} then \spad{g = u},{} otherwise ei_int returns partial answer,{}
+329253`\spad{ei_int(n,{} f,{} g,{} x)} returns \spad{[h,{} u,{} t,{} s]} such that \spad{u*exp(n*f) = (h*exp(n*f))' + t'} where \spad{t} involves special functions. When \spad{s} is \spad{true} then \spad{g = u},{} otherwise ei_int returns partial answer.
 329366`\spad{eisensteinIrreducible?(p)} returns \spad{true} if \spad{p} can be shown to be irreducible by Eisenstein\spad{'s} criterion,{} \spad{false} is inconclusive.
 329443`\spad{elColumn2!(m,{} a,{} i,{} j)} adds to column \spad{i} a*column(\spad{m},{} \spad{j}) : elementary operation of second kind. (\spad{i} \spad{~=j})
 329535`\spad{elem?(ir)} tests if an integration result is elementary over \spad{F?}
@@ -4172,7 +4172,7 @@
 482937`\spad{infieldint(f)} returns \spad{g} such that \spad{g' = f} or "failed" if the integral of \spad{f} is not a rational function.
 483033`\spad{infieldIntegrate(f,{} x)} returns a fraction \spad{g} such that \spad{dg/dx = f} if \spad{g} exists,{} "failed" otherwise.
 483169`\spad{infinite?(x)} tests if \spad{x} is infinite.
-483228`\spad{infinite?(x)} tests if \spad{x} is +infinity or -infinity,{}
+483228`\spad{infinite?(x)} tests if \spad{x} is +infinity or -infinity.
 483286`\spad{infiniteProduct(f(x))} computes \spad{product(n=1,{} 2,{} 3...,{} f(x^n))}. The series \spad{f(x)} should have constant coefficient 1.
 483360`\spad{infinity()} returns infinity.
 483411`\spad{infinity()} returns infinity.
@@ -4667,7 +4667,7 @@
 535835`\spad{lazyPseudoRemainder(a,{} b)} returns \spad{r} if \spad{lazyResidueClass(a,{} b)} returns \spad{[r,{} c,{} n]}. This lazy pseudo-remainder is computed by means of the \spadopFrom{fmecg}{NewSparseUnivariatePolynomial} operation.
 535911`\spad{lazyResidueClass(a,{} b)} returns \spad{[r,{} c,{} n]} such that \spad{r} is reduced with respect to \spad{b} and \spad{b} divides \spad{c^n * a - r} where \spad{c} is \spad{leadingCoefficient(b)} and \spad{n} is as small as possible with the previous properties.
 536155`\spad{lazyResidueClass(a,{} b)} returns \spad{[p,{} q,{} n]} where \spad{p / q^n} represents the residue class of \spad{a} modulo \spad{b} and \spad{p} is reduced with respect to \spad{b} and \spad{q} is \spad{init(b)}.
-536279`\spad{lazyVariations(l,{} s1,{} sn)} is the number of sign variations in the list of non null numbers [s1::l]\spad{@sn},{}
+536279`\spad{lazyVariations(l,{} s1,{} sn)} is the number of sign variations in the list of non null numbers [s1::l]\spad{@sn}.
 536435`left contraction inner product
 536527`\spad{lcm(l)} returns the least common multiple of the elements of the list \spad{l}.
 536604`\spad{lcm(x,{} y)} returns the least common multiple of \spad{x} and \spad{y}.
@@ -5244,8 +5244,8 @@
 598499`\spad{maxPoints3D()} returns the maximum number of points in a plot.
 598544`\spad{maxPower returns} the specified maxPower.
 598645`\spad{maxPower(d)} specifies the maximum degree in an algebraic differential equation. For example,{} the degree of (\spad{f}\spad{''})\spad{^3} \spad{f'} is 4. maxPower(\spad{-1}) specifies that the maximum exponent can be arbitrary. This option is expressed in the form \spad{maxPower == d}.
-598720`\spad{maxPrecedence()} returns the maximal precedence value,{}
-598778`\spad{maxPrecedence()} returns the maximal precedence value,{}
+598720`\spad{maxPrecedence()} returns the maximal precedence value.
+598778`\spad{maxPrecedence()} returns the maximal precedence value.
 598840`\spad{maxrank(r)} returns the maximum rank in the list \spad{r} of regimes
 599041`\spad{maxrow(a,{} b,{} c,{} d,{} e)} is an auxiliary function for \spad{mr}
 599268`\spad{maxRowIndex(m)} returns the index of the 'last' row of the matrix \spad{m}.
@@ -5379,7 +5379,7 @@
 613704`\spad{mkAnswer(r,{} l,{} ne)} creates an integration result from a rational part \spad{r},{} a logarithmic part \spad{l},{} and a non-elementary part ne.
 613902`\spad{mkcomm(i)} \undocumented{}
 613947`\spad{mkcomm(i,{} j)} \undocumented{}
-613988`\spad{mk_erf(u,{} f)} should be local but conditional
+613988`\spad{mk_erf(u,{} f)} should be local but conditional.
 614042`\spad{mkIntegral(p(x,{} y))} returns \spad{[c(x),{} q(x,{} z)]} such that \spad{z = c * y} is integral. The algebraic relation between \spad{x} and \spad{y} is \spad{p(x,{} y) = 0}. The algebraic relation between \spad{x} and \spad{z} is \spad{q(x,{} z) = 0}.
 614139`\spad{mkPrim(f,{} x)} makes the logs in \spad{f} which are linear in \spad{x} primitive with respect to \spad{x}.
 614251`\spad{mmul(m1,{} m2,{} d,{} p)} multiplies \spad{m1} by ncols(\spad{m1}) times \spad{d} part of transpose of \spad{m2} modulo \spad{p}. Error if \spad{m2} is too small.
@@ -7880,8 +7880,8 @@
 906253`\spad{SturmHabichtCoefficients(p1,{} p2)} computes the principal Sturm-Habicht coefficients of \spad{p1} and \spad{p2}
 906336`\spad{SturmHabichtMultiple(p1,{} p2)} computes \spad{c_}{+}\spad{-c_}{-} where \spad{c_}{+} is the number of real roots of \spad{p1} with \spad{p2>0} and \spad{c_}{-} is the number of real roots of \spad{p1} with \spad{p2<0}. If \spad{p2=1} what you get is the number of real roots of \spad{p1}.
 906431`\spad{SturmHabichtSequence(p1,{} p2)} computes the Sturm-Habicht sequence of \spad{p1} and \spad{p2}
-906511`\spad{sturmSequence(p) = sylvesterSequence(p,{} p')}
-906614`\spad{sturmVariationsOf(l)} is the number of sign variations in the list of numbers \spad{l},{} note that the first term counts as a sign
+906511`\spad{sturmSequence(p) = sylvesterSequence(p,{} p')}.
+906614`\spad{sturmVariationsOf(l)} is the number of sign variations in the list of numbers \spad{l}. Note that the first term counts as a sign.
 906758`\spad{style(s)} specifies the drawing style in which the graph will be plotted by the indicated string \spad{s}. This option is expressed in the form \spad{style == s}.
 906802`\spad{style(l,{} s)} takes the list of draw options,{} \spad{l},{} and checks the list to see if it contains the option \spad{style}. If the option does not exist the value,{} \spad{s} is returned.
 906878`\spad{sub1!(pol,{} md)} subtracts 1 from the polynomial \spad{pol}.
@@ -8001,7 +8001,7 @@
 923808`\spad{swapRows!(m,{} i,{} j)} interchanges the \spad{i}th and \spad{j}th rows of \spad{m}. This destructively alters the array.
 923895`\spad{swapRowsColumns!(f,{} i,{} j)} exchanges rows \spad{i} and \spad{j} and columns \spad{j} and \spad{i} in the ALS of \spad{f}.
 924069`\spad{sylvesterMatrix(p,{} q)} returns the Sylvester matrix for the two nonzero polynomials \spad{p} and \spad{q}.
-924140`\spad{sylvesterSequence(p,{} q)} is the negated remainder sequence of \spad{p} and \spad{q} divided by the last computed term
+924140`\spad{sylvesterSequence(p,{} q)} is the negated remainder sequence of \spad{p} and \spad{q} divided by the last computed term.
 924255`\spad{symbol?(p)} tests if \spad{p} is a symbol.
 924302`\spad{symbol(sys)} computes directly the symbol of the family \spad{sys} of functions.
 924477`\spad{symbol?(f)} checks if \spad{f} is a symbol,{} this implies atom?(\spad{f})
@@ -8480,7 +8480,7 @@
 980434`\spad{vconcat(hh)} returns a handler \spad{h} such that \spad{h(prec,{} args)} formats args according to \spad{hh} and then puts them on top of each other where the lines are centered. The baseline corresponds to the baseline of the first argument.
 980554`\spad{vconcat(u)} vertically concatenates all forms in list \spad{u}.
 980601`\spad{vconcat(f,{} g)} vertically concatenates forms \spad{f} and \spad{g}.
-980644`\spad{vconcat(lbox,{} h)} returns \spad{vconcat(lbox,{}h,{} 0)},{}
+980644`\spad{vconcat(lbox,{} h)} returns \spad{vconcat(lbox,{}h,{} 0)}.
 980709`\spad{vconcat(lbox,{} h,{} adjust)} computes the maximal width of the boxes in the list \spad{lbox}; then if \spad{adjust<0},{} left adjusts,{} if \spad{adjust>0},{} right adjusts,{} and otherwise centers each smaller box in a new box of this maximal width and returns a box by putting all the boxes vertically on top of each other. The height of the new box is given by \spad{h},{} the depth results from the difference of the number of lines and \spad{h}.
 980782`\spad{vector(l)} converts the list \spad{l} to a vector.
 980861`\spad{vector(f)} returns \spad{v} from the ALS of \spad{f}.
