@@ -3349,9 +3349,6 @@
 ;                 atom y =>
 ;                   isDomainForm(y,e) => LIST y
 ;                   nil
-;                 y is ['LENGTH,y'] =>
-;                   BREAK()
-;                   [y,y']
 ;                 LIST y
 ;           x
 ;         x is ["DomainSubstitutionMacro",pl,body] =>
@@ -3499,16 +3496,10 @@
                        |$Category| |e|))
          (|convert| T$ |m|))))))))
 (DEFUN |compJoin,getParms| (|y| |e|)
-  (PROG (|ISTMP#1| |y'|)
+  (PROG ()
     (RETURN
      (COND
       ((ATOM |y|) (COND ((|isDomainForm| |y| |e|) (LIST |y|)) (#1='T NIL)))
-      ((AND (CONSP |y|) (EQ (CAR |y|) 'LENGTH)
-            (PROGN
-             (SETQ |ISTMP#1| (CDR |y|))
-             (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                  (PROGN (SETQ |y'| (CAR |ISTMP#1|)) #1#))))
-       (PROGN (BREAK) (LIST |y| |y'|)))
       (#1# (LIST |y|))))))
 
 ; compForMode(x,m,e) ==
