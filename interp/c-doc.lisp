@@ -843,7 +843,8 @@
 ;             checkDocError ['"Unknown \spadtype: ", s]
 ;           atom key => 'ok
 ;           checkDocError ['"Wrong number of arguments: ",form2HtString key]
-;       else if member(x,'("\spadop" "\keyword")) and (u := checkLookForLeftBrace IFCDR u) and (u := IFCDR u) then
+;       else if x = '"\spadop" and (u := checkLookForLeftBrace IFCDR u) and
+;               (u := IFCDR u) then
 ;           x := intern checkGetStringBeforeRightBrace u
 ;           not (GETL(x,'Led) or GETL(x,'Nud)) =>
 ;             checkDocError ['"Unknown \spadop: ",x]
@@ -966,7 +967,7 @@
                            (|checkDocError|
                             (LIST "Wrong number of arguments: "
                                   (|form2HtString| |key|)))))))))
-                     ((AND (|member| |x| '("\\spadop" "\\keyword"))
+                     ((AND (EQUAL |x| "\\spadop")
                            (SETQ |u| (|checkLookForLeftBrace| (IFCDR |u|)))
                            (SETQ |u| (IFCDR |u|)))
                       (SETQ |x|
