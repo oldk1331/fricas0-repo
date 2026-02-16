@@ -1963,7 +1963,7 @@
 ;             acc
 ;       x = char '_$ or x = '"$"  => ['"\$",:acc]
 ;       x = char '_% or x = '"%"  => ['"\%",:acc]
-;       x = char '_, or x = '","  => ['",{}",:acc]
+;       x = char '_, or x = '","  => ['",",:acc]
 ;       x = '"\spad" => ['"\spad",:acc]
 ;       STRINGP x and DIGITP x.0 => [x,:acc]
 ;       null spadflag and
@@ -2059,7 +2059,7 @@
                            ((OR (EQUAL |x| (|char| '%)) (EQUAL |x| "%"))
                             (CONS "\\%" |acc|))
                            ((OR (EQUAL |x| (|char| '|,|)) (EQUAL |x| ","))
-                            (CONS ",{}" |acc|))
+                            (CONS "," |acc|))
                            ((EQUAL |x| "\\spad") (CONS "\\spad" |acc|))
                            ((AND (STRINGP |x|) (DIGITP (ELT |x| 0)))
                             (CONS |x| |acc|))
