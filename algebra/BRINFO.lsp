@@ -819,7 +819,9 @@
                                   (QVELT |sd| 0) |args|))
                            (LETT |sig_imp|
                                  (|get_op_implementation| |op| |sig1|
-                                  (QVELT |sd| 1) |pred_lst| |dom| |dom_name|))
+                                                          (QVELT |sd| 1)
+                                                          |pred_lst| |dom|
+                                                          |dom_name|))
                            (LETT |r1| (VECTOR |sig_imp| |i| |name| |sd|))
                            (LETT |i| (+ |i| 1))
                            (EXIT (LETT |grd| (CONS |r1| |grd|))))
