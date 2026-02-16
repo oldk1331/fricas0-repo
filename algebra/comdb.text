@@ -2218,7 +2218,7 @@
 225157`\spad{construct(v1, t, v2, lt)} creates a splitting tree with value (\spadignore{i.e.} root vertex) given by \spad{[v, t]\$S} and with children list given by \spad{[[[v, t]\$S]\$\% for s in ls]}.
 225219`\spad{construct(mom, ccum, fcum, bcum)} constructs a distribution with moments \spad{mom}, classical cumulants \spad{ccum}, free cumulants \spad{fcum} and boolean cumulants \spad{bcum}. The user must make sure that these are consistent, otherwise the results are unpredictable!
 225312`\spad{constructOrdered(l)} takes a list of terms and creates the object with these components. The list is assumed to be sorted (in reverse order) with respect to the ordering of \spad{S}. If \spad{R} is a monoid, then the list is assumed to contain no zero elements. Caution: No checking is performed, so this should only be used in cases where those conditions are assured. If in doubt use \spad{construct}.
-225415`\spad{constructor_documentation(n)} gives documentation string for constructor with name \spad{s}. Returns emp[ty string for undocumented constructors.
+225415`\spad{constructor_documentation(n)} gives documentation string for constructor with name \spad{s}. Returns empty string for undocumented constructors.
 225491`\spad{constructor_form(n)} gives constructor form, that is \spad{S}-expression (list) with constructor name and argument names for constructor with name \spad{s}.
 225563`\spad{constructor_kind(s)} gives constructor kind, that is one of category, domain, package.
 225630`\spad{constructor_name?(s)} returns \spad{true} if and only if \spad{s} is a name of existing constructor.
