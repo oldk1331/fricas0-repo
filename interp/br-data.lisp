@@ -687,7 +687,7 @@
 ;   for [name,:line] in pairs repeat
 ;     outP  := FILE_-POSITION outstream
 ;     defP  := FILE_-POSITION defstream
-;     lines := spreadGlossText transformAndRecheckComments(name,[line])
+;     lines := [transformAndRecheckComments(name,[line])]
 ;     PRINTEXP(name, outstream)
 ;     PRINTEXP($tick,outstream)
 ;     PRINTEXP(defP, outstream)
@@ -756,7 +756,7 @@
                   (SETQ |outP| (FILE-POSITION |outstream|))
                   (SETQ |defP| (FILE-POSITION |defstream|))
                   (SETQ |lines|
-                          (|spreadGlossText|
+                          (LIST
                            (|transformAndRecheckComments| |name|
                             (LIST |line|))))
                   (PRINTEXP |name| |outstream|)
