@@ -270,14 +270,14 @@
           (SETQ |bfVar#10| (CDR |bfVar#10|))))
        |opAlist| NIL)))))
 
-; saveUsersHashTable() ==
+; saveUsersHashTable(usersTb) ==
 ;   erase_lib('"USERS.DAASE")
 ;   stream:= writeLib('"USERS.DAASE")
-;   for k in MSORT HKEYS $usersTb repeat
-;       kaf_write0(stream, k, HGET($usersTb, k))
+;   for k in MSORT(HKEYS(usersTb)) repeat
+;         kaf_write0(stream, k, HGET(usersTb, k))
 ;   kaf_close(stream)
 
-(DEFUN |saveUsersHashTable| ()
+(DEFUN |saveUsersHashTable| (|usersTb|)
   (PROG (|stream|)
     (RETURN
      (PROGN
@@ -288,19 +288,19 @@
           (COND
            ((OR (ATOM |bfVar#20|) (PROGN (SETQ |k| (CAR |bfVar#20|)) NIL))
             (RETURN NIL))
-           ('T (|kaf_write0| |stream| |k| (HGET |$usersTb| |k|))))
+           ('T (|kaf_write0| |stream| |k| (HGET |usersTb| |k|))))
           (SETQ |bfVar#20| (CDR |bfVar#20|))))
-       (MSORT (HKEYS |$usersTb|)) NIL)
+       (MSORT (HKEYS |usersTb|)) NIL)
       (|kaf_close| |stream|)))))
 
-; saveDependentsHashTable() ==
+; saveDependentsHashTable(depTb) ==
 ;   erase_lib('"DEPENDENTS.DAASE")
 ;   stream:= writeLib('"DEPENDENTS.DAASE")
-;   for k in MSORT HKEYS $depTb repeat
-;       kaf_write0(stream, k, HGET($depTb, k))
+;   for k in MSORT(HKEYS(depTb)) repeat
+;         kaf_write0(stream, k, HGET(depTb, k))
 ;   kaf_close(stream)
 
-(DEFUN |saveDependentsHashTable| ()
+(DEFUN |saveDependentsHashTable| (|depTb|)
   (PROG (|stream|)
     (RETURN
      (PROGN
@@ -311,29 +311,29 @@
           (COND
            ((OR (ATOM |bfVar#21|) (PROGN (SETQ |k| (CAR |bfVar#21|)) NIL))
             (RETURN NIL))
-           ('T (|kaf_write0| |stream| |k| (HGET |$depTb| |k|))))
+           ('T (|kaf_write0| |stream| |k| (HGET |depTb| |k|))))
           (SETQ |bfVar#21| (CDR |bfVar#21|))))
-       (MSORT (HKEYS |$depTb|)) NIL)
+       (MSORT (HKEYS |depTb|)) NIL)
       (|kaf_close| |stream|)))))
 
 ; save_browser_data() ==
 ;     buildLibdb([])
 ;     dbSplitLibdb()
-;     mkUsersHashTable()
-;     saveUsersHashTable()
-;     mkDependentsHashTable()
-;     saveDependentsHashTable()
+;     usersTb := mkUsersHashTable()
+;     saveUsersHashTable(usersTb)
+;     depTb := mkDependentsHashTable()
+;     saveDependentsHashTable(depTb)
 
 (DEFUN |save_browser_data| ()
-  (PROG ()
+  (PROG (|depTb| |usersTb|)
     (RETURN
      (PROGN
       (|buildLibdb| NIL)
       (|dbSplitLibdb|)
-      (|mkUsersHashTable|)
-      (|saveUsersHashTable|)
-      (|mkDependentsHashTable|)
-      (|saveDependentsHashTable|)))))
+      (SETQ |usersTb| (|mkUsersHashTable|))
+      (|saveUsersHashTable| |usersTb|)
+      (SETQ |depTb| (|mkDependentsHashTable|))
+      (|saveDependentsHashTable| |depTb|)))))
 
 ; getUsersOfConstructor(con) ==
 ;   stream := readLib('"USERS.DAASE")

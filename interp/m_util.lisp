@@ -613,6 +613,29 @@
                        (CONCAT |d| |n|))
                       (#1# (CONCAT |d| '/ |n|))))))))))))
 
+; new_fname(d, n, e) ==
+;     good := false
+;     res := nil
+;     while not(good) repeat
+;         res := make_fname(d, PNAME(GENSYM(n)), e)
+;         good := not(fricas_probe_file(res))
+;     res
+
+(DEFUN |new_fname| (|d| |n| |e|)
+  (PROG (|good| |res|)
+    (RETURN
+     (PROGN
+      (SETQ |good| NIL)
+      (SETQ |res| NIL)
+      ((LAMBDA ()
+         (LOOP
+          (COND (|good| (RETURN NIL))
+                ('T
+                 (PROGN
+                  (SETQ |res| (|make_fname| |d| (PNAME (GENSYM |n|)) |e|))
+                  (SETQ |good| (NULL (|fricas_probe_file| |res|)))))))))
+      |res|))))
+
 ; is_system_path?(n) ==
 ;     #n < #(sr := $spadroot) => false
 ;     res := true

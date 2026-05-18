@@ -97,6 +97,62 @@
 
 (DEFVAR |$timer_list| NIL)
 
+; MAKEPROP('coerce, "/TRANSFORM", ["&", "&", "*"])
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (MAKEPROP '|coerce| '/TRANSFORM (LIST '& '& '*)))))
+
+; MAKEPROP('comp, "/TRANSFORM", ["&", "*", "*", "&"])
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (MAKEPROP '|comp| '/TRANSFORM (LIST '& '* '* '&)))))
+
+; MAKEPROP('compIf, "/TRANSFORM", '["&", "*", "*", "&"])
+
+
+; MAKEPROP('compFormWithModemap, "/TRANSFORM", ["&", "*", "*", "&", "*"])
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG ()
+    (RETURN
+     (MAKEPROP '|compFormWithModemap| '/TRANSFORM (LIST '& '* '* '& '*)))))
+
+; SPADSYSNAMEP(s) ==
+;     n := MAXINDEX(s)
+;     k := charPosition('".".0, s, 1)
+;     k > n => false
+;     k := charPosition('",".0, s, k + 1)
+;     k > n => false
+;     res := true
+;     for i in (k + 1)..n while res repeat
+;         res := char_to_digit(s.i) and res
+;     res
+
+(DEFUN SPADSYSNAMEP (|s|)
+  (PROG (|n| |k| |res|)
+    (RETURN
+     (PROGN
+      (SETQ |n| (MAXINDEX |s|))
+      (SETQ |k| (|charPosition| (ELT "." 0) |s| 1))
+      (COND ((< |n| |k|) NIL)
+            (#1='T
+             (PROGN
+              (SETQ |k| (|charPosition| (ELT "," 0) |s| (+ |k| 1)))
+              (COND ((< |n| |k|) NIL)
+                    (#1#
+                     (PROGN
+                      (SETQ |res| T)
+                      ((LAMBDA (|i|)
+                         (LOOP
+                          (COND ((OR (> |i| |n|) (NOT |res|)) (RETURN NIL))
+                                (#1#
+                                 (SETQ |res|
+                                         (AND (|char_to_digit| (ELT |s| |i|))
+                                              |res|))))
+                          (SETQ |i| (+ |i| 1))))
+                       (+ |k| 1))
+                      |res|))))))))))
+
 ; IS_GENVAR(x) ==
 ;     IDENTP(x) and (y := PNAME(x); #y > 1 and '"$".0 = y.0 and
 ;                    char_to_digit(y.1))
@@ -3479,8 +3535,8 @@
 ;   -- backtraces appearing, MCD.
 ;   ENABLE_BACKTRACE(nil)
 ;   EVAL condition =>
-;     sayBrightly msg
-;     INTERRUPT()
+;         sayBrightly(msg)
+;         BREAK()
 
 (DEFUN |break| (|msg|)
   (PROG (|condition|)
@@ -3488,7 +3544,7 @@
      (PROGN
       (SETQ |condition| (|monitor_eval_tran| |$break_condition| NIL))
       (ENABLE_BACKTRACE NIL)
-      (COND ((EVAL |condition|) (PROGN (|sayBrightly| |msg|) (INTERRUPT))))))))
+      (COND ((EVAL |condition|) (PROGN (|sayBrightly| |msg|) (BREAK))))))))
 
 ; compileBoot fn ==
 ;   SAY('"need to recompile: ", fn)

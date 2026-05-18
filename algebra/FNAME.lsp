@@ -35,24 +35,37 @@
 (SDEFUN |FNAME;extension;%S;8| ((|f| (%)) (% (|String|)))
         (|file_extention| |f|)) 
 
-(MAKEPROP '|FNAME;exists?;%B;9| '|SPADreplace| '|fnameExists?|) 
+(SDEFUN |FNAME;exists?;%B;9| ((|f| (%)) (% (|Boolean|)))
+        (SPROG ((|se| (|SExpression|)))
+               (SEQ (LETT |se| (|fricas_probe_file| |f|))
+                    (EXIT (NULL (SPADCALL |se| (QREFELT % 19))))))) 
 
-(SDEFUN |FNAME;exists?;%B;9| ((|f| (%)) (% (|Boolean|))) (|fnameExists?| |f|)) 
+(MAKEPROP '|FNAME;readable?;%B;10| '|SPADreplace| '|can_open?|) 
 
-(MAKEPROP '|FNAME;readable?;%B;10| '|SPADreplace| '|fnameReadable?|) 
-
-(SDEFUN |FNAME;readable?;%B;10| ((|f| (%)) (% (|Boolean|)))
-        (|fnameReadable?| |f|)) 
-
-(MAKEPROP '|FNAME;writable?;%B;11| '|SPADreplace| '|fnameWritable?|) 
+(SDEFUN |FNAME;readable?;%B;10| ((|f| (%)) (% (|Boolean|))) (|can_open?| |f|)) 
 
 (SDEFUN |FNAME;writable?;%B;11| ((|f| (%)) (% (|Boolean|)))
-        (|fnameWritable?| |f|)) 
-
-(MAKEPROP '|FNAME;new;3S%;12| '|SPADreplace| '|fnameNew|) 
+        (SPROG ((|n| (|String|)) (|r1| (|Integer|)))
+               (SEQ (LETT |n| (SPADCALL |f| (QREFELT % 9)))
+                    (COND ((EQUAL |n| "") (LETT |n| ".")))
+                    (LETT |r1| (|writeablep| |n|))
+                    (EXIT
+                     (COND ((> |r1| 0) 'T)
+                           ('T
+                            (SEQ (LETT |n| (|file_directory| |n|))
+                                 (LETT |r1| (|writeablep| |n|))
+                                 (EXIT (> |r1| 0))))))))) 
 
 (SDEFUN |FNAME;new;3S%;12| ((|d| #1=(|String|)) (|pref| #1#) (|e| #1#) (% (%)))
-        (|fnameNew| |d| |pref| |e|)) 
+        (SPROG ((|r1| (|Integer|)))
+               (SEQ (COND ((EQUAL |d| "") (LETT |d| ".")))
+                    (LETT |r1| (|file_kind| |d|))
+                    (COND ((> |r1| 0) (LETT |r1| (|writeablep| |d|))))
+                    (EXIT
+                     (COND ((> |r1| 0) (|new_fname| |d| |pref| |e|))
+                           ('T
+                            (|error|
+                             "new: directory must exist and be writable"))))))) 
 
 (DECLAIM (NOTINLINE |FileName;|)) 
 
@@ -60,7 +73,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|FileName|))
-          (LETT % (GETREFV 22))
+          (LETT % (GETREFV 24))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|FileName| NIL (CONS 1 %))
@@ -70,7 +83,7 @@
 
 (DEFUN |FileName| ()
   (SPROG NIL
-         (PROG (#1=#:G13)
+         (PROG (#1=#:G18)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|FileName|))
@@ -90,22 +103,23 @@
               |FNAME;coerce;%S;3| (|OutputForm|) (0 . |coerce|)
               |FNAME;coerce;%Of;2| |FNAME;coerce;S%;4| |FNAME;filename;3S%;5|
               |FNAME;directory;%S;6| |FNAME;name;%S;7| |FNAME;extension;%S;8|
-              |FNAME;exists?;%B;9| |FNAME;readable?;%B;10|
-              |FNAME;writable?;%B;11| |FNAME;new;3S%;12|)
-           '#(~= 5 |writable?| 11 |readable?| 16 |new| 21 |name| 28 |latex| 33
-              |filename| 38 |extension| 45 |exists?| 50 |directory| 55 |coerce|
-              60 = 75)
+              (|SExpression|) (5 . |null?|) |FNAME;exists?;%B;9|
+              |FNAME;readable?;%B;10| |FNAME;writable?;%B;11|
+              |FNAME;new;3S%;12|)
+           '#(~= 10 |writable?| 16 |readable?| 21 |new| 26 |name| 33 |latex| 38
+              |filename| 43 |extension| 50 |exists?| 55 |directory| 60 |coerce|
+              65 = 80)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(NIL |SetCategory&| NIL |BasicType&|)
                        (CONS
                         '#((|FileNameCategory|) (|SetCategory|)
                            (|CoercibleTo| 10) (|BasicType|))
-                        (|makeByteWordVec2| 21
-                                            '(1 8 10 0 11 2 0 6 0 0 1 1 0 6 0
-                                              20 1 0 6 0 19 3 0 0 8 8 8 21 1 0
-                                              8 0 16 1 0 8 0 1 3 0 0 8 8 8 14 1
-                                              0 8 0 17 1 0 6 0 18 1 0 8 0 15 1
-                                              0 10 0 12 1 0 8 0 9 1 0 0 8 13 2
-                                              0 6 0 0 7)))))
+                        (|makeByteWordVec2| 23
+                                            '(1 8 10 0 11 1 18 6 0 19 2 0 6 0 0
+                                              1 1 0 6 0 22 1 0 6 0 21 3 0 0 8 8
+                                              8 23 1 0 8 0 16 1 0 8 0 1 3 0 0 8
+                                              8 8 14 1 0 8 0 17 1 0 6 0 20 1 0
+                                              8 0 15 1 0 10 0 12 1 0 8 0 9 1 0
+                                              0 8 13 2 0 6 0 0 7)))))
            '|lookupComplete|)) 

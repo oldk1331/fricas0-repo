@@ -1231,7 +1231,7 @@
       "%1b is unknown or unavailable for the %b )compile %d command." |args|))))
 
 ; do_compile_lisp(lsp, beQuiet) ==
-;     if fnameReadable?(lsp) then
+;     if can_open?(lsp) then
 ;         if not beQuiet then say_msg("S2IZ0089",
 ;             '"Compiling Lisp source code from file %1", [lsp])
 ;         compile_file_quietly(lsp)
@@ -1243,7 +1243,7 @@
   (PROG ()
     (RETURN
      (COND
-      ((|fnameReadable?| |lsp|)
+      ((|can_open?| |lsp|)
        (COND
         ((NULL |beQuiet|)
          (|say_msg| 'S2IZ0089 "Compiling Lisp source code from file %1"
