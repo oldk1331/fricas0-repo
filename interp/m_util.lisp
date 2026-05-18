@@ -117,7 +117,7 @@
 
 ; kaf_open(name, io?) ==
 ;     full_name :=
-;         io? => make_full_namestring(name)
+;         io? => name
 ;         make_input_filename1(name)
 ;     if io? then
 ;         kind := file_kind(full_name)
@@ -135,8 +135,7 @@
     (RETURN
      (PROGN
       (SETQ |full_name|
-              (COND (|io?| (|make_full_namestring| |name|))
-                    (#1='T (|make_input_filename1| |name|))))
+              (COND (|io?| |name|) (#1='T (|make_input_filename1| |name|))))
       (COND
        (|io?| (SETQ |kind| (|file_kind| |full_name|))
         (COND ((EQUAL |kind| (- 1)) (|makedir| |full_name|))
