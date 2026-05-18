@@ -1350,7 +1350,7 @@
                            NIL (GO G190) G191 (EXIT NIL))
                       (EXIT |pj|))))))) 
 
-(SDEFUN |GROUPP;infer_coincidencies|
+(SDEFUN |GROUPP;infer_coincidences|
         ((|ct| (|TwoDimensionalArray| (|NonNegativeInteger|)))
          (|et| (|OneDimensionalArray| (|NonNegativeInteger|)))
          (|pb| #1=(|NonNegativeInteger|)) (|pe| #2=(|NonNegativeInteger|))
@@ -1406,7 +1406,7 @@
                                            (EXIT
                                             (COND ((EQL |i1| |i2|) "skip")
                                                   ('T
-                                                   (|GROUPP;infer_coincidencies|
+                                                   (|GROUPP;infer_coincidences|
                                                     |ct| |et| |i1| |i2| |trace|
                                                     %)))))))))))))
                 (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL)))))) 
@@ -2198,7 +2198,7 @@
                                                                            %
                                                                            54))))
                                                                        (EXIT
-                                                                        (|GROUPP;infer_coincidencies|
+                                                                        (|GROUPP;infer_coincidences|
                                                                          |ct|
                                                                          |et|
                                                                          |pe|
@@ -2336,7 +2336,7 @@
                                                                            %
                                                                            54))))
                                                                        (EXIT
-                                                                        (|GROUPP;infer_coincidencies|
+                                                                        (|GROUPP;infer_coincidences|
                                                                          |ct|
                                                                          |et|
                                                                          |pb|
@@ -2407,7 +2407,7 @@
                                                              (QREFELT % 42))
                                                             (QREFELT % 54))))
                                                          (EXIT
-                                                          (|GROUPP;infer_coincidencies|
+                                                          (|GROUPP;infer_coincidences|
                                                            |ct| |et| |pb| |pe|
                                                            |trace| %))))))
                                                      ('T

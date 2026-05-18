@@ -1500,7 +1500,7 @@
                         (EXIT (|error| "con_exports: not form"))))
                       ('T (SPADCALL |cf| (QREFELT % 89)))))))) 
 
-(SDEFUN |BRINFO;flaten_opll|
+(SDEFUN |BRINFO;flatten_opll|
         ((|ll|
           (|List|
            (|List|
@@ -1828,7 +1828,7 @@
          (SEQ
           (COND ((NULL |ll|) NIL)
                 ('T
-                 (SEQ (LETT |fl| (|BRINFO;flaten_opll| |ll| %))
+                 (SEQ (LETT |fl| (|BRINFO;flatten_opll| |ll| %))
                       (|BRINFO;mangle_signatures| |fl| %)
                       (LETT |fl|
                             (SPADCALL (CONS (|function| |BRINFO;fun_cmp|) %)
@@ -2013,7 +2013,7 @@
                 ((QEQCAR |res1| 1) (|error| "ops_from_libdb: search failed"))
                 ('T
                  (SEQ (LETT |opl1| (QCDR |res1|))
-                      (LETT |fl| (|BRINFO;flaten_opll| (LIST |opl1|) %))
+                      (LETT |fl| (|BRINFO;flatten_opll| (LIST |opl1|) %))
                       (|BRINFO;load_docs| |fl| %)
                       (LETT |fl|
                             (SPADCALL (CONS (|function| |BRINFO;fun_cmp|) %)
