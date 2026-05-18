@@ -1288,8 +1288,7 @@
 ;             noquiet := false
 ;         FORMAT(true, '"   Ignoring unknown )library option: ~a~%", opt)
 ;
-;     -- FIXME: make this _really_ portable
-;     thisdir := true_name('"./")
+;     thisdir := get_current_directory()
 ;     if make_database? then
 ;         expose := false
 ;
@@ -1366,7 +1365,7 @@
                             |opt|))))))
           (SETQ |bfVar#10| (CDR |bfVar#10|))))
        |options| NIL)
-      (SETQ |thisdir| (|true_name| "./"))
+      (SETQ |thisdir| (|get_current_directory|))
       (COND (|make_database?| (SETQ |expose| NIL)))
       (SETQ |nrlibs| NIL)
       (SETQ |asys| NIL)
@@ -1467,7 +1466,7 @@
 ;     $all_constructors := []
 ;     $all_operations := []
 ;     make_special_constructors()
-;     merge_info_from_objects([], [['dir, true_name('"./")]], true)
+;     merge_info_from_objects([], [['dir, get_current_directory()]], true)
 ;     for dir in dir_lst repeat
 ;         merge_info_from_objects([], [['dir, true_name(
 ;                                       STRCONC('"./~a", dir))]], true)
@@ -1495,7 +1494,8 @@
       (SETQ |$all_constructors| NIL)
       (SETQ |$all_operations| NIL)
       (|make_special_constructors|)
-      (|merge_info_from_objects| NIL (LIST (LIST '|dir| (|true_name| "./"))) T)
+      (|merge_info_from_objects| NIL
+       (LIST (LIST '|dir| (|get_current_directory|))) T)
       ((LAMBDA (|bfVar#19| |dir|)
          (LOOP
           (COND
