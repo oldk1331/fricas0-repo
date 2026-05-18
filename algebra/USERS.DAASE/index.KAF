@@ -1,4 +1,4 @@
-333283              (|GenericNonAssociativeAlgebra|)
+333304              (|GenericNonAssociativeAlgebra|)
 (|Expression|)
 (|AlgebraicIntegrate| |AlgebraicIntegrate2|)
 (|ElementaryIntegration| |ParametricIntegration|)
@@ -5158,14 +5158,14 @@
 (|FreeDivisionAlgebra| |LieExponentials| |LiePolynomial|
                        |XDistributedPolynomialFunctions| |XPBWPolynomial|
                        |XPolynomial| |XPolynomialFactor| |XRecursivePolynomial|)
-(|OperatorHandlers|)
+(|BrowserInformation| |OperatorHandlers|)
 (|LieExponentials|)
 (|XDistributedPolynomial|)
 (|LiePolynomial| |XPBWPolynomial| |XPolynomial|)
 (|Scene| |XmlElement|)
 (|ExportXml| |Scene|)
-(("XmlElement" 333261) ("XmlAttribute" 333238) ("XRecursivePolynomial" 333189)
- ("XPolynomialRing" 333162) ("XPBWPolynomial" 333142) ("XHashTable" 333121)
+(("XmlElement" 333282) ("XmlAttribute" 333259) ("XRecursivePolynomial" 333210)
+ ("XPolynomialRing" 333183) ("XPBWPolynomial" 333163) ("XHashTable" 333121)
  ("XDistributedPolynomial" 332909) ("WildFunctionFieldIntegralBasis" 332869)
  ("WeightedPolynomials" 332837) ("WeightedGraph" 332819) ("Void" 324842)
  ("ViewportPackage" 324753) ("ViewDefaultsPackage" 324485)
