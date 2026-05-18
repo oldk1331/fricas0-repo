@@ -474,14 +474,15 @@
 
 ; finalizeLisplib(libFile) ==
 ;   lisplibWrite('"constructorForm", removeZeroOne($lisplibForm), libFile)
-;   lisplibWrite('"constructorKind", kind:=removeZeroOne $lisplibKind, libFile)
+;   lisplibWrite('"constructorKind", kind := $lisplibKind, libFile)
 ;   lisplibWrite('"constructorModemap", removeZeroOne($lisplibModemap), libFile)
 ;   $lisplibCategory:= $lisplibCategory or $lisplibModemap.mmTarget
 ;   -- set to target of modemap for package/domain constructors;
 ;   -- to the right-hand sides (the definition) for category constructors
-;   lisplibWrite('"constructorCategory", $lisplibCategory, libFile)
+;   lisplibWrite('"constructorCategory", removeZeroOne($lisplibCategory),
+;                libFile)
 ;   lisplibWrite('"sourceFile", $edit_file, libFile)
-;   lisplibWrite('"modemaps",removeZeroOne $lisplibModemapAlist, libFile)
+;   lisplibWrite('"modemaps", removeZeroOne($lisplibModemapAlist), libFile)
 ;   ops := getConstructorOps($lisplibForm, kind)
 ;   lisplibWrite('"operationAlist", removeZeroOne(ops), libFile)
 ;   lisplibWrite('"superDomain", removeZeroOne($lisplibSuperDomain), libFile)
@@ -496,13 +497,13 @@
      (PROGN
       (|lisplibWrite| "constructorForm" (|removeZeroOne| |$lisplibForm|)
        |libFile|)
-      (|lisplibWrite| "constructorKind"
-       (SETQ |kind| (|removeZeroOne| |$lisplibKind|)) |libFile|)
+      (|lisplibWrite| "constructorKind" (SETQ |kind| |$lisplibKind|) |libFile|)
       (|lisplibWrite| "constructorModemap" (|removeZeroOne| |$lisplibModemap|)
        |libFile|)
       (SETQ |$lisplibCategory|
               (OR |$lisplibCategory| (CADAR |$lisplibModemap|)))
-      (|lisplibWrite| "constructorCategory" |$lisplibCategory| |libFile|)
+      (|lisplibWrite| "constructorCategory"
+       (|removeZeroOne| |$lisplibCategory|) |libFile|)
       (|lisplibWrite| "sourceFile" |$edit_file| |libFile|)
       (|lisplibWrite| "modemaps" (|removeZeroOne| |$lisplibModemapAlist|)
        |libFile|)
