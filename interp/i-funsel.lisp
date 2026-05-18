@@ -3066,7 +3066,7 @@
 ;     name := object2String type
 ;     found := nil
 ;     for n in names while not found repeat
-;       STRPOS(n,name,0,NIL) => found := true
+;         search_str(n, name, 0) => found := true
 ;     if found
 ;       then good := cons(mm, good)
 ;       else bad := cons(mm,bad)
@@ -3110,7 +3110,7 @@
                                 (RETURN NIL))
                                (#1#
                                 (COND
-                                 ((STRPOS |n| |name| 0 NIL)
+                                 ((|search_str| |n| |name| 0)
                                   (IDENTITY (SETQ |found| T))))))
                               (SETQ |bfVar#73| (CDR |bfVar#73|))))
                            |names| NIL)
@@ -4411,14 +4411,17 @@
 ;     dom := defaultTypeForCategory(c, SL)
 ;     null dom =>
 ;       op ~= 'coerce => 'failed -- evalMmCatLastChance(d,c,SL)
+;       -- FIXME: for 'coerce' this returns nil
 ;     null (p := ASSQ(d,$Subst)) =>
 ;       dom =>
 ;         NSL := [CONS(d,dom)]
-;       op ~= 'coerce => 'failed -- evalMmCatLastChance(d,c,SL)
+;       op ~= 'coerce => BREAK()
+;       BREAK()
 ;     if containsVars dom then dom := resolveTM(rest p, dom)
 ;     $Coerce and canCoerce(rest p, dom) =>
 ;       NSL := [CONS(d,dom)]
 ;     op ~= 'coerce => 'failed -- evalMmCatLastChance(d,c,SL)
+;     -- FIXME: for 'coerce' this returns nil
 ;   NSL
 
 (DEFUN |evalMmCat1| (|mmC| |op| SL)
@@ -4444,8 +4447,8 @@
            (COND ((NOT (EQ |op| '|coerce|)) (IDENTITY '|failed|))))
           ((NULL (SETQ |p| (ASSQ |d| |$Subst|)))
            (COND (|dom| (SETQ NSL (LIST (CONS |d| |dom|))))
-                 ((NOT (EQ |op| '|coerce|)) '|failed|)))
-          (#2='T
+                 ((NOT (EQ |op| '|coerce|)) (BREAK)) (#2='T (BREAK))))
+          (#2#
            (PROGN
             (COND
              ((|containsVars| |dom|)
@@ -5724,6 +5727,8 @@
 ;   cat := subCopy(cat, SL)
 ;   c := first cat
 ;   d := get_database(c, 'DEFAULTDOMAIN)
+;   -- FIXME: this assumes that arguments of default domain are
+;   -- the same as arguments of the category
 ;   d => [d, :rest cat]
 ;   cat is [c] =>
 ;     c = 'Field => $RationalNumber

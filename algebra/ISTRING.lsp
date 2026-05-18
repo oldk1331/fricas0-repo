@@ -151,7 +151,7 @@
                      (COND ((< |startpos| 0) (|error| "index out of bounds"))
                            ((>= |startpos| (QCSIZE |t|)) (- (QREFELT % 6) 1))
                            (#2='T
-                            (SEQ (LETT |r| (STRPOS |s| |t| |startpos| NIL))
+                            (SEQ (LETT |r| (|search_str| |s| |t| |startpos|))
                                  (EXIT
                                   (COND ((EQ |r| NIL) (- (QREFELT % 6) 1))
                                         (#2# (+ |r| (QREFELT % 6)))))))))))) 

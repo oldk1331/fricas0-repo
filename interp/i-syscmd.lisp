@@ -1349,7 +1349,7 @@
 ;     tempArgs :=
 ;         path_ext = '"ao" =>
 ;             -- want to strip out -Fao
-;             (p := STRPOS('"-Fao", $asharpCmdlineFlags, 0, NIL)) =>
+;             (p := search_str('"-Fao", $asharpCmdlineFlags, 0)) =>
 ;                 p = 0 => SUBSTRING($asharpCmdlineFlags, 5, NIL)
 ;                 STRCONC(SUBSTRING($asharpCmdlineFlags, 0, p), '" ",
 ;                     SUBSTRING($asharpCmdlineFlags, p+5, NIL))
@@ -1443,7 +1443,7 @@
                  (COND
                   ((EQUAL |path_ext| "ao")
                    (COND
-                    ((SETQ |p| (STRPOS "-Fao" |$asharpCmdlineFlags| 0 NIL))
+                    ((SETQ |p| (|search_str| "-Fao" |$asharpCmdlineFlags| 0))
                      (COND
                       ((EQL |p| 0) (SUBSTRING |$asharpCmdlineFlags| 5 NIL))
                       (#1#
@@ -7042,7 +7042,7 @@
 ;         '" %d system command to see information about an operation.  These",
 ;         '" may be abbreviated to %b )sh %d and %b )d op %d , respectively."),
 ;         [])
-;   args := [DOWNCASE(p) for p in args]
+;   args := [DOWNCASE(STRINGIMAGE(p)) for p in args]
 ;   key = 'things =>
 ;     for opt in $whatOptions repeat
 ;       not MEMQ(opt,'(things)) => whatSpad2Cmd [opt,:args]
@@ -7092,7 +7092,8 @@
                                (RETURN (NREVERSE |bfVar#146|)))
                               (#1#
                                (SETQ |bfVar#146|
-                                       (CONS (DOWNCASE |p|) |bfVar#146|))))
+                                       (CONS (DOWNCASE (STRINGIMAGE |p|))
+                                             |bfVar#146|))))
                              (SETQ |bfVar#145| (CDR |bfVar#145|))))
                           NIL |args| NIL))
                  (COND
@@ -7585,7 +7586,7 @@
       (NULL |nf|)))))
 
 ; processSynonyms() ==
-;   p := STRPOS('")",LINE,0,NIL)
+;   p := search_str('")", LINE, 0)
 ;   fill := '""
 ;   if p then
 ;       line := SUBSTRING(LINE,p,NIL)
@@ -7593,12 +7594,12 @@
 ;   else
 ;       p := 0
 ;       line := LINE
-;   to := STRPOS ('" ", line, 1, nil)
+;   to := search_str('" ", line, 1)
 ;   if to then to := to - 1
 ;   synstr := SUBSTRING (line, 1, to)
 ;   syn := STRING2ID_N (synstr, 1)
 ;   null (fun := LASSOC (syn, $CommandSynonymAlist)) => NIL
-;   to := STRPOS('")",fun,1,NIL)
+;   to := search_str('")", fun, 1)
 ;   if to and to ~= #fun - 1 then
 ;     opt := STRCONC('" ",SUBSTRING(fun,to,NIL))
 ;     fun := SUBSTRING(fun,0,to-1)
@@ -7616,20 +7617,20 @@
          |fill| |p|)
     (RETURN
      (PROGN
-      (SETQ |p| (STRPOS ")" LINE 0 NIL))
+      (SETQ |p| (|search_str| ")" LINE 0))
       (SETQ |fill| "")
       (COND
        (|p| (SETQ |line| (SUBSTRING LINE |p| NIL))
         (COND ((< 0 |p|) (SETQ |fill| (SUBSTRING LINE 0 |p|)))))
        (#1='T (SETQ |p| 0) (SETQ |line| LINE)))
-      (SETQ |to| (STRPOS " " |line| 1 NIL))
+      (SETQ |to| (|search_str| " " |line| 1))
       (COND (|to| (SETQ |to| (- |to| 1))))
       (SETQ |synstr| (SUBSTRING |line| 1 |to|))
       (SETQ |syn| (STRING2ID_N |synstr| 1))
       (COND ((NULL (SETQ |fun| (LASSOC |syn| |$CommandSynonymAlist|))) NIL)
             (#1#
              (PROGN
-              (SETQ |to| (STRPOS ")" |fun| 1 NIL))
+              (SETQ |to| (|search_str| ")" |fun| 1))
               (COND
                ((AND |to| (NOT (EQUAL |to| (- (LENGTH |fun|) 1))))
                 (SETQ |opt| (STRCONC " " (SUBSTRING |fun| |to| NIL)))

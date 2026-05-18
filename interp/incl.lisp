@@ -232,11 +232,11 @@
   (PROG () (RETURN (|incFileName| (|incCommandTail| |s| |info|)))))
 
 ; incBiteOff x ==
-;           n:=STRPOSL('" ",x,0,true)-- first nonspace
+;           n := STRPOSL('" ", x, 0)-- first nonspace
 ;           if null n
 ;           then false -- all spaces
 ;           else
-;              n1:=STRPOSL ('" ",x,n,nil)
+;              n1 := search_str('" ", x, n)
 ;              if null n1 -- all nonspaces
 ;              then [SUBSTRING(x,n,nil),'""]
 ;              else [SUBSTRING(x,n,n1-n),SUBSTRING(x,n1,nil)]
@@ -245,9 +245,9 @@
   (PROG (|n| |n1|)
     (RETURN
      (PROGN
-      (SETQ |n| (STRPOSL " " |x| 0 T))
+      (SETQ |n| (STRPOSL " " |x| 0))
       (COND ((NULL |n|) NIL)
-            (#1='T (SETQ |n1| (STRPOSL " " |x| |n| NIL))
+            (#1='T (SETQ |n1| (|search_str| " " |x| |n|))
              (COND ((NULL |n1|) (LIST (SUBSTRING |x| |n| NIL) ""))
                    (#1#
                     (LIST (SUBSTRING |x| |n| (- |n1| |n|))

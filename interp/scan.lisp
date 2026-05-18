@@ -989,9 +989,8 @@
 ;         '""
 ;     else
 ;            n:=$n
-;            strsym :=STRPOS ('"_"",$ln,$n,nil) or $sz
-;            escsym:=STRPOS ('"__"
-;                           ,$ln,$n,nil)  or $sz
+;            strsym := search_str('"_"", $ln, $n) or $sz
+;            escsym := search_str('"__", $ln, $n) or $sz
 ;            mn:=MIN(strsym,escsym)
 ;            if mn=$sz
 ;            then
@@ -1021,8 +1020,8 @@
         "Quote added at end of line." NIL)
        "")
       (#1='T (SETQ |n| |$n|)
-       (SETQ |strsym| (OR (STRPOS "\"" |$ln| |$n| NIL) |$sz|))
-       (SETQ |escsym| (OR (STRPOS "_" |$ln| |$n| NIL) |$sz|))
+       (SETQ |strsym| (OR (|search_str| "\"" |$ln| |$n|) |$sz|))
+       (SETQ |escsym| (OR (|search_str| "_" |$ln| |$n|) |$sz|))
        (SETQ |mn| (MIN |strsym| |escsym|))
        (COND
         ((EQUAL |mn| |$sz|) (SETQ |$n| |$sz|)
@@ -1338,10 +1337,11 @@
              (#1# (|lffloat| |a| |w| "0"))))))))
 
 ; rdigit? x==
-;    STRPOS(x,'"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ",0,nil)
+;     search_str(x, '"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ", 0)
 
 (DEFUN |rdigit?| (|x|)
-  (PROG () (RETURN (STRPOS |x| "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ" 0 NIL))))
+  (PROG ()
+    (RETURN (|search_str| |x| "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ" 0))))
 
 ; scanError()==
 ;       n:=$n

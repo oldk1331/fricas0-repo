@@ -61,7 +61,7 @@
 ;   sz := SIZE (name' := PNAME name)
 ;   (sz < 7) or (char("*") ~= name'.0) => false
 ;   null(char_to_digit(name'.1)) => false
-;   null STRPOS('"_;",name',1,NIL) => false
+;   null(search_str('"_;", name', 1)) => false
 ;   -- good enough
 ;   true
 
@@ -75,7 +75,7 @@
              (COND
               ((OR (< |sz| 7) (NOT (EQUAL (|char| '*) (ELT |name'| 0)))) NIL)
               ((NULL (|char_to_digit| (ELT |name'| 1))) NIL)
-              ((NULL (STRPOS ";" |name'| 1 NIL)) NIL) (#1# T))))))))
+              ((NULL (|search_str| ";" |name'| 1)) NIL) (#1# T))))))))
 
 ; makeInternalMapMinivectorName(name) ==
 ;   STRINGP name =>

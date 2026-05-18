@@ -791,17 +791,19 @@
       (LIST (|asySignature| |sig| NIL) (|trimComments| |comments|))))))
 
 ; asyExtractDescription str ==
-;   k := STRPOS('"Description:",str,0,nil) => asyExtractDescription SUBSTRING(str,k + 12,nil)
-;   k := STRPOS('"Author:",str,0,nil) => asyExtractDescription SUBSTRING(str,0,k)
-;   str
+;     k := search_str('"Description:", str, 0) =>
+;         asyExtractDescription(SUBSTRING(str, k + 12, nil))
+;     k := search_str('"Author:", str, 0) =>
+;         asyExtractDescription(SUBSTRING(str, 0, k))
+;     str
 
 (DEFUN |asyExtractDescription| (|str|)
   (PROG (|k|)
     (RETURN
      (COND
-      ((SETQ |k| (STRPOS "Description:" |str| 0 NIL))
+      ((SETQ |k| (|search_str| "Description:" |str| 0))
        (|asyExtractDescription| (SUBSTRING |str| (+ |k| 12) NIL)))
-      ((SETQ |k| (STRPOS "Author:" |str| 0 NIL))
+      ((SETQ |k| (|search_str| "Author:" |str| 0))
        (|asyExtractDescription| (SUBSTRING |str| 0 |k|)))
       ('T |str|)))))
 
@@ -2246,20 +2248,20 @@
       (LIST (|asySignature| |sig| NIL) (|trimComments| |comments|))))))
 
 ; asyExtractAbbreviation str ==
-;         not (k:= STRPOS('"Abbrev: ",str,0,nil)) => NIL
+;         not (k := search_str('"Abbrev: ", str, 0)) => NIL
 ;         str := SUBSTRING(str, k+8, nil)
-;         k := STRPOS($stringNewline, str,0,nil)
+;         k := search_str($stringNewline, str, 0)
 ;         k => SUBSTRING(str, 0, k)
 ;         str
 
 (DEFUN |asyExtractAbbreviation| (|str|)
   (PROG (|k|)
     (RETURN
-     (COND ((NULL (SETQ |k| (STRPOS "Abbrev: " |str| 0 NIL))) NIL)
+     (COND ((NULL (SETQ |k| (|search_str| "Abbrev: " |str| 0))) NIL)
            (#1='T
             (PROGN
              (SETQ |str| (SUBSTRING |str| (+ |k| 8) NIL))
-             (SETQ |k| (STRPOS |$stringNewline| |str| 0 NIL))
+             (SETQ |k| (|search_str| |$stringNewline| |str| 0))
              (COND (|k| (SUBSTRING |str| 0 |k|)) (#1# |str|))))))))
 
 ; asyShorten x ==

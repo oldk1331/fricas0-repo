@@ -2110,10 +2110,10 @@
 ;   (1 = SIZE(op':= PNAME op)) or (char("*") ~= op'.0) => NIL
 ;   -- if there is a semicolon in the name then it is the name of
 ;   -- a compiled spad function
-;   null (e := STRPOS('"_;",op',1,NIL)) => NIL
+;   null(e := search_str('"_;", op', 1)) => NIL
 ;   (char(" ") = (y := op'.1)) or (char("*") = y) => NIL
 ;   table := MAKETRTTABLE('"0123456789",NIL)
-;   s := STRPOSL(table,op',1,true)
+;   s := STRPOSL(table, op', 1)
 ;   null(s) or s > e => NIL
 ;   SUBSTRING(op',s,e-s)
 
@@ -2124,14 +2124,14 @@
            ((OR (EQL 1 (SIZE (SETQ |op'| (PNAME |op|))))
                 (NOT (EQUAL (|char| '*) (ELT |op'| 0))))
             NIL)
-           ((NULL (SETQ |e| (STRPOS ";" |op'| 1 NIL))) NIL)
+           ((NULL (SETQ |e| (|search_str| ";" |op'| 1))) NIL)
            ((OR (EQUAL (|char| '| |) (SETQ |y| (ELT |op'| 1)))
                 (EQUAL (|char| '*) |y|))
             NIL)
            (#1='T
             (PROGN
              (SETQ |table| (MAKETRTTABLE "0123456789" NIL))
-             (SETQ |s| (STRPOSL |table| |op'| 1 T))
+             (SETQ |s| (STRPOSL |table| |op'| 1))
              (COND ((OR (NULL |s|) (< |e| |s|)) NIL)
                    (#1# (SUBSTRING |op'| |s| (- |e| |s|))))))))))
 
@@ -2633,98 +2633,3 @@
                  (|getFunctionFromDomain| '|float| |FloatDomain|
                   (LIST |$Integer| |$Integer| |$PositiveInteger|)))
          (SPADCALL |x| |y| |z| |flt|))))))))
-
-; form2Fence form ==
-;   -- body of dbMkEvalable
-;   [op, :.] := form
-;   kind := get_database(op, 'CONSTRUCTORKIND)
-;   kind = 'category => form2Fence1 form
-;   form2Fence1 mkEvalable form
-
-(DEFUN |form2Fence| (|form|)
-  (PROG (|op| |kind|)
-    (RETURN
-     (PROGN
-      (SETQ |op| (CAR |form|))
-      (SETQ |kind| (|get_database| |op| 'CONSTRUCTORKIND))
-      (COND ((EQ |kind| '|category|) (|form2Fence1| |form|))
-            ('T (|form2Fence1| (|mkEvalable| |form|))))))))
-
-; form2Fence1 x ==
-;   x is [op,:argl] =>
-;     op = 'QUOTE => ['"(QUOTE ",:form2FenceQuote first argl,'")"]
-;     ['"(", FORMAT(NIL, '"|~a|", op),:"append"/[form2Fence1 y for y in argl],'")"]
-;   x = "%" => ["%"]
-;   IDENTP x => [FORMAT(NIL, '"|~a|", x)]
-;   ['"  ", x]
-
-(DEFUN |form2Fence1| (|x|)
-  (PROG (|op| |argl|)
-    (RETURN
-     (COND
-      ((AND (CONSP |x|)
-            (PROGN (SETQ |op| (CAR |x|)) (SETQ |argl| (CDR |x|)) #1='T))
-       (COND
-        ((EQ |op| 'QUOTE)
-         (CONS "(QUOTE "
-               (APPEND (|form2FenceQuote| (CAR |argl|)) (CONS ")" NIL))))
-        (#1#
-         (CONS "("
-               (CONS (FORMAT NIL "|~a|" |op|)
-                     (APPEND
-                      ((LAMBDA (|bfVar#81| |bfVar#80| |y|)
-                         (LOOP
-                          (COND
-                           ((OR (ATOM |bfVar#80|)
-                                (PROGN (SETQ |y| (CAR |bfVar#80|)) NIL))
-                            (RETURN |bfVar#81|))
-                           (#1#
-                            (SETQ |bfVar#81|
-                                    (APPEND |bfVar#81| (|form2Fence1| |y|)))))
-                          (SETQ |bfVar#80| (CDR |bfVar#80|))))
-                       NIL |argl| NIL)
-                      (CONS ")" NIL)))))))
-      ((EQ |x| '%) (LIST '%)) ((IDENTP |x|) (LIST (FORMAT NIL "|~a|" |x|)))
-      (#1# (LIST "  " |x|))))))
-
-; form2FenceQuote x ==
-;   NUMBERP x => [STRINGIMAGE x]
-;   SYMBOLP x => [FORMAT(NIL, '"|~a|", x)]
-;   atom    x => ['"??"]
-;   ['"(",:form2FenceQuote first x,:form2FenceQuoteTail rest x]
-
-(DEFUN |form2FenceQuote| (|x|)
-  (PROG ()
-    (RETURN
-     (COND ((NUMBERP |x|) (LIST (STRINGIMAGE |x|)))
-           ((SYMBOLP |x|) (LIST (FORMAT NIL "|~a|" |x|)))
-           ((ATOM |x|) (LIST "??"))
-           ('T
-            (CONS "("
-                  (APPEND (|form2FenceQuote| (CAR |x|))
-                          (|form2FenceQuoteTail| (CDR |x|)))))))))
-
-; form2FenceQuoteTail x ==
-;   null x => ['")"]
-;   atom x => ['" . ",:form2FenceQuote x,'")"]
-;   ['" ",:form2FenceQuote first x,:form2FenceQuoteTail rest x]
-
-(DEFUN |form2FenceQuoteTail| (|x|)
-  (PROG ()
-    (RETURN
-     (COND ((NULL |x|) (LIST ")"))
-           ((ATOM |x|)
-            (CONS " . " (APPEND (|form2FenceQuote| |x|) (CONS ")" NIL))))
-           ('T
-            (CONS " "
-                  (APPEND (|form2FenceQuote| (CAR |x|))
-                          (|form2FenceQuoteTail| (CDR |x|)))))))))
-
-; form2StringList u ==
-;   atom (r := form2String u) => [r]
-;   r
-
-(DEFUN |form2StringList| (|u|)
-  (PROG (|r|)
-    (RETURN
-     (COND ((ATOM (SETQ |r| (|form2String| |u|))) (LIST |r|)) ('T |r|)))))
