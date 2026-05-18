@@ -107,8 +107,10 @@
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (PROG () (RETURN (MAKEPROP '|comp| '/TRANSFORM (LIST '& '* '* '&)))))
 
-; MAKEPROP('compIf, "/TRANSFORM", '["&", "*", "*", "&"])
+; MAKEPROP('compIf, "/TRANSFORM", ["&", "*", "*", "&"])
 
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (MAKEPROP '|compIf| '/TRANSFORM (LIST '& '* '* '&)))))
 
 ; MAKEPROP('compFormWithModemap, "/TRANSFORM", ["&", "*", "*", "&", "*"])
 

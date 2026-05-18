@@ -53,6 +53,7 @@
                      (COND ((> |r1| 0) 'T)
                            ('T
                             (SEQ (LETT |n| (|file_directory| |n|))
+                                 (COND ((EQUAL |n| "") (LETT |n| ".")))
                                  (LETT |r1| (|writeablep| |n|))
                                  (EXIT (> |r1| 0))))))))) 
 
