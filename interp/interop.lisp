@@ -1945,16 +1945,19 @@
 ;   -- complains, if no function or ambiguous
 ;   $reportBottomUpFlag:local:= NIL
 ;   member(first dc, $nonLisplibDomains) =>
-;       throwKeyedMsg("S2IF0002", [first dc])
+;       throw_msg("S2IF0002", '"Functions from %1b are not available yet.",
+;                  [first(dc)])
 ;   not constructor? first dc =>
-;       throwKeyedMsg("S2IF0003", [first dc])
+;       throw_msg("S2IF0003",
+;           '"%1b must denote a domain or package constructor.", [first(dc)])
 ;   p:= findFunctionInDomain(op, dc, target, args, args, NIL, NIL) =>
 ;     domain := evalDomain dc
 ;     for mm in nreverse p until b repeat
 ;       [[.,:osig],nsig,:.] := mm
 ;       b := compiledLookup(op,nsig,domain)
 ;     b or  throwKeyedMsg("S2IS0023",[op,dc])
-;   throwKeyedMsg("S2IF0004",[op,dc])
+;   throw_msg("S2IF0004", '"The function %1b cannot be found in %2bp .",
+;             [op, dc])
 
 (DEFUN |getFunctionFromDomain1| (|op| |dc| |target| |args|)
   (PROG (|$reportBottomUpFlag| |b| |nsig| |osig| |domain| |p|)
@@ -1964,9 +1967,11 @@
       (SETQ |$reportBottomUpFlag| NIL)
       (COND
        ((|member| (CAR |dc|) |$nonLisplibDomains|)
-        (|throwKeyedMsg| 'S2IF0002 (LIST (CAR |dc|))))
+        (|throw_msg| 'S2IF0002 "Functions from %1b are not available yet."
+         (LIST (CAR |dc|))))
        ((NULL (|constructor?| (CAR |dc|)))
-        (|throwKeyedMsg| 'S2IF0003 (LIST (CAR |dc|))))
+        (|throw_msg| 'S2IF0003
+         "%1b must denote a domain or package constructor." (LIST (CAR |dc|))))
        ((SETQ |p|
                 (|findFunctionInDomain| |op| |dc| |target| |args| |args| NIL
                  NIL))
@@ -1987,7 +1992,9 @@
              (SETQ |bfVar#41| |b|)))
           (NREVERSE |p|) NIL NIL)
          (OR |b| (|throwKeyedMsg| 'S2IS0023 (LIST |op| |dc|)))))
-       (#1# (|throwKeyedMsg| 'S2IF0004 (LIST |op| |dc|))))))))
+       (#1#
+        (|throw_msg| 'S2IF0004 "The function %1b cannot be found in %2bp ."
+         (LIST |op| |dc|))))))))
 
 ; getFunctionFromDomain(op, dc, args) ==
 ;     getFunctionFromDomain1(op, dc, NIL, args)

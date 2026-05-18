@@ -3866,7 +3866,8 @@
 ;   den':= coerceInt(objNewWrap(den,D),target) or
 ;     coercionFailure()
 ;   den' := objValUnwrap den'
-;   equalZero(den', target) => throwKeyedMsg("S2IA0001",NIL)
+;   equalZero(den', target) => throw_msg("S2IA0001",
+;       '"Division by zero on conversion to GaloisField.", NIL)
 ;   SPADCALL(num',den', getFunctionFromDomain("/",target,[target,target]))
 
 (DEFUN |Qf2PF| (|u| |source| |target|)
@@ -3888,7 +3889,9 @@
                           (|coercionFailure|)))
               (SETQ |den'| (|objValUnwrap| |den'|))
               (COND
-               ((|equalZero| |den'| |target|) (|throwKeyedMsg| 'S2IA0001 NIL))
+               ((|equalZero| |den'| |target|)
+                (|throw_msg| 'S2IA0001
+                 "Division by zero on conversion to GaloisField." NIL))
                (#1#
                 (SPADCALL |num'| |den'|
                  (|getFunctionFromDomain| '/ |target|

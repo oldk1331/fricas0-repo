@@ -124,14 +124,22 @@
 ;   hasOption(options, 'off) =>
 ;     (ops := hasOption(options, 'ops)) or
 ;       (lops := hasOption(options, 'local)) =>
-;         null l => throwKeyedMsg("S2IT0019",NIL)
+;         null(l) => throw_msg("S2IT0019", CONCAT(
+;             '"If you use the %b )off %d option for %b )trace %d and",
+;             '" you also use the %b )local %d or %b )ops %d option,",
+;             '" you must specify the name of a constructor.",
+;             '" You have not done so."), [])
 ;         constructor := unabbrev
 ;           atom l => l
 ;           null rest l =>
 ;             atom first l => first l
 ;             first first l
 ;           NIL
-;         not(isFunctor constructor) => throwKeyedMsg("S2IT0020",NIL)
+;         not(isFunctor constructor) => throw_msg("S2IT0020", CONCAT(
+;             '"If you use the %b )off %d option for %b )trace %d and you",
+;             '" also use the %b )local %d or %b )ops %d option, you must",
+;             '" specify the name of a constructor.  What you gave after",
+;             '" %b )trace %d is not a valid constructor name."), [])
 ;         if ops then
 ;           ops := getTraceOption ops
 ;           NIL
@@ -139,12 +147,16 @@
 ;           lops := rest getTraceOption lops
 ;           untraceDomainLocalOps(constructor,lops)
 ;     (1 < #options) and not hasOption(options, 'nonquietly) =>
-;       throwKeyedMsg("S2IT0021",NIL)
+;         throw_msg("S2IT0021", CONCAT(
+;             '"If you use the %b )off %d option for %b )trace %d then",
+;             '" the only other options you can use are %b )nonquietly,",
+;             '" )ops %d and %b )local. %d"), [])
 ;     untrace l
 ;     clearConstructorCaches()
 ;   hasOption(options, 'stats) =>
 ;     (1 < #options) =>
-;       throwKeyedMsg("S2IT0001",['")trace ... )stats"])
+;         throw_msg("S2IT0001", '"%1b can have no other options.",
+;                   ['")trace ... )stats"])
 ;     [., :opt] := first options
 ;     -- look for )trace )stats       to list the statistics
 ;     --          )trace )stats reset to reset them
@@ -157,14 +169,17 @@
 ;     selectOptionLC(first opt,'(reset),'optionError)
 ;     resetTimers()
 ;     resetCounters()
-;     throwKeyedMsg("S2IT0002",NIL)
+;     throw_msg("S2IT0002", CONCAT(
+;         '"Trace facility timers, space counts and execution counts have",
+;         '" been reset."), [])
 ;   a:= hasOption(options, 'restore) =>
 ;     null(oldL:= $lastUntraced) => nil
 ;     newOptions := delete(a, options)
 ;     null l => trace1(oldL, options)
 ;     for x in l repeat
 ;       x is [domain,:opList] and VECP domain =>
-;         sayKeyedMsg("S2IT0003",[devaluate domain])
+;           say_msg("S2IT0003", '"Please retrace the domain %1b.",
+;                   [devaluate(domain)])
 ;       options := [:newOptions, :LASSOC(x, $optionAlist)]
 ;       trace1(LIST x, options)
 ;   null l => nil
@@ -174,8 +189,9 @@
 ;     ADDASSOC(x, options, $optionAlist)
 ;   optionList:= getTraceOptions(options)
 ;   if (domainList := LASSOC("of", optionList)) then
-;       LASSOC("ops", optionList) =>
-;         throwKeyedMsg("S2IT0004", NIL)
+;       LASSOC("ops", optionList) => throw_msg("S2IT0004",
+;           '"%b )ops %d and %b )of %d cannot both be options to %b )trace %d",
+;           [])
 ;       opList:=
 ;         traceList => [["ops", :traceList]]
 ;         nil
@@ -202,33 +218,51 @@
         (COND
          ((OR (SETQ |ops| (|hasOption| |options| '|ops|))
               (SETQ |lops| (|hasOption| |options| '|local|)))
-          (COND ((NULL |l|) (|throwKeyedMsg| 'S2IT0019 NIL))
-                (#1='T
-                 (PROGN
-                  (SETQ |constructor|
-                          (|unabbrev|
-                           (COND ((ATOM |l|) |l|)
-                                 ((NULL (CDR |l|))
-                                  (COND ((ATOM (CAR |l|)) (CAR |l|))
-                                        (#1# (CAR (CAR |l|)))))
-                                 (#1# NIL))))
-                  (COND
-                   ((NULL (|isFunctor| |constructor|))
-                    (|throwKeyedMsg| 'S2IT0020 NIL))
-                   (#1#
-                    (PROGN
-                     (COND (|ops| (SETQ |ops| (|getTraceOption| |ops|)) NIL))
-                     (COND
-                      (|lops| (SETQ |lops| (CDR (|getTraceOption| |lops|)))
-                       (|untraceDomainLocalOps| |constructor| |lops|))))))))))
+          (COND
+           ((NULL |l|)
+            (|throw_msg| 'S2IT0019
+             (CONCAT "If you use the %b )off %d option for %b )trace %d and"
+                     " you also use the %b )local %d or %b )ops %d option,"
+                     " you must specify the name of a constructor."
+                     " You have not done so.")
+             NIL))
+           (#1='T
+            (PROGN
+             (SETQ |constructor|
+                     (|unabbrev|
+                      (COND ((ATOM |l|) |l|)
+                            ((NULL (CDR |l|))
+                             (COND ((ATOM (CAR |l|)) (CAR |l|))
+                                   (#1# (CAR (CAR |l|)))))
+                            (#1# NIL))))
+             (COND
+              ((NULL (|isFunctor| |constructor|))
+               (|throw_msg| 'S2IT0020
+                (CONCAT
+                 "If you use the %b )off %d option for %b )trace %d and you"
+                 " also use the %b )local %d or %b )ops %d option, you must"
+                 " specify the name of a constructor.  What you gave after"
+                 " %b )trace %d is not a valid constructor name.")
+                NIL))
+              (#1#
+               (PROGN
+                (COND (|ops| (SETQ |ops| (|getTraceOption| |ops|)) NIL))
+                (COND
+                 (|lops| (SETQ |lops| (CDR (|getTraceOption| |lops|)))
+                  (|untraceDomainLocalOps| |constructor| |lops|))))))))))
          ((AND (< 1 (LENGTH |options|))
                (NULL (|hasOption| |options| '|nonquietly|)))
-          (|throwKeyedMsg| 'S2IT0021 NIL))
+          (|throw_msg| 'S2IT0021
+           (CONCAT "If you use the %b )off %d option for %b )trace %d then"
+                   " the only other options you can use are %b )nonquietly,"
+                   " )ops %d and %b )local. %d")
+           NIL))
          (#1# (PROGN (|untrace| |l|) (|clearConstructorCaches|)))))
        ((|hasOption| |options| '|stats|)
         (COND
          ((< 1 (LENGTH |options|))
-          (|throwKeyedMsg| 'S2IT0001 (LIST ")trace ... )stats")))
+          (|throw_msg| 'S2IT0001 "%1b can have no other options."
+           (LIST ")trace ... )stats")))
          (#1#
           (PROGN
            (SETQ |LETTMP#1| (CAR |options|))
@@ -246,7 +280,11 @@
               (|selectOptionLC| (CAR |opt|) '(|reset|) '|optionError|)
               (|resetTimers|)
               (|resetCounters|)
-              (|throwKeyedMsg| 'S2IT0002 NIL))))))))
+              (|throw_msg| 'S2IT0002
+               (CONCAT
+                "Trace facility timers, space counts and execution counts have"
+                " been reset.")
+               NIL))))))))
        ((SETQ |a| (|hasOption| |options| '|restore|))
         (COND ((NULL (SETQ |oldL| |$lastUntraced|)) NIL)
               (#1#
@@ -268,7 +306,8 @@
                                      (SETQ |opList| (CDR |x|))
                                      #1#)
                                     (VECP |domain|))
-                               (|sayKeyedMsg| 'S2IT0003
+                               (|say_msg| 'S2IT0003
+                                "Please retrace the domain %1b."
                                 (LIST (|devaluate| |domain|))))
                               (#1#
                                (PROGN
@@ -308,19 +347,23 @@
          (SETQ |optionList| (|getTraceOptions| |options|))
          (COND
           ((SETQ |domainList| (LASSOC '|of| |optionList|))
-           (COND ((LASSOC '|ops| |optionList|) (|throwKeyedMsg| 'S2IT0004 NIL))
-                 (#1#
-                  (PROGN
-                   (SETQ |opList|
-                           (COND (|traceList| (LIST (CONS '|ops| |traceList|)))
-                                 (#1# NIL)))
-                   (SETQ |varList|
-                           (COND
-                            ((SETQ |y| (LASSOC '|vars| |optionList|))
-                             (LIST (CONS '|vars| |y|)))
+           (COND
+            ((LASSOC '|ops| |optionList|)
+             (|throw_msg| 'S2IT0004
+              "%b )ops %d and %b )of %d cannot both be options to %b )trace %d"
+              NIL))
+            (#1#
+             (PROGN
+              (SETQ |opList|
+                      (COND (|traceList| (LIST (CONS '|ops| |traceList|)))
                             (#1# NIL)))
-                   (SETQ |optionList| (APPEND |opList| |varList|))
-                   (SETQ |traceList| |domainList|))))))
+              (SETQ |varList|
+                      (COND
+                       ((SETQ |y| (LASSOC '|vars| |optionList|))
+                        (LIST (CONS '|vars| |y|)))
+                       (#1# NIL)))
+              (SETQ |optionList| (APPEND |opList| |varList|))
+              (SETQ |traceList| |domainList|))))))
          ((LAMBDA (|bfVar#5| |funName|)
             (LOOP
              (COND
@@ -1182,7 +1225,8 @@
 ;   key='mathprint =>
 ;     null l => x
 ;     stackTraceOptionError ["S2IT0009",[STRCONC('")",object2String key)]]
-;   key => throwKeyedMsg("S2IT0005",[key])
+;   key => throw_msg("S2IT0005", '"The %1b option is not implemented yet.",
+;                    [key])
 
 (DEFUN |getTraceOption| (|x|)
   (PROG (|key| |l| |opts| |a| |n|)
@@ -1307,7 +1351,9 @@
                     (|stackTraceOptionError|
                      (LIST 'S2IT0009
                            (LIST (STRCONC ")" (|object2String| |key|))))))))
-            (|key| (|throwKeyedMsg| 'S2IT0005 (LIST |key|))))))))
+            (|key|
+             (|throw_msg| 'S2IT0005 "The %1b option is not implemented yet."
+              (LIST |key|))))))))
 (DEFUN |getTraceOption,hn| (|x|)
   (PROG (|g|)
     (RETURN
@@ -1588,7 +1634,8 @@
 ;     x
 ;   VECP first x => transTraceItem devaluate first x
 ;   y:= domainToGenvar x => y
-;   throwKeyedMsg("S2IT0018",[x])
+;   throw_msg("S2IT0018", '"FriCAS does not understand the use of %1b here.",
+;             [x])
 
 (DEFUN |transTraceItem| (|x|)
   (PROG (|value| |y|)
@@ -1610,7 +1657,9 @@
         (#1# |x|)))
       ((VECP (CAR |x|)) (|transTraceItem| (|devaluate| (CAR |x|))))
       ((SETQ |y| (|domainToGenvar| |x|)) |y|)
-      (#1# (|throwKeyedMsg| 'S2IT0018 (LIST |x|)))))))
+      (#1#
+       (|throw_msg| 'S2IT0018 "FriCAS does not understand the use of %1b here."
+        (LIST |x|)))))))
 
 ; removeTracedMapSigs untraceList ==
 ;   for name in untraceList repeat

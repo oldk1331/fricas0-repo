@@ -1136,7 +1136,8 @@
 ;   tmode and tval and (mdv := objMode tval) =>
 ;     if isPartialMode tmode then
 ;       null (tmode := resolveTM(mdv,tmode)) =>
-;         keyedMsgCompFailure("S2IB0010",NIL)
+;           msg_comp_failure("S2IB0010",
+;              '"Cannot resolve type of value and declared partial type.", [])
 ;     putValue(t,objNew(expr,tmode))
 ;     [tmode]
 ;   tmode or (tval and (tmode := objMode tval)) =>
@@ -1177,7 +1178,10 @@
           ((|isPartialMode| |tmode|)
            (COND
             ((NULL (SETQ |tmode| (|resolveTM| |mdv| |tmode|)))
-             (IDENTITY (|keyedMsgCompFailure| 'S2IB0010 NIL))))))
+             (IDENTITY
+              (|msg_comp_failure| 'S2IB0010
+               "Cannot resolve type of value and declared partial type."
+               NIL))))))
          (|putValue| |t| (|objNew| |expr| |tmode|))
          (LIST |tmode|)))
        ((OR |tmode| (AND |tval| (SETQ |tmode| (|objMode| |tval|))))

@@ -1482,7 +1482,9 @@
 ;       sayMessage concat ['"   Retrospective determination of slot",'%b,
 ;         slot,'%d,'"of",'%b,:prefix2String domain,'%d]
 ;     APPLY(first ELT(domain', slot), [:u'', rest ELT(domain', slot)])
-;   throwKeyedMsg("S2IF0008",[formatOpSignature(op,sig),domain])
+;   throw_msg("S2IF0008",
+;             '"The function %1b is not defined in the domain %2bp .",
+;             [formatOpSignature(op, sig), domain])
 
 (DEFUN |Undef| (&REST |u|)
   (PROG (|u'| |domain| |slot| |op| |sig| |domain'| |LETTMP#1| |u''|)
@@ -1515,7 +1517,8 @@
          (APPLY (CAR (ELT |domain'| |slot|))
                 (APPEND |u''| (CONS (CDR (ELT |domain'| |slot|)) NIL)))))
        ('T
-        (|throwKeyedMsg| 'S2IF0008
+        (|throw_msg| 'S2IF0008
+         "The function %1b is not defined in the domain %2bp ."
          (LIST (|formatOpSignature| |op| |sig|) |domain|))))))))
 
 ; TruthP x ==

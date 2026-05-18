@@ -106,12 +106,14 @@
 ;   t isnt [op,D,form] => nil
 ;   t2 := t
 ;   (not $genValue) and or/[CONTAINED(var,D) for var in $localVars] =>
-;     keyedMsgCompFailure("S2IS0032",NIL)
+;       msg_comp_failure("S2IS0032",
+;           '"Cannot compile a $-expression involving a local variable.", [])
 ;   EQ(D,'Lisp) => upLispCall(op,form)
 ;   if VECP D and (SIZE(D) > 0) then D := D.0
 ;   t := evaluateType unabbrev D
-;   categoryForm? t =>
-;     throwKeyedMsg("S2IE0012", [t])
+;   categoryForm?(t) => throw_msg("S2IE0012", CONCAT(
+;      '"The right-hand side of the $ operator must be a package or domain",
+;      '" name, but %1bp is a category."), [t])
 ;   f := getUnname form
 ;   if f = $immediateDataSymbol then
 ;     f := objValUnwrap coerceInteractive(getValue form,$OutputForm)
@@ -119,7 +121,9 @@
 ;   ATOM(form) and (f ~= $immediateDataSymbol) and
 ;     (u := findUniqueOpInDomain(op,f,t)) => u
 ;   f in '(One Zero true false nil) and constantInDomain?([f],t) =>
-;     isPartialMode t => throwKeyedMsg("S2IS0020",NIL)
+;     isPartialMode t => throw_msg("S2IS0020", CONCAT(
+;           '"A fully specified type must follow $ when it qualifies a domain",
+;           '" constant."), [])
 ;     if $genValue then
 ;       val := wrap getConstantFromDomain([f],t)
 ;     else val := ['getConstantFromDomain,['LIST,MKQ f],MKQ t]
@@ -179,89 +183,99 @@
                       (COND (|bfVar#2| (RETURN |bfVar#2|))))))
                    (SETQ |bfVar#1| (CDR |bfVar#1|))))
                 NIL |$localVars| NIL))
-          (|keyedMsgCompFailure| 'S2IS0032 NIL))
+          (|msg_comp_failure| 'S2IS0032
+           "Cannot compile a $-expression involving a local variable." NIL))
          ((EQ D '|Lisp|) (|upLispCall| |op| |form|))
          (#1#
           (PROGN
            (COND ((AND (VECP D) (< 0 (SIZE D))) (SETQ D (ELT D 0))))
            (SETQ |t| (|evaluateType| (|unabbrev| D)))
-           (COND ((|categoryForm?| |t|) (|throwKeyedMsg| 'S2IE0012 (LIST |t|)))
+           (COND
+            ((|categoryForm?| |t|)
+             (|throw_msg| 'S2IE0012
+              (CONCAT
+               "The right-hand side of the $ operator must be a package or domain"
+               " name, but %1bp is a category.")
+              (LIST |t|)))
+            (#1#
+             (PROGN
+              (SETQ |f| (|getUnname| |form|))
+              (COND
+               ((EQUAL |f| |$immediateDataSymbol|)
+                (SETQ |f|
+                        (|objValUnwrap|
+                         (|coerceInteractive| (|getValue| |form|)
+                          |$OutputForm|)))
+                (COND ((EQUAL |f| '(|construct|)) (SETQ |f| '|nil|)))))
+              (COND
+               ((AND (ATOM |form|) (NOT (EQUAL |f| |$immediateDataSymbol|))
+                     (SETQ |u| (|findUniqueOpInDomain| |op| |f| |t|)))
+                |u|)
+               ((AND (|member| |f| '(|One| |Zero| |true| |false| |nil|))
+                     (|constantInDomain?| (LIST |f|) |t|))
+                (COND
+                 ((|isPartialMode| |t|)
+                  (|throw_msg| 'S2IS0020
+                   (CONCAT
+                    "A fully specified type must follow $ when it qualifies a domain"
+                    " constant.")
+                   NIL))
                  (#1#
                   (PROGN
-                   (SETQ |f| (|getUnname| |form|))
                    (COND
-                    ((EQUAL |f| |$immediateDataSymbol|)
-                     (SETQ |f|
-                             (|objValUnwrap|
-                              (|coerceInteractive| (|getValue| |form|)
-                               |$OutputForm|)))
-                     (COND ((EQUAL |f| '(|construct|)) (SETQ |f| '|nil|)))))
-                   (COND
-                    ((AND (ATOM |form|)
-                          (NOT (EQUAL |f| |$immediateDataSymbol|))
-                          (SETQ |u| (|findUniqueOpInDomain| |op| |f| |t|)))
-                     |u|)
-                    ((AND (|member| |f| '(|One| |Zero| |true| |false| |nil|))
-                          (|constantInDomain?| (LIST |f|) |t|))
-                     (COND
-                      ((|isPartialMode| |t|) (|throwKeyedMsg| 'S2IS0020 NIL))
-                      (#1#
-                       (PROGN
-                        (COND
-                         (|$genValue|
-                          (SETQ |val|
-                                  (|wrap|
-                                   (|getConstantFromDomain| (LIST |f|) |t|))))
-                         (#1#
-                          (SETQ |val|
-                                  (LIST '|getConstantFromDomain|
-                                        (LIST 'LIST (MKQ |f|)) (MKQ |t|)))))
-                        (|putValue| |op| (|objNew| |val| |t|))
-                        (|putModeSet| |op| (LIST |t|))))))
+                    (|$genValue|
+                     (SETQ |val|
+                             (|wrap|
+                              (|getConstantFromDomain| (LIST |f|) |t|))))
                     (#1#
-                     (PROGN
-                      (SETQ |nargs| (LENGTH (CDR |form|)))
-                      (COND
-                       ((AND (EQL |nargs| 1) (EQ |f| '|construct|)
-                             (|isTaggedUnion| |t|)
-                             (SETQ |ms|
-                                     (|up_tagged_union_dollar| |op| |t| |t2|
-                                      |form|)))
-                        |ms|)
-                       ((SETQ |ms|
-                                (|upDollarTuple| |op| |f| |t| |t2| (CDR |form|)
-                                 |nargs|))
-                        |ms|)
-                       ((AND (NOT (EQ |f| '|construct|))
-                             (NULL (|isOpInDomain| |f| |t| |nargs|)))
-                        (|throwKeyedMsg| 'S2IS0023 (LIST |f| |t|)))
-                       (#1#
-                        (PROGN
-                         (COND
-                          ((SETQ |sig|
-                                   (|findCommonSigInDomain| |f| |t| |nargs|))
-                           ((LAMBDA (|bfVar#3| |x| |bfVar#4| |y|)
-                              (LOOP
-                               (COND
-                                ((OR (ATOM |bfVar#3|)
-                                     (PROGN (SETQ |x| (CAR |bfVar#3|)) NIL)
-                                     (ATOM |bfVar#4|)
-                                     (PROGN (SETQ |y| (CAR |bfVar#4|)) NIL))
-                                 (RETURN NIL))
-                                (#1# (COND (|x| (|putTarget| |y| |x|)))))
-                               (SETQ |bfVar#3| (CDR |bfVar#3|))
-                               (SETQ |bfVar#4| (CDR |bfVar#4|))))
-                            |sig| NIL |form| NIL)))
-                         (|putAtree| (CAR |form|) '|dollar| |t|)
-                         (SETQ |ms| (|bottomUp| |form|))
-                         (COND
-                          ((AND (|member| |f| '(|One| |Zero|)) (CONSP |ms|)
-                                (EQUAL (CAR |ms|) |$OutputForm|))
-                           (|throwKeyedMsg| 'S2IS0021 (LIST |f| |t|)))
-                          (#1#
-                           (PROGN
-                            (|putValue| |op| (|getValue| (CAR |form|)))
-                            (|putModeSet| |op| |ms|))))))))))))))))))))))
+                     (SETQ |val|
+                             (LIST '|getConstantFromDomain|
+                                   (LIST 'LIST (MKQ |f|)) (MKQ |t|)))))
+                   (|putValue| |op| (|objNew| |val| |t|))
+                   (|putModeSet| |op| (LIST |t|))))))
+               (#1#
+                (PROGN
+                 (SETQ |nargs| (LENGTH (CDR |form|)))
+                 (COND
+                  ((AND (EQL |nargs| 1) (EQ |f| '|construct|)
+                        (|isTaggedUnion| |t|)
+                        (SETQ |ms|
+                                (|up_tagged_union_dollar| |op| |t| |t2|
+                                 |form|)))
+                   |ms|)
+                  ((SETQ |ms|
+                           (|upDollarTuple| |op| |f| |t| |t2| (CDR |form|)
+                            |nargs|))
+                   |ms|)
+                  ((AND (NOT (EQ |f| '|construct|))
+                        (NULL (|isOpInDomain| |f| |t| |nargs|)))
+                   (|throwKeyedMsg| 'S2IS0023 (LIST |f| |t|)))
+                  (#1#
+                   (PROGN
+                    (COND
+                     ((SETQ |sig| (|findCommonSigInDomain| |f| |t| |nargs|))
+                      ((LAMBDA (|bfVar#3| |x| |bfVar#4| |y|)
+                         (LOOP
+                          (COND
+                           ((OR (ATOM |bfVar#3|)
+                                (PROGN (SETQ |x| (CAR |bfVar#3|)) NIL)
+                                (ATOM |bfVar#4|)
+                                (PROGN (SETQ |y| (CAR |bfVar#4|)) NIL))
+                            (RETURN NIL))
+                           (#1# (COND (|x| (|putTarget| |y| |x|)))))
+                          (SETQ |bfVar#3| (CDR |bfVar#3|))
+                          (SETQ |bfVar#4| (CDR |bfVar#4|))))
+                       |sig| NIL |form| NIL)))
+                    (|putAtree| (CAR |form|) '|dollar| |t|)
+                    (SETQ |ms| (|bottomUp| |form|))
+                    (COND
+                     ((AND (|member| |f| '(|One| |Zero|)) (CONSP |ms|)
+                           (EQUAL (CAR |ms|) |$OutputForm|))
+                      (|throwKeyedMsg| 'S2IS0021 (LIST |f| |t|)))
+                     (#1#
+                      (PROGN
+                       (|putValue| |op| (|getValue| (CAR |form|)))
+                       (|putModeSet| |op| |ms|))))))))))))))))))))))
 
 ; upDollarTuple(op, f, t, t2, args, nargs) ==
 ;   -- this function tries to find a tuple function to use
@@ -348,7 +362,9 @@
 ;   if atom t then code:=getUnname t else
 ;     [lispOp,:argl]:= t
 ;     not(functionp(lispOp.0) or macrop(lispOp.0)) =>
-;       throwKeyedMsg("S2IS0024",[lispOp.0])
+;         throw_msg("S2IS0024",
+;             '"%1b is not a lisp function and so cannot be used with $Lisp.",
+;             [lispOp.0])
 ;     for arg in argl repeat bottomUp arg
 ;     code:=[getUnname lispOp,
 ;       :[getArgValue(arg,computedMode arg) for arg in argl]]
@@ -369,7 +385,9 @@
               ((NULL
                 (OR (|functionp| (ELT |lispOp| 0))
                     (|macrop| (ELT |lispOp| 0))))
-               (|throwKeyedMsg| 'S2IS0024 (LIST (ELT |lispOp| 0))))
+               (|throw_msg| 'S2IS0024
+                "%1b is not a lisp function and so cannot be used with $Lisp."
+                (LIST (ELT |lispOp| 0))))
               (#1#
                (PROGN
                 ((LAMBDA (|bfVar#7| |arg|)
@@ -620,7 +638,9 @@
 ;     rempropI($mapName,'localModemap)
 ;     rempropI($mapName,'localVars)
 ;     rempropI($mapName,'mapBody)
-;     throwKeyedMsg("S2IS0026",[m2,m1])
+;     throw_msg("S2IS0026", CONCAT(
+;         '"Cannot resolve types %1bp and %2bp across the %b then %d and %b",
+;         '" else %d clauses of an %b if %d statement."), [m2, m1])
 ;   evalIF(op,rest t,m)
 ;   putModeSet(op,[m])
 
@@ -667,7 +687,10 @@
                                  (|rempropI| |$mapName| '|localModemap|)
                                  (|rempropI| |$mapName| '|localVars|)
                                  (|rempropI| |$mapName| '|mapBody|)
-                                 (|throwKeyedMsg| 'S2IS0026
+                                 (|throw_msg| 'S2IS0026
+                                  (CONCAT
+                                   "Cannot resolve types %1bp and %2bp across the %b then %d and %b"
+                                   " else %d clauses of an %b if %d statement.")
                                   (LIST |m2| |m1|)))))))))
          (|evalIF| |op| (CDR |t|) |m|)
          (|putModeSet| |op| (LIST |m|)))))))))
@@ -804,7 +827,9 @@
 ;       putValue(op,objNew(voidValue(), $Void))
 ;       putModeSet(op,[$Void])
 ;     upIFgenValue(op,b)
-;   throwKeyedMsg("S2IS0031",NIL)
+;   throw_msg("S2IS0031", CONCAT(
+;       '"A predicate (for example, following an %b if %d keyword) must",
+;       '" evaluate to an object of type %b Boolean. %d"), [])
 
 (DEFUN |interpIF| (|op| |cond| |a| |b|)
   (PROG (|val|)
@@ -819,7 +844,12 @@
                 (|putValue| |op| (|objNew| (|voidValue|) |$Void|))
                 (|putModeSet| |op| (LIST |$Void|))))
               (#1='T (|upIFgenValue| |op| |b|))))
-       (#1# (|throwKeyedMsg| 'S2IS0031 NIL)))))))
+       (#1#
+        (|throw_msg| 'S2IS0031
+         (CONCAT
+          "A predicate (for example, following an %b if %d keyword) must"
+          " evaluate to an object of type %b Boolean. %d")
+         NIL)))))))
 
 ; upIFgenValue(op,tree) ==
 ;   -- evaluates tree and transfers the results to op
@@ -916,7 +946,8 @@
 
 ; putPvarModes(pattern,m) ==
 ;   -- Puts the modes for the pattern variables into $env
-;   m isnt ['List,um] => throwKeyedMsg("S2IS0030",NIL)
+;   m isnt ['List, um] => throw_msg("S2IS0030",
+;       '"Pattern matching is only allowed on lists.", [])
 ;   for pvar in pattern repeat
 ;       IDENTP(pvar) => putIntSymTab(pvar, 'mode, um, $env)
 ;       pvar is ['_:, var] => putIntSymTab(var, 'mode, m, $env)
@@ -933,7 +964,8 @@
               (SETQ |ISTMP#1| (CDR |m|))
               (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
                    (PROGN (SETQ |um| (CAR |ISTMP#1|)) #1='T)))))
-       (|throwKeyedMsg| 'S2IS0030 NIL))
+       (|throw_msg| 'S2IS0030 "Pattern matching is only allowed on lists."
+        NIL))
       (#1#
        ((LAMBDA (|bfVar#11| |pvar|)
           (LOOP
@@ -1373,7 +1405,10 @@
 ;     throwKeyedMsg("S2IS0027",[var])
 ;   (IDENTP var) and not (var in '(true false elt QUOTE)) =>
 ;     var ~= (var' := unabbrev(var)) =>  -- constructor abbreviation
-;       throwKeyedMsg("S2IS0028",[var,var'])
+;         throw_msg("S2IS0028", CONCAT(
+;             '"You have used the abbreviation %1b of the constructor %2b on",
+;             '" the left-hand side of an assignment expression. This is",
+;             " not allowed."), [var, var'])
 ;     if get0(var, 'isInterpreterFunction, $e) then
 ;       putHist(var,'isInterpreterFunction,false,$e)
 ;       sayKeyedMsg("S2IS0049",['"Function",var])
@@ -1388,7 +1423,9 @@
 ;     if (val := getValue lhs) and (objMode val = $Boolean) and
 ;       getUnname(rhs) = 'equation then putTarget(rhs,$Boolean)
 ;     (rhsMs:= bottomUp rhs) = [$Void] =>
-;       throwKeyedMsg("S2IS0034",[var])
+;         throw_msg("S2IS0034", CONCAT(
+;             '"You cannot assign an object of type %b Void %d to any",
+;             '" identifier, (in particular, %2b )."), [var])
 ;     val:=evalLET(lhs,rhs)
 ;     putValue(op,val)
 ;     putModeSet(op,[objMode(val)])
@@ -1438,7 +1475,12 @@
                   (NULL (|member| |var| '(|true| |false| |elt| QUOTE))))
              (COND
               ((NOT (EQUAL |var| (SETQ |var'| (|unabbrev| |var|))))
-               (|throwKeyedMsg| 'S2IS0028 (LIST |var| |var'|)))
+               (|throw_msg| 'S2IS0028
+                (CONCAT
+                 "You have used the abbreviation %1b of the constructor %2b on"
+                 " the left-hand side of an assignment expression. This is"
+                 '| not allowed.|)
+                (LIST |var| |var'|)))
               (#1#
                (PROGN
                 (COND
@@ -1465,7 +1507,11 @@
                      (|putTarget| |rhs| |$Boolean|)))
                    (COND
                     ((EQUAL (SETQ |rhsMs| (|bottomUp| |rhs|)) (LIST |$Void|))
-                     (|throwKeyedMsg| 'S2IS0034 (LIST |var|)))
+                     (|throw_msg| 'S2IS0034
+                      (CONCAT
+                       "You cannot assign an object of type %b Void %d to any"
+                       " identifier, (in particular, %2b ).")
+                      (LIST |var|)))
                     (#1#
                      (PROGN
                       (SETQ |val| (|evalLET| |lhs| |rhs|))
@@ -1518,11 +1564,19 @@
 ;       t' := t2
 ;       null (t2 := resolveTM(t1,t2)) =>
 ;         if not t2 then t2 := t'
-;         throwKeyedMsg("S2IS0035",[t1,t2])
+;         throw_msg("S2IS0035", CONCAT(
+;             '"Cannot resolve the type %1bp of the right-hand side of the",
+;             '" assignment with the type %2bp of the left-hand side."),
+;             [t1, t2])
 ;     null (v := getArgValue(rhs,t2)) =>
 ;       isWrapped(objVal v') and (v2:=coerceInteractive(v',$OutputForm)) =>
-;         throwKeyedMsg("S2IS0036",[objValUnwrap v2,t2])
-;       throwKeyedMsg("S2IS0037",[t2])
+;           throw_msg("S2IS0036", CONCAT(
+;               '"Cannot convert right-hand side of assignment %1m to an",
+;               '" object of the type %2bp of the left-hand side."),
+;               [objValUnwrap(v2), t2])
+;       throw_msg("S2IS0037", CONCAT(
+;           '"Cannot convert right-hand side of assignment to an object of",
+;           '" the type %1bp of the left-hand side."), [t2])
 ;     t2 and objNew(($genValue => wrap timedEVALFUN v ; v),t2)
 ;   value => evalLETput(lhs,value)
 ;   throwKeyedMsgCannotCoerceWithValue(objVal v,t1,getMode lhs)
@@ -1574,16 +1628,28 @@
                        ((NULL (SETQ |t2| (|resolveTM| |t1| |t2|)))
                         (PROGN
                          (COND ((NULL |t2|) (SETQ |t2| |t'|)))
-                         (|throwKeyedMsg| 'S2IS0035 (LIST |t1| |t2|)))))))
+                         (|throw_msg| 'S2IS0035
+                          (CONCAT
+                           "Cannot resolve the type %1bp of the right-hand side of the"
+                           " assignment with the type %2bp of the left-hand side.")
+                          (LIST |t1| |t2|)))))))
                     (COND
                      ((NULL (SETQ |v| (|getArgValue| |rhs| |t2|)))
                       (COND
                        ((AND (|isWrapped| (|objVal| |v'|))
                              (SETQ |v2|
                                      (|coerceInteractive| |v'| |$OutputForm|)))
-                        (|throwKeyedMsg| 'S2IS0036
+                        (|throw_msg| 'S2IS0036
+                         (CONCAT
+                          "Cannot convert right-hand side of assignment %1m to an"
+                          " object of the type %2bp of the left-hand side.")
                          (LIST (|objValUnwrap| |v2|) |t2|)))
-                       (#1# (|throwKeyedMsg| 'S2IS0037 (LIST |t2|)))))
+                       (#1#
+                        (|throw_msg| 'S2IS0037
+                         (CONCAT
+                          "Cannot convert right-hand side of assignment to an object of"
+                          " the type %1bp of the left-hand side.")
+                         (LIST |t2|)))))
                      (#1#
                       (AND |t2|
                            (|objNew|
@@ -1798,7 +1864,9 @@
 ;   rhs' := getUnnameIfCan rhs
 ;   lhs' = 'Tuple =>
 ;     rhs' ~= 'Tuple => throwKeyedMsg("S2IS0039",NIL)
-;     #(lhs) ~= #(rhs) => throwKeyedMsg("S2IS0038",NIL)
+;     #(lhs) ~= #(rhs) => throw_msg("S2IS0038", CONCAT(
+;         '"Assignments with tuples must have the same size tuples on each",
+;         '" side of the %b := %d ."), [])
 ;     -- generate a sequence of assignments, using local variables
 ;     -- to first hold the assignments so that things like
 ;     -- (t1,t2) := (t2,t1) will work.
@@ -1823,7 +1891,10 @@
 ;     putModeSet(op,ms)
 ;   rhs' = 'Tuple => throwKeyedMsg("S2IS0039",NIL)
 ;   tree:= seteltable(lhs,rhs) => upSetelt(op,lhs,tree)
-;   throwKeyedMsg("S2IS0060", NIL)
+;   throw_msg("S2IS0060", CONCAT(
+;       '"The form on the left hand side of an assignment must be a",
+;       '" single variable, a Tuple of variables or a  reference to an",
+;       '" entry in an object supporting the setelt operation."), [])
 
 (DEFUN |upLETWithFormOnLhs| (|op| |lhs| |rhs|)
   (PROG (|lhs'| |rhs'| |seq| |temps| |let| |t'| |m| |ms| |tree|)
@@ -1835,7 +1906,11 @@
        ((EQ |lhs'| '|Tuple|)
         (COND ((NOT (EQ |rhs'| '|Tuple|)) (|throwKeyedMsg| 'S2IS0039 NIL))
               ((NOT (EQL (LENGTH |lhs|) (LENGTH |rhs|)))
-               (|throwKeyedMsg| 'S2IS0038 NIL))
+               (|throw_msg| 'S2IS0038
+                (CONCAT
+                 "Assignments with tuples must have the same size tuples on each"
+                 " side of the %b := %d .")
+                NIL))
               (#1='T
                (PROGN
                 (SETQ |seq| NIL)
@@ -1905,7 +1980,12 @@
        ((EQ |rhs'| '|Tuple|) (|throwKeyedMsg| 'S2IS0039 NIL))
        ((SETQ |tree| (|seteltable| |lhs| |rhs|))
         (|upSetelt| |op| |lhs| |tree|))
-       (#1# (|throwKeyedMsg| 'S2IS0060 NIL)))))))
+       (#1#
+        (|throw_msg| 'S2IS0060
+         (CONCAT "The form on the left hand side of an assignment must be a"
+                 " single variable, a Tuple of variables or a  reference to an"
+                 " entry in an object supporting the setelt operation.")
+         NIL)))))))
 
 ; get_opname_if_can(f) ==
 ;     VECP(f) => f.0
@@ -2035,11 +2115,15 @@
 ; upTableSetelt(op,lhs is [htOp,:args],rhs) ==
 ;   -- called only for undeclared, uninitialized table setelts
 ;   ("*" = (PNAME getUnname htOp).0) and (1 ~= # args) =>
-;     throwKeyedMsg("S2IS0040",NIL)
-;   # args ~= 1 =>
-;     throwKeyedMsg("S2IS0041",[[getUnname htOp,'".[",
-;       getUnname first args,
-;         ['",",getUnname arg for arg in rest args],'"]"]])
+;       throw_msg("S2IS0040", CONCAT(
+;           '"FriCAS cannot now handle assignments to scripted variables",
+;           '" with more than one script.  You can use %b == %d however."), [])
+;   #args ~= 1 =>
+;       throw_msg("S2IS0041", CONCAT(
+;           '"FriCAS can now only handle undeclared %b Table %d",
+;           '"assignments with a single key. Try using the form %1b ."),
+;           [[getUnname(htOp), '".[", getUnname(first(args)),
+;               ['",", getUnname(arg) for arg in rest(args)], '"]"]])
 ;   keyMode := '(Any)
 ;   putMode (htOp,['Table,keyMode,'(Any)])
 ;   -- if we are to use a new table, we must call the "table"
@@ -2062,9 +2146,14 @@
       (COND
        ((AND (EQ '* (ELT (PNAME (|getUnname| |htOp|)) 0))
              (NOT (EQL 1 (LENGTH |args|))))
-        (|throwKeyedMsg| 'S2IS0040 NIL))
+        (|throw_msg| 'S2IS0040
+         (CONCAT "FriCAS cannot now handle assignments to scripted variables"
+                 " with more than one script.  You can use %b == %d however.")
+         NIL))
        ((NOT (EQL (LENGTH |args|) 1))
-        (|throwKeyedMsg| 'S2IS0041
+        (|throw_msg| 'S2IS0041
+         (CONCAT "FriCAS can now only handle undeclared %b Table %d"
+                 "assignments with a single key. Try using the form %1b .")
          (LIST
           (LIST (|getUnname| |htOp|) ".[" (|getUnname| (CAR |args|))
                 ((LAMBDA (|bfVar#34| |bfVar#33| |arg|)
@@ -3027,7 +3116,8 @@
 ;   -- make sure we are in a user function
 ;   t isnt [op,val] => NIL
 ;   (null $compilingMap) and (null $interpOnly) =>
-;     throwKeyedMsg("S2IS0047",NIL)
+;       throw_msg("S2IS0047",
+;           '"The %b return %d keyword can only be used within a function.", [])
 ;   if $mapTarget then putTarget(val,$mapTarget)
 ;   bottomUp val
 ;   if $mapTarget
@@ -3058,7 +3148,8 @@
                    (PROGN (SETQ |val| (CAR |ISTMP#1|)) #1='T)))))
        NIL)
       ((AND (NULL |$compilingMap|) (NULL |$interpOnly|))
-       (|throwKeyedMsg| 'S2IS0047 NIL))
+       (|throw_msg| 'S2IS0047
+        "The %b return %d keyword can only be used within a function." NIL))
       (#1#
        (PROGN
         (COND (|$mapTarget| (|putTarget| |val| |$mapTarget|)))
@@ -3456,8 +3547,9 @@
 ;   [env,:e] := upwhereClause(clause,$env,$e)
 ;   tree := upwhereMkAtree(tree,env,e)
 ;   if x := getAtree(op,'dollar) then
-;     atom tree => throwKeyedMsg("S2IS0048",NIL)
-;     putAtree(first tree, 'dollar, x)
+;       atom(tree) => throw_msg("S2IS0048",
+;           '"The use of a $-expression is not understood in this context.", [])
+;       putAtree(first tree, 'dollar, x)
 ;   upwhereMain(tree,env,e)
 ;   val := getValue tree
 ;   putValue(op,val)
@@ -3497,8 +3589,12 @@
         (SETQ |tree| (|upwhereMkAtree| |tree| |env| |e|))
         (COND
          ((SETQ |x| (|getAtree| |op| '|dollar|))
-          (COND ((ATOM |tree|) (|throwKeyedMsg| 'S2IS0048 NIL))
-                (#1# (|putAtree| (CAR |tree|) '|dollar| |x|)))))
+          (COND
+           ((ATOM |tree|)
+            (|throw_msg| 'S2IS0048
+             "The use of a $-expression is not understood in this context."
+             NIL))
+           (#1# (|putAtree| (CAR |tree|) '|dollar| |x|)))))
         (|upwhereMain| |tree| |env| |e|)
         (SETQ |val| (|getValue| |tree|))
         (|putValue| |op| |val|)

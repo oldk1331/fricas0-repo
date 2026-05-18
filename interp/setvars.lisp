@@ -1174,7 +1174,8 @@
 ;   $options =>
 ;     $options is [["vars",:l]] =>
 ;       for x in l repeat
-;         NULL IDENTP x => sayKeyedMsg("S2IF0007",[x])
+;         NULL IDENTP x => say_msg("S2IF0007",
+;             '"%1b is not a valid function name.", [x])
 ;         $cacheAlist:= insertAlist(x,n,$cacheAlist)
 ;         cacheCountName := INTERNL1(x, '";COUNT")
 ;         SET(cacheCountName,n)
@@ -1199,14 +1200,16 @@
               ((OR (ATOM |bfVar#16|) (PROGN (SETQ |x| (CAR |bfVar#16|)) NIL))
                (RETURN NIL))
               (#1#
-               (COND ((NULL (IDENTP |x|)) (|sayKeyedMsg| 'S2IF0007 (LIST |x|)))
-                     (#1#
-                      (PROGN
-                       (SETQ |$cacheAlist|
-                               (|insertAlist| |x| |n| |$cacheAlist|))
-                       (SETQ |cacheCountName| (INTERNL1 |x| ";COUNT"))
-                       (SET |cacheCountName| |n|)
-                       (|sayCacheCount| |x| |n|))))))
+               (COND
+                ((NULL (IDENTP |x|))
+                 (|say_msg| 'S2IF0007 "%1b is not a valid function name."
+                  (LIST |x|)))
+                (#1#
+                 (PROGN
+                  (SETQ |$cacheAlist| (|insertAlist| |x| |n| |$cacheAlist|))
+                  (SETQ |cacheCountName| (INTERNL1 |x| ";COUNT"))
+                  (SET |cacheCountName| |n|)
+                  (|sayCacheCount| |x| |n|))))))
              (SETQ |bfVar#16| (CDR |bfVar#16|))))
           |l| NIL))
         (#1# (|optionError| (CAAR |$options|) NIL))))

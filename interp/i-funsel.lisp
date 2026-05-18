@@ -1699,7 +1699,9 @@
 
 ; selectDollarMms(dc,name,types1,types2) ==
 ;   -- finds functions for name in domain dc
-;   isPartialMode dc => throwKeyedMsg("S2IF0001",NIL)
+;   isPartialMode dc => throw_msg("S2IF0001", CONCAT(
+;      '"A $-expression must have a fully specified domain or package on the",
+;      '" right-hand side."), NIL)
 ;   mmS := findFunctionInDomain(name,dc,NIL,types1,types2,'T,'T) =>
 ;     orderMms(name, mmS,types1,types2,NIL)
 ;   if $reportBottomUpFlag then sayMSG
@@ -1709,19 +1711,25 @@
 (DEFUN |selectDollarMms| (|dc| |name| |types1| |types2|)
   (PROG (|mmS|)
     (RETURN
-     (COND ((|isPartialMode| |dc|) (|throwKeyedMsg| 'S2IF0001 NIL))
-           ((SETQ |mmS|
-                    (|findFunctionInDomain| |name| |dc| NIL |types1| |types2|
-                     'T 'T))
-            (|orderMms| |name| |mmS| |types1| |types2| NIL))
-           ('T
-            (PROGN
-             (COND
-              (|$reportBottomUpFlag|
-               (|sayMSG|
-                (LIST '|%b| "          function not found in "
-                      (|prefix2String| |dc|) '|%d| '|%l|))))
-             NIL))))))
+     (COND
+      ((|isPartialMode| |dc|)
+       (|throw_msg| 'S2IF0001
+        (CONCAT
+         "A $-expression must have a fully specified domain or package on the"
+         " right-hand side.")
+        NIL))
+      ((SETQ |mmS|
+               (|findFunctionInDomain| |name| |dc| NIL |types1| |types2| 'T
+                'T))
+       (|orderMms| |name| |mmS| |types1| |types2| NIL))
+      ('T
+       (PROGN
+        (COND
+         (|$reportBottomUpFlag|
+          (|sayMSG|
+           (LIST '|%b| "          function not found in "
+                 (|prefix2String| |dc|) '|%d| '|%l|))))
+        NIL))))))
 
 ; selectLocalMms(op,name,types,tar) ==
 ;   -- partial rewrite, looks now for exact local modemap
@@ -2189,10 +2197,15 @@
 ;   -- use evaluation type context to narrow down the candidate set
 ;   if target := getTarget op then
 ;       mmList := [mm for mm in mmList | mm is [=rest target,:.]]
-;       null mmList => throwKeyedMsg("S2IS0061",[opName,target,dom])
+;       null mmList => throw_msg("S2IS0061", CONCAT(
+;           '"There is no operation named %1b with type %2p in the domain",
+;           '" or package %3p."), [opName, target, dom])
 ;   if #mmList > 1 then
 ;     mm := selectMostGeneralMm mmList
-;     sayKeyedMsg("S2IS0022", [opName, dom, ['Mapping, :first mm]])
+;     say_msg("S2IS0022", CONCAT(
+;         '"There is more than one %1b in the domain or package %2bp .",
+;         '" The one being chosen has type %3bp ."),
+;         [opName, dom, ['Mapping, :first mm]])
 ;   else mm := first mmList
 ;   [sig,slot,:.] := mm
 ;   fun :=
@@ -2235,12 +2248,18 @@
                          NIL |mmList| NIL))
                 (COND
                  ((NULL |mmList|)
-                  (|throwKeyedMsg| 'S2IS0061
+                  (|throw_msg| 'S2IS0061
+                   (CONCAT
+                    "There is no operation named %1b with type %2p in the domain"
+                    " or package %3p.")
                    (LIST |opName| |target| |dom|))))))
               (COND
                ((< 1 (LENGTH |mmList|))
                 (SETQ |mm| (|selectMostGeneralMm| |mmList|))
-                (|sayKeyedMsg| 'S2IS0022
+                (|say_msg| 'S2IS0022
+                 (CONCAT
+                  "There is more than one %1b in the domain or package %2bp ."
+                  " The one being chosen has type %3bp .")
                  (LIST |opName| |dom| (CONS '|Mapping| (CAR |mm|)))))
                (#1# (SETQ |mm| (CAR |mmList|))))
               (SETQ |sig| (CAR |mm|))
@@ -2590,7 +2609,8 @@
 ;     EQ(y, 'CONST) => [[CONS(dc,sig),osig, RTC]]
 ;     EQ(y, 'ASCONST) => [[CONS(dc, sig), osig, RTC]]
 ;     y is ['XLAM, :.] => [[CONS(dc,sig), y, RTC]]
-;     sayKeyedMsg("S2IF0006",[y])
+;     say_msg("S2IF0006", '"Skipping function with unimplemented form %1b .",
+;             [y])
 ;     NIL
 
 (DEFUN |findFunctionInDomain1| (|omm| |tar| |args1| |args2| SL)
@@ -2630,7 +2650,12 @@
                    (LIST (LIST (CONS |dc| |sig|) |osig| RTC)))
                   ((AND (CONSP |y|) (EQ (CAR |y|) 'XLAM))
                    (LIST (LIST (CONS |dc| |sig|) |y| RTC)))
-                  (#2# (PROGN (|sayKeyedMsg| 'S2IF0006 (LIST |y|)) NIL)))))))))
+                  (#2#
+                   (PROGN
+                    (|say_msg| 'S2IF0006
+                     "Skipping function with unimplemented form %1b ."
+                     (LIST |y|))
+                    NIL)))))))))
 
 ; findFunctionInCategory(op,dc,tar,args1,args2,$Coerce,$SubDom) ==
 ;   -- looks for a modemap for op with signature  args1 -> tar

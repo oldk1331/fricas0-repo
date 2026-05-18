@@ -153,7 +153,9 @@
 
 ; mkAtree1 x ==
 ;   -- first special handler for making attrib tree
-;   null x => throwKeyedMsg("S2IP0005",['"NIL"])
+;   null x => throw_msg("S2IP0005",
+;         '"%1b is not a valid identifier to use in FriCAS.",
+;         ['"NIL"])
 ;   VECP x => x
 ;   atom x =>
 ;     x in '(noBranch noMapVal) => x
@@ -169,36 +171,41 @@
 ;       putValue(v,getBasicObject x)
 ;       v
 ;     IDENTP x => mkAtreeNode x
-;     keyedSystemError("S2II0002",[x])
+;     system_error("S2II0002", '"Unknown form of attributed tree: %1s", [x])
 ;   x is [op,:argl] => mkAtree2(x,op,argl)
 ;   systemErrorHere '"mkAtree1"
 
 (DEFUN |mkAtree1| (|x|)
   (PROG (|tree| |v| |op| |argl|)
     (RETURN
-     (COND ((NULL |x|) (|throwKeyedMsg| 'S2IP0005 (LIST "NIL")))
-           ((VECP |x|) |x|)
-           ((ATOM |x|)
-            (COND ((|member| |x| '(|noBranch| |noMapVal|)) |x|)
-                  ((|member| |x| '(|nil| |true| |false|))
-                   (|mkAtree2| (LIST |x|) |x| NIL))
-                  ((EQ |x| '|/throwAway|)
-                   (PROGN
-                    (SETQ |tree| (|mkAtree1| '(|void|)))
-                    (|putValue| |tree| (|objNewWrap| (|voidValue|) |$Void|))
-                    (|putModeSet| |tree| (LIST |$Void|))
-                    |tree|))
-                  ((|getBasicMode| |x|)
-                   (PROGN
-                    (SETQ |v| (|mkAtreeNode| |$immediateDataSymbol|))
-                    (|putValue| |v| (|getBasicObject| |x|))
-                    |v|))
-                  ((IDENTP |x|) (|mkAtreeNode| |x|))
-                  (#1='T (|keyedSystemError| 'S2II0002 (LIST |x|)))))
-           ((AND (CONSP |x|)
-                 (PROGN (SETQ |op| (CAR |x|)) (SETQ |argl| (CDR |x|)) #1#))
-            (|mkAtree2| |x| |op| |argl|))
-           (#1# (|systemErrorHere| "mkAtree1"))))))
+     (COND
+      ((NULL |x|)
+       (|throw_msg| 'S2IP0005 "%1b is not a valid identifier to use in FriCAS."
+        (LIST "NIL")))
+      ((VECP |x|) |x|)
+      ((ATOM |x|)
+       (COND ((|member| |x| '(|noBranch| |noMapVal|)) |x|)
+             ((|member| |x| '(|nil| |true| |false|))
+              (|mkAtree2| (LIST |x|) |x| NIL))
+             ((EQ |x| '|/throwAway|)
+              (PROGN
+               (SETQ |tree| (|mkAtree1| '(|void|)))
+               (|putValue| |tree| (|objNewWrap| (|voidValue|) |$Void|))
+               (|putModeSet| |tree| (LIST |$Void|))
+               |tree|))
+             ((|getBasicMode| |x|)
+              (PROGN
+               (SETQ |v| (|mkAtreeNode| |$immediateDataSymbol|))
+               (|putValue| |v| (|getBasicObject| |x|))
+               |v|))
+             ((IDENTP |x|) (|mkAtreeNode| |x|))
+             (#1='T
+              (|system_error| 'S2II0002 "Unknown form of attributed tree: %1s"
+               (LIST |x|)))))
+      ((AND (CONSP |x|)
+            (PROGN (SETQ |op| (CAR |x|)) (SETQ |argl| (CDR |x|)) #1#))
+       (|mkAtree2| |x| |op| |argl|))
+      (#1# (|systemErrorHere| "mkAtree1"))))))
 
 ; mkAtree2(x,op,argl) ==
 ;   nargl := #argl
@@ -265,8 +272,9 @@
 ;             v
 ;         mkAtree1 ["*",a,[['_$elt,D,'One]]]
 ;       [mkAtreeNode 'Dollar,D,mkAtree1 a]
-;     keyedSystemError("S2II0003",['"$",argl,
-;       '"not qualifying an operator"])
+;     system_error("S2II0003",
+;         '"Improper use of %1b with argument %2s: not qualifying an operator",
+;         ['"$",argl])
 ;   mkAtree3(x,op,argl)
 
 (DEFUN |mkAtree2| (|x| |op| |argl|)
@@ -445,8 +453,9 @@
                        (LIST '* |a| (LIST (LIST '|$elt| D '|One|))))))))))
            (#1# (LIST (|mkAtreeNode| '|Dollar|) D (|mkAtree1| |a|)))))
          (#1#
-          (|keyedSystemError| 'S2II0003
-           (LIST "$" |argl| "not qualifying an operator")))))
+          (|system_error| 'S2II0003
+           "Improper use of %1b with argument %2s: not qualifying an operator"
+           (LIST "$" |argl|)))))
        (#1# (|mkAtree3| |x| |op| |argl|)))))))
 
 ; mkAtree3fn(a, b) ==
@@ -1445,7 +1454,9 @@
 ;   $failure ~= (v := getValueFromSpecificEnvironment(x,mode,$env)) => v
 ;   $failure ~= (v := getValueFromSpecificEnvironment(x,mode,$e))   => v
 ;   null(v := coerceInt(objNew(x, ['Variable, x]), mode)) =>
-;      throwKeyedMsg("S2IE0001",[x])
+;      throw_msg("S2IE0001",
+;         '"You cannot use %1b in the manner you have because it has no value.",
+;                [x])
 ;   objValUnwrap v
 
 (DEFUN |getValueFromEnvironment| (|x| |mode|)
@@ -1463,7 +1474,9 @@
        |v|)
       ((NULL
         (SETQ |v| (|coerceInt| (|objNew| |x| (LIST '|Variable| |x|)) |mode|)))
-       (|throwKeyedMsg| 'S2IE0001 (LIST |x|)))
+       (|throw_msg| 'S2IE0001
+        "You cannot use %1b in the manner you have because it has no value."
+        (LIST |x|)))
       ('T (|objValUnwrap| |v|))))))
 
 ; getValueFromSpecificEnvironment(id,mode,e) ==
@@ -1475,7 +1488,9 @@
 ;       mode isnt ['Mapping,:mapSig] => v
 ;       v isnt ['SPADMAP, :.] => v
 ;       v' := coerceInt(u,mode)
-;       null v' => throwKeyedMsg("S2IC0002",[objMode u,mode])
+;       null v' => throw_msg("S2IC0002",
+;           '"Cannot convert the value from type %1bp to %2bp .",
+;           [objMode(u), mode])
 ;       objValUnwrap v'
 ;
 ;     m := get0(id, 'mode, e) =>
@@ -1487,7 +1502,10 @@
 ;         (u := coerceInteractive(objNewWrap(id,['Variable,id]),m')) =>
 ;           objValUnwrap u
 ;
-;       throwKeyedMsg("S2IE0002",[id,m])
+;       throw_msg("S2IE0002", CONCAT(
+;          '"Though %1b has declared type (or partial type) %2bp it does not",
+;          '" have an assigned value. You must give it one before it can be",
+;          '" so used."), [id, m])
 ;     $failure
 ;   $failure
 
@@ -1515,7 +1533,9 @@
                (SETQ |v'| (|coerceInt| |u| |mode|))
                (COND
                 ((NULL |v'|)
-                 (|throwKeyedMsg| 'S2IC0002 (LIST (|objMode| |u|) |mode|)))
+                 (|throw_msg| 'S2IC0002
+                  "Cannot convert the value from type %1bp to %2bp ."
+                  (LIST (|objMode| |u|) |mode|)))
                 (#1# (|objValUnwrap| |v'|))))))))))
         ((SETQ |m| (|get0| |id| '|mode| |e|))
          (PROGN
@@ -1529,7 +1549,13 @@
                          (|coerceInteractive|
                           (|objNewWrap| |id| (LIST '|Variable| |id|)) |m'|)))
             (|objValUnwrap| |u|))
-           (#1# (|throwKeyedMsg| 'S2IE0002 (LIST |id| |m|))))))
+           (#1#
+            (|throw_msg| 'S2IE0002
+             (CONCAT
+              "Though %1b has declared type (or partial type) %2bp it does not"
+              " have an assigned value. You must give it one before it can be"
+              " so used.")
+             (LIST |id| |m|))))))
         (#1# |$failure|)))
       (#1# |$failure|)))))
 

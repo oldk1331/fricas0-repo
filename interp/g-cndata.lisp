@@ -164,9 +164,14 @@
 
 ; constructorAbbreviationErrorCheck(c,a,typ) ==
 ;   siz := SIZE (s := PNAME a)
-;   if typ = 'category and siz > 7
-;     then throwKeyedErrorMsg('precompilation,"S2IL0021",NIL)
-;   if siz > 8 then throwKeyedErrorMsg('precompilation,"S2IL0006",NIL)
+;   if typ = 'category and siz > 7 then
+;       throw_error_msg('precompilation, "S2IL0021", CONCAT(
+;           '"Category abbreviations must have 7 or fewer characters",
+;           '" and should be uppercase."), [])
+;   if siz > 8 or s ~= UPCASE(s) then
+;       throw_error_msg('precompilation, "S2IL0006", _
+;    '"Abbreviations must have 8 or fewer characters and should be uppercase.",
+;           [])
 ;   if s ~= UPCASE s then throwKeyedMsg("S2IL0006",NIL)
 ;   abb := get_database(c, 'ABBREVIATION)
 ;   name := get_database(a, 'CONSTRUCTOR)
@@ -182,9 +187,15 @@
       (SETQ |siz| (SIZE (SETQ |s| (PNAME |a|))))
       (COND
        ((AND (EQ |typ| '|category|) (< 7 |siz|))
-        (|throwKeyedErrorMsg| '|precompilation| 'S2IL0021 NIL)))
+        (|throw_error_msg| '|precompilation| 'S2IL0021
+         (CONCAT "Category abbreviations must have 7 or fewer characters"
+                 " and should be uppercase.")
+         NIL)))
       (COND
-       ((< 8 |siz|) (|throwKeyedErrorMsg| '|precompilation| 'S2IL0006 NIL)))
+       ((OR (< 8 |siz|) (NOT (EQUAL |s| (UPCASE |s|))))
+        (|throw_error_msg| '|precompilation| 'S2IL0006
+         "Abbreviations must have 8 or fewer characters and should be uppercase."
+         NIL)))
       (COND ((NOT (EQUAL |s| (UPCASE |s|))) (|throwKeyedMsg| 'S2IL0006 NIL)))
       (SETQ |abb| (|get_database| |c| 'ABBREVIATION))
       (SETQ |name| (|get_database| |a| 'CONSTRUCTOR))

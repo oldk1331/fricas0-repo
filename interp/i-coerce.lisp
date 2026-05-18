@@ -67,7 +67,9 @@
 ;   t = $NoValueMode => triple
 ;   t' := coerceInteractive(triple,t)
 ;   t' => objValUnwrap(t')
-;   sayKeyedMsg("S2IC0004",[mapName,objMode triple,t])
+;   say_msg("S2IC0004",
+;     '"Conversion failed in the compiled user function %1b from %2bp to %3bp .",
+;           [mapName, objMode(triple), t])
 ;   '"failed"
 
 (DEFUN |coerceOrFail| (|triple| |t| |mapName|)
@@ -80,7 +82,8 @@
              (COND (|t'| (|objValUnwrap| |t'|))
                    (#1#
                     (PROGN
-                     (|sayKeyedMsg| 'S2IC0004
+                     (|say_msg| 'S2IC0004
+                      "Conversion failed in the compiled user function %1b from %2bp to %3bp ."
                       (LIST |mapName| (|objMode| |triple|) |t|))
                      "failed")))))))))
 
@@ -91,7 +94,8 @@
 ;   t' => objValUnwrap(t')
 ;   mapName = 'noMapName =>
 ;     throwKeyedMsgCannotCoerceWithValue(objVal triple,objMode triple, t)
-;   sayKeyedMsg("S2IC0005",[mapName])
+;   say_msg("S2IC0005", '"Conversion failed in the compiled user function %1b .",
+;           [mapName])
 ;   throwKeyedMsgCannotCoerceWithValue(objVal triple,objMode triple, t)
 
 (DEFUN |coerceOrCroak| (|triple| |t| |mapName|)
@@ -107,7 +111,9 @@
                      (|objMode| |triple|) |t|))
                    (#1#
                     (PROGN
-                     (|sayKeyedMsg| 'S2IC0005 (LIST |mapName|))
+                     (|say_msg| 'S2IC0005
+                      "Conversion failed in the compiled user function %1b ."
+                      (LIST |mapName|))
                      (|throwKeyedMsgCannotCoerceWithValue| (|objVal| |triple|)
                       (|objMode| |triple|) |t|))))))))))
 
@@ -833,7 +839,8 @@
 ;     entryList isnt [[sig, ., ., .]] =>
 ;         key = "One" => getConstantFromDomain(["1"], domainForm)
 ;         key = "Zero" => getConstantFromDomain(["0"], domainForm)
-;         throwKeyedMsg("S2IC0008",[form,domainForm])
+;         throw_msg("S2IC0008", '"No such constant %1b in domain %2bp .",
+;                   [form, domainForm])
 ;     -- i.e., there should be exactly one item under this key of that form
 ;     domain := evalDomain domainForm
 ;     SPADCALL compiledLookupCheck(key,sig,domain)
@@ -871,7 +878,9 @@
                  (|getConstantFromDomain| (LIST '|1|) |domainForm|))
                 ((EQ |key| '|Zero|)
                  (|getConstantFromDomain| (LIST '|0|) |domainForm|))
-                (#1# (|throwKeyedMsg| 'S2IC0008 (LIST |form| |domainForm|)))))
+                (#1#
+                 (|throw_msg| 'S2IC0008 "No such constant %1b in domain %2bp ."
+                  (LIST |form| |domainForm|)))))
               (#1#
                (PROGN
                 (SETQ |domain| (|evalDomain| |domainForm|))
@@ -2057,7 +2066,12 @@
 ;     NIL
 ;   t1 = '$NoValueMode =>
 ;     if $compilingMap then clearDependentMaps($mapName,nil)
-;     throwKeyedMsg("S2IC0009",[t2,$mapName])
+;     throw_msg("S2IC0009", CONCAT(
+;        '"You are trying to use something (probably a loop) in a situation",
+;        '" where a value is expected.  In particular, you are trying to",
+;        '" convert this to the type %1bp .",
+;        '"  The following information may help:  possible function name:  %2p"),
+;        [t2, $mapName])
 ;   $insideCoerceInteractive: local := true
 ;   expr2 := EQUAL(t2,$OutputForm)
 ;   if expr2 then startTimingProcess 'print
@@ -2105,7 +2119,13 @@
                ((EQ |t1| '|$NoValueMode|)
                 (PROGN
                  (COND (|$compilingMap| (|clearDependentMaps| |$mapName| NIL)))
-                 (|throwKeyedMsg| 'S2IC0009 (LIST |t2| |$mapName|))))
+                 (|throw_msg| 'S2IC0009
+                  (CONCAT
+                   "You are trying to use something (probably a loop) in a situation"
+                   " where a value is expected.  In particular, you are trying to"
+                   " convert this to the type %1bp ."
+                   "  The following information may help:  possible function name:  %2p")
+                  (LIST |t2| |$mapName|))))
                (#1#
                 (PROGN
                  (SETQ |$insideCoerceInteractive| T)
@@ -3011,7 +3031,8 @@
 ;           if EQCAR(val', i) then targetType := typ
 ;       evalSharpOne(pred,val') =>
 ;           targetType := typ
-;   null targetType => keyedSystemError("S2IC0013",NIL)
+;   null targetType => system_error("S2IC0013",
+;       '"Cannot determine branch of %b Union. %d", [])
 ;   predicate is ['EQCAR, ., p] => objNewWrap(rest val', targetType)
 ;   objNew(objVal object,targetType)
 
@@ -3052,17 +3073,20 @@
           (SETQ |bfVar#43| (CDR |bfVar#43|))
           (SETQ |bfVar#44| (CDR |bfVar#44|))))
        |doms| NIL |predList| NIL)
-      (COND ((NULL |targetType|) (|keyedSystemError| 'S2IC0013 NIL))
-            ((AND (CONSP |predicate|) (EQ (CAR |predicate|) 'EQCAR)
-                  (PROGN
-                   (SETQ |ISTMP#1| (CDR |predicate|))
-                   (AND (CONSP |ISTMP#1|)
-                        (PROGN
-                         (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                         (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                              (PROGN (SETQ |p| (CAR |ISTMP#2|)) #1#))))))
-             (|objNewWrap| (CDR |val'|) |targetType|))
-            (#1# (|objNew| (|objVal| |object|) |targetType|)))))))
+      (COND
+       ((NULL |targetType|)
+        (|system_error| 'S2IC0013 "Cannot determine branch of %b Union. %d"
+         NIL))
+       ((AND (CONSP |predicate|) (EQ (CAR |predicate|) 'EQCAR)
+             (PROGN
+              (SETQ |ISTMP#1| (CDR |predicate|))
+              (AND (CONSP |ISTMP#1|)
+                   (PROGN
+                    (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                    (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
+                         (PROGN (SETQ |p| (CAR |ISTMP#2|)) #1#))))))
+        (|objNewWrap| (CDR |val'|) |targetType|))
+       (#1# (|objNew| (|objVal| |object|) |targetType|)))))))
 
 ; coerceBranch2Union(object,union) ==
 ;   -- assumes type is a member of unionDoms
@@ -3070,7 +3094,8 @@
 ;   predList:= mkPredList doms
 ;   doms := stripUnionTags doms
 ;   p := position(objMode object,doms)
-;   p = -1 => keyedSystemError("S2IC0014",[objMode object,union])
+;   p = -1 => system_error("S2IC0014", '"The type %1bp is not branch of %2bp",
+;                          [objMode(object), union])
 ;   val := objVal object
 ;   predList.p is ['EQCAR,.,tag] =>
 ;     objNewWrap([removeQuote tag,:unwrap val],union)
@@ -3086,7 +3111,8 @@
       (SETQ |p| (|position| (|objMode| |object|) |doms|))
       (COND
        ((EQUAL |p| (- 1))
-        (|keyedSystemError| 'S2IC0014 (LIST (|objMode| |object|) |union|)))
+        (|system_error| 'S2IC0014 "The type %1bp is not branch of %2bp"
+         (LIST (|objMode| |object|) |union|)))
        (#1='T
         (PROGN
          (SETQ |val| (|objVal| |object|))

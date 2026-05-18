@@ -1314,14 +1314,18 @@
 ;     rc := run_command('"ar", ['"x", path])
 ;     rc ~= 0 =>
 ;         cd [curDir]
-;         throwKeyedMsg("S2IL0028", [dir, path])
+;         throw_msg("S2IL0028", CONCAT(
+;             '"Could not unarchive contents of %2 into directory %1.",
+;             '" The file %2 was not compiled."), [dir, path])
 ;
 ;     -- Look for .ao files
 ;
 ;     asos := [NAMESTRING(aso) for aso in DIRECTORY('"*.ao")]
 ;     null asos =>
 ;         cd [curDir]
-;         throwKeyedMsg("S2IL0029", [dir, path])
+;         throw_msg("S2IL0029", CONCAT(
+;             '"No .ao files were found when %2 was unarchived into directory",
+;             '" %1. The file %2 was not compiled."), [dir, path])
 ;
 ;     -- Compile the .ao files
 ;
@@ -1363,7 +1367,10 @@
              ((NOT (EQL |rc| 0))
               (PROGN
                (|cd| (LIST |curDir|))
-               (|throwKeyedMsg| 'S2IL0028 (LIST |dir| |path|))))
+               (|throw_msg| 'S2IL0028
+                (CONCAT "Could not unarchive contents of %2 into directory %1."
+                        " The file %2 was not compiled.")
+                (LIST |dir| |path|))))
              (#1#
               (PROGN
                (SETQ |asos|
@@ -1382,7 +1389,11 @@
                 ((NULL |asos|)
                  (PROGN
                   (|cd| (LIST |curDir|))
-                  (|throwKeyedMsg| 'S2IL0029 (LIST |dir| |path|))))
+                  (|throw_msg| 'S2IL0029
+                   (CONCAT
+                    "No .ao files were found when %2 was unarchived into directory"
+                    " %1. The file %2 was not compiled.")
+                   (LIST |dir| |path|))))
                 (#1#
                  (PROGN
                   ((LAMBDA (|bfVar#29| |aso|)
@@ -3287,14 +3298,22 @@
 (DEFPARAMETER |$useInternalHistoryTable| T)
 
 ; history l ==
-;   l or null $options => sayKeyedMsg("S2IH0006",NIL)
+;   l or null $options => say_msg("S2IH0006", CONCAT(
+;       '"You have not used the correct syntax for the %b history %d command.",
+;       '"Issue %b )help history %d for more information."), NIL)
 ;   historySpad2Cmd()
 
 (DEFUN |history| (|l|)
   (PROG ()
     (RETURN
-     (COND ((OR |l| (NULL |$options|)) (|sayKeyedMsg| 'S2IH0006 NIL))
-           ('T (|historySpad2Cmd|))))))
+     (COND
+      ((OR |l| (NULL |$options|))
+       (|say_msg| 'S2IH0006
+        (CONCAT
+         "You have not used the correct syntax for the %b history %d command."
+         "Issue %b )help history %d for more information.")
+        NIL))
+      ('T (|historySpad2Cmd|))))))
 
 ; makeHistFileName(fname) ==
 ;     make_filename2(SNAME(fname), $historyFileType)
@@ -3396,25 +3415,30 @@
 ;     for [opt,:optargs] in $options]
 ;   for [opt,:optargs] in opts repeat
 ;     opt in '(on yes) =>
-;       $HiFiAccess => sayKeyedMsg("S2IH0007",NIL)
+;       $HiFiAccess => say_msg("S2IH0007",
+;           '"The history facility is already on.", NIL)
 ;       $IOindex = 1 =>       -- haven't done anything yet
 ;         $HiFiAccess:= 'T
 ;         initHistList()
-;         sayKeyedMsg("S2IH0008",NIL)
-;       x := UPCASE queryUserKeyedMsg("S2IH0009",NIL)
+;         say_msg("S2IH0008", '"The history facility is now on.", NIL)
+;       x := UPCASE query_user_msg("S2IH0009", CONCAT(
+;          '"Turning on the history facility will clear the contents of",
+;          '"the workspace.  Please enter %b y %d or %b yes %d if you really",
+;          '" want to do this:"), NIL)
 ;       MEMQ(STRING2ID_N(x, 1), '(Y YES)) =>
 ;         histFileErase histFileName()
 ;         $HiFiAccess:= 'T
 ;         $options := nil
 ;         clearSpad2Cmd '(all)
-;         sayKeyedMsg("S2IH0008",NIL)
+;         say_msg("S2IH0008", '"The history facility is now on.", NIL)
 ;         initHistList()
-;       sayKeyedMsg("S2IH0010",NIL)
+;       say_msg("S2IH0010", '"The history facility is still off.", NIL)
 ;     opt in '(off no) =>
-;       null $HiFiAccess => sayKeyedMsg("S2IH0011",NIL)
+;       null $HiFiAccess => say_msg("S2IH0011",
+;           '"The history facility is already off.", NIL)
 ;       $HiFiAccess:= NIL
 ;       disableHist()
-;       sayKeyedMsg("S2IH0012",NIL)
+;       say_msg("S2IH0012", '"The history facility is now off.", NIL)
 ;     opt = 'file    => setHistoryCore NIL
 ;     opt = 'memory  => setHistoryCore true
 ;     opt = 'reset   => resetInCoreHist()
@@ -3468,34 +3492,50 @@
                   #1#)
                  (COND
                   ((|member| |opt| '(|on| |yes|))
-                   (COND (|$HiFiAccess| (|sayKeyedMsg| 'S2IH0007 NIL))
-                         ((EQL |$IOindex| 1)
-                          (PROGN
-                           (SETQ |$HiFiAccess| 'T)
-                           (|initHistList|)
-                           (|sayKeyedMsg| 'S2IH0008 NIL)))
-                         (#1#
-                          (PROGN
-                           (SETQ |x|
-                                   (UPCASE
-                                    (|queryUserKeyedMsg| 'S2IH0009 NIL)))
-                           (COND
-                            ((MEMQ (STRING2ID_N |x| 1) '(Y YES))
-                             (PROGN
-                              (|histFileErase| (|histFileName|))
-                              (SETQ |$HiFiAccess| 'T)
-                              (SETQ |$options| NIL)
-                              (|clearSpad2Cmd| '(|all|))
-                              (|sayKeyedMsg| 'S2IH0008 NIL)
-                              (|initHistList|)))
-                            (#1# (|sayKeyedMsg| 'S2IH0010 NIL)))))))
+                   (COND
+                    (|$HiFiAccess|
+                     (|say_msg| 'S2IH0007 "The history facility is already on."
+                      NIL))
+                    ((EQL |$IOindex| 1)
+                     (PROGN
+                      (SETQ |$HiFiAccess| 'T)
+                      (|initHistList|)
+                      (|say_msg| 'S2IH0008 "The history facility is now on."
+                       NIL)))
+                    (#1#
+                     (PROGN
+                      (SETQ |x|
+                              (UPCASE
+                               (|query_user_msg| 'S2IH0009
+                                (CONCAT
+                                 "Turning on the history facility will clear the contents of"
+                                 "the workspace.  Please enter %b y %d or %b yes %d if you really"
+                                 " want to do this:")
+                                NIL)))
+                      (COND
+                       ((MEMQ (STRING2ID_N |x| 1) '(Y YES))
+                        (PROGN
+                         (|histFileErase| (|histFileName|))
+                         (SETQ |$HiFiAccess| 'T)
+                         (SETQ |$options| NIL)
+                         (|clearSpad2Cmd| '(|all|))
+                         (|say_msg| 'S2IH0008 "The history facility is now on."
+                          NIL)
+                         (|initHistList|)))
+                       (#1#
+                        (|say_msg| 'S2IH0010
+                         "The history facility is still off." NIL)))))))
                   ((|member| |opt| '(|off| |no|))
-                   (COND ((NULL |$HiFiAccess|) (|sayKeyedMsg| 'S2IH0011 NIL))
-                         (#1#
-                          (PROGN
-                           (SETQ |$HiFiAccess| NIL)
-                           (|disableHist|)
-                           (|sayKeyedMsg| 'S2IH0012 NIL)))))
+                   (COND
+                    ((NULL |$HiFiAccess|)
+                     (|say_msg| 'S2IH0011
+                      "The history facility is already off." NIL))
+                    (#1#
+                     (PROGN
+                      (SETQ |$HiFiAccess| NIL)
+                      (|disableHist|)
+                      (|say_msg| 'S2IH0012 "The history facility is now off."
+                       NIL)))))
                   ((EQ |opt| '|file|) (|setHistoryCore| NIL))
                   ((EQ |opt| '|memory|) (|setHistoryCore| T))
                   ((EQ |opt| '|reset|) (|resetInCoreHist|))
@@ -3509,13 +3549,42 @@
        |opts| NIL)
       '|done|))))
 
+; say_file_or_core_msg(in_core?) ==
+;     inCore => say_msg("S2IH0032", CONCAT(
+;         '"When the history facility is active, history information will be",
+;         '" maintained in memory (and not in an external file)."), nil)
+;     say_msg("S2IH0031", CONCAT(
+;         '"When the history facility is active, history information will be",
+;         '" maintained in a file (and not in an internal table)."), nil)
+
+(DEFUN |say_file_or_core_msg| (|in_core?|)
+  (PROG ()
+    (RETURN
+     (COND
+      (|inCore|
+       (|say_msg| 'S2IH0032
+        (CONCAT
+         "When the history facility is active, history information will be"
+         " maintained in memory (and not in an external file).")
+        NIL))
+      ('T
+       (|say_msg| 'S2IH0031
+        (CONCAT
+         "When the history facility is active, history information will be"
+         " maintained in a file (and not in an internal table).")
+        NIL))))))
+
 ; setHistoryCore inCore ==
 ;   inCore = $useInternalHistoryTable =>
-;     sayKeyedMsg((inCore => "S2IH0030"; "S2IH0029"),NIL)
+;       inCore => say_msg("S2IH0030", CONCAT(
+;           '"History information is already being maintained in memory",
+;           '" (and not in an external file)."), nil)
+;       say_msg("S2IH0029", CONCAT(
+;           '"History information is already being maintained in an",
+;           '" external file (and not in memory)."), nil)
 ;   not $HiFiAccess =>
 ;     $useInternalHistoryTable := inCore
-;     inCore => sayKeyedMsg("S2IH0032",NIL)
-;     sayKeyedMsg("S2IH0031",NIL)
+;     say_file_or_core_msg(inCore)
 ;   inCore =>
 ;     $internalHistoryTable := NIL
 ;     if $IOindex ~= 0 then
@@ -3526,7 +3595,7 @@
 ;         $internalHistoryTable := CONS([i,:vec],$internalHistoryTable)
 ;       histFileErase histFileName()
 ;     $useInternalHistoryTable := true
-;     sayKeyedMsg("S2IH0032",NIL)
+;     say_file_or_core_msg(true)
 ;   $HiFiAccess:= 'NIL
 ;   histFileErase histFileName()
 ;   str := kaf_open(histFileName(), false)
@@ -3536,19 +3605,28 @@
 ;   $HiFiAccess:= 'T
 ;   $internalHistoryTable := NIL
 ;   $useInternalHistoryTable := NIL
-;   sayKeyedMsg("S2IH0031",NIL)
+;   say_file_or_core_msg(false)
 
 (DEFUN |setHistoryCore| (|inCore|)
   (PROG (|l| |vec| |str| |n| |rec|)
     (RETURN
      (COND
       ((EQUAL |inCore| |$useInternalHistoryTable|)
-       (|sayKeyedMsg| (COND (|inCore| 'S2IH0030) (#1='T 'S2IH0029)) NIL))
+       (COND
+        (|inCore|
+         (|say_msg| 'S2IH0030
+          (CONCAT "History information is already being maintained in memory"
+                  " (and not in an external file).")
+          NIL))
+        (#1='T
+         (|say_msg| 'S2IH0029
+          (CONCAT "History information is already being maintained in an"
+                  " external file (and not in memory).")
+          NIL))))
       ((NULL |$HiFiAccess|)
        (PROGN
         (SETQ |$useInternalHistoryTable| |inCore|)
-        (COND (|inCore| (|sayKeyedMsg| 'S2IH0032 NIL))
-              (#1# (|sayKeyedMsg| 'S2IH0031 NIL)))))
+        (|say_file_or_core_msg| |inCore|)))
       (|inCore|
        (PROGN
         (SETQ |$internalHistoryTable| NIL)
@@ -3570,7 +3648,7 @@
            1)
           (|histFileErase| (|histFileName|))))
         (SETQ |$useInternalHistoryTable| T)
-        (|sayKeyedMsg| 'S2IH0032 NIL)))
+        (|say_file_or_core_msg| T)))
       (#1#
        (PROGN
         (SETQ |$HiFiAccess| 'NIL)
@@ -3595,13 +3673,15 @@
         (SETQ |$HiFiAccess| 'T)
         (SETQ |$internalHistoryTable| NIL)
         (SETQ |$useInternalHistoryTable| NIL)
-        (|sayKeyedMsg| 'S2IH0031 NIL)))))))
+        (|say_file_or_core_msg| NIL)))))))
 
 ; writeInputLines(fn,initial) ==
 ;   -- writes all input lines into file histInputFileName()
-;   not $HiFiAccess => sayKeyedMsg("S2IH0013",NIL) -- history not on
-;   null fn =>
-;     throwKeyedMsg("S2IH0038", nil)          -- missing file name
+;   not $HiFiAccess => say_msg("S2IH0013", CONCAT(
+;       '"The history facility is not on, so the .input file containing your",
+;       '" user input cannot be created."), NIL) -- history not on
+;   null(fn) => throw_msg("S2IH0038",
+;       '"You must specify a file name to the history write command.", nil)
 ;   maxn := 72
 ;   breakChars := [char '" ", char '"+"]
 ;   for i in initial..$IOindex - 1 repeat
@@ -3628,7 +3708,9 @@
 ;   inp := MAKE_OUTSTREAM(file)
 ;   for x in removeUndoLines NREVERSE lineList repeat WRITE_-LINE(x,inp)
 ;   -- see file "undo" for definition of removeUndoLines
-;   if fn ~= 'redo then sayKeyedMsg("S2IH0014", [file])
+;   if fn ~= 'redo then
+;       say_msg("S2IH0014", '"Edit %b %1 %d to see the saved input lines.",
+;               [file])
 ;   SHUT inp
 ;   NIL
 
@@ -3636,95 +3718,94 @@
   (PROG (|maxn| |breakChars| |vecl| |n| |done| |k| |svec| |lineList| |file|
          |inp|)
     (RETURN
-     (COND ((NULL |$HiFiAccess|) (|sayKeyedMsg| 'S2IH0013 NIL))
-           ((NULL |fn|) (|throwKeyedMsg| 'S2IH0038 NIL))
-           (#1='T
-            (PROGN
-             (SETQ |maxn| 72)
-             (SETQ |breakChars| (LIST (|char| " ") (|char| "+")))
-             ((LAMBDA (|bfVar#78| |i|)
-                (LOOP
-                 (COND ((> |i| |bfVar#78|) (RETURN NIL))
-                       (#1#
-                        (PROGN
-                         (SETQ |vecl| (CAR (|readHiFi| |i|)))
-                         (COND ((STRINGP |vecl|) (SETQ |vecl| (LIST |vecl|))))
-                         ((LAMBDA (|bfVar#79| |vec|)
-                            (LOOP
-                             (COND
-                              ((OR (ATOM |bfVar#79|)
-                                   (PROGN (SETQ |vec| (CAR |bfVar#79|)) NIL))
-                               (RETURN NIL))
-                              (#1#
-                               (PROGN
-                                (SETQ |n| (SIZE |vec|))
-                                ((LAMBDA ()
-                                   (LOOP
-                                    (COND ((NOT (< |maxn| |n|)) (RETURN NIL))
-                                          (#1#
-                                           (PROGN
-                                            (SETQ |done| NIL)
-                                            ((LAMBDA (|j|)
-                                               (LOOP
-                                                (COND
-                                                 ((OR (> |j| |maxn|) |done|)
-                                                  (RETURN NIL))
-                                                 (#1#
-                                                  (PROGN
-                                                   (SETQ |k|
-                                                           (- (+ 1 |maxn|)
-                                                              |j|))
-                                                   (COND
-                                                    ((MEMQ (ELT |vec| |k|)
-                                                           |breakChars|)
-                                                     (PROGN
-                                                      (SETQ |svec|
-                                                              (STRCONC
-                                                               (SUBSTRING |vec|
-                                                                          0
-                                                                          (+
-                                                                           |k|
-                                                                           1))
-                                                               UNDERBAR))
-                                                      (SETQ |lineList|
-                                                              (CONS |svec|
-                                                                    |lineList|))
-                                                      (SETQ |done| T)
-                                                      (SETQ |vec|
-                                                              (SUBSTRING |vec|
-                                                                         (+ |k|
-                                                                            1)
-                                                                         NIL))
-                                                      (SETQ |n|
-                                                              (SIZE
-                                                               |vec|))))))))
-                                                (SETQ |j| (+ |j| 1))))
-                                             1)
-                                            (COND
-                                             ((NULL |done|)
-                                              (SETQ |n| 0)))))))))
-                                (SETQ |lineList| (CONS |vec| |lineList|)))))
-                             (SETQ |bfVar#79| (CDR |bfVar#79|))))
-                          |vecl| NIL))))
-                 (SETQ |i| (+ |i| 1))))
-              (- |$IOindex| 1) |initial|)
-             (SETQ |file| (|histInputFileName| |fn|))
-             (|maybe_delete_file| |file|)
-             (SETQ |inp| (MAKE_OUTSTREAM |file|))
-             ((LAMBDA (|bfVar#80| |x|)
-                (LOOP
-                 (COND
-                  ((OR (ATOM |bfVar#80|)
-                       (PROGN (SETQ |x| (CAR |bfVar#80|)) NIL))
-                   (RETURN NIL))
-                  (#1# (WRITE-LINE |x| |inp|)))
-                 (SETQ |bfVar#80| (CDR |bfVar#80|))))
-              (|removeUndoLines| (NREVERSE |lineList|)) NIL)
-             (COND
-              ((NOT (EQ |fn| '|redo|))
-               (|sayKeyedMsg| 'S2IH0014 (LIST |file|))))
-             (SHUT |inp|)
-             NIL))))))
+     (COND
+      ((NULL |$HiFiAccess|)
+       (|say_msg| 'S2IH0013
+        (CONCAT
+         "The history facility is not on, so the .input file containing your"
+         " user input cannot be created.")
+        NIL))
+      ((NULL |fn|)
+       (|throw_msg| 'S2IH0038
+        "You must specify a file name to the history write command." NIL))
+      (#1='T
+       (PROGN
+        (SETQ |maxn| 72)
+        (SETQ |breakChars| (LIST (|char| " ") (|char| "+")))
+        ((LAMBDA (|bfVar#78| |i|)
+           (LOOP
+            (COND ((> |i| |bfVar#78|) (RETURN NIL))
+                  (#1#
+                   (PROGN
+                    (SETQ |vecl| (CAR (|readHiFi| |i|)))
+                    (COND ((STRINGP |vecl|) (SETQ |vecl| (LIST |vecl|))))
+                    ((LAMBDA (|bfVar#79| |vec|)
+                       (LOOP
+                        (COND
+                         ((OR (ATOM |bfVar#79|)
+                              (PROGN (SETQ |vec| (CAR |bfVar#79|)) NIL))
+                          (RETURN NIL))
+                         (#1#
+                          (PROGN
+                           (SETQ |n| (SIZE |vec|))
+                           ((LAMBDA ()
+                              (LOOP
+                               (COND ((NOT (< |maxn| |n|)) (RETURN NIL))
+                                     (#1#
+                                      (PROGN
+                                       (SETQ |done| NIL)
+                                       ((LAMBDA (|j|)
+                                          (LOOP
+                                           (COND
+                                            ((OR (> |j| |maxn|) |done|)
+                                             (RETURN NIL))
+                                            (#1#
+                                             (PROGN
+                                              (SETQ |k| (- (+ 1 |maxn|) |j|))
+                                              (COND
+                                               ((MEMQ (ELT |vec| |k|)
+                                                      |breakChars|)
+                                                (PROGN
+                                                 (SETQ |svec|
+                                                         (STRCONC
+                                                          (SUBSTRING |vec| 0
+                                                                     (+ |k| 1))
+                                                          UNDERBAR))
+                                                 (SETQ |lineList|
+                                                         (CONS |svec|
+                                                               |lineList|))
+                                                 (SETQ |done| T)
+                                                 (SETQ |vec|
+                                                         (SUBSTRING |vec|
+                                                                    (+ |k| 1)
+                                                                    NIL))
+                                                 (SETQ |n| (SIZE |vec|))))))))
+                                           (SETQ |j| (+ |j| 1))))
+                                        1)
+                                       (COND
+                                        ((NULL |done|) (SETQ |n| 0)))))))))
+                           (SETQ |lineList| (CONS |vec| |lineList|)))))
+                        (SETQ |bfVar#79| (CDR |bfVar#79|))))
+                     |vecl| NIL))))
+            (SETQ |i| (+ |i| 1))))
+         (- |$IOindex| 1) |initial|)
+        (SETQ |file| (|histInputFileName| |fn|))
+        (|maybe_delete_file| |file|)
+        (SETQ |inp| (MAKE_OUTSTREAM |file|))
+        ((LAMBDA (|bfVar#80| |x|)
+           (LOOP
+            (COND
+             ((OR (ATOM |bfVar#80|) (PROGN (SETQ |x| (CAR |bfVar#80|)) NIL))
+              (RETURN NIL))
+             (#1# (WRITE-LINE |x| |inp|)))
+            (SETQ |bfVar#80| (CDR |bfVar#80|))))
+         (|removeUndoLines| (NREVERSE |lineList|)) NIL)
+        (COND
+         ((NOT (EQ |fn| '|redo|))
+          (|say_msg| 'S2IH0014 "Edit %b %1 %d to see the saved input lines."
+           (LIST |file|))))
+        (SHUT |inp|)
+        NIL))))))
 
 ; resetInCoreHist() ==
 ;   -- removes all pointers from $HistList
@@ -3750,7 +3831,9 @@
 
 ; changeHistListLen(n) ==
 ;   -- changes the length of $HistList.  n must be nonnegative
-;   NULL INTEGERP n => sayKeyedMsg("S2IH0015",[n])
+;   not(INTEGERP(n)) or n < 0 => say_msg("S2IH0015", CONCAT(
+;       '"The argument %b n %d for %b )history )change n must be a nonnegative",
+;       '" integer and your argument, %1b , is not one."), [n])
 ;   dif:= n-$HistListLen
 ;   $HistListLen:= n
 ;   l := rest $HistList
@@ -3765,31 +3848,37 @@
 (DEFUN |changeHistListLen| (|n|)
   (PROG (|dif| |l|)
     (RETURN
-     (COND ((NULL (INTEGERP |n|)) (|sayKeyedMsg| 'S2IH0015 (LIST |n|)))
-           (#1='T
-            (PROGN
-             (SETQ |dif| (- |n| |$HistListLen|))
-             (SETQ |$HistListLen| |n|)
-             (SETQ |l| (CDR |$HistList|))
-             (COND
-              ((< 0 |dif|)
-               ((LAMBDA (|i|)
-                  (LOOP
-                   (COND ((> |i| |dif|) (RETURN NIL))
-                         (#1# (SETQ |l| (CONS NIL |l|))))
-                   (SETQ |i| (+ |i| 1))))
-                1)))
-             (COND
-              ((MINUSP |dif|)
-               ((LAMBDA (|bfVar#81| |i|)
-                  (LOOP
-                   (COND ((> |i| |bfVar#81|) (RETURN NIL))
-                         (#1# (SETQ |l| (CDR |l|))))
-                   (SETQ |i| (+ |i| 1))))
-                (- |dif|) 1)
-               (COND ((< |n| |$HistListAct|) (SETQ |$HistListAct| |n|)))))
-             (RPLACD |$HistList| |l|)
-             '|done|))))))
+     (COND
+      ((OR (NULL (INTEGERP |n|)) (MINUSP |n|))
+       (|say_msg| 'S2IH0015
+        (CONCAT
+         "The argument %b n %d for %b )history )change n must be a nonnegative"
+         " integer and your argument, %1b , is not one.")
+        (LIST |n|)))
+      (#1='T
+       (PROGN
+        (SETQ |dif| (- |n| |$HistListLen|))
+        (SETQ |$HistListLen| |n|)
+        (SETQ |l| (CDR |$HistList|))
+        (COND
+         ((< 0 |dif|)
+          ((LAMBDA (|i|)
+             (LOOP
+              (COND ((> |i| |dif|) (RETURN NIL))
+                    (#1# (SETQ |l| (CONS NIL |l|))))
+              (SETQ |i| (+ |i| 1))))
+           1)))
+        (COND
+         ((MINUSP |dif|)
+          ((LAMBDA (|bfVar#81| |i|)
+             (LOOP
+              (COND ((> |i| |bfVar#81|) (RETURN NIL))
+                    (#1# (SETQ |l| (CDR |l|))))
+              (SETQ |i| (+ |i| 1))))
+           (- |dif|) 1)
+          (COND ((< |n| |$HistListAct|) (SETQ |$HistListAct| |n|)))))
+        (RPLACD |$HistList| |l|)
+        '|done|))))))
 
 ; updateHist() ==
 ;   -- updates the history file and calls updateInCoreHist
@@ -3938,7 +4027,8 @@
 ;       vec := rest UNWIND_-PROTECT(readHiFi(n), disableHist())
 ;       val := (p := ASSQ('%, vec)) and (p1 := ASSQ('value, rest p)) and
 ;         rest p1
-;     sayKeyedMsg("S2IH0019",[n])
+;     say_msg("S2IH0019",
+;       '"There is no history file, so value of step %1b is undefined.", [n])
 ;   $InteractiveFrame:= putHist('%,'value,val,$InteractiveFrame)
 ;   updateHist()
 
@@ -3964,7 +4054,10 @@
               (SETQ |val|
                       (AND (SETQ |p| (ASSQ '% |vec|))
                            (SETQ |p1| (ASSQ '|value| (CDR |p|))) (CDR |p1|)))))
-            (#1# (|sayKeyedMsg| 'S2IH0019 (LIST |n|)))))
+            (#1#
+             (|say_msg| 'S2IH0019
+              "There is no history file, so value of step %1b is undefined."
+              (LIST |n|)))))
       (SETQ |$InteractiveFrame|
               (|putHist| '% '|value| |val| |$InteractiveFrame|))
       (|updateHist|)))))
@@ -4103,12 +4196,14 @@
       (|updateHist|)))))
 
 ; saveHistory(fn) ==
-;   not $HiFiAccess => sayKeyedMsg("S2IH0016",NIL)
+;   not $HiFiAccess => say_msg("S2IH0016",
+;       '"The history facility is not on, so no information can be saved.", NIL)
 ;   not $useInternalHistoryTable and
 ;       null(make_input_filename1(histFileName())) =>
-;           sayKeyedMsg("S2IH0022", nil)
-;   null fn =>
-;     throwKeyedMsg("S2IH0037", nil)
+;           say_msg("S2IH0022",
+;                   '"No history information had been saved yet.", nil)
+;   null fn => throw_msg("S2IH0037",
+;       '"You must specify a file name to the history save command.", nil)
 ;   fn := first(fn)
 ;   savefile := makeHistFileName(fn)
 ;   inputfile := histInputFileName(fn)
@@ -4120,71 +4215,88 @@
 ;       for [n,:rec] in reverse $internalHistoryTable repeat
 ;           val_u := SPADRWRITE0(saveStr, object2String2(n), rec)
 ;           first(val_u) = 1 => -- "failed"
-;               sayKeyedMsg("S2IH0035", [n, inputfile]) -- unable to save step
+;               say_msg("S2IH0035", CONCAT( _
+;     '"Can't save the value of step number %1b.  You can re-generate", _
+;     '" this value by running the input file %2b."), [n, inputfile])
 ;       kaf_close(saveStr)
-;   sayKeyedMsg("S2IH0018", [savefile])  -- saved hist file named
+;   say_msg("S2IH0018", '"The saved history file is %1b .", [savefile])
 ;   nil
 
 (DEFUN |saveHistory| (|fn|)
   (PROG (|savefile| |inputfile| |saveStr| |n| |rec| |val_u|)
     (RETURN
-     (COND ((NULL |$HiFiAccess|) (|sayKeyedMsg| 'S2IH0016 NIL))
-           ((AND (NULL |$useInternalHistoryTable|)
-                 (NULL (|make_input_filename1| (|histFileName|))))
-            (|sayKeyedMsg| 'S2IH0022 NIL))
-           ((NULL |fn|) (|throwKeyedMsg| 'S2IH0037 NIL))
-           (#1='T
-            (PROGN
-             (SETQ |fn| (CAR |fn|))
-             (SETQ |savefile| (|makeHistFileName| |fn|))
-             (SETQ |inputfile| (|histInputFileName| |fn|))
-             (|writeInputLines| |fn| 1)
-             (|histFileErase| |savefile|)
-             (COND
-              (|$useInternalHistoryTable|
-               (SETQ |saveStr| (|kaf_open| |savefile| T))
-               ((LAMBDA (|bfVar#90| |bfVar#89|)
-                  (LOOP
-                   (COND
-                    ((OR (ATOM |bfVar#90|)
-                         (PROGN (SETQ |bfVar#89| (CAR |bfVar#90|)) NIL))
-                     (RETURN NIL))
-                    (#1#
-                     (AND (CONSP |bfVar#89|)
-                          (PROGN
-                           (SETQ |n| (CAR |bfVar#89|))
-                           (SETQ |rec| (CDR |bfVar#89|))
-                           #1#)
-                          (PROGN
-                           (SETQ |val_u|
-                                   (SPADRWRITE0 |saveStr|
-                                    (|object2String2| |n|) |rec|))
-                           (COND
-                            ((EQL (CAR |val_u|) 1)
-                             (|sayKeyedMsg| 'S2IH0035
-                              (LIST |n| |inputfile|))))))))
-                   (SETQ |bfVar#90| (CDR |bfVar#90|))))
-                (REVERSE |$internalHistoryTable|) NIL)
-               (|kaf_close| |saveStr|)))
-             (|sayKeyedMsg| 'S2IH0018 (LIST |savefile|))
-             NIL))))))
+     (COND
+      ((NULL |$HiFiAccess|)
+       (|say_msg| 'S2IH0016
+        "The history facility is not on, so no information can be saved." NIL))
+      ((AND (NULL |$useInternalHistoryTable|)
+            (NULL (|make_input_filename1| (|histFileName|))))
+       (|say_msg| 'S2IH0022 "No history information had been saved yet." NIL))
+      ((NULL |fn|)
+       (|throw_msg| 'S2IH0037
+        "You must specify a file name to the history save command." NIL))
+      (#1='T
+       (PROGN
+        (SETQ |fn| (CAR |fn|))
+        (SETQ |savefile| (|makeHistFileName| |fn|))
+        (SETQ |inputfile| (|histInputFileName| |fn|))
+        (|writeInputLines| |fn| 1)
+        (|histFileErase| |savefile|)
+        (COND
+         (|$useInternalHistoryTable| (SETQ |saveStr| (|kaf_open| |savefile| T))
+          ((LAMBDA (|bfVar#90| |bfVar#89|)
+             (LOOP
+              (COND
+               ((OR (ATOM |bfVar#90|)
+                    (PROGN (SETQ |bfVar#89| (CAR |bfVar#90|)) NIL))
+                (RETURN NIL))
+               (#1#
+                (AND (CONSP |bfVar#89|)
+                     (PROGN
+                      (SETQ |n| (CAR |bfVar#89|))
+                      (SETQ |rec| (CDR |bfVar#89|))
+                      #1#)
+                     (PROGN
+                      (SETQ |val_u|
+                              (SPADRWRITE0 |saveStr| (|object2String2| |n|)
+                               |rec|))
+                      (COND
+                       ((EQL (CAR |val_u|) 1)
+                        (|say_msg| 'S2IH0035
+                         (CONCAT
+                          "Can't save the value of step number %1b.  You can re-generate"
+                          " this value by running the input file %2b.")
+                         (LIST |n| |inputfile|))))))))
+              (SETQ |bfVar#90| (CDR |bfVar#90|))))
+           (REVERSE |$internalHistoryTable|) NIL)
+          (|kaf_close| |saveStr|)))
+        (|say_msg| 'S2IH0018 "The saved history file is %1b ."
+         (LIST |savefile|))
+        NIL))))))
 
 ; restoreHistory(fn) ==
 ;   -- uses fn $historyFileType to recover an old session
 ;   -- if fn = NIL, then use $oldHistoryFileName
 ;   if null fn then fn' := $oldHistoryFileName
-;   else if fn is [fn'] and IDENTP(fn') then fn' := fn'
-;        else throwKeyedMsg("S2IH0023",[fn'])
+;   else if fn is [fn'] and IDENTP(fn') then
+;       fn' := fn'
+;   else
+;       throw_msg("S2IH0023",
+;                 '"%1b is not a valid filename for the history file.", [fn'])
 ;   restfile := makeHistFileName(fn')
 ;   null(make_input_filename1(restfile)) =>
-;     sayKeyedMsg("S2IH0024",[restfile]) -- no history file
+;       say_msg("S2IH0024", CONCAT(
+;         '"History information cannot be restored from %1b because the",
+;         '" file does not exist."), [restfile])
 ;
 ;   -- if clear is changed to be undoable, this should be a reset-clear
 ;   $options: local := nil
 ;   clearSpad2Cmd '(all)
 ;   oldInternal := $useInternalHistoryTable
 ;   restoreHistory2(oldInternal, restfile, fn')
-;   sayKeyedMsg("S2IH0025", [restfile])
+;   say_msg("S2IH0025", CONCAT(
+;           '"The workspace has been successfully restored from the history",
+;           '" file %1b ."), [restfile])
 ;   clear_sorted_caches()
 ;   nil
 
@@ -4197,18 +4309,28 @@
             ((AND (CONSP |fn|) (EQ (CDR |fn|) NIL)
                   (PROGN (SETQ |fn'| (CAR |fn|)) #1='T) (IDENTP |fn'|))
              (SETQ |fn'| |fn'|))
-            (#1# (|throwKeyedMsg| 'S2IH0023 (LIST |fn'|))))
+            (#1#
+             (|throw_msg| 'S2IH0023
+              "%1b is not a valid filename for the history file."
+              (LIST |fn'|))))
       (SETQ |restfile| (|makeHistFileName| |fn'|))
       (COND
        ((NULL (|make_input_filename1| |restfile|))
-        (|sayKeyedMsg| 'S2IH0024 (LIST |restfile|)))
+        (|say_msg| 'S2IH0024
+         (CONCAT "History information cannot be restored from %1b because the"
+                 " file does not exist.")
+         (LIST |restfile|)))
        (#1#
         (PROGN
          (SETQ |$options| NIL)
          (|clearSpad2Cmd| '(|all|))
          (SETQ |oldInternal| |$useInternalHistoryTable|)
          (|restoreHistory2| |oldInternal| |restfile| |fn'|)
-         (|sayKeyedMsg| 'S2IH0025 (LIST |restfile|))
+         (|say_msg| 'S2IH0025
+          (CONCAT
+           "The workspace has been successfully restored from the history"
+           " file %1b .")
+          (LIST |restfile|))
          (|clear_sorted_caches|)
          NIL)))))))
 
@@ -4331,7 +4453,9 @@
 ;   $printTimeSum: local:= 0
 ;   -- ugh!!! these are needed for timedEvaluateStream
 ;   -- displays the last n steps, default n=20
-;   not $HiFiAccess => sayKeyedMsg("S2IH0026",['show])
+;   not $HiFiAccess => say_msg("S2IH0026", CONCAT(
+;       '"The history facility command %1b cannot be performed because the",
+;       '"history facility is not on."), ['show])
 ;   showInputOrBoth := 'input
 ;   n := 20
 ;   nset := nil
@@ -4363,41 +4487,46 @@
      (PROGN
       (SETQ |$evalTimePrint| 0)
       (SETQ |$printTimeSum| 0)
-      (COND ((NULL |$HiFiAccess|) (|sayKeyedMsg| 'S2IH0026 (LIST '|show|)))
-            (#1='T
+      (COND
+       ((NULL |$HiFiAccess|)
+        (|say_msg| 'S2IH0026
+         (CONCAT
+          "The history facility command %1b cannot be performed because the"
+          "history facility is not on.")
+         (LIST '|show|)))
+       (#1='T
+        (PROGN
+         (SETQ |showInputOrBoth| '|input|)
+         (SETQ |n| 20)
+         (SETQ |nset| NIL)
+         (COND
+          (|arg| (SETQ |arg1| (CAR |arg|))
+           (COND
+            ((INTEGERP |arg1|) (SETQ |n| |arg1|) (SETQ |nset| T)
+             (COND ((IFCDR |arg|) (SETQ |arg1| (CADR |arg|)))
+                   (#1# (SETQ |arg1| NIL)))))
+           (COND
+            (|arg1|
              (PROGN
-              (SETQ |showInputOrBoth| '|input|)
-              (SETQ |n| 20)
-              (SETQ |nset| NIL)
+              (SETQ |arg2| (|selectOptionLC| |arg1| '(|input| |both|) NIL))
               (COND
-               (|arg| (SETQ |arg1| (CAR |arg|))
+               (|arg2|
                 (COND
-                 ((INTEGERP |arg1|) (SETQ |n| |arg1|) (SETQ |nset| T)
-                  (COND ((IFCDR |arg|) (SETQ |arg1| (CADR |arg|)))
-                        (#1# (SETQ |arg1| NIL)))))
-                (COND
-                 (|arg1|
-                  (PROGN
-                   (SETQ |arg2|
-                           (|selectOptionLC| |arg1| '(|input| |both|) NIL))
-                   (COND
-                    (|arg2|
-                     (COND
-                      ((AND (EQ (SETQ |showInputOrBoth| |arg2|) '|both|)
-                            (NULL |nset|))
-                       (IDENTITY (SETQ |n| 5)))))
-                    (#1#
-                     (|sayMSG|
-                      (|concat| "  " (|bright| |arg1|)
-                       "is an invalid argument.")))))))))
-              (COND ((NOT (< |n| |$IOindex|)) (SETQ |n| (- |$IOindex| 1))))
-              (SETQ |mini| (- |$IOindex| |n|))
-              (SETQ |maxi| (- |$IOindex| 1))
-              (COND
-               ((EQ |showInputOrBoth| '|both|)
-                (UNWIND-PROTECT (|showInOut| |mini| |maxi|)
-                  (|setIOindex| (+ |maxi| 1))))
-               (#1# (|showInput| |mini| |maxi|))))))))))
+                 ((AND (EQ (SETQ |showInputOrBoth| |arg2|) '|both|)
+                       (NULL |nset|))
+                  (IDENTITY (SETQ |n| 5)))))
+               (#1#
+                (|sayMSG|
+                 (|concat| "  " (|bright| |arg1|)
+                  "is an invalid argument.")))))))))
+         (COND ((NOT (< |n| |$IOindex|)) (SETQ |n| (- |$IOindex| 1))))
+         (SETQ |mini| (- |$IOindex| |n|))
+         (SETQ |maxi| (- |$IOindex| 1))
+         (COND
+          ((EQ |showInputOrBoth| '|both|)
+           (UNWIND-PROTECT (|showInOut| |mini| |maxi|)
+             (|setIOindex| (+ |maxi| 1))))
+          (#1# (|showInput| |mini| |maxi|))))))))))
 
 ; setIOindex(n) ==
 ;   -- set $IOindex to n
@@ -4485,14 +4614,18 @@
 ;     n:=
 ;       n < 0 => $IOindex+n
 ;       n
-;     n >= $IOindex => throwKeyedMsg("S2IH0001",[n])
-;     n < 1        => throwKeyedMsg("S2IH0002",[n])
+;     n >= $IOindex => throw_msg("S2IH0001", CONCAT(
+;         '"You have not reached step %1b yet, and so its value cannot be",
+;         '" supplied."), [n])
+;     n < 1 => throw_msg("S2IH0002",
+;         '"Cannot supply value for step %1b because 1 is the first step.", [n])
 ;     vec:= UNWIND_-PROTECT(readHiFi(n),disableHist())
 ;     Alist := ASSQ('%, rest vec) =>
-;       val := rest ASSQ('value, rest Alist) => val
-;       throwKeyedMsg("S2IH0003",[n])
-;     throwKeyedMsg("S2IH0003",[n])
-;   throwKeyedMsg("S2IH0004",NIL)
+;         val := rest ASSQ('value, rest Alist) => val
+;         throw_msg("S2IH0003", '"Step %1b has no value.", [n])
+;     throw_msg("S2IH0003", '"Step %1b has no value.", [n])
+;   throw_msg("S2IH0004",
+;      '"The history facility is not on, so you cannot use %b %% %d .", NIL)
 
 (DEFUN |fetchOutput| (|n|)
   (PROG (|val| |vec| |Alist|)
@@ -4502,8 +4635,16 @@
             (PROGN
              (SETQ |n| (COND ((MINUSP |n|) (+ |$IOindex| |n|)) (#1='T |n|)))
              (COND
-              ((NOT (< |n| |$IOindex|)) (|throwKeyedMsg| 'S2IH0001 (LIST |n|)))
-              ((< |n| 1) (|throwKeyedMsg| 'S2IH0002 (LIST |n|)))
+              ((NOT (< |n| |$IOindex|))
+               (|throw_msg| 'S2IH0001
+                (CONCAT
+                 "You have not reached step %1b yet, and so its value cannot be"
+                 " supplied.")
+                (LIST |n|)))
+              ((< |n| 1)
+               (|throw_msg| 'S2IH0002
+                "Cannot supply value for step %1b because 1 is the first step."
+                (LIST |n|)))
               (#1#
                (PROGN
                 (SETQ |vec| (UNWIND-PROTECT (|readHiFi| |n|) (|disableHist|)))
@@ -4511,16 +4652,24 @@
                  ((SETQ |Alist| (ASSQ '% (CDR |vec|)))
                   (COND
                    ((SETQ |val| (CDR (ASSQ '|value| (CDR |Alist|)))) |val|)
-                   (#1# (|throwKeyedMsg| 'S2IH0003 (LIST |n|)))))
-                 (#1# (|throwKeyedMsg| 'S2IH0003 (LIST |n|)))))))))
-           (#1# (|throwKeyedMsg| 'S2IH0004 NIL))))))
+                   (#1#
+                    (|throw_msg| 'S2IH0003 "Step %1b has no value."
+                     (LIST |n|)))))
+                 (#1#
+                  (|throw_msg| 'S2IH0003 "Step %1b has no value."
+                   (LIST |n|)))))))))
+           (#1#
+            (|throw_msg| 'S2IH0004
+             "The history facility is not on, so you cannot use %b %% %d ."
+             NIL))))))
 
 ; readHiFi(n) ==
 ;   -- reads the file using index n
 ;   if $useInternalHistoryTable
 ;   then
 ;     pair := assoc(n,$internalHistoryTable)
-;     ATOM pair => keyedSystemError("S2IH0034",NIL)
+;     ATOM(pair) => system_error("S2IH0034",
+;           '"Missing element in internal history table.", NIL)
 ;     vec := QCDR pair
 ;   else
 ;     HiFi:= kaf_open(histFileName(), false)
@@ -4535,8 +4684,11 @@
       (COND
        (|$useInternalHistoryTable|
         (SETQ |pair| (|assoc| |n| |$internalHistoryTable|))
-        (COND ((ATOM |pair|) (|keyedSystemError| 'S2IH0034 NIL))
-              (#1='T (SETQ |vec| (QCDR |pair|)))))
+        (COND
+         ((ATOM |pair|)
+          (|system_error| 'S2IH0034
+           "Missing element in internal history table." NIL))
+         (#1='T (SETQ |vec| (QCDR |pair|)))))
        (#1# (SETQ |HiFi| (|kaf_open| (|histFileName|) NIL))
         (SETQ |vec| (SPADRREAD |HiFi| (|object2String2| |n|)))
         (|kaf_close| |HiFi|)))
@@ -4801,11 +4953,20 @@
 (DEFUN |load| (|args|) (PROG () (RETURN (|loadSpad2Cmd| |args|))))
 
 ; loadSpad2Cmd args ==
-;     sayKeyedMsg("S2IU0003", nil)
-;     NIL
+;     say_msg("S2IU0003", CONCAT(
+;         '"The %b )load %d system command is obsolete. Please use the %b",
+;         '" )library %d command instead."), [])
+;     nil
 
 (DEFUN |loadSpad2Cmd| (|args|)
-  (PROG () (RETURN (PROGN (|sayKeyedMsg| 'S2IU0003 NIL) NIL))))
+  (PROG ()
+    (RETURN
+     (PROGN
+      (|say_msg| 'S2IU0003
+       (CONCAT "The %b )load %d system command is obsolete. Please use the %b"
+               " )library %d command instead.")
+       NIL)
+      NIL))))
 
 ; reportCount () ==
 ;   centerAndHighlight('" Current Count Settings ",$LINELENGTH,specialChar 'hbar)
@@ -6598,7 +6759,9 @@
 ;   ops =>
 ;     sayMessage '"Operations whose names satisfy the above pattern(s):"
 ;     sayAsManyPerLineAsPossible MSORT ops
-;     sayKeyedMsg("S2IF0011",[first ops])
+;     say_msg("S2IF0011", CONCAT(
+;        '"%l To get more information about an operation such as %1b, issue",
+;        '" the command %b )display op %1 %d"), [first(ops)])
 ;   sayMessage '"   There are no operations containing those patterns"
 ;   NIL
 
@@ -6628,7 +6791,11 @@
         (PROGN
          (|sayMessage| "Operations whose names satisfy the above pattern(s):")
          (|sayAsManyPerLineAsPossible| (MSORT |ops|))
-         (|sayKeyedMsg| 'S2IF0011 (LIST (CAR |ops|)))))
+         (|say_msg| 'S2IF0011
+          (CONCAT
+           "%l To get more information about an operation such as %1b, issue"
+           " the command %b )display op %1 %d")
+          (LIST (CAR |ops|)))))
        (#1#
         (PROGN
          (|sayMessage| "   There are no operations containing those patterns")

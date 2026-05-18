@@ -706,7 +706,8 @@
 ;   argVal := getArgValue(node, newRootMode)
 ;   argVal and not $genValue => objNew(argVal, newRootMode)
 ;   argVal and (val:=getValue node) => interpret2(val,newRootMode,posnForm)
-;   keyedSystemError("S2IS0053",[x])
+;   system_error("S2IS0053",
+;       '"Interpreter code generation failed for expression %1s", [x])
 
 (DEFUN |interpret1| (|x| |rootMode| |posnForm|)
   (PROG (|node| |modeSet| |newRootMode| |argVal| |val|)
@@ -722,7 +723,10 @@
        ((AND |argVal| (NULL |$genValue|)) (|objNew| |argVal| |newRootMode|))
        ((AND |argVal| (SETQ |val| (|getValue| |node|)))
         (|interpret2| |val| |newRootMode| |posnForm|))
-       (#1# (|keyedSystemError| 'S2IS0053 (LIST |x|))))))))
+       (#1#
+        (|system_error| 'S2IS0053
+         "Interpreter code generation failed for expression %1s"
+         (LIST |x|))))))))
 
 ; interpret2(object,m1,posnForm) ==
 ;   x := objVal object

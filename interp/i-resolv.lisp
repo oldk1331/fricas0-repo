@@ -26,7 +26,7 @@
 ;       a := resolveTT(md,a)
 ;       null a => return nil
 ;     a
-;   throwKeyedMsg("S2IR0002",NIL)
+;   throw_msg("S2IR0002", '"FriCAS cannot handle %b [ ] %d here.", [])
 
 (DEFUN |resolveTypeList| (|u|)
   (PROG (|a| |tail| |ISTMP#1| |v| |allVars|)
@@ -80,7 +80,8 @@
                (SETQ |bfVar#2| (CDR |bfVar#2|))))
             |tail| NIL)
            |a|)))))
-      (#1# (|throwKeyedMsg| 'S2IR0002 NIL))))))
+      (#1#
+       (|throw_msg| 'S2IR0002 "FriCAS cannot handle %b [ ] %d here." NIL))))))
 
 ; resolveTypeListAny tl ==
 ;   rt := resolveTypeList tl
@@ -1514,12 +1515,22 @@
            (#1# NIL)))))
 
 ; resolveTMOrCroak(t,m) ==
-;   resolveTM(t,m) or throwKeyedMsg("S2IR0004",[t,m])
+;     resolveTM(t, m) or throw_msg("S2IR0004", CONCAT(
+;         '"FriCAS is confused by what you input.  It cannot resolve the",
+;         '" type %1bp with the partial type %2bp .",
+;         '" Please make sure you have used the correct syntax."),
+;         [t, m])
 
 (DEFUN |resolveTMOrCroak| (|t| |m|)
   (PROG ()
     (RETURN
-     (OR (|resolveTM| |t| |m|) (|throwKeyedMsg| 'S2IR0004 (LIST |t| |m|))))))
+     (OR (|resolveTM| |t| |m|)
+         (|throw_msg| 'S2IR0004
+          (CONCAT
+           "FriCAS is confused by what you input.  It cannot resolve the"
+           " type %1bp with the partial type %2bp ."
+           " Please make sure you have used the correct syntax.")
+          (LIST |t| |m|))))))
 
 ; resolveTM(t,m) ==
 ;   -- resolves a type with a mode which may be partially specified

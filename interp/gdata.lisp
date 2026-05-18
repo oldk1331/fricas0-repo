@@ -1565,6 +1565,17 @@
           (SETQ |bfVar#22| (CDR |bfVar#22|))))
        (|get_database| |con| 'MODEMAPS) NIL)))))
 
+; say_load_msg(cname, object) ==
+;     say_msg("S2IU0001",
+;             '"%1 will be automatically loaded when needed from %2",
+;             [cname, object])
+
+(DEFUN |say_load_msg| (|cname| |object|)
+  (PROG ()
+    (RETURN
+     (|say_msg| 'S2IU0001 "%1 will be automatically loaded when needed from %2"
+      (LIST |cname| |object|)))))
+
 ; merge_info_from_asy(asy, object, only, make_database?, expose,
 ;                     noquiet) ==
 ;     SET_-FILE_-GETTER(object)
@@ -1616,7 +1627,7 @@
 ;                 set_asharp_autoload_functor(object, cname, asharp_name,
 ;                                             dbstruct.$cosig_ind)
 ;             if noquiet then
-;                 sayKeyedMsg("S2IU0001", [cname, object])
+;                 say_load_msg(cname, object)
 
 (DEFUN |merge_info_from_asy|
        (|asy| |object| |only| |make_database?| |expose| |noquiet|)
@@ -1701,9 +1712,7 @@
                   (#1#
                    (|set_asharp_autoload_functor| |object| |cname|
                     |asharp_name| (ELT |dbstruct| |$cosig_ind|))))
-                 (COND
-                  (|noquiet|
-                   (|sayKeyedMsg| 'S2IU0001 (LIST |cname| |object|)))))))))))
+                 (COND (|noquiet| (|say_load_msg| |cname| |object|))))))))))
           (SETQ |bfVar#23| (CDR |bfVar#23|))))
        |asy| NIL)))))
 
@@ -1741,7 +1750,7 @@
 ;     if expose then setExposeAddConstr2([key], noquiet)
 ;     spad_set_autoload(key)
 ;     if noquiet then
-;         sayKeyedMsg('S2IU0001, [key, object])
+;         say_load_msg(key, object)
 
 (DEFUN |merge_info_from_nrlib1|
        (|in_f| |key| |object| |make_database?| |expose| |noquiet|)
@@ -1780,7 +1789,7 @@
       (REMPROP |key| 'LOADED)
       (COND (|expose| (|setExposeAddConstr2| (LIST |key|) |noquiet|)))
       (|spad_set_autoload| |key|)
-      (COND (|noquiet| (|sayKeyedMsg| 'S2IU0001 (LIST |key| |object|))))))))
+      (COND (|noquiet| (|say_load_msg| |key| |object|)))))))
 
 ; merge_info_from_nrlib(key, nrlib, object, make_database?, expose,
 ;                       noquiet) ==
