@@ -2083,6 +2083,7 @@
 ; isOpInDomain(opName,dom,nargs) ==
 ;   -- returns true only if there is an op in the given domain with
 ;   -- the given number of arguments
+;   STRINGP(dom) => false
 ;   mmList := ASSQ(opName, getOperationAlistFromLisplib first dom)
 ;   mmList := subCopy(mmList,constructSubst dom)
 ;   null mmList => NIL
@@ -2095,28 +2096,33 @@
 (DEFUN |isOpInDomain| (|opName| |dom| |nargs|)
   (PROG (|mmList| |gotOne|)
     (RETURN
-     (PROGN
-      (SETQ |mmList|
-              (ASSQ |opName| (|getOperationAlistFromLisplib| (CAR |dom|))))
-      (SETQ |mmList| (|subCopy| |mmList| (|constructSubst| |dom|)))
-      (COND ((NULL |mmList|) NIL)
-            (#1='T
-             (PROGN
-              (SETQ |gotOne| NIL)
-              (SETQ |nargs| (+ |nargs| 1))
-              ((LAMBDA (|bfVar#42| |mm|)
-                 (LOOP
-                  (COND
-                   ((OR (ATOM |bfVar#42|)
-                        (PROGN (SETQ |mm| (CAR |bfVar#42|)) NIL) |gotOne|)
-                    (RETURN NIL))
+     (COND ((STRINGP |dom|) NIL)
+           (#1='T
+            (PROGN
+             (SETQ |mmList|
+                     (ASSQ |opName|
+                      (|getOperationAlistFromLisplib| (CAR |dom|))))
+             (SETQ |mmList| (|subCopy| |mmList| (|constructSubst| |dom|)))
+             (COND ((NULL |mmList|) NIL)
                    (#1#
-                    (COND
-                     ((EQL |nargs| (LENGTH (CAR |mm|)))
-                      (IDENTITY (SETQ |gotOne| (CONS |mm| |gotOne|)))))))
-                  (SETQ |bfVar#42| (CDR |bfVar#42|))))
-               (CDR |mmList|) NIL)
-              |gotOne|)))))))
+                    (PROGN
+                     (SETQ |gotOne| NIL)
+                     (SETQ |nargs| (+ |nargs| 1))
+                     ((LAMBDA (|bfVar#42| |mm|)
+                        (LOOP
+                         (COND
+                          ((OR (ATOM |bfVar#42|)
+                               (PROGN (SETQ |mm| (CAR |bfVar#42|)) NIL)
+                               |gotOne|)
+                           (RETURN NIL))
+                          (#1#
+                           (COND
+                            ((EQL |nargs| (LENGTH (CAR |mm|)))
+                             (IDENTITY
+                              (SETQ |gotOne| (CONS |mm| |gotOne|)))))))
+                         (SETQ |bfVar#42| (CDR |bfVar#42|))))
+                      (CDR |mmList|) NIL)
+                     |gotOne|)))))))))
 
 ; findCommonSigInDomain(opName,dom,nargs) ==
 ;   -- this looks at all signatures in dom with given opName and nargs
@@ -2189,8 +2195,10 @@
 
 ; findUniqueOpInDomain(op,opName,dom) ==
 ;   -- return function named op in domain dom if unique, choose one if not
-;   mmList := ASSQ(opName, getOperationAlistFromLisplib first dom)
-;   mmList := subCopy(mmList,constructSubst dom)
+;   mmList :=
+;         STRINGP(dom) => nil
+;         l1 := ASSQ(opName, getOperationAlistFromLisplib(first(dom)))
+;         subCopy(l1, constructSubst(dom))
 ;   null mmList => throw_msg("S2IS0021",
 ;         '"There is no operation named %1b in the domain or package %2bp .",
 ;         [opName, dom])
@@ -2223,18 +2231,23 @@
 ;   putModeSet(op,[m])
 
 (DEFUN |findUniqueOpInDomain| (|op| |opName| |dom|)
-  (PROG (|mmList| |target| |mm| |sig| |slot| |fun| |binVal| |m|)
+  (PROG (|l1| |mmList| |target| |mm| |sig| |slot| |fun| |binVal| |m|)
     (RETURN
      (PROGN
       (SETQ |mmList|
-              (ASSQ |opName| (|getOperationAlistFromLisplib| (CAR |dom|))))
-      (SETQ |mmList| (|subCopy| |mmList| (|constructSubst| |dom|)))
+              (COND ((STRINGP |dom|) NIL)
+                    (#1='T
+                     (PROGN
+                      (SETQ |l1|
+                              (ASSQ |opName|
+                               (|getOperationAlistFromLisplib| (CAR |dom|))))
+                      (|subCopy| |l1| (|constructSubst| |dom|))))))
       (COND
        ((NULL |mmList|)
         (|throw_msg| 'S2IS0021
          "There is no operation named %1b in the domain or package %2bp ."
          (LIST |opName| |dom|)))
-       (#1='T
+       (#1#
         (PROGN
          (SETQ |mmList| (CDR |mmList|))
          (COND
@@ -2375,6 +2388,7 @@
 ;   --   in the domain of computation dc
 ;   -- tar may be NIL (= unknown)
 ;   null isLegitimateMode(tar, nil, nil) => nil
+;   STRINGP(dc) => nil
 ;   dcName := first dc
 ;   member(dcName,'(Union Record Mapping Enumeration)) =>
 ;     -- First cut code that ignores args2, $Coerce and $SubDom
@@ -2425,7 +2439,7 @@
   (DECLARE (SPECIAL |$Coerce| |$SubDom|))
   (PROG (|dcName| |fun| |p| SL |q| |r|)
     (RETURN
-     (COND ((NULL (|isLegitimateMode| |tar| NIL NIL)) NIL)
+     (COND ((NULL (|isLegitimateMode| |tar| NIL NIL)) NIL) ((STRINGP |dc|) NIL)
            (#1='T
             (PROGN
              (SETQ |dcName| (CAR |dc|))

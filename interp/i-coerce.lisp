@@ -790,6 +790,7 @@
                       (COND ((EQUAL |u| |u'|) |object'|) (#1# NIL))))))))))))
 
 ; constantInDomain?(form,domainForm) ==
+;     STRINGP(domainForm) => false
 ;     opAlist := getOperationAlistFromLisplib first domainForm
 ;     key := opOf form
 ;     entryList := LASSOC(key,opAlist)
@@ -800,34 +801,40 @@
   (PROG (|opAlist| |key| |entryList| |ISTMP#1| |ISTMP#2| |ISTMP#3| |ISTMP#4|
          |type|)
     (RETURN
-     (PROGN
-      (SETQ |opAlist| (|getOperationAlistFromLisplib| (CAR |domainForm|)))
-      (SETQ |key| (|opOf| |form|))
-      (SETQ |entryList| (LASSOC |key| |opAlist|))
-      (COND
-       ((AND (CONSP |entryList|) (EQ (CDR |entryList|) NIL)
-             (PROGN
-              (SETQ |ISTMP#1| (CAR |entryList|))
-              (AND (CONSP |ISTMP#1|)
-                   (PROGN
-                    (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                    (AND (CONSP |ISTMP#2|)
-                         (PROGN
-                          (SETQ |ISTMP#3| (CDR |ISTMP#2|))
-                          (AND (CONSP |ISTMP#3|)
-                               (PROGN
-                                (SETQ |ISTMP#4| (CDR |ISTMP#3|))
-                                (AND (CONSP |ISTMP#4|) (EQ (CDR |ISTMP#4|) NIL)
-                                     (PROGN
-                                      (SETQ |type| (CAR |ISTMP#4|))
-                                      #1='T)))))))))
-             (|member| |type| '(CONST ASCONST)))
-        T)
-       (#1# NIL))))))
+     (COND ((STRINGP |domainForm|) NIL)
+           (#1='T
+            (PROGN
+             (SETQ |opAlist|
+                     (|getOperationAlistFromLisplib| (CAR |domainForm|)))
+             (SETQ |key| (|opOf| |form|))
+             (SETQ |entryList| (LASSOC |key| |opAlist|))
+             (COND
+              ((AND (CONSP |entryList|) (EQ (CDR |entryList|) NIL)
+                    (PROGN
+                     (SETQ |ISTMP#1| (CAR |entryList|))
+                     (AND (CONSP |ISTMP#1|)
+                          (PROGN
+                           (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                           (AND (CONSP |ISTMP#2|)
+                                (PROGN
+                                 (SETQ |ISTMP#3| (CDR |ISTMP#2|))
+                                 (AND (CONSP |ISTMP#3|)
+                                      (PROGN
+                                       (SETQ |ISTMP#4| (CDR |ISTMP#3|))
+                                       (AND (CONSP |ISTMP#4|)
+                                            (EQ (CDR |ISTMP#4|) NIL)
+                                            (PROGN
+                                             (SETQ |type| (CAR |ISTMP#4|))
+                                             #1#)))))))))
+                    (|member| |type| '(CONST ASCONST)))
+               T)
+              (#1# NIL))))))))
 
 ; getConstantFromDomain1(form,domainForm) ==
 ;     isPartialMode domainForm => NIL
-;     opAlist := getOperationAlistFromLisplib first domainForm
+;     opAlist :=
+;         STRINGP(domainForm) => nil
+;         getOperationAlistFromLisplib(first(domainForm))
 ;     key := opOf form
 ;     entryList := LASSOC(key,opAlist)
 ;     entryList isnt [[sig, ., ., .]] =>
@@ -845,7 +852,10 @@
            (#1='T
             (PROGN
              (SETQ |opAlist|
-                     (|getOperationAlistFromLisplib| (CAR |domainForm|)))
+                     (COND ((STRINGP |domainForm|) NIL)
+                           (#1#
+                            (|getOperationAlistFromLisplib|
+                             (CAR |domainForm|)))))
              (SETQ |key| (|opOf| |form|))
              (SETQ |entryList| (LASSOC |key| |opAlist|))
              (COND
