@@ -5409,7 +5409,7 @@
 617826`\spad{modifyPoint(s, ind, p)} modifies the point referenced by the index location, \spad{ind}, by replacing it with the point, \spad{p} in the 3 dimensional subspace, \spad{s}. An error message occurs if \spad{s} is empty, otherwise the subspace \spad{s} is returned with the point modification.
 617901`\spad{modifyPointData(v, ind, pt)} takes the viewport, \spad{v}, which is of the domain \spadtype{ThreeDimensionalViewport}, and places the data point, \spad{pt} into the list of points database of \spad{v} at the index location given by \spad{ind}.
 618004`\spad{modifyPointData(s, i, p)} changes the point at the indexed location \spad{i} in the \spadtype{ThreeSpace}, \spad{s}, to that of point \spad{p}. This is useful for making changes to a point which has been transformed.
-618091`\spad{modpeval(pol, lv, lpt, p)} evaluates polynomial \spad{pol} in variables from \spad{lv} at points from \spad{lpt} modulo a prime \spad{p}.
+618091`\spad{modpeval(pol, lv, lpt, p)} evaluates polynomial \spad{pol} in variables from \spad{lv} at point from \spad{lpt} modulo a prime \spad{p}
 618210`\spad{modpreduction(r, p)} reduces a rational function \spad{r} modulo prime \spad{p}.
 618385`\spad{modpreduction(p, q)} reduces all coefficients of \spad{p} modulo \spad{q}.
 618479`\spad{modpreduction(pol, p)} reduces polynomial \spad{pol} modulo prime \spad{p}.
@@ -7335,9 +7335,9 @@
 831996`\spad{scripts(f, l)} where \spad{l} is \spad{[sub, super, presuper, presub]} creates a form for \spad{f} with scripts on all 4 corners. If \spad{l} has less than 4 elements corresponding scripts are absent.
 832045`\spad{se2rfi(l)} converts \spad{l} to target domain
 832155`\spad{search(k, t)} searches the table \spad{t} for the key \spad{k}, returning the entry stored in \spad{t} for key \spad{k}. If \spad{t} has no such key, \spad{search(k,t)} returns "failed".
-832235`\spad{search_constructors(n, t)} searches for constructors with name matching \spad{n}. \spad{t} may be \spad{k} (meaning all constructors), \spad{c}, \spad{d} or \spad{p} meaning only categories, domains or packages are returned.
+832235`\spad{search_constructors(n, t)} searches for constructors with name matching \spad{n}. \spad{t} may be \spad{k} (meaning all constructors), \spad{c}, \spad{d} or \spad{p} (meaning only categories, domains or packages are returned).
 832403`\spad{search_documentation(n)} searches for constructors and operations with documentation string matching \spad{n}.
-832718`\spad{search_general(n)} searches constructors and operations with name matching \spad{n}.
+832718`\spad{search_general(n)} searches for constructors and operations with name matching \spad{n}.
 833027`\spad{search_operations(n)} searches for operations with name matching \spad{n}.
 833239`\spad{search_operations_libdb(n)} searches for all operations with name matching \spad{n} using old code. This operation is present only to check compatibility with old code and will be removed in the future.
 833457`\spad{search_opl(n, ol)} gives list of operations from ol with names matching \spad{n}.
