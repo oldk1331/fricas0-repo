@@ -20,6 +20,9 @@
 ;   for [name,class,:ab] in listofnames repeat
 ;     n := statsVec.(GET(name, 'index))
 ;     classStats.class := classStats.class + n
+;     -- GC time should be counted into total time,
+;     -- but space recycled by GC should not be counted into total space
+;     name = 'gc and property = 'SpaceTotal => 'iterate
 ;     total := total + n
 ;     name = 'other or flag ~= 'long => 'iterate
 ;     if significantStat? n then
@@ -30,11 +33,16 @@
 ;     str := makeStatString(str, otherStatTotal + insignificantStat, 'other, flag)
 ;   else
 ;     for [class,name,:ab] in listofclasses repeat
+;       name = 'reclaim and property = 'SpaceTotal => 'iterate
 ;       n := classStats.class
 ;       str := makeStatString(str, n, ab, flag)
 ;   total := STRCONC(normalizeStatAndStringify total,'" ", units)
-;   str = '"" =>  total
-;   STRCONC(str, '" = ", total)
+;   if str ~= '"" then total := STRCONC(str, '" = ", total)
+;   if property = 'SpaceTotal then
+;         n := statsVec.(GET('gc, 'index))
+;         if n ~= 0 then
+;             total := STRCONC(total, FORMAT(nil, '" (~:d bytes recycled)", n))
+;   total
 
 (DEFUN |makeLongStatStringByProperty|
        (|listofnames| |listofclasses| |property| |units| |flag|)
@@ -70,17 +78,23 @@
                   (SETQ |n| (ELT |statsVec| (GET |name| '|index|)))
                   (SETF (ELT |classStats| |class|)
                           (+ (ELT |classStats| |class|) |n|))
-                  (SETQ |total| (+ |total| |n|))
                   (COND
-                   ((OR (EQ |name| '|other|) (NOT (EQ |flag| '|long|)))
+                   ((AND (EQ |name| '|gc|) (EQ |property| '|SpaceTotal|))
                     '|iterate|)
                    (#1#
-                    (COND
-                     ((|significantStat?| |n|)
-                      (SETQ |str| (|makeStatString| |str| |n| |name| |flag|)))
-                     (#1#
-                      (SETQ |insignificantStat|
-                              (+ |insignificantStat| |n|))))))))))
+                    (PROGN
+                     (SETQ |total| (+ |total| |n|))
+                     (COND
+                      ((OR (EQ |name| '|other|) (NOT (EQ |flag| '|long|)))
+                       '|iterate|)
+                      (#1#
+                       (COND
+                        ((|significantStat?| |n|)
+                         (SETQ |str|
+                                 (|makeStatString| |str| |n| |name| |flag|)))
+                        (#1#
+                         (SETQ |insignificantStat|
+                                 (+ |insignificantStat| |n|)))))))))))))
           (SETQ |bfVar#2| (CDR |bfVar#2|))))
        |listofnames| NIL)
       (COND
@@ -105,14 +119,29 @@
                           (SETQ |name| (CAR |ISTMP#1|))
                           (SETQ |ab| (CDR |ISTMP#1|))
                           #1#)))
-                   (PROGN
-                    (SETQ |n| (ELT |classStats| |class|))
-                    (SETQ |str| (|makeStatString| |str| |n| |ab| |flag|))))))
+                   (COND
+                    ((AND (EQ |name| '|reclaim|) (EQ |property| '|SpaceTotal|))
+                     '|iterate|)
+                    (#1#
+                     (PROGN
+                      (SETQ |n| (ELT |classStats| |class|))
+                      (SETQ |str|
+                              (|makeStatString| |str| |n| |ab| |flag|))))))))
             (SETQ |bfVar#4| (CDR |bfVar#4|))))
          |listofclasses| NIL)))
       (SETQ |total|
               (STRCONC (|normalizeStatAndStringify| |total|) " " |units|))
-      (COND ((EQUAL |str| "") |total|) (#1# (STRCONC |str| " = " |total|)))))))
+      (COND
+       ((NOT (EQUAL |str| "")) (SETQ |total| (STRCONC |str| " = " |total|))))
+      (COND
+       ((EQ |property| '|SpaceTotal|)
+        (SETQ |n| (ELT |statsVec| (GET '|gc| '|index|)))
+        (COND
+         ((NOT (EQL |n| 0))
+          (SETQ |total|
+                  (STRCONC |total|
+                   (FORMAT NIL " (~:d bytes recycled)" |n|)))))))
+      |total|))))
 
 ; normalizeStatAndStringify t ==
 ;   FLOATP t =>
@@ -293,7 +322,7 @@
 ;   $timedNameStack := '(other)
 ;   len := # $interpreterTimedNames
 ;   $statsInfo := VECTOR(MAKEARR1(len, 0), MAKEARR1(len, 0), get_run_time(), _
-;                        elapsedGcTime(), HEAPELAPSED())
+;                        elapsedGcTime(), HEAPELAPSED(), current_heap_size())
 ;   NIL
 
 (DEFUN |initializeTimedStack| ()
@@ -304,16 +333,18 @@
       (SETQ |len| (LENGTH |$interpreterTimedNames|))
       (SETQ |$statsInfo|
               (VECTOR (MAKEARR1 |len| 0) (MAKEARR1 |len| 0) (|get_run_time|)
-                      (|elapsedGcTime|) (HEAPELAPSED)))
+                      (|elapsedGcTime|) (HEAPELAPSED) (|current_heap_size|)))
       NIL))))
 
 ; updateTimedName name ==
 ;   oldTime := $statsInfo.2
 ;   oldGCTime := $statsInfo.3
 ;   oldSpace := $statsInfo.4
+;   oldHeap := $statsInfo.5
 ;   newTime := $statsInfo.2 := get_run_time()
 ;   newGCTime := $statsInfo.3 := elapsedGcTime()
 ;   newSpace := $statsInfo.4 := HEAPELAPSED()
+;   newHeap := $statsInfo.5 := current_heap_size()
 ;
 ;   i := GET(name, 'index)
 ;   timeVec := $statsInfo.0
@@ -323,18 +354,21 @@
 ;   i2 := GET('gc, 'index)
 ;   timeVec.i2 := timeVec.i2 + gcDelta * $inverseTimerTicksPerSecond
 ;   spaceVec.i := spaceVec.i + newSpace - oldSpace
+;   spaceVec.i2 := spaceVec.i2 + newSpace - newHeap - (oldSpace - oldHeap)
 
 (DEFUN |updateTimedName| (|name|)
-  (PROG (|oldTime| |oldGCTime| |oldSpace| |newTime| |newGCTime| |newSpace| |i|
-         |timeVec| |spaceVec| |gcDelta| |i2|)
+  (PROG (|oldTime| |oldGCTime| |oldSpace| |oldHeap| |newTime| |newGCTime|
+         |newSpace| |newHeap| |i| |timeVec| |spaceVec| |gcDelta| |i2|)
     (RETURN
      (PROGN
       (SETQ |oldTime| (ELT |$statsInfo| 2))
       (SETQ |oldGCTime| (ELT |$statsInfo| 3))
       (SETQ |oldSpace| (ELT |$statsInfo| 4))
+      (SETQ |oldHeap| (ELT |$statsInfo| 5))
       (SETQ |newTime| (SETF (ELT |$statsInfo| 2) (|get_run_time|)))
       (SETQ |newGCTime| (SETF (ELT |$statsInfo| 3) (|elapsedGcTime|)))
       (SETQ |newSpace| (SETF (ELT |$statsInfo| 4) (HEAPELAPSED)))
+      (SETQ |newHeap| (SETF (ELT |$statsInfo| 5) (|current_heap_size|)))
       (SETQ |i| (GET |name| '|index|))
       (SETQ |timeVec| (ELT |$statsInfo| 0))
       (SETQ |spaceVec| (ELT |$statsInfo| 1))
@@ -348,7 +382,10 @@
               (+ (ELT |timeVec| |i2|)
                  (* |gcDelta| |$inverseTimerTicksPerSecond|)))
       (SETF (ELT |spaceVec| |i|)
-              (- (+ (ELT |spaceVec| |i|) |newSpace|) |oldSpace|))))))
+              (- (+ (ELT |spaceVec| |i|) |newSpace|) |oldSpace|))
+      (SETF (ELT |spaceVec| |i2|)
+              (- (- (+ (ELT |spaceVec| |i2|) |newSpace|) |newHeap|)
+                 (- |oldSpace| |oldHeap|)))))))
 
 ; makeLongTimeString(listofnames,listofclasses) ==
 ;   makeLongStatStringByProperty(listofnames, listofclasses,  _
