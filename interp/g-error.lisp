@@ -186,7 +186,7 @@
 ;         '%l,'"   Please enter your choice now:"]
 ;       x := STRING2ID_N(queryUser(msgQ), 1)
 ;       x :=
-;         selectOptionLC(x,'(top break continue),NIL)
+;         selectOption(x, '(top break continue), nil)
 ;       null x =>
 ;         sayBrightly bright '"  That was not one of your choices!"
 ;         gotIt := NIL
@@ -262,7 +262,7 @@
                                                                             NIL))))))))))))))))))
                      (SETQ |x| (STRING2ID_N (|queryUser| |msgQ|) 1))
                      (SETQ |x|
-                             (|selectOptionLC| |x| '(|top| |break| |continue|)
+                             (|selectOption| |x| '(|top| |break| |continue|)
                               NIL))
                      (COND
                       ((NULL |x|)

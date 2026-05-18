@@ -142,7 +142,7 @@
 ; systemCommand [[op,:argl],:options] ==
 ;   $options: local:= options
 ;   $e:local := $CategoryFrame
-;   fun := selectOptionLC(op,$SYSCOMMANDS,'commandError)
+;   fun := selectOption(op, $SYSCOMMANDS, 'commandError)
 ;   argl and (argl.0 = '_?) and fun ~= 'synonym =>
 ;     helpSpad2Cmd [fun]
 ;   fun := selectOption(fun,commandsForUserLevel $systemCommands,
@@ -159,7 +159,7 @@
       (SETQ |options| (CDR |bfVar#3|))
       (SETQ |$options| |options|)
       (SETQ |$e| |$CategoryFrame|)
-      (SETQ |fun| (|selectOptionLC| |op| $SYSCOMMANDS '|commandError|))
+      (SETQ |fun| (|selectOption| |op| $SYSCOMMANDS '|commandError|))
       (COND
        ((AND |argl| (EQ (ELT |argl| 0) '?) (NOT (EQ |fun| '|synonym|)))
         (|helpSpad2Cmd| (LIST |fun|)))
@@ -207,8 +207,8 @@
 ;   nl := NIL
 ;   for syn in reverse l repeat
 ;     cmd := STRING2ID_N(rest(syn), 1)
-;     null selectOptionLC(cmd,commandsForUserLevel
-;       $systemCommands,NIL) => nil
+;     null(selectOption(cmd, commandsForUserLevel($systemCommands), nil)) =>
+;         nil
 ;     nl := [syn,:nl]
 ;   nl
 
@@ -230,7 +230,7 @@
                     (SETQ |cmd| (STRING2ID_N (CDR |syn|) 1))
                     (COND
                      ((NULL
-                       (|selectOptionLC| |cmd|
+                       (|selectOption| |cmd|
                         (|commandsForUserLevel| |$systemCommands|) NIL))
                       NIL)
                      (#1# (SETQ |nl| (CONS |syn| |nl|)))))))
@@ -253,7 +253,7 @@
            ('T T)))))
 
 ; unAbbreviateKeyword x ==
-;   x' :=selectOptionLC(x,$SYSCOMMANDS,'commandErrorIfAmbiguous)
+;   x' := selectOption(x, $SYSCOMMANDS, 'commandErrorIfAmbiguous)
 ;   if not x' then
 ;     x' := 'system
 ;     SETQ(LINE, CONCAT('")system ", SUBSTRING(LINE, 1, #LINE-1)))
@@ -265,8 +265,7 @@
   (PROG (|x'|)
     (RETURN
      (PROGN
-      (SETQ |x'|
-              (|selectOptionLC| |x| $SYSCOMMANDS '|commandErrorIfAmbiguous|))
+      (SETQ |x'| (|selectOption| |x| $SYSCOMMANDS '|commandErrorIfAmbiguous|))
       (COND
        ((NULL |x'|) (SETQ |x'| '|system|)
         (SETQ LINE (CONCAT ")system " (SUBSTRING LINE 1 (- (LENGTH LINE) 1))))
@@ -301,16 +300,8 @@
        |al| NIL)
       |found|))))
 
-; selectOptionLC(x,l,errorFunction) ==
-;   selectOption(DOWNCASE object2Identifier x,l,errorFunction)
-
-(DEFUN |selectOptionLC| (|x| |l| |errorFunction|)
-  (PROG ()
-    (RETURN
-     (|selectOption| (DOWNCASE (|object2Identifier| |x|)) |l|
-      |errorFunction|))))
-
-; selectOption(x,l,errorFunction) ==
+; selectOption(x, l, errorFunction) ==
+;   x := object2Identifier(x)
 ;   member(x,l) => x                   --exact spellings are always OK
 ;   null IDENTP x =>
 ;     errorFunction => FUNCALL(errorFunction,x,u)
@@ -323,30 +314,32 @@
 (DEFUN |selectOption| (|x| |l| |errorFunction|)
   (PROG (|u| |y|)
     (RETURN
-     (COND ((|member| |x| |l|) |x|)
-           ((NULL (IDENTP |x|))
-            (COND (|errorFunction| (FUNCALL |errorFunction| |x| |u|))
-                  (#1='T NIL)))
-           (#1#
-            (PROGN
-             (SETQ |u|
-                     ((LAMBDA (|bfVar#9| |bfVar#8| |y|)
-                        (LOOP
-                         (COND
-                          ((OR (ATOM |bfVar#8|)
-                               (PROGN (SETQ |y| (CAR |bfVar#8|)) NIL))
-                           (RETURN (NREVERSE |bfVar#9|)))
-                          (#1#
-                           (AND (|stringPrefix?| (PNAME |x|) (PNAME |y|))
-                                (SETQ |bfVar#9| (CONS |y| |bfVar#9|)))))
-                         (SETQ |bfVar#8| (CDR |bfVar#8|))))
-                      NIL |l| NIL))
-             (COND
-              ((AND (CONSP |u|) (EQ (CDR |u|) NIL)
-                    (PROGN (SETQ |y| (CAR |u|)) #1#))
-               |y|)
-              (|errorFunction| (FUNCALL |errorFunction| |x| |u|))
-              (#1# NIL))))))))
+     (PROGN
+      (SETQ |x| (|object2Identifier| |x|))
+      (COND ((|member| |x| |l|) |x|)
+            ((NULL (IDENTP |x|))
+             (COND (|errorFunction| (FUNCALL |errorFunction| |x| |u|))
+                   (#1='T NIL)))
+            (#1#
+             (PROGN
+              (SETQ |u|
+                      ((LAMBDA (|bfVar#9| |bfVar#8| |y|)
+                         (LOOP
+                          (COND
+                           ((OR (ATOM |bfVar#8|)
+                                (PROGN (SETQ |y| (CAR |bfVar#8|)) NIL))
+                            (RETURN (NREVERSE |bfVar#9|)))
+                           (#1#
+                            (AND (|stringPrefix?| (PNAME |x|) (PNAME |y|))
+                                 (SETQ |bfVar#9| (CONS |y| |bfVar#9|)))))
+                          (SETQ |bfVar#8| (CDR |bfVar#8|))))
+                       NIL |l| NIL))
+              (COND
+               ((AND (CONSP |u|) (EQ (CDR |u|) NIL)
+                     (PROGN (SETQ |y| (CAR |u|)) #1#))
+                |y|)
+               (|errorFunction| (FUNCALL |errorFunction| |x| |u|))
+               (#1# NIL)))))))))
 
 ; terminateSystemCommand() ==
 ;     FRESH_-LINE()
@@ -473,12 +466,12 @@
 ;
 ;   quiet := nil
 ;   for [opt] in $options repeat
-;     opt := selectOptionLC(opt,'(quiet),'optionError)
+;     opt := selectOption(opt, '(quiet), 'optionError)
 ;     opt = 'quiet => quiet := true
 ;
 ;   l is [opt,:al] =>
 ;     key := opOf first al
-;     type := selectOptionLC(opt,abopts,'optionError)
+;     type := selectOption(opt, abopts, 'optionError)
 ;     type is 'query =>
 ;       null al => listConstructorAbbreviations()
 ;       constructor := abbreviation?(key) => abbQuery(constructor)
@@ -520,7 +513,7 @@
                         (PROGN (SETQ |opt| (CAR |bfVar#11|)) #1#)
                         (PROGN
                          (SETQ |opt|
-                                 (|selectOptionLC| |opt| '(|quiet|)
+                                 (|selectOption| |opt| '(|quiet|)
                                   '|optionError|))
                          (COND ((EQ |opt| '|quiet|) (SETQ |quiet| T)))))))
                  (SETQ |bfVar#12| (CDR |bfVar#12|))))
@@ -530,7 +523,7 @@
                     (PROGN (SETQ |opt| (CAR |l|)) (SETQ |al| (CDR |l|)) #1#))
                (PROGN
                 (SETQ |key| (|opOf| (CAR |al|)))
-                (SETQ |type| (|selectOptionLC| |opt| |abopts| '|optionError|))
+                (SETQ |type| (|selectOption| |opt| |abopts| '|optionError|))
                 (COND
                  ((EQ |type| '|query|)
                   (COND ((NULL |al|) (|listConstructorAbbreviations|))
@@ -659,12 +652,12 @@
 ;   -- new version which changes the environment and updates history
 ;   $clearExcept: local := nil
 ;   if $options then $clearExcept :=
-;     "and"/[selectOptionLC(opt,'(except),'optionError) =
+;     "and"/[selectOption(opt, '(except), 'optionError) =
 ;              'except for [opt,:.] in $options]
 ;   null l =>
 ;     optList:= "append"/[['%l,'"       ",x] for x in $clearOptions]
 ;     say_clear_msg([optList])
-;   arg := selectOptionLC(first l,'(all completely scaches),NIL)
+;   arg := selectOption(first(l), '(all completely scaches), nil)
 ;   arg = 'all          => clearCmdAll()
 ;   arg = 'completely   => clearCmdCompletely()
 ;   arg = 'scaches      => clear_sorted_caches()
@@ -693,7 +686,7 @@
                            (PROGN
                             (SETQ |bfVar#15|
                                     (EQ
-                                     (|selectOptionLC| |opt| '(|except|)
+                                     (|selectOption| |opt| '(|except|)
                                       '|optionError|)
                                      '|except|))
                             (COND ((NOT |bfVar#15|) (RETURN NIL)))))))
@@ -719,7 +712,7 @@
        (#1#
         (PROGN
          (SETQ |arg|
-                 (|selectOptionLC| (CAR |l|) '(|all| |completely| |scaches|)
+                 (|selectOption| (CAR |l|) '(|all| |completely| |scaches|)
                   NIL))
          (COND ((EQ |arg| '|all|) (|clearCmdAll|))
                ((EQ |arg| '|completely|) (|clearCmdCompletely|))
@@ -840,7 +833,7 @@
 ; clearCmdParts(l is [opt,:vl]) ==
 ;   -- clears the bindings indicated by opt of all variables in vl
 ;
-;   option:= selectOptionLC(opt,$clearOptions,'optionError)
+;   option:= selectOption(opt, $clearOptions, 'optionError)
 ;   option:= INTERN PNAME option
 ;
 ;   -- the option can be plural but the key in the alist is sometimes
@@ -893,7 +886,7 @@
      (PROGN
       (SETQ |opt| (CAR |l|))
       (SETQ |vl| (CDR |l|))
-      (SETQ |option| (|selectOptionLC| |opt| |$clearOptions| '|optionError|))
+      (SETQ |option| (|selectOption| |opt| |$clearOptions| '|optionError|))
       (SETQ |option| (INTERN (PNAME |option|)))
       (SETQ |option|
               (COND ((EQ |option| '|types|) '|mode|)
@@ -993,7 +986,7 @@
 ;     sockSendInt($SessionManager, $currentFrameNum)
 ;     closeInterpreterFrame(NIL)
 ;   for [opt,:.] in $options repeat
-;     fullopt := selectOptionLC(opt, '(quiet), 'optionError)
+;     fullopt := selectOption(opt, '(quiet), 'optionError)
 ;     fullopt = 'quiet   =>
 ;            quiet:=true
 ;   quiet =>
@@ -1037,7 +1030,7 @@
                        (PROGN (SETQ |opt| (CAR |bfVar#21|)) #1#)
                        (PROGN
                         (SETQ |fullopt|
-                                (|selectOptionLC| |opt| '(|quiet|)
+                                (|selectOption| |opt| '(|quiet|)
                                  '|optionError|))
                         (COND ((EQ |fullopt| '|quiet|) (SETQ |quiet| T)))))))
                 (SETQ |bfVar#22| (CDR |bfVar#22|))))
@@ -1084,7 +1077,7 @@
 ;     haveOld := nil
 ;     for opt in $options while not (haveNew and haveOld) repeat
 ;         [optname,:optargs] := opt
-;         fullopt := selectOptionLC(optname,optlist,nil)
+;         fullopt := selectOption(optname, optlist, nil)
 ;         fullopt = 'new => haveNew := true
 ;         fullopt = 'constructor => haveOld := true
 ;         fullopt = 'old => haveOld := true
@@ -1157,7 +1150,7 @@
               (PROGN
                (SETQ |optname| (CAR |opt|))
                (SETQ |optargs| (CDR |opt|))
-               (SETQ |fullopt| (|selectOptionLC| |optname| |optlist| NIL))
+               (SETQ |fullopt| (|selectOption| |optname| |optlist| NIL))
                (COND ((EQ |fullopt| '|new|) (SETQ |haveNew| T))
                      ((EQ |fullopt| '|constructor|) (SETQ |haveOld| T))
                      ((EQ |fullopt| '|old|) (SETQ |haveOld| T))))))
@@ -1336,7 +1329,7 @@
 ;
 ;     for opt in $options repeat
 ;         [optname,:optargs] := opt
-;         fullopt := selectOptionLC(optname,optList,nil)
+;         fullopt := selectOption(optname, optList, nil)
 ;
 ;         fullopt = 'new       => nil
 ;         fullopt = 'old  => error '"Internal error: compileAsharpCmd got )old"
@@ -1429,7 +1422,7 @@
                (PROGN
                 (SETQ |optname| (CAR |opt|))
                 (SETQ |optargs| (CDR |opt|))
-                (SETQ |fullopt| (|selectOptionLC| |optname| |optList| NIL))
+                (SETQ |fullopt| (|selectOption| |optname| |optList| NIL))
                 (COND ((EQ |fullopt| '|new|) NIL)
                       ((EQ |fullopt| '|old|)
                        (|error| "Internal error: compileAsharpCmd got )old"))
@@ -1661,7 +1654,7 @@
 ;
 ;     for opt in $options repeat
 ;         [optname,:optargs] := opt
-;         fullopt := selectOptionLC(optname,optList,nil)
+;         fullopt := selectOption(optname, optList, nil)
 ;
 ;         fullopt = 'quiet     => beQuiet := true
 ;         fullopt = 'noquiet   => beQuiet := false
@@ -1695,7 +1688,7 @@
             (PROGN
              (SETQ |optname| (CAR |opt|))
              (SETQ |optargs| (CDR |opt|))
-             (SETQ |fullopt| (|selectOptionLC| |optname| |optList| NIL))
+             (SETQ |fullopt| (|selectOption| |optname| |optList| NIL))
              (COND ((EQ |fullopt| '|quiet|) (SETQ |beQuiet| T))
                    ((EQ |fullopt| '|noquiet|) (SETQ |beQuiet| NIL))
                    ((EQ |fullopt| '|library|) (SETQ |doLibrary| T))
@@ -1731,7 +1724,7 @@
 ;
 ;     for opt in $options repeat
 ;         [optname,:optargs] := opt
-;         fullopt := selectOptionLC(optname,optList,nil)
+;         fullopt := selectOption(optname, optList, nil)
 ;
 ;         fullopt = 'quiet     => beQuiet := true
 ;         fullopt = 'noquiet   => beQuiet := false
@@ -1769,7 +1762,7 @@
             (PROGN
              (SETQ |optname| (CAR |opt|))
              (SETQ |optargs| (CDR |opt|))
-             (SETQ |fullopt| (|selectOptionLC| |optname| |optList| NIL))
+             (SETQ |fullopt| (|selectOption| |optname| |optList| NIL))
              (COND ((EQ |fullopt| '|quiet|) (SETQ |beQuiet| T))
                    ((EQ |fullopt| '|noquiet|) (SETQ |beQuiet| NIL))
                    ((EQ |fullopt| '|library|) (SETQ |doLibrary| T))
@@ -1847,7 +1840,7 @@
 ; displaySpad2Cmd l ==
 ;   $e: local := $EmptyEnvironment
 ;   l is [opt,:vl] and opt ~= "?" =>
-;     option := selectOptionLC(opt,$displayOptions,'optionError) =>
+;     option := selectOption(opt, $displayOptions, 'optionError) =>
 ;
 ;       -- the option may be given in the plural but the property in
 ;       -- the alist is sometimes singular
@@ -1891,7 +1884,7 @@
              (NOT (EQ |opt| '?)))
         (COND
          ((SETQ |option|
-                  (|selectOptionLC| |opt| |$displayOptions| '|optionError|))
+                  (|selectOption| |opt| |$displayOptions| '|optionError|))
           (IDENTITY
            (PROGN
             (SETQ |option|
@@ -2870,7 +2863,7 @@
 ;   if sarg = '"?" then args := ['nullargs]
 ;   else if sarg = '"%" then args := ['history]
 ;        else if sarg = '"%%" then args := ['history]
-;   arg := selectOptionLC(first args,$SYSCOMMANDS,nil)
+;   arg := selectOption(first(args(, $SYSCOMMANDS, nil)
 ;   if null arg then arg := first args
 ;
 ;   -- see if new help file exists
@@ -2885,30 +2878,6 @@
 ;   print_text_file helpFile
 ;   true
 
-(DEFUN |newHelpSpad2Cmd| (|args|)
-  (PROG (|sarg| |arg| |narg| |helpFile|)
-    (RETURN
-     (PROGN
-      (COND ((NULL |args|) (SETQ |args| (LIST '?))))
-      (COND
-       ((< 1 (LENGTH |args|))
-        (PROGN
-         (|say_msg| 'S2IZ0026
-          "The %b )help %d system command supports at most one argument." NIL)
-         T))
-       (#1='T
-        (PROGN
-         (SETQ |sarg| (PNAME (CAR |args|)))
-         (COND ((EQUAL |sarg| "?") (SETQ |args| (LIST '|nullargs|)))
-               ((EQUAL |sarg| "%") (SETQ |args| (LIST '|history|)))
-               ((EQUAL |sarg| "%%") (SETQ |args| (LIST '|history|))))
-         (SETQ |arg| (|selectOptionLC| (CAR |args|) $SYSCOMMANDS NIL))
-         (COND ((NULL |arg|) (SETQ |arg| (CAR |args|))))
-         (SETQ |narg| (PNAME |arg|))
-         (COND
-          ((NULL (SETQ |helpFile| (|make_input_filename2| |narg| "help"))) NIL)
-          (|$useFullScreenHelp| (PROGN (|editFile| |helpFile|) T))
-          (#1# (PROGN (|print_text_file| |helpFile|) T))))))))))
 
 ; $frameRecord  := nil  --Initial setting for frame record
 
@@ -2982,7 +2951,7 @@
 ;   $options => throw_msg("S2IZ0016",
 ;         '"The )frame system command takes arguments but no options.", [])
 ;   null(args) => helpSpad2Cmd ['frame]
-;   arg  := selectOptionLC(first args,frameArgs,'optionError)
+;   arg  := selectOption(first(args), frameArgs, 'optionError)
 ;   args := rest args
 ;   if args is [a] then args := a
 ;   if ATOM args then args := object2Identifier args
@@ -3010,8 +2979,7 @@
        ((NULL |args|) (|helpSpad2Cmd| (LIST '|frame|)))
        (#1='T
         (PROGN
-         (SETQ |arg|
-                 (|selectOptionLC| (CAR |args|) |frameArgs| '|optionError|))
+         (SETQ |arg| (|selectOption| (CAR |args|) |frameArgs| '|optionError|))
          (SETQ |args| (CDR |args|))
          (COND
           ((AND (CONSP |args|) (EQ (CDR |args|) NIL)
@@ -3713,7 +3681,7 @@
 ;   -- and changeHistListLen, and restore last session
 ;   histOptions:=
 ;     '(on off yes no change reset restore write save show file memory)
-;   opts:= [ [selectOptionLC(opt,histOptions,'optionError),:optargs]
+;   opts := [[selectOption(opt, histOptions, 'optionError), :optargs]
 ;     for [opt,:optargs] in $options]
 ;   for [opt,:optargs] in opts repeat
 ;     opt in '(on yes) =>
@@ -3774,7 +3742,7 @@
                          (SETQ |bfVar#73|
                                  (CONS
                                   (CONS
-                                   (|selectOptionLC| |opt| |histOptions|
+                                   (|selectOption| |opt| |histOptions|
                                     '|optionError|)
                                    |optargs|)
                                   |bfVar#73|)))))
@@ -4769,7 +4737,7 @@
 ;       IFCDR arg => arg1 := CADR arg
 ;       arg1 := NIL
 ;     arg1 =>
-;       arg2 := selectOptionLC(arg1,'(input both),nil)
+;       arg2 := selectOption(arg1, '(input both), nil)
 ;       if arg2
 ;         then ((showInputOrBoth := arg2) = 'both) and (null nset) => n:= 5
 ;         else sayMSG
@@ -4810,7 +4778,7 @@
            (COND
             (|arg1|
              (PROGN
-              (SETQ |arg2| (|selectOptionLC| |arg1| '(|input| |both|) NIL))
+              (SETQ |arg2| (|selectOption| |arg1| '(|input| |both|) NIL))
               (COND
                (|arg2|
                 (COND
@@ -5348,7 +5316,7 @@
 ;   quiet := nil
 ;   ifthere := nil
 ;   for [opt,:.] in $options repeat
-;     fullopt := selectOptionLC(opt,'(quiet test ifthere),'optionError)
+;     fullopt := selectOption(opt, '(quiet test ifthere), 'optionError)
 ;     fullopt = 'ifthere => ifthere  := true
 ;     fullopt = 'quiet   => quiet := true
 ;
@@ -5368,10 +5336,9 @@
 ;     ifthere => return nil    -- be quiet about it
 ;     throw_msg("S2IL0003", '"The file %1b is needed but does not exist.", [l])
 ;   ft := file_extention(ll)
-;   downft := DOWNCASE(ft)
-;   not(member(downft, fileTypes)) =>
+;   not(member(ft, fileTypes)) =>
 ;       fs := l
-;       member(downft, devFTs) => throw_msg("S2IZ0033", CONCAT(
+;       member(ft, devFTs) => throw_msg("S2IZ0033", CONCAT(
 ;             '"You cannot %b )read %d the file %1b because your user-level",
 ;             '" is not high enough.  For more information about your",
 ;             '" user-level, issue %b )set userlevel %d ."), [fs])
@@ -5383,8 +5350,8 @@
 ;   do_read(ll, quiet, $nopiles)
 
 (DEFUN |readSpad2Cmd| (|l|)
-  (PROG (|$InteractiveMode| |fs| |downft| |ft| |ll| |fileTypes| |devFTs| |ef|
-         |fullopt| |opt| |ifthere| |quiet|)
+  (PROG (|$InteractiveMode| |fs| |ft| |ll| |fileTypes| |devFTs| |ef| |fullopt|
+         |opt| |ifthere| |quiet|)
     (DECLARE (SPECIAL |$InteractiveMode|))
     (RETURN
      (PROGN
@@ -5401,7 +5368,7 @@
             (AND (CONSP |bfVar#100|) (PROGN (SETQ |opt| (CAR |bfVar#100|)) #1#)
                  (PROGN
                   (SETQ |fullopt|
-                          (|selectOptionLC| |opt| '(|quiet| |test| |ifthere|)
+                          (|selectOption| |opt| '(|quiet| |test| |ifthere|)
                            '|optionError|))
                   (COND ((EQ |fullopt| '|ifthere|) (SETQ |ifthere| T))
                         ((EQ |fullopt| '|quiet|) (SETQ |quiet| T)))))))
@@ -5432,13 +5399,12 @@
                         "The file %1b is needed but does not exist."
                         (LIST |l|))))))
               (SETQ |ft| (|file_extention| |ll|))
-              (SETQ |downft| (DOWNCASE |ft|))
               (COND
-               ((NULL (|member| |downft| |fileTypes|))
+               ((NULL (|member| |ft| |fileTypes|))
                 (PROGN
                  (SETQ |fs| |l|)
                  (COND
-                  ((|member| |downft| |devFTs|)
+                  ((|member| |ft| |devFTs|)
                    (|throw_msg| 'S2IZ0033
                     (CONCAT
                      "You cannot %b )read %d the file %1b because your user-level"
@@ -6001,7 +5967,7 @@
 ;       '"exposed in this frame."]
 ;
 ;   for [opt] in $options repeat
-;       opt := selectOptionLC(opt, $showOptions, 'optionError)
+;       opt := selectOption(opt, $showOptions, 'optionError)
 ;       not(opt = 'operations) => "iterate"
 ;       if isRecordOrUnion then
 ;           constructorFunction := get_oplist_maker(top) or
@@ -6064,8 +6030,7 @@
                  (PROGN (SETQ |opt| (CAR |bfVar#105|)) #1#)
                  (PROGN
                   (SETQ |opt|
-                          (|selectOptionLC| |opt| |$showOptions|
-                           '|optionError|))
+                          (|selectOption| |opt| |$showOptions| '|optionError|))
                   (COND ((NULL (EQ |opt| '|operations|)) '|iterate|)
                         (#1#
                          (PROGN
@@ -6188,7 +6153,7 @@
 ;     '"exposed in this frame."]
 ;
 ;   for [opt] in $options repeat
-;     opt := selectOptionLC(opt,$showOptions,'optionError)
+;     opt := selectOption(opt, $showOptions, 'optionError)
 ;     opt = 'operations => displayOperationsFromLisplib functorForm
 ;     nil
 
@@ -6257,7 +6222,7 @@
                       (PROGN (SETQ |opt| (CAR |bfVar#117|)) #1#)
                       (PROGN
                        (SETQ |opt|
-                               (|selectOptionLC| |opt| |$showOptions|
+                               (|selectOption| |opt| |$showOptions|
                                 '|optionError|))
                        (COND
                         ((EQ |opt| '|operations|)
@@ -7045,7 +7010,7 @@
 ;   $e:local := $EmptyEnvironment
 ;   null l => reportWhatOptions()
 ;   [key0,:args] := l
-;   key := selectOptionLC(key0,$whatOptions,nil)
+;   key := selectOption(key0, $whatOptions, nil)
 ;   null key => say_msg("S2IZ0043", CONCAT(
 ;         '"Your argument is not valid for the %b )what %d system command.",
 ;         '"  %l %l Use the %b )show %d system command to display the",
@@ -7053,10 +7018,7 @@
 ;         '" %d system command to see information about an operation.  These",
 ;         '" may be abbreviated to %b )sh %d and %b )d op %d , respectively."),
 ;         [])
-;   args := [fixpat p for p in args] where
-;     fixpat x ==
-;       x is [x',:.] => DOWNCASE x'
-;       DOWNCASE x
+;   args := [DOWNCASE(p) for p in args]
 ;   key = 'things =>
 ;     for opt in $whatOptions repeat
 ;       not MEMQ(opt,'(things)) => whatSpad2Cmd [opt,:args]
@@ -7084,7 +7046,7 @@
              (PROGN
               (SETQ |key0| (CAR |l|))
               (SETQ |args| (CDR |l|))
-              (SETQ |key| (|selectOptionLC| |key0| |$whatOptions| NIL))
+              (SETQ |key| (|selectOption| |key0| |$whatOptions| NIL))
               (COND
                ((NULL |key|)
                 (|say_msg| 'S2IZ0043
@@ -7106,8 +7068,7 @@
                                (RETURN (NREVERSE |bfVar#146|)))
                               (#1#
                                (SETQ |bfVar#146|
-                                       (CONS (|whatSpad2Cmd,fixpat| |p|)
-                                             |bfVar#146|))))
+                                       (CONS (DOWNCASE |p|) |bfVar#146|))))
                              (SETQ |bfVar#145| (CDR |bfVar#145|))))
                           NIL |args| NIL))
                  (COND
@@ -7135,12 +7096,6 @@
                    (|filterAndFormatConstructors| '|package| "Packages"
                     |args|))
                   ((EQ |key| '|synonyms|) (|printSynonyms| |args|)))))))))))))
-(DEFUN |whatSpad2Cmd,fixpat| (|x|)
-  (PROG (|x'|)
-    (RETURN
-     (COND
-      ((AND (CONSP |x|) (PROGN (SETQ |x'| (CAR |x|)) #1='T)) (DOWNCASE |x'|))
-      (#1# (DOWNCASE |x|))))))
 
 ; filterAndFormatConstructors(constrType,label,patterns) ==
 ;   centerAndHighlight(label,$LINELENGTH,specialChar 'hbar)

@@ -5205,7 +5205,7 @@
 ;
 ;     for opt in $options repeat
 ;         [optname,:optargs] := opt
-;         fullopt := selectOptionLC(optname,optList,nil)
+;         fullopt := selectOption(optname, optList, nil)
 ;
 ;         fullopt = 'new         => error '"Internal error: compileSpad2Cmd got )new"
 ;         fullopt = 'old         => NIL     -- no opt
@@ -5263,7 +5263,7 @@
                (PROGN
                 (SETQ |optname| (CAR |opt|))
                 (SETQ |optargs| (CDR |opt|))
-                (SETQ |fullopt| (|selectOptionLC| |optname| |optList| NIL))
+                (SETQ |fullopt| (|selectOption| |optname| |optList| NIL))
                 (COND
                  ((EQ |fullopt| '|new|)
                   (|error| "Internal error: compileSpad2Cmd got )new"))

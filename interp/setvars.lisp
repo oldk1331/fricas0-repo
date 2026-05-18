@@ -111,7 +111,7 @@
 ; set1(l,setTree) ==
 ;   null l => displaySetVariableSettings(setTree,"")
 ;   setOptionNames := [x.0 for x in setTree]
-;   arg := selectOption(DOWNCASE first l, setOptionNames, 'optionError)
+;   arg := selectOption(first(l), setOptionNames, 'optionError)
 ;   setData := [arg,:LASSOC(arg,setTree)]
 ;
 ;   -- check is the user is authorized for the set variable
@@ -199,7 +199,7 @@
                          (SETQ |bfVar#2| (CDR |bfVar#2|))))
                       NIL |setTree| NIL))
              (SETQ |arg|
-                     (|selectOption| (DOWNCASE (CAR |l|)) |setOptionNames|
+                     (|selectOption| (CAR |l|) |setOptionNames|
                       '|optionError|))
              (SETQ |setData| (CONS |arg| (LASSOC |arg| |setTree|)))
              (COND
@@ -715,7 +715,7 @@
 ;             '" or %x3 %b )set expose drop %d %ceoff for more information."),
 ;             ['"exposed"])
 ;
-;   arg is [fn,:fnargs] and (fn := selectOptionLC(fn,
+;   arg is [fn,:fnargs] and (fn := selectOption(fn,
 ;     '(add drop initialize),NIL)) =>
 ;       fn = 'add  =>  setExposeAdd fnargs
 ;       fn = 'drop =>  setExposeDrop fnargs
@@ -752,7 +752,7 @@
                   (SETQ |fnargs| (CDR |arg|))
                   #1='T)
                  (SETQ |fn|
-                         (|selectOptionLC| |fn| '(|add| |drop| |initialize|)
+                         (|selectOption| |fn| '(|add| |drop| |initialize|)
                           NIL)))
             (COND ((EQ |fn| '|add|) (|setExposeAdd| |fnargs|))
                   ((EQ |fn| '|drop|) (|setExposeDrop| |fnargs|))
@@ -778,7 +778,7 @@
 ;             '" )set expose add group %d %ceoff or %ceon %b",
 ;             '" )set expose add constructor %d %ceoff for more information."),
 ;             [])
-;   arg is [fn,:fnargs] and (fn := selectOptionLC(fn,
+;   arg is [fn,:fnargs] and (fn := selectOption(fn,
 ;     '(group constructor),NIL)) =>
 ;       fn = 'group  =>  setExposeAddGroup fnargs
 ;       fn = 'constructor =>  setExposeAddConstr fnargs
@@ -808,7 +808,7 @@
          NIL)))
       ((AND (CONSP |arg|)
             (PROGN (SETQ |fn| (CAR |arg|)) (SETQ |fnargs| (CDR |arg|)) #1='T)
-            (SETQ |fn| (|selectOptionLC| |fn| '(|group| |constructor|) NIL)))
+            (SETQ |fn| (|selectOption| |fn| '(|group| |constructor|) NIL)))
        (COND ((EQ |fn| '|group|) (|setExposeAddGroup| |fnargs|))
              ((EQ |fn| '|constructor|) (|setExposeAddConstr| |fnargs|))
              (#1# NIL)))
@@ -1032,7 +1032,7 @@
 ;             '" )set expose drop group %d %ceoff or %ceon %b",
 ;             '" )set expose drop constructor %d %ceoff for more information."),
 ;             [])
-;   arg is [fn,:fnargs] and (fn := selectOptionLC(fn,
+;   arg is [fn,:fnargs] and (fn := selectOption(fn,
 ;     '(group constructor),NIL)) =>
 ;       fn = 'group  =>  setExposeDropGroup fnargs
 ;       fn = 'constructor =>  setExposeDropConstr fnargs
@@ -1060,7 +1060,7 @@
          NIL)))
       ((AND (CONSP |arg|)
             (PROGN (SETQ |fn| (CAR |arg|)) (SETQ |fnargs| (CDR |arg|)) #1='T)
-            (SETQ |fn| (|selectOptionLC| |fn| '(|group| |constructor|) NIL)))
+            (SETQ |fn| (|selectOption| |fn| '(|group| |constructor|) NIL)))
        (COND ((EQ |fn| '|group|) (|setExposeDropGroup| |fnargs|))
              ((EQ |fn| '|constructor|) (|setExposeDropConstr| |fnargs|))
              (#1# NIL)))
@@ -1474,8 +1474,7 @@
 ;     sayMessage ['" Issue",:bright '")help history",
 ;       '"for more information."]
 ;
-;   arg is [fn] and
-;    (fn := DOWNCASE(fn)) in '(y n ye yes no on of off) =>
+;   arg is [fn] and fn in '(y n ye yes no on of off) =>
 ;     $options := [[fn]]
 ;     historySpad2Cmd()
 ;   setHistory NIL
@@ -1541,7 +1540,7 @@
                                     (CONS "for more information." NIL))))))
                    ((AND (CONSP |arg|) (EQ (CDR |arg|) NIL)
                          (PROGN (SETQ |fn| (CAR |arg|)) #1#)
-                         (|member| (SETQ |fn| (DOWNCASE |fn|))
+                         (|member| |fn|
                           '(|y| |n| |ye| |yes| |no| |on| OF |off|)))
                     (PROGN
                      (SETQ |$options| (LIST (LIST |fn|)))
@@ -1625,7 +1624,6 @@
 ;         fn := drop_extention(fn)
 ;         ft := ptype
 ;     filename := make_filename2(fn, ft)
-;     null filename => [NIL, NIL]
 ;     (testStream := makeStream(append, filename)) => [testStream, filename]
 ;     [NIL, NIL]
 
@@ -1639,10 +1637,10 @@
        ((NULL (EQUAL (SETQ |ptype| (|file_extention| |fn|)) ""))
         (SETQ |fn| (|drop_extention| |fn|)) (SETQ |ft| |ptype|)))
       (SETQ |filename| (|make_filename2| |fn| |ft|))
-      (COND ((NULL |filename|) (LIST NIL NIL))
-            ((SETQ |testStream| (|makeStream| APPEND |filename|))
-             (LIST |testStream| |filename|))
-            (#1# (LIST NIL NIL)))))))
+      (COND
+       ((SETQ |testStream| (|makeStream| APPEND |filename|))
+        (LIST |testStream| |filename|))
+       (#1# (LIST NIL NIL)))))))
 
 ; say_printing_msg(args) == say_msg("S2IV0002", CONCAT(
 ;     '"To toggle %1 printing on and off, specify %l",
@@ -1708,7 +1706,7 @@
 ; set_output_gen(arg, out_rec, def_rec) ==
 ;     arg = "%initialize%" =>
 ;         out_rec.$stream_off := make_std_out_stream()
-;         out_rec.$file_off := '"CONSOLE"
+;         out_rec.$file_off := '"console"
 ;         out_rec.$on_off := def_rec.$def_on_off
 ;
 ;     arg = "%display%" =>
@@ -1724,25 +1722,25 @@
 ;     quiet := false
 ;
 ;     if def_rec.$appendable_off then
-;         while LISTP(arg) and UPCASE(first(arg)) in '(APPEND QUIET) repeat
-;             if UPCASE first(arg) = 'APPEND then
+;         while LISTP(arg) and first(arg) in '(append quiet) repeat
+;             if first(arg) = 'append then
 ;                 append := true
-;             else if UPCASE first(arg) = 'QUIET then
+;             else if first(arg) = 'quiet then
 ;                 quiet := true
 ;             arg := rest(arg)
 ;
-;     if arg is [fn] and not(fn in '(Y N YE YES NO O ON OF OFF CONSOLE _
+;     if arg is [fn] and not(fn in '(Y N YE YES NO O ON OF OFF _
 ;                                    y n ye yes no o on of off console)) then
 ;         arg := [fn, def_rec.$ext_off]
 ;
 ;     arg is [fn] =>
-;         UPCASE(fn) in '(Y N YE O OF) => say_printing_msg(def_rec.$pr_msg_off)
-;         UPCASE(fn) in '(NO OFF)  => out_rec.$on_off := false
-;         UPCASE(fn) in '(YES ON) => out_rec.$on_off := true
-;         UPCASE(fn) = 'CONSOLE =>
+;         fn in '(Y N y n ye o O of) => say_printing_msg(def_rec.$pr_msg_off)
+;         fn in '(no off)  => out_rec.$on_off := false
+;         fn in '(yes on) => out_rec.$on_off := true
+;         fn = 'console =>
 ;             stream_close(out_rec.$stream_off)
 ;             out_rec.$stream_off := make_std_out_stream()
-;             out_rec.$file_off := '"CONSOLE"
+;             out_rec.$file_off := '"console"
 ;
 ;     (arg is [fn,ft]) or (arg is [fn,ft,fm]) => -- aha, a file
 ;         [testStream, filename] := try_open(fn, ft, append)
@@ -1767,7 +1765,7 @@
       ((EQ |arg| '|%initialize%|)
        (PROGN
         (SETF (ELT |out_rec| |$stream_off|) (|make_std_out_stream|))
-        (SETF (ELT |out_rec| |$file_off|) "CONSOLE")
+        (SETF (ELT |out_rec| |$file_off|) "console")
         (SETF (ELT |out_rec| |$on_off|) (ELT |def_rec| |$def_on_off|))))
       ((EQ |arg| '|%display%|)
        (PROGN
@@ -1787,36 +1785,34 @@
               (COND
                ((NOT
                  (AND (LISTP |arg|)
-                      (|member| (UPCASE (CAR |arg|)) '(APPEND QUIET))))
+                      (|member| (CAR |arg|) '(|append| |quiet|))))
                 (RETURN NIL))
                (#1#
                 (PROGN
-                 (COND ((EQ (UPCASE (CAR |arg|)) 'APPEND) (SETQ APPEND T))
-                       ((EQ (UPCASE (CAR |arg|)) 'QUIET) (SETQ |quiet| T)))
+                 (COND ((EQ (CAR |arg|) '|append|) (SETQ APPEND T))
+                       ((EQ (CAR |arg|) '|quiet|) (SETQ |quiet| T)))
                  (SETQ |arg| (CDR |arg|))))))))))
         (COND
          ((AND (CONSP |arg|) (EQ (CDR |arg|) NIL)
                (PROGN (SETQ |fn| (CAR |arg|)) #1#)
                (NULL
                 (|member| |fn|
-                 '(Y N YE YES NO O ON OF OFF CONSOLE |y| |n| |ye| |yes| |no|
-                   |o| |on| OF |off| |console|))))
+                 '(Y N YE YES NO O ON OF OFF |y| |n| |ye| |yes| |no| |o| |on|
+                   OF |off| |console|))))
           (SETQ |arg| (LIST |fn| (ELT |def_rec| |$ext_off|)))))
         (COND
          ((AND (CONSP |arg|) (EQ (CDR |arg|) NIL)
                (PROGN (SETQ |fn| (CAR |arg|)) #1#))
           (COND
-           ((|member| (UPCASE |fn|) '(Y N YE O OF))
+           ((|member| |fn| '(Y N |y| |n| |ye| |o| O OF))
             (|say_printing_msg| (ELT |def_rec| |$pr_msg_off|)))
-           ((|member| (UPCASE |fn|) '(NO OFF))
-            (SETF (ELT |out_rec| |$on_off|) NIL))
-           ((|member| (UPCASE |fn|) '(YES ON))
-            (SETF (ELT |out_rec| |$on_off|) T))
-           ((EQ (UPCASE |fn|) 'CONSOLE)
+           ((|member| |fn| '(|no| |off|)) (SETF (ELT |out_rec| |$on_off|) NIL))
+           ((|member| |fn| '(|yes| |on|)) (SETF (ELT |out_rec| |$on_off|) T))
+           ((EQ |fn| '|console|)
             (PROGN
              (|stream_close| (ELT |out_rec| |$stream_off|))
              (SETF (ELT |out_rec| |$stream_off|) (|make_std_out_stream|))
-             (SETF (ELT |out_rec| |$file_off|) "CONSOLE")))))
+             (SETF (ELT |out_rec| |$file_off|) "console")))))
          ((OR
            (AND (CONSP |arg|)
                 (PROGN
@@ -1940,7 +1936,7 @@
 ;       l := cons(s,l)
 ;     sayAsManyPerLineAsPossible reverse l
 ;
-;   arg is [fn] and (fn := DOWNCASE(fn)) =>
+;   arg is [fn] =>
 ;     fn = 'default => $specialCharacters := $RTspecialCharacters
 ;     fn = 'plain   => $specialCharacters := $plainRTspecialCharacters
 ;     setOutputCharacters NIL
@@ -2011,8 +2007,7 @@
                  |$specialCharacterAlist| NIL)
                 (|sayAsManyPerLineAsPossible| (REVERSE |l|))))
               ((AND (CONSP |arg|) (EQ (CDR |arg|) NIL)
-                    (PROGN (SETQ |fn| (CAR |arg|)) #1#)
-                    (SETQ |fn| (DOWNCASE |fn|)))
+                    (PROGN (SETQ |fn| (CAR |arg|)) #1#))
                (COND
                 ((EQ |fn| '|default|)
                  (SETQ |$specialCharacters| |$RTspecialCharacters|))

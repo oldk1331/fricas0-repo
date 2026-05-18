@@ -241,7 +241,7 @@
 ;       SAY '" "
 ;       centerAndHighlight('"Traced function execution counts",78,"-")
 ;       pcounters ()
-;     selectOptionLC(first opt,'(reset),'optionError)
+;     selectOption(first opt, '(reset), 'optionError)
 ;     resetTimers()
 ;     resetCounters()
 ;     throw_msg("S2IT0002", CONCAT(
@@ -352,7 +352,7 @@
               (|pcounters|)))
             (#1#
              (PROGN
-              (|selectOptionLC| (CAR |opt|) '(|reset|) '|optionError|)
+              (|selectOption| (CAR |opt|) '(|reset|) '|optionError|)
               (|resetTimers|)
               (|resetCounters|)
               (|throw_msg| 'S2IT0002
@@ -1258,12 +1258,12 @@
          |sig|)))))))
 
 ; getTraceOption (x is [key,:l]) ==
-;   key:= selectOptionLC(key,$traceOptionList,'traceOptionError)
+;   key:= selectOption(key, $traceOptionList, 'traceOptionError)
 ;   x := [key,:l]
 ;   MEMQ(key,'(nonquietly timer nt)) => x
 ;   key='break =>
 ;     null l => ['break,'before]
-;     opts := [selectOptionLC(y,'(before after),NIL) for y in l]
+;     opts := [selectOption(y, '(before after), nil) for y in l]
 ;     and/[IDENTP y for y in opts] => ['break,:opts]
 ;     stack_trace_option_error("S2IT0008", CONCAT(
 ;             '"%1 The %b )trace %d option %b )break %d can only have one",
@@ -1326,7 +1326,7 @@
       (SETQ |key| (CAR |x|))
       (SETQ |l| (CDR |x|))
       (SETQ |key|
-              (|selectOptionLC| |key| |$traceOptionList| '|traceOptionError|))
+              (|selectOption| |key| |$traceOptionList| '|traceOptionError|))
       (SETQ |x| (CONS |key| |l|))
       (COND ((MEMQ |key| '(|nonquietly| |timer| |nt|)) |x|)
             ((EQ |key| '|break|)
@@ -1343,7 +1343,7 @@
                                   (#1#
                                    (SETQ |bfVar#18|
                                            (CONS
-                                            (|selectOptionLC| |y|
+                                            (|selectOption| |y|
                                              '(|before| |after|) NIL)
                                             |bfVar#18|))))
                                  (SETQ |bfVar#17| (CDR |bfVar#17|))))
