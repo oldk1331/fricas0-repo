@@ -67,7 +67,7 @@
            ('T (|replaceGoGetSlot| (CDR |f|)))))))
 
 ; newLookupInTable(op,sig,dollar,[domain,opvec],flag) ==
-;   dollar = nil => systemError()
+;   dollar = nil => systemError nil
 ;   $lookupDefaults = true =>
 ;       -- lookup first in my cats
 ;       newLookupInCategories(op, sig, domain, dollar, true)
@@ -144,7 +144,7 @@
      (PROGN
       (SETQ |domain| (CAR |bfVar#3|))
       (SETQ |opvec| (CADR |bfVar#3|))
-      (COND ((NULL |dollar|) (|systemError|))
+      (COND ((NULL |dollar|) (|systemError| NIL))
             ((EQUAL |$lookupDefaults| T)
              (OR (|newLookupInCategories| |op| |sig| |domain| |dollar| T)
                  (|newLookupInAddChain| |op| |sig| |domain| |dollar|)))
@@ -1144,9 +1144,9 @@
 ;   get_database(opOf(domform), 'ASHARP?) => fn(domform, catOrAtt) where
 ;     fn(a,b) ==
 ;       categoryForm?(a) => assoc(b, ancestors_of_cat(a, nil))
-;       isPartialMode(a) => throw_msg("S2IS0025",
+;       isPartialMode(a) => throw_msg("S2IS0025", CONCAT(
 ;           '"You can only use %b has %d to query the properties of a fully",
-;           '" specified type. You cannot query a category.", [])
+;           '" specified type. You cannot query a category."), [])
 ;       b is ["SIGNATURE",:opSig] =>
 ;         HasSignature(evalDomain a,opSig)
 ;       b is ["ATTRIBUTE",attr] =>
@@ -1328,8 +1328,10 @@
      (COND ((|categoryForm?| |a|) (|assoc| |b| (|ancestors_of_cat| |a| NIL)))
            ((|isPartialMode| |a|)
             (|throw_msg| 'S2IS0025
-             "You can only use %b has %d to query the properties of a fully"
-             " specified type. You cannot query a category." NIL))
+             (CONCAT
+              "You can only use %b has %d to query the properties of a fully"
+              " specified type. You cannot query a category.")
+             NIL))
            ((AND (CONSP |b|) (EQ (CAR |b|) 'SIGNATURE)
                  (PROGN (SETQ |opSig| (CDR |b|)) #1='T))
             (|HasSignature| (|evalDomain| |a|) |opSig|))

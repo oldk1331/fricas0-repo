@@ -708,7 +708,7 @@
 ;   st = 'LITERALS =>
 ;     object2String translateTrueFalse2YesNo eval setData.setVar
 ;   st = 'TREE     => '"..."
-;   systemError()
+;   systemError nil
 
 (DEFUN |htShowSetTreeValue| (|setData|)
   (PROG (|st|)
@@ -723,7 +723,7 @@
        ((EQ |st| 'LITERALS)
         (|object2String|
          (|translateTrueFalse2YesNo| (|eval| (ELT |setData| 4)))))
-       ((EQ |st| 'TREE) "...") ('T (|systemError|)))))))
+       ((EQ |st| 'TREE) "...") ('T (|systemError| NIL)))))))
 
 ; mkSetTitle() == STRCONC('"Command {\em )set ",listOfStrings2String $path,'"}")
 

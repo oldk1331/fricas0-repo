@@ -1201,7 +1201,7 @@
 ;     hashType(dollar,0)
 ;   if hashCode? sig and EQL(sig, hashPercent) then
 ;          sig := hashType('(Mapping %), hashPercent)
-;   dollar = nil => systemError()
+;   dollar = nil => systemError nil
 ;   $lookupDefaults = true =>
 ;       -- lookup first in my cats
 ;       newLookupInCategories(op, sig, domain, dollar, false)
@@ -1296,7 +1296,7 @@
               (COND
                ((AND (|hashCode?| |sig|) (EQL |sig| |hashPercent|))
                 (SETQ |sig| (|hashType| '(|Mapping| %) |hashPercent|))))
-              (COND ((NULL |dollar|) (|systemError|))
+              (COND ((NULL |dollar|) (|systemError| NIL))
                     ((EQUAL |$lookupDefaults| T)
                      (OR
                       (|newLookupInCategories| |op| |sig| |domain| |dollar|

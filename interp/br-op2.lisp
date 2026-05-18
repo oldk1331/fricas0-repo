@@ -124,7 +124,7 @@
 ;     x is ['ATTRIBUTE, a] => BREAK()
 ;     x is ['IF,:.] =>
 ;       htSay('"{\em if ...}")
-;     systemError()
+;     systemError nil
 
 (DEFUN |htSayExplicitExports| (|r|)
   (PROG (|ISTMP#1| |op| |ISTMP#2| |sig| |ops| |a|)
@@ -172,7 +172,7 @@
                        (BREAK))
                       ((AND (CONSP |x|) (EQ (CAR |x|) 'IF))
                        (|htSay| "{\\em if ...}"))
-                      (#1# (|systemError|))))))
+                      (#1# (|systemError| NIL))))))
                   (SETQ |bfVar#2| (CDR |bfVar#2|))))
                |r| NIL))))))))
 
@@ -973,7 +973,7 @@
 ;       target := sig.0
 ;       ntarget := ['Union, target, '"failed"]
 ;       sig := substitute(ntarget, target, sig)
-;   alist := findSubstitutionOrder? pairlis(vlist, flist) or systemError()
+;   alist := findSubstitutionOrder? pairlis(vlist, flist) or systemError nil
 ;   predList := substInOrder(alist, predList)
 ;   nsig := substInOrder(alist, sig)
 ;   if hasPatternVar nsig or hasPatternVar predList then
@@ -1017,7 +1017,7 @@
         (SETQ |sig| (|substitute| |ntarget| |target| |sig|))))
       (SETQ |alist|
               (OR (|findSubstitutionOrder?| (|pairlis| |vlist| |flist|))
-                  (|systemError|)))
+                  (|systemError| NIL)))
       (SETQ |predList| (|substInOrder| |alist| |predList|))
       (SETQ |nsig| (|substInOrder| |alist| |sig|))
       (COND
@@ -1084,7 +1084,7 @@
 ;     [conform, ["*1", :rest cform], ["%", :rest conform]]
 ;   ofWord = 'isDomain =>
 ;     [conform, ["*1", :rest cform], ["%", :rest conform]]
-;   systemError()
+;   systemError nil
 
 (DEFUN |getDcForm| (|dc| |condlist|)
   (PROG (|k| |ISTMP#1| |candidates| |LETTMP#1| |ofWord| |id| |cform| |conform|)
@@ -1129,7 +1129,7 @@
                ((EQ |ofWord| '|isDomain|)
                 (LIST |conform| (CONS '*1 (CDR |cform|))
                       (CONS '% (CDR |conform|))))
-               (#1# (|systemError|))))))))))
+               (#1# (|systemError| NIL))))))))))
 
 ; getSigSubst(u, pl, vl, fl) ==
 ;   u is [item, :r] =>
@@ -1142,7 +1142,7 @@
 ;     key = 'ofType    => getSigSubst(r, pl, vl, fl)
 ;     key = 'has => getSigSubst(r, [item, :pl], vl, fl)
 ;     key = 'not => getSigSubst(r, [item, :pl], vl, fl)
-;     systemError()
+;     systemError nil
 ;   [pl, vl, fl]
 
 (DEFUN |getSigSubst| (|u| |pl| |vl| |fl|)
@@ -1173,7 +1173,7 @@
            ((EQ |key| '|ofType|) (|getSigSubst| |r| |pl| |vl| |fl|))
            ((EQ |key| '|has|) (|getSigSubst| |r| (CONS |item| |pl|) |vl| |fl|))
            ((EQ |key| '|not|) (|getSigSubst| |r| (CONS |item| |pl|) |vl| |fl|))
-           (#1# (|systemError|)))))))
+           (#1# (|systemError| NIL)))))))
       (#1# (LIST |pl| |vl| |fl|))))))
 
 ; pairlis(u,v) ==

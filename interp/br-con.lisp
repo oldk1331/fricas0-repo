@@ -1678,7 +1678,7 @@
 ;   conform := htpProperty(htPage,'conform)
 ;   opAlist := koOps(conform, domname)
 ;   if selectedOperation := htpProperty(htPage,'selectedOperation) then
-;     opAlist := [assoc(selectedOperation,opAlist) or systemError()]
+;     opAlist := [assoc(selectedOperation,opAlist) or systemError nil]
 ;   dbShowOperationsFromConform(htPage, opAlist)
 
 (DEFUN |koPage| (|htPage|)
@@ -1729,7 +1729,7 @@
            (SETQ |opAlist|
                    (LIST
                     (OR (|assoc| |selectedOperation| |opAlist|)
-                        (|systemError|))))))
+                        (|systemError| NIL))))))
          (|dbShowOperationsFromConform| |htPage| |opAlist|))))))))
 
 ; dbDocTable conform ==
@@ -2310,7 +2310,7 @@
 ;       while CAAAR cAlist ~= x repeat
 ;         index := index + 1
 ;         cAlist := rest cAlist
-;         null cAlist => systemError ()
+;         null cAlist => systemError nil
 ;       index
 
 (DEFUN |dbShowConsDoc| (|htPage| |conlist|)
@@ -2339,7 +2339,7 @@
                            (PROGN
                             (SETQ |index| (+ |index| 1))
                             (SETQ |cAlist| (CDR |cAlist|))
-                            (COND ((NULL |cAlist|) (|systemError|)))))))))
+                            (COND ((NULL |cAlist|) (|systemError| NIL)))))))))
                 |index|))))
             (SETQ |bfVar#91| (CDR |bfVar#91|))))
          (REMDUP |conlist|) NIL)))))))

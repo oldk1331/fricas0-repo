@@ -1585,7 +1585,7 @@
 ;       -- following is an optimization
 ;       typeIsASmallInteger(get0(index, 'mode, $env)) =>
 ;         RPLACA(iter,'ISTEP)
-;     throwKeyedMsg('"Malformed iterator")
+;     throwKeyedMsg('"Malformed iterator", [])
 
 (DEFUN |upLoopIters| (|itrl|)
   (PROG (|ISTMP#1| |pred| |index| |ISTMP#2| |s| |lower| |ISTMP#3| |step|
@@ -1642,7 +1642,7 @@
               (COND
                ((|typeIsASmallInteger| (|get0| |index| '|mode| |$env|))
                 (RPLACA |iter| 'ISTEP)))))
-            (#1# (|throwKeyedMsg| "Malformed iterator")))))
+            (#1# (|throwKeyedMsg| "Malformed iterator" NIL)))))
          (SETQ |bfVar#32| (CDR |bfVar#32|))))
       |itrl| NIL))))
 

@@ -1304,10 +1304,6 @@
          (|doneButton| "Continue" |bcTaylorSeriesGen|)))
       (|htShowPage|)))))
 
-; bcSeriesByFormulaGen(htPage) == bcNotReady()
-
-(DEFUN |bcSeriesByFormulaGen| (|htPage|) (PROG () (RETURN (|bcNotReady|))))
-
 ; bcLaurentSeries(a, b) ==
 ;   htInitPage('"Laurent Series Basic Command", nil)
 ;   htMakePage '(

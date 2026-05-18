@@ -1745,7 +1745,7 @@
 ;   catTable := MAKE_HASHTABLE('EQUAL)
 ;   catList  := nil
 ;   for x in items | x repeat
-;     if null x then systemError()
+;     if null x then systemError nil
 ;     dform := asytranCategoryItem(x,levels,predlist,local?)
 ;     null dform => nil
 ;     dform is ['Declare,id,record,r] =>
@@ -1821,7 +1821,7 @@
            (#1#
             (AND |x|
                  (PROGN
-                  (COND ((NULL |x|) (|systemError|)))
+                  (COND ((NULL |x|) (|systemError| NIL)))
                   (SETQ |dform|
                           (|asytranCategoryItem| |x| |levels| |predlist|
                            |local?|))
@@ -3198,7 +3198,7 @@
 ;     x is ['IF,:.] => "append"/[asyCattranConstructors(x, [pred,:predlist])]
 ;     form := ['ATTRIBUTE, asyJoinPart x]
 ;     [['IF, asySimpPred(pred,predlist), form, 'noBranch]]
-;   systemError()
+;   systemError nil
 
 (DEFUN |asyCattranConstructors| (|item| |predlist|)
   (PROG (|ISTMP#1| |p| |ISTMP#2| |x| |t| |pred| |form|)
@@ -3242,7 +3242,7 @@
            (LIST
             (LIST 'IF (|asySimpPred| |pred| |predlist|) |form|
                   '|noBranch|)))))))
-      (#1# (|systemError|))))))
+      (#1# (|systemError| NIL))))))
 
 ; asySimpPred(p, predlist) ==
 ;   while predlist is [q,:predlist] repeat p := quickAnd(q,p)
@@ -3536,14 +3536,14 @@
 (DEFUN |asyComma?| (|op|) (PROG () (RETURN (MEMQ |op| '(|Comma| |Multi|)))))
 
 ; hput(table,name,value) ==
-;   if null name then systemError()
+;   if null name then systemError nil
 ;   HPUT(table,name,value)
 
 (DEFUN |hput| (|table| |name| |value|)
   (PROG ()
     (RETURN
      (PROGN
-      (COND ((NULL |name|) (|systemError|)))
+      (COND ((NULL |name|) (|systemError| NIL)))
       (HPUT |table| |name| |value|)))))
 
 ; asyTypeJoinPartExport x ==
