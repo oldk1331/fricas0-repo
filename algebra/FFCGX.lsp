@@ -33,6 +33,8 @@
           (QSETREFV % 7 |#2|)
           (AND #1# (|HasCategory| % '(|CharacteristicNonZero|))
                (|augmentPredVector| % 32))
+          (AND (|HasCategory| % '(|CharacteristicZero|))
+               (|augmentPredVector| % 64))
           (SETF |pv$| (QREFELT % 3))
           %))) 
 
@@ -79,20 +81,20 @@
               (|Record| (|:| |quotient| %) (|:| |remainder| %))
               (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 25 '"failed")
               (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
-              (|Factored| %) (|Fraction| 15) (|Union| 6 '"failed")
-              (|OnePointCompletion| 9) (|Matrix| 6) (|Vector| 6) (|Vector| %)
-              (|PrimitiveArray| 49) (|Union| 34 '#1="failed") (|Matrix| %)
-              (|Union| 17 '"failed") (|InputForm|)
+              (|Factored| %) (|Union| 6 '"failed") (|OnePointCompletion| 9)
+              (|Matrix| 6) (|Vector| 6) (|Vector| %) (|PrimitiveArray| 49)
+              (|Union| 33 '#1="failed") (|Matrix| %) (|Union| 17 '"failed")
+              (|Fraction| 15) (|InputForm|)
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
-              (|Union| 8 '"failed")
-              (|Record| (|:| |factor| 15) (|:| |exponent| 17)) (|List| 42)
-              (|Table| 9 17) (|Factored| 21) (|Union| 47 '#1#) (|List| 21)
-              (|HashState|) (|SingleInteger|))
+              (|Union| 8 '"failed") (|Table| 9 17)
+              (|Record| (|:| |factor| 15) (|:| |exponent| 17)) (|List| 43)
+              (|Factored| 21) (|Union| 47 '#1#) (|List| 21) (|HashState|)
+              (|SingleInteger|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 4
-                                '(0 2 0 3 0 2 0 0 0 0 0 0 0 0 0 0 2 1 3 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                                '(0 2 0 3 0 2 0 0 0 0 0 0 0 0 0 0 2 1 3 1 0 0 0
+                                  0 1 0 0 0 0 1 0 0 0 1 0 0 0 0 1 1 0 0 0 0 0 0
                                   0 0 0 2 0 0 0 0 2 2 0 0 4 0 0 0 2 0 0 0 0 0 0
                                   0 0))
             (CONS
@@ -101,11 +103,11 @@
                 |PolynomialFactorizationExplicit&| |EuclideanDomain&|
                 |UniqueFactorizationDomain&| NIL |GcdDomain&| NIL
                 |FramedAlgebra&| NIL NIL |DivisionRing&| |FiniteRankAlgebra&|
-                |DifferentialRing&| NIL NIL |Algebra&| |EntireRing&| |Algebra&|
-                |Algebra&| NIL NIL |Rng&| |NonAssociativeAlgebra&|
-                |NonAssociativeAlgebra&| |NonAssociativeAlgebra&| NIL |Module&|
-                |Module&| |Module&| |NonAssociativeRing&| NIL NIL NIL
-                |FramedModule&| NIL |NonAssociativeRng&| NIL NIL NIL NIL NIL
+                |DifferentialRing&| NIL NIL |Algebra&| |Algebra&| |EntireRing&|
+                |Algebra&| NIL |NonAssociativeAlgebra&| NIL |Rng&|
+                |NonAssociativeAlgebra&| |NonAssociativeAlgebra&| |Module&| NIL
+                |Module&| |Module&| NIL |NonAssociativeRing&| NIL NIL
+                |FramedModule&| NIL NIL NIL |NonAssociativeRng&| NIL NIL NIL
                 |AbelianGroup&| NIL NIL NIL |Finite&| |AbelianMonoid&|
                 |NonAssociativeSemiRng&| |MagmaWithUnit&| NIL NIL NIL
                 |AbelianSemiGroup&| |Magma&| |Hashable&| |SetCategory&| NIL
@@ -120,23 +122,23 @@
                  (|LeftOreRing|) (|CommutativeRing|) (|DivisionRing|)
                  (|FiniteRankAlgebra| 6 (|SparseUnivariatePolynomial| 6))
                  (|DifferentialRing|) (|CharacteristicZero|)
-                 (|CharacteristicNonZero|) (|Algebra| $$) (|EntireRing|)
-                 (|Algebra| 29) (|Algebra| 6) (|Ring|) (|SemiRing|) (|Rng|)
-                 (|NonAssociativeAlgebra| $$) (|NonAssociativeAlgebra| 29)
-                 (|NonAssociativeAlgebra| 6) (|SemiRng|) (|Module| $$)
-                 (|Module| 29) (|Module| 6) (|NonAssociativeRing|)
-                 (|BiModule| $$ $$) (|BiModule| 29 29) (|BiModule| 6 6)
-                 (|FramedModule| 6) (|RightModule| $$) (|NonAssociativeRng|)
-                 (|LeftModule| $$) (|LeftModule| 29) (|RightModule| 29)
-                 (|LeftModule| 6) (|RightModule| 6) (|AbelianGroup|)
-                 (|CancellationAbelianMonoid|) (|NonAssociativeSemiRing|)
-                 (|Monoid|) (|Finite|) (|AbelianMonoid|)
-                 (|NonAssociativeSemiRng|) (|MagmaWithUnit|) (|SemiGroup|)
-                 (|StepThrough|) (|Comparable|) (|AbelianSemiGroup|) (|Magma|)
-                 (|Hashable|) (|SetCategory|) (|CommutativeStar|)
-                 (|RetractableTo| 6) (|ConvertibleTo| 39) (|CoercibleTo| 13)
-                 (|BasicType|) (|unitsKnown|) (|TwoSidedRecip|)
-                 (|noZeroDivisors|) (|canonicalUnitNormal|)
+                 (|CharacteristicNonZero|) (|Algebra| 38) (|Algebra| $$)
+                 (|EntireRing|) (|Algebra| 6) (|Ring|)
+                 (|NonAssociativeAlgebra| 38) (|SemiRing|) (|Rng|)
+                 (|NonAssociativeAlgebra| $$) (|NonAssociativeAlgebra| 6)
+                 (|Module| 38) (|SemiRng|) (|Module| $$) (|Module| 6)
+                 (|BiModule| 38 38) (|NonAssociativeRing|) (|BiModule| $$ $$)
+                 (|BiModule| 6 6) (|FramedModule| 6) (|RightModule| 38)
+                 (|LeftModule| 38) (|RightModule| $$) (|NonAssociativeRng|)
+                 (|LeftModule| $$) (|LeftModule| 6) (|RightModule| 6)
+                 (|AbelianGroup|) (|CancellationAbelianMonoid|)
+                 (|NonAssociativeSemiRing|) (|Monoid|) (|Finite|)
+                 (|AbelianMonoid|) (|NonAssociativeSemiRng|) (|MagmaWithUnit|)
+                 (|SemiGroup|) (|StepThrough|) (|Comparable|)
+                 (|AbelianSemiGroup|) (|Magma|) (|Hashable|) (|SetCategory|)
+                 (|CommutativeStar|) (|RetractableTo| 6) (|ConvertibleTo| 39)
+                 (|CoercibleTo| 13) (|BasicType|) (|unitsKnown|)
+                 (|TwoSidedRecip|) (|noZeroDivisors|) (|canonicalUnitNormal|)
                  (|canonicalsClosed|) (|CoercibleFrom| 6))
               (|makeByteWordVec2| 11 '(1 10 8 9 11)))))
            '|lookupIncomplete|)) 

@@ -1056,11 +1056,13 @@
                                                           (|Fraction|
                                                            (|Integer|))))
                                          (|HasCategory| |#1| '(|AbelianGroup|))
-                                         (AND (|HasCategory| |#1| '(|Field|))
-                                              #6#
-                                              (|HasCategory|
-                                               (|Fraction| (|Integer|))
-                                               '(|AbelianGroup|)))
+                                         (AND
+                                          (|HasCategory| |#1|
+                                                         '(|CharacteristicZero|))
+                                          (|HasCategory| |#1| '(|Field|)) #6#
+                                          (|HasCategory|
+                                           (|Fraction| (|Integer|))
+                                           '(|AbelianGroup|)))
                                          (|HasSignature| |#1|
                                                          (LIST '*
                                                                (LIST
@@ -1075,8 +1077,10 @@
                                                         '(|Algebra|
                                                           (|Fraction|
                                                            (|Integer|))))
-                                         (AND (|HasCategory| |#1| '(|Field|))
-                                              #6#))
+                                         (AND
+                                          (|HasCategory| |#1|
+                                                         '(|CharacteristicZero|))
+                                          (|HasCategory| |#1| '(|Field|)) #6#))
                                         (LETT #5#
                                               (|HasCategory| |#1|
                                                              '(|IntegralDomain|)))
@@ -1103,11 +1107,13 @@
                                                            (|Integer|))))
                                          (|HasCategory| |#1| '(|AbelianGroup|))
                                          #4#
-                                         (AND (|HasCategory| |#1| '(|Field|))
-                                              #6#
-                                              (|HasCategory|
-                                               (|Fraction| (|Integer|))
-                                               '(|AbelianGroup|)))
+                                         (AND
+                                          (|HasCategory| |#1|
+                                                         '(|CharacteristicZero|))
+                                          (|HasCategory| |#1| '(|Field|)) #6#
+                                          (|HasCategory|
+                                           (|Fraction| (|Integer|))
+                                           '(|AbelianGroup|)))
                                          (|HasSignature| |#1|
                                                          (LIST '*
                                                                (LIST
@@ -1127,16 +1133,20 @@
                                                            (|Integer|))))
                                          (|HasCategory| |#1| '(|AbelianGroup|))
                                          #3# #4#
-                                         (AND (|HasCategory| |#1| '(|Field|))
-                                              #6#
-                                              (|HasCategory|
-                                               (|Fraction| (|Integer|))
-                                               '(|AbelianGroup|)))
-                                         (AND (|HasCategory| |#1| '(|Field|))
-                                              #6#
-                                              (|HasCategory|
-                                               (|Fraction| (|Integer|))
-                                               '(|AbelianMonoid|)))
+                                         (AND
+                                          (|HasCategory| |#1|
+                                                         '(|CharacteristicZero|))
+                                          (|HasCategory| |#1| '(|Field|)) #6#
+                                          (|HasCategory|
+                                           (|Fraction| (|Integer|))
+                                           '(|AbelianGroup|)))
+                                         (AND
+                                          (|HasCategory| |#1|
+                                                         '(|CharacteristicZero|))
+                                          (|HasCategory| |#1| '(|Field|)) #6#
+                                          (|HasCategory|
+                                           (|Fraction| (|Integer|))
+                                           '(|AbelianMonoid|)))
                                          (|HasSignature| |#1|
                                                          (LIST '*
                                                                (LIST
@@ -1274,6 +1284,11 @@
      (OR (AND (|HasCategory| |#1| '(|Field|)) #6#)
          (AND #5# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))))
      (|augmentPredVector| % 549755813888))
+    (AND
+     (OR (|HasCategory| |#1| '(|Algebra| (|Fraction| (|Integer|))))
+         (AND (|HasCategory| |#1| '(|Field|)) #6#
+              (|HasCategory| % '(|CharacteristicZero|))))
+     (|augmentPredVector| % 1099511627776))
     (SETF |pv$| (QREFELT % 3))
     (QSETREFV % 10 (|Stream| (|Record| (|:| |k| |#2|) (|:| |c| |#1|))))
     (COND
@@ -1409,9 +1424,9 @@
               (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
               (|Record| (|:| |coef1| %) (|:| |coef2| %))
               (|Union| 175 '"failed") (|Factored| %) (|Integer|) (|List| 15)
-              (|List| 32)
-              (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
-              (|Fraction| 178))
+              (|List| 32) (|Fraction| 178)
+              (|Record| (|:| |unit| %) (|:| |canonical| %)
+                        (|:| |associate| %)))
            '#(~= 542 |zero?| 548 |variable| 553 |unitNormal| 558
               |unitCanonical| 563 |unit?| 568 |truncate| 573 |terms| 586 |tanh|
               591 |tan| 596 |subtractIfCan| 601 |squareFreePart| 607
@@ -1468,16 +1483,16 @@
                  (|PowerSeriesCategory| 6 7 (|SingletonAsOrderedSet|))
                  (|GcdDomain|) (|AbelianMonoidRing| 6 7) (|IntegralDomain|)
                  (|DivisionRing|) (|CommutativeRing|) (|LeftOreRing|)
-                 (|Algebra| 182) (|EntireRing|) (|Algebra| $$)
+                 (|Algebra| 181) (|EntireRing|) (|Algebra| $$)
                  (|DifferentialRing|) (|PartialDifferentialRing| 15)
                  (|Algebra| 6) (|CharacteristicZero|) (|CharacteristicNonZero|)
-                 (|Ring|) (|NonAssociativeAlgebra| 182) (|Rng|)
+                 (|Ring|) (|NonAssociativeAlgebra| 181) (|Rng|)
                  (|NonAssociativeAlgebra| $$) (|SemiRing|)
-                 (|NonAssociativeAlgebra| 6) (|Module| 182) (|Module| $$)
-                 (|Module| 6) (|SemiRng|) (|BiModule| 182 182)
+                 (|NonAssociativeAlgebra| 6) (|Module| 181) (|Module| $$)
+                 (|Module| 6) (|SemiRng|) (|BiModule| 181 181)
                  (|NonAssociativeRing|) (|BiModule| $$ $$) (|BiModule| 6 6)
-                 (|IndexedProductCategory| 6 7) (|RightModule| 182)
-                 (|LeftModule| 182) (|NonAssociativeRng|) (|LeftModule| $$)
+                 (|IndexedProductCategory| 6 7) (|RightModule| 181)
+                 (|LeftModule| 181) (|NonAssociativeRng|) (|LeftModule| $$)
                  (|RightModule| $$) (|RightModule| 6) (|LeftModule| 6)
                  (|AbelianProductCategory| 6) (|AbelianGroup|) (|Monoid|)
                  (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
@@ -1527,7 +1542,7 @@
                                     113 112 2 160 1 0 0 0 161 1 113 112 2 162 1
                                     0 0 0 163 1 113 112 2 164 1 0 0 0 165 0 6 0
                                     166 0 0 0 167 2 0 17 0 0 1 1 35 17 0 1 1 0
-                                    15 0 16 1 40 181 0 1 1 40 0 0 1 1 40 17 0 1
+                                    15 0 16 1 40 182 0 1 1 40 0 0 1 1 40 17 0 1
                                     2 0 0 0 7 104 3 0 0 0 7 7 105 1 0 12 0 13 1
                                     6 0 0 147 1 6 0 0 123 2 34 80 0 0 1 1 15 0
                                     0 1 1 15 177 0 1 2 15 17 0 0 1 1 6 0 0 143
@@ -1553,7 +1568,7 @@
                                     6 0 0 129 1 6 0 0 149 1 6 0 0 125 1 6 0 0
                                     145 1 6 0 0 121 1 7 0 168 1 1 0 0 168 1 1 0
                                     0 0 107 2 37 0 0 0 1 1 0 37 0 61 1 32 0 6 1
-                                    1 38 0 0 1 1 37 0 178 1 1 17 0 182 1 2 0 6
+                                    1 41 0 181 1 1 38 0 0 1 1 37 0 178 1 2 0 6
                                     0 7 108 0 37 32 34 1 0 6 0 14 1 6 0 0 159 1
                                     6 0 0 135 3 37 0 0 0 0 1 2 40 17 0 0 1 1 6
                                     0 0 155 1 6 0 0 131 1 6 0 0 163 1 6 0 0 139
@@ -1566,6 +1581,6 @@
                                     2 3 0 0 32 1 1 3 0 0 1 2 0 17 0 0 100 2 15
                                     0 0 0 85 2 8 0 0 6 1 2 33 0 0 0 76 1 33 0 0
                                     71 2 0 0 0 0 72 2 0 0 68 0 1 2 0 0 0 0 79 2
-                                    0 0 0 6 1 2 0 0 6 0 67 2 33 0 178 0 1 2 35
-                                    0 32 0 1 2 17 0 0 182 1 2 17 0 182 0 1)))))
+                                    0 0 0 6 1 2 0 0 6 0 67 2 41 0 0 181 1 2 41
+                                    0 181 0 1 2 33 0 178 0 1 2 35 0 32 0 1)))))
            '|lookupComplete|)) 

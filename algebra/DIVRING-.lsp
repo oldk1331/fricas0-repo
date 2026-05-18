@@ -25,7 +25,12 @@
           (LETT |dv$| (LIST '|DivisionRing&| DV$1))
           (LETT % (GETREFV 25))
           (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (QSETREFV % 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#1|
+                                                             '(|CharacteristicZero|))))))
           (|stuffDomainSlots| %)
           (QSETREFV % 6 |#1|)
           (SETF |pv$| (QREFELT % 3))
@@ -45,17 +50,16 @@
                        (CONS
                         '#((|Join|
                             (|mkCategory|
-                             (LIST '((^ (|#1| |#1| (|Integer|))) T)
-                                   '((* (|#1| (|Fraction| (|Integer|)) |#1|))
-                                     T)
-                                   '((* (|#1| |#1| (|Fraction| (|Integer|))))
-                                     T)
-                                   '((^ (|#1| |#1| (|NonNegativeInteger|))) T)
-                                   '((* (|#1| (|NonNegativeInteger|) |#1|)) T)
-                                   '((* (|#1| (|Integer|) |#1|)) T)
-                                   '((* (|#1| |#1| |#1|)) T)
-                                   '((^ (|#1| |#1| (|PositiveInteger|))) T)
-                                   '((* (|#1| (|PositiveInteger|) |#1|)) T))
+                             (LIST
+                              '((* (|#1| (|Fraction| (|Integer|)) |#1|)) T)
+                              '((* (|#1| |#1| (|Fraction| (|Integer|)))) T)
+                              '((^ (|#1| |#1| (|Integer|))) T)
+                              '((^ (|#1| |#1| (|NonNegativeInteger|))) T)
+                              '((* (|#1| (|NonNegativeInteger|) |#1|)) T)
+                              '((* (|#1| (|Integer|) |#1|)) T)
+                              '((* (|#1| |#1| |#1|)) T)
+                              '((^ (|#1| |#1| (|PositiveInteger|))) T)
+                              '((* (|#1| (|PositiveInteger|) |#1|)) T))
                              (LIST) NIL NIL)))
                         (|makeByteWordVec2| 23
                                             '(0 6 0 7 1 6 8 0 9 0 6 0 10 1 6 0

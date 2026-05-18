@@ -407,13 +407,13 @@
                         '#((|Join|
                             (|mkCategory|
                              (LIST '((< ((|Boolean|) |#1| |#1|)) T)
+                                   '((|inv| (|#1| |#1|)) T)
                                    '((|coerce| (|#1| (|Fraction| (|Integer|))))
                                      T)
                                    '((* (|#1| |#1| (|Fraction| (|Integer|))))
                                      T)
                                    '((* (|#1| (|Fraction| (|Integer|)) |#1|))
                                      T)
-                                   '((|inv| (|#1| |#1|)) T)
                                    '((|convert| ((|InputForm|) |#1|)) T)
                                    '((|rationalIfCan|
                                       ((|Union| (|Fraction| (|Integer|)) #1#)

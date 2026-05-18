@@ -536,6 +536,13 @@
                       (CONS 1 %))
           (|stuffDomainSlots| %)
           (QSETREFV % 6 |#1|)
+          (AND (|HasCategory| % '(|CharacteristicZero|))
+               (|augmentPredVector| % 4))
+          (AND
+           (OR (|HasCategory| % '(|CharacteristicZero|))
+               (|HasCategory| (|Fraction| (|Integer|))
+                              '(|RetractableTo| (|Fraction| (|Integer|)))))
+           (|augmentPredVector| % 8))
           (SETF |pv$| (QREFELT % 3))
           (QSETREFV % 7
                     (|Record|
@@ -610,9 +617,9 @@
               (|Union| 6 '#2="failed") |RECLOS;retractIfCan;%U;30|
               |RECLOS;retract;%TheField;31| (250 . |elt|)
               |RECLOS;coerce;TheField%;35| (|String|) (|Factored| %)
-              (|Record| (|:| |coef1| %) (|:| |coef2| %))
-              (|Union| 112 '#3="failed") (|Union| 50 '#3#)
+              (|Union| 50 '#3="failed")
               (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
+              (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 114 '#3#)
               (|Record| (|:| |quotient| %) (|:| |remainder| %))
               (|Record| (|:| |coef| 50) (|:| |generator| %))
               (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
@@ -634,11 +641,11 @@
               560 |inv| 565 |gcdPolynomial| 570 |gcd| 576 |factor| 587
               |extendedEuclidean| 592 |exquo| 605 |expressIdealMember| 611
               |euclideanSize| 617 |divide| 622 |commutator| 628 |coerce| 634
-              |characteristic| 659 |associator| 663 |associates?| 670
-              |approximate| 676 |antiCommutator| 682 |annihilate?| 688
-              |allRootsOf| 694 |algebraicOf| 724 |abs| 730 ^ 735 |Zero| 759
-              |One| 763 >= 767 > 773 = 779 <= 785 < 791 / 797 - 803 + 814 *
-              820)
+              |characteristic| 664 |associator| 668 |associates?| 675
+              |approximate| 681 |antiCommutator| 687 |annihilate?| 693
+              |allRootsOf| 699 |algebraicOf| 729 |abs| 735 ^ 740 |Zero| 764
+              |One| 768 >= 772 > 778 = 784 <= 790 < 796 / 802 - 808 + 819 *
+              825)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -719,26 +726,26 @@
                                     40 2 0 0 0 38 41 2 0 0 0 0 1 2 0 13 0 0 18
                                     1 0 42 0 83 2 0 0 0 0 1 1 0 117 50 1 1 0 20
                                     0 1 1 0 20 0 60 2 0 0 0 43 1 2 0 20 0 0 1 1
-                                    0 20 0 1 2 0 0 0 64 1 1 0 20 0 63 2 0 114
+                                    0 20 0 1 2 0 0 0 64 1 1 0 20 0 63 2 0 112
                                     50 0 1 2 0 0 0 0 1 2 0 0 0 0 1 1 0 74 0 78
                                     1 0 76 0 77 1 0 74 0 75 1 0 72 0 73 1 0 42
                                     0 1 2 0 0 0 26 1 2 0 0 0 43 1 2 0 118 0 0 1
-                                    2 0 0 0 0 1 1 0 0 50 1 1 0 110 0 1 1 0 0 0
-                                    84 2 0 48 48 48 1 2 0 0 0 0 1 1 0 0 50 1 1
-                                    0 111 0 1 3 0 113 0 0 0 1 2 0 115 0 0 1 2 0
-                                    42 0 0 1 2 0 114 50 0 1 1 0 26 0 1 2 0 116
+                                    1 0 0 50 1 2 0 0 0 0 1 1 0 110 0 1 1 0 0 0
+                                    84 2 0 48 48 48 1 1 0 0 50 1 2 0 0 0 0 1 1
+                                    0 111 0 1 2 0 113 0 0 1 3 0 115 0 0 0 1 2 0
+                                    42 0 0 1 2 0 112 50 0 1 1 0 26 0 1 2 0 116
                                     0 0 1 2 0 0 0 0 1 1 0 38 0 82 1 0 0 64 1 1
-                                    0 0 0 57 1 0 0 13 1 1 0 0 6 109 0 0 26 1 3
-                                    0 0 0 0 0 1 2 0 20 0 0 1 2 0 13 0 0 24 2 0
-                                    0 0 0 1 2 0 20 0 0 1 1 0 50 48 55 1 0 50
-                                    121 1 1 0 50 122 1 1 0 50 123 1 1 0 50 124
-                                    1 1 0 50 125 1 2 0 0 37 38 39 1 0 0 0 19 2
-                                    0 0 0 26 1 2 0 0 0 43 1 2 0 0 0 64 1 2 0 0
-                                    0 13 1 0 0 0 28 0 0 0 34 2 0 20 0 0 1 2 0
-                                    20 0 0 1 2 0 20 0 0 71 2 0 20 0 0 1 2 0 20
-                                    0 0 21 2 0 0 0 0 32 2 0 0 0 0 69 1 0 0 0 33
-                                    2 0 0 0 0 102 2 0 0 43 0 1 2 0 0 26 0 1 2 0
-                                    0 64 0 66 2 0 0 0 0 95 2 0 0 0 13 1 2 0 0
-                                    13 0 1 2 0 0 0 64 1 2 0 0 6 0 94 2 0 0 0 6
-                                    1)))))
+                                    0 0 0 57 1 0 0 13 1 1 0 0 6 109 1 4 0 13 1
+                                    0 0 26 1 3 0 0 0 0 0 1 2 0 20 0 0 1 2 0 13
+                                    0 0 24 2 0 0 0 0 1 2 0 20 0 0 1 1 0 50 48
+                                    55 1 0 50 121 1 1 0 50 122 1 1 0 50 123 1 1
+                                    0 50 124 1 1 0 50 125 1 2 0 0 37 38 39 1 0
+                                    0 0 19 2 0 0 0 26 1 2 0 0 0 43 1 2 0 0 0 64
+                                    1 2 0 0 0 13 1 0 0 0 28 0 0 0 34 2 0 20 0 0
+                                    1 2 0 20 0 0 1 2 0 20 0 0 71 2 0 20 0 0 1 2
+                                    0 20 0 0 21 2 0 0 0 0 32 2 0 0 0 0 69 1 0 0
+                                    0 33 2 0 0 0 0 102 2 0 0 43 0 1 2 0 0 26 0
+                                    1 2 0 0 64 0 66 2 0 0 0 0 95 2 0 0 0 64 1 2
+                                    0 0 13 0 1 2 0 0 0 13 1 2 0 0 6 0 94 2 0 0
+                                    0 6 1 2 3 0 13 0 1 2 3 0 0 13 1)))))
            '|lookupComplete|)) 

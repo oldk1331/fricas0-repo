@@ -354,10 +354,12 @@
                        (CONS 1 %))
            (|stuffDomainSlots| %)
            (QSETREFV % 6 |#1|)
-           (AND (|HasCategory| % '(|CharacteristicNonZero|))
+           (AND (|HasCategory| % '(|CharacteristicZero|))
                 (|augmentPredVector| % 1))
-           (AND (|HasCategory| % '(|Field|)) (|augmentPredVector| % 2))
-           (AND (|HasCategory| % '(|Finite|)) (|augmentPredVector| % 4))
+           (AND (|HasCategory| % '(|CharacteristicNonZero|))
+                (|augmentPredVector| % 2))
+           (AND (|HasCategory| % '(|Field|)) (|augmentPredVector| % 4))
+           (AND (|HasCategory| % '(|Finite|)) (|augmentPredVector| % 8))
            (SETF |pv$| (QREFELT % 3))
            (QSETREFV % 7 'T)
            (QSETREFV % 8 1)
@@ -444,10 +446,11 @@
               (|Record| (|:| |quotient| %) (|:| |remainder| %))
               (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
               (|Record| (|:| |coef1| %) (|:| |coef2| %))
-              (|Union| 105 '"failed") (|Fraction| 22) (|OnePointCompletion| 19)
+              (|Union| 105 '"failed") (|OnePointCompletion| 19)
               (|Union| 49 '"failed") (|HashState|) (|InputForm|)
-              (|Union| 113 '#1="failed") (|List| 92) (|Factored| 92)
-              (|Matrix| %) (|Union| 81 '#1#) (|Union| 92 '"failed"))
+              (|Union| 112 '#1="failed") (|List| 92) (|Factored| 92)
+              (|Matrix| %) (|Union| 81 '#1#) (|Fraction| 22)
+              (|Union| 92 '"failed"))
            '#(|zero?| 181 |tableForDiscreteLogarithm| 186 |sqrt| 191
               |retractIfCan| 196 |retract| 201 |represents| 206
               |representationType| 211 |recip| 215 |quadraticNonResidue| 220
@@ -464,22 +467,21 @@
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|FiniteAlgebraicExtensionField&| |ExtensionField&|
                 |FiniteFieldCategory&| |FieldOfPrimeCharacteristic&| |Field&|
                 |PolynomialFactorizationExplicit&| |EuclideanDomain&|
                 |UniqueFactorizationDomain&| NIL |GcdDomain&| NIL
                 |FramedAlgebra&| NIL |DivisionRing&| NIL |FiniteRankAlgebra&|
-                |EntireRing&| |Algebra&| NIL |DifferentialRing&| |Algebra&| NIL
-                NIL |NonAssociativeAlgebra&| |Rng&| |NonAssociativeAlgebra&|
-                NIL |Module&| |Module&| |NonAssociativeRing&| NIL NIL
-                |FramedModule&| NIL |NonAssociativeRng&| NIL NIL NIL
-                |AbelianGroup&| NIL NIL NIL |AbelianMonoid&|
-                |NonAssociativeSemiRng&| |MagmaWithUnit&| NIL |Finite&|
-                |AbelianSemiGroup&| |Magma&| NIL NIL |SetCategory&| NIL
-                |Hashable&| |RetractableTo&| NIL |BasicType&| NIL NIL NIL NIL
-                NIL NIL NIL NIL NIL)
+                |EntireRing&| NIL |DifferentialRing&| |Algebra&| NIL NIL
+                |NonAssociativeAlgebra&| |Rng&| NIL |Module&|
+                |NonAssociativeRing&| NIL |FramedModule&| NIL
+                |NonAssociativeRng&| NIL |AbelianGroup&| NIL NIL NIL
+                |AbelianMonoid&| |NonAssociativeSemiRng&| |MagmaWithUnit&| NIL
+                |Finite&| |AbelianSemiGroup&| |Magma&| NIL NIL |SetCategory&|
+                NIL |Hashable&| |RetractableTo&| NIL |BasicType&| NIL NIL NIL
+                NIL NIL NIL NIL NIL NIL)
              (CONS
               '#((|FiniteAlgebraicExtensionField| $$) (|ExtensionField| $$)
                  (|FiniteFieldCategory|) (|FieldOfPrimeCharacteristic|)
@@ -488,14 +490,11 @@
                  (|PrincipalIdealDomain|) (|GcdDomain|) (|IntegralDomain|)
                  (|FramedAlgebra| $$ 89) (|LeftOreRing|) (|DivisionRing|)
                  (|CommutativeRing|) (|FiniteRankAlgebra| $$ 89) (|EntireRing|)
-                 (|Algebra| 107) (|CharacteristicNonZero|) (|DifferentialRing|)
-                 (|Algebra| $$) (|Ring|) (|SemiRing|)
-                 (|NonAssociativeAlgebra| $$) (|Rng|)
-                 (|NonAssociativeAlgebra| 107) (|SemiRng|) (|Module| $$)
-                 (|Module| 107) (|NonAssociativeRing|) (|BiModule| $$ $$)
-                 (|BiModule| 107 107) (|FramedModule| $$) (|RightModule| $$)
-                 (|NonAssociativeRng|) (|LeftModule| $$) (|LeftModule| 107)
-                 (|RightModule| 107) (|AbelianGroup|)
+                 (|CharacteristicNonZero|) (|DifferentialRing|) (|Algebra| $$)
+                 (|Ring|) (|SemiRing|) (|NonAssociativeAlgebra| $$) (|Rng|)
+                 (|SemiRng|) (|Module| $$) (|NonAssociativeRing|)
+                 (|BiModule| $$ $$) (|FramedModule| $$) (|RightModule| $$)
+                 (|NonAssociativeRng|) (|LeftModule| $$) (|AbelianGroup|)
                  (|CancellationAbelianMonoid|) (|NonAssociativeSemiRing|)
                  (|Monoid|) (|AbelianMonoid|) (|NonAssociativeSemiRng|)
                  (|MagmaWithUnit|) (|SemiGroup|) (|Finite|)
@@ -504,7 +503,7 @@
                  (|RetractableTo| $$) (|CoercibleTo| 96) (|BasicType|)
                  (|unitsKnown|) (|TwoSidedRecip|) (|noZeroDivisors|)
                  (|canonicalUnitNormal|) (|canonicalsClosed|)
-                 (|ConvertibleTo| 111) (|CoercibleFrom| $$)
+                 (|ConvertibleTo| 110) (|CoercibleFrom| $$)
                  (|ConvertibleTo| 22) (|Canonical|))
               (|makeByteWordVec2| 95
                                   '(0 12 0 13 0 0 0 16 2 0 17 0 0 18 1 0 19 0
@@ -520,11 +519,11 @@
                                     0 91 1 0 17 0 47 1 0 34 22 74 1 0 0 0 54 1
                                     0 63 0 86 1 0 0 0 85 1 0 0 81 84 0 0 70 71
                                     1 0 63 0 64 0 0 0 46 0 0 0 32 1 0 19 0 20 0
-                                    3 0 66 1 2 92 0 94 1 0 19 0 29 1 0 0 19 75
-                                    1 0 17 0 78 0 3 0 55 0 0 25 69 0 0 19 77 1
-                                    0 19 0 76 0 0 92 93 0 0 0 28 0 3 0 67 1 0
+                                    4 0 66 1 3 92 0 94 1 0 19 0 29 1 0 0 19 75
+                                    1 0 17 0 78 0 4 0 55 0 0 25 69 0 0 19 77 1
+                                    0 19 0 76 0 0 92 93 0 0 0 28 0 4 0 67 1 0
                                     81 0 82 1 0 22 0 48 1 0 0 22 45 1 0 0 0 95
-                                    0 0 49 68 0 0 81 87 1 3 81 19 88 2 0 0 0 19
+                                    0 0 49 68 0 0 81 87 1 4 81 19 88 2 0 0 0 19
                                     52 2 0 0 0 49 50 2 0 0 0 22 33 0 0 0 16 0 0
                                     0 36 2 0 17 0 0 18 2 0 0 0 0 53 1 0 0 0 51
                                     2 0 0 0 0 39)))))

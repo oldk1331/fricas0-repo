@@ -100,6 +100,8 @@
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PiDomain| NIL (CONS 1 %))
           (|stuffDomainSlots| %)
+          (AND (|HasCategory| % '(|CharacteristicZero|))
+               (|augmentPredVector| % 1))
           (SETF |pv$| (QREFELT % 3))
           (QSETREFV % 6
                     (|Fraction| (|SparseUnivariatePolynomial| (|Integer|))))
@@ -235,6 +237,6 @@
                                     65 1 2 0 0 0 11 1 2 0 0 0 10 1 0 0 0 34 0 0
                                     0 8 2 0 37 0 0 1 2 0 0 0 0 1 2 0 0 0 0 1 1
                                     0 0 0 1 2 0 0 0 0 1 2 0 0 65 0 1 2 0 0 0 0
-                                    1 2 0 0 10 0 1 2 0 0 11 0 1 2 0 0 78 0 1 2
-                                    0 0 0 78 1)))))
+                                    1 2 0 0 10 0 1 2 0 0 11 0 1 2 1 0 78 0 1 2
+                                    1 0 0 78 1)))))
            '|lookupComplete|)) 

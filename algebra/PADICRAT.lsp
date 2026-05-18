@@ -14,6 +14,9 @@
                                              (LIST
                                               (|HasCategory|
                                                (|PAdicInteger| |#1|)
+                                               '(|CharacteristicZero|))
+                                              (|HasCategory|
+                                               (|PAdicInteger| |#1|)
                                                '(|PolynomialFactorizationExplicit|))
                                               (|HasCategory|
                                                (|PAdicInteger| |#1|)
@@ -21,9 +24,6 @@
                                               (|HasCategory|
                                                (|PAdicInteger| |#1|)
                                                '(|CharacteristicNonZero|))
-                                              (|HasCategory|
-                                               (|PAdicInteger| |#1|)
-                                               '(|CharacteristicZero|))
                                               (|HasCategory|
                                                (|PAdicInteger| |#1|)
                                                '(|ConvertibleTo|
@@ -118,10 +118,17 @@
                       (CONS 1 %))
           (|stuffDomainSlots| %)
           (QSETREFV % 6 |#1|)
+          (AND (|HasCategory| % '(|CharacteristicZero|))
+               (|augmentPredVector| % 33554432))
           (AND (|HasCategory| % '(|CharacteristicNonZero|))
                (|HasCategory| (|PAdicInteger| |#1|)
                               '(|PolynomialFactorizationExplicit|))
-               (|augmentPredVector| % 33554432))
+               (|augmentPredVector| % 67108864))
+          (AND
+           (OR (|HasCategory| % '(|CharacteristicZero|))
+               (|HasCategory| (|PAdicInteger| |#1|)
+                              '(|RetractableTo| (|Integer|))))
+           (|augmentPredVector| % 134217728))
           (SETF |pv$| (QREFELT % 3))
           %))) 
 
@@ -144,7 +151,7 @@
 (MAKEPROP '|PAdicRational| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL
-              (|PAdicRationalConstructor| (NRTEVAL (QREFELT % 6)) 26)
+              (|PAdicRationalConstructor| (NRTEVAL (QREFELT % 6)) 25)
               (|local| |#1|) (|Boolean|) (|OutputForm|) (|String|)
               (|PositiveInteger|) (|Integer|) (|Union| % '"failed")
               (|NonNegativeInteger|)
@@ -156,47 +163,46 @@
               (|Record| (|:| |quotient| %) (|:| |remainder| %))
               (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 21 '"failed")
               (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
-              (|Factored| %) (|Fraction| 11)
-              (|PAdicInteger| (NRTEVAL (QREFELT % 6)))
-              (|Union| 26 '#1="failed") (|Mapping| 26 26)
-              (|Record| (|:| |mat| 32) (|:| |vec| (|Vector| 26))) (|Matrix| %)
-              (|Vector| %) (|Matrix| 26) (|ContinuedFraction| 25)
-              (|Union| 31 '#2="failed") (|InputForm|) (|Pattern| 51)
-              (|Pattern| 11) (|List| 26) (|Equation| 26) (|List| 39) (|Symbol|)
-              (|List| 41) (|Matrix| 11)
-              (|Record| (|:| |mat| 43) (|:| |vec| (|Vector| 11))) (|List| 13)
-              (|PatternMatchResult| 51 %) (|PatternMatchResult| 11 %)
-              (|Factored| 17) (|Union| 50 '#2#) (|List| 17) (|Float|)
-              (|DoubleFloat|) (|Union| 25 '#1#) (|Union| 11 '#1#)
-              (|Union| 41 '#1#))
+              (|Factored| %) (|PAdicInteger| (NRTEVAL (QREFELT % 6)))
+              (|Union| 25 '#1="failed") (|Mapping| 25 25) (|Matrix| 25)
+              (|Matrix| %) (|Record| (|:| |mat| 28) (|:| |vec| (|Vector| 25)))
+              (|Vector| %) (|ContinuedFraction| 33) (|Fraction| 11)
+              (|Union| 31 '#2="failed") (|InputForm|) (|Pattern| 52)
+              (|Pattern| 11) (|List| 25) (|List| 40) (|Equation| 25)
+              (|List| 42) (|Symbol|)
+              (|Record| (|:| |mat| 44) (|:| |vec| (|Vector| 11))) (|Matrix| 11)
+              (|List| 13) (|PatternMatchResult| 52 %)
+              (|PatternMatchResult| 11 %) (|Union| 49 '#2#) (|List| 17)
+              (|Factored| 17) (|DoubleFloat|) (|Float|) (|Union| 33 '#1#)
+              (|Union| 11 '#1#) (|Union| 42 '#1#))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 25
-                                '(0 0 1 0 0 0 7 0 0 7 0 0 0 0 16 15 4 3 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 17 7 0 0 0 0 0 17 7 0 0
+                                '(0 0 2 0 0 0 7 0 0 7 0 0 0 0 16 15 1 4 1 0 0 0
+                                  0 1 0 0 0 0 1 0 0 0 0 17 7 1 0 0 0 0 17 7 1 1
                                   0 0 0 0 0 7 7 0 7 7 0 0 0 9 0 0 0 0 0 21 20
-                                  11 25 0 0 0 13 10 10 6 2 0 0 0 0 19 18 14 13
-                                  12 10 10 8 6 6 5 2 0 0 0 0 0 0 0 0 0))
+                                  11 25 0 0 0 13 10 10 6 3 0 0 0 0 19 18 14 13
+                                  12 10 10 8 6 6 5 3 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|QuotientFieldCategory&| |Field&|
                 |PolynomialFactorizationExplicit&| |EuclideanDomain&|
                 |UniqueFactorizationDomain&| NIL NIL |GcdDomain&| NIL NIL NIL
                 NIL |DivisionRing&| |DifferentialExtension&|
                 |DifferentialRing&| |PartialDifferentialRing&| NIL NIL
-                |Algebra&| |EntireRing&| |Algebra&| |Algebra&| NIL NIL |Rng&|
-                |NonAssociativeAlgebra&| |NonAssociativeAlgebra&|
-                |NonAssociativeAlgebra&| NIL |Module&| |Module&| |Module&|
-                |FullyLinearlyExplicitOver&| NIL |OrderedAbelianGroup&|
-                |NonAssociativeRing&| NIL NIL NIL NIL NIL NIL NIL
-                |NonAssociativeRng&| NIL NIL NIL NIL NIL NIL NIL
-                |AbelianGroup&| NIL NIL NIL NIL NIL |OrderedSet&|
-                |AbelianMonoid&| |NonAssociativeSemiRng&| |MagmaWithUnit&| NIL
-                NIL NIL NIL NIL NIL |AbelianSemiGroup&| |Magma&|
-                |FullyEvalableOver&| |Evalable&| |RetractableTo&|
-                |RetractableTo&| NIL |RetractableTo&| |SetCategory&| NIL
-                |RetractableTo&| NIL NIL NIL NIL |InnerEvalable&|
-                |InnerEvalable&| NIL NIL |PartialOrder&| NIL NIL NIL NIL NIL
-                |BasicType&| NIL NIL NIL NIL NIL NIL NIL)
+                |Algebra&| |Algebra&| |EntireRing&| |Algebra&| NIL
+                |NonAssociativeAlgebra&| NIL |Rng&| |NonAssociativeAlgebra&|
+                |NonAssociativeAlgebra&| |Module&| NIL |Module&| |Module&|
+                |FullyLinearlyExplicitOver&| NIL |OrderedAbelianGroup&| NIL
+                |NonAssociativeRing&| NIL NIL NIL NIL NIL NIL NIL NIL
+                |NonAssociativeRng&| NIL NIL NIL NIL NIL |AbelianGroup&| NIL
+                NIL NIL NIL NIL |OrderedSet&| |AbelianMonoid&|
+                |NonAssociativeSemiRng&| |MagmaWithUnit&| NIL NIL NIL NIL NIL
+                NIL |AbelianSemiGroup&| |Magma&| |FullyEvalableOver&|
+                |Evalable&| |RetractableTo&| |RetractableTo&| NIL
+                |RetractableTo&| |SetCategory&| NIL |RetractableTo&| NIL NIL
+                NIL NIL |InnerEvalable&| |InnerEvalable&| NIL NIL
+                |PartialOrder&| NIL NIL NIL NIL NIL |BasicType&| NIL NIL NIL
+                NIL NIL NIL NIL)
              (CONS
               '#((|QuotientFieldCategory| (|PAdicInteger| 6)) (|Field|)
                  (|PolynomialFactorizationExplicit|) (|EuclideanDomain|)
@@ -204,40 +210,41 @@
                  (|OrderedIntegralDomain|) (|GcdDomain|) (|IntegralDomain|)
                  (|OrderedRing|) (|LeftOreRing|) (|CommutativeRing|)
                  (|DivisionRing|) (|DifferentialExtension| (|PAdicInteger| 6))
-                 (|DifferentialRing|) (|PartialDifferentialRing| 41)
+                 (|DifferentialRing|) (|PartialDifferentialRing| 42)
                  (|CharacteristicZero|) (|CharacteristicNonZero|)
-                 (|Algebra| $$) (|EntireRing|) (|Algebra| 25)
-                 (|Algebra| (|PAdicInteger| 6)) (|Ring|) (|SemiRing|) (|Rng|)
-                 (|NonAssociativeAlgebra| $$) (|NonAssociativeAlgebra| 25)
-                 (|NonAssociativeAlgebra| (|PAdicInteger| 6)) (|SemiRng|)
-                 (|Module| $$) (|Module| 25) (|Module| (|PAdicInteger| 6))
+                 (|Algebra| 33) (|Algebra| $$) (|EntireRing|)
+                 (|Algebra| (|PAdicInteger| 6)) (|Ring|)
+                 (|NonAssociativeAlgebra| 33) (|SemiRing|) (|Rng|)
+                 (|NonAssociativeAlgebra| $$)
+                 (|NonAssociativeAlgebra| (|PAdicInteger| 6)) (|Module| 33)
+                 (|SemiRng|) (|Module| $$) (|Module| (|PAdicInteger| 6))
                  (|FullyLinearlyExplicitOver| (|PAdicInteger| 6))
                  (|LinearlyExplicitOver| 11) (|OrderedAbelianGroup|)
-                 (|NonAssociativeRing|) (|BiModule| $$ $$) (|BiModule| 25 25)
+                 (|BiModule| 33 33) (|NonAssociativeRing|) (|BiModule| $$ $$)
                  (|BiModule| (|PAdicInteger| 6) (|PAdicInteger| 6))
                  (|LinearlyExplicitOver| (|PAdicInteger| 6)) (|RightModule| 11)
-                 (|OrderedCancellationAbelianMonoid|) (|RightModule| $$)
-                 (|NonAssociativeRng|) (|LeftModule| $$) (|LeftModule| 25)
-                 (|RightModule| 25) (|LeftModule| (|PAdicInteger| 6))
+                 (|OrderedCancellationAbelianMonoid|) (|RightModule| 33)
+                 (|LeftModule| 33) (|RightModule| $$) (|NonAssociativeRng|)
+                 (|LeftModule| $$) (|LeftModule| (|PAdicInteger| 6))
                  (|RightModule| (|PAdicInteger| 6)) (|OrderedMonoid|)
                  (|OrderedAbelianMonoid|) (|AbelianGroup|) (|OrderedSemiGroup|)
                  (|OrderedAbelianSemiGroup|) (|CancellationAbelianMonoid|)
                  (|NonAssociativeSemiRing|) (|Monoid|) (|OrderedSet|)
                  (|AbelianMonoid|) (|NonAssociativeSemiRng|) (|MagmaWithUnit|)
                  (|SemiGroup|) (|FullyPatternMatchable| (|PAdicInteger| 6))
-                 (|PatternMatchable| 11) (|PatternMatchable| 51)
+                 (|PatternMatchable| 11) (|PatternMatchable| 52)
                  (|StepThrough|) (|Comparable|) (|AbelianSemiGroup|) (|Magma|)
                  (|FullyEvalableOver| (|PAdicInteger| 6))
                  (|Evalable| (|PAdicInteger| 6)) (|RetractableTo| 11)
-                 (|RetractableTo| 25) (|RealConstant|) (|RetractableTo| 41)
+                 (|RetractableTo| 33) (|RealConstant|) (|RetractableTo| 42)
                  (|SetCategory|) (|CommutativeStar|)
                  (|RetractableTo| (|PAdicInteger| 6))
                  (|Patternable| (|PAdicInteger| 6)) (|ConvertibleTo| 37)
                  (|ConvertibleTo| 36) (|Eltable| (|PAdicInteger| 6) $$)
                  (|InnerEvalable| (|PAdicInteger| 6) (|PAdicInteger| 6))
-                 (|InnerEvalable| 41 (|PAdicInteger| 6)) (|CoercibleFrom| 11)
-                 (|CoercibleFrom| 25) (|PartialOrder|) (|ConvertibleTo| 51)
-                 (|ConvertibleTo| 52) (|ConvertibleTo| 35) (|CoercibleFrom| 41)
+                 (|InnerEvalable| 42 (|PAdicInteger| 6)) (|CoercibleFrom| 11)
+                 (|CoercibleFrom| 33) (|PartialOrder|) (|ConvertibleTo| 52)
+                 (|ConvertibleTo| 51) (|ConvertibleTo| 35) (|CoercibleFrom| 42)
                  (|CoercibleTo| 8) (|BasicType|) (|unitsKnown|)
                  (|TwoSidedRecip|) (|noZeroDivisors|) (|canonicalUnitNormal|)
                  (|canonicalsClosed|) (|CoercibleFrom| (|PAdicInteger| 6))

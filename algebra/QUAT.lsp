@@ -26,6 +26,10 @@
                                               (OR #1#
                                                   (|HasCategory| |#1|
                                                                  '(|Field|)))
+                                              (AND
+                                               (|HasCategory| |#1|
+                                                              '(|CharacteristicZero|))
+                                               (|HasCategory| |#1| '(|Field|)))
                                               (|HasCategory| |#1|
                                                              '(|OrderedSet|))
                                               (|HasCategory| |#1|
@@ -62,17 +66,18 @@
                                               (|HasCategory| |#1|
                                                              '(|RealNumberSystem|))
                                               (|HasCategory| |#1|
-                                                             '(|IntegerNumberSystem|))
-                                              (OR
-                                               (|HasCategory| |#1|
-                                                              '(|RetractableTo|
-                                                                (|Fraction|
-                                                                 (|Integer|))))
-                                               (|HasCategory| |#1|
-                                                              '(|Field|)))))))
+                                                             '(|IntegerNumberSystem|))))))
           (|haddProp| |$ConstructorCache| '|Quaternion| (LIST DV$1) (CONS 1 %))
           (|stuffDomainSlots| %)
           (QSETREFV % 6 |#1|)
+          (AND (|HasCategory| |#1| '(|Field|))
+               (|HasCategory| % '(|CharacteristicZero|))
+               (|augmentPredVector| % 262144))
+          (AND
+           (OR (|HasCategory| |#1| '(|RetractableTo| (|Fraction| (|Integer|))))
+               (AND (|HasCategory| |#1| '(|Field|))
+                    (|HasCategory| % '(|CharacteristicZero|))))
+           (|augmentPredVector| % 524288))
           (SETF |pv$| (QREFELT % 3))
           %))) 
 
@@ -115,11 +120,11 @@
               (|Union| 14 '#1#))
            '#(|One| 13) 'NIL
            (CONS
-            (|makeByteWordVec2| 15
-                                '(0 4 0 11 10 4 6 2 1 0 0 4 0 0 0 4 0 0 0 15 4
-                                  0 0 0 0 15 4 4 0 0 0 0 0 0 0 0 0 7 0 0 0 0 7
-                                  0 0 0 0 13 9 8 0 0 14 13 12 9 8 7 4 5 3 0 0 0
-                                  0))
+            (|makeByteWordVec2| 16
+                                '(0 4 0 12 11 7 6 2 1 0 0 7 0 0 0 7 0 0 0 16 7
+                                  0 0 0 0 16 7 7 0 0 0 0 0 0 0 0 0 8 0 0 0 0 8
+                                  0 0 0 0 14 10 9 0 0 15 14 13 10 9 8 4 5 3 0 0
+                                  0 0))
             (CONS
              '#(|QuaternionCategory&| |DivisionRing&| |DifferentialExtension&|
                 |DifferentialRing&| |PartialDifferentialRing&| |Algebra&|
