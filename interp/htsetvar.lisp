@@ -414,7 +414,7 @@
 ;   htpSetProperty(htPage, 'parts, restParts)
 ;   kind = 'LITERALS => htSetLiterals(htPage,setData.setName,
 ;                                     phrase,variable,checker,'htFunctionSetLiteral)
-;   htShowFunctionPageContinued2(htPage, setData, EVAL(variable) checker,
+;   htShowFunctionPageContinued2(htPage, setData, EVAL(variable), checker,
 ;                                phrase, 'htSetFunCommand)
 
 (DEFUN |htShowFunctionPageContinued| (|htPage|)
@@ -438,8 +438,8 @@
         (|htSetLiterals| |htPage| (ELT |setData| 0) |phrase| |variable|
          |checker| '|htFunctionSetLiteral|))
        ('T
-        (|htShowFunctionPageContinued2| |htPage| |setData|
-         (EVAL (|variable| |checker|)) |phrase| '|htSetFunCommand|)))))))
+        (|htShowFunctionPageContinued2| |htPage| |setData| (EVAL |variable|)
+         |checker| |phrase| '|htSetFunCommand|)))))))
 
 ; htShowFunctionPageContinued2(htPage, setData, cval, checker, phrase,
 ;                              fun_to_call) ==

@@ -378,18 +378,8 @@
 ;       interpreter
 ;       FUNCTION
 ;       setOutputAlgebra
-;       (("display output in algebraic form"
-;         LITERALS
-;         $algebraFormat
-;         (off on)
-;         on)
-;        (break $algebraFormat)
-;        ("where algebra printing goes (enter {\em console} or a pathname)?"
-;         FILENAME
-;         $algebraOutputFile
-;         chkOutputFileName
-;         "console"))
-;       NIL)
+;       NIL
+;       htSetOutputPage)
 ;      (characters
 ;       "choose special output character set"
 ;       interpreter
@@ -647,13 +637,7 @@
      ((|abbreviate| "abbreviate type names" |interpreter| LITERALS
        |$abbreviateTypes| (|on| |off|) |off|)
       (|algebra| "display output in algebraic form" |interpreter| FUNCTION
-       |setOutputAlgebra|
-       (("display output in algebraic form" LITERALS |$algebraFormat|
-         (|off| |on|) |on|)
-        (|break| |$algebraFormat|)
-        ("where algebra printing goes (enter {\\em console} or a pathname)?"
-         FILENAME |$algebraOutputFile| |chkOutputFileName| "console"))
-       NIL)
+       |setOutputAlgebra| NIL |htSetOutputPage|)
       (|characters| "choose special output character set" |interpreter|
        FUNCTION |setOutputCharacters| NIL |htSetOutputCharacters|)
       (|fortran| "create output in FORTRAN format" |interpreter| FUNCTION
