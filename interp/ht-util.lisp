@@ -1162,6 +1162,27 @@
       (|princPrompt|)
       (FORCE-OUTPUT)))))
 
+; htDoneButton(func, htPage, :optionalArgs) ==
+; ------> Handle argument values passed from page if present
+;   if optionalArgs then
+;     htpSetInputAreaAlist(htPage, first optionalArgs)
+;   typeCheckInputAreas htPage =>
+;     htMakeErrorPage htPage
+;   NULL FBOUNDP func =>
+;     systemError ['"unknown function", func]
+;   FUNCALL(SYMBOL_-FUNCTION func, htPage)
+
+(DEFUN |htDoneButton| (|func| |htPage| &REST |optionalArgs|)
+  (PROG ()
+    (RETURN
+     (PROGN
+      (COND
+       (|optionalArgs| (|htpSetInputAreaAlist| |htPage| (CAR |optionalArgs|))))
+      (COND ((|typeCheckInputAreas| |htPage|) (|htMakeErrorPage| |htPage|))
+            ((NULL (FBOUNDP |func|))
+             (|systemError| (LIST "unknown function" |func|)))
+            ('T (FUNCALL (SYMBOL-FUNCTION |func|) |htPage|)))))))
+
 ; typeCheckInputAreas htPage ==
 ;   -- This needs to be severely beefed up
 ;   errorCondition := false
