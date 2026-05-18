@@ -464,7 +464,7 @@
                             (SPADCALL
                              (CONS #'|MAGCDT3;extended_gcd!4|
                                    (VECTOR % |p| |lv| |lm|))
-                             |r0| (QREFELT % 29)))
+                             |t0| (QREFELT % 29)))
                       (PROGN
                        (LETT |#G48| |r1|)
                        (LETT |#G49| |r0|)
