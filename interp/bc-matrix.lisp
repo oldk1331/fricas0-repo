@@ -10,7 +10,7 @@
 ; bcReadMatrix(exitFunctionOrNil) ==
 ;   page := htInitPage('"Matrix Basic Command", nil)
 ;   htpSetProperty(page,'exitFunction,exitFunctionOrNil)
-;   htMakePage
+;   ht_add_to_page(page,
 ;    '((domainConditions
 ;      (isDomain PI (PositiveInteger)))
 ;     (text . "Enter the size of the matrix:")
@@ -24,8 +24,8 @@
 ;     (bcLinks ("\menuitemstyle{By entering individual entries}" "" bcInputExplicitMatrix  explicit))
 ;     (text . "\item ")
 ;     (bcLinks ("\menuitemstyle{By formula}" "" bcInputMatrixByFormula formula))
-;     (text . "\endmenu"))
-;   htShowPage()
+;     (text . "\endmenu")))
+;   htShowPage1(page)
 
 (DEFUN |bcReadMatrix| (|exitFunctionOrNil|)
   (PROG (|page|)
@@ -33,7 +33,7 @@
      (PROGN
       (SETQ |page| (|htInitPage| "Matrix Basic Command" NIL))
       (|htpSetProperty| |page| '|exitFunction| |exitFunctionOrNil|)
-      (|htMakePage|
+      (|ht_add_to_page| |page|
        '((|domainConditions| (|isDomain| PI (|PositiveInteger|)))
          (|text| . "Enter the size of the matrix:")
          (|inputStrings| ("Number of {\\em rows}:\\space{3}" "" 5 2 |rows| PI)
@@ -49,7 +49,7 @@
           ("\\menuitemstyle{By formula}" "" |bcInputMatrixByFormula|
            |formula|))
          (|text| . "\\endmenu")))
-      (|htShowPage|)))))
+      (|htShowPage1| |page|)))))
 
 ; get_int_value(page, key) ==
 ;     PARSE_-INTEGER(htpLabelInputString(page, key))
@@ -59,7 +59,7 @@
 
 ; bcInputMatrixByFormula(htPage, junk) ==
 ;   page := htInitPage('"Basic Matrix Command", htpPropertyList htPage)
-;   htMakePage '(
+;   ht_add_to_page(page, '(
 ;     (domainConditions
 ;       (isDomain S (Symbol))
 ;       (isDomain FE (Expression (Integer))))
@@ -78,13 +78,13 @@
 ;     (text . "\menuitemstyle{}\tab{2}")
 ;     (text .  "Enter the general {\em formula} for the entries:")
 ;     (text . "\newline\tab{2} ")
-;     (bcStrings (40 "1/(x - i - j - 1)" formula FE)))
+;     (bcStrings (40 "1/(x - i - j - 1)" formula FE))))
 ;   htMakeDoneButton('"Continue", 'bcInputMatrixByFormulaGen)
 ;   nrows := get_int_value(htPage, 'rows)
 ;   ncols := get_int_value(htPage, 'cols)
 ;   htpSetProperty(page, 'nrows, nrows)
 ;   htpSetProperty(page, 'ncols, ncols)
-;   htShowPage()
+;   htShowPage1(page)
 
 (DEFUN |bcInputMatrixByFormula| (|htPage| |junk|)
   (PROG (|page| |nrows| |ncols|)
@@ -93,7 +93,7 @@
       (SETQ |page|
               (|htInitPage| "Basic Matrix Command"
                (|htpPropertyList| |htPage|)))
-      (|htMakePage|
+      (|ht_add_to_page| |page|
        '((|domainConditions| (|isDomain| S (|Symbol|))
           (|isDomain| FE (|Expression| (|Integer|))))
          (|text| . "\\menuitemstyle{}\\tab{2}")
@@ -111,7 +111,7 @@
       (SETQ |ncols| (|get_int_value| |htPage| '|cols|))
       (|htpSetProperty| |page| '|nrows| |nrows|)
       (|htpSetProperty| |page| '|ncols| |ncols|)
-      (|htShowPage|)))))
+      (|htShowPage1| |page|)))))
 
 ; bcInputMatrixByFormulaGen htPage ==
 ;   fun :=  htpProperty(htPage,'exitFunction) => FUNCALL(fun, htPage)
@@ -160,12 +160,12 @@
 ;     [['domainConditions, '(isDomain P (Polynomial $EmptyMode)), cond],
 ;      ['inputStrings, :labelList] ]
 ;   page := htInitPage('"Solve Basic Command", htpPropertyList htPage)
-;   bcHt '"Enter the entries of the matrix:"
-;   htMakePage labelList
+;   ht_add_string(page, '"Enter the entries of the matrix:")
+;   ht_add_to_page(page, labelList)
 ;   htMakeDoneButton('"Continue", 'bcGenExplicitMatrix)
 ;   htpSetProperty(page,'nrows,nrows)
 ;   htpSetProperty(page,'ncols,ncols)
-;   htShowPage()
+;   htShowPage1(page)
 
 (DEFUN |bcInputExplicitMatrix| (|htPage| |junk|)
   (PROG (|nrows| |ncols| |cond| |k| |wrows| |wcols| |rowpart| |colpart|
@@ -232,12 +232,12 @@
       (SETQ |page|
               (|htInitPage| "Solve Basic Command"
                (|htpPropertyList| |htPage|)))
-      (|bcHt| "Enter the entries of the matrix:")
-      (|htMakePage| |labelList|)
+      (|ht_add_string| |page| "Enter the entries of the matrix:")
+      (|ht_add_to_page| |page| |labelList|)
       (|htMakeDoneButton| "Continue" '|bcGenExplicitMatrix|)
       (|htpSetProperty| |page| '|nrows| |nrows|)
       (|htpSetProperty| |page| '|ncols| |ncols|)
-      (|htShowPage|)))))
+      (|htShowPage1| |page|)))))
 
 ; bcGenExplicitMatrix htPage ==
 ;   htpSetProperty(htPage,'matrix,htpInputAreaAlist htPage)

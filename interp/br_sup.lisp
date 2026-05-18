@@ -39,3 +39,19 @@
                     ((NULL (VECP |r|)) (|systemError| (|devaluateList| |r|)))
                     (#1='T (|substitute| '% |domname| (|devaluate| |r|))))))
             (#1# '|nowhere|))))))
+
+; ht_add_strings(page, strings) ==
+;     for str in strings repeat
+;         ht_add_string(page, str)
+
+(DEFUN |ht_add_strings| (|page| |strings|)
+  (PROG ()
+    (RETURN
+     ((LAMBDA (|bfVar#1| |str|)
+        (LOOP
+         (COND
+          ((OR (ATOM |bfVar#1|) (PROGN (SETQ |str| (CAR |bfVar#1|)) NIL))
+           (RETURN NIL))
+          ('T (|ht_add_string| |page| |str|)))
+         (SETQ |bfVar#1| (CDR |bfVar#1|))))
+      |strings| NIL))))

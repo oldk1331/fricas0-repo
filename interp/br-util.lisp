@@ -1675,13 +1675,6 @@
       (|htMakeDoitButton| "Do It" |command|)
       (|htShowPage|)))))
 
-; bcOptional s ==
-;   s = '"" => '"2"
-;   s
-
-(DEFUN |bcOptional| (|s|)
-  (PROG () (RETURN (COND ((EQUAL |s| "") "2") ('T |s|)))))
-
 ; bcString2WordList s == fn(s,0,MAXINDEX s) where
 ;   fn(s,i,n) ==
 ;     i > n => nil

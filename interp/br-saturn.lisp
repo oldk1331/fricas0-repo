@@ -11,6 +11,10 @@
 
 (DEFUN |page| () (PROG () (RETURN |$curPage|)))
 
+; ht_add_string(page, str) == bcHt(str)
+
+(DEFUN |ht_add_string| (|page| |str|) (PROG () (RETURN (|bcHt| |str|))))
+
 ; htShowPage() ==
 ; -- show the page which has been computed
 ;   htSayStandard '"\endscroll"
@@ -19,6 +23,10 @@
 (DEFUN |htShowPage| ()
   (PROG ()
     (RETURN (PROGN (|htSayStandard| "\\endscroll") (|htShowPageNoScroll|)))))
+
+; htShowPage1(page) == htShowPage()
+
+(DEFUN |htShowPage1| (|page|) (PROG () (RETURN (|htShowPage|))))
 
 ; htShowPageNoScroll() ==
 ; -- show the page which has been computed
@@ -98,6 +106,11 @@
      (PROGN
       (COND (|$newPage| (|htpAddToPageDescription| |$curPage| |itemList|)))
       (|htMakePage1| |itemList|)))))
+
+; ht_add_to_page(page, items) == htMakePage(items)
+
+(DEFUN |ht_add_to_page| (|page| |items|)
+  (PROG () (RETURN (|htMakePage| |items|))))
 
 ; htMakePage1 itemList ==
 ; -- make a page given the description in itemList
