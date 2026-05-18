@@ -351,7 +351,7 @@
 ;     k := #n - 1
 ;     dot := '".".0
 ;     while k >= 0 and not(n.k = dot) repeat
-;         is_dir_sepatator?(n.k) => k := -1
+;         is_dir_separator?(n.k) => k := -1
 ;         k := k - 1
 ;     k
 
@@ -367,7 +367,7 @@
            ((NOT (AND (NOT (MINUSP |k|)) (NULL (EQUAL (ELT |n| |k|) |dot|))))
             (RETURN NIL))
            (#1='T
-            (COND ((|is_dir_sepatator?| (ELT |n| |k|)) (SETQ |k| (- 1)))
+            (COND ((|is_dir_separator?| (ELT |n| |k|)) (SETQ |k| (- 1)))
                   (#1# (SETQ |k| (- |k| 1)))))))))
       |k|))))
 
@@ -430,7 +430,7 @@
 
 ; last_dir_separator(n) ==
 ;     k := #n - 1
-;     while k >=0 and not(is_dir_sepatator?(n.k)) repeat
+;     while k >=0 and not(is_dir_separator?(n.k)) repeat
 ;         k := k - 1
 ;     k
 
@@ -444,7 +444,7 @@
           (COND
            ((NOT
              (AND (NOT (MINUSP |k|))
-                  (NULL (|is_dir_sepatator?| (ELT |n| |k|)))))
+                  (NULL (|is_dir_separator?| (ELT |n| |k|)))))
             (RETURN NIL))
            ('T (SETQ |k| (- |k| 1)))))))
       |k|))))
@@ -477,7 +477,7 @@
 
 ; file_directory(n) ==
 ;     k := #n - 1
-;     while k >=0 and not(is_dir_sepatator?(n.k)) repeat
+;     while k >=0 and not(is_dir_separator?(n.k)) repeat
 ;         k := k - 1
 ;     k < 0 => '""
 ;     k = 0 => "/"
@@ -493,7 +493,7 @@
           (COND
            ((NOT
              (AND (NOT (MINUSP |k|))
-                  (NULL (|is_dir_sepatator?| (ELT |n| |k|)))))
+                  (NULL (|is_dir_separator?| (ELT |n| |k|)))))
             (RETURN NIL))
            (#1='T (SETQ |k| (- |k| 1)))))))
       (COND ((MINUSP |k|) "") ((EQL |k| 0) '/) (#1# (SUBSTRING |n| 0 |k|)))))))
@@ -587,9 +587,9 @@
 ;         CONCAT(n, '".", e)
 ;     d = '"" => n
 ;     n :=
-;         is_dir_sepatator?(n.0) => SUBSTRING(n, 1, #n - 1)
+;         is_dir_separator?(n.0) => SUBSTRING(n, 1, #n - 1)
 ;         n
-;     is_dir_sepatator?(d.(#d - 1)) => CONCAT(d, n)
+;     is_dir_separator?(d.(#d - 1)) => CONCAT(d, n)
 ;     CONCAT(d, "/", n)
 
 (DEFUN |make_fname| (|d| |n| |e|)
@@ -604,11 +604,11 @@
                     (PROGN
                      (SETQ |n|
                              (COND
-                              ((|is_dir_sepatator?| (ELT |n| 0))
+                              ((|is_dir_separator?| (ELT |n| 0))
                                (SUBSTRING |n| 1 (- (LENGTH |n|) 1)))
                               (#1# |n|)))
                      (COND
-                      ((|is_dir_sepatator?| (ELT |d| (- (LENGTH |d|) 1)))
+                      ((|is_dir_separator?| (ELT |d| (- (LENGTH |d|) 1)))
                        (CONCAT |d| |n|))
                       (#1# (CONCAT |d| '/ |n|))))))))))))
 
