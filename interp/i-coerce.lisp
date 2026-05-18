@@ -794,8 +794,6 @@
 ;     key := opOf form
 ;     entryList := LASSOC(key,opAlist)
 ;     entryList is [[., ., ., type]] and type in '(CONST ASCONST) => true
-;     key = "1" => constantInDomain?(["1"], domainForm)
-;     key = "0" => constantInDomain?(["0"], domainForm)
 ;     false
 
 (DEFUN |constantInDomain?| (|form| |domainForm|)
@@ -825,8 +823,6 @@
                                       #1='T)))))))))
              (|member| |type| '(CONST ASCONST)))
         T)
-       ((EQ |key| '|1|) (|constantInDomain?| (LIST '|1|) |domainForm|))
-       ((EQ |key| '|0|) (|constantInDomain?| (LIST '|0|) |domainForm|))
        (#1# NIL))))))
 
 ; getConstantFromDomain1(form,domainForm) ==
@@ -835,8 +831,6 @@
 ;     key := opOf form
 ;     entryList := LASSOC(key,opAlist)
 ;     entryList isnt [[sig, ., ., .]] =>
-;         key = "1" => getConstantFromDomain(["1"], domainForm)
-;         key = "0" => getConstantFromDomain(["0"], domainForm)
 ;         throw_msg("S2IC0008", '"No such constant %1b in domain %2bp .",
 ;                   [form, domainForm])
 ;     -- i.e., there should be exactly one item under this key of that form
@@ -871,14 +865,8 @@
                                         (SETQ |ISTMP#4| (CDR |ISTMP#3|))
                                         (AND (CONSP |ISTMP#4|)
                                              (EQ (CDR |ISTMP#4|) NIL)))))))))))
-               (COND
-                ((EQ |key| '|1|)
-                 (|getConstantFromDomain| (LIST '|1|) |domainForm|))
-                ((EQ |key| '|0|)
-                 (|getConstantFromDomain| (LIST '|0|) |domainForm|))
-                (#1#
-                 (|throw_msg| 'S2IC0008 "No such constant %1b in domain %2bp ."
-                  (LIST |form| |domainForm|)))))
+               (|throw_msg| 'S2IC0008 "No such constant %1b in domain %2bp ."
+                (LIST |form| |domainForm|)))
               (#1#
                (PROGN
                 (SETQ |domain| (|evalDomain| |domainForm|))
