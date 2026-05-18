@@ -1167,9 +1167,6 @@
 ;   errorCondition := false
 ;   for entry in htpInputAreaAlist htPage
 ;    | entry is [stringName, ., ., ., 'string, ., spadType, filter] repeat
-;     condList :=
-;       LASSOC(LASSOC(spadType,htpDomainPvarSubstList htPage),
-;              htpDomainVariableAlist htPage)
 ;     string := htpLabelFilteredInputString(htPage, stringName)
 ;     null(ncParseFromString(string)) =>
 ;         -- FIXME: this effectively ignores errors, but otherwise
@@ -1181,7 +1178,7 @@
 
 (DEFUN |typeCheckInputAreas| (|htPage|)
   (PROG (|errorCondition| |stringName| |ISTMP#1| |ISTMP#2| |ISTMP#3| |ISTMP#4|
-         |ISTMP#5| |ISTMP#6| |spadType| |ISTMP#7| |filter| |condList| |string|)
+         |ISTMP#5| |ISTMP#6| |spadType| |ISTMP#7| |filter| |string|)
     (RETURN
      (PROGN
       (SETQ |errorCondition| NIL)
@@ -1227,11 +1224,6 @@
                                                                      |ISTMP#7|))
                                                             #1#)))))))))))))))
                  (PROGN
-                  (SETQ |condList|
-                          (LASSOC
-                           (LASSOC |spadType|
-                            (|htpDomainPvarSubstList| |htPage|))
-                           (|htpDomainVariableAlist| |htPage|)))
                   (SETQ |string|
                           (|htpLabelFilteredInputString| |htPage|
                            |stringName|))
@@ -1243,21 +1235,6 @@
           (SETQ |bfVar#30| (CDR |bfVar#30|))))
        (|htpInputAreaAlist| |htPage|) NIL)
       |errorCondition|))))
-
-; condErrorMsg type ==
-;   typeString := form2String type
-;   if PAIRP typeString then typeString := concatenateStringList(typeString)
-;   CONCAT('"Error: Could not make your input into a ", typeString)
-
-(DEFUN |condErrorMsg| (|type|)
-  (PROG (|typeString|)
-    (RETURN
-     (PROGN
-      (SETQ |typeString| (|form2String| |type|))
-      (COND
-       ((CONSP |typeString|)
-        (SETQ |typeString| (|concatenateStringList| |typeString|))))
-      (CONCAT "Error: Could not make your input into a " |typeString|)))))
 
 ; quoteString string == CONCAT('"_"", string, '"_"")
 
