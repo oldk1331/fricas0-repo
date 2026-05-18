@@ -77,7 +77,7 @@
 (SDEFUN |ICARD;convert_params|
         ((|params| (|List| (|SExpression|))) (% (|String|)))
         (SPROG
-         ((|first| (|Boolean|)) (|a1| NIL) (#1=#:G72 NIL)
+         ((|a1| NIL) (#1=#:G72 NIL) (|first| (|Boolean|))
           (|rl| (|List| (|String|))))
          (SEQ
           (COND ((NULL |params|) "")
@@ -90,6 +90,7 @@
                            (SEQ
                             (COND
                              ((NULL |first|) (LETT |rl| (CONS ", " |rl|))))
+                            (LETT |first| NIL)
                             (EXIT
                              (LETT |rl|
                                    (CONS
