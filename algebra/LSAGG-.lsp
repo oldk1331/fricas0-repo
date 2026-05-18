@@ -322,7 +322,7 @@
                        ('T
                         (SEQ
                          (LETT |l|
-                               (PROG1 (LETT #1# (QUOTIENT2 |n| 2))
+                               (PROG1 (LETT #1# (|quotient_INT| |n| 2))
                                  (|check_subtype2| (>= #1# 0)
                                                    '(|NonNegativeInteger|)
                                                    '(|Integer|) #1#)))
@@ -413,8 +413,8 @@
                                         (LETT |lo|
                                               (- |hi|
                                                  (* |step|
-                                                    (QUOTIENT2 (- |hi| |lo|)
-                                                               |step|))))
+                                                    (|quotient_INT|
+                                                     (- |hi| |lo|) |step|))))
                                         (EXIT
                                          (COND
                                           ((< |lo| |mn|)
@@ -441,8 +441,8 @@
                                     (LETT |hi|
                                           (+ |lo|
                                              (* |step|
-                                                (QUOTIENT2 (- |hi| |lo|)
-                                                           |step|))))
+                                                (|quotient_INT| (- |hi| |lo|)
+                                                                |step|))))
                                     (EXIT
                                      (COND
                                       ((> |hi| |mx|)

@@ -9,8 +9,8 @@
                       ('T
                        (SEQ
                         (LETT |y|
-                              (|SMATCAT-;positivePower| |x| (QUOTIENT2 |n| 2)
-                               %))
+                              (|SMATCAT-;positivePower| |x|
+                               (|quotient_INT| |n| 2) %))
                         (EXIT (SPADCALL |y| |y| (QREFELT % 11))))))))) 
 
 (SDEFUN |SMATCAT-;^;SNniS;2| ((|x| (S)) (|n| (|NonNegativeInteger|)) (% (S)))

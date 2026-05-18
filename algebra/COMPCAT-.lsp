@@ -1100,7 +1100,7 @@
                            (EXIT
                             (SEQ
                              (LETT |ee|
-                                   (QUOTIENT2
+                                   (|quotient_INT|
                                     (- (SPADCALL |q| (QREFELT % 285)) 1) 2))
                              (EXIT
                               (SPADCALL (|spadConstant| % 21)

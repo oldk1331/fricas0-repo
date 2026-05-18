@@ -137,7 +137,7 @@
            (#16='T
             (SEQ
              (LETT |maxd|
-                   (QUOTIENT2
+                   (|quotient_INT|
                     (PROGN
                      (LETT #10# NIL)
                      (SEQ (LETT |f| NIL) (LETT #13# |fln|) G190

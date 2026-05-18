@@ -315,7 +315,8 @@
            ('T
             (SEQ (LETT |obits| (SPADCALL (QREFELT % 67)))
                  (LETT |prec| (+ |obits| 20)) (SPADCALL |prec| (QREFELT % 68))
-                 (LETT |eps| (|FELFUN;two_to_minus_n| (QUOTIENT2 |prec| 2) %))
+                 (LETT |eps|
+                       (|FELFUN;two_to_minus_n| (|quotient_INT| |prec| 2) %))
                  (LETT |ll| (SPADCALL |m| |eps| (QREFELT % 33)))
                  (LETT |res|
                        (SPADCALL
@@ -337,7 +338,8 @@
            ('T
             (SEQ (LETT |obits| (SPADCALL (QREFELT % 67)))
                  (LETT |prec| (+ |obits| 20)) (SPADCALL |prec| (QREFELT % 68))
-                 (LETT |eps| (|FELFUN;two_to_minus_n| (QUOTIENT2 |prec| 2) %))
+                 (LETT |eps|
+                       (|FELFUN;two_to_minus_n| (|quotient_INT| |prec| 2) %))
                  (LETT |ll| (SPADCALL |m| |eps| (QREFELT % 51)))
                  (LETT |res|
                        (SPADCALL
@@ -417,7 +419,7 @@
                           (QREFELT % 17)))
             (SEQ (LETT |prec| (+ |prec| 20))
                  (EXIT (SPADCALL |prec| (QREFELT % 68))))))
-          (LETT |eps| (|FELFUN;two_to_minus_n| (QUOTIENT2 |prec| 2) %))
+          (LETT |eps| (|FELFUN;two_to_minus_n| (|quotient_INT| |prec| 2) %))
           (EXIT
            (COND
             ((SPADCALL |m|
@@ -527,7 +529,7 @@
                           (QREFELT % 17)))
             (LETT |prec| (+ |prec| 20))))
           (SPADCALL |prec| (QREFELT % 68))
-          (LETT |eps| (|FELFUN;two_to_minus_n| (QUOTIENT2 |prec| 2) %))
+          (LETT |eps| (|FELFUN;two_to_minus_n| (|quotient_INT| |prec| 2) %))
           (LETT |ll| (SPADCALL |m| |eps| (QREFELT % 33)))
           (LETT |kk| (SPADCALL |ll| (QREFELT % 37)))
           (LETT |z1| (SPADCALL |z| |kk| (QREFELT % 22)))
@@ -544,7 +546,7 @@
              (LETT |z2|
                    (SPADCALL |z1| (SPADCALL |nn| |pih| (QREFELT % 61))
                              (QREFELT % 23)))
-             (LETT |nn| (QUOTIENT2 |nn| 2))
+             (LETT |nn| (|quotient_INT| |nn| 2))
              (LETT |sgn|
                    (COND ((ODDP |nn|) (|spadConstant| % 20))
                          (#1='T
@@ -554,7 +556,7 @@
                     (SPADCALL (SPADCALL |z2| (QREFELT % 77)) |sgn|
                               (QREFELT % 61))))))
            (#1#
-            (SEQ (LETT |nn| (QUOTIENT2 |nn| 2))
+            (SEQ (LETT |nn| (|quotient_INT| |nn| 2))
                  (EXIT
                   (LETT |sgn|
                         (COND
@@ -723,7 +725,7 @@
                    (#10#
                     (SEQ
                      (LETT |eps|
-                           (SPADCALL 1 (- (QUOTIENT2 |prec| 2))
+                           (SPADCALL 1 (- (|quotient_INT| |prec| 2))
                                      (QREFELT % 64)))
                      (LETT |ll| (SPADCALL |m| |eps| (QREFELT % 51)))
                      (LETT |kk| (SPADCALL |ll| (QREFELT % 55)))
@@ -1124,8 +1126,8 @@
                           (#1#
                            (SEQ
                             (LETT |eps|
-                                  (|FELFUN;two_to_minus_n| (QUOTIENT2 |prec| 2)
-                                   %))
+                                  (|FELFUN;two_to_minus_n|
+                                   (|quotient_INT| |prec| 2) %))
                             (LETT |ll| (SPADCALL |m| |eps| (QREFELT % 33)))
                             (LETT |kk| (SPADCALL |ll| (QREFELT % 37)))
                             (LETT |z1| (SPADCALL |z| |kk| (QREFELT % 22)))
@@ -1487,7 +1489,7 @@
                              (SPADCALL |prec| (QREFELT % 68))
                              (LETT |eps|
                                    (|FELFUN;two_to_minus_n|
-                                    (QUOTIENT2 |prec| 2) %))
+                                    (|quotient_INT| |prec| 2) %))
                              (LETT |ll| (SPADCALL |m| |eps| (QREFELT % 33)))
                              (LETT |res| (SPADCALL |ll| (QREFELT % 37)))
                              (LETT |ll| (NREVERSE |ll|))
@@ -1623,8 +1625,8 @@
                       (SEQ (LETT |prec| (+ |obits| 20))
                            (SPADCALL |prec| (QREFELT % 68))
                            (LETT |eps|
-                                 (|FELFUN;two_to_minus_n| (QUOTIENT2 |prec| 2)
-                                  %))
+                                 (|FELFUN;two_to_minus_n|
+                                  (|quotient_INT| |prec| 2) %))
                            (LETT |ll| (SPADCALL |m| |eps| (QREFELT % 51)))
                            (LETT |res| (SPADCALL |ll| (QREFELT % 55)))
                            (LETT |ll| (NREVERSE |ll|))
@@ -1698,7 +1700,8 @@
            ('T
             (SEQ (LETT |obits| (SPADCALL (QREFELT % 67)))
                  (LETT |prec| (+ |obits| 20)) (SPADCALL |prec| (QREFELT % 68))
-                 (LETT |eps| (|FELFUN;two_to_minus_n| (QUOTIENT2 |prec| 2) %))
+                 (LETT |eps|
+                       (|FELFUN;two_to_minus_n| (|quotient_INT| |prec| 2) %))
                  (LETT |ll| (SPADCALL |m| |eps| (QREFELT % 33)))
                  (LETT |f_val|
                        (LETT |e_val|
@@ -1760,8 +1763,8 @@
                        (SEQ (LETT |prec| (+ |obits| 20))
                             (SPADCALL |prec| (QREFELT % 68))
                             (LETT |eps|
-                                  (|FELFUN;two_to_minus_n| (QUOTIENT2 |prec| 2)
-                                   %))
+                                  (|FELFUN;two_to_minus_n|
+                                   (|quotient_INT| |prec| 2) %))
                             (LETT |ll| (SPADCALL |m| |eps| (QREFELT % 51)))
                             (LETT |f_val| |e_val|)
                             (SEQ (LETT |k| NIL) (LETT #2# |ll|) G190
@@ -1866,7 +1869,7 @@
                                   (SPADCALL |prec| (QREFELT % 68))
                                   (LETT |eps|
                                         (|FELFUN;two_to_minus_n|
-                                         (QUOTIENT2 |prec| 2) %))
+                                         (|quotient_INT| |prec| 2) %))
                                   (LETT |ll|
                                         (SPADCALL |m| |eps| (QREFELT % 33)))
                                   (LETT |llr| (REVERSE |ll|)) (LETT |lz| NIL)
@@ -2024,7 +2027,8 @@
                    (SEQ (LETT |prec| (+ |obits| 20))
                         (SPADCALL |prec| (QREFELT % 68))
                         (LETT |eps|
-                              (|FELFUN;two_to_minus_n| (QUOTIENT2 |prec| 2) %))
+                              (|FELFUN;two_to_minus_n|
+                               (|quotient_INT| |prec| 2) %))
                         (LETT |ll| (SPADCALL |m| |eps| (QREFELT % 51)))
                         (LETT |llr| (REVERSE |ll|)) (LETT |lz| NIL)
                         (LETT |sf| (|spadConstant| % 20))
@@ -2416,7 +2420,8 @@
                                  (QREFELT % 21)))))))))
                      (LETT |prec| (SPADCALL (QREFELT % 67)))
                      (LETT |eps|
-                           (|FELFUN;two_to_minus_n| (QUOTIENT2 |prec| 2) %))
+                           (|FELFUN;two_to_minus_n| (|quotient_INT| |prec| 2)
+                            %))
                      (LETT |ll| (SPADCALL |m| |eps| (QREFELT % 33)))
                      (LETT |llr| (REVERSE |ll|)) (LETT |lz| NIL)
                      (LETT |lp| NIL) (LETT |lnk| NIL) (LETT |z0| |z|)
@@ -2719,7 +2724,8 @@
                           (LETT |res0|
                                 (SPADCALL |n| |res0| (QREFELT % 52)))))))
                   (LETT |prec| (SPADCALL (QREFELT % 67)))
-                  (LETT |eps| (|FELFUN;two_to_minus_n| (QUOTIENT2 |prec| 2) %))
+                  (LETT |eps|
+                        (|FELFUN;two_to_minus_n| (|quotient_INT| |prec| 2) %))
                   (LETT |ll| (SPADCALL |m| |eps| (QREFELT % 51)))
                   (LETT |llr| (REVERSE |ll|)) (LETT |lz| NIL) (LETT |lp| NIL)
                   (LETT |lnk| NIL) (LETT |nk| |n|) (LETT |z0| |z|)

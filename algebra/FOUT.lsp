@@ -54,7 +54,7 @@
           (|e| (|Integer|)) (|m| #8#) (#11=#:G43 NIL)
           (|ba1| (|PositiveInteger|)) (#12=#:G41 NIL) (|ea| (|Integer|))
           (|ba0| (|Integer|)))
-         (SEQ (LETT |ba0| (+ (QUOTIENT2 (* |d| 70777) 21306) 1))
+         (SEQ (LETT |ba0| (+ (|quotient_INT| (* |d| 70777) 21306) 1))
               (LETT |m| (QCAR |f|)) (LETT |e| (QCDR |f|))
               (LETT |ea| (ABS (+ (INTEGER-LENGTH |m|) |e|)))
               (LETT |ba1|
@@ -65,13 +65,13 @@
                ((> (INTEGER-LENGTH |m|) |ba1|)
                 (SEQ (LETT |ed| (- (INTEGER-LENGTH |m|) |ba1|))
                      (LETT |m|
-                           (QUOTIENT2 |m|
-                                      (EXPT 2
-                                            (PROG1 (LETT #11# |ed|)
-                                              (|check_subtype2| (>= #11# 0)
-                                                                '(|NonNegativeInteger|)
-                                                                '(|Integer|)
-                                                                #11#)))))
+                           (|quotient_INT| |m|
+                                           (EXPT 2
+                                                 (PROG1 (LETT #11# |ed|)
+                                                   (|check_subtype2|
+                                                    (>= #11# 0)
+                                                    '(|NonNegativeInteger|)
+                                                    '(|Integer|) #11#)))))
                      (EXIT (LETT |e| (+ |e| |ed|))))))
               (LETT |lm| (SPADCALL (CONS |m| 0) |ba1| (QREFELT % 16)))
               (LETT |le|
@@ -101,7 +101,7 @@
                                  (|check_subtype2| (>= #9# 0)
                                                    '(|NonNegativeInteger|)
                                                    '(|Integer|) #9#)))))))
-              (LETT |e10| (- (QUOTIENT2 |n10| |d10|) |d|))
+              (LETT |e10| (- (|quotient_INT| |n10| |d10|) |d|))
               (LETT |le10|
                     (SPADCALL (CONS |e10| 0) |l10| |ba1| (QREFELT % 18)))
               (LETT |ldm| (SPADCALL |lf| |le10| |ba1| (QREFELT % 21)))
@@ -112,19 +112,20 @@
                       (SEQ
                        (PROGN
                         (LETT |#G7|
-                              (DIVIDE2 (QCAR |dm|)
-                                       (EXPT 2
-                                             (PROG1
-                                                 (LETT #6#
-                                                       (- (- (QCDR |dm|)) 1))
-                                               (|check_subtype2| (>= #6# 0)
-                                                                 '(|NonNegativeInteger|)
-                                                                 '(|Integer|)
-                                                                 #6#)))))
+                              (|divide_INT| (QCAR |dm|)
+                                            (EXPT 2
+                                                  (PROG1
+                                                      (LETT #6#
+                                                            (- (- (QCDR |dm|))
+                                                               1))
+                                                    (|check_subtype2|
+                                                     (>= #6# 0)
+                                                     '(|NonNegativeInteger|)
+                                                     '(|Integer|) #6#)))))
                         (LETT |q| (QCAR |#G7|))
                         (LETT |r| (QCDR |#G7|))
                         |#G7|)
-                       (LETT |dfm1| (QUOTIENT2 |q| 2))
+                       (LETT |dfm1| (|quotient_INT| |q| 2))
                        (COND
                         ((ODDP |q|)
                          (COND ((> |r| 0) (LETT |dfm1| (+ |dfm1| 1))))))
@@ -137,11 +138,11 @@
                                                        '(|Integer|) #5#))))
                          (SEQ (LETT |e10| (+ |e10| 1))
                               (PROGN
-                               (LETT |#G8| (DIVIDE2 |q| 10))
+                               (LETT |#G8| (|divide_INT| |q| 10))
                                (LETT |q1| (QCAR |#G8|))
                                (LETT |r1| (QCDR |#G8|))
                                |#G8|)
-                              (LETT |dfm1| (QUOTIENT2 |q1| 2))
+                              (LETT |dfm1| (|quotient_INT| |q1| 2))
                               (EXIT
                                (COND
                                 ((ODDP |q1|)
@@ -170,7 +171,9 @@
                                  (|make_string_code|
                                   (PROG1
                                       (LETT #3#
-                                            (+ |n| (QUOTIENT2 (- |n| 1) |sp|)))
+                                            (+ |n|
+                                               (|quotient_INT| (- |n| 1)
+                                                               |sp|)))
                                     (|check_subtype2| (>= #3# 0)
                                                       '(|NonNegativeInteger|)
                                                       '(|Integer|) #3#))
@@ -210,7 +213,9 @@
                                  (|make_string_code|
                                   (PROG1
                                       (LETT #2#
-                                            (+ |n| (QUOTIENT2 (- |n| 1) |sp|)))
+                                            (+ |n|
+                                               (|quotient_INT| (- |n| 1)
+                                                               |sp|)))
                                     (|check_subtype2| (>= #2# 0)
                                                       '(|NonNegativeInteger|)
                                                       '(|Integer|) #2#))
@@ -417,11 +422,11 @@
                                                                     '(|Integer|)
                                                                     #11#))))
                                     (PROGN
-                                     (LETT |#G31| (DIVIDE2 |m| |d10|))
+                                     (LETT |#G31| (|divide_INT| |m| |d10|))
                                      (LETT |q| (QCAR |#G31|))
                                      (LETT |r| (QCDR |#G31|))
                                      |#G31|)
-                                    (LETT |d10h| (QUOTIENT2 |d10| 2))
+                                    (LETT |d10h| (|quotient_INT| |d10| 2))
                                     (LETT |m|
                                           (COND ((< |r| |d10h|) |q|)
                                                 ((> |r| |d10h|) (+ |q| 1))

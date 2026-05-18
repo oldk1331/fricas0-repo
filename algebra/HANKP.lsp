@@ -9,18 +9,15 @@
                 ('T
                  (SEQ
                   (LETT |n|
-                        (PROG2
-                            (LETT #6#
-                                  (SPADCALL (+ (LENGTH |l|) 1) 2
-                                            (QREFELT % 10)))
+                        (PROG2 (LETT #6# (|exquo_INT| (+ (LENGTH |l|) 1) 2))
                             (QCDR #6#)
                           (|check_union2| (QEQCAR #6# 0) (|NonNegativeInteger|)
                                           (|Union| (|NonNegativeInteger|)
                                                    "failed")
                                           #6#)))
-                  (LETT |lloc| (CONS (|spadConstant| % 11) |l|))
+                  (LETT |lloc| (CONS (|spadConstant| % 8) |l|))
                   (EXIT
-                   (SPADCALL (ELT % 13)
+                   (SPADCALL (ELT % 10)
                              (PROGN
                               (LETT #5# NIL)
                               (SEQ (LETT |j| 1) (LETT #4# |n|) G190
@@ -64,11 +61,11 @@
                                                           (GO G190) G191
                                                           (EXIT
                                                            (NREVERSE #3#)))))
-                                                   (QREFELT % 15))))
+                                                   (QREFELT % 12))))
                                             #5#))))
                                    (LETT |j| (|inc_SI| |j|)) (GO G190) G191
                                    (EXIT (NREVERSE #5#))))
-                             (QREFELT % 18))))))))) 
+                             (QREFELT % 15))))))))) 
 
 (DECLAIM (NOTINLINE |HankelPackage;|)) 
 
@@ -77,7 +74,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|HankelPackage| DV$1))
-          (LETT % (GETREFV 21))
+          (LETT % (GETREFV 18))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|HankelPackage| (LIST DV$1)
@@ -105,12 +102,11 @@
 
 (MAKEPROP '|HankelPackage| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |One|)
-              (|Union| % '"failed") (|NonNegativeInteger|) (4 . |exquo|)
-              (10 . |Zero|) (|Matrix| 6) (14 . |vertConcat|) (|List| 19)
-              (20 . |matrix|) (|Mapping| 12 12 12) (|List| 12) (25 . |reduce|)
-              (|List| 6) |HANKP;HankelMatrix;LM;1|)
-           '#(|HankelMatrix| 31) 'NIL
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |One|) (4 . |Zero|)
+              (|Matrix| 6) (8 . |vertConcat|) (|List| 16) (14 . |matrix|)
+              (|Mapping| 9 9 9) (|List| 9) (19 . |reduce|) (|List| 6)
+              |HANKP;HankelMatrix;LM;1|)
+           '#(|HankelMatrix| 25) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -121,8 +117,8 @@
                                  ((|Matrix| |#1|) (|List| |#1|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 20
-                                            '(0 6 0 7 2 9 8 0 0 10 0 6 0 11 2
-                                              12 0 0 0 13 1 12 0 14 15 2 17 12
-                                              16 0 18 1 0 12 19 20)))))
+                        (|makeByteWordVec2| 17
+                                            '(0 6 0 7 0 6 0 8 2 9 0 0 0 10 1 9
+                                              0 11 12 2 14 9 13 0 15 1 0 9 16
+                                              17)))))
            '|lookupComplete|)) 

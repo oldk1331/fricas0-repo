@@ -238,7 +238,7 @@
         ((|n| (|Integer|))
          (% (|SymmetricPolynomial| (|Fraction| (|Integer|)))))
         (SPROG ((|k| (|Integer|)))
-               (SEQ (LETT |k| (QUOTIENT2 |n| 2))
+               (SEQ (LETT |k| (|quotient_INT| |n| 2))
                     (EXIT
                      (COND
                       ((ODDP |n|)
@@ -289,7 +289,7 @@
                      (GO G191)))
                    (SEQ (LETT |ll0| (|SPADfirst| |ll|))
                         (LETT |ll1| (SPADCALL |ll| (QREFELT % 59)))
-                        (LETT |k| (QUOTIENT2 |ll0| 2))
+                        (LETT |k| (|quotient_INT| |ll0| 2))
                         (LETT |c|
                               (COND
                                ((ODDP |ll0|)
@@ -299,7 +299,7 @@
                                           (|CYCLES;ss| |ll0|
                                            (* |ll1| (- |k| 1)) %)
                                           (QREFELT % 56)))))
-                        (LETT |qq1| (QUOTIENT2 (* |ll1| (- |ll1| 1)) 2))
+                        (LETT |qq1| (|quotient_INT| (* |ll1| (- |ll1| 1)) 2))
                         (LETT |c|
                               (SPADCALL |c|
                                         (|CYCLES;ss| |ll0| (* |ll0| |qq1|) %)

@@ -89,25 +89,22 @@
                             (PROGN
                              (LETT #4#
                                    (SPADCALL
-                                    (PROG2
-                                        (LETT #5#
-                                              (SPADCALL |d| |di|
-                                                        (QREFELT % 52)))
+                                    (PROG2 (LETT #5# (|exquo_INT| |d| |di|))
                                         (QCDR #5#)
                                       (|check_union2| (QEQCAR #5# 0)
                                                       (|Integer|)
                                                       (|Union| (|Integer|)
                                                                "failed")
                                                       #5#))
-                                    |pi| (QREFELT % 53)))
+                                    |pi| (QREFELT % 51)))
                              (COND
                               (#2#
-                               (LETT #3# (SPADCALL #3# #4# (QREFELT % 54))))
+                               (LETT #3# (SPADCALL #3# #4# (QREFELT % 52))))
                               ('T (PROGN (LETT #3# #4#) (LETT #2# 'T)))))))
                           (LETT #6# (PROG1 (CDR #6#) (LETT #7# (CDR #7#))))
                           (GO G190) G191 (EXIT NIL))
                      (COND (#2# #3#) ('T (|spadConstant| % 37)))))
-              (EXIT (CONS (SPADCALL |vp| |v| (QREFELT % 55)) |d|))))) 
+              (EXIT (CONS (SPADCALL |vp| |v| (QREFELT % 53)) |d|))))) 
 
 (DECLAIM (NOTINLINE |InnerPolySum;|)) 
 
@@ -121,7 +118,7 @@
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$| (LIST '|InnerPolySum| DV$1 DV$2 DV$3 DV$4))
-    (LETT % (GETREFV 56))
+    (LETT % (GETREFV 54))
     (QSETREFV % 0 |dv$|)
     (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|InnerPolySum| (LIST DV$1 DV$2 DV$3 DV$4)
@@ -169,9 +166,9 @@
               (|Boolean|) (77 . ~=) (|NonNegativeInteger|) (83 . |degree|)
               (88 . |leadingCoefficient|) (93 . |reductum|) (98 . |One|)
               (102 . /) (|PolynomialNumberTheoryFunctions|) (108 . |bernoulli|)
-              (113 . *) (|List| %) (119 . |lcm|) (|Union| % '"failed")
-              (124 . |exquo|) (130 . *) (136 . +) (142 . |multivariate|))
-           '#(|sum| 148) 'NIL
+              (113 . *) (|List| %) (119 . |lcm|) (124 . *) (130 . +)
+              (136 . |multivariate|))
+           '#(|sum| 142) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -189,7 +186,7 @@
                                   |#4| |#2|))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 55
+                        (|makeByteWordVec2| 53
                                             '(1 12 10 11 13 1 15 14 0 16 2 9 0
                                               14 0 17 2 20 18 19 11 21 0 8 0 24
                                               0 9 0 25 1 26 9 0 27 2 9 0 0 0 28
@@ -199,7 +196,7 @@
                                               18 40 0 41 1 18 9 0 42 1 18 0 0
                                               43 0 11 0 44 2 15 0 14 14 45 1 46
                                               11 14 47 2 11 0 15 0 48 1 14 0 49
-                                              50 2 14 51 0 0 52 2 18 0 14 0 53
-                                              2 18 0 0 0 54 2 9 0 33 7 55 3 0
-                                              22 9 7 26 32 2 0 22 9 7 23)))))
+                                              50 2 18 0 14 0 51 2 18 0 0 0 52 2
+                                              9 0 33 7 53 3 0 22 9 7 26 32 2 0
+                                              22 9 7 23)))))
            '|lookupComplete|)) 

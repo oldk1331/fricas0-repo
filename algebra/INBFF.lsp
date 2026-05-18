@@ -118,11 +118,12 @@
                             (SPADCALL |a|
                                       (SPADCALL
                                        (SPADCALL |a| |a| (QREFELT % 21))
-                                       (QUOTIENT2 |e| 2) (QREFELT % 29))
+                                       (|quotient_INT| |e| 2) (QREFELT % 29))
                                       (QREFELT % 21)))
                            ('T
                             (SPADCALL (SPADCALL |a| |a| (QREFELT % 21))
-                                      (QUOTIENT2 |e| 2) (QREFELT % 29)))))))) 
+                                      (|quotient_INT| |e| 2)
+                                      (QREFELT % 29)))))))) 
 
 (SDEFUN |INBFF;dAndcExp;VNniSiV;4|
         ((|a| (|Vector| GF)) (|e| (|NonNegativeInteger|))
@@ -141,7 +142,8 @@
                      ((EQL (SPADCALL |j| (QREFELT % 9) (QREFELT % 27)) 0)
                       (LETT |b|
                             (SPADCALL
-                             (SPADCALL |plist| (QUOTIENT2 |j| (QREFELT % 9))
+                             (SPADCALL |plist|
+                                       (|quotient_INT| |j| (QREFELT % 9))
                                        (QREFELT % 39))
                              1 (QREFELT % 20))))
                      ('T
@@ -157,7 +159,7 @@
                     (LETT |l|
                           (SPADCALL |l| (SPADCALL |ex| |qk| (QREFELT % 27))
                                     (QREFELT % 44)))
-                    (EXIT (LETT |ex| (QUOTIENT2 |ex| |qk|))))
+                    (EXIT (LETT |ex| (|quotient_INT| |ex| |qk|))))
                    NIL (GO G190) G191 (EXIT NIL))
               (COND
                ((EQL (|SPADfirst| |l|) 0)
@@ -511,7 +513,8 @@
                              (SEQ
                               (EXIT
                                (SEQ (LETT |k| 0)
-                                    (LETT #1# (- (QUOTIENT2 |dx| |dy|) 1)) G190
+                                    (LETT #1# (- (|quotient_INT| |dx| |dy|) 1))
+                                    G190
                                     (COND ((|greater_SI| |k| #1#) (GO G191)))
                                     (SEQ
                                      (EXIT
@@ -563,7 +566,7 @@
                                (+ (QREFELT % 9) (REM |m| (QREFELT % 9)))
                                (QREFELT % 88))
                               (QREFELT % 52))
-                    (EXIT (LETT |m| (QUOTIENT2 |m| (QREFELT % 9)))))
+                    (EXIT (LETT |m| (|quotient_INT| |m| (QREFELT % 9)))))
                    (LETT |j| (|inc_SI| |j|)) (GO G190) G191 (EXIT NIL))
               (EXIT |erg|)))) 
 

@@ -141,7 +141,7 @@
               (SEQ G190 (COND ((NULL (<= |g| (- |n| |m|))) (GO G191)))
                    (SEQ (EXIT (LETT |g| (+ (* 3 |g|) 1)))) NIL (GO G190) G191
                    (EXIT NIL))
-              (LETT |g| (QUOTIENT2 |g| 3))
+              (LETT |g| (|quotient_INT| |g| 3))
               (SEQ G190 (COND ((NULL (> |g| 0)) (GO G191)))
                    (SEQ
                     (SEQ (LETT |i| (+ |m| |g|)) (LETT #1# |n|) G190
@@ -166,7 +166,7 @@
                                      (EXIT (LETT |j| (- |j| |g|))))
                                     NIL (GO G190) G191 (EXIT NIL))))
                          (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL))
-                    (EXIT (LETT |g| (QUOTIENT2 |g| 3))))
+                    (EXIT (LETT |g| (|quotient_INT| |g| 3))))
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT |r|)))) 
 

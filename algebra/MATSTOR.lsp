@@ -362,7 +362,7 @@
                              ((EQL |p| 1)
                               (PROGN (LETT #1# |a|) (GO #6=#:G133)))
                              ('T
-                              (SEQ (LETT |p| (QUOTIENT2 |p| 2))
+                              (SEQ (LETT |p| (|quotient_INT| |p| 2))
                                    (SPADCALL |c| |b| |b| (QREFELT % 20))
                                    (EXIT (SPADCALL |b| |c| (QREFELT % 9))))))))
                           NIL (GO G190) G191 (EXIT NIL)))))

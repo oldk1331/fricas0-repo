@@ -67,7 +67,7 @@
 
 (SDEFUN |IIARRAY2;hashUpdate!;Hs%Hs;14|
         ((|s| (|HashState|)) (|m| (%)) (% (|HashState|)))
-        (SPROG ((#1=#:G2215 NIL) (|j| NIL) (#2=#:G2214 NIL) (|i| NIL))
+        (SPROG ((#1=#:G2211 NIL) (|j| NIL) (#2=#:G2210 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| (SPADCALL |m| (QREFELT % 16)))
                      (LETT #2# (SPADCALL |m| (QREFELT % 19))) G190
@@ -92,7 +92,7 @@
 
 (DEFUN |InnerIndexedTwoDimensionalArray;| (|#1| |#2| |#3| |#4| |#5|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G2220 NIL) (#2=#:G2221 NIL) (% NIL) (|dv$| NIL)
+   ((|pv$| NIL) (#1=#:G2216 NIL) (#2=#:G2217 NIL) (% NIL) (|dv$| NIL)
     (DV$5 NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
@@ -180,9 +180,9 @@
                       %))))
     %))) 
 
-(DEFUN |InnerIndexedTwoDimensionalArray| (&REST #1=#:G2223)
+(DEFUN |InnerIndexedTwoDimensionalArray| (&REST #1=#:G2219)
   (SPROG NIL
-         (PROG (#2=#:G2224)
+         (PROG (#2=#:G2220)
            (RETURN
             (COND
              ((LETT #2#

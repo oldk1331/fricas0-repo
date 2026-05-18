@@ -1567,7 +1567,8 @@
                                    (LETT |coeffs| (QVELT |ppr| 5))
                                    (LETT |cc| (QVSIZE |coeffs|))
                                    (LETT |nsols|
-                                         (QUOTIENT2 (QVSIZE |offsets|) |m|))
+                                         (|quotient_INT| (QVSIZE |offsets|)
+                                                         |m|))
                                    (LETT |ok| 'T) (LETT |kk| 1)
                                    (LETT |ohi|
                                          (SPADCALL |offsets| 1 (QREFELT % 82)))

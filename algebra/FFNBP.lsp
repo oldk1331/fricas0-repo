@@ -266,7 +266,7 @@
                         (LETT |base|
                               (SPADCALL
                                (SPADCALL (QREFELT % 48) (QREFELT % 130))
-                               (QUOTIENT2
+                               (|quotient_INT|
                                 (-
                                  (EXPT (SPADCALL (QREFELT % 119))
                                        (QREFELT % 17))
@@ -276,14 +276,16 @@
                         (LETT |l| (INTEGER-LENGTH |fac|)) (LETT |n| 0)
                         (COND
                          ((ODDP |l|)
-                          (LETT |n| (ASH |fac| (- (QUOTIENT2 |l| 2)))))
-                         ('T (LETT |n| (ASH 1 (QUOTIENT2 |l| 2)))))
+                          (LETT |n| (ASH |fac| (- (|quotient_INT| |l| 2)))))
+                         ('T (LETT |n| (ASH 1 (|quotient_INT| |l| 2)))))
                         (COND
                          ((< |n| |limit|)
-                          (SEQ (LETT |d| (+ (QUOTIENT2 (- |fac| 1) |limit|) 1))
-                               (EXIT
-                                (LETT |n|
-                                      (+ (QUOTIENT2 (- |fac| 1) |d|) 1))))))
+                          (SEQ
+                           (LETT |d|
+                                 (+ (|quotient_INT| (- |fac| 1) |limit|) 1))
+                           (EXIT
+                            (LETT |n|
+                                  (+ (|quotient_INT| (- |fac| 1) |d|) 1))))))
                         (LETT |tbl| (SPADCALL (QREFELT % 133)))
                         (LETT |a| (|spadConstant| % 22))
                         (SEQ (LETT |i| 0)
@@ -356,8 +358,9 @@
         (SPROG ((|erg| (%)) (#1=#:G131 NIL) (|i| NIL) (|v| (%)))
                (SEQ (LETT |v| (SPADCALL |a| |d| (QREFELT % 147)))
                     (LETT |erg| |v|)
-                    (SEQ (LETT |i| 2) (LETT #1# (QUOTIENT2 (QREFELT % 17) |d|))
-                         G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
+                    (SEQ (LETT |i| 2)
+                         (LETT #1# (|quotient_INT| (QREFELT % 17) |d|)) G190
+                         (COND ((|greater_SI| |i| #1#) (GO G191)))
                          (SEQ
                           (EXIT
                            (LETT |erg| (SPADCALL |erg| |v| (QREFELT % 148)))))

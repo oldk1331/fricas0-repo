@@ -149,9 +149,9 @@
            (SPADCALL |g|
                      (SPADCALL
                       (SPADCALL
-                       (SPADCALL (QCDR |r1|) (QUOTIENT2 (QCAR |r1|) |g|)
+                       (SPADCALL (QCDR |r1|) (|quotient_INT| (QCAR |r1|) |g|)
                                  (QREFELT % 53))
-                       (SPADCALL (QCDR |r2|) (QUOTIENT2 (QCAR |r2|) |g|)
+                       (SPADCALL (QCDR |r2|) (|quotient_INT| (QCAR |r2|) |g|)
                                  (QREFELT % 53))
                        (QREFELT % 54))
                       (QREFELT % 55))

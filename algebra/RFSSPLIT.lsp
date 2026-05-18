@@ -141,18 +141,14 @@
                               (|RFSSPLIT;alg_split_root2| |l1| |r2| |n2| %))
                         (LETT |g1| (GCD |n1| |pow1|))
                         (LETT |nn1|
-                              (PROG2
-                                  (LETT #3#
-                                        (SPADCALL |n1| |g1| (QREFELT % 51)))
+                              (PROG2 (LETT #3# (|exquo_INT| |n1| |g1|))
                                   (QCDR #3#)
                                 (|check_union2| (QEQCAR #3# 0) (|Integer|)
                                                 (|Union| (|Integer|)
                                                          #15="failed")
                                                 #3#)))
                         (LETT |np1|
-                              (PROG2
-                                  (LETT #3#
-                                        (SPADCALL |pow1| |g1| (QREFELT % 51)))
+                              (PROG2 (LETT #3# (|exquo_INT| |pow1| |g1|))
                                   (QCDR #3#)
                                 (|check_union2| (QEQCAR #3# 0) (|Integer|)
                                                 (|Union| (|Integer|) #15#)
@@ -178,9 +174,7 @@
                                        (LETT |nn2|
                                              (PROG2
                                                  (LETT #3#
-                                                       (SPADCALL |n2| |g2|
-                                                                 (QREFELT %
-                                                                          51)))
+                                                       (|exquo_INT| |n2| |g2|))
                                                  (QCDR #3#)
                                                (|check_union2| (QEQCAR #3# 0)
                                                                (|Integer|)
@@ -191,9 +185,8 @@
                                        (LETT |np2|
                                              (PROG2
                                                  (LETT #3#
-                                                       (SPADCALL |pow2| |g2|
-                                                                 (QREFELT %
-                                                                          51)))
+                                                       (|exquo_INT| |pow2|
+                                                                    |g2|))
                                                  (QCDR #3#)
                                                (|check_union2| (QEQCAR #3# 0)
                                                                (|Integer|)
@@ -203,16 +196,15 @@
                                                                #3#)))
                                        (LETT |nn|
                                              (SPADCALL |nn1| |nn2|
-                                                       (QREFELT % 52)))
+                                                       (QREFELT % 50)))
                                        (LETT |bb1|
                                              (SPADCALL |b1|
                                                        (* |np1|
                                                           (PROG2
                                                               (LETT #3#
-                                                                    (SPADCALL
-                                                                     |nn| |nn1|
-                                                                     (QREFELT %
-                                                                              51)))
+                                                                    (|exquo_INT|
+                                                                     |nn|
+                                                                     |nn1|))
                                                               (QCDR #3#)
                                                             (|check_union2|
                                                              (QEQCAR #3# 0)
@@ -220,16 +212,15 @@
                                                              (|Union|
                                                               (|Integer|) #15#)
                                                              #3#)))
-                                                       (QREFELT % 53)))
+                                                       (QREFELT % 51)))
                                        (LETT |bb2|
                                              (SPADCALL |b2|
                                                        (* |np2|
                                                           (PROG2
                                                               (LETT #3#
-                                                                    (SPADCALL
-                                                                     |nn| |nn2|
-                                                                     (QREFELT %
-                                                                              51)))
+                                                                    (|exquo_INT|
+                                                                     |nn|
+                                                                     |nn2|))
                                                               (QCDR #3#)
                                                             (|check_union2|
                                                              (QEQCAR #3# 0)
@@ -237,7 +228,7 @@
                                                              (|Union|
                                                               (|Integer|) #15#)
                                                              #3#)))
-                                                       (QREFELT % 53)))
+                                                       (QREFELT % 51)))
                                        (LETT |nrr|
                                              (COND
                                               ((> (+ |pow1| |pow2|) 0)
@@ -245,11 +236,11 @@
                                                          (LIST
                                                           (SPADCALL |bb1| |bb2|
                                                                     (QREFELT %
-                                                                             54))
+                                                                             52))
                                                           (SPADCALL |nn|
                                                                     (QREFELT %
                                                                              14)))
-                                                         (QREFELT % 56)))
+                                                         (QREFELT % 54)))
                                               ('T (|spadConstant| % 33))))
                                        (LETT |nl|
                                              (PROGN
@@ -269,7 +260,7 @@
                                                             (SPADCALL |f1|
                                                                       |nrr|
                                                                       (QREFELT
-                                                                       % 54))
+                                                                       % 52))
                                                             #2#))))
                                                    (LETT #1# (CDR #1#))
                                                    (GO G190) G191
@@ -305,7 +296,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|RootFSSplit| DV$1 DV$2))
-          (LETT % (GETREFV 60))
+          (LETT % (GETREFV 58))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|RootFSSplit| (LIST DV$1 DV$2)
@@ -353,12 +344,11 @@
               (93 . |argument|) (98 . |elt|) (104 . |retract|)
               (|BasicOperator|) (109 . |operator|) (114 . |Zero|)
               (118 . |Zero|) (122 . =) (|Mapping| 19 7) (128 . |every?|)
-              (|Union| % '"failed") (134 . |exquo|) (140 . |lcm|) (146 . ^)
-              (152 . *) (|List| %) (158 . |kernel|)
+              (134 . |lcm|) (140 . ^) (146 . *) (|List| %) (152 . |kernel|)
               (|Record| (|:| |funs| 36) (|:| |nroot| 7) (|:| |npow1| 13)
                         (|:| |npow2| 13))
-              (|List| 57) |RFSSPLIT;alg_split_roots;L2KL;3|)
-           '#(|alg_split_roots| 164 |alg_split_root0| 171) 'NIL
+              (|List| 55) |RFSSPLIT;alg_split_roots;L2KL;3|)
+           '#(|alg_split_roots| 158 |alg_split_root0| 165) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -379,7 +369,7 @@
                                   (|Integer|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 59
+                        (|makeByteWordVec2| 57
                                             '(1 7 0 8 9 1 7 0 0 10 3 7 0 0 8 0
                                               11 2 7 0 0 0 12 1 7 0 13 14 2 7 0
                                               0 0 15 2 7 0 0 0 16 1 7 17 0 18 2
@@ -389,8 +379,8 @@
                                               35 2 38 36 0 36 39 1 20 36 0 40 2
                                               36 7 0 13 41 1 7 13 0 42 1 20 43
                                               0 44 0 6 0 45 0 7 0 46 2 7 19 0 0
-                                              47 2 36 19 48 0 49 2 13 50 0 0 51
-                                              2 13 0 0 0 52 2 7 0 0 13 53 2 7 0
-                                              0 0 54 2 7 0 43 55 56 3 0 58 36
-                                              20 20 59 3 0 36 7 20 13 37)))))
+                                              47 2 36 19 48 0 49 2 13 0 0 0 50
+                                              2 7 0 0 13 51 2 7 0 0 0 52 2 7 0
+                                              43 53 54 3 0 56 36 20 20 57 3 0
+                                              36 7 20 13 37)))))
            '|lookupComplete|)) 

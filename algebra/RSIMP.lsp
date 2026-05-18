@@ -929,7 +929,7 @@
                          ((QEQCAR |res2| 1)
                           (COND
                            ((EQL (REM |k| 2) 0)
-                            (SEQ (LETT |kk| (QUOTIENT2 |k| 2))
+                            (SEQ (LETT |kk| (|quotient_INT| |k| 2))
                                  (SEQ (LETT |i| 1) (LETT #6# |kk|) G190
                                       (COND ((|greater_SI| |i| #6#) (GO G191)))
                                       (SEQ (LETT |tmp| |b2|) (LETT |b2| |a2|)
@@ -1149,7 +1149,7 @@
                      ((QEQCAR |res2| 1)
                       (COND
                        ((EQL (REM |k| 2) 0)
-                        (SEQ (LETT |kk| (QUOTIENT2 |k| 2))
+                        (SEQ (LETT |kk| (|quotient_INT| |k| 2))
                              (SEQ (LETT |i| 1) (LETT #8# |kk|) G190
                                   (COND ((|greater_SI| |i| #8#) (GO G191)))
                                   (SEQ (LETT |tmp| |b2|) (LETT |b2| |a2|)
@@ -1195,7 +1195,7 @@
                                   ((QEQCAR |res3| 1)
                                    (COND
                                     ((EQL (REM |k| 2) 0)
-                                     (SEQ (LETT |kk| (QUOTIENT2 |k| 2))
+                                     (SEQ (LETT |kk| (|quotient_INT| |k| 2))
                                           (SEQ (LETT |i| 1) (LETT #7# |kk|)
                                                G190
                                                (COND
@@ -1358,7 +1358,7 @@
                      ((QEQCAR |res2| 1)
                       (COND
                        ((EQL (REM |k| 3) 0)
-                        (SEQ (LETT |kk| (QUOTIENT2 |k| 3))
+                        (SEQ (LETT |kk| (|quotient_INT| |k| 3))
                              (SEQ (LETT |i| 1) (LETT #7# |kk|) G190
                                   (COND ((|greater_SI| |i| #7#) (GO G191)))
                                   (SEQ (LETT |tmp| |c2|) (LETT |c2| |b2|)
@@ -1381,7 +1381,7 @@
                      ((QEQCAR |res2| 1)
                       (COND
                        ((EQL (REM |k| 3) 0)
-                        (SEQ (LETT |kk| (QUOTIENT2 |k| 3))
+                        (SEQ (LETT |kk| (|quotient_INT| |k| 3))
                              (SEQ (LETT |i| 1) (LETT #6# |kk|) G190
                                   (COND ((|greater_SI| |i| #6#) (GO G191)))
                                   (SEQ (LETT |tmp| |c2|) (LETT |c2| |b2|)
@@ -1527,7 +1527,7 @@
                           ((QEQCAR |res2| 1)
                            (COND
                             ((EQL (REM |k| 2) 0)
-                             (SEQ (LETT |kk| (QUOTIENT2 |k| 2))
+                             (SEQ (LETT |kk| (|quotient_INT| |k| 2))
                                   (SEQ (LETT |i| 1) (LETT #9# |kk|) G190
                                        (COND
                                         ((|greater_SI| |i| #9#) (GO G191)))

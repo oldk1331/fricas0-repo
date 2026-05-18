@@ -92,7 +92,7 @@
                   (#2#
                    (COND
                     ((SPADCALL
-                      (SPADCALL (QUOTIENT2 (* 3 |n|) 2) (QREFELT % 10))
+                      (SPADCALL (|quotient_INT| (* 3 |n|) 2) (QREFELT % 10))
                       (LETT |l| (SPADCALL |a| (QREFELT % 23))) (QREFELT % 34))
                      (QREFELT % 12))
                     (#2#

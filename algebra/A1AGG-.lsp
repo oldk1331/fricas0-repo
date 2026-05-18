@@ -375,7 +375,9 @@
                                   (#5#
                                    (SEQ
                                     (LETT |n|
-                                          (+ 1 (QUOTIENT2 |n| (ABS |step|))))
+                                          (+ 1
+                                             (|quotient_INT| |n|
+                                                             (ABS |step|))))
                                     (COND
                                      ((> |step| 0)
                                       (COND
@@ -612,8 +614,8 @@
         (SPROG ((#1=#:G228 NIL) (|i| NIL) (|n| (|Integer|)) (|m| (|Integer|)))
                (SEQ (LETT |m| (SPADCALL |x| (QREFELT % 9)))
                     (LETT |n| (SPADCALL |x| (QREFELT % 10)))
-                    (SEQ (LETT |i| 0) (LETT #1# (QUOTIENT2 (- |n| |m|) 2)) G190
-                         (COND ((|greater_SI| |i| #1#) (GO G191)))
+                    (SEQ (LETT |i| 0) (LETT #1# (|quotient_INT| (- |n| |m|) 2))
+                         G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
                          (SEQ
                           (EXIT
                            (SPADCALL |x| (+ |m| |i|) (- |n| |i|)

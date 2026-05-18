@@ -75,20 +75,20 @@
           (#2=#:G61 NIL) (|m0| (|String|)) (#3=#:G60 NIL) (|n| (|Integer|))
           (|d| (|Integer|)) (|i| NIL) (#4=#:G45 NIL))
          (SEQ (LETT |n| |pn|) (LETT |d| (+ (REM |n| 10) (QREFELT % 36)))
-              (LETT |n| (QUOTIENT2 |n| 10))
+              (LETT |n| (|quotient_INT| |n| 10))
               (LETT |s| (QAREF1 (QREFELT % 33) |d|))
               (EXIT
                (COND ((ZEROP |n|) |s|)
                      (#5='T
                       (SEQ (LETT |d| (+ (REM |n| 10) (QREFELT % 37)))
-                           (LETT |n| (QUOTIENT2 |n| 10))
+                           (LETT |n| (|quotient_INT| |n| 10))
                            (LETT |s| (STRCONC (QAREF1 (QREFELT % 34) |d|) |s|))
                            (EXIT
                             (COND ((ZEROP |n|) |s|)
                                   (#5#
                                    (SEQ
                                     (LETT |d| (+ (REM |n| 10) (QREFELT % 38)))
-                                    (LETT |n| (QUOTIENT2 |n| 10))
+                                    (LETT |n| (|quotient_INT| |n| 10))
                                     (LETT |s|
                                           (STRCONC (QAREF1 (QREFELT % 35) |d|)
                                                    |s|))
@@ -96,7 +96,8 @@
                                      (COND ((ZEROP |n|) |s|)
                                            (#5#
                                             (SEQ (LETT |d| (REM |n| 10))
-                                                 (LETT |n| (QUOTIENT2 |n| 10))
+                                                 (LETT |n|
+                                                       (|quotient_INT| |n| 10))
                                                  (LETT |s|
                                                        (STRCONC
                                                         (|make_string_code|
@@ -127,7 +128,7 @@
                                                                          |n|
                                                                          10))
                                                                   (LETT |n|
-                                                                        (QUOTIENT2
+                                                                        (|quotient_INT|
                                                                          |n|
                                                                          10))
                                                                   (EXIT

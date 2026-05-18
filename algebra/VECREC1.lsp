@@ -279,7 +279,7 @@
                       (QSETVELT |state| 8
                                 (+ (QVELT |state| 8)
                                    (COND ((> |m| 200) 4) (#7# 1))))))
-                    (LETT |bound| (QUOTIENT2 |m| 2))
+                    (LETT |bound| (|quotient_INT| |m| 2))
                     (LETT |pp|
                           (SPADCALL (QAREF1 |polyvec| |j0|) |modulus| |bound|
                                     |p| (QREFELT % 31)))

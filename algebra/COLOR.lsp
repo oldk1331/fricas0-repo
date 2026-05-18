@@ -19,7 +19,7 @@
              (LETT |diff| (- (QCAR |x|) (QCAR |y|)))
              (SEQ (LETT |xHueSmaller| (< |diff| 0))
                   (EXIT (COND (|xHueSmaller| (LETT |diff| (- |diff|))))))
-             (SEQ (LETT |moreThanHalf| (> |diff| (QUOTIENT2 27 2)))
+             (SEQ (LETT |moreThanHalf| (> |diff| (|quotient_INT| 27 2)))
                   (EXIT (COND (|moreThanHalf| (LETT |diff| (- 27 |diff|))))))
              (LETT |offset|
                    (TRUNCATE

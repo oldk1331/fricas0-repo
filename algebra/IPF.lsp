@@ -9,7 +9,7 @@
                   (SEQ (LETT |ord| (SPADCALL |x| (QREFELT % 20))) (LETT |r| 0)
                        (SEQ G190
                             (COND ((NULL (EQL (REM |ord| 2) 0)) (GO G191)))
-                            (SEQ (LETT |ord| (QUOTIENT2 |ord| 2))
+                            (SEQ (LETT |ord| (|quotient_INT| |ord| 2))
                                  (EXIT (LETT |r| (+ |r| 1))))
                             NIL (GO G190) G191 (EXIT NIL))
                        (EXIT |r|))))))) 
@@ -38,8 +38,8 @@
                    (SEQ (LETT |primeDivisor| (QCAR |rec|))
                         (LETT |base|
                               (SPADCALL (SPADCALL (QREFELT % 32))
-                                        (QUOTIENT2 (QREFELT % 9)
-                                                   |primeDivisor|)
+                                        (|quotient_INT| (QREFELT % 9)
+                                                        |primeDivisor|)
                                         (QREFELT % 33)))
                         (LETT |l| (INTEGER-LENGTH |primeDivisor|))
                         (LETT |n|
@@ -47,17 +47,18 @@
                                ((ODDP |l|)
                                 (LETT |n|
                                       (ASH |primeDivisor|
-                                           (- (QUOTIENT2 |l| 2)))))
-                               ('T (LETT |n| (ASH 1 (QUOTIENT2 |l| 2))))))
+                                           (- (|quotient_INT| |l| 2)))))
+                               ('T (LETT |n| (ASH 1 (|quotient_INT| |l| 2))))))
                         (COND
                          ((< |n| |limit|)
                           (SEQ
                            (LETT |d|
-                                 (+ (QUOTIENT2 (- |primeDivisor| 1) |limit|)
-                                    1))
+                                 (+
+                                  (|quotient_INT| (- |primeDivisor| 1) |limit|)
+                                  1))
                            (EXIT
                             (LETT |n|
-                                  (+ (QUOTIENT2 (- |primeDivisor| 1) |d|)
+                                  (+ (|quotient_INT| (- |primeDivisor| 1) |d|)
                                      1))))))
                         (LETT |tbl| (SPADCALL (QREFELT % 35)))
                         (LETT |a| (|spadConstant| % 36))
@@ -119,7 +120,7 @@
                 ((EQL 3 (REM (QREFELT % 6) 4))
                  (SEQ
                   (LETT |y|
-                        (SPADCALL |x| (QUOTIENT2 (+ (QREFELT % 6) 1) 4)
+                        (SPADCALL |x| (|quotient_INT| (+ (QREFELT % 6) 1) 4)
                                   (QREFELT % 50)))
                   (EXIT
                    (COND
@@ -132,7 +133,7 @@
                  (SEQ (LETT |b| (SPADCALL (QREFELT % 46)))
                       (LETT |e| (QREFELT % 15))
                       (LETT |u|
-                            (QUOTIENT2
+                            (|quotient_INT|
                              (PROG1 (LETT #5# (- (QREFELT % 6) 1))
                                (|check_subtype2| (>= #5# 0)
                                                  '(|NonNegativeInteger|)
@@ -161,7 +162,7 @@
                             (EXIT (LETT |lr| (CONS |r| |lr|))))
                            NIL (GO G190) G191 (EXIT NIL))
                       (LETT |y|
-                            (SPADCALL |z| (QUOTIENT2 (+ |u| 1) 2)
+                            (SPADCALL |z| (|quotient_INT| (+ |u| 1) 2)
                                       (QREFELT % 50)))
                       (SEQ (LETT #2# (CDR |lr|)) G190
                            (COND
@@ -372,7 +373,7 @@
                      (SEQ (LETT |cGS| (QREFELT % 9)) (LETT |r| 0)
                           (SEQ G190
                                (COND ((NULL (EQL (REM |cGS| 2) 0)) (GO G191)))
-                               (SEQ (LETT |cGS| (QUOTIENT2 |cGS| 2))
+                               (SEQ (LETT |cGS| (|quotient_INT| |cGS| 2))
                                     (EXIT (LETT |r| (+ |r| 1))))
                                NIL (GO G190) G191 (EXIT NIL))
                           (EXIT |r|)))

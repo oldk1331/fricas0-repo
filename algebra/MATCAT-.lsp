@@ -2238,7 +2238,8 @@
                       ('T
                        (SEQ
                         (LETT |y|
-                              (SPADCALL |x| (QUOTIENT2 |n| 2) (QREFELT % 89)))
+                              (SPADCALL |x| (|quotient_INT| |n| 2)
+                                        (QREFELT % 89)))
                         (EXIT (SPADCALL |y| |y| (QREFELT % 90))))))))) 
 
 (SDEFUN |MATCAT-;^;SNniS;55| ((|x| (S)) (|n| (|NonNegativeInteger|)) (% (S)))

@@ -44,8 +44,10 @@
                 (SPADCALL
                  (PROG1
                      (LETT #2#
-                           (+ (QUOTIENT2 (- |n| 1) (SPADCALL (QREFELT % 33)))
-                              1))
+                           (+
+                            (|quotient_INT| (- |n| 1)
+                                            (SPADCALL (QREFELT % 33)))
+                            1))
                    (|check_subtype2| (> #2# 0) '(|PositiveInteger|)
                                      '(|Integer|) #2#))
                  (QREFELT % 36))

@@ -295,7 +295,7 @@
                   (LETT |b|
                         (SPADCALL (SPADCALL |r1| (QREFELT % 36)) |deg|
                                   (QREFELT % 63)))
-                  (LETT |c| (QUOTIENT2 |b| |deg|))
+                  (LETT |c| (|quotient_INT| |b| |deg|))
                   (LETT |mon|
                         (SPADCALL (|spadConstant| % 18) |c| (QREFELT % 30)))
                   (LETT |uls2|
@@ -361,7 +361,7 @@
                            (#1='T
                             (SEQ
                              (LETT |n|
-                                   (QUOTIENT2
+                                   (|quotient_INT|
                                     (LETT |num| (SPADCALL |rn| (QREFELT % 37)))
                                     |den|))
                              (EXIT
@@ -375,7 +375,7 @@
                            (#1='T
                             (SEQ
                              (LETT |n|
-                                   (QUOTIENT2
+                                   (|quotient_INT|
                                     (LETT |num| (SPADCALL |rn| (QREFELT % 37)))
                                     |den|))
                              (EXIT

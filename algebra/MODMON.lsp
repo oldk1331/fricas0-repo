@@ -109,7 +109,7 @@
                                         (|MODMON;monomial|
                                          (SPADCALL |cp| (QREFELT % 45)) |i| %)
                                         (QREFELT % 28)))
-                        (EXIT (LETT |n| (QUOTIENT2 |n| |s1|))))
+                        (EXIT (LETT |n| (|quotient_INT| |n| |s1|))))
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
@@ -339,7 +339,7 @@
                                      (QREFELT % 32))
                            (QREFELT % 52)))
                 ('T
-                 (SEQ (LETT |k1| (QUOTIENT2 |e| (QREFELT % 16)))
+                 (SEQ (LETT |k1| (|quotient_INT| |e| (QREFELT % 16)))
                       (LETT |k2|
                             (PROG1 (LETT #1# (- |e| (* |k1| (QREFELT % 16))))
                               (|check_subtype2| (>= #1# 0)

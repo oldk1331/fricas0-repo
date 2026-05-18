@@ -37,8 +37,8 @@
         (ZEROP (|CYCGRP;rep| |x| %))) 
 
 (SDEFUN |CYCGRP;order;%I;8| ((|x| (%)) (% (|Integer|)))
-        (QUOTIENT2 (QREFELT % 6)
-                   (GCD (SPADCALL |x| (QREFELT % 25)) (QREFELT % 6)))) 
+        (|quotient_INT| (QREFELT % 6)
+                        (GCD (SPADCALL |x| (QREFELT % 25)) (QREFELT % 6)))) 
 
 (SDEFUN |CYCGRP;*;3%;9| ((|x| (%)) (|y| (%)) (% (%)))
         (|CYCGRP;per|

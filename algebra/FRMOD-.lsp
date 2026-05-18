@@ -36,7 +36,7 @@
                    (COND ((|greater_SI| |j| #2#) (GO G191)))
                    (SEQ
                     (PROGN
-                     (LETT |#G11| (DIVIDE2 |ii| |m|))
+                     (LETT |#G11| (|divide_INT| |ii| |m|))
                      (LETT |ii| (QCAR |#G11|))
                      (LETT |i1| (QCDR |#G11|))
                      |#G11|)

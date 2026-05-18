@@ -110,7 +110,7 @@
                        (SEQ (LETT |t| (SPADCALL |s| (QREFELT % 22)))
                             (LETT |b| (SPADCALL |s| (QREFELT % 51)))
                             (SEQ G190 (COND ((NULL (< |b| |t|)) (GO G191)))
-                                 (SEQ (LETT |m| (QUOTIENT2 (+ |b| |t|) 2))
+                                 (SEQ (LETT |m| (|quotient_INT| (+ |b| |t|) 2))
                                       (EXIT
                                        (COND
                                         ((SPADCALL |x|

@@ -45,7 +45,7 @@
                                  (SEQ (LETT |k| 1) G190 NIL
                                       (SEQ
                                        (LETT |l|
-                                             (QUOTIENT2
+                                             (|quotient_INT|
                                               (- (* (* 3 |k|) |k|) |k|) 2))
                                        (EXIT
                                         (COND
@@ -148,7 +148,7 @@
                                           (LETT |t|
                                                 (SPADCALL |t| |s|
                                                           (QREFELT % 37)))))
-                                        (LETT |l| (QUOTIENT2 |l1| 2))
+                                        (LETT |l| (|quotient_INT| |l1| 2))
                                         (EXIT
                                          (COND
                                           ((> |l| |i|)

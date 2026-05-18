@@ -18,7 +18,8 @@
                       (#1='T
                        (SEQ
                         (LETT |t|
-                              (SPADCALL (QUOTIENT2 |n| 2) |s| (QREFELT % 17)))
+                              (SPADCALL (|quotient_INT| |n| 2) |s|
+                                        (QREFELT % 17)))
                         (EXIT
                          (COND
                           ((ODDP |n|)
@@ -32,13 +33,14 @@
                (SEQ
                 (COND ((OR (< |wid| 1) (>= |len| |wid|)) (CONS "" ""))
                       ('T
-                       (SEQ (LETT |m| (QUOTIENT2 (- |wid| |len|) 2))
+                       (SEQ (LETT |m| (|quotient_INT| (- |wid| |len|) 2))
                             (LETT |t|
                                   (SPADCALL
                                    (+ 1
-                                      (QUOTIENT2 |m|
-                                                 (SPADCALL |fill|
-                                                           (QREFELT % 20))))
+                                      (|quotient_INT| |m|
+                                                      (SPADCALL |fill|
+                                                                (QREFELT %
+                                                                         20))))
                                    |fill| (QREFELT % 17)))
                             (EXIT
                              (CONS

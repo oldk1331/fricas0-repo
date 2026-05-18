@@ -405,8 +405,8 @@
           (|m| #7=(|Integer|)) (|n| #7#))
          (SEQ
           (EXIT
-           (SEQ (LETT |n| (QUOTIENT2 (QV_LEN_U32 |exps|) |nvars|))
-                (LETT |m| (QUOTIENT2 (QV_LEN_U32 |nexps|) |nvars|))
+           (SEQ (LETT |n| (|quotient_INT| (QV_LEN_U32 |exps|) |nvars|))
+                (LETT |m| (|quotient_INT| (QV_LEN_U32 |nexps|) |nvars|))
                 (LETT |oc| (QVSIZE |offsets|)) (LETT |i0| 0) (LETT |j0| 0)
                 (LETT |ci| 0) (LETT |i| 0) (LETT |j| 0) (LETT |li| 0)
                 (LETT |lj| 0) (LETT |il| NIL) (LETT |jl| NIL) (LETT |kk| 1)
@@ -526,7 +526,7 @@
           (|nn1| (|Integer|)) (|n1| (|Integer|)) (|nn| (|NonNegativeInteger|))
           (|n0| (|NonNegativeInteger|)))
          (SEQ (LETT |n0| (QV_LEN_U32 |exps1|)) (LETT |nn| (LENGTH |odl|))
-              (LETT |n1| (+ (QUOTIENT2 |n0| |nvars|) |nn|))
+              (LETT |n1| (+ (|quotient_INT| |n0| |nvars|) |nn|))
               (LETT |nn1| (* |n1| |nvars|))
               (LETT |nexps|
                     (GETREFV_U32
@@ -1187,7 +1187,7 @@
                                                 (LETT |offsets| (QCAR |oer|))
                                                 (LETT |exps| (QCDR |oer|))
                                                 (LETT |ncc|
-                                                      (QUOTIENT2
+                                                      (|quotient_INT|
                                                        (QV_LEN_U32 |exps|)
                                                        |nvars|))
                                                 (EXIT
@@ -1650,7 +1650,7 @@
                                                             (LETT |exps|
                                                                   (QCDR |oer|))
                                                             (LETT |ncc|
-                                                                  (QUOTIENT2
+                                                                  (|quotient_INT|
                                                                    (QV_LEN_U32
                                                                     |exps|)
                                                                    (+ |nvars|

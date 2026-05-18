@@ -94,7 +94,7 @@
               (LETT |n0| (- |n| 1))
               (SEQ (LETT |i| 1) (LETT #2# (QREFELT % 7)) G190
                    (COND ((|greater_SI| |i| #2#) (GO G191)))
-                   (SEQ (LETT |d| (DIVIDE2 |n0| |s|))
+                   (SEQ (LETT |d| (|divide_INT| |n0| |s|))
                         (SPADCALL |r| |i|
                                   (SPADCALL
                                    (PROG1 (LETT #1# (+ 1 (QCDR |d|)))

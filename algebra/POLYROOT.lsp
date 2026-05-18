@@ -72,7 +72,7 @@
                            NIL (GO G190) G191 (EXIT NIL))
                       (EXIT
                        (CONS
-                        (PROG1 (LETT #1# (QUOTIENT2 |n| |e|))
+                        (PROG1 (LETT #1# (|quotient_INT| |n| |e|))
                           (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
                                             '(|Integer|) #1#))
                         |x|)))))))) 
@@ -129,9 +129,11 @@
           (EXIT
            (VECTOR |m| (SPADCALL (QVELT |sn| 1) (QVELT |sd| 1) (QREFELT % 35))
                    (SPADCALL
-                    (SPADCALL (QVELT |sn| 2) (QUOTIENT2 |m| (QVELT |sn| 0))
+                    (SPADCALL (QVELT |sn| 2)
+                              (|quotient_INT| |m| (QVELT |sn| 0))
                               (QREFELT % 36))
-                    (SPADCALL (QVELT |sd| 2) (QUOTIENT2 |m| (QVELT |sd| 0))
+                    (SPADCALL (QVELT |sd| 2)
+                              (|quotient_INT| |m| (QVELT |sd| 0))
                               (QREFELT % 36))
                     (QREFELT % 35))))))) 
 
@@ -163,10 +165,10 @@
                              (QREFELT % 35))
                    (SPADCALL
                     (SPADCALL
-                     (EXPT (QVELT |sn| 2) (QUOTIENT2 |m| (QVELT |sn| 0)))
+                     (EXPT (QVELT |sn| 2) (|quotient_INT| |m| (QVELT |sn| 0)))
                      (QREFELT % 30))
                     (SPADCALL
-                     (EXPT (QVELT |sd| 2) (QUOTIENT2 |m| (QVELT |sd| 0)))
+                     (EXPT (QVELT |sd| 2) (|quotient_INT| |m| (QVELT |sd| 0)))
                      (QREFELT % 30))
                     (QREFELT % 35))))))) 
 
@@ -304,10 +306,12 @@
                                                           (QVELT |rec2| 0)
                                                           (QREFELT % 34)))
                                           (LETT |e|
-                                                (QUOTIENT2 |l| (QCAR |rec|)))
+                                                (|quotient_INT| |l|
+                                                                (QCAR |rec|)))
                                           (LETT |e2|
-                                                (QUOTIENT2 |l|
-                                                           (QVELT |rec2| 0)))
+                                                (|quotient_INT| |l|
+                                                                (QVELT |rec2|
+                                                                       0)))
                                           (LETT |rad2|
                                                 (PROGN
                                                  (LETT #2# NIL)
@@ -406,19 +410,21 @@
                        (SPADCALL
                         (SPADCALL
                          (SPADCALL (QVELT |rn| 2)
-                                   (QUOTIENT2 |m| (QVELT |rn| 0))
+                                   (|quotient_INT| |m| (QVELT |rn| 0))
                                    (QREFELT % 36))
                          (SPADCALL (QVELT |rd| 2)
-                                   (QUOTIENT2 |m| (QVELT |rd| 0))
+                                   (|quotient_INT| |m| (QVELT |rd| 0))
                                    (QREFELT % 36))
                          (QREFELT % 35))
                         (SPADCALL
-                         (SPADCALL (QCDR |pn|) (QUOTIENT2 |m| (QVELT |sn| 0))
+                         (SPADCALL (QCDR |pn|)
+                                   (|quotient_INT| |m| (QVELT |sn| 0))
                                    (QREFELT % 59))
                          (QREFELT % 28))
                         (QREFELT % 68))
                        (SPADCALL
-                        (SPADCALL (QCDR |pd|) (QUOTIENT2 |m| (QVELT |sd| 0))
+                        (SPADCALL (QCDR |pd|)
+                                  (|quotient_INT| |m| (QVELT |sd| 0))
                                   (QREFELT % 59))
                         (QREFELT % 28))
                        (QREFELT % 35)))))))))) 

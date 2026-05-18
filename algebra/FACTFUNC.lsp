@@ -52,7 +52,7 @@
                         (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
                                           '(|Integer|) #3#)))
                      (#6# 1)))
-              (LETT |n| (QUOTIENT2 |n| |d|))
+              (LETT |n| (|quotient_INT| |n| |d|))
               (SEQ (LETT |term| NIL) (LETT #2# |lf|) G190
                    (COND
                     ((OR (ATOM #2#) (PROGN (LETT |term| (CAR #2#)) NIL))
@@ -61,7 +61,8 @@
                     (EXIT
                      (SEQ
                       (LETT |qr|
-                            (DIVIDE2 (QUOTIENT2 (QVELT |term| 2) |d|) |n|))
+                            (|divide_INT| (|quotient_INT| (QVELT |term| 2) |d|)
+                                          |n|))
                       (LETT |coeff|
                             (SPADCALL |coeff|
                                       (SPADCALL (QVELT |term| 1) (QCAR |qr|)

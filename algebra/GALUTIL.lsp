@@ -67,7 +67,7 @@
                               (SPADCALL (SPADCALL |n| |r| (QREFELT % 32))
                                         (QREFELT % 30)))
                              ((<= |n| (QREFELT % 27))
-                              (SEQ (LETT |m| (DIVIDE2 (- |n| 4) 2))
+                              (SEQ (LETT |m| (|divide_INT| (- |n| 4) 2))
                                    (LETT |mq| (QCAR |m|))
                                    (EXIT
                                     (SPADCALL (QREFELT % 26)
@@ -85,7 +85,8 @@
                                     (COND ((> |i| #4#) (GO G191)))
                                     (SEQ
                                      (SEQ (LETT |j| 2)
-                                          (LETT #3# (QUOTIENT2 |i| 2)) G190
+                                          (LETT #3# (|quotient_INT| |i| 2))
+                                          G190
                                           (COND
                                            ((|greater_SI| |j| #3#) (GO G191)))
                                           (SEQ
@@ -151,7 +152,7 @@
                                  (QREFELT % 38)))
                (EXIT (SETELT % 27 3))))
              ('T
-              (SEQ (LETT |d| (DIVIDE2 (- |n| 3) 2)) (LETT |dq| (QCAR |d|))
+              (SEQ (LETT |d| (|divide_INT| (- |n| 3) 2)) (LETT |dq| (QCAR |d|))
                    (SETELT % 26
                            (SPADCALL (QREFELT % 26)
                                      (SPADCALL

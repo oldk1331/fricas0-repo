@@ -18,7 +18,7 @@
                  ('T
                   (SEQ (LETT |lo| 1) (LETT |hi| (SPADCALL (QREFELT % 15)))
                        (SEQ G190 (COND ((NULL (> (- |hi| |lo|) 1)) (GO G191)))
-                            (SEQ (LETT |mid| (QUOTIENT2 (+ |hi| |lo|) 2))
+                            (SEQ (LETT |mid| (|quotient_INT| (+ |hi| |lo|) 2))
                                  (EXIT
                                   (COND
                                    ((<

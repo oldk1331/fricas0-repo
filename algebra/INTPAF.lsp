@@ -120,7 +120,7 @@
                      (GO G191)))
                    (SEQ (LETT |e1| (QVELT |fac| 2)) (LETT |f1| (QVELT |fac| 1))
                         (PROGN
-                         (LETT |#G22| (DIVIDE2 |e1| |deg_p|))
+                         (LETT |#G22| (|divide_INT| |e1| |deg_p|))
                          (LETT |e2| (QCAR |#G22|))
                          (LETT |e3| (QCDR |#G22|))
                          |#G22|)

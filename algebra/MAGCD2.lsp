@@ -544,7 +544,7 @@
                                                                       (QCDR
                                                                        |oer|))
                                                                 (LETT |ncc|
-                                                                      (QUOTIENT2
+                                                                      (|quotient_INT|
                                                                        (QV_LEN_U32
                                                                         |exps|)
                                                                        (+ |nv|
@@ -962,7 +962,7 @@
                                                             (LETT |exps|
                                                                   (QCDR |oer|))
                                                             (LETT |ncc|
-                                                                  (QUOTIENT2
+                                                                  (|quotient_INT|
                                                                    (QV_LEN_U32
                                                                     |exps|)
                                                                    (+ |nv|

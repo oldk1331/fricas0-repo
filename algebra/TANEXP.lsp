@@ -52,7 +52,7 @@
                     (PROGN
                      (LETT #5# NIL)
                      (SEQ (LETT |i| 0)
-                          (LETT #8# (QUOTIENT2 (- (QVSIZE |v|) 1) 2)) G190
+                          (LETT #8# (|quotient_INT| (- (QVSIZE |v|) 1) 2)) G190
                           (COND ((|greater_SI| |i| #8#) (GO G191)))
                           (SEQ
                            (EXIT
@@ -72,7 +72,8 @@
                               (PROGN
                                (LETT #1# NIL)
                                (SEQ (LETT |i| 1)
-                                    (LETT #4# (QUOTIENT2 (QVSIZE |v|) 2)) G190
+                                    (LETT #4# (|quotient_INT| (QVSIZE |v|) 2))
+                                    G190
                                     (COND ((|greater_SI| |i| #4#) (GO G191)))
                                     (SEQ
                                      (EXIT
@@ -122,8 +123,8 @@
            (SPADCALL
             (PROGN
              (LETT #6# NIL)
-             (SEQ (LETT |i| 0) (LETT #9# (QUOTIENT2 (- (QVSIZE |v|) 1) 2)) G190
-                  (COND ((|greater_SI| |i| #9#) (GO G191)))
+             (SEQ (LETT |i| 0) (LETT #9# (|quotient_INT| (- (QVSIZE |v|) 1) 2))
+                  G190 (COND ((|greater_SI| |i| #9#) (GO G191)))
                   (SEQ
                    (EXIT
                     (PROGN
@@ -139,8 +140,9 @@
             (SPADCALL (|spadConstant| % 42)
                       (PROGN
                        (LETT #1# NIL)
-                       (SEQ (LETT |i| 1) (LETT #5# (QUOTIENT2 (QVSIZE |v|) 2))
-                            G190 (COND ((|greater_SI| |i| #5#) (GO G191)))
+                       (SEQ (LETT |i| 1)
+                            (LETT #5# (|quotient_INT| (QVSIZE |v|) 2)) G190
+                            (COND ((|greater_SI| |i| #5#) (GO G191)))
                             (SEQ
                              (EXIT
                               (PROGN

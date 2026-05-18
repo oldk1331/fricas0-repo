@@ -296,9 +296,9 @@
                    (LETT |q|
                          (SPADCALL (SPADCALL |q0| |q1| (QREFELT % 44)) |q2|
                                    (QREFELT % 44)))
-                   (LETT |n0| (* |p0| (QUOTIENT2 |q| |q0|)))
-                   (LETT |n1| (* |p1| (QUOTIENT2 |q| |q1|)))
-                   (LETT |nn| (* |p2| (QUOTIENT2 |q| |q2|)))
+                   (LETT |n0| (* |p0| (|quotient_INT| |q| |q0|)))
+                   (LETT |n1| (* |p1| (|quotient_INT| |q| |q1|)))
+                   (LETT |nn| (* |p2| (|quotient_INT| |q| |q2|)))
                    (LETT |ulsUnion|
                          (SPADCALL
                           (CONS #'|GENUPS1;puiseux;MSRUsFA;8!0|
@@ -352,8 +352,8 @@
                (LETT |p2| (SPADCALL |r| (QREFELT % 42)))
                (LETT |q2| (SPADCALL |r| (QREFELT % 43)))
                (LETT |q| (SPADCALL |q0| |q2| (QREFELT % 44)))
-               (LETT |n0| (* |p0| (QUOTIENT2 |q| |q0|)))
-               (LETT |nn| (* |p2| (QUOTIENT2 |q| |q2|)))
+               (LETT |n0| (* |p0| (|quotient_INT| |q| |q0|)))
+               (LETT |nn| (* |p2| (|quotient_INT| |q| |q2|)))
                (LETT |ulsUnion|
                      (SPADCALL
                       (CONS #'|GENUPS1;puiseux;MSRUsFA;8!1|

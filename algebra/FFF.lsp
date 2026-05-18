@@ -171,16 +171,17 @@
                        (LETT |t| |t1|)
                        (COND
                         ((ODDP |k|)
-                         (SEQ (LETT |jt| (+ (QUOTIENT2 |n| 2) 1))
+                         (SEQ (LETT |jt| (+ (|quotient_INT| |n| 2) 1))
                               (EXIT
                                (LETT |vt|
                                      (+
-                                      (SPADCALL (QUOTIENT2 (- |k| |a|) 2) |k|
-                                                (QREFELT % 24))
+                                      (SPADCALL (|quotient_INT| (- |k| |a|) 2)
+                                                |k| (QREFELT % 24))
                                       1)))))
                         (#15#
                          (SEQ (LETT |jt| 1)
-                              (EXIT (LETT |vt| (+ (QUOTIENT2 |k| 2) 1))))))
+                              (EXIT
+                               (LETT |vt| (+ (|quotient_INT| |k| 2) 1))))))
                        (LETT |vec| (SPADCALL |p1| (QREFELT % 26)))
                        (SEQ (LETT |x| 1) (LETT #11# |k|) G190
                             (COND ((|greater_SI| |x| #11#) (GO G191)))
@@ -725,7 +726,7 @@
                                         '(|NonNegativeInteger|) #6#)))
               (LETT |qm1| (- (EXPT |sizeGF| |m|) 1))
               (LETT |zechlog|
-                    (MAKEARR1 (QUOTIENT2 (+ (EXPT |sizeGF| |m|) 1) 2) -1))
+                    (MAKEARR1 (|quotient_INT| (+ (EXPT |sizeGF| |m|) 1) 2) -1))
               (LETT |helparr| (MAKEARR1 (EXPT |sizeGF| |m|) 0))
               (LETT |primElement|
                     (SPADCALL (SPADCALL (|spadConstant| % 19) 1 (QREFELT % 47))

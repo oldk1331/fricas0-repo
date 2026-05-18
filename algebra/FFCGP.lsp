@@ -15,7 +15,8 @@
                 ('T
                  (PROG1
                      (LETT #1#
-                           (QUOTIENT2 (QREFELT % 18) (GCD (QREFELT % 18) |x|)))
+                           (|quotient_INT| (QREFELT % 18)
+                                           (GCD (QREFELT % 18) |x|)))
                    (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                      '(|Integer|) #1#)))))) 
 
@@ -85,8 +86,8 @@
            ('T
             (SEQ
              (LETT |m|
-                   (QUOTIENT2 (QREFELT % 18)
-                              (- (EXPT (SPADCALL (QREFELT % 13)) |n|) 1)))
+                   (|quotient_INT| (QREFELT % 18)
+                                   (- (EXPT (SPADCALL (QREFELT % 13)) |n|) 1)))
              (EXIT
               (PROGN
                (LETT #3# (GETREFV |n|))
@@ -438,8 +439,9 @@
     (QSETREFV % 15 (> (QREFELT % 14) (EXPT 2 20)))
     (COND ((QREFELT % 15) (|error| "field too large for this representation")))
     (QSETREFV % 18 (- (QREFELT % 14) 1))
-    (QSETREFV % 19 (QUOTIENT2 (QREFELT % 18) (- (SPADCALL (QREFELT % 13)) 1)))
-    (QSETREFV % 20 (MAKEARR1 (QUOTIENT2 (+ (QREFELT % 14) 1) 2) -1))
+    (QSETREFV % 19
+              (|quotient_INT| (QREFELT % 18) (- (SPADCALL (QREFELT % 13)) 1)))
+    (QSETREFV % 20 (MAKEARR1 (|quotient_INT| (+ (QREFELT % 14) 1) 2) -1))
     (QSETREFV % 25 (SPADCALL (SPADCALL (QREFELT % 22)) (QREFELT % 24)))
     (QSETREFV % 30
               (COND

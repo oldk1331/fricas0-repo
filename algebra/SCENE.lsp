@@ -868,7 +868,7 @@
                        (COND ((EQL |x| 10) (LETT |str| "1")))
                        (COND
                         ((> |x| 10)
-                         (SEQ (LETT |d| (DIVIDE2 |x| 10))
+                         (SEQ (LETT |d| (|divide_INT| |x| 10))
                               (EXIT
                                (LETT |str|
                                      (SPADCALL
@@ -887,7 +887,7 @@
                        (EXIT
                         (COND
                          ((< |x| -10)
-                          (SEQ (LETT |d| (DIVIDE2 (- |x|) 10))
+                          (SEQ (LETT |d| (|divide_INT| (- |x|) 10))
                                (EXIT
                                 (LETT |str|
                                       (SPADCALL

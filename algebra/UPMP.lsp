@@ -47,7 +47,7 @@
                 (LETT |b| (SPADCALL |b| |db| (QREFELT % 21)))))
               (LETT |d| (+ |da| |db|))
               (LETT |n|
-                    (QUOTIENT2
+                    (|quotient_INT|
                      (MIN (SPADCALL |a| (QREFELT % 11))
                           (SPADCALL |b| (QREFELT % 11)))
                      2))
@@ -105,7 +105,7 @@
                    (LETT |b| (SPADCALL |b| |db| (QREFELT % 21)))))
                  (LETT |d| (+ |da| |db|))
                  (LETT |n|
-                       (QUOTIENT2
+                       (|quotient_INT|
                         (MIN (SPADCALL |a| (QREFELT % 11))
                              (SPADCALL |b| (QREFELT % 11)))
                         2))

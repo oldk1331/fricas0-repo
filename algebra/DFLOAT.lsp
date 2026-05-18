@@ -611,7 +611,7 @@
                               (SEQ G190 NIL
                                    (SEQ
                                     (PROGN
-                                     (LETT |#G142| (DIVIDE2 |s| |t|))
+                                     (LETT |#G142| (|divide_INT| |s| |t|))
                                      (LETT |q| (QCAR |#G142|))
                                      (LETT |r| (QCDR |#G142|))
                                      |#G142|)

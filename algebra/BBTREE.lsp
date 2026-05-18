@@ -15,7 +15,7 @@
                  (SEQ (SPADCALL |t| (|SPADfirst| |u|) (QREFELT % 10))
                       (EXIT |t|)))
                 (#2#
-                 (SEQ (LETT |m| (QUOTIENT2 |n| 2)) (LETT |acc| NIL)
+                 (SEQ (LETT |m| (|quotient_INT| |n| 2)) (LETT |acc| NIL)
                       (SEQ (LETT |i| 1) (LETT #1# |m|) G190
                            (COND ((|greater_SI| |i| #1#) (GO G191)))
                            (SEQ (LETT |acc| (CONS (|SPADfirst| |u|) |acc|))
@@ -36,7 +36,7 @@
                        (SPADCALL (SPADCALL (QREFELT % 15)) |val|
                                  (SPADCALL (QREFELT % 15)) (QREFELT % 16)))
                       ('T
-                       (SEQ (LETT |m| (QUOTIENT2 |n| 2))
+                       (SEQ (LETT |m| (|quotient_INT| |n| 2))
                             (EXIT
                              (SPADCALL (SPADCALL |m| |val| (QREFELT % 18))
                                        |val|

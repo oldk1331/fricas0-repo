@@ -3179,15 +3179,17 @@
 ;     kind = 'pi => 5
 ;     3
 ;   maxWidth := MAX(opWidth,botWidth,topWidth)
-;   xCenter := QUOTIENT(maxWidth - 1, 2) + x
+;   xCenter := quotient_INT(maxWidth - 1, 2) + x
 ;   d:=APP(arg,x+2+maxWidth,y,d)
 ;   d:=
 ;       atom bot and SIZE atom2String bot = 1 => APP(bot,xCenter,y-2,d)
-;       APP(bot, x + QUOTIENT(maxWidth - botWidth, 2), y-2-superspan bot, d)
+;       APP(bot, x + quotient_INT(maxWidth - botWidth, 2),
+;           y - 2 - superspan(bot), d)
 ;   if top then
 ;     d:=
 ;       atom top and SIZE atom2String top = 1 => APP(top,xCenter,y+2,d)
-;       APP(top, x + QUOTIENT(maxWidth - topWidth, 2), y+2+subspan top, d)
+;       APP(top, x + quotient_INT(maxWidth - topWidth, 2),
+;           y + 2 + subspan(top), d)
 ;   delta := (kind = 'pi => 2; 1)
 ;   opCode :=
 ;     kind = 'sigma =>
@@ -3219,14 +3221,14 @@
       (SETQ |topWidth| (WIDTH |top|))
       (SETQ |opWidth| (COND ((EQ |kind| '|pi|) 5) (#1# 3)))
       (SETQ |maxWidth| (MAX |opWidth| |botWidth| |topWidth|))
-      (SETQ |xCenter| (+ (QUOTIENT (- |maxWidth| 1) 2) |x|))
+      (SETQ |xCenter| (+ (|quotient_INT| (- |maxWidth| 1) 2) |x|))
       (SETQ |d| (APP |arg| (+ (+ |x| 2) |maxWidth|) |y| |d|))
       (SETQ |d|
               (COND
                ((AND (ATOM |bot|) (EQL (SIZE (|atom2String| |bot|)) 1))
                 (APP |bot| |xCenter| (- |y| 2) |d|))
                (#1#
-                (APP |bot| (+ |x| (QUOTIENT (- |maxWidth| |botWidth|) 2))
+                (APP |bot| (+ |x| (|quotient_INT| (- |maxWidth| |botWidth|) 2))
                  (- (- |y| 2) (|superspan| |bot|)) |d|))))
       (COND
        (|top|
@@ -3235,7 +3237,8 @@
                  ((AND (ATOM |top|) (EQL (SIZE (|atom2String| |top|)) 1))
                   (APP |top| |xCenter| (+ |y| 2) |d|))
                  (#1#
-                  (APP |top| (+ |x| (QUOTIENT (- |maxWidth| |topWidth|) 2))
+                  (APP |top|
+                   (+ |x| (|quotient_INT| (- |maxWidth| |topWidth|) 2))
                    (+ (+ |y| 2) (|subspan| |top|)) |d|))))))
       (SETQ |delta| (COND ((EQ |kind| '|pi|) 2) (#1# 1)))
       (SETQ |opCode|
@@ -3405,7 +3408,7 @@
 ;   -- if b is empty, we set the width to 1 to prevent overflow
 ;   wb := MAX(WIDTH b, 1)
 ;   endPoint := x + wb - 1
-;   middle := QUOTIENT(x + endPoint,2)
+;   middle := quotient_INT(x + endPoint, 2)
 ;   h := y + superspan b + 1
 ;   d := APP(a,middle,h + 1,d)
 ;   apphor(x, endPoint, y+superspan b+1,d,"|")
@@ -3419,7 +3422,7 @@
       (SETQ |d| (APP |b| |x| |y| |d|))
       (SETQ |wb| (MAX (WIDTH |b|) 1))
       (SETQ |endPoint| (- (+ |x| |wb|) 1))
-      (SETQ |middle| (QUOTIENT (+ |x| |endPoint|) 2))
+      (SETQ |middle| (|quotient_INT| (+ |x| |endPoint|) 2))
       (SETQ |h| (+ (+ |y| (|superspan| |b|)) 1))
       (SETQ |d| (APP |a| |middle| (+ |h| 1) |d|))
       (|apphor| |x| |endPoint| (+ (+ |y| (|superspan| |b|)) 1) |d| '|\||)))))
@@ -4059,7 +4062,7 @@
 ;   u is ['CENTER,a] =>
 ;     b := charyTopWidth a
 ;     (w := WIDTH(b)) > linelength-start => charyTop(a,start,linelength)
-;     charyTop(b, QUOTIENT(linelength-start-w, 2), linelength)
+;     charyTop(b, quotient_INT(linelength - start - w, 2), linelength)
 ;   v := charyTopWidth u
 ;   EQ(keyp u,'ELSE) => charyElse(u,v,start,linelength)
 ;   WIDTH(v) > linelength => charyTrouble(u,v,start,linelength)
@@ -4127,7 +4130,7 @@
          ((< (- |linelength| |start|) (SETQ |w| (WIDTH |b|)))
           (|charyTop| |a| |start| |linelength|))
          (#1#
-          (|charyTop| |b| (QUOTIENT (- (- |linelength| |start|) |w|) 2)
+          (|charyTop| |b| (|quotient_INT| (- (- |linelength| |start|) |w|) 2)
            |linelength|)))))
       (#1#
        (PROGN
@@ -4900,29 +4903,30 @@
 ;   -- not possible, expressions are offset to the right rather than left.
 ;   -- MCD 16-8-95
 ;   w := WIDTH u
-;   tempx := x + QUOTIENT(1+w - WIDTH CADR rest u, 2)
-;   tempy := y - superspan CADR rest u - 1
-;   temparg3 := APP(CADR rest u, tempx, tempy, d)
+;   u2 := first(rest(rest(u)))
+;   tempx := x + quotient_INT(1 + w - WIDTH(u2), 2)
+;   tempy := y - superspan(u2) - 1
+;   temparg3 := APP(u2, tempx, tempy, d)
 ;   temparg4 := apphor(x, x + w - 1, y, temparg3,specialChar('hbar))
-;   APP(CADR u,
-;         x + QUOTIENT(1+w - WIDTH CADR u, 2),
-;           y + 1 + subspan CADR u,
-;             temparg4)
+;   u1 := first(rest(u))
+;   APP(u1, x + quotient_INT(1 + w - WIDTH(u1), 2), y + 1 + subspan(u1),
+;       temparg4)
 
 (DEFUN |appfrac| (|u| |x| |y| |d|)
-  (PROG (|w| |tempx| |tempy| |temparg3| |temparg4|)
+  (PROG (|w| |u2| |tempx| |tempy| |temparg3| |temparg4| |u1|)
     (RETURN
      (PROGN
       (SETQ |w| (WIDTH |u|))
-      (SETQ |tempx|
-              (+ |x| (QUOTIENT (- (+ 1 |w|) (WIDTH (CADR (CDR |u|)))) 2)))
-      (SETQ |tempy| (- (- |y| (|superspan| (CADR (CDR |u|)))) 1))
-      (SETQ |temparg3| (APP (CADR (CDR |u|)) |tempx| |tempy| |d|))
+      (SETQ |u2| (CAR (CDR (CDR |u|))))
+      (SETQ |tempx| (+ |x| (|quotient_INT| (- (+ 1 |w|) (WIDTH |u2|)) 2)))
+      (SETQ |tempy| (- (- |y| (|superspan| |u2|)) 1))
+      (SETQ |temparg3| (APP |u2| |tempx| |tempy| |d|))
       (SETQ |temparg4|
               (|apphor| |x| (- (+ |x| |w|) 1) |y| |temparg3|
                (|specialChar| '|hbar|)))
-      (APP (CADR |u|) (+ |x| (QUOTIENT (- (+ 1 |w|) (WIDTH (CADR |u|))) 2))
-       (+ (+ |y| 1) (|subspan| (CADR |u|))) |temparg4|)))))
+      (SETQ |u1| (CAR (CDR |u|)))
+      (APP |u1| (+ |x| (|quotient_INT| (- (+ 1 |w|) (WIDTH |u1|)) 2))
+       (+ (+ |y| 1) (|subspan| |u1|)) |temparg4|)))))
 
 ; fracsub(u) == height CADR rest u
 
@@ -5257,12 +5261,13 @@
 
 ; zagApp(u, x, y, d) ==
 ;     w := WIDTH u
-;     denx := x + QUOTIENT(w - WIDTH CADR rest u, 2)
-;     deny := y - superspan CADR rest u - 1
-;     d    := APP(CADR rest u, denx, deny, d)
-;     numx := x + QUOTIENT(w - WIDTH CADR u, 2)
+;     uu := first(rest(rest(u)))
+;     denx := x + quotient_INT(w - WIDTH(uu), 2)
+;     deny := y - superspan(uu) - 1
+;     d    := APP(uu, denx, deny, d)
+;     numx := x + quotient_INT(w - WIDTH(first(rest(u))), 2)
 ;     numy := y+1 + subspan CADR u
-;     d    := APP(CADR u, numx, numy, d)
+;     d    := APP(first(rest(u)), numx, numy, d)
 ;     a := 1 + zagSuper u
 ;     b := 1 + zagSub u
 ;     d := appvertline(specialChar('vbar), x,         y - b, y - 1, d)
@@ -5272,16 +5277,17 @@
 ;     d := APP(specialChar('lrc), x + w - 1, y, d)
 
 (DEFUN |zagApp| (|u| |x| |y| |d|)
-  (PROG (|w| |denx| |deny| |numx| |numy| |a| |b|)
+  (PROG (|w| |uu| |denx| |deny| |numx| |numy| |a| |b|)
     (RETURN
      (PROGN
       (SETQ |w| (WIDTH |u|))
-      (SETQ |denx| (+ |x| (QUOTIENT (- |w| (WIDTH (CADR (CDR |u|)))) 2)))
-      (SETQ |deny| (- (- |y| (|superspan| (CADR (CDR |u|)))) 1))
-      (SETQ |d| (APP (CADR (CDR |u|)) |denx| |deny| |d|))
-      (SETQ |numx| (+ |x| (QUOTIENT (- |w| (WIDTH (CADR |u|))) 2)))
+      (SETQ |uu| (CAR (CDR (CDR |u|))))
+      (SETQ |denx| (+ |x| (|quotient_INT| (- |w| (WIDTH |uu|)) 2)))
+      (SETQ |deny| (- (- |y| (|superspan| |uu|)) 1))
+      (SETQ |d| (APP |uu| |denx| |deny| |d|))
+      (SETQ |numx| (+ |x| (|quotient_INT| (- |w| (WIDTH (CAR (CDR |u|)))) 2)))
       (SETQ |numy| (+ (+ |y| 1) (|subspan| (CADR |u|))))
-      (SETQ |d| (APP (CADR |u|) |numx| |numy| |d|))
+      (SETQ |d| (APP (CAR (CDR |u|)) |numx| |numy| |d|))
       (SETQ |a| (+ 1 (|zagSuper| |u|)))
       (SETQ |b| (+ 1 (|zagSub| |u|)))
       (SETQ |d|
@@ -5381,7 +5387,7 @@
 ;                      rows := rest rows
 ;                      return(flag  := '"ON"; nil)
 ;             d := APP(first row,
-;                      xc + QUOTIENT(first w - WIDTH first row, 2),
+;                      xc + quotient_INT(first(w) - WIDTH(first(row)), 2),
 ;                      yc,
 ;                      d)
 ;             xc := xc + 2 + first w
@@ -5449,7 +5455,7 @@
                                    (SETQ |d|
                                            (APP (CAR |row|)
                                             (+ |xc|
-                                               (QUOTIENT
+                                               (|quotient_INT|
                                                 (- (CAR |w|)
                                                    (WIDTH (CAR |row|)))
                                                 2))
@@ -5459,7 +5465,7 @@
                                    (SETQ |w| (CDR |w|)))))))))))))))))))))))
 
 ; matSuper(x) ==
-;   (x := x.1) => -1 + QUOTIENT(first x.1 + first x.2, 2)
+;   (x := x.1) => -1 + quotient_INT(first(x.1) + first(x.2), 2)
 ;   true => ERROR('MAT)
 
 (DEFUN |matSuper| (|x|)
@@ -5467,11 +5473,11 @@
     (RETURN
      (COND
       ((SETQ |x| (ELT |x| 1))
-       (+ (- 1) (QUOTIENT (+ (CAR (ELT |x| 1)) (CAR (ELT |x| 2))) 2)))
+       (+ (- 1) (|quotient_INT| (+ (CAR (ELT |x| 1)) (CAR (ELT |x| 2))) 2)))
       (T (ERROR 'MAT))))))
 
 ; matSub(x) ==
-;   (x := x.1) => QUOTIENT(-1 + first x.1 + first x.2, 2)
+;   (x := x.1) => quotient_INT(-1 + first(x.1) + first(x.2), 2)
 ;   true => ERROR('MAT)
 
 (DEFUN |matSub| (|x|)
@@ -5479,7 +5485,7 @@
     (RETURN
      (COND
       ((SETQ |x| (ELT |x| 1))
-       (QUOTIENT (+ (+ (- 1) (CAR (ELT |x| 1))) (CAR (ELT |x| 2))) 2))
+       (|quotient_INT| (+ (+ (- 1) (CAR (ELT |x| 1))) (CAR (ELT |x| 2))) 2))
       (T (ERROR 'MAT))))))
 
 ; matWidth(x) ==
@@ -5880,8 +5886,8 @@
 ;   wden := WIDTH den
 ;   wnum := WIDTH num
 ;   w := MAX(wden,wnum)
-;   d := APP(den, x + 1 + QUOTIENT(w - wden, 2), ysub, d)
-;   d := APP(num, x + 1 + QUOTIENT(w - wnum, 2), ysup, d)
+;   d := APP(den, x + 1 + quotient_INT(w - wden, 2), ysub, d)
+;   d := APP(num, x + 1 + quotient_INT(w - wnum, 2), ysup, d)
 ;   hnum := height num
 ;   hden := height den
 ;   w := 1 + w
@@ -5909,9 +5915,11 @@
       (SETQ |wnum| (WIDTH |num|))
       (SETQ |w| (MAX |wden| |wnum|))
       (SETQ |d|
-              (APP |den| (+ (+ |x| 1) (QUOTIENT (- |w| |wden|) 2)) |ysub| |d|))
+              (APP |den| (+ (+ |x| 1) (|quotient_INT| (- |w| |wden|) 2)) |ysub|
+               |d|))
       (SETQ |d|
-              (APP |num| (+ (+ |x| 1) (QUOTIENT (- |w| |wnum|) 2)) |ysup| |d|))
+              (APP |num| (+ (+ |x| 1) (|quotient_INT| (- |w| |wnum|) 2)) |ysup|
+               |d|))
       (SETQ |hnum| (|height| |num|))
       (SETQ |hden| (|height| |den|))
       (SETQ |w| (+ 1 |w|))
@@ -6209,7 +6217,7 @@
 ;   y := y + superspan u.1 + 1
 ;   for a in rest u repeat
 ;       y := y - superspan a - 1
-;       xoff := QUOTIENT(w - WIDTH a, 2)
+;       xoff := quotient_INT(w - WIDTH(a), 2)
 ;       d := APP(a, x + xoff, y, d)
 ;       y := y - subspan a
 ;   d
@@ -6231,7 +6239,7 @@
                   (#1#
                    (PROGN
                     (SETQ |y| (- (- |y| (|superspan| |a|)) 1))
-                    (SETQ |xoff| (QUOTIENT (- |w| (WIDTH |a|)) 2))
+                    (SETQ |xoff| (|quotient_INT| (- |w| (WIDTH |a|)) 2))
                     (SETQ |d| (APP |a| (+ |x| |xoff|) |y| |d|))
                     (SETQ |y| (- |y| (|subspan| |a|))))))
                  (SETQ |bfVar#110| (CDR |bfVar#110|))))
@@ -6244,10 +6252,10 @@
 ;   d := APP('"(",x,y,d)
 ;   x := x + 1
 ;   y1 := y - height a
-;   xoff := QUOTIENT(w - WIDTH a, 2)
+;   xoff := quotient_INT(w - WIDTH(a), 2)
 ;   d := APP(a, x + xoff, y1, d)
 ;   y2 := y + height b
-;   xoff := QUOTIENT(w - WIDTH b, 2)
+;   xoff := quotient_INT(w - WIDTH(b), 2)
 ;   d := APP(b, x + xoff, y2, d)
 ;   x := x + w
 ;   APP('")",x,y,d)
@@ -6262,10 +6270,10 @@
       (SETQ |d| (APP "(" |x| |y| |d|))
       (SETQ |x| (+ |x| 1))
       (SETQ |y1| (- |y| (|height| |a|)))
-      (SETQ |xoff| (QUOTIENT (- |w| (WIDTH |a|)) 2))
+      (SETQ |xoff| (|quotient_INT| (- |w| (WIDTH |a|)) 2))
       (SETQ |d| (APP |a| (+ |x| |xoff|) |y1| |d|))
       (SETQ |y2| (+ |y| (|height| |b|)))
-      (SETQ |xoff| (QUOTIENT (- |w| (WIDTH |b|)) 2))
+      (SETQ |xoff| (|quotient_INT| (- |w| (WIDTH |b|)) 2))
       (SETQ |d| (APP |b| (+ |x| |xoff|) |y2| |d|))
       (SETQ |x| (+ |x| |w|))
       (APP ")" |x| |y| |d|)))))

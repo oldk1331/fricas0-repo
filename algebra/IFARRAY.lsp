@@ -80,7 +80,8 @@
                  ('T
                   (SEQ
                    (LETT |n|
-                         (+ (+ (QVELT |r| 0) (QUOTIENT2 (QVELT |r| 0) 2)) 1))
+                         (+ (+ (QVELT |r| 0) (|quotient_INT| (QVELT |r| 0) 2))
+                            1))
                    (COND ((> (QVELT |r| 1) |n|) (LETT |n| (QVELT |r| 1))))
                    (EXIT (|IFARRAY;growWith| |r| |n| |x| %)))))))) 
 

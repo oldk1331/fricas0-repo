@@ -407,7 +407,7 @@
               (LETT |ifac| (SPADCALL (QREFELT % 10) (QREFELT % 76)))
               (SEQ (LETT |i| (QREFELT % 10)) G190 (COND ((< |i| 1) (GO G191)))
                    (SEQ (LETT |sum| (|spadConstant| % 68)) (LETT |kfac| |ifac|)
-                        (LETT |ifac| (QUOTIENT2 |ifac| |i|))
+                        (LETT |ifac| (|quotient_INT| |ifac| |i|))
                         (SEQ (LETT |k| (+ |i| 1)) (LETT #6# (QREFELT % 10))
                              G190 (COND ((> |k| #6#) (GO G191)))
                              (SEQ
@@ -473,7 +473,8 @@
           (SEQ (LETT |i| (- (QREFELT % 10) 1)) G190
                (COND ((< |i| 1) (GO G191)))
                (SEQ (LETT |t| (|spadConstant| % 68))
-                    (LETT |ifac| (QUOTIENT2 |ifac| |i|)) (LETT |kfac| |ifac|)
+                    (LETT |ifac| (|quotient_INT| |ifac| |i|))
+                    (LETT |kfac| |ifac|)
                     (SEQ (LETT |k| |i|) (LETT #5# (- (QREFELT % 10) 1)) G190
                          (COND ((> |k| #5#) (GO G191)))
                          (SEQ
@@ -593,7 +594,7 @@
                                               (LETT #8# (CDR #8#))))
                                       (GO G190) G191 (EXIT NIL))
                                  (LETT |t| (SPADCALL |t| |rnf| (QREFELT % 90)))
-                                 (LETT |ifac| (QUOTIENT2 |ifac| |i|))
+                                 (LETT |ifac| (|quotient_INT| |ifac| |i|))
                                  (LETT |kfac| |ifac|)
                                  (SEQ (LETT |k| |i|) (LETT #4# |n1|) G190
                                       (COND ((> |k| #4#) (GO G191)))

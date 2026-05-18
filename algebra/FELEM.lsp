@@ -139,7 +139,7 @@
            |#G22|)
           (LETT |lx| (INTEGER-LENGTH |xm|)) (LETT |ly| (INTEGER-LENGTH |ym|))
           (LETT |k| (+ (+ (- |ly| |lx|) |b|) 5))
-          (LETT |z| (QUOTIENT2 (ASH |xm| |k|) |ym|))
+          (LETT |z| (|quotient_INT| (ASH |xm| |k|) |ym|))
           (EXIT (|FELEM;chop| (CONS |z| (- (- |xe| |ye|) |k|)) |b| %))))) 
 
 (SDEFUN |FELEM;pow2k|
@@ -215,7 +215,7 @@
          (SEQ
           (COND ((<= |bl| 300) (|FELEM;mat0| |n0| |bl| |ki| |d| |ld| %))
                 ('T
-                 (SEQ (LETT |bl1| (QUOTIENT2 |bl| 2))
+                 (SEQ (LETT |bl1| (|quotient_INT| |bl| 2))
                       (LETT |r1| (|FELEM;mat1| |n0| |bl1| |ki| |d| |ld| %))
                       (LETT |m1| (QCDR |r1|))
                       (LETT |bl1|
@@ -235,7 +235,7 @@
                     (|:| |exponent| (|Integer|)))))
         (SPROG ((|n1| (|Integer|)))
                (SEQ (LETT |n1| (ASH |n| (+ |b| 3)))
-                    (EXIT (CONS (QUOTIENT2 |n1| |d|) (- (- |b|) 3)))))) 
+                    (EXIT (CONS (|quotient_INT| |n1| |d|) (- (- |b|) 3)))))) 
 
 (SDEFUN |FELEM;exp_frac;2IPiR;11|
         ((|k| (|Integer|)) (|n| (|Integer|)) (|b| (|PositiveInteger|))
@@ -268,7 +268,7 @@
                                   (QREFELT % 23))
                                  (SPADCALL (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT)
                                            (QREFELT % 23)))))))
-              (LETT |l| (QUOTIENT2 (+ |b| 1) 2))
+              (LETT |l| (|quotient_INT| (+ |b| 1) 2))
               (LETT |mm0|
                     (SPADCALL (LIST (LIST |p1| |q1|) (LIST |p0| |q0|))
                               (QREFELT % 19)))
@@ -304,7 +304,7 @@
           (SEQ
            (EXIT
             (SEQ G190 NIL
-                 (SEQ (LETT |tk| (QUOTIENT2 (* |m| |tk|) |k|))
+                 (SEQ (LETT |tk| (|quotient_INT| (* |m| |tk|) |k|))
                       (LETT |tk| (ASH |tk| (- |b1|)))
                       (COND
                        ((EQL |tk| 0)
@@ -344,7 +344,7 @@
                    |#G53|)
                   (LETT |lm| (INTEGER-LENGTH |m|)) (LETT |de| (+ |lm| |e|))
                   (LETT |lb| (INTEGER-LENGTH |b|))
-                  (LETT |lb2| (QUOTIENT2 (+ |lb| 1) 2))
+                  (LETT |lb2| (|quotient_INT| (+ |lb| 1) 2))
                   (LETT |k| (ASH |b| (- |lb2|))) (LETT |k1| (- |de| |k|))
                   (EXIT
                    (COND ((< |k1| 0) (SPADCALL |x| |b| (QREFELT % 25)))
@@ -510,7 +510,7 @@
                           (PROGN
                            (LETT #2# (CONS |s| (- |b|)))
                            (GO #3=#:G78)))))
-                       (LETT |s| (+ |s| (QUOTIENT2 |tk| |k|)))
+                       (LETT |s| (+ |s| (|quotient_INT| |tk| |k|)))
                        (EXIT (LETT |k| (+ |k| 1))))
                   NIL (GO G190) G191 (EXIT NIL)))))
           #3# (EXIT #2#)))) 

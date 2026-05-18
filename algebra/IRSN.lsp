@@ -396,7 +396,8 @@
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (EXIT
                (PROG1
-                   (LETT #1# (QUOTIENT2 (SPADCALL |nn| (QREFELT % 35)) |dd|))
+                   (LETT #1#
+                         (|quotient_INT| (SPADCALL |nn| (QREFELT % 35)) |dd|))
                  (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
                                    '(|Integer|) #1#)))))) 
 

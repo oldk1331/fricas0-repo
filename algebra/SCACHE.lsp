@@ -356,7 +356,7 @@
                       (|SCACHE;shiftCache| |before| 1024 %)))
                     (SPADCALL |x|
                               (+ |pos|
-                                 (QUOTIENT2
+                                 (|quotient_INT|
                                   (PROG1
                                       (LETT #1#
                                             (- (SPADCALL |y| (QREFELT % 13))

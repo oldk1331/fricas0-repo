@@ -55,7 +55,7 @@
                   (SEQ (LETT |n| (LENGTH |sortedList|))
                        (LETT |num| (SPADCALL |fraction| (QREFELT % 28)))
                        (LETT |den| (SPADCALL |fraction| (QREFELT % 29)))
-                       (LETT |clipNum| (QUOTIENT2 (* |n| |num|) |den|))
+                       (LETT |clipNum| (|quotient_INT| (* |n| |num|) |den|))
                        (LETT |lastN| (- (- |n| 1) |clipNum|))
                        (LETT |firstPt| (|SPADfirst| |sortedList|))
                        (LETT |xMin| (SPADCALL |firstPt| (QREFELT % 31)))
@@ -293,7 +293,7 @@
                      (LETT |n| (LENGTH |sortedList|))
                      (LETT |num| (SPADCALL |fraction| (QREFELT % 28)))
                      (LETT |den| (SPADCALL |fraction| (QREFELT % 29)))
-                     (LETT |clipNum| (QUOTIENT2 (* |n| |num|) |den|))
+                     (LETT |clipNum| (|quotient_INT| (* |n| |num|) |den|))
                      (LETT |yMin|
                            (SPADCALL
                             (SPADCALL |sortedList| |clipNum| (QREFELT % 52))

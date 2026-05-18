@@ -400,7 +400,7 @@
                                 ((EQL |a| 1)
                                  (PROGN (LETT #2# |c|) (GO #4=#:G258)))
                                 ('T
-                                 (SEQ (LETT |a| (QUOTIENT2 |a| 2))
+                                 (SEQ (LETT |a| (|quotient_INT| |a| 2))
                                       (LETT |c|
                                             (|PRS;exactQuo|
                                              (SPADCALL |c| |c| (QREFELT % 34))
@@ -2936,7 +2936,7 @@
                   ((ZEROP |d|)
                    (|error| "cannot take discriminant of constants"))
                   (#5='T
-                   (SEQ (LETT |a| (QUOTIENT2 (* |d| (- |d| 1)) 2))
+                   (SEQ (LETT |a| (|quotient_INT| (* |d| (- |d| 1)) 2))
                         (LETT |a|
                               (EXPT -1
                                     (PROG1 (LETT #4# |a|)
@@ -3004,7 +3004,7 @@
                   ((ZEROP |d|)
                    (|error| "cannot take discriminant of constants"))
                   (#8='T
-                   (SEQ (LETT |a| (QUOTIENT2 (* |d| (- |d| 1)) 2))
+                   (SEQ (LETT |a| (|quotient_INT| (* |d| (- |d| 1)) 2))
                         (LETT |a|
                               (EXPT -1
                                     (PROG1 (LETT #7# |a|)
@@ -3131,7 +3131,7 @@
                   ((ZEROP |d|)
                    (|error| "cannot take discriminant of constants"))
                   (#7='T
-                   (SEQ (LETT |a| (QUOTIENT2 (* |d| (- |d| 1)) 2))
+                   (SEQ (LETT |a| (|quotient_INT| (* |d| (- |d| 1)) 2))
                         (LETT |a|
                               (EXPT -1
                                     (PROG1 (LETT #6# |a|)

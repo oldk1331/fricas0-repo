@@ -936,8 +936,8 @@
                             (SPADCALL
                              (|TRMANIP;supexp| |num| |g1| |g2|
                               (LETT |b|
-                                    (QUOTIENT2 (SPADCALL |num| (QREFELT % 163))
-                                               2))
+                                    (|quotient_INT|
+                                     (SPADCALL |num| (QREFELT % 163)) 2))
                               %)
                              (|TRMANIP;supexp| |den| |g1| |g2| |b| %)
                              (QREFELT % 26)))))

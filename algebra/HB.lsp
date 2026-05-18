@@ -21,7 +21,7 @@
                            (LETT |m| (|inc_SI| |m|)) (GO G190) G191 (EXIT NIL))
                       (EXIT
                        (LETT |res|
-                             (QUOTIENT2
+                             (|quotient_INT|
                               (-
                                (EXPT |d|
                                      (PROG1 (LETT #1# |n|)

@@ -188,10 +188,10 @@
                                       (LETT |PthRootPow|
                                             (PROG2
                                                 (LETT #14#
-                                                      (SPADCALL
+                                                      (|exquo_INT|
                                                        (SPADCALL
                                                         (QREFELT % 50))
-                                                       |p| (QREFELT % 51)))
+                                                       |p|))
                                                 (QCDR #14#)
                                               (|check_union2| (QEQCAR #14# 0)
                                                               (|NonNegativeInteger|)
@@ -206,7 +206,7 @@
                                                     (VECTOR % |PthRootPow|
                                                             |p|))
                                               |fac| (QREFELT % 48))
-                                             |p| (QREFELT % 52)))
+                                             |p| (QREFELT % 51)))
                                       (EXIT
                                        (COND
                                         ((QEQCAR |m1| 1)
@@ -222,10 +222,10 @@
                                                           (SPADCALL
                                                            (SPADCALL |res|
                                                                      (QREFELT %
-                                                                              53))
+                                                                              52))
                                                            (* |p| |expon|)
-                                                           (QREFELT % 54))
-                                                          (QREFELT % 55)))
+                                                           (QREFELT % 53))
+                                                          (QREFELT % 54)))
                                           (EXIT
                                            (LETT |ll|
                                                  (SPADCALL
@@ -263,20 +263,20 @@
                                                         (GO G190) G191
                                                         (EXIT
                                                          (NREVERSE #13#))))
-                                                  |ll| (QREFELT % 56))))))))))
+                                                  |ll| (QREFELT % 55))))))))))
                                 ('T
                                  (SEQ
                                   (LETT |m2|
                                         (SPADCALL
-                                         (SPADCALL |fac| (QREFELT % 58))
+                                         (SPADCALL |fac| (QREFELT % 57))
                                          (QREFELT % 17)))
                                   (LETT |unitPart|
                                         (SPADCALL |unitPart|
                                                   (SPADCALL
                                                    (SPADCALL |m2|
-                                                             (QREFELT % 53))
-                                                   |expon| (QREFELT % 54))
-                                                  (QREFELT % 55)))
+                                                             (QREFELT % 52))
+                                                   |expon| (QREFELT % 53))
+                                                  (QREFELT % 54)))
                                   (EXIT
                                    (LETT |ll|
                                          (SPADCALL
@@ -302,14 +302,14 @@
                                                                  (SPADCALL
                                                                   (QVELT |v| 1)
                                                                   (QREFELT %
-                                                                           58))
+                                                                           57))
                                                                  (* |expon|
                                                                     (QVELT |v|
                                                                            2)))
                                                          #10#))))
                                                 (LETT #9# (CDR #9#)) (GO G190)
                                                 G191 (EXIT (NREVERSE #10#))))
-                                          |ll| (QREFELT % 56))))))))
+                                          |ll| (QREFELT % 55))))))))
                               ('T
                                (SEQ
                                 (LETT |ydeg|
@@ -318,7 +318,7 @@
                                        (SEQ (LETT |w| NIL)
                                             (LETT #8#
                                                   (SPADCALL |fac|
-                                                            (QREFELT % 60)))
+                                                            (QREFELT % 59)))
                                             G190
                                             (COND
                                              ((OR (ATOM #8#)
@@ -344,13 +344,13 @@
                                              ('T (|IdentityError| '|max|)))))
                                 (LETT |twoF|
                                       (SPADCALL |fac| |ydeg| |do_ext|
-                                                (QREFELT % 62)))
+                                                (QREFELT % 61)))
                                 (LETT |nfl| (SPADCALL |twoF| (QREFELT % 43)))
                                 (COND
                                  ((EQL (LENGTH |nfl|) 1)
                                   (COND
                                    ((QEQCAR
-                                     (QVELT (SPADCALL |nfl| 1 (QREFELT % 65))
+                                     (QVELT (SPADCALL |nfl| 1 (QREFELT % 64))
                                             0)
                                      0)
                                     (EXIT
@@ -361,9 +361,9 @@
                                       (SPADCALL |unitPart|
                                                 (SPADCALL
                                                  (SPADCALL |twoF|
-                                                           (QREFELT % 53))
-                                                 |expon| (QREFELT % 54))
-                                                (QREFELT % 55)))
+                                                           (QREFELT % 52))
+                                                 |expon| (QREFELT % 53))
+                                                (QREFELT % 54)))
                                 (EXIT
                                  (LETT |ll|
                                        (SPADCALL
@@ -392,7 +392,7 @@
                                                        #2#))))
                                               (LETT #1# (CDR #1#)) (GO G190)
                                               G191 (EXIT (NREVERSE #2#))))
-                                        |ll| (QREFELT % 56)))))))))
+                                        |ll| (QREFELT % 55)))))))))
                        (LETT #15# (CDR #15#)) (GO G190) G191 (EXIT NIL))
                   (EXIT (SPADCALL |unitPart| |ll| (QREFELT % 37)))))))
           #22# (EXIT #3#)))) 
@@ -477,7 +477,7 @@
               (SEQ G190
                    (COND
                     ((NULL
-                      (SPADCALL |m1| (|spadConstant| % 20) (QREFELT % 66)))
+                      (SPADCALL |m1| (|spadConstant| % 20) (QREFELT % 65)))
                      (GO G191)))
                    (SEQ
                     (LETT |mm|
@@ -520,7 +520,7 @@
                                                             TP))
                                     (|compiledLookupCheck| '+ (LIST '% '% '%)
                                                            TP)))
-                    (EXIT (LETT |m1| (SPADCALL |m1| (QREFELT % 67)))))
+                    (EXIT (LETT |m1| (SPADCALL |m1| (QREFELT % 66)))))
                    NIL (GO G190) G191 (EXIT NIL))
               (LETT |res1|
                     (SPADCALL |mm| |dx| NIL
@@ -579,9 +579,9 @@
                 ((EQL (LENGTH |flist|) 1)
                  (COND
                   ((SPADCALL (QVELT (|SPADfirst| |flist|) 0) (CONS 3 "prime")
-                             (QREFELT % 68))
-                   (SPADCALL |m| 1 (QREFELT % 69)))
-                  (#27='T (SPADCALL |m| 1 (QREFELT % 70)))))
+                             (QREFELT % 67))
+                   (SPADCALL |m| 1 (QREFELT % 68)))
+                  (#27='T (SPADCALL |m| 1 (QREFELT % 69)))))
                 (#27#
                  (SEQ
                   (LETT |Normp|
@@ -797,12 +797,12 @@
                          (SEQ
                           (EXIT
                            (PROGN
-                            (LETT #5# (SPADCALL |ff1| 1 (QREFELT % 69)))
+                            (LETT #5# (SPADCALL |ff1| 1 (QREFELT % 68)))
                             (COND
-                             (#2# (LETT #3# (SPADCALL #3# #5# (QREFELT % 71))))
+                             (#2# (LETT #3# (SPADCALL #3# #5# (QREFELT % 70))))
                              ('T (PROGN (LETT #3# #5#) (LETT #2# 'T)))))))
                          (LETT #6# (CDR #6#)) (GO G190) G191 (EXIT NIL))
-                    (COND (#2# #3#) (#27# (|spadConstant| % 72)))))))))))) 
+                    (COND (#2# #3#) (#27# (|spadConstant| % 71)))))))))))) 
 
 (SDEFUN |TWOFACT;doExtension|
         ((|m| (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F)))
@@ -844,7 +844,7 @@
                                 (QVELT
                                  (|SPADfirst| (SPADCALL |res1| (QREFELT % 43)))
                                  0)
-                                (CONS 3 "prime") (QREFELT % 68))
+                                (CONS 3 "prime") (QREFELT % 67))
                                (PROGN
                                 (LETT #1#
                                       (PROGN (LETT #2# |res1|) (GO #4=#:G141)))
@@ -905,12 +905,12 @@
                      (SEQ (LETT |i| (+ |i| 1))
                           (COND
                            (|use_random|
-                            (LETT |val| (SPADCALL (QREFELT % 73))))
-                           ('T (LETT |val| (SPADCALL |i| (QREFELT % 75)))))
+                            (LETT |val| (SPADCALL (QREFELT % 72))))
+                           ('T (LETT |val| (SPADCALL |i| (QREFELT % 74)))))
                           (EXIT
                            (COND
-                            ((SPADCALL (SPADCALL |lcm| |val| (QREFELT % 76))
-                                       (QREFELT % 77))
+                            ((SPADCALL (SPADCALL |lcm| |val| (QREFELT % 75))
+                                       (QREFELT % 76))
                              "next value")
                             ('T
                              (SEQ
@@ -918,16 +918,16 @@
                                     (SPADCALL
                                      (CONS #'|TWOFACT;doFactor;SupIBF;7!0|
                                            (VECTOR % |val|))
-                                     |m| (QREFELT % 80)))
+                                     |m| (QREFELT % 79)))
                               (EXIT
                                (COND
                                 ((SPADCALL
                                   (SPADCALL
                                    (SPADCALL |umv|
                                              (SPADCALL |umv| (QREFELT % 46))
-                                             (QREFELT % 81))
+                                             (QREFELT % 80))
                                    (QREFELT % 39))
-                                  0 (QREFELT % 82))
+                                  0 (QREFELT % 81))
                                  "next val")
                                 ('T (LETT |look| NIL)))))))))
                      NIL (GO G190) G191 (EXIT NIL))
@@ -937,7 +937,7 @@
                    ((NULL |do_ext|)
                     (EXIT
                      (PROGN
-                      (LETT #9# (SPADCALL |m| 1 (QREFELT % 70)))
+                      (LETT #9# (SPADCALL |m| 1 (QREFELT % 69)))
                       (GO #10=#:G168)))))))
                 (EXIT
                  (COND (|look| (|TWOFACT;doExtension| |m| |dx| %))
@@ -945,16 +945,16 @@
                         (SEQ
                          (LETT |prime|
                                (SPADCALL
-                                (SPADCALL (|spadConstant| % 63) 1
-                                          (QREFELT % 83))
-                                (SPADCALL |val| 0 (QREFELT % 83))
-                                (QREFELT % 84)))
+                                (SPADCALL (|spadConstant| % 62) 1
+                                          (QREFELT % 82))
+                                (SPADCALL |val| 0 (QREFELT % 82))
+                                (QREFELT % 83)))
                          (LETT |fumv| (SPADCALL |umv| (QREFELT % 28)))
                          (LETT |lfact1| (SPADCALL |fumv| (QREFELT % 34)))
                          (EXIT
                           (COND
                            ((EQL (LENGTH |lfact1|) 1)
-                            (SPADCALL |m| 1 (QREFELT % 69)))
+                            (SPADCALL |m| 1 (QREFELT % 68)))
                            (#11#
                             (SEQ
                              (LETT |lfact|
@@ -972,17 +972,17 @@
                                           (EXIT
                                            (LETT #8#
                                                  (CONS
-                                                  (SPADCALL (ELT % 85)
+                                                  (SPADCALL (ELT % 84)
                                                             (QVELT |lf| 1)
-                                                            (QREFELT % 88))
+                                                            (QREFELT % 87))
                                                   #8#))))
                                          (LETT #7# (CDR #7#)) (GO G190) G191
                                          (EXIT (NREVERSE #8#)))))
                              (LETT |lfact|
                                    (CONS
-                                    (SPADCALL (ELT % 85)
+                                    (SPADCALL (ELT % 84)
                                               (SPADCALL |fumv| (QREFELT % 29))
-                                              (QREFELT % 88))
+                                              (QREFELT % 87))
                                     |lfact|))
                              (LETT |dx1|
                                    (PROG1 (LETT #6# (+ |dx| 1))
@@ -991,7 +991,7 @@
                                                        '(|Integer|) #6#)))
                              (LETT |lfacth|
                                    (SPADCALL |m| |lfact| |prime| |dx1|
-                                             (QREFELT % 91)))
+                                             (QREFELT % 90)))
                              (LETT |lfactk| NIL)
                              (SEQ G190
                                   (COND
@@ -1003,14 +1003,14 @@
                                           (LETT |c|
                                                 (SPADCALL
                                                  (SPADCALL |ff| (QREFELT % 25))
-                                                 (QREFELT % 92)))
-                                          (|spadConstant| % 63) (QREFELT % 93))
+                                                 (QREFELT % 91)))
+                                          (|spadConstant| % 62) (QREFELT % 92))
                                          (LETT |ff|
                                                (SPADCALL
                                                 (SPADCALL
-                                                 (SPADCALL |c| (QREFELT % 94))
-                                                 (QREFELT % 85))
-                                                |ff| (QREFELT % 95)))))
+                                                 (SPADCALL |c| (QREFELT % 93))
+                                                 (QREFELT % 84))
+                                                |ff| (QREFELT % 94)))))
                                        (EXIT
                                         (LETT |lfactk| (CONS |ff| |lfactk|))))
                                   NIL (GO G190) G191 (EXIT NIL))
@@ -1026,12 +1026,12 @@
                                      (EXIT
                                       (PROGN
                                        (LETT #4#
-                                             (SPADCALL |ff1| 1 (QREFELT % 69)))
+                                             (SPADCALL |ff1| 1 (QREFELT % 68)))
                                        (COND
                                         (#1#
                                          (LETT #2#
                                                (SPADCALL #2# #4#
-                                                         (QREFELT % 71))))
+                                                         (QREFELT % 70))))
                                         ('T
                                          (PROGN
                                           (LETT #2# #4#)
@@ -1039,14 +1039,14 @@
                                     (LETT #5# (CDR #5#)) (GO G190) G191
                                     (EXIT NIL))
                                (COND (#1# #2#)
-                                     (#11# (|spadConstant| % 72)))))))))))))))
+                                     (#11# (|spadConstant| % 71)))))))))))))))
           #10# (EXIT #9#)))) 
 
 (SDEFUN |TWOFACT;doFactor;SupIBF;7!0| ((|x| NIL) ($$ NIL))
         (PROG (|val| %)
           (LETT |val| (QREFELT $$ 1))
           (LETT % (QREFELT $$ 0))
-          (RETURN (PROGN (SPADCALL |x| |val| (QREFELT % 76)))))) 
+          (RETURN (PROGN (SPADCALL |x| |val| (QREFELT % 75)))))) 
 
 (DECLAIM (NOTINLINE |TwoFactorize;|)) 
 
@@ -1055,7 +1055,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|TwoFactorize| DV$1))
-          (LETT % (GETREFV 96))
+          (LETT % (GETREFV 95))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|TwoFactorize| (LIST DV$1)
@@ -1101,23 +1101,22 @@
               (97 . |factorList|) (102 . |differentiate|)
               (107 . |differentiate|) (112 . |differentiate|) (|Mapping| 10 10)
               (117 . |map|) (123 . |characteristic|) (127 . |size|)
-              (131 . |exquo|) (137 . |divideExponents|) (143 . |unit|)
-              (148 . ^) (154 . *) (160 . |append|)
-              (|CommuteUnivariatePolynomialCategory| 6 10 15) (166 . |swap|)
-              (|List| 10) (171 . |coefficients|) (|Integer|)
-              |TWOFACT;doFactor;SupIBF;7| (176 . |One|) (180 . |One|)
-              (184 . |elt|) (190 . ~=) (196 . |reductum|) (201 . =)
-              (207 . |primeFactor|) (213 . |nilFactor|) (219 . *) (225 . |One|)
-              (229 . |random|) (|PositiveInteger|) (233 . |index|)
-              (238 . |elt|) (244 . |zero?|) (|Mapping| 6 10)
+              (131 . |divideExponents|) (137 . |unit|) (142 . ^) (148 . *)
+              (154 . |append|) (|CommuteUnivariatePolynomialCategory| 6 10 15)
+              (160 . |swap|) (|List| 10) (165 . |coefficients|) (|Integer|)
+              |TWOFACT;doFactor;SupIBF;7| (170 . |One|) (174 . |One|)
+              (178 . |elt|) (184 . ~=) (190 . |reductum|) (195 . =)
+              (201 . |primeFactor|) (207 . |nilFactor|) (213 . *) (219 . |One|)
+              (223 . |random|) (|PositiveInteger|) (227 . |index|)
+              (232 . |elt|) (238 . |zero?|) (|Mapping| 6 10)
               (|UnivariatePolynomialCategoryFunctions2| 10 15 6 10)
-              (249 . |map|) (255 . |gcd|) (261 . ~=) (267 . |monomial|)
-              (273 . -) (279 . |coerce|) (|Mapping| 10 6)
+              (243 . |map|) (249 . |gcd|) (255 . ~=) (261 . |monomial|)
+              (267 . -) (273 . |coerce|) (|Mapping| 10 6)
               (|UnivariatePolynomialCategoryFunctions2| 6 10 10 15)
-              (284 . |map|) (|List| 15) (|GeneralHenselPackage| 10 15)
-              (290 . |completeHensel|) (298 . |leadingCoefficient|) (303 . ~=)
-              (309 . |inv|) (314 . *))
-           '#(|tryTwoFactor| 320 |generalTwoFactor| 325 |doFactor| 330) 'NIL
+              (278 . |map|) (|List| 15) (|GeneralHenselPackage| 10 15)
+              (284 . |completeHensel|) (292 . |leadingCoefficient|) (297 . ~=)
+              (303 . |inv|) (308 . *))
+           '#(|tryTwoFactor| 314 |generalTwoFactor| 319 |doFactor| 324) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -1147,7 +1146,7 @@
                                   (|Integer|) (|Boolean|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 95
+                        (|makeByteWordVec2| 94
                                             '(2 6 0 0 7 8 2 10 0 9 0 11 2 10 12
                                               0 7 13 0 6 0 18 0 10 0 19 0 15 0
                                               20 2 15 21 0 0 22 0 14 0 23 1 15
@@ -1157,21 +1156,20 @@
                                               1 10 7 0 39 2 15 12 0 10 40 1 15
                                               41 0 42 1 14 36 0 43 1 15 0 0 44
                                               1 6 0 0 45 1 10 0 0 46 2 15 0 47
-                                              0 48 0 6 7 49 0 6 7 50 2 7 12 0 0
-                                              51 2 15 12 0 7 52 1 14 15 0 53 2
-                                              15 0 0 7 54 2 15 0 0 0 55 2 36 0
-                                              0 0 56 1 57 15 15 58 1 15 59 0 60
-                                              0 6 0 63 0 10 0 64 2 36 35 0 61
-                                              65 2 15 21 0 0 66 1 15 0 0 67 2
-                                              31 21 0 0 68 2 14 0 15 7 69 2 14
-                                              0 15 7 70 2 14 0 0 0 71 0 14 0 72
-                                              0 6 0 73 1 6 0 74 75 2 10 6 0 6
-                                              76 1 6 21 0 77 2 79 10 78 15 80 2
-                                              10 0 0 0 81 2 7 21 0 0 82 2 10 0
-                                              6 7 83 2 10 0 0 0 84 1 10 0 6 85
-                                              2 87 15 86 10 88 4 90 89 15 89 10
-                                              74 91 1 10 6 0 92 2 6 21 0 0 93 1
-                                              6 0 0 94 2 15 0 10 0 95 1 0 14 15
-                                              16 1 0 14 15 17 3 0 14 15 61 21
-                                              62)))))
+                                              0 48 0 6 7 49 0 6 7 50 2 15 12 0
+                                              7 51 1 14 15 0 52 2 15 0 0 7 53 2
+                                              15 0 0 0 54 2 36 0 0 0 55 1 56 15
+                                              15 57 1 15 58 0 59 0 6 0 62 0 10
+                                              0 63 2 36 35 0 60 64 2 15 21 0 0
+                                              65 1 15 0 0 66 2 31 21 0 0 67 2
+                                              14 0 15 7 68 2 14 0 15 7 69 2 14
+                                              0 0 0 70 0 14 0 71 0 6 0 72 1 6 0
+                                              73 74 2 10 6 0 6 75 1 6 21 0 76 2
+                                              78 10 77 15 79 2 10 0 0 0 80 2 7
+                                              21 0 0 81 2 10 0 6 7 82 2 10 0 0
+                                              0 83 1 10 0 6 84 2 86 15 85 10 87
+                                              4 89 88 15 88 10 73 90 1 10 6 0
+                                              91 2 6 21 0 0 92 1 6 0 0 93 2 15
+                                              0 10 0 94 1 0 14 15 16 1 0 14 15
+                                              17 3 0 14 15 60 21 61)))))
            '|lookupComplete|)) 

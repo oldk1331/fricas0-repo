@@ -90,11 +90,11 @@
         (COND ((SPADCALL |x| (QREFELT % 25)) 0)
               ((SPADCALL (SPADCALL |x| (QREFELT % 13)) (QREFELT % 45)) 2)
               ('T
-               (QUOTIENT2 (QREFELT % 6)
-                          (GCD
-                           (SPADCALL (SPADCALL |x| (QREFELT % 11))
-                                     (QREFELT % 15))
-                           (QREFELT % 6)))))) 
+               (|quotient_INT| (QREFELT % 6)
+                               (GCD
+                                (SPADCALL (SPADCALL |x| (QREFELT % 11))
+                                          (QREFELT % 15))
+                                (QREFELT % 6)))))) 
 
 (SDEFUN |DIHGRP;=;2%B;14| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (COND

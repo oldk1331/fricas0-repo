@@ -65,7 +65,7 @@
                     (SEQ
                      (EXIT
                       (SEQ G190 (COND ((NULL (> |j| 0)) (GO G191)))
-                           (SEQ (LETT |i| (QUOTIENT2 (- |j| 1) 2))
+                           (SEQ (LETT |i| (|quotient_INT| (- |j| 1) 2))
                                 (COND
                                  ((SPADCALL (SPADCALL |r| |i| (QREFELT % 14))
                                             |x| (QREFELT % 23))
@@ -87,7 +87,7 @@
 (SDEFUN |HEAP;makeHeap| ((|r| (%)) (% (%)))
         (SPROG ((|k| NIL) (|n| (|NonNegativeInteger|)))
                (SEQ (LETT |n| (SPADCALL |r| (QREFELT % 19)))
-                    (SEQ (LETT |k| (- (QUOTIENT2 |n| 2) 1)) G190
+                    (SEQ (LETT |k| (- (|quotient_INT| |n| 2) 1)) G190
                          (COND ((< |k| 0) (GO G191)))
                          (SEQ (EXIT (|HEAP;siftUp| |r| |k| |n| %)))
                          (LETT |k| (+ |k| -1)) (GO G190) G191 (EXIT NIL))

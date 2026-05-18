@@ -178,7 +178,7 @@
          (SEQ (LETT |r0| |y|) (LETT |s0| 0)
               (LETT |r1| (SPADCALL |x| |y| (QREFELT % 12))) (LETT |s1| 1)
               (SEQ G190 (COND ((NULL (> |r1| |i|)) (GO G191)))
-                   (SEQ (LETT |qr| (DIVIDE2 |r0| |r1|)) (LETT |r0| |r1|)
+                   (SEQ (LETT |qr| (|divide_INT| |r0| |r1|)) (LETT |r0| |r1|)
                         (LETT |r1| (QCDR |qr|))
                         (LETT |tmp| (- |s0| (* (QCAR |qr|) |s1|)))
                         (LETT |s0| |s1|) (EXIT (LETT |s1| |tmp|)))
@@ -238,7 +238,7 @@
                    (EXIT (LETT |intvec| (QVELT |state| 5))))))
                 (LETT |j0| (QVELT |state| 1))
                 (LETT |bound|
-                      (QUOTIENT2 (SPADCALL |modulus| (QREFELT % 25)) 10))
+                      (|quotient_INT| (SPADCALL |modulus| (QREFELT % 25)) 10))
                 (LETT |bound2| (- |modulus| |bound|))
                 (LETT |pp|
                       (SPADCALL (QAREF1 |intvec| |j0|) |modulus| |bound|
@@ -456,8 +456,8 @@
                           (LETT |tmpp2|
                                 (PROG2
                                     (LETT #1#
-                                          (SPADCALL |cden| (QAREF1 |dens| |i|)
-                                                    (QREFELT % 33)))
+                                          (|exquo_INT| |cden|
+                                                       (QAREF1 |dens| |i|)))
                                     (QCDR #1#)
                                   (|check_union2| (QEQCAR #1# 0) (|Integer|)
                                                   (|Union| (|Integer|)
@@ -480,10 +480,9 @@
                                 (QSETAREF1 |res| |i|
                                            (PROG2
                                                (LETT #1#
-                                                     (SPADCALL
+                                                     (|exquo_INT|
                                                       (QAREF1 |res| |i|)
-                                                      |cfactor|
-                                                      (QREFELT % 33)))
+                                                      |cfactor|))
                                                (QCDR #1#)
                                              (|check_union2| (QEQCAR #1# 0)
                                                              (|Integer|)
@@ -523,7 +522,7 @@
                     (EXIT
                      (CONS 0
                            (SPADCALL |block_offsets| (QCAR |ppr|) (QCDR |ppr|)
-                                     (QREFELT % 34))))))))))
+                                     (QREFELT % 32))))))))))
           #2# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |VectorIntegerReconstructor;|)) 
@@ -532,7 +531,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|VectorIntegerReconstructor|))
-          (LETT % (GETREFV 37))
+          (LETT % (GETREFV 35))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|VectorIntegerReconstructor| NIL
@@ -588,11 +587,10 @@
               (|IntegerRoots| 9) (24 . |approxSqrt|) (|Vector| 9) (29 . |elt|)
               (|Record| (|:| |numers| 14) (|:| |denoms| 14))
               (|Union| 28 '"failed") |VECREC2;rational_reconstruction;%U;7|
-              (35 . |lcm|) (|Union| % '"failed") (41 . |exquo|)
-              |VECREC2;remove_denoms;V3Pa;10| (|Union| 14 '"failed")
-              |VECREC2;reconstruct;%VU;11|)
-           '#(|remove_denoms| 47 |reconstruct| 54 |rational_reconstruction| 60
-              |hensel_update| 73 |empty| 80 |chinese_update| 85)
+              (35 . |lcm|) |VECREC2;remove_denoms;V3Pa;10|
+              (|Union| 14 '"failed") |VECREC2;reconstruct;%VU;11|)
+           '#(|remove_denoms| 41 |reconstruct| 48 |rational_reconstruction| 54
+              |hensel_update| 67 |empty| 74 |chinese_update| 79)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -636,12 +634,12 @@
                                        $$ (|Vector| (|Integer|))))
                                      T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 36
+                        (|makeByteWordVec2| 34
                                             '(3 9 8 0 0 0 10 2 9 0 0 0 12 1 14
                                               13 0 15 2 9 13 0 0 20 1 24 9 9 25
-                                              2 26 9 0 9 27 2 9 0 0 0 31 2 9 32
-                                              0 0 33 3 0 14 26 14 14 34 2 0 35
-                                              0 26 36 4 0 22 9 9 9 9 23 1 0 29
-                                              0 30 3 0 16 17 9 0 19 1 0 0 9 11
-                                              3 0 16 17 9 0 18)))))
+                                              2 26 9 0 9 27 2 9 0 0 0 31 3 0 14
+                                              26 14 14 32 2 0 33 0 26 34 4 0 22
+                                              9 9 9 9 23 1 0 29 0 30 3 0 16 17
+                                              9 0 19 1 0 0 9 11 3 0 16 17 9 0
+                                              18)))))
            '|lookupComplete|)) 

@@ -342,21 +342,21 @@
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |Continuation| 41))
 
-; Top?     (st) == QUOTIENT(st,10) = 0
+; Top?     (st) == quotient_INT(st, 10) = 0
 
-(DEFUN |Top?| (|st|) (PROG () (RETURN (EQL (QUOTIENT |st| 10) 0))))
+(DEFUN |Top?| (|st|) (PROG () (RETURN (EQL (|quotient_INT| |st| 10) 0))))
 
-; If?      (st) == QUOTIENT(st,10) = 1
+; If?      (st) == quotient_INT(st, 10) = 1
 
-(DEFUN |If?| (|st|) (PROG () (RETURN (EQL (QUOTIENT |st| 10) 1))))
+(DEFUN |If?| (|st|) (PROG () (RETURN (EQL (|quotient_INT| |st| 10) 1))))
 
-; Elseif?  (st) == QUOTIENT(st,10) = 2
+; Elseif?  (st) == quotient_INT(st, 10) = 2
 
-(DEFUN |Elseif?| (|st|) (PROG () (RETURN (EQL (QUOTIENT |st| 10) 2))))
+(DEFUN |Elseif?| (|st|) (PROG () (RETURN (EQL (|quotient_INT| |st| 10) 2))))
 
-; Else?    (st) == QUOTIENT(st,10) = 3
+; Else?    (st) == quotient_INT(st, 10) = 3
 
-(DEFUN |Else?| (|st|) (PROG () (RETURN (EQL (QUOTIENT |st| 10) 3))))
+(DEFUN |Else?| (|st|) (PROG () (RETURN (EQL (|quotient_INT| |st| 10) 3))))
 
 ; SkipEnd? (st) == REM(st, 10) = 0
 

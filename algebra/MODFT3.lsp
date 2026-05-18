@@ -619,7 +619,7 @@
                          ('T
                           (SEQ (LETT |res| (SPADCALL |pow| (QREFELT % 27)))
                                (EXIT (LETT |has_res| 'T)))))))
-                      (LETT |n| (QUOTIENT2 |n| 2))
+                      (LETT |n| (|quotient_INT| |n| 2))
                       (EXIT
                        (COND
                         ((EQL |n| 0)
@@ -904,7 +904,7 @@
                (COND ((< |dp0| 0) (MAKEARR1 |n| (|spadConstant| % 14)))
                      (#9='T
                       (SEQ (LETT |dp| |dp0|) (LETT |dps1| (+ |dp| 1))
-                           (LETT |l2| (QUOTIENT2 (+ |dp| |l1|) |l1|))
+                           (LETT |l2| (|quotient_INT| (+ |dp| |l1|) |l1|))
                            (COND ((EQL |l2| 1) (LETT |l1| (+ |dp| 1))))
                            (LETT |m1|
                                  (MAKE_MATRIX1 |l2| |l1|

@@ -1165,7 +1165,7 @@
            (SEQ (LETT |w| (SPADCALL |x| (QREFELT % 113)))
                 (LETT |r| (SPADCALL |n| 1 (QREFELT % 115)))
                 (LETT |d|
-                      (DIVIDE2
+                      (|divide_INT|
                        (PROG2 (LETT #2# |r|)
                            (QCDR #2#)
                          (|check_union2| (QEQCAR #2# 0) (|NonNegativeInteger|)
@@ -1203,7 +1203,7 @@
          (SEQ (LETT |w| (SPADCALL |x| (QREFELT % 113)))
               (LETT |r| (SPADCALL |n| 1 (QREFELT % 115)))
               (LETT |d|
-                    (DIVIDE2
+                    (|divide_INT|
                      (PROG2 (LETT #1# |r|)
                          (QCDR #1#)
                        (|check_union2| (QEQCAR #1# 0) (|NonNegativeInteger|)
@@ -1411,7 +1411,7 @@
                         (SPADCALL |n| (QVELT |arrow| 2) (QREFELT % 144)))
                   (LETT |arrNumber|
                         (SPADCALL |arrn| |arrIndex| (QREFELT % 65)))
-                  (LETT |rema| (QCDR (DIVIDE2 |arrNumber| 8)))
+                  (LETT |rema| (QCDR (|divide_INT| |arrNumber| 8)))
                   (LETT |mt| |mt1|) (COND ((EQL |rema| 0) (LETT |mt| |mt1|)))
                   (COND ((EQL |rema| 1) (LETT |mt| |mt2|)))
                   (COND ((EQL |rema| 2) (LETT |mt| |mt3|)))

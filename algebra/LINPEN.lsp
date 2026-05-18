@@ -2834,7 +2834,7 @@
                                       (COND ((|greater_SI| |j| #4#) (GO G191)))
                                       (SEQ
                                        (LETT |idx_val|
-                                             (QUOTIENT2
+                                             (|quotient_INT|
                                               (PROG1 (LETT #3# (- |i| 1))
                                                 (|check_subtype2| (>= #3# 0)
                                                                   '(|NonNegativeInteger|)

@@ -41,8 +41,9 @@
                 (#5#
                  (SEQ (LETT |l| (INTEGER-LENGTH |p|))
                       (COND
-                       ((ODDP |l|) (LETT |n| (ASH |p| (- (QUOTIENT2 |l| 2)))))
-                       (#5# (LETT |n| (ASH 1 (QUOTIENT2 |l| 2)))))
+                       ((ODDP |l|)
+                        (LETT |n| (ASH |p| (- (|quotient_INT| |l| 2)))))
+                       (#5# (LETT |n| (ASH 1 (|quotient_INT| |l| 2)))))
                       (LETT |a| (|spadConstant| % 7))
                       (LETT |exptable| (SPADCALL (QREFELT % 16)))
                       (SEQ (LETT |i| 0)
@@ -59,7 +60,8 @@
                              (LETT |a|
                                    (SPADCALL |a| |logbase| (QREFELT % 10)))))
                            (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-                      (LETT |found| NIL) (LETT |end| (QUOTIENT2 (- |p| 1) |n|))
+                      (LETT |found| NIL)
+                      (LETT |end| (|quotient_INT| (- |p| 1) |n|))
                       (LETT |disclog| 0) (LETT |a| |c|)
                       (LETT |b| (SPADCALL |logbase| (- |n|) (QREFELT % 22)))
                       (SEQ (LETT |i| 0) (LETT #1# |end|) G190

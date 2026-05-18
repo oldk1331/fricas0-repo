@@ -89,7 +89,7 @@
         (SPROG ((|res| (|PositiveInteger|)) (|g| (|NonNegativeInteger|)))
                (SEQ (LETT |g| |gp|) (LETT |res| 1)
                     (SEQ G190 (COND ((NULL (EVENP |g|)) (GO G191)))
-                         (SEQ (LETT |g| (QUOTIENT2 |g| 2))
+                         (SEQ (LETT |g| (|quotient_INT| |g| 2))
                               (EXIT (LETT |res| (* |res| 2))))
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT |res|)))) 

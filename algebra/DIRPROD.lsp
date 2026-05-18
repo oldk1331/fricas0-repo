@@ -152,7 +152,7 @@
                       (QREFELT % 30))))
               (SEQ (LETT |i| 2) (LETT #2# (QREFELT % 6)) G190
                    (COND ((|greater_SI| |i| #2#) (GO G191)))
-                   (SEQ (LETT |p| (QUOTIENT2 |p| N))
+                   (SEQ (LETT |p| (|quotient_INT| |p| N))
                         (EXIT
                          (LETT L
                                (CONS

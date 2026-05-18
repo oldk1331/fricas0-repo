@@ -722,7 +722,7 @@
                         (PROGN
                          (LETT #2# NIL)
                          (SEQ (LETT |i| 1)
-                              (LETT #1# (QUOTIENT2 (LENGTH |l|) 2)) G190
+                              (LETT #1# (|quotient_INT| (LENGTH |l|) 2)) G190
                               (COND ((|greater_SI| |i| #1#) (GO G191)))
                               (SEQ
                                (EXIT

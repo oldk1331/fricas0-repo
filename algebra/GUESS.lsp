@@ -3779,7 +3779,7 @@
                                         (LETT |i| (|inc_SI| |i|)) (GO G190)
                                         G191 (EXIT (NREVERSE #6#))))))
                            (#12#
-                            (SEQ (LETT |deg| (DIVIDE2 |guessDegree| |o|))
+                            (SEQ (LETT |deg| (|divide_INT| |guessDegree| |o|))
                                  (EXIT
                                   (LETT |degs|
                                         (PROGN
@@ -3801,7 +3801,7 @@
                                               (GO G190) G191
                                               (EXIT (NREVERSE #4#))))))))))
                          (#12#
-                          (SEQ (LETT |deg| (DIVIDE2 |guessDegree| |o|))
+                          (SEQ (LETT |deg| (|divide_INT| |guessDegree| |o|))
                                (EXIT
                                 (LETT |degs|
                                       (PROGN
@@ -4002,7 +4002,7 @@
                          (#22#
                           (SEQ
                            (LETT |deg|
-                                 (DIVIDE2
+                                 (|divide_INT|
                                   (PROG1
                                       (LETT #16# (- (+ |guessDegree| |o|) 1))
                                     (|check_subtype2| (>= #16# 0)
@@ -4030,7 +4030,7 @@
                        (#22#
                         (SEQ
                          (LETT |deg|
-                               (DIVIDE2
+                               (|divide_INT|
                                 (PROG1 (LETT #13# (- (+ |guessDegree| |o|) 1))
                                   (|check_subtype2| (>= #13# 0)
                                                     '(|NonNegativeInteger|)

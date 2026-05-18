@@ -1452,8 +1452,8 @@
 ;     x := object2String x
 ;     wid := STRINGLENGTH x
 ;     if wid < $LINELENGTH then
-;       f := DIVIDE($LINELENGTH - wid,2)
-;       x := LIST(filler_spaces(f.0), x)
+;             f := quotient_INT($LINELENGTH - wid, 2)
+;             x := LIST(filler_spaces(f), x)
 ;     for y in x repeat
 ;         marg := brightPrint0(y, str, marg)
 ;     marg
@@ -1466,8 +1466,8 @@
 ;   y := NREVERSE y
 ;   wid := sayBrightlyLength y
 ;   if wid < $LINELENGTH then
-;     f := DIVIDE($LINELENGTH - wid,2)
-;     y := CONS(filler_spaces(f.0), y)
+;         f := quotient_INT($LINELENGTH - wid, 2)
+;         y := CONS(filler_spaces(f), y)
 ;   for z in y repeat
 ;       marg := brightPrint0(z, str, marg)
 ;   if x then
@@ -1484,8 +1484,9 @@
         (SETQ |x| (|object2String| |x|))
         (SETQ |wid| (STRINGLENGTH |x|))
         (COND
-         ((< |wid| $LINELENGTH) (SETQ |f| (DIVIDE (- $LINELENGTH |wid|) 2))
-          (SETQ |x| (LIST (|filler_spaces| (ELT |f| 0)) |x|))))
+         ((< |wid| $LINELENGTH)
+          (SETQ |f| (|quotient_INT| (- $LINELENGTH |wid|) 2))
+          (SETQ |x| (LIST (|filler_spaces| |f|) |x|))))
         ((LAMBDA (|bfVar#17| |y|)
            (LOOP
             (COND
@@ -1510,8 +1511,9 @@
         (SETQ |y| (NREVERSE |y|))
         (SETQ |wid| (|sayBrightlyLength| |y|))
         (COND
-         ((< |wid| $LINELENGTH) (SETQ |f| (DIVIDE (- $LINELENGTH |wid|) 2))
-          (SETQ |y| (CONS (|filler_spaces| (ELT |f| 0)) |y|))))
+         ((< |wid| $LINELENGTH)
+          (SETQ |f| (|quotient_INT| (- $LINELENGTH |wid|) 2))
+          (SETQ |y| (CONS (|filler_spaces| |f|) |y|))))
         ((LAMBDA (|bfVar#18| |z|)
            (LOOP
             (COND
@@ -1659,7 +1661,7 @@
 ;     NIL
 ;   w := MIN(m + 3,$LINELENGTH)
 ;   -- p is the number of elements per line
-;   p := QUOTIENT($LINELENGTH,w)
+;   p := quotient_INT($LINELENGTH, w)
 ;   n := # l
 ;   str := '""
 ;   for i in 0..(n-1) repeat
@@ -1710,7 +1712,7 @@
        (#1#
         (PROGN
          (SETQ |w| (MIN (+ |m| 3) $LINELENGTH))
-         (SETQ |p| (QUOTIENT $LINELENGTH |w|))
+         (SETQ |p| (|quotient_INT| $LINELENGTH |w|))
          (SETQ |n| (LENGTH |l|))
          (SETQ |str| "")
          ((LAMBDA (|bfVar#26| |i|)
@@ -1732,10 +1734,10 @@
          (COND ((NOT (EQUAL |str| "")) (|sayMSG| |str|)))
          NIL)))))))
 
-; say2PerLine l == say2PerLineWidth(l, QUOTIENT($LINELENGTH, 2))
+; say2PerLine l == say2PerLineWidth(l, quotient_INT($LINELENGTH, 2))
 
 (DEFUN |say2PerLine| (|l|)
-  (PROG () (RETURN (|say2PerLineWidth| |l| (QUOTIENT $LINELENGTH 2)))))
+  (PROG () (RETURN (|say2PerLineWidth| |l| (|quotient_INT| $LINELENGTH 2)))))
 
 ; say2PerLineWidth(l,n) ==
 ;   [short,long] := say2Split(l,nil,nil,n)
@@ -1833,7 +1835,7 @@
 ;   while l repeat
 ;     sayBrightlyNT first l
 ;     sayBrightlyNT
-;       filler_spaces((QUOTIENT($LINELENGTH, 2) - sayDisplayWidth first l))
+;       filler_spaces((quotient_INT($LINELENGTH, 2) - sayDisplayWidth first l))
 ;     (l:= rest l) =>
 ;       sayBrightlyNT first l
 ;       l:= rest l
@@ -1851,7 +1853,8 @@
                  (|sayBrightlyNT| (CAR |l|))
                  (|sayBrightlyNT|
                   (|filler_spaces|
-                   (- (QUOTIENT $LINELENGTH 2) (|sayDisplayWidth| (CAR |l|)))))
+                   (- (|quotient_INT| $LINELENGTH 2)
+                      (|sayDisplayWidth| (CAR |l|)))))
                  (COND
                   ((SETQ |l| (CDR |l|))
                    (PROGN
@@ -1919,7 +1922,7 @@
 ;     ppPair(abb,name)
 ;     if canFit2ndEntry(name,al) then
 ;       [[abb,:name],:al]:= al
-;       TAB (QUOTIENT($LINELENGTH, 2))
+;       TAB(quotient_INT($LINELENGTH, 2))
 ;       ppPair(abb,name)
 ;     sayNewLine()
 ;   nil
@@ -1942,7 +1945,8 @@
                    ((|canFit2ndEntry| |name| |al|) (SETQ |LETTMP#1| |al|)
                     (SETQ |abb| (CAAR . #2=(|LETTMP#1|)))
                     (SETQ |name| (CDAR . #2#)) (SETQ |al| (CDR |LETTMP#1|))
-                    (TAB (QUOTIENT $LINELENGTH 2)) (|ppPair| |abb| |name|)))
+                    (TAB (|quotient_INT| $LINELENGTH 2))
+                    (|ppPair| |abb| |name|)))
                   (|sayNewLine|)))))))
       NIL))))
 
@@ -1958,7 +1962,7 @@
                     (CONS |name| NIL)))))))
 
 ; canFit2ndEntry(name,al) ==
-;   wid := QUOTIENT($LINELENGTH, 2) - 10
+;   wid := quotient_INT($LINELENGTH, 2) - 10
 ;   null al => nil
 ;   entryWidth name > wid => nil
 ;   entryWidth CDAR al > wid => nil
@@ -1968,7 +1972,7 @@
   (PROG (|wid|)
     (RETURN
      (PROGN
-      (SETQ |wid| (- (QUOTIENT $LINELENGTH 2) 10))
+      (SETQ |wid| (- (|quotient_INT| $LINELENGTH 2) 10))
       (COND ((NULL |al|) NIL) ((< |wid| (|entryWidth| |name|)) NIL)
             ((< |wid| (|entryWidth| (CDAR |al|))) NIL) ('T 'T))))))
 
@@ -1986,16 +1990,16 @@
 ;   fillchar := IFCAR IFCDR argList or '" "
 ;   wid := entryWidth text + 2
 ;   wid >= width - 2 => sayBrightly ['%b,text,'%d]
-;   f := DIVIDE(width - wid - 2,2)
+;   [q, :r] := divide_INT(width - wid - 2, 2)
 ;   fill1 := '""
-;   for i in 1..(f.0) repeat
+;   for i in 1..q repeat
 ;     fill1 := STRCONC(fillchar,fill1)
-;   if f.1 = 0 then fill2 := fill1 else fill2 := STRCONC(fillchar,fill1)
+;   if r = 0 then fill2 := fill1 else fill2 := STRCONC(fillchar, fill1)
 ;   sayBrightly [fill1,'%b,text,'%d,fill2]
 ;   nil
 
 (DEFUN |centerAndHighlight| (|text| &REST |argList|)
-  (PROG (|width| |fillchar| |wid| |f| |fill1| |fill2|)
+  (PROG (|width| |fillchar| |wid| |LETTMP#1| |q| |r| |fill1| |fill2|)
     (RETURN
      (PROGN
       (SETQ |width| (OR (IFCAR |argList|) $LINELENGTH))
@@ -2006,15 +2010,17 @@
         (|sayBrightly| (LIST '|%b| |text| '|%d|)))
        (#1='T
         (PROGN
-         (SETQ |f| (DIVIDE (- (- |width| |wid|) 2) 2))
+         (SETQ |LETTMP#1| (|divide_INT| (- (- |width| |wid|) 2) 2))
+         (SETQ |q| (CAR |LETTMP#1|))
+         (SETQ |r| (CDR |LETTMP#1|))
          (SETQ |fill1| "")
-         ((LAMBDA (|bfVar#32| |i|)
+         ((LAMBDA (|i|)
             (LOOP
-             (COND ((> |i| |bfVar#32|) (RETURN NIL))
+             (COND ((> |i| |q|) (RETURN NIL))
                    (#1# (SETQ |fill1| (STRCONC |fillchar| |fill1|))))
              (SETQ |i| (+ |i| 1))))
-          (ELT |f| 0) 1)
-         (COND ((EQL (ELT |f| 1) 0) (SETQ |fill2| |fill1|))
+          1)
+         (COND ((EQL |r| 0) (SETQ |fill2| |fill1|))
                (#1# (SETQ |fill2| (STRCONC |fillchar| |fill1|))))
          (|sayBrightly| (LIST |fill1| '|%b| |text| '|%d| |fill2|))
          NIL)))))))
@@ -2030,15 +2036,16 @@
 ;   if (u:= splitSayBrightlyArgument text) then [text,:moreLines]:= u
 ;   wid := sayBrightlyLength text
 ;   wid >= width - 2 => sayBrightly text
-;   f := DIVIDE(width - wid - 2,2)
+;   [q, :r] := divide_INT(width - wid - 2, 2)
 ;   fill1 := '""
-;   for i in 1..(f.0) repeat
+;   for i in 1..q repeat
 ;     fill1 := STRCONC(fillchar,fill1)
-;   if f.1 = 0 then fill2 := fill1 else fill2 := STRCONC(fillchar,fill1)
+;   if r = 0 then fill2 := fill1 else fill2 := STRCONC(fillchar, fill1)
 ;   concat(fill1,text,fill2)
 
 (DEFUN |center| (|text| |argList|)
-  (PROG (|width| |fillchar| |u| |moreLines| |wid| |f| |fill1| |fill2|)
+  (PROG (|width| |fillchar| |u| |moreLines| |wid| |LETTMP#1| |q| |r| |fill1|
+         |fill2|)
     (RETURN
      (PROGN
       (SETQ |width| (OR (IFCAR |argList|) $LINELENGTH))
@@ -2050,15 +2057,17 @@
       (COND ((NOT (< |wid| (- |width| 2))) (|sayBrightly| |text|))
             (#1='T
              (PROGN
-              (SETQ |f| (DIVIDE (- (- |width| |wid|) 2) 2))
+              (SETQ |LETTMP#1| (|divide_INT| (- (- |width| |wid|) 2) 2))
+              (SETQ |q| (CAR |LETTMP#1|))
+              (SETQ |r| (CDR |LETTMP#1|))
               (SETQ |fill1| "")
-              ((LAMBDA (|bfVar#33| |i|)
+              ((LAMBDA (|i|)
                  (LOOP
-                  (COND ((> |i| |bfVar#33|) (RETURN NIL))
+                  (COND ((> |i| |q|) (RETURN NIL))
                         (#1# (SETQ |fill1| (STRCONC |fillchar| |fill1|))))
                   (SETQ |i| (+ |i| 1))))
-               (ELT |f| 0) 1)
-              (COND ((EQL (ELT |f| 1) 0) (SETQ |fill2| |fill1|))
+               1)
+              (COND ((EQL |r| 0) (SETQ |fill2| |fill1|))
                     (#1# (SETQ |fill2| (STRCONC |fillchar| |fill1|))))
               (|concat| |fill1| |text| |fill2|))))))))
 
@@ -2241,14 +2250,14 @@
         (T
          (COND ((ATOM |x|) (|sayString| |x| |str|))
                (#1='T
-                ((LAMBDA (|bfVar#34| |y|)
+                ((LAMBDA (|bfVar#32| |y|)
                    (LOOP
                     (COND
-                     ((OR (ATOM |bfVar#34|)
-                          (PROGN (SETQ |y| (CAR |bfVar#34|)) NIL))
+                     ((OR (ATOM |bfVar#32|)
+                          (PROGN (SETQ |y| (CAR |bfVar#32|)) NIL))
                       (RETURN NIL))
                      (#1# (|sayString| |y| |str|)))
-                    (SETQ |bfVar#34| (CDR |bfVar#34|))))
+                    (SETQ |bfVar#32| (CDR |bfVar#32|))))
                  |x| NIL)))))
        (TERPRI |str|))))))
 

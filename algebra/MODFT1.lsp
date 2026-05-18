@@ -106,7 +106,7 @@
               (LETT |ni| (LETT |n1| (- |n| 1)))
               (LETT |tmp| (GETREFV_U32 (* 2 |n1|) 0))
               (SEQ G190 (COND ((NULL (> |ni| 10)) (GO G191)))
-                   (SEQ (LETT |nn| (QUOTIENT2 (- |ni| 1) 2))
+                   (SEQ (LETT |nn| (|quotient_INT| (- |ni| 1) 2))
                         (LETT |ii| (- (+ |n1| |ni|) |nn|))
                         (LETT |ni| (- (- |ii| |n1|) 1))
                         (SEQ (LETT |i| 0) (LETT #2# |n1|) G190
@@ -299,7 +299,7 @@
                                   (SEQ
                                    (SPADCALL |res| |pow| |m| (QREFELT % 19))
                                    (EXIT (LETT |has_res| 'T)))))))
-                              (LETT |n| (QUOTIENT2 |n| 2))
+                              (LETT |n| (|quotient_INT| |n| 2))
                               (EXIT
                                (COND
                                 ((EQL |n| 0)
@@ -490,7 +490,7 @@
                (COND ((< |dp0| 0) (GETREFV_U32 |n| 0))
                      (#8='T
                       (SEQ (LETT |dp| |dp0|) (LETT |dps1| (+ |dp| 1))
-                           (LETT |l2| (QUOTIENT2 (+ |dp| |l1|) |l1|))
+                           (LETT |l2| (|quotient_INT| (+ |dp| |l1|) |l1|))
                            (COND ((EQL |l2| 1) (LETT |l1| (+ |dp| 1))))
                            (LETT |m1| (MAKE_MATRIX1_U32 |l2| |l1| 0))
                            (LETT |i| 0) (LETT |l1s| (- |l1| 1))

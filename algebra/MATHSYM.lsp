@@ -10,7 +10,8 @@
            (SEQ (LETT |ns| "")
                 (EXIT
                  (SEQ G190 NIL
-                      (SEQ (LETT |qr| (DIVIDE2 |i| 24)) (LETT |i| (QCAR |qr|))
+                      (SEQ (LETT |qr| (|divide_INT| |i| 24))
+                           (LETT |i| (QCAR |qr|))
                            (LETT |ns|
                                  (STRCONC (NUM2USTR (+ (QCDR |qr|) 946)) |ns|))
                            (EXIT

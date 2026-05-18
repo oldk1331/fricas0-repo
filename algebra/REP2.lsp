@@ -1249,7 +1249,7 @@
                                  "Fingerprint element in generated algebra is singular"
                                  (QREFELT % 53))))
                               (LETT |numberOfOneDimSubspacesInKernel|
-                                    (QUOTIENT2
+                                    (|quotient_INT|
                                      (- (EXPT |q| (LENGTH |kernel|)) 1)
                                      (- |q| 1)))
                               (LETT |numberOfTests|
@@ -1324,7 +1324,8 @@
               (LETT |nn| (QVSIZE (SPADCALL |basis| 1 (QREFELT % 63))))
               (LETT |q| (SPADCALL (QREFELT % 97)))
               (LETT |nred|
-                    (REM |n| (QUOTIENT2 (- (EXPT |q| |dim|) 1) (- |q| 1))))
+                    (REM |n|
+                         (|quotient_INT| (- (EXPT |q| |dim|) 1) (- |q| 1))))
               (LETT |pos| |nred|) (LETT |i| 0)
               (SEQ (LETT |i| 0) (LETT #7# (- |dim| 1)) G190
                    (COND

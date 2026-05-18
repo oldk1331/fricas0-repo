@@ -58,7 +58,7 @@
                     ((OR (ATOM #2#) (PROGN (LETT |fac| (CAR #2#)) NIL))
                      (GO G191)))
                    (SEQ (LETT |f1| (QVELT |fac| 1)) (LETT |e1| (QVELT |fac| 2))
-                        (LETT |e2| (QUOTIENT2 |e1| 2))
+                        (LETT |e2| (|quotient_INT| |e1| 2))
                         (LETT |c1|
                               (SPADCALL (SPADCALL |f1| |e2| (QREFELT % 41))
                                         |c1| (QREFELT % 42)))

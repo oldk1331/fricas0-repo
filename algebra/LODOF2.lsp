@@ -217,8 +217,9 @@
                     (LETT |npol| (|spadConstant| % 50))
                     (SEQ (LETT |j| 0)
                          (LETT #1#
-                               (QUOTIENT2 (- (QCAR |nxt|) (QCAR |i|))
-                                          (SPADCALL |slop| (QREFELT % 51))))
+                               (|quotient_INT| (- (QCAR |nxt|) (QCAR |i|))
+                                               (SPADCALL |slop|
+                                                         (QREFELT % 51))))
                          G190 (COND ((|greater_SI| |j| #1#) (GO G191)))
                          (SEQ
                           (LETT |ind|
@@ -2746,8 +2747,8 @@
                                        (|spadConstant| % 65) %)
                                       (QREFELT % 83)))
                       (LETT |n|
-                            (QUOTIENT2 (SPADCALL |f| (QREFELT % 41))
-                                       (QVELT |vr| 1)))
+                            (|quotient_INT| (SPADCALL |f| (QREFELT % 41))
+                                            (QVELT |vr| 1)))
                       (COND
                        ((EQL |n| 1)
                         (SEQ
@@ -6427,7 +6428,7 @@
                         (EXIT (NREVERSE #7#)))))
             (LETT |cnt| (* (LENGTH |fl|) (+ |cb| 1)))
             (LETT |vdim| (LENGTH (|SPADfirst| |fl|)))
-            (LETT |acc| (QUOTIENT2 (+ (+ |cnt| |vdim|) 3) |vdim|))
+            (LETT |acc| (|quotient_INT| (+ (+ |cnt| |vdim|) 3) |vdim|))
             (LETT |nstep|
                   (SPADCALL
                    (SPADCALL (SPADCALL |acc| 2 (QREFELT % 332)) 3

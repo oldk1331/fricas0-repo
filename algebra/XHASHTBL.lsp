@@ -101,8 +101,8 @@
                                               (QAREF1 |a| (+ |n| |i|)))))))))))
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (QSETVELT |r| 5 |c|) (QSETVELT |r| 4 |ix|)
-              (QSETVELT |r| 1 (QUOTIENT2 (* |m| 7) 10)) (QSETVELT |r| 2 0)
-              (QSETVELT |r| 3 (QUOTIENT2 (* |m| 9) 10)) (EXIT |x|)))) 
+              (QSETVELT |r| 1 (|quotient_INT| (* |m| 7) 10)) (QSETVELT |r| 2 0)
+              (QSETVELT |r| 3 (|quotient_INT| (* |m| 9) 10)) (EXIT |x|)))) 
 
 (SDEFUN |XHASHTBL;grow!| ((|x| (%)) (% (%)))
         (|XHASHTBL;rehashAux!| |x| (+ (QVELT |x| 4) 1) %)) 
@@ -116,8 +116,8 @@
          ((|maxVirtualEntries| (|Integer|)) (|maxEntries| (|Integer|))
           (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (QAREF1 (QREFELT % 13) 0))
-              (LETT |maxEntries| (QUOTIENT2 (* |n| 7) 10))
-              (LETT |maxVirtualEntries| (QUOTIENT2 (* |n| 9) 10))
+              (LETT |maxEntries| (|quotient_INT| (* |n| 7) 10))
+              (LETT |maxVirtualEntries| (|quotient_INT| (* |n| 9) 10))
               (EXIT
                (VECTOR 0 |maxEntries| 0 |maxVirtualEntries| 0
                        (|XHASHTBL;newArr| |n| %) |hashfunction|))))) 

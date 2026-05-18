@@ -159,7 +159,7 @@
           (EXIT
            (SEQ
             (PROGN
-             (LETT |#G18| (DIVIDE2 (ABS |i2|) 25))
+             (LETT |#G18| (|divide_INT| (ABS |i2|) 25))
              (LETT |suffix| (QCAR |#G18|))
              (LETT |i| (QCDR |#G18|))
              |#G18|)
@@ -2827,7 +2827,7 @@
                                           #9#))))
                             (LETT #8# (CDR #8#)) (GO G190) G191
                             (EXIT (NREVERSE #9#)))))
-                (LETT |loopLimit| (QUOTIENT2 5000000 |numGens|))
+                (LETT |loopLimit| (|quotient_INT| 5000000 |numGens|))
                 (LETT |state|
                       (VECTOR |ct| |et| |inv_tab| 0 |numGens| 1 1 |loopLimit|))
                 (PROGN

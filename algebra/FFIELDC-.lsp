@@ -29,8 +29,8 @@
 
 (SDEFUN |FFIELDC-;charthRoot;2S;6| ((|x| (S)) (% (S)))
         (SPADCALL |x|
-                  (QUOTIENT2 (SPADCALL (QREFELT % 32))
-                             (SPADCALL (QREFELT % 33)))
+                  (|quotient_INT| (SPADCALL (QREFELT % 32))
+                                  (SPADCALL (QREFELT % 33)))
                   (QREFELT % 34))) 
 
 (SDEFUN |FFIELDC-;charthRoot;SU;7| ((|x| (S)) (% (|Union| S "failed")))
@@ -83,7 +83,8 @@
                             (EXIT
                              (LETT |equalone|
                                    (SPADCALL
-                                    (SPADCALL |a| (QUOTIENT2 |q| (QCAR |exp|))
+                                    (SPADCALL |a|
+                                              (|quotient_INT| |q| (QCAR |exp|))
                                               (QREFELT % 44))
                                     (|spadConstant| % 45) (QREFELT % 46)))))
                            (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
@@ -111,8 +112,9 @@
                         (GO G191)))
                       (SEQ
                        (LETT |a|
-                             (QUOTIENT2 |ord|
-                                        (LETT |primeDivisor| (QCAR |rec|))))
+                             (|quotient_INT| |ord|
+                                             (LETT |primeDivisor|
+                                                   (QCAR |rec|))))
                        (LETT |goon|
                              (SPADCALL (SPADCALL |e| |a| (QREFELT % 44))
                                        (|spadConstant| % 45) (QREFELT % 46)))
@@ -121,7 +123,8 @@
                              ((OR (|greater_SI| |j| #1#) (NULL |goon|))
                               (GO G191)))
                             (SEQ (LETT |ord| |a|)
-                                 (LETT |a| (QUOTIENT2 |ord| |primeDivisor|))
+                                 (LETT |a|
+                                       (|quotient_INT| |ord| |primeDivisor|))
                                  (EXIT
                                   (LETT |goon|
                                         (SPADCALL
@@ -175,7 +178,8 @@
                                                 (GO G191)))
                                               (SEQ
                                                (LETT |exp|
-                                                     (QUOTIENT2 |exp| |fac|))
+                                                     (|quotient_INT| |exp|
+                                                                     |fac|))
                                                (LETT |exptable|
                                                      (SPADCALL |fac|
                                                                (QREFELT % 53)))
@@ -186,8 +190,8 @@
                                                      (SPADCALL |a| |exp|
                                                                (QREFELT % 44)))
                                                (LETT |end|
-                                                     (QUOTIENT2 (- |fac| 1)
-                                                                |n|))
+                                                     (|quotient_INT|
+                                                      (- |fac| 1) |n|))
                                                (LETT |found| NIL)
                                                (LETT |disc1| 0)
                                                (SEQ (LETT |i| 0)
@@ -224,7 +228,7 @@
                                                                         (SPADCALL
                                                                          |gen|
                                                                          (*
-                                                                          (QUOTIENT2
+                                                                          (|quotient_INT|
                                                                            |groupord|
                                                                            |fac|)
                                                                           (-
@@ -316,12 +320,12 @@
                      (SEQ (LETT |fac| (QVELT |f| 1))
                           (LETT |primroot|
                                 (SPADCALL |logbase|
-                                          (QUOTIENT2 |groupord| |fac|)
+                                          (|quotient_INT| |groupord| |fac|)
                                           (QREFELT % 44)))
                           (EXIT
                            (SEQ (LETT |t| 0) (LETT #2# (- (QVELT |f| 2) 1))
                                 G190 (COND ((|greater_SI| |t| #2#) (GO G191)))
-                                (SEQ (LETT |exp| (QUOTIENT2 |exp| |fac|))
+                                (SEQ (LETT |exp| (|quotient_INT| |exp| |fac|))
                                      (LETT |rhoHelp|
                                            (SPADCALL |primroot|
                                                      (SPADCALL |a| |exp|

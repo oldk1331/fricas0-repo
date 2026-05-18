@@ -534,7 +534,8 @@
                        (SPADCALL
                         (|ITRIGMNP;supexp| |num| |g| |gi|
                          (LETT |b|
-                               (QUOTIENT2 (SPADCALL |num| (QREFELT % 153)) 2))
+                               (|quotient_INT| (SPADCALL |num| (QREFELT % 153))
+                                               2))
                          %)
                         (|ITRIGMNP;supexp| |den| |g| |gi| |b| %)
                         (QREFELT % 146)))))

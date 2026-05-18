@@ -199,7 +199,7 @@
               (LETT |disc| (SPADCALL |traceMat| (QREFELT % 35)))
               (EXIT
                (COND
-                ((QEQCAR (SPADCALL |disc| (* |p| |p|) (QREFELT % 52)) 1)
+                ((QEQCAR (|exquo_INT| |disc| (* |p| |p|)) 1)
                  (VECTOR (SPADCALL |n| 1 (QREFELT % 40)) 1
                          (SPADCALL |n| 1 (QREFELT % 40))))
                 (#1='T
@@ -245,21 +245,21 @@
                                         (QREFELT % 47))
                               (QREFELT % 25)))
                        (LETT |id|
-                             (SPADCALL (SPADCALL |idinv| |sing| (QREFELT % 54))
-                                       (QREFELT % 55)))
+                             (SPADCALL (SPADCALL |idinv| |sing| (QREFELT % 53))
+                                       (QREFELT % 54)))
                        (LETT |idinv| (SPADCALL |id| |sing| (QREFELT % 49)))
                        (LETT |rbinv|
                              (SPADCALL (SPADCALL |id| |rb| (QREFELT % 26))
                                        (SPADCALL |rbinv| |idinv|
                                                  (QREFELT % 26))
-                                       (* |sing| |rbden|) (QREFELT % 57)))
-                       (LETT |index| (SPADCALL |rbinv| (QREFELT % 58)))
+                                       (* |sing| |rbden|) (QREFELT % 56)))
+                       (LETT |index| (SPADCALL |rbinv| (QREFELT % 57)))
                        (LETT |rb|
                              (SPADCALL
                               (SPADCALL |rbinv| (* |sing| |rbden|)
-                                        (QREFELT % 54))
-                              (QREFELT % 55)))
-                       (LETT |g| (SPADCALL |rb| |sing| |n| (QREFELT % 59)))
+                                        (QREFELT % 53))
+                              (QREFELT % 54)))
+                       (LETT |g| (SPADCALL |rb| |sing| |n| (QREFELT % 58)))
                        (COND
                         ((SPADCALL 1 |g| (QREFELT % 42))
                          (LETT |rb|
@@ -273,10 +273,11 @@
                                                   (|Matrix| (|Integer|))
                                                   #6="failed")
                                                  #3#)))))
-                       (LETT |rbden| (* |rbden| (QUOTIENT2 |sing| |g|)))
+                       (LETT |rbden| (* |rbden| (|quotient_INT| |sing| |g|)))
                        (LETT |rbinv| (SPADCALL |rb| |rbden| (QREFELT % 49)))
-                       (LETT |disc| (QUOTIENT2 |disc0| (* |index| |index|)))
-                       (LETT |indexChange| (QUOTIENT2 |index| |oldIndex|))
+                       (LETT |disc|
+                             (|quotient_INT| |disc0| (* |index| |index|)))
+                       (LETT |indexChange| (|quotient_INT| |index| |oldIndex|))
                        (LETT |oldIndex| |index|)
                        (EXIT
                         (COND
@@ -331,7 +332,7 @@
                        (PROG1 (LETT #5# |p|)
                          (|check_subtype2| (>= #5# 0) '(|NonNegativeInteger|)
                                            '(|Integer|) #5#))
-                       |n| (QREFELT % 60)))
+                       |n| (QREFELT % 59)))
                 (EXIT
                  (SEQ G190 NIL
                       (SEQ
@@ -343,37 +344,37 @@
                                                    '(|NonNegativeInteger|)
                                                    '(|Integer|) #4#))
                                %)
-                              |lp| (QREFELT % 61)))
+                              |lp| (QREFELT % 60)))
                        (LETT |idinv|
                              (SPADCALL
                               (SPADCALL (SPADCALL |tfm| |p| (QREFELT % 46))
                                         (QREFELT % 47))
                               (QREFELT % 25)))
                        (LETT |id|
-                             (SPADCALL (SPADCALL |idinv| |p| (QREFELT % 54))
-                                       (QREFELT % 55)))
+                             (SPADCALL (SPADCALL |idinv| |p| (QREFELT % 53))
+                                       (QREFELT % 54)))
                        (LETT |idinv| (SPADCALL |id| |p| (QREFELT % 49)))
                        (LETT |rbinv|
                              (SPADCALL (SPADCALL |id| |rb| (QREFELT % 26))
                                        (SPADCALL |rbinv| |idinv|
                                                  (QREFELT % 26))
-                                       (* |p| |rbden|) (QREFELT % 57)))
-                       (LETT |index| (SPADCALL |rbinv| (QREFELT % 58)))
+                                       (* |p| |rbden|) (QREFELT % 56)))
+                       (LETT |index| (SPADCALL |rbinv| (QREFELT % 57)))
                        (LETT |rb|
                              (SPADCALL
-                              (SPADCALL |rbinv| (* |p| |rbden|) (QREFELT % 54))
-                              (QREFELT % 55)))
+                              (SPADCALL |rbinv| (* |p| |rbden|) (QREFELT % 53))
+                              (QREFELT % 54)))
                        (COND
                         ((EQL
-                          (SPADCALL |rb| |matrixOut| |p| |n| (QREFELT % 62)) 1)
+                          (SPADCALL |rb| |matrixOut| |p| |n| (QREFELT % 61)) 1)
                          (LETT |rb| |matrixOut|))
                         ('T (LETT |rbden| (* |p| |rbden|))))
                        (LETT |rbinv| (SPADCALL |rb| |rbden| (QREFELT % 49)))
-                       (LETT |indexChange| (QUOTIENT2 |index| |oldIndex|))
+                       (LETT |indexChange| (|quotient_INT| |index| |oldIndex|))
                        (LETT |oldIndex| |index|)
                        (LETT |disc|
-                             (QUOTIENT2 |disc|
-                                        (* |indexChange| |indexChange|)))
+                             (|quotient_INT| |disc|
+                                             (* |indexChange| |indexChange|)))
                        (EXIT
                         (COND
                          ((EQL |indexChange| 1)
@@ -384,7 +385,7 @@
                           (SEQ
                            (EXIT
                             (COND
-                             ((SPADCALL (GCD |p2| |disc|) |p2| (QREFELT % 63))
+                             ((SPADCALL (GCD |p2| |disc|) |p2| (QREFELT % 62))
                               (PROGN
                                (LETT #1#
                                      (PROGN
@@ -411,16 +412,14 @@
               (LETT |index|
                     (PROG2
                         (LETT #1#
-                              (SPADCALL (EXPT |rbden| (SPADCALL (QREFELT % 9)))
-                                        (SPADCALL |rb| (QREFELT % 35))
-                                        (QREFELT % 52)))
+                              (|exquo_INT|
+                               (EXPT |rbden| (SPADCALL (QREFELT % 9)))
+                               (SPADCALL |rb| (QREFELT % 35))))
                         (QCDR #1#)
                       (|check_union2| (QEQCAR #1# 0) (|Integer|)
                                       (|Union| (|Integer|) #4="failed") #1#)))
               (EXIT
-               (PROG2
-                   (LETT #1#
-                         (SPADCALL |disc| (* |index| |index|) (QREFELT % 52)))
+               (PROG2 (LETT #1# (|exquo_INT| |disc| (* |index| |index|)))
                    (QCDR #1#)
                  (|check_union2| (QEQCAR #1# 0) (|Integer|)
                                  (|Union| (|Integer|) #4#) #1#)))))) 
@@ -433,7 +432,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|NumberFieldIntegralBasis| DV$1 DV$2))
-          (LETT % (GETREFV 65))
+          (LETT % (GETREFV 64))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|NumberFieldIntegralBasis|
@@ -486,13 +485,13 @@
               (133 . |UpTriBddDenomInv|)
               (|Record| (|:| |basis| 17) (|:| |basisDen| 14)
                         (|:| |basisInv| 17))
-              |NFINTBAS;integralBasis;R;4| (139 . |exquo|)
-              |NFINTBAS;localIntegralBasis;IR;5| (145 . |LowTriBddDenomInv|)
-              (151 . |rowEchelon|) (|IntegralBasisTools| 14 6 7)
-              (156 . |idealiser|) (163 . |diagonalProduct|) (168 . |matrixGcd|)
-              (175 . |leastPower|) (181 . ^) (187 . |divideIfCan!|) (195 . ~=)
+              |NFINTBAS;integralBasis;R;4| |NFINTBAS;localIntegralBasis;IR;5|
+              (139 . |LowTriBddDenomInv|) (145 . |rowEchelon|)
+              (|IntegralBasisTools| 14 6 7) (150 . |idealiser|)
+              (157 . |diagonalProduct|) (162 . |matrixGcd|)
+              (169 . |leastPower|) (175 . ^) (181 . |divideIfCan!|) (189 . ~=)
               |NFINTBAS;discriminant;I;8|)
-           '#(|localIntegralBasis| 201 |integralBasis| 206 |discriminant| 210)
+           '#(|localIntegralBasis| 195 |integralBasis| 200 |discriminant| 204)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -516,7 +515,7 @@
                                        (|Integer|)))
                                      T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 64
+                        (|makeByteWordVec2| 63
                                             '(0 7 8 9 0 7 10 11 0 6 0 12 0 7 0
                                               13 1 15 14 0 16 1 17 14 0 18 1 17
                                               14 0 19 2 7 0 14 0 20 2 7 0 0 0
@@ -527,11 +526,11 @@
                                               7 0 39 2 17 0 22 14 40 2 14 41 0
                                               0 42 2 17 0 14 0 43 2 17 0 0 0 44
                                               2 45 17 17 14 46 1 17 0 0 47 2 48
-                                              17 17 14 49 2 14 27 0 0 52 2 48
-                                              17 17 14 54 1 17 0 0 55 3 56 17
-                                              17 17 14 57 1 56 14 17 58 3 56 14
-                                              17 14 22 59 2 56 22 22 22 60 2 17
-                                              0 0 22 61 4 56 14 17 17 14 14 62
-                                              2 14 41 0 0 63 1 0 50 14 53 0 0
-                                              50 51 0 0 14 64)))))
+                                              17 17 14 49 2 48 17 17 14 53 1 17
+                                              0 0 54 3 55 17 17 17 14 56 1 55
+                                              14 17 57 3 55 14 17 14 22 58 2 55
+                                              22 22 22 59 2 17 0 0 22 60 4 55
+                                              14 17 17 14 14 61 2 14 41 0 0 62
+                                              1 0 50 14 52 0 0 50 51 0 0 14
+                                              63)))))
            '|lookupComplete|)) 

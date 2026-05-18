@@ -273,7 +273,8 @@
                 (#13='T
                  (SEQ (LETT |l1| (SPADCALL |l| (QREFELT % 46)))
                       (LETT |l2|
-                            (SPADCALL |l1| (QUOTIENT2 |n| 2) (QREFELT % 47)))
+                            (SPADCALL |l1| (|quotient_INT| |n| 2)
+                                      (QREFELT % 47)))
                       (LETT |u|
                             (SPADCALL
                              (PROGN

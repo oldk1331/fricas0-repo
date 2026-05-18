@@ -923,8 +923,8 @@
                                       (COND ((NULL (> |n1| |n|)) (GO G191)))
                                       (SEQ
                                        (LETT |k|
-                                             (QUOTIENT2 (* |k| (- |n1| |m|))
-                                                        |n1|))
+                                             (|quotient_INT|
+                                              (* |k| (- |n1| |m|)) |n1|))
                                        (EXIT (LETT |n1| (- |n1| 1))))
                                       NIL (GO G190) G191 (EXIT NIL))
                                  (LETT |ris|

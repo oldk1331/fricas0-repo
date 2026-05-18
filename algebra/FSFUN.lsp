@@ -276,7 +276,7 @@
                          (LETT |result|
                                (SPADCALL
                                 (|FSFUN;logGamma_asymptotic| |z|
-                                 (+ (QUOTIENT2 |l| 6) 1) %)
+                                 (+ (|quotient_INT| |l| 6) 1) %)
                                 (QREFELT % 29)))
                          (SPADCALL |l0| (QREFELT % 39))
                          (EXIT |result|)))))))))))
@@ -427,7 +427,7 @@
                          (SPADCALL |l1| (QREFELT % 39))
                          (LETT |result|
                                (|FSFUN;logGamma_asymptotic| |z|
-                                (+ (QUOTIENT2 |l| 6) 1) %))
+                                (+ (|quotient_INT| |l| 6) 1) %))
                          (SPADCALL |l0| (QREFELT % 39))
                          (EXIT |result|)))))))))))
            (#4# (|error| "Gamma can only handle base 2 Float-s")))))) 
@@ -555,11 +555,12 @@
                   ((SPADCALL (SPADCALL |l| (QREFELT % 16))
                              (SPADCALL 6 |abs_a| (QREFELT % 47))
                              (QREFELT % 48))
-                   (|FSFUN;digamma_euler_maclaurin| |a| (+ (QUOTIENT2 |l| 6) 1)
-                    (+ (QUOTIENT2 |l| 6) 1) %))
+                   (|FSFUN;digamma_euler_maclaurin| |a|
+                    (+ (|quotient_INT| |l| 6) 1) (+ (|quotient_INT| |l| 6) 1)
+                    %))
                   ('T
                    (|FSFUN;digamma_euler_maclaurin| |a| -1
-                    (+ (QUOTIENT2 |l| 6) 1) %))))))) 
+                    (+ (|quotient_INT| |l| 6) 1) %))))))) 
 
 (SDEFUN |FSFUN;digamma;2C;18|
         ((|a| (|Complex| (|Float|))) (% (|Complex| (|Float|))))
@@ -646,7 +647,7 @@
               (LETT |n|
                     (COND
                      ((< |oz| -200)
-                      (+ (QUOTIENT2 (* 2 |prec|) (- (- |oz|) 1)) 1))
+                      (+ (|quotient_INT| (* 2 |prec|) (- (- |oz|) 1)) 1))
                      ('T
                       (+
                        (SPADCALL
@@ -1026,7 +1027,8 @@
                   (SPADCALL (SPADCALL |s| (QREFELT % 54)) (QREFELT % 65))
                   (QREFELT % 40))
                  (QREFELT % 41)))
-          (LETT |n| (+ (QUOTIENT2 (+ (+ (* 4 |prec|) (* 9 |nt|)) 9) 10) 5))
+          (LETT |n|
+                (+ (|quotient_INT| (+ (+ (* 4 |prec|) (* 9 |nt|)) 9) 10) 5))
           (LETT |s21|
                 (SPADCALL (|spadConstant| % 7)
                           (SPADCALL (SPADCALL 2 (QREFELT % 11)) |s2|
@@ -1078,7 +1080,7 @@
                             (QREFELT % 41)))
                      (EXIT
                       (COND
-                       ((< |lb| (+ (QUOTIENT2 |prec| 2) 5))
+                       ((< |lb| (+ (|quotient_INT| |prec| 2) 5))
                         (SEQ (LETT |nprec| (+ (+ |prec| |lb|) 10))
                              (SPADCALL (+ |nprec| 15) (QREFELT % 39))
                              (EXIT (|FSFUN;zeta_aux1| |s| |nprec| %))))
@@ -1150,14 +1152,14 @@
                                (#2#
                                 (SEQ
                                  (LETT |nprec|
-                                       (QUOTIENT2 (+ (* 3 |prec|) 20) 2))
+                                       (|quotient_INT| (+ (* 3 |prec|) 20) 2))
                                  (SPADCALL (+ |nprec| 15) (QREFELT % 39))
                                  (LETT |h|
                                        (SPADCALL
                                         (SPADCALL (|spadConstant| % 15)
                                                   (SPADCALL 2 (QREFELT % 16))
                                                   (QREFELT % 17))
-                                        (QUOTIENT2 (- (* 2 |prec|) 5) 3)
+                                        (|quotient_INT| (- (* 2 |prec|) 5) 3)
                                         (QREFELT % 91)))
                                  (EXIT
                                   (SPADCALL
@@ -1222,7 +1224,7 @@
                                  (QREFELT % 41)))
                           (EXIT
                            (COND
-                            ((< (QUOTIENT2 |prec| 2) (- |lb| 15))
+                            ((< (|quotient_INT| |prec| 2) (- |lb| 15))
                              (SPADCALL
                               (SPADCALL
                                (SPADCALL (|spadConstant| % 15) 2
@@ -1900,7 +1902,7 @@
                   (#2='T
                    (SEQ (LETT |cbit| (SPADCALL (QREFELT % 34)))
                         (LETT |eps|
-                              (SPADCALL 1 (- (QUOTIENT2 (* 2 |cbit|) 3))
+                              (SPADCALL 1 (- (|quotient_INT| (* 2 |cbit|) 3))
                                         (QREFELT % 131)))
                         (LETT |ax| (SPADCALL |x| (QREFELT % 65)))
                         (LETT |ox| (SPADCALL |ax| (QREFELT % 49)))
@@ -1939,49 +1941,44 @@
                                                 (QREFELT % 119))
                                                (QREFELT % 20))
                                               (QREFELT % 38))
-                                    (SEQ (LETT |cbit2| (QUOTIENT2 |cbit| 2))
-                                         (SPADCALL (+ |cbit| |cbit2|)
-                                                   (QREFELT % 39))
-                                         (LETT |e1|
-                                               (SPADCALL
-                                                (SPADCALL (|spadConstant| % 15)
-                                                          (QREFELT % 30))
-                                                (QREFELT % 31)))
-                                         (LETT |h2|
-                                               (SPADCALL |x| |e1|
-                                                         (QREFELT % 52)))
-                                         (LETT |h|
-                                               (SPADCALL |h2| (QREFELT % 76)))
-                                         (SPADCALL |cbit| (QREFELT % 39))
+                                    (SEQ
+                                     (LETT |cbit2| (|quotient_INT| |cbit| 2))
+                                     (SPADCALL (+ |cbit| |cbit2|)
+                                               (QREFELT % 39))
+                                     (LETT |e1|
+                                           (SPADCALL
+                                            (SPADCALL (|spadConstant| % 15)
+                                                      (QREFELT % 30))
+                                            (QREFELT % 31)))
+                                     (LETT |h2|
+                                           (SPADCALL |x| |e1| (QREFELT % 52)))
+                                     (LETT |h| (SPADCALL |h2| (QREFELT % 76)))
+                                     (SPADCALL |cbit| (QREFELT % 39))
+                                     (EXIT
+                                      (COND
+                                       ((SPADCALL |h2| (|spadConstant| % 57)
+                                                  (QREFELT % 38))
+                                        (|error| "x < -exp(-1)"))
+                                       (#2#
+                                        (SEQ
+                                         (LETT |w1|
+                                               (SPADCALL |h| |h2|
+                                                         (QREFELT % 96)))
                                          (EXIT
                                           (COND
-                                           ((SPADCALL |h2|
-                                                      (|spadConstant| % 57)
-                                                      (QREFELT % 38))
-                                            (|error| "x < -exp(-1)"))
+                                           ((< (SPADCALL |w1| (QREFELT % 49))
+                                               (- |cbit2|))
+                                            (SPADCALL |w1|
+                                                      (|spadConstant| % 15)
+                                                      (QREFELT % 50)))
                                            (#2#
-                                            (SEQ
-                                             (LETT |w1|
-                                                   (SPADCALL |h| |h2|
-                                                             (QREFELT % 96)))
-                                             (EXIT
-                                              (COND
-                                               ((<
-                                                 (SPADCALL |w1| (QREFELT % 49))
-                                                 (- |cbit2|))
-                                                (SPADCALL |w1|
-                                                          (|spadConstant| % 15)
-                                                          (QREFELT % 50)))
-                                               (#2#
-                                                (SPADCALL |x|
-                                                          (SPADCALL |w1|
-                                                                    (|spadConstant|
-                                                                     % 15)
-                                                                    (QREFELT %
-                                                                             50))
-                                                          |eps|
-                                                          (QREFELT %
-                                                                   93)))))))))))
+                                            (SPADCALL |x|
+                                                      (SPADCALL |w1|
+                                                                (|spadConstant|
+                                                                 % 15)
+                                                                (QREFELT % 50))
+                                                      |eps|
+                                                      (QREFELT % 93)))))))))))
                                    (#2#
                                     (SEQ
                                      (LETT |w|
@@ -2037,7 +2034,7 @@
                   (#1='T
                    (SEQ (LETT |cbit| (SPADCALL (QREFELT % 34)))
                         (LETT |eps|
-                              (SPADCALL 1 (- (QUOTIENT2 (* 2 |cbit|) 3))
+                              (SPADCALL 1 (- (|quotient_INT| (* 2 |cbit|) 3))
                                         (QREFELT % 131)))
                         (LETT |abs_z| (SPADCALL |z| (QREFELT % 67)))
                         (LETT |oz| (SPADCALL |abs_z| (QREFELT % 49)))
@@ -2107,7 +2104,7 @@
                                      (EXIT
                                       (SPADCALL |z| |w| |eps|
                                                 (QREFELT % 97)))))))
-                                 (LETT |cbit2| (QUOTIENT2 |cbit| 2))
+                                 (LETT |cbit2| (|quotient_INT| |cbit| 2))
                                  (SPADCALL (+ |cbit| |cbit2|) (QREFELT % 39))
                                  (LETT |e1|
                                        (SPADCALL

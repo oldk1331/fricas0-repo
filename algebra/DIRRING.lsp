@@ -225,8 +225,8 @@
                                                        |f1inv|
                                                        (PROG1
                                                            (LETT #1#
-                                                                 (QUOTIENT2 |n|
-                                                                            |d|))
+                                                                 (|quotient_INT|
+                                                                  |n| |d|))
                                                          (|check_subtype2|
                                                           (> #1# 0)
                                                           '(|PositiveInteger|)

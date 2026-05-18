@@ -363,7 +363,7 @@
                                              (SPADCALL |a| |j| (QREFELT % 109))
                                              (QREFELT % 56))
                                             (QREFELT % 64)))))))
-                        (EXIT (LETT |i| (QUOTIENT2 |i| |p|))))
+                        (EXIT (LETT |i| (|quotient_INT| |i| |p|))))
                    (LETT |j| (|inc_SI| |j|)) (GO G190) G191 (EXIT NIL))
               (EXIT |ans|)))) 
 

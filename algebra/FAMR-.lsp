@@ -69,8 +69,8 @@
                                     |yn| (QREFELT % 20))
                                    |ans| (QREFELT % 13)))
                             (LETT |bincoef|
-                                  (QUOTIENT2 (* (- |nn| |i|) |bincoef|)
-                                             (+ |i| 1)))
+                                  (|quotient_INT| (* (- |nn| |i|) |bincoef|)
+                                                  (+ |i| 1)))
                             (LETT |i| (+ |i| 1))
                             (EXIT
                              (LETT |yn| (SPADCALL |y| |yn| (QREFELT % 20)))))

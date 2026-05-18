@@ -253,7 +253,7 @@
                                   (QREFELT % 20))
                                  |p| (QREFELT % 21))
                                 (QREFELT % 22)))
-                (LETT |dd| (QUOTIENT2 (- |d| 1) 2))
+                (LETT |dd| (|quotient_INT| (- |d| 1) 2))
                 (SEQ (LETT |i| 1) (LETT #3# |dd|) G190
                      (COND ((|greater_SI| |i| #3#) (GO G191)))
                      (SEQ

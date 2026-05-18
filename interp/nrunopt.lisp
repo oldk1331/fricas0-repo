@@ -765,14 +765,6 @@
 (DEFUN |testBitVector| (|vec| |i|)
   (PROG () (RETURN (COND ((EQ |i| 0) T) ('T (LOGBITP (- |i| 1) |vec|))))))
 
-; bitsOf n ==
-;   n = 0 => 0
-;   1 + bitsOf(QUOTIENT(n, 2))
-
-(DEFUN |bitsOf| (|n|)
-  (PROG ()
-    (RETURN (COND ((EQL |n| 0) 0) ('T (+ 1 (|bitsOf| (QUOTIENT |n| 2))))))))
-
 ; NRTmakeCategoryAlist(et) ==
 ;   $depthAssocCache : local := MAKE_HASHTABLE('EQ)
 ;   $catAncestorAlist: local := NIL

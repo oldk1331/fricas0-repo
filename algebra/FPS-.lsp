@@ -7,7 +7,7 @@
                (PROG1
                    (LETT #1#
                          (MAX 1
-                              (QUOTIENT2
+                              (|quotient_INT|
                                (* 4004 (- (SPADCALL (QREFELT % 13)) 1))
                                13301)))
                  (|check_subtype2| (> #1# 0) '(|PositiveInteger|) '(|Integer|)

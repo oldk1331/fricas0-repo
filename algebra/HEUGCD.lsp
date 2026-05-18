@@ -12,7 +12,8 @@
 (SDEFUN |HEUGCD;negShiftz|
         ((|n| (|Integer|)) (|Modulus| (|PositiveInteger|)) (% (|Integer|)))
         (COND ((< |n| 0) (LETT |n| (+ |n| |Modulus|)))
-              ((> |n| (QUOTIENT2 |Modulus| 2)) (- |n| |Modulus|)) ('T |n|))) 
+              ((> |n| (|quotient_INT| |Modulus| 2)) (- |n| |Modulus|))
+              ('T |n|))) 
 
 (SDEFUN |HEUGCD;height| ((|f| (BP)) (% (|PositiveInteger|)))
         (SPROG ((|k| (|PositiveInteger|)) (#1=#:G24 NIL))
@@ -53,7 +54,8 @@
                                           (SPADCALL |val1| |i| (QREFELT % 20))
                                           (QREFELT % 21)))
                           (EXIT
-                           (LETT |val| (QUOTIENT2 (- |val| |val1|) |value|))))
+                           (LETT |val|
+                                 (|quotient_INT| (- |val| |val1|) |value|))))
                          (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                     (EXIT |d|)))) 
 
@@ -208,7 +210,7 @@
                                    (EXIT
                                     (LETT #2#
                                           (CONS
-                                           (SPADCALL (QUOTIENT2 |lcf| |d|)
+                                           (SPADCALL (|quotient_INT| |lcf| |d|)
                                                      (QREFELT % 35))
                                            #2#))))
                                   (LETT #1# (CDR #1#)) (GO G190) G191
@@ -387,7 +389,7 @@
                               (LETT #5# (REVERSE |result|))
                               (GO #20=#:G140))))
                            (LETT |nvalue|
-                                 (QUOTIENT2 (* |answr| 832040) 317811))
+                                 (|quotient_INT| (* |answr| 832040) 317811))
                            (COND
                             ((EQL (REM (+ |nvalue| |answr|) 2) 0)
                              (LETT |nvalue| (+ |nvalue| 1))))
@@ -658,8 +660,9 @@
                                           (LETT #3#
                                                 (CONS
                                                  (SPADCALL
-                                                  (QUOTIENT2 |p| |contgcd|) |q|
-                                                  (QREFELT % 48))
+                                                  (|quotient_INT| |p|
+                                                                  |contgcd|)
+                                                  |q| (QREFELT % 48))
                                                  #3#))))
                                         (LETT #1#
                                               (PROG1 (CDR #1#)

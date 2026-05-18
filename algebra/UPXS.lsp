@@ -49,7 +49,7 @@
                            (#1='T
                             (SEQ
                              (LETT |n|
-                                   (QUOTIENT2
+                                   (|quotient_INT|
                                     (LETT |num| (SPADCALL |rn| (QREFELT % 42)))
                                     |den|))
                              (EXIT

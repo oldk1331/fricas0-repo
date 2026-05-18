@@ -139,7 +139,7 @@
                                          (COND ((> |j| #2#) (GO G191)))
                                          (SEQ
                                           (LETT |t|
-                                                (QUOTIENT2
+                                                (|quotient_INT|
                                                  (* (* |t| (+ (- |i| |j|) 1))
                                                     (+ (- |i| |j|) 2))
                                                  (* |j| (- |j| 1))))
@@ -205,7 +205,7 @@
                                     (COND ((> |j| #1#) (GO G191)))
                                     (SEQ
                                      (LETT |t|
-                                           (QUOTIENT2
+                                           (|quotient_INT|
                                             (* (* |t| (+ (- |i| |j|) 2))
                                                (+ (- |i| |j|) 3))
                                             (* |j| (- |j| 1))))
@@ -246,7 +246,7 @@
          (SEQ (LETT |borg| |b|) (LETT |c1| 1) (LETT |d1| 0)
               (SEQ G190
                    (COND ((NULL (SPADCALL |b| 0 (QREFELT % 48))) (GO G191)))
-                   (SEQ (LETT |q| (QUOTIENT2 |a| |b|))
+                   (SEQ (LETT |q| (|quotient_INT| |a| |b|))
                         (LETT |r| (- |a| (* |q| |b|)))
                         (PROGN
                          (LETT |#G27| |b|)
@@ -303,7 +303,7 @@
                         "J(a/b) not defined for b even and a = 2 or 3 (mod 4)"))))))
                   (COND ((EVENP |b|) (COND ((EVENP |a|) (EXIT 0)))))
                   (SEQ (LETT |k| 0) G190 (COND ((NULL (EVENP |b|)) (GO G191)))
-                       (SEQ (EXIT (LETT |b| (QUOTIENT2 |b| 2))))
+                       (SEQ (EXIT (LETT |b| (|quotient_INT| |b| 2))))
                        (LETT |k| (|inc_SI| |k|)) (GO G190) G191 (EXIT NIL))
                   (LETT |j|
                         (SEQ
@@ -340,7 +340,8 @@
                                               (COND (#1# (GO G191)))
                                               (SEQ
                                                (EXIT
-                                                (LETT |a| (QUOTIENT2 |a| 2))))
+                                                (LETT |a|
+                                                      (|quotient_INT| |a| 2))))
                                               (LETT |k|
                                                     (PROG1 (|inc_SI| |k|)
                                                       (LETT #1# (ODDP |a|))))

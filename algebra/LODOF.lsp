@@ -156,8 +156,8 @@
                  (COND ((<= |n| 1) (LIST |l|))
                        ('T
                         (SEQ (LETT |ll| (SPADCALL |l| (QREFELT % 52)))
-                             (SEQ (LETT |i| 1) (LETT #3# (QUOTIENT2 |n| 2))
-                                  G190
+                             (SEQ (LETT |i| 1)
+                                  (LETT #3# (|quotient_INT| |n| 2)) G190
                                   (COND ((|greater_SI| |i| #3#) (GO G191)))
                                   (SEQ
                                    (EXIT

@@ -30,140 +30,127 @@
                        (LETT |dp| (SPADCALL |pol| (QREFELT % 17)))
                        (LETT |pol|
                              (SPADCALL |pol| (+ |dp| 1) |p| (QREFELT % 18)))
-                       (LETT |n0| (QUOTIENT2 |dp| |l|)) (LETT |bad_cnt| 1)
+                       (LETT |n0| (|quotient_INT| |dp| |l|)) (LETT |bad_cnt| 1)
                        (SEQ G190 (COND ((NULL (> |l| 1)) (GO G191)))
                             (SEQ
                              (EXIT
-                              (SEQ (LETT |l2| (QUOTIENT2 (+ |dp| |l1|) |l1|))
-                                   (LETT |rpol|
-                                         (SPADCALL (- |dp| 1) |p|
-                                                   (QREFELT % 19)))
-                                   (LETT |tr| |rpol|)
-                                   (LETT |kk| (MIN (- |n0| 1) |k1|))
-                                   (SEQ (LETT |i| 1) (LETT #6# (- |n0| 1)) G190
-                                        (COND
-                                         ((|greater_SI| |i| #6#) (GO G191)))
-                                        (SEQ
-                                         (LETT |tr|
-                                               (SPADCALL |tr| |pmat1| |xp1|
-                                                         |l1| |rdata|
-                                                         (QREFELT % 21)))
-                                         (EXIT
-                                          (LETT |tr|
-                                                (SPADCALL |tr| |rpol| |p|
-                                                          (QREFELT % 22)))))
-                                        (LETT |i| (|inc_SI| |i|)) (GO G190)
-                                        G191 (EXIT NIL))
-                                   (LETT |tr|
-                                         (SPADCALL |tr| |rdata|
-                                                   (QREFELT % 23)))
-                                   (LETT |tr1|
-                                         (COND ((EQL |pp| 2) |tr|)
-                                               ('T
-                                                (SPADCALL |tr|
-                                                          (QUOTIENT2 (- |pp| 1)
-                                                                     2)
-                                                          |rdata|
-                                                          (QREFELT % 24)))))
-                                   (LETT |tr1|
-                                         (SPADCALL |tr1| |p| (QREFELT % 25)))
-                                   (LETT |g|
-                                         (SPADCALL |tr1| |pol| |p|
-                                                   (QREFELT % 26)))
-                                   (LETT |dg| (SPADCALL |g| (QREFELT % 17)))
-                                   (COND
-                                    ((OR (EQL |dg| 0) (EQL |dg| |dp|))
+                              (SEQ
+                               (LETT |l2| (|quotient_INT| (+ |dp| |l1|) |l1|))
+                               (LETT |rpol|
+                                     (SPADCALL (- |dp| 1) |p| (QREFELT % 19)))
+                               (LETT |tr| |rpol|)
+                               (LETT |kk| (MIN (- |n0| 1) |k1|))
+                               (SEQ (LETT |i| 1) (LETT #6# (- |n0| 1)) G190
+                                    (COND ((|greater_SI| |i| #6#) (GO G191)))
+                                    (SEQ
+                                     (LETT |tr|
+                                           (SPADCALL |tr| |pmat1| |xp1| |l1|
+                                                     |rdata| (QREFELT % 21)))
                                      (EXIT
-                                      (SEQ (LETT |bad_cnt| (+ |bad_cnt| 1))
-                                           (EXIT
-                                            (PROGN
-                                             (LETT #5# |$NoValue|)
-                                             (GO #7=#:G13)))))))
-                                   (LETT |dp| (- |dp| |dg|))
-                                   (LETT |pol|
-                                         (SPADCALL |pol| |g| |p|
-                                                   (QREFELT % 27)))
-                                   (COND
-                                    ((< |dp| |dg|)
-                                     (SEQ
-                                      (PROGN
-                                       (LETT |#G20| |pol|)
-                                       (LETT |#G21| |g|)
-                                       (LETT |g| |#G20|)
-                                       (LETT |pol| |#G21|))
-                                      (EXIT
-                                       (PROGN
-                                        (LETT |#G22| |dg|)
-                                        (LETT |#G23| |dp|)
-                                        (LETT |dp| |#G22|)
-                                        (LETT |dg| |#G23|))))))
-                                   (LETT |n| |dp|)
-                                   (EXIT
-                                    (COND
-                                     ((EQL |dg| |n0|)
-                                      (SEQ (LETT |res| (CONS |g| |res|))
-                                           (EXIT
-                                            (COND
-                                             ((EQL |dp| |n0|)
-                                              (PROGN
-                                               (LETT #1# (CONS |pol| |res|))
-                                               (GO #8=#:G27)))
-                                             ('T
-                                              (SEQ
-                                               (LETT |rdata|
-                                                     (SPADCALL |pol| |p|
-                                                               (QREFELT % 28)))
-                                               (SPADCALL |pmat1| (+ |dg| |dp|)
-                                                         |dp| |rdata|
-                                                         (QREFELT % 30))
-                                               (LETT |xp1|
-                                                     (SPADCALL |xp1|
-                                                               (+ |dg| |dp|)
-                                                               |p|
-                                                               (QREFELT % 18)))
-                                               (EXIT
-                                                (LETT |xp1|
-                                                      (SPADCALL |xp1| |rdata|
-                                                                (QREFELT %
-                                                                         23))))))))))
-                                     ('T
-                                      (SEQ
-                                       (LETT |rdata1|
-                                             (SPADCALL |g| |p| (QREFELT % 28)))
-                                       (LETT |rdata2|
-                                             (SPADCALL |pol| |p|
-                                                       (QREFELT % 28)))
-                                       (SPADCALL |pmat1| (+ |dg| |dp|) |dg|
-                                                 |dp| |rdata1| |rdata2|
-                                                 (QREFELT % 31))
-                                       (LETT |xp11|
-                                             (SPADCALL |xp1| (+ |dg| |dp|) |p|
-                                                       (QREFELT % 18)))
-                                       (LETT |xp11|
-                                             (SPADCALL |xp11| |rdata1|
-                                                       (QREFELT % 23)))
-                                       (LETT |res|
-                                             (|MODFACTG;eqfact| |g|
-                                              (QUOTIENT2 |dg| |n0|) |pmat1|
-                                              |xp11| |pmat2| |xp2| |l1| |k1|
-                                              |k2| |rdata1| |res| %))
-                                       (LETT |l| (QUOTIENT2 |dp| |n0|))
+                                      (LETT |tr|
+                                            (SPADCALL |tr| |rpol| |p|
+                                                      (QREFELT % 22)))))
+                                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191
+                                    (EXIT NIL))
+                               (LETT |tr|
+                                     (SPADCALL |tr| |rdata| (QREFELT % 23)))
+                               (LETT |tr1|
+                                     (COND ((EQL |pp| 2) |tr|)
+                                           ('T
+                                            (SPADCALL |tr|
+                                                      (|quotient_INT|
+                                                       (- |pp| 1) 2)
+                                                      |rdata|
+                                                      (QREFELT % 24)))))
+                               (LETT |tr1| (SPADCALL |tr1| |p| (QREFELT % 25)))
+                               (LETT |g|
+                                     (SPADCALL |tr1| |pol| |p| (QREFELT % 26)))
+                               (LETT |dg| (SPADCALL |g| (QREFELT % 17)))
+                               (COND
+                                ((OR (EQL |dg| 0) (EQL |dg| |dp|))
+                                 (EXIT
+                                  (SEQ (LETT |bad_cnt| (+ |bad_cnt| 1))
+                                       (EXIT
+                                        (PROGN
+                                         (LETT #5# |$NoValue|)
+                                         (GO #7=#:G13)))))))
+                               (LETT |dp| (- |dp| |dg|))
+                               (LETT |pol|
+                                     (SPADCALL |pol| |g| |p| (QREFELT % 27)))
+                               (COND
+                                ((< |dp| |dg|)
+                                 (SEQ
+                                  (PROGN
+                                   (LETT |#G20| |pol|)
+                                   (LETT |#G21| |g|)
+                                   (LETT |g| |#G20|)
+                                   (LETT |pol| |#G21|))
+                                  (EXIT
+                                   (PROGN
+                                    (LETT |#G22| |dg|)
+                                    (LETT |#G23| |dp|)
+                                    (LETT |dp| |#G22|)
+                                    (LETT |dg| |#G23|))))))
+                               (LETT |n| |dp|)
+                               (EXIT
+                                (COND
+                                 ((EQL |dg| |n0|)
+                                  (SEQ (LETT |res| (CONS |g| |res|))
                                        (EXIT
                                         (COND
-                                         ((> |l| 1)
-                                          (SEQ (LETT |rdata| |rdata2|)
-                                               (SPADCALL |pmat1| |dg| |dp|
-                                                         (QREFELT % 32))
-                                               (LETT |xp1|
-                                                     (SPADCALL |xp1|
-                                                               (+ |dg| |dp|)
-                                                               |p|
-                                                               (QREFELT % 18)))
-                                               (EXIT
-                                                (LETT |xp1|
-                                                      (SPADCALL |xp1| |rdata|
-                                                                (QREFELT %
-                                                                         23))))))))))))))
+                                         ((EQL |dp| |n0|)
+                                          (PROGN
+                                           (LETT #1# (CONS |pol| |res|))
+                                           (GO #8=#:G27)))
+                                         ('T
+                                          (SEQ
+                                           (LETT |rdata|
+                                                 (SPADCALL |pol| |p|
+                                                           (QREFELT % 28)))
+                                           (SPADCALL |pmat1| (+ |dg| |dp|) |dp|
+                                                     |rdata| (QREFELT % 30))
+                                           (LETT |xp1|
+                                                 (SPADCALL |xp1| (+ |dg| |dp|)
+                                                           |p| (QREFELT % 18)))
+                                           (EXIT
+                                            (LETT |xp1|
+                                                  (SPADCALL |xp1| |rdata|
+                                                            (QREFELT %
+                                                                     23))))))))))
+                                 ('T
+                                  (SEQ
+                                   (LETT |rdata1|
+                                         (SPADCALL |g| |p| (QREFELT % 28)))
+                                   (LETT |rdata2|
+                                         (SPADCALL |pol| |p| (QREFELT % 28)))
+                                   (SPADCALL |pmat1| (+ |dg| |dp|) |dg| |dp|
+                                             |rdata1| |rdata2| (QREFELT % 31))
+                                   (LETT |xp11|
+                                         (SPADCALL |xp1| (+ |dg| |dp|) |p|
+                                                   (QREFELT % 18)))
+                                   (LETT |xp11|
+                                         (SPADCALL |xp11| |rdata1|
+                                                   (QREFELT % 23)))
+                                   (LETT |res|
+                                         (|MODFACTG;eqfact| |g|
+                                          (|quotient_INT| |dg| |n0|) |pmat1|
+                                          |xp11| |pmat2| |xp2| |l1| |k1| |k2|
+                                          |rdata1| |res| %))
+                                   (LETT |l| (|quotient_INT| |dp| |n0|))
+                                   (EXIT
+                                    (COND
+                                     ((> |l| 1)
+                                      (SEQ (LETT |rdata| |rdata2|)
+                                           (SPADCALL |pmat1| |dg| |dp|
+                                                     (QREFELT % 32))
+                                           (LETT |xp1|
+                                                 (SPADCALL |xp1| (+ |dg| |dp|)
+                                                           |p| (QREFELT % 18)))
+                                           (EXIT
+                                            (LETT |xp1|
+                                                  (SPADCALL |xp1| |rdata|
+                                                            (QREFELT %
+                                                                     23))))))))))))))
                              #7# (EXIT #5#))
                             NIL (GO G190) G191 (EXIT NIL))
                        (EXIT (CONS |pol| |res|))))))
@@ -216,7 +203,7 @@
                            (LETT |l2|
                                  (COND ((< |n| 120) 1) ((< |n| 360) 3)
                                        (#10# (SPADCALL |n| 4 (QREFELT % 34)))))
-                           (LETT |l1| (QUOTIENT2 (- (+ |n| |l2|) 1) |l2|))
+                           (LETT |l1| (|quotient_INT| (- (+ |n| |l2|) 1) |l2|))
                            (PROGN
                             (LETT |#G29|
                                   (SPADCALL |xp| |l1| |rdata| (QREFELT % 36)))
@@ -224,11 +211,12 @@
                             (LETT |xp1| (QCDR |#G29|))
                             |#G29|)
                            (LETT |lpj| (LIST |x1|))
-                           (LETT |n2| (QUOTIENT2 |n| 2))
+                           (LETT |n2| (|quotient_INT| |n| 2))
                            (LETT |k1|
                                  (COND ((EQL |l2| 1) |l2|)
                                        (#10# (|MODFACTG;floor_sqrt| |n2| %))))
-                           (LETT |k2| (QUOTIENT2 (- (+ |n2| |k1|) 1) |k1|))
+                           (LETT |k2|
+                                 (|quotient_INT| (- (+ |n2| |k1|) 1) |k1|))
                            (LETT |pj| |xp|)
                            (SEQ (LETT |i| 1) (LETT #9# (- |k1| 1)) G190
                                 (COND ((|greater_SI| |i| #9#) (GO G191)))
@@ -308,7 +296,7 @@
                                                               (MIN |l1| |dg|))
                                                         (LETT |all_done|
                                                               (>= |i|
-                                                                  (QUOTIENT2
+                                                                  (|quotient_INT|
                                                                    |n| 2)))
                                                         (COND
                                                          ((> |n| 0)
@@ -544,7 +532,7 @@
                                                                (LETT |res1|
                                                                      (|MODFACTG;eqfact|
                                                                       |g|
-                                                                      (QUOTIENT2
+                                                                      (|quotient_INT|
                                                                        |dg|
                                                                        |i|)
                                                                       |pmat1|
@@ -688,7 +676,8 @@
                                                                         23)))))))))))))))))))))))
                                                  (EXIT
                                                   (COND
-                                                   ((>= |i| (QUOTIENT2 |n| 2))
+                                                   ((>= |i|
+                                                        (|quotient_INT| |n| 2))
                                                     (PROGN
                                                      (LETT #2#
                                                            (PROGN
@@ -701,7 +690,7 @@
                                     #11# (EXIT #3#))
                                    (EXIT
                                     (COND
-                                     ((>= |i| (QUOTIENT2 |n| 2))
+                                     ((>= |i| (|quotient_INT| |n| 2))
                                       (PROGN (LETT #1# 1) (GO #13=#:G65)))
                                      ('T
                                       (LETT |pk|

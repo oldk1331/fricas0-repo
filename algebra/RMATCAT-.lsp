@@ -70,7 +70,7 @@
           (|row| (|List| R)) (|el| (R)) (#1=#:G36 NIL) (#2=#:G44 NIL) (|j| NIL)
           (#3=#:G43 NIL) (|s| (|NonNegativeInteger|)))
          (SEQ (LETT |s| (SPADCALL (QREFELT % 13)))
-              (LETT |old| (DIVIDE2 (- |i| 1) |s|)) (LETT |res| NIL)
+              (LETT |old| (|divide_INT| (- |i| 1) |s|)) (LETT |res| NIL)
               (SEQ (LETT |i| 1) (LETT #3# (QREFELT % 7)) G190
                    (COND ((|greater_SI| |i| #3#) (GO G191)))
                    (SEQ (LETT |row| NIL)
@@ -85,7 +85,8 @@
                                                          '(|Integer|) #1#))
                                      (QREFELT % 23)))
                               (LETT |row| (CONS |el| |row|))
-                              (EXIT (LETT |old| (DIVIDE2 (QCAR |old|) |s|))))
+                              (EXIT
+                               (LETT |old| (|divide_INT| (QCAR |old|) |s|))))
                              (LETT |j| (|inc_SI| |j|)) (GO G190) G191
                              (EXIT NIL))
                         (EXIT (LETT |res| (CONS (NREVERSE |row|) |res|))))

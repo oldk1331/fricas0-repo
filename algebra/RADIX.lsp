@@ -95,8 +95,8 @@
                 (SEQ (LETT |s| -1)
                      (EXIT (LETT |q| (SPADCALL |q| (QREFELT % 45)))))))
               (LETT |qr|
-                    (DIVIDE2 (SPADCALL |q| (QREFELT % 36))
-                             (SPADCALL |q| (QREFELT % 38))))
+                    (|divide_INT| (SPADCALL |q| (QREFELT % 36))
+                                  (SPADCALL |q| (QREFELT % 38))))
               (LETT |whole| (|RADIX;radixInt| (QCAR |qr|) (QREFELT % 6) %))
               (LETT |fractn|
                     (|RADIX;radixFrac| (QCDR |qr|)
@@ -328,7 +328,8 @@
               (SEQ G190
                    (COND
                     ((NULL (SPADCALL (ABS |n|) 0 (QREFELT % 79))) (GO G191)))
-                   (SEQ (LETT |qr| (DIVIDE2 |n| |bas|)) (LETT |n| (QCAR |qr|))
+                   (SEQ (LETT |qr| (|divide_INT| |n| |bas|))
+                        (LETT |n| (QCAR |qr|))
                         (EXIT (LETT |rits| (CONS (QCDR |qr|) |rits|))))
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT |rits|)))) 
@@ -357,14 +358,15 @@
           (#6=#:G168 NIL) (|p| #7=(|Integer|)) (|ritsi| #4#) (#8=#:G167 NIL)
           (|n| #7#) (|qr2i| #1#) (|qrt| #1#) (|qr1i| #1#) (#9=#:G166 NIL)
           (|qr| #1#))
-         (SEQ (LETT |qr| (DIVIDE2 (* |bas| |num|) |den|)) (LETT |i| 0)
+         (SEQ (LETT |qr| (|divide_INT| (* |bas| |num|) |den|)) (LETT |i| 0)
               (LETT |qr1i| (LETT |qr2i| |qr|)) (LETT |rits| (LIST |qr|))
               (SEQ (LETT #9# NIL) G190 (COND (#9# (GO G191)))
-                   (SEQ (LETT |qr1i| (DIVIDE2 (* |bas| (QCDR |qr1i|)) |den|))
-                        (LETT |qrt| (DIVIDE2 (* |bas| (QCDR |qr2i|)) |den|))
-                        (LETT |qr2i| (DIVIDE2 (* |bas| (QCDR |qrt|)) |den|))
-                        (LETT |rits| (CONS |qr2i| (CONS |qrt| |rits|)))
-                        (EXIT (LETT |i| (+ |i| 1))))
+                   (SEQ
+                    (LETT |qr1i| (|divide_INT| (* |bas| (QCDR |qr1i|)) |den|))
+                    (LETT |qrt| (|divide_INT| (* |bas| (QCDR |qr2i|)) |den|))
+                    (LETT |qr2i| (|divide_INT| (* |bas| (QCDR |qrt|)) |den|))
+                    (LETT |rits| (CONS |qr2i| (CONS |qrt| |rits|)))
+                    (EXIT (LETT |i| (+ |i| 1))))
                    (LETT #9# (SPADCALL |qr1i| |qr2i| (QREFELT % 81))) (GO G190)
                    G191 (EXIT NIL))
               (LETT |rits| (NREVERSE |rits|)) (LETT |n| |i|)

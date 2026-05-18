@@ -162,7 +162,7 @@
          (SEQ (LETT |rsiz| (CDR |sizes|)) (LETT |do_rec| (NULL (NULL |rsiz|)))
               (LETT |size1| (|SPADfirst| |sizes|))
               (LETT |msize| (COND (|do_rec| (|SPADfirst| |rsiz|)) ('T 1)))
-              (LETT |deg| (QUOTIENT2 |size1| |msize|))
+              (LETT |deg| (|quotient_INT| |size1| |msize|))
               (EXIT
                (SEQ (LETT |i| 0) (LETT #2# (- |deg| 1)) G190
                     (COND ((|greater_SI| |i| #2#) (GO G191)))

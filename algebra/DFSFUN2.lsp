@@ -615,12 +615,12 @@
               (EXIT
                (COND ((EQL |n| 0) |cot_x|)
                      (#6='T
-                      (SEQ (LETT |nn| (QUOTIENT2 (+ |n| 1) 2))
+                      (SEQ (LETT |nn| (|quotient_INT| (+ |n| 1) 2))
                            (LETT |v| (MAKE_DOUBLE_VECTOR1 (+ |nn| 1) 0.0))
                            (DSETELT |v| 0 (DSETELT |v| 1 1.0))
                            (SEQ (LETT |i| 2) (LETT #5# |n|) G190
                                 (COND ((|greater_SI| |i| #5#) (GO G191)))
-                                (SEQ (LETT |j| (QUOTIENT2 (+ |i| 1) 2))
+                                (SEQ (LETT |j| (|quotient_INT| (+ |i| 1) 2))
                                      (LETT |t| 0.0)
                                      (LETT |j1| (COND ((ODDP |i|) 1) ('T 0)))
                                      (SEQ (LETT |k| |j|) (LETT #3# |j1|) G190

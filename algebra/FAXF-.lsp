@@ -312,14 +312,15 @@
           (|qr|
            (|Record| (|:| |quotient| (|NonNegativeInteger|))
                      (|:| |remainder| (|NonNegativeInteger|)))))
-         (SEQ (LETT |qr| (DIVIDE2 (SPADCALL (QREFELT % 12)) |s|))
+         (SEQ (LETT |qr| (|divide_INT| (SPADCALL (QREFELT % 12)) |s|))
               (EXIT
                (COND
                 ((ZEROP (QCDR |qr|))
                  (SEQ
                   (LETT |pow|
-                        (QUOTIENT2 (- (SPADCALL (QREFELT % 89)) 1)
-                                   (- (EXPT (SPADCALL (QREFELT % 90)) |s|) 1)))
+                        (|quotient_INT| (- (SPADCALL (QREFELT % 89)) 1)
+                                        (- (EXPT (SPADCALL (QREFELT % 90)) |s|)
+                                           1)))
                   (EXIT
                    (SPADCALL |e|
                              (PROG1 (LETT #1# |pow|)
@@ -337,7 +338,7 @@
           (|qr|
            (|Record| (|:| |quotient| (|NonNegativeInteger|))
                      (|:| |remainder| (|NonNegativeInteger|)))))
-         (SEQ (LETT |qr| (DIVIDE2 (SPADCALL (QREFELT % 12)) |s|))
+         (SEQ (LETT |qr| (|divide_INT| (SPADCALL (QREFELT % 12)) |s|))
               (LETT |q| (SPADCALL (QREFELT % 90)))
               (EXIT
                (COND

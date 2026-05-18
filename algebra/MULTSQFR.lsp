@@ -993,7 +993,7 @@
                                                 (SPADCALL (QCAR |term|)
                                                           (PROG1
                                                               (LETT #1#
-                                                                    (QUOTIENT2
+                                                                    (|quotient_INT|
                                                                      |texp|
                                                                      |exp|))
                                                             (|check_subtype2|
@@ -1186,8 +1186,8 @@
                                       (COND ((NULL (> |n1| |n|)) (GO G191)))
                                       (SEQ
                                        (LETT |k|
-                                             (QUOTIENT2 (* |k| (- |n1| |m|))
-                                                        |n1|))
+                                             (|quotient_INT|
+                                              (* |k| (- |n1| |m|)) |n1|))
                                        (EXIT (LETT |n1| (- |n1| 1))))
                                       NIL (GO G190) G191 (EXIT NIL))
                                  (LETT |ris|
@@ -1223,7 +1223,8 @@
                       (COND
                        ((OR (ATOM #1#) (PROGN (LETT |n| (CAR #1#)) NIL))
                         (GO G191)))
-                      (SEQ (EXIT (LETT #2# (CONS (QUOTIENT2 |n| |exp|) #2#))))
+                      (SEQ
+                       (EXIT (LETT #2# (CONS (|quotient_INT| |n| |exp|) #2#))))
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 

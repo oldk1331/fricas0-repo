@@ -155,7 +155,7 @@
                     "rightFactorIfCan: leading coefficient may not be zero"))
                   ((OR (ZEROP |dp|) (ZEROP |dq|)) (CONS 1 "failed"))
                   ('T
-                   (SEQ (LETT |nc| (SPADCALL |dp| |dq| (QREFELT % 29)))
+                   (SEQ (LETT |nc| (|exquo_INT| |dp| |dq|))
                         (EXIT
                          (COND ((QEQCAR |nc| 1) (CONS 1 "failed"))
                                (#6='T
@@ -170,7 +170,7 @@
                                      (EXIT
                                       (COND
                                        ((SPADCALL |nr| (|spadConstant| % 16)
-                                                  (QREFELT % 31))
+                                                  (QREFELT % 30))
                                         (CONS 1 "failed"))
                                        (#6#
                                         (SEQ
@@ -185,10 +185,10 @@
                                                                    #5#)))
                                          (LETT |qn1|
                                                (SPADCALL |q| |n1|
-                                                         (QREFELT % 32)))
+                                                         (QREFELT % 31)))
                                          (LETT |qn|
                                                (SPADCALL |q| |qn1|
-                                                         (QREFELT % 33)))
+                                                         (QREFELT % 32)))
                                          (LETT |lcn|
                                                (SPADCALL |qn| (QREFELT % 14)))
                                          (LETT |lcn1|
@@ -220,12 +220,12 @@
                                                                  (SPADCALL
                                                                   |cc0| |qn|
                                                                   (QREFELT %
-                                                                           34))
+                                                                           33))
                                                                  (QREFELT %
-                                                                          35)))
+                                                                          34)))
                                                  (LETT |k1| 1) (LETT |k| 2)
                                                  (LETT |qn1|
-                                                       (|spadConstant| % 30))
+                                                       (|spadConstant| % 29))
                                                  (SEQ (LETT |i| 1)
                                                       (LETT #4# (- |dq| 1))
                                                       G190
@@ -241,13 +241,13 @@
                                                                           |n1|
                                                                           (QREFELT
                                                                            %
-                                                                           32)))
+                                                                           31)))
                                                           (LETT |qn|
                                                                 (SPADCALL |q|
                                                                           |qn1|
                                                                           (QREFELT
                                                                            %
-                                                                           33)))
+                                                                           32)))
                                                           (LETT |p1|
                                                                 (SPADCALL |p|
                                                                           (SPADCALL
@@ -255,10 +255,10 @@
                                                                            |qn|
                                                                            (QREFELT
                                                                             %
-                                                                            34))
+                                                                            33))
                                                                           (QREFELT
                                                                            %
-                                                                           35)))
+                                                                           34)))
                                                           (LETT |k1| |k|)
                                                           (EXIT
                                                            (LETT |k|
@@ -349,7 +349,7 @@
 
 (SDEFUN |UPDECOMP;monicRightFactorIfCan;UPNniU;3|
         ((|p| (UP)) (|dq| (|NonNegativeInteger|)) (% (|Union| UP "failed")))
-        (SPADCALL |p| |dq| (|spadConstant| % 10) (QREFELT % 37))) 
+        (SPADCALL |p| |dq| (|spadConstant| % 10) (QREFELT % 36))) 
 
 (SDEFUN |UPDECOMP;leftFactorIfCan;2UPU;4|
         ((|f| (UP)) (|h| (UP)) (% (|Union| UP "failed")))
@@ -362,17 +362,17 @@
           (|i| NIL))
          (SEQ
           (EXIT
-           (SEQ (LETT |g| (|spadConstant| % 30))
+           (SEQ (LETT |g| (|spadConstant| % 29))
                 (EXIT
                  (COND ((ZEROP (SPADCALL |h| (QREFELT % 9))) (CONS 1 "failed"))
                        ('T
                         (SEQ
                          (SEQ (LETT |i| 0) G190
                               (COND
-                               ((NULL (NULL (SPADCALL |f| (QREFELT % 39))))
+                               ((NULL (NULL (SPADCALL |f| (QREFELT % 38))))
                                 (GO G191)))
                               (SEQ
-                               (LETT |qrf| (SPADCALL |f| |h| (QREFELT % 43)))
+                               (LETT |qrf| (SPADCALL |f| |h| (QREFELT % 42)))
                                (EXIT
                                 (COND
                                  ((QEQCAR |qrf| 1)
@@ -383,7 +383,7 @@
                                   (SEQ (LETT |qr| (QCDR |qrf|))
                                        (LETT |r| (QCDR |qr|))
                                        (COND
-                                        ((NULL (SPADCALL |r| (QREFELT % 44)))
+                                        ((NULL (SPADCALL |r| (QREFELT % 43)))
                                          (EXIT
                                           (PROGN
                                            (LETT #1# (CONS 1 "failed"))
@@ -393,7 +393,7 @@
                                                        (SPADCALL
                                                         (SPADCALL |r|
                                                                   (QREFELT %
-                                                                           45))
+                                                                           44))
                                                         |i| (QREFELT % 15))
                                                        (QREFELT % 24)))
                                        (EXIT (LETT |f| (QCAR |qr|))))))))
@@ -435,14 +435,14 @@
                                  ((ZEROP (REM |df| |dh|))
                                   (SEQ
                                    (LETT |h|
-                                         (SPADCALL |f| |dh| (QREFELT % 38)))
+                                         (SPADCALL |f| |dh| (QREFELT % 37)))
                                    (EXIT
                                     (COND
                                      ((QEQCAR |h| 0)
                                       (SEQ
                                        (LETT |g|
                                              (SPADCALL |f| (QCDR |h|)
-                                                       (QREFELT % 46)))
+                                                       (QREFELT % 45)))
                                        (EXIT
                                         (COND
                                          ((QEQCAR |g| 0)
@@ -462,14 +462,14 @@
          ((|lr| (|Record| (|:| |left| UP) (|:| |right| UP)))
           (|cf|
            (|Union| (|Record| (|:| |left| UP) (|:| |right| UP)) "failed")))
-         (SEQ (LETT |cf| (SPADCALL |f| (QREFELT % 49)))
+         (SEQ (LETT |cf| (SPADCALL |f| (QREFELT % 48)))
               (EXIT
                (COND ((QEQCAR |cf| 1) (LIST |f|))
                      ('T
                       (SEQ (LETT |lr| (QCDR |cf|))
                            (EXIT
-                            (SPADCALL (SPADCALL (QCAR |lr|) (QREFELT % 51))
-                                      (LIST (QCDR |lr|)) (QREFELT % 52)))))))))) 
+                            (SPADCALL (SPADCALL (QCAR |lr|) (QREFELT % 50))
+                                      (LIST (QCDR |lr|)) (QREFELT % 51)))))))))) 
 
 (SDEFUN |UPDECOMP;decomposeIfCan;UPU;7|
         ((|f| (UP))
@@ -480,8 +480,8 @@
            (|Union| (|Record| (|:| |left| UP) (|:| |right| UP)) "failed"))
           (|lc| (R)))
          (SEQ (LETT |lc| (SPADCALL |f| (QREFELT % 14)))
-              (LETT |f| (SPADCALL |f| |lc| (QREFELT % 53)))
-              (LETT |res1| (SPADCALL |f| (QREFELT % 49)))
+              (LETT |f| (SPADCALL |f| |lc| (QREFELT % 52)))
+              (LETT |res1| (SPADCALL |f| (QREFELT % 48)))
               (EXIT
                (COND ((QEQCAR |res1| 1) (CONS 1 "failed"))
                      ('T
@@ -489,16 +489,16 @@
                            (EXIT
                             (CONS 0
                                   (CONS
-                                   (SPADCALL |lc| (QCAR |lr|) (QREFELT % 34))
+                                   (SPADCALL |lc| (QCAR |lr|) (QREFELT % 33))
                                    (QCDR |lr|))))))))))) 
 
 (SDEFUN |UPDECOMP;completeDecompose;UPL;8| ((|f| (UP)) (% (|List| UP)))
         (SPROG ((|res1| (|List| UP)) (|lc| (R)))
                (SEQ (LETT |lc| (SPADCALL |f| (QREFELT % 14)))
-                    (LETT |f| (SPADCALL |f| |lc| (QREFELT % 53)))
-                    (LETT |res1| (SPADCALL |f| (QREFELT % 51)))
+                    (LETT |f| (SPADCALL |f| |lc| (QREFELT % 52)))
+                    (LETT |res1| (SPADCALL |f| (QREFELT % 50)))
                     (EXIT
-                     (CONS (SPADCALL |lc| (|SPADfirst| |res1|) (QREFELT % 34))
+                     (CONS (SPADCALL |lc| (|SPADfirst| |res1|) (QREFELT % 33))
                            (CDR |res1|)))))) 
 
 (DECLAIM (NOTINLINE |UnivariatePolynomialDecompositionPackage;|)) 
@@ -510,7 +510,7 @@
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$|
                 (LIST '|UnivariatePolynomialDecompositionPackage| DV$1 DV$2))
-          (LETT % (GETREFV 56))
+          (LETT % (GETREFV 55))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3
                     (LETT |pv$|
@@ -529,11 +529,11 @@
           (COND
            ((|testBitVector| |pv$| 1)
             (PROGN
-             (QSETREFV % 54
+             (QSETREFV % 53
                        (CONS
                         (|dispatchFunction| |UPDECOMP;decomposeIfCan;UPU;7|)
                         %))
-             (QSETREFV % 55
+             (QSETREFV % 54
                        (CONS
                         (|dispatchFunction| |UPDECOMP;completeDecompose;UPL;8|)
                         %)))))
@@ -571,24 +571,23 @@
               (|Integer|) (34 . |coerce|) (39 . +) (45 . *) (51 . -)
               (57 . |coefficient|) (63 . |exquo|) (69 . +)
               (75 . |characteristic|) '|char_R| (|Boolean|) (79 . |zero?|)
-              (84 . |exquo|) (90 . |Zero|) (94 . =) (100 . ^) (106 . *)
-              (112 . *) (118 . -) (|Union| 7 '#1="failed")
-              |UPDECOMP;rightFactorIfCan;UPNniRU;2|
-              |UPDECOMP;monicRightFactorIfCan;UPNniU;3| (124 . |zero?|)
+              (84 . |Zero|) (88 . =) (94 . ^) (100 . *) (106 . *) (112 . -)
+              (|Union| 7 '#1="failed") |UPDECOMP;rightFactorIfCan;UPNniRU;2|
+              |UPDECOMP;monicRightFactorIfCan;UPNniU;3| (118 . |zero?|)
               (|Record| (|:| |quotient| 7) (|:| |remainder| 7))
-              (|Union| 40 '"failed")
-              (|UnivariatePolynomialDivisionPackage| 6 7) (129 . |divideIfCan|)
-              (135 . |ground?|) (140 . |ground|)
+              (|Union| 39 '"failed")
+              (|UnivariatePolynomialDivisionPackage| 6 7) (123 . |divideIfCan|)
+              (129 . |ground?|) (134 . |ground|)
               |UPDECOMP;leftFactorIfCan;2UPU;4|
               (|Record| (|:| |left| 7) (|:| |right| 7))
-              (|Union| 47 '#2="failed") |UPDECOMP;monicDecomposeIfCan;UPU;5|
+              (|Union| 46 '#2="failed") |UPDECOMP;monicDecomposeIfCan;UPU;5|
               (|List| 7) |UPDECOMP;monicCompleteDecompose;UPL;6|
-              (145 . |append|) (151 . /) (157 . |decomposeIfCan|)
-              (162 . |completeDecompose|))
-           '#(|rightFactorIfCan| 167 |monicRightFactorIfCan| 174
-              |monicDecomposeIfCan| 180 |monicCompleteDecompose| 185
-              |leftFactorIfCan| 190 |decomposeIfCan| 196 |completeDecompose|
-              201)
+              (139 . |append|) (145 . /) (151 . |decomposeIfCan|)
+              (156 . |completeDecompose|))
+           '#(|rightFactorIfCan| 161 |monicRightFactorIfCan| 168
+              |monicDecomposeIfCan| 174 |monicCompleteDecompose| 179
+              |leftFactorIfCan| 184 |decomposeIfCan| 190 |completeDecompose|
+              195)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -626,20 +625,19 @@
                               '((|completeDecompose| ((|List| |#2|) |#2|))
                                 (|has| 6 (|Field|))))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 55
+                        (|makeByteWordVec2| 54
                                             '(1 7 8 0 9 0 6 0 10 0 7 0 11 2 8
                                               12 0 0 13 1 7 6 0 14 2 7 0 6 8 15
                                               0 6 0 16 1 6 0 17 18 2 6 0 0 0 19
                                               2 6 0 0 0 20 2 6 0 0 0 21 2 7 6 0
                                               8 22 2 6 12 0 0 23 2 7 0 0 0 24 0
-                                              6 8 25 1 6 27 0 28 2 8 12 0 0 29
-                                              0 7 0 30 2 6 27 0 0 31 2 7 0 0 8
-                                              32 2 7 0 0 0 33 2 7 0 6 0 34 2 7
-                                              0 0 0 35 1 7 27 0 39 2 42 41 7 7
-                                              43 1 7 27 0 44 1 7 6 0 45 2 50 0
-                                              0 0 52 2 7 0 0 6 53 1 0 48 7 54 1
-                                              0 50 7 55 3 0 36 7 8 6 37 2 0 36
-                                              7 8 38 1 0 48 7 49 1 0 50 7 51 2
-                                              0 36 7 7 46 1 1 48 7 54 1 1 50 7
-                                              55)))))
+                                              6 8 25 1 6 27 0 28 0 7 0 29 2 6
+                                              27 0 0 30 2 7 0 0 8 31 2 7 0 0 0
+                                              32 2 7 0 6 0 33 2 7 0 0 0 34 1 7
+                                              27 0 38 2 41 40 7 7 42 1 7 27 0
+                                              43 1 7 6 0 44 2 49 0 0 0 51 2 7 0
+                                              0 6 52 1 0 47 7 53 1 0 49 7 54 3
+                                              0 35 7 8 6 36 2 0 35 7 8 37 1 0
+                                              47 7 48 1 0 49 7 50 2 0 35 7 7 45
+                                              1 1 47 7 53 1 1 49 7 54)))))
            '|lookupComplete|)) 

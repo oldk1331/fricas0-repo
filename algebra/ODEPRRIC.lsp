@@ -730,10 +730,10 @@
                                  (|spadConstant| % 39) (QREFELT % 57))
                                 (SEQ
                                  (LETT |u|
-                                       (SPADCALL
+                                       (|exquo_INT|
                                         (- (SPADCALL |li| |nu|)
                                            (SPADCALL |lj| |nu|))
-                                        (- |i| |j|) (QREFELT % 113)))
+                                        (- |i| |j|)))
                                  (EXIT
                                   (COND
                                    ((QEQCAR |u| 0)
@@ -759,7 +759,7 @@
          (|zeros| (|Mapping| (|List| UP) UP (|SparseUnivariatePolynomial| UP)))
          (|ezfactor| (|Mapping| (|Factored| UP) UP))
          (% (|List| (|Record| (|:| |frac| (|Fraction| UP)) (|:| |eq| L)))))
-        (CONS (CONS (|spadConstant| % 114) |l|)
+        (CONS (CONS (|spadConstant| % 113) |l|)
               (|ODEPRRIC;fracsol| |l| |zeros|
                (|ODEPRRIC;refine| (|ODEPRRIC;factoredDenomRicDE| |l| %)
                 |ezfactor| %)
@@ -850,7 +850,7 @@
                (|finite?|
                 (LETT |lc|
                       (SPADCALL (CONS #'|ODEPRRIC;polysol!0| (VECTOR % |b|))
-                                |lc| (QREFELT % 119)))))
+                                |lc| (QREFELT % 118)))))
               (SEQ (LETT |rec| NIL) (LETT #5# |lc|) G190
                    (COND
                     ((OR (ATOM #5#) (PROGN (LETT |rec| (CAR #5#)) NIL))
@@ -866,7 +866,7 @@
                            (EXIT
                             (COND
                              ((SPADCALL |a| (|spadConstant| % 38)
-                                        (QREFELT % 120))
+                                        (QREFELT % 119))
                               (SEQ
                                (LETT |atn|
                                      (SPADCALL |a| (QCAR |rec|)
@@ -910,7 +910,7 @@
                                                         #2#))))
                                                (LETT #1# (CDR #1#)) (GO G190)
                                                G191 (EXIT (NREVERSE #2#))))
-                                         |ans| (QREFELT % 121)))))))))))
+                                         |ans| (QREFELT % 120)))))))))))
                           (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))))
                    (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
               (EXIT |ans|)))) 
@@ -933,7 +933,7 @@
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$| (LIST '|PrimitiveRatRicDE| DV$1 DV$2 DV$3 DV$4))
-    (LETT % (GETREFV 122))
+    (LETT % (GETREFV 121))
     (QSETREFV % 0 |dv$|)
     (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|PrimitiveRatRicDE|
@@ -1007,11 +1007,11 @@
               (310 . |Zero|) (314 . |coerce|) (319 . *) (325 . *)
               (|Record| (|:| |eq| 8) (|:| |rh| 110)) (|List| 58)
               (|PrimitiveRatDE| 6 7 8 9) (331 . |splitDenominator|)
-              (337 . |exquo|) (343 . |Zero|) (|Mapping| 49 7 25)
-              (|Mapping| 47 7) |ODEPRRIC;singRicDE;LMML;25| (|Mapping| 51 89)
-              (347 . |select!|) (353 . ~=) (359 . |concat!|))
-           '#(|singRicDE| 365 |polyRicDE| 372 |leadingCoefficientRicDE| 378
-              |denomRicDE| 383 |constantCoefficientRicDE| 388 |changeVar| 394)
+              (337 . |Zero|) (|Mapping| 49 7 25) (|Mapping| 47 7)
+              |ODEPRRIC;singRicDE;LMML;25| (|Mapping| 51 89) (341 . |select!|)
+              (347 . ~=) (353 . |concat!|))
+           '#(|singRicDE| 359 |polyRicDE| 366 |leadingCoefficientRicDE| 372
+              |denomRicDE| 377 |constantCoefficientRicDE| 382 |changeVar| 388)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -1054,7 +1054,7 @@
                                       (|#3| |#3| (|Fraction| |#2|)))
                                      T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 121
+                        (|makeByteWordVec2| 120
                                             '(0 8 0 10 0 9 0 12 2 7 14 0 0 15 1
                                               7 14 0 16 1 17 0 0 18 2 7 0 0 14
                                               19 2 7 20 0 0 21 2 7 0 0 0 22 0 6
@@ -1079,10 +1079,10 @@
                                               58 102 2 9 0 0 0 103 0 9 0 104 0
                                               9 0 105 1 58 0 7 106 2 9 0 58 0
                                               107 2 9 0 0 0 108 2 111 109 9 110
-                                              112 2 17 20 0 0 113 0 58 0 114 2
-                                              91 0 118 0 119 2 6 51 0 0 120 2
-                                              41 0 0 0 121 3 0 63 8 115 116 117
-                                              2 0 41 8 42 43 1 0 91 8 93 1 0 7
-                                              8 37 2 0 79 8 42 80 2 0 8 8 7 77
-                                              2 0 8 8 58 60)))))
+                                              112 0 58 0 113 2 91 0 117 0 118 2
+                                              6 51 0 0 119 2 41 0 0 0 120 3 0
+                                              63 8 114 115 116 2 0 41 8 42 43 1
+                                              0 91 8 93 1 0 7 8 37 2 0 79 8 42
+                                              80 2 0 8 8 7 77 2 0 8 8 58
+                                              60)))))
            '|lookupComplete|)) 

@@ -248,19 +248,21 @@
                    (SEQ (LETT |fac| (QCAR |f|))
                         (LETT |base|
                               (SPADCALL (SPADCALL (QREFELT % 39))
-                                        (QUOTIENT2 (QREFELT % 19) |fac|)
+                                        (|quotient_INT| (QREFELT % 19) |fac|)
                                         (QREFELT % 129)))
                         (LETT |l| (INTEGER-LENGTH |fac|)) (LETT |n| 0)
                         (COND
                          ((ODDP |l|)
-                          (LETT |n| (ASH |fac| (- (QUOTIENT2 |l| 2)))))
-                         ('T (LETT |n| (ASH 1 (QUOTIENT2 |l| 2)))))
+                          (LETT |n| (ASH |fac| (- (|quotient_INT| |l| 2)))))
+                         ('T (LETT |n| (ASH 1 (|quotient_INT| |l| 2)))))
                         (COND
                          ((< |n| |limit|)
-                          (SEQ (LETT |d| (+ (QUOTIENT2 (- |fac| 1) |limit|) 1))
-                               (EXIT
-                                (LETT |n|
-                                      (+ (QUOTIENT2 (- |fac| 1) |d|) 1))))))
+                          (SEQ
+                           (LETT |d|
+                                 (+ (|quotient_INT| (- |fac| 1) |limit|) 1))
+                           (EXIT
+                            (LETT |n|
+                                  (+ (|quotient_INT| (- |fac| 1) |d|) 1))))))
                         (LETT |tbl| (SPADCALL (QREFELT % 130)))
                         (LETT |a| (|spadConstant| % 29))
                         (SEQ (LETT |i| 0)

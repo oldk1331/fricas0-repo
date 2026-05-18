@@ -72,7 +72,7 @@
                 (LETT |degG|
                       (MAX (SPADCALL |g1| (QREFELT % 31))
                            (SPADCALL |g2| (QREFELT % 31))))
-                (LETT N (SPADCALL |degF| |degG| (QREFELT % 33)))
+                (LETT N (|exquo_INT| |degF| |degG|))
                 (EXIT
                  (COND ((QEQCAR N 1) (PROGN (LETT #1# |exprf|) (GO #5=#:G19)))
                        (#6='T
@@ -81,9 +81,9 @@
                                    (|SOLVESER;subsSolve| |f1| |degF| |g1| |g2|
                                     |m| |newH| %))
                              (COND
-                              ((SPADCALL |f2| (|spadConstant| % 34)
-                                         (QREFELT % 36))
-                               (LETT |newF2| (CONS 0 (|spadConstant| % 34))))
+                              ((SPADCALL |f2| (|spadConstant| % 32)
+                                         (QREFELT % 34))
+                               (LETT |newF2| (CONS 0 (|spadConstant| % 32))))
                               (#6#
                                (LETT |newF2|
                                      (|SOLVESER;subsSolve| |f2| |degF| |g1|
@@ -95,7 +95,7 @@
                                ('T
                                 (LETT |newF|
                                       (SPADCALL (QCDR |newF1|) (QCDR |newF2|)
-                                                (QREFELT % 37))))))))))))
+                                                (QREFELT % 35))))))))))))
           #5# (EXIT #1#)))) 
 
 (SDEFUN |SOLVESER;subsSolve|
@@ -123,7 +123,7 @@
           (EXIT
            (SEQ
             (LETT |coeffmat|
-                  (MAKE_MATRIX1 (+ |DegF| 1) 1 (|spadConstant| % 39)))
+                  (MAKE_MATRIX1 (+ |DegF| 1) 1 (|spadConstant| % 37)))
             (SEQ (LETT |i| 0) (LETT #5# M) G190
                  (COND ((|greater_SI| |i| #5#) (GO G191)))
                  (SEQ
@@ -139,18 +139,18 @@
                                                                     '(|NonNegativeInteger|)
                                                                     '(|Integer|)
                                                                     #4#))
-                                                (QREFELT % 40))
-                                      (SPADCALL G2 |i| (QREFELT % 40))
-                                      (QREFELT % 41))
-                                     (+ |DegF| 1) (QREFELT % 42))
-                                    (QREFELT % 44))
-                                   (QREFELT % 45)))))
+                                                (QREFELT % 38))
+                                      (SPADCALL G2 |i| (QREFELT % 38))
+                                      (QREFELT % 39))
+                                     (+ |DegF| 1) (QREFELT % 40))
+                                    (QREFELT % 42))
+                                   (QREFELT % 43)))))
                  (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-            (LETT |vec| (SPADCALL F (+ |DegF| 1) (QREFELT % 42)))
+            (LETT |vec| (SPADCALL F (+ |DegF| 1) (QREFELT % 40)))
             (LETT |coeffma|
                   (SPADCALL |coeffmat| 1 (+ |DegF| 1) 2 (+ M 2)
-                            (QREFELT % 46)))
-            (LETT |solvar| (SPADCALL |coeffma| |vec| (QREFELT % 50)))
+                            (QREFELT % 44)))
+            (LETT |solvar| (SPADCALL |coeffma| |vec| (QREFELT % 48)))
             (EXIT
              (COND
               ((QEQCAR (QCAR |solvar|) 1)
@@ -180,7 +180,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|TransSolvePackageService| DV$1))
-          (LETT % (GETREFV 51))
+          (LETT % (GETREFV 49))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|TransSolvePackageService|
@@ -219,14 +219,13 @@
               (|Kernel| %) (27 . |univariate|) (33 . ^) (39 . *) (45 . +)
               |SOLVESER;unvectorise;VFIF;1| (|SparseUnivariatePolynomial| 14)
               (51 . |numer|) (56 . |denom|) (|NonNegativeInteger|)
-              (61 . |degree|) (|Union| % '"failed") (66 . |exquo|) (72 . |One|)
-              (|Boolean|) (76 . =) (82 . /) |SOLVESER;decomposeFunc;4F;2|
-              (88 . |Zero|) (92 . ^) (98 . *) (104 . |vectorise|) (|Matrix| 14)
-              (110 . |coerce|) (115 . |horizConcat|) (121 . |subMatrix|)
-              (|Union| 16 '"failed")
-              (|Record| (|:| |particular| 47) (|:| |basis| (|List| 16)))
-              (|LinearSystemMatrixPackage| 14 16 16 43) (130 . |solve|))
-           '#(|unvectorise| 136 |decomposeFunc| 143) 'NIL
+              (61 . |degree|) (66 . |One|) (|Boolean|) (70 . =) (76 . /)
+              |SOLVESER;decomposeFunc;4F;2| (82 . |Zero|) (86 . ^) (92 . *)
+              (98 . |vectorise|) (|Matrix| 14) (104 . |coerce|)
+              (109 . |horizConcat|) (115 . |subMatrix|) (|Union| 16 '"failed")
+              (|Record| (|:| |particular| 45) (|:| |basis| (|List| 16)))
+              (|LinearSystemMatrixPackage| 14 16 16 41) (124 . |solve|))
+           '#(|unvectorise| 130 |decomposeFunc| 137) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -258,17 +257,16 @@
                                   (|Integer|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 50
+                        (|makeByteWordVec2| 48
                                             '(0 7 0 8 0 9 0 10 0 6 0 11 0 12 0
                                               13 2 16 14 0 15 17 1 18 0 7 19 2
                                               14 20 0 21 22 2 9 0 0 15 23 2 9 0
                                               0 0 24 2 9 0 0 0 25 1 9 27 0 28 1
-                                              9 27 0 29 1 27 30 0 31 2 30 32 0
-                                              0 33 0 27 0 34 2 27 35 0 0 36 2 9
-                                              0 27 27 37 0 14 0 39 2 27 0 0 30
-                                              40 2 27 0 0 0 41 2 27 16 0 30 42
-                                              1 43 0 16 44 2 43 0 0 0 45 5 43 0
-                                              0 15 15 15 15 46 2 49 48 43 16 50
-                                              3 0 9 16 9 15 26 3 0 9 9 9 9
-                                              38)))))
+                                              9 27 0 29 1 27 30 0 31 0 27 0 32
+                                              2 27 33 0 0 34 2 9 0 27 27 35 0
+                                              14 0 37 2 27 0 0 30 38 2 27 0 0 0
+                                              39 2 27 16 0 30 40 1 41 0 16 42 2
+                                              41 0 0 0 43 5 41 0 0 15 15 15 15
+                                              44 2 47 46 41 16 48 3 0 9 16 9 15
+                                              26 3 0 9 9 9 9 36)))))
            '|lookupComplete|)) 

@@ -35,12 +35,13 @@
         (SPROG
          ((|q| #1=(|Integer|)) (|r| (|Integer|)) (|r0| #2=(|Integer|))
           (|dv| (|Record| (|:| |quotient| #1#) (|:| |remainder| #2#))))
-         (SEQ (LETT |dv| (DIVIDE2 |n| (QREFELT % 6))) (LETT |r0| (QCDR |dv|))
-              (LETT |q| (QCAR |dv|))
+         (SEQ (LETT |dv| (|divide_INT| |n| (QREFELT % 6)))
+              (LETT |r0| (QCDR |dv|)) (LETT |q| (QCAR |dv|))
               (COND
                ((SPADCALL (LETT |r| (|IPADIC;modP| |r0| %)) |r0|
                           (QREFELT % 27))
-                (LETT |q| (+ |q| (QUOTIENT2 (- |r0| |r|) (QREFELT % 6))))))
+                (LETT |q|
+                      (+ |q| (|quotient_INT| (- |r0| |r|) (QREFELT % 6))))))
               (EXIT (CONS |r| |q|))))) 
 
 (SDEFUN |IPADIC;invModP| ((|n| (|Integer|)) (% (|Integer|)))
