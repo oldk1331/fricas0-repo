@@ -2403,7 +2403,7 @@
 
 (DEFUN |isAsharpFileName?| (|con|) (PROG () (RETURN NIL)))
 
-; MAKEPROP('Record,'documentation,'(
+; MAKEPROP('Record, 'documentation, '(
 ;   (_=  (((Boolean) _% _%)
 ;    "\spad{r = s} tests for equality of two records \spad{r} and \spad{s}"))
 ;   (coerce (((OutputForm) _%)
@@ -2451,9 +2451,9 @@
 ; MAKEPROP('UntaggedUnion, 'documentation, '(
 ;   (_=  (((Boolean) % %)
 ;     "\spad{u = v} tests if two objects of the union are equal, that is, u and v are hold objects of same branch which are equal."))
-;   (case (((Boolean) % "A")
+;   (case (((Boolean) % A)
 ;     "\spad{u case A} tests if \spad{u} is of the type \spad{A} branch of the union.")
-;         (((Boolean) % "B")
+;         (((Boolean) % B)
 ;     "\spad{u case B} tests if \spad{u} is of the \spad{B} branch of the union."))
 ;   (coerce ((A %)
 ;     "\spad{coerce(u)} returns \spad{x} of type \spad{A} if \spad{x} is of the \spad{A} branch of the union. Error: if \spad{u} is of the \spad{B} branch of the union.")
@@ -2473,9 +2473,9 @@
          (((|Boolean|) % %)
           "\\spad{u = v} tests if two objects of the union are equal, that is, u and v are hold objects of same branch which are equal."))
         (CASE
-            (((|Boolean|) % "A")
+            (((|Boolean|) % A)
              "\\spad{u case A} tests if \\spad{u} is of the type \\spad{A} branch of the union.")
-          (((|Boolean|) % "B")
+          (((|Boolean|) % B)
            "\\spad{u case B} tests if \\spad{u} is of the \\spad{B} branch of the union."))
         (|coerce|
          ((A %)
@@ -2490,9 +2490,9 @@
 ; MAKEPROP('Union, 'documentation, '(
 ;   (_=  (((Boolean) % %)
 ;     "\spad{u = v} tests if two objects of the union are equal, that is, \spad{u} and \spad{v} are objects of same branch which are equal."))
-;   (case (((Boolean) % "A")
+;   (case (((Boolean) % "a")
 ;     "\spad{u case a} tests if \spad{u} is of branch \spad{a} of the union.")
-;                 (((Boolean) % "B")
+;                 (((Boolean) % "b")
 ;     "\spad{u case b} tests if \spad{u} is of branch \spad{b} of the union."))
 ;   (coerce ((A %)
 ;     "\spad{coerce(u)} returns \spad{x} of type \spad{A} if \spad{x} is of branch \spad{a} of the union. Error: if \spad{u} is of branch \spad{b} of the union.")
@@ -2512,9 +2512,9 @@
          (((|Boolean|) % %)
           "\\spad{u = v} tests if two objects of the union are equal, that is, \\spad{u} and \\spad{v} are objects of same branch which are equal."))
         (CASE
-            (((|Boolean|) % "A")
+            (((|Boolean|) % "a")
              "\\spad{u case a} tests if \\spad{u} is of branch \\spad{a} of the union.")
-          (((|Boolean|) % "B")
+          (((|Boolean|) % "b")
            "\\spad{u case b} tests if \\spad{u} is of branch \\spad{b} of the union."))
         (|coerce|
          ((A %)
