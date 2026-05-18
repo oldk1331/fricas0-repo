@@ -65,8 +65,8 @@
 
 (DEFUN |PrimitiveTwoDimensionalArray;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G2577 NIL) (#2=#:G2578 NIL) (% NIL) (|dv$| NIL)
-    (DV$1 NIL))
+   ((DV$1 NIL) (|dv$| NIL) (% NIL) (#1=#:G2578 NIL) (#2=#:G2577 NIL)
+    (|pv$| NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|PrimitiveTwoDimensionalArray| DV$1))
@@ -81,23 +81,23 @@
                                         (|HasCategory| |#1| '(|AbelianMonoid|))
                                         (|HasCategory| |#1| '(|OrderedSet|))
                                         (|HasCategory| |#1| '(|BasicType|))
-                                        (LETT #2#
+                                        (LETT #1#
                                               (|HasCategory| |#1|
                                                              '(|SetCategory|)))
                                         (OR (|HasCategory| |#1| '(|BasicType|))
                                             (|HasCategory| |#1|
                                                            '(|Comparable|))
                                             (|HasCategory| |#1| '(|Hashable|))
-                                            #2#)
+                                            #1#)
                                         (OR
                                          (|HasCategory| |#1| '(|Comparable|))
-                                         #2#)
+                                         #1#)
                                         (AND
                                          (|HasCategory| |#1|
                                                         (LIST '|Evalable|
                                                               (|devaluate|
                                                                |#1|)))
-                                         #2#)
+                                         #1#)
                                         (OR
                                          (AND
                                           (|HasCategory| |#1|
@@ -117,12 +117,12 @@
                                                          (LIST '|Evalable|
                                                                (|devaluate|
                                                                 |#1|)))
-                                          #2#))
-                                        (LETT #1#
+                                          #1#))
+                                        (LETT #2#
                                               (|HasCategory| |#1|
                                                              '(|CoercibleTo|
                                                                (|OutputForm|))))
-                                        (OR #1#
+                                        (OR #2#
                                             (AND
                                              (|HasCategory| |#1|
                                                             (LIST '|Evalable|
@@ -135,7 +135,7 @@
                                                             (LIST '|Evalable|
                                                                   (|devaluate|
                                                                    |#1|)))
-                                             #2#))
+                                             #1#))
                                         (AND
                                          (|HasCategory| |#1| '(|AbelianGroup|))
                                          (|HasCategory| |#1|
@@ -183,7 +183,7 @@
      (OR
       (AND (|HasCategory| |#1| '(|BasicType|))
            (|HasCategory| % '(|finiteAggregate|)))
-      (|HasCategory| |#1| '(|Hashable|)) #2#)
+      (|HasCategory| |#1| '(|Hashable|)) #1#)
      (|augmentPredVector| % 4194304))
     (SETF |pv$| (QREFELT % 3))
     %))) 

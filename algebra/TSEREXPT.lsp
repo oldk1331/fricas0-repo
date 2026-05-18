@@ -43,8 +43,8 @@
         ((|f| (UTS)) (|lx| (|List| UTS))
          (|ld| (|List| (|Mapping| |Coef| |Coef|))) (% (UTS)))
         (SPROG
-         ((|ds| (|Stream| (|Stream| |Coef|))) (|one| #1=(|Stream| |Coef|))
-          (|xs| #1#) (|fs| #1#) (|x1| (UTS)))
+         ((|x1| (UTS)) (|fs| #1=(|Stream| |Coef|)) (|xs| #1#) (|one| #1#)
+          (|ds| (|Stream| (|Stream| |Coef|))))
          (SEQ
           (COND
            ((SPADCALL (LENGTH |lx|) (LENGTH |ld|) (QREFELT % 26))
@@ -114,25 +114,25 @@
           (RETURN
            (PROGN
             (SPROG
-             ((#1=#:G38 NIL) (|s| NIL) (#2=#:G39 NIL) (|a| NIL) (#3=#:G37 NIL))
+             ((#1=#:G37 NIL) (|a| NIL) (#2=#:G39 NIL) (|s| NIL) (#3=#:G38 NIL))
              (SEQ
               (SPADCALL (ELT % 39)
                         (PROGN
-                         (LETT #3# NIL)
+                         (LETT #1# NIL)
                          (SEQ (LETT |a| NIL) (LETT #2# |la|) (LETT |s| NIL)
-                              (LETT #1# |ls|) G190
+                              (LETT #3# |ls|) G190
                               (COND
-                               ((OR (ATOM #1#) (PROGN (LETT |s| (CAR #1#)) NIL)
+                               ((OR (ATOM #3#) (PROGN (LETT |s| (CAR #3#)) NIL)
                                     (ATOM #2#)
                                     (PROGN (LETT |a| (CAR #2#)) NIL))
                                 (GO G191)))
                               (SEQ
                                (EXIT
-                                (LETT #3#
+                                (LETT #1#
                                       (CONS (SPADCALL |s| |a| (QREFELT % 40))
-                                            #3#))))
-                              (LETT #1# (PROG1 (CDR #1#) (LETT #2# (CDR #2#))))
-                              (GO G190) G191 (EXIT (NREVERSE #3#))))
+                                            #1#))))
+                              (LETT #3# (PROG1 (CDR #3#) (LETT #2# (CDR #2#))))
+                              (GO G190) G191 (EXIT (NREVERSE #1#))))
                         (QREFELT % 42)))))))) 
 
 (MAKEPROP '|TSEREXPT;applyTaylor;M2UTS;4| '|SPADreplace|
@@ -147,7 +147,7 @@
 (DECLAIM (NOTINLINE |TaylorSeriesExpansionTaylor;|)) 
 
 (DEFUN |TaylorSeriesExpansionTaylor;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

@@ -1,8 +1,8 @@
 
 (SDEFUN |MODMON;setPoly;2Rep;1| ((|mon| (|Rep|)) (% (|Rep|)))
         (SPROG
-         ((#1=#:G23 NIL) (|i| NIL) (#2=#:G11 NIL) (|copymon| (|Rep|))
-          (|oldm| (|Rep|)))
+         ((|oldm| (|Rep|)) (|copymon| (|Rep|)) (#1=#:G11 NIL) (|i| NIL)
+          (#2=#:G23 NIL))
          (SEQ
           (COND ((SPADCALL |mon| (QREFELT % 12) (QREFELT % 25)) |mon|)
                 (#3='T
@@ -35,10 +35,10 @@
                               (SETELT % 14
                                       (SPADCALL (QREFELT % 12) (QREFELT % 13)))
                               (SETELT % 15
-                                      (PROG1 (LETT #2# (- (QREFELT % 14) 1))
-                                        (|check_subtype2| (>= #2# 0)
+                                      (PROG1 (LETT #1# (- (QREFELT % 14) 1))
+                                        (|check_subtype2| (>= #1# 0)
                                                           '(|NonNegativeInteger|)
-                                                          '(|Integer|) #2#)))
+                                                          '(|Integer|) #1#)))
                               (SETELT % 16 (+ (* 2 (QREFELT % 15)) 1))
                               (SETELT % 22 (|MODMON;computePowers| %))
                               (COND
@@ -54,9 +54,9 @@
                                        1))
                                      (EXIT
                                       (SEQ (LETT |i| 1)
-                                           (LETT #1# (QREFELT % 15)) G190
+                                           (LETT #2# (QREFELT % 15)) G190
                                            (COND
-                                            ((|greater_SI| |i| #1#) (GO G191)))
+                                            ((|greater_SI| |i| #2#) (GO G191)))
                                            (SEQ
                                             (EXIT
                                              (SPADCALL (QREFELT % 23) |i|
@@ -82,23 +82,23 @@
         (* (QREFELT % 14) (SPADCALL (QREFELT % 38)))) 
 
 (SDEFUN |MODMON;random;%;4| ((% (%)))
-        (SPROG ((#1=#:G30 NIL) (|i| NIL) (#2=#:G29 NIL))
+        (SPROG ((#1=#:G29 NIL) (|i| NIL) (#2=#:G30 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
-                  (LETT #2# (GETREFV (|inc_SI| #3=(QREFELT % 15))))
-                  (SEQ (LETT |i| 0) (LETT #1# #3#) G190
-                       (COND ((|greater_SI| |i| #1#) (GO G191)))
-                       (SEQ (EXIT (SETELT #2# |i| (SPADCALL (QREFELT % 40)))))
+                  (LETT #1# (GETREFV (|inc_SI| #3=(QREFELT % 15))))
+                  (SEQ (LETT |i| 0) (LETT #2# #3#) G190
+                       (COND ((|greater_SI| |i| #2#) (GO G191)))
+                       (SEQ (EXIT (SETELT #1# |i| (SPADCALL (QREFELT % 40)))))
                        (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-                  #2#)
+                  #1#)
                  (QREFELT % 42))))) 
 
 (SDEFUN |MODMON;index;Pi%;5| ((|np| (|PositiveInteger|)) (% (%)))
         (SPROG
-         ((|n| (|Integer|)) (|res| (%)) (|cp| (|PositiveInteger|))
-          (|c1| (|Integer|)) (#1=#:G36 NIL) (|i| NIL)
-          (|s1| (|NonNegativeInteger|)))
+         ((|s1| (|NonNegativeInteger|)) (|i| NIL) (#1=#:G36 NIL)
+          (|c1| (|Integer|)) (|cp| (|PositiveInteger|)) (|res| (%))
+          (|n| (|Integer|)))
          (SEQ (LETT |n| (- |np| 1)) (LETT |s1| (SPADCALL (QREFELT % 38)))
               (LETT |res| (|spadConstant| % 18))
               (SEQ (LETT |i| 0) (LETT #1# (- (QREFELT % 14) 1)) G190
@@ -115,8 +115,8 @@
 
 (SDEFUN |MODMON;lookup;%Pi;6| ((|x| (%)) (% (|PositiveInteger|)))
         (SPROG
-         ((|res| (|Integer|)) (|c1| (R)) (|dd1| (|NonNegativeInteger|))
-          (|dd| NIL) (|s1| (|NonNegativeInteger|)))
+         ((|s1| (|NonNegativeInteger|)) (|dd| NIL)
+          (|dd1| (|NonNegativeInteger|)) (|c1| (R)) (|res| (|Integer|)))
          (SEQ (LETT |res| 0) (LETT |s1| (SPADCALL (QREFELT % 38)))
               (SEQ (LETT |dd| (- (QREFELT % 14) 1)) G190
                    (COND ((< |dd| 0) (GO G191)))
@@ -182,7 +182,7 @@
 (SDEFUN |MODMON;-;2%;21| ((|x| (%)) (% (%))) (SPADCALL |x| (QREFELT % 66))) 
 
 (SDEFUN |MODMON;*;3%;22| ((|x| (%)) (|y| (%)) (% (%)))
-        (SPROG ((|p| (|Rep|)) (|ans| (%)) (|n| (|Integer|)))
+        (SPROG ((|n| (|Integer|)) (|ans| (%)) (|p| (|Rep|)))
                (SEQ (LETT |p| (SPADCALL |x| |y| (QREFELT % 68)))
                     (LETT |ans| (|spadConstant| % 49))
                     (SEQ G190
@@ -206,45 +206,45 @@
                     (EXIT (SPADCALL |ans| |p| (QREFELT % 28)))))) 
 
 (SDEFUN |MODMON;Vectorise;%V;23| ((|x| (%)) (% (|Vector| R)))
-        (SPROG ((#1=#:G68 NIL) (|i| NIL) (#2=#:G67 NIL))
+        (SPROG ((#1=#:G67 NIL) (|i| NIL) (#2=#:G68 NIL))
                (SEQ
                 (PROGN
-                 (LETT #2# (GETREFV (|inc_SI| #3=(QREFELT % 15))))
-                 (SEQ (LETT |i| 0) (LETT #1# #3#) G190
-                      (COND ((|greater_SI| |i| #1#) (GO G191)))
+                 (LETT #1# (GETREFV (|inc_SI| #3=(QREFELT % 15))))
+                 (SEQ (LETT |i| 0) (LETT #2# #3#) G190
+                      (COND ((|greater_SI| |i| #2#) (GO G191)))
                       (SEQ
                        (EXIT
-                        (SETELT #2# |i|
+                        (SETELT #1# |i|
                                 (|MODMON;coefficient|
                                  (SPADCALL |x| (QREFELT % 33)) |i| %))))
                       (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-                 #2#)))) 
+                 #1#)))) 
 
 (SDEFUN |MODMON;UnVectorise;V%;24| ((|vect| (|Vector| R)) (% (%)))
         (SPROG
-         ((#1=#:G70 NIL) (#2=#:G69 (|Rep|)) (#3=#:G71 (|Rep|)) (#4=#:G73 NIL)
-          (|i| NIL))
+         ((|i| NIL) (#1=#:G73 NIL) (#2=#:G71 (|Rep|)) (#3=#:G69 (|Rep|))
+          (#4=#:G70 NIL))
          (SEQ
           (SPADCALL
            (PROGN
-            (LETT #1# NIL)
-            (SEQ (LETT |i| 0) (LETT #4# (QREFELT % 15)) G190
-                 (COND ((|greater_SI| |i| #4#) (GO G191)))
+            (LETT #4# NIL)
+            (SEQ (LETT |i| 0) (LETT #1# (QREFELT % 15)) G190
+                 (COND ((|greater_SI| |i| #1#) (GO G191)))
                  (SEQ
                   (EXIT
                    (PROGN
-                    (LETT #3#
+                    (LETT #2#
                           (|MODMON;monomial|
                            (SPADCALL |vect| (+ |i| 1) (QREFELT % 71)) |i| %))
-                    (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT % 28))))
-                          ('T (PROGN (LETT #2# #3#) (LETT #1# 'T)))))))
+                    (COND (#4# (LETT #3# (SPADCALL #3# #2# (QREFELT % 28))))
+                          ('T (PROGN (LETT #3# #2#) (LETT #4# 'T)))))))
                  (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-            (COND (#1# #2#) ('T (|spadConstant| % 18))))
+            (COND (#4# #3#) ('T (|spadConstant| % 18))))
            (QREFELT % 34))))) 
 
 (SDEFUN |MODMON;computePowers| ((% (|PrimitiveArray| %)))
         (SPROG
-         ((#1=#:G79 NIL) (|i| NIL) (|w| (%)) (|mat| (|PrimitiveArray| %)))
+         ((|mat| (|PrimitiveArray| %)) (|w| (%)) (|i| NIL) (#1=#:G79 NIL))
          (SEQ
           (LETT |mat|
                 (SPADCALL (QREFELT % 14) (|spadConstant| % 18) (QREFELT % 21)))
@@ -281,7 +281,7 @@
 
 (SDEFUN |MODMON;computeFrobeniusPowers| ((% (|PrimitiveArray| %)))
         (SPROG
-         ((#1=#:G84 NIL) (|i| NIL) (|mult| (%)) (|mat| (|PrimitiveArray| %)))
+         ((|mat| (|PrimitiveArray| %)) (|mult| (%)) (|i| NIL) (#1=#:G84 NIL))
          (SEQ
           (LETT |mat|
                 (SPADCALL (QREFELT % 14) (|spadConstant| % 8) (QREFELT % 21)))
@@ -329,8 +329,8 @@
 
 (SDEFUN |MODMON;monomial| ((|c| (R)) (|e| (|NonNegativeInteger|)) (% (%)))
         (SPROG
-         ((|k2| (|NonNegativeInteger|)) (#1=#:G91 NIL)
-          (|k1| (|NonNegativeInteger|)))
+         ((|k1| (|NonNegativeInteger|)) (#1=#:G91 NIL)
+          (|k2| (|NonNegativeInteger|)))
          (SEQ
           (COND ((< |e| (QREFELT % 14)) (SPADCALL |c| |e| (QREFELT % 11)))
                 ((<= |e| (QREFELT % 16))
@@ -357,8 +357,8 @@
 
 (SDEFUN |MODMON;exquo| ((|x| (%)) (|y| (%)) (% (|Union| % "failed")))
         (SPROG
-         ((#1=#:G103 NIL)
-          (|uv| (|Union| (|Record| (|:| |coef1| %) (|:| |coef2| %)) "failed")))
+         ((|uv| (|Union| (|Record| (|:| |coef1| %) (|:| |coef2| %)) "failed"))
+          (#1=#:G103 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -380,7 +380,7 @@
 (DECLAIM (NOTINLINE |ModMonic;|)) 
 
 (DEFUN |ModMonic| (|#1| |#2|)
-  (SPROG ((#1=#:G6 NIL) (|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL) (#1=#:G6 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

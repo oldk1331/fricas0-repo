@@ -8,26 +8,26 @@
                 (QREFELT % 11)))) 
 
 (SDEFUN |FINITE-;enumerate;L;2| ((% (|List| S)))
-        (SPROG ((#1=#:G10 NIL) (#2=#:G14 NIL) (|i| NIL) (#3=#:G13 NIL))
+        (SPROG ((#1=#:G13 NIL) (|i| NIL) (#2=#:G14 NIL) (#3=#:G10 NIL))
                (SEQ
                 (PROGN
-                 (LETT #3# NIL)
+                 (LETT #1# NIL)
                  (SEQ (LETT |i| 1) (LETT #2# (SPADCALL (QREFELT % 9))) G190
                       (COND ((|greater_SI| |i| #2#) (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #3#
+                        (LETT #1#
                               (CONS
                                (SPADCALL
-                                (PROG1 (LETT #1# |i|)
-                                  (|check_subtype2| (> #1# 0)
+                                (PROG1 (LETT #3# |i|)
+                                  (|check_subtype2| (> #3# 0)
                                                     '(|PositiveInteger|)
                                                     '(|NonNegativeInteger|)
-                                                    #1#))
+                                                    #3#))
                                 (QREFELT % 11))
-                               #3#))))
+                               #1#))))
                       (LETT |i| (|inc_SI| |i|)) (GO G190) G191
-                      (EXIT (NREVERSE #3#))))))) 
+                      (EXIT (NREVERSE #1#))))))) 
 
 (SDEFUN |FINITE-;convert;SIf;3| ((|x| (S)) (% (|InputForm|)))
         (SPADCALL '|index|
@@ -45,7 +45,7 @@
 (DECLAIM (NOTINLINE |Finite&;|)) 
 
 (DEFUN |Finite&| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|Finite&| DV$1))

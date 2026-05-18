@@ -193,13 +193,13 @@
                      (|List| (|SparseUnivariatePolynomial| S))))
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (SPROG
-         ((#4=#:G129 NIL)
+         ((|checkPF|
+           (|Mapping| (|Union| #1# #2# #3#)
+                      (|List| (|SparseUnivariatePolynomial| (|Integer|)))))
           (|pp|
            (|Union| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|)))
                     (|Boolean|)))
-          (|checkPF|
-           (|Mapping| (|Union| #1# #2# #3#)
-                      (|List| (|SparseUnivariatePolynomial| (|Integer|))))))
+          (#4=#:G129 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |checkPF| |check|)
@@ -294,13 +294,13 @@
                      (|List| (|SparseUnivariatePolynomial| S))))
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (SPROG
-         ((#4=#:G172 NIL)
+         ((|checkPF|
+           (|Mapping| (|Union| #1# #2# #3#)
+                      (|List| (|SparseUnivariatePolynomial| (|Integer|)))))
           (|pp|
            (|Union| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|)))
                     (|Boolean|)))
-          (|checkPF|
-           (|Mapping| (|Union| #1# #2# #3#)
-                      (|List| (|SparseUnivariatePolynomial| (|Integer|))))))
+          (#4=#:G172 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |checkPF| |check|)
@@ -426,13 +426,13 @@
                      (|List| (|SparseUnivariatePolynomial| S))))
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (SPROG
-         ((#4=#:G233 NIL)
+         ((|checkPF|
+           (|Mapping| (|Union| #1# #2# #3#)
+                      (|List| (|SparseUnivariatePolynomial| (|Integer|)))))
           (|pp|
            (|Union| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|)))
                     (|Boolean|)))
-          (|checkPF|
-           (|Mapping| (|Union| #1# #2# #3#)
-                      (|List| (|SparseUnivariatePolynomial| (|Integer|))))))
+          (#4=#:G233 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |checkPF| |check|)
@@ -527,13 +527,13 @@
                      (|List| (|SparseUnivariatePolynomial| S))))
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (SPROG
-         ((#4=#:G276 NIL)
+         ((|checkPF|
+           (|Mapping| (|Union| #1# #2# #3#)
+                      (|List| (|SparseUnivariatePolynomial| (|Integer|)))))
           (|pp|
            (|Union| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|)))
                     (|Boolean|)))
-          (|checkPF|
-           (|Mapping| (|Union| #1# #2# #3#)
-                      (|List| (|SparseUnivariatePolynomial| (|Integer|))))))
+          (#4=#:G276 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |checkPF| |check|)
@@ -689,13 +689,13 @@
                      (|List| (|SparseUnivariatePolynomial| S))))
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (SPROG
-         ((#4=#:G355 NIL)
+         ((|checkPF|
+           (|Mapping| (|Union| #1# #2# #3#)
+                      (|List| (|SparseUnivariatePolynomial| (|Integer|)))))
           (|pp|
            (|Union| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|)))
                     (|Boolean|)))
-          (|checkPF|
-           (|Mapping| (|Union| #1# #2# #3#)
-                      (|List| (|SparseUnivariatePolynomial| (|Integer|))))))
+          (#4=#:G355 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |checkPF| |check|)
@@ -790,13 +790,13 @@
                      (|List| (|SparseUnivariatePolynomial| S))))
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (SPROG
-         ((#4=#:G398 NIL)
+         ((|checkPF|
+           (|Mapping| (|Union| #1# #2# #3#)
+                      (|List| (|SparseUnivariatePolynomial| (|Integer|)))))
           (|pp|
            (|Union| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|)))
                     (|Boolean|)))
-          (|checkPF|
-           (|Mapping| (|Union| #1# #2# #3#)
-                      (|List| (|SparseUnivariatePolynomial| (|Integer|))))))
+          (#4=#:G398 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |checkPF| |check|)
@@ -922,13 +922,13 @@
                      (|List| (|SparseUnivariatePolynomial| S))))
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (SPROG
-         ((#4=#:G459 NIL)
+         ((|checkPF|
+           (|Mapping| (|Union| #1# #2# #3#)
+                      (|List| (|SparseUnivariatePolynomial| (|Integer|)))))
           (|pp|
            (|Union| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|)))
                     (|Boolean|)))
-          (|checkPF|
-           (|Mapping| (|Union| #1# #2# #3#)
-                      (|List| (|SparseUnivariatePolynomial| (|Integer|))))))
+          (#4=#:G459 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |checkPF| |check|)
@@ -1023,13 +1023,13 @@
                      (|List| (|SparseUnivariatePolynomial| S))))
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (SPROG
-         ((#4=#:G502 NIL)
+         ((|checkPF|
+           (|Mapping| (|Union| #1# #2# #3#)
+                      (|List| (|SparseUnivariatePolynomial| (|Integer|)))))
           (|pp|
            (|Union| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|)))
                     (|Boolean|)))
-          (|checkPF|
-           (|Mapping| (|Union| #1# #2# #3#)
-                      (|List| (|SparseUnivariatePolynomial| (|Integer|))))))
+          (#4=#:G502 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |checkPF| |check|)
@@ -1252,13 +1252,13 @@
                      (|List| (|SparseUnivariatePolynomial| S))))
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (SPROG
-         ((#4=#:G612 NIL)
+         ((|checkPF|
+           (|Mapping| (|Union| #1# #2# #3#)
+                      (|List| (|SparseUnivariatePolynomial| (|Integer|)))))
           (|pp|
            (|Union| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|)))
                     (|Boolean|)))
-          (|checkPF|
-           (|Mapping| (|Union| #1# #2# #3#)
-                      (|List| (|SparseUnivariatePolynomial| (|Integer|))))))
+          (#4=#:G612 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |checkPF| |check|)
@@ -1353,13 +1353,13 @@
                      (|List| (|SparseUnivariatePolynomial| S))))
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (SPROG
-         ((#4=#:G655 NIL)
+         ((|checkPF|
+           (|Mapping| (|Union| #1# #2# #3#)
+                      (|List| (|SparseUnivariatePolynomial| (|Integer|)))))
           (|pp|
            (|Union| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|)))
                     (|Boolean|)))
-          (|checkPF|
-           (|Mapping| (|Union| #1# #2# #3#)
-                      (|List| (|SparseUnivariatePolynomial| (|Integer|))))))
+          (#4=#:G655 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |checkPF| |check|)
@@ -1485,13 +1485,13 @@
                      (|List| (|SparseUnivariatePolynomial| S))))
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (SPROG
-         ((#4=#:G716 NIL)
+         ((|checkPF|
+           (|Mapping| (|Union| #1# #2# #3#)
+                      (|List| (|SparseUnivariatePolynomial| (|Integer|)))))
           (|pp|
            (|Union| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|)))
                     (|Boolean|)))
-          (|checkPF|
-           (|Mapping| (|Union| #1# #2# #3#)
-                      (|List| (|SparseUnivariatePolynomial| (|Integer|))))))
+          (#4=#:G716 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |checkPF| |check|)
@@ -1586,13 +1586,13 @@
                      (|List| (|SparseUnivariatePolynomial| S))))
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (SPROG
-         ((#4=#:G759 NIL)
+         ((|checkPF|
+           (|Mapping| (|Union| #1# #2# #3#)
+                      (|List| (|SparseUnivariatePolynomial| (|Integer|)))))
           (|pp|
            (|Union| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|)))
                     (|Boolean|)))
-          (|checkPF|
-           (|Mapping| (|Union| #1# #2# #3#)
-                      (|List| (|SparseUnivariatePolynomial| (|Integer|))))))
+          (#4=#:G759 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |checkPF| |check|)
@@ -1748,13 +1748,13 @@
                      (|List| (|SparseUnivariatePolynomial| S))))
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (SPROG
-         ((#4=#:G838 NIL)
+         ((|checkPF|
+           (|Mapping| (|Union| #1# #2# #3#)
+                      (|List| (|SparseUnivariatePolynomial| (|Integer|)))))
           (|pp|
            (|Union| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|)))
                     (|Boolean|)))
-          (|checkPF|
-           (|Mapping| (|Union| #1# #2# #3#)
-                      (|List| (|SparseUnivariatePolynomial| (|Integer|))))))
+          (#4=#:G838 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |checkPF| |check|)
@@ -1849,13 +1849,13 @@
                      (|List| (|SparseUnivariatePolynomial| S))))
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (SPROG
-         ((#4=#:G881 NIL)
+         ((|checkPF|
+           (|Mapping| (|Union| #1# #2# #3#)
+                      (|List| (|SparseUnivariatePolynomial| (|Integer|)))))
           (|pp|
            (|Union| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|)))
                     (|Boolean|)))
-          (|checkPF|
-           (|Mapping| (|Union| #1# #2# #3#)
-                      (|List| (|SparseUnivariatePolynomial| (|Integer|))))))
+          (#4=#:G881 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |checkPF| |check|)
@@ -1981,13 +1981,13 @@
                      (|List| (|SparseUnivariatePolynomial| S))))
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (SPROG
-         ((#4=#:G942 NIL)
+         ((|checkPF|
+           (|Mapping| (|Union| #1# #2# #3#)
+                      (|List| (|SparseUnivariatePolynomial| (|Integer|)))))
           (|pp|
            (|Union| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|)))
                     (|Boolean|)))
-          (|checkPF|
-           (|Mapping| (|Union| #1# #2# #3#)
-                      (|List| (|SparseUnivariatePolynomial| (|Integer|))))))
+          (#4=#:G942 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |checkPF| |check|)
@@ -2082,13 +2082,13 @@
                      (|List| (|SparseUnivariatePolynomial| S))))
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (SPROG
-         ((#4=#:G985 NIL)
+         ((|checkPF|
+           (|Mapping| (|Union| #1# #2# #3#)
+                      (|List| (|SparseUnivariatePolynomial| (|Integer|)))))
           (|pp|
            (|Union| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|)))
                     (|Boolean|)))
-          (|checkPF|
-           (|Mapping| (|Union| #1# #2# #3#)
-                      (|List| (|SparseUnivariatePolynomial| (|Integer|))))))
+          (#4=#:G985 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |checkPF| |check|)
@@ -2180,15 +2180,15 @@
          (|qvar| (|Symbol|)) (|vars| (|List| (|Symbol|)))
          (% (|Union| "good" "reject" "no_solution")))
         (SPROG
-         ((#1=#:G1045 NIL) (|min_ord| #2=(|NonNegativeInteger|))
-          (#3=#:G1042 NIL) (|delta| (|Integer|)) (|sigma0| #2#)
-          (|pa| (|U32Vector|)) (#4=#:G1048 NIL) (|j| NIL) (|c0| (|Integer|))
-          (#5=#:G1043 NIL) (|ord| #2#) (#6=#:G1047 NIL) (|i| NIL)
-          (|nres| (|Vector| (|U32Vector|))) (|gv0| (|U32Vector|))
-          (|gvl| (|List| (|U32Vector|))) (#7=#:G1044 NIL)
-          (|gv0p| (|Union| (|List| (|U32Vector|)) "failed"))
-          (|lpt| (|List| (|Integer|))) (|qval| (|Integer|)) (#8=#:G1046 NIL)
-          (|var| NIL) (|ii| NIL) (|n0| (|NonNegativeInteger|)))
+         ((|n0| (|NonNegativeInteger|)) (|ii| NIL) (|var| NIL) (#1=#:G1046 NIL)
+          (|qval| (|Integer|)) (|lpt| (|List| (|Integer|)))
+          (|gv0p| (|Union| (|List| (|U32Vector|)) "failed")) (#2=#:G1044 NIL)
+          (|gvl| (|List| (|U32Vector|))) (|gv0| (|U32Vector|))
+          (|nres| (|Vector| (|U32Vector|))) (|i| NIL) (#3=#:G1047 NIL)
+          (|ord| #4=(|NonNegativeInteger|)) (#5=#:G1043 NIL) (|c0| (|Integer|))
+          (|j| NIL) (#6=#:G1048 NIL) (|pa| (|U32Vector|)) (|sigma0| #4#)
+          (|delta| (|Integer|)) (#7=#:G1042 NIL) (|min_ord| #4#)
+          (#8=#:G1045 NIL))
          (SEQ
           (EXIT
            (COND
@@ -2212,11 +2212,11 @@
                                             (+ (RANDOM 2000000) 2000000)
                                             (QREFELT % 64)))
                                    (LETT |lpt| NIL) (LETT |qval| 0)
-                                   (SEQ (LETT |var| NIL) (LETT #8# |vars|) G190
+                                   (SEQ (LETT |var| NIL) (LETT #1# |vars|) G190
                                         (COND
-                                         ((OR (ATOM #8#)
+                                         ((OR (ATOM #1#)
                                               (PROGN
-                                               (LETT |var| (CAR #8#))
+                                               (LETT |var| (CAR #1#))
                                                NIL))
                                           (GO G191)))
                                         (SEQ
@@ -2228,7 +2228,7 @@
                                            ((EQUAL |var| |qvar|)
                                             (LETT |qval|
                                                   (|SPADfirst| |lpt|))))))
-                                        (LETT #8# (CDR #8#)) (GO G190) G191
+                                        (LETT #1# (CDR #1#)) (GO G190) G191
                                         (EXIT NIL))
                                    (LETT |lpt| (NREVERSE |lpt|))
                                    (LETT |gv0p|
@@ -2239,7 +2239,7 @@
                                     (COND
                                      ((QEQCAR |gv0p| 1)
                                       (PROGN
-                                       (LETT #7# |$NoValue|)
+                                       (LETT #2# |$NoValue|)
                                        (GO #10=#:G1012)))
                                      ('T
                                       (SEQ (LETT |gvl| (QCDR |gv0p|))
@@ -2266,10 +2266,10 @@
                                                (SEQ
                                                 (EXIT
                                                  (SEQ (LETT |i| 0)
-                                                      (LETT #6# (- |sigma0| 1))
+                                                      (LETT #3# (- |sigma0| 1))
                                                       G190
                                                       (COND
-                                                       ((|greater_SI| |i| #6#)
+                                                       ((|greater_SI| |i| #3#)
                                                         (GO G191)))
                                                       (SEQ
                                                        (EXIT
@@ -2291,7 +2291,7 @@
                                                 (COND
                                                  ((< |ord| |sigma|)
                                                   (PROGN
-                                                   (LETT #1#
+                                                   (LETT #8#
                                                          (CONS 2
                                                                "no_solution"))
                                                    (GO #12=#:G1041)))
@@ -2302,12 +2302,12 @@
                                                    (SEQ
                                                     (EXIT
                                                      (SEQ (LETT |j| 0)
-                                                          (LETT #4#
+                                                          (LETT #6#
                                                                 (- |delta| 1))
                                                           G190
                                                           (COND
                                                            ((|greater_SI| |j|
-                                                                          #4#)
+                                                                          #6#)
                                                             (GO G191)))
                                                           (SEQ
                                                            (SETELT_U32 |gv0|
@@ -2341,7 +2341,7 @@
                                                                       |sigma|))
                                                                (EXIT
                                                                 (PROGN
-                                                                 (LETT #3# 1)
+                                                                 (LETT #7# 1)
                                                                  (GO
                                                                   #13=#:G1032)))))
                                                              ('T
@@ -2354,38 +2354,38 @@
                                                                 (|inc_SI| |j|))
                                                           (GO G190) G191
                                                           (EXIT NIL)))
-                                                    #13# (EXIT #3#))
+                                                    #13# (EXIT #7#))
                                                    (EXIT
                                                     (COND
                                                      ((< |ord| |min_ord|)
                                                       (LETT |min_ord|
                                                             |ord|))))))))))))))))))
-                                 #10# (EXIT #7#))
+                                 #10# (EXIT #2#))
                                 (LETT |ii| (|inc_SI| |ii|)) (GO G190) G191
                                 (EXIT NIL))
                            (EXIT
                             (COND
                              ((< |min_ord| |sigma0|)
-                              (PROGN (LETT #1# (CONS 1 "reject")) (GO #12#)))
+                              (PROGN (LETT #8# (CONS 1 "reject")) (GO #12#)))
                              (#9#
                               (PROGN
-                               (LETT #1# (CONS 0 "good"))
+                               (LETT #8# (CONS 0 "good"))
                                (GO #12#)))))))))))))
-          #12# (EXIT #1#)))) 
+          #12# (EXIT #8#)))) 
 
 (DECLAIM (NOTINLINE |ModularHermitePadeSolver;|)) 
 
 (DEFUN |ModularHermitePadeSolver;| (|#1| |#2|)
   (SPROG
-   ((#1=#:G967 NIL) (#2=#:G965 NIL) (#3=#:G924 NIL) (#4=#:G922 NIL)
-    (#5=#:G863 NIL) (#6=#:G861 NIL) (#7=#:G820 NIL) (#8=#:G818 NIL)
-    (#9=#:G741 NIL) (#10=#:G739 NIL) (#11=#:G698 NIL) (#12=#:G696 NIL)
-    (#13=#:G637 NIL) (#14=#:G635 NIL) (#15=#:G594 NIL) (#16=#:G592 NIL)
-    (#17=#:G484 NIL) (#18=#:G482 NIL) (#19=#:G441 NIL) (#20=#:G439 NIL)
-    (#21=#:G380 NIL) (#22=#:G378 NIL) (#23=#:G337 NIL) (#24=#:G335 NIL)
-    (#25=#:G258 NIL) (#26=#:G256 NIL) (#27=#:G215 NIL) (#28=#:G213 NIL)
-    (#29=#:G154 NIL) (#30=#:G152 NIL) (#31=#:G111 NIL) (#32=#:G109 NIL)
-    (|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL) (#1=#:G109 NIL)
+    (#2=#:G111 NIL) (#3=#:G152 NIL) (#4=#:G154 NIL) (#5=#:G213 NIL)
+    (#6=#:G215 NIL) (#7=#:G256 NIL) (#8=#:G258 NIL) (#9=#:G335 NIL)
+    (#10=#:G337 NIL) (#11=#:G378 NIL) (#12=#:G380 NIL) (#13=#:G439 NIL)
+    (#14=#:G441 NIL) (#15=#:G482 NIL) (#16=#:G484 NIL) (#17=#:G592 NIL)
+    (#18=#:G594 NIL) (#19=#:G635 NIL) (#20=#:G637 NIL) (#21=#:G696 NIL)
+    (#22=#:G698 NIL) (#23=#:G739 NIL) (#24=#:G741 NIL) (#25=#:G818 NIL)
+    (#26=#:G820 NIL) (#27=#:G861 NIL) (#28=#:G863 NIL) (#29=#:G922 NIL)
+    (#30=#:G924 NIL) (#31=#:G965 NIL) (#32=#:G967 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))
@@ -2470,19 +2470,19 @@
                    (COND
                     ((|domainEqual| |#1|
                                     (|PrimeField|
-                                     (PROG1 (LETT #32# (QREFELT % 56))
-                                       (|check_subtype2| (> #32# 0)
+                                     (PROG1 (LETT #1# (QREFELT % 56))
+                                       (|check_subtype2| (> #1# 0)
                                                          '(|PositiveInteger|)
                                                          '(|NonNegativeInteger|)
-                                                         #32#))))
+                                                         #1#))))
                      (COND
                       ((|domainEqual| |#2|
                                       (|PrimeField|
-                                       (PROG1 (LETT #31# (QREFELT % 56))
-                                         (|check_subtype2| (> #31# 0)
+                                       (PROG1 (LETT #2# (QREFELT % 56))
+                                         (|check_subtype2| (> #2# 0)
                                                            '(|PositiveInteger|)
                                                            '(|NonNegativeInteger|)
-                                                           #31#))))
+                                                           #2#))))
                        (QSETREFV % 21
                                  (CONS
                                   (|dispatchFunction|
@@ -2527,19 +2527,19 @@
                  (COND
                   ((|domainEqual| |#1|
                                   (|PrimeField|
-                                   (PROG1 (LETT #30# (QREFELT % 56))
-                                     (|check_subtype2| (> #30# 0)
+                                   (PROG1 (LETT #3# (QREFELT % 56))
+                                     (|check_subtype2| (> #3# 0)
                                                        '(|PositiveInteger|)
                                                        '(|NonNegativeInteger|)
-                                                       #30#))))
+                                                       #3#))))
                    (COND
                     ((|domainEqual| |#2|
                                     (|PrimeField|
-                                     (PROG1 (LETT #29# (QREFELT % 56))
-                                       (|check_subtype2| (> #29# 0)
+                                     (PROG1 (LETT #4# (QREFELT % 56))
+                                       (|check_subtype2| (> #4# 0)
                                                          '(|PositiveInteger|)
                                                          '(|NonNegativeInteger|)
-                                                         #29#))))
+                                                         #4#))))
                      (QSETREFV % 21
                                (CONS
                                 (|dispatchFunction|
@@ -2596,19 +2596,19 @@
                  (COND
                   ((|domainEqual| |#1|
                                   (|PrimeField|
-                                   (PROG1 (LETT #28# (QREFELT % 56))
-                                     (|check_subtype2| (> #28# 0)
+                                   (PROG1 (LETT #5# (QREFELT % 56))
+                                     (|check_subtype2| (> #5# 0)
                                                        '(|PositiveInteger|)
                                                        '(|NonNegativeInteger|)
-                                                       #28#))))
+                                                       #5#))))
                    (COND
                     ((|domainEqual| |#2|
                                     (|PrimeField|
-                                     (PROG1 (LETT #27# (QREFELT % 56))
-                                       (|check_subtype2| (> #27# 0)
+                                     (PROG1 (LETT #6# (QREFELT % 56))
+                                       (|check_subtype2| (> #6# 0)
                                                          '(|PositiveInteger|)
                                                          '(|NonNegativeInteger|)
-                                                         #27#))))
+                                                         #6#))))
                      (QSETREFV % 21
                                (CONS
                                 (|dispatchFunction|
@@ -2652,19 +2652,19 @@
                (COND
                 ((|domainEqual| |#1|
                                 (|PrimeField|
-                                 (PROG1 (LETT #26# (QREFELT % 56))
-                                   (|check_subtype2| (> #26# 0)
+                                 (PROG1 (LETT #7# (QREFELT % 56))
+                                   (|check_subtype2| (> #7# 0)
                                                      '(|PositiveInteger|)
                                                      '(|NonNegativeInteger|)
-                                                     #26#))))
+                                                     #7#))))
                  (COND
                   ((|domainEqual| |#2|
                                   (|PrimeField|
-                                   (PROG1 (LETT #25# (QREFELT % 56))
-                                     (|check_subtype2| (> #25# 0)
+                                   (PROG1 (LETT #8# (QREFELT % 56))
+                                     (|check_subtype2| (> #8# 0)
                                                        '(|PositiveInteger|)
                                                        '(|NonNegativeInteger|)
-                                                       #25#))))
+                                                       #8#))))
                    (QSETREFV % 21
                              (CONS
                               (|dispatchFunction|
@@ -2732,19 +2732,19 @@
                  (COND
                   ((|domainEqual| |#1|
                                   (|PrimeField|
-                                   (PROG1 (LETT #24# (QREFELT % 56))
-                                     (|check_subtype2| (> #24# 0)
+                                   (PROG1 (LETT #9# (QREFELT % 56))
+                                     (|check_subtype2| (> #9# 0)
                                                        '(|PositiveInteger|)
                                                        '(|NonNegativeInteger|)
-                                                       #24#))))
+                                                       #9#))))
                    (COND
                     ((|domainEqual| |#2|
                                     (|PrimeField|
-                                     (PROG1 (LETT #23# (QREFELT % 56))
-                                       (|check_subtype2| (> #23# 0)
+                                     (PROG1 (LETT #10# (QREFELT % 56))
+                                       (|check_subtype2| (> #10# 0)
                                                          '(|PositiveInteger|)
                                                          '(|NonNegativeInteger|)
-                                                         #23#))))
+                                                         #10#))))
                      (QSETREFV % 21
                                (CONS
                                 (|dispatchFunction|
@@ -2788,19 +2788,19 @@
                (COND
                 ((|domainEqual| |#1|
                                 (|PrimeField|
-                                 (PROG1 (LETT #22# (QREFELT % 56))
-                                   (|check_subtype2| (> #22# 0)
+                                 (PROG1 (LETT #11# (QREFELT % 56))
+                                   (|check_subtype2| (> #11# 0)
                                                      '(|PositiveInteger|)
                                                      '(|NonNegativeInteger|)
-                                                     #22#))))
+                                                     #11#))))
                  (COND
                   ((|domainEqual| |#2|
                                   (|PrimeField|
-                                   (PROG1 (LETT #21# (QREFELT % 56))
-                                     (|check_subtype2| (> #21# 0)
+                                   (PROG1 (LETT #12# (QREFELT % 56))
+                                     (|check_subtype2| (> #12# 0)
                                                        '(|PositiveInteger|)
                                                        '(|NonNegativeInteger|)
-                                                       #21#))))
+                                                       #12#))))
                    (QSETREFV % 21
                              (CONS
                               (|dispatchFunction|
@@ -2855,19 +2855,19 @@
                (COND
                 ((|domainEqual| |#1|
                                 (|PrimeField|
-                                 (PROG1 (LETT #20# (QREFELT % 56))
-                                   (|check_subtype2| (> #20# 0)
+                                 (PROG1 (LETT #13# (QREFELT % 56))
+                                   (|check_subtype2| (> #13# 0)
                                                      '(|PositiveInteger|)
                                                      '(|NonNegativeInteger|)
-                                                     #20#))))
+                                                     #13#))))
                  (COND
                   ((|domainEqual| |#2|
                                   (|PrimeField|
-                                   (PROG1 (LETT #19# (QREFELT % 56))
-                                     (|check_subtype2| (> #19# 0)
+                                   (PROG1 (LETT #14# (QREFELT % 56))
+                                     (|check_subtype2| (> #14# 0)
                                                        '(|PositiveInteger|)
                                                        '(|NonNegativeInteger|)
-                                                       #19#))))
+                                                       #14#))))
                    (QSETREFV % 21
                              (CONS
                               (|dispatchFunction|
@@ -2910,19 +2910,19 @@
              (COND
               ((|domainEqual| |#1|
                               (|PrimeField|
-                               (PROG1 (LETT #18# (QREFELT % 56))
-                                 (|check_subtype2| (> #18# 0)
+                               (PROG1 (LETT #15# (QREFELT % 56))
+                                 (|check_subtype2| (> #15# 0)
                                                    '(|PositiveInteger|)
                                                    '(|NonNegativeInteger|)
-                                                   #18#))))
+                                                   #15#))))
                (COND
                 ((|domainEqual| |#2|
                                 (|PrimeField|
-                                 (PROG1 (LETT #17# (QREFELT % 56))
-                                   (|check_subtype2| (> #17# 0)
+                                 (PROG1 (LETT #16# (QREFELT % 56))
+                                   (|check_subtype2| (> #16# 0)
                                                      '(|PositiveInteger|)
                                                      '(|NonNegativeInteger|)
-                                                     #17#))))
+                                                     #16#))))
                  (QSETREFV % 21
                            (CONS
                             (|dispatchFunction|
@@ -3005,19 +3005,19 @@
                  (COND
                   ((|domainEqual| |#1|
                                   (|PrimeField|
-                                   (PROG1 (LETT #16# (QREFELT % 56))
-                                     (|check_subtype2| (> #16# 0)
+                                   (PROG1 (LETT #17# (QREFELT % 56))
+                                     (|check_subtype2| (> #17# 0)
                                                        '(|PositiveInteger|)
                                                        '(|NonNegativeInteger|)
-                                                       #16#))))
+                                                       #17#))))
                    (COND
                     ((|domainEqual| |#2|
                                     (|PrimeField|
-                                     (PROG1 (LETT #15# (QREFELT % 56))
-                                       (|check_subtype2| (> #15# 0)
+                                     (PROG1 (LETT #18# (QREFELT % 56))
+                                       (|check_subtype2| (> #18# 0)
                                                          '(|PositiveInteger|)
                                                          '(|NonNegativeInteger|)
-                                                         #15#))))
+                                                         #18#))))
                      (QSETREFV % 21
                                (CONS
                                 (|dispatchFunction|
@@ -3061,19 +3061,19 @@
                (COND
                 ((|domainEqual| |#1|
                                 (|PrimeField|
-                                 (PROG1 (LETT #14# (QREFELT % 56))
-                                   (|check_subtype2| (> #14# 0)
+                                 (PROG1 (LETT #19# (QREFELT % 56))
+                                   (|check_subtype2| (> #19# 0)
                                                      '(|PositiveInteger|)
                                                      '(|NonNegativeInteger|)
-                                                     #14#))))
+                                                     #19#))))
                  (COND
                   ((|domainEqual| |#2|
                                   (|PrimeField|
-                                   (PROG1 (LETT #13# (QREFELT % 56))
-                                     (|check_subtype2| (> #13# 0)
+                                   (PROG1 (LETT #20# (QREFELT % 56))
+                                     (|check_subtype2| (> #20# 0)
                                                        '(|PositiveInteger|)
                                                        '(|NonNegativeInteger|)
-                                                       #13#))))
+                                                       #20#))))
                    (QSETREFV % 21
                              (CONS
                               (|dispatchFunction|
@@ -3128,19 +3128,19 @@
                (COND
                 ((|domainEqual| |#1|
                                 (|PrimeField|
-                                 (PROG1 (LETT #12# (QREFELT % 56))
-                                   (|check_subtype2| (> #12# 0)
+                                 (PROG1 (LETT #21# (QREFELT % 56))
+                                   (|check_subtype2| (> #21# 0)
                                                      '(|PositiveInteger|)
                                                      '(|NonNegativeInteger|)
-                                                     #12#))))
+                                                     #21#))))
                  (COND
                   ((|domainEqual| |#2|
                                   (|PrimeField|
-                                   (PROG1 (LETT #11# (QREFELT % 56))
-                                     (|check_subtype2| (> #11# 0)
+                                   (PROG1 (LETT #22# (QREFELT % 56))
+                                     (|check_subtype2| (> #22# 0)
                                                        '(|PositiveInteger|)
                                                        '(|NonNegativeInteger|)
-                                                       #11#))))
+                                                       #22#))))
                    (QSETREFV % 21
                              (CONS
                               (|dispatchFunction|
@@ -3183,19 +3183,19 @@
              (COND
               ((|domainEqual| |#1|
                               (|PrimeField|
-                               (PROG1 (LETT #10# (QREFELT % 56))
-                                 (|check_subtype2| (> #10# 0)
+                               (PROG1 (LETT #23# (QREFELT % 56))
+                                 (|check_subtype2| (> #23# 0)
                                                    '(|PositiveInteger|)
                                                    '(|NonNegativeInteger|)
-                                                   #10#))))
+                                                   #23#))))
                (COND
                 ((|domainEqual| |#2|
                                 (|PrimeField|
-                                 (PROG1 (LETT #9# (QREFELT % 56))
-                                   (|check_subtype2| (> #9# 0)
+                                 (PROG1 (LETT #24# (QREFELT % 56))
+                                   (|check_subtype2| (> #24# 0)
                                                      '(|PositiveInteger|)
                                                      '(|NonNegativeInteger|)
-                                                     #9#))))
+                                                     #24#))))
                  (QSETREFV % 21
                            (CONS
                             (|dispatchFunction|
@@ -3261,19 +3261,19 @@
                (COND
                 ((|domainEqual| |#1|
                                 (|PrimeField|
-                                 (PROG1 (LETT #8# (QREFELT % 56))
-                                   (|check_subtype2| (> #8# 0)
+                                 (PROG1 (LETT #25# (QREFELT % 56))
+                                   (|check_subtype2| (> #25# 0)
                                                      '(|PositiveInteger|)
                                                      '(|NonNegativeInteger|)
-                                                     #8#))))
+                                                     #25#))))
                  (COND
                   ((|domainEqual| |#2|
                                   (|PrimeField|
-                                   (PROG1 (LETT #7# (QREFELT % 56))
-                                     (|check_subtype2| (> #7# 0)
+                                   (PROG1 (LETT #26# (QREFELT % 56))
+                                     (|check_subtype2| (> #26# 0)
                                                        '(|PositiveInteger|)
                                                        '(|NonNegativeInteger|)
-                                                       #7#))))
+                                                       #26#))))
                    (QSETREFV % 21
                              (CONS
                               (|dispatchFunction|
@@ -3316,19 +3316,19 @@
              (COND
               ((|domainEqual| |#1|
                               (|PrimeField|
-                               (PROG1 (LETT #6# (QREFELT % 56))
-                                 (|check_subtype2| (> #6# 0)
+                               (PROG1 (LETT #27# (QREFELT % 56))
+                                 (|check_subtype2| (> #27# 0)
                                                    '(|PositiveInteger|)
                                                    '(|NonNegativeInteger|)
-                                                   #6#))))
+                                                   #27#))))
                (COND
                 ((|domainEqual| |#2|
                                 (|PrimeField|
-                                 (PROG1 (LETT #5# (QREFELT % 56))
-                                   (|check_subtype2| (> #5# 0)
+                                 (PROG1 (LETT #28# (QREFELT % 56))
+                                   (|check_subtype2| (> #28# 0)
                                                      '(|PositiveInteger|)
                                                      '(|NonNegativeInteger|)
-                                                     #5#))))
+                                                     #28#))))
                  (QSETREFV % 21
                            (CONS
                             (|dispatchFunction|
@@ -3382,19 +3382,19 @@
              (COND
               ((|domainEqual| |#1|
                               (|PrimeField|
-                               (PROG1 (LETT #4# (QREFELT % 56))
-                                 (|check_subtype2| (> #4# 0)
+                               (PROG1 (LETT #29# (QREFELT % 56))
+                                 (|check_subtype2| (> #29# 0)
                                                    '(|PositiveInteger|)
                                                    '(|NonNegativeInteger|)
-                                                   #4#))))
+                                                   #29#))))
                (COND
                 ((|domainEqual| |#2|
                                 (|PrimeField|
-                                 (PROG1 (LETT #3# (QREFELT % 56))
-                                   (|check_subtype2| (> #3# 0)
+                                 (PROG1 (LETT #30# (QREFELT % 56))
+                                   (|check_subtype2| (> #30# 0)
                                                      '(|PositiveInteger|)
                                                      '(|NonNegativeInteger|)
-                                                     #3#))))
+                                                     #30#))))
                  (QSETREFV % 21
                            (CONS
                             (|dispatchFunction|
@@ -3436,18 +3436,19 @@
            (COND
             ((|domainEqual| |#1|
                             (|PrimeField|
-                             (PROG1 (LETT #2# (QREFELT % 56))
-                               (|check_subtype2| (> #2# 0) '(|PositiveInteger|)
+                             (PROG1 (LETT #31# (QREFELT % 56))
+                               (|check_subtype2| (> #31# 0)
+                                                 '(|PositiveInteger|)
                                                  '(|NonNegativeInteger|)
-                                                 #2#))))
+                                                 #31#))))
              (COND
               ((|domainEqual| |#2|
                               (|PrimeField|
-                               (PROG1 (LETT #1# (QREFELT % 56))
-                                 (|check_subtype2| (> #1# 0)
+                               (PROG1 (LETT #32# (QREFELT % 56))
+                                 (|check_subtype2| (> #32# 0)
                                                    '(|PositiveInteger|)
                                                    '(|NonNegativeInteger|)
-                                                   #1#))))
+                                                   #32#))))
                (QSETREFV % 21
                          (CONS
                           (|dispatchFunction| |MODHPS;HP_solve;LL2SNniMMU;127|)

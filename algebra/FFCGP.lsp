@@ -77,8 +77,8 @@
 
 (SDEFUN |FFCGP;basis;PiV;8| ((|n| (|PositiveInteger|)) (% (|Vector| %)))
         (SPROG
-         ((#1=#:G42 NIL) (#2=#:G48 NIL) (|i| NIL) (#3=#:G47 NIL)
-          (|m| (|Integer|)))
+         ((|m| (|Integer|)) (#1=#:G47 NIL) (|i| NIL) (#2=#:G48 NIL)
+          (#3=#:G42 NIL))
          (SEQ
           (COND
            ((SPADCALL (REM (SPADCALL (QREFELT % 64)) |n|) 0 (QREFELT % 65))
@@ -90,20 +90,20 @@
                                    (- (EXPT (SPADCALL (QREFELT % 13)) |n|) 1)))
              (EXIT
               (PROGN
-               (LETT #3# (GETREFV |n|))
+               (LETT #1# (GETREFV |n|))
                (SEQ (LETT |i| 0) (LETT #2# (- |n| 1)) G190
                     (COND ((|greater_SI| |i| #2#) (GO G191)))
                     (SEQ
                      (EXIT
-                      (SETELT #3# |i|
+                      (SETELT #1# |i|
                               (SPADCALL
-                               (PROG1 (LETT #1# (+ 1 (* |i| |m|)))
-                                 (|check_subtype2| (> #1# 0)
+                               (PROG1 (LETT #3# (+ 1 (* |i| |m|)))
+                                 (|check_subtype2| (> #3# 0)
                                                    '(|PositiveInteger|)
-                                                   '(|Integer|) #1#))
+                                                   '(|Integer|) #3#))
                                (QREFELT % 66)))))
                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-               #3#)))))))) 
+               #1#)))))))) 
 
 (SDEFUN |FFCGP;*;I2%;9| ((|n| (|Integer|)) (|x| (%)) (% (%)))
         (SPADCALL (SPADCALL (SPADCALL |n| (QREFELT % 69)) (QREFELT % 70)) |x|
@@ -112,8 +112,8 @@
 (SDEFUN |FFCGP;minimalPolynomial;%Sup;10|
         ((|a| (%)) (% (|SparseUnivariatePolynomial| GF)))
         (SPROG
-         ((|f| (|SparseUnivariatePolynomial| %))
-          (|p| (|SparseUnivariatePolynomial| GF)) (|g| (GF)) (|u| (%)))
+         ((|u| (%)) (|g| (GF)) (|p| (|SparseUnivariatePolynomial| GF))
+          (|f| (|SparseUnivariatePolynomial| %)))
          (SEQ
           (LETT |f|
                 (SPADCALL (SPADCALL (|spadConstant| % 17) 1 (QREFELT % 74))
@@ -178,7 +178,7 @@
                       ('T (SPADCALL |u| (QREFELT % 96)))))))) 
 
 (SDEFUN |FFCGP;coerce;GF%;16| ((|e| (GF)) (% (%)))
-        (SPROG ((|log| (|Integer|)) (#1=#:G80 NIL))
+        (SPROG ((#1=#:G80 NIL) (|log| (|Integer|)))
                (SEQ
                 (COND ((SPADCALL |e| (QREFELT % 98)) (|spadConstant| % 27))
                       ('T
@@ -201,7 +201,7 @@
                          (SPADCALL |log| (QREFELT % 18) (QREFELT % 101))))))))) 
 
 (SDEFUN |FFCGP;retractIfCan;%U;17| ((|x| (%)) (% (|Union| GF "failed")))
-        (SPROG ((#1=#:G89 NIL) (|u| (|Union| % #2="failed")))
+        (SPROG ((|u| (|Union| % #1="failed")) (#2=#:G89 NIL))
                (SEQ
                 (COND
                  ((SPADCALL |x| (QREFELT % 42)) (CONS 0 (|spadConstant| % 47)))
@@ -214,46 +214,46 @@
                          (#3#
                           (CONS 0
                                 (SPADCALL (QREFELT % 30)
-                                          (PROG2 (LETT #1# |u|)
-                                              (QCDR #1#)
-                                            (|check_union2| (QEQCAR #1# 0) %
-                                                            (|Union| % #2#)
-                                                            #1#))
+                                          (PROG2 (LETT #2# |u|)
+                                              (QCDR #2#)
+                                            (|check_union2| (QEQCAR #2# 0) %
+                                                            (|Union| % #1#)
+                                                            #2#))
                                           (QREFELT % 106)))))))))))) 
 
 (SDEFUN |FFCGP;retract;%GF;18| ((|x| (%)) (% (GF)))
-        (SPROG ((#1=#:G101 NIL) (|a| (|Union| GF #2="failed")))
+        (SPROG ((|a| (|Union| GF #1="failed")) (#2=#:G101 NIL))
                (SEQ (LETT |a| (SPADCALL |x| (QREFELT % 108)))
                     (EXIT
                      (COND
                       ((SPADCALL |a| (CONS 1 "failed") (QREFELT % 109))
                        (|error| "element not in ground field"))
                       ('T
-                       (PROG2 (LETT #1# |a|)
-                           (QCDR #1#)
-                         (|check_union2| (QEQCAR #1# 0) (QREFELT % 6)
-                                         (|Union| (QREFELT % 6) #2#) #1#)))))))) 
+                       (PROG2 (LETT #2# |a|)
+                           (QCDR #2#)
+                         (|check_union2| (QEQCAR #2# 0) (QREFELT % 6)
+                                         (|Union| (QREFELT % 6) #1#) #2#)))))))) 
 
 (SDEFUN |FFCGP;basis;V;19| ((% (|Vector| %)))
         (SPROG
-         ((#1=#:G107 NIL) (#2=#:G110 NIL) (#3=#:G112 NIL) (|i| NIL)
-          (#4=#:G111 NIL))
+         ((#1=#:G111 NIL) (|i| NIL) (#2=#:G112 NIL) (#3=#:G110 NIL)
+          (#4=#:G107 NIL))
          (SEQ
           (PROGN
-           (LETT #4# (GETREFV #5=(QREFELT % 12)))
-           (SEQ (LETT |i| 1) (LETT #3# #5#) (LETT #2# 0) G190
-                (COND ((|greater_SI| |i| #3#) (GO G191)))
+           (LETT #1# (GETREFV #5=(QREFELT % 12)))
+           (SEQ (LETT |i| 1) (LETT #2# #5#) (LETT #3# 0) G190
+                (COND ((|greater_SI| |i| #2#) (GO G191)))
                 (SEQ
                  (EXIT
-                  (SETELT #4# #2#
+                  (SETELT #1# #3#
                           (SPADCALL
-                           (PROG1 (LETT #1# |i|)
-                             (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
-                                               '(|NonNegativeInteger|) #1#))
+                           (PROG1 (LETT #4# |i|)
+                             (|check_subtype2| (> #4# 0) '(|PositiveInteger|)
+                                               '(|NonNegativeInteger|) #4#))
                            (QREFELT % 66)))))
-                (LETT #2# (PROG1 (|inc_SI| #2#) (LETT |i| (|inc_SI| |i|))))
+                (LETT #3# (PROG1 (|inc_SI| #3#) (LETT |i| (|inc_SI| |i|))))
                 (GO G190) G191 (EXIT NIL))
-           #4#)))) 
+           #1#)))) 
 
 (SDEFUN |FFCGP;inGroundField?;%B;20| ((|x| (%)) (% (|Boolean|)))
         (COND
@@ -265,9 +265,9 @@
 (SDEFUN |FFCGP;discreteLog;2%U;21|
         ((|b| (%)) (|x| (%)) (% (|Union| (|NonNegativeInteger|) "failed")))
         (SPROG
-         ((|e1| (|Record| (|:| |coef1| %) (|:| |coef2| %))) (#1=#:G121 NIL)
-          (|e|
-           (|Union| (|Record| (|:| |coef1| %) (|:| |coef2| %)) #2="failed")))
+         ((|e|
+           (|Union| (|Record| (|:| |coef1| %) (|:| |coef2| %)) #1="failed"))
+          (#2=#:G121 NIL) (|e1| (|Record| (|:| |coef1| %) (|:| |coef2| %))))
          (SEQ
           (COND ((SPADCALL |x| (QREFELT % 42)) (CONS 1 "failed"))
                 (#3='T
@@ -280,16 +280,16 @@
                     (#3#
                      (SEQ
                       (LETT |e1|
-                            (PROG2 (LETT #1# |e|)
-                                (QCDR #1#)
-                              (|check_union2| (QEQCAR #1# 0)
+                            (PROG2 (LETT #2# |e|)
+                                (QCDR #2#)
+                              (|check_union2| (QEQCAR #2# 0)
                                               (|Record| (|:| |coef1| %)
                                                         (|:| |coef2| %))
                                               (|Union|
                                                (|Record| (|:| |coef1| %)
                                                          (|:| |coef2| %))
-                                               #2#)
-                                              #1#)))
+                                               #1#)
+                                              #2#)))
                       (EXIT
                        (CONS 0
                              (SPADCALL (QCAR |e1|) (QREFELT % 18)
@@ -401,7 +401,7 @@
 
 (DEFUN |FiniteFieldCyclicGroupExtensionByPolynomial;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G178 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (#1=#:G178 NIL) (|pv$| NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 |#2|)

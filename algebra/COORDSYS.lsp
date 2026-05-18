@@ -4,7 +4,7 @@
 (SDEFUN |COORDSYS;cartesian;2P;1| ((|pt| (|Point| R)) (% (|Point| R))) |pt|) 
 
 (SDEFUN |COORDSYS;polar;2P;2| ((|pt0| (|Point| R)) (% (|Point| R)))
-        (SPROG ((|theta| (R)) (|r| (R)) (|pt| (|Point| R)))
+        (SPROG ((|pt| (|Point| R)) (|r| (R)) (|theta| (R)))
                (SEQ (LETT |pt| (SPADCALL |pt0| (QREFELT % 9)))
                     (LETT |r| (SPADCALL |pt0| 1 (QREFELT % 12)))
                     (LETT |theta| (SPADCALL |pt0| 2 (QREFELT % 12)))
@@ -22,7 +22,7 @@
         (SPADCALL |pt0| (QREFELT % 17))) 
 
 (SDEFUN |COORDSYS;spherical;2P;4| ((|pt0| (|Point| R)) (% (|Point| R)))
-        (SPROG ((|phi| (R)) (|theta| (R)) (|r| (R)) (|pt| (|Point| R)))
+        (SPROG ((|pt| (|Point| R)) (|r| (R)) (|theta| (R)) (|phi| (R)))
                (SEQ (LETT |pt| (SPADCALL |pt0| (QREFELT % 9)))
                     (LETT |r| (SPADCALL |pt0| 1 (QREFELT % 12)))
                     (LETT |theta| (SPADCALL |pt0| 2 (QREFELT % 12)))
@@ -48,7 +48,7 @@
                     (EXIT |pt|)))) 
 
 (SDEFUN |COORDSYS;parabolic;2P;5| ((|pt0| (|Point| R)) (% (|Point| R)))
-        (SPROG ((|v| (R)) (|u| (R)) (|pt| (|Point| R)))
+        (SPROG ((|pt| (|Point| R)) (|u| (R)) (|v| (R)))
                (SEQ (LETT |pt| (SPADCALL |pt0| (QREFELT % 9)))
                     (LETT |u| (SPADCALL |pt0| 1 (QREFELT % 12)))
                     (LETT |v| (SPADCALL |pt0| 2 (QREFELT % 12)))
@@ -67,7 +67,7 @@
         ((|pt0| (|Point| R)) (% (|Point| R))) (SPADCALL |pt0| (QREFELT % 23))) 
 
 (SDEFUN |COORDSYS;paraboloidal;2P;7| ((|pt0| (|Point| R)) (% (|Point| R)))
-        (SPROG ((|phi| (R)) (|v| (R)) (|u| (R)) (|pt| (|Point| R)))
+        (SPROG ((|pt| (|Point| R)) (|u| (R)) (|v| (R)) (|phi| (R)))
                (SEQ (LETT |pt| (SPADCALL |pt0| (QREFELT % 9)))
                     (LETT |u| (SPADCALL |pt0| 1 (QREFELT % 12)))
                     (LETT |v| (SPADCALL |pt0| 2 (QREFELT % 12)))
@@ -101,7 +101,7 @@
           (LETT |a| (QREFELT $$ 0))
           (RETURN
            (PROGN
-            (SPROG ((|v| NIL) (|u| NIL) (|pt| NIL))
+            (SPROG ((|pt| NIL) (|u| NIL) (|v| NIL))
                    (SEQ (LETT |pt| (SPADCALL |x| (QREFELT % 9)))
                         (LETT |u|
                               (SPADCALL |x| (|spadConstant| % 26)
@@ -139,7 +139,7 @@
           (LETT |a| (QREFELT $$ 0))
           (RETURN
            (PROGN
-            (SPROG ((|phi| NIL) (|eta| NIL) (|xi| NIL) (|pt| NIL))
+            (SPROG ((|pt| NIL) (|xi| NIL) (|eta| NIL) (|phi| NIL))
                    (SEQ (LETT |pt| (SPADCALL |x| (QREFELT % 9)))
                         (LETT |xi|
                               (SPADCALL |x| (|spadConstant| % 26)
@@ -189,7 +189,7 @@
           (LETT |a| (QREFELT $$ 0))
           (RETURN
            (PROGN
-            (SPROG ((|phi| NIL) (|eta| NIL) (|xi| NIL) (|pt| NIL))
+            (SPROG ((|pt| NIL) (|xi| NIL) (|eta| NIL) (|phi| NIL))
                    (SEQ (LETT |pt| (SPADCALL |x| (QREFELT % 9)))
                         (LETT |xi|
                               (SPADCALL |x| (|spadConstant| % 26)
@@ -237,7 +237,7 @@
           (LETT |a| (QREFELT $$ 0))
           (RETURN
            (PROGN
-            (SPROG ((|v| NIL) (|u| NIL) (|pt| NIL))
+            (SPROG ((|pt| NIL) (|u| NIL) (|v| NIL))
                    (SEQ (LETT |pt| (SPADCALL |x| (QREFELT % 9)))
                         (LETT |u|
                               (SPADCALL |x| (|spadConstant| % 26)
@@ -277,7 +277,7 @@
           (LETT |a| (QREFELT $$ 0))
           (RETURN
            (PROGN
-            (SPROG ((|phi| NIL) (|v| NIL) (|u| NIL) (|pt| NIL))
+            (SPROG ((|pt| NIL) (|u| NIL) (|v| NIL) (|phi| NIL))
                    (SEQ (LETT |pt| (SPADCALL |x| (QREFELT % 9)))
                         (LETT |u|
                               (SPADCALL |x| (|spadConstant| % 26)
@@ -331,7 +331,7 @@
           (LETT |b| (QREFELT $$ 0))
           (RETURN
            (PROGN
-            (SPROG ((|nu| NIL) (|mu| NIL) (|lambda| NIL) (|pt| NIL))
+            (SPROG ((|pt| NIL) (|lambda| NIL) (|mu| NIL) (|nu| NIL))
                    (SEQ (LETT |pt| (SPADCALL |x| (QREFELT % 9)))
                         (LETT |lambda|
                               (SPADCALL |x| (|spadConstant| % 26)
@@ -395,7 +395,7 @@
 (DECLAIM (NOTINLINE |CoordinateSystems;|)) 
 
 (DEFUN |CoordinateSystems;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|CoordinateSystems| DV$1))

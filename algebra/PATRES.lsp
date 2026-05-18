@@ -28,9 +28,9 @@
 (SDEFUN |PATRES;satisfy?;%PU;7|
         ((|r| (%)) (|p| (|Pattern| R)) (% (|Union| (|Boolean|) "failed")))
         (SPROG
-         ((|lv| (|List| S)) (#1=#:G48 NIL) (|u| (|Union| S "failed"))
-          (#2=#:G50 NIL) (|v| NIL) (#3=#:G49 NIL)
-          (|lr| (|AssociationList| (|Symbol|) S)))
+         ((|lr| (|AssociationList| (|Symbol|) S)) (#1=#:G49 NIL) (|v| NIL)
+          (#2=#:G50 NIL) (|u| (|Union| S "failed")) (#3=#:G48 NIL)
+          (|lv| (|List| S)))
          (SEQ
           (EXIT
            (COND ((SPADCALL |r| (QREFELT % 14)) (CONS 0 NIL))
@@ -38,7 +38,7 @@
                   (SEQ (LETT |lr| (QCDR |r|))
                        (LETT |lv|
                              (PROGN
-                              (LETT #3# NIL)
+                              (LETT #1# NIL)
                               (SEQ (LETT |v| NIL)
                                    (LETT #2#
                                          (QCAR (SPADCALL |p| (QREFELT % 27))))
@@ -49,7 +49,7 @@
                                      (GO G191)))
                                    (SEQ
                                     (EXIT
-                                     (LETT #3#
+                                     (LETT #1#
                                            (CONS
                                             (SEQ
                                              (LETT |u|
@@ -59,14 +59,14 @@
                                               (COND
                                                ((QEQCAR |u| 1)
                                                 (PROGN
-                                                 (LETT #1# (CONS 1 "failed"))
+                                                 (LETT #3# (CONS 1 "failed"))
                                                  (GO #4=#:G47)))
                                                ('T (QCDR |u|)))))
-                                            #3#))))
+                                            #1#))))
                                    (LETT #2# (CDR #2#)) (GO G190) G191
-                                   (EXIT (NREVERSE #3#)))))
+                                   (EXIT (NREVERSE #1#)))))
                        (EXIT (CONS 0 (SPADCALL |lv| |p| (QREFELT % 32))))))))
-          #4# (EXIT #1#)))) 
+          #4# (EXIT #3#)))) 
 
 (SDEFUN |PATRES;union;3%;8| ((|x| (%)) (|y| (%)) (% (%)))
         (COND
@@ -101,8 +101,8 @@
 (SDEFUN |PATRES;addMatch;PS2%;12|
         ((|p| (|Pattern| R)) (|x| (S)) (|l| (%)) (% (%)))
         (SPROG
-         ((|r| (|Union| S "failed")) (|sy| (|Symbol|))
-          (|al| (|AssociationList| (|Symbol|) S)))
+         ((|al| (|AssociationList| (|Symbol|) S)) (|sy| (|Symbol|))
+          (|r| (|Union| S "failed")))
          (SEQ
           (COND
            ((OR (SPADCALL |l| (QREFELT % 14))
@@ -127,7 +127,7 @@
 (DECLAIM (NOTINLINE |PatternMatchResult;|)) 
 
 (DEFUN |PatternMatchResult;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

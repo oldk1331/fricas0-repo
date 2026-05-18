@@ -72,7 +72,7 @@
                       ('T (|spadConstant| % 15))))))) 
 
 (SDEFUN |PADICRC;wholePart;%PADIC;12| ((|x| (%)) (% (PADIC)))
-        (SPROG ((|ix| (PADIC)) (#1=#:G53 NIL) (|i| NIL) (|n| (|Integer|)))
+        (SPROG ((|n| (|Integer|)) (|i| NIL) (#1=#:G53 NIL) (|ix| (PADIC)))
                (SEQ (LETT |n| (|PADICRC;getExpon| |x| %))
                     (COND
                      ((< |n| 0)
@@ -125,7 +125,7 @@
                      ('T |x|)))) 
 
 (SDEFUN |PADICRC;=;2%B;15| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
-        (SPROG ((#1=#:G260 NIL) (#2=#:G193 NIL) (|n| (|Integer|)))
+        (SPROG ((|n| (|Integer|)) (#1=#:G193 NIL) (#2=#:G260 NIL))
                (SEQ
                 (COND ((EQ |x| |y|) 'T)
                       (#3='T
@@ -139,25 +139,25 @@
                            (SPADCALL
                             (SPADCALL
                              (EXPT (QREFELT % 6)
-                                   (PROG1 (LETT #2# |n|)
-                                     (|check_subtype2| (>= #2# 0)
+                                   (PROG1 (LETT #1# |n|)
+                                     (|check_subtype2| (>= #1# 0)
                                                        '(|NonNegativeInteger|)
-                                                       '(|Integer|) #2#)))
+                                                       '(|Integer|) #1#)))
                              (|PADICRC;getZp| |x| %) (QREFELT % 26))
                             (|PADICRC;getZp| |y| %) (QREFELT % 39)))
                           (#3#
                            (SPADCALL
                             (SPADCALL
                              (EXPT (QREFELT % 6)
-                                   (PROG1 (LETT #1# (- |n|))
-                                     (|check_subtype2| (>= #1# 0)
+                                   (PROG1 (LETT #2# (- |n|))
+                                     (|check_subtype2| (>= #2# 0)
                                                        '(|NonNegativeInteger|)
-                                                       '(|Integer|) #1#)))
+                                                       '(|Integer|) #2#)))
                              (|PADICRC;getZp| |y| %) (QREFELT % 26))
                             (|PADICRC;getZp| |x| %) (QREFELT % 39))))))))))) 
 
 (SDEFUN |PADICRC;+;3%;16| ((|x| (%)) (|y| (%)) (% (%)))
-        (SPROG ((#1=#:G278 NIL) (#2=#:G274 NIL) (|n| (|Integer|)))
+        (SPROG ((|n| (|Integer|)) (#1=#:G274 NIL) (#2=#:G278 NIL))
                (SEQ
                 (LETT |n|
                       (- (|PADICRC;getExpon| |x| %)
@@ -169,10 +169,10 @@
                     (SPADCALL (|PADICRC;getZp| |y| %)
                               (SPADCALL
                                (EXPT (QREFELT % 6)
-                                     (PROG1 (LETT #2# |n|)
-                                       (|check_subtype2| (>= #2# 0)
+                                     (PROG1 (LETT #1# |n|)
+                                       (|check_subtype2| (>= #1# 0)
                                                          '(|NonNegativeInteger|)
-                                                         '(|Integer|) #2#)))
+                                                         '(|Integer|) #1#)))
                                (|PADICRC;getZp| |x| %) (QREFELT % 26))
                               (QREFELT % 41))
                     %))
@@ -181,10 +181,10 @@
                     (SPADCALL (|PADICRC;getZp| |x| %)
                               (SPADCALL
                                (EXPT (QREFELT % 6)
-                                     (PROG1 (LETT #1# (- |n|))
-                                       (|check_subtype2| (>= #1# 0)
+                                     (PROG1 (LETT #2# (- |n|))
+                                       (|check_subtype2| (>= #2# 0)
                                                          '(|NonNegativeInteger|)
-                                                         '(|Integer|) #1#)))
+                                                         '(|Integer|) #2#)))
                                (|PADICRC;getZp| |y| %) (QREFELT % 26))
                               (QREFELT % 41))
                     %))))))) 
@@ -194,7 +194,7 @@
          (SPADCALL (|PADICRC;getZp| |x| %) (QREFELT % 43)) %)) 
 
 (SDEFUN |PADICRC;-;3%;18| ((|x| (%)) (|y| (%)) (% (%)))
-        (SPROG ((#1=#:G296 NIL) (#2=#:G292 NIL) (|n| (|Integer|)))
+        (SPROG ((|n| (|Integer|)) (#1=#:G292 NIL) (#2=#:G296 NIL))
                (SEQ
                 (LETT |n|
                       (- (|PADICRC;getExpon| |x| %)
@@ -206,10 +206,10 @@
                     (SPADCALL
                      (SPADCALL
                       (EXPT (QREFELT % 6)
-                            (PROG1 (LETT #2# |n|)
-                              (|check_subtype2| (>= #2# 0)
+                            (PROG1 (LETT #1# |n|)
+                              (|check_subtype2| (>= #1# 0)
                                                 '(|NonNegativeInteger|)
-                                                '(|Integer|) #2#)))
+                                                '(|Integer|) #1#)))
                       (|PADICRC;getZp| |x| %) (QREFELT % 26))
                      (|PADICRC;getZp| |y| %) (QREFELT % 45))
                     %))
@@ -218,10 +218,10 @@
                     (SPADCALL (|PADICRC;getZp| |x| %)
                               (SPADCALL
                                (EXPT (QREFELT % 6)
-                                     (PROG1 (LETT #1# (- |n|))
-                                       (|check_subtype2| (>= #1# 0)
+                                     (PROG1 (LETT #2# (- |n|))
+                                       (|check_subtype2| (>= #2# 0)
                                                          '(|NonNegativeInteger|)
-                                                         '(|Integer|) #1#)))
+                                                         '(|Integer|) #2#)))
                                (|PADICRC;getZp| |y| %) (QREFELT % 26))
                               (QREFELT % 45))
                     %))))))) 
@@ -238,27 +238,27 @@
          %)) 
 
 (SDEFUN |PADICRC;^;%I%;21| ((|x| (%)) (|n| (|Integer|)) (% (%)))
-        (SPROG ((#1=#:G303 NIL) (#2=#:G302 NIL))
+        (SPROG ((#1=#:G302 NIL) (#2=#:G303 NIL))
                (COND ((ZEROP |n|) (|spadConstant| % 16))
                      ((PLUSP |n|)
                       (SPADCALL |x|
-                                (PROG1 (LETT #2# |n|)
-                                  (|check_subtype2| (> #2# 0)
+                                (PROG1 (LETT #1# |n|)
+                                  (|check_subtype2| (> #1# 0)
                                                     '(|PositiveInteger|)
-                                                    '(|Integer|) #2#))
+                                                    '(|Integer|) #1#))
                                 (QREFELT % 52)))
                      ('T
                       (SPADCALL
                        (SPADCALL |x|
-                                 (PROG1 (LETT #1# (- |n|))
-                                   (|check_subtype2| (> #1# 0)
+                                 (PROG1 (LETT #2# (- |n|))
+                                   (|check_subtype2| (> #2# 0)
                                                      '(|PositiveInteger|)
-                                                     '(|Integer|) #1#))
+                                                     '(|Integer|) #2#))
                                  (QREFELT % 52))
                        (QREFELT % 53)))))) 
 
 (SDEFUN |PADICRC;recip;%U;22| ((|x| (%)) (% (|Union| % #1="failed")))
-        (SPROG ((|inv| (|Union| PADIC #1#)) (|xx| (PADIC)))
+        (SPROG ((|xx| (PADIC)) (|inv| (|Union| PADIC #1#)))
                (SEQ (LETT |x| (SPADCALL 1000 |x| (QREFELT % 25)))
                     (EXIT
                      (COND
@@ -370,9 +370,9 @@
 
 (SDEFUN |PADICRC;coerce;%Of;32| ((|x| (%)) (% (|OutputForm|)))
         (SPROG
-         ((|l| (|List| (|OutputForm|))) (|uu| (|Stream| (|Integer|)))
-          (|uu1| (|Stream| (|Integer|))) (|n| NIL) (#1=#:G362 NIL)
-          (|count| (|NonNegativeInteger|)) (|zp| (PADIC)) (|m| (|Integer|)))
+         ((|m| (|Integer|)) (|zp| (PADIC)) (|count| (|NonNegativeInteger|))
+          (#1=#:G362 NIL) (|n| NIL) (|uu1| (|Stream| (|Integer|)))
+          (|uu| (|Stream| (|Integer|))) (|l| (|List| (|OutputForm|))))
          (SEQ (LETT |x| (SPADCALL |$streamCount| |x| (QREFELT % 25)))
               (LETT |m| (|PADICRC;getExpon| |x| %))
               (LETT |zp| (|PADICRC;getZp| |x| %))
@@ -464,7 +464,7 @@
 
 (DEFUN |PAdicRationalConstructor;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G393 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (#1=#:G393 NIL) (|pv$| NIL))
    (PROGN
     (LETT DV$1 |#1|)
     (LETT DV$2 (|devaluate| |#2|))

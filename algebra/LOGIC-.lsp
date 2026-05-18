@@ -6,7 +6,7 @@
 (DECLAIM (NOTINLINE |Logic&;|)) 
 
 (DEFUN |Logic&| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|Logic&| DV$1))

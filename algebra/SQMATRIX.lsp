@@ -8,9 +8,9 @@
 
 (SDEFUN |SQMATRIX;matrix;L%;4| ((|l| (|List| (|List| R))) (% (%)))
         (SPROG
-         ((#1=#:G22 NIL) (|j| NIL) (#2=#:G23 NIL) (|r| NIL) (#3=#:G20 NIL)
-          (|i| NIL) (#4=#:G21 NIL) (|ll| NIL) (|ans| (|Matrix| R))
-          (#5=#:G18 NIL) (#6=#:G19 NIL))
+         ((#1=#:G19 NIL) (#2=#:G18 NIL) (|ans| (|Matrix| R)) (|ll| NIL)
+          (#3=#:G21 NIL) (|i| NIL) (#4=#:G20 NIL) (|r| NIL) (#5=#:G23 NIL)
+          (|j| NIL) (#6=#:G22 NIL))
          (SEQ
           (COND
            ((SPADCALL (LENGTH |l|) (QREFELT % 6) (QREFELT % 19))
@@ -19,41 +19,41 @@
             (SEQ
              (SEQ
               (EXIT
-               (SEQ (LETT |ll| NIL) (LETT #6# |l|) G190
+               (SEQ (LETT |ll| NIL) (LETT #1# |l|) G190
                     (COND
-                     ((OR (ATOM #6#) (PROGN (LETT |ll| (CAR #6#)) NIL))
+                     ((OR (ATOM #1#) (PROGN (LETT |ll| (CAR #1#)) NIL))
                       (GO G191)))
                     (SEQ
                      (EXIT
                       (COND
                        ((SPADCALL (LENGTH |ll|) (QREFELT % 6) (QREFELT % 19))
                         (PROGN
-                         (LETT #5# (|error| "matrix: wrong number of columns"))
+                         (LETT #2# (|error| "matrix: wrong number of columns"))
                          (GO #7=#:G10))))))
-                    (LETT #6# (CDR #6#)) (GO G190) G191 (EXIT NIL)))
-              #7# (EXIT #5#))
+                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL)))
+              #7# (EXIT #2#))
              (LETT |ans|
                    (MAKE_MATRIX1 (QREFELT % 6) (QREFELT % 6)
                                  (|spadConstant| % 8)))
-             (SEQ (LETT |ll| NIL) (LETT #4# |l|) (LETT |i| (PROGN |ans| 1))
-                  (LETT #3# (SPADCALL |ans| (QREFELT % 21))) G190
+             (SEQ (LETT |ll| NIL) (LETT #3# |l|) (LETT |i| (PROGN |ans| 1))
+                  (LETT #4# (SPADCALL |ans| (QREFELT % 21))) G190
                   (COND
-                   ((OR (> |i| #3#) (ATOM #4#)
-                        (PROGN (LETT |ll| (CAR #4#)) NIL))
+                   ((OR (> |i| #4#) (ATOM #3#)
+                        (PROGN (LETT |ll| (CAR #3#)) NIL))
                     (GO G191)))
                   (SEQ
                    (EXIT
-                    (SEQ (LETT |r| NIL) (LETT #2# |ll|)
+                    (SEQ (LETT |r| NIL) (LETT #5# |ll|)
                          (LETT |j| (PROGN |ans| 1))
-                         (LETT #1# (SPADCALL |ans| (QREFELT % 22))) G190
+                         (LETT #6# (SPADCALL |ans| (QREFELT % 22))) G190
                          (COND
-                          ((OR (> |j| #1#) (ATOM #2#)
-                               (PROGN (LETT |r| (CAR #2#)) NIL))
+                          ((OR (> |j| #6#) (ATOM #5#)
+                               (PROGN (LETT |r| (CAR #5#)) NIL))
                            (GO G191)))
                          (SEQ (EXIT (QSETAREF2O |ans| |i| |j| |r| 1 1)))
-                         (LETT |j| (PROG1 (+ |j| 1) (LETT #2# (CDR #2#))))
+                         (LETT |j| (PROG1 (+ |j| 1) (LETT #5# (CDR #5#))))
                          (GO G190) G191 (EXIT NIL))))
-                  (LETT |i| (PROG1 (+ |i| 1) (LETT #4# (CDR #4#)))) (GO G190)
+                  (LETT |i| (PROG1 (+ |i| 1) (LETT #3# (CDR #3#)))) (GO G190)
                   G191 (EXIT NIL))
              (EXIT |ans|))))))) 
 
@@ -111,20 +111,20 @@
 
 (SDEFUN |SQMATRIX;columnSpace;%L;18|
         ((|x| (%)) (% (|List| (|DirectProduct| |ndim| R))))
-        (SPROG ((#1=#:G45 NIL) (|c| NIL) (#2=#:G44 NIL))
+        (SPROG ((#1=#:G44 NIL) (|c| NIL) (#2=#:G45 NIL))
                (SEQ
                 (PROGN
-                 (LETT #2# NIL)
-                 (SEQ (LETT |c| NIL) (LETT #1# (SPADCALL |x| (QREFELT % 56)))
+                 (LETT #1# NIL)
+                 (SEQ (LETT |c| NIL) (LETT #2# (SPADCALL |x| (QREFELT % 56)))
                       G190
                       (COND
-                       ((OR (ATOM #1#) (PROGN (LETT |c| (CAR #1#)) NIL))
+                       ((OR (ATOM #2#) (PROGN (LETT |c| (CAR #2#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2# (CONS (SPADCALL |c| (QREFELT % 28)) #2#))))
-                      (LETT #1# (CDR #1#)) (GO G190) G191
-                      (EXIT (NREVERSE #2#))))))) 
+                        (LETT #1# (CONS (SPADCALL |c| (QREFELT % 28)) #1#))))
+                      (LETT #2# (CDR #2#)) (GO G190) G191
+                      (EXIT (NREVERSE #1#))))))) 
 
 (SDEFUN |SQMATRIX;rank;%Nni;19| ((|x| (%)) (% (|NonNegativeInteger|)))
         (SPADCALL |x| (QREFELT % 59))) 
@@ -134,20 +134,20 @@
 
 (SDEFUN |SQMATRIX;nullSpace;%L;21|
         ((|x| (%)) (% (|List| (|DirectProduct| |ndim| R))))
-        (SPROG ((#1=#:G52 NIL) (|c| NIL) (#2=#:G51 NIL))
+        (SPROG ((#1=#:G51 NIL) (|c| NIL) (#2=#:G52 NIL))
                (SEQ
                 (PROGN
-                 (LETT #2# NIL)
-                 (SEQ (LETT |c| NIL) (LETT #1# (SPADCALL |x| (QREFELT % 63)))
+                 (LETT #1# NIL)
+                 (SEQ (LETT |c| NIL) (LETT #2# (SPADCALL |x| (QREFELT % 63)))
                       G190
                       (COND
-                       ((OR (ATOM #1#) (PROGN (LETT |c| (CAR #1#)) NIL))
+                       ((OR (ATOM #2#) (PROGN (LETT |c| (CAR #2#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2# (CONS (SPADCALL |c| (QREFELT % 28)) #2#))))
-                      (LETT #1# (CDR #1#)) (GO G190) G191
-                      (EXIT (NREVERSE #2#))))))) 
+                        (LETT #1# (CONS (SPADCALL |c| (QREFELT % 28)) #1#))))
+                      (LETT #2# (CDR #2#)) (GO G190) G191
+                      (EXIT (NREVERSE #1#))))))) 
 
 (SDEFUN |SQMATRIX;recip;%U;22| ((|x| (%)) (% (|Union| % "failed")))
         (SPROG ((|u| (|Union| (|Matrix| R) "failed")))
@@ -179,8 +179,8 @@
 
 (DEFUN |SquareMatrix;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G90 NIL) (#2=#:G92 NIL) (#3=#:G91 NIL) (#4=#:G94 NIL)
-    (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (#1=#:G94 NIL) (#2=#:G91 NIL)
+    (#3=#:G92 NIL) (#4=#:G90 NIL) (|pv$| NIL))
    (PROGN
     (LETT DV$1 |#1|)
     (LETT DV$2 (|devaluate| |#2|))
@@ -199,7 +199,7 @@
                                         (|HasCategory| |#2|
                                                        '(|PartialDifferentialRing|
                                                          (|Symbol|)))
-                                        (LETT #4#
+                                        (LETT #1#
                                               (|HasCategory| |#2|
                                                              '(|DifferentialRing|)))
                                         (OR
@@ -208,7 +208,7 @@
                                                           (|Symbol|)))
                                          (|HasCategory| |#2|
                                                         '(|CommutativeRing|))
-                                         #4# (|HasCategory| |#2| '(|Ring|)))
+                                         #1# (|HasCategory| |#2| '(|Ring|)))
                                         (|HasCategory| |#2| '(|Finite|))
                                         (|HasCategory| |#2|
                                                        '(|RetractableTo|
@@ -257,7 +257,7 @@
                                                          (LIST '|Evalable|
                                                                (|devaluate|
                                                                 |#2|)))
-                                          #4#)
+                                          #1#)
                                          (AND
                                           (|HasCategory| |#2|
                                                          (LIST '|Evalable|
@@ -284,7 +284,7 @@
                                           (|HasCategory| |#2|
                                                          '(|SetCategory|))))
                                         (|HasCategory| |#2| '(|Field|))
-                                        (AND #4#
+                                        (AND #1#
                                              (|HasCategory| |#2| '(|Ring|)))
                                         (AND
                                          (|HasCategory| |#2|
@@ -296,32 +296,32 @@
                                                         '(|RetractableTo|
                                                           (|Integer|)))
                                          (|HasCategory| |#2| '(|Ring|)))
-                                        (LETT #3#
+                                        (LETT #2#
                                               (|HasCategory| |#2|
                                                              '(|LinearlyExplicitOver|
                                                                (|Integer|))))
-                                        (LETT #2#
+                                        (LETT #3#
                                               (AND
                                                (|HasCategory| |#2|
                                                               '(|LinearlyExplicitOver|
                                                                 (|Integer|)))
                                                (|HasCategory| |#2| '(|Ring|))))
                                         (OR
-                                         (AND #3#
+                                         (AND #2#
                                               (|HasCategory| |#2|
                                                              '(|PartialDifferentialRing|
                                                                (|Symbol|))))
-                                         (AND #3#
+                                         (AND #2#
                                               (|HasCategory| |#2|
                                                              '(|CommutativeRing|)))
-                                         (AND #3# #4#) #2#)
+                                         (AND #2# #1#) #3#)
                                         (|HasCategory| (|Integer|)
                                                        '(|AbelianGroup|))
-                                        (LETT #1#
+                                        (LETT #4#
                                               (|HasCategory| |#2|
                                                              '(|ConvertibleTo|
                                                                (|InputForm|))))
-                                        (OR #1#
+                                        (OR #4#
                                             (AND
                                              (|HasCategory| |#2|
                                                             (LIST '|Evalable|
@@ -356,7 +356,7 @@
                                              (|HasCategory| |#2|
                                                             '(|CommutativeStar|))
                                              (|HasCategory| |#2| '(|Finite|)))
-                                            (AND #4#
+                                            (AND #1#
                                                  (|HasCategory| |#2|
                                                                 '(|Finite|)))
                                             (AND
@@ -383,7 +383,7 @@
          (|augmentPredVector| % 2147483648))
     (AND
      (OR
-      (AND #3# (|HasCategory| |#2| '(|Ring|))
+      (AND #2# (|HasCategory| |#2| '(|Ring|))
            (|HasCategory| (|Integer|) '(|AbelianGroup|)))
       (|HasCategory| |#2| '(|AbelianGroup|))
       (|HasCategory| % '(|AbelianGroup|)))

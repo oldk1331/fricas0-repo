@@ -728,7 +728,7 @@
 ;             caller =>  '"119"
 ;             '"019"
 ;         NL := APPEND(NL, [char('_0)])
-;         buf := make_spaces(A => 3; 2 + #NL)
+;         buf := filler_spaces(A => 3; 2 + #NL)
 ;         buf.0 :=
 ;             (C or caller) => char('_1)
 ;             char('_0)
@@ -949,7 +949,7 @@
                               (PROGN
                                (SETQ NL (APPEND NL (LIST (|char| '|0|))))
                                (SETQ |buf|
-                                       (|make_spaces|
+                                       (|filler_spaces|
                                         (COND (A 3) (#1# (+ 2 (LENGTH NL))))))
                                (SETF (ELT |buf| 0)
                                        (COND ((OR C |caller|) (|char| '|1|))

@@ -84,23 +84,23 @@
                 (QREFELT % 8)))) 
 
 (SDEFUN |RCFIELD-;nthRoot;SIS;9| ((|x| (S)) (|n| (|Integer|)) (% (S)))
-        (SPROG ((#1=#:G52 NIL) (#2=#:G50 NIL))
+        (SPROG ((#1=#:G50 NIL) (#2=#:G52 NIL))
                (COND ((ZEROP |n|) |x|)
                      ((MINUSP |n|)
                       (SPADCALL
                        (SPADCALL |x|
-                                 (PROG1 (LETT #2# (- |n|))
-                                   (|check_subtype2| (> #2# 0)
+                                 (PROG1 (LETT #1# (- |n|))
+                                   (|check_subtype2| (> #1# 0)
                                                      '(|PositiveInteger|)
-                                                     '(|Integer|) #2#))
+                                                     '(|Integer|) #1#))
                                  (QREFELT % 8))
                        (QREFELT % 48)))
                      ('T
                       (SPADCALL |x|
-                                (PROG1 (LETT #1# |n|)
-                                  (|check_subtype2| (> #1# 0)
+                                (PROG1 (LETT #2# |n|)
+                                  (|check_subtype2| (> #2# 0)
                                                     '(|PositiveInteger|)
-                                                    '(|Integer|) #1#))
+                                                    '(|Integer|) #2#))
                                 (QREFELT % 8)))))) 
 
 (SDEFUN |RCFIELD-;allRootsOf;SupL;10|
@@ -126,7 +126,7 @@
 (DECLAIM (NOTINLINE |RealClosedField&;|)) 
 
 (DEFUN |RealClosedField&| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|RealClosedField&| DV$1))

@@ -4,8 +4,8 @@
 
 (SDEFUN |FNLA;have| ((|i| (|Integer|)) (|j| (|Integer|)) (% (%)))
         (SPROG
-         ((|hi| (|Integer|)) (|lo| (|Integer|)) (|mid| (|Integer|))
-          (|wt| (|Integer|)))
+         ((|wt| (|Integer|)) (|mid| (|Integer|)) (|lo| (|Integer|))
+          (|hi| (|Integer|)))
          (SEQ
           (LETT |wt|
                 (+
@@ -286,7 +286,7 @@
 (DECLAIM (NOTINLINE |FreeNilpotentLie;|)) 
 
 (DEFUN |FreeNilpotentLie;| (|#1| |#2| |#3|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 |#1|)
           (LETT DV$2 |#2|)

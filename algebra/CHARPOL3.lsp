@@ -3,12 +3,12 @@
         ((|m| (|Matrix| R)) (|ld| (|List| R))
          (% (|SparseUnivariatePolynomial| (|Fraction| R))))
         (SPROG
-         ((#1=#:G10 NIL) (|j| NIL) (#2=#:G11 NIL) (|di| NIL)
-          (|m1| (|SparseUnivariatePolynomial| (|Fraction| R)))
+         ((|n| (|NonNegativeInteger|)) (A1 (|Matrix| R))
+          (|v| (|SingletonAsOrderedSet|)) (|i| NIL) (#1=#:G9 NIL) (|d1| (R))
+          (|i_f| (|Fraction| R)) (|m1v| (|Fraction| R)) (|cor| (|Fraction| R))
           (|res| (|SparseUnivariatePolynomial| (|Fraction| R)))
-          (|cor| (|Fraction| R)) (|m1v| (|Fraction| R)) (|i_f| (|Fraction| R))
-          (|d1| (R)) (#3=#:G9 NIL) (|i| NIL) (|v| (|SingletonAsOrderedSet|))
-          (A1 (|Matrix| R)) (|n| (|NonNegativeInteger|)))
+          (|m1| (|SparseUnivariatePolynomial| (|Fraction| R))) (|di| NIL)
+          (#2=#:G11 NIL) (|j| NIL) (#3=#:G10 NIL))
          (SEQ (LETT |n| (ANCOLS |m|))
               (EXIT
                (COND
@@ -19,8 +19,8 @@
                       (LETT |res| (|spadConstant| % 13))
                       (LETT |m1| (|spadConstant| % 14))
                       (LETT |v| (SPADCALL (QREFELT % 16)))
-                      (SEQ (LETT |i| 0) (LETT #3# |n|) G190
-                           (COND ((|greater_SI| |i| #3#) (GO G191)))
+                      (SEQ (LETT |i| 0) (LETT #1# |n|) G190
+                           (COND ((|greater_SI| |i| #1#) (GO G191)))
                            (SEQ (LETT |d1| (SPADCALL A1 (QREFELT % 17)))
                                 (LETT |i_f|
                                       (SPADCALL (SPADCALL |i| (QREFELT % 19))
@@ -53,9 +53,9 @@
                                        |m1| (QREFELT % 33)))
                                 (EXIT
                                  (SEQ (LETT |di| NIL) (LETT #2# |ld|)
-                                      (LETT |j| 1) (LETT #1# |n|) G190
+                                      (LETT |j| 1) (LETT #3# |n|) G190
                                       (COND
-                                       ((OR (|greater_SI| |j| #1#) (ATOM #2#)
+                                       ((OR (|greater_SI| |j| #3#) (ATOM #2#)
                                             (PROGN (LETT |di| (CAR #2#)) NIL))
                                         (GO G191)))
                                       (SEQ
@@ -76,17 +76,17 @@
 (SDEFUN |CHARPOL3;char_pol_via_interpolation;MSup;2|
         ((|m| (|Matrix| R)) (% (|SparseUnivariatePolynomial| R)))
         (SPROG
-         ((|p1| (|SparseUnivariatePolynomial| (|Fraction| R)))
-          (|ld| (|List| R)) (#1=#:G18 NIL) (|i| NIL) (#2=#:G17 NIL))
+         ((#1=#:G17 NIL) (|i| NIL) (#2=#:G18 NIL) (|ld| (|List| R))
+          (|p1| (|SparseUnivariatePolynomial| (|Fraction| R))))
          (SEQ
           (LETT |ld|
                 (PROGN
-                 (LETT #2# NIL)
-                 (SEQ (LETT |i| 1) (LETT #1# (ANCOLS |m|)) G190
-                      (COND ((|greater_SI| |i| #1#) (GO G191)))
-                      (SEQ (EXIT (LETT #2# (CONS (|spadConstant| % 28) #2#))))
+                 (LETT #1# NIL)
+                 (SEQ (LETT |i| 1) (LETT #2# (ANCOLS |m|)) G190
+                      (COND ((|greater_SI| |i| #2#) (GO G191)))
+                      (SEQ (EXIT (LETT #1# (CONS (|spadConstant| % 28) #1#))))
                       (LETT |i| (|inc_SI| |i|)) (GO G190) G191
-                      (EXIT (NREVERSE #2#)))))
+                      (EXIT (NREVERSE #1#)))))
           (LETT |p1| (|CHARPOL3;char_pol_via_interpolation0| |m| |ld| %))
           (EXIT (SPADCALL (ELT % 37) |p1| (QREFELT % 41)))))) 
 
@@ -94,17 +94,17 @@
         ((|m| (|Matrix| (|Fraction| R)))
          (% (|Record| (|:| |mr| (|Matrix| R)) (|:| |rd| (|List| R)))))
         (SPROG
-         ((|g1| (R)) (#1=#:G25 NIL) (|a| (|Fraction| R)) (#2=#:G35 NIL)
-          (|j| NIL) (|lg| (|List| R)) (|g| (R)) (|lr| (|List| R))
-          (#3=#:G34 NIL) (#4=#:G33 NIL) (|i| NIL) (B (|Matrix| R))
-          (|k| (|NonNegativeInteger|)) (|n| (|NonNegativeInteger|)))
+         ((|n| (|NonNegativeInteger|)) (|k| (|NonNegativeInteger|))
+          (B (|Matrix| R)) (|i| NIL) (#1=#:G33 NIL) (#2=#:G34 NIL)
+          (|lr| (|List| R)) (|g| (R)) (|lg| (|List| R)) (|j| NIL)
+          (#3=#:G35 NIL) (|a| (|Fraction| R)) (#4=#:G25 NIL) (|g1| (R)))
          (SEQ (LETT |n| (ANROWS |m|)) (LETT |k| (ANCOLS |m|)) (LETT |lg| NIL)
               (LETT B (MAKE_MATRIX1 |n| |n| (|spadConstant| % 43)))
-              (SEQ (LETT |i| 1) (LETT #4# |n|) G190
-                   (COND ((|greater_SI| |i| #4#) (GO G191)))
+              (SEQ (LETT |i| 1) (LETT #1# |n|) G190
+                   (COND ((|greater_SI| |i| #1#) (GO G191)))
                    (SEQ (LETT |lr| NIL)
-                        (SEQ (LETT |j| 1) (LETT #3# |k|) G190
-                             (COND ((|greater_SI| |j| #3#) (GO G191)))
+                        (SEQ (LETT |j| 1) (LETT #2# |k|) G190
+                             (COND ((|greater_SI| |j| #2#) (GO G191)))
                              (SEQ
                               (EXIT
                                (LETT |lr|
@@ -117,24 +117,24 @@
                         (LETT |g| (SPADCALL |lr| (QREFELT % 47)))
                         (LETT |lg| (CONS |g| |lg|))
                         (EXIT
-                         (SEQ (LETT |j| 1) (LETT #2# |k|) G190
-                              (COND ((|greater_SI| |j| #2#) (GO G191)))
+                         (SEQ (LETT |j| 1) (LETT #3# |k|) G190
+                              (COND ((|greater_SI| |j| #3#) (GO G191)))
                               (SEQ (LETT |a| (QAREF2O |m| |i| |j| 1 1))
                                    (LETT |g1|
                                          (PROG2
-                                             (LETT #1#
+                                             (LETT #4#
                                                    (SPADCALL |g|
                                                              (SPADCALL |a|
                                                                        (QREFELT
                                                                         % 45))
                                                              (QREFELT % 49)))
-                                             (QCDR #1#)
-                                           (|check_union2| (QEQCAR #1# 0)
+                                             (QCDR #4#)
+                                           (|check_union2| (QEQCAR #4# 0)
                                                            (QREFELT % 6)
                                                            (|Union|
                                                             (QREFELT % 6)
                                                             "failed")
-                                                           #1#)))
+                                                           #4#)))
                                    (EXIT
                                     (QSETAREF2O B |i| |j|
                                                 (SPADCALL |g1|
@@ -151,8 +151,8 @@
 (SDEFUN |CHARPOL3;det_via_common_denominator;MF;4|
         ((|m| (|Matrix| (|Fraction| R))) (% (|Fraction| R)))
         (SPROG
-         ((|d| (R)) (|det1| (R)) (|lg| (|List| R)) (B (|Matrix| R))
-          (|#G15| (|Record| (|:| |mr| (|Matrix| R)) (|:| |rd| (|List| R)))))
+         ((|#G15| (|Record| (|:| |mr| (|Matrix| R)) (|:| |rd| (|List| R))))
+          (B (|Matrix| R)) (|lg| (|List| R)) (|det1| (R)) (|d| (R)))
          (SEQ
           (PROGN
            (LETT |#G15| (|CHARPOL3;to_common_denominator| |m| %))
@@ -169,10 +169,10 @@
         ((|m| (|Matrix| (|Fraction| R)))
          (% (|SparseUnivariatePolynomial| (|Fraction| R))))
         (SPROG
-         ((|d| (|Fraction| R))
+         ((|#G17| (|Record| (|:| |mr| (|Matrix| R)) (|:| |rd| (|List| R))))
+          (B (|Matrix| R)) (|lg| (|List| R))
           (|res1| (|SparseUnivariatePolynomial| (|Fraction| R)))
-          (|lg| (|List| R)) (B (|Matrix| R))
-          (|#G17| (|Record| (|:| |mr| (|Matrix| R)) (|:| |rd| (|List| R)))))
+          (|d| (|Fraction| R)))
          (SEQ
           (PROGN
            (LETT |#G17| (|CHARPOL3;to_common_denominator| |m| %))
@@ -200,7 +200,7 @@
 (DECLAIM (NOTINLINE |CharacteristicPolynomial3;|)) 
 
 (DEFUN |CharacteristicPolynomial3;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|CharacteristicPolynomial3| DV$1))

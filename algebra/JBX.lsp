@@ -7,27 +7,27 @@
 
 (SDEFUN |JBX;retractIfCan;JbeU;2|
         ((|p| (|JetBundleExpression| JB)) (% (|Union| % "failed")))
-        (SPROG ((#1=#:G19 NIL) (|jv| NIL) (#2=#:G18 NIL))
+        (SPROG ((#1=#:G18 NIL) (|jv| NIL) (#2=#:G19 NIL))
                (SEQ
                 (COND
                  ((SPADCALL (ELT % 16)
                             (PROGN
-                             (LETT #2# NIL)
+                             (LETT #1# NIL)
                              (SEQ (LETT |jv| NIL)
-                                  (LETT #1# (SPADCALL |p| (QREFELT % 15))) G190
+                                  (LETT #2# (SPADCALL |p| (QREFELT % 15))) G190
                                   (COND
-                                   ((OR (ATOM #1#)
-                                        (PROGN (LETT |jv| (CAR #1#)) NIL))
+                                   ((OR (ATOM #2#)
+                                        (PROGN (LETT |jv| (CAR #2#)) NIL))
                                     (GO G191)))
                                   (SEQ
                                    (EXIT
-                                    (LETT #2#
+                                    (LETT #1#
                                           (CONS
                                            (EQUAL (SPADCALL |jv| (QREFELT % 9))
                                                   '|Indep|)
-                                           #2#))))
-                                  (LETT #1# (CDR #1#)) (GO G190) G191
-                                  (EXIT (NREVERSE #2#))))
+                                           #1#))))
+                                  (LETT #2# (CDR #2#)) (GO G190) G191
+                                  (EXIT (NREVERSE #1#))))
                             'T (QREFELT % 19))
                   (CONS 0 |p|))
                  ('T (CONS 1 "failed")))))) 
@@ -46,7 +46,7 @@
 
 (DEFUN |JetBundleXExpression;| (|#1|)
   (SPROG
-   ((#1=#:G85 NIL) (|pv$| NIL) (#2=#:G84 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+   ((DV$1 NIL) (|dv$| NIL) (% NIL) (#1=#:G84 NIL) (|pv$| NIL) (#2=#:G85 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|JetBundleXExpression| DV$1))
@@ -90,12 +90,12 @@
                                                        '(|AbelianSemiGroup|))
                                         (|HasCategory| (|Integer|)
                                                        '(|SemiGroup|))
-                                        (LETT #2#
+                                        (LETT #1#
                                               (|HasCategory| (|Integer|)
                                                              '(|RetractableTo|
                                                                (|Fraction|
                                                                 (|Integer|)))))
-                                        (OR #2#
+                                        (OR #1#
                                             (AND
                                              (|HasCategory| (|Integer|)
                                                             '(|RetractableTo|
@@ -107,9 +107,9 @@
     (|stuffDomainSlots| %)
     (QSETREFV % 6 |#1|)
     (AND (|HasCategory| % '(|Ring|)) (|augmentPredVector| % 65536))
-    (AND (LETT #1# (|HasCategory| % '(|CharacteristicZero|)))
+    (AND (LETT #2# (|HasCategory| % '(|CharacteristicZero|)))
          (|augmentPredVector| % 131072))
-    (AND (OR #1# #2# (|HasCategory| (|Integer|) '(|IntegralDomain|)))
+    (AND (OR #2# #1# (|HasCategory| (|Integer|) '(|IntegralDomain|)))
          (|augmentPredVector| % 262144))
     (AND (|HasCategory| % '(|RetractableTo| (|Integer|)))
          (|augmentPredVector| % 524288))

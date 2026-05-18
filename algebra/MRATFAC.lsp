@@ -18,26 +18,26 @@
 
 (SDEFUN |MRATFAC;factor;PF;5| ((|p| (P)) (% (|Factored| P)))
         (SPROG
-         ((#1=#:G16 NIL) (#2=#:G15 #3=(|Factored| P)) (#4=#:G17 #3#)
-          (#5=#:G24 NIL) (|u| NIL)
+         ((#1=#:G22 NIL) (|c| NIL) (#2=#:G23 NIL) (|pden| (R)) (|pol| (P))
+          (|ipol| (|SparseMultivariatePolynomial| R OV))
           (|ffact| (|Factored| (|SparseMultivariatePolynomial| R OV)))
-          (|ipol| (|SparseMultivariatePolynomial| R OV)) (|pol| (P))
-          (|pden| (R)) (#6=#:G23 NIL) (|c| NIL) (#7=#:G22 NIL))
+          (|u| NIL) (#3=#:G24 NIL) (#4=#:G17 #5=(|Factored| P)) (#6=#:G15 #5#)
+          (#7=#:G16 NIL))
          (SEQ
           (LETT |pden|
                 (SPADCALL
                  (PROGN
-                  (LETT #7# NIL)
-                  (SEQ (LETT |c| NIL) (LETT #6# (SPADCALL |p| (QREFELT % 27)))
+                  (LETT #1# NIL)
+                  (SEQ (LETT |c| NIL) (LETT #2# (SPADCALL |p| (QREFELT % 27)))
                        G190
                        (COND
-                        ((OR (ATOM #6#) (PROGN (LETT |c| (CAR #6#)) NIL))
+                        ((OR (ATOM #2#) (PROGN (LETT |c| (CAR #2#)) NIL))
                          (GO G191)))
                        (SEQ
                         (EXIT
-                         (LETT #7# (CONS (SPADCALL |c| (QREFELT % 28)) #7#))))
-                       (LETT #6# (CDR #6#)) (GO G190) G191
-                       (EXIT (NREVERSE #7#))))
+                         (LETT #1# (CONS (SPADCALL |c| (QREFELT % 28)) #1#))))
+                       (LETT #2# (CDR #2#)) (GO G190) G191
+                       (EXIT (NREVERSE #1#))))
                  (QREFELT % 30)))
           (LETT |pol|
                 (SPADCALL (SPADCALL |pden| (QREFELT % 19)) |p| (QREFELT % 31)))
@@ -54,11 +54,11 @@
                                 (QREFELT % 25))
                       (QREFELT % 31))
             (PROGN
-             (LETT #1# NIL)
-             (SEQ (LETT |u| NIL) (LETT #5# (SPADCALL |ffact| (QREFELT % 42)))
+             (LETT #7# NIL)
+             (SEQ (LETT |u| NIL) (LETT #3# (SPADCALL |ffact| (QREFELT % 42)))
                   G190
                   (COND
-                   ((OR (ATOM #5#) (PROGN (LETT |u| (CAR #5#)) NIL))
+                   ((OR (ATOM #3#) (PROGN (LETT |u| (CAR #3#)) NIL))
                     (GO G191)))
                   (SEQ
                    (EXIT
@@ -69,18 +69,18 @@
                                       (CONS (|function| |MRATFAC;coerce1|) %)
                                       (QVELT |u| 1) (QREFELT % 25))
                             (QVELT |u| 2) (QREFELT % 45)))
-                     (COND (#1# (LETT #2# (SPADCALL #2# #4# (QREFELT % 46))))
-                           ('T (PROGN (LETT #2# #4#) (LETT #1# 'T)))))))
-                  (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
-             (COND (#1# #2#) ('T (|spadConstant| % 47))))
+                     (COND (#7# (LETT #6# (SPADCALL #6# #4# (QREFELT % 46))))
+                           ('T (PROGN (LETT #6# #4#) (LETT #7# 'T)))))))
+                  (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
+             (COND (#7# #6#) ('T (|spadConstant| % 47))))
             (QREFELT % 48)))))) 
 
 (DECLAIM (NOTINLINE |MRationalFactorize;|)) 
 
 (DEFUN |MRationalFactorize;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
-    (DV$1 NIL))
+   ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (DV$4 NIL) (|dv$| NIL) (% NIL)
+    (|pv$| NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))

@@ -21,8 +21,8 @@
 
 (DEFUN |AInterval;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G14 NIL) (#2=#:G13 NIL) (#3=#:G15 NIL) (% NIL)
-    (|dv$| NIL) (DV$1 NIL))
+   ((DV$1 NIL) (|dv$| NIL) (% NIL) (#1=#:G15 NIL) (#2=#:G13 NIL) (#3=#:G14 NIL)
+    (|pv$| NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|AInterval| DV$1))
@@ -40,26 +40,26 @@
                                              (|HasCategory| |#1|
                                                             '(|OrderedRing|)))
                                         (|HasCategory| |#1| '(|OrderedMonoid|))
-                                        (LETT #3#
+                                        (LETT #1#
                                               (|HasCategory| |#1|
                                                              '(|SemiRing|)))
                                         (AND
                                          (|HasCategory| |#1|
                                                         '(|OrderedMonoid|))
-                                         #3#)
+                                         #1#)
                                         (OR
                                          (|HasCategory| |#1|
                                                         '(|OrderedAbelianMonoid|))
                                          (AND
                                           (|HasCategory| |#1|
                                                          '(|OrderedMonoid|))
-                                          #3#))
+                                          #1#))
                                         (|HasCategory| |#1|
                                                        '(|OrderedSemiGroup|))
                                         (LETT #2#
                                               (|HasCategory| |#1|
                                                              '(|SemiRng|)))
-                                        (LETT #1#
+                                        (LETT #3#
                                               (AND
                                                (|HasCategory| |#1|
                                                               '(|OrderedSemiGroup|))
@@ -69,28 +69,28 @@
                                          (AND
                                           (|HasCategory| |#1|
                                                          '(|OrderedMonoid|))
-                                          #3#)
-                                         #1#)))))
+                                          #1#)
+                                         #3#)))))
     (|haddProp| |$ConstructorCache| '|AInterval| (LIST DV$1) (CONS 1 %))
     (|stuffDomainSlots| %)
     (QSETREFV % 6 |#1|)
     (AND
      (OR
-      (AND (|HasCategory| |#1| '(|OrderedMonoid|)) #3#
+      (AND (|HasCategory| |#1| '(|OrderedMonoid|)) #1#
            (|HasCategory| % '(|AbelianGroup|)))
       (AND (|HasCategory| |#1| '(|OrderedSemiGroup|)) #2#
            (|HasCategory| % '(|AbelianGroup|))))
      (|augmentPredVector| % 2048))
     (AND
      (OR (|HasCategory| |#1| '(|OrderedAbelianGroup|))
-         (AND (|HasCategory| |#1| '(|OrderedMonoid|)) #3#
+         (AND (|HasCategory| |#1| '(|OrderedMonoid|)) #1#
               (|HasCategory| % '(|AbelianGroup|)))
          (AND (|HasCategory| |#1| '(|OrderedSemiGroup|)) #2#
               (|HasCategory| % '(|AbelianGroup|))))
      (|augmentPredVector| % 4096))
     (AND
      (OR (|HasCategory| |#1| '(|OrderedAbelianMonoid|))
-         (AND (|HasCategory| |#1| '(|OrderedMonoid|)) #3#)
+         (AND (|HasCategory| |#1| '(|OrderedMonoid|)) #1#)
          (AND (|HasCategory| |#1| '(|OrderedSemiGroup|)) #2#
               (|HasCategory| % '(|AbelianMonoid|))))
      (|augmentPredVector| % 8192))

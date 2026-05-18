@@ -4,7 +4,7 @@
 (SDEFUN |IARRAY1;#;%Nni;1| ((|x| (%)) (% (|NonNegativeInteger|))) (QVSIZE |x|)) 
 
 (SDEFUN |IARRAY1;fill!;%S%;2| ((|x| (%)) (|s| (S)) (% (%)))
-        (SPROG ((#1=#:G880 NIL) (|i| NIL))
+        (SPROG ((|i| NIL) (#1=#:G880 NIL))
                (SEQ
                 (SEQ (LETT |i| 0) (LETT #1# (QVMAXINDEX |x|)) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -24,7 +24,7 @@
         (MAKEARR1 |n| |s|)) 
 
 (SDEFUN |IARRAY1;map!;M2%;6| ((|f| (|Mapping| S S)) (|s1| (%)) (% (%)))
-        (SPROG ((#1=#:G890 NIL) (|i| NIL) (|n| (|Integer|)))
+        (SPROG ((|n| (|Integer|)) (|i| NIL) (#1=#:G890 NIL))
                (SEQ (LETT |n| (QVMAXINDEX |s1|))
                     (EXIT
                      (COND ((< |n| 0) |s1|)
@@ -42,7 +42,7 @@
                              (EXIT |s1|)))))))) 
 
 (SDEFUN |IARRAY1;map;M2%;7| ((|f| (|Mapping| S S)) (|s1| (%)) (% (%)))
-        (SPROG ((#1=#:G896 NIL) (|i| NIL) (|ss2| (%)) (|n| (|Integer|)))
+        (SPROG ((|n| (|Integer|)) (|ss2| (%)) (|i| NIL) (#1=#:G896 NIL))
                (SEQ (LETT |n| (QVMAXINDEX |s1|))
                     (EXIT
                      (COND ((< |n| 0) |s1|)
@@ -61,7 +61,7 @@
 
 (SDEFUN |IARRAY1;map;M3%;8|
         ((|f| (|Mapping| S S S)) (|a| (%)) (|b| (%)) (% (%)))
-        (SPROG ((#1=#:G903 NIL) (|i| NIL) (|c| (%)) (|maxind| (|Integer|)))
+        (SPROG ((|maxind| (|Integer|)) (|c| (%)) (|i| NIL) (#1=#:G903 NIL))
                (SEQ (LETT |maxind| (MIN (QVMAXINDEX |a|) (QVMAXINDEX |b|)))
                     (EXIT
                      (COND ((< |maxind| 0) (SPADCALL (QREFELT % 13)))
@@ -81,7 +81,7 @@
 
 (SDEFUN |IARRAY1;hashUpdate!;Hs%Hs;9|
         ((|s| (|HashState|)) (|x| (%)) (% (|HashState|)))
-        (SPROG ((#1=#:G908 NIL) (|i| NIL))
+        (SPROG ((|i| NIL) (#1=#:G908 NIL))
                (SEQ
                 (SEQ (LETT |i| 0) (LETT #1# (QVMAXINDEX |x|)) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -163,8 +163,8 @@
 
 (DEFUN |IndexedOneDimensionalArray;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G943 NIL) (#2=#:G944 NIL) (#3=#:G945 NIL) (% NIL)
-    (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (#1=#:G945 NIL) (#2=#:G944 NIL)
+    (#3=#:G943 NIL) (|pv$| NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 |#2|)
@@ -183,10 +183,10 @@
                                         (|HasCategory| (|Integer|)
                                                        '(|OrderedSet|))
                                         (|HasCategory| |#1| '(|BasicType|))
-                                        (LETT #3#
+                                        (LETT #1#
                                               (|HasCategory| |#1|
                                                              '(|Comparable|)))
-                                        (OR #3#
+                                        (OR #1#
                                             (|HasCategory| |#1|
                                                            '(|OrderedSet|)))
                                         (LETT #2#
@@ -198,21 +198,21 @@
                                                               (|devaluate|
                                                                |#1|)))
                                          #2#)
-                                        (OR #3#
+                                        (OR #1#
                                             (|HasCategory| |#1|
                                                            '(|OrderedSet|))
                                             #2#)
                                         (OR (|HasCategory| |#1| '(|BasicType|))
-                                            #3#
+                                            #1#
                                             (|HasCategory| |#1| '(|Hashable|))
                                             (|HasCategory| |#1|
                                                            '(|OrderedSet|))
                                             #2#)
-                                        (LETT #1#
+                                        (LETT #3#
                                               (|HasCategory| |#1|
                                                              '(|CoercibleTo|
                                                                (|OutputForm|))))
-                                        (OR #1# #3#
+                                        (OR #3# #1#
                                             (|HasCategory| |#1|
                                                            '(|OrderedSet|))
                                             #2#)))))
@@ -234,18 +234,18 @@
     (AND (|HasCategory| |#1| '(|OrderedSet|))
          (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 262144))
     (AND
-     (OR (AND #3# (|HasCategory| % '(|finiteAggregate|)))
+     (OR (AND #1# (|HasCategory| % '(|finiteAggregate|)))
          (AND (|HasCategory| |#1| '(|OrderedSet|))
               (|HasCategory| % '(|finiteAggregate|))))
      (|augmentPredVector| % 524288))
     (AND
-     (OR (AND #3# (|HasCategory| % '(|finiteAggregate|)))
+     (OR (AND #1# (|HasCategory| % '(|finiteAggregate|)))
          (AND (|HasCategory| |#1| '(|OrderedSet|))
               (|HasCategory| % '(|finiteAggregate|)))
          #2#)
      (|augmentPredVector| % 1048576))
     (AND
-     (OR #1# (AND #3# (|HasCategory| % '(|finiteAggregate|)))
+     (OR #3# (AND #1# (|HasCategory| % '(|finiteAggregate|)))
          (AND (|HasCategory| |#1| '(|OrderedSet|))
               (|HasCategory| % '(|finiteAggregate|))))
      (|augmentPredVector| % 2097152))
@@ -256,7 +256,7 @@
      (OR
       (AND (|HasCategory| |#1| '(|BasicType|))
            (|HasCategory| % '(|finiteAggregate|)))
-      (AND #3# (|HasCategory| % '(|finiteAggregate|)))
+      (AND #1# (|HasCategory| % '(|finiteAggregate|)))
       (AND (|HasCategory| |#1| '(|Hashable|))
            (|HasCategory| % '(|finiteAggregate|)))
       (AND (|HasCategory| |#1| '(|OrderedSet|))

@@ -2,7 +2,7 @@
 (SDEFUN |TENSPO2;linearExtend;MTpM2;1|
         ((|f| (|Mapping| M2 (|List| B))) (|x| (|TensorPower| |n| R B M1))
          (% (M2)))
-        (SPROG ((|res| (M2)) (#1=#:G7 NIL) (|t| NIL))
+        (SPROG ((|t| NIL) (#1=#:G7 NIL) (|res| (M2)))
                (SEQ (LETT |res| (|spadConstant| % 11))
                     (SEQ (LETT |t| NIL)
                          (LETT #1# (SPADCALL |x| (QREFELT % 15))) G190
@@ -27,8 +27,8 @@
 
 (DEFUN |TensorPowerFunctions2;| (|#1| |#2| |#3| |#4| |#5|)
   (SPROG
-   ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
-    (DV$1 NIL))
+   ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (DV$4 NIL) (DV$5 NIL) (|dv$| NIL) (% NIL)
+    (|pv$| NIL))
    (PROGN
     (LETT DV$1 |#1|)
     (LETT DV$2 (|devaluate| |#2|))

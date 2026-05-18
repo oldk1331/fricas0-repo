@@ -3,8 +3,8 @@
         ((|vv| #1=(|List| R)) (|aa| (|Stream| R)) (|bb| (|Stream| R))
          (|cc| (|Stream| R)) (% (|List| R)))
         (SPROG
-         ((|vvnew| (|List| R)) (|vva| (|List| R)) (|vi| (R)) (|vvc| (|List| R))
-          (|vvb| #1#))
+         ((|vvb| #1#) (|vvc| (|List| R)) (|vi| (R)) (|vva| (|List| R))
+          (|vvnew| (|List| R)))
          (SEQ (LETT |vvnew| NIL) (LETT |vva| (CONS (|spadConstant| % 7) |vv|))
               (LETT |aa| (SPADCALL (|spadConstant| % 7) |aa| (QREFELT % 9)))
               (LETT |vvb| |vv|) (LETT |vvc| (CDR |vv|))
@@ -50,8 +50,8 @@
         ((|vv| #1=(|List| R)) (|bb| (|Stream| R)) (|cc| (|Stream| R))
          (% (|List| R)))
         (SPROG
-         ((|vvnew| (|List| R)) (|vva| (|List| R)) (|vi| (R)) (|vvc| (|List| R))
-          (|vvb| #1#))
+         ((|vvb| #1#) (|vvc| (|List| R)) (|vi| (R)) (|vva| (|List| R))
+          (|vvnew| (|List| R)))
          (SEQ (LETT |vvnew| NIL) (LETT |vva| (CONS (|spadConstant| % 7) |vv|))
               (LETT |vvb| |vv|) (LETT |vvc| (CDR |vv|))
               (SEQ G190 (COND ((NULL (NULL (NULL |vvc|))) (GO G191)))
@@ -124,7 +124,7 @@
 (DECLAIM (NOTINLINE |PathArrayPackage;|)) 
 
 (DEFUN |PathArrayPackage;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|PathArrayPackage| DV$1))

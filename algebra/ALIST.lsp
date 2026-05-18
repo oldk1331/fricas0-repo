@@ -17,18 +17,18 @@
         (SPADCALL |t| (QREFELT % 14))) 
 
 (SDEFUN |ALIST;keys;%L;6| ((|t| (%)) (% (|List| |Key|)))
-        (SPROG ((#1=#:G21 NIL) (|k| NIL) (#2=#:G20 NIL))
+        (SPROG ((#1=#:G20 NIL) (|k| NIL) (#2=#:G21 NIL))
                (SEQ
                 (PROGN
-                 (LETT #2# NIL)
-                 (SEQ (LETT |k| NIL) (LETT #1# (SPADCALL |t| (QREFELT % 14)))
+                 (LETT #1# NIL)
+                 (SEQ (LETT |k| NIL) (LETT #2# (SPADCALL |t| (QREFELT % 14)))
                       G190
                       (COND
-                       ((OR (ATOM #1#) (PROGN (LETT |k| (CAR #1#)) NIL))
+                       ((OR (ATOM #2#) (PROGN (LETT |k| (CAR #2#)) NIL))
                         (GO G191)))
-                      (SEQ (EXIT (LETT #2# (CONS (QCAR |k|) #2#))))
-                      (LETT #1# (CDR #1#)) (GO G190) G191
-                      (EXIT (NREVERSE #2#))))))) 
+                      (SEQ (EXIT (LETT #1# (CONS (QCAR |k|) #1#))))
+                      (LETT #2# (CDR #2#)) (GO G190) G191
+                      (EXIT (NREVERSE #1#))))))) 
 
 (SDEFUN |ALIST;#;%Nni;7| ((|t| (%)) (% (|NonNegativeInteger|)))
         (LENGTH (SPADCALL |t| (QREFELT % 14)))) 
@@ -65,29 +65,29 @@
 
 (SDEFUN |ALIST;search;Key%U;15|
         ((|k| (|Key|)) (|t| (%)) (% (|Union| |Entry| "failed")))
-        (SPROG ((#1=#:G44 NIL) (#2=#:G45 NIL) (#3=#:G46 NIL) (|r| NIL))
+        (SPROG ((|r| NIL) (#1=#:G46 NIL) (#2=#:G45 NIL) (#3=#:G44 NIL))
                (SEQ
                 (EXIT
                  (SEQ
                   (SEQ
                    (EXIT
                     (SEQ (LETT |r| NIL)
-                         (LETT #3# (SPADCALL |t| (QREFELT % 14))) G190
+                         (LETT #1# (SPADCALL |t| (QREFELT % 14))) G190
                          (COND
-                          ((OR (ATOM #3#) (PROGN (LETT |r| (CAR #3#)) NIL))
+                          ((OR (ATOM #1#) (PROGN (LETT |r| (CAR #1#)) NIL))
                            (GO G191)))
                          (SEQ
                           (EXIT
                            (COND
                             ((SPADCALL |k| (QCAR |r|) (QREFELT % 36))
                              (PROGN
-                              (LETT #1#
+                              (LETT #3#
                                     (PROGN
                                      (LETT #2# (CONS 0 (QCDR |r|)))
                                      (GO #4=#:G43)))
                               (GO #5=#:G38))))))
-                         (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
-                   #5# (EXIT #1#))
+                         (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL)))
+                   #5# (EXIT #3#))
                   (EXIT (CONS 1 "failed"))))
                 #4# (EXIT #2#)))) 
 
@@ -96,29 +96,29 @@
          (%
           (|Union| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))
                    "failed")))
-        (SPROG ((#1=#:G58 NIL) (#2=#:G59 NIL) (#3=#:G60 NIL) (|r| NIL))
+        (SPROG ((|r| NIL) (#1=#:G60 NIL) (#2=#:G59 NIL) (#3=#:G58 NIL))
                (SEQ
                 (EXIT
                  (SEQ
                   (SEQ
                    (EXIT
                     (SEQ (LETT |r| NIL)
-                         (LETT #3# (SPADCALL |t| (QREFELT % 14))) G190
+                         (LETT #1# (SPADCALL |t| (QREFELT % 14))) G190
                          (COND
-                          ((OR (ATOM #3#) (PROGN (LETT |r| (CAR #3#)) NIL))
+                          ((OR (ATOM #1#) (PROGN (LETT |r| (CAR #1#)) NIL))
                            (GO G191)))
                          (SEQ
                           (EXIT
                            (COND
                             ((SPADCALL |k| (QCAR |r|) (QREFELT % 36))
                              (PROGN
-                              (LETT #1#
+                              (LETT #3#
                                     (PROGN
                                      (LETT #2# (CONS 0 |r|))
                                      (GO #4=#:G57)))
                               (GO #5=#:G52))))))
-                         (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
-                   #5# (EXIT #1#))
+                         (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL)))
+                   #5# (EXIT #3#))
                   (EXIT (CONS 1 "failed"))))
                 #4# (EXIT #2#)))) 
 
@@ -144,10 +144,9 @@
 (SDEFUN |ALIST;remove!;Key%U;18|
         ((|k| (|Key|)) (|t| (%)) (% (|Union| |Entry| "failed")))
         (SPROG
-         ((|curr| (|List| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))))
-          (|prev|
-           #1=(|List| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))))
-          (|l| #1#))
+         ((|l| #1=(|List| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))))
+          (|prev| #1#)
+          (|curr| (|List| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|)))))
          (SEQ
           (COND
            ((NULL (LETT |l| (SPADCALL |t| (QREFELT % 14)))) (CONS 1 "failed"))
@@ -178,9 +177,9 @@
 
 (DEFUN |AssociationList;| (|#1| |#2|)
   (SPROG
-   ((#1=#:G151 NIL) (#2=#:G153 NIL) (#3=#:G152 NIL) (|pv$| NIL) (#4=#:G146 NIL)
-    (#5=#:G147 NIL) (#6=#:G148 NIL) (#7=#:G149 NIL) (#8=#:G150 NIL) (% NIL)
-    (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (#1=#:G150 NIL) (#2=#:G149 NIL)
+    (#3=#:G148 NIL) (#4=#:G147 NIL) (#5=#:G146 NIL) (|pv$| NIL) (#6=#:G152 NIL)
+    (#7=#:G153 NIL) (#8=#:G151 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))
@@ -208,17 +207,17 @@
                                         (|HasCategory| |#2| '(|OrderedSet|))
                                         (|HasCategory| (|Integer|)
                                                        '(|OrderedSet|))
-                                        (LETT #8#
+                                        (LETT #1#
                                               (|HasCategory|
                                                (|Record| (|:| |key| |#1|)
                                                          (|:| |entry| |#2|))
                                                '(|Comparable|)))
-                                        (OR #8#
+                                        (OR #1#
                                             (|HasCategory|
                                              (|Record| (|:| |key| |#1|)
                                                        (|:| |entry| |#2|))
                                              '(|OrderedSet|)))
-                                        (LETT #7#
+                                        (LETT #2#
                                               (|HasCategory| |#2|
                                                              '(|SetCategory|)))
                                         (AND
@@ -226,8 +225,8 @@
                                                         (LIST '|Evalable|
                                                               (|devaluate|
                                                                |#2|)))
-                                         #7#)
-                                        (LETT #6#
+                                         #2#)
+                                        (LETT #3#
                                               (|HasCategory|
                                                (|Record| (|:| |key| |#1|)
                                                          (|:| |entry| |#2|))
@@ -243,17 +242,17 @@
                                                       (LIST '|:| '|entry|
                                                             (|devaluate|
                                                              |#2|)))))
-                                         #6#)
-                                        (OR #7# #8#
+                                         #3#)
+                                        (OR #2# #1#
                                             (|HasCategory|
                                              (|Record| (|:| |key| |#1|)
                                                        (|:| |entry| |#2|))
                                              '(|OrderedSet|))
-                                            #6#)
+                                            #3#)
                                         (|HasCategory| |#2|
                                                        '(|CoercibleTo|
                                                          (|OutputForm|)))
-                                        (LETT #5#
+                                        (LETT #4#
                                               (|HasCategory|
                                                (|Record| (|:| |key| |#1|)
                                                          (|:| |entry| |#2|))
@@ -263,19 +262,19 @@
                                          (|HasCategory| |#2|
                                                         '(|CoercibleTo|
                                                           (|OutputForm|)))
-                                         #7# #5# #8#
+                                         #2# #4# #1#
                                          (|HasCategory|
                                           (|Record| (|:| |key| |#1|)
                                                     (|:| |entry| |#2|))
                                           '(|OrderedSet|))
-                                         #6#)
-                                        (LETT #4#
+                                         #3#)
+                                        (LETT #5#
                                               (|HasCategory|
                                                (|Record| (|:| |key| |#1|)
                                                          (|:| |entry| |#2|))
                                                '(|BasicType|)))
                                         (OR (|HasCategory| |#2| '(|BasicType|))
-                                            #7# #4# #8#
+                                            #2# #5# #1#
                                             (|HasCategory|
                                              (|Record| (|:| |key| |#1|)
                                                        (|:| |entry| |#2|))
@@ -284,47 +283,47 @@
                                              (|Record| (|:| |key| |#1|)
                                                        (|:| |entry| |#2|))
                                              '(|OrderedSet|))
-                                            #6#)))))
+                                            #3#)))))
     (|haddProp| |$ConstructorCache| '|AssociationList| (LIST DV$1 DV$2)
                 (CONS 1 %))
     (|stuffDomainSlots| %)
     (QSETREFV % 6 |#1|)
     (QSETREFV % 7 |#2|)
-    (AND (LETT #3# (|HasCategory| % '(|finiteAggregate|)))
+    (AND (LETT #6# (|HasCategory| % '(|finiteAggregate|)))
          (|augmentPredVector| % 524288))
-    (AND (|HasCategory| |#2| '(|BasicType|)) #3#
+    (AND (|HasCategory| |#2| '(|BasicType|)) #6#
          (|augmentPredVector| % 1048576))
-    (AND (|HasCategory| |#2| '(|OrderedSet|)) #3#
+    (AND (|HasCategory| |#2| '(|OrderedSet|)) #6#
          (|augmentPredVector| % 2097152))
-    (AND #3#
+    (AND #6#
          (|HasCategory| (|Record| (|:| |key| |#1|) (|:| |entry| |#2|))
                         '(|Hashable|))
          (|augmentPredVector| % 4194304))
-    (AND #3# #4# (|augmentPredVector| % 8388608))
+    (AND #6# #5# (|augmentPredVector| % 8388608))
     (AND
-     (LETT #2#
+     (LETT #7#
            (AND (|HasCategory| % '(|finiteAggregate|))
                 (|HasCategory| (|Record| (|:| |key| |#1|) (|:| |entry| |#2|))
                                '(|OrderedSet|))))
      (|augmentPredVector| % 16777216))
-    (AND (OR (AND #3# #8#) #2#) (|augmentPredVector| % 33554432))
-    (AND (OR #7# (AND #3# #8#) #2# #6#) (|augmentPredVector| % 67108864))
+    (AND (OR (AND #6# #1#) #7#) (|augmentPredVector| % 33554432))
+    (AND (OR #2# (AND #6# #1#) #7# #3#) (|augmentPredVector| % 67108864))
     (AND
-     (OR (|HasCategory| |#2| '(|CoercibleTo| (|OutputForm|))) (AND #3# #8#) #2#
-         #5#)
+     (OR (|HasCategory| |#2| '(|CoercibleTo| (|OutputForm|))) (AND #6# #1#) #7#
+         #4#)
      (|augmentPredVector| % 134217728))
     (AND
-     (OR (AND (|HasCategory| |#2| '(|BasicType|)) #3#) #7# (AND #3# #4#)
-         (AND #3# #8#)
-         (AND #3#
+     (OR (AND (|HasCategory| |#2| '(|BasicType|)) #6#) #2# (AND #6# #5#)
+         (AND #6# #1#)
+         (AND #6#
               (|HasCategory| (|Record| (|:| |key| |#1|) (|:| |entry| |#2|))
                              '(|Hashable|)))
-         #2# #6#)
+         #7# #3#)
      (|augmentPredVector| % 268435456))
-    (AND (LETT #1# (|HasCategory| % '(|shallowlyMutable|)))
+    (AND (LETT #8# (|HasCategory| % '(|shallowlyMutable|)))
          (|augmentPredVector| % 536870912))
-    (AND #3# #1# (|augmentPredVector| % 1073741824))
-    (AND #3# #1#
+    (AND #6# #8# (|augmentPredVector| % 1073741824))
+    (AND #6# #8#
          (|HasCategory| (|Record| (|:| |key| |#1|) (|:| |entry| |#2|))
                         '(|OrderedSet|))
          (|augmentPredVector| % 2147483648))

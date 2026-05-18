@@ -8,7 +8,7 @@
                         (QREFELT % 22)))) 
 
 (SDEFUN |MFLOAT;wholePart;%I;2| ((|u| (%)) (% #1=(|Integer|)))
-        (SPROG ((|f| #1#) (|exp| (|Integer|)) (|man| (|Integer|)))
+        (SPROG ((|man| (|Integer|)) (|exp| (|Integer|)) (|f| #1#))
                (SEQ (LETT |man| (SPADCALL |u| (QREFELT % 14)))
                     (LETT |exp| (SPADCALL |u| (QREFELT % 20)))
                     (EXIT
@@ -25,9 +25,9 @@
 
 (SDEFUN |MFLOAT;normalise| ((|u| (%)) (% (%)))
         (SPROG
-         ((|man| (|Integer|)) (|exp| (|Integer|))
-          (|q1| #1=(|Fraction| (|Integer|))) (BBF #1#) (|sgn| (|Integer|))
-          (BB (|Integer|)))
+         ((BB (|Integer|)) (|sgn| (|Integer|))
+          (BBF #1=(|Fraction| (|Integer|))) (|q1| #1#) (|exp| (|Integer|))
+          (|man| (|Integer|)))
          (SEQ (LETT |exp| (SPADCALL |u| (QREFELT % 20)))
               (LETT |man| (SPADCALL |u| (QREFELT % 14)))
               (LETT BB (QREFELT % 8))
@@ -81,8 +81,8 @@
         ((|base| #1=(|PositiveInteger|)) (|prec| (|PositiveInteger|))
          (% (|Void|)))
         (SPROG
-         ((|power| (|PositiveInteger|)) (|current| #1#)
-          (|target| (|PositiveInteger|)))
+         ((|target| (|PositiveInteger|)) (|current| #1#)
+          (|power| (|PositiveInteger|)))
          (SEQ (LETT |power| 1) (LETT |target| (EXPT 10 |prec|))
               (LETT |current| |base|)
               (SEQ G190
@@ -99,9 +99,9 @@
         ((|exp| (|Integer|)) (|man| (|Integer|)) (|base| (|PositiveInteger|))
          (% (%)))
         (SPROG
-         ((|newMan| (|Integer|)) (|f| (|Fraction| (|Integer|)))
-          (|newExp| (|Integer|)) (BB (|Fraction| (|Integer|)))
-          (|sign| (|Integer|)))
+         ((|sign| (|Integer|)) (BB (|Fraction| (|Integer|)))
+          (|newExp| (|Integer|)) (|f| (|Fraction| (|Integer|)))
+          (|newMan| (|Integer|)))
          (SEQ (LETT |newExp| 0)
               (LETT |f|
                     (SPADCALL |man|
@@ -167,7 +167,7 @@
          (SPADCALL 0 (SPADCALL |u| (QREFELT % 49)) 10 (QREFELT % 40)) %)) 
 
 (SDEFUN |MFLOAT;coerce;%F;11| ((|u| (%)) (% (|Float|)))
-        (SPROG ((|r| (|Float|)) (|oldDigits| (|PositiveInteger|)))
+        (SPROG ((|oldDigits| (|PositiveInteger|)) (|r| (|Float|)))
                (SEQ (LETT |oldDigits| (SPADCALL (QREFELT % 7) (QREFELT % 51)))
                     (LETT |r|
                           (SPADCALL (SPADCALL |u| (QREFELT % 14))
@@ -222,7 +222,7 @@
                   ('T (CONS 1 "failed"))))))) 
 
 (SDEFUN |MFLOAT;retract;%I;19| ((|u| (%)) (% (|Integer|)))
-        (SPROG ((#1=#:G101 NIL) (|result| (|Union| (|Integer|) "failed")))
+        (SPROG ((|result| (|Union| (|Integer|) "failed")) (#1=#:G101 NIL))
                (SEQ (LETT |result| (SPADCALL |u| (QREFELT % 68)))
                     (EXIT
                      (COND
@@ -356,7 +356,7 @@
 
 (SDEFUN |MFLOAT;+;3%;43| ((|f1| (%)) (|f2| (%)) (% (%)))
         (SPROG
-         ((|e2| #1=(|Integer|)) (|e1| #1#) (|m2| #2=(|Integer|)) (|m1| #2#))
+         ((|m1| #1=(|Integer|)) (|m2| #1#) (|e1| #2=(|Integer|)) (|e2| #2#))
          (SEQ (LETT |m1| (SPADCALL |f1| (QREFELT % 14)))
               (LETT |m2| (SPADCALL |f2| (QREFELT % 14)))
               (LETT |e1| (SPADCALL |f1| (QREFELT % 20)))
@@ -389,7 +389,7 @@
 
 (SDEFUN |MFLOAT;<;2%B;46| ((|f1| (%)) (|f2| (%)) (% (|Boolean|)))
         (SPROG
-         ((|e2| #1=(|Integer|)) (|e1| #1#) (|m2| #2=(|Integer|)) (|m1| #2#))
+         ((|m1| #1=(|Integer|)) (|m2| #1#) (|e1| #2=(|Integer|)) (|e2| #2#))
          (SEQ (LETT |m1| (SPADCALL |f1| (QREFELT % 14)))
               (LETT |m2| (SPADCALL |f2| (QREFELT % 14)))
               (LETT |e1| (SPADCALL |f1| (QREFELT % 20)))

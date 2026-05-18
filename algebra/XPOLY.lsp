@@ -2,7 +2,7 @@
 (DECLAIM (NOTINLINE |XPolynomial;|)) 
 
 (DEFUN |XPolynomial;| (|#1|)
-  (SPROG ((|pv$| NIL) (#1=#:G15 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (#1=#:G15 NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|XPolynomial| DV$1))

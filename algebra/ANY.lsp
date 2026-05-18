@@ -11,7 +11,7 @@
         (|typeToOutputForm| (QCAR |x|))) 
 
 (SDEFUN |ANY;=;2%B;4| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
-        (SPROG ((|Dx| (|Type|)) (|dy| #1=(|SExpression|)) (|dx| #1#))
+        (SPROG ((|dx| #1=(|SExpression|)) (|dy| #1#) (|Dx| (|Type|)))
                (SEQ (LETT |dx| (SPADCALL |x| (QREFELT % 11)))
                     (LETT |dy| (SPADCALL |y| (QREFELT % 11)))
                     (EXIT
@@ -48,8 +48,8 @@
 
 (SDEFUN |ANY;coerce;%Of;7| ((|x| (%)) (% (|OutputForm|)))
         (SPROG
-         ((|dom1| (|List| (|OutputForm|))) (|p| (|SExpression|))
-          (|obj1| (|OutputForm|)))
+         ((|obj1| (|OutputForm|)) (|p| (|SExpression|))
+          (|dom1| (|List| (|OutputForm|))))
          (SEQ (LETT |obj1| (SPADCALL |x| (QREFELT % 20)))
               (EXIT
                (COND

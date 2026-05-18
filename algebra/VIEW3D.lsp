@@ -92,17 +92,18 @@
 
 (SDEFUN |VIEW3D;makeViewport3D0| ((|viewport| (%)) (% (%)))
         (SPROG
-         ((#1=#:G127 NIL) (|oneIndexedPoint| NIL) (#2=#:G125 NIL)
-          (|alipts| NIL) (#3=#:G126 NIL) (|tinyprop| NIL) (#4=#:G122 NIL)
-          (|allipts| NIL) (#5=#:G123 NIL) (|oneprop| NIL) (#6=#:G124 NIL)
-          (|onelprops| NIL) (|aPoint| #7=(|Point| (|DoubleFloat|)))
-          (#8=#:G121 NIL) (|pt| NIL) (|n| (|PositiveInteger|)) (#9=#:G120 NIL)
-          (|s| (|Set| (|PositiveInteger|)))
-          (|lprops| (|List| (|SubSpaceComponentProperty|)))
-          (|llprops| (|List| (|List| (|SubSpaceComponentProperty|))))
-          (|lllipts| (|List| (|List| (|List| (|NonNegativeInteger|)))))
+         ((|transform|
+           (|Mapping| #1=(|Point| (|DoubleFloat|)) (|Point| (|DoubleFloat|))))
           (|lpts| (|List| (|Point| (|DoubleFloat|))))
-          (|transform| (|Mapping| #7# (|Point| (|DoubleFloat|)))))
+          (|lllipts| (|List| (|List| (|List| (|NonNegativeInteger|)))))
+          (|llprops| (|List| (|List| (|SubSpaceComponentProperty|))))
+          (|lprops| (|List| (|SubSpaceComponentProperty|)))
+          (|s| (|Set| (|PositiveInteger|))) (#2=#:G120 NIL)
+          (|n| (|PositiveInteger|)) (|pt| NIL) (#3=#:G121 NIL) (|aPoint| #1#)
+          (|onelprops| NIL) (#4=#:G124 NIL) (|oneprop| NIL) (#5=#:G123 NIL)
+          (|allipts| NIL) (#6=#:G122 NIL) (|tinyprop| NIL) (#7=#:G126 NIL)
+          (|alipts| NIL) (#8=#:G125 NIL) (|oneIndexedPoint| NIL)
+          (#9=#:G127 NIL))
          (SEQ (|VIEW3D;doOptions| |viewport| %)
               (SPADCALL "   Transmitting data..." (QREFELT % 53))
               (LETT |transform|
@@ -113,15 +114,15 @@
               (LETT |llprops| (SPADCALL (QVELT |viewport| 11) (QREFELT % 65)))
               (LETT |lprops| (SPADCALL (QVELT |viewport| 11) (QREFELT % 67)))
               (LETT |s| (SPADCALL (QREFELT % 69)))
-              (SEQ (LETT |pt| NIL) (LETT #9# |lpts|) G190
+              (SEQ (LETT |pt| NIL) (LETT #2# |lpts|) G190
                    (COND
-                    ((OR (ATOM #9#) (PROGN (LETT |pt| (CAR #9#)) NIL))
+                    ((OR (ATOM #2#) (PROGN (LETT |pt| (CAR #2#)) NIL))
                      (GO G191)))
                    (SEQ
                     (EXIT
                      (SPADCALL (SPADCALL |pt| (QREFELT % 70)) |s|
                                (QREFELT % 71))))
-                   (LETT #9# (CDR #9#)) (GO G190) G191 (EXIT NIL))
+                   (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (EXIT
                (COND
                 ((> (SPADCALL |s| (QREFELT % 72)) 1)
@@ -197,10 +198,10 @@
                           (|sockSendFloat| |$ViewportServer|
                                            (QVELT (QVELT |viewport| 9) 1))
                           (|sockSendInt| |$ViewportServer| (LENGTH |lpts|))
-                          (SEQ (LETT |pt| NIL) (LETT #8# |lpts|) G190
+                          (SEQ (LETT |pt| NIL) (LETT #3# |lpts|) G190
                                (COND
-                                ((OR (ATOM #8#)
-                                     (PROGN (LETT |pt| (CAR #8#)) NIL))
+                                ((OR (ATOM #3#)
+                                     (PROGN (LETT |pt| (CAR #3#)) NIL))
                                  (GO G191)))
                                (SEQ (LETT |aPoint| (SPADCALL |pt| |transform|))
                                     (|sockSendFloat| |$ViewportServer|
@@ -224,18 +225,18 @@
                                                         (SPADCALL |aPoint|
                                                                   (QREFELT %
                                                                            79)))))))
-                               (LETT #8# (CDR #8#)) (GO G190) G191 (EXIT NIL))
+                               (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
                           (|sockSendInt| |$ViewportServer| (LENGTH |lllipts|))
-                          (SEQ (LETT |onelprops| NIL) (LETT #6# |llprops|)
+                          (SEQ (LETT |onelprops| NIL) (LETT #4# |llprops|)
                                (LETT |oneprop| NIL) (LETT #5# |lprops|)
-                               (LETT |allipts| NIL) (LETT #4# |lllipts|) G190
+                               (LETT |allipts| NIL) (LETT #6# |lllipts|) G190
                                (COND
-                                ((OR (ATOM #4#)
-                                     (PROGN (LETT |allipts| (CAR #4#)) NIL)
+                                ((OR (ATOM #6#)
+                                     (PROGN (LETT |allipts| (CAR #6#)) NIL)
                                      (ATOM #5#)
                                      (PROGN (LETT |oneprop| (CAR #5#)) NIL)
-                                     (ATOM #6#)
-                                     (PROGN (LETT |onelprops| (CAR #6#)) NIL))
+                                     (ATOM #4#)
+                                     (PROGN (LETT |onelprops| (CAR #4#)) NIL))
                                  (GO G191)))
                                (SEQ
                                 (|sockSendInt| |$ViewportServer|
@@ -254,17 +255,17 @@
                                                (LENGTH |allipts|))
                                 (EXIT
                                  (SEQ (LETT |tinyprop| NIL)
-                                      (LETT #3# |onelprops|)
-                                      (LETT |alipts| NIL) (LETT #2# |allipts|)
+                                      (LETT #7# |onelprops|)
+                                      (LETT |alipts| NIL) (LETT #8# |allipts|)
                                       G190
                                       (COND
-                                       ((OR (ATOM #2#)
+                                       ((OR (ATOM #8#)
                                             (PROGN
-                                             (LETT |alipts| (CAR #2#))
+                                             (LETT |alipts| (CAR #8#))
                                              NIL)
-                                            (ATOM #3#)
+                                            (ATOM #7#)
                                             (PROGN
-                                             (LETT |tinyprop| (CAR #3#))
+                                             (LETT |tinyprop| (CAR #7#))
                                              NIL))
                                         (GO G191)))
                                       (SEQ
@@ -288,29 +289,29 @@
                                                                          84)))
                                        (EXIT
                                         (SEQ (LETT |oneIndexedPoint| NIL)
-                                             (LETT #1# |alipts|) G190
+                                             (LETT #9# |alipts|) G190
                                              (COND
-                                              ((OR (ATOM #1#)
+                                              ((OR (ATOM #9#)
                                                    (PROGN
                                                     (LETT |oneIndexedPoint|
-                                                          (CAR #1#))
+                                                          (CAR #9#))
                                                     NIL))
                                                (GO G191)))
                                              (SEQ
                                               (EXIT
                                                (|sockSendInt| |$ViewportServer|
                                                               |oneIndexedPoint|)))
-                                             (LETT #1# (CDR #1#)) (GO G190)
+                                             (LETT #9# (CDR #9#)) (GO G190)
                                              G191 (EXIT NIL))))
-                                      (LETT #2#
-                                            (PROG1 (CDR #2#)
-                                              (LETT #3# (CDR #3#))))
+                                      (LETT #8#
+                                            (PROG1 (CDR #8#)
+                                              (LETT #7# (CDR #7#))))
                                       (GO G190) G191 (EXIT NIL))))
-                               (LETT #4#
-                                     (PROG1 (CDR #4#)
+                               (LETT #6#
+                                     (PROG1 (CDR #6#)
                                        (LETT #5#
                                              (PROG1 (CDR #5#)
-                                               (LETT #6# (CDR #6#))))))
+                                               (LETT #4# (CDR #4#))))))
                                (GO G190) G191 (EXIT NIL))
                           (QSETVELT |viewport| 0
                                     (|sockGetInt| |$ViewportServer|))
@@ -568,10 +569,10 @@
                     (|:| |deltaX| (|DoubleFloat|))
                     (|:| |deltaY| (|DoubleFloat|)))))
         (SPROG
-         ((|phi_sf| (|DoubleFloat|)) (|theta_sf| (|DoubleFloat|))
-          (|scaleZ_sf| (|DoubleFloat|)) (|scaleY_sf| (|DoubleFloat|))
-          (|scaleX_sf| (|DoubleFloat|)) (|scale_sf| (|DoubleFloat|))
-          (|deltaY_sf| (|DoubleFloat|)) (|deltaX_sf| (|DoubleFloat|)))
+         ((|deltaX_sf| (|DoubleFloat|)) (|deltaY_sf| (|DoubleFloat|))
+          (|scale_sf| (|DoubleFloat|)) (|scaleX_sf| (|DoubleFloat|))
+          (|scaleY_sf| (|DoubleFloat|)) (|scaleZ_sf| (|DoubleFloat|))
+          (|theta_sf| (|DoubleFloat|)) (|phi_sf| (|DoubleFloat|)))
          (SEQ
           (COND
            ((SPADCALL (SPADCALL |viewport| (QREFELT % 96)) 0 (QREFELT % 97))
@@ -697,7 +698,7 @@
 (SDEFUN |VIEW3D;viewpoint;%3FV;35|
         ((|viewport| (%)) (X (|Float|)) (Y (|Float|)) (Z (|Float|))
          (% (|Void|)))
-        (SPROG ((|Phi| #1=(|Float|)) (|Theta| #1#) (R (|Float|)))
+        (SPROG ((R (|Float|)) (|Theta| #1=(|Float|)) (|Phi| #1#))
                (SEQ
                 (COND
                  ((SPADCALL X (|spadConstant| % 9) (QREFELT % 112))
@@ -790,7 +791,7 @@
 (SDEFUN |VIEW3D;colorDef;%2CV;37|
         ((|viewport| (%)) (|HueOffset| (|Color|)) (|HueNumber| (|Color|))
          (% (|Void|)))
-        (SPROG ((#1=#:G222 NIL) (|h| (|Integer|)))
+        (SPROG ((|h| (|Integer|)) (#1=#:G222 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1099,8 +1100,8 @@
         ((|viewport| (%)) (|Filename| (|String|))
          (|thingsToWrite| (|List| (|String|))) (% (|String|)))
         (SPROG
-         ((|writeTypeInt| (|Integer|)) (#1=#:G291 NIL) (|aTypeOfFile| NIL)
-          (|m| (|Integer|)) (|avail| (|List| (|String|))))
+         ((|avail| (|List| (|String|))) (|m| (|Integer|)) (|aTypeOfFile| NIL)
+          (#1=#:G291 NIL) (|writeTypeInt| (|Integer|)))
          (SEQ
           (COND
            ((SPADCALL (SPADCALL |viewport| (QREFELT % 96)) 0 (QREFELT % 97))
@@ -1318,7 +1319,7 @@
 (SDEFUN |VIEW3D;modifyPointData;%NniPV;58|
         ((|viewport| (%)) (|anIndex| (|NonNegativeInteger|))
          (|aPoint| (|Point| (|DoubleFloat|))) (% (|Void|)))
-        (SPROG ((#1=#:G334 NIL) (|n| (|PositiveInteger|)))
+        (SPROG ((|n| (|PositiveInteger|)) (#1=#:G334 NIL))
                (SEQ (LETT |n| (SPADCALL |aPoint| (QREFELT % 70)))
                     (EXIT
                      (COND

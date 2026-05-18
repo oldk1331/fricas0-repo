@@ -3,7 +3,7 @@
         (SPROG ((|pr| (|Rep|))) (SEQ (LETT |pr| |page|) (EXIT (QVELT |pr| 0))))) 
 
 (SDEFUN |HDPAGE;new;Hal%;2| ((|props| (|HyperdocAssociationList|)) (% (%)))
-        (SPROG ((|lst| (|List| (|Symbol|))) (|res| (%)) (|name| (|Symbol|)))
+        (SPROG ((|name| (|Symbol|)) (|res| (%)) (|lst| (|List| (|Symbol|))))
                (SEQ (LETT |name| (GENTEMP))
                     (LETT |res|
                           (VECTOR |name| NIL (SPADCALL (QREFELT % 10)) NIL
@@ -35,7 +35,7 @@
 
 (SDEFUN |HDPAGE;add_to_description;%LV;6|
         ((|page| (%)) (|l| (|List| (|SExpression|))) (% (|Void|)))
-        (SPROG ((#1=#:G85 NIL) (|el| NIL) (|pr| (|Rep|)))
+        (SPROG ((|pr| (|Rep|)) (|el| NIL) (#1=#:G85 NIL))
                (SEQ (LETT |pr| |page|)
                     (EXIT
                      (SEQ (LETT |el| NIL) (LETT #1# |l|) G190
@@ -49,7 +49,7 @@
 (SDEFUN |HDPAGE;setup_default|
         ((|page| (%)) (|name| (|Symbol|)) (|props| (|List| (|SExpression|)))
          (% (|Void|)))
-        (SPROG ((|pp| (|List| (|SExpression|))) (|pr| (|Rep|)))
+        (SPROG ((|pr| (|Rep|)) (|pp| (|List| (|SExpression|))))
                (SEQ (LETT |pr| |page|)
                     (LETT |pp|
                           (LIST (SPADCALL NIL (QREFELT % 26))
@@ -65,13 +65,13 @@
 (SDEFUN |HDPAGE;get_property;%SSe;8|
         ((|page| (%)) (|name| (|Symbol|)) (% (|SExpression|)))
         (SPROG
-         ((|ar|
-           (|Record| (|:| |key| (|Symbol|)) (|:| |entry| (|SExpression|))))
+         ((|pr| (|Rep|)) (|props| (|HyperdocAssociationList|))
           (|u1|
            (|Union|
             (|Record| (|:| |key| (|Symbol|)) (|:| |entry| (|SExpression|)))
             "failed"))
-          (|props| (|HyperdocAssociationList|)) (|pr| (|Rep|)))
+          (|ar|
+           (|Record| (|:| |key| (|Symbol|)) (|:| |entry| (|SExpression|)))))
          (SEQ (LETT |pr| |page|) (LETT |props| (QVELT |pr| 6))
               (LETT |u1| (|HDPAGE;hd_assoc| |name| |props| %))
               (EXIT
@@ -81,13 +81,13 @@
 (SDEFUN |HDPAGE;set_property;%SSeV;9|
         ((|page| (%)) (|name| (|Symbol|)) (|val| (|SExpression|)) (% (|Void|)))
         (SPROG
-         ((|ar|
-           (|Record| (|:| |key| (|Symbol|)) (|:| |entry| (|SExpression|))))
+         ((|pr| (|Rep|)) (|props| (|HyperdocAssociationList|))
           (|u1|
            (|Union|
             (|Record| (|:| |key| (|Symbol|)) (|:| |entry| (|SExpression|)))
             "failed"))
-          (|props| (|HyperdocAssociationList|)) (|pr| (|Rep|)))
+          (|ar|
+           (|Record| (|:| |key| (|Symbol|)) (|:| |entry| (|SExpression|)))))
          (SEQ (LETT |pr| |page|) (LETT |props| (QVELT |pr| 6))
               (LETT |u1| (|HDPAGE;hd_assoc| |name| |props| %))
               (EXIT
@@ -103,11 +103,12 @@
 (SDEFUN |HDPAGE;input_string;%SU;10|
         ((|page| (%)) (|name| (|Symbol|)) (% (|Union| (|String|) "failed")))
         (SPROG
-         ((|sv| (|SExpression|)) (|ae| #1=(|SExpression|))
+         ((|pr| (|Rep|))
           (|alr|
-           (|Union| (|Record| (|:| |key| (|Symbol|)) (|:| |entry| #1#))
-                    "failed"))
-          (|pr| (|Rep|)))
+           (|Union|
+            (|Record| (|:| |key| (|Symbol|)) (|:| |entry| #1=(|SExpression|)))
+            "failed"))
+          (|ae| #1#) (|sv| (|SExpression|)))
          (SEQ (LETT |pr| |page|)
               (LETT |alr| (|HDPAGE;hd_assoc| |name| (QVELT |pr| 5) %))
               (EXIT
@@ -126,12 +127,12 @@
 (SDEFUN |HDPAGE;set_input_string;%SSV;11|
         ((|page| (%)) (|name| (|Symbol|)) (|s| (|String|)) (% (|Void|)))
         (SPROG
-         ((|ae| (|List| (|SExpression|)))
+         ((|pr| (|Rep|))
           (|alr|
            (|Union|
             (|Record| (|:| |key| (|Symbol|)) (|:| |entry| (|SExpression|)))
             "failed"))
-          (|pr| (|Rep|)))
+          (|ae| (|List| (|SExpression|))))
          (SEQ (LETT |pr| |page|)
               (LETT |alr| (|HDPAGE;hd_assoc| |name| (QVELT |pr| 5) %))
               (EXIT
@@ -147,11 +148,12 @@
 (SDEFUN |HDPAGE;button_on?;%SB;12|
         ((|page| (%)) (|name| (|Symbol|)) (% (|Boolean|)))
         (SPROG
-         ((|bv| (|SExpression|)) (|ae| #1=(|SExpression|))
+         ((|pr| (|Rep|))
           (|alr|
-           (|Union| (|Record| (|:| |key| (|Symbol|)) (|:| |entry| #1#))
-                    "failed"))
-          (|pr| (|Rep|)))
+           (|Union|
+            (|Record| (|:| |key| (|Symbol|)) (|:| |entry| #1=(|SExpression|)))
+            "failed"))
+          (|ae| #1#) (|bv| (|SExpression|)))
          (SEQ (LETT |pr| |page|)
               (LETT |alr| (|HDPAGE;hd_assoc| |name| (QVELT |pr| 5) %))
               (EXIT
@@ -170,12 +172,13 @@
 (SDEFUN |HDPAGE;button_value;%2S;13|
         ((|page| (%)) (|name| (|Symbol|)) (% (|Symbol|)))
         (SPROG
-         ((#1=#:G145 NIL) (#2=#:G146 NIL) (#3=#:G147 NIL) (|s| NIL)
-          (|sl| (|List| (|Symbol|))) (|ae| #4=(|SExpression|))
+         ((|pr| (|Rep|))
           (|alr|
-           (|Union| (|Record| (|:| |key| (|Symbol|)) (|:| |entry| #4#))
-                    "failed"))
-          (|pr| (|Rep|)))
+           (|Union|
+            (|Record| (|:| |key| (|Symbol|)) (|:| |entry| #1=(|SExpression|)))
+            "failed"))
+          (|ae| #1#) (|sl| (|List| (|Symbol|))) (|s| NIL) (#2=#:G147 NIL)
+          (#3=#:G146 NIL) (#4=#:G145 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |pr| |page|)
@@ -192,25 +195,25 @@
                    (SEQ (LETT |sl| (SPADCALL |ae| (QREFELT % 39)))
                         (SEQ
                          (EXIT
-                          (SEQ (LETT |s| NIL) (LETT #3# |sl|) G190
+                          (SEQ (LETT |s| NIL) (LETT #2# |sl|) G190
                                (COND
-                                ((OR (ATOM #3#)
-                                     (PROGN (LETT |s| (CAR #3#)) NIL))
+                                ((OR (ATOM #2#)
+                                     (PROGN (LETT |s| (CAR #2#)) NIL))
                                  (GO G191)))
                                (SEQ
                                 (EXIT
                                  (COND
                                   ((SPADCALL |page| |s| (QREFELT % 43))
                                    (PROGN
-                                    (LETT #1#
+                                    (LETT #4#
                                           (PROGN
-                                           (LETT #2# |s|)
+                                           (LETT #3# |s|)
                                            (GO #5=#:G144)))
                                     (GO #6=#:G141))))))
-                               (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
-                         #6# (EXIT #1#))
+                               (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL)))
+                         #6# (EXIT #4#))
                         (EXIT (|error| "button_value: no button on!"))))))))
-          #5# (EXIT #2#)))) 
+          #5# (EXIT #3#)))) 
 
 (SDEFUN |HDPAGE;process_add1|
         ((|page| (%)) (|item| (|SExpression|)) (% (|Void|)))
@@ -230,18 +233,18 @@
          (%
           (|List| (|Record| (|:| |var| (|Symbol|)) (|:| |pvar| (|Symbol|))))))
         (SPROG
-         ((|pat_vars| (|List| (|Symbol|)))
+         ((|c| NIL) (#1=#:G173 NIL) (|cl1| (|List| (|SExpression|)))
+          (#2=#:G172 NIL) (|op| #3=(|SExpression|)) (|pv| #3#)
           (|res|
            (|List| (|Record| (|:| |var| (|Symbol|)) (|:| |pvar| (|Symbol|)))))
-          (|pv| #1=(|SExpression|)) (|op| #1#) (#2=#:G172 NIL)
-          (|cl1| (|List| (|SExpression|))) (#3=#:G173 NIL) (|c| NIL))
+          (|pat_vars| (|List| (|Symbol|))))
          (SEQ
           (SPADCALL (SPADCALL "pattern_substitution_list" (QREFELT % 49))
                     (QREFELT % 50))
           (LETT |res| NIL) (LETT |pat_vars| |$PatternVariableList|)
-          (SEQ (LETT |c| NIL) (LETT #3# |cl|) G190
+          (SEQ (LETT |c| NIL) (LETT #1# |cl|) G190
                (COND
-                ((OR (ATOM #3#) (PROGN (LETT |c| (CAR #3#)) NIL)) (GO G191)))
+                ((OR (ATOM #1#) (PROGN (LETT |c| (CAR #1#)) NIL)) (GO G191)))
                (SEQ
                 (EXIT
                  (COND
@@ -283,7 +286,7 @@
                                      (LETT |pat_vars|
                                            (CDR |pat_vars|)))))))))))))))
                 #4# (EXIT #2#))
-               (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
+               (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
           (SPADCALL (SPADCALL |res| (QREFELT % 58)) (QREFELT % 50))
           (EXIT |res|)))) 
 
@@ -292,7 +295,7 @@
          (|pat_sl|
           (|List| (|Record| (|:| |var| (|Symbol|)) (|:| |pvar| (|Symbol|)))))
          (% (|List| (|SExpression|))))
-        (SPROG ((#1=#:G178 NIL) (|sr| NIL))
+        (SPROG ((|sr| NIL) (#1=#:G178 NIL))
                (SEQ
                 (SEQ (LETT |sr| NIL) (LETT #1# |pat_sl|) G190
                      (COND
@@ -307,8 +310,8 @@
 
 (SDEFUN |HDPAGE;get_vars| ((|pat| (|SExpression|)) (% (|List| (|Symbol|))))
         (SPROG
-         ((|res| (|List| (|Symbol|))) (|s1| (|Symbol|)) (#1=#:G186 NIL)
-          (|p1| NIL))
+         ((|p1| NIL) (#1=#:G186 NIL) (|s1| (|Symbol|))
+          (|res| (|List| (|Symbol|))))
          (SEQ (LETT |res| NIL)
               (COND ((NULL (SPADCALL |pat| (QREFELT % 44))) (EXIT |res|)))
               (SEQ (LETT |p1| NIL)
@@ -330,14 +333,13 @@
 (SDEFUN |HDPAGE;compute_conds|
         ((|page| (%)) (|v1| #1=(|Symbol|)) (% (|SExpression|)))
         (SPROG
-         ((|pvars| (|List| #1#)) (|pat| #2=(|SExpression|))
-          (|res| (|List| (|SExpression|))) (|pv| #2#)
-          (|cl1| (|List| (|SExpression|))) (#3=#:G196 NIL) (#4=#:G197 NIL)
-          (|c1| NIL))
+         ((|c1| NIL) (#2=#:G197 NIL) (#3=#:G196 NIL)
+          (|cl1| (|List| (|SExpression|))) (|pv| #4=(|SExpression|))
+          (|res| (|List| (|SExpression|))) (|pat| #4#) (|pvars| (|List| #1#)))
          (SEQ (LETT |res| NIL) (LETT |pvars| (LIST |v1|))
-              (SEQ (LETT |c1| NIL) (LETT #4# (QVELT |page| 1)) G190
+              (SEQ (LETT |c1| NIL) (LETT #2# (QVELT |page| 1)) G190
                    (COND
-                    ((OR (ATOM #4#) (PROGN (LETT |c1| (CAR #4#)) NIL))
+                    ((OR (ATOM #2#) (PROGN (LETT |c1| (CAR #2#)) NIL))
                      (GO G191)))
                    (SEQ
                     (EXIT
@@ -364,7 +366,7 @@
                                                       %)
                                                      (QREFELT % 59))))))))))))
                     #5# (EXIT #3#))
-                   (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
+                   (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL (NREVERSE |res|) (QREFELT % 26)))))) 
 
 (SDEFUN |HDPAGE;compute_variable_alist|
@@ -373,8 +375,8 @@
           (|List| (|Record| (|:| |var| (|Symbol|)) (|:| |pvar| (|Symbol|)))))
          (% (|HyperdocAssociationList|)))
         (SPROG
-         ((|res| (|HyperdocAssociationList|)) (|v1| (|Symbol|)) (#1=#:G204 NIL)
-          (|sr| NIL))
+         ((|sr| NIL) (#1=#:G204 NIL) (|v1| (|Symbol|))
+          (|res| (|HyperdocAssociationList|)))
          (SEQ (LETT |res| (SPADCALL (QREFELT % 10)))
               (SEQ (LETT |sr| NIL) (LETT #1# |pat_sl|) G190
                    (COND
@@ -405,32 +407,32 @@
 
 (SDEFUN |HDPAGE;button_names|
         ((|l| (|List| (|SExpression|))) (% (|List| (|SExpression|))))
-        (SPROG ((#1=#:G211 NIL) (|el| NIL) (#2=#:G210 NIL))
+        (SPROG ((#1=#:G210 NIL) (|el| NIL) (#2=#:G211 NIL))
                (SEQ
                 (PROGN
-                 (LETT #2# NIL)
-                 (SEQ (LETT |el| NIL) (LETT #1# |l|) G190
+                 (LETT #1# NIL)
+                 (SEQ (LETT |el| NIL) (LETT #2# |l|) G190
                       (COND
-                       ((OR (ATOM #1#) (PROGN (LETT |el| (CAR #1#)) NIL))
+                       ((OR (ATOM #2#) (PROGN (LETT |el| (CAR #2#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2#
+                        (LETT #1#
                               (CONS
                                (SPADCALL (SPADCALL |el| (QREFELT % 39)) 3
                                          (QREFELT % 61))
-                               #2#))))
-                      (LETT #1# (CDR #1#)) (GO G190) G191
-                      (EXIT (NREVERSE #2#))))))) 
+                               #1#))))
+                      (LETT #2# (CDR #2#)) (GO G190) G191
+                      (EXIT (NREVERSE #1#))))))) 
 
 (SDEFUN |HDPAGE;process_radio_buttons|
         ((|page| (%)) (|l| (|List| (|SExpression|))) (% (|Void|)))
         (SPROG
-         ((|default| (|String|)) (|button_name| #1=(|Symbol|))
-          (|buttonName| NIL) (|#G54| #2=(|List| (|SExpression|))) (|info| NIL)
-          (|message| NIL) (|#G53| #2#) (#3=#:G223 NIL) (|el| NIL)
-          (|buttons| (|List| (|SExpression|))) (|group_name| #1#)
-          (|pr| (|Rep|)))
+         ((|pr| (|Rep|)) (|group_name| #1=(|Symbol|))
+          (|buttons| (|List| (|SExpression|))) (|el| NIL) (#2=#:G223 NIL)
+          (|#G53| #3=(|List| (|SExpression|))) (|message| NIL) (|info| NIL)
+          (|#G54| #3#) (|buttonName| NIL) (|button_name| #1#)
+          (|default| (|String|)))
          (SEQ (LETT |pr| |page|)
               (LETT |group_name| (SPADCALL (|SPADfirst| |l|) (QREFELT % 47)))
               (LETT |buttons| (CDR |l|))
@@ -442,9 +444,9 @@
                          (QVELT |pr| 4) (QREFELT % 29)))
               (LETT |default| "1")
               (EXIT
-               (SEQ (LETT |el| NIL) (LETT #3# |buttons|) G190
+               (SEQ (LETT |el| NIL) (LETT #2# |buttons|) G190
                     (COND
-                     ((OR (ATOM #3#) (PROGN (LETT |el| (CAR #3#)) NIL))
+                     ((OR (ATOM #2#) (PROGN (LETT |el| (CAR #2#)) NIL))
                       (GO G191)))
                     (SEQ
                      (PROGN
@@ -469,14 +471,14 @@
                         (EXIT (LETT |default| "0")))))
                      (|HDPAGE;process_add1| |page| |message| %)
                      (EXIT (|HDPAGE;process_add1| |page| |info| %)))
-                    (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))))) 
+                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL)))))) 
 
 (SDEFUN |HDPAGE;process_input_string1|
         ((|page| (%)) (|l1| (|List| (|SExpression|))) (% (|Void|)))
         (SPROG
-         ((|filter| (|SExpression|)) (|name| (|Symbol|)) (|type| NIL)
-          (|#G61| #1=(|List| (|SExpression|))) (|name_e| NIL) (|default| NIL)
-          (|n_char| NIL) (|#G60| #1#) (|pr| (|Rep|)))
+         ((|pr| (|Rep|)) (|#G60| #1=(|List| (|SExpression|))) (|n_char| NIL)
+          (|default| NIL) (|name_e| NIL) (|#G61| #1#) (|type| NIL)
+          (|name| (|Symbol|)) (|filter| (|SExpression|)))
          (SEQ (LETT |pr| |page|)
               (PROGN
                (LETT |#G60| (SPADCALL |l1| 4 (QREFELT % 63)))
@@ -506,14 +508,15 @@
 (SDEFUN |HDPAGE;process_input_strings|
         ((|page| (%)) (|l| (|List| (|SExpression|))) (% (|Void|)))
         (SPROG
-         ((|mess2| NIL) (|#G70| #1=(|List| (|SExpression|))) (|mess1| NIL)
-          (|#G69| #1#) (|l1| (|List| (|SExpression|))) (#2=#:G239 NIL)
-          (|el| NIL) (|ia| (|HyperdocAssociationList|)) (|pr| (|Rep|)))
+         ((|pr| (|Rep|)) (|ia| (|HyperdocAssociationList|)) (|el| NIL)
+          (#1=#:G239 NIL) (|l1| (|List| (|SExpression|)))
+          (|#G69| #2=(|List| (|SExpression|))) (|mess1| NIL) (|#G70| #2#)
+          (|mess2| NIL))
          (SEQ (LETT |pr| |page|) (LETT |ia| (QVELT |pr| 5))
               (EXIT
-               (SEQ (LETT |el| NIL) (LETT #2# |l|) G190
+               (SEQ (LETT |el| NIL) (LETT #1# |l|) G190
                     (COND
-                     ((OR (ATOM #2#) (PROGN (LETT |el| (CAR #2#)) NIL))
+                     ((OR (ATOM #1#) (PROGN (LETT |el| (CAR #1#)) NIL))
                       (GO G191)))
                     (SEQ (LETT |l1| (SPADCALL |el| (QREFELT % 39)))
                          (PROGN
@@ -527,18 +530,18 @@
                           (SPADCALL |l1| 2 (QREFELT % 64)) %)
                          (|HDPAGE;process_add1| |page| |mess1| %)
                          (EXIT (|HDPAGE;process_add1| |page| |mess2| %)))
-                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL)))))) 
+                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL)))))) 
 
 (SDEFUN |HDPAGE;process_bc_buttons|
         ((|page| (%)) (|l| (|List| (|SExpression|))) (% (|Void|)))
         (SPROG
-         ((|s_res|
+         ((|pr| (|Rep|)) (|ia| (|HyperdocAssociationList|)) (|el| NIL)
+          (#1=#:G249 NIL) (|l1| (|List| (|SExpression|)))
+          (|default_val| (|SExpression|)) (|name| (|Symbol|))
+          (|s_res|
            (|Union|
             (|Record| (|:| |key| (|Symbol|)) (|:| |entry| (|SExpression|)))
-            "failed"))
-          (|name| (|Symbol|)) (|default_val| (|SExpression|))
-          (|l1| (|List| (|SExpression|))) (#1=#:G249 NIL) (|el| NIL)
-          (|ia| (|HyperdocAssociationList|)) (|pr| (|Rep|)))
+            "failed")))
          (SEQ (LETT |pr| |page|) (LETT |ia| (QVELT |pr| 5))
               (EXIT
                (SEQ (LETT |el| NIL) (LETT #1# |l|) G190
@@ -563,8 +566,8 @@
 (SDEFUN |HDPAGE;process_bc_strings|
         ((|page| (%)) (|l| (|List| (|SExpression|))) (% (|Void|)))
         (SPROG
-         ((|l1| (|List| (|SExpression|))) (#1=#:G255 NIL) (|el| NIL)
-          (|pr| (|Rep|)))
+         ((|pr| (|Rep|)) (|el| NIL) (#1=#:G255 NIL)
+          (|l1| (|List| (|SExpression|))))
          (SEQ (LETT |pr| |page|)
               (EXIT
                (SEQ (LETT |el| NIL) (LETT #1# |l|) G190
@@ -578,12 +581,12 @@
 (SDEFUN |HDPAGE;process_add|
         ((|page| (%)) (|l| (|List| (|SExpression|))) (% (|Void|)))
         (SPROG
-         ((#1=#:G266 NIL) (|args| (|List| (|SExpression|))) (|op| (|Symbol|))
-          (|l1| (|List| (|SExpression|))) (#2=#:G267 NIL) (#3=#:G268 NIL)
-          (|el| NIL))
-         (SEQ (LETT |el| NIL) (LETT #3# |l|) G190
+         ((|el| NIL) (#1=#:G268 NIL) (#2=#:G267 NIL)
+          (|l1| (|List| (|SExpression|))) (|op| (|Symbol|))
+          (|args| (|List| (|SExpression|))) (#3=#:G266 NIL))
+         (SEQ (LETT |el| NIL) (LETT #1# |l|) G190
               (COND
-               ((OR (ATOM #3#) (PROGN (LETT |el| (CAR #3#)) NIL)) (GO G191)))
+               ((OR (ATOM #1#) (PROGN (LETT |el| (CAR #1#)) NIL)) (GO G191)))
               (SEQ
                (EXIT
                 (COND
@@ -612,13 +615,13 @@
                             (COND
                              ((EQUAL |op| '|bcStrings|)
                               (PROGN
-                               (LETT #1#
+                               (LETT #3#
                                      (|HDPAGE;process_bc_strings| |page| |args|
                                       %))
                                (GO #5=#:G259)))))
-                           #5# (EXIT #1#)))))))))
+                           #5# (EXIT #3#)))))))))
                #4# (EXIT #2#))
-              (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))) 
+              (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL)))) 
 
 (SDEFUN |HDPAGE;add_to;%LV;29|
         ((|page| (%)) (|l| (|List| (|SExpression|))) (% (|Void|)))
@@ -629,12 +632,12 @@
         ((|page| (%)) (|name| (|Symbol|))
          (% (|Union| (|SExpression|) "failed")))
         (SPROG
-         ((|res| (|SExpression|))
+         ((|pr| (|Rep|))
           (|alr|
            (|Union|
             (|Record| (|:| |key| (|Symbol|)) (|:| |entry| (|SExpression|)))
             "failed"))
-          (|pr| (|Rep|)))
+          (|res| (|SExpression|)))
          (SEQ (LETT |pr| |page|)
               (LETT |alr| (|HDPAGE;hd_assoc| |name| (QVELT |pr| 5) %))
               (EXIT
@@ -653,12 +656,12 @@
 (SDEFUN |HDPAGE;label_input_string|
         ((|page| (%)) (|name| (|Symbol|)) (% (|Union| (|String|) "failed")))
         (SPROG
-         ((|s| (|SExpression|))
+         ((|pr| (|Rep|))
           (|alr|
            (|Union|
             (|Record| (|:| |key| (|Symbol|)) (|:| |entry| (|SExpression|)))
             "failed"))
-          (|pr| (|Rep|)))
+          (|s| (|SExpression|)))
          (SEQ (LETT |pr| |page|)
               (LETT |alr| (|HDPAGE;hd_assoc| |name| (QVELT |pr| 5) %))
               (EXIT
@@ -678,12 +681,11 @@
 (SDEFUN |HDPAGE;label_default|
         ((|page| (%)) (|name| (|Symbol|)) (% (|SExpression|)))
         (SPROG
-         ((|alr|
+         ((|pr| (|Rep|)) (|mu| (|Union| (|String|) "failed")) (|ms| (|String|))
+          (|alr|
            (|Union|
             (|Record| (|:| |key| (|Symbol|)) (|:| |entry| (|SExpression|)))
-            "failed"))
-          (|ms| (|String|)) (|mu| (|Union| (|String|) "failed"))
-          (|pr| (|Rep|)))
+            "failed")))
          (SEQ (LETT |pr| |page|)
               (LETT |mu| (|HDPAGE;label_input_string| |page| |name| %))
               (EXIT
@@ -722,7 +724,7 @@
 
 (SDEFUN |HDPAGE;render_ls|
         ((|page| (%)) (|ls| (|List| (|String|))) (% (|Void|)))
-        (SPROG ((#1=#:G312 NIL) (|s| NIL) (|pr| (|Rep|)))
+        (SPROG ((|pr| (|Rep|)) (|s| NIL) (#1=#:G312 NIL))
                (SEQ (LETT |pr| |page|)
                     (EXIT
                      (SEQ (LETT |s| NIL) (LETT #1# |ls|) G190
@@ -740,7 +742,7 @@
 
 (SDEFUN |HDPAGE;render_l1|
         ((|page| (%)) (|l1| (|List| (|SExpression|))) (% (|Void|)))
-        (SPROG ((#1=#:G319 NIL) (|el| NIL) (|pr| (|Rep|)))
+        (SPROG ((|pr| (|Rep|)) (|el| NIL) (#1=#:G319 NIL))
                (SEQ (LETT |pr| |page|)
                     (EXIT
                      (SEQ (LETT |el| NIL) (LETT #1# |l1|) G190
@@ -779,9 +781,9 @@
           (|Record| (|:| |links| (|List| (|SExpression|)))
                     (|:| |options| (|List| (|SExpression|))))))
         (SPROG
-         ((|ll| (|List| (|SExpression|))) (|was_options| (|Boolean|))
-          (|lo| (|List| (|SExpression|))) (#1=#:G333 NIL) (|el| NIL)
-          (|l1| (|List| (|SExpression|))))
+         ((|l1| (|List| (|SExpression|))) (|el| NIL) (#1=#:G333 NIL)
+          (|lo| (|List| (|SExpression|))) (|was_options| (|Boolean|))
+          (|ll| (|List| (|SExpression|))))
          (SEQ (LETT |l1| (SPADCALL |links| (QREFELT % 39))) (LETT |ll| NIL)
               (LETT |lo| NIL) (LETT |was_options| NIL)
               (SEQ (LETT |el| NIL) (LETT #1# |l1|) G190
@@ -806,33 +808,32 @@
 (SDEFUN |HDPAGE;trim_options|
         ((|links| (|SExpression|)) (% (|List| (|SExpression|))))
         (SPROG
-         ((|ll| (|List| (|SExpression|))) (#1=#:G342 NIL) (#2=#:G343 NIL)
-          (|el| NIL) (|l1| (|List| (|SExpression|))))
+         ((|l1| (|List| (|SExpression|))) (|el| NIL) (#1=#:G343 NIL)
+          (#2=#:G342 NIL) (|ll| (|List| (|SExpression|))))
          (SEQ (LETT |l1| (SPADCALL |links| (QREFELT % 39))) (LETT |ll| NIL)
               (SEQ
                (EXIT
-                (SEQ (LETT |el| NIL) (LETT #2# |l1|) G190
+                (SEQ (LETT |el| NIL) (LETT #1# |l1|) G190
                      (COND
-                      ((OR (ATOM #2#) (PROGN (LETT |el| (CAR #2#)) NIL))
+                      ((OR (ATOM #1#) (PROGN (LETT |el| (CAR #1#)) NIL))
                        (GO G191)))
                      (SEQ
                       (COND
                        ((SPADCALL |el| (QREFELT % 46))
                         (COND
                          ((EQUAL (SPADCALL |el| (QREFELT % 47)) '|options|)
-                          (EXIT (PROGN (LETT #1# 1) (GO #3=#:G339)))))))
+                          (EXIT (PROGN (LETT #2# 1) (GO #3=#:G339)))))))
                       (EXIT (LETT |ll| (CONS |el| |ll|))))
-                     (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL)))
-               #3# (EXIT #1#))
+                     (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL)))
+               #3# (EXIT #2#))
               (EXIT (NREVERSE |ll|))))) 
 
 (SDEFUN |HDPAGE;render_button|
         ((|page| (%)) (|link| (|String|)) (|message| (|SExpression|))
          (|fn| (|String|)) (% (|Void|)))
         (SPROG
-         ((|type| (|Symbol|)) (|id| #1=(|String|))
-          (|el| (|List| (|SExpression|))) (#2=#:G351 NIL) (|en| NIL)
-          (|name| #1#) (|pr| (|Rep|)))
+         ((|pr| (|Rep|)) (|name| #1=(|String|)) (|en| NIL) (#2=#:G351 NIL)
+          (|el| (|List| (|SExpression|))) (|id| #1#) (|type| (|Symbol|)))
          (SEQ (|HDPAGE;render_ls| |page| (LIST |link| "{") %)
               (|HDPAGE;render1| |page| |message| %)
               (|HDPAGE;render_ls| |page|
@@ -866,9 +867,9 @@
         ((|page| (%)) (|link| (|String|)) (|ld| (|SExpression|))
          (|items?| (|Boolean|)) (% (|Void|)))
         (SPROG
-         ((|fn| (|SExpression|)) (|val| (|List| (|SExpression|))) (|func| NIL)
-          (|#G117| #1=(|List| (|SExpression|))) (|info| NIL) (|message| NIL)
-          (|#G116| #1#) (|l1| (|List| (|SExpression|))))
+         ((|l1| (|List| (|SExpression|))) (|#G116| #1=(|List| (|SExpression|)))
+          (|message| NIL) (|info| NIL) (|#G117| #1#) (|func| NIL)
+          (|val| (|List| (|SExpression|))) (|fn| (|SExpression|)))
          (SEQ (LETT |l1| (SPADCALL |ld| (QREFELT % 39)))
               (PROGN
                (LETT |#G116| (SPADCALL |l1| 3 (QREFELT % 63)))
@@ -896,8 +897,8 @@
         ((|page| (%)) (|arg| (|SExpression|)) (|memo?| (|Boolean|))
          (% (|Void|)))
         (SPROG
-         ((#1=#:G358 NIL) (|ld| NIL) (|link| (|String|)) (|ind_s| (|String|))
-          (|links| (|List| (|SExpression|))))
+         ((|links| (|List| (|SExpression|))) (|ind_s| (|String|))
+          (|link| (|String|)) (|ld| NIL) (#1=#:G358 NIL))
          (SEQ (LETT |links| (|HDPAGE;trim_options| |arg| %)) (LETT |ind_s| "5")
               (|HDPAGE;render_ls| |page|
                (LIST "\\newline\\indent{" |ind_s| "}\\beginitems") %)
@@ -915,7 +916,7 @@
 
 (SDEFUN |HDPAGE;render_bc_links0|
         ((|page| (%)) (|arg| (|SExpression|)) (|link| (|String|)) (% (|Void|)))
-        (SPROG ((#1=#:G363 NIL) (|ld| NIL) (|links| (|List| (|SExpression|))))
+        (SPROG ((|links| (|List| (|SExpression|))) (|ld| NIL) (#1=#:G363 NIL))
                (SEQ (LETT |links| (|HDPAGE;trim_options| |arg| %))
                     (EXIT
                      (SEQ (LETT |ld| NIL) (LETT #1# |links|) G190
@@ -943,9 +944,8 @@
            (|Record| (|:| |key| (|Symbol|)) (|:| |entry| (|SExpression|)))
            "failed")))
         (SPROG
-         ((#1=#:G376 NIL)
-          (|r|
-           (|Record| (|:| |key| (|Symbol|)) (|:| |entry| (|SExpression|)))))
+         ((|r| (|Record| (|:| |key| (|Symbol|)) (|:| |entry| (|SExpression|))))
+          (#1=#:G376 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -966,9 +966,9 @@
         ((|page| (%)) (|mess1| (|String|)) (|mess2| (|String|))
          (|l1| (|List| (|SExpression|))) (|items?| (|Boolean|)) (% (|Void|)))
         (SPROG
-         ((|filter| (|SExpression|)) (|name| (|Symbol|)) (|type| NIL)
-          (|#G141| #1=(|List| (|SExpression|))) (|name_e| NIL) (|default| NIL)
-          (|n_char| NIL) (|#G140| #1#) (|pr| (|Rep|)))
+         ((|pr| (|Rep|)) (|#G140| #1=(|List| (|SExpression|))) (|n_char| NIL)
+          (|default| NIL) (|name_e| NIL) (|#G141| #1#) (|type| NIL)
+          (|name| (|Symbol|)) (|filter| (|SExpression|)))
          (SEQ (LETT |pr| |page|)
               (PROGN
                (LETT |#G140| (SPADCALL |l1| 4 (QREFELT % 63)))
@@ -1009,8 +1009,8 @@
 (SDEFUN |HDPAGE;render_bc_strings|
         ((|page| (%)) (|arg| (|SExpression|)) (% (|Void|)))
         (SPROG
-         ((#1=#:G386 NIL) (|el| NIL) (|strings| (|List| (|SExpression|)))
-          (|pr| (|Rep|)))
+         ((|pr| (|Rep|)) (|strings| (|List| (|SExpression|))) (|el| NIL)
+          (#1=#:G386 NIL))
          (SEQ (LETT |pr| |page|)
               (LETT |strings| (SPADCALL |arg| (QREFELT % 39)))
               (EXIT
@@ -1027,14 +1027,14 @@
 (SDEFUN |HDPAGE;render_input_strings|
         ((|page| (%)) (|arg| (|SExpression|)) (% (|Void|)))
         (SPROG
-         ((|mess2| NIL) (|#G153| #1=(|List| (|SExpression|))) (|mess1| NIL)
-          (|#G152| #1#) (|l1| #2=(|List| (|SExpression|))) (#3=#:G392 NIL)
-          (|el| NIL) (|strings| #2#))
+         ((|strings| #1=(|List| (|SExpression|))) (|el| NIL) (#2=#:G392 NIL)
+          (|l1| #1#) (|#G152| #3=(|List| (|SExpression|))) (|mess1| NIL)
+          (|#G153| #3#) (|mess2| NIL))
          (SEQ (|HDPAGE;render1s| |page| "\\newline\\indent{5}\\beginitems " %)
               (LETT |strings| (SPADCALL |arg| (QREFELT % 39)))
-              (SEQ (LETT |el| NIL) (LETT #3# |strings|) G190
+              (SEQ (LETT |el| NIL) (LETT #2# |strings|) G190
                    (COND
-                    ((OR (ATOM #3#) (PROGN (LETT |el| (CAR #3#)) NIL))
+                    ((OR (ATOM #2#) (PROGN (LETT |el| (CAR #2#)) NIL))
                      (GO G191)))
                    (SEQ (LETT |l1| (SPADCALL |el| (QREFELT % 39)))
                         (PROGN
@@ -1049,7 +1049,7 @@
                           (SPADCALL |mess1| (QREFELT % 35))
                           (SPADCALL |mess2| (QREFELT % 35))
                           (SPADCALL |l1| 2 (QREFELT % 64)) 'T %)))
-                   (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
+                   (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (EXIT
                (|HDPAGE;render1s| |page| "\\enditems\\indent{0}\\newline "
                 %))))) 
@@ -1058,12 +1058,11 @@
         ((|page| (%)) (|arg| (|SExpression|)) (|items?| (|Boolean|))
          (% (|Void|)))
         (SPROG
-         ((|button_name| (|Symbol|)) (|buttonName| NIL)
-          (|#G162| #1=(|List| (|SExpression|))) (|info| NIL) (|message| NIL)
-          (|#G161| #1#) (#2=#:G398 NIL) (|el| NIL)
-          (|hd_line| (|List| #3=(|String|))) (|boxes_name| #3#)
-          (|buttons| (|List| (|SExpression|))) (|group_name| (|SExpression|))
-          (|args| #1#) (|pr| (|Rep|)))
+         ((|pr| (|Rep|)) (|args| #1=(|List| (|SExpression|)))
+          (|group_name| (|SExpression|)) (|buttons| (|List| (|SExpression|)))
+          (|boxes_name| #2=(|String|)) (|hd_line| (|List| #2#)) (|el| NIL)
+          (#3=#:G398 NIL) (|#G161| #1#) (|message| NIL) (|info| NIL)
+          (|#G162| #1#) (|buttonName| NIL) (|button_name| (|Symbol|)))
          (SEQ (LETT |pr| |page|) (LETT |args| (SPADCALL |arg| (QREFELT % 39)))
               (LETT |group_name| (|SPADfirst| |args|))
               (LETT |buttons| (CDR |args|))
@@ -1078,9 +1077,9 @@
                             (SPADCALL |hd_line| "\\beginitems "
                                       (QREFELT % 79))))))
               (|HDPAGE;render_ls| |page| |hd_line| %)
-              (SEQ (LETT |el| NIL) (LETT #2# |buttons|) G190
+              (SEQ (LETT |el| NIL) (LETT #3# |buttons|) G190
                    (COND
-                    ((OR (ATOM #2#) (PROGN (LETT |el| (CAR #2#)) NIL))
+                    ((OR (ATOM #3#) (PROGN (LETT |el| (CAR #3#)) NIL))
                      (GO G191)))
                    (SEQ
                     (PROGN
@@ -1105,7 +1104,7 @@
                     (|HDPAGE;render_item| |page| |message| %)
                     (|HDPAGE;render1s| |page| "\\space{}}" %)
                     (EXIT (|HDPAGE;render_item| |page| |info| %)))
-                   (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
+                   (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
               (EXIT
                (COND
                 (|items?|
@@ -1122,15 +1121,15 @@
 (SDEFUN |HDPAGE;render_bc_buttons|
         ((|page| (%)) (|args| (|SExpression|)) (% (|Void|)))
         (SPROG
-         ((|k| (|SExpression|)) (|name| (|Symbol|)) (|name_e| NIL)
-          (|#G174| #1=(|List| (|SExpression|))) (|default| NIL) (|#G173| #1#)
-          (#2=#:G408 NIL) (|arg| NIL) (|pr| (|Rep|)))
+         ((|pr| (|Rep|)) (|arg| NIL) (#1=#:G408 NIL)
+          (|#G173| #2=(|List| (|SExpression|))) (|default| NIL) (|#G174| #2#)
+          (|name_e| NIL) (|name| (|Symbol|)) (|k| (|SExpression|)))
          (SEQ (LETT |pr| |page|)
               (EXIT
                (SEQ (LETT |arg| NIL)
-                    (LETT #2# (SPADCALL |args| (QREFELT % 39))) G190
+                    (LETT #1# (SPADCALL |args| (QREFELT % 39))) G190
                     (COND
-                     ((OR (ATOM #2#) (PROGN (LETT |arg| (CAR #2#)) NIL))
+                     ((OR (ATOM #1#) (PROGN (LETT |arg| (CAR #1#)) NIL))
                       (GO G191)))
                     (SEQ
                      (PROGN
@@ -1163,14 +1162,14 @@
                                "]{" (SPADCALL |name| (QREFELT % 70))
                                "}{\\htbmfile{pick}}{\\htbmfile{unpick}}")
                          %)))))
-                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL)))))) 
+                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL)))))) 
 
 (SDEFUN |HDPAGE;render_done_button|
         ((|page| (%)) (|arg| (|SExpression|)) (% (|Void|)))
         (SPROG
-         ((|message| (|String|)) (|fn| (|String|)) (|label| (|String|))
-          (|fun_e| NIL) (|#G180| #1=(|List| (|SExpression|))) (|lab_e| NIL)
-          (|#G179| #1#))
+         ((|#G179| #1=(|List| (|SExpression|))) (|lab_e| NIL) (|#G180| #1#)
+          (|fun_e| NIL) (|label| (|String|)) (|fn| (|String|))
+          (|message| (|String|)))
          (SEQ
           (PROGN
            (LETT |#G179| (SPADCALL |arg| (QREFELT % 39)))
@@ -1203,9 +1202,9 @@
 (SDEFUN |HDPAGE;render_doit_button|
         ((|page| (%)) (|arg| (|SExpression|)) (% (|Void|)))
         (SPROG
-         ((|message| (|String|)) (|fn| #1=(|String|)) (|label| #1#)
-          (|fun_e| NIL) (|#G186| #2=(|List| (|SExpression|))) (|lab_e| NIL)
-          (|#G185| #2#) (|pr| (|Rep|)))
+         ((|pr| (|Rep|)) (|#G185| #1=(|List| (|SExpression|))) (|lab_e| NIL)
+          (|#G186| #1#) (|fun_e| NIL) (|label| #2=(|String|)) (|fn| #2#)
+          (|message| (|String|)))
          (SEQ (LETT |pr| |page|)
               (PROGN
                (LETT |#G185| (SPADCALL |arg| (QREFELT % 39)))
@@ -1256,8 +1255,8 @@
 (SDEFUN |HDPAGE;render_page|
         ((|page| (%)) (|l| (|List| (|SExpression|))) (% (|Void|)))
         (SPROG
-         ((|args| (|SExpression|)) (|op| (|Symbol|))
-          (|l1| (|List| (|SExpression|))) (#1=#:G437 NIL) (|el| NIL))
+         ((|el| NIL) (#1=#:G437 NIL) (|l1| (|List| (|SExpression|)))
+          (|op| (|Symbol|)) (|args| (|SExpression|)))
          (SEQ (LETT |el| NIL) (LETT #1# |l|) G190
               (COND
                ((OR (ATOM #1#) (PROGN (LETT |el| (CAR #1#)) NIL)) (GO G191)))
@@ -1282,7 +1281,7 @@
               (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL)))) 
 
 (SDEFUN |HDPAGE;render_page0| ((|page| (%)) (% (|Void|)))
-        (SPROG ((|l| (|String|)) (|pr| (|Rep|)))
+        (SPROG ((|pr| (|Rep|)) (|l| (|String|)))
                (SEQ (LETT |pr| |page|) (QSETVELT |pr| 8 NIL)
                     (|HDPAGE;render_page| |page| (QVELT |pr| 7) %)
                     (QSETVELT |pr| 8 (NREVERSE (QVELT |pr| 8)))

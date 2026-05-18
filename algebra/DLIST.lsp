@@ -27,9 +27,8 @@
 
 (DEFUN |DataList;| (|#1|)
   (SPROG
-   ((#1=#:G17 NIL) (#2=#:G18 NIL) (#3=#:G20 NIL) (#4=#:G19 NIL) (|pv$| NIL)
-    (#5=#:G14 NIL) (#6=#:G15 NIL) (#7=#:G16 NIL) (% NIL) (|dv$| NIL)
-    (DV$1 NIL))
+   ((DV$1 NIL) (|dv$| NIL) (% NIL) (#1=#:G16 NIL) (#2=#:G15 NIL) (#3=#:G14 NIL)
+    (|pv$| NIL) (#4=#:G19 NIL) (#5=#:G20 NIL) (#6=#:G18 NIL) (#7=#:G17 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|DataList| DV$1))
@@ -45,13 +44,13 @@
                                                        '(|ConvertibleTo|
                                                          (|InputForm|)))
                                         (|HasCategory| |#1| '(|BasicType|))
-                                        (LETT #7#
+                                        (LETT #1#
                                               (|HasCategory| |#1|
                                                              '(|Comparable|)))
-                                        (OR #7#
+                                        (OR #1#
                                             (|HasCategory| |#1|
                                                            '(|OrderedSet|)))
-                                        (LETT #6#
+                                        (LETT #2#
                                               (|HasCategory| |#1|
                                                              '(|SetCategory|)))
                                         (AND
@@ -59,25 +58,25 @@
                                                         (LIST '|Evalable|
                                                               (|devaluate|
                                                                |#1|)))
-                                         #6#)
-                                        (OR #7#
+                                         #2#)
+                                        (OR #1#
                                             (|HasCategory| |#1|
                                                            '(|OrderedSet|))
-                                            #6#)
+                                            #2#)
                                         (OR (|HasCategory| |#1| '(|BasicType|))
-                                            #7#
+                                            #1#
                                             (|HasCategory| |#1| '(|Hashable|))
                                             (|HasCategory| |#1|
                                                            '(|OrderedSet|))
-                                            #6#)
-                                        (LETT #5#
+                                            #2#)
+                                        (LETT #3#
                                               (|HasCategory| |#1|
                                                              '(|CoercibleTo|
                                                                (|OutputForm|))))
-                                        (OR #5# #7#
+                                        (OR #3# #1#
                                             (|HasCategory| |#1|
                                                            '(|OrderedSet|))
-                                            #6#)
+                                            #2#)
                                         (|HasCategory| (|Integer|)
                                                        '(|OrderedSet|))))))
     (|haddProp| |$ConstructorCache| '|DataList| (LIST DV$1) (CONS 1 %))
@@ -87,27 +86,27 @@
          (|augmentPredVector| % 8192))
     (AND (|HasCategory| |#1| '(|Hashable|)) #4# (|augmentPredVector| % 16384))
     (AND
-     (LETT #3#
+     (LETT #5#
            (AND (|HasCategory| |#1| '(|OrderedSet|))
                 (|HasCategory| % '(|finiteAggregate|))))
      (|augmentPredVector| % 32768))
-    (AND (OR #5# (AND #7# #4#) #3#) (|augmentPredVector| % 65536))
-    (AND (OR (AND #7# #4#) #3# #6#) (|augmentPredVector| % 131072))
-    (AND (OR (AND #7# #4#) #3#) (|augmentPredVector| % 262144))
+    (AND (OR #3# (AND #1# #4#) #5#) (|augmentPredVector| % 65536))
+    (AND (OR (AND #1# #4#) #5# #2#) (|augmentPredVector| % 131072))
+    (AND (OR (AND #1# #4#) #5#) (|augmentPredVector| % 262144))
     (AND
-     (LETT #2#
+     (LETT #6#
            (AND (|HasCategory| |#1| '(|BasicType|))
                 (|HasCategory| % '(|finiteAggregate|))))
      (|augmentPredVector| % 524288))
     (AND
-     (OR #2# (AND #7# #4#) (AND (|HasCategory| |#1| '(|Hashable|)) #4#) #3#
-         #6#)
+     (OR #6# (AND #1# #4#) (AND (|HasCategory| |#1| '(|Hashable|)) #4#) #5#
+         #2#)
      (|augmentPredVector| % 1048576))
-    (AND (LETT #1# (|HasCategory| % '(|shallowlyMutable|)))
+    (AND (LETT #7# (|HasCategory| % '(|shallowlyMutable|)))
          (|augmentPredVector| % 2097152))
-    (AND (|HasCategory| |#1| '(|OrderedSet|)) #4# #1#
+    (AND (|HasCategory| |#1| '(|OrderedSet|)) #4# #7#
          (|augmentPredVector| % 4194304))
-    (AND #4# #1# (|augmentPredVector| % 8388608))
+    (AND #4# #7# (|augmentPredVector| % 8388608))
     (SETF |pv$| (QREFELT % 3))
     %))) 
 

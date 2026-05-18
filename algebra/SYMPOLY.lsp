@@ -1,8 +1,8 @@
 
 (SDEFUN |SYMPOLY;*;3%;1| ((|p1| (%)) (|p2| (%)) (% (%)))
         (SPROG
-         ((#1=#:G9 NIL) (#2=#:G8 (%)) (#3=#:G10 (%)) (#4=#:G19 NIL) (|t2| NIL)
-          (#5=#:G18 NIL) (#6=#:G17 NIL) (|t1| NIL))
+         ((|t1| NIL) (#1=#:G17 NIL) (#2=#:G18 NIL) (|t2| NIL) (#3=#:G19 NIL)
+          (#4=#:G10 (%)) (#5=#:G8 (%)) (#6=#:G9 NIL))
          (SEQ
           (COND ((OR (NULL |p1|) (NULL |p2|)) (|spadConstant| % 9))
                 ((SPADCALL (QCAR (|SPADfirst| |p1|)) (QREFELT % 12))
@@ -10,25 +10,25 @@
                 ((SPADCALL |p2| (|spadConstant| % 14) (QREFELT % 16)) |p1|)
                 (#7='T
                  (PROGN
-                  (LETT #1# NIL)
-                  (SEQ (LETT |t1| NIL) (LETT #6# (REVERSE |p1|)) G190
+                  (LETT #6# NIL)
+                  (SEQ (LETT |t1| NIL) (LETT #1# (REVERSE |p1|)) G190
                        (COND
-                        ((OR (ATOM #6#) (PROGN (LETT |t1| (CAR #6#)) NIL))
+                        ((OR (ATOM #1#) (PROGN (LETT |t1| (CAR #1#)) NIL))
                          (GO G191)))
                        (SEQ
                         (EXIT
                          (PROGN
-                          (LETT #3#
+                          (LETT #4#
                                 (PROGN
-                                 (LETT #5# NIL)
-                                 (SEQ (LETT |t2| NIL) (LETT #4# |p2|) G190
+                                 (LETT #2# NIL)
+                                 (SEQ (LETT |t2| NIL) (LETT #3# |p2|) G190
                                       (COND
-                                       ((OR (ATOM #4#)
-                                            (PROGN (LETT |t2| (CAR #4#)) NIL))
+                                       ((OR (ATOM #3#)
+                                            (PROGN (LETT |t2| (CAR #3#)) NIL))
                                         (GO G191)))
                                       (SEQ
                                        (EXIT
-                                        (LETT #5#
+                                        (LETT #2#
                                               (CONS
                                                (CONS
                                                 (SPADCALL (QCAR |t1|)
@@ -37,19 +37,19 @@
                                                 (SPADCALL (QCDR |t1|)
                                                           (QCDR |t2|)
                                                           (QREFELT % 18)))
-                                               #5#))))
-                                      (LETT #4# (CDR #4#)) (GO G190) G191
-                                      (EXIT (NREVERSE #5#)))))
+                                               #2#))))
+                                      (LETT #3# (CDR #3#)) (GO G190) G191
+                                      (EXIT (NREVERSE #2#)))))
                           (COND
-                           (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT % 19))))
-                           ('T (PROGN (LETT #2# #3#) (LETT #1# 'T)))))))
-                       (LETT #6# (CDR #6#)) (GO G190) G191 (EXIT NIL))
-                  (COND (#1# #2#) (#7# (|spadConstant| % 9))))))))) 
+                           (#6# (LETT #5# (SPADCALL #5# #4# (QREFELT % 19))))
+                           ('T (PROGN (LETT #5# #4#) (LETT #6# 'T)))))))
+                       (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
+                  (COND (#6# #5#) (#7# (|spadConstant| % 9))))))))) 
 
 (SDEFUN |SYMPOLY;*;3%;2| ((|p1| (%)) (|p2| (%)) (% (%)))
         (SPROG
-         ((#1=#:G21 NIL) (#2=#:G20 (%)) (#3=#:G22 (%)) (|r| (R)) (#4=#:G31 NIL)
-          (|t2| NIL) (#5=#:G30 NIL) (#6=#:G29 NIL) (|t1| NIL))
+         ((|t1| NIL) (#1=#:G29 NIL) (#2=#:G30 NIL) (|t2| NIL) (#3=#:G31 NIL)
+          (|r| (R)) (#4=#:G22 (%)) (#5=#:G20 (%)) (#6=#:G21 NIL))
          (SEQ
           (COND ((OR (NULL |p1|) (NULL |p2|)) (|spadConstant| % 9))
                 ((SPADCALL (QCAR (|SPADfirst| |p1|)) (QREFELT % 12))
@@ -57,21 +57,21 @@
                 ((SPADCALL |p2| (|spadConstant| % 14) (QREFELT % 16)) |p1|)
                 (#7='T
                  (PROGN
-                  (LETT #1# NIL)
-                  (SEQ (LETT |t1| NIL) (LETT #6# (REVERSE |p1|)) G190
+                  (LETT #6# NIL)
+                  (SEQ (LETT |t1| NIL) (LETT #1# (REVERSE |p1|)) G190
                        (COND
-                        ((OR (ATOM #6#) (PROGN (LETT |t1| (CAR #6#)) NIL))
+                        ((OR (ATOM #1#) (PROGN (LETT |t1| (CAR #1#)) NIL))
                          (GO G191)))
                        (SEQ
                         (EXIT
                          (PROGN
-                          (LETT #3#
+                          (LETT #4#
                                 (PROGN
-                                 (LETT #5# NIL)
-                                 (SEQ (LETT |t2| NIL) (LETT #4# |p2|) G190
+                                 (LETT #2# NIL)
+                                 (SEQ (LETT |t2| NIL) (LETT #3# |p2|) G190
                                       (COND
-                                       ((OR (ATOM #4#)
-                                            (PROGN (LETT |t2| (CAR #4#)) NIL))
+                                       ((OR (ATOM #3#)
+                                            (PROGN (LETT |t2| (CAR #3#)) NIL))
                                         (GO G191)))
                                       (SEQ
                                        (EXIT
@@ -83,28 +83,28 @@
                                                            (QREFELT % 18)))
                                            (|spadConstant| % 21)
                                            (QREFELT % 22))
-                                          (LETT #5#
+                                          (LETT #2#
                                                 (CONS
                                                  (CONS
                                                   (SPADCALL (QCAR |t1|)
                                                             (QCAR |t2|)
                                                             (QREFELT % 17))
                                                   |r|)
-                                                 #5#))))))
-                                      (LETT #4# (CDR #4#)) (GO G190) G191
-                                      (EXIT (NREVERSE #5#)))))
+                                                 #2#))))))
+                                      (LETT #3# (CDR #3#)) (GO G190) G191
+                                      (EXIT (NREVERSE #2#)))))
                           (COND
-                           (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT % 19))))
-                           ('T (PROGN (LETT #2# #3#) (LETT #1# 'T)))))))
-                       (LETT #6# (CDR #6#)) (GO G190) G191 (EXIT NIL))
-                  (COND (#1# #2#) (#7# (|spadConstant| % 9))))))))) 
+                           (#6# (LETT #5# (SPADCALL #5# #4# (QREFELT % 19))))
+                           ('T (PROGN (LETT #5# #4#) (LETT #6# 'T)))))))
+                       (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
+                  (COND (#6# #5#) (#7# (|spadConstant| % 9))))))))) 
 
 (DECLAIM (NOTINLINE |SymmetricPolynomial;|)) 
 
 (DEFUN |SymmetricPolynomial;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G50 NIL) (#2=#:G51 NIL) (#3=#:G52 NIL) (% NIL)
-    (|dv$| NIL) (DV$1 NIL))
+   ((DV$1 NIL) (|dv$| NIL) (% NIL) (#1=#:G52 NIL) (#2=#:G51 NIL) (#3=#:G50 NIL)
+    (|pv$| NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|SymmetricPolynomial| DV$1))
@@ -125,10 +125,10 @@
                                                        '(|CharacteristicNonZero|))
                                         (|HasCategory| |#1|
                                                        '(|CharacteristicZero|))
-                                        (LETT #3#
+                                        (LETT #1#
                                               (|HasCategory| |#1|
                                                              '(|CommutativeRing|)))
-                                        (OR #3#
+                                        (OR #1#
                                             (|HasCategory| |#1|
                                                            '(|IntegralDomain|)))
                                         (|HasCategory| |#1| '(|EntireRing|))
@@ -144,7 +144,7 @@
                                                         '(|CharacteristicNonZero|))
                                          (|HasCategory| |#1|
                                                         '(|CharacteristicZero|))
-                                         #3#
+                                         #1#
                                          (|HasCategory| |#1| '(|EntireRing|))
                                          (|HasCategory| |#1|
                                                         '(|IntegralDomain|))
@@ -176,7 +176,7 @@
                                                            (|Integer|)))))
                                         (|HasCategory| |#1| '(|GcdDomain|))
                                         (|HasCategory| |#1| '(|AbelianMonoid|))
-                                        (LETT #1#
+                                        (LETT #3#
                                               (|HasCategory| |#1|
                                                              '(|CancellationAbelianMonoid|)))
                                         (OR
@@ -191,22 +191,22 @@
                                          (|HasCategory| |#1| '(|AbelianGroup|))
                                          (|HasCategory| |#1|
                                                         '(|AbelianMonoid|))
-                                         #1#)
+                                         #3#)
                                         (OR
                                          (|HasCategory| |#1| '(|AbelianGroup|))
-                                         #1#)))))
+                                         #3#)))))
     (|haddProp| |$ConstructorCache| '|SymmetricPolynomial| (LIST DV$1)
                 (CONS 1 %))
     (|stuffDomainSlots| %)
     (QSETREFV % 6 |#1|)
     (AND
      (OR (|HasCategory| |#1| '(|Algebra| (|Fraction| (|Integer|))))
-         (AND #3# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+         (AND #1# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (AND (|HasCategory| |#1| '(|IntegralDomain|))
               (|HasCategory| % '(|VariablesCommuteWithCoefficients|))))
      (|augmentPredVector| % 16777216))
     (AND
-     (OR (AND #3# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+     (OR (AND #1# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (AND (|HasCategory| |#1| '(|IntegralDomain|))
               (|HasCategory| % '(|VariablesCommuteWithCoefficients|))))
      (|augmentPredVector| % 33554432))
@@ -219,40 +219,40 @@
      (|augmentPredVector| % 134217728))
     (AND
      (OR (|HasCategory| |#1| '(|RetractableTo| (|Integer|)))
-         (AND #3# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+         (AND #1# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (AND (|HasCategory| |#1| '(|IntegralDomain|))
               (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          #2#)
      (|augmentPredVector| % 268435456))
     (AND
-     (OR (AND #3# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+     (OR (AND #1# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (AND (|HasCategory| |#1| '(|IntegralDomain|))
               (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (|HasCategory| |#1| '(|SemiRing|)))
      (|augmentPredVector| % 536870912))
     (AND
-     (OR (AND #3# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+     (OR (AND #1# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (AND (|HasCategory| |#1| '(|IntegralDomain|))
               (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          #2#)
      (|augmentPredVector| % 1073741824))
     (AND
      (OR (|HasCategory| |#1| '(|AbelianMonoid|))
-         (AND #3# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+         (AND #1# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (AND (|HasCategory| |#1| '(|IntegralDomain|))
               (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (|HasCategory| % '(|AbelianMonoid|)))
      (|augmentPredVector| % 2147483648))
     (AND
-     (OR (AND (|HasCategory| |#1| '(|AbelianGroup|)) #3#) #1#
-         (AND #3# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+     (OR (AND (|HasCategory| |#1| '(|AbelianGroup|)) #1#) #3#
+         (AND #1# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (AND (|HasCategory| |#1| '(|IntegralDomain|))
               (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (|HasCategory| % '(|AbelianGroup|)))
      (|augmentPredVector| % 4294967296))
     (AND
      (OR (|HasCategory| |#1| '(|AbelianGroup|))
-         (AND #3# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+         (AND #1# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (AND (|HasCategory| |#1| '(|IntegralDomain|))
               (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (|HasCategory| % '(|AbelianGroup|)))

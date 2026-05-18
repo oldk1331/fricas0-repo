@@ -3,8 +3,8 @@
         ((|l1| (|LinearOrdinaryDifferentialOperator1| R))
          (% (|LinearOrdinaryDifferentialOperator3| |Coeff| |Ab| R)))
         (SPROG
-         ((|l3| (|LinearOrdinaryDifferentialOperator3| |Coeff| |Ab| R))
-          (#1=#:G2 NIL))
+         ((#1=#:G2 NIL)
+          (|l3| (|LinearOrdinaryDifferentialOperator3| |Coeff| |Ab| R)))
          (SEQ (LETT |l3| (|spadConstant| % 10))
               (SEQ G190
                    (COND
@@ -81,7 +81,7 @@
 (DECLAIM (NOTINLINE |LODOConvertions;|)) 
 
 (DEFUN |LODOConvertions;| (|#1| |#2| |#3|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

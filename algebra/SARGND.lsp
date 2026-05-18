@@ -22,13 +22,13 @@
         ((|a| #1=(|DoubleFloat|)) (|b| #1#) (|c| #1#) (% (%))) (CONS |a| |b|)) 
 
 (SDEFUN |SARGND;min;3%;5| ((|a| (%)) (|b| (%)) (% (%)))
-        (SPROG ((|im| #1=(|DoubleFloat|)) (|re| #1#))
+        (SPROG ((|re| #1=(|DoubleFloat|)) (|im| #1#))
                (SEQ (LETT |re| (|min_DF| (QCAR |a|) (QCAR |b|)))
                     (LETT |im| (|min_DF| (QCDR |a|) (QCDR |b|)))
                     (EXIT (CONS |re| |im|))))) 
 
 (SDEFUN |SARGND;max;3%;6| ((|a| (%)) (|b| (%)) (% (%)))
-        (SPROG ((|im| #1=(|DoubleFloat|)) (|re| #1#))
+        (SPROG ((|re| #1=(|DoubleFloat|)) (|im| #1#))
                (SEQ (LETT |re| (|max_DF| (QCAR |a|) (QCAR |b|)))
                     (LETT |im| (|max_DF| (QCDR |a|) (QCDR |b|)))
                     (EXIT (CONS |re| |im|))))) 

@@ -46,12 +46,13 @@
         ((|f| (%))
          (% (|Union| (|UnivariatePuiseuxSeries| FE |var| |cen|) "failed")))
         (SPROG
-         ((|fff| (|Union| (|UnivariatePuiseuxSeries| FE |var| |cen|) "failed"))
-          (|ff|
+         ((|ff|
            (|Union|
             (|UnivariatePuiseuxSeriesWithExponentialSingularity| R FE |var|
                                                                  |cen|)
-            "failed")))
+            "failed"))
+          (|fff|
+           (|Union| (|UnivariatePuiseuxSeries| FE |var| |cen|) "failed")))
          (SEQ (LETT |ff| (|EXPEXPAN;upxssingIfCan| |f| %))
               (EXIT
                (COND ((QEQCAR |ff| 1) (CONS 1 "failed"))
@@ -105,9 +106,9 @@
          (|den| (|UnivariatePuiseuxSeries| FE |var| |cen|))
          (% (|Union| (|OrderedCompletion| FE) "failed")))
         (SPROG
-         ((#1=#:G48 NIL) (|sig| (|Union| (|Integer|) "failed")) (|coef| (FE))
-          (|ord| (|Fraction| (|Integer|)))
-          (|series| (|UnivariatePuiseuxSeries| FE |var| |cen|)))
+         ((|series| (|UnivariatePuiseuxSeries| FE |var| |cen|))
+          (|ord| (|Fraction| (|Integer|))) (|coef| (FE))
+          (|sig| (|Union| (|Integer|) "failed")) (#1=#:G48 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |series| (SPADCALL |num| |den| (QREFELT % 37)))
@@ -149,8 +150,8 @@
          (|den| (|UnivariatePuiseuxSeries| FE |var| |cen|))
          (% (|Union| (|OrderedCompletion| FE) "failed")))
         (SPROG
-         ((#1=#:G61 NIL) (|sig| (|Union| (|Integer|) "failed")) (|cc| (FE))
-          (|denOrd| #2=(|Fraction| (|Integer|))) (|numOrd| #2#))
+         ((|numOrd| #1=(|Fraction| (|Integer|))) (|denOrd| #1#) (|cc| (FE))
+          (|sig| (|Union| (|Integer|) "failed")) (#2=#:G61 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |numOrd| (SPADCALL |num| (QREFELT % 15) (QREFELT % 39)))
@@ -185,7 +186,7 @@
                                  (COND
                                   ((QEQCAR |sig| 1)
                                    (PROGN
-                                    (LETT #1# (CONS 1 "failed"))
+                                    (LETT #2# (CONS 1 "failed"))
                                     (GO #4=#:G60)))
                                   ((EQL (QCDR |sig|) 1)
                                    (CONS 0 (SPADCALL (QREFELT % 54))))
@@ -193,33 +194,19 @@
                                    (CONS 0
                                          (SPADCALL
                                           (QREFELT % 55))))))))))))))))))))
-          #4# (EXIT #1#)))) 
+          #4# (EXIT #2#)))) 
 
 (SDEFUN |EXPEXPAN;limitPlus;%U;10|
         ((|f| (%)) (% (|Union| (|OrderedCompletion| FE) "failed")))
         (SPROG
-         ((#1=#:G85 NIL) (|sig| (|Union| (|Integer|) "failed"))
-          (|expCoef| (FE))
-          (|exponDiff| (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
-          (|denCoef| #2=(|UnivariatePuiseuxSeries| FE |var| |cen|))
-          (|numCoef| #2#)
-          (|denExpon|
-           #3=(|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
-          (|numExpon| #3#) (|denType| #4=(|String|))
-          (|denTerm|
-           (|Record|
-            (|:| |%term|
-                 (|Record|
-                  (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
-                  (|:| |%expon|
-                       (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
-                  (|:| |%expTerms|
-                       (|List|
-                        (|Record| (|:| |k| (|Fraction| (|Integer|)))
-                                  (|:| |c| FE))))))
-            (|:| |%type| (|String|))))
-          (|denomTerm|
-           #5=(|Union|
+         ((|den|
+           (|UnivariatePuiseuxSeriesWithExponentialSingularity| R FE |var|
+                                                                |cen|))
+          (|num|
+           (|UnivariatePuiseuxSeriesWithExponentialSingularity| R FE |var|
+                                                                |cen|))
+          (|numerTerm|
+           #1=(|Union|
                (|Record|
                 (|:| |%term|
                      (|Record|
@@ -231,9 +218,8 @@
                            (|List|
                             (|Record| (|:| |k| (|Fraction| (|Integer|)))
                                       (|:| |c| FE))))))
-                (|:| |%type| #4#))
+                (|:| |%type| #2=(|String|)))
                "failed"))
-          (|numType| #4#)
           (|numTerm|
            (|Record|
             (|:| |%term|
@@ -246,13 +232,28 @@
                         (|Record| (|:| |k| (|Fraction| (|Integer|)))
                                   (|:| |c| FE))))))
             (|:| |%type| (|String|))))
-          (|numerTerm| #5#)
-          (|num|
-           (|UnivariatePuiseuxSeriesWithExponentialSingularity| R FE |var|
-                                                                |cen|))
-          (|den|
-           (|UnivariatePuiseuxSeriesWithExponentialSingularity| R FE |var|
-                                                                |cen|)))
+          (|numType| #2#) (|denomTerm| #1#)
+          (|denTerm|
+           (|Record|
+            (|:| |%term|
+                 (|Record|
+                  (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
+                  (|:| |%expon|
+                       (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
+                  (|:| |%expTerms|
+                       (|List|
+                        (|Record| (|:| |k| (|Fraction| (|Integer|)))
+                                  (|:| |c| FE))))))
+            (|:| |%type| (|String|))))
+          (|denType| #2#)
+          (|numExpon|
+           #3=(|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
+          (|denExpon| #3#)
+          (|numCoef| #4=(|UnivariatePuiseuxSeries| FE |var| |cen|))
+          (|denCoef| #4#)
+          (|exponDiff| (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
+          (|expCoef| (FE)) (|sig| (|Union| (|Integer|) "failed"))
+          (#5=#:G85 NIL))
          (SEQ
           (EXIT
            (COND
@@ -328,7 +329,7 @@
                                               (COND
                                                ((QEQCAR |sig| 1)
                                                 (PROGN
-                                                 (LETT #1# (CONS 1 "failed"))
+                                                 (LETT #5# (CONS 1 "failed"))
                                                  (GO #7=#:G84)))
                                                ((EQL (QCDR |sig|) -1)
                                                 (CONS 0
@@ -382,7 +383,7 @@
                                             (COND
                                              ((QEQCAR |sig| 1)
                                               (PROGN
-                                               (LETT #1# (CONS 1 "failed"))
+                                               (LETT #5# (CONS 1 "failed"))
                                                (GO #7#)))
                                              ((EQL (QCDR |sig|) -1)
                                               (CONS 0
@@ -396,14 +397,14 @@
                                       (|EXPEXPAN;seriesQuotientInfinity|
                                        |numCoef| |denCoef|
                                        %))))))))))))))))))))
-          #7# (EXIT #1#)))) 
+          #7# (EXIT #5#)))) 
 
 (DECLAIM (NOTINLINE |ExponentialExpansion;|)) 
 
 (DEFUN |ExponentialExpansion;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G116 NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
-    (DV$2 NIL) (DV$1 NIL))
+   ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (DV$4 NIL) (|dv$| NIL) (% NIL)
+    (#1=#:G116 NIL) (|pv$| NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))

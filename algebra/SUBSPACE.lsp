@@ -18,7 +18,7 @@
 (SDEFUN |SUBSPACE;subspace;%;5| ((% (%))) (SPADCALL (QREFELT % 23))) 
 
 (SDEFUN |SUBSPACE;birth;2%;6| ((|momma| (%)) (% (%)))
-        (SPROG ((|lastKid| (|List| %)) (|baby| (%)))
+        (SPROG ((|baby| (%)) (|lastKid| (|List| %)))
                (SEQ (LETT |baby| (SPADCALL (QREFELT % 23)))
                     (QSETVELT |baby| 5 (+ (QVELT |momma| 5) 1))
                     (QSETVELT |baby| 10 (LIST |momma|))
@@ -80,7 +80,7 @@
                     (EXIT |node|)))) 
 
 (SDEFUN |SUBSPACE;deepCopy;2%;11| ((|space| (%)) (% (%)))
-        (SPROG ((|cc| (%)) (#1=#:G54 NIL) (|c| NIL) (|node| (%)))
+        (SPROG ((|node| (%)) (|c| NIL) (#1=#:G54 NIL) (|cc| (%)))
                (SEQ (LETT |node| (SPADCALL |space| (QREFELT % 37)))
                     (EXIT
                      (COND ((SPADCALL |space| (QREFELT % 15)) |node|)
@@ -111,7 +111,7 @@
                              (EXIT |node|)))))))) 
 
 (SDEFUN |SUBSPACE;merge;3%;12| ((|s1| (%)) (|s2| (%)) (% (%)))
-        (SPROG ((|n2| (|Rep|)) (|n1| (|Rep|)))
+        (SPROG ((|n1| (|Rep|)) (|n2| (|Rep|)))
                (SEQ (LETT |n1| (SPADCALL |s1| (QREFELT % 38)))
                     (LETT |n2| (SPADCALL |s2| (QREFELT % 38)))
                     (QSETVELT |n1| 3
@@ -122,8 +122,8 @@
 
 (SDEFUN |SUBSPACE;merge;L%;13| ((|listOfSpaces| (|List| %)) (% (%)))
         (SPROG
-         ((#1=#:G66 NIL) (|c| NIL) (#2=#:G65 NIL) (#3=#:G64 NIL) (|s| NIL)
-          (|space| (%)))
+         ((|space| (%)) (|s| NIL) (#1=#:G64 NIL) (#2=#:G65 NIL) (|c| NIL)
+          (#3=#:G66 NIL))
          (SEQ
           (COND
            ((SPADCALL |listOfSpaces| (QREFELT % 14))
@@ -134,9 +134,9 @@
                    (SPADCALL (SPADCALL |listOfSpaces| (QREFELT % 44))
                              (QREFELT % 38)))
              (SEQ (LETT |s| NIL)
-                  (LETT #3# (SPADCALL |listOfSpaces| (QREFELT % 25))) G190
+                  (LETT #1# (SPADCALL |listOfSpaces| (QREFELT % 25))) G190
                   (COND
-                   ((OR (ATOM #3#) (PROGN (LETT |s| (CAR #3#)) NIL))
+                   ((OR (ATOM #1#) (PROGN (LETT |s| (CAR #1#)) NIL))
                     (GO G191)))
                   (SEQ
                    (EXIT
@@ -145,11 +145,11 @@
                                         (PROGN
                                          (LETT #2# NIL)
                                          (SEQ (LETT |c| NIL)
-                                              (LETT #1# (QVELT |s| 3)) G190
+                                              (LETT #3# (QVELT |s| 3)) G190
                                               (COND
-                                               ((OR (ATOM #1#)
+                                               ((OR (ATOM #3#)
                                                     (PROGN
-                                                     (LETT |c| (CAR #1#))
+                                                     (LETT |c| (CAR #3#))
                                                      NIL))
                                                 (GO G191)))
                                               (SEQ
@@ -160,14 +160,14 @@
                                                                  (QREFELT %
                                                                           38))
                                                        #2#))))
-                                              (LETT #1# (CDR #1#)) (GO G190)
+                                              (LETT #3# (CDR #3#)) (GO G190)
                                               G191 (EXIT (NREVERSE #2#))))
                                         (QREFELT % 42)))))
-                  (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
+                  (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
              (EXIT |space|))))))) 
 
 (SDEFUN |SUBSPACE;separate;%L;14| ((|space| (%)) (% (|List| %)))
-        (SPROG ((|spaceList| (|List| %)) (|spc| (%)) (#1=#:G72 NIL) (|s| NIL))
+        (SPROG ((|s| NIL) (#1=#:G72 NIL) (|spc| (%)) (|spaceList| (|List| %)))
                (SEQ (LETT |spaceList| NIL)
                     (SEQ (LETT |s| NIL) (LETT #1# (QVELT |space| 3)) G190
                          (COND
@@ -205,18 +205,18 @@
         ((|space| (%)) (|path| (|List| (|NonNegativeInteger|)))
          (|point| (|Point| R)) (|which| (|NonNegativeInteger|)) (% (%)))
         (SPROG
-         ((|node| (%)) (#1=#:G88 NIL) (|more| NIL)
-          (|depth| (|NonNegativeInteger|)) (#2=#:G87 NIL) (|i| NIL))
+         ((|i| NIL) (#1=#:G87 NIL) (|depth| (|NonNegativeInteger|))
+          (|more| NIL) (#2=#:G88 NIL) (|node| (%)))
          (SEQ (LETT |node| |space|) (LETT |depth| 0)
-              (SEQ (LETT |i| NIL) (LETT #2# |path|) G190
+              (SEQ (LETT |i| NIL) (LETT #1# |path|) G190
                    (COND
-                    ((OR (ATOM #2#) (PROGN (LETT |i| (CAR #2#)) NIL))
+                    ((OR (ATOM #1#) (PROGN (LETT |i| (CAR #1#)) NIL))
                      (GO G191)))
                    (SEQ (LETT |node| (SPADCALL |node| |i| (QREFELT % 31)))
                         (EXIT (LETT |depth| (+ |depth| 1))))
-                   (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
-              (SEQ (LETT |more| |depth|) (LETT #1# (- (QREFELT % 6) 1)) G190
-                   (COND ((> |more| #1#) (GO G191)))
+                   (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
+              (SEQ (LETT |more| |depth|) (LETT #2# (- (QREFELT % 6) 1)) G190
+                   (COND ((> |more| #2#) (GO G191)))
                    (SEQ (EXIT (LETT |node| (SPADCALL |node| (QREFELT % 27)))))
                    (LETT |more| (+ |more| 1)) (GO G190) G191 (EXIT NIL))
               (QSETVELT |node| 0 |point|) (QSETVELT |node| 1 |which|)
@@ -234,8 +234,8 @@
 (SDEFUN |SUBSPACE;addPoint2;%P%;18|
         ((|space| (%)) (|point| (|Point| R)) (% (%)))
         (SPROG
-         ((|node| (%)) (#1=#:G95 NIL) (|more| NIL) (|first| (%))
-          (|which| (|NonNegativeInteger|)))
+         ((|which| (|NonNegativeInteger|)) (|first| (%)) (|more| NIL)
+          (#1=#:G95 NIL) (|node| (%)))
          (SEQ (LETT |which| (|SUBSPACE;add_point1| |space| |point| %))
               (LETT |node| |space|)
               (LETT |node| (SPADCALL |node| (QREFELT % 27)))
@@ -250,7 +250,7 @@
 (SDEFUN |SUBSPACE;addPointLast;2%PNni%;19|
         ((|space| (%)) (|node| (%)) (|point| (|Point| R))
          (|depth| (|NonNegativeInteger|)) (% (%)))
-        (SPROG ((#1=#:G100 NIL) (|more| NIL) (|which| (|NonNegativeInteger|)))
+        (SPROG ((|which| (|NonNegativeInteger|)) (|more| NIL) (#1=#:G100 NIL))
                (SEQ (LETT |which| (|SUBSPACE;add_point1| |space| |point| %))
                     (COND
                      ((EQL |depth| 2)
@@ -283,8 +283,8 @@
         ((|space| (%)) (|path| (|List| (|NonNegativeInteger|)))
          (|point| (|Point| R)) (% (%)))
         (SPROG
-         ((|node| (%)) (#1=#:G114 NIL) (|i| NIL)
-          (|which| (|NonNegativeInteger|)) (|lastPt| (|List| (|Point| R))))
+         ((|lastPt| (|List| (|Point| R))) (|which| (|NonNegativeInteger|))
+          (|i| NIL) (#1=#:G114 NIL) (|node| (%)))
          (SEQ
           (COND
            ((NULL (NULL (LETT |lastPt| (QVELT |space| 7))))
@@ -310,7 +310,7 @@
 (SDEFUN |SUBSPACE;modifyPoint;%LNni%;23|
         ((|space| (%)) (|path| (|List| (|NonNegativeInteger|)))
          (|which| (|NonNegativeInteger|)) (% (%)))
-        (SPROG ((|node| (%)) (#1=#:G120 NIL) (|i| NIL))
+        (SPROG ((|i| NIL) (#1=#:G120 NIL) (|node| (%)))
                (SEQ (LETT |node| |space|)
                     (SEQ (LETT |i| NIL) (LETT #1# |path|) G190
                          (COND
@@ -340,7 +340,7 @@
 (SDEFUN |SUBSPACE;closeComponent;%LB%;25|
         ((|space| (%)) (|path| (|List| (|NonNegativeInteger|)))
          (|val| (|Boolean|)) (% (%)))
-        (SPROG ((|node| (%)) (#1=#:G129 NIL) (|i| NIL))
+        (SPROG ((|i| NIL) (#1=#:G129 NIL) (|node| (%)))
                (SEQ (LETT |node| |space|)
                     (SEQ (LETT |i| NIL) (LETT #1# |path|) G190
                          (COND
@@ -360,7 +360,7 @@
 (SDEFUN |SUBSPACE;defineProperty;%LSscp%;26|
         ((|space| (%)) (|path| (|List| (|NonNegativeInteger|)))
          (|prop| (|SubSpaceComponentProperty|)) (% (%)))
-        (SPROG ((|node| (%)) (#1=#:G134 NIL) (|i| NIL))
+        (SPROG ((|i| NIL) (#1=#:G134 NIL) (|node| (%)))
                (SEQ (LETT |node| |space|)
                     (SEQ (LETT |i| NIL) (LETT #1# |path|) G190
                          (COND
@@ -374,7 +374,7 @@
 
 (SDEFUN |SUBSPACE;traverse;%L%;27|
         ((|space| (%)) (|path| (|List| (|NonNegativeInteger|))) (% (%)))
-        (SPROG ((#1=#:G139 NIL) (|i| NIL))
+        (SPROG ((|i| NIL) (#1=#:G139 NIL))
                (SEQ
                 (SEQ (LETT |i| NIL) (LETT #1# |path|) G190
                      (COND
@@ -436,8 +436,8 @@
 
 (SDEFUN |SUBSPACE;=;2%B;35| ((|s1| (%)) (|s2| (%)) (% (|Boolean|)))
         (SPROG
-         ((#1=#:G159 NIL) (#2=#:G158 #3=(|Boolean|)) (#4=#:G160 #3#)
-          (#5=#:G165 NIL) (|c1| NIL) (#6=#:G166 NIL) (|c2| NIL))
+         ((|c2| NIL) (#1=#:G166 NIL) (|c1| NIL) (#2=#:G165 NIL)
+          (#3=#:G160 #4=(|Boolean|)) (#5=#:G158 #4#) (#6=#:G159 NIL))
          (SEQ
           (COND
            ((SPADCALL |s1| (QREFELT % 15))
@@ -460,22 +460,22 @@
                          (QREFELT % 74))
                (NULL
                 (PROGN
-                 (LETT #1# NIL)
-                 (SEQ (LETT |c2| NIL) (LETT #6# (QVELT |s2| 3)) (LETT |c1| NIL)
-                      (LETT #5# (QVELT |s1| 3)) G190
+                 (LETT #6# NIL)
+                 (SEQ (LETT |c2| NIL) (LETT #1# (QVELT |s2| 3)) (LETT |c1| NIL)
+                      (LETT #2# (QVELT |s1| 3)) G190
                       (COND
-                       ((OR (ATOM #5#) (PROGN (LETT |c1| (CAR #5#)) NIL)
-                            (ATOM #6#) (PROGN (LETT |c2| (CAR #6#)) NIL))
+                       ((OR (ATOM #2#) (PROGN (LETT |c1| (CAR #2#)) NIL)
+                            (ATOM #1#) (PROGN (LETT |c2| (CAR #1#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
                         (PROGN
-                         (LETT #4# (SPADCALL |c1| |c2| (QREFELT % 75)))
-                         (COND (#1# (LETT #2# (COND (#2# #4#) ('T NIL))))
-                               ('T (PROGN (LETT #2# #4#) (LETT #1# 'T)))))))
-                      (LETT #5# (PROG1 (CDR #5#) (LETT #6# (CDR #6#))))
+                         (LETT #3# (SPADCALL |c1| |c2| (QREFELT % 75)))
+                         (COND (#6# (LETT #5# (COND (#5# #3#) ('T NIL))))
+                               ('T (PROGN (LETT #5# #3#) (LETT #6# 'T)))))))
+                      (LETT #2# (PROG1 (CDR #2#) (LETT #1# (CDR #1#))))
                       (GO G190) G191 (EXIT NIL))
-                 (COND (#1# #2#) (#7# 'T)))))
+                 (COND (#6# #5#) (#7# 'T)))))
               (NULL (SPADCALL (QVELT |s1| 2) (QVELT |s2| 2) (QREFELT % 72))))
              NIL)
             ('T (EQL (QVELT |s1| 5) (QVELT |s2| 5)))))))) 
@@ -499,7 +499,7 @@
 (DECLAIM (NOTINLINE |SubSpace;|)) 
 
 (DEFUN |SubSpace;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 |#1|)
           (LETT DV$2 (|devaluate| |#2|))

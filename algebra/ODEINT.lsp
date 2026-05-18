@@ -21,13 +21,14 @@
            (|Record| (|:| |coef| (|Fraction| (|Integer|))) (|:| |logand| F))))
          (% (F)))
         (SPROG
-         ((#1=#:G20 NIL) (#2=#:G19 (F)) (#3=#:G21 (F)) (#4=#:G26 NIL) (|r| NIL)
+         ((|rec|
+           (|Record| (|:| |coef| (|Fraction| (|Integer|))) (|:| |logand| F)))
+          (|d| (|Integer|))
           (|ll|
            (|List|
             (|Record| (|:| |coef| (|Fraction| (|Integer|))) (|:| |logand| F))))
-          (|d| (|Integer|))
-          (|rec|
-           (|Record| (|:| |coef| (|Fraction| (|Integer|))) (|:| |logand| F))))
+          (|r| NIL) (#1=#:G26 NIL) (#2=#:G21 (F)) (#3=#:G19 (F))
+          (#4=#:G20 NIL))
          (SEQ
           (COND ((NULL |l|) (|spadConstant| % 16))
                 (#5='T
@@ -40,28 +41,28 @@
                        (SPADCALL
                         (SPADCALL
                          (PROGN
-                          (LETT #1# NIL)
-                          (SEQ (LETT |r| NIL) (LETT #4# |ll|) G190
+                          (LETT #4# NIL)
+                          (SEQ (LETT |r| NIL) (LETT #1# |ll|) G190
                                (COND
-                                ((OR (ATOM #4#)
-                                     (PROGN (LETT |r| (CAR #4#)) NIL))
+                                ((OR (ATOM #1#)
+                                     (PROGN (LETT |r| (CAR #1#)) NIL))
                                  (GO G191)))
                                (SEQ
                                 (EXIT
                                  (PROGN
-                                  (LETT #3#
+                                  (LETT #2#
                                         (SPADCALL (QCDR |r|)
                                                   (SPADCALL (QCAR |r|)
                                                             (QREFELT % 26))
                                                   (QREFELT % 27)))
                                   (COND
-                                   (#1#
-                                    (LETT #2#
-                                          (SPADCALL #2# #3# (QREFELT % 28))))
+                                   (#4#
+                                    (LETT #3#
+                                          (SPADCALL #3# #2# (QREFELT % 28))))
                                    ('T
-                                    (PROGN (LETT #2# #3#) (LETT #1# 'T)))))))
-                               (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
-                          (COND (#1# #2#) (#5# (|spadConstant| % 16))))
+                                    (PROGN (LETT #3# #2#) (LETT #4# 'T)))))))
+                               (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
+                          (COND (#4# #3#) (#5# (|spadConstant| % 16))))
                          |d| (QREFELT % 29))
                         (|ODEINT;mkprod| (SPADCALL |l| |ll| (QREFELT % 30)) %)
                         (QREFELT % 28))))))))) 
@@ -77,21 +78,21 @@
 
 (SDEFUN |ODEINT;expint;FSF;4| ((|f| (F)) (|x| (|Symbol|)) (% (F)))
         (SPROG
-         ((|exponent| (|SparseMultivariatePolynomial| R (|Kernel| F)))
-          (|lrec|
-           (|List|
-            (|Record| (|:| |coef| (|Fraction| (|Integer|))) (|:| |logand| F))))
+         ((|a| (F)) (|u| (|Union| F "failed"))
+          (|da| (|SparseMultivariatePolynomial| R (|Kernel| F)))
+          (|na| #1=(|SparseMultivariatePolynomial| R (|Kernel| F)))
+          (|v|
+           (|Union| (|List| (|SparseMultivariatePolynomial| R (|Kernel| F)))
+                    "failed"))
+          (|l| (|List| #1#)) (|term| NIL) (#2=#:G44 NIL)
           (|w|
            (|Union|
             (|Record| (|:| |coef| (|Fraction| (|Integer|))) (|:| |logand| F))
             "failed"))
-          (#1=#:G44 NIL) (|term| NIL)
-          (|l| (|List| #2=(|SparseMultivariatePolynomial| R (|Kernel| F))))
-          (|v|
-           (|Union| (|List| (|SparseMultivariatePolynomial| R (|Kernel| F)))
-                    "failed"))
-          (|na| #2#) (|da| (|SparseMultivariatePolynomial| R (|Kernel| F)))
-          (|u| (|Union| F "failed")) (|a| (F)))
+          (|lrec|
+           (|List|
+            (|Record| (|:| |coef| (|Fraction| (|Integer|))) (|:| |logand| F))))
+          (|exponent| (|SparseMultivariatePolynomial| R (|Kernel| F))))
          (SEQ (LETT |a| (SPADCALL |f| |x| (QREFELT % 15)))
               (LETT |u|
                     (SPADCALL (SPADCALL |a| (QREFELT % 32)) |a| |x|
@@ -112,10 +113,10 @@
                                          (#3# (LIST |na|))))))
                            (LETT |exponent| (|spadConstant| % 43))
                            (LETT |lrec| NIL)
-                           (SEQ (LETT |term| NIL) (LETT #1# |l|) G190
+                           (SEQ (LETT |term| NIL) (LETT #2# |l|) G190
                                 (COND
-                                 ((OR (ATOM #1#)
-                                      (PROGN (LETT |term| (CAR #1#)) NIL))
+                                 ((OR (ATOM #2#)
+                                      (PROGN (LETT |term| (CAR #2#)) NIL))
                                   (GO G191)))
                                 (SEQ
                                  (LETT |w|
@@ -130,7 +131,7 @@
                                     (LETT |exponent|
                                           (SPADCALL |exponent| |term|
                                                     (QREFELT % 45)))))))
-                                (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
+                                (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                            (EXIT
                             (SPADCALL (|ODEINT;mkprod| |lrec| %)
                                       (SPADCALL
@@ -142,30 +143,30 @@
 (SDEFUN |ODEINT;isQ|
         ((|l| (|List| F)) (% (|Union| (|Fraction| (|Integer|)) "failed")))
         (SPROG
-         ((|prod| (|Fraction| (|Integer|))) (#1=#:G53 NIL)
-          (|u| (|Union| (|Fraction| (|Integer|)) "failed")) (#2=#:G54 NIL)
-          (|x| NIL))
+         ((|x| NIL) (#1=#:G54 NIL)
+          (|u| (|Union| (|Fraction| (|Integer|)) "failed")) (#2=#:G53 NIL)
+          (|prod| (|Fraction| (|Integer|))))
          (SEQ
           (EXIT
            (SEQ (LETT |prod| (|spadConstant| % 48))
-                (SEQ (LETT |x| NIL) (LETT #2# |l|) G190
+                (SEQ (LETT |x| NIL) (LETT #1# |l|) G190
                      (COND
-                      ((OR (ATOM #2#) (PROGN (LETT |x| (CAR #2#)) NIL))
+                      ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
                        (GO G191)))
                      (SEQ (LETT |u| (SPADCALL |x| (QREFELT % 50)))
                           (EXIT
                            (COND
                             ((QEQCAR |u| 1)
                              (PROGN
-                              (LETT #1# (CONS 1 "failed"))
+                              (LETT #2# (CONS 1 "failed"))
                               (GO #3=#:G52)))
                             ('T
                              (LETT |prod|
                                    (SPADCALL |prod| (QCDR |u|)
                                              (QREFELT % 51)))))))
-                     (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
+                     (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                 (EXIT (CONS 0 |prod|))))
-          #3# (EXIT #1#)))) 
+          #3# (EXIT #2#)))) 
 
 (SDEFUN |ODEINT;isQlog|
         ((|f| (F))
@@ -174,9 +175,9 @@
            (|Record| (|:| |coef| (|Fraction| (|Integer|))) (|:| |logand| F))
            "failed")))
         (SPROG
-         ((#1=#:G76 NIL) (#2=#:G75 NIL)
-          (|u| (|Union| (|Fraction| (|Integer|)) "failed")) (|l| (|List| F))
-          (|v| (|Union| (|List| F) "failed")))
+         ((|v| (|Union| (|List| F) "failed")) (|l| (|List| F))
+          (|u| (|Union| (|Fraction| (|Integer|)) "failed")) (#1=#:G75 NIL)
+          (#2=#:G76 NIL))
          (SEQ
           (COND
            ((SPADCALL |f| '|log| (QREFELT % 52))
@@ -196,7 +197,7 @@
                        (COND
                         ((<= (LENGTH (LETT |l| (QCDR |v|))) 3)
                          (PROGN
-                          (LETT #1#
+                          (LETT #2#
                                 (SEQ
                                  (EXIT
                                   (SEQ
@@ -212,7 +213,7 @@
                                            (COND
                                             ((QEQCAR |u| 0)
                                              (PROGN
-                                              (LETT #2#
+                                              (LETT #1#
                                                     (CONS 0
                                                           (CONS (QCDR |u|)
                                                                 (|SPADfirst|
@@ -226,15 +227,15 @@
                                                                            58))))))
                                               (GO #3=#:G69))))))))
                                    (EXIT (CONS 1 "failed"))))
-                                 #3# (EXIT #2#)))
+                                 #3# (EXIT #1#)))
                           (GO #4=#:G72))))))))
                (EXIT (CONS 1 "failed"))))
-             #4# (EXIT #1#))))))) 
+             #4# (EXIT #2#))))))) 
 
 (DECLAIM (NOTINLINE |ODEIntegration;|)) 
 
 (DEFUN |ODEIntegration;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

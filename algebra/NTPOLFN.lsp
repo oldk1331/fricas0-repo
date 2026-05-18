@@ -2,8 +2,8 @@
 (SDEFUN |NTPOLFN;cyclotomic;Nni2R;1|
         ((|k| (|NonNegativeInteger|)) (|x| (R)) (% (R)))
         (SPROG
-         ((|r| (R)) (|p| (|SparseUnivariatePolynomial| (|Integer|)))
-          (|c| (|Integer|)) (|d| (|NonNegativeInteger|)))
+         ((|d| (|NonNegativeInteger|)) (|c| (|Integer|))
+          (|p| (|SparseUnivariatePolynomial| (|Integer|))) (|r| (R)))
          (SEQ (LETT |p| (SPADCALL |k| (QREFELT % 10)))
               (LETT |r| (|spadConstant| % 11))
               (SEQ G190
@@ -25,9 +25,9 @@
 (SDEFUN |NTPOLFN;eulerE;Nni2R;2|
         ((|k| (|NonNegativeInteger|)) (|x| (R)) (% (R)))
         (SPROG
-         ((|r| (R))
+         ((|d| (|NonNegativeInteger|)) (|c| (|Fraction| (|Integer|)))
           (|p| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
-          (|c| (|Fraction| (|Integer|))) (|d| (|NonNegativeInteger|)))
+          (|r| (R)))
          (SEQ (LETT |p| (SPADCALL |k| (QREFELT % 24)))
               (LETT |r| (|spadConstant| % 11))
               (SEQ G190
@@ -49,9 +49,9 @@
 (SDEFUN |NTPOLFN;bernoulliB;Nni2R;3|
         ((|k| (|NonNegativeInteger|)) (|x| (R)) (% (R)))
         (SPROG
-         ((|r| (R))
+         ((|d| (|NonNegativeInteger|)) (|c| (|Fraction| (|Integer|)))
           (|p| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
-          (|c| (|Fraction| (|Integer|))) (|d| (|NonNegativeInteger|)))
+          (|r| (R)))
          (SEQ (LETT |p| (SPADCALL |k| (QREFELT % 33)))
               (LETT |r| (|spadConstant| % 11))
               (SEQ G190
@@ -73,7 +73,7 @@
 (DECLAIM (NOTINLINE |NumberTheoreticPolynomialFunctions;|)) 
 
 (DEFUN |NumberTheoreticPolynomialFunctions;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|NumberTheoreticPolynomialFunctions| DV$1))

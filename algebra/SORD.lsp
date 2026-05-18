@@ -30,7 +30,7 @@
         (SPADCALL |x| (QREFELT % 26))) 
 
 (SDEFUN |SORD;<;2%B;11| ((|o1| (%)) (|o2| (%)) (% (|Boolean|)))
-        (SPROG ((|p2| (|Rep|)) (|p1| (|Rep|)))
+        (SPROG ((|p1| (|Rep|)) (|p2| (|Rep|)))
                (SEQ (LETT |p1| |o1|) (LETT |p2| |o2|)
                     (EXIT
                      (COND
@@ -55,8 +55,8 @@
 
 (SDEFUN |SORD;ordinalAdd;3%;15| ((|o1| (%)) (|o2| (%)) (% (%)))
         (SPROG
-         ((|p2| (|Rep|)) (#1=#:G38 NIL) (|t| NIL) (|p1| (|Rep|))
-          (|lt| (|List| |Rep|)) (|e| (%)))
+         ((|e| (%)) (|lt| (|List| |Rep|)) (|p1| (|Rep|)) (|t| NIL)
+          (#1=#:G38 NIL) (|p2| (|Rep|)))
          (SEQ (LETT |p1| |o1|) (LETT |p2| |o2|)
               (LETT |e| (SPADCALL |p2| (QREFELT % 39)))
               (EXIT
@@ -109,7 +109,7 @@
                  (|check_union2| (QEQCAR #1# 0) % (|Union| % "failed") #1#)))) 
 
 (SDEFUN |SORD;ordinalMul;3%;18| ((|o1| (%)) (|o2| (%)) (% (%)))
-        (SPROG ((|lo| (%)) (|hi| (%)) (|e| (%)))
+        (SPROG ((|e| (%)) (|hi| (%)) (|lo| (%)))
                (SEQ (LETT |e| (SPADCALL |o1| (QREFELT % 39)))
                     (LETT |hi|
                           (COND
@@ -165,7 +165,7 @@
 
 (SDEFUN |SORD;finite_ordinal_power|
         ((|o| (%)) (|n| (|NonNegativeInteger|)) (% (%)))
-        (SPROG ((|n1| (|NonNegativeInteger|)) (|e| (%)))
+        (SPROG ((|e| (%)) (|n1| (|NonNegativeInteger|)))
                (SEQ
                 (COND ((EQL |n| 0) (|spadConstant| % 10)) ((EQL |n| 1) |o|)
                       (#1='T
@@ -199,9 +199,9 @@
 
 (SDEFUN |SORD;coerce;%Of;24| ((|o| (%)) (% (|OutputForm|)))
         (SPROG
-         ((|l| (|List| (|OutputForm|))) (|l1| #1=(|OutputForm|))
-          (|mon| #2=(|OutputForm|)) (|co| #1#) (|p| (|Rep|)) (|e| (%))
-          (|c| (|NonNegativeInteger|)) (|v| #2#))
+         ((|v| #1=(|OutputForm|)) (|c| (|NonNegativeInteger|)) (|e| (%))
+          (|p| (|Rep|)) (|co| #2=(|OutputForm|)) (|mon| #1#) (|l1| #2#)
+          (|l| (|List| (|OutputForm|))))
          (SEQ (LETT |p| |o|)
               (EXIT
                (COND

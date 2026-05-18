@@ -41,7 +41,7 @@
         (SETELT_U32 |x| |i| |s|)) 
 
 (SDEFUN |U32VEC;fill!;%I%;9| ((|x| (%)) (|s| (|Integer|)) (% (%)))
-        (SPROG ((#1=#:G2247 NIL) (|i| NIL))
+        (SPROG ((|i| NIL) (#1=#:G2247 NIL))
                (SEQ
                 (SEQ (LETT |i| 0) (LETT #1# (|sub_SI| (QV_LEN_U32 |x|) 1)) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))

@@ -5,9 +5,9 @@
 (SDEFUN |ELIPIDF;ellipticRC;3Df;2|
         ((|x| (|DoubleFloat|)) (|y| (|DoubleFloat|)) (% (|DoubleFloat|)))
         (SPROG
-         ((Q #1=(|DoubleFloat|)) (|mu| #1#) (|lambda| #2=(|DoubleFloat|))
-          (#3=#:G12 NIL) (S0 #2#) (S1 #2#) (|sn2| #1#) (|sn| #1#)
-          (|mu_inv| (|DoubleFloat|)))
+         ((|mu_inv| (|DoubleFloat|)) (|sn| #1=(|DoubleFloat|)) (|sn2| #1#)
+          (S1 #2=(|DoubleFloat|)) (S0 #2#) (#3=#:G12 NIL) (|lambda| #2#)
+          (|mu| #1#) (Q #1#))
          (SEQ
           (EXIT
            (SEQ
@@ -73,11 +73,11 @@
         ((|x| (|DoubleFloat|)) (|y| (|DoubleFloat|)) (|z| (|DoubleFloat|))
          (% (|DoubleFloat|)))
         (SPROG
-         ((Q #1=(|DoubleFloat|)) (|mu| #1#) (|lambda| #2=(|DoubleFloat|))
-          (|znroot| #3=(|DoubleFloat|)) (|ynroot| #3#) (|xnroot| #3#)
-          (#4=#:G20 NIL) (|s| #2#) (|e3| #1#) (|e2| (|DoubleFloat|))
-          (|zndev| #1#) (|yndev| #1#) (|xndev| #1#) (|mu_inv| (|DoubleFloat|))
-          (|zadev| #5=(|DoubleFloat|)) (|yadev| #5#) (|xadev| #5#))
+         ((|xadev| #1=(|DoubleFloat|)) (|yadev| #1#) (|zadev| #1#)
+          (|mu_inv| (|DoubleFloat|)) (|xndev| #2=(|DoubleFloat|)) (|yndev| #2#)
+          (|zndev| #2#) (|e2| (|DoubleFloat|)) (|e3| #2#)
+          (|s| #3=(|DoubleFloat|)) (#4=#:G20 NIL) (|xnroot| #5=(|DoubleFloat|))
+          (|ynroot| #5#) (|znroot| #5#) (|lambda| #3#) (|mu| #2#) (Q #2#))
          (SEQ
           (EXIT
            (SEQ
@@ -151,13 +151,13 @@
         ((|x| (|DoubleFloat|)) (|y| (|DoubleFloat|)) (|z| (|DoubleFloat|))
          (% (|DoubleFloat|)))
         (SPROG
-         ((Q #1=(|DoubleFloat|)) (|mu| #1#) (|power4| (|DoubleFloat|))
-          (|sigma| (|DoubleFloat|)) (|lambda| #2=(|DoubleFloat|))
-          (|znroot| #3=(|DoubleFloat|)) (|ynroot| #3#) (|xnroot| #3#)
-          (#4=#:G28 NIL) (|ss| #1#) (|s2| #1#) (|s1| #1#) (|ef| #2#)
-          (|ed| #5=(|DoubleFloat|)) (|ec| #5#) (|eb| #1#) (|ea| #1#)
-          (|zndev| #1#) (|yndev| #1#) (|xndev| #1#) (|mu_inv| (|DoubleFloat|))
-          (|zadev| #6=(|DoubleFloat|)) (|yadev| #6#) (|xadev| #6#))
+         ((|xadev| #1=(|DoubleFloat|)) (|yadev| #1#) (|zadev| #1#)
+          (|mu_inv| (|DoubleFloat|)) (|xndev| #2=(|DoubleFloat|)) (|yndev| #2#)
+          (|zndev| #2#) (|ea| #2#) (|eb| #2#) (|ec| #3=(|DoubleFloat|))
+          (|ed| #3#) (|ef| #4=(|DoubleFloat|)) (|s1| #2#) (|s2| #2#) (|ss| #2#)
+          (#5=#:G28 NIL) (|xnroot| #6=(|DoubleFloat|)) (|ynroot| #6#)
+          (|znroot| #6#) (|lambda| #4#) (|sigma| (|DoubleFloat|))
+          (|power4| (|DoubleFloat|)) (|mu| #2#) (Q #2#))
          (SEQ
           (EXIT
            (SEQ (LETT |sigma| 0.0) (LETT |power4| 1.0)
@@ -234,7 +234,7 @@
                                       (|qsqrt_DF| |mu_inv|)))
                                (EXIT
                                 (PROGN
-                                 (LETT #4#
+                                 (LETT #5#
                                        (|add_DF|
                                         (|mul_DF|
                                          (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
@@ -273,20 +273,20 @@
                                                (|add_DF| |mu| |lambda|)))
                                (EXIT (LETT Q (|mul_DF| (QREFELT % 8) Q))))))))
                       NIL (GO G190) G191 (EXIT NIL)))))
-          #7# (EXIT #4#)))) 
+          #7# (EXIT #5#)))) 
 
 (SDEFUN |ELIPIDF;ellipticRJ;5Df;5|
         ((|x| (|DoubleFloat|)) (|y| (|DoubleFloat|)) (|z| (|DoubleFloat|))
          (|p| (|DoubleFloat|)) (% (|DoubleFloat|)))
         (SPROG
-         ((Q #1=(|DoubleFloat|)) (|mu| #1#) (|power4| (|DoubleFloat|))
-          (|sigma| (|DoubleFloat|)) (|beta| #1#) (|alfa| #2=(|DoubleFloat|))
-          (|lambda| #2#) (|znroot| #3=(|DoubleFloat|)) (|ynroot| #3#)
-          (|xnroot| #3#) (#4=#:G36 NIL) (|ss| #1#) (|s3| #5=(|DoubleFloat|))
-          (|s2| #1#) (|s1| #1#) (|e3| #2#) (|e2| #5#) (|ec| #1#) (|eb| #1#)
-          (|ea| #2#) (|pndev| #1#) (|zndev| #1#) (|yndev| #1#) (|xndev| #1#)
-          (|mu_inv| (|DoubleFloat|)) (|padev| #6=(|DoubleFloat|)) (|zadev| #6#)
-          (|yadev| #6#) (|xadev| #6#))
+         ((|xadev| #1=(|DoubleFloat|)) (|yadev| #1#) (|zadev| #1#)
+          (|padev| #1#) (|mu_inv| (|DoubleFloat|)) (|xndev| #2=(|DoubleFloat|))
+          (|yndev| #2#) (|zndev| #2#) (|pndev| #2#) (|ea| #3=(|DoubleFloat|))
+          (|eb| #2#) (|ec| #2#) (|e2| #4=(|DoubleFloat|)) (|e3| #3#) (|s1| #2#)
+          (|s2| #2#) (|s3| #4#) (|ss| #2#) (#5=#:G36 NIL)
+          (|xnroot| #6=(|DoubleFloat|)) (|ynroot| #6#) (|znroot| #6#)
+          (|lambda| #3#) (|alfa| #3#) (|beta| #2#) (|sigma| (|DoubleFloat|))
+          (|power4| (|DoubleFloat|)) (|mu| #2#) (Q #2#))
          (SEQ
           (EXIT
            (SEQ (LETT |sigma| 0.0) (LETT |power4| 1.0)
@@ -384,7 +384,7 @@
                                       (|qsqrt_DF| |mu_inv|)))
                                (EXIT
                                 (PROGN
-                                 (LETT #4#
+                                 (LETT #5#
                                        (|add_DF|
                                         (|mul_DF|
                                          (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
@@ -439,7 +439,7 @@
                                                (|add_DF| |mu| |lambda|)))
                                (EXIT (LETT Q (|mul_DF| (QREFELT % 8) Q))))))))
                       NIL (GO G190) G191 (EXIT NIL)))))
-          #7# (EXIT #4#)))) 
+          #7# (EXIT #5#)))) 
 
 (SDEFUN |ELIPIDF;ellipticF;3Df;6|
         ((|z| (|DoubleFloat|)) (|m| (|DoubleFloat|)) (% (|DoubleFloat|)))
@@ -497,10 +497,11 @@
         ((|x| (|Complex| (|DoubleFloat|))) (|y| (|Complex| (|DoubleFloat|)))
          (% (|Complex| (|DoubleFloat|))))
         (SPROG
-         ((Q (|DoubleFloat|)) (|mu| (|Complex| (|DoubleFloat|)))
-          (|lambda| #1=(|Complex| (|DoubleFloat|))) (#2=#:G49 NIL) (S0 #1#)
-          (S1 #1#) (|sn2| #3=(|Complex| (|DoubleFloat|))) (|sn| #3#)
-          (|mu_inv| (|Complex| (|DoubleFloat|))))
+         ((|mu_inv| (|Complex| (|DoubleFloat|)))
+          (|sn| #1=(|Complex| (|DoubleFloat|))) (|sn2| #1#)
+          (S1 #2=(|Complex| (|DoubleFloat|))) (S0 #2#) (#3=#:G49 NIL)
+          (|lambda| #2#) (|mu| (|Complex| (|DoubleFloat|)))
+          (Q (|DoubleFloat|)))
          (SEQ
           (EXIT
            (SEQ
@@ -558,7 +559,7 @@
                                        (QREFELT % 48)))
                        (EXIT
                         (PROGN
-                         (LETT #2#
+                         (LETT #3#
                                (SPADCALL (SPADCALL |mu_inv| (QREFELT % 55))
                                          (SPADCALL (|spadConstant| % 51)
                                                    (SPADCALL |sn2|
@@ -597,20 +598,20 @@
                                        (QREFELT % 49)))
                        (EXIT (LETT Q (|mul_DF| (QREFELT % 8) Q))))))))
                   NIL (GO G190) G191 (EXIT NIL)))))
-          #4# (EXIT #2#)))) 
+          #4# (EXIT #3#)))) 
 
 (SDEFUN |ELIPIDF;ellipticRF;4C;12|
         ((|x| (|Complex| (|DoubleFloat|))) (|y| (|Complex| (|DoubleFloat|)))
          (|z| (|Complex| (|DoubleFloat|))) (% (|Complex| (|DoubleFloat|))))
         (SPROG
-         ((Q (|DoubleFloat|)) (|mu| (|Complex| (|DoubleFloat|)))
-          (|lambda| #1=(|Complex| (|DoubleFloat|)))
-          (|znroot| #2=(|Complex| (|DoubleFloat|))) (|ynroot| #2#)
-          (|xnroot| #2#) (#3=#:G57 NIL) (|s| #1#)
-          (|e3| #4=(|Complex| (|DoubleFloat|)))
-          (|e2| (|Complex| (|DoubleFloat|))) (|zndev| #4#) (|yndev| #4#)
-          (|xndev| #4#) (|mu_inv| (|Complex| (|DoubleFloat|)))
-          (|zadev| #5=(|DoubleFloat|)) (|yadev| #5#) (|xadev| #5#))
+         ((|xadev| #1=(|DoubleFloat|)) (|yadev| #1#) (|zadev| #1#)
+          (|mu_inv| (|Complex| (|DoubleFloat|)))
+          (|xndev| #2=(|Complex| (|DoubleFloat|))) (|yndev| #2#) (|zndev| #2#)
+          (|e2| (|Complex| (|DoubleFloat|))) (|e3| #2#)
+          (|s| #3=(|Complex| (|DoubleFloat|))) (#4=#:G57 NIL)
+          (|xnroot| #5=(|Complex| (|DoubleFloat|))) (|ynroot| #5#)
+          (|znroot| #5#) (|lambda| #3#) (|mu| (|Complex| (|DoubleFloat|)))
+          (Q (|DoubleFloat|)))
          (SEQ
           (EXIT
            (SEQ
@@ -676,7 +677,7 @@
                               (QREFELT % 48)))
                        (EXIT
                         (PROGN
-                         (LETT #3#
+                         (LETT #4#
                                (SPADCALL |s| (SPADCALL |mu_inv| (QREFELT % 55))
                                          (QREFELT % 53)))
                          (GO #6=#:G56)))))
@@ -714,23 +715,22 @@
                                            (QREFELT % 49)))
                            (EXIT (LETT Q (|mul_DF| (QREFELT % 8) Q))))))))
                   NIL (GO G190) G191 (EXIT NIL)))))
-          #6# (EXIT #3#)))) 
+          #6# (EXIT #4#)))) 
 
 (SDEFUN |ELIPIDF;ellipticRD;4C;13|
         ((|x| (|Complex| (|DoubleFloat|))) (|y| (|Complex| (|DoubleFloat|)))
          (|z| (|Complex| (|DoubleFloat|))) (% (|Complex| (|DoubleFloat|))))
         (SPROG
-         ((Q (|DoubleFloat|)) (|mu| (|Complex| (|DoubleFloat|)))
+         ((|xadev| #1=(|DoubleFloat|)) (|yadev| #1#) (|zadev| #1#)
+          (|mu_inv| (|Complex| (|DoubleFloat|)))
+          (|xndev| #2=(|Complex| (|DoubleFloat|))) (|yndev| #2#) (|zndev| #2#)
+          (|ea| #2#) (|eb| #2#) (|ec| #3=(|Complex| (|DoubleFloat|)))
+          (|ed| #3#) (|ef| #4=(|Complex| (|DoubleFloat|))) (|s1| #2#)
+          (|s2| #2#) (|ss| #2#) (#5=#:G65 NIL)
+          (|xnroot| #6=(|Complex| (|DoubleFloat|))) (|ynroot| #6#)
+          (|znroot| #6#) (|lambda| #4#) (|sigma| (|Complex| (|DoubleFloat|)))
           (|power4| (|Complex| (|DoubleFloat|)))
-          (|sigma| (|Complex| (|DoubleFloat|)))
-          (|lambda| #1=(|Complex| (|DoubleFloat|)))
-          (|znroot| #2=(|Complex| (|DoubleFloat|))) (|ynroot| #2#)
-          (|xnroot| #2#) (#3=#:G65 NIL) (|ss| #4=(|Complex| (|DoubleFloat|)))
-          (|s2| #4#) (|s1| #4#) (|ef| #1#)
-          (|ed| #5=(|Complex| (|DoubleFloat|))) (|ec| #5#) (|eb| #4#)
-          (|ea| #4#) (|zndev| #4#) (|yndev| #4#) (|xndev| #4#)
-          (|mu_inv| (|Complex| (|DoubleFloat|))) (|zadev| #6=(|DoubleFloat|))
-          (|yadev| #6#) (|xadev| #6#))
+          (|mu| (|Complex| (|DoubleFloat|))) (Q (|DoubleFloat|)))
          (SEQ
           (EXIT
            (SEQ (LETT |sigma| (|spadConstant| % 60))
@@ -839,7 +839,7 @@
                                   (QREFELT % 53)))
                            (EXIT
                             (PROGN
-                             (LETT #3#
+                             (LETT #5#
                                    (SPADCALL
                                     (SPADCALL
                                      (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
@@ -898,25 +898,24 @@
                                                (QREFELT % 49)))
                                (EXIT (LETT Q (|mul_DF| (QREFELT % 8) Q))))))))
                       NIL (GO G190) G191 (EXIT NIL)))))
-          #7# (EXIT #3#)))) 
+          #7# (EXIT #5#)))) 
 
 (SDEFUN |ELIPIDF;ellipticRJ;5C;14|
         ((|x| (|Complex| (|DoubleFloat|))) (|y| (|Complex| (|DoubleFloat|)))
          (|z| (|Complex| (|DoubleFloat|))) (|p| (|Complex| (|DoubleFloat|)))
          (% (|Complex| (|DoubleFloat|))))
         (SPROG
-         ((Q (|DoubleFloat|)) (|mu| (|Complex| (|DoubleFloat|)))
-          (|power4| (|Complex| (|DoubleFloat|)))
+         ((|xadev| #1=(|DoubleFloat|)) (|yadev| #1#) (|zadev| #1#)
+          (|padev| #1#) (|mu_inv| (|Complex| (|DoubleFloat|)))
+          (|xndev| #2=(|Complex| (|DoubleFloat|))) (|yndev| #2#) (|zndev| #2#)
+          (|pndev| #2#) (|ea| #3=(|Complex| (|DoubleFloat|))) (|eb| #2#)
+          (|ec| #2#) (|e2| #4=(|Complex| (|DoubleFloat|))) (|e3| #3#)
+          (|s1| #2#) (|s2| #2#) (|s3| #4#) (|ss| #2#) (#5=#:G73 NIL)
+          (|xnroot| #6=(|Complex| (|DoubleFloat|))) (|ynroot| #6#)
+          (|znroot| #6#) (|lambda| #3#) (|alfa| #3#) (|beta| #2#)
           (|sigma| (|Complex| (|DoubleFloat|)))
-          (|beta| #1=(|Complex| (|DoubleFloat|)))
-          (|alfa| #2=(|Complex| (|DoubleFloat|))) (|lambda| #2#)
-          (|znroot| #3=(|Complex| (|DoubleFloat|))) (|ynroot| #3#)
-          (|xnroot| #3#) (#4=#:G73 NIL) (|ss| #1#)
-          (|s3| #5=(|Complex| (|DoubleFloat|))) (|s2| #1#) (|s1| #1#)
-          (|e3| #2#) (|e2| #5#) (|ec| #1#) (|eb| #1#) (|ea| #2#) (|pndev| #1#)
-          (|zndev| #1#) (|yndev| #1#) (|xndev| #1#)
-          (|mu_inv| (|Complex| (|DoubleFloat|))) (|padev| #6=(|DoubleFloat|))
-          (|zadev| #6#) (|yadev| #6#) (|xadev| #6#))
+          (|power4| (|Complex| (|DoubleFloat|)))
+          (|mu| (|Complex| (|DoubleFloat|))) (Q (|DoubleFloat|)))
          (SEQ
           (EXIT
            (SEQ (LETT |sigma| (|spadConstant| % 60))
@@ -1063,7 +1062,7 @@
                                   (QREFELT % 53)))
                            (EXIT
                             (PROGN
-                             (LETT #4#
+                             (LETT #5#
                                    (SPADCALL
                                     (SPADCALL
                                      (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
@@ -1146,7 +1145,7 @@
                                                (QREFELT % 49)))
                                (EXIT (LETT Q (|mul_DF| (QREFELT % 8) Q))))))))
                       NIL (GO G190) G191 (EXIT NIL)))))
-          #7# (EXIT #4#)))) 
+          #7# (EXIT #5#)))) 
 
 (SDEFUN |ELIPIDF;ellipticF;3C;15|
         ((|z| (|Complex| (|DoubleFloat|))) (|m| (|Complex| (|DoubleFloat|)))

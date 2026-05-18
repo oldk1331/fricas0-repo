@@ -6,7 +6,7 @@
         (|ERROR;doit| (SPADCALL (LIST (QREFELT % 6) |s|) (QREFELT % 10)) %)) 
 
 (SDEFUN |ERROR;error;LE;3| ((|l| (|List| (|String|))) (% (|Exit|)))
-        (SPROG ((|s| (|String|)) (#1=#:G7 NIL) (|x| NIL))
+        (SPROG ((|x| NIL) (#1=#:G7 NIL) (|s| (|String|)))
                (SEQ (LETT |s| (QREFELT % 6))
                     (SEQ (LETT |x| NIL) (LETT #1# |l|) G190
                          (COND
@@ -26,7 +26,7 @@
 
 (SDEFUN |ERROR;error;SLE;5|
         ((|fn| (|String|)) (|l| (|List| (|String|))) (% (|Exit|)))
-        (SPROG ((|s| (|String|)) (#1=#:G13 NIL) (|x| NIL))
+        (SPROG ((|x| NIL) (#1=#:G13 NIL) (|s| (|String|)))
                (SEQ
                 (LETT |s|
                       (SPADCALL (LIST (QREFELT % 7) |fn| ": %d %l")

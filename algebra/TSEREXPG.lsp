@@ -41,7 +41,7 @@
         ((|f| (UPS)) (|lx| (|List| UPS))
          (|ld| (|List| (|Mapping| |Coef| |Coef|))) (% (UPS)))
         (SPROG
-         ((|ss| (|Stream| UPS)) (|d1| (|Mapping| |Coef| |Coef|)) (|x1| (UPS)))
+         ((|x1| (UPS)) (|d1| (|Mapping| |Coef| |Coef|)) (|ss| (|Stream| UPS)))
          (SEQ
           (COND
            ((SPADCALL (LENGTH |lx|) (LENGTH |ld|) (QREFELT % 26))
@@ -110,30 +110,30 @@
           (RETURN
            (PROGN
             (SPROG
-             ((#1=#:G32 NIL) (|s| NIL) (#2=#:G33 NIL) (|a| NIL) (#3=#:G31 NIL))
+             ((#1=#:G31 NIL) (|a| NIL) (#2=#:G33 NIL) (|s| NIL) (#3=#:G32 NIL))
              (SEQ
               (SPADCALL (ELT % 44)
                         (PROGN
-                         (LETT #3# NIL)
+                         (LETT #1# NIL)
                          (SEQ (LETT |a| NIL) (LETT #2# |la|) (LETT |s| NIL)
-                              (LETT #1# |ls|) G190
+                              (LETT #3# |ls|) G190
                               (COND
-                               ((OR (ATOM #1#) (PROGN (LETT |s| (CAR #1#)) NIL)
+                               ((OR (ATOM #3#) (PROGN (LETT |s| (CAR #3#)) NIL)
                                     (ATOM #2#)
                                     (PROGN (LETT |a| (CAR #2#)) NIL))
                                 (GO G191)))
                               (SEQ
                                (EXIT
-                                (LETT #3#
+                                (LETT #1#
                                       (CONS (SPADCALL |s| |a| (QREFELT % 45))
-                                            #3#))))
-                              (LETT #1# (PROG1 (CDR #1#) (LETT #2# (CDR #2#))))
-                              (GO G190) G191 (EXIT (NREVERSE #3#))))
+                                            #1#))))
+                              (LETT #3# (PROG1 (CDR #3#) (LETT #2# (CDR #2#))))
+                              (GO G190) G191 (EXIT (NREVERSE #1#))))
                         (QREFELT % 48)))))))) 
 
 (SDEFUN |TSEREXPG;applyTaylor;M2UPS;4|
         ((|g| (|Mapping| UTS UTS)) (|f| (UPS)) (% (UPS)))
-        (SPROG ((|sg| (UTS)) (|c0| (|Coef|)))
+        (SPROG ((|c0| (|Coef|)) (|sg| (UTS)))
                (SEQ
                 (LETT |f| (SPADCALL |f| (|spadConstant| % 27) (QREFELT % 28)))
                 (EXIT
@@ -165,8 +165,8 @@
 
 (DEFUN |TaylorSeriesExpansionGeneralized;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
-    (DV$1 NIL))
+   ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (DV$4 NIL) (|dv$| NIL) (% NIL)
+    (|pv$| NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))

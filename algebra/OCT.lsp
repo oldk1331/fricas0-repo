@@ -100,8 +100,8 @@
 
 (DEFUN |Octonion;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G69 NIL) (#2=#:G70 NIL) (#3=#:G71 NIL) (% NIL)
-    (|dv$| NIL) (DV$1 NIL))
+   ((DV$1 NIL) (|dv$| NIL) (% NIL) (#1=#:G71 NIL) (#2=#:G70 NIL) (#3=#:G69 NIL)
+    (|pv$| NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|Octonion| DV$1))
@@ -114,13 +114,13 @@
                                              (|HasCategory| |#1| '(|Finite|))
                                              (|HasCategory| |#1|
                                                             '(|CharacteristicNonZero|))
-                                             (LETT #3#
+                                             (LETT #1#
                                                    (|HasCategory| |#1|
                                                                   '(|CharacteristicZero|)))
                                              (OR
                                               (|HasCategory| |#1|
                                                              '(|CharacteristicNonZero|))
-                                              #3#)
+                                              #1#)
                                              (|HasCategory| |#1|
                                                             '(|ConvertibleTo|
                                                               (|InputForm|)))
@@ -162,13 +162,13 @@
                                               (|HasCategory|
                                                (|Quaternion| |#1|)
                                                '(|RetractableTo| (|Integer|))))
-                                             (LETT #1#
+                                             (LETT #3#
                                                    (|HasCategory| |#1|
                                                                   '(|IntegralDomain|)))
                                              (OR
                                               (|HasCategory| |#1|
                                                              '(|CharacteristicNonZero|))
-                                              #3# #1#)
+                                              #1# #3#)
                                              (|HasCategory| |#1|
                                                             '(|RealNumberSystem|))
                                              (|HasCategory| |#1|
@@ -180,7 +180,7 @@
                                                                (|Integer|)))
                                               (|HasCategory| |#1|
                                                              '(|CharacteristicNonZero|))
-                                              #3#
+                                              #1#
                                               (|HasCategory|
                                                (|Quaternion| |#1|)
                                                '(|RetractableTo|

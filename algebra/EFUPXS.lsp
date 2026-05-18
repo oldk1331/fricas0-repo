@@ -3,8 +3,8 @@
         ((|upxs| (UPXS)) (|n| (|NonNegativeInteger|))
          (% (|Union| UPXS #1="failed")))
         (SPROG
-         ((|ulsRoot| (|Union| ULS #1#)) (|uls| (ULS)) (|coef| (|Coef|))
-          (|deg| (|Integer|)) (|r| (|Fraction| (|Integer|))))
+         ((|r| (|Fraction| (|Integer|))) (|deg| (|Integer|)) (|coef| (|Coef|))
+          (|uls| (ULS)) (|ulsRoot| (|Union| ULS #1#)))
          (SEQ
           (COND ((EQL |n| 1) (CONS 0 |upxs|))
                 (#2='T
@@ -53,9 +53,9 @@
 (SDEFUN |EFUPXS;^;UPXSFUPXS;2|
         ((|upxs| (UPXS)) (|q| (|Fraction| (|Integer|))) (% (UPXS)))
         (SPROG
-         ((|ulsPow| (ULS)) (|coef| (|Coef|)) (|deg| (|Integer|)) (|uls| (ULS))
-          (|r| (|Fraction| (|Integer|))) (|den| (|Integer|))
-          (|num| (|Integer|)))
+         ((|num| (|Integer|)) (|den| (|Integer|))
+          (|r| (|Fraction| (|Integer|))) (|uls| (ULS)) (|deg| (|Integer|))
+          (|coef| (|Coef|)) (|ulsPow| (ULS)))
          (SEQ (LETT |num| (SPADCALL |q| (QREFELT % 36)))
               (LETT |den| (SPADCALL |q| (QREFELT % 37)))
               (EXIT
@@ -195,7 +195,7 @@
 
 (SDEFUN |EFUPXS;asinIfCan;UPXSU;26|
         ((|upxs| (UPXS)) (% (|Union| UPXS "failed")))
-        (SPROG ((|cc| (UPXS)) (|coef| (|Coef|)))
+        (SPROG ((|coef| (|Coef|)) (|cc| (UPXS)))
                (SEQ
                 (COND
                  ((SPADCALL
@@ -290,7 +290,7 @@
 
 (SDEFUN |EFUPXS;asecIfCan;UPXSU;28|
         ((|upxs| (UPXS)) (% (|Union| UPXS "failed")))
-        (SPROG ((|rec| (|Union| UPXS "failed")) (|f| (UPXS)) (|cc| (UPXS)))
+        (SPROG ((|cc| (UPXS)) (|f| (UPXS)) (|rec| (|Union| UPXS "failed")))
                (SEQ
                 (COND
                  ((OR
@@ -331,7 +331,7 @@
 
 (SDEFUN |EFUPXS;acscIfCan;UPXSU;29|
         ((|upxs| (UPXS)) (% (|Union| UPXS "failed")))
-        (SPROG ((|rec| (|Union| UPXS "failed")) (|f| (UPXS)) (|cc| (UPXS)))
+        (SPROG ((|cc| (UPXS)) (|f| (UPXS)) (|rec| (|Union| UPXS "failed")))
                (SEQ
                 (COND
                  ((OR
@@ -578,8 +578,8 @@
 
 (DEFUN |ElementaryFunctionsUnivariatePuiseuxSeries;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
-    (DV$1 NIL))
+   ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (DV$4 NIL) (|dv$| NIL) (% NIL)
+    (|pv$| NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))

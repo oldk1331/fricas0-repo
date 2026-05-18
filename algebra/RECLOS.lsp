@@ -35,7 +35,7 @@
                                                    (|SparseUnivariatePolynomial|
                                                     %)))
          (|o| (|OutputForm|)) (% (%)))
-        (SPROG ((|res| (|Rec|)) (|p| (|SparseUnivariatePolynomial| %)))
+        (SPROG ((|p| (|SparseUnivariatePolynomial| %)) (|res| (|Rec|)))
                (SEQ (LETT |p| (SPADCALL |s| (QREFELT % 25)))
                     (EXIT
                      (COND
@@ -60,7 +60,7 @@
                                                    (|SparseUnivariatePolynomial|
                                                     %)))
          (|o| (|OutputForm|)) (% (%)))
-        (SPROG ((|res| (|Rec|)) (|pol| (|SparseUnivariatePolynomial| %)))
+        (SPROG ((|pol| (|SparseUnivariatePolynomial| %)) (|res| (|Rec|)))
                (SEQ (LETT |pol| (SPADCALL |s| (QREFELT % 25)))
                     (EXIT
                      (COND
@@ -92,13 +92,13 @@
         ((|pol| (|SparseUnivariatePolynomial| %)) (|n| (|PositiveInteger|))
          (% (|Union| % "failed")))
         (SPROG
-         ((|o| (|OutputForm|))
-          (|r|
+         ((|r|
            (|Union|
             (|RightOpenIntervalRootCharacterization| %
                                                      (|SparseUnivariatePolynomial|
                                                       %))
-            "failed")))
+            "failed"))
+          (|o| (|OutputForm|)))
          (SEQ
           (COND ((EQL (SPADCALL |pol| (QREFELT % 27)) 0) (CONS 1 "failed"))
                 ((EQL (SPADCALL |pol| (QREFELT % 27)) 1)
@@ -130,12 +130,12 @@
 (SDEFUN |RECLOS;allRootsOf;SupL;8|
         ((|pol| (|SparseUnivariatePolynomial| %)) (% (|List| %)))
         (SPROG
-         ((|res| (|List| %)) (|o| (|OutputForm|)) (#1=#:G80 NIL) (|term| NIL)
-          (|liste|
+         ((|liste|
            (|List|
             (|RightOpenIntervalRootCharacterization| %
                                                      (|SparseUnivariatePolynomial|
-                                                      %)))))
+                                                      %))))
+          (|term| NIL) (#1=#:G80 NIL) (|o| (|OutputForm|)) (|res| (|List| %)))
          (SEQ
           (COND ((EQL (SPADCALL |pol| (QREFELT % 27)) 0) NIL)
                 ((EQL (SPADCALL |pol| (QREFELT % 27)) 1)
@@ -448,7 +448,7 @@
 
 (SDEFUN |RECLOS;retractIfCan;%U;30|
         ((|x| (%)) (% (|Union| |TheField| "failed")))
-        (SPROG ((|res| (%)) (|o| (|PositiveInteger|)))
+        (SPROG ((|o| (|PositiveInteger|)) (|res| (%)))
                (SEQ
                 (COND ((QEQCAR |x| 0) (CONS 0 (QCDR |x|)))
                       (#1='T
@@ -462,7 +462,7 @@
                                     (SPADCALL |res| (QREFELT % 106))))))))))) 
 
 (SDEFUN |RECLOS;retract;%TheField;31| ((|x| (%)) (% (|TheField|)))
-        (SPROG ((|res| (%)) (|o| (|PositiveInteger|)))
+        (SPROG ((|o| (|PositiveInteger|)) (|res| (%)))
                (SEQ
                 (COND ((QEQCAR |x| 0) (QCDR |x|))
                       (#1='T
@@ -511,7 +511,7 @@
 (DECLAIM (NOTINLINE |RealClosure;|)) 
 
 (DEFUN |RealClosure;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|RealClosure| DV$1))

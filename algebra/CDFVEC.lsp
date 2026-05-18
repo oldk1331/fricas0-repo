@@ -65,7 +65,7 @@
 
 (SDEFUN |CDFVEC;fill!;%C%;12|
         ((|x| (%)) (|s| (|Complex| (|DoubleFloat|))) (% (%)))
-        (SPROG ((#1=#:G2736 NIL) (|i| NIL))
+        (SPROG ((|i| NIL) (#1=#:G2736 NIL))
                (SEQ
                 (SEQ (LETT |i| 0) (LETT #1# (|sub_SI| (CDLEN |x|) 1)) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))

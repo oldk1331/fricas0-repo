@@ -91,8 +91,8 @@
 
 (DEFUN |Complex;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G2714 NIL) (#2=#:G2715 NIL) (#3=#:G2716 NIL)
-    (#4=#:G2717 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+   ((DV$1 NIL) (|dv$| NIL) (% NIL) (#1=#:G2717 NIL) (#2=#:G2716 NIL)
+    (#3=#:G2715 NIL) (#4=#:G2714 NIL) (|pv$| NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|Complex| DV$1))
@@ -106,16 +106,16 @@
                                                        '(|CharacteristicZero|))
                                         (|HasCategory| |#1|
                                                        '(|FiniteFieldCategory|))
-                                        (LETT #4#
+                                        (LETT #1#
                                               (|HasCategory| |#1| '(|Field|)))
-                                        (OR #4#
+                                        (OR #1#
                                             (|HasCategory| |#1|
                                                            '(|FiniteFieldCategory|)))
                                         (OR
                                          (AND
                                           (|HasCategory| |#1|
                                                          '(|CharacteristicZero|))
-                                          #4#)
+                                          #1#)
                                          (AND
                                           (|HasCategory| |#1|
                                                          '(|CharacteristicZero|))
@@ -137,26 +137,26 @@
                                                          (|Integer|)))
                                         (|HasCategory| |#1|
                                                        '(|IntegralDomain|))
-                                        (LETT #3#
+                                        (LETT #2#
                                               (|HasCategory| |#1|
                                                              '(|TranscendentalFunctionCategory|)))
                                         (AND
                                          (|HasCategory| |#1|
                                                         '(|RadicalCategory|))
-                                         #3#)
+                                         #2#)
                                         (|HasCategory| |#1|
                                                        '(|arbitraryPrecision|))
                                         (|HasCategory| |#1| '(|RealConstant|))
                                         (|HasCategory| |#1|
                                                        '(|ConvertibleTo|
                                                          (|InputForm|)))
-                                        (LETT #2#
+                                        (LETT #3#
                                               (|HasCategory| |#1|
                                                              '(|IntegerNumberSystem|)))
-                                        (OR #4#
+                                        (OR #1#
                                             (|HasCategory| |#1|
                                                            '(|FiniteFieldCategory|))
-                                            #2#)
+                                            #3#)
                                         (|HasCategory| |#1| '(|Comparable|))
                                         (|HasCategory| |#1|
                                                        '(|PartialDifferentialRing|
@@ -197,55 +197,55 @@
                                         (AND
                                          (|HasCategory| |#1|
                                                         '(|RealNumberSystem|))
-                                         #3#)
+                                         #2#)
                                         (|HasCategory| |#1|
                                                        '(|EuclideanDomain|))
-                                        (LETT #1#
+                                        (LETT #4#
                                               (|HasCategory| |#1|
                                                              '(|PolynomialFactorizationExplicit|)))
                                         (OR
                                          (AND
                                           (|HasCategory| |#1|
                                                          '(|EuclideanDomain|))
-                                          #1#)
+                                          #4#)
                                          (|HasCategory| |#1|
                                                         '(|FiniteFieldCategory|)))
                                         (OR
                                          (AND
                                           (|HasCategory| |#1|
                                                          '(|EuclideanDomain|))
-                                          #1#)
-                                         #4#
+                                          #4#)
+                                         #1#
                                          (|HasCategory| |#1|
                                                         '(|FiniteFieldCategory|))
-                                         #2#)
+                                         #3#)
                                         (OR
                                          (AND
                                           (|HasCategory| |#1|
                                                          '(|EuclideanDomain|))
-                                          #1#)
-                                         #4# #2#)
+                                          #4#)
+                                         #1# #3#)
                                         (OR
                                          (AND
                                           (|HasCategory| |#1|
                                                          '(|EuclideanDomain|))
-                                          #1#)
-                                         #4#
+                                          #4#)
+                                         #1#
                                          (|HasCategory| |#1|
                                                         '(|FiniteFieldCategory|))
-                                         #2#
+                                         #3#
                                          (|HasCategory| |#1|
                                                         '(|IntegralDomain|)))
                                         (OR
                                          (AND
                                           (|HasCategory| |#1|
                                                          '(|EuclideanDomain|))
-                                          #1#)
-                                         #4# #2#
+                                          #4#)
+                                         #1# #3#
                                          (|HasCategory| |#1|
                                                         '(|IntegralDomain|)))
                                         (OR
-                                         (AND #4#
+                                         (AND #1#
                                               (|HasCategory| |#1|
                                                              '(|OrderedRing|))
                                               (|HasCategory| |#1|
@@ -253,13 +253,13 @@
                                          (AND
                                           (|HasCategory| |#1|
                                                          '(|RadicalCategory|))
-                                          #3#))
-                                        (OR #4# #2#)
+                                          #2#))
+                                        (OR #1# #3#)
                                         (OR
                                          (AND
                                           (|HasCategory| |#1|
                                                          '(|EuclideanDomain|))
-                                          #1#)
+                                          #4#)
                                          (|HasCategory| |#1|
                                                         '(|IntegralDomain|)))))))
     (|haddProp| |$ConstructorCache| '|Complex| (LIST DV$1) (CONS 1 %))
@@ -267,19 +267,19 @@
     (QSETREFV % 6 |#1|)
     (AND
      (OR
-      (AND (|HasCategory| |#1| '(|EuclideanDomain|)) #1#
+      (AND (|HasCategory| |#1| '(|EuclideanDomain|)) #4#
            (|HasCategory| % '(|CharacteristicNonZero|)))
       (AND (|HasCategory| |#1| '(|FiniteFieldCategory|))
            (|HasCategory| % '(|CharacteristicNonZero|))))
      (|augmentPredVector| % 4398046511104))
     (AND
      (OR (|HasCategory| |#1| '(|RetractableTo| (|Fraction| (|Integer|))))
-         (AND #4# (|HasCategory| % '(|CharacteristicZero|)))
+         (AND #1# (|HasCategory| % '(|CharacteristicZero|)))
          (AND (|HasCategory| |#1| '(|FiniteFieldCategory|))
               (|HasCategory| % '(|CharacteristicZero|))))
      (|augmentPredVector| % 8796093022208))
     (AND
-     (OR (AND #4# (|HasCategory| % '(|CharacteristicZero|)))
+     (OR (AND #1# (|HasCategory| % '(|CharacteristicZero|)))
          (AND (|HasCategory| |#1| '(|FiniteFieldCategory|))
               (|HasCategory| % '(|CharacteristicZero|))))
      (|augmentPredVector| % 17592186044416))

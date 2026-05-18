@@ -1,22 +1,22 @@
 
 (SDEFUN |SWITCH;coerce;%Of;1| ((|s| (%)) (% (|OutputForm|)))
         (SPROG
-         ((|ran| (|List| (|OutputForm|))) (#1=#:G19 NIL) (|u| NIL)
-          (#2=#:G18 NIL) (|rat| (|OutputForm|)))
+         ((|rat| (|OutputForm|)) (#1=#:G18 NIL) (|u| NIL) (#2=#:G19 NIL)
+          (|ran| (|List| (|OutputForm|))))
          (SEQ (LETT |rat| (SPADCALL (QCAR |s|) (QREFELT % 12)))
               (LETT |ran|
                     (PROGN
-                     (LETT #2# NIL)
-                     (SEQ (LETT |u| NIL) (LETT #1# (QCDR |s|)) G190
+                     (LETT #1# NIL)
+                     (SEQ (LETT |u| NIL) (LETT #2# (QCDR |s|)) G190
                           (COND
-                           ((OR (ATOM #1#) (PROGN (LETT |u| (CAR #1#)) NIL))
+                           ((OR (ATOM #2#) (PROGN (LETT |u| (CAR #2#)) NIL))
                             (GO G191)))
                           (SEQ
                            (EXIT
-                            (LETT #2#
-                                  (CONS (SPADCALL |u| (QREFELT % 14)) #2#))))
-                          (LETT #1# (CDR #1#)) (GO G190) G191
-                          (EXIT (NREVERSE #2#)))))
+                            (LETT #1#
+                                  (CONS (SPADCALL |u| (QREFELT % 14)) #1#))))
+                          (LETT #2# (CDR #2#)) (GO G190) G191
+                          (EXIT (NREVERSE #1#)))))
               (EXIT
                (COND
                 ((SPADCALL (QCAR |s|) (QREFELT % 10) (QREFELT % 16))

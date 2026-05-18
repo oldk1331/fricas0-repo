@@ -5,8 +5,8 @@
 
 (SDEFUN |COLOR;+;3%;2| ((|x| (%)) (|y| (%)) (% (%)))
         (SPROG
-         ((|ans| #1=(|Integer|)) (|offset| (|Integer|)) (|diff| #1#)
-          (|moreThanHalf| (|Boolean|)) (|xHueSmaller| (|Boolean|)) (|c| (%)))
+         ((|c| (%)) (|xHueSmaller| (|Boolean|)) (|moreThanHalf| (|Boolean|))
+          (|diff| #1=(|Integer|)) (|offset| (|Integer|)) (|ans| #1#))
          (SEQ
           (COND
            ((EQL (QCAR |x|) (QCAR |y|))

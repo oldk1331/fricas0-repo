@@ -15,8 +15,8 @@
                           #1#)))
                    "failed")))
         (SPROG
-         ((|a| (|Fraction| (|Polynomial| R))) (|x| (|Symbol|))
-          (|xx| (|Union| (|Symbol|) "failed")))
+         ((|xx| (|Union| (|Symbol|) "failed")) (|x| (|Symbol|))
+          (|a| (|Fraction| (|Polynomial| R))))
          (SEQ
           (LETT |xx| (SPADCALL (SPADCALL |eq| (QREFELT % 9)) (QREFELT % 11)))
           (EXIT
@@ -35,8 +35,8 @@
          (|eq| (|Equation| (|Fraction| (|Polynomial| R))))
          (% (|OnePointCompletion| (|Fraction| (|Polynomial| R)))))
         (SPROG
-         ((|a| (|Fraction| (|Polynomial| R))) (|x| (|Symbol|))
-          (|xx| (|Union| (|Symbol|) "failed")))
+         ((|xx| (|Union| (|Symbol|) "failed")) (|x| (|Symbol|))
+          (|a| (|Fraction| (|Polynomial| R))))
          (SEQ
           (LETT |xx| (SPADCALL (SPADCALL |eq| (QREFELT % 9)) (QREFELT % 11)))
           (EXIT
@@ -66,9 +66,9 @@
                           #1#)))
                    "failed")))
         (SPROG
-         ((|a| (|OrderedCompletion| (|Fraction| (|Polynomial| R))))
-          (|x| (|Symbol|)) (|xx| (|Union| (|Symbol|) "failed"))
-          (|p| (|Union| (|Polynomial| R) "failed")))
+         ((|p| (|Union| (|Polynomial| R) "failed"))
+          (|xx| (|Union| (|Symbol|) "failed")) (|x| (|Symbol|))
+          (|a| (|OrderedCompletion| (|Fraction| (|Polynomial| R)))))
          (SEQ
           (LETT |p| (SPADCALL (SPADCALL |eq| (QREFELT % 24)) (QREFELT % 26)))
           (EXIT
@@ -94,9 +94,9 @@
          (|eq| (|Equation| (|OnePointCompletion| (|Polynomial| R))))
          (% (|OnePointCompletion| (|Fraction| (|Polynomial| R)))))
         (SPROG
-         ((|a| (|OnePointCompletion| (|Fraction| (|Polynomial| R))))
-          (|x| (|Symbol|)) (|xx| (|Union| (|Symbol|) "failed"))
-          (|p| (|Union| (|Polynomial| R) "failed")))
+         ((|p| (|Union| (|Polynomial| R) "failed"))
+          (|xx| (|Union| (|Symbol|) "failed")) (|x| (|Symbol|))
+          (|a| (|OnePointCompletion| (|Fraction| (|Polynomial| R)))))
          (SEQ
           (LETT |p| (SPADCALL (SPADCALL |eq| (QREFELT % 37)) (QREFELT % 38)))
           (EXIT
@@ -126,7 +126,7 @@
          (%
           (|Union| (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
                    "failed")))
-        (SPROG ((|si| (|Integer|)) (|s| (|Union| (|Integer|) "failed")))
+        (SPROG ((|s| (|Union| (|Integer|) "failed")) (|si| (|Integer|)))
                (SEQ
                 (LETT |s| (SPADCALL |d| |a| |dir| (ELT % 45) (QREFELT % 50)))
                 (EXIT
@@ -145,7 +145,7 @@
            (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R)))))
          (|a| (|Fraction| (|Polynomial| R)))
          (% (|OnePointCompletion| (|Fraction| (|Polynomial| R)))))
-        (SPROG ((|d| #1=(|Fraction| (|Polynomial| R))) (|n| #1#))
+        (SPROG ((|n| #1=(|Fraction| (|Polynomial| R))) (|d| #1#))
                (COND
                 ((SPADCALL
                   (LETT |n|
@@ -180,11 +180,12 @@
                           #1#)))
                    "failed")))
         (SPROG
-         ((|lhsl|
-           #2=(|Union| (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
+         ((|n| #2=(|Fraction| (|Polynomial| R))) (|d| #2#)
+          (|s| (|Union| (|Integer|) "failed"))
+          (|rhsl|
+           #3=(|Union| (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
                        #1#))
-          (|rhsl| #2#) (|s| (|Union| (|Integer|) "failed"))
-          (|d| #3=(|Fraction| (|Polynomial| R))) (|n| #3#))
+          (|lhsl| #3#))
          (SEQ
           (COND
            ((SPADCALL
@@ -240,12 +241,12 @@
                           #1#)))
                    "failed")))
         (SPROG
-         ((|si| (|Integer|)) (|sd| #2=(|Union| (|Integer|) "failed"))
-          (|sn| #2#) (|dd| #3=(|NonNegativeInteger|)) (|dn| #3#)
-          (|n| (|SingleInteger|))
-          (|g|
+         ((|g|
            (|Fraction|
-            (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R))))))
+            (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R)))))
+          (|n| (|SingleInteger|)) (|dn| #2=(|NonNegativeInteger|)) (|dd| #2#)
+          (|sn| #3=(|Union| (|Integer|) "failed")) (|sd| #3#)
+          (|si| (|Integer|)))
          (SEQ (LETT |g| (SPADCALL |f| |x| (QREFELT % 68)))
               (EXIT
                (COND
@@ -308,13 +309,13 @@
           (|Union| (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
                    "failed")))
         (SPROG
-         ((|s| (|Union| (|Integer|) "failed"))
-          (|d| #1=(|Fraction| (|Polynomial| R))) (|n| #1#)
+         ((|xx| (|Union| (|Symbol|) "failed")) (|x| (|Symbol|))
+          (|a| (|Fraction| (|Polynomial| R)))
           (|g|
            (|Fraction|
             (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R)))))
-          (|a| (|Fraction| (|Polynomial| R))) (|x| (|Symbol|))
-          (|xx| (|Union| (|Symbol|) "failed")))
+          (|n| #1=(|Fraction| (|Polynomial| R))) (|d| #1#)
+          (|s| (|Union| (|Integer|) "failed")))
          (SEQ
           (LETT |xx| (SPADCALL (SPADCALL |eq| (QREFELT % 9)) (QREFELT % 11)))
           (EXIT
@@ -357,11 +358,11 @@
          (|a| (|OnePointCompletion| (|Fraction| (|Polynomial| R))))
          (% (|OnePointCompletion| (|Fraction| (|Polynomial| R)))))
         (SPROG
-         ((|dd| #1=(|NonNegativeInteger|)) (|dn| #1#)
-          (|r| (|Union| (|Fraction| (|Polynomial| R)) "failed"))
-          (|g|
+         ((|g|
            (|Fraction|
-            (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R))))))
+            (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R)))))
+          (|r| (|Union| (|Fraction| (|Polynomial| R)) "failed"))
+          (|dn| #1=(|NonNegativeInteger|)) (|dd| #1#))
          (SEQ (LETT |g| (SPADCALL |f| |x| (QREFELT % 68)))
               (LETT |r| (SPADCALL |a| (QREFELT % 81)))
               (EXIT
@@ -393,7 +394,7 @@
 (DECLAIM (NOTINLINE |RationalFunctionLimitPackage;|)) 
 
 (DEFUN |RationalFunctionLimitPackage;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|RationalFunctionLimitPackage| DV$1))

@@ -6,32 +6,32 @@
                          (SPADCALL (QCDR |t|) (QREFELT % 12)) (QREFELT % 13))))) 
 
 (SDEFUN |INDE;coerce;%Of;2| ((|x| (%)) (% (|OutputForm|)))
-        (SPROG ((#1=#:G18 NIL) (|t| NIL) (#2=#:G17 NIL))
+        (SPROG ((#1=#:G17 NIL) (|t| NIL) (#2=#:G18 NIL))
                (SEQ
                 (COND ((NULL |x|) (SPADCALL 1 (QREFELT % 15)))
                       ((NULL (CDR |x|)) (|INDE;coerceOF| (|SPADfirst| |x|) %))
                       ('T
                        (SPADCALL (ELT % 16)
                                  (PROGN
-                                  (LETT #2# NIL)
-                                  (SEQ (LETT |t| NIL) (LETT #1# |x|) G190
+                                  (LETT #1# NIL)
+                                  (SEQ (LETT |t| NIL) (LETT #2# |x|) G190
                                        (COND
-                                        ((OR (ATOM #1#)
-                                             (PROGN (LETT |t| (CAR #1#)) NIL))
+                                        ((OR (ATOM #2#)
+                                             (PROGN (LETT |t| (CAR #2#)) NIL))
                                          (GO G191)))
                                        (SEQ
                                         (EXIT
-                                         (LETT #2#
+                                         (LETT #1#
                                                (CONS (|INDE;coerceOF| |t| %)
-                                                     #2#))))
-                                       (LETT #1# (CDR #1#)) (GO G190) G191
-                                       (EXIT (NREVERSE #2#))))
+                                                     #1#))))
+                                       (LETT #2# (CDR #2#)) (GO G190) G191
+                                       (EXIT (NREVERSE #1#))))
                                  (QREFELT % 19))))))) 
 
 (DECLAIM (NOTINLINE |IndexedExponents;|)) 
 
 (DEFUN |IndexedExponents;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|IndexedExponents| DV$1))

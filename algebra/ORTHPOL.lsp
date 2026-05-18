@@ -2,8 +2,8 @@
 (SDEFUN |ORTHPOL;laguerreL;Nni2R;1|
         ((|n| (|NonNegativeInteger|)) (|x| (R)) (% (R)))
         (SPROG
-         ((|p0| (R)) (|p1| (R)) (|#G9| (R)) (|#G8| (R)) (#1=#:G4 NIL) (|i| NIL)
-          (|#G6| (R)) (|#G5| (R)))
+         ((|#G5| (R)) (|#G6| (R)) (|i| NIL) (#1=#:G4 NIL) (|#G8| (R))
+          (|#G9| (R)) (|p1| (R)) (|p0| (R)))
          (SEQ
           (COND ((EQL |n| 0) (|spadConstant| % 8))
                 ('T
@@ -42,8 +42,8 @@
         ((|m| (|NonNegativeInteger|)) (|n| (|NonNegativeInteger|)) (|x| (R))
          (% (R)))
         (SPROG
-         ((|p1| (R)) (|p0| (R)) (|cx| (|Integer|)) (#1=#:G7 NIL) (#2=#:G13 NIL)
-          (|j| NIL) (|mi| (|Integer|)) (|ni| (|Integer|)))
+         ((|ni| (|Integer|)) (|mi| (|Integer|)) (|j| NIL) (#1=#:G13 NIL)
+          (#2=#:G7 NIL) (|cx| (|Integer|)) (|p0| (R)) (|p1| (R)))
          (SEQ (LETT |ni| |n|) (LETT |mi| |m|)
               (LETT |cx|
                     (*
@@ -52,18 +52,18 @@
                      (SPADCALL |ni| (QREFELT % 22))))
               (LETT |p0| (|spadConstant| % 8))
               (LETT |p1| (SPADCALL |cx| (QREFELT % 12)))
-              (SEQ (LETT |j| 1) (LETT #2# (- |ni| |mi|)) G190
-                   (COND ((|greater_SI| |j| #2#) (GO G191)))
+              (SEQ (LETT |j| 1) (LETT #1# (- |ni| |mi|)) G190
+                   (COND ((|greater_SI| |j| #1#) (GO G191)))
                    (SEQ (LETT |cx| (- (* |cx| (+ (- (- |ni| |mi|) |j|) 1))))
                         (LETT |cx|
                               (PROG2
-                                  (LETT #1#
+                                  (LETT #2#
                                         (|exquo_INT| |cx|
                                                      (* (+ |mi| |j|) |j|)))
-                                  (QCDR #1#)
-                                (|check_union2| (QEQCAR #1# 0) (|Integer|)
+                                  (QCDR #2#)
+                                (|check_union2| (QEQCAR #2# 0) (|Integer|)
                                                 (|Union| (|Integer|) "failed")
-                                                #1#)))
+                                                #2#)))
                         (LETT |p0| (SPADCALL |p0| |x| (QREFELT % 16)))
                         (EXIT
                          (LETT |p1|
@@ -76,8 +76,8 @@
 (SDEFUN |ORTHPOL;chebyshevT;Nni2R;3|
         ((|n| (|NonNegativeInteger|)) (|x| (R)) (% (R)))
         (SPROG
-         ((|p0| (R)) (|p1| (R)) (|#G20| (R)) (|#G19| (R)) (#1=#:G18 NIL)
-          (|i| NIL) (|#G17| (R)) (|#G16| (R)))
+         ((|#G16| (R)) (|#G17| (R)) (|i| NIL) (#1=#:G18 NIL) (|#G19| (R))
+          (|#G20| (R)) (|p1| (R)) (|p0| (R)))
          (SEQ
           (COND ((EQL |n| 0) (|spadConstant| % 8))
                 ('T
@@ -106,8 +106,8 @@
 (SDEFUN |ORTHPOL;chebyshevU;Nni2R;4|
         ((|n| (|NonNegativeInteger|)) (|x| (R)) (% (R)))
         (SPROG
-         ((|p0| (R)) (|p1| (R)) (|#G27| (R)) (|#G26| (R)) (#1=#:G23 NIL)
-          (|i| NIL) (|#G24| (R)) (|#G23| (R)))
+         ((|#G23| (R)) (|#G24| (R)) (|i| NIL) (#1=#:G23 NIL) (|#G26| (R))
+          (|#G27| (R)) (|p1| (R)) (|p0| (R)))
          (SEQ
           (COND ((EQL |n| 0) (|spadConstant| % 8))
                 ('T
@@ -136,8 +136,8 @@
 (SDEFUN |ORTHPOL;hermiteH;Nni2R;5|
         ((|n| (|NonNegativeInteger|)) (|x| (R)) (% (R)))
         (SPROG
-         ((|p0| (R)) (|p1| (R)) (|#G34| (R)) (|#G33| (R)) (#1=#:G28 NIL)
-          (|i| NIL) (|#G31| (R)) (|#G30| (R)))
+         ((|#G30| (R)) (|#G31| (R)) (|i| NIL) (#1=#:G28 NIL) (|#G33| (R))
+          (|#G34| (R)) (|p1| (R)) (|p0| (R)))
          (SEQ
           (COND ((EQL |n| 0) (|spadConstant| % 8))
                 ('T
@@ -167,8 +167,8 @@
 (SDEFUN |ORTHPOL;legendreP;Nni2R;6|
         ((|n| (|NonNegativeInteger|)) (|x| (R)) (% (R)))
         (SPROG
-         ((|p0| (R)) (|p1| (R)) (|#G39| (R)) (|#G38| (R))
-          (|c| (|Fraction| (|Integer|))) (#1=#:G34 NIL) (|i| NIL))
+         ((|i| NIL) (#1=#:G34 NIL) (|c| (|Fraction| (|Integer|))) (|#G38| (R))
+          (|#G39| (R)) (|p1| (R)) (|p0| (R)))
          (SEQ
           (COND ((EQL |n| 0) (|spadConstant| % 8))
                 ('T
@@ -199,7 +199,7 @@
 (DECLAIM (NOTINLINE |OrthogonalPolynomialFunctions;|)) 
 
 (DEFUN |OrthogonalPolynomialFunctions;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|OrthogonalPolynomialFunctions| DV$1))

@@ -57,7 +57,7 @@
 
 (SDEFUN |UNISEG;coerce;%Of;13| ((|s| (%)) (% (|OutputForm|)))
         (SPROG
-         ((|inc| (|Integer|)) (|seg| (|OutputForm|)) (|e| (|OutputForm|)))
+         ((|e| (|OutputForm|)) (|seg| (|OutputForm|)) (|inc| (|Integer|)))
          (SEQ
           (LETT |seg|
                 (SEQ
@@ -137,8 +137,8 @@
 
 (SDEFUN |UNISEG;expand;LS;20| ((|ls| (|List| %)) (% (|Stream| S)))
         (SPROG
-         ((|st| (|Stream| S)) (|s| (%)) (|lb| (|List| (|Segment| S)))
-          (|ns| (|Segment| S)))
+         ((|ns| (|Segment| S)) (|lb| (|List| (|Segment| S))) (|s| (%))
+          (|st| (|Stream| S)))
          (SEQ (LETT |st| (SPADCALL (QREFELT % 64)))
               (EXIT
                (COND ((SPADCALL |ls| (QREFELT % 66)) |st|)
@@ -200,7 +200,7 @@
 (DECLAIM (NOTINLINE |UniversalSegment;|)) 
 
 (DEFUN |UniversalSegment;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|UniversalSegment| DV$1))

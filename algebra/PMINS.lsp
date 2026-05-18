@@ -22,8 +22,8 @@
          (|invOp| (|Mapping| #1=(|Union| I "failed") I I)) (|ident| (I))
          (% (|PatternMatchResult| (|Integer|) I)))
         (SPROG
-         ((|y| #1#) (|r| (|Union| (|Integer|) "failed"))
-          (|p2| (|Pattern| (|Integer|))) (|p1| (|Pattern| (|Integer|))))
+         ((|p1| (|Pattern| (|Integer|))) (|p2| (|Pattern| (|Integer|)))
+          (|r| (|Union| (|Integer|) "failed")) (|y| #1#))
          (SEQ
           (COND
            ((EQL (LENGTH |lp|) 2)
@@ -58,35 +58,35 @@
          (|l| (|PatternMatchResult| (|Integer|) I))
          (% (|PatternMatchResult| (|Integer|) I)))
         (SPROG
-         ((|r| (|Union| (|Integer|) "failed")) (#1=#:G59 NIL)
-          (|v| (|Union| I "failed"))
-          (|uvr|
-           (|Record| (|:| |num| (|Pattern| (|Integer|)))
-                     (|:| |den| (|Pattern| (|Integer|)))))
-          (|uv|
+         ((|u|
            (|Union|
-            (|Record| (|:| |num| (|Pattern| (|Integer|)))
-                      (|:| |den| (|Pattern| (|Integer|))))
+            (|Record| (|:| |val| (|Pattern| (|Integer|)))
+                      (|:| |exponent| (|NonNegativeInteger|)))
             "failed"))
-          (|w| (|Union| (|List| (|Pattern| (|Integer|))) "failed"))
-          (|pr|
-           (|Record| (|:| |base| I) (|:| |exponent| (|NonNegativeInteger|))))
-          (|uur|
+          (|ur|
            (|Record| (|:| |val| (|Pattern| (|Integer|)))
-                     (|:| |exponent| (|Pattern| (|Integer|)))))
+                     (|:| |exponent| (|NonNegativeInteger|))))
           (|uu|
            (|Union|
             (|Record| (|:| |val| (|Pattern| (|Integer|)))
                       (|:| |exponent| (|Pattern| (|Integer|))))
             "failed"))
-          (|ur|
+          (|uur|
            (|Record| (|:| |val| (|Pattern| (|Integer|)))
-                     (|:| |exponent| (|NonNegativeInteger|))))
-          (|u|
+                     (|:| |exponent| (|Pattern| (|Integer|)))))
+          (|pr|
+           (|Record| (|:| |base| I) (|:| |exponent| (|NonNegativeInteger|))))
+          (|w| (|Union| (|List| (|Pattern| (|Integer|))) "failed"))
+          (|uv|
            (|Union|
-            (|Record| (|:| |val| (|Pattern| (|Integer|)))
-                      (|:| |exponent| (|NonNegativeInteger|)))
-            "failed")))
+            (|Record| (|:| |num| (|Pattern| (|Integer|)))
+                      (|:| |den| (|Pattern| (|Integer|))))
+            "failed"))
+          (|uvr|
+           (|Record| (|:| |num| (|Pattern| (|Integer|)))
+                     (|:| |den| (|Pattern| (|Integer|)))))
+          (|v| (|Union| I "failed")) (#1=#:G59 NIL)
+          (|r| (|Union| (|Integer|) "failed")))
          (SEQ
           (COND
            ((SPADCALL |p| (QREFELT % 21))
@@ -216,7 +216,7 @@
 (DECLAIM (NOTINLINE |PatternMatchIntegerNumberSystem;|)) 
 
 (DEFUN |PatternMatchIntegerNumberSystem;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|PatternMatchIntegerNumberSystem| DV$1))

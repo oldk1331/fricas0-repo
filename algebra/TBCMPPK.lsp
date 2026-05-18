@@ -29,7 +29,7 @@
                  "in startStats!()$TBCMPPK: not allowed to use hashtable"))))) 
 
 (SDEFUN |TBCMPPK;printStats!;V;4| ((% (|Void|)))
-        (SPROG ((|n| (|NonNegativeInteger|)) (|title| (|String|)))
+        (SPROG ((|title| (|String|)) (|n| (|NonNegativeInteger|)))
                (SEQ
                 (COND
                  ((QREFELT % 8)
@@ -76,7 +76,7 @@
 
 (SDEFUN |TBCMPPK;extractIfCan;KeyU;9|
         ((|k| (|Key|)) (% (|Union| |Entry| "failed")))
-        (SPROG ((#1=#:G26 NIL) (|s| (|Union| |Entry| "failed")))
+        (SPROG ((|s| (|Union| |Entry| "failed")) (#1=#:G26 NIL))
                (SEQ
                 (EXIT
                  (COND
@@ -111,7 +111,7 @@
 (DECLAIM (NOTINLINE |TabulatedComputationPackage;|)) 
 
 (DEFUN |TabulatedComputationPackage;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

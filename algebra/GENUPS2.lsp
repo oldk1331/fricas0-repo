@@ -2,7 +2,7 @@
 (SDEFUN |GENUPS2;taylor;MEA;1|
         ((|f| (|Mapping| FE (|Integer|))) (|eq| (|Equation| FE)) (% (|Any|)))
         (SPROG
-         ((|a| (FE)) (|x| (|Symbol|)) (|xx| (|Union| (|Symbol|) "failed")))
+         ((|xx| (|Union| (|Symbol|) "failed")) (|x| (|Symbol|)) (|a| (FE)))
          (SEQ
           (LETT |xx| (SPADCALL (SPADCALL |eq| (QREFELT % 8)) (QREFELT % 10)))
           (EXIT
@@ -18,7 +18,7 @@
         ((|f| (|Mapping| FE (|Integer|))) (|eq| (|Equation| FE))
          (|seg| (|UniversalSegment| (|NonNegativeInteger|))) (% (|Any|)))
         (SPROG
-         ((|a| (FE)) (|x| (|Symbol|)) (|xx| (|Union| (|Symbol|) "failed")))
+         ((|xx| (|Union| (|Symbol|) "failed")) (|x| (|Symbol|)) (|a| (FE)))
          (SEQ
           (LETT |xx| (SPADCALL (SPADCALL |eq| (QREFELT % 8)) (QREFELT % 10)))
           (EXIT
@@ -34,7 +34,7 @@
         ((|f| (|Mapping| FE (|Integer|))) (|eq| (|Equation| FE))
          (|seg| (|UniversalSegment| (|Integer|))) (% (|Any|)))
         (SPROG
-         ((|a| (FE)) (|x| (|Symbol|)) (|xx| (|Union| (|Symbol|) "failed")))
+         ((|xx| (|Union| (|Symbol|) "failed")) (|x| (|Symbol|)) (|a| (FE)))
          (SEQ
           (LETT |xx| (SPADCALL (SPADCALL |eq| (QREFELT % 8)) (QREFELT % 10)))
           (EXIT
@@ -51,7 +51,7 @@
          (|seg| (|UniversalSegment| (|Fraction| (|Integer|))))
          (|r| (|Fraction| (|Integer|))) (% (|Any|)))
         (SPROG
-         ((|a| (FE)) (|x| (|Symbol|)) (|xx| (|Union| (|Symbol|) "failed")))
+         ((|xx| (|Union| (|Symbol|) "failed")) (|x| (|Symbol|)) (|a| (FE)))
          (SEQ
           (LETT |xx| (SPADCALL (SPADCALL |eq| (QREFELT % 8)) (QREFELT % 10)))
           (EXIT
@@ -201,7 +201,7 @@
 (DECLAIM (NOTINLINE |GenerateUnivariatePowerSeries2;|)) 
 
 (DEFUN |GenerateUnivariatePowerSeries2;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|GenerateUnivariatePowerSeries2| DV$1))

@@ -65,8 +65,8 @@
 (SDEFUN |DFSFUN;besselK;3Df;7|
         ((|n| (|DoubleFloat|)) (|x| (|DoubleFloat|)) (% (|DoubleFloat|)))
         (SPROG
-         ((|ahalf| (|DoubleFloat|)) (|vp| (|DoubleFloat|))
-          (|p| (|DoubleFloat|)))
+         ((|p| (|DoubleFloat|)) (|vp| (|DoubleFloat|))
+          (|ahalf| (|DoubleFloat|)))
          (SEQ
           (COND
            ((SPADCALL |n| (QREFELT % 15))
@@ -85,8 +85,8 @@
         ((|v| (|Complex| (|DoubleFloat|))) (|z| (|Complex| (|DoubleFloat|)))
          (% (|Complex| (|DoubleFloat|))))
         (SPROG
-         ((|ahalf| (|Complex| (|DoubleFloat|)))
-          (|vp| (|Complex| (|DoubleFloat|))) (|p| (|Complex| (|DoubleFloat|))))
+         ((|p| (|Complex| (|DoubleFloat|))) (|vp| (|Complex| (|DoubleFloat|)))
+          (|ahalf| (|Complex| (|DoubleFloat|))))
          (SEQ
           (COND
            ((SPADCALL |v| (QREFELT % 18))

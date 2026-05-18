@@ -24,8 +24,8 @@
 
 (SDEFUN |MPC2;map;MPRPS;2| ((|fn| (|Mapping| S R)) (|pr| (PR)) (% (PS)))
         (SPROG
-         ((|supr| (|SparseUnivariatePolynomial| PR)) (|var| (|VarSet|))
-          (|varu| (|Union| |VarSet| "failed")))
+         ((|varu| (|Union| |VarSet| "failed")) (|var| (|VarSet|))
+          (|supr| (|SparseUnivariatePolynomial| PR)))
          (SEQ (LETT |varu| (SPADCALL |pr| (QREFELT % 31)))
               (EXIT
                (COND
@@ -43,8 +43,8 @@
 
 (DEFUN |MPolyCatFunctions2;| (|#1| |#2| |#3| |#4| |#5| |#6| |#7|)
   (SPROG
-   ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$7 NIL) (DV$6 NIL) (DV$5 NIL) (DV$4 NIL)
-    (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+   ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (DV$4 NIL) (DV$5 NIL) (DV$6 NIL)
+    (DV$7 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))

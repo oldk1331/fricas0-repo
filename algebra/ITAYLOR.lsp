@@ -15,27 +15,27 @@
 
 (SDEFUN |ITAYLOR;=;2%B;5| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (SPROG
-         ((|st| (|Stream| |Coef|)) (#1=#:G16 NIL) (#2=#:G17 NIL) (|i| NIL)
-          (|n| (|Integer|)))
+         ((|n| (|Integer|)) (|i| NIL) (#1=#:G17 NIL) (#2=#:G16 NIL)
+          (|st| (|Stream| |Coef|)))
          (SEQ
           (EXIT
            (SEQ
             (LETT |st| (|ITAYLOR;stream| (SPADCALL |x| |y| (QREFELT % 16)) %))
             (LETT |n| |$streamCount|)
-            (SEQ (LETT |i| 0) (LETT #2# |n|) G190
-                 (COND ((|greater_SI| |i| #2#) (GO G191)))
+            (SEQ (LETT |i| 0) (LETT #1# |n|) G190
+                 (COND ((|greater_SI| |i| #1#) (GO G191)))
                  (SEQ
                   (EXIT
                    (COND
                     ((SPADCALL |st| (QREFELT % 18))
-                     (PROGN (LETT #1# 'T) (GO #3=#:G15)))
+                     (PROGN (LETT #2# 'T) (GO #3=#:G15)))
                     ((SPADCALL (SPADCALL |st| (QREFELT % 19))
                                (|spadConstant| % 11) (QREFELT % 20))
-                     (PROGN (LETT #1# NIL) (GO #3#)))
+                     (PROGN (LETT #2# NIL) (GO #3#)))
                     ('T (LETT |st| (SPADCALL |st| (QREFELT % 21)))))))
                  (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
             (EXIT (SPADCALL |st| (QREFELT % 18)))))
-          #3# (EXIT #1#)))) 
+          #3# (EXIT #2#)))) 
 
 (SDEFUN |ITAYLOR;coefficients;%S;6| ((|x| (%)) (% (|Stream| |Coef|)))
         (|ITAYLOR;stream| |x| %)) 
@@ -137,7 +137,7 @@
 (DECLAIM (NOTINLINE |InnerTaylorSeries;|)) 
 
 (DEFUN |InnerTaylorSeries;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|InnerTaylorSeries| DV$1))

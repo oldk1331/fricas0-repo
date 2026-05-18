@@ -1,6 +1,6 @@
 
 (SDEFUN |FINGRP-;order;SI;1| ((|x| (S)) (% (|Integer|)))
-        (SPROG ((|y| (S)) (|k| (|Integer|)))
+        (SPROG ((|k| (|Integer|)) (|y| (S)))
                (SEQ (LETT |k| 1) (LETT |y| |x|)
                     (SEQ G190
                          (COND
@@ -15,7 +15,7 @@
 (DECLAIM (NOTINLINE |FiniteGroup&;|)) 
 
 (DEFUN |FiniteGroup&| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|FiniteGroup&| DV$1))

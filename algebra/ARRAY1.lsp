@@ -14,24 +14,24 @@
 
 (SDEFUN |ARRAY1;oneDimensionalArray;L%;3| ((|u| (|List| S)) (% (%)))
         (SPROG
-         ((#1=#:G2161 NIL) (|i| NIL) (#2=#:G2162 NIL) (|x| NIL) (|a| (%))
-          (|n| (|NonNegativeInteger|)))
+         ((|n| (|NonNegativeInteger|)) (|a| (%)) (|x| NIL) (#1=#:G2162 NIL)
+          (|i| NIL) (#2=#:G2161 NIL))
          (SEQ (LETT |n| (LENGTH |u|))
               (EXIT
                (COND ((EQL |n| 0) (MAKE-ARRAY 0))
                      ('T
                       (SEQ (LETT |a| (MAKEARR1 |n| (|SPADfirst| |u|)))
-                           (SEQ (LETT |x| NIL) (LETT #2# (CDR |u|))
-                                (LETT |i| 2) (LETT #1# |n|) G190
+                           (SEQ (LETT |x| NIL) (LETT #1# (CDR |u|))
+                                (LETT |i| 2) (LETT #2# |n|) G190
                                 (COND
-                                 ((OR (|greater_SI| |i| #1#) (ATOM #2#)
-                                      (PROGN (LETT |x| (CAR #2#)) NIL))
+                                 ((OR (|greater_SI| |i| #2#) (ATOM #1#)
+                                      (PROGN (LETT |x| (CAR #1#)) NIL))
                                   (GO G191)))
                                 (SEQ
                                  (EXIT (SPADCALL |a| |i| |x| (QREFELT % 10))))
                                 (LETT |i|
                                       (PROG1 (|inc_SI| |i|)
-                                        (LETT #2# (CDR #2#))))
+                                        (LETT #1# (CDR #1#))))
                                 (GO G190) G191 (EXIT NIL))
                            (EXIT |a|)))))))) 
 
@@ -44,8 +44,8 @@
 
 (DEFUN |OneDimensionalArray;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G2171 NIL) (#2=#:G2172 NIL) (#3=#:G2173 NIL) (% NIL)
-    (|dv$| NIL) (DV$1 NIL))
+   ((DV$1 NIL) (|dv$| NIL) (% NIL) (#1=#:G2173 NIL) (#2=#:G2172 NIL)
+    (#3=#:G2171 NIL) (|pv$| NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|OneDimensionalArray| DV$1))
@@ -63,10 +63,10 @@
                                         (|HasCategory| (|Integer|)
                                                        '(|OrderedSet|))
                                         (|HasCategory| |#1| '(|BasicType|))
-                                        (LETT #3#
+                                        (LETT #1#
                                               (|HasCategory| |#1|
                                                              '(|Comparable|)))
-                                        (OR #3#
+                                        (OR #1#
                                             (|HasCategory| |#1|
                                                            '(|OrderedSet|)))
                                         (LETT #2#
@@ -78,21 +78,21 @@
                                                               (|devaluate|
                                                                |#1|)))
                                          #2#)
-                                        (OR #3#
+                                        (OR #1#
                                             (|HasCategory| |#1|
                                                            '(|OrderedSet|))
                                             #2#)
                                         (OR (|HasCategory| |#1| '(|BasicType|))
-                                            #3#
+                                            #1#
                                             (|HasCategory| |#1| '(|Hashable|))
                                             (|HasCategory| |#1|
                                                            '(|OrderedSet|))
                                             #2#)
-                                        (LETT #1#
+                                        (LETT #3#
                                               (|HasCategory| |#1|
                                                              '(|CoercibleTo|
                                                                (|OutputForm|))))
-                                        (OR #1# #3#
+                                        (OR #3# #1#
                                             (|HasCategory| |#1|
                                                            '(|OrderedSet|))
                                             #2#)))))
@@ -113,18 +113,18 @@
     (AND (|HasCategory| |#1| '(|OrderedSet|))
          (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 262144))
     (AND
-     (OR (AND #3# (|HasCategory| % '(|finiteAggregate|)))
+     (OR (AND #1# (|HasCategory| % '(|finiteAggregate|)))
          (AND (|HasCategory| |#1| '(|OrderedSet|))
               (|HasCategory| % '(|finiteAggregate|))))
      (|augmentPredVector| % 524288))
     (AND
-     (OR (AND #3# (|HasCategory| % '(|finiteAggregate|)))
+     (OR (AND #1# (|HasCategory| % '(|finiteAggregate|)))
          (AND (|HasCategory| |#1| '(|OrderedSet|))
               (|HasCategory| % '(|finiteAggregate|)))
          #2#)
      (|augmentPredVector| % 1048576))
     (AND
-     (OR #1# (AND #3# (|HasCategory| % '(|finiteAggregate|)))
+     (OR #3# (AND #1# (|HasCategory| % '(|finiteAggregate|)))
          (AND (|HasCategory| |#1| '(|OrderedSet|))
               (|HasCategory| % '(|finiteAggregate|))))
      (|augmentPredVector| % 2097152))
@@ -135,7 +135,7 @@
      (OR
       (AND (|HasCategory| |#1| '(|BasicType|))
            (|HasCategory| % '(|finiteAggregate|)))
-      (AND #3# (|HasCategory| % '(|finiteAggregate|)))
+      (AND #1# (|HasCategory| % '(|finiteAggregate|)))
       (AND (|HasCategory| |#1| '(|Hashable|))
            (|HasCategory| % '(|finiteAggregate|)))
       (AND (|HasCategory| |#1| '(|OrderedSet|))

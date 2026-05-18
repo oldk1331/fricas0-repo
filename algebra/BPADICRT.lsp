@@ -2,7 +2,7 @@
 (DECLAIM (NOTINLINE |BalancedPAdicRational;|)) 
 
 (DEFUN |BalancedPAdicRational;| (|#1|)
-  (SPROG ((|pv$| NIL) (#1=#:G36 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (#1=#:G36 NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 |#1|)
           (LETT |dv$| (LIST '|BalancedPAdicRational| DV$1))

@@ -119,12 +119,13 @@
         ((|v| (|Symbol|)) (|sts| (|Stream| (|Polynomial| R)))
          (% (|Stream| (|TaylorSeries| R))))
         (SPROG
-         ((|q| (|Stream| (|TaylorSeries| R))) (|f| (|Stream| (|Polynomial| R)))
+         ((|p| (|Stream| (|TaylorSeries| R))) (|a0| NIL)
+          (|b0| (|Polynomial| R)) (#1=#:G55 NIL) (|c| (|Union| R "failed"))
+          (|a| (|NonNegativeInteger|)) (#2=#:G56 NIL)
+          (|b| (|Stream| (|Polynomial| R)))
           (|e| (|Union| (|Stream| (|Polynomial| R)) "failed"))
-          (|b| (|Stream| (|Polynomial| R))) (#1=#:G56 NIL)
-          (|a| (|NonNegativeInteger|)) (|c| (|Union| R "failed"))
-          (#2=#:G55 NIL) (|b0| (|Polynomial| R)) (|a0| NIL)
-          (|p| (|Stream| (|TaylorSeries| R))))
+          (|f| (|Stream| (|Polynomial| R)))
+          (|q| (|Stream| (|TaylorSeries| R))))
          (SEQ (LETT |p| (|WEIER;tp| |v| |sts| %))
               (LETT |b| (SPADCALL |p| (QREFELT % 58)))
               (SEQ
@@ -145,7 +146,7 @@
                                  (SEQ (LETT |b| (SPADCALL |b| (QREFELT % 37)))
                                       (EXIT
                                        (PROGN
-                                        (LETT #2# |$NoValue|)
+                                        (LETT #1# |$NoValue|)
                                         (GO #3=#:G39)))))
                                 ('T
                                  (SEQ (LETT |c| (SPADCALL |b0| (QREFELT % 61)))
@@ -155,16 +156,16 @@
                                          (SEQ (LETT |a| |a0|)
                                               (EXIT
                                                (PROGN
-                                                (LETT #1# |$NoValue|)
+                                                (LETT #2# |$NoValue|)
                                                 (GO #4=#:G48)))))
                                         ('T
                                          (LETT |b|
                                                (SPADCALL |b|
                                                          (QREFELT %
                                                                   37))))))))))))))
-                      #3# (EXIT #2#))
+                      #3# (EXIT #1#))
                      (LETT |a0| (|inc_SI| |a0|)) (GO G190) G191 (EXIT NIL)))
-               #4# (EXIT #1#))
+               #4# (EXIT #2#))
               (LETT |e| (SPADCALL |b| (QREFELT % 63)))
               (LETT |f|
                     (COND ((QEQCAR |e| 1) (|error| "no reciprocal"))
@@ -220,7 +221,7 @@
 (DECLAIM (NOTINLINE |WeierstrassPreparation;|)) 
 
 (DEFUN |WeierstrassPreparation;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|WeierstrassPreparation| DV$1))

@@ -1,10 +1,10 @@
 
 (SDEFUN |MATHSYM;greek_str| ((|i| (|Integer|)) (% (|String|)))
         (SPROG
-         ((#1=#:G7 NIL) (|ns| (|String|))
-          (|qr|
+         ((|qr|
            (|Record| (|:| |quotient| (|Integer|))
-                     (|:| |remainder| (|Integer|)))))
+                     (|:| |remainder| (|Integer|))))
+          (|ns| (|String|)) (#1=#:G7 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |ns| "")

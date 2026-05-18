@@ -13,8 +13,8 @@
                    (|:| |macro_name| (|Record| (|:| |name| (|String|))))
                    (|:| |eos| "eos") (|:| |error| "error"))))
         (SPROG
-         ((|c_pos| #2#) (#3=#:G35 NIL) (|o_pos| (|Integer|))
-          (|c0| (|Character|)) (|s| #1#))
+         ((|s| #1#) (|c0| (|Character|)) (|o_pos| (|Integer|)) (#3=#:G35 NIL)
+          (|c_pos| #2#))
          (SEQ
           (EXIT
            (SEQ (LETT |c_pos| (QCDR |st|)) (LETT |s| (QCAR |st|))
@@ -58,7 +58,7 @@
 (SDEFUN |TEXSCAN;skip_comment|
         ((|st| (|Record| (|:| |str| #1=(|String|)) (|:| |pos| #2=(|Integer|))))
          (% (|Void|)))
-        (SPROG ((#3=#:G43 NIL) (|c_pos| #2#) (|cc| (|Character|)) (|s| #1#))
+        (SPROG ((|s| #1#) (|cc| (|Character|)) (|c_pos| #2#) (#3=#:G43 NIL))
                (SEQ (LETT |s| (QCAR |st|)) (LETT |c_pos| (QCDR |st|))
                     (SEQ
                      (EXIT
@@ -85,9 +85,9 @@
                    (|:| |macro_name| (|Record| (|:| |name| (|String|))))
                    (|:| |eos| #5="eos") (|:| |error| #6="error"))))
         (SPROG
-         ((|c_pos| #7=(|Integer|)) (#8=#:G88 NIL) (#9=#:G89 NIL)
-          (|cc| (|Character|)) (#10=#:G87 NIL) (|name| (|String|))
-          (|s| (|String|)) (|o_pos| #7#))
+         ((|o_pos| #7=(|Integer|)) (|s| (|String|)) (|name| (|String|))
+          (#8=#:G87 NIL) (|cc| (|Character|)) (#9=#:G89 NIL) (#10=#:G88 NIL)
+          (|c_pos| #7#))
          (SEQ
           (EXIT
            (SEQ (LETT |o_pos| (LETT |c_pos| (QCDR |st|)))
@@ -183,7 +183,7 @@
                                                                           20))
                                                        (QREFELT % 24))))
                                                     (PROGN
-                                                     (LETT #10#
+                                                     (LETT #8#
                                                            (SEQ
                                                             (PROGN
                                                              (RPLACD |st|
@@ -219,7 +219,7 @@
                                                                              |name|)))
                                                                 (GO #12#)))))))
                                                      (GO #13=#:G58)))))))
-                                               #13# (EXIT #10#))
+                                               #13# (EXIT #8#))
                                               NIL (GO G190) G191
                                               (EXIT NIL)))))))
                                (#11#
@@ -277,7 +277,7 @@
                                                 (|eql_SI| |cc| (QREFELT % 11)))
                                                (|eql_SI| |cc| (QREFELT % 10)))
                                               (PROGN
-                                               (LETT #8#
+                                               (LETT #10#
                                                      (SEQ
                                                       (PROGN
                                                        (RPLACD |st| |c_pos|)
@@ -300,7 +300,7 @@
                                                         (GO #12#)))))
                                                (GO #14=#:G73))))))))
                                         (EXIT (LETT |c_pos| (+ |c_pos| 1)))))
-                                      #14# (EXIT #8#))
+                                      #14# (EXIT #10#))
                                      NIL (GO G190) G191 (EXIT NIL)))))))))))
           #12# (EXIT #9#)))) 
 

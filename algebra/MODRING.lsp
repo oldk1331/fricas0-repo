@@ -65,7 +65,7 @@
                   (|MODRING;newmodulo| (QCDR |x|) (QCDR |y|) %) (QREFELT % 25))) 
 
 (SDEFUN |MODRING;exQuo;2%U;18| ((|x| (%)) (|y| (%)) (% (|Union| % "failed")))
-        (SPROG ((|r| (|Union| R "failed")) (|xm| (|Mod|)))
+        (SPROG ((|xm| (|Mod|)) (|r| (|Union| R "failed")))
                (SEQ (LETT |xm| (QCDR |x|))
                     (COND
                      ((SPADCALL |xm| (QCDR |y|) (QREFELT % 45))
@@ -97,8 +97,8 @@
 
 (DEFUN |ModularRing;| (|#1| |#2| |#3| |#4| |#5|)
   (SPROG
-   ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
-    (DV$1 NIL))
+   ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (DV$4 NIL) (DV$5 NIL) (|dv$| NIL) (% NIL)
+    (|pv$| NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))

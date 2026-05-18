@@ -29,11 +29,11 @@
         ((|t1| (|String|)) (|pin| (|NonNegativeInteger|))
          (% (|Record| (|:| |rft| %) (|:| |pout| (|NonNegativeInteger|)))))
         (SPROG
-         ((#1=#:G24 NIL) (|pt| (|NonNegativeInteger|))
+         ((|vnm| (|String|)) (|ch| (|Character|))
           (|r|
            (|Record| (|:| |rft| (|ILogic|))
                      (|:| |pout| (|NonNegativeInteger|))))
-          (|ch| (|Character|)) (|vnm| (|String|)))
+          (|pt| (|NonNegativeInteger|)) (#1=#:G24 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |vnm| "") (LETT |pt| |pin|)

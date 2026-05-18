@@ -264,7 +264,7 @@
 (SDEFUN |INT;factorPolynomial;SupF;59|
         ((|p| (|SparseUnivariatePolynomial| %))
          (% (|Factored| (|SparseUnivariatePolynomial| %))))
-        (SPROG ((#1=#:G1248 NIL) (|pp| (|SparseUnivariatePolynomial| %)))
+        (SPROG ((|pp| (|SparseUnivariatePolynomial| %)) (#1=#:G1248 NIL))
                (SEQ (LETT |pp| (SPADCALL |p| (QREFELT % 104)))
                     (EXIT
                      (COND
@@ -312,7 +312,7 @@
         (COND ((ZEROP |x|) 'T) ('T (ZEROP |y|)))) 
 
 (SDEFUN |INT;powmod;4%;64| ((|x| (%)) (|n| (%)) (|p| (%)) (% (%)))
-        (SPROG ((|z| (%)) (#1=#:G1268 NIL) (|y| (%)))
+        (SPROG ((|y| (%)) (#1=#:G1268 NIL) (|z| (%)))
                (SEQ
                 (EXIT
                  (SEQ

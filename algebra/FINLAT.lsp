@@ -35,7 +35,7 @@
         (NULL (SPADCALL |x| |y| (QREFELT % 27)))) 
 
 (SDEFUN |FINLAT;coerce;%Of;11| ((|s| (%)) (% (|OutputForm|)))
-        (SPROG ((|obj| (S)) (|index| (|NonNegativeInteger|)))
+        (SPROG ((|index| (|NonNegativeInteger|)) (|obj| (S)))
                (SEQ (LETT |index| |s|)
                     (LETT |obj|
                           (SPADCALL (QREFELT % 7) |index| (QREFELT % 29)))
@@ -44,7 +44,7 @@
 (DECLAIM (NOTINLINE |FiniteLattice;|)) 
 
 (DEFUN |FiniteLattice;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 |#2|)

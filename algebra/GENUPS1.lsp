@@ -73,9 +73,8 @@
         ((|f| (|Mapping| R (|Integer|))) (|x| (|Symbol|)) (|a| (R))
          (|seg| (|UniversalSegment| (|NonNegativeInteger|))) (% (|Any|)))
         (SPROG
-         ((|uts| (|UnivariateTaylorSeries| R |x| |a|))
-          (|n0| #1=(|NonNegativeInteger|)) (|n1| #2=(|NonNegativeInteger|))
-          (|#G19| #1#) (|#G18| #2#))
+         ((|#G18| #1=(|NonNegativeInteger|)) (|#G19| #2=(|NonNegativeInteger|))
+          (|n1| #1#) (|n0| #2#) (|uts| (|UnivariateTaylorSeries| R |x| |a|)))
          (SEQ
           (COND
            ((SPADCALL |seg| (QREFELT % 23))
@@ -172,8 +171,8 @@
         ((|f| (|Mapping| R (|Integer|))) (|x| (|Symbol|)) (|a| (R))
          (|seg| (|UniversalSegment| (|Integer|))) (% (|Any|)))
         (SPROG
-         ((|uts| (|UnivariateTaylorSeries| R |x| |a|)) (|n0| #1=(|Integer|))
-          (|n1| #2=(|Integer|)) (|#G26| #1#) (|#G25| #2#))
+         ((|#G25| #1=(|Integer|)) (|#G26| #2=(|Integer|)) (|n1| #1#) (|n0| #2#)
+          (|uts| (|UnivariateTaylorSeries| R |x| |a|)))
          (SEQ
           (COND
            ((SPADCALL |seg| (QREFELT % 29))
@@ -266,11 +265,12 @@
          (|a| (R)) (|seg| (|UniversalSegment| (|Fraction| (|Integer|))))
          (|r| (|Fraction| (|Integer|))) (% (|Any|)))
         (SPROG
-         ((|uls| (|UnivariateLaurentSeries| R |x| |a|)) (|ulsUnion| (|Any|))
-          (|nn| #1=(|Integer|)) (|n0| #1#) (|q| (|Integer|))
-          (|q2| #2=(|Integer|)) (|p2| #3=(|Integer|)) (|q0| #2#) (|p0| #3#)
-          (|r0| #4=(|Fraction| (|Integer|))) (|n1| #1#) (|q1| #2#) (|p1| #3#)
-          (|r1| #5=(|Fraction| (|Integer|))) (|#G39| #4#) (|#G38| #5#))
+         ((|#G38| #1=(|Fraction| (|Integer|)))
+          (|#G39| #2=(|Fraction| (|Integer|))) (|r1| #1#) (|p1| #3=(|Integer|))
+          (|q1| #4=(|Integer|)) (|n1| #5=(|Integer|)) (|r0| #2#) (|p0| #3#)
+          (|q0| #4#) (|p2| #3#) (|q2| #4#) (|q| (|Integer|)) (|n0| #5#)
+          (|nn| #5#) (|ulsUnion| (|Any|))
+          (|uls| (|UnivariateLaurentSeries| R |x| |a|)))
          (SEQ
           (COND
            ((NULL (SPADCALL |r| (QREFELT % 36)))
@@ -417,7 +417,7 @@
 (DECLAIM (NOTINLINE |GenerateUnivariatePowerSeries1;|)) 
 
 (DEFUN |GenerateUnivariatePowerSeries1;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|GenerateUnivariatePowerSeries1| DV$1))

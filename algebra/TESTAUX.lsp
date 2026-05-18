@@ -81,7 +81,7 @@
          (|frep| (|Mapping| (|Void|) (|String|) (|List| (|OutputForm|))))
          (% (|Void|)))
         (SPROG
-         ((|res| (|List| (|OutputForm|))) (|relative| (R)) (|absolute| (R)))
+         ((|absolute| (R)) (|relative| (R)) (|res| (|List| (|OutputForm|))))
          (SEQ
           (LETT |absolute|
                 (SPADCALL (SPADCALL |ex1| |ex2| (QREFELT % 34))
@@ -157,7 +157,7 @@
          (|frep| (|Mapping| (|Void|) (|String|) (|List| (|OutputForm|))))
          (% (|Void|)))
         (SPROG
-         ((|res| (|List| (|OutputForm|))) (|relative| (R)) (|absolute| (R)))
+         ((|absolute| (R)) (|relative| (R)) (|res| (|List| (|OutputForm|))))
          (SEQ
           (LETT |absolute|
                 (SPADCALL (SPADCALL |ex1| |ex2| (QREFELT % 46))
@@ -287,7 +287,7 @@
 (DECLAIM (NOTINLINE |UnittestAux;|)) 
 
 (DEFUN |UnittestAux;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|UnittestAux| DV$1))

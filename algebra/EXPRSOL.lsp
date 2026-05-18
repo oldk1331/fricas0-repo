@@ -2,8 +2,8 @@
 (SDEFUN |EXPRSOL;replaceDiffs;FBoSF;1|
         ((|expr| (F)) (|op| (|BasicOperator|)) (|sy| (|Symbol|)) (% (F)))
         (SPROG
-         ((|differentiand| (F)) (|args| (|List| F)) (|arg| (F)) (#1=#:G10 NIL)
-          (|k| NIL) (|lk| (|List| (|Kernel| F))))
+         ((|lk| (|List| (|Kernel| F))) (|k| NIL) (#1=#:G10 NIL) (|arg| (F))
+          (|args| (|List| F)) (|differentiand| (F)))
          (SEQ (LETT |lk| (SPADCALL |expr| (QREFELT % 17)))
               (SEQ (LETT |k| NIL) (LETT #1# |lk|) G190
                    (COND
@@ -70,7 +70,7 @@
 (SDEFUN |EXPRSOL;seriesSolve;FBoSLUTSF;2|
         ((|expr| (F)) (|op| (|BasicOperator|)) (|sy| (|Symbol|))
          (|l| (|List| F)) (% (UTSF)))
-        (SPROG ((|f| (|Mapping| UTSSMPF UTSSMPF UTSSMPF)) (|ex| (F)))
+        (SPROG ((|ex| (F)) (|f| (|Mapping| UTSSMPF UTSSMPF UTSSMPF)))
                (SEQ (LETT |ex| (SPADCALL |expr| |op| |sy| (QREFELT % 28)))
                     (LETT |f|
                           (SPADCALL |ex| (SPADCALL |op| (QREFELT % 25)) |sy|
@@ -96,8 +96,8 @@
 
 (DEFUN |ExpressionSolve;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
-    (DV$1 NIL))
+   ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (DV$4 NIL) (|dv$| NIL) (% NIL)
+    (|pv$| NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))

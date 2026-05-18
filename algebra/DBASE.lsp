@@ -5,35 +5,35 @@
 
 (SDEFUN |DBASE;elt;%SDl;2|
         ((|data| (%)) (|s| (|Symbol|)) (% (|DataList| (|String|))))
-        (SPROG ((#1=#:G6 NIL) (|x| NIL) (#2=#:G5 NIL))
+        (SPROG ((#1=#:G5 NIL) (|x| NIL) (#2=#:G6 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
-                  (LETT #2# NIL)
-                  (SEQ (LETT |x| NIL) (LETT #1# |data|) G190
+                  (LETT #1# NIL)
+                  (SEQ (LETT |x| NIL) (LETT #2# |data|) G190
                        (COND
-                        ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
+                        ((OR (ATOM #2#) (PROGN (LETT |x| (CAR #2#)) NIL))
                          (GO G191)))
                        (SEQ
                         (EXIT
-                         (LETT #2#
-                               (CONS (SPADCALL |x| |s| (QREFELT % 11)) #2#))))
-                       (LETT #1# (CDR #1#)) (GO G190) G191
-                       (EXIT (NREVERSE #2#))))
+                         (LETT #1#
+                               (CONS (SPADCALL |x| |s| (QREFELT % 11)) #1#))))
+                       (LETT #2# (CDR #2#)) (GO G190) G191
+                       (EXIT (NREVERSE #1#))))
                  (QREFELT % 14))))) 
 
 (SDEFUN |DBASE;elt;%Qe%;3| ((|data| (%)) (|eq| (|QueryEquation|)) (% (%)))
         (SPROG
-         ((#1=#:G12 NIL) (|x| NIL) (#2=#:G11 NIL) (|val| (|String|))
-          (|field| (|Symbol|)))
+         ((|field| (|Symbol|)) (|val| (|String|)) (#1=#:G11 NIL) (|x| NIL)
+          (#2=#:G12 NIL))
          (SEQ (LETT |field| (SPADCALL |eq| (QREFELT % 17)))
               (LETT |val| (SPADCALL |eq| (QREFELT % 18)))
               (EXIT
                (PROGN
-                (LETT #2# NIL)
-                (SEQ (LETT |x| NIL) (LETT #1# |data|) G190
+                (LETT #1# NIL)
+                (SEQ (LETT |x| NIL) (LETT #2# |data|) G190
                      (COND
-                      ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
+                      ((OR (ATOM #2#) (PROGN (LETT |x| (CAR #2#)) NIL))
                        (GO G191)))
                      (SEQ
                       (EXIT
@@ -41,9 +41,9 @@
                         ((|stringMatches?| |val|
                                            (SPADCALL |x| |field|
                                                      (QREFELT % 11)))
-                         (LETT #2# (CONS |x| #2#))))))
-                     (LETT #1# (CDR #1#)) (GO G190) G191
-                     (EXIT (NREVERSE #2#)))))))) 
+                         (LETT #1# (CONS |x| #1#))))))
+                     (LETT #2# (CDR #2#)) (GO G190) G191
+                     (EXIT (NREVERSE #1#)))))))) 
 
 (SDEFUN |DBASE;+;3%;4| ((|x| (%)) (|y| (%)) (% (%)))
         (SPADCALL (SPADCALL |x| |y| (QREFELT % 20)) (QREFELT % 21))) 
@@ -55,7 +55,7 @@
         (SPADCALL (LENGTH |data|) (QREFELT % 28))) 
 
 (SDEFUN |DBASE;display;%V;7| ((|data| (%)) (% (|Void|)))
-        (SPROG ((#1=#:G19 NIL) (|x| NIL))
+        (SPROG ((|x| NIL) (#1=#:G19 NIL))
                (SEQ (LETT |x| NIL) (LETT #1# |data|) G190
                     (COND
                      ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
@@ -64,7 +64,7 @@
                     (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL)))) 
 
 (SDEFUN |DBASE;fullDisplay;%V;8| ((|data| (%)) (% (|Void|)))
-        (SPROG ((#1=#:G23 NIL) (|x| NIL))
+        (SPROG ((|x| NIL) (#1=#:G23 NIL))
                (SEQ (LETT |x| NIL) (LETT #1# |data|) G190
                     (COND
                      ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
@@ -75,23 +75,23 @@
 (SDEFUN |DBASE;fullDisplay;%2PiV;9|
         ((|data| (%)) (|n| (|PositiveInteger|)) (|m| (|PositiveInteger|))
          (% (|Void|)))
-        (SPROG ((#1=#:G27 NIL) (|x| NIL) (#2=#:G28 NIL) (|i| NIL))
-               (SEQ (LETT |i| 1) (LETT #2# |m|) (LETT |x| NIL)
-                    (LETT #1# |data|) G190
+        (SPROG ((|i| NIL) (#1=#:G28 NIL) (|x| NIL) (#2=#:G27 NIL))
+               (SEQ (LETT |i| 1) (LETT #1# |m|) (LETT |x| NIL)
+                    (LETT #2# |data|) G190
                     (COND
-                     ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL)
-                          (|greater_SI| |i| #2#))
+                     ((OR (ATOM #2#) (PROGN (LETT |x| (CAR #2#)) NIL)
+                          (|greater_SI| |i| #1#))
                       (GO G191)))
                     (SEQ
                      (EXIT
                       (COND ((>= |i| |n|) (SPADCALL |x| (QREFELT % 33))))))
-                    (LETT #1# (PROG1 (CDR #1#) (LETT |i| (|inc_SI| |i|))))
+                    (LETT #2# (PROG1 (CDR #2#) (LETT |i| (|inc_SI| |i|))))
                     (GO G190) G191 (EXIT NIL)))) 
 
 (DECLAIM (NOTINLINE |Database;|)) 
 
 (DEFUN |Database;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|Database| DV$1))

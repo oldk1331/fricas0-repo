@@ -10,7 +10,7 @@
         (CONS |name| |values|)) 
 
 (SDEFUN |XMLAT;coerce;%S;3| ((|rp| (%)) (% (|String|)))
-        (SPROG ((|val| (|String|)) (#1=#:G9 NIL) (|vn| NIL))
+        (SPROG ((|vn| NIL) (#1=#:G9 NIL) (|val| (|String|)))
                (SEQ (LETT |val| "")
                     (SEQ (LETT |vn| NIL) (LETT #1# (QCDR |rp|)) G190
                          (COND
@@ -34,7 +34,7 @@
                       (QREFELT % 12)))))) 
 
 (SDEFUN |XMLAT;outputVRML;%TfV;4| ((|rp| (%)) (|f1| (|TextFile|)) (% (|Void|)))
-        (SPROG ((|val| (|String|)) (#1=#:G15 NIL) (|vn| NIL))
+        (SPROG ((|vn| NIL) (#1=#:G15 NIL) (|val| (|String|)))
                (SEQ (LETT |val| "")
                     (SEQ (LETT |vn| NIL) (LETT #1# (QCDR |rp|)) G190
                          (COND

@@ -3,8 +3,8 @@
         ((|x| (%)) (|y| (%))
          (% (|Record| (|:| |quotient| . #1=(%)) (|:| |remainder| . #1#))))
         (SPROG
-         ((|r| (|Record| (|:| |quotient| R) (|:| |remainder| R))) (|yv| (R))
-          (|invlcy| (R)) (|xm| (|Mod|)) (|t| (|Union| |Mod| "failed")))
+         ((|t| (|Union| |Mod| "failed")) (|xm| (|Mod|)) (|invlcy| (R))
+          (|yv| (R)) (|r| (|Record| (|:| |quotient| R) (|:| |remainder| R))))
          (SEQ (LETT |t| (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT % 10)))
               (EXIT
                (COND ((QEQCAR |t| 1) (|error| "incompatible moduli"))
@@ -39,9 +39,9 @@
 
 (SDEFUN |EMR;rem;3%;2| ((|x| (%)) (|y| (%)) (% (%)))
         (SPROG
-         ((#1=#:G63 NIL) (|xv| (R)) (#2=#:G56 NIL) (|xvl| (R))
-          (|d| (|Integer|)) (|dy| (|NonNegativeInteger|)) (|yv| (R))
-          (|invlcy| (R)) (|xm| (|Mod|)) (|t| (|Union| |Mod| "failed")))
+         ((|t| (|Union| |Mod| "failed")) (|xm| (|Mod|)) (|invlcy| (R))
+          (|yv| (R)) (|dy| (|NonNegativeInteger|)) (|d| (|Integer|))
+          (|xvl| (R)) (#1=#:G56 NIL) (|xv| (R)) (#2=#:G63 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |t| (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT % 10)))
@@ -101,11 +101,11 @@
                                                        (QREFELT % 33)))
                                        (LETT |xv|
                                              (SPADCALL |xv|
-                                                       (PROG1 (LETT #2# |d|)
+                                                       (PROG1 (LETT #1# |d|)
                                                          (|check_subtype2|
-                                                          (>= #2# 0)
+                                                          (>= #1# 0)
                                                           '(|NonNegativeInteger|)
-                                                          '(|Integer|) #2#))
+                                                          '(|Integer|) #1#))
                                                        (SPADCALL |xv|
                                                                  (QREFELT %
                                                                           13))
@@ -115,18 +115,18 @@
                                          ((SPADCALL |xv| (|spadConstant| % 30)
                                                     (QREFELT % 31))
                                           (PROGN
-                                           (LETT #1# (CONS |xv| |xm|))
+                                           (LETT #2# (CONS |xv| |xm|))
                                            (GO #3=#:G62))))))))))
                                   NIL (GO G190) G191 (EXIT NIL))
                              (EXIT
                               (CONS (SPADCALL |xv| |xm| (QREFELT % 9))
                                     |xm|))))))))
-          #3# (EXIT #1#)))) 
+          #3# (EXIT #2#)))) 
 
 (SDEFUN |EMR;rem;3%;3| ((|x| (%)) (|y| (%)) (% (%)))
         (SPROG
-         ((|r| (|Record| (|:| |quotient| R) (|:| |remainder| R))) (|yv| (R))
-          (|invlcy| (R)) (|xm| (|Mod|)) (|t| (|Union| |Mod| "failed")))
+         ((|t| (|Union| |Mod| "failed")) (|xm| (|Mod|)) (|invlcy| (R))
+          (|yv| (R)) (|r| (|Record| (|:| |quotient| R) (|:| |remainder| R))))
          (SEQ (LETT |t| (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT % 10)))
               (EXIT
                (COND ((QEQCAR |t| 1) (|error| "incompatible moduli"))
@@ -182,7 +182,7 @@
          (%
           (|Record| (|:| |unit| . #1=(%)) (|:| |canonical| . #1#)
                     (|:| |associate| . #1#))))
-        (SPROG ((|invlcx| (%)) (|lcx| (%)))
+        (SPROG ((|lcx| (%)) (|invlcx| (%)))
                (SEQ
                 (COND
                  ((OR (SPADCALL |x| (QREFELT % 37))
@@ -213,8 +213,8 @@
 
 (DEFUN |EuclideanModularRing;| (|#1| |#2| |#3| |#4| |#5| |#6|)
   (SPROG
-   ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$6 NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL)
-    (DV$2 NIL) (DV$1 NIL))
+   ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (DV$4 NIL) (DV$5 NIL) (DV$6 NIL)
+    (|dv$| NIL) (% NIL) (|pv$| NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))

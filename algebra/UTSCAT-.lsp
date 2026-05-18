@@ -54,10 +54,10 @@
 
 (SDEFUN |UTSCAT-;coerce;SOf;5| ((|p| (S)) (% (|OutputForm|)))
         (SPROG
-         ((|l| (|List| (|OutputForm|))) (|uu| (|Stream| |Coef|))
-          (|uu1| (|Stream| |Coef|)) (|n| NIL) (#1=#:G62 NIL)
-          (|count| (|NonNegativeInteger|)) (|vv| (|OutputForm|))
-          (|cen| (|Coef|)) (|var| (|Symbol|)))
+         ((|var| (|Symbol|)) (|cen| (|Coef|)) (|vv| (|OutputForm|))
+          (|count| (|NonNegativeInteger|)) (#1=#:G62 NIL) (|n| NIL)
+          (|uu1| (|Stream| |Coef|)) (|uu| (|Stream| |Coef|))
+          (|l| (|List| (|OutputForm|))))
          (SEQ
           (COND
            ((SPADCALL (LETT |uu| (SPADCALL |p| (QREFELT % 9))) (QREFELT % 11))
@@ -278,8 +278,8 @@
 
 (SDEFUN |UTSCAT-;^;SFS;36| ((|x| (S)) (|r| (|Fraction| (|Integer|))) (% (S)))
         (SPROG
-         ((|ratPow| (|Stream| |Coef|)) (|onePlusX| (|Stream| |Coef|))
-          (|coefs| (|Stream| |Coef|)))
+         ((|coefs| (|Stream| |Coef|)) (|onePlusX| (|Stream| |Coef|))
+          (|ratPow| (|Stream| |Coef|)))
          (SEQ (LETT |coefs| (SPADCALL |x| (QREFELT % 9)))
               (EXIT
                (COND
@@ -415,7 +415,7 @@
 (DECLAIM (NOTINLINE |UnivariateTaylorSeriesCategory&;|)) 
 
 (DEFUN |UnivariateTaylorSeriesCategory&| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

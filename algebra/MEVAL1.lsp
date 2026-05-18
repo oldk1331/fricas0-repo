@@ -27,44 +27,44 @@
         ((|p| (|Polynomial| (|Integer|))) (|ls1| #1=(|List| (|Symbol|)))
          (|ls2| #1#) (% (|Polynomial| (|Integer|))))
         (SPROG
-         ((|lm| (|List| (|Polynomial| (|Integer|)))) (#2=#:G19 NIL) (|v| NIL)
-          (#3=#:G18 NIL))
+         ((#2=#:G18 NIL) (|v| NIL) (#3=#:G19 NIL)
+          (|lm| (|List| (|Polynomial| (|Integer|)))))
          (SEQ
           (LETT |lm|
                 (PROGN
-                 (LETT #3# NIL)
-                 (SEQ (LETT |v| NIL) (LETT #2# |ls2|) G190
+                 (LETT #2# NIL)
+                 (SEQ (LETT |v| NIL) (LETT #3# |ls2|) G190
                       (COND
-                       ((OR (ATOM #2#) (PROGN (LETT |v| (CAR #2#)) NIL))
+                       ((OR (ATOM #3#) (PROGN (LETT |v| (CAR #3#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #3#
+                        (LETT #2#
                               (CONS
                                (SPADCALL (|spadConstant| % 20) |v| 1
                                          (QREFELT % 21))
-                               #3#))))
-                      (LETT #2# (CDR #2#)) (GO G190) G191
-                      (EXIT (NREVERSE #3#)))))
+                               #2#))))
+                      (LETT #3# (CDR #3#)) (GO G190) G191
+                      (EXIT (NREVERSE #2#)))))
           (EXIT (SPADCALL |p| |ls1| |lm| (QREFELT % 24)))))) 
 
 (SDEFUN |MEVAL1;trial_division;2PLSLB;6|
         ((|p| #1=(|Polynomial| (|Integer|))) (|g| (|Polynomial| (|Integer|)))
          (|lm| (|List| #1#)) (|v| #2=(|Symbol|)) (|ls| (|List| #2#))
          (% (|Boolean|)))
-        (SPROG ((#3=#:G24 NIL) (|m| NIL) (#4=#:G23 NIL))
+        (SPROG ((#3=#:G23 NIL) (|m| NIL) (#4=#:G24 NIL))
                (SEQ
                 (SPADCALL |p| |g|
                           (PROGN
-                           (LETT #4# NIL)
-                           (SEQ (LETT |m| NIL) (LETT #3# |lm|) G190
+                           (LETT #3# NIL)
+                           (SEQ (LETT |m| NIL) (LETT #4# |lm|) G190
                                 (COND
-                                 ((OR (ATOM #3#)
-                                      (PROGN (LETT |m| (CAR #3#)) NIL))
+                                 ((OR (ATOM #4#)
+                                      (PROGN (LETT |m| (CAR #4#)) NIL))
                                   (GO G191)))
-                                (SEQ (EXIT (LETT #4# (CONS |m| #4#))))
-                                (LETT #3# (CDR #3#)) (GO G190) G191
-                                (EXIT (NREVERSE #4#))))
+                                (SEQ (EXIT (LETT #3# (CONS |m| #3#))))
+                                (LETT #4# (CDR #4#)) (GO G190) G191
+                                (EXIT (NREVERSE #3#))))
                           (LIST |v|) |ls| (QREFELT % 30))))) 
 
 (DECLAIM (NOTINLINE |ModularEvaluation1;|)) 

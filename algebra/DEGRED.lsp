@@ -21,45 +21,45 @@
           (|Record| (|:| |pol| (|SparseUnivariatePolynomial| R1))
                     (|:| |deg| (|PositiveInteger|)))))
         (SPROG
-         ((#1=#:G19 NIL) (#2=#:G16 NIL) (#3=#:G14 NIL) (|g| #4=(|Integer|))
-          (#5=#:G8 NIL) (#6=#:G7 #4#) (#7=#:G9 #4#) (#8=#:G23 NIL) (|d| NIL))
+         ((|d| NIL) (#1=#:G23 NIL) (#2=#:G9 #3=(|Integer|)) (#4=#:G7 #3#)
+          (#5=#:G8 NIL) (|g| #3#) (#6=#:G14 NIL) (#7=#:G16 NIL) (#8=#:G19 NIL))
          (SEQ
           (LETT |g|
                 (PROGN
                  (LETT #5# NIL)
-                 (SEQ (LETT |d| NIL) (LETT #8# (|DEGRED;degrees| |u| %)) G190
+                 (SEQ (LETT |d| NIL) (LETT #1# (|DEGRED;degrees| |u| %)) G190
                       (COND
-                       ((OR (ATOM #8#) (PROGN (LETT |d| (CAR #8#)) NIL))
+                       ((OR (ATOM #1#) (PROGN (LETT |d| (CAR #1#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
                         (PROGN
-                         (LETT #7# |d|)
-                         (COND (#5# (LETT #6# (GCD #6# #7#)))
-                               ('T (PROGN (LETT #6# #7#) (LETT #5# 'T)))))))
-                      (LETT #8# (CDR #8#)) (GO G190) G191 (EXIT NIL))
-                 (COND (#5# #6#) ('T 0))))
+                         (LETT #2# |d|)
+                         (COND (#5# (LETT #4# (GCD #4# #2#)))
+                               ('T (PROGN (LETT #4# #2#) (LETT #5# 'T)))))))
+                      (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
+                 (COND (#5# #4#) ('T 0))))
           (LETT |u|
                 (PROG2
-                    (LETT #2#
+                    (LETT #7#
                           (SPADCALL |u|
-                                    (PROG1 (LETT #3# |g|)
-                                      (|check_subtype2| (> #3# 0)
+                                    (PROG1 (LETT #6# |g|)
+                                      (|check_subtype2| (> #6# 0)
                                                         '(|PositiveInteger|)
-                                                        '(|Integer|) #3#))
+                                                        '(|Integer|) #6#))
                                     (QREFELT % 18)))
-                    (QCDR #2#)
-                  (|check_union2| (QEQCAR #2# 0)
+                    (QCDR #7#)
+                  (|check_union2| (QEQCAR #7# 0)
                                   (|SparseUnivariatePolynomial| (QREFELT % 6))
                                   (|Union|
                                    (|SparseUnivariatePolynomial| (QREFELT % 6))
                                    "failed")
-                                  #2#)))
+                                  #7#)))
           (EXIT
            (CONS |u|
-                 (PROG1 (LETT #1# |g|)
-                   (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
-                                     '(|Integer|) #1#))))))) 
+                 (PROG1 (LETT #8# |g|)
+                   (|check_subtype2| (> #8# 0) '(|PositiveInteger|)
+                                     '(|Integer|) #8#))))))) 
 
 (SDEFUN |DEGRED;rootOfUnity|
         ((|j| (|Integer|)) (|n| (|Integer|)) (% (|Expression| R2)))
@@ -86,7 +86,7 @@
                                    (QREFELT % 41))))))))) 
 
 (SDEFUN |DEGRED;even_part| ((|gp| (|PositiveInteger|)) (% (|PositiveInteger|)))
-        (SPROG ((|res| (|PositiveInteger|)) (|g| (|NonNegativeInteger|)))
+        (SPROG ((|g| (|NonNegativeInteger|)) (|res| (|PositiveInteger|)))
                (SEQ (LETT |g| |gp|) (LETT |res| 1)
                     (SEQ G190 (COND ((NULL (EVENP |g|)) (GO G191)))
                          (SEQ (LETT |g| (|quotient_INT| |g| 2))
@@ -98,8 +98,8 @@
         ((|s| (|Expression| R2)) (|g| (|PositiveInteger|))
          (% (|List| (|Expression| R2))))
         (SPROG
-         ((#1=#:G38 NIL) (|i| NIL) (#2=#:G37 NIL) (|sr| (|Expression| R2))
-          (|g2| (|PositiveInteger|)))
+         ((|g2| (|PositiveInteger|)) (|sr| (|Expression| R2)) (#1=#:G37 NIL)
+          (|i| NIL) (#2=#:G38 NIL))
          (SEQ
           (COND ((EQL |g| 1) (LIST |s|))
                 (#3='T
@@ -123,41 +123,41 @@
                                     (QREFELT % 38)))))
                   (EXIT
                    (PROGN
-                    (LETT #2# NIL)
-                    (SEQ (LETT |i| 0) (LETT #1# (- |g| 1)) G190
-                         (COND ((|greater_SI| |i| #1#) (GO G191)))
+                    (LETT #1# NIL)
+                    (SEQ (LETT |i| 0) (LETT #2# (- |g| 1)) G190
+                         (COND ((|greater_SI| |i| #2#) (GO G191)))
                          (SEQ
                           (EXIT
-                           (LETT #2#
+                           (LETT #1#
                                  (CONS
                                   (SPADCALL (|DEGRED;rootOfUnity| |i| |g| %)
                                             |sr| (QREFELT % 40))
-                                  #2#))))
+                                  #1#))))
                          (LETT |i| (|inc_SI| |i|)) (GO G190) G191
-                         (EXIT (NREVERSE #2#))))))))))) 
+                         (EXIT (NREVERSE #1#))))))))))) 
 
 (SDEFUN |DEGRED;cyclotomic_roots;PiL;6|
         ((|n| (|PositiveInteger|)) (% (|List| (|Expression| R2))))
-        (SPROG ((#1=#:G43 NIL) (|i| NIL) (#2=#:G42 NIL))
+        (SPROG ((#1=#:G42 NIL) (|i| NIL) (#2=#:G43 NIL))
                (SEQ
                 (PROGN
-                 (LETT #2# NIL)
-                 (SEQ (LETT |i| 0) (LETT #1# (- |n| 1)) G190
-                      (COND ((|greater_SI| |i| #1#) (GO G191)))
+                 (LETT #1# NIL)
+                 (SEQ (LETT |i| 0) (LETT #2# (- |n| 1)) G190
+                      (COND ((|greater_SI| |i| #2#) (GO G191)))
                       (SEQ
                        (EXIT
                         (COND
                          ((EQL (GCD |i| |n|) 1)
-                          (LETT #2#
+                          (LETT #1#
                                 (CONS (|DEGRED;rootOfUnity| |i| |n| %)
-                                      #2#))))))
+                                      #1#))))))
                       (LETT |i| (|inc_SI| |i|)) (GO G190) G191
-                      (EXIT (NREVERSE #2#))))))) 
+                      (EXIT (NREVERSE #1#))))))) 
 
 (DECLAIM (NOTINLINE |DegreeReductionPackage;|)) 
 
 (DEFUN |DegreeReductionPackage;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

@@ -12,7 +12,7 @@
 (SDEFUN |JBP;denominator;2%;4| ((|l| (%)) (% (%))) (|spadConstant| % 15)) 
 
 (SDEFUN |JBP;solveFor;%JBU;5| ((|p| (%)) (|jv| (JB)) (% (|Union| % "failed")))
-        (SPROG ((|cc| (R)) (|c| (%)))
+        (SPROG ((|c| (%)) (|cc| (R)))
                (SEQ (LETT |c| (SPADCALL |p| |jv| (QREFELT % 17)))
                     (EXIT
                      (COND
@@ -30,7 +30,7 @@
                       ('T (CONS 1 "failed"))))))) 
 
 (SDEFUN |JBP;solveFor;%JBU;6| ((|p| (%)) (|jv| (JB)) (% (|Union| % "failed")))
-        (SPROG ((|rc| (|Union| R "failed")) (|cc| (R)) (|c| (%)))
+        (SPROG ((|c| (%)) (|cc| (R)) (|rc| (|Union| R "failed")))
                (SEQ (LETT |c| (SPADCALL |p| |jv| (QREFELT % 17)))
                     (EXIT
                      (COND
@@ -50,22 +50,22 @@
 
 (SDEFUN |JBP;groebner;2L;7| ((|lp| (|List| %)) (% (|List| %)))
         (SPROG
-         ((LJV (|List| JB)) (|lj| (|List| (|List| JB))) (#1=#:G31 NIL)
-          (|p| NIL) (#2=#:G30 NIL))
+         ((#1=#:G30 NIL) (|p| NIL) (#2=#:G31 NIL) (|lj| (|List| (|List| JB)))
+          (LJV (|List| JB)))
          (SEQ (SPADCALL (SPADCALL "groebner" (QREFELT % 32)) (QREFELT % 34))
               (LETT |lj|
                     (PROGN
-                     (LETT #2# NIL)
-                     (SEQ (LETT |p| NIL) (LETT #1# |lp|) G190
+                     (LETT #1# NIL)
+                     (SEQ (LETT |p| NIL) (LETT #2# |lp|) G190
                           (COND
-                           ((OR (ATOM #1#) (PROGN (LETT |p| (CAR #1#)) NIL))
+                           ((OR (ATOM #2#) (PROGN (LETT |p| (CAR #2#)) NIL))
                             (GO G191)))
                           (SEQ
                            (EXIT
-                            (LETT #2#
-                                  (CONS (SPADCALL |p| (QREFELT % 11)) #2#))))
-                          (LETT #1# (CDR #1#)) (GO G190) G191
-                          (EXIT (NREVERSE #2#)))))
+                            (LETT #1#
+                                  (CONS (SPADCALL |p| (QREFELT % 11)) #1#))))
+                          (LETT #2# (CDR #2#)) (GO G190) G191
+                          (EXIT (NREVERSE #1#)))))
               (LETT LJV (SPADCALL (ELT % 35) |lj| NIL (QREFELT % 38)))
               (SPADCALL
                (SPADCALL (SPADCALL "LJV" (QREFELT % 32))
@@ -87,7 +87,7 @@
 (DECLAIM (NOTINLINE |JetBundlePolynomial;|)) 
 
 (DEFUN |JetBundlePolynomial;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (#1=#:G73 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (#1=#:G73 NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

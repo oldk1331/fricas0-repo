@@ -1,7 +1,7 @@
 
 (SDEFUN |TS;polynomial;%NniP;1|
         ((|s| (%)) (|n| (|NonNegativeInteger|)) (% (|Polynomial| |Coef|)))
-        (SPROG ((|sum| (|Polynomial| |Coef|)) (#1=#:G7 NIL) (|i| NIL))
+        (SPROG ((|i| NIL) (#1=#:G7 NIL) (|sum| (|Polynomial| |Coef|)))
                (SEQ (LETT |sum| (|spadConstant| % 9))
                     (SEQ (LETT |i| 0) (LETT #1# |n|) G190
                          (COND
@@ -20,7 +20,7 @@
 
 (DEFUN |TaylorSeries;| (|#1|)
   (SPROG
-   ((#1=#:G17 NIL) (|pv$| NIL) (#2=#:G16 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+   ((DV$1 NIL) (|dv$| NIL) (% NIL) (#1=#:G16 NIL) (|pv$| NIL) (#2=#:G17 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|TaylorSeries| DV$1))
@@ -40,10 +40,10 @@
                                                        '(|CharacteristicNonZero|))
                                         (|HasCategory| |#1|
                                                        '(|CharacteristicZero|))
-                                        (LETT #2#
+                                        (LETT #1#
                                               (|HasCategory| |#1|
                                                              '(|CommutativeRing|)))
-                                        (OR #2#
+                                        (OR #1#
                                             (|HasCategory| |#1|
                                                            '(|IntegralDomain|)))
                                         (|HasCategory| |#1| '(|Field|))
@@ -53,19 +53,19 @@
     (|haddProp| |$ConstructorCache| '|TaylorSeries| (LIST DV$1) (CONS 1 %))
     (|stuffDomainSlots| %)
     (QSETREFV % 6 |#1|)
-    (AND #2# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))
+    (AND #1# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))
          (|augmentPredVector| % 256))
     (AND
-     (LETT #1#
+     (LETT #2#
            (AND (|HasCategory| |#1| '(|IntegralDomain|))
                 (|HasCategory| % '(|VariablesCommuteWithCoefficients|))))
      (|augmentPredVector| % 512))
     (AND
-     (OR (AND #2# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))) #1#)
+     (OR (AND #1# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))) #2#)
      (|augmentPredVector| % 1024))
     (AND
      (OR (|HasCategory| |#1| '(|Algebra| (|Fraction| (|Integer|))))
-         (AND #2# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))) #1#)
+         (AND #1# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))) #2#)
      (|augmentPredVector| % 2048))
     (SETF |pv$| (QREFELT % 3))
     (QSETREFV % 7 (|Stream| (|Polynomial| |#1|)))

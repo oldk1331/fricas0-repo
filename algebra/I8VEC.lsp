@@ -40,7 +40,7 @@
         (SETELT_I8 |x| |i| |s|)) 
 
 (SDEFUN |I8VEC;fill!;%I%;9| ((|x| (%)) (|s| (|Integer|)) (% (%)))
-        (SPROG ((#1=#:G2512 NIL) (|i| NIL))
+        (SPROG ((|i| NIL) (#1=#:G2512 NIL))
                (SEQ
                 (SEQ (LETT |i| 0) (LETT #1# (|sub_SI| (QV_LEN_I8 |x|) 1)) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))

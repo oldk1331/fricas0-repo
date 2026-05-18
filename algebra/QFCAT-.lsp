@@ -28,13 +28,13 @@
 
 (SDEFUN |QFCAT-;reducedSystem;MM;6| ((|m| (|Matrix| A)) (% (|Matrix| S)))
         (SPROG
-         ((#1=#:G23 NIL) (|ell| (A)) (#2=#:G32 NIL) (|j| NIL) (|d| (S))
-          (#3=#:G31 NIL) (|i| NIL) (|ans| (|Matrix| S))
-          (|ncm| (|NonNegativeInteger|)) (|nrm| (|NonNegativeInteger|)))
+         ((|nrm| (|NonNegativeInteger|)) (|ncm| (|NonNegativeInteger|))
+          (|ans| (|Matrix| S)) (|i| NIL) (#1=#:G31 NIL) (|d| (S)) (|j| NIL)
+          (#2=#:G32 NIL) (|ell| (A)) (#3=#:G23 NIL))
          (SEQ (LETT |nrm| (ANROWS |m|)) (LETT |ncm| (ANCOLS |m|))
               (LETT |ans| (MAKE_MATRIX1 |nrm| |ncm| (|spadConstant| % 24)))
-              (SEQ (LETT |i| 1) (LETT #3# |nrm|) G190
-                   (COND ((|greater_SI| |i| #3#) (GO G191)))
+              (SEQ (LETT |i| 1) (LETT #1# |nrm|) G190
+                   (COND ((|greater_SI| |i| #1#) (GO G191)))
                    (SEQ
                     (LETT |d|
                           (SPADCALL (SPADCALL |m| |i| (QREFELT % 28))
@@ -47,7 +47,7 @@
                                 (QSETAREF2O |ans| |i| |j|
                                             (SPADCALL
                                              (PROG2
-                                                 (LETT #1#
+                                                 (LETT #3#
                                                        (SPADCALL |d|
                                                                  (SPADCALL
                                                                   |ell|
@@ -55,13 +55,13 @@
                                                                            11))
                                                                  (QREFELT %
                                                                           31)))
-                                                 (QCDR #1#)
-                                               (|check_union2| (QEQCAR #1# 0)
+                                                 (QCDR #3#)
+                                               (|check_union2| (QEQCAR #3# 0)
                                                                (QREFELT % 7)
                                                                (|Union|
                                                                 (QREFELT % 7)
                                                                 "failed")
-                                                               #1#))
+                                                               #3#))
                                              (SPADCALL |ell| (QREFELT % 8))
                                              (QREFELT % 32))
                                             1 1)))
@@ -75,7 +75,7 @@
 
 (SDEFUN |QFCAT-;differentiate;AMA;8|
         ((|x| (A)) (|deriv| (|Mapping| S S)) (% (A)))
-        (SPROG ((|d| (S)) (|n| (S)))
+        (SPROG ((|n| (S)) (|d| (S)))
                (SEQ (LETT |n| (SPADCALL |x| (QREFELT % 8)))
                     (LETT |d| (SPADCALL |x| (QREFELT % 11)))
                     (EXIT
@@ -192,7 +192,7 @@
 (DECLAIM (NOTINLINE |QuotientFieldCategory&;|)) 
 
 (DEFUN |QuotientFieldCategory&| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

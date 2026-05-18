@@ -1,8 +1,8 @@
 
 (SDEFUN |SEXOF;coerce;%Of;1| ((|b| (%)) (% (|OutputForm|)))
         (SPROG
-         ((|l1| (|List| (|OutputForm|))) (#1=#:G27 NIL) (|l| (|List| %))
-          (|b1| NIL) (#2=#:G26 NIL) (|r| (%)))
+         ((|r| (%)) (#1=#:G26 NIL) (|b1| NIL) (|l| (|List| %)) (#2=#:G27 NIL)
+          (|l1| (|List| (|OutputForm|))))
          (SEQ
           (COND ((SPADCALL |b| (QREFELT % 12)) (SPADCALL NIL (QREFELT % 15)))
                 ((SPADCALL |b| (QREFELT % 16)) (SPADCALL |b| (QREFELT % 18)))
@@ -18,23 +18,23 @@
                            NIL (GO G190) G191 (EXIT NIL))
                       (LETT |l1|
                             (PROGN
-                             (LETT #2# NIL)
+                             (LETT #1# NIL)
                              (SEQ (LETT |b1| NIL)
-                                  (LETT #1#
+                                  (LETT #2#
                                         (LETT |l|
                                               (SPADCALL |b| (QREFELT % 21))))
                                   G190
                                   (COND
-                                   ((OR (ATOM #1#)
-                                        (PROGN (LETT |b1| (CAR #1#)) NIL))
+                                   ((OR (ATOM #2#)
+                                        (PROGN (LETT |b1| (CAR #2#)) NIL))
                                     (GO G191)))
                                   (SEQ
                                    (EXIT
-                                    (LETT #2#
+                                    (LETT #1#
                                           (CONS (SPADCALL |b1| (QREFELT % 22))
-                                                #2#))))
-                                  (LETT #1# (CDR #1#)) (GO G190) G191
-                                  (EXIT (NREVERSE #2#)))))
+                                                #1#))))
+                                  (LETT #2# (CDR #2#)) (GO G190) G191
+                                  (EXIT (NREVERSE #1#)))))
                       (COND
                        ((NULL (SPADCALL |r| (QREFELT % 12)))
                         (EXIT
@@ -150,7 +150,7 @@
         (SPADCALL (SPADCALL |b| (QREFELT % 21)) |i| (QREFELT % 53))) 
 
 (SDEFUN |SEXOF;elt;%L%;26| ((|b| (%)) (|li| (|List| (|Integer|))) (% (%)))
-        (SPROG ((#1=#:G62 NIL) (|i| NIL))
+        (SPROG ((|i| NIL) (#1=#:G62 NIL))
                (SEQ
                 (SEQ (LETT |i| NIL) (LETT #1# |li|) G190
                      (COND
@@ -172,8 +172,8 @@
 
 (DEFUN |SExpressionOf;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
-    (DV$1 NIL))
+   ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (DV$4 NIL) (|dv$| NIL) (% NIL)
+    (|pv$| NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))

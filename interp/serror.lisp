@@ -4,14 +4,14 @@
 (IN-PACKAGE "BOOT")
 
 ; syGeneralErrorHere() ==
-;    pos := tokPosn($tok)
+;    pos := tokPosn($stok)
 ;    ncSoftError(pos, '"Improper syntax.", [])
 
 (DEFUN |syGeneralErrorHere| ()
   (PROG (|pos|)
     (RETURN
      (PROGN
-      (SETQ |pos| (|tokPosn| |$tok|))
+      (SETQ |pos| (|tokPosn| |$stok|))
       (|ncSoftError| |pos| "Improper syntax." NIL)))))
 
 ; syIgnoredFromTo(pos1, pos2) ==
@@ -94,9 +94,9 @@
       (|ncSoftError| (|tokPosn| |a|) "Improper syntax." NIL)
       (THROW 'TRAPPOINT 'TRAPPED)))))
 
-; npTrap()== np_trap_form($tok)
+; npTrap()== np_trap_form($stok)
 
-(DEFUN |npTrap| () (PROG () (RETURN (|np_trap_form| |$tok|))))
+(DEFUN |npTrap| () (PROG () (RETURN (|np_trap_form| |$stok|))))
 
 ; npRecoverTrap()==
 ;   npFirstTok()

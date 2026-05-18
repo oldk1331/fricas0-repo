@@ -16,24 +16,24 @@
 
 (SDEFUN |SEQU;apply;%PR;5| ((|mm| (%)) (|pi| (|Partition|)) (% (R)))
         (SPROG
-         ((#1=#:G19 NIL) (|k| NIL) (#2=#:G18 NIL) (|pil| (|List| (|Integer|))))
+         ((|pil| (|List| (|Integer|))) (#1=#:G18 NIL) (|k| NIL) (#2=#:G19 NIL))
          (SEQ (LETT |pil| (SPADCALL |pi| (QREFELT % 18)))
               (EXIT
                (SPADCALL (ELT % 19)
                          (PROGN
-                          (LETT #2# NIL)
-                          (SEQ (LETT |k| NIL) (LETT #1# |pil|) G190
+                          (LETT #1# NIL)
+                          (SEQ (LETT |k| NIL) (LETT #2# |pil|) G190
                                (COND
-                                ((OR (ATOM #1#)
-                                     (PROGN (LETT |k| (CAR #1#)) NIL))
+                                ((OR (ATOM #2#)
+                                     (PROGN (LETT |k| (CAR #2#)) NIL))
                                  (GO G191)))
                                (SEQ
                                 (EXIT
-                                 (LETT #2#
+                                 (LETT #1#
                                        (CONS (SPADCALL |mm| |k| (QREFELT % 15))
-                                             #2#))))
-                               (LETT #1# (CDR #1#)) (GO G190) G191
-                               (EXIT (NREVERSE #2#))))
+                                             #1#))))
+                               (LETT #2# (CDR #2#)) (GO G190) G191
+                               (EXIT (NREVERSE #1#))))
                          (QREFELT % 21)))))) 
 
 (SDEFUN |SEQU;cons;R2%;6| ((|r| (R)) (|s| (%)) (% (%)))
@@ -110,8 +110,8 @@
 
 (DEFUN |Sequence;| (|#1|)
   (SPROG
-   ((#1=#:G47 NIL) (#2=#:G49 NIL) (#3=#:G48 NIL) (|pv$| NIL) (#4=#:G46 NIL)
-    (% NIL) (|dv$| NIL) (DV$1 NIL))
+   ((DV$1 NIL) (|dv$| NIL) (% NIL) (#1=#:G46 NIL) (|pv$| NIL) (#2=#:G48 NIL)
+    (#3=#:G49 NIL) (#4=#:G47 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|Sequence| DV$1))
@@ -137,31 +137,31 @@
                                         (|HasCategory| |#1| '(|OrderedSet|))
                                         (|HasCategory| (|Integer|)
                                                        '(|OrderedSet|))
-                                        (LETT #4#
+                                        (LETT #1#
                                               (|HasCategory| |#1|
                                                              '(|AbelianMonoid|)))
                                         (OR
                                          (|HasCategory| |#1| '(|AbelianGroup|))
-                                         #4#)))))
+                                         #1#)))))
     (|haddProp| |$ConstructorCache| '|Sequence| (LIST DV$1) (CONS 1 %))
     (|stuffDomainSlots| %)
     (QSETREFV % 6 |#1|)
-    (AND (LETT #3# (|HasCategory| % '(|finiteAggregate|)))
+    (AND (LETT #2# (|HasCategory| % '(|finiteAggregate|)))
          (|augmentPredVector| % 1024))
-    (AND (|HasCategory| |#1| '(|Hashable|)) #3# (|augmentPredVector| % 2048))
+    (AND (|HasCategory| |#1| '(|Hashable|)) #2# (|augmentPredVector| % 2048))
     (AND
-     (LETT #2#
+     (LETT #3#
            (AND (|HasCategory| |#1| '(|OrderedSet|))
                 (|HasCategory| % '(|finiteAggregate|))))
      (|augmentPredVector| % 4096))
-    (AND (OR (AND (|HasCategory| |#1| '(|Comparable|)) #3#) #2#)
+    (AND (OR (AND (|HasCategory| |#1| '(|Comparable|)) #2#) #3#)
          (|augmentPredVector| % 8192))
-    (AND (|HasCategory| |#1| '(|BasicType|)) #3# (|augmentPredVector| % 16384))
-    (AND (LETT #1# (|HasCategory| % '(|shallowlyMutable|)))
+    (AND (|HasCategory| |#1| '(|BasicType|)) #2# (|augmentPredVector| % 16384))
+    (AND (LETT #4# (|HasCategory| % '(|shallowlyMutable|)))
          (|augmentPredVector| % 32768))
-    (AND (|HasCategory| |#1| '(|OrderedSet|)) #3# #1#
+    (AND (|HasCategory| |#1| '(|OrderedSet|)) #2# #4#
          (|augmentPredVector| % 65536))
-    (AND #3# #1# (|augmentPredVector| % 131072))
+    (AND #2# #4# (|augmentPredVector| % 131072))
     (SETF |pv$| (QREFELT % 3))
     (QSETREFV % 7 (|Stream| |#1|))
     %))) 

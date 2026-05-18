@@ -3,7 +3,7 @@
         ((|s| (|Symbol|)) (|p| (|Pattern| S))
          (|l| (|PatternMatchResult| S (|Symbol|)))
          (% (|PatternMatchResult| S (|Symbol|))))
-        (SPROG ((#1=#:G12 NIL) (|u| (|Union| (|Symbol|) "failed")))
+        (SPROG ((|u| (|Union| (|Symbol|) "failed")) (#1=#:G12 NIL))
                (SEQ
                 (COND
                  ((SPADCALL |p| (QREFELT % 9))
@@ -26,7 +26,7 @@
 (DECLAIM (NOTINLINE |PatternMatchSymbol;|)) 
 
 (DEFUN |PatternMatchSymbol;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|PatternMatchSymbol| DV$1))

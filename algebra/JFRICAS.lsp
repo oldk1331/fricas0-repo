@@ -2,16 +2,16 @@
 (SDEFUN |JFRICAS;setFormatsAux!|
         ((|lf| (|List| (|FormatterCategory|))) (% (|Void|)))
         (SPROG
-         ((#1=#:G13 NIL) (|f| NIL) (#2=#:G12 NIL) (|e| #3=(|OutputBox|))
-          (|b| #3#) (|n| (|String|)) (#4=#:G11 NIL))
+         ((#1=#:G11 NIL) (|n| (|String|)) (|b| #2=(|OutputBox|)) (|e| #2#)
+          (#3=#:G12 NIL) (|f| NIL) (#4=#:G13 NIL))
          (SEQ
           (COND
            ((NULL |lf|) (SPADCALL "set output formatted off" (QREFELT % 9)))
            ('T
             (SEQ
-             (SEQ (LETT |f| NIL) (LETT #4# |lf|) G190
+             (SEQ (LETT |f| NIL) (LETT #1# |lf|) G190
                   (COND
-                   ((OR (ATOM #4#) (PROGN (LETT |f| (CAR #4#)) NIL))
+                   ((OR (ATOM #1#) (PROGN (LETT |f| (CAR #1#)) NIL))
                     (GO G191)))
                   (SEQ (LETT |n| (STRINGIMAGE (CAR (|devaluate| |f|))))
                        (LETT |b|
@@ -46,16 +46,16 @@
                                                        (LIST '|OutputBox|)
                                                        (LIST '|String|)))
                                                 (|Formatter| |f|)))))
-                  (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
+                  (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
              (SPADCALL
               (PROGN
-               (LETT #2# NIL)
-               (SEQ (LETT |f| NIL) (LETT #1# |lf|) G190
+               (LETT #3# NIL)
+               (SEQ (LETT |f| NIL) (LETT #4# |lf|) G190
                     (COND
-                     ((OR (ATOM #1#) (PROGN (LETT |f| (CAR #1#)) NIL))
+                     ((OR (ATOM #4#) (PROGN (LETT |f| (CAR #4#)) NIL))
                       (GO G191)))
-                    (SEQ (EXIT (LETT #2# (CONS (|Formatter| |f|) #2#))))
-                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT (NREVERSE #2#))))
+                    (SEQ (EXIT (LETT #3# (CONS (|Formatter| |f|) #3#))))
+                    (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT (NREVERSE #3#))))
               (QREFELT % 21))
              (EXIT (SPADCALL "set output formatted on" (QREFELT % 9))))))))) 
 
@@ -95,7 +95,7 @@
              (SPADCALL (|spadConstant| % 13) (QREFELT % 16)) (QREFELT % 18)))))) 
 
 (SDEFUN |JFRICAS;setFormats!;LV;2| ((|lt| (|List| (|Type|))) (% (|Void|)))
-        (SPROG ((#1=#:G18 NIL) (|t| NIL))
+        (SPROG ((|t| NIL) (#1=#:G18 NIL))
                (SEQ
                 (SEQ (LETT |t| NIL) (LETT #1# |lt|) G190
                      (COND

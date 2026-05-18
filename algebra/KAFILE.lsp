@@ -40,7 +40,7 @@
 
 (SDEFUN |KAFILE;read!;%R;7|
         ((|f| (%)) (% (|Record| (|:| |key| (|String|)) (|:| |entry| |Entry|))))
-        (SPROG ((|k| (|String|)) (|ks| (|List| (|String|))))
+        (SPROG ((|ks| (|List| (|String|))) (|k| (|String|)))
                (SEQ
                 (COND
                  ((SPADCALL (QVELT |f| 2) "input" (QREFELT % 24))
@@ -147,7 +147,7 @@
 (DECLAIM (NOTINLINE |KeyedAccessFile;|)) 
 
 (DEFUN |KeyedAccessFile;| (|#1|)
-  (SPROG ((#1=#:G116 NIL) (|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL) (#1=#:G116 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|KeyedAccessFile| DV$1))

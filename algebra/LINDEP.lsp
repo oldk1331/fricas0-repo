@@ -115,7 +115,7 @@
 (DECLAIM (NOTINLINE |LinearDependence;|)) 
 
 (DEFUN |LinearDependence;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (#1=#:G64 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (#1=#:G64 NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

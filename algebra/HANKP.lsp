@@ -1,76 +1,76 @@
 
 (SDEFUN |HANKP;HankelMatrix;LM;1| ((|l| (|List| R)) (% (|Matrix| R)))
         (SPROG
-         ((#1=#:G17 NIL) (|x| NIL) (#2=#:G18 NIL) (|i| NIL) (#3=#:G16 NIL)
-          (|lloc| (|List| R)) (#4=#:G15 NIL) (|j| NIL) (#5=#:G14 NIL)
-          (|n| (|Integer|)) (#6=#:G3 NIL))
+         ((#1=#:G3 NIL) (|n| (|Integer|)) (#2=#:G14 NIL) (|j| NIL)
+          (#3=#:G15 NIL) (|lloc| (|List| R)) (#4=#:G16 NIL) (|i| NIL)
+          (#5=#:G18 NIL) (|x| NIL) (#6=#:G17 NIL))
          (SEQ
           (COND ((NULL (ODDP (LENGTH |l|))) (|error| "n must be odd"))
                 ('T
                  (SEQ
                   (LETT |n|
-                        (PROG2 (LETT #6# (|exquo_INT| (+ (LENGTH |l|) 1) 2))
-                            (QCDR #6#)
-                          (|check_union2| (QEQCAR #6# 0) (|NonNegativeInteger|)
+                        (PROG2 (LETT #1# (|exquo_INT| (+ (LENGTH |l|) 1) 2))
+                            (QCDR #1#)
+                          (|check_union2| (QEQCAR #1# 0) (|NonNegativeInteger|)
                                           (|Union| (|NonNegativeInteger|)
                                                    "failed")
-                                          #6#)))
+                                          #1#)))
                   (LETT |lloc| (CONS (|spadConstant| % 8) |l|))
                   (EXIT
                    (SPADCALL (ELT % 10)
                              (PROGN
-                              (LETT #5# NIL)
-                              (SEQ (LETT |j| 1) (LETT #4# |n|) G190
-                                   (COND ((|greater_SI| |j| #4#) (GO G191)))
+                              (LETT #2# NIL)
+                              (SEQ (LETT |j| 1) (LETT #3# |n|) G190
+                                   (COND ((|greater_SI| |j| #3#) (GO G191)))
                                    (SEQ
                                     (EXIT
-                                     (LETT #5#
+                                     (LETT #2#
                                            (CONS
                                             (SEQ (LETT |lloc| (CDR |lloc|))
                                                  (EXIT
                                                   (SPADCALL
                                                    (LIST
                                                     (PROGN
-                                                     (LETT #3# NIL)
+                                                     (LETT #4# NIL)
                                                      (SEQ (LETT |i| 1)
-                                                          (LETT #2# |n|)
+                                                          (LETT #5# |n|)
                                                           (LETT |x| NIL)
-                                                          (LETT #1# |lloc|)
+                                                          (LETT #6# |lloc|)
                                                           G190
                                                           (COND
-                                                           ((OR (ATOM #1#)
+                                                           ((OR (ATOM #6#)
                                                                 (PROGN
                                                                  (LETT |x|
                                                                        (CAR
-                                                                        #1#))
+                                                                        #6#))
                                                                  NIL)
                                                                 (|greater_SI|
-                                                                 |i| #2#))
+                                                                 |i| #5#))
                                                             (GO G191)))
                                                           (SEQ
                                                            (EXIT
-                                                            (LETT #3#
+                                                            (LETT #4#
                                                                   (CONS |x|
-                                                                        #3#))))
-                                                          (LETT #1#
+                                                                        #4#))))
+                                                          (LETT #6#
                                                                 (PROG1
-                                                                    (CDR #1#)
+                                                                    (CDR #6#)
                                                                   (LETT |i|
                                                                         (|inc_SI|
                                                                          |i|))))
                                                           (GO G190) G191
                                                           (EXIT
-                                                           (NREVERSE #3#)))))
+                                                           (NREVERSE #4#)))))
                                                    (QREFELT % 12))))
-                                            #5#))))
+                                            #2#))))
                                    (LETT |j| (|inc_SI| |j|)) (GO G190) G191
-                                   (EXIT (NREVERSE #5#))))
+                                   (EXIT (NREVERSE #2#))))
                              (QREFELT % 15))))))))) 
 
 (DECLAIM (NOTINLINE |HankelPackage;|)) 
 
 (DEFUN |HankelPackage;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|HankelPackage| DV$1))

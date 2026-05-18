@@ -11,7 +11,7 @@
         (SPADCALL (OM-READ |dev|) (QREFELT % 13))) 
 
 (SDEFUN |OMPKG;OMreadFile;SA;3| ((|filename| (|String|)) (% (|Any|)))
-        (SPROG ((|res| (|Any|)) (|dev| (|OpenMathDevice|)))
+        (SPROG ((|dev| (|OpenMathDevice|)) (|res| (|Any|)))
                (SEQ
                 (LETT |dev|
                       (SPADCALL |filename| "r" (SPADCALL (QREFELT % 17))
@@ -20,7 +20,7 @@
                 (SPADCALL |dev| (QREFELT % 20)) (EXIT |res|)))) 
 
 (SDEFUN |OMPKG;OMreadStr;SA;4| ((|str| (|String|)) (% (|Any|)))
-        (SPROG ((|res| (|Any|)) (|dev| (|OpenMathDevice|)) (|strp| (|None|)))
+        (SPROG ((|strp| (|None|)) (|dev| (|OpenMathDevice|)) (|res| (|Any|)))
                (SEQ (LETT |strp| (OM-STRINGTOSTRINGPTR |str|))
                     (LETT |dev|
                           (SPADCALL |strp| (SPADCALL (QREFELT % 17))

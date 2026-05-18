@@ -3,7 +3,7 @@
         (SPADCALL (SPADCALL (QREFELT % 9)) (QREFELT % 11))) 
 
 (SDEFUN |SUMFS;sum;FSbF;2| ((|x| (F)) (|s| (|SegmentBinding| F)) (% (F)))
-        (SPROG ((|u| (|Union| F "failed")) (|k| (|Kernel| F)))
+        (SPROG ((|k| (|Kernel| F)) (|u| (|Union| F "failed")))
                (SEQ
                 (LETT |k|
                       (SPADCALL (SPADCALL |s| (QREFELT % 13)) (QREFELT % 11)))
@@ -35,16 +35,16 @@
                        ('T (QCDR |u|))))))) 
 
 (SDEFUN |SUMFS;notRF?| ((|f| (F)) (|k| (|Kernel| F)) (% (|Boolean|)))
-        (SPROG ((#1=#:G24 NIL) (#2=#:G25 NIL) (#3=#:G26 NIL) (|kk| NIL))
+        (SPROG ((|kk| NIL) (#1=#:G26 NIL) (#2=#:G25 NIL) (#3=#:G24 NIL))
                (SEQ
                 (EXIT
                  (SEQ
                   (SEQ
                    (EXIT
                     (SEQ (LETT |kk| NIL)
-                         (LETT #3# (SPADCALL |f| (QREFELT % 30))) G190
+                         (LETT #1# (SPADCALL |f| (QREFELT % 30))) G190
                          (COND
-                          ((OR (ATOM #3#) (PROGN (LETT |kk| (CAR #3#)) NIL))
+                          ((OR (ATOM #1#) (PROGN (LETT |kk| (CAR #1#)) NIL))
                            (GO G191)))
                          (SEQ
                           (EXIT
@@ -56,16 +56,16 @@
                              (COND
                               ((QEQCAR (SPADCALL |kk| (QREFELT % 36)) 1)
                                (PROGN
-                                (LETT #1# (PROGN (LETT #2# 'T) (GO #4=#:G23)))
+                                (LETT #3# (PROGN (LETT #2# 'T) (GO #4=#:G23)))
                                 (GO #5=#:G21))))))))
-                         (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
-                   #5# (EXIT #1#))
+                         (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL)))
+                   #5# (EXIT #3#))
                   (EXIT NIL)))
                 #4# (EXIT #2#)))) 
 
 (SDEFUN |SUMFS;innersum|
         ((|x| (F)) (|k| (|Kernel| F)) (% (|Union| F "failed")))
-        (SPROG ((|u| (|Union| F "failed")) (|f| (F)) (|x1| (F)))
+        (SPROG ((|x1| (F)) (|f| (F)) (|u| (|Union| F "failed")))
                (SEQ
                 (COND
                  ((SPADCALL |x| (QREFELT % 37)) (CONS 0 (|spadConstant| % 38)))
@@ -107,7 +107,7 @@
 (DECLAIM (NOTINLINE |FunctionSpaceSum;|)) 
 
 (DEFUN |FunctionSpaceSum;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

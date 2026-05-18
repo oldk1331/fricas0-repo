@@ -152,27 +152,27 @@
 
 (SDEFUN |PRTITION;pdct;%I;18| ((|x| (%)) (% (|Integer|)))
         (SPROG
-         ((#1=#:G76 NIL) (#2=#:G75 #3=(|Integer|)) (#4=#:G77 #3#)
-          (#5=#:G79 NIL) (|a| NIL))
+         ((|a| NIL) (#1=#:G79 NIL) (#2=#:G77 #3=(|Integer|)) (#4=#:G75 #3#)
+          (#5=#:G76 NIL))
          (SEQ
           (PROGN
-           (LETT #1# NIL)
-           (SEQ (LETT |a| NIL) (LETT #5# (SPADCALL |x| (QREFELT % 28))) G190
+           (LETT #5# NIL)
+           (SEQ (LETT |a| NIL) (LETT #1# (SPADCALL |x| (QREFELT % 28))) G190
                 (COND
-                 ((OR (ATOM #5#) (PROGN (LETT |a| (CAR #5#)) NIL)) (GO G191)))
+                 ((OR (ATOM #1#) (PROGN (LETT |a| (CAR #1#)) NIL)) (GO G191)))
                 (SEQ
                  (EXIT
                   (PROGN
-                   (LETT #4#
+                   (LETT #2#
                          (*
                           (SPADCALL (SPADCALL |a| (QREFELT % 37))
                                     (QREFELT % 45))
                           (EXPT (|SPADfirst| |a|)
                                 (SPADCALL |a| (QREFELT % 37)))))
-                   (COND (#1# (LETT #2# (* #2# #4#)))
-                         ('T (PROGN (LETT #2# #4#) (LETT #1# 'T)))))))
-                (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
-           (COND (#1# #2#) ('T 1)))))) 
+                   (COND (#5# (LETT #4# (* #4# #2#)))
+                         ('T (PROGN (LETT #4# #2#) (LETT #5# 'T)))))))
+                (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
+           (COND (#5# #4#) ('T 1)))))) 
 
 (DECLAIM (NOTINLINE |Partition;|)) 
 

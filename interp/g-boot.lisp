@@ -440,7 +440,7 @@
 ;                             first(x3) = "SEQ" or _
 ;                             not(CONTAINED("EXIT", x3))) => x3
 ;         ["SEQ", :xl3]
-;     $locVars := set_difference(REMDUP(NREVERSE($locVars)),
+;     $locVars := SETDIFFERENCE(REMDUP(NREVERSE($locVars)),
 ;                                LISTOFATOMS (x2))
 ;     lvars := $locVars
 ;     x3 :=
@@ -472,8 +472,8 @@
                 |x3|)
                (#2='T (CONS 'SEQ |xl3|))))
       (SETQ |$locVars|
-              (|set_difference| (REMDUP (NREVERSE |$locVars|))
-               (LISTOFATOMS |x2|)))
+              (SETDIFFERENCE (REMDUP (NREVERSE |$locVars|))
+                             (LISTOFATOMS |x2|)))
       (SETQ |lvars| |$locVars|)
       (SETQ |x3|
               (COND

@@ -1,6 +1,6 @@
 
 (SDEFUN |FORTFORM;assignable_form?| ((|o| (|OutputForm|)) (% (|Boolean|)))
-        (SPROG ((|sop| (|Symbol|)) (|op| (|OutputForm|)))
+        (SPROG ((|op| (|OutputForm|)) (|sop| (|Symbol|)))
                (SEQ
                 (COND ((SPADCALL |o| (QREFELT % 10)) 'T)
                       (#1='T

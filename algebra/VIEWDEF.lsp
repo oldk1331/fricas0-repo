@@ -119,8 +119,8 @@
 (SDEFUN |VIEWDEF;viewWriteDefault;2L;26|
         ((|listOfThings| (|List| (|String|))) (% (|List| (|String|))))
         (SPROG
-         ((|thingsToWrite| (|List| (|String|))) (|writeTypeInt| (|Integer|))
-          (#1=#:G37 NIL) (|aTypeOfFile| NIL))
+         ((|aTypeOfFile| NIL) (#1=#:G37 NIL) (|writeTypeInt| (|Integer|))
+          (|thingsToWrite| (|List| (|String|))))
          (SEQ (LETT |thingsToWrite| NIL)
               (SEQ (LETT |aTypeOfFile| NIL) (LETT #1# |listOfThings|) G190
                    (COND

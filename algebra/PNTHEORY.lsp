@@ -4,10 +4,9 @@
          (|b| (|SparseUnivariatePolynomial| (|Integer|)))
          (% (|SparseUnivariatePolynomial| (|Integer|))))
         (SPROG
-         ((|da| #1=(|NonNegativeInteger|))
-          (|q| (|SparseUnivariatePolynomial| (|Integer|)))
-          (|t| (|SparseUnivariatePolynomial| (|Integer|))) (#2=#:G16 NIL)
-          (|db| #1#))
+         ((|db| #1=(|NonNegativeInteger|)) (#2=#:G16 NIL)
+          (|t| (|SparseUnivariatePolynomial| (|Integer|)))
+          (|q| (|SparseUnivariatePolynomial| (|Integer|))) (|da| #1#))
          (SEQ
           (COND
            ((SPADCALL (SPADCALL |b| (QREFELT % 26)) 1 (QREFELT % 28))
@@ -42,16 +41,16 @@
         ((|n| (|Integer|))
          (% (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))))
         (SPROG
-         ((|p| #1=(|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
-          (|c| (|Fraction| (|Integer|))) (#2=#:G27 NIL)
-          (|t| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
-          (#3=#:G33 NIL) (|i| NIL) (|s| #4=(|Integer|))
+         ((|#G6| #1=(|Integer|))
+          (|#G7| #2=(|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
           (|#G8|
            (|Record| (|:| |En| (|Integer|))
                      (|:| |Ev|
                           (|SparseUnivariatePolynomial|
                            (|Fraction| (|Integer|))))))
-          (|#G7| #1#) (|#G6| #4#))
+          (|s| #1#) (|i| NIL) (#3=#:G33 NIL)
+          (|t| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
+          (#4=#:G27 NIL) (|c| (|Fraction| (|Integer|))) (|p| #2#))
          (SEQ
           (COND ((< |n| 0) (|error| "euler not defined for negative integers"))
                 (#5='T
@@ -80,11 +79,11 @@
                               (SPADCALL
                                (SPADCALL (SPADCALL |i| (QREFELT % 41))
                                          (EXPT 2
-                                               (PROG1 (LETT #2# |i|)
-                                                 (|check_subtype2| (>= #2# 0)
+                                               (PROG1 (LETT #4# |i|)
+                                                 (|check_subtype2| (>= #4# 0)
                                                                    '(|NonNegativeInteger|)
                                                                    '(|Integer|)
-                                                                   #2#)))
+                                                                   #4#)))
                                          (QREFELT % 42))
                                (SPADCALL |t| (SPADCALL 1 2 (QREFELT % 42))
                                          (QREFELT % 43))
@@ -102,16 +101,16 @@
         ((|n| (|Integer|))
          (% (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))))
         (SPROG
-         ((|p| #1=(|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
-          (|c| (|Fraction| (|Integer|)))
-          (|t| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
-          (#2=#:G41 NIL) (|i| NIL) (|s| #3=(|Integer|))
+         ((|#G13| #1=(|Integer|))
+          (|#G14| #2=(|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
           (|#G15|
            (|Record| (|:| |Bn| (|Integer|))
                      (|:| |Bv|
                           (|SparseUnivariatePolynomial|
                            (|Fraction| (|Integer|))))))
-          (|#G14| #1#) (|#G13| #3#))
+          (|s| #1#) (|i| NIL) (#3=#:G41 NIL)
+          (|t| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
+          (|c| (|Fraction| (|Integer|))) (|p| #2#))
          (SEQ
           (COND
            ((< |n| 0) (|error| "bernoulli not defined for negative integers"))
@@ -130,8 +129,8 @@
                 (LETT |s| (QCAR |#G15|))
                 (LETT |p| (QCDR |#G15|))
                 |#G15|)))
-             (SEQ (LETT |i| (+ |s| 1)) (LETT #2# |n|) G190
-                  (COND ((> |i| #2#) (GO G191)))
+             (SEQ (LETT |i| (+ |s| 1)) (LETT #3# |n|) G190
+                  (COND ((> |i| #3#) (GO G191)))
                   (SEQ
                    (LETT |t|
                          (SPADCALL (SPADCALL |i| (QREFELT % 37))
@@ -150,8 +149,8 @@
 (SDEFUN |PNTHEORY;fixedDivisor;SupI;5|
         ((|a| (|SparseUnivariatePolynomial| (|Integer|))) (% (|Integer|)))
         (SPROG
-         ((|g| (|Integer|)) (#1=#:G46 NIL) (|k| NIL)
-          (|d| (|NonNegativeInteger|)))
+         ((|d| (|NonNegativeInteger|)) (|k| NIL) (#1=#:G46 NIL)
+          (|g| (|Integer|)))
          (SEQ (|SparseUnivariatePolynomial| (|Integer|))
               (LETT |d| (SPADCALL |a| (QREFELT % 30)))
               (LETT |g|
@@ -169,14 +168,14 @@
 (SDEFUN |PNTHEORY;hermite;ISup;6|
         ((|n| (|Integer|)) (% (|SparseUnivariatePolynomial| (|Integer|))))
         (SPROG
-         ((|q| (|SparseUnivariatePolynomial| (|Integer|)))
-          (|p| #1=(|SparseUnivariatePolynomial| (|Integer|))) (|#G28| #1#)
-          (|#G27| (|SparseUnivariatePolynomial| (|Integer|))) (#2=#:G54 NIL)
-          (|k| NIL) (|s| (|Integer|))
-          (|#G22|
+         ((|#G22|
            (|Record| (|:| |Hn| (|Integer|))
                      (|:| H1 (|SparseUnivariatePolynomial| (|Integer|)))
-                     (|:| H2 (|SparseUnivariatePolynomial| (|Integer|))))))
+                     (|:| H2 (|SparseUnivariatePolynomial| (|Integer|)))))
+          (|s| (|Integer|)) (|k| NIL) (#1=#:G54 NIL)
+          (|#G27| (|SparseUnivariatePolynomial| (|Integer|)))
+          (|#G28| #2=(|SparseUnivariatePolynomial| (|Integer|))) (|p| #2#)
+          (|q| (|SparseUnivariatePolynomial| (|Integer|))))
          (SEQ
           (COND
            ((< |n| 0) (|error| "hermite not defined for negative integers"))
@@ -193,8 +192,8 @@
                 (LETT |p| (QVELT |#G22| 1))
                 (LETT |q| (QVELT |#G22| 2))
                 |#G22|)))
-             (SEQ (LETT |k| (+ |s| 1)) (LETT #2# |n|) G190
-                  (COND ((> |k| #2#) (GO G191)))
+             (SEQ (LETT |k| (+ |s| 1)) (LETT #1# |n|) G190
+                  (COND ((> |k| #1#) (GO G191)))
                   (SEQ
                    (EXIT
                     (PROGN
@@ -216,19 +215,19 @@
         ((|n| (|Integer|))
          (% (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))))
         (SPROG
-         ((|q| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
-          (|p| #1=(|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
-          (|#G36| #1#)
-          (|#G35| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
-          (|t| (|Integer|)) (#2=#:G63 NIL) (|k| NIL) (|s| (|Integer|))
-          (|#G30|
+         ((|#G30|
            (|Record| (|:| |Pn| (|Integer|))
                      (|:| P1
                           (|SparseUnivariatePolynomial|
                            (|Fraction| (|Integer|))))
                      (|:| P2
                           (|SparseUnivariatePolynomial|
-                           (|Fraction| (|Integer|)))))))
+                           (|Fraction| (|Integer|))))))
+          (|s| (|Integer|)) (|k| NIL) (#1=#:G63 NIL) (|t| (|Integer|))
+          (|#G35| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
+          (|#G36| #2=(|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
+          (|p| #2#)
+          (|q| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))))
          (SEQ
           (COND
            ((< |n| 0) (|error| "legendre not defined for negative integers"))
@@ -245,8 +244,8 @@
                 (LETT |p| (QVELT |#G30| 1))
                 (LETT |q| (QVELT |#G30| 2))
                 |#G30|)))
-             (SEQ (LETT |k| (+ |s| 1)) (LETT #2# |n|) G190
-                  (COND ((> |k| #2#) (GO G191)))
+             (SEQ (LETT |k| (+ |s| 1)) (LETT #1# |n|) G190
+                  (COND ((> |k| #1#) (GO G191)))
                   (SEQ (LETT |t| (- |k| 1))
                        (EXIT
                         (PROGN
@@ -270,14 +269,14 @@
 (SDEFUN |PNTHEORY;laguerre;ISup;8|
         ((|n| (|Integer|)) (% (|SparseUnivariatePolynomial| (|Integer|))))
         (SPROG
-         ((|q| (|SparseUnivariatePolynomial| (|Integer|)))
-          (|p| #1=(|SparseUnivariatePolynomial| (|Integer|))) (|#G44| #1#)
-          (|#G43| (|SparseUnivariatePolynomial| (|Integer|))) (|t| (|Integer|))
-          (#2=#:G72 NIL) (|k| NIL) (|s| (|Integer|))
-          (|#G38|
+         ((|#G38|
            (|Record| (|:| |Ln| (|Integer|))
                      (|:| L1 (|SparseUnivariatePolynomial| (|Integer|)))
-                     (|:| L2 (|SparseUnivariatePolynomial| (|Integer|))))))
+                     (|:| L2 (|SparseUnivariatePolynomial| (|Integer|)))))
+          (|s| (|Integer|)) (|k| NIL) (#1=#:G72 NIL) (|t| (|Integer|))
+          (|#G43| (|SparseUnivariatePolynomial| (|Integer|)))
+          (|#G44| #2=(|SparseUnivariatePolynomial| (|Integer|))) (|p| #2#)
+          (|q| (|SparseUnivariatePolynomial| (|Integer|))))
          (SEQ
           (COND
            ((< |n| 0) (|error| "laguerre not defined for negative integers"))
@@ -294,8 +293,8 @@
                 (LETT |p| (QVELT |#G38| 1))
                 (LETT |q| (QVELT |#G38| 2))
                 |#G38|)))
-             (SEQ (LETT |k| (+ |s| 1)) (LETT #2# |n|) G190
-                  (COND ((> |k| #2#) (GO G191)))
+             (SEQ (LETT |k| (+ |s| 1)) (LETT #1# |n|) G190
+                  (COND ((> |k| #1#) (GO G191)))
                   (SEQ (LETT |t| (- |k| 1))
                        (EXIT
                         (PROGN
@@ -318,14 +317,14 @@
 (SDEFUN |PNTHEORY;chebyshevT;ISup;9|
         ((|n| (|Integer|)) (% (|SparseUnivariatePolynomial| (|Integer|))))
         (SPROG
-         ((|q| (|SparseUnivariatePolynomial| (|Integer|)))
-          (|p| #1=(|SparseUnivariatePolynomial| (|Integer|))) (|#G52| #1#)
-          (|#G51| (|SparseUnivariatePolynomial| (|Integer|))) (#2=#:G80 NIL)
-          (|k| NIL) (|s| (|Integer|))
-          (|#G46|
+         ((|#G46|
            (|Record| (|:| |Tn| (|Integer|))
                      (|:| T1 (|SparseUnivariatePolynomial| (|Integer|)))
-                     (|:| T2 (|SparseUnivariatePolynomial| (|Integer|))))))
+                     (|:| T2 (|SparseUnivariatePolynomial| (|Integer|)))))
+          (|s| (|Integer|)) (|k| NIL) (#1=#:G80 NIL)
+          (|#G51| (|SparseUnivariatePolynomial| (|Integer|)))
+          (|#G52| #2=(|SparseUnivariatePolynomial| (|Integer|))) (|p| #2#)
+          (|q| (|SparseUnivariatePolynomial| (|Integer|))))
          (SEQ
           (COND
            ((< |n| 0) (|error| "chebyshevT not defined for negative integers"))
@@ -342,8 +341,8 @@
                 (LETT |p| (QVELT |#G46| 1))
                 (LETT |q| (QVELT |#G46| 2))
                 |#G46|)))
-             (SEQ (LETT |k| (+ |s| 1)) (LETT #2# |n|) G190
-                  (COND ((> |k| #2#) (GO G191)))
+             (SEQ (LETT |k| (+ |s| 1)) (LETT #1# |n|) G190
+                  (COND ((> |k| #1#) (GO G191)))
                   (SEQ
                    (EXIT
                     (PROGN
@@ -363,14 +362,14 @@
 (SDEFUN |PNTHEORY;chebyshevU;ISup;10|
         ((|n| (|Integer|)) (% (|SparseUnivariatePolynomial| (|Integer|))))
         (SPROG
-         ((|q| (|SparseUnivariatePolynomial| (|Integer|)))
-          (|p| #1=(|SparseUnivariatePolynomial| (|Integer|))) (|#G60| #1#)
-          (|#G59| (|SparseUnivariatePolynomial| (|Integer|))) (#2=#:G88 NIL)
-          (|k| NIL) (|s| (|Integer|))
-          (|#G54|
+         ((|#G54|
            (|Record| (|:| |Un| (|Integer|))
                      (|:| U1 (|SparseUnivariatePolynomial| (|Integer|)))
-                     (|:| U2 (|SparseUnivariatePolynomial| (|Integer|))))))
+                     (|:| U2 (|SparseUnivariatePolynomial| (|Integer|)))))
+          (|s| (|Integer|)) (|k| NIL) (#1=#:G88 NIL)
+          (|#G59| (|SparseUnivariatePolynomial| (|Integer|)))
+          (|#G60| #2=(|SparseUnivariatePolynomial| (|Integer|))) (|p| #2#)
+          (|q| (|SparseUnivariatePolynomial| (|Integer|))))
          (SEQ
           (COND
            ((< |n| 0) (|error| "chebyshevU not defined for negative integers"))
@@ -387,8 +386,8 @@
                 (LETT |p| (QVELT |#G54| 1))
                 (LETT |q| (QVELT |#G54| 2))
                 |#G54|)))
-             (SEQ (LETT |k| (+ |s| 1)) (LETT #2# |n|) G190
-                  (COND ((> |k| #2#) (GO G191)))
+             (SEQ (LETT |k| (+ |s| 1)) (LETT #1# |n|) G190
+                  (COND ((> |k| #1#) (GO G191)))
                   (SEQ
                    (EXIT
                     (PROGN

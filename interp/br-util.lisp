@@ -182,7 +182,7 @@
 ;     look >= SIZE com => look := []
 ;     look := STRPOSL ('"${}#%", com, look, [])
 ;     if look then
-;       com := RPLACSTR (com,look,0,'"\")  --note RPLACSTR copies!!!
+;       com := CONCAT(SUBSTRING(com, 0, look), '"\", SUBSTRING(com, look, nil))
 ;       look := look + 2
 ;   com
 
@@ -200,7 +200,10 @@
                         (PROGN
                          (SETQ |look| (STRPOSL "${}#%" |com| |look| NIL))
                          (COND
-                          (|look| (SETQ |com| (RPLACSTR |com| |look| 0 "\\"))
+                          (|look|
+                           (SETQ |com|
+                                   (CONCAT (SUBSTRING |com| 0 |look|) "\\"
+                                           (SUBSTRING |com| |look| NIL)))
                            (SETQ |look| (+ |look| 2))))))))))))
       |com|))))
 

@@ -48,8 +48,8 @@
 
 (SDEFUN |DISTEX;arcsineDistribution;RD;6| ((|a| (R)) (% (|Distribution| R)))
         (SPROG
-         ((|mgf| (|Stream| R)) (#1=#:G11 NIL)
-          (|half| (|Fraction| (|Integer|))))
+         ((|half| (|Fraction| (|Integer|))) (#1=#:G11 NIL)
+          (|mgf| (|Stream| R)))
          (SEQ
           (LETT |mgf|
                 (SPADCALL
@@ -77,7 +77,7 @@
 (DECLAIM (NOTINLINE |DistributionPackage;|)) 
 
 (DEFUN |DistributionPackage;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|DistributionPackage| DV$1))

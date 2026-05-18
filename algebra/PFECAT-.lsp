@@ -1,6 +1,6 @@
 
 (SDEFUN |PFECAT-;charthRoot;SU;1| ((|f| (S)) (% (|Union| S "failed")))
-        (SPROG ((|ans| (|Union| (|Vector| S) "failed")) (|m| (|Matrix| S)))
+        (SPROG ((|m| (|Matrix| S)) (|ans| (|Union| (|Vector| S) "failed")))
                (SEQ
                 (COND
                  ((SPADCALL |f| (QREFELT % 8)) (CONS 0 (|spadConstant| % 9)))
@@ -35,7 +35,7 @@
 (DECLAIM (NOTINLINE |PolynomialFactorizationExplicit&;|)) 
 
 (DEFUN |PolynomialFactorizationExplicit&| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|PolynomialFactorizationExplicit&| DV$1))

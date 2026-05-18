@@ -1,21 +1,21 @@
 
 (SDEFUN |NEWTON;differences| ((|yl| (|List| F)) (% (|List| F)))
         (SPROG
-         ((#1=#:G5 NIL) (|y1| NIL) (#2=#:G6 NIL) (|y2| NIL) (#3=#:G4 NIL))
+         ((#1=#:G4 NIL) (|y2| NIL) (#2=#:G6 NIL) (|y1| NIL) (#3=#:G5 NIL))
          (SEQ
           (PROGN
-           (LETT #3# NIL)
+           (LETT #1# NIL)
            (SEQ (LETT |y2| NIL) (LETT #2# (CDR |yl|)) (LETT |y1| NIL)
-                (LETT #1# |yl|) G190
+                (LETT #3# |yl|) G190
                 (COND
-                 ((OR (ATOM #1#) (PROGN (LETT |y1| (CAR #1#)) NIL) (ATOM #2#)
+                 ((OR (ATOM #3#) (PROGN (LETT |y1| (CAR #3#)) NIL) (ATOM #2#)
                       (PROGN (LETT |y2| (CAR #2#)) NIL))
                   (GO G191)))
                 (SEQ
                  (EXIT
-                  (LETT #3# (CONS (SPADCALL |y2| |y1| (QREFELT % 7)) #3#))))
-                (LETT #1# (PROG1 (CDR #1#) (LETT #2# (CDR #2#)))) (GO G190)
-                G191 (EXIT (NREVERSE #3#))))))) 
+                  (LETT #1# (CONS (SPADCALL |y2| |y1| (QREFELT % 7)) #1#))))
+                (LETT #3# (PROG1 (CDR #3#) (LETT #2# (CDR #2#)))) (GO G190)
+                G191 (EXIT (NREVERSE #1#))))))) 
 
 (SDEFUN |NEWTON;newtonAux|
         ((|k| (F)) (|fact| (F)) (|yl| (|List| F))
@@ -60,7 +60,7 @@
 (DECLAIM (NOTINLINE |NewtonInterpolation;|)) 
 
 (DEFUN |NewtonInterpolation;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|NewtonInterpolation| DV$1))

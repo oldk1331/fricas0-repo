@@ -12,7 +12,7 @@
         (CONS 0 (SPADCALL |x| (QREFELT % 7)))) 
 
 (SDEFUN |OEXPR;<;2%B;4| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
-        (SPROG ((|s| (|Union| (|Integer|) "failed")) (|di| (%)))
+        (SPROG ((|di| (%)) (|s| (|Union| (|Integer|) "failed")))
                (SEQ (LETT |di| (SPADCALL |y| |x| (QREFELT % 11)))
                     (EXIT
                      (COND

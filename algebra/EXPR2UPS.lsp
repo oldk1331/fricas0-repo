@@ -17,50 +17,16 @@
 (SDEFUN |EXPR2UPS;iTaylor|
         ((|fcn| (FE)) (|x| (|Symbol|)) (|a| (FE)) (% (|Any|)))
         (SPROG
-         ((|any1|
-           (CATEGORY |package|
-            (SIGNATURE |coerce|
-             ((|Any|) #1=(|UnivariateTaylorSeries| FE |x| |a|)))
-            (SIGNATURE |retractIfCan| ((|Union| #1# "failed") (|Any|)))
-            (SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
-            (SIGNATURE |retract| (#1# (|Any|)))))
-          (|uts| (|Union| (|UnivariateTaylorSeries| FE |x| |a|) #2="failed"))
-          (|uls| (|Uls|)) (#3=#:G36 NIL)
-          (|ans|
-           (|Union| (|:| |%series| |Uls|)
-                    (|:| |%problem|
-                         (|Record| (|:| |func| (|String|))
-                                   (|:| |prob| (|String|))))))
-          (|pack|
-           (CATEGORY |package|
-            (SIGNATURE |exprToUPS|
-             ((|Union| (|:| |%series| |Uls|)
-                       (|:| |%problem|
-                            (|Record| (|:| |func| (|String|))
-                                      (|:| |prob| (|String|)))))
-              FE (|Boolean|)
-              (|Union| #4="complex" #5="real: two sides" #6="real: left side"
-                       #7="real: right side" #8="just do it")))
-            (SIGNATURE |exprToGenUPS|
-             ((|Union| (|:| |%series| |Uls|)
-                       (|:| |%problem|
-                            (|Record| (|:| |func| (|String|))
-                                      (|:| |prob| (|String|)))))
-              FE (|Boolean|) (|Union| #4# #5# #6# #7# #8#)))
-            (SIGNATURE |exprToPS|
-             ((|Union| (|:| |%series| |Uls|)
-                       (|:| |%problem|
-                            (|Record| (|:| |func| (|String|))
-                                      (|:| |prob| (|String|)))))
-              FE (|Boolean|) (|Union| #4# #5# #6# #7# #8#) (|Boolean|) FE))
-            (SIGNATURE |exprToPS|
-             ((|Union| (|:| |%series| |Uls|)
-                       (|:| |%problem|
-                            (|Record| (|:| |func| (|String|))
-                                      (|:| |prob| (|String|)))))
-              FE (|Boolean|) (|Union| #4# #5# #6# #7# #8#) (|Boolean|) FE
-              (|Mapping| (|Boolean|) FE) (|Mapping| (|Boolean|) FE)
-              (|Mapping| (|Boolean|) FE)))))
+         ((|Uls|
+           (|Join|
+            (|UnivariateLaurentSeriesConstructorCategory| FE
+                                                          (|UnivariateTaylorSeries|
+                                                           FE |x| |a|))
+            (CATEGORY |domain| (SIGNATURE |coerce| (% (|Variable| |x|)))
+             (SIGNATURE |differentiate| (% % (|Variable| |x|)))
+             (IF (|has| FE (|Algebra| (|Fraction| (|Integer|))))
+                 (SIGNATURE |integrate| (% % (|Variable| |x|)))
+                 |noBranch|))))
           (|Uts|
            (|Join| (|UnivariateTaylorSeriesCategory| FE)
                    (CATEGORY |domain|
@@ -80,16 +46,50 @@
                     (IF (|has| FE (|Algebra| (|Fraction| (|Integer|))))
                         (SIGNATURE |integrate| (% % (|Variable| |x|)))
                         |noBranch|))))
-          (|Uls|
-           (|Join|
-            (|UnivariateLaurentSeriesConstructorCategory| FE
-                                                          (|UnivariateTaylorSeries|
-                                                           FE |x| |a|))
-            (CATEGORY |domain| (SIGNATURE |coerce| (% (|Variable| |x|)))
-             (SIGNATURE |differentiate| (% % (|Variable| |x|)))
-             (IF (|has| FE (|Algebra| (|Fraction| (|Integer|))))
-                 (SIGNATURE |integrate| (% % (|Variable| |x|)))
-                 |noBranch|)))))
+          (|pack|
+           (CATEGORY |package|
+            (SIGNATURE |exprToUPS|
+             ((|Union| (|:| |%series| |Uls|)
+                       (|:| |%problem|
+                            (|Record| (|:| |func| (|String|))
+                                      (|:| |prob| (|String|)))))
+              FE (|Boolean|)
+              (|Union| #1="complex" #2="real: two sides" #3="real: left side"
+                       #4="real: right side" #5="just do it")))
+            (SIGNATURE |exprToGenUPS|
+             ((|Union| (|:| |%series| |Uls|)
+                       (|:| |%problem|
+                            (|Record| (|:| |func| (|String|))
+                                      (|:| |prob| (|String|)))))
+              FE (|Boolean|) (|Union| #1# #2# #3# #4# #5#)))
+            (SIGNATURE |exprToPS|
+             ((|Union| (|:| |%series| |Uls|)
+                       (|:| |%problem|
+                            (|Record| (|:| |func| (|String|))
+                                      (|:| |prob| (|String|)))))
+              FE (|Boolean|) (|Union| #1# #2# #3# #4# #5#) (|Boolean|) FE))
+            (SIGNATURE |exprToPS|
+             ((|Union| (|:| |%series| |Uls|)
+                       (|:| |%problem|
+                            (|Record| (|:| |func| (|String|))
+                                      (|:| |prob| (|String|)))))
+              FE (|Boolean|) (|Union| #1# #2# #3# #4# #5#) (|Boolean|) FE
+              (|Mapping| (|Boolean|) FE) (|Mapping| (|Boolean|) FE)
+              (|Mapping| (|Boolean|) FE)))))
+          (|ans|
+           (|Union| (|:| |%series| |Uls|)
+                    (|:| |%problem|
+                         (|Record| (|:| |func| (|String|))
+                                   (|:| |prob| (|String|))))))
+          (#6=#:G36 NIL) (|uls| (|Uls|))
+          (|uts| (|Union| (|UnivariateTaylorSeries| FE |x| |a|) #7="failed"))
+          (|any1|
+           (CATEGORY |package|
+            (SIGNATURE |coerce|
+             ((|Any|) #8=(|UnivariateTaylorSeries| FE |x| |a|)))
+            (SIGNATURE |retractIfCan| ((|Union| #8# "failed") (|Any|)))
+            (SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
+            (SIGNATURE |retract| (#8# (|Any|))))))
          (SEQ (LETT |Uls| (|UnivariateLaurentSeries| (QREFELT % 7) |x| |a|))
               (LETT |Uts| (|UnivariateTaylorSeries| (QREFELT % 7) |x| |a|))
               (LETT |pack|
@@ -148,9 +148,9 @@
                 (#9#
                  (SEQ
                   (LETT |uls|
-                        (PROG2 (LETT #3# |ans|)
-                            (QCDR #3#)
-                          (|check_union2| (QEQCAR #3# 0) |Uls|
+                        (PROG2 (LETT #6# |ans|)
+                            (QCDR #6#)
+                          (|check_union2| (QEQCAR #6# 0) |Uls|
                                           (|Union| (|:| |%series| |Uls|)
                                                    (|:| |%problem|
                                                         (|Record|
@@ -158,7 +158,7 @@
                                                               (|String|))
                                                          (|:| |prob|
                                                               (|String|)))))
-                                          #3#)))
+                                          #6#)))
                   (LETT |uts|
                         (SPADCALL |uls|
                                   (|compiledLookupCheck| '|taylorIfCan|
@@ -169,7 +169,7 @@
                                                                  (|devaluate|
                                                                   (ELT % 7))
                                                                  |x| |a|)
-                                                                '#2#)
+                                                                '#7#)
                                                           '%)
                                                          |Uls|)))
                   (EXIT
@@ -193,12 +193,7 @@
 
 (SDEFUN |EXPR2UPS;taylor;SA;3| ((|x| (|Symbol|)) (% (|Any|)))
         (SPROG
-         ((|any1|
-           (CATEGORY |package| (SIGNATURE |coerce| ((|Any|) |uts|))
-            (SIGNATURE |retractIfCan| ((|Union| |uts| "failed") (|Any|)))
-            (SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
-            (SIGNATURE |retract| (|uts| (|Any|)))))
-          (|uts|
+         ((|uts|
            (|Join| (|UnivariateTaylorSeriesCategory| FE)
                    (CATEGORY |domain|
                     (SIGNATURE |coerce| (% (|UnivariatePolynomial| |x| FE)))
@@ -216,7 +211,12 @@
                     (SIGNATURE |invmultisect| (% (|Integer|) (|Integer|) %))
                     (IF (|has| FE (|Algebra| (|Fraction| (|Integer|))))
                         (SIGNATURE |integrate| (% % (|Variable| |x|)))
-                        |noBranch|)))))
+                        |noBranch|))))
+          (|any1|
+           (CATEGORY |package| (SIGNATURE |coerce| ((|Any|) |uts|))
+            (SIGNATURE |retractIfCan| ((|Union| |uts| "failed") (|Any|)))
+            (SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
+            (SIGNATURE |retract| (|uts| (|Any|))))))
          (SEQ
           (LETT |uts|
                 (|UnivariateTaylorSeries| (QREFELT % 7) |x|
@@ -251,12 +251,7 @@
 (SDEFUN |EXPR2UPS;taylor;FENniA;5|
         ((|fcn| (FE)) (|n| (|NonNegativeInteger|)) (% (|Any|)))
         (SPROG
-         ((|series| (|uts|))
-          (|any1|
-           (CATEGORY |package| (SIGNATURE |coerce| ((|Any|) |uts|))
-            (SIGNATURE |retractIfCan| ((|Union| |uts| "failed") (|Any|)))
-            (SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
-            (SIGNATURE |retract| (|uts| (|Any|)))))
+         ((|vars| (|List| (|Symbol|))) (|x| (|Symbol|))
           (|uts|
            (|Join| (|UnivariateTaylorSeriesCategory| FE)
                    (CATEGORY |domain|
@@ -276,7 +271,12 @@
                     (IF (|has| FE (|Algebra| (|Fraction| (|Integer|))))
                         (SIGNATURE |integrate| (% % (|Variable| |x|)))
                         |noBranch|))))
-          (|x| (|Symbol|)) (|vars| (|List| (|Symbol|))))
+          (|any1|
+           (CATEGORY |package| (SIGNATURE |coerce| ((|Any|) |uts|))
+            (SIGNATURE |retractIfCan| ((|Union| |uts| "failed") (|Any|)))
+            (SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
+            (SIGNATURE |retract| (|uts| (|Any|)))))
+          (|series| (|uts|)))
          (SEQ
           (COND
            ((NULL (LETT |vars| (SPADCALL |fcn| (QREFELT % 23))))
@@ -316,7 +316,7 @@
 (SDEFUN |EXPR2UPS;taylor;FEEA;6|
         ((|fcn| (FE)) (|eq| (|Equation| FE)) (% (|Any|)))
         (SPROG
-         ((|a| (FE)) (|x| (|Symbol|)) (|xx| (|Union| (|Symbol|) "failed")))
+         ((|xx| (|Union| (|Symbol|) "failed")) (|x| (|Symbol|)) (|a| (FE)))
          (SEQ
           (LETT |xx| (SPADCALL (SPADCALL |eq| (QREFELT % 29)) (QREFELT % 31)))
           (EXIT
@@ -335,7 +335,7 @@
         ((|fcn| (FE)) (|eq| (|Equation| FE)) (|n| (|NonNegativeInteger|))
          (% (|Any|)))
         (SPROG
-         ((|series| (|UnivariateTaylorSeries| FE |x| |a|))
+         ((|xx| (|Union| (|Symbol|) "failed")) (|x| (|Symbol|)) (|a| (FE))
           (|any1|
            (CATEGORY |package|
             (SIGNATURE |coerce|
@@ -343,7 +343,7 @@
             (SIGNATURE |retractIfCan| ((|Union| #1# "failed") (|Any|)))
             (SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
             (SIGNATURE |retract| (#1# (|Any|)))))
-          (|a| (FE)) (|x| (|Symbol|)) (|xx| (|Union| (|Symbol|) "failed")))
+          (|series| (|UnivariateTaylorSeries| FE |x| |a|)))
          (SEQ
           (LETT |xx| (SPADCALL (SPADCALL |eq| (QREFELT % 29)) (QREFELT % 31)))
           (EXIT
@@ -389,49 +389,16 @@
 (SDEFUN |EXPR2UPS;iLaurent|
         ((|fcn| (FE)) (|x| (|Symbol|)) (|a| (FE)) (% (|Any|)))
         (SPROG
-         ((#1=#:G77 NIL)
-          (|any1|
-           (CATEGORY |package|
-            (SIGNATURE |coerce|
-             ((|Any|) #2=(|UnivariateLaurentSeries| FE |x| |a|)))
-            (SIGNATURE |retractIfCan| ((|Union| #2# "failed") (|Any|)))
-            (SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
-            (SIGNATURE |retract| (#2# (|Any|)))))
-          (|ans|
-           (|Union| (|:| |%series| |Uls|)
-                    (|:| |%problem|
-                         (|Record| (|:| |func| (|String|))
-                                   (|:| |prob| (|String|))))))
-          (|pack|
-           (CATEGORY |package|
-            (SIGNATURE |exprToUPS|
-             ((|Union| (|:| |%series| |Uls|)
-                       (|:| |%problem|
-                            (|Record| (|:| |func| (|String|))
-                                      (|:| |prob| (|String|)))))
-              FE (|Boolean|)
-              (|Union| #3="complex" #4="real: two sides" #5="real: left side"
-                       #6="real: right side" #7="just do it")))
-            (SIGNATURE |exprToGenUPS|
-             ((|Union| (|:| |%series| |Uls|)
-                       (|:| |%problem|
-                            (|Record| (|:| |func| (|String|))
-                                      (|:| |prob| (|String|)))))
-              FE (|Boolean|) (|Union| #3# #4# #5# #6# #7#)))
-            (SIGNATURE |exprToPS|
-             ((|Union| (|:| |%series| |Uls|)
-                       (|:| |%problem|
-                            (|Record| (|:| |func| (|String|))
-                                      (|:| |prob| (|String|)))))
-              FE (|Boolean|) (|Union| #3# #4# #5# #6# #7#) (|Boolean|) FE))
-            (SIGNATURE |exprToPS|
-             ((|Union| (|:| |%series| |Uls|)
-                       (|:| |%problem|
-                            (|Record| (|:| |func| (|String|))
-                                      (|:| |prob| (|String|)))))
-              FE (|Boolean|) (|Union| #3# #4# #5# #6# #7#) (|Boolean|) FE
-              (|Mapping| (|Boolean|) FE) (|Mapping| (|Boolean|) FE)
-              (|Mapping| (|Boolean|) FE)))))
+         ((|Uls|
+           (|Join|
+            (|UnivariateLaurentSeriesConstructorCategory| FE
+                                                          (|UnivariateTaylorSeries|
+                                                           FE |x| |a|))
+            (CATEGORY |domain| (SIGNATURE |coerce| (% (|Variable| |x|)))
+             (SIGNATURE |differentiate| (% % (|Variable| |x|)))
+             (IF (|has| FE (|Algebra| (|Fraction| (|Integer|))))
+                 (SIGNATURE |integrate| (% % (|Variable| |x|)))
+                 |noBranch|))))
           (|Uts|
            (|Join| (|UnivariateTaylorSeriesCategory| FE)
                    (CATEGORY |domain|
@@ -451,16 +418,49 @@
                     (IF (|has| FE (|Algebra| (|Fraction| (|Integer|))))
                         (SIGNATURE |integrate| (% % (|Variable| |x|)))
                         |noBranch|))))
-          (|Uls|
-           (|Join|
-            (|UnivariateLaurentSeriesConstructorCategory| FE
-                                                          (|UnivariateTaylorSeries|
-                                                           FE |x| |a|))
-            (CATEGORY |domain| (SIGNATURE |coerce| (% (|Variable| |x|)))
-             (SIGNATURE |differentiate| (% % (|Variable| |x|)))
-             (IF (|has| FE (|Algebra| (|Fraction| (|Integer|))))
-                 (SIGNATURE |integrate| (% % (|Variable| |x|)))
-                 |noBranch|)))))
+          (|pack|
+           (CATEGORY |package|
+            (SIGNATURE |exprToUPS|
+             ((|Union| (|:| |%series| |Uls|)
+                       (|:| |%problem|
+                            (|Record| (|:| |func| (|String|))
+                                      (|:| |prob| (|String|)))))
+              FE (|Boolean|)
+              (|Union| #1="complex" #2="real: two sides" #3="real: left side"
+                       #4="real: right side" #5="just do it")))
+            (SIGNATURE |exprToGenUPS|
+             ((|Union| (|:| |%series| |Uls|)
+                       (|:| |%problem|
+                            (|Record| (|:| |func| (|String|))
+                                      (|:| |prob| (|String|)))))
+              FE (|Boolean|) (|Union| #1# #2# #3# #4# #5#)))
+            (SIGNATURE |exprToPS|
+             ((|Union| (|:| |%series| |Uls|)
+                       (|:| |%problem|
+                            (|Record| (|:| |func| (|String|))
+                                      (|:| |prob| (|String|)))))
+              FE (|Boolean|) (|Union| #1# #2# #3# #4# #5#) (|Boolean|) FE))
+            (SIGNATURE |exprToPS|
+             ((|Union| (|:| |%series| |Uls|)
+                       (|:| |%problem|
+                            (|Record| (|:| |func| (|String|))
+                                      (|:| |prob| (|String|)))))
+              FE (|Boolean|) (|Union| #1# #2# #3# #4# #5#) (|Boolean|) FE
+              (|Mapping| (|Boolean|) FE) (|Mapping| (|Boolean|) FE)
+              (|Mapping| (|Boolean|) FE)))))
+          (|ans|
+           (|Union| (|:| |%series| |Uls|)
+                    (|:| |%problem|
+                         (|Record| (|:| |func| (|String|))
+                                   (|:| |prob| (|String|))))))
+          (|any1|
+           (CATEGORY |package|
+            (SIGNATURE |coerce|
+             ((|Any|) #6=(|UnivariateLaurentSeries| FE |x| |a|)))
+            (SIGNATURE |retractIfCan| ((|Union| #6# "failed") (|Any|)))
+            (SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
+            (SIGNATURE |retract| (#6# (|Any|)))))
+          (#7=#:G77 NIL))
          (SEQ (LETT |Uls| (|UnivariateLaurentSeries| (QREFELT % 7) |x| |a|))
               (LETT |Uts| (|UnivariateTaylorSeries| (QREFELT % 7) |x| |a|))
               (LETT |pack|
@@ -523,15 +523,15 @@
                          (|UnivariateLaurentSeries| (QREFELT % 7) |x| |a|)))
                   (EXIT
                    (SPADCALL
-                    (PROG2 (LETT #1# |ans|)
-                        (QCDR #1#)
-                      (|check_union2| (QEQCAR #1# 0) |Uls|
+                    (PROG2 (LETT #7# |ans|)
+                        (QCDR #7#)
+                      (|check_union2| (QEQCAR #7# 0) |Uls|
                                       (|Union| (|:| |%series| |Uls|)
                                                (|:| |%problem|
                                                     (|Record|
                                                      (|:| |func| (|String|))
                                                      (|:| |prob| (|String|)))))
-                                      #1#))
+                                      #7#))
                     (|compiledLookupCheck| '|coerce|
                                            (LIST (LIST '|Any|)
                                                  (LIST
@@ -542,12 +542,7 @@
 
 (SDEFUN |EXPR2UPS;laurent;SA;9| ((|x| (|Symbol|)) (% (|Any|)))
         (SPROG
-         ((|any1|
-           (CATEGORY |package| (SIGNATURE |coerce| ((|Any|) |uls|))
-            (SIGNATURE |retractIfCan| ((|Union| |uls| "failed") (|Any|)))
-            (SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
-            (SIGNATURE |retract| (|uls| (|Any|)))))
-          (|uls|
+         ((|uls|
            (|Join|
             (|UnivariateLaurentSeriesConstructorCategory| FE
                                                           (|UnivariateTaylorSeries|
@@ -558,7 +553,12 @@
              (SIGNATURE |differentiate| (% % (|Variable| |x|)))
              (IF (|has| FE (|Algebra| (|Fraction| (|Integer|))))
                  (SIGNATURE |integrate| (% % (|Variable| |x|)))
-                 |noBranch|)))))
+                 |noBranch|))))
+          (|any1|
+           (CATEGORY |package| (SIGNATURE |coerce| ((|Any|) |uls|))
+            (SIGNATURE |retractIfCan| ((|Union| |uls| "failed") (|Any|)))
+            (SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
+            (SIGNATURE |retract| (|uls| (|Any|))))))
          (SEQ
           (LETT |uls|
                 (|UnivariateLaurentSeries| (QREFELT % 7) |x|
@@ -591,12 +591,7 @@
 
 (SDEFUN |EXPR2UPS;laurent;FEIA;11| ((|fcn| (FE)) (|n| (|Integer|)) (% (|Any|)))
         (SPROG
-         ((|series| (|uls|))
-          (|any1|
-           (CATEGORY |package| (SIGNATURE |coerce| ((|Any|) |uls|))
-            (SIGNATURE |retractIfCan| ((|Union| |uls| "failed") (|Any|)))
-            (SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
-            (SIGNATURE |retract| (|uls| (|Any|)))))
+         ((|vars| (|List| (|Symbol|))) (|x| (|Symbol|))
           (|uls|
            (|Join|
             (|UnivariateLaurentSeriesConstructorCategory| FE
@@ -609,7 +604,12 @@
              (IF (|has| FE (|Algebra| (|Fraction| (|Integer|))))
                  (SIGNATURE |integrate| (% % (|Variable| |x|)))
                  |noBranch|))))
-          (|x| (|Symbol|)) (|vars| (|List| (|Symbol|))))
+          (|any1|
+           (CATEGORY |package| (SIGNATURE |coerce| ((|Any|) |uls|))
+            (SIGNATURE |retractIfCan| ((|Union| |uls| "failed") (|Any|)))
+            (SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
+            (SIGNATURE |retract| (|uls| (|Any|)))))
+          (|series| (|uls|)))
          (SEQ
           (COND
            ((NULL (LETT |vars| (SPADCALL |fcn| (QREFELT % 23))))
@@ -648,7 +648,7 @@
 (SDEFUN |EXPR2UPS;laurent;FEEA;12|
         ((|fcn| (FE)) (|eq| (|Equation| FE)) (% (|Any|)))
         (SPROG
-         ((|a| (FE)) (|x| (|Symbol|)) (|xx| (|Union| (|Symbol|) "failed")))
+         ((|xx| (|Union| (|Symbol|) "failed")) (|x| (|Symbol|)) (|a| (FE)))
          (SEQ
           (LETT |xx| (SPADCALL (SPADCALL |eq| (QREFELT % 29)) (QREFELT % 31)))
           (EXIT
@@ -666,7 +666,7 @@
 (SDEFUN |EXPR2UPS;laurent;FEEIA;13|
         ((|fcn| (FE)) (|eq| (|Equation| FE)) (|n| (|Integer|)) (% (|Any|)))
         (SPROG
-         ((|series| (|UnivariateLaurentSeries| FE |x| |a|))
+         ((|xx| (|Union| (|Symbol|) "failed")) (|x| (|Symbol|)) (|a| (FE))
           (|any1|
            (CATEGORY |package|
             (SIGNATURE |coerce|
@@ -674,7 +674,7 @@
             (SIGNATURE |retractIfCan| ((|Union| #1# "failed") (|Any|)))
             (SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
             (SIGNATURE |retract| (#1# (|Any|)))))
-          (|a| (FE)) (|x| (|Symbol|)) (|xx| (|Union| (|Symbol|) "failed")))
+          (|series| (|UnivariateLaurentSeries| FE |x| |a|)))
          (SEQ
           (LETT |xx| (SPADCALL (SPADCALL |eq| (QREFELT % 29)) (QREFELT % 31)))
           (EXIT
@@ -719,71 +719,7 @@
 (SDEFUN |EXPR2UPS;iPuiseux|
         ((|fcn| (FE)) (|x| (|Symbol|)) (|a| (FE)) (% (|Any|)))
         (SPROG
-         ((#1=#:G114 NIL)
-          (|any1|
-           (CATEGORY |package|
-            (SIGNATURE |coerce|
-             ((|Any|) #2=(|UnivariatePuiseuxSeries| FE |x| |a|)))
-            (SIGNATURE |retractIfCan| ((|Union| #2# "failed") (|Any|)))
-            (SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
-            (SIGNATURE |retract| (#2# (|Any|)))))
-          (|ans|
-           (|Union| (|:| |%series| |Ups|)
-                    (|:| |%problem|
-                         (|Record| (|:| |func| (|String|))
-                                   (|:| |prob| (|String|))))))
-          (|pack|
-           (CATEGORY |package|
-            (SIGNATURE |exprToUPS|
-             ((|Union| (|:| |%series| |Ups|)
-                       (|:| |%problem|
-                            (|Record| (|:| |func| (|String|))
-                                      (|:| |prob| (|String|)))))
-              FE (|Boolean|)
-              (|Union| #3="complex" #4="real: two sides" #5="real: left side"
-                       #6="real: right side" #7="just do it")))
-            (SIGNATURE |exprToGenUPS|
-             ((|Union| (|:| |%series| |Ups|)
-                       (|:| |%problem|
-                            (|Record| (|:| |func| (|String|))
-                                      (|:| |prob| (|String|)))))
-              FE (|Boolean|) (|Union| #3# #4# #5# #6# #7#)))
-            (SIGNATURE |exprToPS|
-             ((|Union| (|:| |%series| |Ups|)
-                       (|:| |%problem|
-                            (|Record| (|:| |func| (|String|))
-                                      (|:| |prob| (|String|)))))
-              FE (|Boolean|) (|Union| #3# #4# #5# #6# #7#) (|Boolean|) FE))
-            (SIGNATURE |exprToPS|
-             ((|Union| (|:| |%series| |Ups|)
-                       (|:| |%problem|
-                            (|Record| (|:| |func| (|String|))
-                                      (|:| |prob| (|String|)))))
-              FE (|Boolean|) (|Union| #3# #4# #5# #6# #7#) (|Boolean|) FE
-              (|Mapping| (|Boolean|) FE) (|Mapping| (|Boolean|) FE)
-              (|Mapping| (|Boolean|) FE)))))
-          (|Ups|
-           (|Join|
-            (|UnivariatePuiseuxSeriesConstructorCategory| FE
-                                                          (|UnivariateLaurentSeries|
-                                                           FE |x| |a|))
-            (|RetractableTo| (|UnivariateTaylorSeries| FE |x| |a|))
-            (CATEGORY |domain| (SIGNATURE |coerce| (% (|Variable| |x|)))
-             (SIGNATURE |differentiate| (% % (|Variable| |x|)))
-             (IF (|has| FE (|Algebra| (|Fraction| (|Integer|))))
-                 (SIGNATURE |integrate| (% % (|Variable| |x|)))
-                 |noBranch|))))
-          (|Uls|
-           (|Join|
-            (|UnivariateLaurentSeriesConstructorCategory| FE
-                                                          (|UnivariateTaylorSeries|
-                                                           FE |x| |a|))
-            (CATEGORY |domain| (SIGNATURE |coerce| (% (|Variable| |x|)))
-             (SIGNATURE |differentiate| (% % (|Variable| |x|)))
-             (IF (|has| FE (|Algebra| (|Fraction| (|Integer|))))
-                 (SIGNATURE |integrate| (% % (|Variable| |x|)))
-                 |noBranch|))))
-          (|Uts|
+         ((|Uts|
            (|Join| (|UnivariateTaylorSeriesCategory| FE)
                    (CATEGORY |domain|
                     (SIGNATURE |coerce| (% (|UnivariatePolynomial| |x| FE)))
@@ -801,7 +737,71 @@
                     (SIGNATURE |invmultisect| (% (|Integer|) (|Integer|) %))
                     (IF (|has| FE (|Algebra| (|Fraction| (|Integer|))))
                         (SIGNATURE |integrate| (% % (|Variable| |x|)))
-                        |noBranch|)))))
+                        |noBranch|))))
+          (|Uls|
+           (|Join|
+            (|UnivariateLaurentSeriesConstructorCategory| FE
+                                                          (|UnivariateTaylorSeries|
+                                                           FE |x| |a|))
+            (CATEGORY |domain| (SIGNATURE |coerce| (% (|Variable| |x|)))
+             (SIGNATURE |differentiate| (% % (|Variable| |x|)))
+             (IF (|has| FE (|Algebra| (|Fraction| (|Integer|))))
+                 (SIGNATURE |integrate| (% % (|Variable| |x|)))
+                 |noBranch|))))
+          (|Ups|
+           (|Join|
+            (|UnivariatePuiseuxSeriesConstructorCategory| FE
+                                                          (|UnivariateLaurentSeries|
+                                                           FE |x| |a|))
+            (|RetractableTo| (|UnivariateTaylorSeries| FE |x| |a|))
+            (CATEGORY |domain| (SIGNATURE |coerce| (% (|Variable| |x|)))
+             (SIGNATURE |differentiate| (% % (|Variable| |x|)))
+             (IF (|has| FE (|Algebra| (|Fraction| (|Integer|))))
+                 (SIGNATURE |integrate| (% % (|Variable| |x|)))
+                 |noBranch|))))
+          (|pack|
+           (CATEGORY |package|
+            (SIGNATURE |exprToUPS|
+             ((|Union| (|:| |%series| |Ups|)
+                       (|:| |%problem|
+                            (|Record| (|:| |func| (|String|))
+                                      (|:| |prob| (|String|)))))
+              FE (|Boolean|)
+              (|Union| #1="complex" #2="real: two sides" #3="real: left side"
+                       #4="real: right side" #5="just do it")))
+            (SIGNATURE |exprToGenUPS|
+             ((|Union| (|:| |%series| |Ups|)
+                       (|:| |%problem|
+                            (|Record| (|:| |func| (|String|))
+                                      (|:| |prob| (|String|)))))
+              FE (|Boolean|) (|Union| #1# #2# #3# #4# #5#)))
+            (SIGNATURE |exprToPS|
+             ((|Union| (|:| |%series| |Ups|)
+                       (|:| |%problem|
+                            (|Record| (|:| |func| (|String|))
+                                      (|:| |prob| (|String|)))))
+              FE (|Boolean|) (|Union| #1# #2# #3# #4# #5#) (|Boolean|) FE))
+            (SIGNATURE |exprToPS|
+             ((|Union| (|:| |%series| |Ups|)
+                       (|:| |%problem|
+                            (|Record| (|:| |func| (|String|))
+                                      (|:| |prob| (|String|)))))
+              FE (|Boolean|) (|Union| #1# #2# #3# #4# #5#) (|Boolean|) FE
+              (|Mapping| (|Boolean|) FE) (|Mapping| (|Boolean|) FE)
+              (|Mapping| (|Boolean|) FE)))))
+          (|ans|
+           (|Union| (|:| |%series| |Ups|)
+                    (|:| |%problem|
+                         (|Record| (|:| |func| (|String|))
+                                   (|:| |prob| (|String|))))))
+          (|any1|
+           (CATEGORY |package|
+            (SIGNATURE |coerce|
+             ((|Any|) #6=(|UnivariatePuiseuxSeries| FE |x| |a|)))
+            (SIGNATURE |retractIfCan| ((|Union| #6# "failed") (|Any|)))
+            (SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
+            (SIGNATURE |retract| (#6# (|Any|)))))
+          (#7=#:G114 NIL))
          (SEQ (LETT |Uts| (|UnivariateTaylorSeries| (QREFELT % 7) |x| |a|))
               (LETT |Uls| (|UnivariateLaurentSeries| (QREFELT % 7) |x| |a|))
               (LETT |Ups| (|UnivariatePuiseuxSeries| (QREFELT % 7) |x| |a|))
@@ -867,15 +867,15 @@
                          (|UnivariatePuiseuxSeries| (QREFELT % 7) |x| |a|)))
                   (EXIT
                    (SPADCALL
-                    (PROG2 (LETT #1# |ans|)
-                        (QCDR #1#)
-                      (|check_union2| (QEQCAR #1# 0) |Ups|
+                    (PROG2 (LETT #7# |ans|)
+                        (QCDR #7#)
+                      (|check_union2| (QEQCAR #7# 0) |Ups|
                                       (|Union| (|:| |%series| |Ups|)
                                                (|:| |%problem|
                                                     (|Record|
                                                      (|:| |func| (|String|))
                                                      (|:| |prob| (|String|)))))
-                                      #1#))
+                                      #7#))
                     (|compiledLookupCheck| '|coerce|
                                            (LIST (LIST '|Any|)
                                                  (LIST
@@ -886,12 +886,7 @@
 
 (SDEFUN |EXPR2UPS;puiseux;SA;15| ((|x| (|Symbol|)) (% (|Any|)))
         (SPROG
-         ((|any1|
-           (CATEGORY |package| (SIGNATURE |coerce| ((|Any|) |upxs|))
-            (SIGNATURE |retractIfCan| ((|Union| |upxs| "failed") (|Any|)))
-            (SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
-            (SIGNATURE |retract| (|upxs| (|Any|)))))
-          (|upxs|
+         ((|upxs|
            (|Join|
             (|UnivariatePuiseuxSeriesConstructorCategory| FE
                                                           (|UnivariateLaurentSeries|
@@ -903,7 +898,12 @@
              (SIGNATURE |differentiate| (% % (|Variable| |x|)))
              (IF (|has| FE (|Algebra| (|Fraction| (|Integer|))))
                  (SIGNATURE |integrate| (% % (|Variable| |x|)))
-                 |noBranch|)))))
+                 |noBranch|))))
+          (|any1|
+           (CATEGORY |package| (SIGNATURE |coerce| ((|Any|) |upxs|))
+            (SIGNATURE |retractIfCan| ((|Union| |upxs| "failed") (|Any|)))
+            (SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
+            (SIGNATURE |retract| (|upxs| (|Any|))))))
          (SEQ
           (LETT |upxs|
                 (|UnivariatePuiseuxSeries| (QREFELT % 7) |x|
@@ -938,12 +938,7 @@
 (SDEFUN |EXPR2UPS;puiseux;FEFA;17|
         ((|fcn| (FE)) (|n| (|Fraction| (|Integer|))) (% (|Any|)))
         (SPROG
-         ((|series| (|upxs|))
-          (|any1|
-           (CATEGORY |package| (SIGNATURE |coerce| ((|Any|) |upxs|))
-            (SIGNATURE |retractIfCan| ((|Union| |upxs| "failed") (|Any|)))
-            (SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
-            (SIGNATURE |retract| (|upxs| (|Any|)))))
+         ((|vars| (|List| (|Symbol|))) (|x| (|Symbol|))
           (|upxs|
            (|Join|
             (|UnivariatePuiseuxSeriesConstructorCategory| FE
@@ -957,7 +952,12 @@
              (IF (|has| FE (|Algebra| (|Fraction| (|Integer|))))
                  (SIGNATURE |integrate| (% % (|Variable| |x|)))
                  |noBranch|))))
-          (|x| (|Symbol|)) (|vars| (|List| (|Symbol|))))
+          (|any1|
+           (CATEGORY |package| (SIGNATURE |coerce| ((|Any|) |upxs|))
+            (SIGNATURE |retractIfCan| ((|Union| |upxs| "failed") (|Any|)))
+            (SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
+            (SIGNATURE |retract| (|upxs| (|Any|)))))
+          (|series| (|upxs|)))
          (SEQ
           (COND
            ((NULL (LETT |vars| (SPADCALL |fcn| (QREFELT % 23))))
@@ -998,7 +998,7 @@
 (SDEFUN |EXPR2UPS;puiseux;FEEA;18|
         ((|fcn| (FE)) (|eq| (|Equation| FE)) (% (|Any|)))
         (SPROG
-         ((|a| (FE)) (|x| (|Symbol|)) (|xx| (|Union| (|Symbol|) "failed")))
+         ((|xx| (|Union| (|Symbol|) "failed")) (|x| (|Symbol|)) (|a| (FE)))
          (SEQ
           (LETT |xx| (SPADCALL (SPADCALL |eq| (QREFELT % 29)) (QREFELT % 31)))
           (EXIT
@@ -1017,7 +1017,7 @@
         ((|fcn| (FE)) (|eq| (|Equation| FE)) (|n| (|Fraction| (|Integer|)))
          (% (|Any|)))
         (SPROG
-         ((|series| (|UnivariatePuiseuxSeries| FE |x| |a|))
+         ((|xx| (|Union| (|Symbol|) "failed")) (|x| (|Symbol|)) (|a| (FE))
           (|any1|
            (CATEGORY |package|
             (SIGNATURE |coerce|
@@ -1025,7 +1025,7 @@
             (SIGNATURE |retractIfCan| ((|Union| #1# "failed") (|Any|)))
             (SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
             (SIGNATURE |retract| (#1# (|Any|)))))
-          (|a| (FE)) (|x| (|Symbol|)) (|xx| (|Union| (|Symbol|) "failed")))
+          (|series| (|UnivariatePuiseuxSeries| FE |x| |a|)))
          (SEQ
           (LETT |xx| (SPADCALL (SPADCALL |eq| (QREFELT % 29)) (QREFELT % 31)))
           (EXIT
@@ -1072,75 +1072,7 @@
 (SDEFUN |EXPR2UPS;iSeries|
         ((|fcn| (FE)) (|x| (|Symbol|)) (|a| (FE)) (% (|Any|)))
         (SPROG
-         ((|any1|
-           (CATEGORY |package|
-            (SIGNATURE |coerce|
-             (#1=(|Any|) #2=(|UnivariatePuiseuxSeries| FE |x| |a|)))
-            (SIGNATURE |retractIfCan|
-             ((|Union| #2# . #3=("failed")) . #4=((|Any|))))
-            #5=(SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
-            (SIGNATURE |retract| (#2# . #6=((|Any|))))))
-          (#7=#:G150 NIL)
-          (|anyone|
-           (CATEGORY |package|
-            (SIGNATURE |coerce|
-             (#1# #8=(|GeneralUnivariatePowerSeries| FE |x| |a|)))
-            (SIGNATURE |retractIfCan| ((|Union| #8# . #3#) . #4#)) #5#
-            (SIGNATURE |retract| (#8# . #6#))))
-          (|ansG|
-           (|Union| (|:| |%series| (|UnivariatePuiseuxSeries| FE |x| |a|))
-                    (|:| |%problem|
-                         (|Record| (|:| |func| (|String|))
-                                   (|:| |prob| (|String|))))))
-          (|ans|
-           (|Union| (|:| |%series| (|UnivariatePuiseuxSeries| FE |x| |a|))
-                    (|:| |%problem|
-                         (|Record| (|:| |func| (|String|))
-                                   (|:| |prob| (|String|))))))
-          (|pack|
-           (CATEGORY |package|
-            (SIGNATURE |exprToUPS|
-             ((|Union|
-               (|:| |%series| #9=(|UnivariatePuiseuxSeries| FE |x| |a|))
-               (|:| |%problem|
-                    (|Record| (|:| |func| (|String|))
-                              (|:| |prob| (|String|)))))
-              FE (|Boolean|)
-              (|Union| #10="complex" #11="real: two sides"
-                       #12="real: left side" #13="real: right side"
-                       #14="just do it")))
-            (SIGNATURE |exprToGenUPS|
-             ((|Union| (|:| |%series| #9#)
-                       (|:| |%problem|
-                            (|Record| (|:| |func| (|String|))
-                                      (|:| |prob| (|String|)))))
-              FE (|Boolean|) (|Union| #10# #11# #12# #13# #14#)))
-            (SIGNATURE |exprToPS|
-             ((|Union| (|:| |%series| #9#)
-                       (|:| |%problem|
-                            (|Record| (|:| |func| (|String|))
-                                      (|:| |prob| (|String|)))))
-              FE (|Boolean|) (|Union| #10# #11# #12# #13# #14#) (|Boolean|)
-              FE))
-            (SIGNATURE |exprToPS|
-             ((|Union| (|:| |%series| #9#)
-                       (|:| |%problem|
-                            (|Record| (|:| |func| (|String|))
-                                      (|:| |prob| (|String|)))))
-              FE (|Boolean|) (|Union| #10# #11# #12# #13# #14#) (|Boolean|) FE
-              (|Mapping| (|Boolean|) FE) (|Mapping| (|Boolean|) FE)
-              (|Mapping| (|Boolean|) FE)))))
-          (|Uls|
-           (|Join|
-            (|UnivariateLaurentSeriesConstructorCategory| FE
-                                                          (|UnivariateTaylorSeries|
-                                                           FE |x| |a|))
-            (CATEGORY |domain| (SIGNATURE |coerce| (% (|Variable| |x|)))
-             (SIGNATURE |differentiate| (% % (|Variable| |x|)))
-             (IF (|has| FE (|Algebra| (|Fraction| (|Integer|))))
-                 (SIGNATURE |integrate| (% % (|Variable| |x|)))
-                 |noBranch|))))
-          (|Uts|
+         ((|Uts|
            (|Join| (|UnivariateTaylorSeriesCategory| FE)
                    (CATEGORY |domain|
                     (SIGNATURE |coerce| (% (|UnivariatePolynomial| |x| FE)))
@@ -1158,7 +1090,73 @@
                     (SIGNATURE |invmultisect| (% (|Integer|) (|Integer|) %))
                     (IF (|has| FE (|Algebra| (|Fraction| (|Integer|))))
                         (SIGNATURE |integrate| (% % (|Variable| |x|)))
-                        |noBranch|)))))
+                        |noBranch|))))
+          (|Uls|
+           (|Join|
+            (|UnivariateLaurentSeriesConstructorCategory| FE
+                                                          (|UnivariateTaylorSeries|
+                                                           FE |x| |a|))
+            (CATEGORY |domain| (SIGNATURE |coerce| (% (|Variable| |x|)))
+             (SIGNATURE |differentiate| (% % (|Variable| |x|)))
+             (IF (|has| FE (|Algebra| (|Fraction| (|Integer|))))
+                 (SIGNATURE |integrate| (% % (|Variable| |x|)))
+                 |noBranch|))))
+          (|pack|
+           (CATEGORY |package|
+            (SIGNATURE |exprToUPS|
+             ((|Union|
+               (|:| |%series| #1=(|UnivariatePuiseuxSeries| FE |x| |a|))
+               (|:| |%problem|
+                    (|Record| (|:| |func| (|String|))
+                              (|:| |prob| (|String|)))))
+              FE (|Boolean|)
+              (|Union| #2="complex" #3="real: two sides" #4="real: left side"
+                       #5="real: right side" #6="just do it")))
+            (SIGNATURE |exprToGenUPS|
+             ((|Union| (|:| |%series| #1#)
+                       (|:| |%problem|
+                            (|Record| (|:| |func| (|String|))
+                                      (|:| |prob| (|String|)))))
+              FE (|Boolean|) (|Union| #2# #3# #4# #5# #6#)))
+            (SIGNATURE |exprToPS|
+             ((|Union| (|:| |%series| #1#)
+                       (|:| |%problem|
+                            (|Record| (|:| |func| (|String|))
+                                      (|:| |prob| (|String|)))))
+              FE (|Boolean|) (|Union| #2# #3# #4# #5# #6#) (|Boolean|) FE))
+            (SIGNATURE |exprToPS|
+             ((|Union| (|:| |%series| #1#)
+                       (|:| |%problem|
+                            (|Record| (|:| |func| (|String|))
+                                      (|:| |prob| (|String|)))))
+              FE (|Boolean|) (|Union| #2# #3# #4# #5# #6#) (|Boolean|) FE
+              (|Mapping| (|Boolean|) FE) (|Mapping| (|Boolean|) FE)
+              (|Mapping| (|Boolean|) FE)))))
+          (|ans|
+           (|Union| (|:| |%series| (|UnivariatePuiseuxSeries| FE |x| |a|))
+                    (|:| |%problem|
+                         (|Record| (|:| |func| (|String|))
+                                   (|:| |prob| (|String|))))))
+          (|ansG|
+           (|Union| (|:| |%series| (|UnivariatePuiseuxSeries| FE |x| |a|))
+                    (|:| |%problem|
+                         (|Record| (|:| |func| (|String|))
+                                   (|:| |prob| (|String|))))))
+          (|anyone|
+           (CATEGORY |package|
+            (SIGNATURE |coerce|
+             (#7=(|Any|) #8=(|GeneralUnivariatePowerSeries| FE |x| |a|)))
+            (SIGNATURE |retractIfCan|
+             ((|Union| #8# . #9=("failed")) . #10=((|Any|))))
+            #11=(SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
+            (SIGNATURE |retract| (#8# . #12=((|Any|))))))
+          (#13=#:G150 NIL)
+          (|any1|
+           (CATEGORY |package|
+            (SIGNATURE |coerce|
+             (#7# #14=(|UnivariatePuiseuxSeries| FE |x| |a|)))
+            (SIGNATURE |retractIfCan| ((|Union| #14# . #9#) . #10#)) #11#
+            (SIGNATURE |retract| (#14# . #12#)))))
          (SEQ (LETT |Uts| (|UnivariateTaylorSeries| (QREFELT % 7) |x| |a|))
               (LETT |Uls| (|UnivariateLaurentSeries| (QREFELT % 7) |x| |a|))
               (LETT |pack|
@@ -1274,9 +1272,9 @@
                       (EXIT
                        (SPADCALL
                         (SPADCALL
-                         (PROG2 (LETT #7# |ansG|)
-                             (QCDR #7#)
-                           (|check_union2| (QEQCAR #7# 0)
+                         (PROG2 (LETT #13# |ansG|)
+                             (QCDR #13#)
+                           (|check_union2| (QEQCAR #13# 0)
                                            (|UnivariatePuiseuxSeries|
                                             (QREFELT % 7) |x| |a|)
                                            (|Union|
@@ -1287,7 +1285,7 @@
                                                  (|Record|
                                                   (|:| |func| (|String|))
                                                   (|:| |prob| (|String|)))))
-                                           #7#))
+                                           #13#))
                          (|compiledLookupCheck| '|coerce|
                                                 (LIST '%
                                                       (LIST
@@ -1321,12 +1319,7 @@
 
 (SDEFUN |EXPR2UPS;series;SA;21| ((|x| (|Symbol|)) (% (|Any|)))
         (SPROG
-         ((|any1|
-           (CATEGORY |package| (SIGNATURE |coerce| ((|Any|) |upxs|))
-            (SIGNATURE |retractIfCan| ((|Union| |upxs| "failed") (|Any|)))
-            (SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
-            (SIGNATURE |retract| (|upxs| (|Any|)))))
-          (|upxs|
+         ((|upxs|
            (|Join|
             (|UnivariatePuiseuxSeriesConstructorCategory| FE
                                                           (|UnivariateLaurentSeries|
@@ -1338,7 +1331,12 @@
              (SIGNATURE |differentiate| (% % (|Variable| |x|)))
              (IF (|has| FE (|Algebra| (|Fraction| (|Integer|))))
                  (SIGNATURE |integrate| (% % (|Variable| |x|)))
-                 |noBranch|)))))
+                 |noBranch|))))
+          (|any1|
+           (CATEGORY |package| (SIGNATURE |coerce| ((|Any|) |upxs|))
+            (SIGNATURE |retractIfCan| ((|Union| |upxs| "failed") (|Any|)))
+            (SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
+            (SIGNATURE |retract| (|upxs| (|Any|))))))
          (SEQ
           (LETT |upxs|
                 (|UnivariatePuiseuxSeries| (QREFELT % 7) |x|
@@ -1373,12 +1371,7 @@
 (SDEFUN |EXPR2UPS;series;FEFA;23|
         ((|fcn| (FE)) (|n| (|Fraction| (|Integer|))) (% (|Any|)))
         (SPROG
-         ((|series| (|upxs|))
-          (|any1|
-           (CATEGORY |package| (SIGNATURE |coerce| ((|Any|) |upxs|))
-            (SIGNATURE |retractIfCan| ((|Union| |upxs| "failed") (|Any|)))
-            (SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
-            (SIGNATURE |retract| (|upxs| (|Any|)))))
+         ((|vars| (|List| (|Symbol|))) (|x| (|Symbol|))
           (|upxs|
            (|Join|
             (|UnivariatePuiseuxSeriesConstructorCategory| FE
@@ -1392,7 +1385,12 @@
              (IF (|has| FE (|Algebra| (|Fraction| (|Integer|))))
                  (SIGNATURE |integrate| (% % (|Variable| |x|)))
                  |noBranch|))))
-          (|x| (|Symbol|)) (|vars| (|List| (|Symbol|))))
+          (|any1|
+           (CATEGORY |package| (SIGNATURE |coerce| ((|Any|) |upxs|))
+            (SIGNATURE |retractIfCan| ((|Union| |upxs| "failed") (|Any|)))
+            (SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
+            (SIGNATURE |retract| (|upxs| (|Any|)))))
+          (|series| (|upxs|)))
          (SEQ
           (COND
            ((NULL (LETT |vars| (SPADCALL |fcn| (QREFELT % 23))))
@@ -1433,7 +1431,7 @@
 (SDEFUN |EXPR2UPS;series;FEEA;24|
         ((|fcn| (FE)) (|eq| (|Equation| FE)) (% (|Any|)))
         (SPROG
-         ((|a| (FE)) (|x| (|Symbol|)) (|xx| (|Union| (|Symbol|) "failed")))
+         ((|xx| (|Union| (|Symbol|) "failed")) (|x| (|Symbol|)) (|a| (FE)))
          (SEQ
           (LETT |xx| (SPADCALL (SPADCALL |eq| (QREFELT % 29)) (QREFELT % 31)))
           (EXIT
@@ -1452,7 +1450,7 @@
         ((|fcn| (FE)) (|eq| (|Equation| FE)) (|n| (|Fraction| (|Integer|)))
          (% (|Any|)))
         (SPROG
-         ((|series| (|UnivariatePuiseuxSeries| FE |x| |a|))
+         ((|xx| (|Union| (|Symbol|) "failed")) (|x| (|Symbol|)) (|a| (FE))
           (|any1|
            (CATEGORY |package|
             (SIGNATURE |coerce|
@@ -1460,7 +1458,7 @@
             (SIGNATURE |retractIfCan| ((|Union| #1# "failed") (|Any|)))
             (SIGNATURE |retractable?| ((|Boolean|) (|Any|)))
             (SIGNATURE |retract| (#1# (|Any|)))))
-          (|a| (FE)) (|x| (|Symbol|)) (|xx| (|Union| (|Symbol|) "failed")))
+          (|series| (|UnivariatePuiseuxSeries| FE |x| |a|)))
          (SEQ
           (LETT |xx| (SPADCALL (SPADCALL |eq| (QREFELT % 29)) (QREFELT % 31)))
           (EXIT
@@ -1507,7 +1505,7 @@
 (DECLAIM (NOTINLINE |ExpressionToUnivariatePowerSeries;|)) 
 
 (DEFUN |ExpressionToUnivariatePowerSeries;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

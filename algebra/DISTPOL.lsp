@@ -34,7 +34,7 @@
 
 (SDEFUN |DISTPOL;apply;UPSDD;3|
         ((|p| (UPS)) (|x| (|Distribution| R)) (% (|Distribution| S)))
-        (SPROG ((|mompx| (|Stream| S)) (IN (|Stream| (|Integer|))))
+        (SPROG ((IN (|Stream| (|Integer|))) (|mompx| (|Stream| S)))
                (SEQ
                 (LETT IN
                       (SPADCALL (LIST (SPADCALL 1 (QREFELT % 28)))
@@ -66,7 +66,7 @@
 (DECLAIM (NOTINLINE |DistributionPolynomialPackage;|)) 
 
 (DEFUN |DistributionPolynomialPackage;| (|#1| |#2| |#3|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

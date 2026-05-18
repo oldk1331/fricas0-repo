@@ -82,7 +82,7 @@
 
 (SDEFUN |BOP1;eqconst?|
         ((|a| (|BasicOperator|)) (|b| (|BasicOperator|)) (% (|Boolean|)))
-        (SPROG ((|vb| #1=(|Union| (|None|) "failed")) (|va| #1#))
+        (SPROG ((|va| #1=(|Union| (|None|) "failed")) (|vb| #1#))
                (SEQ (LETT |va| (SPADCALL |a| (QREFELT % 8) (QREFELT % 19)))
                     (EXIT
                      (COND
@@ -99,7 +99,7 @@
 
 (SDEFUN |BOP1;ltconst?|
         ((|a| (|BasicOperator|)) (|b| (|BasicOperator|)) (% (|Boolean|)))
-        (SPROG ((|vb| #1=(|Union| (|None|) "failed")) (|va| #1#))
+        (SPROG ((|va| #1=(|Union| (|None|) "failed")) (|vb| #1#))
                (SEQ (LETT |va| (SPADCALL |a| (QREFELT % 8) (QREFELT % 19)))
                     (EXIT
                      (COND
@@ -130,7 +130,7 @@
 
 (SDEFUN |BOP1;constantOpIfCan;BoU;13|
         ((|op| (|BasicOperator|)) (% (|Union| A "failed")))
-        (SPROG ((#1=#:G229 NIL) (|u| (|Union| (|None|) "failed")))
+        (SPROG ((|u| (|Union| (|None|) "failed")) (#1=#:G229 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -166,7 +166,7 @@
 (DECLAIM (NOTINLINE |BasicOperatorFunctions1;|)) 
 
 (DEFUN |BasicOperatorFunctions1;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|BasicOperatorFunctions1| DV$1))

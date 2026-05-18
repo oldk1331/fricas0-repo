@@ -110,7 +110,7 @@
 
 (SDEFUN |DISTRO;distributionByJacobiParameters;2S%;16|
         ((|aa| (|Sequence| R)) (|bb| (|Sequence| R)) (% (%)))
-        (SPROG ((|mom| (|Stream| R)) (|rior| (|Stream| (|List| R))))
+        (SPROG ((|rior| (|Stream| (|List| R))) (|mom| (|Stream| R)))
                (SEQ
                 (LETT |rior|
                       (SPADCALL (SPADCALL |aa| (QREFELT % 26))
@@ -153,8 +153,9 @@
         ((|puiseux| (|Fraction| (|Integer|)))
          (|laurent| (|Fraction| (|Integer|))) (|coef| (|Sequence| R)) (% (%)))
         (SPROG
-         ((|psi| #1=(|Stream| R)) (|psi2| #1#) (|chi2| #2=(|Stream| R))
-          (|z1z| #2#) (S2 (|Sequence| R)) (#3=#:G48 NIL) (|chi| (|Stream| R)))
+         ((|chi| (|Stream| R)) (#1=#:G48 NIL) (S2 (|Sequence| R))
+          (|z1z| #2=(|Stream| R)) (|chi2| #2#) (|psi2| #3=(|Stream| R))
+          (|psi| #3#))
          (SEQ
           (EXIT
            (COND
@@ -174,7 +175,7 @@
               (LETT |psi| (SPADCALL |chi| (QREFELT % 64)))
               (EXIT
                (PROGN
-                (LETT #3#
+                (LETT #1#
                       (SPADCALL
                        (SPADCALL (SPADCALL |psi| (QREFELT % 22))
                                  (QREFELT % 13))
@@ -208,7 +209,7 @@
                       (QREFELT % 14)))))
               (#5='T (|error| "Not an S-transform"))))
             (#5# (|error| "Not an S-transform"))))
-          #4# (EXIT #3#)))) 
+          #4# (EXIT #1#)))) 
 
 (SDEFUN |DISTRO;distributionBySTransform;R%;23|
         ((S
@@ -221,13 +222,12 @@
 (SDEFUN |DISTRO;freeMultiplicativeConvolution;3%;24|
         ((|x| (%)) (|y| (%)) (% (%)))
         (SPROG
-         ((|Sxyc| (|Stream| R)) (#1=#:G63 NIL) (|Syc| #2=(|Stream| R))
-          (|Sxc| #2#)
-          (|Sy|
-           #3=(|Record| (|:| |puiseux| (|Fraction| (|Integer|)))
+         ((|Sx|
+           #1=(|Record| (|:| |puiseux| (|Fraction| (|Integer|)))
                         (|:| |laurent| (|Fraction| (|Integer|)))
                         (|:| |coef| (|Sequence| R))))
-          (|Sx| #3#))
+          (|Sy| #1#) (|Sxc| #2=(|Stream| R)) (|Syc| #2#) (#3=#:G63 NIL)
+          (|Sxyc| (|Stream| R)))
          (SEQ
           (EXIT
            (SEQ
@@ -249,7 +249,7 @@
                 (SEQ (LETT |Sxyc| (SPADCALL |Sxc| |Syc| (QREFELT % 63)))
                      (EXIT
                       (PROGN
-                       (LETT #1#
+                       (LETT #3#
                              (SPADCALL (|spadConstant| % 58)
                                        (|spadConstant| % 73)
                                        (SPADCALL |Sxyc| (QREFELT % 13))
@@ -277,7 +277,7 @@
              (SPADCALL (SPADCALL 1 2 (QREFELT % 65))
                        (SPADCALL (|spadConstant| % 58) (QREFELT % 66))
                        (SPADCALL |Sxyc| (QREFELT % 13)) (QREFELT % 69)))))
-          #4# (EXIT #1#)))) 
+          #4# (EXIT #3#)))) 
 
 (SDEFUN |DISTRO;coerce;%Of;25| ((|x| (%)) (% (|OutputForm|)))
         (SPADCALL (QVELT (|DISTRO;rep| |x| %) 0) (QREFELT % 77))) 
@@ -361,7 +361,7 @@
          (%
           (|Record| (|:| |an| (|Stream| (|Fraction| R)))
                     (|:| |bn| (|Stream| (|Fraction| R))))))
-        (SPROG ((|mm| (|Stream| (|Fraction| R))) (|mm1| (|Stream| R)))
+        (SPROG ((|mm1| (|Stream| R)) (|mm| (|Stream| (|Fraction| R))))
                (SEQ
                 (LETT |mm1|
                       (SPADCALL (SPADCALL |x| (QREFELT % 51)) (QREFELT % 26)))
@@ -461,7 +461,7 @@
                  (SPADCALL (SPADCALL |momn| (QREFELT % 13)) (QREFELT % 14)))))) 
 
 (SDEFUN |DISTRO;orthogonalConvolution;3%;46| ((|x| (%)) (|y| (%)) (% (%)))
-        (SPROG ((|Bxy| (|Stream| R)) (|zMy| (|Stream| R)) (|Bx| (|Stream| R)))
+        (SPROG ((|Bx| (|Stream| R)) (|zMy| (|Stream| R)) (|Bxy| (|Stream| R)))
                (SEQ
                 (LETT |Bx|
                       (SPADCALL (SPADCALL |x| (QREFELT % 87)) (QREFELT % 26)))
@@ -477,7 +477,7 @@
                 (EXIT (SPADCALL |Bxy| (QREFELT % 37)))))) 
 
 (SDEFUN |DISTRO;subordinationConvolution;3%;47| ((|x| (%)) (|y| (%)) (% (%)))
-        (SPROG ((|Rxy| (|Stream| R)) (|zMy| (|Stream| R)) (|Rx| (|Stream| R)))
+        (SPROG ((|Rx| (|Stream| R)) (|zMy| (|Stream| R)) (|Rxy| (|Stream| R)))
                (SEQ
                 (LETT |Rx|
                       (SPADCALL (SPADCALL |x| (QREFELT % 86)) (QREFELT % 26)))
@@ -495,7 +495,7 @@
 (DECLAIM (NOTINLINE |Distribution;|)) 
 
 (DEFUN |Distribution;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|Distribution| DV$1))

@@ -5,8 +5,8 @@
           (|Record| (|:| |ppow| (|NonNegativeInteger|))
                     (|:| |pfree| (|Integer|)))))
         (SPROG
-         ((|n| (|NonNegativeInteger|)) (|a| #1#) (#2=#:G32 NIL)
-          (|x| (|Union| (|Integer|) #3="failed")))
+         ((|x| (|Union| (|Integer|) #2="failed")) (#3=#:G32 NIL) (|a| #1#)
+          (|n| (|NonNegativeInteger|)))
          (SEQ
           (COND ((ZEROP |z|) (CONS 0 0))
                 ('T
@@ -19,11 +19,11 @@
                              (GO G191)))
                            (SEQ
                             (LETT |a|
-                                  (PROG2 (LETT #2# |x|)
-                                      (QCDR #2#)
-                                    (|check_union2| (QEQCAR #2# 0) (|Integer|)
-                                                    (|Union| (|Integer|) #3#)
-                                                    #2#)))
+                                  (PROG2 (LETT #3# |x|)
+                                      (QCDR #3#)
+                                    (|check_union2| (QEQCAR #3# 0) (|Integer|)
+                                                    (|Union| (|Integer|) #2#)
+                                                    #3#)))
                             (EXIT (LETT |n| (+ |n| 1))))
                            NIL (GO G190) G191 (EXIT NIL))
                       (EXIT (CONS |n| |a|)))))))) 
@@ -75,10 +75,10 @@
 
 (SDEFUN |INTLOCP;retract;F%;8| ((|q| (|Fraction| (|Integer|))) (% (%)))
         (SPROG
-         ((|snum|
+         ((|d| (|Integer|))
+          (|snum|
            (|Record| (|:| |ppow| (|NonNegativeInteger|))
-                     (|:| |pfree| (|Integer|))))
-          (|d| (|Integer|)))
+                     (|:| |pfree| (|Integer|)))))
          (SEQ (LETT |d| (SPADCALL |q| (QREFELT % 18)))
               (EXIT
                (COND
@@ -95,10 +95,10 @@
 (SDEFUN |INTLOCP;retractIfCan;FU;9|
         ((|q| (|Fraction| (|Integer|))) (% (|Union| % "failed")))
         (SPROG
-         ((|snum|
+         ((|d| (|Integer|))
+          (|snum|
            (|Record| (|:| |ppow| (|NonNegativeInteger|))
-                     (|:| |pfree| (|Integer|))))
-          (|d| (|Integer|)))
+                     (|:| |pfree| (|Integer|)))))
          (SEQ (LETT |d| (SPADCALL |q| (QREFELT % 18)))
               (EXIT
                (COND
@@ -114,7 +114,7 @@
                                          (QREFELT % 25)))))))))))) 
 
 (SDEFUN |INTLOCP;coerce;%Of;10| ((|x| (%)) (% (|OutputForm|)))
-        (SPROG ((|q| (|Fraction| (|Integer|))) (|po| (|OutputForm|)))
+        (SPROG ((|po| (|OutputForm|)) (|q| (|Fraction| (|Integer|))))
                (SEQ
                 (COND
                  ((ZEROP (SPADCALL |x| (QREFELT % 13)))
@@ -145,11 +145,11 @@
 
 (SDEFUN |INTLOCP;+;3%;14| ((|x| (%)) (|y| (%)) (% (%)))
         (SPROG
-         ((|e| (|Integer|)) (|#G18| (%)) (|#G17| (%)) (|#G16| (|Integer|))
+         ((|q| (|Fraction| (|Integer|)))
           (|snum|
            (|Record| (|:| |ppow| (|NonNegativeInteger|))
                      (|:| |pfree| (|Integer|))))
-          (|q| (|Fraction| (|Integer|))))
+          (|#G16| (|Integer|)) (|#G17| (%)) (|#G18| (%)) (|e| (|Integer|)))
          (SEQ
           (COND ((SPADCALL |x| (QREFELT % 41)) |y|)
                 ((SPADCALL |y| (QREFELT % 41)) |x|)
@@ -237,7 +237,7 @@
 (SDEFUN |INTLOCP;divide;2%R;22|
         ((|x| (%)) (|y| (%))
          (% (|Record| (|:| |quotient| %) (|:| |remainder| %))))
-        (SPROG ((|z| (%)) (|e| (|Integer|)))
+        (SPROG ((|e| (|Integer|)) (|z| (%)))
                (SEQ
                 (COND
                  ((SPADCALL |y| (QREFELT % 41)) (|error| "division by zero"))
@@ -258,7 +258,7 @@
                             (EXIT (CONS |z| (|spadConstant| % 38))))))))))))) 
 
 (SDEFUN |INTLOCP;exquo;2%U;23| ((|x| (%)) (|y| (%)) (% (|Union| % "failed")))
-        (SPROG ((|z| (%)) (|e| (|Integer|)))
+        (SPROG ((|e| (|Integer|)) (|z| (%)))
                (SEQ
                 (COND ((SPADCALL |y| (QREFELT % 41)) (CONS 1 "failed"))
                       (#1='T
@@ -336,9 +336,9 @@
         ((|x| (%)) (|y| (%))
          (% (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))))
         (SPROG
-         ((|cy| (%)) (|cx| (%)) (|emax| (|NonNegativeInteger|))
-          (|uy| #1=(|Fraction| (|Integer|))) (|ey| #2=(|NonNegativeInteger|))
-          (|ux| #1#) (|ex| #2#))
+         ((|ex| #1=(|NonNegativeInteger|)) (|ux| #2=(|Fraction| (|Integer|)))
+          (|ey| #1#) (|uy| #2#) (|emax| (|NonNegativeInteger|)) (|cx| (%))
+          (|cy| (%)))
          (SEQ
           (COND
            ((OR (SPADCALL |x| (QREFELT % 41)) (SPADCALL |y| (QREFELT % 41)))
@@ -379,7 +379,7 @@
 (DECLAIM (NOTINLINE |IntegerLocalizedAtPrime;|)) 
 
 (DEFUN |IntegerLocalizedAtPrime;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 |#1|)
           (LETT |dv$| (LIST '|IntegerLocalizedAtPrime| DV$1))

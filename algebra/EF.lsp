@@ -149,7 +149,7 @@
               ('T (|error| "Not an elementary operator")))) 
 
 (SDEFUN |EF;dropfun| ((|x| (F)) (% (F)))
-        (SPROG ((#1=#:G224 NIL) (|k| (|Union| (|Kernel| F) "failed")))
+        (SPROG ((|k| (|Union| (|Kernel| F) "failed")) (#1=#:G224 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -169,9 +169,9 @@
          (|values| (|List| (|Record| (|:| |func| F) (|:| |pole| (|Boolean|)))))
          (% (|Union| F "failed")))
         (SPROG
-         ((|s| (|Integer|)) (|n| (|Union| (|Integer|) "failed"))
-          (|m| (|Integer|)) (|q| (|Fraction| (|Integer|)))
-          (|r| (|Union| (|Fraction| (|Integer|)) "failed")) (|y| (F)))
+         ((|y| (F)) (|r| (|Union| (|Fraction| (|Integer|)) "failed"))
+          (|q| (|Fraction| (|Integer|))) (|m| (|Integer|))
+          (|n| (|Union| (|Integer|) "failed")) (|s| (|Integer|)))
          (SEQ
           (LETT |r|
                 (SPADCALL
@@ -350,7 +350,7 @@
 
 (SDEFUN |EF;isin| ((|x| (F)) (% (F)))
         (SPROG
-         ((|u| (|Union| F "failed")) (|s3| (F)) (|s2| (F)) (|h| (F)) (|y| (F)))
+         ((|y| (F)) (|h| (F)) (|s2| (F)) (|s3| (F)) (|u| (|Union| F "failed")))
          (SEQ
           (COND ((SPADCALL |x| (QREFELT % 114)) (|spadConstant| % 89))
                 (#1='T
@@ -434,7 +434,7 @@
 
 (SDEFUN |EF;icos| ((|x| (F)) (% (F)))
         (SPROG
-         ((|u| (|Union| F "failed")) (|s3| (F)) (|s2| (F)) (|h| (F)) (|y| (F)))
+         ((|y| (F)) (|h| (F)) (|s2| (F)) (|s3| (F)) (|u| (|Union| F "failed")))
          (SEQ
           (COND ((SPADCALL |x| (QREFELT % 114)) (|spadConstant| % 48))
                 (#1='T
@@ -518,7 +518,7 @@
                                             (QREFELT % 121))))))))))))))) 
 
 (SDEFUN |EF;itan| ((|x| (F)) (% (F)))
-        (SPROG ((|u| (|Union| F "failed")) (|s33| (F)) (|s3| (F)) (|y| (F)))
+        (SPROG ((|y| (F)) (|s3| (F)) (|s33| (F)) (|u| (|Union| F "failed")))
                (SEQ
                 (COND ((SPADCALL |x| (QREFELT % 114)) (|spadConstant| % 89))
                       (#1='T
@@ -620,7 +620,7 @@
                                                   (QREFELT % 121))))))))))))))) 
 
 (SDEFUN |EF;icot| ((|x| (F)) (% (F)))
-        (SPROG ((|u| (|Union| F "failed")) (|s33| (F)) (|s3| (F)) (|y| (F)))
+        (SPROG ((|y| (F)) (|s3| (F)) (|s33| (F)) (|u| (|Union| F "failed")))
                (SEQ
                 (COND
                  ((SPADCALL |x| (QREFELT % 114)) (|error| "Invalid argument"))
@@ -707,7 +707,7 @@
 
 (SDEFUN |EF;isec| ((|x| (F)) (% (F)))
         (SPROG
-         ((|u| (|Union| F "failed")) (|h| (F)) (|s3| (F)) (|s2| (F)) (|y| (F)))
+         ((|y| (F)) (|s2| (F)) (|s3| (F)) (|h| (F)) (|u| (|Union| F "failed")))
          (SEQ
           (COND ((SPADCALL |x| (QREFELT % 114)) (|spadConstant| % 48))
                 (#1='T
@@ -797,7 +797,7 @@
 
 (SDEFUN |EF;icsc| ((|x| (F)) (% (F)))
         (SPROG
-         ((|u| (|Union| F "failed")) (|h| (F)) (|s3| (F)) (|s2| (F)) (|y| (F)))
+         ((|y| (F)) (|s2| (F)) (|s3| (F)) (|h| (F)) (|u| (|Union| F "failed")))
          (SEQ
           (COND ((SPADCALL |x| (QREFELT % 114)) (|error| "Invalid argument"))
                 (#1='T
@@ -950,7 +950,7 @@
                                            (QREFELT % 121))))))))))))) 
 
 (SDEFUN |EF;iacot| ((|x| (F)) (% (F)))
-        (SPROG ((|xx| (F)) (|r3| (F)))
+        (SPROG ((|r3| (F)) (|xx| (F)))
                (SEQ
                 (COND
                  ((SPADCALL |x| (QREFELT % 114))
@@ -1330,9 +1330,9 @@
 
 (SDEFUN |EF;iexp| ((|x| (F)) (% (F)))
         (SPROG
-         ((|u| (|Union| F "failed")) (|s3| (F)) (|s2| (F)) (|h| (F)) (|y| (F))
-          (|xi| (F)) (|i| (F)) (#1=#:G435 NIL) (|kx| (|Kernel| F))
-          (|kxu| (|Union| (|Kernel| F) "failed")))
+         ((|kxu| (|Union| (|Kernel| F) "failed")) (|kx| (|Kernel| F))
+          (#1=#:G435 NIL) (|i| (F)) (|xi| (F)) (|y| (F)) (|h| (F)) (|s2| (F))
+          (|s3| (F)) (|u| (|Union| F "failed")))
          (SEQ
           (COND ((SPADCALL |x| (QREFELT % 114)) (|spadConstant| % 48))
                 ((SPADCALL |x| (QREFELT % 14) (QREFELT % 115))
@@ -1520,13 +1520,13 @@
 
 (SDEFUN |EF;iiilog| ((|x| (F)) (% (F)))
         (SPROG
-         ((|arg| (F))
-          (|rec|
-           (|Record| (|:| |var| (|Kernel| F)) (|:| |exponent| (|Integer|))))
-          (|u|
+         ((|u|
            (|Union|
             (|Record| (|:| |var| (|Kernel| F)) (|:| |exponent| (|Integer|)))
-            "failed")))
+            "failed"))
+          (|rec|
+           (|Record| (|:| |var| (|Kernel| F)) (|:| |exponent| (|Integer|))))
+          (|arg| (F)))
          (SEQ
           (COND ((SPADCALL |x| (QREFELT % 114)) (|error| "Invalid argument"))
                 ((SPADCALL |x| (|spadConstant| % 48) (QREFELT % 123))
@@ -1553,10 +1553,10 @@
 
 (SDEFUN |EF;ilog| ((|x| (F)) (% (F)))
         (SPROG
-         ((#1=#:G459 NIL)
-          (|den| (|SparseMultivariatePolynomial| R (|Kernel| F)))
+         ((|num| (|SparseMultivariatePolynomial| R (|Kernel| F)))
           (|num1| (|Boolean|))
-          (|num| (|SparseMultivariatePolynomial| R (|Kernel| F))))
+          (|den| (|SparseMultivariatePolynomial| R (|Kernel| F)))
+          (#1=#:G459 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -1880,7 +1880,7 @@
 (DECLAIM (NOTINLINE |ElementaryFunction;|)) 
 
 (DEFUN |ElementaryFunction;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

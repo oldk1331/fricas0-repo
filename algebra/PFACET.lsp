@@ -26,11 +26,11 @@
 
 (SDEFUN |PFACET;getMaxLeft;%Nni;4| ((|orf| (%)) (% (|NonNegativeInteger|)))
         (SPROG
-         ((|m| (|NonNegativeInteger|)) (#1=#:G25 NIL) (|index| NIL)
-          (|indexes|
+         ((|indexes|
            (|List|
             (|Record| (|:| |left| (|NonNegativeInteger|))
-                      (|:| |right| (|NonNegativeInteger|))))))
+                      (|:| |right| (|NonNegativeInteger|)))))
+          (|index| NIL) (#1=#:G25 NIL) (|m| (|NonNegativeInteger|)))
          (SEQ (LETT |m| 0) (LETT |indexes| (SPADCALL |orf| (QREFELT % 14)))
               (SEQ (LETT |index| NIL) (LETT #1# |indexes|) G190
                    (COND
@@ -45,11 +45,11 @@
 
 (SDEFUN |PFACET;getMaxRight;%Nni;5| ((|orf| (%)) (% (|NonNegativeInteger|)))
         (SPROG
-         ((|m| (|NonNegativeInteger|)) (#1=#:G33 NIL) (|index| NIL)
-          (|indexes|
+         ((|indexes|
            (|List|
             (|Record| (|:| |left| (|NonNegativeInteger|))
-                      (|:| |right| (|NonNegativeInteger|))))))
+                      (|:| |right| (|NonNegativeInteger|)))))
+          (|index| NIL) (#1=#:G33 NIL) (|m| (|NonNegativeInteger|)))
          (SEQ (LETT |m| 0) (LETT |indexes| (SPADCALL |orf| (QREFELT % 14)))
               (SEQ (LETT |index| NIL) (LETT #1# |indexes|) G190
                    (COND
@@ -89,49 +89,48 @@
 
 (SDEFUN |PFACET;=;2%B;10| ((|a| (%)) (|b| (%)) (% (|Boolean|)))
         (SPROG
-         ((#1=#:G55 NIL) (#2=#:G56 NIL) (|inda| NIL) (#3=#:G57 NIL)
-          (|indb| NIL)
-          (|indbs|
-           #4=(|List|
+         ((|indas|
+           #1=(|List|
                (|Record| (|:| |left| (|NonNegativeInteger|))
                          (|:| |right| (|NonNegativeInteger|)))))
-          (|indas| #4#))
+          (|indbs| #1#) (|indb| NIL) (#2=#:G57 NIL) (|inda| NIL) (#3=#:G56 NIL)
+          (#4=#:G55 NIL))
          (SEQ
           (EXIT
            (SEQ
             (COND
              ((SPADCALL (QCAR |a|) (QCAR |b|) (QREFELT % 24))
-              (PROGN (LETT #1# NIL) (GO #5=#:G54))))
+              (PROGN (LETT #4# NIL) (GO #5=#:G54))))
             (LETT |indas| (SPADCALL |a| (QREFELT % 14)))
             (LETT |indbs| (SPADCALL |b| (QREFELT % 14)))
             (COND
              ((SPADCALL (LENGTH |indas|) (LENGTH |indbs|) (QREFELT % 24))
-              (PROGN (LETT #1# NIL) (GO #5#))))
-            (SEQ (LETT |indb| NIL) (LETT #3# |indbs|) (LETT |inda| NIL)
-                 (LETT #2# |indas|) G190
+              (PROGN (LETT #4# NIL) (GO #5#))))
+            (SEQ (LETT |indb| NIL) (LETT #2# |indbs|) (LETT |inda| NIL)
+                 (LETT #3# |indas|) G190
                  (COND
-                  ((OR (ATOM #2#) (PROGN (LETT |inda| (CAR #2#)) NIL)
-                       (ATOM #3#) (PROGN (LETT |indb| (CAR #3#)) NIL))
+                  ((OR (ATOM #3#) (PROGN (LETT |inda| (CAR #3#)) NIL)
+                       (ATOM #2#) (PROGN (LETT |indb| (CAR #2#)) NIL))
                    (GO G191)))
                  (SEQ
                   (COND
                    ((SPADCALL (QCAR |inda|) (QCAR |indb|) (QREFELT % 24))
-                    (PROGN (LETT #1# NIL) (GO #5#))))
+                    (PROGN (LETT #4# NIL) (GO #5#))))
                   (EXIT
                    (COND
                     ((SPADCALL (QCDR |inda|) (QCDR |indb|) (QREFELT % 24))
-                     (PROGN (LETT #1# NIL) (GO #5#))))))
-                 (LETT #2# (PROG1 (CDR #2#) (LETT #3# (CDR #3#)))) (GO G190)
+                     (PROGN (LETT #4# NIL) (GO #5#))))))
+                 (LETT #3# (PROG1 (CDR #3#) (LETT #2# (CDR #2#)))) (GO G190)
                  G191 (EXIT NIL))
             (EXIT 'T)))
-          #5# (EXIT #1#)))) 
+          #5# (EXIT #4#)))) 
 
 (SDEFUN |PFACET;coerce;%Of;11| ((|s| (%)) (% (|OutputForm|)))
         (SPROG
-         ((|body| (|OutputForm|)) (|elements| (|List| (|OutputForm|)))
-          (|element| (|OutputForm|)) (|r| (|NonNegativeInteger|))
-          (|l| (|NonNegativeInteger|)) (#1=#:G67 NIL) (|x| NIL)
-          (|prefix| (|OutputForm|)) (|m| (|Integer|)))
+         ((|m| (|Integer|)) (|prefix| (|OutputForm|)) (|x| NIL) (#1=#:G67 NIL)
+          (|l| (|NonNegativeInteger|)) (|r| (|NonNegativeInteger|))
+          (|element| (|OutputForm|)) (|elements| (|List| (|OutputForm|)))
+          (|body| (|OutputForm|)))
          (SEQ (LETT |prefix| (SPADCALL "" (QREFELT % 28)))
               (LETT |m| (QCAR |s|))
               (COND

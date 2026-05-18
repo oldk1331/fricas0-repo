@@ -17,9 +17,9 @@
         ((|uls| (ULS)) (|nn| (|NonNegativeInteger|))
          (% (|Union| ULS "failed")))
         (SPROG
-         ((|root| (|Union| UTS "failed")) (|uts| (UTS))
-          (|k| (|Union| (|Integer|) "failed")) (|coef| (|Coef|))
-          (|deg| (|Integer|)) (|n| (|Integer|)))
+         ((|n| (|Integer|)) (|deg| (|Integer|)) (|coef| (|Coef|))
+          (|k| (|Union| (|Integer|) "failed")) (|uts| (UTS))
+          (|root| (|Union| UTS "failed")))
          (SEQ (LETT |n| |nn|)
               (EXIT
                (COND ((< |n| 1) (|error| "nthRootIfCan: n must be positive"))
@@ -73,8 +73,8 @@
 (SDEFUN |EFULS;^;ULSFULS;3|
         ((|uls| (ULS)) (|r| (|Fraction| (|Integer|))) (% (ULS)))
         (SPROG
-         ((|uts| (UTS)) (|k| (|Union| (|Integer|) "failed")) (|coef| (|Coef|))
-          (|deg| (|Integer|)) (|den| (|Integer|)) (|num| (|Integer|)))
+         ((|num| (|Integer|)) (|den| (|Integer|)) (|deg| (|Integer|))
+          (|coef| (|Coef|)) (|k| (|Union| (|Integer|) "failed")) (|uts| (UTS)))
          (SEQ (LETT |num| (SPADCALL |r| (QREFELT % 35)))
               (LETT |den| (SPADCALL |r| (QREFELT % 36)))
               (EXIT
@@ -178,7 +178,7 @@
         (|EFULS;applyIfCan| (ELT % 69) |uls| %)) 
 
 (SDEFUN |EFULS;logIfCan;ULSU;20| ((|uls| (ULS)) (% (|Union| ULS "failed")))
-        (SPROG ((|ts| (UTS)) (|uts| (|Union| UTS "failed")))
+        (SPROG ((|uts| (|Union| UTS "failed")) (|ts| (UTS)))
                (SEQ (LETT |uts| (SPADCALL |uls| (QREFELT % 40)))
                     (EXIT
                      (COND
@@ -195,11 +195,11 @@
 
 (SDEFUN |EFULS;tanIfCan;ULSU;21| ((|uls| (ULS)) (% (|Union| ULS "failed")))
         (SPROG
-         ((|cosInv| (|Union| ULS "failed"))
+         ((|uts| (|Union| UTS "failed"))
           (|sc|
            (|Record| (|:| |sin| (|Stream| |Coef|))
                      (|:| |cos| (|Stream| |Coef|))))
-          (|uts| (|Union| UTS "failed")))
+          (|cosInv| (|Union| ULS "failed")))
          (SEQ (LETT |uts| (SPADCALL |uls| (QREFELT % 40)))
               (EXIT
                (COND ((QEQCAR |uts| 1) (CONS 1 "failed"))
@@ -225,11 +225,11 @@
 
 (SDEFUN |EFULS;cotIfCan;ULSU;22| ((|uls| (ULS)) (% (|Union| ULS "failed")))
         (SPROG
-         ((|sinInv| (|Union| ULS "failed"))
+         ((|uts| (|Union| UTS "failed"))
           (|sc|
            (|Record| (|:| |sin| (|Stream| |Coef|))
                      (|:| |cos| (|Stream| |Coef|))))
-          (|uts| (|Union| UTS "failed")))
+          (|sinInv| (|Union| ULS "failed")))
          (SEQ (LETT |uts| (SPADCALL |uls| (QREFELT % 40)))
               (EXIT
                (COND ((QEQCAR |uts| 1) (CONS 1 "failed"))
@@ -254,7 +254,7 @@
                                       (QCDR |sinInv|) (QREFELT % 30))))))))))))) 
 
 (SDEFUN |EFULS;secIfCan;ULSU;23| ((|uls| (ULS)) (% (|Union| ULS #1="failed")))
-        (SPROG ((|cosInv| (|Union| ULS "failed")) (|cos| (|Union| ULS #1#)))
+        (SPROG ((|cos| (|Union| ULS #1#)) (|cosInv| (|Union| ULS "failed")))
                (SEQ (LETT |cos| (SPADCALL |uls| (QREFELT % 46)))
                     (EXIT
                      (COND ((QEQCAR |cos| 1) (CONS 1 "failed"))
@@ -267,7 +267,7 @@
                                     (#2# (CONS 0 (QCDR |cosInv|)))))))))))) 
 
 (SDEFUN |EFULS;cscIfCan;ULSU;24| ((|uls| (ULS)) (% (|Union| ULS #1="failed")))
-        (SPROG ((|sinInv| (|Union| ULS "failed")) (|sin| (|Union| ULS #1#)))
+        (SPROG ((|sin| (|Union| ULS #1#)) (|sinInv| (|Union| ULS "failed")))
                (SEQ (LETT |sin| (SPADCALL |uls| (QREFELT % 44)))
                     (EXIT
                      (COND ((QEQCAR |sin| 1) (CONS 1 "failed"))
@@ -281,9 +281,9 @@
 
 (SDEFUN |EFULS;atanIfCan;ULSU;25| ((|uls| (ULS)) (% (|Union| ULS "failed")))
         (SPROG
-         ((|z| (|Union| ULS "failed")) (|cc| (|Coef|)) (#1=#:G183 NIL)
-          (|rat| (|Union| (|Fraction| (|Integer|)) "failed")) (|lc| (|Coef|))
-          (#2=#:G182 NIL) (|ord| (|Integer|)) (|coef| (|Coef|)))
+         ((|coef| (|Coef|)) (|ord| (|Integer|)) (#1=#:G182 NIL) (|lc| (|Coef|))
+          (|rat| (|Union| (|Fraction| (|Integer|)) "failed")) (#2=#:G183 NIL)
+          (|cc| (|Coef|)) (|z| (|Union| ULS "failed")))
          (SEQ
           (EXIT
            (SEQ
@@ -299,7 +299,7 @@
                                                 (QREFELT % 87))
                                       (QREFELT % 18))
                             (PROGN
-                             (LETT #2# (CONS 1 "failed"))
+                             (LETT #1# (CONS 1 "failed"))
                              (GO #3=#:G180))))))))
                   (LETT |cc|
                         (COND
@@ -333,13 +333,13 @@
                                         (QREFELT % 92)))))
                            (#4#
                             (PROGN
-                             (LETT #1# (CONS 1 "failed"))
+                             (LETT #2# (CONS 1 "failed"))
                              (GO #5=#:G181)))))
                          ((SPADCALL |coef| (|spadConstant| % 12)
                                     (QREFELT % 18))
                           (|spadConstant| % 12))
                          ((QREFELT % 10) (SPADCALL |coef| (QREFELT % 97)))
-                         (#4# (PROGN (LETT #1# (CONS 1 "failed")) (GO #5#)))))
+                         (#4# (PROGN (LETT #2# (CONS 1 "failed")) (GO #5#)))))
                   (LETT |z|
                         (SPADCALL
                          (SPADCALL (|spadConstant| % 95)
@@ -357,14 +357,14 @@
                                             (QCDR |z|) (QREFELT % 30))
                                            (QREFELT % 101))
                                           (QREFELT % 98))))))))
-            #3# (EXIT #2#)))
-          #5# (EXIT #1#)))) 
+            #3# (EXIT #1#)))
+          #5# (EXIT #2#)))) 
 
 (SDEFUN |EFULS;acotIfCan;ULSU;26| ((|uls| (ULS)) (% (|Union| ULS "failed")))
         (SPROG
-         ((|z| (|Union| ULS "failed")) (|cc| (|Coef|)) (#1=#:G197 NIL)
-          (|rat| (|Union| (|Fraction| (|Integer|)) "failed")) (|lc| (|Coef|))
-          (#2=#:G196 NIL) (|ord| (|Integer|)) (|coef| (|Coef|)))
+         ((|coef| (|Coef|)) (|ord| (|Integer|)) (#1=#:G196 NIL) (|lc| (|Coef|))
+          (|rat| (|Union| (|Fraction| (|Integer|)) "failed")) (#2=#:G197 NIL)
+          (|cc| (|Coef|)) (|z| (|Union| ULS "failed")))
          (SEQ
           (EXIT
            (SEQ
@@ -380,7 +380,7 @@
                                                 (QREFELT % 87))
                                       (QREFELT % 18))
                             (PROGN
-                             (LETT #2# (CONS 1 "failed"))
+                             (LETT #1# (CONS 1 "failed"))
                              (GO #3=#:G194))))))))
                   (LETT |cc|
                         (COND
@@ -400,11 +400,11 @@
                                ((QREFELT % 10) (SPADCALL (QREFELT % 91)))
                                (#4='T
                                 (PROGN
-                                 (LETT #1# (CONS 1 "failed"))
+                                 (LETT #2# (CONS 1 "failed"))
                                  (GO #5=#:G195)))))))
                            (#4# (|spadConstant| % 12))))
                          ((QREFELT % 10) (SPADCALL |coef| (QREFELT % 103)))
-                         (#4# (PROGN (LETT #1# (CONS 1 "failed")) (GO #5#)))))
+                         (#4# (PROGN (LETT #2# (CONS 1 "failed")) (GO #5#)))))
                   (LETT |z|
                         (SPADCALL
                          (SPADCALL (|spadConstant| % 95)
@@ -422,16 +422,16 @@
                                             (QCDR |z|) (QREFELT % 30))
                                            (QREFELT % 101))
                                           (QREFELT % 104))))))))
-            #3# (EXIT #2#)))
-          #5# (EXIT #1#)))) 
+            #3# (EXIT #1#)))
+          #5# (EXIT #2#)))) 
 
 (SDEFUN |EFULS;tanhIfCan;ULSU;27| ((|uls| (ULS)) (% (|Union| ULS "failed")))
         (SPROG
-         ((|coshInv| (|Union| ULS "failed"))
+         ((|uts| (|Union| UTS "failed"))
           (|sc|
            (|Record| (|:| |sinh| (|Stream| |Coef|))
                      (|:| |cosh| (|Stream| |Coef|))))
-          (|uts| (|Union| UTS "failed")))
+          (|coshInv| (|Union| ULS "failed")))
          (SEQ (LETT |uts| (SPADCALL |uls| (QREFELT % 40)))
               (EXIT
                (COND ((QEQCAR |uts| 1) (CONS 1 "failed"))
@@ -458,11 +458,11 @@
 
 (SDEFUN |EFULS;cothIfCan;ULSU;28| ((|uls| (ULS)) (% (|Union| ULS "failed")))
         (SPROG
-         ((|sinhInv| (|Union| ULS "failed"))
+         ((|uts| (|Union| UTS "failed"))
           (|sc|
            (|Record| (|:| |sinh| (|Stream| |Coef|))
                      (|:| |cosh| (|Stream| |Coef|))))
-          (|uts| (|Union| UTS "failed")))
+          (|sinhInv| (|Union| ULS "failed")))
          (SEQ (LETT |uts| (SPADCALL |uls| (QREFELT % 40)))
               (EXIT
                (COND ((QEQCAR |uts| 1) (CONS 1 "failed"))
@@ -488,7 +488,7 @@
                                       (QREFELT % 30))))))))))))) 
 
 (SDEFUN |EFULS;sechIfCan;ULSU;29| ((|uls| (ULS)) (% (|Union| ULS #1="failed")))
-        (SPROG ((|coshInv| (|Union| ULS "failed")) (|cosh| (|Union| ULS #1#)))
+        (SPROG ((|cosh| (|Union| ULS #1#)) (|coshInv| (|Union| ULS "failed")))
                (SEQ (LETT |cosh| (SPADCALL |uls| (QREFELT % 58)))
                     (EXIT
                      (COND ((QEQCAR |cosh| 1) (CONS 1 "failed"))
@@ -501,7 +501,7 @@
                                     (#2# (CONS 0 (QCDR |coshInv|)))))))))))) 
 
 (SDEFUN |EFULS;cschIfCan;ULSU;30| ((|uls| (ULS)) (% (|Union| ULS #1="failed")))
-        (SPROG ((|sinhInv| (|Union| ULS "failed")) (|sinh| (|Union| ULS #1#)))
+        (SPROG ((|sinh| (|Union| ULS #1#)) (|sinhInv| (|Union| ULS "failed")))
                (SEQ (LETT |sinh| (SPADCALL |uls| (QREFELT % 56)))
                     (EXIT
                      (COND ((QEQCAR |sinh| 1) (CONS 1 "failed"))
@@ -599,9 +599,9 @@
 
 (SDEFUN |EFULS;atan;2ULS;56| ((|uls| (ULS)) (% (ULS)))
         (SPROG
-         ((|z| (|Union| ULS "failed")) (|cc| (|Coef|))
-          (|rat| (|Union| (|Fraction| (|Integer|)) "failed")) (|lc| (|Coef|))
-          (#1=#:G367 NIL) (|ord| (|Integer|)) (|coef| (|Coef|)))
+         ((|coef| (|Coef|)) (|ord| (|Integer|)) (#1=#:G367 NIL) (|lc| (|Coef|))
+          (|rat| (|Union| (|Fraction| (|Integer|)) "failed")) (|cc| (|Coef|))
+          (|z| (|Union| ULS "failed")))
          (SEQ
           (EXIT
            (SEQ (LETT |coef| (SPADCALL |uls| 0 (QREFELT % 26)))
@@ -677,9 +677,9 @@
 
 (SDEFUN |EFULS;acot;2ULS;57| ((|uls| (ULS)) (% (ULS)))
         (SPROG
-         ((|z| (|Union| ULS "failed")) (|cc| (|Coef|))
-          (|rat| (|Union| (|Fraction| (|Integer|)) "failed")) (|lc| (|Coef|))
-          (#1=#:G380 NIL) (|ord| (|Integer|)) (|coef| (|Coef|)))
+         ((|coef| (|Coef|)) (|ord| (|Integer|)) (#1=#:G380 NIL) (|lc| (|Coef|))
+          (|rat| (|Union| (|Fraction| (|Integer|)) "failed")) (|cc| (|Coef|))
+          (|z| (|Union| ULS "failed")))
          (SEQ
           (EXIT
            (SEQ (LETT |coef| (SPADCALL |uls| 0 (QREFELT % 26)))
@@ -742,7 +742,7 @@
 (DECLAIM (NOTINLINE |ElementaryFunctionsUnivariateLaurentSeries;|)) 
 
 (DEFUN |ElementaryFunctionsUnivariateLaurentSeries;| (|#1| |#2| |#3|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

@@ -6,9 +6,9 @@
 
 (SDEFUN |RMATRIX;matrix;L%;3| ((|l| (|List| (|List| R))) (% (%)))
         (SPROG
-         ((#1=#:G20 NIL) (|j| NIL) (#2=#:G21 NIL) (|r| NIL) (#3=#:G18 NIL)
-          (|i| NIL) (#4=#:G19 NIL) (|ll| NIL) (|ans| (|Matrix| R))
-          (#5=#:G16 NIL) (#6=#:G17 NIL))
+         ((#1=#:G17 NIL) (#2=#:G16 NIL) (|ans| (|Matrix| R)) (|ll| NIL)
+          (#3=#:G19 NIL) (|i| NIL) (#4=#:G18 NIL) (|r| NIL) (#5=#:G21 NIL)
+          (|j| NIL) (#6=#:G20 NIL))
          (SEQ
           (COND
            ((SPADCALL (LENGTH |l|) (QREFELT % 6) (QREFELT % 17))
@@ -17,41 +17,41 @@
             (SEQ
              (SEQ
               (EXIT
-               (SEQ (LETT |ll| NIL) (LETT #6# |l|) G190
+               (SEQ (LETT |ll| NIL) (LETT #1# |l|) G190
                     (COND
-                     ((OR (ATOM #6#) (PROGN (LETT |ll| (CAR #6#)) NIL))
+                     ((OR (ATOM #1#) (PROGN (LETT |ll| (CAR #1#)) NIL))
                       (GO G191)))
                     (SEQ
                      (EXIT
                       (COND
                        ((SPADCALL (LENGTH |ll|) (QREFELT % 7) (QREFELT % 17))
                         (PROGN
-                         (LETT #5# (|error| "matrix: wrong number of columns"))
+                         (LETT #2# (|error| "matrix: wrong number of columns"))
                          (GO #7=#:G8))))))
-                    (LETT #6# (CDR #6#)) (GO G190) G191 (EXIT NIL)))
-              #7# (EXIT #5#))
+                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL)))
+              #7# (EXIT #2#))
              (LETT |ans|
                    (MAKE_MATRIX1 (QREFELT % 6) (QREFELT % 7)
                                  (|spadConstant| % 9)))
-             (SEQ (LETT |ll| NIL) (LETT #4# |l|) (LETT |i| (PROGN |ans| 1))
-                  (LETT #3# (SPADCALL |ans| (QREFELT % 19))) G190
+             (SEQ (LETT |ll| NIL) (LETT #3# |l|) (LETT |i| (PROGN |ans| 1))
+                  (LETT #4# (SPADCALL |ans| (QREFELT % 19))) G190
                   (COND
-                   ((OR (> |i| #3#) (ATOM #4#)
-                        (PROGN (LETT |ll| (CAR #4#)) NIL))
+                   ((OR (> |i| #4#) (ATOM #3#)
+                        (PROGN (LETT |ll| (CAR #3#)) NIL))
                     (GO G191)))
                   (SEQ
                    (EXIT
-                    (SEQ (LETT |r| NIL) (LETT #2# |ll|)
+                    (SEQ (LETT |r| NIL) (LETT #5# |ll|)
                          (LETT |j| (PROGN |ans| 1))
-                         (LETT #1# (SPADCALL |ans| (QREFELT % 20))) G190
+                         (LETT #6# (SPADCALL |ans| (QREFELT % 20))) G190
                          (COND
-                          ((OR (> |j| #1#) (ATOM #2#)
-                               (PROGN (LETT |r| (CAR #2#)) NIL))
+                          ((OR (> |j| #6#) (ATOM #5#)
+                               (PROGN (LETT |r| (CAR #5#)) NIL))
                            (GO G191)))
                          (SEQ (EXIT (QSETAREF2O |ans| |i| |j| |r| 1 1)))
-                         (LETT |j| (PROG1 (+ |j| 1) (LETT #2# (CDR #2#))))
+                         (LETT |j| (PROG1 (+ |j| 1) (LETT #5# (CDR #5#))))
                          (GO G190) G191 (EXIT NIL))))
-                  (LETT |i| (PROG1 (+ |i| 1) (LETT #4# (CDR #4#)))) (GO G190)
+                  (LETT |i| (PROG1 (+ |i| 1) (LETT #3# (CDR #3#)))) (GO G190)
                   G191 (EXIT NIL))
              (EXIT |ans|))))))) 
 
@@ -78,20 +78,20 @@
 
 (SDEFUN |RMATRIX;columnSpace;%L;9|
         ((|x| (%)) (% (|List| (|DirectProduct| |m| R))))
-        (SPROG ((#1=#:G34 NIL) (|c| NIL) (#2=#:G33 NIL))
+        (SPROG ((#1=#:G33 NIL) (|c| NIL) (#2=#:G34 NIL))
                (SEQ
                 (PROGN
-                 (LETT #2# NIL)
-                 (SEQ (LETT |c| NIL) (LETT #1# (SPADCALL |x| (QREFELT % 38)))
+                 (LETT #1# NIL)
+                 (SEQ (LETT |c| NIL) (LETT #2# (SPADCALL |x| (QREFELT % 38)))
                       G190
                       (COND
-                       ((OR (ATOM #1#) (PROGN (LETT |c| (CAR #1#)) NIL))
+                       ((OR (ATOM #2#) (PROGN (LETT |c| (CAR #2#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2# (CONS (SPADCALL |c| (QREFELT % 30)) #2#))))
-                      (LETT #1# (CDR #1#)) (GO G190) G191
-                      (EXIT (NREVERSE #2#))))))) 
+                        (LETT #1# (CONS (SPADCALL |c| (QREFELT % 30)) #1#))))
+                      (LETT #2# (CDR #2#)) (GO G190) G191
+                      (EXIT (NREVERSE #1#))))))) 
 
 (SDEFUN |RMATRIX;rank;%Nni;10| ((|x| (%)) (% (|NonNegativeInteger|)))
         (SPADCALL |x| (QREFELT % 41))) 
@@ -101,20 +101,20 @@
 
 (SDEFUN |RMATRIX;nullSpace;%L;12|
         ((|x| (%)) (% (|List| (|DirectProduct| |m| R))))
-        (SPROG ((#1=#:G41 NIL) (|c| NIL) (#2=#:G40 NIL))
+        (SPROG ((#1=#:G40 NIL) (|c| NIL) (#2=#:G41 NIL))
                (SEQ
                 (PROGN
-                 (LETT #2# NIL)
-                 (SEQ (LETT |c| NIL) (LETT #1# (SPADCALL |x| (QREFELT % 45)))
+                 (LETT #1# NIL)
+                 (SEQ (LETT |c| NIL) (LETT #2# (SPADCALL |x| (QREFELT % 45)))
                       G190
                       (COND
-                       ((OR (ATOM #1#) (PROGN (LETT |c| (CAR #1#)) NIL))
+                       ((OR (ATOM #2#) (PROGN (LETT |c| (CAR #2#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2# (CONS (SPADCALL |c| (QREFELT % 30)) #2#))))
-                      (LETT #1# (CDR #1#)) (GO G190) G191
-                      (EXIT (NREVERSE #2#))))))) 
+                        (LETT #1# (CONS (SPADCALL |c| (QREFELT % 30)) #1#))))
+                      (LETT #2# (CDR #2#)) (GO G190) G191
+                      (EXIT (NREVERSE #1#))))))) 
 
 (SDEFUN |RMATRIX;convert;%If;13| ((|x| (%)) (% (|InputForm|)))
         (SPADCALL
@@ -126,8 +126,8 @@
 
 (DEFUN |RectangularMatrix;| (|#1| |#2| |#3|)
   (SPROG
-   ((#1=#:G53 NIL) (|pv$| NIL) (#2=#:G50 NIL) (#3=#:G51 NIL) (% NIL)
-    (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+   ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (|dv$| NIL) (% NIL) (#1=#:G51 NIL)
+    (#2=#:G50 NIL) (|pv$| NIL) (#3=#:G53 NIL))
    (PROGN
     (LETT DV$1 |#1|)
     (LETT DV$2 |#2|)
@@ -178,12 +178,12 @@
                                                        '(|EuclideanDomain|))
                                         (|HasCategory| |#3|
                                                        '(|IntegralDomain|))
-                                        (LETT #3#
+                                        (LETT #1#
                                               (|HasCategory| |#3|
                                                              '(|AbelianMonoid|)))
                                         (OR
                                          (|HasCategory| |#3| '(|AbelianGroup|))
-                                         #3#)
+                                         #1#)
                                         (LETT #2#
                                               (|HasCategory| |#3|
                                                              '(|ConvertibleTo|
@@ -199,7 +199,7 @@
                                              (|HasCategory| |#3|
                                                             '(|AbelianGroup|))
                                              (|HasCategory| |#3| '(|Finite|)))
-                                            (AND #3#
+                                            (AND #1#
                                                  (|HasCategory| |#3|
                                                                 '(|Finite|)))
                                             (AND
@@ -214,11 +214,11 @@
     (QSETREFV % 7 |#2|)
     (QSETREFV % 8 |#3|)
     (AND (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 32768))
-    (AND (LETT #1# (|HasCategory| % '(|finiteAggregate|)))
+    (AND (LETT #3# (|HasCategory| % '(|finiteAggregate|)))
          (|augmentPredVector| % 65536))
-    (AND (|HasCategory| |#3| '(|BasicType|)) #1#
+    (AND (|HasCategory| |#3| '(|BasicType|)) #3#
          (|augmentPredVector| % 131072))
-    (AND (|HasCategory| |#3| '(|OrderedSet|)) #1#
+    (AND (|HasCategory| |#3| '(|OrderedSet|)) #3#
          (|augmentPredVector| % 262144))
     (SETF |pv$| (QREFELT % 3))
     (QSETREFV % 10 (MAKE_MATRIX1 |#1| |#2| (|spadConstant| % 9)))

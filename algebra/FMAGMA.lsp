@@ -108,7 +108,7 @@
             (SPADCALL (QCAR (QCDR |x|)) (QCAR (QCDR |y|)) (QREFELT % 40))))))) 
 
 (SDEFUN |FMAGMA;lexico;2%B;17| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
-        (SPROG ((|fy| (|VarSet|)) (|fx| (|VarSet|)))
+        (SPROG ((|fx| (|VarSet|)) (|fy| (|VarSet|)))
                (SEQ
                 (COND
                  ((QEQCAR |x| 0)
@@ -134,7 +134,7 @@
                          (#1# (SPADCALL |fx| |fy| (QREFELT % 39))))))))))) 
 
 (SDEFUN |FMAGMA;<;2%B;18| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
-        (SPROG ((|ly| #1=(|PositiveInteger|)) (|lx| #1#))
+        (SPROG ((|lx| #1=(|PositiveInteger|)) (|ly| #1#))
                (SEQ (LETT |lx| (SPADCALL |x| (QREFELT % 38)))
                     (LETT |ly| (SPADCALL |y| (QREFELT % 38)))
                     (EXIT
@@ -144,7 +144,7 @@
 (DECLAIM (NOTINLINE |FreeMagma;|)) 
 
 (DEFUN |FreeMagma;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|FreeMagma| DV$1))

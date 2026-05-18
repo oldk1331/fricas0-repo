@@ -117,7 +117,7 @@
 
 (SDEFUN |BOP;arity;%U;25|
         ((|op| (%)) (% (|Union| (|NonNegativeInteger|) "failed")))
-        (SPROG ((#1=#:G76 NIL) (|n| (|SingleInteger|)))
+        (SPROG ((|n| (|SingleInteger|)) (#1=#:G76 NIL))
                (COND
                 ((|negative?_SI| (LETT |n| (QVELT |op| 1))) (CONS 1 "failed"))
                 ('T
@@ -127,25 +127,25 @@
                                            '(|Integer|) #1#))))))) 
 
 (SDEFUN |BOP;copy;2%;26| ((|op| (%)) (% (%)))
-        (SPROG ((#1=#:G87 NIL) (|r| NIL) (#2=#:G86 NIL))
+        (SPROG ((#1=#:G86 NIL) (|r| NIL) (#2=#:G87 NIL))
                (SEQ
                 (|BOP;oper| (SPADCALL |op| (QREFELT % 13)) (QVELT |op| 1)
                  (SPADCALL
                   (PROGN
-                   (LETT #2# NIL)
+                   (LETT #1# NIL)
                    (SEQ (LETT |r| NIL)
-                        (LETT #1#
+                        (LETT #2#
                               (SPADCALL (SPADCALL |op| (QREFELT % 17))
                                         (QREFELT % 63)))
                         G190
                         (COND
-                         ((OR (ATOM #1#) (PROGN (LETT |r| (CAR #1#)) NIL))
+                         ((OR (ATOM #2#) (PROGN (LETT |r| (CAR #2#)) NIL))
                           (GO G191)))
                         (SEQ
                          (EXIT
-                          (LETT #2# (CONS (CONS (QCAR |r|) (QCDR |r|)) #2#))))
-                        (LETT #1# (CDR #1#)) (GO G190) G191
-                        (EXIT (NREVERSE #2#))))
+                          (LETT #1# (CONS (CONS (QCAR |r|) (QCDR |r|)) #1#))))
+                        (LETT #2# (CDR #2#)) (GO G190) G191
+                        (EXIT (NREVERSE #1#))))
                   (QREFELT % 64))
                  %)))) 
 
@@ -188,10 +188,10 @@
 
 (SDEFUN |BOP;<;2%B;29| ((|op1| (%)) (|op2| (%)) (% (|Boolean|)))
         (SPROG
-         ((|func| (|Union| (|None|) "failed")) (|n2| #1=(|NonNegativeInteger|))
-          (|d2| #2=(|Set| (|Symbol|))) (|n1| #1#) (|d1| #2#)
-          (|k2| #3=(|Set| (|Symbol|))) (|k1| #3#)
-          (|w2| #4=(|NonNegativeInteger|)) (|w1| #4#))
+         ((|w1| #1=(|NonNegativeInteger|)) (|w2| #1#)
+          (|k1| #2=(|Set| (|Symbol|))) (|k2| #2#) (|d1| #3=(|Set| (|Symbol|)))
+          (|n1| #4=(|NonNegativeInteger|)) (|d2| #3#) (|n2| #4#)
+          (|func| (|Union| (|None|) "failed")))
          (SEQ
           (COND
            ((SPADCALL (LETT |w1| (SPADCALL |op1| (QREFELT % 74)))

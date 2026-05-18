@@ -83,8 +83,8 @@
          (|x| (|UnivariatePolynomial| |xs| F))
          (% (|Stream| (|UnivariatePolynomial| |xs| F))))
         (SPROG
-         ((#1=#:G33 NIL) (|st2| (|Stream| (|UnivariatePolynomial| |xs| F)))
-          (|st1| (|Stream| F)) (|b0| (F)))
+         ((|b0| (F)) (|st1| (|Stream| F))
+          (|st2| (|Stream| (|UnivariatePolynomial| |xs| F))) (#1=#:G33 NIL))
          (SEQ
           (EXIT
            (COND
@@ -172,7 +172,7 @@
 (DECLAIM (NOTINLINE |PadeContinuousFraction;|)) 
 
 (DEFUN |PadeContinuousFraction;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 |#2|)

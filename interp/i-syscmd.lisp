@@ -994,16 +994,16 @@
                (COND ((MEMQ (STRING2ID_N |x| 1) '(YES Y)) (QUIT))
                      (#1# NIL)))))))))))))))
 
-; must_find_file(af, ftl) ==
-;     not(af1 := find_file(af, ftl)) => throw_msg("S2IL0003",
+; must_find_file(af, ft) ==
+;     not(af1 := make_input_filename2(af, ft)) => throw_msg("S2IL0003",
 ;         '"The file %1b is needed but does not exist.", [af])
 ;     af1
 
-(DEFUN |must_find_file| (|af| |ftl|)
+(DEFUN |must_find_file| (|af| |ft|)
   (PROG (|af1|)
     (RETURN
      (COND
-      ((NULL (SETQ |af1| (|find_file| |af| |ftl|)))
+      ((NULL (SETQ |af1| (|make_input_filename2| |af| |ft|)))
        (|throw_msg| 'S2IL0003 "The file %1b is needed but does not exist."
         (LIST |af|)))
       ('T |af1|)))))
@@ -1037,22 +1037,22 @@
 ;     afe := file_extention(af)
 ;
 ;     haveNew or afe = '"as" =>
-;         af1 := must_find_file(af, '("as"))
+;         af1 := must_find_file(af, '"as")
 ;         compileAsharpCmd [af1]
 ;     haveOld or afe = '"spad" =>
-;         af1 := must_find_file(af, '("spad"))
+;         af1 := must_find_file(af, '"spad")
 ;         compileSpad2Cmd  [af1]
 ;     afe = '"lsp" =>
-;         af1 := must_find_file(af, '("lsp"))
+;         af1 := must_find_file(af, '"lsp")
 ;         compileAsharpLispCmd [af1]
 ;     afe = '"NRLIB" =>
-;         af1 := must_find_file(af, '("NRLIB"))
+;         af1 := must_find_file(af, '"NRLIB")
 ;         compileSpadLispCmd [af1]
 ;     afe = '"ao" =>
-;         af1 := must_find_file(af, '("ao"))
+;         af1 := must_find_file(af, '"ao")
 ;         compileAsharpCmd [af1]
 ;     afe = '"al" =>    -- archive library of .ao files
-;         af1 := must_find_file(af, '("al"))
+;         af1 := must_find_file(af, '"al")
 ;         compileAsharpArchiveCmd [af1]
 ;
 ;     -- see if we something with the appropriate file extension
@@ -1118,27 +1118,27 @@
                    (COND
                     ((OR |haveNew| (EQUAL |afe| "as"))
                      (PROGN
-                      (SETQ |af1| (|must_find_file| |af| '("as")))
+                      (SETQ |af1| (|must_find_file| |af| "as"))
                       (|compileAsharpCmd| (LIST |af1|))))
                     ((OR |haveOld| (EQUAL |afe| "spad"))
                      (PROGN
-                      (SETQ |af1| (|must_find_file| |af| '("spad")))
+                      (SETQ |af1| (|must_find_file| |af| "spad"))
                       (|compileSpad2Cmd| (LIST |af1|))))
                     ((EQUAL |afe| "lsp")
                      (PROGN
-                      (SETQ |af1| (|must_find_file| |af| '("lsp")))
+                      (SETQ |af1| (|must_find_file| |af| "lsp"))
                       (|compileAsharpLispCmd| (LIST |af1|))))
                     ((EQUAL |afe| "NRLIB")
                      (PROGN
-                      (SETQ |af1| (|must_find_file| |af| '("NRLIB")))
+                      (SETQ |af1| (|must_find_file| |af| "NRLIB"))
                       (|compileSpadLispCmd| (LIST |af1|))))
                     ((EQUAL |afe| "ao")
                      (PROGN
-                      (SETQ |af1| (|must_find_file| |af| '("ao")))
+                      (SETQ |af1| (|must_find_file| |af| "ao"))
                       (|compileAsharpCmd| (LIST |af1|))))
                     ((EQUAL |afe| "al")
                      (PROGN
-                      (SETQ |af1| (|must_find_file| |af| '("al")))
+                      (SETQ |af1| (|must_find_file| |af| "al"))
                       (|compileAsharpArchiveCmd| (LIST |af1|))))
                     (#1#
                      (PROGN
@@ -7580,11 +7580,10 @@
 ; processSynonyms() ==
 ;   p := STRPOS('")",LINE,0,NIL)
 ;   fill := '""
-;   if p
-;     then
+;   if p then
 ;       line := SUBSTRING(LINE,p,NIL)
 ;       if p > 0 then fill := SUBSTRING(LINE,0,p)
-;     else
+;   else
 ;       p := 0
 ;       line := LINE
 ;   to := STRPOS ('" ", line, 1, nil)
@@ -7597,16 +7596,17 @@
 ;     opt := STRCONC('" ",SUBSTRING(fun,to,NIL))
 ;     fun := SUBSTRING(fun,0,to-1)
 ;   else opt := '" "
-;   if (s_syn := #synstr) > (s_fun := #fun) then
-;     for i in s_fun..s_syn repeat
-;       fun := CONCAT (fun, '" ")
-;   cl := STRCONC(fill, RPLACSTR(line, 1, #synstr, fun, 0, #fun), opt)
+;   l_syn := #synstr
+;   l_fun := #fun
+;   fill2 := filler_spaces(l_syn - l_fun)
+;   cl := STRCONC(fill, SUBSTRING(line, 0, 1), fun, fill2,
+;                 SUBSTRING(line, 1 + l_syn, nil), opt)
 ;   SETQ(LINE,cl)
 ;   processSynonyms ()
 
 (DEFUN |processSynonyms| ()
-  (PROG (|cl| |s_syn| |s_fun| |opt| |fun| |syn| |synstr| |to| |line| |fill|
-         |p|)
+  (PROG (|cl| |fill2| |l_fun| |l_syn| |opt| |fun| |syn| |synstr| |to| |line|
+         |fill| |p|)
     (RETURN
      (PROGN
       (SETQ |p| (STRPOS ")" LINE 0 NIL))
@@ -7628,20 +7628,12 @@
                 (SETQ |opt| (STRCONC " " (SUBSTRING |fun| |to| NIL)))
                 (SETQ |fun| (SUBSTRING |fun| 0 (- |to| 1))))
                (#1# (SETQ |opt| " ")))
-              (COND
-               ((< (SETQ |s_fun| (LENGTH |fun|))
-                   (SETQ |s_syn| (LENGTH |synstr|)))
-                ((LAMBDA (|i|)
-                   (LOOP
-                    (COND ((> |i| |s_syn|) (RETURN NIL))
-                          (#1# (SETQ |fun| (CONCAT |fun| " "))))
-                    (SETQ |i| (+ |i| 1))))
-                 |s_fun|)))
+              (SETQ |l_syn| (LENGTH |synstr|))
+              (SETQ |l_fun| (LENGTH |fun|))
+              (SETQ |fill2| (|filler_spaces| (- |l_syn| |l_fun|)))
               (SETQ |cl|
-                      (STRCONC |fill|
-                       (RPLACSTR |line| 1 (LENGTH |synstr|) |fun| 0
-                        (LENGTH |fun|))
-                       |opt|))
+                      (STRCONC |fill| (SUBSTRING |line| 0 1) |fun| |fill2|
+                       (SUBSTRING |line| (+ 1 |l_syn|) NIL) |opt|))
               (SETQ LINE |cl|)
               (|processSynonyms|))))))))
 

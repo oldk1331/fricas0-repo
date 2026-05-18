@@ -46,7 +46,7 @@
            (PROGN (SPADCALL |mean| (SPADCALL (QREFELT % 26)) (QREFELT % 17)))))) 
 
 (SDEFUN |RFDIST;normal01;F;5| ((% (|Float|)))
-        (SPROG ((|s| (|Float|)) (|v2| #1=(|Float|)) (|v1| #1#))
+        (SPROG ((|v1| #1=(|Float|)) (|v2| #1#) (|s| (|Float|)))
                (SEQ (LETT |s| (SPADCALL 2 (QREFELT % 11)))
                     (SEQ G190
                          (COND
@@ -101,7 +101,7 @@
 
 (SDEFUN |RFDIST;chiSquare1;NniF;7|
         ((|dgfree| (|NonNegativeInteger|)) (% (|Float|)))
-        (SPROG ((|x| (|Float|)) (#1=#:G23 NIL) (|i| NIL))
+        (SPROG ((|i| NIL) (#1=#:G23 NIL) (|x| (|Float|)))
                (SEQ (LETT |x| (|spadConstant| % 21))
                     (SEQ (LETT |i| 1) (LETT #1# (|quotient_INT| |dgfree| 2))
                          G190 (COND ((|greater_SI| |i| #1#) (GO G191)))

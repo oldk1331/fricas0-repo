@@ -3,15 +3,15 @@
         ((|v| (|Vector| D)) (M (|Matrix| (|SparseUnivariatePolynomial| D)))
          (% (|Matrix| (|SparseUnivariatePolynomial| D))))
         (SPROG
-         ((#1=#:G7 NIL) (|j| NIL) (#2=#:G6 NIL) (|i| NIL)
-          (|n| (|NonNegativeInteger|)))
+         ((|n| (|NonNegativeInteger|)) (|i| NIL) (#1=#:G6 NIL) (|j| NIL)
+          (#2=#:G7 NIL))
          (SEQ (LETT |n| (QVSIZE |v|))
-              (SEQ (LETT |i| 1) (LETT #2# |n|) G190
-                   (COND ((|greater_SI| |i| #2#) (GO G191)))
+              (SEQ (LETT |i| 1) (LETT #1# |n|) G190
+                   (COND ((|greater_SI| |i| #1#) (GO G191)))
                    (SEQ
                     (EXIT
-                     (SEQ (LETT |j| 1) (LETT #1# |n|) G190
-                          (COND ((|greater_SI| |j| #1#) (GO G191)))
+                     (SEQ (LETT |j| 1) (LETT #2# |n|) G190
+                          (COND ((|greater_SI| |j| #2#) (GO G191)))
                           (SEQ
                            (EXIT
                             (SPADCALL M |i| |j|
@@ -32,9 +32,9 @@
          (|f| (|Vector| VF)) (|eta| (|List| (|NonNegativeInteger|)))
          (% (|Matrix| (|SparseUnivariatePolynomial| D))))
         (SPROG
-         ((M (|Matrix| (|SparseUnivariatePolynomial| D)))
-          (|c| (|List| (|Fraction| D))) (#1=#:G17 NIL) (|i| NIL)
-          (|den| (|Vector| D)) (|g| (|Vector| V)) (|n| (|NonNegativeInteger|)))
+         ((|n| (|NonNegativeInteger|)) (|g| (|Vector| V)) (|den| (|Vector| D))
+          (|i| NIL) (#1=#:G17 NIL) (|c| (|List| (|Fraction| D)))
+          (M (|Matrix| (|SparseUnivariatePolynomial| D))))
          (SEQ (LETT |n| (QVSIZE |f|))
               (LETT |g| (MAKEARR1 |n| (|spadConstant| % 18)))
               (LETT |den| (MAKEARR1 |n| (|spadConstant| % 17)))
@@ -72,7 +72,7 @@
 (DECLAIM (NOTINLINE |FractionFreeFastGaussianFractions;|)) 
 
 (DEFUN |FractionFreeFastGaussianFractions;| (|#1| |#2| |#3|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

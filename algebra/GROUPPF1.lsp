@@ -3,21 +3,21 @@
         ((|lg| (|List| S)) (|lr| (|List| (|FreeGroup| S)))
          (% (|GroupPresentation|)))
         (SPROG
-         ((#1=#:G19 NIL) (|l| NIL) (#2=#:G18 NIL)
-          (|nlr| (|List| (|List| (|Integer|)))) (|nr| (|List| (|Integer|)))
-          (#3=#:G17 NIL) (|m| #4=(|Integer|)) (|k| (|Integer|)) (#5=#:G16 NIL)
-          (|t| NIL) (|fr| (|List| (|Record| (|:| |gen| S) (|:| |exp| #4#))))
-          (#6=#:G15 NIL) (|r| NIL) (|n| (|NonNegativeInteger|)))
+         ((|n| (|NonNegativeInteger|)) (|r| NIL) (#1=#:G15 NIL)
+          (|fr| (|List| (|Record| (|:| |gen| S) (|:| |exp| #2=(|Integer|)))))
+          (|t| NIL) (#3=#:G16 NIL) (|k| (|Integer|)) (|m| #2#) (#4=#:G17 NIL)
+          (|nr| (|List| (|Integer|))) (|nlr| (|List| (|List| (|Integer|))))
+          (#5=#:G18 NIL) (|l| NIL) (#6=#:G19 NIL))
          (SEQ (LETT |n| (LENGTH |lg|)) (LETT |nlr| NIL)
-              (SEQ (LETT |r| NIL) (LETT #6# |lr|) G190
+              (SEQ (LETT |r| NIL) (LETT #1# |lr|) G190
                    (COND
-                    ((OR (ATOM #6#) (PROGN (LETT |r| (CAR #6#)) NIL))
+                    ((OR (ATOM #1#) (PROGN (LETT |r| (CAR #1#)) NIL))
                      (GO G191)))
                    (SEQ (LETT |nr| NIL)
                         (LETT |fr| (SPADCALL |r| (QREFELT % 10)))
-                        (SEQ (LETT |t| NIL) (LETT #5# |fr|) G190
+                        (SEQ (LETT |t| NIL) (LETT #3# |fr|) G190
                              (COND
-                              ((OR (ATOM #5#) (PROGN (LETT |t| (CAR #5#)) NIL))
+                              ((OR (ATOM #3#) (PROGN (LETT |t| (CAR #3#)) NIL))
                                (GO G191)))
                              (SEQ
                               (LETT |k|
@@ -37,33 +37,33 @@
                                                   ('T |k|)))
                                       (LETT |m| (ABS |m|))
                                       (EXIT
-                                       (SEQ (LETT |l| 1) (LETT #3# |m|) G190
+                                       (SEQ (LETT |l| 1) (LETT #4# |m|) G190
                                             (COND
-                                             ((|greater_SI| |l| #3#)
+                                             ((|greater_SI| |l| #4#)
                                               (GO G191)))
                                             (SEQ
                                              (EXIT
                                               (LETT |nr| (CONS |k| |nr|))))
                                             (LETT |l| (|inc_SI| |l|)) (GO G190)
                                             G191 (EXIT NIL))))))))
-                             (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
+                             (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
                         (EXIT (LETT |nlr| (CONS (NREVERSE |nr|) |nlr|))))
-                   (LETT #6# (CDR #6#)) (GO G190) G191 (EXIT NIL))
+                   (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT
                (SPADCALL
                 (PROGN
-                 (LETT #2# NIL)
-                 (SEQ (LETT |l| 1) (LETT #1# |n|) G190
-                      (COND ((|greater_SI| |l| #1#) (GO G191)))
-                      (SEQ (EXIT (LETT #2# (CONS |l| #2#))))
+                 (LETT #5# NIL)
+                 (SEQ (LETT |l| 1) (LETT #6# |n|) G190
+                      (COND ((|greater_SI| |l| #6#) (GO G191)))
+                      (SEQ (EXIT (LETT #5# (CONS |l| #5#))))
                       (LETT |l| (|inc_SI| |l|)) (GO G190) G191
-                      (EXIT (NREVERSE #2#))))
+                      (EXIT (NREVERSE #5#))))
                 (NREVERSE |nlr|) (QREFELT % 20)))))) 
 
 (DECLAIM (NOTINLINE |GroupPresentationFunctions1;|)) 
 
 (DEFUN |GroupPresentationFunctions1;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|GroupPresentationFunctions1| DV$1))

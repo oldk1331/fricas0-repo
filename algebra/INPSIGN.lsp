@@ -3,7 +3,7 @@
         ((|p| (UP)) (|x| (R))
          (|rsign| (|Mapping| (|Union| (|Integer|) #1="failed") R))
          (% (|Union| (|Integer|) #1#)))
-        (SPROG ((|ul| #2=(|Union| (|Integer|) #1#)) (|ur| #2#))
+        (SPROG ((|ur| #2=(|Union| (|Integer|) #1#)) (|ul| #2#))
                (SEQ (LETT |ur| (SPADCALL |p| |x| 1 |rsign| (QREFELT % 13)))
                     (EXIT
                      (COND ((QEQCAR |ur| 1) (CONS 1 "failed"))
@@ -23,7 +23,7 @@
         ((|p| (UP)) (|x| (R)) (|dir| (|Integer|))
          (|rsign| (|Mapping| (|Union| (|Integer|) #1="failed") R))
          (% (|Union| (|Integer|) #1#)))
-        (SPROG ((|u| (|Union| (|Integer|) #1#)) (|r| (R)))
+        (SPROG ((|r| (R)) (|u| (|Union| (|Integer|) #1#)))
                (SEQ
                 (COND ((SPADCALL |p| (QREFELT % 16)) (CONS 0 0))
                       ((SPADCALL (LETT |r| (SPADCALL |p| |x| (QREFELT % 17)))
@@ -58,7 +58,7 @@
 (DECLAIM (NOTINLINE |InnerPolySign;|)) 
 
 (DEFUN |InnerPolySign;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

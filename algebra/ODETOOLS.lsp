@@ -4,7 +4,7 @@
 
 (SDEFUN |ODETOOLS;wronskianMatrix;LNniM;2|
         ((|l| (|List| F)) (|q| (|NonNegativeInteger|)) (% (|Matrix| F)))
-        (SPROG ((|v| (|Vector| F)) (#1=#:G9 NIL) (|i| NIL) (|m| (|Matrix| F)))
+        (SPROG ((|m| (|Matrix| F)) (|i| NIL) (#1=#:G9 NIL) (|v| (|Vector| F)))
                (SEQ (LETT |v| (SPADCALL |l| (QREFELT % 16)))
                     (LETT |m| (SPADCALL |q| (QVSIZE |v|) (QREFELT % 17)))
                     (SEQ (LETT |i| (PROGN |m| 1))
@@ -30,7 +30,7 @@
 (SDEFUN |ODETOOLS;variationOfParameters;LODOFLU;3|
         ((|op| (LODO)) (|g| (F)) (|b| (|List| F))
          (% (|Union| (|Vector| F) "failed")))
-        (SPROG ((|v| (|Vector| F)) (|n| (|NonNegativeInteger|)))
+        (SPROG ((|n| (|NonNegativeInteger|)) (|v| (|Vector| F)))
                (SEQ
                 (COND ((NULL |b|) (CONS 1 "failed"))
                       ('T
@@ -52,8 +52,8 @@
         ((|op| (LODO)) (|g| (F)) (|b| (|List| F))
          (|integration| (|Mapping| F F)) (% (|Union| F "failed")))
         (SPROG
-         ((|ans| (F)) (#1=#:G31 NIL) (|f| NIL) (|i| NIL) (|s| (|Vector| F))
-          (|sol| (|Union| (|Vector| F) "failed")))
+         ((|sol| (|Union| (|Vector| F) "failed")) (|s| (|Vector| F)) (|i| NIL)
+          (|f| NIL) (#1=#:G31 NIL) (|ans| (F)))
          (SEQ
           (COND ((SPADCALL |g| (QREFELT % 33)) (CONS 0 (|spadConstant| % 25)))
                 (#2='T
@@ -90,7 +90,7 @@
 (DECLAIM (NOTINLINE |ODETools;|)) 
 
 (DEFUN |ODETools;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

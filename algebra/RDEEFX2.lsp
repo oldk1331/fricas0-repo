@@ -6,7 +6,17 @@
           (|Union| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))
                    "failed")))
         (SPROG
-         ((|res1|
+         ((|ext|
+           (|Mapping|
+            (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
+            (|List| (|Kernel| F)) (|List| F)))
+          (|logi|
+           (|Mapping|
+            (|Record| (|:| |logands| (|List| F))
+                      (|:| |basis|
+                           (|List| (|Vector| (|Fraction| (|Integer|))))))
+            (|List| (|Kernel| F)) (|List| F)))
+          (|res1|
            (|Record|
             (|:| |particular|
                  (|Union|
@@ -14,17 +24,7 @@
                   "failed"))
             (|:| |basis|
                  (|List|
-                  (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))))
-          (|logi|
-           (|Mapping|
-            (|Record| (|:| |logands| (|List| F))
-                      (|:| |basis|
-                           (|List| (|Vector| (|Fraction| (|Integer|))))))
-            (|List| (|Kernel| F)) (|List| F)))
-          (|ext|
-           (|Mapping|
-            (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
-            (|List| (|Kernel| F)) (|List| F))))
+                  (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))))))
          (SEQ
           (LETT |ext|
                 (CONS #'|RDEEFX2;do_param_RDE;2FLSLU;1!0| (VECTOR % |x|)))
@@ -52,10 +52,10 @@
           (|Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
                     (|:| |sol?| (|Boolean|)))))
         (SPROG
-         ((|p1| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
-          (|part|
+         ((|part|
            (|Union| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))
-                    "failed")))
+                    "failed"))
+          (|p1| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
          (SEQ (LETT |part| (SPADCALL |f| |g| NIL |x| |lk| (QREFELT % 26)))
               (EXIT
                (COND
@@ -125,7 +125,7 @@
 (DECLAIM (NOTINLINE |ElementaryRischDEX2;|)) 
 
 (DEFUN |ElementaryRischDEX2;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

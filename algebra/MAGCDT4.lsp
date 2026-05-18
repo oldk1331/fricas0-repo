@@ -23,20 +23,20 @@
                      (|:| |sp| (|Integer|)))
            "failed")))
         (SPROG
-         ((|lm2| (|List| (|Polynomial| (|Integer|)))) (#1=#:G17 NIL) (|m| NIL)
-          (#2=#:G16 NIL))
+         ((#1=#:G16 NIL) (|m| NIL) (#2=#:G17 NIL)
+          (|lm2| (|List| (|Polynomial| (|Integer|)))))
          (SEQ
           (LETT |lm2|
                 (PROGN
-                 (LETT #2# NIL)
-                 (SEQ (LETT |m| NIL) (LETT #1# |lm|) G190
+                 (LETT #1# NIL)
+                 (SEQ (LETT |m| NIL) (LETT #2# |lm|) G190
                       (COND
-                       ((OR (ATOM #1#) (PROGN (LETT |m| (CAR #1#)) NIL))
+                       ((OR (ATOM #2#) (PROGN (LETT |m| (CAR #2#)) NIL))
                         (GO G191)))
                       (SEQ
-                       (EXIT (LETT #2# (CONS (|MAGCDT4;FP_to_MP| |m| %) #2#))))
-                      (LETT #1# (CDR #1#)) (GO G190) G191
-                      (EXIT (NREVERSE #2#)))))
+                       (EXIT (LETT #1# (CONS (|MAGCDT4;FP_to_MP| |m| %) #1#))))
+                      (LETT #2# (CDR #2#)) (GO G190) G191
+                      (EXIT (NREVERSE #1#)))))
           (EXIT (SPADCALL |lm2| |lvz| |p| (QREFELT % 18)))))) 
 
 (SDEFUN |MAGCDT4;FrP_to_MP|
@@ -50,10 +50,10 @@
                     (|:| |sp| (|Integer|))))
          (% (|Union| (|Polynomial| (|Integer|)) "failed")))
         (SPROG
-         ((|res1|
+         ((|p1| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
+          (|res1|
            (|Union| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))
-                    "failed"))
-          (|p1| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))))
+                    "failed")))
          (SEQ
           (COND
            ((SPADCALL (QCDR |c|) (|spadConstant| % 21) (QREFELT % 12))

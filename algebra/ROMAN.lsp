@@ -10,7 +10,7 @@
                   (QREFELT % 6))) 
 
 (SDEFUN |ROMAN;coerce;%Of;4| ((|r| (%)) (% (|OutputForm|)))
-        (SPROG ((#1=#:G14 NIL) (|n| (|Integer|)))
+        (SPROG ((|n| (|Integer|)) (#1=#:G14 NIL))
                (SEQ (LETT |n| (SPADCALL |r| (QREFELT % 16)))
                     (EXIT
                      (COND ((ZEROP |n|) (SPADCALL |n| (QREFELT % 18)))

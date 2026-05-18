@@ -8,13 +8,14 @@
          (|vSeg| (|Segment| (|DoubleFloat|))) (|opts| (|List| (|DrawOption|)))
          (% (|ThreeSpace| (|DoubleFloat|))))
         (SPROG
-         ((#1=#:G17 NIL) (|l| NIL) (#2=#:G16 NIL)
-          (|aProp| (|SubSpaceComponentProperty|)) (|someV| #3=(|DoubleFloat|))
-          (|llp| (|List| (|List| (|Point| (|DoubleFloat|))))) (|someU| #3#)
+         ((|uNum| (|PositiveInteger|)) (|vNum| (|PositiveInteger|))
+          (|ustep| #1=(|DoubleFloat|)) (|vstep| #1#) (|iv| NIL) (|iu| NIL)
+          (|pt| (|Point| (|DoubleFloat|)))
           (|lp| (|List| (|Point| (|DoubleFloat|))))
-          (|pt| (|Point| (|DoubleFloat|))) (|iu| NIL) (|iv| NIL)
-          (|vstep| #4=(|DoubleFloat|)) (|ustep| #4#)
-          (|vNum| (|PositiveInteger|)) (|uNum| (|PositiveInteger|)))
+          (|someU| #2=(|DoubleFloat|))
+          (|llp| (|List| (|List| (|Point| (|DoubleFloat|))))) (|someV| #2#)
+          (|aProp| (|SubSpaceComponentProperty|)) (#3=#:G16 NIL) (|l| NIL)
+          (#4=#:G17 NIL))
          (SEQ (LETT |llp| NIL)
               (LETT |uNum|
                     (SPADCALL |opts| (SPADCALL (QREFELT % 8)) (QREFELT % 11)))
@@ -54,15 +55,15 @@
               (EXIT
                (SPADCALL |sp| |llp|
                          (PROGN
-                          (LETT #2# NIL)
-                          (SEQ (LETT |l| NIL) (LETT #1# |llp|) G190
+                          (LETT #3# NIL)
+                          (SEQ (LETT |l| NIL) (LETT #4# |llp|) G190
                                (COND
-                                ((OR (ATOM #1#)
-                                     (PROGN (LETT |l| (CAR #1#)) NIL))
+                                ((OR (ATOM #4#)
+                                     (PROGN (LETT |l| (CAR #4#)) NIL))
                                  (GO G191)))
-                               (SEQ (EXIT (LETT #2# (CONS |aProp| #2#))))
-                               (LETT #1# (CDR #1#)) (GO G190) G191
-                               (EXIT (NREVERSE #2#))))
+                               (SEQ (EXIT (LETT #3# (CONS |aProp| #3#))))
+                               (LETT #4# (CDR #4#)) (GO G190) G191
+                               (EXIT (NREVERSE #3#))))
                          |aProp| (QREFELT % 24)))))) 
 
 (DECLAIM (NOTINLINE |MeshCreationRoutinesForThreeDimensions;|)) 

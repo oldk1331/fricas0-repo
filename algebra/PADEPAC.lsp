@@ -5,11 +5,11 @@
          (|v| (|UnivariateTaylorSeries| R |x| |pt|))
          (% (|Union| (|Fraction| (|UnivariatePolynomial| |x| R)) "failed")))
         (SPROG
-         ((|den| (|UnivariatePolynomial| |x| R))
-          (|num| (|UnivariatePolynomial| |x| R))
+         ((|ans|
+           (|Union| (|Fraction| (|UnivariatePolynomial| |x| R)) "failed"))
           (|xpt| (|UnivariatePolynomial| |x| R))
-          (|ans|
-           (|Union| (|Fraction| (|UnivariatePolynomial| |x| R)) "failed")))
+          (|num| (|UnivariatePolynomial| |x| R))
+          (|den| (|UnivariatePolynomial| |x| R)))
          (SEQ (LETT |ans| (SPADCALL |n| |m| |u| |v| (QREFELT % 13)))
               (EXIT
                (COND
@@ -39,7 +39,7 @@
 (DECLAIM (NOTINLINE |PadeApproximantPackage;|)) 
 
 (DEFUN |PadeApproximantPackage;| (|#1| |#2| |#3|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 |#2|)

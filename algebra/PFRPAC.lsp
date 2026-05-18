@@ -20,9 +20,13 @@
         ((|p| (|Polynomial| R)) (|facq| (|Factored| (|Polynomial| R)))
          (|v| (|Symbol|)) (% (|Any|)))
         (SPROG
-         ((|pfup| (|PartialFraction| |up|)) (|nflist| (|fup|)) (#1=#:G6 NIL)
-          (#2=#:G5 (|fup|)) (#3=#:G7 (|fup|)) (#4=#:G10 NIL) (|u| NIL)
-          (|fcont| (|up|))
+         ((|up|
+           (|Join|
+            (|UnivariatePolynomialCategory| #1=(|Fraction| (|Polynomial| R)))
+            (CATEGORY |domain| (SIGNATURE |coerce| (% (|Variable| |v|)))
+             (IF (|has| #1# (|Canonical|))
+                 (ATTRIBUTE (|Canonical|))
+                 |noBranch|))))
           (|fup|
            (|Join| (|IntegralDomain|) (|DifferentialExtension| |up|)
                    (|Algebra| |up|) (|FullyEvalableOver| |up|)
@@ -33,13 +37,13 @@
                       (|List|
                        (|Record|
                         (|:| |flag|
-                             (|Union| #5="nil" #6="sqfr" #7="irred"
-                                      #8="prime"))
+                             (|Union| #2="nil" #3="sqfr" #4="irred"
+                                      #5="prime"))
                         (|:| |factor| |up|)
                         (|:| |exponent| (|NonNegativeInteger|))))))
                     (SIGNATURE |factorList|
                      ((|List|
-                       (|Record| (|:| |flag| (|Union| #5# #6# #7# #8#))
+                       (|Record| (|:| |flag| (|Union| #2# #3# #4# #5#))
                                  (|:| |factor| |up|)
                                  (|:| |exponent| (|NonNegativeInteger|))))
                       %))
@@ -55,7 +59,7 @@
                     (SIGNATURE |primeFactor| (% |up| (|NonNegativeInteger|)))
                     (SIGNATURE |sqfrFactor| (% |up| (|NonNegativeInteger|)))
                     (SIGNATURE |flagFactor|
-                     (% |up| (|NonNegativeInteger|) (|Union| #5# #6# #7# #8#)))
+                     (% |up| (|NonNegativeInteger|) (|Union| #2# #3# #4# #5#)))
                     (SIGNATURE |unit| (|up| %))
                     (SIGNATURE |unitNormalize| (% %))
                     (SIGNATURE |map| (% (|Mapping| |up| |up|) %))
@@ -88,13 +92,9 @@
                     (IF (|has| |up| (|InnerEvalable| (|Symbol|) %))
                         (ATTRIBUTE (|InnerEvalable| (|Symbol|) %))
                         |noBranch|))))
-          (|up|
-           (|Join|
-            (|UnivariatePolynomialCategory| #9=(|Fraction| (|Polynomial| R)))
-            (CATEGORY |domain| (SIGNATURE |coerce| (% (|Variable| |v|)))
-             (IF (|has| #9# (|Canonical|))
-                 (ATTRIBUTE (|Canonical|))
-                 |noBranch|)))))
+          (|fcont| (|up|)) (|u| NIL) (#6=#:G10 NIL) (#7=#:G7 (|fup|))
+          (#8=#:G5 (|fup|)) (#9=#:G6 NIL) (|nflist| (|fup|))
+          (|pfup| (|PartialFraction| |up|)))
          (SEQ
           (LETT |up|
                 (|UnivariatePolynomial| |v|
@@ -106,18 +106,18 @@
           (LETT |nflist|
                 (SPADCALL |fcont|
                           (PROGN
-                           (LETT #1# NIL)
+                           (LETT #9# NIL)
                            (SEQ (LETT |u| NIL)
-                                (LETT #4# (SPADCALL |facq| (QREFELT % 30)))
+                                (LETT #6# (SPADCALL |facq| (QREFELT % 30)))
                                 G190
                                 (COND
-                                 ((OR (ATOM #4#)
-                                      (PROGN (LETT |u| (CAR #4#)) NIL))
+                                 ((OR (ATOM #6#)
+                                      (PROGN (LETT |u| (CAR #6#)) NIL))
                                   (GO G191)))
                                 (SEQ
                                  (EXIT
                                   (PROGN
-                                   (LETT #3#
+                                   (LETT #7#
                                          (SPADCALL
                                           (|PFRPAC;makeSup| (QVELT |u| 1) |v|
                                            %)
@@ -130,9 +130,9 @@
                                                                         '|NonNegativeInteger|))
                                                                  |fup|)))
                                    (COND
-                                    (#1#
-                                     (LETT #2#
-                                           (SPADCALL #2# #3#
+                                    (#9#
+                                     (LETT #8#
+                                           (SPADCALL #8# #7#
                                                      (|compiledLookupCheck| '*
                                                                             (LIST
                                                                              '%
@@ -140,9 +140,9 @@
                                                                              '%)
                                                                             |fup|))))
                                     ('T
-                                     (PROGN (LETT #2# #3#) (LETT #1# 'T)))))))
-                                (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
-                           (COND (#1# #2#)
+                                     (PROGN (LETT #8# #7#) (LETT #9# 'T)))))))
+                                (LETT #6# (CDR #6#)) (GO G190) G191 (EXIT NIL))
+                           (COND (#9# #8#)
                                  ('T
                                   (SPADCALL
                                    (|compiledLookupCheck| '|One| (LIST '%)
@@ -171,7 +171,7 @@
 (DECLAIM (NOTINLINE |PartialFractionPackage;|)) 
 
 (DEFUN |PartialFractionPackage;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|PartialFractionPackage| DV$1))

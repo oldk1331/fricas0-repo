@@ -20,18 +20,18 @@
         (SPADCALL (SPADCALL |x| (QREFELT % 9)) (QREFELT % 24))) 
 
 (SDEFUN |MONOGEN-;basis;V;7| ((% (|Vector| S)))
-        (SPROG ((#1=#:G22 NIL) (|i| NIL) (#2=#:G21 NIL) (#3=#:G18 NIL))
+        (SPROG ((#1=#:G18 NIL) (#2=#:G21 NIL) (|i| NIL) (#3=#:G22 NIL))
                (SEQ
                 (PROGN
                  (LETT #2#
                        (GETREFV
                         (|inc_SI|
-                         #4=(PROG1 (LETT #3# (- (SPADCALL (QREFELT % 27)) 1))
-                              (|check_subtype2| (>= #3# 0)
+                         #4=(PROG1 (LETT #1# (- (SPADCALL (QREFELT % 27)) 1))
+                              (|check_subtype2| (>= #1# 0)
                                                 '(|NonNegativeInteger|)
-                                                '(|Integer|) #3#)))))
-                 (SEQ (LETT |i| 0) (LETT #1# #4#) G190
-                      (COND ((|greater_SI| |i| #1#) (GO G191)))
+                                                '(|Integer|) #1#)))))
+                 (SEQ (LETT |i| 0) (LETT #3# #4#) G190
+                      (COND ((|greater_SI| |i| #3#) (GO G191)))
                       (SEQ
                        (EXIT
                         (SETELT #2# |i|
@@ -52,7 +52,7 @@
 
 (SDEFUN |MONOGEN-;differentiate;SMS;10|
         ((|x| (S)) (|d| (|Mapping| R R)) (% (S)))
-        (SPROG ((|yprime| (S)) (|p| (UP)))
+        (SPROG ((|p| (UP)) (|yprime| (S)))
                (SEQ (LETT |p| (SPADCALL (QREFELT % 18)))
                     (LETT |yprime|
                           (SPADCALL
@@ -109,7 +109,7 @@
 (DECLAIM (NOTINLINE |MonogenicAlgebra&;|)) 
 
 (DEFUN |MonogenicAlgebra&| (|#1| |#2| |#3|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

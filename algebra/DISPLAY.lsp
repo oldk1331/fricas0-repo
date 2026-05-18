@@ -29,7 +29,7 @@
 (SDEFUN |DISPLAY;center0|
         ((|len| (|Integer|)) (|wid| (|Integer|)) (|fill| (|String|))
          (% (|Record| (|:| |lhs| (|String|)) (|:| |rhs| (|String|)))))
-        (SPROG ((|t| (|String|)) (|m| (|Integer|)))
+        (SPROG ((|m| (|Integer|)) (|t| (|String|)))
                (SEQ
                 (COND ((OR (< |wid| 1) (>= |len| |wid|)) (CONS "" ""))
                       ('T
@@ -55,8 +55,8 @@
         ((|s| (|String|)) (|wid| (|Integer|)) (|fill| (|String|))
          (% (|String|)))
         (SPROG
-         ((|rec| (|Record| (|:| |lhs| (|String|)) (|:| |rhs| (|String|))))
-          (|len| (|Integer|)))
+         ((|len| (|Integer|))
+          (|rec| (|Record| (|:| |lhs| (|String|)) (|:| |rhs| (|String|)))))
          (SEQ
           (COND ((< |wid| 1) "")
                 (#1='T
@@ -78,8 +78,8 @@
         ((|l| (|List| (|String|))) (|wid| (|Integer|)) (|fill| (|String|))
          (% (|List| (|String|))))
         (SPROG
-         ((|rec| (|Record| (|:| |lhs| (|String|)) (|:| |rhs| (|String|))))
-          (|len| (|Integer|)))
+         ((|len| (|Integer|))
+          (|rec| (|Record| (|:| |lhs| (|String|)) (|:| |rhs| (|String|)))))
          (SEQ
           (COND ((< |wid| 1) (LIST ""))
                 (#1='T
@@ -109,7 +109,7 @@
         (QCSIZE |s|)) 
 
 (SDEFUN |DISPLAY;sayLength;LI;11| ((|l| (|List| (|String|))) (% (|Integer|)))
-        (SPROG ((|sum| (|Integer|)) (#1=#:G24 NIL) (|s| NIL))
+        (SPROG ((|s| NIL) (#1=#:G24 NIL) (|sum| (|Integer|)))
                (SEQ (LETT |sum| 0)
                     (SEQ (LETT |s| NIL) (LETT #1# |l|) G190
                          (COND

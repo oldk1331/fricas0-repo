@@ -9,8 +9,8 @@
 
 (DEFUN |UnivariateSkewPolynomial;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G33 NIL) (#2=#:G35 NIL) (#3=#:G34 NIL) (% NIL)
-    (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+   ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (DV$4 NIL) (|dv$| NIL) (% NIL)
+    (#1=#:G34 NIL) (#2=#:G35 NIL) (#3=#:G33 NIL) (|pv$| NIL))
    (PROGN
     (LETT DV$1 |#1|)
     (LETT DV$2 (|devaluate| |#2|))
@@ -75,7 +75,7 @@
                                                            (|Integer|)))))
                                         (|HasCategory| |#2| '(|GcdDomain|))
                                         (|HasCategory| |#2| '(|Field|))
-                                        (LETT #3#
+                                        (LETT #1#
                                               (|HasCategory| |#2|
                                                              '(|LinearlyExplicitOver|
                                                                (|Integer|))))
@@ -91,14 +91,14 @@
                                                          '(|Algebra|
                                                            (|Fraction|
                                                             (|Integer|))))
-                                          #3#)
-                                         (AND #3#
+                                          #1#)
+                                         (AND #1#
                                               (|HasCategory| |#2|
                                                              '(|CharacteristicNonZero|)))
-                                         (AND #3#
+                                         (AND #1#
                                               (|HasCategory| |#2|
                                                              '(|CharacteristicZero|)))
-                                         (AND #3#
+                                         (AND #1#
                                               (|HasCategory| |#2|
                                                              '(|CommutativeRing|)))
                                          #2#)
@@ -107,7 +107,7 @@
                                         (|HasCategory| |#2| '(|AbelianMonoid|))
                                         (|HasCategory| (|Integer|)
                                                        '(|AbelianGroup|))
-                                        (LETT #1#
+                                        (LETT #3#
                                               (|HasCategory| |#2|
                                                              '(|CancellationAbelianMonoid|)))
                                         (OR
@@ -122,10 +122,10 @@
                                          (|HasCategory| |#2| '(|AbelianGroup|))
                                          (|HasCategory| |#2|
                                                         '(|AbelianMonoid|))
-                                         #1#)
+                                         #3#)
                                         (OR
                                          (|HasCategory| |#2| '(|AbelianGroup|))
-                                         #1#)))))
+                                         #3#)))))
     (|haddProp| |$ConstructorCache| '|UnivariateSkewPolynomial|
                 (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 %))
     (|stuffDomainSlots| %)
@@ -179,7 +179,7 @@
      (|augmentPredVector| % 8589934592))
     (AND
      (OR
-      (AND #3# (|HasCategory| |#2| '(|Ring|))
+      (AND #1# (|HasCategory| |#2| '(|Ring|))
            (|HasCategory| (|Integer|) '(|AbelianMonoid|)))
       (|HasCategory| |#2| '(|AbelianMonoid|))
       (AND (|HasCategory| |#2| '(|CommutativeRing|))
@@ -190,13 +190,13 @@
      (|augmentPredVector| % 17179869184))
     (AND
      (OR
-      (AND #3# (|HasCategory| |#2| '(|Ring|))
+      (AND #1# (|HasCategory| |#2| '(|Ring|))
            (|HasCategory| (|Integer|) '(|AbelianGroup|)))
       (AND (|HasCategory| |#2| '(|AbelianGroup|))
            (|HasCategory| |#2| '(|CommutativeRing|)))
       (AND (|HasCategory| |#2| '(|AbelianGroup|))
            (|HasCategory| |#2| '(|Ring|)))
-      #1#
+      #3#
       (AND (|HasCategory| |#2| '(|CommutativeRing|))
            (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
       (AND (|HasCategory| |#2| '(|IntegralDomain|))
@@ -205,7 +205,7 @@
      (|augmentPredVector| % 34359738368))
     (AND
      (OR
-      (AND #3# (|HasCategory| |#2| '(|Ring|))
+      (AND #1# (|HasCategory| |#2| '(|Ring|))
            (|HasCategory| (|Integer|) '(|AbelianGroup|)))
       (|HasCategory| |#2| '(|AbelianGroup|))
       (AND (|HasCategory| |#2| '(|CommutativeRing|))

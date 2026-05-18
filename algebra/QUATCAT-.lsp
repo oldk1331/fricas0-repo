@@ -147,7 +147,7 @@
          (EXIT (CONS 0 (SPADCALL |x| (QREFELT % 11)))))) 
 
 (SDEFUN |QUATCAT-;coerce;SOf;18| ((|x| (S)) (% (|OutputForm|)))
-        (SPROG ((|part| (|OutputForm|)) (|z| (|OutputForm|)) (|y| (S)))
+        (SPROG ((|y| (S)) (|z| (|OutputForm|)) (|part| (|OutputForm|)))
                (SEQ
                 (COND
                  ((SPADCALL |x| (QREFELT % 49))
@@ -308,7 +308,7 @@
 (DECLAIM (NOTINLINE |QuaternionCategory&;|)) 
 
 (DEFUN |QuaternionCategory&| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

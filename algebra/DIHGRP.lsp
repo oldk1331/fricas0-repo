@@ -148,46 +148,46 @@
 
 (SDEFUN |DIHGRP;enumerate;L;19| ((% (|List| %)))
         (SPROG
-         ((#1=#:G69 NIL) (|k| NIL) (#2=#:G68 NIL) (#3=#:G67 NIL)
-          (#4=#:G66 NIL))
+         ((#1=#:G66 NIL) (#2=#:G67 NIL) (#3=#:G68 NIL) (|k| NIL)
+          (#4=#:G69 NIL))
          (SEQ
           (SPADCALL
            (PROGN
-            (LETT #4# NIL)
-            (SEQ (LETT |k| 0) (LETT #3# (- (QREFELT % 6) 1)) G190
-                 (COND ((|greater_SI| |k| #3#) (GO G191)))
+            (LETT #1# NIL)
+            (SEQ (LETT |k| 0) (LETT #2# (- (QREFELT % 6) 1)) G190
+                 (COND ((|greater_SI| |k| #2#) (GO G191)))
                  (SEQ
                   (EXIT
-                   (LETT #4#
+                   (LETT #1#
                          (CONS
                           (|DIHGRP;per|
                            (CONS (SPADCALL |k| (QREFELT % 53))
                                  (|spadConstant| % 20))
                            %)
-                          #4#))))
+                          #1#))))
                  (LETT |k| (|inc_SI| |k|)) (GO G190) G191
-                 (EXIT (NREVERSE #4#))))
+                 (EXIT (NREVERSE #1#))))
            (PROGN
-            (LETT #2# NIL)
-            (SEQ (LETT |k| 0) (LETT #1# (- (QREFELT % 6) 1)) G190
-                 (COND ((|greater_SI| |k| #1#) (GO G191)))
+            (LETT #3# NIL)
+            (SEQ (LETT |k| 0) (LETT #4# (- (QREFELT % 6) 1)) G190
+                 (COND ((|greater_SI| |k| #4#) (GO G191)))
                  (SEQ
                   (EXIT
-                   (LETT #2#
+                   (LETT #3#
                          (CONS
                           (|DIHGRP;per|
                            (CONS (SPADCALL |k| (QREFELT % 53))
                                  (|spadConstant| % 36))
                            %)
-                          #2#))))
+                          #3#))))
                  (LETT |k| (|inc_SI| |k|)) (GO G190) G191
-                 (EXIT (NREVERSE #2#))))
+                 (EXIT (NREVERSE #3#))))
            (QREFELT % 58))))) 
 
 (DECLAIM (NOTINLINE |DihedralGroup;|)) 
 
 (DEFUN |DihedralGroup;| (|#1| |#2| |#3|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 |#1|)
           (LETT DV$2 |#2|)

@@ -10,16 +10,16 @@
 
 (SDEFUN |IBITS;coerce;%Of;3| ((|v| (%)) (% (|OutputForm|)))
         (SPROG
-         ((#1=#:G16 NIL) (|i| NIL) (|j| NIL) (|s| (|String|))
-          (|f| #2=(|Character|)) (|t| #2#))
+         ((|t| #1=(|Character|)) (|f| #1#) (|s| (|String|)) (|j| NIL) (|i| NIL)
+          (#2=#:G16 NIL))
          (SEQ (LETT |t| (|STR_to_CHAR| "1")) (LETT |f| (|STR_to_CHAR| "0"))
               (LETT |s|
                     (|make_string_code| (SPADCALL |v| (QREFELT % 10))
                                         (SPADCALL (QREFELT % 12))))
               (SEQ (LETT |j| (QREFELT % 6))
                    (LETT |i| (SPADCALL |s| (QREFELT % 14)))
-                   (LETT #1# (SPADCALL |s| (QREFELT % 15))) G190
-                   (COND ((> |i| #1#) (GO G191)))
+                   (LETT #2# (SPADCALL |s| (QREFELT % 15))) G190
+                   (COND ((> |i| #2#) (GO G191)))
                    (SEQ
                     (EXIT
                      (SPADCALL |s| |i|
@@ -104,7 +104,7 @@
 (DECLAIM (NOTINLINE |IndexedBits;|)) 
 
 (DEFUN |IndexedBits;| (|#1|)
-  (SPROG ((#1=#:G50 NIL) (|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL) (#1=#:G50 NIL))
          (PROGN
           (LETT DV$1 |#1|)
           (LETT |dv$| (LIST '|IndexedBits| DV$1))

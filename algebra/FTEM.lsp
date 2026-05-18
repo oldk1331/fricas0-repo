@@ -46,8 +46,8 @@
 
 (SDEFUN |FTEM;processTemplate;2Fn;7| ((|tp| (|FileName|)) (% (|FileName|)))
         (SPROG
-         ((|active| #1=(|Boolean|)) (|line| (|String|)) (#2=#:G24 NIL)
-          (|endInput| #1#) (|fp| (|TextFile|)))
+         ((|fp| (|TextFile|)) (|endInput| #1=(|Boolean|)) (#2=#:G24 NIL)
+          (|line| (|String|)) (|active| #1#))
          (SEQ (LETT |fp| (SPADCALL |tp| "input" (QREFELT % 28)))
               (LETT |active| 'T) (LETT |endInput| NIL)
               (SEQ G190

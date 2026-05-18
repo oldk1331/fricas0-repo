@@ -92,7 +92,7 @@
 
 (SDEFUN |MOEBIUS;eval;%2Opc;16|
         ((|t| (%)) (|f| (|OnePointCompletion| F)) (% (|OnePointCompletion| F)))
-        (SPROG ((|den| (F)) (|fff| (F)) (|ff| (|Union| F "failed")))
+        (SPROG ((|ff| (|Union| F "failed")) (|fff| (F)) (|den| (F)))
                (SEQ (LETT |ff| (SPADCALL |f| (QREFELT % 27)))
                     (EXIT
                      (COND
@@ -120,7 +120,7 @@
                         (QREFELT % 28)))))))) 
 
 (SDEFUN |MOEBIUS;coerce;%Of;17| ((|t| (%)) (% (|OutputForm|)))
-        (SPROG ((|den| #1=(|OutputForm|)) (|num| #1#) (|var| (|OutputForm|)))
+        (SPROG ((|var| (|OutputForm|)) (|num| #1=(|OutputForm|)) (|den| #1#))
                (SEQ (LETT |var| (SPADCALL "%x" (QREFELT % 35)))
                     (LETT |num|
                           (SPADCALL
@@ -142,7 +142,7 @@
 
 (SDEFUN |MOEBIUS;proportional?|
         ((|list1| (|List| F)) (|list2| (|List| F)) (% (|Boolean|)))
-        (SPROG ((|x2| (F)) (|x1| (F)))
+        (SPROG ((|x1| (F)) (|x2| (F)))
                (COND ((NULL |list1|) (NULL |list2|)) ((NULL |list2|) NIL)
                      ((SPADCALL (LETT |x1| (|SPADfirst| |list1|))
                                 (QREFELT % 30))
@@ -177,7 +177,7 @@
           (RETURN (PROGN (SPADCALL |f1| |x1| (QREFELT % 23)))))) 
 
 (SDEFUN |MOEBIUS;=;2%B;19| ((|t| (%)) (|s| (%)) (% (|Boolean|)))
-        (SPROG ((|list2| (|List| F)) (|list1| (|List| F)))
+        (SPROG ((|list1| (|List| F)) (|list2| (|List| F)))
                (SEQ
                 (LETT |list1|
                       (LIST (|MOEBIUS;a| |t| %) (|MOEBIUS;b| |t| %)
@@ -190,7 +190,7 @@
 (DECLAIM (NOTINLINE |MoebiusTransform;|)) 
 
 (DEFUN |MoebiusTransform;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|MoebiusTransform| DV$1))

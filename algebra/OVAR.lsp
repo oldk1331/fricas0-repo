@@ -26,20 +26,20 @@
 
 (SDEFUN |OVAR;variable;SU;9| ((|exp| (|Symbol|)) (% (|Union| % "failed")))
         (SPROG
-         ((#1=#:G20 NIL) (#2=#:G13 NIL) (|i| NIL) (#3=#:G21 NIL) (|exp2| NIL))
+         ((|exp2| NIL) (#1=#:G21 NIL) (|i| NIL) (#2=#:G13 NIL) (#3=#:G20 NIL))
          (SEQ
           (EXIT
            (SEQ
-            (SEQ (LETT |exp2| NIL) (LETT #3# (QREFELT % 6)) (LETT |i| 1) G190
+            (SEQ (LETT |exp2| NIL) (LETT #1# (QREFELT % 6)) (LETT |i| 1) G190
                  (COND
-                  ((OR (ATOM #3#) (PROGN (LETT |exp2| (CAR #3#)) NIL))
+                  ((OR (ATOM #1#) (PROGN (LETT |exp2| (CAR #1#)) NIL))
                    (GO G191)))
                  (SEQ
                   (EXIT
                    (COND
                     ((EQUAL |exp| |exp2|)
                      (PROGN
-                      (LETT #1#
+                      (LETT #3#
                             (CONS 0
                                   (PROG1 (LETT #2# |i|)
                                     (|check_subtype2| (> #2# 0)
@@ -47,10 +47,10 @@
                                                       '(|NonNegativeInteger|)
                                                       #2#))))
                       (GO #4=#:G19))))))
-                 (LETT |i| (PROG1 (|inc_SI| |i|) (LETT #3# (CDR #3#))))
+                 (LETT |i| (PROG1 (|inc_SI| |i|) (LETT #1# (CDR #1#))))
                  (GO G190) G191 (EXIT NIL))
             (EXIT (CONS 1 "failed"))))
-          #4# (EXIT #1#)))) 
+          #4# (EXIT #3#)))) 
 
 (MAKEPROP '|OVAR;<;2%B;10| '|SPADreplace| '(XLAM (|s1| |s2|) (< |s2| |s1|))) 
 
@@ -66,7 +66,7 @@
 (DECLAIM (NOTINLINE |OrderedVariableList;|)) 
 
 (DEFUN |OrderedVariableList;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 |#1|)
           (LETT |dv$| (LIST '|OrderedVariableList| DV$1))

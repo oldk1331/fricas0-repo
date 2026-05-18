@@ -2,7 +2,7 @@
 (SDEFUN |POSETF;addDimensionToObjects|
         ((|a| (|List| (|List| S))) (|newObj| (S)) (% (|List| (|List| S))))
         (SPROG
-         ((|b| (|List| (|List| S))) (|x1| (|List| S)) (#1=#:G5 NIL) (|x| NIL))
+         ((|x| NIL) (#1=#:G5 NIL) (|x1| (|List| S)) (|b| (|List| (|List| S))))
          (SEQ (LETT |b| NIL)
               (SEQ (LETT |x| NIL) (LETT #1# |a|) G190
                    (COND
@@ -16,17 +16,17 @@
 (SDEFUN |POSETF;addDimensionToArrows|
         ((|a| (|List| (|List| (|Boolean|)))) (% (|List| (|List| (|Boolean|)))))
         (SPROG
-         ((|res| (|List| #1=(|List| (|Boolean|)))) (|fst| #2=(|Boolean|))
-          (|thisRow| #1#) (|topRight| #2#) (#3=#:G20 NIL) (|y| NIL)
-          (|yrepeat| NIL) (#4=#:G19 NIL) (|x| NIL) (|xrepeat| NIL))
+         ((|xrepeat| NIL) (|x| NIL) (#1=#:G19 NIL) (|yrepeat| NIL) (|y| NIL)
+          (#2=#:G20 NIL) (|topRight| #3=(|Boolean|))
+          (|thisRow| #4=(|List| (|Boolean|))) (|fst| #3#) (|res| (|List| #4#)))
          (SEQ (LETT |res| (LIST NIL)) (LETT |fst| 'T)
               (SEQ (LETT |xrepeat| 1) G190
                    (COND ((|greater_SI| |xrepeat| 2) (GO G191)))
                    (SEQ
                     (EXIT
-                     (SEQ (LETT |x| NIL) (LETT #4# |a|) G190
+                     (SEQ (LETT |x| NIL) (LETT #1# |a|) G190
                           (COND
-                           ((OR (ATOM #4#) (PROGN (LETT |x| (CAR #4#)) NIL))
+                           ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
                             (GO G191)))
                           (SEQ (LETT |thisRow| NIL)
                                (SEQ (LETT |yrepeat| 1) G190
@@ -34,11 +34,11 @@
                                      ((|greater_SI| |yrepeat| 2) (GO G191)))
                                     (SEQ
                                      (EXIT
-                                      (SEQ (LETT |y| NIL) (LETT #3# |x|) G190
+                                      (SEQ (LETT |y| NIL) (LETT #2# |x|) G190
                                            (COND
-                                            ((OR (ATOM #3#)
+                                            ((OR (ATOM #2#)
                                                  (PROGN
-                                                  (LETT |y| (CAR #3#))
+                                                  (LETT |y| (CAR #2#))
                                                   NIL))
                                              (GO G191)))
                                            (SEQ
@@ -54,7 +54,7 @@
                                                               (|topRight| NIL)
                                                               ('T |y|))
                                                              (QREFELT % 14)))))
-                                           (LETT #3# (CDR #3#)) (GO G190) G191
+                                           (LETT #2# (CDR #2#)) (GO G190) G191
                                            (EXIT NIL))))
                                     (LETT |yrepeat| (|inc_SI| |yrepeat|))
                                     (GO G190) G191 (EXIT NIL))
@@ -72,7 +72,7 @@
                                                   (SPADCALL |thisRow|
                                                             (QREFELT % 15))
                                                   (QREFELT % 17)))))))
-                          (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))))
+                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))))
                    (LETT |xrepeat| (|inc_SI| |xrepeat|)) (GO G190) G191
                    (EXIT NIL))
               (EXIT |res|)))) 
@@ -80,8 +80,8 @@
 (SDEFUN |POSETF;powerset;LFbcpo;3|
         ((|objs| (|List| S)) (% (|FiniteBiCPO| (|List| S))))
         (SPROG
-         ((|arrows| (|List| (|List| (|Boolean|)))) (|eles| (|List| (|List| S)))
-          (#1=#:G26 NIL) (|x| NIL))
+         ((|x| NIL) (#1=#:G26 NIL) (|eles| (|List| (|List| S)))
+          (|arrows| (|List| (|List| (|Boolean|)))))
          (SEQ (LETT |eles| (LIST NIL)) (LETT |arrows| (LIST (LIST 'T)))
               (SEQ (LETT |x| NIL) (LETT #1# |objs|) G190
                    (COND
@@ -98,15 +98,15 @@
 (SDEFUN |POSETF;completelyOrderedSet;LFbcpo;4|
         ((|objs| (|List| S)) (% (|FiniteBiCPO| S)))
         (SPROG
-         ((|arrows| (|List| (|List| (|Boolean|)))) (|row| (|List| (|Boolean|)))
-          (|g| (|Boolean|)) (#1=#:G36 NIL) (|y| NIL) (#2=#:G35 NIL) (|x| NIL)
-          (|dim| (|NonNegativeInteger|)))
+         ((|dim| (|NonNegativeInteger|)) (|x| NIL) (#1=#:G35 NIL) (|y| NIL)
+          (#2=#:G36 NIL) (|g| (|Boolean|)) (|row| (|List| (|Boolean|)))
+          (|arrows| (|List| (|List| (|Boolean|)))))
          (SEQ (LETT |dim| (LENGTH |objs|)) (LETT |arrows| (LIST NIL))
-              (SEQ (LETT |x| 1) (LETT #2# |dim|) G190
-                   (COND ((|greater_SI| |x| #2#) (GO G191)))
+              (SEQ (LETT |x| 1) (LETT #1# |dim|) G190
+                   (COND ((|greater_SI| |x| #1#) (GO G191)))
                    (SEQ (LETT |row| NIL)
-                        (SEQ (LETT |y| 1) (LETT #1# |dim|) G190
-                             (COND ((|greater_SI| |y| #1#) (GO G191)))
+                        (SEQ (LETT |y| 1) (LETT #2# |dim|) G190
+                             (COND ((|greater_SI| |y| #2#) (GO G191)))
                              (SEQ (LETT |g| (COND ((>= |x| |y|) 'T) ('T NIL)))
                                   (EXIT
                                    (LETT |row|
@@ -164,7 +164,7 @@
 (DECLAIM (NOTINLINE |PosetFactory;|)) 
 
 (DEFUN |PosetFactory;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|PosetFactory| DV$1))

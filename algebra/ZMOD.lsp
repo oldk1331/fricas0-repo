@@ -85,9 +85,9 @@
 
 (SDEFUN |ZMOD;recip;%U;21| ((|x| (%)) (% (|Union| % "failed")))
         (SPROG
-         ((|g| (%)) (|c2| (%)) (|c1| (%))
-          (|#G24|
-           (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))))
+         ((|#G24|
+           (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %)))
+          (|c1| (%)) (|c2| (%)) (|g| (%)))
          (SEQ
           (PROGN
            (LETT |#G24| (SPADCALL |x| (QREFELT % 20) (QREFELT % 44)))
@@ -174,9 +174,9 @@
 
 (SDEFUN |ZMOD;recip;%U;40| ((|x| (%)) (% (|Union| % "failed")))
         (SPROG
-         ((|g| (%)) (|c2| (%)) (|c1| (%))
-          (|#G48|
-           (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))))
+         ((|#G48|
+           (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %)))
+          (|c1| (%)) (|c2| (%)) (|g| (%)))
          (SEQ
           (PROGN
            (LETT |#G48| (SPADCALL |x| (QREFELT % 6) (QREFELT % 44)))
@@ -201,7 +201,7 @@
 (DECLAIM (NOTINLINE |IntegerMod;|)) 
 
 (DEFUN |IntegerMod;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 |#1|)
           (LETT |dv$| (LIST '|IntegerMod| DV$1))

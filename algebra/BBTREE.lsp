@@ -1,8 +1,8 @@
 
 (SDEFUN |BBTREE;setleaves!;%L%;1| ((|t| (%)) (|u| (|List| S)) (% (%)))
         (SPROG
-         ((|acc| (|List| S)) (#1=#:G19 NIL) (|i| NIL)
-          (|m| (|NonNegativeInteger|)) (|n| (|NonNegativeInteger|)))
+         ((|n| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|)) (|i| NIL)
+          (#1=#:G19 NIL) (|acc| (|List| S)))
          (SEQ (LETT |n| (LENGTH |u|))
               (EXIT
                (COND
@@ -148,8 +148,8 @@
 
 (DEFUN |BalancedBinaryTree;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G68 NIL) (#2=#:G69 NIL) (#3=#:G70 NIL) (% NIL)
-    (|dv$| NIL) (DV$1 NIL))
+   ((DV$1 NIL) (|dv$| NIL) (% NIL) (#1=#:G70 NIL) (#2=#:G69 NIL) (#3=#:G68 NIL)
+    (|pv$| NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|BalancedBinaryTree| DV$1))
@@ -159,7 +159,7 @@
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
-                                        (LETT #3#
+                                        (LETT #1#
                                               (|HasCategory| |#1|
                                                              '(|SetCategory|)))
                                         (AND
@@ -167,7 +167,7 @@
                                                         (LIST '|Evalable|
                                                               (|devaluate|
                                                                |#1|)))
-                                         #3#)
+                                         #1#)
                                         (|HasCategory| |#1| '(|Hashable|))
                                         (|HasCategory| |#1| '(|OrderedSet|))
                                         (LETT #2#
@@ -175,18 +175,18 @@
                                                              '(|BasicType|)))
                                         (OR #2#
                                             (|HasCategory| |#1| '(|Hashable|))
-                                            #3#)
-                                        (LETT #1#
+                                            #1#)
+                                        (LETT #3#
                                               (|HasCategory| |#1|
                                                              '(|CoercibleTo|
                                                                (|OutputForm|))))
-                                        (OR #1#
+                                        (OR #3#
                                             (AND
                                              (|HasCategory| |#1|
                                                             (LIST '|Evalable|
                                                                   (|devaluate|
                                                                    |#1|)))
-                                             #3#))))))
+                                             #1#))))))
     (|haddProp| |$ConstructorCache| '|BalancedBinaryTree| (LIST DV$1)
                 (CONS 1 %))
     (|stuffDomainSlots| %)
@@ -199,7 +199,7 @@
     (AND (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 2048))
     (AND
      (OR (AND #2# (|HasCategory| % '(|finiteAggregate|)))
-         (|HasCategory| |#1| '(|Hashable|)) #3#)
+         (|HasCategory| |#1| '(|Hashable|)) #1#)
      (|augmentPredVector| % 4096))
     (SETF |pv$| (QREFELT % 3))
     (QSETREFV % 7 (|BinaryTree| |#1|))

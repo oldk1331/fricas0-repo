@@ -69,24 +69,24 @@
 (SDEFUN |AUTOMOR;iterat|
         ((|f| (|Mapping| R R)) (|g| (|Mapping| R R)) (|n| (|Integer|))
          (|r| (R)) (% (R)))
-        (SPROG ((#1=#:G36 NIL) (#2=#:G34 NIL))
+        (SPROG ((#1=#:G34 NIL) (#2=#:G36 NIL))
                (COND
                 ((< |n| 0)
                  (|AUTOMOR;iter| |g|
-                  (PROG1 (LETT #2# (- |n|))
-                    (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
-                                      '(|Integer|) #2#))
+                  (PROG1 (LETT #1# (- |n|))
+                    (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                      '(|Integer|) #1#))
                   |r| %))
                 ('T
                  (|AUTOMOR;iter| |f|
-                  (PROG1 (LETT #1# |n|)
-                    (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
-                                      '(|Integer|) #1#))
+                  (PROG1 (LETT #2# |n|)
+                    (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
+                                      '(|Integer|) #2#))
                   |r| %))))) 
 
 (SDEFUN |AUTOMOR;iter|
         ((|f| (|Mapping| R R)) (|n| (|NonNegativeInteger|)) (|r| (R)) (% (R)))
-        (SPROG ((#1=#:G42 NIL) (|i| NIL))
+        (SPROG ((|i| NIL) (#1=#:G42 NIL))
                (SEQ
                 (SEQ (LETT |i| 1) (LETT #1# |n|) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -138,7 +138,7 @@
 (DECLAIM (NOTINLINE |Automorphism;|)) 
 
 (DEFUN |Automorphism;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|Automorphism| DV$1))

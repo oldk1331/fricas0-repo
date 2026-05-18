@@ -66,14 +66,14 @@
         ((|rows| #1=(|NonNegativeInteger|)) (|cols| #1#)
          (|a| (|Complex| (|DoubleFloat|))) (% (%)))
         (SPROG
-         ((#2=#:G2768 NIL) (|j| NIL) (#3=#:G2767 NIL) (|i| NIL) (|res| (%)))
+         ((|res| (%)) (|i| NIL) (#2=#:G2767 NIL) (|j| NIL) (#3=#:G2768 NIL))
          (SEQ (LETT |res| (MAKE_CDOUBLE_MATRIX |rows| |cols|))
-              (SEQ (LETT |i| 0) (LETT #3# (- |rows| 1)) G190
-                   (COND ((|greater_SI| |i| #3#) (GO G191)))
+              (SEQ (LETT |i| 0) (LETT #2# (- |rows| 1)) G190
+                   (COND ((|greater_SI| |i| #2#) (GO G191)))
                    (SEQ
                     (EXIT
-                     (SEQ (LETT |j| 0) (LETT #2# (- |cols| 1)) G190
-                          (COND ((|greater_SI| |j| #2#) (GO G191)))
+                     (SEQ (LETT |j| 0) (LETT #3# (- |cols| 1)) G190
+                          (COND ((|greater_SI| |j| #3#) (GO G191)))
                           (SEQ (EXIT (CDSETAREF2 |res| |i| |j| |a|)))
                           (LETT |j| (|inc_SI| |j|)) (GO G190) G191
                           (EXIT NIL))))

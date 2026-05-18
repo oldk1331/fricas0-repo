@@ -39,23 +39,23 @@
         (* (SPADCALL (QREFELT % 32)) (SPADCALL (QREFELT % 33)))) 
 
 (SDEFUN |PRODUCT;index;Pi%;10| ((|n| (|PositiveInteger|)) (% (%)))
-        (SPROG ((#1=#:G17 NIL) (#2=#:G16 NIL))
+        (SPROG ((#1=#:G16 NIL) (#2=#:G17 NIL))
                (SPADCALL
                 (SPADCALL
                  (PROG1
-                     (LETT #2#
+                     (LETT #1#
                            (+
                             (|quotient_INT| (- |n| 1)
                                             (SPADCALL (QREFELT % 33)))
                             1))
-                   (|check_subtype2| (> #2# 0) '(|PositiveInteger|)
-                                     '(|Integer|) #2#))
+                   (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                     '(|Integer|) #1#))
                  (QREFELT % 36))
                 (SPADCALL
                  (PROG1
-                     (LETT #1# (+ (REM (- |n| 1) (SPADCALL (QREFELT % 33))) 1))
-                   (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
-                                     '(|Integer|) #1#))
+                     (LETT #2# (+ (REM (- |n| 1) (SPADCALL (QREFELT % 33))) 1))
+                   (|check_subtype2| (> #2# 0) '(|PositiveInteger|)
+                                     '(|Integer|) #2#))
                  (QREFELT % 37))
                 (QREFELT % 19)))) 
 
@@ -97,7 +97,7 @@
 
 (SDEFUN |PRODUCT;subtractIfCan;2%U;18|
         ((|x| (%)) (|y| (%)) (% (|Union| % "failed")))
-        (SPROG ((|nb| (|Union| B #1="failed")) (|na| (|Union| A #1#)))
+        (SPROG ((|na| (|Union| A #1="failed")) (|nb| (|Union| B #1#)))
                (SEQ (LETT |na| (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT % 62)))
                     (EXIT
                      (COND ((QEQCAR |na| 1) (CONS 1 "failed"))
@@ -132,7 +132,7 @@
                   (QREFELT % 19))) 
 
 (SDEFUN |PRODUCT;<;2%B;23| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
-        (SPROG ((|yb| (B)) (|xb| (B)) (|ya| (A)) (|xa| (A)))
+        (SPROG ((|xa| (A)) (|ya| (A)) (|xb| (B)) (|yb| (B)))
                (SEQ (LETT |xa| (QCAR |x|)) (LETT |ya| (QCAR |y|))
                     (EXIT
                      (COND ((SPADCALL |xa| |ya| (QREFELT % 78)) 'T)
@@ -145,7 +145,7 @@
                                    (#1# NIL)))))))))) 
 
 (SDEFUN |PRODUCT;smaller?;2%B;24| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
-        (SPROG ((|yb| (B)) (|xb| (B)) (|ya| (A)) (|xa| (A)))
+        (SPROG ((|xa| (A)) (|ya| (A)) (|xb| (B)) (|yb| (B)))
                (SEQ (LETT |xa| (QCAR |x|)) (LETT |ya| (QCAR |y|))
                     (EXIT
                      (COND ((SPADCALL |xa| |ya| (QREFELT % 81)) 'T)
@@ -161,8 +161,8 @@
 
 (DEFUN |Product;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G52 NIL) (#2=#:G53 NIL) (#3=#:G54 NIL) (% NIL)
-    (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (#1=#:G54 NIL) (#2=#:G53 NIL)
+    (#3=#:G52 NIL) (|pv$| NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))
@@ -173,13 +173,13 @@
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
-                                        (LETT #3#
+                                        (LETT #1#
                                               (AND
                                                (|HasCategory| |#1|
                                                               '(|OrderedAbelianMonoidSup|))
                                                (|HasCategory| |#2|
                                                               '(|OrderedAbelianMonoidSup|))))
-                                        (OR #3#
+                                        (OR #1#
                                             (AND
                                              (|HasCategory| |#1|
                                                             '(|OrderedSet|))
@@ -197,7 +197,7 @@
                                                             '(|CancellationAbelianMonoid|))
                                              (|HasCategory| |#2|
                                                             '(|CancellationAbelianMonoid|)))
-                                            #3#)
+                                            #1#)
                                         (OR #2#
                                             (AND
                                              (|HasCategory| |#1|
@@ -209,7 +209,7 @@
                                                             '(|CancellationAbelianMonoid|))
                                              (|HasCategory| |#2|
                                                             '(|CancellationAbelianMonoid|)))
-                                            #3#)
+                                            #1#)
                                         (AND (|HasCategory| |#1| '(|Group|))
                                              (|HasCategory| |#2| '(|Group|)))
                                         (OR
@@ -218,12 +218,12 @@
                                          (AND (|HasCategory| |#1| '(|Monoid|))
                                               (|HasCategory| |#2|
                                                              '(|Monoid|))))
-                                        (LETT #1#
+                                        (LETT #3#
                                               (AND
                                                (|HasCategory| |#1| '(|Finite|))
                                                (|HasCategory| |#2|
                                                               '(|Finite|))))
-                                        (OR #1#
+                                        (OR #3#
                                             (AND
                                              (|HasCategory| |#1| '(|Hashable|))
                                              (|HasCategory| |#2|
@@ -232,7 +232,7 @@
                                          (AND
                                           (|HasCategory| |#1| '(|Comparable|))
                                           (|HasCategory| |#2| '(|Comparable|)))
-                                         #1# #3#
+                                         #3# #1#
                                          (AND
                                           (|HasCategory| |#1| '(|OrderedSet|))
                                           (|HasCategory| |#2|
@@ -254,7 +254,7 @@
                                             (AND
                                              (|HasCategory| |#1| '(|Monoid|))
                                              (|HasCategory| |#2| '(|Monoid|)))
-                                            #3#)))))
+                                            #1#)))))
     (|haddProp| |$ConstructorCache| '|Product| (LIST DV$1 DV$2) (CONS 1 %))
     (|stuffDomainSlots| %)
     (QSETREFV % 6 |#1|)

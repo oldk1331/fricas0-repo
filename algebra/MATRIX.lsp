@@ -22,7 +22,7 @@
 
 (SDEFUN |MATRIX;swapRows!;%2I%;5|
         ((|x| (%)) (|i1| #1=(|Integer|)) (|i2| #1#) (% (%)))
-        (SPROG ((|t2| (R)) (|t1| (R)) (#2=#:G2106 NIL) (|j| NIL))
+        (SPROG ((|j| NIL) (#2=#:G2106 NIL) (|t1| (R)) (|t2| (R)))
                (SEQ
                 (COND
                  ((OR (< |i1| (SPADCALL |x| (QREFELT % 8)))
@@ -46,16 +46,16 @@
 
 (SDEFUN |MATRIX;copy;2%;6| ((|m| (%)) (% (%)))
         (SPROG
-         ((#1=#:G2114 NIL) (|j| NIL) (#2=#:G2113 NIL) (|i| NIL) (|ans| (%)))
+         ((|ans| (%)) (|i| NIL) (#1=#:G2113 NIL) (|j| NIL) (#2=#:G2114 NIL))
          (SEQ (LETT |ans| (MAKE_MATRIX (ANROWS |m|) (ANCOLS |m|)))
               (SEQ (LETT |i| (SPADCALL |m| (QREFELT % 8)))
-                   (LETT #2# (SPADCALL |m| (QREFELT % 12))) G190
-                   (COND ((> |i| #2#) (GO G191)))
+                   (LETT #1# (SPADCALL |m| (QREFELT % 12))) G190
+                   (COND ((> |i| #1#) (GO G191)))
                    (SEQ
                     (EXIT
                      (SEQ (LETT |j| (SPADCALL |m| (QREFELT % 9)))
-                          (LETT #1# (SPADCALL |m| (QREFELT % 13))) G190
-                          (COND ((> |j| #1#) (GO G191)))
+                          (LETT #2# (SPADCALL |m| (QREFELT % 13))) G190
+                          (COND ((> |j| #2#) (GO G191)))
                           (SEQ
                            (EXIT
                             (SPADCALL |ans| |i| |j|
@@ -91,17 +91,17 @@
 
 (SDEFUN |MATRIX;diagonalMatrix;V%;15| ((|v| (|Vector| R)) (% (%)))
         (SPROG
-         ((#1=#:G2136 NIL) (|i| NIL) (#2=#:G2137 NIL) (|j| NIL)
-          (#3=#:G2138 NIL) (|k| NIL) (|ans| (%)) (|n| (|NonNegativeInteger|)))
+         ((|n| (|NonNegativeInteger|)) (|ans| (%)) (|k| NIL) (#1=#:G2138 NIL)
+          (|j| NIL) (#2=#:G2137 NIL) (|i| NIL) (#3=#:G2136 NIL))
          (SEQ (LETT |n| (QVSIZE |v|))
               (LETT |ans| (SPADCALL |n| |n| (QREFELT % 37)))
               (SEQ (LETT |k| (SPADCALL |v| (QREFELT % 39)))
-                   (LETT #3# (QVSIZE |v|))
+                   (LETT #1# (QVSIZE |v|))
                    (LETT |j| (SPADCALL |ans| (QREFELT % 9)))
                    (LETT #2# (SPADCALL |ans| (QREFELT % 13)))
                    (LETT |i| (SPADCALL |ans| (QREFELT % 8)))
-                   (LETT #1# (SPADCALL |ans| (QREFELT % 12))) G190
-                   (COND ((OR (> |i| #1#) (> |j| #2#) (> |k| #3#)) (GO G191)))
+                   (LETT #3# (SPADCALL |ans| (QREFELT % 12))) G190
+                   (COND ((OR (> |i| #3#) (> |j| #2#) (> |k| #1#)) (GO G191)))
                    (SEQ
                     (EXIT
                      (SPADCALL |ans| |i| |j| (QAREF1O |v| |k| 1)
@@ -122,8 +122,8 @@
 
 (DEFUN |Matrix;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G2148 NIL) (#2=#:G2149 NIL) (#3=#:G2150 NIL) (% NIL)
-    (|dv$| NIL) (DV$1 NIL))
+   ((DV$1 NIL) (|dv$| NIL) (% NIL) (#1=#:G2150 NIL) (#2=#:G2149 NIL)
+    (#3=#:G2148 NIL) (|pv$| NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|Matrix| DV$1))
@@ -140,23 +140,23 @@
                                                          (|InputForm|)))
                                         (|HasCategory| |#1| '(|OrderedSet|))
                                         (|HasCategory| |#1| '(|BasicType|))
-                                        (LETT #3#
+                                        (LETT #1#
                                               (|HasCategory| |#1|
                                                              '(|SetCategory|)))
                                         (OR
                                          (|HasCategory| |#1| '(|Comparable|))
-                                         #3#)
+                                         #1#)
                                         (OR (|HasCategory| |#1| '(|BasicType|))
                                             (|HasCategory| |#1|
                                                            '(|Comparable|))
                                             (|HasCategory| |#1| '(|Hashable|))
-                                            #3#)
+                                            #1#)
                                         (AND
                                          (|HasCategory| |#1|
                                                         (LIST '|Evalable|
                                                               (|devaluate|
                                                                |#1|)))
-                                         #3#)
+                                         #1#)
                                         (LETT #2#
                                               (|HasCategory| |#1|
                                                              '(|CoercibleTo|
@@ -167,7 +167,7 @@
                                                             (LIST '|Evalable|
                                                                   (|devaluate|
                                                                    |#1|)))
-                                             #3#))
+                                             #1#))
                                         (|HasCategory| |#1| '(|AbelianMonoid|))
                                         (|HasCategory| |#1| '(|AbelianGroup|))
                                         (|HasCategory| |#1|
@@ -178,7 +178,7 @@
                                         (|HasCategory| |#1|
                                                        '(|CommutativeRing|))
                                         (|HasCategory| |#1| '(|Field|))
-                                        (LETT #1#
+                                        (LETT #3#
                                               (|HasCategory| |#1|
                                                              '(|IntegralDomain|)))
                                         (OR
@@ -193,13 +193,13 @@
                                                          (LIST '|Evalable|
                                                                (|devaluate|
                                                                 |#1|)))
-                                          #1#)
+                                          #3#)
                                          (AND
                                           (|HasCategory| |#1|
                                                          (LIST '|Evalable|
                                                                (|devaluate|
                                                                 |#1|)))
-                                          #3#))))))
+                                          #1#))))))
     (|haddProp| |$ConstructorCache| '|Matrix| (LIST DV$1) (CONS 1 %))
     (|stuffDomainSlots| %)
     (QSETREFV % 6 |#1|)
@@ -215,7 +215,7 @@
      (OR
       (AND (|HasCategory| |#1| '(|BasicType|))
            (|HasCategory| % '(|finiteAggregate|)))
-      (|HasCategory| |#1| '(|Hashable|)) #3#)
+      (|HasCategory| |#1| '(|Hashable|)) #1#)
      (|augmentPredVector| % 8388608))
     (SETF |pv$| (QREFELT % 3))
     (COND

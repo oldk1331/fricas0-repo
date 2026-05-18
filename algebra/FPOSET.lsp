@@ -9,37 +9,37 @@
 (SDEFUN |FPOSET;finitePoset;LM%;2|
         ((|carrier| (|List| S)) (|pred| (|Mapping| (|Boolean|) S S)) (% (%)))
         (SPROG
-         ((|struct1| (|List| (|List| (|Boolean|)))) (#1=#:G13 NIL) (|x| NIL)
-          (#2=#:G12 NIL) (#3=#:G11 NIL) (|y| NIL) (#4=#:G10 NIL))
+         ((#1=#:G10 NIL) (|y| NIL) (#2=#:G11 NIL) (#3=#:G12 NIL) (|x| NIL)
+          (#4=#:G13 NIL) (|struct1| (|List| (|List| (|Boolean|)))))
          (SEQ
           (LETT |struct1|
                 (PROGN
-                 (LETT #4# NIL)
-                 (SEQ (LETT |y| NIL) (LETT #3# |carrier|) G190
+                 (LETT #1# NIL)
+                 (SEQ (LETT |y| NIL) (LETT #2# |carrier|) G190
                       (COND
-                       ((OR (ATOM #3#) (PROGN (LETT |y| (CAR #3#)) NIL))
+                       ((OR (ATOM #2#) (PROGN (LETT |y| (CAR #2#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #4#
+                        (LETT #1#
                               (CONS
                                (PROGN
-                                (LETT #2# NIL)
-                                (SEQ (LETT |x| NIL) (LETT #1# |carrier|) G190
+                                (LETT #3# NIL)
+                                (SEQ (LETT |x| NIL) (LETT #4# |carrier|) G190
                                      (COND
-                                      ((OR (ATOM #1#)
-                                           (PROGN (LETT |x| (CAR #1#)) NIL))
+                                      ((OR (ATOM #4#)
+                                           (PROGN (LETT |x| (CAR #4#)) NIL))
                                        (GO G191)))
                                      (SEQ
                                       (EXIT
-                                       (LETT #2#
+                                       (LETT #3#
                                              (CONS (SPADCALL |x| |y| |pred|)
-                                                   #2#))))
-                                     (LETT #1# (CDR #1#)) (GO G190) G191
-                                     (EXIT (NREVERSE #2#))))
-                               #4#))))
-                      (LETT #3# (CDR #3#)) (GO G190) G191
-                      (EXIT (NREVERSE #4#)))))
+                                                   #3#))))
+                                     (LETT #4# (CDR #4#)) (GO G190) G191
+                                     (EXIT (NREVERSE #3#))))
+                               #1#))))
+                      (LETT #2# (CDR #2#)) (GO G190) G191
+                      (EXIT (NREVERSE #1#)))))
           (EXIT (CONS |carrier| |struct1|))))) 
 
 (MAKEPROP '|FPOSET;getVert;%L;3| '|SPADreplace| 'QCAR) 
@@ -54,7 +54,7 @@
 (DECLAIM (NOTINLINE |FinitePoset;|)) 
 
 (DEFUN |FinitePoset;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|FinitePoset| DV$1))

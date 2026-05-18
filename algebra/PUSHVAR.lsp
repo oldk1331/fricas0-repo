@@ -1,31 +1,31 @@
 
 (SDEFUN |PUSHVAR;pushdown;PPRLPPR;1| ((|g| (PPR)) (|lv| (|List| OV)) (% (PPR)))
         (SPROG
-         ((|vals| (|List| (|Polynomial| R))) (#1=#:G9 NIL) (|x| NIL)
-          (#2=#:G8 NIL))
+         ((#1=#:G8 NIL) (|x| NIL) (#2=#:G9 NIL)
+          (|vals| (|List| (|Polynomial| R))))
          (SEQ
           (LETT |vals|
                 (PROGN
-                 (LETT #2# NIL)
-                 (SEQ (LETT |x| NIL) (LETT #1# |lv|) G190
+                 (LETT #1# NIL)
+                 (SEQ (LETT |x| NIL) (LETT #2# |lv|) G190
                       (COND
-                       ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
+                       ((OR (ATOM #2#) (PROGN (LETT |x| (CAR #2#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2#
+                        (LETT #1#
                               (CONS
                                (SPADCALL (|spadConstant| % 13)
                                          (SPADCALL |x| (QREFELT % 15)) 1
                                          (QREFELT % 17))
-                               #2#))))
-                      (LETT #1# (CDR #1#)) (GO G190) G191
-                      (EXIT (NREVERSE #2#)))))
+                               #1#))))
+                      (LETT #2# (CDR #2#)) (GO G190) G191
+                      (EXIT (NREVERSE #1#)))))
           (EXIT (SPADCALL |g| |lv| |vals| (QREFELT % 20)))))) 
 
 (SDEFUN |PUSHVAR;map;M2PPR;2|
         ((|f| (|Mapping| PPR (|Polynomial| R))) (|p| (PPR)) (% (PPR)))
-        (SPROG ((|v| (OV)) (#1=#:G11 NIL))
+        (SPROG ((#1=#:G11 NIL) (|v| (OV)))
                (SEQ
                 (COND
                  ((SPADCALL |p| (QREFELT % 23))
@@ -54,8 +54,8 @@
 (SDEFUN |PUSHVAR;pushupCoef|
         ((|c| (|Polynomial| R)) (|lv| (|List| OV)) (% (PPR)))
         (SPROG
-         ((|uc| (|SparseUnivariatePolynomial| (|Polynomial| R))) (|ppr| (PPR))
-          (|v2| (|Union| OV "failed")) (|v| (|Symbol|)) (#1=#:G29 NIL))
+         ((#1=#:G29 NIL) (|v| (|Symbol|)) (|v2| (|Union| OV "failed"))
+          (|ppr| (PPR)) (|uc| (|SparseUnivariatePolynomial| (|Polynomial| R))))
          (SEQ
           (COND ((SPADCALL |c| (QREFELT % 35)) (SPADCALL |c| (QREFELT % 36)))
                 (#2='T
@@ -134,8 +134,8 @@
 
 (DEFUN |PushVariables;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
-    (DV$1 NIL))
+   ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (DV$4 NIL) (|dv$| NIL) (% NIL)
+    (|pv$| NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))

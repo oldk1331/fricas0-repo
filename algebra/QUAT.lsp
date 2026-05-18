@@ -2,7 +2,7 @@
 (DECLAIM (NOTINLINE |Quaternion;|)) 
 
 (DEFUN |Quaternion;| (|#1|)
-  (SPROG ((|pv$| NIL) (#1=#:G16 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (#1=#:G16 NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|Quaternion| DV$1))

@@ -52,7 +52,7 @@
 (SDEFUN |RIDIST;ridHack1;5I;2|
         ((|mq| (|Integer|)) (|n| (|Integer|)) (|w| (|Integer|))
          (|l| (|Integer|)) (% (|Integer|)))
-        (SPROG ((|r| (|Integer|)) (#1=#:G24 NIL) (|i| NIL))
+        (SPROG ((|i| NIL) (#1=#:G24 NIL) (|r| (|Integer|)))
                (SEQ (LETT |r| (SPADCALL |mq| (QREFELT % 32)))
                     (SEQ (LETT |i| 1) (LETT #1# |n|) G190
                          (COND ((|greater_SI| |i| #1#) (GO G191)))

@@ -24,7 +24,7 @@
                   (QREFELT % 22))) 
 
 (SDEFUN |CONTFRAC;eucWhole0| ((|a| (|Fraction| R)) (% (R)))
-        (SPROG ((|q| (R)) (|r| (R)) (|d| (R)) (|n| (R)))
+        (SPROG ((|n| (R)) (|d| (R)) (|r| (R)) (|q| (R)))
                (SEQ
                 (COND
                  ((COND
@@ -47,8 +47,9 @@
 
 (SDEFUN |CONTFRAC;=;2%B;4| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (SPROG
-         ((|yl| #1=(|Stream| (|Record| (|:| |num| R) (|:| |den| R))))
-          (|xl| #1#) (#2=#:G46 NIL))
+         ((#1=#:G46 NIL)
+          (|xl| #2=(|Stream| (|Record| (|:| |num| R) (|:| |den| R))))
+          (|yl| #2#))
          (SEQ
           (EXIT
            (SEQ (LETT |x| (SPADCALL |x| (QREFELT % 19)))
@@ -75,7 +76,7 @@
                                   (QCDR (SPADCALL |xl| (QREFELT % 32)))
                                   (QCDR (SPADCALL |yl| (QREFELT % 32)))
                                   (QREFELT % 30))
-                                 (PROGN (LETT #2# NIL) (GO #4=#:G45)))
+                                 (PROGN (LETT #1# NIL) (GO #4=#:G45)))
                                 ('T
                                  (SEQ
                                   (LETT |xl| (SPADCALL |xl| (QREFELT % 33)))
@@ -88,7 +89,7 @@
                           ((SPADCALL |xl| (QREFELT % 31))
                            (SPADCALL |yl| (QREFELT % 31)))
                           (#3# NIL)))))))))
-          #4# (EXIT #2#)))) 
+          #4# (EXIT #1#)))) 
 
 (SDEFUN |CONTFRAC;continuedFraction;F%;5| ((|q| (|Fraction| R)) (% (%)))
         (SPADCALL |q| (QREFELT % 35))) 
@@ -100,7 +101,7 @@
 (SDEFUN |CONTFRAC;genFractionA|
         ((|nums| (|Stream| R)) (|dens| (|Stream| R))
          (% (|Stream| (|Record| (|:| |num| R) (|:| |den| R)))))
-        (SPROG ((|d| (R)) (|n| (R)))
+        (SPROG ((|n| (R)) (|d| (R)))
                (SEQ
                 (COND
                  ((OR (SPADCALL |nums| (QREFELT % 38))
@@ -140,7 +141,7 @@
 (SDEFUN |CONTFRAC;genFractionB|
         ((|nums| (|Stream| R)) (|dens| (|Stream| R))
          (% (|Stream| (|Record| (|:| |num| R) (|:| |den| R)))))
-        (SPROG ((|d| (R)) (|n| (R)))
+        (SPROG ((|n| (R)) (|d| (R)))
                (SEQ
                 (COND
                  ((OR (SPADCALL |nums| (QREFELT % 38))
@@ -181,10 +182,10 @@
 
 (SDEFUN |CONTFRAC;coerce;F%;13| ((|a| (|Fraction| R)) (% (%)))
         (SPROG
-         ((|d| (R)) (|n| (R))
-          (|l| (|List| (|Record| (|:| |num| R) (|:| |den| R))))
+         ((|wh| (R)) (|fr| (|Fraction| R))
           (|qr| (|Record| (|:| |quotient| R) (|:| |remainder| R)))
-          (|fr| (|Fraction| R)) (|wh| (R)))
+          (|l| (|List| (|Record| (|:| |num| R) (|:| |den| R)))) (|n| (R))
+          (|d| (R)))
          (SEQ (LETT |wh| (|CONTFRAC;eucWhole0| |a| %))
               (LETT |fr|
                     (SPADCALL |a| (SPADCALL |wh| (QREFELT % 52))
@@ -217,7 +218,7 @@
         (SPADCALL (QREFELT % 61))) 
 
 (SDEFUN |CONTFRAC;genFromSequence| ((|apps| (|Stream| (|Fraction| R))) (% (%)))
-        (SPROG ((|wh| (R)) (|hi| #1=(|Fraction| R)) (|lo| #1#))
+        (SPROG ((|lo| #1=(|Fraction| R)) (|hi| #1#) (|wh| (R)))
                (SEQ (LETT |lo| (SPADCALL |apps| (QREFELT % 63)))
                     (LETT |apps| (SPADCALL |apps| (QREFELT % 64)))
                     (LETT |hi| (SPADCALL |apps| (QREFELT % 63)))
@@ -261,7 +262,7 @@
         ((|wh0| (|Fraction| R)) (|apps| (|Stream| (|Fraction| R)))
          (|mt| (|MoebiusTransform| (|Fraction| R)))
          (% (|Stream| (|Record| (|:| |num| R) (|:| |den| R)))))
-        (SPROG ((|whi| (R)) (|wlo| (R)) (|hi| #1=(|Fraction| R)) (|lo| #1#))
+        (SPROG ((|lo| #1=(|Fraction| R)) (|hi| #1#) (|wlo| (R)) (|whi| (R)))
                (SEQ
                 (LETT |lo|
                       (SPADCALL (SPADCALL |apps| (QREFELT % 63)) |wh0|
@@ -627,9 +628,9 @@
 
 (SDEFUN |CONTFRAC;coerce;%Of;45| ((|c| (%)) (% (|OutputForm|)))
         (SPROG
-         ((|e| (|OutputForm|)) (|l| (|List| (|OutputForm|)))
-          (|fr| (|Stream| (|Record| (|:| |num| R) (|:| |den| R)))) (|n| NIL)
-          (#1=#:G198 NIL) (|count| (|NonNegativeInteger|)) (|wh| (R)))
+         ((|wh| (R)) (|count| (|NonNegativeInteger|)) (#1=#:G198 NIL) (|n| NIL)
+          (|fr| (|Stream| (|Record| (|:| |num| R) (|:| |den| R))))
+          (|l| (|List| (|OutputForm|))) (|e| (|OutputForm|)))
          (SEQ (LETT |wh| (QCAR (QCAR |c|))) (LETT |fr| (QCDR (QCAR |c|)))
               (EXIT
                (COND
@@ -680,7 +681,7 @@
 (DECLAIM (NOTINLINE |ContinuedFraction;|)) 
 
 (DEFUN |ContinuedFraction;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|ContinuedFraction| DV$1))

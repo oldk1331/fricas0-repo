@@ -25,7 +25,7 @@
                   (SPADCALL |v| 8 (QREFELT % 27)) (QREFELT % 28))) 
 
 (SDEFUN |OC-;basis;V;5| ((% (|Vector| S)))
-        (SPROG ((|i| NIL) (|vv| (|Vector| R)) (|res| (|Vector| S)))
+        (SPROG ((|res| (|Vector| S)) (|vv| (|Vector| R)) (|i| NIL))
                (SEQ (LETT |res| (SPADCALL 8 (QREFELT % 31)))
                     (LETT |vv| (SPADCALL 8 (QREFELT % 32)))
                     (SEQ (LETT |i| 1) G190
@@ -270,7 +270,7 @@
          (EXIT (CONS 0 (SPADCALL |x| (QREFELT % 13)))))) 
 
 (SDEFUN |OC-;coerce;SOf;19| ((|x| (S)) (% (|OutputForm|)))
-        (SPROG ((|part| (|OutputForm|)) (|z| (|OutputForm|)) (|y| (S)))
+        (SPROG ((|y| (S)) (|z| (|OutputForm|)) (|part| (|OutputForm|)))
                (SEQ
                 (COND
                  ((SPADCALL |x| (QREFELT % 63))
@@ -602,7 +602,7 @@
 (DECLAIM (NOTINLINE |OctonionCategory&;|)) 
 
 (DEFUN |OctonionCategory&| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

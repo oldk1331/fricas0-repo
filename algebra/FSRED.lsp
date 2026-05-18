@@ -1,6 +1,6 @@
 
 (SDEFUN |FSRED;newReduc;IV;1| ((|n| (|Integer|)) (% (|Void|)))
-        (SPROG ((#1=#:G5 NIL) (|k| NIL))
+        (SPROG ((|k| NIL) (#1=#:G5 NIL))
                (SEQ (SETELT % 12 |n|)
                     (EXIT
                      (SEQ (LETT |k| NIL)
@@ -17,16 +17,16 @@
         ((|f| (F)) (|k| (|Kernel| F))
          (% (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))))
         (SPROG
-         ((|bc|
+         ((|ff| (|Fraction| (|SparseUnivariatePolynomial| F)))
+          (|m| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
+          (|bc|
            (|Union|
             (|Record|
              (|:| |coef1|
                   (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
              (|:| |coef2|
                   (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))))
-            "failed"))
-          (|m| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
-          (|ff| (|Fraction| (|SparseUnivariatePolynomial| F))))
+            "failed")))
          (SEQ (LETT |ff| (SPADCALL |f| |k| (QREFELT % 23)))
               (LETT |bc|
                     (SPADCALL
@@ -48,20 +48,20 @@
 
 (SDEFUN |FSRED;bringDown;FF;3| ((|f| (F)) (% (|Fraction| (|Integer|))))
         (SPROG
-         ((#1=#:G24 NIL) (|k| NIL) (#2=#:G23 NIL) (|lk| (|List| (|Kernel| F))))
+         ((|lk| (|List| (|Kernel| F))) (#1=#:G23 NIL) (|k| NIL) (#2=#:G24 NIL))
          (SEQ
           (SPADCALL
            (SPADCALL |f| (LETT |lk| (SPADCALL |f| (QREFELT % 44)))
                      (PROGN
-                      (LETT #2# NIL)
-                      (SEQ (LETT |k| NIL) (LETT #1# |lk|) G190
+                      (LETT #1# NIL)
+                      (SEQ (LETT |k| NIL) (LETT #2# |lk|) G190
                            (COND
-                            ((OR (ATOM #1#) (PROGN (LETT |k| (CAR #1#)) NIL))
+                            ((OR (ATOM #2#) (PROGN (LETT |k| (CAR #2#)) NIL))
                              (GO G191)))
                            (SEQ
-                            (EXIT (LETT #2# (CONS (|FSRED;K2Z| |k| %) #2#))))
-                           (LETT #1# (CDR #1#)) (GO G190) G191
-                           (EXIT (NREVERSE #2#))))
+                            (EXIT (LETT #1# (CONS (|FSRED;K2Z| |k| %) #1#))))
+                           (LETT #2# (CDR #2#)) (GO G190) G191
+                           (EXIT (NREVERSE #1#))))
                      (QREFELT % 46))
            (QREFELT % 47))))) 
 
@@ -86,7 +86,7 @@
 (DECLAIM (NOTINLINE |FunctionSpaceReduce;|)) 
 
 (DEFUN |FunctionSpaceReduce;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

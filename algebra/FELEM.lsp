@@ -8,8 +8,8 @@
           (|Record| (|:| |mantissa| (|Integer|))
                     (|:| |exponent| (|Integer|)))))
         (SPROG
-         ((|db| (|Integer|)) (|l1| (|Integer|)) (|xe| (|Integer|))
-          (|xm| (|Integer|)) (|#G4| #1#))
+         ((|#G4| #1#) (|xm| (|Integer|)) (|xe| (|Integer|)) (|l1| (|Integer|))
+          (|db| (|Integer|)))
          (SEQ
           (PROGN
            (LETT |#G4| |x|)
@@ -28,10 +28,10 @@
           (|Record| (|:| |mantissa| (|Integer|)) (|:| |exponent| (|Integer|))))
          (% (|Integer|)))
         (SPROG
-         ((|v0| (|Integer|)) (|xe| (|Integer|)) (|xm| (|Integer|))
-          (|#G6|
+         ((|#G6|
            (|Record| (|:| |mantissa| (|Integer|))
-                     (|:| |exponent| (|Integer|)))))
+                     (|:| |exponent| (|Integer|))))
+          (|xm| (|Integer|)) (|xe| (|Integer|)) (|v0| (|Integer|)))
          (SEQ
           (PROGN
            (LETT |#G6| |x|)
@@ -57,15 +57,14 @@
           (|Record| (|:| |mantissa| (|Integer|))
                     (|:| |exponent| (|Integer|)))))
         (SPROG
-         ((|dl| #1=(|Integer|)) (|de| #1#) (|ye| #2=(|Integer|))
-          (|ym| #3=(|Integer|))
+         ((|#G10|
+           (|Record| (|:| |mantissa| (|Integer|))
+                     (|:| |exponent| (|Integer|))))
+          (|xm| #1=(|Integer|)) (|xe| #2=(|Integer|))
           (|#G11|
            (|Record| (|:| |mantissa| (|Integer|))
                      (|:| |exponent| (|Integer|))))
-          (|xe| #2#) (|xm| #3#)
-          (|#G10|
-           (|Record| (|:| |mantissa| (|Integer|))
-                     (|:| |exponent| (|Integer|)))))
+          (|ym| #1#) (|ye| #2#) (|de| #3=(|Integer|)) (|dl| #3#))
          (SEQ
           (PROGN
            (LETT |#G10| |x|)
@@ -117,15 +116,15 @@
           (|Record| (|:| |mantissa| (|Integer|))
                     (|:| |exponent| (|Integer|)))))
         (SPROG
-         ((|z| (|Integer|)) (|k| (|Integer|)) (|ly| #1=(|Integer|)) (|lx| #1#)
-          (|ye| #2=(|Integer|)) (|ym| #3=(|Integer|))
+         ((|#G21|
+           (|Record| (|:| |mantissa| (|Integer|))
+                     (|:| |exponent| (|Integer|))))
+          (|xm| #1=(|Integer|)) (|xe| #2=(|Integer|))
           (|#G22|
            (|Record| (|:| |mantissa| (|Integer|))
                      (|:| |exponent| (|Integer|))))
-          (|xe| #2#) (|xm| #3#)
-          (|#G21|
-           (|Record| (|:| |mantissa| (|Integer|))
-                     (|:| |exponent| (|Integer|)))))
+          (|ym| #1#) (|ye| #2#) (|lx| #3=(|Integer|)) (|ly| #3#)
+          (|k| (|Integer|)) (|z| (|Integer|)))
          (SEQ
           (PROGN
            (LETT |#G21| |x|)
@@ -149,7 +148,7 @@
          (%
           (|Record| (|:| |mantissa| (|Integer|))
                     (|:| |exponent| (|Integer|)))))
-        (SPROG ((#1=#:G31 NIL) (|i| NIL))
+        (SPROG ((|i| NIL) (#1=#:G31 NIL))
                (SEQ
                 (SEQ (LETT |i| 1) (LETT #1# |k|) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -165,10 +164,10 @@
           (|Record| (|:| |highn| (|Integer|))
                     (|:| |matr| (|Matrix| (|Integer|))))))
         (SPROG
-         ((|blf| (|DoubleFloat|)) (|i| #1#) (|m22| #2=(|Integer|))
-          (|m21| #3=(|Integer|)) (|m12| #3#) (|m11| #2#) (|#G36| #3#)
-          (|#G35| #2#) (|#G34| #4=(|Integer|)) (|#G33| #4#) (|j| NIL)
-          (|ld5| (|DoubleFloat|)))
+         ((|ld5| (|DoubleFloat|)) (|j| NIL) (|#G33| #2=(|Integer|))
+          (|#G34| #2#) (|#G35| #3=(|Integer|)) (|#G36| #4=(|Integer|))
+          (|m11| #3#) (|m12| #4#) (|m21| #4#) (|m22| #3#) (|i| #1#)
+          (|blf| (|DoubleFloat|)))
          (SEQ (LETT |m11| 1) (LETT |m12| 0) (LETT |m21| 0) (LETT |m22| 1)
               (LETT |i| |n0|)
               (LETT |blf| (FLOAT |bl| MOST-POSITIVE-DOUBLE-FLOAT))
@@ -210,8 +209,8 @@
           #1=(|Record| (|:| |highn| (|Integer|))
                        (|:| |matr| (|Matrix| (|Integer|))))))
         (SPROG
-         ((|r2| #1#) (|bl1| (|Integer|)) (|m1| (|Matrix| (|Integer|)))
-          (|r1| #1#))
+         ((|r1| #1#) (|m1| (|Matrix| (|Integer|))) (|bl1| (|Integer|))
+          (|r2| #1#))
          (SEQ
           (COND ((<= |bl| 300) (|FELEM;mat0| |n0| |bl| |ki| |d| |ld| %))
                 ('T
@@ -243,10 +242,10 @@
           (|Record| (|:| |mantissa| (|Integer|))
                     (|:| |exponent| (|Integer|)))))
         (SPROG
-         ((|q1| (|Integer|)) (|p1| (|Integer|)) (|mm0| (|Matrix| (|Integer|)))
-          (|l| (|NonNegativeInteger|)) (|ld| (|DoubleFloat|))
-          (|ln2| (|Integer|)) (|ki| #1=(|Integer|)) (|k0| #1#)
-          (|q0| (|Integer|)) (|p0| (|Integer|)) (|n2| (|Integer|)))
+         ((|n2| (|Integer|)) (|p0| (|Integer|)) (|q0| (|Integer|))
+          (|k0| #1=(|Integer|)) (|ki| #1#) (|ln2| (|Integer|))
+          (|ld| (|DoubleFloat|)) (|l| (|NonNegativeInteger|))
+          (|mm0| (|Matrix| (|Integer|))) (|p1| (|Integer|)) (|q1| (|Integer|)))
          (SEQ (LETT |n2| (* |n| |n|)) (LETT |p1| (+ (* 2 |k|) |n|))
               (LETT |p0| 1) (LETT |q1| (- (* 2 |k|) |n|)) (LETT |q0| 1)
               (LETT |k0| (* 6 |k|)) (LETT |ki| (* 4 |k|))
@@ -287,11 +286,11 @@
           (|Record| (|:| |mantissa| (|Integer|))
                     (|:| |exponent| (|Integer|)))))
         (SPROG
-         ((|k| (|PositiveInteger|)) (|s| #1=(|Integer|)) (#2=#:G53 NIL)
-          (|tk| #1#) (|m| #1#) (|b1| (|Integer|)) (|e| (|Integer|))
-          (|#G50|
+         ((|#G50|
            (|Record| (|:| |mantissa| (|Integer|))
-                     (|:| |exponent| (|Integer|)))))
+                     (|:| |exponent| (|Integer|))))
+          (|e| (|Integer|)) (|b1| (|Integer|)) (|m| #1=(|Integer|)) (|tk| #1#)
+          (#2=#:G53 NIL) (|s| #1#) (|k| (|PositiveInteger|)))
          (SEQ
           (PROGN
            (LETT |#G50| |f|)
@@ -326,13 +325,13 @@
           (|Record| (|:| |mantissa| (|Integer|))
                     (|:| |exponent| (|Integer|)))))
         (SPROG
-         ((|e1|
+         ((|#G53| #1#) (|m| (|Integer|)) (|e| (|Integer|))
+          (|lm| #2=(|Integer|)) (|de| (|Integer|)) (|lb| #2#)
+          (|lb2| (|Integer|)) (|k| (|PositiveInteger|)) (|k1| (|Integer|))
+          (#3=#:G54 NIL) (|b1| (|PositiveInteger|))
+          (|e1|
            (|Record| (|:| |mantissa| (|Integer|))
-                     (|:| |exponent| (|Integer|))))
-          (|b1| (|PositiveInteger|)) (#2=#:G54 NIL) (|k1| (|Integer|))
-          (|k| (|PositiveInteger|)) (|lb2| (|Integer|)) (|lb| #3=(|Integer|))
-          (|de| (|Integer|)) (|lm| #3#) (|e| (|Integer|)) (|m| (|Integer|))
-          (|#G53| #1#))
+                     (|:| |exponent| (|Integer|)))))
          (SEQ
           (COND ((< |b| 80) (SPADCALL |x| |b| (QREFELT % 25)))
                 (#4='T
@@ -351,10 +350,10 @@
                          (#4#
                           (SEQ
                            (LETT |b1|
-                                 (PROG1 (LETT #2# (+ (+ |b| |k1|) 5))
-                                   (|check_subtype2| (> #2# 0)
+                                 (PROG1 (LETT #3# (+ (+ |b| |k1|) 5))
+                                   (|check_subtype2| (> #3# 0)
                                                      '(|PositiveInteger|)
-                                                     '(|Integer|) #2#)))
+                                                     '(|Integer|) #3#)))
                            (LETT |e1|
                                  (SPADCALL (CONS |m| (- |e| |k1|)) |b1|
                                            (QREFELT % 25)))
@@ -370,26 +369,26 @@
           (|Record| (|:| |mantissa| (|Integer|))
                     (|:| |exponent| (|Integer|)))))
         (SPROG
-         ((|ye| #1=(|Integer|)) (|ym| #2=(|Integer|))
-          (|#G57|
-           #3=(|Record| (|:| |mantissa| (|Integer|))
+         ((|#G56|
+           (|Record| (|:| |mantissa| (|Integer|))
+                     (|:| |exponent| (|Integer|))))
+          (|m| #1=(|Integer|)) (|e| #2=(|Integer|)) (|lm| (|Integer|))
+          (|de| #3=(|Integer|)) (|k| #3#) (#4=#:G59 NIL)
+          (|e1|
+           #5=(|Record| (|:| |mantissa| (|Integer|))
                         (|:| |exponent| (|Integer|))))
-          (|x1|
-           (|Record| (|:| |mantissa| (|Integer|))
-                     (|:| |exponent| (|Integer|))))
-          (|qi| (|Integer|))
-          (|q|
-           (|Record| (|:| |mantissa| (|Integer|))
-                     (|:| |exponent| (|Integer|))))
+          (#6=#:G62 NIL) (|b1| (|PositiveInteger|))
           (|lg2|
            (|Record| (|:| |mantissa| (|Integer|))
                      (|:| |exponent| (|Integer|))))
-          (|b1| (|PositiveInteger|)) (#4=#:G62 NIL) (|e1| #3#) (#5=#:G59 NIL)
-          (|k| #6=(|Integer|)) (|de| #6#) (|lm| (|Integer|)) (|e| #1#)
-          (|m| #2#)
-          (|#G56|
+          (|q|
            (|Record| (|:| |mantissa| (|Integer|))
-                     (|:| |exponent| (|Integer|)))))
+                     (|:| |exponent| (|Integer|))))
+          (|qi| (|Integer|))
+          (|x1|
+           (|Record| (|:| |mantissa| (|Integer|))
+                     (|:| |exponent| (|Integer|))))
+          (|#G57| #5#) (|ym| #1#) (|ye| #2#))
          (SEQ
           (PROGN
            (LETT |#G56| |x|)
@@ -408,10 +407,10 @@
                            (LETT |e1|
                                  (|FELEM;exp_normal| (CONS |m| (- |e| |k|))
                                   (+ |b|
-                                     (PROG1 (LETT #5# |k|)
-                                       (|check_subtype2| (> #5# 0)
+                                     (PROG1 (LETT #4# |k|)
+                                       (|check_subtype2| (> #4# 0)
                                                          '(|PositiveInteger|)
-                                                         '(|Integer|) #5#)))
+                                                         '(|Integer|) #4#)))
                                   %))
                            (EXIT
                             (|FELEM;chop| (|FELEM;pow2k| |e1| |k| (+ |b| 7) %)
@@ -421,10 +420,10 @@
                            (LETT |b1|
                                  (+
                                   (+ |b|
-                                     (PROG1 (LETT #4# |k|)
-                                       (|check_subtype2| (> #4# 0)
+                                     (PROG1 (LETT #6# |k|)
+                                       (|check_subtype2| (> #6# 0)
                                                          '(|PositiveInteger|)
-                                                         '(|Integer|) #4#)))
+                                                         '(|Integer|) #6#)))
                                   5))
                            (LETT |lg2| (SPADCALL |b1| (QREFELT % 26)))
                            (LETT |q| (SPADCALL |x| |lg2| |b1| (QREFELT % 16)))
@@ -447,11 +446,11 @@
           (|Record| (|:| |mantissa| (|Integer|))
                     (|:| |exponent| (|Integer|)))))
         (SPROG
-         ((|v0|
+         ((|p1| (|PositiveInteger|))
+          (|#G59|
            #1=(|Record| (|:| |mantissa| (|Integer|))
                         (|:| |exponent| (|Integer|))))
-          (|de| (|Integer|)) (|e| (|Integer|)) (|m| (|Integer|)) (|#G59| #1#)
-          (|p1| (|PositiveInteger|)))
+          (|m| (|Integer|)) (|e| (|Integer|)) (|de| (|Integer|)) (|v0| #1#))
          (SEQ (LETT |p1| (QCDR (QREFELT % 28)))
               (LETT |v0| (QCAR (QREFELT % 28)))
               (EXIT
@@ -485,11 +484,11 @@
           (|Record| (|:| |mantissa| (|Integer|))
                     (|:| |exponent| (|Integer|)))))
         (SPROG
-         ((|k| (|PositiveInteger|)) (|s| #1=(|Integer|)) (#2=#:G79 NIL)
-          (|tk| #1#) (|m| #1#) (|e| (|Integer|))
-          (|#G64|
+         ((|#G64|
            (|Record| (|:| |mantissa| (|Integer|))
-                     (|:| |exponent| (|Integer|)))))
+                     (|:| |exponent| (|Integer|))))
+          (|e| (|Integer|)) (|m| #1=(|Integer|)) (|tk| #1#) (#2=#:G79 NIL)
+          (|s| #1#) (|k| (|PositiveInteger|)))
          (SEQ
           (EXIT
            (SEQ
@@ -526,18 +525,18 @@
           (|Record| (|:| |mantissa| (|Integer|))
                     (|:| |exponent| (|Integer|)))))
         (SPROG
-         ((#2=#:G85 NIL)
-          (|xd|
+         ((|b1| (|PositiveInteger|)) (|#G69| #1#) (|x0m| (|Integer|))
+          (|x0e| (|Integer|))
+          (|y1|
            (|Record| (|:| |mantissa| (|Integer|))
                      (|:| |exponent| (|Integer|))))
           (|yd|
            (|Record| (|:| |mantissa| (|Integer|))
                      (|:| |exponent| (|Integer|))))
-          (|y1|
+          (|xd|
            (|Record| (|:| |mantissa| (|Integer|))
                      (|:| |exponent| (|Integer|))))
-          (|x0e| (|Integer|)) (|x0m| (|Integer|)) (|#G69| #1#)
-          (|b1| (|PositiveInteger|)))
+          (#2=#:G85 NIL))
          (SEQ
           (EXIT
            (SEQ G190 NIL
@@ -568,11 +567,11 @@
           (|Record| (|:| |mantissa| (|Integer|))
                     (|:| |exponent| (|Integer|)))))
         (SPROG
-         ((|v0|
+         ((|p1| (|PositiveInteger|))
+          (|#G71|
            #1=(|Record| (|:| |mantissa| (|Integer|))
                         (|:| |exponent| (|Integer|))))
-          (|de| (|Integer|)) (|e| (|Integer|)) (|m| (|Integer|)) (|#G71| #1#)
-          (|p1| (|PositiveInteger|)))
+          (|m| (|Integer|)) (|e| (|Integer|)) (|de| (|Integer|)) (|v0| #1#))
          (SEQ (LETT |p1| (QCDR (QREFELT % 30)))
               (LETT |v0| (QCAR (QREFELT % 30)))
               (EXIT
@@ -606,11 +605,11 @@
           (|Record| (|:| |mantissa| (|Integer|))
                     (|:| |exponent| (|Integer|)))))
         (SPROG
-         ((|v0|
+         ((|p1| (|PositiveInteger|))
+          (|#G75|
            #1=(|Record| (|:| |mantissa| (|Integer|))
                         (|:| |exponent| (|Integer|))))
-          (|de| (|Integer|)) (|e| (|Integer|)) (|m| (|Integer|)) (|#G75| #1#)
-          (|p1| (|PositiveInteger|)))
+          (|m| (|Integer|)) (|e| (|Integer|)) (|de| (|Integer|)) (|v0| #1#))
          (SEQ (LETT |p1| (QCDR (QREFELT % 31)))
               (LETT |v0| (QCAR (QREFELT % 31)))
               (EXIT
@@ -647,9 +646,9 @@
           (|Record| (|:| |mantissa| (|Integer|))
                     (|:| |exponent| (|Integer|)))))
         (SPROG
-         ((|e0| (|Integer|)) (|m0| (|Integer|)) (|l0| (|DoubleFloat|))
-          (|m1| #2=(|Integer|)) (|e1| #3=(|Integer|)) (|e| #3#) (|m| #2#)
-          (|#G80| #1#))
+         ((|#G80| #1#) (|m| #2=(|Integer|)) (|e| #3=(|Integer|)) (|e1| #3#)
+          (|m1| #2#) (|l0| (|DoubleFloat|)) (|m0| (|Integer|))
+          (|e0| (|Integer|)))
          (SEQ
           (PROGN
            (LETT |#G80| |x|)
@@ -675,12 +674,12 @@
           (|Record| (|:| |mantissa| (|Integer|))
                     (|:| |exponent| (|Integer|)))))
         (SPROG
-         ((|l1|
+         ((|#G83|
            (|Record| (|:| |mantissa| (|Integer|))
                      (|:| |exponent| (|Integer|))))
-          (|e1| (|Integer|)) (|lm| (|Integer|)) (|m1| (|Integer|))
-          (|e| (|Integer|)) (|m| (|Integer|))
-          (|#G83|
+          (|m| (|Integer|)) (|e| (|Integer|)) (|m1| (|Integer|))
+          (|lm| (|Integer|)) (|e1| (|Integer|))
+          (|l1|
            (|Record| (|:| |mantissa| (|Integer|))
                      (|:| |exponent| (|Integer|)))))
          (SEQ

@@ -4,8 +4,8 @@
          (|yVals| (|Segment| (|DoubleFloat|)))
          (% (|List| (|Segment| (|Float|)))))
         (SPROG
-         ((|pad| (|Float|)) (|yDiff| #1=(|Float|)) (|xDiff| #1#)
-          (|yLo| #2=(|Float|)) (|yHi| #2#) (|xLo| #2#) (|xHi| #2#))
+         ((|xHi| #1=(|Float|)) (|xLo| #1#) (|yHi| #1#) (|yLo| #1#)
+          (|xDiff| #2=(|Float|)) (|yDiff| #2#) (|pad| (|Float|)))
          (SEQ
           (LETT |xHi|
                 (SPADCALL (SPADCALL |xVals| (QREFELT % 11)) (QREFELT % 13)))
@@ -38,20 +38,20 @@
 (SDEFUN |DRAWCFUN;make_plot|
         ((|plot| (|Plot|)) (|l| (|List| (|DrawOption|))) (% (|GraphImage|)))
         (SPROG
-         ((|crCol| (|Palette|)) (|ptCol| (|Palette|))
-          (|ll| (|List| #1=(|Segment| (|Float|)))) (|yRangeFloat| #1#)
-          (|xRangeFloat| #1#) (|scaledRanges| (|List| (|Segment| (|Float|))))
-          (|yRange| (|Segment| (|DoubleFloat|)))
-          (|xRange| (|Segment| (|DoubleFloat|)))
-          (|branches| (|List| (|List| (|Point| (|DoubleFloat|)))))
+         ((|cl| (|Union| (|Any|) "failed"))
+          (|segList| (|List| (|Segment| (|Float|))))
+          (|xRangeF| #1=(|Segment| (|Float|))) (|xLo| #2=(|DoubleFloat|))
+          (|xHi| #2#) (|yRangeF| #1#) (|yLo| #2#) (|yHi| #2#)
           (|clipInfo|
            (|Record| (|:| |brans| (|List| (|List| (|Point| (|DoubleFloat|)))))
                      (|:| |xValues| (|Segment| (|DoubleFloat|)))
                      (|:| |yValues| (|Segment| (|DoubleFloat|)))))
-          (|yHi| #2=(|DoubleFloat|)) (|yLo| #2#)
-          (|yRangeF| #3=(|Segment| (|Float|))) (|xHi| #2#) (|xLo| #2#)
-          (|xRangeF| #3#) (|segList| (|List| (|Segment| (|Float|))))
-          (|cl| (|Union| (|Any|) "failed")))
+          (|branches| (|List| (|List| (|Point| (|DoubleFloat|)))))
+          (|xRange| (|Segment| (|DoubleFloat|)))
+          (|yRange| (|Segment| (|DoubleFloat|)))
+          (|scaledRanges| (|List| (|Segment| (|Float|))))
+          (|xRangeFloat| #3=(|Segment| (|Float|))) (|yRangeFloat| #3#)
+          (|ll| (|List| #3#)) (|ptCol| (|Palette|)) (|crCol| (|Palette|)))
          (SEQ (LETT |branches| (SPADCALL |plot| (QREFELT % 29)))
               (LETT |xRange| (SPADCALL |plot| (QREFELT % 30)))
               (LETT |yRange| (SPADCALL |plot| (QREFELT % 31)))
@@ -166,7 +166,7 @@
 
 (SDEFUN |DRAWCFUN;normalize|
         ((|seg| (|Segment| (|Float|))) (% (|Segment| (|DoubleFloat|))))
-        (SPROG ((|b| #1=(|DoubleFloat|)) (|a| #1#))
+        (SPROG ((|a| #1=(|DoubleFloat|)) (|b| #1#))
                (SEQ
                 (LETT |a|
                       (SPADCALL (SPADCALL |seg| (QREFELT % 53))
@@ -182,7 +182,7 @@
 (SDEFUN |DRAWCFUN;myTrap1|
         ((|ff| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
          (|f| (|DoubleFloat|)) (% (|DoubleFloat|)))
-        (SPROG ((|r| (|DoubleFloat|)) (|s| (|Union| (|DoubleFloat|) "failed")))
+        (SPROG ((|s| (|Union| (|DoubleFloat|) "failed")) (|r| (|DoubleFloat|)))
                (SEQ (LETT |s| (|trapNumericErrors| (SPADCALL |f| |ff|)))
                     (EXIT
                      (COND ((QEQCAR |s| 1) 0.0)
@@ -208,12 +208,12 @@
          (|seg| (|Segment| (|Float|))) (|l| (|List| (|DrawOption|)))
          (% (|GraphImage|)))
         (SPROG
-         ((|pl| (|Plot|))
-          (|ff| (|List| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|))))
+         ((|oldAdaptive| (|Boolean|)) (|c| (|Union| (|Any|) "failed"))
           (|cc|
            (|List|
             (|Mapping| (|Point| (|DoubleFloat|)) (|Point| (|DoubleFloat|)))))
-          (|c| (|Union| (|Any|) "failed")) (|oldAdaptive| (|Boolean|)))
+          (|ff| (|List| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|))))
+          (|pl| (|Plot|)))
          (SEQ (LETT |oldAdaptive| (SPADCALL (QREFELT % 77)))
               (SPADCALL (SPADCALL |l| |oldAdaptive| (QREFELT % 78))
                         (QREFELT % 79))
@@ -285,15 +285,15 @@
          (|seg| (|Segment| (|Float|))) (|l| (|List| (|DrawOption|)))
          (% (|GraphImage|)))
         (SPROG
-         ((|pl| (|Plot|))
-          (|fcn|
-           (|List| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|))))
+         ((|oldAdaptive| (|Boolean|))
+          (|f| #1=(|Mapping| (|DoubleFloat|) (|DoubleFloat|))) (|g| #1#)
+          (|c| (|Union| (|Any|) "failed"))
           (|cc|
            (|List|
             (|Mapping| (|Point| (|DoubleFloat|)) (|Point| (|DoubleFloat|)))))
-          (|c| (|Union| (|Any|) "failed"))
-          (|g| #1=(|Mapping| (|DoubleFloat|) (|DoubleFloat|))) (|f| #1#)
-          (|oldAdaptive| (|Boolean|)))
+          (|fcn|
+           (|List| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|))))
+          (|pl| (|Plot|)))
          (SEQ (LETT |oldAdaptive| (SPADCALL (QREFELT % 77)))
               (SPADCALL (SPADCALL |l| |oldAdaptive| (QREFELT % 78))
                         (QREFELT % 79))
@@ -378,17 +378,17 @@
           (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)
                      (|DoubleFloat|)))
          (% (|List| (|List| (|Point| (|DoubleFloat|))))))
-        (SPROG ((#1=#:G88 NIL) (|p| NIL) (#2=#:G87 NIL) (|lp| NIL))
+        (SPROG ((|lp| NIL) (#1=#:G87 NIL) (|p| NIL) (#2=#:G88 NIL))
                (SEQ
-                (SEQ (LETT |lp| NIL) (LETT #2# |llp|) G190
+                (SEQ (LETT |lp| NIL) (LETT #1# |llp|) G190
                      (COND
-                      ((OR (ATOM #2#) (PROGN (LETT |lp| (CAR #2#)) NIL))
+                      ((OR (ATOM #1#) (PROGN (LETT |lp| (CAR #1#)) NIL))
                        (GO G191)))
                      (SEQ
                       (EXIT
-                       (SEQ (LETT |p| NIL) (LETT #1# |lp|) G190
+                       (SEQ (LETT |p| NIL) (LETT #2# |lp|) G190
                             (COND
-                             ((OR (ATOM #1#) (PROGN (LETT |p| (CAR #1#)) NIL))
+                             ((OR (ATOM #2#) (PROGN (LETT |p| (CAR #2#)) NIL))
                               (GO G191)))
                             (SEQ
                              (EXIT
@@ -399,8 +399,8 @@
                                          (SPADCALL |p| 3 (QREFELT % 101))
                                          |func|)
                                         (QREFELT % 102))))
-                            (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))))
-                     (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
+                            (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))))
+                     (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                 (EXIT |llp|)))) 
 
 (SDEFUN |DRAWCFUN;makeObject;PscSLTs;16|
@@ -409,21 +409,20 @@
          (|seg| (|Segment| (|Float|))) (|l| (|List| (|DrawOption|)))
          (% (|ThreeSpace| (|DoubleFloat|))))
         (SPROG
-         ((#1=#:G124 NIL) (|b| NIL)
-          (|br| (|List| (|List| (|Point| (|DoubleFloat|)))))
-          (|c3| #2=(|Union| (|Any|) "failed"))
-          (|loops| (|List| (|List| (|Point| (|DoubleFloat|)))))
-          (|tub| (|TubePlot| (|Plot3D|))) (|rad| (|DoubleFloat|))
-          (|pts| (|PositiveInteger|)) (|s| #3=(|ThreeSpace| (|DoubleFloat|)))
-          (|pl| (|Plot3D|))
-          (|fcn|
-           (|List| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|))))
+         ((|sp| #1=(|ThreeSpace| (|DoubleFloat|)))
+          (|f| #2=(|Mapping| (|DoubleFloat|) (|DoubleFloat|))) (|g| #2#)
+          (|h| #2#) (|c1| #3=(|Union| (|Any|) "failed"))
+          (|pointsColored?| (|Boolean|)) (|c| #3#)
           (|cc|
            (|List|
             (|Mapping| (|Point| (|DoubleFloat|)) (|Point| (|DoubleFloat|)))))
-          (|c| #2#) (|pointsColored?| (|Boolean|)) (|c1| #2#)
-          (|h| #4=(|Mapping| (|DoubleFloat|) (|DoubleFloat|))) (|g| #4#)
-          (|f| #4#) (|sp| #3#))
+          (|fcn|
+           (|List| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|))))
+          (|pl| (|Plot3D|)) (|s| #1#) (|pts| (|PositiveInteger|))
+          (|rad| (|DoubleFloat|)) (|tub| (|TubePlot| (|Plot3D|)))
+          (|loops| (|List| (|List| (|Point| (|DoubleFloat|))))) (|c3| #3#)
+          (|br| (|List| (|List| (|Point| (|DoubleFloat|))))) (|b| NIL)
+          (#4=#:G124 NIL))
          (SEQ (LETT |sp| (SPADCALL |l| (QREFELT % 104)))
               (LETT |f| (SPADCALL |psc| 1 (QREFELT % 106)))
               (LETT |g| (SPADCALL |psc| 2 (QREFELT % 106)))
@@ -486,12 +485,12 @@
                       (EXIT |s|)))
                 (#5#
                  (SEQ (LETT |br| (SPADCALL |pl| (QREFELT % 123)))
-                      (SEQ (LETT |b| NIL) (LETT #1# |br|) G190
+                      (SEQ (LETT |b| NIL) (LETT #4# |br|) G190
                            (COND
-                            ((OR (ATOM #1#) (PROGN (LETT |b| (CAR #1#)) NIL))
+                            ((OR (ATOM #4#) (PROGN (LETT |b| (CAR #4#)) NIL))
                              (GO G191)))
                            (SEQ (EXIT (SPADCALL |s| |b| (QREFELT % 125))))
-                           (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
+                           (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
                       (EXIT |s|)))))))) 
 
 (SDEFUN |DRAWCFUN;makeObject;PscSLTs;16!2| ((|x| NIL) ($$ NIL))
@@ -535,18 +534,18 @@
          (|seg| (|Segment| (|Float|))) (|l| (|List| (|DrawOption|)))
          (% (|ThreeSpace| (|DoubleFloat|))))
         (SPROG
-         ((#1=#:G142 NIL) (|b| NIL)
-          (|br| (|List| (|List| (|Point| (|DoubleFloat|)))))
-          (|loops| (|List| (|List| (|Point| (|DoubleFloat|)))))
-          (|tub| (|TubePlot| (|Plot3D|))) (|rad| (|DoubleFloat|))
-          (|pts| (|PositiveInteger|)) (|s| #2=(|ThreeSpace| (|DoubleFloat|)))
-          (|pl| (|Plot3D|))
-          (|fcn|
-           (|List| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|))))
+         ((|sp| #1=(|ThreeSpace| (|DoubleFloat|)))
+          (|c1| #2=(|Union| (|Any|) "failed")) (|c| #2#)
           (|cc|
            (|List|
             (|Mapping| (|Point| (|DoubleFloat|)) (|Point| (|DoubleFloat|)))))
-          (|c| #3=(|Union| (|Any|) "failed")) (|c1| #3#) (|sp| #2#))
+          (|fcn|
+           (|List| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|))))
+          (|pl| (|Plot3D|)) (|s| #1#) (|pts| (|PositiveInteger|))
+          (|rad| (|DoubleFloat|)) (|tub| (|TubePlot| (|Plot3D|)))
+          (|loops| (|List| (|List| (|Point| (|DoubleFloat|)))))
+          (|br| (|List| (|List| (|Point| (|DoubleFloat|))))) (|b| NIL)
+          (#3=#:G142 NIL))
          (SEQ (LETT |sp| (SPADCALL |l| (QREFELT % 104)))
               (LETT |fcn| (LIST |psc|))
               (SEQ (LETT |c1| (SPADCALL |l| '|colorFunction1| (QREFELT % 36)))
@@ -587,12 +586,12 @@
                       (EXIT |s|)))
                 ('T
                  (SEQ (LETT |br| (SPADCALL |pl| (QREFELT % 123)))
-                      (SEQ (LETT |b| NIL) (LETT #1# |br|) G190
+                      (SEQ (LETT |b| NIL) (LETT #3# |br|) G190
                            (COND
-                            ((OR (ATOM #1#) (PROGN (LETT |b| (CAR #1#)) NIL))
+                            ((OR (ATOM #3#) (PROGN (LETT |b| (CAR #3#)) NIL))
                              (GO G191)))
                            (SEQ (EXIT (SPADCALL |s| |b| (QREFELT % 125))))
-                           (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
+                           (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
                       (EXIT |s|)))))))) 
 
 (SDEFUN |DRAWCFUN;makeObject;MSLTs;17!1| ((|x| NIL) ($$ NIL))
@@ -658,7 +657,7 @@
 (SDEFUN |DRAWCFUN;myTrap2|
         ((|ff| (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)))
          (|u| (|DoubleFloat|)) (|v| (|DoubleFloat|)) (% (|DoubleFloat|)))
-        (SPROG ((|r| (|DoubleFloat|)) (|s| (|Union| (|DoubleFloat|) "failed")))
+        (SPROG ((|s| (|Union| (|DoubleFloat|) "failed")) (|r| (|DoubleFloat|)))
                (SEQ (LETT |s| (|trapNumericErrors| (SPADCALL |u| |v| |ff|)))
                     (EXIT
                      (COND ((QEQCAR |s| 1) 0.0)
@@ -716,20 +715,20 @@
          (|xSeg| (|Segment| (|Float|))) (|ySeg| (|Segment| (|Float|)))
          (|l| (|List| (|DrawOption|))) (% (|ThreeSpace| (|DoubleFloat|))))
         (SPROG
-         ((|mesh| (|ThreeSpace| (|DoubleFloat|)))
+         ((|sp| (|ThreeSpace| (|DoubleFloat|)))
+          (|c2| #1=(|Union| (|Any|) "failed")) (|pointsColored?| (|Boolean|))
+          (|col2|
+           (|List|
+            (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))))
+          (|cc|
+           (|List|
+            (|Mapping| (|Point| (|DoubleFloat|)) (|Point| (|DoubleFloat|)))))
+          (|c| #1#)
           (|fcn|
            (|List|
             (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)
                        (|DoubleFloat|))))
-          (|c| #1=(|Union| (|Any|) "failed"))
-          (|cc|
-           (|List|
-            (|Mapping| (|Point| (|DoubleFloat|)) (|Point| (|DoubleFloat|)))))
-          (|col2|
-           (|List|
-            (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))))
-          (|pointsColored?| (|Boolean|)) (|c2| #1#)
-          (|sp| (|ThreeSpace| (|DoubleFloat|))))
+          (|mesh| (|ThreeSpace| (|DoubleFloat|))))
          (SEQ (LETT |sp| (SPADCALL |l| (QREFELT % 104)))
               (LETT |col2| (LIST (CONS (|function| |DRAWCFUN;xCoord|) %)))
               (LETT |pointsColored?| NIL)
@@ -845,33 +844,33 @@
          (|uSeg| (|Segment| (|Float|))) (|vSeg| (|Segment| (|Float|)))
          (|l| (|List| (|DrawOption|))) (% (|ThreeSpace| (|DoubleFloat|))))
         (SPROG
-         ((|mesh| (|ThreeSpace| (|DoubleFloat|)))
-          (|fcn|
-           (|List|
-            (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)
-                       (|DoubleFloat|))))
-          (|col3|
-           (|List|
-            (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)
-                       (|DoubleFloat|))))
-          (|c| #1=(|Union| (|Any|) "failed"))
-          (|cc|
-           (|List|
-            (|Mapping| (|Point| (|DoubleFloat|)) (|Point| (|DoubleFloat|)))))
-          (|col2|
-           (|List|
-            (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))))
-          (|pointsColored?| (|Boolean|)) (|c2| #1#)
-          (|h|
+         ((|sp| (|ThreeSpace| (|DoubleFloat|)))
+          (|f|
            (|List|
             (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))))
           (|g|
            (|List|
             (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))))
-          (|f|
+          (|h|
            (|List|
             (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))))
-          (|sp| (|ThreeSpace| (|DoubleFloat|))))
+          (|c2| #1=(|Union| (|Any|) "failed")) (|pointsColored?| (|Boolean|))
+          (|col2|
+           (|List|
+            (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))))
+          (|cc|
+           (|List|
+            (|Mapping| (|Point| (|DoubleFloat|)) (|Point| (|DoubleFloat|)))))
+          (|c| #1#)
+          (|col3|
+           (|List|
+            (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)
+                       (|DoubleFloat|))))
+          (|fcn|
+           (|List|
+            (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)
+                       (|DoubleFloat|))))
+          (|mesh| (|ThreeSpace| (|DoubleFloat|))))
          (SEQ (LETT |sp| (SPADCALL |l| (QREFELT % 104)))
               (LETT |f|
                     (LIST
@@ -962,20 +961,20 @@
          (|uSeg| (|Segment| (|Float|))) (|vSeg| (|Segment| (|Float|)))
          (|l| (|List| (|DrawOption|))) (% (|ThreeSpace| (|DoubleFloat|))))
         (SPROG
-         ((|mesh| (|ThreeSpace| (|DoubleFloat|)))
+         ((|sp| (|ThreeSpace| (|DoubleFloat|)))
+          (|c2| #1=(|Union| (|Any|) "failed")) (|pointsColored?| (|Boolean|))
+          (|col2|
+           (|List|
+            (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))))
+          (|c| #1#)
+          (|cc|
+           (|List|
+            (|Mapping| (|Point| (|DoubleFloat|)) (|Point| (|DoubleFloat|)))))
           (|fcn|
            (|List|
             (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)
                        (|DoubleFloat|))))
-          (|cc|
-           (|List|
-            (|Mapping| (|Point| (|DoubleFloat|)) (|Point| (|DoubleFloat|)))))
-          (|c| #1=(|Union| (|Any|) "failed"))
-          (|col2|
-           (|List|
-            (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))))
-          (|pointsColored?| (|Boolean|)) (|c2| #1#)
-          (|sp| (|ThreeSpace| (|DoubleFloat|))))
+          (|mesh| (|ThreeSpace| (|DoubleFloat|))))
          (SEQ (LETT |sp| (SPADCALL |l| (QREFELT % 104)))
               (LETT |col2| (LIST (CONS (|function| |DRAWCFUN;xCoord|) %)))
               (LETT |pointsColored?| NIL)

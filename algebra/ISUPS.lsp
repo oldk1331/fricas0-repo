@@ -44,8 +44,8 @@
 (SDEFUN |ISUPS;monomial;CoefI%;7|
         ((|coef| (|Coef|)) (|expon| (|Integer|)) (% (%)))
         (SPROG
-         ((|st| (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
-          (|nix| (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))))
+         ((|nix| (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
+          (|st| (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))))
          (SEQ (LETT |nix| (SPADCALL (QREFELT % 14)))
               (LETT |st|
                     (COND ((SPADCALL |coef| (QREFELT % 16)) |nix|)
@@ -107,8 +107,8 @@
         ((|x| (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
          (% (%)))
         (SPROG
-         ((|refer| (|Reference| (|OrderedCompletion| (|Integer|))))
-          (|n| (|Integer|)))
+         ((|n| (|Integer|))
+          (|refer| (|Reference| (|OrderedCompletion| (|Integer|)))))
          (SEQ
           (COND ((SPADCALL |x| (QREFELT % 23)) (|spadConstant| % 29))
                 ('T
@@ -265,10 +265,10 @@
         ((|ups| (%)) (|minExp| (|OrderedCompletion| (|Integer|)))
          (|maxExp| (|Integer|)) (% (%)))
         (SPROG
-         ((|refer| (|Reference| (|OrderedCompletion| (|Integer|))))
-          (|degr| (|Integer|)) (|deg| (|Integer|))
+         ((|x| (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
           (|xRefer| (|Reference| (|OrderedCompletion| (|Integer|))))
-          (|x| (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))))
+          (|deg| (|Integer|)) (|degr| (|Integer|))
+          (|refer| (|Reference| (|OrderedCompletion| (|Integer|)))))
          (SEQ (LETT |x| (SPADCALL |ups| (QREFELT % 13)))
               (LETT |xRefer| (SPADCALL |ups| (QREFELT % 12)))
               (EXIT
@@ -305,7 +305,7 @@
 
 (SDEFUN |ISUPS;truncate;%2I%;22|
         ((|ups| (%)) (|n1| #1=(|Integer|)) (|n2| #1#) (% (%)))
-        (SPROG ((|#G41| #1#) (|#G40| #1#))
+        (SPROG ((|#G40| #1#) (|#G41| #1#))
                (SEQ
                 (COND
                  ((> |n1| |n2|)
@@ -322,8 +322,8 @@
         ((|st| (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
          (|n| (|Integer|)) (% (|Coef|)))
         (SPROG
-         ((|expon| (|Integer|))
-          (|term| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
+         ((|term| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))
+          (|expon| (|Integer|)))
          (SEQ
           (COND
            ((SPADCALL |st| (QREFELT % 45))
@@ -350,7 +350,7 @@
          (|n| (|OrderedCompletion| (|Integer|)))
          (|refer| (|Reference| (|OrderedCompletion| (|Integer|))))
          (% (|Integer|)))
-        (SPROG ((|degr| (|Integer|)) (|r| (|Integer|)))
+        (SPROG ((|r| (|Integer|)) (|degr| (|Integer|)))
                (SEQ
                 (COND
                  ((SPADCALL |st| (QREFELT % 44))
@@ -397,11 +397,11 @@
 
 (SDEFUN |ISUPS;zero?;%B;30| ((|ups| (%)) (% (|Boolean|)))
         (SPROG
-         ((#1=#:G254 NIL) (#2=#:G255 NIL) (|i| NIL)
-          (|count| (|NonNegativeInteger|))
-          (|n| (|OrderedCompletion| (|Integer|)))
+         ((|x| (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
           (|ref| (|Reference| (|OrderedCompletion| (|Integer|))))
-          (|x| (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))))
+          (|n| (|OrderedCompletion| (|Integer|)))
+          (|count| (|NonNegativeInteger|)) (|i| NIL) (#1=#:G255 NIL)
+          (#2=#:G254 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |x| (SPADCALL |ups| (QREFELT % 13)))
@@ -415,20 +415,20 @@
                    (SPADCALL |x| (QREFELT % 44)))
                   ('T
                    (SEQ (LETT |count| |$streamCount|)
-                        (SEQ (LETT |i| 1) (LETT #2# |count|) G190
-                             (COND ((|greater_SI| |i| #2#) (GO G191)))
+                        (SEQ (LETT |i| 1) (LETT #1# |count|) G190
+                             (COND ((|greater_SI| |i| #1#) (GO G191)))
                              (SEQ
                               (EXIT
                                (COND
                                 ((SPADCALL |x| (QREFELT % 44))
-                                 (PROGN (LETT #1# 'T) (GO #3=#:G253)))
+                                 (PROGN (LETT #2# 'T) (GO #3=#:G253)))
                                 ((SPADCALL |x| (QREFELT % 45))
-                                 (PROGN (LETT #1# NIL) (GO #3#)))
+                                 (PROGN (LETT #2# NIL) (GO #3#)))
                                 ('T (SPADCALL |x| (QREFELT % 46))))))
                              (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                              (EXIT NIL))
                         (EXIT NIL)))))))
-          #3# (EXIT #1#)))) 
+          #3# (EXIT #2#)))) 
 
 (SDEFUN |ISUPS;=;2%B;31| ((|ups1| (%)) (|ups2| (%)) (% (|Boolean|)))
         (SPADCALL (SPADCALL |ups1| |ups2| (QREFELT % 66)) (QREFELT % 65))) 
@@ -547,10 +547,10 @@
          (|eFcn| (|Mapping| (|Integer|) (|Integer|))) (|check?| (|Boolean|))
          (|ups| (%)) (% (%)))
         (SPROG
-         ((|refer| (|Reference| (|OrderedCompletion| (|Integer|))))
-          (|degr| (|Integer|)) (|deg| (|Integer|))
+         ((|xRefer| (|Reference| (|OrderedCompletion| (|Integer|))))
           (|x| (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
-          (|xRefer| (|Reference| (|OrderedCompletion| (|Integer|)))))
+          (|deg| (|Integer|)) (|degr| (|Integer|))
+          (|refer| (|Reference| (|OrderedCompletion| (|Integer|)))))
          (SEQ (LETT |xRefer| (SPADCALL |ups| (QREFELT % 12)))
               (LETT |x| (SPADCALL |ups| (QREFELT % 13)))
               (EXIT
@@ -933,11 +933,11 @@
         ((|op| (|Mapping| |Coef| |Coef| |Coef|)) (|ups1| (%)) (|ups2| (%))
          (% (%)))
         (SPROG
-         ((|refer| (|Reference| (|OrderedCompletion| (|Integer|))))
-          (|deg| (|Integer|)) (|yDeg| #1=(|Integer|)) (#2=#:G515 NIL)
-          (|y| #3=(|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
-          (|yRefer| #4=(|Reference| (|OrderedCompletion| (|Integer|))))
-          (|xDeg| #1#) (|x| #3#) (|xRefer| #4#))
+         ((|xRefer| #1=(|Reference| (|OrderedCompletion| (|Integer|))))
+          (|x| #2=(|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
+          (|xDeg| #3=(|Integer|)) (|yRefer| #1#) (|y| #2#) (#4=#:G515 NIL)
+          (|yDeg| #3#) (|deg| (|Integer|))
+          (|refer| (|Reference| (|OrderedCompletion| (|Integer|)))))
          (SEQ
           (EXIT
            (SEQ (LETT |xRefer| (SPADCALL |ups1| (QREFELT % 12)))
@@ -946,7 +946,7 @@
                       (COND
                        ((SPADCALL |x| (QREFELT % 44))
                         (PROGN
-                         (LETT #2#
+                         (LETT #4#
                                (SPADCALL
                                 (CONS #'|ISUPS;iPlus2!0| (VECTOR |op| %))
                                 |ups2| (QREFELT % 69)))
@@ -963,7 +963,7 @@
                       (COND
                        ((SPADCALL |y| (QREFELT % 44))
                         (PROGN
-                         (LETT #2#
+                         (LETT #4#
                                (SPADCALL
                                 (CONS #'|ISUPS;iPlus2!1| (VECTOR |op| %))
                                 |ups1| (QREFELT % 69)))
@@ -983,7 +983,7 @@
                            (|ISUPS;iPlus1| |op| |x| |xRefer| |y| |yRefer|
                             |refer| (+ |deg| 1) %)
                            (QREFELT % 11)))))
-          #5# (EXIT #2#)))) 
+          #5# (EXIT #4#)))) 
 
 (SDEFUN |ISUPS;iPlus2!1| ((|z| NIL) ($$ NIL))
         (PROG (% |op|)
@@ -1083,8 +1083,8 @@
          (|yRefer| (|Reference| (|OrderedCompletion| (|Integer|))))
          (|nn| (|OrderedCompletion| (|Integer|))) (% (|Void|)))
         (SPROG
-         ((|yDeg| (|OrderedCompletion| (|Integer|)))
-          (|xDeg| (|OrderedCompletion| (|Integer|))))
+         ((|xDeg| (|OrderedCompletion| (|Integer|)))
+          (|yDeg| (|OrderedCompletion| (|Integer|))))
          (SEQ
           (COND
            ((OR (SPADCALL |x| (QREFELT % 44)) (SPADCALL |y| (QREFELT % 44)))
@@ -1282,11 +1282,11 @@
 
 (SDEFUN |ISUPS;*;3%;49| ((|ups1| (%)) (|ups2| (%)) (% (%)))
         (SPROG
-         ((|refer| (|Reference| (|OrderedCompletion| (|Integer|))))
-          (|deg| (|Integer|)) (|yDeg| #1=(|Integer|)) (#2=#:G597 NIL)
-          (|y| #3=(|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
-          (|yRefer| #4=(|Reference| (|OrderedCompletion| (|Integer|))))
-          (|xDeg| #1#) (|x| #3#) (|xRefer| #4#))
+         ((|xRefer| #1=(|Reference| (|OrderedCompletion| (|Integer|))))
+          (|x| #2=(|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
+          (|xDeg| #3=(|Integer|)) (|yRefer| #1#) (|y| #2#) (#4=#:G597 NIL)
+          (|yDeg| #3#) (|deg| (|Integer|))
+          (|refer| (|Reference| (|OrderedCompletion| (|Integer|)))))
          (SEQ
           (EXIT
            (SEQ (LETT |xRefer| (SPADCALL |ups1| (QREFELT % 12)))
@@ -1295,7 +1295,7 @@
                       (COND
                        ((SPADCALL |x| (QREFELT % 44))
                         (PROGN
-                         (LETT #2# (|spadConstant| % 29))
+                         (LETT #4# (|spadConstant| % 29))
                          (GO #5=#:G596)))
                        ((SPADCALL |x| (QREFELT % 45))
                         (- (|ISUPS;getExpon| (SPADCALL |x| (QREFELT % 32)) %)
@@ -1308,7 +1308,7 @@
                 (LETT |yDeg|
                       (COND
                        ((SPADCALL |y| (QREFELT % 44))
-                        (PROGN (LETT #2# (|spadConstant| % 29)) (GO #5#)))
+                        (PROGN (LETT #4# (|spadConstant| % 29)) (GO #5#)))
                        ((SPADCALL |y| (QREFELT % 45))
                         (- (|ISUPS;getExpon| (SPADCALL |y| (QREFELT % 32)) %)
                            1))
@@ -1324,7 +1324,7 @@
                            (|ISUPS;iTimes| |x| |xRefer| |y| |yRefer| |refer|
                             (+ |deg| 1) %)
                            (QREFELT % 11)))))
-          #5# (EXIT #2#)))) 
+          #5# (EXIT #4#)))) 
 
 (SDEFUN |ISUPS;iDivide|
         ((|x| (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
@@ -1449,10 +1449,10 @@
         ((|ups1| (%)) (|deg1| (|Integer|)) (|ups2| (%)) (|deg2| (|Integer|))
          (|r| (|Coef|)) (% (%)))
         (SPROG
-         ((|refer| (|Reference| (|OrderedCompletion| (|Integer|))))
-          (|y| #1=(|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
-          (|yRefer| #2=(|Reference| (|OrderedCompletion| (|Integer|))))
-          (|x| #1#) (|xRefer| #2#))
+         ((|xRefer| #1=(|Reference| (|OrderedCompletion| (|Integer|))))
+          (|x| #2=(|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
+          (|yRefer| #1#) (|y| #2#)
+          (|refer| (|Reference| (|OrderedCompletion| (|Integer|)))))
          (SEQ (LETT |xRefer| (SPADCALL |ups1| (QREFELT % 12)))
               (LETT |x| (SPADCALL |ups1| (QREFELT % 13)))
               (LETT |yRefer| (SPADCALL |ups2| (QREFELT % 12)))
@@ -1470,13 +1470,14 @@
         ((|ups1| (%)) (|ups2| (%)) (|taylor?| (|Boolean|))
          (% (|Union| % "failed")))
         (SPROG
-         ((|nx| (|Integer|)) (#1=#:G657 NIL) (#2=#:G659 NIL)
-          (|deg| #3=(|Integer|)) (|nn| (|OrderedCompletion| (|Integer|)))
-          (|ry| (|Union| |Coef| "failed")) (|ny| #3#) (|yCoef| (|Coef|))
+         ((|xRefer| (|Reference| (|OrderedCompletion| (|Integer|))))
+          (|x| #1=(|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
+          (|y| #1#) (|n| (|Integer|)) (#2=#:G658 NIL)
           (|yTerm| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))
-          (#4=#:G658 NIL) (|n| (|Integer|))
-          (|y| #5=(|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
-          (|x| #5#) (|xRefer| (|Reference| (|OrderedCompletion| (|Integer|)))))
+          (|yCoef| (|Coef|)) (|ny| #3=(|Integer|))
+          (|ry| (|Union| |Coef| "failed"))
+          (|nn| (|OrderedCompletion| (|Integer|))) (|deg| #3#) (#4=#:G659 NIL)
+          (#5=#:G657 NIL) (|nx| (|Integer|)))
          (SEQ
           (EXIT
            (SEQ (LETT |xRefer| (SPADCALL |ups1| (QREFELT % 12)))
@@ -1489,7 +1490,7 @@
                       (EXIT
                        (COND
                         ((SPADCALL |y| (QREFELT % 44))
-                         (PROGN (LETT #2# (CONS 1 "failed")) (GO #6=#:G656)))
+                         (PROGN (LETT #4# (CONS 1 "failed")) (GO #6=#:G656)))
                         ('T
                          (SEQ
                           (EXIT
@@ -1499,12 +1500,12 @@
                                  (COND
                                   ((> |n| 1000)
                                    (PROGN
-                                    (LETT #4#
+                                    (LETT #2#
                                           (PROGN
-                                           (LETT #2# (CONS 1 "failed"))
+                                           (LETT #4# (CONS 1 "failed"))
                                            (GO #6#)))
                                     (GO #7=#:G636)))))))
-                          #7# (EXIT #4#))))))
+                          #7# (EXIT #2#))))))
                      NIL (GO G190) G191 (EXIT NIL))
                 (LETT |yCoef|
                       (|ISUPS;getCoef|
@@ -1529,12 +1530,12 @@
                                       (COND
                                        ((SPADCALL |x| (QREFELT % 44))
                                         (PROGN
-                                         (LETT #2#
+                                         (LETT #4#
                                                (CONS 0 (|spadConstant| % 29)))
                                          (GO #6#)))
                                        ((SPADCALL |x| (QREFELT % 45))
                                         (PROGN
-                                         (LETT #2# (CONS 1 "failed"))
+                                         (LETT #4# (CONS 1 "failed"))
                                          (GO #6#)))
                                        ('T (SPADCALL |x| (QREFELT % 46))))))
                                     NIL (GO G190) G191 (EXIT NIL))))
@@ -1571,15 +1572,15 @@
                                                 (COND
                                                  (|taylor?|
                                                   (PROGN
-                                                   (LETT #1#
+                                                   (LETT #5#
                                                          (PROGN
-                                                          (LETT #2#
+                                                          (LETT #4#
                                                                 (CONS 1
                                                                       "failed"))
                                                           (GO #6#)))
                                                    (GO #9=#:G650))))))))
                                             (EXIT (- |deg| 1))))
-                                          #9# (EXIT #1#)))
+                                          #9# (EXIT #5#)))
                                         (#8#
                                          (SPADCALL
                                           (SPADCALL |xRefer| (QREFELT % 42))
@@ -1588,7 +1589,7 @@
                                   (CONS 0
                                         (|ISUPS;divide| |ups1| |nx| |ups2| |ny|
                                          (QCDR |ry|) %)))))))))))))
-          #6# (EXIT #2#)))) 
+          #6# (EXIT #4#)))) 
 
 (SDEFUN |ISUPS;iExquo;2%BU;52!1| ((|z| NIL) ($$ NIL))
         (PROG (|ny| %)
@@ -1787,12 +1788,11 @@
 
 (SDEFUN |ISUPS;iCompose;3%;55| ((|ups1| (%)) (|ups2| (%)) (% (%)))
         (SPROG
-         ((|compRefer| (|Reference| (|OrderedCompletion| (|Integer|))))
-          (|yOrd| (|Integer|)) (#1=#:G723 NIL) (#2=#:G724 NIL) (|i| NIL)
-          (|n| (|Integer|))
-          (|yRefer| #3=(|Reference| (|OrderedCompletion| (|Integer|))))
-          (|y| #4=(|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
-          (|xRefer| #3#) (|x| #4#))
+         ((|x| #1=(|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
+          (|xRefer| #2=(|Reference| (|OrderedCompletion| (|Integer|))))
+          (|y| #1#) (|yRefer| #2#) (|n| (|Integer|)) (|i| NIL) (#3=#:G724 NIL)
+          (#4=#:G723 NIL) (|yOrd| (|Integer|))
+          (|compRefer| (|Reference| (|OrderedCompletion| (|Integer|)))))
          (SEQ
           (EXIT
            (SEQ (LETT |x| (SPADCALL |ups1| (QREFELT % 13)))
@@ -1800,9 +1800,9 @@
                 (LETT |y| (SPADCALL |ups2| (QREFELT % 13)))
                 (LETT |yRefer| (SPADCALL |ups2| (QREFELT % 12)))
                 (LETT |n| |$streamCount|)
-                (SEQ (LETT |i| 1) (LETT #2# |n|) G190
+                (SEQ (LETT |i| 1) (LETT #3# |n|) G190
                      (COND
-                      ((OR (|greater_SI| |i| #2#)
+                      ((OR (|greater_SI| |i| #3#)
                            (NULL (NULL (SPADCALL |y| (QREFELT % 45)))))
                        (GO G191)))
                      (SEQ
@@ -1810,7 +1810,7 @@
                        (COND
                         ((SPADCALL |y| (QREFELT % 44))
                          (PROGN
-                          (LETT #1#
+                          (LETT #4#
                                 (SPADCALL (SPADCALL |ups1| 0 (QREFELT % 57))
                                           (QREFELT % 27)))
                           (GO #5=#:G722)))
@@ -1839,7 +1839,7 @@
                                 |yOrd| |ups2| (|spadConstant| % 36) 0
                                 |compRefer| 0 %)
                                (QREFELT % 11)))))))))
-          #5# (EXIT #1#)))) 
+          #5# (EXIT #4#)))) 
 
 (SDEFUN |ISUPS;integrate;2%;56| ((|x| (%)) (% (%)))
         (|ISUPS;iMap2| (CONS #'|ISUPS;integrate;2%;56!0| %)
@@ -1964,22 +1964,22 @@
 
 (SDEFUN |ISUPS;cPower;%Coef%;60| ((|f| (%)) (|r| (|Coef|)) (% (%)))
         (SPROG
-         ((|ansStr|
-           (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
-          (|ansRef| #1=(|Reference| (|OrderedCompletion| (|Integer|))))
-          (|intRef| #1#)
+         ((|fp| (%)) (#1=#:G759 NIL) (|fInv| (%)) (|y| (%))
+          (|yRef| (|Reference| (|OrderedCompletion| (|Integer|))))
           (|yStr| (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
-          (|yRef| (|Reference| (|OrderedCompletion| (|Integer|)))) (|y| (%))
-          (|fInv| (%)) (#2=#:G759 NIL) (|fp| (%)))
+          (|intRef| #2=(|Reference| (|OrderedCompletion| (|Integer|))))
+          (|ansRef| #2#)
+          (|ansStr|
+           (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))))
          (SEQ (LETT |fp| (SPADCALL |f| (QREFELT % 72)))
               (LETT |fInv|
                     (PROG2
-                        (LETT #2#
+                        (LETT #1#
                               (SPADCALL (|spadConstant| % 36) |f| NIL
                                         (QREFELT % 100)))
-                        (QCDR #2#)
-                      (|check_union2| (QEQCAR #2# 0) % (|Union| % "failed")
-                                      #2#)))
+                        (QCDR #1#)
+                      (|check_union2| (QEQCAR #1# 0) % (|Union| % "failed")
+                                      #1#)))
               (LETT |y|
                     (SPADCALL (SPADCALL |r| |fp| (QREFELT % 115)) |fInv|
                               (QREFELT % 97)))
@@ -2026,13 +2026,13 @@
 
 (SDEFUN |ISUPS;iExp| ((|f| (%)) (|cc| (|Coef|)) (% (%)))
         (SPROG
-         ((|ansStr|
-           (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
-          (|ansRef| #1=(|Reference| (|OrderedCompletion| (|Integer|))))
-          (|intRef| #1#)
+         ((|fp| (%)) (|fpRef| (|Reference| (|OrderedCompletion| (|Integer|))))
           (|fpStr|
            (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
-          (|fpRef| (|Reference| (|OrderedCompletion| (|Integer|)))) (|fp| (%)))
+          (|intRef| #1=(|Reference| (|OrderedCompletion| (|Integer|))))
+          (|ansRef| #1#)
+          (|ansStr|
+           (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))))
          (SEQ (LETT |fp| (SPADCALL |f| (QREFELT % 72)))
               (LETT |fpRef| (SPADCALL |fp| (QREFELT % 12)))
               (LETT |fpStr| (SPADCALL |fp| (QREFELT % 13)))
@@ -2092,15 +2092,15 @@
           (|List|
            (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))))
         (SPROG
-         ((|prodStr2|
-           #1=(|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
-          (|prodStr1| #1#)
-          (|prodRef2| #2=(|Reference| (|OrderedCompletion| (|Integer|))))
-          (|prodRef1| #2#)
+         ((|sinStr|
+           (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
           (|cosStr|
            (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
-          (|sinStr|
-           (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))))
+          (|prodRef1| #1=(|Reference| (|OrderedCompletion| (|Integer|))))
+          (|prodRef2| #1#)
+          (|prodStr1|
+           #2=(|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
+          (|prodStr2| #2#))
          (SEQ (LETT |sinStr| (|SPADfirst| |list|))
               (LETT |cosStr| (SPADCALL |list| (QREFELT % 121)))
               (LETT |prodRef1|
@@ -2128,19 +2128,20 @@
         ((|f| (%)) (|sinc| (|Coef|)) (|cosc| (|Coef|)) (|sign| (|Integer|))
          (% (|Record| (|:| |%sin| %) (|:| |%cos| %))))
         (SPROG
-         ((|cosStr|
-           (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
-          (|sinStr|
-           (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
+         ((|fp| (%))
+          (|fpRef| #1=(|Reference| (|OrderedCompletion| (|Integer|))))
+          (|fpStr|
+           #2=(|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
+          (|fp2| (%)) (|fpRef2| #1#) (|fpStr2| #2#)
+          (|sinRef| #3=(|Reference| (|OrderedCompletion| (|Integer|))))
+          (|cosRef| #3#)
           (|sincos|
            (|List|
             (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))))
-          (|cosRef| #1=(|Reference| (|OrderedCompletion| (|Integer|))))
-          (|sinRef| #1#)
-          (|fpStr2|
-           #2=(|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
-          (|fpRef2| #3=(|Reference| (|OrderedCompletion| (|Integer|))))
-          (|fp2| (%)) (|fpStr| #2#) (|fpRef| #3#) (|fp| (%)))
+          (|sinStr|
+           (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
+          (|cosStr|
+           (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))))
          (SEQ (LETT |fp| (SPADCALL |f| (QREFELT % 72)))
               (LETT |fpRef| (SPADCALL |fp| (QREFELT % 12)))
               (LETT |fpStr| (SPADCALL |fp| (QREFELT % 13)))
@@ -2201,16 +2202,16 @@
          (|sign| (|Integer|))
          (% (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))))
         (SPROG
-         ((|intRef| #1=(|Reference| (|OrderedCompletion| (|Integer|))))
-          (|yStr| (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
-          (|yRef| #1#)
-          (|oneRef| (|Reference| (|OrderedCompletion| (|Integer|))))
-          (|oneStr|
-           (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
-          (|one| (%))
+         ((|sqRef| #1=(|Reference| (|OrderedCompletion| (|Integer|))))
           (|sqStr|
            (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
-          (|sqRef| #1#))
+          (|one| (%))
+          (|oneStr|
+           (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
+          (|oneRef| (|Reference| (|OrderedCompletion| (|Integer|))))
+          (|yRef| #1#)
+          (|yStr| (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
+          (|intRef| #1#))
          (SEQ
           (LETT |sqRef| (SPADCALL (SPADCALL -1 (QREFELT % 33)) (QREFELT % 20)))
           (LETT |sqStr|
@@ -2252,12 +2253,12 @@
 (SDEFUN |ISUPS;iTan|
         ((|f| (%)) (|fp| (%)) (|cc| (|Coef|)) (|sign| (|Integer|)) (% (%)))
         (SPROG
-         ((|ansStr|
-           (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
-          (|ansRef| (|Reference| (|OrderedCompletion| (|Integer|))))
+         ((|fpRef| (|Reference| (|OrderedCompletion| (|Integer|))))
           (|fpStr|
            (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
-          (|fpRef| (|Reference| (|OrderedCompletion| (|Integer|)))))
+          (|ansRef| (|Reference| (|OrderedCompletion| (|Integer|))))
+          (|ansStr|
+           (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))))
          (SEQ (LETT |fpRef| (SPADCALL |fp| (QREFELT % 12)))
               (LETT |fpStr| (SPADCALL |fp| (QREFELT % 13)))
               (LETT |ansRef|
@@ -2287,8 +2288,8 @@
 
 (SDEFUN |ISUPS;orderOrFailed| ((|uts| (%)) (% (|Union| (|Integer|) "failed")))
         (SPROG
-         ((#1=#:G797 NIL) (|n| NIL)
-          (|x| (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))))
+         ((|x| (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
+          (|n| NIL) (#1=#:G797 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |x| (SPADCALL |uts| (QREFELT % 13)))
@@ -2314,11 +2315,11 @@
 (SDEFUN |ISUPS;cRationalPower;%F%;67|
         ((|uts| (%)) (|r| (|Fraction| (|Integer|))) (% (%)))
         (SPROG
-         ((|uts2| (%)) (|uts1| (%)) (|ccPow| (|Coef|)) (#1=#:G812 NIL)
-          (#2=#:G806 NIL) (|num| (|Integer|))
-          (|ccInv| (|Union| |Coef| "failed")) (|cc| (|Coef|))
-          (|n| (|Union| (|Integer|) "failed")) (|order| (|Integer|))
-          (|ord0| (|Union| (|Integer|) "failed")))
+         ((|ord0| (|Union| (|Integer|) "failed")) (|order| (|Integer|))
+          (|n| (|Union| (|Integer|) "failed")) (|cc| (|Coef|))
+          (|ccInv| (|Union| |Coef| "failed")) (|num| (|Integer|))
+          (#1=#:G806 NIL) (#2=#:G812 NIL) (|ccPow| (|Coef|)) (|uts1| (%))
+          (|uts2| (%)))
          (SEQ (LETT |ord0| (|ISUPS;orderOrFailed| |uts| %))
               (EXIT
                (COND
@@ -2356,19 +2357,19 @@
                                                 (SPADCALL |r|
                                                           (QREFELT % 135)))))
                                         (SPADCALL |cc|
-                                                  (PROG1 (LETT #2# |num|)
-                                                    (|check_subtype2|
-                                                     (>= #2# 0)
-                                                     '(|NonNegativeInteger|)
-                                                     '(|Integer|) #2#))
-                                                  (QREFELT % 136)))
-                                       ('T
-                                        (SPADCALL (QCDR |ccInv|)
-                                                  (PROG1 (LETT #1# (- |num|))
+                                                  (PROG1 (LETT #1# |num|)
                                                     (|check_subtype2|
                                                      (>= #1# 0)
                                                      '(|NonNegativeInteger|)
                                                      '(|Integer|) #1#))
+                                                  (QREFELT % 136)))
+                                       ('T
+                                        (SPADCALL (QCDR |ccInv|)
+                                                  (PROG1 (LETT #2# (- |num|))
+                                                    (|check_subtype2|
+                                                     (>= #2# 0)
+                                                     '(|NonNegativeInteger|)
+                                                     '(|Integer|) #2#))
                                                   (QREFELT % 136)))))
                                      ((QREFELT % 131)
                                       (SPADCALL |cc| |r| (QREFELT % 137)))
@@ -2405,7 +2406,7 @@
                 ('T (|error| (STRCONC "exp: " (QREFELT % 124))))))) 
 
 (SDEFUN |ISUPS;cLog;2%;69| ((|uts| (%)) (% (%)))
-        (SPROG ((|y| (%)) (#1=#:G825 NIL) (|cc| (|Coef|)))
+        (SPROG ((|cc| (|Coef|)) (#1=#:G825 NIL) (|y| (%)))
                (SEQ
                 (COND
                  ((SPADCALL (LETT |cc| (SPADCALL |uts| 0 (QREFELT % 57)))
@@ -2489,7 +2490,7 @@
                 ('T (|error| (STRCONC "cot: " (QREFELT % 124))))))) 
 
 (SDEFUN |ISUPS;cSec;2%;75| ((|uts| (%)) (% (%)))
-        (SPROG ((#1=#:G849 NIL) (|cosUts| (%)) (|cc| (|Coef|)))
+        (SPROG ((|cc| (|Coef|)) (|cosUts| (%)) (#1=#:G849 NIL))
                (SEQ
                 (COND
                  ((SPADCALL (LETT |cc| (SPADCALL |uts| 0 (QREFELT % 57)))
@@ -2520,7 +2521,7 @@
                  (#3# (|error| (STRCONC "sec: " (QREFELT % 124)))))))) 
 
 (SDEFUN |ISUPS;cCsc;2%;76| ((|uts| (%)) (% (%)))
-        (SPROG ((#1=#:G856 NIL) (|sinUts| (%)))
+        (SPROG ((|sinUts| (%)) (#1=#:G856 NIL))
                (SEQ
                 (COND
                  ((SPADCALL |uts| (QREFELT % 65))
@@ -2544,8 +2545,8 @@
 
 (SDEFUN |ISUPS;cAsin;2%;77| ((|uts| (%)) (% (%)))
         (SPROG
-         ((|c0| (%)) (#1=#:G877 NIL) (|order| (|Integer|))
-          (|ord| (|Union| (|Integer|) "failed")) (|x| (%)) (|cc| (|Coef|)))
+         ((|cc| (|Coef|)) (|x| (%)) (|ord| (|Union| (|Integer|) "failed"))
+          (|order| (|Integer|)) (#1=#:G877 NIL) (|c0| (%)))
          (SEQ
           (EXIT
            (COND
@@ -2622,8 +2623,8 @@
 
 (SDEFUN |ISUPS;cAcos;2%;78| ((|uts| (%)) (% (%)))
         (SPROG
-         ((|c0| (%)) (#1=#:G894 NIL) (|order| (|Integer|))
-          (|ord| (|Union| (|Integer|) "failed")) (|cc| (|Coef|)) (|x| (%)))
+         ((|x| (%)) (|cc| (|Coef|)) (|ord| (|Union| (|Integer|) "failed"))
+          (|order| (|Integer|)) (#1=#:G894 NIL) (|c0| (%)))
          (SEQ
           (EXIT
            (COND
@@ -2699,7 +2700,7 @@
           #3# (EXIT #1#)))) 
 
 (SDEFUN |ISUPS;cAtan;2%;79| ((|uts| (%)) (% (%)))
-        (SPROG ((|y| (|Union| % #1="failed")) (#2=#:G897 NIL) (|cc| (|Coef|)))
+        (SPROG ((|cc| (|Coef|)) (#1=#:G897 NIL) (|y| (|Union| % #2="failed")))
                (SEQ
                 (COND
                  ((SPADCALL (LETT |cc| (SPADCALL |uts| 0 (QREFELT % 57)))
@@ -2707,7 +2708,7 @@
                   (SEQ
                    (LETT |y|
                          (PROG2
-                             (LETT #2#
+                             (LETT #1#
                                    (SPADCALL (|spadConstant| % 36)
                                              (SPADCALL (|spadConstant| % 36)
                                                        (SPADCALL |uts| |uts|
@@ -2715,9 +2716,9 @@
                                                                           97))
                                                        (QREFELT % 83))
                                              'T (QREFELT % 100)))
-                             (QCDR #2#)
-                           (|check_union2| (QEQCAR #2# 0) % (|Union| % #1#)
-                                           #2#)))
+                             (QCDR #1#)
+                           (|check_union2| (QEQCAR #1# 0) % (|Union| % #2#)
+                                           #1#)))
                    (EXIT
                     (SPADCALL
                      (SPADCALL |y| (SPADCALL |uts| (QREFELT % 72))
@@ -2748,7 +2749,7 @@
                  (#3# (|error| (STRCONC "atan: " (QREFELT % 124)))))))) 
 
 (SDEFUN |ISUPS;cAcot;2%;80| ((|uts| (%)) (% (%)))
-        (SPROG ((|cc| (|Coef|)) (|y| (|Union| % "failed")))
+        (SPROG ((|y| (|Union| % "failed")) (|cc| (|Coef|)))
                (SEQ
                 (COND
                  ((QREFELT % 132)
@@ -2782,9 +2783,9 @@
 
 (SDEFUN |ISUPS;cAsec;2%;81| ((|uts| (%)) (% (%)))
         (SPROG
-         ((|z| (|Union| % "failed")) (|y| (%)) (#1=#:G928 NIL)
-          (|order| (|Integer|)) (|ord| (|Union| (|Integer|) "failed"))
-          (|x| (%)) (|cc| (|Coef|)))
+         ((|cc| (|Coef|)) (|x| (%)) (|ord| (|Union| (|Integer|) "failed"))
+          (|order| (|Integer|)) (#1=#:G928 NIL) (|y| (%))
+          (|z| (|Union| % "failed")))
          (SEQ
           (EXIT
            (COND
@@ -2845,9 +2846,9 @@
 
 (SDEFUN |ISUPS;cAcsc;2%;82| ((|uts| (%)) (% (%)))
         (SPROG
-         ((|z| (|Union| % "failed")) (|y| (%)) (#1=#:G947 NIL)
-          (|order| (|Integer|)) (|ord| (|Union| (|Integer|) "failed"))
-          (|x| (%)) (|cc| (|Coef|)))
+         ((|cc| (|Coef|)) (|x| (%)) (|ord| (|Union| (|Integer|) "failed"))
+          (|order| (|Integer|)) (#1=#:G947 NIL) (|y| (%))
+          (|z| (|Union| % "failed")))
          (SEQ
           (EXIT
            (COND
@@ -2912,7 +2913,7 @@
 (SDEFUN |ISUPS;sinhcosh|
         ((|uts| (%)) (% (|Record| (|:| |%sinh| %) (|:| |%cosh| %))))
         (SPROG
-         ((|tmp| (|Record| (|:| |%sin| %) (|:| |%cos| %))) (|cc| (|Coef|)))
+         ((|cc| (|Coef|)) (|tmp| (|Record| (|:| |%sin| %) (|:| |%cos| %))))
          (SEQ
           (COND
            ((SPADCALL (LETT |cc| (SPADCALL |uts| 0 (QREFELT % 57)))
@@ -2949,7 +2950,7 @@
                 ('T (|error| (STRCONC "tanh: " (QREFELT % 124))))))) 
 
 (SDEFUN |ISUPS;cCoth;2%;87| ((|uts| (%)) (% (%)))
-        (SPROG ((#1=#:G966 NIL) (|tanhUts| (%)))
+        (SPROG ((|tanhUts| (%)) (#1=#:G966 NIL))
                (SEQ (LETT |tanhUts| (SPADCALL |uts| (QREFELT % 172)))
                     (EXIT
                      (COND
@@ -2968,7 +2969,7 @@
                                          #1#)))))))) 
 
 (SDEFUN |ISUPS;cSech;2%;88| ((|uts| (%)) (% (%)))
-        (SPROG ((#1=#:G973 NIL) (|coshUts| (%)))
+        (SPROG ((|coshUts| (%)) (#1=#:G973 NIL))
                (SEQ (LETT |coshUts| (SPADCALL |uts| (QREFELT % 170)))
                     (EXIT
                      (COND
@@ -2985,7 +2986,7 @@
                                          #1#)))))))) 
 
 (SDEFUN |ISUPS;cCsch;2%;89| ((|uts| (%)) (% (%)))
-        (SPROG ((#1=#:G979 NIL) (|sinhUts| (%)))
+        (SPROG ((|sinhUts| (%)) (#1=#:G979 NIL))
                (SEQ (LETT |sinhUts| (SPADCALL |uts| (QREFELT % 169)))
                     (EXIT
                      (COND
@@ -3003,8 +3004,8 @@
 
 (SDEFUN |ISUPS;cAsinh;2%;90| ((|uts| (%)) (% (%)))
         (SPROG
-         ((#1=#:G992 NIL) (|order| (|Integer|))
-          (|ord| (|Union| (|Integer|) "failed")) (|cc| (|Coef|)) (|x| (%)))
+         ((|x| (%)) (|cc| (|Coef|)) (|ord| (|Union| (|Integer|) "failed"))
+          (|order| (|Integer|)) (#1=#:G992 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -3048,8 +3049,8 @@
 
 (SDEFUN |ISUPS;cAcosh;2%;91| ((|uts| (%)) (% (%)))
         (SPROG
-         ((#1=#:G1007 NIL) (|order| (|Integer|))
-          (|ord| (|Union| (|Integer|) "failed")) (|x| (%)) (|cc| (|Coef|)))
+         ((|cc| (|Coef|)) (|x| (%)) (|ord| (|Union| (|Integer|) "failed"))
+          (|order| (|Integer|)) (#1=#:G1007 NIL))
          (SEQ
           (EXIT
            (COND
@@ -3104,7 +3105,7 @@
           #3# (EXIT #1#)))) 
 
 (SDEFUN |ISUPS;cAtanh;2%;92| ((|uts| (%)) (% (%)))
-        (SPROG ((|cc| (|Coef|)) (|half| (|Coef|)))
+        (SPROG ((|half| (|Coef|)) (|cc| (|Coef|)))
                (SEQ
                 (LETT |half|
                       (SPADCALL
@@ -3150,7 +3151,7 @@
                   ('T (|error| (STRCONC "atanh: " (QREFELT % 124))))))))) 
 
 (SDEFUN |ISUPS;cAcoth;2%;93| ((|uts| (%)) (% (%)))
-        (SPROG ((|half| (|Coef|)) (|cc| (|Coef|)))
+        (SPROG ((|cc| (|Coef|)) (|half| (|Coef|)))
                (SEQ
                 (COND
                  ((SPADCALL |uts| (QREFELT % 65))
@@ -3191,9 +3192,9 @@
 
 (SDEFUN |ISUPS;cAsech;2%;94| ((|uts| (%)) (% (%)))
         (SPROG
-         ((|utsInv| (|Union| % "failed")) (#1=#:G1038 NIL)
-          (|order| (|Integer|)) (|ord| (|Union| (|Integer|) "failed"))
-          (|x| (%)) (|cc| (|Coef|)))
+         ((|cc| (|Coef|)) (|x| (%)) (|ord| (|Union| (|Integer|) "failed"))
+          (|order| (|Integer|)) (#1=#:G1038 NIL)
+          (|utsInv| (|Union| % "failed")))
          (SEQ
           (EXIT
            (COND
@@ -3270,9 +3271,9 @@
 
 (SDEFUN |ISUPS;cAcsch;2%;95| ((|uts| (%)) (% (%)))
         (SPROG
-         ((|utsInv| (|Union| % "failed")) (#1=#:G1053 NIL)
-          (|order| (|Integer|)) (|ord| (|Union| (|Integer|) "failed"))
-          (|x| (%)) (|cc| (|Coef|)))
+         ((|cc| (|Coef|)) (|x| (%)) (|ord| (|Union| (|Integer|) "failed"))
+          (|order| (|Integer|)) (#1=#:G1053 NIL)
+          (|utsInv| (|Union| % "failed")))
          (SEQ
           (EXIT
            (COND
@@ -3366,9 +3367,9 @@
          (|var| (|Symbol|)) (|cen| (|Coef|)) (|r| (|Fraction| (|Integer|)))
          (% (|OutputForm|)))
         (SPROG
-         ((|l| (|List| (|OutputForm|))) (|deg| (|Union| (|Integer|) "failed"))
+         ((|vv| (|OutputForm|))
           (|term| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))
-          (|vv| (|OutputForm|)))
+          (|deg| (|Union| (|Integer|) "failed")) (|l| (|List| (|OutputForm|))))
          (SEQ
           (LETT |vv|
                 (COND
@@ -3423,8 +3424,8 @@
 
 (DEFUN |InnerSparseUnivariatePowerSeries;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G1078 NIL) (#2=#:G1079 NIL) (#3=#:G1080 NIL)
-    (#4=#:G1083 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+   ((DV$1 NIL) (|dv$| NIL) (% NIL) (#1=#:G1083 NIL) (#2=#:G1080 NIL)
+    (#3=#:G1079 NIL) (#4=#:G1078 NIL) (|pv$| NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|InnerSparseUnivariatePowerSeries| DV$1))
@@ -3444,10 +3445,10 @@
                                                        '(|CharacteristicNonZero|))
                                         (|HasCategory| |#1|
                                                        '(|CharacteristicZero|))
-                                        (LETT #4#
+                                        (LETT #1#
                                               (|HasCategory| |#1|
                                                              '(|CommutativeRing|)))
-                                        (OR #4#
+                                        (OR #1#
                                             (|HasCategory| |#1|
                                                            '(|IntegralDomain|)))
                                         (|HasSignature| |#1|
@@ -3498,10 +3499,10 @@
                                                                 (|devaluate|
                                                                  |#1|)
                                                                 '(|Symbol|)))))
-                                        (LETT #3#
+                                        (LETT #2#
                                               (|HasCategory| |#1|
                                                              '(|SemiRing|)))
-                                        (OR #3#
+                                        (OR #2#
                                             (|HasSignature| |#1|
                                                             (LIST '*
                                                                   (LIST
@@ -3510,9 +3511,9 @@
                                                                    '(|Integer|)
                                                                    (|devaluate|
                                                                     |#1|)))))
-                                        (LETT #2#
+                                        (LETT #3#
                                               (|HasCategory| |#1| '(|Ring|)))
-                                        (OR #2#
+                                        (OR #3#
                                             (|HasSignature| |#1|
                                                             (LIST '*
                                                                   (LIST
@@ -3530,10 +3531,10 @@
                                                         '(|CharacteristicNonZero|))
                                          (|HasCategory| |#1|
                                                         '(|CharacteristicZero|))
-                                         #4#
+                                         #1#
                                          (|HasCategory| |#1|
                                                         '(|IntegralDomain|))
-                                         #2#
+                                         #3#
                                          (|HasSignature| |#1|
                                                          (LIST '*
                                                                (LIST
@@ -3545,7 +3546,7 @@
                                         (|HasCategory| |#1| '(|AbelianMonoid|))
                                         (|HasCategory| |#1|
                                                        '(|CancellationAbelianMonoid|))
-                                        (LETT #1#
+                                        (LETT #4#
                                               (|HasCategory| |#1|
                                                              '(|AbelianGroup|)))
                                         (OR
@@ -3557,7 +3558,7 @@
                                           (|HasCategory|
                                            (|Fraction| (|Integer|))
                                            '(|AbelianMonoid|)))
-                                         #1#
+                                         #4#
                                          (|HasCategory| |#1|
                                                         '(|AbelianMonoid|))
                                          (|HasCategory| |#1|
@@ -3570,7 +3571,7 @@
                                                                 '(|Integer|)
                                                                 (|devaluate|
                                                                  |#1|)))))
-                                        (OR #1#
+                                        (OR #4#
                                             (|HasCategory| |#1|
                                                            '(|CancellationAbelianMonoid|))
                                             (|HasSignature| |#1|
@@ -3581,7 +3582,7 @@
                                                                    '(|Integer|)
                                                                    (|devaluate|
                                                                     |#1|)))))
-                                        (OR #1#
+                                        (OR #4#
                                             (|HasSignature| |#1|
                                                             (LIST '*
                                                                   (LIST
@@ -3597,31 +3598,21 @@
     (AND (|HasCategory| |#1| '(|IntegralDomain|))
          (|HasCategory| % '(|VariablesCommuteWithCoefficients|))
          (|augmentPredVector| % 16777216))
-    (AND #4# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))
+    (AND #1# (|HasCategory| % '(|VariablesCommuteWithCoefficients|))
          (|augmentPredVector| % 33554432))
     (AND
      (OR (|HasCategory| |#1| '(|Algebra| (|Fraction| (|Integer|))))
-         (AND #4# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+         (AND #1# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (AND (|HasCategory| |#1| '(|IntegralDomain|))
               (|HasCategory| % '(|VariablesCommuteWithCoefficients|))))
      (|augmentPredVector| % 67108864))
     (AND
-     (OR (AND #4# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+     (OR (AND #1# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (AND (|HasCategory| |#1| '(|IntegralDomain|))
               (|HasCategory| % '(|VariablesCommuteWithCoefficients|))))
      (|augmentPredVector| % 134217728))
     (AND
-     (OR (AND #4# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
-         (AND (|HasCategory| |#1| '(|IntegralDomain|))
-              (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
-         #3#
-         (|HasSignature| |#1|
-                         (LIST '*
-                               (LIST (|devaluate| |#1|) '(|Integer|)
-                                     (|devaluate| |#1|)))))
-     (|augmentPredVector| % 268435456))
-    (AND
-     (OR (AND #4# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+     (OR (AND #1# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (AND (|HasCategory| |#1| '(|IntegralDomain|))
               (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          #2#
@@ -3629,10 +3620,20 @@
                          (LIST '*
                                (LIST (|devaluate| |#1|) '(|Integer|)
                                      (|devaluate| |#1|)))))
+     (|augmentPredVector| % 268435456))
+    (AND
+     (OR (AND #1# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+         (AND (|HasCategory| |#1| '(|IntegralDomain|))
+              (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+         #3#
+         (|HasSignature| |#1|
+                         (LIST '*
+                               (LIST (|devaluate| |#1|) '(|Integer|)
+                                     (|devaluate| |#1|)))))
      (|augmentPredVector| % 536870912))
     (AND
      (OR (|HasCategory| |#1| '(|AbelianMonoid|))
-         (AND #4# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+         (AND #1# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (AND (|HasCategory| |#1| '(|IntegralDomain|))
               (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (|HasCategory| % '(|AbelianMonoid|))
@@ -3643,7 +3644,7 @@
      (|augmentPredVector| % 1073741824))
     (AND
      (OR (|HasCategory| |#1| '(|CancellationAbelianMonoid|))
-         (AND #4# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+         (AND #1# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (AND (|HasCategory| |#1| '(|IntegralDomain|))
               (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (|HasCategory| % '(|AbelianGroup|))
@@ -3653,7 +3654,7 @@
                                      (|devaluate| |#1|)))))
      (|augmentPredVector| % 2147483648))
     (AND
-     (OR #1# (AND #4# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
+     (OR #4# (AND #1# (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (AND (|HasCategory| |#1| '(|IntegralDomain|))
               (|HasCategory| % '(|VariablesCommuteWithCoefficients|)))
          (|HasCategory| % '(|AbelianGroup|))

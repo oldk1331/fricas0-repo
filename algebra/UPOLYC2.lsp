@@ -1,6 +1,6 @@
 
 (SDEFUN |UPOLYC2;map;MPRPS;1| ((|f| (|Mapping| S R)) (|p| (PR)) (% (PS)))
-        (SPROG ((|ans| (|RepPS|)) (|nc| (S)))
+        (SPROG ((|nc| (S)) (|ans| (|RepPS|)))
                (SEQ (LETT |ans| NIL)
                     (SEQ G190
                          (COND
@@ -24,7 +24,7 @@
                     (EXIT (NREVERSE |ans|))))) 
 
 (SDEFUN |UPOLYC2;map;MPRPS;2| ((|f| (|Mapping| S R)) (|p| (PR)) (% (PS)))
-        (SPROG ((|ans| (|RepPS|)) (|nc| (S)))
+        (SPROG ((|nc| (S)) (|ans| (|RepPS|)))
                (SEQ (LETT |ans| NIL)
                     (SEQ G190
                          (COND
@@ -74,8 +74,8 @@
 
 (DEFUN |UnivariatePolynomialCategoryFunctions2;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
-    (DV$1 NIL))
+   ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (DV$4 NIL) (|dv$| NIL) (% NIL)
+    (|pv$| NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))

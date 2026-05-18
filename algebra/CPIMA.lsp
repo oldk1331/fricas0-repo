@@ -6,7 +6,7 @@
         (SPADCALL |x| (|spadConstant| % 12) (QREFELT % 13))) 
 
 (SDEFUN |CPIMA;characteristicPolynomial;EPolR;2| ((|x| (E)) (% (|PolR|)))
-        (SPROG ((#1=#:G4 NIL) (|Qx| (|PolR|)))
+        (SPROG ((|Qx| (|PolR|)) (#1=#:G4 NIL))
                (SEQ
                 (EXIT
                  (SEQ (LETT |Qx| (SPADCALL |x| (QREFELT % 24)))
@@ -24,7 +24,7 @@
 (DECLAIM (NOTINLINE |CharacteristicPolynomialInMonogenicalAlgebra;|)) 
 
 (DEFUN |CharacteristicPolynomialInMonogenicalAlgebra;| (|#1| |#2| |#3|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

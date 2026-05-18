@@ -28,18 +28,18 @@
 (SDEFUN |INS-;rational?;SB;8| ((|x| (S)) (% (|Boolean|))) 'T) 
 
 (SDEFUN |INS-;euclideanSize;SNni;9| ((|x| (S)) (% (|NonNegativeInteger|)))
-        (SPROG ((#1=#:G32 NIL) (#2=#:G31 NIL))
+        (SPROG ((#1=#:G31 NIL) (#2=#:G32 NIL))
                (COND
                 ((SPADCALL |x| (|spadConstant| % 9) (QREFELT % 24))
                  (|error| "euclideanSize called on zero"))
                 ((SPADCALL |x| (|spadConstant| % 9) (QREFELT % 25))
-                 (PROG1 (LETT #2# (- (SPADCALL |x| (QREFELT % 27))))
-                   (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
-                                     '(|Integer|) #2#)))
-                ('T
-                 (PROG1 (LETT #1# (SPADCALL |x| (QREFELT % 27)))
+                 (PROG1 (LETT #1# (- (SPADCALL |x| (QREFELT % 27))))
                    (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
-                                     '(|Integer|) #1#)))))) 
+                                     '(|Integer|) #1#)))
+                ('T
+                 (PROG1 (LETT #2# (SPADCALL |x| (QREFELT % 27)))
+                   (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #2#)))))) 
 
 (SDEFUN |INS-;convert;SF;10| ((|x| (S)) (% (|Float|)))
         (SPADCALL (SPADCALL |x| (QREFELT % 27)) (QREFELT % 30))) 
@@ -128,8 +128,8 @@
 
 (SDEFUN |INS-;invmod;3S;28| ((|a| (S)) (|b| (S)) (% (S)))
         (SPROG
-         ((|d1| (S)) (|d| (S)) (|c1| (S)) (|c| (S)) (|r1| (S)) (|r| (S))
-          (|q| (S)))
+         ((|q| (S)) (|r| (S)) (|r1| (S)) (|c| (S)) (|c1| (S)) (|d| (S))
+          (|d1| (S)))
          (SEQ
           (COND
            ((SPADCALL |a| (QREFELT % 81))
@@ -158,7 +158,7 @@
             (#1# (|error| "inverse does not exist"))))))) 
 
 (SDEFUN |INS-;powmod;4S;29| ((|x| (S)) (|n| (S)) (|p| (S)) (% (S)))
-        (SPROG ((|z| (S)) (#1=#:G95 NIL) (|y| (S)))
+        (SPROG ((|y| (S)) (#1=#:G95 NIL) (|z| (S)))
                (SEQ
                 (EXIT
                  (SEQ
@@ -200,7 +200,7 @@
 (DECLAIM (NOTINLINE |IntegerNumberSystem&;|)) 
 
 (DEFUN |IntegerNumberSystem&| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|IntegerNumberSystem&| DV$1))

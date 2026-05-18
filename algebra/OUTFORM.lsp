@@ -53,8 +53,8 @@
 
 (SDEFUN |OUTFORM;convert;%If;14| ((|a| (%)) (% (|InputForm|)))
         (SPROG
-         ((#1=#:G1612 NIL) (|b| (|SExpression|)) (|d| (|String|))
-          (|l| (|Integer|)) (|c| (|String|)))
+         ((|c| (|String|)) (|l| (|Integer|)) (|d| (|String|))
+          (|b| (|SExpression|)) (#1=#:G1612 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |b| |a|)
@@ -151,28 +151,28 @@
                          (QREFELT % 57))))) 
 
 (SDEFUN |OUTFORM;matrix;L%;26| ((|ll| (|List| (|List| %))) (% (%)))
-        (SPROG ((|lv| (|List| %)) (#1=#:G1631 NIL) (|l| NIL) (#2=#:G1630 NIL))
+        (SPROG ((#1=#:G1630 NIL) (|l| NIL) (#2=#:G1631 NIL) (|lv| (|List| %)))
                (SEQ
                 (COND ((NULL |ll|) (SPADCALL NIL (QREFELT % 59)))
                       ('T
                        (SEQ
                         (LETT |lv|
                               (PROGN
-                               (LETT #2# NIL)
-                               (SEQ (LETT |l| NIL) (LETT #1# |ll|) G190
+                               (LETT #1# NIL)
+                               (SEQ (LETT |l| NIL) (LETT #2# |ll|) G190
                                     (COND
-                                     ((OR (ATOM #1#)
-                                          (PROGN (LETT |l| (CAR #1#)) NIL))
+                                     ((OR (ATOM #2#)
+                                          (PROGN (LETT |l| (CAR #2#)) NIL))
                                       (GO G191)))
                                     (SEQ
                                      (EXIT
-                                      (LETT #2#
+                                      (LETT #1#
                                             (CONS
                                              (|OUTFORM;cons_form|
                                               (|OUTFORM;eform| 'ROW %) |l| %)
-                                             #2#))))
-                                    (LETT #1# (CDR #1#)) (GO G190) G191
-                                    (EXIT (NREVERSE #2#)))))
+                                             #1#))))
+                                    (LETT #2# (CDR #2#)) (GO G190) G191
+                                    (EXIT (NREVERSE #1#)))))
                         (EXIT
                          (|OUTFORM;cons_form| (|OUTFORM;eform| 'MATRIX %)
                           (SPADCALL (|OUTFORM;eform| 'NIL %) |lv|
@@ -190,8 +190,8 @@
 
 (SDEFUN |OUTFORM;blankSeparate;L%;30| ((|l| (|List| %)) (% (%)))
         (SPROG
-         ((|l1| (|List| %)) (|l2| (|List| %)) (|uo| (|OutputForm|))
-          (#1=#:G1641 NIL) (|u| NIL) (|c| (%)))
+         ((|c| (%)) (|u| NIL) (#1=#:G1641 NIL) (|uo| (|OutputForm|))
+          (|l2| (|List| %)) (|l1| (|List| %)))
          (SEQ (LETT |c| (|OUTFORM;eform| 'CONCATB %)) (LETT |l1| NIL)
               (SEQ (LETT |u| NIL) (LETT #1# (SPADCALL |l| (QREFELT % 65))) G190
                    (COND
@@ -342,7 +342,7 @@
         (SPADCALL (LIST (|OUTFORM;eform| 'NOTHING %)) (QREFELT % 19))) 
 
 (SDEFUN |OUTFORM;infix?;%B;68| ((|a| (%)) (% (|Boolean|)))
-        (SPROG ((|e| (%)) (#1=#:G1687 NIL))
+        (SPROG ((#1=#:G1687 NIL) (|e| (%)))
                (SEQ
                 (EXIT
                  (SEQ
@@ -445,7 +445,7 @@
 
 (SDEFUN |OUTFORM;differentiate;%Nni%;91|
         ((|a| (%)) (|nn| (|NonNegativeInteger|)) (% (%)))
-        (SPROG ((|s| (|String|)) (|r| (|String|)) (#1=#:G1719 NIL))
+        (SPROG ((#1=#:G1719 NIL) (|r| (|String|)) (|s| (|String|)))
                (SEQ
                 (COND ((ZEROP |nn|) |a|)
                       ((< |nn| 4) (SPADCALL |a| |nn| (QREFELT % 120)))

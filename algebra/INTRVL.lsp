@@ -1,8 +1,8 @@
 
 (SDEFUN |INTRVL;roundDown| ((|u| (R)) (% (R)))
         (SPROG
-         ((|dig| (|Integer|)) (|eu| (|Integer|)) (|l| (|Integer|))
-          (|m| (|Integer|)) (|prec| (|PositiveInteger|)))
+         ((|prec| (|PositiveInteger|)) (|m| (|Integer|)) (|l| (|Integer|))
+          (|eu| (|Integer|)) (|dig| (|Integer|)))
          (SEQ
           (COND ((SPADCALL |u| (QREFELT % 9)) |u|)
                 (#1='T
@@ -28,8 +28,8 @@
 
 (SDEFUN |INTRVL;roundUp| ((|u| (R)) (% (R)))
         (SPROG
-         ((|dig| (|Integer|)) (|eu| (|Integer|)) (|l| (|Integer|))
-          (|m| (|Integer|)) (|prec| (|PositiveInteger|)))
+         ((|prec| (|PositiveInteger|)) (|m| (|Integer|)) (|l| (|Integer|))
+          (|eu| (|Integer|)) (|dig| (|Integer|)))
          (SEQ
           (COND ((SPADCALL |u| (QREFELT % 9)) |u|)
                 (#1='T
@@ -55,8 +55,8 @@
 
 (SDEFUN |INTRVL;normaliseFloat| ((|u| (R)) (% (R)))
         (SPROG
-         ((BASE (|Integer|)) (|l| (|Integer|)) (|b| (|Integer|))
-          (|m| (|Integer|)))
+         ((|m| (|Integer|)) (|b| (|Integer|)) (|l| (|Integer|))
+          (BASE (|Integer|)))
          (SEQ
           (COND ((SPADCALL |u| (QREFELT % 9)) |u|)
                 (#1='T
@@ -220,7 +220,7 @@
                 (EXIT (|INTRVL;exactInterval| |ur| |ur| %))))) 
 
 (SDEFUN |INTRVL;interval;F%;21| ((|u| (|Fraction| (|Integer|))) (% (%)))
-        (SPROG ((|flt| (R)) (|bin| (|Union| (|Integer|) "failed")))
+        (SPROG ((|bin| (|Union| (|Integer|) "failed")) (|flt| (R)))
                (SEQ (LETT |flt| (SPADCALL |u| (QREFELT % 51)))
                     (LETT |bin|
                           (SPADCALL
@@ -355,8 +355,8 @@
 
 (SDEFUN |INTRVL;sin;2%;32| ((|u| (%)) (% (%)))
         (SPROG
-         ((|vals| (|List| R)) (|hasMinusOne?| #1=(|Boolean|)) (|hasOne?| #1#)
-          (|ipi| (R)))
+         ((|ipi| (R)) (|hasOne?| #1=(|Boolean|)) (|hasMinusOne?| #1#)
+          (|vals| (|List| R)))
          (SEQ (LETT |ipi| (SPADCALL (QREFELT % 71)))
               (LETT |hasOne?|
                     (|INTRVL;hasTwoPiMultiple|
@@ -425,8 +425,8 @@
 
 (SDEFUN |INTRVL;cos;2%;33| ((|u| (%)) (% (%)))
         (SPROG
-         ((|vals| (|List| R)) (|hasMinusOne?| #1=(|Boolean|)) (|hasOne?| #1#)
-          (|ipi| (R)))
+         ((|ipi| (R)) (|hasOne?| #1=(|Boolean|)) (|hasMinusOne?| #1#)
+          (|vals| (|List| R)))
          (SEQ (LETT |ipi| (SPADCALL (QREFELT % 71)))
               (LETT |hasOne?|
                     (|INTRVL;hasTwoPiMultiple| (|spadConstant| % 36) |ipi| |u|
@@ -489,7 +489,7 @@
                                (QREFELT % 24)))))))))))) 
 
 (SDEFUN |INTRVL;tan;2%;34| ((|u| (%)) (% (%)))
-        (SPROG ((|hi| (R)) (|lo| (R)) (|ipi| (R)))
+        (SPROG ((|ipi| (R)) (|lo| (R)) (|hi| (R)))
                (SEQ (LETT |ipi| (SPADCALL (QREFELT % 71)))
                     (EXIT
                      (COND
@@ -511,7 +511,7 @@
                           (#1# (SPADCALL |lo| |hi| (QREFELT % 24)))))))))))) 
 
 (SDEFUN |INTRVL;csc;2%;35| ((|u| (%)) (% (%)))
-        (SPROG ((|vals| (|List| R)) (|ipi| (R)))
+        (SPROG ((|ipi| (R)) (|vals| (|List| R)))
                (SEQ (LETT |ipi| (SPADCALL (QREFELT % 71)))
                     (EXIT
                      (COND
@@ -553,7 +553,7 @@
                                      (QREFELT % 24)))))))))))) 
 
 (SDEFUN |INTRVL;sec;2%;36| ((|u| (%)) (% (%)))
-        (SPROG ((|vals| (|List| R)) (|ipi| (R)))
+        (SPROG ((|ipi| (R)) (|vals| (|List| R)))
                (SEQ (LETT |ipi| (SPADCALL (QREFELT % 71)))
                     (EXIT
                      (COND
@@ -591,7 +591,7 @@
                                      (QREFELT % 24)))))))))))) 
 
 (SDEFUN |INTRVL;cot;2%;37| ((|u| (%)) (% (%)))
-        (SPROG ((|lo| (R)) (|hi| (R)) (|ipi| (R)))
+        (SPROG ((|ipi| (R)) (|hi| (R)) (|lo| (R)))
                (SEQ (LETT |ipi| (SPADCALL (QREFELT % 71)))
                     (EXIT
                      (COND
@@ -613,7 +613,7 @@
                           (#1# (SPADCALL |lo| |hi| (QREFELT % 24)))))))))))) 
 
 (SDEFUN |INTRVL;asin;2%;38| ((|u| (%)) (% (%)))
-        (SPROG ((|hi| (R)) (|lo| (R)))
+        (SPROG ((|lo| (R)) (|hi| (R)))
                (SEQ (LETT |lo| (SPADCALL |u| (QREFELT % 25)))
                     (LETT |hi| (SPADCALL |u| (QREFELT % 26)))
                     (COND
@@ -630,7 +630,7 @@
                                (QREFELT % 24)))))) 
 
 (SDEFUN |INTRVL;acos;2%;39| ((|u| (%)) (% (%)))
-        (SPROG ((|hi| (R)) (|lo| (R)))
+        (SPROG ((|lo| (R)) (|hi| (R)))
                (SEQ (LETT |lo| (SPADCALL |u| (QREFELT % 25)))
                     (LETT |hi| (SPADCALL |u| (QREFELT % 26)))
                     (COND
@@ -657,7 +657,7 @@
                   (QREFELT % 24))) 
 
 (SDEFUN |INTRVL;acsc;2%;42| ((|u| (%)) (% (%)))
-        (SPROG ((|hi| (R)) (|lo| (R)))
+        (SPROG ((|lo| (R)) (|hi| (R)))
                (SEQ (LETT |lo| (SPADCALL |u| (QREFELT % 25)))
                     (LETT |hi| (SPADCALL |u| (QREFELT % 26)))
                     (COND
@@ -684,7 +684,7 @@
                                (QREFELT % 24)))))) 
 
 (SDEFUN |INTRVL;asec;2%;43| ((|u| (%)) (% (%)))
-        (SPROG ((|hi| (R)) (|lo| (R)))
+        (SPROG ((|lo| (R)) (|hi| (R)))
                (SEQ (LETT |lo| (SPADCALL |u| (QREFELT % 25)))
                     (LETT |hi| (SPADCALL |u| (QREFELT % 26)))
                     (COND
@@ -805,7 +805,7 @@
                     (QREFELT % 24))))) 
 
 (SDEFUN |INTRVL;acoth;2%;51| ((|u| (%)) (% (%)))
-        (SPROG ((|hi| (R)) (|lo| (R)))
+        (SPROG ((|lo| (R)) (|hi| (R)))
                (SEQ (LETT |lo| (SPADCALL |u| (QREFELT % 25)))
                     (LETT |hi| (SPADCALL |u| (QREFELT % 26)))
                     (COND
@@ -841,7 +841,7 @@
                     (QREFELT % 24))))) 
 
 (SDEFUN |INTRVL;asech;2%;53| ((|u| (%)) (% (%)))
-        (SPROG ((|hi| (R)) (|lo| (R)))
+        (SPROG ((|lo| (R)) (|hi| (R)))
                (SEQ (LETT |lo| (SPADCALL |u| (QREFELT % 25)))
                     (LETT |hi| (SPADCALL |u| (QREFELT % 26)))
                     (COND
@@ -859,7 +859,7 @@
                   (QREFELT % 24))) 
 
 (SDEFUN |INTRVL;atanh;2%;55| ((|u| (%)) (% (%)))
-        (SPROG ((|hi| (R)) (|lo| (R)))
+        (SPROG ((|lo| (R)) (|hi| (R)))
                (SEQ (LETT |lo| (SPADCALL |u| (QREFELT % 25)))
                     (LETT |hi| (SPADCALL |u| (QREFELT % 26)))
                     (COND
@@ -876,7 +876,7 @@
                                (QREFELT % 24)))))) 
 
 (SDEFUN |INTRVL;^;%F%;56| ((|u| (%)) (|n| (|Fraction| (|Integer|))) (% (%)))
-        (SPROG ((|hi| (R)) (|lo| (R)))
+        (SPROG ((|lo| (R)) (|hi| (R)))
                (SEQ (LETT |lo| (SPADCALL |u| (QREFELT % 25)))
                     (LETT |hi| (SPADCALL |u| (QREFELT % 26)))
                     (EXIT
@@ -910,7 +910,7 @@
 (DECLAIM (NOTINLINE |Interval;|)) 
 
 (DEFUN |Interval;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|Interval| DV$1))

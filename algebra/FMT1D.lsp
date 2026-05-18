@@ -15,8 +15,8 @@
 
 (SDEFUN |FMT1D;fricasEscapeString| ((|s| (|String|)) (% (|String|)))
         (SPROG
-         ((|str| (|String|)) (|esc| (|String|)) (|n| (|Integer|))
-          (|p| (|Integer|)) (|cc| (|CharacterClass|)))
+         ((|cc| (|CharacterClass|)) (|p| (|Integer|)) (|n| (|Integer|))
+          (|esc| (|String|)) (|str| (|String|)))
          (SEQ (LETT |cc| (SPADCALL "\"_" (QREFELT % 14)))
               (LETT |p| (SPADCALL |cc| |s| 1 (QREFELT % 16)))
               (EXIT
@@ -100,8 +100,8 @@
         ((|x| (|OutputForm|)) (|y| (|OutputForm|)) (|z| (|OutputForm|))
          (% (|OutputForm|)))
         (SPROG
-         ((|args| (|List| (|OutputForm|))) (#1=#:G55 NIL) (|a| NIL)
-          (#2=#:G54 NIL))
+         ((#1=#:G54 NIL) (|a| NIL) (#2=#:G55 NIL)
+          (|args| (|List| (|OutputForm|))))
          (SEQ
           (COND ((SPADCALL |x| |z| (QREFELT % 34)) |y|)
                 ((SPADCALL |z| (QREFELT % 36)) |z|)
@@ -109,20 +109,20 @@
                  (SEQ
                   (LETT |args|
                         (PROGN
-                         (LETT #2# NIL)
+                         (LETT #1# NIL)
                          (SEQ (LETT |a| NIL)
-                              (LETT #1# (SPADCALL |z| (QREFELT % 38))) G190
+                              (LETT #2# (SPADCALL |z| (QREFELT % 38))) G190
                               (COND
-                               ((OR (ATOM #1#)
-                                    (PROGN (LETT |a| (CAR #1#)) NIL))
+                               ((OR (ATOM #2#)
+                                    (PROGN (LETT |a| (CAR #2#)) NIL))
                                 (GO G191)))
                               (SEQ
                                (EXIT
-                                (LETT #2#
+                                (LETT #1#
                                       (CONS (|FMT1D;substitute| |x| |y| |a| %)
-                                            #2#))))
-                              (LETT #1# (CDR #1#)) (GO G190) G191
-                              (EXIT (NREVERSE #2#)))))
+                                            #1#))))
+                              (LETT #2# (CDR #2#)) (GO G190) G191
+                              (EXIT (NREVERSE #1#)))))
                   (EXIT
                    (SPADCALL
                     (|FMT1D;substitute| |x| |y| (SPADCALL |z| (QREFELT % 39))
@@ -131,8 +131,8 @@
 
 (SDEFUN |FMT1D;getDExpression| ((|e| (|OutputForm|)) (% (|OutputForm|)))
         (SPROG
-         ((|args2| #1=(|List| (|OutputForm|))) (|op2| #2=(|OutputForm|))
-          (|args| #1#) (|op| #2#))
+         ((|op| #1=(|OutputForm|)) (|args| #2=(|List| (|OutputForm|)))
+          (|op2| #1#) (|args2| #2#))
          (SEQ
           (COND ((SPADCALL |e| (QREFELT % 36)) (SPADCALL (QREFELT % 41)))
                 (#3='T
@@ -171,8 +171,8 @@
 
 (SDEFUN |FMT1D;integral;IM;12!0| ((|prec| NIL) (|args| NIL) (% NIL))
         (SPROG
-         ((|b2| NIL) (|ba| NIL) (|a| NIL) (|bx| NIL) (|x| NIL) (#1=#:G72 NIL)
-          (|lb| NIL) (|bu| NIL) (|bl| NIL))
+         ((|bl| NIL) (|bu| NIL) (|lb| NIL) (#1=#:G72 NIL) (|x| NIL) (|bx| NIL)
+          (|a| NIL) (|ba| NIL) (|b2| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -255,7 +255,7 @@
           (LETT |s| (QREFELT $$ 0))
           (RETURN
            (PROGN
-            (SPROG ((|b2| NIL) (|ba| NIL) (|bu| NIL) (|bl| NIL))
+            (SPROG ((|bl| NIL) (|bu| NIL) (|ba| NIL) (|b2| NIL))
                    (SEQ
                     (LETT |bl|
                           (SPADCALL
@@ -306,8 +306,8 @@
         ((|prec| (|Integer|)) (|args| (|List| (|OutputForm|)))
          (% (|OutputBox|)))
         (SPROG
-         ((|p2| (|Integer|)) (|p1| (|Integer|)) (|s| (|String|))
-          (|b| (|OutputBox|)) (|a| (|OutputForm|)))
+         ((|a| (|OutputForm|)) (|b| (|OutputBox|)) (|s| (|String|))
+          (|p1| (|Integer|)) (|p2| (|Integer|)))
          (SEQ (LETT |a| (|SPADfirst| |args|))
               (LETT |s|
                     (SEQ
@@ -430,7 +430,7 @@
         (SEQ (CONS #'|FMT1D;scripts;IM;21!0| %))) 
 
 (SDEFUN |FMT1D;scripts;IM;21!0| ((|prec| NIL) (|args| NIL) (% NIL))
-        (SPROG ((|bx| NIL) (#1=#:G109 NIL) (|a| NIL) (|b1| NIL))
+        (SPROG ((|b1| NIL) (|a| NIL) (#1=#:G109 NIL) (|bx| NIL))
                (SEQ
                 (LETT |b1|
                       (SPADCALL (SPADCALL |args| (QREFELT % 55))
@@ -484,7 +484,7 @@
         (SEQ (CONS #'|FMT1D;subscript;IM;22!0| %))) 
 
 (SDEFUN |FMT1D;subscript;IM;22!0| ((|prec| NIL) (|args| NIL) (% NIL))
-        (SPROG ((|b2| NIL) (|b1| NIL))
+        (SPROG ((|b1| NIL) (|b2| NIL))
                (SEQ
                 (LETT |b1|
                       (SPADCALL
@@ -504,7 +504,7 @@
         (SEQ (CONS #'|FMT1D;altsupersub;IM;23!0| %))) 
 
 (SDEFUN |FMT1D;altsupersub;IM;23!0| ((|prec| NIL) (|args| NIL) (% NIL))
-        (SPROG ((|bx| NIL) (#1=#:G120 NIL) (|a| NIL) (|b1| NIL))
+        (SPROG ((|b1| NIL) (|a| NIL) (#1=#:G120 NIL) (|bx| NIL))
                (SEQ
                 (LETT |b1|
                       (SPADCALL (SPADCALL |args| (QREFELT % 55))
@@ -563,7 +563,7 @@
           (LETT |p| (QREFELT $$ 0))
           (RETURN
            (PROGN
-            (SPROG ((|b2| NIL) (|n| NIL) (|b1| NIL))
+            (SPROG ((|b1| NIL) (|n| NIL) (|b2| NIL))
                    (SEQ
                     (LETT |b1|
                           (SPADCALL
@@ -603,7 +603,7 @@
           (LETT |h2| (QREFELT $$ 0))
           (RETURN
            (PROGN
-            (SPROG ((|b2| NIL) (|b1| NIL))
+            (SPROG ((|b1| NIL) (|b2| NIL))
                    (SEQ
                     (LETT |b1|
                           (SPADCALL
@@ -640,7 +640,7 @@
           (LETT |h2| (QREFELT $$ 0))
           (RETURN
            (PROGN
-            (SPROG ((|b2| NIL) (|b1| NIL))
+            (SPROG ((|b1| NIL) (|b2| NIL))
                    (SEQ
                     (LETT |b1|
                           (SPADCALL
@@ -670,7 +670,7 @@
 (SDEFUN |FMT1D;binomial;ILOb;28|
         ((|prec| (|Integer|)) (|args| (|List| (|OutputForm|)))
          (% (|OutputBox|)))
-        (SPROG ((|b2| #1=(|OutputBox|)) (|b1| #1#))
+        (SPROG ((|b1| #1=(|OutputBox|)) (|b2| #1#))
                (SEQ
                 (LETT |b1|
                       (SPADCALL (SPADCALL |args| 1 (QREFELT % 46))
@@ -685,7 +685,7 @@
 (SDEFUN |FMT1D;zag;ILOb;29|
         ((|prec| (|Integer|)) (|args| (|List| (|OutputForm|)))
          (% (|OutputBox|)))
-        (SPROG ((|b2| #1=(|OutputBox|)) (|b1| #1#))
+        (SPROG ((|b1| #1=(|OutputBox|)) (|b2| #1#))
                (SEQ
                 (LETT |b1|
                       (SPADCALL (SPADCALL |args| 1 (QREFELT % 46))

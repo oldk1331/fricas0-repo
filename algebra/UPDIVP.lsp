@@ -5,9 +5,9 @@
           (|Union| (|Record| (|:| |quotient| UP) (|:| |remainder| UP))
                    "failed")))
         (SPROG
-         ((|q| (UP)) (|ee| (|NonNegativeInteger|)) (#1=#:G7 NIL) (#2=#:G25 NIL)
-          (|c| (|Union| R "failed"))
-          (|e| (|Union| (|NonNegativeInteger|) #3="failed")) (|lc| (R)))
+         ((|lc| (R)) (|e| (|Union| (|NonNegativeInteger|) #1="failed"))
+          (|c| (|Union| R "failed")) (#2=#:G25 NIL) (#3=#:G7 NIL)
+          (|ee| (|NonNegativeInteger|)) (|q| (UP)))
          (SEQ
           (EXIT
            (COND
@@ -45,14 +45,14 @@
                                   ('T
                                    (SEQ
                                     (LETT |ee|
-                                          (PROG2 (LETT #1# |e|)
-                                              (QCDR #1#)
-                                            (|check_union2| (QEQCAR #1# 0)
+                                          (PROG2 (LETT #3# |e|)
+                                              (QCDR #3#)
+                                            (|check_union2| (QEQCAR #3# 0)
                                                             (|NonNegativeInteger|)
                                                             (|Union|
                                                              (|NonNegativeInteger|)
-                                                             #3#)
-                                                            #1#)))
+                                                             #1#)
+                                                            #3#)))
                                     (LETT |q|
                                           (SPADCALL |q|
                                                     (SPADCALL (QCDR |c|) |ee|
@@ -84,7 +84,7 @@
 (DECLAIM (NOTINLINE |UnivariatePolynomialDivisionPackage;|)) 
 
 (DEFUN |UnivariatePolynomialDivisionPackage;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

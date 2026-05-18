@@ -3,15 +3,15 @@
         ((|lvw| (|List| (|Record| (|:| |value| S) (|:| |weight| (|Integer|)))))
          (% (|Mapping| S)))
         (SPROG
-         ((|totwt| (|Integer|)) (#1=#:G16 NIL) (|k| NIL) (#2=#:G17 NIL)
-          (|i| NIL) (|wv| (|Vector| (|Integer|))) (|kv| (|Vector| S))
-          (|n| (|NonNegativeInteger|)) (|kl| (|List| S)) (|w| (|Integer|))
-          (|u| (|Union| (|Integer|) "failed")) (#3=#:G15 NIL) (|r| NIL)
-          (|t| (|Table| S (|Integer|))))
+         ((|t| (|Table| S (|Integer|))) (|r| NIL) (#1=#:G15 NIL)
+          (|u| (|Union| (|Integer|) "failed")) (|w| (|Integer|))
+          (|kl| (|List| S)) (|n| (|NonNegativeInteger|)) (|kv| (|Vector| S))
+          (|wv| (|Vector| (|Integer|))) (|i| NIL) (#2=#:G17 NIL) (|k| NIL)
+          (#3=#:G16 NIL) (|totwt| (|Integer|)))
          (SEQ (LETT |t| (SPADCALL (QREFELT % 8)))
-              (SEQ (LETT |r| NIL) (LETT #3# |lvw|) G190
+              (SEQ (LETT |r| NIL) (LETT #1# |lvw|) G190
                    (COND
-                    ((OR (ATOM #3#) (PROGN (LETT |r| (CAR #3#)) NIL))
+                    ((OR (ATOM #1#) (PROGN (LETT |r| (CAR #1#)) NIL))
                      (GO G191)))
                    (SEQ (LETT |u| (SPADCALL (QCAR |r|) |t| (QREFELT % 10)))
                         (LETT |w|
@@ -21,7 +21,7 @@
                          (SPADCALL |t| (QCAR |r|)
                                    (SPADCALL |w| (QCDR |r|) (QREFELT % 13))
                                    (QREFELT % 14))))
-                   (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
+                   (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (LETT |kl| (SPADCALL |t| (QREFELT % 16)))
               (LETT |n| (SPADCALL |kl| (QREFELT % 18)))
               (EXIT
@@ -39,9 +39,9 @@
                         (SPADCALL |n| (|spadConstant| % 19) (QREFELT % 26)))
                   (LETT |totwt| (|spadConstant| % 19))
                   (SEQ (LETT |i| (|spadConstant| % 29)) (LETT #2# |n|)
-                       (LETT |k| NIL) (LETT #1# |kl|) G190
+                       (LETT |k| NIL) (LETT #3# |kl|) G190
                        (COND
-                        ((OR (ATOM #1#) (PROGN (LETT |k| (CAR #1#)) NIL)
+                        ((OR (ATOM #3#) (PROGN (LETT |k| (CAR #3#)) NIL)
                              (> |i| #2#))
                          (GO G191)))
                        (SEQ (SPADCALL |kv| |i| |k| (QREFELT % 30))
@@ -50,7 +50,7 @@
                                             (SPADCALL |t| |k| (QREFELT % 31))
                                             (QREFELT % 13)))
                             (EXIT (SPADCALL |wv| |i| |totwt| (QREFELT % 32))))
-                       (LETT #1# (PROG1 (CDR #1#) (LETT |i| (+ |i| 1))))
+                       (LETT #3# (PROG1 (CDR #3#) (LETT |i| (+ |i| 1))))
                        (GO G190) G191 (EXIT NIL))
                   (EXIT (SPADCALL |kv| |wv| |totwt| (QREFELT % 34)))))))))) 
 
@@ -95,7 +95,7 @@
 (DECLAIM (NOTINLINE |RandomDistributions;|)) 
 
 (DEFUN |RandomDistributions;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|RandomDistributions| DV$1))

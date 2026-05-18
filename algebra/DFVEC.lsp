@@ -55,7 +55,7 @@
         (DSETELT |x| |i| |s|)) 
 
 (SDEFUN |DFVEC;fill!;%Df%;12| ((|x| (%)) (|s| (|DoubleFloat|)) (% (%)))
-        (SPROG ((#1=#:G2597 NIL) (|i| NIL))
+        (SPROG ((|i| NIL) (#1=#:G2597 NIL))
                (SEQ
                 (SEQ (LETT |i| 0) (LETT #1# (|sub_SI| (DLEN |x|) 1)) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))

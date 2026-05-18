@@ -59,7 +59,7 @@
 (SDEFUN |CYCGRP;size;Nni;13| ((% (|NonNegativeInteger|))) (QREFELT % 6)) 
 
 (SDEFUN |CYCGRP;index;Pi%;14| ((|i| (|PositiveInteger|)) (% (%)))
-        (SPROG ((#1=#:G23 NIL) (|imodn| (%)))
+        (SPROG ((|imodn| (%)) (#1=#:G23 NIL))
                (SEQ
                 (EXIT
                  (COND ((> |i| (QREFELT % 6)) (|error| "out of range"))
@@ -82,15 +82,15 @@
 (SDEFUN |CYCGRP;random;%;16| ((% (%))) (|CYCGRP;per| (RANDOM (QREFELT % 6)) %)) 
 
 (SDEFUN |CYCGRP;enumerate;L;17| ((% (|List| %)))
-        (SPROG ((#1=#:G30 NIL) (|k| NIL) (#2=#:G29 NIL))
+        (SPROG ((#1=#:G29 NIL) (|k| NIL) (#2=#:G30 NIL))
                (SEQ
                 (PROGN
-                 (LETT #2# NIL)
-                 (SEQ (LETT |k| 0) (LETT #1# (- (QREFELT % 6) 1)) G190
-                      (COND ((|greater_SI| |k| #1#) (GO G191)))
-                      (SEQ (EXIT (LETT #2# (CONS (|CYCGRP;per| |k| %) #2#))))
+                 (LETT #1# NIL)
+                 (SEQ (LETT |k| 0) (LETT #2# (- (QREFELT % 6) 1)) G190
+                      (COND ((|greater_SI| |k| #2#) (GO G191)))
+                      (SEQ (EXIT (LETT #1# (CONS (|CYCGRP;per| |k| %) #1#))))
                       (LETT |k| (|inc_SI| |k|)) (GO G190) G191
-                      (EXIT (NREVERSE #2#))))))) 
+                      (EXIT (NREVERSE #1#))))))) 
 
 (SDEFUN |CYCGRP;generator;%;18| ((% (%))) (|CYCGRP;per| 1 %)) 
 
@@ -103,7 +103,7 @@
 (DECLAIM (NOTINLINE |CyclicGroup;|)) 
 
 (DEFUN |CyclicGroup;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 |#1|)
           (LETT DV$2 |#2|)

@@ -26,7 +26,7 @@
         ((|l| (|List| (|GuessOption|)))
          (% (|Union| (|PositiveInteger|) "arbitrary")))
         (SPROG
-         ((#1=#:G37 NIL) (|d| (|Union| (|NonNegativeInteger|) "arbitrary")))
+         ((|d| (|Union| (|NonNegativeInteger|) "arbitrary")) (#1=#:G37 NIL))
          (SEQ (LETT |d| (SPADCALL |l| (QREFELT % 17)))
               (EXIT
                (COND
@@ -174,10 +174,10 @@
 (SDEFUN |GOPT0;checkOptions;LV;21|
         ((|l| (|List| (|GuessOption|))) (% (|Void|)))
         (SPROG
-         ((|Somo| (|Union| (|PositiveInteger|) (|Boolean|)))
-          (|homo| (|Union| (|PositiveInteger|) (|Boolean|)))
+         ((|maxD| (|Union| (|NonNegativeInteger|) "arbitrary"))
           (|maxP| (|Union| (|PositiveInteger|) "arbitrary"))
-          (|maxD| (|Union| (|NonNegativeInteger|) "arbitrary")))
+          (|homo| (|Union| (|PositiveInteger|) (|Boolean|)))
+          (|Somo| (|Union| (|PositiveInteger|) (|Boolean|))))
          (SEQ (LETT |maxD| (SPADCALL |l| (QREFELT % 17)))
               (LETT |maxP| (SPADCALL |l| (QREFELT % 32)))
               (LETT |homo| (SPADCALL |l| (QREFELT % 44)))

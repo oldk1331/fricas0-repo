@@ -115,8 +115,8 @@
 (SDEFUN |SPFUTS;p_stream|
         ((|g2| (|Coef|)) (|g3| (|Coef|)) (% (|Stream| |Coef|)))
         (SPROG
-         ((|c28| (|Coef|)) (|c20| (|Coef|)) (|c5| (|Coef|)) (|c4| (|Coef|))
-          (|c2| (|Coef|)))
+         ((|c2| (|Coef|)) (|c4| (|Coef|)) (|c5| (|Coef|)) (|c20| (|Coef|))
+          (|c28| (|Coef|)))
          (SEQ
           (LETT |c2|
                 (SPADCALL (|spadConstant| % 18) (|spadConstant| % 18)
@@ -173,7 +173,7 @@
 (SDEFUN |SPFUTS;weierstrassSigma0;2Coef2UTS;8|
         ((|g2| (|Coef|)) (|g3| (|Coef|)) (|x| (UTS)) (% (UTS)))
         (SPROG
-         ((|lsigma| #1=(|Stream| |Coef|)) (|zs| #1#) (|ps2| (|Stream| |Coef|)))
+         ((|ps2| (|Stream| |Coef|)) (|zs| #1=(|Stream| |Coef|)) (|lsigma| #1#))
          (SEQ
           (LETT |ps2|
                 (SPADCALL (|SPFUTS;p_stream| |g2| |g3| %)
@@ -193,7 +193,7 @@
 (DECLAIM (NOTINLINE |SpecialFunctionUnivariateTaylorSeries;|)) 
 
 (DEFUN |SpecialFunctionUnivariateTaylorSeries;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

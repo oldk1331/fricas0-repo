@@ -33,10 +33,10 @@
 
 (SDEFUN |FGROUP;*;3%;11| ((|f| (%)) (|g| (%)) (% (%)))
         (SPROG
-         ((|h| (|List| (|Record| (|:| |gen| S) (|:| |exp| (|Integer|)))))
-          (|newexp| (|Integer|))
+         ((|r| (|List| (|Record| (|:| |gen| S) (|:| |exp| (|Integer|)))))
           (|q| (|List| (|Record| (|:| |gen| S) (|:| |exp| (|Integer|)))))
-          (|r| (|List| (|Record| (|:| |gen| S) (|:| |exp| (|Integer|))))))
+          (|newexp| (|Integer|))
+          (|h| (|List| (|Record| (|:| |gen| S) (|:| |exp| (|Integer|))))))
          (SEQ
           (COND ((SPADCALL |f| (QREFELT % 14)) |g|)
                 ((SPADCALL |g| (QREFELT % 14)) |f|)
@@ -88,16 +88,17 @@
 
 (SDEFUN |FGROUP;smaller?;2%B;12| ((|a| (%)) (|b| (%)) (% (|Boolean|)))
         (SPROG
-         ((|lb| #1=(|List| (|Record| (|:| |gen| S) (|:| |exp| (|Integer|)))))
-          (|la| #1#) (#2=#:G70 NIL) (|nb| (|Integer|)) (|na| (|Integer|)))
+         ((|na| (|Integer|)) (|nb| (|Integer|)) (#1=#:G70 NIL)
+          (|la| #2=(|List| (|Record| (|:| |gen| S) (|:| |exp| (|Integer|)))))
+          (|lb| #2#))
          (SEQ
           (EXIT
            (SEQ (LETT |la| (SPADCALL |a| (QREFELT % 12)))
                 (LETT |lb| (SPADCALL |b| (QREFELT % 12)))
                 (LETT |na| (LENGTH |la|)) (LETT |nb| (LENGTH |lb|))
                 (EXIT
-                 (COND ((< |na| |nb|) (PROGN (LETT #2# 'T) (GO #3=#:G69)))
-                       ((< |nb| |na|) (PROGN (LETT #2# NIL) (GO #3#)))
+                 (COND ((< |na| |nb|) (PROGN (LETT #1# 'T) (GO #3=#:G69)))
+                       ((< |nb| |na|) (PROGN (LETT #1# NIL) (GO #3#)))
                        ('T
                         (SEQ
                          (SEQ G190 (COND ((NULL (NULL (NULL |la|))) (GO G191)))
@@ -107,28 +108,28 @@
                                  ((SPADCALL (QCAR (|SPADfirst| |la|))
                                             (QCAR (|SPADfirst| |lb|))
                                             (QREFELT % 44))
-                                  (PROGN (LETT #2# 'T) (GO #3#)))
+                                  (PROGN (LETT #1# 'T) (GO #3#)))
                                  ((SPADCALL (QCAR (|SPADfirst| |lb|))
                                             (QCAR (|SPADfirst| |la|))
                                             (QREFELT % 44))
-                                  (PROGN (LETT #2# NIL) (GO #3#)))
+                                  (PROGN (LETT #1# NIL) (GO #3#)))
                                  ((< (QCDR (|SPADfirst| |la|))
                                      (QCDR (|SPADfirst| |lb|)))
-                                  (PROGN (LETT #2# 'T) (GO #3#)))
+                                  (PROGN (LETT #1# 'T) (GO #3#)))
                                  ((< (QCDR (|SPADfirst| |lb|))
                                      (QCDR (|SPADfirst| |la|)))
-                                  (PROGN (LETT #2# NIL) (GO #3#)))
+                                  (PROGN (LETT #1# NIL) (GO #3#)))
                                  ('T
                                   (SEQ (LETT |la| (CDR |la|))
                                        (EXIT (LETT |lb| (CDR |lb|))))))))
                               NIL (GO G190) G191 (EXIT NIL))
                          (EXIT NIL)))))))
-          #3# (EXIT #2#)))) 
+          #3# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |FreeGroup;|)) 
 
 (DEFUN |FreeGroup;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|FreeGroup| DV$1))

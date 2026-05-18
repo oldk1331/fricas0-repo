@@ -12,7 +12,7 @@
 
 (SDEFUN |GUESSP1;iiretractVar;KP;4|
         ((|v| (|Kernel| (|Expression| (|Integer|)))) (% (|Polynomial| R)))
-        (SPROG ((|r| (|Union| R "failed")) (|v2| (|Expression| (|Integer|))))
+        (SPROG ((|v2| (|Expression| (|Integer|))) (|r| (|Union| R "failed")))
                (SEQ (LETT |v2| (|GUESSP1;m3| |v| %))
                     (LETT |r| (SPADCALL |v2| (QREFELT % 15)))
                     (EXIT
@@ -28,8 +28,8 @@
 (SDEFUN |GUESSP1;iiretractVar;KP;6|
         ((|v| (|Kernel| (|Expression| (|Integer|)))) (% (|Polynomial| R)))
         (SPROG
-         ((|r| (|Union| (|Integer|) "failed"))
-          (|v2| (|Expression| (|Integer|))))
+         ((|v2| (|Expression| (|Integer|)))
+          (|r| (|Union| (|Integer|) "failed")))
          (SEQ (LETT |v2| (|GUESSP1;m3| |v| %))
               (LETT |r| (SPADCALL |v2| (QREFELT % 26)))
               (EXIT
@@ -72,7 +72,7 @@
 (DECLAIM (NOTINLINE |GuessPolynomialFunctions;|)) 
 
 (DEFUN |GuessPolynomialFunctions;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|GuessPolynomialFunctions| DV$1))

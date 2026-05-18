@@ -33,8 +33,10 @@
         ((|n| (|Integer|))
          (% (|Record| (|:| |digit| (|Integer|)) (|:| |carry| (|Integer|)))))
         (SPROG
-         ((|q| #1=(|Integer|)) (|r| (|Integer|)) (|r0| #2=(|Integer|))
-          (|dv| (|Record| (|:| |quotient| #1#) (|:| |remainder| #2#))))
+         ((|dv|
+           (|Record| (|:| |quotient| #1=(|Integer|))
+                     (|:| |remainder| #2=(|Integer|))))
+          (|r0| #2#) (|r| (|Integer|)) (|q| #1#))
          (SEQ (LETT |dv| (|divide_INT| |n| (QREFELT % 6)))
               (LETT |r0| (QCDR |dv|)) (LETT |q| (QCAR |dv|))
               (COND
@@ -67,29 +69,29 @@
 
 (SDEFUN |IPADIC;=;2%B;15| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (SPROG
-         ((|st| (|Stream| (|Integer|))) (#1=#:G78 NIL) (#2=#:G79 NIL) (|i| NIL)
-          (|n| (|Integer|)))
+         ((|n| (|Integer|)) (|i| NIL) (#1=#:G79 NIL) (#2=#:G78 NIL)
+          (|st| (|Stream| (|Integer|))))
          (SEQ
           (EXIT
            (SEQ
             (LETT |st| (|IPADIC;stream| (SPADCALL |x| |y| (QREFELT % 37)) %))
             (LETT |n| |$streamCount|)
-            (SEQ (LETT |i| 0) (LETT #2# |n|) G190
-                 (COND ((|greater_SI| |i| #2#) (GO G191)))
+            (SEQ (LETT |i| 0) (LETT #1# |n|) G190
+                 (COND ((|greater_SI| |i| #1#) (GO G191)))
                  (SEQ
                   (EXIT
                    (COND
                     ((SPADCALL |st| (QREFELT % 30))
-                     (PROGN (LETT #1# 'T) (GO #3=#:G77)))
+                     (PROGN (LETT #2# 'T) (GO #3=#:G77)))
                     ((SPADCALL (SPADCALL |st| (QREFELT % 31)) 0 (QREFELT % 27))
-                     (PROGN (LETT #1# NIL) (GO #3#)))
+                     (PROGN (LETT #2# NIL) (GO #3#)))
                     ('T (LETT |st| (SPADCALL |st| (QREFELT % 38)))))))
                  (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
             (EXIT (SPADCALL |st| (QREFELT % 30)))))
-          #3# (EXIT #1#)))) 
+          #3# (EXIT #2#)))) 
 
 (SDEFUN |IPADIC;order;%Nni;16| ((|x| (%)) (% (|NonNegativeInteger|)))
-        (SPROG ((|st| (%)) (#1=#:G86 NIL) (|i| NIL))
+        (SPROG ((|i| NIL) (#1=#:G86 NIL) (|st| (%)))
                (SEQ
                 (EXIT
                  (SEQ (LETT |st| (|IPADIC;stream| |x| %))
@@ -625,7 +627,7 @@
 (SDEFUN |IPADIC;root;SupI%;40|
         ((|f| (|SparseUnivariatePolynomial| #1=(|Integer|))) (|x0| #1#)
          (% (%)))
-        (SPROG ((|invFpx0| #2=(|Integer|)) (|fpx0| #2#))
+        (SPROG ((|fpx0| #2=(|Integer|)) (|invFpx0| #2#))
                (SEQ (LETT |x0| (|IPADIC;modP| |x0| %))
                     (COND
                      ((NULL
@@ -680,8 +682,8 @@
 
 (SDEFUN |IPADIC;coerce;%Of;43| ((|x| (%)) (% (|OutputForm|)))
         (SPROG
-         ((|l| (|List| (|OutputForm|))) (|st| (%)) (|st1| (%)) (|n| NIL)
-          (#1=#:G265 NIL) (|count| (|NonNegativeInteger|)))
+         ((|count| (|NonNegativeInteger|)) (#1=#:G265 NIL) (|n| NIL)
+          (|st1| (%)) (|st| (%)) (|l| (|List| (|OutputForm|))))
          (SEQ
           (COND
            ((SPADCALL (LETT |st| (|IPADIC;stream| |x| %)) (QREFELT % 30))
@@ -764,7 +766,7 @@
 (DECLAIM (NOTINLINE |InnerPAdicInteger;|)) 
 
 (DEFUN |InnerPAdicInteger;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 |#1|)
           (LETT DV$2 |#2|)

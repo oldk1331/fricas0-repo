@@ -2,29 +2,27 @@
 (SDEFUN |UTSSOL;seriesSolve;MLUTSF;1|
         ((|f| (|Mapping| UTSSMPF UTSSMPF)) (|l| (|List| F)) (% (UTSF)))
         (SPROG
-         ((|next| (|Mapping| F))
-          (|st|
-           (|List|
-            #1=(|Stream| (|SparseMultivariatePolynomialExpressions| F))))
-          (|coeffs| #1#)
-          (|l2| (|Stream| (|SparseMultivariatePolynomialExpressions| F)))
-          (|s1| (|Stream| (|Integer|)))
+         ((#1=#:G189 NIL) (|e| NIL) (#2=#:G190 NIL)
           (|l1| (|Stream| (|SparseMultivariatePolynomialExpressions| F)))
-          (#2=#:G190 NIL) (|e| NIL) (#3=#:G189 NIL))
+          (|s1| (|Stream| (|Integer|)))
+          (|l2| (|Stream| (|SparseMultivariatePolynomialExpressions| F)))
+          (|coeffs|
+           #3=(|Stream| (|SparseMultivariatePolynomialExpressions| F)))
+          (|st| (|List| #3#)) (|next| (|Mapping| F)))
          (SEQ
           (LETT |l1|
                 (SPADCALL
                  (PROGN
-                  (LETT #3# NIL)
+                  (LETT #1# NIL)
                   (SEQ (LETT |e| NIL) (LETT #2# |l|) G190
                        (COND
                         ((OR (ATOM #2#) (PROGN (LETT |e| (CAR #2#)) NIL))
                          (GO G191)))
                        (SEQ
                         (EXIT
-                         (LETT #3# (CONS (SPADCALL |e| (QREFELT % 10)) #3#))))
+                         (LETT #1# (CONS (SPADCALL |e| (QREFELT % 10)) #1#))))
                        (LETT #2# (CDR #2#)) (GO G190) G191
-                       (EXIT (NREVERSE #3#))))
+                       (EXIT (NREVERSE #1#))))
                  (QREFELT % 13)))
           (LETT |s1| (SPADCALL (ELT % 15) 0 (QREFELT % 18)))
           (LETT |l2|
@@ -241,7 +239,7 @@
 (DECLAIM (NOTINLINE |TaylorSolve;|)) 
 
 (DEFUN |TaylorSolve;| (|#1| |#2| |#3|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

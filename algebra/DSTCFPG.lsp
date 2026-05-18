@@ -3,8 +3,8 @@
         ((|x| (|Distribution| R)) (|zz| (|UnivariatePolynomial| |z| R))
          (% (|ContinuedFraction| (|UnivariatePolynomial| |z| R))))
         (SPROG
-         ((|bn1| #1=(|Stream| (|UnivariatePolynomial| |z| R))) (|an1| #1#)
-          (|jac| (|Record| (|:| |an| (|Stream| R)) (|:| |bn| (|Stream| R)))))
+         ((|jac| (|Record| (|:| |an| (|Stream| R)) (|:| |bn| (|Stream| R))))
+          (|an1| #1=(|Stream| (|UnivariatePolynomial| |z| R))) (|bn1| #1#))
          (SEQ (LETT |jac| (SPADCALL |x| (QREFELT % 10)))
               (LETT |an1|
                     (SPADCALL
@@ -38,11 +38,11 @@
          (|zz| (|UnivariatePolynomial| |z| (|Fraction| R)))
          (% (|ContinuedFraction| (|UnivariatePolynomial| |z| (|Fraction| R)))))
         (SPROG
-         ((|bn1| #1=(|Stream| (|UnivariatePolynomial| |z| (|Fraction| R))))
-          (|an1| #1#)
-          (|jac|
+         ((|jac|
            (|Record| (|:| |an| (|Stream| (|Fraction| R)))
-                     (|:| |bn| (|Stream| (|Fraction| R))))))
+                     (|:| |bn| (|Stream| (|Fraction| R)))))
+          (|an1| #1=(|Stream| (|UnivariatePolynomial| |z| (|Fraction| R))))
+          (|bn1| #1#))
          (SEQ (LETT |jac| (SPADCALL |x| (QREFELT % 32)))
               (LETT |an1|
                     (SPADCALL
@@ -74,7 +74,7 @@
 (DECLAIM (NOTINLINE |DistributionContinuedFractionPackage;|)) 
 
 (DEFUN |DistributionContinuedFractionPackage;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (#1=#:G10 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (#1=#:G10 NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 |#2|)

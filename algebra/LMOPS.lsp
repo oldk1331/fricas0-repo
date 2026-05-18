@@ -43,26 +43,26 @@
 (SDEFUN |LMOPS;reverse!;2%;12| ((|l| (%)) (% (%))) (NREVERSE |l|)) 
 
 (SDEFUN |LMOPS;mapGen;M2%;13| ((|f| (|Mapping| S S)) (|l| (%)) (% (%)))
-        (SPROG ((#1=#:G44 NIL) (|x| NIL) (#2=#:G43 NIL))
+        (SPROG ((#1=#:G43 NIL) (|x| NIL) (#2=#:G44 NIL))
                (SEQ
                 (PROGN
-                 (LETT #2# NIL)
-                 (SEQ (LETT |x| NIL) (LETT #1# |l|) G190
+                 (LETT #1# NIL)
+                 (SEQ (LETT |x| NIL) (LETT #2# |l|) G190
                       (COND
-                       ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
+                       ((OR (ATOM #2#) (PROGN (LETT |x| (CAR #2#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2#
+                        (LETT #1#
                               (CONS (CONS (SPADCALL (QCAR |x|) |f|) (QCDR |x|))
-                                    #2#))))
-                      (LETT #1# (CDR #1#)) (GO G190) G191
-                      (EXIT (NREVERSE #2#))))))) 
+                                    #1#))))
+                      (LETT #2# (CDR #2#)) (GO G190) G191
+                      (EXIT (NREVERSE #1#))))))) 
 
 (SDEFUN |LMOPS;mapExpon;M2%;14| ((|f| (|Mapping| E E)) (|l| (%)) (% (%)))
         (SPROG
-         ((|ans| (|List| (|Record| (|:| |gen| S) (|:| |exp| E)))) (|a| (E))
-          (#1=#:G52 NIL) (|x| NIL))
+         ((|x| NIL) (#1=#:G52 NIL) (|a| (E))
+          (|ans| (|List| (|Record| (|:| |gen| S) (|:| |exp| E)))))
          (SEQ (LETT |ans| NIL)
               (SEQ (LETT |x| NIL) (LETT #1# |l|) G190
                    (COND
@@ -82,22 +82,22 @@
          (|op| (|Mapping| (|OutputForm|) (|OutputForm|) (|OutputForm|)))
          (|opexp| (|Mapping| (|OutputForm|) (|OutputForm|) (|OutputForm|)))
          (|id| (|Integer|)) (% (|OutputForm|)))
-        (SPROG ((#1=#:G63 NIL) (|p| NIL) (#2=#:G62 NIL))
+        (SPROG ((#1=#:G62 NIL) (|p| NIL) (#2=#:G63 NIL))
                (SEQ
                 (COND ((NULL |l|) (SPADCALL |id| (QREFELT % 38)))
                       ('T
                        (SEQ
                         (LETT |l|
                               (PROGN
-                               (LETT #2# NIL)
-                               (SEQ (LETT |p| NIL) (LETT #1# |l|) G190
+                               (LETT #1# NIL)
+                               (SEQ (LETT |p| NIL) (LETT #2# |l|) G190
                                     (COND
-                                     ((OR (ATOM #1#)
-                                          (PROGN (LETT |p| (CAR #1#)) NIL))
+                                     ((OR (ATOM #2#)
+                                          (PROGN (LETT |p| (CAR #2#)) NIL))
                                       (GO G191)))
                                     (SEQ
                                      (EXIT
-                                      (LETT #2#
+                                      (LETT #1#
                                             (CONS
                                              (COND
                                               ((SPADCALL (QCDR |p|)
@@ -112,9 +112,9 @@
                                                 (SPADCALL (QCDR |p|)
                                                           (QREFELT % 41))
                                                 |opexp|)))
-                                             #2#))))
-                                    (LETT #1# (CDR #1#)) (GO G190) G191
-                                    (EXIT (NREVERSE #2#)))))
+                                             #1#))))
+                                    (LETT #2# (CDR #2#)) (GO G190) G191
+                                    (EXIT (NREVERSE #1#)))))
                         (EXIT (SPADCALL |op| |l| (QREFELT % 44))))))))) 
 
 (SDEFUN |LMOPS;retractIfCan;%U;16| ((|l| (%)) (% (|Union| S "failed")))
@@ -162,7 +162,7 @@
 (DECLAIM (NOTINLINE |ListMonoidOps;|)) 
 
 (DEFUN |ListMonoidOps;| (|#1| |#2| |#3|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

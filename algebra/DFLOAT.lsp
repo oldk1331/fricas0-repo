@@ -524,9 +524,9 @@
         ((|x| (%))
          (% (|Record| (|:| MANTISSA (|Integer|)) (|:| EXPONENT (|Integer|)))))
         (SPROG
-         ((|two53| (|PositiveInteger|))
+         ((|s| (|Integer|)) (#1=#:G451 NIL)
           (|me| (|Record| (|:| |man| %) (|:| |exp| (|Integer|))))
-          (#1=#:G451 NIL) (|s| (|Integer|)))
+          (|two53| (|PositiveInteger|)))
          (SEQ
           (EXIT
            (COND ((|zero?_DF| |x|) (CONS 0 0))
@@ -563,16 +563,19 @@
         ((|f| (%)) (|d| (|NonNegativeInteger|)) (|b| (|NonNegativeInteger|))
          (% (|Fraction| (|Integer|))))
         (SPROG
-         ((|t| #1=(|Integer|)) (|s| #2=(|Integer|)) (|#G148| #3=(|Integer|))
-          (|#G147| #1#) (|q1| #4=(|Integer|)) (|q0| (|Integer|))
-          (|#G146| #5=(|Integer|)) (|#G145| #4#) (|p1| #6=(|Integer|))
-          (|p0| (|Integer|)) (|#G144| #5#) (|#G143| #6#) (#7=#:G485 NIL)
-          (|q2| #5#) (|p2| #5#) (|r| #3#) (|q| #8=(|Integer|))
-          (|#G142| (|Record| (|:| |quotient| #8#) (|:| |remainder| #3#)))
-          (|tol| (|NonNegativeInteger|)) (|de| #1#) (#9=#:G475 NIL)
-          (#10=#:G473 NIL) (BASE (|PositiveInteger|)) (|ex| #11=(|Integer|))
-          (|nu| #2#)
-          (|#G141| (|Record| (|:| MANTISSA #2#) (|:| EXPONENT #11#))))
+         ((|#G141|
+           (|Record| (|:| MANTISSA #1=(|Integer|))
+                     (|:| EXPONENT #2=(|Integer|))))
+          (|nu| #1#) (|ex| #2#) (BASE (|PositiveInteger|)) (#3=#:G473 NIL)
+          (#4=#:G475 NIL) (|de| #5=(|Integer|)) (|tol| (|NonNegativeInteger|))
+          (|#G142|
+           (|Record| (|:| |quotient| #6=(|Integer|))
+                     (|:| |remainder| #7=(|Integer|))))
+          (|q| #6#) (|r| #7#) (|p2| #8=(|Integer|)) (|q2| #8#) (#9=#:G485 NIL)
+          (|#G143| #10=(|Integer|)) (|#G144| #8#) (|p0| (|Integer|))
+          (|p1| #10#) (|#G145| #11=(|Integer|)) (|#G146| #8#)
+          (|q0| (|Integer|)) (|q1| #11#) (|#G147| #5#) (|#G148| #7#) (|s| #1#)
+          (|t| #5#))
          (SEQ
           (EXIT
            (SEQ
@@ -588,19 +591,18 @@
                (SPADCALL
                 (* |nu|
                    (EXPT BASE
-                         (PROG1 (LETT #10# |ex|)
-                           (|check_subtype2| (>= #10# 0)
-                                             '(|NonNegativeInteger|)
-                                             '(|Integer|) #10#))))
+                         (PROG1 (LETT #3# |ex|)
+                           (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
+                                             '(|Integer|) #3#))))
                 (QREFELT % 171)))
               (#12='T
                (SEQ
                 (LETT |de|
                       (EXPT BASE
-                            (PROG1 (LETT #9# (- |ex|))
-                              (|check_subtype2| (>= #9# 0)
+                            (PROG1 (LETT #4# (- |ex|))
+                              (|check_subtype2| (>= #4# 0)
                                                 '(|NonNegativeInteger|)
-                                                '(|Integer|) #9#))))
+                                                '(|Integer|) #4#))))
                 (EXIT
                  (COND ((< |b| 2) (|error| "base must be > 1"))
                        (#12#
@@ -627,7 +629,7 @@
                                            (* |de| (ABS |p2|))))
                                       (EXIT
                                        (PROGN
-                                        (LETT #7#
+                                        (LETT #9#
                                               (SPADCALL |p2| |q2|
                                                         (QREFELT % 172)))
                                         (GO #13=#:G484)))))
@@ -648,10 +650,10 @@
                                       (LETT |s| |#G147|)
                                       (LETT |t| |#G148|))))
                                    NIL (GO G190) G191 (EXIT NIL)))))))))))))
-          #13# (EXIT #7#)))) 
+          #13# (EXIT #9#)))) 
 
 (SDEFUN |DFLOAT;^;%F%;108| ((|x| (%)) (|r| (|Fraction| (|Integer|))) (% (%)))
-        (SPROG ((#1=#:G495 NIL) (|d| (|Integer|)) (|n| (|Integer|)))
+        (SPROG ((|n| (|Integer|)) (|d| (|Integer|)) (#1=#:G495 NIL))
                (SEQ
                 (EXIT
                  (COND

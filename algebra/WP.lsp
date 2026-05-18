@@ -4,11 +4,11 @@
 
 (SDEFUN |WP;lookup| ((|v| (|VarSet|)) (% (|NonNegativeInteger|)))
         (SPROG
-         ((|l|
+         ((#1=#:G19 NIL)
+          (|l|
            (|List|
             (|Record| (|:| |var| |VarSet|)
-                      (|:| |weight| (|NonNegativeInteger|)))))
-          (#1=#:G19 NIL))
+                      (|:| |weight| (|NonNegativeInteger|))))))
          (SEQ
           (EXIT
            (SEQ (LETT |l| (QREFELT % 22))
@@ -29,10 +29,10 @@
 
 (SDEFUN |WP;innercoerce| ((|p| (P)) (|z| (|Integer|)) (% (%)))
         (SPROG
-         ((|tmp| (%)) (|ans| (%)) (|mon| (P))
-          (|up| (|SparseUnivariatePolynomial| P)) (|lcup| (P))
-          (|f| (|NonNegativeInteger|)) (|d| (|NonNegativeInteger|))
-          (|n| (|NonNegativeInteger|)) (|mv| (|Union| |VarSet| "failed")))
+         ((|mv| (|Union| |VarSet| "failed")) (|n| (|NonNegativeInteger|))
+          (|d| (|NonNegativeInteger|)) (|f| (|NonNegativeInteger|))
+          (|lcup| (P)) (|up| (|SparseUnivariatePolynomial| P)) (|mon| (P))
+          (|ans| (%)) (|tmp| (%)))
          (SEQ
           (COND
            ((OR (< |z| 0) (SPADCALL |p| (QREFELT % 28))) (|spadConstant| % 27))
@@ -115,25 +115,25 @@
 
 (SDEFUN |WP;coerce;%P;5| ((|w| (%)) (% (P)))
         (SPROG
-         ((#1=#:G38 NIL) (#2=#:G37 (P)) (#3=#:G39 (P)) (#4=#:G41 NIL)
-          (|c| NIL))
+         ((|c| NIL) (#1=#:G41 NIL) (#2=#:G39 (P)) (#3=#:G37 (P))
+          (#4=#:G38 NIL))
          (SEQ
           (PROGN
-           (LETT #1# NIL)
-           (SEQ (LETT |c| NIL) (LETT #4# (SPADCALL |w| (QREFELT % 50))) G190
+           (LETT #4# NIL)
+           (SEQ (LETT |c| NIL) (LETT #1# (SPADCALL |w| (QREFELT % 50))) G190
                 (COND
-                 ((OR (ATOM #4#) (PROGN (LETT |c| (CAR #4#)) NIL)) (GO G191)))
+                 ((OR (ATOM #1#) (PROGN (LETT |c| (CAR #1#)) NIL)) (GO G191)))
                 (SEQ
                  (EXIT
                   (PROGN
-                   (LETT #3# |c|)
-                   (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT % 51))))
-                         ('T (PROGN (LETT #2# #3#) (LETT #1# 'T)))))))
-                (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
-           (COND (#1# #2#) ('T (|spadConstant| % 52))))))) 
+                   (LETT #2# |c|)
+                   (COND (#4# (LETT #3# (SPADCALL #3# #2# (QREFELT % 51))))
+                         ('T (PROGN (LETT #3# #2#) (LETT #4# 'T)))))))
+                (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
+           (COND (#4# #3#) ('T (|spadConstant| % 52))))))) 
 
 (SDEFUN |WP;coerce;%Of;6| ((|p| (%)) (% (|OutputForm|)))
-        (SPROG ((#1=#:G56 NIL) (|c| NIL) (#2=#:G55 NIL))
+        (SPROG ((#1=#:G55 NIL) (|c| NIL) (#2=#:G56 NIL))
                (SEQ
                 (COND
                  ((SPADCALL |p| (QREFELT % 42)) (SPADCALL 0 (QREFELT % 56)))
@@ -143,24 +143,24 @@
                   (SPADCALL (ELT % 59)
                             (REVERSE
                              (PROGN
-                              (LETT #2# NIL)
+                              (LETT #1# NIL)
                               (SEQ (LETT |c| NIL)
-                                   (LETT #1# (SPADCALL |p| (QREFELT % 50)))
+                                   (LETT #2# (SPADCALL |p| (QREFELT % 50)))
                                    G190
                                    (COND
-                                    ((OR (ATOM #1#)
-                                         (PROGN (LETT |c| (CAR #1#)) NIL))
+                                    ((OR (ATOM #2#)
+                                         (PROGN (LETT |c| (CAR #2#)) NIL))
                                      (GO G191)))
                                    (SEQ
                                     (EXIT
-                                     (LETT #2#
+                                     (LETT #1#
                                            (CONS
                                             (SPADCALL
                                              (SPADCALL |c| (QREFELT % 57))
                                              (QREFELT % 58))
-                                            #2#))))
-                                   (LETT #1# (CDR #1#)) (GO G190) G191
-                                   (EXIT (NREVERSE #2#)))))
+                                            #1#))))
+                                   (LETT #2# (CDR #2#)) (GO G190) G191
+                                   (EXIT (NREVERSE #1#)))))
                             (QREFELT % 62))))))) 
 
 (SDEFUN |WP;Zero;%;7| ((% (%))) (|spadConstant| % 64)) 
@@ -210,9 +210,9 @@
 
 (DEFUN |WeightedPolynomials;| (|#1| |#2| |#3| |#4| |#5| |#6| |#7|)
   (SPROG
-   ((#1=#:G77 NIL) (|v| NIL) (#2=#:G78 NIL) (|n| NIL) (#3=#:G76 NIL)
-    (|pv$| NIL) (% NIL) (|dv$| NIL) (DV$7 NIL) (DV$6 NIL) (DV$5 NIL) (DV$4 NIL)
-    (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+   ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (DV$4 NIL) (DV$5 NIL) (DV$6 NIL)
+    (DV$7 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL) (#1=#:G76 NIL) (|n| NIL)
+    (#2=#:G78 NIL) (|v| NIL) (#3=#:G77 NIL))
    (SEQ
     (PROGN
      (LETT DV$1 (|devaluate| |#1|))
@@ -253,16 +253,16 @@
        (|error| "incompatible length lists in WeightedPolynomial")))
      (QSETREFV % 22
                (PROGN
-                (LETT #3# NIL)
+                (LETT #1# NIL)
                 (SEQ (LETT |n| NIL) (LETT #2# |#6|) (LETT |v| NIL)
-                     (LETT #1# |#5|) G190
+                     (LETT #3# |#5|) G190
                      (COND
-                      ((OR (ATOM #1#) (PROGN (LETT |v| (CAR #1#)) NIL)
+                      ((OR (ATOM #3#) (PROGN (LETT |v| (CAR #3#)) NIL)
                            (ATOM #2#) (PROGN (LETT |n| (CAR #2#)) NIL))
                        (GO G191)))
-                     (SEQ (EXIT (LETT #3# (CONS (CONS |v| |n|) #3#))))
-                     (LETT #1# (PROG1 (CDR #1#) (LETT #2# (CDR #2#))))
-                     (GO G190) G191 (EXIT (NREVERSE #3#)))))
+                     (SEQ (EXIT (LETT #1# (CONS (CONS |v| |n|) #1#))))
+                     (LETT #3# (PROG1 (CDR #3#) (LETT #2# (CDR #2#))))
+                     (GO G190) G191 (EXIT (NREVERSE #1#)))))
      %)))) 
 
 (DEFUN |WeightedPolynomials| (&REST #1=#:G79)

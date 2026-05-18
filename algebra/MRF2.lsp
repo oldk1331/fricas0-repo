@@ -2,7 +2,7 @@
 (SDEFUN |MRF2;map;MMrMr;1|
         ((|fn| (|Mapping| S R)) (|u| (|MonoidRing| R M))
          (% (|MonoidRing| S M)))
-        (SPROG ((|res| (|MonoidRing| S M)) (#1=#:G6 NIL) (|te| NIL))
+        (SPROG ((|te| NIL) (#1=#:G6 NIL) (|res| (|MonoidRing| S M)))
                (SEQ (LETT |res| (|spadConstant| % 10))
                     (SEQ (LETT |te| NIL)
                          (LETT #1# (SPADCALL |u| (QREFELT % 14))) G190
@@ -23,7 +23,7 @@
 (DECLAIM (NOTINLINE |MonoidRingFunctions2;|)) 
 
 (DEFUN |MonoidRingFunctions2;| (|#1| |#2| |#3|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

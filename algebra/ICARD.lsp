@@ -59,7 +59,7 @@
                           ('T (|error| "get_kind: impossible")))))))))) 
 
 (SDEFUN |ICARD;get_origin| ((|xr| (|Rep|)) (% (|String|)))
-        (SPROG ((|os| (|SExpression|)) (|oe| (|SExpression|)))
+        (SPROG ((|oe| (|SExpression|)) (|os| (|SExpression|)))
                (SEQ
                 (COND ((NULL (EQUAL (QVELT |xr| 1) '|o|)) "")
                       ('T
@@ -77,8 +77,8 @@
 (SDEFUN |ICARD;convert_params|
         ((|params| (|List| (|SExpression|))) (% (|String|)))
         (SPROG
-         ((|rl| (|List| (|String|))) (#1=#:G72 NIL) (|a1| NIL)
-          (|first| (|Boolean|)))
+         ((|first| (|Boolean|)) (|a1| NIL) (#1=#:G72 NIL)
+          (|rl| (|List| (|String|))))
          (SEQ
           (COND ((NULL |params|) "")
                 ('T
@@ -101,7 +101,7 @@
                       (EXIT (SPADCALL (NREVERSE |rl|) (QREFELT % 24))))))))) 
 
 (SDEFUN |ICARD;get_params| ((|xr| (|Rep|)) (% (|String|)))
-        (SPROG ((|cf| (|SExpression|)) (|op| (|Symbol|)))
+        (SPROG ((|op| (|Symbol|)) (|cf| (|SExpression|)))
                (SEQ
                 (COND
                  ((NULL (EQUAL (QVELT |xr| 1) '|o|))
@@ -139,9 +139,9 @@
 
 (SDEFUN |ICARD;fullDisplay;%V;13| ((|x| (%)) (% (|Void|)))
         (SPROG
-         ((|of2| (|OutputForm|)) (|ff| (|OutputForm|)) (|os| (|String|))
-          (|ef| (|OutputForm|)) (|cf| (|OutputForm|)) (|cs| (|String|))
-          (|of1| (|OutputForm|)) (|xr| (|Rep|)))
+         ((|xr| (|Rep|)) (|of1| (|OutputForm|)) (|cs| (|String|))
+          (|cf| (|OutputForm|)) (|ef| (|OutputForm|)) (|os| (|String|))
+          (|ff| (|OutputForm|)) (|of2| (|OutputForm|)))
          (SEQ (LETT |xr| |x|) (LETT |of1| (|ICARD;short_oform| |xr| %))
               (COND
                ((NULL (EQUAL (QVELT |xr| 1) '|o|))
@@ -182,10 +182,10 @@
 
 (SDEFUN |ICARD;<;2%B;15| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (SPROG
-         ((#1=#:G106 NIL) (|yc| #2=(|String|)) (|xc| #2#) (|yp| #3=(|String|))
-          (|xp| #3#) (|yo| #4=(|String|)) (|xo| #4#) (|ys| #5=(|String|))
-          (|xs| #5#) (|ye| #6=(|String|)) (|xe| #6#) (|ny| #7=(|Integer|))
-          (|nx| #7#) (|yr| (|Rep|)) (|xr| (|Rep|)))
+         ((|xr| (|Rep|)) (|yr| (|Rep|)) (|nx| #1=(|Integer|)) (|ny| #1#)
+          (|xe| #2=(|String|)) (|ye| #2#) (|xs| #3=(|String|)) (|ys| #3#)
+          (|xo| #4=(|String|)) (|yo| #4#) (|xp| #5=(|String|)) (|yp| #5#)
+          (|xc| #6=(|String|)) (|yc| #6#) (#7=#:G106 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |xr| |x|) (LETT |yr| |y|)
@@ -203,42 +203,42 @@
                  (EXIT
                   (COND
                    ((NULL (EQL |nx| |ny|))
-                    (PROGN (LETT #1# (< |nx| |ny|)) (GO #8=#:G104))))))
+                    (PROGN (LETT #7# (< |nx| |ny|)) (GO #8=#:G104))))))
                 (SEQ (LETT |xe| (|ICARD;get_exposed| |xr| %))
                      (LETT |ye| (|ICARD;get_exposed| |yr| %))
                      (EXIT
                       (COND
                        ((NULL (EQUAL |xe| |ye|))
-                        (PROGN (LETT #1# (CGREATERP |ye| |xe|)) (GO #8#))))))
+                        (PROGN (LETT #7# (CGREATERP |ye| |xe|)) (GO #8#))))))
                 (SEQ
                  (LETT |xs| (|ICARD;sig_to_string| (QVELT (QVELT |xr| 2) 0) %))
                  (LETT |ys| (|ICARD;sig_to_string| (QVELT (QVELT |yr| 2) 0) %))
                  (EXIT
                   (COND
                    ((NULL (EQUAL |xs| |ys|))
-                    (PROGN (LETT #1# (CGREATERP |ys| |xs|)) (GO #8#))))))
+                    (PROGN (LETT #7# (CGREATERP |ys| |xs|)) (GO #8#))))))
                 (SEQ (LETT |xo| (|ICARD;get_origin| |xr| %))
                      (LETT |yo| (|ICARD;get_origin| |yr| %))
                      (EXIT
                       (COND
                        ((NULL (EQUAL |xo| |yo|))
-                        (PROGN (LETT #1# (CGREATERP |yo| |xo|)) (GO #8#))))))
+                        (PROGN (LETT #7# (CGREATERP |yo| |xo|)) (GO #8#))))))
                 (SEQ (LETT |xp| (|ICARD;get_params| |xr| %))
                      (LETT |yp| (|ICARD;get_params| |yr| %))
                      (EXIT
                       (COND
                        ((NULL (EQUAL |xp| |yp|))
-                        (PROGN (LETT #1# (CGREATERP |yp| |xp|)) (GO #8#))))))
+                        (PROGN (LETT #7# (CGREATERP |yp| |xp|)) (GO #8#))))))
                 (SEQ (LETT |xc| (|ICARD;get_condition| |xr| %))
                      (LETT |yc| (|ICARD;get_condition| |yr| %))
                      (EXIT
                       (COND
                        ((NULL (EQUAL |xc| |yc|))
-                        (PROGN (LETT #1# (CGREATERP |yc| |xc|)) (GO #8#))))))
+                        (PROGN (LETT #7# (CGREATERP |yc| |xc|)) (GO #8#))))))
                 (EXIT
                  (CGREATERP (QVELT (QVELT |yr| 2) 3)
                             (QVELT (QVELT |xr| 2) 3)))))
-          #8# (EXIT #1#)))) 
+          #8# (EXIT #7#)))) 
 
 (SDEFUN |ICARD;coerce;%Of;16| ((|x| (%)) (% (|OutputForm|)))
         (|coerceRe2E| |x|
@@ -254,7 +254,7 @@
                        0))) 
 
 (SDEFUN |ICARD;elt;%SS;17| ((|x| (%)) (|s| (|Symbol|)) (% (|String|)))
-        (SPROG ((#1=#:G121 NIL) (|xr| (|Rep|)))
+        (SPROG ((|xr| (|Rep|)) (#1=#:G121 NIL))
                (SEQ (LETT |xr| |x|)
                     (EXIT
                      (COND

@@ -48,7 +48,7 @@
          ('T (CONS 1 "failed")))) 
 
 (SDEFUN |OREPCAT-;exquo;SRU;5| ((|l| (S)) (|a| (R)) (% (|Union| S "failed")))
-        (SPROG ((|ans| (S)) (#1=#:G54 NIL) (|u| (|Union| R "failed")))
+        (SPROG ((|u| (|Union| R "failed")) (#1=#:G54 NIL) (|ans| (S)))
                (SEQ
                 (EXIT
                  (SEQ (LETT |ans| (|spadConstant| % 8))
@@ -153,9 +153,9 @@
           (|Record| (|:| |gcd| S) (|:| |coef1| S) (|:| |coef2| S)
                     (|:| |lcm| S))))
         (SPROG
-         ((|v| (S)) (|v0| (S)) (|#G45| (S)) (|#G44| (S)) (|u| (S)) (|u0| (S))
-          (|#G43| (S)) (|#G42| (S)) (|#G41| (S)) (|#G40| (S))
-          (|qr| (|Record| (|:| |quotient| S) (|:| |remainder| S))) (|a0| (S)))
+         ((|a0| (S)) (|qr| (|Record| (|:| |quotient| S) (|:| |remainder| S)))
+          (|#G40| (S)) (|#G41| (S)) (|#G42| (S)) (|#G43| (S)) (|u0| (S))
+          (|u| (S)) (|#G44| (S)) (|#G45| (S)) (|v0| (S)) (|v| (S)))
          (SEQ (LETT |a0| |a|) (LETT |u0| (LETT |v| (|spadConstant| % 54)))
               (LETT |v0| (LETT |u| (|spadConstant| % 8)))
               (SEQ G190
@@ -193,7 +193,7 @@
 
 (SDEFUN |OREPCAT-;ncgcd|
         ((|a| (S)) (|b| (S)) (|ncrem| (|Mapping| S S S)) (% (S)))
-        (SPROG ((|#G50| (S)) (|#G49| (S)))
+        (SPROG ((|#G49| (S)) (|#G50| (S)))
                (SEQ
                 (COND ((SPADCALL |a| (QREFELT % 23)) |b|)
                       ((SPADCALL |b| (QREFELT % 23)) |a|)
@@ -274,9 +274,9 @@
           (|Record| (|:| |generator| S) (|:| |coef1| S) (|:| |coef2| S)
                     (|:| |coefu| S) (|:| |coefv| S))))
         (SPROG
-         ((|v| (S)) (|v0| (S)) (|#G65| (S)) (|#G64| (S)) (|u| (S)) (|u0| (S))
-          (|#G63| (S)) (|#G62| (S)) (|#G61| (S)) (|#G60| (S))
-          (|qr| (|Record| (|:| |quotient| S) (|:| |remainder| S))))
+         ((|qr| (|Record| (|:| |quotient| S) (|:| |remainder| S))) (|#G60| (S))
+          (|#G61| (S)) (|#G62| (S)) (|#G63| (S)) (|u0| (S)) (|u| (S))
+          (|#G64| (S)) (|#G65| (S)) (|v0| (S)) (|v| (S)))
          (SEQ (LETT |u0| (LETT |v| (|spadConstant| % 54)))
               (LETT |v0| (LETT |u| (|spadConstant| % 8)))
               (SEQ G190
@@ -317,10 +317,10 @@
           (|Record| (|:| |gcd| S) (|:| |coef1| S) (|:| |coef2| S)
                     (|:| |lcm| S))))
         (SPROG
-         ((|v| (S)) (|u| (S)) (|d| (S)) (|c| (S)) (|g| (S))
-          (|#G68|
+         ((|#G68|
            (|Record| (|:| |generator| S) (|:| |coef1| S) (|:| |coef2| S)
-                     (|:| |coefu| S) (|:| |coefv| S))))
+                     (|:| |coefu| S) (|:| |coefv| S)))
+          (|g| (S)) (|c| (S)) (|d| (S)) (|u| (S)) (|v| (S)))
          (SEQ
           (PROGN
            (LETT |#G68| (SPADCALL |a| |b| (QREFELT % 60)))
@@ -335,7 +335,7 @@
 (DECLAIM (NOTINLINE |UnivariateSkewPolynomialCategory&;|)) 
 
 (DEFUN |UnivariateSkewPolynomialCategory&| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

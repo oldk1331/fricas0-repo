@@ -1,24 +1,24 @@
 
 (SDEFUN |UFD-;squareFreePart;2S;1| ((|x| (S)) (% (S)))
         (SPROG
-         ((#1=#:G8 NIL) (#2=#:G7 (S)) (#3=#:G9 (S)) (#4=#:G11 NIL) (|f| NIL)
-          (|s| (|Factored| S)))
+         ((|s| (|Factored| S)) (|f| NIL) (#1=#:G11 NIL) (#2=#:G9 (S))
+          (#3=#:G7 (S)) (#4=#:G8 NIL))
          (SEQ
           (SPADCALL
            (SPADCALL (LETT |s| (SPADCALL |x| (QREFELT % 8))) (QREFELT % 10))
            (PROGN
-            (LETT #1# NIL)
-            (SEQ (LETT |f| NIL) (LETT #4# (SPADCALL |s| (QREFELT % 14))) G190
+            (LETT #4# NIL)
+            (SEQ (LETT |f| NIL) (LETT #1# (SPADCALL |s| (QREFELT % 14))) G190
                  (COND
-                  ((OR (ATOM #4#) (PROGN (LETT |f| (CAR #4#)) NIL)) (GO G191)))
+                  ((OR (ATOM #1#) (PROGN (LETT |f| (CAR #1#)) NIL)) (GO G191)))
                  (SEQ
                   (EXIT
                    (PROGN
-                    (LETT #3# (QVELT |f| 1))
-                    (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT % 15))))
-                          ('T (PROGN (LETT #2# #3#) (LETT #1# 'T)))))))
-                 (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
-            (COND (#1# #2#) ('T (|spadConstant| % 16))))
+                    (LETT #2# (QVELT |f| 1))
+                    (COND (#4# (LETT #3# (SPADCALL #3# #2# (QREFELT % 15))))
+                          ('T (PROGN (LETT #3# #2#) (LETT #4# 'T)))))))
+                 (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
+            (COND (#4# #3#) ('T (|spadConstant| % 16))))
            (QREFELT % 15))))) 
 
 (SDEFUN |UFD-;prime?;SB;2| ((|x| (S)) (% (|Boolean|)))
@@ -27,7 +27,7 @@
 (DECLAIM (NOTINLINE |UniqueFactorizationDomain&;|)) 
 
 (DEFUN |UniqueFactorizationDomain&| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|UniqueFactorizationDomain&| DV$1))

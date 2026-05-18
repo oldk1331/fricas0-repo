@@ -92,8 +92,8 @@
 
 (SDEFUN |SEG;expand;LL;15| ((|ls| (|List| %)) (% (|List| S)))
         (SPROG
-         ((|l| (S)) (|lr| (|List| S)) (|inc| (S)) (|h| (S)) (#1=#:G39 NIL)
-          (|s| NIL))
+         ((|s| NIL) (#1=#:G39 NIL) (|h| (S)) (|inc| (S)) (|lr| (|List| S))
+          (|l| (S)))
          (SEQ (LETT |lr| NIL)
               (SEQ (LETT |s| NIL) (LETT #1# |ls|) G190
                    (COND
@@ -139,7 +139,7 @@
         (SPADCALL (LIST |s|) (QREFELT % 49))) 
 
 (SDEFUN |SEG;map;M%L;17| ((|f| (|Mapping| S S)) (|s| (%)) (% (|List| S)))
-        (SPROG ((|l| (S)) (|lr| (|List| S)) (|inc| (S)) (|h| (S)))
+        (SPROG ((|h| (S)) (|inc| (S)) (|lr| (|List| S)) (|l| (S)))
                (SEQ (LETT |lr| NIL) (LETT |l| (SPADCALL |s| (QREFELT % 9)))
                     (LETT |h| (SPADCALL |s| (QREFELT % 10)))
                     (LETT |inc|
@@ -171,7 +171,7 @@
 (DECLAIM (NOTINLINE |Segment;|)) 
 
 (DEFUN |Segment;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|Segment| DV$1))

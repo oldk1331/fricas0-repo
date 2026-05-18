@@ -2,7 +2,7 @@
 (SDEFUN |LPEFRAC;pullback|
         ((|pF| (|SparseUnivariatePolynomial| (|Fraction| R)))
          (% #1=(|Union| (|SparseUnivariatePolynomial| R) "failed")))
-        (SPROG ((|r| #1#) (|c| (|Union| R "failed")))
+        (SPROG ((|c| (|Union| R "failed")) (|r| #1#))
                (SEQ
                 (COND
                  ((SPADCALL |pF| (|spadConstant| % 11) (QREFELT % 13))
@@ -36,32 +36,32 @@
          (|pp| (|SparseUnivariatePolynomial| R))
          (% (|Union| (|List| (|SparseUnivariatePolynomial| R)) "failed")))
         (SPROG
-         ((#1=#:G25 NIL)
-          (|vv| (|Union| (|SparseUnivariatePolynomial| R) "failed"))
-          (#2=#:G29 NIL) (|v| NIL) (#3=#:G28 NIL)
+         ((#1=#:G26 NIL) (|u| NIL) (#2=#:G27 NIL)
+          (|lpF| (|List| (|SparseUnivariatePolynomial| (|Fraction| R))))
+          (|pF| (|SparseUnivariatePolynomial| (|Fraction| R)))
           (|ans|
            (|Union| (|List| (|SparseUnivariatePolynomial| (|Fraction| R)))
                     "failed"))
-          (|pF| (|SparseUnivariatePolynomial| (|Fraction| R)))
-          (|lpF| (|List| (|SparseUnivariatePolynomial| (|Fraction| R))))
-          (#4=#:G27 NIL) (|u| NIL) (#5=#:G26 NIL))
+          (#3=#:G28 NIL) (|v| NIL) (#4=#:G29 NIL)
+          (|vv| (|Union| (|SparseUnivariatePolynomial| R) "failed"))
+          (#5=#:G25 NIL))
          (SEQ
           (EXIT
            (SEQ
             (LETT |lpF|
                   (PROGN
-                   (LETT #5# NIL)
-                   (SEQ (LETT |u| NIL) (LETT #4# |lp|) G190
+                   (LETT #1# NIL)
+                   (SEQ (LETT |u| NIL) (LETT #2# |lp|) G190
                         (COND
-                         ((OR (ATOM #4#) (PROGN (LETT |u| (CAR #4#)) NIL))
+                         ((OR (ATOM #2#) (PROGN (LETT |u| (CAR #2#)) NIL))
                           (GO G191)))
                         (SEQ
                          (EXIT
-                          (LETT #5#
+                          (LETT #1#
                                 (CONS (SPADCALL (ELT % 23) |u| (QREFELT % 26))
-                                      #5#))))
-                        (LETT #4# (CDR #4#)) (GO G190) G191
-                        (EXIT (NREVERSE #5#)))))
+                                      #1#))))
+                        (LETT #2# (CDR #2#)) (GO G190) G191
+                        (EXIT (NREVERSE #1#)))))
             (LETT |pF| (SPADCALL (ELT % 23) |pp| (QREFELT % 26)))
             (LETT |ans| (SPADCALL |lpF| |pF| (QREFELT % 30)))
             (EXIT
@@ -70,10 +70,10 @@
                     (CONS 0
                           (PROGN
                            (LETT #3# NIL)
-                           (SEQ (LETT |v| NIL) (LETT #2# (QCDR |ans|)) G190
+                           (SEQ (LETT |v| NIL) (LETT #4# (QCDR |ans|)) G190
                                 (COND
-                                 ((OR (ATOM #2#)
-                                      (PROGN (LETT |v| (CAR #2#)) NIL))
+                                 ((OR (ATOM #4#)
+                                      (PROGN (LETT |v| (CAR #4#)) NIL))
                                   (GO G191)))
                                 (SEQ
                                  (EXIT
@@ -86,18 +86,18 @@
                                            (COND
                                             ((QEQCAR |vv| 1)
                                              (PROGN
-                                              (LETT #1# (CONS 1 "failed"))
+                                              (LETT #5# (CONS 1 "failed"))
                                               (GO #6=#:G24)))
                                             ('T (QCDR |vv|)))))
                                          #3#))))
-                                (LETT #2# (CDR #2#)) (GO G190) G191
+                                (LETT #4# (CDR #4#)) (GO G190) G191
                                 (EXIT (NREVERSE #3#))))))))))
-          #6# (EXIT #1#)))) 
+          #6# (EXIT #5#)))) 
 
 (DECLAIM (NOTINLINE |LinearPolynomialEquationByFractions;|)) 
 
 (DEFUN |LinearPolynomialEquationByFractions;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|LinearPolynomialEquationByFractions| DV$1))

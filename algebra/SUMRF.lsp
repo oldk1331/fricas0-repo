@@ -4,8 +4,8 @@
          (|s| (|SegmentBinding| (|Fraction| (|Polynomial| R))))
          (% (|Union| (|Fraction| (|Polynomial| R)) (|Expression| R))))
         (SPROG
-         ((|indef| (|Union| (|Fraction| (|Polynomial| R)) "failed"))
-          (|v| (|Symbol|)))
+         ((|v| (|Symbol|))
+          (|indef| (|Union| (|Fraction| (|Polynomial| R)) "failed")))
          (SEQ
           (LETT |indef|
                 (|SUMRF;innersum| |f| (LETT |v| (SPADCALL |s| (QREFELT % 9)))
@@ -48,7 +48,7 @@
 (SDEFUN |SUMRF;sum;PSbF;3|
         ((|p| (|Polynomial| R)) (|s| (|SegmentBinding| (|Polynomial| R)))
          (% (|Fraction| (|Polynomial| R))))
-        (SPROG ((|f| (|Fraction| (|Polynomial| R))) (|v| (|Symbol|)))
+        (SPROG ((|v| (|Symbol|)) (|f| (|Fraction| (|Polynomial| R))))
                (SEQ
                 (LETT |f|
                       (SPADCALL |p| (LETT |v| (SPADCALL |s| (QREFELT % 34)))
@@ -75,9 +75,9 @@
         ((|an| (|Fraction| (|Polynomial| R))) (|n| (|Symbol|))
          (% (|Union| (|Fraction| (|Polynomial| R)) "failed")))
         (SPROG
-         ((|u| (|Union| (|Fraction| (|Polynomial| R)) "failed"))
+         ((|r| (|Union| (|Polynomial| R) "failed"))
           (|an1| (|Fraction| (|Polynomial| R)))
-          (|r| (|Union| (|Polynomial| R) "failed")))
+          (|u| (|Union| (|Fraction| (|Polynomial| R)) "failed")))
          (SEQ (LETT |r| (SPADCALL |an| (QREFELT % 46)))
               (EXIT
                (COND
@@ -125,7 +125,7 @@
 (DECLAIM (NOTINLINE |RationalFunctionSum;|)) 
 
 (DEFUN |RationalFunctionSum;| (|#1|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|RationalFunctionSum| DV$1))

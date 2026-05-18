@@ -8,12 +8,12 @@
         ((|d| (|FiniteDivisor| (|Fraction| (|Integer|)) UP UPUP R))
          (|modulus| (UPUP)) (|disc| (|Integer|)) (% (|NonNegativeInteger|)))
         (SPROG
-         ((|m| #1=(|NonNegativeInteger|)) (|n| #1#) (|p| (|PositiveInteger|))
-          (|bad| (|Integer|)) (|r| (|Fraction| (|Integer|)))
+         ((|i| (|FractionalIdeal| UP (|Fraction| UP) UPUP R))
+          (|nm| (|Vector| R)) (|mn| (|Integer|)) (|hh| (R)) (|h| (UPUP))
+          (|b| (UP)) (|s| (UP))
           (|bd| (|Record| (|:| |den| (|Integer|)) (|:| |gcdnum| (|Integer|))))
-          (|s| (UP)) (|b| (UP)) (|h| (UPUP)) (|hh| (R)) (|mn| (|Integer|))
-          (|nm| (|Vector| R))
-          (|i| (|FractionalIdeal| UP (|Fraction| UP) UPUP R)))
+          (|r| (|Fraction| (|Integer|))) (|bad| (|Integer|))
+          (|p| (|PositiveInteger|)) (|n| #1=(|NonNegativeInteger|)) (|m| #1#))
          (SEQ
           (LETT |mn|
                 (SPADCALL
@@ -149,7 +149,7 @@
           (|Union|
            (|Record| (|:| |order| (|NonNegativeInteger|)) (|:| |function| R))
            "failed")))
-        (SPROG ((|g| (|Union| R "failed")) (|n| (|NonNegativeInteger|)))
+        (SPROG ((|n| (|NonNegativeInteger|)) (|g| (|Union| R "failed")))
                (SEQ
                 (COND
                  ((ZEROP
@@ -171,7 +171,7 @@
 (DECLAIM (NOTINLINE |PointsOfFiniteOrderRational;|)) 
 
 (DEFUN |PointsOfFiniteOrderRational;| (|#1| |#2| |#3|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

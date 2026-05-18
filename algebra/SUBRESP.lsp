@@ -1,7 +1,7 @@
 
 (SDEFUN |SUBRESP;primitivePart;UPRUP;1| ((|p| (UP)) (|q| (R)) (% (UP)))
         (SPROG
-         ((|rec| (|Record| (|:| |coef1| R) (|:| |coef2| R))) (#1=#:G12 NIL))
+         ((#1=#:G12 NIL) (|rec| (|Record| (|:| |coef1| R) (|:| |coef2| R))))
          (SEQ
           (LETT |rec|
                 (PROG2
@@ -39,9 +39,9 @@
 (SDEFUN |SUBRESP;subresultantVector;2UPPa;2|
         ((|p1| (UP)) (|p2| (UP)) (% (|PrimitiveArray| UP)))
         (SPROG
-         ((|n| #1=(|NonNegativeInteger|)) (#2=#:G31 NIL) (|nextn| #1#)
-          (|l| (|List| UP)) (F (UP)) (#3=#:G23 NIL) (#4=#:G18 NIL)
-          (|res| (|PrimitiveArray| UP)))
+         ((|res| (|PrimitiveArray| UP)) (#1=#:G18 NIL) (#2=#:G23 NIL) (F (UP))
+          (|l| (|List| UP)) (|nextn| #3=(|NonNegativeInteger|)) (#4=#:G31 NIL)
+          (|n| #3#))
          (SEQ
           (LETT |res|
                 (MAKEARR1
@@ -61,12 +61,12 @@
                       (SEQ
                        (QSETAREF1 |res|
                                   (PROG1
-                                      (LETT #4#
+                                      (LETT #1#
                                             (- (SPADCALL |p2| (QREFELT % 21))
                                                1))
-                                    (|check_subtype2| (>= #4# 0)
+                                    (|check_subtype2| (>= #1# 0)
                                                       '(|NonNegativeInteger|)
-                                                      '(|Integer|) #4#))
+                                                      '(|Integer|) #1#))
                                   |p1|)
                        (EXIT
                         (QSETAREF1 |res| 0
@@ -84,11 +84,11 @@
                   (SEQ
                    (QSETAREF1 |res|
                               (PROG1
-                                  (LETT #3#
+                                  (LETT #2#
                                         (- (SPADCALL |p1| (QREFELT % 21)) 1))
-                                (|check_subtype2| (>= #3# 0)
+                                (|check_subtype2| (>= #2# 0)
                                                   '(|NonNegativeInteger|)
-                                                  '(|Integer|) #3#))
+                                                  '(|Integer|) #2#))
                               |p2|)
                    (EXIT
                     (QSETAREF1 |res| 0
@@ -123,11 +123,11 @@
                                   (LETT |n| (SPADCALL F (QREFELT % 21)))
                                   (EXIT
                                    (QSETAREF1 |res|
-                                              (PROG1 (LETT #2# (- |nextn| 1))
-                                                (|check_subtype2| (>= #2# 0)
+                                              (PROG1 (LETT #4# (- |nextn| 1))
+                                                (|check_subtype2| (>= #4# 0)
                                                                   '(|NonNegativeInteger|)
                                                                   '(|Integer|)
-                                                                  #2#))
+                                                                  #4#))
                                               F))))))
                               ((< (SPADCALL F (QREFELT % 21)) |n|)
                                (|error| "SUBRESP: strange result !"))
@@ -149,7 +149,7 @@
 (DECLAIM (NOTINLINE |SubResultantPackage;|)) 
 
 (DEFUN |SubResultantPackage;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))

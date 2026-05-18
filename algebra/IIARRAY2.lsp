@@ -67,16 +67,16 @@
 
 (SDEFUN |IIARRAY2;hashUpdate!;Hs%Hs;14|
         ((|s| (|HashState|)) (|m| (%)) (% (|HashState|)))
-        (SPROG ((#1=#:G2214 NIL) (|j| NIL) (#2=#:G2213 NIL) (|i| NIL))
+        (SPROG ((|i| NIL) (#1=#:G2213 NIL) (|j| NIL) (#2=#:G2214 NIL))
                (SEQ
                 (SEQ (LETT |i| (SPADCALL |m| (QREFELT % 16)))
-                     (LETT #2# (SPADCALL |m| (QREFELT % 19))) G190
-                     (COND ((> |i| #2#) (GO G191)))
+                     (LETT #1# (SPADCALL |m| (QREFELT % 19))) G190
+                     (COND ((> |i| #1#) (GO G191)))
                      (SEQ
                       (EXIT
                        (SEQ (LETT |j| (SPADCALL |m| (QREFELT % 17)))
-                            (LETT #1# (SPADCALL |m| (QREFELT % 21))) G190
-                            (COND ((> |j| #1#) (GO G191)))
+                            (LETT #2# (SPADCALL |m| (QREFELT % 21))) G190
+                            (COND ((> |j| #2#) (GO G191)))
                             (SEQ
                              (EXIT
                               (LETT |s|
@@ -92,8 +92,8 @@
 
 (DEFUN |InnerIndexedTwoDimensionalArray;| (|#1| |#2| |#3| |#4| |#5|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G2219 NIL) (#2=#:G2220 NIL) (% NIL) (|dv$| NIL)
-    (DV$5 NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+   ((DV$1 NIL) (DV$2 NIL) (DV$3 NIL) (DV$4 NIL) (DV$5 NIL) (|dv$| NIL) (% NIL)
+    (#1=#:G2220 NIL) (#2=#:G2219 NIL) (|pv$| NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 |#2|)
@@ -112,23 +112,23 @@
                                         (|HasCategory| |#1| '(|Hashable|))
                                         (|HasCategory| |#1| '(|OrderedSet|))
                                         (|HasCategory| |#1| '(|BasicType|))
-                                        (LETT #2#
+                                        (LETT #1#
                                               (|HasCategory| |#1|
                                                              '(|SetCategory|)))
                                         (OR
                                          (|HasCategory| |#1| '(|Comparable|))
-                                         #2#)
+                                         #1#)
                                         (OR (|HasCategory| |#1| '(|BasicType|))
                                             (|HasCategory| |#1|
                                                            '(|Comparable|))
                                             (|HasCategory| |#1| '(|Hashable|))
-                                            #2#)
+                                            #1#)
                                         (AND
                                          (|HasCategory| |#1|
                                                         (LIST '|Evalable|
                                                               (|devaluate|
                                                                |#1|)))
-                                         #2#)
+                                         #1#)
                                         (OR
                                          (AND
                                           (|HasCategory| |#1|
@@ -141,18 +141,18 @@
                                                          (LIST '|Evalable|
                                                                (|devaluate|
                                                                 |#1|)))
-                                          #2#))
-                                        (LETT #1#
+                                          #1#))
+                                        (LETT #2#
                                               (|HasCategory| |#1|
                                                              '(|CoercibleTo|
                                                                (|OutputForm|))))
-                                        (OR #1#
+                                        (OR #2#
                                             (AND
                                              (|HasCategory| |#1|
                                                             (LIST '|Evalable|
                                                                   (|devaluate|
                                                                    |#1|)))
-                                             #2#))))))
+                                             #1#))))))
     (|haddProp| |$ConstructorCache| '|InnerIndexedTwoDimensionalArray|
                 (LIST DV$1 DV$2 DV$3 DV$4 DV$5) (CONS 1 %))
     (|stuffDomainSlots| %)
@@ -170,7 +170,7 @@
      (OR
       (AND (|HasCategory| |#1| '(|BasicType|))
            (|HasCategory| % '(|finiteAggregate|)))
-      (|HasCategory| |#1| '(|Hashable|)) #2#)
+      (|HasCategory| |#1| '(|Hashable|)) #1#)
      (|augmentPredVector| % 16384))
     (SETF |pv$| (QREFELT % 3))
     (COND

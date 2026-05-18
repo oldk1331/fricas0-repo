@@ -197,7 +197,7 @@
 
 (SDEFUN |AINTCAT-;*;3S;28| ((|x| (S)) (|y| (S)) (% (S)))
         (SPROG
-         ((|products| (|List| R)) (|sy| (R)) (|iy| (R)) (|sx| (R)) (|ix| (R)))
+         ((|ix| (R)) (|sx| (R)) (|iy| (R)) (|sy| (R)) (|products| (|List| R)))
          (SEQ
           (COND ((SPADCALL |x| (QREFELT % 64)) |y|)
                 ((SPADCALL |y| (QREFELT % 64)) |x|)
@@ -239,7 +239,7 @@
 (DECLAIM (NOTINLINE |AIntervalCategory&;|)) 
 
 (DEFUN |AIntervalCategory&| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+  (SPROG ((DV$1 NIL) (DV$2 NIL) (|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
