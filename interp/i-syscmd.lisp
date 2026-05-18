@@ -3229,7 +3229,7 @@
 ;   fs := "append"/[ ['%l,'"     ",:bright frameName f] for f in
 ;     $interpreterFrameRing]
 ;   say_msg("S2IZ0024", CONCAT(
-;         '"The names of the existing frames are: %1 %l
+;         '"The names of the existing frames are: %1 %l",
 ;         '" The current frame is the first one listed."), [fs])
 
 (DEFUN |displayFrameNames| ()
@@ -3253,9 +3253,8 @@
                   (SETQ |bfVar#62| (CDR |bfVar#62|))))
                NIL |$interpreterFrameRing| NIL))
       (|say_msg| 'S2IZ0024
-       (CONCAT
-        ("The names of the existing frames are: %1 %l"
-         " The current frame is the first one listed."))
+       (CONCAT "The names of the existing frames are: %1 %l"
+               " The current frame is the first one listed.")
        (LIST |fs|))))))
 
 ; importFromFrame args ==
@@ -5191,7 +5190,7 @@
 ;         '" interactive environment and return to the operating system:"), []))
 ;   MEMQ(STRING2ID_N(x, 1), '(Y YES)) => leaveScratchpad()
 ;   say_msg("S2IZ0032", CONCAT(
-;         '"You have chosen to remain in the %b FriCAS %d
+;         '"You have chosen to remain in the %b FriCAS %d",
 ;         '" interactive environment."), [])
 ;   terminateSystemCommand()
 
@@ -5212,9 +5211,8 @@
                    (#1#
                     (PROGN
                      (|say_msg| 'S2IZ0032
-                      (CONCAT
-                       ("You have chosen to remain in the %b FriCAS %d"
-                        " interactive environment."))
+                      (CONCAT "You have chosen to remain in the %b FriCAS %d"
+                              " interactive environment.")
                       NIL)
                      (|terminateSystemCommand|))))))))))
 
@@ -7441,7 +7439,6 @@
 ;   unab = "system" =>
 ;     if (null spaceIndex) then
 ;             say_invalid_args()
-;       nil
 ;     else npsystem(unab, string)
 ;   unab = "synonym" =>
 ;     npsynonym(unab, (null spaceIndex => '""; SUBSEQ(string, spaceIndex+1)))
@@ -7471,7 +7468,7 @@
         (COND ((NULL |spaceIndex|) (|say_invalid_args|))
               (#1# (|npboot| (SUBSEQ |string| (+ |spaceIndex| 1))))))
        ((EQ |unab| '|system|)
-        (COND ((NULL |spaceIndex|) (|say_invalid_args| ((TUPLE) NIL)))
+        (COND ((NULL |spaceIndex|) (|say_invalid_args|))
               (#1# (|npsystem| |unab| |string|))))
        ((EQ |unab| '|synonym|)
         (|npsynonym| |unab|
