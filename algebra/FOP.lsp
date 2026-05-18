@@ -1,9 +1,6 @@
 
-(PUT '|FOP;topFortranOutputStack;S;1| '|SPADreplace|
-     '(XLAM NIL (STRINGIMAGE |$fortranOutputFile|))) 
-
 (SDEFUN |FOP;topFortranOutputStack;S;1| ((% (|String|)))
-        (STRINGIMAGE |$fortranOutputFile|)) 
+        (STRINGIMAGE (ELT |$fortran_out_rec| |$file_off|))) 
 
 (SDEFUN |FOP;pushFortranOutputStack;FnV;2| ((|fn| (|FileName|)) (% (|Void|)))
         (SPADCALL (SPADCALL |fn| (QREFELT % 12)) (QREFELT % 14))) 
@@ -12,15 +9,15 @@
         (SEQ
          (COND
           ((SPADCALL (QREFELT % 8) (QREFELT % 17))
-           (SPADCALL (STRINGIMAGE |$fortranOutputFile|) (QREFELT % 8)
-                     (QREFELT % 18)))
+           (SPADCALL (STRINGIMAGE (ELT |$fortran_out_rec| |$file_off|))
+                     (QREFELT % 8) (QREFELT % 18)))
           ((NULL
             (EQUAL (SPADCALL (QREFELT % 8) (QREFELT % 19))
-                   (STRINGIMAGE |$fortranOutputFile|)))
-           (SEQ (SPADCALL (QREFELT % 8) (QREFELT % 20))
+                   (STRINGIMAGE (ELT |$fortran_out_rec| |$file_off|))))
+           (SEQ (SPADCALL (ELT |$fortran_out_rec| |$file_off|) (QREFELT % 20))
                 (EXIT
-                 (SPADCALL (STRINGIMAGE |$fortranOutputFile|) (QREFELT % 8)
-                           (QREFELT % 18))))))
+                 (SPADCALL (STRINGIMAGE (ELT |$fortran_out_rec| |$file_off|))
+                           (QREFELT % 8) (QREFELT % 18))))))
          (SPADCALL |fn| (QREFELT % 8) (QREFELT % 18))
          (SPADCALL
           (SPADCALL (LIST "set output fortran quiet " |fn|) (QREFELT % 22))

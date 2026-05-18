@@ -1497,8 +1497,12 @@
   (PROG () (RETURN (COND ((CAR |st|) (CLOSE (CDR |st|)))))))
 
 ; try_open(fn, ft, append) ==
-;     fn := PNAME(fn)
-;     ft := PNAME(ft)
+;     fn :=
+;         STRINGP(fn) => fn
+;         PNAME(fn)
+;     ft :=
+;         STRINGP(ft) => ft
+;         PNAME(ft)
 ;     if not((ptype := file_extention(fn)) = '"") then
 ;         fn := drop_extention(fn)
 ;         ft := ptype
@@ -1511,8 +1515,8 @@
   (PROG (|ptype| |filename| |testStream|)
     (RETURN
      (PROGN
-      (SETQ |fn| (PNAME |fn|))
-      (SETQ |ft| (PNAME |ft|))
+      (SETQ |fn| (COND ((STRINGP |fn|) |fn|) (#1='T (PNAME |fn|))))
+      (SETQ |ft| (COND ((STRINGP |ft|) |ft|) (#1# (PNAME |ft|))))
       (COND
        ((NULL (EQUAL (SETQ |ptype| (|file_extention| |fn|)) ""))
         (SETQ |fn| (|drop_extention| |fn|)) (SETQ |ft| |ptype|)))
@@ -1520,7 +1524,7 @@
       (COND ((NULL |filename|) (LIST NIL NIL))
             ((SETQ |testStream| (|makeStream| APPEND |filename|))
              (LIST |testStream| |filename|))
-            ('T (LIST NIL NIL)))))))
+            (#1# (LIST NIL NIL)))))))
 
 ; say_printing_msg(args) == say_msg("S2IV0002", CONCAT(
 ;     '"To toggle %1 printing on and off, specify %l",
@@ -1546,87 +1550,147 @@
     (RETURN
      (|say_msg| 'S2IV0004 "%1 output will be written to file %2b ." |args|))))
 
-; setOutputAlgebra arg ==
-;   arg = "%initialize%" =>
-;     $algebraOutputStream := mkOutputConsoleStream()
-;     $algebraOutputFile := '"CONSOLE"
-;     $algebraFormat := true
-;
-;   arg = "%display%" =>
-;     if $algebraFormat then label := '"On:" else label := '"Off:"
-;     STRCONC(label,$algebraOutputFile)
-;
-;   (null arg) or (arg = "%describe%") or (first arg = '_?) =>
-;     describeSetOutputAlgebra()
-;
-;   -- try to figure out what the argument is
-;
-;   if arg is [fn] and
-;     fn in '(Y N YE YES NO O ON OF OFF CONSOLE y n ye yes no o on of off console)
-;       then 'ok
-;       else arg := [fn,'spout]
-;
-;   arg is [fn] =>
-;     UPCASE(fn) in '(Y N YE O OF) => say_printing_msg('(algebra algebra))
-;     UPCASE(fn) in '(NO OFF)  => $algebraFormat := NIL
-;     UPCASE(fn) in '(YES ON) => $algebraFormat := true
-;     UPCASE(fn) = 'CONSOLE =>
-;       stream_close($algebraOutputStream)
-;       $algebraOutputStream := mkOutputConsoleStream()
-;       $algebraOutputFile := '"CONSOLE"
-;
-;   (arg is [fn,ft]) or (arg is [fn,ft,fm]) => -- aha, a file
-;     [testStream, filename] := try_open(fn, ft, false)
-;     testStream =>
-;       stream_close($algebraOutputStream)
-;       $algebraOutputStream := testStream
-;       $algebraOutputFile := filename
-;       say_writing(['"Algebra", $algebraOutputFile])
-;     say_failed_open([fn, ft])
-;
-;   say_invalid_args()
-;   describeSetOutputAlgebra()
+; DEFCONST($describe_off, 0)
 
-(DEFUN |setOutputAlgebra| (|arg|)
-  (PROG (|label| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |LETTMP#1| |testStream|
-         |filename|)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (DEFCONST |$describe_off| 0))))
+
+; DEFCONST($ext_off, 1)
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (PROG () (RETURN (DEFCONST |$ext_off| 1))))
+
+; DEFCONST($pr_msg_off, 2)
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (DEFCONST |$pr_msg_off| 2))))
+
+; DEFCONST($label_off, 3)
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (DEFCONST |$label_off| 3))))
+
+; DEFCONST($def_on_off, 4)
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (DEFCONST |$def_on_off| 4))))
+
+; DEFCONST($appendable_off, 5)
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (DEFCONST |$appendable_off| 5))))
+
+; set_output_gen(arg, out_rec, def_rec) ==
+;     arg = "%initialize%" =>
+;         out_rec.$stream_off := mkOutputConsoleStream()
+;         out_rec.$file_off := '"CONSOLE"
+;         out_rec.$on_off := def_rec.$def_on_off
+;
+;     arg = "%display%" =>
+;         if out_rec.$on_off then label := '"On:" else label := '"Off:"
+;         STRCONC(label, out_rec.$file_off)
+;
+;     null(arg) or (arg = "%describe%") or (first(arg) = '_?) =>
+;         FUNCALL(def_rec.$describe_off)
+;
+;     -- try to figure out what the argument is
+;
+;     append := false
+;     quiet := false
+;
+;     if def_rec.$appendable_off then
+;         while LISTP(arg) and UPCASE(first(arg)) in '(APPEND QUIET) repeat
+;             if UPCASE first(arg) = 'APPEND then
+;                 append := true
+;             else if UPCASE first(arg) = 'QUIET then
+;                 quiet := true
+;             arg := rest(arg)
+;
+;     if not(arg is [fn] and fn in '(Y N YE YES NO O ON OF OFF CONSOLE _
+;                                    y n ye yes no o on of off console)) then
+;         arg := [fn, def_rec.$ext_off]
+;
+;     arg is [fn] =>
+;         UPCASE(fn) in '(Y N YE O OF) => say_printing_msg(def_rec.$pr_msg_off)
+;         UPCASE(fn) in '(NO OFF)  => out_rec.$on_off := false
+;         UPCASE(fn) in '(YES ON) => out_rec.$on_off := true
+;         UPCASE(fn) = 'CONSOLE =>
+;             stream_close(out_rec.$stream_off)
+;             out_rec.$stream_off := mkOutputConsoleStream()
+;             out_rec.$file_off := '"CONSOLE"
+;
+;     (arg is [fn,ft]) or (arg is [fn,ft,fm]) => -- aha, a file
+;         [testStream, filename] := try_open(fn, ft, append)
+;         testStream =>
+;             stream_close(out_rec.$stream_off)
+;             out_rec.$stream_off := testStream
+;             out_rec.$file_off := filename
+;             if not(quiet) then
+;                 say_writing([def_rec.$label_off, out_rec.$file_off])
+;         if not(quiet) then
+;             say_failed_open([fn, ft])
+;
+;     if not(quiet) then
+;         say_invalid_args()
+;     FUNCALL(def_rec.$describe_off)
+
+(DEFUN |set_output_gen| (|arg| |out_rec| |def_rec|)
+  (PROG (|label| APPEND |quiet| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |LETTMP#1|
+         |testStream| |filename|)
     (RETURN
      (COND
       ((EQ |arg| '|%initialize%|)
        (PROGN
-        (SETQ |$algebraOutputStream| (|mkOutputConsoleStream|))
-        (SETQ |$algebraOutputFile| "CONSOLE")
-        (SETQ |$algebraFormat| T)))
+        (SETF (ELT |out_rec| |$stream_off|) (|mkOutputConsoleStream|))
+        (SETF (ELT |out_rec| |$file_off|) "CONSOLE")
+        (SETF (ELT |out_rec| |$on_off|) (ELT |def_rec| |$def_on_off|))))
       ((EQ |arg| '|%display%|)
        (PROGN
-        (COND (|$algebraFormat| (SETQ |label| "On:"))
+        (COND ((ELT |out_rec| |$on_off|) (SETQ |label| "On:"))
               (#1='T (SETQ |label| "Off:")))
-        (STRCONC |label| |$algebraOutputFile|)))
+        (STRCONC |label| (ELT |out_rec| |$file_off|))))
       ((OR (NULL |arg|) (EQ |arg| '|%describe%|) (EQ (CAR |arg|) '?))
-       (|describeSetOutputAlgebra|))
+       (FUNCALL (ELT |def_rec| |$describe_off|)))
       (#1#
        (PROGN
+        (SETQ APPEND NIL)
+        (SETQ |quiet| NIL)
         (COND
-         ((AND (CONSP |arg|) (EQ (CDR |arg|) NIL)
-               (PROGN (SETQ |fn| (CAR |arg|)) #1#)
-               (|member| |fn|
-                '(Y N YE YES NO O ON OF OFF CONSOLE |y| |n| |ye| |yes| |no| |o|
-                  |on| OF |off| |console|)))
-          '|ok|)
-         (#1# (SETQ |arg| (LIST |fn| '|spout|))))
+         ((ELT |def_rec| |$appendable_off|)
+          ((LAMBDA ()
+             (LOOP
+              (COND
+               ((NOT
+                 (AND (LISTP |arg|)
+                      (|member| (UPCASE (CAR |arg|)) '(APPEND QUIET))))
+                (RETURN NIL))
+               (#1#
+                (PROGN
+                 (COND ((EQ (UPCASE (CAR |arg|)) 'APPEND) (SETQ APPEND T))
+                       ((EQ (UPCASE (CAR |arg|)) 'QUIET) (SETQ |quiet| T)))
+                 (SETQ |arg| (CDR |arg|))))))))))
+        (COND
+         ((NULL
+           (AND (CONSP |arg|) (EQ (CDR |arg|) NIL)
+                (PROGN (SETQ |fn| (CAR |arg|)) #1#)
+                (|member| |fn|
+                 '(Y N YE YES NO O ON OF OFF CONSOLE |y| |n| |ye| |yes| |no|
+                   |o| |on| OF |off| |console|))))
+          (SETQ |arg| (LIST |fn| (ELT |def_rec| |$ext_off|)))))
         (COND
          ((AND (CONSP |arg|) (EQ (CDR |arg|) NIL)
                (PROGN (SETQ |fn| (CAR |arg|)) #1#))
           (COND
            ((|member| (UPCASE |fn|) '(Y N YE O OF))
-            (|say_printing_msg| '(|algebra| |algebra|)))
-           ((|member| (UPCASE |fn|) '(NO OFF)) (SETQ |$algebraFormat| NIL))
-           ((|member| (UPCASE |fn|) '(YES ON)) (SETQ |$algebraFormat| T))
+            (|say_printing_msg| (ELT |def_rec| |$pr_msg_off|)))
+           ((|member| (UPCASE |fn|) '(NO OFF))
+            (SETF (ELT |out_rec| |$on_off|) NIL))
+           ((|member| (UPCASE |fn|) '(YES ON))
+            (SETF (ELT |out_rec| |$on_off|) T))
            ((EQ (UPCASE |fn|) 'CONSOLE)
             (PROGN
-             (|stream_close| |$algebraOutputStream|)
-             (SETQ |$algebraOutputStream| (|mkOutputConsoleStream|))
-             (SETQ |$algebraOutputFile| "CONSOLE")))))
+             (|stream_close| (ELT |out_rec| |$stream_off|))
+             (SETF (ELT |out_rec| |$stream_off|) (|mkOutputConsoleStream|))
+             (SETF (ELT |out_rec| |$file_off|) "CONSOLE")))))
          ((OR
            (AND (CONSP |arg|)
                 (PROGN
@@ -1645,18 +1709,26 @@
                        (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
                             (PROGN (SETQ |fm| (CAR |ISTMP#2|)) #1#)))))))
           (PROGN
-           (SETQ |LETTMP#1| (|try_open| |fn| |ft| NIL))
+           (SETQ |LETTMP#1| (|try_open| |fn| |ft| APPEND))
            (SETQ |testStream| (CAR |LETTMP#1|))
            (SETQ |filename| (CADR |LETTMP#1|))
            (COND
             (|testStream|
              (PROGN
-              (|stream_close| |$algebraOutputStream|)
-              (SETQ |$algebraOutputStream| |testStream|)
-              (SETQ |$algebraOutputFile| |filename|)
-              (|say_writing| (LIST "Algebra" |$algebraOutputFile|))))
-            (#1# (|say_failed_open| (LIST |fn| |ft|))))))
-         (#1# (PROGN (|say_invalid_args|) (|describeSetOutputAlgebra|))))))))))
+              (|stream_close| (ELT |out_rec| |$stream_off|))
+              (SETF (ELT |out_rec| |$stream_off|) |testStream|)
+              (SETF (ELT |out_rec| |$file_off|) |filename|)
+              (COND
+               ((NULL |quiet|)
+                (|say_writing|
+                 (LIST (ELT |def_rec| |$label_off|)
+                       (ELT |out_rec| |$file_off|)))))))
+            (#1#
+             (COND ((NULL |quiet|) (|say_failed_open| (LIST |fn| |ft|))))))))
+         (#1#
+          (PROGN
+           (COND ((NULL |quiet|) (|say_invalid_args|)))
+           (FUNCALL (ELT |def_rec| |$describe_off|)))))))))))
 
 ; describeSetOutputAlgebra() == describeSetOutputU(
 ;     '"algebra", '"algebra", '"spout", true, setOutputAlgebra "%display%")
@@ -1666,6 +1738,52 @@
     (RETURN
      (|describeSetOutputU| "algebra" "algebra" "spout" T
       (|setOutputAlgebra| '|%display%|)))))
+
+; $algebra_def_rec := GETREFV(6)
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$algebra_def_rec| (GETREFV 6)))
+
+; $algebra_def_rec.$describe_off := 'describeSetOutputAlgebra
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG ()
+    (RETURN
+     (SETF (ELT |$algebra_def_rec| |$describe_off|)
+             '|describeSetOutputAlgebra|))))
+
+; $algebra_def_rec.$ext_off := 'spout
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$algebra_def_rec| |$ext_off|) '|spout|))))
+
+; $algebra_def_rec.$pr_msg_off := '(algebra algebra)
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG ()
+    (RETURN
+     (SETF (ELT |$algebra_def_rec| |$pr_msg_off|) '(|algebra| |algebra|)))))
+
+; $algebra_def_rec.$label_off := '"Algebra"
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$algebra_def_rec| |$label_off|) "Algebra"))))
+
+; $algebra_def_rec.$def_on_off := true
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$algebra_def_rec| |$def_on_off|) T))))
+
+; $algebra_def_rec.$appendable_off := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$algebra_def_rec| |$appendable_off|) NIL))))
+
+; setOutputAlgebra(arg) ==
+;     set_output_gen(arg, $algebra_out_rec, $algebra_def_rec)
+
+(DEFUN |setOutputAlgebra| (|arg|)
+  (PROG ()
+    (RETURN (|set_output_gen| |arg| |$algebra_out_rec| |$algebra_def_rec|))))
 
 ; setOutputCharacters arg ==
 ;   -- this sets the special character set
@@ -1787,144 +1905,6 @@
      (COND (APPEND (|make_append_stream| |filename|))
            ('T (|make_out_stream| |filename|))))))
 
-; setOutputFortran arg ==
-;   arg = "%initialize%" =>
-;     $fortranOutputStream := mkOutputConsoleStream()
-;     $fortranOutputFile := '"CONSOLE"
-;     $fortranFormat := NIL
-;
-;   arg = "%display%" =>
-;     if $fortranFormat then label := '"On:" else label := '"Off:"
-;     STRCONC(label,$fortranOutputFile)
-;
-;   (null arg) or (arg = "%describe%") or (first arg = '_?) =>
-;     describeSetOutputFortran()
-;
-;   -- try to figure out what the argument is
-;
-;   append := NIL
-;   quiet := NIL
-;   while LISTP arg and UPCASE(first arg) in '(APPEND QUIET) repeat
-;     if UPCASE first(arg) = 'APPEND then append := true
-;     else if UPCASE first(arg) = 'QUIET then quiet := true
-;     arg := rest(arg)
-;
-;   if arg is [fn] and
-;     fn in '(Y N YE YES NO O ON OF OFF CONSOLE y n ye yes no o on of off console)
-;       then 'ok
-;       else arg := [fn,'sfort]
-;
-;   arg is [fn] =>
-;     UPCASE(fn) in '(Y N YE O OF) => say_printing_msg('(FORTRAN fortran))
-;     UPCASE(fn) in '(NO OFF)  => $fortranFormat := NIL
-;     UPCASE(fn) in '(YES ON)  => $fortranFormat := true
-;     UPCASE(fn) = 'CONSOLE =>
-;       stream_close($fortranOutputStream)
-;       $fortranOutputStream := mkOutputConsoleStream()
-;       $fortranOutputFile := '"CONSOLE"
-;
-;   (arg is [fn,ft]) or (arg is [fn,ft,fm]) => -- aha, a file
-;     [testStream, filename] := try_open(fn, ft, append)
-;     testStream =>
-;       stream_close($fortranOutputStream)
-;       $fortranOutputStream := testStream
-;       $fortranOutputFile := filename
-;       if null quiet then say_writing(['FORTRAN, $fortranOutputFile])
-;     if null quiet then say_failed_open([fn, ft])
-;   if null quiet then say_invalid_args()
-;   describeSetOutputFortran()
-
-(DEFUN |setOutputFortran| (|arg|)
-  (PROG (|label| APPEND |quiet| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |LETTMP#1|
-         |testStream| |filename|)
-    (RETURN
-     (COND
-      ((EQ |arg| '|%initialize%|)
-       (PROGN
-        (SETQ |$fortranOutputStream| (|mkOutputConsoleStream|))
-        (SETQ |$fortranOutputFile| "CONSOLE")
-        (SETQ |$fortranFormat| NIL)))
-      ((EQ |arg| '|%display%|)
-       (PROGN
-        (COND (|$fortranFormat| (SETQ |label| "On:"))
-              (#1='T (SETQ |label| "Off:")))
-        (STRCONC |label| |$fortranOutputFile|)))
-      ((OR (NULL |arg|) (EQ |arg| '|%describe%|) (EQ (CAR |arg|) '?))
-       (|describeSetOutputFortran|))
-      (#1#
-       (PROGN
-        (SETQ APPEND NIL)
-        (SETQ |quiet| NIL)
-        ((LAMBDA ()
-           (LOOP
-            (COND
-             ((NOT
-               (AND (LISTP |arg|)
-                    (|member| (UPCASE (CAR |arg|)) '(APPEND QUIET))))
-              (RETURN NIL))
-             (#1#
-              (PROGN
-               (COND ((EQ (UPCASE (CAR |arg|)) 'APPEND) (SETQ APPEND T))
-                     ((EQ (UPCASE (CAR |arg|)) 'QUIET) (SETQ |quiet| T)))
-               (SETQ |arg| (CDR |arg|))))))))
-        (COND
-         ((AND (CONSP |arg|) (EQ (CDR |arg|) NIL)
-               (PROGN (SETQ |fn| (CAR |arg|)) #1#)
-               (|member| |fn|
-                '(Y N YE YES NO O ON OF OFF CONSOLE |y| |n| |ye| |yes| |no| |o|
-                  |on| OF |off| |console|)))
-          '|ok|)
-         (#1# (SETQ |arg| (LIST |fn| '|sfort|))))
-        (COND
-         ((AND (CONSP |arg|) (EQ (CDR |arg|) NIL)
-               (PROGN (SETQ |fn| (CAR |arg|)) #1#))
-          (COND
-           ((|member| (UPCASE |fn|) '(Y N YE O OF))
-            (|say_printing_msg| '(FORTRAN |fortran|)))
-           ((|member| (UPCASE |fn|) '(NO OFF)) (SETQ |$fortranFormat| NIL))
-           ((|member| (UPCASE |fn|) '(YES ON)) (SETQ |$fortranFormat| T))
-           ((EQ (UPCASE |fn|) 'CONSOLE)
-            (PROGN
-             (|stream_close| |$fortranOutputStream|)
-             (SETQ |$fortranOutputStream| (|mkOutputConsoleStream|))
-             (SETQ |$fortranOutputFile| "CONSOLE")))))
-         ((OR
-           (AND (CONSP |arg|)
-                (PROGN
-                 (SETQ |fn| (CAR |arg|))
-                 (SETQ |ISTMP#1| (CDR |arg|))
-                 (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                      (PROGN (SETQ |ft| (CAR |ISTMP#1|)) #1#))))
-           (AND (CONSP |arg|)
-                (PROGN
-                 (SETQ |fn| (CAR |arg|))
-                 (SETQ |ISTMP#1| (CDR |arg|))
-                 (AND (CONSP |ISTMP#1|)
-                      (PROGN
-                       (SETQ |ft| (CAR |ISTMP#1|))
-                       (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                       (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                            (PROGN (SETQ |fm| (CAR |ISTMP#2|)) #1#)))))))
-          (PROGN
-           (SETQ |LETTMP#1| (|try_open| |fn| |ft| APPEND))
-           (SETQ |testStream| (CAR |LETTMP#1|))
-           (SETQ |filename| (CADR |LETTMP#1|))
-           (COND
-            (|testStream|
-             (PROGN
-              (|stream_close| |$fortranOutputStream|)
-              (SETQ |$fortranOutputStream| |testStream|)
-              (SETQ |$fortranOutputFile| |filename|)
-              (COND
-               ((NULL |quiet|)
-                (|say_writing| (LIST 'FORTRAN |$fortranOutputFile|))))))
-            (#1#
-             (COND ((NULL |quiet|) (|say_failed_open| (LIST |fn| |ft|))))))))
-         (#1#
-          (PROGN
-           (COND ((NULL |quiet|) (|say_invalid_args|)))
-           (|describeSetOutputFortran|))))))))))
-
 ; describeSetOutputFortran() == describeSetOutputU(
 ;     '"fortran", '"FORTRAN", '"sfort", false, setOutputFortran "%display%")
 
@@ -1934,117 +1914,51 @@
      (|describeSetOutputU| "fortran" "FORTRAN" "sfort" NIL
       (|setOutputFortran| '|%display%|)))))
 
-; setOutputMathml arg ==
-;   arg = "%initialize%" =>
-;     $mathmlOutputStream := mkOutputConsoleStream()
-;     $mathmlOutputFile := '"CONSOLE"
-;     $mathmlFormat := NIL
-;
-;   arg = "%display%" =>
-;     if $mathmlFormat then label := '"On:" else label := '"Off:"
-;     STRCONC(label,$mathmlOutputFile)
-;
-;   (null arg) or (arg = "%describe%") or (first arg = '_?) =>
-;     describeSetOutputMathml()
-;
-;   -- try to figure out what the argument is
-;
-;   if arg is [fn] and
-;     fn in '(Y N YE YES NO O ON OF OFF CONSOLE y n ye yes no o on of off console)
-;       then 'ok
-;       else arg := [fn,'smml]
-;
-;   arg is [fn] =>
-;     UPCASE(fn) in '(Y N YE O OF) => say_printing_msg('(MathML mathml))
-;     UPCASE(fn) in '(NO OFF)  => $mathmlFormat := NIL
-;     UPCASE(fn) in '(YES ON) => $mathmlFormat := true
-;     UPCASE(fn) = 'CONSOLE =>
-;       stream_close($mathmlOutputStream)
-;       $mathmlOutputStream := mkOutputConsoleStream()
-;       $mathmlOutputFile := '"CONSOLE"
-;
-;   (arg is [fn,ft]) or (arg is [fn,ft,fm]) => -- aha, a file
-;     [testStream, filename] := try_open(fn, ft, false)
-;     testStream =>
-;       stream_close($mathmlOutputStream)
-;       $mathmlOutputStream := testStream
-;       $mathmlOutputFile := filename
-;       say_writing(['"MathML", $mathmlOutputFile])
-;     say_failed_open([fn, ft])
-;
-;   say_invalid_args()
-;   describeSetOutputMathml()
+; $fortran_def_rec := GETREFV(6)
 
-(DEFUN |setOutputMathml| (|arg|)
-  (PROG (|label| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |LETTMP#1| |testStream|
-         |filename|)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$fortran_def_rec| (GETREFV 6)))
+
+; $fortran_def_rec.$describe_off := 'describeSetOutputFortran
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG ()
     (RETURN
-     (COND
-      ((EQ |arg| '|%initialize%|)
-       (PROGN
-        (SETQ |$mathmlOutputStream| (|mkOutputConsoleStream|))
-        (SETQ |$mathmlOutputFile| "CONSOLE")
-        (SETQ |$mathmlFormat| NIL)))
-      ((EQ |arg| '|%display%|)
-       (PROGN
-        (COND (|$mathmlFormat| (SETQ |label| "On:"))
-              (#1='T (SETQ |label| "Off:")))
-        (STRCONC |label| |$mathmlOutputFile|)))
-      ((OR (NULL |arg|) (EQ |arg| '|%describe%|) (EQ (CAR |arg|) '?))
-       (|describeSetOutputMathml|))
-      (#1#
-       (PROGN
-        (COND
-         ((AND (CONSP |arg|) (EQ (CDR |arg|) NIL)
-               (PROGN (SETQ |fn| (CAR |arg|)) #1#)
-               (|member| |fn|
-                '(Y N YE YES NO O ON OF OFF CONSOLE |y| |n| |ye| |yes| |no| |o|
-                  |on| OF |off| |console|)))
-          '|ok|)
-         (#1# (SETQ |arg| (LIST |fn| '|smml|))))
-        (COND
-         ((AND (CONSP |arg|) (EQ (CDR |arg|) NIL)
-               (PROGN (SETQ |fn| (CAR |arg|)) #1#))
-          (COND
-           ((|member| (UPCASE |fn|) '(Y N YE O OF))
-            (|say_printing_msg| '(|MathML| |mathml|)))
-           ((|member| (UPCASE |fn|) '(NO OFF)) (SETQ |$mathmlFormat| NIL))
-           ((|member| (UPCASE |fn|) '(YES ON)) (SETQ |$mathmlFormat| T))
-           ((EQ (UPCASE |fn|) 'CONSOLE)
-            (PROGN
-             (|stream_close| |$mathmlOutputStream|)
-             (SETQ |$mathmlOutputStream| (|mkOutputConsoleStream|))
-             (SETQ |$mathmlOutputFile| "CONSOLE")))))
-         ((OR
-           (AND (CONSP |arg|)
-                (PROGN
-                 (SETQ |fn| (CAR |arg|))
-                 (SETQ |ISTMP#1| (CDR |arg|))
-                 (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                      (PROGN (SETQ |ft| (CAR |ISTMP#1|)) #1#))))
-           (AND (CONSP |arg|)
-                (PROGN
-                 (SETQ |fn| (CAR |arg|))
-                 (SETQ |ISTMP#1| (CDR |arg|))
-                 (AND (CONSP |ISTMP#1|)
-                      (PROGN
-                       (SETQ |ft| (CAR |ISTMP#1|))
-                       (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                       (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                            (PROGN (SETQ |fm| (CAR |ISTMP#2|)) #1#)))))))
-          (PROGN
-           (SETQ |LETTMP#1| (|try_open| |fn| |ft| NIL))
-           (SETQ |testStream| (CAR |LETTMP#1|))
-           (SETQ |filename| (CADR |LETTMP#1|))
-           (COND
-            (|testStream|
-             (PROGN
-              (|stream_close| |$mathmlOutputStream|)
-              (SETQ |$mathmlOutputStream| |testStream|)
-              (SETQ |$mathmlOutputFile| |filename|)
-              (|say_writing| (LIST "MathML" |$mathmlOutputFile|))))
-            (#1# (|say_failed_open| (LIST |fn| |ft|))))))
-         (#1# (PROGN (|say_invalid_args|) (|describeSetOutputMathml|))))))))))
+     (SETF (ELT |$fortran_def_rec| |$describe_off|)
+             '|describeSetOutputFortran|))))
+
+; $fortran_def_rec.$ext_off := 'sfort
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$fortran_def_rec| |$ext_off|) '|sfort|))))
+
+; $fortran_def_rec.$pr_msg_off := '(FORTRAN fortran)
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG ()
+    (RETURN
+     (SETF (ELT |$fortran_def_rec| |$pr_msg_off|) '(FORTRAN |fortran|)))))
+
+; $fortran_def_rec.$label_off := '"FORTRAN"
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$fortran_def_rec| |$label_off|) "FORTRAN"))))
+
+; $fortran_def_rec.$def_on_off := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$fortran_def_rec| |$def_on_off|) NIL))))
+
+; $fortran_def_rec.$appendable_off := true
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$fortran_def_rec| |$appendable_off|) T))))
+
+; setOutputFortran(arg) ==
+;     set_output_gen(arg, $fortran_out_rec, $fortran_def_rec)
+
+(DEFUN |setOutputFortran| (|arg|)
+  (PROG ()
+    (RETURN (|set_output_gen| |arg| |$fortran_out_rec| |$fortran_def_rec|))))
 
 ; describeSetOutputMathml() == describeSetOutputU(
 ;     '"mathml", '"MathML", '"smml", false, setOutputMathml "%display%")
@@ -2055,117 +1969,50 @@
      (|describeSetOutputU| "mathml" "MathML" "smml" NIL
       (|setOutputMathml| '|%display%|)))))
 
-; setOutputTexmacs arg ==
-;   arg = "%initialize%" =>
-;     $texmacsOutputStream := mkOutputConsoleStream()
-;     $texmacsOutputFile := '"CONSOLE"
-;     $texmacsFormat := NIL
-;
-;   arg = "%display%" =>
-;     if $texmacsFormat then label := '"On:" else label := '"Off:"
-;     STRCONC(label,$texmacsOutputFile)
-;
-;   (null arg) or (arg = "%describe%") or (first arg = '_?) =>
-;     describeSetOutputTexmacs()
-;
-;   -- try to figure out what the argument is
-;
-;   if arg is [fn] and
-;     fn in '(Y N YE YES NO O ON OF OFF CONSOLE y n ye yes no o on of off console)
-;       then 'ok
-;       else arg := [fn,'stmx]
-;
-;   arg is [fn] =>
-;     UPCASE(fn) in '(Y N YE O OF) => say_printing_msg('(Texmacs texmacs))
-;     UPCASE(fn) in '(NO OFF)  => $texmacsFormat := NIL
-;     UPCASE(fn) in '(YES ON) => $texmacsFormat := true
-;     UPCASE(fn) = 'CONSOLE =>
-;       stream_close($texmacsOutputStream)
-;       $texmacsOutputStream := mkOutputConsoleStream()
-;       $texmacsOutputFile := '"CONSOLE"
-;
-;   (arg is [fn,ft]) or (arg is [fn,ft,fm]) => -- aha, a file
-;     [testStream, filename] := try_open(fn, ft, false)
-;     testStream =>
-;       stream_close($texmacsOutputStream)
-;       $texmacsOutputStream := testStream
-;       $texmacsOutputFile := filename
-;       say_writing(['"TeXmacs", $texmacsOutputFile])
-;     say_failed_open([fn, ft])
-;
-;   say_invalid_args()
-;   describeSetOutputTexmacs()
+; $mathml_def_rec := GETREFV(6)
 
-(DEFUN |setOutputTexmacs| (|arg|)
-  (PROG (|label| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |LETTMP#1| |testStream|
-         |filename|)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$mathml_def_rec| (GETREFV 6)))
+
+; $mathml_def_rec.$describe_off := 'describeSetOutputFortran
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG ()
     (RETURN
-     (COND
-      ((EQ |arg| '|%initialize%|)
-       (PROGN
-        (SETQ |$texmacsOutputStream| (|mkOutputConsoleStream|))
-        (SETQ |$texmacsOutputFile| "CONSOLE")
-        (SETQ |$texmacsFormat| NIL)))
-      ((EQ |arg| '|%display%|)
-       (PROGN
-        (COND (|$texmacsFormat| (SETQ |label| "On:"))
-              (#1='T (SETQ |label| "Off:")))
-        (STRCONC |label| |$texmacsOutputFile|)))
-      ((OR (NULL |arg|) (EQ |arg| '|%describe%|) (EQ (CAR |arg|) '?))
-       (|describeSetOutputTexmacs|))
-      (#1#
-       (PROGN
-        (COND
-         ((AND (CONSP |arg|) (EQ (CDR |arg|) NIL)
-               (PROGN (SETQ |fn| (CAR |arg|)) #1#)
-               (|member| |fn|
-                '(Y N YE YES NO O ON OF OFF CONSOLE |y| |n| |ye| |yes| |no| |o|
-                  |on| OF |off| |console|)))
-          '|ok|)
-         (#1# (SETQ |arg| (LIST |fn| '|stmx|))))
-        (COND
-         ((AND (CONSP |arg|) (EQ (CDR |arg|) NIL)
-               (PROGN (SETQ |fn| (CAR |arg|)) #1#))
-          (COND
-           ((|member| (UPCASE |fn|) '(Y N YE O OF))
-            (|say_printing_msg| '(|Texmacs| |texmacs|)))
-           ((|member| (UPCASE |fn|) '(NO OFF)) (SETQ |$texmacsFormat| NIL))
-           ((|member| (UPCASE |fn|) '(YES ON)) (SETQ |$texmacsFormat| T))
-           ((EQ (UPCASE |fn|) 'CONSOLE)
-            (PROGN
-             (|stream_close| |$texmacsOutputStream|)
-             (SETQ |$texmacsOutputStream| (|mkOutputConsoleStream|))
-             (SETQ |$texmacsOutputFile| "CONSOLE")))))
-         ((OR
-           (AND (CONSP |arg|)
-                (PROGN
-                 (SETQ |fn| (CAR |arg|))
-                 (SETQ |ISTMP#1| (CDR |arg|))
-                 (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                      (PROGN (SETQ |ft| (CAR |ISTMP#1|)) #1#))))
-           (AND (CONSP |arg|)
-                (PROGN
-                 (SETQ |fn| (CAR |arg|))
-                 (SETQ |ISTMP#1| (CDR |arg|))
-                 (AND (CONSP |ISTMP#1|)
-                      (PROGN
-                       (SETQ |ft| (CAR |ISTMP#1|))
-                       (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                       (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                            (PROGN (SETQ |fm| (CAR |ISTMP#2|)) #1#)))))))
-          (PROGN
-           (SETQ |LETTMP#1| (|try_open| |fn| |ft| NIL))
-           (SETQ |testStream| (CAR |LETTMP#1|))
-           (SETQ |filename| (CADR |LETTMP#1|))
-           (COND
-            (|testStream|
-             (PROGN
-              (|stream_close| |$texmacsOutputStream|)
-              (SETQ |$texmacsOutputStream| |testStream|)
-              (SETQ |$texmacsOutputFile| |filename|)
-              (|say_writing| (LIST "TeXmacs" |$texmacsOutputFile|))))
-            (#1# (|say_failed_open| (LIST |fn| |ft|))))))
-         (#1# (PROGN (|say_invalid_args|) (|describeSetOutputTexmacs|))))))))))
+     (SETF (ELT |$mathml_def_rec| |$describe_off|)
+             '|describeSetOutputFortran|))))
+
+; $mathml_def_rec.$ext_off := 'smml
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$mathml_def_rec| |$ext_off|) '|smml|))))
+
+; $mathml_def_rec.$pr_msg_off := '(MathML mathml)
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG ()
+    (RETURN (SETF (ELT |$mathml_def_rec| |$pr_msg_off|) '(|MathML| |mathml|)))))
+
+; $mathml_def_rec.$label_off := '"MathML"
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$mathml_def_rec| |$label_off|) "MathML"))))
+
+; $mathml_def_rec.$def_on_off := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$mathml_def_rec| |$def_on_off|) NIL))))
+
+; $mathml_def_rec.$appendable_off := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$mathml_def_rec| |$appendable_off|) NIL))))
+
+; setOutputMathml(arg) ==
+;     set_output_gen(arg, $mathml_out_rec, $mathml_def_rec)
+
+(DEFUN |setOutputMathml| (|arg|)
+  (PROG ()
+    (RETURN (|set_output_gen| |arg| |$mathml_out_rec| |$mathml_def_rec|))))
 
 ; describeSetOutputTexmacs() == describeSetOutputU(
 ;     '"texmacs", '"TeXmacs", '"stmx", false, setOutputTexmacs "%display%")
@@ -2176,117 +2023,51 @@
      (|describeSetOutputU| "texmacs" "TeXmacs" "stmx" NIL
       (|setOutputTexmacs| '|%display%|)))))
 
-; setOutputHtml arg ==
-;   arg = "%initialize%" =>
-;     $htmlOutputStream := mkOutputConsoleStream()
-;     $htmlOutputFile := '"CONSOLE"
-;     $htmlFormat := NIL
-;
-;   arg = "%display%" =>
-;     if $htmlFormat then label := '"On:" else label := '"Off:"
-;     STRCONC(label, $htmlOutputFile)
-;
-;   (null arg) or (arg = "%describe%") or (first arg = '_?) =>
-;     describeSetOutputHtml()
-;
-;   -- try to figure out what the argument is
-;
-;   if arg is [fn] and
-;     fn in '(Y N YE YES NO O ON OF OFF CONSOLE y n ye yes no o on of off console)
-;       then 'ok
-;       else arg := [fn,'shtml]
-;
-;   arg is [fn] =>
-;     UPCASE(fn) in '(Y N YE O OF) => say_printing_msg('(HTML html))
-;     UPCASE(fn) in '(NO OFF)  => $htmlFormat := NIL
-;     UPCASE(fn) in '(YES ON) => $htmlFormat := true
-;     UPCASE(fn) = 'CONSOLE =>
-;       stream_close($htmlOutputStream)
-;       $htmlOutputStream := mkOutputConsoleStream()
-;       $htmlOutputFile := '"CONSOLE"
-;
-;   (arg is [fn,ft]) or (arg is [fn,ft,fm]) => -- aha, a file
-;     [testStream, filename] := try_open(fn, ft, false)
-;     testStream =>
-;       stream_close($htmlOutputStream)
-;       $htmlOutputStream := testStream
-;       $htmlOutputFile := filename
-;       say_writing(['"HTML", $htmlOutputFile])
-;     say_failed_open([fn, ft])
-;
-;   say_invalid_args()
-;   describeSetOutputHtml()
+; $texmacs_def_rec := GETREFV(6)
 
-(DEFUN |setOutputHtml| (|arg|)
-  (PROG (|label| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |LETTMP#1| |testStream|
-         |filename|)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$texmacs_def_rec| (GETREFV 6)))
+
+; $texmacs_def_rec.$describe_off := 'describeSetOutputTexmacs
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG ()
     (RETURN
-     (COND
-      ((EQ |arg| '|%initialize%|)
-       (PROGN
-        (SETQ |$htmlOutputStream| (|mkOutputConsoleStream|))
-        (SETQ |$htmlOutputFile| "CONSOLE")
-        (SETQ |$htmlFormat| NIL)))
-      ((EQ |arg| '|%display%|)
-       (PROGN
-        (COND (|$htmlFormat| (SETQ |label| "On:"))
-              (#1='T (SETQ |label| "Off:")))
-        (STRCONC |label| |$htmlOutputFile|)))
-      ((OR (NULL |arg|) (EQ |arg| '|%describe%|) (EQ (CAR |arg|) '?))
-       (|describeSetOutputHtml|))
-      (#1#
-       (PROGN
-        (COND
-         ((AND (CONSP |arg|) (EQ (CDR |arg|) NIL)
-               (PROGN (SETQ |fn| (CAR |arg|)) #1#)
-               (|member| |fn|
-                '(Y N YE YES NO O ON OF OFF CONSOLE |y| |n| |ye| |yes| |no| |o|
-                  |on| OF |off| |console|)))
-          '|ok|)
-         (#1# (SETQ |arg| (LIST |fn| '|shtml|))))
-        (COND
-         ((AND (CONSP |arg|) (EQ (CDR |arg|) NIL)
-               (PROGN (SETQ |fn| (CAR |arg|)) #1#))
-          (COND
-           ((|member| (UPCASE |fn|) '(Y N YE O OF))
-            (|say_printing_msg| '(HTML |html|)))
-           ((|member| (UPCASE |fn|) '(NO OFF)) (SETQ |$htmlFormat| NIL))
-           ((|member| (UPCASE |fn|) '(YES ON)) (SETQ |$htmlFormat| T))
-           ((EQ (UPCASE |fn|) 'CONSOLE)
-            (PROGN
-             (|stream_close| |$htmlOutputStream|)
-             (SETQ |$htmlOutputStream| (|mkOutputConsoleStream|))
-             (SETQ |$htmlOutputFile| "CONSOLE")))))
-         ((OR
-           (AND (CONSP |arg|)
-                (PROGN
-                 (SETQ |fn| (CAR |arg|))
-                 (SETQ |ISTMP#1| (CDR |arg|))
-                 (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                      (PROGN (SETQ |ft| (CAR |ISTMP#1|)) #1#))))
-           (AND (CONSP |arg|)
-                (PROGN
-                 (SETQ |fn| (CAR |arg|))
-                 (SETQ |ISTMP#1| (CDR |arg|))
-                 (AND (CONSP |ISTMP#1|)
-                      (PROGN
-                       (SETQ |ft| (CAR |ISTMP#1|))
-                       (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                       (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                            (PROGN (SETQ |fm| (CAR |ISTMP#2|)) #1#)))))))
-          (PROGN
-           (SETQ |LETTMP#1| (|try_open| |fn| |ft| NIL))
-           (SETQ |testStream| (CAR |LETTMP#1|))
-           (SETQ |filename| (CADR |LETTMP#1|))
-           (COND
-            (|testStream|
-             (PROGN
-              (|stream_close| |$htmlOutputStream|)
-              (SETQ |$htmlOutputStream| |testStream|)
-              (SETQ |$htmlOutputFile| |filename|)
-              (|say_writing| (LIST "HTML" |$htmlOutputFile|))))
-            (#1# (|say_failed_open| (LIST |fn| |ft|))))))
-         (#1# (PROGN (|say_invalid_args|) (|describeSetOutputHtml|))))))))))
+     (SETF (ELT |$texmacs_def_rec| |$describe_off|)
+             '|describeSetOutputTexmacs|))))
+
+; $texmacs_def_rec.$ext_off := 'spout
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$texmacs_def_rec| |$ext_off|) '|spout|))))
+
+; $texmacs_def_rec.$pr_msg_off := '(Texmacs texmacs)
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG ()
+    (RETURN
+     (SETF (ELT |$texmacs_def_rec| |$pr_msg_off|) '(|Texmacs| |texmacs|)))))
+
+; $texmacs_def_rec.$label_off := '"TeXmacs"
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$texmacs_def_rec| |$label_off|) "TeXmacs"))))
+
+; $texmacs_def_rec.$def_on_off := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$texmacs_def_rec| |$def_on_off|) NIL))))
+
+; $texmacs_def_rec.$appendable_off := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$texmacs_def_rec| |$appendable_off|) NIL))))
+
+; setOutputTexmacs(arg) ==
+;     set_output_gen(arg, $texmacs_out_rec, $texmacs_def_rec)
+
+(DEFUN |setOutputTexmacs| (|arg|)
+  (PROG ()
+    (RETURN (|set_output_gen| |arg| |$texmacs_out_rec| |$texmacs_def_rec|))))
 
 ; describeSetOutputHtml() == describeSetOutputU(
 ;     '"html", '"HTML", '"shtml", false, setOutputHtml "%display%")
@@ -2297,117 +2078,47 @@
      (|describeSetOutputU| "html" "HTML" "shtml" NIL
       (|setOutputHtml| '|%display%|)))))
 
-; setOutputOpenMath arg ==
-;   arg = "%initialize%" =>
-;     $openMathOutputStream := mkOutputConsoleStream()
-;     $openMathOutputFile := '"CONSOLE"
-;     $openMathFormat := NIL
-;
-;   arg = "%display%" =>
-;     if $openMathFormat then label := '"On:" else label := '"Off:"
-;     STRCONC(label,$openMathOutputFile)
-;
-;   (null arg) or (arg = "%describe%") or (first arg = '_?) =>
-;     describeSetOutputOpenMath()
-;
-;   -- try to figure out what the argument is
-;
-;   if arg is [fn] and
-;     fn in '(Y N YE YES NO O ON OF OFF CONSOLE y n ye yes no o on of off console)
-;       then 'ok
-;       else arg := [fn,'som]
-;
-;   arg is [fn] =>
-;     UPCASE(fn) in '(Y N YE O OF) => say_printing_msg('(OpenMath openmath))
-;     UPCASE(fn) in '(NO OFF)  => $openMathFormat := NIL
-;     UPCASE(fn) in '(YES ON) => $openMathFormat := true
-;     UPCASE(fn) = 'CONSOLE =>
-;       stream_close($openMathOutputStream)
-;       $openMathOutputStream := mkOutputConsoleStream()
-;       $openMathOutputFile := '"CONSOLE"
-;
-;   (arg is [fn,ft]) or (arg is [fn,ft,fm]) => -- aha, a file
-;     [testStream, filename] := try_open(fn, ft, false)
-;     testStream =>
-;       stream_close($openMathOutputStream)
-;       $openMathOutputStream := testStream
-;       $openMathOutputFile := filename
-;       say_writing(['"OpenMath", $openMathOutputFile])
-;     say_failed_open([fn, ft])
-;
-;   say_invalid_args()
-;   describeSetOutputOpenMath()
+; $html_def_rec := GETREFV(6)
 
-(DEFUN |setOutputOpenMath| (|arg|)
-  (PROG (|label| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |LETTMP#1| |testStream|
-         |filename|)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$html_def_rec| (GETREFV 6)))
+
+; $html_def_rec.$describe_off := 'describeSetOutputHtml
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG ()
     (RETURN
-     (COND
-      ((EQ |arg| '|%initialize%|)
-       (PROGN
-        (SETQ |$openMathOutputStream| (|mkOutputConsoleStream|))
-        (SETQ |$openMathOutputFile| "CONSOLE")
-        (SETQ |$openMathFormat| NIL)))
-      ((EQ |arg| '|%display%|)
-       (PROGN
-        (COND (|$openMathFormat| (SETQ |label| "On:"))
-              (#1='T (SETQ |label| "Off:")))
-        (STRCONC |label| |$openMathOutputFile|)))
-      ((OR (NULL |arg|) (EQ |arg| '|%describe%|) (EQ (CAR |arg|) '?))
-       (|describeSetOutputOpenMath|))
-      (#1#
-       (PROGN
-        (COND
-         ((AND (CONSP |arg|) (EQ (CDR |arg|) NIL)
-               (PROGN (SETQ |fn| (CAR |arg|)) #1#)
-               (|member| |fn|
-                '(Y N YE YES NO O ON OF OFF CONSOLE |y| |n| |ye| |yes| |no| |o|
-                  |on| OF |off| |console|)))
-          '|ok|)
-         (#1# (SETQ |arg| (LIST |fn| '|som|))))
-        (COND
-         ((AND (CONSP |arg|) (EQ (CDR |arg|) NIL)
-               (PROGN (SETQ |fn| (CAR |arg|)) #1#))
-          (COND
-           ((|member| (UPCASE |fn|) '(Y N YE O OF))
-            (|say_printing_msg| '(|OpenMath| |openmath|)))
-           ((|member| (UPCASE |fn|) '(NO OFF)) (SETQ |$openMathFormat| NIL))
-           ((|member| (UPCASE |fn|) '(YES ON)) (SETQ |$openMathFormat| T))
-           ((EQ (UPCASE |fn|) 'CONSOLE)
-            (PROGN
-             (|stream_close| |$openMathOutputStream|)
-             (SETQ |$openMathOutputStream| (|mkOutputConsoleStream|))
-             (SETQ |$openMathOutputFile| "CONSOLE")))))
-         ((OR
-           (AND (CONSP |arg|)
-                (PROGN
-                 (SETQ |fn| (CAR |arg|))
-                 (SETQ |ISTMP#1| (CDR |arg|))
-                 (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                      (PROGN (SETQ |ft| (CAR |ISTMP#1|)) #1#))))
-           (AND (CONSP |arg|)
-                (PROGN
-                 (SETQ |fn| (CAR |arg|))
-                 (SETQ |ISTMP#1| (CDR |arg|))
-                 (AND (CONSP |ISTMP#1|)
-                      (PROGN
-                       (SETQ |ft| (CAR |ISTMP#1|))
-                       (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                       (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                            (PROGN (SETQ |fm| (CAR |ISTMP#2|)) #1#)))))))
-          (PROGN
-           (SETQ |LETTMP#1| (|try_open| |fn| |ft| NIL))
-           (SETQ |testStream| (CAR |LETTMP#1|))
-           (SETQ |filename| (CADR |LETTMP#1|))
-           (COND
-            (|testStream|
-             (PROGN
-              (|stream_close| |$openMathOutputStream|)
-              (SETQ |$openMathOutputStream| |testStream|)
-              (SETQ |$openMathOutputFile| |filename|)
-              (|say_writing| (LIST "OpenMath" |$openMathOutputFile|))))
-            (#1# (|say_failed_open| (LIST |fn| |ft|))))))
-         (#1# (PROGN (|say_invalid_args|) (|describeSetOutputOpenMath|))))))))))
+     (SETF (ELT |$html_def_rec| |$describe_off|) '|describeSetOutputHtml|))))
+
+; $html_def_rec.$ext_off := 'shtml
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$html_def_rec| |$ext_off|) '|shtml|))))
+
+; $html_def_rec.$pr_msg_off := '(HTML html)
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$html_def_rec| |$pr_msg_off|) '(HTML |html|)))))
+
+; $html_def_rec.$label_off := '"HTML"
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$html_def_rec| |$label_off|) "HTML"))))
+
+; $html_def_rec.$def_on_off := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$html_def_rec| |$def_on_off|) NIL))))
+
+; $html_def_rec.$appendable_off := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$html_def_rec| |$appendable_off|) NIL))))
+
+; setOutputHtml(arg) ==
+;     set_output_gen(arg, $html_out_rec, $html_def_rec)
+
+(DEFUN |setOutputHtml| (|arg|)
+  (PROG () (RETURN (|set_output_gen| |arg| |$html_out_rec| |$html_def_rec|))))
 
 ; describeSetOutputOpenMath() == describeSetOutputU(
 ;     '"openmath", '"OpenMath", '"som", false, setOutputOpenMath "%display%")
@@ -2418,117 +2129,51 @@
      (|describeSetOutputU| "openmath" "OpenMath" "som" NIL
       (|setOutputOpenMath| '|%display%|)))))
 
-; setOutputTex arg ==
-;   arg = "%initialize%" =>
-;     $texOutputStream := mkOutputConsoleStream()
-;     $texOutputFile := '"CONSOLE"
-;     $texFormat := NIL
-;
-;   arg = "%display%" =>
-;     if $texFormat then label := '"On:" else label := '"Off:"
-;     STRCONC(label,$texOutputFile)
-;
-;   (null arg) or (arg = "%describe%") or (first arg = '_?) =>
-;     describeSetOutputTex()
-;
-;   -- try to figure out what the argument is
-;
-;   if arg is [fn] and
-;     fn in '(Y N YE YES NO O ON OF OFF CONSOLE y n ye yes no o on of off console)
-;       then 'ok
-;       else arg := [fn,'stex]
-;
-;   arg is [fn] =>
-;     UPCASE(fn) in '(Y N YE O OF) => say_printing_msg('(TeX tex))
-;     UPCASE(fn) in '(NO OFF)  => $texFormat := NIL
-;     UPCASE(fn) in '(YES ON) => $texFormat := true
-;     UPCASE(fn) = 'CONSOLE =>
-;       stream_close($texOutputStream)
-;       $texOutputStream := mkOutputConsoleStream()
-;       $texOutputFile := '"CONSOLE"
-;
-;   (arg is [fn,ft]) or (arg is [fn,ft,fm]) => -- aha, a file
-;     [testStream, filename] := try_open(fn, ft, false)
-;     testStream =>
-;       stream_close($texOutputStream)
-;       $texOutputStream := testStream
-;       $texOutputFile := filename
-;       say_writing(['"TeX", $texOutputFile])
-;     say_failed_open([fn, ft])
-;
-;   say_invalid_args()
-;   describeSetOutputTex()
+; $openmath_def_rec := GETREFV(6)
 
-(DEFUN |setOutputTex| (|arg|)
-  (PROG (|label| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |LETTMP#1| |testStream|
-         |filename|)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$openmath_def_rec| (GETREFV 6)))
+
+; $openmath_def_rec.$describe_off := 'describeSetOutputOpenMath
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG ()
     (RETURN
-     (COND
-      ((EQ |arg| '|%initialize%|)
-       (PROGN
-        (SETQ |$texOutputStream| (|mkOutputConsoleStream|))
-        (SETQ |$texOutputFile| "CONSOLE")
-        (SETQ |$texFormat| NIL)))
-      ((EQ |arg| '|%display%|)
-       (PROGN
-        (COND (|$texFormat| (SETQ |label| "On:"))
-              (#1='T (SETQ |label| "Off:")))
-        (STRCONC |label| |$texOutputFile|)))
-      ((OR (NULL |arg|) (EQ |arg| '|%describe%|) (EQ (CAR |arg|) '?))
-       (|describeSetOutputTex|))
-      (#1#
-       (PROGN
-        (COND
-         ((AND (CONSP |arg|) (EQ (CDR |arg|) NIL)
-               (PROGN (SETQ |fn| (CAR |arg|)) #1#)
-               (|member| |fn|
-                '(Y N YE YES NO O ON OF OFF CONSOLE |y| |n| |ye| |yes| |no| |o|
-                  |on| OF |off| |console|)))
-          '|ok|)
-         (#1# (SETQ |arg| (LIST |fn| '|stex|))))
-        (COND
-         ((AND (CONSP |arg|) (EQ (CDR |arg|) NIL)
-               (PROGN (SETQ |fn| (CAR |arg|)) #1#))
-          (COND
-           ((|member| (UPCASE |fn|) '(Y N YE O OF))
-            (|say_printing_msg| '(|TeX| |tex|)))
-           ((|member| (UPCASE |fn|) '(NO OFF)) (SETQ |$texFormat| NIL))
-           ((|member| (UPCASE |fn|) '(YES ON)) (SETQ |$texFormat| T))
-           ((EQ (UPCASE |fn|) 'CONSOLE)
-            (PROGN
-             (|stream_close| |$texOutputStream|)
-             (SETQ |$texOutputStream| (|mkOutputConsoleStream|))
-             (SETQ |$texOutputFile| "CONSOLE")))))
-         ((OR
-           (AND (CONSP |arg|)
-                (PROGN
-                 (SETQ |fn| (CAR |arg|))
-                 (SETQ |ISTMP#1| (CDR |arg|))
-                 (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                      (PROGN (SETQ |ft| (CAR |ISTMP#1|)) #1#))))
-           (AND (CONSP |arg|)
-                (PROGN
-                 (SETQ |fn| (CAR |arg|))
-                 (SETQ |ISTMP#1| (CDR |arg|))
-                 (AND (CONSP |ISTMP#1|)
-                      (PROGN
-                       (SETQ |ft| (CAR |ISTMP#1|))
-                       (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                       (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                            (PROGN (SETQ |fm| (CAR |ISTMP#2|)) #1#)))))))
-          (PROGN
-           (SETQ |LETTMP#1| (|try_open| |fn| |ft| NIL))
-           (SETQ |testStream| (CAR |LETTMP#1|))
-           (SETQ |filename| (CADR |LETTMP#1|))
-           (COND
-            (|testStream|
-             (PROGN
-              (|stream_close| |$texOutputStream|)
-              (SETQ |$texOutputStream| |testStream|)
-              (SETQ |$texOutputFile| |filename|)
-              (|say_writing| (LIST "TeX" |$texOutputFile|))))
-            (#1# (|say_failed_open| (LIST |fn| |ft|))))))
-         (#1# (PROGN (|say_invalid_args|) (|describeSetOutputTex|))))))))))
+     (SETF (ELT |$openmath_def_rec| |$describe_off|)
+             '|describeSetOutputOpenMath|))))
+
+; $openmath_def_rec.$ext_off := 'som
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$openmath_def_rec| |$ext_off|) '|som|))))
+
+; $openmath_def_rec.$pr_msg_off := '(OpenMath openmath)
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG ()
+    (RETURN
+     (SETF (ELT |$openmath_def_rec| |$pr_msg_off|) '(|OpenMath| |openmath|)))))
+
+; $openmath_def_rec.$label_off := '"OpenMath"
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$openmath_def_rec| |$label_off|) "OpenMath"))))
+
+; $openmath_def_rec.$def_on_off := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$openmath_def_rec| |$def_on_off|) NIL))))
+
+; $openmath_def_rec.$appendable_off := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$openmath_def_rec| |$appendable_off|) NIL))))
+
+; setOutputOpenMath(arg) ==
+;     set_output_gen(arg, $openmath_out_rec, $openmath_def_rec)
+
+(DEFUN |setOutputOpenMath| (|arg|)
+  (PROG ()
+    (RETURN (|set_output_gen| |arg| |$openmath_out_rec| |$openmath_def_rec|))))
 
 ; describeSetOutputTex() == describeSetOutputU(
 ;     '"tex", '"TeX", '"stex", false, setOutputTex "%display%")
@@ -2539,118 +2184,47 @@
      (|describeSetOutputU| "tex" "TeX" "stex" NIL
       (|setOutputTex| '|%display%|)))))
 
-; setOutputFormatted arg ==
-;   arg = "%initialize%" =>
-;     $formattedOutputStream := mkOutputConsoleStream()
-;     $formattedOutputFile := '"CONSOLE"
-;     $formattedFormat := NIL
-;
-;   arg = "%display%" =>
-;     if $formattedFormat then label := '"On:" else label := '"Off:"
-;     STRCONC(label, $formattedOutputFile)
-;
-;   (null arg) or (arg = "%describe%") or (first arg = '_?) =>
-;     describeSetOutputFormatted()
-;
-;   -- try to figure out what the argument is
-;
-;   if arg is [fn] and
-;     fn in '(Y N YE YES NO O ON OF OFF CONSOLE y n ye yes no o on of off console)
-;       then 'ok
-;       else arg := [fn,'formatted]
-;
-;   arg is [fn] =>
-;     UPCASE(fn) in '(Y N YE O OF) => say_printing_msg('(FORMATTED formatted))
-;     UPCASE(fn) in '(NO OFF) => $formattedFormat := NIL
-;     UPCASE(fn) in '(YES ON) => $formattedFormat := true
-;     UPCASE(fn) = 'CONSOLE =>
-;       stream_close($formattedOutputStream)
-;       $formattedOutputStream := mkOutputConsoleStream()
-;       $formattedOutputFile := '"CONSOLE"
-;
-;   (arg is [fn,ft]) or (arg is [fn,ft,fm]) => -- aha, a file
-;     [testStream, filename] := try_open(fn, ft, false)
-;     testStream =>
-;       stream_close($formattedOutputStream)
-;       $formattedOutputStream := testStream
-;       $formattedOutputFile := filename
-;       say_writing(['"FORMATTED", $formattedOutputFile])
-;     say_failed_open([fn, ft])
-;
-;   say_invalid_args()
-;   describeSetOutputFormatted()
+; $tex_def_rec := GETREFV(6)
 
-(DEFUN |setOutputFormatted| (|arg|)
-  (PROG (|label| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |LETTMP#1| |testStream|
-         |filename|)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$tex_def_rec| (GETREFV 6)))
+
+; $tex_def_rec.$describe_off := 'describeSetOutputTex
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG ()
     (RETURN
-     (COND
-      ((EQ |arg| '|%initialize%|)
-       (PROGN
-        (SETQ |$formattedOutputStream| (|mkOutputConsoleStream|))
-        (SETQ |$formattedOutputFile| "CONSOLE")
-        (SETQ |$formattedFormat| NIL)))
-      ((EQ |arg| '|%display%|)
-       (PROGN
-        (COND (|$formattedFormat| (SETQ |label| "On:"))
-              (#1='T (SETQ |label| "Off:")))
-        (STRCONC |label| |$formattedOutputFile|)))
-      ((OR (NULL |arg|) (EQ |arg| '|%describe%|) (EQ (CAR |arg|) '?))
-       (|describeSetOutputFormatted|))
-      (#1#
-       (PROGN
-        (COND
-         ((AND (CONSP |arg|) (EQ (CDR |arg|) NIL)
-               (PROGN (SETQ |fn| (CAR |arg|)) #1#)
-               (|member| |fn|
-                '(Y N YE YES NO O ON OF OFF CONSOLE |y| |n| |ye| |yes| |no| |o|
-                  |on| OF |off| |console|)))
-          '|ok|)
-         (#1# (SETQ |arg| (LIST |fn| '|formatted|))))
-        (COND
-         ((AND (CONSP |arg|) (EQ (CDR |arg|) NIL)
-               (PROGN (SETQ |fn| (CAR |arg|)) #1#))
-          (COND
-           ((|member| (UPCASE |fn|) '(Y N YE O OF))
-            (|say_printing_msg| '(FORMATTED |formatted|)))
-           ((|member| (UPCASE |fn|) '(NO OFF)) (SETQ |$formattedFormat| NIL))
-           ((|member| (UPCASE |fn|) '(YES ON)) (SETQ |$formattedFormat| T))
-           ((EQ (UPCASE |fn|) 'CONSOLE)
-            (PROGN
-             (|stream_close| |$formattedOutputStream|)
-             (SETQ |$formattedOutputStream| (|mkOutputConsoleStream|))
-             (SETQ |$formattedOutputFile| "CONSOLE")))))
-         ((OR
-           (AND (CONSP |arg|)
-                (PROGN
-                 (SETQ |fn| (CAR |arg|))
-                 (SETQ |ISTMP#1| (CDR |arg|))
-                 (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                      (PROGN (SETQ |ft| (CAR |ISTMP#1|)) #1#))))
-           (AND (CONSP |arg|)
-                (PROGN
-                 (SETQ |fn| (CAR |arg|))
-                 (SETQ |ISTMP#1| (CDR |arg|))
-                 (AND (CONSP |ISTMP#1|)
-                      (PROGN
-                       (SETQ |ft| (CAR |ISTMP#1|))
-                       (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                       (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                            (PROGN (SETQ |fm| (CAR |ISTMP#2|)) #1#)))))))
-          (PROGN
-           (SETQ |LETTMP#1| (|try_open| |fn| |ft| NIL))
-           (SETQ |testStream| (CAR |LETTMP#1|))
-           (SETQ |filename| (CADR |LETTMP#1|))
-           (COND
-            (|testStream|
-             (PROGN
-              (|stream_close| |$formattedOutputStream|)
-              (SETQ |$formattedOutputStream| |testStream|)
-              (SETQ |$formattedOutputFile| |filename|)
-              (|say_writing| (LIST "FORMATTED" |$formattedOutputFile|))))
-            (#1# (|say_failed_open| (LIST |fn| |ft|))))))
-         (#1#
-          (PROGN (|say_invalid_args|) (|describeSetOutputFormatted|))))))))))
+     (SETF (ELT |$tex_def_rec| |$describe_off|) '|describeSetOutputTex|))))
+
+; $tex_def_rec.$ext_off := 'stex
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$tex_def_rec| |$ext_off|) '|stex|))))
+
+; $tex_def_rec.$pr_msg_off := '(TeX tex)
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$tex_def_rec| |$pr_msg_off|) '(|TeX| |tex|)))))
+
+; $tex_def_rec.$label_off := '"TeX"
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$tex_def_rec| |$label_off|) "TeX"))))
+
+; $tex_def_rec.$def_on_off := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$tex_def_rec| |$def_on_off|) NIL))))
+
+; $tex_def_rec.$appendable_off := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$tex_def_rec| |$appendable_off|) NIL))))
+
+; setOutputTex(arg) ==
+;     set_output_gen(arg, $tex_out_rec, $tex_def_rec)
+
+(DEFUN |setOutputTex| (|arg|)
+  (PROG () (RETURN (|set_output_gen| |arg| |$tex_out_rec| |$tex_def_rec|))))
 
 ; describeSetOutputFormatted() == describeSetOutputU(
 ;     '"formatted",'"formatted",'"formatted",false,setOutputFormatted "%display%")
@@ -2660,6 +2234,53 @@
     (RETURN
      (|describeSetOutputU| "formatted" "formatted" "formatted" NIL
       (|setOutputFormatted| '|%display%|)))))
+
+; $formatted_def_rec := GETREFV(6)
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$formatted_def_rec| (GETREFV 6)))
+
+; $formatted_def_rec.$describe_off := 'describeSetOutputFormatted
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG ()
+    (RETURN
+     (SETF (ELT |$formatted_def_rec| |$describe_off|)
+             '|describeSetOutputFormatted|))))
+
+; $formatted_def_rec.$ext_off := 'formatted
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$formatted_def_rec| |$ext_off|) '|formatted|))))
+
+; $formatted_def_rec.$pr_msg_off := '(FORMATTED formatted)
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG ()
+    (RETURN
+     (SETF (ELT |$formatted_def_rec| |$pr_msg_off|) '(FORMATTED |formatted|)))))
+
+; $formatted_def_rec.$label_off := '"FORMATTED"
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$formatted_def_rec| |$label_off|) "FORMATTED"))))
+
+; $formatted_def_rec.$def_on_off := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$formatted_def_rec| |$def_on_off|) NIL))))
+
+; $formatted_def_rec.$appendable_off := false
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (SETF (ELT |$formatted_def_rec| |$appendable_off|) NIL))))
+
+; setOutputFormatted(arg) ==
+;     set_output_gen(arg, $formatted_out_rec, $formatted_def_rec)
+
+(DEFUN |setOutputFormatted| (|arg|)
+  (PROG ()
+    (RETURN
+     (|set_output_gen| |arg| |$formatted_out_rec| |$formatted_def_rec|))))
 
 ; setStreamsCalculate arg ==
 ;   arg = "%initialize%" =>

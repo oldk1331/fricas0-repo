@@ -91,7 +91,8 @@
                         (SPADCALL |tp| (QREFELT % 33)))
                   (QREFELT % 35)))))
               (EXIT
-               (SPADCALL (STRINGIMAGE |$fortranOutputFile|) (QREFELT % 36)))))) 
+               (SPADCALL (STRINGIMAGE (ELT |$fortran_out_rec| |$file_off|))
+                         (QREFELT % 36)))))) 
 
 (DECLAIM (NOTINLINE |FortranTemplate;|)) 
 

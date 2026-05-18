@@ -344,33 +344,51 @@
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (PROG () (RETURN (DEFCONST |$DoubleQuote| "\""))))
 
-; DEFVAR($algebraFormat, true) -- produce 2-d algebra output
+; DEFCONST($stream_off, 0)
 
-(DEFVAR |$algebraFormat| T)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (DEFCONST |$stream_off| 0))))
 
-; DEFVAR($fortranFormat, false) -- if true produce fortran output
+; DEFCONST($file_off, 1)
 
-(DEFVAR |$fortranFormat| NIL)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (PROG () (RETURN (DEFCONST |$file_off| 1))))
 
-; DEFVAR($htmlFormat, false) -- if true produce HTML output
+; DEFCONST($on_off, 2)
 
-(DEFVAR |$htmlFormat| NIL)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (PROG () (RETURN (DEFCONST |$on_off| 2))))
 
-; DEFVAR($mathmlFormat, false) -- if true produce Math ML output
+; $algebra_out_rec := GETREFV(3)
 
-(DEFVAR |$mathmlFormat| NIL)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$algebra_out_rec| (GETREFV 3)))
 
-; DEFVAR($texFormat, false) -- if true produce tex output
+; $fortran_out_rec := GETREFV(3)
 
-(DEFVAR |$texFormat| NIL)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$fortran_out_rec| (GETREFV 3)))
 
-; DEFVAR($texmacsFormat, false) -- if true produce Texmacs output
+; $mathml_out_rec := GETREFV(3)
 
-(DEFVAR |$texmacsFormat| NIL)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$mathml_out_rec| (GETREFV 3)))
 
-; DEFVAR($formattedFormat, false) -- if true produce formatted output
+; $texmacs_out_rec := GETREFV(3)
 
-(DEFVAR |$formattedFormat| NIL)
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$texmacs_out_rec| (GETREFV 3)))
+
+; $html_out_rec := GETREFV(3)
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$html_out_rec| (GETREFV 3)))
+
+; $openmath_out_rec := GETREFV(3)
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$openmath_out_rec| (GETREFV 3)))
+
+; $tex_out_rec := GETREFV(3)
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$tex_out_rec| (GETREFV 3)))
+
+; $formatted_out_rec := GETREFV(3)
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$formatted_out_rec| (GETREFV 3)))
 
 ; $LINELENGTH := 77
 
@@ -457,44 +475,81 @@
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$collectOutput| NIL))
 
+; new_alg_rec(stream) ==
+;     res := GETREFV(3)
+;     ref.$stream_off := CONS([], stream)
+;     ref.$file_off := '"CONSOLE"
+;     ref.$on_off := true
+
+(DEFUN |new_alg_rec| (|stream|)
+  (PROG (|res|)
+    (RETURN
+     (PROGN
+      (SETQ |res| (GETREFV 3))
+      (SETF (ELT |ref| |$stream_off|) (CONS NIL |stream|))
+      (SETF (ELT |ref| |$file_off|) "CONSOLE")
+      (SETF (ELT |ref| |$on_off|) T)))))
+
 ; get_lisp_stream(fs) == REST(fs)
 
 (DEFUN |get_lisp_stream| (|fs|) (PROG () (RETURN (REST |fs|))))
 
-; get_algebra_stream() == get_lisp_stream($algebraOutputStream)
+; get_algebra_stream() == get_lisp_stream($algebra_out_rec.$stream_off)
 
 (DEFUN |get_algebra_stream| ()
-  (PROG () (RETURN (|get_lisp_stream| |$algebraOutputStream|))))
+  (PROG () (RETURN (|get_lisp_stream| (ELT |$algebra_out_rec| |$stream_off|)))))
 
-; get_fortran_stream() == get_lisp_stream($fortranOutputStream)
+; get_fortran_stream() == get_lisp_stream($fortran_out_rec.$stream_off)
 
 (DEFUN |get_fortran_stream| ()
-  (PROG () (RETURN (|get_lisp_stream| |$fortranOutputStream|))))
+  (PROG () (RETURN (|get_lisp_stream| (ELT |$fortran_out_rec| |$stream_off|)))))
 
-; get_mathml_stream() == get_lisp_stream($mathmlOutputStream)
+; get_mathml_stream() == get_lisp_stream($mathml_out_rec.$stream_off)
 
 (DEFUN |get_mathml_stream| ()
-  (PROG () (RETURN (|get_lisp_stream| |$mathmlOutputStream|))))
+  (PROG () (RETURN (|get_lisp_stream| (ELT |$mathml_out_rec| |$stream_off|)))))
 
-; get_texmacs_stream() == get_lisp_stream($texmacsOutputStream)
+; get_texmacs_stream() == get_lisp_stream($texmacs_out_rec.$stream_off)
 
 (DEFUN |get_texmacs_stream| ()
-  (PROG () (RETURN (|get_lisp_stream| |$texmacsOutputStream|))))
+  (PROG () (RETURN (|get_lisp_stream| (ELT |$texmacs_out_rec| |$stream_off|)))))
 
-; get_html_stream() == get_lisp_stream($htmlOutputStream)
+; get_html_stream() == get_lisp_stream($html_out_rec.$stream_off)
 
 (DEFUN |get_html_stream| ()
-  (PROG () (RETURN (|get_lisp_stream| |$htmlOutputStream|))))
+  (PROG () (RETURN (|get_lisp_stream| (ELT |$html_out_rec| |$stream_off|)))))
 
-; get_tex_stream() == get_lisp_stream($texOutputStream)
+; get_tex_stream() == get_lisp_stream($tex_out_rec.$stream_off)
 
 (DEFUN |get_tex_stream| ()
-  (PROG () (RETURN (|get_lisp_stream| |$texOutputStream|))))
+  (PROG () (RETURN (|get_lisp_stream| (ELT |$tex_out_rec| |$stream_off|)))))
 
-; get_formatted_stream() == get_lisp_stream($formattedOutputStream)
+; get_formatted_stream() == get_lisp_stream($formatted_out_rec.$stream_off)
 
 (DEFUN |get_formatted_stream| ()
-  (PROG () (RETURN (|get_lisp_stream| |$formattedOutputStream|))))
+  (PROG ()
+    (RETURN (|get_lisp_stream| (ELT |$formatted_out_rec| |$stream_off|)))))
+
+; get_out_rec(branch) ==
+;     branch = 'fortran => $fortran_out_rec
+;     branch = 'mathml => $mathml_out_rec
+;     branch = 'texmacs => $texmacs_out_rec
+;     branch = 'html => $html_out_rec
+;     branch = 'openmath => $openmath_out_rec
+;     branch = 'tex => $tex_out_rec
+;     branch = 'formatted => $formatted_out_rec
+;     nil
+
+(DEFUN |get_out_rec| (|branch|)
+  (PROG ()
+    (RETURN
+     (COND ((EQ |branch| '|fortran|) |$fortran_out_rec|)
+           ((EQ |branch| '|mathml|) |$mathml_out_rec|)
+           ((EQ |branch| '|texmacs|) |$texmacs_out_rec|)
+           ((EQ |branch| '|html|) |$html_out_rec|)
+           ((EQ |branch| '|openmath|) |$openmath_out_rec|)
+           ((EQ |branch| '|tex|) |$tex_out_rec|)
+           ((EQ |branch| '|formatted|) |$formatted_out_rec|) ('T NIL)))))
 
 ; specialChar(symbol) ==
 ;   -- looks up symbol in $specialCharacterAlist, gets the index
@@ -3673,28 +3728,6 @@
       (|ioHook| '|endOfTeXOutput|)
       NIL))))
 
-; texFormat1 expr ==
-;   tf := '(TexFormat)
-;   formatFn := getFunctionFromDomain("coerce",tf, [$OutputForm])
-;   displayFn := getFunctionFromDomain("display",tf,[tf])
-;   SPADCALL(SPADCALL(expr,formatFn),displayFn)
-;   TERPRI(get_tex_stream())
-;   FORCE_-OUTPUT(get_tex_stream())
-;   NIL
-
-(DEFUN |texFormat1| (|expr|)
-  (PROG (|tf| |formatFn| |displayFn|)
-    (RETURN
-     (PROGN
-      (SETQ |tf| '(|TexFormat|))
-      (SETQ |formatFn|
-              (|getFunctionFromDomain| '|coerce| |tf| (LIST |$OutputForm|)))
-      (SETQ |displayFn| (|getFunctionFromDomain| '|display| |tf| (LIST |tf|)))
-      (SPADCALL (SPADCALL |expr| |formatFn|) |displayFn|)
-      (TERPRI (|get_tex_stream|))
-      (FORCE-OUTPUT (|get_tex_stream|))
-      NIL))))
-
 ; mathmlFormat expr ==
 ;   mml := '(MathMLFormat)
 ;   mmlrep := '(String)
@@ -3798,25 +3831,27 @@
       NIL))))
 
 ; do_formatters(x, was_type) ==
-;     if $fortranFormat and not(was_type) then fortranFormat(x)
-;     if $algebraFormat then mathprintWithNumber(x)
-;     if $texFormat     then texFormat(x)
-;     if $mathmlFormat  then mathmlFormat(x)
-;     if $texmacsFormat then texmacsFormat(x)
-;     if $htmlFormat    then htmlFormat(x)
-;     if $formattedFormat then formattedFormat(x)
+;     if $fortran_out_rec.$on_off and not(was_type) then fortranFormat(x)
+;     if $algebra_out_rec.$on_off then mathprintWithNumber(x)
+;     if $tex_out_rec.$on_off then texFormat(x)
+;     if $mathml_out_rec.$on_off  then mathmlFormat(x)
+;     if $texmacs_out_rec.$on_off then texmacsFormat(x)
+;     if $html_out_rec.$on_off then htmlFormat(x)
+;     if $formatted_out_rec.$on_off then formattedFormat(x)
 
 (DEFUN |do_formatters| (|x| |was_type|)
   (PROG ()
     (RETURN
      (PROGN
-      (COND ((AND |$fortranFormat| (NULL |was_type|)) (|fortranFormat| |x|)))
-      (COND (|$algebraFormat| (|mathprintWithNumber| |x|)))
-      (COND (|$texFormat| (|texFormat| |x|)))
-      (COND (|$mathmlFormat| (|mathmlFormat| |x|)))
-      (COND (|$texmacsFormat| (|texmacsFormat| |x|)))
-      (COND (|$htmlFormat| (|htmlFormat| |x|)))
-      (COND (|$formattedFormat| (|formattedFormat| |x|)))))))
+      (COND
+       ((AND (ELT |$fortran_out_rec| |$on_off|) (NULL |was_type|))
+        (|fortranFormat| |x|)))
+      (COND ((ELT |$algebra_out_rec| |$on_off|) (|mathprintWithNumber| |x|)))
+      (COND ((ELT |$tex_out_rec| |$on_off|) (|texFormat| |x|)))
+      (COND ((ELT |$mathml_out_rec| |$on_off|) (|mathmlFormat| |x|)))
+      (COND ((ELT |$texmacs_out_rec| |$on_off|) (|texmacsFormat| |x|)))
+      (COND ((ELT |$html_out_rec| |$on_off|) (|htmlFormat| |x|)))
+      (COND ((ELT |$formatted_out_rec| |$on_off|) (|formattedFormat| |x|)))))))
 
 ; output(expr,domain) ==
 ;   $resolve_level : local := 0
