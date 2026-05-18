@@ -1734,9 +1734,10 @@
 ;         arg := [fn, def_rec.$ext_off]
 ;
 ;     arg is [fn] =>
-;         fn in '(Y N y n ye o O of) => say_printing_msg(def_rec.$pr_msg_off)
-;         fn in '(no off)  => out_rec.$on_off := false
-;         fn in '(yes on) => out_rec.$on_off := true
+;         fn in '(Y N y n YE ye o O of OF) =>
+;             say_printing_msg(def_rec.$pr_msg_off)
+;         fn in '(no off NO OFF)  => out_rec.$on_off := false
+;         fn in '(yes on YES ON) => out_rec.$on_off := true
 ;         fn = 'console =>
 ;             stream_close(out_rec.$stream_off)
 ;             out_rec.$stream_off := make_std_out_stream()
@@ -1804,10 +1805,12 @@
          ((AND (CONSP |arg|) (EQ (CDR |arg|) NIL)
                (PROGN (SETQ |fn| (CAR |arg|)) #1#))
           (COND
-           ((|member| |fn| '(Y N |y| |n| |ye| |o| O OF))
+           ((|member| |fn| '(Y N |y| |n| YE |ye| |o| O OF OF))
             (|say_printing_msg| (ELT |def_rec| |$pr_msg_off|)))
-           ((|member| |fn| '(|no| |off|)) (SETF (ELT |out_rec| |$on_off|) NIL))
-           ((|member| |fn| '(|yes| |on|)) (SETF (ELT |out_rec| |$on_off|) T))
+           ((|member| |fn| '(|no| |off| NO OFF))
+            (SETF (ELT |out_rec| |$on_off|) NIL))
+           ((|member| |fn| '(|yes| |on| YES ON))
+            (SETF (ELT |out_rec| |$on_off|) T))
            ((EQ |fn| '|console|)
             (PROGN
              (|stream_close| (ELT |out_rec| |$stream_off|))
