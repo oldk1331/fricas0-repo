@@ -1924,7 +1924,7 @@
            (CONS
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|JetBundleFunctionCategory&| |GcdDomain&| NIL NIL NIL
                 |Algebra&| |EntireRing&| |PartialDifferentialRing&| NIL NIL
@@ -1933,7 +1933,8 @@
                 |AbelianGroup&| NIL NIL NIL |AbelianMonoid&|
                 |NonAssociativeSemiRng&| |MagmaWithUnit&| NIL
                 |AbelianSemiGroup&| |Magma&| |SetCategory&| NIL
-                |RetractableTo&| NIL |BasicType&| NIL NIL NIL NIL NIL)
+                |RetractableTo&| NIL |BasicType&| NIL NIL NIL NIL NIL NIL NIL
+                NIL)
              (CONS
               '#((|JetBundleFunctionCategory| 6) (|GcdDomain|)
                  (|IntegralDomain|) (|CommutativeRing|) (|LeftOreRing|)
@@ -1947,8 +1948,9 @@
                  (|MagmaWithUnit|) (|SemiGroup|) (|AbelianSemiGroup|) (|Magma|)
                  (|SetCategory|) (|CommutativeStar|) (|RetractableTo| 6)
                  (|CoercibleTo| 11) (|BasicType|) (|unitsKnown|)
-                 (|TwoSidedRecip|) (|noZeroDivisors|) (|CoercibleFrom| 6)
-                 (|lazyRepresentation|))
+                 (|JetBundleOperationsCategory|) (|TwoSidedRecip|)
+                 (|noZeroDivisors|) (|CoercibleFrom| 6) (|CoercibleTo| 7)
+                 (|CoercibleFrom| 7) (|lazyRepresentation|))
               (|makeByteWordVec2| 176
                                   '(1 11 0 10 12 1 13 11 0 14 2 11 0 0 0 15 1
                                     11 16 0 17 0 16 0 18 0 7 0 24 0 6 0 26 0 7
@@ -1983,17 +1985,17 @@
                                     0 0 0 1 1 0 33 0 1 1 0 130 68 1 2 0 104 0 0
                                     1 3 0 0 0 6 0 137 0 0 16 19 1 0 68 68 1 2 0
                                     104 0 6 135 2 0 151 68 130 166 1 0 0 0 1 3
-                                    0 151 68 130 68 1 2 0 68 68 68 1 1 0 16 82
+                                    0 151 68 130 68 1 2 0 68 68 68 1 1 0 82 82
                                     1 0 0 0 1 1 0 104 0 1 2 0 0 0 124 1 2 0 0 0
                                     13 1 1 0 175 0 1 1 0 6 0 1 2 0 68 68 68 168
                                     1 0 104 0 106 2 0 0 0 124 1 3 0 13 68 130
                                     13 1 1 0 13 0 110 2 0 33 0 0 1 1 0 33 0 53
                                     1 0 0 0 93 0 0 124 1 0 0 124 1 1 0 104 0 1
                                     2 0 0 0 124 1 2 0 0 0 13 1 1 0 6 0 87 2 0
-                                    173 0 0 1 1 0 0 68 1 2 0 0 0 0 1 1 0 10 0 1
+                                    173 0 0 1 2 0 0 0 0 1 1 0 0 68 1 1 0 10 0 1
                                     1 0 39 0 41 2 0 130 68 163 164 1 0 130 68 1
-                                    1 0 33 0 74 0 0 82 1 2 0 172 172 172 1 1 0
-                                    0 68 1 2 0 0 0 0 1 2 0 33 0 6 133 3 0 129
+                                    1 0 33 0 74 0 0 82 1 2 0 172 172 172 1 2 0
+                                    0 0 0 1 1 0 0 68 1 2 0 33 0 6 133 3 0 129
                                     68 124 130 131 3 0 176 0 124 130 1 2 0 0 0
                                     124 1 2 0 68 68 124 1 2 0 0 0 145 1 1 0 130
                                     130 1 2 0 104 0 0 1 1 0 0 0 85 1 0 0 0 63 2
@@ -2002,7 +2004,7 @@
                                     171 145 1 2 0 0 0 6 114 1 0 0 0 94 3 0 0 0
                                     6 0 1 1 0 33 0 108 2 0 0 0 0 1 1 0 0 0 79 1
                                     0 11 0 66 1 0 0 100 1 1 0 0 0 1 1 0 0 6 61
-                                    1 0 7 0 64 1 0 0 7 62 1 0 13 0 112 0 0 13 1
+                                    1 0 0 7 62 1 0 7 0 64 1 0 13 0 112 0 0 13 1
                                     1 0 68 68 170 3 0 0 0 0 0 1 2 0 33 0 0 1 2
                                     0 0 0 0 1 2 0 33 0 0 1 2 0 0 0 124 1 2 0 0
                                     0 13 1 1 0 0 124 1 0 0 0 1 1 0 0 124 1 0 0

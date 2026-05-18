@@ -8,9 +8,9 @@
 
 (SDEFUN |FORTRAN;outputAsFortran;%V;3| ((|p| (%)) (% (|Void|)))
         (SPROG
-         ((|tempName| (|Symbol|)) (#1=#:G29 NIL) (|l| NIL) (#2=#:G30 NIL)
+         ((|tempName| (|Symbol|)) (#1=#:G31 NIL) (|l| NIL) (#2=#:G32 NIL)
           (|body| (|List| (|List| (|String|))))
-          (|intrinsics| (|List| (|String|))) (|expr| NIL) (#3=#:G31 NIL))
+          (|intrinsics| (|List| (|String|))) (|expr| NIL) (#3=#:G33 NIL))
          (SEQ (SPADCALL 25000 (QREFELT % 15)) (LETT |tempName| 'FPTEMP)
               (SPADCALL |tempName| (QREFELT % 19)) (SPADCALL (QREFELT % 21))
               (LETT |body|
@@ -84,10 +84,10 @@
 (SDEFUN |FORTRAN;coerce;E%;7|
         ((|u| (|Equation| (|Expression| (|MachineInteger|)))) (% (%)))
         (SPROG
-         ((|vList| (|List| (|Symbol|))) (#1=#:G55 NIL) (#2=#:G56 NIL)
-          (|veList| (|List| (|Expression| (|MachineInteger|)))) (#3=#:G57 NIL)
-          (#4=#:G58 NIL) (|aeList| (|List| (|Expression| (|MachineInteger|))))
-          (#5=#:G59 NIL) (|v| NIL) (#6=#:G61 NIL) (|w| NIL) (#7=#:G60 NIL)
+         ((|vList| (|List| (|Symbol|))) (#1=#:G57 NIL) (#2=#:G58 NIL)
+          (|veList| (|List| (|Expression| (|MachineInteger|)))) (#3=#:G59 NIL)
+          (#4=#:G60 NIL) (|aeList| (|List| (|Expression| (|MachineInteger|))))
+          (#5=#:G61 NIL) (|v| NIL) (#6=#:G63 NIL) (|w| NIL) (#7=#:G62 NIL)
           (|eList| (|List| (|Equation| (|Expression| (|MachineInteger|))))))
          (SEQ
           (COND
@@ -167,10 +167,10 @@
 (SDEFUN |FORTRAN;coerce;E%;9|
         ((|u| (|Equation| (|Expression| (|MachineFloat|)))) (% (%)))
         (SPROG
-         ((|vList| (|List| (|Symbol|))) (#1=#:G78 NIL) (#2=#:G79 NIL)
-          (|veList| (|List| (|Expression| (|MachineFloat|)))) (#3=#:G80 NIL)
-          (#4=#:G81 NIL) (|aeList| (|List| (|Expression| (|MachineFloat|))))
-          (#5=#:G82 NIL) (|v| NIL) (#6=#:G84 NIL) (|w| NIL) (#7=#:G83 NIL)
+         ((|vList| (|List| (|Symbol|))) (#1=#:G80 NIL) (#2=#:G81 NIL)
+          (|veList| (|List| (|Expression| (|MachineFloat|)))) (#3=#:G82 NIL)
+          (#4=#:G83 NIL) (|aeList| (|List| (|Expression| (|MachineFloat|))))
+          (#5=#:G84 NIL) (|v| NIL) (#6=#:G86 NIL) (|w| NIL) (#7=#:G85 NIL)
           (|eList| (|List| (|Equation| (|Expression| (|MachineFloat|))))))
          (SEQ
           (COND
@@ -251,10 +251,10 @@
 (SDEFUN |FORTRAN;coerce;E%;11|
         ((|u| (|Equation| (|Expression| (|MachineComplex|)))) (% (%)))
         (SPROG
-         ((|vList| (|List| (|Symbol|))) (#1=#:G101 NIL) (#2=#:G102 NIL)
-          (|veList| (|List| (|Expression| (|MachineComplex|)))) (#3=#:G103 NIL)
-          (#4=#:G104 NIL) (|aeList| (|List| (|Expression| (|MachineComplex|))))
-          (#5=#:G105 NIL) (|v| NIL) (#6=#:G107 NIL) (|w| NIL) (#7=#:G106 NIL)
+         ((|vList| (|List| (|Symbol|))) (#1=#:G103 NIL) (#2=#:G104 NIL)
+          (|veList| (|List| (|Expression| (|MachineComplex|)))) (#3=#:G105 NIL)
+          (#4=#:G106 NIL) (|aeList| (|List| (|Expression| (|MachineComplex|))))
+          (#5=#:G107 NIL) (|v| NIL) (#6=#:G109 NIL) (|w| NIL) (#7=#:G108 NIL)
           (|eList| (|List| (|Equation| (|Expression| (|MachineComplex|))))))
          (SEQ
           (COND
@@ -352,10 +352,10 @@
 (SDEFUN |FORTRAN;coerce;E%;17|
         ((|u| (|Equation| (|Expression| (|Integer|)))) (% (%)))
         (SPROG
-         ((|vList| (|List| (|Symbol|))) (#1=#:G130 NIL) (#2=#:G131 NIL)
-          (|veList| (|List| (|Expression| (|Integer|)))) (#3=#:G132 NIL)
-          (#4=#:G133 NIL) (|aeList| (|List| (|Expression| (|Integer|))))
-          (#5=#:G134 NIL) (|v| NIL) (#6=#:G136 NIL) (|w| NIL) (#7=#:G135 NIL)
+         ((|vList| (|List| (|Symbol|))) (#1=#:G132 NIL) (#2=#:G133 NIL)
+          (|veList| (|List| (|Expression| (|Integer|)))) (#3=#:G134 NIL)
+          (#4=#:G135 NIL) (|aeList| (|List| (|Expression| (|Integer|))))
+          (#5=#:G136 NIL) (|v| NIL) (#6=#:G138 NIL) (|w| NIL) (#7=#:G137 NIL)
           (|eList| (|List| (|Equation| (|Expression| (|Integer|))))))
          (SEQ
           (COND
@@ -436,10 +436,10 @@
 (SDEFUN |FORTRAN;coerce;E%;19|
         ((|u| (|Equation| (|Expression| (|Float|)))) (% (%)))
         (SPROG
-         ((|vList| (|List| (|Symbol|))) (#1=#:G153 NIL) (#2=#:G154 NIL)
-          (|veList| (|List| (|Expression| (|Float|)))) (#3=#:G155 NIL)
-          (#4=#:G156 NIL) (|aeList| (|List| (|Expression| (|Float|))))
-          (#5=#:G157 NIL) (|v| NIL) (#6=#:G159 NIL) (|w| NIL) (#7=#:G158 NIL)
+         ((|vList| (|List| (|Symbol|))) (#1=#:G155 NIL) (#2=#:G156 NIL)
+          (|veList| (|List| (|Expression| (|Float|)))) (#3=#:G157 NIL)
+          (#4=#:G158 NIL) (|aeList| (|List| (|Expression| (|Float|))))
+          (#5=#:G159 NIL) (|v| NIL) (#6=#:G161 NIL) (|w| NIL) (#7=#:G160 NIL)
           (|eList| (|List| (|Equation| (|Expression| (|Float|))))))
          (SEQ
           (COND
@@ -521,11 +521,11 @@
 (SDEFUN |FORTRAN;coerce;E%;21|
         ((|u| (|Equation| (|Expression| (|Complex| (|Float|))))) (% (%)))
         (SPROG
-         ((|vList| (|List| (|Symbol|))) (#1=#:G176 NIL) (#2=#:G177 NIL)
+         ((|vList| (|List| (|Symbol|))) (#1=#:G178 NIL) (#2=#:G179 NIL)
           (|veList| (|List| (|Expression| (|Complex| (|Float|)))))
-          (#3=#:G178 NIL) (#4=#:G179 NIL)
+          (#3=#:G180 NIL) (#4=#:G181 NIL)
           (|aeList| (|List| (|Expression| (|Complex| (|Float|)))))
-          (#5=#:G180 NIL) (|v| NIL) (#6=#:G182 NIL) (|w| NIL) (#7=#:G181 NIL)
+          (#5=#:G182 NIL) (|v| NIL) (#6=#:G184 NIL) (|w| NIL) (#7=#:G183 NIL)
           (|eList| (|List| (|Equation| (|Expression| (|Complex| (|Float|)))))))
          (SEQ
           (COND
@@ -621,9 +621,9 @@
                         (|:| |code| (|List| (|FortranCode|)))))
     %))) 
 
-(DEFUN |FortranProgram| (&REST #1=#:G183)
+(DEFUN |FortranProgram| (&REST #1=#:G187)
   (SPROG NIL
-         (PROG (#2=#:G184)
+         (PROG (#2=#:G188)
            (RETURN
             (COND
              ((LETT #2#
@@ -690,49 +690,53 @@
               (367 . |equation|) (373 . |rhs|) (378 . |subst|)
               |FORTRAN;coerce;E%;21|)
            '#(|outputAsFortran| 384 |coerce| 389) 'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0))
-                 (CONS '#(NIL NIL NIL)
-                       (CONS
-                        '#((|FortranProgramCategory|) (|CoercibleTo| 35)
-                           (|Type|))
-                        (|makeByteWordVec2| 132
-                                            '(0 11 0 12 1 14 13 13 15 1 18 16
-                                              17 19 0 20 16 21 1 14 22 0 23 0
-                                              20 22 24 0 18 17 25 3 20 16 17 26
-                                              27 28 1 11 16 0 29 1 18 16 17 30
-                                              2 20 16 31 22 32 1 18 16 17 33 1
-                                              20 16 22 34 1 17 35 0 36 1 20 16
-                                              35 37 1 27 39 0 40 1 39 31 0 41 1
-                                              17 0 0 42 2 27 0 43 0 44 2 27 0 0
-                                              0 45 2 27 46 0 0 47 1 31 35 0 48
-                                              0 16 0 49 1 50 27 0 51 2 14 0 17
-                                              50 52 0 14 0 53 1 55 50 0 56 1 50
-                                              57 0 58 2 59 46 0 0 60 1 50 0 17
-                                              61 2 55 0 50 50 62 1 55 50 0 63 2
-                                              50 0 0 64 65 1 67 27 0 68 2 14 0
-                                              17 67 69 1 71 67 0 72 1 67 57 0
-                                              73 1 67 0 17 74 2 71 0 67 67 75 1
-                                              71 67 0 76 2 67 0 0 64 77 1 79 27
-                                              0 80 2 14 0 17 79 81 1 83 79 0 84
-                                              1 79 57 0 85 1 79 0 17 86 2 83 0
-                                              79 79 87 1 83 79 0 88 2 79 0 0 64
-                                              89 1 97 27 0 98 2 14 0 17 97 99 1
-                                              101 97 0 102 1 97 57 0 103 1 97 0
-                                              17 104 2 101 0 97 97 105 1 101 97
-                                              0 106 2 97 0 0 64 107 1 109 27 0
-                                              110 2 14 0 17 109 111 1 113 109 0
-                                              114 1 109 57 0 115 1 109 0 17 116
-                                              2 113 0 109 109 117 1 113 109 0
-                                              118 2 109 0 0 64 119 1 121 27 0
-                                              122 2 14 0 17 121 123 1 125 121 0
-                                              126 1 121 57 0 127 1 121 0 17 128
-                                              2 125 0 121 121 129 1 125 121 0
-                                              130 2 121 0 0 64 131 1 0 16 0 38
-                                              1 0 35 0 93 1 0 0 14 96 1 0 0 91
-                                              92 1 0 0 94 95 1 0 0 67 70 1 0 0
-                                              50 54 1 0 0 55 66 1 0 0 79 82 1 0
-                                              0 83 90 1 0 0 71 78 1 0 0 109 112
-                                              1 0 0 97 100 1 0 0 101 108 1 0 0
-                                              121 124 1 0 0 125 132 1 0 0 113
-                                              120)))))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+                 (CONS
+                  '#(NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL
+                     NIL NIL NIL NIL)
+                  (CONS
+                   '#((|FortranProgramCategory|) (|CoercibleTo| 35)
+                      (|CoercibleFrom| 14) (|CoercibleFrom| 94)
+                      (|CoercibleFrom| 91) (|CoercibleFrom| 50)
+                      (|CoercibleFrom| 67) (|CoercibleFrom| 79)
+                      (|CoercibleFrom| 55) (|CoercibleFrom| 71)
+                      (|CoercibleFrom| 83) (|CoercibleFrom| 97)
+                      (|CoercibleFrom| 109) (|CoercibleFrom| 121)
+                      (|CoercibleFrom| 101) (|CoercibleFrom| 113)
+                      (|CoercibleFrom| 125) (|Type|))
+                   (|makeByteWordVec2| 132
+                                       '(0 11 0 12 1 14 13 13 15 1 18 16 17 19
+                                         0 20 16 21 1 14 22 0 23 0 20 22 24 0
+                                         18 17 25 3 20 16 17 26 27 28 1 11 16 0
+                                         29 1 18 16 17 30 2 20 16 31 22 32 1 18
+                                         16 17 33 1 20 16 22 34 1 17 35 0 36 1
+                                         20 16 35 37 1 27 39 0 40 1 39 31 0 41
+                                         1 17 0 0 42 2 27 0 43 0 44 2 27 0 0 0
+                                         45 2 27 46 0 0 47 1 31 35 0 48 0 16 0
+                                         49 1 50 27 0 51 2 14 0 17 50 52 0 14 0
+                                         53 1 55 50 0 56 1 50 57 0 58 2 59 46 0
+                                         0 60 1 50 0 17 61 2 55 0 50 50 62 1 55
+                                         50 0 63 2 50 0 0 64 65 1 67 27 0 68 2
+                                         14 0 17 67 69 1 71 67 0 72 1 67 57 0
+                                         73 1 67 0 17 74 2 71 0 67 67 75 1 71
+                                         67 0 76 2 67 0 0 64 77 1 79 27 0 80 2
+                                         14 0 17 79 81 1 83 79 0 84 1 79 57 0
+                                         85 1 79 0 17 86 2 83 0 79 79 87 1 83
+                                         79 0 88 2 79 0 0 64 89 1 97 27 0 98 2
+                                         14 0 17 97 99 1 101 97 0 102 1 97 57 0
+                                         103 1 97 0 17 104 2 101 0 97 97 105 1
+                                         101 97 0 106 2 97 0 0 64 107 1 109 27
+                                         0 110 2 14 0 17 109 111 1 113 109 0
+                                         114 1 109 57 0 115 1 109 0 17 116 2
+                                         113 0 109 109 117 1 113 109 0 118 2
+                                         109 0 0 64 119 1 121 27 0 122 2 14 0
+                                         17 121 123 1 125 121 0 126 1 121 57 0
+                                         127 1 121 0 17 128 2 125 0 121 121 129
+                                         1 125 121 0 130 2 121 0 0 64 131 1 0
+                                         16 0 38 1 0 35 0 93 1 0 0 14 96 1 0 0
+                                         91 92 1 0 0 94 95 1 0 0 67 70 1 0 0 50
+                                         54 1 0 0 55 66 1 0 0 79 82 1 0 0 83 90
+                                         1 0 0 71 78 1 0 0 109 112 1 0 0 97 100
+                                         1 0 0 101 108 1 0 0 121 124 1 0 0 125
+                                         132 1 0 0 113 120)))))
            '|lookupComplete|)) 

@@ -1403,7 +1403,7 @@
                                   27 26 12 15 1 0 26 4 5 1 0 0 38 4 4 1 0 0 0
                                   27 38 1 1 0 0 0 0 0 11 12 12 44 12 43 0 0 31
                                   29 9 0 0 0 12 12 19 26 7 6 0 0 12 12 18 35 33
-                                  13 26 8 7 6 4 0 0 0 0 0 0))
+                                  13 26 8 7 6 4 0 0 0 0 0 0 0 0))
             (CONS
              '#(|PolynomialCategory&| |PolynomialFactorizationExplicit&|
                 |MaybeSkewPolynomialCategory&| |UniqueFactorizationDomain&|
@@ -1420,7 +1420,7 @@
                 |RetractableTo&| |Evalable&| |Hashable&| NIL |RetractableTo&|
                 |RetractableTo&| |SetCategory&| |RetractableTo&| NIL
                 |InnerEvalable&| NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL
-                |BasicType&| NIL |InnerEvalable&| |InnerEvalable&| NIL)
+                |BasicType&| NIL |InnerEvalable&| |InnerEvalable&| NIL NIL NIL)
              (CONS
               '#((|PolynomialCategory| 6 9 7)
                  (|PolynomialFactorizationExplicit|)
@@ -1456,7 +1456,9 @@
                  (|canonicalUnitNormal|) (|CoercibleFrom| 36)
                  (|CoercibleFrom| 178) (|unitsKnown|) (|CoercibleTo| 10)
                  (|BasicType|) (|CoercibleFrom| 6) (|InnerEvalable| 7 6)
-                 (|InnerEvalable| 7 $$) (|VariablesCommuteWithCoefficients|))
+                 (|InnerEvalable| 7 $$) (|VariablesCommuteWithCoefficients|)
+                 (|ConvertibleTo| (|JetBundlePolynomial| 6 7))
+                 (|ConvertibleFrom| (|JetBundlePolynomial| 6 7)))
               (|makeByteWordVec2| 193
                                   '(1 7 10 0 11 2 7 16 0 0 17 1 19 0 18 20 0 7
                                     0 21 0 0 0 22 0 6 0 23 1 9 0 19 24 2 0 0 6
@@ -1520,7 +1522,7 @@
                                     135 135 1 3 12 0 0 0 0 1 2 5 0 0 7 1 3 4 0
                                     0 45 110 1 2 4 0 0 45 1 3 4 0 0 7 18 1 2 4
                                     0 0 7 138 1 0 9 0 35 2 0 18 0 7 109 2 0 110
-                                    0 45 111 1 0 58 0 79 1 0 0 58 68 1 18 167 0
+                                    0 45 111 1 0 0 58 68 1 0 58 0 79 1 18 167 0
                                     1 1 32 168 0 1 1 34 169 0 1 1 14 6 0 142 2
                                     14 0 0 7 1 1 20 0 159 1 1 0 0 159 1 1 0 6 0
                                     85 1 46 164 165 1 2 52 0 0 0 1 1 0 10 0 57

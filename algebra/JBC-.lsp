@@ -940,24 +940,11 @@
                               '((|variables|
                                  ((|List| |#1|) (|NonNegativeInteger|)))
                                 T)
-                              '((P (|#1| (|NonNegativeInteger|))) T)
-                              '((P
-                                 (|#1| (|PositiveInteger|)
-                                  (|NonNegativeInteger|)))
-                                T)
-                              '((P (|#1| (|List| (|NonNegativeInteger|)))) T)
-                              '((U (|#1|)) T) '((X (|#1|)) T)
                               '((|one?| ((|Boolean|) |#1|)) T)
                               '((|Pr|
                                  (|#1| (|PositiveInteger|)
                                   (|List| (|PositiveInteger|))))
                                 T)
-                              '((P
-                                 (|#1| (|PositiveInteger|)
-                                  (|List| (|NonNegativeInteger|))))
-                                T)
-                              '((U (|#1| (|PositiveInteger|))) T)
-                              '((X (|#1| (|PositiveInteger|))) T)
                               '((|integrate| (|#1| |#1| (|PositiveInteger|)))
                                 T)
                               '((|integrateIfCan|
@@ -993,10 +980,23 @@
                                  ((|List| (|PositiveInteger|)) |#1|))
                                 T)
                               '((|coerce| ((|Expression| (|Integer|)) |#1|)) T)
-                              '((> ((|Boolean|) |#1| |#1|)) T)
-                              '((< ((|Boolean|) |#1| |#1|)) T)
+                              '((= ((|Boolean|) |#1| |#1|)) T)
                               '((|coerce| ((|OutputForm|) |#1|)) T)
-                              '((= ((|Boolean|) |#1| |#1|)) T))
+                              '((< ((|Boolean|) |#1| |#1|)) T)
+                              '((> ((|Boolean|) |#1| |#1|)) T)
+                              '((X (|#1| (|PositiveInteger|))) T)
+                              '((U (|#1| (|PositiveInteger|))) T)
+                              '((P
+                                 (|#1| (|PositiveInteger|)
+                                  (|List| (|NonNegativeInteger|))))
+                                T)
+                              '((X (|#1|)) T) '((U (|#1|)) T)
+                              '((P (|#1| (|List| (|NonNegativeInteger|)))) T)
+                              '((P
+                                 (|#1| (|PositiveInteger|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((P (|#1| (|NonNegativeInteger|))) T))
                              (LIST) NIL NIL)))
                         (|makeByteWordVec2| 97
                                             '(0 6 7 8 0 6 7 10 0 6 0 12 2 14 0
@@ -1024,8 +1024,8 @@
                                               0 7 74 2 0 14 0 0 76 1 0 59 0 61
                                               1 0 16 14 33 1 0 16 0 39 1 0 23
                                               14 29 0 0 0 45 0 0 0 47 2 0 0 7
-                                              13 57 2 0 0 7 14 55 2 0 0 7 16 51
-                                              1 0 0 14 49 1 0 0 16 52 2 0 36 0
+                                              13 57 2 0 0 7 16 51 1 0 0 16 52 1
+                                              0 0 14 49 2 0 0 7 14 55 2 0 36 0
                                               0 92 2 0 36 0 0 87 2 0 36 0 0
                                               90)))))
            '|lookupComplete|)) 

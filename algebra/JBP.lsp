@@ -620,7 +620,7 @@
                                   1 0 0 0 0 9 4 1 0 0 0 25 9 1 0 0 0 0 25 1 1 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 27 26 8 0 0 0 13 12
                                   6 5 0 0 0 0 13 11 29 28 7 6 5 0 0 0 0 0 0 0 0
-                                  0 0))
+                                  0 0 0))
             (CONS
              '#(|PolynomialCategory&| |PolynomialFactorizationExplicit&|
                 |MaybeSkewPolynomialCategory&| |UniqueFactorizationDomain&|
@@ -638,7 +638,7 @@
                 |FullyRetractableTo&| |Evalable&| |Hashable&| |RetractableTo&|
                 |RetractableTo&| |SetCategory&| NIL |RetractableTo&|
                 |RetractableTo&| |InnerEvalable&| NIL NIL NIL NIL NIL NIL NIL
-                |BasicType&| NIL NIL NIL NIL NIL |InnerEvalable&|
+                |BasicType&| NIL NIL NIL NIL NIL NIL |InnerEvalable&|
                 |InnerEvalable&| NIL)
              (CONS
               '#((|PolynomialCategory| 6 (|IndexedExponents| 7) 7)
@@ -679,8 +679,9 @@
                  (|ConvertibleTo| 72) (|ConvertibleTo| 71)
                  (|canonicalUnitNormal|) (|CoercibleFrom| 44)
                  (|CoercibleFrom| 80) (|CoercibleTo| 31) (|BasicType|)
-                 (|unitsKnown|) (|TwoSidedRecip|) (|noZeroDivisors|)
-                 (|CoercibleFrom| 7) (|CoercibleFrom| 6) (|InnerEvalable| 7 6)
+                 (|unitsKnown|) (|JetBundleOperationsCategory|)
+                 (|TwoSidedRecip|) (|noZeroDivisors|) (|CoercibleFrom| 7)
+                 (|CoercibleFrom| 6) (|InnerEvalable| 7 6)
                  (|InnerEvalable| 7 $$) (|VariablesCommuteWithCoefficients|))
               (|makeByteWordVec2| 42
                                   '(1 0 9 0 10 3 0 0 0 7 0 12 0 0 0 15 2 0 0 0

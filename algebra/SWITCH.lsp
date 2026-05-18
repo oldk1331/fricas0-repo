@@ -196,9 +196,9 @@
               |SWITCH;AND;2U%;9| |SWITCH;OR;2U%;10| |SWITCH;EQ;2U%;11|)
            '#(|coerce| 42 OR 52 NOT 58 LT 68 LE 74 GT 80 GE 86 EQ 92 AND 98)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0))
-                 (CONS '#(NIL)
-                       (CONS '#((|CoercibleTo| 11))
+           (CONS (|makeByteWordVec2| 1 '(0 0))
+                 (CONS '#(NIL NIL)
+                       (CONS '#((|CoercibleFrom| 7) (|CoercibleTo| 11))
                              (|makeByteWordVec2| 34
                                                  '(1 8 0 7 9 1 8 11 0 12 1 13
                                                    11 0 14 2 8 15 0 0 16 0 17 0

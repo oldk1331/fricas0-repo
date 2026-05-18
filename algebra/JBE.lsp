@@ -1531,7 +1531,8 @@
                                   2 0 0 0 5 3 2 0 0 5 3 2 0 0 5 3 2 2 0 0 0 6 0
                                   0 0 0 0 0 0 0 0 0 0 11 10 0 0 0 0 0 12 5 1 16
                                   0 0 0 0 0 0 0 0 0 0 12 9 8 7 5 1 16 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                                  0))
             (CONS
              '#(|AlgebraicallyClosedFunctionSpace&| NIL |FunctionSpace2&|
                 |AlgebraicallyClosedField&| |Field&| |EuclideanDomain&|
@@ -1550,12 +1551,12 @@
                 |SetCategory&| NIL |RetractableTo&| |RetractableTo&|
                 |Evalable&| |RetractableTo&| NIL |RetractableTo&|
                 |TranscendentalFunctionCategory&| NIL NIL NIL NIL NIL NIL NIL
-                NIL NIL |BasicType&| NIL NIL NIL NIL NIL |InnerEvalable&|
+                NIL NIL |BasicType&| NIL NIL NIL NIL NIL NIL |InnerEvalable&|
                 |InnerEvalable&| NIL NIL NIL NIL NIL |RadicalCategory&|
                 |TrigonometricFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
                 |HyperbolicFunctionCategory&| NIL |ElementaryFunctionCategory&|
-                NIL NIL NIL)
+                NIL NIL NIL NIL NIL NIL NIL)
              (CONS
               '#((|AlgebraicallyClosedFunctionSpace| 24) (|FunctionSpace| 24)
                  (|FunctionSpace2| 24 34) (|AlgebraicallyClosedField|)
@@ -1591,18 +1592,20 @@
                  (|ConvertibleTo| 236) (|CoercibleFrom| 248)
                  (|CoercibleFrom| 239) (|CoercibleFrom| 225)
                  (|CoercibleTo| 109) (|BasicType|) (|unitsKnown|)
-                 (|TwoSidedRecip|) (|noZeroDivisors|) (|CoercibleFrom| 6)
-                 (|CoercibleFrom| 34) (|InnerEvalable| 34 $$)
-                 (|InnerEvalable| $$ $$) (|canonicalUnitNormal|)
-                 (|canonicalsClosed|) (|CoercibleFrom| 144) (|Type|)
-                 (|CoercibleFrom| 24) (|RadicalCategory|)
-                 (|TrigonometricFunctionCategory|)
+                 (|JetBundleOperationsCategory|) (|TwoSidedRecip|)
+                 (|noZeroDivisors|) (|CoercibleFrom| 6) (|CoercibleFrom| 34)
+                 (|InnerEvalable| 34 $$) (|InnerEvalable| $$ $$)
+                 (|canonicalUnitNormal|) (|canonicalsClosed|)
+                 (|CoercibleFrom| 144) (|Type|) (|CoercibleFrom| 24)
+                 (|RadicalCategory|) (|TrigonometricFunctionCategory|)
                  (|ArcTrigonometricFunctionCategory|)
                  (|HyperbolicFunctionCategory|)
                  (|ArcHyperbolicFunctionCategory|)
                  (|ElementaryFunctionCategory|)
                  (|CombinatorialFunctionCategory|)
-                 (|PrimitiveFunctionCategory|) (|SpecialFunctionCategory|))
+                 (|PrimitiveFunctionCategory|) (|SpecialFunctionCategory|)
+                 (|CoercibleFrom| 5) (|CoercibleTo| 5) (|CoercibleFrom| 12)
+                 (|CoercibleFrom| (|SparseMultivariatePolynomial| 5 6)))
               (|makeByteWordVec2| 257
                                   '(1 6 5 0 8 0 12 0 13 2 0 0 14 14 15 0 17 0
                                     18 1 0 14 0 19 1 12 20 0 21 1 12 22 0 23 1
@@ -1664,7 +1667,7 @@
                                     0 1 1 0 0 0 1 1 0 20 20 1 2 0 57 0 6 133 2
                                     0 65 0 0 1 2 0 65 0 0 1 1 0 0 0 1 1 0 0 0 1
                                     2 0 154 20 85 155 1 0 0 0 105 2 0 20 20 20
-                                    1 3 0 154 20 85 20 1 1 0 0 0 1 1 0 113 144
+                                    1 3 0 154 20 85 20 1 1 0 0 0 1 1 0 144 144
                                     1 1 0 0 0 1 1 0 0 0 1 0 0 0 1 2 0 20 0 144
                                     1 1 0 20 0 1 2 0 20 92 144 1 1 0 20 224 1 1
                                     0 20 92 1 3 0 0 0 92 144 1 2 0 0 0 144 1 1

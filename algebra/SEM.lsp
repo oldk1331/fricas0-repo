@@ -1829,11 +1829,11 @@
               |elimZeroCols!| 435 |deleteRow!| 440 |copy| 446 |consRow!| 451
               |coerce| 457 |appendRow!| 467 |allIndices| 473 * 478)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0))
-                 (CONS '#(NIL NIL NIL)
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
+                 (CONS '#(NIL NIL NIL NIL)
                        (CONS
-                        '#((|finiteAggregate|) (|shallowlyMutable|)
-                           (|CoercibleTo| 47))
+                        '#((|CoercibleTo| (|Matrix| 7)) (|shallowlyMutable|)
+                           (|finiteAggregate|) (|CoercibleTo| 47))
                         (|makeByteWordVec2| 121
                                             '(0 7 0 9 2 6 15 0 0 16 1 21 0 0 22
                                               0 27 0 28 2 21 25 6 0 33 0 7 0 34

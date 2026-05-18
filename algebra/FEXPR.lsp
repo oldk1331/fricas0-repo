@@ -549,7 +549,7 @@
            (CONS
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|Algebra&| |PartialDifferentialRing&| NIL |Rng&| NIL
                 |NonAssociativeAlgebra&| NIL |Module&| NIL
@@ -557,8 +557,8 @@
                 |AbelianGroup&| NIL NIL NIL NIL |NonAssociativeSemiRng&|
                 |AbelianMonoid&| |MagmaWithUnit&| NIL |ExpressionSpace2&|
                 |AbelianSemiGroup&| |Magma&| NIL |RetractableTo&| |Evalable&|
-                |SetCategory&| |RetractableTo&| NIL NIL |InnerEvalable&|
-                |InnerEvalable&| |BasicType&| NIL NIL)
+                |SetCategory&| |RetractableTo&| |RetractableFrom&| NIL NIL
+                |InnerEvalable&| |InnerEvalable&| |BasicType&| NIL NIL NIL)
              (CONS
               '#((|Algebra| 8) (|PartialDifferentialRing| 10) (|Ring|) (|Rng|)
                  (|SemiRing|) (|NonAssociativeAlgebra| 8) (|SemiRng|)
@@ -571,10 +571,12 @@
                  (|SemiGroup|) (|ExpressionSpace2| (|Kernel| $$))
                  (|AbelianSemiGroup|) (|Magma|) (|Comparable|)
                  (|RetractableTo| (|Kernel| $$)) (|Evalable| $$)
-                 (|SetCategory|) (|RetractableTo| 8) (|CoercibleTo| 32)
+                 (|SetCategory|) (|RetractableTo| 8)
+                 (|RetractableFrom| (|Expression| 8)) (|CoercibleTo| 32)
                  (|CoercibleFrom| (|Kernel| $$))
                  (|InnerEvalable| (|Kernel| $$) $$) (|InnerEvalable| $$ $$)
-                 (|BasicType|) (|unitsKnown|) (|CoercibleFrom| 8))
+                 (|BasicType|) (|unitsKnown|) (|CoercibleFrom| 8)
+                 (|CoercibleTo| (|Expression| 8)))
               (|makeByteWordVec2| 98
                                   '(1 5 0 10 11 1 10 12 0 13 2 10 0 0 12 14 2
                                     15 0 5 5 16 1 5 17 0 18 0 0 0 19 2 5 0 0 20

@@ -322,14 +322,15 @@
               |coerce| 264 |class| 279 |allRepeated| 289 X 294 U 303 |Pr| 312
               |Pm| 318 P 324 D 346 >= 352 > 358 = 364 <= 370 < 376 |1| 382)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0))
                  (CONS
-                  '#(|JetBundleCategory&| |OrderedSet&| NIL |SetCategory&| NIL
-                     |PartialOrder&| NIL |BasicType&|)
+                  '#(|JetBundleCategory&| |OrderedSet&| NIL |SetCategory&|
+                     |BasicType&| NIL |PartialOrder&| NIL NIL)
                   (CONS
                    '#((|JetBundleCategory|) (|OrderedSet|) (|Comparable|)
-                      (|SetCategory|) (|CoercibleTo| 17) (|PartialOrder|)
-                      (|CoercibleTo| 51) (|BasicType|))
+                      (|SetCategory|) (|BasicType|) (|CoercibleTo| 17)
+                      (|PartialOrder|) (|CoercibleTo| 51)
+                      (|JetBundleOperationsCategory|))
                    (|makeByteWordVec2| 75
                                        '(1 11 0 10 12 1 17 0 16 18 1 17 19 0 20
                                          1 15 0 0 24 1 15 33 0 34 2 33 35 0 0
@@ -339,8 +340,8 @@
                                          58 57 2 59 3 53 0 0 21 57 60 1 0 33 0
                                          61 1 62 57 33 63 1 64 57 21 65 1 51 0
                                          21 66 1 51 0 38 67 2 68 0 0 0 69 2 51
-                                         0 53 70 71 2 0 35 0 0 1 1 0 33 0 61 1
-                                         0 70 33 1 2 0 70 33 27 1 1 0 21 0 29 2
+                                         0 53 70 71 2 0 35 0 0 1 1 0 33 0 61 2
+                                         0 70 33 27 1 1 0 70 33 1 1 0 21 0 29 2
                                          0 35 0 0 1 1 0 21 21 22 1 0 41 0 46 1
                                          0 25 41 1 1 0 33 0 1 1 0 35 0 1 0 0 27
                                          44 0 0 27 45 1 0 21 0 50 1 0 25 0 26 2
@@ -349,10 +350,10 @@
                                          27 0 28 0 0 21 23 1 0 33 33 1 1 0 33
                                          33 1 2 0 74 0 27 1 2 0 25 0 0 1 1 0 17
                                          0 1 1 0 51 0 72 1 0 0 21 40 1 0 33 0 1
-                                         1 0 33 25 1 1 0 73 25 1 1 0 0 27 31 0
-                                         0 0 1 1 0 0 27 32 0 0 0 1 2 0 0 27 41
-                                         42 2 0 0 27 25 37 2 0 0 27 25 1 1 0 0
-                                         25 1 2 0 0 27 33 1 1 0 0 33 1 2 0 0 21
+                                         1 0 33 25 1 1 0 73 25 1 0 0 0 1 1 0 0
+                                         27 31 0 0 0 1 1 0 0 27 32 2 0 0 27 41
+                                         42 2 0 0 27 25 37 2 0 0 27 33 1 1 0 0
+                                         33 1 1 0 0 25 1 2 0 0 27 25 1 2 0 0 21
                                          10 43 2 0 35 0 0 1 2 0 35 0 0 1 2 0 35
                                          0 0 1 2 0 35 0 0 1 2 0 35 0 0 1 0 0 0
                                          30)))))
