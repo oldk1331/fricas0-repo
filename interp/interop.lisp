@@ -1590,6 +1590,7 @@
 
 ; newHasCategory(domain,catform) ==
 ;   catform = '(Type) => true
+;   STRINGP(domain) => false
 ;   slot4 := domain.4
 ;   auxvec := first slot4
 ;   catvec := CADR slot4
@@ -1602,7 +1603,7 @@
   (PROG (|$isDefaultingPackage| |catvec| |auxvec| |slot4|)
     (DECLARE (SPECIAL |$isDefaultingPackage|))
     (RETURN
-     (COND ((EQUAL |catform| '(|Type|)) T)
+     (COND ((EQUAL |catform| '(|Type|)) T) ((STRINGP |domain|) NIL)
            (#1='T
             (PROGN
              (SETQ |slot4| (ELT |domain| 4))
