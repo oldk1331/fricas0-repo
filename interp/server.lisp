@@ -392,6 +392,16 @@
         (SETQ |$QuietCommand| |$QuietCommand_tmp|)
         (|processInteractive| |sform| NIL)))))))
 
+; DEFCONSTANT($SpadError, 90)
+
+(DEFCONSTANT |$SpadError| 90)
+
+; sendHTErrorSignal() ==
+;     sockSendInt($MenuServer, $SpadError)
+
+(DEFUN |sendHTErrorSignal| ()
+  (PROG () (RETURN (|sockSendInt| |$MenuServer| |$SpadError|))))
+
 ; protectedEVAL x ==
 ;   error := true
 ;   val := NIL
