@@ -501,3 +501,30 @@
 ; delete_file(f) == DELETE_-FILE(f)
 
 (DEFUN |delete_file| (|f|) (PROG () (RETURN (DELETE-FILE |f|))))
+
+; MAKE_INSTREAM(name) ==
+;     open_stream(make_input_filename1(name), 'input, false)
+
+(DEFUN MAKE_INSTREAM (|name|)
+  (PROG ()
+    (RETURN (|open_stream| (|make_input_filename1| |name|) '|input| NIL))))
+
+; MAKE_OUTSTREAM(name) == open_stream(name, 'output, false)
+
+(DEFUN MAKE_OUTSTREAM (|name|)
+  (PROG () (RETURN (|open_stream| |name| '|output| NIL))))
+
+; make_out_stream(name) == cons(true, MAKE_OUTSTREAM(name))
+
+(DEFUN |make_out_stream| (|name|)
+  (PROG () (RETURN (CONS T (MAKE_OUTSTREAM |name|)))))
+
+; make_append_stream(name) == cons(true, open_stream(name, 'output, true))
+
+(DEFUN |make_append_stream| (|name|)
+  (PROG () (RETURN (CONS T (|open_stream| |name| '|output| T)))))
+
+; make_std_out_stream() == cons(false, get_lisp_std_out())
+
+(DEFUN |make_std_out_stream| ()
+  (PROG () (RETURN (CONS NIL (|get_lisp_std_out|)))))

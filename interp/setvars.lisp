@@ -1708,7 +1708,7 @@
 
 ; set_output_gen(arg, out_rec, def_rec) ==
 ;     arg = "%initialize%" =>
-;         out_rec.$stream_off := mkOutputConsoleStream()
+;         out_rec.$stream_off := make_std_out_stream()
 ;         out_rec.$file_off := '"CONSOLE"
 ;         out_rec.$on_off := def_rec.$def_on_off
 ;
@@ -1742,7 +1742,7 @@
 ;         UPCASE(fn) in '(YES ON) => out_rec.$on_off := true
 ;         UPCASE(fn) = 'CONSOLE =>
 ;             stream_close(out_rec.$stream_off)
-;             out_rec.$stream_off := mkOutputConsoleStream()
+;             out_rec.$stream_off := make_std_out_stream()
 ;             out_rec.$file_off := '"CONSOLE"
 ;
 ;     (arg is [fn,ft]) or (arg is [fn,ft,fm]) => -- aha, a file
@@ -1767,7 +1767,7 @@
      (COND
       ((EQ |arg| '|%initialize%|)
        (PROGN
-        (SETF (ELT |out_rec| |$stream_off|) (|mkOutputConsoleStream|))
+        (SETF (ELT |out_rec| |$stream_off|) (|make_std_out_stream|))
         (SETF (ELT |out_rec| |$file_off|) "CONSOLE")
         (SETF (ELT |out_rec| |$on_off|) (ELT |def_rec| |$def_on_off|))))
       ((EQ |arg| '|%display%|)
@@ -1816,7 +1816,7 @@
            ((EQ (UPCASE |fn|) 'CONSOLE)
             (PROGN
              (|stream_close| (ELT |out_rec| |$stream_off|))
-             (SETF (ELT |out_rec| |$stream_off|) (|mkOutputConsoleStream|))
+             (SETF (ELT |out_rec| |$stream_off|) (|make_std_out_stream|))
              (SETF (ELT |out_rec| |$file_off|) "CONSOLE")))))
          ((OR
            (AND (CONSP |arg|)
