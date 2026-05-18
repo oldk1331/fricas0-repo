@@ -4033,7 +4033,7 @@ NIL
    "\\spad{bipolar(a)} transforms from bipolar coordinates to Cartesian coordinates: \\spad{bipolar(a)} is a function which will map the point \\spad{(u, v)} to \\spad{x = a*sinh(v)/(cosh(v)-cos(u))}, \\spad{y = a*sin(u)/(cosh(v)-cos(u))}."))
  (|oblateSpheroidal|
   (((|Mapping| (|Point| |#1|) (|Point| |#1|)) |#1|)
-   "\\spad{oblateSpheroidal(a)} transforms from oblate spheroidal coordinates to Cartesian coordinates: \\spad{oblateSpheroidal(a)} is a function which will map the point \\spad{(\\spad{xi}, eta, phi)} to \\spad{x = a*sinh(\\spad{xi})*sin(eta)*cos(phi)}, \\spad{y = a*sinh(\\spad{xi})*sin(eta)*sin(phi)}, \\spad{z = a*cosh(\\spad{xi})*cos(eta)}."))
+   "\\spad{oblateSpheroidal(a)} transforms from oblate spheroidal coordinates to Cartesian coordinates: \\spad{oblateSpheroidal(a)} is a function which will map the point \\spad{(\\spad{xi}, eta, phi)} to \\spad{x = a*cosh(\\spad{xi})*cos(eta)*cos(phi)}, \\spad{y = a*cosh(\\spad{xi})*cos(eta)*sin(phi)}, \\spad{z = a*sinh(\\spad{xi})*sin(eta)}."))
  (|prolateSpheroidal|
   (((|Mapping| (|Point| |#1|) (|Point| |#1|)) |#1|)
    "\\spad{prolateSpheroidal(a)} transforms from prolate spheroidal coordinates to Cartesian coordinates: \\spad{prolateSpheroidal(a)} is a function which will map the point \\spad{(\\spad{xi}, eta, phi)} to \\spad{x = a*sinh(\\spad{xi})*sin(eta)*cos(phi)}, \\spad{y = a*sinh(\\spad{xi})*sin(eta)*sin(phi)}, \\spad{z = a*cosh(\\spad{xi})*cos(eta)}."))

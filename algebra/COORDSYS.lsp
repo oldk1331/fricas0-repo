@@ -200,9 +200,9 @@
                                   (SPADCALL
                                    (SPADCALL
                                     (SPADCALL |a|
-                                              (SPADCALL |xi| (QREFELT % 30))
+                                              (SPADCALL |xi| (QREFELT % 29))
                                               (QREFELT % 14))
-                                    (SPADCALL |eta| (QREFELT % 16))
+                                    (SPADCALL |eta| (QREFELT % 13))
                                     (QREFELT % 14))
                                    (SPADCALL |phi| (QREFELT % 13))
                                    (QREFELT % 14))

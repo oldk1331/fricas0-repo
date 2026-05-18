@@ -5785,7 +5785,7 @@
 657506`\spad{objectOf(a)} returns a printable form of the original object that was converted to \spadtype{Any}.
 657549`\spad{objects(s)} returns the \spadtype{ThreeSpace}, \spad{s}, in the form of a 3D object record containing information on the number of points, curves, polygons and constructs comprising the \spadtype{ThreeSpace}..
 657777`\spad{objectToIndex returns} the index of a given object.
-657840`\spad{oblateSpheroidal(a)} transforms from oblate spheroidal coordinates to Cartesian coordinates: \spad{oblateSpheroidal(a)} is a function which will map the point \spad{(\spad{xi}, eta, phi)} to \spad{x = a*sinh(\spad{xi})*sin(eta)*cos(phi)}, \spad{y = a*sinh(\spad{xi})*sin(eta)*sin(phi)}, \spad{z = a*cosh(\spad{xi})*cos(eta)}.
+657840`\spad{oblateSpheroidal(a)} transforms from oblate spheroidal coordinates to Cartesian coordinates: \spad{oblateSpheroidal(a)} is a function which will map the point \spad{(\spad{xi}, eta, phi)} to \spad{x = a*cosh(\spad{xi})*cos(eta)*cos(phi)}, \spad{y = a*cosh(\spad{xi})*cos(eta)*sin(phi)}, \spad{z = a*sinh(\spad{xi})*sin(eta)}.
 657918`\spad{octon(qe, qE)} constructs an octonion from two quaternions using the relation {\em O = Q + QE}.
 657983`\spad{octon(re, \spad{ri}, rj, rk, rE, rI, rJ, rK)} constructs an octonion from scalars.
 658094`\spad{odd? x} is \spad{true} if \spad{x} is an odd integer.
