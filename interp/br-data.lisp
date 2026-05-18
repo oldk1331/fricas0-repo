@@ -865,23 +865,23 @@
          NIL |keys| NIL |text| NIL)))))))
 
 ; mkUsersHashTable() ==  --called by make-databases (daase.lisp)
-;   $usersTb := MAKE_HASHTABLE('EQUAL)
+;   usersTb := MAKE_HASHTABLE('EQUAL)
 ;   for x in allConstructors() repeat
 ;     for conform in getImports x repeat
 ;       name := opOf conform
 ;       if not MEMQ(name,'(QUOTE)) then
-;         HPUT($usersTb,name,insert(x,HGET($usersTb,name)))
-;   for k in HKEYS $usersTb repeat
-;     HPUT($usersTb,k,listSort(function GLESSEQP,HGET($usersTb,k)))
+;                 HPUT(usersTb, name, insert(x, HGET(usersTb, name)))
+;   for k in HKEYS(usersTb) repeat
+;         HPUT(usersTb, k, listSort(function GLESSEQP, HGET(usersTb, k)))
 ;   for x in allConstructors() | isDefaultPackageName x repeat
-;     HPUT($usersTb,x,getDefaultPackageClients x)
-;   $usersTb
+;         HPUT(usersTb, x, getDefaultPackageClients(x))
+;   usersTb
 
 (DEFUN |mkUsersHashTable| ()
-  (PROG (|name|)
+  (PROG (|name| |usersTb|)
     (RETURN
      (PROGN
-      (SETQ |$usersTb| (MAKE_HASHTABLE 'EQUAL))
+      (SETQ |usersTb| (MAKE_HASHTABLE 'EQUAL))
       ((LAMBDA (|bfVar#24| |x|)
          (LOOP
           (COND
@@ -899,8 +899,8 @@
                    (SETQ |name| (|opOf| |conform|))
                    (COND
                     ((NULL (MEMQ |name| '(QUOTE)))
-                     (HPUT |$usersTb| |name|
-                           (|insert| |x| (HGET |$usersTb| |name|))))))))
+                     (HPUT |usersTb| |name|
+                           (|insert| |x| (HGET |usersTb| |name|))))))))
                 (SETQ |bfVar#25| (CDR |bfVar#25|))))
              (|getImports| |x|) NIL)))
           (SETQ |bfVar#24| (CDR |bfVar#24|))))
@@ -911,10 +911,9 @@
            ((OR (ATOM |bfVar#26|) (PROGN (SETQ |k| (CAR |bfVar#26|)) NIL))
             (RETURN NIL))
            (#1#
-            (HPUT |$usersTb| |k|
-                  (|listSort| #'GLESSEQP (HGET |$usersTb| |k|)))))
+            (HPUT |usersTb| |k| (|listSort| #'GLESSEQP (HGET |usersTb| |k|)))))
           (SETQ |bfVar#26| (CDR |bfVar#26|))))
-       (HKEYS |$usersTb|) NIL)
+       (HKEYS |usersTb|) NIL)
       ((LAMBDA (|bfVar#27| |x|)
          (LOOP
           (COND
@@ -922,10 +921,10 @@
             (RETURN NIL))
            (#1#
             (AND (|isDefaultPackageName| |x|)
-                 (HPUT |$usersTb| |x| (|getDefaultPackageClients| |x|)))))
+                 (HPUT |usersTb| |x| (|getDefaultPackageClients| |x|)))))
           (SETQ |bfVar#27| (CDR |bfVar#27|))))
        (|allConstructors|) NIL)
-      |$usersTb|))))
+      |usersTb|))))
 
 ; getDefaultPackageClients con ==  --called by mkUsersHashTable
 ;   catname := INTERN SUBSTRING(s := PNAME con,0,MAXINDEX s)
@@ -974,19 +973,19 @@
       (|listSort| #'GLESSEQP |acc|)))))
 
 ; mkDependentsHashTable() == --called by make-databases (database.boot)
-;   $depTb := MAKE_HASHTABLE('EQUAL)
-;   for nam in allConstructors() repeat
-;     for con in getArgumentConstructors nam repeat
-;       HPUT($depTb,con,[nam,:HGET($depTb,con)])
-;   for k in HKEYS $depTb repeat
-;     HPUT($depTb,k,listSort(function GLESSEQP,HGET($depTb,k)))
-;   $depTb
+;     depTb := MAKE_HASHTABLE('EQUAL)
+;     for nam in allConstructors() repeat
+;         for con in getArgumentConstructors nam repeat
+;             HPUT(depTb, con, [nam, :HGET(depTb, con)])
+;     for k in HKEYS(depTb) repeat
+;         HPUT(depTb, k, listSort(function GLESSEQP, HGET(depTb, k)))
+;     depTb
 
 (DEFUN |mkDependentsHashTable| ()
-  (PROG ()
+  (PROG (|depTb|)
     (RETURN
      (PROGN
-      (SETQ |$depTb| (MAKE_HASHTABLE 'EQUAL))
+      (SETQ |depTb| (MAKE_HASHTABLE 'EQUAL))
       ((LAMBDA (|bfVar#32| |nam|)
          (LOOP
           (COND
@@ -999,8 +998,7 @@
                  ((OR (ATOM |bfVar#33|)
                       (PROGN (SETQ |con| (CAR |bfVar#33|)) NIL))
                   (RETURN NIL))
-                 (#1#
-                  (HPUT |$depTb| |con| (CONS |nam| (HGET |$depTb| |con|)))))
+                 (#1# (HPUT |depTb| |con| (CONS |nam| (HGET |depTb| |con|)))))
                 (SETQ |bfVar#33| (CDR |bfVar#33|))))
              (|getArgumentConstructors| |nam|) NIL)))
           (SETQ |bfVar#32| (CDR |bfVar#32|))))
@@ -1010,11 +1008,10 @@
           (COND
            ((OR (ATOM |bfVar#34|) (PROGN (SETQ |k| (CAR |bfVar#34|)) NIL))
             (RETURN NIL))
-           (#1#
-            (HPUT |$depTb| |k| (|listSort| #'GLESSEQP (HGET |$depTb| |k|)))))
+           (#1# (HPUT |depTb| |k| (|listSort| #'GLESSEQP (HGET |depTb| |k|)))))
           (SETQ |bfVar#34| (CDR |bfVar#34|))))
-       (HKEYS |$depTb|) NIL)
-      |$depTb|))))
+       (HKEYS |depTb|) NIL)
+      |depTb|))))
 
 ; getArgumentConstructors con == --called by mkDependentsHashTable
 ;   argtypes := IFCDR IFCAR getConstructorModemap con or return nil
