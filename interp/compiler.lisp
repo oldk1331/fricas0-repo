@@ -4791,8 +4791,8 @@
 
 ; constant_coerce([x, m, e], m') ==
 ;     m' = $SingleInteger =>
-;         if x = ["0"] then x = 0
-;         if x = ["1"] then x = 1
+;         if x = ["0"] then x := 0
+;         if x = ["1"] then x := 1
 ;         not(INTEGERP(x)) => nil
 ;         -- Check if in range of FIXNUM on all supported implementations
 ;         x > 8000000 or x < -8000000 => nil
@@ -4816,8 +4816,8 @@
       (COND
        ((EQUAL |m'| |$SingleInteger|)
         (PROGN
-         (COND ((EQUAL |x| (LIST '|0|)) (EQL |x| 0)))
-         (COND ((EQUAL |x| (LIST '|1|)) (EQL |x| 1)))
+         (COND ((EQUAL |x| (LIST '|0|)) (SETQ |x| 0)))
+         (COND ((EQUAL |x| (LIST '|1|)) (SETQ |x| 1)))
          (COND ((NULL (INTEGERP |x|)) NIL)
                ((OR (< 8000000 |x|) (< |x| (- 8000000))) NIL)
                ((OR (EQUAL |m| |$Integer|) (EQUAL |m| |$PositiveInteger|)
