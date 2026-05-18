@@ -197,7 +197,7 @@
                 (EXIT
                  (COND
                   ((SPADCALL |nc| (ANROWS_U32 |m|) (QREFELT % 18))
-                   (|error| "invere: matrix not square"))
+                   (|error| "inverse: matrix not square"))
                   ('T
                    (SEQ (LETT |lud| (SPADCALL |m| |p| (QREFELT % 20)))
                         (LETT |lm| (QVELT |lud| 0))
