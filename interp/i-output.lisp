@@ -304,27 +304,27 @@
   (PROG () (RETURN (|init_output_properties|))))
 
 ; DEFPARAMETER($plainRTspecialCharacters, [
-;     '_+,      -- upper left corner   (+)
-;     '_+,      -- upper right corner  (+)
-;     '_+,      -- lower left corner   (+)
-;     '_+,      -- lower right corner  (+)
-;     '_|,      -- vertical bar
-;     '_-,      -- horizontal bar      (-)
-;     '_?,      -- APL quad            (?)
-;     '_[,      -- left bracket
-;     '_],      -- right bracket
-;     '_{,      -- left brace
-;     '_},      -- right brace
-;     '_+,      -- top    box tee      (+)
-;     '_+,      -- bottom box tee      (+)
-;     '_+,      -- right  box tee      (+)
-;     '_+,      -- left   box tee      (+)
-;     '_+,      -- center box tee      (+)
-;     '_\       -- back slash
+;     '"+",      -- upper left corner   (+)
+;     '"+",      -- upper right corner  (+)
+;     '"+",      -- lower left corner   (+)
+;     '"+",      -- lower right corner  (+)
+;     '"|",      -- vertical bar
+;     '"-",      -- horizontal bar      (-)
+;     '"?",      -- APL quad            (?)
+;     '"[",      -- left bracket
+;     '"]",      -- right bracket
+;     '"{",      -- left brace
+;     '"}",      -- right brace
+;     '"+",      -- top    box tee      (+)
+;     '"+",      -- bottom box tee      (+)
+;     '"+",      -- right  box tee      (+)
+;     '"+",      -- left   box tee      (+)
+;     '"+",      -- center box tee      (+)
+;     '"\"       -- back slash
 ;      ])
 
 (DEFPARAMETER |$plainRTspecialCharacters|
-  (LIST '+ '+ '+ '+ '|\|| '- '? '[ '] '{ '} '+ '+ '+ '+ '+ '|\\|))
+  (LIST "+" "+" "+" "+" "|" "-" "?" "[" "]" "{" "}" "+" "+" "+" "+" "+" "\\"))
 
 ; DEFPARAMETER($tallPar, false)
 
@@ -406,36 +406,36 @@
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (PROG () (RETURN (DEFCONST UNDERBAR "_"))))
 
-; makeCharacter n == INTERN(NUM2USTR(n))
+; makeCharacter(n) == NUM2USTR(n)
 
-(DEFUN |makeCharacter| (|n|) (PROG () (RETURN (INTERN (NUM2USTR |n|)))))
+(DEFUN |makeCharacter| (|n|) (PROG () (RETURN (NUM2USTR |n|))))
 
 ; DEFPARAMETER($RTspecialCharacters, [
-;     makeCharacter 9484,     -- upper left corner   (+)
-;     makeCharacter 9488,     -- upper right corner  (+)
-;     makeCharacter 9492,     -- lower left corner   (+)
-;     makeCharacter 9496,     -- lower right corner  (+)
-;     makeCharacter 9474,     -- vertical bar
-;     makeCharacter 9472,     -- horizontal bar      (-)
-;     '_?,  -- APL quad
-;     '_[,      -- left bracket
-;     '_],      -- right bracket
-;     '_{,      -- left brace
-;     '_},      -- right brace
-;     makeCharacter 9516,     -- top    box tee      (+)
-;     makeCharacter 9524,     -- bottom box tee      (+)
-;     makeCharacter 9508,     -- right  box tee      (+)
-;     makeCharacter 9500,     -- left   box tee      (+)
-;     makeCharacter 9532,     -- center box tee      (+)
-;     '_\       -- back slash
+;     makeCharacter(9484),     -- upper left corner   (+)
+;     makeCharacter(9488),     -- upper right corner  (+)
+;     makeCharacter(9492),     -- lower left corner   (+)
+;     makeCharacter(9496),     -- lower right corner  (+)
+;     makeCharacter(9474),     -- vertical bar
+;     makeCharacter(9472),     -- horizontal bar      (-)
+;     '"?",  -- APL quad
+;     '"[",      -- left bracket
+;     '"]",      -- right bracket
+;     '"{",      -- left brace
+;     '"}",      -- right brace
+;     makeCharacter(9516),     -- top    box tee      (+)
+;     makeCharacter(9524),     -- bottom box tee      (+)
+;     makeCharacter(9508),     -- right  box tee      (+)
+;     makeCharacter(9500),     -- left   box tee      (+)
+;     makeCharacter(9532),     -- center box tee      (+)
+;     '"\"       -- back slash
 ;      ])
 
 (DEFPARAMETER |$RTspecialCharacters|
   (LIST (|makeCharacter| 9484) (|makeCharacter| 9488) (|makeCharacter| 9492)
-        (|makeCharacter| 9496) (|makeCharacter| 9474) (|makeCharacter| 9472) '?
-        '[ '] '{ '} (|makeCharacter| 9516) (|makeCharacter| 9524)
+        (|makeCharacter| 9496) (|makeCharacter| 9474) (|makeCharacter| 9472)
+        "?" "[" "]" "{" "}" (|makeCharacter| 9516) (|makeCharacter| 9524)
         (|makeCharacter| 9508) (|makeCharacter| 9500) (|makeCharacter| 9532)
-        '|\\|))
+        "\\"))
 
 ; DEFPARAMETER($specialCharacters, $plainRTspecialCharacters)
 
@@ -565,22 +565,21 @@
        "?")
       ('T (ELT |$specialCharacters| |code|))))))
 
-; rbrkSch() == PNAME specialChar 'rbrk
+; rbrkSch() == specialChar('rbrk)
 
-(DEFUN |rbrkSch| () (PROG () (RETURN (PNAME (|specialChar| '|rbrk|)))))
+(DEFUN |rbrkSch| () (PROG () (RETURN (|specialChar| '|rbrk|))))
 
-; lbrkSch() == PNAME specialChar 'lbrk
+; lbrkSch() == specialChar('lbrk)
 
-(DEFUN |lbrkSch| () (PROG () (RETURN (PNAME (|specialChar| '|lbrk|)))))
+(DEFUN |lbrkSch| () (PROG () (RETURN (|specialChar| '|lbrk|))))
 
-; quadSch() == PNAME specialChar 'quad
+; quadSch() == specialChar('quad)
 
-(DEFUN |quadSch| () (PROG () (RETURN (PNAME (|specialChar| '|quad|)))))
+(DEFUN |quadSch| () (PROG () (RETURN (|specialChar| '|quad|))))
 
-; hbar_special_char() == PNAME(specialChar('hbar))
+; hbar_special_char() == specialChar('hbar)
 
-(DEFUN |hbar_special_char| ()
-  (PROG () (RETURN (PNAME (|specialChar| '|hbar|)))))
+(DEFUN |hbar_special_char| () (PROG () (RETURN (|specialChar| '|hbar|))))
 
 ; isBinaryInfix x ==
 ;     x in '(_= _+ _- _* _/ _*_* _^ "=" "+" "-" "*" "/" "**" "^")
@@ -698,7 +697,6 @@
            ('T (|stringer| |x|))))))
 
 ; appChar(string,x,y,d) ==
-;   if CHARP string then string := PNAME string
 ;   line:= LASSOC(y,d) =>
 ;         RPLACSTR(line, x, n := #string, string, 0, n)
 ;         d
@@ -708,20 +706,17 @@
 (DEFUN |appChar| (|string| |x| |y| |d|)
   (PROG (|line| |n|)
     (RETURN
-     (PROGN
-      (COND ((CHARP |string|) (SETQ |string| (PNAME |string|))))
-      (COND
-       ((SETQ |line| (LASSOC |y| |d|))
-        (PROGN
-         (RPLACSTR |line| |x| (SETQ |n| (LENGTH |string|)) |string| 0 |n|)
-         |d|))
-       ('T
-        (|appChar| |string| |x| |y|
-         (NCONC |d|
-                (LIST
-                 (CONS |y|
-                       (|filler_spaces|
-                        (+ (+ 10 $LINELENGTH) $MARGIN))))))))))))
+     (COND
+      ((SETQ |line| (LASSOC |y| |d|))
+       (PROGN
+        (RPLACSTR |line| |x| (SETQ |n| (LENGTH |string|)) |string| 0 |n|)
+        |d|))
+      ('T
+       (|appChar| |string| |x| |y|
+        (NCONC |d|
+               (LIST
+                (CONS |y|
+                      (|filler_spaces| (+ (+ 10 $LINELENGTH) $MARGIN)))))))))))
 
 ; mathprintWithNumber x ==
 ;   ioHook("startAlgebraOutput")

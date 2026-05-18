@@ -1,5 +1,5 @@
 
-(PUT '|CELL;simpleCells;%L;1| '|SPADreplace| '(XLAM (|c|) |c|)) 
+(MAKEPROP '|CELL;simpleCells;%L;1| '|SPADreplace| '(XLAM (|c|) |c|)) 
 
 (SDEFUN |CELL;simpleCells;%L;1|
         ((|c| (%))
@@ -36,7 +36,7 @@
                              (COND ((NULL |r|) (CONS 1 "failed"))
                                    (#1# (CONS 0 |r|)))))))))) 
 
-(PUT '|CELL;makeCell;L%;4| '|SPADreplace| '(XLAM (|l|) |l|)) 
+(MAKEPROP '|CELL;makeCell;L%;4| '|SPADreplace| '(XLAM (|l|) |l|)) 
 
 (SDEFUN |CELL;makeCell;L%;4|
         ((|l|
@@ -46,7 +46,7 @@
          (% (%)))
         |l|) 
 
-(PUT '|CELL;makeCell;Sc2%;5| '|SPADreplace| 'CONS) 
+(MAKEPROP '|CELL;makeCell;Sc2%;5| '|SPADreplace| 'CONS) 
 
 (SDEFUN |CELL;makeCell;Sc2%;5|
         ((|scell|

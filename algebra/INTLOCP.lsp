@@ -31,12 +31,12 @@
                            NIL (GO G190) G191 (EXIT NIL))
                       (EXIT (CONS |n| |a|)))))))) 
 
-(PUT '|INTLOCP;exponent;%Nni;2| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|INTLOCP;exponent;%Nni;2| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |INTLOCP;exponent;%Nni;2| ((|x| (%)) (% (|NonNegativeInteger|)))
         (QCAR |x|)) 
 
-(PUT '|INTLOCP;unitPart;%F;3| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|INTLOCP;unitPart;%F;3| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |INTLOCP;unitPart;%F;3| ((|x| (%)) (% (|Fraction| (|Integer|))))
         (QCDR |x|)) 
@@ -231,7 +231,7 @@
                     (QREFELT % 52)))
          ('T NIL))) 
 
-(PUT '|INTLOCP;characteristic;Nni;20| '|SPADreplace| '(XLAM NIL 0)) 
+(MAKEPROP '|INTLOCP;characteristic;Nni;20| '|SPADreplace| '(XLAM NIL 0)) 
 
 (SDEFUN |INTLOCP;characteristic;Nni;20| ((% (|NonNegativeInteger|))) 0) 
 

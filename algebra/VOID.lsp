@@ -1,5 +1,5 @@
 
-(PUT '|VOID;void;%;1| '|SPADreplace| '|voidValue|) 
+(MAKEPROP '|VOID;void;%;1| '|SPADreplace| '|voidValue|) 
 
 (SDEFUN |VOID;void;%;1| ((% (%))) (|voidValue|)) 
 

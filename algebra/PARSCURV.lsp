@@ -1,5 +1,5 @@
 
-(PUT '|PARSCURV;curve;3ComponentFunction%;1| '|SPADreplace| 'VECTOR) 
+(MAKEPROP '|PARSCURV;curve;3ComponentFunction%;1| '|SPADreplace| 'VECTOR) 
 
 (SDEFUN |PARSCURV;curve;3ComponentFunction%;1|
         ((|x| (|ComponentFunction|)) (|y| (|ComponentFunction|))

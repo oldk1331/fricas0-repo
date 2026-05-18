@@ -1,9 +1,9 @@
 
-(PUT '|REGSET;rep| '|SPADreplace| '(XLAM (|s|) |s|)) 
+(MAKEPROP '|REGSET;rep| '|SPADreplace| '(XLAM (|s|) |s|)) 
 
 (SDEFUN |REGSET;rep| ((|s| (%)) (% (|List| P))) |s|) 
 
-(PUT '|REGSET;per| '|SPADreplace| '(XLAM (|l|) |l|)) 
+(MAKEPROP '|REGSET;per| '|SPADreplace| '(XLAM (|l|) |l|)) 
 
 (SDEFUN |REGSET;per| ((|l| (|List| P)) (% (%))) |l|) 
 
@@ -30,7 +30,7 @@
 (SDEFUN |REGSET;member?;P%B;10| ((|p| (P)) (|ts| (%)) (% (|Boolean|)))
         (SPADCALL |p| (|REGSET;rep| |ts| %) (QREFELT % 24))) 
 
-(PUT '|REGSET;roughUnitIdeal?;%B;11| '|SPADreplace| '(XLAM (|ts|) NIL)) 
+(MAKEPROP '|REGSET;roughUnitIdeal?;%B;11| '|SPADreplace| '(XLAM (|ts|) NIL)) 
 
 (SDEFUN |REGSET;roughUnitIdeal?;%B;11| ((|ts| (%)) (% (|Boolean|))) NIL) 
 

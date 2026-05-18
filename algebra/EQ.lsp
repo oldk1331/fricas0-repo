@@ -36,19 +36,19 @@
                               (EXIT (NREVERSE #2#)))))))
                  ('T (LIST |eq|)))))) 
 
-(PUT '|EQ;=;2S%;2| '|SPADreplace| 'CONS) 
+(MAKEPROP '|EQ;=;2S%;2| '|SPADreplace| 'CONS) 
 
 (SDEFUN |EQ;=;2S%;2| ((|l| (S)) (|r| (S)) (% (%))) (CONS |l| |r|)) 
 
-(PUT '|EQ;equation;2S%;3| '|SPADreplace| 'CONS) 
+(MAKEPROP '|EQ;equation;2S%;3| '|SPADreplace| 'CONS) 
 
 (SDEFUN |EQ;equation;2S%;3| ((|l| (S)) (|r| (S)) (% (%))) (CONS |l| |r|)) 
 
-(PUT '|EQ;lhs;%S;4| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|EQ;lhs;%S;4| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |EQ;lhs;%S;4| ((|eqn| (%)) (% (S))) (QCAR |eqn|)) 
 
-(PUT '|EQ;rhs;%S;5| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|EQ;rhs;%S;5| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |EQ;rhs;%S;5| ((|eqn| (%)) (% (S))) (QCDR |eqn|)) 
 

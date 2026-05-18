@@ -145,7 +145,7 @@
 (SDEFUN |PLOT;setAdaptive;2B;16| ((|b| (|Boolean|)) (% (|Boolean|)))
         (SETELT % 7 |b|)) 
 
-(PUT '|PLOT;parametric?;%B;17| '|SPADreplace| '(XLAM (|p|) (QVELT |p| 0))) 
+(MAKEPROP '|PLOT;parametric?;%B;17| '|SPADreplace| '(XLAM (|p|) (QVELT |p| 0))) 
 
 (SDEFUN |PLOT;parametric?;%B;17| ((|p| (%)) (% (|Boolean|))) (QVELT |p| 0)) 
 

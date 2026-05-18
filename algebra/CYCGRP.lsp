@@ -1,9 +1,9 @@
 
-(PUT '|CYCGRP;rep| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|CYCGRP;rep| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |CYCGRP;rep| ((|x| (%)) (% (|Rep|))) |x|) 
 
-(PUT '|CYCGRP;per| '|SPADreplace| '(XLAM (|r|) |r|)) 
+(MAKEPROP '|CYCGRP;per| '|SPADreplace| '(XLAM (|r|) |r|)) 
 
 (SDEFUN |CYCGRP;per| ((|r| (|Rep|)) (% (%))) |r|) 
 

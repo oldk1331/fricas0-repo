@@ -1,11 +1,11 @@
 
-(PUT '|GSERIES;coerce;Ups%;1| '|SPADreplace| '(XLAM (|upxs|) |upxs|)) 
+(MAKEPROP '|GSERIES;coerce;Ups%;1| '|SPADreplace| '(XLAM (|upxs|) |upxs|)) 
 
 (SDEFUN |GSERIES;coerce;Ups%;1|
         ((|upxs| (|UnivariatePuiseuxSeries| |Coef| |var| |cen|)) (% (%)))
         |upxs|) 
 
-(PUT '|GSERIES;puiseux| '|SPADreplace| '(XLAM (|f|) |f|)) 
+(MAKEPROP '|GSERIES;puiseux| '|SPADreplace| '(XLAM (|f|) |f|)) 
 
 (SDEFUN |GSERIES;puiseux|
         ((|f| (%)) (% (|UnivariatePuiseuxSeries| |Coef| |var| |cen|))) |f|) 

@@ -3,7 +3,7 @@
         ((|p| (|Dpol|)) (% (|NonNegativeInteger|)))
         (SPADCALL |p| (QREFELT % 10))) 
 
-(PUT '|GBINTERN;virtualDegree;DpolNni;2| '|SPADreplace| '(XLAM (|p|) 0)) 
+(MAKEPROP '|GBINTERN;virtualDegree;DpolNni;2| '|SPADreplace| '(XLAM (|p|) 0)) 
 
 (SDEFUN |GBINTERN;virtualDegree;DpolNni;2|
         ((|p| (|Dpol|)) (% (|NonNegativeInteger|))) 0) 

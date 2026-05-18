@@ -34,11 +34,11 @@
         ((|x| (%)) (|l| (|List| (|Symbol|))) (|f| (|Any|)) (% (%)))
         (SEQ (QSETVELT |x| 3 |l|) (QSETVELT |x| 4 |f|) (EXIT |x|))) 
 
-(PUT '|PATTERN;constant?;%B;6| '|SPADreplace| '(XLAM (|p|) (QVELT |p| 0))) 
+(MAKEPROP '|PATTERN;constant?;%B;6| '|SPADreplace| '(XLAM (|p|) (QVELT |p| 0))) 
 
 (SDEFUN |PATTERN;constant?;%B;6| ((|p| (%)) (% (|Boolean|))) (QVELT |p| 0)) 
 
-(PUT '|PATTERN;depth;%Nni;7| '|SPADreplace| '(XLAM (|p|) (QVELT |p| 2))) 
+(MAKEPROP '|PATTERN;depth;%Nni;7| '|SPADreplace| '(XLAM (|p|) (QVELT |p| 2))) 
 
 (SDEFUN |PATTERN;depth;%Nni;7| ((|p| (%)) (% (|NonNegativeInteger|)))
         (QVELT |p| 2)) 

@@ -1,5 +1,5 @@
 
-(PUT '|UDGRPH;isDirected?;B;1| '|SPADreplace| '(XLAM NIL NIL)) 
+(MAKEPROP '|UDGRPH;isDirected?;B;1| '|SPADreplace| '(XLAM NIL NIL)) 
 
 (SDEFUN |UDGRPH;isDirected?;B;1| ((% (|Boolean|))) NIL) 
 
@@ -23,8 +23,8 @@
                       (EXIT (NREVERSE #2#)))))
           (EXIT (CONS |objs| NIL))))) 
 
-(PUT '|UDGRPH;undirectedGraph;L%;3| '|SPADreplace|
-     '(XLAM (|ob|) (CONS |ob| NIL))) 
+(MAKEPROP '|UDGRPH;undirectedGraph;L%;3| '|SPADreplace|
+          '(XLAM (|ob|) (CONS |ob| NIL))) 
 
 (SDEFUN |UDGRPH;undirectedGraph;L%;3|
         ((|ob|
@@ -34,7 +34,7 @@
          (% (%)))
         (CONS |ob| NIL)) 
 
-(PUT '|UDGRPH;undirectedGraph;LL%;4| '|SPADreplace| 'CONS) 
+(MAKEPROP '|UDGRPH;undirectedGraph;LL%;4| '|SPADreplace| 'CONS) 
 
 (SDEFUN |UDGRPH;undirectedGraph;LL%;4|
         ((|ob|
@@ -296,7 +296,7 @@
          (SEQ (LETT |a| (VECTOR |nm| 0 |n1| |n2| 0 0 |mp|))
               (EXIT (SPADCALL |s| |a| (QREFELT % 43)))))) 
 
-(PUT '|UDGRPH;getVertices;%L;13| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|UDGRPH;getVertices;%L;13| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |UDGRPH;getVertices;%L;13|
         ((|s| (%))
@@ -352,7 +352,7 @@
                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (EXIT |as|)))) 
 
-(PUT '|UDGRPH;initial;%;15| '|SPADreplace| '(XLAM NIL (CONS NIL NIL))) 
+(MAKEPROP '|UDGRPH;initial;%;15| '|SPADreplace| '(XLAM NIL (CONS NIL NIL))) 
 
 (SDEFUN |UDGRPH;initial;%;15| ((% (%))) (CONS NIL NIL)) 
 

@@ -2,7 +2,8 @@
 (SDEFUN |TOOLSIGN;nonQsign;RU;1| ((|r| (R)) (% (|Union| (|Integer|) "failed")))
         (SPADCALL (SPADCALL |r| (QREFELT % 9)) (QREFELT % 12))) 
 
-(PUT '|TOOLSIGN;nonQsign;RU;2| '|SPADreplace| '(XLAM (|r|) (CONS 1 "failed"))) 
+(MAKEPROP '|TOOLSIGN;nonQsign;RU;2| '|SPADreplace|
+          '(XLAM (|r|) (CONS 1 "failed"))) 
 
 (SDEFUN |TOOLSIGN;nonQsign;RU;2| ((|r| (R)) (% (|Union| (|Integer|) "failed")))
         (CONS 1 "failed")) 

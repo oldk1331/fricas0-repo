@@ -1229,7 +1229,7 @@
                             (GO #4#)))))))))))
           #4# (EXIT #1#)))) 
 
-(PUT '|PSETPK;removeSquaresIfCan;2L;39| '|SPADreplace| '(XLAM (|lp|) |lp|)) 
+(MAKEPROP '|PSETPK;removeSquaresIfCan;2L;39| '|SPADreplace| '(XLAM (|lp|) |lp|)) 
 
 (SDEFUN |PSETPK;removeSquaresIfCan;2L;39| ((|lp| (|List| P)) (% (|List| P)))
         |lp|) 

@@ -1,9 +1,9 @@
 
-(PUT '|SEQU;rep| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|SEQU;rep| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |SEQU;rep| ((|x| (%)) (% (|Rep|))) |x|) 
 
-(PUT '|SEQU;per| '|SPADreplace| '(XLAM (|r|) |r|)) 
+(MAKEPROP '|SEQU;per| '|SPADreplace| '(XLAM (|r|) |r|)) 
 
 (SDEFUN |SEQU;per| ((|r| (|Rep|)) (% (%))) |r|) 
 

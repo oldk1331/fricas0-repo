@@ -1,9 +1,9 @@
 
-(PUT '|FMTCAT-;minPrecedence;I;1| '|SPADreplace| '(XLAM NIL 0)) 
+(MAKEPROP '|FMTCAT-;minPrecedence;I;1| '|SPADreplace| '(XLAM NIL 0)) 
 
 (SDEFUN |FMTCAT-;minPrecedence;I;1| ((% (|Integer|))) 0) 
 
-(PUT '|FMTCAT-;maxPrecedence;I;2| '|SPADreplace| '(XLAM NIL 10000)) 
+(MAKEPROP '|FMTCAT-;maxPrecedence;I;2| '|SPADreplace| '(XLAM NIL 10000)) 
 
 (SDEFUN |FMTCAT-;maxPrecedence;I;2| ((% (|Integer|))) 10000) 
 

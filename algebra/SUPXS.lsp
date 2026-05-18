@@ -1,5 +1,5 @@
 
-(PUT '|SUPXS;getExpon| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|SUPXS;getExpon| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |SUPXS;getExpon| ((|pxs| (%)) (% (|Fraction| (|Integer|))))
         (QCAR |pxs|)) 

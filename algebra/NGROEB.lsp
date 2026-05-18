@@ -13,7 +13,7 @@
         ((|p| (|Dpol|)) (% (|NonNegativeInteger|)))
         (SPADCALL |p| (QREFELT % 12))) 
 
-(PUT '|NGROEB;virtualDegree;DpolNni;3| '|SPADreplace| '(XLAM (|p|) 0)) 
+(MAKEPROP '|NGROEB;virtualDegree;DpolNni;3| '|SPADreplace| '(XLAM (|p|) 0)) 
 
 (SDEFUN |NGROEB;virtualDegree;DpolNni;3|
         ((|p| (|Dpol|)) (% (|NonNegativeInteger|))) 0) 
@@ -372,7 +372,7 @@
 (SDEFUN |NGROEB;hMonic;2Dpol;12| ((|p| (|Dpol|)) (% (|Dpol|)))
         (SPADCALL |p| (QREFELT % 55))) 
 
-(PUT '|NGROEB;hMonic;2Dpol;13| '|SPADreplace| '(XLAM (|p|) |p|)) 
+(MAKEPROP '|NGROEB;hMonic;2Dpol;13| '|SPADreplace| '(XLAM (|p|) |p|)) 
 
 (SDEFUN |NGROEB;hMonic;2Dpol;13| ((|p| (|Dpol|)) (% (|Dpol|))) |p|) 
 

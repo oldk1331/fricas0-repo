@@ -9,15 +9,15 @@
           (SPADCALL (QCAR |p|) (QCAR |q|) (QREFELT % 16)))
          ('T NIL))) 
 
-(PUT '|LAUPOL;poly| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|LAUPOL;poly| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |LAUPOL;poly| ((|p| (%)) (% (UP))) (QCAR |p|)) 
 
-(PUT '|LAUPOL;order;%I;5| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|LAUPOL;order;%I;5| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |LAUPOL;order;%I;5| ((|p| (%)) (% (|Integer|))) (QCDR |p|)) 
 
-(PUT '|LAUPOL;gpol| '|SPADreplace| 'CONS) 
+(MAKEPROP '|LAUPOL;gpol| '|SPADreplace| 'CONS) 
 
 (SDEFUN |LAUPOL;gpol| ((|p| (UP)) (|n| (|Integer|)) (% (%))) (CONS |p| |n|)) 
 

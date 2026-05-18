@@ -1681,7 +1681,7 @@
 ;   for i in 0..(n-1) repeat
 ;     [c,:l] := l
 ;     str := STRCONC(str,c,filler_spaces(w - #c))
-;     REMAINDER(i+1,p) = 0 => (sayMSG str ; str := '"" )
+;     REM(i + 1, p) = 0 => (sayMSG(str); str := '"" )
 ;   if str ~= '"" then sayMSG str
 ;   NIL
 
@@ -1741,7 +1741,7 @@
                              (STRCONC |str| |c|
                               (|filler_spaces| (- |w| (LENGTH |c|)))))
                      (COND
-                      ((EQL (REMAINDER (+ |i| 1) |p|) 0)
+                      ((EQL (REM (+ |i| 1) |p|) 0)
                        (PROGN (|sayMSG| |str|) (SETQ |str| "")))))))
              (SETQ |i| (+ |i| 1))))
           (- |n| 1) 0)

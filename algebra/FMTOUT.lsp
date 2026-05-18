@@ -3,7 +3,7 @@
         ((|l| (|List| (|OutputFormatterCategory|))) (% (|Void|)))
         (SPADCALL (QREFELT % 9) |l| (QREFELT % 10))) 
 
-(PUT '|FMTOUT;convert;OfI%;2| '|SPADreplace| 'CONS) 
+(MAKEPROP '|FMTOUT;convert;OfI%;2| '|SPADreplace| 'CONS) 
 
 (SDEFUN |FMTOUT;convert;OfI%;2|
         ((|e| (|OutputForm|)) (|n| (|Integer|)) (% (%))) (CONS |e| |n|)) 

@@ -393,7 +393,7 @@
                        %))
                 (EXIT |s|)))) 
 
-(PUT '|TMFORM;sayExpr| '|SPADreplace| '|sayTexmacs|) 
+(MAKEPROP '|TMFORM;sayExpr| '|SPADreplace| '|sayTexmacs|) 
 
 (SDEFUN |TMFORM;sayExpr| ((|s| (|String|)) (% (|Void|))) (|sayTexmacs| |s|)) 
 
@@ -413,7 +413,7 @@
              (|TMFORM;sayExpr| |texmacs| %) (|TMFORM;sayExpr| ")" %)
              (EXIT (SPADCALL (QREFELT % 33))))) 
 
-(PUT '|TMFORM;ungroup| '|SPADreplace| '(XLAM (|str|) |str|)) 
+(MAKEPROP '|TMFORM;ungroup| '|SPADreplace| '(XLAM (|str|) |str|)) 
 
 (SDEFUN |TMFORM;ungroup| ((|str| (|String|)) (% (|String|))) |str|) 
 

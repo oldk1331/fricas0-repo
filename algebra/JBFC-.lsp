@@ -79,7 +79,7 @@
 (SDEFUN |JBFC-;freeOf?;SJBB;19| ((|fun| (S)) (|jv| (JB)) (% (|Boolean|)))
         (NULL (SPADCALL |jv| (SPADCALL |fun| (QREFELT % 42)) (QREFELT % 57)))) 
 
-(PUT '|JBFC-;characteristic;Nni;20| '|SPADreplace| '(XLAM NIL 0)) 
+(MAKEPROP '|JBFC-;characteristic;Nni;20| '|SPADreplace| '(XLAM NIL 0)) 
 
 (SDEFUN |JBFC-;characteristic;Nni;20| ((% (|NonNegativeInteger|))) 0) 
 

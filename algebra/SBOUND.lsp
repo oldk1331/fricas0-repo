@@ -1,5 +1,5 @@
 
-(PUT '|SBOUND;nullBoundary;%;1| '|SPADreplace| '(XLAM NIL (CONS 0 "none"))) 
+(MAKEPROP '|SBOUND;nullBoundary;%;1| '|SPADreplace| '(XLAM NIL (CONS 0 "none"))) 
 
 (SDEFUN |SBOUND;nullBoundary;%;1| ((% (%))) (CONS 0 "none")) 
 
@@ -1139,7 +1139,7 @@
                            (QREFELT % 24)))))
           #6# (EXIT #5#)))) 
 
-(PUT '|SBOUND;isNull?;%B;10| '|SPADreplace| '(XLAM (|n|) (QEQCAR |n| 0))) 
+(MAKEPROP '|SBOUND;isNull?;%B;10| '|SPADreplace| '(XLAM (|n|) (QEQCAR |n| 0))) 
 
 (SDEFUN |SBOUND;isNull?;%B;10| ((|n| (%)) (% (|Boolean|))) (QEQCAR |n| 0)) 
 

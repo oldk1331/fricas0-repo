@@ -14,11 +14,11 @@
 (SDEFUN |OVAR;convert;%P;5| ((|s1| (%)) (% (|Pattern| (|Float|))))
         (SPADCALL (SPADCALL |s1| (QREFELT % 13)) (QREFELT % 24))) 
 
-(PUT '|OVAR;index;Pi%;6| '|SPADreplace| '(XLAM (|i|) |i|)) 
+(MAKEPROP '|OVAR;index;Pi%;6| '|SPADreplace| '(XLAM (|i|) |i|)) 
 
 (SDEFUN |OVAR;index;Pi%;6| ((|i| (|PositiveInteger|)) (% (%))) |i|) 
 
-(PUT '|OVAR;lookup;%Pi;7| '|SPADreplace| '(XLAM (|j|) |j|)) 
+(MAKEPROP '|OVAR;lookup;%Pi;7| '|SPADreplace| '(XLAM (|j|) |j|)) 
 
 (SDEFUN |OVAR;lookup;%Pi;7| ((|j| (%)) (% (|PositiveInteger|))) |j|) 
 
@@ -52,11 +52,11 @@
             (EXIT (CONS 1 "failed"))))
           #4# (EXIT #1#)))) 
 
-(PUT '|OVAR;<;2%B;10| '|SPADreplace| '(XLAM (|s1| |s2|) (< |s2| |s1|))) 
+(MAKEPROP '|OVAR;<;2%B;10| '|SPADreplace| '(XLAM (|s1| |s2|) (< |s2| |s1|))) 
 
 (SDEFUN |OVAR;<;2%B;10| ((|s1| (%)) (|s2| (%)) (% (|Boolean|))) (< |s2| |s1|)) 
 
-(PUT '|OVAR;=;2%B;11| '|SPADreplace| 'EQL) 
+(MAKEPROP '|OVAR;=;2%B;11| '|SPADreplace| 'EQL) 
 
 (SDEFUN |OVAR;=;2%B;11| ((|s1| (%)) (|s2| (%)) (% (|Boolean|))) (EQL |s1| |s2|)) 
 

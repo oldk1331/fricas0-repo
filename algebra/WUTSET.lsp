@@ -1,9 +1,9 @@
 
-(PUT '|WUTSET;rep| '|SPADreplace| '(XLAM (|s|) |s|)) 
+(MAKEPROP '|WUTSET;rep| '|SPADreplace| '(XLAM (|s|) |s|)) 
 
 (SDEFUN |WUTSET;rep| ((|s| (%)) (% (|List| P))) |s|) 
 
-(PUT '|WUTSET;per| '|SPADreplace| '(XLAM (|l|) |l|)) 
+(MAKEPROP '|WUTSET;per| '|SPADreplace| '(XLAM (|l|) |l|)) 
 
 (SDEFUN |WUTSET;per| ((|l| (|List| P)) (% (%))) |l|) 
 

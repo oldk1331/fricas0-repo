@@ -1,23 +1,23 @@
 
-(PUT '|MOEBIUS;moebius;4F%;1| '|SPADreplace| 'VECTOR) 
+(MAKEPROP '|MOEBIUS;moebius;4F%;1| '|SPADreplace| 'VECTOR) 
 
 (SDEFUN |MOEBIUS;moebius;4F%;1|
         ((|aa| (F)) (|bb| (F)) (|cc| (F)) (|dd| (F)) (% (%)))
         (VECTOR |aa| |bb| |cc| |dd|)) 
 
-(PUT '|MOEBIUS;a| '|SPADreplace| '(XLAM (|t|) (QVELT |t| 0))) 
+(MAKEPROP '|MOEBIUS;a| '|SPADreplace| '(XLAM (|t|) (QVELT |t| 0))) 
 
 (SDEFUN |MOEBIUS;a| ((|t| (%)) (% (F))) (QVELT |t| 0)) 
 
-(PUT '|MOEBIUS;b| '|SPADreplace| '(XLAM (|t|) (QVELT |t| 1))) 
+(MAKEPROP '|MOEBIUS;b| '|SPADreplace| '(XLAM (|t|) (QVELT |t| 1))) 
 
 (SDEFUN |MOEBIUS;b| ((|t| (%)) (% (F))) (QVELT |t| 1)) 
 
-(PUT '|MOEBIUS;c| '|SPADreplace| '(XLAM (|t|) (QVELT |t| 2))) 
+(MAKEPROP '|MOEBIUS;c| '|SPADreplace| '(XLAM (|t|) (QVELT |t| 2))) 
 
 (SDEFUN |MOEBIUS;c| ((|t| (%)) (% (F))) (QVELT |t| 2)) 
 
-(PUT '|MOEBIUS;d| '|SPADreplace| '(XLAM (|t|) (QVELT |t| 3))) 
+(MAKEPROP '|MOEBIUS;d| '|SPADreplace| '(XLAM (|t|) (QVELT |t| 3))) 
 
 (SDEFUN |MOEBIUS;d| ((|t| (%)) (% (F))) (QVELT |t| 3)) 
 

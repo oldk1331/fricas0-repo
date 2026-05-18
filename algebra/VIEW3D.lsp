@@ -50,8 +50,8 @@
                 (VECTOR 0.0 1.0 0.0 1.0 0.0 1.0 0 1) (SPADCALL (QREFELT % 40))
                 NIL)) 
 
-(PUT '|VIEW3D;subspace;%Ts;4| '|SPADreplace|
-     '(XLAM (|viewport|) (QVELT |viewport| 11))) 
+(MAKEPROP '|VIEW3D;subspace;%Ts;4| '|SPADreplace|
+          '(XLAM (|viewport|) (QVELT |viewport| 11))) 
 
 (SDEFUN |VIEW3D;subspace;%Ts;4|
         ((|viewport| (%)) (% (|ThreeSpace| (|DoubleFloat|))))
@@ -61,8 +61,8 @@
         ((|viewport| (%)) (|space| (|ThreeSpace| (|DoubleFloat|))) (% (%)))
         (SEQ (QSETVELT |viewport| 11 |space|) (EXIT |viewport|))) 
 
-(PUT '|VIEW3D;options;%L;6| '|SPADreplace|
-     '(XLAM (|viewport|) (QVELT |viewport| 12))) 
+(MAKEPROP '|VIEW3D;options;%L;6| '|SPADreplace|
+          '(XLAM (|viewport|) (QVELT |viewport| 12))) 
 
 (SDEFUN |VIEW3D;options;%L;6| ((|viewport| (%)) (% (|List| (|DrawOption|))))
         (QVELT |viewport| 12)) 
@@ -901,8 +901,8 @@
                  (SPADCALL (QVELT |viewport| 2) (QREFELT % 131)))
            (QREFELT % 133))))) 
 
-(PUT '|VIEW3D;key;%I;42| '|SPADreplace|
-     '(XLAM (|viewport|) (QVELT |viewport| 0))) 
+(MAKEPROP '|VIEW3D;key;%I;42| '|SPADreplace|
+          '(XLAM (|viewport|) (QVELT |viewport| 0))) 
 
 (SDEFUN |VIEW3D;key;%I;42| ((|viewport| (%)) (% (|Integer|)))
         (QVELT |viewport| 0)) 

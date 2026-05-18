@@ -6,7 +6,7 @@
           (QREFELT % 20))
          (EXIT '|Repeated|))) 
 
-(PUT '|JBUNDLE;getNotation;S;2| '|SPADreplace| '(XLAM NIL '|Repeated|)) 
+(MAKEPROP '|JBUNDLE;getNotation;S;2| '|SPADreplace| '(XLAM NIL '|Repeated|)) 
 
 (SDEFUN |JBUNDLE;getNotation;S;2| ((% (|Symbol|))) '|Repeated|) 
 
@@ -143,7 +143,7 @@
                                             '(|Integer|) #1#))
                         |lower| (QREFELT % 42)))))))))) 
 
-(PUT '|JBUNDLE;One;%;12| '|SPADreplace| '(XLAM NIL (LIST 0 1))) 
+(MAKEPROP '|JBUNDLE;One;%;12| '|SPADreplace| '(XLAM NIL (LIST 0 1))) 
 
 (SDEFUN |JBUNDLE;One;%;12| ((% (%))) (LIST 0 1)) 
 
@@ -196,7 +196,7 @@
                                (SPADCALL |res| |lower|
                                          (QREFELT % 49))))))))))))) 
 
-(PUT '|JBUNDLE;opdisp| '|SPADreplace| '|SPADfirst|) 
+(MAKEPROP '|JBUNDLE;opdisp| '|SPADreplace| '|SPADfirst|) 
 
 (SDEFUN |JBUNDLE;opdisp| ((|l| (|List| (|OutputForm|))) (% (|OutputForm|)))
         (|SPADfirst| |l|)) 

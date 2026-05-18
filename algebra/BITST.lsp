@@ -1,5 +1,5 @@
 
-(PUT '|BITST;starts;L%;1| '|SPADreplace| 'LIST) 
+(MAKEPROP '|BITST;starts;L%;1| '|SPADreplace| 'LIST) 
 
 (SDEFUN |BITST;starts;L%;1| ((|index| (|List| (|Boolean|))) (% (%)))
         (LIST |index|)) 
@@ -34,7 +34,7 @@
                (SEQ (LETT |res| (SPADCALL |a| |b| (QREFELT % 16)))
                     (EXIT |res|)))) 
 
-(PUT '|BITST;hash| '|SPADreplace| '(XLAM (|s|) 0)) 
+(MAKEPROP '|BITST;hash| '|SPADreplace| '(XLAM (|s|) 0)) 
 
 (SDEFUN |BITST;hash| ((|s| (%)) (% (|SingleInteger|))) 0) 
 

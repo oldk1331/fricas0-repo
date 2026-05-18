@@ -8,24 +8,24 @@
                (SPADCALL (LIST (SPADCALL '|minusInfinity| (QREFELT % 11)))
                          (QREFELT % 13))))) 
 
-(PUT '|ORDCOMP;coerce;R%;2| '|SPADreplace| '(XLAM (|r|) (CONS 0 |r|))) 
+(MAKEPROP '|ORDCOMP;coerce;R%;2| '|SPADreplace| '(XLAM (|r|) (CONS 0 |r|))) 
 
 (SDEFUN |ORDCOMP;coerce;R%;2| ((|r| (R)) (% (%))) (CONS 0 |r|)) 
 
 (SDEFUN |ORDCOMP;retract;%R;3| ((|x| (%)) (% (R)))
         (COND ((QEQCAR |x| 0) (CDR |x|)) ('T (|error| "Not finite")))) 
 
-(PUT '|ORDCOMP;finite?;%B;4| '|SPADreplace| '(XLAM (|x|) (QEQCAR |x| 0))) 
+(MAKEPROP '|ORDCOMP;finite?;%B;4| '|SPADreplace| '(XLAM (|x|) (QEQCAR |x| 0))) 
 
 (SDEFUN |ORDCOMP;finite?;%B;4| ((|x| (%)) (% (|Boolean|))) (QEQCAR |x| 0)) 
 
-(PUT '|ORDCOMP;infinite?;%B;5| '|SPADreplace| '(XLAM (|x|) (QEQCAR |x| 1))) 
+(MAKEPROP '|ORDCOMP;infinite?;%B;5| '|SPADreplace| '(XLAM (|x|) (QEQCAR |x| 1))) 
 
 (SDEFUN |ORDCOMP;infinite?;%B;5| ((|x| (%)) (% (|Boolean|))) (QEQCAR |x| 1)) 
 
 (SDEFUN |ORDCOMP;plusInfinity;%;6| ((% (%))) (CONS 1 'T)) 
 
-(PUT '|ORDCOMP;minusInfinity;%;7| '|SPADreplace| '(XLAM NIL (CONS 1 NIL))) 
+(MAKEPROP '|ORDCOMP;minusInfinity;%;7| '|SPADreplace| '(XLAM NIL (CONS 1 NIL))) 
 
 (SDEFUN |ORDCOMP;minusInfinity;%;7| ((% (%))) (CONS 1 NIL)) 
 

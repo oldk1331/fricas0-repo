@@ -23,7 +23,7 @@
                       (EXIT (NREVERSE #2#)))))
           (EXIT (LIST |objs|))))) 
 
-(PUT '|MFGRPH;multifunctionGraph;L%;2| '|SPADreplace| 'LIST) 
+(MAKEPROP '|MFGRPH;multifunctionGraph;L%;2| '|SPADreplace| 'LIST) 
 
 (SDEFUN |MFGRPH;multifunctionGraph;L%;2|
         ((|ob|
@@ -389,7 +389,7 @@
                    (LETT |sojn| (|inc_SI| |sojn|)) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
-(PUT '|MFGRPH;initial;%;11| '|SPADreplace| '(XLAM NIL (LIST NIL))) 
+(MAKEPROP '|MFGRPH;initial;%;11| '|SPADreplace| '(XLAM NIL (LIST NIL))) 
 
 (SDEFUN |MFGRPH;initial;%;11| ((% (%))) (LIST NIL)) 
 

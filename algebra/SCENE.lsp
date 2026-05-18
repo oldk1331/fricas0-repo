@@ -1040,8 +1040,8 @@
 (SDEFUN |SCENE;addChild!;2%V;66| ((|n| (%)) (|c| (%)) (% (|Void|)))
         (QSETVELT |n| 1 (SPADCALL (QVELT |n| 1) |c| (QREFELT % 130)))) 
 
-(PUT '|SCENE;removeChild!;2%V;67| '|SPADreplace|
-     '(XLAM (|n| |c|) (|error| "removeChild! not yet implemented"))) 
+(MAKEPROP '|SCENE;removeChild!;2%V;67| '|SPADreplace|
+          '(XLAM (|n| |c|) (|error| "removeChild! not yet implemented"))) 
 
 (SDEFUN |SCENE;removeChild!;2%V;67| ((|n| (%)) (|c| (%)) (% (|Void|)))
         (|error| "removeChild! not yet implemented")) 

@@ -1,5 +1,5 @@
 
-(PUT '|EXTRED;polynomial| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 0))) 
+(MAKEPROP '|EXTRED;polynomial| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 0))) 
 
 (SDEFUN |EXTRED;polynomial|
         ((|x|
@@ -7,7 +7,7 @@
          (% (R)))
         (QVELT |x| 0)) 
 
-(PUT '|EXTRED;representation| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 1))) 
+(MAKEPROP '|EXTRED;representation| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 1))) 
 
 (SDEFUN |EXTRED;representation|
         ((|x|
@@ -15,7 +15,7 @@
          (% (|Vector| R)))
         (QVELT |x| 1)) 
 
-(PUT '|EXTRED;multiplier| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 2))) 
+(MAKEPROP '|EXTRED;multiplier| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 2))) 
 
 (SDEFUN |EXTRED;multiplier|
         ((|x|

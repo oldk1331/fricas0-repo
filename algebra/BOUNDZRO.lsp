@@ -2,8 +2,8 @@
 (SDEFUN |BOUNDZRO;integerBound;UPI;1| ((|p| (UP)) (% (|Integer|)))
         (SPADCALL |p| (QREFELT % 10))) 
 
-(PUT '|BOUNDZRO;integerBound;UPI;2| '|SPADreplace|
-     '(XLAM (|p|) (|error| "integerBound: unimplemented"))) 
+(MAKEPROP '|BOUNDZRO;integerBound;UPI;2| '|SPADreplace|
+          '(XLAM (|p|) (|error| "integerBound: unimplemented"))) 
 
 (SDEFUN |BOUNDZRO;integerBound;UPI;2| ((|p| (UP)) (% (|Integer|)))
         (|error| "integerBound: unimplemented")) 

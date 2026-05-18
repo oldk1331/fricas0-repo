@@ -1,5 +1,5 @@
 
-(PUT '|UTS;stream| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|UTS;stream| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |UTS;stream| ((|x| (%)) (% (|Stream| |Coef|))) |x|) 
 
@@ -21,21 +21,21 @@
         ((|c| (|Coef|)) (|n| (|NonNegativeInteger|)) (% (%)))
         (SPADCALL |c| |n| (QREFELT % 28))) 
 
-(PUT '|UTS;getExpon| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|UTS;getExpon| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |UTS;getExpon|
         ((|term| (|Record| (|:| |k| (|NonNegativeInteger|)) (|:| |c| |Coef|)))
          (% (|NonNegativeInteger|)))
         (QCAR |term|)) 
 
-(PUT '|UTS;getCoef| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|UTS;getCoef| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |UTS;getCoef|
         ((|term| (|Record| (|:| |k| (|NonNegativeInteger|)) (|:| |c| |Coef|)))
          (% (|Coef|)))
         (QCDR |term|)) 
 
-(PUT '|UTS;rec| '|SPADreplace| 'CONS) 
+(MAKEPROP '|UTS;rec| '|SPADreplace| 'CONS) 
 
 (SDEFUN |UTS;rec|
         ((|expon| (|NonNegativeInteger|)) (|coef| (|Coef|))

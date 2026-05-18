@@ -107,8 +107,8 @@
         ((|f| (|Float|)) (% (|DoubleFloat|)))
         (SPADCALL (QREFELT % 41) (SPADCALL |f| (QREFELT % 82)) (QREFELT % 83))) 
 
-(PUT '|VIEWDEF;viewWriteAvailable;L;24| '|SPADreplace|
-     '(XLAM NIL (LIST "PIXMAP" "BITMAP" "POSTSCRIPT" "IMAGE"))) 
+(MAKEPROP '|VIEWDEF;viewWriteAvailable;L;24| '|SPADreplace|
+          '(XLAM NIL (LIST "PIXMAP" "BITMAP" "POSTSCRIPT" "IMAGE"))) 
 
 (SDEFUN |VIEWDEF;viewWriteAvailable;L;24| ((% (|List| (|String|))))
         (LIST "PIXMAP" "BITMAP" "POSTSCRIPT" "IMAGE")) 

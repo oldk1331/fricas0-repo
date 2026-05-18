@@ -3,7 +3,7 @@
         ((|name| (|String|)) (|value| (|String|)) (% (%)))
         (CONS |name| (LIST |value|))) 
 
-(PUT '|XMLAT;xmlAttribute;SL%;2| '|SPADreplace| 'CONS) 
+(MAKEPROP '|XMLAT;xmlAttribute;SL%;2| '|SPADreplace| 'CONS) 
 
 (SDEFUN |XMLAT;xmlAttribute;SL%;2|
         ((|name| (|String|)) (|values| (|List| (|String|))) (% (%)))

@@ -14,7 +14,7 @@
         ((|f| (|Mapping| (|Boolean|) S)) (|x| (%)) (% (%)))
         (SPADCALL |f| |x| (QREFELT % 15))) 
 
-(PUT '|ITUPLE;construct;%S;5| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|ITUPLE;construct;%S;5| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |ITUPLE;construct;%S;5| ((|x| (%)) (% (|Stream| S))) |x|) 
 

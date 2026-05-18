@@ -69,7 +69,7 @@
         (CONS (SPADCALL (QCAR |om|) (QREFELT % 35))
               (SPADCALL (QCDR |om|) (QREFELT % 38)))) 
 
-(PUT '|JDIFF;Zero;%;11| '|SPADreplace| '(XLAM NIL (CONS NIL NIL))) 
+(MAKEPROP '|JDIFF;Zero;%;11| '|SPADreplace| '(XLAM NIL (CONS NIL NIL))) 
 
 (SDEFUN |JDIFF;Zero;%;11| ((% (%))) (CONS NIL NIL)) 
 

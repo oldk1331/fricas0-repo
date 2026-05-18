@@ -1,9 +1,9 @@
 
-(PUT '|MRING;rep| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|MRING;rep| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |MRING;rep| ((|x| (%)) (% (|Rep|))) |x|) 
 
-(PUT '|MRING;per| '|SPADreplace| '(XLAM (|r|) |r|)) 
+(MAKEPROP '|MRING;per| '|SPADreplace| '(XLAM (|r|) |r|)) 
 
 (SDEFUN |MRING;per| ((|r| (|Rep|)) (% (%))) |r|) 
 
@@ -86,14 +86,14 @@
                            (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                       (EXIT |res|))))))) 
 
-(PUT '|MRING;Zero;%;10| '|SPADreplace| '(XLAM NIL NIL)) 
+(MAKEPROP '|MRING;Zero;%;10| '|SPADreplace| '(XLAM NIL NIL)) 
 
 (SDEFUN |MRING;Zero;%;10| ((% (%))) NIL) 
 
 (SDEFUN |MRING;One;%;11| ((% (%)))
         (LIST (CONS (|spadConstant| % 38) (|spadConstant| % 37)))) 
 
-(PUT '|MRING;zero?;%B;12| '|SPADreplace| 'NULL) 
+(MAKEPROP '|MRING;zero?;%B;12| '|SPADreplace| 'NULL) 
 
 (SDEFUN |MRING;zero?;%B;12| ((|a| (%)) (% (|Boolean|))) (NULL |a|)) 
 
@@ -284,7 +284,7 @@
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(PUT '|MRING;numberOfMonomials;%Nni;26| '|SPADreplace| 'LENGTH) 
+(MAKEPROP '|MRING;numberOfMonomials;%Nni;26| '|SPADreplace| 'LENGTH) 
 
 (SDEFUN |MRING;numberOfMonomials;%Nni;26|
         ((|a| (%)) (% (|NonNegativeInteger|))) (LENGTH |a|)) 

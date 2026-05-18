@@ -1,5 +1,5 @@
 
-(PUT '|EXPEXPAN;coeff| '|SPADreplace| '(XLAM (|term|) (QVELT |term| 0))) 
+(MAKEPROP '|EXPEXPAN;coeff| '|SPADreplace| '(XLAM (|term|) (QVELT |term| 0))) 
 
 (SDEFUN |EXPEXPAN;coeff|
         ((|term|
@@ -14,7 +14,7 @@
          (% (|UnivariatePuiseuxSeries| FE |var| |cen|)))
         (QVELT |term| 0)) 
 
-(PUT '|EXPEXPAN;exponent| '|SPADreplace| '(XLAM (|term|) (QVELT |term| 1))) 
+(MAKEPROP '|EXPEXPAN;exponent| '|SPADreplace| '(XLAM (|term|) (QVELT |term| 1))) 
 
 (SDEFUN |EXPEXPAN;exponent|
         ((|term|

@@ -57,7 +57,7 @@
                 (EXIT (LIST |resStr|))))
           #3# (EXIT #2#)))) 
 
-(PUT '|COMPCODE;genCatFooter| '|SPADreplace| '(XLAM NIL (LIST "" "@"))) 
+(MAKEPROP '|COMPCODE;genCatFooter| '|SPADreplace| '(XLAM NIL (LIST "" "@"))) 
 
 (SDEFUN |COMPCODE;genCatFooter| ((% (|List| (|String|)))) (LIST "" "@")) 
 
@@ -173,7 +173,7 @@
                 (EXIT |sl|)))
           #2# (EXIT #1#)))) 
 
-(PUT '|COMPCODE;genPackageFooter| '|SPADreplace| '(XLAM NIL (LIST "" "@"))) 
+(MAKEPROP '|COMPCODE;genPackageFooter| '|SPADreplace| '(XLAM NIL (LIST "" "@"))) 
 
 (SDEFUN |COMPCODE;genPackageFooter| ((% (|List| (|String|)))) (LIST "" "@")) 
 

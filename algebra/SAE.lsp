@@ -33,7 +33,7 @@
 (SDEFUN |SAE;coerce;%Of;9| ((|x| (%)) (% (|OutputForm|)))
         (SPADCALL |x| (QREFELT % 51))) 
 
-(PUT '|SAE;lift;%UP;10| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|SAE;lift;%UP;10| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |SAE;lift;%UP;10| ((|x| (%)) (% (UP))) |x|) 
 

@@ -101,7 +101,7 @@
 (SDEFUN |DISPLAY;say;LV;9| ((|l| (|List| (|String|))) (% (|Void|)))
         (SEQ (|sayBrightly| |l|) (EXIT (SPADCALL (QREFELT % 28))))) 
 
-(PUT '|DISPLAY;sayLength;SI;10| '|SPADreplace| 'QCSIZE) 
+(MAKEPROP '|DISPLAY;sayLength;SI;10| '|SPADreplace| 'QCSIZE) 
 
 (SDEFUN |DISPLAY;sayLength;SI;10| ((|s| (|String|)) (% (|Integer|)))
         (QCSIZE |s|)) 

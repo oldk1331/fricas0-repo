@@ -1,15 +1,16 @@
 
-(PUT '|SCELL;samplePoint;%TheField;1| '|SPADreplace|
-     '(XLAM (|c|) (QVELT |c| 0))) 
+(MAKEPROP '|SCELL;samplePoint;%TheField;1| '|SPADreplace|
+          '(XLAM (|c|) (QVELT |c| 0))) 
 
 (SDEFUN |SCELL;samplePoint;%TheField;1| ((|c| (%)) (% (|TheField|)))
         (QVELT |c| 0)) 
 
-(PUT '|SCELL;hasDimension?;%B;2| '|SPADreplace| '(XLAM (|c|) (QVELT |c| 1))) 
+(MAKEPROP '|SCELL;hasDimension?;%B;2| '|SPADreplace|
+          '(XLAM (|c|) (QVELT |c| 1))) 
 
 (SDEFUN |SCELL;hasDimension?;%B;2| ((|c| (%)) (% (|Boolean|))) (QVELT |c| 1)) 
 
-(PUT '|SCELL;variableOf;%S;3| '|SPADreplace| '(XLAM (|c|) (QVELT |c| 2))) 
+(MAKEPROP '|SCELL;variableOf;%S;3| '|SPADreplace| '(XLAM (|c|) (QVELT |c| 2))) 
 
 (SDEFUN |SCELL;variableOf;%S;3| ((|c| (%)) (% (|Symbol|))) (QVELT |c| 2)) 
 
@@ -175,7 +176,7 @@
                                        (QREFELT % 32)))))))))))))))))))))
           #3# (EXIT #1#)))) 
 
-(PUT '|SCELL;pointToCell| '|SPADreplace| 'VECTOR) 
+(MAKEPROP '|SCELL;pointToCell| '|SPADreplace| 'VECTOR) 
 
 (SDEFUN |SCELL;pointToCell|
         ((|sp| (|TheField|)) (|hasDim?| (|Boolean|)) (|varName| (|Symbol|))

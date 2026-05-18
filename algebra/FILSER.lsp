@@ -1,5 +1,5 @@
 
-(PUT '|FILSER;l_to_s| '|SPADreplace| '(XLAM (|l|) |l|)) 
+(MAKEPROP '|FILSER;l_to_s| '|SPADreplace| '(XLAM (|l|) |l|)) 
 
 (SDEFUN |FILSER;l_to_s| ((|l| (|List| (|SExpression|))) (% (|SExpression|)))
         |l|) 

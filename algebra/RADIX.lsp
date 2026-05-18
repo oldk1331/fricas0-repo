@@ -1,11 +1,11 @@
 
-(PUT '|RADIX;characteristic;Nni;1| '|SPADreplace| '(XLAM NIL 0)) 
+(MAKEPROP '|RADIX;characteristic;Nni;1| '|SPADreplace| '(XLAM NIL 0)) 
 
 (SDEFUN |RADIX;characteristic;Nni;1| ((% (|NonNegativeInteger|))) 0) 
 
 (SDEFUN |RADIX;differentiate;2%;2| ((|a| (%)) (% (%))) (|spadConstant| % 10)) 
 
-(PUT '|RADIX;Zero;%;3| '|SPADreplace| '(XLAM NIL (VECTOR 1 NIL NIL NIL))) 
+(MAKEPROP '|RADIX;Zero;%;3| '|SPADreplace| '(XLAM NIL (VECTOR 1 NIL NIL NIL))) 
 
 (SDEFUN |RADIX;Zero;%;3| ((% (%))) (VECTOR 1 NIL NIL NIL)) 
 
@@ -174,7 +174,7 @@
                        (SPADCALL (* (QVELT |a| 0) |n|) |d|
                                  (QREFELT % 30)))))))))) 
 
-(PUT '|RADIX;wholeRagits;%L;25| '|SPADreplace| '(XLAM (|a|) (QVELT |a| 1))) 
+(MAKEPROP '|RADIX;wholeRagits;%L;25| '|SPADreplace| '(XLAM (|a|) (QVELT |a| 1))) 
 
 (SDEFUN |RADIX;wholeRagits;%L;25| ((|a| (%)) (% (|List| (|Integer|))))
         (QVELT |a| 1)) 
@@ -183,12 +183,13 @@
         (SPADCALL (SPADCALL (QVELT |a| 2) (QREFELT % 56))
                   (SPADCALL (QVELT |a| 3) (QREFELT % 57)) (QREFELT % 58))) 
 
-(PUT '|RADIX;prefixRagits;%L;27| '|SPADreplace| '(XLAM (|a|) (QVELT |a| 2))) 
+(MAKEPROP '|RADIX;prefixRagits;%L;27| '|SPADreplace|
+          '(XLAM (|a|) (QVELT |a| 2))) 
 
 (SDEFUN |RADIX;prefixRagits;%L;27| ((|a| (%)) (% (|List| (|Integer|))))
         (QVELT |a| 2)) 
 
-(PUT '|RADIX;cycleRagits;%L;28| '|SPADreplace| '(XLAM (|a|) (QVELT |a| 3))) 
+(MAKEPROP '|RADIX;cycleRagits;%L;28| '|SPADreplace| '(XLAM (|a|) (QVELT |a| 3))) 
 
 (SDEFUN |RADIX;cycleRagits;%L;28| ((|a| (%)) (% (|List| (|Integer|))))
         (QVELT |a| 3)) 

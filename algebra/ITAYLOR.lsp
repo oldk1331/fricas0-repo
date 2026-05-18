@@ -1,9 +1,9 @@
 
-(PUT '|ITAYLOR;stream| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|ITAYLOR;stream| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |ITAYLOR;stream| ((|x| (%)) (% (|Stream| |Coef|))) |x|) 
 
-(PUT '|ITAYLOR;series;S%;2| '|SPADreplace| '(XLAM (|st|) |st|)) 
+(MAKEPROP '|ITAYLOR;series;S%;2| '|SPADreplace| '(XLAM (|st|) |st|)) 
 
 (SDEFUN |ITAYLOR;series;S%;2| ((|st| (|Stream| |Coef|)) (% (%))) |st|) 
 
@@ -102,7 +102,7 @@
 (SDEFUN |ITAYLOR;characteristic;Nni;18| ((% (|NonNegativeInteger|)))
         (SPADCALL (QREFELT % 50))) 
 
-(PUT '|ITAYLOR;pole?;%B;19| '|SPADreplace| '(XLAM (|x|) NIL)) 
+(MAKEPROP '|ITAYLOR;pole?;%B;19| '|SPADreplace| '(XLAM (|x|) NIL)) 
 
 (SDEFUN |ITAYLOR;pole?;%B;19| ((|x| (%)) (% (|Boolean|))) NIL) 
 

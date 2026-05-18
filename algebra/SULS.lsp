@@ -14,7 +14,7 @@
 (SDEFUN |SULS;pole?;%B;4| ((|x| (%)) (% (|Boolean|)))
         (MINUSP (SPADCALL |x| 0 (QREFELT % 24)))) 
 
-(PUT '|SULS;coerce;Suts%;5| '|SPADreplace| '(XLAM (|uts|) |uts|)) 
+(MAKEPROP '|SULS;coerce;Suts%;5| '|SPADreplace| '(XLAM (|uts|) |uts|)) 
 
 (SDEFUN |SULS;coerce;Suts%;5|
         ((|uts| (|SparseUnivariateTaylorSeries| |Coef| |var| |cen|)) (% (%)))
@@ -54,11 +54,11 @@
         (SPADCALL (SPADCALL (|spadConstant| % 15) |n| (QREFELT % 18))
                   (SPADCALL |uts| (QREFELT % 27)) (QREFELT % 32))) 
 
-(PUT '|SULS;removeZeroes;2%;10| '|SPADreplace| '(XLAM (|uls|) |uls|)) 
+(MAKEPROP '|SULS;removeZeroes;2%;10| '|SPADreplace| '(XLAM (|uls|) |uls|)) 
 
 (SDEFUN |SULS;removeZeroes;2%;10| ((|uls| (%)) (% (%))) |uls|) 
 
-(PUT '|SULS;removeZeroes;I2%;11| '|SPADreplace| '(XLAM (|n| |uls|) |uls|)) 
+(MAKEPROP '|SULS;removeZeroes;I2%;11| '|SPADreplace| '(XLAM (|n| |uls|) |uls|)) 
 
 (SDEFUN |SULS;removeZeroes;I2%;11| ((|n| (|Integer|)) (|uls| (%)) (% (%)))
         |uls|) 

@@ -387,7 +387,7 @@
 (SDEFUN |SMP;characteristic;Nni;30| ((% (|NonNegativeInteger|)))
         (SPADCALL (QREFELT % 96))) 
 
-(PUT '|SMP;coerce;R%;31| '|SPADreplace| '(XLAM (|c|) (CONS 0 |c|))) 
+(MAKEPROP '|SMP;coerce;R%;31| '|SPADreplace| '(XLAM (|c|) (CONS 0 |c|))) 
 
 (SDEFUN |SMP;coerce;R%;31| ((|c| (R)) (% (%))) (CONS 0 |c|)) 
 

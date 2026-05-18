@@ -829,7 +829,7 @@
 (SDEFUN |SPACE3;check;2%;48| ((|s| (%)) (% (%)))
         (COND ((NULL (QVELT |s| 4)) (|SPACE3;convertSpace| |s| %)) ('T |s|))) 
 
-(PUT '|SPACE3;subspace;%Ss;49| '|SPADreplace| '(XLAM (|s|) (QVELT |s| 0))) 
+(MAKEPROP '|SPACE3;subspace;%Ss;49| '|SPADreplace| '(XLAM (|s|) (QVELT |s| 0))) 
 
 (SDEFUN |SPACE3;subspace;%Ss;49| ((|s| (%)) (% (|SubSpace| 3 R))) (QVELT |s| 0)) 
 

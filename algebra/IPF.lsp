@@ -237,7 +237,7 @@
                        (SPADCALL (SPADCALL |y| (QREFELT % 6) (QREFELT % 65))
                                  (QREFELT % 45))))))) 
 
-(PUT '|IPF;convert;%I;10| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|IPF;convert;%I;10| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |IPF;convert;%I;10| ((|x| (%)) (% (|Integer|))) |x|) 
 
@@ -260,7 +260,8 @@
                   ((NULL (QREFELT % 10)) (|IPF;initializePrimitiveElement| %)))
                  (EXIT (QREFELT % 10))))))) 
 
-(PUT '|IPF;representationType;U;15| '|SPADreplace| '(XLAM NIL (CONS 0 "prime"))) 
+(MAKEPROP '|IPF;representationType;U;15| '|SPADreplace|
+          '(XLAM NIL (CONS 0 "prime"))) 
 
 (SDEFUN |IPF;representationType;U;15|
         ((% (|Union| "prime" "polynomial" "normal" "cyclic"))) (CONS 0 "prime")) 
@@ -291,15 +292,15 @@
         (SEQ (COND ((QREFELT % 7) (|IPF;initializePrimitiveElement| %)))
              (EXIT (SPADCALL (QREFELT % 8) (QREFELT % 75))))) 
 
-(PUT '|IPF;degree;%Pi;18| '|SPADreplace| '(XLAM (|x|) 1)) 
+(MAKEPROP '|IPF;degree;%Pi;18| '|SPADreplace| '(XLAM (|x|) 1)) 
 
 (SDEFUN |IPF;degree;%Pi;18| ((|x| (%)) (% (|PositiveInteger|))) 1) 
 
-(PUT '|IPF;extensionDegree;Pi;19| '|SPADreplace| '(XLAM NIL 1)) 
+(MAKEPROP '|IPF;extensionDegree;Pi;19| '|SPADreplace| '(XLAM NIL 1)) 
 
 (SDEFUN |IPF;extensionDegree;Pi;19| ((% (|PositiveInteger|))) 1) 
 
-(PUT '|IPF;inGroundField?;%B;20| '|SPADreplace| '(XLAM (|x|) 'T)) 
+(MAKEPROP '|IPF;inGroundField?;%B;20| '|SPADreplace| '(XLAM (|x|) 'T)) 
 
 (SDEFUN |IPF;inGroundField?;%B;20| ((|x| (%)) (% (|Boolean|))) 'T) 
 
@@ -309,11 +310,11 @@
 (SDEFUN |IPF;represents;V%;22| ((|v| (|Vector| %)) (% (%)))
         (SPADCALL |v| 1 (QREFELT % 83))) 
 
-(PUT '|IPF;retract;2%;23| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|IPF;retract;2%;23| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |IPF;retract;2%;23| ((|x| (%)) (% (%))) |x|) 
 
-(PUT '|IPF;retractIfCan;%U;24| '|SPADreplace| '(XLAM (|x|) (CONS 0 |x|))) 
+(MAKEPROP '|IPF;retractIfCan;%U;24| '|SPADreplace| '(XLAM (|x|) (CONS 0 |x|))) 
 
 (SDEFUN |IPF;retractIfCan;%U;24| ((|x| (%)) (% (|Union| % "failed")))
         (CONS 0 |x|)) 
@@ -335,7 +336,7 @@
         (SPADCALL (SPADCALL (|spadConstant| % 36) 1 (QREFELT % 90))
                   (SPADCALL |x| 0 (QREFELT % 90)) (QREFELT % 91))) 
 
-(PUT '|IPF;charthRoot;2%;29| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|IPF;charthRoot;2%;29| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |IPF;charthRoot;2%;29| ((|x| (%)) (% (%))) |x|) 
 

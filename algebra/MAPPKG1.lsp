@@ -7,7 +7,7 @@
 (SDEFUN |MAPPKG1;coerce;AM;2| ((|a| (A)) (% (|Mapping| A)))
         (SPADCALL |a| (QREFELT % 8))) 
 
-(PUT '|MAPPKG1;id;2A;3| '|SPADreplace| '(XLAM (|a|) |a|)) 
+(MAKEPROP '|MAPPKG1;id;2A;3| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
 (SDEFUN |MAPPKG1;id;2A;3| ((|a| (A)) (% (A))) |a|) 
 

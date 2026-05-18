@@ -185,8 +185,8 @@
                   ('T (SPADCALL |f| (QREFELT % 75)))))))
           #2# (EXIT #1#)))) 
 
-(PUT '|INTGEL;fsqrt;2F;5| '|SPADreplace|
-     '(XLAM (|f|) (|error| "unimplemented"))) 
+(MAKEPROP '|INTGEL;fsqrt;2F;5| '|SPADreplace|
+          '(XLAM (|f|) (|error| "unimplemented"))) 
 
 (SDEFUN |INTGEL;fsqrt;2F;5| ((|f| (F)) (% (F))) (|error| "unimplemented")) 
 
@@ -450,9 +450,9 @@
                                  (|error|
                                   "gen_ef: unsupported case"))))))))))))))) 
 
-(PUT '|INTGEL;gen_ef;FUP2RU;11| '|SPADreplace|
-     '(XLAM (|f_var| |f_pol| |cfr| |cer|)
-       (|error| "gen_ef: unimplemented for F"))) 
+(MAKEPROP '|INTGEL;gen_ef;FUP2RU;11| '|SPADreplace|
+          '(XLAM (|f_var| |f_pol| |cfr| |cer|)
+            (|error| "gen_ef: unimplemented for F"))) 
 
 (SDEFUN |INTGEL;gen_ef;FUP2RU;11|
         ((|f_var| (F)) (|f_pol| (UP)) (|cfr| (R)) (|cer| (R))

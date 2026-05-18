@@ -4,7 +4,7 @@
 (SDEFUN |RULECOLD;coerce;%Of;2| ((|r| (%)) (% (|OutputForm|)))
         (SPADCALL (QREFELT % 6) (QREFELT % 10))) 
 
-(PUT '|RULECOLD;=;2%B;3| '|SPADreplace| '(XLAM (|x| |y|) 'T)) 
+(MAKEPROP '|RULECOLD;=;2%B;3| '|SPADreplace| '(XLAM (|x| |y|) 'T)) 
 
 (SDEFUN |RULECOLD;=;2%B;3| ((|x| (%)) (|y| (%)) (% (|Boolean|))) 'T) 
 

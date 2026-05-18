@@ -120,7 +120,7 @@
                (CONS 0 (|SPADfirst| (QCAR |l|))))
               ('T (CONS 1 "failed")))) 
 
-(PUT '|JBLF;numerator;2%;10| '|SPADreplace| '(XLAM (|l|) |l|)) 
+(MAKEPROP '|JBLF;numerator;2%;10| '|SPADreplace| '(XLAM (|l|) |l|)) 
 
 (SDEFUN |JBLF;numerator;2%;10| ((|l| (%)) (% (%))) |l|) 
 
@@ -176,7 +176,7 @@
 (SDEFUN |JBLF;=;2%B;15| ((|l1| (%)) (|l2| (%)) (% (|Boolean|)))
         (SPADCALL (SPADCALL |l1| |l2| (QREFELT % 71)) (QREFELT % 19))) 
 
-(PUT '|JBLF;Zero;%;16| '|SPADreplace| '(XLAM NIL (CONS NIL NIL))) 
+(MAKEPROP '|JBLF;Zero;%;16| '|SPADreplace| '(XLAM NIL (CONS NIL NIL))) 
 
 (SDEFUN |JBLF;Zero;%;16| ((% (%))) (CONS NIL NIL)) 
 

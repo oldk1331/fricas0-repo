@@ -487,7 +487,7 @@
 (SDEFUN |PFR;characteristic;Nni;14| ((% (|NonNegativeInteger|)))
         (SPADCALL (QREFELT % 54))) 
 
-(PUT '|PFR;coerce;R%;15| '|SPADreplace| '(XLAM (|r|) (CONS |r| NIL))) 
+(MAKEPROP '|PFR;coerce;R%;15| '|SPADreplace| '(XLAM (|r|) (CONS |r| NIL))) 
 
 (SDEFUN |PFR;coerce;R%;15| ((|r| (R)) (% (%))) (CONS |r| NIL)) 
 
@@ -566,11 +566,11 @@
 (SDEFUN |PFR;numberOfFractionalTerms;%I;21| ((|a| (%)) (% (|Integer|)))
         (LENGTH (QCDR |a|))) 
 
-(PUT '|PFR;wholePart;%R;22| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|PFR;wholePart;%R;22| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |PFR;wholePart;%R;22| ((|a| (%)) (% (R))) (QCAR |a|)) 
 
-(PUT '|PFR;fractionalTerms;%L;23| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|PFR;fractionalTerms;%L;23| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |PFR;fractionalTerms;%L;23|
         ((|a| (%))

@@ -5485,7 +5485,7 @@
 ;     unabbrev u
 ;   atom unitForm => reportOpsFromLisplib0(unitForm,u)
 ;   unitForm' := evaluateType unitForm
-;   tree := mkAtree removeZeroOneDestructively unitForm
+;   tree := mkAtree(removeZeroOne(unitForm))
 ;   (unitForm' := isType tree) => reportOpsFromUnitDirectly0 unitForm'
 ;   say_msg("S2IZ0041", CONCAT(
 ;         '"It is not known what %1bp is, so no information about it can",
@@ -5538,8 +5538,7 @@
                (#1#
                 (PROGN
                  (SETQ |unitForm'| (|evaluateType| |unitForm|))
-                 (SETQ |tree|
-                         (|mkAtree| (|removeZeroOneDestructively| |unitForm|)))
+                 (SETQ |tree| (|mkAtree| (|removeZeroOne| |unitForm|)))
                  (COND
                   ((SETQ |unitForm'| (|isType| |tree|))
                    (|reportOpsFromUnitDirectly0| |unitForm'|))

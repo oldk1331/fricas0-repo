@@ -363,7 +363,7 @@
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (EXIT |l|)))) 
 
-(PUT '|XHASHTBL;removeDuplicates;2%;21| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|XHASHTBL;removeDuplicates;2%;21| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |XHASHTBL;removeDuplicates;2%;21| ((|x| (%)) (% (%))) |x|) 
 

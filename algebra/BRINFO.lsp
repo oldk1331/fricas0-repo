@@ -1,5 +1,5 @@
 
-(PUT '|BRINFO;sublis_formal;L2Se;1| '|SPADreplace| '|sublisFormal|) 
+(MAKEPROP '|BRINFO;sublis_formal;L2Se;1| '|SPADreplace| '|sublisFormal|) 
 
 (SDEFUN |BRINFO;sublis_formal;L2Se;1|
         ((|args| (|List| (|SExpression|))) (|expr| (|SExpression|))
@@ -836,7 +836,7 @@
                (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
           (EXIT (|BRINFO;group_data| |grd| %))))) 
 
-(PUT '|BRINFO;find_symbol| '|SPADreplace| '|find_symbol|) 
+(MAKEPROP '|BRINFO;find_symbol| '|SPADreplace| '|find_symbol|) 
 
 (SDEFUN |BRINFO;find_symbol|
         ((|name| (|String|)) (% (|Union| (|Symbol|) "failed")))
@@ -1835,7 +1835,7 @@
                                       |fl| (QREFELT % 94)))
                       (EXIT (|BRINFO;group_funs| |fl| %)))))))) 
 
-(PUT '|BRINFO;all_con_names| '|SPADreplace| '|allConstructors|) 
+(MAKEPROP '|BRINFO;all_con_names| '|SPADreplace| '|allConstructors|) 
 
 (SDEFUN |BRINFO;all_con_names| ((% (|List| (|Symbol|)))) (|allConstructors|)) 
 
@@ -2235,7 +2235,8 @@
                        (SPADCALL |form| (SPADCALL 2 (- |k| 1) (QREFELT % 112))
                                  (QREFELT % 113)))))))) 
 
-(PUT '|BRINFO;constructor_form;SSe;64| '|SPADreplace| '|getConstructorForm|) 
+(MAKEPROP '|BRINFO;constructor_form;SSe;64| '|SPADreplace|
+          '|getConstructorForm|) 
 
 (SDEFUN |BRINFO;constructor_form;SSe;64|
         ((|name| (|Symbol|)) (% (|SExpression|))) (|getConstructorForm| |name|)) 

@@ -35,7 +35,7 @@
         (CONS (SPADCALL |a| |b| |c| |d| (QREFELT % 27))
               (SPADCALL |f| |g| |h| |i| (QREFELT % 27)))) 
 
-(PUT '|OCT;octon;2Q%;12| '|SPADreplace| 'CONS) 
+(MAKEPROP '|OCT;octon;2Q%;12| '|SPADreplace| 'CONS) 
 
 (SDEFUN |OCT;octon;2Q%;12|
         ((|p| (|Quaternion| R)) (|q| (|Quaternion| R)) (% (%))) (CONS |p| |q|)) 

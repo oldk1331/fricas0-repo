@@ -1,5 +1,5 @@
 
-(PUT '|IARRAY1;#;%Nni;1| '|SPADreplace| 'QVSIZE) 
+(MAKEPROP '|IARRAY1;#;%Nni;1| '|SPADreplace| 'QVSIZE) 
 
 (SDEFUN |IARRAY1;#;%Nni;1| ((|x| (%)) (% (|NonNegativeInteger|))) (QVSIZE |x|)) 
 
@@ -14,11 +14,11 @@
 
 (SDEFUN |IARRAY1;minIndex;%I;3| ((|x| (%)) (% (|Integer|))) (QREFELT % 7)) 
 
-(PUT '|IARRAY1;empty;%;4| '|SPADreplace| '(XLAM NIL (MAKE-ARRAY 0))) 
+(MAKEPROP '|IARRAY1;empty;%;4| '|SPADreplace| '(XLAM NIL (MAKE-ARRAY 0))) 
 
 (SDEFUN |IARRAY1;empty;%;4| ((% (%))) (MAKE-ARRAY 0)) 
 
-(PUT '|IARRAY1;new;NniS%;5| '|SPADreplace| 'MAKEARR1) 
+(MAKEPROP '|IARRAY1;new;NniS%;5| '|SPADreplace| 'MAKEARR1) 
 
 (SDEFUN |IARRAY1;new;NniS%;5| ((|n| (|NonNegativeInteger|)) (|s| (S)) (% (%)))
         (MAKEARR1 |n| |s|)) 
@@ -92,12 +92,12 @@
                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (EXIT |s|)))) 
 
-(PUT '|IARRAY1;qelt;%IS;10| '|SPADreplace| 'QAREF1) 
+(MAKEPROP '|IARRAY1;qelt;%IS;10| '|SPADreplace| 'QAREF1) 
 
 (SDEFUN |IARRAY1;qelt;%IS;10| ((|x| (%)) (|i| (|Integer|)) (% (S)))
         (QAREF1 |x| |i|)) 
 
-(PUT '|IARRAY1;qsetelt!;%I2S;11| '|SPADreplace| 'QSETVELT) 
+(MAKEPROP '|IARRAY1;qsetelt!;%I2S;11| '|SPADreplace| 'QSETVELT) 
 
 (SDEFUN |IARRAY1;qsetelt!;%I2S;11|
         ((|x| (%)) (|i| (|Integer|)) (|s| (S)) (% (S))) (QSETVELT |x| |i| |s|)) 
@@ -115,7 +115,7 @@
           (|error| "index out of range"))
          ('T (SPADCALL |x| |i| |s| (QREFELT % 25))))) 
 
-(PUT '|IARRAY1;maxIndex;%I;14| '|SPADreplace| 'QVSIZE) 
+(MAKEPROP '|IARRAY1;maxIndex;%I;14| '|SPADreplace| 'QVSIZE) 
 
 (SDEFUN |IARRAY1;maxIndex;%I;14| ((|x| (%)) (% (|Integer|))) (QVSIZE |x|)) 
 

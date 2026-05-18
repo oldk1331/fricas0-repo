@@ -21,7 +21,7 @@
                        (EXIT (NREVERSE #2#))))
                  (QREFELT % 14))))) 
 
-(PUT '|IDPO;listOfTerms;%L;2| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|IDPO;listOfTerms;%L;2| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |IDPO;listOfTerms;%L;2|
         ((|x| (%)) (% (|List| (|Record| (|:| |k| S) (|:| |c| A))))) |x|) 
@@ -29,7 +29,7 @@
 (SDEFUN |IDPO;monomial?;%B;3| ((|x| (%)) (% (|Boolean|)))
         (COND ((NULL |x|) NIL) ('T (NULL (CDR |x|))))) 
 
-(PUT '|IDPO;numberOfMonomials;%Nni;4| '|SPADreplace| 'LENGTH) 
+(MAKEPROP '|IDPO;numberOfMonomials;%Nni;4| '|SPADreplace| 'LENGTH) 
 
 (SDEFUN |IDPO;numberOfMonomials;%Nni;4| ((|x| (%)) (% (|NonNegativeInteger|)))
         (LENGTH |x|)) 
@@ -168,7 +168,7 @@
                       NIL (GO G190) G191 (EXIT NIL)))
                 #2# (EXIT #1#)))) 
 
-(PUT '|IDPO;reductum;2%;13| '|SPADreplace| 'CDR) 
+(MAKEPROP '|IDPO;reductum;2%;13| '|SPADreplace| 'CDR) 
 
 (SDEFUN |IDPO;reductum;2%;13| ((|x| (%)) (% (%))) (CDR |x|)) 
 
@@ -231,7 +231,7 @@
         ((|lx| (|List| (|Record| (|:| |k| S) (|:| |c| A)))) (% (%)))
         (SPADCALL (CONS (|function| |IDPO;compareterm|) %) |lx| (QREFELT % 41))) 
 
-(PUT '|IDPO;constructOrdered;L%;20| '|SPADreplace| '(XLAM (|lx|) |lx|)) 
+(MAKEPROP '|IDPO;constructOrdered;L%;20| '|SPADreplace| '(XLAM (|lx|) |lx|)) 
 
 (SDEFUN |IDPO;constructOrdered;L%;20|
         ((|lx| (|List| (|Record| (|:| |k| S) (|:| |c| A)))) (% (%))) |lx|) 
@@ -259,11 +259,11 @@
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT |s|)))) 
 
-(PUT '|IDPO;Zero;%;23| '|SPADreplace| '(XLAM NIL NIL)) 
+(MAKEPROP '|IDPO;Zero;%;23| '|SPADreplace| '(XLAM NIL NIL)) 
 
 (SDEFUN |IDPO;Zero;%;23| ((% (%))) NIL) 
 
-(PUT '|IDPO;zero?;%B;24| '|SPADreplace| 'NULL) 
+(MAKEPROP '|IDPO;zero?;%B;24| '|SPADreplace| 'NULL) 
 
 (SDEFUN |IDPO;zero?;%B;24| ((|x| (%)) (% (|Boolean|))) (NULL |x|)) 
 
@@ -700,12 +700,12 @@
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT (NREVERSE |res|))))) 
 
-(PUT '|IDPO;construct;L%;37| '|SPADreplace| '(XLAM (|lx|) |lx|)) 
+(MAKEPROP '|IDPO;construct;L%;37| '|SPADreplace| '(XLAM (|lx|) |lx|)) 
 
 (SDEFUN |IDPO;construct;L%;37|
         ((|lx| (|List| (|Record| (|:| |k| S) (|:| |c| A)))) (% (%))) |lx|) 
 
-(PUT '|IDPO;Zero;%;38| '|SPADreplace| '(XLAM NIL NIL)) 
+(MAKEPROP '|IDPO;Zero;%;38| '|SPADreplace| '(XLAM NIL NIL)) 
 
 (SDEFUN |IDPO;Zero;%;38| ((% (%))) NIL) 
 

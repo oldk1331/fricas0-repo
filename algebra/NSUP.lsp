@@ -1,29 +1,29 @@
 
-(PUT '|NSUP;rep| '|SPADreplace| '(XLAM (|s|) |s|)) 
+(MAKEPROP '|NSUP;rep| '|SPADreplace| '(XLAM (|s|) |s|)) 
 
 (SDEFUN |NSUP;rep|
         ((|s| (%))
          (% (|List| (|Record| (|:| |k| (|NonNegativeInteger|)) (|:| |c| R)))))
         |s|) 
 
-(PUT '|NSUP;per| '|SPADreplace| '(XLAM (|l|) |l|)) 
+(MAKEPROP '|NSUP;per| '|SPADreplace| '(XLAM (|l|) |l|)) 
 
 (SDEFUN |NSUP;per|
         ((|l| (|List| (|Record| (|:| |k| (|NonNegativeInteger|)) (|:| |c| R))))
          (% (%)))
         |l|) 
 
-(PUT '|NSUP;coerce;%Sup;3| '|SPADreplace| '(XLAM (|p|) |p|)) 
+(MAKEPROP '|NSUP;coerce;%Sup;3| '|SPADreplace| '(XLAM (|p|) |p|)) 
 
 (SDEFUN |NSUP;coerce;%Sup;3| ((|p| (%)) (% (|SparseUnivariatePolynomial| R)))
         |p|) 
 
-(PUT '|NSUP;coerce;Sup%;4| '|SPADreplace| '(XLAM (|p|) |p|)) 
+(MAKEPROP '|NSUP;coerce;Sup%;4| '|SPADreplace| '(XLAM (|p|) |p|)) 
 
 (SDEFUN |NSUP;coerce;Sup%;4| ((|p| (|SparseUnivariatePolynomial| R)) (% (%)))
         |p|) 
 
-(PUT '|NSUP;retractIfCan;%U;5| '|SPADreplace| '(XLAM (|p|) (CONS 0 |p|))) 
+(MAKEPROP '|NSUP;retractIfCan;%U;5| '|SPADreplace| '(XLAM (|p|) (CONS 0 |p|))) 
 
 (SDEFUN |NSUP;retractIfCan;%U;5|
         ((|p| (%)) (% (|Union| (|SparseUnivariatePolynomial| R) "failed")))

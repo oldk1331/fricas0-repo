@@ -2,7 +2,7 @@
 (SDEFUN |BTREE;=;2%B;1| ((|t1| (%)) (|t2| (%)) (% (|Boolean|)))
         (SPADCALL |t1| |t2| (QREFELT % 9))) 
 
-(PUT '|BTREE;empty;%;2| '|SPADreplace| '(XLAM NIL NIL)) 
+(MAKEPROP '|BTREE;empty;%;2| '|SPADreplace| '(XLAM NIL NIL)) 
 
 (SDEFUN |BTREE;empty;%;2| ((% (%))) NIL) 
 
@@ -16,7 +16,7 @@
         (SPADCALL (SPADCALL (QREFELT % 11)) |v| (SPADCALL (QREFELT % 11))
                   (QREFELT % 15))) 
 
-(PUT '|BTREE;empty?;%B;6| '|SPADreplace| 'NULL) 
+(MAKEPROP '|BTREE;empty?;%B;6| '|SPADreplace| 'NULL) 
 
 (SDEFUN |BTREE;empty?;%B;6| ((|t| (%)) (% (|Boolean|))) (NULL |t|)) 
 

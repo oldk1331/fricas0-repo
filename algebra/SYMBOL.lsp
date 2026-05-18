@@ -125,13 +125,13 @@
               (LETT |d| (SPADCALL (CONS |b| G) (QREFELT % 37)))
               (EXIT (SPADCALL (LIST |a| |n| |d|) (QREFELT % 37)))))) 
 
-(PUT '|SYMBOL;convert;2%;4| '|SPADreplace| '(XLAM (|s|) |s|)) 
+(MAKEPROP '|SYMBOL;convert;2%;4| '|SPADreplace| '(XLAM (|s|) |s|)) 
 
 (SDEFUN |SYMBOL;convert;2%;4| ((|s| (%)) (% (|Symbol|))) |s|) 
 
 (SDEFUN |SYMBOL;coerce;S%;5| ((|s| (|String|)) (% (%))) (VALUES (INTERN |s|))) 
 
-(PUT '|SYMBOL;=;2%B;6| '|SPADreplace| 'EQUAL) 
+(MAKEPROP '|SYMBOL;=;2%B;6| '|SPADreplace| 'EQUAL) 
 
 (SDEFUN |SYMBOL;=;2%B;6| ((|x| (%)) (|y| (%)) (% (|Boolean|))) (EQUAL |x| |y|)) 
 
@@ -417,7 +417,7 @@
 (SDEFUN |SYMBOL;scripted?;%B;27| ((|sy| (%)) (% (|Boolean|)))
         (NULL (ATOM |sy|))) 
 
-(PUT '|SYMBOL;of_list| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|SYMBOL;of_list| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |SYMBOL;of_list| ((|x| (%)) (% (|List| (|OutputForm|)))) |x|) 
 

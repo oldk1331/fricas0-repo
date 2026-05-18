@@ -5,7 +5,7 @@
 (SDEFUN |XPR;characteristic;Nni;2| ((% (|NonNegativeInteger|)))
         (SPADCALL (QREFELT % 13))) 
 
-(PUT '|XPR;#;%Nni;3| '|SPADreplace| 'LENGTH) 
+(MAKEPROP '|XPR;#;%Nni;3| '|SPADreplace| 'LENGTH) 
 
 (SDEFUN |XPR;#;%Nni;3| ((|x| (%)) (% (|NonNegativeInteger|))) (LENGTH |x|)) 
 

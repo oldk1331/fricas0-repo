@@ -558,7 +558,7 @@
            (VECTOR (SPADCALL |preimOfqp| |preimOfq| (QREFELT % 81))
                    (SPADCALL |imOfqp| |imOfq| (QREFELT % 81))))))) 
 
-(PUT '|PERM;One;%;29| '|SPADreplace| '(XLAM NIL (MAKEARR1 2 NIL))) 
+(MAKEPROP '|PERM;One;%;29| '|SPADreplace| '(XLAM NIL (MAKEARR1 2 NIL))) 
 
 (SDEFUN |PERM;One;%;29| ((% (%))) (MAKEARR1 2 NIL)) 
 

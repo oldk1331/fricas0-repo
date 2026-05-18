@@ -502,7 +502,8 @@
 
 (SDEFUN |RECLOS;One;%;34| ((% (%))) (CONS 0 (|spadConstant| % 35))) 
 
-(PUT '|RECLOS;coerce;TheField%;35| '|SPADreplace| '(XLAM (|rn|) (CONS 0 |rn|))) 
+(MAKEPROP '|RECLOS;coerce;TheField%;35| '|SPADreplace|
+          '(XLAM (|rn|) (CONS 0 |rn|))) 
 
 (SDEFUN |RECLOS;coerce;TheField%;35| ((|rn| (|TheField|)) (% (%)))
         (CONS 0 |rn|)) 

@@ -1,5 +1,5 @@
 
-(PUT '|SETLAT;subsetLattice;L%;1| '|SPADreplace| '(XLAM (|obj|) |obj|)) 
+(MAKEPROP '|SETLAT;subsetLattice;L%;1| '|SPADreplace| '(XLAM (|obj|) |obj|)) 
 
 (SDEFUN |SETLAT;subsetLattice;L%;1| ((|obj| (|List| S)) (% (%))) |obj|) 
 
@@ -63,11 +63,11 @@
                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (EXIT |r|)))) 
 
-(PUT '|SETLAT;hash| '|SPADreplace| '(XLAM (|s|) 0)) 
+(MAKEPROP '|SETLAT;hash| '|SPADreplace| '(XLAM (|s|) 0)) 
 
 (SDEFUN |SETLAT;hash| ((|s| (%)) (% (|SingleInteger|))) 0) 
 
-(PUT '|SETLAT;=;2%B;7| '|SPADreplace| 'EQL) 
+(MAKEPROP '|SETLAT;=;2%B;7| '|SPADreplace| 'EQL) 
 
 (SDEFUN |SETLAT;=;2%B;7| ((|x| (%)) (|y| (%)) (% (|Boolean|))) (EQL |x| |y|)) 
 

@@ -1,19 +1,19 @@
 
-(PUT '|SUTS;makeTerm| '|SPADreplace| 'CONS) 
+(MAKEPROP '|SUTS;makeTerm| '|SPADreplace| 'CONS) 
 
 (SDEFUN |SUTS;makeTerm|
         ((|exp| (|Integer|)) (|coef| (|Coef|))
          (% (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
         (CONS |exp| |coef|)) 
 
-(PUT '|SUTS;getCoef| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|SUTS;getCoef| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |SUTS;getCoef|
         ((|term| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))
          (% (|Coef|)))
         (QCDR |term|)) 
 
-(PUT '|SUTS;getExpon| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|SUTS;getExpon| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |SUTS;getExpon|
         ((|term| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))
@@ -371,7 +371,7 @@
         ((|x| (%)) (|n| (|NonNegativeInteger|)) (% (|Coef|)))
         (SPADCALL |x| |n| (QREFELT % 109))) 
 
-(PUT '|SUTS;pole?;%B;29| '|SPADreplace| '(XLAM (|x|) NIL)) 
+(MAKEPROP '|SUTS;pole?;%B;29| '|SPADreplace| '(XLAM (|x|) NIL)) 
 
 (SDEFUN |SUTS;pole?;%B;29| ((|x| (%)) (% (|Boolean|))) NIL) 
 
@@ -624,26 +624,30 @@
                    (EXIT (SPADCALL |atanx| |uts| (QREFELT % 118)))))
                  ('T (|error| (STRCONC "atan: " (QREFELT % 179)))))))) 
 
-(PUT '|SUTS;acos;2%;73| '|SPADreplace|
-     '(XLAM (|z|) (|error| "acos: acos undefined on this coefficient domain"))) 
+(MAKEPROP '|SUTS;acos;2%;73| '|SPADreplace|
+          '(XLAM (|z|)
+            (|error| "acos: acos undefined on this coefficient domain"))) 
 
 (SDEFUN |SUTS;acos;2%;73| ((|z| (%)) (% (%)))
         (|error| "acos: acos undefined on this coefficient domain")) 
 
-(PUT '|SUTS;acot;2%;74| '|SPADreplace|
-     '(XLAM (|z|) (|error| "acot: acot undefined on this coefficient domain"))) 
+(MAKEPROP '|SUTS;acot;2%;74| '|SPADreplace|
+          '(XLAM (|z|)
+            (|error| "acot: acot undefined on this coefficient domain"))) 
 
 (SDEFUN |SUTS;acot;2%;74| ((|z| (%)) (% (%)))
         (|error| "acot: acot undefined on this coefficient domain")) 
 
-(PUT '|SUTS;asec;2%;75| '|SPADreplace|
-     '(XLAM (|z|) (|error| "asec: asec undefined on this coefficient domain"))) 
+(MAKEPROP '|SUTS;asec;2%;75| '|SPADreplace|
+          '(XLAM (|z|)
+            (|error| "asec: asec undefined on this coefficient domain"))) 
 
 (SDEFUN |SUTS;asec;2%;75| ((|z| (%)) (% (%)))
         (|error| "asec: asec undefined on this coefficient domain")) 
 
-(PUT '|SUTS;acsc;2%;76| '|SPADreplace|
-     '(XLAM (|z|) (|error| "acsc: acsc undefined on this coefficient domain"))) 
+(MAKEPROP '|SUTS;acsc;2%;76| '|SPADreplace|
+          '(XLAM (|z|)
+            (|error| "acsc: acsc undefined on this coefficient domain"))) 
 
 (SDEFUN |SUTS;acsc;2%;76| ((|z| (%)) (% (%)))
         (|error| "acsc: acsc undefined on this coefficient domain")) 
@@ -742,30 +746,30 @@
                    (EXIT (SPADCALL |atanhx| |uts| (QREFELT % 118)))))
                  ('T (|error| (STRCONC "atanh: " (QREFELT % 179)))))))) 
 
-(PUT '|SUTS;acosh;2%;85| '|SPADreplace|
-     '(XLAM (|uts|)
-       (|error| "acosh: acosh undefined on this coefficient domain"))) 
+(MAKEPROP '|SUTS;acosh;2%;85| '|SPADreplace|
+          '(XLAM (|uts|)
+            (|error| "acosh: acosh undefined on this coefficient domain"))) 
 
 (SDEFUN |SUTS;acosh;2%;85| ((|uts| (%)) (% (%)))
         (|error| "acosh: acosh undefined on this coefficient domain")) 
 
-(PUT '|SUTS;acoth;2%;86| '|SPADreplace|
-     '(XLAM (|uts|)
-       (|error| "acoth: acoth undefined on this coefficient domain"))) 
+(MAKEPROP '|SUTS;acoth;2%;86| '|SPADreplace|
+          '(XLAM (|uts|)
+            (|error| "acoth: acoth undefined on this coefficient domain"))) 
 
 (SDEFUN |SUTS;acoth;2%;86| ((|uts| (%)) (% (%)))
         (|error| "acoth: acoth undefined on this coefficient domain")) 
 
-(PUT '|SUTS;asech;2%;87| '|SPADreplace|
-     '(XLAM (|uts|)
-       (|error| "asech: asech undefined on this coefficient domain"))) 
+(MAKEPROP '|SUTS;asech;2%;87| '|SPADreplace|
+          '(XLAM (|uts|)
+            (|error| "asech: asech undefined on this coefficient domain"))) 
 
 (SDEFUN |SUTS;asech;2%;87| ((|uts| (%)) (% (%)))
         (|error| "asech: asech undefined on this coefficient domain")) 
 
-(PUT '|SUTS;acsch;2%;88| '|SPADreplace|
-     '(XLAM (|uts|)
-       (|error| "acsch: acsch undefined on this coefficient domain"))) 
+(MAKEPROP '|SUTS;acsch;2%;88| '|SPADreplace|
+          '(XLAM (|uts|)
+            (|error| "acsch: acsch undefined on this coefficient domain"))) 
 
 (SDEFUN |SUTS;acsch;2%;88| ((|uts| (%)) (% (%)))
         (|error| "acsch: acsch undefined on this coefficient domain")) 

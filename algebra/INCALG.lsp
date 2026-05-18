@@ -12,12 +12,12 @@
         ((|Ai| (|Matrix| R)) (|ss| (|List| S)) (% (%)))
         (SPADCALL |Ai| (SPADCALL |ss| (QREFELT % 16)) (QREFELT % 14))) 
 
-(PUT '|INCALG;indices;%Oda;3| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|INCALG;indices;%Oda;3| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |INCALG;indices;%Oda;3| ((A (%)) (% (|OneDimensionalArray| S)))
         (QCDR A)) 
 
-(PUT '|INCALG;matrix;%M;4| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|INCALG;matrix;%M;4| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |INCALG;matrix;%M;4| ((A (%)) (% (|Matrix| R))) (QCAR A)) 
 

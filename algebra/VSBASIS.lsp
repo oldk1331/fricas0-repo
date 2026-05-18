@@ -1,9 +1,9 @@
 
-(PUT '|VSBASIS;Zero;%;1| '|SPADreplace| '(XLAM NIL NIL)) 
+(MAKEPROP '|VSBASIS;Zero;%;1| '|SPADreplace| '(XLAM NIL NIL)) 
 
 (SDEFUN |VSBASIS;Zero;%;1| ((% (%))) NIL) 
 
-(PUT '|VSBASIS;coerce;%L;2| '|SPADreplace| '(XLAM (B) B)) 
+(MAKEPROP '|VSBASIS;coerce;%L;2| '|SPADreplace| '(XLAM (B) B)) 
 
 (SDEFUN |VSBASIS;coerce;%L;2| ((B (%)) (% (|List| (|Vector| R)))) B) 
 
@@ -257,7 +257,7 @@
 (SDEFUN |VSBASIS;*;3%;20| ((B1 (%)) (B2 (%)) (% (%)))
         (SPADCALL B1 B2 (QREFELT % 46))) 
 
-(PUT '|VSBASIS;rank;%Nni;21| '|SPADreplace| 'LENGTH) 
+(MAKEPROP '|VSBASIS;rank;%Nni;21| '|SPADreplace| 'LENGTH) 
 
 (SDEFUN |VSBASIS;rank;%Nni;21| ((B (%)) (% (|NonNegativeInteger|))) (LENGTH B)) 
 

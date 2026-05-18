@@ -29,7 +29,8 @@
         (COND ((QEQCAR |x| 0) (|error| "x has only one entry"))
               ('T (QCDR (QCDR |x|))))) 
 
-(PUT '|FMAGMA;retractable?;%B;5| '|SPADreplace| '(XLAM (|x|) (QEQCAR |x| 0))) 
+(MAKEPROP '|FMAGMA;retractable?;%B;5| '|SPADreplace|
+          '(XLAM (|x|) (QEQCAR |x| 0))) 
 
 (SDEFUN |FMAGMA;retractable?;%B;5| ((|x| (%)) (% (|Boolean|))) (QEQCAR |x| 0)) 
 
@@ -40,7 +41,7 @@
         (COND ((SPADCALL |x| (QREFELT % 19)) (CONS 0 (QCDR |x|)))
               ('T (CONS 1 "failed")))) 
 
-(PUT '|FMAGMA;coerce;VarSet%;8| '|SPADreplace| '(XLAM (|l|) (CONS 0 |l|))) 
+(MAKEPROP '|FMAGMA;coerce;VarSet%;8| '|SPADreplace| '(XLAM (|l|) (CONS 0 |l|))) 
 
 (SDEFUN |FMAGMA;coerce;VarSet%;8| ((|l| (|VarSet|)) (% (%))) (CONS 0 |l|)) 
 

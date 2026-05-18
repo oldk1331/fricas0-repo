@@ -9,7 +9,7 @@
 (SDEFUN |RESRING;coerce;FPol%;4| ((|f| (|FPol|)) (% (%)))
         (SPADCALL |f| (QREFELT % 15) (QREFELT % 24))) 
 
-(PUT '|RESRING;lift;%FPol;5| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|RESRING;lift;%FPol;5| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |RESRING;lift;%FPol;5| ((|x| (%)) (% (|FPol|))) |x|) 
 

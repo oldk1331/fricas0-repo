@@ -5,17 +5,17 @@
           (SPADCALL |up| (QREFELT % 14)))
          ('T (CONS 1 (CONS |mv| |up|))))) 
 
-(PUT '|NSMP;coerce;%Smp;2| '|SPADreplace| '(XLAM (|p|) |p|)) 
+(MAKEPROP '|NSMP;coerce;%Smp;2| '|SPADreplace| '(XLAM (|p|) |p|)) 
 
 (SDEFUN |NSMP;coerce;%Smp;2|
         ((|p| (%)) (% (|SparseMultivariatePolynomial| R |VarSet|))) |p|) 
 
-(PUT '|NSMP;coerce;Smp%;3| '|SPADreplace| '(XLAM (|p|) |p|)) 
+(MAKEPROP '|NSMP;coerce;Smp%;3| '|SPADreplace| '(XLAM (|p|) |p|)) 
 
 (SDEFUN |NSMP;coerce;Smp%;3|
         ((|p| (|SparseMultivariatePolynomial| R |VarSet|)) (% (%))) |p|) 
 
-(PUT '|NSMP;retractIfCan;%U;4| '|SPADreplace| '(XLAM (|p|) (CONS 0 |p|))) 
+(MAKEPROP '|NSMP;retractIfCan;%U;4| '|SPADreplace| '(XLAM (|p|) (CONS 0 |p|))) 
 
 (SDEFUN |NSMP;retractIfCan;%U;4|
         ((|p| (%))

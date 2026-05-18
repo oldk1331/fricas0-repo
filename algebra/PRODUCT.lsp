@@ -11,15 +11,15 @@
           (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT % 17)))
          ('T NIL))) 
 
-(PUT '|PRODUCT;construct;AB%;3| '|SPADreplace| 'CONS) 
+(MAKEPROP '|PRODUCT;construct;AB%;3| '|SPADreplace| 'CONS) 
 
 (SDEFUN |PRODUCT;construct;AB%;3| ((|a| (A)) (|b| (B)) (% (%))) (CONS |a| |b|)) 
 
-(PUT '|PRODUCT;first;%A;4| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|PRODUCT;first;%A;4| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |PRODUCT;first;%A;4| ((|x| (%)) (% (A))) (QCAR |x|)) 
 
-(PUT '|PRODUCT;second;%B;5| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|PRODUCT;second;%B;5| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |PRODUCT;second;%B;5| ((|x| (%)) (% (B))) (QCDR |x|)) 
 

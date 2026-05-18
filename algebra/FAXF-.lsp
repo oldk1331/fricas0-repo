@@ -17,7 +17,7 @@
                          (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                     (EXIT |a|)))) 
 
-(PUT '|FAXF-;transcendenceDegree;Nni;2| '|SPADreplace| '(XLAM NIL 0)) 
+(MAKEPROP '|FAXF-;transcendenceDegree;Nni;2| '|SPADreplace| '(XLAM NIL 0)) 
 
 (SDEFUN |FAXF-;transcendenceDegree;Nni;2| ((% (|NonNegativeInteger|))) 0) 
 
@@ -53,11 +53,11 @@
                      (GO G190) G191 (EXIT NIL))
                 (EXIT |m|)))) 
 
-(PUT '|FAXF-;algebraic?;SB;6| '|SPADreplace| '(XLAM (|a|) 'T)) 
+(MAKEPROP '|FAXF-;algebraic?;SB;6| '|SPADreplace| '(XLAM (|a|) 'T)) 
 
 (SDEFUN |FAXF-;algebraic?;SB;6| ((|a| (S)) (% (|Boolean|))) 'T) 
 
-(PUT '|FAXF-;transcendent?;SB;7| '|SPADreplace| '(XLAM (|a|) NIL)) 
+(MAKEPROP '|FAXF-;transcendent?;SB;7| '|SPADreplace| '(XLAM (|a|) NIL)) 
 
 (SDEFUN |FAXF-;transcendent?;SB;7| ((|a| (S)) (% (|Boolean|))) NIL) 
 

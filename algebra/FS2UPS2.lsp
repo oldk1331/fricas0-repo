@@ -1565,8 +1565,8 @@
 (SDEFUN |FS2UPS2;integt;2UTS;38| ((|f| (UTS)) (% (UTS)))
         (SPADCALL |f| (QREFELT % 160))) 
 
-(PUT '|FS2UPS2;integt;2UTS;39| '|SPADreplace|
-     '(XLAM (|f|) (|error| "can not integrate"))) 
+(MAKEPROP '|FS2UPS2;integt;2UTS;39| '|SPADreplace|
+          '(XLAM (|f|) (|error| "can not integrate"))) 
 
 (SDEFUN |FS2UPS2;integt;2UTS;39| ((|f| (UTS)) (% (UTS)))
         (|error| "can not integrate")) 
@@ -1574,8 +1574,8 @@
 (SDEFUN |FS2UPS2;my_digamma;2FE;40| ((|xx| (FE)) (% (FE)))
         (SPADCALL |xx| (QREFELT % 162))) 
 
-(PUT '|FS2UPS2;my_digamma;2FE;41| '|SPADreplace|
-     '(XLAM (|xx|) (|error| "need digamma"))) 
+(MAKEPROP '|FS2UPS2;my_digamma;2FE;41| '|SPADreplace|
+          '(XLAM (|xx|) (|error| "need digamma"))) 
 
 (SDEFUN |FS2UPS2;my_digamma;2FE;41| ((|xx| (FE)) (% (FE)))
         (|error| "need digamma")) 
@@ -2823,38 +2823,38 @@
         (SPADCALL (SPADCALL (SPADCALL |xs| (QREFELT % 205)) |f| (QREFELT % 59))
                   (QREFELT % 207))) 
 
-(PUT '|FS2UPS2;atan1;2UPS;58| '|SPADreplace|
-     '(XLAM (|ups|) (|error| "atan1 called, but no integrate"))) 
+(MAKEPROP '|FS2UPS2;atan1;2UPS;58| '|SPADreplace|
+          '(XLAM (|ups|) (|error| "atan1 called, but no integrate"))) 
 
 (SDEFUN |FS2UPS2;atan1;2UPS;58| ((|ups| (UPS)) (% (UPS)))
         (|error| "atan1 called, but no integrate")) 
 
-(PUT '|FS2UPS2;integ;2UPS;59| '|SPADreplace|
-     '(XLAM (|f|) (|error| "integ called, but no integrate"))) 
+(MAKEPROP '|FS2UPS2;integ;2UPS;59| '|SPADreplace|
+          '(XLAM (|f|) (|error| "integ called, but no integrate"))) 
 
 (SDEFUN |FS2UPS2;integ;2UPS;59| ((|f| (UPS)) (% (UPS)))
         (|error| "integ called, but no integrate")) 
 
-(PUT '|FS2UPS2;integ_df;3UPS;60| '|SPADreplace|
-     '(XLAM (|f| |xs|) (|error| "integ_df called, but no integrate"))) 
+(MAKEPROP '|FS2UPS2;integ_df;3UPS;60| '|SPADreplace|
+          '(XLAM (|f| |xs|) (|error| "integ_df called, but no integrate"))) 
 
 (SDEFUN |FS2UPS2;integ_df;3UPS;60| ((|f| (UPS)) (|xs| (UPS)) (% (UPS)))
         (|error| "integ_df called, but no integrate")) 
 
-(PUT '|FS2UPS2;atan1;2UPS;61| '|SPADreplace|
-     '(XLAM (|ups|) (|error| "atan1 called, but no integrate"))) 
+(MAKEPROP '|FS2UPS2;atan1;2UPS;61| '|SPADreplace|
+          '(XLAM (|ups|) (|error| "atan1 called, but no integrate"))) 
 
 (SDEFUN |FS2UPS2;atan1;2UPS;61| ((|ups| (UPS)) (% (UPS)))
         (|error| "atan1 called, but no integrate")) 
 
-(PUT '|FS2UPS2;integ;2UPS;62| '|SPADreplace|
-     '(XLAM (|f|) (|error| "integ called, but no integrate"))) 
+(MAKEPROP '|FS2UPS2;integ;2UPS;62| '|SPADreplace|
+          '(XLAM (|f|) (|error| "integ called, but no integrate"))) 
 
 (SDEFUN |FS2UPS2;integ;2UPS;62| ((|f| (UPS)) (% (UPS)))
         (|error| "integ called, but no integrate")) 
 
-(PUT '|FS2UPS2;integ_df;3UPS;63| '|SPADreplace|
-     '(XLAM (|f| |xs|) (|error| "integ_df called, but no integrate"))) 
+(MAKEPROP '|FS2UPS2;integ_df;3UPS;63| '|SPADreplace|
+          '(XLAM (|f| |xs|) (|error| "integ_df called, but no integrate"))) 
 
 (SDEFUN |FS2UPS2;integ_df;3UPS;63| ((|f| (UPS)) (|xs| (UPS)) (% (UPS)))
         (|error| "integ_df called, but no integrate")) 

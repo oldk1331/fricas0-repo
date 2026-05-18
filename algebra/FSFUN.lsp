@@ -478,7 +478,7 @@
 (SDEFUN |FSFUN;rabs;CF;13| ((|r| (|Complex| (|Float|))) (% (|Float|)))
         (SPADCALL (SPADCALL |r| (QREFELT % 46)) (QREFELT % 35))) 
 
-(PUT '|FSFUN;rabs;2Df;14| '|SPADreplace| '|abs_DF|) 
+(MAKEPROP '|FSFUN;rabs;2Df;14| '|SPADreplace| '|abs_DF|) 
 
 (SDEFUN |FSFUN;rabs;2Df;14| ((|r| (|DoubleFloat|)) (% (|DoubleFloat|)))
         (|abs_DF| |r|)) 

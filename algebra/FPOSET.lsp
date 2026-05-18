@@ -1,5 +1,5 @@
 
-(PUT '|FPOSET;finitePoset;LL%;1| '|SPADreplace| 'CONS) 
+(MAKEPROP '|FPOSET;finitePoset;LL%;1| '|SPADreplace| 'CONS) 
 
 (SDEFUN |FPOSET;finitePoset;LL%;1|
         ((|carrier| (|List| S)) (|struct1| (|List| (|List| (|Boolean|))))
@@ -42,11 +42,11 @@
                       (EXIT (NREVERSE #4#)))))
           (EXIT (CONS |carrier| |struct1|))))) 
 
-(PUT '|FPOSET;getVert;%L;3| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|FPOSET;getVert;%L;3| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |FPOSET;getVert;%L;3| ((|s| (%)) (% (|List| S))) (QCAR |s|)) 
 
-(PUT '|FPOSET;getArr;%L;4| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|FPOSET;getArr;%L;4| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |FPOSET;getArr;%L;4| ((|s| (%)) (% (|List| (|List| (|Boolean|)))))
         (QCDR |s|)) 

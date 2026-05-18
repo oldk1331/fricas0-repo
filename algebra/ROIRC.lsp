@@ -729,8 +729,8 @@
                             (QREFELT % 83))))
                   ('T |res|)))))) 
 
-(PUT '|ROIRC;definingPolynomial;%ThePolDom;22| '|SPADreplace|
-     '(XLAM (|rootChar|) (QVELT |rootChar| 2))) 
+(MAKEPROP '|ROIRC;definingPolynomial;%ThePolDom;22| '|SPADreplace|
+          '(XLAM (|rootChar|) (QVELT |rootChar| 2))) 
 
 (SDEFUN |ROIRC;definingPolynomial;%ThePolDom;22|
         ((|rootChar| (%)) (% (|ThePolDom|))) (QVELT |rootChar| 2)) 
@@ -1185,14 +1185,14 @@
                        (VECTOR (QVELT |rootChar| 0) |int|
                                (QVELT |rootChar| 2)))))))) 
 
-(PUT '|ROIRC;left;%TheField;31| '|SPADreplace|
-     '(XLAM (|rootChar|) (QVELT |rootChar| 0))) 
+(MAKEPROP '|ROIRC;left;%TheField;31| '|SPADreplace|
+          '(XLAM (|rootChar|) (QVELT |rootChar| 0))) 
 
 (SDEFUN |ROIRC;left;%TheField;31| ((|rootChar| (%)) (% (|TheField|)))
         (QVELT |rootChar| 0)) 
 
-(PUT '|ROIRC;right;%TheField;32| '|SPADreplace|
-     '(XLAM (|rootChar|) (QVELT |rootChar| 1))) 
+(MAKEPROP '|ROIRC;right;%TheField;32| '|SPADreplace|
+          '(XLAM (|rootChar|) (QVELT |rootChar| 1))) 
 
 (SDEFUN |ROIRC;right;%TheField;32| ((|rootChar| (%)) (% (|TheField|)))
         (QVELT |rootChar| 1)) 

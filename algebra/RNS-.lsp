@@ -1,5 +1,5 @@
 
-(PUT '|RNS-;characteristic;Nni;1| '|SPADreplace| '(XLAM NIL 0)) 
+(MAKEPROP '|RNS-;characteristic;Nni;1| '|SPADreplace| '(XLAM NIL 0)) 
 
 (SDEFUN |RNS-;characteristic;Nni;1| ((% (|NonNegativeInteger|))) 0) 
 

@@ -5,7 +5,7 @@
 (SDEFUN |JBP;subst;%JB2%;2| ((|p| (%)) (|jv| (JB)) (|exp| (%)) (% (%)))
         (SPADCALL |p| |jv| |exp| (QREFELT % 12))) 
 
-(PUT '|JBP;numerator;2%;3| '|SPADreplace| '(XLAM (|l|) |l|)) 
+(MAKEPROP '|JBP;numerator;2%;3| '|SPADreplace| '(XLAM (|l|) |l|)) 
 
 (SDEFUN |JBP;numerator;2%;3| ((|l| (%)) (% (%))) |l|) 
 

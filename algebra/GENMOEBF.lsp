@@ -1,9 +1,9 @@
 
-(PUT '|GENMOEBF;rep| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|GENMOEBF;rep| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |GENMOEBF;rep| ((|x| (%)) (% (|Rep|))) |x|) 
 
-(PUT '|GENMOEBF;per| '|SPADreplace| '(XLAM (|r|) |r|)) 
+(MAKEPROP '|GENMOEBF;per| '|SPADreplace| '(XLAM (|r|) |r|)) 
 
 (SDEFUN |GENMOEBF;per| ((|r| (|Rep|)) (% (%))) |r|) 
 

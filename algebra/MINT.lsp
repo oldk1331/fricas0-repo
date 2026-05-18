@@ -25,11 +25,11 @@
                    (EXIT (|error| |message|))))
                  ('T |u|))))) 
 
-(PUT '|MINT;retract;%I;5| '|SPADreplace| '(XLAM (|u|) |u|)) 
+(MAKEPROP '|MINT;retract;%I;5| '|SPADreplace| '(XLAM (|u|) |u|)) 
 
 (SDEFUN |MINT;retract;%I;5| ((|u| (%)) (% (|Integer|))) |u|) 
 
-(PUT '|MINT;retractIfCan;%U;6| '|SPADreplace| '(XLAM (|u|) (CONS 0 |u|))) 
+(MAKEPROP '|MINT;retractIfCan;%U;6| '|SPADreplace| '(XLAM (|u|) (CONS 0 |u|))) 
 
 (SDEFUN |MINT;retractIfCan;%U;6| ((|u| (%)) (% (|Union| (|Integer|) "failed")))
         (CONS 0 |u|)) 

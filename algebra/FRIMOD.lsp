@@ -1,11 +1,11 @@
 
 (SDEFUN |FRIMOD;One;%;1| ((% (%))) (QREFELT % 10)) 
 
-(PUT '|FRIMOD;module;V%;2| '|SPADreplace| '(XLAM (|v|) |v|)) 
+(MAKEPROP '|FRIMOD;module;V%;2| '|SPADreplace| '(XLAM (|v|) |v|)) 
 
 (SDEFUN |FRIMOD;module;V%;2| ((|v| (|Vector| A)) (% (%))) |v|) 
 
-(PUT '|FRIMOD;basis;%V;3| '|SPADreplace| '(XLAM (|m|) |m|)) 
+(MAKEPROP '|FRIMOD;basis;%V;3| '|SPADreplace| '(XLAM (|m|) |m|)) 
 
 (SDEFUN |FRIMOD;basis;%V;3| ((|m| (%)) (% (|Vector| A))) |m|) 
 

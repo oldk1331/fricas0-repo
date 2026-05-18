@@ -1,5 +1,5 @@
 
-(PUT '|INS-;characteristic;Nni;1| '|SPADreplace| '(XLAM NIL 0)) 
+(MAKEPROP '|INS-;characteristic;Nni;1| '|SPADreplace| '(XLAM NIL 0)) 
 
 (SDEFUN |INS-;characteristic;Nni;1| ((% (|NonNegativeInteger|))) 0) 
 
@@ -11,7 +11,7 @@
 (SDEFUN |INS-;positive?;SB;4| ((|x| (S)) (% (|Boolean|)))
         (SPADCALL |x| (|spadConstant| % 9) (QREFELT % 14))) 
 
-(PUT '|INS-;copy;2S;5| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|INS-;copy;2S;5| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |INS-;copy;2S;5| ((|x| (S)) (% (S))) |x|) 
 
@@ -23,7 +23,7 @@
         (SPADCALL (SPADCALL (|spadConstant| % 20) |n| (QREFELT % 18))
                   (QREFELT % 21))) 
 
-(PUT '|INS-;rational?;SB;8| '|SPADreplace| '(XLAM (|x|) 'T)) 
+(MAKEPROP '|INS-;rational?;SB;8| '|SPADreplace| '(XLAM (|x|) 'T)) 
 
 (SDEFUN |INS-;rational?;SB;8| ((|x| (S)) (% (|Boolean|))) 'T) 
 

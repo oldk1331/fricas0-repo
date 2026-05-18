@@ -35,15 +35,15 @@
 (SDEFUN |COMPLEX;coerce;R%;7| ((|r| (R)) (% (%)))
         (CONS |r| (|spadConstant| % 22))) 
 
-(PUT '|COMPLEX;complex;2R%;8| '|SPADreplace| 'CONS) 
+(MAKEPROP '|COMPLEX;complex;2R%;8| '|SPADreplace| 'CONS) 
 
 (SDEFUN |COMPLEX;complex;2R%;8| ((|r| (R)) (|i| (R)) (% (%))) (CONS |r| |i|)) 
 
-(PUT '|COMPLEX;real;%R;9| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|COMPLEX;real;%R;9| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |COMPLEX;real;%R;9| ((|x| (%)) (% (R))) (QCAR |x|)) 
 
-(PUT '|COMPLEX;imag;%R;10| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|COMPLEX;imag;%R;10| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |COMPLEX;imag;%R;10| ((|x| (%)) (% (R))) (QCDR |x|)) 
 

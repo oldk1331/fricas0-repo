@@ -2508,12 +2508,13 @@
 ;   CONTAINED($ClearBodyToken, body) =>
 ;       sayBrightly ['"  ", :bright nam, '" not compiled"]
 ;   if vl is [:vl',E] and body is [nam',: =vl'] then
-;       output_lisp_form(['PUT,MKQ nam,MKQ 'SPADreplace,MKQ nam'])
+;       output_lisp_form(['MAKEPROP, MKQ(nam), MKQ('SPADreplace), MKQ(nam')])
 ;       sayBrightly ['"     ",:bright nam,'"is replaced by",:bright nam']
 ;   else if (ATOM body or and/[ATOM x for x in body])
 ;          and vl is [:vl',E] and not CONTAINED(E,body) then
 ;            macform := ['XLAM,vl',body]
-;            output_lisp_form(['PUT,MKQ nam,MKQ 'SPADreplace,MKQ macform])
+;            output_lisp_form(['MAKEPROP, MKQ(nam), MKQ('SPADreplace),
+;                              MKQ(macform)])
 ;            sayBrightly ['"     ",:bright nam,'"is replaced by",:bright body]
 ;   $insideCapsuleFunctionIfTrue => first COMP form
 ;   compileConstructor form
@@ -2543,7 +2544,7 @@
                 (PROGN (SETQ |nam'| (CAR |body|)) #2#)
                 (EQUAL (CDR |body|) |vl'|))
            (|output_lisp_form|
-            (LIST 'PUT (MKQ |nam|) (MKQ '|SPADreplace|) (MKQ |nam'|)))
+            (LIST 'MAKEPROP (MKQ |nam|) (MKQ '|SPADreplace|) (MKQ |nam'|)))
            (|sayBrightly|
             (CONS "     "
                   (APPEND (|bright| |nam|)
@@ -2569,7 +2570,7 @@
             (NULL (CONTAINED E |body|)))
            (SETQ |macform| (LIST 'XLAM |vl'| |body|))
            (|output_lisp_form|
-            (LIST 'PUT (MKQ |nam|) (MKQ '|SPADreplace|) (MKQ |macform|)))
+            (LIST 'MAKEPROP (MKQ |nam|) (MKQ '|SPADreplace|) (MKQ |macform|)))
            (|sayBrightly|
             (CONS "     "
                   (APPEND (|bright| |nam|)

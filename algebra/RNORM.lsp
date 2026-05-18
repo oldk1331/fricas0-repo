@@ -325,7 +325,7 @@
                     (SPADCALL |res_p| |lck| (REVERSE |lck1|) (QREFELT % 59)))
               (EXIT (SPADCALL |f| |res_p| (QREFELT % 28)))))) 
 
-(PUT '|RNORM;try_real;FSF;6| '|SPADreplace| '(XLAM (|f| |x|) |f|)) 
+(MAKEPROP '|RNORM;try_real;FSF;6| '|SPADreplace| '(XLAM (|f| |x|) |f|)) 
 
 (SDEFUN |RNORM;try_real;FSF;6| ((|f| (F)) (|x| (|Symbol|)) (% (F))) |f|) 
 

@@ -1,9 +1,9 @@
 
-(PUT '|TREE;empty?;%B;1| '|SPADreplace| '(XLAM (|t|) (QEQCAR |t| 1))) 
+(MAKEPROP '|TREE;empty?;%B;1| '|SPADreplace| '(XLAM (|t|) (QEQCAR |t| 1))) 
 
 (SDEFUN |TREE;empty?;%B;1| ((|t| (%)) (% (|Boolean|))) (QEQCAR |t| 1)) 
 
-(PUT '|TREE;empty;%;2| '|SPADreplace| '(XLAM NIL (CONS 1 "empty"))) 
+(MAKEPROP '|TREE;empty;%;2| '|SPADreplace| '(XLAM NIL (CONS 1 "empty"))) 
 
 (SDEFUN |TREE;empty;%;2| ((% (%))) (CONS 1 "empty")) 
 

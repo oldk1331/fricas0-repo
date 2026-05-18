@@ -1,5 +1,5 @@
 
-(PUT '|OFTOOL;atom?;OfB;1| '|SPADreplace| 'ATOM) 
+(MAKEPROP '|OFTOOL;atom?;OfB;1| '|SPADreplace| 'ATOM) 
 
 (SDEFUN |OFTOOL;atom?;OfB;1| ((|x| (|OutputForm|)) (% (|Boolean|))) (ATOM |x|)) 
 
@@ -23,7 +23,7 @@
                          ((SPADCALL |op| (QREFELT % 9)) (EQUAL |op| 'NOTHING))
                          ('T NIL))))))))) 
 
-(PUT '|OFTOOL;integer?;OfB;4| '|SPADreplace| 'INTEGERP) 
+(MAKEPROP '|OFTOOL;integer?;OfB;4| '|SPADreplace| 'INTEGERP) 
 
 (SDEFUN |OFTOOL;integer?;OfB;4| ((|x| (|OutputForm|)) (% (|Boolean|)))
         (INTEGERP |x|)) 
@@ -32,7 +32,7 @@
         (COND ((SPADCALL |x| (QREFELT % 13)) |x|)
               ('T (|error| "not an integer")))) 
 
-(PUT '|OFTOOL;symbol?;OfB;6| '|SPADreplace| 'SYMBOLP) 
+(MAKEPROP '|OFTOOL;symbol?;OfB;6| '|SPADreplace| 'SYMBOLP) 
 
 (SDEFUN |OFTOOL;symbol?;OfB;6| ((|x| (|OutputForm|)) (% (|Boolean|)))
         (SYMBOLP |x|)) 
@@ -40,7 +40,7 @@
 (SDEFUN |OFTOOL;symbol;OfS;7| ((|x| (|OutputForm|)) (% (|Symbol|)))
         (COND ((SPADCALL |x| (QREFELT % 9)) |x|) ('T (|error| "not a symbol")))) 
 
-(PUT '|OFTOOL;string?;OfB;8| '|SPADreplace| 'STRINGP) 
+(MAKEPROP '|OFTOOL;string?;OfB;8| '|SPADreplace| 'STRINGP) 
 
 (SDEFUN |OFTOOL;string?;OfB;8| ((|x| (|OutputForm|)) (% (|Boolean|)))
         (STRINGP |x|)) 
@@ -108,7 +108,7 @@
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT (NREVERSE |res|))))) 
 
-(PUT '|OFTOOL;construct;OfLOf;15| '|SPADreplace| 'CONS) 
+(MAKEPROP '|OFTOOL;construct;OfLOf;15| '|SPADreplace| 'CONS) 
 
 (SDEFUN |OFTOOL;construct;OfLOf;15|
         ((|op| (|OutputForm|)) (|args| (|List| (|OutputForm|)))

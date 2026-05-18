@@ -13,11 +13,11 @@
                   (SPADCALL (QCDR |x|) (QCAR |y|) (QREFELT % 17))
                   (QREFELT % 18))) 
 
-(PUT '|LO;numer;%M;5| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|LO;numer;%M;5| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |LO;numer;%M;5| ((|x| (%)) (% (M))) (QCAR |x|)) 
 
-(PUT '|LO;denom;%R;6| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|LO;denom;%R;6| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |LO;denom;%R;6| ((|x| (%)) (% (R))) (QCDR |x|)) 
 

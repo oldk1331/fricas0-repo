@@ -723,6 +723,11 @@
   (PROG ()
     (RETURN (AND (EQ (CAAR |$stok|) '|key|) (EQ |s| |$ttok|) (|npNext|)))))
 
+; npCompMissing(s) == npEqKey(s) or npMissing(s)
+
+(DEFUN |npCompMissing| (|s|)
+  (PROG () (RETURN (OR (|npEqKey| |s|) (|npMissing| |s|)))))
+
 ; $npTokToNames:= ["~","#","[]","{}", "[||]","{||}"]
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)

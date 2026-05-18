@@ -1,19 +1,19 @@
 
-(PUT '|MODFT3;get_char;RI;1| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|MODFT3;get_char;RI;1| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |MODFT3;get_char;RI;1|
         ((|m| (|Record| (|:| |i_mod| (|Integer|)) (|:| |deg| (|Integer|))))
          (% (|Integer|)))
         (QCAR |m|)) 
 
-(PUT '|MODFT3;get_extension_degree;RI;2| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|MODFT3;get_extension_degree;RI;2| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |MODFT3;get_extension_degree;RI;2|
         ((|m| (|Record| (|:| |i_mod| (|Integer|)) (|:| |deg| (|Integer|))))
          (% (|Integer|)))
         (QCDR |m|)) 
 
-(PUT '|MODFT3;get_mod;RR;3| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|MODFT3;get_mod;RR;3| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |MODFT3;get_mod;RR;3|
         ((|pmd|
@@ -47,7 +47,7 @@
                 (EXIT -1)))
           #3# (EXIT #2#)))) 
 
-(PUT '|MODFT3;empty_poly;Pa;5| '|SPADreplace| '(XLAM NIL (MAKE-ARRAY 0))) 
+(MAKEPROP '|MODFT3;empty_poly;Pa;5| '|SPADreplace| '(XLAM NIL (MAKE-ARRAY 0))) 
 
 (SDEFUN |MODFT3;empty_poly;Pa;5| ((% (|PrimitiveArray| K))) (MAKE-ARRAY 0)) 
 
@@ -55,7 +55,8 @@
         ((|mat| (|PrimitiveTwoDimensionalArray| K)) (% (|Boolean|)))
         (SPADCALL |mat| (QREFELT % 21))) 
 
-(PUT '|MODFT3;empty_mat;Ptda;7| '|SPADreplace| '(XLAM NIL (MAKE_MATRIX 0 0))) 
+(MAKEPROP '|MODFT3;empty_mat;Ptda;7| '|SPADreplace|
+          '(XLAM NIL (MAKE_MATRIX 0 0))) 
 
 (SDEFUN |MODFT3;empty_mat;Ptda;7| ((% (|PrimitiveTwoDimensionalArray| K)))
         (MAKE_MATRIX 0 0)) 

@@ -1,5 +1,5 @@
 
-(PUT '|UPXS;getExpon| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|UPXS;getExpon| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |UPXS;getExpon| ((|pxs| (%)) (% (|Fraction| (|Integer|)))) (QCAR |pxs|)) 
 
@@ -146,7 +146,7 @@
                       (SPADCALL (SPADCALL |c| (QREFELT % 64)) |mon|
                                 (QREFELT % 70))))))))))) 
 
-(PUT '|UPXS;showAll?| '|SPADreplace| '(XLAM NIL |$streamsShowAll|)) 
+(MAKEPROP '|UPXS;showAll?| '|SPADreplace| '(XLAM NIL |$streamsShowAll|)) 
 
 (SDEFUN |UPXS;showAll?| ((% (|Boolean|))) |$streamsShowAll|) 
 

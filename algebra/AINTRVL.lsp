@@ -1,13 +1,13 @@
 
-(PUT '|AINTRVL;inf;%R;1| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|AINTRVL;inf;%R;1| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |AINTRVL;inf;%R;1| ((|x| (%)) (% (R))) (QCAR |x|)) 
 
-(PUT '|AINTRVL;sup;%R;2| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|AINTRVL;sup;%R;2| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |AINTRVL;sup;%R;2| ((|x| (%)) (% (R))) (QCDR |x|)) 
 
-(PUT '|AINTRVL;qinterval;2R%;3| '|SPADreplace| 'CONS) 
+(MAKEPROP '|AINTRVL;qinterval;2R%;3| '|SPADreplace| 'CONS) 
 
 (SDEFUN |AINTRVL;qinterval;2R%;3| ((|i| (R)) (|s| (R)) (% (%))) (CONS |i| |s|)) 
 

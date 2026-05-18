@@ -58,7 +58,7 @@
                   (EXIT (CONS 1 "failed"))))
                 #4# (EXIT #2#)))) 
 
-(PUT '|ACPLOT;makeCorners| '|SPADreplace| 'VECTOR) 
+(MAKEPROP '|ACPLOT;makeCorners| '|SPADreplace| 'VECTOR) 
 
 (SDEFUN |ACPLOT;makeCorners|
         ((|xMinSF| (|DoubleFloat|)) (|xMaxSF| (|DoubleFloat|))
@@ -70,7 +70,8 @@
                     (|:| |maxYVal| (|DoubleFloat|)))))
         (VECTOR |xMinSF| |xMaxSF| |yMinSF| |yMaxSF|)) 
 
-(PUT '|ACPLOT;getXMin| '|SPADreplace| '(XLAM (|corners|) (QVELT |corners| 0))) 
+(MAKEPROP '|ACPLOT;getXMin| '|SPADreplace|
+          '(XLAM (|corners|) (QVELT |corners| 0))) 
 
 (SDEFUN |ACPLOT;getXMin|
         ((|corners|
@@ -81,7 +82,8 @@
          (% (|DoubleFloat|)))
         (QVELT |corners| 0)) 
 
-(PUT '|ACPLOT;getXMax| '|SPADreplace| '(XLAM (|corners|) (QVELT |corners| 1))) 
+(MAKEPROP '|ACPLOT;getXMax| '|SPADreplace|
+          '(XLAM (|corners|) (QVELT |corners| 1))) 
 
 (SDEFUN |ACPLOT;getXMax|
         ((|corners|
@@ -92,7 +94,8 @@
          (% (|DoubleFloat|)))
         (QVELT |corners| 1)) 
 
-(PUT '|ACPLOT;getYMin| '|SPADreplace| '(XLAM (|corners|) (QVELT |corners| 2))) 
+(MAKEPROP '|ACPLOT;getYMin| '|SPADreplace|
+          '(XLAM (|corners|) (QVELT |corners| 2))) 
 
 (SDEFUN |ACPLOT;getYMin|
         ((|corners|
@@ -103,7 +106,8 @@
          (% (|DoubleFloat|)))
         (QVELT |corners| 2)) 
 
-(PUT '|ACPLOT;getYMax| '|SPADreplace| '(XLAM (|corners|) (QVELT |corners| 3))) 
+(MAKEPROP '|ACPLOT;getYMax| '|SPADreplace|
+          '(XLAM (|corners|) (QVELT |corners| 3))) 
 
 (SDEFUN |ACPLOT;getYMax|
         ((|corners|
@@ -2591,8 +2595,8 @@
                 (EXIT (CONS 0 |newApprox|))))
           #3# (EXIT #2#)))) 
 
-(PUT '|ACPLOT;listBranches;%L;41| '|SPADreplace|
-     '(XLAM (|acplot|) (QVELT |acplot| 10))) 
+(MAKEPROP '|ACPLOT;listBranches;%L;41| '|SPADreplace|
+          '(XLAM (|acplot|) (QVELT |acplot| 10))) 
 
 (SDEFUN |ACPLOT;listBranches;%L;41|
         ((|acplot| (%)) (% (|List| (|List| (|Point| (|DoubleFloat|))))))

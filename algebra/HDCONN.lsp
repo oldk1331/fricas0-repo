@@ -3,8 +3,8 @@
         (SEQ (|sockSendInt| |$MenuServer| 98)
              (EXIT (|sockSendString| |$MenuServer| |l|)))) 
 
-(PUT '|HDCONN;end_page;V;2| '|SPADreplace|
-     '(XLAM NIL (|sockSendInt| |$MenuServer| 99))) 
+(MAKEPROP '|HDCONN;end_page;V;2| '|SPADreplace|
+          '(XLAM NIL (|sockSendInt| |$MenuServer| 99))) 
 
 (SDEFUN |HDCONN;end_page;V;2| ((% (|Void|))) (|sockSendInt| |$MenuServer| 99)) 
 

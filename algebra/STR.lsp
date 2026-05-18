@@ -69,7 +69,7 @@
             (SEQ (|error| "invalid point type in transform constructor")
                  (EXIT (SPADCALL (QREFELT % 14))))))))) 
 
-(PUT '|STR;stransform;M%;3| '|SPADreplace| '(XLAM (|gen|) (CONS 1 |gen|))) 
+(MAKEPROP '|STR;stransform;M%;3| '|SPADreplace| '(XLAM (|gen|) (CONS 1 |gen|))) 
 
 (SDEFUN |STR;stransform;M%;3| ((|gen| (|Mapping| PT PT)) (% (%)))
         (CONS 1 |gen|)) 
@@ -192,7 +192,7 @@
                        (QREFELT % 34))
              (QREFELT % 21)))))) 
 
-(PUT '|STR;identity;%;7| '|SPADreplace| '(XLAM NIL (CONS 3 "iden"))) 
+(MAKEPROP '|STR;identity;%;7| '|SPADreplace| '(XLAM NIL (CONS 3 "iden"))) 
 
 (SDEFUN |STR;identity;%;7| ((% (%))) (CONS 3 "iden")) 
 

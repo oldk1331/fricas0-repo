@@ -1,11 +1,12 @@
 
-(PUT '|VECTOR;qelt;%IR;1| '|SPADreplace| '(XLAM (|x| |i|) (QAREF1O |x| |i| 1))) 
+(MAKEPROP '|VECTOR;qelt;%IR;1| '|SPADreplace|
+          '(XLAM (|x| |i|) (QAREF1O |x| |i| 1))) 
 
 (SDEFUN |VECTOR;qelt;%IR;1| ((|x| (%)) (|i| (|Integer|)) (% (R)))
         (QAREF1O |x| |i| 1)) 
 
-(PUT '|VECTOR;qsetelt!;%I2R;2| '|SPADreplace|
-     '(XLAM (|x| |i| |s|) (QSETAREF1O |x| |i| |s| 1))) 
+(MAKEPROP '|VECTOR;qsetelt!;%I2R;2| '|SPADreplace|
+          '(XLAM (|x| |i| |s|) (QSETAREF1O |x| |i| |s| 1))) 
 
 (SDEFUN |VECTOR;qsetelt!;%I2R;2|
         ((|x| (%)) (|i| (|Integer|)) (|s| (R)) (% (R)))

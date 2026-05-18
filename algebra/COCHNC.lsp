@@ -1,5 +1,5 @@
 
-(PUT '|COCHNC;coChainComplex;L%;1| '|SPADreplace| '(XLAM (|v|) |v|)) 
+(MAKEPROP '|COCHNC;coChainComplex;L%;1| '|SPADreplace| '(XLAM (|v|) |v|)) 
 
 (SDEFUN |COCHNC;coChainComplex;L%;1|
         ((|v| (|List| (|Matrix| (|Integer|)))) (% (%))) |v|) 

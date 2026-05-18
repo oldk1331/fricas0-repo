@@ -1,5 +1,5 @@
 
-(PUT '|DBASE;coerce;L%;1| '|SPADreplace| '(XLAM (|u|) |u|)) 
+(MAKEPROP '|DBASE;coerce;L%;1| '|SPADreplace| '(XLAM (|u|) |u|)) 
 
 (SDEFUN |DBASE;coerce;L%;1| ((|u| (|List| S)) (% (%))) |u|) 
 

@@ -1,5 +1,5 @@
 
-(PUT '|LMOPS;makeUnit;%;1| '|SPADreplace| '(XLAM NIL NIL)) 
+(MAKEPROP '|LMOPS;makeUnit;%;1| '|SPADreplace| '(XLAM NIL NIL)) 
 
 (SDEFUN |LMOPS;makeUnit;%;1| ((% (%))) NIL) 
 
@@ -15,7 +15,7 @@
         (COND ((SPADCALL |e| (QREFELT % 21)) (SPADCALL (QREFELT % 10)))
               ('T (LIST (CONS |s| |e|))))) 
 
-(PUT '|LMOPS;makeMulti;L%;6| '|SPADreplace| '(XLAM (|l|) |l|)) 
+(MAKEPROP '|LMOPS;makeMulti;L%;6| '|SPADreplace| '(XLAM (|l|) |l|)) 
 
 (SDEFUN |LMOPS;makeMulti;L%;6|
         ((|l| (|List| (|Record| (|:| |gen| S) (|:| |exp| E)))) (% (%))) |l|) 
@@ -23,7 +23,7 @@
 (SDEFUN |LMOPS;=;2%B;7| ((|f| (%)) (|g| (%)) (% (|Boolean|)))
         (SPADCALL |f| |g| (QREFELT % 24))) 
 
-(PUT '|LMOPS;listOfMonoms;%L;8| '|SPADreplace| '(XLAM (|l|) |l|)) 
+(MAKEPROP '|LMOPS;listOfMonoms;%L;8| '|SPADreplace| '(XLAM (|l|) |l|)) 
 
 (SDEFUN |LMOPS;listOfMonoms;%L;8|
         ((|l| (%)) (% (|List| (|Record| (|:| |gen| S) (|:| |exp| E))))) |l|) 
@@ -34,11 +34,11 @@
 (SDEFUN |LMOPS;nthFactor;%IS;10| ((|f| (%)) (|i| (|Integer|)) (% (S)))
         (QCAR (SPADCALL |f| (+ (- |i| 1) (PROGN |f| 1)) (QREFELT % 27)))) 
 
-(PUT '|LMOPS;reverse;2%;11| '|SPADreplace| 'REVERSE) 
+(MAKEPROP '|LMOPS;reverse;2%;11| '|SPADreplace| 'REVERSE) 
 
 (SDEFUN |LMOPS;reverse;2%;11| ((|l| (%)) (% (%))) (REVERSE |l|)) 
 
-(PUT '|LMOPS;reverse!;2%;12| '|SPADreplace| 'NREVERSE) 
+(MAKEPROP '|LMOPS;reverse!;2%;12| '|SPADreplace| 'NREVERSE) 
 
 (SDEFUN |LMOPS;reverse!;2%;12| ((|l| (%)) (% (%))) (NREVERSE |l|)) 
 

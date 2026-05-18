@@ -1,21 +1,23 @@
 
-(PUT '|SEG;SEGMENT;2S%;1| '|SPADreplace| '(XLAM (|a| |b|) (VECTOR |a| |b| 1))) 
+(MAKEPROP '|SEG;SEGMENT;2S%;1| '|SPADreplace|
+          '(XLAM (|a| |b|) (VECTOR |a| |b| 1))) 
 
 (SDEFUN |SEG;SEGMENT;2S%;1| ((|a| (S)) (|b| (S)) (% (%))) (VECTOR |a| |b| 1)) 
 
-(PUT '|SEG;low;%S;2| '|SPADreplace| '(XLAM (|s|) (QVELT |s| 0))) 
+(MAKEPROP '|SEG;low;%S;2| '|SPADreplace| '(XLAM (|s|) (QVELT |s| 0))) 
 
 (SDEFUN |SEG;low;%S;2| ((|s| (%)) (% (S))) (QVELT |s| 0)) 
 
-(PUT '|SEG;high;%S;3| '|SPADreplace| '(XLAM (|s|) (QVELT |s| 1))) 
+(MAKEPROP '|SEG;high;%S;3| '|SPADreplace| '(XLAM (|s|) (QVELT |s| 1))) 
 
 (SDEFUN |SEG;high;%S;3| ((|s| (%)) (% (S))) (QVELT |s| 1)) 
 
-(PUT '|SEG;incr;%I;4| '|SPADreplace| '(XLAM (|s|) (QVELT |s| 2))) 
+(MAKEPROP '|SEG;incr;%I;4| '|SPADreplace| '(XLAM (|s|) (QVELT |s| 2))) 
 
 (SDEFUN |SEG;incr;%I;4| ((|s| (%)) (% (|Integer|))) (QVELT |s| 2)) 
 
-(PUT '|SEG;segment;2S%;5| '|SPADreplace| '(XLAM (|a| |b|) (VECTOR |a| |b| 1))) 
+(MAKEPROP '|SEG;segment;2S%;5| '|SPADreplace|
+          '(XLAM (|a| |b|) (VECTOR |a| |b| 1))) 
 
 (SDEFUN |SEG;segment;2S%;5| ((|a| (S)) (|b| (S)) (% (%))) (VECTOR |a| |b| 1)) 
 
@@ -45,7 +47,7 @@
                                   (SPADCALL (QVELT |s| 2) (QREFELT % 23))
                                   (QREFELT % 24)))))))) 
 
-(PUT '|SEG;convert;S%;9| '|SPADreplace| '(XLAM (|a|) (VECTOR |a| |a| 1))) 
+(MAKEPROP '|SEG;convert;S%;9| '|SPADreplace| '(XLAM (|a|) (VECTOR |a| |a| 1))) 
 
 (SDEFUN |SEG;convert;S%;9| ((|a| (S)) (% (%))) (VECTOR |a| |a| 1)) 
 

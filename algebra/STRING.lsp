@@ -1,14 +1,14 @@
 
-(PUT '|STRING;ucodeToString;I%;1| '|SPADreplace| 'NUM2USTR) 
+(MAKEPROP '|STRING;ucodeToString;I%;1| '|SPADreplace| 'NUM2USTR) 
 
 (SDEFUN |STRING;ucodeToString;I%;1| ((|n| (|Integer|)) (% (%))) (NUM2USTR |n|)) 
 
-(PUT '|STRING;uentries;%L;2| '|SPADreplace| 'UENTRIES) 
+(MAKEPROP '|STRING;uentries;%L;2| '|SPADreplace| 'UENTRIES) 
 
 (SDEFUN |STRING;uentries;%L;2| ((|s| (%)) (% (|List| (|SingleInteger|))))
         (UENTRIES |s|)) 
 
-(PUT '|STRING;string;I%;3| '|SPADreplace| 'STRINGIMAGE) 
+(MAKEPROP '|STRING;string;I%;3| '|SPADreplace| 'STRINGIMAGE) 
 
 (SDEFUN |STRING;string;I%;3| ((|n| (|Integer|)) (% (%))) (STRINGIMAGE |n|)) 
 
@@ -19,16 +19,16 @@
              (SPADCALL |dev| |x| (QREFELT % 15))
              (EXIT (COND (|wholeObj| (SPADCALL |dev| (QREFELT % 16))))))) 
 
-(PUT '|STRING;convert;%If;5| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|STRING;convert;%If;5| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |STRING;convert;%If;5| ((|x| (%)) (% (|InputForm|))) |x|) 
 
-(PUT '|STRING;qelt;%IC;6| '|SPADreplace| 'STR_ELT1) 
+(MAKEPROP '|STRING;qelt;%IC;6| '|SPADreplace| 'STR_ELT1) 
 
 (SDEFUN |STRING;qelt;%IC;6| ((|s| (%)) (|i| (|Integer|)) (% (|Character|)))
         (STR_ELT1 |s| |i|)) 
 
-(PUT '|STRING;qsetelt!;%I2C;7| '|SPADreplace| 'STR_SETELT1) 
+(MAKEPROP '|STRING;qsetelt!;%I2C;7| '|SPADreplace| 'STR_SETELT1) 
 
 (SDEFUN |STRING;qsetelt!;%I2C;7|
         ((|s| (%)) (|i| (|Integer|)) (|c| #1=(|Character|)) (% #1#))

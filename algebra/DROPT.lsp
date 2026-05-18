@@ -1,18 +1,18 @@
 
-(PUT '|DROPT;length| '|SPADreplace| 'LENGTH) 
+(MAKEPROP '|DROPT;length| '|SPADreplace| 'LENGTH) 
 
 (SDEFUN |DROPT;length|
         ((|tup| (|List| (|Segment| (|Float|)))) (% (|NonNegativeInteger|)))
         (LENGTH |tup|)) 
 
-(PUT '|DROPT;lengthR| '|SPADreplace| 'LENGTH) 
+(MAKEPROP '|DROPT;lengthR| '|SPADreplace| 'LENGTH) 
 
 (SDEFUN |DROPT;lengthR|
         ((|tup| (|List| (|Segment| (|Fraction| (|Integer|)))))
          (% (|NonNegativeInteger|)))
         (LENGTH |tup|)) 
 
-(PUT '|DROPT;lengthI| '|SPADreplace| 'LENGTH) 
+(MAKEPROP '|DROPT;lengthI| '|SPADreplace| 'LENGTH) 
 
 (SDEFUN |DROPT;lengthI|
         ((|tup| (|List| (|Integer|))) (% (|NonNegativeInteger|)))

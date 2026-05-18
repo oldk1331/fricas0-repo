@@ -7,11 +7,11 @@
 (SDEFUN |IR;coerce;F%;3| ((|x| (F)) (% (%)))
         (SPADCALL |x| NIL NIL (QREFELT % 22))) 
 
-(PUT '|IR;ratpart;%F;4| '|SPADreplace| '(XLAM (|u|) (QVELT |u| 0))) 
+(MAKEPROP '|IR;ratpart;%F;4| '|SPADreplace| '(XLAM (|u|) (QVELT |u| 0))) 
 
 (SDEFUN |IR;ratpart;%F;4| ((|u| (%)) (% (F))) (QVELT |u| 0)) 
 
-(PUT '|IR;logpart;%L;5| '|SPADreplace| '(XLAM (|u|) (QVELT |u| 1))) 
+(MAKEPROP '|IR;logpart;%L;5| '|SPADreplace| '(XLAM (|u|) (QVELT |u| 1))) 
 
 (SDEFUN |IR;logpart;%L;5|
         ((|u| (%))
@@ -22,7 +22,7 @@
                      (|:| |logand| (|SparseUnivariatePolynomial| F))))))
         (QVELT |u| 1)) 
 
-(PUT '|IR;notelem;%L;6| '|SPADreplace| '(XLAM (|u|) (QVELT |u| 2))) 
+(MAKEPROP '|IR;notelem;%L;6| '|SPADreplace| '(XLAM (|u|) (QVELT |u| 2))) 
 
 (SDEFUN |IR;notelem;%L;6|
         ((|u| (%))

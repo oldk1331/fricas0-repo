@@ -1,9 +1,9 @@
 
-(PUT '|COMPPROP;closed?;%B;1| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|COMPPROP;closed?;%B;1| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |COMPPROP;closed?;%B;1| ((|p| (%)) (% (|Boolean|))) (QCAR |p|)) 
 
-(PUT '|COMPPROP;solid?;%B;2| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|COMPPROP;solid?;%B;2| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |COMPPROP;solid?;%B;2| ((|p| (%)) (% (|Boolean|))) (QCDR |p|)) 
 
@@ -13,7 +13,7 @@
 (SDEFUN |COMPPROP;solid;%2B;4| ((|p| (%)) (|b| (|Boolean|)) (% (|Boolean|)))
         (PROGN (RPLACD |p| |b|) (QCDR |p|))) 
 
-(PUT '|COMPPROP;new;%;5| '|SPADreplace| '(XLAM NIL (CONS NIL NIL))) 
+(MAKEPROP '|COMPPROP;new;%;5| '|SPADreplace| '(XLAM NIL (CONS NIL NIL))) 
 
 (SDEFUN |COMPPROP;new;%;5| ((% (%))) (CONS NIL NIL)) 
 

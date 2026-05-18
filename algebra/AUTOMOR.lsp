@@ -1,17 +1,17 @@
 
 (SDEFUN |AUTOMOR;One;%;1| ((% (%))) (CONS (|function| |AUTOMOR;ident|) %)) 
 
-(PUT '|AUTOMOR;err| '|SPADreplace|
-     '(XLAM (|r|) (|error| "Morphism is not invertible"))) 
+(MAKEPROP '|AUTOMOR;err| '|SPADreplace|
+          '(XLAM (|r|) (|error| "Morphism is not invertible"))) 
 
 (SDEFUN |AUTOMOR;err| ((|r| (R)) (% (R)))
         (|error| "Morphism is not invertible")) 
 
-(PUT '|AUTOMOR;ident| '|SPADreplace| '(XLAM (|r| |n|) |r|)) 
+(MAKEPROP '|AUTOMOR;ident| '|SPADreplace| '(XLAM (|r| |n|) |r|)) 
 
 (SDEFUN |AUTOMOR;ident| ((|r| (R)) (|n| (|Integer|)) (% (R))) |r|) 
 
-(PUT '|AUTOMOR;=;2%B;4| '|SPADreplace| 'EQ) 
+(MAKEPROP '|AUTOMOR;=;2%B;4| '|SPADreplace| 'EQ) 
 
 (SDEFUN |AUTOMOR;=;2%B;4| ((|f| (%)) (|g| (%)) (% (|Boolean|))) (EQ |f| |g|)) 
 
@@ -44,7 +44,7 @@
 (SDEFUN |AUTOMOR;coerce;%Of;8| ((|f| (%)) (% (|OutputForm|)))
         (SPADCALL "R -> R" (QREFELT % 19))) 
 
-(PUT '|AUTOMOR;morphism;M%;9| '|SPADreplace| '(XLAM (|f|) |f|)) 
+(MAKEPROP '|AUTOMOR;morphism;M%;9| '|SPADreplace| '(XLAM (|f|) |f|)) 
 
 (SDEFUN |AUTOMOR;morphism;M%;9| ((|f| (|Mapping| R R (|Integer|))) (% (%))) |f|) 
 

@@ -10,11 +10,11 @@
                (SPADCALL (|SPADfirst| (QCAR |r2|)) (|SPADfirst| (QCAR |r1|))
                          (QREFELT % 16))))) 
 
-(PUT '|SEM;ncols;%Nni;2| '|SPADreplace| '(XLAM (A) (QVELT A 0))) 
+(MAKEPROP '|SEM;ncols;%Nni;2| '|SPADreplace| '(XLAM (A) (QVELT A 0))) 
 
 (SDEFUN |SEM;ncols;%Nni;2| ((A (%)) (% (|NonNegativeInteger|))) (QVELT A 0)) 
 
-(PUT '|SEM;nrows;%Nni;3| '|SPADreplace| '(XLAM (A) (QVELT A 1))) 
+(MAKEPROP '|SEM;nrows;%Nni;3| '|SPADreplace| '(XLAM (A) (QVELT A 1))) 
 
 (SDEFUN |SEM;nrows;%Nni;3| ((A (%)) (% (|NonNegativeInteger|))) (QVELT A 1)) 
 

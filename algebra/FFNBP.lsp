@@ -2,7 +2,7 @@
 (SDEFUN |FFNBP;coerce;GF%;1| ((|v| (GF)) (% (%)))
         (MAKEARR1 (QREFELT % 17) (SPADCALL |v| (QREFELT % 47) (QREFELT % 52)))) 
 
-(PUT '|FFNBP;represents;V%;2| '|SPADreplace| '(XLAM (|v|) |v|)) 
+(MAKEPROP '|FFNBP;represents;V%;2| '|SPADreplace| '(XLAM (|v|) |v|)) 
 
 (SDEFUN |FFNBP;represents;V%;2| ((|v| (|Vector| GF)) (% (%))) |v|) 
 
@@ -160,7 +160,7 @@
 (SDEFUN |FFNBP;/;%GF%;16| ((|x| (%)) (|a| (GF)) (% (%)))
         (SPADCALL |x| (SPADCALL |a| (QREFELT % 53)) (QREFELT % 101))) 
 
-(PUT '|FFNBP;coordinates;%V;17| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|FFNBP;coordinates;%V;17| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |FFNBP;coordinates;%V;17| ((|x| (%)) (% (|Vector| GF))) |x|) 
 
@@ -429,8 +429,8 @@
 (SDEFUN |FFNBP;*;I2%;47| ((|n| (|Integer|)) (|x| (%)) (% (%)))
         (SPADCALL |x| (SPADCALL |n| (QREFELT % 178)) (QREFELT % 179))) 
 
-(PUT '|FFNBP;representationType;U;48| '|SPADreplace|
-     '(XLAM NIL (CONS 2 "normal"))) 
+(MAKEPROP '|FFNBP;representationType;U;48| '|SPADreplace|
+          '(XLAM NIL (CONS 2 "normal"))) 
 
 (SDEFUN |FFNBP;representationType;U;48|
         ((% (|Union| "prime" "polynomial" "normal" "cyclic")))

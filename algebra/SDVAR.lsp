@@ -1,14 +1,14 @@
 
-(PUT '|SDVAR;makeVariable;SNni%;1| '|SPADreplace| 'CONS) 
+(MAKEPROP '|SDVAR;makeVariable;SNni%;1| '|SPADreplace| 'CONS) 
 
 (SDEFUN |SDVAR;makeVariable;SNni%;1|
         ((|s| (S)) (|n| (|NonNegativeInteger|)) (% (%))) (CONS |s| |n|)) 
 
-(PUT '|SDVAR;variable;%S;2| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|SDVAR;variable;%S;2| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |SDVAR;variable;%S;2| ((|v| (%)) (% (S))) (QCAR |v|)) 
 
-(PUT '|SDVAR;order;%Nni;3| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|SDVAR;order;%Nni;3| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |SDVAR;order;%Nni;3| ((|v| (%)) (% (|NonNegativeInteger|))) (QCDR |v|)) 
 

@@ -1596,14 +1596,14 @@
 ;             $all_operations := []       -- force this to recompute
 ;             oldmaps := get_database(key, 'MODEMAPS)
 ;             dbstruct := make_dbstruct()
-;             PUT(key, 'DATABASE, dbstruct)
+;             MAKEPROP(key, 'DATABASE, dbstruct)
 ;             $all_constructors := ADJOIN(key, $all_constructors)
 ;             abbrev := fetch_data_from_alist(alist, '"abbreviation") or key
 ;             kind := set_dbstruct(dbstruct, FUNCTION(fetch_data_from_alist),
 ;                       alist, false,
 ;                         fetch_data_from_alist(alist, '"constructorForm"),
 ;                           abbrev, CONS(object, asharp_name))
-;             PUT(abbrev, 'ABBREVIATIONFOR, key)
+;             MAKEPROP(abbrev, 'ABBREVIATIONFOR, key)
 ;             add_operations(key, oldmaps)
 ;             cname := opOf(dbstruct.$constructorform_ind)
 ;             if expose then setExposeAddConstr2([cname], noquiet)
@@ -1666,7 +1666,7 @@
                  (SETQ |$all_operations| NIL)
                  (SETQ |oldmaps| (|get_database| |key| 'MODEMAPS))
                  (SETQ |dbstruct| (|make_dbstruct|))
-                 (PUT |key| 'DATABASE |dbstruct|)
+                 (MAKEPROP |key| 'DATABASE |dbstruct|)
                  (SETQ |$all_constructors| (ADJOIN |key| |$all_constructors|))
                  (SETQ |abbrev|
                          (OR (|fetch_data_from_alist| |alist| "abbreviation")
@@ -1676,7 +1676,7 @@
                           |alist| NIL
                           (|fetch_data_from_alist| |alist| "constructorForm")
                           |abbrev| (CONS |object| |asharp_name|)))
-                 (PUT |abbrev| 'ABBREVIATIONFOR |key|)
+                 (MAKEPROP |abbrev| 'ABBREVIATIONFOR |key|)
                  (|add_operations| |key| |oldmaps|)
                  (SETQ |cname|
                          (|opOf| (ELT |dbstruct| |$constructorform_ind|)))
@@ -1727,7 +1727,7 @@
 ;     key := first(constructorform)
 ;     oldmaps := get_database(key, 'MODEMAPS)
 ;     dbstruct := make_dbstruct()
-;     PUT(key, 'DATABASE, dbstruct)
+;     MAKEPROP(key, 'DATABASE, dbstruct)
 ;     $all_constructors := ADJOIN(key, $all_constructors)
 ;     abbrev := INTERN(file_basename(file_directory(object)))
 ;     ds := [alist, in_f]
@@ -1735,7 +1735,7 @@
 ;         set_dbstruct(dbstruct, FUNCTION(fetch_data_from_file), ds,
 ;                      make_database?, constructorform, abbrev, object)
 ;     $all_operations := []  -- force this to recompute
-;     PUT(abbrev, 'ABBREVIATIONFOR, key)
+;     MAKEPROP(abbrev, 'ABBREVIATIONFOR, key)
 ;     add_operations(key, oldmaps)
 ;     if not(make_database?) then
 ;         installConstructor(key)
@@ -1766,7 +1766,7 @@
       (SETQ |key| (CAR |constructorform|))
       (SETQ |oldmaps| (|get_database| |key| 'MODEMAPS))
       (SETQ |dbstruct| (|make_dbstruct|))
-      (PUT |key| 'DATABASE |dbstruct|)
+      (MAKEPROP |key| 'DATABASE |dbstruct|)
       (SETQ |$all_constructors| (ADJOIN |key| |$all_constructors|))
       (SETQ |abbrev| (INTERN (|file_basename| (|file_directory| |object|))))
       (SETQ |ds| (LIST |alist| |in_f|))
@@ -1774,7 +1774,7 @@
               (|set_dbstruct| |dbstruct| #'|fetch_data_from_file| |ds|
                |make_database?| |constructorform| |abbrev| |object|))
       (SETQ |$all_operations| NIL)
-      (PUT |abbrev| 'ABBREVIATIONFOR |key|)
+      (MAKEPROP |abbrev| 'ABBREVIATIONFOR |key|)
       (|add_operations| |key| |oldmaps|)
       (COND
        ((NULL |make_database?|) (|installConstructor| |key|)

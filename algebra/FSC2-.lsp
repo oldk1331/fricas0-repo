@@ -1233,7 +1233,7 @@
             (EXIT (CONS 1 "failed"))))
           #2# (EXIT #1#)))) 
 
-(PUT '|FSC2-;debugA| '|SPADreplace| '(XLAM (|a1| |a2| |t|) |t|)) 
+(MAKEPROP '|FSC2-;debugA| '|SPADreplace| '(XLAM (|a1| |a2| |t|) |t|)) 
 
 (SDEFUN |FSC2-;debugA|
         ((|a1| (|List| S)) (|a2| (|List| S)) (|t| (|Boolean|)) (% (|Boolean|)))

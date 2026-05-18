@@ -21,8 +21,8 @@
 (SDEFUN |DISTRO2;R1_to_R2_coercion;R1R2;3| ((|x| (R1)) (% (R2)))
         (SPADCALL |x| (QREFELT % 23))) 
 
-(PUT '|DISTRO2;R1_to_R2_coercion;R1R2;4| '|SPADreplace|
-     '(XLAM (|x|) (|error| "unimplemented"))) 
+(MAKEPROP '|DISTRO2;R1_to_R2_coercion;R1R2;4| '|SPADreplace|
+          '(XLAM (|x|) (|error| "unimplemented"))) 
 
 (SDEFUN |DISTRO2;R1_to_R2_coercion;R1R2;4| ((|x| (R1)) (% (R2)))
         (|error| "unimplemented")) 

@@ -177,8 +177,8 @@
         (SEQ (COND ((NULL (QREFELT % 20)) (|FFP;initializeElt| %)))
              (EXIT (QREFELT % 20)))) 
 
-(PUT '|FFP;representationType;U;29| '|SPADreplace|
-     '(XLAM NIL (CONS 1 "polynomial"))) 
+(MAKEPROP '|FFP;representationType;U;29| '|SPADreplace|
+          '(XLAM NIL (CONS 1 "polynomial"))) 
 
 (SDEFUN |FFP;representationType;U;29|
         ((% (|Union| "prime" "polynomial" "normal" "cyclic")))

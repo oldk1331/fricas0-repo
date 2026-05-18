@@ -2,7 +2,7 @@
 (SDEFUN |SKICOMB;ski;3%;1| ((|x| (%)) (|y| (%)) (% (%)))
         (CONS 1 (CONS |x| |y|))) 
 
-(PUT '|SKICOMB;ski;UT%;2| '|SPADreplace| '(XLAM (|t1|) (CONS 2 |t1|))) 
+(MAKEPROP '|SKICOMB;ski;UT%;2| '|SPADreplace| '(XLAM (|t1|) (CONS 2 |t1|))) 
 
 (SDEFUN |SKICOMB;ski;UT%;2| ((|t1| (UT)) (% (%))) (CONS 2 |t1|)) 
 
@@ -214,7 +214,8 @@
 (SDEFUN |SKICOMB;atom?;%B;12| ((|n| (%)) (% (|Boolean|)))
         (COND ((QEQCAR |n| 0) 'T) ('T (QEQCAR |n| 2)))) 
 
-(PUT '|SKICOMB;variable?;%B;13| '|SPADreplace| '(XLAM (|n|) (QEQCAR |n| 2))) 
+(MAKEPROP '|SKICOMB;variable?;%B;13| '|SPADreplace|
+          '(XLAM (|n|) (QEQCAR |n| 2))) 
 
 (SDEFUN |SKICOMB;variable?;%B;13| ((|n| (%)) (% (|Boolean|))) (QEQCAR |n| 2)) 
 

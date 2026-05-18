@@ -1,14 +1,14 @@
 
-(PUT '|UPXSCONS;getExpon| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|UPXSCONS;getExpon| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |UPXSCONS;getExpon| ((|pxs| (%)) (% (|Fraction| (|Integer|))))
         (QCAR |pxs|)) 
 
-(PUT '|UPXSCONS;getULS| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|UPXSCONS;getULS| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |UPXSCONS;getULS| ((|pxs| (%)) (% (ULS))) (QCDR |pxs|)) 
 
-(PUT '|UPXSCONS;puiseux;FULS%;3| '|SPADreplace| 'CONS) 
+(MAKEPROP '|UPXSCONS;puiseux;FULS%;3| '|SPADreplace| 'CONS) 
 
 (SDEFUN |UPXSCONS;puiseux;FULS%;3|
         ((|n| (|Fraction| (|Integer|))) (|ls| (ULS)) (% (%))) (CONS |n| |ls|)) 

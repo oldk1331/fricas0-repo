@@ -1,18 +1,18 @@
 
-(PUT '|CARD;Zero;%;1| '|SPADreplace| '(XLAM NIL (CONS -1 0))) 
+(MAKEPROP '|CARD;Zero;%;1| '|SPADreplace| '(XLAM NIL (CONS -1 0))) 
 
 (SDEFUN |CARD;Zero;%;1| ((% (%))) (CONS -1 0)) 
 
-(PUT '|CARD;One;%;2| '|SPADreplace| '(XLAM NIL (CONS -1 1))) 
+(MAKEPROP '|CARD;One;%;2| '|SPADreplace| '(XLAM NIL (CONS -1 1))) 
 
 (SDEFUN |CARD;One;%;2| ((% (%))) (CONS -1 1)) 
 
-(PUT '|CARD;coerce;Nni%;3| '|SPADreplace| '(XLAM (|n|) (CONS -1 |n|))) 
+(MAKEPROP '|CARD;coerce;Nni%;3| '|SPADreplace| '(XLAM (|n|) (CONS -1 |n|))) 
 
 (SDEFUN |CARD;coerce;Nni%;3| ((|n| (|NonNegativeInteger|)) (% (%)))
         (CONS -1 |n|)) 
 
-(PUT '|CARD;Aleph;Nni%;4| '|SPADreplace| '(XLAM (|n|) (CONS |n| -1))) 
+(MAKEPROP '|CARD;Aleph;Nni%;4| '|SPADreplace| '(XLAM (|n|) (CONS |n| -1))) 
 
 (SDEFUN |CARD;Aleph;Nni%;4| ((|n| (|NonNegativeInteger|)) (% (%)))
         (CONS |n| -1)) 

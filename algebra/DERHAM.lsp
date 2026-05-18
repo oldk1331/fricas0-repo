@@ -90,7 +90,7 @@
           (SPADCALL (SPADCALL |r| (QREFELT % 55)) (|DERHAM;displayList| |x| %)
                     (QREFELT % 47))))) 
 
-(PUT '|DERHAM;terms| '|SPADreplace| '(XLAM (|a|) |a|)) 
+(MAKEPROP '|DERHAM;terms| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
 (SDEFUN |DERHAM;terms|
         ((|a| (%))

@@ -38,7 +38,7 @@
 (SDEFUN |DJBP;coerce;JB%;3| ((|jv| (JB)) (% (%)))
         (SPADCALL (|spadConstant| % 22) |jv| 1 (QREFELT % 27))) 
 
-(PUT '|DJBP;zero?;%B;4| '|SPADreplace| 'NULL) 
+(MAKEPROP '|DJBP;zero?;%B;4| '|SPADreplace| 'NULL) 
 
 (SDEFUN |DJBP;zero?;%B;4| ((|p| (%)) (% (|Boolean|))) (NULL |p|)) 
 

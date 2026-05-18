@@ -1,5 +1,5 @@
 
-(PUT '|PFACET;productFacet;IL%;1| '|SPADreplace| 'CONS) 
+(MAKEPROP '|PFACET;productFacet;IL%;1| '|SPADreplace| 'CONS) 
 
 (SDEFUN |PFACET;productFacet;IL%;1|
         ((|mul1| (|Integer|))
@@ -14,7 +14,7 @@
         ((|mul1| (|Integer|)) (|other| (|ProductFacet|)) (% (%)))
         (CONS |mul1| (SPADCALL |other| (QREFELT % 12)))) 
 
-(PUT '|PFACET;getIndexs;%L;3| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|PFACET;getIndexs;%L;3| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |PFACET;getIndexs;%L;3|
         ((|orf| (%))
@@ -65,7 +65,7 @@
 (SDEFUN |PFACET;order;%Nni;6| ((|f| (%)) (% (|NonNegativeInteger|)))
         (LENGTH (SPADCALL |f| (QREFELT % 14)))) 
 
-(PUT '|PFACET;getMult;%I;7| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|PFACET;getMult;%I;7| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |PFACET;getMult;%I;7| ((|orf| (%)) (% (|Integer|))) (QCAR |orf|)) 
 

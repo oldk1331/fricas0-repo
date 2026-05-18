@@ -6,7 +6,7 @@
 
 (SDEFUN |LATJOFM;logicF;%;3| ((% (%))) (LIST (LIST (CONS 0 (LIST 'F))))) 
 
-(PUT '|LATJOFM;emptyLattice;%;4| '|SPADreplace| '(XLAM NIL NIL)) 
+(MAKEPROP '|LATJOFM;emptyLattice;%;4| '|SPADreplace| '(XLAM NIL NIL)) 
 
 (SDEFUN |LATJOFM;emptyLattice;%;4| ((% (%))) NIL) 
 
@@ -20,7 +20,7 @@
          (% (%)))
         (LIST (LIST |e|))) 
 
-(PUT '|LATJOFM;empty?;%B;7| '|SPADreplace| 'NULL) 
+(MAKEPROP '|LATJOFM;empty?;%B;7| '|SPADreplace| 'NULL) 
 
 (SDEFUN |LATJOFM;empty?;%B;7| ((|n| (%)) (% (|Boolean|))) (NULL |n|)) 
 
@@ -373,36 +373,36 @@
               (EXIT
                (COND (|modified| (SPADCALL |r| (QREFELT % 22))) ('T |r|)))))) 
 
-(PUT '|LATJOFM;factor;%L;17| '|SPADreplace| 'LIST) 
+(MAKEPROP '|LATJOFM;factor;%L;17| '|SPADreplace| 'LIST) 
 
 (SDEFUN |LATJOFM;factor;%L;17| ((|n| (%)) (% (|List| %))) (LIST |n|)) 
 
-(PUT '|LATJOFM;removeDup| '|SPADreplace| '(XLAM (|a| |b|) |a|)) 
+(MAKEPROP '|LATJOFM;removeDup| '|SPADreplace| '(XLAM (|a| |b|) |a|)) 
 
 (SDEFUN |LATJOFM;removeDup| ((|a| (|List| %)) (|b| (|List| %)) (% (|List| %)))
         |a|) 
 
-(PUT '|LATJOFM;deductions;2L;19| '|SPADreplace| '(XLAM (|ln|) |ln|)) 
+(MAKEPROP '|LATJOFM;deductions;2L;19| '|SPADreplace| '(XLAM (|ln|) |ln|)) 
 
 (SDEFUN |LATJOFM;deductions;2L;19| ((|ln| (|List| %)) (% (|List| %))) |ln|) 
 
-(PUT '|LATJOFM;opType;%S;20| '|SPADreplace| '(XLAM (|n|) 'OTHER)) 
+(MAKEPROP '|LATJOFM;opType;%S;20| '|SPADreplace| '(XLAM (|n|) 'OTHER)) 
 
 (SDEFUN |LATJOFM;opType;%S;20| ((|n| (%)) (% (|Symbol|))) 'OTHER) 
 
-(PUT '|LATJOFM;atom?;%B;21| '|SPADreplace| '(XLAM (|n|) NIL)) 
+(MAKEPROP '|LATJOFM;atom?;%B;21| '|SPADreplace| '(XLAM (|n|) NIL)) 
 
 (SDEFUN |LATJOFM;atom?;%B;21| ((|n| (%)) (% (|Boolean|))) NIL) 
 
-(PUT '|LATJOFM;value;%S;22| '|SPADreplace| '(XLAM (|n|) 'C)) 
+(MAKEPROP '|LATJOFM;value;%S;22| '|SPADreplace| '(XLAM (|n|) 'C)) 
 
 (SDEFUN |LATJOFM;value;%S;22| ((|n| (%)) (% (|Symbol|))) 'C) 
 
-(PUT '|LATJOFM;getChildren;%L;23| '|SPADreplace| 'LIST) 
+(MAKEPROP '|LATJOFM;getChildren;%L;23| '|SPADreplace| 'LIST) 
 
 (SDEFUN |LATJOFM;getChildren;%L;23| ((|n| (%)) (% (|List| %))) (LIST |n|)) 
 
-(PUT '|LATJOFM;=;2%B;24| '|SPADreplace| '(XLAM (|a| |b|) NIL)) 
+(MAKEPROP '|LATJOFM;=;2%B;24| '|SPADreplace| '(XLAM (|a| |b|) NIL)) 
 
 (SDEFUN |LATJOFM;=;2%B;24| ((|a| (%)) (|b| (%)) (% (|Boolean|))) NIL) 
 

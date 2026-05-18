@@ -61,7 +61,7 @@
                       (EXIT (CONS 0 (SPADCALL |f| (QREFELT % 29))))))
                 ('T (CONS 1 "failed"))))))) 
 
-(PUT '|NUMFMT;FormatArabic;PiS;7| '|SPADreplace| 'STRINGIMAGE) 
+(MAKEPROP '|NUMFMT;FormatArabic;PiS;7| '|SPADreplace| 'STRINGIMAGE) 
 
 (SDEFUN |NUMFMT;FormatArabic;PiS;7| ((|n| (|PositiveInteger|)) (% (|String|)))
         (STRINGIMAGE |n|)) 
@@ -317,7 +317,7 @@
                    (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                      '(|Integer|) #1#)))))))) 
 
-(PUT '|NUMFMT;FormatRadix;2IS;11| '|SPADreplace| '|write_to_string_radix|) 
+(MAKEPROP '|NUMFMT;FormatRadix;2IS;11| '|SPADreplace| '|write_to_string_radix|) 
 
 (SDEFUN |NUMFMT;FormatRadix;2IS;11|
         ((|n| (|Integer|)) (|r| (|Integer|)) (% (|String|)))

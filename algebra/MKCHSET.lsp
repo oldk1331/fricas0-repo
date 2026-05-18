@@ -1,5 +1,5 @@
 
-(PUT '|MKCHSET;position;%Nni;1| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|MKCHSET;position;%Nni;1| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |MKCHSET;position;%Nni;1| ((|x| (%)) (% (|NonNegativeInteger|)))
         (QCDR |x|)) 
@@ -9,7 +9,7 @@
         (SEQ (PROGN (RPLACD |x| |n|) (QCDR |x|))
              (EXIT (SPADCALL (QREFELT % 13))))) 
 
-(PUT '|MKCHSET;coerce;%S;3| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|MKCHSET;coerce;%S;3| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |MKCHSET;coerce;%S;3| ((|x| (%)) (% (S))) (QCAR |x|)) 
 

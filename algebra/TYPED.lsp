@@ -2,16 +2,16 @@
 (SDEFUN |TYPED;var;S%;1| ((|n| (|String|)) (% (%)))
         (CONS |n| (SPADCALL (QREFELT % 8)))) 
 
-(PUT '|TYPED;var;SIl%;2| '|SPADreplace| 'CONS) 
+(MAKEPROP '|TYPED;var;SIl%;2| '|SPADreplace| 'CONS) 
 
 (SDEFUN |TYPED;var;SIl%;2| ((|n| (|String|)) (|t| (|ILogic|)) (% (%)))
         (CONS |n| |t|)) 
 
-(PUT '|TYPED;getName;%S;3| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|TYPED;getName;%S;3| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |TYPED;getName;%S;3| ((|v| (%)) (% (|String|))) (QCAR |v|)) 
 
-(PUT '|TYPED;getType;%Il;4| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|TYPED;getType;%Il;4| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |TYPED;getType;%Il;4| ((|v| (%)) (% (|ILogic|))) (QCDR |v|)) 
 

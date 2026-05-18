@@ -1,5 +1,5 @@
 
-(PUT '|AGG-;eq?;2SB;1| '|SPADreplace| 'EQ) 
+(MAKEPROP '|AGG-;eq?;2SB;1| '|SPADreplace| 'EQ) 
 
 (SDEFUN |AGG-;eq?;2SB;1| ((|a| (S)) (|b| (S)) (% (|Boolean|))) (EQ |a| |b|)) 
 

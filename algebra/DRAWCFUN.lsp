@@ -361,11 +361,11 @@
         (SPROG ((|l| (|List| #1#)))
                (SPADCALL (LETT |l| (LIST |x| |y| |z| |c|)) (QREFELT % 76)))) 
 
-(PUT '|DRAWCFUN;id| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|DRAWCFUN;id| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |DRAWCFUN;id| ((|x| (|DoubleFloat|)) (% (|DoubleFloat|))) |x|) 
 
-(PUT '|DRAWCFUN;zCoord| '|SPADreplace| '(XLAM (|x| |y| |z|) |z|)) 
+(MAKEPROP '|DRAWCFUN;zCoord| '|SPADreplace| '(XLAM (|x| |y| |z|) |z|)) 
 
 (SDEFUN |DRAWCFUN;zCoord|
         ((|x| (|DoubleFloat|)) (|y| (|DoubleFloat|)) (|z| (|DoubleFloat|))
@@ -706,7 +706,7 @@
                                   (QREFELT % 102))
                         (EXIT |pt|))))))) 
 
-(PUT '|DRAWCFUN;xCoord| '|SPADreplace| '(XLAM (|x| |y|) |x|)) 
+(MAKEPROP '|DRAWCFUN;xCoord| '|SPADreplace| '(XLAM (|x| |y|) |x|)) 
 
 (SDEFUN |DRAWCFUN;xCoord|
         ((|x| (|DoubleFloat|)) (|y| (|DoubleFloat|)) (% (|DoubleFloat|))) |x|) 

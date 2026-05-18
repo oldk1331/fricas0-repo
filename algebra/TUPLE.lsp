@@ -2,11 +2,11 @@
 (SDEFUN |TUPLE;coerce;Pa%;1| ((|x| (|PrimitiveArray| S)) (% (%)))
         (CONS (QVSIZE |x|) |x|)) 
 
-(PUT '|TUPLE;coerce;%Pa;2| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|TUPLE;coerce;%Pa;2| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |TUPLE;coerce;%Pa;2| ((|x| (%)) (% (|PrimitiveArray| S))) (QCDR |x|)) 
 
-(PUT '|TUPLE;#;%Nni;3| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|TUPLE;#;%Nni;3| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |TUPLE;#;%Nni;3| ((|x| (%)) (% (|NonNegativeInteger|))) (QCAR |x|)) 
 

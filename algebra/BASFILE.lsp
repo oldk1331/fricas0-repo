@@ -27,7 +27,7 @@
                                  (QREFELT % 11))
                        (SPADCALL |mode| (QREFELT % 11)))))))) 
 
-(PUT '|BASFILE;close!;%V;2| '|SPADreplace| 'SHUT) 
+(MAKEPROP '|BASFILE;close!;%V;2| '|SPADreplace| 'SHUT) 
 
 (SDEFUN |BASFILE;close!;%V;2| ((|f| (%)) (% (|Void|))) (SHUT |f|)) 
 
@@ -55,7 +55,7 @@
                    (|error| "The value cannot be saved to a file."))
                   ('T (|write_to_stream| (QCDR |res1|) |f|))))))) 
 
-(PUT '|BASFILE;flush;%V;6| '|SPADreplace| 'FORCE-OUTPUT) 
+(MAKEPROP '|BASFILE;flush;%V;6| '|SPADreplace| 'FORCE-OUTPUT) 
 
 (SDEFUN |BASFILE;flush;%V;6| ((|f| (%)) (% (|Void|))) (FORCE-OUTPUT |f|)) 
 

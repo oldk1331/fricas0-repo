@@ -29,7 +29,7 @@
         (SPADCALL |s| |aname| (SPADCALL |s| |o1| (QREFELT % 15))
                   (SPADCALL |s| |o2| (QREFELT % 15)) (QREFELT % 17))) 
 
-(PUT '|FGRPH-;isDirected?;B;3| '|SPADreplace| '(XLAM NIL 'T)) 
+(MAKEPROP '|FGRPH-;isDirected?;B;3| '|SPADreplace| '(XLAM NIL 'T)) 
 
 (SDEFUN |FGRPH-;isDirected?;B;3| ((% (|Boolean|))) 'T) 
 
@@ -1692,7 +1692,7 @@
             (EXIT 'T)))
           #4# (EXIT #1#)))) 
 
-(PUT '|FGRPH-;hash| '|SPADreplace| '(XLAM (|s|) 0)) 
+(MAKEPROP '|FGRPH-;hash| '|SPADreplace| '(XLAM (|s|) 0)) 
 
 (SDEFUN |FGRPH-;hash| ((|s| (A)) (% (|SingleInteger|))) 0) 
 

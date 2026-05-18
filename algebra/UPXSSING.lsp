@@ -20,8 +20,8 @@
                  (QREFELT % 23))))
          ('T (CONS 1 "failed")))) 
 
-(PUT '|UPXSSING;makeTerm| '|SPADreplace|
-     '(XLAM (|coef| |expon|) (VECTOR |coef| |expon| NIL))) 
+(MAKEPROP '|UPXSSING;makeTerm| '|SPADreplace|
+          '(XLAM (|coef| |expon|) (VECTOR |coef| |expon| NIL))) 
 
 (SDEFUN |UPXSSING;makeTerm|
         ((|coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
@@ -37,7 +37,7 @@
                                     (|:| |c| FE)))))))
         (VECTOR |coef| |expon| NIL)) 
 
-(PUT '|UPXSSING;coeff| '|SPADreplace| '(XLAM (|term|) (QVELT |term| 0))) 
+(MAKEPROP '|UPXSSING;coeff| '|SPADreplace| '(XLAM (|term|) (QVELT |term| 0))) 
 
 (SDEFUN |UPXSSING;coeff|
         ((|term|
@@ -52,7 +52,7 @@
          (% (|UnivariatePuiseuxSeries| FE |var| |cen|)))
         (QVELT |term| 0)) 
 
-(PUT '|UPXSSING;exponent| '|SPADreplace| '(XLAM (|term|) (QVELT |term| 1))) 
+(MAKEPROP '|UPXSSING;exponent| '|SPADreplace| '(XLAM (|term|) (QVELT |term| 1))) 
 
 (SDEFUN |UPXSSING;exponent|
         ((|term|
@@ -67,7 +67,8 @@
          (% (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|)))
         (QVELT |term| 1)) 
 
-(PUT '|UPXSSING;exponentTerms| '|SPADreplace| '(XLAM (|term|) (QVELT |term| 2))) 
+(MAKEPROP '|UPXSSING;exponentTerms| '|SPADreplace|
+          '(XLAM (|term|) (QVELT |term| 2))) 
 
 (SDEFUN |UPXSSING;exponentTerms|
         ((|term|
@@ -83,8 +84,8 @@
           (|List| (|Record| (|:| |k| (|Fraction| (|Integer|))) (|:| |c| FE)))))
         (QVELT |term| 2)) 
 
-(PUT '|UPXSSING;setExponentTerms!| '|SPADreplace|
-     '(XLAM (|term| |list|) (QSETVELT |term| 2 |list|))) 
+(MAKEPROP '|UPXSSING;setExponentTerms!| '|SPADreplace|
+          '(XLAM (|term| |list|) (QSETVELT |term| 2 |list|))) 
 
 (SDEFUN |UPXSSING;setExponentTerms!|
         ((|term|

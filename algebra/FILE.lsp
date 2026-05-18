@@ -27,11 +27,11 @@
         (SEQ (SPADCALL (QVELT |f| 1) (QREFELT % 23)) (QSETVELT |f| 2 "closed")
              (EXIT |f|))) 
 
-(PUT '|FILE;name;%Fn;7| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 0))) 
+(MAKEPROP '|FILE;name;%Fn;7| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 0))) 
 
 (SDEFUN |FILE;name;%Fn;7| ((|f| (%)) (% (|FileName|))) (QVELT |f| 0)) 
 
-(PUT '|FILE;iomode;%S;8| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 2))) 
+(MAKEPROP '|FILE;iomode;%S;8| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 2))) 
 
 (SDEFUN |FILE;iomode;%S;8| ((|f| (%)) (% (|String|))) (QVELT |f| 2)) 
 

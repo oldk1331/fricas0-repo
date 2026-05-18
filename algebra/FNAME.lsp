@@ -1,5 +1,5 @@
 
-(PUT '|FNAME;=;2%B;1| '|SPADreplace| 'EQUAL) 
+(MAKEPROP '|FNAME;=;2%B;1| '|SPADreplace| 'EQUAL) 
 
 (SDEFUN |FNAME;=;2%B;1| ((|f1| (%)) (|f2| (%)) (% (|Boolean|)))
         (EQUAL |f1| |f2|)) 
@@ -7,49 +7,49 @@
 (SDEFUN |FNAME;coerce;%Of;2| ((|f| (%)) (% (|OutputForm|)))
         (SPADCALL (SPADCALL |f| (QREFELT % 9)) (QREFELT % 11))) 
 
-(PUT '|FNAME;coerce;%S;3| '|SPADreplace| '(XLAM (|f|) |f|)) 
+(MAKEPROP '|FNAME;coerce;%S;3| '|SPADreplace| '(XLAM (|f|) |f|)) 
 
 (SDEFUN |FNAME;coerce;%S;3| ((|f| (%)) (% (|String|))) |f|) 
 
-(PUT '|FNAME;coerce;S%;4| '|SPADreplace| '(XLAM (|s|) |s|)) 
+(MAKEPROP '|FNAME;coerce;S%;4| '|SPADreplace| '(XLAM (|s|) |s|)) 
 
 (SDEFUN |FNAME;coerce;S%;4| ((|s| (|String|)) (% (%))) |s|) 
 
-(PUT '|FNAME;filename;3S%;5| '|SPADreplace| '|make_fname|) 
+(MAKEPROP '|FNAME;filename;3S%;5| '|SPADreplace| '|make_fname|) 
 
 (SDEFUN |FNAME;filename;3S%;5|
         ((|d| #1=(|String|)) (|n| #1#) (|e| #1#) (% (%)))
         (|make_fname| |d| |n| |e|)) 
 
-(PUT '|FNAME;directory;%S;6| '|SPADreplace| '|file_directory|) 
+(MAKEPROP '|FNAME;directory;%S;6| '|SPADreplace| '|file_directory|) 
 
 (SDEFUN |FNAME;directory;%S;6| ((|f| (%)) (% (|String|)))
         (|file_directory| |f|)) 
 
-(PUT '|FNAME;name;%S;7| '|SPADreplace| '|file_basename|) 
+(MAKEPROP '|FNAME;name;%S;7| '|SPADreplace| '|file_basename|) 
 
 (SDEFUN |FNAME;name;%S;7| ((|f| (%)) (% (|String|))) (|file_basename| |f|)) 
 
-(PUT '|FNAME;extension;%S;8| '|SPADreplace| '|file_extention|) 
+(MAKEPROP '|FNAME;extension;%S;8| '|SPADreplace| '|file_extention|) 
 
 (SDEFUN |FNAME;extension;%S;8| ((|f| (%)) (% (|String|)))
         (|file_extention| |f|)) 
 
-(PUT '|FNAME;exists?;%B;9| '|SPADreplace| '|fnameExists?|) 
+(MAKEPROP '|FNAME;exists?;%B;9| '|SPADreplace| '|fnameExists?|) 
 
 (SDEFUN |FNAME;exists?;%B;9| ((|f| (%)) (% (|Boolean|))) (|fnameExists?| |f|)) 
 
-(PUT '|FNAME;readable?;%B;10| '|SPADreplace| '|fnameReadable?|) 
+(MAKEPROP '|FNAME;readable?;%B;10| '|SPADreplace| '|fnameReadable?|) 
 
 (SDEFUN |FNAME;readable?;%B;10| ((|f| (%)) (% (|Boolean|)))
         (|fnameReadable?| |f|)) 
 
-(PUT '|FNAME;writable?;%B;11| '|SPADreplace| '|fnameWritable?|) 
+(MAKEPROP '|FNAME;writable?;%B;11| '|SPADreplace| '|fnameWritable?|) 
 
 (SDEFUN |FNAME;writable?;%B;11| ((|f| (%)) (% (|Boolean|)))
         (|fnameWritable?| |f|)) 
 
-(PUT '|FNAME;new;3S%;12| '|SPADreplace| '|fnameNew|) 
+(MAKEPROP '|FNAME;new;3S%;12| '|SPADreplace| '|fnameNew|) 
 
 (SDEFUN |FNAME;new;3S%;12| ((|d| #1=(|String|)) (|pref| #1#) (|e| #1#) (% (%)))
         (|fnameNew| |d| |pref| |e|)) 

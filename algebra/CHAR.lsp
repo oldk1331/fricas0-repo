@@ -1,14 +1,14 @@
 
-(PUT '|CHAR;=;2%B;1| '|SPADreplace| '|eql_SI|) 
+(MAKEPROP '|CHAR;=;2%B;1| '|SPADreplace| '|eql_SI|) 
 
 (SDEFUN |CHAR;=;2%B;1| ((|a| (%)) (|b| (%)) (% (|Boolean|))) (|eql_SI| |a| |b|)) 
 
-(PUT '|CHAR;<;2%B;2| '|SPADreplace| '|less_SI|) 
+(MAKEPROP '|CHAR;<;2%B;2| '|SPADreplace| '|less_SI|) 
 
 (SDEFUN |CHAR;<;2%B;2| ((|a| (%)) (|b| (%)) (% (|Boolean|)))
         (|less_SI| |a| |b|)) 
 
-(PUT '|CHAR;size;Nni;3| '|SPADreplace| '(XLAM NIL 1114112)) 
+(MAKEPROP '|CHAR;size;Nni;3| '|SPADreplace| '(XLAM NIL 1114112)) 
 
 (SDEFUN |CHAR;size;Nni;3| ((% (|NonNegativeInteger|))) 1114112) 
 
@@ -24,7 +24,7 @@
 (SDEFUN |CHAR;char;I%;6| ((|n| (|Integer|)) (% (%)))
         (SPADCALL |n| (QREFELT % 18))) 
 
-(PUT '|CHAR;ord;%I;7| '|SPADreplace| '(XLAM (|c|) |c|)) 
+(MAKEPROP '|CHAR;ord;%I;7| '|SPADreplace| '(XLAM (|c|) |c|)) 
 
 (SDEFUN |CHAR;ord;%I;7| ((|c| (%)) (% (|Integer|))) |c|) 
 
@@ -59,7 +59,7 @@
 (SDEFUN |CHAR;alphanumeric?;%B;19| ((|c| (%)) (% (|Boolean|)))
         (SPADCALL |c| (|spadConstant| % 39) (QREFELT % 29))) 
 
-(PUT '|CHAR;char;S%;20| '|SPADreplace| '|STR_to_CHAR|) 
+(MAKEPROP '|CHAR;char;S%;20| '|SPADreplace| '|STR_to_CHAR|) 
 
 (SDEFUN |CHAR;char;S%;20| ((|s| (|String|)) (% (%))) (|STR_to_CHAR| |s|)) 
 
@@ -69,7 +69,7 @@
 (SDEFUN |CHAR;lowerCase;2%;22| ((|c| (%)) (% (%)))
         (CHAR-CODE (CHAR-DOWNCASE (CODE-CHAR (SPADCALL |c| (QREFELT % 16)))))) 
 
-(PUT '|CHAR;hashUpdate!;Hs%Hs;23| '|SPADreplace| 'HASHSTATEUPDATE) 
+(MAKEPROP '|CHAR;hashUpdate!;Hs%Hs;23| '|SPADreplace| 'HASHSTATEUPDATE) 
 
 (SDEFUN |CHAR;hashUpdate!;Hs%Hs;23|
         ((|hs| (|HashState|)) (|c| (%)) (% (|HashState|)))

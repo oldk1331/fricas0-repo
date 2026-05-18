@@ -619,8 +619,8 @@
                 (EXIT (SPADCALL |iu| (QREFELT % 109)))))
           #2# (EXIT #1#)))) 
 
-(PUT '|SOLVERAD;cyclotomic_case?;SupU;28| '|SPADreplace|
-     '(XLAM (|u|) (CONS 1 "failed"))) 
+(MAKEPROP '|SOLVERAD;cyclotomic_case?;SupU;28| '|SPADreplace|
+          '(XLAM (|u|) (CONS 1 "failed"))) 
 
 (SDEFUN |SOLVERAD;cyclotomic_case?;SupU;28|
         ((|u| (|SparseUnivariatePolynomial| (|Polynomial| R)))
@@ -632,24 +632,24 @@
          (% (|Union| (|List| (|Expression| R)) "failed")))
         (SPADCALL (SPADCALL (ELT % 30) |p| (QREFELT % 37)) (QREFELT % 113))) 
 
-(PUT '|SOLVERAD;radical_solve;SupU;30| '|SPADreplace|
-     '(XLAM (|p|) (CONS 1 "failed"))) 
+(MAKEPROP '|SOLVERAD;radical_solve;SupU;30| '|SPADreplace|
+          '(XLAM (|p|) (CONS 1 "failed"))) 
 
 (SDEFUN |SOLVERAD;radical_solve;SupU;30|
         ((|p| (|SparseUnivariatePolynomial| (|Polynomial| R)))
          (% (|Union| (|List| (|Expression| R)) "failed")))
         (CONS 1 "failed")) 
 
-(PUT '|SOLVERAD;radical_solve;SupU;31| '|SPADreplace|
-     '(XLAM (|p|) (CONS 1 "failed"))) 
+(MAKEPROP '|SOLVERAD;radical_solve;SupU;31| '|SPADreplace|
+          '(XLAM (|p|) (CONS 1 "failed"))) 
 
 (SDEFUN |SOLVERAD;radical_solve;SupU;31|
         ((|p| (|SparseUnivariatePolynomial| (|Polynomial| R)))
          (% (|Union| (|List| (|Expression| R)) "failed")))
         (CONS 1 "failed")) 
 
-(PUT '|SOLVERAD;radical_solve;SupU;32| '|SPADreplace|
-     '(XLAM (|p|) (CONS 1 "failed"))) 
+(MAKEPROP '|SOLVERAD;radical_solve;SupU;32| '|SPADreplace|
+          '(XLAM (|p|) (CONS 1 "failed"))) 
 
 (SDEFUN |SOLVERAD;radical_solve;SupU;32|
         ((|p| (|SparseUnivariatePolynomial| (|Polynomial| R)))

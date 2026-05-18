@@ -6,11 +6,11 @@
         (SPADCALL (SPADCALL (SPADCALL |ps| (QREFELT % 14)) (QREFELT % 15))
                   (QREFELT % 13))) 
 
-(PUT '|GPOLSET;empty;%;3| '|SPADreplace| '(XLAM NIL NIL)) 
+(MAKEPROP '|GPOLSET;empty;%;3| '|SPADreplace| '(XLAM NIL NIL)) 
 
 (SDEFUN |GPOLSET;empty;%;3| ((% (%))) NIL) 
 
-(PUT '|GPOLSET;parts;%L;4| '|SPADreplace| '(XLAM (|ps|) |ps|)) 
+(MAKEPROP '|GPOLSET;parts;%L;4| '|SPADreplace| '(XLAM (|ps|) |ps|)) 
 
 (SDEFUN |GPOLSET;parts;%L;4| ((|ps| (%)) (% (|List| P))) |ps|) 
 
@@ -95,7 +95,7 @@
         ((|lp| (|List| P)) (% (|Union| % "failed")))
         (CONS 0 (SPADCALL |lp| (QREFELT % 13)))) 
 
-(PUT '|GPOLSET;coerce;%L;12| '|SPADreplace| '(XLAM (|ps|) |ps|)) 
+(MAKEPROP '|GPOLSET;coerce;%L;12| '|SPADreplace| '(XLAM (|ps|) |ps|)) 
 
 (SDEFUN |GPOLSET;coerce;%L;12| ((|ps| (%)) (% (|List| P))) |ps|) 
 

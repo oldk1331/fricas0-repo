@@ -5,8 +5,8 @@
 (SDEFUN |HELLFDIV;divisor;R%;2| ((|g| (R)) (% (%)))
         (VECTOR (|spadConstant| % 32) (|spadConstant| % 33) |g| 'T)) 
 
-(PUT '|HELLFDIV;makeDivisor| '|SPADreplace|
-     '(XLAM (|a| |b| |g|) (VECTOR |a| |b| |g| NIL))) 
+(MAKEPROP '|HELLFDIV;makeDivisor| '|SPADreplace|
+          '(XLAM (|a| |b| |g|) (VECTOR |a| |b| |g| NIL))) 
 
 (SDEFUN |HELLFDIV;makeDivisor| ((|a| (UP)) (|b| (UP)) (|g| (R)) (% (%)))
         (VECTOR |a| |b| |g| NIL)) 

@@ -1,11 +1,11 @@
 
 (SDEFUN |PATRES;new;%;1| ((% (%))) (CONS 0 (SPADCALL (QREFELT % 10)))) 
 
-(PUT '|PATRES;failed;%;2| '|SPADreplace| '(XLAM NIL (CONS 1 "failed"))) 
+(MAKEPROP '|PATRES;failed;%;2| '|SPADreplace| '(XLAM NIL (CONS 1 "failed"))) 
 
 (SDEFUN |PATRES;failed;%;2| ((% (%))) (CONS 1 "failed")) 
 
-(PUT '|PATRES;failed?;%B;3| '|SPADreplace| '(XLAM (|x|) (QEQCAR |x| 1))) 
+(MAKEPROP '|PATRES;failed?;%B;3| '|SPADreplace| '(XLAM (|x|) (QEQCAR |x| 1))) 
 
 (SDEFUN |PATRES;failed?;%B;3| ((|x| (%)) (% (|Boolean|))) (QEQCAR |x| 1)) 
 

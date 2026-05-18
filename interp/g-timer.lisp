@@ -269,7 +269,7 @@
 
 ; initializeTimedNames() ==
 ;   for [name, :.] in $interpreterTimedNames for i in 0.. repeat
-;     PUT(name, 'index, i)
+;         MAKEPROP(name, 'index, i)
 ;   initializeTimedStack()
 
 (DEFUN |initializeTimedNames| ()
@@ -283,7 +283,7 @@
             (RETURN NIL))
            (#1='T
             (AND (CONSP |bfVar#5|) (PROGN (SETQ |name| (CAR |bfVar#5|)) #1#)
-                 (PUT |name| '|index| |i|))))
+                 (MAKEPROP |name| '|index| |i|))))
           (SETQ |bfVar#6| (CDR |bfVar#6|))
           (SETQ |i| (+ |i| 1))))
        |$interpreterTimedNames| NIL 0)

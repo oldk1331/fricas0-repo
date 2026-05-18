@@ -178,7 +178,7 @@
                        (QREFELT % 88)))
                 (EXIT (SPADCALL |y| (QREFELT % 101)))))) 
 
-(PUT '|COMPCAT-;rank;Pi;10| '|SPADreplace| '(XLAM NIL 2)) 
+(MAKEPROP '|COMPCAT-;rank;Pi;10| '|SPADreplace| '(XLAM NIL 2)) 
 
 (SDEFUN |COMPCAT-;rank;Pi;10| ((% (|PositiveInteger|))) 2) 
 

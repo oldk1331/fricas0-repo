@@ -1,34 +1,35 @@
 
-(PUT '|ISTRING;new;NniC%;1| '|SPADreplace| '|make_string_code|) 
+(MAKEPROP '|ISTRING;new;NniC%;1| '|SPADreplace| '|make_string_code|) 
 
 (SDEFUN |ISTRING;new;NniC%;1|
         ((|n| (|NonNegativeInteger|)) (|c| (|Character|)) (% (%)))
         (|make_string_code| |n| |c|)) 
 
-(PUT '|ISTRING;empty;%;2| '|SPADreplace| '(XLAM NIL (|filler_spaces| 0))) 
+(MAKEPROP '|ISTRING;empty;%;2| '|SPADreplace| '(XLAM NIL (|filler_spaces| 0))) 
 
 (SDEFUN |ISTRING;empty;%;2| ((% (%))) (|filler_spaces| 0)) 
 
 (SDEFUN |ISTRING;empty?;%B;3| ((|s| (%)) (% (|Boolean|))) (EQL (QCSIZE |s|) 0)) 
 
-(PUT '|ISTRING;#;%Nni;4| '|SPADreplace| 'QCSIZE) 
+(MAKEPROP '|ISTRING;#;%Nni;4| '|SPADreplace| 'QCSIZE) 
 
 (SDEFUN |ISTRING;#;%Nni;4| ((|s| (%)) (% (|NonNegativeInteger|))) (QCSIZE |s|)) 
 
-(PUT '|ISTRING;=;2%B;5| '|SPADreplace| 'EQUAL) 
+(MAKEPROP '|ISTRING;=;2%B;5| '|SPADreplace| 'EQUAL) 
 
 (SDEFUN |ISTRING;=;2%B;5| ((|s| (%)) (|t| (%)) (% (|Boolean|))) (EQUAL |s| |t|)) 
 
-(PUT '|ISTRING;<;2%B;6| '|SPADreplace| '(XLAM (|s| |t|) (CGREATERP |t| |s|))) 
+(MAKEPROP '|ISTRING;<;2%B;6| '|SPADreplace|
+          '(XLAM (|s| |t|) (CGREATERP |t| |s|))) 
 
 (SDEFUN |ISTRING;<;2%B;6| ((|s| (%)) (|t| (%)) (% (|Boolean|)))
         (CGREATERP |t| |s|)) 
 
-(PUT '|ISTRING;concat;3%;7| '|SPADreplace| 'STRCONC) 
+(MAKEPROP '|ISTRING;concat;3%;7| '|SPADreplace| 'STRCONC) 
 
 (SDEFUN |ISTRING;concat;3%;7| ((|s| (%)) (|t| (%)) (% (%))) (STRCONC |s| |t|)) 
 
-(PUT '|ISTRING;copy;2%;8| '|SPADreplace| 'COPY-SEQ) 
+(MAKEPROP '|ISTRING;copy;2%;8| '|SPADreplace| 'COPY-SEQ) 
 
 (SDEFUN |ISTRING;copy;2%;8| ((|s| (%)) (% (%))) (COPY-SEQ |s|)) 
 

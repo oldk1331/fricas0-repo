@@ -220,12 +220,14 @@
                   (EXIT 'T)))
                 #3# (EXIT #1#)))) 
 
-(PUT '|SCRT;screenCoordX;%Df;18| '|SPADreplace| '(XLAM (|pt|) (QAREF1 |pt| 0))) 
+(MAKEPROP '|SCRT;screenCoordX;%Df;18| '|SPADreplace|
+          '(XLAM (|pt|) (QAREF1 |pt| 0))) 
 
 (SDEFUN |SCRT;screenCoordX;%Df;18| ((|pt| (%)) (% (|DoubleFloat|)))
         (QAREF1 |pt| 0)) 
 
-(PUT '|SCRT;screenCoordY;%Df;19| '|SPADreplace| '(XLAM (|pt|) (QAREF1 |pt| 1))) 
+(MAKEPROP '|SCRT;screenCoordY;%Df;19| '|SPADreplace|
+          '(XLAM (|pt|) (QAREF1 |pt| 1))) 
 
 (SDEFUN |SCRT;screenCoordY;%Df;19| ((|pt| (%)) (% (|DoubleFloat|)))
         (QAREF1 |pt| 1)) 
@@ -273,7 +275,7 @@
 (SDEFUN |SCRT;isVector?;%B;26| ((|p| (%)) (% (|Boolean|)))
         (|less_DF| (QAREF1 |p| (QREFELT % 6)) (|mk_DF| 1 -1))) 
 
-(PUT '|SCRT;hash| '|SPADreplace| '(XLAM (|s|) 0)) 
+(MAKEPROP '|SCRT;hash| '|SPADreplace| '(XLAM (|s|) 0)) 
 
 (SDEFUN |SCRT;hash| ((|s| (%)) (% (|SingleInteger|))) 0) 
 

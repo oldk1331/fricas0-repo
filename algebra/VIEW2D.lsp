@@ -15,8 +15,8 @@
 (SDEFUN |VIEW2D;doOptions| ((|v| (|Rep|)) (% (|Void|)))
         (QSETVELT |v| 3 (SPADCALL (QVELT |v| 7) "FriCAS2D" (QREFELT % 15)))) 
 
-(PUT '|VIEW2D;options;%L;3| '|SPADreplace|
-     '(XLAM (|viewport|) (QVELT |viewport| 7))) 
+(MAKEPROP '|VIEW2D;options;%L;3| '|SPADreplace|
+          '(XLAM (|viewport|) (QVELT |viewport| 7))) 
 
 (SDEFUN |VIEW2D;options;%L;3| ((|viewport| (%)) (% (|List| (|DrawOption|))))
         (QVELT |viewport| 7)) 
@@ -60,8 +60,8 @@
                                      (|Union| (|GraphImage|) "undefined")
                                      #1#)))))))) 
 
-(PUT '|VIEW2D;graphStates;%V;7| '|SPADreplace|
-     '(XLAM (|viewport|) (QVELT |viewport| 2))) 
+(MAKEPROP '|VIEW2D;graphStates;%V;7| '|SPADreplace|
+          '(XLAM (|viewport|) (QVELT |viewport| 2))) 
 
 (SDEFUN |VIEW2D;graphStates;%V;7|
         ((|viewport| (%))
@@ -77,15 +77,15 @@
                      (|:| |showing| (|Integer|))))))
         (QVELT |viewport| 2)) 
 
-(PUT '|VIEW2D;graphs;%V;8| '|SPADreplace|
-     '(XLAM (|viewport|) (QVELT |viewport| 1))) 
+(MAKEPROP '|VIEW2D;graphs;%V;8| '|SPADreplace|
+          '(XLAM (|viewport|) (QVELT |viewport| 1))) 
 
 (SDEFUN |VIEW2D;graphs;%V;8|
         ((|viewport| (%)) (% (|Vector| (|Union| (|GraphImage|) "undefined"))))
         (QVELT |viewport| 1)) 
 
-(PUT '|VIEW2D;key;%I;9| '|SPADreplace|
-     '(XLAM (|viewport|) (QVELT |viewport| 0))) 
+(MAKEPROP '|VIEW2D;key;%I;9| '|SPADreplace|
+          '(XLAM (|viewport|) (QVELT |viewport| 0))) 
 
 (SDEFUN |VIEW2D;key;%I;9| ((|viewport| (%)) (% (|Integer|)))
         (QVELT |viewport| 0)) 

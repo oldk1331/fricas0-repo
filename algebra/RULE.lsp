@@ -1,22 +1,23 @@
 
-(PUT '|RULE;pattern;%P;1| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 0))) 
+(MAKEPROP '|RULE;pattern;%P;1| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 0))) 
 
 (SDEFUN |RULE;pattern;%P;1| ((|x| (%)) (% (|Pattern| |Base|))) (QVELT |x| 0)) 
 
-(PUT '|RULE;lhs;%F;2| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 1))) 
+(MAKEPROP '|RULE;lhs;%F;2| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 1))) 
 
 (SDEFUN |RULE;lhs;%F;2| ((|x| (%)) (% (F))) (QVELT |x| 1)) 
 
-(PUT '|RULE;rhs;%F;3| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 2))) 
+(MAKEPROP '|RULE;rhs;%F;3| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 2))) 
 
 (SDEFUN |RULE;rhs;%F;3| ((|x| (%)) (% (F))) (QVELT |x| 2)) 
 
-(PUT '|RULE;quotedOperators;%L;4| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 3))) 
+(MAKEPROP '|RULE;quotedOperators;%L;4| '|SPADreplace|
+          '(XLAM (|x|) (QVELT |x| 3))) 
 
 (SDEFUN |RULE;quotedOperators;%L;4| ((|x| (%)) (% (|List| (|Symbol|))))
         (QVELT |x| 3)) 
 
-(PUT '|RULE;mkRule| '|SPADreplace| 'VECTOR) 
+(MAKEPROP '|RULE;mkRule| '|SPADreplace| 'VECTOR) 
 
 (SDEFUN |RULE;mkRule|
         ((|pt| (|Pattern| |Base|)) (|p| (F)) (|s| (F))

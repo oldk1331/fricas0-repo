@@ -5,7 +5,7 @@
           (|error| "quadraticForm requires a symmetric matrix"))
          ('T |m|))) 
 
-(PUT '|QFORM;matrix;%Sm;2| '|SPADreplace| '(XLAM (|q|) |q|)) 
+(MAKEPROP '|QFORM;matrix;%Sm;2| '|SPADreplace| '(XLAM (|q|) |q|)) 
 
 (SDEFUN |QFORM;matrix;%Sm;2| ((|q| (%)) (% (|SquareMatrix| |n| K))) |q|) 
 

@@ -2040,7 +2040,8 @@
 (SDEFUN |FSPECF;coerce_Q;FF;241| ((|x| (|Fraction| (|Integer|))) (% (F)))
         (SPADCALL |x| (QREFELT % 246))) 
 
-(PUT '|FSPECF;retract_Q;FU;242| '|SPADreplace| '(XLAM (|x|) (CONS 1 "failed"))) 
+(MAKEPROP '|FSPECF;retract_Q;FU;242| '|SPADreplace|
+          '(XLAM (|x|) (CONS 1 "failed"))) 
 
 (SDEFUN |FSPECF;retract_Q;FU;242|
         ((|x| (F)) (% (|Union| (|Fraction| (|Integer|)) "failed")))

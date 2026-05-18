@@ -1,13 +1,13 @@
 
-(PUT '|PADICRC;getExpon| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|PADICRC;getExpon| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |PADICRC;getExpon| ((|x| (%)) (% (|Integer|))) (QCAR |x|)) 
 
-(PUT '|PADICRC;getZp| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|PADICRC;getZp| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |PADICRC;getZp| ((|x| (%)) (% (PADIC))) (QCDR |x|)) 
 
-(PUT '|PADICRC;makeQp| '|SPADreplace| 'CONS) 
+(MAKEPROP '|PADICRC;makeQp| '|SPADreplace| 'CONS) 
 
 (SDEFUN |PADICRC;makeQp| ((|r| (|Integer|)) (|int| (PADIC)) (% (%)))
         (CONS |r| |int|)) 
@@ -364,7 +364,7 @@
                                 (SPADCALL (SPADCALL |c| (QREFELT % 10)) |mon|
                                           (QREFELT % 75))))))))))) 
 
-(PUT '|PADICRC;showAll?| '|SPADreplace| '(XLAM NIL |$streamsShowAll|)) 
+(MAKEPROP '|PADICRC;showAll?| '|SPADreplace| '(XLAM NIL |$streamsShowAll|)) 
 
 (SDEFUN |PADICRC;showAll?| ((% (|Boolean|))) |$streamsShowAll|) 
 

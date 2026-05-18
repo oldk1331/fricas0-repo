@@ -55,7 +55,7 @@
                (SEQ (LETT |fac2| (SPADCALL |fac1| (QREFELT % 22)))
                     (EXIT (CONS |mul1| |fac2|))))) 
 
-(PUT '|CFACET;getIntervals;%L;4| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|CFACET;getIntervals;%L;4| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |CFACET;getIntervals;%L;4|
         ((|orf| (%)) (% (|List| (|Segment| (|Integer|))))) (QCDR |orf|)) 
@@ -82,7 +82,7 @@
                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (EXIT |value|)))) 
 
-(PUT '|CFACET;getMult;%I;6| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|CFACET;getMult;%I;6| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |CFACET;getMult;%I;6| ((|orf| (%)) (% (|Integer|))) (QCAR |orf|)) 
 

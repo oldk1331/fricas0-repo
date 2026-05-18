@@ -2,7 +2,7 @@
 (SDEFUN |SYMTAB;coerce;%Of;1| ((|t| (%)) (% (|OutputForm|)))
         (SPADCALL |t| (QREFELT % 8))) 
 
-(PUT '|SYMTAB;coerce;%T;2| '|SPADreplace| '(XLAM (|t|) |t|)) 
+(MAKEPROP '|SYMTAB;coerce;%T;2| '|SPADreplace| '(XLAM (|t|) |t|)) 
 
 (SDEFUN |SYMTAB;coerce;%T;2|
         ((|t| (%)) (% (|Table| (|Symbol|) (|FortranType|)))) |t|) 

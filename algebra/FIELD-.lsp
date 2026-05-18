@@ -37,11 +37,11 @@
              (EXIT (|spadConstant| % 10))))))
          (EXIT (|spadConstant| % 9)))) 
 
-(PUT '|FIELD-;euclideanSize;SNni;7| '|SPADreplace| '(XLAM (|x|) 0)) 
+(MAKEPROP '|FIELD-;euclideanSize;SNni;7| '|SPADreplace| '(XLAM (|x|) 0)) 
 
 (SDEFUN |FIELD-;euclideanSize;SNni;7| ((|x| (S)) (% (|NonNegativeInteger|))) 0) 
 
-(PUT '|FIELD-;prime?;SB;8| '|SPADreplace| '(XLAM (|x|) NIL)) 
+(MAKEPROP '|FIELD-;prime?;SB;8| '|SPADreplace| '(XLAM (|x|) NIL)) 
 
 (SDEFUN |FIELD-;prime?;SB;8| ((|x| (S)) (% (|Boolean|))) NIL) 
 

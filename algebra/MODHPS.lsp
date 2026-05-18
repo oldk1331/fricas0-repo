@@ -133,8 +133,8 @@
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (SPADCALL |l| |degs| |kind| |sigma| |gen| |check| (QREFELT % 50))) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;10| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;10| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;10|
         ((|check|
@@ -164,8 +164,8 @@
         (SPADCALL |l| |degs| |kind| |qvar| |sigma| |gen| |check|
                   (QREFELT % 54))) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;12| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;12| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;12|
         ((|check|
@@ -265,8 +265,8 @@
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (CONS 1 'T)) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;18| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;18| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;18|
         ((|check|
@@ -366,8 +366,8 @@
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (CONS 1 'T)) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;24| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;24| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;24|
         ((|check|
@@ -397,8 +397,8 @@
         (SPADCALL |l| |degs| |kind| |qvar| |sigma| |gen| |check|
                   (QREFELT % 54))) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;26| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;26| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;26|
         ((|check|
@@ -498,8 +498,8 @@
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (CONS 1 'T)) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;32| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;32| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;32|
         ((|check|
@@ -599,8 +599,8 @@
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (CONS 1 'T)) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;38| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;38| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;38|
         ((|check|
@@ -629,8 +629,8 @@
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (SPADCALL |l| |degs| |kind| |sigma| |gen| |check| (QREFELT % 50))) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;40| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;40| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;40|
         ((|check|
@@ -660,8 +660,8 @@
         (SPADCALL |l| |degs| |kind| |qvar| |sigma| |gen| |check|
                   (QREFELT % 54))) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;42| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;42| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;42|
         ((|check|
@@ -761,8 +761,8 @@
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (CONS 1 'T)) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;48| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;48| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;48|
         ((|check|
@@ -862,8 +862,8 @@
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (CONS 1 'T)) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;54| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;54| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;54|
         ((|check|
@@ -893,8 +893,8 @@
         (SPADCALL |l| |degs| |kind| |qvar| |sigma| |gen| |check|
                   (QREFELT % 54))) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;56| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;56| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;56|
         ((|check|
@@ -994,8 +994,8 @@
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (CONS 1 'T)) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;62| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;62| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;62|
         ((|check|
@@ -1095,8 +1095,8 @@
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (CONS 1 'T)) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;68| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;68| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;68|
         ((|check|
@@ -1192,8 +1192,8 @@
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (SPADCALL |l| |degs| |kind| |sigma| |gen| |check| (QREFELT % 50))) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;74| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;74| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;74|
         ((|check|
@@ -1223,8 +1223,8 @@
         (SPADCALL |l| |degs| |kind| |qvar| |sigma| |gen| |check|
                   (QREFELT % 54))) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;76| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;76| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;76|
         ((|check|
@@ -1324,8 +1324,8 @@
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (CONS 1 'T)) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;82| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;82| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;82|
         ((|check|
@@ -1425,8 +1425,8 @@
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (CONS 1 'T)) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;88| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;88| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;88|
         ((|check|
@@ -1456,8 +1456,8 @@
         (SPADCALL |l| |degs| |kind| |qvar| |sigma| |gen| |check|
                   (QREFELT % 54))) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;90| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;90| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;90|
         ((|check|
@@ -1557,8 +1557,8 @@
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (CONS 1 'T)) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;96| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;96| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;96|
         ((|check|
@@ -1658,8 +1658,8 @@
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (CONS 1 'T)) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;102| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;102| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;102|
         ((|check|
@@ -1688,8 +1688,8 @@
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (SPADCALL |l| |degs| |kind| |sigma| |gen| |check| (QREFELT % 50))) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;104| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;104| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;104|
         ((|check|
@@ -1719,8 +1719,8 @@
         (SPADCALL |l| |degs| |kind| |qvar| |sigma| |gen| |check|
                   (QREFELT % 54))) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;106| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;106| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;106|
         ((|check|
@@ -1820,8 +1820,8 @@
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (CONS 1 'T)) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;112| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;112| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;112|
         ((|check|
@@ -1921,8 +1921,8 @@
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (CONS 1 'T)) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;118| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;118| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;118|
         ((|check|
@@ -1952,8 +1952,8 @@
         (SPADCALL |l| |degs| |kind| |qvar| |sigma| |gen| |check|
                   (QREFELT % 54))) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;120| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;120| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;120|
         ((|check|
@@ -2053,8 +2053,8 @@
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (CONS 1 'T)) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;126| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;126| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;126|
         ((|check|
@@ -2154,8 +2154,8 @@
          (% (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (CONS 1 'T)) 
 
-(PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;132| '|SPADreplace|
-     '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
+(MAKEPROP '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;132| '|SPADreplace|
+          '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;132|
         ((|check|

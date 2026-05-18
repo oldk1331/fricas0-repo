@@ -1,6 +1,6 @@
 
-(PUT '|MKUCFUNC;func| '|SPADreplace|
-     '(XLAM (|name| |x|) (FUNCALL |name| |x| NIL))) 
+(MAKEPROP '|MKUCFUNC;func| '|SPADreplace|
+          '(XLAM (|name| |x|) (FUNCALL |name| |x| NIL))) 
 
 (SDEFUN |MKUCFUNC;func| ((|name| (|Symbol|)) (|x| (D)) (% (I)))
         (FUNCALL |name| |x| NIL)) 

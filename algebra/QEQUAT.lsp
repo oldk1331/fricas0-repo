@@ -3,16 +3,16 @@
         (SPADCALL (SPADCALL (QCAR |u|) (QREFELT % 9))
                   (SPADCALL (QCDR |u|) (QREFELT % 11)) (QREFELT % 12))) 
 
-(PUT '|QEQUAT;equation;SS%;2| '|SPADreplace| 'CONS) 
+(MAKEPROP '|QEQUAT;equation;SS%;2| '|SPADreplace| 'CONS) 
 
 (SDEFUN |QEQUAT;equation;SS%;2| ((|x| (|Symbol|)) (|s| (|String|)) (% (%)))
         (CONS |x| |s|)) 
 
-(PUT '|QEQUAT;variable;%S;3| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|QEQUAT;variable;%S;3| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |QEQUAT;variable;%S;3| ((|q| (%)) (% (|Symbol|))) (QCAR |q|)) 
 
-(PUT '|QEQUAT;value;%S;4| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|QEQUAT;value;%S;4| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |QEQUAT;value;%S;4| ((|q| (%)) (% (|String|))) (QCDR |q|)) 
 

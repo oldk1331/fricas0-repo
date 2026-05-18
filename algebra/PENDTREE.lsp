@@ -1,5 +1,5 @@
 
-(PUT '|PENDTREE;coerce;%T;1| '|SPADreplace| '(XLAM (|t|) |t|)) 
+(MAKEPROP '|PENDTREE;coerce;%T;1| '|SPADreplace| '(XLAM (|t|) |t|)) 
 
 (SDEFUN |PENDTREE;coerce;%T;1| ((|t| (%)) (% (|Tree| S))) |t|) 
 

@@ -1,9 +1,9 @@
 
-(PUT '|MODRING;modulus;%Mod;1| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|MODRING;modulus;%Mod;1| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |MODRING;modulus;%Mod;1| ((|x| (%)) (% (|Mod|))) (QCDR |x|)) 
 
-(PUT '|MODRING;coerce;%R;2| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|MODRING;coerce;%R;2| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |MODRING;coerce;%R;2| ((|x| (%)) (% (R))) (QCAR |x|)) 
 

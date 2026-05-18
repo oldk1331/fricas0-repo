@@ -67,7 +67,7 @@
                                 (|mk_DF| 5 -1)))
                     (QSETAREF1 |pt| 1 (|minus_DF| 1.0)) (EXIT |pt|)))) 
 
-(PUT '|SCONF;dimension;%Pi;7| '|SPADreplace| '(XLAM (|p|) 2)) 
+(MAKEPROP '|SCONF;dimension;%Pi;7| '|SPADreplace| '(XLAM (|p|) 2)) 
 
 (SDEFUN |SCONF;dimension;%Pi;7| ((|p| (%)) (% (|PositiveInteger|))) 2) 
 
@@ -109,7 +109,8 @@
                             (|mk_DF| 5 -1)))
                 (QSETAREF1 |pt| 1 (|minus_DF| 1.0)) (EXIT |pt|)))) 
 
-(PUT '|SCONF;distanceSquared;2%Df;11| '|SPADreplace| '(XLAM (|p1| |p2|) 1.0)) 
+(MAKEPROP '|SCONF;distanceSquared;2%Df;11| '|SPADreplace|
+          '(XLAM (|p1| |p2|) 1.0)) 
 
 (SDEFUN |SCONF;distanceSquared;2%Df;11|
         ((|p1| (%)) (|p2| (%)) (% (|DoubleFloat|))) 1.0) 
@@ -179,12 +180,14 @@
          ('T
           (NULL (SPADCALL (QAREF1 |pt| 8) (QAREF1 |mxs| 8) (QREFELT % 31)))))) 
 
-(PUT '|SCONF;screenCoordX;%Df;18| '|SPADreplace| '(XLAM (|pt|) (QAREF1 |pt| 4))) 
+(MAKEPROP '|SCONF;screenCoordX;%Df;18| '|SPADreplace|
+          '(XLAM (|pt|) (QAREF1 |pt| 4))) 
 
 (SDEFUN |SCONF;screenCoordX;%Df;18| ((|pt| (%)) (% (|DoubleFloat|)))
         (QAREF1 |pt| 4)) 
 
-(PUT '|SCONF;screenCoordY;%Df;19| '|SPADreplace| '(XLAM (|pt|) (QAREF1 |pt| 8))) 
+(MAKEPROP '|SCONF;screenCoordY;%Df;19| '|SPADreplace|
+          '(XLAM (|pt|) (QAREF1 |pt| 8))) 
 
 (SDEFUN |SCONF;screenCoordY;%Df;19| ((|pt| (%)) (% (|DoubleFloat|)))
         (QAREF1 |pt| 8)) 
@@ -278,7 +281,7 @@
 (SDEFUN |SCONF;isVector?;%B;27| ((|p| (%)) (% (|Boolean|)))
         (SPADCALL (QAREF1 |p| 1) (|minus_DF| (|mk_DF| 9 -1)) (QREFELT % 31))) 
 
-(PUT '|SCONF;hash| '|SPADreplace| '(XLAM (|s|) 0)) 
+(MAKEPROP '|SCONF;hash| '|SPADreplace| '(XLAM (|s|) 0)) 
 
 (SDEFUN |SCONF;hash| ((|s| (%)) (% (|SingleInteger|))) 0) 
 

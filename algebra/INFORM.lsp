@@ -1,5 +1,5 @@
 
-(PUT '|INFORM;convert;2%;1| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|INFORM;convert;2%;1| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |INFORM;convert;2%;1| ((|x| (%)) (% (%))) |x|) 
 
@@ -7,11 +7,11 @@
 
 (SDEFUN |INFORM;One;%;3| ((% (%))) (SPADCALL 1 (QREFELT % 9))) 
 
-(PUT '|INFORM;convert;%Se;4| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|INFORM;convert;%Se;4| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |INFORM;convert;%Se;4| ((|x| (%)) (% (|SExpression|))) |x|) 
 
-(PUT '|INFORM;convert;Se%;5| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|INFORM;convert;Se%;5| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |INFORM;convert;Se%;5| ((|x| (|SExpression|)) (% (%))) |x|) 
 
@@ -229,7 +229,7 @@
                          (EXIT (NREVERSE #2#))))
                    (QREFELT % 50))))))) 
 
-(PUT '|INFORM;parse;S%;17| '|SPADreplace| '|ncParseFromString|) 
+(MAKEPROP '|INFORM;parse;S%;17| '|SPADreplace| '|ncParseFromString|) 
 
 (SDEFUN |INFORM;parse;S%;17| ((|s| (|String|)) (% (%)))
         (|ncParseFromString| |s|)) 

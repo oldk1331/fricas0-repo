@@ -88,11 +88,11 @@
            (SEQ (SPADCALL (QVELT |f| 1) (QCAR |pr|) (QCDR |pr|) (QREFELT % 36))
                 (EXIT |pr|)))))) 
 
-(PUT '|KAFILE;name;%Fn;9| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 0))) 
+(MAKEPROP '|KAFILE;name;%Fn;9| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 0))) 
 
 (SDEFUN |KAFILE;name;%Fn;9| ((|f| (%)) (% (|FileName|))) (QVELT |f| 0)) 
 
-(PUT '|KAFILE;iomode;%S;10| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 2))) 
+(MAKEPROP '|KAFILE;iomode;%S;10| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 2))) 
 
 (SDEFUN |KAFILE;iomode;%S;10| ((|f| (%)) (% (|String|))) (QVELT |f| 2)) 
 

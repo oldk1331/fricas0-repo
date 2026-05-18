@@ -464,7 +464,7 @@
 
 (SDEFUN |XRPOLY;One;%;25| ((% (%))) (CONS 0 (|spadConstant| % 56))) 
 
-(PUT '|XRPOLY;constant?;%B;26| '|SPADreplace| '(XLAM (|p|) (QEQCAR |p| 0))) 
+(MAKEPROP '|XRPOLY;constant?;%B;26| '|SPADreplace| '(XLAM (|p|) (QEQCAR |p| 0))) 
 
 (SDEFUN |XRPOLY;constant?;%B;26| ((|p| (%)) (% (|Boolean|))) (QEQCAR |p| 0)) 
 
@@ -531,7 +531,7 @@
               (CONS (|spadConstant| % 15)
                     (SPADCALL (|spadConstant| % 55) |v| (QREFELT % 20))))) 
 
-(PUT '|XRPOLY;coerce;R%;33| '|SPADreplace| '(XLAM (|r|) (CONS 0 |r|))) 
+(MAKEPROP '|XRPOLY;coerce;R%;33| '|SPADreplace| '(XLAM (|r|) (CONS 0 |r|))) 
 
 (SDEFUN |XRPOLY;coerce;R%;33| ((|r| (R)) (% (%))) (CONS 0 |r|)) 
 

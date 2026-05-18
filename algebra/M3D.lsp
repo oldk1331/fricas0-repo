@@ -112,7 +112,7 @@
               (SPADCALL |retVal| 2 |jDim| (QREFELT % 24))
               (SPADCALL |retVal| 3 |kDim| (QREFELT % 24)) (EXIT |retVal|)))) 
 
-(PUT '|M3D;coerce;Pa%;3| '|SPADreplace| '(XLAM (|matrixRep|) |matrixRep|)) 
+(MAKEPROP '|M3D;coerce;Pa%;3| '|SPADreplace| '(XLAM (|matrixRep|) |matrixRep|)) 
 
 (SDEFUN |M3D;coerce;Pa%;3|
         ((|matrixRep|
@@ -120,7 +120,7 @@
          (% (%)))
         |matrixRep|) 
 
-(PUT '|M3D;coerce;%Pa;4| '|SPADreplace| '(XLAM (|mat|) |mat|)) 
+(MAKEPROP '|M3D;coerce;%Pa;4| '|SPADreplace| '(XLAM (|mat|) |mat|)) 
 
 (SDEFUN |M3D;coerce;%Pa;4|
         ((|mat| (%))

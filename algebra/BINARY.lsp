@@ -2,7 +2,7 @@
 (SDEFUN |BINARY;binary;F%;1| ((|r| (|Fraction| (|Integer|))) (% (%)))
         (SPADCALL |r| (QREFELT % 7))) 
 
-(PUT '|BINARY;coerce;%Re;2| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|BINARY;coerce;%Re;2| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |BINARY;coerce;%Re;2| ((|x| (%)) (% (|RadixExpansion| 2))) |x|) 
 

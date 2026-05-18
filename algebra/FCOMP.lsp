@@ -1,15 +1,15 @@
 
 (SDEFUN |FCOMP;sin;E%;1| ((|e| (E)) (% (%))) (CONS 'T |e|)) 
 
-(PUT '|FCOMP;cos;E%;2| '|SPADreplace| '(XLAM (|e|) (CONS NIL |e|))) 
+(MAKEPROP '|FCOMP;cos;E%;2| '|SPADreplace| '(XLAM (|e|) (CONS NIL |e|))) 
 
 (SDEFUN |FCOMP;cos;E%;2| ((|e| (E)) (% (%))) (CONS NIL |e|)) 
 
-(PUT '|FCOMP;sin?;%B;3| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|FCOMP;sin?;%B;3| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |FCOMP;sin?;%B;3| ((|x| (%)) (% (|Boolean|))) (QCAR |x|)) 
 
-(PUT '|FCOMP;argument;%E;4| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|FCOMP;argument;%E;4| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |FCOMP;argument;%E;4| ((|x| (%)) (% (E))) (QCDR |x|)) 
 

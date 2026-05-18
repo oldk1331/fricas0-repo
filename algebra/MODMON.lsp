@@ -166,7 +166,7 @@
 (SDEFUN |MODMON;degree| ((|x| (%)) (% (|NonNegativeInteger|)))
         (SPADCALL |x| (QREFELT % 13))) 
 
-(PUT '|MODMON;lift;%Rep;17| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|MODMON;lift;%Rep;17| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |MODMON;lift;%Rep;17| ((|x| (%)) (% (|Rep|))) |x|) 
 

@@ -1430,7 +1430,7 @@
                            (LETT #7# (CDR #7#)) (GO G190) G191 (EXIT NIL))
                       (EXIT (SPADCALL |solsn| |leq| (QREFELT % 118))))))))) 
 
-(PUT '|IDEAL;coerce;L%;31| '|SPADreplace| '(XLAM (|Id|) (CONS |Id| NIL))) 
+(MAKEPROP '|IDEAL;coerce;L%;31| '|SPADreplace| '(XLAM (|Id|) (CONS |Id| NIL))) 
 
 (SDEFUN |IDEAL;coerce;L%;31| ((|Id| (|List| |DPoly|)) (% (%))) (CONS |Id| NIL)) 
 
@@ -1465,11 +1465,11 @@
 (SDEFUN |IDEAL;groebnerIdeal;L%;34| ((|Id| (|List| |DPoly|)) (% (%)))
         (CONS |Id| 'T)) 
 
-(PUT '|IDEAL;generators;%L;35| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|IDEAL;generators;%L;35| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |IDEAL;generators;%L;35| ((I (%)) (% (|List| |DPoly|))) (QCAR I)) 
 
-(PUT '|IDEAL;groebner?;%B;36| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|IDEAL;groebner?;%B;36| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |IDEAL;groebner?;%B;36| ((I (%)) (% (|Boolean|))) (QCDR I)) 
 

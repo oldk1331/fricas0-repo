@@ -6,7 +6,7 @@
           (QREFELT % 36))
          (EXIT '|Repeated|))) 
 
-(PUT '|JBSA;getNotation;S;2| '|SPADreplace| '(XLAM NIL '|Repeated|)) 
+(MAKEPROP '|JBSA;getNotation;S;2| '|SPADreplace| '(XLAM NIL '|Repeated|)) 
 
 (SDEFUN |JBSA;getNotation;S;2| ((% (|Symbol|))) '|Repeated|) 
 

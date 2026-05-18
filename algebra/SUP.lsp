@@ -1,9 +1,9 @@
 
-(PUT '|SUP;makeSUP;2%;1| '|SPADreplace| '(XLAM (|p|) |p|)) 
+(MAKEPROP '|SUP;makeSUP;2%;1| '|SPADreplace| '(XLAM (|p|) |p|)) 
 
 (SDEFUN |SUP;makeSUP;2%;1| ((|p| (%)) (% (|SparseUnivariatePolynomial| R))) |p|) 
 
-(PUT '|SUP;unmakeSUP;2%;2| '|SPADreplace| '(XLAM (|sp|) |sp|)) 
+(MAKEPROP '|SUP;unmakeSUP;2%;2| '|SPADreplace| '(XLAM (|sp|) |sp|)) 
 
 (SDEFUN |SUP;unmakeSUP;2%;2| ((|sp| (|SparseUnivariatePolynomial| R)) (% (%)))
         |sp|) 
@@ -93,7 +93,7 @@
                          (EXIT |y|)))))))
           #7# (EXIT #5#)))) 
 
-(PUT '|SUP;zero?;%B;5| '|SPADreplace| 'NULL) 
+(MAKEPROP '|SUP;zero?;%B;5| '|SPADreplace| 'NULL) 
 
 (SDEFUN |SUP;zero?;%B;5| ((|p| (%)) (% (|Boolean|))) (NULL |p|)) 
 
@@ -250,12 +250,13 @@
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(PUT '|SUP;univariate;2%;13| '|SPADreplace| '(XLAM (|p|) |p|)) 
+(MAKEPROP '|SUP;univariate;2%;13| '|SPADreplace| '(XLAM (|p|) |p|)) 
 
 (SDEFUN |SUP;univariate;2%;13| ((|p| (%)) (% (|SparseUnivariatePolynomial| R)))
         |p|) 
 
-(PUT '|SUP;multivariate;%Saos%;14| '|SPADreplace| '(XLAM (|sup| |v|) |sup|)) 
+(MAKEPROP '|SUP;multivariate;%Saos%;14| '|SPADreplace|
+          '(XLAM (|sup| |v|) |sup|)) 
 
 (SDEFUN |SUP;multivariate;%Saos%;14|
         ((|sup| (|SparseUnivariatePolynomial| R))

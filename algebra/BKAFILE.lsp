@@ -11,7 +11,7 @@
                                  (QREFELT % 10))
                        (SPADCALL |mode| (QREFELT % 10)))))))) 
 
-(PUT '|BKAFILE;close!;%V;2| '|SPADreplace| '|kaf_close|) 
+(MAKEPROP '|BKAFILE;close!;%V;2| '|SPADreplace| '|kaf_close|) 
 
 (SDEFUN |BKAFILE;close!;%V;2| ((|f| (%)) (% (|Void|))) (|kaf_close| |f|)) 
 
@@ -29,12 +29,12 @@
                   ((QEQCAR |res1| 1) (|error| "can not save value to file"))
                   ('T (|kaf_write| |f| |key| (QCDR |res1|)))))))) 
 
-(PUT '|BKAFILE;remove!;%SV;5| '|SPADreplace| '|kaf_remove|) 
+(MAKEPROP '|BKAFILE;remove!;%SV;5| '|SPADreplace| '|kaf_remove|) 
 
 (SDEFUN |BKAFILE;remove!;%SV;5| ((|f| (%)) (|key| (|String|)) (% (|Void|)))
         (|kaf_remove| |f| |key|)) 
 
-(PUT '|BKAFILE;keys;%L;6| '|SPADreplace| '|rkeys2|) 
+(MAKEPROP '|BKAFILE;keys;%L;6| '|SPADreplace| '|rkeys2|) 
 
 (SDEFUN |BKAFILE;keys;%L;6| ((|f| (%)) (% (|List| (|String|)))) (|rkeys2| |f|)) 
 

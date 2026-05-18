@@ -1,5 +1,5 @@
 
-(PUT '|PI;qcoerce;I%;1| '|SPADreplace| '(XLAM (|n|) |n|)) 
+(MAKEPROP '|PI;qcoerce;I%;1| '|SPADreplace| '(XLAM (|n|) |n|)) 
 
 (SDEFUN |PI;qcoerce;I%;1| ((|n| (|Integer|)) (% (%))) |n|) 
 

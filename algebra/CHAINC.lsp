@@ -1,10 +1,10 @@
 
-(PUT '|CHAINC;chainComplex;L%;1| '|SPADreplace| '(XLAM (|v|) |v|)) 
+(MAKEPROP '|CHAINC;chainComplex;L%;1| '|SPADreplace| '(XLAM (|v|) |v|)) 
 
 (SDEFUN |CHAINC;chainComplex;L%;1|
         ((|v| (|List| (|Matrix| (|Integer|)))) (% (%))) |v|) 
 
-(PUT '|CHAINC;transition_matrices;%L;2| '|SPADreplace| '(XLAM (|a|) |a|)) 
+(MAKEPROP '|CHAINC;transition_matrices;%L;2| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
 (SDEFUN |CHAINC;transition_matrices;%L;2|
         ((|a| (%)) (% (|List| (|Matrix| (|Integer|))))) |a|) 

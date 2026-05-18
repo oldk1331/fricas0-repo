@@ -1,13 +1,13 @@
 
-(PUT '|SUCH;construct;S1S2%;1| '|SPADreplace| 'CONS) 
+(MAKEPROP '|SUCH;construct;S1S2%;1| '|SPADreplace| 'CONS) 
 
 (SDEFUN |SUCH;construct;S1S2%;1| ((|o| (S1)) (|c| (S2)) (% (%))) (CONS |o| |c|)) 
 
-(PUT '|SUCH;lhs;%S1;2| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|SUCH;lhs;%S1;2| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |SUCH;lhs;%S1;2| ((|st| (%)) (% (S1))) (QCAR |st|)) 
 
-(PUT '|SUCH;rhs;%S2;3| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|SUCH;rhs;%S2;3| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |SUCH;rhs;%S2;3| ((|st| (%)) (% (S2))) (QCDR |st|)) 
 

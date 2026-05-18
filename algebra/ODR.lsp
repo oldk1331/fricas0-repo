@@ -1,9 +1,9 @@
 
-(PUT '|ODR;coerce;R%;1| '|SPADreplace| '(XLAM (|u|) |u|)) 
+(MAKEPROP '|ODR;coerce;R%;1| '|SPADreplace| '(XLAM (|u|) |u|)) 
 
 (SDEFUN |ODR;coerce;R%;1| ((|u| (R)) (% (%))) |u|) 
 
-(PUT '|ODR;coerce;%R;2| '|SPADreplace| '(XLAM (|p|) |p|)) 
+(MAKEPROP '|ODR;coerce;%R;2| '|SPADreplace| '(XLAM (|p|) |p|)) 
 
 (SDEFUN |ODR;coerce;%R;2| ((|p| (%)) (% (R))) |p|) 
 

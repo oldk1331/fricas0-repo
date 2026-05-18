@@ -25,7 +25,8 @@
                    (GO G190) G191 (EXIT NIL))
               (EXIT (CONS |obs| NIL))))) 
 
-(PUT '|DGRPH;directedGraph;L%;2| '|SPADreplace| '(XLAM (|ob|) (CONS |ob| NIL))) 
+(MAKEPROP '|DGRPH;directedGraph;L%;2| '|SPADreplace|
+          '(XLAM (|ob|) (CONS |ob| NIL))) 
 
 (SDEFUN |DGRPH;directedGraph;L%;2|
         ((|ob|
@@ -35,7 +36,7 @@
          (% (%)))
         (CONS |ob| NIL)) 
 
-(PUT '|DGRPH;directedGraph;LL%;3| '|SPADreplace| 'CONS) 
+(MAKEPROP '|DGRPH;directedGraph;LL%;3| '|SPADreplace| 'CONS) 
 
 (SDEFUN |DGRPH;directedGraph;LL%;3|
         ((|ob|
@@ -447,7 +448,7 @@
          (SEQ (LETT |a| (VECTOR |nm| 0 |n1| |n2| 0 0 |mp|))
               (EXIT (SPADCALL |s| |a| (QREFELT % 51)))))) 
 
-(PUT '|DGRPH;getVertices;%L;13| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|DGRPH;getVertices;%L;13| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |DGRPH;getVertices;%L;13|
         ((|s| (%))
@@ -457,7 +458,7 @@
                      (|:| |posY| (|NonNegativeInteger|))))))
         (QCAR |s|)) 
 
-(PUT '|DGRPH;getArrows;%L;14| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|DGRPH;getArrows;%L;14| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |DGRPH;getArrows;%L;14|
         ((|s| (%))
@@ -660,7 +661,7 @@
                    (LETT #10# (CDR #10#)) (GO G190) G191 (EXIT NIL))
               (EXIT (CONS |iv| |a|))))) 
 
-(PUT '|DGRPH;initial;%;16| '|SPADreplace| '(XLAM NIL (CONS NIL NIL))) 
+(MAKEPROP '|DGRPH;initial;%;16| '|SPADreplace| '(XLAM NIL (CONS NIL NIL))) 
 
 (SDEFUN |DGRPH;initial;%;16| ((% (%))) (CONS NIL NIL)) 
 

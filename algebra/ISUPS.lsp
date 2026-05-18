@@ -1,26 +1,26 @@
 
-(PUT '|ISUPS;makeTerm| '|SPADreplace| 'CONS) 
+(MAKEPROP '|ISUPS;makeTerm| '|SPADreplace| 'CONS) 
 
 (SDEFUN |ISUPS;makeTerm|
         ((|exp| (|Integer|)) (|coef| (|Coef|))
          (% (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
         (CONS |exp| |coef|)) 
 
-(PUT '|ISUPS;getCoef| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|ISUPS;getCoef| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |ISUPS;getCoef|
         ((|term| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))
          (% (|Coef|)))
         (QCDR |term|)) 
 
-(PUT '|ISUPS;getExpon| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|ISUPS;getExpon| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |ISUPS;getExpon|
         ((|term| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))
          (% (|Integer|)))
         (QCAR |term|)) 
 
-(PUT '|ISUPS;makeSeries;RS%;4| '|SPADreplace| 'CONS) 
+(MAKEPROP '|ISUPS;makeSeries;RS%;4| '|SPADreplace| 'CONS) 
 
 (SDEFUN |ISUPS;makeSeries;RS%;4|
         ((|refer| (|Reference| (|OrderedCompletion| (|Integer|))))
@@ -28,13 +28,13 @@
          (% (%)))
         (CONS |refer| |x|)) 
 
-(PUT '|ISUPS;getRef;%R;5| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|ISUPS;getRef;%R;5| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |ISUPS;getRef;%R;5|
         ((|ups| (%)) (% (|Reference| (|OrderedCompletion| (|Integer|)))))
         (QCAR |ups|)) 
 
-(PUT '|ISUPS;getStream;%S;6| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|ISUPS;getStream;%S;6| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |ISUPS;getStream;%S;6|
         ((|ups| (%))
@@ -3322,7 +3322,7 @@
             (#2# (|error| (STRCONC "acsch: " (QREFELT % 124))))))
           #3# (EXIT #1#)))) 
 
-(PUT '|ISUPS;factorials?| '|SPADreplace| '(XLAM NIL NIL)) 
+(MAKEPROP '|ISUPS;factorials?| '|SPADreplace| '(XLAM NIL NIL)) 
 
 (SDEFUN |ISUPS;factorials?| ((% (|Boolean|))) NIL) 
 
@@ -3356,7 +3356,7 @@
                       (SPADCALL (SPADCALL |c| (QREFELT % 191)) |mon|
                                 (QREFELT % 196))))))))))) 
 
-(PUT '|ISUPS;showAll?| '|SPADreplace| '(XLAM NIL 'T)) 
+(MAKEPROP '|ISUPS;showAll?| '|SPADreplace| '(XLAM NIL 'T)) 
 
 (SDEFUN |ISUPS;showAll?| ((% (|Boolean|))) 'T) 
 

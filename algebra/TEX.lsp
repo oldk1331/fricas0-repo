@@ -47,7 +47,7 @@
                                 %)))
                     (EXIT |f|)))) 
 
-(PUT '|TEX;sayExpr| '|SPADreplace| '|sayTeX|) 
+(MAKEPROP '|TEX;sayExpr| '|SPADreplace| '|sayTeX|) 
 
 (SDEFUN |TEX;sayExpr| ((|s| (|String|)) (% (|Void|))) (|sayTeX| |s|)) 
 
@@ -84,34 +84,34 @@
 (SDEFUN |TEX;display;%V;9| ((|f| (%)) (% (|Void|)))
         (SPADCALL |f| $LINELENGTH (QREFELT % 35))) 
 
-(PUT '|TEX;prologue;%L;10| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 0))) 
+(MAKEPROP '|TEX;prologue;%L;10| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 0))) 
 
 (SDEFUN |TEX;prologue;%L;10| ((|f| (%)) (% (|List| (|String|)))) (QVELT |f| 0)) 
 
-(PUT '|TEX;tex;%L;11| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 1))) 
+(MAKEPROP '|TEX;tex;%L;11| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 1))) 
 
 (SDEFUN |TEX;tex;%L;11| ((|f| (%)) (% (|List| (|String|)))) (QVELT |f| 1)) 
 
-(PUT '|TEX;epilogue;%L;12| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 2))) 
+(MAKEPROP '|TEX;epilogue;%L;12| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 2))) 
 
 (SDEFUN |TEX;epilogue;%L;12| ((|f| (%)) (% (|List| (|String|)))) (QVELT |f| 2)) 
 
-(PUT '|TEX;setPrologue!;%2L;13| '|SPADreplace|
-     '(XLAM (|f| |l|) (QSETVELT |f| 0 |l|))) 
+(MAKEPROP '|TEX;setPrologue!;%2L;13| '|SPADreplace|
+          '(XLAM (|f| |l|) (QSETVELT |f| 0 |l|))) 
 
 (SDEFUN |TEX;setPrologue!;%2L;13|
         ((|f| (%)) (|l| (|List| (|String|))) (% (|List| (|String|))))
         (QSETVELT |f| 0 |l|)) 
 
-(PUT '|TEX;setTex!;%2L;14| '|SPADreplace|
-     '(XLAM (|f| |l|) (QSETVELT |f| 1 |l|))) 
+(MAKEPROP '|TEX;setTex!;%2L;14| '|SPADreplace|
+          '(XLAM (|f| |l|) (QSETVELT |f| 1 |l|))) 
 
 (SDEFUN |TEX;setTex!;%2L;14|
         ((|f| (%)) (|l| (|List| (|String|))) (% (|List| (|String|))))
         (QSETVELT |f| 1 |l|)) 
 
-(PUT '|TEX;setEpilogue!;%2L;15| '|SPADreplace|
-     '(XLAM (|f| |l|) (QSETVELT |f| 2 |l|))) 
+(MAKEPROP '|TEX;setEpilogue!;%2L;15| '|SPADreplace|
+          '(XLAM (|f| |l|) (QSETVELT |f| 2 |l|))) 
 
 (SDEFUN |TEX;setEpilogue!;%2L;15|
         ((|f| (%)) (|l| (|List| (|String|))) (% (|List| (|String|))))

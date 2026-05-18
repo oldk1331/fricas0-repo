@@ -2,15 +2,15 @@
 (SDEFUN |FRIDEAL;One;%;1| ((% (%)))
         (CONS (VECTOR (|spadConstant| % 13)) (|spadConstant| % 12))) 
 
-(PUT '|FRIDEAL;numer;%V;2| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|FRIDEAL;numer;%V;2| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |FRIDEAL;numer;%V;2| ((|i| (%)) (% (|Vector| A))) (QCAR |i|)) 
 
-(PUT '|FRIDEAL;denom;%R;3| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|FRIDEAL;denom;%R;3| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |FRIDEAL;denom;%R;3| ((|i| (%)) (% (R))) (QCDR |i|)) 
 
-(PUT '|FRIDEAL;mkIdeal| '|SPADreplace| 'CONS) 
+(MAKEPROP '|FRIDEAL;mkIdeal| '|SPADreplace| 'CONS) 
 
 (SDEFUN |FRIDEAL;mkIdeal| ((|v| (|Vector| A)) (|d| (R)) (% (%))) (CONS |v| |d|)) 
 

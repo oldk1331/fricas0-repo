@@ -443,161 +443,169 @@
                                    #1#)))))
           #3# (EXIT #2#)))) 
 
-(PUT '|POSET-;isFixPoint?;ANniB;28| '|SPADreplace| '(XLAM (|s| |a|) 'T)) 
+(MAKEPROP '|POSET-;isFixPoint?;ANniB;28| '|SPADreplace| '(XLAM (|s| |a|) 'T)) 
 
 (SDEFUN |POSET-;isFixPoint?;ANniB;28|
         ((|s| (A)) (|a| (|NonNegativeInteger|)) (% (|Boolean|))) 'T) 
 
-(PUT '|POSET-;arrowName;A2NniS;29| '|SPADreplace| '(XLAM (|s| |a| |b|) "?")) 
+(MAKEPROP '|POSET-;arrowName;A2NniS;29| '|SPADreplace|
+          '(XLAM (|s| |a| |b|) "?")) 
 
 (SDEFUN |POSET-;arrowName;A2NniS;29|
         ((|s| (A)) (|a| (|NonNegativeInteger|)) (|b| (|NonNegativeInteger|))
          (% (|String|)))
         "?") 
 
-(PUT '|POSET-;getArrowIndex;A3Nni;30| '|SPADreplace| '(XLAM (|s| |a| |b|) 0)) 
+(MAKEPROP '|POSET-;getArrowIndex;A3Nni;30| '|SPADreplace|
+          '(XLAM (|s| |a| |b|) 0)) 
 
 (SDEFUN |POSET-;getArrowIndex;A3Nni;30|
         ((|s| (A)) (|a| (|NonNegativeInteger|)) (|b| (|NonNegativeInteger|))
          (% (|NonNegativeInteger|)))
         0) 
 
-(PUT '|POSET-;inDegree;A2Nni;31| '|SPADreplace| '(XLAM (|s| |a|) 0)) 
+(MAKEPROP '|POSET-;inDegree;A2Nni;31| '|SPADreplace| '(XLAM (|s| |a|) 0)) 
 
 (SDEFUN |POSET-;inDegree;A2Nni;31|
         ((|s| (A)) (|a| (|NonNegativeInteger|)) (% (|NonNegativeInteger|))) 0) 
 
-(PUT '|POSET-;outDegree;A2Nni;32| '|SPADreplace| '(XLAM (|s| |a|) 0)) 
+(MAKEPROP '|POSET-;outDegree;A2Nni;32| '|SPADreplace| '(XLAM (|s| |a|) 0)) 
 
 (SDEFUN |POSET-;outDegree;A2Nni;32|
         ((|s| (A)) (|a| (|NonNegativeInteger|)) (% (|NonNegativeInteger|))) 0) 
 
-(PUT '|POSET-;nodeFromNode;ANniL;33| '|SPADreplace| '(XLAM (|s| |a|) (LIST 0))) 
+(MAKEPROP '|POSET-;nodeFromNode;ANniL;33| '|SPADreplace|
+          '(XLAM (|s| |a|) (LIST 0))) 
 
 (SDEFUN |POSET-;nodeFromNode;ANniL;33|
         ((|s| (A)) (|a| (|NonNegativeInteger|))
          (% (|List| (|NonNegativeInteger|))))
         (LIST 0)) 
 
-(PUT '|POSET-;nodeToNode;ANniL;34| '|SPADreplace| '(XLAM (|s| |a|) (LIST 0))) 
+(MAKEPROP '|POSET-;nodeToNode;ANniL;34| '|SPADreplace|
+          '(XLAM (|s| |a|) (LIST 0))) 
 
 (SDEFUN |POSET-;nodeToNode;ANniL;34|
         ((|s| (A)) (|a| (|NonNegativeInteger|))
          (% (|List| (|NonNegativeInteger|))))
         (LIST 0)) 
 
-(PUT '|POSET-;arrowsFromNode;ANniL;35| '|SPADreplace|
-     '(XLAM (|s| |a|) (LIST 0))) 
+(MAKEPROP '|POSET-;arrowsFromNode;ANniL;35| '|SPADreplace|
+          '(XLAM (|s| |a|) (LIST 0))) 
 
 (SDEFUN |POSET-;arrowsFromNode;ANniL;35|
         ((|s| (A)) (|a| (|NonNegativeInteger|))
          (% (|List| (|NonNegativeInteger|))))
         (LIST 0)) 
 
-(PUT '|POSET-;arrowsToNode;ANniL;36| '|SPADreplace| '(XLAM (|s| |a|) (LIST 0))) 
+(MAKEPROP '|POSET-;arrowsToNode;ANniL;36| '|SPADreplace|
+          '(XLAM (|s| |a|) (LIST 0))) 
 
 (SDEFUN |POSET-;arrowsToNode;ANniL;36|
         ((|s| (A)) (|a| (|NonNegativeInteger|))
          (% (|List| (|NonNegativeInteger|))))
         (LIST 0)) 
 
-(PUT '|POSET-;nodeFromArrow;ANniL;37| '|SPADreplace| '(XLAM (|s| |a|) (LIST 0))) 
+(MAKEPROP '|POSET-;nodeFromArrow;ANniL;37| '|SPADreplace|
+          '(XLAM (|s| |a|) (LIST 0))) 
 
 (SDEFUN |POSET-;nodeFromArrow;ANniL;37|
         ((|s| (A)) (|a| (|NonNegativeInteger|))
          (% (|List| (|NonNegativeInteger|))))
         (LIST 0)) 
 
-(PUT '|POSET-;nodeToArrow;ANniL;38| '|SPADreplace| '(XLAM (|s| |a|) (LIST 0))) 
+(MAKEPROP '|POSET-;nodeToArrow;ANniL;38| '|SPADreplace|
+          '(XLAM (|s| |a|) (LIST 0))) 
 
 (SDEFUN |POSET-;nodeToArrow;ANniL;38|
         ((|s| (A)) (|a| (|NonNegativeInteger|))
          (% (|List| (|NonNegativeInteger|))))
         (LIST 0)) 
 
-(PUT '|POSET-;arrowsFromArrow;ANniL;39| '|SPADreplace|
-     '(XLAM (|s| |a|) (LIST 0))) 
+(MAKEPROP '|POSET-;arrowsFromArrow;ANniL;39| '|SPADreplace|
+          '(XLAM (|s| |a|) (LIST 0))) 
 
 (SDEFUN |POSET-;arrowsFromArrow;ANniL;39|
         ((|s| (A)) (|a| (|NonNegativeInteger|))
          (% (|List| (|NonNegativeInteger|))))
         (LIST 0)) 
 
-(PUT '|POSET-;arrowsToArrow;ANniL;40| '|SPADreplace| '(XLAM (|s| |a|) (LIST 0))) 
+(MAKEPROP '|POSET-;arrowsToArrow;ANniL;40| '|SPADreplace|
+          '(XLAM (|s| |a|) (LIST 0))) 
 
 (SDEFUN |POSET-;arrowsToArrow;ANniL;40|
         ((|s| (A)) (|a| (|NonNegativeInteger|))
          (% (|List| (|NonNegativeInteger|))))
         (LIST 0)) 
 
-(PUT '|POSET-;routeNodes;A2NniL;41| '|SPADreplace|
-     '(XLAM (|s| |a| |b|) (LIST 0))) 
+(MAKEPROP '|POSET-;routeNodes;A2NniL;41| '|SPADreplace|
+          '(XLAM (|s| |a| |b|) (LIST 0))) 
 
 (SDEFUN |POSET-;routeNodes;A2NniL;41|
         ((|s| (A)) (|a| (|NonNegativeInteger|)) (|b| (|NonNegativeInteger|))
          (% (|List| (|NonNegativeInteger|))))
         (LIST 0)) 
 
-(PUT '|POSET-;routeArrows;A2NniL;42| '|SPADreplace|
-     '(XLAM (|s| |a| |b|) (LIST 0))) 
+(MAKEPROP '|POSET-;routeArrows;A2NniL;42| '|SPADreplace|
+          '(XLAM (|s| |a| |b|) (LIST 0))) 
 
 (SDEFUN |POSET-;routeArrows;A2NniL;42|
         ((|s| (A)) (|a| (|NonNegativeInteger|)) (|b| (|NonNegativeInteger|))
          (% (|List| (|NonNegativeInteger|))))
         (LIST 0)) 
 
-(PUT '|POSET-;distance;A2NniI;43| '|SPADreplace| '(XLAM (|s| |a| |b|) 0)) 
+(MAKEPROP '|POSET-;distance;A2NniI;43| '|SPADreplace| '(XLAM (|s| |a| |b|) 0)) 
 
 (SDEFUN |POSET-;distance;A2NniI;43|
         ((|s| (A)) (|a| (|NonNegativeInteger|)) (|b| (|NonNegativeInteger|))
          (% (|Integer|)))
         0) 
 
-(PUT '|POSET-;+| '|SPADreplace| '(XLAM (|a| |b|) |a|)) 
+(MAKEPROP '|POSET-;+| '|SPADreplace| '(XLAM (|a| |b|) |a|)) 
 
 (SDEFUN |POSET-;+| ((|a| (A)) (|b| (A)) (% (A))) |a|) 
 
-(PUT '|POSET-;merge;3A;45| '|SPADreplace| '(XLAM (|a| |b|) |a|)) 
+(MAKEPROP '|POSET-;merge;3A;45| '|SPADreplace| '(XLAM (|a| |b|) |a|)) 
 
 (SDEFUN |POSET-;merge;3A;45| ((|a| (A)) (|b| (A)) (% (A))) |a|) 
 
-(PUT '|POSET-;isDirected?;B;46| '|SPADreplace| '(XLAM NIL 'T)) 
+(MAKEPROP '|POSET-;isDirected?;B;46| '|SPADreplace| '(XLAM NIL 'T)) 
 
 (SDEFUN |POSET-;isDirected?;B;46| ((% (|Boolean|))) 'T) 
 
-(PUT '|POSET-;createWidth;2Nni;47| '|SPADreplace| '(XLAM (|x|) 0)) 
+(MAKEPROP '|POSET-;createWidth;2Nni;47| '|SPADreplace| '(XLAM (|x|) 0)) 
 
 (SDEFUN |POSET-;createWidth;2Nni;47|
         ((|x| (|NonNegativeInteger|)) (% (|NonNegativeInteger|))) 0) 
 
-(PUT '|POSET-;createX;3Nni;48| '|SPADreplace| '(XLAM (|x| |n|) 0)) 
+(MAKEPROP '|POSET-;createX;3Nni;48| '|SPADreplace| '(XLAM (|x| |n|) 0)) 
 
 (SDEFUN |POSET-;createX;3Nni;48|
         ((|x| (|NonNegativeInteger|)) (|n| (|NonNegativeInteger|))
          (% (|NonNegativeInteger|)))
         0) 
 
-(PUT '|POSET-;createY;3Nni;49| '|SPADreplace| '(XLAM (|x| |n|) 0)) 
+(MAKEPROP '|POSET-;createY;3Nni;49| '|SPADreplace| '(XLAM (|x| |n|) 0)) 
 
 (SDEFUN |POSET-;createY;3Nni;49|
         ((|x| (|NonNegativeInteger|)) (|n| (|NonNegativeInteger|))
          (% (|NonNegativeInteger|)))
         0) 
 
-(PUT '|POSET-;looseEquals;2AB;50| '|SPADreplace| '(XLAM (|x| |y|) NIL)) 
+(MAKEPROP '|POSET-;looseEquals;2AB;50| '|SPADreplace| '(XLAM (|x| |y|) NIL)) 
 
 (SDEFUN |POSET-;looseEquals;2AB;50| ((|x| (A)) (|y| (A)) (% (|Boolean|))) NIL) 
 
-(PUT '|POSET-;map;ALL2IA;51| '|SPADreplace|
-     '(XLAM (|s| |m| |newOb| |offsetX| |offsetY|) |s|)) 
+(MAKEPROP '|POSET-;map;ALL2IA;51| '|SPADreplace|
+          '(XLAM (|s| |m| |newOb| |offsetX| |offsetY|) |s|)) 
 
 (SDEFUN |POSET-;map;ALL2IA;51|
         ((|s| (A)) (|m| (|List| (|NonNegativeInteger|))) (|newOb| (|List| S))
          (|offsetX| (|Integer|)) (|offsetY| (|Integer|)) (% (A)))
         |s|) 
 
-(PUT '|POSET-;mapContra;ALL2IA;52| '|SPADreplace|
-     '(XLAM (|s| |m| |newOb| |offsetX| |offsetY|) |s|)) 
+(MAKEPROP '|POSET-;mapContra;ALL2IA;52| '|SPADreplace|
+          '(XLAM (|s| |m| |newOb| |offsetX| |offsetY|) |s|)) 
 
 (SDEFUN |POSET-;mapContra;ALL2IA;52|
         ((|s| (A)) (|m| (|List| (|NonNegativeInteger|))) (|newOb| (|List| S))
@@ -1063,7 +1071,7 @@
             (SPADCALL (SPADCALL |zf| |u| |j| (QREFELT % 124))
                       (QREFELT % 125)))))) 
 
-(PUT '|POSET-;hash| '|SPADreplace| '(XLAM (|s|) 0)) 
+(MAKEPROP '|POSET-;hash| '|SPADreplace| '(XLAM (|s|) 0)) 
 
 (SDEFUN |POSET-;hash| ((|s| (A)) (% (|SingleInteger|))) 0) 
 

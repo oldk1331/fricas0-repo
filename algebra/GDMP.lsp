@@ -1,5 +1,5 @@
 
-(PUT '|GDMP;zero?;%B;1| '|SPADreplace| 'NULL) 
+(MAKEPROP '|GDMP;zero?;%B;1| '|SPADreplace| 'NULL) 
 
 (SDEFUN |GDMP;zero?;%B;1| ((|p| (%)) (% (|Boolean|))) (NULL |p|)) 
 

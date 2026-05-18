@@ -1,21 +1,21 @@
 
-(PUT '|UNTYPED;var;S%;1| '|SPADreplace| 'LIST) 
+(MAKEPROP '|UNTYPED;var;S%;1| '|SPADreplace| 'LIST) 
 
 (SDEFUN |UNTYPED;var;S%;1| ((|n| (|String|)) (% (%))) (LIST |n|)) 
 
-(PUT '|UNTYPED;var;SIl%;2| '|SPADreplace| '(XLAM (|n| |t|) (LIST |n|))) 
+(MAKEPROP '|UNTYPED;var;SIl%;2| '|SPADreplace| '(XLAM (|n| |t|) (LIST |n|))) 
 
 (SDEFUN |UNTYPED;var;SIl%;2| ((|n| (|String|)) (|t| (|ILogic|)) (% (%)))
         (LIST |n|)) 
 
-(PUT '|UNTYPED;getName;%S;3| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|UNTYPED;getName;%S;3| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |UNTYPED;getName;%S;3| ((|v| (%)) (% (|String|))) (QCAR |v|)) 
 
 (SDEFUN |UNTYPED;getType;%Il;4| ((|v| (%)) (% (|ILogic|)))
         (SPADCALL (QREFELT % 12))) 
 
-(PUT '|UNTYPED;toString;%S;5| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|UNTYPED;toString;%S;5| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |UNTYPED;toString;%S;5| ((|v| (%)) (% (|String|))) (QCAR |v|)) 
 

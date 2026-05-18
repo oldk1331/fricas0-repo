@@ -1,5 +1,5 @@
 
-(PUT '|PBWLB;One;%;1| '|SPADreplace| '(XLAM NIL NIL)) 
+(MAKEPROP '|PBWLB;One;%;1| '|SPADreplace| '(XLAM NIL NIL)) 
 
 (SDEFUN |PBWLB;One;%;1| ((% (%))) NIL) 
 
@@ -32,23 +32,23 @@
                         (COND (#2# #3#)
                               (#6# (|IdentityError| '|setUnion|)))))))))) 
 
-(PUT '|PBWLB;first;%Lw;4| '|SPADreplace| '|SPADfirst|) 
+(MAKEPROP '|PBWLB;first;%Lw;4| '|SPADreplace| '|SPADfirst|) 
 
 (SDEFUN |PBWLB;first;%Lw;4| ((|x| (%)) (% (|LyndonWord| |VarSet|)))
         (|SPADfirst| |x|)) 
 
-(PUT '|PBWLB;rest;2%;5| '|SPADreplace| 'CDR) 
+(MAKEPROP '|PBWLB;rest;2%;5| '|SPADreplace| 'CDR) 
 
 (SDEFUN |PBWLB;rest;2%;5| ((|x| (%)) (% (%))) (CDR |x|)) 
 
 (SDEFUN |PBWLB;coerce;VarSet%;6| ((|v| (|VarSet|)) (% (%)))
         (LIST (SPADCALL |v| (QREFELT % 19)))) 
 
-(PUT '|PBWLB;coerce;Lw%;7| '|SPADreplace| 'LIST) 
+(MAKEPROP '|PBWLB;coerce;Lw%;7| '|SPADreplace| 'LIST) 
 
 (SDEFUN |PBWLB;coerce;Lw%;7| ((|l| (|LyndonWord| |VarSet|)) (% (%))) (LIST |l|)) 
 
-(PUT '|PBWLB;listOfTerms;%L;8| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|PBWLB;listOfTerms;%L;8| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |PBWLB;listOfTerms;%L;8|
         ((|x| (%)) (% (|List| (|LyndonWord| |VarSet|)))) |x|) 

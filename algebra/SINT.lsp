@@ -20,111 +20,111 @@
 (SDEFUN |SINT;coerce;%Of;3| ((|x| (%)) (% (|OutputForm|)))
         (SPADCALL |x| (QREFELT % 19))) 
 
-(PUT '|SINT;convert;%I;4| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|SINT;convert;%I;4| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |SINT;convert;%I;4| ((|x| (%)) (% (|Integer|))) |x|) 
 
-(PUT '|SINT;convert;%S;5| '|SPADreplace| 'STRINGIMAGE) 
+(MAKEPROP '|SINT;convert;%S;5| '|SPADreplace| 'STRINGIMAGE) 
 
 (SDEFUN |SINT;convert;%S;5| ((|x| (%)) (% (|String|))) (STRINGIMAGE |x|)) 
 
 (SDEFUN |SINT;*;I2%;6| ((|i| (|Integer|)) (|y| (%)) (% (%)))
         (|mul_SI| (SPADCALL |i| (QREFELT % 23)) |y|)) 
 
-(PUT '|SINT;Zero;%;7| '|SPADreplace| '(XLAM NIL 0)) 
+(MAKEPROP '|SINT;Zero;%;7| '|SPADreplace| '(XLAM NIL 0)) 
 
 (SDEFUN |SINT;Zero;%;7| ((% (%))) 0) 
 
-(PUT '|SINT;One;%;8| '|SPADreplace| '(XLAM NIL 1)) 
+(MAKEPROP '|SINT;One;%;8| '|SPADreplace| '(XLAM NIL 1)) 
 
 (SDEFUN |SINT;One;%;8| ((% (%))) 1) 
 
-(PUT '|SINT;base;%;9| '|SPADreplace| '(XLAM NIL 2)) 
+(MAKEPROP '|SINT;base;%;9| '|SPADreplace| '(XLAM NIL 2)) 
 
 (SDEFUN |SINT;base;%;9| ((% (%))) 2) 
 
-(PUT '|SINT;max;%;10| '|SPADreplace| '(XLAM NIL MOST-POSITIVE-FIXNUM)) 
+(MAKEPROP '|SINT;max;%;10| '|SPADreplace| '(XLAM NIL MOST-POSITIVE-FIXNUM)) 
 
 (SDEFUN |SINT;max;%;10| ((% (%))) MOST-POSITIVE-FIXNUM) 
 
-(PUT '|SINT;min;%;11| '|SPADreplace| '(XLAM NIL MOST-NEGATIVE-FIXNUM)) 
+(MAKEPROP '|SINT;min;%;11| '|SPADreplace| '(XLAM NIL MOST-NEGATIVE-FIXNUM)) 
 
 (SDEFUN |SINT;min;%;11| ((% (%))) MOST-NEGATIVE-FIXNUM) 
 
-(PUT '|SINT;=;2%B;12| '|SPADreplace| '|eql_SI|) 
+(MAKEPROP '|SINT;=;2%B;12| '|SPADreplace| '|eql_SI|) 
 
 (SDEFUN |SINT;=;2%B;12| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (|eql_SI| |x| |y|)) 
 
-(PUT '|SINT;~;2%;13| '|SPADreplace| '|not_SI|) 
+(MAKEPROP '|SINT;~;2%;13| '|SPADreplace| '|not_SI|) 
 
 (SDEFUN |SINT;~;2%;13| ((|x| (%)) (% (%))) (|not_SI| |x|)) 
 
-(PUT '|SINT;not;2%;14| '|SPADreplace| '|not_SI|) 
+(MAKEPROP '|SINT;not;2%;14| '|SPADreplace| '|not_SI|) 
 
 (SDEFUN |SINT;not;2%;14| ((|x| (%)) (% (%))) (|not_SI| |x|)) 
 
-(PUT '|SINT;/\\;3%;15| '|SPADreplace| '|and_SI|) 
+(MAKEPROP '|SINT;/\\;3%;15| '|SPADreplace| '|and_SI|) 
 
 (SDEFUN |SINT;/\\;3%;15| ((|x| (%)) (|y| (%)) (% (%))) (|and_SI| |x| |y|)) 
 
-(PUT '|SINT;\\/;3%;16| '|SPADreplace| '|or_SI|) 
+(MAKEPROP '|SINT;\\/;3%;16| '|SPADreplace| '|or_SI|) 
 
 (SDEFUN |SINT;\\/;3%;16| ((|x| (%)) (|y| (%)) (% (%))) (|or_SI| |x| |y|)) 
 
-(PUT '|SINT;Not;2%;17| '|SPADreplace| '|not_SI|) 
+(MAKEPROP '|SINT;Not;2%;17| '|SPADreplace| '|not_SI|) 
 
 (SDEFUN |SINT;Not;2%;17| ((|x| (%)) (% (%))) (|not_SI| |x|)) 
 
-(PUT '|SINT;And;3%;18| '|SPADreplace| '|and_SI|) 
+(MAKEPROP '|SINT;And;3%;18| '|SPADreplace| '|and_SI|) 
 
 (SDEFUN |SINT;And;3%;18| ((|x| (%)) (|y| (%)) (% (%))) (|and_SI| |x| |y|)) 
 
-(PUT '|SINT;Or;3%;19| '|SPADreplace| '|or_SI|) 
+(MAKEPROP '|SINT;Or;3%;19| '|SPADreplace| '|or_SI|) 
 
 (SDEFUN |SINT;Or;3%;19| ((|x| (%)) (|y| (%)) (% (%))) (|or_SI| |x| |y|)) 
 
-(PUT '|SINT;xor;3%;20| '|SPADreplace| '|xor_SI|) 
+(MAKEPROP '|SINT;xor;3%;20| '|SPADreplace| '|xor_SI|) 
 
 (SDEFUN |SINT;xor;3%;20| ((|x| (%)) (|y| (%)) (% (%))) (|xor_SI| |x| |y|)) 
 
-(PUT '|SINT;<;2%B;21| '|SPADreplace| '|less_SI|) 
+(MAKEPROP '|SINT;<;2%B;21| '|SPADreplace| '|less_SI|) 
 
 (SDEFUN |SINT;<;2%B;21| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (|less_SI| |x| |y|)) 
 
-(PUT '|SINT;inc;2%;22| '|SPADreplace| '|inc_SI|) 
+(MAKEPROP '|SINT;inc;2%;22| '|SPADreplace| '|inc_SI|) 
 
 (SDEFUN |SINT;inc;2%;22| ((|x| (%)) (% (%))) (|inc_SI| |x|)) 
 
-(PUT '|SINT;dec;2%;23| '|SPADreplace| '|dec_SI|) 
+(MAKEPROP '|SINT;dec;2%;23| '|SPADreplace| '|dec_SI|) 
 
 (SDEFUN |SINT;dec;2%;23| ((|x| (%)) (% (%))) (|dec_SI| |x|)) 
 
-(PUT '|SINT;-;2%;24| '|SPADreplace| '|minus_SI|) 
+(MAKEPROP '|SINT;-;2%;24| '|SPADreplace| '|minus_SI|) 
 
 (SDEFUN |SINT;-;2%;24| ((|x| (%)) (% (%))) (|minus_SI| |x|)) 
 
-(PUT '|SINT;+;3%;25| '|SPADreplace| '|add_SI|) 
+(MAKEPROP '|SINT;+;3%;25| '|SPADreplace| '|add_SI|) 
 
 (SDEFUN |SINT;+;3%;25| ((|x| (%)) (|y| (%)) (% (%))) (|add_SI| |x| |y|)) 
 
-(PUT '|SINT;-;3%;26| '|SPADreplace| '|sub_SI|) 
+(MAKEPROP '|SINT;-;3%;26| '|SPADreplace| '|sub_SI|) 
 
 (SDEFUN |SINT;-;3%;26| ((|x| (%)) (|y| (%)) (% (%))) (|sub_SI| |x| |y|)) 
 
-(PUT '|SINT;*;3%;27| '|SPADreplace| '|mul_SI|) 
+(MAKEPROP '|SINT;*;3%;27| '|SPADreplace| '|mul_SI|) 
 
 (SDEFUN |SINT;*;3%;27| ((|x| (%)) (|y| (%)) (% (%))) (|mul_SI| |x| |y|)) 
 
 (SDEFUN |SINT;^;%Nni%;28| ((|x| (%)) (|n| (|NonNegativeInteger|)) (% (%)))
         (SPADCALL (EXPT |x| |n|) (QREFELT % 23))) 
 
-(PUT '|SINT;quo;3%;29| '|SPADreplace| '|quo_SI|) 
+(MAKEPROP '|SINT;quo;3%;29| '|SPADreplace| '|quo_SI|) 
 
 (SDEFUN |SINT;quo;3%;29| ((|x| (%)) (|y| (%)) (% (%))) (|quo_SI| |x| |y|)) 
 
-(PUT '|SINT;rem;3%;30| '|SPADreplace| '|rem_SI|) 
+(MAKEPROP '|SINT;rem;3%;30| '|SPADreplace| '|rem_SI|) 
 
 (SDEFUN |SINT;rem;3%;30| ((|x| (%)) (|y| (%)) (% (%))) (|rem_SI| |x| |y|)) 
 
@@ -133,61 +133,61 @@
          (% (|Record| (|:| |quotient| . #1=(%)) (|:| |remainder| . #1#))))
         (CONS (|quo_SI| |x| |y|) (|rem_SI| |x| |y|))) 
 
-(PUT '|SINT;gcd;3%;32| '|SPADreplace| 'GCD) 
+(MAKEPROP '|SINT;gcd;3%;32| '|SPADreplace| 'GCD) 
 
 (SDEFUN |SINT;gcd;3%;32| ((|x| (%)) (|y| (%)) (% (%))) (GCD |x| |y|)) 
 
-(PUT '|SINT;abs;2%;33| '|SPADreplace| '|abs_SI|) 
+(MAKEPROP '|SINT;abs;2%;33| '|SPADreplace| '|abs_SI|) 
 
 (SDEFUN |SINT;abs;2%;33| ((|x| (%)) (% (%))) (|abs_SI| |x|)) 
 
-(PUT '|SINT;odd?;%B;34| '|SPADreplace| '|odd?_SI|) 
+(MAKEPROP '|SINT;odd?;%B;34| '|SPADreplace| '|odd?_SI|) 
 
 (SDEFUN |SINT;odd?;%B;34| ((|x| (%)) (% (|Boolean|))) (|odd?_SI| |x|)) 
 
-(PUT '|SINT;zero?;%B;35| '|SPADreplace| '|zero?_SI|) 
+(MAKEPROP '|SINT;zero?;%B;35| '|SPADreplace| '|zero?_SI|) 
 
 (SDEFUN |SINT;zero?;%B;35| ((|x| (%)) (% (|Boolean|))) (|zero?_SI| |x|)) 
 
-(PUT '|SINT;one?;%B;36| '|SPADreplace| '(XLAM (|x|) (|eql_SI| |x| 1))) 
+(MAKEPROP '|SINT;one?;%B;36| '|SPADreplace| '(XLAM (|x|) (|eql_SI| |x| 1))) 
 
 (SDEFUN |SINT;one?;%B;36| ((|x| (%)) (% (|Boolean|))) (|eql_SI| |x| 1)) 
 
-(PUT '|SINT;max;3%;37| '|SPADreplace| '|max_SI|) 
+(MAKEPROP '|SINT;max;3%;37| '|SPADreplace| '|max_SI|) 
 
 (SDEFUN |SINT;max;3%;37| ((|x| (%)) (|y| (%)) (% (%))) (|max_SI| |x| |y|)) 
 
-(PUT '|SINT;min;3%;38| '|SPADreplace| '|min_SI|) 
+(MAKEPROP '|SINT;min;3%;38| '|SPADreplace| '|min_SI|) 
 
 (SDEFUN |SINT;min;3%;38| ((|x| (%)) (|y| (%)) (% (%))) (|min_SI| |x| |y|)) 
 
 (SDEFUN |SINT;hashUpdate!;Hs%Hs;39| ((|hs| #1=(|HashState|)) (|s| (%)) (% #1#))
         (HASHSTATEUPDATE |hs| (SXHASH |s|))) 
 
-(PUT '|SINT;length;2%;40| '|SPADreplace| 'INTEGER-LENGTH) 
+(MAKEPROP '|SINT;length;2%;40| '|SPADreplace| 'INTEGER-LENGTH) 
 
 (SDEFUN |SINT;length;2%;40| ((|x| (%)) (% (%))) (INTEGER-LENGTH |x|)) 
 
-(PUT '|SINT;shift;3%;41| '|SPADreplace| '|lshift_SI|) 
+(MAKEPROP '|SINT;shift;3%;41| '|SPADreplace| '|lshift_SI|) 
 
 (SDEFUN |SINT;shift;3%;41| ((|x| (%)) (|n| (%)) (% (%))) (|lshift_SI| |x| |n|)) 
 
-(PUT '|SINT;mulmod;4%;42| '|SPADreplace| '|mulmod_SI|) 
+(MAKEPROP '|SINT;mulmod;4%;42| '|SPADreplace| '|mulmod_SI|) 
 
 (SDEFUN |SINT;mulmod;4%;42| ((|a| (%)) (|b| (%)) (|p| (%)) (% (%)))
         (|mulmod_SI| |a| |b| |p|)) 
 
-(PUT '|SINT;addmod;4%;43| '|SPADreplace| '|addmod_SI|) 
+(MAKEPROP '|SINT;addmod;4%;43| '|SPADreplace| '|addmod_SI|) 
 
 (SDEFUN |SINT;addmod;4%;43| ((|a| (%)) (|b| (%)) (|p| (%)) (% (%)))
         (|addmod_SI| |a| |b| |p|)) 
 
-(PUT '|SINT;submod;4%;44| '|SPADreplace| '|submod_SI|) 
+(MAKEPROP '|SINT;submod;4%;44| '|SPADreplace| '|submod_SI|) 
 
 (SDEFUN |SINT;submod;4%;44| ((|a| (%)) (|b| (%)) (|p| (%)) (% (%)))
         (|submod_SI| |a| |b| |p|)) 
 
-(PUT '|SINT;negative?;%B;45| '|SPADreplace| '|negative?_SI|) 
+(MAKEPROP '|SINT;negative?;%B;45| '|SPADreplace| '|negative?_SI|) 
 
 (SDEFUN |SINT;negative?;%B;45| ((|x| (%)) (% (|Boolean|))) (|negative?_SI| |x|)) 
 
@@ -223,7 +223,7 @@
                              (#1='T (|add_SI| |r| |n|))))
                       (#1# |r|)))))) 
 
-(PUT '|SINT;qconvert;I%;51| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|SINT;qconvert;I%;51| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |SINT;qconvert;I%;51| ((|x| (|Integer|)) (% (%))) |x|) 
 
@@ -234,7 +234,7 @@
            (COND ((>= |x| MOST-NEGATIVE-FIXNUM) (EXIT |x|)))))
          (EXIT (|error| "integer too large to represent in a machine word")))) 
 
-(PUT '|SINT;random;2%;53| '|SPADreplace| 'RANDOM) 
+(MAKEPROP '|SINT;random;2%;53| '|SPADreplace| 'RANDOM) 
 
 (SDEFUN |SINT;random;2%;53| ((|n| (%)) (% (%))) (RANDOM |n|)) 
 

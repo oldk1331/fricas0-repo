@@ -375,11 +375,11 @@
 (SDEFUN |FDALG;toggleAlternativeOutput;2%;39| ((|f| (%)) (% (%)))
         (SEQ (QSETVELT |f| 7 (NULL (QVELT |f| 7))) (EXIT |f|))) 
 
-(PUT '|FDALG;minimal?;%B;40| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 3))) 
+(MAKEPROP '|FDALG;minimal?;%B;40| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 3))) 
 
 (SDEFUN |FDALG;minimal?;%B;40| ((|f| (%)) (% (|Boolean|))) (QVELT |f| 3)) 
 
-(PUT '|FDALG;mutable?;%B;41| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 5))) 
+(MAKEPROP '|FDALG;mutable?;%B;41| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 5))) 
 
 (SDEFUN |FDALG;mutable?;%B;41| ((|f| (%)) (% (|Boolean|))) (QVELT |f| 5)) 
 
@@ -527,7 +527,7 @@
 (SDEFUN |FDALG;polynomial?;%B;48| ((|f| (%)) (% (|Boolean|)))
         (|FDALG;polynomialForm?| |f| %)) 
 
-(PUT '|FDALG;dimension;%Nni;49| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 0))) 
+(MAKEPROP '|FDALG;dimension;%Nni;49| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 0))) 
 
 (SDEFUN |FDALG;dimension;%Nni;49| ((|f| (%)) (% (|NonNegativeInteger|)))
         (QVELT |f| 0)) 
@@ -781,7 +781,7 @@
                         (SPADCALL (QVELT |f| 1) |lst_new| (QREFELT % 111)))
               (EXIT |f|)))) 
 
-(PUT '|FDALG;pencil;%Lmmp;61| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 2))) 
+(MAKEPROP '|FDALG;pencil;%Lmmp;61| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 2))) 
 
 (SDEFUN |FDALG;pencil;%Lmmp;61|
         ((|f| (%)) (% (|LinearMultivariateMatrixPencil| F))) (QVELT |f| 2)) 

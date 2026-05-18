@@ -12,11 +12,11 @@
 (SDEFUN |FPARFRAC;D;%Nni%;3| ((|r| (%)) (|n| (|NonNegativeInteger|)) (% (%)))
         (SPADCALL |r| |n| (QREFELT % 34))) 
 
-(PUT '|FPARFRAC;polyPart;%UP;4| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|FPARFRAC;polyPart;%UP;4| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |FPARFRAC;polyPart;%UP;4| ((|f| (%)) (% (UP))) (QCAR |f|)) 
 
-(PUT '|FPARFRAC;fracPart;%L;5| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|FPARFRAC;fracPart;%L;5| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |FPARFRAC;fracPart;%L;5|
         ((|f| (%))

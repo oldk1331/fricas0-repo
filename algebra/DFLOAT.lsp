@@ -10,11 +10,11 @@
              (SPADCALL |dev| |x| (QREFELT % 13))
              (EXIT (COND (|wholeObj| (SPADCALL |dev| (QREFELT % 14))))))) 
 
-(PUT '|DFLOAT;checkComplex| '|SPADreplace| '|c_to_r|) 
+(MAKEPROP '|DFLOAT;checkComplex| '|SPADreplace| '|c_to_r|) 
 
 (SDEFUN |DFLOAT;checkComplex| ((|x| (%)) (% (%))) (|c_to_r| |x|)) 
 
-(PUT '|DFLOAT;base;Pi;4| '|SPADreplace| '(XLAM NIL (FLOAT-RADIX 0.0))) 
+(MAKEPROP '|DFLOAT;base;Pi;4| '|SPADreplace| '(XLAM NIL (FLOAT-RADIX 0.0))) 
 
 (SDEFUN |DFLOAT;base;Pi;4| ((% (|PositiveInteger|))) (FLOAT-RADIX 0.0)) 
 
@@ -24,7 +24,8 @@
 (SDEFUN |DFLOAT;exponent;%I;6| ((|x| (%)) (% (|Integer|)))
         (QCDR (|DFLOAT;manexp| |x| %))) 
 
-(PUT '|DFLOAT;precision;Pi;7| '|SPADreplace| '(XLAM NIL (FLOAT-DIGITS 0.0))) 
+(MAKEPROP '|DFLOAT;precision;Pi;7| '|SPADreplace|
+          '(XLAM NIL (FLOAT-DIGITS 0.0))) 
 
 (SDEFUN |DFLOAT;precision;Pi;7| ((% (|PositiveInteger|))) (FLOAT-DIGITS 0.0)) 
 
@@ -47,24 +48,26 @@
                    (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                      '(|Integer|) #1#)))))) 
 
-(PUT '|DFLOAT;max;%;9| '|SPADreplace| '(XLAM NIL MOST-POSITIVE-DOUBLE-FLOAT)) 
+(MAKEPROP '|DFLOAT;max;%;9| '|SPADreplace|
+          '(XLAM NIL MOST-POSITIVE-DOUBLE-FLOAT)) 
 
 (SDEFUN |DFLOAT;max;%;9| ((% (%))) MOST-POSITIVE-DOUBLE-FLOAT) 
 
-(PUT '|DFLOAT;min;%;10| '|SPADreplace| '(XLAM NIL MOST-NEGATIVE-DOUBLE-FLOAT)) 
+(MAKEPROP '|DFLOAT;min;%;10| '|SPADreplace|
+          '(XLAM NIL MOST-NEGATIVE-DOUBLE-FLOAT)) 
 
 (SDEFUN |DFLOAT;min;%;10| ((% (%))) MOST-NEGATIVE-DOUBLE-FLOAT) 
 
 (SDEFUN |DFLOAT;order;%I;11| ((|a| (%)) (% (|Integer|)))
         (- (+ (SPADCALL (QREFELT % 22)) (SPADCALL |a| (QREFELT % 21))) 1)) 
 
-(PUT '|DFLOAT;Zero;%;12| '|SPADreplace|
-     '(XLAM NIL (FLOAT 0 MOST-POSITIVE-DOUBLE-FLOAT))) 
+(MAKEPROP '|DFLOAT;Zero;%;12| '|SPADreplace|
+          '(XLAM NIL (FLOAT 0 MOST-POSITIVE-DOUBLE-FLOAT))) 
 
 (SDEFUN |DFLOAT;Zero;%;12| ((% (%))) (FLOAT 0 MOST-POSITIVE-DOUBLE-FLOAT)) 
 
-(PUT '|DFLOAT;One;%;13| '|SPADreplace|
-     '(XLAM NIL (FLOAT 1 MOST-POSITIVE-DOUBLE-FLOAT))) 
+(MAKEPROP '|DFLOAT;One;%;13| '|SPADreplace|
+          '(XLAM NIL (FLOAT 1 MOST-POSITIVE-DOUBLE-FLOAT))) 
 
 (SDEFUN |DFLOAT;One;%;13| ((% (%))) (FLOAT 1 MOST-POSITIVE-DOUBLE-FLOAT)) 
 
@@ -72,8 +75,8 @@
         (|div_DF| (FLOAT 534625820200 MOST-POSITIVE-DOUBLE-FLOAT)
                   (FLOAT 196677847971 MOST-POSITIVE-DOUBLE-FLOAT))) 
 
-(PUT '|DFLOAT;pi;%;15| '|SPADreplace|
-     '(XLAM NIL (FLOAT PI MOST-POSITIVE-DOUBLE-FLOAT))) 
+(MAKEPROP '|DFLOAT;pi;%;15| '|SPADreplace|
+          '(XLAM NIL (FLOAT PI MOST-POSITIVE-DOUBLE-FLOAT))) 
 
 (SDEFUN |DFLOAT;pi;%;15| ((% (%))) (FLOAT PI MOST-POSITIVE-DOUBLE-FLOAT)) 
 
@@ -91,46 +94,47 @@
 (SDEFUN |DFLOAT;convert;%If;18| ((|x| (%)) (% (|InputForm|)))
         (SPADCALL |x| (QREFELT % 40))) 
 
-(PUT '|DFLOAT;<;2%B;19| '|SPADreplace| '|less_DF|) 
+(MAKEPROP '|DFLOAT;<;2%B;19| '|SPADreplace| '|less_DF|) 
 
 (SDEFUN |DFLOAT;<;2%B;19| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (|less_DF| |x| |y|)) 
 
-(PUT '|DFLOAT;-;2%;20| '|SPADreplace| '|minus_DF|) 
+(MAKEPROP '|DFLOAT;-;2%;20| '|SPADreplace| '|minus_DF|) 
 
 (SDEFUN |DFLOAT;-;2%;20| ((|x| (%)) (% (%))) (|minus_DF| |x|)) 
 
-(PUT '|DFLOAT;+;3%;21| '|SPADreplace| '|add_DF|) 
+(MAKEPROP '|DFLOAT;+;3%;21| '|SPADreplace| '|add_DF|) 
 
 (SDEFUN |DFLOAT;+;3%;21| ((|x| (%)) (|y| (%)) (% (%))) (|add_DF| |x| |y|)) 
 
-(PUT '|DFLOAT;-;3%;22| '|SPADreplace| '|sub_DF|) 
+(MAKEPROP '|DFLOAT;-;3%;22| '|SPADreplace| '|sub_DF|) 
 
 (SDEFUN |DFLOAT;-;3%;22| ((|x| (%)) (|y| (%)) (% (%))) (|sub_DF| |x| |y|)) 
 
-(PUT '|DFLOAT;*;3%;23| '|SPADreplace| '|mul_DF|) 
+(MAKEPROP '|DFLOAT;*;3%;23| '|SPADreplace| '|mul_DF|) 
 
 (SDEFUN |DFLOAT;*;3%;23| ((|x| (%)) (|y| (%)) (% (%))) (|mul_DF| |x| |y|)) 
 
-(PUT '|DFLOAT;*;I2%;24| '|SPADreplace| '(XLAM (|i| |x|) (|mul_DF_I| |x| |i|))) 
+(MAKEPROP '|DFLOAT;*;I2%;24| '|SPADreplace|
+          '(XLAM (|i| |x|) (|mul_DF_I| |x| |i|))) 
 
 (SDEFUN |DFLOAT;*;I2%;24| ((|i| (|Integer|)) (|x| (%)) (% (%)))
         (|mul_DF_I| |x| |i|)) 
 
-(PUT '|DFLOAT;max;3%;25| '|SPADreplace| '|max_DF|) 
+(MAKEPROP '|DFLOAT;max;3%;25| '|SPADreplace| '|max_DF|) 
 
 (SDEFUN |DFLOAT;max;3%;25| ((|x| (%)) (|y| (%)) (% (%))) (|max_DF| |x| |y|)) 
 
-(PUT '|DFLOAT;min;3%;26| '|SPADreplace| '|min_DF|) 
+(MAKEPROP '|DFLOAT;min;3%;26| '|SPADreplace| '|min_DF|) 
 
 (SDEFUN |DFLOAT;min;3%;26| ((|x| (%)) (|y| (%)) (% (%))) (|min_DF| |x| |y|)) 
 
-(PUT '|DFLOAT;=;2%B;27| '|SPADreplace| '|eql_DF|) 
+(MAKEPROP '|DFLOAT;=;2%B;27| '|SPADreplace| '|eql_DF|) 
 
 (SDEFUN |DFLOAT;=;2%B;27| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (|eql_DF| |x| |y|)) 
 
-(PUT '|DFLOAT;/;%I%;28| '|SPADreplace| '|div_DF_I|) 
+(MAKEPROP '|DFLOAT;/;%I%;28| '|SPADreplace| '|div_DF_I|) 
 
 (SDEFUN |DFLOAT;/;%I%;28| ((|x| (%)) (|i| (|Integer|)) (% (%)))
         (|div_DF_I| |x| |i|)) 
@@ -138,14 +142,14 @@
 (SDEFUN |DFLOAT;sqrt;2%;29| ((|x| (%)) (% (%)))
         (|DFLOAT;checkComplex| (|sqrt_DF| |x|) %)) 
 
-(PUT '|DFLOAT;qsqrt;2%;30| '|SPADreplace| '|qsqrt_DF|) 
+(MAKEPROP '|DFLOAT;qsqrt;2%;30| '|SPADreplace| '|qsqrt_DF|) 
 
 (SDEFUN |DFLOAT;qsqrt;2%;30| ((|x| (%)) (% (%))) (|qsqrt_DF| |x|)) 
 
 (SDEFUN |DFLOAT;log10;2%;31| ((|x| (%)) (% (%)))
         (|DFLOAT;checkComplex| (LOG10 |x|) %)) 
 
-(PUT '|DFLOAT;^;%I%;32| '|SPADreplace| '|expt_DF_I|) 
+(MAKEPROP '|DFLOAT;^;%I%;32| '|SPADreplace| '|expt_DF_I|) 
 
 (SDEFUN |DFLOAT;^;%I%;32| ((|x| (%)) (|i| (|Integer|)) (% (%)))
         (|expt_DF_I| |x| |i|)) 
@@ -153,39 +157,39 @@
 (SDEFUN |DFLOAT;^;3%;33| ((|x| (%)) (|y| (%)) (% (%)))
         (|DFLOAT;checkComplex| (|expt_DF| |x| |y|) %)) 
 
-(PUT '|DFLOAT;coerce;I%;34| '|SPADreplace|
-     '(XLAM (|i|) (FLOAT |i| MOST-POSITIVE-DOUBLE-FLOAT))) 
+(MAKEPROP '|DFLOAT;coerce;I%;34| '|SPADreplace|
+          '(XLAM (|i|) (FLOAT |i| MOST-POSITIVE-DOUBLE-FLOAT))) 
 
 (SDEFUN |DFLOAT;coerce;I%;34| ((|i| (|Integer|)) (% (%)))
         (FLOAT |i| MOST-POSITIVE-DOUBLE-FLOAT)) 
 
-(PUT '|DFLOAT;exp;2%;35| '|SPADreplace| '|exp_DF|) 
+(MAKEPROP '|DFLOAT;exp;2%;35| '|SPADreplace| '|exp_DF|) 
 
 (SDEFUN |DFLOAT;exp;2%;35| ((|x| (%)) (% (%))) (|exp_DF| |x|)) 
 
 (SDEFUN |DFLOAT;log;2%;36| ((|x| (%)) (% (%)))
         (|DFLOAT;checkComplex| (|log_DF| |x|) %)) 
 
-(PUT '|DFLOAT;qlog;2%;37| '|SPADreplace| '|qlog_DF|) 
+(MAKEPROP '|DFLOAT;qlog;2%;37| '|SPADreplace| '|qlog_DF|) 
 
 (SDEFUN |DFLOAT;qlog;2%;37| ((|x| (%)) (% (%))) (|qlog_DF| |x|)) 
 
 (SDEFUN |DFLOAT;log2;2%;38| ((|x| (%)) (% (%)))
         (|DFLOAT;checkComplex| (LOG2 |x|) %)) 
 
-(PUT '|DFLOAT;sin;2%;39| '|SPADreplace| '|sin_DF|) 
+(MAKEPROP '|DFLOAT;sin;2%;39| '|SPADreplace| '|sin_DF|) 
 
 (SDEFUN |DFLOAT;sin;2%;39| ((|x| (%)) (% (%))) (|sin_DF| |x|)) 
 
-(PUT '|DFLOAT;cos;2%;40| '|SPADreplace| '|cos_DF|) 
+(MAKEPROP '|DFLOAT;cos;2%;40| '|SPADreplace| '|cos_DF|) 
 
 (SDEFUN |DFLOAT;cos;2%;40| ((|x| (%)) (% (%))) (|cos_DF| |x|)) 
 
-(PUT '|DFLOAT;tan;2%;41| '|SPADreplace| '|tan_DF|) 
+(MAKEPROP '|DFLOAT;tan;2%;41| '|SPADreplace| '|tan_DF|) 
 
 (SDEFUN |DFLOAT;tan;2%;41| ((|x| (%)) (% (%))) (|tan_DF| |x|)) 
 
-(PUT '|DFLOAT;cot;2%;42| '|SPADreplace| 'COT) 
+(MAKEPROP '|DFLOAT;cot;2%;42| '|SPADreplace| 'COT) 
 
 (SDEFUN |DFLOAT;cot;2%;42| ((|x| (%)) (% (%))) (COT |x|)) 
 
@@ -199,7 +203,7 @@
 (SDEFUN |DFLOAT;acos;2%;46| ((|x| (%)) (% (%)))
         (|DFLOAT;checkComplex| (ACOS |x|) %)) 
 
-(PUT '|DFLOAT;atan;2%;47| '|SPADreplace| '|atan_DF|) 
+(MAKEPROP '|DFLOAT;atan;2%;47| '|SPADreplace| '|atan_DF|) 
 
 (SDEFUN |DFLOAT;atan;2%;47| ((|x| (%)) (% (%))) (|atan_DF| |x|)) 
 
@@ -219,15 +223,15 @@
 (SDEFUN |DFLOAT;asec;2%;50| ((|x| (%)) (% (%)))
         (SPADCALL (|div_DF| 1.0 |x|) (QREFELT % 68))) 
 
-(PUT '|DFLOAT;sinh;2%;51| '|SPADreplace| '|sinh_DF|) 
+(MAKEPROP '|DFLOAT;sinh;2%;51| '|SPADreplace| '|sinh_DF|) 
 
 (SDEFUN |DFLOAT;sinh;2%;51| ((|x| (%)) (% (%))) (|sinh_DF| |x|)) 
 
-(PUT '|DFLOAT;cosh;2%;52| '|SPADreplace| '|cosh_DF|) 
+(MAKEPROP '|DFLOAT;cosh;2%;52| '|SPADreplace| '|cosh_DF|) 
 
 (SDEFUN |DFLOAT;cosh;2%;52| ((|x| (%)) (% (%))) (|cosh_DF| |x|)) 
 
-(PUT '|DFLOAT;tanh;2%;53| '|SPADreplace| '|tanh_DF|) 
+(MAKEPROP '|DFLOAT;tanh;2%;53| '|SPADreplace| '|tanh_DF|) 
 
 (SDEFUN |DFLOAT;tanh;2%;53| ((|x| (%)) (% (%))) (|tanh_DF| |x|)) 
 
@@ -237,7 +241,7 @@
 
 (SDEFUN |DFLOAT;sech;2%;56| ((|x| (%)) (% (%))) (|div_DF| 1.0 (|cosh_DF| |x|))) 
 
-(PUT '|DFLOAT;asinh;2%;57| '|SPADreplace| 'ASINH) 
+(MAKEPROP '|DFLOAT;asinh;2%;57| '|SPADreplace| 'ASINH) 
 
 (SDEFUN |DFLOAT;asinh;2%;57| ((|x| (%)) (% (%))) (ASINH |x|)) 
 
@@ -255,16 +259,16 @@
 (SDEFUN |DFLOAT;asech;2%;62| ((|x| (%)) (% (%)))
         (SPADCALL (|div_DF| 1.0 |x|) (QREFELT % 81))) 
 
-(PUT '|DFLOAT;/;3%;63| '|SPADreplace| '|div_DF|) 
+(MAKEPROP '|DFLOAT;/;3%;63| '|SPADreplace| '|div_DF|) 
 
 (SDEFUN |DFLOAT;/;3%;63| ((|x| (%)) (|y| (%)) (% (%))) (|div_DF| |x| |y|)) 
 
-(PUT '|DFLOAT;negative?;%B;64| '|SPADreplace| '|negative?_DF|) 
+(MAKEPROP '|DFLOAT;negative?;%B;64| '|SPADreplace| '|negative?_DF|) 
 
 (SDEFUN |DFLOAT;negative?;%B;64| ((|x| (%)) (% (|Boolean|)))
         (|negative?_DF| |x|)) 
 
-(PUT '|DFLOAT;zero?;%B;65| '|SPADreplace| '|zero?_DF|) 
+(MAKEPROP '|DFLOAT;zero?;%B;65| '|SPADreplace| '|zero?_DF|) 
 
 (SDEFUN |DFLOAT;zero?;%B;65| ((|x| (%)) (% (|Boolean|))) (|zero?_DF| |x|)) 
 
@@ -276,7 +280,7 @@
         (COND ((|zero?_DF| |x|) (CONS 1 "failed"))
               ('T (CONS 0 (|div_DF| 1.0 |x|))))) 
 
-(PUT '|DFLOAT;differentiate;2%;68| '|SPADreplace| '(XLAM (|x|) 0.0)) 
+(MAKEPROP '|DFLOAT;differentiate;2%;68| '|SPADreplace| '(XLAM (|x|) 0.0)) 
 
 (SDEFUN |DFLOAT;differentiate;2%;68| ((|x| (%)) (% (%))) 0.0) 
 
@@ -417,7 +421,7 @@
                              (QREFELT % 142))))
                       (SPADCALL |obits| (QREFELT % 138))))))) 
 
-(PUT '|DFLOAT;wholePart;%I;92| '|SPADreplace| 'TRUNCATE) 
+(MAKEPROP '|DFLOAT;wholePart;%I;92| '|SPADreplace| 'TRUNCATE) 
 
 (SDEFUN |DFLOAT;wholePart;%I;92| ((|x| (%)) (% (|Integer|))) (TRUNCATE |x|)) 
 
@@ -426,7 +430,7 @@
         (|mul_DF_I| (|expt_DF_I| (FLOAT |b| MOST-POSITIVE-DOUBLE-FLOAT) |ex|)
                     |ma|)) 
 
-(PUT '|DFLOAT;convert;2%;94| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|DFLOAT;convert;2%;94| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |DFLOAT;convert;2%;94| ((|x| (%)) (% (|DoubleFloat|))) |x|) 
 
@@ -503,15 +507,16 @@
 (SDEFUN |DFLOAT;sign;%I;102| ((|x| (%)) (% (|Integer|)))
         (SPADCALL (FLOAT-SIGN |x| 1.0) (QREFELT % 165))) 
 
-(PUT '|DFLOAT;sign;2%;103| '|SPADreplace| '(XLAM (|x|) (FLOAT-SIGN |x| 1.0))) 
+(MAKEPROP '|DFLOAT;sign;2%;103| '|SPADreplace|
+          '(XLAM (|x|) (FLOAT-SIGN |x| 1.0))) 
 
 (SDEFUN |DFLOAT;sign;2%;103| ((|x| (%)) (% (%))) (FLOAT-SIGN |x| 1.0)) 
 
-(PUT '|DFLOAT;abs;2%;104| '|SPADreplace| '|abs_DF|) 
+(MAKEPROP '|DFLOAT;abs;2%;104| '|SPADreplace| '|abs_DF|) 
 
 (SDEFUN |DFLOAT;abs;2%;104| ((|x| (%)) (% (%))) (|abs_DF| |x|)) 
 
-(PUT '|DFLOAT;conjugate;2%;105| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|DFLOAT;conjugate;2%;105| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |DFLOAT;conjugate;2%;105| ((|x| (%)) (% (%))) |x|) 
 

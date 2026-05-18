@@ -6,7 +6,7 @@
 
 (SDEFUN |VARIABLE;variable;S;3| ((% (|Symbol|))) (QREFELT % 6)) 
 
-(PUT '|VARIABLE;=;2%B;4| '|SPADreplace| '(XLAM (|x| |y|) 'T)) 
+(MAKEPROP '|VARIABLE;=;2%B;4| '|SPADreplace| '(XLAM (|x| |y|) 'T)) 
 
 (SDEFUN |VARIABLE;=;2%B;4| ((|x| (%)) (|y| (%)) (% (|Boolean|))) 'T) 
 

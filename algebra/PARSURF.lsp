@@ -1,5 +1,5 @@
 
-(PUT '|PARSURF;surface;3ComponentFunction%;1| '|SPADreplace| 'VECTOR) 
+(MAKEPROP '|PARSURF;surface;3ComponentFunction%;1| '|SPADreplace| 'VECTOR) 
 
 (SDEFUN |PARSURF;surface;3ComponentFunction%;1|
         ((|x| (|ComponentFunction|)) (|y| (|ComponentFunction|))

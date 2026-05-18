@@ -1,9 +1,9 @@
 
-(PUT '|MODFT1;get_char;2I;1| '|SPADreplace| '(XLAM (|p|) |p|)) 
+(MAKEPROP '|MODFT1;get_char;2I;1| '|SPADreplace| '(XLAM (|p|) |p|)) 
 
 (SDEFUN |MODFT1;get_char;2I;1| ((|p| (|Integer|)) (% (|Integer|))) |p|) 
 
-(PUT '|MODFT1;get_extension_degree;2I;2| '|SPADreplace| '(XLAM (|p|) 1)) 
+(MAKEPROP '|MODFT1;get_extension_degree;2I;2| '|SPADreplace| '(XLAM (|p|) 1)) 
 
 (SDEFUN |MODFT1;get_extension_degree;2I;2| ((|p| (|Integer|)) (% (|Integer|)))
         1) 
@@ -16,7 +16,8 @@
                (SEQ (LETT |res| (GETREFV_U32 2 0)) (SETELT_U32 |res| 1 1)
                     (EXIT |res|)))) 
 
-(PUT '|MODFT1;empty_poly;Uv;5| '|SPADreplace| '(XLAM NIL (GETREFV_U32 0 0))) 
+(MAKEPROP '|MODFT1;empty_poly;Uv;5| '|SPADreplace|
+          '(XLAM NIL (GETREFV_U32 0 0))) 
 
 (SDEFUN |MODFT1;empty_poly;Uv;5| ((% (|U32Vector|))) (GETREFV_U32 0 0)) 
 
@@ -310,7 +311,8 @@
                        #2# (EXIT #1#))
                       (EXIT |res|))))))) 
 
-(PUT '|MODFT1;empty_mat;Um;19| '|SPADreplace| '(XLAM NIL (MAKE_MATRIX_U32 0 0))) 
+(MAKEPROP '|MODFT1;empty_mat;Um;19| '|SPADreplace|
+          '(XLAM NIL (MAKE_MATRIX_U32 0 0))) 
 
 (SDEFUN |MODFT1;empty_mat;Um;19| ((% (|U32Matrix|))) (MAKE_MATRIX_U32 0 0)) 
 

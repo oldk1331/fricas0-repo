@@ -1,5 +1,5 @@
 
-(PUT '|SOLVEFOR;part| '|SPADreplace| '(XLAM (|s|) |s|)) 
+(MAKEPROP '|SOLVEFOR;part| '|SPADreplace| '(XLAM (|s|) |s|)) 
 
 (SDEFUN |SOLVEFOR;part| ((|s| (F)) (% (F))) |s|) 
 

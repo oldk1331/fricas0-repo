@@ -7,23 +7,23 @@
         (VECTOR (|spadConstant| % 12) (|spadConstant| % 10)
                 (|spadConstant| % 10) (|spadConstant| % 10))) 
 
-(PUT '|QUAT2;real;%R;3| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 0))) 
+(MAKEPROP '|QUAT2;real;%R;3| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 0))) 
 
 (SDEFUN |QUAT2;real;%R;3| ((|x| (%)) (% (R))) (QVELT |x| 0)) 
 
-(PUT '|QUAT2;imagI;%R;4| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 1))) 
+(MAKEPROP '|QUAT2;imagI;%R;4| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 1))) 
 
 (SDEFUN |QUAT2;imagI;%R;4| ((|x| (%)) (% (R))) (QVELT |x| 1)) 
 
-(PUT '|QUAT2;imagJ;%R;5| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 2))) 
+(MAKEPROP '|QUAT2;imagJ;%R;5| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 2))) 
 
 (SDEFUN |QUAT2;imagJ;%R;5| ((|x| (%)) (% (R))) (QVELT |x| 2)) 
 
-(PUT '|QUAT2;imagK;%R;6| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 3))) 
+(MAKEPROP '|QUAT2;imagK;%R;6| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 3))) 
 
 (SDEFUN |QUAT2;imagK;%R;6| ((|x| (%)) (% (R))) (QVELT |x| 3)) 
 
-(PUT '|QUAT2;quatern;4R%;7| '|SPADreplace| 'VECTOR) 
+(MAKEPROP '|QUAT2;quatern;4R%;7| '|SPADreplace| 'VECTOR) 
 
 (SDEFUN |QUAT2;quatern;4R%;7| ((|a| (R)) (|b| (R)) (|c| (R)) (|d| (R)) (% (%)))
         (VECTOR |a| |b| |c| |d|)) 

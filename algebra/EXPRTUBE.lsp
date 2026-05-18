@@ -202,7 +202,7 @@
         (SPADCALL |x| |y| |z| |colorFcn| |tRange| |radFcn| |n| "open"
                   (QREFELT % 42))) 
 
-(PUT '|EXPRTUBE;project| '|SPADreplace| '(XLAM (|x| |y|) |x|)) 
+(MAKEPROP '|EXPRTUBE;project| '|SPADreplace| '(XLAM (|x| |y|) |x|)) 
 
 (SDEFUN |EXPRTUBE;project|
         ((|x| (|DoubleFloat|)) (|y| (|DoubleFloat|)) (% (|DoubleFloat|))) |x|) 

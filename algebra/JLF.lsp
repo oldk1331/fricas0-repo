@@ -813,7 +813,7 @@
                            (QREFELT % 36)))
                          (#1# NIL))))))))) 
 
-(PUT '|JLF;numerator;2%;35| '|SPADreplace| '(XLAM (|exp|) |exp|)) 
+(MAKEPROP '|JLF;numerator;2%;35| '|SPADreplace| '(XLAM (|exp|) |exp|)) 
 
 (SDEFUN |JLF;numerator;2%;35| ((|exp| (%)) (% (%))) |exp|) 
 

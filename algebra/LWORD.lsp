@@ -141,7 +141,7 @@
         (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT % 38)) (QREFELT % 40))
                   (QREFELT % 41))) 
 
-(PUT '|LWORD;coerce;%Fm;9| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|LWORD;coerce;%Fm;9| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |LWORD;coerce;%Fm;9| ((|x| (%)) (% (|FreeMagma| |VarSet|))) |x|) 
 

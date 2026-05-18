@@ -1,5 +1,5 @@
 
-(PUT '|GENUSER;terms;%S;1| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|GENUSER;terms;%S;1| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |GENUSER;terms;%S;1|
         ((|x| (%))

@@ -16,11 +16,11 @@
          (% (%)))
         (LIST (LIST |e|))) 
 
-(PUT '|LATMOFJ;emptyLattice;%;6| '|SPADreplace| '(XLAM NIL NIL)) 
+(MAKEPROP '|LATMOFJ;emptyLattice;%;6| '|SPADreplace| '(XLAM NIL NIL)) 
 
 (SDEFUN |LATMOFJ;emptyLattice;%;6| ((% (%))) NIL) 
 
-(PUT '|LATMOFJ;empty?;%B;7| '|SPADreplace| 'NULL) 
+(MAKEPROP '|LATMOFJ;empty?;%B;7| '|SPADreplace| 'NULL) 
 
 (SDEFUN |LATMOFJ;empty?;%B;7| ((|n| (%)) (% (|Boolean|))) (NULL |n|)) 
 
@@ -373,36 +373,36 @@
               (EXIT
                (COND (|modified| (SPADCALL |r| (QREFELT % 20))) ('T |r|)))))) 
 
-(PUT '|LATMOFJ;factor;%L;17| '|SPADreplace| 'LIST) 
+(MAKEPROP '|LATMOFJ;factor;%L;17| '|SPADreplace| 'LIST) 
 
 (SDEFUN |LATMOFJ;factor;%L;17| ((|n| (%)) (% (|List| %))) (LIST |n|)) 
 
-(PUT '|LATMOFJ;removeDup| '|SPADreplace| '(XLAM (|a| |b|) |a|)) 
+(MAKEPROP '|LATMOFJ;removeDup| '|SPADreplace| '(XLAM (|a| |b|) |a|)) 
 
 (SDEFUN |LATMOFJ;removeDup| ((|a| (|List| %)) (|b| (|List| %)) (% (|List| %)))
         |a|) 
 
-(PUT '|LATMOFJ;deductions;2L;19| '|SPADreplace| '(XLAM (|ln|) |ln|)) 
+(MAKEPROP '|LATMOFJ;deductions;2L;19| '|SPADreplace| '(XLAM (|ln|) |ln|)) 
 
 (SDEFUN |LATMOFJ;deductions;2L;19| ((|ln| (|List| %)) (% (|List| %))) |ln|) 
 
-(PUT '|LATMOFJ;opType;%S;20| '|SPADreplace| '(XLAM (|n|) 'OTHER)) 
+(MAKEPROP '|LATMOFJ;opType;%S;20| '|SPADreplace| '(XLAM (|n|) 'OTHER)) 
 
 (SDEFUN |LATMOFJ;opType;%S;20| ((|n| (%)) (% (|Symbol|))) 'OTHER) 
 
-(PUT '|LATMOFJ;atom?;%B;21| '|SPADreplace| '(XLAM (|n|) NIL)) 
+(MAKEPROP '|LATMOFJ;atom?;%B;21| '|SPADreplace| '(XLAM (|n|) NIL)) 
 
 (SDEFUN |LATMOFJ;atom?;%B;21| ((|n| (%)) (% (|Boolean|))) NIL) 
 
-(PUT '|LATMOFJ;value;%S;22| '|SPADreplace| '(XLAM (|n|) 'C)) 
+(MAKEPROP '|LATMOFJ;value;%S;22| '|SPADreplace| '(XLAM (|n|) 'C)) 
 
 (SDEFUN |LATMOFJ;value;%S;22| ((|n| (%)) (% (|Symbol|))) 'C) 
 
-(PUT '|LATMOFJ;getChildren;%L;23| '|SPADreplace| 'LIST) 
+(MAKEPROP '|LATMOFJ;getChildren;%L;23| '|SPADreplace| 'LIST) 
 
 (SDEFUN |LATMOFJ;getChildren;%L;23| ((|n| (%)) (% (|List| %))) (LIST |n|)) 
 
-(PUT '|LATMOFJ;=;2%B;24| '|SPADreplace| '(XLAM (|a| |b|) NIL)) 
+(MAKEPROP '|LATMOFJ;=;2%B;24| '|SPADreplace| '(XLAM (|a| |b|) NIL)) 
 
 (SDEFUN |LATMOFJ;=;2%B;24| ((|a| (%)) (|b| (%)) (% (|Boolean|))) NIL) 
 

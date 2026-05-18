@@ -164,7 +164,7 @@
                (SEQ (LETT |facet| (SPADCALL |f| (QREFELT % 24)))
                     (EXIT (SPADCALL |facet| (QREFELT % 34)))))) 
 
-(PUT '|OFACET;getIndexes;%L;7| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|OFACET;getIndexes;%L;7| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |OFACET;getIndexes;%L;7|
         ((|orf| (%)) (% (|List| (|NonNegativeInteger|)))) (QCDR |orf|)) 
@@ -213,7 +213,7 @@
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
-(PUT '|OFACET;getMult;%I;11| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|OFACET;getMult;%I;11| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |OFACET;getMult;%I;11| ((|orf| (%)) (% (|Integer|))) (QCAR |orf|)) 
 

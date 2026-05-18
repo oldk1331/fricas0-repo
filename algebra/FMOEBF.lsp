@@ -1,9 +1,9 @@
 
-(PUT '|FMOEBF;rep| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|FMOEBF;rep| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |FMOEBF;rep| ((|x| (%)) (% (|Rep|))) |x|) 
 
-(PUT '|FMOEBF;per| '|SPADreplace| '(XLAM (|r|) |r|)) 
+(MAKEPROP '|FMOEBF;per| '|SPADreplace| '(XLAM (|r|) |r|)) 
 
 (SDEFUN |FMOEBF;per| ((|r| (|Rep|)) (% (%))) |r|) 
 

@@ -1878,7 +1878,7 @@
         (SEQ (SPADCALL (SPADCALL |f| (QREFELT % 42)) (QREFELT % 78))
              (EXIT (SPADCALL (QREFELT % 79))))) 
 
-(PUT '|FC;code;%U;38| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|FC;code;%U;38| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |FC;code;%U;38|
         ((|f| (%))
@@ -1923,7 +1923,7 @@
                    (|:| |printBranch| (|List| (|OutputForm|))))))
         (QCDR |f|)) 
 
-(PUT '|FC;operation;%U;39| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|FC;operation;%U;39| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |FC;operation;%U;39|
         ((|f| (%))

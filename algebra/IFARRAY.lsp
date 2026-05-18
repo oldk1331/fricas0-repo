@@ -1,6 +1,6 @@
 
-(PUT '|IFARRAY;physicalLength;%Nni;1| '|SPADreplace|
-     '(XLAM (|r|) (QVELT |r| 0))) 
+(MAKEPROP '|IFARRAY;physicalLength;%Nni;1| '|SPADreplace|
+          '(XLAM (|r|) (QVELT |r| 0))) 
 
 (SDEFUN |IFARRAY;physicalLength;%Nni;1| ((|r| (%)) (% (|NonNegativeInteger|)))
         (QVELT |r| 0)) 

@@ -1,9 +1,9 @@
 
-(PUT '|PARCCURV;complex_curve;VT%;1| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|PARCCURV;complex_curve;VT%;1| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |PARCCURV;complex_curve;VT%;1| ((|x| (VT)) (% (%))) |x|) 
 
-(PUT '|PARCCURV;get_value;%VT;2| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|PARCCURV;get_value;%VT;2| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |PARCCURV;get_value;%VT;2| ((|x| (%)) (% (VT))) |x|) 
 

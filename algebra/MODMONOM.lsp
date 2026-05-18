@@ -2,25 +2,25 @@
 (SDEFUN |MODMONOM;<;2%B;1| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (SPADCALL |x| |y| (QREFELT % 8))) 
 
-(PUT '|MODMONOM;exponent;%E;2| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|MODMONOM;exponent;%E;2| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |MODMONOM;exponent;%E;2| ((|x| (%)) (% (E))) (QCDR |x|)) 
 
-(PUT '|MODMONOM;index;%IS;3| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|MODMONOM;index;%IS;3| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |MODMONOM;index;%IS;3| ((|x| (%)) (% (IS))) (QCAR |x|)) 
 
-(PUT '|MODMONOM;coerce;%R;4| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|MODMONOM;coerce;%R;4| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |MODMONOM;coerce;%R;4|
         ((|x| (%)) (% (|Record| (|:| |index| IS) (|:| |exponent| E)))) |x|) 
 
-(PUT '|MODMONOM;coerce;R%;5| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|MODMONOM;coerce;R%;5| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |MODMONOM;coerce;R%;5|
         ((|x| (|Record| (|:| |index| IS) (|:| |exponent| E))) (% (%))) |x|) 
 
-(PUT '|MODMONOM;construct;ISE%;6| '|SPADreplace| 'CONS) 
+(MAKEPROP '|MODMONOM;construct;ISE%;6| '|SPADreplace| 'CONS) 
 
 (SDEFUN |MODMONOM;construct;ISE%;6| ((|i| (IS)) (|e| (E)) (% (%)))
         (CONS |i| |e|)) 

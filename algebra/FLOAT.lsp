@@ -786,23 +786,23 @@
          (SPADCALL (SPADCALL |a| |b| (QREFELT % 44)) |b| (QREFELT % 39))
          (QREFELT % 46))) 
 
-(PUT '|FLOAT;Zero;%;42| '|SPADreplace| '(XLAM NIL (CONS 0 0))) 
+(MAKEPROP '|FLOAT;Zero;%;42| '|SPADreplace| '(XLAM NIL (CONS 0 0))) 
 
 (SDEFUN |FLOAT;Zero;%;42| ((% (%))) (CONS 0 0)) 
 
-(PUT '|FLOAT;One;%;43| '|SPADreplace| '(XLAM NIL (CONS 1 0))) 
+(MAKEPROP '|FLOAT;One;%;43| '|SPADreplace| '(XLAM NIL (CONS 1 0))) 
 
 (SDEFUN |FLOAT;One;%;43| ((% (%))) (CONS 1 0)) 
 
-(PUT '|FLOAT;base;Pi;44| '|SPADreplace| '(XLAM NIL 2)) 
+(MAKEPROP '|FLOAT;base;Pi;44| '|SPADreplace| '(XLAM NIL 2)) 
 
 (SDEFUN |FLOAT;base;Pi;44| ((% (|PositiveInteger|))) 2) 
 
-(PUT '|FLOAT;mantissa;%I;45| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|FLOAT;mantissa;%I;45| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |FLOAT;mantissa;%I;45| ((|x| (%)) (% (|Integer|))) (QCAR |x|)) 
 
-(PUT '|FLOAT;exponent;%I;46| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|FLOAT;exponent;%I;46| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |FLOAT;exponent;%I;46| ((|x| (%)) (% (|Integer|))) (QCDR |x|)) 
 
@@ -1331,7 +1331,7 @@
                (SPADCALL (SPADCALL (QREFELT % 93)) (QREFELT % 147)))
          (QREFELT % 149))) 
 
-(PUT '|FLOAT;convert;2%;98| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|FLOAT;convert;2%;98| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |FLOAT;convert;2%;98| ((|x| (%)) (% (|Float|))) |x|) 
 

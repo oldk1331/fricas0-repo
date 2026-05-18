@@ -59,43 +59,43 @@
                        (SPADCALL (SPADCALL |l1| (QREFELT % 25))
                                  (QREFELT % 26))))))))) 
 
-(PUT '|SEXOF;=;2%B;2| '|SPADreplace| 'EQUAL) 
+(MAKEPROP '|SEXOF;=;2%B;2| '|SPADreplace| 'EQUAL) 
 
 (SDEFUN |SEXOF;=;2%B;2| ((|b1| (%)) (|b2| (%)) (% (|Boolean|)))
         (EQUAL |b1| |b2|)) 
 
-(PUT '|SEXOF;eq;2%B;3| '|SPADreplace| 'EQ) 
+(MAKEPROP '|SEXOF;eq;2%B;3| '|SPADreplace| 'EQ) 
 
 (SDEFUN |SEXOF;eq;2%B;3| ((|b1| (%)) (|b2| (%)) (% (|Boolean|))) (EQ |b1| |b2|)) 
 
-(PUT '|SEXOF;null?;%B;4| '|SPADreplace| 'NULL) 
+(MAKEPROP '|SEXOF;null?;%B;4| '|SPADreplace| 'NULL) 
 
 (SDEFUN |SEXOF;null?;%B;4| ((|b| (%)) (% (|Boolean|))) (NULL |b|)) 
 
-(PUT '|SEXOF;atom?;%B;5| '|SPADreplace| 'ATOM) 
+(MAKEPROP '|SEXOF;atom?;%B;5| '|SPADreplace| 'ATOM) 
 
 (SDEFUN |SEXOF;atom?;%B;5| ((|b| (%)) (% (|Boolean|))) (ATOM |b|)) 
 
-(PUT '|SEXOF;pair?;%B;6| '|SPADreplace| 'PAIRP) 
+(MAKEPROP '|SEXOF;pair?;%B;6| '|SPADreplace| 'PAIRP) 
 
 (SDEFUN |SEXOF;pair?;%B;6| ((|b| (%)) (% (|Boolean|))) (PAIRP |b|)) 
 
 (SDEFUN |SEXOF;list?;%B;7| ((|b| (%)) (% (|Boolean|)))
         (COND ((PAIRP |b|) 'T) ('T (NULL |b|)))) 
 
-(PUT '|SEXOF;string?;%B;8| '|SPADreplace| 'STRINGP) 
+(MAKEPROP '|SEXOF;string?;%B;8| '|SPADreplace| 'STRINGP) 
 
 (SDEFUN |SEXOF;string?;%B;8| ((|b| (%)) (% (|Boolean|))) (STRINGP |b|)) 
 
-(PUT '|SEXOF;symbol?;%B;9| '|SPADreplace| 'IDENTP) 
+(MAKEPROP '|SEXOF;symbol?;%B;9| '|SPADreplace| 'IDENTP) 
 
 (SDEFUN |SEXOF;symbol?;%B;9| ((|b| (%)) (% (|Boolean|))) (IDENTP |b|)) 
 
-(PUT '|SEXOF;integer?;%B;10| '|SPADreplace| 'INTEGERP) 
+(MAKEPROP '|SEXOF;integer?;%B;10| '|SPADreplace| 'INTEGERP) 
 
 (SDEFUN |SEXOF;integer?;%B;10| ((|b| (%)) (% (|Boolean|))) (INTEGERP |b|)) 
 
-(PUT '|SEXOF;float?;%B;11| '|SPADreplace| 'FLOATP) 
+(MAKEPROP '|SEXOF;float?;%B;11| '|SPADreplace| 'FLOATP) 
 
 (SDEFUN |SEXOF;float?;%B;11| ((|b| (%)) (% (|Boolean|))) (FLOATP |b|)) 
 
@@ -114,35 +114,35 @@
 (SDEFUN |SEXOF;integer;%Int;16| ((|b| (%)) (% (|Int|)))
         (COND ((INTEGERP |b|) |b|) ('T (|error| "Non-integer")))) 
 
-(PUT '|SEXOF;convert;L%;17| '|SPADreplace| '(XLAM (|l|) |l|)) 
+(MAKEPROP '|SEXOF;convert;L%;17| '|SPADreplace| '(XLAM (|l|) |l|)) 
 
 (SDEFUN |SEXOF;convert;L%;17| ((|l| (|List| %)) (% (%))) |l|) 
 
-(PUT '|SEXOF;convert;Str%;18| '|SPADreplace| '(XLAM (|st|) |st|)) 
+(MAKEPROP '|SEXOF;convert;Str%;18| '|SPADreplace| '(XLAM (|st|) |st|)) 
 
 (SDEFUN |SEXOF;convert;Str%;18| ((|st| (|Str|)) (% (%))) |st|) 
 
-(PUT '|SEXOF;convert;Sym%;19| '|SPADreplace| '(XLAM (|sy|) |sy|)) 
+(MAKEPROP '|SEXOF;convert;Sym%;19| '|SPADreplace| '(XLAM (|sy|) |sy|)) 
 
 (SDEFUN |SEXOF;convert;Sym%;19| ((|sy| (|Sym|)) (% (%))) |sy|) 
 
-(PUT '|SEXOF;convert;Int%;20| '|SPADreplace| '(XLAM (|n|) |n|)) 
+(MAKEPROP '|SEXOF;convert;Int%;20| '|SPADreplace| '(XLAM (|n|) |n|)) 
 
 (SDEFUN |SEXOF;convert;Int%;20| ((|n| (|Int|)) (% (%))) |n|) 
 
-(PUT '|SEXOF;convert;Flt%;21| '|SPADreplace| '(XLAM (|f|) |f|)) 
+(MAKEPROP '|SEXOF;convert;Flt%;21| '|SPADreplace| '(XLAM (|f|) |f|)) 
 
 (SDEFUN |SEXOF;convert;Flt%;21| ((|f| (|Flt|)) (% (%))) |f|) 
 
-(PUT '|SEXOF;car;2%;22| '|SPADreplace| 'CAR) 
+(MAKEPROP '|SEXOF;car;2%;22| '|SPADreplace| 'CAR) 
 
 (SDEFUN |SEXOF;car;2%;22| ((|b| (%)) (% (%))) (CAR |b|)) 
 
-(PUT '|SEXOF;cdr;2%;23| '|SPADreplace| 'CDR) 
+(MAKEPROP '|SEXOF;cdr;2%;23| '|SPADreplace| 'CDR) 
 
 (SDEFUN |SEXOF;cdr;2%;23| ((|b| (%)) (% (%))) (CDR |b|)) 
 
-(PUT '|SEXOF;#;%I;24| '|SPADreplace| 'LENGTH) 
+(MAKEPROP '|SEXOF;#;%I;24| '|SPADreplace| 'LENGTH) 
 
 (SDEFUN |SEXOF;#;%I;24| ((|b| (%)) (% (|Integer|))) (LENGTH |b|)) 
 

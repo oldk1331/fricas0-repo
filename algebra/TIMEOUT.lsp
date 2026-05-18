@@ -1,5 +1,6 @@
 
-(PUT '|TIMEOUT;eval_with_timeout;MIU;1| '|SPADreplace| '|eval_with_timeout|) 
+(MAKEPROP '|TIMEOUT;eval_with_timeout;MIU;1| '|SPADreplace|
+          '|eval_with_timeout|) 
 
 (SDEFUN |TIMEOUT;eval_with_timeout;MIU;1|
         ((|f| (|Mapping| S)) (|i| (|Integer|)) (% (|Union| S "failed")))

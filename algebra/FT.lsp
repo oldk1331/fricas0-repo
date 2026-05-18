@@ -46,19 +46,19 @@
                                    (QREFELT % 21))
                                   (QREFELT % 22)))))))) 
 
-(PUT '|FT;scalarTypeOf;%U;2| '|SPADreplace| '(XLAM (|u|) (QVELT |u| 0))) 
+(MAKEPROP '|FT;scalarTypeOf;%U;2| '|SPADreplace| '(XLAM (|u|) (QVELT |u| 0))) 
 
 (SDEFUN |FT;scalarTypeOf;%U;2|
         ((|u| (%))
          (% (|Union| (|:| |fst| (|FortranScalarType|)) (|:| |void| "void"))))
         (QVELT |u| 0)) 
 
-(PUT '|FT;dimensionsOf;%L;3| '|SPADreplace| '(XLAM (|u|) (QVELT |u| 1))) 
+(MAKEPROP '|FT;dimensionsOf;%L;3| '|SPADreplace| '(XLAM (|u|) (QVELT |u| 1))) 
 
 (SDEFUN |FT;dimensionsOf;%L;3|
         ((|u| (%)) (% (|List| (|Polynomial| (|Integer|))))) (QVELT |u| 1)) 
 
-(PUT '|FT;external?;%B;4| '|SPADreplace| '(XLAM (|u|) (QVELT |u| 2))) 
+(MAKEPROP '|FT;external?;%B;4| '|SPADreplace| '(XLAM (|u|) (QVELT |u| 2))) 
 
 (SDEFUN |FT;external?;%B;4| ((|u| (%)) (% (|Boolean|))) (QVELT |u| 2)) 
 

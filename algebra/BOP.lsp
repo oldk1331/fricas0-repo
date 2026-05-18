@@ -2,11 +2,11 @@
 (SDEFUN |BOP;is?;%SB;1| ((|op| (%)) (|s| (|Symbol|)) (% (|Boolean|)))
         (EQUAL (SPADCALL |op| (QREFELT % 13)) |s|)) 
 
-(PUT '|BOP;name;%S;2| '|SPADreplace| '(XLAM (|op|) (QVELT |op| 0))) 
+(MAKEPROP '|BOP;name;%S;2| '|SPADreplace| '(XLAM (|op|) (QVELT |op| 0))) 
 
 (SDEFUN |BOP;name;%S;2| ((|op| (%)) (% (|Symbol|))) (QVELT |op| 0)) 
 
-(PUT '|BOP;properties;%Al;3| '|SPADreplace| '(XLAM (|op|) (QVELT |op| 2))) 
+(MAKEPROP '|BOP;properties;%Al;3| '|SPADreplace| '(XLAM (|op|) (QVELT |op| 2))) 
 
 (SDEFUN |BOP;properties;%Al;3|
         ((|op| (%)) (% (|AssociationList| (|Symbol|) (|None|)))) (QVELT |op| 2)) 
@@ -33,7 +33,7 @@
 (SDEFUN |BOP;has?;%SB;9| ((|op| (%)) (|name| (|Symbol|)) (% (|Boolean|)))
         (SPADCALL |name| (QVELT |op| 2) (QREFELT % 32))) 
 
-(PUT '|BOP;oper| '|SPADreplace| 'VECTOR) 
+(MAKEPROP '|BOP;oper| '|SPADreplace| 'VECTOR) 
 
 (SDEFUN |BOP;oper|
         ((|se| (|Symbol|)) (|n| (|SingleInteger|))

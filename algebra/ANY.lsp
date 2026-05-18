@@ -1,9 +1,9 @@
 
-(PUT '|ANY;obj;%N;1| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|ANY;obj;%N;1| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |ANY;obj;%N;1| ((|x| (%)) (% (|None|))) (QCDR |x|)) 
 
-(PUT '|ANY;dom;%Se;2| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|ANY;dom;%Se;2| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |ANY;dom;%Se;2| ((|x| (%)) (% (|SExpression|))) (QCAR |x|)) 
 

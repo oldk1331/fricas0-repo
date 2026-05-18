@@ -1,5 +1,6 @@
 
-(PUT '|FINLAT;finiteLattice;Nni%;1| '|SPADreplace| '(XLAM (|index|) |index|)) 
+(MAKEPROP '|FINLAT;finiteLattice;Nni%;1| '|SPADreplace|
+          '(XLAM (|index|) |index|)) 
 
 (SDEFUN |FINLAT;finiteLattice;Nni%;1|
         ((|index| (|NonNegativeInteger|)) (% (%))) |index|) 
@@ -7,7 +8,7 @@
 (SDEFUN |FINLAT;index;Pi%;2| ((|n| (|PositiveInteger|)) (% (%)))
         (SPADCALL (- |n| 1) (QREFELT % 10))) 
 
-(PUT '|FINLAT;lookup;%Pi;3| '|SPADreplace| '(XLAM (|el|) (+ |el| 1))) 
+(MAKEPROP '|FINLAT;lookup;%Pi;3| '|SPADreplace| '(XLAM (|el|) (+ |el| 1))) 
 
 (SDEFUN |FINLAT;lookup;%Pi;3| ((|el| (%)) (% (|PositiveInteger|))) (+ |el| 1)) 
 
@@ -23,7 +24,7 @@
 (SDEFUN |FINLAT;\\/;3%;7| ((|a| (%)) (|b| (%)) (% (%)))
         (SPADCALL (QREFELT % 7) |a| |b| (QREFELT % 22))) 
 
-(PUT '|FINLAT;hash;%Si;8| '|SPADreplace| '(XLAM (|s|) 0)) 
+(MAKEPROP '|FINLAT;hash;%Si;8| '|SPADreplace| '(XLAM (|s|) 0)) 
 
 (SDEFUN |FINLAT;hash;%Si;8| ((|s| (%)) (% (|SingleInteger|))) 0) 
 

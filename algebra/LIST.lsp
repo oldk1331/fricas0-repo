@@ -1,47 +1,47 @@
 
-(PUT '|LIST;#;%Nni;1| '|SPADreplace| 'LENGTH) 
+(MAKEPROP '|LIST;#;%Nni;1| '|SPADreplace| 'LENGTH) 
 
 (SDEFUN |LIST;#;%Nni;1| ((|x| (%)) (% (|NonNegativeInteger|))) (LENGTH |x|)) 
 
-(PUT '|LIST;cons;S2%;2| '|SPADreplace| 'CONS) 
+(MAKEPROP '|LIST;cons;S2%;2| '|SPADreplace| 'CONS) 
 
 (SDEFUN |LIST;cons;S2%;2| ((|s| (S)) (|x| (%)) (% (%))) (CONS |s| |x|)) 
 
-(PUT '|LIST;concat;S2%;3| '|SPADreplace| 'CONS) 
+(MAKEPROP '|LIST;concat;S2%;3| '|SPADreplace| 'CONS) 
 
 (SDEFUN |LIST;concat;S2%;3| ((|s| (S)) (|x| (%)) (% (%))) (CONS |s| |x|)) 
 
-(PUT '|LIST;eq?;2%B;4| '|SPADreplace| 'EQ) 
+(MAKEPROP '|LIST;eq?;2%B;4| '|SPADreplace| 'EQ) 
 
 (SDEFUN |LIST;eq?;2%B;4| ((|x| (%)) (|y| (%)) (% (|Boolean|))) (EQ |x| |y|)) 
 
-(PUT '|LIST;first;%S;5| '|SPADreplace| '|SPADfirst|) 
+(MAKEPROP '|LIST;first;%S;5| '|SPADreplace| '|SPADfirst|) 
 
 (SDEFUN |LIST;first;%S;5| ((|x| (%)) (% (S))) (|SPADfirst| |x|)) 
 
-(PUT '|LIST;elt;%firstS;6| '|SPADreplace|
-     '(XLAM (|x| "first") (|SPADfirst| |x|))) 
+(MAKEPROP '|LIST;elt;%firstS;6| '|SPADreplace|
+          '(XLAM (|x| "first") (|SPADfirst| |x|))) 
 
 (SDEFUN |LIST;elt;%firstS;6| ((|x| (%)) (T1 ("first")) (% (S)))
         (|SPADfirst| |x|)) 
 
-(PUT '|LIST;empty;%;7| '|SPADreplace| '(XLAM NIL NIL)) 
+(MAKEPROP '|LIST;empty;%;7| '|SPADreplace| '(XLAM NIL NIL)) 
 
 (SDEFUN |LIST;empty;%;7| ((% (%))) NIL) 
 
-(PUT '|LIST;empty?;%B;8| '|SPADreplace| 'NULL) 
+(MAKEPROP '|LIST;empty?;%B;8| '|SPADreplace| 'NULL) 
 
 (SDEFUN |LIST;empty?;%B;8| ((|x| (%)) (% (|Boolean|))) (NULL |x|)) 
 
-(PUT '|LIST;rest;2%;9| '|SPADreplace| 'CDR) 
+(MAKEPROP '|LIST;rest;2%;9| '|SPADreplace| 'CDR) 
 
 (SDEFUN |LIST;rest;2%;9| ((|x| (%)) (% (%))) (CDR |x|)) 
 
-(PUT '|LIST;elt;%rest%;10| '|SPADreplace| '(XLAM (|x| "rest") (CDR |x|))) 
+(MAKEPROP '|LIST;elt;%rest%;10| '|SPADreplace| '(XLAM (|x| "rest") (CDR |x|))) 
 
 (SDEFUN |LIST;elt;%rest%;10| ((|x| (%)) (T2 ("rest")) (% (%))) (CDR |x|)) 
 
-(PUT '|LIST;qsetfirst!;%2S;11| '|SPADreplace| '|qset_first|) 
+(MAKEPROP '|LIST;qsetfirst!;%2S;11| '|SPADreplace| '|qset_first|) 
 
 (SDEFUN |LIST;qsetfirst!;%2S;11| ((|x| (%)) (|s| (S)) (% (S)))
         (|qset_first| |x| |s|)) 
@@ -55,7 +55,7 @@
         (COND ((NULL |x|) (|error| "Cannot update an empty list"))
               ('T (|qset_first| |x| |s|)))) 
 
-(PUT '|LIST;qsetrest!;3%;14| '|SPADreplace| '|qset_rest|) 
+(MAKEPROP '|LIST;qsetrest!;3%;14| '|SPADreplace| '|qset_rest|) 
 
 (SDEFUN |LIST;qsetrest!;3%;14| ((|x| (%)) (|y| (%)) (% (%)))
         (|qset_rest| |x| |y|)) 
@@ -68,27 +68,27 @@
         (COND ((NULL |x|) (|error| "Cannot update an empty list"))
               ('T (|qset_rest| |x| |y|)))) 
 
-(PUT '|LIST;construct;2%;17| '|SPADreplace| '(XLAM (|l|) |l|)) 
+(MAKEPROP '|LIST;construct;2%;17| '|SPADreplace| '(XLAM (|l|) |l|)) 
 
 (SDEFUN |LIST;construct;2%;17| ((|l| (|List| S)) (% (%))) |l|) 
 
-(PUT '|LIST;parts;2%;18| '|SPADreplace| '(XLAM (|s|) |s|)) 
+(MAKEPROP '|LIST;parts;2%;18| '|SPADreplace| '(XLAM (|s|) |s|)) 
 
 (SDEFUN |LIST;parts;2%;18| ((|s| (%)) (% (|List| S))) |s|) 
 
-(PUT '|LIST;reverse!;2%;19| '|SPADreplace| 'NREVERSE) 
+(MAKEPROP '|LIST;reverse!;2%;19| '|SPADreplace| 'NREVERSE) 
 
 (SDEFUN |LIST;reverse!;2%;19| ((|x| (%)) (% (%))) (NREVERSE |x|)) 
 
-(PUT '|LIST;reverse;2%;20| '|SPADreplace| 'REVERSE) 
+(MAKEPROP '|LIST;reverse;2%;20| '|SPADreplace| 'REVERSE) 
 
 (SDEFUN |LIST;reverse;2%;20| ((|x| (%)) (% (%))) (REVERSE |x|)) 
 
-(PUT '|LIST;minIndex;%I;21| '|SPADreplace| '(XLAM (|x|) 1)) 
+(MAKEPROP '|LIST;minIndex;%I;21| '|SPADreplace| '(XLAM (|x|) 1)) 
 
 (SDEFUN |LIST;minIndex;%I;21| ((|x| (%)) (% (|Integer|))) 1) 
 
-(PUT '|LIST;maxIndex;%I;22| '|SPADreplace| 'LENGTH) 
+(MAKEPROP '|LIST;maxIndex;%I;22| '|SPADreplace| 'LENGTH) 
 
 (SDEFUN |LIST;maxIndex;%I;22| ((|x| (%)) (% (|Integer|))) (LENGTH |x|)) 
 

@@ -1,15 +1,15 @@
 
-(PUT '|IIARRAY2;empty;%;1| '|SPADreplace| '(XLAM NIL (MAKE_MATRIX 0 0))) 
+(MAKEPROP '|IIARRAY2;empty;%;1| '|SPADreplace| '(XLAM NIL (MAKE_MATRIX 0 0))) 
 
 (SDEFUN |IIARRAY2;empty;%;1| ((% (%))) (MAKE_MATRIX 0 0)) 
 
-(PUT '|IIARRAY2;qnew;2Nni%;2| '|SPADreplace| 'MAKE_MATRIX) 
+(MAKEPROP '|IIARRAY2;qnew;2Nni%;2| '|SPADreplace| 'MAKE_MATRIX) 
 
 (SDEFUN |IIARRAY2;qnew;2Nni%;2|
         ((|rows| #1=(|NonNegativeInteger|)) (|cols| #1#) (% (%)))
         (MAKE_MATRIX |rows| |cols|)) 
 
-(PUT '|IIARRAY2;new;2NniR%;3| '|SPADreplace| 'MAKE_MATRIX1) 
+(MAKEPROP '|IIARRAY2;new;2NniR%;3| '|SPADreplace| 'MAKE_MATRIX1) 
 
 (SDEFUN |IIARRAY2;new;2NniR%;3|
         ((|rows| #1=(|NonNegativeInteger|)) (|cols| #1#) (|a| (R)) (% (%)))
@@ -25,12 +25,12 @@
 (SDEFUN |IIARRAY2;maxColIndex;%I;7| ((|m| (%)) (% (|Integer|)))
         (- (+ (SPADCALL |m| (QREFELT % 20)) (QREFELT % 8)) 1)) 
 
-(PUT '|IIARRAY2;nrows;%Nni;8| '|SPADreplace| 'ANROWS) 
+(MAKEPROP '|IIARRAY2;nrows;%Nni;8| '|SPADreplace| 'ANROWS) 
 
 (SDEFUN |IIARRAY2;nrows;%Nni;8| ((|m| (%)) (% (|NonNegativeInteger|)))
         (ANROWS |m|)) 
 
-(PUT '|IIARRAY2;ncols;%Nni;9| '|SPADreplace| 'ANCOLS) 
+(MAKEPROP '|IIARRAY2;ncols;%Nni;9| '|SPADreplace| 'ANCOLS) 
 
 (SDEFUN |IIARRAY2;ncols;%Nni;9| ((|m| (%)) (% (|NonNegativeInteger|)))
         (ANCOLS |m|)) 

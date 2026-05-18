@@ -339,8 +339,8 @@
                                           (CONS 1
                                                 "failed"))))))))))))))))))))))))))) 
 
-(PUT '|EF;specialTrigs;FLU;45| '|SPADreplace|
-     '(XLAM (|x| |values|) (CONS 1 "failed"))) 
+(MAKEPROP '|EF;specialTrigs;FLU;45| '|SPADreplace|
+          '(XLAM (|x| |values|) (CONS 1 "failed"))) 
 
 (SDEFUN |EF;specialTrigs;FLU;45|
         ((|x| (F))
@@ -1510,11 +1510,11 @@
                                  (QREFELT % 131)))
                       ('T NIL)))))) 
 
-(PUT '|EF;localReal?;FB;72| '|SPADreplace| '(XLAM (|x|) 'T)) 
+(MAKEPROP '|EF;localReal?;FB;72| '|SPADreplace| '(XLAM (|x|) 'T)) 
 
 (SDEFUN |EF;localReal?;FB;72| ((|x| (F)) (% (|Boolean|))) 'T) 
 
-(PUT '|EF;localReal?;FB;73| '|SPADreplace| '(XLAM (|x|) 'T)) 
+(MAKEPROP '|EF;localReal?;FB;73| '|SPADreplace| '(XLAM (|x|) 'T)) 
 
 (SDEFUN |EF;localReal?;FB;73| ((|x| (F)) (% (|Boolean|))) 'T) 
 

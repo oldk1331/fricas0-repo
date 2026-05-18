@@ -1,13 +1,13 @@
 
-(PUT '|ULSCONS;getExpon| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|ULSCONS;getExpon| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |ULSCONS;getExpon| ((|x| (%)) (% (|Integer|))) (QCAR |x|)) 
 
-(PUT '|ULSCONS;getUTS| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|ULSCONS;getUTS| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |ULSCONS;getUTS| ((|x| (%)) (% (UTS))) (QCDR |x|)) 
 
-(PUT '|ULSCONS;laurent;IUTS%;3| '|SPADreplace| 'CONS) 
+(MAKEPROP '|ULSCONS;laurent;IUTS%;3| '|SPADreplace| 'CONS) 
 
 (SDEFUN |ULSCONS;laurent;IUTS%;3| ((|n| (|Integer|)) (|psr| (UTS)) (% (%)))
         (CONS |n| |psr|)) 
@@ -71,21 +71,21 @@
                        (|error| "taylor: Laurent series has a pole"))
                       ('T (QCDR |uts|))))))) 
 
-(PUT '|ULSCONS;termExpon| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|ULSCONS;termExpon| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |ULSCONS;termExpon|
         ((|term| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))
          (% (|Integer|)))
         (QCAR |term|)) 
 
-(PUT '|ULSCONS;termCoef| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|ULSCONS;termCoef| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |ULSCONS;termCoef|
         ((|term| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))
          (% (|Coef|)))
         (QCDR |term|)) 
 
-(PUT '|ULSCONS;rec| '|SPADreplace| 'CONS) 
+(MAKEPROP '|ULSCONS;rec| '|SPADreplace| 'CONS) 
 
 (SDEFUN |ULSCONS;rec|
         ((|exponent| (|Integer|)) (|coef| (|Coef|))
@@ -1138,7 +1138,7 @@
                            (SPADCALL (SPADCALL |c| (QREFELT % 220)) |mon|
                                      (QREFELT % 225))))))))))) 
 
-(PUT '|ULSCONS;showAll?| '|SPADreplace| '(XLAM NIL |$streamsShowAll|)) 
+(MAKEPROP '|ULSCONS;showAll?| '|SPADreplace| '(XLAM NIL |$streamsShowAll|)) 
 
 (SDEFUN |ULSCONS;showAll?| ((% (|Boolean|))) |$streamsShowAll|) 
 

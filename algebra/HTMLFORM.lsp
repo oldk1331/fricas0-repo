@@ -239,7 +239,7 @@
                 (EXIT (SPADCALL (QREFELT % 30)))))))))
           #5# (EXIT #2#)))) 
 
-(PUT '|HTMLFORM;stringify| '|SPADreplace| '|mathObject2String|) 
+(MAKEPROP '|HTMLFORM;stringify| '|SPADreplace| '|mathObject2String|) 
 
 (SDEFUN |HTMLFORM;stringify| ((|expr| (|OutputForm|)) (% (|String|)))
         (|mathObject2String| |expr|)) 

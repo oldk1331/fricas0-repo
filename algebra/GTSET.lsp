@@ -1,9 +1,9 @@
 
-(PUT '|GTSET;rep| '|SPADreplace| '(XLAM (|s|) |s|)) 
+(MAKEPROP '|GTSET;rep| '|SPADreplace| '(XLAM (|s|) |s|)) 
 
 (SDEFUN |GTSET;rep| ((|s| (%)) (% (|List| P))) |s|) 
 
-(PUT '|GTSET;per| '|SPADreplace| '(XLAM (|l|) |l|)) 
+(MAKEPROP '|GTSET;per| '|SPADreplace| '(XLAM (|l|) |l|)) 
 
 (SDEFUN |GTSET;per| ((|l| (|List| P)) (% (%))) |l|) 
 
@@ -30,7 +30,7 @@
 (SDEFUN |GTSET;member?;P%B;10| ((|p| (P)) (|ts| (%)) (% (|Boolean|)))
         (SPADCALL |p| (|GTSET;rep| |ts| %) (QREFELT % 24))) 
 
-(PUT '|GTSET;roughUnitIdeal?;%B;11| '|SPADreplace| '(XLAM (|ts|) NIL)) 
+(MAKEPROP '|GTSET;roughUnitIdeal?;%B;11| '|SPADreplace| '(XLAM (|ts|) NIL)) 
 
 (SDEFUN |GTSET;roughUnitIdeal?;%B;11| ((|ts| (%)) (% (|Boolean|))) NIL) 
 

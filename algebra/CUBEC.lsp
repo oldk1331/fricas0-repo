@@ -1,5 +1,5 @@
 
-(PUT '|CUBEC;cubicalComplex;LL%;1| '|SPADreplace| 'CONS) 
+(MAKEPROP '|CUBEC;cubicalComplex;LL%;1| '|SPADreplace| 'CONS) 
 
 (SDEFUN |CUBEC;cubicalComplex;LL%;1|
         ((|v| (|List| VS)) (|fs| (|List| (|CubicalFacet|))) (% (%)))

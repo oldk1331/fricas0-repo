@@ -1,11 +1,11 @@
 
 (SDEFUN |JBE;coerce;JB%;1| ((|jv| (JB)) (% (%))) (SPADCALL |jv| (QREFELT % 8))) 
 
-(PUT '|JBE;coerce;E%;2| '|SPADreplace| '(XLAM (|exp|) |exp|)) 
+(MAKEPROP '|JBE;coerce;E%;2| '|SPADreplace| '(XLAM (|exp|) |exp|)) 
 
 (SDEFUN |JBE;coerce;E%;2| ((|exp| (|Expression| (|Integer|))) (% (%))) |exp|) 
 
-(PUT '|JBE;coerce;%E;3| '|SPADreplace| '(XLAM (|f|) |f|)) 
+(MAKEPROP '|JBE;coerce;%E;3| '|SPADreplace| '(XLAM (|f|) |f|)) 
 
 (SDEFUN |JBE;coerce;%E;3| ((|f| (%)) (% (|Expression| (|Integer|)))) |f|) 
 

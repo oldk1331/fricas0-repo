@@ -452,12 +452,12 @@
                   (EXIT
                    (QSETVELT |graf| 0 (|sockGetInt| |$ViewportServer|)))))))))) 
 
-(PUT '|GRIMAGE;key;%I;11| '|SPADreplace| '(XLAM (|graf|) (QVELT |graf| 0))) 
+(MAKEPROP '|GRIMAGE;key;%I;11| '|SPADreplace| '(XLAM (|graf|) (QVELT |graf| 0))) 
 
 (SDEFUN |GRIMAGE;key;%I;11| ((|graf| (%)) (% (|Integer|))) (QVELT |graf| 0)) 
 
-(PUT '|GRIMAGE;pointLists;%L;12| '|SPADreplace|
-     '(XLAM (|graf|) (QVELT |graf| 3))) 
+(MAKEPROP '|GRIMAGE;pointLists;%L;12| '|SPADreplace|
+          '(XLAM (|graf|) (QVELT |graf| 3))) 
 
 (SDEFUN |GRIMAGE;pointLists;%L;12|
         ((|graf| (%)) (% (|List| (|List| (|Point| (|DoubleFloat|))))))

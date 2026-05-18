@@ -1,9 +1,9 @@
 
-(PUT '|DISTRO;rep| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|DISTRO;rep| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |DISTRO;rep| ((|x| (%)) (% (|Rep|))) |x|) 
 
-(PUT '|DISTRO;per| '|SPADreplace| '(XLAM (|r|) |r|)) 
+(MAKEPROP '|DISTRO;per| '|SPADreplace| '(XLAM (|r|) |r|)) 
 
 (SDEFUN |DISTRO;per| ((|r| (|Rep|)) (% (%))) |r|) 
 

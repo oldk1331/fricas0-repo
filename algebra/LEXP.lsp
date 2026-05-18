@@ -219,7 +219,7 @@
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(PUT '|LEXP;coerce;%Xpbwp;11| '|SPADreplace| '(XLAM (|p|) |p|)) 
+(MAKEPROP '|LEXP;coerce;%Xpbwp;11| '|SPADreplace| '(XLAM (|p|) |p|)) 
 
 (SDEFUN |LEXP;coerce;%Xpbwp;11| ((|p| (%)) (% (|XPBWPolynomial| |VarSet| R)))
         |p|) 

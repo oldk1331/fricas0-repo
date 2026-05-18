@@ -2,7 +2,7 @@
 (SDEFUN |DECIMAL;decimal;F%;1| ((|r| (|Fraction| (|Integer|))) (% (%)))
         (SPADCALL |r| (QREFELT % 7))) 
 
-(PUT '|DECIMAL;coerce;%Re;2| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|DECIMAL;coerce;%Re;2| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |DECIMAL;coerce;%Re;2| ((|x| (%)) (% (|RadixExpansion| 10))) |x|) 
 

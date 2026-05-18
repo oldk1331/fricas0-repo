@@ -4,7 +4,7 @@
 (SDEFUN |FUNCTION;coerce;%Of;2| ((|r| (%)) (% (|OutputForm|)))
         (|outputMapTran| (QREFELT % 6) |r|)) 
 
-(PUT '|FUNCTION;=;2%B;3| '|SPADreplace| '(XLAM (|x| |y|) 'T)) 
+(MAKEPROP '|FUNCTION;=;2%B;3| '|SPADreplace| '(XLAM (|x| |y|) 'T)) 
 
 (SDEFUN |FUNCTION;=;2%B;3| ((|x| (%)) (|y| (%)) (% (|Boolean|))) 'T) 
 

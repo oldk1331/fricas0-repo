@@ -8,11 +8,11 @@
 (SDEFUN |STREAM;uninitialized?| ((|x| (%)) (% (|Boolean|)))
         (EQ (SPADCALL |x| (QREFELT % 11)) (QREFELT % 9))) 
 
-(PUT '|STREAM;frst;%S;4| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|STREAM;frst;%S;4| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |STREAM;frst;%S;4| ((|x| (%)) (% (S))) (QCAR |x|)) 
 
-(PUT '|STREAM;rst;2%;5| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|STREAM;rst;2%;5| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |STREAM;rst;2%;5| ((|x| (%)) (% (%))) (QCDR |x|)) 
 
@@ -202,7 +202,7 @@
                   (EXIT
                    (SPADCALL (NREVERSE (CONS |pp| |le|)) (QREFELT % 27)))))))))) 
 
-(PUT '|STREAM;showAll?;B;14| '|SPADreplace| '(XLAM NIL |$streamsShowAll|)) 
+(MAKEPROP '|STREAM;showAll?;B;14| '|SPADreplace| '(XLAM NIL |$streamsShowAll|)) 
 
 (SDEFUN |STREAM;showAll?;B;14| ((% (|Boolean|))) |$streamsShowAll|) 
 
@@ -602,7 +602,7 @@
                                          (QREFELT % 48))
                                (QREFELT % 44))))))))) 
 
-(PUT '|STREAM;concat;S2%;40| '|SPADreplace| 'CONS) 
+(MAKEPROP '|STREAM;concat;S2%;40| '|SPADreplace| 'CONS) 
 
 (SDEFUN |STREAM;concat;S2%;40| ((|s| (S)) (|x| (%)) (% (%))) (CONS |s| |x|)) 
 

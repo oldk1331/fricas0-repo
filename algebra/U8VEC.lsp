@@ -1,39 +1,39 @@
 
-(PUT '|U8VEC;#;%Nni;1| '|SPADreplace| 'QV_LEN_U8) 
+(MAKEPROP '|U8VEC;#;%Nni;1| '|SPADreplace| 'QV_LEN_U8) 
 
 (SDEFUN |U8VEC;#;%Nni;1| ((|x| (%)) (% (|NonNegativeInteger|))) (QV_LEN_U8 |x|)) 
 
-(PUT '|U8VEC;minIndex;%I;2| '|SPADreplace| '(XLAM (|x|) 0)) 
+(MAKEPROP '|U8VEC;minIndex;%I;2| '|SPADreplace| '(XLAM (|x|) 0)) 
 
 (SDEFUN |U8VEC;minIndex;%I;2| ((|x| (%)) (% (|Integer|))) 0) 
 
-(PUT '|U8VEC;empty;%;3| '|SPADreplace| '(XLAM NIL (GETREFV_U8 0 0))) 
+(MAKEPROP '|U8VEC;empty;%;3| '|SPADreplace| '(XLAM NIL (GETREFV_U8 0 0))) 
 
 (SDEFUN |U8VEC;empty;%;3| ((% (%))) (GETREFV_U8 0 0)) 
 
-(PUT '|U8VEC;new;NniI%;4| '|SPADreplace| 'GETREFV_U8) 
+(MAKEPROP '|U8VEC;new;NniI%;4| '|SPADreplace| 'GETREFV_U8) 
 
 (SDEFUN |U8VEC;new;NniI%;4|
         ((|n| (|NonNegativeInteger|)) (|x| (|Integer|)) (% (%)))
         (GETREFV_U8 |n| |x|)) 
 
-(PUT '|U8VEC;qelt;%2I;5| '|SPADreplace| 'ELT_U8) 
+(MAKEPROP '|U8VEC;qelt;%2I;5| '|SPADreplace| 'ELT_U8) 
 
 (SDEFUN |U8VEC;qelt;%2I;5| ((|x| (%)) (|i| (|Integer|)) (% (|Integer|)))
         (ELT_U8 |x| |i|)) 
 
-(PUT '|U8VEC;elt;%2I;6| '|SPADreplace| 'ELT_U8) 
+(MAKEPROP '|U8VEC;elt;%2I;6| '|SPADreplace| 'ELT_U8) 
 
 (SDEFUN |U8VEC;elt;%2I;6| ((|x| (%)) (|i| (|Integer|)) (% (|Integer|)))
         (ELT_U8 |x| |i|)) 
 
-(PUT '|U8VEC;qsetelt!;%3I;7| '|SPADreplace| 'SETELT_U8) 
+(MAKEPROP '|U8VEC;qsetelt!;%3I;7| '|SPADreplace| 'SETELT_U8) 
 
 (SDEFUN |U8VEC;qsetelt!;%3I;7|
         ((|x| (%)) (|i| (|Integer|)) (|s| #1=(|Integer|)) (% #1#))
         (SETELT_U8 |x| |i| |s|)) 
 
-(PUT '|U8VEC;setelt!;%3I;8| '|SPADreplace| 'SETELT_U8) 
+(MAKEPROP '|U8VEC;setelt!;%3I;8| '|SPADreplace| 'SETELT_U8) 
 
 (SDEFUN |U8VEC;setelt!;%3I;8|
         ((|x| (%)) (|i| (|Integer|)) (|s| #1=(|Integer|)) (% #1#))

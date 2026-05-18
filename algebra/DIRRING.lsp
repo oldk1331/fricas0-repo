@@ -1,9 +1,9 @@
 
-(PUT '|DIRRING;per| '|SPADreplace| '(XLAM (|f|) |f|)) 
+(MAKEPROP '|DIRRING;per| '|SPADreplace| '(XLAM (|f|) |f|)) 
 
 (SDEFUN |DIRRING;per| ((|f| (|Rep|)) (% (%))) |f|) 
 
-(PUT '|DIRRING;rep| '|SPADreplace| '(XLAM (|a|) |a|)) 
+(MAKEPROP '|DIRRING;rep| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
 (SDEFUN |DIRRING;rep| ((|a| (%)) (% (|Rep|))) |a|) 
 

@@ -3,7 +3,7 @@
         ((|f| (|UnivariatePuiseuxSeries| FE |var| |cen|)) (% (%)))
         (SPADCALL |f| (QREFELT % 10))) 
 
-(PUT '|EXPUPXS;exponent;%Ups;2| '|SPADreplace| '(XLAM (|f|) |f|)) 
+(MAKEPROP '|EXPUPXS;exponent;%Ups;2| '|SPADreplace| '(XLAM (|f|) |f|)) 
 
 (SDEFUN |EXPUPXS;exponent;%Ups;2|
         ((|f| (%)) (% (|UnivariatePuiseuxSeries| FE |var| |cen|))) |f|) 

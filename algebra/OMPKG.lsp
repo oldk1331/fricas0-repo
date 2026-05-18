@@ -28,11 +28,11 @@
                     (LETT |res| (SPADCALL (OM-READ |dev|) (QREFELT % 13)))
                     (SPADCALL |dev| (QREFELT % 20)) (EXIT |res|)))) 
 
-(PUT '|OMPKG;OMlistCDs;L;5| '|SPADreplace| 'OM-LISTCDS) 
+(MAKEPROP '|OMPKG;OMlistCDs;L;5| '|SPADreplace| 'OM-LISTCDS) 
 
 (SDEFUN |OMPKG;OMlistCDs;L;5| ((% (|List| (|String|)))) (OM-LISTCDS)) 
 
-(PUT '|OMPKG;OMlistSymbols;SL;6| '|SPADreplace| 'OM-LISTSYMBOLS) 
+(MAKEPROP '|OMPKG;OMlistSymbols;SL;6| '|SPADreplace| 'OM-LISTSYMBOLS) 
 
 (SDEFUN |OMPKG;OMlistSymbols;SL;6| ((|cd| (|String|)) (% (|List| (|String|))))
         (OM-LISTSYMBOLS |cd|)) 

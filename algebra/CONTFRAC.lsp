@@ -616,7 +616,7 @@
 (SDEFUN |CONTFRAC;recip;%U;42!0| ((|x| NIL) (% NIL))
         (SPADCALL (|spadConstant| % 65) |x| (QREFELT % 113))) 
 
-(PUT '|CONTFRAC;showAll?| '|SPADreplace| '(XLAM NIL |$streamsShowAll|)) 
+(MAKEPROP '|CONTFRAC;showAll?| '|SPADreplace| '(XLAM NIL |$streamsShowAll|)) 
 
 (SDEFUN |CONTFRAC;showAll?| ((% (|Boolean|))) |$streamsShowAll|) 
 

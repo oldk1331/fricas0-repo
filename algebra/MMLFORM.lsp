@@ -9,7 +9,7 @@
                        %))
                 (EXIT |s|)))) 
 
-(PUT '|MMLFORM;sayExpr| '|SPADreplace| '|sayMathML|) 
+(MAKEPROP '|MMLFORM;sayExpr| '|SPADreplace| '|sayMathML|) 
 
 (SDEFUN |MMLFORM;sayExpr| ((|s| (|String|)) (% (|Void|))) (|sayMathML| |s|)) 
 

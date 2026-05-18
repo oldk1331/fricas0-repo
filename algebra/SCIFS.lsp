@@ -1,10 +1,10 @@
 
-(PUT '|SCIFS;indexes;%L;1| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|SCIFS;indexes;%L;1| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |SCIFS;indexes;%L;1|
         ((|me| (%)) (% (|List| (|List| (|NonNegativeInteger|))))) (QCAR |me|)) 
 
-(PUT '|SCIFS;pointList;%L;2| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|SCIFS;pointList;%L;2| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |SCIFS;pointList;%L;2| ((|me| (%)) (% (|List| PT))) (QCDR |me|)) 
 

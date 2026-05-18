@@ -17,7 +17,7 @@
                        (EXIT 'T)))))
                    (EXIT NIL))))))) 
 
-(PUT '|UTSCAT-;factorials?| '|SPADreplace| '(XLAM NIL NIL)) 
+(MAKEPROP '|UTSCAT-;factorials?| '|SPADreplace| '(XLAM NIL NIL)) 
 
 (SDEFUN |UTSCAT-;factorials?| ((% (|Boolean|))) NIL) 
 
@@ -48,7 +48,7 @@
                            (SPADCALL (SPADCALL |c| (QREFELT % 19)) |mon|
                                      (QREFELT % 28))))))))))) 
 
-(PUT '|UTSCAT-;showAll?| '|SPADreplace| '(XLAM NIL |$streamsShowAll|)) 
+(MAKEPROP '|UTSCAT-;showAll?| '|SPADreplace| '(XLAM NIL |$streamsShowAll|)) 
 
 (SDEFUN |UTSCAT-;showAll?| ((% (|Boolean|))) |$streamsShowAll|) 
 

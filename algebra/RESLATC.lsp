@@ -1,9 +1,9 @@
 
 (SDEFUN |RESLATC;coerce;SV;1| ((|s| (S)) (% (|Void|))) (SPADCALL (QREFELT % 8))) 
 
-(PUT '|RESLATC;coerce;ES;2| '|SPADreplace|
-     '(XLAM (|e|)
-       (|error| "Bug: Should not be able to obtain value of type Exit"))) 
+(MAKEPROP '|RESLATC;coerce;ES;2| '|SPADreplace|
+          '(XLAM (|e|)
+            (|error| "Bug: Should not be able to obtain value of type Exit"))) 
 
 (SDEFUN |RESLATC;coerce;ES;2| ((|e| (|Exit|)) (% (S)))
         (|error| "Bug: Should not be able to obtain value of type Exit")) 

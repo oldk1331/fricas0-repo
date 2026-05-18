@@ -159,26 +159,30 @@
                    (EXIT (SPADCALL |atanx| |z| (QREFELT % 23)))))
                  ('T (|error| (STRCONC "atan: " (QREFELT % 7)))))))) 
 
-(PUT '|STTFNC;acos;2S;12| '|SPADreplace|
-     '(XLAM (|z|) (|error| "acos: acos undefined on this coefficient domain"))) 
+(MAKEPROP '|STTFNC;acos;2S;12| '|SPADreplace|
+          '(XLAM (|z|)
+            (|error| "acos: acos undefined on this coefficient domain"))) 
 
 (SDEFUN |STTFNC;acos;2S;12| ((|z| (|Stream| |Coef|)) (% (|Stream| |Coef|)))
         (|error| "acos: acos undefined on this coefficient domain")) 
 
-(PUT '|STTFNC;acot;2S;13| '|SPADreplace|
-     '(XLAM (|z|) (|error| "acot: acot undefined on this coefficient domain"))) 
+(MAKEPROP '|STTFNC;acot;2S;13| '|SPADreplace|
+          '(XLAM (|z|)
+            (|error| "acot: acot undefined on this coefficient domain"))) 
 
 (SDEFUN |STTFNC;acot;2S;13| ((|z| (|Stream| |Coef|)) (% (|Stream| |Coef|)))
         (|error| "acot: acot undefined on this coefficient domain")) 
 
-(PUT '|STTFNC;asec;2S;14| '|SPADreplace|
-     '(XLAM (|z|) (|error| "asec: asec undefined on this coefficient domain"))) 
+(MAKEPROP '|STTFNC;asec;2S;14| '|SPADreplace|
+          '(XLAM (|z|)
+            (|error| "asec: asec undefined on this coefficient domain"))) 
 
 (SDEFUN |STTFNC;asec;2S;14| ((|z| (|Stream| |Coef|)) (% (|Stream| |Coef|)))
         (|error| "asec: asec undefined on this coefficient domain")) 
 
-(PUT '|STTFNC;acsc;2S;15| '|SPADreplace|
-     '(XLAM (|z|) (|error| "acsc: acsc undefined on this coefficient domain"))) 
+(MAKEPROP '|STTFNC;acsc;2S;15| '|SPADreplace|
+          '(XLAM (|z|)
+            (|error| "acsc: acsc undefined on this coefficient domain"))) 
 
 (SDEFUN |STTFNC;acsc;2S;15| ((|z| (|Stream| |Coef|)) (% (|Stream| |Coef|)))
         (|error| "acsc: acsc undefined on this coefficient domain")) 
@@ -295,30 +299,30 @@
                    (EXIT (SPADCALL |atanhx| |z| (QREFELT % 23)))))
                  ('T (|error| (STRCONC "atanh: " (QREFELT % 7)))))))) 
 
-(PUT '|STTFNC;acosh;2S;24| '|SPADreplace|
-     '(XLAM (|z|)
-       (|error| "acosh: acosh undefined on this coefficient domain"))) 
+(MAKEPROP '|STTFNC;acosh;2S;24| '|SPADreplace|
+          '(XLAM (|z|)
+            (|error| "acosh: acosh undefined on this coefficient domain"))) 
 
 (SDEFUN |STTFNC;acosh;2S;24| ((|z| (|Stream| |Coef|)) (% (|Stream| |Coef|)))
         (|error| "acosh: acosh undefined on this coefficient domain")) 
 
-(PUT '|STTFNC;acoth;2S;25| '|SPADreplace|
-     '(XLAM (|z|)
-       (|error| "acoth: acoth undefined on this coefficient domain"))) 
+(MAKEPROP '|STTFNC;acoth;2S;25| '|SPADreplace|
+          '(XLAM (|z|)
+            (|error| "acoth: acoth undefined on this coefficient domain"))) 
 
 (SDEFUN |STTFNC;acoth;2S;25| ((|z| (|Stream| |Coef|)) (% (|Stream| |Coef|)))
         (|error| "acoth: acoth undefined on this coefficient domain")) 
 
-(PUT '|STTFNC;asech;2S;26| '|SPADreplace|
-     '(XLAM (|z|)
-       (|error| "asech: asech undefined on this coefficient domain"))) 
+(MAKEPROP '|STTFNC;asech;2S;26| '|SPADreplace|
+          '(XLAM (|z|)
+            (|error| "asech: asech undefined on this coefficient domain"))) 
 
 (SDEFUN |STTFNC;asech;2S;26| ((|z| (|Stream| |Coef|)) (% (|Stream| |Coef|)))
         (|error| "asech: asech undefined on this coefficient domain")) 
 
-(PUT '|STTFNC;acsch;2S;27| '|SPADreplace|
-     '(XLAM (|z|)
-       (|error| "acsch: acsch undefined on this coefficient domain"))) 
+(MAKEPROP '|STTFNC;acsch;2S;27| '|SPADreplace|
+          '(XLAM (|z|)
+            (|error| "acsch: acsch undefined on this coefficient domain"))) 
 
 (SDEFUN |STTFNC;acsch;2S;27| ((|z| (|Stream| |Coef|)) (% (|Stream| |Coef|)))
         (|error| "acsch: acsch undefined on this coefficient domain")) 

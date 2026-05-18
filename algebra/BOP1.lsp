@@ -68,13 +68,13 @@
           (LETT |f| (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL (SPADCALL |l1| (QREFELT % 11)) |f|))))) 
 
-(PUT '|BOP1;cdisp| '|SPADreplace| '(XLAM (|a| |l|) |a|)) 
+(MAKEPROP '|BOP1;cdisp| '|SPADreplace| '(XLAM (|a| |l|) |a|)) 
 
 (SDEFUN |BOP1;cdisp|
         ((|a| (|OutputForm|)) (|l| (|List| (|OutputForm|))) (% (|OutputForm|)))
         |a|) 
 
-(PUT '|BOP1;csex| '|SPADreplace| '(XLAM (|a| |l|) |a|)) 
+(MAKEPROP '|BOP1;csex| '|SPADreplace| '(XLAM (|a| |l|) |a|)) 
 
 (SDEFUN |BOP1;csex|
         ((|a| (|InputForm|)) (|l| (|List| (|InputForm|))) (% (|InputForm|)))

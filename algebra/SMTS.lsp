@@ -1,9 +1,9 @@
 
-(PUT '|SMTS;coefficients;%S;1| '|SPADreplace| '(XLAM (|s|) |s|)) 
+(MAKEPROP '|SMTS;coefficients;%S;1| '|SPADreplace| '(XLAM (|s|) |s|)) 
 
 (SDEFUN |SMTS;coefficients;%S;1| ((|s| (%)) (% (|Stream| SMP))) |s|) 
 
-(PUT '|SMTS;series;S%;2| '|SPADreplace| '(XLAM (|st|) |st|)) 
+(MAKEPROP '|SMTS;series;S%;2| '|SPADreplace| '(XLAM (|st|) |st|)) 
 
 (SDEFUN |SMTS;series;S%;2| ((|st| (|Stream| SMP)) (% (%))) |st|) 
 
@@ -435,7 +435,7 @@
           (LETT % (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |z1| |v| (QREFELT % 118)))))) 
 
-(PUT '|SMTS;stream| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|SMTS;stream| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |SMTS;stream| ((|x| (%)) (% (|Rep|))) |x|) 
 
@@ -621,7 +621,7 @@
                      (COND ((SPADCALL |p| (QREFELT % 189)) |pe|)
                            ('T (SPADCALL |pe| (QREFELT % 190)))))))) 
 
-(PUT '|SMTS;showAll?| '|SPADreplace| '(XLAM NIL |$streamsShowAll|)) 
+(MAKEPROP '|SMTS;showAll?| '|SPADreplace| '(XLAM NIL |$streamsShowAll|)) 
 
 (SDEFUN |SMTS;showAll?| ((% (|Boolean|))) |$streamsShowAll|) 
 

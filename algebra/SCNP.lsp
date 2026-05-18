@@ -11,15 +11,16 @@
         ((|chin| (|List| %)) (|nmin| (|List| (|String|))) (% (%)))
         (CONS 2 (CONS |chin| |nmin|))) 
 
-(PUT '|SCNP;isPointLeaf?;%B;4| '|SPADreplace| '(XLAM (|n|) (QEQCAR |n| 0))) 
+(MAKEPROP '|SCNP;isPointLeaf?;%B;4| '|SPADreplace| '(XLAM (|n|) (QEQCAR |n| 0))) 
 
 (SDEFUN |SCNP;isPointLeaf?;%B;4| ((|n| (%)) (% (|Boolean|))) (QEQCAR |n| 0)) 
 
-(PUT '|SCNP;isNodeLeaf?;%B;5| '|SPADreplace| '(XLAM (|n|) (QEQCAR |n| 1))) 
+(MAKEPROP '|SCNP;isNodeLeaf?;%B;5| '|SPADreplace| '(XLAM (|n|) (QEQCAR |n| 1))) 
 
 (SDEFUN |SCNP;isNodeLeaf?;%B;5| ((|n| (%)) (% (|Boolean|))) (QEQCAR |n| 1)) 
 
-(PUT '|SCNP;isNodeBranch?;%B;6| '|SPADreplace| '(XLAM (|n|) (QEQCAR |n| 2))) 
+(MAKEPROP '|SCNP;isNodeBranch?;%B;6| '|SPADreplace|
+          '(XLAM (|n|) (QEQCAR |n| 2))) 
 
 (SDEFUN |SCNP;isNodeBranch?;%B;6| ((|n| (%)) (% (|Boolean|))) (QEQCAR |n| 2)) 
 
@@ -966,7 +967,7 @@
                 (EXIT |s|)))
           #8# (EXIT #5#)))) 
 
-(PUT '|SCNP;hash| '|SPADreplace| '(XLAM (|s|) 0)) 
+(MAKEPROP '|SCNP;hash| '|SPADreplace| '(XLAM (|s|) 0)) 
 
 (SDEFUN |SCNP;hash| ((|s| (%)) (% (|SingleInteger|))) 0) 
 

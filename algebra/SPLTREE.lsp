@@ -1,5 +1,5 @@
 
-(PUT '|SPLTREE;rep| '|SPADreplace| '(XLAM (|n|) |n|)) 
+(MAKEPROP '|SPLTREE;rep| '|SPADreplace| '(XLAM (|n|) |n|)) 
 
 (SDEFUN |SPLTREE;rep|
         ((|n| (%))
@@ -8,7 +8,7 @@
                     (|:| |subTrees| (|List| %)))))
         |n|) 
 
-(PUT '|SPLTREE;per| '|SPADreplace| '(XLAM (|r|) |r|)) 
+(MAKEPROP '|SPLTREE;per| '|SPADreplace| '(XLAM (|r|) |r|)) 
 
 (SDEFUN |SPLTREE;per|
         ((|r|
@@ -167,7 +167,7 @@
         (SEQ (PROGN (RPLACA #2=(|SPLTREE;rep| |a| %) |s|) (QCAR #2#))
              (EXIT |s|))) 
 
-(PUT '|SPLTREE;cyclic?;%B;16| '|SPADreplace| '(XLAM (|a|) NIL)) 
+(MAKEPROP '|SPLTREE;cyclic?;%B;16| '|SPADreplace| '(XLAM (|a|) NIL)) 
 
 (SDEFUN |SPLTREE;cyclic?;%B;16| ((|a| (%)) (% (|Boolean|))) NIL) 
 
@@ -256,8 +256,8 @@
 (SDEFUN |SPLTREE;copy;2%;19| ((|a| (%)) (% (%)))
         (SPADCALL (ELT % 47) |a| (QREFELT % 45))) 
 
-(PUT '|SPLTREE;eq?;2%B;20| '|SPADreplace|
-     '(XLAM (|a1| |a2|) (|error| "in eq? from SPLTREE : unimplemented"))) 
+(MAKEPROP '|SPLTREE;eq?;2%B;20| '|SPADreplace|
+          '(XLAM (|a1| |a2|) (|error| "in eq? from SPLTREE : unimplemented"))) 
 
 (SDEFUN |SPLTREE;eq?;2%B;20| ((|a1| (%)) (|a2| (%)) (% (|Boolean|)))
         (|error| "in eq? from SPLTREE : unimplemented")) 

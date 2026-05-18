@@ -21,7 +21,7 @@
                       (EXIT (NREVERSE #2#)))))
           (EXIT (LIST |objs|))))) 
 
-(PUT '|FNGRPH;functionGraph;L%;2| '|SPADreplace| 'LIST) 
+(MAKEPROP '|FNGRPH;functionGraph;L%;2| '|SPADreplace| 'LIST) 
 
 (SDEFUN |FNGRPH;functionGraph;L%;2|
         ((|ob|
@@ -247,7 +247,7 @@
                    (LETT |sojn| (|inc_SI| |sojn|)) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
-(PUT '|FNGRPH;initial;%;10| '|SPADreplace| '(XLAM NIL (LIST NIL))) 
+(MAKEPROP '|FNGRPH;initial;%;10| '|SPADreplace| '(XLAM NIL (LIST NIL))) 
 
 (SDEFUN |FNGRPH;initial;%;10| ((% (%))) (LIST NIL)) 
 

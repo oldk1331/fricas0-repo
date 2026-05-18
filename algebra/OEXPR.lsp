@@ -1,9 +1,9 @@
 
-(PUT '|OEXPR;retract;E%;1| '|SPADreplace| '(XLAM (|e|) |e|)) 
+(MAKEPROP '|OEXPR;retract;E%;1| '|SPADreplace| '(XLAM (|e|) |e|)) 
 
 (SDEFUN |OEXPR;retract;E%;1| ((|e| (|Expression| (|Integer|))) (% (%))) |e|) 
 
-(PUT '|OEXPR;coerce;%E;2| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|OEXPR;coerce;%E;2| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |OEXPR;coerce;%E;2| ((|x| (%)) (% (|Expression| (|Integer|)))) |x|) 
 

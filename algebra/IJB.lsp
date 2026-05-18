@@ -77,7 +77,7 @@
               ((|IJB;CheckZeroIndex| |lo| %) (SPADCALL |up| (QREFELT % 26)))
               ('T (CONS 3 (CONS |up| |lo|))))) 
 
-(PUT '|IJB;One;%;10| '|SPADreplace| '(XLAM NIL (LIST 0 1))) 
+(MAKEPROP '|IJB;One;%;10| '|SPADreplace| '(XLAM NIL (LIST 0 1))) 
 
 (SDEFUN |IJB;One;%;10| ((% (%))) (LIST 0 1)) 
 
@@ -229,7 +229,7 @@
                                   (QREFELT % 46)))
                                 (QREFELT % 43)))))))) 
 
-(PUT '|IJB;opdisp| '|SPADreplace| '|SPADfirst|) 
+(MAKEPROP '|IJB;opdisp| '|SPADreplace| '|SPADfirst|) 
 
 (SDEFUN |IJB;opdisp| ((|l| (|List| (|OutputForm|))) (% (|OutputForm|)))
         (|SPADfirst| |l|)) 

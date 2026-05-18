@@ -178,10 +178,10 @@
                  (LETT #9# (CDR #9#)) (GO G190) G191 (EXIT NIL))
             (COND (#1# #2#) (#14# 0))))))) 
 
-(PUT '|GENEEZ;compBound;BPLNni;3| '|SPADreplace|
-     '(XLAM (|m| |listpolys|)
-       (|error|
-        "attempt to use compBound without a well-understood valuation"))) 
+(MAKEPROP '|GENEEZ;compBound;BPLNni;3| '|SPADreplace|
+          '(XLAM (|m| |listpolys|)
+            (|error|
+             "attempt to use compBound without a well-understood valuation"))) 
 
 (SDEFUN |GENEEZ;compBound;BPLNni;3|
         ((|m| (BP)) (|listpolys| (|List| BP)) (% (|NonNegativeInteger|)))

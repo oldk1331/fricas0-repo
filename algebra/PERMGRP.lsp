@@ -2025,12 +2025,12 @@
                    (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
-(PUT '|PERMGRP;coerce;%L;31| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|PERMGRP;coerce;%L;31| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |PERMGRP;coerce;%L;31| ((|gp| (%)) (% (|List| (|Permutation| S))))
         (QCAR |gp|)) 
 
-(PUT '|PERMGRP;generators;%L;32| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|PERMGRP;generators;%L;32| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |PERMGRP;generators;%L;32| ((|gp| (%)) (% (|List| (|Permutation| S))))
         (QCAR |gp|)) 

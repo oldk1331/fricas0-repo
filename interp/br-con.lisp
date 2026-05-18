@@ -2403,8 +2403,7 @@
 
 (DEFUN |isAsharpFileName?| (|con|) (PROG () (RETURN NIL)))
 
-; PUT('Record,'documentation,'(
-;   (constructor (NIL NIL))
+; MAKEPROP('Record,'documentation,'(
 ;   (_=  (((Boolean) _% _%)
 ;    "\spad{r = s} tests for equality of two records \spad{r} and \spad{s}"))
 ;   (coerce (((OutputForm) _%)
@@ -2426,9 +2425,8 @@
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (PROG ()
     (RETURN
-     (PUT '|Record| '|documentation|
-      '((|constructor| (NIL NIL))
-        (=
+     (MAKEPROP '|Record| '|documentation|
+      '((=
          (((|Boolean|) % %)
           "\\spad{r = s} tests for equality of two records \\spad{r} and \\spad{s}"))
         (|coerce|
@@ -2450,8 +2448,7 @@
          ((B % "b" B)
           "\\spad{r . b := y} destructively replaces the value stored in record \\spad{r} under selector \\spad{b} by the value of \\spad{y}. Error: if \\spad{r} has not been previously assigned a value.")))))))
 
-; PUT('UntaggedUnion, 'documentation, '(
-;   (constructor (NIL NIL))
+; MAKEPROP('UntaggedUnion, 'documentation, '(
 ;   (_=  (((Boolean) % %)
 ;     "\spad{u = v} tests if two objects of the union are equal, that is, u and v are hold objects of same branch which are equal."))
 ;   (case (((Boolean) % "A")
@@ -2471,9 +2468,8 @@
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (PROG ()
     (RETURN
-     (PUT '|UntaggedUnion| '|documentation|
-      '((|constructor| (NIL NIL))
-        (=
+     (MAKEPROP '|UntaggedUnion| '|documentation|
+      '((=
          (((|Boolean|) % %)
           "\\spad{u = v} tests if two objects of the union are equal, that is, u and v are hold objects of same branch which are equal."))
         (CASE
@@ -2491,8 +2487,7 @@
          ((% B)
           "\\spad{coerce(y)}, where \\spad{y} has type \\spad{B}, returns \\spad{y} as a union type.")))))))
 
-; PUT('Union, 'documentation, '(
-;   (constructor (NIL NIL))
+; MAKEPROP('Union, 'documentation, '(
 ;   (_=  (((Boolean) % %)
 ;     "\spad{u = v} tests if two objects of the union are equal, that is, \spad{u} and \spad{v} are objects of same branch which are equal."))
 ;   (case (((Boolean) % "A")
@@ -2512,9 +2507,8 @@
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (PROG ()
     (RETURN
-     (PUT '|Union| '|documentation|
-      '((|constructor| (NIL NIL))
-        (=
+     (MAKEPROP '|Union| '|documentation|
+      '((=
          (((|Boolean|) % %)
           "\\spad{u = v} tests if two objects of the union are equal, that is, \\spad{u} and \\spad{v} are objects of same branch which are equal."))
         (CASE
@@ -2532,8 +2526,7 @@
          ((% B)
           "\\spad{coerce(y)}, where \\spad{y} has type \\spad{B}, returns \\spad{y} as a union type.")))))))
 
-; PUT('Mapping, 'documentation, '(
-;   (constructor (NIL NIL))
+; MAKEPROP('Mapping, 'documentation, '(
 ;   (_=  (((Boolean) % %)
 ;     "\spad{u = v} tests if mapping objects are equal."))
 ;    ))
@@ -2541,14 +2534,12 @@
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (PROG ()
     (RETURN
-     (PUT '|Mapping| '|documentation|
-      '((|constructor| (NIL NIL))
-        (=
+     (MAKEPROP '|Mapping| '|documentation|
+      '((=
          (((|Boolean|) % %)
           "\\spad{u = v} tests if mapping objects are equal.")))))))
 
-; PUT('Enumeration, 'documentation, '(
-;         (constructor (NIL NIL))
+; MAKEPROP('Enumeration, 'documentation, '(
 ;   (_= (((Boolean) _% _%)
 ;     "\spad{e = f} tests for equality of two enumerations \spad{e} and \spad{f}"))
 ;   (_^_= (((Boolean) _% _%)
@@ -2562,9 +2553,8 @@
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (PROG ()
     (RETURN
-     (PUT '|Enumeration| '|documentation|
-      '((|constructor| (NIL NIL))
-        (=
+     (MAKEPROP '|Enumeration| '|documentation|
+      '((=
          (((|Boolean|) % %)
           "\\spad{e = f} tests for equality of two enumerations \\spad{e} and \\spad{f}"))
         (^=

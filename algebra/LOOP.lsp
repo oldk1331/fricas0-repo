@@ -38,7 +38,7 @@
 (SDEFUN |LOOP;entries;%L;2| ((|lp| (%)) (% (|List| (|NonNegativeInteger|))))
         (SPADCALL |lp| (QREFELT % 11))) 
 
-(PUT '|LOOP;hash| '|SPADreplace| '(XLAM (|s|) 0)) 
+(MAKEPROP '|LOOP;hash| '|SPADreplace| '(XLAM (|s|) 0)) 
 
 (SDEFUN |LOOP;hash| ((|s| (%)) (% (|SingleInteger|))) 0) 
 

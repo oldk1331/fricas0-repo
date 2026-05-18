@@ -1,16 +1,16 @@
 
-(PUT '|IPADIC;characteristic;Nni;1| '|SPADreplace| '(XLAM NIL 0)) 
+(MAKEPROP '|IPADIC;characteristic;Nni;1| '|SPADreplace| '(XLAM NIL 0)) 
 
 (SDEFUN |IPADIC;characteristic;Nni;1| ((% (|NonNegativeInteger|))) 0) 
 
 (SDEFUN |IPADIC;euclideanSize;%Nni;2| ((|x| (%)) (% (|NonNegativeInteger|)))
         (SPADCALL |x| (QREFELT % 15))) 
 
-(PUT '|IPADIC;stream| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|IPADIC;stream| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |IPADIC;stream| ((|x| (%)) (% (|Stream| (|Integer|)))) |x|) 
 
-(PUT '|IPADIC;padic| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|IPADIC;padic| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |IPADIC;padic| ((|x| (|Stream| (|Integer|))) (% (%))) |x|) 
 
@@ -673,7 +673,7 @@
                                 (SPADCALL (SPADCALL |c| (QREFELT % 10)) |mon|
                                           (QREFELT % 75))))))))))) 
 
-(PUT '|IPADIC;showAll?| '|SPADreplace| '(XLAM NIL |$streamsShowAll|)) 
+(MAKEPROP '|IPADIC;showAll?| '|SPADreplace| '(XLAM NIL |$streamsShowAll|)) 
 
 (SDEFUN |IPADIC;showAll?| ((% (|Boolean|))) |$streamsShowAll|) 
 

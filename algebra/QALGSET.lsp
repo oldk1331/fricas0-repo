@@ -246,7 +246,7 @@
 (SDEFUN |QALGSET;empty;%;7| ((% (%)))
         (VECTOR (CONS 0 'T) (LIST (|spadConstant| % 33)) (|spadConstant| % 28))) 
 
-(PUT '|QALGSET;status;%U;8| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 0))) 
+(MAKEPROP '|QALGSET;status;%U;8| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 0))) 
 
 (SDEFUN |QALGSET;status;%U;8| ((|x| (%)) (% (|Union| (|Boolean|) "failed")))
         (QVELT |x| 0)) 
@@ -255,14 +255,14 @@
         ((|x| (%)) (|t| (|Union| (|Boolean|) "failed")) (% (%)))
         (VECTOR |t| (QVELT |x| 1) (QVELT |x| 2))) 
 
-(PUT '|QALGSET;definingEquations;%L;10| '|SPADreplace|
-     '(XLAM (|x|) (QVELT |x| 1))) 
+(MAKEPROP '|QALGSET;definingEquations;%L;10| '|SPADreplace|
+          '(XLAM (|x|) (QVELT |x| 1))) 
 
 (SDEFUN |QALGSET;definingEquations;%L;10| ((|x| (%)) (% (|List| |Dpoly|)))
         (QVELT |x| 1)) 
 
-(PUT '|QALGSET;definingInequation;%Dpoly;11| '|SPADreplace|
-     '(XLAM (|x|) (QVELT |x| 2))) 
+(MAKEPROP '|QALGSET;definingInequation;%Dpoly;11| '|SPADreplace|
+          '(XLAM (|x|) (QVELT |x| 2))) 
 
 (SDEFUN |QALGSET;definingInequation;%Dpoly;11| ((|x| (%)) (% (|Dpoly|)))
         (QVELT |x| 2)) 

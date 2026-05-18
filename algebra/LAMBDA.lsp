@@ -2,7 +2,7 @@
 (SDEFUN |LAMBDA;lambda;Nni%;1| ((|n1| (|NonNegativeInteger|)) (% (%)))
         (CONS 0 (LIST |n1|))) 
 
-(PUT '|LAMBDA;lambda;UT%;2| '|SPADreplace| '(XLAM (|var|) (CONS 1 |var|))) 
+(MAKEPROP '|LAMBDA;lambda;UT%;2| '|SPADreplace| '(XLAM (|var|) (CONS 1 |var|))) 
 
 (SDEFUN |LAMBDA;lambda;UT%;2| ((|var| (UT)) (% (%))) (CONS 1 |var|)) 
 
@@ -61,19 +61,22 @@
 (SDEFUN |LAMBDA;atom?;%B;6| ((|n| (%)) (% (|Boolean|)))
         (COND ((QEQCAR |n| 0) 'T) ('T (QEQCAR |n| 1)))) 
 
-(PUT '|LAMBDA;isCompound?;%B;7| '|SPADreplace| '(XLAM (|n|) (QEQCAR |n| 2))) 
+(MAKEPROP '|LAMBDA;isCompound?;%B;7| '|SPADreplace|
+          '(XLAM (|n|) (QEQCAR |n| 2))) 
 
 (SDEFUN |LAMBDA;isCompound?;%B;7| ((|n| (%)) (% (|Boolean|))) (QEQCAR |n| 2)) 
 
-(PUT '|LAMBDA;isLambda?;%B;8| '|SPADreplace| '(XLAM (|n|) (QEQCAR |n| 3))) 
+(MAKEPROP '|LAMBDA;isLambda?;%B;8| '|SPADreplace| '(XLAM (|n|) (QEQCAR |n| 3))) 
 
 (SDEFUN |LAMBDA;isLambda?;%B;8| ((|n| (%)) (% (|Boolean|))) (QEQCAR |n| 3)) 
 
-(PUT '|LAMBDA;isBoundNode?;%B;9| '|SPADreplace| '(XLAM (|n|) (QEQCAR |n| 0))) 
+(MAKEPROP '|LAMBDA;isBoundNode?;%B;9| '|SPADreplace|
+          '(XLAM (|n|) (QEQCAR |n| 0))) 
 
 (SDEFUN |LAMBDA;isBoundNode?;%B;9| ((|n| (%)) (% (|Boolean|))) (QEQCAR |n| 0)) 
 
-(PUT '|LAMBDA;isFreeNode?;%B;10| '|SPADreplace| '(XLAM (|n|) (QEQCAR |n| 1))) 
+(MAKEPROP '|LAMBDA;isFreeNode?;%B;10| '|SPADreplace|
+          '(XLAM (|n|) (QEQCAR |n| 1))) 
 
 (SDEFUN |LAMBDA;isFreeNode?;%B;10| ((|n| (%)) (% (|Boolean|))) (QEQCAR |n| 1)) 
 

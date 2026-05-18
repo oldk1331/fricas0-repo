@@ -1,18 +1,18 @@
 
-(PUT '|CDFMAT;minRowIndex;%I;1| '|SPADreplace| '(XLAM (|x|) 0)) 
+(MAKEPROP '|CDFMAT;minRowIndex;%I;1| '|SPADreplace| '(XLAM (|x|) 0)) 
 
 (SDEFUN |CDFMAT;minRowIndex;%I;1| ((|x| (%)) (% (|Integer|))) 0) 
 
-(PUT '|CDFMAT;minColIndex;%I;2| '|SPADreplace| '(XLAM (|x|) 0)) 
+(MAKEPROP '|CDFMAT;minColIndex;%I;2| '|SPADreplace| '(XLAM (|x|) 0)) 
 
 (SDEFUN |CDFMAT;minColIndex;%I;2| ((|x| (%)) (% (|Integer|))) 0) 
 
-(PUT '|CDFMAT;nrows;%Nni;3| '|SPADreplace| 'CDANROWS) 
+(MAKEPROP '|CDFMAT;nrows;%Nni;3| '|SPADreplace| 'CDANROWS) 
 
 (SDEFUN |CDFMAT;nrows;%Nni;3| ((|x| (%)) (% (|NonNegativeInteger|)))
         (CDANROWS |x|)) 
 
-(PUT '|CDFMAT;ncols;%Nni;4| '|SPADreplace| 'CDANCOLS) 
+(MAKEPROP '|CDFMAT;ncols;%Nni;4| '|SPADreplace| 'CDANCOLS) 
 
 (SDEFUN |CDFMAT;ncols;%Nni;4| ((|x| (%)) (% (|NonNegativeInteger|)))
         (CDANCOLS |x|)) 
@@ -23,39 +23,40 @@
 (SDEFUN |CDFMAT;maxColIndex;%I;6| ((|x| (%)) (% (|Integer|)))
         (- (CDANCOLS |x|) 1)) 
 
-(PUT '|CDFMAT;qelt;%2IC;7| '|SPADreplace| 'CDAREF2) 
+(MAKEPROP '|CDFMAT;qelt;%2IC;7| '|SPADreplace| 'CDAREF2) 
 
 (SDEFUN |CDFMAT;qelt;%2IC;7|
         ((|m| (%)) (|i| #1=(|Integer|)) (|j| #1#)
          (% (|Complex| (|DoubleFloat|))))
         (CDAREF2 |m| |i| |j|)) 
 
-(PUT '|CDFMAT;elt;%2IC;8| '|SPADreplace| 'CDAREF2) 
+(MAKEPROP '|CDFMAT;elt;%2IC;8| '|SPADreplace| 'CDAREF2) 
 
 (SDEFUN |CDFMAT;elt;%2IC;8|
         ((|m| (%)) (|i| #1=(|Integer|)) (|j| #1#)
          (% (|Complex| (|DoubleFloat|))))
         (CDAREF2 |m| |i| |j|)) 
 
-(PUT '|CDFMAT;qsetelt!;%2I2C;9| '|SPADreplace| 'CDSETAREF2) 
+(MAKEPROP '|CDFMAT;qsetelt!;%2I2C;9| '|SPADreplace| 'CDSETAREF2) 
 
 (SDEFUN |CDFMAT;qsetelt!;%2I2C;9|
         ((|m| (%)) (|i| #1=(|Integer|)) (|j| #1#)
          (|r| #2=(|Complex| (|DoubleFloat|))) (% #2#))
         (CDSETAREF2 |m| |i| |j| |r|)) 
 
-(PUT '|CDFMAT;setelt!;%2I2C;10| '|SPADreplace| 'CDSETAREF2) 
+(MAKEPROP '|CDFMAT;setelt!;%2I2C;10| '|SPADreplace| 'CDSETAREF2) 
 
 (SDEFUN |CDFMAT;setelt!;%2I2C;10|
         ((|m| (%)) (|i| #1=(|Integer|)) (|j| #1#)
          (|r| #2=(|Complex| (|DoubleFloat|))) (% #2#))
         (CDSETAREF2 |m| |i| |j| |r|)) 
 
-(PUT '|CDFMAT;empty;%;11| '|SPADreplace| '(XLAM NIL (MAKE_CDOUBLE_MATRIX 0 0))) 
+(MAKEPROP '|CDFMAT;empty;%;11| '|SPADreplace|
+          '(XLAM NIL (MAKE_CDOUBLE_MATRIX 0 0))) 
 
 (SDEFUN |CDFMAT;empty;%;11| ((% (%))) (MAKE_CDOUBLE_MATRIX 0 0)) 
 
-(PUT '|CDFMAT;qnew;2Nni%;12| '|SPADreplace| 'MAKE_CDOUBLE_MATRIX) 
+(MAKEPROP '|CDFMAT;qnew;2Nni%;12| '|SPADreplace| 'MAKE_CDOUBLE_MATRIX) 
 
 (SDEFUN |CDFMAT;qnew;2Nni%;12|
         ((|rows| #1=(|NonNegativeInteger|)) (|cols| #1#) (% (%)))

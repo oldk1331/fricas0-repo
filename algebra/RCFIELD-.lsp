@@ -7,7 +7,7 @@
 (SDEFUN |RCFIELD-;sqrt;IS;3| ((|a| (|Integer|)) (% (S)))
         (SPADCALL (SPADCALL |a| (QREFELT % 14)) 2 (QREFELT % 8))) 
 
-(PUT '|RCFIELD-;characteristic;Nni;4| '|SPADreplace| '(XLAM NIL 0)) 
+(MAKEPROP '|RCFIELD-;characteristic;Nni;4| '|SPADreplace| '(XLAM NIL 0)) 
 
 (SDEFUN |RCFIELD-;characteristic;Nni;4| ((% (|NonNegativeInteger|))) 0) 
 

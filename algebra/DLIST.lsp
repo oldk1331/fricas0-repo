@@ -9,11 +9,11 @@
         ((|x| (%)) (T3 ("count")) (% (|NonNegativeInteger|)))
         (SPADCALL |x| (QREFELT % 14))) 
 
-(PUT '|DLIST;coerce;L%;4| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|DLIST;coerce;L%;4| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |DLIST;coerce;L%;4| ((|x| (|List| S)) (% (%))) |x|) 
 
-(PUT '|DLIST;coerce;%L;5| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|DLIST;coerce;%L;5| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |DLIST;coerce;%L;5| ((|x| (%)) (% (|List| S))) |x|) 
 

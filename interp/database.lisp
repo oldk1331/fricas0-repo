@@ -1653,24 +1653,6 @@
        ((|constructor?| |cname|)
         (COND ((GET |cname| 'LOADED) (|clearConstructorCaches|)))))))))
 
-; REMOVER(lst,item) ==
-;   --destructively removes item from lst
-;   not PAIRP lst =>
-;     lst=item => nil
-;     lst
-;   first lst=item => rest lst
-;   RPLNODE(lst,REMOVER(first lst,item),REMOVER(rest lst,item))
-
-(DEFUN REMOVER (|lst| |item|)
-  (PROG ()
-    (RETURN
-     (COND
-      ((NULL (CONSP |lst|)) (COND ((EQUAL |lst| |item|) NIL) (#1='T |lst|)))
-      ((EQUAL (CAR |lst|) |item|) (CDR |lst|))
-      (#1#
-       (RPLNODE |lst| (REMOVER (CAR |lst|) |item|)
-        (REMOVER (CDR |lst|) |item|)))))))
-
 ; allLASSOCs(op,alist) ==
 ;   [value for [key,:value] in alist | key = op]
 
@@ -1889,7 +1871,6 @@
 
 ; getOperationAlistFromLisplib x ==
 ;     u := get_database(x, 'OPERATIONALIST)
-;     --  u := removeZeroOneDestructively u
 ;     null u => u          -- this can happen for Object
 ;     CAAR u = '_$unique => rest u
 ;     f := addConsDB '(NIL T ELT)

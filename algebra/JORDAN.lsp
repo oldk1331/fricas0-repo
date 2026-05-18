@@ -10,15 +10,15 @@
                      (SPADCALL |b| |a| (QREFELT % 17)) (QREFELT % 18))
            (QREFELT % 14) (QREFELT % 19))))) 
 
-(PUT '|JORDAN;coerce;%A;2| '|SPADreplace| '(XLAM (|a|) |a|)) 
+(MAKEPROP '|JORDAN;coerce;%A;2| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
 (SDEFUN |JORDAN;coerce;%A;2| ((|a| (%)) (% (A))) |a|) 
 
-(PUT '|JORDAN;coerce;A%;3| '|SPADreplace| '(XLAM (|a|) |a|)) 
+(MAKEPROP '|JORDAN;coerce;A%;3| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
 (SDEFUN |JORDAN;coerce;A%;3| ((|a| (A)) (% (%))) |a|) 
 
-(PUT '|JORDAN;^;%Pi%;4| '|SPADreplace| '(XLAM (|a| |n|) |a|)) 
+(MAKEPROP '|JORDAN;^;%Pi%;4| '|SPADreplace| '(XLAM (|a| |n|) |a|)) 
 
 (SDEFUN |JORDAN;^;%Pi%;4| ((|a| (%)) (|n| (|PositiveInteger|)) (% (%))) |a|) 
 

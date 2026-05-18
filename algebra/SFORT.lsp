@@ -1,5 +1,5 @@
 
-(PUT '|SFORT;fortran;SFstFS%;1| '|SPADreplace| 'VECTOR) 
+(MAKEPROP '|SFORT;fortran;SFstFS%;1| '|SPADreplace| 'VECTOR) 
 
 (SDEFUN |SFORT;fortran;SFstFS%;1|
         ((|fname| (|Symbol|)) (|ftype| (|FortranScalarType|)) (|res| (FS))

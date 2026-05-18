@@ -14,7 +14,7 @@
 (SDEFUN |ZMOD;bloodyCompiler| ((|n| (|Integer|)) (% (%)))
         (SPADCALL |n| (QREFELT % 6) (QREFELT % 21))) 
 
-(PUT '|ZMOD;convert;%I;5| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|ZMOD;convert;%I;5| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |ZMOD;convert;%I;5| ((|x| (%)) (% (|Integer|))) |x|) 
 
@@ -24,15 +24,15 @@
 (SDEFUN |ZMOD;coerce;I%;7| ((|n| (|Integer|)) (% (%)))
         (|ZMOD;bloodyCompiler| |n| %)) 
 
-(PUT '|ZMOD;Zero;%;8| '|SPADreplace| '(XLAM NIL 0)) 
+(MAKEPROP '|ZMOD;Zero;%;8| '|SPADreplace| '(XLAM NIL 0)) 
 
 (SDEFUN |ZMOD;Zero;%;8| ((% (%))) 0) 
 
-(PUT '|ZMOD;One;%;9| '|SPADreplace| '(XLAM NIL 1)) 
+(MAKEPROP '|ZMOD;One;%;9| '|SPADreplace| '(XLAM NIL 1)) 
 
 (SDEFUN |ZMOD;One;%;9| ((% (%))) 1) 
 
-(PUT '|ZMOD;init;%;10| '|SPADreplace| '(XLAM NIL 0)) 
+(MAKEPROP '|ZMOD;init;%;10| '|SPADreplace| '(XLAM NIL 0)) 
 
 (SDEFUN |ZMOD;init;%;10| ((% (%))) 0) 
 
@@ -46,7 +46,7 @@
                    (CONS 1 "failed"))
                   ('T (CONS 0 |m|))))))) 
 
-(PUT '|ZMOD;=;2%B;12| '|SPADreplace| '|eql_SI|) 
+(MAKEPROP '|ZMOD;=;2%B;12| '|SPADreplace| '|eql_SI|) 
 
 (SDEFUN |ZMOD;=;2%B;12| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (|eql_SI| |x| |y|)) 
@@ -101,17 +101,17 @@
              (CONS 0 (SPADCALL |c1| (QREFELT % 20) (QREFELT % 37))))
             ('T (CONS 1 "failed"))))))) 
 
-(PUT '|ZMOD;hashUpdate!;Hs%Hs;22| '|SPADreplace| 'HASHSTATEUPDATE) 
+(MAKEPROP '|ZMOD;hashUpdate!;Hs%Hs;22| '|SPADreplace| 'HASHSTATEUPDATE) 
 
 (SDEFUN |ZMOD;hashUpdate!;Hs%Hs;22| ((|hs| #1=(|HashState|)) (|s| (%)) (% #1#))
         (HASHSTATEUPDATE |hs| |s|)) 
 
-(PUT '|ZMOD;smaller?;2%B;23| '|SPADreplace| '|less_SI|) 
+(MAKEPROP '|ZMOD;smaller?;2%B;23| '|SPADreplace| '|less_SI|) 
 
 (SDEFUN |ZMOD;smaller?;2%B;23| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (|less_SI| |x| |y|)) 
 
-(PUT '|ZMOD;convert;%I;24| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|ZMOD;convert;%I;24| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |ZMOD;convert;%I;24| ((|x| (%)) (% (|Integer|))) |x|) 
 
@@ -121,15 +121,15 @@
 (SDEFUN |ZMOD;coerce;%Of;26| ((|x| (%)) (% (|OutputForm|)))
         (SPADCALL |x| (QREFELT % 23))) 
 
-(PUT '|ZMOD;Zero;%;27| '|SPADreplace| '(XLAM NIL 0)) 
+(MAKEPROP '|ZMOD;Zero;%;27| '|SPADreplace| '(XLAM NIL 0)) 
 
 (SDEFUN |ZMOD;Zero;%;27| ((% (%))) 0) 
 
-(PUT '|ZMOD;One;%;28| '|SPADreplace| '(XLAM NIL 1)) 
+(MAKEPROP '|ZMOD;One;%;28| '|SPADreplace| '(XLAM NIL 1)) 
 
 (SDEFUN |ZMOD;One;%;28| ((% (%))) 1) 
 
-(PUT '|ZMOD;init;%;29| '|SPADreplace| '(XLAM NIL 0)) 
+(MAKEPROP '|ZMOD;init;%;29| '|SPADreplace| '(XLAM NIL 0)) 
 
 (SDEFUN |ZMOD;init;%;29| ((% (%))) 0) 
 
@@ -143,7 +143,7 @@
                    (CONS 1 "failed"))
                   ('T (CONS 0 |m|))))))) 
 
-(PUT '|ZMOD;=;2%B;31| '|SPADreplace| 'EQL) 
+(MAKEPROP '|ZMOD;=;2%B;31| '|SPADreplace| 'EQL) 
 
 (SDEFUN |ZMOD;=;2%B;31| ((|x| (%)) (|y| (%)) (% (|Boolean|))) (EQL |x| |y|)) 
 
@@ -193,7 +193,7 @@
 (SDEFUN |ZMOD;hashUpdate!;Hs%Hs;41| ((|hs| #1=(|HashState|)) (|s| (%)) (% #1#))
         (HASHSTATEUPDATE |hs| (SXHASH |s|))) 
 
-(PUT '|ZMOD;smaller?;2%B;42| '|SPADreplace| '<) 
+(MAKEPROP '|ZMOD;smaller?;2%B;42| '|SPADreplace| '<) 
 
 (SDEFUN |ZMOD;smaller?;2%B;42| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (< |x| |y|)) 

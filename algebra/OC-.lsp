@@ -2,7 +2,7 @@
 (SDEFUN |OC-;characteristic;Nni;1| ((% (|NonNegativeInteger|)))
         (SPADCALL (QREFELT % 9))) 
 
-(PUT '|OC-;rank;Pi;2| '|SPADreplace| '(XLAM NIL 8)) 
+(MAKEPROP '|OC-;rank;Pi;2| '|SPADreplace| '(XLAM NIL 8)) 
 
 (SDEFUN |OC-;rank;Pi;2| ((% (|PositiveInteger|))) 8) 
 

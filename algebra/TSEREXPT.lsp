@@ -135,8 +135,8 @@
                               (GO G190) G191 (EXIT (NREVERSE #3#))))
                         (QREFELT % 42)))))))) 
 
-(PUT '|TSEREXPT;applyTaylor;M2UTS;4| '|SPADreplace|
-     '(XLAM (|g| |f|) (SPADCALL |f| |g|))) 
+(MAKEPROP '|TSEREXPT;applyTaylor;M2UTS;4| '|SPADreplace|
+          '(XLAM (|g| |f|) (SPADCALL |f| |g|))) 
 
 (SDEFUN |TSEREXPT;applyTaylor;M2UTS;4|
         ((|g| (|Mapping| UTS UTS)) (|f| (UTS)) (% (UTS))) (SPADCALL |f| |g|)) 

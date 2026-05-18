@@ -752,7 +752,7 @@
 ;         TERPRI()
 ;         SAY('"Properties Of: ",first z)
 ;         for u in rest z repeat
-;           PRIN0 first u
+;           PRIN1(first(u))
 ;           printString '": "
 ;           PRETTYPRINT tran(rest u,first u) where
 ;             tran(val,prop) ==
@@ -794,7 +794,7 @@
                                (RETURN NIL))
                               (#1#
                                (PROGN
-                                (PRIN0 (CAR |u|))
+                                (PRIN1 (CAR |u|))
                                 (|printString| ": ")
                                 (PRETTYPRINT
                                  (|printEnv,tran| (CDR |u|) (CAR |u|))))))
@@ -820,7 +820,7 @@
 ;         TERPRI()
 ;         SAY('"Properties Of: ",first z)
 ;         for u in rest z repeat
-;           PRIN0 first u
+;           PRIN1(first(u))
 ;           printString '": "
 ;           PRETTYPRINT tran(rest u,first u) where
 ;             tran(val,prop) ==
@@ -865,7 +865,7 @@
                                     (RETURN NIL))
                                    (#1#
                                     (PROGN
-                                     (PRIN0 (CAR |u|))
+                                     (PRIN1 (CAR |u|))
                                      (|printString| ": ")
                                      (PRETTYPRINT
                                       (|prEnv,tran| (CDR |u|) (CAR |u|))))))
@@ -891,7 +891,7 @@
 ;         (modemap:= LASSOC("modemap",rest z)) repeat
 ;           listOfOperatorsSeenSoFar:= [first z,:listOfOperatorsSeenSoFar]
 ;           TERPRI()
-;           PRIN0 first z
+;           PRIN1(first(z))
 ;           printString '": "
 ;           PRETTYPRINT modemap
 
@@ -927,7 +927,7 @@
                           (SETQ |listOfOperatorsSeenSoFar|
                                   (CONS (CAR |z|) |listOfOperatorsSeenSoFar|))
                           (TERPRI)
-                          (PRIN0 (CAR |z|))
+                          (PRIN1 (CAR |z|))
                           (|printString| ": ")
                           (PRETTYPRINT |modemap|)))))
                       (SETQ |bfVar#36| (CDR |bfVar#36|))))
@@ -1574,10 +1574,10 @@
 (DEFUN |printString| (|x|)
   (PROG () (RETURN (PRINTEXP (COND ((STRINGP |x|) |x|) ('T (PNAME |x|)))))))
 
-; printAny x == if atom x then printString x else PRIN0 x
+; printAny x == if atom x then printString x else PRIN1(x)
 
 (DEFUN |printAny| (|x|)
-  (PROG () (RETURN (COND ((ATOM |x|) (|printString| |x|)) ('T (PRIN0 |x|))))))
+  (PROG () (RETURN (COND ((ATOM |x|) (|printString| |x|)) ('T (PRIN1 |x|))))))
 
 ; printSignature(before,op,[target,:argSigList]) ==
 ;   printString before

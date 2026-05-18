@@ -8,29 +8,30 @@
                                  (|:| |ct| (|List| (|String|))))
                        0))) 
 
-(PUT '|OUTBOX;empty;%;2| '|SPADreplace| '(XLAM NIL (VECTOR 0 0 0 NIL))) 
+(MAKEPROP '|OUTBOX;empty;%;2| '|SPADreplace| '(XLAM NIL (VECTOR 0 0 0 NIL))) 
 
 (SDEFUN |OUTBOX;empty;%;2| ((% (%))) (VECTOR 0 0 0 NIL)) 
 
 (SDEFUN |OUTBOX;box;S%;3| ((|s| (|String|)) (% (%)))
         (VECTOR 1 0 (QCSIZE |s|) (LIST |s|))) 
 
-(PUT '|OUTBOX;height;%Nni;4| '|SPADreplace| '(XLAM (|box|) (QVELT |box| 0))) 
+(MAKEPROP '|OUTBOX;height;%Nni;4| '|SPADreplace|
+          '(XLAM (|box|) (QVELT |box| 0))) 
 
 (SDEFUN |OUTBOX;height;%Nni;4| ((|box| (%)) (% (|NonNegativeInteger|)))
         (QVELT |box| 0)) 
 
-(PUT '|OUTBOX;depth;%Nni;5| '|SPADreplace| '(XLAM (|box|) (QVELT |box| 1))) 
+(MAKEPROP '|OUTBOX;depth;%Nni;5| '|SPADreplace| '(XLAM (|box|) (QVELT |box| 1))) 
 
 (SDEFUN |OUTBOX;depth;%Nni;5| ((|box| (%)) (% (|NonNegativeInteger|)))
         (QVELT |box| 1)) 
 
-(PUT '|OUTBOX;width;%Nni;6| '|SPADreplace| '(XLAM (|box|) (QVELT |box| 2))) 
+(MAKEPROP '|OUTBOX;width;%Nni;6| '|SPADreplace| '(XLAM (|box|) (QVELT |box| 2))) 
 
 (SDEFUN |OUTBOX;width;%Nni;6| ((|box| (%)) (% (|NonNegativeInteger|)))
         (QVELT |box| 2)) 
 
-(PUT '|OUTBOX;lines;%L;7| '|SPADreplace| '(XLAM (|box|) (QVELT |box| 3))) 
+(MAKEPROP '|OUTBOX;lines;%L;7| '|SPADreplace| '(XLAM (|box|) (QVELT |box| 3))) 
 
 (SDEFUN |OUTBOX;lines;%L;7| ((|box| (%)) (% (|List| (|String|))))
         (QVELT |box| 3)) 

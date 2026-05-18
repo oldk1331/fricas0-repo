@@ -467,23 +467,6 @@
            ('T
             (CONS (|removeZeroOne| (CAR |x|)) (|removeZeroOne| (CDR |x|))))))))
 
-; removeZeroOneDestructively t ==
-;   -- replace all occurrences of (Zero) and (One) with
-;   -- 0 and 1 destructively
-;   t = $Zero => 0
-;   t = $One => 1
-;   atom t => t
-;   RPLNODE(t,removeZeroOneDestructively first t,
-;     removeZeroOneDestructively rest t)
-
-(DEFUN |removeZeroOneDestructively| (|t|)
-  (PROG ()
-    (RETURN
-     (COND ((EQUAL |t| |$Zero|) 0) ((EQUAL |t| |$One|) 1) ((ATOM |t|) |t|)
-           ('T
-            (RPLNODE |t| (|removeZeroOneDestructively| (CAR |t|))
-             (|removeZeroOneDestructively| (CDR |t|))))))))
-
 ; listSort(pred,list,:optional) ==
 ;    NOT functionp pred => error '"listSort: first arg must be a function"
 ;    NOT LISTP list => error '"listSort: second argument must be a list"

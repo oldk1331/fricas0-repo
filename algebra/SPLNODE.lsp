@@ -1,12 +1,12 @@
 
-(PUT '|SPLNODE;rep| '|SPADreplace| '(XLAM (|n|) |n|)) 
+(MAKEPROP '|SPLNODE;rep| '|SPADreplace| '(XLAM (|n|) |n|)) 
 
 (SDEFUN |SPLNODE;rep|
         ((|n| (%))
          (% (|Record| (|:| |val| V) (|:| |tower| C) (|:| |flag| (|Boolean|)))))
         |n|) 
 
-(PUT '|SPLNODE;per| '|SPADreplace| '(XLAM (|r|) |r|)) 
+(MAKEPROP '|SPLNODE;per| '|SPADreplace| '(XLAM (|r|) |r|)) 
 
 (SDEFUN |SPLNODE;per|
         ((|r|

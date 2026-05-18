@@ -2,7 +2,7 @@
 (SDEFUN |FORTRAN;makeRep| ((|b| (|List| (|FortranCode|))) (% (%)))
         (CONS (SPADCALL (QREFELT % 12)) |b|)) 
 
-(PUT '|FORTRAN;codeFrom| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|FORTRAN;codeFrom| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |FORTRAN;codeFrom| ((|u| (%)) (% (|List| (|FortranCode|)))) (QCDR |u|)) 
 
@@ -321,7 +321,7 @@
                              (QREFELT % 89))
                    (QREFELT % 82))))))))))))) 
 
-(PUT '|FORTRAN;coerce;R%;12| '|SPADreplace| '(XLAM (|u|) |u|)) 
+(MAKEPROP '|FORTRAN;coerce;R%;12| '|SPADreplace| '(XLAM (|u|) |u|)) 
 
 (SDEFUN |FORTRAN;coerce;R%;12|
         ((|u|

@@ -2,7 +2,7 @@
 (SDEFUN |OUTFORM;cons_form| ((|x| (%)) (|l| (|List| %)) (% (%)))
         (SPADCALL |x| |l| (QREFELT % 7))) 
 
-(PUT '|OUTFORM;print;%V;2| '|SPADreplace| '|mathprint|) 
+(MAKEPROP '|OUTFORM;print;%V;2| '|SPADreplace| '|mathprint|) 
 
 (SDEFUN |OUTFORM;print;%V;2| ((|x| (%)) (% (|Void|))) (|mathprint| |x|)) 
 
@@ -13,34 +13,34 @@
 (SDEFUN |OUTFORM;messagePrint;SV;4| ((|s| (|String|)) (% (|Void|)))
         (SPADCALL (SPADCALL |s| (QREFELT % 15)) (QREFELT % 10))) 
 
-(PUT '|OUTFORM;=;2%B;5| '|SPADreplace| 'EQUAL) 
+(MAKEPROP '|OUTFORM;=;2%B;5| '|SPADreplace| 'EQUAL) 
 
 (SDEFUN |OUTFORM;=;2%B;5| ((|a| (%)) (|b| (%)) (% (|Boolean|))) (EQUAL |a| |b|)) 
 
 (SDEFUN |OUTFORM;=;3%;6| ((|a| (%)) (|b| (%)) (% (%)))
         (SPADCALL (LIST (|OUTFORM;eform| '= %) |a| |b|) (QREFELT % 19))) 
 
-(PUT '|OUTFORM;coerce;2%;7| '|SPADreplace| '(XLAM (|a|) |a|)) 
+(MAKEPROP '|OUTFORM;coerce;2%;7| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
 (SDEFUN |OUTFORM;coerce;2%;7| ((|a| (%)) (% (|OutputForm|))) |a|) 
 
-(PUT '|OUTFORM;outputForm;I%;8| '|SPADreplace| '(XLAM (|n|) |n|)) 
+(MAKEPROP '|OUTFORM;outputForm;I%;8| '|SPADreplace| '(XLAM (|n|) |n|)) 
 
 (SDEFUN |OUTFORM;outputForm;I%;8| ((|n| (|Integer|)) (% (%))) |n|) 
 
-(PUT '|OUTFORM;outputForm;S%;9| '|SPADreplace| '(XLAM (|e|) |e|)) 
+(MAKEPROP '|OUTFORM;outputForm;S%;9| '|SPADreplace| '(XLAM (|e|) |e|)) 
 
 (SDEFUN |OUTFORM;outputForm;S%;9| ((|e| (|Symbol|)) (% (%))) |e|) 
 
-(PUT '|OUTFORM;sform| '|SPADreplace| '(XLAM (|s|) |s|)) 
+(MAKEPROP '|OUTFORM;sform| '|SPADreplace| '(XLAM (|s|) |s|)) 
 
 (SDEFUN |OUTFORM;sform| ((|s| (|String|)) (% (%))) |s|) 
 
-(PUT '|OUTFORM;eform| '|SPADreplace| '(XLAM (|e|) |e|)) 
+(MAKEPROP '|OUTFORM;eform| '|SPADreplace| '(XLAM (|e|) |e|)) 
 
 (SDEFUN |OUTFORM;eform| ((|e| (|Symbol|)) (% (%))) |e|) 
 
-(PUT '|OUTFORM;iform| '|SPADreplace| '(XLAM (|n|) |n|)) 
+(MAKEPROP '|OUTFORM;iform| '|SPADreplace| '(XLAM (|n|) |n|)) 
 
 (SDEFUN |OUTFORM;iform| ((|n| (|Integer|)) (% (%))) |n|) 
 
@@ -102,11 +102,11 @@
                   (QREFELT % 46)))))
           #2# (EXIT #1#)))) 
 
-(PUT '|OUTFORM;width| '|SPADreplace| '|outformWidth|) 
+(MAKEPROP '|OUTFORM;width| '|SPADreplace| '|outformWidth|) 
 
 (SDEFUN |OUTFORM;width| ((|a| (%)) (% (|Integer|))) (|outformWidth| |a|)) 
 
-(PUT '|OUTFORM;width0| '|SPADreplace| '(XLAM NIL $LINELENGTH)) 
+(MAKEPROP '|OUTFORM;width0| '|SPADreplace| '(XLAM NIL $LINELENGTH)) 
 
 (SDEFUN |OUTFORM;width0| ((% (|Integer|))) $LINELENGTH) 
 

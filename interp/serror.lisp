@@ -52,11 +52,6 @@
       (|ncSoftError| (|tokPosn| |$stok|) 'S2CY0007 (LIST (PNAME |s|)))
       (THROW 'TRAPPOINT 'TRAPPED)))))
 
-; npCompMissing s == npEqKey s or npMissing s
-
-(DEFUN |npCompMissing| (|s|)
-  (PROG () (RETURN (OR (|npEqKey| |s|) (|npMissing| |s|)))))
-
 ; pfSourceStok x==
 ;        if pfLeaf? x
 ;        then x

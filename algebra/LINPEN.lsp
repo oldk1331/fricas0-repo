@@ -90,12 +90,12 @@
 (SDEFUN |LINPEN;coerce;%Of;5| ((|p| (%)) (% (|OutputForm|)))
         (SPADCALL (QVELT |p| 2) (QREFELT % 25))) 
 
-(PUT '|LINPEN;nrows;%Nni;6| '|SPADreplace| '(XLAM (|p|) (QVELT |p| 0))) 
+(MAKEPROP '|LINPEN;nrows;%Nni;6| '|SPADreplace| '(XLAM (|p|) (QVELT |p| 0))) 
 
 (SDEFUN |LINPEN;nrows;%Nni;6| ((|p| (%)) (% (|NonNegativeInteger|)))
         (QVELT |p| 0)) 
 
-(PUT '|LINPEN;ncols;%Nni;7| '|SPADreplace| '(XLAM (|p|) (QVELT |p| 1))) 
+(MAKEPROP '|LINPEN;ncols;%Nni;7| '|SPADreplace| '(XLAM (|p|) (QVELT |p| 1))) 
 
 (SDEFUN |LINPEN;ncols;%Nni;7| ((|p| (%)) (% (|NonNegativeInteger|)))
         (QVELT |p| 1)) 

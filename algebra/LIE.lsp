@@ -3,11 +3,11 @@
         (SPADCALL (SPADCALL |a| |b| (QREFELT % 9))
                   (SPADCALL |b| |a| (QREFELT % 9)) (QREFELT % 10))) 
 
-(PUT '|LIE;coerce;%A;2| '|SPADreplace| '(XLAM (|a|) |a|)) 
+(MAKEPROP '|LIE;coerce;%A;2| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
 (SDEFUN |LIE;coerce;%A;2| ((|a| (%)) (% (A))) |a|) 
 
-(PUT '|LIE;coerce;A%;3| '|SPADreplace| '(XLAM (|a|) |a|)) 
+(MAKEPROP '|LIE;coerce;A%;3| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
 (SDEFUN |LIE;coerce;A%;3| ((|a| (A)) (% (%))) |a|) 
 

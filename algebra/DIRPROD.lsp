@@ -4,7 +4,7 @@
 
 (SDEFUN |DIRPROD;coerce;R%;2| ((|r| (R)) (% (%))) (MAKEARR1 (QREFELT % 6) |r|)) 
 
-(PUT '|DIRPROD;parts;%L;3| '|SPADreplace| 'VEC2LIST) 
+(MAKEPROP '|DIRPROD;parts;%L;3| '|SPADreplace| 'VEC2LIST) 
 
 (SDEFUN |DIRPROD;parts;%L;3| ((|x| (%)) (% (|List| R))) (VEC2LIST |x|)) 
 

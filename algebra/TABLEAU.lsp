@@ -1,9 +1,9 @@
 
-(PUT '|TABLEAU;tableau;L%;1| '|SPADreplace| '(XLAM (|lls|) |lls|)) 
+(MAKEPROP '|TABLEAU;tableau;L%;1| '|SPADreplace| '(XLAM (|lls|) |lls|)) 
 
 (SDEFUN |TABLEAU;tableau;L%;1| ((|lls| (|List| (|List| S))) (% (%))) |lls|) 
 
-(PUT '|TABLEAU;listOfLists;%L;2| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|TABLEAU;listOfLists;%L;2| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |TABLEAU;listOfLists;%L;2| ((|x| (%)) (% (|List| (|List| S)))) |x|) 
 

@@ -1,5 +1,5 @@
 
-(PUT '|EXPR;belong?;BoB;1| '|SPADreplace| '(XLAM (|op|) 'T)) 
+(MAKEPROP '|EXPR;belong?;BoB;1| '|SPADreplace| '(XLAM (|op|) 'T)) 
 
 (SDEFUN |EXPR;belong?;BoB;1| ((|op| (|BasicOperator|)) (% (|Boolean|))) 'T) 
 
@@ -295,8 +295,8 @@
           (EXIT
            (|EXPR;reduc| (SPADCALL |n1| |d1| (QREFELT % 126)) (LIST |r|) %))))) 
 
-(PUT '|EXPR;getSimplifyDenomsFlag;B;35| '|SPADreplace|
-     '(XLAM NIL |algreduc_flag|)) 
+(MAKEPROP '|EXPR;getSimplifyDenomsFlag;B;35| '|SPADreplace|
+          '(XLAM NIL |algreduc_flag|)) 
 
 (SDEFUN |EXPR;getSimplifyDenomsFlag;B;35| ((% (|Boolean|))) |algreduc_flag|) 
 
@@ -1830,12 +1830,12 @@
 (SDEFUN |EXPR;smaller?;2%B;216| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (SPADCALL |x| |y| (QREFELT % 94))) 
 
-(PUT '|EXPR;numer;%Smp;217| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|EXPR;numer;%Smp;217| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |EXPR;numer;%Smp;217|
         ((|x| (%)) (% (|SparseMultivariatePolynomial| R (|Kernel| %)))) |x|) 
 
-(PUT '|EXPR;coerce;Smp%;218| '|SPADreplace| '(XLAM (|p|) |p|)) 
+(MAKEPROP '|EXPR;coerce;Smp%;218| '|SPADreplace| '(XLAM (|p|) |p|)) 
 
 (SDEFUN |EXPR;coerce;Smp%;218|
         ((|p| (|SparseMultivariatePolynomial| R (|Kernel| %))) (% (%))) |p|) 
@@ -2088,11 +2088,11 @@
 (SDEFUN |EXPR;=;2%B;245| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (SPADCALL |x| |y| (QREFELT % 51))) 
 
-(PUT '|EXPR;coerce;K%;246| '|SPADreplace| '(XLAM (|k|) |k|)) 
+(MAKEPROP '|EXPR;coerce;K%;246| '|SPADreplace| '(XLAM (|k|) |k|)) 
 
 (SDEFUN |EXPR;coerce;K%;246| ((|k| (|Kernel| %)) (% (%))) |k|) 
 
-(PUT '|EXPR;kernels;%L;247| '|SPADreplace| 'LIST) 
+(MAKEPROP '|EXPR;kernels;%L;247| '|SPADreplace| 'LIST) 
 
 (SDEFUN |EXPR;kernels;%L;247| ((|x| (%)) (% (|List| (|Kernel| %)))) (LIST |x|)) 
 

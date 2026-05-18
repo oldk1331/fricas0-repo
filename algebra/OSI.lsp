@@ -1,17 +1,17 @@
 
-(PUT '|OSI;=;2%B;1| '|SPADreplace| 'EQL) 
+(MAKEPROP '|OSI;=;2%B;1| '|SPADreplace| 'EQL) 
 
 (SDEFUN |OSI;=;2%B;1| ((|x| (%)) (|y| (%)) (% (|Boolean|))) (EQL |x| |y|)) 
 
-(PUT '|OSI;<;2%B;2| '|SPADreplace| '<) 
+(MAKEPROP '|OSI;<;2%B;2| '|SPADreplace| '<) 
 
 (SDEFUN |OSI;<;2%B;2| ((|x| (%)) (|y| (%)) (% (|Boolean|))) (< |x| |y|)) 
 
-(PUT '|OSI;coerce;I%;3| '|SPADreplace| '(XLAM (|i|) |i|)) 
+(MAKEPROP '|OSI;coerce;I%;3| '|SPADreplace| '(XLAM (|i|) |i|)) 
 
 (SDEFUN |OSI;coerce;I%;3| ((|i| (|Integer|)) (% (%))) |i|) 
 
-(PUT '|OSI;value;%I;4| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(MAKEPROP '|OSI;value;%I;4| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |OSI;value;%I;4| ((|x| (%)) (% (|Integer|))) |x|) 
 

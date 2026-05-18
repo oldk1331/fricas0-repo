@@ -358,17 +358,17 @@
 
 (DEFUN |Else?| (|st|) (PROG () (RETURN (EQL (QUOTIENT |st| 10) 3))))
 
-; SkipEnd? (st) == REMAINDER(st,10) = 0
+; SkipEnd? (st) == REM(st, 10) = 0
 
-(DEFUN |SkipEnd?| (|st|) (PROG () (RETURN (EQL (REMAINDER |st| 10) 0))))
+(DEFUN |SkipEnd?| (|st|) (PROG () (RETURN (EQL (REM |st| 10) 0))))
 
-; KeepPart?(st) == REMAINDER(st,10) = 1
+; KeepPart?(st) == REM(st, 10) = 1
 
-(DEFUN |KeepPart?| (|st|) (PROG () (RETURN (EQL (REMAINDER |st| 10) 1))))
+(DEFUN |KeepPart?| (|st|) (PROG () (RETURN (EQL (REM |st| 10) 1))))
 
-; SkipPart?(st) == REMAINDER(st,10) = 2
+; SkipPart?(st) == REM(st, 10) = 2
 
-(DEFUN |SkipPart?| (|st|) (PROG () (RETURN (EQL (REMAINDER |st| 10) 2))))
+(DEFUN |SkipPart?| (|st|) (PROG () (RETURN (EQL (REM |st| 10) 2))))
 
 ; Skipping?(st) == not KeepPart? st
 

@@ -1,13 +1,13 @@
 
-(PUT '|HASHTBL;keys;%L;1| '|SPADreplace| 'HKEYS) 
+(MAKEPROP '|HASHTBL;keys;%L;1| '|SPADreplace| 'HKEYS) 
 
 (SDEFUN |HASHTBL;keys;%L;1| ((|t| (%)) (% (|List| |Key|))) (HKEYS |t|)) 
 
-(PUT '|HASHTBL;#;%Nni;2| '|SPADreplace| 'HCOUNT) 
+(MAKEPROP '|HASHTBL;#;%Nni;2| '|SPADreplace| 'HCOUNT) 
 
 (SDEFUN |HASHTBL;#;%Nni;2| ((|t| (%)) (% (|NonNegativeInteger|))) (HCOUNT |t|)) 
 
-(PUT '|HASHTBL;setelt!;%Key2Entry;3| '|SPADreplace| 'HPUT) 
+(MAKEPROP '|HASHTBL;setelt!;%Key2Entry;3| '|SPADreplace| 'HPUT) 
 
 (SDEFUN |HASHTBL;setelt!;%Key2Entry;3|
         ((|t| (%)) (|k| (|Key|)) (|e| (|Entry|)) (% (|Entry|)))

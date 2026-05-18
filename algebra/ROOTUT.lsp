@@ -1,5 +1,5 @@
 
-(PUT '|ROOTUT;root_pair| '|SPADreplace| 'CONS) 
+(MAKEPROP '|ROOTUT;root_pair| '|SPADreplace| 'CONS) 
 
 (SDEFUN |ROOTUT;root_pair|
         ((|a| (F)) (|b| (F)) (% (|Record| (|:| |real| F) (|:| |imag| F))))
@@ -456,8 +456,8 @@
                        (#10# (|error| "impossible"))))))
           #8# (EXIT #1#)))) 
 
-(PUT '|ROOTUT;quartic2;SupFU;9| '|SPADreplace|
-     '(XLAM (|p| |a0|) (CONS 1 "failed"))) 
+(MAKEPROP '|ROOTUT;quartic2;SupFU;9| '|SPADreplace|
+          '(XLAM (|p| |a0|) (CONS 1 "failed"))) 
 
 (SDEFUN |ROOTUT;quartic2;SupFU;9|
         ((|p| (|SparseUnivariatePolynomial| F)) (|a0| (F))

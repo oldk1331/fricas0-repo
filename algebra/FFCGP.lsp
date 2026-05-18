@@ -155,8 +155,8 @@
         (SEQ (COND ((NULL (QREFELT % 31)) (|FFCGP;initializeElt| %)))
              (EXIT (QREFELT % 31)))) 
 
-(PUT '|FFCGP;representationType;U;12| '|SPADreplace|
-     '(XLAM NIL (CONS 3 "cyclic"))) 
+(MAKEPROP '|FFCGP;representationType;U;12| '|SPADreplace|
+          '(XLAM NIL (CONS 3 "cyclic"))) 
 
 (SDEFUN |FFCGP;representationType;U;12|
         ((% (|Union| "prime" "polynomial" "normal" "cyclic")))
@@ -300,15 +300,15 @@
                (|addmod_SI| |x| (|lshift_SI| (QREFELT % 18) -1)
                             (QREFELT % 18))))) 
 
-(PUT '|FFCGP;generator;%;23| '|SPADreplace| '(XLAM NIL 1)) 
+(MAKEPROP '|FFCGP;generator;%;23| '|SPADreplace| '(XLAM NIL 1)) 
 
 (SDEFUN |FFCGP;generator;%;23| ((% (%))) 1) 
 
-(PUT '|FFCGP;createPrimitiveElement;%;24| '|SPADreplace| '(XLAM NIL 1)) 
+(MAKEPROP '|FFCGP;createPrimitiveElement;%;24| '|SPADreplace| '(XLAM NIL 1)) 
 
 (SDEFUN |FFCGP;createPrimitiveElement;%;24| ((% (%))) 1) 
 
-(PUT '|FFCGP;primitiveElement;%;25| '|SPADreplace| '(XLAM NIL 1)) 
+(MAKEPROP '|FFCGP;primitiveElement;%;25| '|SPADreplace| '(XLAM NIL 1)) 
 
 (SDEFUN |FFCGP;primitiveElement;%;25| ((% (%))) 1) 
 
@@ -340,11 +340,11 @@
 (SDEFUN |FFCGP;index;Pi%;32| ((|a| (|PositiveInteger|)) (% (%)))
         (|sub_SI| (SPADCALL |a| (QREFELT % 14) (QREFELT % 101)) 1)) 
 
-(PUT '|FFCGP;Zero;%;33| '|SPADreplace| '(XLAM NIL -1)) 
+(MAKEPROP '|FFCGP;Zero;%;33| '|SPADreplace| '(XLAM NIL -1)) 
 
 (SDEFUN |FFCGP;Zero;%;33| ((% (%))) -1) 
 
-(PUT '|FFCGP;One;%;34| '|SPADreplace| '(XLAM NIL 0)) 
+(MAKEPROP '|FFCGP;One;%;34| '|SPADreplace| '(XLAM NIL 0)) 
 
 (SDEFUN |FFCGP;One;%;34| ((% (%))) 0) 
 
@@ -360,7 +360,7 @@
                                        (SPADCALL |y| (QREFELT % 138))
                                        (QREFELT % 139))))))))) 
 
-(PUT '|FFCGP;=;2%B;36| '|SPADreplace| '|eql_SI|) 
+(MAKEPROP '|FFCGP;=;2%B;36| '|SPADreplace| '|eql_SI|) 
 
 (SDEFUN |FFCGP;=;2%B;36| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (|eql_SI| |x| |y|)) 

@@ -1,5 +1,5 @@
 
-(PUT '|MATSTOR;rep| '|SPADreplace| '(XLAM (|m|) |m|)) 
+(MAKEPROP '|MATSTOR;rep| '|SPADreplace| '(XLAM (|m|) |m|)) 
 
 (SDEFUN |MATSTOR;rep|
         ((|m| (|Matrix| R)) (% (|PrimitiveArray| (|PrimitiveArray| R)))) |m|) 

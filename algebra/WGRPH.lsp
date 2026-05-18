@@ -23,7 +23,8 @@
                       (EXIT (NREVERSE #2#)))))
           (EXIT (CONS |objs| NIL))))) 
 
-(PUT '|WGRPH;weightedGraph;L%;2| '|SPADreplace| '(XLAM (|ob|) (CONS |ob| NIL))) 
+(MAKEPROP '|WGRPH;weightedGraph;L%;2| '|SPADreplace|
+          '(XLAM (|ob|) (CONS |ob| NIL))) 
 
 (SDEFUN |WGRPH;weightedGraph;L%;2|
         ((|ob|
@@ -33,7 +34,7 @@
          (% (%)))
         (CONS |ob| NIL)) 
 
-(PUT '|WGRPH;weightedGraph;LL%;3| '|SPADreplace| 'CONS) 
+(MAKEPROP '|WGRPH;weightedGraph;LL%;3| '|SPADreplace| 'CONS) 
 
 (SDEFUN |WGRPH;weightedGraph;LL%;3|
         ((|ob|
@@ -419,7 +420,7 @@
                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (EXIT |arrs|)))) 
 
-(PUT '|WGRPH;initial;%;15| '|SPADreplace| '(XLAM NIL (CONS NIL NIL))) 
+(MAKEPROP '|WGRPH;initial;%;15| '|SPADreplace| '(XLAM NIL (CONS NIL NIL))) 
 
 (SDEFUN |WGRPH;initial;%;15| ((% (%))) (CONS NIL NIL)) 
 

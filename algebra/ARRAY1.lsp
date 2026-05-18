@@ -1,11 +1,12 @@
 
-(PUT '|ARRAY1;qelt;%IS;1| '|SPADreplace| '(XLAM (|x| |i|) (QAREF1O |x| |i| 1))) 
+(MAKEPROP '|ARRAY1;qelt;%IS;1| '|SPADreplace|
+          '(XLAM (|x| |i|) (QAREF1O |x| |i| 1))) 
 
 (SDEFUN |ARRAY1;qelt;%IS;1| ((|x| (%)) (|i| (|Integer|)) (% (S)))
         (QAREF1O |x| |i| 1)) 
 
-(PUT '|ARRAY1;qsetelt!;%I2S;2| '|SPADreplace|
-     '(XLAM (|x| |i| |s|) (QSETAREF1O |x| |i| |s| 1))) 
+(MAKEPROP '|ARRAY1;qsetelt!;%I2S;2| '|SPADreplace|
+          '(XLAM (|x| |i| |s|) (QSETAREF1O |x| |i| |s| 1))) 
 
 (SDEFUN |ARRAY1;qsetelt!;%I2S;2|
         ((|x| (%)) (|i| (|Integer|)) (|s| (S)) (% (S)))
@@ -34,7 +35,7 @@
                                 (GO G190) G191 (EXIT NIL))
                            (EXIT |a|)))))))) 
 
-(PUT '|ARRAY1;oneDimensionalArray;NniS%;4| '|SPADreplace| 'MAKEARR1) 
+(MAKEPROP '|ARRAY1;oneDimensionalArray;NniS%;4| '|SPADreplace| 'MAKEARR1) 
 
 (SDEFUN |ARRAY1;oneDimensionalArray;NniS%;4|
         ((|n| (|NonNegativeInteger|)) (|s| (S)) (% (%))) (MAKEARR1 |n| |s|)) 

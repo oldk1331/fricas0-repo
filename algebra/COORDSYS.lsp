@@ -1,5 +1,5 @@
 
-(PUT '|COORDSYS;cartesian;2P;1| '|SPADreplace| '(XLAM (|pt|) |pt|)) 
+(MAKEPROP '|COORDSYS;cartesian;2P;1| '|SPADreplace| '(XLAM (|pt|) |pt|)) 
 
 (SDEFUN |COORDSYS;cartesian;2P;1| ((|pt| (|Point| R)) (% (|Point| R))) |pt|) 
 

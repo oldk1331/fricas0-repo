@@ -63,7 +63,7 @@
 (SDEFUN |FDIV;coerce;%Of;20| ((|d| (%)) (% (|OutputForm|)))
         (SPADCALL (SPADCALL |d| (QREFELT % 30)) (QREFELT % 60))) 
 
-(PUT '|FDIV;ideal;%Fi;21| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|FDIV;ideal;%Fi;21| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |FDIV;ideal;%Fi;21|
         ((|d| (%)) (% (|FractionalIdeal| UP (|Fraction| UP) UPUP R)))

@@ -1,5 +1,5 @@
 
-(PUT '|FORMAT;sayExpr| '|SPADreplace| '|sayFormatted|) 
+(MAKEPROP '|FORMAT;sayExpr| '|SPADreplace| '|sayFormatted|) 
 
 (SDEFUN |FORMAT;sayExpr| ((|s| (|String|)) (% (|Void|))) (|sayFormatted| |s|)) 
 
@@ -96,15 +96,15 @@
 
 (SDEFUN |FORMAT;new;%;11| ((% (%))) (|FORMAT;newStructure| "" %)) 
 
-(PUT '|FORMAT;prologue;%Ob;12| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 0))) 
+(MAKEPROP '|FORMAT;prologue;%Ob;12| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 0))) 
 
 (SDEFUN |FORMAT;prologue;%Ob;12| ((|f| (%)) (% (|OutputBox|))) (QVELT |f| 0)) 
 
-(PUT '|FORMAT;format;%Ob;13| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 1))) 
+(MAKEPROP '|FORMAT;format;%Ob;13| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 1))) 
 
 (SDEFUN |FORMAT;format;%Ob;13| ((|f| (%)) (% (|OutputBox|))) (QVELT |f| 1)) 
 
-(PUT '|FORMAT;epilogue;%Ob;14| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 2))) 
+(MAKEPROP '|FORMAT;epilogue;%Ob;14| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 2))) 
 
 (SDEFUN |FORMAT;epilogue;%Ob;14| ((|f| (%)) (% (|OutputBox|))) (QVELT |f| 2)) 
 

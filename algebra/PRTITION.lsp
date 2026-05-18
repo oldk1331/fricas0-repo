@@ -1,9 +1,9 @@
 
-(PUT '|PRTITION;Zero;%;1| '|SPADreplace| '(XLAM NIL NIL)) 
+(MAKEPROP '|PRTITION;Zero;%;1| '|SPADreplace| '(XLAM NIL NIL)) 
 
 (SDEFUN |PRTITION;Zero;%;1| ((% (%))) NIL) 
 
-(PUT '|PRTITION;coerce;%L;2| '|SPADreplace| '(XLAM (|s|) |s|)) 
+(MAKEPROP '|PRTITION;coerce;%L;2| '|SPADreplace| '(XLAM (|s|) |s|)) 
 
 (SDEFUN |PRTITION;coerce;%L;2| ((|s| (%)) (% (|List| (|Integer|)))) |s|) 
 
@@ -22,7 +22,7 @@
                (SPADCALL (CDR |x|) (CDR |y|) (QREFELT % 18)))
               ('T (< (|SPADfirst| |x|) (|SPADfirst| |y|))))) 
 
-(PUT '|PRTITION;=;2%B;6| '|SPADreplace| 'EQUAL) 
+(MAKEPROP '|PRTITION;=;2%B;6| '|SPADreplace| 'EQUAL) 
 
 (SDEFUN |PRTITION;=;2%B;6| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (EQUAL |x| |y|)) 

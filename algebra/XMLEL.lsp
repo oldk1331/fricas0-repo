@@ -1,15 +1,16 @@
 
-(PUT '|XMLEL;xmlElement;SLL%;1| '|SPADreplace|
-     '(XLAM (|name| |elements| |attributes|)
-       (VECTOR |name| |elements| |attributes| ""))) 
+(MAKEPROP '|XMLEL;xmlElement;SLL%;1| '|SPADreplace|
+          '(XLAM (|name| |elements| |attributes|)
+            (VECTOR |name| |elements| |attributes| ""))) 
 
 (SDEFUN |XMLEL;xmlElement;SLL%;1|
         ((|name| (|String|)) (|elements| (|List| %))
          (|attributes| (|List| (|XmlAttribute|))) (% (%)))
         (VECTOR |name| |elements| |attributes| "")) 
 
-(PUT '|XMLEL;xmlElement;2SL%;2| '|SPADreplace|
-     '(XLAM (|name| |txt| |attributes|) (VECTOR |name| NIL |attributes| |txt|))) 
+(MAKEPROP '|XMLEL;xmlElement;2SL%;2| '|SPADreplace|
+          '(XLAM (|name| |txt| |attributes|)
+            (VECTOR |name| NIL |attributes| |txt|))) 
 
 (SDEFUN |XMLEL;xmlElement;2SL%;2|
         ((|name| (|String|)) (|txt| (|String|))

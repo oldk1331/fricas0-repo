@@ -166,7 +166,7 @@
         (COND ((NULL (QCDR |u|)) (NULL (SPADCALL (QCAR |u|) (QREFELT % 45))))
               ('T NIL))) 
 
-(PUT '|FR;factorList;%L;9| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|FR;factorList;%L;9| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |FR;factorList;%L;9|
         ((|u| (%))
@@ -177,7 +177,7 @@
                      (|:| |exponent| (|NonNegativeInteger|))))))
         (QCDR |u|)) 
 
-(PUT '|FR;unit;%R;10| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|FR;unit;%R;10| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |FR;unit;%R;10| ((|u| (%)) (% (R))) (QCAR |u|)) 
 
@@ -208,7 +208,7 @@
           (SPADCALL (QCAR |u|) (|spadConstant| % 15) (QREFELT % 17)))
          ('T NIL))) 
 
-(PUT '|FR;mkFF| '|SPADreplace| 'CONS) 
+(MAKEPROP '|FR;mkFF| '|SPADreplace| 'CONS) 
 
 (SDEFUN |FR;mkFF|
         ((|r| (R))
@@ -389,7 +389,7 @@
                                                   (QREFELT % 70)))))))))))))))
           #9# (EXIT #7#)))) 
 
-(PUT '|FR;rational?;%B;24| '|SPADreplace| '(XLAM (|x|) 'T)) 
+(MAKEPROP '|FR;rational?;%B;24| '|SPADreplace| '(XLAM (|x|) 'T)) 
 
 (SDEFUN |FR;rational?;%B;24| ((|x| (%)) (% (|Boolean|))) 'T) 
 

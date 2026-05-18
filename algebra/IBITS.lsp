@@ -34,25 +34,26 @@
         ((|n| (|NonNegativeInteger|)) (|b| (|Boolean|)) (% (%)))
         (|make_BVEC| |n| (|bool_to_bit| |b|))) 
 
-(PUT '|IBITS;empty;%;5| '|SPADreplace| '(XLAM NIL (|make_BVEC| 0 0))) 
+(MAKEPROP '|IBITS;empty;%;5| '|SPADreplace| '(XLAM NIL (|make_BVEC| 0 0))) 
 
 (SDEFUN |IBITS;empty;%;5| ((% (%))) (|make_BVEC| 0 0)) 
 
-(PUT '|IBITS;copy;2%;6| '|SPADreplace| '|copy_BVEC|) 
+(MAKEPROP '|IBITS;copy;2%;6| '|SPADreplace| '|copy_BVEC|) 
 
 (SDEFUN |IBITS;copy;2%;6| ((|v| (%)) (% (%))) (|copy_BVEC| |v|)) 
 
-(PUT '|IBITS;#;%Nni;7| '|SPADreplace| '|size_BVEC|) 
+(MAKEPROP '|IBITS;#;%Nni;7| '|SPADreplace| '|size_BVEC|) 
 
 (SDEFUN |IBITS;#;%Nni;7| ((|v| (%)) (% (|NonNegativeInteger|)))
         (|size_BVEC| |v|)) 
 
-(PUT '|IBITS;=;2%B;8| '|SPADreplace| '|equal_BVEC|) 
+(MAKEPROP '|IBITS;=;2%B;8| '|SPADreplace| '|equal_BVEC|) 
 
 (SDEFUN |IBITS;=;2%B;8| ((|v| (%)) (|u| (%)) (% (|Boolean|)))
         (|equal_BVEC| |v| |u|)) 
 
-(PUT '|IBITS;<;2%B;9| '|SPADreplace| '(XLAM (|v| |u|) (|greater_BVEC| |u| |v|))) 
+(MAKEPROP '|IBITS;<;2%B;9| '|SPADreplace|
+          '(XLAM (|v| |u|) (|greater_BVEC| |u| |v|))) 
 
 (SDEFUN |IBITS;<;2%B;9| ((|v| (%)) (|u| (%)) (% (|Boolean|)))
         (|greater_BVEC| |u| |v|)) 
@@ -84,7 +85,7 @@
         (|bit_to_bool|
          (ELT_BVEC |v| (|IBITS;range| |v| (- |i| (QREFELT % 6)) %)))) 
 
-(PUT '|IBITS;Not;2%;15| '|SPADreplace| '|not_BVEC|) 
+(MAKEPROP '|IBITS;Not;2%;15| '|SPADreplace| '|not_BVEC|) 
 
 (SDEFUN |IBITS;Not;2%;15| ((|v| (%)) (% (%))) (|not_BVEC| |v|)) 
 

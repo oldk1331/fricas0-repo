@@ -712,28 +712,41 @@
       (SETQ |b| (|poGlobalLinePosn| (CAAR |stream|)))
       (|streamChop| (+ (- |a| |b|) 1) |stream|)))))
 
-; streamChop(n,s)==
-;     if StreamNull s
-;     then [nil,nil]
-;     else if EQL(n,0)
-;          then [nil,s]
-;          else
-;             [a,b]:= streamChop(n-1,cdr s)
-;             line:=car s
-;             c := ncloopPrefix?('")command", rest line)
-;             d:= cons(car line,if c then c else cdr line)
-;             [cons(d,a),b]
+; streamChop(n, s) ==
+;     res := []
+;     while n > 0 repeat
+;         StreamNull(s) =>
+;             s := nil
+;             n := 0
+;         line := first(s)
+;         c := ncloopPrefix?('")command", rest(line))
+;         res := cons(cons(first(line), (c => c ; rest(line))), res)
+;         n := n - 1
+;         s := rest(s)
+;     [NREVERSE(res), s]
 
 (DEFUN |streamChop| (|n| |s|)
-  (PROG (|LETTMP#1| |a| |b| |line| |c| |d|)
+  (PROG (|res| |line| |c|)
     (RETURN
-     (COND ((|StreamNull| |s|) (LIST NIL NIL)) ((EQL |n| 0) (LIST NIL |s|))
-           (#1='T (SETQ |LETTMP#1| (|streamChop| (- |n| 1) (CDR |s|)))
-            (SETQ |a| (CAR |LETTMP#1|)) (SETQ |b| (CADR |LETTMP#1|))
-            (SETQ |line| (CAR |s|))
-            (SETQ |c| (|ncloopPrefix?| ")command" (CDR |line|)))
-            (SETQ |d| (CONS (CAR |line|) (COND (|c| |c|) (#1# (CDR |line|)))))
-            (LIST (CONS |d| |a|) |b|))))))
+     (PROGN
+      (SETQ |res| NIL)
+      ((LAMBDA ()
+         (LOOP
+          (COND ((NOT (< 0 |n|)) (RETURN NIL))
+                (#1='T
+                 (COND ((|StreamNull| |s|) (PROGN (SETQ |s| NIL) (SETQ |n| 0)))
+                       (#1#
+                        (PROGN
+                         (SETQ |line| (CAR |s|))
+                         (SETQ |c| (|ncloopPrefix?| ")command" (CDR |line|)))
+                         (SETQ |res|
+                                 (CONS
+                                  (CONS (CAR |line|)
+                                        (COND (|c| |c|) (#1# (CDR |line|))))
+                                  |res|))
+                         (SETQ |n| (- |n| 1))
+                         (SETQ |s| (CDR |s|))))))))))
+      (LIST (NREVERSE |res|) |s|)))))
 
 ; ncloopPrintLines lines ==
 ;         for line in lines repeat WRITE_-LINE rest line

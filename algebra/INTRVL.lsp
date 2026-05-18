@@ -85,7 +85,7 @@
 (SDEFUN |INTRVL;qinterval;2R%;5| ((|i| (R)) (|s| (R)) (% (%)))
         (CONS (|INTRVL;roundDown| |i| %) (|INTRVL;roundUp| |s| %))) 
 
-(PUT '|INTRVL;exactInterval| '|SPADreplace| 'CONS) 
+(MAKEPROP '|INTRVL;exactInterval| '|SPADreplace| 'CONS) 
 
 (SDEFUN |INTRVL;exactInterval| ((|i| (R)) (|s| (R)) (% (%))) (CONS |i| |s|)) 
 
@@ -95,11 +95,11 @@
 (SDEFUN |INTRVL;exactInfInterval| ((|i| (R)) (|s| (R)) (% (%)))
         (CONS |i| (|INTRVL;roundUp| |s| %))) 
 
-(PUT '|INTRVL;inf;%R;9| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|INTRVL;inf;%R;9| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |INTRVL;inf;%R;9| ((|u| (%)) (% (R))) (QCAR |u|)) 
 
-(PUT '|INTRVL;sup;%R;10| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|INTRVL;sup;%R;10| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |INTRVL;sup;%R;10| ((|u| (%)) (% (R))) (QCDR |u|)) 
 
@@ -259,7 +259,7 @@
                (SPADCALL (SPADCALL |u| (QREFELT % 26)) (QREFELT % 65)))
          (QREFELT % 67))) 
 
-(PUT '|INTRVL;characteristic;Nni;25| '|SPADreplace| '(XLAM NIL 0)) 
+(MAKEPROP '|INTRVL;characteristic;Nni;25| '|SPADreplace| '(XLAM NIL 0)) 
 
 (SDEFUN |INTRVL;characteristic;Nni;25| ((% (|NonNegativeInteger|))) 0) 
 

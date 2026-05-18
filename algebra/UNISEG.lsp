@@ -13,7 +13,7 @@
         (COND ((QEQCAR |s| 0) (QCAR (QCDR |s|)))
               ('T (SPADCALL (QCDR |s|) (QREFELT % 16))))) 
 
-(PUT '|UNISEG;hasHi;%B;5| '|SPADreplace| '(XLAM (|s|) (QEQCAR |s| 1))) 
+(MAKEPROP '|UNISEG;hasHi;%B;5| '|SPADreplace| '(XLAM (|s|) (QEQCAR |s| 1))) 
 
 (SDEFUN |UNISEG;hasHi;%B;5| ((|s| (%)) (% (|Boolean|))) (QEQCAR |s| 1)) 
 
@@ -32,7 +32,7 @@
 (SDEFUN |UNISEG;SEGMENT;2S%;9| ((|a| (S)) (|b| (S)) (% (%)))
         (SPADCALL |a| |b| (QREFELT % 11))) 
 
-(PUT '|UNISEG;coerce;S%;10| '|SPADreplace| '(XLAM (|sg|) (CONS 1 |sg|))) 
+(MAKEPROP '|UNISEG;coerce;S%;10| '|SPADreplace| '(XLAM (|sg|) (CONS 1 |sg|))) 
 
 (SDEFUN |UNISEG;coerce;S%;10| ((|sg| (|Segment| S)) (% (%))) (CONS 1 |sg|)) 
 

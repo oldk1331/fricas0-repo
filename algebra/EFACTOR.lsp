@@ -29,8 +29,8 @@
             (|SparseMultivariatePolynomial| R (|Kernel| F))))))
         (SPADCALL |p| (QREFELT % 16))) 
 
-(PUT '|EFACTOR;poly_factor;SupF;4| '|SPADreplace|
-     '(XLAM (|p|) (|error| "factorPolynomial unimplemented"))) 
+(MAKEPROP '|EFACTOR;poly_factor;SupF;4| '|SPADreplace|
+          '(XLAM (|p|) (|error| "factorPolynomial unimplemented"))) 
 
 (SDEFUN |EFACTOR;poly_factor;SupF;4|
         ((|p|

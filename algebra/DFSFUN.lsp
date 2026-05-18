@@ -1,25 +1,25 @@
 
-(PUT '|DFSFUN;besselJ;3C;1| '|SPADreplace| '|c_besselj|) 
+(MAKEPROP '|DFSFUN;besselJ;3C;1| '|SPADreplace| '|c_besselj|) 
 
 (SDEFUN |DFSFUN;besselJ;3C;1|
         ((|v| (|Complex| (|DoubleFloat|))) (|z| (|Complex| (|DoubleFloat|)))
          (% (|Complex| (|DoubleFloat|))))
         (|c_besselj| |v| |z|)) 
 
-(PUT '|DFSFUN;besselJ;3Df;2| '|SPADreplace| '|r_besselj|) 
+(MAKEPROP '|DFSFUN;besselJ;3Df;2| '|SPADreplace| '|r_besselj|) 
 
 (SDEFUN |DFSFUN;besselJ;3Df;2|
         ((|n| (|DoubleFloat|)) (|x| (|DoubleFloat|)) (% (|DoubleFloat|)))
         (|r_besselj| |n| |x|)) 
 
-(PUT '|DFSFUN;besselI;3C;3| '|SPADreplace| '|c_besseli|) 
+(MAKEPROP '|DFSFUN;besselI;3C;3| '|SPADreplace| '|c_besseli|) 
 
 (SDEFUN |DFSFUN;besselI;3C;3|
         ((|v| (|Complex| (|DoubleFloat|))) (|z| (|Complex| (|DoubleFloat|)))
          (% (|Complex| (|DoubleFloat|))))
         (|c_besseli| |v| |z|)) 
 
-(PUT '|DFSFUN;besselI;3Df;4| '|SPADreplace| '|r_besseli|) 
+(MAKEPROP '|DFSFUN;besselI;3Df;4| '|SPADreplace| '|r_besseli|) 
 
 (SDEFUN |DFSFUN;besselI;3Df;4|
         ((|n| (|DoubleFloat|)) (|x| (|DoubleFloat|)) (% (|DoubleFloat|)))

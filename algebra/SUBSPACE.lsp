@@ -48,14 +48,14 @@
         ((|space| (%)) (|num| (|NonNegativeInteger|)) (% (%)))
         (SPADCALL (QVELT |space| 3) |num| (QREFELT % 29))) 
 
-(PUT '|SUBSPACE;children;%L;8| '|SPADreplace|
-     '(XLAM (|space|) (QVELT |space| 3))) 
+(MAKEPROP '|SUBSPACE;children;%L;8| '|SPADreplace|
+          '(XLAM (|space|) (QVELT |space| 3))) 
 
 (SDEFUN |SUBSPACE;children;%L;8| ((|space| (%)) (% (|List| %)))
         (QVELT |space| 3)) 
 
-(PUT '|SUBSPACE;numberOfChildren;%Nni;9| '|SPADreplace|
-     '(XLAM (|space|) (QVELT |space| 9))) 
+(MAKEPROP '|SUBSPACE;numberOfChildren;%Nni;9| '|SPADreplace|
+          '(XLAM (|space|) (QVELT |space| 9))) 
 
 (SDEFUN |SUBSPACE;numberOfChildren;%Nni;9|
         ((|space| (%)) (% (|NonNegativeInteger|))) (QVELT |space| 9)) 
@@ -438,8 +438,8 @@
                      (SPADCALL (QVELT |node| 6) (QVELT |space| 1)
                                (QREFELT % 52)))))) 
 
-(PUT '|SUBSPACE;extractIndex;%Nni;27| '|SPADreplace|
-     '(XLAM (|space|) (QVELT |space| 1))) 
+(MAKEPROP '|SUBSPACE;extractIndex;%Nni;27| '|SPADreplace|
+          '(XLAM (|space|) (QVELT |space| 1))) 
 
 (SDEFUN |SUBSPACE;extractIndex;%Nni;27|
         ((|space| (%)) (% (|NonNegativeInteger|))) (QVELT |space| 1)) 
@@ -447,8 +447,8 @@
 (SDEFUN |SUBSPACE;extractClosed;%B;28| ((|space| (%)) (% (|Boolean|)))
         (SPADCALL (QVELT |space| 2) (QREFELT % 66))) 
 
-(PUT '|SUBSPACE;extractProperty;%Sscp;29| '|SPADreplace|
-     '(XLAM (|space|) (QVELT |space| 2))) 
+(MAKEPROP '|SUBSPACE;extractProperty;%Sscp;29| '|SPADreplace|
+          '(XLAM (|space|) (QVELT |space| 2))) 
 
 (SDEFUN |SUBSPACE;extractProperty;%Sscp;29|
         ((|space| (%)) (% (|SubSpaceComponentProperty|))) (QVELT |space| 2)) 
@@ -459,14 +459,14 @@
           (|error| "This is a top level SubSpace - it does not have a parent"))
          ('T (SPADCALL (QVELT |space| 10) (QREFELT % 44))))) 
 
-(PUT '|SUBSPACE;pointData;%L;31| '|SPADreplace|
-     '(XLAM (|space|) (QVELT |space| 6))) 
+(MAKEPROP '|SUBSPACE;pointData;%L;31| '|SPADreplace|
+          '(XLAM (|space|) (QVELT |space| 6))) 
 
 (SDEFUN |SUBSPACE;pointData;%L;31| ((|space| (%)) (% (|List| (|Point| R))))
         (QVELT |space| 6)) 
 
-(PUT '|SUBSPACE;level;%Nni;32| '|SPADreplace|
-     '(XLAM (|space|) (QVELT |space| 5))) 
+(MAKEPROP '|SUBSPACE;level;%Nni;32| '|SPADreplace|
+          '(XLAM (|space|) (QVELT |space| 5))) 
 
 (SDEFUN |SUBSPACE;level;%Nni;32| ((|space| (%)) (% (|NonNegativeInteger|)))
         (QVELT |space| 5)) 

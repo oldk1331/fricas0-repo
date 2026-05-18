@@ -575,7 +575,7 @@
 
 (SDEFUN |MODOP;conjug;2R;40| ((|r| (R)) (% (R))) (SPADCALL |r| (QREFELT % 105))) 
 
-(PUT '|MODOP;conjug;2R;41| '|SPADreplace| '(XLAM (|r|) |r|)) 
+(MAKEPROP '|MODOP;conjug;2R;41| '|SPADreplace| '(XLAM (|r|) |r|)) 
 
 (SDEFUN |MODOP;conjug;2R;41| ((|r| (R)) (% (R))) |r|) 
 

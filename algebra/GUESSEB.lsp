@@ -403,7 +403,7 @@
             (SPADCALL (SPADCALL |z1| (QCDR |cden|) (QREFELT % 84))
                       (QREFELT % 85)))))) 
 
-(PUT '|GUESSEB;defaultD| '|SPADreplace| '(XLAM (|expr|) |expr|)) 
+(MAKEPROP '|GUESSEB;defaultD| '|SPADreplace| '(XLAM (|expr|) |expr|)) 
 
 (SDEFUN |GUESSEB;defaultD| ((|expr| (EXPRR)) (% (EXPRR))) |expr|) 
 

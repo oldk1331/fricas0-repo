@@ -1,20 +1,20 @@
 
-(PUT '|MATRIX;minRowIndex;%I;1| '|SPADreplace| '(XLAM (|x|) 1)) 
+(MAKEPROP '|MATRIX;minRowIndex;%I;1| '|SPADreplace| '(XLAM (|x|) 1)) 
 
 (SDEFUN |MATRIX;minRowIndex;%I;1| ((|x| (%)) (% (|Integer|))) 1) 
 
-(PUT '|MATRIX;minColIndex;%I;2| '|SPADreplace| '(XLAM (|x|) 1)) 
+(MAKEPROP '|MATRIX;minColIndex;%I;2| '|SPADreplace| '(XLAM (|x|) 1)) 
 
 (SDEFUN |MATRIX;minColIndex;%I;2| ((|x| (%)) (% (|Integer|))) 1) 
 
-(PUT '|MATRIX;qelt;%2IR;3| '|SPADreplace|
-     '(XLAM (|m| |i| |j|) (QAREF2O |m| |i| |j| 1 1))) 
+(MAKEPROP '|MATRIX;qelt;%2IR;3| '|SPADreplace|
+          '(XLAM (|m| |i| |j|) (QAREF2O |m| |i| |j| 1 1))) 
 
 (SDEFUN |MATRIX;qelt;%2IR;3| ((|m| (%)) (|i| #1=(|Integer|)) (|j| #1#) (% (R)))
         (QAREF2O |m| |i| |j| 1 1)) 
 
-(PUT '|MATRIX;qsetelt!;%2I2R;4| '|SPADreplace|
-     '(XLAM (|m| |i| |j| |r|) (QSETAREF2O |m| |i| |j| |r| 1 1))) 
+(MAKEPROP '|MATRIX;qsetelt!;%2I2R;4| '|SPADreplace|
+          '(XLAM (|m| |i| |j| |r|) (QSETAREF2O |m| |i| |j| |r| 1 1))) 
 
 (SDEFUN |MATRIX;qsetelt!;%2I2R;4|
         ((|m| (%)) (|i| #1=(|Integer|)) (|j| #1#) (|r| (R)) (% (R)))

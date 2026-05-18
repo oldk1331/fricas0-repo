@@ -1,54 +1,54 @@
 
-(PUT '|DFVEC;qelt;%IDf;1| '|SPADreplace| 'DELT) 
+(MAKEPROP '|DFVEC;qelt;%IDf;1| '|SPADreplace| 'DELT) 
 
 (SDEFUN |DFVEC;qelt;%IDf;1| ((|x| (%)) (|i| (|Integer|)) (% (|DoubleFloat|)))
         (DELT |x| |i|)) 
 
-(PUT '|DFVEC;qsetelt!;%I2Df;2| '|SPADreplace| 'DSETELT) 
+(MAKEPROP '|DFVEC;qsetelt!;%I2Df;2| '|SPADreplace| 'DSETELT) 
 
 (SDEFUN |DFVEC;qsetelt!;%I2Df;2|
         ((|x| (%)) (|i| (|Integer|)) (|s| #1=(|DoubleFloat|)) (% #1#))
         (DSETELT |x| |i| |s|)) 
 
-(PUT '|DFVEC;#;%Nni;3| '|SPADreplace| 'DLEN) 
+(MAKEPROP '|DFVEC;#;%Nni;3| '|SPADreplace| 'DLEN) 
 
 (SDEFUN |DFVEC;#;%Nni;3| ((|x| (%)) (% (|NonNegativeInteger|))) (DLEN |x|)) 
 
-(PUT '|DFVEC;minIndex;%I;4| '|SPADreplace| '(XLAM (|x|) 0)) 
+(MAKEPROP '|DFVEC;minIndex;%I;4| '|SPADreplace| '(XLAM (|x|) 0)) 
 
 (SDEFUN |DFVEC;minIndex;%I;4| ((|x| (%)) (% (|Integer|))) 0) 
 
-(PUT '|DFVEC;empty;%;5| '|SPADreplace| '(XLAM NIL (MAKE_DOUBLE_VECTOR 0))) 
+(MAKEPROP '|DFVEC;empty;%;5| '|SPADreplace| '(XLAM NIL (MAKE_DOUBLE_VECTOR 0))) 
 
 (SDEFUN |DFVEC;empty;%;5| ((% (%))) (MAKE_DOUBLE_VECTOR 0)) 
 
-(PUT '|DFVEC;qnew;I%;6| '|SPADreplace| 'MAKE_DOUBLE_VECTOR) 
+(MAKEPROP '|DFVEC;qnew;I%;6| '|SPADreplace| 'MAKE_DOUBLE_VECTOR) 
 
 (SDEFUN |DFVEC;qnew;I%;6| ((|n| (|Integer|)) (% (%))) (MAKE_DOUBLE_VECTOR |n|)) 
 
-(PUT '|DFVEC;new;NniDf%;7| '|SPADreplace| 'MAKE_DOUBLE_VECTOR1) 
+(MAKEPROP '|DFVEC;new;NniDf%;7| '|SPADreplace| 'MAKE_DOUBLE_VECTOR1) 
 
 (SDEFUN |DFVEC;new;NniDf%;7|
         ((|n| (|NonNegativeInteger|)) (|x| (|DoubleFloat|)) (% (%)))
         (MAKE_DOUBLE_VECTOR1 |n| |x|)) 
 
-(PUT '|DFVEC;qelt;%IDf;8| '|SPADreplace| 'DELT) 
+(MAKEPROP '|DFVEC;qelt;%IDf;8| '|SPADreplace| 'DELT) 
 
 (SDEFUN |DFVEC;qelt;%IDf;8| ((|x| (%)) (|i| (|Integer|)) (% (|DoubleFloat|)))
         (DELT |x| |i|)) 
 
-(PUT '|DFVEC;elt;%IDf;9| '|SPADreplace| 'DELT) 
+(MAKEPROP '|DFVEC;elt;%IDf;9| '|SPADreplace| 'DELT) 
 
 (SDEFUN |DFVEC;elt;%IDf;9| ((|x| (%)) (|i| (|Integer|)) (% (|DoubleFloat|)))
         (DELT |x| |i|)) 
 
-(PUT '|DFVEC;qsetelt!;%I2Df;10| '|SPADreplace| 'DSETELT) 
+(MAKEPROP '|DFVEC;qsetelt!;%I2Df;10| '|SPADreplace| 'DSETELT) 
 
 (SDEFUN |DFVEC;qsetelt!;%I2Df;10|
         ((|x| (%)) (|i| (|Integer|)) (|s| #1=(|DoubleFloat|)) (% #1#))
         (DSETELT |x| |i| |s|)) 
 
-(PUT '|DFVEC;setelt!;%I2Df;11| '|SPADreplace| 'DSETELT) 
+(MAKEPROP '|DFVEC;setelt!;%I2Df;11| '|SPADreplace| 'DSETELT) 
 
 (SDEFUN |DFVEC;setelt!;%I2Df;11|
         ((|x| (%)) (|i| (|Integer|)) (|s| #1=(|DoubleFloat|)) (% #1#))

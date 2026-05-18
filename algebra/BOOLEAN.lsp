@@ -1,39 +1,39 @@
 
-(PUT '|BOOLEAN;test;2%;1| '|SPADreplace| '(XLAM (|a|) |a|)) 
+(MAKEPROP '|BOOLEAN;test;2%;1| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
 (SDEFUN |BOOLEAN;test;2%;1| ((|a| (%)) (% (|Boolean|))) |a|) 
 
 (SDEFUN |BOOLEAN;nt| ((|b| (%)) (% (%))) (COND (|b| 'NIL) ('T 'T))) 
 
-(PUT '|BOOLEAN;true;%;3| '|SPADreplace| '(XLAM NIL 'T)) 
+(MAKEPROP '|BOOLEAN;true;%;3| '|SPADreplace| '(XLAM NIL 'T)) 
 
 (SDEFUN |BOOLEAN;true;%;3| ((% (%))) 'T) 
 
-(PUT '|BOOLEAN;false;%;4| '|SPADreplace| '(XLAM NIL NIL)) 
+(MAKEPROP '|BOOLEAN;false;%;4| '|SPADreplace| '(XLAM NIL NIL)) 
 
 (SDEFUN |BOOLEAN;false;%;4| ((% (%))) NIL) 
 
-(PUT '|BOOLEAN;not;2%;5| '|SPADreplace| 'NOT) 
+(MAKEPROP '|BOOLEAN;not;2%;5| '|SPADreplace| 'NOT) 
 
 (SDEFUN |BOOLEAN;not;2%;5| ((|b| (%)) (% (%))) (NOT |b|)) 
 
-(PUT '|BOOLEAN;~;2%;6| '|SPADreplace| 'NOT) 
+(MAKEPROP '|BOOLEAN;~;2%;6| '|SPADreplace| 'NOT) 
 
 (SDEFUN |BOOLEAN;~;2%;6| ((|b| (%)) (% (%))) (NOT |b|)) 
 
-(PUT '|BOOLEAN;and;3%;7| '|SPADreplace| 'AND) 
+(MAKEPROP '|BOOLEAN;and;3%;7| '|SPADreplace| 'AND) 
 
 (SDEFUN |BOOLEAN;and;3%;7| ((|a| (%)) (|b| (%)) (% (%))) (AND |a| |b|)) 
 
-(PUT '|BOOLEAN;/\\;3%;8| '|SPADreplace| 'AND) 
+(MAKEPROP '|BOOLEAN;/\\;3%;8| '|SPADreplace| 'AND) 
 
 (SDEFUN |BOOLEAN;/\\;3%;8| ((|a| (%)) (|b| (%)) (% (%))) (AND |a| |b|)) 
 
-(PUT '|BOOLEAN;or;3%;9| '|SPADreplace| 'OR) 
+(MAKEPROP '|BOOLEAN;or;3%;9| '|SPADreplace| 'OR) 
 
 (SDEFUN |BOOLEAN;or;3%;9| ((|a| (%)) (|b| (%)) (% (%))) (OR |a| |b|)) 
 
-(PUT '|BOOLEAN;\\/;3%;10| '|SPADreplace| 'OR) 
+(MAKEPROP '|BOOLEAN;\\/;3%;10| '|SPADreplace| 'OR) 
 
 (SDEFUN |BOOLEAN;\\/;3%;10| ((|a| (%)) (|b| (%)) (% (%))) (OR |a| |b|)) 
 
@@ -46,7 +46,7 @@
 (SDEFUN |BOOLEAN;nand;3%;13| ((|a| (%)) (|b| (%)) (% (%)))
         (COND (|a| (|BOOLEAN;nt| |b| %)) ('T 'T))) 
 
-(PUT '|BOOLEAN;=;3%;14| '|SPADreplace| '|BooleanEquality|) 
+(MAKEPROP '|BOOLEAN;=;3%;14| '|SPADreplace| '|BooleanEquality|) 
 
 (SDEFUN |BOOLEAN;=;3%;14| ((|a| (%)) (|b| (%)) (% (|Boolean|)))
         (|BooleanEquality| |a| |b|)) 
@@ -57,7 +57,7 @@
 (SDEFUN |BOOLEAN;<;3%;16| ((|a| (%)) (|b| (%)) (% (|Boolean|)))
         (COND (|b| (NULL |a|)) ('T NIL))) 
 
-(PUT '|BOOLEAN;size;Nni;17| '|SPADreplace| '(XLAM NIL 2)) 
+(MAKEPROP '|BOOLEAN;size;Nni;17| '|SPADreplace| '(XLAM NIL 2)) 
 
 (SDEFUN |BOOLEAN;size;Nni;17| ((% (|NonNegativeInteger|))) 2) 
 

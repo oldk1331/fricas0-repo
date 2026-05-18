@@ -3,7 +3,7 @@
         ((|l| (|List| (|OutputForm|))) (% (|OutputForm|)))
         (SPADCALL |l| (QREFELT % 8))) 
 
-(PUT '|SPECOUT;outputAsFortran;OfV;2| '|SPADreplace| '|fortranFormat|) 
+(MAKEPROP '|SPECOUT;outputAsFortran;OfV;2| '|SPADreplace| '|fortranFormat|) 
 
 (SDEFUN |SPECOUT;outputAsFortran;OfV;2| ((|e| (|OutputForm|)) (% (|Void|)))
         (|fortranFormat| |e|)) 
@@ -21,7 +21,7 @@
         ((|l| (|List| (|OutputForm|))) (% (|Void|)))
         (SPADCALL (|SPECOUT;juxtaposeTerms| |l| %) (QREFELT % 10))) 
 
-(PUT '|SPECOUT;outputAsMathML;OfV;5| '|SPADreplace| '|mathmlFormat|) 
+(MAKEPROP '|SPECOUT;outputAsMathML;OfV;5| '|SPADreplace| '|mathmlFormat|) 
 
 (SDEFUN |SPECOUT;outputAsMathML;OfV;5| ((|e| (|OutputForm|)) (% (|Void|)))
         (|mathmlFormat| |e|)) 

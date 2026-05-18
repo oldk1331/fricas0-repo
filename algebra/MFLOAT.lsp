@@ -69,11 +69,11 @@
                           (|MFLOAT;checkExponent| (CONS (- |man|) |exp|)
                            %))))))))))) 
 
-(PUT '|MFLOAT;mantissa;%I;4| '|SPADreplace| 'QCAR) 
+(MAKEPROP '|MFLOAT;mantissa;%I;4| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |MFLOAT;mantissa;%I;4| ((|u| (%)) (% (|Integer|))) (QCAR |u|)) 
 
-(PUT '|MFLOAT;exponent;%I;5| '|SPADreplace| 'QCDR) 
+(MAKEPROP '|MFLOAT;exponent;%I;5| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |MFLOAT;exponent;%I;5| ((|u| (%)) (% (|Integer|))) (QCDR |u|)) 
 
@@ -265,7 +265,7 @@
 
 (SDEFUN |MFLOAT;minimumExponent;I;27| ((% (|Integer|))) (QREFELT % 9)) 
 
-(PUT '|MFLOAT;Zero;%;28| '|SPADreplace| '(XLAM NIL (CONS 0 0))) 
+(MAKEPROP '|MFLOAT;Zero;%;28| '|SPADreplace| '(XLAM NIL (CONS 0 0))) 
 
 (SDEFUN |MFLOAT;Zero;%;28| ((% (%))) (CONS 0 0)) 
 
@@ -413,7 +413,7 @@
                      ((EQL (SPADCALL |m2| (QREFELT % 27)) -1) (EXIT NIL)))))
                   (EXIT 'T)))))))) 
 
-(PUT '|MFLOAT;characteristic;Nni;47| '|SPADreplace| '(XLAM NIL 0)) 
+(MAKEPROP '|MFLOAT;characteristic;Nni;47| '|SPADreplace| '(XLAM NIL 0)) 
 
 (SDEFUN |MFLOAT;characteristic;Nni;47| ((% (|NonNegativeInteger|))) 0) 
 

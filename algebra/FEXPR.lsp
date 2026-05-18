@@ -349,7 +349,7 @@
         (SPADCALL (SPADCALL 'X01AAF (QREFELT % 78)) (|spadConstant| % 81)
                   (QREFELT % 79))) 
 
-(PUT '|FEXPR;coerce;%E;24| '|SPADreplace| '(XLAM (|u|) |u|)) 
+(MAKEPROP '|FEXPR;coerce;%E;24| '|SPADreplace| '(XLAM (|u|) |u|)) 
 
 (SDEFUN |FEXPR;coerce;%E;24| ((|u| (%)) (% (|Expression| R))) |u|) 
 
