@@ -2075,7 +2075,7 @@
 ;       stream_close($texmacsOutputStream)
 ;       $texmacsOutputStream := testStream
 ;       $texmacsOutputFile := filename
-;       sayKeyedMsg("S2IV0004",['"Texmacs",$texmacsOutputFile])
+;       sayKeyedMsg("S2IV0004",['"TeXmacs",$texmacsOutputFile])
 ;     sayKeyedMsg("S2IV0003",[fn,ft])
 ;
 ;   sayKeyedMsg("S2IV0005",NIL)
@@ -2148,7 +2148,7 @@
               (|stream_close| |$texmacsOutputStream|)
               (SETQ |$texmacsOutputStream| |testStream|)
               (SETQ |$texmacsOutputFile| |filename|)
-              (|sayKeyedMsg| 'S2IV0004 (LIST "Texmacs" |$texmacsOutputFile|))))
+              (|sayKeyedMsg| 'S2IV0004 (LIST "TeXmacs" |$texmacsOutputFile|))))
             (#1# (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|))))))
          (#1#
           (PROGN
@@ -2156,12 +2156,12 @@
            (|describeSetOutputTexmacs|))))))))))
 
 ; describeSetOutputTexmacs() == describeSetOutputU(
-;     '"texmacs", '"Texmacs", '"stmx", false, setOutputTexmacs "%display%")
+;     '"texmacs", '"TeXmacs", '"stmx", false, setOutputTexmacs "%display%")
 
 (DEFUN |describeSetOutputTexmacs| ()
   (PROG ()
     (RETURN
-     (|describeSetOutputU| "texmacs" "Texmacs" "stmx" NIL
+     (|describeSetOutputU| "texmacs" "TeXmacs" "stmx" NIL
       (|setOutputTexmacs| '|%display%|)))))
 
 ; setOutputHtml arg ==
