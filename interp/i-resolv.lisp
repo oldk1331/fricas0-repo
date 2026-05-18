@@ -2640,7 +2640,7 @@
 ;   -- otherwise 'T if t1 is lexicographically greater than t2
 ;   EQCAR(t1,$QuotientField) or
 ;     MEMQ(opOf t2,[$QuotientField, 'SimpleAlgebraicExtension]) => NIL
-;     CGREATERP(PRIN2CVEC opOf t1,PRIN2CVEC opOf t2)
+;     CGREATERP(STRINGIMAGE(opOf(t1)), STRINGIMAGE(opOf(t2)))
 
 (DEFUN |compareTT| (|t1| |t2|)
   (PROG ()
@@ -2651,4 +2651,5 @@
                  (LIST |$QuotientField| '|SimpleAlgebraicExtension|))
            NIL)
           ('T
-           (CGREATERP (PRIN2CVEC (|opOf| |t1|)) (PRIN2CVEC (|opOf| |t2|)))))))))
+           (CGREATERP (STRINGIMAGE (|opOf| |t1|))
+            (STRINGIMAGE (|opOf| |t2|)))))))))

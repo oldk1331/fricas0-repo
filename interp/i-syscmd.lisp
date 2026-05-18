@@ -4004,7 +4004,7 @@
 ;   if fn ~= 'redo then
 ;       say_msg("S2IH0014", '"Edit %b %1 %d to see the saved input lines.",
 ;               [file])
-;   SHUT inp
+;   CLOSE(inp)
 ;   NIL
 
 (DEFUN |writeInputLines| (|fn| |initial|)
@@ -4098,7 +4098,7 @@
          ((NOT (EQ |fn| '|redo|))
           (|say_msg| 'S2IH0014 "Edit %b %1 %d to see the saved input lines."
            (LIST |file|))))
-        (SHUT |inp|)
+        (CLOSE |inp|)
         NIL))))))
 
 ; resetInCoreHist() ==
@@ -5813,7 +5813,7 @@
 ;   $sayBrightlyStream : fluid := MAKE_OUTSTREAM(showFile)
 ;   sayShowWarning()
 ;   reportOpsFromUnitDirectly D
-;   SHUT $sayBrightlyStream
+;   CLOSE($sayBrightlyStream)
 ;   editFile showFile
 ;   delete_file(showFile)
 
@@ -5827,7 +5827,7 @@
       (SETQ |$sayBrightlyStream| (MAKE_OUTSTREAM |showFile|))
       (|sayShowWarning|)
       (|reportOpsFromUnitDirectly| D)
-      (SHUT |$sayBrightlyStream|)
+      (CLOSE |$sayBrightlyStream|)
       (|editFile| |showFile|)
       (|delete_file| |showFile|)))))
 
@@ -5868,7 +5868,7 @@
 ;   $sayBrightlyStream : fluid := MAKE_OUTSTREAM(showFile)
 ;   sayShowWarning()
 ;   reportOpsFromLisplib(unitForm,u)
-;   SHUT $sayBrightlyStream
+;   CLOSE($sayBrightlyStream)
 ;   editFile showFile
 ;   delete_file(showFile)
 
@@ -5883,7 +5883,7 @@
       (SETQ |$sayBrightlyStream| (MAKE_OUTSTREAM |showFile|))
       (|sayShowWarning|)
       (|reportOpsFromLisplib| |unitForm| |u|)
-      (SHUT |$sayBrightlyStream|)
+      (CLOSE |$sayBrightlyStream|)
       (|editFile| |showFile|)
       (|delete_file| |showFile|)))))
 

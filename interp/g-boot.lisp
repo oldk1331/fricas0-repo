@@ -1002,7 +1002,7 @@
 ;         op = "EXIT" =>
 ;             result_expr => BREAK()
 ;             result_expr := first(U)
-;         FAIL()
+;         BREAK()
 ;     expandDO(NREVERSE(vl), MKPF(NREVERSE(tests), "OR"), result_expr,
 ;              seq_opt(["SEQ", ["EXIT", body]]))
 
@@ -1178,7 +1178,7 @@
                      ((EQ |op| 'EXIT)
                       (COND (|result_expr| (BREAK))
                             (#1# (SETQ |result_expr| (CAR U)))))
-                     (#1# (FAIL))))))))
+                     (#1# (BREAK))))))))
           (SETQ |bfVar#20| (CDR |bfVar#20|))))
        |conds| NIL)
       (|expandDO| (NREVERSE |vl|) (MKPF (NREVERSE |tests|) 'OR) |result_expr|
@@ -1220,7 +1220,7 @@
 ;         counter_var := GENSYM()
 ;         iters := [["ISTEP", counter_var, 0, 1], :iters]
 ;     lv :=
-;         NULL(conds) => FAIL()
+;         NULL(conds) => BREAK()
 ;         NULL(rest(conds)) => first(conds)
 ;         ["MIN", :conds]
 ;     res := GENSYM()
@@ -1289,7 +1289,7 @@
                ((NULL |counter_var|) (SETQ |counter_var| (GENSYM))
                 (SETQ |iters| (CONS (LIST 'ISTEP |counter_var| 0 1) |iters|))))
               (SETQ |lv|
-                      (COND ((NULL |conds|) (FAIL))
+                      (COND ((NULL |conds|) (BREAK))
                             ((NULL (CDR |conds|)) (CAR |conds|))
                             (#1# (CONS 'MIN |conds|))))
               (SETQ |res| (GENSYM))

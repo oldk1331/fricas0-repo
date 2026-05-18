@@ -714,3 +714,36 @@
      (PROGN
       (SETQ |name| (|file_basename| |dir_name|))
       (|compile_lib_file| (|make_compiler_output_name| |dir_name| |name|))))))
+
+; known_Lisp_equalty?(d) ==
+;     f := compiledLookup("=", [['Boolean], "%", "%"], d)
+;     null(f) => nil
+;     GET(BPINAME(CAR(f)), 'SPADreplace)
+
+(DEFUN |known_Lisp_equalty?| (|d|)
+  (PROG (|f|)
+    (RETURN
+     (PROGN
+      (SETQ |f| (|compiledLookup| '= (LIST (LIST '|Boolean|) '% '%) |d|))
+      (COND ((NULL |f|) NIL) ('T (GET (BPINAME (CAR |f|)) '|SPADreplace|)))))))
+
+; hashable(d) ==
+;     (p := known_Lisp_equalty?(d)) = 'EQ or p = 'EQL or p = 'EQUAL
+
+(DEFUN |hashable| (|d|)
+  (PROG (|p|)
+    (RETURN
+     (OR (EQ (SETQ |p| (|known_Lisp_equalty?| |d|)) 'EQ) (EQ |p| 'EQL)
+         (EQ |p| 'EQUAL)))))
+
+; read_line(st) == READ_-LINE(st, nil, nil)
+
+(DEFUN |read_line| (|st|) (PROG () (RETURN (READ-LINE |st| NIL NIL))))
+
+; COT(x) == COS(x)/SIN(x)
+
+(DEFUN COT (|x|) (PROG () (RETURN (/ (COS |x|) (SIN |x|)))))
+
+; is_char?(c) == CHARACTERP(c)
+
+(DEFUN |is_char?| (|c|) (PROG () (RETURN (CHARACTERP |c|))))

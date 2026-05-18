@@ -2301,7 +2301,7 @@
 ;     file := make_filename2('"spadmsg", '"listing")
 ;     str := MAKE_OUTSTREAM(file)
 ;     sayBrightly1(msg, str)
-;     SHUT(str)
+;     CLOSE(str)
 
 (DEFUN |sayMSG2File| (|msg|)
   (PROG (|file| |str|)
@@ -2310,7 +2310,7 @@
       (SETQ |file| (|make_filename2| "spadmsg" "listing"))
       (SETQ |str| (MAKE_OUTSTREAM |file|))
       (|sayBrightly1| |msg| |str|)
-      (SHUT |str|)))))
+      (CLOSE |str|)))))
 
 ; $htSpecialChars := ['"_#", '"[", '"]", '"%", '"{", '"}", '"_\",
 ;                     '"$", '"&", '"^", '"__", '"_~"]

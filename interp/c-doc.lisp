@@ -1965,12 +1965,12 @@
 ;       x = '"\spad" => ['"\spad",:acc]
 ;       STRINGP(x) and char_to_digit(x.0) => [x, :acc]
 ;       null spadflag and
-;         (CHARP x and ALPHA_-CHAR_-P x and not MEMQ(x,$charExclusions) or
+;         (is_char?(x) and ALPHA_-CHAR_-P(x) and not MEMQ(x,$charExclusions) or
 ;           member(x,$argl)) => [$charRbrace,x,$charLbrace,'"\spad",:acc]
 ;       not(spadflag) and ((STRINGP(x) and not(x.0 = $charBack) and
 ;             char_to_digit(x.(MAXINDEX x))) or member(x, '("true" "false"))) =>
 ;         [$charRbrace,x,$charLbrace,'"\spad",:acc]  --wrap x1, alpha3, etc
-;       CHARP x => [checkAddBackSlashes x,:acc]
+;       is_char?(x) => [checkAddBackSlashes x,:acc]
 ;       xcount := #x
 ;       xcount = 3 and x.1 = char 't and x.2 = char 'h =>
 ;         ['"th",$charRbrace,x.0,$charLbrace,'"\spad",:acc]
@@ -2064,7 +2064,7 @@
                             (CONS |x| |acc|))
                            ((AND (NULL |spadflag|)
                                  (OR
-                                  (AND (CHARP |x|) (ALPHA-CHAR-P |x|)
+                                  (AND (|is_char?| |x|) (ALPHA-CHAR-P |x|)
                                        (NULL (MEMQ |x| |$charExclusions|)))
                                   (|member| |x| |$argl|)))
                             (CONS |$charRbrace|
@@ -2082,7 +2082,7 @@
                                   (CONS |x|
                                         (CONS |$charLbrace|
                                               (CONS "\\spad" |acc|)))))
-                           ((CHARP |x|)
+                           ((|is_char?| |x|)
                             (CONS (|checkAddBackSlashes| |x|) |acc|))
                            (#1#
                             (PROGN
@@ -2158,7 +2158,7 @@
          (EQ |c| (|char| 'U))))))
 
 ; checkAddBackSlashes s ==
-;   (CHARP s and (c := s)) or (#s = 1 and (c := s.0)) =>
+;   (is_char?(s) and (c := s)) or (#s = 1 and (c := s.0)) =>
 ;     MEMQ(c, $charEscapeList) => STRCONC($charBack, c)
 ;     s
 ;   k := 0
@@ -2177,7 +2177,7 @@
   (PROG (|c| |k| |m| |insertIndex| |char|)
     (RETURN
      (COND
-      ((OR (AND (CHARP |s|) (SETQ |c| |s|))
+      ((OR (AND (|is_char?| |s|) (SETQ |c| |s|))
            (AND (EQL (LENGTH |s|) 1) (SETQ |c| (ELT |s| 0))))
        (COND ((MEMQ |c| |$charEscapeList|) (STRCONC |$charBack| |c|))
              (#1='T |s|)))
@@ -2304,7 +2304,7 @@
       (NREVERSE |acc|)))))
 
 ; checkIeEgfun x ==
-;   CHARP x => nil
+;   is_char?(x) => nil
 ;   x = '"" => nil
 ;   m := MAXINDEX x
 ;   for k in 0..(m - 3) repeat
@@ -2319,7 +2319,7 @@
 (DEFUN |checkIeEgfun| (|x|)
   (PROG (|m| |key| |firstPart| |result|)
     (RETURN
-     (COND ((CHARP |x|) NIL) ((EQUAL |x| "") NIL)
+     (COND ((|is_char?| |x|) NIL) ((EQUAL |x| "") NIL)
            (#1='T
             (PROGN
              (SETQ |m| (MAXINDEX |x|))
@@ -2400,7 +2400,7 @@
       (NREVERSE |acc|)))))
 
 ; checkSplitBrace x ==
-;   CHARP x => [x]
+;   is_char?(x) => [x]
 ;   #x = 1 => [x.0]
 ;   (u := checkSplitBackslash x)
 ;      and rest u  => "append"/[checkSplitBrace y for y in u]
@@ -2414,7 +2414,8 @@
 (DEFUN |checkSplitBrace| (|x|)
   (PROG (|u| |m|)
     (RETURN
-     (COND ((CHARP |x|) (LIST |x|)) ((EQL (LENGTH |x|) 1) (LIST (ELT |x| 0)))
+     (COND ((|is_char?| |x|) (LIST |x|))
+           ((EQL (LENGTH |x|) 1) (LIST (ELT |x| 0)))
            ((AND (SETQ |u| (|checkSplitBackslash| |x|)) (CDR |u|))
             ((LAMBDA (|bfVar#52| |bfVar#51| |y|)
                (LOOP
@@ -2505,7 +2506,7 @@
               (#1# (LIST |x|)))))))))
 
 ; checkSplitPunctuation x ==
-;   CHARP x => [x]
+;   is_char?(x) => [x]
 ;   m := MAXINDEX x
 ;   m < 1 => [x]
 ;   lastchar := x.m
@@ -2533,7 +2534,7 @@
 (DEFUN |checkSplitPunctuation| (|x|)
   (PROG (|m| |lastchar| |k| |v| |u|)
     (RETURN
-     (COND ((CHARP |x|) (LIST |x|))
+     (COND ((|is_char?| |x|) (LIST |x|))
            (#1='T
             (PROGN
              (SETQ |m| (MAXINDEX |x|))
@@ -2590,7 +2591,7 @@
                       (#1# (LIST |x|))))))))))))
 
 ; checkSplitOn(x) ==
-;   CHARP x => [x]
+;   is_char?(x) => [x]
 ;   l := $charSplitList
 ;   m := MAXINDEX x
 ;   while l repeat
@@ -2610,7 +2611,7 @@
 (DEFUN |checkSplitOn| (|x|)
   (PROG (|l| |m| |char| |k|)
     (RETURN
-     (COND ((CHARP |x|) (LIST |x|))
+     (COND ((|is_char?| |x|) (LIST |x|))
            (#1='T
             (PROGN
              (SETQ |l| |$charSplitList|)

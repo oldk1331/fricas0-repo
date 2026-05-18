@@ -37,9 +37,9 @@
                                          (QREFELT % 10))
                                (SPADCALL |mode| (QREFELT % 10)))))))))) 
 
-(MAKEPROP '|BASFILE;close!;%V;2| '|SPADreplace| 'SHUT) 
+(MAKEPROP '|BASFILE;close!;%V;2| '|SPADreplace| 'CLOSE) 
 
-(SDEFUN |BASFILE;close!;%V;2| ((|f| (%)) (% (|Void|))) (SHUT |f|)) 
+(SDEFUN |BASFILE;close!;%V;2| ((|f| (%)) (% (|Void|))) (CLOSE |f|)) 
 
 (SDEFUN |BASFILE;readIfCan;%U;3| ((|f| (%)) (% (|Union| (|None|) "failed")))
         (SPROG ((|res1| (|None|)))

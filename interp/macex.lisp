@@ -63,7 +63,8 @@
 ;     pfLambda? pform =>      -- remove ( identifier . replacement ) from assoclist
 ;         parlist := [ pfTypedId p for p in pf0LambdaArgs pform ] -- extract parameters
 ;         for par in [ pfIdSymbol par for par in parlist ] repeat
-;                 replist := AlistRemoveQ(par,replist)
+;             if pp := ASSOC(par, replist) then
+;                 replist := REMOVE(pp, replist)
 ;         replist
 ;     pfMLambda? pform =>     -- construct assoclist ( identifier . replacement )
 ;         parlist := pf0MLambdaArgs pform  -- extract parameter list
@@ -71,7 +72,7 @@
 ;     for p in pfParts pform repeat macLambdaParameterHandling( replist , p )
 
 (DEFUN |macLambdaParameterHandling| (|replist| |pform|)
-  (PROG (|parlist|)
+  (PROG (|parlist| |pp|)
     (RETURN
      (COND ((|pfLeaf?| |pform|) NIL)
            ((|pfLambda?| |pform|)
@@ -94,7 +95,10 @@
                   ((OR (ATOM |bfVar#5|)
                        (PROGN (SETQ |par| (CAR |bfVar#5|)) NIL))
                    (RETURN NIL))
-                  (#1# (SETQ |replist| (|AlistRemoveQ| |par| |replist|))))
+                  (#1#
+                   (COND
+                    ((SETQ |pp| (ASSOC |par| |replist|))
+                     (SETQ |replist| (REMOVE |pp| |replist|))))))
                  (SETQ |bfVar#5| (CDR |bfVar#5|))))
               ((LAMBDA (|bfVar#4| |bfVar#3| |par|)
                  (LOOP
@@ -137,7 +141,7 @@
              (|pfParts| |pform|) NIL))))))
 
 ; macSubstituteId( replist , pform ) ==
-;     ex := AlistAssocQ( pfIdSymbol pform , replist )
+;     ex := ASSOC(pfIdSymbol(pform), replist)
 ;     ex =>
 ;         RPLACA(pform, first(rest(ex)))
 ;         RPLACD(pform, CDR(rest(ex)))
@@ -148,7 +152,7 @@
   (PROG (|ex|)
     (RETURN
      (PROGN
-      (SETQ |ex| (|AlistAssocQ| (|pfIdSymbol| |pform|) |replist|))
+      (SETQ |ex| (ASSOC (|pfIdSymbol| |pform|) |replist|))
       (COND
        (|ex|
         (PROGN

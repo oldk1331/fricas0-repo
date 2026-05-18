@@ -77,7 +77,7 @@
 ;     writedb buildLibdbConEntry con
 ;     [., :oplist] := getConstructorExports($conform, false)
 ;     buildLibOps oplist
-;   SHUT $outStream
+;   CLOSE($outStream)
 ;   domainList => 'done         --leave new database in temp.text
 ;   -- FIXME: This is confusing: result is in olibdb.text,
 ;   -- but this is expected by save_browser_data
@@ -143,7 +143,7 @@
              (|buildLibOps| |oplist|))))
           (SETQ |bfVar#1| (CDR |bfVar#1|))))
        |constructorList| NIL)
-      (SHUT |$outStream|)
+      (CLOSE |$outStream|)
       (COND (|domainList| '|done|)
             (#1#
              (PROGN
@@ -594,7 +594,7 @@
 ;   line := read_line instream
 ;   k := dbTickIndex(line,1,1)
 ;   line := SUBSTRING(line,k + 1,nil)
-;   SHUT instream
+;   CLOSE(instream)
 ;   line
 
 (DEFUN |dbReadComments| (|n|)
@@ -610,7 +610,7 @@
              (SETQ |line| (|read_line| |instream|))
              (SETQ |k| (|dbTickIndex| |line| 1 1))
              (SETQ |line| (SUBSTRING |line| (+ |k| 1) NIL))
-             (SHUT |instream|)
+             (CLOSE |instream|)
              |line|))))))
 
 ; dbSplitLibdb() ==
@@ -621,8 +621,7 @@
 ;   PRINTEXP($tick,comstream)
 ;   PRINTEXP('"",  comstream)
 ;   TERPRI(comstream)
-;   while not EOFP instream repeat
-;         line := read_line(instream)
+;   while (line := read_line(instream)) repeat
 ;         outP := FILE_-POSITION(outstream)
 ;         comP := FILE_-POSITION(comstream)
 ;         [prefix, comments] := dbSplit(line, 6, 1)
@@ -637,9 +636,9 @@
 ;         PRINTEXP($tick, comstream)
 ;         PRINTEXP(comments, comstream)
 ;         TERPRI(comstream)
-;   SHUT instream
-;   SHUT outstream
-;   SHUT comstream
+;   CLOSE(instream)
+;   CLOSE(outstream)
+;   CLOSE(comstream)
 ;   delete_file('"olibdb.text")
 
 (DEFUN |dbSplitLibdb| ()
@@ -656,10 +655,9 @@
       (TERPRI |comstream|)
       ((LAMBDA ()
          (LOOP
-          (COND ((EOFP |instream|) (RETURN NIL))
+          (COND ((NOT (SETQ |line| (|read_line| |instream|))) (RETURN NIL))
                 (#1='T
                  (PROGN
-                  (SETQ |line| (|read_line| |instream|))
                   (SETQ |outP| (FILE-POSITION |outstream|))
                   (SETQ |comP| (FILE-POSITION |comstream|))
                   (SETQ |LETTMP#1| (|dbSplit| |line| 6 1))
@@ -678,9 +676,9 @@
                      (PRINTEXP |$tick| |comstream|)
                      (PRINTEXP |comments| |comstream|)
                      (TERPRI |comstream|))))))))))
-      (SHUT |instream|)
-      (SHUT |outstream|)
-      (SHUT |comstream|)
+      (CLOSE |instream|)
+      (CLOSE |outstream|)
+      (CLOSE |comstream|)
       (|delete_file| "olibdb.text")))))
 
 ; dbSplit(line,n,k) ==
@@ -737,10 +735,10 @@
 ;   PRINTEXP('"\endmenu\endscroll",htstream)
 ;   PRINTEXP('"\lispdownlink{Search}{(|htGloss| _"\stringvalue{pattern}_")} for glossary entry matching \inputstring{pattern}{24}{*}",htstream)
 ;   PRINTEXP('"\end{page}",htstream)
-;   SHUT instream
-;   SHUT outstream
-;   SHUT defstream
-;   SHUT htstream
+;   CLOSE(instream)
+;   CLOSE(outstream)
+;   CLOSE(defstream)
+;   CLOSE(htstream)
 
 (DEFUN |buildGloss| ()
   (PROG (|$attribute?| |$x| |$exposeFlag| |$constructorName| |pathname|
@@ -806,10 +804,10 @@
        "\\lispdownlink{Search}{(|htGloss| \"\\stringvalue{pattern}\")} for glossary entry matching \\inputstring{pattern}{24}{*}"
        |htstream|)
       (PRINTEXP "\\end{page}" |htstream|)
-      (SHUT |instream|)
-      (SHUT |outstream|)
-      (SHUT |defstream|)
-      (SHUT |htstream|)))))
+      (CLOSE |instream|)
+      (CLOSE |outstream|)
+      (CLOSE |defstream|)
+      (CLOSE |htstream|)))))
 
 ; getGlossLines instream ==
 ; --instream has text of the form:
@@ -822,8 +820,7 @@
 ;   keys := nil
 ;   text := nil
 ;   lastLineHadTick := false
-;   while not EOFP instream repeat
-;     line := read_line instream
+;   while (line := read_line(instream)) repeat
 ;     #line = 0 => 'skip
 ;     n := charPosition($tick,line,0)
 ;     last := IFCAR text
@@ -850,42 +847,40 @@
       (SETQ |lastLineHadTick| NIL)
       ((LAMBDA ()
          (LOOP
-          (COND ((EOFP |instream|) (RETURN NIL))
+          (COND ((NOT (SETQ |line| (|read_line| |instream|))) (RETURN NIL))
                 (#1='T
-                 (PROGN
-                  (SETQ |line| (|read_line| |instream|))
-                  (COND ((EQL (LENGTH |line|) 0) '|skip|)
-                        (#1#
-                         (PROGN
-                          (SETQ |n| (|charPosition| |$tick| |line| 0))
-                          (SETQ |last| (IFCAR |text|))
-                          (COND
-                           ((< (MAXINDEX |line|) |n|)
-                            (PROGN
-                             (SETQ |fill|
-                                     (COND
-                                      ((EQL (LENGTH |last|) 0)
-                                       (COND (|lastLineHadTick| "")
-                                             (#1# "\\blankline ")))
-                                      ((AND (< 0 (LENGTH |last|))
-                                            (NOT
-                                             (EQUAL
-                                              (ELT |last| (MAXINDEX |last|))
-                                              |$charBlank|)))
-                                       |$charBlank|)
-                                      (#1# "")))
-                             (SETQ |lastLineHadTick| NIL)
-                             (SETQ |text|
-                                     (CONS (STRCONC |last| |fill| |line|)
-                                           (CDR |text|)))))
-                           (#1#
-                            (PROGN
-                             (SETQ |lastLineHadTick| T)
-                             (SETQ |keys|
-                                     (CONS (SUBSTRING |line| 0 |n|) |keys|))
-                             (SETQ |text|
-                                     (CONS (SUBSTRING |line| (+ |n| 1) NIL)
-                                           |text|))))))))))))))
+                 (COND ((EQL (LENGTH |line|) 0) '|skip|)
+                       (#1#
+                        (PROGN
+                         (SETQ |n| (|charPosition| |$tick| |line| 0))
+                         (SETQ |last| (IFCAR |text|))
+                         (COND
+                          ((< (MAXINDEX |line|) |n|)
+                           (PROGN
+                            (SETQ |fill|
+                                    (COND
+                                     ((EQL (LENGTH |last|) 0)
+                                      (COND (|lastLineHadTick| "")
+                                            (#1# "\\blankline ")))
+                                     ((AND (< 0 (LENGTH |last|))
+                                           (NOT
+                                            (EQUAL
+                                             (ELT |last| (MAXINDEX |last|))
+                                             |$charBlank|)))
+                                      |$charBlank|)
+                                     (#1# "")))
+                            (SETQ |lastLineHadTick| NIL)
+                            (SETQ |text|
+                                    (CONS (STRCONC |last| |fill| |line|)
+                                          (CDR |text|)))))
+                          (#1#
+                           (PROGN
+                            (SETQ |lastLineHadTick| T)
+                            (SETQ |keys|
+                                    (CONS (SUBSTRING |line| 0 |n|) |keys|))
+                            (SETQ |text|
+                                    (CONS (SUBSTRING |line| (+ |n| 1) NIL)
+                                          |text|)))))))))))))
       (ASSOCRIGHT
        (|listSort| #'GLESSEQP
         ((LAMBDA (|bfVar#23| |bfVar#21| |key| |bfVar#22| |def|)

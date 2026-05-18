@@ -484,7 +484,7 @@
 ;     pointer := SUBSTRING(line,0,k)
 ;     def := SUBSTRING(line,k + 1,nil)
 ;     xtralines := nil
-;     while not EOFP defstream and (x := read_line defstream) and
+;     while (x := read_line defstream) and
 ;       (j := charPosition($tick,x,1)) and (nextPointer := SUBSTRING(x,0,j))
 ;         and (nextPointer = pointer) repeat
 ;           xtralines := [SUBSTRING(x,j + 1,nil),:xtralines]
@@ -518,8 +518,7 @@
                 (LOOP
                  (COND
                   ((NOT
-                    (AND (NULL (EOFP |defstream|))
-                         (SETQ |x| (|read_line| |defstream|))
+                    (AND (SETQ |x| (|read_line| |defstream|))
                          (SETQ |j| (|charPosition| |$tick| |x| 1))
                          (SETQ |nextPointer| (SUBSTRING |x| 0 |j|))
                          (EQUAL |nextPointer| |pointer|)))
@@ -708,7 +707,7 @@
 ;   st = 'LITERALS =>
 ;     object2String translateTrueFalse2YesNo eval setData.setVar
 ;   st = 'TREE     => '"..."
-;   systemError nil
+;   systemError([])
 
 (DEFUN |htShowSetTreeValue| (|setData|)
   (PROG (|st|)
@@ -1325,15 +1324,14 @@
            ('T "Please enter a positive integer")))))
 
 ; chkOutputFileName s ==
-;   bcString2WordList s in '(CONSOLE console) => 'console
+;   bcString2WordList s in '(console) => 'console
 ;   chkDirectory s
 
 (DEFUN |chkOutputFileName| (|s|)
   (PROG ()
     (RETURN
-     (COND
-      ((|member| (|bcString2WordList| |s|) '(CONSOLE |console|)) '|console|)
-      ('T (|chkDirectory| |s|))))))
+     (COND ((|member| (|bcString2WordList| |s|) '(|console|)) '|console|)
+           ('T (|chkDirectory| |s|))))))
 
 ; chkDirectory s == s
 
@@ -1549,7 +1547,7 @@
       (FUNCALL (ELT |setData| 4) (LIST |val|))
       (|htKill| |page| |val|)))))
 
-; htSetCache(htPage,:options) ==
+; htSetCache(htPage) ==
 ;   $path := '(functions cache)
 ;   htPage := htInitPage(mkSetTitle(),nil)
 ;   $valueList := nil
@@ -1576,7 +1574,7 @@
 ;    (doneButton "Push to enter names" htCacheAddChoice))
 ;   htShowPage()
 
-(DEFUN |htSetCache| (|htPage| &REST |options|)
+(DEFUN |htSetCache| (|htPage|)
   (PROG ()
     (RETURN
      (PROGN

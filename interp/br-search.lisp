@@ -2565,7 +2565,7 @@
 ; dbWriteLines(s, pathname) ==
 ;   $outStream : local := MAKE_OUTSTREAM(pathname)
 ;   for x in s repeat writedb x
-;   SHUT $outStream
+;   CLOSE($outStream)
 ;   pathname
 
 (DEFUN |dbWriteLines| (|s| |pathname|)
@@ -2582,7 +2582,7 @@
            ('T (|writedb| |x|)))
           (SETQ |bfVar#89| (CDR |bfVar#89|))))
        |s| NIL)
-      (SHUT |$outStream|)
+      (CLOSE |$outStream|)
       |pathname|))))
 
 ; dbReadLines target == --AIX only--called by grepFile
