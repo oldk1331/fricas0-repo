@@ -983,12 +983,11 @@
       (|lfstring| (|scanS|))))))
 
 ; scanS()==
-;    if $n>=$sz
-;    then
-;      ncSoftError(cons($linepos, lnExtraBlanks($linepos + $n)),
+;     if $n >= $sz then
+;         ncSoftError(cons($linepos, lnExtraBlanks($linepos) + $n),
 ;                  '"Quote added at end of line.", [])
-;      '""
-;    else
+;         '""
+;     else
 ;            n:=$n
 ;            strsym :=STRPOS ('"_"",$ln,$n,nil) or $sz
 ;            escsym:=STRPOS ('"__"
@@ -1018,7 +1017,7 @@
     (RETURN
      (COND
       ((NOT (< |$n| |$sz|))
-       (|ncSoftError| (CONS |$linepos| (|lnExtraBlanks| (+ |$linepos| |$n|)))
+       (|ncSoftError| (CONS |$linepos| (+ (|lnExtraBlanks| |$linepos|) |$n|))
         "Quote added at end of line." NIL)
        "")
       (#1='T (SETQ |n| |$n|)
