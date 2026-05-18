@@ -5,11 +5,12 @@
                 (LETT |sl|
                       (CONS (SPADCALL '|Mapping| (QREFELT % 9))
                             (SPADCALL |sig| (QREFELT % 11))))
-                (EXIT (|form2LispString| |sl|))))) 
+                (EXIT
+                 (SPADCALL (SPADCALL |sl| (QREFELT % 12)) (QREFELT % 15)))))) 
 
 (SDEFUN |ICARD;get_origin_op| ((|xr| (|Rep|)) (% (|Symbol|)))
-        (SPADCALL (SPADCALL (QVELT (QVELT |xr| 2) 2) (QREFELT % 12))
-                  (QREFELT % 13))) 
+        (SPADCALL (SPADCALL (QVELT (QVELT |xr| 2) 2) (QREFELT % 16))
+                  (QREFELT % 17))) 
 
 (SDEFUN |ICARD;get_abbreviation| ((|xr| (|Rep|)) (% (|String|)))
         (SPROG ((|abbr| (|SExpression|)))
@@ -20,20 +21,20 @@
                         (LETT |abbr|
                               (|get_database| (QVELT |xr| 0) 'ABBREVIATION))
                         (COND
-                         ((NULL (SPADCALL |abbr| (QREFELT % 15)))
+                         ((NULL (SPADCALL |abbr| (QREFELT % 19)))
                           (EXIT
-                           (SPADCALL (SPADCALL |abbr| (QREFELT % 13))
-                                     (QREFELT % 17)))))
+                           (SPADCALL (SPADCALL |abbr| (QREFELT % 17))
+                                     (QREFELT % 20)))))
                         (EXIT ""))))))) 
 
 (SDEFUN |ICARD;get_condition| ((|xr| (|Rep|)) (% (|String|)))
         (COND ((NULL (EQUAL (QVELT |xr| 1) '|o|)) "")
               ('T
-               (COND ((SPADCALL (QVELT (QVELT |xr| 2) 1) 'T (QREFELT % 18)) "")
-                     ('T (|form2LispString| (QVELT (QVELT |xr| 2) 1))))))) 
+               (COND ((SPADCALL (QVELT (QVELT |xr| 2) 1) 'T (QREFELT % 21)) "")
+                     ('T (SPADCALL (QVELT (QVELT |xr| 2) 1) (QREFELT % 22))))))) 
 
 (SDEFUN |ICARD;get_exposed1| ((|c| (|Symbol|)) (% (|String|)))
-        (COND ((SPADCALL |c| (QREFELT % 20)) "x") ('T "n"))) 
+        (COND ((SPADCALL |c| (QREFELT % 24)) "x") ('T "n"))) 
 
 (SDEFUN |ICARD;get_exposed| ((|xr| (|Rep|)) (% (|String|)))
         (COND
@@ -46,12 +47,12 @@
                (SEQ
                 (COND
                  ((NULL (EQUAL (QVELT |xr| 1) '|o|))
-                  (SPADCALL (QVELT |xr| 1) (QREFELT % 17)))
+                  (SPADCALL (QVELT |xr| 1) (QREFELT % 20)))
                  ('T
                   (SEQ
                    (LETT |o_kind|
                          (SPADCALL (|ICARD;get_origin_op| |xr| %)
-                                   (QREFELT % 21)))
+                                   (QREFELT % 25)))
                    (EXIT
                     (COND ((EQUAL |o_kind| '|category|) "c")
                           ((EQUAL |o_kind| '|domain|) "d")
@@ -65,13 +66,13 @@
                       ('T
                        (SEQ (LETT |oe| (QVELT (QVELT |xr| 2) 2))
                             (COND
-                             ((NULL (SPADCALL |oe| (QREFELT % 22))) (EXIT "")))
-                            (LETT |os| (SPADCALL |oe| (QREFELT % 12)))
+                             ((NULL (SPADCALL |oe| (QREFELT % 26))) (EXIT "")))
+                            (LETT |os| (SPADCALL |oe| (QREFELT % 16)))
                             (EXIT
                              (COND
-                              ((SPADCALL |os| (QREFELT % 23))
-                               (SPADCALL (SPADCALL |os| (QREFELT % 13))
-                                         (QREFELT % 17)))
+                              ((SPADCALL |os| (QREFELT % 27))
+                               (SPADCALL (SPADCALL |os| (QREFELT % 17))
+                                         (QREFELT % 20)))
                               ('T ""))))))))) 
 
 (SDEFUN |ICARD;convert_params|
@@ -94,12 +95,12 @@
                             (EXIT
                              (LETT |rl|
                                    (CONS
-                                    (SPADCALL (SPADCALL |a1| (QREFELT % 13))
-                                              (QREFELT % 17))
+                                    (SPADCALL (SPADCALL |a1| (QREFELT % 17))
+                                              (QREFELT % 20))
                                     |rl|))))
                            (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                       (LETT |rl| (CONS ")" |rl|))
-                      (EXIT (SPADCALL (NREVERSE |rl|) (QREFELT % 24))))))))) 
+                      (EXIT (SPADCALL (NREVERSE |rl|) (QREFELT % 28))))))))) 
 
 (SDEFUN |ICARD;get_params| ((|xr| (|Rep|)) (% (|String|)))
         (SPROG ((|op| (|Symbol|)) (|cf| (|SExpression|)))
@@ -117,26 +118,26 @@
                   (SEQ
                    (LETT |op|
                          (SPADCALL
-                          (SPADCALL (QVELT (QVELT |xr| 2) 2) (QREFELT % 12))
-                          (QREFELT % 13)))
-                   (LETT |cf| (SPADCALL |op| (QREFELT % 25)))
+                          (SPADCALL (QVELT (QVELT |xr| 2) 2) (QREFELT % 16))
+                          (QREFELT % 17)))
+                   (LETT |cf| (SPADCALL |op| (QREFELT % 29)))
                    (EXIT
                     (|ICARD;convert_params|
                      (CDR (SPADCALL |cf| (QREFELT % 11))) %)))))))) 
 
 (SDEFUN |ICARD;short_oform| ((|xr| (|Rep|)) (% (|OutputForm|)))
         (SPADCALL
-         (LIST (SPADCALL (QVELT |xr| 0) (QREFELT % 27))
-               (SPADCALL " : " (QREFELT % 28))
+         (LIST (SPADCALL (QVELT |xr| 0) (QREFELT % 31))
+               (SPADCALL " : " (QREFELT % 32))
                (SPADCALL (|ICARD;sig_to_string| (QVELT (QVELT |xr| 2) 0) %)
-                         (QREFELT % 28)))
-         (QREFELT % 29))) 
+                         (QREFELT % 32)))
+         (QREFELT % 33))) 
 
 (SDEFUN |ICARD;display;%V;12| ((|x| (%)) (% (|Void|)))
         (SPROG ((|xr| (|Rep|)))
                (SEQ (LETT |xr| |x|)
                     (EXIT
-                     (SPADCALL (|ICARD;short_oform| |xr| %) (QREFELT % 32)))))) 
+                     (SPADCALL (|ICARD;short_oform| |xr| %) (QREFELT % 36)))))) 
 
 (SDEFUN |ICARD;fullDisplay;%V;13| ((|x| (%)) (% (|Void|)))
         (SPROG
@@ -146,38 +147,38 @@
          (SEQ (LETT |xr| |x|) (LETT |of1| (|ICARD;short_oform| |xr| %))
               (COND
                ((NULL (EQUAL (QVELT |xr| 1) '|o|))
-                (EXIT (SPADCALL |of1| (QREFELT % 32)))))
+                (EXIT (SPADCALL |of1| (QREFELT % 36)))))
               (LETT |ef|
                     (COND
                      ((EQUAL (|ICARD;get_exposed| |xr| %) "n")
-                      (SPADCALL " (unexposed)" (QREFELT % 28)))
-                     (#1='T (SPADCALL (QREFELT % 34)))))
+                      (SPADCALL " (unexposed)" (QREFELT % 32)))
+                     (#1='T (SPADCALL (QREFELT % 38)))))
               (LETT |cf|
                     (SEQ (LETT |cs| (|ICARD;get_condition| |xr| %))
                          (EXIT
-                          (COND ((EQUAL |cs| "") (SPADCALL (QREFELT % 34)))
+                          (COND ((EQUAL |cs| "") (SPADCALL (QREFELT % 38)))
                                 (#1#
-                                 (SPADCALL (SPADCALL " if " (QREFELT % 28))
-                                           (SPADCALL |cs| (QREFELT % 28))
-                                           (QREFELT % 35)))))))
+                                 (SPADCALL (SPADCALL " if " (QREFELT % 32))
+                                           (SPADCALL |cs| (QREFELT % 32))
+                                           (QREFELT % 39)))))))
               (LETT |ef|
                     (COND
                      ((EQUAL (|ICARD;get_exposed| |xr| %) "n")
-                      (SPADCALL " (unexposed)" (QREFELT % 28)))
-                     (#1# (SPADCALL (QREFELT % 34)))))
-              (LETT |os| (|form2LispString| (QVELT (QVELT |xr| 2) 2)))
+                      (SPADCALL " (unexposed)" (QREFELT % 32)))
+                     (#1# (SPADCALL (QREFELT % 38)))))
+              (LETT |os| (SPADCALL (QVELT (QVELT |xr| 2) 2) (QREFELT % 15)))
               (LETT |ff|
-                    (SPADCALL (SPADCALL " from " (QREFELT % 28))
-                              (SPADCALL |os| (QREFELT % 28)) (QREFELT % 35)))
-              (LETT |of2| (SPADCALL (LIST |ff| |cf| |ef|) (QREFELT % 29)))
+                    (SPADCALL (SPADCALL " from " (QREFELT % 32))
+                              (SPADCALL |os| (QREFELT % 32)) (QREFELT % 39)))
+              (LETT |of2| (SPADCALL (LIST |ff| |cf| |ef|) (QREFELT % 33)))
               (EXIT
-               (SPADCALL (SPADCALL |of1| |of2| (QREFELT % 35))
-                         (QREFELT % 32)))))) 
+               (SPADCALL (SPADCALL |of1| |of2| (QREFELT % 39))
+                         (QREFELT % 36)))))) 
 
 (SDEFUN |ICARD;=;2%B;14| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (COND
-         ((OR (SPADCALL |x| |y| (QREFELT % 37))
-              (SPADCALL |y| |x| (QREFELT % 37)))
+         ((OR (SPADCALL |x| |y| (QREFELT % 41))
+              (SPADCALL |y| |x| (QREFELT % 41)))
           NIL)
          ('T 'T))) 
 
@@ -193,14 +194,14 @@
                 (COND
                  ((NULL (EQUAL (QVELT |xr| 1) (QVELT |yr| 1)))
                   (EXIT
-                   (SPADCALL (QVELT |xr| 1) (QVELT |yr| 1) (QREFELT % 39)))))
+                   (SPADCALL (QVELT |xr| 1) (QVELT |yr| 1) (QREFELT % 43)))))
                 (COND
                  ((NULL (EQUAL (QVELT |xr| 0) (QVELT |yr| 0)))
                   (EXIT
-                   (SPADCALL (QVELT |xr| 0) (QVELT |yr| 0) (QREFELT % 39)))))
+                   (SPADCALL (QVELT |xr| 0) (QVELT |yr| 0) (QREFELT % 43)))))
                 (SEQ
-                 (LETT |nx| (SPADCALL (QVELT (QVELT |xr| 2) 0) (QREFELT % 41)))
-                 (LETT |ny| (SPADCALL (QVELT (QVELT |yr| 2) 0) (QREFELT % 41)))
+                 (LETT |nx| (SPADCALL (QVELT (QVELT |xr| 2) 0) (QREFELT % 45)))
+                 (LETT |ny| (SPADCALL (QVELT (QVELT |yr| 2) 0) (QREFELT % 45)))
                  (EXIT
                   (COND
                    ((NULL (EQL |nx| |ny|))
@@ -266,10 +267,10 @@
                       ((EQUAL |s| '|doc|) (QVELT (QVELT |xr| 2) 3))
                       ((EQUAL |s| '|kind|) (|ICARD;get_kind| |xr| %))
                       ((EQUAL |s| '|name|)
-                       (SPADCALL (QVELT |xr| 0) (QREFELT % 17)))
+                       (SPADCALL (QVELT |xr| 0) (QREFELT % 20)))
                       ((EQUAL |s| '|nargs|)
                        (STRINGIMAGE
-                        (- (SPADCALL (QVELT (QVELT |xr| 2) 0) (QREFELT % 41))
+                        (- (SPADCALL (QVELT (QVELT |xr| 2) 0) (QREFELT % 45))
                            1)))
                       ((EQUAL |s| '|origin|) (|ICARD;get_origin| |xr| %))
                       ((EQUAL |s| '|params|) (|ICARD;get_params| |xr| %))
@@ -291,7 +292,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|IndexCard|))
-          (LETT % (GETREFV 44))
+          (LETT % (GETREFV 48))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|IndexCard| NIL (CONS 1 %))
@@ -327,20 +328,21 @@
 (MAKEPROP '|IndexCard| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL '|Rep| (|Symbol|) (|SExpression|)
-              (0 . |convert|) (|List| %) (5 . |destruct|) (10 . |car|)
-              (15 . |symbol|) (|Boolean|) (20 . |null?|) (|String|)
-              (25 . |string|) (30 . =) (|BrowserInformation|)
-              (36 . |exposed_constructor?|) (41 . |constructor_kind|)
-              (46 . |list?|) (51 . |symbol?|) (56 . |concat|)
-              (61 . |constructor_form|) (|OutputForm|) (66 . |coerce|)
-              (71 . |message|) (76 . |hconcat|) (|Void|) (|OutputPackage|)
-              (81 . |output|) |ICARD;display;%V;12| (86 . |empty|)
-              (90 . |hconcat|) |ICARD;fullDisplay;%V;13| |ICARD;<;2%B;15|
-              |ICARD;=;2%B;14| (96 . <) (|Integer|) (102 . |#|)
-              |ICARD;coerce;%Of;16| |ICARD;elt;%SS;17|)
-           '#(~= 107 |smaller?| 113 |min| 119 |max| 125 |latex| 131
-              |fullDisplay| 136 |elt| 141 |display| 147 |coerce| 152 >= 157 >
-              163 = 169 <= 175 < 181)
+              (0 . |convert|) (|List| %) (5 . |destruct|) (10 . |convert|)
+              (|String|) (|HyperdocUtilities|) (15 . |constructor_to_string|)
+              (20 . |car|) (25 . |symbol|) (|Boolean|) (30 . |null?|)
+              (35 . |string|) (40 . =) (46 . |condition_to_string|)
+              (|BrowserInformation|) (51 . |exposed_constructor?|)
+              (56 . |constructor_kind|) (61 . |list?|) (66 . |symbol?|)
+              (71 . |concat|) (76 . |constructor_form|) (|OutputForm|)
+              (81 . |coerce|) (86 . |message|) (91 . |hconcat|) (|Void|)
+              (|OutputPackage|) (96 . |output|) |ICARD;display;%V;12|
+              (101 . |empty|) (105 . |hconcat|) |ICARD;fullDisplay;%V;13|
+              |ICARD;<;2%B;15| |ICARD;=;2%B;14| (111 . <) (|Integer|)
+              (117 . |#|) |ICARD;coerce;%Of;16| |ICARD;elt;%SS;17|)
+           '#(~= 122 |smaller?| 128 |min| 134 |max| 140 |latex| 146
+              |fullDisplay| 151 |elt| 156 |display| 162 |coerce| 167 >= 172 >
+              178 = 184 <= 190 < 196)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0))
                  (CONS
@@ -348,18 +350,19 @@
                      |BasicType&|)
                   (CONS
                    '#((|OrderedSet|) (|Comparable|) (|SetCategory|)
-                      (|CoercibleTo| 26) (|PartialOrder|) (|BasicType|))
-                   (|makeByteWordVec2| 43
-                                       '(1 8 0 7 9 1 8 10 0 11 1 8 0 0 12 1 8 7
-                                         0 13 1 8 14 0 15 1 7 16 0 17 2 8 14 0
-                                         0 18 1 19 14 7 20 1 19 7 7 21 1 8 14 0
-                                         22 1 8 14 0 23 1 16 0 10 24 1 19 8 7
-                                         25 1 7 26 0 27 1 26 0 16 28 1 26 0 10
-                                         29 1 31 30 26 32 0 26 0 34 2 26 0 0 0
-                                         35 2 7 14 0 0 39 1 8 40 0 41 2 0 14 0
-                                         0 1 2 0 14 0 0 1 2 0 0 0 0 1 2 0 0 0 0
-                                         1 1 0 16 0 1 1 0 30 0 36 2 0 16 0 7 43
-                                         1 0 30 0 33 1 0 26 0 42 2 0 14 0 0 1 2
-                                         0 14 0 0 1 2 0 14 0 0 38 2 0 14 0 0 1
-                                         2 0 14 0 0 37)))))
+                      (|CoercibleTo| 30) (|PartialOrder|) (|BasicType|))
+                   (|makeByteWordVec2| 47
+                                       '(1 8 0 7 9 1 8 10 0 11 1 8 0 10 12 1 14
+                                         13 8 15 1 8 0 0 16 1 8 7 0 17 1 8 18 0
+                                         19 1 7 13 0 20 2 8 18 0 0 21 1 14 13 8
+                                         22 1 23 18 7 24 1 23 7 7 25 1 8 18 0
+                                         26 1 8 18 0 27 1 13 0 10 28 1 23 8 7
+                                         29 1 7 30 0 31 1 30 0 13 32 1 30 0 10
+                                         33 1 35 34 30 36 0 30 0 38 2 30 0 0 0
+                                         39 2 7 18 0 0 43 1 8 44 0 45 2 0 18 0
+                                         0 1 2 0 18 0 0 1 2 0 0 0 0 1 2 0 0 0 0
+                                         1 1 0 13 0 1 1 0 34 0 40 2 0 13 0 7 47
+                                         1 0 34 0 37 1 0 30 0 46 2 0 18 0 0 1 2
+                                         0 18 0 0 1 2 0 18 0 0 42 2 0 18 0 0 1
+                                         2 0 18 0 0 41)))))
            '|lookupComplete|)) 
