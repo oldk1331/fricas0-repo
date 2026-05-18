@@ -180,7 +180,7 @@
 ;   look := 0
 ;   while look repeat
 ;     look >= SIZE com => look := []
-;     look := STRPOSL ('"${}#%", com, look, [])
+;     look := search_str('"${}#%", com, look)
 ;     if look then
 ;       com := CONCAT(SUBSTRING(com, 0, look), '"\", SUBSTRING(com, look, nil))
 ;       look := look + 2
@@ -198,7 +198,7 @@
                  (COND ((NOT (< |look| (SIZE |com|))) (SETQ |look| NIL))
                        (#1#
                         (PROGN
-                         (SETQ |look| (STRPOSL "${}#%" |com| |look| NIL))
+                         (SETQ |look| (|search_str| "${}#%" |com| |look|))
                          (COND
                           (|look|
                            (SETQ |com|

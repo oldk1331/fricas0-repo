@@ -2520,7 +2520,8 @@
 
 ; standardizeSignature(s) == underscoreDollars
 ;   s.0 = char '_( => s
-;   k := STRPOS('"->",s,0,nil) or return s --will fail except perhaps on constants
+;   --will fail except perhaps on constants
+;   k := search_str('"->", s, 0) or return s
 ;   s.(k - 1) = char '_) => STRCONC(char '_(,s)
 ;   STRCONC(char '_(,SUBSTRING(s,0,k),char '_),SUBSTRING(s,k,nil))
 
@@ -2531,7 +2532,7 @@
       (COND ((EQUAL (ELT |s| 0) (|char| '|(|)) |s|)
             (#1='T
              (PROGN
-              (SETQ |k| (OR (STRPOS "->" |s| 0 NIL) (RETURN |s|)))
+              (SETQ |k| (OR (|search_str| "->" |s| 0) (RETURN |s|)))
               (COND
                ((EQUAL (ELT |s| (- |k| 1)) (|char| '|)|))
                 (STRCONC (|char| '|(|) |s|))
