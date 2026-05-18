@@ -180,7 +180,7 @@
 ; full_database_name(name) ==
 ;     if env_v := getEnv('"DAASE") then
 ;         fname := STRCONC(env_v, '"/algebra/", name)
-;         FORMAT(true, '"   Using local database ~a..", fname)
+;         FORMAT(true, '"   Using local database ~a..~%", fname)
 ;         fname
 ;     else
 ;         STRCONC($spadroot, '"/algebra/", name)
@@ -191,7 +191,7 @@
      (COND
       ((SETQ |env_v| (|getEnv| "DAASE"))
        (SETQ |fname| (STRCONC |env_v| "/algebra/" |name|))
-       (FORMAT T "   Using local database ~a.." |fname|) |fname|)
+       (FORMAT T "   Using local database ~a..~%" |fname|) |fname|)
       ('T (STRCONC |$spadroot| "/algebra/" |name|))))))
 
 ; move_database(name, condition) ==
