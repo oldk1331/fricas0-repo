@@ -1,7 +1,7 @@
 
-(PUT '|SAOS;create;%;1| '|SPADreplace| '(XLAM NIL "?")) 
+(PUT '|SAOS;create;%;1| '|SPADreplace| '(XLAM NIL '?)) 
 
-(SDEFUN |SAOS;create;%;1| ((% (%))) "?") 
+(SDEFUN |SAOS;create;%;1| ((% (%))) '?) 
 
 (PUT '|SAOS;<;2%B;2| '|SPADreplace| '(XLAM (|a| |b|) NIL)) 
 
@@ -22,12 +22,13 @@
 
 (SDEFUN |SAOS;max;3%;6| ((|a| (%)) (|b| (%)) (% (%))) |a|) 
 
-(SDEFUN |SAOS;convert;%S;7| ((|a| (%)) (% (|Symbol|)))
-        (SPADCALL "?" (QREFELT % 17))) 
+(PUT '|SAOS;convert;%S;7| '|SPADreplace| '(XLAM (|a|) |a|)) 
+
+(SDEFUN |SAOS;convert;%S;7| ((|a| (%)) (% (|Symbol|))) |a|) 
 
 (SDEFUN |SAOS;hashUpdate!;Hs%Hs;8|
         ((|s| (|HashState|)) (|x| (%)) (% (|HashState|)))
-        (SPADCALL |s| 42 (QREFELT % 21))) 
+        (SPADCALL |s| 42 (QREFELT % 20))) 
 
 (DECLAIM (NOTINLINE |SingletonAsOrderedSet;|)) 
 
@@ -35,7 +36,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|SingletonAsOrderedSet|))
-          (LETT % (GETREFV 23))
+          (LETT % (GETREFV 22))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|SingletonAsOrderedSet| NIL
@@ -68,12 +69,11 @@
            '#(NIL NIL NIL NIL NIL NIL |SAOS;create;%;1| (|Boolean|)
               |SAOS;<;2%B;2| (|String|) (|OutputForm|) (0 . |outputForm|)
               |SAOS;coerce;%Of;3| |SAOS;=;2%B;4| |SAOS;min;3%;5|
-              |SAOS;max;3%;6| (|Symbol|) (5 . |coerce|) |SAOS;convert;%S;7|
-              (|HashState|) (|SingleInteger|) (10 . |hashUpdate!|)
-              |SAOS;hashUpdate!;Hs%Hs;8|)
-           '#(~= 16 |smaller?| 22 |min| 28 |max| 34 |latex| 40 |hashUpdate!| 45
-              |hash| 51 |create| 56 |convert| 60 |coerce| 65 >= 70 > 76 = 82 <=
-              88 < 94)
+              |SAOS;max;3%;6| (|Symbol|) |SAOS;convert;%S;7| (|HashState|)
+              (|SingleInteger|) (5 . |hashUpdate!|) |SAOS;hashUpdate!;Hs%Hs;8|)
+           '#(~= 11 |smaller?| 17 |min| 23 |max| 29 |latex| 35 |hashUpdate!| 40
+              |hash| 46 |create| 51 |convert| 55 |coerce| 60 >= 65 > 71 = 77 <=
+              83 < 89)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0))
                  (CONS
@@ -83,11 +83,11 @@
                    '#((|OrderedSet|) (|Comparable|) (|Hashable|)
                       (|SetCategory|) (|CoercibleTo| 10) (|PartialOrder|)
                       (|BasicType|) (|Canonical|))
-                   (|makeByteWordVec2| 22
-                                       '(1 10 0 9 11 1 16 0 9 17 2 20 19 19 0
-                                         21 2 0 7 0 0 1 2 0 7 0 0 1 2 0 0 0 0
-                                         14 2 0 0 0 0 15 1 0 9 0 1 2 0 19 19 0
-                                         22 1 0 20 0 1 0 0 0 6 1 0 16 0 18 1 0
-                                         10 0 12 2 0 7 0 0 1 2 0 7 0 0 1 2 0 7
-                                         0 0 13 2 0 7 0 0 1 2 0 7 0 0 8)))))
+                   (|makeByteWordVec2| 21
+                                       '(1 10 0 9 11 2 19 18 18 0 20 2 0 7 0 0
+                                         1 2 0 7 0 0 1 2 0 0 0 0 14 2 0 0 0 0
+                                         15 1 0 9 0 1 2 0 18 18 0 21 1 0 19 0 1
+                                         0 0 0 6 1 0 16 0 17 1 0 10 0 12 2 0 7
+                                         0 0 1 2 0 7 0 0 1 2 0 7 0 0 13 2 0 7 0
+                                         0 1 2 0 7 0 0 8)))))
            '|lookupComplete|)) 
