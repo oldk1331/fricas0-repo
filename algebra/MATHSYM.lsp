@@ -80,7 +80,7 @@
 
 (SDEFUN |MATHSYM;psi;S;28| ((% (|Symbol|))) (|MATHSYM;getUTF| 968 %)) 
 
-(SDEFUN |MATHSYM;omega;S;29| ((% (|Symbol|))) (|MATHSYM;getUTF| 669 %)) 
+(SDEFUN |MATHSYM;omega;S;29| ((% (|Symbol|))) (|MATHSYM;getUTF| 969 %)) 
 
 (SDEFUN |MATHSYM;Alpha;S;30| ((% (|Symbol|))) (|MATHSYM;getUTF| 913 %)) 
 

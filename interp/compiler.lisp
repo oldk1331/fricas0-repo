@@ -4796,7 +4796,7 @@
 ;         not(INTEGERP(x)) => nil
 ;         -- Check if in range of FIXNUM on all supported implementations
 ;         x > 8000000 or x < -8000000 => nil
-;         m = $Integer or m = $PositiveInteger or $NonNegativeInteger =>
+;         m = $Integer or m = $PositiveInteger or m = $NonNegativeInteger =>
 ;             [x, m', e]
 ;         nil
 ;     m' = $DoubleFloat and m = $Float =>
@@ -4821,7 +4821,7 @@
          (COND ((NULL (INTEGERP |x|)) NIL)
                ((OR (< 8000000 |x|) (< |x| (- 8000000))) NIL)
                ((OR (EQUAL |m| |$Integer|) (EQUAL |m| |$PositiveInteger|)
-                    |$NonNegativeInteger|)
+                    (EQUAL |m| |$NonNegativeInteger|))
                 (LIST |x| |m'| |e|))
                (#2='T NIL))))
        ((AND (EQUAL |m'| |$DoubleFloat|) (EQUAL |m| |$Float|))
