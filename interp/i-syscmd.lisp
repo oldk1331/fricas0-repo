@@ -2863,7 +2863,7 @@
 ;   if sarg = '"?" then args := ['nullargs]
 ;   else if sarg = '"%" then args := ['history]
 ;        else if sarg = '"%%" then args := ['history]
-;   arg := selectOption(first(args(, $SYSCOMMANDS, nil)
+;   arg := selectOption(first(args), $SYSCOMMANDS, nil)
 ;   if null arg then arg := first args
 ;
 ;   -- see if new help file exists
@@ -2878,6 +2878,30 @@
 ;   print_text_file helpFile
 ;   true
 
+(DEFUN |newHelpSpad2Cmd| (|args|)
+  (PROG (|sarg| |arg| |narg| |helpFile|)
+    (RETURN
+     (PROGN
+      (COND ((NULL |args|) (SETQ |args| (LIST '?))))
+      (COND
+       ((< 1 (LENGTH |args|))
+        (PROGN
+         (|say_msg| 'S2IZ0026
+          "The %b )help %d system command supports at most one argument." NIL)
+         T))
+       (#1='T
+        (PROGN
+         (SETQ |sarg| (PNAME (CAR |args|)))
+         (COND ((EQUAL |sarg| "?") (SETQ |args| (LIST '|nullargs|)))
+               ((EQUAL |sarg| "%") (SETQ |args| (LIST '|history|)))
+               ((EQUAL |sarg| "%%") (SETQ |args| (LIST '|history|))))
+         (SETQ |arg| (|selectOption| (CAR |args|) $SYSCOMMANDS NIL))
+         (COND ((NULL |arg|) (SETQ |arg| (CAR |args|))))
+         (SETQ |narg| (PNAME |arg|))
+         (COND
+          ((NULL (SETQ |helpFile| (|make_input_filename2| |narg| "help"))) NIL)
+          (|$useFullScreenHelp| (PROGN (|editFile| |helpFile|) T))
+          (#1# (PROGN (|print_text_file| |helpFile|) T))))))))))
 
 ; $frameRecord  := nil  --Initial setting for frame record
 
