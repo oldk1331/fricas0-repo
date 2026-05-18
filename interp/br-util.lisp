@@ -1249,26 +1249,6 @@
       (|htSay| "}}")
       (|htShowPage|)))))
 
-; string2Integer s ==
-;   and/[DIGIT_-CHAR_-P (s.i) for i in 0..MAXINDEX s] => PARSE_-INTEGER s
-;   nil
-
-(DEFUN |string2Integer| (|s|)
-  (PROG ()
-    (RETURN
-     (COND
-      (((LAMBDA (|bfVar#24| |bfVar#23| |i|)
-          (LOOP
-           (COND ((> |i| |bfVar#23|) (RETURN |bfVar#24|))
-                 (#1='T
-                  (PROGN
-                   (SETQ |bfVar#24| (DIGIT-CHAR-P (ELT |s| |i|)))
-                   (COND ((NOT |bfVar#24|) (RETURN NIL))))))
-           (SETQ |i| (+ |i| 1))))
-        T (MAXINDEX |s|) 0)
-       (PARSE-INTEGER |s|))
-      (#1# NIL)))))
-
 ; dbGetInputString htPage ==
 ;   s := htpLabelInputString(htPage,'filter)
 ;   null s or s = '"" => '"*"
@@ -1283,28 +1263,28 @@
 
 ; bcErrorPage u ==
 ;   u is ['error,:r] =>
-;     htInitPage(first r,nil)
-;     bcBlankLine()
+;     page := htInitPage(first r,nil)
+;     bcBlankLine(page)
 ;     for x in rest r repeat htSay x
 ;     htShowPage()
 ;   systemError '"Unexpected error message"
 
 (DEFUN |bcErrorPage| (|u|)
-  (PROG (|r|)
+  (PROG (|r| |page|)
     (RETURN
      (COND
       ((AND (CONSP |u|) (EQ (CAR |u|) '|error|)
             (PROGN (SETQ |r| (CDR |u|)) #1='T))
        (PROGN
-        (|htInitPage| (CAR |r|) NIL)
-        (|bcBlankLine|)
-        ((LAMBDA (|bfVar#25| |x|)
+        (SETQ |page| (|htInitPage| (CAR |r|) NIL))
+        (|bcBlankLine| |page|)
+        ((LAMBDA (|bfVar#23| |x|)
            (LOOP
             (COND
-             ((OR (ATOM |bfVar#25|) (PROGN (SETQ |x| (CAR |bfVar#25|)) NIL))
+             ((OR (ATOM |bfVar#23|) (PROGN (SETQ |x| (CAR |bfVar#23|)) NIL))
               (RETURN NIL))
              (#1# (|htSay| |x|)))
-            (SETQ |bfVar#25| (CDR |bfVar#25|))))
+            (SETQ |bfVar#23| (CDR |bfVar#23|))))
          (CDR |r|) NIL)
         (|htShowPage|)))
       (#1# (|systemError| "Unexpected error message"))))))
@@ -1350,18 +1330,18 @@
       (|htSay| "}")))))
 
 ; kInvalidTypePage form ==
-;   htInitPage('"Error",nil)
-;   bcBlankLine()
+;   page := htInitPage('"Error",nil)
+;   bcBlankLine(page)
 ;   htSay('"\centerline{You gave an invalid type:}\newline\centerline{{\sf ")
 ;   htSayList([form2HtString form, '"}}"])
 ;   htShowPage()
 
 (DEFUN |kInvalidTypePage| (|form|)
-  (PROG ()
+  (PROG (|page|)
     (RETURN
      (PROGN
-      (|htInitPage| "Error" NIL)
-      (|bcBlankLine|)
+      (SETQ |page| (|htInitPage| "Error" NIL))
+      (|bcBlankLine| |page|)
       (|htSay|
        "\\centerline{You gave an invalid type:}\\newline\\centerline{{\\sf ")
       (|htSayList| (LIST (|form2HtString| |form|) "}}"))
