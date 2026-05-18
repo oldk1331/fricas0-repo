@@ -888,7 +888,7 @@
                         ((EVENP (SPADCALL |n| (QREFELT % 58)))
                          (COND
                           ((SPADCALL |hi| (|spadConstant| % 36) (QREFELT % 27))
-                           (SPADCALL (|spadConstant| % 36)
+                           (SPADCALL (SPADCALL |hi| |n| (QREFELT % 136))
                                      (SPADCALL |lo| |n| (QREFELT % 136))
                                      (QREFELT % 137)))
                           (#1='T
