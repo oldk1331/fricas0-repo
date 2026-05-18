@@ -2633,3 +2633,98 @@
                  (|getFunctionFromDomain| '|float| |FloatDomain|
                   (LIST |$Integer| |$Integer| |$PositiveInteger|)))
          (SPADCALL |x| |y| |z| |flt|))))))))
+
+; form2Fence form ==
+;   -- body of dbMkEvalable
+;   [op, :.] := form
+;   kind := get_database(op, 'CONSTRUCTORKIND)
+;   kind = 'category => form2Fence1 form
+;   form2Fence1 mkEvalable form
+
+(DEFUN |form2Fence| (|form|)
+  (PROG (|op| |kind|)
+    (RETURN
+     (PROGN
+      (SETQ |op| (CAR |form|))
+      (SETQ |kind| (|get_database| |op| 'CONSTRUCTORKIND))
+      (COND ((EQ |kind| '|category|) (|form2Fence1| |form|))
+            ('T (|form2Fence1| (|mkEvalable| |form|))))))))
+
+; form2Fence1 x ==
+;   x is [op,:argl] =>
+;     op = 'QUOTE => ['"(QUOTE ",:form2FenceQuote first argl,'")"]
+;     ['"(", FORMAT(NIL, '"|~a|", op),:"append"/[form2Fence1 y for y in argl],'")"]
+;   x = "%" => ["%"]
+;   IDENTP x => [FORMAT(NIL, '"|~a|", x)]
+;   ['"  ", x]
+
+(DEFUN |form2Fence1| (|x|)
+  (PROG (|op| |argl|)
+    (RETURN
+     (COND
+      ((AND (CONSP |x|)
+            (PROGN (SETQ |op| (CAR |x|)) (SETQ |argl| (CDR |x|)) #1='T))
+       (COND
+        ((EQ |op| 'QUOTE)
+         (CONS "(QUOTE "
+               (APPEND (|form2FenceQuote| (CAR |argl|)) (CONS ")" NIL))))
+        (#1#
+         (CONS "("
+               (CONS (FORMAT NIL "|~a|" |op|)
+                     (APPEND
+                      ((LAMBDA (|bfVar#81| |bfVar#80| |y|)
+                         (LOOP
+                          (COND
+                           ((OR (ATOM |bfVar#80|)
+                                (PROGN (SETQ |y| (CAR |bfVar#80|)) NIL))
+                            (RETURN |bfVar#81|))
+                           (#1#
+                            (SETQ |bfVar#81|
+                                    (APPEND |bfVar#81| (|form2Fence1| |y|)))))
+                          (SETQ |bfVar#80| (CDR |bfVar#80|))))
+                       NIL |argl| NIL)
+                      (CONS ")" NIL)))))))
+      ((EQ |x| '%) (LIST '%)) ((IDENTP |x|) (LIST (FORMAT NIL "|~a|" |x|)))
+      (#1# (LIST "  " |x|))))))
+
+; form2FenceQuote x ==
+;   NUMBERP x => [STRINGIMAGE x]
+;   SYMBOLP x => [FORMAT(NIL, '"|~a|", x)]
+;   atom    x => ['"??"]
+;   ['"(",:form2FenceQuote first x,:form2FenceQuoteTail rest x]
+
+(DEFUN |form2FenceQuote| (|x|)
+  (PROG ()
+    (RETURN
+     (COND ((NUMBERP |x|) (LIST (STRINGIMAGE |x|)))
+           ((SYMBOLP |x|) (LIST (FORMAT NIL "|~a|" |x|)))
+           ((ATOM |x|) (LIST "??"))
+           ('T
+            (CONS "("
+                  (APPEND (|form2FenceQuote| (CAR |x|))
+                          (|form2FenceQuoteTail| (CDR |x|)))))))))
+
+; form2FenceQuoteTail x ==
+;   null x => ['")"]
+;   atom x => ['" . ",:form2FenceQuote x,'")"]
+;   ['" ",:form2FenceQuote first x,:form2FenceQuoteTail rest x]
+
+(DEFUN |form2FenceQuoteTail| (|x|)
+  (PROG ()
+    (RETURN
+     (COND ((NULL |x|) (LIST ")"))
+           ((ATOM |x|)
+            (CONS " . " (APPEND (|form2FenceQuote| |x|) (CONS ")" NIL))))
+           ('T
+            (CONS " "
+                  (APPEND (|form2FenceQuote| (CAR |x|))
+                          (|form2FenceQuoteTail| (CDR |x|)))))))))
+
+; form2StringList u ==
+;   atom (r := form2String u) => [r]
+;   r
+
+(DEFUN |form2StringList| (|u|)
+  (PROG (|r|)
+    (RETURN
+     (COND ((ATOM (SETQ |r| (|form2String| |u|))) (LIST |r|)) ('T |r|)))))
