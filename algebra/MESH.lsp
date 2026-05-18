@@ -50,7 +50,7 @@
                     (LETT |llp| (CONS |lp| |llp|))
                     (EXIT (LETT |someV| (|add_DF| |someV| |vstep|))))
                    (LETT |iv| (+ |iv| -1)) (GO G190) G191 (EXIT NIL))
-              (LETT |aProp| (SPADCALL (QREFELT % 19)))
+              (LETT |aProp| (SPADCALL NIL NIL (QREFELT % 20)))
               (EXIT
                (SPADCALL |sp| |llp|
                          (PROGN
@@ -63,7 +63,7 @@
                                (SEQ (EXIT (LETT #2# (CONS |aProp| #2#))))
                                (LETT #1# (CDR #1#)) (GO G190) G191
                                (EXIT (NREVERSE #2#))))
-                         |aProp| (QREFELT % 23)))))) 
+                         |aProp| (QREFELT % 24)))))) 
 
 (DECLAIM (NOTINLINE |MeshCreationRoutinesForThreeDimensions;|)) 
 
@@ -71,7 +71,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|MeshCreationRoutinesForThreeDimensions|))
-          (LETT % (GETREFV 26))
+          (LETT % (GETREFV 27))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache|
@@ -112,11 +112,11 @@
               (|List| (|DrawOption|)) (|DrawOptionFunctions0|)
               (4 . |var1Steps|) (10 . |var2StepsDefault|) (14 . |var2Steps|)
               (|DoubleFloat|) (|Segment| 14) (20 . |low|) (25 . |high|)
-              (|SubSpaceComponentProperty|) (30 . |new|)
-              (|List| (|List| (|Point| 14))) (|List| 18) (|ThreeSpace| 14)
-              (34 . |mesh|) (|Mapping| (|Point| 14) 14 14)
+              (|Boolean|) (|SubSpaceComponentProperty|) (30 . |new|)
+              (|List| (|List| (|Point| 14))) (|List| 19) (|ThreeSpace| 14)
+              (36 . |mesh|) (|Mapping| (|Point| 14) 14 14)
               |MESH;meshPar2Var;TsM2SLTs;1|)
-           '#(|meshPar2Var| 42) 'NIL
+           '#(|meshPar2Var| 44) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -133,9 +133,10 @@
                                   (|List| (|DrawOption|))))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 25
+                        (|makeByteWordVec2| 26
                                             '(0 7 6 8 2 10 6 9 6 11 0 7 6 12 2
                                               10 6 9 6 13 1 15 14 0 16 1 15 14
-                                              0 17 0 18 0 19 4 22 0 0 20 21 18
-                                              23 5 0 22 22 24 15 15 9 25)))))
+                                              0 17 2 19 0 18 18 20 4 23 0 0 21
+                                              22 19 24 5 0 23 23 25 15 15 9
+                                              26)))))
            '|lookupComplete|)) 

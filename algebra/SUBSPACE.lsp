@@ -12,8 +12,8 @@
          ('T 'T))) 
 
 (SDEFUN |SUBSPACE;new;%;4| ((% (%)))
-        (VECTOR (SPADCALL NIL (QREFELT % 20)) 0 (SPADCALL (QREFELT % 22)) NIL
-                NIL 0 NIL NIL 0 0 NIL)) 
+        (VECTOR (SPADCALL NIL (QREFELT % 20)) 0
+                (SPADCALL NIL NIL (QREFELT % 22)) NIL NIL 0 NIL NIL 0 0 NIL)) 
 
 (SDEFUN |SUBSPACE;subspace;%;5| ((% (%))) (SPADCALL (QREFELT % 23))) 
 
@@ -80,7 +80,7 @@
                     (EXIT |node|)))) 
 
 (SDEFUN |SUBSPACE;deepCopy;2%;11| ((|space| (%)) (% (%)))
-        (SPROG ((|cc| (%)) (#1=#:G63 NIL) (|c| NIL) (|node| (%)))
+        (SPROG ((|cc| (%)) (#1=#:G54 NIL) (|c| NIL) (|node| (%)))
                (SEQ (LETT |node| (SPADCALL |space| (QREFELT % 37)))
                     (EXIT
                      (COND ((SPADCALL |space| (QREFELT % 15)) |node|)
@@ -122,7 +122,7 @@
 
 (SDEFUN |SUBSPACE;merge;L%;13| ((|listOfSpaces| (|List| %)) (% (%)))
         (SPROG
-         ((#1=#:G75 NIL) (|c| NIL) (#2=#:G74 NIL) (#3=#:G73 NIL) (|s| NIL)
+         ((#1=#:G66 NIL) (|c| NIL) (#2=#:G65 NIL) (#3=#:G64 NIL) (|s| NIL)
           (|space| (%)))
          (SEQ
           (COND
@@ -167,7 +167,7 @@
              (EXIT |space|))))))) 
 
 (SDEFUN |SUBSPACE;separate;%L;14| ((|space| (%)) (% (|List| %)))
-        (SPROG ((|spaceList| (|List| %)) (|spc| (%)) (#1=#:G81 NIL) (|s| NIL))
+        (SPROG ((|spaceList| (|List| %)) (|spc| (%)) (#1=#:G72 NIL) (|s| NIL))
                (SEQ (LETT |spaceList| NIL)
                     (SEQ (LETT |s| NIL) (LETT #1# (QVELT |space| 3)) G190
                          (COND
@@ -183,103 +183,30 @@
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT |spaceList|)))) 
 
-(SDEFUN |SUBSPACE;addPoint;%LP%;15|
+(SDEFUN |SUBSPACE;add_point1|
+        ((|space| (%)) (|point| (|Point| R)) (% (|NonNegativeInteger|)))
+        (SPROG ((|lastPt| (|List| (|Point| R))))
+               (SEQ
+                (COND
+                 ((NULL (NULL (LETT |lastPt| (QVELT |space| 7))))
+                  (COND
+                   ((NULL (NULL (CDR |lastPt|)))
+                    (EXIT (|error| (QREFELT % 9)))))))
+                (COND
+                 ((NULL |lastPt|)
+                  (SEQ (QSETVELT |space| 6 (LIST |point|))
+                       (EXIT (QSETVELT |space| 7 (QVELT |space| 6)))))
+                 ('T
+                  (SEQ (SPADCALL |lastPt| (LIST |point|) (QREFELT % 47))
+                       (EXIT (QSETVELT |space| 7 (CDR |lastPt|))))))
+                (EXIT (QSETVELT |space| 8 (+ (QVELT |space| 8) 1)))))) 
+
+(SDEFUN |SUBSPACE;add_point2|
         ((|space| (%)) (|path| (|List| (|NonNegativeInteger|)))
-         (|point| (|Point| R)) (% (%)))
+         (|point| (|Point| R)) (|which| (|NonNegativeInteger|)) (% (%)))
         (SPROG
-         ((|node| (%)) (#1=#:G95 NIL) (|more| NIL)
-          (|depth| (|NonNegativeInteger|)) (#2=#:G94 NIL) (|i| NIL)
-          (|which| (|NonNegativeInteger|)) (|lastPt| (|List| (|Point| R))))
-         (SEQ
-          (COND
-           ((NULL (NULL (LETT |lastPt| (QVELT |space| 7))))
-            (COND
-             ((NULL (NULL (CDR |lastPt|))) (EXIT (|error| (QREFELT % 9)))))))
-          (COND
-           ((NULL |lastPt|)
-            (SEQ (QSETVELT |space| 6 (LIST |point|))
-                 (EXIT (QSETVELT |space| 7 (QVELT |space| 6)))))
-           ('T
-            (SEQ (SPADCALL |lastPt| (LIST |point|) (QREFELT % 47))
-                 (EXIT (QSETVELT |space| 7 (CDR |lastPt|))))))
-          (QSETVELT |space| 8 (+ (QVELT |space| 8) 1))
-          (LETT |which| (QVELT |space| 8)) (LETT |node| |space|)
-          (LETT |depth| 0)
-          (SEQ (LETT |i| NIL) (LETT #2# |path|) G190
-               (COND
-                ((OR (ATOM #2#) (PROGN (LETT |i| (CAR #2#)) NIL)) (GO G191)))
-               (SEQ (LETT |node| (SPADCALL |node| |i| (QREFELT % 31)))
-                    (EXIT (LETT |depth| (+ |depth| 1))))
-               (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
-          (SEQ (LETT |more| |depth|) (LETT #1# (- (QREFELT % 6) 1)) G190
-               (COND ((> |more| #1#) (GO G191)))
-               (SEQ (EXIT (LETT |node| (SPADCALL |node| (QREFELT % 27)))))
-               (LETT |more| (+ |more| 1)) (GO G190) G191 (EXIT NIL))
-          (QSETVELT |node| 0 |point|) (QSETVELT |node| 1 |which|)
-          (EXIT |space|)))) 
-
-(SDEFUN |SUBSPACE;addPoint2;%P%;16|
-        ((|space| (%)) (|point| (|Point| R)) (% (%)))
-        (SPROG
-         ((|node| (%)) (#1=#:G105 NIL) (|more| NIL) (|first| (%))
-          (|which| (|NonNegativeInteger|)) (|lastPt| (|List| (|Point| R))))
-         (SEQ
-          (COND
-           ((NULL (NULL (LETT |lastPt| (QVELT |space| 7))))
-            (COND
-             ((NULL (NULL (CDR |lastPt|))) (EXIT (|error| (QREFELT % 9)))))))
-          (COND
-           ((NULL |lastPt|)
-            (SEQ (QSETVELT |space| 6 (LIST |point|))
-                 (EXIT (QSETVELT |space| 7 (QVELT |space| 6)))))
-           ('T
-            (SEQ (SPADCALL |lastPt| (LIST |point|) (QREFELT % 47))
-                 (EXIT (QSETVELT |space| 7 (CDR |lastPt|))))))
-          (QSETVELT |space| 8 (+ (QVELT |space| 8) 1))
-          (LETT |which| (QVELT |space| 8)) (LETT |node| |space|)
-          (LETT |node| (SPADCALL |node| (QREFELT % 27))) (LETT |first| |node|)
-          (SEQ (LETT |more| 1) (LETT #1# (- (QREFELT % 6) 1)) G190
-               (COND ((|greater_SI| |more| #1#) (GO G191)))
-               (SEQ (EXIT (LETT |node| (SPADCALL |node| (QREFELT % 27)))))
-               (LETT |more| (|inc_SI| |more|)) (GO G190) G191 (EXIT NIL))
-          (QSETVELT |node| 0 |point|) (QSETVELT |node| 1 |which|)
-          (EXIT |first|)))) 
-
-(SDEFUN |SUBSPACE;addPointLast;2%PNni%;17|
-        ((|space| (%)) (|node| (%)) (|point| (|Point| R))
-         (|depth| (|NonNegativeInteger|)) (% (%)))
-        (SPROG
-         ((#1=#:G115 NIL) (|more| NIL) (|which| (|NonNegativeInteger|))
-          (|lastPt| (|List| (|Point| R))))
-         (SEQ
-          (COND
-           ((NULL (NULL (LETT |lastPt| (QVELT |space| 7))))
-            (COND
-             ((NULL (NULL (CDR |lastPt|))) (EXIT (|error| (QREFELT % 9)))))))
-          (COND
-           ((NULL |lastPt|)
-            (SEQ (QSETVELT |space| 6 (LIST |point|))
-                 (EXIT (QSETVELT |space| 7 (QVELT |space| 6)))))
-           ('T
-            (SEQ (SPADCALL |lastPt| (LIST |point|) (QREFELT % 47))
-                 (EXIT (QSETVELT |space| 7 (CDR |lastPt|))))))
-          (QSETVELT |space| 8 (+ (QVELT |space| 8) 1))
-          (LETT |which| (QVELT |space| 8))
-          (COND
-           ((EQL |depth| 2) (LETT |node| (SPADCALL |node| 2 (QREFELT % 31)))))
-          (SEQ (LETT |more| |depth|) (LETT #1# (- (QREFELT % 6) 1)) G190
-               (COND ((> |more| #1#) (GO G191)))
-               (SEQ (EXIT (LETT |node| (SPADCALL |node| (QREFELT % 27)))))
-               (LETT |more| (+ |more| 1)) (GO G190) G191 (EXIT NIL))
-          (QSETVELT |node| 0 |point|) (QSETVELT |node| 1 |which|)
-          (EXIT |node|)))) 
-
-(SDEFUN |SUBSPACE;addPoint;%LNni%;18|
-        ((|space| (%)) (|path| (|List| (|NonNegativeInteger|)))
-         (|which| (|NonNegativeInteger|)) (% (%)))
-        (SPROG
-         ((|node| (%)) (#1=#:G125 NIL) (|more| NIL)
-          (|depth| (|NonNegativeInteger|)) (#2=#:G124 NIL) (|i| NIL))
+         ((|node| (%)) (#1=#:G88 NIL) (|more| NIL)
+          (|depth| (|NonNegativeInteger|)) (#2=#:G87 NIL) (|i| NIL))
          (SEQ (LETT |node| |space|) (LETT |depth| 0)
               (SEQ (LETT |i| NIL) (LETT #2# |path|) G190
                    (COND
@@ -292,39 +219,71 @@
                    (COND ((> |more| #1#) (GO G191)))
                    (SEQ (EXIT (LETT |node| (SPADCALL |node| (QREFELT % 27)))))
                    (LETT |more| (+ |more| 1)) (GO G190) G191 (EXIT NIL))
-              (QSETVELT |node| 0
-                        (SPADCALL (QVELT |space| 6) |which| (QREFELT % 52)))
-              (QSETVELT |node| 1 |which|) (EXIT |space|)))) 
+              (QSETVELT |node| 0 |point|) (QSETVELT |node| 1 |which|)
+              (EXIT |space|)))) 
 
-(SDEFUN |SUBSPACE;addPoint;%PNni;19|
+(SDEFUN |SUBSPACE;addPoint;%LP%;17|
+        ((|space| (%)) (|path| (|List| (|NonNegativeInteger|)))
+         (|point| (|Point| R)) (% (%)))
+        (SPROG ((|which| (|NonNegativeInteger|)))
+               (SEQ (LETT |which| (|SUBSPACE;add_point1| |space| |point| %))
+                    (EXIT
+                     (|SUBSPACE;add_point2| |space| |path| |point| |which|
+                      %))))) 
+
+(SDEFUN |SUBSPACE;addPoint2;%P%;18|
+        ((|space| (%)) (|point| (|Point| R)) (% (%)))
+        (SPROG
+         ((|node| (%)) (#1=#:G95 NIL) (|more| NIL) (|first| (%))
+          (|which| (|NonNegativeInteger|)))
+         (SEQ (LETT |which| (|SUBSPACE;add_point1| |space| |point| %))
+              (LETT |node| |space|)
+              (LETT |node| (SPADCALL |node| (QREFELT % 27)))
+              (LETT |first| |node|)
+              (SEQ (LETT |more| 1) (LETT #1# (- (QREFELT % 6) 1)) G190
+                   (COND ((|greater_SI| |more| #1#) (GO G191)))
+                   (SEQ (EXIT (LETT |node| (SPADCALL |node| (QREFELT % 27)))))
+                   (LETT |more| (|inc_SI| |more|)) (GO G190) G191 (EXIT NIL))
+              (QSETVELT |node| 0 |point|) (QSETVELT |node| 1 |which|)
+              (EXIT |first|)))) 
+
+(SDEFUN |SUBSPACE;addPointLast;2%PNni%;19|
+        ((|space| (%)) (|node| (%)) (|point| (|Point| R))
+         (|depth| (|NonNegativeInteger|)) (% (%)))
+        (SPROG ((#1=#:G100 NIL) (|more| NIL) (|which| (|NonNegativeInteger|)))
+               (SEQ (LETT |which| (|SUBSPACE;add_point1| |space| |point| %))
+                    (COND
+                     ((EQL |depth| 2)
+                      (LETT |node| (SPADCALL |node| 2 (QREFELT % 31)))))
+                    (SEQ (LETT |more| |depth|) (LETT #1# (- (QREFELT % 6) 1))
+                         G190 (COND ((> |more| #1#) (GO G191)))
+                         (SEQ
+                          (EXIT
+                           (LETT |node| (SPADCALL |node| (QREFELT % 27)))))
+                         (LETT |more| (+ |more| 1)) (GO G190) G191 (EXIT NIL))
+                    (QSETVELT |node| 0 |point|) (QSETVELT |node| 1 |which|)
+                    (EXIT |node|)))) 
+
+(SDEFUN |SUBSPACE;addPoint;%LNni%;20|
+        ((|space| (%)) (|path| (|List| (|NonNegativeInteger|)))
+         (|which| (|NonNegativeInteger|)) (% (%)))
+        (|SUBSPACE;add_point2| |space| |path|
+         (SPADCALL (QVELT |space| 6) |which| (QREFELT % 52)) |which| %)) 
+
+(SDEFUN |SUBSPACE;addPoint;%PNni;21|
         ((|space| (%)) (|point| (|Point| R)) (% (|NonNegativeInteger|)))
-        (SPROG ((|lastPt| (|List| (|Point| R))))
-               (SEQ
-                (COND
-                 ((SPADCALL |space| (QREFELT % 16))
-                  (SEQ
-                   (COND
-                    ((NULL (NULL (LETT |lastPt| (QVELT |space| 7))))
-                     (COND
-                      ((NULL (NULL (CDR |lastPt|)))
-                       (EXIT (|error| (QREFELT % 9)))))))
-                   (COND
-                    ((NULL |lastPt|)
-                     (SEQ (QSETVELT |space| 6 (LIST |point|))
-                          (EXIT (QSETVELT |space| 7 (QVELT |space| 6)))))
-                    (#1='T
-                     (SEQ (SPADCALL |lastPt| (LIST |point|) (QREFELT % 47))
-                          (EXIT (QSETVELT |space| 7 (CDR |lastPt|))))))
-                   (EXIT (QSETVELT |space| 8 (+ (QVELT |space| 8) 1)))))
-                 (#1#
-                  (|error|
-                   "You need to pass a top level SubSpace (level should be zero)")))))) 
+        (COND
+         ((SPADCALL |space| (QREFELT % 16))
+          (|SUBSPACE;add_point1| |space| |point| %))
+         ('T
+          (|error|
+           "You need to pass a top level SubSpace (level should be zero)")))) 
 
-(SDEFUN |SUBSPACE;modifyPoint;%LP%;20|
+(SDEFUN |SUBSPACE;modifyPoint;%LP%;22|
         ((|space| (%)) (|path| (|List| (|NonNegativeInteger|)))
          (|point| (|Point| R)) (% (%)))
         (SPROG
-         ((|node| (%)) (#1=#:G143 NIL) (|i| NIL)
+         ((|node| (%)) (#1=#:G114 NIL) (|i| NIL)
           (|which| (|NonNegativeInteger|)) (|lastPt| (|List| (|Point| R))))
          (SEQ
           (COND
@@ -348,10 +307,10 @@
           (QSETVELT |node| 0 |point|) (QSETVELT |node| 1 |which|)
           (EXIT |space|)))) 
 
-(SDEFUN |SUBSPACE;modifyPoint;%LNni%;21|
+(SDEFUN |SUBSPACE;modifyPoint;%LNni%;23|
         ((|space| (%)) (|path| (|List| (|NonNegativeInteger|)))
          (|which| (|NonNegativeInteger|)) (% (%)))
-        (SPROG ((|node| (%)) (#1=#:G149 NIL) (|i| NIL))
+        (SPROG ((|node| (%)) (#1=#:G120 NIL) (|i| NIL))
                (SEQ (LETT |node| |space|)
                     (SEQ (LETT |i| NIL) (LETT #1# |path|) G190
                          (COND
@@ -366,7 +325,7 @@
                                         (QREFELT % 52)))
                     (QSETVELT |node| 1 |which|) (EXIT |space|)))) 
 
-(SDEFUN |SUBSPACE;modifyPoint;%NniP%;22|
+(SDEFUN |SUBSPACE;modifyPoint;%NniP%;24|
         ((|space| (%)) (|which| (|NonNegativeInteger|)) (|point| (|Point| R))
          (% (%)))
         (SEQ
@@ -378,10 +337,10 @@
            (|error|
             "You need to pass a top level SubSpace (level should be zero)"))))) 
 
-(SDEFUN |SUBSPACE;closeComponent;%LB%;23|
+(SDEFUN |SUBSPACE;closeComponent;%LB%;25|
         ((|space| (%)) (|path| (|List| (|NonNegativeInteger|)))
          (|val| (|Boolean|)) (% (%)))
-        (SPROG ((|node| (%)) (#1=#:G158 NIL) (|i| NIL))
+        (SPROG ((|node| (%)) (#1=#:G129 NIL) (|i| NIL))
                (SEQ (LETT |node| |space|)
                     (SEQ (LETT |i| NIL) (LETT #1# |path|) G190
                          (COND
@@ -391,13 +350,17 @@
                           (EXIT
                            (LETT |node| (SPADCALL |node| |i| (QREFELT % 31)))))
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
-                    (SPADCALL (QVELT |node| 2) |val| (QREFELT % 59))
+                    (QSETVELT |node| 2
+                              (SPADCALL |val|
+                                        (SPADCALL (QVELT |node| 2)
+                                                  (QREFELT % 59))
+                                        (QREFELT % 22)))
                     (EXIT |space|)))) 
 
-(SDEFUN |SUBSPACE;defineProperty;%LSscp%;24|
+(SDEFUN |SUBSPACE;defineProperty;%LSscp%;26|
         ((|space| (%)) (|path| (|List| (|NonNegativeInteger|)))
          (|prop| (|SubSpaceComponentProperty|)) (% (%)))
-        (SPROG ((|node| (%)) (#1=#:G163 NIL) (|i| NIL))
+        (SPROG ((|node| (%)) (#1=#:G134 NIL) (|i| NIL))
                (SEQ (LETT |node| |space|)
                     (SEQ (LETT |i| NIL) (LETT #1# |path|) G190
                          (COND
@@ -409,9 +372,9 @@
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (QSETVELT |node| 2 |prop|) (EXIT |space|)))) 
 
-(SDEFUN |SUBSPACE;traverse;%L%;25|
+(SDEFUN |SUBSPACE;traverse;%L%;27|
         ((|space| (%)) (|path| (|List| (|NonNegativeInteger|))) (% (%)))
-        (SPROG ((#1=#:G168 NIL) (|i| NIL))
+        (SPROG ((#1=#:G139 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| NIL) (LETT #1# |path|) G190
                      (COND
@@ -423,7 +386,7 @@
                      (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                 (EXIT |space|)))) 
 
-(SDEFUN |SUBSPACE;extractPoint;%P;26| ((|space| (%)) (% (|Point| R)))
+(SDEFUN |SUBSPACE;extractPoint;%P;28| ((|space| (%)) (% (|Point| R)))
         (SPROG ((|node| (%)))
                (SEQ (LETT |node| |space|)
                     (SEQ G190
@@ -438,43 +401,43 @@
                      (SPADCALL (QVELT |node| 6) (QVELT |space| 1)
                                (QREFELT % 52)))))) 
 
-(MAKEPROP '|SUBSPACE;extractIndex;%Nni;27| '|SPADreplace|
+(MAKEPROP '|SUBSPACE;extractIndex;%Nni;29| '|SPADreplace|
           '(XLAM (|space|) (QVELT |space| 1))) 
 
-(SDEFUN |SUBSPACE;extractIndex;%Nni;27|
+(SDEFUN |SUBSPACE;extractIndex;%Nni;29|
         ((|space| (%)) (% (|NonNegativeInteger|))) (QVELT |space| 1)) 
 
-(SDEFUN |SUBSPACE;extractClosed;%B;28| ((|space| (%)) (% (|Boolean|)))
+(SDEFUN |SUBSPACE;extractClosed;%B;30| ((|space| (%)) (% (|Boolean|)))
         (SPADCALL (QVELT |space| 2) (QREFELT % 66))) 
 
-(MAKEPROP '|SUBSPACE;extractProperty;%Sscp;29| '|SPADreplace|
+(MAKEPROP '|SUBSPACE;extractProperty;%Sscp;31| '|SPADreplace|
           '(XLAM (|space|) (QVELT |space| 2))) 
 
-(SDEFUN |SUBSPACE;extractProperty;%Sscp;29|
+(SDEFUN |SUBSPACE;extractProperty;%Sscp;31|
         ((|space| (%)) (% (|SubSpaceComponentProperty|))) (QVELT |space| 2)) 
 
-(SDEFUN |SUBSPACE;parent;2%;30| ((|space| (%)) (% (%)))
+(SDEFUN |SUBSPACE;parent;2%;32| ((|space| (%)) (% (%)))
         (COND
          ((SPADCALL (QVELT |space| 10) (QREFELT % 14))
           (|error| "This is a top level SubSpace - it does not have a parent"))
          ('T (SPADCALL (QVELT |space| 10) (QREFELT % 44))))) 
 
-(MAKEPROP '|SUBSPACE;pointData;%L;31| '|SPADreplace|
+(MAKEPROP '|SUBSPACE;pointData;%L;33| '|SPADreplace|
           '(XLAM (|space|) (QVELT |space| 6))) 
 
-(SDEFUN |SUBSPACE;pointData;%L;31| ((|space| (%)) (% (|List| (|Point| R))))
+(SDEFUN |SUBSPACE;pointData;%L;33| ((|space| (%)) (% (|List| (|Point| R))))
         (QVELT |space| 6)) 
 
-(MAKEPROP '|SUBSPACE;level;%Nni;32| '|SPADreplace|
+(MAKEPROP '|SUBSPACE;level;%Nni;34| '|SPADreplace|
           '(XLAM (|space|) (QVELT |space| 5))) 
 
-(SDEFUN |SUBSPACE;level;%Nni;32| ((|space| (%)) (% (|NonNegativeInteger|)))
+(SDEFUN |SUBSPACE;level;%Nni;34| ((|space| (%)) (% (|NonNegativeInteger|)))
         (QVELT |space| 5)) 
 
-(SDEFUN |SUBSPACE;=;2%B;33| ((|s1| (%)) (|s2| (%)) (% (|Boolean|)))
+(SDEFUN |SUBSPACE;=;2%B;35| ((|s1| (%)) (|s2| (%)) (% (|Boolean|)))
         (SPROG
-         ((#1=#:G188 NIL) (#2=#:G187 #3=(|Boolean|)) (#4=#:G189 #3#)
-          (#5=#:G194 NIL) (|c1| NIL) (#6=#:G195 NIL) (|c2| NIL))
+         ((#1=#:G159 NIL) (#2=#:G158 #3=(|Boolean|)) (#4=#:G160 #3#)
+          (#5=#:G165 NIL) (|c1| NIL) (#6=#:G166 NIL) (|c2| NIL))
          (SEQ
           (COND
            ((SPADCALL |s1| (QREFELT % 15))
@@ -517,7 +480,7 @@
              NIL)
             ('T (EQL (QVELT |s1| 5) (QVELT |s2| 5)))))))) 
 
-(SDEFUN |SUBSPACE;coerce;%Of;34| ((|space| (%)) (% (|OutputForm|)))
+(SDEFUN |SUBSPACE;coerce;%Of;36| ((|space| (%)) (% (|OutputForm|)))
         (SPROG ((|s| (|NonNegativeInteger|)))
                (SPADCALL
                 (LIST (SPADCALL (QREFELT % 6) (QREFELT % 78))
@@ -565,9 +528,9 @@
           (QSETREFV % 9 "Non-null list: Please inform Stephen Watt")
           %))) 
 
-(DEFUN |SubSpace| (&REST #1=#:G197)
+(DEFUN |SubSpace| (&REST #1=#:G168)
   (SPROG NIL
-         (PROG (#2=#:G198)
+         (PROG (#2=#:G169)
            (RETURN
             (COND
              ((LETT #2#
@@ -589,67 +552,67 @@
               |SUBSPACE;root?;%B;2| |SUBSPACE;internal?;%B;3| (|List| 7)
               (|Point| 7) (5 . |point|) (|SubSpaceComponentProperty|)
               (10 . |new|) |SUBSPACE;new;%;4| |SUBSPACE;subspace;%;5|
-              (14 . |rest|) (19 . |setrest!|) |SUBSPACE;birth;2%;6| (|Integer|)
-              (25 . |elt|) (|NonNegativeInteger|) |SUBSPACE;child;%Nni%;7|
-              |SUBSPACE;numberOfChildren;%Nni;9| (31 . |copy|) (|List| 19)
-              (36 . |copy|) (41 . |tail|) |SUBSPACE;shallowCopy;2%;10|
-              |SUBSPACE;deepCopy;2%;11| (46 . |cons|) (52 . |reverse!|)
-              (57 . |tail|) (62 . |append|) |SUBSPACE;merge;3%;12|
-              (68 . |first|) |SUBSPACE;merge;L%;13| |SUBSPACE;separate;%L;14|
-              (73 . |setrest!|) (|List| 30) |SUBSPACE;addPoint;%LP%;15|
-              |SUBSPACE;addPoint2;%P%;16| |SUBSPACE;addPointLast;2%PNni%;17|
-              (79 . |elt|) |SUBSPACE;addPoint;%LNni%;18|
-              |SUBSPACE;addPoint;%PNni;19| |SUBSPACE;modifyPoint;%LP%;20|
-              |SUBSPACE;modifyPoint;%LNni%;21| (85 . |setelt!|)
-              |SUBSPACE;modifyPoint;%NniP%;22| (92 . |close|)
-              |SUBSPACE;closeComponent;%LB%;23|
-              |SUBSPACE;defineProperty;%LSscp%;24| |SUBSPACE;traverse;%L%;25|
-              |SUBSPACE;parent;2%;30| |SUBSPACE;extractPoint;%P;26|
-              |SUBSPACE;extractIndex;%Nni;27| (98 . |closed?|)
-              |SUBSPACE;extractClosed;%B;28|
-              |SUBSPACE;extractProperty;%Sscp;29| |SUBSPACE;pointData;%L;31|
-              |SUBSPACE;level;%Nni;32| (103 . =) (109 . =) (115 . |#|)
-              (120 . ~=) |SUBSPACE;=;2%B;33| (|OutputForm|) (|PositiveInteger|)
-              (126 . |coerce|) (|String|) (131 . |message|) (136 . |coerce|)
-              (141 . |coerce|) (146 . |hconcat|) |SUBSPACE;coerce;%Of;34|)
-           '#(~= 151 |traverse| 157 |subspace| 163 |shallowCopy| 167 |separate|
-              172 |root?| 177 |pointData| 182 |parent| 187 |numberOfChildren|
-              192 |new| 197 |modifyPoint| 201 |merge| 222 |level| 233 |leaf?|
-              238 |latex| 243 |internal?| 248 |extractProperty| 253
-              |extractPoint| 258 |extractIndex| 263 |extractClosed| 268
-              |defineProperty| 273 |deepCopy| 280 |coerce| 285 |closeComponent|
-              290 |children| 297 |child| 302 |birth| 308 |addPointLast| 313
-              |addPoint2| 321 |addPoint| 327 = 347)
+              (16 . |rest|) (21 . |setrest!|) |SUBSPACE;birth;2%;6| (|Integer|)
+              (27 . |elt|) (|NonNegativeInteger|) |SUBSPACE;child;%Nni%;7|
+              |SUBSPACE;numberOfChildren;%Nni;9| (33 . |copy|) (|List| 19)
+              (38 . |copy|) (43 . |tail|) |SUBSPACE;shallowCopy;2%;10|
+              |SUBSPACE;deepCopy;2%;11| (48 . |cons|) (54 . |reverse!|)
+              (59 . |tail|) (64 . |append|) |SUBSPACE;merge;3%;12|
+              (70 . |first|) |SUBSPACE;merge;L%;13| |SUBSPACE;separate;%L;14|
+              (75 . |setrest!|) (|List| 30) |SUBSPACE;addPoint;%LP%;17|
+              |SUBSPACE;addPoint2;%P%;18| |SUBSPACE;addPointLast;2%PNni%;19|
+              (81 . |elt|) |SUBSPACE;addPoint;%LNni%;20|
+              |SUBSPACE;addPoint;%PNni;21| |SUBSPACE;modifyPoint;%LP%;22|
+              |SUBSPACE;modifyPoint;%LNni%;23| (87 . |setelt!|)
+              |SUBSPACE;modifyPoint;%NniP%;24| (94 . |solid?|)
+              |SUBSPACE;closeComponent;%LB%;25|
+              |SUBSPACE;defineProperty;%LSscp%;26| |SUBSPACE;traverse;%L%;27|
+              |SUBSPACE;parent;2%;32| |SUBSPACE;extractPoint;%P;28|
+              |SUBSPACE;extractIndex;%Nni;29| (99 . |closed?|)
+              |SUBSPACE;extractClosed;%B;30|
+              |SUBSPACE;extractProperty;%Sscp;31| |SUBSPACE;pointData;%L;33|
+              |SUBSPACE;level;%Nni;34| (104 . =) (110 . =) (116 . |#|)
+              (121 . ~=) |SUBSPACE;=;2%B;35| (|OutputForm|) (|PositiveInteger|)
+              (127 . |coerce|) (|String|) (132 . |message|) (137 . |coerce|)
+              (142 . |coerce|) (147 . |hconcat|) |SUBSPACE;coerce;%Of;36|)
+           '#(~= 152 |traverse| 158 |subspace| 164 |shallowCopy| 168 |separate|
+              173 |root?| 178 |pointData| 183 |parent| 188 |numberOfChildren|
+              193 |new| 198 |modifyPoint| 202 |merge| 223 |level| 234 |leaf?|
+              239 |latex| 244 |internal?| 249 |extractProperty| 254
+              |extractPoint| 259 |extractIndex| 264 |extractClosed| 269
+              |defineProperty| 274 |deepCopy| 281 |coerce| 286 |closeComponent|
+              291 |children| 298 |child| 303 |birth| 309 |addPointLast| 314
+              |addPoint2| 322 |addPoint| 328 = 348)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| NIL |BasicType&|)
                        (CONS
                         '#((|SetCategory|) (|CoercibleTo| 76) (|BasicType|))
                         (|makeByteWordVec2| 84
-                                            '(1 13 12 0 14 1 19 0 18 20 0 21 0
-                                              22 1 13 0 0 25 2 13 0 0 0 26 2 13
-                                              2 0 28 29 1 21 0 0 33 1 34 0 0 35
-                                              1 34 0 0 36 2 13 0 2 0 39 1 13 0
-                                              0 40 1 13 0 0 41 2 13 0 0 0 42 1
-                                              13 2 0 44 2 34 0 0 0 47 2 34 19 0
-                                              28 52 3 34 19 0 28 19 57 2 21 12
-                                              0 12 59 1 21 12 0 66 2 19 12 0 0
-                                              71 2 21 12 0 0 72 1 13 30 0 73 2
-                                              30 12 0 0 74 1 77 76 0 78 1 76 0
-                                              79 80 1 28 76 0 81 1 30 76 0 82 1
-                                              76 0 10 83 2 0 12 0 0 1 2 0 0 0
-                                              48 62 0 0 0 24 1 0 0 0 37 1 0 10
-                                              0 46 1 0 12 0 16 1 0 34 0 69 1 0
-                                              0 0 63 1 0 30 0 32 0 0 0 23 3 0 0
-                                              0 48 19 55 3 0 0 0 48 30 56 3 0 0
-                                              0 30 19 58 2 0 0 0 0 43 1 0 0 10
-                                              45 1 0 30 0 70 1 0 12 0 15 1 0 79
-                                              0 1 1 0 12 0 17 1 0 21 0 68 1 0
-                                              19 0 64 1 0 30 0 65 1 0 12 0 67 3
-                                              0 0 0 48 21 61 1 0 0 0 38 1 0 76
-                                              0 84 3 0 0 0 48 12 60 1 0 10 0 11
-                                              2 0 0 0 30 31 1 0 0 0 27 4 0 0 0
-                                              0 19 30 51 2 0 0 0 19 50 3 0 0 0
-                                              48 19 49 3 0 0 0 48 30 53 2 0 30
-                                              0 19 54 2 0 12 0 0 75)))))
+                                            '(1 13 12 0 14 1 19 0 18 20 2 21 0
+                                              12 12 22 1 13 0 0 25 2 13 0 0 0
+                                              26 2 13 2 0 28 29 1 21 0 0 33 1
+                                              34 0 0 35 1 34 0 0 36 2 13 0 2 0
+                                              39 1 13 0 0 40 1 13 0 0 41 2 13 0
+                                              0 0 42 1 13 2 0 44 2 34 0 0 0 47
+                                              2 34 19 0 28 52 3 34 19 0 28 19
+                                              57 1 21 12 0 59 1 21 12 0 66 2 19
+                                              12 0 0 71 2 21 12 0 0 72 1 13 30
+                                              0 73 2 30 12 0 0 74 1 77 76 0 78
+                                              1 76 0 79 80 1 28 76 0 81 1 30 76
+                                              0 82 1 76 0 10 83 2 0 12 0 0 1 2
+                                              0 0 0 48 62 0 0 0 24 1 0 0 0 37 1
+                                              0 10 0 46 1 0 12 0 16 1 0 34 0 69
+                                              1 0 0 0 63 1 0 30 0 32 0 0 0 23 3
+                                              0 0 0 48 19 55 3 0 0 0 48 30 56 3
+                                              0 0 0 30 19 58 2 0 0 0 0 43 1 0 0
+                                              10 45 1 0 30 0 70 1 0 12 0 15 1 0
+                                              79 0 1 1 0 12 0 17 1 0 21 0 68 1
+                                              0 19 0 64 1 0 30 0 65 1 0 12 0 67
+                                              3 0 0 0 48 21 61 1 0 0 0 38 1 0
+                                              76 0 84 3 0 0 0 48 12 60 1 0 10 0
+                                              11 2 0 0 0 30 31 1 0 0 0 27 4 0 0
+                                              0 0 19 30 51 2 0 0 0 19 50 3 0 0
+                                              0 48 19 49 3 0 0 0 48 30 53 2 0
+                                              30 0 19 54 2 0 12 0 0 75)))))
            '|lookupComplete|)) 
