@@ -606,6 +606,17 @@
        (CONS (|mkAtreeNode| '-) |l|))
       (#1# |eq|)))))
 
+; must_boolean_msg(args, tree) ==
+;     throw_msg_pos("S2IS0054",
+;          '"Argument number %1b to %2b must be a Boolean.",
+;          args, tree)
+
+(DEFUN |must_boolean_msg| (|args| |tree|)
+  (PROG ()
+    (RETURN
+     (|throw_msg_pos| 'S2IS0054 "Argument number %1b to %2b must be a Boolean."
+      |args| |tree|))))
+
 ; upand x ==
 ;   -- generates code for  and  forms. The second argument is only
 ;   -- evaluated if the first argument is true.
@@ -613,7 +624,7 @@
 ;   putTarget(term1,$Boolean)
 ;   putTarget(term2,$Boolean)
 ;   ms := bottomUp term1
-;   ms isnt [=$Boolean] => throwKeyedMsgSP("S2IS0054",[1,'"_"and_""],term1)
+;   ms isnt [=$Boolean] => must_boolean_msg([1, '"_"and_""], term1)
 ;   $genValue =>
 ;     BooleanEquality(objValUnwrap(getValue term1),
 ;       getConstantFromDomain('(false),$Boolean)) =>
@@ -621,12 +632,12 @@
 ;         putModeSet(x,ms)
 ;     -- first term is true, so look at the second one
 ;     ms := bottomUp term2
-;     ms isnt [=$Boolean] => throwKeyedMsgSP("S2IS0054",[2,'"_"and_""],term2)
+;     ms isnt [=$Boolean] => must_boolean_msg([2, '"_"and_""], term2)
 ;     putValue(x,getValue term2)
 ;     putModeSet(x,ms)
 ;
 ;   ms := bottomUp term2
-;   ms isnt [=$Boolean] => throwKeyedMsgSP("S2IS0054",[2,'"_"and_""],term2)
+;   ms isnt [=$Boolean] => must_boolean_msg([2, '"_"and_""], term2)
 ;   -- generate an IF expression and let the rest of the code handle it
 ;   cond := [mkAtreeNode "=",mkAtree 'false,term1]
 ;   putTarget(cond,$Boolean)
@@ -661,7 +672,7 @@
          ((NOT
            (AND (CONSP |ms|) (EQ (CDR |ms|) NIL)
                 (EQUAL (CAR |ms|) |$Boolean|)))
-          (|throwKeyedMsgSP| 'S2IS0054 (LIST 1 "\"and\"") |term1|))
+          (|must_boolean_msg| (LIST 1 "\"and\"") |term1|))
          (|$genValue|
           (COND
            ((|BooleanEquality| (|objValUnwrap| (|getValue| |term1|))
@@ -676,7 +687,7 @@
               ((NOT
                 (AND (CONSP |ms|) (EQ (CDR |ms|) NIL)
                      (EQUAL (CAR |ms|) |$Boolean|)))
-               (|throwKeyedMsgSP| 'S2IS0054 (LIST 2 "\"and\"") |term2|))
+               (|must_boolean_msg| (LIST 2 "\"and\"") |term2|))
               (#1#
                (PROGN
                 (|putValue| |x| (|getValue| |term2|))
@@ -688,7 +699,7 @@
             ((NOT
               (AND (CONSP |ms|) (EQ (CDR |ms|) NIL)
                    (EQUAL (CAR |ms|) |$Boolean|)))
-             (|throwKeyedMsgSP| 'S2IS0054 (LIST 2 "\"and\"") |term2|))
+             (|must_boolean_msg| (LIST 2 "\"and\"") |term2|))
             (#1#
              (PROGN
               (SETQ |cond|
@@ -709,7 +720,7 @@
 ;   putTarget(term1,$Boolean)
 ;   putTarget(term2,$Boolean)
 ;   ms := bottomUp term1
-;   ms isnt [=$Boolean] => throwKeyedMsgSP("S2IS0054",[1,'"_"or_""],term1)
+;   ms isnt [=$Boolean] => must_boolean_msg([1, '"_"or_""], term1)
 ;   $genValue =>
 ;     BooleanEquality(objValUnwrap(getValue term1),
 ;       getConstantFromDomain('(true),$Boolean)) =>
@@ -717,12 +728,12 @@
 ;         putModeSet(x,ms)
 ;     -- first term is false, so look at the second one
 ;     ms := bottomUp term2
-;     ms isnt [=$Boolean] => throwKeyedMsgSP("S2IS0054",[2,'"_"or_""],term2)
+;     ms isnt [=$Boolean] => must_boolean_msg([2, '"_"or_""], term2)
 ;     putValue(x,getValue term2)
 ;     putModeSet(x,ms)
 ;
 ;   ms := bottomUp term2
-;   ms isnt [=$Boolean] => throwKeyedMsgSP("S2IS0054",[2,'"_"or_""],term2)
+;   ms isnt [=$Boolean] => must_boolean_msg([2, '"_"or_""], term2)
 ;   -- generate an IF expression and let the rest of the code handle it
 ;   cond := [mkAtreeNode "=",mkAtree 'true,term1]
 ;   putTarget(cond,$Boolean)
@@ -757,7 +768,7 @@
          ((NOT
            (AND (CONSP |ms|) (EQ (CDR |ms|) NIL)
                 (EQUAL (CAR |ms|) |$Boolean|)))
-          (|throwKeyedMsgSP| 'S2IS0054 (LIST 1 "\"or\"") |term1|))
+          (|must_boolean_msg| (LIST 1 "\"or\"") |term1|))
          (|$genValue|
           (COND
            ((|BooleanEquality| (|objValUnwrap| (|getValue| |term1|))
@@ -772,7 +783,7 @@
               ((NOT
                 (AND (CONSP |ms|) (EQ (CDR |ms|) NIL)
                      (EQUAL (CAR |ms|) |$Boolean|)))
-               (|throwKeyedMsgSP| 'S2IS0054 (LIST 2 "\"or\"") |term2|))
+               (|must_boolean_msg| (LIST 2 "\"or\"") |term2|))
               (#1#
                (PROGN
                 (|putValue| |x| (|getValue| |term2|))
@@ -784,7 +795,7 @@
             ((NOT
               (AND (CONSP |ms|) (EQ (CDR |ms|) NIL)
                    (EQUAL (CAR |ms|) |$Boolean|)))
-             (|throwKeyedMsgSP| 'S2IS0054 (LIST 2 "\"or\"") |term2|))
+             (|must_boolean_msg| (LIST 2 "\"or\"") |term2|))
             (#1#
              (PROGN
               (SETQ |cond|
@@ -965,7 +976,10 @@
 ;   not atom(lhs) and putTarget(lhs,m)
 ;   ms := bottomUp lhs
 ;   first ms ~= m =>
-;     throwKeyedMsg("S2IC0011",[first ms,m])
+;     throw_msg("S2IC0011", CONCAT(
+;        '"An expression involving %b @ %2p %d actually evaluated to one of",
+;        '" type %1bp .  Perhaps you should use %b :: %2p %d ."),
+;        [first(ms), m])
 ;   if categoryForm?(m) then
 ;       putValue(op, objNew(devaluate objValUnwrap getValue lhs, m))
 ;   else
@@ -1017,7 +1031,11 @@
            (SETQ |ms| (|bottomUp| |lhs|))
            (COND
             ((NOT (EQUAL (CAR |ms|) |m|))
-             (|throwKeyedMsg| 'S2IC0011 (LIST (CAR |ms|) |m|)))
+             (|throw_msg| 'S2IC0011
+              (CONCAT
+               "An expression involving %b @ %2p %d actually evaluated to one of"
+               " type %1bp .  Perhaps you should use %b :: %2p %d .")
+              (LIST (CAR |ms|) |m|)))
             (#1#
              (PROGN
               (COND
