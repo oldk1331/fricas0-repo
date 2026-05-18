@@ -1055,8 +1055,13 @@
                                                              '(|Algebra|
                                                                (|Fraction|
                                                                 (|Integer|))))
-                                              (|HasCategory| |#1|
-                                                             '(|Field|))))))
+                                              (AND
+                                               (|HasCategory| |#1|
+                                                              '(|Algebra|
+                                                                (|Fraction|
+                                                                 (|Integer|))))
+                                               (|HasCategory| |#1|
+                                                              '(|Field|)))))))
           (|haddProp| |$ConstructorCache| '|StreamTaylorSeriesOperations|
                       (LIST DV$1) (CONS 1 %))
           (|stuffDomainSlots| %)
@@ -1080,20 +1085,23 @@
                        (CONS (|dispatchFunction| |STTAYLOR;powern;F2S;31|)
                              %)))))
           (COND
-           ((|testBitVector| |pv$| 3)
-            (PROGN
-             (QSETREFV % 108
-                       (CONS (|dispatchFunction| |STTAYLOR;mapdiv;3S;32|) %))
-             NIL
-             (QSETREFV % 112
-                       (CONS
-                        (|dispatchFunction| |STTAYLOR;lazyGintegrate;MAMS;34|)
-                        %))
-             NIL
-             NIL
-             (QSETREFV % 114
-                       (CONS (|dispatchFunction| |STTAYLOR;power;A2S;37|)
-                             %)))))
+           ((|HasCategory| |#1| '(|Field|))
+            (COND
+             ((|testBitVector| |pv$| 2)
+              (PROGN
+               (QSETREFV % 108
+                         (CONS (|dispatchFunction| |STTAYLOR;mapdiv;3S;32|) %))
+               NIL
+               (QSETREFV % 112
+                         (CONS
+                          (|dispatchFunction|
+                           |STTAYLOR;lazyGintegrate;MAMS;34|)
+                          %))
+               NIL
+               NIL
+               (QSETREFV % 114
+                         (CONS (|dispatchFunction| |STTAYLOR;power;A2S;37|)
+                               %)))))))
           %))) 
 
 (DEFUN |StreamTaylorSeriesOperations| (#1=#:G312)

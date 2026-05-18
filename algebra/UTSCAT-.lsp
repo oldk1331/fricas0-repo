@@ -427,17 +427,23 @@
                           (|buildPredVector| 0 0
                                              (LIST
                                               (|HasCategory| |#2|
+                                                             '(|Algebra|
+                                                               (|Fraction|
+                                                                (|Integer|))))
+                                              (|HasCategory| |#2|
                                                              '(|Field|))))))
           (|stuffDomainSlots| %)
           (QSETREFV % 6 |#1|)
           (QSETREFV % 7 |#2|)
           (SETF |pv$| (QREFELT % 3))
           (COND
-           ((|testBitVector| |pv$| 1)
-            (QSETREFV % 51
-                      (CONS (|dispatchFunction| |UTSCAT-;^;SCoefS;6|) %))))
+           ((|testBitVector| |pv$| 2)
+            (COND
+             ((|testBitVector| |pv$| 1)
+              (QSETREFV % 51
+                        (CONS (|dispatchFunction| |UTSCAT-;^;SCoefS;6|) %))))))
           (COND
-           ((|HasCategory| |#2| '(|Algebra| (|Fraction| (|Integer|))))
+           ((|testBitVector| |pv$| 1)
             (COND
              ((|HasCategory| |#2| '(|CommutativeRing|))
               (PROGN
