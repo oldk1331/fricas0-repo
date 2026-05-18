@@ -1411,10 +1411,6 @@
               (COND ((CAR |val|) (CAR |val|)) (#1# "Type Analysis Error"))))
             (#1# NIL))))))
 
-; bracketString string == CONCAT('"[",string,'"]")
-
-(DEFUN |bracketString| (|string|) (PROG () (RETURN (CONCAT "[" |string| "]"))))
-
 ; quoteString string == CONCAT('"_"", string, '"_"")
 
 (DEFUN |quoteString| (|string|) (PROG () (RETURN (CONCAT "\"" |string| "\""))))

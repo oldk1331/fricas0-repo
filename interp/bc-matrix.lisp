@@ -51,6 +51,18 @@
          (|text| . "\\endmenu")))
       (|htShowPage|)))))
 
+; get_int_value(page, key) ==
+;     null($bcParseOnly) => objValUnwrap(htpLabelSpadValue(page, key))
+;     PARSE_-INTEGER(htpLabelInputString(page, key))
+
+(DEFUN |get_int_value| (|page| |key|)
+  (PROG ()
+    (RETURN
+     (COND
+      ((NULL |$bcParseOnly|)
+       (|objValUnwrap| (|htpLabelSpadValue| |page| |key|)))
+      ('T (PARSE-INTEGER (|htpLabelInputString| |page| |key|)))))))
+
 ; bcInputMatrixByFormula(htPage, junk) ==
 ;   page := htInitPage('"Basic Matrix Command", htpPropertyList htPage)
 ;   htMakePage '(
@@ -74,12 +86,8 @@
 ;     (text . "\newline\tab{2} ")
 ;     (bcStrings (40 "1/(x - i - j - 1)" formula FE)))
 ;   htMakeDoneButton('"Continue", 'bcInputMatrixByFormulaGen)
-;   nrows :=
-;     null $bcParseOnly => objValUnwrap htpLabelSpadValue(htPage,'rows)
-;     PARSE_-INTEGER htpLabelInputString(htPage,'rows)
-;   ncols :=
-;     null $bcParseOnly => objValUnwrap htpLabelSpadValue(htPage,'cols)
-;     PARSE_-INTEGER htpLabelInputString(htPage,'cols)
+;   nrows := get_int_value(htPage, 'rows)
+;   ncols := get_int_value(htPage, 'cols)
 ;   htpSetProperty(page, 'nrows, nrows)
 ;   htpSetProperty(page, 'ncols, ncols)
 ;   htShowPage()
@@ -105,17 +113,8 @@
          (|text| . "\\newline\\tab{2} ")
          (|bcStrings| (40 "1/(x - i - j - 1)" |formula| FE))))
       (|htMakeDoneButton| "Continue" '|bcInputMatrixByFormulaGen|)
-      (SETQ |nrows|
-              (COND
-               ((NULL |$bcParseOnly|)
-                (|objValUnwrap| (|htpLabelSpadValue| |htPage| '|rows|)))
-               (#1='T
-                (PARSE-INTEGER (|htpLabelInputString| |htPage| '|rows|)))))
-      (SETQ |ncols|
-              (COND
-               ((NULL |$bcParseOnly|)
-                (|objValUnwrap| (|htpLabelSpadValue| |htPage| '|cols|)))
-               (#1# (PARSE-INTEGER (|htpLabelInputString| |htPage| '|cols|)))))
+      (SETQ |nrows| (|get_int_value| |htPage| '|rows|))
+      (SETQ |ncols| (|get_int_value| |htPage| '|cols|))
       (|htpSetProperty| |page| '|nrows| |nrows|)
       (|htpSetProperty| |page| '|ncols| |ncols|)
       (|htShowPage|)))))
@@ -149,12 +148,8 @@
           (STRINGIMAGE |nrows|) "])"))))))))
 
 ; bcInputExplicitMatrix(htPage,junk) ==
-;   nrows :=
-;     null $bcParseOnly => objValUnwrap htpLabelSpadValue(htPage,'rows)
-;     PARSE_-INTEGER htpLabelInputString(htPage,'rows)
-;   ncols :=
-;     null $bcParseOnly => objValUnwrap htpLabelSpadValue(htPage,'cols)
-;     PARSE_-INTEGER htpLabelInputString(htPage,'cols)
+;   nrows := get_int_value(htPage, 'rows)
+;   ncols := get_int_value(htPage, 'cols)
 ;   cond := nil
 ;   k := 0
 ;   wrows := # STRINGIMAGE nrows
@@ -183,17 +178,8 @@
          |prefix| |name| |labelList| |page|)
     (RETURN
      (PROGN
-      (SETQ |nrows|
-              (COND
-               ((NULL |$bcParseOnly|)
-                (|objValUnwrap| (|htpLabelSpadValue| |htPage| '|rows|)))
-               (#1='T
-                (PARSE-INTEGER (|htpLabelInputString| |htPage| '|rows|)))))
-      (SETQ |ncols|
-              (COND
-               ((NULL |$bcParseOnly|)
-                (|objValUnwrap| (|htpLabelSpadValue| |htPage| '|cols|)))
-               (#1# (PARSE-INTEGER (|htpLabelInputString| |htPage| '|cols|)))))
+      (SETQ |nrows| (|get_int_value| |htPage| '|rows|))
+      (SETQ |ncols| (|get_int_value| |htPage| '|cols|))
       (SETQ |cond| NIL)
       (SETQ |k| 0)
       (SETQ |wrows| (LENGTH (STRINGIMAGE |nrows|)))
@@ -202,7 +188,7 @@
               ((LAMBDA (|bfVar#2| |i|)
                  (LOOP
                   (COND ((> |i| |nrows|) (RETURN |bfVar#2|))
-                        (#1#
+                        (#1='T
                          (SETQ |bfVar#2|
                                  (APPEND |bfVar#2|
                                          ((LAMBDA (|bfVar#1| |j|)

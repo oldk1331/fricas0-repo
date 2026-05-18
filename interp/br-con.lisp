@@ -575,13 +575,13 @@
          (|htpSetProperty| |htPage| '|thing| "constructor")
          (|dbShowCons| |htPage| '|names|))))))))
 
-; dbSearchOrder(conform,domname,$domain) ==  --domain = nil or set to live domain
+; dbSearchOrder(conform, domname, domain) == --domain = nil or set to live domain
 ;   conform := domname or conform
 ;   name:= opOf conform
 ;   infovec := dbInfovec name or return nil  --exit for categories
 ;   u := infovec.3
-;   $predvec:=
-;         $domain => $domain.3
+;   predvec :=
+;         domain => domain.3
 ;         get_database(name, 'PREDICATES)
 ;   catpredvec := first u
 ;   catinfo    := CADR u
@@ -589,8 +589,9 @@
 ;   catforms := [[pakform,:pred] for i in 0..MAXINDEX catvec | test ] where
 ;     test ==
 ;       pred := simpCatPredicate
-;         p:=SUBLISLIS(rest conform,$FormalMapVariableList,kTestPred catpredvec.i)
-;         $domain => EVAL p
+;         p := SUBLISLIS(rest(conform), $FormalMapVariableList,
+;                         kTestPred(catpredvec.i, domain, predvec))
+;         domain => EVAL(p)
 ;         p
 ;       if domname and CONTAINED('%, pred) then pred := SUBST(domname, '%, pred)
 ;       (pak := catinfo . i) and pred   --only those with default packages
@@ -602,18 +603,17 @@
 ;       res
 ;   [:dbAddChain conform,:catforms]
 
-(DEFUN |dbSearchOrder| (|conform| |domname| |$domain|)
-  (DECLARE (SPECIAL |$domain|))
-  (PROG (|name| |infovec| |u| |catpredvec| |catinfo| |catvec| |p| |pred| |pak|
-         |catform| |res| |catforms|)
+(DEFUN |dbSearchOrder| (|conform| |domname| |domain|)
+  (PROG (|name| |infovec| |u| |predvec| |catpredvec| |catinfo| |catvec| |p|
+         |pred| |pak| |catform| |res| |catforms|)
     (RETURN
      (PROGN
       (SETQ |conform| (OR |domname| |conform|))
       (SETQ |name| (|opOf| |conform|))
       (SETQ |infovec| (OR (|dbInfovec| |name|) (RETURN NIL)))
       (SETQ |u| (ELT |infovec| 3))
-      (SETQ |$predvec|
-              (COND (|$domain| (ELT |$domain| 3))
+      (SETQ |predvec|
+              (COND (|domain| (ELT |domain| 3))
                     (#1='T (|get_database| |name| 'PREDICATES))))
       (SETQ |catpredvec| (CAR |u|))
       (SETQ |catinfo| (CADR |u|))
@@ -632,8 +632,9 @@
                                              (SUBLISLIS (CDR |conform|)
                                               |$FormalMapVariableList|
                                               (|kTestPred|
-                                               (ELT |catpredvec| |i|))))
-                                     (COND (|$domain| (EVAL |p|)) (#1# |p|)))))
+                                               (ELT |catpredvec| |i|) |domain|
+                                               |predvec|)))
+                                     (COND (|domain| (EVAL |p|)) (#1# |p|)))))
                            (COND
                             ((AND |domname| (CONTAINED '% |pred|))
                              (SETQ |pred| (SUBST |domname| '% |pred|))))
@@ -1753,16 +1754,16 @@
          (#1# '(""))))
        (#1# NIL))))))
 
-; kTestPred n ==
+; kTestPred(n, dom, preds) ==
 ;   n = 0 => true
-;   $domain => testBitVector($predvec,n)
-;   simpHasPred $predvec.(n - 1)
+;   dom => testBitVector(preds, n)
+;   simpHasPred(preds.(n - 1))
 
-(DEFUN |kTestPred| (|n|)
+(DEFUN |kTestPred| (|n| |dom| |preds|)
   (PROG ()
     (RETURN
-     (COND ((EQL |n| 0) T) (|$domain| (|testBitVector| |$predvec| |n|))
-           ('T (|simpHasPred| (ELT |$predvec| (- |n| 1))))))))
+     (COND ((EQL |n| 0) T) (|dom| (|testBitVector| |preds| |n|))
+           ('T (|simpHasPred| (ELT |preds| (- |n| 1))))))))
 
 ; dbAddChainDomain conform ==
 ;   [name,:args] := conform

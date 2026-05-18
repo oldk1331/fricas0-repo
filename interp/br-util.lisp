@@ -47,14 +47,6 @@
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$dbDataFunctionAlist| NIL))
 
-; $domain   := nil             --bound in koOps
-
-(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$domain| NIL))
-
-; $predvec  := nil             --bound in koOps
-
-(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$predvec| NIL))
-
 ; $exposedOnlyIfTrue := nil    --see repeatSearch, dbShowOps, dbShowCon
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$exposedOnlyIfTrue| NIL))
@@ -1757,11 +1749,6 @@
 (DEFUN |bcError| (|string|)
   (PROG ()
     (RETURN (PROGN (|sayBrightlyNT| "NOTE: ") (|sayBrightly| |string|)))))
-
-; bcDrawIt(ind,a,b) == STRCONC(ind,'"=",a,'"..",b)
-
-(DEFUN |bcDrawIt| (|ind| |a| |b|)
-  (PROG () (RETURN (STRCONC |ind| "=" |a| ".." |b|))))
 
 ; bcNotReady htPage ==
 ;   htInitPage('"Basic Command",nil)

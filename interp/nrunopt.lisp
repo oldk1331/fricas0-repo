@@ -1330,7 +1330,7 @@
 ;   name := abbreviation? con or con
 ;   infovec := getInfovec(name)
 ;   template := infovec.0
-;   $predvec : local := get_database(name, 'PREDICATES)
+;   preds := get_database(name, 'PREDICATES)
 ;   opTable := infovec.1
 ;   for i in 0..MAXINDEX opTable repeat
 ;     op := opTable.i
@@ -1341,18 +1341,17 @@
 ;       opTable.(i + 2)
 ;     curIndex := startIndex
 ;     while curIndex < stopIndex repeat
-;         curIndex := dcOpPrint(op, curIndex, infovec)
+;         curIndex := dcOpPrint(op, curIndex, infovec, preds)
 
 (DEFUN |dcOpTable| (|con|)
-  (PROG (|$predvec| |curIndex| |stopIndex| |startIndex| |op| |opTable|
-         |template| |infovec| |name|)
-    (DECLARE (SPECIAL |$predvec|))
+  (PROG (|name| |infovec| |template| |preds| |opTable| |op| |startIndex|
+         |stopIndex| |curIndex|)
     (RETURN
      (PROGN
       (SETQ |name| (OR (|abbreviation?| |con|) |con|))
       (SETQ |infovec| (|getInfovec| |name|))
       (SETQ |template| (ELT |infovec| 0))
-      (SETQ |$predvec| (|get_database| |name| 'PREDICATES))
+      (SETQ |preds| (|get_database| |name| 'PREDICATES))
       (SETQ |opTable| (ELT |infovec| 1))
       ((LAMBDA (|bfVar#73| |i|)
          (LOOP
@@ -1373,12 +1372,12 @@
                       (COND ((NOT (< |curIndex| |stopIndex|)) (RETURN NIL))
                             (#1#
                              (SETQ |curIndex|
-                                     (|dcOpPrint| |op| |curIndex|
-                                      |infovec|))))))))))
+                                     (|dcOpPrint| |op| |curIndex| |infovec|
+                                      |preds|))))))))))
           (SETQ |i| (+ |i| 1))))
        (MAXINDEX |opTable|) 0)))))
 
-; dcOpPrint(op, index, infovec) ==
+; dcOpPrint(op, index, infovec, preds) ==
 ;   numvec := getCodeVector1(infovec)
 ;   segment := getOpSegment(index, numvec)
 ;   numOfArgs := numvec.index
@@ -1390,7 +1389,7 @@
 ;   slotNumber := numvec.index
 ;   suffix :=
 ;     predNumber = 0 => nil
-;     [:bright '"if",:pred2English $predvec.(predNumber - 1)]
+;     [:bright('"if"), :pred2English(preds.(predNumber - 1))]
 ;   namePart := bright
 ;     slotNumber = 0 => '"subsumed by next entry"
 ;     slotNumber = 1 => '"missing"
@@ -1400,7 +1399,7 @@
 ;   sayBrightly [:formatOpSignature(op,signumList),:namePart, :suffix]
 ;   index + 1
 
-(DEFUN |dcOpPrint| (|op| |index| |infovec|)
+(DEFUN |dcOpPrint| (|op| |index| |infovec| |preds|)
   (PROG (|numvec| |segment| |numOfArgs| |predNumber| |signumList| |slotNumber|
          |suffix| |name| |namePart|)
     (RETURN
@@ -1419,7 +1418,7 @@
                     (#1='T
                      (APPEND (|bright| "if")
                              (|pred2English|
-                              (ELT |$predvec| (- |predNumber| 1)))))))
+                              (ELT |preds| (- |predNumber| 1)))))))
       (SETQ |namePart|
               (|bright|
                (COND ((EQL |slotNumber| 0) "subsumed by next entry")
@@ -1453,33 +1452,33 @@
 
 ; dcPreds con ==
 ;   name := abbreviation? con or con
-;   $predvec := get_database(name, 'PREDICATES)
-;   for i in 0..MAXINDEX $predvec repeat
+;   preds := get_database(name, 'PREDICATES)
+;   for i in 0..MAXINDEX(preds) repeat
 ;     sayBrightlyNT bright (i + 1)
-;     sayBrightly pred2English $predvec.i
+;     sayBrightly(pred2English(preds.i))
 
 (DEFUN |dcPreds| (|con|)
-  (PROG (|name|)
+  (PROG (|name| |preds|)
     (RETURN
      (PROGN
       (SETQ |name| (OR (|abbreviation?| |con|) |con|))
-      (SETQ |$predvec| (|get_database| |name| 'PREDICATES))
+      (SETQ |preds| (|get_database| |name| 'PREDICATES))
       ((LAMBDA (|bfVar#75| |i|)
          (LOOP
           (COND ((> |i| |bfVar#75|) (RETURN NIL))
                 ('T
                  (PROGN
                   (|sayBrightlyNT| (|bright| (+ |i| 1)))
-                  (|sayBrightly| (|pred2English| (ELT |$predvec| |i|))))))
+                  (|sayBrightly| (|pred2English| (ELT |preds| |i|))))))
           (SETQ |i| (+ |i| 1))))
-       (MAXINDEX |$predvec|) 0)))))
+       (MAXINDEX |preds|) 0)))))
 
 ; dcCats con ==
 ;   name := abbreviation? con or con
 ;   infovec := getInfovec name
 ;   u := infovec.3
 ;   VECP CDDR u => BREAK()
-;   $predvec := get_database(name, 'PREDICATES)
+;   preds := get_database(name, 'PREDICATES)
 ;   catpredvec := first u
 ;   catinfo := CADR u
 ;   catvec := CADDR u
@@ -1489,7 +1488,7 @@
 ;     predNumber := catpredvec.i
 ;     suffix :=
 ;       predNumber = 0 => nil
-;       [:bright '"if",:pred2English $predvec.(predNumber - 1)]
+;       [:bright('"if"), :pred2English(preds.(predNumber - 1))]
 ;     extra :=
 ;       null (info := catinfo.i) => nil
 ;       IDENTP info => bright '"package"
@@ -1498,7 +1497,7 @@
 ;                        suffix, extra)
 
 (DEFUN |dcCats| (|con|)
-  (PROG (|name| |infovec| |u| |catpredvec| |catinfo| |catvec| |form|
+  (PROG (|name| |infovec| |u| |preds| |catpredvec| |catinfo| |catvec| |form|
          |predNumber| |suffix| |info| |extra|)
     (RETURN
      (PROGN
@@ -1508,7 +1507,7 @@
       (COND ((VECP (CDDR |u|)) (BREAK))
             (#1='T
              (PROGN
-              (SETQ |$predvec| (|get_database| |name| 'PREDICATES))
+              (SETQ |preds| (|get_database| |name| 'PREDICATES))
               (SETQ |catpredvec| (CAR |u|))
               (SETQ |catinfo| (CADR |u|))
               (SETQ |catvec| (CADDR |u|))
@@ -1525,7 +1524,7 @@
                                         (#1#
                                          (APPEND (|bright| "if")
                                                  (|pred2English|
-                                                  (ELT |$predvec|
+                                                  (ELT |preds|
                                                        (- |predNumber| 1)))))))
                           (SETQ |extra|
                                   (COND

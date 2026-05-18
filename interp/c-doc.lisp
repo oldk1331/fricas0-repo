@@ -840,7 +840,7 @@
 ;           null (key := checkIsValidType parse) =>
 ;             checkDocError ['"Unknown \spadtype: ", s]
 ;           atom key => 'ok
-;           checkDocError ['"Wrong number of arguments: ",form2HtString key]
+;           checkDocError(['"Wrong number of arguments: ", s])
 ;       else if x = '"\spadop" and (u := checkLookForLeftBrace IFCDR u) and
 ;               (u := IFCDR u) then
 ;           x := intern checkGetStringBeforeRightBrace u
@@ -963,8 +963,7 @@
                           ((ATOM |key|) '|ok|)
                           (#1#
                            (|checkDocError|
-                            (LIST "Wrong number of arguments: "
-                                  (|form2HtString| |key|)))))))))
+                            (LIST "Wrong number of arguments: " |s|))))))))
                      ((AND (EQUAL |x| "\\spadop")
                            (SETQ |u| (|checkLookForLeftBrace| (IFCDR |u|)))
                            (SETQ |u| (IFCDR |u|)))

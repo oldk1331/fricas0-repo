@@ -237,8 +237,7 @@
 ; bcInputEquations(htPage,solutionMethod) ==
 ;   numEqs :=
 ;     htpProperty(htPage, 'systemType) = 'onePolynomial => 1
-;     $bcParseOnly => PARSE_-INTEGER htpLabelInputString(htPage,'numberOfEquations)
-;     objValUnwrap htpLabelSpadValue(htPage, 'numberOfEquations)
+;     get_int_value(htPage, 'numberOfEquations)
 ;   linearPred := htpProperty(htPage,'systemType) = 'linear
 ;   labelList :=
 ;     numEqs = 1 => '(
@@ -290,12 +289,7 @@
       (SETQ |numEqs|
               (COND
                ((EQ (|htpProperty| |htPage| '|systemType|) '|onePolynomial|) 1)
-               (|$bcParseOnly|
-                (PARSE-INTEGER
-                 (|htpLabelInputString| |htPage| '|numberOfEquations|)))
-               (#1='T
-                (|objValUnwrap|
-                 (|htpLabelSpadValue| |htPage| '|numberOfEquations|)))))
+               (#1='T (|get_int_value| |htPage| '|numberOfEquations|))))
       (SETQ |linearPred| (EQ (|htpProperty| |htPage| '|systemType|) '|linear|))
       (SETQ |labelList|
               (COND
