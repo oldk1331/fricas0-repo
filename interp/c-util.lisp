@@ -1519,7 +1519,7 @@
 
 ; unStackWarning msg ==
 ;   if $insideCapsuleFunctionIfTrue then msg:= [$op,": ",:msg]
-;   $warningStack:= EFFACE(msg,$warningStack)
+;   $warningStack:= NREMOVE($warningStack, msg)
 ;   nil
 
 (DEFUN |unStackWarning| (|msg|)
@@ -1529,7 +1529,7 @@
       (COND
        (|$insideCapsuleFunctionIfTrue|
         (SETQ |msg| (CONS |$op| (CONS '|: | |msg|)))))
-      (SETQ |$warningStack| (EFFACE |msg| |$warningStack|))
+      (SETQ |$warningStack| (NREMOVE |$warningStack| |msg|))
       NIL))))
 
 ; stackMessage msg ==

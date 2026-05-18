@@ -1792,7 +1792,3 @@
       (SETQ |s| (STRINGIMAGE |n|))
       (SETQ |ws| (LENGTH |s|))
       (STRCONC "\\space{" (STRINGIMAGE (+ (- |w| |ws|) 1)) "}" |s|)))))
-
-; htMkName(s,n) == STRCONC(s,STRINGIMAGE n)
-
-(DEFUN |htMkName| (|s| |n|) (PROG () (RETURN (STRCONC |s| (STRINGIMAGE |n|)))))

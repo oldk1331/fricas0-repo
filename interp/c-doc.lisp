@@ -418,7 +418,6 @@
 
 ; transDocList($constructorName,doclist) == --returns ((key line)...)
 ; --called ONLY by finalizeDocumentation
-; --if $exposeFlag then messages go to file $outStream; flag=nil by default
 ;   sayBrightly ['"   Processing ",$constructorName,'" for Browser database:"]
 ;   commentList := transDoc($constructorName,doclist)
 ;   acc := nil
@@ -428,7 +427,7 @@
 ;       conEntry := entry
 ;     acc := [entry,:acc]
 ;   conEntry => [conEntry,:acc]
-;   checkDocError1 ['"Missing Description"]
+;   checkDocError ['"Missing Description"]
 ;   acc
 
 (DEFUN |transDocList| (|$constructorName| |doclist|)
@@ -460,7 +459,7 @@
        |commentList| NIL)
       (COND (|conEntry| (CONS |conEntry| |acc|))
             (#1#
-             (PROGN (|checkDocError1| (LIST "Missing Description")) |acc|)))))))
+             (PROGN (|checkDocError| (LIST "Missing Description")) |acc|)))))))
 
 ; transDoc(conname,doclist) ==
 ; --$exposeFlag and not isExposedConstructor conname => nil
@@ -471,7 +470,7 @@
 ;     $attribute? : local := $x is [.,[key]] and key = 'attribute
 ;     null lines =>
 ;       $attribute? => nil
-;       checkDocError1 ['"Not documented!!!!"]
+;       checkDocError ['"Not documented!!!!"]
 ;     u := checkTrim($x,(STRINGP lines => [lines]; $x = 'constructor => first lines; lines))
 ;     $argl : local := nil    --set by checkGetArgs
 ;     longline :=
@@ -521,8 +520,7 @@
                   (COND
                    ((NULL |lines|)
                     (COND (|$attribute?| NIL)
-                          (#1#
-                           (|checkDocError1| (LIST "Not documented!!!!")))))
+                          (#1# (|checkDocError| (LIST "Not documented!!!!")))))
                    (#1#
                     (PROGN
                      (SETQ |u|
@@ -3316,18 +3314,6 @@
     (RETURN
      (OR (ALPHA-CHAR-P |c|) (DIGITP |c|) (MEMQ |c| |$charIdentifierEndings|)))))
 
-; checkDocError1 u ==
-; --when compiling for documentation, ignore certain errors
-;   BOUNDP '$compileDocumentation and $compileDocumentation => nil
-;   checkDocError u
-
-(DEFUN |checkDocError1| (|u|)
-  (PROG ()
-    (RETURN
-     (COND
-      ((AND (BOUNDP '|$compileDocumentation|) |$compileDocumentation|) NIL)
-      ('T (|checkDocError| |u|))))))
-
 ; checkDocError u ==
 ;   $checkErrorFlag := true
 ;   msg :=
@@ -3337,11 +3323,9 @@
 ;     $constructorName => checkDocMessage u
 ;     u
 ;   if $exposeFlag and $exposeFlagHeading then
-;     sayBrightly1($exposeFlagHeading,$outStream)
 ;     sayBrightly $exposeFlagHeading
 ;     $exposeFlagHeading := nil
 ;   sayBrightly msg
-;   if $exposeFlag then sayBrightly1(msg,$outStream)
 
 (DEFUN |checkDocError| (|u|)
   (PROG (|msg|)
@@ -3356,10 +3340,8 @@
                (|$constructorName| (|checkDocMessage| |u|)) (#1# |u|)))
       (COND
        ((AND |$exposeFlag| |$exposeFlagHeading|)
-        (|sayBrightly1| |$exposeFlagHeading| |$outStream|)
         (|sayBrightly| |$exposeFlagHeading|) (SETQ |$exposeFlagHeading| NIL)))
-      (|sayBrightly| |msg|)
-      (COND (|$exposeFlag| (|sayBrightly1| |msg| |$outStream|)))))))
+      (|sayBrightly| |msg|)))))
 
 ; checkDocMessage u ==
 ;   sourcefile := get_database($constructorName, 'SOURCEFILE)
