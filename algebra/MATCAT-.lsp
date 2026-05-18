@@ -639,7 +639,7 @@
                     ((OR (ATOM #3#) (PROGN (LETT |mat| (CAR #3#)) NIL))
                      (GO G191)))
                    (SEQ (LETT |hiR| (- (+ |loR| (ANROWS |mat|)) 1))
-                        (LETT |hiC| (- (+ |loC| (ANROWS |mat|)) 1))
+                        (LETT |hiC| (- (+ |loC| (ANCOLS |mat|)) 1))
                         (SEQ (LETT |k| (PROGN |mat| 1))
                              (LETT #5# (SPADCALL |mat| (QREFELT % 18)))
                              (LETT |i| |loR|) (LETT #6# |hiR|) G190
@@ -1088,7 +1088,7 @@
                     ((OR (ATOM #3#) (PROGN (LETT |mat| (CAR #3#)) NIL))
                      (GO G191)))
                    (SEQ (LETT |hiR| (- (+ |loR| (DANROWS |mat|)) 1))
-                        (LETT |hiC| (- (+ |loC| (DANROWS |mat|)) 1))
+                        (LETT |hiC| (- (+ |loC| (DANCOLS |mat|)) 1))
                         (SEQ (LETT |k| (PROGN |mat| 0))
                              (LETT #5# (SPADCALL |mat| (QREFELT % 18)))
                              (LETT |i| |loR|) (LETT #6# |hiR|) G190
@@ -1542,7 +1542,7 @@
                     ((OR (ATOM #3#) (PROGN (LETT |mat| (CAR #3#)) NIL))
                      (GO G191)))
                    (SEQ (LETT |hiR| (- (+ |loR| (DANROWS |mat|)) 1))
-                        (LETT |hiC| (- (+ |loC| (DANROWS |mat|)) 1))
+                        (LETT |hiC| (- (+ |loC| (DANCOLS |mat|)) 1))
                         (SEQ (LETT |k| (PROGN |mat| 0))
                              (LETT #5# (SPADCALL |mat| (QREFELT % 18)))
                              (LETT |i| |loR|) (LETT #6# |hiR|) G190
@@ -2003,7 +2003,7 @@
                     (LETT |hiR|
                           (- (+ |loR| (SPADCALL |mat| (QREFELT % 11))) 1))
                     (LETT |hiC|
-                          (- (+ |loC| (SPADCALL |mat| (QREFELT % 11))) 1))
+                          (- (+ |loC| (SPADCALL |mat| (QREFELT % 12))) 1))
                     (SEQ (LETT |k| (SPADCALL |mat| (QREFELT % 17)))
                          (LETT #5# (SPADCALL |mat| (QREFELT % 18)))
                          (LETT |i| |loR|) (LETT #6# |hiR|) G190
