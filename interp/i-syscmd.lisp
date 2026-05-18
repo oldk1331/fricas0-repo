@@ -5897,51 +5897,90 @@
       (|editFile| |showFile|)
       (|delete_file| |showFile|)))))
 
+; $get_operations_fun := [0, nil]
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$get_operations_fun| (LIST 0 NIL)))
+
+; $Sig_doc_rec_SE := ['Record, [":", 'signature, ['SExpression]],
+;                              [":", 'condition, ['SExpression]],
+;                              [":", 'origin, ['SExpression]],
+;                              [":", 'documentation, ['String]]]
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (SETQ |$Sig_doc_rec_SE|
+          (LIST '|Record| (LIST '|:| '|signature| (LIST '|SExpression|))
+                (LIST '|:| '|condition| (LIST '|SExpression|))
+                (LIST '|:| '|origin| (LIST '|SExpression|))
+                (LIST '|:| '|documentation| (LIST '|String|)))))
+
+; get_operations(con, dom) ==
+;     fun := SpadFun($get_operations_fun,
+;              getFunctionFromDomain1("operations", '(BrowserInformation),
+;                 ['List, ['Record, [":", 'name, ['Symbol]],
+;                             [":", 'sdl, ['List, $Sig_doc_rec_SE]]]],
+;                 '((SExpression) (SExpression))))
+;     SPADCALL(con, dom, fun)
+
+(DEFUN |get_operations| (|con| |dom|)
+  (PROG (|fun|)
+    (RETURN
+     (PROGN
+      (SETQ |fun|
+              (|SpadFun| |$get_operations_fun|
+               (|getFunctionFromDomain1| '|operations| '(|BrowserInformation|)
+                (LIST '|List|
+                      (LIST '|Record| (LIST '|:| '|name| (LIST '|Symbol|))
+                            (LIST '|:| '|sdl|
+                                  (LIST '|List| |$Sig_doc_rec_SE|))))
+                '((|SExpression|) (|SExpression|)))))
+      (SPADCALL |con| |dom| |fun|)))))
+
 ; get_op_alist(form) ==
 ;     conname := first(form)
 ;     conform := getConstructorForm(conname)
-;     ops := koOps(conform, form)
+;     opl := get_operations(conform, form)
 ;     res := []
-;     for op in ops repeat
-;         [name, :sigs] := op
-;         for sigm in sigs repeat
-;             [sig, cond] := sigm
+;     for opr in opl repeat
+;         [name, :sds] := opr
+;         for sd in sds repeat
+;             sig := sd.0
+;             cond := sd.1
 ;             res := cons([[name, sig], cond], res)
 ;     NREVERSE(res)
 
 (DEFUN |get_op_alist| (|form|)
-  (PROG (|conname| |conform| |ops| |res| |name| |sigs| |sig| |cond|)
+  (PROG (|conname| |conform| |opl| |res| |name| |sds| |sig| |cond|)
     (RETURN
      (PROGN
       (SETQ |conname| (CAR |form|))
       (SETQ |conform| (|getConstructorForm| |conname|))
-      (SETQ |ops| (|koOps| |conform| |form|))
+      (SETQ |opl| (|get_operations| |conform| |form|))
       (SETQ |res| NIL)
-      ((LAMBDA (|bfVar#103| |op|)
+      ((LAMBDA (|bfVar#103| |opr|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#103|) (PROGN (SETQ |op| (CAR |bfVar#103|)) NIL))
+           ((OR (ATOM |bfVar#103|) (PROGN (SETQ |opr| (CAR |bfVar#103|)) NIL))
             (RETURN NIL))
            (#1='T
             (PROGN
-             (SETQ |name| (CAR |op|))
-             (SETQ |sigs| (CDR |op|))
-             ((LAMBDA (|bfVar#104| |sigm|)
+             (SETQ |name| (CAR |opr|))
+             (SETQ |sds| (CDR |opr|))
+             ((LAMBDA (|bfVar#104| |sd|)
                 (LOOP
                  (COND
                   ((OR (ATOM |bfVar#104|)
-                       (PROGN (SETQ |sigm| (CAR |bfVar#104|)) NIL))
+                       (PROGN (SETQ |sd| (CAR |bfVar#104|)) NIL))
                    (RETURN NIL))
                   (#1#
                    (PROGN
-                    (SETQ |sig| (CAR |sigm|))
-                    (SETQ |cond| (CADR |sigm|))
+                    (SETQ |sig| (ELT |sd| 0))
+                    (SETQ |cond| (ELT |sd| 1))
                     (SETQ |res|
                             (CONS (LIST (LIST |name| |sig|) |cond|) |res|)))))
                  (SETQ |bfVar#104| (CDR |bfVar#104|))))
-              |sigs| NIL))))
+              |sds| NIL))))
           (SETQ |bfVar#103| (CDR |bfVar#103|))))
-       |ops| NIL)
+       |opl| NIL)
       (NREVERSE |res|)))))
 
 ; reportOpsFromUnitDirectly unitForm ==
@@ -5972,8 +6011,6 @@
 ;           sigList := [[[a, b], true] for [a, b, c] in funlist]
 ;       else
 ;           sigList := get_op_alist(unitForm)
-;
-;       sigList := REMDUP(MSORT(sigList))
 ;
 ;       ops := nil
 ;
@@ -6080,7 +6117,6 @@
                                         (SETQ |bfVar#108| (CDR |bfVar#108|))))
                                      NIL |funlist| NIL)))
                            (#1# (SETQ |sigList| (|get_op_alist| |unitForm|))))
-                          (SETQ |sigList| (REMDUP (MSORT |sigList|)))
                           (SETQ |ops| NIL)
                           (SETQ |numOfNames|
                                   (LENGTH
