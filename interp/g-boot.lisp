@@ -90,6 +90,12 @@
 (DEFUN |compile_defun| (|name| |body|)
   (PROG () (RETURN (PROGN (EVAL |body|) (COMPILE |name|)))))
 
+; eval_defun(name, body) ==
+;    EVAL(MACROEXPANDALL(body))
+
+(DEFUN |eval_defun| (|name| |body|)
+  (PROG () (RETURN (EVAL (MACROEXPANDALL |body|)))))
+
 ; comp_and_define(form) ==
 ;    COMP0(form, FUNCTION print_and_eval_defun)
 
@@ -117,6 +123,26 @@
 
 (DEFUN |compile_quietly| (|fn|)
   (PROG () (RETURN (|comp_quietly_using_driver| #'COMP370 |fn|))))
+
+; comp_quietly_using_driver(driver, fn) ==
+;     comp370_apply :=
+;         $InteractiveMode =>
+;             $compileDontDefineFunctions => FUNCTION compile_defun
+;             FUNCTION eval_defun
+;         FUNCTION print_defun
+;     do_comp_quietly(driver, fn, comp370_apply)
+
+(DEFUN |comp_quietly_using_driver| (|driver| |fn|)
+  (PROG (|comp370_apply|)
+    (RETURN
+     (PROGN
+      (SETQ |comp370_apply|
+              (COND
+               (|$InteractiveMode|
+                (COND (|$compileDontDefineFunctions| #'|compile_defun|)
+                      (#1='T #'|eval_defun|)))
+               (#1# #'|print_defun|)))
+      (|do_comp_quietly| |driver| |fn| |comp370_apply|)))))
 
 ; COMP_1(x) ==
 ;   [fname, lamex, :.] := x

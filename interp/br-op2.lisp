@@ -315,7 +315,6 @@
 
 ; dbGetFormFromDocumentation(op,sig,x) ==
 ;   $ncMsgList : local := nil
-;   $newcompErrorCount : local := 0
 ;   doc := (STRINGP x => x; first x)
 ;   STRINGP doc and
 ;      (stringPrefix?('"\spad{",doc) and (k := 6) or
@@ -327,12 +326,11 @@
 ;   nil
 
 (DEFUN |dbGetFormFromDocumentation| (|op| |sig| |x|)
-  (PROG (|$newcompErrorCount| |$ncMsgList| |parse| |s| |n| |k| |doc|)
-    (DECLARE (SPECIAL |$newcompErrorCount| |$ncMsgList|))
+  (PROG (|$ncMsgList| |parse| |s| |n| |k| |doc|)
+    (DECLARE (SPECIAL |$ncMsgList|))
     (RETURN
      (PROGN
       (SETQ |$ncMsgList| NIL)
-      (SETQ |$newcompErrorCount| 0)
       (SETQ |doc| (COND ((STRINGP |x|) |x|) (#1='T (CAR |x|))))
       (COND
        ((AND (STRINGP |doc|)
